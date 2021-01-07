@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 9f2b0dccde0532646457a0841fc2798e103d8cc7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427601"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347951"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제 구성
 
@@ -314,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-JSON 파일을 사용 하 여 PowerShell을 사용 하 여 원본 계정에 대 한 복제 정책을 구성 하려면 로컬 파일을 검색 하 고 JSON에서 개체로 변환 합니다. 그런 다음 [AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) 명령을 호출 하 여 다음 예제와 같이 원본 계정에 정책을 구성 합니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
+JSON 파일을 사용 하 여 PowerShell에서 원본 계정에 대 한 복제 정책을 정의 하려면 로컬 파일을 검색 하 고 JSON에서 개체로 변환 합니다. 그런 다음 [AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) 명령을 호출 하 여 다음 예제와 같이 원본 계정에 정책을 구성 합니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json

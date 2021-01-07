@@ -1,25 +1,25 @@
 ---
 title: 사용자 정의 스키마 사용
-description: T-sql 사용자 정의 스키마를 사용 하 여 Synapse SQL 풀에서 솔루션을 개발 하기 위한 팁입니다.
+description: T-sql 사용자 정의 스키마를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀에 대 한 솔루션을 개발 하기 위한 팁입니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fc5e035215e7cabd02861c6ee2498cadd1ef0534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3204c77dd076d9aac6eb5a60b489280caefcbf4b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213366"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460451"
 ---
-# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Synapse SQL 풀의 사용자 정의 스키마
-이 문서에서는 T-sql 사용자 정의 스키마를 사용 하 여 Synapse SQL 풀에서 솔루션을 개발 하는 방법에 대 한 몇 가지 팁을 설명 합니다.
+# <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀의 사용자 정의 스키마
+이 문서에서는 T-sql 사용자 정의 스키마를 사용 하 여 전용 SQL 풀에서 솔루션을 개발 하기 위한 몇 가지 팁을 설명 합니다.
 
 ## <a name="schemas-for-application-boundaries"></a>애플리케이션 경계에 대한 스키마
 
@@ -27,7 +27,7 @@ ms.locfileid: "85213366"
 
 예를 들어 기존 SQL Server 데이터 웨어하우스에는 준비 데이터베이스, 데이터 웨어하우스 데이터베이스 및 일부 데이터 마트 데이터베이스가 포함 될 수 있습니다. 이 토폴로지에서 각 데이터베이스는 아키텍처에서 작업 및 보안 경계로 작동 합니다.
 
-이와 대조적으로 SQL 풀은 한 데이터베이스 내에서 전체 데이터 웨어하우스 워크 로드를 실행 합니다. 크로스 데이터베이스 조인은 허용 되지 않습니다. SQL 풀은 웨어하우스에서 사용 되는 모든 테이블을 하나의 데이터베이스 내에 저장할 것으로 예상 합니다.
+이와 대조적으로 전용 SQL 풀은 한 데이터베이스 내에서 전체 데이터 웨어하우스 작업을 실행 합니다. 크로스 데이터베이스 조인은 허용 되지 않습니다. 전용 SQL 풀에서는 웨어하우스에서 사용 되는 모든 테이블을 하나의 데이터베이스 내에 저장할 것으로 예상 합니다.
 
 > [!NOTE]
 > SQL 풀은 모든 종류의 데이터베이스 간 쿼리를 지원 하지 않습니다. 따라서 이 패턴을 활용하는 데이터 웨어하우스 구현을 수정해야 합니다.
@@ -37,11 +37,11 @@ ms.locfileid: "85213366"
 ## <a name="recommendations"></a>권장 사항
 사용자 정의 스키마를 사용 하 여 작업, 보안, 도메인 및 기능 경계를 통합 하기 위한 권장 사항은 다음과 같습니다.
 
-- 하나의 SQL 풀 데이터베이스를 사용 하 여 전체 데이터 웨어하우스 워크 로드를 실행 합니다.
-- 기존 데이터 웨어하우스 환경을 통합 하 여 하나의 SQL 풀 데이터베이스를 사용 합니다.
+- 전용 SQL 풀에서 하나의 데이터베이스를 사용 하 여 전체 데이터 웨어하우스 워크 로드를 실행 합니다.
+- 하나의 전용 SQL 풀 데이터베이스를 사용 하도록 기존 데이터 웨어하우스 환경을 통합 합니다.
 - **사용자 정의 스키마** 를 활용하여 데이터베이스를 사용하여 이전에 구현된 경계를 제공합니다.
 
-사용자 정의 스키마를 이전에 사용 하지 않은 경우에는 깨끗 한 슬레이트가 있습니다. 이전 데이터베이스 이름을 SQL 풀 데이터베이스의 사용자 정의 스키마에 대 한 기반으로 사용 합니다.
+사용자 정의 스키마를 이전에 사용 하지 않은 경우에는 깨끗 한 슬레이트가 있습니다. 전용 SQL 풀 데이터베이스의 사용자 정의 스키마에 대 한 기반으로 이전 데이터베이스 이름을 사용 합니다.
 
 스키마를 이미 사용 하는 경우 몇 가지 옵션이 있습니다.
 
@@ -50,11 +50,11 @@ ms.locfileid: "85213366"
 - 이전 스키마 구조를 다시 만들도록 추가 스키마의 테이블 위에 뷰를 구현하여 레거시 스키마 이름을 유지합니다.
 
 > [!NOTE]
-> 첫 번째 검사에서 옵션 3은 가장 매력적인 옵션처럼 보일 수 있습니다. 그러나 자세히 보면 어렵습니다. SQL 풀에서는 뷰가 읽기 전용입니다. 기본 테이블에 대해 모든 데이터 또는 테이블을 수정해야 합니다. 또한 옵션 3은 시스템으로의 뷰 레이어를 소개합니다. 이미 아키텍처에서 뷰를 사용 중인 경우 추가로 고려할 수 있습니다.
+> 첫 번째 검사에서 옵션 3은 가장 매력적인 옵션처럼 보일 수 있습니다. 그러나 자세히 보면 어렵습니다. 보기는 전용 SQL 풀에서 읽기 전용입니다. 기본 테이블에 대해 모든 데이터 또는 테이블을 수정해야 합니다. 또한 옵션 3은 시스템으로의 뷰 레이어를 소개합니다. 이미 아키텍처에서 뷰를 사용 중인 경우 추가로 고려할 수 있습니다.
 > 
 > 
 
-### <a name="examples"></a>예제:
+### <a name="examples"></a>예:
 데이터베이스 이름에 따라 사용자 정의 스키마를 구현 합니다.
 
 ```sql

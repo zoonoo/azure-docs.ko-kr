@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: f2d7c9e39cb3eb14a2c2c6a7b13e37f3a526184b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 556e265cc0d1aae33823185ec98d23f191ed1694
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889802"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680019"
 ---
 # <a name="change-the-style-of-the-map"></a>맵 스타일 변경
 
@@ -29,9 +29,9 @@ ms.locfileid: "92889802"
 var map = new atlas.Map('map', {
     renderWorldCopies: false,
     showBuildingModels: false,
-    showLogo = true,
-    showFeedbackLink = true,
-    style='road'
+    showLogo: true,
+    showFeedbackLink: true,
+    style: 'road'
 
     //Additional map options.
 };
@@ -40,8 +40,8 @@ var map = new atlas.Map('map', {
 map.setStyle({
     renderWorldCopies: true,
     showBuildingModels: true,
-    showLogo = false,
-    showFeedbackLink = false
+    showLogo: false,
+    showFeedbackLink: false
 });
 ```
 
@@ -50,7 +50,7 @@ map.setStyle({
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="지도 스타일 옵션" src="https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>지도 스타일 옵션</a> 을 확인 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>지도 스타일 옵션</a> 을 확인 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
 ## <a name="set-a-base-map-style"></a>기본 지도 스타일 설정
@@ -101,7 +101,7 @@ map.setStyle({ style: 'satellite' });
 
 아래 이미지는 레이아웃에 표시 되는 스타일 선택기 컨트롤을 보여 줍니다 `list` .
 
-:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="스타일 선택 아이콘 레이아웃":::
+:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="스타일 선택 목록 레이아웃":::
 
 > [!IMPORTANT]
 > 기본적으로 스타일 선택 컨트롤은 Azure Maps의 S0 가격 책정 계층에서 사용할 수 있는 모든 스타일을 나열 합니다. 이 목록에 있는 스타일의 수를 줄이려면 목록에 표시할 스타일의 배열을 `mapStyle` 스타일 선택기의 옵션에 전달 합니다. S1을 사용 중이 고 사용 가능한 모든 스타일을 표시 하려는 경우 `mapStyles` 스타일 선택기의 옵션을로 설정 `"all"` 합니다.
@@ -129,10 +129,13 @@ map.setStyle({ style: 'satellite' });
 > [!div class="nextstepaction"]
 > [StyleControlOptions](/javascript/api/azure-maps-control/atlas.stylecontroloptions)
 
-지도에 컨트롤을 추가 합니다.
+맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [맵 컨트롤 추가](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [핀 추가](map-add-pin.md)
+> [기호 계층 추가](map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [거품형 계층 추가](map-add-bubble-layer.md)

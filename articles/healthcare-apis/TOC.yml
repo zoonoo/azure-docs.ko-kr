@@ -90,12 +90,13 @@
           href: de-identified-export.md
     - name: ID 개체 ID 찾기
       href: find-identity-object-ids.md
-    - name: Azure API for FHIR®에서 진단 로깅 사용
-      href: enable-diagnostic-logging.md
-    - name: 진단 설정을 통해 Azure IoT Connector for FHIR(미리 보기) 메트릭 내보내기
-      href: iot-metrics-diagnostics-export.md
-    - name: Azure IoT Connector for FHIR 보기 및 구성(미리 보기) 메트릭
-      href: iot-metrics-display.md
+    - name: 진단 로깅 및 메트릭
+      expanded: false
+      items:
+        - name: Azure API for FHIR에서 진단 로깅 사용
+          href: enable-diagnostic-logging.md
+        - name: Azure IoT Connector for FHIR 표시 및 구성(미리 보기) 메트릭
+          href: iot-metrics-display.md
     - name: Azure API for FHIR의 토큰 가져오기 - CLI
       href: get-healthcare-apis-access-token-cli.md
     - name: Azure IoT Connector for FHIR(미리 보기)의 오류 문제 해결

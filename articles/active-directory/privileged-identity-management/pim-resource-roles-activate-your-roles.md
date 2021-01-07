@@ -15,12 +15,12 @@ ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f38ef7db114705392bd1d3dc6f9a4562a809e20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6ddde80ca554aea25d24694aff76e61e47d928
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023880"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672460"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 내 Azure 리소스 역할 활성화
 
@@ -34,15 +34,15 @@ Azure 리소스 역할을 수행 해야 하는 경우 Privileged Identity Manage
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **Azure AD Privileged Identity Management**를 엽니다. 대시보드에 Privileged Identity Management 타일을 추가 하는 방법에 대 한 자세한 내용은 [Privileged Identity Management 사용 시작](pim-getting-started.md)을 참조 하세요.
+1. **Azure AD Privileged Identity Management** 를 엽니다. 대시보드에 Privileged Identity Management 타일을 추가 하는 방법에 대 한 자세한 내용은 [Privileged Identity Management 사용 시작](pim-getting-started.md)을 참조 하세요.
 
-1. **내 역할**을 선택 합니다.
+1. **내 역할** 을 선택 합니다.
 
     ![활성화할 수 있는 역할을 보여 주는 내 역할 페이지](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. **Azure 리소스 역할** 을 선택 하 여 적합 한 azure 리소스 역할의 목록을 확인 합니다.
 
-   ![내 역할-Azure 리소스 역할 페이지](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
+    ![내 역할-Azure 리소스 역할 페이지](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. **Azure 리소스 역할** 목록에서 활성화하려는 역할을 찾습니다.
 
@@ -50,9 +50,9 @@ Azure 리소스 역할을 수행 해야 하는 경우 Privileged Identity Manage
 
 1. **활성화** 를 선택 하 여 활성화 페이지를 엽니다.
 
-     ![범위, 시작 시간, 기간 및 이유가 포함 된 열려 있는 활성화 창](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
+    ![범위, 시작 시간, 기간 및 이유가 포함 된 열려 있는 활성화 창](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
-1. 다단계 인증이 필요한 역할은 **진행하기 전에 ID 확인**을 클릭합니다. 세션당 한 번만 인증해야 합니다.
+1. 다단계 인증이 필요한 역할은 **진행하기 전에 ID 확인** 을 클릭합니다. 세션당 한 번만 인증해야 합니다.
 
     ![역할 활성화 전에 MFA를 사용 하 여 id 확인](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
@@ -72,7 +72,7 @@ Azure 리소스 역할을 수행 해야 하는 경우 Privileged Identity Manage
 
     ![범위, 시작 시간, 기간 및 이유를 사용 하 여 활성화 창을 완료 했습니다.](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
-1. **활성화**를 선택합니다.
+1. **활성화** 를 선택합니다.
 
     [역할을 활성화하는 데 승인이 필요](pim-resource-roles-approval-workflow.md)한 경우 브라우저의 오른쪽 위 모서리에 요청이 승인 보류 중임을 알려주는 알림이 표시됩니다.
 
@@ -96,7 +96,7 @@ Azure 리소스 역할을 수행 해야 하는 경우 Privileged Identity Manage
 
 1. Azure AD Privileged Identity Management를 엽니다.
 
-1. **내 요청**을 선택 합니다.
+1. **내 요청** 을 선택 합니다.
 
 1. 취소 하려는 역할에 대해 **취소** 링크를 선택 합니다.
 

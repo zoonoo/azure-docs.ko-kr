@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421882"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629666"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
 Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용을 지원 하 여 자동 스냅숏 생성을 예약 합니다. 스냅숏을 새 볼륨으로 복원 하거나, 클라이언트를 사용 하 여 단일 파일을 복원 하거나, 스냅숏을 사용 하 여 기존 볼륨을 되돌릴 수도 있습니다.
+
+> [!NOTE] 
+> 지역 간 복제의 스냅숏 관리에 대 한 고려 사항은 [지역 간 복제 사용을 위한 요구 사항 및 고려](cross-region-replication-requirements-considerations.md)사항을 참조 하세요.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>볼륨에 대한 주문형 스냅샷 만들기
 
@@ -60,7 +63,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 2. 기능 등록의 상태를 확인 합니다. 
 
     > [!NOTE]
-    > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+    >  `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
@@ -77,7 +80,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 2.  스냅숏 정책 창에서 정책 상태를 **사용** 으로 설정 합니다. 
 
-3.  **매시간,** **매일** , **매주** 또는 **매월** 탭을 클릭 하 여 매시간, 매일, 매주 또는 매월 스냅숏 정책을 만듭니다. **유지할 스냅숏의 수** 를 지정 합니다.  
+3.  **매시간,** **매일**, **매주** 또는 **매월** 탭을 클릭 하 여 매시간, 매일, 매주 또는 매월 스냅숏 정책을 만듭니다. **유지할 스냅숏의 수** 를 지정 합니다.  
 
     볼륨에 허용 되는 최대 스냅숏 수에 대 한 [Azure NetApp Files 리소스 제한을](azure-netapp-files-resource-limits.md) 참조 하세요. 
 
@@ -107,6 +110,8 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 ### <a name="apply-a-snapshot-policy-to-a-volume"></a>볼륨에 스냅숏 정책 적용
 
 만든 스냅숏 정책을 볼륨에 사용 하려면 해당 정책을 볼륨에 적용 해야 합니다. 
+
+지역 간 복제에서 대상 볼륨에 스냅숏 정책을 적용할 수 없습니다.  
 
 1.  **볼륨** 페이지로 이동 하 여 스냅숏 정책을 적용 하려는 볼륨을 마우스 오른쪽 단추로 클릭 하 고 **편집** 을 선택 합니다.
 
@@ -142,6 +147,17 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
     ![스냅숏 정책 삭제 확인](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>스냅숏 경로 숨기기 옵션을 편집 합니다.
+스냅숏 경로 숨기기 옵션은 볼륨의 스냅숏 경로를 표시할지 여부를 제어 합니다. [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) 또는 [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) 볼륨을 만드는 동안 스냅숏 경로를 숨길지 여부를 지정 하는 옵션이 있습니다. 나중에 필요에 따라 스냅숏 경로 숨기기 옵션을 편집할 수 있습니다.  
+
+> [!NOTE]
+> 지역 간 복제의 [대상 볼륨](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) 에서 스냅숏 경로 숨기기 옵션은 기본적으로 사용 하도록 설정 되어 있으며 설정은 수정할 수 없습니다. 
+
+1. 볼륨의 스냅숏 경로 숨기기 옵션 설정을 보려면 볼륨을 선택 합니다. **스냅숏 경로 숨기기** 필드는 옵션의 설정 여부를 표시 합니다.   
+    ![스냅숏 경로 숨기기 필드를 설명 하는 스크린샷](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. 스냅숏 경로 숨기기 옵션을 편집 하려면 볼륨 페이지에서 **편집** 을 클릭 하 고 필요에 따라 **스냅숏 경로 숨기기** 옵션을 수정 합니다.   
+    ![볼륨 스냅숏 편집 옵션을 설명 하는 스크린샷](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>새 볼륨으로 스냅샷 복원
 
 현재 새 볼륨으로만 스냅샷을 복원할 수 있습니다. 
@@ -171,9 +187,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 탑재 된 볼륨에는  `.snapshot` (NFS 클라이언트에서) 또는 `~snapshot` 클라이언트에서 액세스할 수 있는 (SMB 클라이언트) 라는 스냅숏 디렉터리가 포함 되어 있습니다. 스냅숏 디렉터리는 볼륨의 스냅숏에 해당 하는 하위 디렉터리를 포함 합니다. 각 하위 디렉터리에는 스냅숏의 파일이 포함 되어 있습니다. 실수로 파일을 삭제 하거나 덮어쓴 경우 snapshot 하위 디렉터리에서 읽기/쓰기 디렉터리로 파일을 복사 하 여 부모 읽기/쓰기 디렉터리에 파일을 복원할 수 있습니다. 
 
-볼륨을 만들 때 스냅숏 경로 숨기기 확인란을 선택한 경우 스냅숏 디렉터리는 숨겨집니다. 볼륨을 선택 하 여 볼륨의 스냅숏 경로 숨기기 상태를 볼 수 있습니다. 볼륨 페이지에서 **편집** 을 클릭 하 여 스냅숏 경로 숨기기 옵션을 편집할 수 있습니다.  
-
-![볼륨 스냅숏 옵션 편집](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+스냅숏 디렉터리가 표시 되지 않으면 스냅숏 경로 숨기기 옵션을 현재 사용할 수 있기 때문에이 디렉터리가 숨겨져 있을 수 있습니다. [스냅숏 경로 숨기기 옵션을 편집](#edit-the-hide-snapshot-path-option) 하 여 사용 하지 않도록 설정할 수 있습니다.  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Linux NFS 클라이언트를 사용 하 여 파일 복원 
 
@@ -221,7 +235,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 ## <a name="revert-a-volume-using-snapshot-revert"></a>Snapshot revert를 사용 하 여 볼륨 되돌리기
 
-스냅숏 되돌리기 기능을 사용 하면 특정 스냅숏을 만들 때의 상태로 볼륨을 신속 하 게 되돌릴 수 있습니다. 대부분의 경우 볼륨을 되돌리면 개별 파일을 스냅숏에서 활성 파일 시스템으로 복원 하는 것 보다 훨씬 빠릅니다. 또한 스냅숏을 새 볼륨으로 복원 하는 것 보다 더 효율적입니다. 
+스냅샷 되돌리기 기능을 사용하면 볼륨을 특정 스냅샷을 만들 때의 상태로 신속하게 되돌릴 수 있습니다. 대부분의 경우 볼륨을 되돌리는 것이 스냅샷에서 활성 파일 시스템으로 개별 파일을 복원하는 것보다 훨씬 빠릅니다. 또한 스냅샷을 새 볼륨으로 복원하는 것에 비해 공간 효율성이 더 높습니다. 
 
 볼륨의 스냅숏 메뉴에서 볼륨 되돌리기 옵션을 찾을 수 있습니다. 변경할지에 대 한 스냅숏을 선택한 후에는 선택한 스냅숏을 만들 때 포함 된 데이터 및 타임 스탬프로 볼륨을 되돌릴 Azure NetApp Files. 
 
@@ -255,3 +269,4 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 * [스냅샷 정책 문제 해결](troubleshoot-snapshot-policies.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files 스냅숏 101 비디오](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
+* [Azure 애플리케이션 일치 스냅숏 도구 란?](azacsnap-introduction.md)

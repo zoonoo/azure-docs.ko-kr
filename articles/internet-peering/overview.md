@@ -6,14 +6,14 @@ services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 11/27/2019
+ms.date: 12/15/2020
 ms.author: prmitiki
-ms.openlocfilehash: 576bc3e37711851acd7d6c7ac811a10e40080710
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8f960e58d47963cbb239d498af52e7adfc77caa9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "75908925"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586869"
 ---
 # <a name="internet-peering-overview"></a>인터넷 피어링 개요
 
@@ -41,7 +41,7 @@ Azure PowerShell 또는 포털을 사용하여 Microsoft와의 피어링을 요�
 * 모든 연결에 대한 상태 및 대역폭 데이터를 추적할 수 있습니다.
 * 동일한 구독을 사용하여 Azure Cloud Services에 액세스할 수 있습니다.
 
-이미 Microsoft와의 피어링을 설정한 경우에는 **레거시 피어링**이라고 합니다. 위에 나온 혜택을 활용하기 위해 Azure 리소스로 이러한 피어링을 관리할 수 있습니다. 새 피어링 요청을 제출하거나 레거시 피어링을 Azure 리소스로 변환하려면 아래 **다음 단계** 섹션의 링크를 따르세요.
+이미 Microsoft와의 피어링을 설정한 경우에는 **레거시 피어링** 이라고 합니다. 위에 나온 혜택을 활용하기 위해 Azure 리소스로 이러한 피어링을 관리할 수 있습니다. 새 피어링 요청을 제출하거나 레거시 피어링을 Azure 리소스로 변환하려면 아래 **다음 단계** 섹션의 링크를 따르세요.
 
 ## <a name="peering-policy"></a>피어링 정책
 Microsoft에는 선택적이지만 일반적으로 공개된 피어링 정책이 있습니다. 피어는 성능, 기능 및 상호 혜택이 있는 위치에 따라 선택되며 특정 기술, 상용 및 법적 요구 사항이 적용됩니다. 자세한 내용은 [피어링 정책](policy.md)을 참조하세요.
@@ -53,4 +53,4 @@ Microsoft에는 선택적이지만 일반적으로 공개된 피어링 정책이
 
 * Microsoft와의 직접 피어링을 설정하는 단계에 대한 자세한 내용은 [직접 피어링 연습](walkthrough-direct-all.md)을 참조하세요.
 * Microsoft와의 교환 피어링을 설정하는 단계에 대한 자세한 내용은 [교환 피어링 연습](walkthrough-exchange-all.md)을 참조하세요.
-* Azure의 다른 주요 [네트워킹 기능](https://docs.microsoft.com/azure/networking/networking-overview)에 대해 알아보세요.
+* Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)에 대해 알아보세요.

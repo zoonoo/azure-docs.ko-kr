@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory와의 LDAP 동기화
-description: 이 동기화 패턴을 달성 하기 위한 아키텍처 지침
+description: Azure Active Directory와의 LDAP 동기화를 달성 하는 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a14149551c0fb33906ab7d1a00b387026d827911
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 1f34e734b315c7c05ce77f5e168a452fc1c1c547
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114309"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168681"
 ---
 # <a name="ldap-synchronization-with-azure-active-directory"></a>Azure Active Directory와의 LDAP 동기화
 
@@ -52,13 +52,12 @@ Azure Active Directory (Azure AD)는 LDAP 동기화를 Azure AD Connect으로 �
 
 ## <a name="implement-ldap-synchronization-with-azure-ad"></a>Azure AD를 사용 하 여 LDAP 동기화 구현
 
-* [하이브리드 Id 디렉터리 통합 도구](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [하이브리드 Id 디렉터리 통합 도구](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Azure AD Connect 설치 로드맵](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap) 
+* [Azure AD Connect 설치 로드맵](../hybrid/how-to-connect-install-roadmap.md) 
 
-* [LDAP 커넥터 개요 및 만들기](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
+* [LDAP 커넥터 개요 및 만들기](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
 
    > [!NOTE]
    > LDAP 커넥터는 Forefront Identity Manager 및/또는 Microsoft Identity Manager에 대 한 지식이 필요한 고급 구성입니다. 프로덕션 환경에서 사용 하는 경우이 구성에 대 한 질문은 [프리미어 지원](https://support.microsoft.com/premier) 또는 Microsoft 파트너 네트워크를 통해 수행 해야 합니다.
 
- 

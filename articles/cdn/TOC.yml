@@ -35,6 +35,10 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
 - name: 개념
   items:
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 캐싱 작동 방식
       href: cdn-how-caching-works.md
     - name: 중국 콘텐츠 전송
@@ -90,7 +94,7 @@
           items:
             - name: Azure 웹 콘텐츠
               href: cdn-manage-expiration-of-cloud-service-content.md
-            - name: Azure Blob Storage
+            - name: Azure Blob 스토리지
               href: cdn-manage-expiration-of-blob-content.md
         - name: 토큰 인증
           href: cdn-token-auth.md
@@ -107,8 +111,8 @@
     - name: 분석
       href: cdn-log-analysis.md
       items:
-        - name: HTTP 원시 로그
-          href: enable-raw-logs.md
+        - name: '모니터링, 메트릭 및 액세스 로그'
+          href: monitoring-and-access-log.md
         - name: Azure 진단 로그
           href: cdn-azure-diagnostic-logs.md
         - name: Verizon의 Azure CDN에 대한 분석 도구
@@ -174,7 +178,7 @@
       href: /dotnet/api/microsoft.azure.management.cdn
     - name: Java
       href: /java/api/com.microsoft.azure.management.cdn
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/cdn/
 - name: 리소스
   items:

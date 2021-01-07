@@ -3,13 +3,12 @@ title: 응용 프로그램 시나리오 및 디자인
 description: 서비스 패브릭의 클라우드 애플리케이션 범주 개요 상태 저장 및 상태 비저장 서비스를 사용하는 애플리케이션 설계에 대해 논의합니다.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.custom: sfrev
-ms.openlocfilehash: aaf8204158f720d8c69c98af758071cd91f6eff0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86248172"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575672"
 ---
 # <a name="service-fabric-application-scenarios"></a>서비스 패브릭 애플리케이션 시나리오
 

@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: fbbd5dbbc51cdb3b0d3c3783fa6ed72b76d26284
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 693cabac616dca8e108a2029c173a5e1b71c2695
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900355"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516735"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 리소스를 관리하기 위한 애플리케이션 개발자 모범 사례
 
@@ -27,14 +27,14 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 빛 실행할 �
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Pod 리소스 요청 및 한도 정의
 
-**모범 사례 가이드** - YAML 매니페스트의 모든 Pod에서 Pod 요청 및 한도를 설정합니다. AKS 클러스터에서 ‘리소스 할당량’을 사용하는 경우 이러한 값을 정의하지 않으면 배포가 거부될 수 있습니다. 
+**모범 사례 가이드** - YAML 매니페스트의 모든 Pod에서 Pod 요청 및 한도를 설정합니다. AKS 클러스터에서 ‘리소스 할당량’을 사용하는 경우 이러한 값을 정의하지 않으면 배포가 거부될 수 있습니다.
 
 AKS 클러스터 내에서 컴퓨팅 리소스를 관리하는 기본 방법은 Pod 요청 및 한도를 사용하는 것입니다. 이러한 요청 및 한도를 사용하면 Kubernetes 스케줄러가 Pod에 할당해야 하는 컴퓨팅 리소스를 알 수 있습니다.
 
 * **POD cpu/메모리 요청** 은 pod가 정기적으로 필요로 하는 설정 된 cpu 및 메모리 양을 정의 합니다.
     * Kubernetes scheduler가 노드에 pod를 추가 하려고 할 때 pod 요청은 예약에 사용할 수 있는 충분 한 리소스가 있는 노드를 확인 하는 데 사용 됩니다.
     * Pod 요청을 설정 하지 않으면 기본적으로 정의 된 제한으로 설정 됩니다.
-    * 응용 프로그램의 성능을 모니터링 하 여 이러한 요청을 조정 하는 것이 매우 중요 합니다. 요청 수가 충분 하지 않으면 노드 예약을 통해 응용 프로그램의 성능이 저하 될 수 있습니다. 요청이 과도 하 게 예상 되는 경우 응용 프로그램의 문제가 증가 하 여 예약 될 수 있습니다.
+    * 응용 프로그램의 성능을 모니터링 하 여 이러한 요청을 조정 하는 것이 매우 중요 합니다. Pod 리소스 요청이 부족 하면 노드를 예약 하는 작업으로 인해 응용 프로그램의 성능이 저하 될 수 있습니다. 요청이 과도 하 게 예상 되는 경우 응용 프로그램의 문제가 증가 하 여 예약 될 수 있습니다.
 * **POD cpu/메모리 제한은** pod에서 사용할 수 있는 최대 cpu 및 메모리의 양입니다. 메모리 제한은 리소스가 부족 하 여 노드가 불안정 한 경우 어느 pod를 종료할 것인지를 정의 하는 데 도움이 됩니다. 적절 한 제한이 없으면 리소스 압력이 리프트 될 때까지 pod가 종료 됩니다. Pod는 일정 시간 동안 CPU 제한을 초과할 수도 있고 그렇지 않을 수도 있지만, pod는 CPU 제한을 초과 하는 경우에는 중단 되지 않습니다. 
     * Pod 제한은 pod가 리소스 소비량에 대 한 제어권을 상실 한 경우를 정의 합니다. 한도를 초과 하면 pod의 우선 순위를 지정 하 여 노드 상태를 유지 하 고 노드를 공유 하는 pod에 대 한 영향을 최소화 합니다.
     * Pod 제한을 설정 하지 않으면 기본적으로 지정 된 노드에서 사용 가능한 가장 높은 값으로 설정 됩니다.

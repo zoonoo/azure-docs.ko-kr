@@ -6,14 +6,14 @@ ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 09/17/2020
-ms.openlocfilehash: e8cfe55f4843439743535b978483d8518bd020fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ffe5acce831435d3771a2eb48a90b16f584c92a
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858784"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704013"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>Azure CLI를 사용 하 여 Data Lake Storage Gen2를 사용 하 여 클러스터 만들기
 
@@ -77,7 +77,7 @@ az storage account create --name <STORAGEACCOUNTNAME> \
  > 저장소 계정에 **저장소 Blob 데이터 참가자** 역할 권한이 있는 사용자 할당 id가 있는지 확인 합니다. 그렇지 않으면 클러스터 만들기가 실패 합니다.
 
 ```azurecli
-az group deployment create --name HDInsightADLSGen2Deployment \
+az deployment group create --name HDInsightADLSGen2Deployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json

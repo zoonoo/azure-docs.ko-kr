@@ -10,22 +10,22 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: a101afb2089e4ab1fa32bd0668c60b477039b566
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 82dc9aa9615ef86c878fb75df6650dcc1f904a8f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330583"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702634"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
-Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다.
+Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용 하 여 Azure 구독에 연결 된 Video Indexer 계정을 만들 수 있습니다. 인덱싱된 시간(분)에 대한 비용을 지불하는 경우 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
 
 이 문서에서는 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만드는 방법에 대해 설명합니다. 이 토픽에서는 자동(기본값) 흐름을 사용하여 Azure에 연결하는 단계를 설명합니다. Azure에 수동으로 연결하는 방법도 보여줍니다(고급).
 
 *평가판* 에서 *유료* Video Indexer 계정으로 전환 하는 경우 [평가판 계정에서 콘텐츠 가져오기](#import-your-content-from-the-trial-account) 섹션에 설명 된 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사 하도록 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독
 
@@ -45,7 +45,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
     이 멤버는 Video Indexer 계정을 Azure에 연결할 때 사용합니다.
 
-    이 사용자는 **소유자** 역할이 있거나 **기여자** 와 **사용자 액세스 관리자** 역할이 모두 있는 Azure 구독의 멤버여야 합니다. 두 개의 역할을 사용 하 여 사용자를 두 번 추가할 수 있습니다. 기여자 역할과 사용자 액세스 관리자 역할이 각각 있는 멤버로 두 번 추가합니다. 자세한 내용은 [Azure 리소스에 대 한 사용자 액세스 권한 보기](https://docs.microsoft.com/azure/role-based-access-control/check-access)를 참조 하세요.
+    이 사용자는 **소유자** 역할이 있거나 **기여자** 와 **사용자 액세스 관리자** 역할이 모두 있는 Azure 구독의 멤버여야 합니다. 두 개의 역할을 사용 하 여 사용자를 두 번 추가할 수 있습니다. 기여자 역할과 사용자 액세스 관리자 역할이 각각 있는 멤버로 두 번 추가합니다. 자세한 내용은 [Azure 리소스에 대 한 사용자 액세스 권한 보기](../../role-based-access-control/check-access.md)를 참조 하세요.
 
     ![액세스 제어](./media/create-account/access-control-iam.png)
 
@@ -53,7 +53,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 * Azure Portal을 사용하여 EventGrid 리소스 공급자를 등록합니다.
 
-    [Azure Portal](https://portal.azure.com/)에서 **구독** ->[구독]-> **ResourceProviders** 로 이동합니다.
+    [Azure Portal](https://portal.azure.com/)에서 **구독**->[구독]->**ResourceProviders** 로 이동합니다.
 
     **Microsoft.Media** 및 **Microsoft.EventGrid** 를 검색합니다. "등록됨" 상태가 아닌 경우 **등록** 을 클릭합니다. 등록하는 데 몇 분 정도 걸립니다.
 
@@ -107,9 +107,14 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 1. [Azure](https://portal.azure.com/) Portal을 사용하여 [계정 만들기](../previous/media-services-portal-create-account.md)에 설명된 대로 Azure Media Services 계정을 만듭니다.
 
+     클래식 Api를 사용 하 여 Media Services 계정이 만들어졌는지 확인 합니다. 
+ 
+    ![Media Services 클래식 API](./media/create-account/enable-classic-api.png)
+
+
     Media Services 계정에 대 한 저장소 계정을 만들 때 복제 필드의 계정 종류 및 **지역 중복** (GRS)에 대해 **StorageV2** 를 선택 합니다.
 
-    ![새 AMS 계정](./media/create-account/create-ams-account1.png)
+    ![새 AMS 계정](./media/create-account/create-new-ams-account.png)
 
     > [!NOTE]
     > Media Services 리소스 및 계정 이름을 기록해 둡니다. 다음 섹션의 단계에 필요 합니다.
@@ -120,7 +125,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
     새 Media Services 계정에서 **스트리밍 끝점** 을 선택 합니다. 그런 다음 스트리밍 끝점을 선택 하 고 시작을 누릅니다.
 
-    ![스트리밍 엔드포인트](./media/create-account/create-ams-account2.png)
+    ![스트리밍 엔드포인트](./media/create-account/create-ams-account-se.png)
 4. Media Services API를 사용 하 여 인증 Video Indexer AD 앱을 만들어야 합니다. 다음 단계는 [Azure Portal을 사용하여 Azure AD 인증 시작](../previous/media-services-portal-get-started-with-aad.md)에 설명된 Azure AD 인증 프로세스를 안내합니다.
 
     1. 새 Media Services 계정에서 **API 액세스** 를 선택합니다.
@@ -171,7 +176,9 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 다음과 같은 Azure Media Services 관련 고려 사항이 적용됩니다.
 
-* 자동으로 연결 하는 경우 Azure 구독에 새 리소스 그룹, Media Services 계정 및 저장소 계정이 표시 됩니다.
+* 기존 Media Services 계정에 연결 하려는 경우 클래식 Api를 사용 하 여 Media Services 계정을 만들었는지 확인 합니다. 
+ 
+    ![Media Services 클래식 API](./media/create-account/enable-classic-api.png)
 * 기존 Media Services 계정에 연결 하는 경우 Video Indexer 기존 미디어 **예약 단위** 구성을 변경 하지 않습니다.
 
    계획 된 부하에 따라 미디어 예약 단위 유형 및 수를 조정 해야 할 수 있습니다. 로드가 높고 단위 또는 속도가 충분하지 않으면 비디오 처리로 인해 시간 제한 오류가 발생할 수 있습니다.
@@ -193,6 +200,10 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
     [Media Services 계정 생성 템플릿의](https://github.com/Azure-Samples/media-services-v3-arm-templates)예를 참조 하세요.
 1. [Media Services 및 AZURE AD 응용 프로그램을 사용 하 여 Create-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)를 호출 합니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서를 완료 한 후에는 사용 하지 않을 리소스를 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

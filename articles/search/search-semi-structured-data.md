@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c88aea6aff942cdcf5cbc022df8f07cfe0d4cce
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397388"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701282"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>자습서: REST를 사용하여 Azure Storage에서 JSON Blob 인덱싱
 
@@ -50,9 +50,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="start-with-azure-storage"></a>Azure Storage 시작
 
-1. [Azure Portal에 로그인](https://portal.azure.com/)하고, **+ 리소스 만들기**를 클릭합니다.
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고, **+ 리소스 만들기** 를 클릭합니다.
 
-1. *스토리지 계정*을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
+1. *스토리지 계정* 을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
 
    :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="스토리지 계정 만들기" border="false":::
 
@@ -66,21 +66,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    + **계정 종류**. 기본값인 *StorageV2(범용 v2)* 를 선택합니다.
 
-1. **검토 + 만들기**를 클릭하여 서비스를 만듭니다.
+1. **검토 + 만들기** 를 클릭하여 서비스를 만듭니다.
 
-1. 서비스가 만들어지면 **리소스로 이동**을 클릭하여 [개요] 페이지를 엽니다.
+1. 서비스가 만들어지면 **리소스로 이동** 을 클릭하여 [개요] 페이지를 엽니다.
 
 1. **Blob** 서비스를 클릭합니다.
 
 1. 샘플 데이터가 포함되도록 [Blob 컨테이너를 만듭니다](../storage/blobs/storage-quickstart-blobs-portal.md). 유효한 값에 대한 공용 액세스 수준을 설정할 수 있습니다.
 
-1. 컨테이너를 만들었으면 연 다음, 명령 모음에서 **업로드**를 선택합니다.
+1. 컨테이너를 만들었으면 연 다음, 명령 모음에서 **업로드** 를 선택합니다.
 
-   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="스토리지 계정 만들기" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="명령 모음에서 업로드" border="false":::
 
-1. 샘플 파일이 포함된 폴더로 이동합니다. 모두 선택한 다음, **업로드**를 클릭합니다.
+1. 샘플 파일이 포함된 폴더로 이동합니다. 모두 선택한 다음, **업로드** 를 클릭합니다.
 
-   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="스토리지 계정 만들기" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="파일 업로드" border="false":::
 
 업로드가 완료되면 파일이 데이터 컨테이너의 하위 폴더에 나타납니다.
 
@@ -96,23 +96,23 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+1. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="스토리지 계정 만들기" border="false":::
+:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="HTTP 엔드포인트 및 액세스 키 가져오기" border="false":::
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 ## <a name="2---set-up-postman"></a>2 - Postman 설정
 
-Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Cognitive Search REST API 살펴보기](search-get-started-postman.md)를 참조하세요.
+Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Azure Cognitive Search REST API 살펴보기](search-get-started-rest.md)를 참조하세요.
 
-이 자습서의 모든 호출에 대한 요청 메서드는 **POST**와 **GET**입니다. 검색 서비스에 대해 API 호출을 세 번 수행하여 데이터 원본, 인덱스 및 인덱서를 만듭니다. 데이터 원본은 스토리지 계정 및 JSON 데이터에 대한 포인터를 포함합니다. 검색 서비스는 데이터를 로드할 때 연결합니다.
+이 자습서의 모든 호출에 대한 요청 메서드는 **POST** 와 **GET** 입니다. 검색 서비스에 대해 API 호출을 세 번 수행하여 데이터 원본, 인덱스 및 인덱서를 만듭니다. 데이터 원본은 스토리지 계정 및 JSON 데이터에 대한 포인터를 포함합니다. 검색 서비스는 데이터를 로드할 때 연결합니다.
 
 [헤더]에서 "Content-type"을 `application/json`으로 설정하고, `api-key`를 Azure Cognitive Search 서비스의 관리 API 키로 설정합니다. 헤더가 설정되면 이 연습의 모든 요청에 헤더를 사용할 수 있습니다.
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="스토리지 계정 만들기" border="false":::
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Postman 요청 URL 및 헤더" border="false":::
 
-URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 반환해야 합니다. JSON 배열을 사용할 수 있도록 일반 공급되는 api-version은 `2020-06-30`입니다.
+URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨** 을 반환해야 합니다. JSON 배열을 사용할 수 있도록 일반 공급되는 api-version은 `2020-06-30`입니다.
 
 ## <a name="3---create-a-data-source"></a>3 - 데이터 원본 만들기
 
@@ -279,7 +279,7 @@ URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 �
 
 첫 번째 문서를 로드하는 즉시 검색을 시작할 수 있습니다.
 
-1. 동사를 **GET**으로 변경합니다.
+1. 동사를 **GET** 으로 변경합니다.
 
 1. 이 호출에 대한 URI를 `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2020-06-30&$count=true`로 설정합니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 
@@ -315,11 +315,11 @@ URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 �
 
 1. `$select` 쿼리 매개 변수를 추가하여 결과를 더 적은 수의 필드로 제한합니다. `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  이 쿼리의 경우 문서 100개가 일치하지만 기본적으로 Azure Cognitive Search는 결과에 50개만 반환합니다.
 
-   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="스토리지 계정 만들기" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="매개 변수가 있는 쿼리" border="false":::
 
 1. 보다 복잡한 쿼리에는 `$filter=MinimumAge ge 30 and MaximumAge lt 75`를 포함할 수 있으며 이 경우 매개 변수 MinimumAge가 30 이상이고 MaximumAge가 75 미만인 결과만 반환합니다. `$select` 식을 `$filter` 식으로 바꿉니다.
 
-   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="스토리지 계정 만들기" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="반구조화된 검색" border="false":::
 
 논리 연산자(and, or, not) 및 비교 연산자(eq, ne, gt, lt, ge, le)를 사용할 수도 있습니다. 문자열 비교는 대/소문자를 구분합니다. 자세한 내용과 예제는 [간단한 쿼리 만들기](search-query-simple-examples.md)를 참조하세요.
 
@@ -330,7 +330,7 @@ URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 �
 
 개발의 초기 실험 단계에서 설계 반복에 대한 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제하고 코드에서 이를 다시 작성하도록 허용하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
 
-포털을 사용하여 인덱스, 인덱서 및 데이터 원본을 삭제할 수 있습니다. 또는 **DELETE**를 사용하고 각 개체에 대한 URL을 제공합니다. 다음 명령은 인덱서를 삭제합니다.
+포털을 사용하여 인덱스, 인덱서 및 데이터 원본을 삭제할 수 있습니다. 또는 **DELETE** 를 사용하고 각 개체에 대한 URL을 제공합니다. 다음 명령은 인덱서를 삭제합니다.
 
 ```http
 DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2020-06-30

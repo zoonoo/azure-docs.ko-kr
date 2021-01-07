@@ -10,11 +10,11 @@ ms.date: 07/14/2017
 ms.author: cynthn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 779a09532790ea272d8c95ac28f8c152216efc5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002966"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008653"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 
@@ -28,15 +28,15 @@ ms.locfileid: "89002966"
 
 이 단계에서는 Visual Studio가 설치되어 있는지 확인하고 템플릿을 배포하는 데 사용하는 콘솔 애플리케이션을 만듭니다.
 
-1. [Visual Studio](/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **.NET 데스크톱 개발**을 선택한 다음 **설치**를 클릭합니다. 요약에서 **.NET Framework 4 - 4.6 개발 도구**가 자동으로 선택되는 것을 볼 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 .NET 작업을 추가할 수 있습니다.
-2. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
-3. **템플릿** > **Visual C#** 에서 **콘솔 앱(.NET Framework)** 을 선택하고, 프로젝트의 이름에 *myDotnetProject*를 입력하고 프로젝트의 위치를 선택한 다음 **확인**을 클릭합니다.
+1. [Visual Studio](/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **.NET 데스크톱 개발** 을 선택한 다음 **설치** 를 클릭합니다. 요약에서 **.NET Framework 4 - 4.6 개발 도구** 가 자동으로 선택되는 것을 볼 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 .NET 작업을 추가할 수 있습니다.
+2. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 클릭합니다.
+3. **템플릿** > **Visual C#** 에서 **콘솔 앱(.NET Framework)** 을 선택하고, 프로젝트의 이름에 *myDotnetProject* 를 입력하고 프로젝트의 위치를 선택한 다음 **확인** 을 클릭합니다.
 
 ## <a name="install-the-packages"></a>패키지 설치
 
 NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리를 설치하는 가장 쉬운 방법입니다. Visual Studio에서 필요한 라이브러리를 가져오려면 다음 단계를 수행합니다.
 
-1. **도구** > **Nuget 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다.
+1. **도구** > **Nuget 패키지 관리자** 를 클릭한 다음 **패키지 관리자 콘솔** 을 클릭합니다.
 2. 콘솔에서 다음이 명령을 입력합니다.
 
     ```powershell
@@ -50,7 +50,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-template-file"></a>템플릿 파일 만들기
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *CreateVMTemplate.json*으로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목** 을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목* 에서 **텍스트 파일** 을 선택합니다. 파일 이름을 *CreateVMTemplate.json* 으로 지정하고 **추가** 를 클릭합니다.
 2. 만든 파일에 이 JSON 코드를 추가합니다.
 
     ```json
@@ -162,7 +162,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 템플릿에 있는 리소스 매개 변수의 값을 지정하려면 값이 들어 있는 매개 변수 파일을 만듭니다.
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *Parameters.json*으로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목** 을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목* 에서 **텍스트 파일** 을 선택합니다. 파일 이름을 *Parameters.json* 으로 지정하고 **추가** 를 클릭합니다.
 2. 만든 파일에 이 JSON 코드를 추가합니다.
 
     ```json
@@ -182,7 +182,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 템플릿을 배포하기 전에 [Active Directory 서비스 사용자](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)에 액세스할 수 있는지 확인합니다. 서비스 주체에서 Azure Resource Manager에서 요청을 인증받기 위한 토큰을 얻을 수 있습니다. 또한 권한 부여 파일에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목** 을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목* 에서 **텍스트 파일** 을 선택합니다. 파일 이름을 *azureauth.properties* 로 지정하고 **추가** 를 클릭합니다.
 2. 다음과 같은 권한 부여 속성을 추가합니다.
 
     ```
@@ -320,7 +320,7 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 이 콘솔 애플리케이션을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. 
 
-1. 콘솔 애플리케이션을 실행하려면 **시작**을 클릭합니다.
+1. 콘솔 애플리케이션을 실행하려면 **시작** 을 클릭합니다.
 
 2. **Enter** 키를 눌러 리소스를 삭제하기 전에 Azure Portal에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다. 배포에 대한 정보를 보려면 배포 상태를 클릭합니다.
 

@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778934"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018650"
 ---
 # <a name="using-azure-cdn-with-cors"></a>CORS에서 Azure CDN 사용
 ## <a name="what-is-cors"></a>CORS는 무엇인가요?
@@ -36,7 +36,7 @@ CORS 요청에는 *간단한 요청* 과 *복잡한 요청* 의 두 가지 유�
 
 2. 서버는 다음으로 응답할 수 있습니다.
 
-   * 허용되는 원본 사이트를 나타내는 응답의 **Access-Control-Allow-Origin** 헤더 예를 들면 다음과 같습니다.
+   * 허용되는 원본 사이트를 나타내는 응답의 **Access-Control-Allow-Origin** 헤더 예들 들어 다음과 같습니다.
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
@@ -48,7 +48,7 @@ CORS 요청에는 *간단한 요청* 과 *복잡한 요청* 의 두 가지 유�
 
 ### <a name="for-complex-requests"></a>복잡한 요청:
 
-복잡한 요청은 실제 CORS 요청을 전송하기 전에 브라우저가 *실행 전 요청* (즉, 예비 프로브)을 전송해야 하는 CORS 요청입니다. 실행 전 요청은 원래 CORS 요청을 진행할 수 있고 동일한 URL에 대한 `OPTIONS` 요청인 경우에 서버 승인을 요청합니다.
+복잡한 요청은 실제 CORS 요청을 전송하기 전에 브라우저가 *실행 전 요청*(즉, 예비 프로브)을 전송해야 하는 CORS 요청입니다. 실행 전 요청은 원래 CORS 요청을 진행할 수 있고 동일한 URL에 대한 `OPTIONS` 요청인 경우에 서버 승인을 요청합니다.
 
 > [!TIP]
 > CORS 흐름 및 일반적인 문제에 대한 자세한 내용은 [REST API에 대한 CORS 가이드](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/)를 참조하세요.

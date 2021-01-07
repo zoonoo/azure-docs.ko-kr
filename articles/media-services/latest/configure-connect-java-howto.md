@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/31/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-java
 ms.author: inhenkel
-ms.openlocfilehash: 8f5044a5fb43956e857bc7b93b92e15d40225326
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 769b4bc431040ee4d872fa60270196db96978ed2
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013239"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94748185"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Media Services v3 API에 연결 - Java
 
@@ -62,25 +62,9 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
 
 1. Visual Studio Code에서 프로젝트가 있는 폴더를 엽니다.
 1. `pom.xml`을 찾아 엽니다.
-1. 필요한 종속성 추가
+1. 필요한 종속성을 추가합니다.
 
-    ```xml
-   <dependency>
-     <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
-     <artifactId>azure-mgmt-media</artifactId>
-     <version>1.0.0-beta-3</version>
-   </dependency>
-   <dependency>
-     <groupId>com.microsoft.rest</groupId>
-     <artifactId>client-runtime</artifactId>
-     <version>1.6.6</version>
-   </dependency>
-   <dependency>
-     <groupId>com.microsoft.azure</groupId>
-     <artifactId>azure-client-authentication</artifactId>
-     <version>1.6.6</version>
-   </dependency>
-    ```
+   [비디오 인코딩](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESCustomPreset/pom.xml) 샘플에서 `pom.xml`을 참조하세요.
 
 ## <a name="connect-to-the-java-client"></a>Java 클라이언트에 연결
 

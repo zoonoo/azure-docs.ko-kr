@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: 57d59798d9bcfaf4b540bf2889a2167cd451e391
-  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+  ms.openlocfilehash: 5b1955d1de44ca66613d4e577f587b193aa31b38
+  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/08/2020
-  ms.locfileid: "94369310"
+  ms.lasthandoff: 12/15/2020
+  ms.locfileid: "97504868"
 landingContent:
 - title: Text Analytics API 정보
   linkLists:
@@ -41,21 +41,21 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: C# 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#sentiment-analysis
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp#sentiment-analysis
     - text: Python 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#sentiment-analysis
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-python#sentiment-analysis
     - text: Node.js 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript#sentiment-analysis
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript#sentiment-analysis
     - text: Go 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#sentiment-analysis
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-go#sentiment-analysis
     - text: Ruby 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#sentiment-analysis
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-ruby#sentiment-analysis
   - linkListType: tutorial
     links:
     - text: Power BI를 통합하여 고객 감정 분석
       url: tutorials/tutorial-power-bi-key-phrases.md
     - text: Flask를 사용하여 텍스트 번역, 감정 분석 및 음성 합성
-      url: ../translator/tutorial-build-flask-app-translation-synthesis.md?bc=https%253a%252f%252fdocs.microsoft.com%252fen-us%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fen-us%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json
+      url: ../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json
   - linkListType: how-to-guide
     links:
     - text: 정서 분석
@@ -65,15 +65,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: C# 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#language-detection
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp#language-detection
     - text: Python 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#language-detection
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-python#language-detection
     - text: Node.js 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript#language-detection
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript#language-detection
     - text: Go 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#language-detection
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-go#language-detection
     - text: Ruby 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#language-detection
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-ruby#language-detection
   - linkListType: how-to-guide
     links:
     - text: 언어 감지
@@ -83,15 +83,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: C# 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#key-phrase-extraction
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp#key-phrase-extraction
     - text: Python 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#key-phrase-extraction
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-python#key-phrase-extraction
     - text: Node.js 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript#key-phrase-extraction
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript#key-phrase-extraction
     - text: Go 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#key-phrase-extraction
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-go#key-phrase-extraction
     - text: Ruby 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#key-phrase-extraction
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-ruby#key-phrase-extraction
   - linkListType: how-to-guide
     links:
     - text: 키워드 추출
@@ -101,15 +101,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: C# 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#named-entity-recognition-ner
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp#named-entity-recognition-ner
     - text: Python 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#named-entity-recognition-ner
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-python#named-entity-recognition-ner
     - text: Node.js 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#named-entity-recognition-ner
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-nodejs#named-entity-recognition-ner
     - text: Go 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#named-entity-recognition-ner
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-go#named-entity-recognition-ner
     - text: Ruby 사용
-      url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#named-entity-recognition-ner
+      url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-ruby#named-entity-recognition-ner
   - linkListType: how-to-guide
     links:
     - text: 엔터티 인식

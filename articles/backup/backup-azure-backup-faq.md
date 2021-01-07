@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096626"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327154"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -60,7 +60,7 @@ ms.locfileid: "92096626"
 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Recovery Services 자격 증명 모음에서 온-프레미스로 데이터를 이동 하려면 어떻게 해야 하나요?
 
-Data Box를 사용 하 여 Recovery Services 자격 증명 모음에서 온-프레미스로 직접 데이터를 내보낼 수는 없습니다. 데이터를 저장소 계정으로 복원한 다음 [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) 또는 [Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)를 통해 온-프레미스로 이동할 수 있습니다.
+Data Box를 사용 하 여 Recovery Services 자격 증명 모음에서 온-프레미스로 직접 데이터를 내보낼 수는 없습니다. 데이터를 저장소 계정으로 복원한 다음 [Data Box](../databox/data-box-overview.md) 또는 [Import/Export](../storage/common/storage-import-export-service.md)를 통해 온-프레미스로 이동할 수 있습니다.
 
 ## <a name="azure-backup-agent"></a>Azure Backup 에이전트
 

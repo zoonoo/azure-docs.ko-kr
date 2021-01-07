@@ -3,12 +3,12 @@ title: Azure CLI를 사용 하 여 Azure 파일 공유 복원
 description: Azure CLI를 사용 하 여 Recovery Services 자격 증명 모음에서 백업 된 Azure 파일 공유를 복원 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: be744fdb79f442eaf0ef632952d9c0b9e709d908
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a025de7bfb9db037b2008d69be7782feabb482f3
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325014"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562324"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure 파일 공유 복원
 
@@ -23,20 +23,20 @@ Azure CLI은 Azure 리소스를 관리 하기 위한 명령줄 환경을 제공 
 >[!NOTE]
 > Azure Backup에서는 Azure CLI를 사용 하 여 여러 파일 또는 폴더를 원본 또는 대체 위치로 복원할 수 있습니다. 자세한 내용은이 문서에서 [여러 파일 또는 폴더를 원본 또는 대체 위치로 복원](#restore-multiple-files-or-folders-to-original-or-alternate-location) 섹션을 참조 하세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-CLI를 로컬로 설치하고 사용하려는 경우 Azure CLI 버전 2.0.18 이상을 사용해야 합니다. CLI 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 Azure Backup에 의해 백업 되는 Azure 파일 공유가 이미 있다고 가정 합니다. 없으면 [CLI를 사용 하 여 Azure 파일 공유](backup-afs-cli.md) 백업을 참조 하 여 파일 공유에 대 한 백업을 구성 합니다. 이 문서에서는 다음 리소스를 사용 합니다.
 
-| 파일 공유  | 스토리지 계정 | 지역 | 세부 정보                                                      |
-| ----------- | --------------- | ------ | ------------------------------------------------------------ |
-| *azurefiles*  | *afsaccount*      | EastUS | Azure Backup를 사용 하 여 백업한 원본 원본                 |
-| *azurefiles1* | *afaccount1*      | EastUS | 대체 위치 복구에 사용 되는 대상 원본 |
+| 파일 공유 | 스토리지 계정 | 지역 | 세부 정보 |
+|---|---|---|---|
+| *azurefiles* | *afsaccount* | EastUS | Azure Backup를 사용 하 여 백업한 원본 원본 |
+| *azurefiles1* | *afaccount1* | EastUS | 대체 위치 복구에 사용 되는 대상 원본 |
 
 파일 공유에 비슷한 구조를 사용 하 여이 문서에서 설명 하는 다양 한 유형의 복원을 사용해 볼 수 있습니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+ - 이 자습서에는 버전 2.0.18 이상을 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="fetch-recovery-points-for-the-azure-file-share"></a>Azure 파일 공유에 대 한 복구 지점의 페치
 
@@ -50,8 +50,8 @@ az backup recoverypoint list --vault-name azurefilesvault --resource-group azure
 
 다음과 같은 두 개의 추가 매개 변수를 제공 하 여 컨테이너 및 항목에 대 한 친숙 한 이름을 사용 하 여 이전 cmdlet을 실행할 수도 있습니다.
 
-* **--백업 관리-유형**: *azurestorage*
-* **--워크 로드 유형**: *azurefileshare 공유*
+* **--백업 관리-유형** : *azurestorage*
+* **--워크 로드 유형** : *azurefileshare 공유*
 
 ```azurecli-interactive
 az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --backup-management-type azurestorage --item-name azurefiles --workload-type azurefileshare --out table
@@ -75,8 +75,8 @@ Name                Time                        Consistency
 
 다음 매개 변수를 정의 하 여 복원 작업을 수행 합니다.
 
-* **--container-name**: 백업 된 원래 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 이름 또는 이름을 검색 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
-* **--item-name**: 복원 작업에 사용 하려는 백업 된 원래 파일 공유의 이름입니다. 백업 된 항목의 이름 또는 이름을 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
+* **--container-name** : 백업 된 원래 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 이름 또는 이름을 검색 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
+* **--item-name** : 복원 작업에 사용 하려는 백업 된 원래 파일 공유의 이름입니다. 백업 된 항목의 이름 또는 이름을 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
 
 ### <a name="restore-a-full-share-to-the-original-location"></a>전체 공유를 원래 위치로 복원
 
@@ -100,10 +100,10 @@ Name                                  ResourceGroup
 
 이 옵션을 사용 하 여 파일 공유를 대체 위치로 복원 하 고 원래 파일 공유를 그대로 유지할 수 있습니다. 대체 위치 복구에 대해 다음 매개 변수를 지정 합니다.
 
-* **--target-account**: 백업 된 콘텐츠를 복원할 저장소 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
-* **--target-파일-공유**: 백업 된 콘텐츠를 복원할 대상 저장소 계정 내의 파일 공유입니다.
-* **--target-folder**: 데이터가 복원 되는 파일 공유의 폴더입니다. 백업된 콘텐츠를 루트 폴더로 복원해야 하는 경우 대상 폴더 값을 빈 문자열로 제공합니다.
-* **--해결-충돌**: 복원 된 데이터와 충돌 하는 경우 명령입니다. **덮어쓰기** 또는 **건너뛰기**를 수락합니다.
+* **--target-account** : 백업 된 콘텐츠를 복원할 저장소 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
+* **--target-파일-공유** : 백업 된 콘텐츠를 복원할 대상 저장소 계정 내의 파일 공유입니다.
+* **--target-folder** : 데이터가 복원 되는 파일 공유의 폴더입니다. 백업된 콘텐츠를 루트 폴더로 복원해야 하는 경우 대상 폴더 값을 빈 문자열로 제공합니다.
+* **--해결-충돌** : 복원 된 데이터와 충돌 하는 경우 명령입니다. **덮어쓰기** 또는 **건너뛰기** 를 수락합니다.
 
 다음 예제에서는 [az backup restore restore-azurefileshare](/cli/azure/backup/restore#az-backup-restore-restore-azurefileshare) 이름으로 복원 모드를 *alternatelocation* 로 사용 하 여 *afsaccount* 저장소 계정의 *azurefileshare* 파일 공유를 *afaccount1* 저장소 계정의 *azurefiles1 "* 파일 공유로 복원 합니다.
 
@@ -125,14 +125,14 @@ babeb61c-d73d-4b91-9830-b8bfa83c349a  azurefiles
 
 다음 매개 변수를 정의 하 여 복원 작업을 수행 합니다.
 
-* **--container-name**: 백업 된 원래 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 이름 또는 이름을 검색 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
-* **--item-name**: 복원 작업에 사용 하려는 백업 된 원래 파일 공유의 이름입니다. 백업 된 항목의 이름 또는 이름을 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
+* **--container-name** : 백업 된 원래 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 이름 또는 이름을 검색 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
+* **--item-name** : 복원 작업에 사용 하려는 백업 된 원래 파일 공유의 이름입니다. 백업 된 항목의 이름 또는 이름을 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
 
 복구 하려는 항목에 대해 다음 매개 변수를 지정 합니다.
 
-* **Sourcefilepath**: 파일 공유 내에서 복원할 파일의 절대 경로입니다. 이 경로는 [az storage file download](/cli/azure/storage/file#az-storage-file-download) 또는 [az storage file show](/cli/azure/storage/file#az-storage-file-show) CLI 명령에 사용 된 경로와 동일 합니다.
-* **Sourcefiletype**: 디렉터리 또는 파일 선택 여부를 선택 합니다. **디렉터리** 또는 **파일**을 허용 합니다.
-* **Resolveconflict가**: 복원 된 데이터와 충돌 하는 경우 명령입니다. **덮어쓰기** 또는 **건너뛰기**를 수락합니다.
+* **Sourcefilepath** : 파일 공유 내에서 복원할 파일의 절대 경로입니다. 이 경로는 [az storage file download](/cli/azure/storage/file#az-storage-file-download) 또는 [az storage file show](/cli/azure/storage/file#az-storage-file-show) CLI 명령에 사용 된 경로와 동일 합니다.
+* **Sourcefiletype** : 디렉터리 또는 파일 선택 여부를 선택 합니다. **디렉터리** 또는 **파일** 을 허용 합니다.
+* **Resolveconflict가** : 복원 된 데이터와 충돌 하는 경우 명령입니다. **덮어쓰기** 또는 **건너뛰기** 를 수락합니다.
 
 ### <a name="restore-individual-files-or-folders-to-the-original-location"></a>개별 파일 또는 폴더를 원래 위치로 복원
 
@@ -156,9 +156,9 @@ df4d9024-0dcb-4edc-bf8c-0a3d18a25319  azurefiles
 
 특정 파일 또는 폴더를 대체 위치로 복원 하려면 복원 모드가 *alternatelocation* 로 설정 된 [az backup restore restore-azurefiles](/cli/azure/backup/restore#az-backup-restore-restore-azurefiles) cmdlet을 사용 하 고 다음 대상 관련 매개 변수를 지정 합니다.
 
-* **--target-account**: 백업 된 콘텐츠를 복원할 저장소 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
-* **--target-파일-공유**: 백업 된 콘텐츠를 복원할 대상 저장소 계정 내의 파일 공유입니다.
-* **--target-folder**: 데이터가 복원 되는 파일 공유의 폴더입니다. 백업 된 콘텐츠를 루트 폴더로 복원 하려면 대상 폴더의 값을 빈 문자열로 지정 합니다.
+* **--target-account** : 백업 된 콘텐츠를 복원할 저장소 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
+* **--target-파일-공유** : 백업 된 콘텐츠를 복원할 대상 저장소 계정 내의 파일 공유입니다.
+* **--target-folder** : 데이터가 복원 되는 파일 공유의 폴더입니다. 백업 된 콘텐츠를 루트 폴더로 복원 하려면 대상 폴더의 값을 빈 문자열로 지정 합니다.
 
 다음 예에서는 원래 *azurefiles* 파일 공유에 있는 *RestoreTest.txt* 파일을 대체 위치로 복원 합니다 .이 파일은 *afaccount1* 저장소 계정에서 호스트 되는 *azurefiles1* 파일 공유의 *restoredata* 폴더입니다.
 

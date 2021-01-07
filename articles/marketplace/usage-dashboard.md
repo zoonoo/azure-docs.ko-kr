@@ -1,27 +1,27 @@
 ---
-title: Microsoft 상업적 marketplace 분석, Azure Marketplace 및 Microsoft AppSource의 사용량 대시보드
-description: 모든 VM 제품 및 요금 청구 메트릭에 액세스하는 방법을 알아봅니다. 상업용 Marketplace에서 파트너 센터의 사용량 대시보드로 이동합니다.
+title: 상용 marketplace 분석의 사용량 대시보드 | Azure Marketplace
+description: Azure Marketplace에 게시 된 제품에 대 한 모든 사용량 및 요금제 청구 메트릭에 액세스 하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 9a1b6197241b93edf778295f196ccc92c45d85d6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414864"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462930"
 ---
-# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Microsoft 상업용 Marketplace 분석의 사용량 대시보드
+# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
 이 문서에서는 파트너 센터의 사용량 대시보드에 대 한 정보를 제공 합니다. 이 대시보드는 모든 VM (가상 컴퓨터)에서 표준화 된 사용량, 원시 사용량 및 요금제 청구 메트릭을 3 개의 별도 탭 (VM 정규화 된 사용량, VM 원시 사용량 및 요금제 청구 사용량)으로 표시 합니다.
 
 파트너 센터의 사용량 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 사용량 분석을 선택 **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **Usage** 합니다.
 
 >[!NOTE]
-> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.
 
 ## <a name="usage-dashboard"></a>사용량 대시보드
 
@@ -74,7 +74,7 @@ ms.locfileid: "94414864"
 
 ### <a name="orders-by-offers-and-skus"></a>제품 및 Sku 별 주문
 
-제품 **별 주문 및 SKU** 차트에는 모든 제품의 측정값과 추세가 표시 됩니다. 다음 사항에 유의하십시오.
+제품 **별 주문 및 SKU** 차트에는 모든 제품의 측정값과 추세가 표시 됩니다. 다음 사항에 유의하세요.
 
 - 최상위 제품이 그래프에 표시 되 고 나머지 제품은 **나머지 모두** 로 그룹화 됩니다.
 - 범례에서 특정 제품을 선택하여 그래프에 해당 제품만 표시할 수 있습니다.
@@ -99,7 +99,7 @@ ms.locfileid: "94414864"
 
 :::image type="content" source="./media/usage-dashboard/normalized-usage-country.png" alt-text="사용량 대시보드의 정규화 된 사용 현황 국가 차트를 보여 줍니다.":::
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 지도를 이동하여 정확한 위치를 볼 수 있습니다.
 - 특정 위치를 확대할 수 있습니다.
@@ -108,7 +108,7 @@ ms.locfileid: "94414864"
 
 ### <a name="usage-details-table"></a>사용 정보 테이블
 
-**사용량 정보** 테이블에는 사용을 기준으로 정렬 된 상위 1000 사용 레코드 목록이 표시 됩니다. 다음 사항에 유의하십시오.
+**사용량 정보** 테이블에는 사용을 기준으로 정렬 된 상위 1000 사용 레코드 목록이 표시 됩니다. 다음 사항에 유의하세요.
 
 - 그리드의 각 열을 정렬할 수 있습니다.
 - 데이터를로 추출할 수 있습니다. TSV 또는입니다. 레코드 수가 1000 보다 작은 경우 CSV 파일입니다.
@@ -171,13 +171,13 @@ VM Raw 사용에 대 한 위젯 및 내보내기 보고서는 다음과 같은 �
 
 **요금제** 사용량 탭에는 측정기 별 사용량을 측정 하는 제품 유형에 대 한 사용 정보가 표시 됩니다. 현재는 SaaS 제품 유형 초과분이 표시됩니다. 이 탭은 SaaS 요금 청구 사용량에 대한 초과 추세를 그래픽으로 나타냅니다.
 
-- **미터 크기별 초과 추세** : 제품의 선택한 미터 크기에 대한 월별 초과 추세를 표시합니다. X 축은 월을 나타내고 Y 축은 초과분 사용 수량을 나타냅니다. 사용자 지정 미터의 측정 단위도 Y축에 표시됩니다.
+- **미터 크기별 초과 추세**: 제품의 선택한 미터 크기에 대한 월별 초과 추세를 표시합니다. X 축은 월을 나타내고 Y 축은 초과분 사용 수량을 나타냅니다. 사용자 지정 미터의 측정 단위도 Y축에 표시됩니다.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage.png" alt-text="사용 대시보드의 VM 정규화 된 사용 현황 차트를 보여 줍니다.":::
 
-- **Sku 별 초과분 추세** : sku/요금제로 선택한 미터 차원의 사용 수량 추세를 나타냅니다. 선택한 제품에 대 한 사용량이 가장 많은 상위 5 개 요금제가 표시 됩니다.
+- **Sku 별 초과분 추세**: sku/요금제로 선택한 미터 차원의 사용 수량 추세를 나타냅니다. 선택한 제품에 대 한 사용량이 가장 많은 상위 5 개 요금제가 표시 됩니다.
 
-- **고객에의 한 초과분 추세** : 고객 리더 보드는 사용 시간이 가장 높은 고객의 누적 목록을 나타내며, _리더 보드_ 에 표시 되며 사용자 지정 측정기의 최고 사용량을 기준으로 순위가 지정 됩니다. 선택한 측정기 차원의 초과분 사용량 추세를 보려면 리더 보드의 고객을 선택 합니다.
+- **고객에의 한 초과분 추세**: 고객 리더 보드는 사용 시간이 가장 높은 고객의 누적 목록을 나타내며, _리더 보드_ 에 표시 되며 사용자 지정 측정기의 최고 사용량을 기준으로 순위가 지정 됩니다. 선택한 측정기 차원의 초과분 사용량 추세를 보려면 리더 보드의 고객을 선택 합니다.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage-by-customers.png" alt-text="사용량 대시보드에서 고객 차트의 요금제 사용량을 보여 줍니다.":::
 
@@ -194,4 +194,4 @@ VM Raw 사용에 대 한 위젯 및 내보내기 보고서는 다음과 같은 �
 - VM (가상 컴퓨터)은 사용량 및 요금제 청구 메트릭을 제공 합니다. [상용 marketplace 분석의 사용량 대시보드](usage-dashboard.md)를 참조 하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](./partner-center-portal/downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 Microsoft AppSource에서 제공 하는 제품에 대 한 고객 피드백의 통합 보기를 보려면 [파트너 센터에서 등급 & 리뷰 분석 대시보드](./partner-center-portal/ratings-reviews.md)를 참조 하세요.
-- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.

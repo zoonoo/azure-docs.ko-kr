@@ -10,24 +10,24 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: b53476bcb05d6e91b157c24795c963c04e6f4bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a6e7ee125cac66b48e666a766c39813aa38fb1a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244495"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968505"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Text Analytics 언어 검색 컨테이너를 Azure Kubernetes Service에 배포
 
 언어 감지 컨테이너를 배포하는 방법을 알아봅니다. 이 절차에서는 로컬 Docker 컨테이너를 만들고, 컨테이너를 고유한 프라이빗 컨테이너 레지스트리로 푸시하고, Kubernetes 클러스터에서 컨테이너를 실행하고, 웹 브라우저에서 테스트하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 절차를 수행하려면 로컬로 설치 및 실행해야 하는 몇 가지 도구가 필요합니다. Azure Cloud Shell은 사용하지 않도록 합니다.
 
 * Azure 구독을 사용합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services)을 만듭니다.
 * 이 절차에서 사용되는 [샘플](https://github.com/Azure-Samples/cognitive-services-containers-samples)을 복제할 수 있도록 사용하는 운영 체제용 [Git](https://git-scm.com/downloads)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Docker 엔진](https://www.docker.com/products/docker-engine). 콘솔 창에서 Docker CLI를 가 작동하는지 확인합니다.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * 올바른 가격 책정 계층이 지정된 Azure 리소스. 모든 가격 책정 계층이 이 컨테이너에 작동하는 것은 아닙니다.
@@ -291,7 +291,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 이 섹션에서는 **kubectl** CLI를 사용하여 Azure Kubernetes Service와 통신합니다.
 
-1. 오케스트레이션 정의를 로드하기 전에 **kubectl**에 노드에 대한 액세스 권한이 있는지 확인합니다.
+1. 오케스트레이션 정의를 로드하기 전에 **kubectl** 에 노드에 대한 액세스 권한이 있는지 확인합니다.
 
     ```console
     kubectl get nodes
@@ -325,7 +325,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
     |줄 91<br> `apiKey` 속성|Text Analytics 리소스 키|
     |줄 92<br> `billing` 속성|Text Analytics 리소스의 청구 엔드포인트입니다.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
-    **apiKey** 및 **청구 엔드포인트**는 Kubernetes 오케스트레이션 정의의 일부로 설정되므로 웹 사이트 컨테이너가 이러한 항목을 알아야 하거나 요청의 일부로 전달해야 할 필요가 없습니다. 웹 사이트 컨테이너는 오케스트레이터 이름 `language`로 언어 감지 컨테이너를 나타냅니다.
+    **apiKey** 및 **청구 엔드포인트** 는 Kubernetes 오케스트레이션 정의의 일부로 설정되므로 웹 사이트 컨테이너가 이러한 항목을 알아야 하거나 요청의 일부로 전달해야 할 필요가 없습니다. 웹 사이트 컨테이너는 오케스트레이터 이름 `language`로 언어 감지 컨테이너를 나타냅니다.
 
 1. `language.yml`을 만들고 저장한 폴더에서 이 샘플의 오케스트레이션 정의 파일을 로드합니다.
 

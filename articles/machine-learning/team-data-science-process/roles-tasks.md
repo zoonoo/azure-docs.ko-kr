@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4bcbbd9378b6ea861c926eed16d2ceed8131b913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082752"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000966"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process 역할 및 작업
 
@@ -65,7 +65,7 @@ TDSP (팀 데이터 과학 프로세스)는 Microsoft에서 개발한 프레임 
 - Azure DevOps 그룹 프로젝트에서 **프로젝트 템플릿 리포지토리** 를 만들고 Microsoft tdsp 팀에서 개발한 프로젝트 템플릿 리포지토리에서 시드 합니다. Microsoft TDSP 프로젝트 템플릿 리포지토리는 다음을 제공 합니다.
   - 데이터, 코드 및 문서에 대 한 디렉터리를 포함 하 여 **표준화 된 디렉터리 구조**
   - 효율적인 데이터 과학 프로세스를 안내 하는 **표준화 된 문서 템플릿** 집합입니다.
-- **유틸리티 리포지토리**를 만들고 Microsoft tdsp 팀에서 개발한 유틸리티 리포지토리에서 시드 합니다. Microsoft의 TDSP 유틸리티 리포지토리는 데이터 과학자의 작업 효율을 높일 수 있는 유용한 유틸리티 집합을 제공 합니다. Microsoft 유틸리티 리포지토리에는 대화형 데이터 탐색, 분석, 보고, 기준 모델링 및 보고를 위한 유틸리티가 포함 되어 있습니다.
+- **유틸리티 리포지토리** 를 만들고 Microsoft tdsp 팀에서 개발한 유틸리티 리포지토리에서 시드 합니다. Microsoft의 TDSP 유틸리티 리포지토리는 데이터 과학자의 작업 효율을 높일 수 있는 유용한 유틸리티 집합을 제공 합니다. Microsoft 유틸리티 리포지토리에는 대화형 데이터 탐색, 분석, 보고, 기준 모델링 및 보고를 위한 유틸리티가 포함 되어 있습니다.
 - 조직 계정에 대 한 **보안 제어 정책을** 설정 합니다.
 
 자세한 지침은 [데이터 과학 팀에 대 한 그룹 관리자 작업](group-manager-tasks.md)을 참조 하세요.
@@ -76,7 +76,7 @@ TDSP (팀 데이터 과학 프로세스)는 Microsoft에서 개발한 프레임 
 
 - 그룹의 Azure DevOps 조직에 팀 **프로젝트** 를 만듭니다.
 - 프로젝트에서 **프로젝트 템플릿 리포지토리** 를 만들고 그룹 관리자 또는 대리자에 의해 설정 된 그룹 프로젝트 템플릿 리포지토리에서 시드 합니다.
-- **팀 유틸리티 리포지토리**를 만들어 그룹 유틸리티 리포지토리에서 시드 하 고 리포지토리에 팀 특정 유틸리티를 추가 합니다.
+- **팀 유틸리티 리포지토리** 를 만들어 그룹 유틸리티 리포지토리에서 시드 하 고 리포지토리에 팀 특정 유틸리티를 추가 합니다.
 - 필요에 따라 팀에 유용한 데이터 자산을 저장 하는 [Azure file storage](https://azure.microsoft.com/services/storage/files/) 를 만듭니다. 다른 팀 구성원도 팀의 분석 데스크톱에 이 공유 클라우드 파일 저장소를 탑재할 수 있습니다.
 - 선택적으로 팀의 **Dsvm** 에 Azure file storage를 탑재 하 고 팀 데이터 자산을 추가 합니다.
 - 팀 멤버를 추가 하 고 권한을 구성 하 여 **보안 제어** 를 설정 합니다.

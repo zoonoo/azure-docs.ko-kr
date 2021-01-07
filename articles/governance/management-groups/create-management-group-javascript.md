@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: JavaScript를 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 JavaScript를 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
-ms.date: 09/30/2020
+ms.date: 11/18/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676220"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886603"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>빠른 시작: JavaScript를 사용하여 관리 그룹 만들기
 
@@ -71,7 +71,7 @@ JavaScript에서 Azure Resource Graph를 쿼리하도록 설정하려면 환경�
        const createMG = async () => {
           const credentials = await authenticator.interactiveLogin();
           const client = new managementGroups.ManagementGroupsAPI(credentials);
-          const result = await client.createOrUpdate(
+          const result = await client.managementGroups.createOrUpdate(
              groupId: argv.groupID,
              {
                  displayName: argv.displayName

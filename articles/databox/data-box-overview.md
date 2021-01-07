@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123565"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336698"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -90,12 +90,12 @@ Data Box는 다음과 같은 구성 요소를 포함합니다.
 
 * **Data Box 디바이스** - 기본 스토리지를 제공하고, 클라우드 스토리지와의 통신을 관리하고, 디바이스에 저장된 모든 데이터의 보안과 기밀성을 보장하는 데 도움을 주는 물리적 디바이스입니다. Data Box 디바이스에는 80TB의 사용 가능한 스토리지 용량이 있습니다. 
 
-    ![Data Box의 앞면 및 뒷면](media/data-box-overview/data-box-combined3.png)
+    ![Data Box의 앞면 및 뒷면](media/data-box-overview/data-box-combined.png)
 
     
 * **Data Box 서비스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Data Box 디바이스를 관리할 수 있는 Azure Portal의 확장입니다. Data Box 서비스를 사용하여 사용자의 Data Box 디바이스에 대한 일일 관리를 수행합니다. 서비스 작업에는 주문 만들기 및 관리, 경고 보기 및 관리, 공유 관리 방법이 포함됩니다.  
 
-    ![Azure Portal의 Data Box 서비스](media/data-box-overview/data-box-service1.png)
+    ![Azure Portal의 Data Box 서비스](media/data-box-overview/data-box-service.png)
 
     자세한 내용은 [Data Box 서비스를 사용하여 Data Box 디바이스 관리](data-box-portal-ui-admin.md)로 이동하세요.
 

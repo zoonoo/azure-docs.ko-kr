@@ -1,17 +1,15 @@
 ---
 title: Azure Service Fabric에서 서비스와 연결 및 통신
 description: 서비스 패브릭에서 서비스에 대해 확인, 연결 및 통신하는 방법에 대해 알아봅니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715089d40f584fbbaf23f674e4243c92c718e9d1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 11f525eba89dc963deee0ba9a86566361ef644de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093330"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576301"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>서비스 패브릭에서 서비스와 연결 및 통신
 서비스 패브릭에서 서비스는 일반적으로 여러 VM에 배포된 서비스 패브릭 클러스터의 임의 위치에서 실행됩니다. 서비스 소유자에 의해 한 위치에서 다른 위치로 이동하거나 서비스 패브릭에 의해 자동으로 이동할 수 있습니다. 서비스는 특정 컴퓨터 또는 주소에 정적으로 연결되지 않습니다.
@@ -62,11 +60,11 @@ HTTPS를 포함하여 HTTP 엔드포인트를 노출하는 클러스터의 역�
 클러스터의 노드는 동일한 로컬 네트워크에 있으므로 클러스터 내에서 서로 연결하고 있는 서비스는 다른 서비스의 엔드포인트에 직접 액세스할 수 있습니다. 그러나 일부 환경에서는 클러스터가 제한 된 포트 집합을 통해 수신 트래픽을 라우팅하는 부하 분산 장치 뒤에 있을 수 있습니다. 이러한 경우 서비스는 여전히 서로 통신하고 명명 서비스를 사용하여 주소를 확인할 수 있지만 외부 클라이언트가 서비스에 연결할 수 있도록 하는 추가 단계를 수행해야 합니다.
 
 ## <a name="service-fabric-in-azure"></a>Azure의 서비스 패브릭
-Azure의 서비스 패브릭 클러스터는 Azure 부하 분산 장치 뒤에 배치됩니다. 클러스터로의 모든 외부 트래픽은 부하 분산 장치를 통과해야 합니다. 부하 분산 장치는 지정된 포트에서의 인바운드 트래픽을 동일한 포트가 열린 임의 *노드* 에 자동으로 전달합니다. Azure Load Balancer는 *노드*에서 열린 포트만 알고 있으며 개별 *서비스*에 의해 열린 포트는 알지 못합니다.
+Azure의 서비스 패브릭 클러스터는 Azure 부하 분산 장치 뒤에 배치됩니다. 클러스터로의 모든 외부 트래픽은 부하 분산 장치를 통과해야 합니다. 부하 분산 장치는 지정된 포트에서의 인바운드 트래픽을 동일한 포트가 열린 임의 *노드* 에 자동으로 전달합니다. Azure Load Balancer는 *노드* 에서 열린 포트만 알고 있으며 개별 *서비스* 에 의해 열린 포트는 알지 못합니다.
 
 ![Azure 부하 분산 장치 및 서비스 패브릭 토폴로지][3]
 
-예를 들어 포트 **80**에 외부 트래픽을 허용하려면 다음을 구성해야 합니다.
+예를 들어 포트 **80** 에 외부 트래픽을 허용하려면 다음을 구성해야 합니다.
 
 1. 포트 80에서 수신 대기하는 서비스를 작성합니다. 서비스의 ServiceManifest.xml에서 포트 80을 구성하고 서비스(예: 자체 호스트된 웹 서버)에서 수신기를 엽니다.
 
@@ -158,7 +156,7 @@ Azure의 서비스 패브릭 클러스터는 Azure 부하 분산 장치 뒤에 �
 
     ![Azure 부하 분산 장치에서 트래픽 전달][8]
 
-Azure Load Balancer 및 프로브는 *노드*만 알고 있으며 노드에서 실행하는 *서비스*는 알지 못합니다. Azure 부하 분산 장치는 프로브에 응답하는 노드에 항상 트래픽을 보내므로 프로브에 응답할 수 있는 노드에서 서비스를 사용할 수 있도록 주의해야 합니다.
+Azure Load Balancer 및 프로브는 *노드* 만 알고 있으며 노드에서 실행하는 *서비스* 는 알지 못합니다. Azure 부하 분산 장치는 프로브에 응답하는 노드에 항상 트래픽을 보내므로 프로브에 응답할 수 있는 노드에서 서비스를 사용할 수 있도록 주의해야 합니다.
 
 ## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: 기본 제공 통신 API 옵션
 Reliable Services 프레임워크에서는 미리 작성된 여러 통신 옵션을 제공합니다. 그 중에서 가장 적합한 옵션은 프로그래밍 모델, 통신 프레임워크 및 서비스가 작성되는 프로그래밍 언어로 무엇을 선택하는지에 따라 달라집니다.

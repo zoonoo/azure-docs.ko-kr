@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62a77c1b21a6d602a2d54f56a2ed294fe800ac38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e3e0c10a7ec6b42420db30955ae4911bca27cc0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763655"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651229"
 ---
 # <a name="cloud-app-visibility-and-control"></a>클라우드 앱 표시 유형 및 제어
 
@@ -36,8 +36,8 @@ Microsoft Cloud App Discovery(Azure Active Directory Premium P1 기능)를 사�
  
 ### <a name="learn-more"></a>자세한 정보
 
-- [네트워크의 섀도 IT 검색 및 관리](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Cloud App Security를 사용하여 검색된 앱](https://docs.microsoft.com/cloud-app-security/discovered-apps)
+- [네트워크의 섀도 IT 검색 및 관리](/cloud-app-security/tutorial-shadow-it)
+- [Cloud App Security를 사용하여 검색된 앱](/cloud-app-security/discovered-apps)
  
 ## <a name="user-session-visibility-and-control"></a>사용자 세션 표시 유형 및 제어 
 
@@ -53,7 +53,7 @@ Microsoft Cloud App Discovery(Azure Active Directory Premium P1 기능)를 사�
  
 ### <a name="learn-more"></a>자세한 정보
 
-- [Cloud App Security에서 세션 제어로 앱 보호](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Cloud App Security에서 세션 제어로 앱 보호](/cloud-app-security/proxy-intro-aad)
  
 ## <a name="advanced-app-visibility-and-controls"></a>고급 앱 표시 유형 및 제어 
 
@@ -61,11 +61,11 @@ Microsoft Cloud App Discovery(Azure Active Directory Premium P1 기능)를 사�
  
 ### <a name="learn-more"></a>자세한 정보  
 
-- [Cloud App Security에서 앱 연결](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Cloud App Security에서 앱 연결](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [네트워크의 섀도 IT 검색 및 관리](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Cloud App Security를 사용하여 검색된 앱](https://docs.microsoft.com/cloud-app-security/discovered-apps)
-- [Cloud App Security에서 세션 제어로 앱 보호](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-- [Cloud App Security에서 앱 연결](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [네트워크의 섀도 IT 검색 및 관리](/cloud-app-security/tutorial-shadow-it)
+- [Cloud App Security를 사용하여 검색된 앱](/cloud-app-security/discovered-apps)
+- [Cloud App Security에서 세션 제어로 앱 보호](/cloud-app-security/proxy-intro-aad)
+- [Cloud App Security에서 앱 연결](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)

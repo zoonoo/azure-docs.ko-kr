@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 060a52b61dcd43fe0d05b2a8ef594c0ab9f2cc9e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847285"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954055"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 시리즈 업데이트 4 릴리스 정보
 
@@ -47,7 +47,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
     디바이스가 DR보다 먼저 사용될 때 열 지도를 만드는 자주 액세스되는 데이터를 추적하는 새로운 기능이 업데이트 4에서 구현됩니다(가장 많이 사용되는 데이터 청크는 높은 열을 가지는 반면 적게 사용되는 청크는 낮은 열을 가짐). DR 후 StorSimple은 클라우드로부터 데이터를 자동으로 복원하고 리하이드레이션하는 데 열 지도를 사용합니다. 
 
-    모든 복원은 이제 열 지도 기반 복원입니다. 열 지도 기반 복원 및 리하이드레이션 작업을 쿼리 및 취소하는 방법에 대한 자세한 내용은 [StorSimple용 Windows PowerShell cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)로 이동합니다.
+    모든 복원은 이제 열 지도 기반 복원입니다. 열 지도 기반 복원 및 리하이드레이션 작업을 쿼리 및 취소하는 방법에 대한 자세한 내용은 [StorSimple용 Windows PowerShell cmdlet 참조](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps)로 이동합니다.
 
 * **StorSimple 진단 도구** – 업데이트 4에서 StorSimple 진단 도구는 시스템, 네트워크, 성능 및 하드웨어 구성 요소 상태와 관련된 문제를 쉽게 진단 및 해결할 수 있도록 릴리스되었습니다. 이 도구는 StorSimple용 Windows PowerShell을 통해 실행됩니다. 자세한 정보는 [StorSimple 진단 도구를 사용한 문제 해결](storsimple-8000-diagnostics.md)을 참조하세요.
 
@@ -59,7 +59,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 * **디스크 오류에 대한 경고** - 임박한 디스크 오류를 사용자에게 경고하는 새로운 경고가 이 릴리스에서 추가됩니다. 이 경고가 발생하는 경우 Microsoft 지원에 문의하여 대체 디스크를 보내주세요. 자세한 정보는 [StorSimple 디바이스에서 하드웨어 경고](storsimple-8000-manage-alerts.md#hardware-alerts)를 참조하세요.
 
-* **컨트롤러 교체 변경 사항** - 사용자가 컨트롤러 교체 프로세스의 상태를 쿼리할 수 있도록 하는 cmdlet이 이 릴리스에서 추가됩니다. 자세한 내용은 [컨트롤러 교체 상태를 쿼리하는 cmdlet](https://technet.microsoft.com/library/dn688168.aspx)으로 이동합니다.
+* **컨트롤러 교체 변경 사항** - 사용자가 컨트롤러 교체 프로세스의 상태를 쿼리할 수 있도록 하는 cmdlet이 이 릴리스에서 추가됩니다. 자세한 내용은 [컨트롤러 교체 상태를 쿼리하는 cmdlet](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps)으로 이동합니다.
 
 
 ## <a name="issues-fixed-in-update-4"></a>업데이트 4에서 해결된 문제
@@ -69,7 +69,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 | 아니요 | 기능 | 문제 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
 | --- | --- | --- | --- | --- |
 | 1 |장애 조치 |이전 릴리스에서 장애 조치(failover) 후 고객 쪽에서 관찰된 정리와 관련된 문제가 있었습니다. 이 문제는 이 릴리스에서 해결되었습니다. |예 |예 |
-| 2 |로컬로 고정된 볼륨 |이전 릴리스에서 볼륨 만들기 실패를 초래할 수 있는 로컬로 고정된 볼륨에 대한 볼륨 만들기와 관련된 문제가 있었습니다. 이 문제는 근본 원인이 파악되었고 이 릴리스에서 수정되었습니다. |예 |아니요 |
+| 2 |로컬로 고정된 볼륨 |이전 릴리스에서 볼륨 만들기 실패를 초래할 수 있는 로컬로 고정된 볼륨에 대한 볼륨 만들기와 관련된 문제가 있었습니다. 이 문제는 근본 원인이 파악되었고 이 릴리스에서 수정되었습니다. |예 |예 |
 | 3 |지원 패키지 |이전 릴리스에서 System.OutOfMemory 예외를 초래할 수 있는 지원 패키지 또는 지원 패키지 만들기 실패를 가져오는 다른 오류와 관련된 문제가 있었습니다. 이러한 버그는 이 릴리스에서 해결되었습니다. |예 |예 |
 | 4 |모니터링 |이전 릴리스에서 EB에서 소비가 표시되었던 로컬로 고정된 볼륨에 대한 모니터링 차트와 관련된 문제가 있었습니다. 이 버그는 이 릴리스에서 해결되었습니다. |예 |예 |
 | 5 |마이그레이션 |이전 릴리스에서 5000-7000 시리즈에서 8000 시리즈 디바이스로 마이그레이션의 안정성과 관련된 몇 가지 문제가 있었습니다. 이러한 문제는 이 릴리스에서 해결되었습니다. |예 |예 |
@@ -82,7 +82,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 ## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-update-4"></a>업데이트 4의 SAS(Serial attached SCSI) 컨트롤러 및 펌웨어 업데이트
 
-이 릴리스에는 SAS 컨트롤러, LSI 드라이버 및 펌웨어 업데이트가 있습니다. 이러한 업데이트를 설치하는 방법에 대한 자세한 내용은 StorSimple 디바이스의 [업데이트 4 설치](storsimple-install-update-4.md)를 참조하세요.
+이 릴리스에는 SAS 컨트롤러, LSI 드라이버 및 펌웨어 업데이트가 있습니다. 이러한 업데이트를 설치하는 방법에 대한 자세한 내용은 StorSimple 디바이스의 [업데이트 4 설치](./storsimple-8000-install-update-4.md)를 참조하세요.
 
 ## <a name="virtual-device-updates-in-update-4"></a>업데이트 4의 가상 디바이스 업데이트
 
@@ -90,5 +90,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 ## <a name="next-step"></a>다음 단계
 
-StorSimple 디바이스에 [업데이트 4를 설치](storsimple-install-update-4.md)하는 방법을 알아봅니다.
-
+StorSimple 디바이스에 [업데이트 4를 설치](./storsimple-8000-install-update-4.md)하는 방법을 알아봅니다.

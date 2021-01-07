@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54612bee5715cdb78141a8aacfa5d24c814269d1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 46fe27205a2c30d6cb2319bf620c6fe1ee34c31e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312398"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459008"
 ---
-# <a name="grant-permissions-to-workspace-managed-identity-preview"></a>작업 영역 관리 id에 사용 권한 부여 (미리 보기)
+# <a name="grant-permissions-to-workspace-managed-identity"></a>작업 영역 관리 ID에 권한 부여
 
 이 문서에서는 Azure synapse 작업 영역에서 관리 되는 id에 대 한 사용 권한을 부여 하는 방법을 설명 합니다. 권한으로 작업 영역에서 전용 SQL 풀에 대 한 액세스를 허용 하 고 Azure Portal를 통해 저장소 계정을 ADLS Gen2 수 있습니다.
 

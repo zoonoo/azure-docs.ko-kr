@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2f46440a4214e298bc6d2f3b9c2b5680437ead7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143918"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522705"
 ---
 # <a name="azure-resource-logs"></a>Azure 리소스 로그
 Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다. 리소스 로그는 기본적으로 수집 되지 않습니다. 각 Azure 리소스에 대 한 진단 설정을 만들어 [Azure Monitor 로그](data-platform-logs.md), Event Hubs azure 외부에서 전달 하는 데 사용 하는 Log Analytics 작업 영역에 리소스 로그를 전송 하거나 보관을 위해 Azure Storage 합니다.
@@ -43,7 +43,7 @@ Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한
 
 AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.  
 
-| ResourceProvider    | 범주     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | 범주     | A  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft Service1 | AuditLogs    | x | y1 | z1 |    |    |    |    |    |    |
 | Microsoft Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
@@ -54,13 +54,13 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
 | ... |
 
 ### <a name="resource-specific"></a>리소스 관련
-이 모드에서는 진단 설정에서 선택한 각 범주에 대해 선택한 작업 영역의 개별 테이블이 생성 됩니다. 이 방법은 로그 쿼리에서 데이터를 더 쉽게 사용할 수 있도록 하 고, 스키마 및 해당 구조를 보다 효율적으로 검색 하 고, 수집 대기 시간과 쿼리 시간 모두에서 성능을 향상 시키고, 특정 테이블에 대해 RBAC 권한을 부여 하는 기능을 제공 하기 때문에 권장 됩니다. 모든 Azure 서비스는 궁극적으로 Resource-Specific 모드로 마이그레이션됩니다. 
+이 모드에서는 진단 설정에서 선택한 각 범주에 대해 선택한 작업 영역의 개별 테이블이 생성 됩니다. 이 방법은 로그 쿼리에서 데이터를 사용 하는 작업을 훨씬 쉽게 수행할 수 있도록 하 고, 스키마 및 해당 구조를 보다 효율적으로 검색 하 고, 수집 대기 시간과 쿼리 시간 모두에서 성능을 향상 시키고, 특정 테이블에 대 한 Azure RBAC 권한을 부여 하는 기능을 제공 하기 때문에 권장 됩니다. 모든 Azure 서비스는 궁극적으로 Resource-Specific 모드로 마이그레이션됩니다. 
 
 위의 예에서는 세 개의 테이블을 만듭니다.
  
 - *Service1AuditLogs* 테이블은 다음과 같습니다.
 
-    | 리소스 공급자 | 범주 | A | B | C |
+    | 리소스 공급자 | 범주 | A | b | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | x | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |

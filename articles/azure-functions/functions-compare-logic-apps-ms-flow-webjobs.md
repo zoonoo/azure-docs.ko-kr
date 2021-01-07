@@ -4,12 +4,12 @@ description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비�
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 2c17b311811fd2cba46db379fcc766c04dd9d56d
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 81b143219fd0b53d4cd00761af6b767c173ed88d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403078"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934869"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Azure에서 적절한 통합 및 자동화 서비스 선택
 
@@ -45,7 +45,7 @@ Power Automate는 개발자나 IT를 통하지 않고 사무실 작업자가 간
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Azure Functions 및 Azure Logic Apps 비교
 
-Functions 및 Logic Apps는 서버가 없는 워크로드를 활성화하는 Azure 서비스입니다. Azure Functions는 서버리스 컴퓨팅 서비스인 반면 Azure Logic Apps는 서버리스 워크플로를 제공합니다. 둘 다 복합 *오케스트레이션*을 만듭니다. 오케스트레이션은 Logic Apps에서 *작업*이라는 함수 또는 단계의 집합이며 복잡한 작업을 수행하기 위해 실행됩니다. 예를 들어 주문의 일괄 처리를 처리하기 위해 많은 함수의 인스턴스를 동시에 실행하고, 모든 인스턴스가 완료되기를 기다린 다음, 집계에 대한 결과를 컴퓨팅하는 함수를 실행할 수 있습니다.
+Functions 및 Logic Apps는 서버가 없는 워크로드를 활성화하는 Azure 서비스입니다. Azure Functions는 서버리스 컴퓨팅 서비스인 반면 Azure Logic Apps는 서버리스 워크플로를 제공합니다. 둘 다 복합 *오케스트레이션* 을 만듭니다. 오케스트레이션은 Logic Apps에서 *작업* 이라는 함수 또는 단계의 집합이며 복잡한 작업을 수행하기 위해 실행됩니다. 예를 들어 주문의 일괄 처리를 처리하기 위해 많은 함수의 인스턴스를 동시에 실행하고, 모든 인스턴스가 완료되기를 기다린 다음, 집계에 대한 결과를 컴퓨팅하는 함수를 실행할 수 있습니다.
 
 Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durable/durable-functions-overview.md)을 사용하여 오케스트레이션을 개발합니다. Logic Apps의 경우 GUI를 사용하거나 구성 파일을 편집하여 오케스트레이션을 만듭니다.
 
@@ -68,7 +68,7 @@ Azure Functions와 마찬가지로, Azure App Service WebJobs with the WebJobs S
 
 ### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs 및 WebJobs SDK
 
-App Service의 *WebJobs* 기능을 사용하여 App Service 웹앱의 컨텍스트에서 스크립트 또는 코드를 실행할 수 있습니다. *WebJobs SDK*는 WebJobs를 위해 설계된 프레임워크로, 개발자가 Azure 서비스의 이벤트에 응답하기 위해 작성하는 코드를 간소화합니다. 예를 들어 썸네일 이미지를 만들어서 Azure Storage에 이미지 Blob 만들기에 대응할 수 있습니다. WebJobs SDK는 WebJob을 배포할 수 있는 .NET 콘솔 애플리케이션으로 실행됩니다. 
+App Service의 *WebJobs* 기능을 사용하여 App Service 웹앱의 컨텍스트에서 스크립트 또는 코드를 실행할 수 있습니다. *WebJobs SDK* 는 WebJobs를 위해 설계된 프레임워크로, 개발자가 Azure 서비스의 이벤트에 응답하기 위해 작성하는 코드를 간소화합니다. 예를 들어 썸네일 이미지를 만들어서 Azure Storage에 이미지 Blob 만들기에 대응할 수 있습니다. WebJobs SDK는 WebJob을 배포할 수 있는 .NET 콘솔 애플리케이션으로 실행됩니다. 
 
 WebJobs와 WebJobs SDK는 최고의 호환성을 자랑하지만, WebJobs SDK 없이 WebJobs만 또는 그 반대로 사용할 수도 있습니다. WebJob은 App Service 샌드박스에서 실행되는 모든 프로그램 또는 스크립트를 실행할 수 있습니다. WebJobs SDK 콘솔 애플리케이션은 온-프레미스 서버처럼 콘솔 애플리케이션을 실행하는 모든 위치에서 실행 가능합니다.
 
@@ -78,9 +78,9 @@ Azure Functions는 WebJobs SDK 기반이므로 다른 Azure 서비스와 여러 
 
 |  | Functions | WebJobs with WebJobs SDK |
 | --- | --- | --- |
-|**[자동 크기 조정](functions-scale.md#how-the-consumption-and-premium-plans-work)이 가능한 [서버리스 애플리케이션 모델](https://azure.microsoft.com/solutions/serverless/)**|✔||
+|**[자동 크기 조정](event-driven-scaling.md)이 가능한 [서버리스 애플리케이션 모델](https://azure.microsoft.com/solutions/serverless/)**|✔||
 |**[브라우저에서 개발 및 테스트](functions-create-first-azure-function.md)** |✔||
-|**[사용량 기준 과금 가격 책정](functions-scale.md#consumption-plan)**|✔||
+|**[사용량 기준 과금 가격 책정](consumption-plan.md)**|✔||
 |**[Logic Apps와 통합](functions-twitter-email.md)**|✔||
 | **트리거 이벤트** |[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/웹후크(GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[파일 시스템](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | **지원되는 언어**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|

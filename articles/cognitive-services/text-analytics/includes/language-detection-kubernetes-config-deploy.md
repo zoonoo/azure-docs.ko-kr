@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 1edca9cf8449ff386d0a9920e7d80d69692536fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779128"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017874"
 ---
 ### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>AKS 클러스터에 언어 감지 컨테이너 배포
 
@@ -49,7 +49,7 @@ ms.locfileid: "91779128"
     code .
     ```
 
-1. 텍스트 편집기 내에서 이름이 *.yaml*인 새 파일을 만들고 다음 yaml을 붙여넣습니다. `billing/value`및을 `apikey/value` 사용자의 정보로 바꾸어야 합니다.
+1. 텍스트 편집기 내에서 이름이 *.yaml* 인 새 파일을 만들고 다음 yaml을 붙여넣습니다. `billing/value`및을 `apikey/value` 사용자의 정보로 바꾸어야 합니다.
 
     ```yaml
     apiVersion: apps/v1beta1

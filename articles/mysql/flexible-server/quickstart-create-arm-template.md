@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: 3f32d3d7cc498126d0fbdb709aaf0424d335793f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a7dc6a6b11d3bfacf0aac5472a872ffaa7acc92b
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534127"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748708"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL - 유연한 서버 만들기
 
@@ -53,14 +53,12 @@ _mysql-flexible-server-template.json_ 파일을 만들고 여기에 이 JSON 스
     "serverEdition": {
       "type": "String"
     },
-    "vCores": {
-      "type": "Int"
-    },
     "storageSizeMB": {
       "type": "Int"
     },
-    "standbyCount": {
-      "type": "Int"
+    "haEnabled": {
+      "type": "string",
+      "defaultValue": "Disabled"
     },
     "availabilityZone": {
       "type": "String"
@@ -85,11 +83,11 @@ _mysql-flexible-server-template.json_ 파일을 만들고 여기에 이 JSON 스
     }
   },
   "variables": {
-    "api": "2020-02-14-privatepreview",
+    "api": "2020-07-01-preview",
     "firewallRules": "[parameters('firewallRules').rules]",
     "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"vnetId\": \"\", \"vnetName\": \"\", \"vnetResourceGroup\": \"\", \"subnetName\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"DelegatedVnetID\": \"', variables('vnetDataSet').vnetId, '\", \"DelegatedVnetName\": \"', variables('vnetDataSet').vnetName, '\", \"DelegatedVnetResourceGroup\": \"', variables('vnetDataSet').vnetResourceGroup, '\", \"DelegatedSubnetName\": \"', variables('vnetDataSet').subnetName, '\"}'))]"
+    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
+    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
   },
   "resources": [
     {
@@ -99,8 +97,7 @@ _mysql-flexible-server-template.json_ 파일을 만들고 여기에 이 JSON 스
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]",
-        "capacity": "[parameters('vCores')]"
+        "tier": "[parameters('serverEdition')]"        
       },
       "tags": "[parameters('tags')]",
       "properties": {
@@ -108,8 +105,8 @@ _mysql-flexible-server-template.json_ 파일을 만들고 여기에 이 JSON 스
         "administratorLogin": "[parameters('administratorLogin')]",
         "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
         "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "VnetInjArgs": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "standbyCount": "[parameters('standbyCount')]",
+        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
+        "haEnabled": "[parameters('haEnabled')]",
         "storageProfile": {
           "storageMB": "[parameters('storageSizeMB')]",
           "backupRetentionDays": "[parameters('backupRetentionDays')]"
@@ -245,7 +242,7 @@ echo "Press [ENTER] to continue ..."
 ARM 템플릿을 만드는 과정을 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> 첫 번째 ARM 템플릿 만들기 및 배포[
+> [첫 번째 ARM 템플릿 만들기 및 배포](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 MySQL을 사용하여 App Service를 통해 앱을 빌드하는 단계별 자습서는 다음을 참조하세요.
 

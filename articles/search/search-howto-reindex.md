@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 10c7d4146d61f5b589b29bc8faad5fa8e60a293a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae8fd7f405beb20d516835ccb80b86e769fd0393
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924030"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697087"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱스를 다시 작성 하는 방법
 
 이 문서에서는 Azure Cognitive Search 인덱스를 다시 작성 하는 방법, 다시 작성 해야 하는 상황 및 진행 중인 쿼리 요청에 대 한 재작성의 영향을 완화 하기 위한 권장 사항을 설명 합니다.
 
-*다시 작성*은 모든 필드 기반의 반전된 인덱스를 포함하여 인덱스와 연결된 실제 데이터 구조를 삭제했다가 다시 만드는 것을 의미합니다. Azure Cognitive Search에서는 개별 필드를 삭제 하 고 다시 만들 수 없습니다. 인덱스를 다시 작성하려면 모든 필드 스토리지를 삭제하고, 기존 또는 수정된 인덱스 스키마를 기준으로 다시 만든 후 인덱스에 푸시되었거나 외부 원본에서 가져온 데이터로 다시 채워야 합니다. 
+*다시 작성* 은 모든 필드 기반의 반전된 인덱스를 포함하여 인덱스와 연결된 실제 데이터 구조를 삭제했다가 다시 만드는 것을 의미합니다. Azure Cognitive Search에서는 개별 필드를 삭제 하 고 다시 만들 수 없습니다. 인덱스를 다시 작성하려면 모든 필드 스토리지를 삭제하고, 기존 또는 수정된 인덱스 스키마를 기준으로 다시 만든 후 인덱스에 푸시되었거나 외부 원본에서 가져온 데이터로 다시 채워야 합니다. 
 
 인덱스 디자인을 반복할 때 개발 중에 인덱스를 다시 작성 하는 것이 일반적 이지만 복잡 한 형식을 추가 하거나 확인 기에 필드를 추가 하는 등 구조적 변경을 수용 하기 위해 프로덕션 수준 인덱스를 다시 작성 해야 할 수도 있습니다.
 
@@ -37,10 +37,10 @@ ms.locfileid: "88924030"
 
 다음 조건 중 하나라도 충족 되 면 인덱스를 삭제 하 고 다시 만듭니다. 
 
-| 조건 | 설명 |
+| 조건 | Description |
 |-----------|-------------|
 | 필드 정의 변경 | 필드 이름, 데이터 형식 또는 특정 [인덱싱 특성](/rest/api/searchservice/create-index)(검색 가능, 필터링 가능, 정렬 가능, 패싯 가능)을 수정하려면 전체적으로 다시 작성해야 합니다. |
-| 필드에 분석기 할당 | [분석기](search-analyzers.md)는 인덱스에 정의된 후 필드에 할당됩니다. 언제든지 새 분석기 정의를 인덱스에 추가할 수 있지만, 분석기 *할당*은 필드를 만들 때만 가능합니다. **분석기**와 **indexAnalyzer** 둘 다 그렇습니다. **searchAnalyzer** 속성은 예외입니다(이 속성을 기존 필드에 할당 가능). |
+| 필드에 분석기 할당 | [분석기](search-analyzers.md)는 인덱스에 정의된 후 필드에 할당됩니다. 언제든지 새 분석기 정의를 인덱스에 추가할 수 있지만, 분석기 *할당* 은 필드를 만들 때만 가능합니다. **분석기** 와 **indexAnalyzer** 둘 다 그렇습니다. **searchAnalyzer** 속성은 예외입니다(이 속성을 기존 필드에 할당 가능). |
 | 인덱스의 분석기 정의 업데이트 또는 삭제 | 전체 인덱스를 다시 작성하지 않는 한 인덱스의 기존 분석기 구성(분석기, 토크나이저, 토큰 필터 또는 char 필터)을 삭제 또는 변경할 수 없습니다. |
 | 제안기에 필드 추가 | 필드가 이미 있고 필드에 [Suggesters](index-add-suggesters.md) 구문을 추가하려면 인덱스를 다시 작성해야 합니다. |
 | 필드 삭제 | 필드의 모든 추적을 실제로 제거하려면 인덱스를 다시 작성해야 합니다. 즉시 다시 빌드를 수행할 수 없는 경우 "deleted" 필드에 대 한 액세스를 사용 하지 않도록 응용 프로그램 코드를 수정 하거나 [$select 쿼리 매개 변수](search-query-odata-select.md) 를 사용 하 여 결과 집합에 표시할 필드를 선택할 수 있습니다. 실제로 필드 정의와 콘텐츠는 다음 번에 의심스러운 필드를 생략하는 스키마를 적용할 때 다시 작성이 수행될 때까지 인덱스에 남아 있습니다. |
@@ -91,7 +91,7 @@ ms.locfileid: "88924030"
 
 첫 번째 문서를 로드하는 즉시 인덱스 쿼리를 시작할 수 있습니다. 문서 ID를 알고 있는 경우 [문서 조회 REST API](/rest/api/searchservice/lookup-document)가 특정 문서를 반환합니다. 보다 광범위한 테스트를 위해서는 인덱스가 완전히 로드될 때까지 기다린 다음, 쿼리를 사용하여 보려는 컨텍스트를 확인합니다.
 
-[검색 탐색기](search-explorer.md) 또는 [postman](search-get-started-postman.md) 과 같은 웹 테스트 도구를 사용 하 여 업데이트 된 콘텐츠를 확인할 수 있습니다.
+[검색 탐색기](search-explorer.md) 또는 [postman 또는 Visual Studio Code](search-get-started-rest.md) 와 같은 웹 테스트 도구를 사용 하 여 업데이트 된 콘텐츠를 확인할 수 있습니다.
 
 필드를 추가 하거나 이름을 바꾼 경우 [$select](search-query-odata-select.md) 를 사용 하 여 해당 필드를 반환 합니다. `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 

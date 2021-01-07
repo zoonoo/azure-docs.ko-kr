@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2020
+ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 3e2905019244279129528c177a76291cb7d75e11
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353359"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825770"
 ---
 # <a name="upgrade-public-ip-addresses"></a>공용 IP 주소 업그레이드
 
@@ -32,9 +32,6 @@ Azure 공용 IP 주소는 SKU (기본 또는 표준)를 사용 하 여 생성 �
 * 클래식 Azure 예약된 IP Azure Resource Manager 기본 SKU 공용 IP로 마이그레이션하는 방법
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>기본에서 표준 SKU로 공용 IP 주소 업그레이드
-
->[!NOTE]
->공용 Ip를 Basic에서 Standard로 업그레이드 하는 기능은 일부 지역에서 사용할 수 없습니다.  자세한 내용은 [**제한 사항을**](#limitations) 참조 하세요.
 
 공용 IP를 업그레이드 하려면 리소스와 연결 되지 않아야 합니다. 공용 IP의 연결을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.
 
@@ -148,27 +145,9 @@ Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약�
 
 ## <a name="limitations"></a>제한 사항
 
-* 이 기능은 현재 다음 지역 에서만 사용할 수 있습니다.<br>
-미국 중서부<br>
-미국 중북부<br>
-미국 서부<br>
-미국 서부 2<br>
-노르웨이 동부<br>
-남아프리카 북부<br>
-미국 동부<br>
-북유럽<br>
-한국 중부<br>
-인도 중부<br>
-미국 동부 2<br>
-스위스 북부<br>
-인도 서부<br>
-독일 북부<br>
-캐나다 중부<br>
-프랑스 남부<br>
-인도 서부
-
 * 기본 공용 IP를 업그레이드 하기 위해 Azure 리소스에 연결할 수 없습니다.  공용 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.  마찬가지로 예약된 IP 마이그레이션하기 위해 클라우드 서비스에 연결할 수 없습니다.  예약 된 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) 를 참조 하세요.  
 * 기본에서 표준 SKU로 업그레이드 된 공용 Ip는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) 을 계속 갖지 않으므로 영역 중복 또는 영역 인 Azure 리소스에 연결할 수 없습니다.  참고이는 가용성 영역을 제공 하는 지역에만 적용 됩니다.
+* 표준에서 기본으로 다운 그레이드할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

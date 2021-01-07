@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/27/2020
-ms.openlocfilehash: 1301af3bd17ce44720d77aa1b812b78bbe57ffc9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ff195f7a0071c06d5309f95f77e32ae75f584f82
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101394"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749167"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 자동화된 작업, 프로세스 및 워크플로 만들기 - Visual Studio
 
@@ -37,7 +37,7 @@ Azure Logic Apps을 처음 사용하는 경우 기본 개념만 알아보려면 
     > [!IMPORTANT]
     > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다.
 
-  * [.NET용 Microsoft Azure SDK(2.9.1 이상)](https://azure.microsoft.com/downloads/). [Azure SDK for .NET](/dotnet/azure/dotnet-tools?tabs=vs)에 대해 자세히 알아보세요.
+  * [.NET용 Microsoft Azure SDK(2.9.1 이상)](https://azure.microsoft.com/downloads/). [Azure SDK for .NET](/dotnet/azure/intro)에 대해 자세히 알아보세요.
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -145,7 +145,7 @@ Azure 리소스 그룹 프로젝트를 사용하는 경우 **빈 논리 앱** �
    | 사용자 계정 | Fabrikam <br> sophia-owen@fabrikam.com | Visual Studio에 로그인 할 때 사용한 계정 |
    | **구독** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | Azure 구독 및 연결된 계정에 대한 이름 |
    | **리소스 그룹** | MyLogicApp-RG <br> (미국 서부) | 논리 앱의 리소스를 저장하고 배포하는 Azure 리소스 그룹 및 위치 |
-   | **위치** | **리소스 그룹과 동일** | 논리 앱을 배포하기 위한 위치 유형 및 특정 위치입니다. 위치 유형은 Azure 지역이거나 기존 [ISE(통합 서비스 환경)](connect-virtual-network-vnet-isolated-environment.md)입니다. <p>이 빠른 시작에서는 위치 유형을 **지역** 으로, 위치를 **리소스 그룹과 동일** 로 설정합니다. <p>**참고** : 리소스 그룹 프로젝트를 만든 후에는 [위치 유형 및 위치를 변경](manage-logic-apps-with-visual-studio.md#change-location)할 수 있지만 위치 유형마다 다양한 방식으로 논리 앱에 영향을 줍니다. |
+   | **위치** | **리소스 그룹과 동일** | 논리 앱을 배포하기 위한 위치 유형 및 특정 위치입니다. 위치 유형은 Azure 지역이거나 기존 [ISE(통합 서비스 환경)](connect-virtual-network-vnet-isolated-environment.md)입니다. <p>이 빠른 시작에서는 위치 유형을 **지역** 으로, 위치를 **리소스 그룹과 동일** 로 설정합니다. <p>**참고**: 리소스 그룹 프로젝트를 만든 후에는 [위치 유형 및 위치를 변경](manage-logic-apps-with-visual-studio.md#change-location)할 수 있지만 위치 유형마다 다양한 방식으로 논리 앱에 영향을 줍니다. |
    ||||
 
 1. 소개 비디오 및 많이 사용되는 트리거를 보여주는 페이지가 Logic Apps 디자이너에 열립니다. 비디오를 지나 아래로 스크롤하여 **템플릿** 을 트리거하고 **비어 있는 논리 앱** 을 선택합니다.

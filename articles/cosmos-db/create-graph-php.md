@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Gremlin API와 PHP - Azure Cosmos DB'
 description: 이 빠른 시작은 Azure Portal 및 PHP와 함께 Azure Cosmos DB Gremlin API를 사용하여 콘솔 애플리케이션을 만드는 방법을 보여줍니다.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
-ms.author: jasonh
-ms.openlocfilehash: f4bf5ebeb3cda8507b79a7021dd506146ecb2a36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: chrande
+ms.openlocfilehash: dfb7b530ce7d907407eef987b5df8af245c90950
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131312"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360839"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>빠른 시작: PHP 및 Azure Portal을 사용하여 Azure Cosmos DB에서 그래프 데이터베이스 만들기
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

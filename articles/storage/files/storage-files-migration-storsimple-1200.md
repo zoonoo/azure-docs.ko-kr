@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510340"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630484"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 1200 마이그레이션
 
@@ -32,7 +32,7 @@ Azure File Sync는 다음과 같은 두 가지 주요 구성 요소를 기반으
 
 이 문서에서는 마이그레이션 단계를 중점적으로 설명 합니다. 마이그레이션하기 전에 Azure File Sync에 대해 자세히 알아보려면 다음 문서를 수행 하는 것이 좋습니다.
 
-* [Azure File Sync-개요](https://aka.ms/AFS "개요")
+* [Azure File Sync-개요](./storage-sync-files-planning.md "개요")
 * [Azure File Sync-배포 가이드](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>마이그레이션 목표
@@ -155,7 +155,7 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
       /MIR
    :::column-end:::
    :::column span="1":::
-      에서이 RoboCopy 명령을 여러 번 실행 하 여 동일한 대상/대상에 순차적으로 실행할 수 있습니다. 이전에 복사 된 항목을 식별 하 고 생략 합니다. 마지막으로 실행 한 이후에 발생 한 변경 내용, 추가 내용 및 "*삭제*"만 처리 됩니다. 이전에 명령을 실행 하지 않은 경우에는 아무 것도 생략 됩니다. 이는 여전히 적극적으로 사용 되 고 변경 되는 원본 위치에 대 한 뛰어난 옵션입니다.
+      에서이 RoboCopy 명령을 여러 번 실행 하 여 동일한 대상/대상에 순차적으로 실행할 수 있습니다. 이전에 복사 된 항목을 식별 하 고 생략 합니다. 마지막으로 실행 한 이후에 발생 한 변경 내용, 추가 내용 및 " *삭제* "만 처리 됩니다. 이전에 명령을 실행 하지 않은 경우에는 아무 것도 생략 됩니다. 이는 여전히 적극적으로 사용 되 고 변경 되는 원본 위치에 대 한 뛰어난 옵션입니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -210,20 +210,20 @@ Windows Server 폴더에 대 한 공유를 만들고 DFS-N 배포를 조정 하 
 이러한 복사본 중 일부를 병렬로 실행할 수 있습니다. 한 번에 하나의 Azure 파일 공유의 범위를 처리 하는 것이 좋습니다.
 
 > [!WARNING]
-> StorSimple의 모든 데이터를 Windows Server로 이동 하 고 마이그레이션이 완료 되 면 Azure Portal의 ***모든***  동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 백분율 값을 캐시 사용률 (20%)에 더 적합 한 값으로 조정 합니다. 
+> StorSimple의 모든 데이터를 Windows Server로 이동 하 고 마이그레이션이 완료 된 후에는 Azure Portal의 * **모든** _ 동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 (%) 값을 캐시 사용률에 더 적합 한 값 (예: 20%)으로 조정 합니다. 
 
 클라우드 계층화 볼륨의 사용 가능한 공간 정책은 잠재적으로 여러 서버 끝점에서 동기화 되는 볼륨 수준에서 작동 합니다. 하나의 서버 끝점에서 사용 가능한 공간을 조정 하는 것을 잊은 경우, 동기화는 가장 제한적인 규칙을 계속 적용 하 고 99%의 사용 가능한 디스크 공간을 유지 하 여 로컬 캐시가 정상적으로 작동 하지 않도록 합니다. 드물게 액세스 하는 볼륨에 대 한 네임 스페이스만 보유 하 고 있는 경우를 제외 하 고는 보관 데이터를 포함 합니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 
-실행할 수 있는 가장 가능성이 높은 문제는 RoboCopy 명령이 Windows Server 쪽에서 *"볼륨 전체"* 와 함께 실패 하는 것입니다. 이 경우 다운로드 속도가 업로드 속도 보다 더 좋을 수 있습니다. 클라우드 계층화는 1 시간 마다 한 번씩 작동 하 여 로컬 Windows Server 디스크에서 콘텐츠를 이동할 동기화 했습니다.
+실행할 수 있는 가장 가능성이 높은 문제는 RoboCopy 명령이 Windows Server 쪽에서 _ "Volume full" *로 실패 하는 것입니다. 이 경우 다운로드 속도가 업로드 속도 보다 더 좋을 수 있습니다. 클라우드 계층화는 1 시간 마다 한 번씩 작동 하 여 로컬 Windows Server 디스크에서 콘텐츠를 이동할 동기화 했습니다.
 
 동기화 진행률 및 클라우드 계층화의 디스크 공간을 확보 합니다. Windows 서버의 파일 탐색기에서이를 확인할 수 있습니다.
 
 Windows 서버에 사용 가능한 용량이 충분 한 경우 명령을 다시 실행 하면 문제가 해결 됩니다. 이러한 상황이 발생 하는 경우에는 아무 것도 중단 되지 않으며, 자신 있게 이동할 수도 있습니다. 명령을 다시 실행 하는 것은 불편 합니다.
 
 다른 Azure File Sync 문제를 실행할 수도 있습니다.
-그럴 가능성은 거의 없어 **문제 해결 가이드 Azure File Sync 링크**를 살펴보세요.
+그럴 가능성은 거의 없어 **문제 해결 가이드 Azure File Sync 링크** 를 살펴보세요.
 
 ## <a name="relevant-links"></a>관련 링크
 
@@ -233,6 +233,6 @@ Windows 서버에 사용 가능한 용량이 충분 한 경우 명령을 다시 
 
 Azure File Sync 콘텐츠:
 
-* [AFS 개요](https://aka.ms/AFS)
+* [AFS 개요](./storage-sync-files-planning.md)
 * [AFS 배포 가이드](storage-files-deployment-guide.md)
 * [AFS 문제 해결](storage-sync-files-troubleshoot.md)

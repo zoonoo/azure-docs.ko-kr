@@ -1,20 +1,18 @@
 ---
 title: Service Fabric Reliable Actors
 description: Reliable Actors를 Reliable Services에 계층화하고 서비스 패브릭 플랫폼의 기능을 사용하는 방법을 설명합니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 3/9/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1cd90d4567bde6cd2c4f2a29e2d516b51b79e2af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3bd67e0f71e20a8b5a74b4b38e5b423a14dc08d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016617"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575621"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
-이 문서에서는 Azure Service Fabric 플랫폼에서 Reliable Actors가 작동하는 방법을 설명합니다. Reliable Actors *행위자 서비스*라고 하는 상태 저장 신뢰할 수 있는 서비스의 구현에서 호스트 되는 프레임 워크에서 실행 됩니다. 행위자 서비스는 행위자에게 발송되는 수명 주기 및 메시지를 관리하는 데 필요한 모든 구성 요소를 포함합니다.
+이 문서에서는 Azure Service Fabric 플랫폼에서 Reliable Actors가 작동하는 방법을 설명합니다. Reliable Actors *행위자 서비스* 라고 하는 상태 저장 신뢰할 수 있는 서비스의 구현에서 호스트 되는 프레임 워크에서 실행 됩니다. 행위자 서비스는 행위자에게 발송되는 수명 주기 및 메시지를 관리하는 데 필요한 모든 구성 요소를 포함합니다.
 
 * 행위자 런타임은 수명 주기, 가비지 수집을 관리하고 단일 스레드 액세스를 적용합니다.
 * 행위자 서비스 원격 수신기는 행위자에 대한 원격 액세스 호출을 허용하고 적절한 행위자 인스턴스를 라우팅하는 디스패처에게 보냅니다.

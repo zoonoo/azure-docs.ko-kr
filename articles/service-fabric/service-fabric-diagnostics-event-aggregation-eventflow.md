@@ -7,11 +7,11 @@ ms.date: 2/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a80eea5a50aa7b1e441049eeb2cae381994cd3ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018657"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006339"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>EventFlow를 사용하여 이벤트 집계 및 수집
 
@@ -40,7 +40,7 @@ EventFlow 이진을 NuGet 패키지 집합으로 사용할 수 있습니다. Eve
 >[!NOTE]
 >프로젝트 파일에 VisualStudio 2017 형식이 있는 경우 `eventFlowConfig.json` 파일이 자동으로 추가되지 않습니다. 이를 해결하려면 `Config` 폴더에 파일을 만들고 빌드 작업을 `Copy if newer`로 설정합니다. 
 
-다음은 위에서 언급한 NuGet 패키지를 기반으로 하는 샘플 *eventFlowConfig.json*입니다.
+다음은 위에서 언급한 NuGet 패키지를 기반으로 하는 샘플 *eventFlowConfig.json* 입니다.
 ```json
 {
   "inputs": [
@@ -71,7 +71,7 @@ EventFlow 이진을 NuGet 패키지 집합으로 사용할 수 있습니다. Eve
 }
 ```
 
-서비스의 ServiceEventSource 이름은ServiceEventSource 클래스에 적용된 `EventSourceAttribute`의 Name 속성 값입니다. 모두 `ServiceEventSource.cs` 파일에서 지정하며 서비스 코드의 일부입니다. 예를 들어 다음 코드 조각에서 ServiceEventSource의 이름은 *MyCompany-Application1-Stateless1*입니다.
+서비스의 ServiceEventSource 이름은ServiceEventSource 클래스에 적용된 `EventSourceAttribute`의 Name 속성 값입니다. 모두 `ServiceEventSource.cs` 파일에서 지정하며 서비스 코드의 일부입니다. 예를 들어 다음 코드 조각에서 ServiceEventSource의 이름은 *MyCompany-Application1-Stateless1* 입니다.
 
 ```csharp
 [EventSource(Name = "MyCompany-Application1-Stateless1")]
@@ -130,7 +130,7 @@ namespace Stateless1
 }
 ```
 
-`ServiceFabricDiagnosticsPipelineFactory`의 `CreatePipeline` 메서드 매개 변수 형태로 전달되는 이름은 EventFlow 로그 수집 파이프라인을 나타내는 *상태 개체*의 이름입니다. EventFlow에서 오류가 발생하고 Service Fabric 상태 하위 시스템을 통해 보고할 경우 이 이름을 사용합니다.
+`ServiceFabricDiagnosticsPipelineFactory`의 `CreatePipeline` 메서드 매개 변수 형태로 전달되는 이름은 EventFlow 로그 수집 파이프라인을 나타내는 *상태 개체* 의 이름입니다. EventFlow에서 오류가 발생하고 Service Fabric 상태 하위 시스템을 통해 보고할 경우 이 이름을 사용합니다.
 
 ### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>eventFlowConfig에서 Service Fabric 설정 및 애플리케이션 매개 변수 사용
 

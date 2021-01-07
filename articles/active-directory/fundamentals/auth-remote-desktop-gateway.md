@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory를 사용 하 여 서비스 원격 데스크톱 게이트웨이
-description: 이 인증 패턴을 달성 하는 데 대 한 아키텍처 지침
+description: Azure Active Directory를 사용 하 여 원격 데스크톱 게이트웨이 서비스를 실현 하는 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff099d41970ad4d78d5c6035a60f448f29ab24b1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4baaf2de6fbe4a56f64d449644b8594217dc432c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114357"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172740"
 ---
 # <a name="remote-desktop-gateway-services"></a>원격 데스크톱 게이트웨이 서비스
 
-표준 원격 데스크톱 서비스 (RDS) 배포에는 Windows Server에서 실행 되는 다양 한 [원격 데스크톱 역할 서비스가](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) 포함 되어 있습니다. Azure Active Directory (Azure AD) 응용 프로그램 프록시를 사용 하는 RDS 배포는 커넥터 서비스를 실행 하는 서버에서 영구 아웃 바운드 연결을 사용 합니다. 기타 배포에서는 부하 분산 장치를 통해 열린 인바운드 연결을 유지합니다. 이 인증 패턴을 사용 하면 원격 데스크톱 서비스를 통해 온-프레미스 응용 프로그램을 게시 하 여 더 많은 유형의 응용 프로그램을 제공할 수 있습니다. 또한 Azure AD 응용 프로그램 프록시를 사용 하 여 배포의 공격 노출 영역을 줄입니다.
+표준 원격 데스크톱 서비스 (RDS) 배포에는 Windows Server에서 실행 되는 다양 한 [원격 데스크톱 역할 서비스가](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) 포함 되어 있습니다. Azure Active Directory (Azure AD) 응용 프로그램 프록시를 사용 하는 RDS 배포는 커넥터 서비스를 실행 하는 서버에서 영구 아웃 바운드 연결을 사용 합니다. 기타 배포에서는 부하 분산 장치를 통해 열린 인바운드 연결을 유지합니다. 이 인증 패턴을 사용 하면 원격 데스크톱 서비스를 통해 온-프레미스 응용 프로그램을 게시 하 여 더 많은 유형의 응용 프로그램을 제공할 수 있습니다. 또한 Azure AD 응용 프로그램 프록시를 사용 하 여 배포의 공격 노출 영역을 줄입니다.
 
 ## <a name="use-when"></a>적용 가능한 상황
 
@@ -44,8 +44,7 @@ ms.locfileid: "92114357"
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Azure AD를 사용 하 여 원격 데스크톱 게이트웨이 서비스 구현
 
-* [Azure AD 응용 프로그램 프록시를 사용 하 여 원격 데스크톱 게시](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services) 
+* [Azure AD 응용 프로그램 프록시를 사용 하 여 원격 데스크톱 게시](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) 
 
-* [Azure AD에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+* [Azure AD에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](../manage-apps/application-proxy-add-on-premises-application.md)
 
- 

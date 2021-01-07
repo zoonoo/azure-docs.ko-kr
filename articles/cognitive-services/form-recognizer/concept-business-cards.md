@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 82182c24f87a82df5ee040b7853588f74dda449f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909950"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845612"
 ---
 # <a name="business-card-concepts"></a>명함 개념
 
@@ -52,17 +52,17 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 
 ## <a name="the-analyze-business-card-operation"></a>비즈니스 카드 분석 작업
 
-[분석 회사 카드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 는 회사 카드의 이미지나 PDF를 입력으로 사용 하 고 원하는 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
+[분석 회사 카드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync) 는 회사 카드의 이미지나 PDF를 입력으로 사용 하 고 원하는 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
 
 |응답 헤더| 결과 URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-analyze-business-card-result-operation"></a>비즈니스 카드 분석 결과 가져오기 작업
 
-두 번째 단계는 [Get The Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult) 작업을 호출 하는 것입니다. 이 작업은 비즈니스 카드 분석 작업에서 만든 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
+두 번째 단계는 [Get The Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) 작업을 호출 하는 것입니다. 이 작업은 비즈니스 카드 분석 작업에서 만든 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
-|필드| 형식 | 가능한 값 |
+|필드| Type | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다.<br /><br />실행 중: 분석 작업이 진행 중입니다.<br /><br />실패: 분석 작업이 실패 했습니다.<br /><br />성공: 분석 작업이 성공 했습니다.|
 
@@ -374,7 +374,7 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 }
 ```
 
-[비즈니스 카드 추출 데이터](./QuickStarts/python-business-cards.md) 빠른 시작을 따라 Python 및 REST API를 사용 하 여 비즈니스 카드 데이터 추출을 구현 합니다.
+[빠른](./QuickStarts/client-library.md) 시작 빠른 시작을 따라 Python 및 REST API를 사용 하 여 비즈니스 카드 데이터 추출을 구현 합니다.
 
 ## <a name="customer-scenarios"></a>고객 시나리오  
 
@@ -385,13 +385,13 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 * 판매 잠재 고객을 추적 합니다.  
 * 기존 비즈니스 카드 이미지에서 연락처 정보를 대량으로 추출 합니다. 
 
-또한 비즈니스 카드 API는 [AIBuilder 비즈니스 카드 처리 기능](/ai-builder/prebuilt-business-card)을 향상 시킵니다.
+또한 비즈니스 카드 API는 [AI Builder 비즈니스 카드 처리 기능](/ai-builder/prebuilt-business-card)을 향상 시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 비즈니스 [카드 API Python 빠른](./quickstarts/python-business-cards.md) 시작을 수행 하 여 비즈니스 카드 인식을 시작 하세요.
+- [빠른](./quickstarts/client-library.md) 시작을 따라 비즈니스 카드 인식을 시작 합니다.
 
 ## <a name="see-also"></a>참조
 
 * [Form Recognizer란?](./overview.md)
-* [REST API 참조 문서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
+* [REST API 참조 문서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)

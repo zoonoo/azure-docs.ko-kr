@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 0d893eb2bf7a57e173d7acb8f15104522edbc3bf
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408212"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693735"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -138,11 +138,11 @@ App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 �
 -   애플리케이션 오류(예외 이벤트 표시)
 -   성능(성능 이벤트 표시)
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 이 섹션에서는 Azure Storage 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
-### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
-RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지할 수 있습니다. 데이터 액세스에 대 한 보안 정책을 적용 하려는 조직의 경우에는 보안 원칙을 알아야 하 고 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙에 따라 액세스를 제한 [해야](https://en.wikipedia.org/wiki/Need_to_know) 합니다. 특정 범위에서 그룹 및 응용 프로그램에 적절 한 Azure 역할을 할당 하 여 이러한 액세스 권한을 부여 합니다. 저장소 계정 기여자와 같은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용 하 여 사용자에 게 권한을 할당할 수 있습니다. [Azure Resource Manager](../../storage/blobs/security-recommendations.md) 모델을 사용 하는 저장소 계정의 저장소 키에 대 한 액세스는 RBAC (Role-Based Access Control)를 통해 제어할 수 있습니다.
+### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)
+Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 저장소 계정을 보호할 수 있습니다. 데이터 액세스에 대 한 보안 정책을 적용 하려는 조직의 경우에는 보안 원칙을 알아야 하 고 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙에 따라 액세스를 제한 [해야](https://en.wikipedia.org/wiki/Need_to_know) 합니다. 특정 범위에서 그룹 및 응용 프로그램에 적절 한 Azure 역할을 할당 하 여 이러한 액세스 권한을 부여 합니다. 저장소 계정 기여자와 같은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용 하 여 사용자에 게 권한을 할당할 수 있습니다. Azure RBAC를 통해 [Azure Resource Manager](../../storage/blobs/security-recommendations.md) 모델을 사용 하 여 저장소 계정의 저장소 키에 대 한 액세스를 제어할 수 있습니다.
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
 [SAS (공유 액세스 서명)](../../storage/common/storage-sas-overview.md) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 스토리지 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 제한된 권한을 부여할 수 있습니다.
@@ -221,7 +221,7 @@ Azure Virtual Network와 온-프레미스 사이트 간에 네트워크 트래�
 ### <a name="express-route"></a>Express 경로
 Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md)는 연결 공급자로 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있는 전용 WAN 링크입니다.
 
-![Express 경로](./media/overview/azure-security-fig1.png)
+![Express 경로](./media/overview/azure-security-figure-1.png)
 
 Express 경로를 사용 하 여 Microsoft Azure, Microsoft 365 및 CRM Online과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다.
 
@@ -231,7 +231,7 @@ ExpressRoute 연결은 공용 인터넷을 거치지 않으므로 VPN 기반 솔
 ### <a name="application-gateway"></a>Application Gateway
 Microsoft [Azure Application Gateway](../../application-gateway/overview.md)는 [ADC(Application Delivery Controller)](https://en.wikipedia.org/wiki/Application_delivery_controller)를 서비스로 제공하여 애플리케이션에 다양한 계층 7 부하 분산 기능을 제공합니다.
 
-![Application Gateway](./media/overview/azure-security-fig2.png)
+![Application Gateway](./media/overview/azure-security-figure-2.png)
 
 이를 통해 CPU 집약적 TLS 종료를 Application Gateway ("TLS 오프 로드" 또는 "TLS 브리징"이 라고도 함)에 오프 로드 하 여 웹 팜 생산성을 최적화할 수 있습니다. 또한 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스팅할 수 있는 기능을 포함한 다른 계층 7 라우팅 기능도 제공합니다. Azure Application Gateway는 계층 7 부하 분산 장치입니다.
 
@@ -242,7 +242,7 @@ Microsoft [Azure Application Gateway](../../application-gateway/overview.md)는 
 ### <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
 웹 애플리케이션 방화벽은 표준 ADC 기능을 위해 애플리케이션 게이트웨이를 사용하는 웹 애플리케이션에 보호를 제공하는 [Azure Application Gateway](../../application-gateway/overview.md)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 OWASP Top 10 일반 웹 취약점으로부터 보호함으로써 이 기능을 수행합니다.
 
-![웹 애플리케이션 방화벽](./media/overview/azure-security-fig1.png)
+![웹 애플리케이션 방화벽](./media/overview/azure-security-figure-3.png)
 
 -   SQL 삽입 공격 보호
 
@@ -288,7 +288,7 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 ### <a name="security-center"></a>Security Center
 [Azure Security Center](../../security-center/security-center-introduction.md) 는 네트워크 보안 모범 사례에 대 한 Azure 리소스의 보안 상태를 지속적으로 분석 합니다. Security Center에서 잠재적인 보안 취약점을 식별 하는 경우 리소스를 강화 하 고 보호 하는 데 필요한 컨트롤을 구성 하는 과정을 안내 하는 [권장 사항을](../../security-center/security-center-recommendations.md) 만듭니다.
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>컴퓨팅
 이 섹션에서는 이 영역의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="antimalware--antivirus"></a>맬웨어 방지 및 바이러스 백신
@@ -336,7 +336,7 @@ Microsoft는 제품 및 서비스 전반에 여러 가지 보안 사례와 기�
 
 -   [토큰 기반 인증](../../active-directory/develop/authentication-vs-authorization.md)을 사용하여 Azure Active Directory를 통한 인증을 설정할 수 있습니다.
 
--   Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/built-in-roles.md) 를 사용 하면 사용자의 할당 된 역할에 따라 액세스 권한을 부여 하 여 사용자에 게 작업 업무를 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. 조직의 비즈니스 모델 및 위험 허용 범위에 따라 RBAC를 사용자 지정할 수 있습니다.
+-   Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/built-in-roles.md) 를 사용 하면 사용자의 할당 된 역할에 따라 액세스 권한을 부여 하 여 사용자에 게 작업 업무를 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. 조직의 비즈니스 모델 및 위험 허용 범위에 따라 Azure RBAC를 사용자 지정할 수 있습니다.
 
 -   [통합 ID 관리(하이브리드 ID)](../../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) - 모든 리소스에 대한 인증 및 권한 부여를 위한 단일 사용자 ID를 만들어 내부 데이터 센터 및 클라우드 플랫폼에서 사용자 액세스에 대한 제어를 유지할 수 있게 합니다.
 

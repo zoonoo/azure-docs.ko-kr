@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 9416005c708cafe5adbad2b09ce70c41fae66fd7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443316"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936025"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>웹 Api를 호출 하는 디먼 앱-토큰 획득
 
@@ -57,7 +57,7 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 > [!IMPORTANT]
 > MSAL에서 버전 1.0 액세스 토큰을 허용 하는 리소스에 대 한 액세스 토큰을 요청 하는 경우 Azure AD는 마지막 슬래시 앞에 있는 모든 항목을 사용 하 고 리소스 식별자로 사용 하 여 요청 된 범위에서 원하는 대상 그룹을 구문 분석 합니다.
-> 따라서 Azure SQL Database ( **https: \/ /database.windows.net** )와 마찬가지로 리소스에는 슬래시 (Azure SQL Database의 경우)로 끝나는 대상 그룹이 필요 하므로 `https://database.windows.net/` 의 범위를 요청 해야 `https://database.windows.net//.default` 합니다. (이중 슬래시를 적어둡니다.) 참고 항목: MSAL.NET issue [#747: 리소스 url의 후행 슬래시가 생략 되었으며이로 인해 sql 인증 오류가 발생](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)했습니다.
+> 따라서 Azure SQL Database (**https: \/ /database.windows.net**)와 마찬가지로 리소스에는 슬래시 (Azure SQL Database의 경우)로 끝나는 대상 그룹이 필요 하므로 `https://database.windows.net/` 의 범위를 요청 해야 `https://database.windows.net//.default` 합니다. (이중 슬래시를 적어둡니다.) 참고 항목: MSAL.NET issue [#747: 리소스 url의 후행 슬래시가 생략 되었으며이로 인해 sql 인증 오류가 발생](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)했습니다.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
@@ -91,6 +91,10 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
     // Mitigation: Change the scope to be as expected.
 }
 ```
+
+### <a name="acquiretokenforclient-uses-the-application-token-cache"></a>AcquireTokenForClient는 응용 프로그램 토큰 캐시를 사용 합니다.
+
+MSAL.NET에서는 `AcquireTokenForClient` 응용 프로그램 토큰 캐시를 사용 합니다. 다른 모든 AcquireToken *XX* 메서드는 사용자 토큰 캐시를 사용 합니다. 는 `AcquireTokenSilent` `AcquireTokenForClient` `AcquireTokenSilent` *사용자* 토큰 캐시를 사용 하므로를 호출 하기 전에를 호출 하지 마세요. `AcquireTokenForClient`*응용 프로그램* 토큰 캐시 자체를 확인 하 고 업데이트 합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -200,10 +204,6 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 자세한 내용은 프로토콜 설명서 ( [Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름](v2-oauth2-client-creds-grant-flow.md))를 참조 하세요.
 
-## <a name="application-token-cache"></a>응용 프로그램 토큰 캐시
-
-MSAL.NET에서는 `AcquireTokenForClient` 응용 프로그램 토큰 캐시를 사용 합니다. 다른 모든 AcquireToken *XX* 메서드는 사용자 토큰 캐시를 사용 합니다. 는 `AcquireTokenSilent` `AcquireTokenForClient` `AcquireTokenSilent` *사용자* 토큰 캐시를 사용 하므로를 호출 하기 전에를 호출 하지 마세요. `AcquireTokenForClient`*응용 프로그램* 토큰 캐시 자체를 확인 하 고 업데이트 합니다.
-
 ## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>리소스/. 기본 범위를 사용 했나요?
@@ -228,6 +228,12 @@ Content: {
   }
 }
 ```
+
+### <a name="are-you-calling-your-own-api"></a>사용자 고유의 API를 호출 하 고 있나요?
+
+사용자 고유의 web API를 호출 하 고 디먼 앱에 대 한 앱 등록에 앱 사용 권한을 추가할 수 없는 경우 웹 API에서 앱 역할을 노출 하셨습니까?
+
+자세한 내용은 [응용 프로그램 권한 노출 (앱 역할)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) 및 특히 [Azure AD에서 허용 되는 클라이언트만 웹 API에 대 한 토큰을 발급 하도록 보장](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

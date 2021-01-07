@@ -7,18 +7,19 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 023f32fce01ffbd974b182fa89fd604e62332936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 994130ce2ecb4578a8d34f1f77b310bb558d3c7a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77617203"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967910"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Azure의 SAP HANA(대규모 인스턴스)에 HANA 설치
 
@@ -39,7 +40,7 @@ HANA 대규모 인스턴스 유닛은 인터넷에 직접 연결되지 않습니
 
 SAP Marketplace에 액세스할 수 있는 SAP S-사용자 또는 다른 사용자가 필요합니다.
 
-1. 로그인한 후, [SAP Service Marketplace](https://support.sap.com/en/index.html)로 이동합니다. **소프트웨어**  >  **설치 다운로드 및**  >  **사전순으로**업그레이드를 선택 합니다. 그런 다음 **H – SAP HANA platform edition**  >  **SAP HANA platform edition 2.0**  >  **설치**에서를 선택 합니다. 다음 스크린샷에 표시된 것처럼 파일을 다운로드합니다.
+1. 로그인한 후, [SAP Service Marketplace](https://support.sap.com/en/index.html)로 이동합니다. **소프트웨어**  >  **설치 다운로드 및**  >  **사전순으로** 업그레이드를 선택 합니다. 그런 다음 **H – SAP HANA platform edition**  >  **SAP HANA platform edition 2.0**  >  **설치** 에서를 선택 합니다. 다음 스크린샷에 표시된 것처럼 파일을 다운로드합니다.
 
    ![다운로드할 파일의 스크린샷](./media/hana-installation/image16_download_hana.PNG)
 
@@ -75,11 +76,11 @@ rpm –qa | grep gtk2
 ```
 ./hdblcmgui 
 ```
-이 지점에서 설치를 위해 데이터를 제공하는 일련의 화면이 진행됩니다. 이 예제에서는 SAP HANA 데이터베이스 서버 및 SAP HANA 클라이언트 구성 요소를 설치합니다. 따라서 **SAP HANA 데이터베이스**를 선택합니다.
+이 지점에서 설치를 위해 데이터를 제공하는 일련의 화면이 진행됩니다. 이 예제에서는 SAP HANA 데이터베이스 서버 및 SAP HANA 클라이언트 구성 요소를 설치합니다. 따라서 **SAP HANA 데이터베이스** 를 선택합니다.
 
 ![선택한 SAP HANA 데이터베이스를 사용하는 SAP HANA 수명 주기 관리 화면의 스크린샷](./media/hana-installation/image18_hana_selection.PNG)
 
-다음 화면에서 **새 시스템 설치**를 선택합니다.
+다음 화면에서 **새 시스템 설치** 를 선택합니다.
 
 ![선택한 새 시스템 설치를 사용하는 SAP HANA 수명 주기 관리 화면의 스크린샷](./media/hana-installation/image19_select_new.PNG)
 
@@ -87,7 +88,7 @@ rpm –qa | grep gtk2
 
 ![추가 구성 요소 목록을 사용하는 SAP HANA 수명 주기 관리 화면의 스크린샷](./media/hana-installation/image20_select_components.PNG)
 
-여기서 SAP HANA Client 및 SAP HANA Studio를 선택합니다. 강화 인스턴스도 설치합니다. 그런 다음, **단일 호스트 시스템**을 선택합니다. 
+여기서 SAP HANA Client 및 SAP HANA Studio를 선택합니다. 강화 인스턴스도 설치합니다. 그런 다음, **단일 호스트 시스템** 을 선택합니다. 
 
 ![선택한 단일 호스트 시스템을 사용하는 SAP HANA 수명 주기 관리 화면의 스크린샷](./media/hana-installation/image21_single_host.PNG)
 
@@ -115,7 +116,7 @@ rpm –qa | grep gtk2
 ![정의할 시스템 관리자 필드를 사용하는 SAP HANA 수명 주기 관리 화면의 스크린샷](./media/hana-installation/image25_provide_guid.PNG)
 
 > [!Important]
-> 유닛 배포를 주문할 때 Microsoft에 제공한 것과 동일한 **시스템 관리자 사용자 ID** 및 **사용자 그룹 ID**를 제공합니다. 그렇지 않은 경우 HANA 큰 인스턴스 유닛에 SAP HANA를 설치할 수 없습니다.
+> 유닛 배포를 주문할 때 Microsoft에 제공한 것과 동일한 **시스템 관리자 사용자 ID** 및 **사용자 그룹 ID** 를 제공합니다. 그렇지 않은 경우 HANA 큰 인스턴스 유닛에 SAP HANA를 설치할 수 없습니다.
 
 다음 두 화면은 여기에 표시되지 않습니다. 두 화면을 사용하면 SAP HANA 데이터베이스의 시스템 사용자 암호 및 Sapadm 사용자 암호를 제공할 수 있습니다. Sapadm 사용자 암호는 SAP HANA 데이터베이스 인스턴스의 일부로 설치되는 SAP Host Agent에 사용됩니다.
 

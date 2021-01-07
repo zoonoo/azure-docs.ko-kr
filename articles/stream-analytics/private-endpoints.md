@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: b3ad0da1f910556c172c519faf953d4075647955
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 36d26195e78c74ed7b976cfdd48e1e965bca872b
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109054"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249787"
 ---
 # <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Azure Stream Analytics 클러스터에서 프라이빗 엔드포인트 만들기 및 삭제
 
 클러스터에서 실행되는 Azure Stream Analytics 작업을 방화벽 또는 Azure Virtual Network(VNet)로 보호되는 입력 및 출력 리소스에 연결할 수 있습니다. 먼저 Stream Analytics 클러스터에서 Azure Event Hub 또는 Azure SQL Database 같은 리소스의 프라이빗 엔드포인트를 만듭니다. 그런 다음, 입력 또는 출력에서 프라이빗 엔드포인트 연결을 승인합니다.
 
-연결을 승인하면 Stream Analytics 클러스터에서 실행되는 모든 작업이 프라이빗 엔드포인트를 통해 리소스에 액세스할 수 있습니다. 이 문서에서는 Stream Analytics 클러스터에서 프라이빗 엔드포인트를 만들고 삭제하는 방법을 보여줍니다.
+연결을 승인하면 Stream Analytics 클러스터에서 실행되는 모든 작업이 프라이빗 엔드포인트를 통해 리소스에 액세스할 수 있습니다. 이 문서에서는 Stream Analytics 클러스터에서 프라이빗 엔드포인트를 만들고 삭제하는 방법을 보여줍니다. Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub 및 Azure Service Bus에 대한 프라이빗 엔드포인트를 만들 수 있습니다. 다른 서비스에 대한 프라이빗 엔드포인트는 곧 추가됩니다. 
 
 ## <a name="create-private-endpoint-in-stream-analytics-cluster"></a>Stream Analytics 클러스터에 프라이빗 엔드포인트 만들기
 

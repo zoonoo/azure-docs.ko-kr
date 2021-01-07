@@ -65,6 +65,8 @@
           href: ./security-controls-policy.md
         - name: 보안 기준
           href: security-baseline.md
+        - name: 보안 모범 사례
+          href: security-best-practices.md
     - name: Batch 서비스 워크플로 및 리소스
       displayName: developer features
       href: batch-service-workflow-features.md

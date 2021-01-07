@@ -3,22 +3,29 @@ title: '자습서: Bing Maps에서 웹 서비스 마이그레이션 | Microsoft 
 description: Bing Maps에서 Microsoft Azure Maps로 웹 서비스를 마이그레이션하는 방법에 대한 자습서.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c6e63f67aca279b64829e67e1aa06a69d312fd58
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6024aae68183fbe02125ef4207e9fbce8abd6a2b
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897027"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679072"
 ---
-# <a name="tutorial---migrate-web-service-from-bing-maps"></a>자습서 - Bing Maps에서 웹 서비스 마이그레이션
+# <a name="tutorial-migrate-web-service-from-bing-maps"></a>자습서: Bing Maps에서 웹 서비스 마이그레이션
 
-Azure 및 Bing Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세스할 수 있습니다. 이러한 플랫폼의 API 인터페이스는 비슷한 기능을 수행하지만 서로 다른 명명 규칙과 응답 개체를 사용합니다.
+Azure 및 Bing Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세스할 수 있습니다. 이러한 플랫폼의 API 인터페이스는 비슷한 기능을 수행하지만 서로 다른 명명 규칙과 응답 개체를 사용합니다. 이 자습서에서는 다음 작업 방법을 배웁니다.
+
+> * 정방향 및 역방향 지오코딩
+> * 관심 지점 검색
+> * 경로 및 방향 계산
+> * 맵 이미지 검색
+> * 거리 행렬 계산
+> * 표준 시간대 세부 정보 가져오기
 
 다음 표에는 나열된 Bing Maps 서비스 API와 유사한 기능을 제공하는 Azure Maps 서비스 API가 정리되어 있습니다.
 
@@ -37,27 +44,33 @@ Azure 및 Bing Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세스
 | SDS(Spatial Data Services)           | [검색](/rest/api/maps/search) + [경로](/rest/api/maps/route) + 기타 Azure 서비스 |
 | 표준 시간대                             | [표준 시간대](/rest/api/maps/timezone)  |
 | 교통 사고                     | [트래픽 인시던트 세부 정보](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| 상승                             | [권한 상승(미리 보기)](/rest/api/maps/elevation)
 
 다음 서비스 API는 현재 Azure Maps에서 사용할 수 없습니다.
 
--   권한 상승 - 계획됨
 -   최적화된 일정표 경로 - 계획됨. Azure Maps 경로 API는 단일 차량에 대한 외판원 최적화를 지원합니다.
 -   이미지 메타데이터 – 주로 Bing Maps에서 타일 URL을 가져오는 데 사용됩니다. Azure Maps에는 지도 타일에 직접 액세스하기 위한 독립 실행형 서비스가 있습니다.
 
 Azure Maps에는 다음과 같은 몇 가지 흥미로운 추가 REST 웹 서비스가 있습니다.
 
--   [Azure Maps Creator](./creator-indoor-maps.md) – 건물과 공간의 사용자 지정 프라이빗 디지털 쌍을 만듭니다.
+-   [Azure Maps Creator(미리 보기)](./creator-indoor-maps.md) – 건물과 공간의 사용자 지정 프라이빗 디지털 쌍을 만듭니다.
 -   [공간 작업](/rest/api/maps/spatial) - 복잡한 공간 계산과 작업(예: 지오펜싱)을 서비스로 오프로드합니다.
 -   [지도 타일](/rest/api/maps/render/getmaptile) – 래스터 및 벡터 타일로 Azure Maps의 도로 및 이미지 타일에 액세스합니다.
 -   [일괄 처리 라우팅](/rest/api/maps/route/postroutedirectionsbatchpreview) – 일정 기간 동안 단일 일괄 처리에서 최대 1,000개의 경로 요청을 만들 수 있습니다. 처리 속도를 높이기 위해 서버에서 경로가 병렬로 계산됩니다.
 -   [트래픽](/rest/api/maps/traffic) 흐름 – 래스터 및 벡터 타일로 실시간 트래픽 흐름 데이터에 액세스합니다.
--   [지리적 위치 API](/rest/api/maps/geolocation/getiptolocationpreview) - IP 주소의 위치를 가져옵니다.
+-   [지리적 위치 API(미리 보기)](/rest/api/maps/geolocation/getiptolocationpreview) - IP 주소의 위치를 가져옵니다.
 -   [날씨 서비스](/rest/api/maps/weather) – 실시간 및 예측 날씨 데이터에 대한 액세스 권한을 얻습니다.
 
 다음 모범 사례 가이드도 꼭 검토하세요.
 
 -   [검색 관련 모범 사례](./how-to-use-best-practices-for-search.md)
 -   [라우팅 모범 사례](./how-to-use-best-practices-for-routing.md)
+
+## <a name="prerequisites"></a>필수 조건
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+2. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+3. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account). Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 ## <a name="geocoding-addresses"></a>주소 지오코딩
 
@@ -91,9 +104,9 @@ Azure Maps는 다음과 같은 주소를 지오코딩하는 여러 가지 방법
 
 Azure Maps는 다음 기능도 지원합니다.
 
--   `countrySecondarySubdivision` – 구/군, 구역
--   `countryTertiarySubdivision` - 명명된 영역, 자치 구역, 주, 최소 행정 구역
--   `ofs` - `maxResults` 매개 변수와 함께 결과를 살펴봅니다.
+* `countrySecondarySubdivision` – 구/군, 구역
+* `countryTertiarySubdivision` - 명명된 영역, 자치 구역, 주, 최소 행정 구역
+* `ofs` - `maxResults` 매개 변수와 함께 결과를 살펴봅니다.
 
 **쿼리별 위치(자유 형식 주소 문자열)**
 
@@ -109,10 +122,10 @@ Azure Maps는 다음 기능도 지원합니다.
 
 Azure Maps는 다음 기능도 지원합니다.
 
--   `typeahead` - 쿼리가 부분 입력으로 해석되고 검색이 예측 모드(자동 제안/자동 완성)로 진입하는 조건을 지정합니다.
--   `countrySet` – 검색을 제한할 ISO2 국가 코드를 쉼표로 구분한 목록입니다.
--   `lat`/`lon`, `topLeft`/`btmRight`, `radius` – 로컬과 관련성이 깊은 결과를 얻으려면 사용자 위치와 영역을 지정합니다.
--   `ofs` - `maxResults` 매개 변수와 함께 결과를 살펴봅니다.
+* `typeahead` - 쿼리가 부분 입력으로 해석되고 검색이 예측 모드(자동 제안/자동 완성)로 진입하는 조건을 지정합니다.
+* `countrySet` – 검색을 제한할 ISO2 국가 코드를 쉼표로 구분한 목록입니다.
+* `lat`/`lon`, `topLeft`/`btmRight`, `radius` – 로컬과 관련성이 깊은 결과를 얻으려면 사용자 위치와 영역을 지정합니다.
+* `ofs` - `maxResults` 매개 변수와 함께 결과를 살펴봅니다.
 
 검색 서비스를 사용하는 방법의 예제는 [여기](./how-to-search-for-address.md)에 설명되어 있습니다. [검색 모범 사례](./how-to-use-best-practices-for-search.md) 설명서를 검토하세요.
 
@@ -142,9 +155,9 @@ Azure Maps는 다음과 같은 여러 가지 역방향 지오코딩 방법을 �
 
 Azure Maps 역방향 지오코딩 API에는 Bing Maps에 없는 다음과 같은 추가 기능이 있으며, 이러한 기능은 앱을 마이그레이션할 때 통합에 유용하게 사용할 수 있습니다.
 
--   속도 제한 데이터 검색
--   지방 도로, 간선 도로, 진입 금지, 나들목 등의 도로 사용 정보 검색
--   좌표가 속한 거리의 측면
+* 속도 제한 데이터 검색
+* 지방 도로, 간선 도로, 진입 금지, 나들목 등의 도로 사용 정보 검색
+* 좌표가 속한 거리의 측면
 
 **엔터티 형식 비교 표**
 
@@ -154,12 +167,12 @@ Azure Maps 역방향 지오코딩 API에는 Bing Maps에 없는 다음과 같은
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *주소*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *이웃 도시*                             |
-| `PopulatedPlace`      | `Municipality` 또는 `MunicipalitySubdivision`     | *도시* , *마을/하위 도시* 또는 *대도시권*     |
+| `PopulatedPlace`      | `Municipality` 또는 `MunicipalitySubdivision`     | *도시*, *마을/하위 도시* 또는 *대도시권*     |
 | `Postcode1`           | `PostalCodeArea`                                | *우편 번호* 또는 *우편 번호*                |
 | `AdminDivision1`      | `CountrySubdivision`                            | *시/도* 또는 *시/군/구*                      |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *구/군* 또는 *구역*                    |
 | `CountryRegion`       | `Country`                                       | *국가 이름*                             |
-|                       | `CountryTertiarySubdivision`                    | *자치 구역* , *주* , *최소 행정 구역*          |
+|                       | `CountryTertiarySubdivision`                    | *자치 구역*, *주*, *최소 행정 구역*          |
 
 ## <a name="get-location-suggestions-autosuggest"></a>위치 제안 가져오기(Autosuggest)
 
@@ -174,10 +187,10 @@ Azure Maps 역방향 지오코딩 API에는 Bing Maps에 없는 다음과 같은
 
 Azure Maps를 사용하여 경로 및 방향을 계산할 수 있습니다. Azure Maps에는 다음과 같이 Bing Maps 라우팅 서비스와 동일한 여러 기능이 있습니다.
 
--   도착 및 출발 시간
--   실시간 및 예측 기반 트래픽 경로
--   다양한 교통 모드(자동차, 도보, 트럭)
--   중간 지점 주문 최적화(외판원)
+* 도착 및 출발 시간
+* 실시간 및 예측 기반 트래픽 경로
+* 다양한 교통 모드(자동차, 도보, 트럭)
+* 중간 지점 주문 최적화(외판원)
 
 > [!NOTE]
 > Azure Maps는 모든 중간 지점이 좌표여야 합니다. 가장 먼저 주소를 지오코딩해야 합니다.
@@ -186,7 +199,7 @@ Azure Maps 라우팅 서비스는 경로 계산을 위한 다음 API를 제공�
 
 -   [경로 계산](/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. POST 요청은 많은 수의 중간 지점을 지정할 때 또는 URL 요청이 너무 길어서 문제가 발생하지 않도록 많은 경로 옵션을 사용할 때 추천하는 방법입니다.
 -   [일괄 처리 경로](/rest/api/maps/route/postroutedirectionsbatchpreview): 최대 1,000개의 경로 요청을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
--   [모바일 서비스](/rest/api/maps/mobility): 대중 교통을 사용하여 경로 및 방향을 계산합니다.
+-   [Mobility Services(미리 보기)](/rest/api/maps/mobility): 대중 교통을 사용하여 경로 및 방향을 계산합니다.
 
 다음 표에서는 Bing Maps API 매개 변수와 Azure Maps의 비슷한 API 매개 변수를 상호 참조합니다.
 
@@ -237,21 +250,21 @@ Azure Maps 라우팅 API는 동일한 API 내에서 트럭 라우팅도 지원�
 
 Azure Maps 경로 API에는 Bing Maps에 없는 다음과 같은 여러 추가 기능이 있으며, 이러한 기능은 앱을 마이그레이션할 때 통합에 유용하게 사용할 수 있습니다.
 
--   경로 유형 지원: 최단거리, 최단시간, 선회 및 최고연비.
--   추가 이동 모드 지원: 자전거, 버스, 오토바이, 택시, 트럭, 승합차.
--   150개 중간 지점을 지원합니다.
--   단일 요청에서 여러 이동 시간(기록 트래픽, 실시간 트래픽, 트래픽 없음)을 계산합니다.
--   회피할 도로 유형(카풀 도로, 비포장 도로, 이미 사용한 도로)을 추가합니다.
--   엔진 사양에 따라 경로를 지정합니다. 연료/배터리 잔량 및 엔진 사양에 따라 내연 기관 차량 또는 전기차의 경로를 계산합니다.
--   최대 차량 속도를 지정합니다.
+* 경로 유형 지원: 최단거리, 최단시간, 선회 및 최고연비.
+* 추가 이동 모드 지원: 자전거, 버스, 오토바이, 택시, 트럭, 승합차.
+* 150개 중간 지점을 지원합니다.
+* 단일 요청에서 여러 이동 시간(기록 트래픽, 실시간 트래픽, 트래픽 없음)을 계산합니다.
+* 회피할 도로 유형(카풀 도로, 비포장 도로, 이미 사용한 도로)을 추가합니다.
+* 엔진 사양에 따라 경로를 지정합니다. 연료/배터리 잔량 및 엔진 사양에 따라 내연 기관 차량 또는 전기차의 경로를 계산합니다.
+* 최대 차량 속도를 지정합니다.
 
 ## <a name="snap-coordinates-to-road"></a>좌표를 도로에 맞추기
 
 Azure Maps에서 여러 가지 방법으로 좌표를 도로에 맞출 수 있습니다.
 
--   경로 방향 API를 사용하여 도로 네트워크를 따라 논리적 경로에 좌표를 맞춥니다.
--   Azure Maps 웹 SDK를 사용하여 개별 좌표를 벡터 타일의 가장 가까운 도로에 맞춥니다.
--   Azure Maps 벡터 타일을 사용하여 개별 좌표를 직접 맞춥니다.
+* 경로 방향 API를 사용하여 도로 네트워크를 따라 논리적 경로에 좌표를 맞춥니다.
+* Azure Maps 웹 SDK를 사용하여 개별 좌표를 벡터 타일의 가장 가까운 도로에 맞춥니다.
+* Azure Maps 벡터 타일을 사용하여 개별 좌표를 직접 맞춥니다.
 
 **경로 방향 API를 사용하여 좌표 맞추기**
 
@@ -259,8 +272,8 @@ Azure Maps는 [경로 방향](/rest/api/maps/route/postroutedirections) API를 �
 
 경로 방향 API를 사용하여 좌표를 도로에 맞추는 두 가지 방법이 있습니다.
 
--   좌표가 150개 이하인 경우 GET route directions API에서 좌표를 중간 지점으로 통과할 수 있습니다. 이 방법을 사용하면 두 가지 유형의 맞춰진 데이터를 검색할 수 있습니다. 라우팅 지침에는 맞춰진 개별 중간 지점이 포함되고, 라우팅 경로에는 좌표 사이의 전체 경로를 채우게 될 보간된 좌표 세트가 포함됩니다.
--   좌표가 150개를 초과하는 경우 POST route directions API를 사용할 수 있습니다. 좌표 시작 및 끝 좌표는 쿼리 매개 변수로 전달되어야 하지만, 모든 좌표를 POST 요청 본문의 `supportingPoints` 매개 변수에 전달하고 지점의 GeoJSON 기하 도형 컬렉션 형식으로 지정할 수 있습니다. 이 방법을 선택할 때 사용 가능한 유일한 맞춰진 데이터는 좌표 사이의 전체 경로를 채우게 될 보간된 좌표 세트인 라우팅 경로입니다. 다음은 Azure Maps 웹 SDK의 서비스 모듈을 사용하는 이 방법의 [예제](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path)입니다.
+* 좌표가 150개 이하인 경우 GET route directions API에서 좌표를 중간 지점으로 통과할 수 있습니다. 이 방법을 사용하면 두 가지 유형의 맞춰진 데이터를 검색할 수 있습니다. 라우팅 지침에는 맞춰진 개별 중간 지점이 포함되고, 라우팅 경로에는 좌표 사이의 전체 경로를 채우게 될 보간된 좌표 세트가 포함됩니다.
+* 좌표가 150개를 초과하는 경우 POST route directions API를 사용할 수 있습니다. 좌표 시작 및 끝 좌표는 쿼리 매개 변수로 전달되어야 하지만, 모든 좌표를 POST 요청 본문의 `supportingPoints` 매개 변수에 전달하고 지점의 GeoJSON 기하 도형 컬렉션 형식으로 지정할 수 있습니다. 이 방법을 선택할 때 사용 가능한 유일한 맞춰진 데이터는 좌표 사이의 전체 경로를 채우게 될 보간된 좌표 세트인 라우팅 경로입니다. 다음은 Azure Maps 웹 SDK의 서비스 모듈을 사용하는 이 방법의 [예제](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path)입니다.
 
 다음 표에서는 Bing Maps API 매개 변수와 Azure Maps의 비슷한 API 매개 변수를 상호 참조합니다.
 
@@ -368,9 +381,7 @@ Bing Maps에서는 URL에 `pushpin` 매개 변수를 사용하여 정적 맵 이
 
 > `&pushpin=45,-110;7;AB`
 
-<center>
-
-![Bing Maps 정적 맵 핀](media/migrate-bing-maps-web-service/bing-maps-static-map-pin.jpg)</center>
+![Bing Maps 정적 맵 핀](media/migrate-bing-maps-web-service/bing-maps-static-map-pin.jpg)
 
 **이후: Azure Maps**
 
@@ -384,21 +395,21 @@ Azure Maps에서는 URL에 `pins` 매개 변수를 지정하여 정적 맵 이�
 
 `iconType` 값은 만들려는 핀의 유형을 지정하며 가능한 값은 다음과 같습니다.
 
--   `default` – 기본 핀 아이콘입니다.
--   `none` – 아이콘이 표시되지 않고 레이블만 렌더링됩니다.
--   `custom` – 사용자 지정 아이콘을 사용하도록 지정합니다. 아이콘 이미지를 가리키는 URL은 핀 위치 정보 뒤의 `pins` 매개 변수 끝에 추가할 수 있습니다.
--   `{udid}` – Azure Maps 데이터 스토리지 플랫폼에 저장되는 아이콘의 UDID(고유 데이터 ID)입니다.
+* `default` – 기본 핀 아이콘입니다.
+* `none` – 아이콘이 표시되지 않고 레이블만 렌더링됩니다.
+* `custom` – 사용자 지정 아이콘을 사용하도록 지정합니다. 아이콘 이미지를 가리키는 URL은 핀 위치 정보 뒤의 `pins` 매개 변수 끝에 추가할 수 있습니다.
+* `{udid}` – Azure Maps 데이터 스토리지 플랫폼에 저장되는 아이콘의 UDID(고유 데이터 ID)입니다.
 
 Azure Maps의 핀 스타일은 `optionNameValue` 형식으로 추가되며, `iconType|optionName1Value1|optionName2Value2`처럼 여러 스타일이 파이프(`|`) 문자로 구분됩니다. 옵션 이름과 값은 구분되지 않습니다. 다음 스타일 옵션 이름을 사용하여 Azure Maps에서 압정 스타일을 지정할 수 있습니다.
 
--   `al` – 압정의 불투명도(알파)를 지정합니다. 0~1 사이의 숫자입니다.
--   `an` – 핀 앵커를 지정합니다. `x y` 형식으로 지정된 x 및 y 픽셀 값입니다.
--   `co` - 핀 색입니다. 24비트 16진수 색(`000000`~`FFFFFF`)이어야 합니다.
--   `la` - 레이블 앵커를 지정합니다. `x y` 형식으로 지정된 x 및 y 픽셀 값입니다.
--   `lc` - 레이블 색입니다. 24비트 16진수 색(`000000`~`FFFFFF`)이어야 합니다.
--   `ls` - 레이블의 크기(픽셀)입니다. 0보다 큰 숫자여야 합니다.
--   `ro` - 아이콘을 회전하는 각도입니다. -360~360 사이의 숫자입니다.
--   `sc` – 핀 아이콘의 배율 값입니다. 0보다 큰 숫자여야 합니다.
+* `al` – 압정의 불투명도(알파)를 지정합니다. 0~1 사이의 숫자입니다.
+* `an` – 핀 앵커를 지정합니다. `x y` 형식으로 지정된 x 및 y 픽셀 값입니다.
+* `co` - 핀 색입니다. 24비트 16진수 색(`000000`~`FFFFFF`)이어야 합니다.
+* `la` - 레이블 앵커를 지정합니다. `x y` 형식으로 지정된 x 및 y 픽셀 값입니다.
+* `lc` - 레이블 색입니다. 24비트 16진수 색(`000000`~`FFFFFF`)이어야 합니다.
+* `ls` - 레이블의 크기(픽셀)입니다. 0보다 큰 숫자여야 합니다.
+* `ro` - 아이콘을 회전하는 각도입니다. -360~360 사이의 숫자입니다.
+* `sc` – 핀 아이콘의 배율 값입니다. 0보다 큰 숫자여야 합니다.
 
 위치 목록의 모든 압정에 적용되는 단일 레이블 값을 갖는 것이 아니라 각 핀의 레이블 값이 지정됩니다. 레이블 값은 여러 문자로 된 문자열일 수 있으며, 스타일 또는 위치 값으로 잘못 읽지 않도록 작은따옴표로 래핑됩니다.
 
@@ -406,17 +417,13 @@ Azure Maps의 핀 스타일은 `optionNameValue` 형식으로 추가되며, `ico
 
 > `&pins=default|coFF0000|la15 50||'Space Needle'-122.349300 47.620180`
 
-<center>
-
-![Azure Maps 정적 맵 핀](media/migrate-bing-maps-web-service/azure-maps-static-map-pin.jpg)</center>
+![Azure Maps 정적 맵 핀](media/migrate-bing-maps-web-service/azure-maps-static-map-pin.jpg)
 
 다음 예제에서는 레이블 값이 '1', '2', '3'인 핀 3개를 추가합니다.
 
 > `&pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12`
 
-<center>
-
-![Azure Maps 정적 맵 여러 핀](media/migrate-bing-maps-web-service/azure-maps-static-map-multiple-pins.jpg)</center>
+![Azure Maps 정적 맵 여러 핀](media/migrate-bing-maps-web-service/azure-maps-static-map-multiple-pins.jpg)
 
 ### <a name="draw-curve-url-parameter-format-comparison"></a>곡선 그리기 URL 매개 변수 형식 비교
 
@@ -436,9 +443,7 @@ Bing Maps의 셰이프 유형에는 선, 다각형, 원 및 곡선이 있습니�
 
 `&drawCurve=l,FF000088,4;45,-110_50,-100`
 
-<center>
-
-![Bing Maps 정적 맵 선](media/migrate-bing-maps-web-service/bing-maps-static-map-line.jpg)</center>
+![Bing Maps 정적 맵 선](media/migrate-bing-maps-web-service/bing-maps-static-map-line.jpg)
 
 **이후: Azure Maps**
 
@@ -450,20 +455,18 @@ Azure Maps에서는 URL에 *path* 매개 변수를 지정하여 정적 맵 이�
 
 Azure Maps의 경로 스타일은 `optionNameValue` 형식으로 추가되며, `optionName1Value1|optionName2Value2`처럼 여러 스타일이 파이프(`|`) 문자로 구분됩니다. 옵션 이름과 값은 구분되지 않습니다. 다음 스타일 옵션 이름을 사용하여 Azure Maps에서 스타일 경로를 지정할 수 있습니다.
 
--   `fa` - 다각형을 렌더링할 때 사용되는 채우기 색 불투명도(알파)입니다. 0~1 사이의 숫자입니다.
--   `fc` - 다각형 영역을 렌더링하는 데 사용되는 채우기 색입니다.
--   `la` – 선 및 다각형의 윤곽선을 렌더링할 때 사용되는 선 색 불투명도(알파)입니다. 0~1 사이의 숫자입니다.
--   `lc` – 선 및 다각형의 윤곽선을 렌더링하는 데 사용되는 선 색입니다.
--   `lw` - 선의 너비(픽셀)입니다.
--   `ra` – 원 반지름(미터)을 지정합니다.
+* `fa` - 다각형을 렌더링할 때 사용되는 채우기 색 불투명도(알파)입니다. 0~1 사이의 숫자입니다.
+* `fc` - 다각형 영역을 렌더링하는 데 사용되는 채우기 색입니다.
+* `la` – 선 및 다각형의 윤곽선을 렌더링할 때 사용되는 선 색 불투명도(알파)입니다. 0~1 사이의 숫자입니다.
+* `lc` – 선 및 다각형의 윤곽선을 렌더링하는 데 사용되는 선 색입니다.
+* `lw` - 선의 너비(픽셀)입니다.
+* `ra` – 원 반지름(미터)을 지정합니다.
 
 예를 들어 Azure Maps에서 불투명도가 50%이고 두께가 4픽셀인 파란색 선은 다음 URL 매개 변수를 사용하여 좌표(경도: -110, 위도: 45 및 경도: -100, 위도: 50) 사이의 맵에 추가할 수 있습니다.
 
 > `&path=lc0000FF|la.5|lw4||-110 45|-100 50`
 
-<center>
-
-![Azure Maps 정적 맵 선](media/migrate-bing-maps-web-service/azure-maps-static-map-line.jpg)</center>
+![Azure Maps 정적 맵 선](media/migrate-bing-maps-web-service/azure-maps-static-map-line.jpg)
 
 ## <a name="calculate-a-distance-matrix"></a>거리 행렬 계산
 
@@ -528,7 +531,7 @@ Azure Maps는 지정된 시간 또는 연료/요금 내에 원점에서 모든 �
 Bing Maps에서는 다음 API를 사용하여 관심 지점 데이터를 검색할 수 있습니다.
 
 -   **로컬 검색:** 이름 또는 엔터티 형식(범주)을 기준으로 근처(방사형 검색)의 관심 지점을 검색합니다. 이 API와 가장 비슷한 것은 Azure Maps [POI 검색](/rest/api/maps/search/getsearchpoi) 및 [POI 범주 검색](/rest/api/maps/search/getsearchpoicategory) API입니다.
--   **위치 인식** : 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다. 이 API와 가장 비슷한 것은 Azure Maps [근처 검색](/rest/api/maps/search/getsearchnearby) API입니다.
+-   **위치 인식**: 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다. 이 API와 가장 비슷한 것은 Azure Maps [근처 검색](/rest/api/maps/search/getsearchnearby) API입니다.
 -   **로컬 인사이트:** 특정 좌표로부터 지정된 최대 주행 시간 또는 거리 안에 있는 관심 지점을 검색합니다. 이렇게 하려면 등시선을 계산하여 [기하 도형 내에서 검색](/rest/api/maps/search/postsearchinsidegeometry) API로 전달해야 합니다.
 
 Azure Maps는 관심 지점에 대한 여러 검색 API를 제공합니다.
@@ -547,8 +550,8 @@ Azure Maps는 관심 지점에 대한 여러 검색 API를 제공합니다.
 
 Azure Maps는 트래픽 데이터를 검색하는 몇 가지 API를 제공합니다. 다음과 같은 두 가지 유형의 트래픽 데이터를 사용할 수 있습니다.
 
--   **흐름 데이터** - 도로 구획의 트래픽 흐름에 대한 메트릭을 제공합니다. 도로를 색으로 구분하는 데 자주 사용됩니다. 데이터는 2분마다 업데이트됩니다.
--   **인시던트 데이터** – 트래픽에 영향을 줄 수 있는 공사, 도로 폐쇄, 사고 및 기타 인시던트에 대한 데이터를 제공합니다. 데이터는 1분마다 업데이트됩니다.
+* **흐름 데이터** - 도로 구획의 트래픽 흐름에 대한 메트릭을 제공합니다. 도로를 색으로 구분하는 데 자주 사용됩니다. 데이터는 2분마다 업데이트됩니다.
+* **인시던트 데이터** – 트래픽에 영향을 줄 수 있는 공사, 도로 폐쇄, 사고 및 기타 인시던트에 대한 데이터를 제공합니다. 데이터는 1분마다 업데이트됩니다.
 
 Bing Maps는 대화형 지도 컨트롤을 통해 트래픽 흐름 및 인시던트 데이터를 제공하며, 인시던트 데이터를 서비스로 제공합니다.
 
@@ -602,9 +605,9 @@ Azure Maps는 좌표가 속한 표준 시간대를 검색할 수 있는 API를 �
 
 Bing Maps의 공간 데이터 서비스는 다음과 같은 세 가지 주요 기능을 제공합니다.
 
--   일괄 처리 지오코딩 – 단일 요청으로 일괄 처리 주소 지오코딩을 처리합니다.
--   관리 경계 데이터 검색 – 좌표를 사용하고 지정된 엔터티 형식의 교차 경계를 가져옵니다.
--   공간 비즈니스 데이터 호스트 및 쿼리 – 간단한 2D 데이터 테이블을 업로드하고 몇 가지 간단한 공간 쿼리를 사용하여 액세스합니다.
+* 일괄 처리 지오코딩 – 단일 요청으로 일괄 처리 주소 지오코딩을 처리합니다.
+* 관리 경계 데이터 검색 – 좌표를 사용하고 지정된 엔터티 형식의 교차 경계를 가져옵니다.
+* 공간 비즈니스 데이터 호스트 및 쿼리 – 간단한 2D 데이터 테이블을 업로드하고 몇 가지 간단한 공간 쿼리를 사용하여 액세스합니다.
 
 ### <a name="batch-geocode-data"></a>일괄 처리 지오코딩 데이터
 
@@ -660,7 +663,11 @@ Azure Maps는 다음 프로그래밍 언어를 위한 클라이언트 라이브�
 
 다른 프로그래밍 언어를 위한 오픈 소스 클라이언트 라이브러리:
 
--   .NET Standard 2.0 – [GitHub 프로젝트](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet 패키지](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+* .NET Standard 2.0 – [GitHub 프로젝트](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet 패키지](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+정리할 리소스가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -668,15 +675,3 @@ Azure Maps REST 서비스에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [검색 서비스 사용 모범 사례](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [라우팅 서비스 사용 모범 사례](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [서비스 모듈(Web SDK)을 사용하는 방법](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Azure Maps REST 서비스 API 참조 설명서](/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [코드 샘플](/samples/browse/?products=azure-maps)

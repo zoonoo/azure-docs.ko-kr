@@ -1,30 +1,32 @@
 ---
 title: 자습서 - Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API 호출
 titleSuffix: Microsoft identity platform
-description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API를 호출합니다.
+description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 Blazor WebAssembly(WASM) 앱에서 사용자를 로그인하고 보호된 API를 호출합니다.
 author: knicholasa
 ms.author: nichola
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: ba3607c522191644ec0cc63db118de285d297c48
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221513"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169140"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>자습서: Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API 호출
 
-[Blazor WebAssembly](/aspnet/core/blazor#blazor-webassembly)는 .NET으로 대화형 클라이언트 쪽 웹앱을 빌드할 수 있는 단일 페이지 앱 프레임워크입니다. 이 자습서에서는 [Microsoft ID 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/)을 사용하여 Blazor WebAssembly(Blazor WASM) 앱에서 사용자를 로그인하고 보호된 API의 데이터를 검색하는 앱을 만듭니다.
+이 자습서에서는 Microsoft ID 플랫폼을 사용하고, Azure AD(Azure Active Directory)에 앱을 등록하여 사용자를 로그인하고, Microsoft Graph에서 데이터를 가져오는 Blazor WebAssembly 앱을 빌드합니다.
+
+[Blazor Server에 대한 자습서](tutorial-blazor-server.md)도 있습니다. 
 
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 >
 > * Microsoft ID 플랫폼을 사용하여 [인증 및 권한 부여](authentication-vs-authorization.md)에 Azure AD(Azure Active Directory)를 사용하도록 구성된 새 Blazor WebAssembly 앱 만들기
-> * 보호된 웹 API(여기서는 [Microsoft Graph](https://docs.microsoft.com/graph/overview))에서 데이터 검색
+> * 보호된 웹 API(여기서는 [Microsoft Graph](/graph/overview))에서 데이터 검색
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -239,5 +241,5 @@ else
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft ID 플랫폼 모범 사례 및 권장 사항](./identity-platform-integration-checklist.md)
-- [ASP.NET Core Blazor 소개](/aspnet/core/blazor)
+> [!div class="nextstepaction"]
+> [Microsoft ID 플랫폼 모범 사례 및 권장 사항](./identity-platform-integration-checklist.md)

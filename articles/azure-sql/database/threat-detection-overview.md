@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, sstein
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: f83b9515e16fcf2c2158586297545206d57e1a6e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 931e914cd3c184136395a9bb9a7e148a90e9fb91
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785122"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461927"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Azure SQL Database, SQL Managed Instance 및 Azure Synapse 분석에 대 한 고급 위협 방지
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ Advanced Threat Protection은 비정상적인 활동에 대 한 보안 경고를
 
 ## <a name="alerts"></a>경고
 
-Azure SQL Database용 Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다. Azure SQL Database에 대 한 경고 목록은 [Azure Security Center에서 SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 경고](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse)를 참조 하세요.
+Azure SQL Database용 Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다. Azure SQL Database에 대 한 경고 목록은 [Azure Security Center의 SQL Database 및 Azure Synapse 분석에 대 한 경고](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse)를 참조 하세요.
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>의심 스러운 이벤트 검색 살펴보기
 
@@ -58,6 +58,10 @@ Azure SQL Database용 Advanced Threat Protection은 비정상적이며 잠재적
 Advanced Threat Protection은 경고를 [Azure security center](https://azure.microsoft.com/services/security-center/)와 통합 합니다. 데이터베이스 내의 라이브 SQL Advanced Threat Protection 타일과 Azure Portal의 SQL Azure Defender 블레이드는 활성 위협의 상태를 추적 합니다.
 
 경고 Azure Security Center 페이지를 시작 하 고 데이터베이스에서 감지 된 활성 SQL 위협에 대 한 개요를 보려면 **Advanced Threat Protection 경고** 를 클릭 합니다.
+
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-alerts.png" alt-text="데이터베이스 개요의 advanced threat protection 경고":::
+
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection.png" alt-text="security center의 advanced threat protection":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ecb5fef9c9b14bde72de29a45e29d7e16131bd1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321920"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001000"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Team Data Science Process에서 개별 기여자에 대한 작업
 
@@ -32,7 +32,7 @@ ms.locfileid: "93321920"
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure Repos 및 Data Science Virtual Machine (DSVM)를 사용 하 여 TDSP 환경을 설정 합니다. 팀에서 다른 코드 호스팅 또는 개발 플랫폼을 사용 하는 경우 개별 참여자 작업은 동일 하지만이 작업을 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md), [팀 리더](team-lead-tasks.md)및 [프로젝트 리더가](project-lead-tasks.md)다음 리소스 및 사용 권한을 설정 했다고 가정 합니다.
 

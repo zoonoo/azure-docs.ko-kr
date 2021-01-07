@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.custom: amqp, devx-track-js
 ms.openlocfilehash: 9de3f45a9d62a9d131583c133440ac8a311a468d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151420"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993227"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (Node.js)
 
@@ -55,14 +55,14 @@ ms.locfileid: "92151420"
 
 1. 코드를 저장할 디렉터리를 만듭니다.
 
-2. 이 디렉터리 내부에서 먼저 **npm init -y**를 실행하여 기본값으로 빈 package.json을 만듭니다. 코드의 프로젝트 파일입니다.
+2. 이 디렉터리 내부에서 먼저 **npm init -y** 를 실행하여 기본값으로 빈 package.json을 만듭니다. 코드의 프로젝트 파일입니다.
 
 3. **Npm install-S iothub \@ modules-preview** 를 실행 하 여 **node_modules** 하위 디렉터리 내에 서비스 SDK를 설치 합니다.
 
     > [!NOTE]
     > 하위 디렉터리 이름 node_modules는 ‘module’이라는 단어를 사용하여 “노드 라이브러리”를 나타냅니다. 여기서 이 용어는 IoT Hub 모듈과 아무 관계도 없습니다.
 
-4. 디렉터리에 다음 .js 파일을 만듭니다. 이름을 **add.js**로 지정합니다. 허브 연결 문자열과 허브 이름을 복사하여 붙여넣습니다.
+4. 디렉터리에 다음 .js 파일을 만듭니다. 이름을 **add.js** 로 지정합니다. 허브 연결 문자열과 허브 이름을 복사하여 붙여넣습니다.
 
     ```javascript
     var Registry = require('azure-iothub').Registry;
@@ -119,7 +119,7 @@ ms.locfileid: "92151420"
 
     ```
 
-이 앱은 ID가 **myFirstDevice**인 디바이스 ID와 ID가 **myFirstModule**인 모듈 ID를 **myFirstDevice** 디바이스 아래에 만듭니다. (해당 모듈 ID가 이미 id 레지스트리에 있는 경우 코드는 기존 모듈 정보만 검색 합니다.) 그러면 앱은 해당 id의 기본 키를 표시 합니다. 이 키를 시뮬레이션된 모듈 앱에서 사용하여 IoT Hub에 연결합니다.
+이 앱은 ID가 **myFirstDevice** 인 디바이스 ID와 ID가 **myFirstModule** 인 모듈 ID를 **myFirstDevice** 디바이스 아래에 만듭니다. (해당 모듈 ID가 이미 id 레지스트리에 있는 경우 코드는 기존 모듈 정보만 검색 합니다.) 그러면 앱은 해당 id의 기본 키를 표시 합니다. 이 키를 시뮬레이션된 모듈 앱에서 사용하여 IoT Hub에 연결합니다.
 
 node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한 연결 문자열과 모듈 ID에 대한 다른 연결 문자열이 제공됩니다.
 
@@ -134,7 +134,7 @@ node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한
 
    ![Azure Portal 모듈 세부 정보](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. 위의 단계에서와 마찬가지로 장치 코드에 대 한 디렉터리를 만들고 NPM를 사용 하 여 장치를 초기화 하 고 장치 SDK를 설치 합니다 (**NPM \@ **).
+2. 위의 단계에서와 마찬가지로 장치 코드에 대 한 디렉터리를 만들고 NPM를 사용 하 여 장치를 초기화 하 고 장치 SDK를 설치 합니다 (**NPM \@**).
 
    > [!NOTE]
    > npm install 명령의 속도가 느린 것처럼 보일 수도 있습니다. 이 명령은 패키지 리포지토리에서 많은 코드를 끌어오고 있으므로 잠시 기다려 주세요.

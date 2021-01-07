@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 38b0f23a44a16125726e7810b2045d244a2e6b06
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316136"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454648"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 서버리스 Apache Spark 풀 만들기
 
-이 빠른 시작에서는 웹 도구를 사용하여 Azure Synapse에서 서버리스 Apache Spark 풀(미리 보기)을 만드는 방법에 대해 알아봅니다. 그런 다음, Apache Spark 풀에 연결하고 파일 및 테이블에 대해 Spark SQL 쿼리를 실행하는 방법에 대해 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. Azure Synapse의 Spark에 대한 자세한 내용은 [개요: Azure Synapse의 Apache Spark](./spark/apache-spark-overview.md)를 참조하세요.
+이 빠른 시작에서는 웹 도구를 사용하여 Azure Synapse에서 서버리스 Apache Spark 풀을 만드는 방법에 대해 알아봅니다. 그런 다음, Apache Spark 풀에 연결하고 파일 및 테이블에 대해 Spark SQL 쿼리를 실행하는 방법에 대해 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. Azure Synapse의 Spark에 대한 자세한 내용은 [개요: Azure Synapse의 Apache Spark](./spark/apache-spark-overview.md)를 참조하세요.
 
 > [!IMPORTANT]
 > Spark 인스턴스 요금은 인스턴스 사용 여부에 관계없이 분 단위 비례 배분 방식으로 청구됩니다. Spark 인스턴스를 사용한 후 꼭 인스턴스를 종료하거나 짧은 시간 제한을 설정해야 합니다. 자세한 내용은 이 문서의 **리소스 정리** 섹션을 참조하세요.

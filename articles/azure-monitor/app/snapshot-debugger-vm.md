@@ -2,23 +2,23 @@
 title: Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거 사용 Microsoft Docs
 description: Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거를 사용 하도록 설정
 ms.topic: conceptual
-author: brahmnes
-ms.author: bfung
+author: cweining
+ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c1cc9893a309dcdf7ac575494d164052bb0c617c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bccc2922cf20262149ef54fbe2a1a821d9551ab
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325681"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673504"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거를 사용 하도록 설정
 
 ASP.NET 또는 ASP.NET core 응용 프로그램이 Azure App Service에서 실행 되 [는 경우 Application Insights 포털 페이지를 통해 스냅숏 디버거를 사용 하도록 설정](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)하는 것이 좋습니다. 그러나 응용 프로그램에 사용자 지정 된 스냅숏 디버거 구성 또는 .NET core의 미리 보기 버전이 필요한 경우에는 [Application Insights 포털 페이지를 통해 사용 하도록 설정](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)하는 지침 ***과 함께*** 이 지침을 따라야 합니다.
 
 응용 프로그램이 Azure Service Fabric, 클라우드 서비스, Virtual Machines 또는 온-프레미스 컴퓨터에서 실행 되는 경우 다음 지침을 따라야 합니다. 
-    
+
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>ASP.NET 애플리케이션에 대한 스냅샷 컬렉션 구성
 
 1. 이 작업을 아직 수행하지 않은 경우 [웹앱에서 Application Insights를 사용하도록 설정](./asp-net.md)합니다.
@@ -91,19 +91,19 @@ ASP.NET 또는 ASP.NET core 응용 프로그램이 Azure App Service에서 실�
        using Microsoft.ApplicationInsights.AspNetCore;
        using Microsoft.ApplicationInsights.Extensibility;
        ```
-    
+
        다음 `SnapshotCollectorTelemetryProcessorFactory` 클래스를 `Startup` 클래스에 추가합니다.
-    
+
        ```csharp
        class Startup
        {
            private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
            {
                private readonly IServiceProvider _serviceProvider;
-    
+
                public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
                    _serviceProvider = serviceProvider;
-    
+
                public ITelemetryProcessor Create(ITelemetryProcessor next)
                {
                    var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
@@ -113,17 +113,17 @@ ASP.NET 또는 ASP.NET core 응용 프로그램이 Azure App Service에서 실�
            ...
         ```
         `SnapshotCollectorConfiguration` 및 `SnapshotCollectorTelemetryProcessorFactory` 서비스를 시작 파이프라인에 추가합니다.
-    
+
         ```csharp
            // This method gets called by the runtime. Use this method to add services to the container.
            public void ConfigureServices(IServiceCollection services)
            {
                // Configure SnapshotCollector from application settings
                services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
-    
+
                // Add SnapshotCollector telemetry processor.
                services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
-    
+
                // TODO: Add other services your application needs here.
            }
        }

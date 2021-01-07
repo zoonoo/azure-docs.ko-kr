@@ -3,15 +3,15 @@ title: 리소스 그룹 관리-Azure CLI
 description: Azure CLI를 사용 하 여 Azure Resource Manager를 통해 리소스 그룹을 관리할 수 있습니다. 리소스 그룹을 만들고, 나열 하 고, 삭제 하는 방법을 보여 줍니다.
 author: mumian
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 01/05/2021
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b5addd9d275e9367988dc10689c27fa035e97dd
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: db4a938d2f773ed24d4c7a48d747dd5cc22c0bd2
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951777"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900283"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -76,7 +76,7 @@ az group delete --name $resourceGroupName
 
 ## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
 
-이 기능을 *오류 발생 시 롤백*이 라고도 합니다. 자세한 내용은 [배포 실패 시 재배포](../templates/rollback-on-error.md)를 참조 하세요.
+이 기능을 *오류 발생 시 롤백* 이 라고도 합니다. 자세한 내용은 [배포 실패 시 재배포](../templates/rollback-on-error.md)를 참조 하세요.
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>다른 리소스 그룹 또는 구독으로 이동
 
@@ -84,14 +84,14 @@ az group delete --name $resourceGroupName
 
 ## <a name="lock-resource-groups"></a>리소스 그룹 잠금
 
-잠금은 조직의 다른 사용자가 실수로 Azure 구독, 리소스 그룹 또는 리소스와 같은 중요 한 리소스를 삭제 하거나 수정 하는 것을 방지 합니다. 
+잠금은 조직의 다른 사용자가 실수로 Azure 구독, 리소스 그룹 또는 리소스와 같은 중요 한 리소스를 삭제 하거나 수정 하는 것을 방지 합니다.
 
 다음 스크립트는 리소스 그룹을 삭제할 수 없도록 리소스 그룹을 잠급니다.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName  
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName
 ```
 
 다음 스크립트는 리소스 그룹에 대 한 모든 잠금을 가져옵니다.
@@ -99,7 +99,7 @@ az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resou
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az lock list --resource-group $resourceGroupName  
+az lock list --resource-group $resourceGroupName
 ```
 
 다음 스크립트는 잠금을 삭제 합니다.
@@ -125,17 +125,92 @@ az lock delete --name $lockName --resource-group $resourceGroupName
 - 템플릿에 전체 인프라가 포함 되어 있기 때문에 향후 솔루션 배포를 자동화 합니다.
 - 솔루션을 나타내는 JSON (JavaScript Object Notation)을 살펴보면 템플릿 구문에 대해 알아봅니다.
 
+리소스 그룹의 모든 리소스를 내보내려면 [az group export](/cli/azure/group?view=azure-cli-latest#az_group_export&preserve-view=true) 를 사용 하 고 리소스 그룹 이름을 제공 합니다.
+
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az group export --name $resourceGroupName  
+az group export --name $resourceGroupName
 ```
 
-스크립트는 콘솔에 템플릿을 표시 합니다.  JSON을 복사하고 파일로 저장합니다.
+스크립트는 콘솔에 템플릿을 표시 합니다. JSON을 복사하고 파일로 저장합니다.
+
+리소스 그룹의 모든 리소스를 내보내는 대신 내보낼 리소스를 선택할 수 있습니다.
+
+한 리소스를 내보내려면 해당 리소스 ID를 전달 합니다.
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+storageAccount=$(az resource show --resource-group $resourceGroupName --name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --query id --output tsv) &&
+az group export --resource-group $resourceGroupName --resource-ids $storageAccount
+```
+
+둘 이상의 리소스를 내보내려면 공백으로 구분 된 리소스 Id를 전달 합니다. 모든 리소스를 내보내려면이 인수를 지정 하거나 "*"를 제공 하지 마십시오.
+
+```azurecli-interactive
+az group export --resource-group <resource-group-name> --resource-ids $storageAccount1 $storageAccount2
+```
+
+템플릿을 내보낼 때 템플릿에서 매개 변수를 사용할지 여부를 지정할 수 있습니다. 기본적으로 리소스 이름에 대 한 매개 변수는 포함 되지만 기본값은 없습니다. 배포 하는 동안 해당 매개 변수 값을 전달 해야 합니다.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "type": "String"
+  }
+}
+```
+
+리소스에서 매개 변수는 이름에 사용 됩니다.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "[parameters('serverfarms_demoHostPlan_name')]",
+    ...
+  }
+]
+```
+
+`--include-parameter-default-value`템플릿을 내보낼 때 매개 변수를 사용 하는 경우 템플릿 매개 변수는 현재 값으로 설정 된 기본값을 포함 합니다. 기본 값을 사용 하거나 다른 값을 전달 하 여 기본값을 덮어쓸 수 있습니다.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": "demoHostPlan",
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": "webSite3bwt23ktvdo36",
+    "type": "String"
+  }
+}
+```
+
+`--skip-resource-name-params`템플릿을 내보낼 때 매개 변수를 사용 하는 경우 리소스 이름에 대 한 매개 변수가 템플릿에 포함 되지 않습니다. 대신 리소스 이름이 현재 값으로 리소스에 직접 설정 됩니다. 배포 하는 동안 이름을 사용자 지정할 수 없습니다.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "demoHostPlan",
+    ...
+  }
+]
+```
 
 템플릿 내보내기 기능은 Azure Data Factory 리소스 내보내기를 지원 하지 않습니다. Data Factory 리소스를 내보내는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 데이터 팩터리 복사 또는 복제](../../data-factory/copy-clone-data-factory.md)를 참조 하세요.
 
-클래식 배포 모델을 통해 만든 리소스를 내보내려면 [리소스 관리자 배포 모델로 마이그레이션해야](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)합니다.
+클래식 배포 모델을 통해 만든 리소스를 내보내려면 [리소스 관리자 배포 모델로 마이그레이션해야](../../virtual-machines/migration-classic-resource-manager-overview.md)합니다.
 
 자세한 내용은 [Azure Portal에서 템플릿으로 단일 및 다중 리소스 내보내기](../templates/export-template-portal.md)를 참조 하세요.
 

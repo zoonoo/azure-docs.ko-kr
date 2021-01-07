@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0793c8abee27ca415feba313efb029daf092bec9
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261416"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683015"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>빠른 시작: 포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍
 
@@ -24,7 +24,7 @@ ms.locfileid: "91261416"
   
 ## <a name="overview"></a>개요
 
-* Azure에서 미디어 콘텐츠를 관리, 암호화, 인코딩, 분석 및 스트리밍하려면 Media Services 계정을 만들고 고품질 디지털 미디어 파일을 **자산**에 업로드해야 합니다. 
+* Azure에서 미디어 콘텐츠를 관리, 암호화, 인코딩, 분석 및 스트리밍하려면 Media Services 계정을 만들고 고품질 디지털 미디어 파일을 **자산** 에 업로드해야 합니다. 
     
     > [!NOTE]
     > 이전에 Media Services v3 API를 사용하여 비디오를 Media Services 계정에 업로드했거나 라이브 출력을 기반으로 콘텐츠가 생성된 경우 Azure Portal에서 **인코딩**, **분석** 또는 **암호화** 단추가 표시되지 않습니다. Media Services v3 API를 사용하여 이러한 작업을 수행합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "91261416"
         현재 Azure Portal을 사용 중인 경우 TTML 및 WebVTT 선택 자막 파일을 생성할 수 있습니다. 이러한 형식의 파일은 청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용할 수 있습니다. 또한 콘텐츠에서 키워드를 추출할 수 있습니다.
 
         비디오 및 오디오 파일에서 정보를 추출할 수 있는 다양한 환경을 위해 [자습서: Media Services v3으로 비디오 분석](analyze-videos-tutorial-with-api.md)에 설명된 대로 Media Services v3 사전 설정을 사용합니다. <br/>더 자세한 인사이트가 필요하면 [Video Indexer](../video-indexer/index.yml)를 직접 사용해 보세요.    
-* 콘텐츠를 처리한 후에는 미디어 콘텐츠를 클라이언트 플레이어에게 제공할 수 있습니다. 출력 자산의 비디오를 클라이언트가 재생할 수 있도록 하려면 **스트리밍 로케이터**를 만들어야 합니다. **스트리밍 로케이터**를 만드는 경우 **스트리밍 정책**을 지정해야 합니다. **스트리밍 정책**을 사용하면 **스트리밍 로케이터**에 대한 스트리밍 프로토콜 및 암호화 옵션(있는 경우)을 정의할 수 있습니다.
+* 콘텐츠를 처리한 후에는 미디어 콘텐츠를 클라이언트 플레이어에게 제공할 수 있습니다. 출력 자산의 비디오를 클라이언트가 재생할 수 있도록 하려면 **스트리밍 로케이터** 를 만들어야 합니다. **스트리밍 로케이터** 를 만드는 경우 **스트리밍 정책** 을 지정해야 합니다. **스트리밍 정책** 을 사용하면 **스트리밍 로케이터** 에 대한 스트리밍 프로토콜 및 암호화 옵션(있는 경우)을 정의할 수 있습니다.
     
     검토:
 
@@ -54,14 +54,14 @@ ms.locfileid: "91261416"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[Media Services 계정 만들기](create-account-howto.md#use-the-azure-portal)
+[Media Services 계정 만들기](create-account-howto.md)
 
 ## <a name="upload"></a>업로드
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Media Services 계정을 찾아 클릭합니다.
 1. **자산(신규)** 을 선택합니다.
-1. 창 맨 위에 있는 **업로드**를 누릅니다. 
+1. 창 맨 위에 있는 **업로드** 를 누릅니다. 
 1. 업로드하려는 파일을 끌어서 놓거나 이동합니다.
 
 자산 창으로 이동하면 새 자산이 목록에 추가된 것을 볼 수 있습니다.
@@ -72,7 +72,7 @@ ms.locfileid: "91261416"
 
 1. **자산(신규)** 을 선택합니다.
 1. 새 자산을 선택합니다(마지막 단계에서 추가됨).
-1. 창 위쪽에서 **인코딩**을 클릭합니다.
+1. 창 위쪽에서 **인코딩** 을 클릭합니다.
 
     이 단추를 누르면 인코딩 작업이 시작됩니다. 성공적으로 완료되면 인코딩된 콘텐츠를 포함하는 출력 자산을 생성합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "91261416"
 
 ## <a name="monitor-the-job-progress"></a>작업 진행률 모니터링
 
-작업 상태를 보려면 **작업**으로 이동합니다. 작업은 일반적으로 예약됨, 대기, 처리 중, 마침(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 오류 상태가 표시됩니다.
+작업 상태를 보려면 **작업** 으로 이동합니다. 작업은 일반적으로 예약됨, 대기, 처리 중, 마침(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 오류 상태가 표시됩니다.
 
 ![상태](./media/manage-assets-quickstart/job-status.png)
 
@@ -92,7 +92,7 @@ ms.locfileid: "91261416"
 
 ### <a name="streaming-locator"></a>스트리밍 로케이터 
 
-1. **스트리밍 로케이터** 섹션에서 **+ 스트리밍 로케이터 추가**를 누릅니다.
+1. **스트리밍 로케이터** 섹션에서 **+ 스트리밍 로케이터 추가** 를 누릅니다.
     그러면 자산이 게시되고 스트리밍 URL이 생성됩니다.
 
     > [!NOTE]

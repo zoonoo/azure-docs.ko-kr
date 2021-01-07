@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Edge Pro GPU 장치에서 Azure Resource Manager 암호를 설정 합니다.
-description: Azure PowerShell를 사용 하 여 Azure Stack Edge Pro GPU에서 실행 되는 Azure Resource Manager에 연결 하는 방법을 설명 합니다.
+description: Azure PowerShell를 사용 하 여 Azure Stack Edge Pro GPU에 Azure Resource Manager 암호를 설정 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 915146cd17b90272daea4ce57f5243baf1d49cb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904491"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578793"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Edge Pro GPU 장치 Azure Stack에서 Azure Resource Manager 암호를 설정 합니다.
 
@@ -21,18 +21,18 @@ ms.locfileid: "90904491"
 
 이 문서에서는 Azure Resource Manager 암호를 설정 하는 방법을 설명 합니다. Azure Resource Manager를 통해 장치 로컬 Api에 연결 하는 경우이 암호를 설정 해야 합니다.
 
-암호를 설정 하는 절차는 Azure Portal 또는 PowerShell cmdlet을 사용 하는지 여부에 따라 달라질 수 있습니다. 다음 섹션에서는 이러한 각 절차에 대해 설명 합니다.
+암호를 설정하는 절차는 Azure Portal 또는 PowerShell cmdlet을 사용하는지 여부에 따라 달라질 수 있습니다. 다음 섹션에서는 이러한 각 절차에 대해 설명 합니다.
 
 
 ## <a name="reset-password-via-the-azure-portal"></a>Azure Portal를 통해 암호 다시 설정
 
-1. Azure Portal에서 만든 Azure Stack Edge 리소스로 이동 하 여 장치를 관리 합니다. **Edge 컴퓨팅 > 시작**으로 이동합니다.
+1. Azure Portal에서 만든 Azure Stack Edge 리소스로 이동 하 여 장치를 관리 합니다. **Edge 컴퓨팅 > 시작** 으로 이동합니다.
 
-2. 오른쪽 창의 명령 모음에서 **EDGE ARM 암호 다시 설정**을 선택 합니다. 
+2. 오른쪽 창의 명령 모음에서 **Edge ARM 암호 재설정** 을 선택합니다. 
 
     ![EdgeARM 사용자 암호 다시 설정 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
 
-3. **EdgeArm 사용자 암호 다시 설정** 블레이드에서 Azure Resource Manager를 통해 장치 로컬 api에 연결 하기 위한 암호를 제공 합니다. 암호를 확인 하 고 **재설정**을 선택 합니다.
+3. **EdgeArm 사용자 암호 다시 설정** 블레이드에서 Azure Resource Manager를 통해 장치 로컬 api에 연결 하기 위한 암호를 제공 합니다. 암호를 확인 하 고 **재설정** 을 선택 합니다.
 
     ![EdgeARM 사용자 암호 2 다시 설정](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-2.png)
 
@@ -45,10 +45,10 @@ ms.locfileid: "90904491"
     - Azure Stack Edge 리소스 이름
     - 구독 ID
 
-2. **설정 > 속성**으로 이동 합니다. **속성** 페이지에서 다음 매개 변수를 적어 둡니다.
+2. **설정 > 속성** 으로 이동 합니다. **속성** 페이지에서 다음 매개 변수를 적어 둡니다.
 
-    - Resource group
-    - CIK 암호화 키: 보기를 선택한 후 **암호화 키**를 복사 합니다.
+    - 리소스 그룹
+    - CIK 암호화 키: 보기를 선택한 후 **암호화 키** 를 복사 합니다.
 
     ![CIK 암호화 키 가져오기](media/azure-stack-edge-j-series-set-azure-resource-manager-password/get-cik-portal.png)
  

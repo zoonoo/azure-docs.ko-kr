@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate의 Hyper-v 마이그레이션 지원
 description: Azure Migrate를 사용 하 여 Hyper-v 마이그레이션 지원에 대해 알아봅니다.
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 4ba8b8cea784167ad045c5635ce512a68b48d897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90da16789344754c02d46022160db71ee261a056
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442308"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754065"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Hyper-v 마이그레이션을 위한 지원 매트릭스
 
@@ -51,8 +54,8 @@ ms.locfileid: "91442308"
 | **NFS**                        | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.|
 | **ISCSI**                      | ISCSI 대상을 사용 하는 Vm은 마이그레이션을 지원 하지 않습니다.
 | **대상 디스크**                | 관리 디스크를 사용 하 여 Azure Vm으로 마이그레이션할 수 있습니다. |
-| **IPv6** | 지원되지 않습니다.|
-| **NIC 팀** | 지원되지 않습니다.|
+| **IPv6** | 지원 안 됨|
+| **NIC 팀** | 지원 안 됨|
 | **Azure Site Recovery** | Azure Site Recovery를 사용 하 여 복제에 대해 VM을 사용 하도록 설정한 경우 Azure Migrate 서버 마이그레이션을 사용 하 여 복제할 수 없습니다.|
 | **Ports** | VM 복제 데이터를 보내기 위한 HTTPS 포트 443의 아웃 바운드 연결|
 
@@ -86,18 +89,18 @@ time.nist.gov | 시스템 시간과 글로벌 시간 간의 시간 동기화를 
 
 Azure로 복제 된 모든 온-프레미스 Vm은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다.
 
-**구성 요소** | **Requirements** | **세부 정보**
+**구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
 운영 체제 디스크 크기 | 최대 2,048GB. | 지원되지 않는 경우 확인이 실패합니다.
 운영 체제 디스크 수 | 1 | 지원되지 않는 경우 확인이 실패합니다.
 데이터 디스크 수 | 16 개이 하 | 지원되지 않는 경우 확인이 실패합니다.
 데이터 디스크 크기 | 최대 4,095GB | 지원되지 않는 경우 확인이 실패합니다.
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
-공유 VHD | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
-FC 디스크 | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
-BitLocker | 지원되지 않습니다. | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다.
+공유 VHD | 지원 안 됨 | 지원되지 않는 경우 확인이 실패합니다.
+FC 디스크 | 지원 안 됨 | 지원되지 않는 경우 확인이 실패합니다.
+BitLocker | 지원 안 됨 | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |  Site Recovery에서 컴퓨터 속성의 값을 업데이트합니다.
-마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> -사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고 **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽**허용 되는 앱 및 기능** 에서 rdp를 허용 합니다. 또한 운영 체제의 SAN 정책이 **OnlineAll**으로 설정 되어 있는지 확인 합니다. [자세히 알아봅니다](prepare-for-migration.md). |
+마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> -사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고 **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 **허용 되는 앱 및 기능** 에서 rdp를 허용 합니다. 또한 운영 체제의 SAN 정책이 **OnlineAll** 으로 설정 되어 있는지 확인 합니다. [자세히 알아봅니다](prepare-for-migration.md). |
 마이그레이션 후 연결-Linux | SSH를 사용 하 여 마이그레이션한 후 Azure Vm에 연결 하려면:<br/><br/> -마이그레이션 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시작으로 설정 되어 있고 방화벽 규칙에서 SSH 연결을 허용 하는지 확인 합니다.<br/><br/> -마이그레이션 후 Azure VM에서 장애 조치 (failover) 된 VM의 네트워크 보안 그룹 규칙에 대 한 SSH 포트 및 연결 된 Azure 서브넷에 대 한 들어오는 연결을 허용 합니다. 또한 VM에 대 한 공용 IP 주소를 추가 합니다. |  
 
 ## <a name="next-steps"></a>다음 단계

@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 3c3dac8c8798b9c56b746a2e4e232f43ef967ebe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 24d1992db5f1826045fdb47397e44dc2e2fbdaf9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960306"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962164"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -112,7 +113,7 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 | 
+| 속성 | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
 | publisher | Microsoft.Compute.Extensions | 문자열 |
@@ -152,7 +153,7 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 
 #### <a name="property-skipdos2unix"></a>속성: skipDos2Unix
 
-기본값은 false이며, dos2unix 변환이 실행**되었음**을 의미합니다.
+기본값은 false이며, dos2unix 변환이 실행 **되었음** 을 의미합니다.
 
 이전 버전의 CustomScript인 Microsoft.OSTCExtensions.CustomScriptForLinux는 `\r\n`을 `\n`으로 변환하여 DOS 파일을 UNIX 파일로 자동으로 변환합니다. 이 변환은 여전히 존재하며 기본적으로 설정되어 있습니다. 이 변환은 fileUris에서 다운로드된 모든 파일 또는 다음 조건 중 하나를 기반으로 한 스크립트 설정에 적용됩니다.
 
@@ -212,7 +213,7 @@ CustomScript는 다음 알고리즘을 사용하여 스크립트를 실행합니
 
 ####  <a name="property-managedidentity"></a>속성: managedIdentity
 > [!NOTE]
-> 이 속성은 보호 설정에서만 지정**해야 합니다**.
+> 이 속성은 보호 설정에서만 지정 **해야 합니다**.
 
 CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 지원 합니다. 사용자가 SAS 토큰 또는 스토리지 계정 키와 같은 비밀을 전달하지 않아도 CustomScript가 Azure Storage 프라이빗 Blob 또는 컨테이너에 액세스할 수 있습니다.
 

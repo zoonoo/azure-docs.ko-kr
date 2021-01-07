@@ -7,18 +7,19 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1430b32c0e74be7a0e50fa4c5c183018b2b55e0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91529833"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006305"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -134,7 +135,7 @@ Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대
 
 아키텍처의 이더넷 세부 정보에 대한 자세한 내용은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권장 지침을 통해 Azure에서 SAP HANA에 의해 구성 됩니다 `service management` . 이 지침은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
 
@@ -150,9 +151,9 @@ Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권
 | HANA shared | /hana/shared/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
-*SID*는 HANA 인스턴스 시스템 ID입니다. 
+*SID* 는 HANA 인스턴스 시스템 ID입니다. 
 
-*Tenant*는 테넌트 배포 시 작업의 내부 열거형입니다.
+*Tenant* 는 테넌트 배포 시 작업의 내부 열거형입니다.
 
 HANA usr/sap는 동일한 볼륨을 공유합니다. 탑재 지점의 명명법에는 HANA 인스턴스의 시스템 ID와 탑재 번호가 포함됩니다. 확장 배포의 경우 탑재가 하나(예: mnt00001)만 있습니다. 반면에 스케일 아웃 배포의 경우 보유한 작업자 및 마스터 노드 개수만큼 탑재가 표시됩니다. 
 

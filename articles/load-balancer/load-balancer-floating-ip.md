@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: e15aab3ebfe82fa97f5716769b5ff9675b4b3dc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01cca2f2233ed5cdfb3003bb44c40f481bcf9bda
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637443"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699409"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Azure Load Balancer 부동 IP 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "91637443"
 
 일부 애플리케이션 시나리오는 백 엔드 풀의 단일 VM에서 여러 애플리케이션 인스턴스가 동일한 포트를 사용하는 것을 선호하거나 필요로 합니다. 포트 재사용의 일반적인 예에는 고가용성을 위한 클러스터링, 네트워크 가상 어플라이언스 및 재암호화 없이 다중 TLS 엔드포인트 노출이 포함됩니다. 여러 규칙 전반에 백 엔드 포트를 재사용하려면 규칙 정의에 부동 IP를 사용하도록 설정해야 합니다.
 
-**부동 IP**는 DSR(Direct Server Return)로 알려진 부분에 대한 Azure의 용어입니다. DSR은 다음과 같은 두 부분으로 구성됩니다.
+**부동 IP** 는 DSR(Direct Server Return)로 알려진 부분에 대한 Azure의 용어입니다. DSR은 다음과 같은 두 부분으로 구성됩니다.
 
 - 흐름 토폴로지
 - IP 주소 매핑 구성표
@@ -45,4 +45,4 @@ ms.locfileid: "91637443"
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).
 - [상태 프로브](load-balancer-custom-probe-overview.md)에 대해 자세히 알아보세요.
 - [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
-- [네트워크 보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보세요.
+- [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)에 대해 자세히 알아보세요.

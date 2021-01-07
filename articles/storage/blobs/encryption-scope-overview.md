@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881a7fc915ab986577599b85f8412fa8107f7902
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326119"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017392"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Blob 저장소의 암호화 범위 (미리 보기)
 
@@ -52,8 +52,8 @@ Microsoft 관리 키 또는 Azure Key Vault에 저장 된 고객 관리 키를 �
 
 암호화 범위가 고객 관리 키로 보호 되는 경우 암호화 범위를 사용 하지 않도록 설정 하기 위해 키 자격 증명 모음에서 연결 된 키를 삭제할 수도 있습니다. 고객 관리 키는 키 자격 증명 모음에서 일시 삭제 및 제거 보호로 보호 되 고, 삭제 된 키는 해당 속성에 대해 정의 된 동작의 영향을 받습니다. 자세한 내용은 Azure Key Vault 설명서에서 다음 항목 중 하나를 참조 하세요.
 
-- [PowerShell에서 일시 삭제를 사용하는 방법](../../key-vault/general/soft-delete-powershell.md)
-- [CLI에서 일시 삭제를 사용하는 방법](../../key-vault/general/soft-delete-cli.md)
+- [PowerShell에서 일시 삭제를 사용하는 방법](../../key-vault/general/key-vault-recovery.md)
+- [CLI에서 일시 삭제를 사용하는 방법](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > 암호화 범위를 삭제할 수는 없습니다.

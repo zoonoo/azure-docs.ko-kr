@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 07/26/2019
+ms.date: 11/25/2020
 ms.author: sngun
-ms.openlocfilehash: 9f44279e47de737bd23fcd0266b7fb73e6245b13
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 98b1db18b72aad0c68f2faee031cc040a2a1f369
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096056"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181240"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 소개: 테이블 API
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -26,6 +26,9 @@ ms.locfileid: "93096056"
 * 자동 보조 인덱싱.
 
 Azure Table Storage에 대해 작성된 애플리케이션은 코드를 변경하지 않고 테이블 API를 사용하여 Azure Cosmos DB로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 테이블 API에는 .NET, Java, Python 및 Node.js에 사용할 수 있는 클라이언트 SDK가 있습니다.
+
+> [!NOTE]
+> 이제 Azure Cosmos DB의 Table API에서 [서버리스 용량 모드](serverless.md)를 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)이 유지 관리 모드에 있으며 곧 사용 중지될 예정됩니다. 새 .NET Standard 라이브러리 [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)로 업그레이드하여 Table API에서 지원하는 최신 기능을 계속 유지합니다.

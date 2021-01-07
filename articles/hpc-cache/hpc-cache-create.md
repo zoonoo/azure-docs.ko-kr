@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341383"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657094"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Azure HPC Cache 만들기
 
@@ -29,9 +29,9 @@ Azure Portal 또는 Azure CLI를 사용 하 여 캐시를 만듭니다.
 
 ![Azure Portal의 프로젝트 세부 정보 페이지 스크린샷](media/hpc-cache-create-basics.png)
 
-**프로젝트 세부 정보**에서 캐시를 호스트할 구독 및 리소스 그룹을 선택합니다.
+**프로젝트 세부 정보** 에서 캐시를 호스트할 구독 및 리소스 그룹을 선택합니다.
 
-**서비스 세부 정보**에서 캐시 이름과 다음 기타 특성을 설정합니다.
+**서비스 세부 정보** 에서 캐시 이름과 다음 기타 특성을 설정합니다.
 
 * 위치 - [지원되는 지역](hpc-cache-overview.md#region-availability) 중 하나를 선택합니다.
 * 가상 네트워크 - 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다.
@@ -85,7 +85,7 @@ Customer **관리** 를 선택 하 여 고객 관리 키 암호화를 선택 합
 
 ## <a name="finish-creating-the-cache"></a>캐시 만들기 완료
 
-새 캐시를 구성한 후 **검토 + 만들기** 탭을 클릭 합니다. 포털은 선택 항목의 유효성을 검사 하 고 선택 항목을 검토할 수 있습니다. 모든 선택 항목이 올바르면 **만들기**를 클릭합니다.
+새 캐시를 구성한 후 **검토 + 만들기** 탭을 클릭 합니다. 포털은 선택 항목의 유효성을 검사 하 고 선택 항목을 검토할 수 있습니다. 모든 선택 항목이 올바르면 **만들기** 를 클릭합니다.
 
 캐시를 만드는 데 10분 정도 걸립니다. Azure Portal의 알림 패널에서 진행 상황을 추적할 수 있습니다.
 
@@ -102,7 +102,7 @@ Customer **관리** 를 선택 하 여 고객 관리 키 암호화를 선택 합
 
 ## <a name="create-the-cache-with-azure-cli"></a>Azure CLI를 사용 하 여 캐시 만들기
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 > [!NOTE]
 > 현재 Azure CLI는 고객이 관리 하는 암호화 키를 사용 하 여 캐시를 만드는 것을 지원 하지 않습니다. Azure 포털을 사용합니다.
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | 캐시 크기 | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072GB    | 예         | 아니요          | 아니요          |
-  | 6144 GB    | 예         | 예         | 아니요          |
+  | 3072GB    | 예         | no          | no          |
+  | 6144 GB    | 예         | 예         | no          |
   | 12288 GB   | 예         | 예         | 예         |
-  | 24576 GB   | 아니요          | 예         | 예         |
-  | 49152 GB   | 아니요          | 아니요          | 예         |
+  | 24576 GB   | no          | 예         | 예         |
+  | 49152 GB   | no          | no          | 예         |
 
   가격 책정, 처리량 및 워크플로에 적절 한 캐시 크기를 조정 하는 방법에 대 한 중요 한 정보는 포털 지침 탭의 **캐시 용량 설정** 섹션을 참조 하세요.
 
@@ -235,11 +235,11 @@ nets/<cache_subnet_name>"`
 
   | 캐시 크기 | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072GB    | 예         | 아니요          | 아니요          |
-  | 6144 GB    | 예         | 예         | 아니요          |
+  | 3072GB    | 예         | no          | no          |
+  | 6144 GB    | 예         | 예         | no          |
   | 12288 GB   | 예         | 예         | 예         |
-  | 24576 GB   | 아니요          | 예         | 예         |
-  | 49152 GB   | 아니요          | 아니요          | 예         |
+  | 24576 GB   | no          | 예         | 예         |
+  | 49152 GB   | no          | no          | 예         |
 
   가격 책정, 처리량 및 워크플로에 적절 한 캐시 크기를 조정 하는 방법에 대 한 중요 한 정보는 포털 지침 탭의 **캐시 용량 설정** 섹션을 참조 하세요.
 

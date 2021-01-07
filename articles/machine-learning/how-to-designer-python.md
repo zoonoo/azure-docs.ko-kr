@@ -1,7 +1,7 @@
 ---
 title: 디자이너에서 Python 스크립트 실행
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 디자이너에서 Python을 사용하여 데이터를 변환하는 방법을 알아봅니다.
+description: Azure Machine Learning 디자이너에서 Python 스크립트 실행 모델을 사용 하 여 Python으로 작성 된 사용자 지정 작업을 실행 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer, devx-track-python
-ms.openlocfilehash: 6a393cf2c0787a2bc2111581126cbc261d85f1f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcc28d98efbc82079586de8cfbecd35effc93d6e
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897738"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556236"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에서 Python 코드 실행
 
@@ -58,7 +58,7 @@ ms.locfileid: "90897738"
 
 디자이너는 고유 Python 코드를 편집하고 입력할 수 있는 초기 진입점 스크립트를 제공합니다. 
 
-이 예에서는 Pandas를 사용하여 자동차 데이터 세트에 있는 두 열 **가격** 및 **마력**을 결합하고 새 열 **마력당 달러**를 만듭니다. 이 열은 각 마력에 대한 비용을 나타내며 이는 자동차가 금액에 적합한지 결정하는 데 유용한 기능입니다. 
+이 예에서는 Pandas를 사용하여 자동차 데이터 세트에 있는 두 열 **가격** 및 **마력** 을 결합하고 새 열 **마력당 달러** 를 만듭니다. 이 열은 각 마력에 대한 비용을 나타내며 이는 자동차가 금액에 적합한지 결정하는 데 유용한 기능입니다. 
 
 1. **Python 스크립트 실행** 모듈을 선택합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "90897738"
     
 1. 파이프라인을 제출합니다.
 
-이제 자동차 추천자를 교육하는 데 유용하게 사용할 수 있는 새 기능 **달러/HP**가 포함된 데이터 세트를 사용할 수 있습니다. 이는 기능 추출 및 차원 감소 예입니다. 
+이제 자동차 추천자를 교육하는 데 유용하게 사용할 수 있는 새 기능 **달러/HP** 가 포함된 데이터 세트를 사용할 수 있습니다. 이는 기능 추출 및 차원 감소 예입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

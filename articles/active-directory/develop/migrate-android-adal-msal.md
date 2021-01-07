@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 752e7dae9040059c662a93d9a9d668bac0e8e2d8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bf9b3a154e19fab08c46f9838f555e223f10e8a0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074671"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672290"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Android 용 ADAL-MSAL 마이그레이션 가이드
 
@@ -89,7 +89,7 @@ ADAL 및 Azure AD v1 끝점을 사용 하는 경우 자신이 소유한 리소�
 > [!CAUTION]
 > 범위와 리소스 id를 모두 설정할 수는 없습니다. 둘 다 설정 하려고 하면이 발생 `IllegalArgumentException` 합니다.
 
- 이렇게 하면 사용 되는 것과 동일한 v1 동작이 발생 합니다. 앱 등록에서 요청 된 모든 권한은 첫 번째 상호 작용 중에 사용자가 요청 합니다.
+이렇게 하면 사용 되는 것과 동일한 v1 동작이 발생 합니다. 앱 등록에서 요청 된 모든 권한은 첫 번째 상호 작용 중에 사용자가 요청 합니다.
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>필요한 경우에만 권한 인증 및 요청
 
@@ -131,13 +131,13 @@ Microsoft에 알려지지 않은 기관을 사용 하려고 시도 하 고 구�
 ### <a name="logging"></a>로깅
 이제 다음과 같이 구성의 일부로 선언적으로 로깅을 구성할 수 있습니다.
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## <a name="migrate-from-userinfo-to-account"></a>UserInfo에서 계정으로 마이그레이션
 
@@ -147,7 +147,7 @@ ADAL에서는 `AuthenticationResult` `UserInfo` 인증 된 계정에 대 한 정
 
 금융 기관의 계정 처럼 Microsoft id 플랫폼의 계정은 자격 증명을 사용 하 여 액세스 됩니다. 이러한 자격 증명은 Microsoft에서 등록 되거나 발급 됩니다. 또는 Microsoft에서 조직을 대신 하 여.
 
-Microsoft id 플랫폼은 금융 기관과 차이가 있는 경우, Microsoft id 플랫폼은 사용자가 한 계정 및 연결 된 자격 증명을 사용 하 여 여러 개인 및 조직에 속한 리소스에 액세스할 수 있도록 하는 프레임 워크를 제공 합니다. 이는 한 은행에서 발행 한 카드를 다른 금융 기관에서 사용할 수 있는 것과 같습니다. 이는 문제의 모든 조직이 Microsoft id 플랫폼을 사용 하 여 여러 조직에서 하나의 계정을 사용할 수 있기 때문에 작동 합니다. 예는 다음과 같습니다.
+Microsoft id 플랫폼은 금융 기관과 차이가 있는 경우, Microsoft id 플랫폼은 사용자가 한 계정 및 연결 된 자격 증명을 사용 하 여 여러 개인 및 조직에 속한 리소스에 액세스할 수 있도록 하는 프레임 워크를 제공 합니다. 이는 한 은행에서 발행 한 카드를 다른 금융 기관에서 사용할 수 있는 것과 같습니다. 이는 문제의 모든 조직이 Microsoft id 플랫폼을 사용 하 여 여러 조직에서 하나의 계정을 사용할 수 있기 때문에 작동 합니다. 예를 들면 다음과 같습니다.
 
 Sam은 Contoso.com에 대해 작동 하지만 Fabrikam.com에 속한 Azure virtual machines를 관리 합니다. Sam의 가상 컴퓨터를 관리 하려면 해당 컴퓨터에 액세스할 수 있는 권한이 있어야 합니다. Fabrikam.com에 Sam 계정을 추가 하 고 해당 계정에 가상 컴퓨터를 사용할 수 있도록 허용 하는 역할을 부여 하 여이 액세스 권한을 부여할 수 있습니다. 이 작업은 Azure Portal를 통해 수행 됩니다.
 
@@ -278,30 +278,30 @@ MSAL에는 예외 계층이 있으며 각 계층에는 관련 된 특정 오류 
 // New interface
   StringBuilder logs = new StringBuilder();
   Logger.getInstance().setExternalLogger(new ILoggerCallback() {
-            @Override
-            public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
-                logs.append(message).append('\n');
-            }
-        });
+      @Override
+      public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
+          logs.append(message).append('\n');
+      }
+  });
 
 // New Log Levels:
 public enum LogLevel
 {
-        /**
-         * Error level logging.
-         */
-        ERROR,
-        /**
-         * Warning level logging.
-         */
-        WARNING,
-        /**
-         * Info level logging.
-         */
-        INFO,
-        /**
-         * Verbose level logging.
-         */
-        VERBOSE
+    /**
+     * Error level logging.
+     */
+    ERROR,
+    /**
+     * Warning level logging.
+     */
+    WARNING,
+    /**
+     * Info level logging.
+     */
+    INFO,
+    /**
+     * Verbose level logging.
+     */
+    VERBOSE
 }
 ```

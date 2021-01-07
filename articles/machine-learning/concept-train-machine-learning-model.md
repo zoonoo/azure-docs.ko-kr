@@ -1,7 +1,7 @@
 ---
 title: 모델 빌드 및 학습
 titleSuffix: Azure Machine Learning
-description: Scikit, TensorFlow 및 PyTorch와 같은 인기 있는 프레임 워크를 사용 하 여 Azure Machine Learning으로 모델을 학습 하는 방법을 알아봅니다. Machine Learning 파이프라인을 사용하면 간편하게 무인 실행을 예약하고, 이기종 컴퓨팅 환경을 사용하고, 워크플로의 일부를 재사용할 수 있습니다. 그리고 실행 구성은 학습 프로세스가 실행되는 컴퓨팅 대상을 세밀하게 제어하는 기능을 제공합니다.
+description: Azure Machine Learning를 사용 하 여 모델을 학습 하는 방법을 알아봅니다. 다양 한 학습 방법을 탐색 하 고 프로젝트에 적합 한 방법을 선택 합니다.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324820"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555892"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 

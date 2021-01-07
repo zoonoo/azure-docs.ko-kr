@@ -1,19 +1,19 @@
 ---
-author: ramonarguelles
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 02/21/2019
-ms.author: rgarcia
-ms.openlocfilehash: 9bd213b63b69a25fb2530cd8f6659abf5357616a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: 7210b05566f5cd6f3c56792bce0904b3c9b645da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76694270"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993045"
 ---
 ## <a name="set-up-authentication"></a>인증 설정
 
-서비스에 액세스하려면 계정 키, 액세스 토큰 또는 Azure Active Directory 인증 토큰을 제공해야 합니다. [인증 개념 페이지](/azure/spatial-anchors/concepts/authentication)에서 이에 대한 자세한 내용을 읽을 수도 있습니다.
+서비스에 액세스하려면 계정 키, 액세스 토큰 또는 Azure Active Directory 인증 토큰을 제공해야 합니다. [인증 개념 페이지](../articles/spatial-anchors/concepts/authentication.md)에서 이에 대한 자세한 내용을 읽을 수도 있습니다.
 
 ### <a name="account-keys"></a>계정 키
 

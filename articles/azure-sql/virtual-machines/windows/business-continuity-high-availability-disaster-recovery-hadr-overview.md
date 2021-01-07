@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1a0d1018991be9d78623b0826aeab3d13958e996
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102278"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504137"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 비즈니스 연속성 및 HADR
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -84,9 +85,13 @@ Always On 가용성 그룹를 사용 하 여 데이터베이스 수준에서 SQL
 
 [소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)있는 경우 수동 재해 복구 인스턴스에 대 한 추가 라이선스 비용 없이 SQL Server를 사용 하 여 DR (하이브리드 재해 복구) 계획을 구현할 수 있습니다.
 
-다음 이미지에서 설치 프로그램은 12 개 코어를 사용 하는 온-프레미스 SQL Server 배포에 대 한 재해 복구 복제본으로 12 개 코어를 사용 하는 Azure 가상 머신에서 실행 되는 SQL Server을 사용 합니다. 과거에는 온-프레미스 배포 및 Azure Virtual Machines 배포에 대 한 SQL Server의 12 개 코어에 대 한 라이선스가 필요 합니다. 새 혜택은 Azure 가상 머신에서 실행 하기 위한 수동 복제본 혜택을 제공 합니다. 이제 Azure Virtual Machines의 수동 복제본에 대 한 재해 복구 기준이 충족 되는 한, 온-프레미스에서 실행 되는 SQL Server의 12 개 코어만 라이선스를 받아야 합니다.
+예를 들어 세 개의 복제본이 모두 Azure에 호스트 되는 경우 두 개의 무료 수동 보조 데이터베이스를 사용할 수 있습니다. 
 
-![Azure에서 무료 재해 복구 복제본](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/free-dr-replica-azure.png)
+![Azure의 모든 항목을 사용 하는 경우 두 개의 무료 passives](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
+
+또는 사용이 허가 된 기본 온-프레미스 인 하이브리드 장애 조치 (failover) 환경을 구성 하 고, 한 가지 무료 HA 용 passive를 사용 하 고, DR 온-프레미스에 대해 하나의 무료 passive를 사용 하 고, Azure에서 DR에 대 한 무료 passive
+
+![환경이 하나의 기본 온-프레미스 복제본과 하이브리드 인 경우 세 개의 무료 passives](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
 
 자세한 내용은 [제품 라이선스 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하세요. 
 
@@ -101,7 +106,7 @@ Azure VM, 스토리지 및 네트워킹은 온-프레미스, 가상화되지 않
 ### <a name="high-availability-nodes-in-an-availability-set"></a>가용성 집합의 고가용성 노드
 Azure의 가용성 집합을 사용 하면 고가용성 노드를 별도의 장애 도메인에 추가 하 고 도메인을 업데이트할 수 있습니다. Azure 플랫폼은 가용성 집합의 각 가상 머신에 업데이트 도메인 및 장애 도메인을 할당 합니다. 데이터 센터 내에서이 구성은 계획 된 유지 관리 또는 계획 되지 않은 유지 관리 이벤트 중에 하나 이상의 가상 머신을 사용할 수 있고 Azure SLA 99.95%를 충족 하도록 합니다. 
 
-고가용성 설치를 구성 하려면 유지 관리 이벤트 중에 응용 프로그램이 나 데이터 손실을 방지 하기 위해 모든 참여 하는 SQL Server 가상 컴퓨터를 동일한 가용성 집합에 저장 합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [가상 머신의 가용성 관리](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)를 참조하세요.
+고가용성 설치를 구성 하려면 유지 관리 이벤트 중에 응용 프로그램이 나 데이터 손실을 방지 하기 위해 모든 참여 하는 SQL Server 가상 컴퓨터를 동일한 가용성 집합에 저장 합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [가상 머신의 가용성 관리](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>가용성 영역의 고가용성 노드
 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 지역 내에서 가용성 영역을 물리적으로 분리 하면 하나 이상의 가상 머신을 사용할 수 있고 Azure SLA 99.99%를 충족 하 여 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호할 수 있습니다. 

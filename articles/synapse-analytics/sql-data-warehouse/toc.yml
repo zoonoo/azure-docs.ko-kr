@@ -1,12 +1,12 @@
-- name: Azure Synapse(SQL DW)
-  href: index.yml
-- name: Azure Synapse로 전환(작업 영역 미리 보기)
+- name: 전용 SQL 풀(이전에는 SQL DW)
+  href: sql-data-warehouse-overview-what-is.md
+- name: Azure Synapse로 전환
   href: ../overview-what-is.md
 - name: 개요
   items:
-    - name: Azure Synapse Analytics란?
+    - name: 전용 SQL 풀이란?
       href: sql-data-warehouse-overview-what-is.md
-    - name: Azure Synapse Analytics 아키텍처
+    - name: 전용 SQL 풀 아키텍처
       href: massively-parallel-processing-mpp-architecture.md
     - name: DWU(데이터 웨어하우스 단위)
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -29,6 +29,8 @@
   items:
     - name: 만들기 및 연결
       items:
+        - name: Azure CLI
+          href: create-data-warehouse-azure-cli.md
         - name: 포털
           href: create-data-warehouse-portal.md
         - name: PowerShell
@@ -72,6 +74,12 @@
           href: pause-and-resume-compute-powershell.md
 - name: 개념
   items:
+    - name: Synapse 작업 영역 환경
+      items:
+        - name: 개요
+          href: workspace-connected-experience.md
+        - name: 지원되는 지역
+          href: workspace-connected-regions.md
     - name: 보안
       items:
         - name: 개요
@@ -126,7 +134,7 @@
       items:
         - name: 개요
           href: design-elt-data-loading.md
-        - name: 모범 사례
+        - name: 최선의 구현 방법
           href: guidance-for-loading-data.md
         - name: Columnstore 압축
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
@@ -270,6 +278,10 @@
           href: sql-data-warehouse-overview-integrate.md
 - name: 방법 가이드
   items:
+    - name: Synapse 작업 영역 환경
+      items:
+        - name: Synapse 작업 영역 만들기
+          href: workspace-connected-create.md
     - name: 보안
       items:
         - name: Azure AD 인증 구성
@@ -382,9 +394,9 @@
       items:
         - name: 전체 참조
           href: /sql/t-sql/language-reference?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: Azure Synapse Analytics TSQL 언어 요소
+        - name: T-SQL 언어 요소
           href: sql-data-warehouse-reference-tsql-language-elements.md
-        - name: Azure Synapse Analytics TSQL 문
+        - name: T-SQL 문
           href: sql-data-warehouse-reference-tsql-statements.md
     - name: 시스템 뷰
       href: sql-data-warehouse-reference-tsql-system-views.md
@@ -392,6 +404,9 @@
       href: sql-data-warehouse-reference-powershell-cmdlets.md
     - name: REST API
       href: sql-data-warehouse-manage-compute-rest-api.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md
 - name: 리소스
   items:
     - name: Azure 로드맵
@@ -422,5 +437,7 @@
           href: sql-data-warehouse-partner-data-management.md
         - name: 기계 학습 및 AI
           href: sql-data-warehouse-partner-machine-learning-ai.md
-        - name: 공개 미리 보기 파트너
-          href: sql-data-warehouse-partner-launch.md
+        - name: 시스템 통합
+          href: sql-data-warehouse-partner-system-integration.md
+        - name: 타사 애플리케이션의 호환성 문제
+          href: sql-data-warehouse-partner-compatibility-issues.md

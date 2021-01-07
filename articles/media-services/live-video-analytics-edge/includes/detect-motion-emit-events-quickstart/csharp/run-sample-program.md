@@ -1,22 +1,72 @@
 ---
-ms.openlocfilehash: 2349939d4997ddc57d0c0c56a21eeec0357bf0ec
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 766dd13f58268c044435a22fb30c1de816d4d151
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828751"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531970"
 ---
 샘플 코드를 실행하려면 다음 단계를 수행합니다.
 
 1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누르고) Azure IoT Hub를 검색합니다.
-1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="확장 설정":::
 1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="확장 설정"
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="자세한 정보 메시지 표시":::
+1. Visual Studio Code에서 *src/cloud-to-device-console-app/operations.json* 으로 이동합니다.
+1. **GraphTopologySet** 노드에서 다음 값이 표시되는지 확인합니다.
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"`
+1. **GraphInstanceSet** 및 **GraphTopologyDelete** 노드에서 `topologyName` 값이 그래프 토폴로지의 `name` 속성 값과 일치하는지 확인합니다.
+
+    `"topologyName" : "MotionDetection"`
+    
+1. F5 키를 선택하여 디버깅 세션을 시작합니다. **터미널** 창에 몇 가지 메시지가 표시됩니다.
+1. *operations.json* 파일은 `GraphTopologyList` 및 `GraphInstanceList`에 대한 호출로 시작됩니다. 이전 빠른 시작을 완료한 후에 리소스를 정리한 경우 이 프로세스에서 빈 목록을 반환한 다음, 일시 중지합니다. 계속하려면 Enter 키를 선택합니다.
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+        "@apiVersion": "2.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+        "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+    
+    **터미널** 창에 직접 메서드 호출의 다음 세트가 표시됩니다.
+     * 이전 `topologyUrl`을 사용하는 `GraphTopologySet`에 대한 호출
+     * 다음 본문을 사용하는 `GraphInstanceSet`에 대한 호출
+         
+    ```
+    {
+      "@apiVersion": "2.0",
+      "name": "Sample-Graph",
+      "properties": {
+        "topologyName": "MotionDetection",
+        "description": "Sample graph description",
+        "parameters": [
+          {
+            "name": "rtspUrl",
+            "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+          },
+          {
+            "name": "rtspUserName",
+            "value": "testuser"
+          },
+          {
+            "name": "rtspPassword",
+            "value": "testpassword"
           }
         ]
       }

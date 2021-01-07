@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 수평 배포
 description: Azure VMware 솔루션에 VMware 수평을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d5d8e12e358e2289128af9840660be18f5f217a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423106"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537444"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Azure VMware 솔루션에 수평 배포 
 
@@ -139,22 +139,6 @@ Azure VMware 솔루션에서 실행 되는 호스트에 대 한 수평 크기 �
 #### <a name="power-worker-workloads"></a>Power worker 워크 로드
 
 :::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="로그인 .VSI Power worker 작업을 위한 VMware 대역에 대 한 일반적인 VDI 프로필 표" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
-
-### <a name="azure-vmware-solution-host-instance"></a>Azure VMware 솔루션 호스트 인스턴스
-
-* PowerEdge R640 서버-DSS 제한 됨
-
-* 36 코어 2.3 g h z \@
-
-* 576-GB RAM
-
-* HBA330 12 Gbps SAS HBA 컨트롤러 (비 RAID)
-
-* 1.92 TB SSD SATA 조합 핫 플러그 AG 드라이브에서 6gbps 512 2.5 사용, 3 DWPD, 10512 TBW
-
-* Intel 1.6 TB, NVMe, Mixed Use Express Flash, 2.5 SFF 드라이브, U. 2, P4600와 통신
-
-* 2 vSAN 디스크 그룹: 1.6 x 4 (1.92 TB)
 
 ### <a name="horizon-sizing-inputs"></a>수평 크기 조정 입력
 

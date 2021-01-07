@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f7d9389eb0a0118f2c1be8375531f58b6bed94b6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488098"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511844"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -41,6 +41,10 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="빠른 시작을 위해 만든 표준 부하 분산 장치 리소스." border="false":::
+
+*그림: 빠른 시작에서 만든 리소스.*
+
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
 
 공용 부하 분산 장치를 만드는 경우 부하 분산 장치의 프런트 엔드(기본적으로 이름이 **LoadBalancerFrontend** 임)로 구성된 새 공용 IP 주소를 만듭니다.
@@ -60,7 +64,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
     | 공용 IP 주소 | **새로 만들기** 를 선택합니다. 사용하려는 기존 공용 IP가 있는 경우 **기존 항목 사용** 을 선택합니다. |
     | 공용 IP 주소 이름 | 텍스트 상자에 **myPublicIP** 를 입력합니다.|
     | 가용성 영역 | **영역 중복** 을 선택하여 복원력 있는 부하 분산 장치를 만듭니다. 영역 부하 분산 장치를 만들려면 1, 2 또는 3에서 특정 영역을 선택합니다. |
-    | 공용 IPv6 주소 추가 | **아니오** 를 선택합니다. </br> IPv6 주소 및 부하 분산 장치에 대한 자세한 내용은 [Azure Virtual Network용 IPv6이란?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)을 참조하세요.  |
+    | 공용 IPv6 주소 추가 | **아니오** 를 선택합니다. </br> IPv6 주소 및 부하 분산 장치에 대한 자세한 내용은 [Azure Virtual Network용 IPv6이란?](../virtual-network/ipv6-overview.md)을 참조하세요.  |
 
 3. 나머지 설정에는 기본값을 적용한 다음, **검토 + 만들기** 를 선택합니다.
 
@@ -102,10 +106,10 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHealthProbe** 를 입력합니다. |
+    | 이름 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
-    | 간격 | 프로브 시도 **간격** (초)으로 **15** 를 입력합니다. |
+    | 간격 | 프로브 시도 **간격**(초)으로 **15** 를 입력합니다. |
     | 비정상 임계값 | **비정상 임계값** 또는 VM이 비정상 상태로 간주되는 데 필요한 연속 프로브 오류 횟수로 **2** 를 선택합니다.|
     | | |
 
@@ -205,7 +209,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-이 섹션에서는 세 개의 다른 영역( **영역 1** , **영역 2** 및 **영역 3** )에서 세 개의 VM( **myVM1** , **myVM2** 및 **myVM3** )을 만듭니다. 
+이 섹션에서는 세 개의 다른 영역(**영역 1**, **영역 2** 및 **영역 3**)에서 세 개의 VM(**myVM1**, **myVM2** 및 **myVM3**)을 만듭니다. 
 
 이러한 VM은 이전에 만든 부하 분산 장치의 백 엔드 풀에 추가됩니다.
 
@@ -233,7 +237,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | **인바운드 포트 규칙** |  |
     | 공용 인바운드 포트 | **없음** 을 선택합니다. |
 
-3. **네트워킹** 탭을 선택하거나 **다음: 디스크** , **다음: 네트워킹** 을 차례로 선택합니다.
+3. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹** 을 차례로 선택합니다.
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
@@ -311,7 +315,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 5. **가상 머신** 에서 **추가** 를 선택합니다.
 
-6. **myVM1** , **myVM2** 및 **myVM3** 옆에 있는 확인란을 선택합니다. 
+6. **myVM1**, **myVM2** 및 **myVM3** 옆에 있는 확인란을 선택합니다. 
 
 7. **추가** 를 선택합니다.
 
@@ -321,6 +325,10 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="빠른 시작에서 만든 기본 부하 분산 장치 리소스." border="false":::
+
+*그림: 빠른 시작에서 만든 리소스.*
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
 
@@ -341,7 +349,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 공용 IP 주소 | **새로 만들기** 를 선택합니다. 사용하려는 기존 공용 IP가 있는 경우 **기존 항목 사용** 을 선택합니다. |
     | 공용 IP 주소 이름 | 텍스트 상자에 **myPublicIP** 를 입력합니다.|
     | 할당 | **동적** 을 선택합니다. |
-    | 공용 IPv6 주소 추가 | **아니오** 를 선택합니다. </br> IPv6 주소 및 부하 분산 장치에 대한 자세한 내용은 [Azure Virtual Network용 IPv6이란?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)을 참조하세요.  |
+    | 공용 IPv6 주소 추가 | **아니오** 를 선택합니다. </br> IPv6 주소 및 부하 분산 장치에 대한 자세한 내용은 [Azure Virtual Network용 IPv6이란?](../virtual-network/ipv6-overview.md)을 참조하세요.  |
 
 3. 나머지 설정에는 기본값을 적용한 다음, **검토 + 만들기** 를 선택합니다.
 
@@ -444,7 +452,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 경로 | **/** 를 입력합니다. |
-    | 간격 | 프로브 시도 **간격** (초)으로 **15** 를 입력합니다. |
+    | 간격 | 프로브 시도 **간격**(초)으로 **15** 를 입력합니다. |
     | 비정상 임계값 | **비정상 임계값** 또는 VM이 비정상 상태로 간주되는 데 필요한 연속 프로브 오류 횟수로 **2** 를 선택합니다.|
 
 3. **확인** 을 선택합니다.
@@ -490,7 +498,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-이 섹션에서는 기본 공용 IP 주소를 사용하여 세 개의 VM( **myVM1** , **myVM2** 및 **myVM3** )을 만듭니다.  
+이 섹션에서는 기본 공용 IP 주소를 사용하여 세 개의 VM(**myVM1**, **myVM2** 및 **myVM3**)을 만듭니다.  
 
 세 개의 VM이 **myAvailabilitySet** 이라는 가용성 집합에 추가됩니다.
 
@@ -518,7 +526,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 암호 | 암호를 입력합니다. |
     | 암호 확인 | 암호를 다시 입력합니다. |
 
-3. **네트워킹** 탭을 선택하거나 **다음: 디스크** , **다음: 네트워킹** 을 차례로 선택합니다.
+3. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹** 을 차례로 선택합니다.
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
@@ -566,7 +574,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 4. **가상 머신** 섹션에서 **+ 추가** 를 선택합니다.
 
-5. **myVM1** , **myVM2** 및 **myVM3** 옆에 있는 확인란을 선택합니다.
+5. **myVM1**, **myVM2** 및 **myVM3** 옆에 있는 확인란을 선택합니다.
 
 6. **추가** 를 선택합니다.
 
@@ -576,7 +584,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 ## <a name="install-iis"></a>IIS 설치
 
-1. 왼쪽 메뉴에서 **모든 서비스** 를 선택하고 **모든 리소스** 를 선택한 다음, 리소스 목록에서 **CreateStdLBQS-rg** 리소스 그룹에 있는 **myVM1** 을 선택합니다.
+1. 왼쪽 메뉴에서 **모든 서비스** 를 선택하고 **모든 리소스** 를 선택한 다음, 리소스 목록에서 **CreatePubLBQS-rg** 리소스 그룹에 있는 **myVM1** 을 선택합니다.
 
 2. **개요** 페이지에서 **연결** 을 선택한 다음, **Bastion** 을 선택합니다.
 

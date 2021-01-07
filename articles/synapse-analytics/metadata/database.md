@@ -1,6 +1,6 @@
 ---
 title: 공유 데이터베이스
-description: Azure Synapse Analytics는 서버리스 Apache Spark 풀에서 데이터베이스를 만들면 서버리스 SQL 풀(미리 보기) 및 SQL 풀 엔진에서 액세스할 수 있는 공유 메타데이터 모델을 제공합니다.
+description: Azure Synapse Analytics는 서버리스 Apache Spark 풀에서 데이터베이스를 만들면 서버리스 SQL 풀 및 SQL 풀 엔진에서 액세스할 수 있는 공유 메타데이터 모델을 제공합니다.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,20 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317832"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451812"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Azure Synapse Analytics 공유 데이터베이스
 
-Azure Synapse Analytics를 사용하면 여러 컴퓨팅 작업 영역 엔진이 서버리스 Spark Apache 풀(미리 보기)과 서버리스 SQL 풀(미리 보기) 엔진 간에 데이터베이스와 테이블을 공유할 수 있습니다.
+Azure Synapse Analytics를 사용하면 여러 컴퓨팅 작업 영역 엔진이 서버리스 Spark Apache 풀과 서버리스 SQL 풀 엔진 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
-
-Spark 작업을 사용하여 만든 데이터베이스는 서버리스 SQL 풀 엔진을 포함하여 작업 영역에 있는 모든 현재 및 미래의 Spark 풀(미리 보기)에 동일한 이름으로 표시됩니다.
+Spark 작업을 사용하여 만든 데이터베이스는 서버리스 SQL 풀 엔진을 포함하여 작업 영역에 있는 모든 현재 및 미래의 Spark 풀에 동일한 이름으로 표시됩니다.
 
 `default`라는 Spark 기본 데이터베이스는 서버리스 SQL 풀 컨텍스트에서 `default`라는 데이터베이스로도 표시됩니다.
 

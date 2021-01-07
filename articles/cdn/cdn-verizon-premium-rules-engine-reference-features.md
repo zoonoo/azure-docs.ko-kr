@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84343203"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020418"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Verizon Premium의 Azure CDN 규칙 엔진 기능
 
@@ -35,11 +35,11 @@ ms.locfileid: "84343203"
 * [URL](#url)
 * [웹 애플리케이션 방화벽](#waf)
 
-### <a name="access"></a><a name="access"></a>액세스 권한
+### <a name="access"></a><a name="access"></a>Access
 
 이러한 기능은 콘텐츠에 대한 액세스를 제어하도록 설계되었습니다.
 
-| 속성       | 목적                                                           |
+| Name       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [액세스 거부(403)](https://docs.vdms.com/cdn/Content/HRE/F/Deny-Access-403.htm) | 모든 요청이 403 사용 권한 없음 응답으로 거부되는지 여부를 결정합니다. |
 | [토큰 인증](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm) | 요청에 토큰 기반 인증을 적용할지 여부를 결정합니다. |
@@ -53,13 +53,13 @@ ms.locfileid: "84343203"
 
 이러한 기능은 콘텐츠가 캐시되는 시기와 방식을 사용자 지정하기 위해 설계되었습니다.
 
-| 속성       | 목적                                                           |
+| Name       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [대역폭 매개 변수](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Parameters.htm) | 대역폭 제한 매개 변수(예: ec_rate 및 ec_prebuf)를 활성화할지 여부를 결정합니다. |
 | [대역폭 제한](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | 에지 서버에서 제공하는 응답에 대한 대역폭을 제한합니다. |
 | [바이패스 캐시](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | 요청에서 캐싱 기술을 활용할 수 있는지 여부를 결정합니다. |
 | [Cache-Control 헤더 처리](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  외부 Max-Age 기능이 활성 상태일 때 에지 서버에 의한 Cache-Control 헤더의 생성을 제어합니다. |
-| [Cache-Key 쿼리 문자열](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | **캐시 키***가 요청과 연결 된 쿼리 문자열 매개 변수를 포함할지 또는 제외할지를 결정 합니다. <br> _* 캐싱의 용도에 대 한 자산을 고유 하 게 식별 하는 상대 경로입니다.  에 지 서버는 캐시 된 콘텐츠를 확인할 때이 상대 경로를 사용 합니다.  기본적으로 캐시 키는 쿼리 문자열 매개 변수를 포함 하지 않습니다._ |
+| [Cache-Key 쿼리 문자열](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | **캐시 키** _가 요청과 관련 된 쿼리 문자열 매개 변수를 포함할지 또는 제외할지를 결정 합니다. <br> __ 캐싱의 용도에 대 한 자산을 고유 하 게 식별 하는 상대 경로입니다.  에 지 서버는 캐시 된 콘텐츠를 확인할 때이 상대 경로를 사용 합니다.  기본적으로 캐시 키는 쿼리 문자열을 포함 하지 않습니다 parameters._ |
 | [Cache-Key 다시 쓰기](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | 요청과 관련된 cache-key를 다시 씁니다. |
 | [전체 캐시 채우기](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | 요청 결과, 에지 서버에서 캐시가 부분적으로 누락된 경우 수행할 작업을 결정합니다. |
 | [압축 파일 형식](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | 서버에서 압축할 파일 형식을 정의합니다. | 
@@ -88,11 +88,11 @@ ms.locfileid: "84343203"
 
 **[맨 위로 돌아가기](#top)**
 
-### <a name="headers"></a><a name="headers"></a>headers
+### <a name="headers"></a><a name="headers"></a>헤더
 
 이러한 기능은 요청자 또는 응답에서 헤더를 추가, 수정 또는 삭제하도록 설계되었습니다.
 
-| 속성       | 목적                                                           |
+| Name       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [Age 응답 헤더](https://docs.vdms.com/cdn/Content/HRE/F/Age-Response-Header.htm) | Age 응답 헤더를 요청자에게 전송되는 응답에 포함할지 결정합니다. |
 | [디버그 캐시 응답 헤더](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) | 응답에 요청 된 자산의 캐시 정책에 대 한 정보를 제공 하는 [X EC-디버그 응답 헤더](https://docs.vdms.com/cdn/Content/Knowledge_Base/X_EC_Debug.htm) 를 포함할 수 있는지 여부를 결정 합니다. |
@@ -106,7 +106,7 @@ ms.locfileid: "84343203"
 
 이러한 기능은 원시 로그 파일에 저장된 데이터를 사용자 지정하도록 설계되었습니다.
 
-| 속성       | 목적                                                           |
+| Name       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [사용자 지정 로그 필드 1](https://docs.vdms.com/cdn/Content/HRE/F/Custom-Log-Field-1.htm) | 원시 로그 파일의 사용자 지정 로그 필드에 할당할 콘텐츠와 형식을 결정합니다. |
 | [로그 쿼리 문자열](https://docs.vdms.com/cdn/Content/HRE/F/Log-Query-String.htm) | 액세스 로그에 쿼리 문자열을 URL과 함께 저장할지 여부를 결정합니다. |
@@ -117,7 +117,7 @@ ms.locfileid: "84343203"
 
 이러한 기능은 요청에서 에지 최적화 프로그램이 제공하는 최적화를 수행할지 여부를 결정합니다.
 
-| 속성       | 목적                                                           |
+| Name       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [에지 최적화 프로그램](https://docs.vdms.com/cdn/Content/HRE/F/Edge-Optimizer.htm) | 에지 최적화 프로그램을 요청에 적용할 수 있는지 여부를 결정합니다. |
 | [에지 최적화 프로그램 - 구성 인스턴스화](https://docs.vdms.com/cdn/Content/HRE/F/Edge-Optimizer-Instantiate-Configuration.htm) | 사이트와 관련된 에지 최적화 프로그램 구성을 인스턴스화 또는 활성화합니다. |
@@ -128,7 +128,7 @@ ms.locfileid: "84343203"
 
 이러한 기능은 CDN이 원본 서버와 통신하는 방법을 제어하도록 설계되었습니다.
 
-| 속성       | 목적                                                           |
+| Name       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [최대 연결 유지 요청](https://docs.vdms.com/cdn/Content/HRE/F/Maximum-Keep-Alive-Requests.htm) | 연결이 닫히기 전에 연결을 유지할 최대 요청 수를 정의합니다. |
 | [프록시 특별 헤더](https://docs.vdms.com/cdn/Content/HRE/F/Proxy-Special-Headers.htm) | 에 지 서버에서 원본 서버로 전달할 [CDN 특정 요청 헤더](https://docs.vdms.com/cdn/Content/Knowledge_Base/Request-Format.htm#RequestHeaders) 집합을 정의 합니다. |
@@ -139,7 +139,7 @@ ms.locfileid: "84343203"
 
 이러한 기능은 고급 사용자만 사용해야 하는 고급 기능을 제공합니다.
 
-| 속성       | 목적                                                           |
+| Name       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [캐시 가능한 HTTP 메서드](https://docs.vdms.com/cdn/Content/HRE/F/Cacheable-HTTP-Methods.htm) | 네트워크에서 캐시할 수 있는 추가 HTTP 메서드 집합을 결정합니다. |
 | [캐시 가능한 요청 본문 크기](https://docs.vdms.com/cdn/Content/HRE/F/Cacheable-Request-Body-Size.htm) | POST 응답을 캐시할 수 있는지 여부를 결정하는 임계값을 정의합니다. |
@@ -153,7 +153,7 @@ ms.locfileid: "84343203"
 
 이러한 기능을 통해 요청을 다른 URL로 리디렉션하거나 다시 작성할 수 있습니다.
 
-| 속성       | 목적                                                           |
+| Name       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [리디렉션 추적](https://docs.vdms.com/cdn/Content/HRE/F/Follow-Redirects.htm) | 고객 원본 서버에서 반환된 Location 헤더에 정의된 호스트 이름으로 요청을 리디렉션할 수 있는지 여부를 결정합니다. |
 | [URL 리디렉션](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm) | Location 헤더를 통해 요청을 리디렉션합니다. |

@@ -11,15 +11,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 580459f3a5da8485bd92395f9b0b9745e28c023c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a0e9401842284cad29b297be5ce572fa53cfe774
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325252"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188091"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Azure Container Instances에 모델 배포
-
 
 Azure Machine Learning를 사용 하 여 ACI (Azure Container Instances에서 웹 서비스로 모델을 배포 하는 방법을 알아봅니다. 다음 조건 중 하나에 해당 하는 경우 Azure Container Instances를 사용 합니다.
 
@@ -29,7 +28,7 @@ Azure Machine Learning를 사용 하 여 ACI (Azure Container Instances에서 �
 ACI의 할당량 및 지역 가용성에 대 한 자세한 내용은 [Azure Container Instances 문서에 대 한 할당량 및 지역 가용성](../container-instances/container-instances-quotas.md) 을 참조 하세요.
 
 > [!IMPORTANT]
-> 웹 서비스로 배포 하기 전에 로컬로 디버그 하는 것이 좋습니다. 자세한 내용은 [로컬로 디버그](./how-to-troubleshoot-deployment.md#debug-locally) 를 참조 하세요.
+> 웹 서비스로 배포 하기 전에 로컬로 디버그 하는 것이 좋습니다. 자세한 내용은 [로컬로 디버그](./how-to-troubleshoot-deployment-local.md) 를 참조 하세요.
 >
 > 또한 Azure Machine Learning - [로컬 Notebook에 배포](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)를 참조할 수 있습니다.
 

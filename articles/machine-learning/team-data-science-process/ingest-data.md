@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f8eab59d810fb825dbebf80d01d8efd2dd0a9841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e911ad6bdf5a478d46e425f8700740ece56c6e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720540"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452660"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>분석용 스토리지 환경에 데이터 로드
 
-팀 데이터 과학 프로세스에서는 각 단계에서 가장 적절 한 방법으로 데이터를 수집 하거나 로드 해야 합니다. 데이터 대상에는 Azure VM의 Azure Blob Storage, SQL Azure 데이터베이스, SQL Server, HDInsight (Hadoop), Synapse Analytics 및 Azure Machine Learning 포함 될 수 있습니다. 
+팀 데이터 과학 프로세스에서는 각 단계에서 가장 적절 한 방법으로 데이터를 수집 하거나 로드 해야 합니다. 데이터 대상에는 Azure VM의 Azure Blob Storage, SQL Azure 데이터베이스, SQL Server, HDInsight (Hadoop), Azure Synapse 분석 및 Azure Machine Learning 포함 될 수 있습니다. 
 
 다음 문서에서는 데이터가 저장되고 처리되는 다양한 대상 환경으로 데이터를 수집하는 방법을 설명합니다.
 

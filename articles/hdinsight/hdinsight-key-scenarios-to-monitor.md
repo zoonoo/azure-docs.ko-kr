@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014247"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Azure HDInsight에서 클러스터 성능 모니터링
 
@@ -29,7 +29,7 @@ Hadoop 클러스터는 클러스터의 부하가 모든 노드에 균등하게 �
 
 | 색 | Description |
 | --- | --- |
-| 빨간색 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
+| 빨강 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
 | Orange | 호스트에서 하나 이상의 보조 구성 요소가 다운 되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
 | 노란색 | Ambari 서버가 호스트에서 3 분 넘게 하트 비트를 받지 못했습니다. |
 | 녹색 | 정상적인 실행 상태입니다. |

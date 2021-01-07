@@ -1,7 +1,7 @@
 ---
 title: 학습 scikit-기계 학습 모델 배우기
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 scikit 학습 스크립트를 실행 하는 방법에 대해 알아봅니다.
+description: 탄력적 클라우드 계산 리소스를 사용 하 여 scikit 학습 작업을 규모 확장 하는 Azure Machine Learning 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 91a9957c7a68f1752d7a6b9ea66910ec642b7bd1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e80f33e6c36e1525eff954376d17c8a8b76204cb
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360907"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796026"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>학습 scikit-Azure Machine Learning를 사용 하 여 대규모로 모델 학습
 
@@ -25,7 +25,7 @@ ms.locfileid: "93360907"
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
@@ -132,7 +132,7 @@ src = ScriptRunConfig(source_directory='.',
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'train-iris').submit(src)
+run = Experiment(ws,'Tutorial-TrainIRIS').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
@@ -142,13 +142,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>실행 실행 중 수행 되는 작업
 실행이 실행 되 면 다음 단계를 거칩니다.
 
-- **준비** : 정의 된 환경에 따라 docker 이미지가 생성 됩니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다. 큐 레이트 환경을 대신 지정 하면 해당 큐 레이트 환경을 지 원하는 캐시 된 이미지가 사용 됩니다.
+- **준비**: 정의 된 환경에 따라 docker 이미지가 생성 됩니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다. 큐 레이트 환경을 대신 지정 하면 해당 큐 레이트 환경을 지 원하는 캐시 된 이미지가 사용 됩니다.
 
-- **크기 조정** : 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
+- **크기 조정**: 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
 
-- **실행 중** : 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, `script` 이 실행 됩니다. Stdout의 출력과 **./clogs** 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
+- **실행 중**: 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, `script` 이 실행 됩니다. Stdout의 출력과 **./clogs** 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
 
-- **사후 처리** : 실행의 **./출력** 폴더가 실행 기록에 복사 됩니다.
+- **사후 처리**: 실행의 **./출력** 폴더가 실행 기록에 복사 됩니다.
 
 ## <a name="save-and-register-the-model"></a>모델 저장 및 등록
 

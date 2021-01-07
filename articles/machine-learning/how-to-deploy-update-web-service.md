@@ -10,12 +10,12 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: 703f5e360261c47c443320459d601d65a5503f5a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f955ee3f8bc150982c19107271fe7e7bdb1368cb
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322428"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97824570"
 ---
 # <a name="update-a-deployed-web-service"></a>배포 된 웹 서비스 업데이트
 

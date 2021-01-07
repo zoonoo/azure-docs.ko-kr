@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02276ebf8e8a2289db2a1f6eac506443cea61c31
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461547"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97682710"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics 솔루션 패턴
 
@@ -20,7 +20,7 @@ Azure의 다른 많은 서비스와 마찬가지로 Stream Analytics 다른 서�
 
 ## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>실시간 대시보드 환경을 위한 Stream Analytics 작업 만들기
 
-Azure Stream Analytics를 사용 하면 실시간 대시보드 및 경고를 신속 하 게 사용할 수 있습니다. 간단한 솔루션은 Event Hubs 또는 IoT Hub에서 이벤트를 수집 하 고 [스트리밍 데이터 집합을 사용 하 여 Power BI 대시보드를 피드](/power-bi/service-real-time-streaming)합니다. 자세한 내용은 자세한 자습서 [Stream Analytics 사용 하 여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화](stream-analytics-manage-job.md)를 참조 하세요.
+Azure Stream Analytics를 사용 하면 실시간 대시보드 및 경고를 신속 하 게 사용할 수 있습니다. 간단한 솔루션은 Event Hubs 또는 IoT Hub에서 이벤트를 수집 하 고 [스트리밍 데이터 집합을 사용 하 여 Power BI 대시보드를 피드](/power-bi/service-real-time-streaming)합니다. 자세한 내용은 자세한 자습서 [Stream Analytics 사용 하 여 사기성 호출 데이터 분석 및 Power BI 대시보드에서 결과 시각화](stream-analytics-real-time-fraud-detection.md)를 참조 하세요.
 
 ![GLOBAL.ASA Power BI 대시보드](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 

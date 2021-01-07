@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d62ea00246123dedb386f168355cbf2834efc2ef
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0ad73d7086a2066517c24a8b10a7f54503535942
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088797"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490298"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>자습서: Bing Visual Search SDK for C#을 사용하여 이미지 자르기
 
 > [!WARNING]
-> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Visual Search SDK를 사용하면 유사한 온라인 이미지를 찾기 전에 이미지를 자를 수 있습니다. 이 애플리케이션은 여러 사용자를 포함하는 이미지에서 단일 사람을 자른 다음, 온라인에서 찾은 유사한 이미지를 포함하는 검색 결과를 반환합니다.
 
@@ -119,4 +119,4 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 > [Visual Search 단일 페이지 웹앱 만들기](tutorial-bing-visual-search-single-page-app.md)
 
 ## <a name="see-also"></a>참고 항목
-> [Bing Visual Search API란?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)
+> [Bing Visual Search API란?](./overview.md)

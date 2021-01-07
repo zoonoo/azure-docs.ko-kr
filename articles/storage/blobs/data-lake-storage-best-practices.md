@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0efcdfd1b14479edf84dc1892e7e1d9afabd5a81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104880"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913558"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
@@ -21,7 +21,7 @@ ms.locfileid: "86104880"
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
-Azure Data Lake Storage Gen2는 Azure AD(Azure Active Directory) 사용자, 그룹 및 서비스 사용자에 대한 POSIX 액세스 제어를 제공합니다. 이러한 액세스 제어는 기존 파일 및 디렉터리에 설정할 수 있습니다. 또한 액세스 제어를 사용하여 새 파일 또는 디렉터리에 자동으로 적용할 수 있는 기본 권한을 만들 수도 있습니다. Data Lake Storage Gen2 ACL에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](storage-data-lake-storage-access-control.md)에서 확인할 수 있습니다.
+Azure Data Lake Storage Gen2는 Azure AD(Azure Active Directory) 사용자, 그룹 및 서비스 사용자에 대한 POSIX 액세스 제어를 제공합니다. 이러한 액세스 제어는 기존 파일 및 디렉터리에 설정할 수 있습니다. 또한 액세스 제어를 사용하여 새 파일 또는 디렉터리에 자동으로 적용할 수 있는 기본 권한을 만들 수도 있습니다. Data Lake Storage Gen2 ACL에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](./data-lake-storage-access-control.md)에서 확인할 수 있습니다.
 
 ### <a name="use-security-groups-versus-individual-users"></a>보안 그룹 및 개별 사용자 사용
 
@@ -31,7 +31,7 @@ Data Lake Storage Gen2에서 빅 데이터로 작업 하는 경우 서비스 주
 
 ### <a name="security-for-groups"></a>그룹에 대한 보안
 
-관리자 또는 사용자가 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정의 데이터에 액세스해야 하는 경우 Azure Active Directory 보안 그룹을 사용하는 것이 가장 좋습니다. 시작 하는 데 권장 되는 일부 그룹은 컨테이너의 루트에 대 한 **ReadOnlyUsers**, **Writeaccessusers**및 **fullaccessusers** 일 수 있으며, 키 하위 디렉터리의 경우에도 마찬가지입니다. 나중에 추가될 수 있지만 아직은 확인되지 않은 것으로 예상되는 다른 사용자 그룹이 있는 경우, 특정 폴더에 대한 액세스 권한이 있는 더미 보안 그룹을 만드는 것을 고려할 수 있습니다. 보안 그룹을 사용하면 수천 개의 파일에 새 권한을 할당할 때 처리 시간이 오래 걸리지 않도록 방지할 수 있습니다.
+관리자 또는 사용자가 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정의 데이터에 액세스해야 하는 경우 Azure Active Directory 보안 그룹을 사용하는 것이 가장 좋습니다. 시작 하는 데 권장 되는 일부 그룹은 컨테이너의 루트에 대 한 **ReadOnlyUsers**, **Writeaccessusers** 및 **fullaccessusers** 일 수 있으며, 키 하위 디렉터리의 경우에도 마찬가지입니다. 나중에 추가될 수 있지만 아직은 확인되지 않은 것으로 예상되는 다른 사용자 그룹이 있는 경우, 특정 폴더에 대한 액세스 권한이 있는 더미 보안 그룹을 만드는 것을 고려할 수 있습니다. 보안 그룹을 사용하면 수천 개의 파일에 새 권한을 할당할 때 처리 시간이 오래 걸리지 않도록 방지할 수 있습니다.
 
 ### <a name="security-for-service-principals"></a>서비스 사용자에 대한 보안
 
@@ -39,9 +39,9 @@ Azure Active Directory 서비스 사용자는 일반적으로 Azure Databricks�
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Azure 서비스 액세스 권한으로 Data Lake Storage Gen2 방화벽 사용
 
-Data Lake Storage Gen2는 외부 공격의 벡터를 제한하는 데 추천되는 Azure 서비스에만 방화벽을 설정하고 액세스를 제한하는 옵션을 지원합니다. 방화벽을 통해 Azure Portal의 저장소 계정에서 방화벽 **을 사용 하도록**설정할 수 있습니다. 방화벽  >  **사용 (설정)**  >  **Azure 서비스에 대 한 액세스 허용** 옵션입니다.
+Data Lake Storage Gen2는 외부 공격의 벡터를 제한하는 데 추천되는 Azure 서비스에만 방화벽을 설정하고 액세스를 제한하는 옵션을 지원합니다. 방화벽을 통해 Azure Portal의 저장소 계정에서 방화벽 **을 사용 하도록** 설정할 수 있습니다. 방화벽  >  **사용 (설정)**  >  **Azure 서비스에 대 한 액세스 허용** 옵션입니다.
 
-Azure Databricks에서 저장소 계정에 액세스 하려면 가상 네트워크에 Azure Databricks를 배포한 후 해당 가상 네트워크를 방화벽에 추가 합니다. [Azure Storage 방화벽 및 가상 네트워크 구성을](https://docs.microsoft.com/azure/storage/common/storage-network-security)참조 하세요.
+Azure Databricks에서 저장소 계정에 액세스 하려면 가상 네트워크에 Azure Databricks를 배포한 후 해당 가상 네트워크를 방화벽에 추가 합니다. [Azure Storage 방화벽 및 가상 네트워크 구성을](../common/storage-network-security.md)참조 하세요.
 
 ## <a name="resiliency-considerations"></a>복원력 고려 사항
 

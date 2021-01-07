@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: f3f48695f0ef26b6e54073dbfc4bb0c61802fe58
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f4996943fd95252be45f7a270d143f14e7f2d48a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92904801"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181277"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workware"></a>자습서: Workware와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -94,11 +94,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -120,7 +120,7 @@ Workware에서 SSO 기능을 사용하려면 다음 설정을 완료해야 합�
 
 #### <a name="enable-sso-permissions-for-workware-system-administrators"></a>Workware 시스템 관리자에 대한 SSO 권한 사용
 
-* Workware 시스템 관리자가 SSO 인증을 설정하도록 허용하려면( **System Settings(시스템 설정) > Permissions to Role(역할에 대한 권한)의 Administration(관리) > 시스템 구성 권한 범주** 화면에서) Workware 시스템 관리자에 대한 SSO 인증 권한을 사용하도록 설정해야 합니다.
+* Workware 시스템 관리자가 SSO 인증을 설정하도록 허용하려면(**System Settings(시스템 설정) > Permissions to Role(역할에 대한 권한)의 Administration(관리) > 시스템 구성 권한 범주** 화면에서) Workware 시스템 관리자에 대한 SSO 인증 권한을 사용하도록 설정해야 합니다.
 
     ![SSO 인증 권한](./media/workware-tutorial/permission.png)
 
@@ -164,11 +164,9 @@ Workware에서 SSO 기능을 사용하려면 다음 설정을 완료해야 합�
 
 * Azure Portal에서 [이 애플리케이션 테스트]를 클릭합니다. 그러면 SSO를 설정한 Workware에 자동으로 로그인됩니다.
 
-* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Workware 타일을 클릭하면 SSO를 설정한 Workware에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Workware 타일을 클릭하면 SSO를 설정한 Workware에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Workware가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Workware가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

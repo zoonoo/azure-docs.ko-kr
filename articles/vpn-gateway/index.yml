@@ -10,12 +10,12 @@ metadata:
   author: cherylmc
   ms.author: cherylmc
   ms.date: 08/28/2019
-  ms.openlocfilehash: 93c655eccd49c411064c442799f0c7c5e70e5936
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: 8619e0948cc08d06d27a09864bbff13ad6ad3791
+  ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92543545"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96780334"
 landingContent:
 - title: VPN Gateway 정보
   linkLists:
@@ -33,17 +33,17 @@ landingContent:
       url: about-zone-redundant-vnet-gateways.md
     - text: VPN Gateway FAQ
       url: vpn-gateway-vpn-faq.md
-- title: 시작하기
+- title: 시작
   linkLists:
   - linkListType: tutorial
     links:
     - text: VPN 게이트웨이 만들기 및 관리
-      url: vpn-gateway-tutorial-create-gateway-powershell.md
+      url: tutorial-create-gateway-portal.md
+    - text: 사이트 간 VPN 연결 만들기
+      url: tutorial-site-to-site-portal.md
   - linkListType: how-to-guide
     links:
-    - text: 사이트 간 연결 만들기
-      url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-    - text: 지점 및 사이트 간 연결 만들기
+    - text: 지점 및 사이트 간 VPN 연결 만들기
       url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
 - title: VPN 디바이스
   linkLists:
@@ -63,10 +63,10 @@ landingContent:
     links:
     - text: 게이트웨이 구성 설정
       url: vpn-gateway-about-vpn-gateway-settings.md
-    - text: 지점 및 사이트 간 라우팅
-      url: vpn-gateway-about-point-to-site-routing.md
     - text: 게이트웨이 SKU
       url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
+    - text: 지점 및 사이트 간 라우팅
+      url: vpn-gateway-about-point-to-site-routing.md
   - linkListType: how-to-guide
     links:
     - text: VPN 게이트웨이 인증
@@ -80,7 +80,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: 보안 컨트롤
-      url: vpn-gateway-security-controls.md
+      url: ./security-baseline.md
   - linkListType: how-to-guide
     links:
     - text: 모니터링 및 경고

@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3434953de3460d3eff066768474f03aa0e14165e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0e4bcc13a2eaddbf394d8468b29eeff475119e2d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668593"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459020"
 ---
-# <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link(미리 보기)에 연결
+# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 연결
 
 이 문서에서는 Azure Synapse Link를 사용하여 Azure Synapse Analytics Studio에서 Azure Cosmos DB 데이터베이스에 액세스하는 방법을 설명합니다.
 
@@ -46,20 +46,20 @@ Azure Cosmos DB 데이터베이스 연결은 연결된 서비스로 수행됩니
 
 1. **데이터** 옆에 있는 **+** 아이콘을 선택합니다.
 1. **외부 데이터에 대한 연결** 을 선택합니다.
-1. 연결하려는 API를 선택합니다(예: **SQL API** 또는 **API for MongoDB** ).
+1. 연결하려는 API를 선택합니다(예: **SQL API** 또는 **API for MongoDB**).
 1. **계속** 을 선택합니다.
 1. 식별 이름을 사용하여 연결된 서비스의 이름을 지정합니다. 이름은 개체 탐색기에 표시되며, Azure Synapse 런타임에서 데이터베이스 및 컨테이너에 연결하는 데 사용됩니다.
 1. **Azure Cosmos DB 계정 이름** 및 **데이터베이스 이름** 을 선택합니다.
-1. (선택 사항) 지역이 지정되지 않은 경우 Azure Synapse 런타임 작업은 분석 저장소가 활성화된 가장 가까운 지역으로 라우팅됩니다. 사용자가 Azure Cosmos DB 분석 저장소에 액세스하는 데 사용할 지역을 수동으로 설정할 수도 있습니다. **추가 연결 속성** 을 선택한 다음, **새로 만들기** 를 선택합니다. **속성 이름** 에 **PreferredRegions** 를 입력합니다. **값** 을 원하는 지역으로 설정합니다(예: **WestUS2** ). (단어와 숫자 사이에는 공백이 없습니다.)
+1. (선택 사항) 지역이 지정되지 않은 경우 Azure Synapse 런타임 작업은 분석 저장소가 활성화된 가장 가까운 지역으로 라우팅됩니다. 사용자가 Azure Cosmos DB 분석 저장소에 액세스하는 데 사용할 지역을 수동으로 설정할 수도 있습니다. **추가 연결 속성** 을 선택한 다음, **새로 만들기** 를 선택합니다. **속성 이름** 에 **PreferredRegions** 를 입력합니다. **값** 을 원하는 지역으로 설정합니다(예: **WestUS2**). (단어와 숫자 사이에는 공백이 없습니다.)
 1. **만들기** 를 선택합니다.
 
 Azure Cosmos DB 데이터베이스는 **Azure Cosmos DB** 섹션 아래의 **연결됨** 탭에 표시됩니다. Azure Cosmos DB를 사용하면 다음 아이콘을 통해 HTAP 지원 컨테이너를 OLTP 전용 컨테이너와 구분할 수 있습니다.
 
-**OLTP 전용 컨테이너** :
+**OLTP 전용 컨테이너**:
 
 ![OLTP 컨테이너 아이콘을 표시하는 시각화입니다.](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
 
-**HTAP 지원 컨테이너** :
+**HTAP 지원 컨테이너**:
 
 ![HTAP 컨테이너 아이콘을 표시하는 시각화입니다.](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
 

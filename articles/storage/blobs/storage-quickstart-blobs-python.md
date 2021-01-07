@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 1a9dc47888110836239c59f6a7542f71f753dd3a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dbac832165c57e14e737372e12c4f4b2f3039c0d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89568186"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995263"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>빠른 시작: Python v12 SDK로 Blob 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "89568186"
 * [API 참조 설명서](/python/api/azure-storage-blob)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
 * [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-storage-blob/)
-* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [샘플](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -40,7 +40,7 @@ ms.locfileid: "89568186"
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
-*blob-quickstart-v12*라는 Python 애플리케이션을 만듭니다.
+*blob-quickstart-v12* 라는 Python 애플리케이션을 만듭니다.
 
 1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 프로젝트에 대한 새 디렉터리를 만듭니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "89568186"
     cd blob-quickstart-v12
     ```
 
-1. *blob-quickstart-v12* 디렉터리에서 *data*라는 다른 디렉터리를 만듭니다. 여기에서 Blob 데이터 파일이 생성되고 저장됩니다.
+1. *blob-quickstart-v12* 디렉터리에서 *data* 라는 다른 디렉터리를 만듭니다. 여기에서 Blob 데이터 파일이 생성되고 저장됩니다.
 
     ```console
     mkdir data
@@ -92,7 +92,7 @@ pip install azure-storage-blob
         print(ex)
     ```
 
-1. 새 파일을 *blob-quickstart-v12* 디렉터리에 *blob-quickstart-v12.py*로 저장합니다.
+1. 새 파일을 *blob-quickstart-v12* 디렉터리에 *blob-quickstart-v12.py* 로 저장합니다.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 

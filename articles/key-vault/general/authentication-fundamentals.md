@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: f7f9acd18da57bd83e688249600b8468cc4ebbe5
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445560"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530921"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Key Vault 인증 기본 사항
 
@@ -117,8 +117,6 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 보안 주체에 �
 
 * Azure RBAC 권한은 Privileged Identity Management 또는 PIM과 호환 됩니다. 이를 통해 Key Vault 관리자와 같은 권한 있는 역할에 대 한 just-in-time 액세스 제어를 구성할 수 있습니다. 이는 최상의 보안 방법 이며 주요 자격 증명 모음에 대 한 액세스를 제거 하 여 최소 권한 보안 주체를 따릅니다.
 
-* Azure RBAC 권한은 개체별 세부적인 권한과 호환 되므로 일부 주요 자격 증명 모음 개체에 대 한 작업만 수행 하도록 사용자를 제한할 수 있습니다. 이렇게 하면 여러 응용 프로그램에서 응용 프로그램 간의 액세스를 격리 하면서 단일 키 자격 증명 모음을 공유할 수 있습니다.
-
 Key Vault에 대 한 Azure RBAC에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 * Key Vault에 대 한 Azure RBAC [링크](./secure-your-key-vault.md#management-plane-and-azure-rbac)
@@ -172,7 +170,7 @@ from azure.keyvault.secrets import SecretClient
 tenant_id = "{ENTER YOUR TENANT ID HERE}"                          ##ENTER AZURE TENANT ID
 vault_url = "https://{ENTER YOUR VAULT NAME}.vault.azure.net/"     ##ENTER THE URL OF YOUR KEY VAULT
 client_id = "{ENTER YOUR CLIENT ID HERE}"                          ##ENTER THE CLIENT ID OF YOUR SERVICE PRINCIPAL
-cert_path = "{ENTER YOUR CLIEND SECRET HERE}"                      ##ENTER THE CLIENT SECRET OF YOUR SERVICE PRINCIPAL
+cert_path = "{ENTER YOUR CLIENT SECRET HERE}"                      ##ENTER THE CLIENT SECRET OF YOUR SERVICE PRINCIPAL
 
 def main():
 

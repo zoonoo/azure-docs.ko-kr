@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고정 공용 IP �
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 50e3e052915b6bcc1f6dee89f5ed5e2acf13dd78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: eb58bbe127349aaebed3b1eb00281cf2938c1933
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124359"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681587"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기
 
@@ -62,7 +62,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
-> 다음 예에서는 수신 *-기본* 이라는 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다. 필요에 따라 사용자 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터가 RBAC를 사용 하도록 설정 되지 않은 경우 `--set rbac.create=false` 투구 명령에를 추가 합니다.
+> 다음 예에서는 수신 *-기본* 이라는 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다. 필요에 따라 사용자 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터가 Kubernetes RBAC를 사용 하도록 설정 되어 있지 않으면 `--set rbac.create=false` 투구 명령에를 추가 합니다.
 
 > [!TIP]
 > 클러스터의 컨테이너에 대 한 요청에 대 한 [클라이언트 원본 IP 유지][client-source-ip] 를 사용 하도록 설정 하려면 `--set controller.service.externalTrafficPolicy=Local` 투구 install 명령에를 추가 합니다. 클라이언트 원본 IP가 *X 전달-에 대 한* 요청 헤더에 저장 됩니다. 클라이언트 원본 IP 유지를 사용 하는 수신 컨트롤러를 사용 하는 경우 TLS 통과는 작동 하지 않습니다.
@@ -115,7 +115,7 @@ NGINX 수신 컨트롤러는 TLS 종료를 지원합니다. HTTPS에 대한 인�
 > [!NOTE]
 > 이 문서에서는 Let's Encrypt에 대해 `staging` 환경을 사용합니다. 프로덕션 배포에서는 Helm 차트를 설치할 때 및 리소스 정의에서 `letsencrypt-prod` 및 `https://acme-v02.api.letsencrypt.org/directory`를 사용합니다.
 
-RBAC 사용이 가능한 클러스터에 cert-manager 컨트롤러를 설치하려면 다음과 같은 `helm install` 명령을 사용합니다.
+Kubernetes RBAC 사용 클러스터에 cert manager 컨트롤러를 설치 하려면 다음 명령을 사용 합니다 `helm install` .
 
 ```console
 # Label the cert-manager namespace to disable resource validation
@@ -378,7 +378,7 @@ Kubernetes 수신 컨트롤러의 FQDN (예:)에 대 한 웹 브라우저를 엽
 
 ![애플리케이션 예제 1](media/ingress/app-one.png)
 
-이제 FQDN에 */hello-world-two* 경로를 추가합니다(예: *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`* ). 사용자 지정 제목이 있는 두 번째 데모 애플리케이션이 표시됩니다.
+이제 FQDN에 */hello-world-two* 경로를 추가합니다(예: *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`*). 사용자 지정 제목이 있는 두 번째 데모 애플리케이션이 표시됩니다.
 
 ![애플리케이션 예제 2](media/ingress/app-two.png)
 
@@ -435,7 +435,7 @@ kubectl delete -f ingress-demo.yaml --namespace ingress-basic
 kubectl delete namespace ingress-basic
 ```
 
-마지막으로 수신 컨트롤러에 대해 생성된 고정 공용 IP 주소를 제거합니다. 이 문서의 첫 번째 단계에서 얻은 *MC_* 클러스터 리소스 그룹 이름(예: *MC_myResourceGroup_myAKSCluster_eastus* )을 제공합니다.
+마지막으로 수신 컨트롤러에 대해 생성된 고정 공용 IP 주소를 제거합니다. 이 문서의 첫 번째 단계에서 얻은 *MC_* 클러스터 리소스 그룹 이름(예: *MC_myResourceGroup_myAKSCluster_eastus*)을 제공합니다.
 
 ```azurecli-interactive
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP

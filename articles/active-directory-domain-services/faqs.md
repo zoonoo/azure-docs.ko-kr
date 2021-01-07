@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에 대 한 질문과 대답 Microsoft Docs
 description: Azure Active Directory Domain Services에 대 한 구성, 관리 및 가용성과 관련 된 몇 가지 질문과 대답을 읽고 이해 합니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory
@@ -10,19 +10,19 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/30/2020
-ms.author: joflore
-ms.openlocfilehash: 07d2d71c13cd054dec46b6eaa9f07079c8cec63b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: e4e7a64b9f9d7283de728216934854f4ef8f8fd1
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962295"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619736"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>AD (Azure Active Directory) 도메인 서비스에 대 한 Faq (질문과 대답)
 
 이 페이지는 Azure Active Directory Domain Services에 대 한 자주 묻는 질문에 답변 합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 * [단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?](#can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory)
 * [클래식 가상 네트워크에서 Azure AD Domain Services를 사용 하도록 설정할 수 있나요?](#can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network)
@@ -115,14 +115,14 @@ Azure AD UI 또는 PowerShell을 사용 하 여 Azure AD 디렉터리에서 변�
 아니요. 스키마는 관리되는 도메인에 대해 Microsoft에서 관리합니다. Azure AD Domain Services에서 스키마 확장을 지원 하지 않습니다.
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>관리되는 도메인에서 DNS 레코드를 수정하거나 추가할 수 있습니까?
-예. *AAD DC Administrators* 그룹의 구성원에 게는 관리 되는 도메인의 dns 레코드를 수정할 수 있는 *dns 관리자* 권한이 부여 됩니다. 이러한 사용자는 관리 되는 도메인에 가입 된 Windows Server를 실행 하는 컴퓨터에서 DNS 관리자 콘솔을 사용 하 여 DNS를 관리할 수 있습니다. DNS 관리자 콘솔을 사용 하려면 서버에 *원격 서버 관리 도구* 선택적 기능의 일부인 *dns 서버 도구*를 설치 합니다. 자세한 내용은 [관리 되는 Azure AD Domain Services 도메인에서 DNS 관리](manage-dns.md)를 참조 하세요.
+예. *AAD DC Administrators* 그룹의 구성원에 게는 관리 되는 도메인의 dns 레코드를 수정할 수 있는 *dns 관리자* 권한이 부여 됩니다. 이러한 사용자는 관리 되는 도메인에 가입 된 Windows Server를 실행 하는 컴퓨터에서 DNS 관리자 콘솔을 사용 하 여 DNS를 관리할 수 있습니다. DNS 관리자 콘솔을 사용 하려면 서버에 *원격 서버 관리 도구* 선택적 기능의 일부인 *dns 서버 도구* 를 설치 합니다. 자세한 내용은 [관리 되는 Azure AD Domain Services 도메인에서 DNS 관리](manage-dns.md)를 참조 하세요.
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>관리되는 도메인에 대한 암호 수명 정책은 무엇인가요?
 Azure AD Domain Services 관리되는 도메인의 기본 암호 수명은 90일입니다. 이 암호 수명은 Azure AD에 구성된 암호 수명과 동기화되지 않습니다. 따라서 사용자의 암호가 관리되는 도메인에는 만료되지만 Azure AD에서는 여전히 유효한 상황이 발생할 수 있습니다. 이러한 시나리오에서 사용자는 Azure AD에서 자신의 암호를 변경해야 하며, 새 암호는 관리되는 도메인과 동기화됩니다. 관리 되는 도메인에서 기본 암호 수명을 변경 하려면 [사용자 지정 암호 정책을 만들고 구성할](password-policy.md)수 있습니다.
 
 또한 *DisablePasswordExpiration* 에 대 한 Azure AD 암호 정책은 관리 되는 도메인에 동기화 됩니다. Azure AD의 사용자에 *DisablePasswordExpiration* 가 적용 되 면 관리 되는 도메인의 동기화 된 사용자에 대 한 *UserAccountControl* 값이 적용 *DONT_EXPIRE_PASSWORD* .
 
-사용자가 Azure AD에서 자신의 암호를 다시 설정 하면 *forceChangePasswordNextSignIn = True* 특성이 적용 됩니다. 관리 되는 도메인은 Azure AD에서이 특성을 동기화 합니다. 관리 되는 도메인에서 Azure AD의 동기화 된 사용자에 대해 *forceChangePasswordNextSignIn* 가 설정 된 경우 관리 되는 도메인의 *pwdlastset* 특성은 *0*으로 설정 되며,이는 현재 설정 된 암호를 무효화 합니다.
+사용자가 Azure AD에서 자신의 암호를 다시 설정 하면 *forceChangePasswordNextSignIn = True* 특성이 적용 됩니다. 관리 되는 도메인은 Azure AD에서이 특성을 동기화 합니다. 관리 되는 도메인에서 Azure AD의 동기화 된 사용자에 대해 *forceChangePasswordNextSignIn* 가 설정 된 경우 관리 되는 도메인의 *pwdlastset* 특성은 *0* 으로 설정 되며,이는 현재 설정 된 암호를 무효화 합니다.
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Azure AD Domain Services에서 AD 계정 잠금 보호를 제공하나요?
 예. 관리되는 도메인에서 2분 안에 5차례 암호를 잘못 입력하면 사용자 계정이 30분 동안 잠깁니다. 30분 후 사용자 계정이 자동으로 잠금 해제됩니다. 관리 되는 도메인에 대 한 잘못 된 암호 시도는 Azure AD에서 사용자 계정을 잠그지 않습니다. 사용자 계정은 Azure AD Domain Services 관리되는 도메인 안에서만 잠깁니다. 자세한 내용은 [관리 되는 도메인의 암호 및 계정 잠금 정책](password-policy.md)을 참조 하세요.

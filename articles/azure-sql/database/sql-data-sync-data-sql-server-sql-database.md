@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791429"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922279"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Azure의 SQL 데이터 동기화은 무엇 인가요?
 
@@ -63,10 +63,8 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 | 재해 복구 | [Azure 지역 중복 백업](automated-backups-overview.md) |
 | 읽기 크기 조정 | [읽기 전용 복제본을 사용하여 읽기 전용 쿼리 작업의 부하 분산(미리 보기)](read-scale-out.md) |
 | ETL(OLTP 및 OLAP 간) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 또는 [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
-| SQL Server에서 Azure SQL Database로 마이그레이션 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+| SQL Server에서 Azure SQL Database로의 마이그레이션. 그러나 마이그레이션이 완료 된 후에는 SQL 데이터 동기화를 사용 하 여 원본과 대상이 동기화 된 상태로 유지 되도록 할 수 있습니다.  | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
-
-
 
 ## <a name="how-it-works"></a>작동 방식
 
@@ -81,7 +79,15 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 | | 데이터 동기화 | 트랜잭션 복제 |
 |---|---|---|
 | **장점** | - 활성-활성 지원<br/>- 온-프레미스 및 Azure SQL Database 간 양방향 | - 낮은 대기 시간<br/>- 트랜잭션 일관성<br/>- 마이그레이션 후 기존 토폴로지 다시 사용 <br/>-Azure SQL Managed Instance 지원 |
-| **단점** | -동기화 간 최소 5 분의 최소 빈도<br/>- 트랜잭션 일관성 부족<br/>- 성능에 더 많은 영향을 미침 | -Azure SQL Database에서 게시할 수 없음 <br/>- 높은 유지 관리 비용 |
+| **단점** | - 트랜잭션 일관성 부족<br/>- 성능에 더 많은 영향을 미침 | -Azure SQL Database에서 게시할 수 없음 <br/>- 높은 유지 관리 비용 |
+
+## <a name="private-link-for-data-sync-preview"></a>데이터 동기화 (미리 보기)에 대 한 개인 링크
+새 개인 링크 (미리 보기) 기능을 사용 하면 데이터 동기화 프로세스 중에 동기화 서비스와 멤버/허브 데이터베이스 간에 보안 연결을 설정 하기 위해 서비스 관리 개인 끝점을 선택할 수 있습니다. 서비스 관리 개인 끝점은 특정 가상 네트워크 및 서브넷의 개인 IP 주소입니다. 데이터 동기화 내에서 서비스 관리 개인 끝점은 Microsoft에서 만들어지며 지정 된 동기화 작업에 대 한 데이터 동기화 서비스에 독점적으로 사용 됩니다. 개인 링크를 설정 하기 전에 기능에 대 한 [일반 요구 사항을](sql-data-sync-data-sql-server-sql-database.md#general-requirements) 읽으십시오. 
+
+![데이터 동기화를 위한 개인 링크](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
+
+> [!NOTE]
+> 동기화 그룹 배포 중에 또는 PowerShell을 사용 하 여 Azure Portal의 **개인 끝점 연결** 페이지에서 서비스 관리 개인 끝점을 수동으로 승인 해야 합니다.
 
 ## <a name="get-started"></a>시작하기 
 
@@ -128,6 +134,8 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 - 동기화 구성원과 허브 모두에 대해 스냅숏 격리를 사용 하도록 설정 해야 합니다. 자세한 내용은 [SQL Server에서의 스냅샷 격리](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
 
+- 데이터 동기화에 개인 링크를 사용 하려면 구성원 및 허브 데이터베이스 모두 동일한 클라우드 유형 (예: 공용 클라우드 또는 정부 클라우드의 둘 다)에서 Azure (같거나 다른 지역)에서 호스트 되어야 합니다. 또한 개인 링크를 사용 하려면 허브 및 구성원 서버를 호스트 하는 구독에 대해 Microsoft 네트워크 리소스 공급자를 등록 해야 합니다. 마지막으로, Azure Portal 또는 PowerShell을 통해 "개인 끝점 연결" 섹션 내에서 동기화 구성 중 데이터 동기화에 대 한 개인 링크를 수동으로 승인 해야 합니다. 개인 링크를 승인 하는 방법에 대 한 자세한 내용은 [SQL 데이터 동기화 설정](./sql-data-sync-sql-server-configure.md)을 참조 하세요. 서비스 관리 개인 끝점을 승인 하면 동기화 서비스와 구성원/허브 데이터베이스 간의 모든 통신이 개인 링크를 통해 수행 됩니다. 이 기능을 사용 하도록 설정 하 여 기존 동기화 그룹을 업데이트할 수 있습니다.
+
 ### <a name="general-limitations"></a>일반적인 제한 사항
 
 - 테이블에는 기본 키가 아닌 id 열이 있을 수 없습니다.
@@ -150,7 +158,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 #### <a name="unsupported-column-types"></a>지원되지 않는 열 형식
 
-데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 예를 들면 다음과 같습니다.
+데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 예를 들어:
 
 - 계산된 열입니다.
 - 임시 테이블에 대한 시스템에서 생성된 열입니다.
@@ -166,12 +174,14 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 | 동기화 그룹의 표                                          | 500                    | 여러 동기화 그룹 만들기 |
 | 동기화 그룹에서 표의 열                              | 1000                   |                             |
 | 표의 데이터 행 크기                                        | 24Mb                  |                             |
-| 최소 동기화 빈도 간격                                 | 5분              |                             |
 
 > [!NOTE]
 > 동기화 그룹이 하나만 있는 경우 단일 동기화 그룹에 최대 30개의 엔드포인트가 있을 수 있습니다. 두 개 이상의 동기화 그룹이 있는 경우 모든 동기화 그룹의 전체 엔드포인트 수가 30개를 초과할 수 없습니다. 데이터베이스가 여러 동기화 그룹에 속하는 경우 엔드포인트가 1개가 아닌 여러 개로 계산됩니다.
 
 ### <a name="network-requirements"></a>네트워크 요구 사항
+
+> [!NOTE]
+> 개인 링크를 사용 하는 경우 이러한 네트워크 요구 사항은 적용 되지 않습니다. 
 
 동기화 그룹이 설정 되 면 데이터 동기화 서비스는 허브 데이터베이스에 연결 해야 합니다. 동기화 그룹을 설정 하는 시점에 Azure SQL server의 해당 설정에 다음과 같은 구성이 있어야 합니다 `Firewalls and virtual networks` .
 

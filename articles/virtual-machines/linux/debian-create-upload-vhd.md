@@ -6,21 +6,21 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: 80272896bd314a1f5f05094afa83568e077ab480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d99e6ec0beb6eaf83f9c664683c33fc1b71e3f0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368203"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500549"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure용 Debian VHD 준비
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 섹션에서는 [Debian 웹 사이트](https://www.debian.org/distrib/) 에서 다운로드한 .iso 파일에서 Debian Linux 운영 체제를 가상 하드 디스크에 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있으며 Hyper-V가 한 가지 예입니다. Hyper-V 사용에 대한 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하세요.
 
 ## <a name="installation-notes"></a>설치 참고 사항
 * Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 * 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-v 관리자 또는 **변환-vhd** cmdlet을 사용 하 여 디스크를 VHD 형식으로 변환할 수 있습니다.
-* Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
+* Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
 * OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Azure Linux 에이전트를 구성할 수 있습니다. 자세한 내용은 아래 단계에서 찾을 수 있습니다.
 * Azure의 모든 VHD는 가상 크기가 1MB 단위로 조정되어야 합니다. 원시 디스크에서 VHD로 변환할 때 변환하기 전에 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다. 자세한 내용은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
@@ -58,7 +58,7 @@ Azure 용 Debian Vhd를 생성 하는 데 사용할 수 있는 도구 (예: [Cre
     # sudo update-grub
     ```
 
-6. Debian의 Azure 리포지토리를 Debian 8 또는 9에 대한 /etc/apt/sources.list에 추가합니다.
+6. Debian 8, 9 또는 10의/etc/apt/sources.list에 Debian의 Azure 리포지토리를 추가 합니다.
 
     **Debian 8.x "Jessie"**
 
@@ -85,7 +85,18 @@ Azure 용 Debian Vhd를 생성 하는 데 사용할 수 있는 도구 (예: [Cre
     deb http://debian-archive.trafficmanager.net/debian stretch-backports main
     deb-src http://debian-archive.trafficmanager.net/debian stretch-backports main
     ```
-
+    
+    **Debian 10. x "Buster"**
+    ```config-grub
+    deb http://debian-archive.trafficmanager.net/debian buster main
+    deb-src http://debian-archive.trafficmanager.net/debian buster main
+    deb http://debian-archive.trafficmanager.net/debian-security buster/updates main
+    deb-src http://debian-archive.trafficmanager.net/debian-security buster/updates main
+    deb http://debian-archive.trafficmanager.net/debian buster-updates main
+    deb-src http://debian-archive.trafficmanager.net/debian buster-updates main
+    deb http://debian-archive.trafficmanager.net/debian buster-backports main
+    deb-src http://debian-archive.trafficmanager.net/debian buster-backports main
+    ```
 
 7. Azure Linux 에이전트를 설치합니다.
 

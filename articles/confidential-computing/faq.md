@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848911"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564109"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Azure 기밀 컴퓨팅 FAQ
 
@@ -32,14 +32,14 @@ Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack 
 
 **모든 OS 이미지가 Azure 기밀 컴퓨팅에서 작동하나요?**
 
-아니요. 가상 머신은 Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter 및 Windows Server 2016 Datacenter를 사용하는 2세대 운영 머신에만 배포할 수 있습니다. [Linux](../virtual-machines/linux/generation-2.md) 및 [Windows](../virtual-machines/windows/generation-2.md)에서의 Gen 2 VM에 대해 자세히 알아보세요.
+아니요. 가상 머신은 Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter 및 Windows Server 2016 Datacenter를 사용하는 2세대 운영 머신에만 배포할 수 있습니다. [Linux](../virtual-machines/generation-2.md) 및 [Windows](../virtual-machines/generation-2.md)에서의 Gen 2 VM에 대해 자세히 알아보세요.
 
 **DCsv2 가상 머신이 포털에서 회색으로 표시되고 선택할 수 없습니다.**
 
 VM 옆의 정보 버블에 따라 다음과 같이 조치를 취해야 합니다.
-   -    **UnsupportedGeneration**: 가상 머신 이미지의 세대를 “Gen2”로 변경합니다.
-   -    **NotAvailableForSubscription**: 해당 지역에서 아직 구독할 수 없습니다. 사용 가능한 지역을 선택합니다.
-   -    **InsufficientQuota**: [할당량을 늘리는 지원 요청을 만듭니다](../azure-portal/supportability/per-vm-quota-requests.md). 무료 평가판 구독에는 기밀 컴퓨팅 VM에 대한 할당량이 없습니다. 
+   -    **UnsupportedGeneration** : 가상 머신 이미지의 세대를 “Gen2”로 변경합니다.
+   -    **NotAvailableForSubscription** : 해당 지역에서 아직 구독할 수 없습니다. 사용 가능한 지역을 선택합니다.
+   -    **InsufficientQuota** : [할당량을 늘리는 지원 요청을 만듭니다](../azure-portal/supportability/per-vm-quota-requests.md). 무료 평가판 구독에는 기밀 컴퓨팅 VM에 대한 할당량이 없습니다. 
 
 **포털 크기 선택기에서 검색하면 DCsv2 가상 머신이 표시되지 않습니다.**
 

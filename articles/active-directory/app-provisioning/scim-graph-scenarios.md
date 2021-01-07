@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: b69e2c9b12b2db34f3eb70e54d2c6aede6b54784
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba8dec19443bbafa300144b1aa42b3973cce9e6d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235505"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655155"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>SCIM 및 Microsoft Graph를 함께 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램 보강
 
@@ -62,7 +62,7 @@ POST /Users
     "roles": []
 }
 ```
-    
+
 ## <a name="scenario-2-automatically-remove-users-from-my-app"></a>시나리오 2: 내 앱에서 자동으로 사용자 제거
 응용 프로그램을 사용 하는 고객은 보안에 중점을 두 며 직원 들이 더 이상 필요 하지 않은 경우 계정을 제거 하기 위한 거 버 넌 스 요구 응용 프로그램에서 프로 비전 해제를 자동화 하려면 어떻게 해야 하나요?
 

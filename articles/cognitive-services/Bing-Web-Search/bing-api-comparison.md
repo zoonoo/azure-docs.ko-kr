@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: a982c150349ca31fdf93a38b38910c3572b14d2f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 72b4755c6f01a10851e79cf274842f1599bc2c55
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078767"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349540"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Bing Search API란?
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Search API를 사용하면 광고 없이 웹 페이지, 이미지, 뉴스, 위치 등을 찾는 웹 연결 앱 및 서비스를 구축할 수 있습니다. Bing Search REST API 또는 SDK를 사용하여 검색 요청을 보내면 웹 검색으로 관련 정보와 콘텐츠를 얻을 수 있습니다. 이 문서를 사용 하 여 다양 한 Bing 검색 Api 및 응용 프로그램 및 서비스에 인식 검색을 통합 하는 방법을 알아봅니다. 가격 책정 및 금액 한도는 API마다 다를 수 있습니다.
 

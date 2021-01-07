@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff97d0a69efbe624e959f92f5320f921476a306
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510881"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658981"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Azure Active Directory에서 overprivileged 또는 의심 스러운 응용 프로그램에 대 한 조치를 취합니다.
 
@@ -25,18 +25,18 @@ ms.locfileid: "88510881"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 작업을 수행 하려면 전역 관리자, 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자 권한으로 로그인 해야 합니다.
 
-애플리케이션에 대한 액세스를 제한하려면 사용자 할당이 필요하며, 애플리케이션에 사용자 또는 그룹을 할당해야 합니다.  자세한 내용은 [사용자 및 그룹을 할당하는 메서드](methods-for-assigning-users-and-groups.md)를 참조하세요.
+애플리케이션에 대한 액세스를 제한하려면 사용자 할당이 필요하며, 애플리케이션에 사용자 또는 그룹을 할당해야 합니다.  자세한 내용은 [사용자 및 그룹을 할당하는 메서드](./assign-user-or-group-access-portal.md)를 참조하세요.
 
 Azure AD 포털에 액세스 하 여 작업을 수행 하는 상황별 PowerShell 스크립트를 가져올 수 있습니다.
  
 1. 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**을 선택 합니다.
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 3. 액세스를 제한 하려는 응용 프로그램을 선택 합니다.
-4. **권한**을 선택합니다. 명령 모음에서 **사용 권한 검토**를 선택 합니다.
+4. **권한** 을 선택합니다. 명령 모음에서 **사용 권한 검토** 를 선택 합니다.
 
 ![권한 검토 창의 스크린샷](./media/manage-application-permissions/review-permissions.png)
 
@@ -46,10 +46,10 @@ Azure AD 포털에 액세스 하 여 작업을 수행 하는 상황별 PowerShel
 **사용자 할당** 설정을 켜서 응용 프로그램에 대 한 액세스를 제한 하는 것이 좋습니다.
 
 1. 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**을 선택 합니다.
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 3. 액세스를 제한 하려는 응용 프로그램을 선택 합니다.
-4. **속성**을 선택 하 고 **필요한 사용자 요구 사항** 을 **예**로 설정 합니다.
-5. **사용자 및 그룹**을 선택 하 고 응용 프로그램에 할당 된 원치 않는 사용자를 제거 합니다.
+4. **속성** 을 선택 하 고 **필요한 사용자 요구 사항** 을 **예** 로 설정 합니다.
+5. **사용자 및 그룹** 을 선택 하 고 응용 프로그램에 할당 된 원치 않는 사용자를 제거 합니다.
 6. 응용 프로그램에 사용자 또는 그룹을 할당 합니다.
 
 필요에 따라 PowerShell을 사용 하 여 응용 프로그램에 할당 된 모든 사용자를 제거할 수 있습니다.
@@ -64,19 +64,19 @@ PowerShell 스크립트를 사용 하 여이 응용 프로그램에 부여 된 �
 필요에 따라 응용 프로그램을 사용 하지 않도록 설정 하 여 사용자가 앱에 액세스 하지 못하도록 하 고 응용 프로그램에서 데이터에 액세스 하지 못하도록 할 수 있습니다.
 
 1. 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**을 선택 합니다.
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 3. 액세스를 제한 하려는 응용 프로그램을 선택 합니다.
-4. **속성**을 선택한 다음 **사용자가 로그인 할** 수 있도록 설정을 **아니요**로 설정 합니다.
+4. **속성** 을 선택한 다음 **사용자가 로그인 할** 수 있도록 설정을 **아니요** 로 설정 합니다.
 
 ## <a name="investigate-a-suspicious-application"></a>의심 스러운 응용 프로그램 조사
 
 **사용자 할당** 설정을 켜서 응용 프로그램에 대 한 액세스를 제한 하는 것이 좋습니다. 그런 다음 사용자 및 관리자가 응용 프로그램에 부여한 사용 권한을 검토 합니다.
 
 1. 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-3. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**을 선택 합니다.
+3. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 5. 액세스를 제한 하려는 응용 프로그램을 선택 합니다.
-6. **속성**을 선택 하 고 **필요한 사용자 요구 사항** 을 **예**로 설정 합니다.
-7. **권한**을 선택 하 고 admin 및 user 동의한 권한을 검토 합니다.
+6. **속성** 을 선택 하 고 **필요한 사용자 요구 사항** 을 **예** 로 설정 합니다.
+7. **권한** 을 선택 하 고 admin 및 user 동의한 권한을 검토 합니다.
 
 필요에 따라 PowerShell을 사용 하 여 다음을 수행할 수 있습니다.
 
@@ -92,9 +92,9 @@ PowerShell 스크립트를 사용 하 여이 응용 프로그램에 부여 된 �
 응용 프로그램을 사용 하지 않도록 설정 하 여 사용자의 액세스를 차단 하 고 응용 프로그램이 데이터에 액세스 하지 못하도록 하는 것이 좋습니다. 대신 응용 프로그램을 삭제 하는 경우 사용자가 응용 프로그램을 다시 승인 하 고 데이터에 대 한 액세스 권한을 부여할 수 있습니다.
 
 1. 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**을 선택 합니다.
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 3. 액세스를 제한 하려는 응용 프로그램을 선택 합니다.
-4. **속성**을 선택한 다음 개체 ID를 복사 합니다.
+4. **속성** 을 선택한 다음 개체 ID를 복사 합니다.
 
 ### <a name="powershell-commands"></a>PowerShell 명령
 
@@ -102,9 +102,9 @@ PowerShell 스크립트를 사용 하 여이 응용 프로그램에 부여 된 �
 서비스 사용자 개체 ID를 검색 합니다.
 
 1. 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**을 선택 합니다.
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 3. 액세스를 제한 하려는 응용 프로그램을 선택 합니다.
-4. **속성**을 선택한 다음 개체 ID를 복사 합니다.
+4. **속성** 을 선택한 다음 개체 ID를 복사 합니다.
 
 ```powershell
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"

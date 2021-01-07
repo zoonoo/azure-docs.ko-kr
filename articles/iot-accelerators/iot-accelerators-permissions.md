@@ -8,21 +8,21 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5a088cb07fa74b65e497de54be8c97bd51d31c16
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370613"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387839"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>azureiotsolutions.com 사이트를 사용하여 솔루션 가속기 배포
 
-[AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators)에서 Azure IoT 솔루션 가속기를 Azure 구독에 배포할 수 있습니다. AzureIoTSolutions.com에서 Microsoft 오픈 소스 및 파트너 솔루션 가속기를 모두 호스트합니다. 이 솔루션 가속기는 [Azure IoT 참조 아키텍처](https://aka.ms/iotrefarchitecture)와 맞습니다. 사이트를 사용하여 솔루션 가속기를 데모 또는 프로덕션 환경으로 빠르게 배포할 수 있습니다.
+[AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators)에서 Azure IoT 솔루션 가속기를 Azure 구독에 배포할 수 있습니다. AzureIoTSolutions.com에서 Microsoft 오픈 소스 및 파트너 솔루션 가속기를 모두 호스트합니다. 이 솔루션 가속기는 [Azure IoT 참조 아키텍처](/azure/architecture/reference-architectures/iot)와 맞습니다. 사이트를 사용하여 솔루션 가속기를 데모 또는 프로덕션 환경으로 빠르게 배포할 수 있습니다.
 
-![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
+:::image type="content" source="media/iot-accelerators-permissions/iotsolutionscom.png" alt-text="IoT 솔루션 홈 페이지":::
 
 > [!TIP]
-> 배포 프로세스에 더 많은 제어가 필요한 경우 [CLI를 사용하여 솔루션 가속기를 배포](iot-accelerators-remote-monitoring-deploy-cli.md)할 수 있습니다.
+> 배포 프로세스에 더 많은 제어가 필요한 경우 CLI를 사용하여 솔루션 가속기를 배포할 수 있습니다.
 
 다음 구성으로 솔루션 가속기를 배포할 수 있습니다.
 
@@ -60,13 +60,8 @@ AzureIoTSolutions.com 사이트는 [IoT용 Azure Certified 디바이스 카탈�
 
 ![디바이스 카탈로그](media/iot-accelerators-permissions/devicecatalog.png)
 
-하드웨어 제조업체인 경우 **파트너 되기**를 클릭하여 IoT용 Certified 프로그램을 통해 Microsoft와 협력하는 방법을 알아보세요.
+하드웨어 제조업체인 경우 **파트너 되기** 를 클릭하여 IoT용 Certified 프로그램을 통해 Microsoft와 협력하는 방법을 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT 솔루션 가속기 중 하나를 사용해 보려면 다음 빠른 시작을 확인하세요.
-
-* [원격 모니터링 솔루션 사용](quickstart-remote-monitoring-deploy.md)
-* [연결된 팩터리 솔루션 사용](quickstart-connected-factory-deploy.md)
-* [예측 유지 관리 솔루션 사용](quickstart-predictive-maintenance-deploy.md)
-* [디바이스 시뮬레이션 솔루션 사용](quickstart-device-simulation-deploy.md)
+IoT 솔루션 가속기 중 하나를 사용해 보려면 빠른 시작: [연결 된 팩터리 솔루션 사용해 보기](quickstart-connected-factory-deploy.md)를 확인 하세요.

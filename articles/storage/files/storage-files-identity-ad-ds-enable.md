@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 6251894018ceeb2a99ebb62939b6e446fea825a2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 948b30cbf37ae5f4f357860569579d8591412414
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220723"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630399"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>1 부: Azure 파일 공유에 대 한 AD DS 인증 사용 
 
@@ -28,20 +28,20 @@ AzFilesHybrid PowerShell 모듈의 cmdlet은 필요한 수정 작업을 수행 �
 
 ### <a name="download-azfileshybrid-module"></a>AzFilesHybrid 모듈 다운로드
 
-- [AzFilesHybrid 모듈 다운로드 및 압축 풀기 (GA 모듈: v 0.2.0 +)](https://github.com/Azure-Samples/azure-files-samples/releases) V 0.2.2 이상에서 AES 256 kerberos 암호화가 지원 됩니다. V 0.2.2 아래의 AzFilesHybrid 버전으로 기능을 사용 하도록 설정 하 고 AES 256 Kerberos 암호화를 지원 하도록 업데이트 하려는 경우 [이 문서](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption)를 참조 하세요. 
+- [AzFilesHybrid 모듈 다운로드 및 압축 풀기 (GA 모듈: v 0.2.0 +)](https://github.com/Azure-Samples/azure-files-samples/releases) V 0.2.2 이상에서 AES 256 kerberos 암호화가 지원 됩니다. V 0.2.2 아래의 AzFilesHybrid 버전으로 기능을 사용 하도록 설정 하 고 AES 256 Kerberos 암호화를 지원 하도록 업데이트 하려는 경우 [이 문서](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption)를 참조 하세요. 
 - 대상 AD에서 서비스 로그온 계정 또는 컴퓨터 계정을 만들 수 있는 권한이 있는 AD DS 자격 증명을 사용 하 여 온-프레미스 AD DS에 도메인에 가입 된 장치에 모듈을 설치 하 고 실행 합니다.
 -  Azure AD에 동기화 된 온-프레미스 AD DS 자격 증명을 사용 하 여 스크립트를 실행 합니다. 온-프레미스 AD DS 자격 증명에는 저장소 계정 소유자 또는 참가자 Azure 역할 권한이 있어야 합니다.
 
 ### <a name="run-join-azstorageaccountforauth"></a>Join-AzStorageAccountForAuth 실행
 
-`Join-AzStorageAccountForAuth`Cmdlet은 지정 된 저장소 계정을 대신 하 여 오프 라인 도메인 조인과 동일한 기능을 수행 합니다. 이 스크립트는 cmdlet을 사용 하 여 AD 도메인에 [컴퓨터 계정을](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) 만듭니다. 어떤 이유로 든 컴퓨터 계정을 사용할 수 없는 경우에는 스크립트를 변경 하 여 [서비스 로그온 계정을](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) 만들 수 있습니다. 명령을 수동으로 실행 하도록 선택 하는 경우 사용자 환경에 가장 적합 한 계정을 선택 해야 합니다.
+`Join-AzStorageAccountForAuth`Cmdlet은 지정 된 저장소 계정을 대신 하 여 오프 라인 도메인 조인과 동일한 기능을 수행 합니다. 이 스크립트는 cmdlet을 사용 하 여 AD 도메인에 [컴퓨터 계정을](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) 만듭니다. 어떤 이유로 든 컴퓨터 계정을 사용할 수 없는 경우에는 스크립트를 변경 하 여 [서비스 로그온 계정을](/windows/win32/ad/about-service-logon-accounts) 만들 수 있습니다. 명령을 수동으로 실행 하도록 선택 하는 경우 사용자 환경에 가장 적합 한 계정을 선택 해야 합니다.
 
 Cmdlet에서 만든 AD DS 계정은 저장소 계정을 나타냅니다. 암호 만료를 적용 하는 OU (조직 구성 단위)에서 AD DS 계정을 만든 경우 최대 암호 사용 기간 전에 암호를 업데이트 해야 합니다. 이 날짜 이전에 계정 암호를 업데이트 하지 못하면 Azure 파일 공유에 액세스할 때 인증 오류가 발생 합니다. 암호를 업데이트 하는 방법을 알아보려면 [업데이트 AD DS 계정 암호](storage-files-identity-ad-ds-update-password.md)를 참조 하세요.
 
 PowerShell에서 실행 하기 전에 아래 매개 변수에서 자리 표시자 값을 고유한 값으로 바꿉니다.
 > [!IMPORTANT]
-> 도메인 가입 cmdlet은 ad의 저장소 계정 (파일 공유)을 나타내는 AD 계정을 만듭니다. 컴퓨터 계정 또는 서비스 로그온 계정으로 등록 하도록 선택할 수 있습니다. 자세한 내용은 [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) 를 참조 하십시오. 컴퓨터 계정의 경우 AD에 30 일 동안 기본 암호 만료 기간이 설정 되어 있습니다. 마찬가지로, 서비스 로그온 계정에는 AD 도메인 또는 OU (조직 구성 단위)에 대 한 기본 암호 만료 기간이 설정 되어 있을 수 있습니다.
-> 두 계정 유형 모두에서 AD 환경에 구성 된 암호 만료 기간을 확인 하 고 최대 암호 사용 기간 전에 AD 계정의 [저장소 계정 id 암호를 업데이트](storage-files-identity-ad-ds-update-password.md) 하도록 계획 하는 것이 좋습니다. [Ad에서 새 AD OU (조직 구성 단위)를 만들고](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) 이에 따라 [컴퓨터 계정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) 또는 서비스 로그온 계정에 대 한 암호 만료 정책을 사용 하지 않도록 설정할 수 있습니다. 
+> 도메인 가입 cmdlet은 ad의 저장소 계정 (파일 공유)을 나타내는 AD 계정을 만듭니다. 컴퓨터 계정 또는 서비스 로그온 계정으로 등록 하도록 선택할 수 있습니다. 자세한 내용은 [FAQ](./storage-files-faq.md#security-authentication-and-access-control) 를 참조 하십시오. 컴퓨터 계정의 경우 AD에 30 일 동안 기본 암호 만료 기간이 설정 되어 있습니다. 마찬가지로, 서비스 로그온 계정에는 AD 도메인 또는 OU (조직 구성 단위)에 대 한 기본 암호 만료 기간이 설정 되어 있을 수 있습니다.
+> 두 계정 유형 모두에서 AD 환경에 구성 된 암호 만료 기간을 확인 하 고 최대 암호 사용 기간 전에 AD 계정의 [저장소 계정 id 암호를 업데이트](storage-files-identity-ad-ds-update-password.md) 하도록 계획 하는 것이 좋습니다. [Ad에서 새 AD OU (조직 구성 단위)를 만들고](/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) 이에 따라 [컴퓨터 계정](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) 또는 서비스 로그온 계정에 대 한 암호 만료 정책을 사용 하지 않도록 설정할 수 있습니다. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -89,7 +89,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 ### <a name="checking-environment"></a>환경 확인
 
-먼저, 환경의 상태를 확인 해야 합니다. 특히, PowerShell이 설치 되어 있는지, 그리고 관리자 권한으로 셸이 실행 중인지 [Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) 확인 해야 합니다. 그런 다음 [Az.Storage 2.0 모듈](https://www.powershellgallery.com/packages/Az.Storage/2.0.0)이 설치되어 있는지 확인하고, 그렇지 않으면 설치합니다. 이러한 검사를 완료 한 후 AD DS를 확인 하 여 이미 SPN/UPN을 사용 하 여 생성 된 [컴퓨터 계정](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (기본값) 또는 [서비스 로그온 계정이](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) "cifs/your-name-file 계정이 존재 하지 않는 경우 다음 섹션에 설명 된 대로 계정을 만듭니다.
+먼저, 환경의 상태를 확인 해야 합니다. 특히, PowerShell이 설치 되어 있는지, 그리고 관리자 권한으로 셸이 실행 중인지 [Active Directory](/powershell/module/addsadministration/?view=win10-ps) 확인 해야 합니다. 그런 다음 [Az.Storage 2.0 모듈](https://www.powershellgallery.com/packages/Az.Storage/2.0.0)이 설치되어 있는지 확인하고, 그렇지 않으면 설치합니다. 이러한 검사를 완료 한 후 AD DS를 확인 하 여 이미 SPN/UPN을 사용 하 여 생성 된 [컴퓨터 계정](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (기본값) 또는 [서비스 로그온 계정이](/windows/win32/ad/about-service-logon-accounts) "cifs/your-name-file 계정이 존재 하지 않는 경우 다음 섹션에 설명 된 대로 계정을 만듭니다.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>수동으로 AD의 저장소 계정을 나타내는 id 만들기
 

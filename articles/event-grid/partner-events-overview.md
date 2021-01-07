@@ -2,16 +2,16 @@
 title: Azure Event Grid-파트너 이벤트
 description: Azure Event Grid를 사용하여 타사 Event Grid SaaS 및 PaaS 파트너의 이벤트를 Azure 서비스로 직접 보냅니다.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 87d1d40b3696229344b0b5c20d06d9d993a514a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102996"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506149"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Azure Event Grid의 파트너 이벤트 (미리 보기)
-**파트너 이벤트** 기능을 사용 하면 타사 SaaS 공급자가 해당 서비스에서 이벤트를 게시 하 여 해당 이벤트를 구독할 수 있는 소비자에 게 제공할 수 있습니다. 구독자가 이벤트를 사용 하는 데 사용 하는 [항목](concepts.md#topics) 유형인 **파트너 토픽** 을 노출 하 여 타사 이벤트 원본에 대 한 자사 환경을 제공 합니다. 또한 이벤트 게시자 및 구독자에서 사용 하는 리소스의 관심사 및 소유권을 구분 하 여 정리 된 pub-sub 모델을 제공 합니다.
+**파트너 이벤트** 기능을 사용 하면 타사 SaaS 공급자가 해당 서비스에서 이벤트를 게시 하 여 소비자가 해당 이벤트를 구독할 수 있습니다. 이 기능은 [항목](concepts.md#topics) 유형인 **파트너 토픽** 을 노출 하 여 타사 이벤트 원본에 대 한 자사 환경을 제공 합니다. 구독자는이 항목에 대 한 구독을 만들어 이벤트를 사용 합니다. 또한 이벤트 게시자 및 구독자에서 사용 하는 리소스의 관심사 및 소유권을 구분 하 여 정리 된 pub sub 모델을 제공 합니다.
 
 > [!NOTE]
 > Event Grid 사용을 처음 접하는 경우 [개요](overview.md), [개념](concepts.md)및 [이벤트 처리기](event-handlers.md)를 참조 하세요.
@@ -75,6 +75,20 @@ ms.locfileid: "93102996"
 
 ## <a name="resources-managed-by-subscribers"></a>구독자가 관리 하는 리소스 
 구독자는 게시자에 의해 정의 된 파트너 항목을 사용할 수 있으며 해당 항목은 보고 관리 하는 유일한 리소스 유형입니다. 파트너 토픽을 만든 후에는 구독자 사용자가 [대상/이벤트 처리기](overview.md#event-handlers)에 대 한 필터 규칙을 정의 하는 이벤트 구독을 만들 수 있습니다. 구독자에 대 한 파트너 토픽 및 관련 된 이벤트 구독은 [사용자 지정 토픽](custom-topics.md) 과 동일한 풍부한 기능을 제공 하 고 관련 된 구독은 중요 한 차이점이 있습니다. 파트너 토픽은 지원 되는 다른 스키마 보다 풍부한 기능 집합을 제공 하는 [클라우드 이벤트 1.0 스키마](cloudevents-schema.md)만 지원 합니다.
+
+다음 이미지는 제어 평면 작업의 흐름을 보여 줍니다.
+
+:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="파트너 이벤트-제어 평면 흐름":::
+
+1. 게시자는 **파트너 등록** 을 만듭니다. 파트너 등록은 전역입니다. 즉, 특정 Azure 지역에 연결 되지 않습니다. 이 단계는 선택 사항입니다.
+1. 게시자는 특정 지역에 **파트너 네임 스페이스** 를 만듭니다.
+1. 구독자 1이 파트너 토픽을 만들려고 할 때 먼저 게시자의 Azure 구독에 이벤트 **채널 인 이벤트** 채널 1이 생성 됩니다.
+1. 그런 다음 파트너 **항목인** 파트너 항목 1이 구독자의 Azure 구독에 생성 됩니다. 구독자는 파트너 항목을 활성화 해야 합니다. 
+1. 구독자 1은 파트너 항목 1에 대 한 **Azure Logic Apps 구독** 을 만듭니다.
+1. 구독자 1은 파트너 항목 1에 대 한 **Azure Blob Storage 구독** 을 만듭니다. 
+1. 구독자 2에서 파트너 토픽을 만들려고 하면 먼저 게시자의 Azure 구독에 다른 **이벤트** 채널 인 이벤트 채널 2가 만들어집니다. 
+1. 그런 다음 두 번째 구독자의 Azure 구독에 **파트너 항목인 partner** 항목 2가 만들어집니다. 구독자는 파트너 항목을 활성화 해야 합니다. 
+1. 구독자 2는 파트너 항목 2에 대 한 **Azure Functions 구독** 을 만듭니다. 
 
 ## <a name="pricing"></a>가격 책정
 파트너 토픽은 Event Grid를 사용 하는 경우 수행 되는 작업의 수에 따라 요금이 청구 됩니다. 청구 및 자세한 가격 정보에 대 한 기준으로 사용 되는 모든 유형의 작업에 대 한 자세한 내용은 [Event Grid 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/)을 참조 하세요.

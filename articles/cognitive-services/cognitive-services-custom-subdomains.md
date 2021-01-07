@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 12/04/2020
 ms.author: erhopf
-ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368817"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032969"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Cognitive Services에 대 한 사용자 지정 하위 도메인 이름
 
@@ -39,7 +39,7 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>SDK에서 리소스에 대 한 영역을 요청 하는 경우 어떻게 되나요?
 
 > [!WARNING]
-> 음성 서비스는 현재 사용자 지정 하위 도메인을 지원 **하지 않습니다** . 음성 서비스 및 관련 Sdk를 사용 하는 경우 지역 끝점을 사용 하세요.
+> 음성 서비스는 [전용 끝점](Speech-Service/speech-services-private-link.md) 으로 사용자 지정 하위 **도메인을 사용 합니다.** 다른 모든 경우에는 음성 서비스 및 관련 Sdk를 통해 **지역 끝점** 을 사용 합니다.
 
 지역 끝점과 사용자 지정 하위 도메인 이름은 모두 지원 되며 서로 바꿔 사용할 수 있습니다. 그러나 전체 끝점이 필요 합니다.
 

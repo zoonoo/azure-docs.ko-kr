@@ -4,12 +4,12 @@ description: Azure Functions에서 네트워킹에 대 한 가장 일반적인 �
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8a992aac95b6c2688cb45aa980bf0b01883a53
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538061"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578232"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure Functions의 네트워킹에 대 한 질문과 대답
 
@@ -31,11 +31,9 @@ Azure Portal 편집기는 실행 중인 함수에 직접 액세스 해야 한다
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>내 함수 앱을 가상 네트워크로 제한 어떻게 할까요??
 
-[서비스 끝점](./functions-networking-options.md#private-site-access)을 사용 하 여 함수 앱에 대 한 **인바운드** 트래픽을 가상 네트워크로 제한할 수 있습니다. 이 구성을 통해 함수 앱에서 인터넷에 대 한 아웃 바운드 호출을 수행할 수 있습니다.
+[서비스 끝점](./functions-networking-options.md#use-service-endpoints)을 사용 하 여 함수 앱에 대 한 **인바운드** 트래픽을 가상 네트워크로 제한할 수 있습니다. 이 구성을 통해 함수 앱에서 인터넷에 대 한 아웃 바운드 호출을 수행할 수 있습니다.
 
-모든 트래픽이 가상 네트워크를 통해 이동 하도록 하는 유일한 방법은 내부적으로 부하가 분산 된 App Service Environment를 사용 하는 것입니다. 이 옵션은 가상 네트워크 내의 전용 인프라에 사이트를 배포 하 고 가상 네트워크를 통해 모든 트리거와 트래픽을 보냅니다. 
-
-App Service Environment 사용에 대 한 자세한 내용은 App Service Environment를 사용 하 [여 내부 부하 분산 장치 만들기 및 사용](../app-service/environment/create-ilb-ase.md)문서로 시작 합니다.
+모든 트래픽이 가상 네트워크를 통해 전달 되도록 함수를 완전히 제한 하기 위해 아웃 바운드 가상 네트워크 통합 또는 App Service Environment와 함께 [개인 끝점](./functions-networking-options.md#private-endpoint-connections) 을 사용할 수 있습니다.
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>함수 앱에서 가상 네트워크의 리소스에 액세스 하려면 어떻게 해야 하나요?
 
@@ -47,7 +45,7 @@ App Service Environment 사용에 대 한 자세한 내용은 App Service Enviro
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>가상 네트워크의 리소스에서 함수를 트리거하는 방법
 
-[서비스 끝점](./functions-networking-options.md#private-site-access)을 사용 하 여 가상 네트워크에서 HTTP 트리거를 호출 하도록 허용할 수 있습니다. 
+[서비스 끝점이](./functions-networking-options.md#use-service-endpoints) 나 [개인 끝점 연결](./functions-networking-options.md#private-endpoint-connections)을 사용 하 여 가상 네트워크에서 HTTP 트리거를 호출 하도록 허용할 수 있습니다. 
 
 함수 앱을 프리미엄 계획, App Service 계획 또는 App Service Environment에 배포 하 여 가상 네트워크의 다른 모든 리소스에서 함수를 트리거할 수도 있습니다. 자세한 내용은 [비 HTTP 가상 네트워크 트리거](./functions-networking-options.md#virtual-network-triggers-non-http) 를 참조 하세요.
 

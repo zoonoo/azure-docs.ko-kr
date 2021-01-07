@@ -10,12 +10,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 07/20/2020
-  ms.openlocfilehash: e5bf0981d267dca9a6ef43880d879391b837faba
-  ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+  ms.openlocfilehash: 64266f5eff2388634486215c2e9b7a00b2ab157b
+  ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/04/2020
-  ms.locfileid: "93341793"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96937205"
 landingContent:
 - title: Microsoft Azure Attestation 정보
   linkLists:
@@ -29,6 +29,8 @@ landingContent:
     links:
     - text: PowerShell 빠른 시작
       url: quickstart-powershell.md
+    - text: CLI 빠른 시작
+      url: quickstart-azure-cli.md
     - text: ARM 템플릿 빠른 시작
       url: quickstart-template.md
 - title: 개념
@@ -59,5 +61,5 @@ landingContent:
       url: faq.md
     - text: REST (영문)
       url: /rest/api/attestation/
-    - text: Azure PowerShell
-      url: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+    - text: 문제 해결
+      url: troubleshoot-guide.md

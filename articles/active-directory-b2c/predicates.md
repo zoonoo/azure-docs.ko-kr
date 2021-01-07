@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46f04c55b40d4f1bdbbf5fd55eb648d1d3294056
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203812"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108419"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
@@ -44,9 +44,9 @@ ms.locfileid: "85203812"
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| Id | 예 | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
-| 방법 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) 또는 [IsDateRange](#isdaterange)입니다.  |
-| HelpText | 아니요 | 확인이 실패하면 사용자에게 표시할 오류 메시지입니다. [언어 사용자 지정](localization.md)을 통해 이 문자열을 지역화할 수 있습니다. |
+| Id | Yes | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
+| 메서드 | Yes | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) 또는 [IsDateRange](#isdaterange)입니다.  |
+| HelpText | No | 확인이 실패하면 사용자에게 표시할 오류 메시지입니다. [언어 사용자 지정](localization.md)을 통해 이 문자열을 지역화할 수 있습니다. |
 
 **Predicate** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -75,8 +75,8 @@ IsLengthRange 메서드는 문자열 클레임 값의 길이가 지정 된 최�
 
 | 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
-| 최대 | 예 | 입력할 수 있는 최대 문자 수입니다. |
-| 최소 | 예 | 입력 해야 하는 최소 문자 수입니다. |
+| 최대 | Yes | 입력할 수 있는 최대 문자 수입니다. |
+| 최소 | Yes | 입력 해야 하는 최소 문자 수입니다. |
 
 
 다음 예제에서는 `Minimum` `Maximum` 문자열의 길이 범위를 지정 하는 및 매개 변수를 사용 하는 IsLengthRange 메서드를 보여 줍니다.
@@ -96,7 +96,7 @@ MatchesRegex 메서드는 문자열 클레임 값이 정규식과 일치 하는�
 
 | 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
-| RegularExpression | 예 | 일치 항목을 찾을 정규식 패턴입니다. |
+| RegularExpression | Yes | 일치 항목을 찾을 정규식 패턴입니다. |
 
 다음 예제에서는 정규식을 지정하는 `RegularExpression` 매개 변수가 포함된 `MatchesRegex` 메서드를 보여 줍니다.
 
@@ -114,7 +114,7 @@ IncludesCharacters 메서드는 문자열 클레임 값에 문자 집합이 포�
 
 | 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
-| CharacterSet | 예 | 입력할 수 있는 문자 집합입니다. 예를 들어 소문자  `a-z` , 대문자 `A-Z` , 숫자 `0-9` 또는 기호 목록 (예:)이 `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` 있습니다. |
+| CharacterSet | Yes | 입력할 수 있는 문자 집합입니다. 예를 들어 소문자  `a-z` , 대문자 `A-Z` , 숫자 `0-9` 또는 기호 목록 (예:)이 `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` 있습니다. |
 
 다음 예제에서는 문자 집합을 지정하는 `CharacterSet` 매개 변수가 포함된 `IncludesCharacters` 메서드를 보여 줍니다.
 
@@ -132,8 +132,8 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 | 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
-| 최대 | 예 | 입력할 수 있는 최대 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` . |
-| 최소 | 예 | 입력할 수 있는 최소 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` .|
+| 최대 | Yes | 입력할 수 있는 최대 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` . |
+| 최소 | Yes | 입력할 수 있는 최소 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` .|
 
 다음 예제에서는 `yyyy-mm-dd` 및 `Today` 형식의 날짜 범위를 지정하는 `Minimum` 및 `Maximum` 매개 변수가 포함된 `IsDateRange` 메서드를 보여 줍니다.
 
@@ -148,7 +148,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 ## <a name="predicatevalidations"></a>PredicateValidations
 
-조건자는 클레임 형식에 대해 확인할 유효성 검사를 정의하는 반면 **PredicateValidations**는 조건자 집합을 그룹화하여 클레임 형식에 적용할 수 있는 사용자 입력 유효성 검사를 작성합니다. 각 **PredicateValidation** 요소는 **PredicateGroup** 요소 집합을 포함하며, 이 요소 집합에는 **Predicate**를 가리키는 **PredicateReference** 요소 집합이 포함됩니다. 유효성 검사에 통과하려면 클레임의 값이 **PredicateReference** 요소 집합을 포함하는 모든 **PredicateGroup**에서 조건자의 테스트를 모두 통과해야 합니다.
+조건자는 클레임 형식에 대해 확인할 유효성 검사를 정의하는 반면 **PredicateValidations** 는 조건자 집합을 그룹화하여 클레임 형식에 적용할 수 있는 사용자 입력 유효성 검사를 작성합니다. 각 **PredicateValidation** 요소는 **PredicateGroup** 요소 집합을 포함하며, 이 요소 집합에는 **Predicate** 를 가리키는 **PredicateReference** 요소 집합이 포함됩니다. 유효성 검사에 통과하려면 클레임의 값이 **PredicateReference** 요소 집합을 포함하는 모든 **PredicateGroup** 에서 조건자의 테스트를 모두 통과해야 합니다.
 
 **PredicateValidations** 요소는 [BuildingBlocks](buildingblocks.md) 요소 내의 **조건자** 요소 바로 다음에 나와야 합니다.
 
@@ -180,7 +180,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다. **ClaimType** 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
+| Id | Yes | 조건자 유효성 검사에 사용되는 식별자입니다. **ClaimType** 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
 **PredicateValidation** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -198,7 +198,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| Id | 예 | 조건자 그룹에 사용되는 식별자입니다.  |
+| Id | Yes | 조건자 그룹에 사용되는 식별자입니다.  |
 
 **PredicateGroup** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -211,7 +211,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| MatchAtLeast | 아니요 | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. 지정 하지 않으면 값이 모든 조건자 정의와 일치 해야 합니다. |
+| MatchAtLeast | No | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. 지정 하지 않으면 값이 모든 조건자 정의와 일치 해야 합니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -223,12 +223,12 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다.  |
+| Id | Yes | 조건자 유효성 검사에 사용되는 식별자입니다.  |
 
 
 ## <a name="configure-password-complexity"></a>암호 복잡도 구성
 
-**Predicates** 및 **PredicateValidationsInput**을 사용하면 계정을 만들 때 사용자가 입력하는 암호의 복잡도 요구 사항을 제어할 수 있습니다. 기본적으로 Azure AD B2C는 강력한 암호를 사용합니다. 또한 Azure AD B2C는 고객이 사용할 수는 암호의 복잡성을 제어하는 구성 옵션을 지원합니다. 다음의 조건자 요소를 사용하면 암호 복잡도를 정의할 수 있습니다.
+**Predicates** 및 **PredicateValidationsInput** 을 사용하면 계정을 만들 때 사용자가 입력하는 암호의 복잡도 요구 사항을 제어할 수 있습니다. 기본적으로 Azure AD B2C는 강력한 암호를 사용합니다. 또한 Azure AD B2C는 고객이 사용할 수는 암호의 복잡성을 제어하는 구성 옵션을 지원합니다. 다음의 조건자 요소를 사용하면 암호 복잡도를 정의할 수 있습니다.
 
 - **IsLengthBetween8And64**(`IsLengthRange` 메서드 사용)는 암호가 8~64자 사이여야 한다는 유효성을 검사합니다.
 - **Lowercase**(`IncludesCharacters` 메서드 사용)는 암호가 소문자를 포함하는지 유효성을 검사합니다.
@@ -293,9 +293,9 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 기본적인 유효성 검사를 정의한 후에는 유효성 검사를 결합하여 정책에서 사용 가능한 암호 정책 집합을 만들 수 있습니다.
 
-- **SimplePassword**는 DisallowedWhitespace, AllowedAADCharacters 및 IsLengthBetween8And64 유효성 검사를 수행합니다.
-- **StrongPassword**는 DisallowedWhitespace, AllowedAADCharacters, 및 IsLengthBetween8And64 유효성 검사를 수행합니다. 마지막 그룹인 `CharacterClasses`는 `MatchAtLeast`가 3으로 설정된 추가 조건자 집합을 실행합니다. 이 경우 사용자 암호는 8~16자 사이여야 하며 소문자, 대문자, 숫자, 기호 중 3가지를 포함해야 합니다.
-- **CustomPassword**는 DisallowedWhitespace, AllowedAADCharacters 유효성 검사만 수행합니다. 따라서 사용자는 문자가 유효하기만 하면 어떤 길이의 암호든 입력할 수 있습니다.
+- **SimplePassword** 는 DisallowedWhitespace, AllowedAADCharacters 및 IsLengthBetween8And64 유효성 검사를 수행합니다.
+- **StrongPassword** 는 DisallowedWhitespace, AllowedAADCharacters, 및 IsLengthBetween8And64 유효성 검사를 수행합니다. 마지막 그룹인 `CharacterClasses`는 `MatchAtLeast`가 3으로 설정된 추가 조건자 집합을 실행합니다. 이 경우 사용자 암호는 8~16자 사이여야 하며 소문자, 대문자, 숫자, 기호 중 3가지를 포함해야 합니다.
+- **CustomPassword** 는 DisallowedWhitespace, AllowedAADCharacters 유효성 검사만 수행합니다. 따라서 사용자는 문자가 유효하기만 하면 어떤 길이의 암호든 입력할 수 있습니다.
 
 ```xml
 <PredicateValidations>
@@ -384,7 +384,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 ## <a name="configure-a-date-range"></a>날짜 범위 구성
 
-**Predicates** 및 **PredicateValidations** 요소를 사용하는 경우 `DateTimeDropdown`을 통해 **UserInputType**의 최소/최대 날짜 값을 제어할 수 있습니다. 이렇게 하려면 `IsDateRange` 메서드를 포함하여 **Predicate**를 만들고 최소/최대 매개 변수를 입력합니다.
+**Predicates** 및 **PredicateValidations** 요소를 사용하는 경우 `DateTimeDropdown`을 통해 **UserInputType** 의 최소/최대 날짜 값을 제어할 수 있습니다. 이렇게 하려면 `IsDateRange` 메서드를 포함하여 **Predicate** 를 만들고 최소/최대 매개 변수를 입력합니다.
 
 ```xml
 <Predicates>
@@ -397,7 +397,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 </Predicates>
 ```
 
-`DateRange` 조건자에 대한 참조를 포함하는 **PredicateValidation**을 추가합니다.
+`DateRange` 조건자에 대한 참조를 포함하는 **PredicateValidation** 을 추가합니다.
 
 ```xml
 <PredicateValidations>
@@ -428,4 +428,4 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건자 유효성 검사를 사용 하 여 [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 암호 복잡성을 구성](custom-policy-password-complexity.md) 하는 방법을 알아봅니다.
+- 조건자 유효성 검사를 사용 하 여 [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 암호 복잡성을 구성](password-complexity.md) 하는 방법을 알아봅니다.

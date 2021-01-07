@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be063105db2384f566e7c94d9f2e7a2bd808b15f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c394fe2aa7639d32e5d79bcb22a01151f7666f5b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790137"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324621"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure Virtual Machines에서 SQL Server 개요(Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -75,7 +75,7 @@ Linux에서 SQL Server를 구성하는 경우 데이터베이스 엔진 패키�
 
 * [Virtual Network 개요](../../../virtual-network/virtual-networks-overview.md)
 * [Azure의 IP 주소](../../../virtual-network/public-ip-addresses.md)
-* [Azure 포털에서 정규화된 도메인 이름 만들기](../../../virtual-machines/windows/portal-create-fqdn.md)
+* [Azure 포털에서 정규화된 도메인 이름 만들기](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 435cb1d52b5505f4f29bd0c31986a1f7f72208fd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e298cb0d1a2c510a096f8ead03f8af7e39c206a8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412870"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498934"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>복원 력 있는 솔루션 Azure DDoS Protection 설계
 
@@ -54,7 +54,7 @@ Microsoft Azure에서 실행되는 서비스를 보호하기 위해 애플리케
 
 심층 방어의 개념은 다양한 방어 전략을 사용하여 위험을 관리하는 것입니다. 애플리케이션에서 보안 방어를 계층화하면 공격이 성공할 가능성이 줄어듭니다. Azure 플랫폼의 기본 제공 기능을 사용하여 안전한 애플리케이션 디자인을 구현하는 것이 좋습니다.
 
-예를 들어 공격 위험이 증가하면 애플리케이션의 크기( *노출 영역* )도 커집니다. 승인 목록을 사용 하 여 표시 되는 IP 주소 공간과 부하 분산 장치 ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) 및 [Azure 애플리케이션 Gateway](../../application-gateway/application-gateway-create-probe-portal.md))에서 필요 하지 않은 수신 포트를 닫아 노출 영역을 줄일 수 있습니다. [NSG(네트워크 보안 그룹)](../../virtual-network/network-security-groups-overview.md)는 공격 노출을 줄이기 위한 또 다른 방법입니다.
+예를 들어 공격 위험이 증가하면 애플리케이션의 크기(*노출 영역*)도 커집니다. 승인 목록을 사용 하 여 표시 되는 IP 주소 공간과 부하 분산 장치 ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) 및 [Azure 애플리케이션 Gateway](../../application-gateway/application-gateway-create-probe-portal.md))에서 필요 하지 않은 수신 포트를 닫아 노출 영역을 줄일 수 있습니다. [NSG(네트워크 보안 그룹)](../../virtual-network/network-security-groups-overview.md)는 공격 노출을 줄이기 위한 또 다른 방법입니다.
 [서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags) 및 [애플리케이션 보안 그룹](../../virtual-network/network-security-groups-overview.md#application-security-groups)을 사용하여 보안 규칙을 만드는 복잡성을 최소화하고 애플리케이션 구조의 기본 확장으로 네트워크 보안을 구성할 수 있습니다.
 
 가능하면 [가상 네트워크](../../virtual-network/virtual-networks-overview.md)에 Azure 서비스를 배포해야 합니다. 이렇게 하면 서비스 리소스가 개인 IP 주소를 통해 통신할 수 있습니다. 가상 네트워크의 Azure 서비스 트래픽은 공용 IP 주소를 원본 IP 주소로 사용합니다. [서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)를 사용하던 기존 방식에서 서비스 트래픽이 가상 네트워크의 Azure 서비스에 액세스할 때 가상 네트워크 프라이빗 주소를 원본 IP 주소로 사용하도록 전환됩니다.
@@ -113,7 +113,7 @@ DDoS Protection 표준은 DDoS를 사용하도록 설정된 가상 네트워크�
 
 이 메트릭에서 경고를 구성하는 것이 좋습니다. 공용 IP 주소에서 활성 DDoS 완화가 수행되면 알림을 받게 됩니다.
 
-자세한 내용은 [Azure Portal을 사용하여 Azure DDoS Protection Standard 관리](../../virtual-network/manage-ddos-protection.md)를 참조하세요.
+자세한 내용은 [Azure Portal을 사용하여 Azure DDoS Protection Standard 관리](../../ddos-protection/manage-ddos-protection.md)를 참조하세요.
 
 #### <a name="web-application-firewall-for-resource-attacks"></a>리소스 공격에 대한 웹 애플리케이션 방화벽
 
@@ -179,7 +179,7 @@ DDoS 대응 팀의 경우 서비스의 가용성과 연속성 계획의 일환�
 
 ### <a name="alerts-during-an-attack"></a>공격 진행 중 경고
 
-Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하여 완화합니다. 보호 된 공용 IP에 대 한 활성 완화가 있는 경우 알림을 받으려면 **DDoS Attack에서** 메트릭에 대 한 [경고를 구성할](../../virtual-network/manage-ddos-protection.md) 수 있습니다. 다른 DDoS 메트릭에 대한 경고를 만들어서 공격의 규모, 손실되는 트래픽 및 기타 세부 내용을 이해할 수 있습니다.
+Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하여 완화합니다. 보호 된 공용 IP에 대 한 활성 완화가 있는 경우 알림을 받으려면 **DDoS Attack에서** 메트릭에 대 한 [경고를 구성할](../../ddos-protection/manage-ddos-protection.md) 수 있습니다. 다른 DDoS 메트릭에 대한 경고를 만들어서 공격의 규모, 손실되는 트래픽 및 기타 세부 내용을 이해할 수 있습니다.
 
 #### <a name="when-to-contact-microsoft-support"></a>Microsoft 지원에 문의해야 하는 경우
 
@@ -260,7 +260,7 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 
 이 아키텍처에서 인터넷의 HDInsight 클러스터를 대상으로 하는 트래픽은 HDInsight 게이트웨이 부하 분산 장치와 연결된 공용 IP 주소로 라우팅됩니다. 그러면 게이트웨이 부하 분산 장치가 트래픽을 헤드 노드 또는 작업자 노드로 직접 보냅니다. HDInsight 가상 네트워크에서 DDoS Protection 표준을 사용하기 때문에 가상 네트워크의 모든 공용 IP가 레이어3 및 4에 대해 DDoS Protection을 받습니다. 이 참조 아키텍처를 N 계층 및 다중 지역 참조 아키텍처와 결합할 수 있습니다.
 
-이 참조 아키텍처에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%252fazure%252fvirtual-network%252ftoc.json) 설명서를 참조하세요.
+이 참조 아키텍처에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 설명서를 참조하세요.
 
 
 > [!NOTE]
@@ -270,4 +270,4 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 
 * [클라우드의 공동 책임](shared-responsibility.md)
 * [Azure DDoS Protection 제품 페이지](https://azure.microsoft.com/services/ddos-protection/)
-* [Azure DDoS Protection 설명서](../../virtual-network/ddos-protection-overview.md)
+* [Azure DDoS Protection 설명서](../../ddos-protection/ddos-protection-overview.md)

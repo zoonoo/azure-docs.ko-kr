@@ -3,12 +3,12 @@ title: 인증서 일반 이름을 사용 하도록 클러스터 업데이트
 description: Azure Service Fabric 클러스터 인증서를 지문 기반 선언에서 일반 이름으로 변환 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 013b8190390a4b05791b0a56072487f249956ec5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495201"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900793"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>클러스터 인증서를 지문 기반 선언에서 일반 이름으로 변환
 
@@ -63,8 +63,11 @@ Azure에서 인증서를 가져오고 프로 비전 하는 데 권장 되는 메
 #### <a name="valid-starting-states"></a>유효한 시작 상태
 
 - `Thumbprint: GoalCert, ThumbprintSecondary: None`
-- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`입니다. 여기에 `GoalCert` `NotAfter` 는의 이후 날짜가 있습니다. `OldCert1`
-- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`입니다. 여기에 `GoalCert` `NotAfter` 는의 이후 날짜가 있습니다. `OldCert1`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`입니다. 여기에 `GoalCert` `NotBefore` 는의 이후 날짜가 있습니다. `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`입니다. 여기에 `GoalCert` `NotBefore` 는의 이후 날짜가 있습니다. `OldCert1`
+
+> [!NOTE]
+> 버전 7.2.445 (7.2 CU4 Service Fabric) 이전에는 곧 만료 되는 인증서 (가장 멀리 떨어진 ' NotAfter ' 속성이 있는 인증서)를 선택 했으므로 7.2 CU4 이전 상태는 GoalCert에 게 이후 날짜를 사용 해야 합니다. `NotAfter``OldCert1`
 
 클러스터가 앞에서 설명한 유효한 상태 중 하나가 아닌 경우이 문서의 끝에 있는 섹션에서 해당 상태를 달성 하는 방법에 대 한 정보를 참조 하세요.
 
@@ -79,7 +82,7 @@ Azure에서 인증서를 가져오고 프로 비전 하는 데 권장 되는 메
    >
    > 발급자를 지정 하지 않거나 목록이 비어 있는 경우 체인을 구축할 수 있는 경우 인증서가 인증을 받을 수 있습니다. 그러면 인증서가 유효성 검사기에서 신뢰 하는 루트에 종료 됩니다. 하나 이상의 발급자 지문이 지정 된 경우 체인에서 추출 된 직접 발급자의 지문이이 필드에 지정 된 값과 일치 하면 인증서가 허용 됩니다. 루트를 신뢰할 수 있는지 여부에 관계 없이 인증서가 허용 됩니다.
    >
-   > PKI는 지정 된 주체를 사용 하 여 인증서에 서명 하는 데 다른 인증 기관 ( *발급자*라고도 함)을 사용할 수 있습니다. 이러한 이유로 해당 주체에 대해 예상 되는 모든 발급자 지문을 지정 하는 것이 중요 합니다. 즉, 인증서 갱신은 갱신 되는 인증서와 동일한 발급자가 서명 하는 것이 보장 되지 않습니다.
+   > PKI는 지정 된 주체를 사용 하 여 인증서에 서명 하는 데 다른 인증 기관 ( *발급자* 라고도 함)을 사용할 수 있습니다. 이러한 이유로 해당 주체에 대해 예상 되는 모든 발급자 지문을 지정 하는 것이 중요 합니다. 즉, 인증서 갱신은 갱신 되는 인증서와 동일한 발급자가 서명 하는 것이 보장 되지 않습니다.
    >
    > 발급자 지정은 모범 사례로 간주 됩니다. 발급자를 생략 하면 신뢰할 수 있는 루트에 연결 하는 인증서에 대해 계속 작동 하지만,이 동작에는 제한이 있으며 가까운 장래에 사용할 수 있습니다. Azure에 배포 되 고, 개인 PKI에서 발급 된 X509 인증서로 보호 되 고, 주체에 의해 선언 된 클러스터는 Service Fabric (클러스터-서비스 통신의 경우)에서 유효성을 검사할 수 없습니다. 유효성 검사를 수행 하려면 PKI 인증서 정책을 검색 가능 하 고, 사용 가능 하며, 액세스할 수 있어야 합니다.
 
@@ -217,11 +220,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 
 | 시작 상태 | 업그레이드 1 | 업그레이드 2 |
 | :--- | :--- | :--- |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` 및 `GoalCert` 의 이후 `NotAfter` 날짜 `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` 및 `OldCert1` 의 이후 `NotAfter` 날짜 `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
-| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`입니다. 여기에는 `OldCert1` 이후 날짜가 있습니다. `NotAfter``GoalCert` | 업그레이드 대상 `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
-| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`입니다. 여기에는 `OldCert1` 이후 날짜가 있습니다. `NotAfter``GoalCert` | 업그레이드 대상 `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` 및 `GoalCert` 의 이후 `NotBefore` 날짜 `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` 및 `OldCert1` 의 이후 `NotBefore` 날짜 `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`입니다. 여기에는 `OldCert1` 이후 날짜가 있습니다. `NotBefore``GoalCert` | 업그레이드 대상 `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`입니다. 여기에는 `OldCert1` 이후 날짜가 있습니다. `NotBefore``GoalCert` | 업그레이드 대상 `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
 | `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | `OldCert1`상태를 가져오려면 또는 중 하나를 제거 `OldCert2` 합니다.`Thumbprint: OldCertx, ThumbprintSecondary: None` | 새 시작 상태에서 계속 |
+
+> [!NOTE]
+> 버전 7.2.445 (7.2 CU4) 이전 버전의 클러스터의 경우를 `NotBefore` `NotAfter` 위의 상태에서로 바꿉니다.
 
 이러한 업그레이드를 수행 하는 방법에 대 한 지침은 [Azure Service Fabric 클러스터에서 인증서 관리](service-fabric-cluster-security-update-certs-azure.md)를 참조 하세요.
 

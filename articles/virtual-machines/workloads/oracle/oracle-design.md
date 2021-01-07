@@ -3,16 +3,17 @@ title: Azure에서 Oracle 데이터베이스 설계 및 구현 | Microsoft Docs
 description: Azure 환경에서 Oracle 데이터베이스를 설계하고 구현합니다.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9bfd2330f71b9690e2864968cf51cb438bb23676
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5e9ddecd694a9051e746d07cbc1bee4d98bf5829
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534076"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484433"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
@@ -137,19 +138,19 @@ VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요
 - 네트워크 대기 시간은 온-프레미스 배포에 비해 더 높습니다. 네트워크 왕복 수를 줄이면 성능이 크게 향상될 수 있습니다.
 - 왕복을 줄이려면 동일한 가상 머신에서 트랜잭션이 많은 애플리케이션 또는 "채팅 가능한(chatty)" 앱을 통합합니다.
 - 네트워크 성능을 향상 시키려면 [가속화 된 네트워킹](../../../virtual-network/create-vm-accelerated-networking-cli.md) 을 사용 하는 Virtual Machines를 사용 합니다.
-- 특정 Linux 배포판의 경우 [트리밍/매핑 해제 지원을](../../linux/configure-lvm.md#trimunmap-support)사용 하도록 설정 하는 것이 좋습니다.
+- 특정 Linux 배포판의 경우 [트리밍/매핑 해제 지원을](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support)사용 하도록 설정 하는 것이 좋습니다.
 - 별도의 가상 컴퓨터에 [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) 를 설치 합니다.
 - 기본적으로 큰 페이지는 linux에서 사용 하도록 설정 되지 않습니다. 큰 페이지를 사용 하도록 설정 하 고 Oracle DB에 설정 하는 것이 좋습니다 `use_large_pages = ONLY` . 이렇게 하면 성능을 향상 시킬 수 있습니다. 자세한 내용은 [여기](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)를 참조하세요.
 
 ### <a name="disk-types-and-configurations"></a>디스크 형식 및 구성
 
-- *기본 OS 디스크* : 이러한 디스크 유형은 영구 데이터 및 캐싱을 제공합니다. 시작 시 OS 액세스에 최적화되며, 트랜잭션 또는 데이터 웨어하우스(분석) 워크로드용으로는 설계되지 않았습니다.
+- *기본 OS 디스크*: 이러한 디스크 유형은 영구 데이터 및 캐싱을 제공합니다. 시작 시 OS 액세스에 최적화되며, 트랜잭션 또는 데이터 웨어하우스(분석) 워크로드용으로는 설계되지 않았습니다.
 
-- *비관리 디스크* : 이러한 디스크 유형을 사용하면 VM 디스크에 해당하는 VHD(가상 하드 디스크) 파일을 저장하는 스토리지 계정을 관리할 수 있습니다. VHD 파일은 Azure Storage 계정에 페이지 Blob으로 저장됩니다.
+- *비관리 디스크*: 이러한 디스크 유형을 사용하면 VM 디스크에 해당하는 VHD(가상 하드 디스크) 파일을 저장하는 스토리지 계정을 관리할 수 있습니다. VHD 파일은 Azure Storage 계정에 페이지 Blob으로 저장됩니다.
 
-- *관리 디스크* : Azure에서 VM 디스크에 사용하는 스토리지 계정을 관리합니다. 필요한 디스크 유형(프리미엄 또는 표준)과 디스크 크기를 지정합니다. Azure에서 사용자에게 맞는 디스크를 만들고 관리합니다.
+- *관리 디스크*: Azure에서 VM 디스크에 사용하는 스토리지 계정을 관리합니다. 필요한 디스크 유형(프리미엄 또는 표준)과 디스크 크기를 지정합니다. Azure에서 사용자에게 맞는 디스크를 만들고 관리합니다.
 
-- *Premium Storage 디스크* : 이러한 디스크 유형은 프로덕션 워크로드에 가장 적합합니다. Premium Storage는 특정 크기 시리즈 VM(예: DS, DSv2, GS 및 F 시리즈 VM)에 연결할 수 있는 VM 디스크를 지원합니다. 다양한 크기로 제공되며 32GB에서 4,096GB까지 다양한 디스크를 선택할 수 있습니다. 디스크 크기마다 자체 성능 사양이 있습니다. 애플리케이션 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다.
+- *Premium Storage 디스크*: 이러한 디스크 유형은 프로덕션 워크로드에 가장 적합합니다. Premium Storage는 특정 크기 시리즈 VM(예: DS, DSv2, GS 및 F 시리즈 VM)에 연결할 수 있는 VM 디스크를 지원합니다. 다양한 크기로 제공되며 32GB에서 4,096GB까지 다양한 디스크를 선택할 수 있습니다. 디스크 크기마다 자체 성능 사양이 있습니다. 애플리케이션 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다.
 
 포털에서 새 관리 디스크를 만드는 경우 사용하려는 디스크 유형에 대한 **계정 유형** 을 선택할 수 있습니다. 사용 가능한 모든 디스크가 드롭다운 메뉴에 표시되는 것은 아닙니다. 특정 VM 크기를 선택하면 해당 VM 크기를 기반으로 하여 사용할 수 있는 Premium Storage SKU만 메뉴에 표시됩니다.
 
@@ -186,11 +187,11 @@ I/O 요구 사항에 대해 명확히 알고 있으면 이러한 요구 사항�
 
 호스트 캐싱에는 세 가지 옵션이 있습니다.
 
-- *ReadOnly* : 모든 요청은 이후 읽기에 대해 캐시 됩니다. 모든 쓰기는 Azure Blob Storage에 직접 유지됩니다.
+- *ReadOnly*: 모든 요청은 이후 읽기에 대해 캐시 됩니다. 모든 쓰기는 Azure Blob Storage에 직접 유지됩니다.
 
-- *ReadWrite* : "미리 읽기" 알고리즘입니다. 읽기 및 쓰기가 향후 읽기에 대해 캐시됩니다. 연속 쓰기(write-through) 이외의 쓰기 작업은 먼저 로컬 캐시에 유지됩니다. 또한 가벼운 워크로드에 대해 가장 낮은 디스크 대기 시간을 제공합니다. 필요한 데이터를 유지하도록 처리하지 않는 애플리케이션에 ReadWrite 캐시를 사용하면 VM이 충돌할 경우 데이터 손실이 발생할 수 있습니다.
+- *ReadWrite*: "미리 읽기" 알고리즘입니다. 읽기 및 쓰기가 향후 읽기에 대해 캐시됩니다. 연속 쓰기(write-through) 이외의 쓰기 작업은 먼저 로컬 캐시에 유지됩니다. 또한 가벼운 워크로드에 대해 가장 낮은 디스크 대기 시간을 제공합니다. 필요한 데이터를 유지하도록 처리하지 않는 애플리케이션에 ReadWrite 캐시를 사용하면 VM이 충돌할 경우 데이터 손실이 발생할 수 있습니다.
 
-- *없음* (사용 안 함): 이 옵션을 사용하면 캐시를 무시할 수 있습니다. 모든 데이터가 디스크에 전송되며 Azure Storage에 유지됩니다. 이 메서드를 사용하면 I/O 집약적 워크로드에 대해 가장 높은 I/O 속도를 얻을 수 있습니다. "트랜잭션 비용"도 고려해야 합니다.
+- *없음*(사용 안 함): 이 옵션을 사용하면 캐시를 무시할 수 있습니다. 모든 데이터가 디스크에 전송되며 Azure Storage에 유지됩니다. 이 메서드를 사용하면 I/O 집약적 워크로드에 대해 가장 높은 I/O 속도를 얻을 수 있습니다. "트랜잭션 비용"도 고려해야 합니다.
 
 **권장 사항**
 
@@ -208,14 +209,14 @@ I/O 요구 사항에 대해 명확히 알고 있으면 이러한 요구 사항�
 
 Azure 환경을 설정하고 구성한 후의 다음 단계는 네트워크를 보호하는 것입니다. 몇 가지 권장 사항입니다.
 
-- *NSG 정책* : NSG는 서브넷 또는 NIC에서 정의될 수 있습니다. 응용 프로그램 방화벽과 같은 항목에 대 한 보안 및 강제 라우팅을 위해 서브넷 수준에서 액세스를 제어 하는 것이 더 간단 합니다.
+- *NSG 정책*: NSG는 서브넷 또는 NIC에서 정의될 수 있습니다. 응용 프로그램 방화벽과 같은 항목에 대 한 보안 및 강제 라우팅을 위해 서브넷 수준에서 액세스를 제어 하는 것이 더 간단 합니다.
 
-- *Jumpbox* : 더 안전한 액세스를 위해 관리자는 애플리케이션 서비스 또는 데이터베이스에 직접 연결하면 안됩니다. Jumpbox는 관리자 컴퓨터와 Azure 리소스 간 미디어로 사용됩니다.
+- *Jumpbox*: 더 안전한 액세스를 위해 관리자는 애플리케이션 서비스 또는 데이터베이스에 직접 연결하면 안됩니다. Jumpbox는 관리자 컴퓨터와 Azure 리소스 간 미디어로 사용됩니다.
 ![Jumpbox 토폴로지 페이지의 스크린샷](./media/oracle-design/jumpbox.png)
 
     관리자 컴퓨터는 Jumpbox에 대해 IP가 제한된 액세스만 제공해야 합니다. Jumpbox에는 애플리케이션과 데이터베이스에 대한 액세스 권한이 있어야 합니다.
 
-- *사설망* (서브넷): NSG 정책에 따라 더 나은 제어를 설정할 수 있도록 애플리케이션 서비스와 데이터베이스를 별도의 서브넷에 두는 것이 좋습니다.
+- *사설망*(서브넷): NSG 정책에 따라 더 나은 제어를 설정할 수 있도록 애플리케이션 서비스와 데이터베이스를 별도의 서브넷에 두는 것이 좋습니다.
 
 
 ## <a name="additional-reading"></a>추가 자료

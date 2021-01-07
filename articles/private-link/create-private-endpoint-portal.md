@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
 ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895204"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018072"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Private Endpoint 만들기
 
@@ -101,7 +101,7 @@ Azure SQL 및 Azure Storage와 같은 다양한 종류의 Azure 서비스에 대
     | 리소스 그룹 | **CreatePrivateEndpointQS-rg** 를 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM** 을 입력합니다. |
-    | Azure 지역 | **서유럽** 를 선택합니다. |
+    | 지역 | **서유럽** 를 선택합니다. |
     | 가용성 옵션 | **인프라 중복이 필요하지 않습니다** 를 선택합니다. |
     | 이미지 | **Windows Server 2019 Datacenter - Gen1** 을 선택합니다. |
     | Azure Spot 인스턴스 | **아니요** 를 선택합니다. |
@@ -111,7 +111,7 @@ Azure SQL 및 Azure Storage와 같은 다양한 종류의 Azure 서비스에 대
     | 암호 | 암호를 입력합니다. |
     | 암호 확인 | 암호를 다시 입력합니다. |
 
-3. **네트워킹** 탭을 선택하거나 **다음: 디스크** , **다음: 네트워킹** 을 차례로 선택합니다.
+3. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹** 을 차례로 선택합니다.
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
@@ -149,7 +149,7 @@ Azure SQL 및 Azure Storage와 같은 다양한 종류의 Azure 서비스에 대
     | Resource group | **CreatePrivateEndpointQS-rg** 를 선택합니다. 이전 섹션에서 이 리소스 그룹을 만들었습니다.|
     | **인스턴스 세부 정보** |  |
     | 속성  | **myPrivateEndpoint** 를 입력합니다. |
-    | Azure 지역 | **서유럽** 를 선택합니다. |
+    | 지역 | **서유럽** 를 선택합니다. |
 
 6. 페이지 아래쪽에서 **리소스** 탭 또는 **다음: 리소스** 단추를 선택합니다.
     
@@ -173,9 +173,9 @@ Azure SQL 및 Azure Storage와 같은 다양한 종류의 Azure 서비스에 대
     | 가상 네트워크 | **myVNet** 을 선택합니다. |
     | 서브넷 | **mySubnet** 을 선택합니다. |
     | **프라이빗 DNS 통합** |  |
-    | 프라이빗 DNS 영역과 통합 | **예** (기본값)를 그대로 둡니다. |
+    | 프라이빗 DNS 영역과 통합 | **예**(기본값)를 그대로 둡니다. |
     | Subscription | 구독을 선택합니다. |
-    | 프라이빗 DNS 영역 | **(새 항목) privatelink.azurewebsites.net** (기본값)을 그대로 둡니다.
+    | 프라이빗 DNS 영역 | **(새 항목) privatelink.azurewebsites.net**(기본값)을 그대로 둡니다.
     
 
 13. **검토 + 만들기** 를 선택합니다.
@@ -216,7 +216,7 @@ Azure SQL 및 Azure Storage와 같은 다양한 종류의 Azure 서비스에 대
 
 11. **myVM** 에 대한 베스천 연결에서 Internet Explorer를 엽니다.
 
-12. 웹앱의 URL( **https://\<your-webapp-name>.azurewebsites.net** )을 입력합니다.
+12. 웹앱의 URL(**https://\<your-webapp-name>.azurewebsites.net**)을 입력합니다.
 
 13. 애플리케이션이 배포되지 않은 경우 기본 웹앱 페이지가 표시됩니다.
 

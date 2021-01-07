@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 4b1bc58b6b4a87cd6e5e09e83020a38261b8746f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14564b0591ef0146131b3f9324556b613e25daac
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905372"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901235"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Azure 정적 Web Apps 미리 보기를 사용 하 여 프런트 엔드 프레임 워크 및 라이브러리 구성
 
@@ -24,7 +24,7 @@ Azure Static Web Apps을 사용 하려면 프런트 엔드 프레임 워크 또�
 
 테이블 열의 의도는 다음 항목에 설명 되어 있습니다.
 
-- **앱 아티팩트 위치**: `app_artifact_location` [응용 프로그램 파일의 빌드 버전 폴더](github-actions-workflow.md#build-and-deploy)에 해당 하는의 값을 나열 합니다.
+- **출력 위치**: `output_location` [응용 프로그램 파일의 빌드 버전 폴더](github-actions-workflow.md#build-and-deploy)에 해당 하는의 값을 나열 합니다.
 
 - **사용자 지정 빌드 명령**: 프레임 워크에서 또는와 다른 명령이 필요한 경우 `npm run build` `npm run azure:build` [사용자 지정 빌드 명령을](github-actions-workflow.md#custom-build-commands)정의할 수 있습니다.
 

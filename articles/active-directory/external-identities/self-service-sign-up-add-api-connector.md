@@ -11,34 +11,37 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: aa6726bb5c60dceab0a58632da99c04361183246
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441677"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932693"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>사용자 흐름에 API 커넥터 추가
 
 [Api 커넥터](api-connectors-overview.md)를 사용 하려면 먼저 api 커넥터를 만든 다음 사용자 흐름에서 사용 하도록 설정 합니다.
 
+> [!IMPORTANT]
+>**2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+
 ## <a name="create-an-api-connector"></a>API 커넥터 만들기
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure Services** 아래에서 **Azure Active Directory**를 선택합니다.
-3. 왼쪽 메뉴에서 **외부 ID**를 선택합니다.
-4. **모든 api 커넥터 (미리 보기)** 를 선택한 다음 **새 api 커넥터**를 선택 합니다.
+2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
+3. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
+4. **모든 api 커넥터 (미리 보기)** 를 선택한 다음 **새 api 커넥터** 를 선택 합니다.
 
    ![새 API 커넥터 추가](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
-5. 호출에 대 한 표시 이름을 제공 합니다. 예를 들어 **승인 상태를 확인**합니다.
+5. 호출에 대 한 표시 이름을 제공 합니다. 예를 들어 **승인 상태를 확인** 합니다.
 6. API 호출에 대 한 **끝점 URL** 을 제공 합니다.
 7. API에 대 한 인증 정보를 제공 합니다.
 
-   - 현재 기본 인증만 지원 됩니다. 개발 목적으로 기본 인증 없이 API를 사용 하려는 경우에는 API에서 무시할 수 있는 더미 **사용자 이름** 및 **암호** 를 입력 하기만 하면 됩니다. API 키를 사용 하 여 Azure 함수와 함께 사용 하기 위해 코드를 **끝점 URL** 에 쿼리 매개 변수로 포함할 수 있습니다 (예: https []() ://contoso.azurewebsites.net/api/endpoint<b>? code = 0123456789</b>).
+   - 현재 기본 인증만 지원 됩니다. 개발 목적으로 기본 인증 없이 API를 사용 하려는 경우에는 API에서 무시할 수 있는 더미 **사용자 이름** 및 **암호** 를 입력 하기만 하면 됩니다. API 키를 사용 하 여 Azure 함수와 함께 사용 하기 위해 코드를 **끝점 URL** 에 쿼리 매개 변수로 포함할 수 있습니다 (예: https []() ://contoso.azurewebsites.net/api/endpoint <b>? code = 0123456789</b>).
 
    ![새 API 커넥터 구성](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
-8. **저장**을 선택합니다.
+8. **저장** 을 선택합니다.
 
 > [!IMPORTANT]
 > 이전에는 API에 보낼 사용자 특성 (' 보낼 클레임 ') 및 API에서 수락할 사용자 특성 (' 수신 클레임 ')을 구성 해야 했습니다. 이제 값이 있는 경우 모든 사용자 특성은 기본적으로 전송 되 고, 모든 사용자 특성은 API에서 ' 연속 ' 응답으로 반환 될 수 있습니다.
@@ -92,17 +95,17 @@ Content-type: application/json
 다음 단계를 수행 하 여 API 커넥터를 셀프 서비스 등록 사용자 흐름에 추가 합니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure Services** 아래에서 **Azure Active Directory**를 선택합니다.
-3. 왼쪽 메뉴에서 **외부 ID**를 선택합니다.
+2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
+3. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
 4. **사용자 흐름 (미리 보기)** 을 선택한 다음 API 커넥터를 추가 하려는 사용자 흐름을 선택 합니다.
-5. **Api 커넥터**를 선택 하 고 사용자 흐름에서 다음 단계에 호출 하려는 api 끝점을 선택 합니다.
+5. **Api 커넥터** 를 선택 하 고 사용자 흐름에서 다음 단계에 호출 하려는 api 끝점을 선택 합니다.
 
    - **Id 공급자를 사용 하 여 로그인 한 후**
    - **사용자를 만들기 전에**
 
    ![사용자 흐름에 Api 추가](./media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png)
 
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Id 공급자를 사용 하 여 로그인 한 후
 
@@ -248,7 +251,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | API 커넥터 구성에서 *를*수신할 _ 클레임*으로 선택 하 고 사용자 흐름의 **사용자 특성** 을 선택 하는 경우 디렉터리에 값을 저장할 수 있습니다. **응용 프로그램 클레임**으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | API 커넥터 구성에서 *를 *수신할 _ 클레임* 으로 선택 하 고 사용자 흐름의 **사용자 특성** 을 선택 하는 경우 디렉터리에 값을 저장할 수 있습니다. **응용 프로그램 클레임** 으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
 
 ### <a name="example-of-a-blocking-response"></a>차단 응답의 예
@@ -316,7 +319,7 @@ Azure Functions의 HTTP 트리거와 같은 서버 리스 함수는 API 커넥�
 * API 커넥터의 **끝점 URL** 은 올바른 api 끝점을 가리킵니다.
 * API는 수신 된 클레임의 null 값을 명시적으로 확인 합니다.
 * API는 유연 하 게 사용자 환경을 보장 하기 위해 최대한 신속 하 게 응답 합니다.
-    * 서버를 사용 하지 않는 함수 또는 확장 가능한 웹 서비스를 사용 하는 경우 API를 "활성" 또는 "웜" 상태로 유지 하는 호스팅 계획을 사용 합니다. Azure Functions의 경우 [프리미엄 요금제](../../azure-functions/functions-scale.md#premium-plan)를 사용 하는 것이 좋습니다. 
+    * 서버를 사용 하지 않는 함수 또는 확장 가능한 웹 서비스를 사용 하는 경우 API를 "활성" 또는 "웜" 상태로 유지 하는 호스팅 계획을 사용 합니다. Azure Functions의 경우 [프리미엄 요금제](../../azure-functions/functions-premium-plan.md)를 사용 하는 것이 좋습니다. 
 
 
 ### <a name="use-logging"></a>로깅 사용

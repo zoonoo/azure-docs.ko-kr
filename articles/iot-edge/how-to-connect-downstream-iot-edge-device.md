@@ -12,19 +12,19 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 83db314070f4c8857ebaa10b26d0adf51372776f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447660"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187836"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>다운스트림 IoT Edge 장치를 Azure IoT Edge 게이트웨이 (미리 보기)에 연결
 
 이 문서에서는 IoT Edge 게이트웨이와 다운스트림 IoT Edge 장치 간에 트러스트 된 연결을 설정 하는 방법에 대 한 지침을 제공 합니다.
 
 >[!NOTE]
->이 기능에는 Linux 컨테이너를 실행 하는 공개 미리 보기로 제공 되는 IoT Edge 버전 1.2이 필요 합니다.
+>이 기능에는 Linux 컨테이너를 실행하는 IoT Edge 버전 1.2(공개 미리 보기로 제공됨)가 필요합니다.
 
 게이트웨이 시나리오에서 IoT Edge 장치는 게이트웨이 및 다운스트림 장치 일 수 있습니다. 여러 IoT Edge 게이트웨이를 계층화 하 여 장치 계층 구조를 만들 수 있습니다. 다운스트림 (또는 자식) 장치는 게이트웨이 또는 부모 장치를 통해 메시지를 인증 하 고 보내거나 받을 수 있습니다.
 
@@ -34,16 +34,16 @@ ms.locfileid: "94447660"
 
 이 문서의 모든 단계는 [IoT Edge 장치를 구성 하 여 투명 한 게이트웨이로 작동 하도록 구성](how-to-create-transparent-gateway.md)합니다 .이는 IoT Edge 장치를 다운스트림 IoT 장치의 게이트웨이로 설정 합니다. 모든 게이트웨이 시나리오에 적용 되는 동일한 기본 단계는 다음과 같습니다.
 
-* **인증** : 게이트웨이 계층의 모든 장치에 대 한 IoT Hub id를 만듭니다.
-* **권한 부여** : IoT Hub에서 부모/자식 관계를 설정 하 여 IoT Hub에 연결 하는 것과 같이 부모 장치에 연결할 수 있는 자식 장치에 권한을 부여 합니다.
-* **게이트웨이 검색** : 자식 장치가 로컬 네트워크에서 해당 부모 장치를 찾을 수 있는지 확인 합니다.
-* **보안 연결** : 동일한 체인에 포함 된 신뢰할 수 있는 인증서를 사용 하 여 보안 연결을 설정 합니다.
+* **인증**: 게이트웨이 계층의 모든 장치에 대 한 IoT Hub id를 만듭니다.
+* **권한 부여**: IoT Hub에서 부모/자식 관계를 설정 하 여 IoT Hub에 연결 하는 것과 같이 부모 장치에 연결할 수 있는 자식 장치에 권한을 부여 합니다.
+* **게이트웨이 검색**: 자식 장치가 로컬 네트워크에서 해당 부모 장치를 찾을 수 있는지 확인 합니다.
+* **보안 연결**: 동일한 체인에 포함 된 신뢰할 수 있는 인증서를 사용 하 여 보안 연결을 설정 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 무료 또는 표준 IoT hub
-* 두 개 이상의 **IoT Edge 장치** , 하나는 최상위 계층 장치 및 하나 이상의 하위 계층 장치입니다. IoT Edge 장치를 사용할 수 없는 경우 [Ubuntu 가상 머신에서 Azure IoT Edge을 실행할](how-to-install-iot-edge-ubuntuvm.md)수 있습니다.
-* Azure CLI를 사용 하 여 장치를 만들고 관리 하는 경우 Azure IoT extension v 0.9.10 이상이 설치 된 Azure CLI v 2.3.1을 보유 해야 합니다.
+* 두 개 이상의 **IoT Edge 장치**, 하나는 최상위 계층 장치 및 하나 이상의 하위 계층 장치입니다. IoT Edge 장치를 사용할 수 없는 경우 [Ubuntu 가상 머신에서 Azure IoT Edge을 실행할](how-to-install-iot-edge-ubuntuvm.md)수 있습니다.
+* Azure CLI를 사용 하 여 장치를 만들고 관리 하는 경우 Azure IoT extension v 0.10.6 이상이 설치 된 Azure CLI v 2.3.1을 보유 해야 합니다.
 
 이 문서에서는 시나리오에 적합 한 게이트웨이 계층 구조를 만드는 데 도움이 되는 자세한 단계와 옵션을 제공 합니다. 단계별 자습서는 [게이트웨이를 사용 하 여 IoT Edge 장치 계층 구조 만들기](tutorial-nested-iot-edge.md)를 참조 하세요.
 
@@ -146,11 +146,11 @@ Linux에서 사용자 **iotedge** 에 인증서와 키를 보유 하는 디렉�
    sudo nano /etc/iotedge/config.yaml
    ```
 
-1. Config.xml 파일에서 **certificate** 섹션을 찾습니다. 인증서를 가리키도록 3 개의 인증서 필드를 업데이트 합니다. 형식을 사용 하는 파일 URI 경로를 제공 합니다 `file:///<path>/<filename>` .
+1. Config.xml 파일에서 **certificate** 섹션을 찾습니다. 인증서를 가리키도록 3 개의 인증서 필드를 업데이트 합니다. 파일 URI 경로(`file:///<path>/<filename>` 형식임)를 제공합니다.
 
-   * **device_ca_cert** :이 장치에 고유한 장치 ca 인증서에 대 한 파일 URI 경로입니다.
-   * **device_ca_pk** :이 장치에 고유한 장치 ca 개인 키에 대 한 파일 URI 경로입니다.
-   * **trusted_ca_certs** : 게이트웨이 계층의 모든 장치에서 공유 하는 루트 ca 인증서에 대 한 파일 URI 경로입니다.
+   * **device_ca_cert**:이 장치에 고유한 장치 ca 인증서에 대 한 파일 URI 경로입니다.
+   * **device_ca_pk**:이 장치에 고유한 장치 ca 개인 키에 대 한 파일 URI 경로입니다.
+   * **trusted_ca_certs**: 게이트웨이 계층의 모든 장치에서 공유 하는 루트 ca 인증서에 대 한 파일 URI 경로입니다.
 
 1. Config.xml 파일에서 **hostname** 매개 변수를 찾습니다. 호스트 이름을 FQDN (정규화 된 도메인 이름) 또는 IoT Edge 장치의 IP 주소로 업데이트 합니다.
 
@@ -172,7 +172,7 @@ Linux에서 사용자 **iotedge** 에 인증서와 키를 보유 하는 디렉�
      type: "docker"
      env: {}
      config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -202,7 +202,7 @@ Linux에서 사용자 **iotedge** 에 인증서와 키를 보유 하는 디렉�
 
 이 기능은 공개 미리 보기 상태 이지만 IoT Edge 런타임 모듈의 공개 미리 보기 버전을 사용 하도록 IoT Edge 장치를 구성 해야 합니다. 이전 섹션에서는 시작할 때 edgeAgent를 구성 하는 단계에 대해 설명 합니다. 또한 장치에 대 한 배포에서 런타임 모듈을 구성 해야 합니다.
 
-1. 공개 미리 보기 이미지를 사용 하도록 edgeHub 모듈을 구성 `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1` 합니다.
+1. 공개 미리 보기 이미지를 사용 하도록 edgeHub 모듈을 구성 `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` 합니다.
 
 1. EdgeHub 모듈에 대해 다음과 같은 환경 변수를 구성 합니다.
 
@@ -211,7 +211,7 @@ Linux에서 사용자 **iotedge** 에 인증서와 키를 보유 하는 디렉�
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. 공개 미리 보기 이미지를 사용 하도록 edgeAgent 모듈을 구성 `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1` 합니다.
+1. 공개 미리 보기 이미지를 사용 하도록 edgeAgent 모듈을 구성 `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` 합니다.
 
 ## <a name="network-isolate-downstream-devices"></a>네트워크 격리 다운스트림 장치
 
@@ -298,17 +298,17 @@ API 프록시 모듈은 가장 일반적인 게이트웨이 시나리오를 처�
 1. **저장** 을 선택 하 여 변경 내용을 런타임 설정에 저장 합니다.
 1. **추가** 를 다시 선택 하 고 **모듈 IoT Edge** 선택 합니다.
 1. 배포에 Docker 레지스트리 모듈을 추가 하려면 다음 값을 제공 합니다.
-   1. **IoT Edge 모듈 이름** : `registry`
-   1. **모듈 설정** 탭에서 **이미지 URI** :`registry:latest`
+   1. **IoT Edge 모듈 이름**: `registry`
+   1. **모듈 설정** 탭에서 **이미지 URI**:`registry:latest`
    1. **환경 변수** 탭에서 다음 환경 변수를 추가 합니다.
 
-      * **이름** : `REGISTRY_PROXY_REMOTEURL` **값** :이 레지스트리 모듈이 매핑될 컨테이너 레지스트리의 URL입니다. 예들 들어 `https://myregistry.azurecr`입니다.
+      * **이름**: `REGISTRY_PROXY_REMOTEURL` **값**:이 레지스트리 모듈이 매핑될 컨테이너 레지스트리의 URL입니다. 예들 들어 `https://myregistry.azurecr`입니다.
 
         레지스트리 모듈은 하나의 컨테이너 레지스트리에만 매핑할 수 있으므로 모든 컨테이너 이미지를 단일 개인 컨테이너 레지스트리에 포함 하는 것이 좋습니다.
 
-      * **이름** : `REGISTRY_PROXY_USERNAME` **값** : 컨테이너 레지스트리를 인증 하는 사용자 이름입니다.
+      * **이름**: `REGISTRY_PROXY_USERNAME` **값**: 컨테이너 레지스트리를 인증 하는 사용자 이름입니다.
 
-      * **이름** : `REGISTRY_PROXY_PASSWORD` **값** : 컨테이너 레지스트리를 인증 하기 위한 암호입니다.
+      * **이름**: `REGISTRY_PROXY_PASSWORD` **값**: 컨테이너 레지스트리를 인증 하기 위한 암호입니다.
 
    1. **컨테이너 만들기 옵션** 탭에서 다음을 붙여넣습니다.
 
@@ -328,9 +328,9 @@ API 프록시 모듈은 가장 일반적인 게이트웨이 시나리오를 처�
 
 1. **추가** 를 선택 하 여 모듈을 배포에 추가 합니다.
 1. 다음 **: 경로** 를 선택 하 여 다음 단계로 이동 합니다.
-1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면 모든 메시지를 IoT Hub에 전달 하는 경로를 포함 합니다. 예를 들면 다음과 같습니다.
-    1. **이름** : `Route`
-    1. **값** : `FROM /messages/* INTO $upstream`
+1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면 모든 메시지를 IoT Hub에 전달 하는 경로를 포함 합니다. 예를 들어:
+    1. **이름**: `Route`
+    1. **값**: `FROM /messages/* INTO $upstream`
 1. **검토 + 만들기** 를 선택 하 여 최종 단계로 이동 합니다.
 1. **만들기** 를 선택 하 여 장치에 배포 합니다.
 
@@ -358,7 +358,7 @@ IoT Edge 에이전트는 IoT Edge 장치에서 시작 하는 첫 번째 런타�
 
 IoT Edge 장치에서 config.xml 파일로 이동 하 여 인증 정보, 인증서 및 부모 호스트 이름을 제공 하는 경우 edgeAgent 컨테이너 이미지도 업데이트 합니다.
 
-최상위 게이트웨이 장치가 컨테이너 이미지 요청을 처리 하도록 구성 된 경우를 `mcr.microsoft.com` 부모 호스트 이름 및 API 프록시 수신 대기 포트로 바꿉니다. 배포 매니페스트에서는를 바로 가기로 사용할 수 `$upstream` 있지만이 경우 라우팅을 처리 하려면 edgeHub 모듈이 필요 하며,이 시점에서 모듈이 시작 되지 않았습니다. 예를 들면 다음과 같습니다.
+최상위 게이트웨이 장치가 컨테이너 이미지 요청을 처리 하도록 구성 된 경우를 `mcr.microsoft.com` 부모 호스트 이름 및 API 프록시 수신 대기 포트로 바꿉니다. 배포 매니페스트에서는를 바로 가기로 사용할 수 `$upstream` 있지만이 경우 라우팅을 처리 하려면 edgeHub 모듈이 필요 하며,이 시점에서 모듈이 시작 되지 않았습니다. 예를 들어:
 
 ```yml
 agent:
@@ -366,7 +366,7 @@ agent:
   type: "docker"
   env: {}
   config:
-    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc1"
+    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc2"
     auth: {}
 ```
 
@@ -435,9 +435,9 @@ API 프록시 모듈은 가장 일반적인 게이트웨이 시나리오를 처�
 
 1. **저장** 을 선택 하 여 변경 내용을 런타임 설정에 저장 합니다.
 1. 다음 **: 경로** 를 선택 하 여 다음 단계로 이동 합니다.
-1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면에 모든 메시지를 전달 하는 경로를 포함 `$upstream` 합니다. 낮은 계층 장치의 경우 업스트림 매개 변수는 부모 장치를 가리킵니다. 예를 들면 다음과 같습니다.
-    1. **이름** : `Route`
-    1. **값** : `FROM /messages/* INTO $upstream`
+1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면에 모든 메시지를 전달 하는 경로를 포함 `$upstream` 합니다. 낮은 계층 장치의 경우 업스트림 매개 변수는 부모 장치를 가리킵니다. 예를 들어:
+    1. **이름**: `Route`
+    1. **값**: `FROM /messages/* INTO $upstream`
 1. **검토 + 만들기** 를 선택 하 여 최종 단계로 이동 합니다.
 1. **만들기** 를 선택 하 여 장치에 배포 합니다.
 

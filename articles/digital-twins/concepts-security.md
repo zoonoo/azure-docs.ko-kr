@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279896"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344150"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
 
@@ -93,7 +93,7 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 
 **서비스 태그** 는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. 서비스 태그에 대 한 자세한 내용은  [*Virtual network 태그*](../virtual-network/service-tags-overview.md)를 참조 하세요. 
 
- [network security groups](../virtual-network/network-security-groups-overview.md#security-rules)   보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용 하 여 네트워크 보안 그룹 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의 하는 데 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 *원본* 또는 대상 필드에서 서비스 태그 이름 (이 경우 **AzureDigitalTwins** )을 지정 하 여    *destination*   해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 
+ [network security groups](../virtual-network/network-security-groups-overview.md#security-rules)   보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용 하 여 네트워크 보안 그룹 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의 하는 데 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 *원본* 또는 대상 필드에서 서비스 태그 이름 (이 경우 **AzureDigitalTwins**)을 지정 하 여    *destination*   해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 
 
 **AzureDigitalTwins** service 태그의 세부 정보는 다음과 같습니다.
 
@@ -121,7 +121,7 @@ Azure Digital Twins는 데이터 센터에서 기록 되는 미사용 데이터 
 
 ## <a name="cross-origin-resource-sharing-cors"></a>CORS(크로스-원본 자원 공유)
 
-Azure Digital Twins는 현재 **CORS (크로스-원본 자원 공유)** 를 지원 하지 않습니다. 따라서 브라우저 앱, [API Management (APIM)](../api-management/api-management-key-concepts.md) 인터페이스 또는 [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) 커넥터에서 REST API를 호출 하는 경우 정책 오류가 표시 될 수 있습니다.
+Azure Digital Twins는 현재 **CORS (크로스-원본 자원 공유)** 를 지원 하지 않습니다. 따라서 브라우저 앱, [API Management (APIM)](../api-management/api-management-key-concepts.md) 인터페이스 또는 [Power Apps](/powerapps/powerapps-overview) 커넥터에서 REST API를 호출 하는 경우 정책 오류가 표시 될 수 있습니다.
 
 이 오류를 해결 하려면 다음 중 하나를 수행 하면 됩니다.
 * 메시지에서 CORS 헤더를 제거 합니다 `Access-Control-Allow-Origin` . 이 헤더는 응답을 공유할 수 있는지 여부를 나타냅니다. 

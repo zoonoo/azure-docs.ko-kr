@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory를 사용 하 여 Openid connect 연결 인증
-description: 이 인증 패턴을 달성 하는 데 대 한 아키텍처 지침
+description: Azure Active Directory를 사용 하 여 Openid connect Connect 인증을 달성 하기 위한 아키텍처 지침을 제공 합니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6f2ad3b5e86eebfc2d6f1f42f8a2ab0520144b5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 0e5bf7e51de38d42e64f6737e687c5946a464160
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114369"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168664"
 ---
 # <a name="openid-connect-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Openid connect 연결 인증
 
@@ -48,14 +48,13 @@ OIDC의 디자인 목표는 "간단 하 고 복잡 한 작업을 수행 하는 �
 
 ## <a name="implement-oidc-with-azure-ad"></a>Azure AD를 사용 하 여 OIDC 구현
 
-* [Azure AD와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Azure AD와 애플리케이션 통합](../saas-apps/tutorial-list.md) 
 
-* [Microsoft Id 플랫폼의 OAuth 2.0 및 Openid connect Connect 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [Microsoft Id 플랫폼의 OAuth 2.0 및 Openid connect Connect 프로토콜](../develop/active-directory-v2-protocols.md) 
 
-* [Microsoft ID 플랫폼 및 OpenID Connect 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) 
+* [Microsoft ID 플랫폼 및 OpenID Connect 프로토콜](../develop/v2-protocols-oidc.md) 
 
-* [Azure Active Directory B2C에서 OpenID Connect로 웹 로그인](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect) 
+* [Azure Active Directory B2C에서 OpenID Connect로 웹 로그인](../../active-directory-b2c/openid-connect.md) 
 
-* [OpenID Connect 및 Azure AD를 사용하여 애플리케이션 보호](https://docs.microsoft.com/learn/modules/secure-app-with-oidc-and-azure-ad/) 
+* [OpenID Connect 및 Azure AD를 사용하여 애플리케이션 보호](/learn/modules/secure-app-with-oidc-and-azure-ad/) 
 
- 

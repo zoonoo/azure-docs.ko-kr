@@ -1,17 +1,17 @@
 ---
 title: 감사 로그-Azure Database for MySQL 유연한 서버
 description: Azure Database for MySQL 유연한 서버에서 사용할 수 있는 감사 로그에 대해 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: e630ccec744c4edf0dc80d374ecc93526f960d44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295992"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542221"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에서 감사 로그를 사용 하 여 데이터베이스 작업 추적
 
@@ -25,7 +25,7 @@ ms.locfileid: "91295992"
 >[!IMPORTANT]
 > 서버 성능이 크게 영향을 받지 않도록 감사 목적에 필요한 이벤트 유형과 사용자를 기록 하는 것이 좋습니다.
 
-기본적으로 감사 로그는 사용할 수 없습니다. 설정 하려면 `audit_log_enabled` 서버 매개 변수를 *ON*으로 설정 합니다. Azure Portal 또는 Azure CLI를 사용 하 여 구성할 수 있습니다. <!-- add link to server parameter-->. 
+기본적으로 감사 로그는 사용할 수 없습니다. 설정 하려면 `audit_log_enabled` 서버 매개 변수를 *ON* 으로 설정 합니다. Azure Portal 또는 Azure CLI를 사용 하 여 구성할 수 있습니다. <!-- add link to server parameter-->. 
 
 감사 로깅 동작을 제어 하기 위해 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 

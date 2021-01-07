@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 38665cdf42450b09d14211f7ed44d62e4adb75b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 93e605cb20d593750100ec8e340a7ad74c4dd385
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537935"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587896"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP(Laravel) 및 MySQL 유연한 서버(미리 보기) 앱 빌드
 
@@ -134,7 +134,7 @@ php artisan serve
 
 브라우저에서 `http://localhost:8000` 으로 이동합니다. 해당 페이지에서 몇 가지 작업을 추가합니다.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP가 MySQL 연결에 성공":::
 
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
@@ -219,7 +219,7 @@ MYSQL_SSL=true
 
 ### <a name="configure-tlsssl-certificate"></a>TLS/SSL 인증서 구성
 
-기본적으로 MySQL 유연한 서버는 클라이언트의 TLS 연결을 적용합니다. Azure의 MySQL 데이터베이스에 연결하려면 [Azure Database for MySQL 유연한 서버에서 제공하는 _.pem_ 인증서](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)를 사용해야 합니다. [이 인증서](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem))를 다운로드하여 샘플 앱 리포지토리의 로컬 복사본에 있는 **ssl** 폴더에 배치합니다.
+기본적으로 MySQL 유연한 서버는 클라이언트의 TLS 연결을 적용합니다. Azure의 MySQL 데이터베이스에 연결하려면 [Azure Database for MySQL 유연한 서버에서 제공하는 _.pem_ 인증서](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)를 사용해야 합니다. [이 인증서](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem))를 다운로드하여 샘플 앱 리포지토리의 로컬 복사본에 있는 **SSL** 폴더에 배치합니다.
 
 다음 코드와 같이 _config/database.php_ 를 열고 `sslmode` 및 `options` 매개 변수를 `connections.mysql`에 추가합니다.
 
@@ -257,7 +257,7 @@ php artisan serve --env=production
 
 해당 페이지에서 몇 가지 작업을 추가합니다.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP가 Azure Database for MySQL에 성공적으로 연결됨":::
 
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
@@ -390,7 +390,7 @@ git remote add azure <deploymentLocalGitUrl-from-create-step>
 다음 명령을 사용하여 Azure 원격에 푸시하여 앱을 배포합니다. Git Credential Manager에서 자격 증명을 묻는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아니라 **배포 사용자 구성** 에서 만든 자격 증명을 입력해야 합니다.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보를 출력합니다.
@@ -401,7 +401,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -414,7 +414,7 @@ remote: Running deployment command...
 
 `http://<app-name>.azurewebsites.net`으로 이동한 후 목록에 몇 가지 작업을 추가합니다.
 
-:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
+:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="Azure의 PHP 웹앱":::
 
 축하합니다! Azure App Service에서 데이터 기반 PHP 앱을 실행하고 있습니다.
 
@@ -466,7 +466,7 @@ public function down()
 php artisan migrate
 ```
 
-[Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`( _app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
+[Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`(_app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
 
 ### <a name="update-application-logic"></a>애플리케이션 논리 업데이트
 
@@ -534,7 +534,7 @@ php artisan serve
 
 작업 상태 변경을 확인하려면 `http://localhost:8000`으로 이동하고 확인란을 선택합니다.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="작업에 확인란이 추가됨":::
 
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
@@ -551,12 +551,12 @@ Git에서 모든 변경 내용을 커밋한 다음 Azure에 코드 변경 내용
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 `git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Azure에 게시된 모델 및 데이터베이스 변경 내용":::
 
 모든 작업을 추가했으면 데이터베이스에서 유지됩니다. 데이터 스키마를 업데이트하는 경우 기존 데이터는 그대로 유지됩니다.
 

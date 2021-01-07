@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 Azure VMware Solution-온-프레미스와 사설 클라우드 간에 VPN 구성
 description: 온-프레미스 네트워크와 CloudSimple 사설 클라우드 간에 사이트 간 또는 지점 및 사이트 간 VPN 연결을 구성 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5cd08ce938a25e3311358892c9afa9eefd6c6dbf
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b7a119b538ee07b961011bfa98d748f92cc76f0e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424679"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899221"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드에 대 한 VPN 연결 구성
 
@@ -34,10 +34,10 @@ VPN 게이트웨이를 사용 하면 온-프레미스 네트워크와 클라이�
 
 VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 합니다.  Windows 용 [Openvpn 클라이언트](https://openvpn.net/community-downloads/) 또는 macos 및 OS X 용 [Viscosity](https://www.sparklabs.com/viscosity/download/) 를 다운로드 합니다.
 
-1. CloudSimple 포털을 시작 하 고 **네트워크**를 선택 합니다.
-2. **VPN Gateway**를 선택 합니다.
+1. CloudSimple 포털을 시작 하 고 **네트워크** 를 선택 합니다.
+2. **VPN Gateway** 를 선택 합니다.
 3. VPN gateway 목록에서 지점 및 사이트 간 VPN gateway를 클릭 합니다.
-4. **사용자**를 선택합니다.
+4. **사용자** 를 선택합니다.
 5. **내 VPN 구성 다운로드** 를 클릭 합니다.
 
     ![VPN 구성 다운로드](media/download-p2s-vpn-configuration.png)
@@ -49,7 +49,7 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 
 7. CloudSimple VPN gateway에 연결 합니다.
 
-아래 예제에서는 **Viscosity Client**를 사용 하 여 연결을 가져오는 방법을 보여 줍니다.
+아래 예제에서는 **Viscosity Client** 를 사용 하 여 연결을 가져오는 방법을 보여 줍니다.
 
 #### <a name="import-connection-on-viscosity-client"></a>Viscosity client에서 연결 가져오기
 
@@ -57,11 +57,11 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 
 2. 컴퓨터에서 Viscosity를 엽니다.
 
-3. 아이콘을 클릭 **+** 하 고 **Import connection**  >  **파일에서**연결 가져오기를 선택 합니다.
+3. 아이콘을 클릭 **+** 하 고   >  **파일에서** 연결 가져오기를 선택 합니다.
 
     ![파일에서 VPN 구성 가져오기](media/import-p2s-vpn-config.png)
 
-4. 사용 하려는 프로토콜에 대 한 OpenVPN 구성 파일 (. ovpn)을 선택 하 고 **열기**를 클릭 합니다.
+4. 사용 하려는 프로토콜에 대 한 OpenVPN 구성 파일 (. ovpn)을 선택 하 고 **열기** 를 클릭 합니다.
 
     ![선택할 수 있는 OpenVPN 구성 파일을 강조 표시 하는 스크린샷](media/import-p2s-vpn-config-choose-ovpn.png)
 
@@ -79,13 +79,13 @@ Viscosity OpenVPN 클라이언트를 사용 하 여 VPN에 연결 하려면 메�
 
 1. [Cloudsimple 포털](access-cloudsimple-portal.md)을 시작 합니다.
 
-2. **리소스**사설 클라우드로 이동 하 여  >  **Private Clouds** 연결 하려는 사설 클라우드를 선택 합니다.
+2. **리소스** 사설 클라우드로 이동 하 여  >   연결 하려는 사설 클라우드를 선택 합니다.
 
-3. 사설 클라우드의 **요약** 페이지에서 사설 클라우드 DNS 서버 IP 주소를 **기본 정보**로 복사 합니다.
+3. 사설 클라우드의 **요약** 페이지에서 사설 클라우드 DNS 서버 IP 주소를 **기본 정보** 로 복사 합니다.
 
     ![사설 클라우드 DNS 서버](media/private-cloud-dns-server.png)
 
-4. 컴퓨터의 시스템 트레이에서 Viscosity 아이콘을 마우스 오른쪽 단추로 클릭 하 고 **기본 설정**을 선택 합니다.
+4. 컴퓨터의 시스템 트레이에서 Viscosity 아이콘을 마우스 오른쪽 단추로 클릭 하 고 **기본 설정** 을 선택 합니다.
 
     ![VPN](media/vis00.png)
 
@@ -97,7 +97,7 @@ Viscosity OpenVPN 클라이언트를 사용 하 여 VPN에 연결 하려면 메�
 
     ![VPN 연결 편집](media/viscosity-edit-connection.png)
 
-7. **네트워킹** 탭을 클릭 하 고 사설 클라우드 DNS 서버 IP 주소를 쉼표나 공백으로 구분 하 고 도메인을로 구분 하 여 입력 ```cloudsimple.io``` 합니다.  **VPN 서버에서 보낸 DNS 설정 무시**를 선택 합니다.
+7. **네트워킹** 탭을 클릭 하 고 사설 클라우드 DNS 서버 IP 주소를 쉼표나 공백으로 구분 하 고 도메인을로 구분 하 여 입력 ```cloudsimple.io``` 합니다.  **VPN 서버에서 보낸 DNS 설정 무시** 를 선택 합니다.
 
     ![VPN 네트워킹](media/viscosity-edit-connection-networking.png)
 

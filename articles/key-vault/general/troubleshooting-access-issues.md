@@ -7,16 +7,19 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 78b42a8ad3685d07b61c4faca384c7ee8f5a5f94
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285241"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616391"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Azure 키 자격 증명 모음 액세스 정책 문제 해결
 
 ## <a name="frequently-asked-questions"></a>자주 묻는 질문
+
+### <a name="i-am-not-able-to-list-or-get-secretskeyscertificate-i-am-seeing-something-went-wrong-error"></a>비밀/키/인증서를 나열하거나 가져올 수 없습니다. "문제가 발생했습니다."라는 메시지가 표시됩니다. 오류가 표시됩니다.
+비밀을 나열/가져오기/만들기 또는 액세스하는 데 문제가 있는 경우 해당 작업을 수행하도록 정의된 액세스 정책이 있는지 확인합니다. [Key Vault 액세스 정책](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>키 자격 증명 모음을 어떻게 언제 액세스하는지 어떻게 식별할 수 있나요?
 
@@ -53,7 +56,7 @@ Azure CLI `az keyvault set-policy` 명령 또는 Azure PowerShell Set-AzKeyVault
 
 현재 Key Vault 재배포는 Key Vault의 모든 액세스 정책을 삭제하고 ARM 템플릿의 액세스 정책으로 바꿉니다. Key Vault 액세스 정책에 대한 증분 옵션은 없습니다. Key Vault에서 액세스 정책을 유지하려면 Key Vault에서 기존 액세스 정책을 읽고 이러한 정책을 사용하여 ARM 템플릿을 채워 액세스 중단을 방지해야 합니다.
 
-이 시나리오에 도움이 될 수 있는 또 다른 옵션은 액세스 정책의 대안으로 RBAC 역할을 사용하는 것입니다. RBAC를 사용하면 정책을 다시 지정하지 않고 키 자격 증명 모음을 다시 배포할 수 있습니다. [여기](./rbac-guide.md)에서 이 솔루션에 대해 자세히 알아볼 수 있습니다.
+이 시나리오에 도움이 될 수 있는 또 다른 옵션은 액세스 정책의 대안으로 Azure RBAC 및 역할을 사용하는 것입니다. Azure RBAC를 사용하면 정책을 다시 지정하지 않고 키 자격 증명 모음을 다시 배포할 수 있습니다. [여기](./rbac-guide.md)에서 이 솔루션에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>다음 오류 유형에 대한 권장되는 문제 해결 단계
 

@@ -9,13 +9,13 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: 50180984423b7c6d2921234a3502495016c4df5c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c640478170049bd06e11f7f89b1e213b7b305642
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150112"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032816"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Azure 비용 관리 계획
 
@@ -83,11 +83,11 @@ Azure 서비스가 실행되면 비용을 정기적으로 확인하여 Azure 지
 
 [Azure Portal에서 Cost Management + 청구 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade)로 이동합니다.
 
-화면의 왼쪽에서 **비용 분석**을 클릭하여 서비스, 위치 및 구독과 같은 다양한 피벗을 통해 분석된 현재 비용을 확인합니다. 서비스를 추가하거나 구입한 후 데이터가 표시될 때까지 24시간 동안 기다립니다. 기본적으로 비용 분석에는 사용자가 있는 범위의 비용이 표시됩니다. 예를 들어 아래 스크린샷에는 Contoso 청구 계정에 대한 비용이 표시됩니다. [범위] 필을 사용하여 비용 분석에서 다른 범위로 전환합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](../costs/understand-work-scopes.md#scopes)을 참조하세요.
+화면의 왼쪽에서 **비용 분석** 을 클릭하여 서비스, 위치 및 구독과 같은 다양한 피벗을 통해 분석된 현재 비용을 확인합니다. 서비스를 추가하거나 구입한 후 데이터가 표시될 때까지 24시간 동안 기다립니다. 기본적으로 비용 분석에는 사용자가 있는 범위의 비용이 표시됩니다. 예를 들어 아래 스크린샷에는 Contoso 청구 계정에 대한 비용이 표시됩니다. [범위] 필을 사용하여 비용 분석에서 다른 범위로 전환합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](../costs/understand-work-scopes.md#scopes)을 참조하세요.
 
 ![Azure Portal의 비용 분석 보기의 스크린 샷](./media/plan-manage-costs/cost-analysis.png)
 
-태그, 리소스 종류 및 시간 범위와 같은 다양한 속성을 기준으로 필터링할 수 있습니다. 속성에 대한 필터를 추가하고 필터링할 값을 선택하려면 **필터 추가**를 클릭합니다. 보기를 쉼표로 구분된 값(.csv) 파일로 내보내려면 **내보내기**를 선택합니다.
+태그, 리소스 종류 및 시간 범위와 같은 다양한 속성을 기준으로 필터링할 수 있습니다. 속성에 대한 필터를 추가하고 필터링할 값을 선택하려면 **필터 추가** 를 클릭합니다. 보기를 쉼표로 구분된 값(.csv) 파일로 내보내려면 **내보내기** 를 선택합니다.
 
 또한 차트의 레이블을 눌러 해당 레이블의 일별 지출 기록을 확인할 수 있습니다. 예를 들어 아래 스크린샷에서 가상 머신을 클릭하면 일별 VM 실행 비용이 표시됩니다.
 
@@ -111,11 +111,11 @@ Azure Portal에서 VM에 대한 자동 종료 및 Advisor 권장 지침을 사�
 
 ### <a name="turn-on-and-review-azure-advisor-recommendations"></a>Azure Advisor 권장 지침 설정 및 검토
 
-[Azure Advisor](../../advisor/advisor-overview.md)는 사용량이 낮은 리소스를 식별하여 비용을 절감하는 데 도움을 줍니다. Azure Portal에서 **Advisor**를 검색합니다.
+[Azure Advisor](../../advisor/advisor-overview.md)는 사용량이 낮은 리소스를 식별하여 비용을 절감하는 데 도움을 줍니다. Azure Portal에서 **Advisor** 를 검색합니다.
 
 ![Azure Portal의 Azure Advisor 단추 스크린 샷](./media/plan-manage-costs/advisor-button.png)
 
-왼쪽에서 **비용**을 선택합니다. **비용** 탭에 실행 가능한 추천 사항이 표시됩니다.
+왼쪽에서 **비용** 을 선택합니다. **비용** 탭에 실행 가능한 추천 사항이 표시됩니다.
 
 ![Advisor cost 권장 지침 예제 스크린 샷](./media/plan-manage-costs/advisor-action.png)
 
@@ -166,17 +166,17 @@ MCA(Microsoft 고객 계약) 청구 계정을 통해 Azure에 액세스할 수 �
 
 ### <a name="request-a-service-level-agreement-credit-for-a-service-incident"></a>서비스 인시던트에 대한 Service Level Agreement(서비스 수준 계약) 크레딧 요청
 
-SLA(서비스 수준 계약)에서는 작동 시간 및 연결에 대한 Microsoft의 정책을 설명합니다. 서비스 인시던트는 Azure 서비스에서 가동 시간 또는 연결에 영향을 주는 문제가 발생하는 경우(*중단*이라고도 함) 보고됩니다. SLA에 설명된 대로 각 서비스에 대한 서비스 수준이 달성 및 유지 관리되지 않는 경우 월별 서비스 요금 중 일부에 대한 크레딧을 받을 수 있습니다.
+SLA(서비스 수준 계약)에서는 작동 시간 및 연결에 대한 Microsoft의 정책을 설명합니다. 서비스 인시던트는 Azure 서비스에서 가동 시간 또는 연결에 영향을 주는 문제가 발생하는 경우(*중단* 이라고도 함) 보고됩니다. SLA에 설명된 대로 각 서비스에 대한 서비스 수준이 달성 및 유지 관리되지 않는 경우 월별 서비스 요금 중 일부에 대한 크레딧을 받을 수 있습니다.
 
 크레딧을 요청하려면
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 계정이 여러 개인 경우 Azure 가동 중지 시간의 영향을 받는 계정을 사용해야 합니다. 그런 다음, 새 지원 요청을 만듭니다.
 
-**문제 유형**에서 **청구**를 선택한 다음, **문제 유형**에서 **환불 요청**을 선택합니다.
+**문제 유형** 에서 **청구** 를 선택한 다음, **문제 유형** 에서 **환불 요청** 을 선택합니다.
 
 세부 정보를 추가하여 SLA 크레딧을 요청하고 있음을 지정하고, 영향을 받는 서비스(VM, 웹 사이트 등)뿐만 아니라 날짜/시간/표준 시간대도 지정합니다.
 
-마지막으로, 연락처 세부 정보를 확인하고 **만들기**를 선택하여 요청을 제출합니다.
+마지막으로, 연락처 세부 정보를 확인하고 **만들기** 를 선택하여 요청을 제출합니다.
 
 일부 서비스의 경우 SLA를 적용하기 위한 필수 구성 요소가 있습니다. 예를 들어 가상 머신에는 동일한 가용성 집합에 배포된 인스턴스가 둘 이상 있어야 합니다.
 

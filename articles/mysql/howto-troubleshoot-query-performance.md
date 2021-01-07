@@ -1,17 +1,17 @@
 ---
 title: 쿼리 성능 문제 해결 - Azure Database for MySQL
 description: EXPLAIN을 사용하여 Azure Database for MySQL에서 쿼리 성능 문제를 해결하는 방법을 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 0725de878836e415695d307b68db43802d9b5c2f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 81ec7e6f822f24f2b9e6ca4298e9668358c78149
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545857"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540759"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>EXPLAIN을 사용하여 Azure Database for MySQL에서 쿼리 성능을 프로파일링하는 방법
 **EXPLAIN** 은 쿼리를 최적화하는 편리한 도구입니다. EXPLAIN 문은 SQL 문이 어떻게 실행되는지에 대한 정보를 얻는 데 사용할 수 있습니다. 다음 출력은 EXPLAIN 문의 실행 예제입니다.

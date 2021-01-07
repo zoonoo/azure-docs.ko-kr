@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: b5ae48e5dab6b56ea2b22d99e9126238be4d5b78
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: adca35567499452cf35b9541d3a7caac27b45a0a
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098623"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545488"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Async Java SDK: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "93098623"
 SQL API 비동기 Java SDK는 [Netty 라이브러리](https://netty.io/)를 지원하고 비동기 작업을 제공하기 때문에 SQL API Java SDK와는 다릅니다. 기존 [SQL API Java SDK](sql-api-sdk-java.md)는 비동기 작업을 지원하지 않습니다. 
 
 > [!IMPORTANT]  
-> Azure Cosmos DB의 최신 Java SDK가 아닙니다! 프로젝트에 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)를 사용하는 것이 좋습니다. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션하기](migrate-java-v4-sdk.md) 안내서 및 [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 안내서의 지침을 따르세요. 
+> Azure Cosmos DB의 최신 Java SDK가 아닙니다! 프로젝트에 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)를 사용하는 것이 좋습니다. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션하기](migrate-java-v4-sdk.md) 안내서 및 [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) 안내서의 지침을 따르세요. 
 >
 
 | |  |

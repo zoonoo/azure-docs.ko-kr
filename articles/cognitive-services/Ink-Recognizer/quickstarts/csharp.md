@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a4bb02f11c7a9a75ddc96e0ee8e9f4b868f8ade5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13a2d887b17ff319fb3a0f2bb0d5d0ff04629088
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89051596"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369106"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>빠른 시작: Ink Recognizer REST API와 C#으로 디지털 잉크 인식
 
@@ -32,12 +32,12 @@ ms.locfileid: "89051596"
 
 이 빠른 시작의 소스 코드는 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
     - Visual Studio에서 Newtonsoft.Json을 NuGet 패키지로 설치하려면 다음을 수행합니다.
-        1. **솔루션 관리자**를 마우스 오른쪽 단추로 클릭합니다.
+        1. **솔루션 관리자** 를 마우스 오른쪽 단추로 클릭합니다.
         2. **NuGet 패키지 관리...**
         3. `Newtonsoft.Json`을 검색하고 패키지를 설치합니다.
 - Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
@@ -99,7 +99,7 @@ ms.locfileid: "89051596"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [REST API 참조](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [REST API 참조](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 
 Ink Recognizer API가 디지털 잉크 입력 앱에서 어떻게 작동하는지 알아보려면 GitHub에서 다음 샘플 애플리케이션을 살펴보세요.

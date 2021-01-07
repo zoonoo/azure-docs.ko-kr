@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: afa1d958e054a769ea0f19b82afdf55a94c3d0cf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c5db04a673c1cdc0c0f24e128f340f4ae55fea81
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309710"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825513"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 유추 서버를 사용 하는 고성능 서비스 (미리 보기) 
 
@@ -47,16 +47,27 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 이러한 작업자는 전처리, 모델 호출 및 후 처리를 처리 합니다. 
-* 유추 요청은 __점수 매기기 URI__ 를 사용 합니다. `https://myserevice.azureml.net/score`)을 입력합니다.
+* 유추 요청은 __점수 매기기 URI__ 를 사용 합니다. 예들 들어 `https://myserevice.azureml.net/score`입니다.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
+
+### <a name="setting-the-number-of-workers"></a>작업자 수 설정
+
+배포의 작업자 수를 설정 하려면 환경 변수를 설정 `WORKER_COUNT` 합니다. 라는 [환경](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) 개체가 있는 경우 다음을 `env` 수행할 수 있습니다.
+
+```{py}
+env.environment_variables["WORKER_COUNT"] = "1"
+```
+
+그러면 지정 하는 작업자 수를 실행 하는 Azure ML에 지시할 수 있습니다.
+
 
 **Triton를 사용한 유추 구성 배포**
 
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 요청은 **Triton 서버로** 전달 됩니다. 
 * Triton은 요청을 일괄 처리로 처리 하 여 GPU 사용률을 최대화 합니다.
-* 클라이언트는 __점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. `https://myserevice.azureml.net/score`)을 입력합니다.
+* 클라이언트는 __점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. 예들 들어 `https://myserevice.azureml.net/score`입니다.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Triton를 사용 하 여 Inferenceconfig 배포":::
 
@@ -66,7 +77,11 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 1. Triton 배포 된 모델에 요청을 보낼 수 있는지 확인 합니다.
 1. Triton 특정 코드를 AML 배포에 통합 합니다.
 
-## <a name="optional-define-a-model-config-file"></a>필드 모델 구성 파일 정의
+## <a name="verify-that-triton-can-serve-your-model"></a>Triton가 모델을 제공할 수 있는지 확인 합니다.
+
+먼저 다음 단계에 따라 Triton 유추 서버가 모델을 제공할 수 있는지 확인 합니다.
+
+### <a name="optional-define-a-model-config-file"></a>필드 모델 구성 파일 정의
 
 모델 구성 파일은 Triton에서 예상 되는 입력 수와 해당 입력의 크기를 알려 줍니다. 구성 파일을 만드는 방법에 대 한 자세한 내용은 NVIDIA 설명서의 [모델 구성](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html) 을 참조 하세요.
 
@@ -75,7 +90,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 > 
 > 이 옵션에 대 한 자세한 내용은 NVIDIA 설명서의 [생성 된 모델 구성](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#generated-model-configuration) 을 참조 하세요.
 
-## <a name="directory-structure"></a>디렉터리 구조
+### <a name="use-the-correct-directory-structure"></a>올바른 디렉터리 구조 사용
 
 Azure Machine Learning를 사용 하 여 모델을 등록할 때 개별 파일 또는 디렉터리 구조를 등록할 수 있습니다. Triton를 사용 하려면 라는 디렉터리를 포함 하는 디렉터리 구조에 대 한 모델 등록을 사용 해야 합니다 `triton` . 이 디렉터리의 일반적인 구조는 다음과 같습니다.
 
@@ -93,7 +108,7 @@ models
 > [!IMPORTANT]
 > 이 디렉터리 구조는 Triton 모델 리포지토리입니다. 모델에서 Triton와 함께 작동 하는 데 필요 합니다. 자세한 내용은 NVIDIA 설명서에서 [Triton Model 리포지토리](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) 를 참조 하세요.
 
-## <a name="test-with-triton-and-docker"></a>Triton 및 Docker를 사용 하 여 테스트
+### <a name="test-with-triton-and-docker"></a>Triton 및 Docker를 사용 하 여 테스트
 
 Triton를 사용 하 여 실행 되는지 확인 하기 위해 모델을 테스트 하려면 Docker를 사용 하면 됩니다. 다음 명령은 Triton 컨테이너를 로컬 컴퓨터로 끌어오고 Triton 서버를 시작 합니다.
 
@@ -146,7 +161,7 @@ Triton를 사용 하 여 실행 되는지 확인 하기 위해 모델을 테스�
 
 Docker를 사용 하 여 Triton를 실행 하는 방법에 대 한 자세한 내용은 gpu를 사용 하는 [시스템에서 Triton 실행](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) 및 [gpu 없이 시스템에서 Triton 실행](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu)을 참조 하세요.
 
-## <a name="register-your-model"></a>모델 등록
+### <a name="register-your-model"></a>모델 등록
 
 이제 모델이 Triton에서 작동 하는 것을 확인 했으므로 Azure Machine Learning에 등록 합니다. 모델 등록은 모델 파일을 Azure Machine Learning 작업 영역에 저장 하 고 Python SDK 및 Azure CLI를 사용 하 여 배포할 때 사용 됩니다.
 
@@ -176,9 +191,9 @@ az ml model register --model-path='triton' \
 
 <a id="processing"></a>
 
-## <a name="add-pre-and-post-processing"></a>전처리 및 후 처리 추가
+## <a name="verify-you-can-call-into-your-model"></a>모델을 호출할 수 있는지 확인 합니다.
 
-웹 서비스가 작동 하는지 확인 한 후에는 _항목 스크립트_ 를 정의 하 여 전처리 및 후 처리 코드를 추가할 수 있습니다. 이 파일의 이름은 `score.py` 입니다. 항목 스크립트에 대 한 자세한 내용은 [항목 스크립트 정의](how-to-deploy-and-where.md#define-an-entry-script)를 참조 하세요.
+Triton가 모델을 처리할 수 있는지 확인 한 후에는 _항목 스크립트_ 를 정의 하 여 전처리 및 후 처리 코드를 추가할 수 있습니다. 이 파일의 이름은 `score.py` 입니다. 항목 스크립트에 대 한 자세한 내용은 [항목 스크립트 정의](how-to-deploy-and-where.md#define-an-entry-script)를 참조 하세요.
 
 두 가지 주요 단계는 메서드에서 Triton HTTP 클라이언트를 초기화 하 `init()` 고 함수에서 해당 클라이언트를 호출 하는 것입니다 `run()` .
 

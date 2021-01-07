@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f8bd47a8fde700382f9789ab1c77ff35e9b1f4f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999533"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010897"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Blob 컨테이너의 총 청구 크기 계산
 
@@ -31,7 +31,7 @@ ms.locfileid: "86999533"
 
 Blob 컨테이너의 전체 크기에는 컨테이너 자체의 크기와 컨테이너 아래 모든 Blob의 크기가 포함됩니다.
 
-다음 섹션은 Blob 컨테이너 및 Blob에 대한 스토리지 용량을 계산하는 방법을 설명합니다. 다음 섹션에서 Len(X)는 문자열의 문자 수를 의미합니다.
+다음 섹션은 Blob 컨테이너 및 Blob에 대한 스토리지 용량을 계산하는 방법을 설명합니다.  다음 섹션에서 Len(X)는 문자열의 문자 수를 의미합니다.
 
 ### <a name="blob-containers"></a>Blob 컨테이너
 
@@ -120,6 +120,6 @@ For-Each Signed Identifier[512 bytes]
 
 - Azure Storage 청구에 대한 자세한 내용은 [Windows Azure Storage 청구 이해](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/)를 참조하세요.
 
-- Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/)를 참조하세요.
+- Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 
 - 추가 스토리지 PowerShell 스크립트 샘플은 [Microsoft Azure Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.

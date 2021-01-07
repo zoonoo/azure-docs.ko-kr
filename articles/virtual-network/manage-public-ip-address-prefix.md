@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b86f9bcbc863a78fd5f8f748e973a20ea709636
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804013"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573173"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기, 변경 또는 삭제
 
@@ -41,10 +41,10 @@ ms.locfileid: "91804013"
 
 ## <a name="create-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기
 
-1. 포털의 왼쪽 위 모서리에서 **+ 리소스 만들기**를 선택합니다.
-2. *Marketplace 검색* 상자에 *공용 ip 접두사* 를 입력 합니다. 검색 결과에 표시된 **공용 IP 주소 접두사**를 선택합니다.
-3. **공용 IP 주소 접두사** 아래에서 **만들기**를 선택합니다.
-4. **공용 IP 주소 접두사 만들기** 아래에서 다음 설정의 값을 입력하거나 선택한 다음, 만들기**를 선택합니다**:
+1. 포털의 왼쪽 위 모서리에서 **+ 리소스 만들기** 를 선택합니다.
+2. *Marketplace 검색* 상자에 *공용 ip 접두사* 를 입력 합니다. 검색 결과에 표시된 **공용 IP 주소 접두사** 를 선택합니다.
+3. **공용 IP 주소 접두사** 아래에서 **만들기** 를 선택합니다.
+4. **공용 IP 주소 접두사 만들기** 아래에서 다음 설정의 값을 입력하거나 선택한 다음, 만들기 **를 선택합니다**:
 
    |설정|필수 여부|세부 정보|
    |---|---|---|
@@ -61,17 +61,20 @@ ms.locfileid: "91804013"
 |CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
+>[!NOTE]
+>가용성 영역을 사용 하는 지역에서는 PowerShell 또는 CLI 명령을 사용 하 여 공용 IP 주소 접두사를 영역 비 영역 (특정 영역에 연결 됨)으로 만들거나 영역 중복성을 사용할 수 있습니다.  API 버전 2020-08-01 이상에서는 영역 매개 변수가 제공 되지 않은 경우 영역 공용 IP 주소 접두사가 생성 되지 않습니다. 2020-08-01 보다 오래 된 API 버전의 경우 영역 중복 공용 IP 주소 접두사가 생성 됩니다. 
+
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>접두사로 고정 공용 IP 주소 만들기
 접두사를 만들었으면 접두사로 고정 IP 주소를 만들어야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
-1. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소 접두사*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소 접두사**를 선택합니다.
+1. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소 접두사* 를 입력합니다. 검색 결과에 표시된 **공용 IP 주소 접두사** 를 선택합니다.
 2. 공용 IP를 만들려는 접두사를 선택합니다.
-3. 해당 항목이 검색 결과에 표시되면 선택하고 개요 섹션에서 **+IP 주소 추가**를 클릭합니다.
+3. 해당 항목이 검색 결과에 표시되면 선택하고 개요 섹션에서 **+IP 주소 추가** 를 클릭합니다.
 4. **공용 IP 주소 만들기** 아래에서 다음 설정의 값을 입력하거나 선택합니다. 접두사는 Standard SKU, IPv4 및 고정 주소용이므로 다음과 같은 정보만 제공해야 합니다.
 
    |설정|필수 여부|세부 정보|
    |---|---|---|
-   |속성|예|공용 IP 주소의 이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
+   |이름|예|공용 IP 주소의 이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
    |유휴 제한 시간(분)|아니요|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. |
    |DNS 이름 레이블|아니요|이름을 만드는 Azure 지역 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 자세한 내용은 [Azure 공용 IP 주소와 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
 
@@ -84,11 +87,11 @@ ms.locfileid: "91804013"
 
 ## <a name="view-or-delete-a-prefix"></a>접두사 보기 또는 삭제
 
-1. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소 접두사*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소 접두사**를 선택합니다.
+1. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소 접두사* 를 입력합니다. 검색 결과에 표시된 **공용 IP 주소 접두사** 를 선택합니다.
 2. 목록에서 보거나, 설정을 변경하거나, 삭제하려는 공용 IP 주소 접두사의 이름을 선택합니다.
 3. 공용 IP 주소 접두사에 대해 수행하려는 작업(보기/삭제/변경)에 따라 다음 옵션 중 하나를 수행합니다.
    - **보기**: **개요** 섹션에서는 공용 IP 주소 접두사의 주요 설정을 보여줍니다(예: 접두사).
-   - **삭제**: 공용 IP 주소 접두사를 삭제하려면 **개요** 섹션에서 **삭제**를 선택합니다. 접두사 내 주소가 공용 IP 주소 리소스에 연결되어 있으면 공용 IP 주소 리소스를 먼저 삭제해야 합니다. [공용 IP 주소 삭제](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address)를 참조하세요.
+   - **삭제**: 공용 IP 주소 접두사를 삭제하려면 **개요** 섹션에서 **삭제** 를 선택합니다. 접두사 내 주소가 공용 IP 주소 리소스에 연결되어 있으면 공용 IP 주소 리소스를 먼저 삭제해야 합니다. [공용 IP 주소 삭제](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address)를 참조하세요.
 
 **명령**
 
@@ -101,7 +104,7 @@ ms.locfileid: "91804013"
 
 공용 IP 주소 접두사에 대한 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할 또는 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 계정이 할당되어야 합니다.
 
-| 작업                                                            | Name                                                           |
+| 작업                                                            | 이름                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | 공용 IP 주소 접두사 읽기                                |
 | Microsoft.Network/publicIPPrefixes/write                          | 공용 IP 주소 접두사 만들기 또는 업데이트                    |

@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/29/2020
-ms.openlocfilehash: 69cc835b37d2405e15638d85309dc89d51c6d043
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.date: 12/23/2020
+ms.openlocfilehash: 3f5a6171ba81b858d649f381ed316be0637a2571
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360278"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858657"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트 (DFS)
 
@@ -229,6 +229,34 @@ select(mapColumn(
     ),
     skipDuplicateMapInputs: true,
     skipDuplicateMapOutputs: true) ~> automap
+```
+
+### <a name="persist-column-data-types"></a>열 데이터 형식 유지
+싱크를 사용 하 여 데이터 흐름의 열 이름과 데이터 형식을 영구 저장소에 저장 하려면 파생 열 정의 내에이 스크립트를 추가 합니다.
+
+```
+derive(each(match(type=='string'), $$ = 'string'),
+    each(match(type=='integer'), $$ = 'integer'),
+    each(match(type=='short'), $$ = 'short'),
+    each(match(type=='complex'), $$ = 'complex'),
+    each(match(type=='array'), $$ = 'array'),
+    each(match(type=='float'), $$ = 'float'),
+    each(match(type=='date'), $$ = 'date'),
+    each(match(type=='timestamp'), $$ = 'timestamp'),
+    each(match(type=='boolean'), $$ = 'boolean'),
+    each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
+```
+
+### <a name="fill-down"></a>자동 채우기
+다음은 NULL 값을 시퀀스에서 NULL이 아닌 이전 값의 값으로 대체 하려는 경우 데이터 집합에 일반적인 "Fill Down" 문제를 구현 하는 방법입니다. 이 작업은 "더미" 범주 값을 사용 하 여 전체 데이터 집합에 대 한 가상 창을 만들어야 하기 때문에 성능이 저하 될 수 있습니다. 또한 값을 기준으로 정렬 하 여 NULL이 아닌 이전 값을 찾기 위한 적절 한 데이터 시퀀스를 만들어야 합니다. 아래 코드 조각은 가상 범주를 "더미"로 만들고 서로게이트 키를 기준으로 정렬 합니다. 서로게이트 키를 제거 하 고 고유한 데이터 별 정렬 키를 사용할 수 있습니다. 이 코드 조각에서는 라는 소스 변환을 이미 추가 했다고 가정 합니다. ```source1```
+
+```
+source1 derive(dummy = 1) ~> DerivedColumn
+DerivedColumn keyGenerate(output(sk as long),
+    startAt: 1L) ~> SurrogateKey
+SurrogateKey window(over(dummy),
+    asc(sk, true),
+    Rating2 = coalesce(Rating, last(Rating, true()))) ~> Window1
 ```
 
 ## <a name="next-steps"></a>다음 단계

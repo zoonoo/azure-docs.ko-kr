@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: d84e1508dec4d4a5802f7a2ac8c0e6ada5a8044c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 28c0be40387f411286230f94c19fa23a80e650af
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128694"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746406"
 ---
 # <a name="how-to-add-technical-details-for-your-saas-offer"></a>SaaS 제품에 대 한 기술 세부 정보를 추가 하는 방법
 
 이 문서에서는 Microsoft 상업적 marketplace에서 솔루션에 연결 하는 데 도움이 되는 기술 세부 정보를 입력 하는 방법을 설명 합니다. 이 연결을 통해 고객에 게 제품을 프로 비전 하 고 관리 하는 경우 고객에 게 제품을 프로 비전 할 수 있습니다. 이러한 설정에 대 한 자세한 내용은 [기술 정보](plan-saas-offer.md#technical-information)를 참조 하세요.
 
 > [!NOTE]
-> 트랜잭션을 독립적으로 처리 하도록 선택 하면이 옵션이 표시 되지 않습니다. 대신 [SaaS 제품을 출시 하는 방법](create-new-saas-offer-marketing.md)으로 건너뛰십시오.
+> 트랜잭션을 독립적으로 처리 하도록 선택 하면이 옵션이 표시 되지 않습니다. 대신, [SaaS 제품을 판매 하는 방법](create-new-saas-offer-marketing.md)으로 건너뜁니다.
 
 ## <a name="technical-configuration"></a>기술 구성
 

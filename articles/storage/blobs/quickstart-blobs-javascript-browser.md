@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: eebfa61632bc49d5df35c17ba2d2faca0382001c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336142"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001901"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -26,7 +26,7 @@ Azure Blob 스토리지는 대량의 비정형 데이터를 저장하도록 최�
 * [API 참조 설명서](/javascript/api/@azure/storage-blob)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [패키지(npm)](https://www.npmjs.com/package/@azure/storage-blob)
-* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [샘플](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -66,7 +66,7 @@ Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
 ### <a name="create-a-cors-rule"></a>CORS 규칙 만들기
 
-웹 애플리케이션에서 클라이언트의 Blob 스토리지에 액세스하려면 [CORS(원본 간 리소스 공유)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)를 사용하도록 계정을 구성해야 합니다.
+웹 애플리케이션에서 클라이언트의 Blob 스토리지에 액세스하려면 [CORS(원본 간 리소스 공유)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)를 사용하도록 계정을 구성해야 합니다.
 
 Azure Portal에서 스토리지 계정을 선택합니다. 새 CORS 규칙을 정의하려면 **설정** 섹션으로 이동하여 **CORS** 를 선택합니다. 이 빠른 시작의 경우 공개 CORS 규칙을 만듭니다.
 
@@ -76,10 +76,10 @@ Azure Portal에서 스토리지 계정을 선택합니다. 새 CORS 규칙을 �
 
 |설정  |값  | Description |
 |---------|---------|---------|
-| **허용된 원본** | **\*** | 허용 가능한 원본으로 설정된 도메인의 쉼표로 구분된 목록을 허용합니다. 값을 `*`로 설정하면 스토리지 계정에 대한 모든 도메인 액세스가 허용됩니다. |
-| **허용된 메서드** | **DELETE** , **GET** , **HEAD** , **MERGE** , **POST** , **OPTIONS** 및 **PUT** | 스토리지 계정에 대해 실행하도록 허용된 HTTP 동사를 나열합니다. 이 빠른 시작에서는 사용 가능한 옵션을 모두 선택합니다. |
-| **허용된 헤더** | **\*** | 스토리지 계정에서 허용하는 요청 헤더(접두 헤더 포함)의 목록을 정의합니다. 값을 `*`로 설정하면 모든 헤더에 액세스할 수 있습니다. |
-| **노출된 헤더** | **\*** | 계정에서 허용되는 응답 헤더를 나열합니다. 값을 `*`로 설정하면 계정에서 모든 헤더를 보낼 수 있습니다. |
+| **허용된 원본** | **\** _ | 허용 가능한 원본으로 설정된 도메인의 쉼표로 구분된 목록을 허용합니다. 값을 `_`로 설정하면 스토리지 계정에 대한 모든 도메인 액세스가 허용됩니다. |
+| **허용된 메서드** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS** 및 **PUT** | 스토리지 계정에 대해 실행하도록 허용된 HTTP 동사를 나열합니다. 이 빠른 시작에서는 사용 가능한 옵션을 모두 선택합니다. |
+| **허용된 헤더** | **\** _ | 스토리지 계정에서 허용하는 요청 헤더(접두 헤더 포함)의 목록을 정의합니다. 값을 `_`로 설정하면 모든 헤더에 액세스할 수 있습니다. |
+| **노출된 헤더** | **\** _ | 계정에서 허용되는 응답 헤더를 나열합니다. 값을 `_`로 설정하면 계정에서 모든 헤더를 보낼 수 있습니다. |
 | **최대 기간** | **86400** | 브라우저에서 실행 전 OPTIONS 요청을 캐시하는 최대 시간(초)입니다. 값이 *86400* 이면 하루 동안 캐시를 유지할 수 있습니다. |
 
 필드가 이 표의 값으로 채워지면 **저장** 단추를 클릭합니다.
@@ -237,7 +237,7 @@ Azure Blob 스토리지 서비스와 상호 작용하기 위한 [BlobServiceClie
 Visual Studio Code에서 디버거 확장을 설정하려면 다음을 수행합니다.
 
 1. **실행 > 구성 추가** 를 차례로 선택합니다.
-2. 이전의 [사전 요구 사항](#prerequisites) 섹션에서 설치한 확장에 따라 **Edge** , **Chrome** 또는 **Firefox** 를 선택합니다.
+2. 이전의 [사전 요구 사항](#prerequisites) 섹션에서 설치한 확장에 따라 **Edge**, **Chrome** 또는 **Firefox** 를 선택합니다.
 
 새 구성을 추가하면 *launch.json* 파일이 만들어지고 편집기에서 열립니다. 다음과 같이 `url` 값이 `http://localhost:1234/index.html`이 되도록 *launch.json* 파일을 수정합니다.
 
@@ -270,11 +270,11 @@ Visual Studio Code 디버거가 연결된 브라우저에서 *index.html* 을 �
 #### <a name="step-1---create-a-container"></a>1단계 - 컨테이너 만들기
 
 1. 웹앱에서 **컨테이너 만들기** 를 선택합니다. 컨테이너가 만들어졌다는 상태가 표시됩니다.
-2. Azure Portal에서 확인하려면 스토리지 계정을 선택합니다. **Blob service** 아래에서 **컨테이너** 를 선택합니다. 새 컨테이너가 표시되는지 확인합니다. ( **새로 고침** 을 선택해야 할 수도 있습니다.)
+2. Azure Portal에서 확인하려면 스토리지 계정을 선택합니다. **Blob service** 아래에서 **컨테이너** 를 선택합니다. 새 컨테이너가 표시되는지 확인합니다. (**새로 고침** 을 선택해야 할 수도 있습니다.)
 
 #### <a name="step-2---upload-a-blob-to-the-container"></a>2단계 - 컨테이너에 Blob 업로드
 
-1. 로컬 컴퓨터에서 테스트 파일(예: *test.txt* )을 만들어 저장합니다.
+1. 로컬 컴퓨터에서 테스트 파일(예: *test.txt*)을 만들어 저장합니다.
 2. 웹앱에서 **파일 선택 및 업로드** 를 클릭합니다.
 3. 테스트 파일로 이동한 다음, **열기** 를 선택합니다. 파일이 업로드되고 파일 목록이 검색되었다는 상태가 표시됩니다.
 4. Azure Portal에서 이전에 만든 새 컨테이너의 이름을 선택합니다. 테스트 파일이 표시되는지 확인합니다.

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242401"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998569"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>포털을 사용 하 여 Azure Database for MySQL에 대 한 개인 링크 만들기 및 관리
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | *MyVirtualNetwork* 를 입력 합니다. |
+    | Name | *MyVirtualNetwork* 를 입력 합니다. |
     | 주소 공간 | *10.1.0.0/16* 을 입력 합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력한 다음, **확인** 을 선택합니다. |
@@ -144,7 +144,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup** 을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 세부 정보** |  |
-    | 속성 | *myPrivateEndpoint* 를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    | Name | *myPrivateEndpoint* 를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     |지역|**서유럽** 를 선택합니다.|
     |||
 
@@ -192,7 +192,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결** 이 열립니다.
 
-1. **RDP 파일 다운로드** 를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp* ) 파일을 만들고, 컴퓨터에 다운로드합니다.
+1. **RDP 파일 다운로드** 를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
 1. *downloaded.rdp* 파일을 엽니다.
 

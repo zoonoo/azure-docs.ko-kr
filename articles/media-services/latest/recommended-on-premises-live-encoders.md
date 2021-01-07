@@ -6,15 +6,15 @@ keywords: 인코딩, 인코더, 미디어
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/31/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 3532032f8fd3ac6e673d3913fd13f7f83ae7759e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88de41ae62e3a81fdb51981afe42135649bf34b4
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295362"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734313"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>확인 된 온-프레미스 라이브 스트리밍 인코더
 
@@ -22,7 +22,7 @@ ms.locfileid: "89295362"
 
 Azure Media Services에서 [라이브 이벤트](/rest/api/media/liveevents)(채널)는 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 라이브 이벤트는 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
-* 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각난 MP4) 스트림을 Media Services에서 라이브 인코딩을 수행하도록 설정되지 않은 라이브 이벤트로 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 라이브 이벤트를 통과합니다. 이 방법을 **통과**라고 합니다. 라이브 인코더는 클라이언트에 적응 비트 전송률 스트리밍을 허용 하기 위해 단일 비트 전송률 스트림 대신 다중 비트 전송률 스트림을 통과 라이브 이벤트로 보내는 것이 좋습니다. 
+* 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각난 MP4) 스트림을 Media Services에서 라이브 인코딩을 수행하도록 설정되지 않은 라이브 이벤트로 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 라이브 이벤트를 통과합니다. 이 방법을 **통과** 라고 합니다. 라이브 인코더는 클라이언트에 적응 비트 전송률 스트리밍을 허용 하기 위해 단일 비트 전송률 스트림 대신 다중 비트 전송률 스트림을 통과 라이브 이벤트로 보내는 것이 좋습니다. 
 
     통과 라이브 이벤트에 다중 비트 전송률 스트림을 사용 하는 경우 재생 측에서 예기치 않은 동작이 발생 하지 않도록 비디오 GOP 크기와 다양 한 비트 전송률의 비디오 조각을 동기화 해야 합니다.
 
@@ -50,6 +50,7 @@ RTMPS를 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 검
 > RTMPS 프로토콜을 사용 하는 경우 인코더는 TLS 1.2를 지원 해야 합니다.
 
 - Adobe Flash Media Live Encoder 3.2
+- [디지털 방지](http://www.antixdigital.com/) StreamZ 라이브 (이전에는 Communication SelenioFlex Live)
 - [블랙 매직 ATEM 미니 및 ATEM 미니 PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - 정령 Live (버전 2.14.15 이상)
@@ -78,11 +79,11 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 > 인코더는 HTTPS 프로토콜을 사용 하는 경우 TLS 1.2를 지원 해야 합니다.
 
 - Ateme TITAN Live
+- [디지털 방지](http://www.antixdigital.com/) StreamZ 라이브 (이전에는 Communication SelenioFlex Live)
 - Cisco Digital Media Encoder 2200
 - 정령 Live (TLS 1.2 요구 사항으로 인해 버전 2.14.15 이상)
 - Envivio 4Caster C4 Gen III 
 - [Ffmpeg](https://www.ffmpeg.org)
-- Imagine Communications Selenio MCP3
 - Media Excel Hero Live 및 Hero 4K(UHD/HEVC)
 
 > [!TIP]

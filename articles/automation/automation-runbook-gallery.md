@@ -3,18 +3,21 @@ title: PowerShell 갤러리에서 Azure Automation Runbook 및 모듈 사용
 description: 이 문서에서는 PowerShell 갤러리에서 Microsoft 및 커뮤니티에서 만든 Runbook과 모듈을 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/20/2019
+ms.date: 12/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: f90d88e49675681a7f73df838ca489a7193955b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26dfedf1961cf39645c3bcf3ce5fa2db6c14119e
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087863"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97682771"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>PowerShell 갤러리에서 Runbook 및 모듈 사용
 
-Azure Automation에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 빌드한 시나리오에 액세스할 수 있습니다. PowerShell Runbook과 [모듈](#modules-in-powershell-gallery)은 PowerShell 갤러리에서, [Python Runbook](#use-python-runbooks)은 스크립트 센터 갤러리에서 가져올 수 있습니다. [자신이 개발한 시나리오를 공유](#add-a-powershell-runbook-to-the-gallery)하여 커뮤니티에 기여할 수도 있습니다. 
+Azure Automation에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 빌드한 시나리오에 액세스할 수 있습니다. Azure Automation GitHub 조직의 PowerShell 갤러리 및 [Python runbook](#use-python-runbooks) 에서 PowerShell runbook 및 [모듈](#modules-in-powershell-gallery) 을 가져올 수 있습니다. [자신이 개발한 시나리오를 공유](#add-a-powershell-runbook-to-the-gallery)하여 커뮤니티에 기여할 수도 있습니다.
+
+> [!NOTE]
+> TechNet 스크립트 센터를 사용 중지 하 고 있습니다. Runbook 갤러리의 스크립트 센터에 있는 모든 runbook은 [Automation GitHub 조직](https://github.com/azureautomation)으로 이동 되었습니다.
 
 ## <a name="runbooks-in-powershell-gallery"></a>PowerShell 갤러리의 Runbook
 
@@ -44,14 +47,14 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 ## <a name="import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Azure Portal을 사용하여 Runbook 갤러리에서 PowerShell Runbook 가져오기
 
 1. Azure Portal에서 Automation 계정을 엽니다.
-2. **프로세스 자동화**에서 **Runbook 갤러리**를 선택합니다.
-3. **원본: PowerShell 갤러리**를 선택합니다.
+2. **프로세스 자동화** 에서 **Runbook 갤러리** 를 선택합니다.
+3. **원본: PowerShell 갤러리** 를 선택합니다.
 4. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다. 왼쪽에서 게시자 및 형식에 대한 추가 검색 매개 변수를 입력할 수 있습니다.
 
    ![갤러리 찾아보기](media/automation-runbook-gallery/browse-gallery.png)
 
-5. **TechNet 스크립트 센터** 의 항목을 확인하려면 [소스 프로젝트 보기](https://gallery.technet.microsoft.com/)를 클릭합니다.
-6. 항목을 가져오려면 해당 항목을 클릭하여 세부 정보를 확인한 다음 **가져오기**를 클릭합니다.
+5. [Azure Automation GitHub 조직](https://github.com/azureautomation)에서 항목을 보려면 **소스 프로젝트 보기** 를 클릭 합니다.
+6. 항목을 가져오려면 해당 항목을 클릭하여 세부 정보를 확인한 다음 **가져오기** 를 클릭합니다.
 
    ![가져오기 단추](media/automation-runbook-gallery/gallery-item-detail.png)
 
@@ -65,8 +68,8 @@ Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 P
 ## <a name="import-a-module-from-the-module-gallery-with-the-azure-portal"></a>Azure Portal을 사용하여 모듈 갤러리에서 모듈 가져오기
 
 1. Azure Portal에서 Automation 계정을 엽니다.
-2. **공유 리소스** 아래에서 **모듈**을 선택하여 모듈 목록을 엽니다.
-3. 페이지 위쪽에서 **갤러리 찾아보기**를 클릭합니다.
+2. **공유 리소스** 아래에서 **모듈** 을 선택하여 모듈 목록을 엽니다.
+3. 페이지 위쪽에서 **갤러리 찾아보기** 를 클릭합니다.
 
    ![모듈 갤러리](media/automation-runbook-gallery/modules-blade.png)
 
@@ -83,9 +86,9 @@ Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 P
 
    ![PowerShell 모듈 세부 정보](media/automation-runbook-gallery/gallery-item-details-blade.png)
 
-6. Azure Automation에 직접 모듈을 설치하려면 **가져오기**를 클릭합니다.
+6. Azure Automation에 직접 모듈을 설치하려면 **가져오기** 를 클릭합니다.
 7. 가져오기 창에서 가져올 모듈의 이름을 확인할 수 있습니다. 모든 종속성이 설치되면 **확인** 단추가 활성화됩니다. 종속성이 없는 경우 해당 종속성을 가져와야만 이 모듈을 가져올 수 있습니다.
-8. 가져오기 창에서 **확인**을 클릭하여 모듈을 가져옵니다. Azure Automation에서 모듈을 계정에 가져오는 동안 모듈 및 cmdlet에 대한 메타데이터를 추출합니다. 각 활동을 추출해야 하므로 이 작업에는 몇 분 정도 걸릴 수 있습니다.
+8. 가져오기 창에서 **확인** 을 클릭하여 모듈을 가져옵니다. Azure Automation에서 모듈을 계정에 가져오는 동안 모듈 및 cmdlet에 대한 메타데이터를 추출합니다. 각 활동을 추출해야 하므로 이 작업에는 몇 분 정도 걸릴 수 있습니다.
 9. 모듈이 배포 중임을 알리는 초기 알림 및 완료 시의 다른 알림이 표시됩니다.
 10. 모듈 가져오기가 완료되면 사용 가능한 활동을 볼 수 있습니다. Runbook 및 DSC 리소스에서 모듈 리소스를 사용할 수 있습니다.
 
@@ -94,10 +97,7 @@ Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 P
 
 ## <a name="use-python-runbooks"></a>Python Runbook 사용
 
-Python Runbooks는 [스크립트 센터 갤러리](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=)에서 사용할 수 있습니다. **기여 업로드**를 클릭하여 스크립트 센터 갤러리에 Python Runbook을 제공할 수 있습니다. 이를 제공할 경우 업로드 시 `Python` 태그를 추가해야 합니다.
-
-> [!NOTE]
-> 콘텐츠를 [스크립트 센터](https://gallery.technet.microsoft.com/scriptcenter)에 업로드하려면 최소 100개의 지점이 필요합니다.
+Python Runbook은 [Azure Automation GitHub 조직](https://github.com/azureautomation)에서 사용할 수 있습니다. GitHub 리포지토리에 참가할 때 참여를 업로드할 때 태그 **(Github 토픽): Python3** 를 추가 합니다.
 
 ## <a name="request-a-runbook-or-module"></a>Runbook 또는 모듈 요청
 
@@ -108,4 +108,4 @@ Python Runbooks는 [스크립트 센터 갤러리](https://gallery.technet.micro
 * PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](learn/automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
 * Runbook을 사용하려면 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조하세요.
 * PowerShell에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/overview)를 참조하세요.
-* * PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

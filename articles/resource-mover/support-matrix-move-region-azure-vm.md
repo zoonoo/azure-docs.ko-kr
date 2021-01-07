@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341861"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524252"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure Vm 이동에 대 한 지원
 
@@ -121,13 +121,13 @@ Azure RBAC 정책 | 지원되지 않음 | Vm의 azure RBAC (역할 기반 액세
 
 **구성 요소** | **지원** | **세부 정보**
 --- | --- | ---
-OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
-임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 준비 프로세스에서 제외 됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
+OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/managed-disks-overview.md).
+임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 준비 프로세스에서 제외 됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/managed-disks-overview.md#temporary-disk).
 데이터 디스크 최대 크기 | 관리 디스크의 경우 8,192GB
 데이터 디스크 최소 크기 |  관리 디스크의 경우 2GB |
-데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/windows/sizes.md).
+데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/sizes.md).
 데이터 디스크 변경 비율 | Premium Storage는 디스크당 최대 10MBps입니다. Standard Storage는 디스크당 최대 2MBps입니다. | 디스크의 평균 데이터 변경률이 지속적으로 최대값 보다 높으면 준비가 되지 않습니다.<br/><br/>  그러나 최대값이 산발적으로 초과 되 면 준비를 수행할 수 있지만 약간 지연 된 복구 지점이 표시 될 수도 있습니다.
-데이터 디스크 (표준 저장소 계정) | 지원되지 않습니다. | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.
+데이터 디스크 (표준 저장소 계정) | 지원 안 됨 | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.
 데이터 디스크 (Premium storage 계정) | 지원되지 않음 | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.
 관리 디스크 (표준) | 지원됨  |
 관리 디스크 (프리미엄) | 지원됨 |

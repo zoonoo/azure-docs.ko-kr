@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1b603dc4c31cb608a0840da78a2e987b3edd3c1e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353611"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607884"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 MediusFlow 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "94353611"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md) 
-* 프로비저닝을 구성할 [권한](../users-groups-roles/directory-assign-admin-roles.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
+* 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * 품질 보증 또는 프로덕션 테넌트가 포함된 활성 MediusFlow 구독
 * MediusFlow 내에서 구성을 수행할 수 있는 관리자 액세스 권한이 있는 MediusFlow의 사용자 계정
 * 사용자가 프로비저닝되어야 하는 MediusFlow 테넌트에 추가되는 회사
@@ -52,17 +52,17 @@ ms.locfileid: "94353611"
 우선 다음 단계를 수행하여 MediusFlow 내에서 Azure AD 로그인 및 Azure AD 구성 기능에 대한 액세스를 사용하도록 설정합니다.
 
 #### <a name="user-login"></a>사용자 로그인
-Microsoft 365/Azure AD에 대 한 로그인 흐름을 사용 하도록 설정 하려면 [this] (문서를 참조 https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) 하세요.
+Microsoft 365/Azure AD에 대한 로그인 흐름을 사용하도록 설정하려면 [이](https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) 문서를 참조하세요.
 
 #### <a name="user-transfer-configuration"></a>사용자 전송 구성
-Azure AD에서 프로 비전 할 사용자의 구성 포털을 사용 하도록 설정 하려면 [이](
-https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) 문서를 참조 하세요.
+Azure AD에서 프로비저닝할 사용자의 구성 포털을 사용하도록 설정하려면 [이](
+https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) 문서를 참조하세요.
 
 #### <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 1.  테넌트 ID를 제공하여 [MediusFlow 관리 콘솔](https://office365.cloudapp.mediusflow.com/)에 로그인합니다.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="MediusFlow 관리 콘솔의 스크린샷 첫 번째 통합 단계에서 MediusFlow 테 넌 트 이름 상자와 인증 단추가 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="MediusFlow 관리 콘솔의 스크린샷. 첫 번째 통합 단계에서 MediusFlow 테넌트 이름 상자와 인증 단추가 강조 표시됩니다." border="false":::
 
 2. MediusFlow와의 연결을 확인합니다.
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. 구성을 저장합니다.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="네 번째 통합 단계를 보여 주는 MediusFlow 관리 콘솔의 스크린샷 구성 저장 단추가 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="네 번째 통합 단계를 보여주는 MediusFlow 관리 콘솔의 스크린샷. 구성 저장 단추가 강조 표시됩니다." border="false":::
 
 5. 사용자 프로비저닝을 선택하고 **확인** 을 클릭합니다.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="5 번째 통합 단계를 보여 주는 MediusFlow 관리 콘솔의 스크린샷 사용자 프로비저닝 사용 및 확인 단추가 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="다섯 번째 통합 단계를 보여주는 MediusFlow 관리 콘솔의 스크린샷. 사용자 프로비저닝 사용 및 확인 단추가 강조 표시됩니다." border="false":::
 
 6. **비밀 키 생성** 을 클릭합니다. 이 값을 복사하고 저장합니다. 이 값은 Azure Portal에서 MediusFLow 애플리케이션의 **프로비저닝** 탭에 있는 **비밀 토큰** 필드에 입력됩니다.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="MediusFlow 관리 콘솔에서 사용자 프로 비전 구성 탭의 스크린샷 비밀 키 생성 및 복사 단추가 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="MediusFlow 관리 콘솔의 사용자 프로비저닝 구성 탭 스크린샷. 비밀 키 생성 및 복사 단추가 강조 표시됩니다." border="false":::
 
 7. **확인** 을 클릭합니다.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="사용자에 게 확인을 클릭 하 여 새 비밀 키를 생성 하도록 지시 하는 알림이 포함 된 MediusFlow 관리 콘솔의 스크린샷 확인 단추가 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="사용자에게 확인을 클릭하여 새 비밀 키를 생성하도록 지시하는 알림이 포함된 MediusFlow 관리 콘솔의 스크린샷. 확인 단추가 강조 표시됩니다." border="false":::
 
-8. MediusFlow에서 미리 정의 된 역할, 회사 및 기타 일반 구성 집합을 사용 하 여 가져온 사용자를 가져오려면 먼저 구성 해야 합니다. 먼저 **새 구성 추가** 를 클릭하여 구성을 추가합니다.
+8. MediusFlow에서 미리 정의된 역할, 회사 및 기타 일반 구성 세트를 사용하여 사용자를 가져오려면 먼저 이를 구성해야 합니다. 먼저 **새 구성 추가** 를 클릭하여 구성을 추가합니다.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="MediusFlow 관리 콘솔에서 사용자 프로 비전 구성 탭의 스크린샷 새 구성 추가 단추가 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="MediusFlow 관리 콘솔의 사용자 프로비저닝 구성 탭 스크린샷. 새 구성 추가 단추가 강조 표시됩니다." border="false":::
 
 9. 사용자에 대한 기본 설정을 지정합니다. 이 보기에서는 기본 특성을 설정할 수 있습니다. 표준 설정이 괜찮으면 유효한 회사 이름만 지정하면 됩니다. 이러한 구성 설정은 Mediusflow에서 가져오므로 Mediusflow를 먼저 구성해야 합니다. 자세한 내용은 이 문서의 **필수 조건** 섹션을 참조하세요.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="MediusFlow 추가 새 구성 창의 스크린샷. 로캘 설정, 필터 및 사용자 역할을 비롯 한 많은 설정이 표시 됩니다." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="MediusFlow 새 구성 추가 창의 스크린샷. 로캘 설정, 필터 및 사용자 역할을 비롯한 많은 설정이 표시됩니다." border="false":::
 
 10. **저장** 을 클릭하여 사용자 구성을 저장합니다.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="MediusFlow 관리 콘솔에서 사용자 프로 비전 구성 탭의 스크린샷 저장 단추가 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="MediusFlow 관리 콘솔의 사용자 프로비저닝 구성 탭 스크린샷. Save(저장) 단추가 강조 표시되어 있습니다." border="false":::
 
 11. 사용자 프로비저닝 링크를 가져오려면 **SCIM 링크 복사** 를 클릭합니다. 이 값을 복사하여 저장합니다. 이 값은 Azure Portal의 MediusFLow 애플리케이션에서 **프로비저닝** 탭에 있는 **테넌트 URL** 필드에 입력됩니다.
  
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="MediusFlow 관리 콘솔에서 사용자 프로 비전 구성 탭의 스크린샷 Copy S C I M l 링크 단추가 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="MediusFlow 관리 콘솔의 사용자 프로비저닝 구성 탭 스크린샷. SCIM 링크 복사 단추가 강조 표시됩니다." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 MediusFlow 추가
 
@@ -125,7 +125,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ### <a name="to-configure-automatic-user-provisioning-for-mediusflow-in-azure-ad"></a>Azure AD에서 MediusFlow에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -135,15 +135,15 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
+    ![프로비저닝 옵션이 호출된 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
+    ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션에서 이전에 **테넌트 URL** 에서 검색된 테넌트 URL 값을 입력합니다. **비밀 토큰** 에 이전에 검색된 비밀 토큰 값을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 MediusFlow에 연결할 수 있는지 확인합니다. 연결이 실패하면 MediusFlow 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
 
-      ![스크린샷 U R L 및 비밀 토큰을 입력할 수 있는 관리자 자격 증명 대화 상자가 표시 됩니다.](./media/mediusflow-provisioning-tutorial/provisioning.png)
+      ![스크린샷은 테넌트 URL 및 비밀 토큰을 입력할 수 있는 관리자 자격 증명 대화 상자를 보여 줍니다.](./media/mediusflow-provisioning-tutorial/provisioning.png)
 
 6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
 
@@ -172,11 +172,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 11. **특성 매핑** 섹션에서 Azure AD에서 MediusFlow로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 MediusFlow의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-      |attribute|Type|
-      |---|---|
-      |displayName|String|
-      |externalID|String|
-      |members|참조|
+    | attribute | Type |
+    |--|--|
+    | displayName | String |
+    | externalID | String |
+    | members | 참조 |
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

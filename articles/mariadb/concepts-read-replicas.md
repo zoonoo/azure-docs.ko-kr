@@ -1,17 +1,17 @@
 ---
 title: 복제본 읽기-Azure Database for MariaDB
 description: Azure Database for MariaDB에서 읽기 복제본에 대해 알아봅니다. 영역 선택, 복제본 만들기, 복제본에 연결, 복제 모니터링 및 복제 중지에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fcf368c9fbbb185ac3f47faa5705e1933d085c81
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b2dbaa932c01c96582cb038143fa7686707be67d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126458"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541167"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 읽기 복제본
 
@@ -24,7 +24,7 @@ GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://ma
 > [!NOTE]
 > 바이어스 없는 통신
 >
-> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _slave(슬레이브)_ 라는 단어에 대한 참조가 포함되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md)에서는 이 단어를 '배제(exclusionary)'라는 단어로 인식합니다. 이 단어는 현재 소프트웨어에 표시되는 단어이므로 일관성을 위해 이 문서에서 사용됩니다. 이 단어를 제거하도록 소프트웨어가 업데이트되면 이 문서도 이에 맞춰 업데이트됩니다.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>읽기 복제본을 사용하는 경우
@@ -81,7 +81,7 @@ GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://ma
 
 복제본이 원본 서버에서 관리자 계정을 상속 합니다. 원본 서버의 모든 사용자 계정이 읽기 복제본에 복제 됩니다. 원본 서버에서 사용할 수 있는 사용자 계정을 사용 하 여 읽기 복제본에만 연결할 수 있습니다.
 
-일반 Azure Database for MariaDB 서버에서와 같이 호스트 이름 및 유효한 사용자 계정을 사용 하 여 복제본에 연결할 수 있습니다. 관리 사용자 이름이 **myadmin**인 **myreplica**라는 서버의 경우 mysql CLI를 사용하여 복제본에 연결할 수 있습니다.
+일반 Azure Database for MariaDB 서버에서와 같이 호스트 이름 및 유효한 사용자 계정을 사용 하 여 복제본에 연결할 수 있습니다. 관리 사용자 이름이 **myadmin** 인 **myreplica** 라는 서버의 경우 mysql CLI를 사용하여 복제본에 연결할 수 있습니다.
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -113,7 +113,7 @@ Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)**
 
 원본 서버와 복제 서버 간에는 자동화 된 장애 조치 (failover)가 없습니다. 
 
-복제는 비동기 이므로 원본과 복제본 사이에 지연이 발생 합니다. 지연 시간은 원본 서버에서 실행 되는 워크 로드의 양과 데이터 센터 간의 대기 시간 등 여러 가지 요소에 의해 영향을 받을 수 있습니다. 대부분의 경우 복제본 지연 시간 범위는 몇 초에서 몇 분 사이입니다. 각 복제본에 대해 사용 가능한 메트릭 *복제본 지연*시간을 사용 하 여 실제 복제 지연 시간을 추적할 수 있습니다. 이 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 표시 합니다. 일정 기간 동안 복제본 지연 시간을 관찰 하 여 평균 지연 시간을 확인 하는 것이 좋습니다. 복제본 지연에 대 한 경고를 설정 하 여 예상 범위를 벗어나면 작업을 수행할 수 있습니다.
+복제는 비동기 이므로 원본과 복제본 사이에 지연이 발생 합니다. 지연 시간은 원본 서버에서 실행 되는 워크 로드의 양과 데이터 센터 간의 대기 시간 등 여러 가지 요소에 의해 영향을 받을 수 있습니다. 대부분의 경우 복제본 지연 시간 범위는 몇 초에서 몇 분 사이입니다. 각 복제본에 대해 사용 가능한 메트릭 *복제본 지연* 시간을 사용 하 여 실제 복제 지연 시간을 추적할 수 있습니다. 이 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 표시 합니다. 일정 기간 동안 복제본 지연 시간을 관찰 하 여 평균 지연 시간을 확인 하는 것이 좋습니다. 복제본 지연에 대 한 경고를 설정 하 여 예상 범위를 벗어나면 작업을 수행할 수 있습니다.
 
 > [!Tip]
 > 복제본으로 장애 조치 (failover) 하는 경우 원본에서 복제본을 연결 취소 하는 시간에 지연 시간이 발생 하면 손실 되는 데이터의 양이 표시 됩니다.

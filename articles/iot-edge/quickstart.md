@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1c4ac7d36b568f68c67a99d078fd65515bbb21b0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 547bf111e73813c939caa917c0117dac6c8989e9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747710"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922472"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>빠른 시작: 가상 Windows 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -33,23 +33,21 @@ ms.locfileid: "92747710"
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만드세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작에서 Azure CLI를 사용하여 여러 단계를 완료합니다. Azure IoT에는 추가 기능을 사용할 수 있는 확장 기능이 있습니다.
+Azure CLI에 대한 환경을 준비합니다.
 
-Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
+- PowerShell 환경을 통해 [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)을 사용합니다.
 
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
-## <a name="prerequisites"></a>필수 구성 요소
+   [![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)   
+- 원하는 경우 Azure CLI를 [설치](/cli/azure/install-azure-cli)하여 CLI 참조 명령을 실행합니다.
+   - local install을 사용하는 경우 [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 Azure CLI에 로그인합니다.  인증 프로세스를 완료하려면 터미널에 표시되는 단계를 수행합니다.  추가 로그인 옵션은 [Azure CLI를 사용하여 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
+  - 메시지가 표시되면 처음 사용할 때 Azure CLI 확장을 설치합니다.  확장에 대한 자세한 내용은 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
+  - [az version](/cli/azure/reference-index?#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index?#az_upgrade)를 실행합니다.
 
 클라우드 리소스:
 
-* 이 빠른 시작에서 사용하는 모든 리소스를 관리하는 리소스 그룹입니다.
+- 이 빠른 시작에서 사용하는 모든 리소스를 관리하는 리소스 그룹입니다.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -57,7 +55,7 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
 
 IoT Edge 디바이스:
 
-* IoT Edge 디바이스로 작동하는 Windows 가상 머신입니다. 다음 명령을 사용하여 이 가상 머신을 만들 수 있습니다. 여기서 `{password}`를 보안 암호로 바꿉니다.
+- IoT Edge 디바이스로 작동하는 Windows 가상 머신입니다. 다음 명령을 사용하여 이 가상 머신을 만들 수 있습니다. 여기서 `{password}`를 보안 암호로 바꿉니다.
 
   ```azurecli-interactive
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2

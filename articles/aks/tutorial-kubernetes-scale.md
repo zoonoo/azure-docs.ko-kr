@@ -4,13 +4,13 @@ description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Kubernetes에�
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e700934a965f836456458cb33dc46125bef4ab72
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc
+ms.openlocfilehash: 7f16ba3ffe6b6f96f17df540eb67e9cec0bfea8c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747006"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825684"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 

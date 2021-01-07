@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: b23f1d455610222ffa5713773a0bfb947f23ce34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74f067e6fb820b4fd7dcefd0777c342b72c2bbea
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343774"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704251"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 로그 경고 만들기
 
-로그 경고를 통해 사용자는 [Log Analytics](../log-query/get-started-portal.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업 실행을 트리거할 수 있습니다. [로그 경고의 기능 및 용어에 대해 자세히 알아보세요](alerts-unified-log.md).
+로그 경고를 통해 사용자는 [Log Analytics](../log-query/log-analytics-tutorial.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업 실행을 트리거할 수 있습니다. [로그 경고의 기능 및 용어에 대해 자세히 알아보세요](alerts-unified-log.md).
 
 이 문서에서는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 Azure Monitor에서 [로그 경고](alerts-unified-log.md) 를 구성 하는 방법을 보여 줍니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 로그 경고는 리소스 공급자에 생성 됩니다 `Microsoft.Insights/scheduledQueryRules` . [예약 된 쿼리 규칙 api](/rest/api/monitor/scheduledqueryrules/)에 대 한 api 참조를 참조 하세요.
 
@@ -26,7 +26,7 @@ ms.locfileid: "91343774"
 4. 배포 방법을 사용하여 템플릿을 배포합니다.
 
 > [!NOTE]
-> [Log Analytics 작업 영역의](../log-query/get-started-portal.md) 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고는 작업 하는 데이터에 따라 더 적합할 수 있는 [동작이 다릅니다](alerts-metric-overview.md). 로그를 메트릭에 라우팅하는 방법 및 방법에 대 한 자세한 내용은 [로그에 대 한 메트릭 경고](alerts-metric-logs.md)를 참조 하세요.
+> [Log Analytics 작업 영역의](../log-query/log-analytics-tutorial.md) 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고는 작업 하는 데이터에 따라 더 적합할 수 있는 [동작이 다릅니다](alerts-metric-overview.md). 로그를 메트릭에 라우팅하는 방법 및 방법에 대 한 자세한 내용은 [로그에 대 한 메트릭 경고](alerts-metric-logs.md)를 참조 하세요.
 
 > [!NOTE]
 > 레거시 [Log Analytics 경고 API](api-alerts.md) 를 사용 하 여 관리 하는 데 사용 되는 Log Analytics에 대 한 로그 경고 및 [저장 된 검색 및 경고 Log Analytics](../insights/solutions.md)의 레거시 템플릿을 사용 합니다. [현재 SCHEDULEDQUERYRULES API로 전환 하는 방법에 대해 자세히 알아보세요](alerts-log-api-switch.md).
@@ -268,14 +268,12 @@ ms.locfileid: "91343774"
         },
         "metricMeasureColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the measure column used in the alert evaluation."
             }
         },
         "resourceIdColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the resource ID column used in the alert targeting the alerts."
             }

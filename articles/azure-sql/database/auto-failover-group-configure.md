@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 08/14/2019
-ms.openlocfilehash: 98f2a8fb0ce48dab0e1e5f7610d73d55526969eb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 09bb7cb2344e3e708a64842916e6e483136da3bb
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675113"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594286"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대 한 장애 조치 (failover) 그룹 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

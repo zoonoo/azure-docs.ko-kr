@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: 8b34e266214285f6483acca59050780810e62345
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3bdc3d0705bd8edc70f55b8372818e60859eedd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373354"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500566"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Azure용 Ubuntu 가상 머신 준비
 
@@ -21,14 +21,14 @@ ms.locfileid: "87373354"
 * Ubuntu 16.04/Xenial: [ubuntu-16.04-cloudimg-disk1. .vmdk](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk)
 * Ubuntu 18.04/Bionic: [Bionic-cloudimg-.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 가상 하드 디스크에 Ubuntu Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하십시오.
 
 **Ubuntu 설치 참고 사항**
 
 * Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes) 을 참조하세요.
-* VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD**만 지원됩니다.  Hyper-v 관리자 또는 cmdlet을 사용 하 여 디스크를 VHD 형식으로 변환할 수 있습니다 `Convert-VHD` .
-* Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
+* VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD** 만 지원됩니다.  Hyper-v 관리자 또는 cmdlet을 사용 하 여 디스크를 VHD 형식으로 변환할 수 있습니다 `Convert-VHD` .
+* Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
 * OS 디스크에서 스왑 파티션 또는 스왑를 구성 하지 않습니다. 클라우드 초기화 프로 비전 에이전트를 구성 하 여 임시 리소스 디스크에서 스왑 파일 또는 스왑 파티션을 만들 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 * Azure의 모든 VHD는 가상 크기가 1MB 단위로 조정되어야 합니다. 원시 디스크에서 VHD로 변환할 때 변환하기 전에 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다. 자세한 내용은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
@@ -174,7 +174,7 @@ ms.locfileid: "87373354"
     # logout
     ```
 
-13. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다.
+13. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다.
 
 14. Azure는 고정 크기 Vhd만 허용 합니다. VM의 OS 디스크가 고정 크기의 VHD가 아닌 경우 `Convert-VHD` PowerShell cmdlet을 사용 하 여 옵션을 지정 합니다 `-VHDType Fixed` . 다음에 대 한 문서를 확인 하세요. `Convert-VHD` [변환-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps).
 

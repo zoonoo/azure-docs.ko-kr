@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3b66c962758afc28da3c6be938c13d768c4f2572
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b239cf6d253c1c2d2e36d213e92e0b218add3f8c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666146"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885991"
 ---
 # <a name="chat-client-library-overview"></a>채팅 클라이언트 라이브러리 개요
 
@@ -52,7 +52,7 @@ Azure Communication Services 채팅 클라이언트 라이브러리를 사용하
 | 이벤트             | Event Grid를 사용하여 채팅 스레드에서 발생하는 사용자 활동을 구독하고 사용자 지정 알림 서비스 또는 비즈니스 논리를 통합     | ✔️   | ✔️  | ✔️    | ✔️  |
 | 모니터링        | 전송된 메시지의 용어 면에서 사용량 모니터링                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | 앱에서 생성한 API 요청의 품질 및 상태를 모니터링하고 포털을 통해 경고를 구성                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
-|추가 기능 | [Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/)를 채팅 클라이언트 라이브러리와 함께 사용하여 *클라이언트에서 들어오는 메시지의 언어 번역 및 감정 분석, 멤버가 말하는 동안 메시지를 작성하는 음성 텍스트 변환 대화*와 같은 인텔리전트 기능을 사용하도록 설정합니다.                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+|추가 기능 | [Cognitive Services API](../../../cognitive-services/index.yml)를 채팅 클라이언트 라이브러리와 함께 사용하여 *클라이언트에서 들어오는 메시지의 언어 번역 및 감정 분석, 멤버가 말하는 동안 메시지를 작성하는 음성 텍스트 변환 대화* 와 같은 인텔리전트 기능을 사용하도록 설정합니다.                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
 ## <a name="next-steps"></a>다음 단계
 

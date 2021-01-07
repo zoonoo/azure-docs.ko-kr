@@ -4,12 +4,12 @@ description: 여러 다른 Azure 지역의 Azure Container Instances 서비스�
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8651a1cc2c2ba41e2c28e9f63dc78c091a6af61d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395872"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763896"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -45,7 +45,7 @@ ms.locfileid: "93395872"
 | 미국 중북부 | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
 | 북유럽 | 4 | 16 | 4 | 16 | 50 | K80 |
 | 미국 중남부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
-| 동남아시아 | 4 | 16 | 4 | 16 | 50 | P100, V100 |
+| 동남 아시아 | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | 인도 남부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 영국 남부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
 | 미국 중서부| 4 | 16 | 4 | 16 | 50 | 해당 없음 |
@@ -54,6 +54,9 @@ ms.locfileid: "93395872"
 | 미국 서부 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 [GPU 리소스](container-instances-gpu.md) (미리 보기)를 사용 하 여 배포 된 컨테이너 그룹에 사용할 수 있는 최대 리소스는 다음과 같습니다.
+
+> [!IMPORTANT]
+> 현재 GPU 리소스를 사용 하는 배포는 Azure virtual network 배포에서 지원 되지 않으며 Linux 컨테이너 그룹 에서만 사용할 수 있습니다.
 
 | GPU Sku | GPU 수 | 최대 CPU | 최대 메모리 (GB) | 스토리지(GB) |
 | --- | --- | --- | --- | --- |
@@ -68,6 +71,9 @@ ms.locfileid: "93395872"
 
 다음 지역과 최대 리소스는 컨테이너 그룹에서 [지원 되](container-instances-faq.md#what-windows-base-os-images-are-supported) 는 Windows Server 컨테이너와 함께 사용할 수 있습니다.
 
+> [!IMPORTANT]
+> 지금은 Windows 컨테이너 그룹을 사용한 배포가 Azure virtual network 배포에서 지원 되지 않습니다.
+
 ###  <a name="windows-server-2016"></a>Windows Server 2016
 
 > [!NOTE]
@@ -75,9 +81,9 @@ ms.locfileid: "93395872"
 
 | 지역 | 1B/2B 최대 CPU | 1B/2B 최대 메모리 (GB) |3B 최대 CPU | 3B 최대 메모리 (GB) | 스토리지(GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| 오스트레일리아 동부 | 2 | 8 | 2 | 3.5 | 20 |
+| 오스트레일리아 동부 | 2 | 8 | 2 | 8 | 20 |
 | 브라질 남부 | 4 | 16 | 4 | 16 | 20 |
-| 캐나다 중부 | 2 | 3.5 | 2 | 3.5 | 20 |
+| 캐나다 중부 | 2 | 8 | 2 | 3.5 | 20 |
 | 인도 중부 | 2 | 3.5 | 2 | 3.5 | 20 |
 | 미국 중부 | 2 | 3.5 | 2 | 3.5 | 20 |
 | 동아시아 | 2 | 3.5 | 2 | 3.5 | 20 |
@@ -86,15 +92,15 @@ ms.locfileid: "93395872"
 | 일본 동부 | 4 | 16 | 4 | 16 | 20 |
 | 한국 중부 | 4 | 16 | 4 | 16 | 20 |
 | 미국 중북부 | 4 | 16 | 4 | 16 | 20 |
-| 북유럽 | 2 | 3.5 | 2 | 8 | 20 |
-| 미국 중남부 | 2 | 3.5 | 2 | 3.5 | 20 |
-| 동남아시아 | 해당 없음 | 해당 없음 | 2 | 3.5 | 20 |
+| 북유럽 | 2 | 8 | 2 | 8 | 20 |
+| 미국 중남부 | 2 | 3.5 | 2 | 8 | 20 |
+| 동남 아시아 | 해당 없음 | 해당 없음 | 2 | 3.5 | 20 |
 | 인도 남부 | 2 | 3.5 | 2 | 3.5 | 20 |
 | 영국 남부 | 2 | 8 | 2 | 3.5 | 20 |
-| 미국 중서부 | 4 | 16 | 4 | 16 | 20 |
+| 미국 중서부 | 4 | 16 | 2 | 8 | 20 |
 | 서유럽 | 4 | 16 | 4 | 16 | 20 |
 | 미국 서부 | 4 | 16 | 2 | 8 | 20 |
-| 미국 서부 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+| 미국 서부 2 | 2 | 8 | 2 | 3.5 | 20 |
 
 
 ### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
@@ -118,7 +124,7 @@ ms.locfileid: "93395872"
 | 미국 중북부 | 4 | 16 | 4 | 16 | 20 |
 | 북유럽 | 4 | 16 | 4 | 16 | 20 |
 | 미국 중남부 | 4 | 16 | 4 | 16 | 20 |
-| 동남아시아 | 4 | 16 | 4 | 16 | 20 |
+| 동남 아시아 | 4 | 16 | 4 | 16 | 20 |
 | 인도 남부 | 4 | 16 | 4 | 16 | 20 |
 | 영국 남부 | 4 | 16 | 4 | 16 | 20 |
 | 미국 중서부 | 4 | 16 | 4 | 16 | 20 |

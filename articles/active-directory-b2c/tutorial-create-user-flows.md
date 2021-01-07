@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2020
+ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: af0fafe98c3ca48ecced46cef6fb5fe8876c7f50
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: ca023af0666899ae94d5bf82fc6f0736d5a8efa5
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215997"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614271"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -28,12 +28,12 @@ ms.locfileid: "92215997"
 > * 프로필 편집 사용자 흐름 만들기
 > * 암호 재설정 사용자 흐름 만들기
 
-이 자습서에서는 Azure Portal을 사용하여 권장되는 일부 사용자 흐름을 만드는 방법을 보여줍니다. 애플리케이션에서 ROPC(리소스 소유자 암호 자격 증명) 흐름을 설정하는 방법에 대한 정보를 찾고 있는 경우 [Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성](configure-ropc.md)을 참조하세요.
+이 자습서에서는 Azure Portal을 사용하여 권장되는 일부 사용자 흐름을 만드는 방법을 보여줍니다. 애플리케이션에서 ROPC(리소스 소유자 암호 자격 증명) 흐름을 설정하는 방법에 대한 정보를 찾고 있는 경우 [Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성](add-ropc-policy.md)을 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!IMPORTANT]
-> 사용자 흐름 버전을 참조하는 방법이 변경되었습니다. 이전에는 V1(프로덕션 준비) 버전과 V1.1 및 V2(미리 보기) 버전을 제공했습니다. 이제 사용자 흐름은 **추천** (차세대 미리 보기) 및 **표준** (일반 공급) 버전으로 통합되었습니다. 모든 V1.1 및 V2 레거시 미리 보기 사용자 흐름은 **2021년 8월 1일** 에 사용 중단될 예정입니다. 자세한 내용은 [Azure AD B2C의 사용자 흐름 버전](user-flow-versions.md)을 참조하세요.
+> 사용자 흐름 버전을 참조하는 방법이 변경되었습니다. 이전에는 V1(프로덕션 준비) 버전과 V1.1 및 V2(미리 보기) 버전을 제공했습니다. 이제 사용자 흐름은 **추천**(차세대 미리 보기) 및 **표준**(일반 공급) 버전으로 통합되었습니다. 모든 V1.1 및 V2 레거시 미리 보기 사용자 흐름은 **2021년 8월 1일** 에 사용 중단될 예정입니다. 자세한 내용은 [Azure AD B2C의 사용자 흐름 버전](user-flow-versions.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 사용자 흐름에 대한 **이름** 을 입력합니다. 예를 들어 *signupsignin1* 과 같습니다.
 1. **ID 공급자** 에서 **메일 등록** 을 선택합니다.
-1. **사용자 특성 및 클레임** 에 대해 수집한 후 등록 동안 사용자로부터 전송하려는 클레임 및 특성을 선택합니다. 예를 들어 **자세히 보기** 를 선택하고 **국가/지역** , **표시 이름** 및 **우편 번호** 의 특성 및 클레임을 선택합니다. **확인** 을 클릭합니다.
+1. **사용자 특성 및 클레임** 에 대해 수집한 후 등록 동안 사용자로부터 전송하려는 클레임 및 특성을 선택합니다. 예를 들어 **자세히 보기** 를 선택하고 **국가/지역**, **표시 이름** 및 **우편 번호** 의 특성 및 클레임을 선택합니다. **확인** 을 클릭합니다.
 
     ![세 개의 클레임이 선택된 특성 및 클레임 선택 페이지](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 

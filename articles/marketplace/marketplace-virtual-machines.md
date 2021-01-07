@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129595"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628291"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>가상 컴퓨터 제품을 계획 하는 방법
 
@@ -100,7 +100,7 @@ VM 제품에 사용할 수 있는 라이선스 옵션은 다음과 같습니다.
 
 이미지와 가격을 비공개 계획으로 게시 하 여 VM의 검색 및 배포를 특정 고객 집합으로 제한할 수 있습니다. 비공개 요금제는 가장 가까운 고객을 위한 독점적인 제품을 만들고 사용자 지정 된 소프트웨어 및 조건을 제공 하는 기능을 잠금 해제 합니다. 이러한 사용자 지정된 사용 약관을 사용하면 사용자가 전문화된 가격 책정 및 조건뿐 아니라 제한된 릴리스 소프트웨어에 대한 초기 액세스를 사용하여 선도적인 거래를 포함한 다양한 시나리오를 강조 표시할 수 있습니다. 비공개 요금제를 사용 하면 제한 된 고객 집합에 특정 가격 책정 또는 제품을 제공할 수 있습니다.
 
-자세한 내용은 [Azure Marketplace에서](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace) [상용 marketplace 제품에 대 한 계획 및 가격 책정](plans-pricing.md) 및 개인 제공을 참조 하세요.
+자세한 내용은 [Microsoft 상업적 marketplace에서](private-offers.md) [상업적 marketplace 제품에 대 한 계획 및 가격 책정](plans-pricing.md) 및 개인 제공을 참조 하세요.
 
 ## <a name="test-drives"></a>시험 사용
 

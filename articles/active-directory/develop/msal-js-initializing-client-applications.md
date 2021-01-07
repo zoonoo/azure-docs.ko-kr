@@ -13,12 +13,12 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6b5093c5a1a45aed3493fabd7a362b0579998171
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674081"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343589"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL.js를 사용 하 여 클라이언트 응용 프로그램 초기화
 
@@ -34,10 +34,10 @@ ms.locfileid: "92674081"
 
 앱을 등록 한 후 Azure Portal에서 찾을 수 있는 다음 값의 일부 또는 모두가 필요 합니다.
 
-| 값 | 필수 | Description |
+| 값 | 필수 | 설명 |
 |:----- | :------: | :---------- |
 | 애플리케이션(클라이언트) ID | 필수 | Microsoft id 플랫폼 내에서 응용 프로그램을 고유 하 게 식별 하는 GUID입니다. |
-| Authority | 선택 사항 | 응용 프로그램에 대 한 id 공급자 URL ( *인스턴스* ) 및 *로그인 대상* 입니다. 인스턴스와 로그인 대상이 연결 되 면 *인증 기관* 을 구성 합니다. |
+| Authority | 선택 사항 | 응용 프로그램에 대 한 id 공급자 URL ( *인스턴스*) 및 *로그인 대상* 입니다. 인스턴스와 로그인 대상이 연결 되 면 *인증 기관* 을 구성 합니다. |
 | 디렉터리(테넌트) ID | 선택 사항 | 조직 전용 lob (기간 업무) 응용 프로그램을 작성 하는 경우 (종종 *단일 테 넌 트 응용 프로그램* 이라고 함)이를 지정 합니다. |
 | 리디렉션 URI | 선택 사항 | 웹 앱을 빌드하는 경우는 `redirectUri` id 공급자 (Microsoft id 플랫폼)에서 발급 한 보안 토큰을 반환 해야 하는 위치를 지정 합니다. |
 
@@ -108,7 +108,7 @@ msalInstance.handleRedirectPromise().then((tokenResponse) => {
 약속의 세 가지 가능한 결과는 다음과 같습니다.
 
 - `.then` 가 호출 되 고 `tokenResponse` truthy: 응용 프로그램이 성공한 리디렉션 작업에서 반환 됩니다.
-- `.then` 가 호출 되 고 `tokenResponse` 가 falsey ( `null` ): 응용 프로그램이 리디렉션 작업에서 반환 되지 않습니다.
+- `.then` 가 호출 되 고 `tokenResponse` 가 잘못 되었습니다 ( `null` ): 응용 프로그램이 리디렉션 작업에서 반환 되지 않습니다.
 - `.catch` 호출 됨: 응용 프로그램이 리디렉션 작업에서 반환 되 고 오류가 발생 했습니다.
 
 ## <a name="initialize-msaljs-1x-apps"></a>1.x 앱 MSAL.js 초기화

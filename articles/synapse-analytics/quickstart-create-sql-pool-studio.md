@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6ffa7bb07ddb42946acdcef6ee3b7f2aa804f774
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324318"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541847"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 전용 SQL 풀 만들기
 
@@ -76,6 +76,8 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 4. 다음 탭 **추가 설정** 에서 **없음** 을 선택하여 데이터 없이 SQL 풀을 프로비저닝합니다. 기본 데이터 정렬을 선택한 상태로 둡니다.
 
+    복원 지점에서 전용 SQL 풀을 복원하려면 **복원 지점** 을 선택합니다. 복원을 수행하는 방법에 대한 자세한 내용은 [방법: 기존 전용 SQL 풀 복원](backuprestore/restore-sql-pool.md)을 참조하세요.
+
     ![SQL 풀 만들기 흐름 - 추가 설정 탭](media/quickstart-create-sql-pool/create-sql-pool-studio-25.png)
 
 1. 지금은 태그를 추가하지 않을 것이므로, 다음으로 **검토 + 만들기** 를 선택합니다.
@@ -101,13 +103,14 @@ Synapse Studio를 사용하여 작업 영역에서 전용 SQL 풀을 삭제하�
 전용 SQL 풀을 삭제하려면 다음을 수행합니다.
 
 1. Synapse Studio에서 관리 허브의 SQL 풀로 이동합니다.
-1. 삭제할 전용 SQL 풀(이 경우에는 **contosoedw** )에서 줄임표를 선택하여 전용 SQL 풀에 대한 명령을 표시합니다.
+1. 삭제할 전용 SQL 풀(이 경우에는 **contosoedw**)에서 줄임표를 선택하여 전용 SQL 풀에 대한 명령을 표시합니다.
 
     ![최근에 만든 풀이 선택된 SQL 풀 목록이 표시됩니다.](media/quickstart-create-sql-pool/create-sql-pool-studio-28.png)
 1. **삭제** 를 누릅니다.
 1. 삭제를 확인하고 **삭제** 단추를 누릅니다.
 1. 프로세스가 성공적으로 완료되면 전용 SQL 풀이 작업 영역 리소스에 더 이상 나열되지 않습니다.
 
-## <a name="next-steps"></a>다음 단계 
+## <a name="next-steps"></a>다음 단계
+ 
 - [빠른 시작: Apache Spark Notebook 만들기](quickstart-apache-spark-notebook.md)를 참조하세요.
 - [빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기](quickstart-create-sql-pool-portal.md)를 참조하세요.

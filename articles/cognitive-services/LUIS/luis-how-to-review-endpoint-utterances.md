@@ -8,33 +8,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.openlocfilehash: 9777e4f9b2205d2f6cdf6158b035e2a18403d69f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/08/2020
+ms.openlocfilehash: ea2b44d05d25756a16b6b84f0734966b1f579848
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541461"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007605"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>엔드포인트 길이 발언을 검토 하 여 LUIS 앱을 개선 하는 방법
 
 올바른 예측에 대 한 끝점 길이 발언를 검토 하는 프로세스를 [활성 학습](luis-concept-review-endpoint-utterances.md)이라고 합니다. 활성 학습은 끝점 쿼리를 캡처하고 사용자의 끝점 길이 발언를 선택 합니다. 이러한 길이 발언를 검토 하 여 이러한 실제 길이 발언에 대 한 의도 및 표시 엔터티를 선택 합니다. 예제 발화에 이러한 변경 내용을 적용한 다음 학습 및 게시합니다. LUIS는 길이 발언를 보다 정확 하 게 식별 합니다.
 
-## <a name="enable-active-learning"></a>활성 학습 사용
+## <a name="log-user-queries-to-enable-active-learning"></a>사용자 쿼리를 기록 하 여 활성 학습 사용
 
 활성 학습을 사용 하도록 설정 하려면 사용자 쿼리를 기록해 야 합니다. 이렇게 하려면 querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) 를 호출 `log=true` 합니다.
 
 LUIS 포털을 사용 하 여 올바른 끝점 쿼리를 생성 합니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스** 를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
-1. **관리** 섹션으로 이동한 다음 **Azure 리소스**를 선택 합니다.
-1. 할당 된 예측 리소스의 경우 **쿼리 매개 변수 변경**을 선택 합니다.
+1. **관리** 섹션으로 이동한 다음 **Azure 리소스** 를 선택 합니다.
+1. 할당 된 예측 리소스의 경우 **쿼리 매개 변수 변경** 을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![쿼리 매개 변수 변경 링크를 보여 주는 스크린샷](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
-1. **로그 저장** 을 전환 하 고 **완료**를 선택 하 여 저장 합니다.
+1. **로그 저장** 을 전환 하 고 **완료** 를 선택 하 여 저장 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![LUIS 포털을 사용 하 여 활성 학습에 필요한 로그를 저장 합니다.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
@@ -61,8 +61,8 @@ Utterance를 삭제 해야 하는지 확실 하지 않은 경우이를 None으�
 
 ## <a name="disable-active-learning"></a>활성 학습 사용 안 함
 
-활성 학습을 사용 하지 않도록 설정 하려면 사용자 쿼리를 기록 하지 않습니다. 이렇게 [endpoint query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) `log=false` 하려면 기본값은 false 이므로 querystring 매개 변수 및 값을 사용 하 여 끝점 쿼리를 설정 하거나 querystring 값을 사용 하지 않고이를 수행 합니다.
+활성 학습을 사용 하지 않도록 설정 하려면 사용자 쿼리를 기록 하지 않습니다. 이렇게 [](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) `log=false` 하려면 기본값은 false 이므로 querystring 매개 변수 및 값을 사용 하 여 끝점 쿼리를 설정 하거나 querystring 값을 사용 하지 않고이를 수행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-제안된 발화에 레이블을 지정한 후 성능이 얼마나 향상되는지 테스트하려면 위쪽 패널에서 **테스트**를 선택하여 테스트 콘솔에 액세스할 수 있습니다. 테스트 콘솔을 사용하여 앱을 테스트하는 방법에 대한 자세한 내용은 [앱 학습 및 테스트](luis-interactive-test.md)를 참조하세요.
+제안된 발화에 레이블을 지정한 후 성능이 얼마나 향상되는지 테스트하려면 위쪽 패널에서 **테스트** 를 선택하여 테스트 콘솔에 액세스할 수 있습니다. 테스트 콘솔을 사용하여 앱을 테스트하는 방법에 대한 자세한 내용은 [앱 학습 및 테스트](luis-interactive-test.md)를 참조하세요.

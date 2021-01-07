@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330940"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024962"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>오디오 콘텐츠 생성 도구를 사용 하 여 합성 향상
 
@@ -33,13 +33,13 @@ ms.locfileid: "94330940"
 
 ### <a name="step-1---create-an-azure-account"></a>1 단계-Azure 계정 만들기
 
-오디오 콘텐츠 생성을 사용 하려면 [Microsoft 계정](https://account.microsoft.com/account) 및 [Azure 계정이](https://azure.microsoft.com/free/ai/)있어야 합니다. [계정을 설정](get-started.md#new-resource)하려면 다음 지침을 따르세요. 
+오디오 콘텐츠 생성을 사용 하려면 [Microsoft 계정](https://account.microsoft.com/account) 및 [Azure 계정이](https://azure.microsoft.com/free/ai/)있어야 합니다. [계정을 설정](./overview.md#try-the-speech-service-for-free)하려면 다음 지침을 따르세요. 
 
 [Azure Portal](https://portal.azure.com/) 은 Azure 계정을 관리할 수 있는 중앙 집중식입니다. 음성 리소스를 만들고, 제품 액세스를 관리 하 고, 간단한 웹 앱에서 복잡 한 클라우드 배포까지 모든 것을 모니터링할 수 있습니다. 
 
 ### <a name="step-2---create-a-speech-resource"></a>2 단계-음성 리소스 만들기
 
-Azure 계정에 등록 한 후에는 음성 서비스에 액세스 하기 위해 Azure 계정에서 음성 리소스를 만들어야 합니다. [음성 리소스를 만드는 방법](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#create-the-azure-resource)에 대 한 지침을 확인 합니다. 
+Azure 계정에 등록 한 후에는 음성 서비스에 액세스 하기 위해 Azure 계정에서 음성 리소스를 만들어야 합니다. [음성 리소스를 만드는 방법](./overview.md#create-the-azure-resource)에 대 한 지침을 확인 합니다. 
 
 새 Speech 리소스를 배포하는 데 몇 분 정도 걸립니다. 배포가 완료 되 면 오디오 콘텐츠 생성 경험을 시작할 수 있습니다. 
 
@@ -63,7 +63,7 @@ Azure 계정에 등록 한 후에는 음성 서비스에 액세스 하기 위해
 2. 일반 텍스트 또는 SSML 스크립트를 사용 하 여 [오디오 튜닝 파일을 만듭니다](#create-an-audio-tuning-file) . 오디오 콘텐츠 생성에 콘텐츠를 입력 하거나 업로드 합니다.
 3. 스크립트 콘텐츠에 대 한 음성 및 언어를 선택 합니다. 오디오 콘텐츠 생성에는 모든 [Microsoft 텍스트 음성 변환 음성이](language-support.md#text-to-speech)포함 됩니다. 표준, 신경망 또는 고유한 사용자 지정 음성을 사용할 수 있습니다.
    >[!NOTE]
-   > 제어 된 액세스는 사용자 지정 신경망에 사용할 수 있으며,이를 통해 자연 스런 음성 처럼 고화질 음성을 만들 수 있습니다. 자세한 내용은 [제어 프로세스](https://aka.ms/ignite2019/speech/ethics)를 참조 하세요.
+   > 제어 된 액세스는 사용자 지정 신경망에 사용할 수 있으며,이를 통해 자연 스런 음성 처럼 고화질 음성을 만들 수 있습니다. 자세한 내용은 [제어 프로세스](./text-to-speech.md)를 참조 하세요.
 
 4. **재생** 아이콘 (삼각형)을 클릭 하 여 기본 합성 출력을 미리 봅니다. 그런 다음 발음, 나누기, 피치, 요율, intonation, 음성 스타일 등을 조정 하 여 출력을 향상 시킵니다. 전체 옵션 목록은 [음성 합성 마크업 언어](speech-synthesis-markup.md)를 참조 하세요. 오디오 콘텐츠를 생성 하 여 음성 출력을 미세 조정 하는 방법을 보여 주는 [비디오](https://www.youtube.com/watch?v=O1wIJ7mts_w) 는 다음과 같습니다. 
 5. [튜닝 오디오를](#export-tuned-audio)저장 하 고 내보냅니다. 시스템에서 튜닝 트랙을 저장할 때 계속 해 서 작업 하 고 출력을 반복할 수 있습니다. 출력에 만족 하는 경우 내보내기 기능을 사용 하 여 오디오 만들기 작업을 만들 수 있습니다. 내보내기 작업의 상태를 관찰 하 고 앱 및 제품에 사용할 출력을 다운로드할 수 있습니다.
@@ -160,7 +160,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ## <a name="see-also"></a>추가 정보
 
-* [긴 오디오 API](https://aka.ms/long-audio-api)
+* [긴 오디오 API](./long-audio-api.md)
 
 ## <a name="next-steps"></a>다음 단계
 

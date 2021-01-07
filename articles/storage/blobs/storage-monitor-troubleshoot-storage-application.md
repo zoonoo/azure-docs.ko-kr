@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 5deece615e9d7de1e71e33164560c1c26212ec08
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6c1d9b813db15900521968865c1036d53ad53f41
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676789"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544788"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>클라우드 스토리지 애플리케이션 모니터링 및 문제 해결
 
@@ -83,11 +83,11 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 
 스토리지 로그는 스토리지 계정에 **$logs** 라는 blob 컨테이너에 있는 blob의 세트에 데이터를 저장합니다. 이 컨테이너는 계정의 모든 blob 컨테이너를 나열하는 경우에는 표시되지 않지만 직접 액세스할 때는 해당 콘텐츠를 볼 수 있습니다.
 
-이 시나리오에서는 [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)를 사용하여 Azure Storage 계정과 상호 작용합니다.
+이 시나리오에서는 [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide)를 사용하여 Azure Storage 계정과 상호 작용합니다.
 
 ### <a name="download-microsoft-message-analyzer"></a>Microsoft Message Analyzer 다운로드
 
-[Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer)를 다운로드하고 애플리케이션을 설치합니다.
+[Microsoft Message Analyzer](/message-analyzer/installing-and-upgrading-message-analyzer)를 다운로드하고 애플리케이션을 설치합니다.
 
 이 애플리케이션을 시작하고 **파일** > **열기** > **기타 파일 원본** 을 선택합니다.
 

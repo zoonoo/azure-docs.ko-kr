@@ -6,12 +6,12 @@ ms.topic: sample
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/08/2020
-ms.openlocfilehash: d7a8a7b7fa75d7d9bb4dc45a3432370bac4cb4d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5818f1ffac9c89e24c1a12cf92fc5fbf1ddf2386
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498647"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657229"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>Application Insights 리소스 생성을 위한 Resource Manager 템플릿 샘플
 
@@ -107,7 +107,7 @@ ms.locfileid: "86498647"
 
 ## <a name="workspace-based-application-insights-resource"></a>작업 영역 기반 Application Insights 리소스 
 
-다음 샘플에서는 [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md)를 만듭니다. 작업 영역 기반 Application Insights는 현재 **미리 보기**로 제공합니다. 
+다음 샘플에서는 [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md)를 만듭니다. 작업 영역 기반 Application Insights는 현재 **미리 보기** 로 제공합니다. 
 
 
 ### <a name="template-file"></a>템플릿 파일

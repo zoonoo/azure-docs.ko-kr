@@ -5,14 +5,14 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: overview
-ms.date: 04/24/2020
+ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1bf3141876ee56ee1361f19a67689ca3b2f4f89a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82628523"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685293"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -28,11 +28,15 @@ Azure Red Hat OpenShift는 Red Hat과 Microsoft가 공동으로 설계, 운영 �
 
 ## <a name="access-security-and-monitoring"></a>액세스, 보안 및 모니터링
 
-향상된 보안 및 관리를 위해 Azure Red Hat OpenShift를 Azure AD(Azure Active Directory)와 연결할 수 있으며, Kubernetes RBAC(역할 기반 액세스 제어)를 사용할 수 있습니다. 클러스터 및 리소스의 상태를 모니터링할 수도 있습니다.
+향상된 보안 및 관리를 위해 Azure Red Hat OpenShift를 Azure AD(Azure Active Directory)와 통합하고 Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)를 사용할 수 있습니다. 클러스터 및 리소스의 상태를 모니터링할 수도 있습니다.
 
 ## <a name="cluster-and-node"></a>클러스터 및 노드
 
 Azure Red Hat OpenShift 노드는 Azure 가상 머신에서 실행됩니다. 스토리지를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드할 수 있습니다.
+
+## <a name="service-level-agreement"></a>서비스 수준 계약
+
+Azure Red Hat OpenShift는 서비스를 99.95%의 시간 동안 사용할 수 있도록 보장하는 Service Level Agreement(서비스 수준 약정)를 제공합니다. SLA에 대한 자세한 내용은 [Azure Red Hat OpenShift SLA](https://azure.microsoft.com/en-au/support/legal/sla/openshift/v1_0/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307959"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455501"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>빠른 시작: Synapse에서 새로운 Azure Machine Learning 연결된 서비스 만들기
 
-이 빠른 시작에서는 Synapse Analytics 작업 영역을 Azure Machine Learning 작업 영역에 연결합니다. 이러한 작업 영역을 연결하면 Synapse의 다양한 환경에서 Azure Machine Learning을 활용할 수 있습니다.
+이 빠른 시작에서는 Azure Synapse Analytics 작업 영역을 Azure Machine Learning 작업 영역에 연결합니다. 이러한 작업 영역을 연결하면 Synapse의 다양한 환경에서 Azure Machine Learning을 활용할 수 있습니다.
 
 예를 들어 Azure Machine Learning 작업 영역에 연결하면 다음과 같은 환경을 사용할 수 있습니다.
 
@@ -80,4 +80,4 @@ ms.locfileid: "93307959"
 ## <a name="next-steps"></a>다음 단계
 
 - [자습서: 기계 학습 모델 점수 매기기 마법사 - 전용 SQL 풀](tutorial-sql-pool-model-scoring-wizard.md)
-- [Azure Synapse Analytics의 Machine Learning 기능(작업 영역 미리 보기)](what-is-machine-learning.md)
+- [Azure Synapse Analytics의 Machine Learning 기능](what-is-machine-learning.md)

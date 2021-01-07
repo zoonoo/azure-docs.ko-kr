@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
-ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: ba5dd0ccc06a443378f87cfb92da76616ad67263
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361168"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029518"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 추론 환경 보호
 
@@ -36,7 +36,7 @@ ms.locfileid: "93361168"
 > - ACI(Azure Container Instances)
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -115,6 +115,8 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 만들기 프로세스가 완료되면 가상 네트워크 뒤에서 AKS 클러스터에 유추 또는 모델 채점을 수행할 수 있습니다. 자세한 내용은 [AKS에 배포하는 방법](how-to-deploy-and-where.md)을 참조하세요.
 
+Kubernetes와 함께 Role-Based Access Control를 사용 하는 방법에 대 한 자세한 내용은 [Kubernetes 권한 부여에 AZURE RBAC 사용](../aks/manage-azure-rbac.md)을 참조 하세요.
+
 ## <a name="network-contributor-role"></a>네트워크 참가자 역할
 
 > [!IMPORTANT]
@@ -151,8 +153,8 @@ AKS에서 내부 부하 분산 장치를 사용하는 방법에 대한 자세한
 
 AKS 클러스터와 가상 네트워크 간에 트래픽을 격리 하는 방법에는 두 가지가 있습니다.
 
-* __PRIVATE AKS cluster__ :이 방법은 Azure 개인 링크를 사용 하 여 배포/관리 작업을 위한 클러스터와의 통신을 보호 합니다.
-* __내부 AKS 부하 분산 장치__ :이 방법은 가상 네트워크 내에서 개인 IP를 사용 하도록 AKS에 배포 하기 위한 끝점을 구성 합니다.
+* __PRIVATE AKS cluster__:이 방법은 Azure 개인 링크를 사용 하 여 배포/관리 작업을 위한 클러스터와의 통신을 보호 합니다.
+* __내부 AKS 부하 분산 장치__:이 방법은 가상 네트워크 내에서 개인 IP를 사용 하도록 AKS에 배포 하기 위한 끝점을 구성 합니다.
 
 > [!WARNING]
 > 내부 부하 분산 장치는 kubenet를 사용 하는 AKS 클러스터에서 작동 하지 않습니다. 내부 부하 분산 장치 및 개인 AKS 클러스터를 동시에 사용 하려면 CNI (Azure Container 네트워킹 인터페이스)를 사용 하 여 개인 AKS 클러스터를 구성 합니다. 자세한 내용은 [Azure Kubernetes Service에서 azure CNI 네트워킹 구성](../aks/configure-azure-cni.md)을 참조 하세요.
@@ -250,7 +252,9 @@ aks_target.wait_for_completion(show_output = True)
 Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니다. Azure Machine Learning이 가상 네트워크 내에 ACI를 만들 수 있도록 설정하려면 배포에 사용되는 서브넷에 __서브넷 위임__ 을 활성화해야 합니다.
 
 > [!WARNING]
-> 가상 네트워크에서 Azure Container Instances를 사용 하는 경우 가상 네트워크가 Azure Machine Learning 작업 영역과 동일한 리소스 그룹에 있어야 합니다.
+> 가상 네트워크에서 Azure Container Instances를 사용 하는 경우 가상 네트워크는 다음과 같아야 합니다.
+> * Azure Machine Learning 작업 영역과 동일한 리소스 그룹에 있습니다.
+> * 작업 영역에 __개인 끝점이__ 있는 경우 Azure Container Instances에 사용 되는 가상 네트워크는 작업 영역 개인 끝점에서 사용 하는 것과 동일 해야 합니다.
 >
 > 가상 네트워크 내에서 Azure Container Instances를 사용 하는 경우 작업 영역에 대 한 Azure Container Registry (ACR)는 가상 네트워크에도 있을 수 없습니다.
 
@@ -263,7 +267,7 @@ Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니�
 
 2. [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true)을 사용하여 모델을 배포하고 `vnet_name` 및 `subnet_name` 매개 변수를 사용합니다. 이 매개 변수를 위임을 사용하도록 설정한 가상 네트워크 이름 및 서브넷으로 설정합니다.
 
-## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> 가상 네트워크에서 아웃바운드 연결 제한
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>가상 네트워크에서 아웃바운드 연결 제한
 
 기본 아웃 바운드 규칙을 사용 하지 않고 가상 네트워크의 아웃 바운드 액세스를 제한 하려는 경우 Azure Container Registry에 대 한 액세스를 허용 해야 합니다. 예를 들어 NSG (네트워크 보안 그룹)에 __AzureContainerRegistry name__ 서비스 태그에 대 한 액세스를 허용 하는 규칙이 포함 되어 있는지 확인 합니다. 여기서 ' {영역 이름}은 Azure 지역의 이름입니다.
 

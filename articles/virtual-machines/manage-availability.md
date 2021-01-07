@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 9d9a9c878c96c7f5a38466c494e4b90287c984da
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0ae4a311bc4f5084ff930b97d68482d64671a782
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92734943"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695761"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Linux 가상 머신의 가용성 관리
 
@@ -22,7 +22,7 @@ Azure에서 여러 가상 머신을 설정하고 관리하여 Linux 애플리케
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
 
-* **계획되지 않은 하드웨어 유지 관리 이벤트** 는 Azure 플랫폼에서 물리적 컴퓨터와 관련된 하드웨어 또는 플랫폼 구성 요소가 실패할 것으로 예측할 때 발생합니다. 플랫폼에서 오류를 예측하는 경우 계획되지 않은 하드웨어 유지 관리 이벤트를 발급하여 해당 하드웨어에서 호스팅되는 가상 머신에 미치는 영향을 줄입니다. Azure에서는 [실시간 마이그레이션](./maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252flinux%252ftoc.json) 기술을 사용하여 오류가 발생한 하드웨어에서 정상적인 물리적 컴퓨터로 Virtual Machines를 마이그레이션합니다. 실시간 마이그레이션은 짧은 시간 동안 Virtual Machine을 일시 중지하는 VM 보존 작업입니다. 메모리, 열린 파일 및 네트워크 연결은 유지되지만 이벤트 전후에 성능이 저하될 수 있습니다. 실시간 마이그레이션을 사용할 수 없는 경우 아래에서 설명한 대로 VM에 예기치 않은 가동 중지가 발생합니다.
+* **계획되지 않은 하드웨어 유지 관리 이벤트** 는 Azure 플랫폼에서 물리적 컴퓨터와 관련된 하드웨어 또는 플랫폼 구성 요소가 실패할 것으로 예측할 때 발생합니다. 플랫폼에서 오류를 예측하는 경우 계획되지 않은 하드웨어 유지 관리 이벤트를 발급하여 해당 하드웨어에서 호스팅되는 가상 머신에 미치는 영향을 줄입니다. Azure에서는 [실시간 마이그레이션](./maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 기술을 사용하여 오류가 발생한 하드웨어에서 정상적인 물리적 컴퓨터로 Virtual Machines를 마이그레이션합니다. 실시간 마이그레이션은 짧은 시간 동안 Virtual Machine을 일시 중지하는 VM 보존 작업입니다. 메모리, 열린 파일 및 네트워크 연결은 유지되지만 이벤트 전후에 성능이 저하될 수 있습니다. 실시간 마이그레이션을 사용할 수 없는 경우 아래에서 설명한 대로 VM에 예기치 않은 가동 중지가 발생합니다.
 
 
 * **예기치 않은 가동 중지 시간** 은 가상 머신의 하드웨어 또는 실제 인프라에 예기치 않게 문제가 발생하는 경우입니다. 여기에는 로컬 네트워크 오류, 로컬 디스크 오류 또는 기타 랙 수준의 오류가 포함될 수도 있습니다. 이러한 오류가 감지되면 Azure 플랫폼에서 가상 머신을 동일한 데이터 센터의 정상적인 물리적 컴퓨터로 자동으로 마이그레이션(복구)합니다. 복구 과정 중에 가상 머신에서 가동 중지(재부팅)가 발생하고 경우에 따라 임시 드라이브가 손실됩니다. 연결된 OS 및 데이터 디스크는 항상 유지됩니다.
@@ -40,7 +40,6 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 * 예약된 이벤트를 사용하여 VM에 영향을 주는 이벤트에 사전 응답
 * 각 애플리케이션 계층을 별도의 가용성 집합으로 구성
 * 가용성 영역 또는 집합과 부하 분산 장치 결합
-* 가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자를 보호합니다.
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자를 보호합니다.
 
@@ -70,7 +69,7 @@ Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA
    ![업데이트 도메인 및 장애 도메인 구성의 개념적 그림](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>가용성 집합에서 VM에 Managed Disks 사용
-현재 관리 되지 않는 디스크가 있는 Vm을 사용 하는 경우 관리 되지 않는 [Linux](./linux/convert-unmanaged-to-managed-disks.md) 및 [Windows](./windows/convert-unmanaged-to-managed-disks.md)용 디스크로 변환 하는 것이 좋습니다.
+현재 관리 되지 않는 디스크와 함께 Vm을 사용 하는 경우 관리 되지 않는 [Linux](./linux/convert-unmanaged-to-managed-disks.md) 및 [Windows](./windows/convert-unmanaged-to-managed-disks.md)용 디스크로 변환 하는 것이 좋습니다.
 
 [Managed Disks](./managed-disks-overview.md)는 단일 실패 지점을 피할 만큼 가용성 집합의 VM 디스크가 서로 충분히 격리되도록 하여 가용성 집합에 더 나은 안정성을 제공합니다. 디스크를 다른 스토리지 장애 도메인(스토리지 클러스터)에 자동으로 배치하고 VM 장애 도메인에 맞게 조정하여 작업을 수행합니다. 하드웨어나 소프트웨어 오류로 인해 스토리지 장애 도메인에 장애가 발생하면 스토리지 장애 도메인의 디스크가 있는 VM 인스턴스만 실패합니다.
 ![Managed Disks FD](./media/virtual-machines-common-manage-availability/md-fd-updated.png)

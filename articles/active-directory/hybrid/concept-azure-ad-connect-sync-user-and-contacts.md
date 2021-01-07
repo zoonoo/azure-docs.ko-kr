@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e015f7937db6788aa4473a8a04434121299901e9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279315"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861785"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해
 여러 Active Directory 포리스트를 가져야 하는 이유와 배포 토폴로지는 여러 가지가 있습니다. 일반적인 모델에는 합병 & 인수 후 계정 리소스 배포 및 GAL 동기화 포리스트가 포함됩니다. 하지만 순수 모델이 있어도 하이브리드 모델도 일반적입니다. Azure AD Connect 동기화의 기본 구성은 어느 특정 모델을 가정하지는 않지만 설치 가이드에서 사용자 일치가 어떻게 선택되어 있는지에 따라 다양한 동작을 관찰할 수 있습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "89279315"
 
 구성을 가정하는 몇 가지 일반적인 규칙이 있습니다.
 * 원본 Active Directory에서 가져오는 순서와 관계없이 최종 결과는 항상 동일해야 합니다.
-* 활성 계정은 항상 **userPrincipalName** 및**sourceAnchor**를 포함한 로그인 정보를 제공합니다.
+* 활성 계정은 항상 **userPrincipalName** 및 **sourceAnchor** 를 포함한 로그인 정보를 제공합니다.
 * 활성화된 계정이 없는 경우 비활성화된 계정이 연결된 사서함이 아니라면 userPrincipalName 및 sourceAnchor를 제공합니다.
 * 연결된 사서함이 있는 계정은 userPrincipalName 및 sourceAnchor에 대 해 사용되지 않습니다. 활성 계정이 나중에 검색되는 것으로 가정합니다.
 * 연락처 개체를 Azure AD에 사용자 또는 연락처로 프로비전할 수 있습니다. 모든 원본 Active Directory 포리스트가 처리 될 때까지 실제로 알지 못합니다.
@@ -41,7 +41,7 @@ Active Directory에서 Azure AD로 그룹을 동기화할 때 다음에 유의�
 
 * Azure AD Connect는 [주 그룹 구성원 자격](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11))에서 Azure AD로의 동기화를 지원하지 않습니다.
 
-* Azure AD Connect는 [동적 배포 그룹 구성원 자격](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019)에서 Azure AD로의 동기화를 지원하지 않습니다.
+* Azure AD Connect는 [동적 배포 그룹 구성원 자격](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups)에서 Azure AD로의 동기화를 지원하지 않습니다.
 
 * Active Directory 그룹을 Azure AD에 메일 사용이 가능한 그룹으로 동기화하려면
 
@@ -56,9 +56,9 @@ Active Directory에서 Azure AD로 그룹을 동기화할 때 다음에 유의�
       * ProxyAddress 특성의 값이 *{"X500:/0 = contoso.com/ou = users/cn = testgroup", "smtp: johndoe \@ contoso.com"}* 인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 있습니다.
 
 ## <a name="contacts"></a>연락처
-연락처가 다른 포리스트의 사용자를 나타내게 하는 것은 GALSync 솔루션이 둘 이상의 Exchange 포리스트 사이를 연결하는 M&A 후에 일반적입니다. 연락처 개체는 항상 메일 특성을 사용하여 커넥터 공간에서 메타 버스로 조인됩니다. 이미 연락처 개체나 동일한 메일 주소를 가진 사용자 개체가 있다면 이들 개체가 함께 조인됩니다. 이는 **In from AD –  Contact Join**(AD에서 가져오기 - 연락처 조인) 규칙에서 구성됩니다. 또한 **Contact**(연락처) 상수를 사용하는 메타버스 특성 **sourceObjectType**으로의 특성 흐름을 포함하는 **In from AD – Contact Common**(AD에서 가져오기 - 연락처 공통)이라는 규칙도 있습니다. 이 규칙은 우선 순위가 매우 낮으므로 사용자 개체가 동일한 메타버스 개체에 조인된 경우 **In from AD – User Common**(AD에서 가져오기 - 사용자 공통) 규칙이 이 특성에 User 값을 제공합니다. 이 규칙을 사용할 경우 조인된 사용자가 없으면 이 특성이 연락처 값을 갖게 되며, 최소 1명의 사용자가 발견되면 사용자 값을 갖습니다.
+연락처가 다른 포리스트의 사용자를 나타내게 하는 것은 GALSync 솔루션이 둘 이상의 Exchange 포리스트 사이를 연결하는 M&A 후에 일반적입니다. 연락처 개체는 항상 메일 특성을 사용하여 커넥터 공간에서 메타 버스로 조인됩니다. 이미 연락처 개체나 동일한 메일 주소를 가진 사용자 개체가 있다면 이들 개체가 함께 조인됩니다. 이는 **In from AD –  Contact Join**(AD에서 가져오기 - 연락처 조인) 규칙에서 구성됩니다. 또한 **Contact**(연락처) 상수를 사용하는 메타버스 특성 **sourceObjectType** 으로의 특성 흐름을 포함하는 **In from AD – Contact Common**(AD에서 가져오기 - 연락처 공통)이라는 규칙도 있습니다. 이 규칙은 우선 순위가 매우 낮으므로 사용자 개체가 동일한 메타버스 개체에 조인된 경우 **In from AD – User Common**(AD에서 가져오기 - 사용자 공통) 규칙이 이 특성에 User 값을 제공합니다. 이 규칙을 사용할 경우 조인된 사용자가 없으면 이 특성이 연락처 값을 갖게 되며, 최소 1명의 사용자가 발견되면 사용자 값을 갖습니다.
 
-Azure AD에 개체를 프로비전하는 경우에는 메타버스 특성 **sourceObjectType**이 **연락처**로 설정되면 아웃바운드 규칙 **AAD로 나가기 – 연락처 조인**이 연락처 개체를 생성합니다. 이 특성이 **User**로 설정되면 **AAD로 나가기 – 사용자 조인** 규칙이 대신 사용자 개체를 만듭니다.
+Azure AD에 개체를 프로비전하는 경우에는 메타버스 특성 **sourceObjectType** 이 **연락처** 로 설정되면 아웃바운드 규칙 **AAD로 나가기 – 연락처 조인** 이 연락처 개체를 생성합니다. 이 특성이 **User** 로 설정되면 **AAD로 나가기 – 사용자 조인** 규칙이 대신 사용자 개체를 만듭니다.
 추가 원본 Active Directory를 가져와서 동기화하면 개체가 사용자에게 연락처로부터 승격될 수도 있습니다.
 
 예를 들어 GALSync 토폴로지에서 첫번째 포리스트를 가져올 때 두번째 포리스트의 모두를 위해 연락처 개체를 찾습니다. 그러면 AAD 커넥터에 새 연락처 개체를 준비합니다. 나중에 두번째 포리스트를 가져오고 동기화할 때 실제 사용자를 찾아서 기존 메타 버스 개체에 조인시킵니다. 그런 다음 AAD에서 연락처 개체를 삭제하고 대신 새 사용자 개체를 만듭니다.
@@ -71,7 +71,7 @@ Azure AD에 개체를 프로비전하는 경우에는 메타버스 특성 **sour
 비활성화된 사용자 계정이 발견된 경우에는 나중에 다른 활성 계정을 찾지 못하며 개체가 발견된 userPrincipalName 및 sourceAnchor가 있는 Azure AD로 프로비전된다고 가정합니다. 다른 활성 계정이 동일한 메타 버스 개체에 조인되는 경우에는 해당 userPrincipalName 및 sourceAnchor가 사용됩니다.
 
 ## <a name="changing-sourceanchor"></a>sourceAnchor 변경
-개체를 Azure AD로 내보내면 더 이상 sourceAnchor를 변경할 수 없습니다. 개체가 내보내지면 메타버스 특성 **cloudSourceAnchor**가 Azure AD에서 허용한 **sourceAnchor** 값으로 설정됩니다. **sourceAnchor**가 변경되고 **cloudSourceAnchor**와 일치하지 않으면 **Out to AAD – User Join**(AAD로 보내기 – 사용자 조인) 규칙에서 **sourceAnchor 특성이 변경되었습니다** 오류가 발생합니다. 이 경우 개체를 다시 동기화하기 전에 동일한 sourceAnchor가 메타 버스에 다시 나타나도록 구성 또는 데이터를 수정해야 합니다.
+개체를 Azure AD로 내보내면 더 이상 sourceAnchor를 변경할 수 없습니다. 개체가 내보내지면 메타버스 특성 **cloudSourceAnchor** 가 Azure AD에서 허용한 **sourceAnchor** 값으로 설정됩니다. **sourceAnchor** 가 변경되고 **cloudSourceAnchor** 와 일치하지 않으면 **Out to AAD – User Join**(AAD로 보내기 – 사용자 조인) 규칙에서 **sourceAnchor 특성이 변경되었습니다** 오류가 발생합니다. 이 경우 개체를 다시 동기화하기 전에 동일한 sourceAnchor가 메타 버스에 다시 나타나도록 구성 또는 데이터를 수정해야 합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)

@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 3ed71e49ebc550cb7bc2041e25aa6b9bde77b1ef
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172244"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629717"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -25,7 +25,8 @@ Azure Backup를 사용 하면 [개인 끝점](../private-link/private-endpoint-o
 - Recovery Services 자격 증명 모음은 (둘 다) Azure Backup 및 Azure Site Recovery에서 사용 되지만이 문서에서는 Azure Backup 전용 전용 끝점을 사용 하는 방법을 설명 합니다.
 - Azure Active Directory는 현재 개인 끝점을 지원 하지 않습니다. 따라서 지역에서 작업을 수행 하는 데 Azure Active Directory 필요한 Ip 및 Fqdn은 Azure Vm에서 데이터베이스의 백업을 수행 하 고 MARS 에이전트를 사용 하 여 백업할 때 보안 네트워크에서의 아웃 바운드 액세스를 허용 해야 합니다. 해당 하는 경우 Azure AD에 대 한 액세스를 허용 하기 위해 NSG 태그 및 Azure 방화벽 태그를 사용할 수도 있습니다.
 - 네트워크 정책을 사용 하는 가상 네트워크는 전용 끝점에 대해 지원 되지 않습니다. 계속 하기 전에 네트워크 정책을 사용 하지 않도록 설정 해야 합니다.
-- 1 2020 년 5 월 이전에 등록 한 경우 구독에 Recovery Services 리소스 공급자를 다시 등록 해야 합니다. 공급자를 다시 등록 하려면 Azure Portal의 구독으로 이동 하 여 왼쪽 탐색 모음에서 **리소스 공급자** 로 이동 하 고, **Microsoft recoveryservices** 를 선택 하 고, **다시 등록**을 선택 합니다.
+- 1 2020 년 5 월 이전에 등록 한 경우 구독에 Recovery Services 리소스 공급자를 다시 등록 해야 합니다. 공급자를 다시 등록 하려면 Azure Portal의 구독으로 이동 하 여 왼쪽 탐색 모음에서 **리소스 공급자** 로 이동 하 고, **Microsoft recoveryservices** 를 선택 하 고, **다시 등록** 을 선택 합니다.
+- 자격 증명 모음에서 전용 끝점을 사용 하는 경우 SQL 및 SAP HANA 데이터베이스 백업에 대 한 [지역 간 복원이](backup-create-rs-vault.md#set-cross-region-restore) 지원 되지 않습니다.
 
 ## <a name="recommended-and-supported-scenarios"></a>권장 및 지원 되는 시나리오
 
@@ -51,11 +52,11 @@ Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을
 
 관리 id를 사용 하면 자격 증명 모음이 개인 끝점을 만들고 사용할 수 있습니다. 이 섹션에서는 자격 증명 모음에 관리 되는 id를 사용 하도록 설정 하는 방법을 설명 합니다.
 
-1. Recovery Services 자격 증명 모음 > **id**로 이동 합니다.
+1. Recovery Services 자격 증명 모음 > **id** 로 이동 합니다.
 
     ![Id 상태를 설정으로 변경](./media/private-endpoints/identity-status-on.png)
 
-1. **상태** 를 **켜기** 로 변경 하 고 **저장**을 선택 합니다.
+1. **상태** 를 **켜기** 로 변경 하 고 **저장** 을 선택 합니다.
 
 1. 자격 증명 모음의 관리 되는 id 인 **개체 ID** 가 생성 됩니다.
 
@@ -73,11 +74,11 @@ Azure Backup에 대 한 필수 개인 끝점을 만들려면 자격 증명 모�
 이러한 세 개의 리소스 그룹에 대 한 **참가자** 역할을 자격 증명 모음 (관리 id)에 부여 하는 것이 좋습니다. 다음 단계에서는 특정 리소스 그룹에 대해이 작업을 수행 하는 방법을 설명 합니다 .이 작업은 세 가지 리소스 그룹 각각에 대해 수행 해야 합니다.
 
 1. 리소스 그룹으로 이동 하 여 왼쪽 막대에서 **Access Control (IAM)** 로 이동 합니다.
-1. **Access Control**한 후 **역할 할당 추가**로 이동 합니다.
+1. **Access Control** 한 후 **역할 할당 추가** 로 이동 합니다.
 
     ![역할 할당 추가](./media/private-endpoints/add-role-assignment.png)
 
-1. **역할 할당 추가** 창에서 **역할**로 **참가자** 를 선택 하 고 자격 증명 모음 **이름을** **주**서버로 사용 합니다. 자격 증명 모음을 선택 하 고 완료 되 면 **저장** 을 선택 합니다.
+1. **역할 할당 추가** 창에서 **역할** 로 **참가자** 를 선택 하 고 자격 증명 모음 **이름을** **주** 서버로 사용 합니다. 자격 증명 모음을 선택 하 고 완료 되 면 **저장** 을 선택 합니다.
 
     ![역할 및 주체 선택](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -89,11 +90,11 @@ Azure Backup에 대 한 필수 개인 끝점을 만들려면 자격 증명 모�
 
 이 섹션에서는 자격 증명 모음에 대 한 개인 끝점을 만드는 프로세스에 대해 설명 합니다.
 
-1. 검색 창에서 **개인 링크**를 검색 하 고 선택 합니다. 그러면 **개인 링크 센터로**이동 합니다.
+1. 검색 창에서 **개인 링크** 를 검색 하 고 선택 합니다. 그러면 **개인 링크 센터로** 이동 합니다.
 
     ![개인 링크 검색](./media/private-endpoints/search-for-private-link.png)
 
-1. 왼쪽 탐색 모음에서 **전용 끝점**을 선택 합니다. **전용 끝점** 창에서 **+ 추가** 를 선택 하 여 자격 증명 모음에 대 한 개인 끝점 만들기를 시작 합니다.
+1. 왼쪽 탐색 모음에서 **전용 끝점** 을 선택 합니다. **전용 끝점** 창에서 **+ 추가** 를 선택 하 여 자격 증명 모음에 대 한 개인 끝점 만들기를 시작 합니다.
 
     ![개인 링크 센터에서 개인 끝점 추가](./media/private-endpoints/add-private-endpoint.png)
 
@@ -103,7 +104,7 @@ Azure Backup에 대 한 필수 개인 끝점을 만들려면 자격 증명 모�
 
         ![기본 정보 입력](./media/private-endpoints/basic-details.png)
 
-    1. **리소스**:이 탭을 사용 하려면 연결을 만들려는 PaaS 리소스를 언급 해야 합니다. 원하는 구독의 리소스 유형에 서 **Microsoft RecoveryServices/자격 증명 모음** 을 선택 합니다. 작업이 완료 되 면 **리소스** 및 **azurebackup** 의 Recovery Services 자격 증명 모음 이름을 **대상 하위 리소스로**선택 합니다.
+    1. **리소스**:이 탭을 사용 하려면 연결을 만들려는 PaaS 리소스를 언급 해야 합니다. 원하는 구독의 리소스 유형에 서 **Microsoft RecoveryServices/자격 증명 모음** 을 선택 합니다. 작업이 완료 되 면 **리소스** 및 **azurebackup** 의 Recovery Services 자격 증명 모음 이름을 **대상 하위 리소스로** 선택 합니다.
 
         ![리소스 탭에 입력](./media/private-endpoints/resource-tab.png)
 
@@ -411,13 +412,13 @@ $privateEndpoint = New-AzPrivateEndpoint `
 - 자격 증명 모음의 개인 끝점은 개인 끝점을 만드는 동안 지정 된 이름을 사용 합니다.
 - Blob 및 큐 서비스에 대 한 개인 끝점에는 자격 증명 모음에 대해 동일한 이름의 접두사가 붙습니다.
 
-예를 들어 다음 그림은 이름이 *pee2epe*개인 끝점 연결에 대해 생성 된 세 개의 개인 끝점을 보여 줍니다.
+예를 들어 다음 그림은 이름이 *pee2epe* 개인 끝점 연결에 대해 생성 된 세 개의 개인 끝점을 보여 줍니다.
 
 ![개인 끝점 연결에 대 한 세 개의 개인 끝점](./media/private-endpoints/three-private-endpoints.png)
 
 백업 서비스에 대 한 DNS 영역 ( `privatelink.<geo>.backup.windowsazure.com` ):
 
-1. **개인 링크 센터**에서 백업용 개인 끝점으로 이동 합니다. 개요 페이지에는 개인 끝점의 FQDN 및 개인 Ip가 나열 됩니다.
+1. **개인 링크 센터** 에서 백업용 개인 끝점으로 이동 합니다. 개요 페이지에는 개인 끝점의 FQDN 및 개인 Ip가 나열 됩니다.
 
 1. 각 FQDN 및 개인 IP에 대 한 항목 하나를 유형 레코드로 추가 합니다.
 
@@ -425,7 +426,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 Blob service ()에 대 한 DNS 영역 `privatelink.blob.core.windows.net` :
 
-1. **개인 링크 센터**에서 Blob에 대 한 개인 끝점으로 이동 합니다. 개요 페이지에는 개인 끝점의 FQDN 및 개인 Ip가 나열 됩니다.
+1. **개인 링크 센터** 에서 Blob에 대 한 개인 끝점으로 이동 합니다. 개요 페이지에는 개인 끝점의 FQDN 및 개인 Ip가 나열 됩니다.
 
 1. FQDN 및 개인 IP에 대 한 항목을 유형 레코드로 추가 합니다.
 
@@ -433,7 +434,7 @@ Blob service ()에 대 한 DNS 영역 `privatelink.blob.core.windows.net` :
 
 큐 서비스 ()에 대 한 DNS 영역 `privatelink.queue.core.windows.net` :
 
-1. **개인 링크 센터**에서 큐에 대 한 개인 끝점으로 이동 합니다. 개요 페이지에는 개인 끝점의 FQDN 및 개인 Ip가 나열 됩니다.
+1. **개인 링크 센터** 에서 큐에 대 한 개인 끝점으로 이동 합니다. 개요 페이지에는 개인 끝점의 FQDN 및 개인 Ip가 나열 됩니다.
 
 1. FQDN 및 개인 IP에 대 한 항목을 유형 레코드로 추가 합니다.
 

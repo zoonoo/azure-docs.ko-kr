@@ -3,12 +3,12 @@ title: Azure Storage 큐와 Service Bus 큐 비교
 description: Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다.
 ms.topic: article
 ms.date: 11/04/2020
-ms.openlocfilehash: 5c65cf5ef2d572417ea70d0e0259cf2c03ab590e
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379573"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928310"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서에서는 Microsoft Azure에서 제공 하는 두 가지 유형의 큐 (저장소 큐 및 Service Bus 큐) 간 차이점과 유사성을 분석 합니다. 이 정보를 사용 하면 요구 사항에 가장 적합 한 솔루션에 대 한 더 자세한 결정을 내릴 수 있습니다.
@@ -66,7 +66,7 @@ Azure는 **Storage 큐** 및 **Service Bus 큐** 의 두 가지 큐 유형을 �
 | 푸시 스타일 API |**아니요** |**예**<br/><br/>[QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) 및 [Messagesessionhandler. onmessage](/dotnet/api/microsoft.servicebus.messaging.messagesessionhandler.onmessage#Microsoft_ServiceBus_Messaging_MessageSessionHandler_OnMessage_Microsoft_ServiceBus_Messaging_MessageSession_Microsoft_ServiceBus_Messaging_BrokeredMessage__) sessions .net API. |
 | 수신 모드 |**보기 및 임대** |**보기 및 잠금**<br/><br/>**수신 및 삭제** |
 | 단독 액세스 모드 |**임대 기반** |**잠금 기반** |
-| 임대/잠금 기간 |**30초(기본값)**<br/><br/>**7일(최대값)** ( [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API를 사용하여 메시지 임대를 갱신하거나 해제할 수 있음) |**60초(기본값)**<br/><br/>[RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API를 사용하여 메시지 잠금을 갱신할 수 있습니다. |
+| 임대/잠금 기간 |**30초(기본값)**<br/><br/>**7일(최대값)**([UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API를 사용하여 메시지 임대를 갱신하거나 해제할 수 있음) |**60초(기본값)**<br/><br/>[RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API를 사용하여 메시지 잠금을 갱신할 수 있습니다. |
 | 임대/잠금 정밀도 |**메시지 수준**<br/><br/>각 메시지는 다른 시간 제한 값을 가질 수 있으며,이 값은 [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API를 사용 하 여 메시지를 처리 하는 동안 필요에 따라 업데이트할 수 있습니다. |**큐 수준**<br/><br/>(각 큐에 모든 메시지에 적용되는 잠금 정밀도가 있지만 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API를 사용하여 잠금을 갱신할 수 있음) |
 | 일괄 수신 |**예**<br/><br/>(메시지를 수신할 때 메시지 개수를 명시적으로 지정, 메시지 수 최대 32개) |**예**<br/><br/>(암시적으로 또는 트랜잭션 사용을 통해 명시적으로 프리페치 속성 사용) |
 | 일괄 송신 |**아니요** |**예**<br/><br/>(트랜잭션 또는 클라이언트 측 일괄 처리의 사용을 통해) |
@@ -128,10 +128,10 @@ Azure는 **Storage 큐** 및 **Service Bus 큐** 의 두 가지 큐 유형을 �
 | 비교 기준 | Storage 큐 | Service Bus 큐 |
 | --- | --- | --- |
 | 최대 큐 크기 |**500TB**<br/><br/>( [단일 저장소 계정 용량](../storage/common/storage-introduction.md#queue-storage)으로 제한 됨) |**1GB-80GB**<br/><br/>(큐 생성 및 [분할 사용](service-bus-partitioning.md) 시에 정의됨 – “추가 정보” 섹션 참조) |
-| 최대 메시지 크기 |**64KB**<br/><br/>( **Base64** 인코딩을 사용할 때 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다. |**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라 집니다. |
+| 최대 메시지 크기 |**64KB**<br/><br/>(**Base64** 인코딩을 사용할 때 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다. |**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라 집니다. |
 | 최대 메시지 TTL |**Infinite** (api-version 2017-07-27 이상) |**TimeSpan.Max** |
 | 최대 큐 수 |**무제한** |**1만**<br/><br/>(서비스 네임스페이스당) |
-| 최대 동시 클라이언트 수 |**무제한** |**무제한**<br/><br/>(TCP 프로토콜 기반의 통신에 한해 100개의 동시 연결 제한이 적용됨) |
+| 최대 동시 클라이언트 수 |**무제한** |**5,000** |
 
 ### <a name="additional-information"></a>추가 정보
 * Service Bus의 경우 큐 크기 제한이 강제 적용됩니다. 큐를 만들 때 최대 큐 크기가 지정 됩니다. 1gb에서 80 GB 사이에 있을 수 있습니다. 큐의 크기가이 제한에 도달 하면 추가 수신 메시지가 거부 되 고 호출자가 예외를 수신 합니다. Service Bus의 할당량에 대한 자세한 내용은 [Service Bus 할당량](service-bus-quotas.md)을 참조하세요.

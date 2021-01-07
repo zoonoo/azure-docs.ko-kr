@@ -7,11 +7,11 @@ ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: efdb195ad41b036f7f470884b3a441de1db7f7f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716158"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003704"
 ---
 # <a name="manage-role-permissions-and-security"></a>역할 권한 및 보안 관리
 
@@ -284,11 +284,11 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>새 사용자 추가 및 역할 할당
 
-1. 액세스 제어(IAM) 페이지에서 **+ 역할 할당 추가**를 클릭합니다. 이렇게 하면 사용자, 그룹 또는 애플리케이션을 추가하고 역할을 할당할 수 있는 역할 할당 추가 페이지가 열립니다.
+1. 액세스 제어(IAM) 페이지에서 **+ 역할 할당 추가** 를 클릭합니다. 이렇게 하면 사용자, 그룹 또는 애플리케이션을 추가하고 역할을 할당할 수 있는 역할 할당 추가 페이지가 열립니다.
 
 2. 사용 가능한 역할 목록에서 역할을 선택합니다. Automation 계정이 지원하는 기본 제공 역할이나 사용자가 정의한 사용자 지정 역할을 선택할 수 있습니다.
 
-3. **선택** 필드에 권한을 부여하려는 사용자의 이름을 입력합니다. 목록에서 사용자를 선택하고 **저장**을 클릭합니다.
+3. **선택** 필드에 권한을 부여하려는 사용자의 이름을 입력합니다. 목록에서 사용자를 선택하고 **저장** 을 클릭합니다.
 
    ![사용자 추가](media/automation-role-based-access-control/automation-04-add-users.png)
 
@@ -298,7 +298,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
    역할 페이지에서 사용자에게 역할을 할당할 수도 있습니다.
 
-4. 액세스 제어(IAM) 페이지에서 **역할**을 클릭하여 역할 페이지를 엽니다. 역할의 이름과 해당 역할에 할당된 사용자 및 그룹의 수를 볼 수 있습니다.
+4. 액세스 제어(IAM) 페이지에서 **역할** 을 클릭하여 역할 페이지를 엽니다. 역할의 이름과 해당 역할에 할당된 사용자 및 그룹의 수를 볼 수 있습니다.
 
     ![사용자 페이지에서 역할 할당](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
 
@@ -309,7 +309,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 Automation 계정을 관리하지 않는 사용자 또는 더 이상 조직에서 일하지 않는 사용자의 액세스 권한을 제거할 수 있습니다. 다음은 사용자를 제거하는 단계입니다.
 
-1. 액세스 제어(IAM) 페이지에서 제거할 사용자를 선택하고 **제거**를 클릭합니다.
+1. 액세스 제어(IAM) 페이지에서 제거할 사용자를 선택하고 **제거** 를 클릭합니다.
 2. 할당 세부 정보 창에서 **제거** 단추를 클릭합니다.
 3. **예** 를 클릭하여 제거를 확인합니다.
 
@@ -390,7 +390,7 @@ ObjectType         : User
 Remove-AzRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-위 예제에서 `sign-in ID of a user you wish to remove`, `SubscriptionID`, `Resource Group Name`, `Automation account name`을 사용자의 계정 정보로 바꿉니다. 사용자 역할 할당 제거로 넘어가기 전에 확인하라는 메시지가 표시되면 **예**를 선택합니다.
+위 예제에서 `sign-in ID of a user you wish to remove`, `SubscriptionID`, `Resource Group Name`, `Automation account name`을 사용자의 계정 정보로 바꿉니다. 사용자 역할 할당 제거로 넘어가기 전에 확인하라는 메시지가 표시되면 **예** 를 선택합니다.
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>Automation 운영자 역할에 대한 사용자 환경 - Automation 계정
 
@@ -421,7 +421,7 @@ New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Opera
 New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-스크립트가 실행되면 사용자가 Azure Portal에 로그인하고 **모든 리소스**를 선택하도록 합니다. 사용자는 목록에서 본인이 Automation Runbook 운영자로 추가된 Runbook을 볼 수 있습니다.
+스크립트가 실행되면 사용자가 Azure Portal에 로그인하고 **모든 리소스** 를 선택하도록 합니다. 사용자는 목록에서 본인이 Automation Runbook 운영자로 추가된 Runbook을 볼 수 있습니다.
 
 ![포털에서 Azure RBAC Runbook](./media/automation-role-based-access-control/runbook-rbac.png)
 

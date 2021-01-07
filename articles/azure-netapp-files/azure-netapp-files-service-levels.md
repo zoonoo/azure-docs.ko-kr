@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: b-juche
 ms.openlocfilehash: 7eac6a40476cffe875a03de49c9c9311ffbf4d39
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016045"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017069"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Azure NetApp Files에 대한 서비스 수준
 서비스 수준은 용량 풀의 특성입니다. 서비스 수준은 볼륨에 할당 된 할당량을 기준으로 용량 풀의 볼륨에 허용 되는 최대 처리량으로 정의 되 고 구분 됩니다.
 
 ## <a name="supported-service-levels"></a>지원 되는 서비스 수준
 
-Azure NetApp Files은 *Ultra*, *Premium*및 *Standard*의 세 가지 서비스 수준을 지원 합니다. 
+Azure NetApp Files은 *Ultra*, *Premium* 및 *Standard* 의 세 가지 서비스 수준을 지원 합니다. 
 
 * <a name="Ultra"></a>Ultra storage
 

@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 383895f2cb5983abd68bfca67d2c8361ee094ea1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae508754775d4eb622d8e91ef58eb0d6e1c45692
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744839"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889017"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 자동 인스턴스 복구
 
@@ -36,9 +36,9 @@ Azure 가상 머신 확장 집합에 대 한 자동 인스턴스 복구를 사�
 
 "비정상"으로 표시 된 인스턴스의 경우 자동 복구는 확장 집합에 의해 트리거됩니다. 끝점을 구성 하는 동안 의도 하지 않은 인스턴스 복구를 방지 하기 위해 자동 복구 정책을 사용 하기 전에 응용 프로그램 끝점이 올바르게 구성 되었는지 확인 합니다.
 
-**단일 배치 그룹 사용**
+**확장 집합의 최대 인스턴스 수**
 
-이 기능은 현재 단일 배치 그룹으로 배포 된 확장 집합에 대해서만 사용할 수 있습니다. 자동 인스턴스 복구 기능을 사용 하려면 확장 집합에 대해 *Singleyour Ementgroup* 속성을 *true* 로 설정 해야 합니다. [배치 그룹](./virtual-machine-scale-sets-placement-groups.md#placement-groups)에 대해 자세히 알아보세요.
+이 기능은 현재 최대 200 인스턴스를 포함 하는 확장 집합에 대해서만 사용할 수 있습니다. 확장 집합은 단일 배치 그룹 또는 다중 배치 그룹으로 배포할 수 있지만 확장 집합에 대해 자동 인스턴스 복구가 사용 되는 경우에는 인스턴스 수가 200을 초과 하면 안 됩니다.
 
 **API 버전**
 

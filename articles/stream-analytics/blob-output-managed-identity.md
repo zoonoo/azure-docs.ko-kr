@@ -5,17 +5,17 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/11/2020
-ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 12/15/2020
+ms.openlocfilehash: 2e55b1f18648ce6970b81b943cd8a6a0fc3e7e81
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348579"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705135"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>관리 Id를 사용 하 여 Azure Blob Storage 출력에 Azure Stream Analytics 작업 인증
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>관리 Id (미리 보기)를 사용 하 여 Azure Stream Analytics 작업을 Azure Blob Storage에 인증 합니다.
 
-Azure Blob 저장소에 대 한 출력에 대 한 [관리 id 인증](../active-directory/managed-identities-azure-resources/overview.md) 을 사용 하면 연결 문자열을 사용 하는 대신 저장소 계정에 직접 액세스 하 Stream Analytics 작업을 제공 합니다. 이 기능을 사용 하면 보안을 개선 하는 것 외에도 Azure 내에서 VNET (Virtual Network)의 저장소 계정에 데이터를 쓸 수 있습니다.
+Azure Blob storage에 출력 하 [는 관리 id 인증](../active-directory/managed-identities-azure-resources/overview.md) (미리 보기)은 연결 문자열을 사용 하는 대신 저장소 계정에 직접 액세스 하 Stream Analytics 작업을 제공 합니다. 이 기능을 사용 하면 보안을 개선 하는 것 외에도 Azure 내에서 VNET (Virtual Network)의 저장소 계정에 데이터를 쓸 수 있습니다.
 
 이 문서에서는 Azure Portal 및 Azure Resource Manager 배포를 통해 Stream Analytics 작업의 Blob 출력에 대해 관리 되는 Id를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
@@ -98,7 +98,7 @@ Azure Resource Manager를 사용 하면 Stream Analytics 작업의 배포를 완
     아래 Azure CLI 명령을 사용 하 여 리소스 그룹 **ExampleGroup** 에 위의 작업을 배포할 수 있습니다.
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. 작업을 만든 후 Azure Resource Manager를 사용 하 여 작업의 전체 정의를 검색할 수 있습니다.
@@ -223,6 +223,10 @@ Stream Analytics 작업을 제공 하기 위해 선택할 수 있는 두 가지 
 3.    사용 하도록 설정한 경우 **저장** 을 클릭 합니다.
 
    ![VNET 액세스 사용](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
+
+## <a name="remove-managed-identity"></a>관리 Id 제거
+
+Stream Analytics 작업에 대해 생성 된 관리 Id는 작업이 삭제 된 경우에만 삭제 됩니다. 작업을 삭제 하지 않고 관리 되는 Id를 삭제할 수 있는 방법은 없습니다. 관리 Id를 더 이상 사용 하지 않으려는 경우에는 출력에 대 한 인증 방법을 변경할 수 있습니다. 관리 Id는 작업이 삭제 될 때까지 계속 존재 하며 관리 되는 Id 인증을 다시 사용 하기로 결정 한 경우에 사용 됩니다.
 
 ## <a name="limitations"></a>제한 사항
 이 기능의 현재 제한 사항은 다음과 같습니다.

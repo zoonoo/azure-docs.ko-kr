@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce0aea6bb257f0a52a843ce53cc904ed0a775dd
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760164"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536203"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Azure Monitor 로그의 감사 쿼리 (미리 보기)
 로그 쿼리 감사 로그는 Azure Monitor에서 실행 되는 로그 쿼리에 대 한 원격 분석을 제공 합니다. 여기에는 쿼리가 실행 된 시간, 실행 한 사람, 사용 된 도구, 쿼리 텍스트, 쿼리 실행을 설명 하는 성능 통계 등의 정보가 포함 됩니다.
@@ -23,11 +23,11 @@ ms.locfileid: "91760164"
 ### <a name="azure-portal"></a>Azure portal
 다음 위치 중 하나에서 Azure Portal의 Log Analytics 작업 영역에 대 한 진단 설정에 액세스 합니다.
 
-- **Azure Monitor** 메뉴에서 **진단 설정**을 선택 하 고 작업 영역을 찾아 선택 합니다.
+- **Azure Monitor** 메뉴에서 **진단 설정** 을 선택 하 고 작업 영역을 찾아 선택 합니다.
 
     [![진단 설정 Azure Monitor ](media/log-query-audit/diagnostic-setting-monitor.png)](media/log-query-audit/diagnostic-setting-monitor.png#lightbox) 
 
-- **Log Analytics 작업 영역** 메뉴에서 작업 영역을 선택한 다음 **진단 설정**을 선택 합니다.
+- **Log Analytics 작업 영역** 메뉴에서 작업 영역을 선택한 다음 **진단 설정** 을 선택 합니다.
 
     [![진단 설정 Log Analytics 작업 영역 ](media/log-query-audit/diagnostic-setting-workspace.png)](media/log-query-audit/diagnostic-setting-workspace.png#lightbox) 
 
@@ -35,7 +35,7 @@ ms.locfileid: "91760164"
 [Log Analytics 작업 영역에 대 한 진단 설정](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-log-analytics-workspace)에서 템플릿 리소스 관리자 예제를 가져올 수 있습니다.
 
 ## <a name="audit-data"></a>감사 데이터
-쿼리가 실행 될 때마다 감사 레코드가 생성 됩니다. Log Analytics 작업 영역에 데이터를 보내는 경우이 데이터는 *Laquerylogs*라는 테이블에 저장 됩니다. 다음 표에서는 감사 데이터의 각 레코드에 대 한 속성을 설명 합니다.
+쿼리가 실행 될 때마다 감사 레코드가 생성 됩니다. Log Analytics 작업 영역에 데이터를 보내는 경우이 데이터는 *Laquerylogs* 라는 테이블에 저장 됩니다. 다음 표에서는 감사 데이터의 각 레코드에 대 한 속성을 설명 합니다.
 
 | 필드 | Description |
 |:---|:---|
@@ -50,7 +50,7 @@ ms.locfileid: "91760164"
 | QueryTimeRangeEnd     | 쿼리에 대해 선택한 시간 범위의 끝입니다. 이는 쿼리가 Log Analytics에서 시작 되는 경우와 같은 특정 시나리오에서 채워지지 않을 수 있으며 시간 범위는 시간 선택이 아닌 쿼리 내부에 지정 됩니다.  |
 | QueryText             | 실행된 쿼리의 텍스트입니다. |
 | RequestTarget         | API URL을 사용 하 여 쿼리를 전송 했습니다.  |
-| RequestContext        | 쿼리가 실행 되도록 요청한 리소스 목록입니다. 에는 작업 영역, 응용 프로그램 및 리소스의 세 가지 문자열 배열이 포함 되어 있습니다. 구독 또는 리소스 그룹-대상 쿼리는 *리소스로*표시 됩니다. RequestTarget으로 암시 된 대상을 포함 합니다.<br>확인할 수 있는 경우 각 리소스의 리소스 ID가 포함 됩니다. 리소스에 액세스 하는 동안 오류가 반환 되 면이를 해결 하지 못할 수 있습니다. 이 경우 쿼리에서 특정 텍스트가 사용 됩니다.<br>쿼리에서 여러 구독에 존재 하는 작업 영역 이름과 같이 모호한 이름을 사용 하는 경우이 모호한 이름이 사용 됩니다. |
+| RequestContext        | 쿼리가 실행 되도록 요청한 리소스 목록입니다. 에는 작업 영역, 응용 프로그램 및 리소스의 세 가지 문자열 배열이 포함 되어 있습니다. 구독 또는 리소스 그룹-대상 쿼리는 *리소스로* 표시 됩니다. RequestTarget으로 암시 된 대상을 포함 합니다.<br>확인할 수 있는 경우 각 리소스의 리소스 ID가 포함 됩니다. 리소스에 액세스 하는 동안 오류가 반환 되 면이를 해결 하지 못할 수 있습니다. 이 경우 쿼리에서 특정 텍스트가 사용 됩니다.<br>쿼리에서 여러 구독에 존재 하는 작업 영역 이름과 같이 모호한 이름을 사용 하는 경우이 모호한 이름이 사용 됩니다. |
 | RequestContextFilters | 쿼리 호출의 일부로 지정 된 필터 집합입니다. 최대 3 개의 가능한 문자열 배열을 포함 합니다.<br>-ResourceTypes-쿼리의 범위를 제한 하는 리소스의 유형입니다.<br>-작업 영역-쿼리를 제한 하는 작업 영역 목록<br>-WorkspaceRegions-쿼리를 제한 하는 작업 영역 영역 목록 |
 | ResponseCode          | 쿼리가 제출 될 때 반환 되는 HTTP 응답 코드입니다. |
 | ResponseDurationMs    | 응답이 반환 되는 시간입니다.  |
@@ -66,7 +66,7 @@ ms.locfileid: "91760164"
 
 - 쿼리는 사용자 컨텍스트에서 실행 될 때만 로깅됩니다. Azure 내에서 서비스 간 서비스는 기록 되지 않습니다. 이 예외에 포함 된 두 가지 주요 쿼리 집합은 요금 청구 계산과 자동화 된 경고 실행입니다. 경고가 발생 하는 경우에는 예약 된 경고 쿼리 자체만 기록 되지 않습니다. 경고 만들기 화면에서 경고의 초기 실행은 사용자 컨텍스트에서 실행 되며 감사 용도로 사용할 수 있습니다. 
 - Azure 데이터 탐색기 프록시에서 들어오는 쿼리에는 성능 통계를 사용할 수 없습니다. 이러한 쿼리에 대 한 다른 모든 데이터는 계속 채워집니다.
-- [문자열 리터럴을 난독 처리](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) 는 문자열에 대 한 *h* 힌트는 쿼리 감사 로그에 영향을 주지 않습니다. 쿼리는 난독 처리 되는 문자열 없이 전송 된 그대로 캡처됩니다. 이 데이터를 볼 수 있는 규정 준수 권한이 있는 사용자만 Log Analytics 작업 영역에서 사용 가능한 다양 한 RBAC 모드를 사용 하 여이 작업을 수행할 수 있도록 해야 합니다.
+- [문자열 리터럴을 난독 처리](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) 는 문자열에 대 한 *h* 힌트는 쿼리 감사 로그에 영향을 주지 않습니다. 쿼리는 난독 처리 되는 문자열 없이 전송 된 그대로 캡처됩니다. 이 데이터를 볼 수 있는 규정 준수 권한이 있는 사용자만 Log Analytics 작업 영역에서 사용할 수 있는 다양 한 Kubernetes RBAC 또는 Azure RBAC 모드를 사용 하 여이 작업을 수행할 수 있도록 해야 합니다.
 - 여러 작업 영역의 데이터를 포함 하는 쿼리의 경우에는 사용자가 액세스할 수 있는 작업 영역 에서만 쿼리를 캡처할 수 있습니다.
 
 ## <a name="costs"></a>비용  

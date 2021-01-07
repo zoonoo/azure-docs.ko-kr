@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323626"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449713"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 분산 테이블을 디자인 하기 위한 지침
 
@@ -44,7 +44,7 @@ ms.locfileid: "93323626"
 
 ![분산 테이블](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "분산 테이블")  
 
-동일한 값은 항상 동일한 배포에 해시하므로 데이터 웨어하우스에는 행 위치에 대한 기본 제공 정보가 있습니다. 전용 SQL 풀에서이 정보는 쿼리 중 데이터 이동을 최소화 하는 데 사용 되므로 쿼리 성능이 향상 됩니다.
+동일한 값은 항상 동일한 배포를 해시 하므로 SQL Analytics는 행 위치에 대 한 기본 제공 정보를 제공 합니다. 전용 SQL 풀에서이 정보는 쿼리 중 데이터 이동을 최소화 하는 데 사용 되므로 쿼리 성능이 향상 됩니다.
 
 해시 분산 테이블은 별모양 스키마의 큰 팩트 테이블에 적합합니다. 행 수가 매우 많은 경우에도 여전히 높은 성능을 유지할 수 있습니다. 물론 분산 시스템이 제공하도록 디자인된 성능을 얻는 데 도움이 되는 디자인 고려 사항이 있습니다. 이 문서에 설명되어 있는 이러한 고려 사항 중 하나는 적합한 배포 열을 선택하는 것입니다.
 

@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: az mysql up을 사용하여 Azure Database for MySQL 만들기'
 description: Azure CLI(명령줄 인터페이스) up 명령을 사용하여 Azure Database for MySQL 서버를 만드는 빠른 시작 가이드입니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a02d2e32a035581d486f22b97fc789957d0b4138
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d89cc41ed26124ae4ad2e6689be6d59278c3d9da
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534042"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542170"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>빠른 시작: 간단한 Azure CLI 명령을 사용하여 Azure Database for MySQL 만들기 - az mysql up(미리 보기)
 

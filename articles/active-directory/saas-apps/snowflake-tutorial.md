@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 26ca1fffb3932493dc7182de1b520f8c0a17d59c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3beb4e7831ce17a46f6daaa1258f284a0caefe8e
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514846"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>자습서: Snowflake와 Azure Active Directory 통합
 
@@ -27,7 +27,7 @@ Snowflake를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다
 * 사용자가 해당 Azure AD 계정으로 Snowflake에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -41,14 +41,14 @@ Snowflake와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* Snowflake에서 **SP 및 IDP** 시작 SSO를 지원합니다.
-* Snowflake가 [자동 사용자 프로비저닝 및 프로비전 해제](snowflake-provisioning-tutorial.md)(권장) 지원
+- Snowflake에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+- Snowflake가 [자동 사용자 프로비저닝 및 프로비전 해제](snowflake-provisioning-tutorial.md)(권장) 지원
 
 ## <a name="adding-snowflake-from-the-gallery"></a>갤러리에서 Snowflake 추가
 
 Snowflake의 Azure AD 통합을 구성하려면 갤러리의 Snowflake를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 Snowflake를 추가하려면 다음 단계를 수행합니다.**
+**갤러리에서 Snowflake 추가:**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -64,7 +64,7 @@ Snowflake의 Azure AD 통합을 구성하려면 갤러리의 Snowflake를 관리
 
 4. 검색 상자에 **Snowflake** 를 입력하고 결과 패널에서 **Snowflake** 를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Snowflake](common/search-new-app.png)
+     ![결과 목록의 Snowflake](common/search-new-app-snowflake.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -161,7 +161,7 @@ Snowflake에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -186,7 +186,7 @@ Snowflake에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Snowflake에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Snowflake** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Snowflake** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

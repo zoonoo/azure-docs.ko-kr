@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: bd01eaefa457c5ade10a5f1f4b8389d90ed60adf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099864"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351949"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>자습서: 웹 페이지 Spell Check 클라이언트 빌드
 
 > [!WARNING]
-> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 이 자습서에서는 사용자가 Bing Spell Check API를 쿼리할 수 있게 하는 웹 페이지 빌드합니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html)에 제공됩니다.
 
@@ -332,4 +332,4 @@ Bing 로고를 표시합니다.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [사용 및 표시 요구 사항](../UseAndDisplayRequirements.md)
+> [사용 및 표시 요구 사항](../../bing-web-search/use-display-requirements.md)

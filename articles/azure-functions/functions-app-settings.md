@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043226"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937113"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -46,7 +46,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 기본적으로 [함수 프록시](functions-proxies.md) 는 바로 가기를 사용 하 여 프록시의 API 호출을 동일한 함수 앱의 함수로 직접 보냅니다. 이 바로 가기는 새 HTTP 요청을 만드는 대신 사용 됩니다. 이 설정을 사용 하면 바로 가기 동작을 사용 하지 않도록 설정할 수 있습니다.
 
-|키|값|Description|
+|키|값|설명|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전송 되지 않습니다. 대신 요청은 함수 앱에 대 한 HTTP 프런트 엔드로 다시 전달 됩니다.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전달 됩니다. 이것은 기본값입니다. |
@@ -55,7 +55,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 이 설정은 문자를 `%2F` 백 엔드 URL에 삽입할 때 경로 매개 변수에서 슬래시로 디코딩되는 지 여부를 제어 합니다. 
 
-|키|값|Description|
+|키|값|설명|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시가 있는 경로 매개 변수는 디코딩됩니다. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|모든 경로 매개 변수는 기본 동작인 변경 되지 않은 상태로 전달 됩니다. |
@@ -131,11 +131,11 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobsSecretStorageType|Files|
+|AzureWebJobsSecretStorageType|파일|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Azure Functions 런타임은 HTTP 트리거 함수를 제외한 모든 함수에 대해 이 스토리지 계정 연결 문자열을 사용합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [스토리지 계정](functions-infrastructure-as-code.md#storage-account) 및 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
+Azure Functions 런타임은 일반 작업에 대해이 저장소 계정 연결 문자열을 사용 합니다. 이 저장소 계정에는 키 관리, 타이머 트리거 관리 및 Event Hubs 검사점이 포함 됩니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [스토리지 계정](functions-infrastructure-as-code.md#storage-account) 및 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
 
 |키|샘플 값|
 |---|------------|
@@ -185,6 +185,14 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 |키|샘플 값|
 |---|------------|
 |함수 \_ 작업자 \_ 프로세스 \_ 수|2|
+
+## <a name="python_threadpool_thread_count"></a>PYTHON \_ THREADPOOL \_ 스레드 \_ 수
+
+Python 언어 작업자에서 함수 호출을 실행 하는 데 사용 하는 최대 스레드 수를 지정 합니다 .이 값은 `1` python 버전 및 아래에 대 한 기본값입니다 `3.8` . Python 버전 `3.9` 이상의 경우 값은로 설정 됩니다 `None` . 이 설정은 실행 중에 설정 되는 스레드 수를 보장 하지 않습니다. 설정은 Python이 스레드 수를 지정 된 값으로 확장할 수 있도록 합니다. 설정은 Python 함수 앱에만 적용 됩니다. 또한이 설정은 동기 함수 호출에 적용 되 고 코 루틴에는 적용 되지 않습니다.
+
+|키|샘플 값|최댓값|
+|---|------------|---------|
+|PYTHON \_ THREADPOOL \_ 스레드 \_ 수|2|32|
 
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
@@ -248,7 +256,7 @@ _이 설정은 현재 미리 보기로 있습니다._
 함수 앱이 확장할 수 있는 최대 인스턴스 수입니다. 기본값은 무제한입니다.
 
 > [!IMPORTANT]
-> 이 설정은 미리 보기로 제공 됩니다.  [Function max scale out에 대 한 응용 프로그램 속성이](./functions-scale.md#limit-scale-out) 추가 되었으며 확장을 제한 하는 데 권장 되는 방법입니다.
+> 이 설정은 미리 보기로 제공 됩니다.  [Function max scale out에 대 한 응용 프로그램 속성이](./event-driven-scaling.md#limit-scale-out) 추가 되었으며 확장을 제한 하는 데 권장 되는 방법입니다.
 
 |키|샘플 값|
 |---|------------|

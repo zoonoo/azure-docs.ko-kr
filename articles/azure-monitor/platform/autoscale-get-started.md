@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ee36db3f657365036bb68f641be53fd434f1b64b
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377023"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694916"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -32,9 +32,9 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 
 각 리소스에 대해 현재 인스턴스 수와 자동 크기 조정 상태를 확인할 수 있습니다. 자동 크기 조정 상태는 다음과 같을 수 있습니다.
 
-- **구성되지 않음** : 이 리소스에 대해 자동 크기 조정 설정을 아직 사용하도록 설정하지 않았습니다.
-- **사용** : 이 리소스에 대해 자동 크기 조정 설정을 사용하도록 설정했습니다.
-- **사용 안 함** : 이 리소스에 대해 자동 크기 조정 설정을 사용하지 않도록 설정했습니다.
+- **구성되지 않음**: 이 리소스에 대해 자동 크기 조정 설정을 아직 사용하도록 설정하지 않았습니다.
+- **사용**: 이 리소스에 대해 자동 크기 조정 설정을 사용하도록 설정했습니다.
+- **사용 안 함**: 이 리소스에 대해 자동 크기 조정 설정을 사용하지 않도록 설정했습니다.
 
 ## <a name="create-your-first-autoscale-setting"></a>첫 번째 자동 크기 조정 설정 만들기
 
@@ -51,7 +51,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 
     b. **연산자** 를 **보다 작음** 으로 설정합니다.
 
-    c. **임계값** 을 **20** 으로 설정합니다.
+    다. **임계값** 을 **20** 으로 설정합니다.
 
     d. **작업** 을 **다음을 기준으로 개수 줄이기** 로 설정합니다.
 
@@ -121,24 +121,26 @@ ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `hea
 
 ### <a name="health-check-path"></a>상태 검사 경로
 
-200에서 299 (포함) 사이의 상태 코드를 사용 하 여 경로가 1 분 이내에 응답 해야 합니다. 경로가 1 분 이내에 응답 하지 않거나 범위 밖의 상태 코드를 반환 하는 경우 인스턴스는 "비정상"으로 간주 됩니다. App Service는 상태 검사 경로에 대 한 302 리디렉션을 따르지 않습니다. 상태 검사는 App Service의 인증 및 권한 부여 기능과 통합 되며, 시스템은 이러한 microsoft.powershell.secuity 기능을 사용 하는 경우에도 끝점에 연결 합니다. 사용자 고유의 인증 시스템을 사용 하는 경우 상태 검사 경로에서 익명 액세스를 허용 해야 합니다. 사이트에 HTTP **s** 만 사용 하도록 설정 된 경우 http **s** 를 통해 healthcheck 요청이 전송 됩니다.
+200에서 299 (포함) 사이의 상태 코드를 사용 하 여 경로가 1 분 이내에 응답 해야 합니다. 경로가 1 분 이내에 응답 하지 않거나 범위 밖의 상태 코드를 반환 하는 경우 인스턴스는 "비정상"으로 간주 됩니다. App Service는 상태 검사 경로에서 30 배 (301, 302, 307, 등) 리디렉션을 따르지 않습니다. 이러한 상태 코드는 **비정상** 으로 간주 됩니다. 상태 검사는 App Service의 인증 및 권한 부여 기능과 통합 되며, 이러한 보안 기능을 사용 하는 경우에도 시스템은 끝점에 연결 합니다. 사용자 고유의 인증 시스템을 사용 하는 경우 상태 검사 경로에서 익명 액세스를 허용 해야 합니다. 사이트에 HTTP **s** 만 사용 하도록 설정 된 경우 http **s** 를 통해 healthcheck 요청이 전송 됩니다.
 
 상태 검사 경로는 응용 프로그램의 중요 한 구성 요소를 확인 해야 합니다. 예를 들어 응용 프로그램이 데이터베이스 및 메시징 시스템에 종속 된 경우 상태 검사 끝점은 해당 구성 요소에 연결 해야 합니다. 응용 프로그램에서 중요 한 구성 요소에 연결할 수 없는 경우이 경로는 앱이 비정상 상태임을 나타내기 위해 500 수준 응답 코드를 반환 해야 합니다.
 
 #### <a name="security"></a>보안 
 
-대기업의 개발 팀은 노출 된 Api에 대 한 보안 요구 사항을 준수 해야 하는 경우가 많습니다. Healthcheck 끝점을 보호 하려면 먼저 [IP 제한](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [클라이언트 인증서](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)또는 Virtual Network와 같은 기능을 사용 하 여 응용 프로그램에 대 한 액세스를 제한 해야 합니다. 들어오는 요청의가와 일치 하도록 요구 하 여 healthcheck 끝점 자체의 보안을 유지할 수 있습니다 `User-Agent` `ReadyForRequest/1.0` . 이전 보안 기능에서 요청을 이미 보호 했으므로 User-Agent는 스푸핑 될 수 없습니다.
+대기업의 개발 팀은 노출 된 Api에 대 한 보안 요구 사항을 준수 해야 하는 경우가 많습니다. Healthcheck 끝점을 보호 하려면 먼저 [IP 제한](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [클라이언트 인증서](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)또는 Virtual Network와 같은 기능을 사용 하 여 응용 프로그램에 대 한 액세스를 제한 해야 합니다. 들어오는 요청의가와 일치 하도록 요구 하 여 healthcheck 끝점 자체의 보안을 유지할 수 있습니다 `User-Agent` `ReadyForRequest/1.0` . 이전 보안 기능에서 요청을 이미 보호 했으므로 User-Agent는 스푸핑 될 수 없습니다.
 
 ### <a name="behavior"></a>동작
 
-상태 검사 경로를 제공 하면 App Service는 모든 인스턴스의 경로를 ping 합니다. 5 개의 ping 후에 성공적인 응답 코드를 받지 못한 경우 해당 인스턴스는 "비정상"으로 간주 됩니다. 비정상 인스턴스는 부하 분산 장치 순환에서 제외 됩니다. 앱 설정을 사용 하 여 필요한 실패 한 ping 수를 구성할 수 있습니다 `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` . 이 앱 설정은 2에서 10 사이의 정수로 설정할 수 있습니다. 예를 들어이가로 설정 된 경우 `2` 두 개의 ping이 실패 하면 부하 분산 장치에서 인스턴스가 제거 됩니다. 또한 확장 또는 App Service 축소 하는 경우에는 상태 검사 경로를 ping 하 여 새 인스턴스가 부하 분산 장치에 추가 되기 전에 요청에 대해 준비 되도록 할 수 있습니다.
+상태 검사 경로를 제공 하면 App Service는 모든 인스턴스의 경로를 ping 합니다. 5 개의 ping 후에 성공적인 응답 코드를 받지 못한 경우 해당 인스턴스는 "비정상"으로 간주 됩니다. 2 개 이상의 인스턴스로 확장 하 고 [기본 계층](../../app-service/overview-hosting-plans.md) 이상을 사용 하는 경우 부하 분산 장치 순환에서 비정상 인스턴스가 제외 됩니다. 앱 설정을 사용 하 여 필요한 실패 한 ping 수를 구성할 수 있습니다 `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` . 이 앱 설정은 2에서 10 사이의 정수로 설정할 수 있습니다. 예를 들어이가로 설정 된 경우 `2` 두 개의 ping이 실패 하면 부하 분산 장치에서 인스턴스가 제거 됩니다. 또한 확장 또는 App Service 축소 하는 경우에는 상태 검사 경로를 ping 하 여 새 인스턴스가 부하 분산 장치에 추가 되기 전에 요청에 대해 준비 되도록 할 수 있습니다.
 
 > [!NOTE]
-> 부하 분산 장치 제외를 수행 하려면 App Service 계획을 2 개 이상의 인스턴스로 확장 해야 합니다. 인스턴스가 1 개만 있는 경우 비정상 인 경우에도 부하 분산 장치에서 제거 되지 않습니다. 
+> App Service 요금제는 2 개 이상의 인스턴스로 규모를 확장 해야 하며 부하 분산 장치 제외를 발생 시킬 **기본 계층 이상** 이어야 합니다. 인스턴스가 1 개만 있는 경우 비정상 인 경우에도 부하 분산 장치에서 제거 되지 않습니다. 
 
-나머지 정상 인스턴스는 부하가 증가할 수 있습니다. 나머지 인스턴스가 과도 하 게 사용 되지 않도록 하려면 인스턴스 중 절반이 제외 됩니다. 예를 들어 App Service 계획을 4 개의 인스턴스로 확장 하 고 비정상 상태에서 3 개를 확장 하는 경우 최대 2 개는 loadbalancer 순환에서 제외 됩니다. 다른 두 인스턴스 (정상 및 비정상 1 개)는 계속 해 서 요청을 받습니다. 모든 인스턴스가 비정상 인 최악의 시나리오에서는 none이 제외 됩니다. 이 동작을 재정의 하려면 `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` 앱 설정을 및 사이의 값으로 설정 하면 `0` `100` 됩니다. 이 값을 큰 값으로 설정 하면 더 비정상 인스턴스가 제거 됩니다 (기본값은 50).
+또한 확장 작업 중, 수동으로 다시 시작 하거나 SCM 사이트를 통해 코드를 배포 하는 경우와 같이 인스턴스를 추가 하거나 다시 시작할 때 상태 검사 경로를 ping 할 수 있습니다. 이러한 작업 중에 상태 검사가 실패 하는 경우 실패 한 인스턴스는 부하 분산 장치에 추가 되지 않습니다. 이렇게 하면 이러한 작업이 응용 프로그램의 가용성에 부정적인 영향을 주지 않습니다.
 
-인스턴스가 1 시간 동안 비정상 상태로 유지 되 면 새 인스턴스로 바뀝니다. 최대 하나의 인스턴스만 시간당 교체 되며 App Service 요금제 당 최대 3 개의 인스턴스가 있습니다.
+Healthcheck를 사용 하는 경우 남아 있는 정상적인 인스턴스의 부하가 증가할 수 있습니다. 나머지 인스턴스가 과도 하 게 사용 되지 않도록 하려면 인스턴스 중 절반이 제외 됩니다. 예를 들어 App Service 계획을 4 개의 인스턴스로 확장 하 고 비정상 상태에서 3 개를 확장 하는 경우 최대 2 개는 loadbalancer 순환에서 제외 됩니다. 다른 두 인스턴스 (정상 및 비정상 1 개)는 계속 해 서 요청을 받습니다. 모든 인스턴스가 비정상 인 최악의 시나리오에서는 none이 제외 됩니다. 이 동작을 재정의 하려면 `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` 앱 설정을 및 사이의 값으로 설정 하면 `0` `100` 됩니다. 이 값을 큰 값으로 설정 하면 더 비정상 인스턴스가 제거 됩니다 (기본값은 50).
+
+1 시간 동안 인스턴스의 모든 앱에 대 한 상태 검사가 실패 하는 경우 인스턴스가 대체 됩니다. 최대 하나의 인스턴스만 시간당 교체 되며 App Service 요금제 당 최대 3 개의 인스턴스가 있습니다.
 
 ### <a name="monitoring"></a>모니터링
 
@@ -146,17 +148,17 @@ ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `hea
 
 ## <a name="moving-autoscale-to-a-different-region"></a>자동 크기 조정을 다른 지역으로 이동
 이 섹션에서는 Azure 자동 크기 조정을 동일한 구독 및 리소스 그룹의 다른 지역으로 이동 하는 방법을 설명 합니다. REST API를 사용 하 여 자동 크기 조정 설정을 이동할 수 있습니다.
-### <a name="prerequisite"></a>필수 조건
+### <a name="prerequisite"></a>필수 요소
 1. 구독 및 리소스 그룹을 사용할 수 있고 원본 및 대상 지역의 세부 정보가 동일한 지 확인 합니다.
 1. [이동 하려는 azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)에서 azure 자동 크기 조정을 사용할 수 있는지 확인 합니다.
 
 ### <a name="move"></a>이동
-[REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) 를 사용 하 여 새 환경에서 자동 크기 조정 설정을 만듭니다. 대상 지역에 생성 되는 자동 크기 조정 설정은 원본 지역의 자동 크기 조정 설정의 복사본입니다.
+[REST API](/rest/api/monitor/autoscalesettings/createorupdate) 를 사용 하 여 새 환경에서 자동 크기 조정 설정을 만듭니다. 대상 지역에 생성 되는 자동 크기 조정 설정은 원본 지역의 자동 크기 조정 설정의 복사본입니다.
 
-원본 지역의 자동 크기 조정 설정과 연결 하 여 만든 [진단 설정은](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 이동할 수 없습니다. Autosale 설정 만들기가 완료 된 후 대상 지역에서 진단 설정을 다시 만들어야 합니다. 
+원본 지역의 자동 크기 조정 설정과 연결 하 여 만든 [진단 설정은](./diagnostic-settings.md) 이동할 수 없습니다. Autosale 설정 만들기가 완료 된 후 대상 지역에서 진단 설정을 다시 만들어야 합니다. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Azure 지역에서 리소스 이동에 대 한 자세한 정보
-Azure에서 지역과 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) 을 참조 하세요.
+Azure에서 지역과 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

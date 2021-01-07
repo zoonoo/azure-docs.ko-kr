@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: 0267d09bc23f9aa5c1f5981ddf9386f3827c75d3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b40144079304b6981ff8faf251a345dbb163ecac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754507"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459296"
 ---
 # <a name="how-to-configure-your-consulting-service-offer-properties"></a>컨설팅 서비스 제품 속성을 구성 하는 방법
 
@@ -32,11 +32,11 @@ ms.locfileid: "92754507"
 
 **컨설팅 서비스 유형** 드롭다운에서 고객에 게 제공할 컨설팅 서비스 유형을 선택 합니다. 사용할 수 있는 형식은 다음과 같습니다.
 
-* **평가** : 솔루션의 적용 가능성을 확인 하 고 구현에 대 한 비용과 타임 라인을 예측 하는 고객의 환경을 평가 합니다.
-* **브리핑** : 프레임 워크, 데모 및 고객 예제를 사용 하는 솔루션이 나 서비스에 대 한 소개입니다.
-* **구현** : 완벽하게 작동하는 솔루션으로 이어지는 완전한 설치입니다.
-* **개념 증명** : 솔루션이 고객의 요구 사항을 충족 하는지 확인 하기 위한 제한 된 범위 구현입니다.
-* **워크숍** : 고객의 온-프레미스에서 수행 되는 대화형 참여입니다. 고객의 데이터 또는 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다.
+* **평가**: 솔루션의 적용 가능성을 확인 하 고 구현에 대 한 비용과 타임 라인을 예측 하는 고객의 환경을 평가 합니다.
+* **브리핑**: 프레임 워크, 데모 및 고객 예제를 사용 하는 솔루션이 나 서비스에 대 한 소개입니다.
+* **구현**: 완벽하게 작동하는 솔루션으로 이어지는 완전한 설치입니다.
+* **개념 증명**: 솔루션이 고객의 요구 사항을 충족 하는지 확인 하기 위한 제한 된 범위 구현입니다.
+* **워크숍**: 고객의 온-프레미스에서 수행 되는 대화형 참여입니다. 고객의 데이터 또는 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다.
 
 ## <a name="select-relevant-industries"></a>관련 산업 선택
 
@@ -50,7 +50,7 @@ ms.locfileid: "92754507"
 제품의 서비스 영역과 관련 된 최대 3 개의 역량을 선택 합니다. 선택 항목은 제품 목록에 고객에 게 표시 됩니다.
 
 > [!IMPORTANT]
-> 하나 이상의 역량을 보유 하는 것은 기본 제품에 따라 제품을 게시 하기 위한 요구 사항 일 수 있습니다. 자세한 내용은 [인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) 을 참조 하세요.
+> 하나 이상의 역량을 보유 하는 것은 기본 제품에 따라 제품을 게시 하기 위한 요구 사항 일 수 있습니다. 자세한 내용은 [인증 정책](/legal/marketplace/certification-policies#800-consulting-services) 을 참조 하세요.
 
 계속 하기 전에 초안을 저장 합니다.
 

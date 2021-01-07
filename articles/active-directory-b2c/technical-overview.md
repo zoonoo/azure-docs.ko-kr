@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fef192ab273a0e53958cda315932f91b427a5d7d
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364085"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108386"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -101,7 +101,7 @@ Azure AD B2C에는 이러한 ID 환경을 제공하기 위해 수행할 수 있�
 
 * 로그인에 사용되는 계정 유형(예: Facebook과 같은 소셜 계정 또는 로그인에 이메일 주소와 암호를 사용하는 로컬 계정)
 * 소비자로부터 수집할 특성(예: 이름, 우편 번호 또는 거주 국가/지역)
-* Azure MFA(Multi-Factor Authentication)
+* Azure AD MFA(Multi-Factor Authentication)
 * 사용자 인터페이스의 사용자 지정
 * 사용자가 사용자 흐름을 완료한 후에 애플리케이션에서 받는 토큰의 클레임 세트
 * 세션 관리
@@ -162,7 +162,7 @@ Azure AD B2C에서는 표시되는 페이지가 브랜드의 모양 및 느낌�
 
 ![브랜드가 사용자 지정된 가입 로그인 페이지의 스크린샷](media/technical-overview/seamless-ux.png)
 
-UI 사용자 지정에 대한 자세한 내용은 [Azure Active Directory B2C의 사용자 인터페이스 사용자 지정 정보](customize-ui-overview.md)를 참조하세요.
+UI 사용자 지정에 대한 자세한 내용은 [Azure Active Directory B2C의 사용자 인터페이스 사용자 지정 정보](customize-ui-with-html.md)를 참조하세요.
 
 ## <a name="localization"></a>지역화
 
@@ -170,7 +170,7 @@ Azure AD B2C의 사용자 언어 지정을 사용하면 고객의 요구 사항�
 
 ![서로 다른 언어의 UI 텍스트를 보여 주는 세 개의 가입 로그인 페이지](media/technical-overview/localization.png)
 
-지역화가 작동하는 방법은 [Azure Active Directory B2C의 사용자 언어 지정](user-flow-language-customization.md)을 참조하세요.
+지역화가 작동하는 방법은 [Azure Active Directory B2C의 사용자 언어 지정](language-customization.md)을 참조하세요.
 
 ## <a name="add-your-own-business-logic"></a>고유한 비즈니스 논리 추가
 
@@ -221,7 +221,7 @@ Azure AD B2C 관리 역할 지원을 포함하여 Azure AD 역할에 대한 자�
 
 Azure AD B2C MFA(다단계 인증)를 사용하면 사용자의 편의를 유지하면서 데이터와 애플리케이션에 대한 액세스를 보호할 수 있습니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고, 사용하기 쉬운 다양한 인증 방법을 제공하여 강력한 인증을 제공합니다. 관리자로서 결정할 수 있는 구성에 따라 사용자에게 MFA에 대한 문제가 발생할 수도 있고 그렇지 않을 수도 있습니다.
 
-사용자 흐름에서 MFA를 사용하도록 설정하는 방법을 알아보려면 [Azure Active Directory B2C에서 다단계 인증 사용](custom-policy-multi-factor-authentication.md)을 참조하세요.
+사용자 흐름에서 MFA를 사용하도록 설정하는 방법을 알아보려면 [Azure Active Directory B2C에서 다단계 인증 사용](multi-factor-authentication.md)을 참조하세요.
 
 ### <a name="smart-account-lockout"></a>스마트 계정 잠금
 
@@ -235,7 +235,7 @@ Azure AD B2C MFA(다단계 인증)를 사용하면 사용자의 편의를 유지
 
 가입 또는 암호 재설정 중에 사용자는 복잡성 규칙을 충족하는 암호를 제공해야 합니다. 기본적으로 Azure AD B2C는 강력한 암호 정책을 적용합니다. 또한 Azure AD B2C는 고객이 사용하는 암호의 복잡성 요구 사항을 지정하는 구성 옵션도 제공합니다.
 
-암호 복잡성 요구 사항은 [사용자 흐름](user-flow-password-complexity.md) 및 [사용자 지정 정책](custom-policy-password-complexity.md) 모두에서 구성할 수 있습니다.
+암호 복잡성 요구 사항은 [사용자 흐름](password-complexity.md) 및 [사용자 지정 정책](password-complexity.md) 모두에서 구성할 수 있습니다.
 
 ## <a name="auditing-and-logs"></a>감사 및 로그
 

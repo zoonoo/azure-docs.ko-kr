@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: a7e9e1fa567ae282a4472fa728e53e720bf8ff6f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: adaa7d1c2cf4a78a680ef4fbbec06975ceda812b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367927"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433495"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -28,17 +28,16 @@ ms.locfileid: "92367927"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.29 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-
+- 이 문서에는 Azure CLI 버전 2.0.29 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
 확장 집합을 만들거나 크기를 조정하면 두 개의 디스크가 각 VM 인스턴스에 자동으로 연결됩니다.
 
-**운영 체제 디스크** - 운영 체제 디스크는 최대 2TB까지 크기를 지정할 수 있으며, VM 인스턴스의 운영 체제를 호스팅합니다. OS 디스크는 기본적으로 */dev/sda*로 레이블이 지정됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. 이 구성으로 인해 OS 디스크는 애플리케이션 또는 데이터를 호스트해서는 **안 됩니다**. 애플리케이션 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 문서의 뒷부분에서 자세히 설명합니다.
+**운영 체제 디스크** - 운영 체제 디스크는 최대 2TB까지 크기를 지정할 수 있으며, VM 인스턴스의 운영 체제를 호스팅합니다. OS 디스크는 기본적으로 */dev/sda* 로 레이블이 지정됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. 이 구성으로 인해 OS 디스크는 애플리케이션 또는 데이터를 호스트해서는 **안 됩니다**. 애플리케이션 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 문서의 뒷부분에서 자세히 설명합니다.
 
-**임시 디스크** - 임시 디스크는 VM 인스턴스와 동일한 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 이러한 디스크는 고성능 디스크이며, 임시 데이터 처리와 같은 작업에 사용할 수 있습니다. 그러나 VM 인스턴스가 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터가 제거됩니다. 임시 디스크의 크기는 VM 인스턴스 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb*로 레이블이 지정되고 탑재 지점은 */mnt*입니다.
+**임시 디스크** - 임시 디스크는 VM 인스턴스와 동일한 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 이러한 디스크는 고성능 디스크이며, 임시 데이터 처리와 같은 작업에 사용할 수 있습니다. 그러나 VM 인스턴스가 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터가 제거됩니다. 임시 디스크의 크기는 VM 인스턴스 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb* 로 레이블이 지정되고 탑재 지점은 */mnt* 입니다.
 
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
 | Type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
@@ -79,13 +78,13 @@ Standard Storage는 HDD에서 지원되며, 비용 효율적인 스토리지 및
 API 버전 `2019-07-01`을 기준으로 [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) 속성을 사용하여 가상 머신 확장 집합에서 OS 디스크의 크기를 설정할 수 있습니다. 프로비저닝한 후에는 전체 공간을 사용하기 위해 디스크를 확장하거나 다시 분할해야 할 수 있습니다. [여기에서 디스크 확장](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os)에 대해 자세히 알아보세요.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>확장 집합을 만들 때 디스크 연결
-먼저 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-[az vmss create](/cli/azure/vmss) 명령을 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합을 만들고, SSH 키가 없는 경우 이 키를 생성합니다. `--data-disk-sizes-gb` 매개 변수를 사용하여 두 개의 디스크를 만듭니다. 첫 번째 디스크의 크기는 *64*GB이고, 두 번째 디스크의 크기는 *128*GB입니다.
+[az vmss create](/cli/azure/vmss) 명령을 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet* 이라는 확장 집합을 만들고, SSH 키가 없는 경우 이 키를 생성합니다. `--data-disk-sizes-gb` 매개 변수를 사용하여 두 개의 디스크를 만듭니다. 첫 번째 디스크의 크기는 *64* GB이고, 두 번째 디스크의 크기는 *128* GB입니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -101,7 +100,7 @@ az vmss create \
 확장 집합 리소스와 VM 인스턴스를 모두 만들고 구성하는 데 몇 분 정도 걸립니다.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>기존 확장 집합에 디스크 연결
-기존 확장 집합에 디스크를 연결할 수도 있습니다. [az vmss disk attach](/cli/azure/vmss/disk)를 사용하여 다른 디스크를 추가하기 위해 이전 단계에서 만든 확장 집합을 사용합니다. 다음 예제에서는 *128*GB 데이터 디스크를 추가로 연결합니다.
+기존 확장 집합에 디스크를 연결할 수도 있습니다. [az vmss disk attach](/cli/azure/vmss/disk)를 사용하여 다른 디스크를 추가하기 위해 이전 단계에서 만든 확장 집합을 사용합니다. 다음 예제에서는 *128* GB 데이터 디스크를 추가로 연결합니다.
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -209,7 +208,7 @@ exit
 
 
 ## <a name="list-attached-disks"></a>연결된 디스크 나열
-확장 집합에 연결된 디스크에 대한 정보를 보려면 [az vmss show](/cli/azure/vmss)를 사용하고 *virtualMachineProfile.storageProfile.dataDisks*에 대해 쿼리합니다.
+확장 집합에 연결된 디스크에 대한 정보를 보려면 [az vmss show](/cli/azure/vmss)를 사용하고 *virtualMachineProfile.storageProfile.dataDisks* 에 대해 쿼리합니다.
 
 ```azurecli-interactive
 az vmss show \
@@ -263,7 +262,7 @@ az vmss show \
 
 
 ## <a name="detach-a-disk"></a>디스크 분리
-지정된 디스크가 더 이상 필요하지 않은 경우 확장 집합에서 디스크를 분리할 수 있습니다. 확장 집합의 모든 VM 인스턴스에서 디스크가 제거됩니다. 확장 집합에서 디스크를 분리하려면 [az vmss disk detach](/cli/azure/vmss/disk)를 사용하고 디스크의 LUN을 지정합니다. LUN은 이전 섹션의 [az vmss show](/cli/azure/vmss) 출력에 표시되어 있습니다. 다음 예제에서는 확장 집합에서 LUN *2*를 분리합니다.
+지정된 디스크가 더 이상 필요하지 않은 경우 확장 집합에서 디스크를 분리할 수 있습니다. 확장 집합의 모든 VM 인스턴스에서 디스크가 제거됩니다. 확장 집합에서 디스크를 분리하려면 [az vmss disk detach](/cli/azure/vmss/disk)를 사용하고 디스크의 LUN을 지정합니다. LUN은 이전 섹션의 [az vmss show](/cli/azure/vmss) 출력에 표시되어 있습니다. 다음 예제에서는 확장 집합에서 LUN *2* 를 분리합니다.
 
 ```azurecli-interactive
 az vmss disk detach \

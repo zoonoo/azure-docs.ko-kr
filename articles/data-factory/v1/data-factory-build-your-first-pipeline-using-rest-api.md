@@ -3,20 +3,20 @@ title: 첫 번째 데이터 팩터리(REST) 빌드
 description: 이 자습서에서는 데이터 팩터리 REST API를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 32705c37685ab03ffa68f805dedb64411d8d9c46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 835f72df5c0c693c90b0cf7c45f7805b767d2bcb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543132"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496367"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "87543132"
 
 이 문서에서는 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory를 만듭니다. 다른 도구/SDK를 사용하여 이 자습서를 수행하려면 드롭다운 목록에서 옵션 중 하나를 선택합니다.
 
-이 자습서의 파이프라인에는 **HDInsight Hive 작업**이라는 하나의 작업이 있습니다. 이 작업은 Azure HDInsight 클러스터에서 입력 데이터를 변환하여 출력 데이터를 생성하는 Hive 스크립트를 실행합니다. 파이프라인은 지정된 시작 및 종료 시간 사이, 한 달에 한 번 실행되도록 예약됩니다.
+이 자습서의 파이프라인에는 **HDInsight Hive 작업** 이라는 하나의 작업이 있습니다. 이 작업은 Azure HDInsight 클러스터에서 입력 데이터를 변환하여 출력 데이터를 생성하는 Hive 스크립트를 실행합니다. 파이프라인은 지정된 시작 및 종료 시간 사이, 한 달에 한 번 실행되도록 예약됩니다.
 
 > [!NOTE]
 > 이 문서는 모든 REST API를 설명하지 않습니다. REST API에 대한 포괄적인 설명서는 [Data Factory REST API 참조](/rest/api/datafactory/)를 참조하세요.
@@ -50,14 +50,14 @@ ms.locfileid: "87543132"
 * 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/) 을 설치합니다. REST 명령과 함께 CURL 도구를 사용하여 데이터 팩터리를 만듭니다.
 * [이 문서](../../active-directory/develop/howto-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다.
   1. Azure Active Directory에서 **ADFGetStartedApp** 이라는 웹 애플리케이션을 만듭니다.
-  2. **클라이언트 ID** 및 **암호 키**를 가져옵니다.
-  3. **테넌트 ID**를 가져옵니다.
+  2. **클라이언트 ID** 및 **암호 키** 를 가져옵니다.
+  3. **테넌트 ID** 를 가져옵니다.
   4. **ADFGetStartedApp** 애플리케이션을 **데이터 팩터리 참가자** 역할에 할당합니다.
 * [Azure PowerShell](/powershell/azure/)을 설치합니다.
 * **PowerShell** 을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
-  1. **Connect-AzAccount**를 실행하고 Azure Portal에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.
-  2. **Get-AzSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
-  3. **Get-AzSubscription -SubscriptionName NameOfAzureSubscription | Set-AzContext**를 실행하여 작업할 구독을 선택합니다. **NameOfAzureSubscription** 을 Azure 구독의 이름으로 바꿉니다.
+  1. **Connect-AzAccount** 를 실행하고 Azure Portal에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.
+  2. **Get-AzSubscription** 을 실행하여 이 계정의 모든 구독을 확인합니다.
+  3. **Get-AzSubscription -SubscriptionName NameOfAzureSubscription | Set-AzContext** 를 실행하여 작업할 구독을 선택합니다. **NameOfAzureSubscription** 을 Azure 구독의 이름으로 바꿉니다.
 * PowerShell에서 다음 명령을 실행하여 **ADFTutorialResourceGroup** 이라는 Azure 리소스 그룹을 만듭니다.
 
     ```powershell
@@ -84,7 +84,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
+> **accountname** 및 **accountkey** 를 Azure Storage 계정의 이름 및 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 >
 >
 
@@ -130,9 +130,9 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 * 데이터 팩터리는 위의 JSON으로 사용자에게 **Linux 기반** HDInsight 클러스터를 만들어 줍니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 * 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터** 를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 를 참조하세요.
-* HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
+* HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너** 를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
 
-    온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft Azure Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 스토리지에서 컨테이너를 삭제합니다.
+    온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf **yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft Azure Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 스토리지에서 컨테이너를 삭제합니다.
 
 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 
@@ -162,7 +162,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 }
 ```
 
-JSON은 **AzureBlobInput**이라는 데이터 세트를 정의하며 이는 파이프라인의 작업에 대한 입력 데이터를 나타냅니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너 및 **inputdata**라는 폴더에 저장되도록 지정합니다.
+JSON은 **AzureBlobInput** 이라는 데이터 세트를 정의하며 이는 파이프라인의 작업에 대한 입력 데이터를 나타냅니다. 또한 결과가 **adfgetstarted** 라는 Blob 컨테이너 및 **inputdata** 라는 폴더에 저장되도록 지정합니다.
 
 다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
@@ -199,7 +199,7 @@ JSON은 **AzureBlobInput**이라는 데이터 세트를 정의하며 이는 파�
 }
 ```
 
-JSON은 **AzureBlobOutput**이라는 데이터 세트를 정의하고 이는 파이프라인의 작업에 대한 출력 데이터를 나타냅니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너와 **partitioneddata**라는 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 세트가 월 단위로 생성되도록 지정합니다.
+JSON은 **AzureBlobOutput** 이라는 데이터 세트를 정의하고 이는 파이프라인의 작업에 대한 출력 데이터를 나타냅니다. 또한 결과가 **adfgetstarted** 라는 Blob 컨테이너와 **partitioneddata** 라는 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 세트가 월 단위로 생성되도록 지정합니다.
 
 ### <a name="pipelinejson"></a>pipeline.json
 > [!IMPORTANT]
@@ -248,13 +248,13 @@ JSON은 **AzureBlobOutput**이라는 데이터 세트를 정의하고 이는 파
 
 JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 
-Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 스토리지 계정(**StorageLinkedService**라고 하는 scriptLinkedService에 의해 지정됨)과 **adfgetstarted** 컨테이너에 있는 **스크립트** 폴더에 저장됩니다.
+Hive 스크립트 파일 **partitionweblogs.hql** 은 Azure 스토리지 계정(**StorageLinkedService** 라고 하는 scriptLinkedService에 의해 지정됨)과 **adfgetstarted** 컨테이너에 있는 **스크립트** 폴더에 저장됩니다.
 
 **defines** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:inputtable}, ${hiveconf:partitionedtable})으로 전달되는 런타임 설정을 지정합니다.
 
 파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
 
-작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정한 컴퓨팅에 대해 Hive 스크립트가 실행되도록 지정합니다.
+작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService** 에서 지정한 컴퓨팅에 대해 Hive 스크립트가 실행되도록 지정합니다.
 
 > [!NOTE]
 > 앞의 예제에서 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Data Factory의 파이프라인 및 활동](data-factory-create-pipelines.md)에서 “파이프라인 JSON”을 참조하세요.
@@ -292,21 +292,21 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
-이 단계에서는 **FirstDataFactoryREST**라는 Azure Data Factory를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 원본에서 대상 데이터 저장소에 데이터를 복사하는 복사 작업 및 입력 데이터를 변환할 Hive 스크립트를 실행하는 HDInsight Hive 작업입니다. 다음 명령을 실행하여 데이터 팩터리를 만듭니다.
+이 단계에서는 **FirstDataFactoryREST** 라는 Azure Data Factory를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 원본에서 대상 데이터 저장소에 데이터를 복사하는 복사 작업 및 입력 데이터를 변환할 Hive 스크립트를 실행하는 HDInsight Hive 작업입니다. 다음 명령을 실행하여 데이터 팩터리를 만듭니다.
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다.
+1. 이 명령을 **cmd** 라는 변수에 할당합니다.
 
-    여기(ADFCopyTutorialDF)에서 지정한 데이터 팩터리의 이름이 **datafactory.json**에서 지정한 이름과 일치하는지 확인합니다.
+    여기(ADFCopyTutorialDF)에서 지정한 데이터 팩터리의 이름이 **datafactory.json** 에서 지정한 이름과 일치하는지 확인합니다.
 
     ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@datafactory.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 팩터리가 성공적으로 생성된 경우 데이터 팩터리에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 데이터 팩터리가 성공적으로 생성된 경우 데이터 팩터리에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
     ```powershell
     Write-Host $results
@@ -314,7 +314,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 다음 사항에 유의하세요.
 
-* Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 "FirstDataFactoryREST"를 사용할 수 없습니다**라는 오류가 발생한 경우 다음 단계를 수행합니다.
+* Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 "FirstDataFactoryREST"를 사용할 수 없습니다** 라는 오류가 발생한 경우 다음 단계를 수행합니다.
   1. **datafactory.json** 파일에서 이름(예: yournameFirstDataFactoryREST)을 변경합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
   2. **$cmd** 변수가 값을 할당한 첫 번째 명령에서 FirstDataFactoryREST를 새 이름으로 바꾸고 명령을 실행합니다.
   3. REST API를 호출하는 다음 두 명령을 실행하여 데이터 팩터리를 만들고 작업의 결과를 인쇄합니다.
@@ -342,17 +342,17 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다. 이 자습서에서는 동일한 Azure Storage 계정을 사용하여 입력/출력 데이터 및 HQL 스크립트 파일을 저장합니다.
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다.
+1. 이 명령을 **cmd** 라는 변수에 할당합니다.
 
     ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
     ```powershell
     Write-Host $results
@@ -361,17 +361,17 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스 만들기
 이 단계에서는 데이터 팩터리에 주문형 HDInsight 클러스터를 연결합니다. HDInsight 클러스터는 런타임 시 자동으로 만들어지며 처리가 완료되고 지정된 시간 동안 유휴 상태를 유지한 후에 삭제됩니다. 주문형 HDInsight 클러스터를 사용하는 대신 고유의 HDInsight 클러스터를 사용할 수 있습니다. 자세한 내용은 [컴퓨팅 연결 서비스](data-factory-compute-linked-services.md)를 참조하세요.
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다.
+1. 이 명령을 **cmd** 라는 변수에 할당합니다.
 
     ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
     ```powershell
     Write-Host $results
@@ -383,17 +383,17 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 만들 Azure File Storage의 이름을 입력합니다. 소문자, 숫자 및 -만 허용됩니다.
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다.
+1. 이 명령을 **cmd** 라는 변수에 할당합니다.
 
     ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
     ```powershell
     Write-Host $results
@@ -402,17 +402,17 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
 Windows에서 PowerShell을 사용하여 Azure File Storage 탑재
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다.
+1. 이 명령을 **cmd** 라는 변수에 할당합니다.
 
     ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
     ```powershell
     Write-Host $results
@@ -421,19 +421,19 @@ Windows에서 PowerShell을 사용하여 Azure File Storage 탑재
 ## <a name="create-pipeline"></a>파이프라인 만들기
 이 단계에서는 **HDInsightHive** 작업을 사용하여 첫 번째 파이프라인을 만듭니다. 입력 조각이 매월(빈도: 월, 간격: 1)이고 출력 조각이 매월 생성되며 작업에 대한 스케줄러 속성도 매월로 설정됩니다. 출력 데이터 세트 및 작업 스케줄러에 대한 설정이 일치해야 합니다. 현재 출력 데이터 세트가 일정을 결정하므로 작업이 출력을 생성하지 않는 경우 출력 데이터 세트를 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 세트 만들기를 건너뛸 수 있습니다.
 
-Azure Blob Storage의 **adfgetstarted/inputdata** 폴더에서 **input.log** 파일이 표시되는지 확인하고 다음 명령을 실행하여 파이프라인을 배포합니다. **시작** 및 **종료** 시간이 과거에 설정되고 **isPaused**가 false로 설정되었기 때문에 파이프라인(파이프라인의 활동)은 실행을 배포한 후에 즉시 실행됩니다.
+Azure Blob Storage의 **adfgetstarted/inputdata** 폴더에서 **input.log** 파일이 표시되는지 확인하고 다음 명령을 실행하여 파이프라인을 배포합니다. **시작** 및 **종료** 시간이 과거에 설정되고 **isPaused** 가 false로 설정되었기 때문에 파이프라인(파이프라인의 활동)은 실행을 배포한 후에 즉시 실행됩니다.
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다.
+1. 이 명령을 **cmd** 라는 변수에 할당합니다.
 
     ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
     ```powershell
     Write-Host $results
@@ -458,7 +458,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 ```
 
 > [!IMPORTANT]
-> 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분**이 걸릴 수 있습니다.
+> 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분** 이 걸릴 수 있습니다.
 >
 >
 
@@ -476,12 +476,12 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 ## <a name="summary"></a>요약
 이 자습서에서는 HDInsight hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데 Azure 데이터 팩터리를 만들었습니다. Azure 포털에서 다음 단계를 수행하기 위해 데이터 팩터리 편집기를 사용했습니다.
 
-1. Azure **데이터 팩터리**를 만들었습니다.
-2. 두 개의 **연결된 서비스**를 만들었습니다.
+1. Azure **데이터 팩터리** 를 만들었습니다.
+2. 두 개의 **연결된 서비스** 를 만들었습니다.
    1. **Azure Storage** 연결된 서비스입니다.
    2. **Azure HDInsight** 주문형 연결된 서비스입니다. Azure 데이터 팩터리는 입력 데이터를 처리하고 출력 데이터를 생성하기 위해 적시에 HDInsight Hadoop 클러스터를 만듭니다.
-3. 파이프라인에서 HDInsight Hive 작업에 대한 입력 및 출력 데이터를 설명하는 두 개의 **데이터 세트**를 만들었습니다.
-4. **HDInsight Hive** 작업으로 **파이프라인**을 만들었습니다.
+3. 파이프라인에서 HDInsight Hive 작업에 대한 입력 및 출력 데이터를 설명하는 두 개의 **데이터 세트** 를 만들었습니다.
+4. **HDInsight Hive** 작업으로 **파이프라인** 을 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서 파이프라인과 주문형 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.

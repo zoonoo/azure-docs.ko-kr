@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bc811ab3cab4b79b81b16dd94a2c72225046e35a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042629"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488281"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 조건부 액세스 기술 프로필 정의
 
@@ -53,7 +53,7 @@ Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| OperationType | 예 | **평가**해야 합니다.  |
+| OperationType | 예 | **평가** 해야 합니다.  |
 
 ### <a name="input-claims"></a>입력 클레임
 
@@ -115,7 +115,7 @@ Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| OperationType | 예 | **수정**해야 합니다.  |
+| OperationType | 예 | **수정** 해야 합니다.  |
 
 ### <a name="input-claims"></a>입력 클레임
 
@@ -130,7 +130,7 @@ Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=
 
 ### <a name="output-claims"></a>출력 클레임
 
-조건부 액세스 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 출력 클레임을 지정할 필요가 없습니다. 그러나 특성을 설정 하는 동안에는 조건부 액세스 프로토콜 공급자에서 반환 하지 않은 클레임을 포함할 수 있습니다 `DefaultValue` .
+조건부 액세스 프로토콜 공급자는 **outputclaims** 반환 되지 않으므로 출력 클레임을 지정할 필요가 없습니다. 그러나 특성을 설정 하는 동안에는 조건부 액세스 프로토콜 공급자에서 반환 하지 않은 클레임을 포함할 수 있습니다 `DefaultValue` .
 
 **OutputClaimsTransformations** 요소는 출력 클레임을 수정하거나 새 출력 클레임을 생성하는 데 사용되는 **OutputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
 
@@ -428,7 +428,7 @@ TrustFrameworkPolicy 요소에서 다음 예제와 같이 이러한 SubJourneys�
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
               <Value>CAChallengeIsMfa</Value>
-              <Value>false</Value>
+              <Value>False</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>
@@ -458,7 +458,7 @@ TrustFrameworkPolicy 요소에서 다음 예제와 같이 이러한 SubJourneys�
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
-              <Value>true</Value>
+              <Value>True</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>

@@ -1,20 +1,19 @@
 ---
-ms.openlocfilehash: 475a468977a976e2e7399c14df9329b31446d404
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c400856546142353a7294a03fce6bbff1c258cc0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135056"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555883"
 ---
-
-Azure AD(Azure Active Directory)에서 **앱 프로비저닝** 이라는 용어는 사용자가 액세스해야 하는 클라우드( [SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 애플리케이션에서 사용자 ID와 역할을 자동으로 만드는 것을 의미합니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다. 일반적인 시나리오에는 Azure AD 사용자를 [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md) 등과 같은 애플리케이션에 프로비저닝하는 것이 포함됩니다.
+Azure AD(Azure Active Directory)에서 **앱 프로비저닝** 이라는 용어는 사용자가 액세스해야 하는 클라우드([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 애플리케이션에서 사용자 ID와 역할을 자동으로 만드는 것을 의미합니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다. 일반적인 시나리오에는 Azure AD 사용자를 [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md) 등과 같은 애플리케이션에 프로비저닝하는 것이 포함됩니다.
 
 ![프로비저닝 개요 다이어그램](./media/active-directory-app-provisioning/provisioning-overview.png)
 
 이 기능을 통해 다음을 수행할 수 있습니다.
 
-- **프로비저닝 자동화** : 새로운 사람이 팀 또는 조직에 가입할 때 적절한 시스템에서 새 계정을 자동으로 만듭니다.
-- **프로비저닝 해제 자동화** : 사용자가 팀 또는 조직을 떠날 때 적절한 시스템에서 계정을 자동으로 비활성화합니다.
+- **프로비저닝 자동화**: 새로운 사람이 팀 또는 조직에 가입할 때 적절한 시스템에서 새 계정을 자동으로 만듭니다.
+- **프로비저닝 해제 자동화**: 사용자가 팀 또는 조직을 떠날 때 적절한 시스템에서 계정을 자동으로 비활성화합니다.
 - **시스템 간 데이터 동기화:** 디렉터리 또는 인사 관리 시스템의 변경 내용에 따라 앱 및 시스템의 ID를 최신 상태로 유지합니다.
 - **그룹 프로비저닝:** 그룹을 지원하는 애플리케이션에 그룹을 프로비저닝합니다.
 - **액세스 제어:** 애플리케이션에 프로비저닝된 사용자를 모니터링하고 감사합니다.
@@ -46,7 +45,7 @@ Azure AD는 [SCIM 2.0 표준](https://techcommunity.microsoft.com/t5/Identity-St
 
    ![Salesforce 로고](./media/active-directory-app-provisioning/gallery-app-logos.png)
 
-   프로비저닝에 사용할 새 애플리케이션을 요청하려면 [애플리케이션을 앱 갤러리와 통합하도록 요청](../articles/active-directory/azuread-dev/howto-app-gallery-listing.md)하면 됩니다. 사용자 프로비저닝 요청의 경우 애플리케이션에 SCIM 규격 엔드포인트가 있어야 합니다. 앱을 플랫폼에 빠르게 온보딩할 수 있도록 애플리케이션 공급업체에게 SCIM 표준을 준수해 달라고 요청하세요.
+   프로비저닝에 사용할 새 애플리케이션을 요청하려면 [애플리케이션을 앱 갤러리와 통합하도록 요청](../articles/active-directory/develop/v2-howto-app-gallery-listing.md)하면 됩니다. 사용자 프로비저닝 요청의 경우 애플리케이션에 SCIM 규격 엔드포인트가 있어야 합니다. 앱을 플랫폼에 빠르게 온보딩할 수 있도록 애플리케이션 공급업체에게 SCIM 표준을 준수해 달라고 요청하세요.
 
 * **SCIM 2.0을 지원하는 애플리케이션**. SCIM 2.0 기반 사용자 관리 API를 구현하는 애플리케이션을 일반적인 방법으로 연결하려면 [SCIM 엔드포인트를 빌드하고 사용자 프로비저닝 구성](../articles/active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md)을 참조하세요.
 
@@ -66,7 +65,7 @@ Azure AD 갤러리의 애플리케이션은 다음 두 가지 프로비저닝 �
 
 * **자동** 이란 Azure AD 프로비전 커넥터가 이 애플리케이션에 대해 개발되었음을 의미합니다. 애플리케이션의 프로비저닝 설정에 대한 설정 자습서를 따라야 합니다. 앱 자습서는 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../articles/active-directory/saas-apps/tutorial-list.md)에서 찾을 수 있습니다.
 
-Azure AD 갤러리에서 자동 프로비저닝을 지원하는 애플리케이션에는 **프로비저닝** 아이콘이 표시됩니다. 새 갤러리 미리 보기 환경으로 전환하면 이 아이콘을 볼 수 있습니다( **애플리케이션 페이지 추가** 맨 위에 있는 배너에서 **여기를 클릭하여 새롭고 향상된 앱 갤러리 사용해 보기** 링크를 선택).
+Azure AD 갤러리에서 자동 프로비저닝을 지원하는 애플리케이션에는 **프로비저닝** 아이콘이 표시됩니다. 새 갤러리 미리 보기 환경으로 전환하면 이 아이콘을 볼 수 있습니다(**애플리케이션 페이지 추가** 맨 위에 있는 배너에서 **여기를 클릭하여 새롭고 향상된 앱 갤러리 사용해 보기** 링크를 선택).
 
 ![애플리케이션 갤러리의 프로비저닝 아이콘](./media/active-directory-app-provisioning/browse-gallery.png)
 

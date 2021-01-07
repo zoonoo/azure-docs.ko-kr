@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84704525"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920751"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -27,7 +27,7 @@ ms.locfileid: "84704525"
 
 재시도 정책 유형은 다음과 같습니다.
 
-| 유형 | Description |
+| Type | Description |
 |------|-------------|
 | **기본값** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. |
 | **기하급수적 간격**  | 이 정책은 다음 요청을 보내기 전에 기하급수적으로 증가하는 범위에서 선택된 임의의 간격만큼 대기합니다. |
@@ -35,7 +35,7 @@ ms.locfileid: "84704525"
 | **없음**  | 요청을 다시 보내지 않습니다. |
 |||
 
-재시도 정책 제한에 대한 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#request-limits)을 참조하세요.
+재시도 정책 제한에 대한 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#http-limits)을 참조하세요.
 
 ### <a name="change-retry-policy"></a>재시도 정책 변경
 
@@ -43,9 +43,9 @@ ms.locfileid: "84704525"
 
 1. Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 작업 또는 트리거에 대한 **설정**을 엽니다.
+1. 작업 또는 트리거에 대한 **설정** 을 엽니다.
 
-1. 작업 또는 트리거가 재시도 정책을 지원하는 경우 **재시도 정책**에서 원하는 유형을 선택합니다.
+1. 작업 또는 트리거가 재시도 정책을 지원하는 경우 **재시도 정책** 에서 원하는 유형을 선택합니다.
 
 또는 재시도 정책을 지원하는 작업 또는 트리거에 대한 `inputs` 섹션에서 재시도 정책을 수동으로 지정할 수 있습니다. 재시도 정책을 지정하지 않으면 작업에 기본 정책이 사용됩니다.
 
@@ -69,16 +69,16 @@ ms.locfileid: "84704525"
 
 *필수*
 
-| 값 | Type | 설명 |
+| 값 | Type | Description |
 |-------|------|-------------|
 | <*다시 시도 정책-유형*> | String | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) |
 | <*다시 시도 간격*> | String | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. |
-| <*다시 시도 횟수*> | Integer | 재시도 횟수이며, 1~90 사이여야 합니다. |
+| <*다시 시도 횟수*> | 정수 | 재시도 횟수이며, 1~90 사이여야 합니다. |
 ||||
 
 *선택 사항*
 
-| 값 | Type | 설명 |
+| 값 | Type | Description |
 |-------|------|-------------|
 | <*최소 간격*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
 | <*최대 간격*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
@@ -176,7 +176,7 @@ ms.locfileid: "84704525"
 
 선행 작업의 상태가 `Succeeded` , `Failed` , `Skipped` , `TimedOut` 또는 이러한 상태 중 하나일 때 동작이 실행 되도록 작업의 "실행 후" 동작을 사용자 지정할 수 있습니다. 예를 들어 Excel Online 선행 작업을로 표시 한 후 전자 메일을 보내려면 `Add_a_row_into_a_table` `Failed` 다음 단계를 수행 `Succeeded` 하 여 "다음 시간 이후에 실행" 동작을 변경 합니다.
 
-* 디자인 뷰에서 줄임표 (**...**) 단추를 선택한 다음 다음 **이후 실행 구성**을 선택 합니다.
+* 디자인 뷰에서 줄임표 (**...**) 단추를 선택한 다음 다음 **이후 실행 구성** 을 선택 합니다.
 
   ![작업에 대해 "실행 후" 동작 구성](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
 

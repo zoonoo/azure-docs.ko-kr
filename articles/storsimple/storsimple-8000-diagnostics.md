@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300448"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954072"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>StorSimple 진단 도구를 사용하여 8000 시리즈 디바이스 문제 해결
 
@@ -332,9 +332,9 @@ hcs_startup                                   Stopped hcs_startup
 * DATA 2 - 5는 포털에서 사용하도록 설정되어 있지 않습니다.
 * DNS 서버 구성은 유효하며 디바이스는 DNS 서버를 통해 연결할 수 있습니다.
 * NTP 서버 연결도 가능합니다.
-* 포트 80 및 443이 열려 있습니다. 그러나 포트 9354는 차단되어 있습니다. [시스템 네트워크 요구 사항](storsimple-system-requirements.md)에 따라 Service Bus 통신에 대한 이 포트를 열어야 합니다.
+* 포트 80 및 443이 열려 있습니다. 그러나 포트 9354는 차단되어 있습니다. [시스템 네트워크 요구 사항](./storsimple-8000-system-requirements.md)에 따라 Service Bus 통신에 대한 이 포트를 열어야 합니다.
 * TLS/SSL 인증을 사용할 수 있습니다.
-* 디바이스를 스토리지 계정인 _myss8000storageacct_에 연결할 수 있습니다.
+* 디바이스를 스토리지 계정인 _myss8000storageacct_ 에 연결할 수 있습니다.
 * 업데이트 서버에 대한 연결이 유효합니다.
 * 이 디바이스에 대한 웹 프록시가 구성되어 있지 않습니다.
 
@@ -388,7 +388,7 @@ Web proxy                               Not enabled         Web proxy is not...
 
     진단 도구에서 보고된 읽기-쓰기 대기 시간이 너무 높은 경우:
 
-    1. Azure Storage 계정에 대한 대기 시간을 이해하기 위해 Blob services에 대한 스토리지 분석을 구성하고 출력을 분석합니다. 자세한 지침은 [스토리지 분석 설정 및 구성](../storage/common/storage-enable-and-view-metrics.md)으로 이동합니다. 그러한 대기 시간이 높고 StorSimple 진단 도구에서 수신한 숫자와 비교 가능한 경우 Azure Storage로 서비스 요청을 로그해야 합니다.
+    1. Azure Storage 계정에 대한 대기 시간을 이해하기 위해 Blob services에 대한 스토리지 분석을 구성하고 출력을 분석합니다. 자세한 지침은 [스토리지 분석 설정 및 구성](../storage/blobs/monitor-blob-storage.md)으로 이동합니다. 그러한 대기 시간이 높고 StorSimple 진단 도구에서 수신한 숫자와 비교 가능한 경우 Azure Storage로 서비스 요청을 로그해야 합니다.
 
     2. 스토리지 계정 대기 시간이 너무 낮은 경우 사용자 네트워크의 대기 시간 문제 조사를 위해 네트워크 관리자에게 문의합니다.
 
@@ -414,10 +414,10 @@ Controller0>
 
 다음은 매핑할 시스템 정보의 다양한 Windows PowerShell 매개 변수를 설명하는 테이블입니다. 
 
-| PowerShell 매개 변수    | 설명  |
+| PowerShell 매개 변수    | Description  |
 |-------------------------|------------------|
 | Instance ID             | 모든 컨트롤러에는 고유 식별자 또는 연결된 GUID입니다.|
-| Name                    | 디바이스를 배포하는 동안 Azure Portal을 통해 구성된 디바이스의 친숙한 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다. |
+| 속성                    | 디바이스를 배포하는 동안 Azure Portal을 통해 구성된 디바이스의 친숙한 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다. |
 | 모델                   | 사용자 StorSimple 8000 시리즈 디바이스의 모델입니다. 모델은 8100 또는 8600일 수 있습니다.|
 | SerialNumber            | 디바이스 일련 번호는 공장에서 할당되고 길이가 15자입니다. 예를 들어, 8600-SHX0991003G44HT는 다음을 나타냅니다.<br> 8600 – 디바이스 모델을 나타냅니다.<br>SHX – 제조 사이트를 나타냅니다.<br> 0991003 - 특정 제품을 나타냅니다. <br> G44HT - 마지막 5자리 숫자는 고유한 일련 번호를 만들기 위해 증가됩니다. 순차적인 집합이 아닐 수 있습니다.|
 | TimeZone                | 디바이스를 배포하는 동안 Azure Portal에서 구성된 디바이스 표준 시간대입니다.|
@@ -440,6 +440,6 @@ Controller0>
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Invoke-HcsDiagnostics cmdlet의 구문](https://technet.microsoft.com/library/mt795371.aspx)에 대해 알아보세요.
+* [Invoke-HcsDiagnostics cmdlet의 구문](/previous-versions/windows/powershell-scripting/mt795371(v=wps.630))에 대해 알아보세요.
 
-* 사용자의 StorSimple 디바이스에서 [배포 문제 해결](storsimple-troubleshoot-deployment.md) 방법에 대한 자세한 정보를 알아보세요.
+* 사용자의 StorSimple 디바이스에서 [배포 문제 해결](./storsimple-8000-troubleshoot-deployment.md) 방법에 대한 자세한 정보를 알아보세요.

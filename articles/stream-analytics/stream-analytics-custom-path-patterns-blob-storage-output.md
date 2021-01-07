@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7239c2e3cb42cb17b01904e8fc226ae2408dbb47
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317857"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617428"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics 사용자 지정 Blob 출력 분할
 
@@ -25,15 +25,21 @@ Azure Stream Analytics는 사용자 지정 필드 또는 특성과 사용자 지
 
 ### <a name="partition-key-options"></a>파티션 키 옵션
 
-입력 데이터 분할에 사용되는 파티션 키 또는 열 이름에는 하이픈, 밑줄 및 공백이 있는 영숫자가 포함될 수 있습니다. 별칭과 함께 사용하지 않는 한 중첩 필드를 파티션 키로 사용하는 것은 불가능합니다. 파티션 키는 NVARCHAR(MAX)여야 합니다.
+입력 데이터를 분할 하는 데 사용 되는 파티션 키 또는 열 이름에는 [blob 이름](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)에 대해 허용 되는 모든 문자가 포함 될 수 있습니다. 별칭과 함께 사용 하지 않는 한 중첩 된 필드를 파티션 키로 사용할 수 없지만 특정 문자를 사용 하 여 파일의 계층 구조를 만들 수는 있습니다. 예를 들어 다음 쿼리를 사용 하 여 다른 두 열의 데이터를 결합 하 여 고유한 파티션 키를 만드는 열을 만들 수 있습니다.
+
+```sql
+SELECT name, id, CONCAT(name, "/", id) AS nameid
+```
+
+파티션 키는 NVARCHAR (MAX), BIGINT, FLOAT 또는 BIT (1.2 호환성 수준 이상) 여야 합니다. DateTime, Array 및 Records 형식은 지원 되지 않지만 문자열로 변환 된 경우에는 파티션 키로 사용할 수 있습니다. 자세한 내용은 [Azure Stream Analytics 데이터 형식](/stream-analytics-query/data-types-azure-stream-analytics)을 참조 하세요.
 
 ### <a name="example"></a>예제
 
-한 작업이 외부 비디오 게임 서비스에 연결된 라이브 사용자 세션에서 입력 데이터를 가져오고, 수집된 데이터에 세션을 식별하기 위한 **client_id** 열이 포함되어 있다고 가정해 봅시다. 데이터를 **client_id**로 분할하기 위해, 작업을 만들 때 Blob 출력 속성에 **{client_id}** 파티션 토큰이 포함되도록 Blob 경로 패턴 필드를 설정합니다. 다양한 **client_id** 값을 갖는 데이터가 Stream Analytics 작업을 통해 흐르면 폴더별 단일 **client_id** 값에 따라 별도의 폴더에 출력 데이터가 저장됩니다.
+한 작업이 외부 비디오 게임 서비스에 연결된 라이브 사용자 세션에서 입력 데이터를 가져오고, 수집된 데이터에 세션을 식별하기 위한 **client_id** 열이 포함되어 있다고 가정해 봅시다. 데이터를 **client_id** 로 분할하기 위해, 작업을 만들 때 Blob 출력 속성에 **{client_id}** 파티션 토큰이 포함되도록 Blob 경로 패턴 필드를 설정합니다. 다양한 **client_id** 값을 갖는 데이터가 Stream Analytics 작업을 통해 흐르면 폴더별 단일 **client_id** 값에 따라 별도의 폴더에 출력 데이터가 저장됩니다.
 
 ![클라이언트 id를 사용하는 경로 패턴](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
 
-마찬가지로, 작업 입력이 수백만 개의 센서에서 얻은 센서 데이터이고, 각 센서에 **sensor_id**가 있는 경우 각 센서 데이터를 서로 다른 폴더에 분할할 수 있도록 경로 패턴은 **{sensor_id}** 입니다.  
+마찬가지로, 작업 입력이 수백만 개의 센서에서 얻은 센서 데이터이고, 각 센서에 **sensor_id** 가 있는 경우 각 센서 데이터를 서로 다른 폴더에 분할할 수 있도록 경로 패턴은 **{sensor_id}** 입니다.  
 
 
 REST API를 사용하면 해당 요청에 사용되는 JSON 파일의 출력 섹션은 다음과 비슷합니다.  
@@ -48,7 +54,7 @@ REST API를 사용하면 해당 요청에 사용되는 JSON 파일의 출력 섹
 
 ![Blob 콘텐츠](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
-Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 있습니다. 출력 경로의 출력을 분할하는 데 사용된 열이 **client_id**이기 때문입니다.
+Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 있습니다. 출력 경로의 출력을 분할하는 데 사용된 열이 **client_id** 이기 때문입니다.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -62,6 +68,8 @@ Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 �
 2. 파티션 키는 대/소문자를 구분하지 않으므로 "John"과 "john"은 동일한 파티션 키입니다. 또한 식을 파티션 키로 사용할 수 없습니다. 예를 들어 **{columnA + columnB}** 는 작동하지 않습니다.  
 
 3. 파티션 키 카디널리티 8000 미만의 레코드로 입력 스트림이 구성되면 레코드가 기존 Blob에 추가되고 필요할 때만 새 Blob을 만듭니다. 카디널리티가 8000을 넘으면 기존 Blob이 작성되고 파티션 키가 동일한 임의의 수의 레코드에 대한 새 Blob이 생성된다는 보장이 없습니다.
+
+4. Blob 출력을 변경할 수 없는 [것으로 구성](../storage/blobs/storage-blob-immutable-storage.md)하면 데이터를 보낼 때마다 새 blob이 만들어집니다 Stream Analytics.
 
 ## <a name="custom-datetime-path-patterns"></a>사용자 지정 날짜/시간 경로 패턴
 

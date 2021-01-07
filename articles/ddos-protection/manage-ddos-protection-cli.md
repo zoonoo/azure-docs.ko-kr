@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 47733f4b141b0064e966d0c083fd6414405f65f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6c628d93c112a770c85a10d0eff958614a7cf4cb
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095546"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814162"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>빠른 시작: Azure CLI를 사용 하 여 Azure DDoS Protection Standard 만들기 및 구성
 
@@ -39,7 +39,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
 Azure에서 관련 리소스를 리소스 그룹에 할당합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다.
 
-리소스 그룹을 만들려면 [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true)를 사용합니다. 이 예제에서는 리소스 그룹 _Myresourcegroup_ 의 이름을로 하 고 _미국 동부_ 위치를 사용 합니다.
+리소스 그룹을 만들려면 [az group create](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create)를 사용합니다. 이 예제에서는 리소스 그룹 _Myresourcegroup_ 의 이름을로 하 고 _미국 동부_ 위치를 사용 합니다.
 
 ```azurecli-interactive
 az group create \
@@ -111,7 +111,7 @@ az network ddos-protection show \
 
 다음 자습서에 대 한 리소스를 유지할 수 있습니다. 더 이상 필요 하지 않은 경우 _Myresourcegroup_ 리소스 그룹을 삭제 합니다. 리소스 그룹을 삭제 하면 DDoS 보호 계획과 관련 된 모든 리소스도 삭제 됩니다. 
 
-리소스 그룹을 삭제하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true)를 사용합니다.
+리소스 그룹을 삭제하려면 [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az_group_delete)를 사용합니다.
 
 ```azurecli-interactive
 az group delete \
@@ -134,4 +134,4 @@ DDoS 보호 계획을 삭제 하려면 먼저 모든 가상 네트워크를 분�
 DDoS 보호 계획에 대 한 원격 분석을 보고 구성 하는 방법을 알아보려면 자습서를 계속 진행 합니다.
 
 > [!div class="nextstepaction"]
-> [DDoS 보호 원격 분석 보기 및 구성](telemetry-monitoring-alerting.md)
+> [DDoS 보호 원격 분석 보기 및 구성](telemetry.md)

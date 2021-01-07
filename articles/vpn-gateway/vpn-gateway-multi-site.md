@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 93916bb1eb92447da45ebae7ccb2e61c5af1dd9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441581"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660698"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>기존 VPN Gateway 연결이 있는 VNet에 사이트 간 연결 추가(클래식)
 
@@ -71,8 +71,8 @@ ms.locfileid: "89441581"
 2. 새 게이트웨이를 구성하고 VPN 터널을 만듭니다. 지침에 대해서는 [SKU와 VPN 유형 지정](vpn-gateway-howto-site-to-site-classic-portal.md#sku)을 참조하세요. 라우팅 유형을 '동적'으로 지정해야 합니다.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>사이트 간 가상 네트워크 사이트가 없는 경우:
-1. [사이트 간 VPN 연결을 사용하여 Virtual Network 만들기](vpn-gateway-site-to-site-create.md)를 참조하여 사이트 간 가상 네트워크를 만듭니다.  
-2. [VPN Gateway 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하여 동적 라우팅 게이트웨이를 구성하십시오. 사용 중인 게이트웨이 유형에 맞는 **동적 라우팅** 을 선택해야 합니다.
+1. [사이트 간 VPN 연결을 사용하여 Virtual Network 만들기](./vpn-gateway-howto-site-to-site-classic-portal.md)를 참조하여 사이트 간 가상 네트워크를 만듭니다.  
+2. [VPN Gateway 구성](./vpn-gateway-howto-site-to-site-classic-portal.md)을 참조하여 동적 라우팅 게이트웨이를 구성하십시오. 사용 중인 게이트웨이 유형에 맞는 **동적 라우팅** 을 선택해야 합니다.
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. 네트워크 구성 파일 내보내기
 
@@ -174,7 +174,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="6-download-keys"></a>6. 키 다운로드
 새 터널을 추가한 후 PowerShell cmdlet 'Get-AzureVNetGatewayKey'를 사용하여 각 터널의 IPsec/IKE 사전 공유 키를 가져옵니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

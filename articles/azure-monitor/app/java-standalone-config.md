@@ -1,17 +1,19 @@
 ---
-title: 구성 옵션-Java Azure Monitor Application Insights
-description: Azure Monitor Application Insights Java에 대 한 구성 옵션
+title: 구성 옵션-Java 용 Azure Monitor Application Insights
+description: Java에 대 한 Azure Monitor Application Insights를 구성 하는 방법
 ms.topic: conceptual
 ms.date: 11/04/2020
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: b703a708af564b9dafc8c1409333a2cfed6d2653
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.author: jgol
+ms.openlocfilehash: 7c5cac0b52fb0a224595ca7e328b551fd48d6661
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427703"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614237"
 ---
-# <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java에 대 한 구성 옵션
+# <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
 > [!WARNING]
 > **3.0 미리 보기에서 업그레이드 하는 경우**
@@ -167,6 +169,9 @@ ms.locfileid: "94427703"
 
 `${...}` 시작 시 지정 된 환경 변수에서 값을 읽는 데 사용할 수 있습니다.
 
+> [!NOTE]
+> 3.0.1 버전부터 이라는 사용자 지정 차원을 추가 하는 경우이 `service.version` 값은 `application_Version` 사용자 지정 차원이 아닌 Application Insights Logs 테이블의 열에 저장 됩니다.
+
 ## <a name="telemetry-processors-preview"></a>원격 분석 프로세서 (미리 보기)
 
 이 기능은 미리 보기 상태입니다.
@@ -182,9 +187,9 @@ ms.locfileid: "94427703"
 
 Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임 워크를 통해 수행 된 로깅은 자동으로 수집 됩니다.
 
-기본적으로 로깅은 수준 이상에서 수행 되는 경우에만 수집 됩니다 `INFO` .
+로깅은 먼저 로깅 프레임 워크의 구성 된 임계값을 충족 하 고 두 번째는 구성 된 Application Insights 임계값을 충족 하는 경우에만 캡처됩니다.
 
-이 컬렉션 수준을 변경 하려면 다음을 수행 합니다.
+기본 Application Insights 임계값은 `INFO` 입니다. 이 수준을 변경 하려면 다음을 수행 합니다.
 
 ```json
 {
@@ -336,7 +341,7 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
       "enabled": true
     }
   },
-  "httpProxy": {
+  "proxy": {
   },
   "preview": {
     "processors": [

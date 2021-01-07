@@ -13,23 +13,23 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: f04a8aa96b51ac9330e4302c3afcc48f7d305b39
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611115"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507713"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>자습서: iOS 또는 macOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출
 
-이 자습서에서는 iOS 또는 macOS 앱을 Microsoft ID 플랫폼에 통합하는 방법을 알아봅니다. 앱에서는 사용자로 로그인하고, Microsoft Graph API를 호출하기 위한 액세스 토큰을 가져오고, Microsoft Graph API를 요청합니다.
+이 자습서에서는 Microsoft ID 플랫폼과 통합되어 사용자를 서명하고 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 iOS 또는 macOS 앱을 빌드합니다.
 
 이 가이드를 완료했으면 애플리케이션에서 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 또는 학교 계정뿐만 아니라 개인 Microsoft 계정(outlook.com, live.com 등)의 로그인을 수락하게 됩니다. 이 자습서는 iOS 및 macOS 앱 모두에 적용됩니다. 두 플랫폼의 단계가 약간 다릅니다.
 
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * *Xcode*에서 iOS 또는 macOS 앱 프로젝트 만들기
+> * *Xcode* 에서 iOS 또는 macOS 앱 프로젝트 만들기
 > * Azure Portal에 앱 등록
 > * 사용자 로그인 및 로그아웃을 지원하는 코드 추가
 > * Microsoft Graph API를 호출하는 코드 추가
@@ -62,25 +62,26 @@ ms.locfileid: "91611115"
 
 ## <a name="create-a-new-project"></a>새 프로젝트 만들기
 
-1. Xcode를 열고 **Create a new Xcode project**를 선택합니다.
-2. iOS 앱의 경우 **iOS** > **단일 보기 앱**을 선택하고 **다음**을 선택합니다.
-3. macOS 앱의 경우 **macOS** > **Cocoa App**을 선택하고 **다음**을 선택합니다.
+1. Xcode를 열고 **Create a new Xcode project** 를 선택합니다.
+2. iOS 앱의 경우 **iOS** > **단일 보기 앱** 을 선택하고 **다음** 을 선택합니다.
+3. macOS 앱의 경우 **macOS** > **Cocoa App** 을 선택하고 **다음** 을 선택합니다.
 4. 프로젝트 이름을 제공합니다.
-5. **언어**를 **Swift**로 설정하고 **다음**을 선택합니다.
-6. 앱을 만들 폴더를 선택하고 **만들기**를 선택합니다.
+5. **언어** 를 **Swift** 로 설정하고 **다음** 을 선택합니다.
+6. 앱을 만들 폴더를 선택하고 **만들기** 를 선택합니다.
 
 ## <a name="register-your-application"></a>애플리케이션 등록
 
-1. [Azure Portal](https://aka.ms/MobileAppReg)로 이동
-2. 앱 등록 블레이드를 열고 **+새 등록**을 선택합니다.
-3. 앱의 **이름**을 입력한 다음, 리디렉션 URI를 설정하지 않습니다.
-4. **지원되는 계정 유형**에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트) 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다.
-5. **등록**을 선택합니다.
-6. 나타나는 창의 **관리** 섹션에서 **인증**을 선택합니다.
-
-7. 화면 위쪽에 있는 **새 환경 사용해 보기**를 선택하여 새 앱 등록 환경을 연 다음, **+새 등록** >  **+ 플랫폼 추가** > **iOS/macOS**를 선택합니다.
-    - 프로젝트의 번들 ID를 입력합니다. 코드를 다운로드한 경우 `com.microsoft.identitysample.MSALiOS`입니다. 사용자 고유의 프로젝트를 만드는 경우 Xcode에서 프로젝트를 선택하고 **일반** 탭을 엽니다. 번들 식별자가 **ID** 섹션에 나타납니다.
-8. `Configure`를 선택하고 **MSAL 구성** 페이지에 나타나는 **MSAL 구성**을 저장합니다. 그러면 나중에 앱을 구성할 때 이 구성을 입력할 수 있습니다. **완료** 를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트) 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다.
+1. **등록** 을 선택합니다.
+1. **관리** 에서 **인증** > **플랫폼 추가** > **iOS/macOS** 를 선택합니다.
+1. 프로젝트의 번들 ID를 입력합니다. 코드를 다운로드한 경우 `com.microsoft.identitysample.MSALiOS`입니다. 사용자 고유의 프로젝트를 만드는 경우 Xcode에서 프로젝트를 선택하고 **일반** 탭을 엽니다. 번들 식별자가 **ID** 섹션에 나타납니다.
+1. **구성** 을 선택하고 **MSAL 구성** 페이지에 나타나는 **MSAL 구성** 을 저장합니다. 그러면 나중에 앱을 구성할 때 이 구성을 입력할 수 있습니다. 
+1. **완료** 를 선택합니다.
 
 ## <a name="add-msal"></a>MSAL 추가
 
@@ -158,7 +159,7 @@ var currentAccount: MSALAccount?
 
 ## <a name="configure-xcode-project-settings"></a>Xcode 프로젝트 설정 구성
 
-프로젝트 **서명 및 기능**에 새 키 집합 그룹을 추가합니다. 키 집합 그룹은 iOS에서는 `com.microsoft.adalcache`, macOS에서는 `com.microsoft.identity.universalstorage`여야 합니다.
+프로젝트 **서명 및 기능** 에 새 키 집합 그룹을 추가합니다. 키 집합 그룹은 iOS에서는 `com.microsoft.adalcache`, macOS에서는 `com.microsoft.identity.universalstorage`여야 합니다.
 
 ![키 집합 그룹을 설정하는 방법을 표시하는 Xcode UI](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro-keychainShare.png)
 
@@ -187,7 +188,7 @@ Xcode에서 `Info.plist`를 소스 코드 파일로 열고 `<dict>` 섹션 내�
 
 ## <a name="for-macos-only-configure-app-sandbox"></a>macOS의 경우에만 App Sandbox 구성
 
-1. Xcode 프로젝트 설정 > **기능 탭** > **App Sandbox**로 이동
+1. Xcode 프로젝트 설정 > **기능 탭** > **App Sandbox** 로 이동
 2. **나가는 연결(클라이언트)** 확인란을 선택합니다.
 
 ## <a name="create-your-apps-ui"></a>앱 UI 만들기
@@ -520,7 +521,7 @@ MSAL은 토큰을 가져오기 위한 두 가지 기본 메서드 `acquireTokenS
 
 1. 범위를 사용하여 `MSALInteractiveTokenParameters`를 만듭니다.
 2. 만든 매개 변수를 사용하여 `acquireToken()`을 호출합니다.
-3. 오류를 처리합니다. 자세한 내용은 [iOS 및 macOS용 MSAL 오류 처리 가이드](msal-handling-exceptions.md)를 참조하세요.
+3. 오류를 처리합니다. 자세한 내용은 [iOS 및 macOS용 MSAL 오류 처리 가이드](msal-error-handling-ios.md)를 참조하세요.
 4. 성공 사례를 처리합니다.
 
 `ViewController` 클래스에 다음 코드를 추가합니다.
@@ -723,7 +724,7 @@ Microsoft Graph API에 대해 자세히 알아보려면 [Microsoft Graph API](ht
 토큰 캐싱을 사용하려면 다음을 수행합니다.
 
 1. 애플리케이션이 제대로 서명되었는지 확인
-1. Xcode 프로젝트 설정 > **기능 탭** > **키 집합 공유 사용**으로 이동합니다.
+1. Xcode 프로젝트 설정 > **기능 탭** > **키 집합 공유 사용** 으로 이동합니다.
 1. **+** 를 선택하고 다음 **키 집합 그룹** 중 하나를 입력합니다.
     - iOS: `com.microsoft.adalcache`
     - macOS: `com.microsoft.identity.universalstorage`

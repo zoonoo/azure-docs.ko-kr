@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 12/18/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b97b223ac180df7f8eb07ad8eaab66847f50776
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 50d5d73e71b8129f061ec49b363a0ebb13d22bdf
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422997"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704659"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>예: C에 Azure Cognitive Search에 대 한 동의어 추가 #
 
@@ -94,6 +94,8 @@ static void Main(string[] args)
 
 `RunQueriesWithNonExistentTermsInIndex`에서 "five star", "internet", "economy AND hotel"로 검색 쿼리를 실행합니다.
 
+"5 star"와 같은 구 쿼리는 따옴표로 묶어야 하며 클라이언트에 따라 이스케이프 문자가 필요할 수도 있습니다.
+
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = searchClient.Search<Hotel>("\"five star\"", searchOptions);
@@ -146,7 +148,7 @@ WriteDocuments(results);
 
 동의어 맵이 업로드되고 인덱스가 동의어 맵을 사용하도록 업데이트된 후에 두 번째 `RunQueriesWithNonExistentTermsInIndex` 호출은 다음을 출력합니다.
 
-```
+```dos
 Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]

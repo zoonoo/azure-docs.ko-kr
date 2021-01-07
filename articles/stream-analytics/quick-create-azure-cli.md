@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 37cbd1b05249c694aaaa4ff5196a3b6328ccda7f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 48ef9cc48f48cec92ae57774e5d89e300ee43385
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126263"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485385"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기
 
@@ -23,41 +23,11 @@ ms.locfileid: "93126263"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prepare-your-environment"></a>환경 준비
-
-1. 로그인합니다.
-
-   로컬에 설치된 CLI를 사용하는 경우 [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 로그인합니다.
-
-    ```azurecli
-    az login
-    ```
-
-    터미널에 표시된 단계에 따라 인증 프로세스를 완료합니다.
-
-2. Azure CLI 확장을 설치합니다.
-
-   Azure CLI에 대한 확장 참조를 사용하는 경우 먼저 확장을 설치해야 합니다.  Azure CLI 확장은 아직 핵심 CLI의 일부로 제공되지 않는 실험적 명령과 시험판 명령에 대한 액세스를 제공합니다.  확장 업데이트 및 제거를 포함하여 확장에 대해 자세한 내용을 보려면 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
-
-   다음 명령을 실행하여 [Stream Analytics 확장](/cli/azure/ext/stream-analytics/stream-analytics)을 설치합니다.
-
-    ```azurecli
-    az extension add --name stream-analytics
-    ```
-
-   다음 명령을 실행하여 [Azure IoT 확장](/cli/azure/ext/azure-iot)을 설치합니다.
-
-    ```azurecli
-    az extension add --name azure-iot
-    ```
-
-3. 리소스 그룹을 만듭니다.
-
-   모든 Azure 리소스는 리소스 그룹에 배포되어야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
+- 리소스 그룹을 만듭니다. 모든 Azure 리소스는 리소스 그룹에 배포되어야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
 
    이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 *eastus* 위치에 *streamanalyticsrg* 라는 리소스 그룹을 만듭니다.
 
@@ -77,7 +47,7 @@ Stream Analytics 작업을 정의하기 전에, 작업의 입력에 사용할 �
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
     ```
 
-    IoT Hub가 만들어지면 [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest) 명령을 사용하여 IoT Hub 연결 문자열을 가져옵니다. 전체 연결 문자열을 복사하여 IoT Hub를 Stream Analytics 작업에 대한 입력으로 추가할 때를 위해 저장해 둡니다.
+    IoT Hub가 만들어지면 [az iot hub show-connection-string](/cli/azure/iot/hub) 명령을 사용하여 IoT Hub 연결 문자열을 가져옵니다. 전체 연결 문자열을 복사하여 IoT Hub를 Stream Analytics 작업에 대한 입력으로 추가할 때를 위해 저장해 둡니다.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
@@ -124,7 +94,7 @@ Stream Analytics 작업을 정의하기 전에, 작업의 입력에 사용할 �
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container) 명령을 사용하여 만듭니다. 스토리지 계정 키를 사용하여 컨테이너를 만들 수 있는 권한을 작업에 부여합니다. Azure CLI 사용하여 데이터 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 blob 또는 큐 데이터에 대한 액세스 권한 부여](../storage/common/authorize-data-operations-cli.md)를 참조하세요.
+3. Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container) 명령을 사용하여 만듭니다. 스토리지 계정 키를 사용하여 컨테이너를 만들 수 있는 권한을 작업에 부여합니다. Azure CLI 사용하여 데이터 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 blob 또는 큐 데이터에 대한 액세스 권한 부여](../storage/blobs/authorize-data-operations-cli.md)를 참조하세요.
 
    ```azurecli
    az storage container create \
@@ -138,7 +108,7 @@ Stream Analytics 작업을 정의하기 전에, 작업의 입력에 사용할 �
 
 다음 Azure CLI 코드 블록은 Stream Analytics 작업을 만듭니다. 섹션을 검토하여 코드 이해하기
 
-1. [az stream-analytics job create](/cli/azure/ext/stream-analytics/stream-analytics/job?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-job-create) 명령을 사용하여 Stream Analytics 작업을 만듭니다.
+1. [az stream-analytics job create](/cli/azure/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-create) 명령을 사용하여 Stream Analytics 작업을 만듭니다.
 
 ```azurecli
 az stream-analytics job create \
@@ -154,7 +124,7 @@ az stream-analytics job create \
 
 ## <a name="configure-input-to-the-job"></a>작업에 대한 입력 구성
 
-[az stream-analytics input](/cli/azure/ext/stream-analytics/stream-analytics/input?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-input-create) cmdlet을 사용하여 작업에 입력을 추가합니다. 이 cmdlet은 작업 이름, 작업 입력 이름, 리소스 그룹 이름 및 작업 입력 정의를 매개 변수로 사용합니다. 작업 입력 정의는 작업의 입력을 구성하는 데 필요한 속성을 포함하는 JSON 파일입니다. 이 예제에서는 입력으로 IoT Hub를 만듭니다.
+[az stream-analytics input](/cli/azure/ext/stream-analytics/stream-analytics/input#ext-stream-analytics-az-stream-analytics-input-create) cmdlet을 사용하여 작업에 입력을 추가합니다. 이 cmdlet은 작업 이름, 작업 입력 이름, 리소스 그룹 이름 및 작업 입력 정의를 매개 변수로 사용합니다. 작업 입력 정의는 작업의 입력을 구성하는 데 필요한 속성을 포함하는 JSON 파일입니다. 이 예제에서는 입력으로 IoT Hub를 만듭니다.
 
 로컬 컴퓨터에서 `datasource.json`이라는 파일을 만들고 여기에 다음 JSON 데이터를 추가합니다. `sharedAccessPolicyKey`의 값을 이전 섹션에서 저장한 IoT Hub 연결 문자열의 `SharedAccessKey` 부분으로 바꾸어야 합니다.
 
@@ -185,7 +155,7 @@ az stream-analytics job create \
 그런 다음, `az stream-analytics input create` cmdlet을 실행합니다. `datasource` 변수 값을 작업 입력 정의 JSON 파일을 저장한 경로로 바꾸고, `serialization` 변수 값을 직렬화 JSON 파일을 저장한 경로로 바꿉니다.
 
 ```azurecli
-az stream-analytics input create 
+az stream-analytics input create \
     --resource-group streamanalyticsrg 
     --job-name streamanalyticsjob \
     --name asaiotinput \
@@ -196,7 +166,7 @@ az stream-analytics input create
 
 ## <a name="configure-output-to-the-job"></a>작업에 대한 출력 구성
 
-[az stream-analytics output create](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create) cmdlet을 사용하여 작업에 출력을 추가합니다. 이 cmdlet은 작업 이름, 작업 출력 이름, 리소스 그룹 이름 및 작업 출력 정의를 매개 변수로 사용합니다. 작업 출력 정의는 작업의 출력을 구성하는 데 필요한 속성을 포함하는 JSON 파일입니다. 이 예제에서는 출력으로 Blob Storage를 사용합니다.
+[az stream-analytics output create](/cli/azure/ext/stream-analytics/stream-analytics/output#ext-stream-analytics-az-stream-analytics-output-create) cmdlet을 사용하여 작업에 출력을 추가합니다. 이 cmdlet은 작업 이름, 작업 출력 이름, 리소스 그룹 이름 및 작업 출력 정의를 매개 변수로 사용합니다. 작업 출력 정의는 작업의 출력을 구성하는 데 필요한 속성을 포함하는 JSON 파일입니다. 이 예제에서는 출력으로 Blob Storage를 사용합니다.
 
 로컬 컴퓨터에서 `datasink.json`이라는 파일을 만들고 여기에 다음 JSON 데이터를 추가합니다. `accountKey`의 값을 $storageAccountKey 값에 저장된 값인 스토리지 계정의 액세스 키로 바꾸어야 합니다.
 
@@ -221,7 +191,7 @@ az stream-analytics input create
 그런 다음, `az stream-analytics output` cmdlet을 실행합니다. `datasource` 변수 값을 작업 출력 정의 JSON 파일을 저장한 경로로 바꾸고, `serialization` 변수 값을 직렬화 JSON 파일을 저장한 경로로 바꿉니다.
 
 ```azurecli
-az stream-analytics output create 
+az stream-analytics output create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name asabloboutput \
@@ -231,12 +201,12 @@ az stream-analytics output create
 
 ## <a name="define-the-transformation-query"></a>변환 쿼리 정의
 
-[az stream-analytics transformation create](/cli/azure/ext/stream-analytics/stream-analytics/transformation?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-transformation-create) cmdlet을 사용하여 작업에 변환을 추가합니다. 이 cmdlet은 작업 이름, 작업 변환 이름, 리소스 그룹 이름 및 작업 변환 정의를 매개 변수로 사용합니다. 
+[az stream-analytics transformation create](/cli/azure/ext/stream-analytics/stream-analytics/transformation#ext-stream-analytics-az-stream-analytics-transformation-create) cmdlet을 사용하여 작업에 변환을 추가합니다. 이 cmdlet은 작업 이름, 작업 변환 이름, 리소스 그룹 이름 및 작업 변환 정의를 매개 변수로 사용합니다. 
 
 `az stream-analytics transformation create` cmdlet을 실행합니다.
 
 ```azurecli
-az stream-analytics transformation create 
+az stream-analytics transformation create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name Transformation \
@@ -255,12 +225,12 @@ az stream-analytics transformation create
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Stream Analytics 작업을 시작하고 출력을 확인합니다.
 
-[az stream-analytics job start](/cli/azure/ext/stream-analytics/stream-analytics/job?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-job-start) cmdlet을 사용하여 작업을 시작합니다. 이 cmdlet은 작업 이름, 리소스 그룹 이름, 출력 시작 모드 및 시작 시간을 매개 변수로 사용합니다. `OutputStartMode`는 `JobStartTime`, `CustomTime` 또는 `LastOutputEventTime`의 값을 허용합니다.
+[az stream-analytics job start](/cli/azure/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-start) cmdlet을 사용하여 작업을 시작합니다. 이 cmdlet은 작업 이름, 리소스 그룹 이름, 출력 시작 모드 및 시작 시간을 매개 변수로 사용합니다. `OutputStartMode`는 `JobStartTime`, `CustomTime` 또는 `LastOutputEventTime`의 값을 허용합니다.
 
 다음 cmdlet을 실행한 후 작업이 시작되면 `True`가 출력으로 반환됩니다. 스토리지 컨테이너에서 변환된 데이터를 사용하여 출력 폴더가 생성됩니다.
 
 ```azurecli
-az stream-analytics job start 
+az stream-analytics job start \
     --resource-group streamanalyticsrg \
     --name streamanalyticsjob \
     --output-start-mode JobStartTime
@@ -270,7 +240,7 @@ az stream-analytics job start
 
 더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 삭제를 건너뛰고 지금은 작업을 중지할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음과 같은 cmdlet을 실행하여 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
-```powershell
+```azurecli
 az group delete \
     --name streamanalyticsrg \
     --no-wait

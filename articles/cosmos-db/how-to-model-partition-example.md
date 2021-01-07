@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342150"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616249"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,8 @@ ms.locfileid: "93342150"
 이 문서는 [데이터 모델링](modeling-data.md), [분할](partitioning-overview.md)및 [프로 비전 된 처리량](request-units.md) 과 같은 여러 가지 Azure Cosmos DB 개념을 기반으로 하 여 실제 데이터 디자인 연습을 처리 하는 방법을 보여 줍니다.
 
 일반적으로 관계형 데이터베이스를 사용하는 경우 데이터 모델을 설계하는 방법에 대한 습관과 직관을 구축했을 수 있습니다. 특정 제약 조건뿐만 아니라 Azure Cosmos DB의 고유한 장점으로 인해 이러한 모범 사례의 대부분은 제대로 변환되지 않고 최적이 아닌 솔루션으로 끌어들일 수 있습니다. 이 문서의 목표는 항목 모델링에서 엔터티 공동 배치 및 컨테이너 분할에 이르기까지 Azure Cosmos DB의 실제 사용 사례를 모델링하는 전체 프로세스를 안내하는 것입니다.
+
+이 문서의 개념을 설명 하는 [커뮤니티에서 생성 된 소스 코드를 다운로드 하거나 봅니다](https://github.com/jwidmer/AzureCosmosDbBlogExample) . 이 코드 샘플은 커뮤니티 참가자가 제공 했으며 Azure Cosmos DB 팀이 유지 관리를 지원 하지 않습니다.
 
 ## <a name="the-scenario"></a>시나리오
 

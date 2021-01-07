@@ -3,28 +3,28 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 12/11/2020
 ms.author: aahi
-ms.openlocfilehash: f0e4c8b832b17ee97b6e97aaf94640aaad7aa8db
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: da5aae933de1317dd97f74c97f9c08ca6cc1d090
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977851"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366338"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
-[v3.1 참조 설명서](https://docs.microsoft.com/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3.1 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3.1 참조 설명서](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
-[v3 참조 설명서](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3 참조 설명서](/python/api/azure-ai-textanalytics/azure.ai.textanalytics) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 # <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
-[v2 참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics) | [v2 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [v2 패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [v2 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[v2 참조 설명서](/python/api/overview/azure/cognitiveservices/textanalytics) | [v2 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [v2 패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [v2 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ---
 
@@ -32,9 +32,10 @@ ms.locfileid: "91977851"
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Text Analytics 리소스를 만들어"  target="_blank">Text Analytics 리소스를 만들어<span class="docon docon-navigate-external x-hidden-focus"></span></a> 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Text Analytics 리소스를 만들어"  target="_blank">Text Analytics 리소스를 만들어<span class="docon docon-navigate-external x-hidden-focus"></span></a> 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Text Analytics API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
+* Analyze(분석) 기능을 사용하려면 표준 가격 책정 계층을 사용하는 Text Analytics 리소스가 필요합니다.
 
 ## <a name="setting-up"></a>설치
 
@@ -103,7 +104,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `Tex
 
 # <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
-Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient) 개체입니다. 클라이언트는 텍스트를 단일 문자열 또는 일괄 처리로 분석하는 몇 가지 메서드를 제공합니다. 
+Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 [TextAnalyticsClient](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient) 개체입니다. 클라이언트는 텍스트를 단일 문자열 또는 일괄 처리로 분석하는 몇 가지 메서드를 제공합니다. 
 
 텍스트는 사용된 메서드에 따라 `id`, `text` 및 `language` 특성의 조합이 포함된 `dictionary` 개체인 `documents`의 목록으로 API에 보내집니다. `text` 특성은 분석할 텍스트를 `language` 원본에 저장하며, `id`는 임의의 값이 될 수 있습니다. 
 
@@ -117,7 +118,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 [Tex
 
 * [클라이언트 인증](#authenticate-the-client)
 * [감정 분석](#sentiment-analysis)
-* [의견 마이닝](#opinion-mining)
+* [오피니언 마이닝](#opinion-mining)
 * [언어 감지](#language-detection)
 * [명명된 엔터티 인식](#named-entity-recognition-ner) 
 * [개인 식별 정보 인식](#personally-identifiable-information-recognition) 
@@ -254,8 +255,7 @@ Negative=0.02
 def sentiment_analysis_with_opinion_mining_example(client):
 
     documents = [
-        "The food and service were unacceptable, but the concierge were nice",
-        "The rooms were beautiful but dirty. The AC was good and quiet, but the elevator was broken"
+        "The food and service were unacceptable, but the concierge were nice"
     ]
 
     result = client.analyze_sentiment(documents, show_opinion_mining=True)
@@ -286,8 +286,17 @@ def sentiment_analysis_with_opinion_mining_example(client):
             for mined_opinion in sentence.mined_opinions:
                 aspect = mined_opinion.aspect
                 print("......'{}' aspect '{}'".format(aspect.sentiment, aspect.text))
+                print("......Aspect score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                    aspect.confidence_scores.positive,
+                    aspect.confidence_scores.negative,
+                ))
                 for opinion in mined_opinion.opinions:
                     print("......'{}' opinion '{}'".format(opinion.sentiment, opinion.text))
+                    print("......Opinion score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                        opinion.confidence_scores.positive,
+                        opinion.confidence_scores.negative,
+                    ))
+            print("\n")
         print("\n")
           
 sentiment_analysis_with_opinion_mining_example(client)
@@ -307,38 +316,41 @@ Neutral=0.00
 Negative=0.16
 
 ......'negative' aspect 'food'
+......Aspect score:
+......Positive=0.01
+......Negative=0.99
+
 ......'negative' opinion 'unacceptable'
+......Opinion score:
+......Positive=0.01
+......Negative=0.99
+
 ......'negative' aspect 'service'
+......Aspect score:
+......Positive=0.01
+......Negative=0.99
+
 ......'negative' opinion 'unacceptable'
+......Opinion score:
+......Positive=0.01
+......Negative=0.99
+
 ......'positive' aspect 'concierge'
+......Aspect score:
+......Positive=1.00
+......Negative=0.00
+
 ......'positive' opinion 'nice'
+......Opinion score:
+......Positive=1.00
+......Negative=0.00
 
 
-Document Sentiment: negative
-Overall scores: positive=0.00; neutral=0.00; negative=1.00
 
-Sentence: The rooms were beautiful but dirty.
-Sentence sentiment: negative
-Sentence score:
-Positive=0.01
-Neutral=0.00
-Negative=0.99
 
-......'mixed' aspect 'rooms'
-......'positive' opinion 'beautiful'
-......'negative' opinion 'dirty'
-Sentence: The AC was good and quiet, but the elevator was broken
-Sentence sentiment: negative
-Sentence score:
-Positive=0.00
-Neutral=0.00
-Negative=1.00
 
-......'positive' aspect 'AC'
-......'positive' opinion 'good'
-......'positive' opinion 'quiet'
-......'negative' aspect 'elevator'
-......'negative' opinion 'broken'
+Press any key to continue . . .
+
 ```
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
@@ -392,7 +404,7 @@ Negative=0.02
 
 # <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
-클라이언트 개체를 인증하고 [감정()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) 함수를 호출합니다. 결과를 반복하고 각 문서의 ID 및 감정 점수를 인쇄합니다. 점수가 0에 가까울수록 부정적인 감정을 나타내고, 1에 가까울수록 긍정적인 감정을 나타냅니다.
+클라이언트 개체를 인증하고 [감정()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) 함수를 호출합니다. 결과를 반복하고 각 문서의 ID 및 감정 점수를 인쇄합니다. 점수가 0에 가까울수록 부정적인 감정을 나타내고, 1에 가까울수록 긍정적인 감정을 나타냅니다.
 
 [!code-python[sentiment analysis](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=sentimentAnalysis)]
 
@@ -463,7 +475,7 @@ Language:  French
 
 # <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
-이전에 만든 클라이언트를 사용하여 [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-)를 호출하고 결과를 가져옵니다. 그런 다음, 결과를 반복하고 각 문서의 ID 및 처음 반환된 언어를 인쇄합니다.
+이전에 만든 클라이언트를 사용하여 [detect_language()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-)를 호출하고 결과를 가져옵니다. 그런 다음, 결과를 반복하고 각 문서의 ID 및 처음 반환된 언어를 인쇄합니다.
 
 [!code-python[language detection](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=languageDetection)]
 
@@ -763,7 +775,7 @@ Linked Entities:
 > [!NOTE]
 > 버전 2.1에서 엔터티 연결은 NER 응답에 포함됩니다.
 
-이전에 만든 클라이언트를 사용하여 [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) 함수를 호출하고 결과를 가져옵니다. 그런 다음, 결과를 반복하고 각 문서의 ID 및 포함된 엔터티를 인쇄합니다.
+이전에 만든 클라이언트를 사용하여 [entities()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) 함수를 호출하고 결과를 가져옵니다. 그런 다음, 결과를 반복하고 각 문서의 ID 및 포함된 엔터티를 인쇄합니다.
 
 [!code-python[Entity recognition](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=entityRecognition)]
 
@@ -880,7 +892,7 @@ key_phrase_extraction_example(client)
 
 # <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
-이전에 만든 클라이언트를 사용하여 [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) 함수를 호출하고 결과를 가져옵니다. 그런 다음, 결과를 반복하고 각 문서의 ID 및 포함된 핵심 문구를 인쇄합니다.
+이전에 만든 클라이언트를 사용하여 [key_phrases()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) 함수를 호출하고 결과를 가져옵니다. 그런 다음, 결과를 반복하고 각 문서의 ID 및 포함된 핵심 문구를 인쇄합니다.
 
 [!code-python[key phrase extraction](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=keyPhrases)]
 
@@ -906,4 +918,76 @@ Document ID: 4
                 fútbol
 ```
 
---- 
+---
+
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Analyze(분석) 작업을 통해 비동기적으로 API 사용
+
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+
+> [!CAUTION]
+> Analyze(분석) 작업을 사용하려면 표준 가격 책정 계층을 사용하는 Text Analytics 리소스를 사용해야 합니다.  
+
+클라이언트를 인수로 사용하는 `analyze_example()`이라는 새 함수를 만든 다음, `begin_analyze()` 함수를 호출합니다. 그러면 장기 실행 작업이 실행되고 결과가 폴링됩니다.
+
+```python
+    def analyze_example(client):
+        documents = [
+            "Microsoft was founded by Bill Gates and Paul Allen."
+        ]
+
+        poller = text_analytics_client.begin_analyze(
+            documents,
+            display_name="Sample Text Analysis",
+            entities_recognition_tasks=[EntitiesRecognitionTask()]
+        )
+
+        result = poller.result()
+
+        for page in result:
+            for task in page.entities_recognition_results:
+                print("Results of Entities Recognition task:")
+                
+                docs = [doc for doc in task.results if not doc.is_error]
+                for idx, doc in enumerate(docs):
+                    print("\nDocument text: {}".format(documents[idx]))
+                    for entity in doc.entities:
+                        print("Entity: {}".format(entity.text))
+                        print("...Category: {}".format(entity.category))
+                        print("...Confidence Score: {}".format(entity.confidence_score))
+                        print("...Offset: {}".format(entity.offset))
+                    print("------------------------------------------")
+
+analyze_example(client)
+```
+
+### <a name="output"></a>출력
+
+```console
+Results of Entities Recognition task:
+Document text: Microsoft was founded by Bill Gates and Paul Allen.
+Entity: Microsoft
+...Category: Organization
+...Confidence Score: 0.83
+...Offset: 0
+Entity: Bill Gates
+...Category: Person
+...Confidence Score: 0.85
+...Offset: 25
+Entity: Paul Allen
+...Category: Person
+...Confidence Score: 0.9
+...Offset: 40
+------------------------------------------
+```
+
+Analyze(분석) 작업을 사용하여 PII 및 핵심 문구 추출을 검색할 수도 있습니다. GitHub의 [Analyze(분석) 샘플](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_async.py)을 참조하세요.
+
+# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+이 기능은 버전 3.0에서 사용할 수 없습니다.
+
+# <a name="version-21"></a>[버전 2.1](#tab/version-2)
+
+이 기능은 버전 2.1에서 사용할 수 없습니다.
+
+---

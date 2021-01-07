@@ -5,16 +5,17 @@ services: virtual-machines-linux
 author: axayjo
 manager: gwallace
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ffbafb76fd2c6dd06a88bfd79746557889039cd6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421076"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956027"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -604,7 +605,7 @@ TransfersPerSecond | 초당 읽기 또는 쓰기 작업
 
 `"condition": "IsAggregate=True"`로 설정하면 모든 파일 시스템에서 집계된 값을 얻을 수 있습니다. `"condition": 'Name="/mnt"'`로 설정하면 특정 탑재된 파일 시스템(예: "/mnt")에 대한 값을 얻을 수 있습니다. 
 
-**참고** : JSON 대신 Azure Portal을 사용할 경우, 올바른 조건 필드 형식은 Name='/mnt'입니다.
+**참고**: JSON 대신 Azure Portal을 사용할 경우, 올바른 조건 필드 형식은 Name='/mnt'입니다.
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>디스크 클래스의 기본 제공 메트릭
 

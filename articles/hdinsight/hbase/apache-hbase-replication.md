@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: 8fc5ba2280b5ad68a40f4992adc170408e80e5a6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540366"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021795"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -38,7 +38,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication)에 있는 [스크립트 동작](../hdinsight-hadoop-customize-cluster-linux.md) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
 ## <a name="set-up-the-environments"></a>환경 설정
@@ -170,7 +170,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
     sudo nano /etc/bind/named.conf.options
     ```
 
-    파일을 저장하려면 __Ctrl+X__ , __Y__ 및 __Enter__ 키를 사용합니다.
+    파일을 저장하려면 __Ctrl+X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
 4. SSH 세션에서 다음 명령을 사용합니다.
 
@@ -207,7 +207,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
     sudo nano /etc/bind/named.conf.local
     ```
 
-    파일을 저장하려면 __Ctrl+X__ , __Y__ 및 __Enter__ 키를 사용합니다.
+    파일을 저장하려면 __Ctrl+X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
 6. Bind를 시작하려면 다음 명령을 사용합니다.
 
@@ -261,13 +261,13 @@ sudo service bind9 status
 
 다음 구성을 사용하여 두 가상 네트워크에 각각 [Apache HBase](https://hbase.apache.org/) 클러스터를 만듭니다.
 
-- **리소스 그룹 이름** : 가상 네트워크를 만들 때 동일한 리소스 그룹 이름을 사용합니다.
-- **클러스터 유형** : HBase
-- **버전** : HBase 1.1.2(HDI 3.6)
-- **위치** : 가상 네트워크와 동일한 위치를 사용합니다.  기본적으로 vnet1은 *미국 서부* 이고, vnet2는 *미국 동부* 입니다.
-- **스토리지** : 클러스터에 대한 새 스토리지 계정을 만듭니다.
-- **가상 네트워크** (포털에 대한 고급 설정에서): 마지막 절차에서 만든 vnet1를 선택합니다.
-- **서브넷** : 템플릿에서 사용하는 기본 이름은 **subnet1** 입니다.
+- **리소스 그룹 이름**: 가상 네트워크를 만들 때 동일한 리소스 그룹 이름을 사용합니다.
+- **클러스터 유형**: HBase
+- **버전**: HBase 1.1.2(HDI 3.6)
+- **위치**: 가상 네트워크와 동일한 위치를 사용합니다.  기본적으로 vnet1은 *미국 서부* 이고, vnet2는 *미국 동부* 입니다.
+- **스토리지**: 클러스터에 대한 새 스토리지 계정을 만듭니다.
+- **가상 네트워크**(포털에 대한 고급 설정에서): 마지막 절차에서 만든 vnet1를 선택합니다.
+- **서브넷**: 템플릿에서 사용하는 기본 이름은 **subnet1** 입니다.
 
 환경을 올바르게 구성했는지 확인하려면 두 클러스터 간 헤드 노드의 FQDN을 ping할 수 있어야 합니다.
 
@@ -293,10 +293,10 @@ sudo service bind9 status
 4. 페이지의 위쪽에서 **새로운 항목 제출** 을 선택합니다.
 5. 다음 정보를 선택하거나 입력합니다.
 
-   1. **이름** : **복제 사용** 을 입력합니다.
-   2. **Bash 스크립트 URL** : **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** 를 입력합니다.
-   3. **헤드** : 이 URL이 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
-   4. **매개 변수** : 다음 샘플 매개 변수를 사용하면 기존의 모든 테이블을 복제하도록 설정한 다음, 모든 데이터를 원본 클러스터에서 대상 클러스터로 복사합니다.
+   1. **이름**: **복제 사용** 을 입력합니다.
+   2. **Bash 스크립트 URL**: **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** 를 입력합니다.
+   3. **헤드**: 이 URL이 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
+   4. **매개 변수**: 다음 샘플 매개 변수를 사용하면 기존의 모든 테이블을 복제하도록 설정한 다음, 모든 데이터를 원본 클러스터에서 대상 클러스터로 복사합니다.
 
     `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata`
     
@@ -309,7 +309,7 @@ sudo service bind9 status
 
 필수 인수:
 
-|속성|설명|
+|Name|Description|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -318,7 +318,7 @@ sudo service bind9 status
 
 선택적 인수:
 
-|속성|설명|
+|Name|Description|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin** 입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin** 입니다. |
@@ -368,7 +368,7 @@ sudo service bind9 status
 
 ### <a name="scenarios"></a>시나리오
 
-- **지금(현재 타임스탬프)까지 편집된 모든 행에 대한 특정 테이블(test1, test2 및 test3) 복사** :
+- **지금(현재 타임스탬프)까지 편집된 모든 행에 대한 특정 테이블(test1, test2 및 test3) 복사**:
 
   `-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
 
@@ -376,7 +376,7 @@ sudo service bind9 status
 
   `-m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
 
-- **지정된 시간 범위의 특정 테이블 복사** :
+- **지정된 시간 범위의 특정 테이블 복사**:
 
   `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"`
 
@@ -390,7 +390,7 @@ sudo service bind9 status
 
 ### <a name="scenarios"></a>시나리오
 
-- **모든 테이블에서 복제를 사용하지 않도록 설정** :
+- **모든 테이블에서 복제를 사용하지 않도록 설정**:
 
   `-m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all`
 
@@ -398,7 +398,7 @@ sudo service bind9 status
 
   `--src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>`
 
-- **지정된 테이블(table1, table2 및 table3)에서 복제를 사용하지 않도록 설정** :
+- **지정된 테이블(table1, table2 및 table3)에서 복제를 사용하지 않도록 설정**:
 
   `-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"`
 

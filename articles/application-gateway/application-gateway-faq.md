@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d46c1d8efb5234d47c80ca4256c2f56d56ccf805
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397793"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862176"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -133,7 +133,7 @@ v2 SKU를 사용하는 대부분의 배포는 프로비저닝하는 데 약 6분
 
 ### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>Application Gateway V2는 NTLM 인증을 사용한 프록시 요청을 지원하나요?
 
-아니요. Application Gateway V2는 아직 NTLM 인증을 사용한 프록시 요청을 지원하지 않습니다.
+아니요. Application Gateway V2는 NTLM 인증을 사용 하는 프록시 요청을 지원 하지 않습니다.
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Application Gateway 선호도 쿠키는 SameSite 특성을 지원하나요?
 예, [Chromium 브라우저](https://www.chromium.org/Home) [v80 업데이트](https://chromiumdash.appspot.com/schedule)에서는 SameSite 특성이 없는 HTTP 쿠키를 SameSite=Lax로 처리해 달라는 요구를 수락했습니다. 즉, 타사 컨텍스트에서는 브라우저가 Application Gateway 선호도 쿠키를 보내지 않습니다. 
@@ -249,7 +249,7 @@ Application Gateway v2는 현재 IPv6를 지원하지 않습니다. IPv4만 사�
 2. 공용 프런트 엔드 IP 주소용 수신기를 만들지 않습니다. 공용 IP 주소용 수신기를 만들지 않으면 Application Gateway는 공용 IP 주소의 트래픽을 수신 대기하지 않습니다.
 3. 다음 구성을 우선 순위 순서대로 사용하여 Application Gateway 서브넷에 대한 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 만들고 연결합니다.
     
-    a. 원본 **GatewayManager** 서비스 태그, 대상 **모두** , 대상 포트 **65200-65535** 의 트래픽을 허용합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 인증서 인증을 통해 보호(잠금)됩니다. 게이트웨이 사용자 관리자를 비롯한 외부 엔터티는 적절한 인증서 없이는 엔드포인트에 대한 변경 작업을 시작할 수 없습니다.
+    a. 원본 **GatewayManager** 서비스 태그, 대상 **모두**, 대상 포트 **65200-65535** 의 트래픽을 허용합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 인증서 인증을 통해 보호(잠금)됩니다. 게이트웨이 사용자 관리자를 비롯한 외부 엔터티는 적절한 인증서 없이는 엔드포인트에 대한 변경 작업을 시작할 수 없습니다.
     
     b. 원본 **AzureLoadBalancer** 서비스 태그, 대상 및 대상 포트 **모두** 의 트래픽을 허용합니다.
     
@@ -434,9 +434,9 @@ AKS 추가 기능을 통해 배포 된 AGIC의 차이점을 참조 하세요. [�
 
 Application Gateway는 다음 세 가지 로그를 제공합니다. 
 
-* **ApplicationGatewayAccessLog** : 이 액세스 로그에는 애플리케이션 게이트웨이 프런트 엔드에 제출된 각 요청이 포함되어 있습니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력이 포함되어 있습니다. 애플리케이션 게이트웨이마다 하나의 레코드가 포함됩니다.
-* **ApplicationGatewayPerformanceLog** : 성능 로그는 각 애플리케이션 게이트웨이의 성능 정보를 캡처합니다. 이 정보에는 처리량(바이트), 처리된 총 요청 수, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수가 포함됩니다.
-* **ApplicationGatewayFirewallLog** : WAF를 사용하여 구성하는 애플리케이션 게이트웨이의 경우 방화벽 로그에는 검색 모드 또는 방지 모드를 통해 기록된 요청이 포함됩니다.
+* **ApplicationGatewayAccessLog**: 이 액세스 로그에는 애플리케이션 게이트웨이 프런트 엔드에 제출된 각 요청이 포함되어 있습니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력이 포함되어 있습니다. 애플리케이션 게이트웨이마다 하나의 레코드가 포함됩니다.
+* **ApplicationGatewayPerformanceLog**: 성능 로그는 각 애플리케이션 게이트웨이의 성능 정보를 캡처합니다. 이 정보에는 처리량(바이트), 처리된 총 요청 수, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수가 포함됩니다.
+* **ApplicationGatewayFirewallLog**: WAF를 사용하여 구성하는 애플리케이션 게이트웨이의 경우 방화벽 로그에는 검색 모드 또는 방지 모드를 통해 기록된 요청이 포함됩니다.
 
 모든 로그는 60초마다 수집됩니다. 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
 
@@ -466,12 +466,9 @@ Application Gateway 액세스 로그에 널리 사용되는 [GoAccess](https://g
 
 일반적으로 애플리케이션 게이트웨이 서브넷에서 NSG(네트워크 보안 그룹), 사용자 지정 DNS 또는 UDR(사용자 정의 라우팅)에 의해 백 엔드 액세스가 차단되는 경우에 알 수 없음 상태로 표시됩니다. 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
 
-### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>NSG 흐름 로그에 허용된 트래픽이 표시되지 않는 경우가 있나요?
+### <a name="are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet"></a>Application Gateway v2 서브넷에 연결 된 Nsg에서 NSG 흐름 로그가 지원 되나요?
 
-예. 구성이 다음 시나리오와 일치하는 경우 NSG 흐름 로그에 허용된 트래픽이 표시되지 않습니다.
-- Application Gateway v2를 배포했습니다.
-- 애플리케이션 게이트웨이 서브넷에 NSG가 있습니다.
-- 이 NSG에서 NSG 흐름 로그를 사용하도록 설정했습니다.
+현재 플랫폼 제한으로 인해 Application Gateway v2 (Standard_v2, WAF_v2) 서브넷에 NSG가 있고이 서브넷에 NSG 흐름 로그를 사용 하도록 설정한 경우 비결 정적 동작이 표시 되며이 시나리오는 현재 지원 되지 않습니다.
 
 ### <a name="does-application-gateway-store-customer-data"></a>고객 데이터를 저장 Application Gateway 합니까?
 

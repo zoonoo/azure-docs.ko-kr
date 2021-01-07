@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 2e5c588db6f372a50b2a80afd8a2a023ece34502
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 235c5c19c9a6e587106b3fd41691a3f775caa84f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203623"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656618"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SAML 기반 SSO(Single Sign-On) 설정
 
@@ -53,17 +53,17 @@ Azure AD 테넌트에 애플리케이션 추가를 완료하면 개요 페이지
 
 1. **SAML** 을 선택하여 SSO 구성 페이지를 엽니다. 이 예제에서 SSO를 구성할 애플리케이션은 GitHub입니다. GitHub가 설정되면 사용자는 Azure AD 테넌트에서 자신의 자격 증명을 사용하여 GitHub에 로그인할 수 있습니다.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="스크린샷이 Azure AD Portal의 Single Sign-On 구성 페이지를 표시합니다.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="스크린샷이 GitHub의 Single Sign-On 구성 페이지를 표시합니다.":::
 
-1. SAML 기반 SSO에 Azure AD를 사용하도록 애플리케이션을 구성하는 프로세스는 애플리케이션에 따라 다릅니다. GitHub의 지침에 대한 링크가 있습니다. 다른 앱에 대한 가이드를 찾으려면 [SaaS 애플리케이션과 Azure Active Directory를 통합하기 위한 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/)를 참조하세요.
+1. SAML 기반 SSO에 Azure AD를 사용하도록 애플리케이션을 구성하는 프로세스는 애플리케이션에 따라 다릅니다. GitHub의 지침에 대한 링크가 있습니다. 다른 앱에 대한 가이드를 찾으려면 [SaaS 애플리케이션과 Azure Active Directory를 통합하기 위한 자습서](/azure/active-directory/saas-apps/)를 참조하세요.
 1. 가이드에 따라 애플리케이션에 대한 SSO를 설정합니다. SSO가 작동하려면 특정 구독 요구 사항을 충족해야 하는 애플리케이션이 많이 있습니다. 예를 들어 GitHub는 엔터프라이즈 구독이 필요합니다.
     > [!TIP]
     > SAML 구성 옵션에 대한 자세한 내용은 [SAML 기반 Single Sign-On 구성](configure-saml-single-sign-on.md)을 참조하세요.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="스크린샷이 Azure AD Portal의 Single Sign-On 구성 페이지를 표시합니다.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="스크린샷이 GitHub 가격 책정 페이지의 엔터프라이즈 구독에 있는 Single Sign-On 옵션을 표시합니다.":::
 
 > [!TIP]
-> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](https://docs.microsoft.com/graph/application-saml-sso-configure-api)를 참조하세요.
+> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](/graph/application-saml-sso-configure-api)를 참조하세요.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

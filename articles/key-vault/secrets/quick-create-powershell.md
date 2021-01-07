@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d8375b4a47df8454ceb4aba4cb2e695255161409
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c28dbc25abfd701450cf9f232ea1a4b5e16841aa
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324749"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686194"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -55,8 +55,8 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 
 이 cmdlet의 출력에는 새로 만든 Key Vault의 속성이 표시됩니다. 아래에 나열된 두 개의 속성을 기록합니다.
 
-* **자격 증명 모음 이름** : 이 예제에서는 **Contoso-Vault2** 입니다. 다른 키 자격 증명 모음 cmdlet에 대해 이 이름을 사용합니다.
-* **자격 증명 모음 URI** : 이 예제에서는 https://Contoso-Vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
+* **자격 증명 모음 이름**: 이 예제에서는 **Contoso-Vault2** 입니다. 다른 키 자격 증명 모음 cmdlet에 대해 이 이름을 사용합니다.
+* **자격 증명 모음 URI**: 이 예제에서는 https://Contoso-Vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 자격 증명 모음을 만든 후 사용자의 Azure 계정은 이 새 자격 증명 모음에 대해 모든 작업을 수행할 수 있는 유일한 계정입니다.
 
@@ -79,9 +79,12 @@ $secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
 
 그런 다음, 아래의 PowerShell 명령을 입력하여 Key Vault에 **hVFkk965BuUv** 라는 값을 가진 **ExamplePassword** 라는 비밀을 만듭니다.
 
+
 ```azurepowershell-interactive
 $secret = Set-AzKeyVaultSecret -VaultName 'Contoso-Vault2' -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
+
+## <a name="retrieve-a-secret-from-key-vault"></a>Key Vault에서 비밀 검색
 
 비밀에 들어 있는 값을 일반 텍스트로 보려면:
 

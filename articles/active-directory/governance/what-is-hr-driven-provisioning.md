@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45b8ed75a87d1ac638e5ca55058a3d1ad7fcdffa
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1ffe8c1397525348e472e965a407909fee36152d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135010"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168451"
 ---
 # <a name="what-is-hr-driven-provisioning"></a>HR 기반 프로비저닝이란?
 
@@ -35,7 +35,7 @@ HR 시스템은 다양한 패키지, 소프트웨어 번들로 제공되며 SQL 
 
 MIM을 사용하여 온-프레미스 HR 시스템에서 Active Directory 또는 Azure AD로 사용자를 프로비저닝할 수 있습니다.
 
-Microsoft Identity Manager 및 지원되는 시스템에 대한 자세한 내용은 [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) 설명서를 참조하세요.
+Microsoft Identity Manager 및 지원되는 시스템에 대한 자세한 내용은 [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) 설명서를 참조하세요.
 
 [!INCLUDE [active-directory-hr-provisioning.md](../../../includes/active-directory-hr-provisioning.md)]
 
@@ -46,4 +46,3 @@ Microsoft Identity Manager 및 지원되는 시스템에 대한 자세한 내용
 - [프로비저닝이란?](what-is-provisioning.md)
 - [앱 프로비저닝이란?](what-is-app-provisioning.md)
 - [디렉터리 간 프로비저닝이란?](what-is-inter-directory-provisioning.md)
-- [디렉터리 프로비저닝란?](what-is-inter-directory-provisioning.md)

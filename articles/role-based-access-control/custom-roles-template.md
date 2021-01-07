@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager 템플릿을 사용 하 여 Azure 사용자 지정 역할 만들기-Azure RBAC
-description: Azure Resource Manager 템플릿 (ARM 템플릿) 및 Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
+title: Azure Resource Manager 템플릿을 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트-Azure RBAC
+description: Azure Resource Manager 템플릿 (ARM 템플릿) 및 Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 사용자 지정 역할을 만들거나 업데이트 하는 방법에 대해 알아봅니다.
 services: role-based-access-control,azure-resource-manager
 author: rolyon
 manager: mtillman
@@ -8,18 +8,18 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 06/25/2020
+ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 96dfdc0a1c32237c55d4e65bb25989656e2a4ad2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: beea0c5cecd7bb99973a4692a4cce17e7a69d708
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097025"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631315"
 ---
-# <a name="create-an-azure-custom-role-using-an-arm-template"></a>ARM 템플릿을 사용 하 여 Azure 사용자 지정 역할 만들기
+# <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>ARM 템플릿을 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
-[Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 [사용자 고유의 사용자 지정 역할](custom-roles.md)을 만들 수 있습니다. 이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 사용자 지정 역할을 만드는 방법을 설명 합니다.
+[Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 [사용자 고유의 사용자 지정 역할](custom-roles.md)을 만들 수 있습니다. 이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 사용자 지정 역할을 만들거나 업데이트 하는 방법을 설명 합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -66,15 +66,13 @@ ms.locfileid: "93097025"
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
-
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json"
-
     New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
     ```
 
-1. 배포 위치 (예: *centralus* )를 입력 합니다.
+1. 배포 위치 (예:)를 입력 `centralus` 합니다.
 
-1. 사용자 지정 역할에 대 한 작업 목록을 *Microsoft .resources/resources/read, Microsoft .resources/subscription/resourceGroups/read* 와 같이 쉼표로 구분 된 목록으로 입력 합니다.
+1. 사용자 지정 역할에 대 한 작업 목록을와 같이 쉼표로 구분 된 목록으로 입력 `Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read` 합니다.
 
 1. 필요한 경우 Enter 키를 눌러 명령을 실행 `New-AzDeployment` 합니다.
 
@@ -152,6 +150,47 @@ ms.locfileid: "93097025"
 1. **사용자 지정 역할-RG 판독기** 역할이 나열 되는지 확인 합니다.
 
    ![Azure Portal의 새 사용자 지정 역할](./media/custom-roles-template/custom-role-template-portal.png)
+
+## <a name="update-a-custom-role"></a>사용자 지정 역할 업데이트
+
+사용자 지정 역할을 만드는 것과 마찬가지로 템플릿을 사용 하 여 기존 사용자 지정 역할을 업데이트할 수 있습니다. 사용자 지정 역할을 업데이트 하려면 업데이트 하려는 역할을 지정 해야 합니다.
+
+사용자 지정 역할을 업데이트 하기 위해 이전 빠른 시작 템플릿에서 수행 해야 하는 변경 내용은 다음과 같습니다.
+
+- 역할 ID를 매개 변수로 포함 합니다.
+    ```json
+        ...
+        "roleDefName": {
+          "type": "string",
+          "metadata": {
+            "description": "ID of the role definition"
+          }
+        ...
+    ```
+
+- 역할 ID 매개 변수를 역할 정의에 포함 합니다.
+
+    ```json
+      ...
+      "resources": [
+        {
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "apiVersion": "2018-07-01",
+          "name": "[parameters('roleDefName')]",
+          "properties": {
+            ...
+    ```
+
+템플릿을 배포 하는 방법의 예는 다음과 같습니다.
+
+```azurepowershell
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
+[string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
+$actions = $actions.Split(',')
+$roleDefName = Read-Host -Prompt "Enter the role ID to update"
+$templateFile = "rg-reader-update.json"
+New-AzDeployment -Location $location -TemplateFile $templateFile -actions $actions -roleDefName $roleDefName
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

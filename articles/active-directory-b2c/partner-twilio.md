@@ -12,17 +12,17 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 953653a758577ed3d48ca2d81403b4cb363ea294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259071"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994046"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Azure Active Directory B2C Twilio Verify 앱 통합
 
 이 연습에서는 Azure Active Directory B2C (Azure AD B2C)의 샘플 온라인 지불 앱을 Twilio Verify API와 통합 하는 방법에 대해 알아봅니다. Twilio Verify 앱 Azure AD B2C을 사용 하면 고객이 동적 링크 및 강력한 고객 인증을 통해 PSD2 (결제 서비스 지시어 2) 트랜잭션 요구 사항을 준수할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 시작 하려면 다음이 필요 합니다.
 
@@ -42,7 +42,7 @@ Twilio 솔루션을 구성 하는 구성 요소는 다음과 같습니다.
 
     ![twilio flow](media/partner-twilio/twilio-flow.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 |------|------|
 | 1     | 사용자가 PSD2 Demo 앱에 로그인 또는 등록을 시작 합니다. 사용자는 Azure AD B2C 결합 된 로그인 및 등록 정책을 통해 인증 됩니다. 응용 프로그램에 토큰이 반환 됩니다. 등록 시 사용자의 전화 번호는 SMS/Phone을 사용 하 여 확인 되 고 Azure AD B2C 계정에 기록 됩니다.     |
 | 2     | 사용자가 $50.00의 전송과 같은 높은 위험 수준 트랜잭션을 시작 합니다. 사용자의 현재 액세스 토큰은 PolicyId를 평가 하 여 사용자가 Step-Up 사용자 지정 정책을 통해 이미 인증 되었는지 여부를 확인 합니다.     |
@@ -88,9 +88,9 @@ Twilio 솔루션을 구성 하는 구성 요소는 다음과 같습니다.
 
 5. [정책 파일](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/policy) 을 열고의 모든 인스턴스를  `contoso` 테 넌 트 이름으로 바꿉니다.
 
-6. Twilio REST API 기술 프로필 **사용자 지정-SMS-등록**을 찾습니다.  `ServiceURL`   Twilio AccountSID 및 From 번호를 구매한 전화 번호로 업데이트 합니다.
+6. Twilio REST API 기술 프로필 **사용자 지정-SMS-등록** 을 찾습니다.  `ServiceURL`   Twilio AccountSID 및 From 번호를 구매한 전화 번호로 업데이트 합니다.
 
-7. Twilio REST API 기술 프로필, TwilioRestAPI- **1 단계**   및 **TwilioRestAPI-2 단계**를 찾고  `ServiceURL` Twilio AccountSID를 사용 하 여를 업데이트 합니다   .
+7. Twilio REST API 기술 프로필, TwilioRestAPI- **1 단계**   및 **TwilioRestAPI-2 단계** 를 찾고  `ServiceURL` Twilio AccountSID를 사용 하 여를 업데이트 합니다   .
 
 ## <a name="integrate-with-azure-ad-b2c"></a>Azure AD B2C와 통합
 
@@ -100,13 +100,13 @@ Azure AD B2C에 정책 파일을 추가 합니다.
 
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
 
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 
-4. **Azure AD B2C**  >  **id 경험 프레임 워크**  >  **정책 키**로 이동 합니다.
+4. **Azure AD B2C**  >  **id 경험 프레임 워크**  >  **정책 키** 로 이동 합니다.
 
-5. 이름이 **B2cRestTwilioClientId**인 새 키를 추가 합니다.  **수동**을 선택 하 고 Twilio AccountSID의 값을 제공 합니다.
+5. 이름이 **B2cRestTwilioClientId** 인 새 키를 추가 합니다.  **수동** 을 선택 하 고 Twilio AccountSID의 값을 제공 합니다.
 
-6. 이름이 **B2cRestTwilioClientSecret**인 새 키를 추가 합니다.  **수동**을 선택 하 고 TWILIO AUTH 토큰의 값을 제공 합니다.
+6. 이름이 **B2cRestTwilioClientSecret** 인 새 키를 추가 합니다.  **수동** 을 선택 하 고 TWILIO AUTH 토큰의 값을 제공 합니다.
 
 7. 모든 정책 파일을 테 넌 트에 업로드 합니다.
 

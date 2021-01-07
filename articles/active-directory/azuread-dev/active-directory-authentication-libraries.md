@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: cd31171d04dcf0102472e71fdcdc058471d79fb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b6ffd885e1be2dd59cea87cacd6e5fd5e0f8f49
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117722"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861173"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 인증 라이브러리
 
@@ -37,9 +37,9 @@ Azure ADAL(Active Directory 인증 라이브러리) v1.0은 애플리케이션 �
 
 ## <a name="microsoft-supported-client-libraries"></a>Microsoft 지원 클라이언트 라이브러리
 
-| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 예제 | 참조
+| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참조
 | --- | --- | --- | --- | --- | --- |
-| .NET 클라이언트, Windows 스토어, UWP, Xamarin iOS 및 Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [데스크톱 앱](../develop/quickstart-v2-windows-desktop.md) |[참조](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
+| .NET 클라이언트, Windows 스토어, UWP, Xamarin iOS 및 Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [데스크톱 앱](../develop/quickstart-v2-windows-desktop.md) |[참조](/dotnet/api/microsoft.identitymodel.clients.activedirectory) |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[단일 페이지 앱](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS 앱](../develop/quickstart-v2-ios.md) | [참조](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
 | Android |ADAL |[Maven](https://search.maven.org/search?q=g:com.microsoft.aad+AND+a:adal&core=gav) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android 앱](../develop/quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|
@@ -49,7 +49,7 @@ Azure ADAL(Active Directory 인증 라이브러리) v1.0은 애플리케이션 �
 
 ## <a name="microsoft-supported-server-libraries"></a>Microsoft 지원 서버 라이브러리
 
-| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 예제 | 참조
+| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참조
 | --- | --- | --- | --- | --- | --- |
 | .NET |AzureAD용 OWIN|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[MVC 앱](../develop/quickstart-v2-aspnet-webapp.md) | |
 | .NET |OpenIDConnect용 OWIN |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[웹 앱](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |

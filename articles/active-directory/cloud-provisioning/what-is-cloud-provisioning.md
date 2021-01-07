@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9433945ffe1181b62ee193baf1c2dd0b89ec14c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0acef468aa53e456cd6fb416fe45558aee064699
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856809"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355820"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로비저닝이란?
 Azure AD Connect 클라우드 프로비저닝은 Azure AD에 대한 사용자, 그룹 및 연락처의 동기화를 위해 하이브리드 ID 목표를 충족하고 달성하기 위해 설계된 새로운 Microsoft 에이전트입니다.  Azure AD Connect 동기화와 함께 사용할 수 있으며 다음과 같은 이점을 제공합니다.
@@ -72,6 +72,7 @@ Azure AD Connect 클라우드 프로비저닝을 사용하여 AD에서 Azure AD�
 | Azure AD Domain Services 지원|● | |
 | [Exchange 하이브리드 쓰기 저장](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | AD 도메인당 5만 개 이상의 개체에 대한 지원 |● | |
+| 도메인 간 참조|● | |
 
 ## <a name="next-steps"></a>다음 단계 
 

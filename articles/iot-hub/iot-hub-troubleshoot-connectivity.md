@@ -13,12 +13,14 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: f7073fbf39344fe39e179d55a5a8f395a6ba6240
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+- fasttrack-edit
+- iot
+ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357424"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446412"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub와의 연결 끊김 모니터링, 진단 및 문제 해결
 
@@ -56,7 +58,7 @@ Event Grid를 사용 하 여 장치 연결 이벤트를 모니터링 하는 방�
 
 * 장치 연결 이벤트를 정렬 하는 방법에 대 한 자습서는 [Azure Cosmos DB를 사용 하 여 Azure IoT Hub에서 장치 연결 이벤트 순서](iot-hub-how-to-order-connection-state-events.md)지정을 참조 하세요.
 
-* 전자 메일 알림을 보내는 방법에 대 한 자습서는 Event Grid 설명서의 [Logic Apps Event Grid를 사용 하 여 Azure IoT Hub 이벤트에 대 한 전자 메일 알림 보내기](/azure/event-grid/publish-iot-hub-events-to-logic-apps) 를 참조 하세요.
+* 전자 메일 알림을 보내는 방법에 대 한 자습서는 Event Grid 설명서의 [Logic Apps Event Grid를 사용 하 여 Azure IoT Hub 이벤트에 대 한 전자 메일 알림 보내기](../event-grid/publish-iot-hub-events-to-logic-apps.md) 를 참조 하세요.
 
 ## <a name="azure-monitor-route-connection-events-to-logs"></a>Azure Monitor: 연결 이벤트를 로그로 라우팅
 
@@ -159,6 +161,11 @@ AzureDiagnostics
 IoT 솔루션 개발자 또는 운영자는 로그에서 연결/연결 끊기 이벤트와 관련 오류를 해석 하기 위해이 동작을 인식 해야 합니다. 장치에 대 한 토큰 수명 또는 갱신 동작을 변경 하려는 경우 장치가 장치 쌍 설정을 구현 하는지 또는 장치 방법을 구현 하는지 확인 합니다.
 
 Event Hub를 사용 하 여 장치 연결을 모니터링 하는 경우 SAS 토큰 갱신으로 인 한 정기적인 연결 해제를 필터링 하는 방법으로 빌드해야 합니다. 예를 들어, 연결 끊기 이벤트가 특정 시간 범위 내의 connect 이벤트 뒤에 오는 한, 연결 끊기에 기반 하 여 동작을 트리거하지 않을 수 있습니다.
+
+> [!NOTE]
+> IoT Hub는 디바이스 당 하나의 활성 MQTT 연결만을 지원합니다. 동일한 디바이스 ID를 대신하는 모든 새 MQTT 연결로 인해 IoT Hub가 기존 연결을 삭제하게 됩니다.
+>
+> 400027 ConnectionForcefullyClosedOnNewConnection IoT Hub 로그에 기록 됩니다.
 
 ## <a name="i-tried-the-steps-but-they-didnt-work"></a>단계를 시도했지만 작동하지 않습니다.
 

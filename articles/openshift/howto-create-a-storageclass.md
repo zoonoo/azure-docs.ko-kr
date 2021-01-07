@@ -7,13 +7,13 @@ ms.date: 10/16/2020
 author: grantomation
 ms.author: b-grodel
 keywords: aro, openshift, az aro, red hat, cli, azure 파일
-ms.custom: mvc
-ms.openlocfilehash: a7415a481b133c2f528ba4636c0297ce5cfa23a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 201ec3293943f53179bcabde45259d15ce6208a6
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747879"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901286"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4에서 Azure Files StorageClass 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "92747879"
 > * 필수 구성 요소를 설정 하 고 필요한 도구를 설치 합니다.
 > * Azure 파일 provisioner을 사용 하 여 Azure Red Hat OpenShift 4 StorageClass 만들기
 
-CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -52,14 +52,14 @@ az storage account create \
 ## <a name="set-permissions"></a>권한 설정
 ### <a name="set-resource-group-permissions"></a>리소스 그룹 권한 설정
 
-ARO 서비스 주체에는 새 Azure storage 계정 리소스 그룹에 대 한 ' listKeys ' 권한이 있어야 합니다. 이를 위해 ' 참가자 ' 역할을 할당 합니다. 
+ARO 서비스 주체에는 새 Azure storage 계정 리소스 그룹에 대 한 ' listKeys ' 권한이 있어야 합니다. 이를 위해 ' 참가자 ' 역할을 할당 합니다.
 
 ```bash
 ARO_RESOURCE_GROUP=aro-rg
 CLUSTER=cluster
-ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER –-query servicePrincipalProfile.clientId -o tsv)
+ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER --query servicePrincipalProfile.clientId -o tsv)
 
-az role assignment create –-role Contributor -–assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
+az role assignment create --role Contributor --assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
 ```
 
 ### <a name="set-aro-cluster-permissions"></a>ARO 클러스터 권한 설정
@@ -81,6 +81,8 @@ oc adm policy add-cluster-role-to-user azure-secret-reader system:serviceaccount
 
 이 단계에서는 Azure Files provisioner를 사용 하 여 StorageClass를 만듭니다. StorageClass 매니페스트에서는 ARO 클러스터가 현재 리소스 그룹 외부의 저장소 계정을 볼 수 있도록 저장소 계정에 대 한 세부 정보가 필요 합니다.
 
+저장소를 프로 비전 하는 동안 탑재 자격 증명에 대해 secretName에 의해 이름이 지정 된 비밀이 생성 됩니다. 다중 테 넌 트 컨텍스트에서는 secretNamespace의 값을 명시적으로 설정 하는 것이 좋습니다. 그렇지 않으면 다른 사용자가 저장소 계정 자격 증명을 읽을 수 있습니다.
+
 ```bash
 cat << EOF >> azure-storageclass-azure-file.yaml
 kind: StorageClass
@@ -90,7 +92,8 @@ metadata:
 provisioner: kubernetes.io/azure-file
 parameters:
   location: $LOCATION
-  skuName: Standard_LRS 
+  secretNamespace: kube-system
+  skuName: Standard_LRS
   storageAccount: $AZURE_STORAGE_ACCOUNT_NAME
   resourceGroup: $AZURE_FILES_RESOURCE_GROUP
 reclaimPolicy: Delete
@@ -116,7 +119,7 @@ oc patch storageclass azure-file -p '{"metadata": {"annotations":{"storageclass.
 
 ```bash
 oc new-project azfiletest
-oc new-app –template httpd-example
+oc new-app -template httpd-example
 
 #Wait for the pod to become Ready
 curl $(oc get route httpd-example -n azfiletest -o jsonpath={.spec.host})
@@ -131,7 +134,7 @@ oc exec $POD -- bash -c "echo 'azure file storage' >> /data/test.txt"
 oc exec $POD -- bash -c "cat /data/test.txt"
 azure file storage
 ```
-test.txt 파일은 Azure Portal의 Storage 탐색기를 통해서도 표시 됩니다. 
+test.txt 파일은 Azure Portal의 Storage 탐색기를 통해서도 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

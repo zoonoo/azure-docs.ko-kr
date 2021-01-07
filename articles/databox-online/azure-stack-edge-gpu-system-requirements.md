@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d97f500bb84f816bacf44208ba305840e797b3bd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996408"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447706"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge Pro에 대 한 시스템 요구 사항 
 
@@ -40,7 +40,7 @@ Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니�
 
 다음 Edge 저장소 계정은 장치의 REST 인터페이스에서 지원 됩니다. Edge 저장소 계정이 장치에 만들어집니다. 자세한 내용은 [Edge storage 계정](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts)을 참조 하세요.
 
-|Type  |스토리지 계정  |주석  |
+|Type  |스토리지 계정  |설명  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob         |         |
 
@@ -50,7 +50,7 @@ Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니�
 
 이러한 저장소 계정은 로컬 Azure Resource Manager에 연결할 때 장치 로컬 Api를 통해 생성 됩니다. 지원 되는 저장소 계정은 다음과 같습니다.
 
-|Type  |스토리지 계정  |주석  |
+|Type  |스토리지 계정  |설명  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob, 페이지 Blob        | SKU 유형이 Standard_LRS입니다.       |
 |Premium     |GPv1: 블록 Blob, 페이지 Blob        | SKU 유형이 Premium_LRS입니다.        |
@@ -69,7 +69,7 @@ Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니�
 
 ### <a name="port-requirements-for-azure-stack-edge-pro"></a>Azure Stack Edge Pro의 포트 요구 사항
 
-다음 테이블에는 SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *Out* 또는 *아웃 바운드* 는 인터넷으로의 아웃 바운드와 같이 배포 이외에 Azure Stack Edge Pro 장치가 외부에서 데이터를 전송 하는 방향을 가리킵니다.
+다음 테이블에는 SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드* 는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *Out* 또는 *아웃 바운드* 는 인터넷으로의 아웃 바운드와 같이 배포 이외에 Azure Stack Edge Pro 장치가 외부에서 데이터를 전송 하는 방향을 가리킵니다.
 
 [!INCLUDE [Port configuration for device](../../includes/azure-stack-edge-gateway-port-config.md)]
 
@@ -83,7 +83,7 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 |----------|-----------|------------|----------|----------|
 | TCP 443(HTTPS)| 아웃       | WAN        | 예      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
 
-전체 정보를 보려면 [IoT Edge 배포에 대한 방화벽 및 포트 구성 규칙](https://docs.microsoft.com/azure/iot-edge/troubleshoot)으로 이동하세요.
+전체 정보를 보려면 [IoT Edge 배포에 대한 방화벽 및 포트 구성 규칙](../iot-edge/troubleshoot.md)으로 이동하세요.
 
 ## <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
 
@@ -142,7 +142,7 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 
 솔루션의 성능을 이해 하 고 구체화 하려면 다음을 사용할 수 있습니다.
 
-- Azure Portal에서 사용할 수 있는 계산 메트릭입니다. Azure Stack Edge 리소스로 이동한 후 **모니터링 > 메트릭**으로 이동 합니다. 에 **지 계산 메모리 사용량과** 에 **지 계산-백분율 CPU** 를 확인 하 여 사용 가능한 리소스와 리소스가 사용 되는 방식을 파악 합니다.
+- Azure Portal에서 사용할 수 있는 계산 메트릭입니다. Azure Stack Edge 리소스로 이동한 후 **모니터링 > 메트릭** 으로 이동 합니다. 에 **지 계산 메모리 사용량과** 에 **지 계산-백분율 CPU** 를 확인 하 여 사용 가능한 리소스와 리소스가 사용 되는 방식을 파악 합니다.
 - 계산 모듈을 모니터링 하 고 문제를 해결 하려면 [디버그 Kubernetes 문제](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge)를 참조 하세요.
 
 마지막으로, 프로덕션 환경에 배포 하기 전에 데이터 집합에 대 한 솔루션의 유효성을 검사 하 고 Azure Stack Edge Pro에서 성능을 정량화 해야 합니다.

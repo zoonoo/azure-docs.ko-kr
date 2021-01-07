@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: f24c9c372ff91db5836a62ac2d08b569434ff253
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 4fbac2c2d77d838ac7fc4f3caaa73983633c3e03
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761582"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366063"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역을 위한 사용자 지정 모델 빌드, 배포 및 사용
 
@@ -22,14 +22,14 @@ ms.locfileid: "91761582"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-1. [Custom Translator](https://portal.customtranslator.azure.ai) 포털을 사용하려면 [Microsoft 계정](https://signup.live.com) 또는 [Azure AD 계정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)(Azure에 호스트되는 조직 계정)으로 로그인해야 합니다.
+1. [Custom Translator](https://portal.customtranslator.azure.ai) 포털을 사용하려면 [Microsoft 계정](https://signup.live.com) 또는 [Azure AD 계정](../../../active-directory/fundamentals/active-directory-whatis.md)(Azure에 호스트되는 조직 계정)으로 로그인해야 합니다.
 
-2. Azure Portal 통해 Translator Text API 구독. Custom Translator에서 작업 영역과 연결할 Translator Text API 구독 키가 필요합니다. [Translator Text API에 등록하는 방법](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)을 참조하세요.
+2. Azure Portal 통해 Translator Text API 구독. Custom Translator에서 작업 영역과 연결할 Translator Text API 구독 키가 필요합니다. [Translator Text API에 등록하는 방법](../translator-how-to-signup.md)을 참조하세요.
 
 3. 위의 두 가지가 모두 있는 경우 [사용자 지정 변환기](https://portal.customtranslator.azure.ai) 포털에 로그인하여 작업 영역, 프로젝트, 파일 업로드 및 모델 만들기/배포를 만듭니다.
 
 >[!Note]
->Custom Translator는 [활성화된 VNET](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet) 내에서 생성된 Translator Text API 리소스에 대한 작업 영역 생성을 지원하지 않습니다.
+>Custom Translator는 [활성화된 VNET](../../../api-management/api-management-using-with-vnet.md) 내에서 생성된 Translator Text API 리소스에 대한 작업 영역 생성을 지원하지 않습니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
@@ -92,7 +92,7 @@ Custom Translator 포털 방문 페이지에서 [새 프로젝트]를 클릭합�
 
 ## <a name="use-a-deployed-model"></a>배포된 모델 사용
 
-배포된 모델은 [CategoryID를 검사하여 Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 통해 액세스할 수 있습니다. Translator Text API에 대한 자세한 내용은 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 웹 페이지에서 확인할 수 있습니다.
+배포된 모델은 [CategoryID를 검사하여 Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl)를 통해 액세스할 수 있습니다. Translator Text API에 대한 자세한 내용은 [API 참조](../reference/v3-0-reference.md) 웹 페이지에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

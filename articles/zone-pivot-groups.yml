@@ -40,6 +40,22 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-cusvis
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-two
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -132,7 +148,7 @@ groups:
     title: C++
 - id: programming-languages-text-analytics
   title: 프로그래밍 언어
-  prompt: 프로그래밍 언어를 선택합니다.
+  prompt: 클라이언트 라이브러리 언어 또는 REST API 중 하나를 선택합니다.
   pivots:
   - id: programming-language-csharp
     title: C#
@@ -142,8 +158,8 @@ groups:
     title: JavaScript
   - id: programming-language-java
     title: Java
-  - id: programming-language-other
-    title: 기타 언어...
+  - id: rest-api
+    title: REST API
 - id: programming-languages-set-ten
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -156,6 +172,20 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-formre
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-eleven
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -166,6 +196,18 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-conmod
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-fifteen
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -244,6 +286,20 @@ groups:
     title: REST (영문)
   - id: programmer-tool-spx
     title: CLI
+- id: programming-languages-set-twenty-six
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: cogsvcs-text-analytics-features
   title: 텍스트 분석 기능
   prompt: 텍스트 분석 기능 제품 선택
@@ -254,6 +310,20 @@ groups:
     title: 언어 검색
   - id: text-analytics-sentiment-analysis
     title: 감정 분석
+- id: programming-languages-set-functions-lang-workers
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-functions
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -270,20 +340,24 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
-- id: programming-languages-text-analytics
+- id: programming-languages-set-functions-full
   title: 프로그래밍 언어
-  prompt: 프로그래밍 언어를 선택합니다.
+  prompt: 프로그래밍 언어 선택
   pivots:
   - id: programming-language-csharp
     title: C#
-  - id: programming-language-python
-    title: Python
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
   - id: programming-language-other
-    title: 기타 언어...
+    title: 기타
 - id: programming-languages-metrics-monitor
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어를 선택합니다.
@@ -298,6 +372,22 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
+- id: programming-languages-computer-vision
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어를 선택합니다.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-diberry-3core
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -308,6 +398,18 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-luis
+  title: 프로그래밍 언어
+  prompt: 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST API
 - id: java-build-tools-set
   title: 빌드 도구
   prompt: 빌드 도구 선택
@@ -366,34 +468,6 @@ groups:
     title: Java
   - id: programming-language-more
     title: 언어 자세히 보기...
-- id: programming-languages-set-fifteen
-  title: 프로그래밍 언어
-  prompt: 프로그래밍 언어 선택
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-more
-    title: 언어 자세히 보기...
-- id: programming-languages-set-sixteen
-  title: 프로그래밍 언어
-  prompt: 프로그래밍 언어 선택
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-more
-    title: 언어 자세히 보기...
 - id: programming-languages-set-seventeen
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -414,6 +488,18 @@ groups:
     title: Go
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-face
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-two-with-js
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -844,6 +930,14 @@ groups:
     title: Windows 명령 셸
   - id: client-operating-system-powershell
     title: PowerShell
+- id: URL-test-interface-rest-apis
+  title: REST API에 대한 URL 테스트 도구
+  prompt: 다음 중 하나 선택
+  pivots:
+  - id: url-test-tool-rest-postman
+    title: postman
+  - id: url-test-tool-rest-vscode-ext
+    title: Visual Studio Code
 - id: ad-quickstart-one
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -864,10 +958,30 @@ groups:
     title: Python
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
+- id: b2c-policy-type
+  title: Azure AD B2C 정책 유형
+  prompt: 정책 유형 선택
+  pivots:
+  - id: b2c-user-flow
+    title: 사용자 흐름
+  - id: b2c-custom-policy
+    title: 사용자 지정 정책
+- id: anomaly-detector-quickstart
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST (영문)
 metadata:
-  ms.openlocfilehash: 70e351da8f33b8cfca3534e8bb8cb8797e648cc7
-  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+  ms.openlocfilehash: a21332c679a839a86460ce83b43b5283245e6d35
+  ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/04/2020
-  ms.locfileid: "93313032"
+  ms.lasthandoff: 12/30/2020
+  ms.locfileid: "97814570"

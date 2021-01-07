@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d05c95c22d75e4287283318095c4d053763f349e
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784357"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702380"
 ---
 # <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
@@ -104,9 +104,9 @@ az login
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-모든 스토리지 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 스토리지 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 문서에서는 새 리소스 그룹을 만드는 방법을 보여 줍니다.
+모든 스토리지 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 스토리지 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 문서에서는 새 리소스 그룹을 만드는 방법을 보여줍니다.
 
-**범용 v2** 저장소 계정은 모든 Azure Storage 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 여기에 설명 된 단계에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다. 스토리지 계정 유형 및 기타 스토리지 계정 설정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
+범용 **v2** 저장소 계정은 blob, 파일, 큐, 테이블 및 디스크의 모든 Azure Storage 서비스에 대 한 액세스를 제공 합니다. 여기서 설명하는 단계에서는 범용 v2 스토리지 계정을 만들지만, 모든 유형의 스토리지 계정을 만드는 단계가 비슷합니다. 스토리지 계정 유형 및 기타 스토리지 계정 설정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -215,7 +215,7 @@ read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
 az group create --name $resourceGroupName --location "$location" &&
-az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
 > [!NOTE]
@@ -286,3 +286,4 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 - [Storage 계정 개요](storage-account-overview.md)
 - [범용 v2 스토리지 계정으로 업그레이드](storage-account-upgrade.md)
 - [Azure Storage 계정을 다른 지역으로 이동](storage-account-move.md)
+- [삭제된 스토리지 계정 복구](storage-account-recover.md)

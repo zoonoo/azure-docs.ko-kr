@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: c1d118fa1fb65663f37e33f739bf4a72a14e1c52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258704"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998223"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 컨테이너 모니터링
  
@@ -27,7 +27,7 @@ ms.locfileid: "86258704"
 
 1. 클러스터가 Azure Monitor 로그 및 Log Analytics 에이전트로 설정 되 면 컨테이너를 배포 합니다. 다음 단계로 이동하기 전에 컨테이너가 배포될 때까지 기다립니다.
 
-2. Azure Marketplace에서 *컨테이너 모니터링 솔루션*을 검색하고 모니터링 + 관리 범주 아래에 나타나는 **컨테이너 모니터링 솔루션** 리소스를 클릭합니다.
+2. Azure Marketplace에서 *컨테이너 모니터링 솔루션* 을 검색하고 모니터링 + 관리 범주 아래에 나타나는 **컨테이너 모니터링 솔루션** 리소스를 클릭합니다.
 
     ![컨테이너 솔루션 추가](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 

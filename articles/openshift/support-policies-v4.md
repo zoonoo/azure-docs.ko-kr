@@ -1,17 +1,17 @@
 ---
 title: Azure Red Hat OpenShift 4 클러스터 지원 정책
-description: Red Hat OpenShift 4의 지원 정책 요구 사항을 이해합니다.
+description: Red Hat OpenShift 4의 지원 정책 요구 사항 이해
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: fe703b9589dcd49298ac45d5a14032ca7e556bfd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.date: 11/23/2020
+ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408416"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521141"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Azure Red Hat OpenShift 지원 정책
 
@@ -23,6 +23,7 @@ Azure Red Hat OpenShift 4 클러스터에 대한 특정 구성은 클러스터�
 ## <a name="cluster-configuration-requirements"></a>클러스터 구성 요구 사항
 
 * 모든 OpenShift 클러스터 연산자는 관리 상태로 유지되어야 합니다. 클러스터 연산자 목록은 `oc get clusteroperators`를 실행하여 반환할 수 있습니다.
+* 클러스터에는 최소한 두 개의 작업자 노드가 있어야 합니다. 클러스터 작업자의 크기를 0으로 조정 하지 마십시오. 또는 클러스터를 종료 하는 것이 정상입니다.
 * 클러스터 Prometheus 및 Alertmanager 서비스를 제거하거나 수정하지 마세요.
 * Service Alertmanager 규칙을 제거하지 마세요.
 * Azure Red Hat OpenShift 서비스 로깅(mdsd pod)을 제거하거나 수정하지 마세요.

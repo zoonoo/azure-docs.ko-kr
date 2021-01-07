@@ -2,23 +2,24 @@
 title: Azure Kubernetes Service에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 무엇 인가요?
 description: Azure Kubernetes 서비스에서 Oracle WebLogic 서버를 실행 하는 방법에 대해 알아봅니다.
 author: rezar
-ms.service: container-service
+ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/28/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: ff7b9b0bfcdc0c06eae14ecfdccabf9e337d3649
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: cf44ad8d81656248329d993d86e9922dc4985258
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186682"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486677"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 무엇 인가요?
 
 이 페이지에서는 AKS (Azure Kubernetes Service)에서 Oracle WebLogic 서버 (WLS)를 실행 하기 위한 솔루션에 대해 설명 합니다. 이러한 솔루션은 Oracle 및 Microsoft에서 공동으로 개발 및 지원 됩니다.
 
-Azure Virtual Machines에서 WebLogic 서버를 실행 하는 것도 가능 합니다. 이에 대 한 해결 방법은 [Microsoft 문서](/azure/virtual-machines/workloads/oracle/oracle-weblogic)에 설명 되어 있습니다.
+Azure Virtual Machines에서 WebLogic 서버를 실행 하는 것도 가능 합니다. 이에 대 한 해결 방법은 [Microsoft 문서](./oracle-weblogic.md)에 설명 되어 있습니다.
 
 WebLogic 서버는 전 세계에서 중요 업무용 엔터프라이즈 Java 응용 프로그램 중 일부를 실행 하는 최고의 Java 응용 프로그램 서버입니다. WebLogic 서버는 Oracle 소프트웨어 제품군의 미들웨어 기반을 형성 합니다. Oracle 및 Microsoft는 Azure에서 워크 로드를 최고의 클라우드 플랫폼으로 실행 하기 위한 선택 및 유연성을 가진 WebLogic 서버 고객의 역량을 강화 하기 위해 최선을 다하고 있습니다.
 
@@ -42,7 +43,7 @@ _엔지니어링 팀이 이러한 솔루션을 개발 하는 마이그레이션 
 
 Azure Kubernetes 서비스에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 비교적 편리 하 게 다양 한 프로덕션 지원 배포 아키텍처를 사용 하도록 설정 합니다.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="샘플 스크립트를 사용 하 여 AKS에 WebLogic 서버를 배포할 수 있습니다.":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="AKS에서 복합 WebLogic 서버 배포가 사용 됩니다.":::
 
 솔루션에서 고객에 게 제공 하는 기능 외에도 배포를 더욱 유연 하 게 사용자 지정할 수 있습니다. 응용 프로그램을 배포할 때 고객이 더 많은 Azure 리소스를 배포와 통합 하 게 됩니다. 고객은 솔루션 개선을 위해 설문 조사에 피드백을 제공 하는 것이 좋습니다.
 

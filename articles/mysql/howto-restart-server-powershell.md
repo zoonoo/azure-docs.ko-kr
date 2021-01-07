@@ -1,18 +1,18 @@
 ---
 title: 서버 다시 시작-Azure PowerShell-Azure Database for MySQL
 description: 이 문서에서는 PowerShell을 사용 하 여 Azure Database for MySQL 서버를 다시 시작 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71d10078a704b2905cf055347f5ed4272ca8ef72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94b3586f13ad1f5bf5f042ef1dc824bd0a5da0d1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502786"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542204"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MySQL 서버 다시 시작
 
@@ -22,7 +22,7 @@ ms.locfileid: "87502786"
 
 다시 시작을 완료 하는 데 필요한 시간은 MySQL 복구 프로세스에 따라 달라 집니다. 다시 시작 시간을 줄이려면 다시 시작 하기 전에 서버에서 발생 하는 작업의 양을 최소화 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

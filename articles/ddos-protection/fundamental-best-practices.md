@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 594a7e2a6977cc2a7052a15e1a007c68c08da259
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 66c1ab1cb5ed478aa34825fb6903e4d06f834097
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905311"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989476"
 ---
 # <a name="fundamental-best-practices"></a>기본 모범 사례
 
@@ -35,16 +35,16 @@ Microsoft Azure에서 실행되는 서비스를 보호하기 위해 애플리케
 
 확장성은 시스템이 증가된 로드를 처리할 수 있는 정도입니다. 증폭되는 부하, 특히 DDoS 공격 시 증폭되는 부하 수요를 충족할 수 있도록 애플리케이션이 [수평으로 확장 가능](/azure/architecture/guide/design-principles/scale-out)하도록 설계합니다. 애플리케이션이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.
 
-[Azure App Service](/azure/app-service/app-service-value-prop-what-is)의 경우 여러 인스턴스를 제공하는 [App Service 계획](/azure/app-service/overview-hosting-plans)을 선택합니다. Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](/azure/cloud-services/cloud-services-choose-me)를 사용하도록 구성합니다. [Azure Virtual Machines](../virtual-machines/index.yml)의 경우, VM(가상 머신) 아키텍처가 둘 이상의 VM을 포함하는지 그리고 각각의 VM이 [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md)에 포함되는지 확인합니다. 자동 크기 조정 기능을 사용 하려면 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md) 을 사용 하는 것이 좋습니다.
+[Azure App Service](../app-service/overview.md)의 경우 여러 인스턴스를 제공하는 [App Service 계획](../app-service/overview-hosting-plans.md)을 선택합니다. Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](../cloud-services/cloud-services-choose-me.md)를 사용하도록 구성합니다. [Azure Virtual Machines](../virtual-machines/index.yml)의 경우, VM(가상 머신) 아키텍처가 둘 이상의 VM을 포함하는지 그리고 각각의 VM이 [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md)에 포함되는지 확인합니다. 자동 크기 조정 기능을 사용 하려면 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md) 을 사용 하는 것이 좋습니다.
 
 ## <a name="defense-in-depth"></a>심층 방어
 
 심층 방어의 개념은 다양한 방어 전략을 사용하여 위험을 관리하는 것입니다. 애플리케이션에서 보안 방어를 계층화하면 공격이 성공할 가능성이 줄어듭니다. Azure 플랫폼의 기본 제공 기능을 사용하여 안전한 애플리케이션 디자인을 구현하는 것이 좋습니다.
 
-예를 들어 공격 위험이 증가하면 애플리케이션의 크기( *노출 영역* )도 커집니다. 승인 목록을 사용 하 여 표시 되는 IP 주소 공간과 부하 분산 장치 ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) 및 [Azure 애플리케이션 Gateway](/azure/application-gateway/application-gateway-create-probe-portal))에서 필요 하지 않은 수신 포트를 닫아 노출 영역을 줄일 수 있습니다. [NSG(네트워크 보안 그룹)](/azure/virtual-network/security-overview)는 공격 노출을 줄이기 위한 또 다른 방법입니다.
-[서비스 태그](/azure/virtual-network/security-overview#service-tags) 및 [애플리케이션 보안 그룹](/azure/virtual-network/security-overview#application-security-groups)을 사용하여 보안 규칙을 만드는 복잡성을 최소화하고 애플리케이션 구조의 기본 확장으로 네트워크 보안을 구성할 수 있습니다.
+예를 들어 공격 위험이 증가하면 애플리케이션의 크기(*노출 영역*)도 커집니다. 승인 목록을 사용 하 여 표시 되는 IP 주소 공간과 부하 분산 장치 ([Azure Load Balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md) 및 [Azure 애플리케이션 Gateway](../application-gateway/application-gateway-create-probe-portal.md))에서 필요 하지 않은 수신 포트를 닫아 노출 영역을 줄일 수 있습니다. [NSG(네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)는 공격 노출을 줄이기 위한 또 다른 방법입니다.
+[서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) 및 [애플리케이션 보안 그룹](../virtual-network/network-security-groups-overview.md#application-security-groups)을 사용하여 보안 규칙을 만드는 복잡성을 최소화하고 애플리케이션 구조의 기본 확장으로 네트워크 보안을 구성할 수 있습니다.
 
-가능하면 [가상 네트워크](/azure/virtual-network/virtual-networks-overview)에 Azure 서비스를 배포해야 합니다. 이렇게 하면 서비스 리소스가 개인 IP 주소를 통해 통신할 수 있습니다. 가상 네트워크의 Azure 서비스 트래픽은 공용 IP 주소를 원본 IP 주소로 사용합니다. [서비스 엔드포인트](/azure/virtual-network/virtual-network-service-endpoints-overview)를 사용하던 기존 방식에서 서비스 트래픽이 가상 네트워크의 Azure 서비스에 액세스할 때 가상 네트워크 프라이빗 주소를 원본 IP 주소로 사용하도록 전환됩니다.
+가능하면 [가상 네트워크](../virtual-network/virtual-networks-overview.md)에 Azure 서비스를 배포해야 합니다. 이렇게 하면 서비스 리소스가 개인 IP 주소를 통해 통신할 수 있습니다. 가상 네트워크의 Azure 서비스 트래픽은 공용 IP 주소를 원본 IP 주소로 사용합니다. [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 사용하던 기존 방식에서 서비스 트래픽이 가상 네트워크의 Azure 서비스에 액세스할 때 가상 네트워크 프라이빗 주소를 원본 IP 주소로 사용하도록 전환됩니다.
 
 종종 고객의 온-프레미스 리소스가 Azure의 해댱 리소스와 함께 공격당하는 모습을 볼 수 있습니다. 온-프레미스 환경을 Azure에 연결하는 경우 공용 인터넷에 노출되는 온-프레미스 리소스를 최소화하는 것이 좋습니다. Azure에서 잘 알려진 공용 엔터티를 배포하여 Azure의 크기 조정 및 고급 DDoS Protection 기능을 사용할 수 있습니다. 이러한 공개적으로 액세스 가능한 엔터티는 종종 DDoS 공격의 대상이 되기 때문에 Azure에 배치하면 온-프레미스 리소스에 미치는 영향을 줄일 수 있습니다.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f68bc5e4604f35f9c4c45cd3e38ddaf8d24cd03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41532e554623c47e9728c6ccab92d99500e42021
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004462"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517430"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>보안 프레임: 예외 관리 | 완화 
 | 제품/서비스 | 아티클 |
@@ -38,7 +38,7 @@ ms.locfileid: "89004462"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
+| **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **단계** | WCF(Windows Communication Framework) 서비스는 디버깅 정보를 노출하도록 구성할 수 있습니다. 디버그 정보를 프로덕션 환경에서는 사용하지 않아야 합니다. `<serviceDebug>` 태그는 WCF 서비스에 대해 디버그 정보 기능이 사용되는지 여부를 정의합니다. 특성 includeExceptionDetailInFaults를 true로 설정하면 애플리케이션에서 예외 정보가 클라이언트로 반환됩니다. 공격자는 디버깅 출력에서 얻은 추가 정보를 활용하여 프레임워크, 데이터베이스 또는 애플리케이션이 사용하는 기타 리소스를 대상으로 공격을 수행할 수 있습니다. |
 
 ### <a name="example"></a>예제
@@ -62,7 +62,7 @@ ms.locfileid: "89004462"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 일반, .NET Framework 3 |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
+| **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **단계** | 서비스에 대한 정보를 공개적으로 노출하면 공격자는 서비스를 악용하는 방법에 대한 중요한 아이디어를 얻을 수 있습니다. `<serviceMetadata>` 태그는 메타데이터 게시 기능을 사용하도록 설정합니다. 서비스 메타데이터에는 공개적으로 액세스할 수 없게 해야 하는 중요한 정보가 포함될 수 있습니다. 적어도, 신뢰할 수 있는 사용자만 메타데이터에 액세스하도록 허용하고 불필요한 정보가 노출되지 않도록 해야 합니다. 더 나아가 메타데이터를 게시하는 기능은 완전히 사용하지 않도록 설정해야 합니다. 안전한 WCF 구성에는 `<serviceMetadata>` 태그가 포함되지 않습니다. |
 
 ## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>ASP.NET Web API에서 적절한 예외 처리가 수행되었는지 확인
@@ -202,7 +202,7 @@ ASP.NET Web API의 예외 처리 및 모델 유효성 검사에 대한 자세한
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [ASP.NET 오류 페이지 설정 대화 상자 편집](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
+| **참조**              | [ASP.NET 오류 페이지 설정 대화 상자 편집](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569096(v=ws.10)) |
 | **단계** | <p>ASP.NET 애플리케이션이 실패하고 HTTP/1.x 500 내부 서버 오류가 발생하거나 기능 구성(예: 요청 필터링)으로 인해 페이지가 표시되지 않을 경우 오류 메시지가 생성됩니다. 관리자는 애플리케이션이 클라이언트에 자세한 오류 메시지를 표시할지 또는 localhost에만 자세한 오류 메시지를 표시할지를 선택할 수 있습니다. web.config의 `<customErrors>` 태그는 다음 세 가지 모드로 제공됩니다.</p><ul><li>**On:** 사용자 지정 오류가 사용되도록 지정합니다. defaultRedirect 특성을 지정하지 않으면 사용자에게 일반 오류가 표시됩니다. 원격 클라이언트 및 로컬 호스트에 사용자 지정 오류가 표시됩니다.</li><li>**Off:** 사용자 지정 오류가 사용되지 않도록 지정합니다. 원격 클라이언트 및 로컬 호스트에 자세한 ASP.NET 오류가 표시됩니다.</li><li>**RemoteOnly:** 사용자 지정 오류가 원격 클라이언트에만 표시되고 로컬 호스트에는 ASP.NET 오류가 표시되도록 지정합니다. 기본값입니다.</li></ul><p>애플리케이션/사이트에 대한 `web.config` 파일을 열고 태그에 `<customErrors mode="RemoteOnly" />` 또는 `<customErrors mode="On" />`이 정의되어 있는지 확인합니다.</p>|
 
 ## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>IIS에서 배포 방법을 일반 정품으로 설정
@@ -213,7 +213,7 @@ ASP.NET Web API의 예외 처리 및 모델 유효성 검사에 대한 자세한
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [배포 요소(ASP.NET 설정 스키마)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
+| **참조**              | [배포 요소(ASP.NET 설정 스키마)](/previous-versions/dotnet/netframework-2.0/ms228298(v=vs.80)) |
 | **단계** | <p>`<deployment retail>` 스위치는 프로덕션 IIS 서버에서 사용되도록 고안되었습니다. 이 스위치는 애플리케이션이 페이지에서 추적 출력을 생성하는 기능을 사용하지 않도록 설정하고, 최종 사용자에게 자세한 오류 메시지를 표시하는 기능을 사용하지 않도록 설정하고, 디버그 스위치를 사용하지 않도록 설정하여 성능을 최대화하고 보안 정보 노출을 최소화하도록 도와줍니다.</p><p>종종 활성 개발 중에 실패한 요청 추적 및 디버그와 같은 개발자 중심의 스위치 및 옵션이 사용됩니다. 프로덕션 서버의 배포 방법을 일반 정품으로 설정하는 것이 좋습니다. machine.config 파일을 열고 `<deployment retail="true" />`을 true 상태로 유지합니다.</p>|
 
 ## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>안전한 예외 실패
@@ -268,4 +268,4 @@ ASP.NET Web API의 예외 처리 및 모델 유효성 검사에 대한 자세한
             }
         }
 ```
-예외가 발생하면 항상 위 메서드는 True를 반환합니다. 최종 사용자가 잘못된 형식의 URL을 제공할 경우 브라우저는 이를 유지하지만 `Uri()` 생성자는 그렇지 않을 경우 예외가 throw되며 사용자는 유효하지만 형식이 잘못된 URL을 사용하게 됩니다. 
+예외가 발생하면 항상 위 메서드는 True를 반환합니다. 최종 사용자가 잘못된 형식의 URL을 제공할 경우 브라우저는 이를 유지하지만 `Uri()` 생성자는 그렇지 않을 경우 예외가 throw되며 사용자는 유효하지만 형식이 잘못된 URL을 사용하게 됩니다.

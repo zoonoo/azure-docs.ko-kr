@@ -7,20 +7,20 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 532ada430e7ff2ae76eb0cfbc389792bb0d98209
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2ff2d9708642c347a829de290d45849d8629807f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322663"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462354"
 ---
 # <a name="connect-to-synapse-sql"></a>Synapse SQL에 연결
 Azure Synapse Analytics의 Synapse SQL 기능에 연결합니다.
 
-## <a name="supported-tools-for-serverless-sql-pool-preview"></a>서버리스 SQL 풀(미리 보기)에 지원되는 도구
+## <a name="supported-tools-for-serverless-sql-pool"></a>서버리스 SQL 풀에 지원되는 도구
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)는 버전 1.18.0부터 완전히 지원됩니다. SSMS는 버전 18.5부터 부분적으로 지원되며, 연결 및 쿼리에만 사용할 수 있습니다.
 

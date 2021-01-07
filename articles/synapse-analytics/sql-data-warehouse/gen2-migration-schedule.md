@@ -1,6 +1,6 @@
 ---
-title: Gen2로 SQL 풀 마이그레이션
-description: 기존 SQL 풀을 Gen2로 마이그레이션하기 위한 지침과 지역별 마이그레이션 일정.
+title: 전용 SQL 풀 (이전의 SQL DW)을 Gen2로 마이그레이션
+description: 기존 전용 SQL 풀 (이전의 SQL DW)을 Gen2으로 마이그레이션하는 방법 및 지역별 마이그레이션 일정에 대 한 지침입니다.
 services: synapse-analytics
 author: mlee3gsd
 ms.author: anjangsh
@@ -12,16 +12,16 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: eebde4470ba2635a5287cb3b0103fa49e0e243e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 512775369bd7787c6228c6d452be0e236ddf5cc2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441003"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456336"
 ---
-# <a name="upgrade-your-sql-pool-to-gen2"></a>Gen2로 SQL 풀 업그레이드
+# <a name="upgrade-your-dedicated-sql-pool-formerly-sql-dw-to-gen2"></a>전용 SQL 풀 (이전의 SQL DW)을 Gen2로 업그레이드
 
-Microsoft는 SQL 풀 실행에 대 한 초급 수준의 비용을 줄이는 데 도움이 됩니다.  까다로운 쿼리를 처리할 수 있는 낮은 계산 계층이 이제 SQL 풀에서 사용할 수 있습니다. [Gen2에 대 한 전체 공지 낮은 계산 계층 지원](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/)을 참조 하세요. 새 제품은 아래 표에 나와 있는 지역에서 제공 됩니다. 지원 되는 지역에서 기존 Gen1 SQL 풀은 다음 중 하나를 통해 Gen2로 업그레이드할 수 있습니다.
+Microsoft는 전용 SQL 풀 (이전의 SQL DW)을 실행 하는 데 드는 초급 비용을 줄이는 데 도움이 됩니다.  까다로운 쿼리를 처리할 수 있는 낮은 계산 계층이 이제 전용 SQL 풀 (이전의 SQL DW)에서 사용할 수 있습니다. [Gen2에 대 한 전체 공지 낮은 계산 계층 지원](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/)을 참조 하세요. 새 제품은 아래 표에 나와 있는 지역에서 제공 됩니다. 지원 되는 지역의 경우 기존 Gen1 전용 SQL 풀 (이전의 SQL DW)을 Gen2로 업그레이드할 수 있습니다.
 
 - **자동 업그레이드 프로세스는 다음과 같습니다.** 자동 업그레이드는 지역에서 서비스를 사용할 수 있게 되는 즉시 시작 되지 않습니다.  자동 업그레이드가 특정 지역에서 시작 되 면 선택한 유지 관리 일정에 따라 개별 데이터 웨어하우스 업그레이드가 수행 됩니다.
 - [**Gen2로 자체 업그레이드:**](#self-upgrade-to-gen2) Gen2에 대 한 자체 업그레이드를 수행 하 여 업그레이드 시기를 제어할 수 있습니다. 지역이 아직 지원 되지 않는 경우 복원 지점에서 지원 되는 지역의 Gen2 인스턴스로 직접 복원할 수 있습니다.
@@ -43,9 +43,9 @@ Microsoft는 SQL 풀 실행에 대 한 초급 수준의 비용을 줄이는 데 
 
 ## <a name="automatic-upgrade-process"></a>자동 업그레이드 프로세스
 
-위의 가용성 차트에 따라 Gen1 인스턴스에 대해 자동화 된 업그레이드를 예약 합니다. SQL 풀의 가용성에 대 한 예기치 않은 중단을 방지 하기 위해 유지 관리 일정 동안 자동화 된 업그레이드가 예약 됩니다. 새 Gen1 인스턴스를 만드는 기능은 Gen2로 자동 업그레이드 하는 지역에서 사용할 수 없습니다. 자동 업그레이드가 완료 되 면 Gen1는 사용 되지 않습니다. 일정에 대한 자세한 내용은 [유지 관리 일정 보기](maintenance-scheduling.md#view-a-maintenance-schedule)를 참조하세요.
+위의 가용성 차트에 따라 Gen1 인스턴스에 대해 자동화 된 업그레이드를 예약 합니다. 전용 SQL 풀 (이전의 SQL DW)의 가용성에 대 한 예기치 않은 중단을 방지 하기 위해 유지 관리 일정 동안 자동화 된 업그레이드가 예약 됩니다. 새 Gen1 인스턴스를 만드는 기능은 Gen2로 자동 업그레이드 하는 지역에서 사용할 수 없습니다. 자동 업그레이드가 완료 되 면 Gen1는 사용 되지 않습니다. 일정에 대한 자세한 내용은 [유지 관리 일정 보기](maintenance-scheduling.md#view-a-maintenance-schedule)를 참조하세요.
 
-업그레이드 프로세스에는 SQL 풀을 다시 시작 하는 짧은 연결 (약 5 분)이 포함 됩니다.  SQL 풀을 다시 시작한 후에는 완전히 사용할 수 있습니다. 그러나 업그레이드 프로세스가 백그라운드에서 데이터 파일을 계속 업그레이드 하는 동안 성능이 저하 될 수 있습니다. 총 성능 저하 시간은 데이터 파일의 크기에 따라 달라집니다.
+업그레이드 프로세스에는 전용 SQL 풀 (이전의 SQL DW)을 다시 시작 하는 짧은 연결 (약 5 분)이 포함 됩니다.  전용 SQL 풀 (이전의 SQL DW)이 다시 시작 되 면 완전히 사용할 수 있게 됩니다. 그러나 업그레이드 프로세스가 백그라운드에서 데이터 파일을 계속 업그레이드 하는 동안 성능이 저하 될 수 있습니다. 총 성능 저하 시간은 데이터 파일의 크기에 따라 달라집니다.
 
 다시 시작한 후에 더 큰 SLO 및 리소스 클래스를 사용하는 모든 기본 columnstore 테이블에 [Alter Index rebuild](sql-data-warehouse-tables-index.md)를 실행하여 데이터 파일 업그레이드 프로세스를 신속하게 진행할 수도 있습니다.
 
@@ -54,12 +54,12 @@ Microsoft는 SQL 풀 실행에 대 한 초급 수준의 비용을 줄이는 데 
 
 ## <a name="self-upgrade-to-gen2"></a>Gen2로 자체 업그레이드
 
-기존 Gen1 SQL 풀에서 다음 단계를 수행 하 여 자체 업그레이드를 선택할 수 있습니다. 자동 업그레이드를 선택 하는 경우 해당 지역에서 자동 업그레이드 프로세스가 시작 되기 전에 완료 해야 합니다. 이렇게 하면 자동 업그레이드에서 충돌을 일으키는 위험을 피할 수 있습니다.
+기존 Gen1 전용 SQL 풀 (이전의 SQL DW)에서 다음 단계를 수행 하 여 자체 업그레이드를 선택할 수 있습니다. 자동 업그레이드를 선택 하는 경우 해당 지역에서 자동 업그레이드 프로세스가 시작 되기 전에 완료 해야 합니다. 이렇게 하면 자동 업그레이드에서 충돌을 일으키는 위험을 피할 수 있습니다.
 
-자체 업그레이드를 수행할 때는 두 가지 옵션을 사용할 수 있습니다.  현재 SQL 풀을 현재 위치로 업그레이드 하거나 Gen1 SQL 풀을 Gen2 인스턴스로 복원할 수 있습니다.
+자체 업그레이드를 수행할 때는 두 가지 옵션을 사용할 수 있습니다.  현재 전용 SQL 풀 (이전의 SQL DW)을 현재 위치로 업그레이드 하거나 Gen1 전용 SQL 풀 (이전의 SQL DW)을 Gen2 인스턴스로 복원할 수 있습니다.
 
-- [내부 업그레이드](upgrade-to-latest-generation.md) -이 옵션은 기존 Gen1 SQL 풀을 Gen2로 업그레이드 합니다. 업그레이드 프로세스에는 SQL 풀을 다시 시작 하는 짧은 연결 (약 5 분)이 포함 됩니다.  SQL 풀을 다시 시작한 후에는 완전히 사용할 수 있습니다. 업그레이드 하는 동안 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get-started-create-support-ticket.md) 을 열고 가능한 원인으로 "Gen2 upgrade"를 참조 합니다.
-- [복원 지점에서 업그레이드](sql-data-warehouse-restore-points.md) -현재 Gen1 SQL 풀에 사용자 정의 복원 지점을 만든 다음 Gen2 인스턴스로 직접 복원 합니다. 기존 Gen1 SQL 풀은 그대로 유지 됩니다. 복원이 완료 되 면 Gen2 SQL 풀은 완전히 사용할 수 있습니다.  복원된 Gen2 인스턴스에서 모든 테스트 및 유효성 검사 프로세스를 실행한 후에는 원래 Gen1 인스턴스를 삭제할 수 있습니다.
+- [바로 업그레이드](upgrade-to-latest-generation.md) -이 옵션은 기존 GEN1 전용 sql 풀 (이전의 sql DW)을 Gen2로 업그레이드 합니다. 업그레이드 프로세스에는 전용 SQL 풀 (이전의 SQL DW)을 다시 시작 하는 짧은 연결 (약 5 분)이 포함 됩니다.  다시 시작 되 면 완전히 사용할 수 있게 됩니다. 업그레이드 하는 동안 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get-started-create-support-ticket.md) 을 열고 가능한 원인으로 "Gen2 upgrade"를 참조 합니다.
+- [복원 지점에서 업그레이드](sql-data-warehouse-restore-points.md) -현재 GEN1 전용 sql 풀 (이전의 SQL DW)에서 사용자 정의 복원 지점을 만든 다음 Gen2 인스턴스로 직접 복원 합니다. 기존 Gen1 전용 SQL 풀 (이전의 SQL DW)은 그대로 유지 됩니다. 복원이 완료 된 후에는 Gen2 전용 SQL 풀 (이전의 SQL DW)을 사용할 수 있습니다.  복원된 Gen2 인스턴스에서 모든 테스트 및 유효성 검사 프로세스를 실행한 후에는 원래 Gen1 인스턴스를 삭제할 수 있습니다.
 
   - 1 단계: Azure Portal에서 [사용자 정의 복원 지점을 만듭니다](sql-data-warehouse-restore-active-paused-dw.md).
   - 2 단계: 사용자 정의 복원 지점에서 복원 하는 경우 "성능 수준"을 기본 설정 Gen2 계층으로 설정 합니다.
@@ -71,7 +71,7 @@ Microsoft는 SQL 풀 실행에 대 한 초급 수준의 비용을 줄이는 데 
 > [!NOTE]
 > Alter Index rebuild는 오프라인 작업이며, 다시 빌드가 완료될 때까지 테이블을 사용할 수 없습니다.
 
-SQL 풀에 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get-started-create-support-ticket.md) 을 만들고 가능한 원인으로 "Gen2 upgrade"를 참조 합니다.
+전용 SQL 풀 (이전의 SQL DW)에 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get-started-create-support-ticket.md) 을 만들고 가능한 원인으로 "Gen2 upgrade"를 참조 합니다.
 
 자세한 내용은 [Gen2로 업그레이드](upgrade-to-latest-generation.md)를 참조하세요.
 
@@ -89,12 +89,12 @@ SQL 풀에 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get
 
 - A: 현재 위치에서 업그레이드 하거나 복원 지점에서 업그레이드할 수 있습니다.
 
-  - 현재 위치가 업그레이드 되 면 SQL 풀이 일시적으로 일시 중지 되 고 다시 시작 됩니다.  SQL 풀이 온라인 상태인 동안에는 백그라운드 프로세스가 계속 됩니다.  
+  - 원위치에서 업그레이드 하면 전용 SQL 풀 (이전의 SQL DW)이 일시적으로 일시 중지 되 고 다시 시작 됩니다.  전용 SQL 풀 (이전의 SQL DW)이 온라인 상태인 동안에는 백그라운드 프로세스가 계속 됩니다.  
   - 복원 지점까지 업그레이드하는 경우 업그레이드가 전체 복원 프로세스를 거치게 되므로 시간이 더 오래 걸립니다.
 
 **Q: 자동 업그레이드에 소요 되는 기간은 얼마 인가요?**
 
-- A: 업그레이드에 대 한 실제 가동 중지 시간은 서비스를 일시 중지 하 고 다시 시작 하는 데 걸리는 시간 (5 ~ 10 분)입니다. 잠깐 가동 중지된 후에 백그라운드 프로세스에서 스토리지 마이그레이션이 수행됩니다. 백그라운드 프로세스의 기간은 SQL 풀의 크기에 따라 달라 집니다.
+- A: 업그레이드에 대 한 실제 가동 중지 시간은 서비스를 일시 중지 하 고 다시 시작 하는 데 걸리는 시간 (5 ~ 10 분)입니다. 잠깐 가동 중지된 후에 백그라운드 프로세스에서 스토리지 마이그레이션이 수행됩니다. 백그라운드 프로세스의 시간은 전용 SQL 풀의 크기 (이전의 SQL DW)에 따라 달라 집니다.
 
 **Q:이 자동 업그레이드는 언제 발생 하나요?**
 
@@ -110,7 +110,7 @@ SQL 풀에 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get
 
 **Q: 지역 백업을 사용 하지 않도록 설정할 수 있나요?**
 
-- A: 아니요. 지역 백업은 지역에서 사용할 수 없게 되는 경우 SQL 풀 가용성을 유지 하는 엔터프라이즈 기능입니다. 문제가 더 있는 경우 [지원 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 엽니다.
+- A: 아니요. 지역 백업은 지역에서 사용할 수 없게 되는 이벤트에서 전용 SQL 풀 (이전의 SQL DW) 가용성을 유지 하는 엔터프라이즈 기능입니다. 문제가 더 있는 경우 [지원 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 엽니다.
 
 **Q: Gen1와 Gen2 간의 T-sql 구문에 차이가 있나요?**
 

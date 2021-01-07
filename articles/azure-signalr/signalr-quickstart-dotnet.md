@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: da91a5a7c077eb14d12a711b8b308d7045c88f4a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c39ef505b0cea0ad0c03b81683db8441077cd0d2
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150993"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874545"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>빠른 시작: ASP.NET과 SignalR Service를 사용하여 대화방 만들기
 
@@ -32,21 +32,21 @@ ASP.NET SignalR과 ASP.NET Core SignalR의 기능을 비교한 전체 목록을 
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
 * [ASP.NET SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnet)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnet).
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로그인합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnet)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 않습니다. Azure SignalR Service 인스턴스에는 항상 *기본*이나 *클래식*을 사용하세요.
+ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 않습니다. Azure SignalR Service 인스턴스에는 항상 *기본* 이나 *클래식* 을 사용하세요.
 
 [SignalR Service 스크립트 만들기](scripts/signalr-cli-create-service.md)를 통해 이 빠른 시작에 사용되는 Azure 리소스를 만들 수도 있습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnet)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnet).
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
@@ -60,7 +60,7 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnet)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnet).
 
 ## <a name="configure-and-run-chat-room-web-app"></a>대화방 웹앱 구성 및 실행
 
@@ -68,7 +68,7 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
 
 1. Azure Portal이 열려있는 브라우저에서, 직접 만든 인스턴스를 찾아서 선택합니다.
 
-1. SignalR Service 인스턴스의 연결 문자열을 보려면 **키**를 선택합니다.
+1. SignalR Service 인스턴스의 연결 문자열을 보려면 **키** 를 선택합니다.
 
 1. 기본 연결 문자열을 선택하여 복사합니다.
 
@@ -83,7 +83,7 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
     </configuration>
     ```
 
-1. 애플리케이션이 SignalR을 자체적으로 호스팅하지 않고 서비스에 연결되도록 하려면 *Startup.cs*에서 `MapSignalR()`을 호출하는 대신 `MapAzureSignalR({YourApplicationName})`을 호출하여 연결 문자열을 전달해야 합니다. `{YourApplicationName}`을 애플리케이션 이름으로 바꿉니다. 이 이름은 이 애플리케이션을 다른 애플리케이션과 구분하는 고유한 이름입니다. `this.GetType().FullName`을 값으로 사용할 수 있습니다.
+1. 애플리케이션이 SignalR을 자체적으로 호스팅하지 않고 서비스에 연결되도록 하려면 *Startup.cs* 에서 `MapSignalR()`을 호출하는 대신 `MapAzureSignalR({YourApplicationName})`을 호출하여 연결 문자열을 전달해야 합니다. `{YourApplicationName}`을 애플리케이션 이름으로 바꿉니다. 이 이름은 이 애플리케이션을 다른 애플리케이션과 구분하는 고유한 이름입니다. `this.GetType().FullName`을 값으로 사용할 수 있습니다.
 
     ```cs
     public void Configuration(IAppBuilder app)
@@ -93,7 +93,7 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
     }
     ```
 
-    이러한 API를 사용하려면 먼저 서비스 SDK도 참조해야 합니다. **도구 | NuGet 패키지 관리자 | 패키지 관리자 콘솔**을 열어서 다음 명령을 실행합니다.
+    이러한 API를 사용하려면 먼저 서비스 SDK도 참조해야 합니다. **도구 | NuGet 패키지 관리자 | 패키지 관리자 콘솔** 을 열어서 다음 명령을 실행합니다.
 
     ```powershell
     Install-Package Microsoft.Azure.SignalR.AspNet
@@ -106,22 +106,22 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
 
 1. <kbd>F5</kbd> 키를 눌러 디버그 모드로 프로젝트를 실행합니다. 애플리케이션이 로컬에서 실행되는 것을 볼 수 있습니다. 애플리케이션이 SignalR 런타임을 자체적으로 호스팅하는 대신 Azure SignalR Service에 연결합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnet)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 
-[Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
+[Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹** 을 클릭합니다.
 
-**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 빠른 시작의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
+**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 빠른 시작의 지침에서는 *SignalRTestResources* 라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제** 를 클릭합니다.
 
 ![DELETE](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnet)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnet).
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -129,5 +129,3 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core와 Azure SignalR Service](./signalr-quickstart-dotnet-core.md)
-
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnet)

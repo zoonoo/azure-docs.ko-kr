@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -13,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb80abc35aedcdf0b46cefa279e477739cf1df6b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 957e458bf21eb4a95b1faba1daf0459271648310
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789797"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358693"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Azure 전용 호스트에서 SQL Server VM 실행 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,8 +37,8 @@ ms.locfileid: "92789797"
 
 SQL Server VM을 Azure 전용 호스트에 설치할 때 두 가지 라이선스 옵션 중에서 선택할 수 있습니다. 
 
-  - **SQL VM 라이선스** : 각 SQL Server VM 라이선스에 대해 개별적으로 요금을 지불하는 기존 라이선스 옵션입니다. 
-  - **전용 호스트 라이선스** : Azure 전용 호스트에서 사용할 수 있는 새 라이선스 모델은 SQL Server 라이선스를 호스트 단위로 묶어서 요금을 지불합니다. 
+  - **SQL VM 라이선스**: 각 SQL Server VM 라이선스에 대해 개별적으로 요금을 지불하는 기존 라이선스 옵션입니다. 
+  - **전용 호스트 라이선스**: Azure 전용 호스트에서 사용할 수 있는 새 라이선스 모델은 SQL Server 라이선스를 호스트 단위로 묶어서 요금을 지불합니다. 
 
 
 기존 SQL Server 라이선스 사용에 대한 호스트 수준 옵션: 

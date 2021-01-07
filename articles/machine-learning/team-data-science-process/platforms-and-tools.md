@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4ba7b8af9b50b9173f5e2040bb8b623eeafdd538
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320234"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453850"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>데이터 과학 프로젝트용 플랫폼 및 도구
 
@@ -25,7 +25,7 @@ TDSP를 사용하는 데이터 과학 팀에서 사용할 수 있는 분석 리�
 
 - 데이터 과학 Virtual Machine(Windows 및 Linux CentOS)
 - HDInsight Spark 클러스터
-- Synapse Analytics
+- Azure Synapse Analytics
 - Azure 데이터 레이크
 - HDInsight Hive 클러스터
 - Azure File Storage

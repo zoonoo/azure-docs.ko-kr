@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 747d03b228d41066cfc834b4a9c044b16c767622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 61ff5d05eb74804af69b90d839115a8468619275
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329366"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921716"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Azure 파일 동기화 네트워크 엔드포인트 구성
 Azure Files와 Azure 파일 동기화는 Azure 파일 공유에 액세스하기 위한 다음과 같은 두 가지 기본 유형의 엔드포인트를 제공합니다. 
@@ -33,8 +33,8 @@ Azure Files와 Azure 파일 동기화에서 모두 Azure 관리 개체, 스토�
 - 스토리지 동기화 서비스를 이미 만들었으며 이 서비스를 사용하여 Windows 파일 서버를 등록했습니다. Azure 파일 동기화를 배포하는 방법은 [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)를 참조하세요.
 
 또한 다음 작업도 수행해야 합니다.
-- Azure PowerShell을 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)하세요.
-- Azure CLI를 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
+- Azure PowerShell을 사용하려면 [최신 버전을 설치](/powershell/azure/install-az-ps)하세요.
+- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)하세요.
 
 ## <a name="create-the-private-endpoints"></a>프라이빗 엔드포인트 만들기
 Azure 리소스의 프라이빗 엔드포인트를 만들 때 배포되는 리소스는 다음과 같습니다.
@@ -130,7 +130,7 @@ Address: 192.168.0.5
 > 스토리지 동기화 서비스 리소스에서 프라이빗 엔드포인트를 사용하려면 Azure 파일 동기화 에이전트 버전 10.1 이상을 사용해야 합니다. 에이전트 버전 10.1 이전 버전은 스토리지 동기화 서비스에서 프라이빗 엔드포인트를 지원하지 않습니다. 모든 이전 에이전트 버전은 스토리지 계정 리소스에서 프라이빗 엔드포인트를 지원합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
-Azure Portal 상단의 검색 창에 *Private Link*를 입력하여 **Private Link 센터**로 이동합니다. Private Link 센터의 목차에서 **프라이빗 엔드포인트**를 선택한 다음, **+ 추가**를 선택하여 새 프라이빗 엔드포인트를 만듭니다.
+Azure Portal 상단의 검색 창에 *Private Link* 를 입력하여 **Private Link 센터** 로 이동합니다. Private Link 센터의 목차에서 **프라이빗 엔드포인트** 를 선택한 다음, **+ 추가** 를 선택하여 새 프라이빗 엔드포인트를 만듭니다.
 
 [![Private Link 센터의 스크린샷](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png)](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png#lightbox)
 
@@ -140,11 +140,11 @@ Azure Portal 상단의 검색 창에 *Private Link*를 입력하여 **Private Li
 
 ![프라이빗 엔드포인트 만들기 섹션의 기본 사항 섹션의 스크린샷](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-1.png)
 
-**리소스** 블레이드에서 **내 디렉터리에서 Azure 리소스에 연결** 라디오 단추를 선택합니다. **리소스 종류** 아래에서 리소스 종류에 대해 **Microsoft.StorageSync/storageSyncServices**를 선택합니다. 
+**리소스** 블레이드에서 **내 디렉터리에서 Azure 리소스에 연결** 라디오 단추를 선택합니다. **리소스 종류** 아래에서 리소스 종류에 대해 **Microsoft.StorageSync/storageSyncServices** 를 선택합니다. 
 
 **구성** 블레이드에서는 프라이빗 엔드포인트를 추가할 가상 네트워크 및 서브넷을 선택할 수 있습니다. 위의 스토리지 계정에 사용한 것과 동일한 가상 네트워크를 선택합니다. 구성 블레이드에는 프라이빗 DNS 영역을 만들거나 업데이트하기 위한 정보도 포함되어 있습니다.
 
-**검토 + 만들기**를 클릭하여 프라이빗 엔드포인트를 만듭니다.
+**검토 + 만들기** 를 클릭하여 프라이빗 엔드포인트를 만듭니다.
 
 PowerShell에서 다음 명령을 실행하여 프라이빗 엔드포인트가 올바르게 설정되었는지 테스트할 수 있습니다. 
 
@@ -554,7 +554,7 @@ done
 퍼블릭 엔드포인트에 대한 액세스 제한은 스토리지 계정 방화벽 설정을 사용하여 이루어집니다. 일반적으로 스토리지 계정에 대한 대부분의 방화벽 정책은 하나 이상의 가상 네트워크에 대한 네트워킹 액세스를 제한합니다. 스토리지 계정에 대한 액세스를 가상 네트워크로 제한하는 두 가지 방법은 다음과 같습니다.
 
 - [스토리지 계정에 대한 하나 이상의 프라이빗 엔드포인트를 만들고](#create-the-storage-account-private-endpoint) 퍼블릭 엔드포인트에 대한 액세스를 사용하지 않도록 설정합니다. 이렇게 하면 원하는 가상 네트워크 내에서 시작된 트래픽만 스토리지 계정 내의 Azure 파일 공유에 액세스할 수 있습니다.
-- 퍼블릭 엔드포인트를 하나 이상의 가상 네트워크로 제한합니다. 이는 *서비스 엔드포인트*라는 가상 네트워크의 기능을 사용하여 작동합니다. 서비스 엔드포인트를 통해 스토리지 계정으로의 트래픽을 제한하는 경우에도 공용 IP 주소를 통해 스토리지 계정에 액세스하게 됩니다.
+- 퍼블릭 엔드포인트를 하나 이상의 가상 네트워크로 제한합니다. 이는 *서비스 엔드포인트* 라는 가상 네트워크의 기능을 사용하여 작동합니다. 서비스 엔드포인트를 통해 스토리지 계정으로의 트래픽을 제한하는 경우에도 공용 IP 주소를 통해 스토리지 계정에 액세스하게 됩니다.
 
 #### <a name="disable-access-to-the-storage-account-public-endpoint"></a>스토리지 계정 퍼블릭 엔드포인트에 대한 액세스 사용 안 함
 퍼블릭 엔드포인트에 대한 액세스를 사용하지 않도록 설정한 경우에도 프라이빗 엔드포인트를 통해 스토리지 계정에 액세스할 수 있습니다. 그렇지 않으면 스토리지 계정의 퍼블릭 엔드포인트에 대한 유효한 요청이 거부됩니다. 
@@ -571,7 +571,7 @@ done
 ---
 
 #### <a name="restrict-access-to-the-storage-account-public-endpoint-to-specific-virtual-networks"></a>스토리지 계정 퍼블릭 엔드포인트에 대한 액세스를 특정 가상 네트워크로 제한
-스토리지 계정을 특정 가상 네트워크로 제한하면 지정된 가상 네트워크 내에서 퍼블릭 엔드포인트에 요청하는 것을 허용하는 것입니다. 이는 *서비스 엔드포인트*라는 가상 네트워크의 기능을 사용하여 작동합니다. 이 방법에 프라이빗 엔드포인트를 사용해도 되고 사용하지 않아도 됩니다.
+스토리지 계정을 특정 가상 네트워크로 제한하면 지정된 가상 네트워크 내에서 퍼블릭 엔드포인트에 요청하는 것을 허용하는 것입니다. 이는 *서비스 엔드포인트* 라는 가상 네트워크의 기능을 사용하여 작동합니다. 이 방법에 프라이빗 엔드포인트를 사용해도 되고 사용하지 않아도 됩니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-public-restrict-portal](../../../includes/storage-files-networking-endpoints-public-restrict-portal.md)]
@@ -588,7 +588,7 @@ done
 Azure 파일 동기화를 사용하면 특정 가상 네트워크에 대한 액세스를 프라이빗 엔드포인트를 통해서만 가능하도록 제한할 수 있습니다. Azure 파일 동기화는 퍼블릭 엔드포인트에 대한 액세스를 특정 가상 네트워크로 제한하기 위한 서비스 엔드포인트를 지원하지 않습니다. 즉 스토리지 동기화 서비스의 퍼블릭 엔드포인트에 대한 두 가지 상태가 사용 및 사용 안 함입니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
-Azure Portal에서는 불가능합니다. 스토리지 동기화 서비스 퍼블릭 엔드포인트를 사용하지 않도록 설정하는 방법에 대한 지침을 보려면 Azure PowerShell 또는 Azure CLI 탭 지침을 선택하세요. 
+Azure Portal에서는 불가능합니다. 저장소 동기화 서비스 공용 끝점을 사용 하지 않도록 설정 하는 방법에 대 한 지침을 보려면 Azure PowerShell 탭을 선택 하세요. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 스토리지 동기화 서비스의 퍼블릭 엔드포인트에 대한 액세스를 사용하지 않도록 설정하려면 스토리지 동기화 서비스에서 `incomingTrafficPolicy` 속성을 `AllowVirtualNetworksOnly`로 설정합니다. 스토리지 동기화 서비스의 퍼블릭 엔드포인트에 대한 액세스를 사용하도록 설정하려면 `incomingTrafficPolicy`를 `AllowAllTraffic`으로 설정합니다. `<storage-sync-service-resource-group>` 및 `<storage-sync-service>`를 대체해야 합니다.
@@ -603,23 +603,11 @@ $storageSyncService = Get-AzResource `
         -ResourceType "Microsoft.StorageSync/storageSyncServices"
 
 $storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force
+$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-스토리지 동기화 서비스의 퍼블릭 엔드포인트에 대한 액세스를 사용하지 않도록 설정하려면 스토리지 동기화 서비스에서 `incomingTrafficPolicy` 속성을 `AllowVirtualNetworksOnly`로 설정합니다. 스토리지 동기화 서비스의 퍼블릭 엔드포인트에 대한 액세스를 사용하도록 설정하려면 `incomingTrafficPolicy`를 `AllowAllTraffic`으로 설정합니다. `<storage-sync-service-resource-group>` 및 `<storage-sync-service>`를 대체해야 합니다.
-
-```bash
-storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
-storageSyncServiceName="<storage-sync-service>"
-
-az resource update \
-        --resource-group $storageSyncServiceResourceGroupName \
-        --name $storageSyncServiceName \
-        --resource-type "Microsoft.StorageSync/storageSyncServices" \
-        --set "properties.incomingTrafficPolicy=AllowVirtualNetworksOnly" \
-        --output none
-```
+<a name="azure-cli-does-not-support-setting-the-incomingtrafficpolicy-property-on-the-storage-sync-service-please-select-the-azure-powershell-tab-to-get-instructions-on-how-to-disable-the-storage-sync-service-public-endpoint"></a>Azure CLI는 `incomingTrafficPolicy` 저장소 동기화 서비스의 속성 설정을 지원 하지 않습니다. 저장소 동기화 서비스 공용 끝점을 사용 하지 않도록 설정 하는 방법에 대 한 지침을 보려면 Azure PowerShell 탭을 선택 하세요.
 ---
 
 ## <a name="see-also"></a>참고 항목

@@ -14,15 +14,15 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370868"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973901"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가
 
-모든 새 Azure AD 테 넌 트는 초기 도메인 이름 * \<domainname> . onmicrosoft.com*와 함께 제공 됩니다. 초기 도메인 이름을 변경 하거나 삭제할 수는 없지만 조직의 이름을 추가할 수는 있습니다. 사용자 지정 도메인 이름을 추가 하면 사용자에 게 친숙 한 사용자 이름 (예: *alain \@ contoso.com*)을 만들 수 있습니다.
+모든 새 Azure AD 테 넌 트는 초기 도메인 이름 *\<domainname> . onmicrosoft.com* 와 함께 제공 됩니다. 초기 도메인 이름을 변경 하거나 삭제할 수는 없지만 조직의 이름을 추가할 수는 있습니다. 사용자 지정 도메인 이름을 추가 하면 사용자에 게 친숙 한 사용자 이름 (예: *alain \@ contoso.com*)을 만들 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -50,16 +50,16 @@ ms.locfileid: "92370868"
 
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 모든 페이지에서 *Azure Active Directory*를 검색하고 선택합니다. 그런 다음 **사용자 지정 도메인 이름**  >  **사용자 지정 도메인 추가**를 선택 합니다.
+1. 모든 페이지에서 *Azure Active Directory* 를 검색하고 선택합니다. 그런 다음 **사용자 지정 도메인 이름**  >  **사용자 지정 도메인 추가** 를 선택 합니다.
 
     ![사용자 지정 도메인 이름 페이지, 표시 된 사용자 지정 도메인 추가](media/add-custom-domain/add-custom-domain.png)
 
-1. **사용자 지정 도메인 이름**에 조직의 새 이름 (이 예제에서는 *contoso.com*)을 입력 합니다. **도메인 추가**를 선택합니다.
+1. **사용자 지정 도메인 이름** 에 조직의 새 이름 (이 예제에서는 *contoso.com*)을 입력 합니다. **도메인 추가** 를 선택합니다.
 
     ![사용자 지정 도메인 이름 페이지, 사용자 지정 도메인 추가 페이지](media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >이 작업을 제대로 수행 하려면 .com, *.net*또는 다른 최상위 확장을 포함 해야 합니다 *.*
+    >이 작업을 제대로 수행 하려면 .com, *.net* 또는 다른 최상위 확장을 포함 해야 합니다 *.*
 
     확인 되지 않은 도메인이 추가 됩니다. DNS 정보를 보여 주는 **contoso.com** 페이지가 나타납니다. 이 정보를 저장합니다. 나중에 DNS를 구성 하기 위해 TXT 레코드를 만드는 데 필요 합니다.
 
@@ -82,9 +82,9 @@ Azure AD에 사용자 지정 도메인 이름을 추가한 후에 해당 도메�
 
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 모든 페이지에서 *Azure Active Directory* 를 검색 하 고 선택한 다음 **사용자 지정 도메인 이름**을 선택 합니다.
+1. 모든 페이지에서 *Azure Active Directory* 를 검색 하 고 선택한 다음 **사용자 지정 도메인 이름** 을 선택 합니다.
 
-1. **사용자 지정 도메인**이름에서 사용자 지정 도메인 이름을 선택 합니다. 이 예제에서는 **contoso.com**를 선택 합니다.
+1. **사용자 지정 도메인** 이름에서 사용자 지정 도메인 이름을 선택 합니다. 이 예제에서는 **contoso.com** 를 선택 합니다.
 
     ![Fabrikam - contoso가 강조 표시된 사용자 지정 도메인 이름 페이지](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 

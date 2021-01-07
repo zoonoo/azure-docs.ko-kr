@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 24dc2cad8d299d150adddc03de5e9006fc831fc6
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93061635"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013730"
 ---
-[지속형 함수](../articles/azure-functions/durable-functions-overview.md)에 대한 구성 설정입니다.
+[지속형 함수](../articles/azure-functions/durable/durable-functions-overview.md)에 대한 구성 설정입니다.
 
 > [!NOTE]
 > Durable Functions의 모든 주요 버전은 모든 버전의 Azure Functions 런타임에서 지원됩니다. 그러나 host.json 구성의 스키마는 사용 중인 Azure Functions 런타임 및 Durable Functions 확장 버전에 따라 약간 다릅니다. 다음 예제는 Azure Functions 2.0 및 3.0과 함께 사용하기 위한 것입니다. 두 예제 모두에서 Azure Functions 1.0을 사용하는 경우 사용 가능한 설정은 동일하지만 host.json의 "durableTask" 섹션은 "extensions" 아래의 필드가 아닌 host.json 구성의 루트에 있어야 합니다.
@@ -97,11 +97,11 @@ ms.locfileid: "93061635"
 }
 ```
 
-작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정되지 않은 경우 함수 앱의 기본 작업 허브 이름은 **DurableFunctionsHub** 입니다. 자세한 내용은 [작업 허브](../articles/azure-functions/durable-functions-task-hubs.md)를 참조하세요.
+작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정되지 않은 경우 함수 앱의 기본 작업 허브 이름은 **DurableFunctionsHub** 입니다. 자세한 내용은 [작업 허브](../articles/azure-functions/durable/durable-functions-task-hubs.md)를 참조하세요.
 
 |속성  |기본값 | Description |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|여러 Durable Functions 애플리케이션이 동일한 스토리지 백 엔드를 사용하더라도 대체 [작업 허브](../articles/azure-functions/durable-functions-task-hubs.md) 이름을 사용하면 이러한 애플리케이션을 서로 구분할 수 있습니다.|
+|hubName|DurableFunctionsHub|여러 Durable Functions 애플리케이션이 동일한 스토리지 백 엔드를 사용하더라도 대체 [작업 허브](../articles/azure-functions/durable/durable-functions-task-hubs.md) 이름을 사용하면 이러한 애플리케이션을 서로 구분할 수 있습니다.|
 |controlQueueBatchSize|32|제어 큐에서 한 번에 끌어올 메시지의 수입니다.|
 |controlQueueBufferThreshold|256|메모리에 한 번에 버퍼링할 수 있는 컨트롤 큐 메시지의 수입니다. 이 시점에 디스패처는 추가 메시지를 큐에서 제거할 때까지 대기합니다.|
 |partitionCount |4|제어 큐에 대한 파티션 수입니다. 1에서 16 사이의 양의 정수일 수 있습니다.|
@@ -109,7 +109,7 @@ ms.locfileid: "93061635"
 |workItemQueueVisibilityTimeout |5분|큐에서 제거된 작업 항목 큐 메시지의 표시 여부 시간 제한입니다.|
 |maxConcurrentActivityFunctions |현재 컴퓨터에 있는 프로세서 수의 10배입니다.|단일 호스트 인스턴스에서 동시에 처리할 수 있는 작업 함수는 최대 수입니다.|
 |maxConcurrentOrchestratorFunctions |현재 컴퓨터에 있는 프로세서 수의 10배입니다.|단일 호스트 인스턴스에서 동시에 처리할 수 있는 오케스트레이터 함수의 최대 개수입니다.|
-|maxQueuePollingInterval|30초|최대 제어 및 작업 항목 큐 폴링 간격( *hh:mm:ss* 형식)입니다. 값이 높을수록 메시지 처리 대기 시간이 길어질 수 있습니다. 값이 낮을수록 스토리지 트랜잭션이 증가하기 때문에 스토리지 비용이 높아질 수 있습니다.|
+|maxQueuePollingInterval|30초|최대 제어 및 작업 항목 큐 폴링 간격(*hh:mm:ss* 형식)입니다. 값이 높을수록 메시지 처리 대기 시간이 길어질 수 있습니다. 값이 낮을수록 스토리지 트랜잭션이 증가하기 때문에 스토리지 비용이 높아질 수 있습니다.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|기본 Azure Storage 리소스를 관리하는 데 사용되는 Azure Storage 연결 문자열이 있는 앱 설정의 이름입니다.|
 |trackingStoreConnectionStringName||기록 및 인스턴스 테이블에 사용할 연결 문자열의 이름입니다. 지정하지 않으면, `connectionStringName`(Durable 2.x) 또는 `azureStorageConnectionStringName`(Durable 1.x) 연결이 사용됩니다.|
 |trackingStoreNamePrefix||`trackingStoreConnectionStringName`이 지정된 경우 기록 및 인스턴스 테이블에 사용할 접두사입니다. 설정하지 않는 경우 기본 접두사 값은 `DurableTask`입니다. `trackingStoreConnectionStringName`을 지정하지 않으면 기록 및 인스턴스 테이블은 `hubName` 값을 접두사로 사용하고 `trackingStoreNamePrefix`에 대한 설정은 무시됩니다.|
@@ -124,4 +124,4 @@ ms.locfileid: "93061635"
 |useLegacyPartitionManagement|true|`false`로 설정하면, 확장 시 중복 함수 실행 가능성을 줄이는 파티션 관리 알고리즘을 사용합니다.  v2.3.0부터 사용할 수 있습니다. 향후 릴리스에서는 기본 값이 `false`로 변경됩니다.|
 |useGracefulShutdown|false|(미리 보기) 정상적인 종료를 사용하도록 설정하여 호스트 종료가 in-process 함수 실행에 실패할 가능성을 줄입니다.|
 
-이러한 설정의 대부분은 성능 최적화를 위한 것입니다. 자세한 내용은 [성능 및 크기 조정](../articles/azure-functions/durable-functions-perf-and-scale.md)을 참조하세요.
+이러한 설정의 대부분은 성능 최적화를 위한 것입니다. 자세한 내용은 [성능 및 크기 조정](../articles/azure-functions/durable/durable-functions-perf-and-scale.md)을 참조하세요.

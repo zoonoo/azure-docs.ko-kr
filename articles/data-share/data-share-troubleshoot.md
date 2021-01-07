@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/15/2020
-ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.date: 12/16/2020
+ms.openlocfilehash: c93ce9c81ada3c30128846b43041603e132abd88
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220461"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617241"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Azure Data Share의 일반적인 문제 해결 
 
@@ -28,11 +28,11 @@ ms.locfileid: "92220461"
 
 * **Azure Data Share 서비스가 Azure 테넌트의 Azure 구독에 대한 리소스 공급자로 등록되어 있지 않습니다.** Azure 테넌트에 Data Share 리소스가 없는 경우 이 문제가 발생합니다. Azure Data Share 리소스를 만들면 Azure 구독에 리소스 공급자가 자동으로 등록됩니다. 다음 단계를 수행하여 Data Share 서비스를 수동으로 등록할 수도 있습니다. 이 단계를 완료하려면 Azure 기여자 역할이 필요합니다.
 
-    1. Azure Portal에서 **구독**으로 이동합니다.
+    1. Azure Portal에서 **구독** 으로 이동합니다.
     1. Azure Data Share 리소스를 만드는 데 사용할 구독을 선택합니다.
-    1. **리소스 공급자**를 클릭합니다.
-    1. **Microsoft.DataShare**를 검색합니다.
-    1. **등록**을 클릭합니다. 
+    1. **리소스 공급자** 를 클릭합니다.
+    1. **Microsoft.DataShare** 를 검색합니다.
+    1. **등록** 을 클릭합니다. 
 
     이러한 단계를 완료 하려면 Azure 구독에 대 한 [Azure 참가자 역할이](../role-based-access-control/built-in-roles.md#contributor) 있어야 합니다. 
 
@@ -52,11 +52,11 @@ ms.locfileid: "92220461"
 
 "Azure 데이터 공유 계정에 대 한 쓰기 권한을 하나 이상의 선택한 리소스에 추가할 수 없습니다."
 
-새 공유 또는 매핑 데이터 집합을 만들 때 위의 오류가 발생 하면 Azure 데이터 저장소에 대 한 권한이 부족 하기 때문일 수 있습니다. 필요한 권한에 대 한 [역할 및 요구 사항](concepts-roles-permissions.md) 을 참조 하세요. 
+새 공유를 만들 때 위의 오류가 발생 하 고 데이터 집합 또는 매핑 데이터 집합을 추가 하는 경우 Azure 데이터 저장소에 대 한 권한이 부족 하기 때문일 수 있습니다. 필요한 권한에 대 한 [역할 및 요구 사항](concepts-roles-permissions.md) 을 참조 하세요. 
 
-일반적으로 참가자 역할에 존재 하는 Azure 데이터 저장소에서 데이터를 공유 하거나 수신 하려면 쓰기 권한이 있어야 합니다. 
+일반적으로 **참가자** 역할에 존재 하는 Azure 데이터 저장소에서 데이터를 공유 하거나 수신 하려면 쓰기 권한이 있어야 합니다. 
 
-Azure 데이터 저장소에서 데이터를 처음 공유 하거나 수신 하는 경우에는 일반적으로 소유자 역할에 존재 하는 *Microsoft 권한 부여/역할 할당/쓰기* 권한이 필요 합니다. Azure 데이터 저장소 리소스를 만든 경우에도 리소스 소유자를 자동으로 만들지 않습니다. 적절 한 권한이 있는 Azure 데이터 공유 서비스는 데이터 공유 리소스의 관리 id에 데이터 저장소에 대 한 액세스 권한을 자동으로 부여 합니다. 이 프로세스를 적용 하는 데 몇 분 정도 걸릴 수 있습니다. 이러한 지연으로 인해 오류가 발생 하는 경우 몇 분 후에 다시 시도 하세요.
+Azure 데이터 저장소에서 데이터를 처음 공유 하거나 수신 하는 경우에는 일반적으로 **소유자** 역할에 존재 하는 *Microsoft 권한 부여/역할 할당/쓰기* 권한이 필요 합니다. Azure 데이터 저장소 리소스를 만든 경우에도 리소스 소유자를 자동으로 만들지 않습니다. 적절 한 권한이 있는 Azure 데이터 공유 서비스는 데이터 공유 리소스의 관리 id에 데이터 저장소에 대 한 액세스 권한을 자동으로 부여 합니다. 이 프로세스를 적용 하는 데 몇 분 정도 걸릴 수 있습니다. 이러한 지연으로 인해 오류가 발생 하는 경우 몇 분 후에 다시 시도 하세요.
 
 SQL 기반 공유에는 추가 권한이 필요 합니다. 자세한 필수 구성 요소 목록은 [SQL 원본의 공유](how-to-share-from-sql.md) 를 참조 하세요.
 
@@ -67,14 +67,21 @@ SQL 기반 공유에는 추가 권한이 필요 합니다. 자세한 필수 구�
 * 원본 또는 대상 데이터 저장소에 대 한 데이터 공유 연결이 방화벽에 의해 차단 되었습니다.
 * 공유 데이터 집합 또는 원본 또는 대상 데이터 저장소가 삭제 됩니다.
 
+저장소 계정의 경우 스냅숏 오류의 추가 원인은 다음과 같습니다.
+
+* 스냅숏이 진행 되는 동안 파일을 원본에서 업데이트 하는 중입니다. 이로 인해 대상에 0 바이트 파일이 생성 될 수 있습니다. 원본에서 업데이트를 완료 한 후 후속 스냅숏이 성공 합니다.
+
 SQL 원본의 경우 스냅숏 오류의 추가 원인은 다음과 같습니다. 
 
-* 데이터 공유 권한을 부여 하기 위한 원본 또는 대상 SQL 스크립트가 실행 되지 않거나 인증 Azure Active Directory 아닌 SQL 인증을 사용 하 여 실행 됩니다.  
+* 데이터 공유 권한을 부여 하기 위한 원본 또는 대상 SQL 스크립트가 실행 되지 않습니다. 또는 Azure SQL Database 또는 Azure Synapse Analytics (이전의 Azure SQL DW)의 경우 Azure Active Directory 인증 대신 SQL 인증을 사용 하 여 실행 됩니다.  
 * 원본 또는 대상 SQL 데이터 저장소가 일시 중지 되었습니다.
 * 스냅숏 프로세스나 대상 데이터 저장소에서 SQL 데이터 형식을 지원 하지 않습니다. 자세한 내용은 [SQL 원본에서 공유](how-to-share-from-sql.md#supported-data-types) 를 참조 하세요.
 * 원본 또는 대상 SQL 데이터 저장소가 다른 프로세스에 의해 잠겨 있습니다. Azure 데이터 공유는 원본 및 대상 SQL 데이터 저장소에 잠금을 적용 하지 않습니다. 그러나 원본 및 대상 SQL 데이터 저장소에 대 한 기존 잠금을 설정 하면 스냅숏 오류가 발생 합니다.
 * 대상 SQL 테이블은 foreign key 제약 조건에 의해 참조 됩니다. 스냅숏을 만들 때 동일한 이름의 대상 테이블이 있으면 Azure 데이터 공유는 테이블을 삭제 하 고 새 테이블을 만듭니다. Foreign key 제약 조건에서 대상 SQL 테이블을 참조 하는 경우에는 테이블을 삭제할 수 없습니다.
 * 대상 CSV 파일이 생성 되었지만 Excel에서 데이터를 읽을 수 없습니다. 원본 SQL 테이블에 영어가 아닌 문자가 포함 된 데이터가 포함 되어 있는 경우이 오류가 발생할 수 있습니다. Excel에서 ' 데이터 가져오기 ' 탭을 선택 하 고 CSV 파일을 선택 하 고 파일 원본으로 65001: 유니코드 (UTF-8)를 선택한 다음 데이터를 로드 합니다.
+
+## <a name="snapshot-issue-after-updating-snapshot-schedule"></a>스냅숏 일정 업데이트 후 스냅숏 문제
+데이터 공급자가 전송 된 공유에 대 한 스냅숏 일정을 업데이트 한 후 데이터 소비자는 이전 스냅숏 일정을 사용 하지 않도록 설정 하 고 수신 된 공유에 대해 업데이트 된 스냅숏 일정을 다시 사용 하도록 설정 해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

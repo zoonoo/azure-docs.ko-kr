@@ -5,23 +5,20 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 12/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 794c9a0768a7b649ce4fb123c85f6cc0120764c8
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276510"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854974"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Azure Data Factory의 델타 형식
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 델타 형식을 사용 하 여 [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) 또는 [Azure Blob Storage](connector-azure-blob-storage.md) 에 저장 된 델타 lake로 데이터를 복사 하는 방법을 중점적으로 설명 합니다. 이 커넥터는 데이터 흐름을 원본 및 싱크로 매핑하는 [인라인 데이터 집합](data-flow-source.md#inline-datasets) 으로 사용할 수 있습니다.
-
-> [!NOTE]
-> 데이터 흐름 매핑을 위한 델타 형식 커넥터는 현재 공개 미리 보기로 제공 됩니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
 
@@ -33,15 +30,15 @@ ms.locfileid: "91276510"
 
 다음 표에서는 델타 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 형식 | 형식은 이어야 합니다. `delta` | 예 | `delta` | format |
-| 파일 시스템 | 델타 lake의 컨테이너/파일 시스템 | 예 | String | fileSystem |
-| 폴더 경로 | 델타 lake의 직접 | 예 | String | folderPath |
-| 압축 유형 | 델타 테이블의 압축 유형입니다. | 아니요 | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
+| 파일 시스템 | 델타 lake의 컨테이너/파일 시스템 | 예 | 문자열 | fileSystem |
+| 폴더 경로 | 델타 lake의 직접 | 예 | 문자열 | folderPath |
+| 압축 유형 | 델타 테이블의 압축 유형입니다. | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | 압축 수준 | 압축이 최대한 빠르게 완료 되는지 또는 결과 파일이 최적으로 압축 되어야 하는지 여부를 선택 합니다. | `compressedType`가 지정 된 경우 필수 사항입니다. | `Optimal` 또는 `Fastest` | compressionLevel |
-| 시간 이동 | 델타 테이블의 이전 스냅숏을 쿼리할 지 여부를 선택 합니다. | 아니요 | Timestamp 별 쿼리: 타임 스탬프 <br> 버전별 쿼리: Integer | timestampAsOf <br> versionAsOf |
-| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
+| 시간 이동 | 델타 테이블의 이전 스냅숏을 쿼리할 지 여부를 선택 합니다. | no | Timestamp 별 쿼리: 타임 스탬프 <br> 버전별 쿼리: Integer | timestampAsOf <br> versionAsOf |
+| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | no | `true` 또는 `false` | ignoreNoFilesFound |
 
 #### <a name="import-schema"></a>스키마 가져오기
 
@@ -70,15 +67,15 @@ source(output(movieId as integer,
 
 아래 표에는 델타 싱크에 의해 지원 되는 속성이 나와 있습니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 형식 | 형식은 이어야 합니다. `delta` | 예 | `delta` | format |
-| 파일 시스템 | 델타 lake의 컨테이너/파일 시스템 | 예 | String | fileSystem |
-| 폴더 경로 | 델타 lake의 직접 | 예 | String | folderPath |
-| 압축 유형 | 델타 테이블의 압축 유형입니다. | 아니요 | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
+| 파일 시스템 | 델타 lake의 컨테이너/파일 시스템 | 예 | 문자열 | fileSystem |
+| 폴더 경로 | 델타 lake의 직접 | 예 | 문자열 | folderPath |
+| 압축 유형 | 델타 테이블의 압축 유형입니다. | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | 압축 수준 | 압축이 최대한 빠르게 완료 되는지 또는 결과 파일이 최적으로 압축 되어야 하는지 여부를 선택 합니다. | `compressedType`가 지정 된 경우 필수 사항입니다. | `Optimal` 또는 `Fastest` | compressionLevel |
 | Vacuum | 이전 버전의 테이블에 대 한 보존 임계값을 시간 단위로 지정 합니다. 0 이하의 기본값은 30 일입니다. | 예 | 정수 | 진공 |
-| Update 메서드 | 델타 lake에서 허용 되는 업데이트 작업을 지정 합니다. 삽입 되지 않는 메서드의 경우 행을 표시 하려면 이전 alter row 변환이 필요 합니다. | 예 | `true` 또는 `false` | 삭제할 <br> 삽입 가능한 <br> 있는 <br> upsertable |
+| Update 메서드 | 델타 lake에서 허용 되는 업데이트 작업을 지정 합니다. 삽입 되지 않는 메서드의 경우 행을 표시 하려면 이전 alter row 변환이 필요 합니다. | 예 | `true` 또는 `false` | 삭제할 <br> 삽입 가능한 <br> 있는 <br> merge |
 
 ### <a name="delta-sink-script-example"></a>델타 싱크 스크립트 예제
 

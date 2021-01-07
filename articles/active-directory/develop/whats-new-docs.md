@@ -5,22 +5,57 @@ description: Microsoft id 플랫폼에 대 한 새로운 설명서 및 업데이
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 11/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: d5865810dafef9ce2bb525a8f1b6cdbdb1a86566
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4813a71a0bdd14e747aa4cfe51ab5a4191df62a4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322565"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563044"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Microsoft id 플랫폼 문서: 새로운 기능
 
 Microsoft id 플랫폼 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다.
+
+## <a name="december-2020"></a>2020년 12월
+
+### <a name="new-articles"></a>새 문서
+
+- [빠른 시작: 사용자를 대신 하 여 사용자를 로그인 하 고 Microsoft Graph를 호출 하는 웹 앱 ASP.NET Core](quickstart-v2-aspnet-core-webapp-calls-graph.md)
+- [MSAL.NET에서 오류 및 예외 처리](msal-error-handling-dotnet.md)
+- [iOS/macOS용 MSAL에서 오류 및 예외 처리](msal-error-handling-ios.md)
+- [Java용 MSAL에서 오류 및 예외 처리](msal-error-handling-java.md)
+- [MSAL.js에서 오류 및 예외 처리](msal-error-handling-js.md)
+- [Python용 MSAL에서 오류 및 예외 처리](msal-error-handling-python.md)
+- [SAML 및 OIDC/OAuth를 사용 하는 Microsoft id 플랫폼 토큰 교환 시나리오](scenario-token-exchange-saml-oauth.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [자습서: Microsoft ID 플랫폼을 사용하는 다중 테넌트 디먼 빌드](tutorial-v2-aspnet-daemon-web-app.md)
+- [사용자가 로그인 하는 웹 앱: 앱 등록](scenario-web-app-sign-user-app-registration.md)
+- [Microsoft id 플랫폼 및 암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)
+- [Microsoft ID 플랫폼 액세스 토큰](access-tokens.md)
+- [웹 Api를 호출 하는 web API: 응용 프로그램에 대 한 토큰 획득](scenario-web-api-call-api-acquire-token.md)
+
+
+## <a name="november-2020"></a>2020년 11월
+
+### <a name="new-articles"></a>새 문서
+
+- [응용 프로그램에서 지속적인 액세스 평가를 사용 하는 Api를 사용 하는 방법](app-resilience-continuous-access-evaluation.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Microsoft ID 플랫폼 액세스 토큰](access-tokens.md)
+- [MSAL (응용 프로그램 구성 옵션)](msal-client-application-configuration.md)
+- [방법: 앱에 선택적 클레임 제공](active-directory-optional-claims.md)
+- [Azure AD 앱 갤러리에 앱 게시](v2-howto-app-gallery-listing.md)
+- [방법: 응용 프로그램에 앱 역할을 추가 하 고 토큰에서 수신](howto-add-app-roles-in-azure-ad-apps.md)
 
 ## <a name="october-2020"></a>2020년 10월
 
@@ -67,23 +102,3 @@ Microsoft id 플랫폼 설명서의 새로운 기능을 시작 합니다. 이 �
 - [빠른 시작: 웹 API에 액세스하도록 클라이언트 애플리케이션 구성](quickstart-configure-app-access-web-apis.md)
 - [빠른 시작: 웹 API를 공개하는 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md)
 - [빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록](quickstart-register-app.md)
-
-## <a name="august-2020"></a>2020년 8월
-
-### <a name="new-articles"></a>새 문서
-
-- [ADAL.NET에서 MSAL.NET로 broker를 사용 하는 Android 응용 프로그램 마이그레이션](msal-net-migration-android-broker.md)
-- [Android 용 MSAL에서 예외 및 오류 처리](msal-android-handling-exceptions.md)
-
-### <a name="updated-articles"></a>업데이트된 문서
-
-- [Microsoft Authenticator를 사용 하는 iOS 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션](msal-net-migration-ios-broker.md)
-- [Xamarin 응용 프로그램에서 Microsoft Authenticator 또는 Intune 회사 포털 사용](msal-net-use-brokers-with-xamarin-apps.md)
-- [MSAL.NET를 사용 하는 Xamarin Android의 구성 요구 사항 및 문제 해결 팁](msal-net-xamarin-android-considerations.md)
-- [웹 Api를 호출 하는 모바일 앱 구성](scenario-mobile-app-configuration.md)
-- [방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)](active-directory-claims-mapping.md)
-- [Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명](active-directory-certificate-credentials.md)
-- [리디렉션 URI (회신 URL) 제한 사항 및 제한 사항](reply-url.md)
-- [빠른 시작: 웹 API를 공개하는 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md)
-- [Microsoft ID 플랫폼 비디오](identity-videos.md)
-- [빠른 시작: Microsoft ID 플랫폼으로 보호되는 ASP.NET 웹 API 호출](quickstart-v2-dotnet-native-aspnet.md)

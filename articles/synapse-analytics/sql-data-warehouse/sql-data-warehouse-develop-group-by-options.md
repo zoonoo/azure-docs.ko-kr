@@ -1,30 +1,30 @@
 ---
 title: Group by 옵션 사용
-description: Synapse SQL 풀에서 group by 옵션을 구현 하기 위한 팁입니다.
+description: Azure Synapse Analytics의 전용 SQL 풀에 대해 group by 옵션을 구현 하기 위한 팁입니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 260bd7cc6402a7cb4ed17d004d0f61b7462c51d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: cdac3b1e502a203c272db75eb4345446b0f7c0c8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213451"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462761"
 ---
-# <a name="group-by-options-in-synapse-sql-pool"></a>Synapse SQL 풀의 Group by 옵션
+# <a name="group-by-options-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 그룹화 방법 옵션
 
-이 문서에서는 SQL 풀에서 group by 옵션을 구현 하기 위한 팁을 찾을 수 있습니다.
+이 문서에서는 전용 SQL 풀에서 그룹화 방법 옵션을 구현 하기 위한 팁을 찾을 수 있습니다.
 
 ## <a name="what-does-group-by-do"></a>GROUP BY의 기능
 
-[GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. GROUP BY에는 SQL 풀에서 지원 하지 않는 몇 가지 옵션이 있습니다. 이러한 옵션에는 다음과 같은 해결 방법이 있습니다.
+[GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. GROUP BY에는 전용 SQL 풀에서 지원 하지 않는 몇 가지 옵션이 있습니다. 이러한 옵션에는 다음과 같은 해결 방법이 있습니다.
 
 * GROUP BY with ROLLUP
 * GROUPING SETS

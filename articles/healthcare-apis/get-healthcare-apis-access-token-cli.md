@@ -8,26 +8,18 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: matjazl
-ms.openlocfilehash: 7528f9d4e3b3043af1e4790c063eb6ddc6d9a828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d1c4cfcb15d97a2c54a04344f0bd098f65c1392
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87849049"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660375"
 ---
 # <a name="get-access-token-for-azure-api-for-fhir-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure API 용 Azure API에 대 한 액세스 토큰 가져오기
 
 이 문서에서는 Azure CLI를 사용 하 여 Azure API 용 Azure API에 대 한 액세스 토큰을 가져오는 방법에 대해 알아봅니다. [FHIR 용 AZURE API를 프로 비전](fhir-paas-portal-quickstart.md)할 때 서비스에 대 한 액세스 권한이 있는 사용자 또는 서비스 사용자 집합을 구성 합니다. 사용자 개체 ID가 허용 되는 개체 id 목록에 있는 경우 Azure CLI를 사용 하 여 가져온 토큰을 사용 하 여 서비스에 액세스할 수 있습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="sign-in-with-azure-cli"></a>Azure CLI로 로그인
-
-토큰을 얻기 전에 토큰을 가져오려는 사용자로 로그인 해야 합니다.:
-
-```azurecli-interactive
-az login
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="obtain-a-token"></a>토큰 가져오기
 

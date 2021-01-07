@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c08e03e6ff77613c0950f17fe5225bccb706524c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444380"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536441"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>IoT Edge 디바이스를 게이트웨이로 사용하는 방법
 
@@ -45,21 +45,21 @@ IoT Edge 버전 1.2부터 투명 게이트웨이는 다른 IoT Edge 장치에서
 
 투명 게이트웨이 패턴에서 이론적으로 IoT Hub에 연결할 수 있는 장치는 게이트웨이 장치에 연결할 수 있습니다. 다운스트림 장치에는 자체 IoT Hub id가 있으며 MQTT 또는 AMQP 프로토콜을 사용 하 여 연결 합니다. 게이트웨이는 디바이스와 IoT Hub 간에 통신을 전달하기만 하면 됩니다. 장치 및 사용자가 IoT Hub을 통해 상호 작용 하는 사용자는 게이트웨이가 통신을 mediating 하는 것을 인식 하지 못합니다. 이러한 인식 부족은 게이트웨이가 *투명 한* 것으로 간주 됨을 의미 합니다.
 
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-
-IoT Edge 장치는 투명 게이트웨이 및 일반 IoT 장치를 통해 연결할 수 있습니다.
-
-<!-- TODO add a downstream IoT Edge device to graphic -->
-
-::: moniker-end
-
 <!-- 1.0.10 -->
 ::: moniker range="iotedge-2018-06"
 
 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다.
 
 ![다이어그램-투명 게이트웨이 패턴](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+1.2.0 버전부터 IoT Edge 장치는 투명 게이트웨이를 통해 연결할 수 있습니다.
+
+<!-- TODO add a downstream IoT Edge device to graphic -->
 
 ::: moniker-end
 
@@ -102,10 +102,22 @@ IoT Edge 장치는 투명 게이트웨이 관계의 부모와 자식을 모두 �
 
 ### <a name="device-capabilities-behind-transparent-gateways"></a>투명 게이트웨이 뒤에 있는 장치 기능
 
-
 IoT Edge의 메시징 파이프라인에서 작동 하는 모든 IoT Hub 기본 형식은 투명 게이트웨이 시나리오도 지원 합니다. 각 IoT Edge 게이트웨이에는 들어오는 메시지에 대 한 저장 및 전달 기능이 있습니다.
 
 다음 표를 사용 하 여 게이트웨이 뒤에 있는 장치에 비해 다양 한 IoT Hub 기능이 장치에 대해 지원 되는지 확인 합니다.
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
+
+| 기능 | IoT 디바이스 | 게이트웨이 뒤의 IoT |
+| ---------- | ---------- | -------------------- |
+| [장치-클라우드 (D2C) 메시지](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![예-IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![예-자식 IoT D2C](./media/iot-edge-as-gateway/check-yes.png) |
+| [클라우드-장치 (C2D) 메시지](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![예-IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![예-IoT 자식 C2D](./media/iot-edge-as-gateway/check-yes.png) |
+| [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md) | ![예-IoT direct 메서드](./media/iot-edge-as-gateway/check-yes.png) | ![예-자식 IoT direct 메서드](./media/iot-edge-as-gateway/check-yes.png) |
+| [장치](../iot-hub/iot-hub-devguide-device-twins.md) 쌍 및 [모듈](../iot-hub/iot-hub-devguide-module-twins.md) 쌍 | ![예-IoT 쌍](./media/iot-edge-as-gateway/check-yes.png) | ![예-자식 IoT 쌍](./media/iot-edge-as-gateway/check-yes.png) |
+| [파일 업로드](../iot-hub/iot-hub-devguide-file-upload.md) | ![예-IoT 파일 업로드](./media/iot-edge-as-gateway/check-yes.png) | ![IoT 자식 파일 업로드 안 함](./media/iot-edge-as-gateway/crossout-no.png) |
+
+::: moniker-end
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
@@ -123,19 +135,6 @@ IoT Edge의 메시징 파이프라인에서 작동 하는 모든 IoT Hub 기본 
 **컨테이너 이미지** 를 다운로드 하 여 저장 하 고 부모 장치에서 자식 장치로 배달할 수 있습니다.
 
 지원 번들 및 로그를 포함 한 **blob** 은 자식 장치에서 부모 장치로 업로드할 수 있습니다.
-
-::: moniker-end
-
-<!-- 1.0.10 -->
-::: moniker range="iotedge-2018-06"
-
-| 기능 | IoT 디바이스 | 게이트웨이 뒤의 IoT |
-| ---------- | ---------- | -------------------- |
-| [장치-클라우드 (D2C) 메시지](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![예-IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![예-자식 IoT D2C](./media/iot-edge-as-gateway/check-yes.png) |
-| [클라우드-장치 (C2D) 메시지](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![예-IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![예-IoT 자식 C2D](./media/iot-edge-as-gateway/check-yes.png) |
-| [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md) | ![예-IoT direct 메서드](./media/iot-edge-as-gateway/check-yes.png) | ![예-자식 IoT direct 메서드](./media/iot-edge-as-gateway/check-yes.png) |
-| [장치](../iot-hub/iot-hub-devguide-device-twins.md) 쌍 및 [모듈](../iot-hub/iot-hub-devguide-module-twins.md) 쌍 | ![예-IoT 쌍](./media/iot-edge-as-gateway/check-yes.png) | ![예-자식 IoT 쌍](./media/iot-edge-as-gateway/check-yes.png) |
-| [파일 업로드](../iot-hub/iot-hub-devguide-file-upload.md) | ![예-IoT 파일 업로드](./media/iot-edge-as-gateway/check-yes.png) | ![IoT 자식 파일 업로드 안 함](./media/iot-edge-as-gateway/crossout-no.png) |
 
 ::: moniker-end
 

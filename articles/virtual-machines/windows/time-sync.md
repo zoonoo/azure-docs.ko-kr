@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 830bdd45be4b0365ac45bc3ea366b99a34882a4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871482"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010625"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 시간 동기화
 
@@ -174,5 +174,5 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 - [Windows 시간 서비스 도구 및 설정](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings)
 - [Windows Server 2016 개선 사항 ](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Windows Server 2016의 정확한 시간](/windows-server/networking/windows-time-service/accurate-time)
+- [Windows Server 2016에 대 한 정확한 시간](/windows-server/networking/windows-time-service/accurate-time)
 - [정확도가 높은 환경에 맞게 Windows 시간 서비스를 구성할 수 있는 지원 범위](/windows-server/networking/windows-time-service/support-boundary)

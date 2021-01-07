@@ -2,18 +2,17 @@
 title: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 - Linux 가상 머신 | Microsoft Docs
 description: RHEL 클러스터 환경에서 고가용성을 설정하고 STONITH를 설정하는 방법을 알아봅니다.
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 533f5c9e38818a8e37482cbbb3a90602366eca6f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790239"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587216"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,9 +36,9 @@ ms.locfileid: "92790239"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-이 자습서에서 CLI를 로컬로 설치하여 사용하려면 Azure CLI 버전 2.0.30 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.30 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -263,7 +262,7 @@ az vm availability-set create \
 > [!IMPORTANT]
 > 위의 명령으로 만든 기본 이미지는 기본적으로 32GB OS 디스크를 만듭니다. 이 기본 설치를 사용하면 공간이 부족할 수 있습니다. 위의 `az vm create` 명령에 추가된 `--os-disk-size-gb 128` 매개 변수를 사용하여 128GB의 OS 디스크를 만들 수 있습니다.
 >
-> 그런 다음, 적절한 폴더 볼륨을 확장하여 설치를 완료해야 하는 경우 [LVM(논리 볼륨 관리자)을 구성](../../../virtual-machines/linux/configure-lvm.md)할 수 있습니다.
+> 그런 다음, 적절한 폴더 볼륨을 확장하여 설치를 완료해야 하는 경우 [LVM(논리 볼륨 관리자)을 구성](/previous-versions/azure/virtual-machines/linux/configure-lvm)할 수 있습니다.
 
 ### <a name="test-connection-to-the-created-vms"></a>만든 VM에 대한 연결 테스트
 
@@ -488,7 +487,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  2. [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)를 엽니다. 속성으로 이동하여 Directory ID 기록 `tenant ID`입니다.
  3. [**앱 등록**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)을 클릭합니다.
  4. **새 등록** 을 클릭합니다.
- 5. **이름** (예: `<resourceGroupName>-app`)을 입력하고, **이 조직 디렉터리의 계정만** 을 선택합니다.
+ 5. **이름**(예: `<resourceGroupName>-app`)을 입력하고, **이 조직 디렉터리의 계정만** 을 선택합니다.
  6. **웹** 애플리케이션 유형을 선택하고, 로그온 URL(예: http://localhost) )을 입력하고, [추가]를 클릭합니다. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있습니다. 작업이 완료되면 **등록** 을 클릭합니다.
  7. 새 등록에 대해 **인증서 및 비밀** 을 선택한 다음, **새 클라이언트 암호** 를 클릭합니다.
  8. 새 키(클라이언트 암호)에 대한 설명을 입력하고, **만료 기한 제한 없음** 을 선택하고, **추가** 를 클릭합니다.
@@ -947,6 +946,9 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
 
 [Pacemaker 클러스터에서 가용성 그룹 리소스 만들기](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only)의 지침을 따릅니다.
 
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+
 ### <a name="create-the-ag-cluster-resource"></a>AG 클러스터 리소스 만들기
 
 1. 이전에 선택한 환경에 따라 다음 명령 중 하나를 사용하여 가용성 그룹 `ag1`에서 `ag_cluster` 리소스를 만듭니다.
@@ -1132,6 +1134,34 @@ Daemon Status:
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   리소스를 원하는 노드로 이동하기 위해 만든 임시 제약 조건이 자동으로 비활성화되고 아래의 2단계와 3단계를 수행할 필요가 없도록 추가 옵션을 지정할 수도 있습니다.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   리소스 이동 명령 자체의 임시 제약 조건을 제거하는 아래의 2단계와 3단계를 자동화하는 또 다른 대안은 여러 명령을 한 줄로 결합하는 것입니다. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. 제약 조건을 다시 확인하면 수동 장애 조치로 인해 다른 제약 조건이 추가되었음을 알 수 있습니다.
     
     **RHEL 7**

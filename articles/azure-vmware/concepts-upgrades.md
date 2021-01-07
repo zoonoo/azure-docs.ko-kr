@@ -3,16 +3,14 @@ title: 개념-사설 클라우드 업데이트 및 업그레이드
 description: Azure VMware 솔루션의 주요 업그레이드 프로세스 및 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 380e97eae559145a9ef5ed7b6e7bf14f18039eed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fb65a0e192fbf1f054857223b3fdaf58fc6a903
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316803"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809652"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Azure VMware 솔루션 사설 클라우드 업데이트 및 업그레이드
-
-## <a name="overview"></a>개요
 
 Azure VMware 솔루션 사설 클라우드의 주요 이점 중 하나는 플랫폼이 유지 관리 된다는 것입니다. 플랫폼 유지 관리에는 VMware 유효성이 검사 된 소프트웨어 번들에 대 한 자동화 된 업데이트가 포함 되어 있으며, 최신 버전의 유효성을 검사 한 Azure VMware 솔루션 사설 클라우드 소프트웨어를 사용 하 고 있는지 확인 합니다.
 

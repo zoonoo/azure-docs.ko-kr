@@ -2,13 +2,13 @@
 title: Azure Event Grid에 대한 이벤트 필터링
 description: Azure Event Grid 구독을 만들 때 이벤트를 필터링하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: bc3e84037693fcd909961ba409871d947ef1de7d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120095"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574909"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -72,7 +72,7 @@ ms.locfileid: "86120095"
 ]
 ```
 
-여러 필터를 지정 하는 경우 **및** 작업이 수행 되므로 각 필터 조건이 충족 되어야 합니다. 다음은 예제입니다. 
+여러 필터를 지정 하는 경우 **및** 작업이 수행 되므로 각 필터 조건이 충족 되어야 합니다. 예를 들면 다음과 같습니다. 
 
 ```json
 "advancedFilters": [
@@ -117,13 +117,30 @@ ms.locfileid: "86120095"
 
 모든 문자열 비교는 대/소문자를 구분 **하지 않습니다** .
 
-### <a name="key"></a>Key
+> [!NOTE]
+> 이벤트 JSON에 고급 필터 키가 포함 되어 있지 않은 경우 필터는 다음 연산자에 대해 **일치 하지 않는** 것으로 evaulated 됩니다. 
+> - NumberGreaterThan
+> - NumberGreaterThanOrEquals
+> - NumberLessThan
+> - NumberLessThanOrEquals
+> - NumberIn
+> - BoolEquals
+> - StringContains
+> - StringBeginsWith
+> - StringEndsWith
+> - StringIn
+> 
+>필터는 다음 연산자에 대해 **일치** 하는 것으로 evaulated 됩니다.
+> - NumberNotIn
+> - StringNotIn
+
+### <a name="key"></a>키
 
 Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용합니다.
 
 * ID
 * 항목
-* 주체
+* 제목
 * EventType
 * DataVersion
 * 이벤트 데이터(예: Data.key1)
@@ -142,7 +159,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 
 값은 다음이 될 수 있습니다.
 
-* number
+* 숫자
 * 문자열
 * boolean
 * array
@@ -154,11 +171,11 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 * 5 이벤트 그리드 구독 당 모든 필터의 고급 필터 및 25 필터 값
 * 문자열 값당 512자
 * **in** 및 **not in** 연산자에 대한 5개의 값
-* 문자에 ** `.` (점)** 이 있는 키입니다. 예를 들어 `http://schemas.microsoft.com/claims/authnclassreference` 또는 `john.doe@contoso.com`입니다. 현재는 키에 이스케이프 문자를 사용할 수 없습니다. 
+* 문자에 **`.` (점)** 이 있는 키입니다. 예를 들어 `http://schemas.microsoft.com/claims/authnclassreference` 또는 `john.doe@contoso.com`입니다. 현재는 키에 이스케이프 문자를 사용할 수 없습니다. 
 
 둘 이상의 필터에 동일한 키를 사용할 수 있습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 ### <a name="stringcontains"></a>StringContains
 

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
 ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677576"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997259"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics의 경고 관리 솔루션
 
@@ -19,7 +19,7 @@ ms.locfileid: "92677576"
 
 경고 관리 솔루션을 통해 Log Analytics 리포지토리에서 모든 경고를 분석할 수 있습니다.  [Log Analytics에서 만든](./alerts-overview.md) 또는 [Nagios 또는 Zabbix에서 가져온](../learn/quick-collect-linux-computer.md) 원본을 포함하여 다양한 원본에서 이러한 경고가 발생할 수 있습니다. 또한 솔루션은 [연결된 System Center Operations Manager 관리 그룹](./om-agents.md)에서도 경고를 가져옵니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 솔루션은 Log Analytics 리포지토리에서 **경고** 유형의 모든 레코드를 사용하므로 이러한 레코드를 수집하는 데 필요한 구성을 모두 수행해야 합니다.
 
 - Log Analytics 경고의 경우 [경고 규칙을 만들어서](./alerts-overview.md) 리포지토리에서 직접 경고 레코드를 만듭니다.
@@ -40,11 +40,11 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="agents"></a>에이전트
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | Support(지원) | Description |
+| 연결된 소스 | 지원 | Description |
 |:--- |:--- |:--- |
-| [Windows 에이전트](agent-windows.md) | 아니요 |직접 Windows 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Windows 에이전트에서 성능 데이터를 수집할 수 있습니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
-| [System Center Operations Manager 관리 그룹](./om-agents.md) |예 |Operations Manager 에이전트에 대해 생성된 경고는 관리 그룹에 전달된 다음 Log Analytics에 전달됩니다.<br><br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 경고 데이터는 관리 그룹에서 Log Analytics 리포지토리로 전달됩니다. |
+| [Windows 에이전트](agent-windows.md) | No |직접 Windows 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Windows 에이전트에서 성능 데이터를 수집할 수 있습니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | No |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
+| [System Center Operations Manager 관리 그룹](./om-agents.md) |Yes |Operations Manager 에이전트에 대해 생성된 경고는 관리 그룹에 전달된 다음 Log Analytics에 전달됩니다.<br><br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 경고 데이터는 관리 그룹에서 Log Analytics 리포지토리로 전달됩니다. |
 
 
 ### <a name="collection-frequency"></a>수집 빈도

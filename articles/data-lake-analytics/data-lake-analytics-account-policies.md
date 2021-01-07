@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: ba69098f32e131714a15923aef64c3f6ba17e18f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219499"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013312"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>계정 정책을 사용 하 여 Azure Data Lake Analytics 관리
 
@@ -25,12 +25,12 @@ Data Lake Analytics 계정에서 사용할 수 있는 총 AU(분석 단위) 수�
 Data Lake Analytics 계정의 AU 수를 변경하려면:
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **제한 및 정책**을 클릭 합니다.
+2. **제한 및 정책** 을 클릭 합니다.
 3. **최대 AU** 아래에서 슬라이더를 움직여 값을 선택하거나 텍스트 상자에 값을 입력합니다.
-4. **저장**을 클릭합니다.
+4. **저장** 을 클릭합니다.
 
    > [!NOTE]
-   > 기본(250) AU보다 더 많이 필요한 경우 포털에서 **도움말 + 지원**을 클릭하여 지원 요청을 제출합니다. Data Lake Analytics 계정에서 사용할 수 있는 AU 수를 늘릴 수 있습니다.
+   > 기본(250) AU보다 더 많이 필요한 경우 포털에서 **도움말 + 지원** 을 클릭하여 지원 요청을 제출합니다. Data Lake Analytics 계정에서 사용할 수 있는 AU 수를 늘릴 수 있습니다.
 
 ## <a name="maximum-number-of-jobs-that-can-run-simultaneously"></a>동시에 실행될 수 있는 최대 작업 수
 
@@ -39,12 +39,12 @@ Data Lake Analytics 계정의 AU 수를 변경하려면:
 동시에 실행될 수 있는 작업 수를 변경하려면:
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **제한 및 정책**을 클릭 합니다.
+2. **제한 및 정책** 을 클릭 합니다.
 3. **최대 실행 중인 작업 수** 아래에서 슬라이더를 움직여 값을 선택하거나 텍스트 상자에 값을 입력합니다.
-4. **저장**을 클릭합니다.
+4. **저장** 을 클릭합니다.
 
    > [!NOTE]
-   > 기본(20) 작업 수보다 더 많이 실행해야 할 경우 포털에서 **도움말 + 지원**을 클릭하여 지원 요청을 제출합니다. Data Lake Analytics 계정에서 동시에 실행할 수 있는 작업 수를 늘릴 수 있습니다.
+   > 기본(20) 작업 수보다 더 많이 실행해야 할 경우 포털에서 **도움말 + 지원** 을 클릭하여 지원 요청을 제출합니다. Data Lake Analytics 계정에서 동시에 실행할 수 있는 작업 수를 늘릴 수 있습니다.
 
 ## <a name="how-long-to-keep-job-metadata-and-resources"></a>작업 메타데이터 및 리소스를 유지할 기간
 
@@ -53,9 +53,9 @@ Data Lake Analytics 계정의 AU 수를 변경하려면:
 작업 메타데이터 및 리소스를 유지할 기간을 변경하려면:
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **제한 및 정책**을 클릭 합니다.
+2. **제한 및 정책** 을 클릭 합니다.
 3. **작업 쿼리를 유지할 일 수** 아래에서 슬라이더를 움직여 값을 선택하거나 텍스트 상자에 값을 입력합니다.  
-4. **저장**을 클릭합니다.
+4. **저장** 을 클릭합니다.
 
 ## <a name="job-level-policies"></a>작업 수준 정책
 
@@ -76,7 +76,7 @@ Data Lake Analytics에는 작업 수준에서 설정할 수 있는 두 가지 �
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 
-2. **제한 및 정책**을 클릭 합니다.
+2. **제한 및 정책** 을 클릭 합니다.
 
 3. **작업 제출 한도** 아래에서 **정책 추가** 단추를 클릭합니다. 그런 후 다음 설정을 선택하거나 입력합니다.
 
@@ -88,7 +88,7 @@ Data Lake Analytics에는 작업 수준에서 설정할 수 있는 두 가지 �
 
    4. **Set the Priority Limit**(우선 순위 한도 설정): 선택한 사용자 또는 그룹에 적용되는 우선 순위 한도를 설정합니다.
 
-4. **확인**을 클릭합니다.
+4. **Ok** 를 클릭합니다.
 
 5. 새 정책은 **기본** 정책 테이블에서 **작업 제출 한도** 아래에 나열됩니다.
 
@@ -96,7 +96,7 @@ Data Lake Analytics에는 작업 수준에서 설정할 수 있는 두 가지 �
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 
-2. **제한 및 정책**을 클릭 합니다.
+2. **제한 및 정책** 을 클릭 합니다.
 
 3. **작업 제출 한도** 아래에서 편집할 정책을 찾습니다.
 

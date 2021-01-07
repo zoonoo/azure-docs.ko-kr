@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 558f4792a055fc491f15600ecc5502c3a114a94b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312028"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360223"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>저장소 계정에 대 한 요청에 필요한 최소 버전의 TLS (Transport Layer Security)를 적용 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "93312028"
 
 Azure Storage 계정에 요청을 기록 하 고 클라이언트에서 사용 하는 TLS 버전을 확인 하려면 Azure Monitor (미리 보기)에서 Azure Storage 로깅을 사용할 수 있습니다. 자세한 내용은 [Azure Storage 모니터링](../blobs/monitor-blob-storage.md)을 참조 하세요.
 
-Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/log-query/get-started-portal.md)을 참조 하세요.
+Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/log-query/log-analytics-tutorial.md)을 참조 하세요.
 
 Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure Log Analytics를 사용 하 여 분석 하려면 먼저 요청 유형과 데이터를 기록할 저장소 서비스를 나타내는 진단 설정을 만들어야 합니다. Azure Portal에서 진단 설정을 만들려면 다음 단계를 수행 합니다.
 
@@ -44,7 +44,7 @@ Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. 모니터링 섹션에서 **진단 설정 (미리 보기)** 을 선택 합니다.
 1. 요청을 기록 하려는 Azure Storage 서비스를 선택 합니다. 예를 들어 blob 저장소에 요청을 기록 하려면 **blob** 을 선택 합니다.
-1. **진단 설정 추가** 를 선택 합니다.
+1. **진단 설정 추가** 를 선택합니다.
 1. 진단 설정의 이름을 제공 합니다.
 1. **범주 세부 정보** 의 **로그** 섹션에서 로깅할 요청 형식을 선택 합니다. 읽기, 쓰기 및 삭제 요청을 기록할 수 있습니다. 예를 들어 **StorageRead** 및 **storagewrite** 를 선택 하면 선택한 서비스에 대 한 읽기 및 쓰기 요청이 기록 됩니다.
 1. **대상 세부 정보** 에서 **Log Analytics 보내기를** 선택 합니다. 다음 이미지와 같이 앞에서 만든 구독 및 Log Analytics 작업 영역을 선택 합니다.
@@ -86,6 +86,9 @@ StorageBlobLogs
 ## <a name="remediate-security-risks-with-a-minimum-version-of-tls"></a>최소 버전의 TLS로 보안 위험 해결
 
 이전 버전의 TLS를 사용 하는 클라이언트의 트래픽이 최소화 되거나 이전 버전의 TLS로 생성 된 요청에 실패할 경우 저장소 계정에 최소 TLS 버전 적용을 시작할 수 있습니다. 클라이언트에서 저장소 계정에 대 한 요청을 수행 하기 위해 최소 버전의 TLS를 사용 하도록 요구 하는 것은 데이터에 대 한 보안 위험을 최소화 하기 위한 전략의 일부입니다.
+
+> [!IMPORTANT]
+> Azure Storage에 연결 하는 서비스를 사용 하는 경우 저장소 계정에 필요한 최소 버전을 설정 하기 전에 해당 서비스에서 적절 한 버전의 TLS를 사용 하 여 Azure Storage에 요청을 보내는 지 확인 합니다.
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>저장소 계정에 대 한 최소 TLS 버전 구성
 
@@ -339,6 +342,23 @@ TLS 1.2 보다 작은 최소 TLS 버전에 대해 거부 효과가 적용 된 �
 다음 이미지는 거부 효과가 있는 정책에서 최소 tls 버전을 TLS 1.2로 설정 해야 하는 경우 최소 TLS 버전을 TLS 1.0 (새 계정에 대 한 기본값)로 설정 하 여 저장소 계정을 만들려는 경우 발생 하는 오류를 보여 줍니다.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="정책을 위반 하 여 저장소 계정을 만들 때 발생 하는 오류를 보여 주는 스크린샷":::
+
+## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>최소 버전의 TLS를 요구 하는 데 필요한 권한
+
+저장소 계정에 대 한 사용 권한 **Tlsversion** 속성을 설정 하려면 사용자에 게 저장소 계정을 만들고 관리할 수 있는 권한이 있어야 합니다. 이러한 권한을 제공 하는 azure RBAC (역할 기반 access control) 역할은 **Microsoft storage/storageAccounts/write** 또는 **Microsoft Storage/storageaccounts/ \** _ 동작을 포함 합니다. 이 작업을 사용 하는 기본 제공 역할은 다음과 같습니다.
+
+- Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할
+- Azure Resource Manager [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할
+- [저장소 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor) 역할
+
+이러한 역할은 Azure Active Directory (Azure AD)를 통해 저장소 계정의 데이터에 대 한 액세스를 제공 하지 않습니다. 그러나 여기에는 계정 액세스 키에 대 한 액세스 권한을 부여 하는 _ * Microsoft Storage/storageAccounts/listkeys/action * *이 포함 됩니다. 이 사용 권한을 사용 하는 경우 사용자는 계정 액세스 키를 사용 하 여 저장소 계정의 모든 데이터에 액세스할 수 있습니다.
+
+사용자가 저장소 계정에 대 한 최소 버전의 TLS를 요구 하도록 허용 하려면 역할 할당의 범위를 저장소 계정 이상으로 지정 해야 합니다. 역할 범위에 대 한 자세한 내용은 [AZURE RBAC의 범위 이해](../../role-based-access-control/scope-overview.md)를 참조 하세요.
+
+이러한 역할에 대 한 할당은 저장소 계정을 만들거나 해당 속성을 업데이트 하는 기능을 필요로 하는 사용자 에게만 제한 해야 합니다. 최소 권한의 원칙을 사용 하 여 사용자에 게 작업을 수행 하는 데 필요한 최소 권한을 부여 합니다. Azure RBAC를 사용 하 여 액세스를 관리 하는 방법에 대 한 자세한 내용은 [AZURE rbac의 모범 사례](../../role-based-access-control/best-practices.md)를 참조 하세요.
+
+> [!NOTE]
+> 클래식 구독 관리자 역할 서비스 관리자 및 Co-Administrator에는 Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할에 해당 하는 항목이 포함 됩니다. **소유자** 역할은 모든 동작을 포함 하므로 이러한 관리 역할 중 하나가 있는 사용자는 저장소 계정을 만들고 관리할 수도 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)을 참조하세요.
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
 

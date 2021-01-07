@@ -4,12 +4,12 @@ description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758666"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186306"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
 
@@ -30,7 +30,7 @@ ms.locfileid: "91758666"
 
 Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 경로가 있습니다.
 
-* **빌드 시간: 웹앱 코드에 ** [Application Insights SDK를 추가][greenbrown]합니다.
+* **빌드 시간: 웹앱 코드에** [Application Insights SDK를 추가][greenbrown]합니다.
 * **실행 시간:** 코드를 다시 빌드하거나 다시 작성하지 않고 아래 설명된 대로 서버에서 웹앱을 계측합니다.
 
 > [!NOTE]
@@ -41,13 +41,13 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 |  | 빌드 시간 | 실행 시간 |
 | --- | --- | --- |
 | **& 예외 요청** |예 |예 |
-| **[자세한 예외](./asp-net-exceptions.md)** | |예 |
+| **[자세한 예외](./asp-net-exceptions.md)** | |Yes |
 | **[종속성 진단](./asp-net-dependencies.md)** |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
 | **[시스템 성능 카운터](./performance-counters.md)** |예 |예 |
-| **[사용자 지정 원격 분석에 대 한 API][api]** |예 |아니요 |
-| **[추적 로그 통합](./asp-net-trace-logs.md)** |예 |아니요 |
-| **[사용자 데이터 & 페이지 보기](./javascript.md)** |예 |아니요 |
-| **코드를 다시 빌드해야 함** |예 | 아니요 |
+| **[사용자 지정 원격 분석에 대 한 API][api]** |예 |예 |
+| **[추적 로그 통합](./asp-net-trace-logs.md)** |예 |예 |
+| **[사용자 데이터 & 페이지 보기](./javascript.md)** |예 |예 |
+| **코드를 다시 빌드해야 함** |예 | 예 |
 
 
 
@@ -93,7 +93,7 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 
 - applicationInsights.config 파일이 대상 앱 디렉터리에 있으며 ikey를 포함하는지 확인합니다.
 
-- 데이터가 누락 된 것으로 의심 되 면 [분석](../log-query/get-started-portal.md) 에서 쿼리를 실행 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수 있습니다.
+- 데이터가 누락 된 것으로 의심 되 면 [분석](../log-query/log-analytics-tutorial.md) 에서 쿼리를 실행 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수 있습니다.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -151,7 +151,7 @@ Application Insights를 사용하도록 설정하면 이 오류가 발생할 수
 ### <a name="insufficient-permissions"></a>권한 부족
   
 * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
-  * IIS 관리자에서 애플리케이션 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
+  * IIS 관리자에서 애플리케이션 풀을 선택하고 **고급 설정** 을 연 다음 **프로세스 모델** 에서 ID를 확인합니다.
   * 컴퓨터 관리 제어판에서 성능 모니터 사용자 그룹에 이 ID를 추가합니다.
 
 ### <a name="conflict-with-systems-center-operations-manager"></a>Systems Center Operations Manager와 충돌
@@ -306,7 +306,7 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
 
 [자세한 정보](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
@@ -340,4 +340,3 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

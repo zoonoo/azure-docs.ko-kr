@@ -3,12 +3,12 @@ title: Azure Application Insights의 스마트 감지 | Microsoft Docs
 description: Application Insights는 앱 원격 분석의 자동 심층 분석을 수행하여 잠재적 성능 문제에 대해 경고합니다.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 24ed8eefb7e07930cbd123fbe4081d555f0c27c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b6e9370387bf3bb87555261b3949db2917e9911
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305876"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186255"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights의 스마트 감지
  스마트 감지는 웹 애플리케이션의 잠재적인 성능 문제와 오류 이상을 자동으로 경고해 줍니다. 앱에서 [Application Insights](./app-insights-overview.md)로 보내는 원격 분석의 사전 분석을 수행합니다. 실패율이나 클라이언트 또는 서버 성능의 비정상적인 패턴이 갑자기 증가하는 경우 경고가 발생합니다. 이 기능에는 구성이 필요하지 않습니다. 애플리케이션에서 충분한 원격 분석을 보내는 경우 작동합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "87305876"
     ![전자 메일 경고](./media/proactive-diagnostics/03.png)
   
     포털에서 자세한 정보를 열려면 큰 단추를 클릭합니다.
-* Application Insights의 **스마트 검색 블레이드**. 최근 검색 항목 목록을 보려면 **조사** 메뉴에서 **스마트 검색**을 선택합니다.
+* Application Insights의 **스마트 검색 블레이드**. 최근 검색 항목 목록을 보려면 **조사** 메뉴에서 **스마트 검색** 을 선택합니다.
 
 ![최근 검색 보기](./media/proactive-diagnostics/04.png)
 
@@ -40,7 +40,7 @@ ms.locfileid: "87305876"
 
 ## <a name="smart-detection-email-notifications"></a>스마트 검색 이메일 알림
 
-_미리 보기_로 표시된 규칙을 제외한 모든 스마트 검색 규칙은 기본적으로 검색 항목이 발견되면 이메일 알림을 보내도록 구성됩니다.
+_미리 보기_ 로 표시된 규칙을 제외한 모든 스마트 검색 규칙은 기본적으로 검색 항목이 발견되면 이메일 알림을 보내도록 구성됩니다.
 
 특정 스마트 검색 규칙에 대한 이메일 알림 구성은 스마트 검색 **설정** 블레이드를 열고 **규칙 편집** 블레이드를 여는 규칙을 선택하여 수행할 수 있습니다.
 
@@ -55,10 +55,9 @@ _미리 보기_로 표시된 규칙을 제외한 모든 스마트 검색 규칙�
 
 * [메트릭 탐색기](../platform/metrics-charts.md)
 * [검색 탐색기](./diagnostic-search.md)
-* [분석 - 강력한 쿼리 언어](../log-query/get-started-portal.md)
+* [분석 - 강력한 쿼리 언어](../log-query/log-analytics-tutorial.md)
 
 스마트 감지는 완전 자동입니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
 * [수동으로 구성된 메트릭 경고](../platform/alerts-log.md)
-* [가용성 웹 테스트](./monitor-web-app-availability.md) 
-
+* [가용성 웹 테스트](./monitor-web-app-availability.md)

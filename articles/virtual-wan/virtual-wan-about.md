@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 69525173aa5c4af536105a4e897ee4860f021b6c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 641ed73f507d35d7af548d0164ef8e80979be217
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91267434"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530479"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
@@ -64,7 +64,7 @@ Virtual WAN 아키텍처 및 Virtual WAN으로 마이그레이션하는 방법�
 
 **추가 Virtual WAN 리소스**
 
-* **사이트:** 이 리소스는 사이트 간 연결에만 사용됩니다. 사이트 리소스는 **vpnsite**입니다. 온-프레미스 VPN 디바이스와 해당 설정을 나타냅니다. Virtual WAN 파트너와 작업하여 이 정보를 Azure로 자동으로 내보내는 기본 제공 솔루션을 갖습니다.
+* **사이트:** 이 리소스는 사이트 간 연결에만 사용됩니다. 사이트 리소스는 **vpnsite** 입니다. 온-프레미스 VPN 디바이스와 해당 설정을 나타냅니다. Virtual WAN 파트너와 작업하여 이 정보를 Azure로 자동으로 내보내는 기본 제공 솔루션을 갖습니다.
 
 ## <a name="types-of-connectivity"></a><a name="connectivity"></a>연결 유형
 
@@ -91,9 +91,9 @@ Azure 가상 네트워크를 가상 허브에 연결할 수 있습니다. 자세
 
 #### <a name="transit-connectivity-between-vnets"></a><a name="transit-vnet"></a>VNet 간 전송 연결
 
-Virtual WAN은 VNet 간의 전송 연결을 허용합니다. VNet은 가상 네트워크 연결을 통해 가상 허브에 연결합니다. 모든 가상 허브에 라우터가 있으므로 **표준 Virtual WAN**의 VNet 간에 전송 연결이 사용됩니다. 이 라우터는 가상 허브를 처음으로 만들 때 인스턴스화됩니다.
+Virtual WAN은 VNet 간의 전송 연결을 허용합니다. VNet은 가상 네트워크 연결을 통해 가상 허브에 연결합니다. 모든 가상 허브에 라우터가 있으므로 **표준 Virtual WAN** 의 VNet 간에 전송 연결이 사용됩니다. 이 라우터는 가상 허브를 처음으로 만들 때 인스턴스화됩니다.
 
-라우터의 상태는 [프로비저닝됨], [프로비저닝 중], [실패] 또는 [없음]의 네 가지입니다. **라우팅 상태**는 Azure Portal의 가상 허브 페이지로 이동하여 확인할 수 있습니다.
+라우터의 상태는 [프로비저닝됨], [프로비저닝 중], [실패] 또는 [없음]의 네 가지입니다. **라우팅 상태** 는 Azure Portal의 가상 허브 페이지로 이동하여 확인할 수 있습니다.
 
 * **없음** 상태는 가상 허브가 라우터를 프로비저닝하지 않았음을 나타냅니다. Virtual WAN이 *기본* 유형인 경우 또는 서비스를 사용할 수 있게 되기 전에 가상 허브가 배포된 경우에 이 상태가 될 수 있습니다.
 * **실패** 상태는 인스턴스화하는 중에 오류가 발생했음을 나타냅니다. 라우터를 인스턴스화하거나 다시 설정하려면 Azure Portal의 가상 허브 개요 페이지로 이동하여 **라우터 다시 설정** 옵션을 찾으면 됩니다.
@@ -102,7 +102,7 @@ Virtual WAN은 VNet 간의 전송 연결을 허용합니다. VNet은 가상 네�
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>VPN과 ExpressRoute 간의 전송 연결
 
-Virtual WAN은 VPN과 ExpressRoute 간의 전송 연결을 허용합니다. VPN 연결 사이트 또는 원격 사용자가 ExpressRoute 연결 사이트와 통신할 수 있다는 뜻입니다. 또한 **분기 간 플래그**가 사용하도록 설정되어 있고 VPN 및 ExpressRoute 연결에서 BGP가 지원된다는 암시적 가정이 있습니다. 이 플래그는 Azure Portal의 Azure Virtual WAN 설정에서 찾을 수 있습니다. 모든 경로 관리는 가상 허브 라우터에서 제공하며, 이렇게 하면 가상 네트워크 간에 전송 연결이 가능합니다.
+Virtual WAN은 VPN과 ExpressRoute 간의 전송 연결을 허용합니다. VPN 연결 사이트 또는 원격 사용자가 ExpressRoute 연결 사이트와 통신할 수 있다는 뜻입니다. 또한 **분기 간 플래그** 가 사용하도록 설정되어 있고 VPN 및 ExpressRoute 연결에서 BGP가 지원된다는 암시적 가정이 있습니다. 이 플래그는 Azure Portal의 Azure Virtual WAN 설정에서 찾을 수 있습니다. 모든 경로 관리는 가상 허브 라우터에서 제공하며, 이렇게 하면 가상 네트워크 간에 전송 연결이 가능합니다.
 
 ### <a name="custom-routing"></a><a name="routing"></a>사용자 지정 라우팅
 
@@ -124,9 +124,9 @@ Azure Virtual WAN은 ExpressRoute 트래픽을 암호화하는 기능을 제공�
 
 이제 경로 테이블은 연결 및 전파 기능을 제공합니다. 기존 경로 테이블은 이러한 기능이 없는 경로 테이블입니다. 허브 라우팅에 기존 경로를 사용 중이고 새 기능을 사용하려는 경우 다음 사항을 고려하세요.
 
-* **가상 허브에서 기존 경로를 사용 중인 표준 Virtual WAN 고객**: Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 새 경로 테이블을 만들어야 합니다(Azure Portal의 허브에 대한 경로 테이블 섹션에서 사용 가능).
+* **가상 허브에서 기존 경로를 사용 중인 표준 Virtual WAN 고객**: Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 새 경로 테이블을 만들어야 합니다(Azure Portal의 허브에 대한 경로 테이블 섹션에서 사용 가능). Virtual WAN의 모든 허브에 대해 삭제 단계를 수행하는 것이 좋습니다.
 
-* **가상 허브에서 기존 경로를 사용 중인 기본 Virtual WAN 고객**: Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드**합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
+* **가상 허브에서 기존 경로를 사용 중인 기본 Virtual WAN 고객**: Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드** 합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요. Virtual WAN의 모든 허브에 대해 삭제 단계를 수행하는 것이 좋습니다.
 
 ## <a name="faq"></a><a name="faq"></a>FAQ
 

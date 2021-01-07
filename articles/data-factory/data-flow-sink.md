@@ -4,17 +4,16 @@ description: 데이터 흐름 매핑에서 싱크 변환을 구성 하는 방법
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 12/08/2020
+ms.openlocfilehash: 242249e3ab7fbedf9f19f3cb9a49fc4a8359f4ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427295"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929347"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 싱크 변환
 
@@ -40,15 +39,16 @@ ms.locfileid: "94427295"
 
 매핑 데이터 흐름은 ELT (추출, 로드 및 변환) 접근 방식을 따르며 Azure에 있는 *준비* 데이터 집합에서 작동 합니다. 현재 원본 변환에서 사용할 수 있는 데이터 집합은 다음과 같습니다.
 
-| 커넥터 | 서식 | 데이터 집합/인라인 |
+| 커넥터 | 형식 | 데이터 집합/인라인 |
 | --------- | ------ | -------------- |
-| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br> [델타 (미리 보기)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br>✓/✓<br> ✓/- |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br> [델타 (미리 보기)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (미리 보기)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- <br> -/✓ |
-| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br>[삼각](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>✓/- <br>-/✓ <br>✓/- <br>✓/✓<br>✓/- |
+| [Azure Cosmos DB(SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>✓/- <br>✓/- <br>✓/✓<br>✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br/>[공통 데이터 모델](format-common-data-model.md#sink-properties)<br>[구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br>[삼각](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>-/✓ <br>✓/- <br>-/✓ <br>✓/-<br>✓/✓ <br>✓/- |
+| [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md) |  | ✓/✓ |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Managed Instance (미리 보기)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
-| [Azure Cosmos DB(SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 이러한 커넥터에 해당 하는 설정은 **설정** 탭에 있습니다. 이러한 설정에 대 한 정보 및 데이터 흐름 스크립트 예제는 커넥터 설명서에 있습니다.
@@ -65,18 +65,14 @@ Azure Data Factory는 90 개 이상의 [기본 커넥터](connector-overview.md)
 
 ![싱크 설정을 보여 주는 스크린샷](media/data-flow/sink-settings.png "싱크 설정을 보여 주는 스크린샷")
 
-**스키마 드리프트** : [스키마 드리프트](concepts-data-flow-schema-drift.md) 는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 기본적으로 처리 하는 Data Factory 기능입니다. 싱크 데이터 스키마에 정의 된 내용 위에 추가 열을 쓰도록 **허용 schema 드리프트** 를 사용 하도록 설정 합니다.
+**스키마 드리프트**: [스키마 드리프트](concepts-data-flow-schema-drift.md) 는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 기본적으로 처리 하는 Data Factory 기능입니다. 싱크 데이터 스키마에 정의 된 내용 위에 추가 열을 쓰도록 **허용 schema 드리프트** 를 사용 하도록 설정 합니다.
 
-**스키마 유효성 검사** : 스키마 유효성 검사를 선택한 경우 원본 프로젝션에서 들어오는 원본 스키마의 열을 찾을 수 없거나 데이터 형식이 일치 하지 않는 경우 데이터 흐름이 실패 합니다. 이 설정을 사용 하 여 원본 데이터가 정의 된 프로젝션의 계약을 충족 하도록 적용 합니다. 데이터베이스 소스 시나리오에서 열 이름이 나 형식이 변경 되었다는 신호를 보내는 데 유용 합니다.
-
-**TempDB 사용:** 기본적으로 Data Factory는 로드 프로세스의 일부로 데이터를 저장 하기 위해 전역 임시 테이블을 사용 합니다. 또는 "TempDB 사용" 옵션을 선택 취소 하 고 대신이 싱크에 사용 되는 데이터베이스에 있는 사용자 데이터베이스에 임시 보관 테이블을 저장 하도록 Data Factory 하도록 요청할 수 있습니다.
-
-![임시 DB 사용](media/data-flow/tempdb.png "임시 DB 사용")
+**스키마 유효성 검사**: 스키마 유효성 검사를 선택한 경우 원본 프로젝션에서 들어오는 원본 스키마의 열을 찾을 수 없거나 데이터 형식이 일치 하지 않는 경우 데이터 흐름이 실패 합니다. 이 설정을 사용 하 여 원본 데이터가 정의 된 프로젝션의 계약을 충족 하도록 적용 합니다. 데이터베이스 소스 시나리오에서 열 이름이 나 형식이 변경 되었다는 신호를 보내는 데 유용 합니다.
 
 ## <a name="cache-sink"></a>캐시 싱크
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
- 
+
 *캐시 싱크* 는 데이터 흐름이 데이터 저장소 대신 Spark 캐시로 데이터를 기록 하는 경우입니다. 데이터 흐름 매핑에서는 *캐시 조회* 를 사용 하 여 동일한 흐름 내에서이 데이터를 여러 번 참조할 수 있습니다. 이 방법은 데이터를 식의 일부로 참조 하지만 명시적으로 열에 조인 하지 않으려는 경우에 유용 합니다. 캐시 싱크가 데이터 저장소에서 max 값을 조회 하 고 오류 코드를 오류 메시지 데이터베이스와 일치 시킬 수 있는 일반적인 예입니다. 
 
 캐시 싱크에 쓰려면 싱크 변환을 추가 하 고 싱크 형식으로 **캐시** 를 선택 합니다. 외부 저장소에 쓰지 않으므로 다른 싱크 형식과 달리 데이터 집합 또는 연결 된 서비스를 선택할 필요가 없습니다. 
@@ -105,13 +101,26 @@ Azure Data Factory는 90 개 이상의 [기본 커넥터](connector-overview.md)
 ![사용자 지정 싱크 순서를 보여 주는 스크린샷](media/data-flow/custom-sink-ordering.png "사용자 지정 싱크 순서를 보여 주는 스크린샷")
 
 > [!NOTE]
-> 캐시 된 [조회](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup)를 활용 하는 경우 싱크 순서 지정에서 캐시 된 싱크가 1로 설정 되어 있는지 확인 합니다 (또는 first).
+> 캐시 된 [조회](./concepts-data-flow-expression-builder.md#cached-lookup)를 활용 하는 경우 싱크 순서 지정에서 캐시 된 싱크가 1로 설정 되어 있는지 확인 합니다 (또는 first).
 
 ![사용자 지정 싱크 순서 지정](media/data-flow/cache-2.png "사용자 지정 싱크 순서 지정")
+
+### <a name="sink-groups"></a>싱크 그룹
+
+일련의 싱크에 동일한 순서 번호를 적용 하 여 싱크를 함께 그룹화 할 수 있습니다. ADF는 병렬로 실행할 수 있는 그룹으로 이러한 싱크를 처리 합니다. 병렬 실행 옵션은 파이프라인 데이터 흐름 작업에 노출 됩니다.
+
+## <a name="error-row-handling"></a>오류 행 처리
+
+데이터베이스에 쓰는 경우 대상에 의해 설정 된 제약 조건으로 인해 특정 행의 데이터가 실패할 수 있습니다. 기본적으로 첫 번째 오류가 발생 하면 데이터 흐름 실행이 실패 합니다. 특정 커넥터에서 개별 행에 오류가 있는 경우에도 데이터 흐름이 완료 될 수 있는 **오류를 계속** 하도록 선택할 수 있습니다. 현재이 기능은 Azure SQL Database 에서만 사용할 수 있습니다. 자세한 내용은 [AZURE SQL DB의 오류 행 처리](connector-azure-sql-database.md#error-row-handling)를 참조 하세요.
+
+다음은 싱크 변환에서 자동으로 데이터베이스 오류 행 처리를 사용 하는 방법에 대 한 비디오 자습서입니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
 
 ## <a name="data-preview-in-sink"></a>싱크의 데이터 미리 보기
 
 디버그 클러스터에서 데이터 미리 보기를 가져오는 경우 싱크에 데이터가 기록 되지 않습니다. 데이터의 모양에 대 한 스냅숏은 반환 되지만 대상에는 아무것도 기록 되지 않습니다. 싱크에 대 한 데이터 쓰기를 테스트 하려면 파이프라인 캔버스에서 파이프라인 디버그를 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 데이터 흐름을 만들었으므로 [파이프라인에 데이터 흐름 활동](concepts-data-flow-overview.md)을 추가 합니다.

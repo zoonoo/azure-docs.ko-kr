@@ -9,20 +9,20 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a8a662bf94e958d9e96a454ced9c44058b178a8c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 7ed7c3a586f5671191e3c517b5925cab888caefb
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366845"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724309"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>병렬 문서의 문장 페어링 및 정렬
 
-훈련이 실행되는 동안, 병렬 문서에 포함된 문장들이 페어링 또는 정렬됩니다. Custom Translator는 페어링한 문장의 개수를 각 데이터 세트에서 정렬된 문장으로 보고합니다.
+문서를 업로드 한 후에는 병렬 문서에 있는 문장이 페어링 되거나 정렬 됩니다. Custom Translator는 페어링한 문장의 개수를 각 데이터 세트에서 정렬된 문장으로 보고합니다.
 
 ## <a name="pairing-and-alignment-process"></a>페어링 및 정렬 프로세스
 
-Custom Translator는 한 번에 한 문장씩 문장의 번역을 학습합니다. 소스에서 문장을 읽고, 타깃에서 이 문장의 번역을 읽습니다. 그런 다음 두 문장의 단어와 구문을 서로 정렬합니다. 이 프로세스를 통해 하나의 문장에 포함된 단어와 구문이 이 문장의 번역에 포함된 동등한 단어와 구문으로 매핑됩니다. 정렬 과정에서는 시스템이 서로가 서로의 번역인 문장을 훈련하도록 확인하는 작업이 이루어집니다.
+Custom Translator는 한 번에 한 문장씩 문장의 번역을 학습합니다. 원본 텍스트에서 문장을 읽은 다음 대상 텍스트에서이 문장을 변환 합니다. 그런 다음 두 문장의 단어와 구문을 서로 정렬합니다. 이 프로세스를 통해이를 통해 한 문장에 있는 단어와 구의 지도를 해당 문장의 번역에서 해당 하는 단어 및 구에 만들 수 있습니다. 정렬 과정에서는 시스템이 서로가 서로의 번역인 문장을 훈련하도록 확인하는 작업이 이루어집니다.
 
 ## <a name="pre-aligned-documents"></a>미리 정렬된 문서
 
@@ -39,7 +39,7 @@ Custom Translator는 한 번에 한 문장씩 문장의 번역을 학습합니�
 | 학습   | 10000                                     | 상한 없음                 |
 | 튜닝     | 500                                      | 2,500       |
 | 테스트    | 500                                      | 2,500  |
-| Dictionary | 0                                          | 상한 없음                 |
+| 사전 | 0                                          | 상한 없음                 |
 
 > [!NOTE]
 > - 1만 최소 문장의 학습 수가 충족 되지 않으면 교육이 시작 되지 않으며 실패 합니다. 

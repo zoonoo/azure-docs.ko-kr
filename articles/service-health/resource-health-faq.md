@@ -3,12 +3,12 @@ title: Azure Resource Health FAQ
 description: Azure Resource Health 개요
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: c8089e907f555ac970fea06361a2ab1bbc944778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ad8867b110039e4dcc34b20c8a61fccfd39eaf
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536497"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032867"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health FAQ
 Azure Resource Health에 대해 자주 묻는 질문과 답변에 대해 알아보세요.
@@ -50,9 +50,8 @@ Resource Health 블레이드에서 지원 요청을 제출할 수 있습니다. 
 
 ## <a name="where-do-i-find-resource-health"></a>Resource Health는 어디서 찾을 수 있나요?
 Azure Portal에 로그인하면 여러 가지 방법으로 Resource Health에 액세스할 수 있습니다.
-- 리소스로 이동합니다. 왼쪽 탐색에서 **Resource Health**를 선택합니다.
-- Azure Service Health 블레이드로 이동합니다.  왼쪽 탐색에서 **Resource health**를 선택 합니다.
-- 포털 오른쪽 위 모서리에서 물음표를 선택하고 **도움말 + 지원**을 선택하여 **도움말 + 지원** 블레이드를 엽니다. 블레이드가 열리면 **Resource Health**를 선택합니다.
+- 리소스로 이동합니다. 왼쪽 탐색에서 **Resource Health** 를 선택합니다.
+- Azure Service Health 블레이드로 이동합니다.  왼쪽 탐색에서 **Resource health** 를 선택 합니다.
 
 Resource Health API를 사용하여 리소스 상태에 대한 정보를 얻을 수도 있습니다.
 
@@ -69,8 +68,6 @@ Resource Health를 통해 지원되는 상태 검사 및 리소스 유형 목록
 Resource Health에서 제공하는 정보는 Azure 상태 또는 Service Health 대시보드에서 제공하는 정보보다 더 구체적입니다.
 
 [Azure 상태](https://status.azure.com)와 Service Health 대시보드는 광범위한 고객 집합(예: Azure 지역)에 영향을 주는 서비스 문제를 알려주는 반면, Resource Health는 특정 리소스에만 관련된 더 세분화된 이벤트를 노출합니다. 예를 들어 호스트가 예기치 않게 재부팅되는 경우 Resource Health는 가상 머신이 해당 호스트에서 실행 중인 고객에게만 경고합니다.
-
-리소스에 영향을 주는 이벤트에 대한 충분한 가시성을 제공하는 것이 중요하며 Resource Health는 Service Health 대시보드에 게시된 이벤트를 표시합니다.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>각 리소스에 대해 Resource Health를 활성화해야 하나요?
 아니요, 상태 정보는 Resource Health를 통해 제공되는 모든 리소스 유형에 대해 사용 가능합니다. 

@@ -3,12 +3,12 @@ title: 연결 문제 해결-Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 연결 문제 해결에 대 한 정보를 제공 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eddc0e8c598e4553b30759d179fecb6ae880829
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87039330"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96012683"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>연결 문제 해결-Azure Event Hubs
 클라이언트 응용 프로그램에서 이벤트 허브에 연결할 수 없는 다양 한 이유가 있습니다. 발생 하는 연결 문제는 영구적 이거나 일시적일 수 있습니다. 문제가 모든 시간 (영구)에 발생 하는 경우 연결 문자열, 조직의 방화벽 설정, IP 방화벽 설정, 네트워크 보안 설정 (서비스 끝점, 개인 끝점 등) 등을 확인할 수 있습니다. 일시적인 문제의 경우 최신 버전의 SDK로 업그레이드 하 고, 삭제 된 패킷을 확인 하는 명령을 실행 하 고, 네트워크 추적을 가져오면 문제 해결에 도움이 될 수 있습니다. 
@@ -26,54 +26,7 @@ Azure [서비스 상태 사이트](https://azure.microsoft.com/status/)에서 az
 
 Kafka 클라이언트의 경우 producer.config 또는 consumer.config 파일이 제대로 구성 되어 있는지 확인 합니다. 자세한 내용은 [Event Hubs Kafka으로 메시지 보내기 및 받기](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs)를 참조 하세요.
 
-### <a name="check-if-the-ports-required-to-communicate-with-event-hubs-are-blocked-by-organizations-firewall"></a>Event Hubs와 통신 하는 데 필요한 포트가 조직의 방화벽에 의해 차단 되었는지 확인 합니다.
-Azure Event Hubs와 통신 하는 데 사용 되는 포트가 조직의 방화벽에서 차단 되지 않는지 확인 합니다. Azure Event Hubs와 통신 하기 위해 열어야 하는 아웃 바운드 포트는 다음 표를 참조 하세요. 
-
-| 프로토콜 | 포트 | 세부 정보 | 
-| -------- | ----- | ------- | 
-| AMQP | 5671 및 5672 | [AMQP 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md)를 참조하세요. | 
-| HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | [Kafka 애플리케이션에서 Event Hubs 사용](event-hubs-for-kafka-ecosystem-overview.md)을 참조하세요.
-
-다음은 5671 포트가 차단 되었는지 여부를 확인 하는 샘플 명령입니다.
-
-```powershell
-tnc <yournamespacename>.servicebus.windows.net -port 5671
-```
-
-Linux에서:
-
-```shell
-telnet <yournamespacename>.servicebus.windows.net 5671
-```
-
-### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>회사 방화벽에서 IP 주소가 허용 되는지 확인 합니다.
-Azure를 사용 하는 경우 회사 방화벽이 나 프록시에서 특정 IP 주소 범위 또는 Url을 사용 하 여 사용 하거나 사용 하려는 모든 Azure 서비스에 액세스 해야 하는 경우가 있습니다. Event Hubs에서 사용 하는 IP 주소에서 트래픽이 허용 되는지 확인 합니다. Azure Event Hubs에서 사용 하는 IP 주소에 대해서는 [AZURE IP 범위 및 서비스 태그-공용 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조 하세요.
-
-또한 네임 스페이스에 대 한 IP 주소가 허용 되는지 확인 합니다. 연결에 사용할 올바른 IP 주소를 찾으려면 다음 단계를 수행 합니다.
-
-1. 명령 프롬프트에서 다음 명령을 실행합니다. 
-
-    ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
-    ```
-2. `Non-authoritative answer`에서 반환된 IP 주소를 적어 둡니다. 다른 클러스터로 네임스페이스를 복원하는 경우에만 변경될 수 있습니다.
-
-네임스페이스에 대해 영역 중복성을 사용하는 경우 몇 가지 추가 단계를 수행해야 합니다. 
-
-1. 먼저 네임스페이스에서 nslookup을 실행합니다.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. **신뢰할 수 없는 응답** 섹션에서 다음 형식 중 하나로 표시되는 이름을 적어 둡니다. 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. 접미사 s1, s2 및 s 3이 포함 된 각 항목에 대해 nslookup을 실행 하 여 세 개의 가용성 영역에서 실행 되는 세 인스턴스의 IP 주소를 가져옵니다. 
+[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
 ### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>네트워크 보안 그룹에서 AzureEventGrid 서비스 태그가 허용 되는지 확인 합니다.
 응용 프로그램이 서브넷 내에서 실행 중이 고 연결 된 네트워크 보안 그룹이 있는 경우 인터넷 아웃 바운드가 허용 되는지 또는 AzureEventGrid 서비스 태그가 허용 되는지 확인 합니다. [가상 네트워크 서비스 태그](../virtual-network/service-tags-overview.md) 를 참조 하 고를 검색 `EventHub` 합니다.
@@ -92,22 +45,6 @@ IP 방화벽 규칙은 Event Hubs 네임스페이스 수준에 적용됩니다. 
 
 자세한 내용은 [Azure Event Hubs 네임 스페이스에 대 한 IP 방화벽 규칙 구성](event-hubs-ip-filtering.md)을 참조 하세요. IP 필터링, 가상 네트워크 또는 인증서 체인 문제가 있는지 확인 하려면 [네트워크 관련 문제 해결](#troubleshoot-network-related-issues)을 참조 하세요.
 
-#### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>IP 방화벽에 의해 차단 되는 IP 주소 찾기
-[진단 로그 사용](event-hubs-diagnostic-logs.md#enable-diagnostic-logs)의 지침에 따라 [Event Hubs 가상 네트워크 연결 이벤트](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) 에 대 한 진단 로그를 사용 하도록 설정 합니다. 거부 된 연결에 대 한 IP 주소가 표시 됩니다.
-
-```json
-{
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "IPAddress": "1.2.3.4",
-    "Action": "Deny Connection",
-    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
-    "Count": "65",
-    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "Category": "EventHubVNetConnectionEvent"
-}
-```
-
 ### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>전용 엔드포인트를 사용 하 여 네임 스페이스에 액세스할 수 있는지 확인 합니다.
 Event Hubs 네임 스페이스가 개인 끝점을 통해서만 액세스할 수 있도록 구성 된 경우 클라이언트 응용 프로그램이 개인 끝점을 통해 네임 스페이스에 액세스 하 고 있는지 확인 합니다. 
 
@@ -120,13 +57,13 @@ Event Hubs와 관련 된 네트워크 관련 문제를 해결 하려면 다음 �
 
 또는 [wget](https://www.gnu.org/software/wget/) 으로 이동 `https://<yournamespacename>.servicebus.windows.net/` 합니다. IP 필터링 또는 가상 네트워크 또는 인증서 체인 문제가 있는지 여부를 확인 하는 데 도움이 됩니다 (Java SDK를 사용 하는 경우 가장 일반적으로).
 
-**성공적인 메시지**의 예:
+**성공적인 메시지** 의 예:
 
 ```xml
 <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
 ```
 
-오류 **메시지**의 예는 다음과 같습니다.
+오류 **메시지** 의 예는 다음과 같습니다.
 
 ```json
 <Error>

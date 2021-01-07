@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 3db411df69a754857220867865522f8e4fa24030
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546010"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011492"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Azure HDInsight의 Apache Hive에 대 한 게이트웨이 심층 정보 및 모범 사례
 
@@ -34,7 +34,7 @@ HDInsight 게이트웨이는 인터넷을 통해 공개적으로 액세스할 �
 
 인증을 위해 게이트웨이를 통해 사용자는 자격 증명 쌍을 사용 하 여 인증할 수 있습니다 `username:password` . ESP 사용 클러스터의 경우이 자격 증명은 사용자의 도메인 사용자 이름 및 암호입니다. 게이트웨이를 통한 HDInsight 클러스터 인증에는 클라이언트에서 kerberos 티켓을 가져올 필요가 없습니다. 게이트웨이는 `username:password` 자격 증명을 수락 하 고 사용자를 대신 하 여 사용자의 Kerberos 티켓을 획득 하므로 (ESP) 클러스터와 다른 AA DDS 도메인에 가입 된 클라이언트를 포함 하 여 모든 클라이언트 호스트에서 게이트웨이에 대 한 보안 연결을 설정할 수 있습니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 게이트웨이는 요청 전달 및 인증을 담당 하는 단일 서비스 (두 호스트에 분산 된 부하 분산)입니다. 게이트웨이가 특정 크기를 초과 하는 Hive 쿼리에 대 한 처리량 병목 상태가 될 수 있습니다. ODBC 또는 JDBC를 통해 게이트웨이에서 매우 큰 **SELECT** 쿼리가 실행 되는 경우 쿼리 성능 저하가 관찰 될 수 있습니다. "매우 큼"은 행 또는 열에서 5gb 이상의 데이터를 구성 하는 쿼리를 의미 합니다. 이 쿼리에는 긴 행 목록과 또는 광범위 한 열 수가 포함 될 수 있습니다.
 
@@ -56,7 +56,7 @@ Apache Hive는 HDFS 호환 파일 시스템에 대 한 관계 추상화입니다
 
 * Large **SELECT** 쿼리를 실행할 때 **LIMIT** 절을 사용 합니다. **LIMIT** 절은 클라이언트 호스트에 보고 된 총 행 수를 줄입니다. **LIMIT** 절은 결과 생성에만 영향을 미치고 쿼리 계획을 변경 하지는 않습니다. **LIMIT** 절을 쿼리 계획에 적용 하려면 구성을 사용 `hive.limit.optimize.enable` 합니다. **Limit** **x, y** 인수를 사용 하 여 한도를 오프셋과 결합할 수 있습니다.
 
-* * *Select \** _를 사용 하는 대신 **select** 쿼리를 실행할 때 원하는 열의 이름을로 합니다. 적은 수의 열을 선택 하면 읽을 데이터의 양이 줄어듭니다.
+* **Select \** _를 사용 하는 대신 **select** 쿼리를 실행할 때 원하는 열의 이름을로 합니다. 적은 수의 열을 선택 하면 읽을 데이터의 양이 줄어듭니다.
 
 _ Apache Beeline를 통해 관심 있는 쿼리를 실행 해 보세요. Apache Beeline을 통한 결과 검색에 오랜 시간이 소요 되는 경우 외부 도구를 통해 동일한 결과를 검색할 때 지연이 발생 합니다.
 

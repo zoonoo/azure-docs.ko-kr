@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
 ms.openlocfilehash: 1d2d3b3aacc00428c96cde0f8230421a98151ae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068016"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000252"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Azure 가상 머신 장애 복구에서 가속화된 네트워킹
 
@@ -24,7 +24,7 @@ ms.locfileid: "90068016"
 
 Azure Site Recovery를 사용하면 다른 Azure 지역에 장애 조치된 Azure 가상 머신에 대한 가속화된 네트워킹의 이점을 활용할 수 있습니다. 이 문서에서는 Azure Site Recovery를 사용하여 복제된 Azure 가상 머신에 대해 가속화된 네트워킹을 사용하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 이해해야 합니다.
 -   Azure 가상 머신 [복제 아키텍처](azure-to-azure-architecture.md)
@@ -79,7 +79,7 @@ Azure 가상 머신에 대해 [복제를 활성화](azure-to-azure-tutorial-enab
 복제를 활성화한 후 원본 가상 머신에서 가속화된 네트워킹을 활성화한 경우 다음 프로세스로 복제된 가상 머신의 네트워크 인터페이스에 대해 가속화된 네트워킹을 활성화할 수 있습니다.
 1. 복제된 가상 머신에 대한 **Compute 및 네트워크** 설정을 엽니다.
 2. **네트워크 인터페이스** 섹션에서 네트워크 인터페이스의 이름을 클릭합니다.
-3. **대상** 열 아래의 가속화된 네트워킹에 대한 드롭다운 목록에서 **사용**을 선택합니다.
+3. **대상** 열 아래의 가속화된 네트워킹에 대한 드롭다운 목록에서 **사용** 을 선택합니다.
 
 ![가속화된 네트워킹 사용](./media/azure-vm-disaster-recovery-with-accelerated-networking/network-interface-accelerated-networking-enabled.png)
 

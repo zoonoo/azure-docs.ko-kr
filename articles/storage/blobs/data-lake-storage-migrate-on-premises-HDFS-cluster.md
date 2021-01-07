@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: a50f85e76f16f1e5ba8823adb1ea1aa02157fcee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58137dd680ff9a2be2bd657f0969304b526873f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032563"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913116"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션
 
@@ -37,9 +37,9 @@ Data Box 장치를 사용 하 여 Hadoop 클러스터의 온-프레미스 HDFS �
 
 * [Azure Data Box 장치](https://azure.microsoft.com/services/storage/databox/)입니다.
 
-  * Data Box 또는 [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered) [를 주문](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) 합니다. 
+  * Data Box 또는 [Data Box Heavy](../../databox/data-box-heavy-deploy-ordered.md) [를 주문](../../databox/data-box-deploy-ordered.md) 합니다. 
 
-  * [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) 또는 [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) 를 온-프레미스 네트워크에 연결 합니다.
+  * [Data Box](../../databox/data-box-deploy-set-up.md) 또는 [Data Box Heavy](../../databox/data-box-heavy-deploy-set-up.md) 를 온-프레미스 네트워크에 연결 합니다.
 
 준비가 되 면 시작 해 보겠습니다.
 
@@ -53,13 +53,13 @@ Data Box 장치를 사용 하 여 Hadoop 클러스터의 온-프레미스 HDFS �
 
 Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사 하려면 다음 단계를 수행 합니다. REST API 인터페이스는 장치가 클러스터에 HDFS 저장소로 표시 되도록 합니다.
 
-1. REST를 통해 데이터를 복사 하기 전에 Data Box 또는 Data Box Heavy에서 REST 인터페이스에 연결 하기 위한 보안 및 연결 기본 형식을 확인 합니다. Data Box의 로컬 웹 UI에 로그인 하 고 **연결 및 페이지 복사** 로 이동 합니다. 장치에 대 한 Azure storage 계정에 대해 **액세스 설정**에서를 찾아 **REST**를 선택 합니다.
+1. REST를 통해 데이터를 복사 하기 전에 Data Box 또는 Data Box Heavy에서 REST 인터페이스에 연결 하기 위한 보안 및 연결 기본 형식을 확인 합니다. Data Box의 로컬 웹 UI에 로그인 하 고 **연결 및 페이지 복사** 로 이동 합니다. 장치에 대 한 Azure storage 계정에 대해 **액세스 설정** 에서를 찾아 **REST** 를 선택 합니다.
 
     !["연결 및 복사" 페이지](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
-2. 액세스 저장소 계정 및 데이터 업로드 대화 상자에서 **Blob service 끝점** 및 **저장소 계정 키**를 복사 합니다. Blob service 끝점에서 `https://` 및 후행 슬래시를 생략 합니다.
+2. 액세스 저장소 계정 및 데이터 업로드 대화 상자에서 **Blob service 끝점** 및 **저장소 계정 키** 를 복사 합니다. Blob service 끝점에서 `https://` 및 후행 슬래시를 생략 합니다.
 
-    이 경우 끝점은 `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` 입니다. 사용할 URI의 호스트 부분은 `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` 입니다. 예제는 [http를 통해 REST에 연결](/azure/databox/data-box-deploy-copy-data-via-rest)하는 방법을 참조 하세요. 
+    이 경우 끝점은 `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` 입니다. 사용할 URI의 호스트 부분은 `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` 입니다. 예제는 [http를 통해 REST에 연결](../../databox/data-box-deploy-copy-data-via-rest.md)하는 방법을 참조 하세요. 
 
      !["저장소 계정 액세스 및 데이터 업로드" 대화 상자](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
@@ -75,7 +75,7 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
 
     이러한 파일이 있는지 확인 하려면 명령을 사용 `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` 합니다. `<hadoop_install_dir>`자리 표시자를 Hadoop을 설치한 디렉터리의 경로로 바꿉니다. 정규화 된 경로를 사용 해야 합니다.
 
-    예제:
+    예:
 
     `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar` `azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
 
@@ -161,7 +161,7 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
 
 Data Box 장치를 준비 하 고 Microsoft에 제공 하려면 다음 단계를 수행 합니다.
 
-1. 먼저  [Data Box 또는 Data Box Heavy에서 배송 준비](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest)합니다.
+1. 먼저  [Data Box 또는 Data Box Heavy에서 배송 준비](../../databox/data-box-deploy-copy-data-via-rest.md)합니다.
 
 2. 장치 준비가 완료 되 면 BOM 파일을 다운로드 합니다. 이러한 BOM 또는 매니페스트 파일을 나중에 사용 하 여 Azure에 업로드 된 데이터를 확인 합니다.
 
@@ -169,9 +169,9 @@ Data Box 장치를 준비 하 고 Microsoft에 제공 하려면 다음 단계를
 
 4. UPS를 사용하여 픽업을 예약합니다.
 
-    * Data Box 장치의 경우 [Data Box 제공](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up)을 참조 하세요.
+    * Data Box 장치의 경우 [Data Box 제공](../../databox/data-box-deploy-picked-up.md)을 참조 하세요.
 
-    * Data Box Heavy 장치의 경우 [Data Box Heavy 제공](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up)을 참조 하세요.
+    * Data Box Heavy 장치의 경우 [Data Box Heavy 제공](../../databox/data-box-heavy-deploy-picked-up.md)을 참조 하세요.
 
 5. Microsoft에서 장치를 받은 후에는 데이터 센터 네트워크에 연결 되 고 장치 순서를 배치할 때 지정한 저장소 계정에 데이터가 업로드 됩니다. 모든 데이터가 Azure에 업로드 되는 BOM 파일에 대해 확인 합니다. 
 
@@ -184,11 +184,11 @@ Data Box 장치를 준비 하 고 Microsoft에 제공 하려면 다음 단계를
 
 ### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 계정에 대 한 서비스 주체 만들기
 
-서비스 주체를 만들려면 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)를 참조 하세요.
+서비스 주체를 만들려면 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
 
-* 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) 섹션에 있는 단계를 수행할 때 **Storage Blob 데이터 참가자** 역할을 서비스 주체에 할당해야 합니다.
+* 문서의 [애플리케이션을 역할에 할당](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) 섹션에 있는 단계를 수행할 때 **Storage Blob 데이터 참가자** 역할을 서비스 주체에 할당해야 합니다.
 
-* 문서의 [로그인에 사용할 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션의 단계를 수행 하는 경우 응용 프로그램 ID 및 클라이언트 암호 값을 텍스트 파일에 저장 합니다. 곧 이 값들이 필요합니다.
+* 문서의 [로그인에 사용할 값 가져오기](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) 섹션의 단계를 수행 하는 경우 응용 프로그램 ID 및 클라이언트 암호 값을 텍스트 파일에 저장 합니다. 곧 이 값들이 필요합니다.
 
 ### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>사용 권한이 있는 복사 된 파일의 목록을 생성 합니다.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: ccd070d2d7a6fcccab6d243567dfbe02960cc870
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 83917214705546b21553e997ccab11a7511f77fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376411"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353309"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -23,7 +23,7 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
 
 ## <a name="create-a-new-qna-maker-service"></a>새 QnA Maker 서비스 만들기
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 이 절차는 기술 자료 콘텐츠를 관리 하는 데 필요한 Azure 리소스를 만듭니다. 이러한 단계를 완료 한 후에는 Azure Portal 리소스의 **키** 페이지에서 _구독_ 키를 찾을 수 있습니다.
 
@@ -81,7 +81,7 @@ QnA Maker 관리 SKU를 업그레이드하려면
 
  기술 자료가 클라이언트 앱에서 더 많은 요청을 처리 해야 하는 경우 App Service 가격 책정 계층을 업그레이드 합니다.
 
-App Service를 [강화 하거나 규모](https://docs.microsoft.com/azure/app-service/manage-scale-up) 를 확장할 수 있습니다.
+App Service를 [강화 하거나 규모](../../../app-service/manage-scale-up.md) 를 확장할 수 있습니다.
 
 Azure Portal에서 App Service 리소스로 이동 하 고 필요에 따라 **수직 확장** 또는 **수평 확장** 옵션을 선택 합니다.
 
@@ -133,6 +133,7 @@ App Service Environment를 사용 하 여 App Service QnA Maker를 호스트할 
 2. App service를 노출 하 고 다음과 같은 QnA Maker 가용성을 허용 합니다.
     * 공개적으로 사용 가능-기본값
     * DNS 서비스 태그: `CognitiveServicesManagement`
+3. QnA Maker 끝점을 App Service Environment로 설정 해야 하는 Azure Resource Manager를 사용 하 여 QnA Maker 인식 서비스 인스턴스 (Cognitiveservices account/accounts)를 만듭니다.
 
 ### <a name="network-isolation-for-app-service"></a>App Service에 대 한 네트워크 격리
 
@@ -143,8 +144,6 @@ QnA Maker 인식 서비스는 서비스 태그를 사용 `CognitiveServicesManag
 * App Service 리소스의 네트워킹 섹션으로 이동 하 고 "액세스 제한 구성" 옵션을 클릭 하 여 allowlist에 Ip를 추가 합니다.
 
 또한 App Service에 대해 동일한 작업을 수행 하는 자동화 된 스크립트가 있습니다. GitHub에서 allowlist을 [구성 하는 PowerShell 스크립트](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) 를 찾을 수 있습니다. 구독 id, 리소스 그룹 및 실제 App Service 이름을 스크립트 매개 변수로 입력 해야 합니다. 스크립트를 실행 하면 App Service allowlist에 Ip가 자동으로 추가 됩니다.
-    
-1. QnA Maker 끝점을 App Service Environment로 설정 해야 하는 Azure Resource Manager를 사용 하 여 QnA Maker 인식 서비스 인스턴스 (Cognitiveservices account/accounts)를 만듭니다.
 
 ### <a name="business-continuity-with-traffic-manager"></a>Traffic manager를 통한 비즈니스 연속성
 
@@ -155,13 +154,13 @@ QnA Maker 인식 서비스는 서비스 태그를 사용 `CognitiveServicesManag
 
 위에 표시된 것처럼 대략적인 아이디어는 다음과 같습니다.
 
-1. [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에서 두 개의 병렬 [QnA Maker 서비스](set-up-qnamaker-service-azure.md)를 설정합니다.
+1. [Azure 쌍을 이루는 지역](../../../best-practices-availability-paired-regions.md)에서 두 개의 병렬 [QnA Maker 서비스](set-up-qnamaker-service-azure.md)를 설정합니다.
 
 1. 기본 QnA Maker App service를 [백업](../../../app-service/manage-backup.md) 하 고 보조 설정에서 [복원](../../../app-service/web-sites-restore.md) 합니다. 이렇게 하면 두 설정이 동일한 호스트 이름 및 키로 작동 합니다.
 
 1. 기본 및 보조 Azure 검색 인덱스를 동기화 된 상태로 유지 합니다. Azure 인덱스를 백업 하는 방법을 보려면 [여기](https://github.com/pchoudhari/QnAMakerBackupRestore) 에서 GitHub 샘플을 사용 하세요.
 
-1. [연속 내보내기](../../../application-insights/app-insights-export-telemetry.md)를 사용하여 Application Insights를 백업합니다.
+1. [연속 내보내기](../../../azure-monitor/app/export-telemetry.md)를 사용하여 Application Insights를 백업합니다.
 
 1. 기본 및 보조 스택이 설치되면 [트래픽 관리자](../../../traffic-manager/traffic-manager-overview.md)를 사용하여 두 개의 엔드포인트를 구성하고 라우팅 메서드를 설정합니다.
 
@@ -169,7 +168,7 @@ QnA Maker 인식 서비스는 서비스 태그를 사용 `CognitiveServicesManag
 
 1. 마지막으로, 봇 또는 앱에서 트래픽 관리자 엔드포인트를 사용합니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 이 절차는 기술 자료 콘텐츠를 관리 하는 데 필요한 Azure 리소스를 만듭니다. 이러한 단계를 완료 한 후에는 Azure Portal 리소스의 **키** 페이지에서 *구독* 키를 찾을 수 있습니다.
 
@@ -203,7 +202,7 @@ QnA Maker 인식 서비스는 서비스 태그를 사용 `CognitiveServicesManag
 
 ## <a name="find-authoring-keys-in-the-azure-portal"></a>Azure Portal에서 제작 키 찾기
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 QnA Maker 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다. 이러한 키를 구독 키 라고 합니다.
 
@@ -233,7 +232,7 @@ QnA Maker 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 �
     >[!NOTE]
     >키가 손상 되었다고 생각 되 면 키를 새로 고칩니다. 클라이언트 애플리케이션 또는 봇 코드에 해당 변경 내용을 적용해야 할 수도 있습니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 QnA Maker 관리 (미리 보기) 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다. 이러한 키를 구독 키 라고 합니다.
 
@@ -253,7 +252,7 @@ QnA Maker 관리 (미리 보기) 리소스를 만든 Azure Portal에서 작성 �
 
 ## <a name="upgrade-the-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스 업그레이드
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 많은 기술 자료를 사용할 계획인 경우 Azure Cognitive Search 서비스 가격 책정 계층을 업그레이드 하세요.
 
@@ -295,7 +294,7 @@ QnA Maker의 **App Service** 리소스는 Cognitive Search 리소스를 사용 �
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 QnA Maker 리소스와 연결 된 **App Service** 를 찾습니다. 둘 다 동일한 이름을 갖습니다.
 
-1. **설정** , **구성** 을 차례로 선택 합니다. 그러면 QnA Maker의 App Service에 대 한 모든 기존 설정이 표시 됩니다.
+1. **설정**, **구성** 을 차례로 선택 합니다. 그러면 QnA Maker의 App Service에 대 한 모든 기존 설정이 표시 됩니다.
 
     > [!div class="mx-imgBorder"]
     > ![App Service 구성 설정을 보여 주는 Azure Portal의 스크린샷](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)
@@ -342,7 +341,7 @@ QnA maker 리소스를 사용 하지 않는 경우 모든 리소스를 제거 �
 
 무료 검색 리소스는 API 호출을 받지 않고 90 일 후에 삭제 됩니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 많은 기술 자료를 사용할 계획인 경우 Azure Cognitive Search 서비스 가격 책정 계층을 업그레이드 하세요.
 
@@ -387,4 +386,4 @@ QnA Maker 기술 자료에 사용되는 Azure 리소스를 삭제하는 경우 �
 [App service](../../../app-service/index.yml) 및 [Search 서비스](../../../search/index.yml)에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [다른 사용자와 작성 하는 방법 알아보기](../how-to/collaborate-knowledge-base.md)
+> [다른 사용자와 작성 하는 방법 알아보기](../index.yml)

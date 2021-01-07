@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 6ad8f3e146c13e7b88752b8ef6d514346542ce26
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672274"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500889"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스의 �
 
 ## <a name="viewing-recommendations"></a>권장 사항 보기
 
-성능 권장 사항을 보고 적용 하려면 Azure에서 올바른 [AZURE RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 권한이 필요 합니다. 권장 사항을 보려면 **읽기 권한자** , **SQL DB 참가자** 권한이 필요하고, 모든 동작(인덱스 만들기 또는 삭제, 인덱스 만들기 취소)을 실행하려면 **소유자** , **SQL DB 참가자** 권한이 필요합니다.
+성능 권장 사항을 보고 적용 하려면 Azure에서 올바른 [AZURE RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 권한이 필요 합니다. 권장 사항을 보려면 **읽기 권한자**, **SQL DB 참가자** 권한이 필요하고, 모든 동작(인덱스 만들기 또는 삭제, 인덱스 만들기 취소)을 실행하려면 **소유자**, **SQL DB 참가자** 권한이 필요합니다.
 
 다음 단계를 사용 하 여 Azure Portal에 대 한 성능 권장 사항을 찾을 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스의 �
 
 권장 사항은 성능의 잠재적 영향 순으로 다음과 같은 카테고리에 정렬됩니다.
 
-| 영향 | Description |
+| 영향 | 설명 |
 |:--- |:--- |
 | 높음 |높은 영향 권장사항은 가장 중요한 성능 영향을 제공합니다. |
 | 중간 |중간 영향 권장 사항은 성능을 향상시키지만, 크게 향상시키지는 않습니다. |
@@ -118,7 +118,7 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 ### <a name="canceling-recommendations"></a>권장 사항 취소
 
-**보류 중** , **유효성 검사 중** 또는 **성공** 상태에 있는 권장 사항은 취소할 수 있습니다. **실행 중** 상태의 권장 사항은 취소할 수 없습니다.
+**보류 중**, **유효성 검사 중** 또는 **성공** 상태에 있는 권장 사항은 취소할 수 있습니다. **실행 중** 상태의 권장 사항은 취소할 수 없습니다.
 
 1. **튜닝 기록** 영역에서 권장 사항을 선택하면 **권장 사항 세부 정보** 페이지가 열립니다.
 2. **취소** 를 클릭하여 권장 사항을 적용하는 과정을 중단합니다.
@@ -127,7 +127,7 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 권장 구성을 적용해도 즉각적으로 일어나지 않을 수 있습니다. 포털에서는 권장 사항의 상태에 대한 세부 정보를 제공합니다. 다음은 인덱스 안에 나타날 수 있는 상태입니다.
 
-| 상태 | Description |
+| 상태 | 설명 |
 |:--- |:--- |
 | Pending |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
 | 실행 중 |권장 사항을 적용 중입니다. |

@@ -17,11 +17,11 @@ ms.date: 03/18/2018
 ms.author: kaanan
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 8e3a56e4a6eb1fb6eb633021178ef78f8ac7287d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87488842"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014791"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 TAP 작업
 
@@ -109,7 +109,7 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 
 ## <a name="add-a-tap-configuration-to-a-network-interface"></a>네트워크 인터페이스에 TAP 구성 추가
 
-1. 기존 가상 네트워크 TAP 리소스의 ID를 가져옵니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 가상 네트워크 TAP *myTap*을 가져옵니다.
+1. 기존 가상 네트워크 TAP 리소스의 ID를 가져옵니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 가상 네트워크 TAP *myTap* 을 가져옵니다.
 
    ```azurecli-interactive
    tapId=$(az network vnet tap show \

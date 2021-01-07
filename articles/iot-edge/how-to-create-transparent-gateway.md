@@ -11,22 +11,37 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 506f6a2025a61b4d9d16918b2a95de620171c46b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9f81d059c1a71bf6349d0ef9b4aae8f7a47c161f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147846"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938786"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
 이 문서에서는 다른 장치에서 IoT Hub와 통신할 수 있도록 투명 한 게이트웨이로 작동 하도록 IoT Edge 장치를 구성 하는 방법에 대 한 자세한 지침을 제공 합니다. 이 문서에서는 *IoT Edge 게이트웨이* 라는 용어를 사용 하 여 투명 게이트웨이로 구성 된 IoT Edge 장치를 참조 합니다. 자세한 내용은 [IoT Edge 장치를 게이트웨이로 사용 하는 방법](./iot-edge-as-gateway.md)을 참조 하세요.
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
 >현재 상황:
 >
 > * Edge 가능 디바이스는 IoT Edge 게이트웨이에 연결할 수 없습니다.
 > * 다운스트림 디바이스는 파일 업로드를 사용할 수 없습니다.
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>현재 상황:
+>
+> * 다운스트림 디바이스는 파일 업로드를 사용할 수 없습니다.
+
+::: moniker-end
 
 성공적인 투명 게이트웨이 연결을 설정하기 위한 세 가지 일반적인 단계가 있습니다. 이 문서에서는 첫 번째 단계에 대해 설명 합니다.
 
@@ -114,13 +129,13 @@ IoT Edge 허브 모듈을 배포 하 고 경로를 사용 하 여 다운스트�
 
 1. Azure Portal에서 IoT Hub로 이동합니다.
 
-2. **IoT Edge**로 이동하고 게이트웨이로 사용할 IoT Edge 디바이스를 선택합니다.
+2. **IoT Edge** 로 이동하고 게이트웨이로 사용할 IoT Edge 디바이스를 선택합니다.
 
-3. **모듈 설정**을 선택 합니다.
+3. **모듈 설정** 을 선택 합니다.
 
 4. **모듈** 페이지에서 게이트웨이 장치에 배포 하려는 모듈을 추가할 수 있습니다. 이 문서에서는이 페이지에서 명시적으로 설정 하지 않아도 되는 edgeHub 모듈을 구성 하 고 배포 하는 방법을 집중적으로 설명 합니다.
 
-5. **다음: 경로**를 선택 합니다.
+5. **다음: 경로** 를 선택 합니다.
 
 6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 예를 들면 다음과 같습니다.
 
@@ -136,9 +151,9 @@ IoT Edge 허브 모듈을 배포 하 고 경로를 사용 하 여 다운스트�
 
       메시지 라우팅에 대한 자세한 내용은 [모듈 배포 및 경로 설정](./module-composition.md#declare-routes)을 참조하세요.
 
-7. 경로 또는 경로를 만든 후 **검토 + 만들기**를 선택 합니다.
+7. 경로 또는 경로를 만든 후 **검토 + 만들기** 를 선택 합니다.
 
-8. **검토 + 만들기** 페이지에서 **만들기**를 선택 합니다.
+8. **검토 + 만들기** 페이지에서 **만들기** 를 선택 합니다.
 
 ## <a name="open-ports-on-gateway-device"></a>게이트웨이 장치에서 포트 열기
 

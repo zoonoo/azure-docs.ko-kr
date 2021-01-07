@@ -3,12 +3,12 @@ title: 새로운 기능은 무엇입니까? 릴리스 정보 - Azure Event Grid
 description: Azure Event Grid의 최신 릴리스 정보, 알려진 문제, 버그 수정, 사용되지 않는 기능, 예정된 변경 내용 등을 알아봅니다.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 1edfa3e2bc4c8adae113b2215b7fb0483fba4c02
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87172698"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350010"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Azure Event Grid의 새로운 기능
 
@@ -40,7 +40,7 @@ Azure Event Grid는 지속적인 향상되고 있습니다. 최신 개발 정보
 - 이 릴리스에는 품질 향상을 위한 추가 버그 수정이 포함되어 있습니다.
 - 버전 5.3.1-preview인 이 릴리스는 다음과 같은 새로운 기능을 포함하는 2020-04-01-Preview API 버전에 해당합니다. 
     - [도메인 및 토픽에 이벤트를 게시할 때 IP 필터링 지원](configure-firewall.md)
-    - [파트너 토픽](partner-topics-overview.md)
+    - [파트너 토픽](./partner-events-overview.md)
     - [Azure Portal에서 추적된 리소스로 시스템 항목](system-topics.md)
     - [관리형 서비스 ID를 사용하여 이벤트 전달](managed-service-identity.md) 
     - [Private Link 서비스 지원](configure-private-endpoints.md)
@@ -49,7 +49,7 @@ Azure Event Grid는 지속적인 향상되고 있습니다. 최신 개발 정보
 - 이 릴리스에는 품질 향상을 위한 다양한 버그 수정이 포함되어 있습니다.
 - 버전 5.3.0-preview인 이 릴리스는 다음과 같은 새로운 기능을 포함하는 2020-04-01-Preview API 버전에 해당합니다. 
     - [도메인 및 토픽에 이벤트를 게시할 때 IP 필터링 지원](configure-firewall.md)
-    - [파트너 토픽](partner-topics-overview.md)
+    - [파트너 토픽](./partner-events-overview.md)
     - [Azure Portal에서 추적된 리소스로 시스템 항목](system-topics.md)
     - [관리형 서비스 ID를 사용하여 이벤트 전달](managed-service-identity.md) 
     - [Private Link 서비스 지원](configure-private-endpoints.md)
@@ -59,7 +59,7 @@ Azure Event Grid는 지속적인 향상되고 있습니다. 최신 개발 정보
 - 버전 5.2.0-preview인 이 릴리스는 2020-04-01-Preview API 버전에 해당합니다.
 - 다음과 같은 새로운 기능을 지원합니다. 
     - [도메인 및 토픽에 이벤트를 게시할 때 IP 필터링 지원](configure-firewall.md)
-    - [파트너 토픽](partner-topics-overview.md)
+    - [파트너 토픽](./partner-events-overview.md)
     - [Azure Portal에서 추적된 리소스로 시스템 항목](system-topics.md)
     - [관리형 서비스 ID를 사용하여 이벤트 전달](managed-service-identity.md) 
     - [Private Link 서비스 지원](configure-private-endpoints.md)

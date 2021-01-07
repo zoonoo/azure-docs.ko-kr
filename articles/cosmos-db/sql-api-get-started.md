@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 804330d44d63aa70076a7387aacfbbd3b4f742c9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 49fa928285b29eaff806b009cf327e84e17491c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480992"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098725"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>자습서: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -70,7 +71,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 1. **솔루션 탐색기** 에서 Visual Studio 솔루션 아래에 있는 새 콘솔 애플리케이션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택합니다.
 1. **NuGet 패키지 관리자** 에서 **찾아보기** 를 선택하고 *Microsoft.Azure.Cosmos* 를 검색합니다. **Microsoft.Azure.Cosmos** 를 선택하고 **설치** 를 선택합니다.
 
-   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="프로젝트 구성":::
+   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="Azure Cosmos DB 클라이언트 SDK용 NuGet 설치":::
 
    Azure Cosmos DB SQL API 클라이언트 라이브러리의 패키지 ID는 [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)입니다.
 
@@ -121,7 +122,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. Azure Cosmos DB 계정을 찾은 다음, **키** 를 선택합니다.
 
-   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="프로젝트 구성":::
+   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Azure Portal에서 Azure Cosmos DB 키 가져오기":::
 
 1. *Program.cs* 에서 `<your endpoint URL>`을 **URI** 값으로 바꿉니다. `<your primary key>`를 **기본 키** 값으로 대체합니다.
 
@@ -310,7 +311,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 1. Ctrl+Shift+A를 선택하여 **새 항목 추가** 를 엽니다. 프로젝트에 새 클래스인 `Family.cs`를 추가합니다.
 
-    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="프로젝트 구성":::
+    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="프로젝트에 새 Family.cs 클래스를 추가하는 스크린샷":::
 
 1. `Family`, `Parent`, `Child`, `Pet` 및 `Address` 클래스를 복사하여 `Family.cs`에 붙여넣습니다.
 

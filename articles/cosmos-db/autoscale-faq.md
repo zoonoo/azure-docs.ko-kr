@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/10/2020
-ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 12/11/2020
+ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092690"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368582"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 자동 크기 조정 프로비전된 처리량 FAQ
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "93092690"
 여러 쓰기 지역이 있는 계정에서 100 r u/초 당 자동 크기 조정 속도는 표준 (수동) 프로 비전 된 여러 쓰기 지역 처리량과 동일 합니다. 청구서에 기존 다중 쓰기 지역 측정기가 표시 됩니다. 요금은 동일하므로 자동 크기 조정을 사용하는 경우에도 표준 처리량과 동일한 수량이 표시됩니다.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>자동 크기 조정 기능은 예약된 용량에 적용되나요?
-예. 여러 쓰기 지역이 있는 계정에 대해 예약 된 용량을 구매 하는 경우 자동 크기 조정 리소스에 대 한 예약 할인은 [특정 지역의 비율](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region)을 기준으로 미터 1.5 사용에 적용 됩니다. 
+예. 단일 쓰기 지역이 있는 계정에 대해 예약 된 용량을 구매 하는 경우 자동 크기 조정 리소스에 대 한 예약 할인은 [특정 지역의 비율](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region)을 기준으로 미터 1.5 사용에 적용 됩니다. 
 
 다중 쓰기 지역 예약 용량은 자동 크기 조정 및 표준 (수동) 프로 비전 된 처리량에 대해 동일 하 게 작동 합니다. [Azure Cosmos DB 예약된 용량](cosmos-db-reserved-capacity.md)을 참조하세요.
 
@@ -109,9 +109,9 @@ Azure Cosmos DB는 공유 처리량 데이터베이스에서 최대 25개의 컨
 #### <a name="lowering-the-max-rus"></a>최대 RU/s 감소
 최대 RU/s를 낮출 때 설정할 수 있는 최소값은 `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`입니다(1,000RU/s 단위로 반올림). 
 
-예제 1: 최대 RU/s가 20,000RU/s(2,000~20,000RU/s 범위에서 크기 조정)이고 스토리지가 50GB인 자동 크기 조정 컨테이너가 있다고 가정합니다. 최대 RU/s를 가장 낮게 설정할 수 있는 최소값은 다음과 같습니다. MAX(4,000, 20,000 / 10, **50 * 100** ) = 5,000RU/s(500~5,000RU/s 범위에서 크기 조정).
+예제 1: 최대 RU/s가 20,000RU/s(2,000~20,000RU/s 범위에서 크기 조정)이고 스토리지가 50GB인 자동 크기 조정 컨테이너가 있다고 가정합니다. 최대 RU/s를 가장 낮게 설정할 수 있는 최소값은 다음과 같습니다. MAX(4,000, 20,000 / 10, **50 * 100**) = 5,000RU/s(500~5,000RU/s 범위에서 크기 조정).
 
-예제 2: 최대 RU/s가 100,000RU/s이고 스토리지가 100GB인 자동 크기 조정 컨테이너가 있다고 가정합니다. 이제 최대 RU/s를 최대 150,000RU/s(15,000~150,000RU/s 범위에서 크기 조정)로 조정합니다. 이제 최대 RU/s를 가장 낮게 설정할 수 있는 최소값은 다음과 같습니다. MAX(4,000, **150,000 / 10** , 100 * 100) = 15,000RU/s(1,500~15,000RU/s 범위에서 크기 조정). 
+예제 2: 최대 RU/s가 100,000RU/s이고 스토리지가 100GB인 자동 크기 조정 컨테이너가 있다고 가정합니다. 이제 최대 RU/s를 최대 150,000RU/s(15,000~150,000RU/s 범위에서 크기 조정)로 조정합니다. 이제 최대 RU/s를 가장 낮게 설정할 수 있는 최소값은 다음과 같습니다. MAX(4,000, **150,000 / 10**, 100 * 100) = 15,000RU/s(1,500~15,000RU/s 범위에서 크기 조정). 
 
 공유 처리량 데이터베이스의 경우 최대 RU/s를 낮출 때 설정할 수 있는 최소값은 `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`입니다(1,000RU/s 단위로 반올림).  
 

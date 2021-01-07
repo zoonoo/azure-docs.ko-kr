@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.custom: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2fb9677f0874de1fb715082d58a0e354880e654b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285266"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358081"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>프리미엄 파일 공유를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +30,7 @@ ms.locfileid: "93285266"
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 
@@ -189,7 +190,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="register-with-the-sql-vm-rp"></a>SQL VM RP에 등록
 
-포털에서 SQL Server VM를 관리 하려면 SQL VM 리소스 공급자 (RP)를 [경량 관리 모드로](sql-vm-resource-provider-register.md#lightweight-management-mode)등록 하 고, 현재는 fci에서 지원 되는 유일한 모드 이며, Azure vm에서 SQL Server 합니다. 
+포털에서 SQL Server VM를 관리 하려면 SQL IaaS 에이전트 확장 (RP)을 [경량 관리 모드로](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode)등록 합니다. 현재는 fci에서 지원 되는 유일한 모드 이며 Azure vm에서 SQL Server 합니다. 
 
 PowerShell을 사용 하 여 경량 모드의 SQL Server VM 등록 합니다 (-LicenseType은 또는 일 수 있음 `PAYG` `AHUB` ).
 
@@ -210,7 +211,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 - MSDTC (Microsoft DTC(Distributed Transaction Coordinator))는 Windows Server 2016 이전 버전에서는 지원 되지 않습니다. 
 - Filestream은 프리미엄 파일 공유를 사용하는 장애 조치(failover) 클러스터에 대해 지원되지 않습니다. Filestream을 사용 하려면 대신 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 또는 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 를 사용 하 여 클러스터를 배포 하세요.
-- [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes) 에서는 SQL VM 리소스 공급자에 등록만 지원 됩니다. 
+- [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes) 에서는 SQL IaaS 에이전트 확장에 등록만 지원 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

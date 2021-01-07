@@ -1,26 +1,26 @@
 ---
 title: 방화벽 규칙 관리-Azure CLI-Azure Database for MySQL
 description: Azure CLI 명령줄을 사용하여 Azure Database for MySQL 방화벽 규칙을 만들고 관리하는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb7f8547419b45314ad044b41957a53085cdbe13
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eaddd8b2979b30251301ad041ea4b872c23d680b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546401"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541337"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
 서버 수준 방화벽 규칙은 특정 IP 주소 또는 IP 주소 범위에서 Azure Database for MySQL 서버에 대 한 액세스를 관리 하는 데 사용할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. Azure Database for MySQL 방화벽에 대 한 개요는 [Azure Database for MySQL 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조 하세요.
 
 VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 보호할 수도 있습니다. [Azure CLI를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리 하는](howto-manage-vnet-using-cli.md)방법에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * [Azure CLI를 설치](/cli/azure/install-azure-cli)합니다.
 * [Azure Database for MySQL 서버 및 데이터베이스](quickstart-create-mysql-server-database-using-azure-cli.md)입니다.
 

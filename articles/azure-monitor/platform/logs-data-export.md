@@ -3,16 +3,16 @@ title: Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (�
 description: Log Analytics 데이터 내보내기를 사용 하면 데이터를 수집 하는 동안 Log Analytics 작업 영역에서 Azure storage 계정 또는 Azure Event Hubs로 선택한 테이블의 데이터를 지속적으로 내보낼 수 있습니다.
 ms.subservice: logs
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 8e310ea487818f6d82869fe1973c8e9ed0b04195
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427805"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797114"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
@@ -41,7 +41,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 - Log Analytics 작업 영역은 다음을 제외 하 고 모든 지역에 있을 수 있습니다.
   - 스위스 북부
   - 스위스 서부
-  - Azure 정부 지역
+  - Azure Government 지역
 - 대상 저장소 계정 또는 이벤트 허브는 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다.
 - 내보낼 테이블 이름은 저장소 계정에는 60 자이 하 여야 하 고 이벤트 허브에는 47 자이 하 여야 합니다. 이름이 긴 테이블은 내보내지지 않습니다.
 
@@ -58,7 +58,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 ## <a name="data-completeness"></a>데이터 완전성
 데이터 내보내기는 대상을 사용할 수 없는 경우 최대 30 분 동안 데이터를 계속 해 서 다시 전송 합니다. 30 분 후에도 계속 사용할 수 없는 경우에는 대상을 사용할 수 있게 될 때까지 데이터가 삭제 됩니다.
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 현재 데이터 내보내기 기능에 대 한 추가 요금은 없습니다. 데이터 내보내기에 대 한 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 됩니다. 알림 기간 후에도 계속 해 서 데이터 내보내기를 사용 하도록 선택 하면 해당 하는 요금으로 요금이 청구 됩니다.
 
 ## <a name="export-destinations"></a>내보내기 대상
@@ -68,7 +68,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 
 저장소 계정 blob 경로는 *WorkspaceResourceId =/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h =/m = \<two-digit 24-hour clock hour\> 00/PT1H.json* 입니다. 추가 blob은 저장소에서 50K 쓰기로 제한 되기 때문에, 추가의 수가 높으면 내보낸 blob 수가 확장 될 수 있습니다. 이러한 경우 blob의 명명 패턴은 PT1H_입니다. 여기서 #은 증분 blob 수입니다.
 
-저장소 계정 데이터 형식은 [JSON 줄입니다](diagnostic-logs-append-blobs.md). 즉, 각 레코드는 바깥쪽 레코드는 없고 JSON 레코드 사이에는 쉼표가 없는 줄 바꿈으로 구분 됩니다. 
+저장소 계정 데이터 형식은 [JSON 줄입니다](./resource-logs-blob-format.md). 즉, 각 레코드는 바깥쪽 레코드는 없고 JSON 레코드 사이에는 쉼표가 없는 줄 바꿈으로 구분 됩니다. 
 
 [![저장소 샘플 데이터](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
@@ -78,10 +78,10 @@ Log Analytics 데이터 내보내기는 시간 기반 보존 정책에서 *allow
 데이터는 Azure Monitor에 도달 하는 동안 거의 실시간으로 이벤트 허브로 전송 됩니다. 이름을 *am* 으로 내보내고 테이블 이름을 사용 하 여 내보낸 각 데이터 형식에 대해 이벤트 허브가 생성 됩니다. 예를 들어 테이블 *securityevent* 는 *Am-securityevent* 라는 이벤트 허브로 전송 됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결 하려는 경우 또는 이름이 47 문자 제한을 초과 하는 테이블이 있는 경우 고유한 이벤트 허브 이름을 제공 하 고 정의 된 테이블의 모든 데이터를 내보낼 수 있습니다.
 
 고려 사항:
-1. ' 기본 ' 이벤트 허브 sku는 낮은 이벤트 크기 [제한을](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) 지원 하 고 작업 영역의 일부 로그는이를 초과 하 여 삭제할 수 있습니다. ' 표준 ' 또는 ' 전용 ' 이벤트 허브를 내보내기 대상으로 사용 하는 것이 좋습니다.
+1. ' 기본 ' 이벤트 허브 sku는 낮은 이벤트 크기 [제한을](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) 지원 하 고 작업 영역의 일부 로그는이를 초과 하 여 삭제할 수 있습니다. ' 표준 ' 또는 ' 전용 ' 이벤트 허브를 내보내기 대상으로 사용 하는 것이 좋습니다.
 2. 내보내는 데이터의 볼륨은 시간이 지남에 따라 증가 하 고, 더 큰 전송 속도를 처리 하 고 제한 시나리오와 데이터 대기 시간을 방지 하려면 이벤트 허브 크기를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용 하 여 처리량 단위 수를 자동으로 확장 하 고 늘리고 사용 요구를 충족 해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md) 을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 다음은 Log Analytics 데이터 내보내기를 구성 하기 전에 완료 해야 하는 필수 구성 요소입니다.
 
 - 저장소 계정 및 이벤트 허브는 이미 만들고 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 저장소 계정에 복제 해야 하는 경우 [Azure Storage 중복성 옵션](../../storage/common/storage-redundancy.md)중 하나를 사용할 수 있습니다.  
@@ -117,22 +117,45 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ### <a name="create-or-update-data-export-rule"></a>데이터 내보내기 규칙 만들기 또는 업데이트
 데이터 내보내기 규칙은 테이블 집합에 대해 내보낼 데이터를 단일 대상으로 정의 합니다. 각 대상에 대 한 규칙을 만들 수 있습니다.
 
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+해당 없음
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+해당 없음
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 다음 CLI 명령을 사용 하 여 작업 영역의 테이블을 볼 수 있습니다. 이를 통해 원하는 테이블을 복사 하 고 데이터 내보내기 규칙에 포함할 수 있습니다.
+
 ```azurecli
-az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
 
 CLI를 사용 하 여 저장소 계정에 대 한 데이터 내보내기 규칙을 만들려면 다음 명령을 사용 합니다.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountId
+$storageAccountResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountResourceId
 ```
 
-CLI를 사용 하 여 이벤트 허브에 대 한 데이터 내보내기 규칙을 만들려면 다음 명령을 사용 합니다.
+CLI를 사용 하 여 이벤트 허브에 대 한 데이터 내보내기 규칙을 만들려면 다음 명령을 사용 합니다. 각 테이블에 대해 별도의 이벤트 허브가 생성 됩니다.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
+$eventHubsNamespacesResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesResourceId
 ```
+
+CLI를 사용 하 여 특정 이벤트 허브에 대 한 데이터 내보내기 규칙을 만들려면 다음 명령을 사용 합니다. 모든 테이블을 제공 된 이벤트 허브 이름으로 내보냅니다. 
+
+```azurecli
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventHubName/eventhub-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
+```
+
+# <a name="rest"></a>[REST (영문)](#tab/rest)
 
 REST API를 사용 하 여 데이터 내보내기 규칙을 만들려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여 및 콘텐츠 형식 application/json을 사용 해야 합니다.
 
@@ -194,12 +217,206 @@ PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 }
 ```
 
-## <a name="view-data-export-configuration"></a>데이터 내보내기 구성 보기
+# <a name="template"></a>[템플릿](#tab/json)
+
+다음 명령을 사용 하 여 템플릿을 사용 하 여 저장소 계정에 대 한 데이터 내보내기 규칙을 만듭니다.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "storageAccountRuleName": {
+            "defaultValue": "storage-account-rule-name",
+            "type": "string"
+        },
+        "storageAccountResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+                {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/' , parameters('storageAccountRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('storageAccountResourceId')]"
+                      },
+                      "tableNames": [
+                          "Heartbeat",
+                          "InsightsMetrics",
+                          "VMConnection",
+                          "Usage"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
+다음 명령을 사용 하 여 템플릿을 사용 하 여 이벤트 허브에 대 한 데이터 내보내기 규칙을 만듭니다. 각 테이블에 대해 별도의 이벤트 허브가 생성 됩니다.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "eventhubRuleName": {
+            "defaultValue": "event-hub-rule-name",
+            "type": "string"
+        },
+        "namespacesResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/microsoft.eventhub/namespaces/namespaces-name",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+              {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/', parameters('eventhubRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('namespacesResourceId')]"
+                      },
+                      "tableNames": [
+                          "Usage",
+                          "Heartbeat"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
+다음 명령을 사용 하 여 템플릿을 통해 특정 이벤트 허브에 대 한 데이터 내보내기 규칙을 만듭니다. 모든 테이블을 제공 된 이벤트 허브 이름으로 내보냅니다.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "eventhubRuleName": {
+            "defaultValue": "event-hub-rule-name",
+            "type": "string"
+        },
+        "namespacesResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/microsoft.eventhub/namespaces/namespaces-name",
+            "type": "String"
+        },
+        "eventhubName": {
+            "defaultValue": "event-hub-name",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+              {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/', parameters('eventhubRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('namespacesResourceId')]",
+                          "metaData": {
+                              "eventHubName": "[parameters('eventhubName')]"
+                          }
+                      },
+                      "tableNames": [
+                          "Usage",
+                          "Heartbeat"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
+---
+
+## <a name="view-data-export-rule-configuration"></a>데이터 내보내기 규칙 구성 보기
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+해당 없음
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+해당 없음
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 CLI를 사용 하 여 데이터 내보내기 규칙의 구성을 보려면 다음 명령을 사용 합니다.
 
 ```azurecli
 az monitor log-analytics workspace data-export show --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
+
+# <a name="rest"></a>[REST (영문)](#tab/rest)
 
 REST API를 사용 하 여 데이터 내보내기 규칙의 구성을 보려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여를 사용 해야 합니다.
 
@@ -207,14 +424,33 @@ REST API를 사용 하 여 데이터 내보내기 규칙의 구성을 보려면 
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
 
+# <a name="template"></a>[템플릿](#tab/json)
+
+해당 없음
+
+---
+
 ## <a name="disable-an-export-rule"></a>내보내기 규칙 사용 안 함
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+해당 없음
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+해당 없음
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 테스트를 수행 하는 경우와 같이 특정 기간에 대 한 데이터를 유지할 필요가 없는 경우 내보내기 규칙을 사용 하지 않도록 설정 하 여 내보내기를 중지할 수 있습니다. CLI를 사용 하 여 데이터 내보내기 규칙을 사용 하지 않도록 설정 하려면 다음 명령을 사용 합니다.
 
 ```azurecli
 az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
 ```
 
-REST API를 사용 하 여 데이터 내보내기 규칙을 사용 하지 않도록 설정 하려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여를 사용 해야 합니다.
+# <a name="rest"></a>[REST (영문)](#tab/rest)
+
+테스트를 수행 하는 경우와 같이 특정 기간에 대 한 데이터를 유지할 필요가 없는 경우 내보내기 규칙을 사용 하지 않도록 설정 하 여 내보내기를 중지할 수 있습니다. REST API를 사용 하 여 데이터 내보내기 규칙을 사용 하지 않도록 설정 하려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여를 사용 해야 합니다.
 
 ```rest
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
@@ -235,12 +471,31 @@ Content-type: application/json
 }
 ```
 
+# <a name="template"></a>[템플릿](#tab/json)
+
+테스트를 수행 하는 경우와 같이 특정 기간에 대 한 데이터를 유지할 필요가 없는 경우 내보내기 규칙을 사용 하지 않도록 설정 하 여 내보내기를 중지할 수 있습니다. ```"enable": false```데이터 내보내기를 사용 하지 않도록 설정 하려면 템플릿에서를 설정 합니다.
+
+---
+
 ## <a name="delete-an-export-rule"></a>내보내기 규칙 삭제
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+해당 없음
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+해당 없음
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 CLI를 사용 하 여 데이터 내보내기 규칙을 삭제 하려면 다음 명령을 사용 합니다.
 
 ```azurecli
 az monitor log-analytics workspace data-export delete --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
+
+# <a name="rest"></a>[REST (영문)](#tab/rest)
 
 REST API를 사용 하 여 데이터 내보내기 규칙을 삭제 하려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여를 사용 해야 합니다.
 
@@ -248,12 +503,31 @@ REST API를 사용 하 여 데이터 내보내기 규칙을 삭제 하려면 다
 DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
 
+# <a name="template"></a>[템플릿](#tab/json)
+
+해당 없음
+
+---
+
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>작업 영역에서 모든 데이터 내보내기 규칙 보기
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+해당 없음
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+해당 없음
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 CLI를 사용 하 여 작업 영역에서 모든 데이터 내보내기 규칙을 보려면 다음 명령을 사용 합니다.
 
 ```azurecli
 az monitor log-analytics workspace data-export list --resource-group resourceGroupName --workspace-name workspaceName
 ```
+
+# <a name="rest"></a>[REST (영문)](#tab/rest)
 
 REST API를 사용 하 여 작업 영역에서 모든 데이터 내보내기 규칙을 보려면 다음 요청을 사용 합니다. 요청은 전달자 토큰 권한 부여를 사용 해야 합니다.
 
@@ -261,10 +535,16 @@ REST API를 사용 하 여 작업 영역에서 모든 데이터 내보내기 규
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
 
+# <a name="template"></a>[템플릿](#tab/json)
+
+해당 없음
+
+---
+
 ## <a name="unsupported-tables"></a>지원 되지 않는 테이블
 데이터 내보내기 규칙에 지원 되지 않는 테이블이 포함 되어 있으면 구성이 성공 하지만 해당 테이블에 대 한 데이터는 내보내지 않습니다. 테이블이 나중에 지원 되는 경우 해당 데이터는 해당 시점에 내보내집니다.
 
-데이터 내보내기 규칙이 존재 하지 않는 테이블을 포함 하는 경우 오류와 함께 실패 합니다. ```Table <tableName> does not exist in the workspace.```
+데이터 내보내기 규칙에 존재 하지 않는 테이블이 포함 되어 있으면 "작업 영역에 테이블이 없습니다." 라는 오류와 함께 실패 합니다 <tableName> .
 
 
 ## <a name="supported-tables"></a>지원 되는 테이블

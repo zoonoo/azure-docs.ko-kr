@@ -12,17 +12,17 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669599"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013295"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
 IoT Edge 솔루션을 개발에서 프로덕션으로 전환할 준비가 되었으면 지속적인 성능 유지가 가능하도록 구성되었는지 확인합니다.
 
-이 문서에 제공 된 정보는 모두 동일 하지는 않습니다. 우선 순위를 정하는 데 도움이 되도록 각 섹션의 시작 부분에 작업이 두 가지 범주로 구분되어 나열되어 있습니다. **중요**에 해당하는 작업은 프로덕션으로 전환하기 전에 완료해야 하며, **유용함**에 해당하는 작업은 참조용으로 알아두면 좋습니다.
+이 문서에 제공 된 정보는 모두 동일 하지는 않습니다. 우선 순위를 정하는 데 도움이 되도록 각 섹션의 시작 부분에 작업이 두 가지 범주로 구분되어 나열되어 있습니다. **중요** 에 해당하는 작업은 프로덕션으로 전환하기 전에 완료해야 하며, **유용함** 에 해당하는 작업은 참조용으로 알아두면 좋습니다.
 
 ## <a name="device-configuration"></a>디바이스 구성
 
@@ -108,7 +108,7 @@ IoT Edge 허브 및 에이전트 모듈은 로컬 저장소를 사용 하 여 �
 
 IoT Edge 허브는 기본적으로 성능에 맞게 최적화 되었으므로 대량의 메모리를 할당 하려고 합니다. 이 구성으로 인해 Raspberry Pi와 같은 작은 디바이스에서 안정성 문제가 발생할 수 있습니다. 제한 된 리소스를 사용 하 여 장치를 배포 하는 경우 IoT Edge 허브에서 **OptimizeForPerformance** 환경 변수를 **false** 로 설정 하는 것이 좋습니다.
 
-**OptimizeForPerformance** 가 **true**로 설정 되 면 mqtt 프로토콜 헤드는 더 나은 성능을 갖지만 더 많은 메모리를 할당 하는 PooledByteBufferAllocator를 사용 합니다. 할당자는 32 비트 운영 체제 또는 메모리가 부족 한 장치에서 제대로 작동 하지 않습니다. 또한 성능을 최적화 하는 경우 RocksDb는 해당 역할에 대해 로컬 저장소 공급자로 더 많은 메모리를 할당 합니다.
+**OptimizeForPerformance** 가 **true** 로 설정 되 면 mqtt 프로토콜 헤드는 더 나은 성능을 갖지만 더 많은 메모리를 할당 하는 PooledByteBufferAllocator를 사용 합니다. 할당자는 32 비트 운영 체제 또는 메모리가 부족 한 장치에서 제대로 작동 하지 않습니다. 또한 성능을 최적화 하는 경우 RocksDb는 해당 역할에 대해 로컬 저장소 공급자로 더 많은 메모리를 할당 합니다.
 
 자세한 내용은 [더 작은 장치에서 안정성 문제](troubleshoot-common-errors.md#stability-issues-on-smaller-devices)를 참조 하세요.
 
@@ -122,7 +122,7 @@ IoT Edge 허브의 성능을 최적화 하 고 메모리 사용량을 줄이는 
 * **mqttSettings__enabled**
 * **httpSettings__enabled**
 
-세 변수에는 모두 *두 개의 밑줄*이 있으며 true 또는 false로 설정할 수 있습니다.
+세 변수에는 모두 *두 개의 밑줄* 이 있으며 true 또는 false로 설정할 수 있습니다.
 
 #### <a name="reduce-storage-time-for-messages"></a>메시지의 스토리지 시간 축소
 
@@ -132,7 +132,7 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>모듈 이미지의 디버그 버전 사용 안 함
 
-테스트 시나리오에서 프로덕션 시나리오로 전환하는 경우 배포 매니페스트에서 디버그 구성을 제거해야 합니다. 배포 매니페스트에 있는 모든 모듈 이미지가 ** \. 디버그** 접미사를 포함 하지 않는지 확인 합니다. 디버깅을 위해 모듈의 포트를 노출하는 만들기 옵션을 추가한 경우 해당 만들기 옵션도 제거합니다.
+테스트 시나리오에서 프로덕션 시나리오로 전환하는 경우 배포 매니페스트에서 디버그 구성을 제거해야 합니다. 배포 매니페스트에 있는 모든 모듈 이미지가 **\. 디버그** 접미사를 포함 하지 않는지 확인 합니다. 디버깅을 위해 모듈의 포트를 노출하는 만들기 옵션을 추가한 경우 해당 만들기 옵션도 제거합니다.
 
 ## <a name="container-management"></a>컨테이너 관리
 
@@ -163,11 +163,11 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
 * 암호 또는 클라이언트 암호의 경우 서비스 주체 암호를 지정 합니다.
 
 > [!NOTE]
-> 보안 강화 인증을 구현한 후에는 **관리자 사용자** 설정을 사용 하지 않도록 설정 하 여 기본 사용자 이름/암호 액세스를 더 이상 사용할 수 없도록 합니다. 컨테이너 레지스트리의 Azure Portal에 있는 왼쪽 창 메뉴의 **설정**아래에서 **액세스 키**를 선택 합니다.
+> 보안 강화 인증을 구현한 후에는 **관리자 사용자** 설정을 사용 하지 않도록 설정 하 여 기본 사용자 이름/암호 액세스를 더 이상 사용할 수 없도록 합니다. 컨테이너 레지스트리의 Azure Portal에 있는 왼쪽 창 메뉴의 **설정** 아래에서 **액세스 키** 를 선택 합니다.
 
 ### <a name="use-tags-to-manage-versions"></a>태그를 사용하여 버전 관리
 
-태그는 docker 컨테이너의 버전을 구분 하는 데 사용할 수 있는 docker 개념입니다. 태그는 컨테이너 리포지토리의 끝에 추가되는 **1.0** 등의 접미사입니다. 예를 들어 **mcr.microsoft.com/azureiotedge-agent:1.0**입니다. 태그는 변경 가능하며, 언제든지 다른 컨테이너를 가리키도록 변경할 수 있으므로 앞으로 모듈 이미지를 업데이트할 때 따를 규칙에 대해 팀이 합의해야 합니다.
+태그는 docker 컨테이너의 버전을 구분 하는 데 사용할 수 있는 docker 개념입니다. 태그는 컨테이너 리포지토리의 끝에 추가되는 **1.0** 등의 접미사입니다. 예를 들어 **mcr.microsoft.com/azureiotedge-agent:1.0** 입니다. 태그는 변경 가능하며, 언제든지 다른 컨테이너를 가리키도록 변경할 수 있으므로 앞으로 모듈 이미지를 업데이트할 때 따를 규칙에 대해 팀이 합의해야 합니다.
 
 또한 태그는 IoT Edge 디바이스에 업데이트를 적용하는 데 도움이 됩니다. 모듈의 업데이트된 버전을 컨테이너 레지스트리에 푸시할 때 태그를 증분합니다. 그런 다음, 태그가 증분된 새 배포를 디바이스에 푸시합니다. 컨테이너 엔진이 증분된 태그를 새 버전으로 인식하고 최신 모듈 버전을 디바이스로 끌어옵니다.
 
@@ -209,17 +209,17 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 네트워킹 설정에서 IoT Edge 장치에서 연결을 명시적으로 허용 해야 하는 경우 다음 IoT Edge 구성 요소 목록을 검토 하세요.
 
-* **IoT Edge 에이전트**는 WebSockets 등을 통해 IoT Hub에 대한 영구적 AMQP/MQTT 연결을 엽니다.
-* **IoT Edge 허브**는 WebSockets 등을 통해 IoT Hub에 대한 단일 영구적 AMQP 연결이나 여러 MQTT 연결을 엽니다.
-* **IoT Edge 디먼**은 IoT Hub에 대한 HTTPS 호출을 간헐적으로 수행합니다.
+* **IoT Edge 에이전트** 는 WebSockets 등을 통해 IoT Hub에 대한 영구적 AMQP/MQTT 연결을 엽니다.
+* **IoT Edge 허브** 는 WebSockets 등을 통해 IoT Hub에 대한 단일 영구적 AMQP 연결이나 여러 MQTT 연결을 엽니다.
+* **IoT Edge 디먼** 은 IoT Hub에 대한 HTTPS 호출을 간헐적으로 수행합니다.
 
 세 가지 경우 모두, DNS 이름이 \*.azure-devices.net 패턴과 일치합니다.
 
-또한 **컨테이너 엔진**은 HTTPS를 통해 컨테이너 레지스트리를 호출합니다. IoT Edge 런타임 컨테이너 이미지를 검색하려면 DNS 이름이 mcr.microsoft.com입니다. 컨테이너 엔진은 배포에 구성된 대로 다른 레지스트리에 연결합니다.
+또한 **컨테이너 엔진** 은 HTTPS를 통해 컨테이너 레지스트리를 호출합니다. IoT Edge 런타임 컨테이너 이미지를 검색하려면 DNS 이름이 mcr.microsoft.com입니다. 컨테이너 엔진은 배포에 구성된 대로 다른 레지스트리에 연결합니다.
 
 다음 검사 목록은 방화벽 규칙의 시작점입니다.
 
-   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용 |
+   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용량 |
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Microsoft Container Registry |
    | global.azure-devices-provisioning.net  | 443 | DPS 액세스(선택 사항) |
@@ -285,7 +285,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>옵션: 각 컨테이너 모듈에 대해 로그 설정 조정
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
+각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예들 들어 다음과 같습니다.
 
 ```yml
 "createOptions": {

@@ -38,6 +38,21 @@
           href: infrastructure-integrity.md
         - name: 데이터 보호
           href: protection-customer-data.md
+    - name: 플랫폼 무결성 및 보안
+      href: platform.md
+      items:
+        - name: 펌웨어 보안
+          href: firmware.md
+        - name: 보안 부팅
+          href: secure-boot.md
+        - name: 측정된 부팅 및 호스트 증명
+          href: measured-boot-host-attestation.md
+        - name: 프로젝트 Cerberus
+          href: project-cerberus.md
+        - name: 미사용 암호화
+          href: encryption-atrest.md
+        - name: 하이퍼바이저 보안
+          href: hypervisor.md
     - name: Azure 클라우드에서 격리
       href: isolation-choices.md
 - name: ID 관리
@@ -57,13 +72,13 @@
     - name: 모범 사례
       href: network-best-practices.md
     - name: DDoS Protection 모범 사례
-      href: 'https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices'
+      href: ../../ddos-protection/fundamental-best-practices.md
     - name: DDoS Protection 보안 기준
       href: ddos-protection-security-baseline.md
     - name: 현수 DNS 및 하위 도메인 인수
       href: subdomain-takeover.md
     - name: 하이브리드 네트워크 아키텍처 보안
-      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
 - name: IaaS 보안
   items:
     - name: Microsoft 맬웨어 방지
@@ -103,7 +118,7 @@
         - name: 보안 검사 목록
           href: database-security-checklist.md
     - name: 스토리지 보안 지침
-      href: ../../storage/blobs/security-recommendations.md?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
+      href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
     - name: 고객 Lockbox
       href: customer-lockbox-overview.md
     - name: 고객 Lockbox에 대한 보안 기준

@@ -1,17 +1,17 @@
 ---
 title: App Configuration에 GitHub 리포지토리 동기화
 description: GitHub 리포지토리를 업데이트할 때 GitHub Actions를 사용하여 App Configuration 인스턴스를 자동으로 업데이트합니다.
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/20/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 588efd692119c9e2831e16c1ce26c2759898a1e5
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371824"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607367"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>App Configuration에 GitHub 리포지토리 동기화
 
@@ -20,12 +20,12 @@ ms.locfileid: "87371824"
 &nbsp;&nbsp;&nbsp;&nbsp;•   전체 앱을 다시 배포하지 않고 구성 업데이트 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;•   Azure App Service 및 Functions 같은 서비스와 통합. 
 
-GitHub Actions [워크플로](https://help.github.com/articles/about-github-actions#workflow)는 GitHub 리포지토리에서 자동화된 프로세스를 정의합니다. ‘Azure App Configuration 동기화’ 작업은 원본 리포지토리가 변경될 때 App Configuration 인스턴스에 대한 업데이트를 트리거합니다. 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일을 사용하여 단계 및 매개 변수를 정의합니다. 앱 코드로 수행하는 것처럼 앱 구성 파일을 푸시, 검토 또는 분기하는 경우 구성 업데이트를 트리거할 수 있습니다.
+GitHub Actions [워크플로](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions)는 GitHub 리포지토리에서 자동화된 프로세스를 정의합니다. ‘Azure App Configuration 동기화’ 작업은 원본 리포지토리가 변경될 때 App Configuration 인스턴스에 대한 업데이트를 트리거합니다. 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일을 사용하여 단계 및 매개 변수를 정의합니다. 앱 코드로 수행하는 것처럼 앱 구성 파일을 푸시, 검토 또는 분기하는 경우 구성 업데이트를 트리거할 수 있습니다.
 
-GitHub [문서](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)에서는 GitHub 워크플로 및 작업의 자세한 보기를 제공합니다. 
+GitHub [문서](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions)에서는 GitHub 워크플로 및 작업의 자세한 보기를 제공합니다. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>리포지토리에서 GitHub Actions 사용
-이 GitHub 동작 사용을 시작 하려면 리포지토리로 이동 하 여 **작업** 탭을 선택 합니다. **새 워크플로**를 선택한 다음 **직접 워크플로를 설정**합니다. 마지막으로 마켓플레이스에서 “Azure App Configuration 동기화”를 검색합니다.
+이 GitHub 동작 사용을 시작 하려면 리포지토리로 이동 하 여 **작업** 탭을 선택 합니다. **새 워크플로** 를 선택한 다음 **직접 워크플로를 설정** 합니다. 마지막으로 마켓플레이스에서 “Azure App Configuration 동기화”를 검색합니다.
 > [!div class="mx-imgBorder"]
 > ![작업 탭 선택](media/find-github-action.png)
 
@@ -35,13 +35,13 @@ GitHub [문서](https://help.github.com/actions/automating-your-workflow-with-gi
 ## <a name="sync-configuration-files-after-a-push"></a>푸시 후 구성 파일 동기화
 이 작업은 변경 내용이 `appsettings.json`에 푸시될 때 Azure App Configuration 파일을 동기화합니다. 개발자가 `appsettings.json`의 변경 내용을 푸시하면 App Configuration 동기화 작업은 App Configuration 인스턴스를 새 값으로 업데이트합니다.
 
-이 워크플로의 첫 번째 섹션에서는 ‘마스터’ 분기에 대한 `appsettings.json`을 포함하는 ‘푸시’를 ‘실행’하도록 지정합니다.   두 번째 섹션에는 작업이 트리거된 후 실행되는 작업이 나열됩니다. 이 작업은 관련 파일을 체크 아웃하고 리포지토리에 비밀로 저장된 연결 문자열을 사용하여 App Configuration 인스턴스를 업데이트합니다.  GitHub에서 비밀을 사용하는 방법에 관한 자세한 내용은 암호화된 비밀 만들기 및 사용에 관한 [GitHub 문서](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)를 참조하세요.
+이 워크플로의 첫 번째 섹션에서는가  main 분기로 포함 된 푸시 *에 대해* 트리거되는 동작을 지정 합니다 `appsettings.json` .  두 번째 섹션에는 작업이 트리거된 후 실행되는 작업이 나열됩니다. 이 작업은 관련 파일을 체크 아웃하고 리포지토리에 비밀로 저장된 연결 문자열을 사용하여 App Configuration 인스턴스를 업데이트합니다.  GitHub에서 비밀을 사용하는 방법에 관한 자세한 내용은 암호화된 비밀 만들기 및 사용에 관한 [GitHub 문서](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)를 참조하세요.
 
 ```json
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -68,7 +68,7 @@ jobs:
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -98,7 +98,7 @@ jobs:
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
       - 'appsettings2.json'
@@ -127,7 +127,7 @@ jobs:
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
 
@@ -153,7 +153,7 @@ jobs:
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
 
@@ -177,13 +177,13 @@ jobs:
 ## <a name="use-a-dynamic-label-on-sync"></a>동기화 시 동적 레이블 사용
 다음 작업은 동기화될 때마다 동적 레이블을 삽입하므로 각 동기화를 고유하게 식별할 수 있으며 코드 변경 내용을 구성 변경 내용에 매핑할 수 있습니다.
 
-이 워크플로의 첫 번째 섹션에서는 ‘마스터’ 분기에 대한 `appsettings.json`을 포함하는 ‘푸시’를 ‘실행’하도록 지정합니다.   두 번째 섹션에서는 커밋 해시에 따라 구성 업데이트의 고유 레이블을 만드는 작업을 실행합니다. 그런 다음, 이 작업은 이 업데이트의 새 값과 고유 레이블로 App Configuration 인스턴스를 업데이트합니다.
+이 워크플로의 첫 번째 섹션에서는가  main 분기로 포함 된 푸시 *에 대해* 트리거되는 동작을 지정 합니다 `appsettings.json` .  두 번째 섹션에서는 커밋 해시에 따라 구성 업데이트의 고유 레이블을 만드는 작업을 실행합니다. 그런 다음, 이 작업은 이 업데이트의 새 값과 고유 레이블로 App Configuration 인스턴스를 업데이트합니다.
 
 ```json
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -219,7 +219,7 @@ AppConfiguration과 함께 Azure Key Vault를 사용하는 개발자는 두 개�
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
       - 'secretreferences.json'
@@ -272,7 +272,7 @@ jobs:
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -300,7 +300,7 @@ jobs:
 | Object:Inner | {"InnerKey":"InnerValue"} |
 
 ## <a name="understand-action-inputs"></a>작업 입력 이해
-입력 매개 변수는 런타임에 작업에서 사용하는 데이터를 지정합니다.  다음 표에는 App Configuration 동기화에서 허용하는 입력 매개 변수와 각 매개 변수의 예상 값이 포함되어 있습니다.  GitHub Actions의 작업 입력에 관한 자세한 내용은 GitHub [문서](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs)를 참조하세요.
+입력 매개 변수는 런타임에 작업에서 사용하는 데이터를 지정합니다.  다음 표에는 App Configuration 동기화에서 허용하는 입력 매개 변수와 각 매개 변수의 예상 값이 포함되어 있습니다.  GitHub Actions의 작업 입력에 관한 자세한 내용은 GitHub [문서](https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions#inputs)를 참조하세요.
 
 > [!Note]
 > 입력 ID는 대/소문자를 구분하지 않습니다.

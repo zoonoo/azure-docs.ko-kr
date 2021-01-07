@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6c8be064ade8182355c320e948b3b60b846033d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279774"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348061"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
@@ -48,7 +48,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 * **var** – 거의 모든 Variant 데이터 형식
 * **void** – 값을 반환하지 않음
 
-**mvbin**, **mvstr** 및 **mvref** 형식을 포함하는 함수는 다중값 특성에서만 작동할 수 있습니다. **bin**, **str** 및 **ref**를 포함한 함수는 단일값 및 다중값 특성에서 작동합니다.
+**mvbin**, **mvstr** 및 **mvref** 형식을 포함하는 함수는 다중값 특성에서만 작동할 수 있습니다. **bin**, **str** 및 **ref** 를 포함한 함수는 단일값 및 다중값 특성에서 작동합니다.
 
 ## <a name="functions-reference"></a>함수 참조
 
@@ -114,7 +114,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
   * [RandomNum](#randomnum)
 * **다중값 * 값**
   * [포함](#contains)
-  * [Count](#count)
+  * [개수](#count)
   * [Item](#item)
   * [ItemOrNull](#itemornull)
   * [Join](#join)
@@ -132,7 +132,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
   * [InStr](#instr)
   * [InStrRev](#instrrev)
   * [LCase](#lcase)
-  * [비어](#left)
+  * [왼쪽](#left)
   * [길이가](#len)
   * [LTrim](#ltrim)
   * [중소기업](#mid)
@@ -143,7 +143,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
   * [ReplaceChars](#replacechars)
   * [오른쪽](#right)
   * [RTrim](#rtrim)
-  * [Trim](#trim)
+  * [자르기](#trim)
   * [UCase](#ucase)
   * [Word](#word)
 
@@ -160,7 +160,7 @@ BitAnd 함수는 값에 지정된 비트를 설정합니다.
 **설명**  
 이 함수는 두 매개 변수를 전부 이진 표현으로 변환시키고 비트를 다음과 같이 설정합니다.
 
-* 0 - *value1* 및 *value2*의 해당 비트 중 하나 또는 둘 모두가 0인 경우
+* 0 - *value1* 및 *value2* 의 해당 비트 중 하나 또는 둘 모두가 0인 경우
 * 1 - 2개 모두 해당 비트일 경우 1입니다.
 
 즉, 두 매개 변수의 해당 비트가 1일 경우를 제외하는 모든 경우에는 0을 반환합니다.
@@ -625,7 +625,7 @@ dn이 "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"인 경우
 모두 US를 반환합니다.
 
 ---
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 **설명:**  
 Error 함수는 사용자 지정 오류를 반환하는 데 사용됩니다.
 
@@ -703,7 +703,7 @@ InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 �
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: 검색할 문자열
 * stringmatch: 찾을 문자열
@@ -1224,7 +1224,7 @@ RTrim 함수는 문자열에서 후행 공백을 제거합니다.
 "Test"를 반환합니다.
 
 ---
-### <a name="select"></a>새 페이지를 추가하기 위해
+### <a name="select"></a>선택
 **설명:**  
 지정된 함수에 기반하여 다중값 특성(또는 식 출력)의 모든 값을 처리합니다.
 

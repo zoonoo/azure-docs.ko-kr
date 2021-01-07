@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94cf54e689f845f77c54d1d3c7710e079594f556
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 339c6177de6e83f463efbc97e88a36ed4c52d97b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098946"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349098"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB의 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -207,4 +207,4 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 이 빠른 시작에서는 Azure Cosmos DB 계정을 만들고, MongoDB의 API를 사용하여 Xamarin.Forms 앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB의 MongoDB API로 구성된 Azure Cosmos DB로 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Azure Cosmos DB의 MongoDB API로 구성된 Azure Cosmos DB로 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

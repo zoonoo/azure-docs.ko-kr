@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: 프로메테우스, aro, openshift, 메트릭, red hat
 ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218615"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996851"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에 독립 실행형 프로메테우스 인스턴스 배포
 
@@ -36,9 +36,9 @@ ms.locfileid: "92218615"
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>OC 도구를 사용 하 여 클러스터에 로그인
 
-1. 웹 브라우저를 열고 클러스터의 웹 콘솔로 이동 https://openshift 합니다.* 임의 id*입니다. azmosa.io *).*
+1. 웹 브라우저를 열고 클러스터의 웹 콘솔로 이동 https://openshift 합니다.*임의 id* 입니다. azmosa.io *).*
 2. Azure 자격 증명으로 로그인합니다.
-3. 오른쪽 위 모서리에서 사용자 이름을 선택 하 고 **로그인 명령 복사**를 선택 합니다.
+3. 오른쪽 위 모서리에서 사용자 이름을 선택 하 고 **로그인 명령 복사** 를 선택 합니다.
 4. 사용할 터미널에 사용자 이름을 붙여 넣습니다.
 
 > [!NOTE]
@@ -188,7 +188,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 
 ## <a name="optional-deploy-example-application"></a>선택 사항: 배포 예제 응용 프로그램
 
-모든 것이 작동 중이지만 메트릭 소스가 없습니다. 프로메테우스 URL (로 이동 https://prom-prometheus-project.apps 합니다.* 임의 id*입니다. azmosa.io/ *).* 다음 명령을 사용 하 여 찾을 수 있습니다.
+모든 것이 작동 중이지만 메트릭 소스가 없습니다. 프로메테우스 URL (로 이동 https://prom-prometheus-project.apps 합니다.*임의 id* 입니다. azmosa.io/ *).* 다음 명령을 사용 하 여 찾을 수 있습니다.
 
 ```
 oc get route prom -n prometheus-project
@@ -206,10 +206,10 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 새 응용 프로그램은 배포 후 30 초 내에 서비스 검색 페이지에 유효한 대상으로 나타나야 합니다.
 
-자세한 내용은 **상태**  >  **대상**을 선택 합니다.
+자세한 내용은 **상태**  >  **대상** 을 선택 합니다.
 
 > [!NOTE]
-> 모든 성공적인 스크랩 대상에 대해 프로메테우스는 위쪽 메트릭에 데이터 요소를 추가 합니다. 왼쪽 위 모서리에서 **프로메테우스** 를 선택 하 고 식으로 **를 입력 한** 다음 **실행**을 선택 합니다.
+> 모든 성공적인 스크랩 대상에 대해 프로메테우스는 위쪽 메트릭에 데이터 요소를 추가 합니다. 왼쪽 위 모서리에서 **프로메테우스** 를 선택 하 고 식으로 **를 입력 한** 다음 **실행** 을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

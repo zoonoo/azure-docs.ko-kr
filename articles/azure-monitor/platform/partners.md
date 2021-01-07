@@ -4,12 +4,12 @@ description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e707e77f4618d71cb2fa3f32b05895b97658f76
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460097"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500243"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -46,6 +46,16 @@ AppDynamics APM(Application Performance Management)을 사용하면 애플리케
 Azure Monitor 경고에 JIRA 티켓을 만들 수 있습니다.
 
 [Azure Monitor에 대 한 Atlassian 설명서](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+
+## <a name="bmc-helix"></a>BMC Helix
+
+![BMC Helix 로고](./media/partners/BMCHelix.png)
+
+BMC Helix는 자치 엔터프라이즈 서비스 및 작업 SaaS 플랫폼입니다. 360 수준 인텔리전스와 통합 되어 있으므로 비즈니스에 대 한 전 세계의 채널 환경을 사전에 변환은 검색, 모니터링, 서비스, 수정, 최적화 및 제공할 수 있습니다.
+또한 ITSM 및 IT 운영 관리 (ITSM)를 원활 하 게 통합 하 여 BMC Helix IT 및 비즈니스 사용자가 IT 사일로를 제거 하 고, 데이터 중심의 비즈니스 의사 결정을 내리고, 업계 최고의 고객 환경을 제공할 수 있습니다.
+고객은 선택 된 클라우드 배포 (공용, 개인 또는 하이브리드)를 사용 하 여 BMC Helix 플랫폼을 배포할 수 있습니다. 또한 고객은 업계 최고의 공급자를 활용할 수 있는 AI/ML 솔루션을 선택할 수 있습니다.
+
+[BMC Helix에 대 한 자세한 정보](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="botmetric"></a>Botmetric
 
@@ -253,7 +263,7 @@ Serverless360는 Azure 서버 리스 구성 요소를 운영, 관리 및 모니�
 
 ![SignalFX 로고](./media/partners/signalfx.png)
 
-SignalFx는 데이터 기반 DevOps에 대한 실시간 운영 인텔리전스의 선두입니다. 서비스는 클라우드의 모든 구성 요소에서 메트릭을 발견하고 수집합니다. 기존 지점 도구를 대체 하 고 오늘날의 동적 환경에 대 한 실시간 가시성을 제공 합니다. 확장성이 매우 뛰어난 SignalFx 플랫폼을 활용하여 SaaS 플랫폼은 아키텍처를 기반으로 하는 컨테이너 및 마이크로 서비스에 최적화되며 강력한 시각화, 자동 관리 경고 및 모든 크기의 조직에 대한 공동 작업 심사 기능을 제공합니다. SignalFx는 *Telegraf*, *statsd*및 *collectd* 와 같은 오픈 소스 커넥터를 통해 Azure Monitor와 직접 통합 되어 Azure에 대 한 최상의 클래스 대시보드, 분석 및 경고를 제공 합니다.
+SignalFx는 데이터 기반 DevOps에 대한 실시간 운영 인텔리전스의 선두입니다. 서비스는 클라우드의 모든 구성 요소에서 메트릭을 발견하고 수집합니다. 기존 지점 도구를 대체 하 고 오늘날의 동적 환경에 대 한 실시간 가시성을 제공 합니다. 확장성이 매우 뛰어난 SignalFx 플랫폼을 활용하여 SaaS 플랫폼은 아키텍처를 기반으로 하는 컨테이너 및 마이크로 서비스에 최적화되며 강력한 시각화, 자동 관리 경고 및 모든 크기의 조직에 대한 공동 작업 심사 기능을 제공합니다. SignalFx는 *Telegraf*, *statsd* 및 *collectd* 와 같은 오픈 소스 커넥터를 통해 Azure Monitor와 직접 통합 되어 Azure에 대 한 최상의 클래스 대시보드, 분석 및 경고를 제공 합니다.
 
 [signalfx 설명서](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
@@ -301,9 +311,24 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 
 [Turbonomic 소개](https://turbonomic.com/)
 
+## <a name="partner-tools-with-event-hub-integration"></a>Event hubs 통합을 사용한 파트너 도구
+
+Azure Monitor를 사용 하 여 Azure 이벤트 허브로 모니터링 데이터를 라우트하 면 일부 외부 SIEM 및 모니터링 도구와 쉽게 통합할 수 있습니다. 다음 파트너는 이벤트 허브를 통해 통합 하는 것으로 알려져 있습니다. 
+
+| 도구 | Azure에서 호스트 | 설명 |
+|:---|:---| :---|
+|  IBM QRadar | 아니요 | Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](https://www.ibm.com/support)에서 다운로드할 수 있습니다. [Qradar DSM 구성](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)에서 Azure와의 통합에 대해 자세히 알아볼 수 있습니다. |
+| Splunk | 아니요 | [Splunk에 대 한 Microsoft Azure Add-On](https://splunkbase.splunk.com/app/3757/) 은 기능은 splunkbase에서 사용할 수 있는 오픈 소스 프로젝트입니다. <br><br> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우 예를 들어, 프록시를 사용 하거나 Splunk 클라우드에서 실행 하는 경우 Event hub의 새 메시지에 의해 트리거되는 [Splunk 용 Azure Function](https://github.com/Microsoft/AzureFunctionforSplunkVS)을 사용 하 여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다. |
+| sumologic | 아니요 | Event hub의 데이터를 사용 하는 SumoLogic를 설정 하는 방법에 대 한 지침은 [Event hub의 Azure 감사 앱에 대 한 로그 수집](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)에서 사용할 수 있습니다. |
+| ArcSight | 아니요 | ArcSight Azure 이벤트 허브 스마트 커넥터는 [arcsight 스마트 커넥터 컬렉션](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)의 일부로 사용할 수 있습니다. |
+| Syslog 서버 | 아니요 | Azure Monitor 데이터를 syslog 서버로 직접 스트리밍하려면 [Azure 함수를 기반으로](https://github.com/miguelangelopereira/azuremonitor2syslog/)하는 솔루션을 사용할 수 있습니다.
+| LogRhythm | 아니요| 이벤트 허브에서 로그를 수집 하도록 LogRhythm를 설정 하는 지침은 [여기](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)에서 제공 됩니다. 
+|Logz.io | 예 | 자세한 내용은 [Azure에서 실행 되는 Java 앱에 대 한 Logz.io를 사용 하 여 모니터링 및 로깅 시작](/azure/developer/java/fundamentals/java-get-started-with-logzio) 을 참조 하세요.
+
+
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor에 대 한 자세한 정보](../overview.md)
+- [Azure Monitor에 관한 자세한 정보](../overview.md)
 - [REST API를 사용하여 메트릭 액세스](rest-api-walkthrough.md)
 - [타사 서비스에 활동 로그 스트림](./activity-log.md#legacy-collection-methods)
 - [Microsoft 이외의 서비스로 리소스 로그 스트림](./resource-logs.md#send-to-azure-event-hubs)

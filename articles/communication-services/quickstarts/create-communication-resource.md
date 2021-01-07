@@ -10,18 +10,18 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a93ac3b5d988be33c0f27726a75b1006f990d1da
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667506"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886104"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>빠른 시작: Communication Services 리소스 만들기 및 관리
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services를 시작합니다. Communication Services 리소스는 Azure Portal 또는 .NET 관리 클라이언트 라이브러리를 통해 프로비저닝될 수 있습니다. 관리 클라이언트 라이브러리를 사용하면 리소스를 만들고, 구성, 업데이트 및 삭제하고 Azure의 배포 및 관리 서비스인 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)와 상호 연결할 수 있습니다. 클라이언트 라이브러리에서 사용할 수 있는 모든 기능은 Azure Portal에서 사용할 수 있습니다. 
+첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services를 시작합니다. Communication Services 리소스는 Azure Portal 또는 .NET 관리 클라이언트 라이브러리를 통해 프로비저닝될 수 있습니다. 관리 클라이언트 라이브러리를 사용하면 리소스를 만들고, 구성, 업데이트 및 삭제하고 Azure의 배포 및 관리 서비스인 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)와 상호 연결할 수 있습니다. 클라이언트 라이브러리에서 사용할 수 있는 모든 기능은 Azure Portal에서 사용할 수 있습니다. 
 
 > [!WARNING]
 > 공개 미리 보기 동안에는 Communication Services 사용이 미국 내로 제한됩니다. 또한 공개 미리 보기 동안에는 통신 리소스를 다른 구독으로 이전할 수 없습니다.
@@ -38,7 +38,7 @@ ms.locfileid: "91667506"
 
 연결 문자열을 통해 Communication Services 클라이언트 라이브러리를 Azure에 연결하고 인증할 수 있습니다. Azure Portal에서 또는 Azure Resource Manager API를 사용하여 프로그래밍 방식으로 Communication Services 연결 문자열 및 서비스 엔드포인트에 액세스할 수 있습니다. 
 
-Communication Services 리소스로 이동한 후 탐색 메뉴에서 **키**를 선택하고 Communication Services 클라이언트 라이브러리의 사용에 대한 **연결 문자열** 또는 **엔드포인트** 값을 복사합니다. 기본 키와 보조 키에 대한 액세스 권한이 있는지 확인합니다. 이는 타사 또는 스테이징 환경에 Communication Services 리소스에 대한 임시 액세스를 제공하려는 시나리오에서 유용할 수 있습니다.
+Communication Services 리소스로 이동한 후 탐색 메뉴에서 **키** 를 선택하고 Communication Services 클라이언트 라이브러리의 사용에 대한 **연결 문자열** 또는 **엔드포인트** 값을 복사합니다. 기본 키와 보조 키에 대한 액세스 권한이 있는지 확인합니다. 이는 타사 또는 스테이징 환경에 Communication Services 리소스에 대한 임시 액세스를 제공하려는 시나리오에서 유용할 수 있습니다.
 
 :::image type="content" source="./media/key.png" alt-text="Communication Services 키 페이지의 스크린샷.":::
 
@@ -47,8 +47,8 @@ Communication Services 리소스로 이동한 후 탐색 메뉴에서 **키**를
 Communication Services 클라이언트 라이브러리는 연결 문자열을 사용하여 Communication Services에 대한 요청에 권한을 부여합니다. 연결 문자열을 저장하기 위한 여러 가지 옵션이 있습니다.
 
 * 데스크톱 또는 디바이스에서 실행 중인 애플리케이션의 경우 연결 문자열을 **app.config** 또는 **web.config** 파일에 저장할 수 있습니다. 이러한 파일의 **AppSettings** 섹션에 연결 문자열을 추가합니다.
-* Azure App Service에서 실행 중인 애플리케이션의 경우, 연결 문자열을 [Azure Service 애플리케이션 설정](https://docs.microsoft.com/azure/app-service/configure-common)에 저장할 수 있습니다. 포털 내 애플리케이션 설정 탭의 **연결 문자열** 섹션에 연결 문자열을 추가합니다.
-* [Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)에 연결 문자열을 저장할 수 있습니다.
+* Azure App Service에서 실행 중인 애플리케이션의 경우, 연결 문자열을 [Azure Service 애플리케이션 설정](../../app-service/configure-common.md)에 저장할 수 있습니다. 포털 내 애플리케이션 설정 탭의 **연결 문자열** 섹션에 연결 문자열을 추가합니다.
+* [Azure Key Vault](../../data-factory/store-credentials-in-key-vault.md)에 연결 문자열을 저장할 수 있습니다.
 * 애플리케이션을 로컬로 실행하는 경우 환경 변수에 연결 문자열을 저장하는 것이 좋습니다.
 
 ### <a name="store-your-connection-string-in-an-environment-variable"></a>환경 변수에 연결 문자열 저장
@@ -67,7 +67,7 @@ setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourconnectionstring>"
 
 #### <a name="macos"></a>[macOS](#tab/unix)
 
-**.zshrc**를 편집하고 환경 변수를 추가합니다.
+**.zshrc** 를 편집하고 환경 변수를 추가합니다.
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
@@ -77,7 +77,7 @@ export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 
-**.bash_profile**을 편집하고, 환경 변수를 추가합니다.
+**.bash_profile** 을 편집하고, 환경 변수를 추가합니다.
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"

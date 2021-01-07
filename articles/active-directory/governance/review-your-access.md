@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 959837ff540fd95d186497858d7b9de1f8b1124d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3fef2f85ca7e7b4034c8582477796d49446ea44
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274013"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746782"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스를 검토 합니다.
 
@@ -69,11 +69,11 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 
 1. 액세스를 유지 하려면 **예** 를 클릭 하 고, 액세스를 제거 하려면 **아니요** 를 클릭 합니다.
 
-1. **예**를 클릭 하면 **이유** 상자에 근거를 지정 해야 할 수 있습니다.
+1. **예** 를 클릭 하면 **이유** 상자에 근거를 지정 해야 할 수 있습니다.
 
     !["예"를 선택 하 여 그룹에 계속 액세스 해야 하는지 여부를 묻는 완료 된 액세스 검토를 보여 주는 스크린샷](./media/review-your-access/perform-access-review-submit.png)
 
-1. **제출**을 클릭합니다.
+1. **제출** 을 클릭합니다.
 
     선택 항목이 제출 되 고 내 앱 포털로 돌아갑니다.
 
@@ -103,7 +103,7 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 
 4. **액세스 검토 수행** 섹션에서 계속 진행 합니다.
 
-### <a name="email"></a>Email
+### <a name="email"></a>메일
 
 >[!IMPORTANT]
 > 전자 메일을 받을 때 지연이 발생할 수 있으며, 일부 경우에는 최대 24 시간이 걸릴 수 있습니다. 받는 azure-noreply@microsoft.com 사람 목록에를 추가 하 여 모든 전자 메일을 수신 하 고 있는지 확인 합니다.
@@ -117,7 +117,7 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 3. **액세스 검토 수행** 섹션에서 계속 진행 합니다.
 
 >[!NOTE]
->시작을 클릭 하 여 **내 앱** 으로 이동 하는 경우 **내 앱 포털**아래 섹션에 나열 된 단계를 수행 합니다.
+>시작을 클릭 하 여 **내 앱** 으로 이동 하는 경우 **내 앱 포털** 아래 섹션에 나열 된 단계를 수행 합니다.
 
 ### <a name="directly-at-my-access"></a>직접 액세스
 
@@ -150,11 +150,11 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 
 1. 액세스를 유지 하려면 **예** 를 선택 하 고, 액세스를 제거 하려면 **아니요** 를 선택 합니다.
 
-1. **예**를 클릭 하면 **이유** 상자에 근거를 지정 해야 할 수 있습니다.
+1. **예** 를 클릭 하면 **이유** 상자에 근거를 지정 해야 할 수 있습니다.
 
     ![그룹에 대 한 액세스가 필요한 지 여부를 묻는 액세스 검토 완료](./media/review-your-access/review-access-yes-preview.png)
 
-1. **제출**을 클릭합니다.
+1. **제출** 을 클릭합니다.
 
     선택 항목이 제출 되 고 내 액세스 페이지로 돌아갑니다.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 757b297d3d74365928cda0934485c0018f28ffee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a7ca8236307bbf8a419d2988e1a6dc1e4c40597
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225651"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964867"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>미리 보기: VM에서 이미지 만들기
 
@@ -54,7 +54,7 @@ $gallery = Get-AzGallery `
 
 ## <a name="get-the-vm"></a>VM 가져오기
 
-[Get-AzVM](/powershell/module/az.compute/get-azvm)을 사용하여 리소스 그룹에서 사용할 수 있는 VM 목록을 볼 수 있습니다. VM 이름 및 해당 리소스 그룹을 확인 한 후에는를 다시 사용 하 여 `Get-AzVM` vm 개체를 가져와 나중에 사용할 수 있도록 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *Sourcevm* 이라는 VM을 가져와 *$sourceVm*변수에 할당 합니다. 
+[Get-AzVM](/powershell/module/az.compute/get-azvm)을 사용하여 리소스 그룹에서 사용할 수 있는 VM 목록을 볼 수 있습니다. VM 이름 및 해당 리소스 그룹을 확인 한 후에는를 다시 사용 하 여 `Get-AzVM` vm 개체를 가져와 나중에 사용할 수 있도록 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *Sourcevm* 이라는 VM을 가져와 *$sourceVm* 변수에 할당 합니다. 
 
 ```azurepowershell-interactive
 $sourceVm = Get-AzVM `
@@ -81,7 +81,7 @@ Stop-AzVM `
 
 [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 
 
-이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 Windows를 실행 하는 특수 한 VM에 대 한 것입니다. Linux를 사용 하 여 이미지에 대 한 정의를 만들려면를 사용 `-OsType Linux` 합니다. 
+이 예제에서 이미지 정의 이름은 *Myimagedefinition* 이며 Windows를 실행 하는 특수 한 VM에 대 한 것입니다. Linux를 사용 하 여 이미지에 대 한 정의를 만들려면를 사용 `-OsType Linux` 합니다. 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -103,9 +103,9 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
-이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다.
+이 예제에서 이미지 버전은 *1.0.0* 이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다.
 
-VM에서 이미지 버전을 만들려면 `-Source`에 대해 `$vm.Id.ToString()`을 사용합니다.
+VM에서 이미지 버전을 만들려면 `-SourceImageId`에 대해 `$vm.Id.ToString()`을 사용합니다.
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -119,7 +119,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $gallery.ResourceGroupName `
    -Location $gallery.Location `
    -TargetRegion $targetRegions  `
-   -Source $sourceVm.Id.ToString() `
+   -SourceImageId $sourceVm.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01' `  
    -asJob 
 ```
@@ -131,7 +131,7 @@ $job.State
 ```
 
 > [!NOTE]
-> 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
+> 동일한 관리형 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
 > `-StorageAccountType Premium_LRS`이미지 버전을 만들 때를 추가 하 여, 또는 [영역 중복 저장소](../storage/common/storage-redundancy.md) 를 추가 하 여 Premium storage에 이미지를 저장할 수도 있습니다 `-StorageAccountType Standard_ZRS` .
 >

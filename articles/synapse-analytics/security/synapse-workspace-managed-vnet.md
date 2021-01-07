@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00920f30061832bd1d685f04113a63781df718b4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b605c2c9f3c7468d0fe1f2cccd8c3602c556714b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313703"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501076"
 ---
-# <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Azure Synapse Analytics 관리형 가상 네트워크(미리 보기)
+# <a name="azure-synapse-analytics-managed-virtual-network"></a>Azure Synapse Analytics 관리형 가상 네트워크
 
 이 문서에서는 Azure Synapse Analytics의 관리형 Virtual Network에 대해 설명합니다.
 
@@ -52,8 +52,6 @@ Azure Synapse 작업 영역을 만들 때 작업 영역을 Microsoft Azure Virtu
 
 ![관리형 작업 영역 Virtual Network 사용](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
->[!NOTE]
->관리형 프라이빗 엔드포인트를 제외한 관리형 작업 영역 Virtual Network의 모든 아웃바운드 트래픽은 향후에 차단될 예정입니다. 작업 영역 외부의 모든 Azure 데이터 원본에 연결하는 관리형 프라이빗 엔드포인트를 만드는 것이 좋습니다. 
 
 Azure Portal에서 **개요** 를 선택하여 Azure Synapse 작업 영역이 관리형 작업 영역 Virtual Network에 연결되었는지 확인할 수 있습니다.
 

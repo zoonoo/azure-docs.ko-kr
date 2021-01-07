@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.custom: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 6ed5e11a8492314e99b9f105d259fa910dcdb77d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289953"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357809"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>스토리지 공간 다이렉트를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +51,7 @@ ms.locfileid: "93289953"
    > 템플릿을 사용하여 Azure에 전체 솔루션을 만들 수 있습니다. 템플릿의 예는 GitHub [Azure 빠른 시작 템플릿](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad) 페이지에서 사용할 수 있습니다. 이 예제는 특정 워크로드에 대해 설계되거나 테스트되지 않았습니다. 템플릿을 실행하여 도메인에 연결된 스토리지 공간 다이렉트 스토리지를 사용하여 SQL Server FCI를 만들 수 있습니다. 템플릿을 평가하고 용도에 맞게 수정할 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 
@@ -217,7 +218,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="register-with-the-sql-vm-rp"></a>SQL VM RP에 등록
 
-포털에서 SQL Server VM를 관리 하려면 SQL VM 리소스 공급자 (RP)를 [경량 관리 모드로](sql-vm-resource-provider-register.md#lightweight-management-mode)등록 하 고, 현재는 fci에서 지원 되는 유일한 모드 이며, Azure vm에서 SQL Server 합니다. 
+포털에서 SQL Server VM를 관리 하려면 SQL IaaS 에이전트 확장 (RP)을 [경량 관리 모드로](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode)등록 합니다. 현재는 fci에서 지원 되는 유일한 모드 이며 Azure vm에서 SQL Server 합니다. 
 
 
 PowerShell을 사용 하 여 SQL Server VM를 경량 모드로 등록 합니다.  
@@ -239,7 +240,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 - Azure virtual machines는 Csv의 저장소와 [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 사용 하는 Windows Server 2019에서 MSDTC (Microsoft DTC(Distributed Transaction Coordinator))를 지원 합니다.
 - NTFS 형식 디스크로 연결 된 디스크는 클러스터에 저장소를 추가 하는 경우 디스크 자격 옵션을 선택 취소 하거나 선택 취소 하는 경우에만 스토리지 공간 다이렉트와 함께 사용할 수 있습니다. 
-- [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes) 에서는 SQL VM 리소스 공급자에 등록만 지원 됩니다.
+- [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes) 에서는 SQL IaaS 에이전트 확장에 등록만 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

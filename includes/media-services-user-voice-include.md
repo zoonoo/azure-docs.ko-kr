@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 5c7686d8501baf17a63a5317f0d136adb6ac7812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "69014681"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184371"
 ---
 피드백을 제공하고 Azure Media Services를 개선하는 방법에 대해 제안하려면 [사용자 음성](https://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) 포럼을 사용합니다. 또한 다음 범주 중 하나로 직접 이동할 수 있습니다.
 

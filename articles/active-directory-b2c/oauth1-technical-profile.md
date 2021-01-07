@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b54cff85da02415bbc9dfa9ead037ced48cb58f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a2cbca8c02dcbfc0e59d31040d1fca7a790cd35
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259441"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936661"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 
@@ -82,7 +82,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다.   |
 
@@ -92,4 +92,4 @@ ID 공급자의 리디렉션 URI를 구성할 때 `https://{tenant-name}.b2clogi
 
 예제:
 
-- [사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가](identity-provider-twitter-custom.md)
+- [사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가](identity-provider-twitter.md)

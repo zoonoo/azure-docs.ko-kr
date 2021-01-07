@@ -1,15 +1,14 @@
 ---
 title: FAQ-Azure Vm 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure Vm을 백업 하는 방법에 대 한 일반적인 질문에 대 한 답변을 검색 합니다.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925580"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008353"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -83,15 +82,15 @@ Azure Backup ResourcePointCollections 개체를 저장할 형식으로 별도의
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>표준 SSD 관리 디스크를 지원할 Azure Backup 있나요?
 
-예, Azure Backup [는 표준 SSD 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd)를 지원 합니다.
+예, Azure Backup [는 표준 SSD 관리 디스크](../virtual-machines/disks-types.md#standard-ssd)를 지원 합니다.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>WA(쓰기 가속기) 지원 디스크를 사용하여 VM을 백업할 수 있나요?
 
-WA 지원 디스크에는 스냅샷을 만들 수 없습니다. 그러나 Azure Backup 서비스는 백업에서 WA 지원 디스크를 제외할 수 있습니다.
+스냅숏은 OS 디스크가 아닌 WA를 사용 하는 데이터 디스크에 대해서만 수행할 수 있습니다. 따라서 WA를 사용 하는 데이터 디스크만 보호할 수 있습니다.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>WA(쓰기 가속기) 디스크를 사용하고 SAP HANA가 설치된 VM을 갖고 있습니다. 어떻게 백업해야 하나요?
 
-Azure Backup은 WA 지원 디스크를 백업할 수 없지만 백업에서 제외할 수는 있습니다. 그러나 WA 지원 디스크의 정보가 백업되지 않으므로 백업하더라도 데이터베이스 일관성이 제공되지 않습니다. 운영 체제 디스크 백업 및 WA 미사용 디스크 백업을 원하는 경우 이 구성으로 디스크를 백업하면 됩니다.
+Azure Backup는 WA 사용 데이터 디스크를 백업할 수 있습니다. 그러나 백업에서 데이터베이스 일관성을 제공 하지는 않습니다.
 
 Azure Backup는 RPO가 15 분인 SAP HANA 데이터베이스에 대 한 스트리밍 백업 솔루션을 제공 합니다. SAP에서 제공 하는 Backint는 SAP HANA의 기본 Api를 활용 하는 네이티브 백업 지원을 제공 합니다. [Azure vm에서 SAP HANA 데이터베이스를 백업](./sap-hana-db-about.md)하는 방법에 대해 자세히 알아보세요.
 
@@ -163,11 +162,20 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스할 수 있나요?
 
-예, 도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스 합니다. 자세한 내용은 관련 [문서](./backup-azure-arm-restore-vms.md#post-restore-steps)를 참조하세요.
+예, 도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스 합니다. 자세한 내용은 [이 문서](./backup-azure-arm-restore-vms.md#post-restore-steps)를 참조하세요.
+
+### <a name="can-i-cancel-an-in-progress-restore-job"></a>진행 중인 복원 작업을 취소할 수 있나요?
+아니요, 진행 중인 복원 작업을 취소할 수 없습니다.
 
 ### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>복원 작업을 완료하는 데 시간이 오래 걸리는 이유는 무엇인가요?
 
 총 복원 시간은 IOPS (초당 입/출력 작업 수) 및 저장소 계정의 처리량에 따라 달라 집니다. 대상 저장소 계정이 다른 응용 프로그램 읽기 및 쓰기 작업과 함께 로드 되는 경우 총 복원 시간이 영향을 받을 수 있습니다. 복원 작업을 향상 시키려면 다른 응용 프로그램 데이터와 함께 로드 되지 않는 저장소 계정을 선택 합니다.
+
+### <a name="how-do-we-handle-create-new-virtual-machine-restore-type-conflicts-with-governance-policies"></a>"새 가상 머신 만들기"를 어떻게 처리 하나요? 거 버 넌 스 정책과의 복원 유형 충돌?
+
+Azure Backup는 복구 지점의 "연결" 디스크를 사용 하 고 이미지 참조 또는 갤러리를 확인 하지 않습니다. 따라서 정책에서 "storageProfile. osDisk 옵션을 Attach"로 확인 하 고 스크립트 조건을 다음과 같이 지정할 수 있습니다.
+
+`if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 

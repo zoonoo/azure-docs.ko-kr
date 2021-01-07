@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91c7c19fddab2a4372f183c90532b24e774277d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24d27859aad7642392a5702ab7ddbb727b538d51
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008052"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025013"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -51,7 +51,7 @@ Windows 10 Enterprise 다중 세션은 현재 하이브리드 Azure AD 조인으
 
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Windows 10 Enterprise 다중 세션 이미지는 어디서 찾을 수 있나요?
 
-Windows 10 Enterprise 다중 세션은 Azure 갤러리에 있습니다. 이를 찾으려면 Azure Portal으로 이동 하 여 가상 데스크톱 릴리스에 대 한 Windows 10 Enterprise를 검색 합니다. Enterprise 용 Microsoft 365 Apps와 통합 된 이미지의 경우 Azure Portal로 이동 하 여 **Microsoft Windows 10 + Microsoft 365 Apps for enterprise**를 검색 합니다.
+Windows 10 Enterprise 다중 세션은 Azure 갤러리에 있습니다. 이를 찾으려면 Azure Portal으로 이동 하 여 가상 데스크톱 릴리스에 대 한 Windows 10 Enterprise를 검색 합니다. Enterprise 용 Microsoft 365 Apps와 통합 된 이미지의 경우 Azure Portal로 이동 하 여 **Microsoft Windows 10 + Microsoft 365 Apps for enterprise** 를 검색 합니다.
 
 ## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>어떤 Windows 10 Enterprise 다중 세션 이미지를 사용 해야 하나요?
 
@@ -80,8 +80,8 @@ FSLogix 프로필 컨테이너를 구성 하는 방법에 대 한 자세한 내�
 사용자가 프로필에 추가 앱을 설치 하는 것을 방지 하기 위해 기본적으로 가장 가상화 된 환경이 구성 됩니다. 사용자가 Windows 가상 데스크톱에서 로그 아웃할 때 앱이 사라지지 않도록 하려면 사용자 환경에서 모든 사용자 프로필에 대해 해당 앱을 프로 비전 해야 합니다. 앱을 프로 비전 하는 방법에 대 한 자세한 내용은 다음 리소스를 확인 하세요.
 
 - [Windows 가상 데스크톱에서 기본 제공 앱 게시](publish-apps.md)
-- [DISM 앱 패키지 서비스 명령줄 옵션](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [DISM 앱 패키지 서비스 명령줄 옵션](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
 
 ## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>사용자가 Microsoft Store에서 앱을 다운로드 하 여 설치 하지 않도록 어떻게 할까요?
 
@@ -90,11 +90,11 @@ Microsoft Store 앱을 사용 하지 않도록 설정 하 여 사용자가 이�
 스토어 앱을 사용 하지 않도록 설정 하려면:
 
 1. 새 그룹 정책을 만듭니다.
-2. **컴퓨터 구성**  >  **관리 템플릿**  >  **Windows 구성 요소**를 선택 합니다.
-3. **Store**를 선택합니다.
-4. **응용 프로그램 스토어**를 선택 합니다.
-5. **사용 안 함**을 선택한 다음, **확인**을 선택 합니다.
-6. **적용**을 선택합니다.
+2. **컴퓨터 구성**  >  **관리 템플릿**  >  **Windows 구성 요소** 를 선택 합니다.
+3. **Store** 를 선택합니다.
+4. **응용 프로그램 스토어** 를 선택 합니다.
+5. **사용 안 함** 을 선택한 다음, **확인** 을 선택 합니다.
+6. **적용** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

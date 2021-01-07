@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781722"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654033"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,7 +42,7 @@ ms.locfileid: "92781722"
 
 **ClaimType** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 클레임 형식에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
@@ -66,7 +66,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **DataType** 요소는 다음 값을 지원 합니다.
 
-| Type | Description |
+| 형식 | Description |
 | ------- | ----------- |
 |boolean|부울(`true` 또는 `false`) 값을 나타냅니다.|
 |date| 일반적으로 날짜로 표시 되는 시간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
@@ -90,7 +90,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | 이름 | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다. OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | 예 | 사용할 클레임 형식 이름입니다. |
@@ -125,10 +125,10 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Mask** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | `Type` | 예 | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
-| `Regex` | 아니요 | **`Type`** 가로 설정 된 경우 `Regex` 사용할 정규식을 지정 합니다.
+| `Regex` | 예 | **`Type`** 가로 설정 된 경우 `Regex` 사용할 정규식을 지정 합니다.
 
 다음 예제에서는 `Simple` 마스크를 사용하여 **PhoneNumber** 클레임을 구성합니다.
 
@@ -165,9 +165,9 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Restriction** 요소는 다음 특성을 포함할 수 있습니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
-| MergeBehavior | 아니요 | 식별자가 같은 상위 정책에서 ClaimType과 열거 값을 병합하는 데 사용할 메서드입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 상위 정책에 지정된 컬렉션 끝에 추가해야 하는 데이터 컬렉션입니다. `Prepend` 값은 상위 정책에 지정된 컬렉션 앞에 추가해야 하는 데이터 컬렉션입니다. `ReplaceAll` 값은 상위 정책에 지정되어 있는 무시해야 하는 데이터 컬렉션입니다. |
+| MergeBehavior | 예 | 식별자가 같은 상위 정책에서 ClaimType과 열거 값을 병합하는 데 사용할 메서드입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 상위 정책에 지정된 컬렉션 끝에 추가해야 하는 데이터 컬렉션입니다. `Prepend` 값은 상위 정책에 지정된 컬렉션 앞에 추가해야 하는 데이터 컬렉션입니다. `ReplaceAll` 값은 상위 정책에 지정되어 있는 무시해야 하는 데이터 컬렉션입니다. |
 
 **Restriction** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -182,11 +182,11 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Enumeration** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | 텍스트 | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
 |값 | 예 | 이 옵션 선택과 연결된 클레임 값입니다. |
-| SelectByDefault | 아니요 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
+| SelectByDefault | 예 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
 
 다음 예제에서는 기본값을 `New York`으로 설정하여 **city** 드롭다운 목록 클레임을 구성합니다.
 
@@ -211,10 +211,10 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Pattern** 요소는 다음 특성을 포함할 수 있습니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | 예 | 이 형식의 클레임이 유효하려면 일치해야 하는 정규식입니다. |
-| HelpText | 아니요 | 정규식 검사가 실패 한 경우 사용자에 대 한 오류 메시지입니다. |
+| HelpText | 예 | 정규식 검사가 실패 한 경우 사용자에 대 한 오류 메시지입니다. |
 
 다음 예제에서는 정규식 입력 유효성 검사 및 도움말 텍스트를 사용하여 **email** 클레임을 구성합니다.
 
@@ -223,14 +223,14 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
   <DefaultPartnerClaimTypes>
-    <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
+  <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
   </DefaultPartnerClaimTypes>
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
     <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
-    </Restriction>
- </ClaimType>
+  </Restriction>
+</ClaimType>
 ```
 
 이 경우 ID 경험 프레임워크에서는 전자 메일 형식 입력 유효성 검사가 포함된 전자 메일 주소 클레임을 렌더링합니다.

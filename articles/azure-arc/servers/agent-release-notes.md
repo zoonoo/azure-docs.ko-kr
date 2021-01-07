@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 사용 서버 에이전트의 새로운 기능
-description: 이 문서에는 Azure Arc 사용 서버 에이전트에 대 한 릴리스 정보가 포함 되어 있습니다. 요약 된 많은 문제에 대 한 자세한 내용은 추가 정보를 참조 하세요.
+description: 이 문서에는 Azure Arc 사용 서버 에이전트에 대 한 릴리스 정보가 포함 되어 있습니다. 요약 된 많은 문제에 대 한 자세한 내용은 링크를 참조 하십시오.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 12/21/2020
+ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445288"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722524"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트의 새로운 기능
 
@@ -18,13 +18,29 @@ Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 지속적으로 향
 - 알려진 문제
 - 버그 수정
 
+## <a name="december-2020"></a>2020년 12월
+
+버전: 1.3
+
+### <a name="new-feature"></a>새로운 기능
+
+Windows Server 2008 r 2에 대 한 지원 추가
+
+### <a name="fixed"></a>고정
+
+Linux에서 사용자 지정 스크립트 확장을 설치 하지 못하게 하는 문제가 해결 되었습니다.
+
 ## <a name="november-2020"></a>2020년 11월
+
+버전: 1.2
 
 ### <a name="fixed"></a>고정
 
 RPM 기반 배포에서 업그레이드 한 후 프록시 구성이 손실 될 수 있는 문제를 해결 했습니다.
 
 ## <a name="october-2020"></a>2020년 10월
+
+버전: 1.1
 
 ### <a name="fixed"></a>고정
 
@@ -51,7 +67,7 @@ RPM 기반 배포에서 업그레이드 한 후 프록시 구성이 손실 될 �
 - `azcmagent show --json`간편한 구문 분석할 형식으로 에이전트 상태를 출력 하는 옵션이 추가 되었습니다.
 - `azcmagent show`서버가 Azure에 호스트 된 가상 컴퓨터에 있는지 여부를 나타내는 플래그를 출력에 추가 했습니다.
 - `azcmagent disconnect --force-local-only`Azure 서비스에 연결할 수 없는 경우 로컬 에이전트 상태를 다시 설정 하도록 허용 하는 옵션이 추가 되었습니다.
-- `azcmagent connect --cloud`추가 클라우드를 지원 하기 위한 옵션이 추가 되었습니다. 이 릴리스에서는 Azure만 에이전트 릴리스 시 서비스에서 지원 됩니다.
+- `azcmagent connect --cloud`다른 클라우드를 지원 하기 위한 옵션이 추가 되었습니다. 이 릴리스에서는 Azure만 에이전트 릴리스 시 서비스에서 지원 됩니다.
 - 에이전트가 Azure 지원 언어로 지역화 되었습니다.
 
 ### <a name="fixed"></a>고정
@@ -71,7 +87,7 @@ RPM 기반 배포에서 업그레이드 한 후 프록시 구성이 손실 될 �
 
 ### <a name="known-issues"></a>알려진 문제
 
-이전 버전의 Linux 에이전트를 사용 하 고 프록시 서버를 사용 하도록 구성한 경우 업그레이드 후 프록시 서버 설정을 다시 구성 해야 합니다. 이 위해 실행 `sudo azcmagent_proxy add http://proxyserver.local:83`합니다.
+이전 버전의 Linux 에이전트를 사용 하 고 있고 프록시 서버를 사용 하도록 구성 된 경우 업그레이드 후 프록시 서버 설정을 다시 구성 해야 합니다. 이 위해 실행 `sudo azcmagent_proxy add http://proxyserver.local:83`합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

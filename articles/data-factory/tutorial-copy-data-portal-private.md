@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: c08dd1b5b2f90e874f36c6cf01c4cc5f5ae74d17
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636258"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505991"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Blob 스토리지에서 SQL 데이터베이스로 안전하게 데이터 복사
 
@@ -35,9 +35,9 @@ ms.locfileid: "92636258"
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* **Azure 구독** . Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정** . Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal)를 참조하세요. *스토리지 계정이 선택한 네트워크에서만 액세스를 허용하는지 확인합니다.* 
-* **Azure SQL Database** . 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL 데이터베이스가 없는 경우 만드는 단계를 [SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요. *SQL Database 계정이 선택한 네트워크에서만 액세스를 허용하는지 확인합니다.* 
+* **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure Storage 계정**. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal)를 참조하세요. *스토리지 계정이 선택한 네트워크에서만 액세스를 허용하는지 확인합니다.* 
+* **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL 데이터베이스가 없는 경우 만드는 단계를 [SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요. *SQL Database 계정이 선택한 네트워크에서만 액세스를 허용하는지 확인합니다.* 
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 
@@ -59,17 +59,17 @@ ms.locfileid: "92636258"
 
 다음 SQL 스크립트를 사용하여 SQL 데이터베이스에 **dbo.emp** 테이블을 만듭니다.
 
-    ```sql
-    CREATE TABLE dbo.emp
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50)
-    )
-    GO
+```sql
+CREATE TABLE dbo.emp
+(
+    ID int IDENTITY(1,1) NOT NULL,
+    FirstName varchar(50),
+    LastName varchar(50)
+)
+GO
 
-    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
-    ```
+CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+```
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 데이터 팩터리를 만들고, Data Factory UI를 시작하여 파이프라인을 데이터 팩터리에 만듭니다.

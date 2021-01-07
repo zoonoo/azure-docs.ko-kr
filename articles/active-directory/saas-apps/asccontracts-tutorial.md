@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b0e0703105094507a9f6a16bf30775354f67b950
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d1f45244d09ce55b61b04d88ce2eb4a16289b1ab
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457703"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673004"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>자습서: ASC Contracts와 Azure Active Directory 통합
 
@@ -63,7 +63,7 @@ Azure AD에 ASC Contracts를 통합하도록 구성하려면 갤러리에서 관
 
 4. 검색 상자에 **ASC Contracts** 를 입력하고 결과 패널에서 **ASC Contracts** 를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 ASC Contracts](common/search-new-app.png)
+    ![결과 목록의 ASC Contracts](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -106,7 +106,7 @@ ASC Contracts에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
     b. **회신 URL** 텍스트 상자에서 `https://<subdomain>.asccontracts.com/shibboleth.sso/login` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. ASC Networks Inc. (ASC) 팀( **613.599.6178** )에 문의하여 이러한 값을 얻습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. ASC Networks Inc. (ASC) 팀(**613.599.6178**)에 문의하여 이러한 값을 얻습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -124,13 +124,13 @@ ASC Contracts에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 ### <a name="configure-asc-contracts-single-sign-on"></a>ASC Contracts Single Sign-On 구성
 
-**ASC Contracts** 쪽에서 Single Sign-On을 구성하려면 ASC Networks Inc. (ASC) 지원( **613.599.6178** )에 연락하여 다운로드한 **페더레이션 메타데이터 XML** 을 제공합니다. 그러면 이 애플리케이션에서 SAML SSO 연결이 양쪽에 제대로 설정되도록 설정합니다.
+**ASC Contracts** 쪽에서 Single Sign-On을 구성하려면 ASC Networks Inc. (ASC) 지원(**613.599.6178**)에 연락하여 다운로드한 **페더레이션 메타데이터 XML** 을 제공합니다. 그러면 이 애플리케이션에서 SAML SSO 연결이 양쪽에 제대로 설정되도록 설정합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -143,7 +143,7 @@ ASC Contracts에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
@@ -155,7 +155,7 @@ ASC Contracts에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ASC Contracts에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **ASC Contracts** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **ASC Contracts** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -179,7 +179,7 @@ ASC Contracts에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 ### <a name="create-asc-contracts-test-user"></a>ASC Contracts 테스트 사용자 만들기
 
-ASC Networks Inc. (ASC) 지원 팀( **613.599.6178** )과 협력하여 ASC Contracts 플랫폼에 추가된 사용자를 가져옵니다.
+ASC Networks Inc. (ASC) 지원 팀(**613.599.6178**)과 협력하여 ASC Contracts 플랫폼에 추가된 사용자를 가져옵니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 15067a046d8adc0ba38101bbe24cdc48cd433d56
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901313"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095443"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -94,7 +94,7 @@ Basic, Standard 및 범용 서비스 계층에서는 서버 리스 및 프로 �
 
 ## <a name="hyperscale-service-tier-availability"></a>분산 서비스 계층 가용성
 
-하이퍼 확장 서비스 계층 아키텍처는 [분산 함수 아키텍처](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture) 에 설명 되어 있으며 현재 SQL Managed Instance가 아닌 SQL Database에만 사용할 수 있습니다.
+하이퍼 확장 서비스 계층 아키텍처는 [분산 함수 아키텍처](./service-tier-hyperscale.md#distributed-functions-architecture) 에 설명 되어 있으며 현재 SQL Managed Instance가 아닌 SQL Database에만 사용할 수 있습니다.
 
 ![하이퍼 확장 기능 아키텍처](./media/high-availability-sla/hyperscale-architecture.png)
 
@@ -102,17 +102,17 @@ Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
 
 - 프로세스를 실행 하 `sqlservr.exe` 고, 연결 된 SSD에서 포함 되지 않은 RBPEX cache, TempDB, model 데이터베이스 등과 같은 임시 및 캐시 된 데이터만 포함 하 고 메모리의 계획 캐시, 버퍼 풀 및 columnstore 풀을 포함 하는 상태 비저장 계산 계층입니다. 이 상태 비저장 계층에는 기본 계산 복제본과 장애 조치 (failover) 대상으로 사용할 수 있는 선택적 개수의 보조 계산 복제본이 포함 됩니다.
 - 페이지 서버에서 구성 된 상태 비저장 저장소 계층입니다. 이 계층은 `sqlservr.exe` 계산 복제본에서 실행 되는 프로세스에 대 한 분산 저장소 엔진입니다. 각 페이지 서버에는 연결 된 SSD의 RBPEX cache 및 메모리에 캐시 된 데이터 페이지와 같은 임시 및 캐시 된 데이터만 포함 됩니다. 각 페이지 서버에는 부하 분산, 중복성 및 고가용성을 제공 하기 위해 활성-활성 구성의 쌍을 이루는 페이지 서버가 있습니다.
-- 로그 서비스 프로세스를 실행 하는 계산 노드, 트랜잭션 로그 방문 영역 및 트랜잭션 로그 장기 저장소로 구성 된 상태 저장 트랜잭션 로그 저장소 계층입니다. 방문 영역 및 장기 저장소는 트랜잭션 로그에 대 한 가용성 및 [중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 을 제공 하는 Azure Storage을 사용 하 여 커밋된 트랜잭션에 대 한 데이터 내 구성을 보장 합니다.
-- Azure Storage에 저장 되 고 페이지 서버에서 업데이트 되는 데이터베이스 파일 (.mdf/.ndf)이 포함 된 상태 저장 데이터 저장소 계층입니다. 이 계층은 Azure Storage의 데이터 가용성 및 [중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 기능을 사용 합니다. 이를 통해 데이터 파일의 모든 페이지가 하이퍼 확장 아키텍처 충돌의 다른 계층에 있는 프로세스 또는 계산 노드가 실패 하는 경우에도 유지 됩니다.
+- 로그 서비스 프로세스를 실행 하는 계산 노드, 트랜잭션 로그 방문 영역 및 트랜잭션 로그 장기 저장소로 구성 된 상태 저장 트랜잭션 로그 저장소 계층입니다. 방문 영역 및 장기 저장소는 트랜잭션 로그에 대 한 가용성 및 [중복성](../../storage/common/storage-redundancy.md) 을 제공 하는 Azure Storage을 사용 하 여 커밋된 트랜잭션에 대 한 데이터 내 구성을 보장 합니다.
+- Azure Storage에 저장 되 고 페이지 서버에서 업데이트 되는 데이터베이스 파일 (.mdf/.ndf)이 포함 된 상태 저장 데이터 저장소 계층입니다. 이 계층은 Azure Storage의 데이터 가용성 및 [중복성](../../storage/common/storage-redundancy.md) 기능을 사용 합니다. 이를 통해 데이터 파일의 모든 페이지가 하이퍼 확장 아키텍처 충돌의 다른 계층에 있는 프로세스 또는 계산 노드가 실패 하는 경우에도 유지 됩니다.
 
 모든 하이퍼 규모 계층의 계산 노드는 Azure Service Fabric에서 실행 되며, 각 노드의 상태를 제어 하 고 필요에 따라 사용 가능한 정상 노드로 장애 조치 (failover)를 수행 합니다.
 
-하이퍼 규모의 고가용성에 대 한 자세한 내용은 [hyperscale의 데이터베이스 고가용성](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale)을 참조 하세요.
+하이퍼 규모의 고가용성에 대 한 자세한 내용은 [hyperscale의 데이터베이스 고가용성](./service-tier-hyperscale.md#database-high-availability-in-hyperscale)을 참조 하세요.
 
 
 ## <a name="accelerated-database-recovery-adr"></a>ADR(가속 데이터베이스 복구)
 
-[ADR (가속화 된 데이터베이스 복구)](../accelerated-database-recovery.md) 는 특히 장기 실행 트랜잭션이 있을 때 데이터베이스 가용성을 크게 향상 시키는 새로운 데이터베이스 엔진 기능입니다. ADR는 현재 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 사용할 수 있습니다.
+[ADR (가속화 된 데이터베이스 복구)](../accelerated-database-recovery.md) 는 특히 장기 실행 트랜잭션이 있을 때 데이터베이스 가용성을 크게 향상 시키는 새로운 데이터베이스 엔진 기능입니다. ADR는 현재 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse 분석에 사용할 수 있습니다.
 
 ## <a name="testing-application-fault-resiliency"></a>응용 프로그램 오류 복원 력 테스트
 
@@ -122,7 +122,7 @@ Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
 
 |배포 유형|PowerShell|REST API| Azure CLI|
 |:---|:---|:---|:---|
-|데이터베이스|[AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[데이터베이스 장애 조치](/rest/api/sql/databases(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) 를 사용 하 여에서 REST API 호출을 호출할 수 있습니다 Azure CLI|
+|데이터베이스|[AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[데이터베이스 장애 조치](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az-rest) 를 사용 하 여에서 REST API 호출을 호출할 수 있습니다 Azure CLI|
 |탄력적 풀|[AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[탄력적 풀 장애 조치 (failover)](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) 를 사용 하 여에서 REST API 호출을 호출할 수 있습니다 Azure CLI|
 |관리되는 인스턴스|[AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[관리 되는 인스턴스-장애 조치](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi 장애 조치](/cli/azure/sql/mi/#az-sql-mi-failover)|
 

@@ -1,17 +1,17 @@
 ---
 title: 가격 책정 계층 - Azure Database for MariaDB
 description: 계산 세대, 저장소 유형, 저장소 크기, vCores, 메모리 및 백업 보존 기간을 포함 하 여 Azure Database for MariaDB에 대 한 다양 한 가격 책정 계층에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 5001864bd80917aef6d8631fe2b5097b22afbe03
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125785"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536288"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 가격 책정 계층
 
@@ -21,7 +21,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 5세대 |5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10GB |
+| vCore 메모리 | 2GB | 5GB | 10 GB |
 | 스토리지 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -39,7 +39,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 
 컴퓨팅 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 5세대 논리적 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 프로비전하는 스토리지는 Azure Database for MariaDB 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 MariaDB 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 
@@ -53,7 +53,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 서버를 만드는 동안 및 후에 추가 저장소 용량을 추가 하 고 시스템에서 작업의 저장소 사용량에 따라 저장소를 자동으로 늘릴 수 있습니다.
 
 >[!NOTE]
-> 저장소는 다운 되지 않고 확장만 가능 합니다.
+> 스토리지는 스케일 다운이 아닌 스케일 업만 가능합니다.
 
 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 스토리지 크기와 3:1 비율로 조정됩니다.
 
@@ -108,7 +108,7 @@ vCore 수 또는 가격 책정 계층을 변경하면 새 컴퓨팅 할당을 �
 
 ## <a name="pricing"></a>가격 책정
 
-최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/)를 참조하세요. 원하는 구성 비용을 확인하려면 [Azure Portal](https://portal.azure.com/#create/Microsoft.MariaDBServer)에서 선택한 옵션에 따라 **가격 책정 계층** 탭에 월별 비용이 표시됩니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가**를 선택하고, **데이터베이스** 범주를 확장하고, **Azure Database for MariaDB**를 선택하여 옵션을 사용자 지정합니다.
+최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/)를 참조하세요. 원하는 구성 비용을 확인하려면 [Azure Portal](https://portal.azure.com/#create/Microsoft.MariaDBServer)에서 선택한 옵션에 따라 **가격 책정 계층** 탭에 월별 비용이 표시됩니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가** 를 선택하고, **데이터베이스** 범주를 확장하고, **Azure Database for MariaDB** 를 선택하여 옵션을 사용자 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [서비스 제한 사항](concepts-limits.md)에 대해 알아봅니다.

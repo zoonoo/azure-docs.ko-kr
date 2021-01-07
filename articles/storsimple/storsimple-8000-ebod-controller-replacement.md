@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564230"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014842"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>StorSimple 디바이스의 EBOD 컨트롤러 교체
 
@@ -42,7 +42,7 @@ StorSimple 디바이스에서 오류가 발생한 EBOD 컨트롤러 모듈을 �
 
 #### <a name="to-remove-an-ebod-module"></a>EBOD 모듈을 꺼내려면
 1. Azure Portal을 엽니다.
-2. 장치로 이동 하 고 **설정**  >  **하드웨어 상태**로 이동한 다음 활성 ebod 컨트롤러 모듈의 led 상태가 녹색이 고 실패 한 ebod 컨트롤러 모듈의 led가 빨간색 인지 확인 합니다.
+2. 장치로 이동 하 고 **설정**  >  **하드웨어 상태** 로 이동한 다음 활성 ebod 컨트롤러 모듈의 led 상태가 녹색이 고 실패 한 ebod 컨트롤러 모듈의 led가 빨간색 인지 확인 합니다.
 3. 디바이스 뒷면에서 오류가 발생한 EBOD 컨트롤러 모듈을 찾습니다.
 4. 시스템에서 EBOD 모듈을 꺼내기 전에 EBOD 컨트롤러 모듈을 컨트롤러에 연결하는 케이블을 뺍니다.
 5. 컨트롤러에 연결된 EBOD 컨트롤러 모듈의 SAS 포트를 정확하게 적어둡니다. EBOD 모듈을 교체한 후 시스템을 이 구성으로 복원해야 합니다.

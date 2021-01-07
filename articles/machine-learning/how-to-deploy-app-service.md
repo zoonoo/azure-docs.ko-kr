@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: bea3270821888334ed876bb827dab56b4c206b6a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5f3861d43715ed68116d25206efe4347ea96805c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325239"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452140"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 machine learning 모델 배포 (미리 보기)
 
@@ -29,7 +29,7 @@ Azure App Service에서 웹 앱으로 Azure Machine Learning에서 모델을 배
 Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker 이미지를 만들 수 있습니다. 이 이미지에는 데이터를 수신 하 고 모델에 제출한 다음 응답을 반환 하는 웹 서비스가 포함 되어 있습니다. Azure App Service는 이미지를 배포 하는 데 사용할 수 있으며 다음과 같은 기능을 제공 합니다.
 
 * 보안 강화를 위한 고급 [인증](../app-service/configure-authentication-provider-aad.md) 인증 방법에는 Azure Active Directory 및 multi-factor auth가 모두 포함 됩니다.
-* 다시 배포할 필요 없이 [자동으로 크기를 조정](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json) 합니다.
+* 다시 배포할 필요 없이 [자동으로 크기를 조정](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) 합니다.
 * 클라이언트와 서비스 간의 보안 통신을 위한 [TLS 지원](../app-service/configure-ssl-certificate-in-code.md)
 
 Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App Service 개요](../app-service/overview.md)를 참조 하세요.
@@ -75,7 +75,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 이러한 엔터티는 __유추 구성__ 에 캡슐화 됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다.
 
 > [!IMPORTANT]
-> Azure App Service에 사용할 유추 구성을 만드는 경우 [환경](//python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version >= 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
+> Azure App Service에 사용할 유추 구성을 만드는 경우 [환경](/python/api/azureml-core/azureml.core.environment(class)?preserve-view=true&view=azure-ml-py) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version >= 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 
 ## <a name="create-the-image"></a>이미지 만들기
 
-Azure App Service에 배포 되는 Docker 이미지를 만들려면 [모델인 패키지](//python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-)를 사용 합니다. 다음 코드 조각에서는 모델 및 유추 구성에서 새 이미지를 작성 하는 방법을 보여 줍니다.
+Azure App Service에 배포 되는 Docker 이미지를 만들려면 [모델인 패키지](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py)를 사용 합니다. 다음 코드 조각에서는 모델 및 유추 구성에서 새 이미지를 작성 하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 이 코드 조각에서는에 `model` 등록 된 모델이 포함 되어 있고 `inference_config` 유추 환경에 대 한 구성이 포함 되어 있다고 가정 합니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
@@ -115,7 +115,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-`show_output=True`인 경우 Docker 빌드 프로세스의 출력이 표시 됩니다. 프로세스가 완료 되 면 작업 영역에 대 한 Azure Container Registry에 이미지가 생성 됩니다. 이미지가 빌드되면 Azure Container Registry의 위치가 표시 됩니다. 반환 된 위치는 형식입니다 `<acrinstance>.azurecr.io/package@sha256:<imagename>` . `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`)을 입력합니다.
+`show_output=True`인 경우 Docker 빌드 프로세스의 출력이 표시 됩니다. 프로세스가 완료 되 면 작업 영역에 대 한 Azure Container Registry에 이미지가 생성 됩니다. 이미지가 빌드되면 Azure Container Registry의 위치가 표시 됩니다. 반환 된 위치는 형식입니다 `<acrinstance>.azurecr.io/package@sha256:<imagename>` . 예: `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > 이미지를 배포할 때 사용 되는 위치 정보를 저장 합니다.
@@ -247,7 +247,7 @@ az webapp show --name <app-name> --resource-group myresourcegroup
 
 ## <a name="use-the-web-app"></a>웹 앱 사용
 
-모델에 요청을 전달 하는 웹 서비스는에 `{baseurl}/score` 있습니다. `https://<app-name>.azurewebsites.net/score`)을 입력합니다. 다음 Python 코드는 URL에 데이터를 전송 하 고 응답을 표시 하는 방법을 보여 줍니다.
+모델에 요청을 전달 하는 웹 서비스는에 `{baseurl}/score` 있습니다. 예: `https://<app-name>.azurewebsites.net/score`. 다음 Python 코드는 URL에 데이터를 전송 하 고 응답을 표시 하는 방법을 보여 줍니다.
 
 ```python
 import requests
@@ -271,7 +271,7 @@ print(response.json())
 ## <a name="next-steps"></a>다음 단계
 
 * [Linux의 App Service](/azure/app-service/containers/) 설명서에서 웹 앱을 구성 하는 방법에 대해 알아봅니다.
-* [Azure에서 자동 크기 조정 시작](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json)에서 크기 조정에 대해 자세히 알아보세요.
+* [Azure에서 자동 크기 조정 시작](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)에서 크기 조정에 대해 자세히 알아보세요.
 * [Azure App Service에서 TLS/SSL 인증서를 사용](../app-service/configure-ssl-certificate-in-code.md)합니다.
 * [Azure Active Directory 로그인을 사용 하도록 App Service 앱을 구성](../app-service/configure-authentication-provider-aad.md)합니다.
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)

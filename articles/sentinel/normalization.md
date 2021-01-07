@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 0c6129a24e6ed083114971df5f254eca54924400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939809"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657026"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Azure 센티널의 정규화
 
@@ -58,7 +58,7 @@ OSSEM entity 구조에 대해 자세히 알아보려면 [공식 ossem 참조](ht
 
 ### <a name="how-the-normalized-schemas-are-implemented-in-azure-sentinel"></a>Azure 센티널에서 정규화 된 스키마를 구현 하는 방법
 
-Azure 센티널에서 OSSEM CIM을 구현 하는 경우이 표현이 기본 제공 테이블 인지 또는 기존 데이터를이 표현으로 매핑하는 함수 또는 쿼리 시간 파서를 사용 하 여 생성 되었는지에 대 한 Log Analytics 테이블 형식 표현으로 OSSEM 표현을 프로젝션 합니다. 테이블 형식 표현의 경우 OSSEM 엔터티 이름 및 특성 이름을 연결 하 고이를 단일 열 이름에 집합적으로 매핑합니다. 예를 들어 md5 특성을 포함 하는 해시 엔터티를 포함 하는 파일 엔터티가 포함 된 원본 엔터티는 다음 Log Analytics 열로 구현 됩니다. SrcFileHashMd5. (OSSEM은 기본적으로 *snake_case* 를 사용 하는 반면, Azure 센티널 및 Log Analytics는 고 *대/소문자*를 사용 합니다. OSSEM에서는 이러한 열이 src_file_hash_md5 됩니다.
+Azure 센티널에서 OSSEM CIM을 구현 하는 경우이 표현이 기본 제공 테이블 인지 또는 기존 데이터를이 표현으로 매핑하는 함수 또는 쿼리 시간 파서를 사용 하 여 생성 되었는지에 대 한 Log Analytics 테이블 형식 표현으로 OSSEM 표현을 프로젝션 합니다. 테이블 형식 표현의 경우 OSSEM 엔터티 이름 및 특성 이름을 연결 하 고이를 단일 열 이름에 집합적으로 매핑합니다. 예를 들어 md5 특성을 포함 하는 해시 엔터티를 포함 하는 파일 엔터티가 포함 된 원본 엔터티는 다음 Log Analytics 열로 구현 됩니다. SrcFileHashMd5. (OSSEM은 기본적으로 *snake_case* 를 사용 하는 반면, Azure 센티널 및 Log Analytics는 고 *대/소문자* 를 사용 합니다. OSSEM에서는 이러한 열이 src_file_hash_md5 됩니다.
 
 Log Analytics 플랫폼 요구 사항과 Azure 센티널 고객과 관련 된 사용 사례로 인해 Azure 센티널 구현에 추가 사용자 지정 필드가 있을 수 있습니다.
 
@@ -84,7 +84,7 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 
 1. 위의 GitHub 링크에 있는 관련 된 각 KQL 파일의 관련 파서 콘텐츠를 클립보드에 복사 합니다.
 
-1. Azure 센티널 포털에서 로그 페이지를 열고 KQL 파일의 내용을 로그 화면에 붙여넣은 다음 **저장**을 클릭 합니다.
+1. Azure 센티널 포털에서 로그 페이지를 열고 KQL 파일의 내용을 로그 화면에 붙여넣은 다음 **저장** 을 클릭 합니다.
 
     :::image type="content" source="./media/normalization/install-new-parser.png" alt-text="새 파서 설치":::
 
@@ -97,7 +97,7 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 
     1. **범주**: 기존 범주를 선택 하거나 새 범주를 만들 수 있습니다 (예: *NormalizedNetworkSessionsParsers*).
     
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="새 파서 설치":::
+        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="파서 저장":::
 
 파서를 제대로 사용 하려면 빈 네트워크 스키마 파서 (모든 네트워크 세션 스키마의 필드에 대 한 빈 테이블 형식 뷰를 만드는)와 네트워크 메타 파서 (네트워크 스키마의 다양 한 원본에서 데이터의 단일 뷰를 만드는 데 사용 하도록 설정 된 모든 파서가 통합 됨)도 설치 해야 합니다. 이러한 두 파서를 설치 하는 것은 앞서 언급 한 단계와 비슷한 방식으로 수행 됩니다.
 
@@ -107,13 +107,15 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 
 사용 하도록 설정 된 후에는 메타 파서를 사용 하 여 현재 사용할 수 있는 모든 파서에서 통합 뷰를 쿼리할 수 있습니다. 이렇게 하려면 센티널 로그 페이지로 이동 하 여 메타 파서를 쿼리 합니다.
 
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="새 파서 설치":::
+:::image type="content" source="./media/normalization/query-parser.png" alt-text="파서 쿼리":::
  
 ' 쿼리 탐색기 '를 클릭 하 여 센티널 로그 페이지에서 쿼리 탐색기를 사용 하 여 메타 파서 또는 개별 파서에 액세스할 수도 있습니다.
 
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="새 파서 설치" 섹션을 확장 하 고 ' NormalizedNetworkParsers ' 폴더 (또는 파서를 만들 때 선택한 범주 이름)를 찾습니다.
+:::image type="content" source="./media/normalization/query-explorer.png" alt-text="쿼리 탐색기":::
 
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="새 파서 설치":::
+오른쪽 창에서 "저장 된 쿼리" 섹션을 확장 하 고 ' NormalizedNetworkParsers ' 폴더 (또는 파서를 만들 때 선택한 범주 이름)를 찾습니다.
+
+:::image type="content" source="./media/normalization/find-parser.png" alt-text="파서 찾기":::
 
 각 개별 파서를 클릭 하 고, 사용 하는 기본 함수를 확인 하 여 실행 하거나, 위에 설명 된 대로 해당 별칭으로 직접 액세스할 수 있습니다. 일부 파서는 편의를 위해 원래 필드를 정규화 된 필드와 나란히 유지할 수 있습니다. 이는 파서의 쿼리에서 쉽게 편집할 수 있습니다.
 
@@ -122,15 +124,15 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 위의 단계를 반복 하 여 (쿼리 탐색기에서 파서를 찾고) 관련 파서를 클릭 하 고 함수 구현을 볼 수 있습니다.
 예를 들어, 메타 파서를 편집 하 여 개별 파서를 추가/제거 하도록 결정할 수 있습니다.
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="새 파서 설치":::
+:::image type="content" source="./media/normalization/customize-parser.png" alt-text="파서 사용자 지정":::
  
 함수를 변경한 후 "저장"을 다시 클릭 하 고 동일한 이름, 별칭 및 범주를 사용 합니다. 재정의 대화 상자가 열립니다. "확인"을 누릅니다.
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="새 파서 설치":::
+:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="확실한가요":::
 
 #### <a name="additional-information"></a>추가 정보
 
-Log Analytics의 [저장 된 쿼리](../azure-monitor/log-query/saved-queries.md) (쿼리 시간 파서 구현)에 대해 자세히 알아보세요.
+Log Analytics의 [저장 된 쿼리](../azure-monitor/log-query/example-queries.md) (쿼리 시간 파서 구현)에 대해 자세히 알아보세요.
 
 
 ## <a name="next-steps"></a>다음 단계

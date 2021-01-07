@@ -3,25 +3,20 @@ title: Windows 가상 데스크톱 (클래식)에 대 한 진단 도구 배포-A
 description: Windows 가상 데스크톱에 대 한 진단 UX 도구 (클래식)를 배포 하는 방법
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691414"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515635"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Windows 가상 데스크톱 (클래식) 진단 도구 배포
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
-
->[!IMPORTANT]
->2020 년 3 월 16 일부 터 서비스에 대 한 수요 증가로 인해 사용자 환경에 영향을 주는 진단 쿼리를 일시적으로 사용 하지 않도록 설정 했습니다. 이렇게 하면 해당 쿼리가 작동 하는 데 의존 하므로 도구가 작동을 중지 합니다. 진단 쿼리를 다시 사용할 수 있게 되 면이 문서를 업데이트 합니다.
->
->그때 까지는 계속 모니터링을 위해 [Log Analytics를 사용](diagnostics-log-analytics-2019.md) 하는 것이 좋습니다.
 
 Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -43,8 +38,8 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 
 또한 시작 하기 전에 다음 두 PowerShell 모듈을 설치 해야 합니다.
 
-- [Azure PowerShell 모듈](/powershell/azure/install-az-ps?view=azps-2.4.0/)
-- [Azure AD 모듈](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
+- [Azure PowerShell 모듈](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
+- [Azure AD 모듈](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
 
 로그인 할 때 구독 ID가 준비 되어 있는지 확인 합니다.
 
@@ -94,10 +89,10 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
 2.  [RDS 템플릿 GitHub 리포지토리](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) 로 이동 하 고 PowerShell에서 **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** 스크립트를 실행 합니다.
 3. 매개 변수에 대해 다음 값을 입력합니다.
 
-    - **ResourceGroupName**에 대해 리소스 그룹의 이름을 입력 합니다.
-    - **LogAnalyticsWorkspaceName**의 경우 Log Analytics 작업 영역에 대 한 고유한 이름을 입력 합니다.
-    - **위치**에 사용 중인 Azure 지역을 입력 합니다.
-    - **구독**아래 Azure Portal에서 찾을 수 있는 **Azure 구독 ID**를 입력 합니다.
+    - **ResourceGroupName** 에 대해 리소스 그룹의 이름을 입력 합니다.
+    - **LogAnalyticsWorkspaceName** 의 경우 Log Analytics 작업 영역에 대 한 고유한 이름을 입력 합니다.
+    - **위치** 에 사용 중인 Azure 지역을 입력 합니다.
+    - **구독** 아래 Azure Portal에서 찾을 수 있는 **Azure 구독 ID** 를 입력 합니다.
 
 4. 위임 된 관리자 액세스 권한이 있는 사용자의 자격 증명을 입력 합니다.
 5. 동일한 사용자의 자격 증명을 사용 하 여 Azure Portal에 로그인 합니다.
@@ -112,7 +107,7 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
 
 1. 인터넷 브라우저를 열고 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 다음으로 **Log Analytics 작업 영역** 으로 이동 하 여 구성 된 Windows 성능 카운터를 검토 합니다.
-3. **설정** 섹션에서 **고급 설정**을 선택 합니다.
+3. **설정** 섹션에서 **고급 설정** 을 선택 합니다.
 4. 그런 후 **데이터**  >  **Windows 성능 카운터** 로 이동 하 여 다음 카운터를 추가 합니다.
 
     -   논리 디스크 ( \* ) \\ % 사용 가능한 공간
@@ -121,7 +116,7 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
     -   프로세서 정보 ( \* ) \\ 프로세서 시간
     -   세션당 사용자 입력 지연 ( \* ) \\ 최대 입력 지연
 
-[Azure Monitor의 Windows 및 Linux 성능 데이터 원본](/azure/azure-monitor/platform/data-sources-performance-counters)에서 성능 카운터에 대해 자세히 알아보세요.
+[Azure Monitor의 Windows 및 Linux 성능 데이터 원본](../../azure-monitor/platform/data-sources-performance-counters.md)에서 성능 카운터에 대해 자세히 알아보세요.
 
 >[!NOTE]
 >구성 하는 추가 카운터는 진단 도구 자체에 표시 되지 않습니다. 진단 도구에 표시 되도록 하려면 도구의 구성 파일을 구성 해야 합니다. 고급 관리를 사용 하 여이 작업을 수행 하는 방법에 대 한 지침은 GitHub의 이후 날짜로 제공 됩니다.
@@ -135,8 +130,8 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
 앱 등록에 API 권한이 있는지 확인 하려면 다음을 수행 합니다.
 
 1. 브라우저를 열고 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 연결 합니다.
-2. **Azure Active Directory**로 이동합니다.
-3. **앱 등록** 로 이동 하 여 **모든 응용 프로그램**을 선택 합니다.
+2. **Azure Active Directory** 로 이동합니다.
+3. **앱 등록** 로 이동 하 여 **모든 응용 프로그램** 을 선택 합니다.
 4. [Azure Active Directory 앱 등록 만들기](deploy-diagnostics.md#create-an-azure-active-directory-app-registration)의 5 단계에서 입력 한 것과 동일한 앱 이름을 사용 하 여 Azure AD 앱 등록을 찾습니다.
 
 ### <a name="review-your-log-analytics-workspace"></a>Log Analytics 작업 영역 검토
@@ -144,8 +139,8 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
 Log Analytics 작업 영역에 미리 구성 된 Windows 성능 카운터가 있는지 확인 하려면 다음을 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 **Log Analytics 작업 영역** 으로 이동 하 여 구성 된 Windows 성능 카운터를 검토 합니다.
-2. **설정**아래에서 **고급 설정**을 선택 합니다.
-3. 그런 다음 **데이터**  >  **Windows 성능 카운터**로 이동 합니다.
+2. **설정** 아래에서 **고급 설정** 을 선택 합니다.
+3. 그런 다음 **데이터**  >  **Windows 성능 카운터** 로 이동 합니다.
 4. 다음 카운터가 미리 구성 되어 있는지 확인 합니다.
 
    - 논리 디스크 ( \* ) \\ % 사용 가능한 공간: 디스크에서 사용 가능한 총 공간 (%)의 사용 가능한 공간 크기를 표시 합니다.
@@ -160,9 +155,9 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
 1. 브라우저를 열고 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 2. Log Analytics 작업 영역으로 이동 합니다.
-3. 왼쪽 패널의 작업 영역 데이터 원본에서 **virtual machines**를 선택 합니다.
+3. 왼쪽 패널의 작업 영역 데이터 원본에서 **virtual machines** 를 선택 합니다.
 4. 연결 하려는 VM의 이름을 선택 합니다.
-5. **연결**을 선택합니다.
+5. **연결** 을 선택합니다.
 
 ## <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
@@ -175,7 +170,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
     -   Client-Secret
     -   Log Analytics 작업 영역 ID
 
-3.  입력 매개 변수가 제공 되 면 사용 약관에 동의한 다음 **구매**를 선택 합니다.
+3.  입력 매개 변수가 제공 되 면 사용 약관에 동의한 다음 **구매** 를 선택 합니다.
 
 배포에는 2 ~ 3 분이 소요 됩니다. 성공적으로 배포 되 면 리소스 그룹으로 이동 하 여 웹 앱 및 app service 계획 리소스가 있는지 확인 합니다.
 
@@ -188,7 +183,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 1.  [Azure Portal](https://portal.azure.com/)에서 **App Services** 으로 이동 하 여 만든 응용 프로그램을 찾습니다.
 2.  개요 페이지로 이동 하 여 찾은 URL을 복사 합니다.
 3.  **앱 등록** 으로 이동 하 여 배포 하려는 앱을 선택 합니다.
-4.  왼쪽 패널의 관리 섹션에서 **인증**을 선택 합니다.
+4.  왼쪽 패널의 관리 섹션에서 **인증** 을 선택 합니다.
 5.  **리디렉션 uri** 텍스트 상자에 원하는 리디렉션 uri를 입력 한 다음 메뉴의 왼쪽 위 모서리에서 **저장** 을 선택 합니다.
 6. 유형 아래의 드롭다운 메뉴에서 **웹** 을 선택 합니다.
 7. 앱 개요 페이지에서 URL을 입력 하 고 끝에 **/security/signin-callback** 를 추가 합니다. 예: `https://<yourappname>.azurewebsites.net/security/signin-callback`
@@ -198,13 +193,13 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
 8. 이제 Azure 리소스로 이동 하 여 템플릿에서 제공한 이름으로 Azure 앱 Services 리소스를 선택 하 고 연결 된 URL로 이동 합니다. 예를 들어 템플릿에서 사용한 앱 이름이 인 경우 `contosoapp45` 연결 된 URL은입니다 <http://contoso.azurewebsites.net> .
 9. 적절한 Azure Active Directory 사용자 계정을 사용하여 로그인합니다.
-10.   **수락**을 선택합니다.
+10.   **수락** 을 선택합니다.
 
 ## <a name="distribute-the-diagnostics-tool"></a>진단 도구 배포
 
 진단 도구를 사용자에 게 제공 하기 전에 다음 권한이 있는지 확인 합니다.
 
-- 사용자는 log analytics에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 Azure Monitor를 사용 하 여 [역할, 권한 및 보안 시작](/azure/azure-monitor/platform/roles-permissions-security)을 참조 하세요.
+- 사용자는 log analytics에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 Azure Monitor를 사용 하 여 [역할, 권한 및 보안 시작](../../azure-monitor/platform/roles-permissions-security.md)을 참조 하세요.
 -  또한 사용자에 게는 Windows 가상 데스크톱 테 넌 트 (RDS Reader 역할)에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 [Windows 가상 데스크톱의 위임 된 액세스](delegated-access-virtual-desktop-2019.md)를 참조 하세요.
 
 또한 사용자에 게 다음 정보를 제공 해야 합니다.

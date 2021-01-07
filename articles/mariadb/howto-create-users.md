@@ -1,17 +1,17 @@
 ---
 title: 사용자 만들기-Azure Database for MariaDB
 description: 이 문서에서는 Azure Database for MariaDB 서버와 상호 작용할 새로운 사용자 계정을 만드는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 7a3515850027963dcabbf2cef4efd8bf43802cbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 882c8365bda87e97bfbc3bee9bdd320b312b4114
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653063"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542714"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 사용자 만들기 
 이 문서에서는 Azure Database for MariaDB 서버에서 사용자를 만드는 방법을 설명합니다.
@@ -19,7 +19,7 @@ ms.locfileid: "91653063"
 > [!NOTE]
 > 바이어스 없는 통신
 >
-> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _slave(슬레이브)_ 라는 단어에 대한 참조가 포함되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md)에서는 이 단어를 '배제(exclusionary)'라는 단어로 인식합니다. 이 단어는 현재 소프트웨어에 표시되는 단어이므로 일관성을 위해 이 문서에서 사용됩니다. 이 단어를 제거하도록 소프트웨어가 업데이트되면 이 문서도 이에 맞춰 업데이트됩니다.
 >
 
 Azure Database for MariaDB를 처음으로 만든 경우 서버 관리자 로그인 사용자 이름과 암호를 제공했습니다. 자세한 내용은 [빠른 시작](quickstart-create-mariadb-server-database-using-azure-portal.md)을 참조하세요. Azure Portal에서 서버 관리자 로그인 사용자 이름을 찾을 수 있습니다.
@@ -39,7 +39,7 @@ Azure Database for MariaDB 서버가 생성되면 첫 번째 서버 관리 사�
 2. 관리자 계정 및 암호를 사용하여 데이터베이스 서버에 연결합니다. MySQL Workbench, mysql.exe, HeidiSQL 또는 그 외의 선호하는 클라이언트 도구를 사용하면 됩니다. 
    연결 방법을 잘 모르는 경우 [MySQL Workbench를 사용하여 연결하고 데이터 쿼리](./connect-workbench.md)를 참조하세요.
 
-3. 다음 SQL 코드를 편집하고 실행합니다. `new_master_user` 자리 표시자 값을 새로운 사용자 이름으로 바꿉니다. 이 구문은 모든 데이터베이스 스키마(*.*)에 나열된 권한을 사용자 이름(이 예에서는 new_master_user)에 부여합니다. 
+3. 다음 SQL 코드를 편집하고 실행합니다. `new_master_user` 자리 표시자 값을 새로운 사용자 이름으로 바꿉니다. 이 구문은 모든 데이터베이스 스키마( *.* )에 나열된 권한을 사용자 이름(이 예에서는 new_master_user)에 부여합니다. 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

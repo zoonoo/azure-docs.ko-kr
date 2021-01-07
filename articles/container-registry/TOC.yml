@@ -57,6 +57,9 @@
           href: container-registry-image-tag-version.md
         - name: 지역에서 복제
           href: container-registry-geo-replication.md
+        - name: 영역 중복
+          displayName: availability zone
+          href: zone-redundancy.md
         - name: 레지스트리 모범 사례
           href: container-registry-best-practices.md
         - name: 퍼블릭 이미지 관리
@@ -126,7 +129,7 @@
             - name: 콘텐츠 신뢰
               href: container-registry-content-trust.md
             - name: Security Center를 사용하여 이미지 검색
-              href: ../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json
+              href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
         - name: 레지스트리 및 기타 Azure 서비스
           expanded: false
           items:

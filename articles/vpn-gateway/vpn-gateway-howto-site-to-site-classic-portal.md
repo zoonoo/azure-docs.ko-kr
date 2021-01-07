@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7680c7ad4b2c5c8b8c1c13fb2344575659eda140
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 346536f5797841a850ef97dc4667110eafa721a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892824"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656959"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "91892824"
 
 ![사이트 간 VPN Gateway 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
@@ -46,10 +46,10 @@ ms.locfileid: "91892824"
 * **리소스 그룹:** TestRG1
 * **VNet 이름:** TestVNet1
 * **주소 공간:** 10.11.0.0/16
-* **서브넷 이름:** 엔드
+* **서브넷 이름:** FrontEnd
 * **서브넷 주소 범위:** 10.11.0.0/24
 * **게이트웨이 서브넷:** 10.11.255.0/27
-* **지역:** 미국 동부
+* **지역:** (미국) 미국 동부
 * **로컬 사이트 이름:** Site2
 * **클라이언트 주소 공간:** 온-프레미스 사이트에 있는 주소 공간입니다.
 
@@ -73,9 +73,9 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
 
 로컬 사이트는 일반적으로 온-프레미스 위치를 가리킵니다. VPN 디바이스의 IP 주소를 포함하며 여기에서 VPN 디바이스에 대한 VPN Gateway를 통해 라우팅되는 연결 및 IP 주소 범위를 만듭니다.
 
-1. VNet에 대 한 페이지의 **설정**아래에서 **사이트 간 연결**을 선택 합니다.
-1. 사이트 간 연결 페이지에서 **+ 추가**를 선택 합니다.
-1. **VPN 연결 및 게이트웨이 구성** 페이지에서 **연결 형식**으로 **사이트 간** 을 선택 된 상태로 둡니다. 이 연습에서는 [예제 값](#values) 과 고유한 값을 조합 하 여 사용 해야 합니다.
+1. VNet에 대 한 페이지의 **설정** 아래에서 **사이트 간 연결** 을 선택 합니다.
+1. 사이트 간 연결 페이지에서 **+ 추가** 를 선택 합니다.
+1. **VPN 연결 및 게이트웨이 구성** 페이지에서 **연결 형식** 으로 **사이트 간** 을 선택 된 상태로 둡니다. 이 연습에서는 [예제 값](#values) 과 고유한 값을 조합 하 여 사용 해야 합니다.
 
    * **VPN Gateway IP 주소:** 온-프레미스 네트워크에 대한 VPN 디바이스의 공용 IP 주소입니다. VPN 디바이스에는 IPv4 공용 IP 주소가 필요합니다. 연결하려는 VPN 디바이스에 유효한 공용 IP 주소를 지정합니다. Azure에서 연결할 수 있어야 합니다. VPN 디바이스의 IP 주소를 모르는 경우 항상 자리 표시자 값을 넣고(반드시 유효한 공용 IP 주소 형식으로) 나중에 변경할 수 있습니다.
 
@@ -125,7 +125,7 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
    -LocalNetworkSiteName '6C74F6E6_Site2' -SharedKey abc123
    ```
 
-1. 연결이 생성된 경우 결과는 **상태: 성공**입니다.
+1. 연결이 생성된 경우 결과는 **상태: 성공** 입니다.
 
 ## <a name="verify-your-connection"></a><a name="verify"></a>연결 확인
 
@@ -135,7 +135,7 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
 
 ## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>VPN 게이트웨이를 다시 설정하는 방법
 
-Azure VPN Gateway 재설정은 하나 이상의 사이트 간 VPN 터널에서 크로스-프레미스 VPN 연결이 손실되는 경우에 유용합니다. 이 상황에서 온-프레미스 VPN 디바이스는 모두 올바르게 작동하지만 Azure VPN 게이트웨이와 IPsec 터널을 설정할 수 없습니다. 자세한 단계는 [VPN 게이트웨이 다시 설정](vpn-gateway-resetgw-classic.md#resetclassic)을 참조하세요.
+Azure VPN Gateway 재설정은 하나 이상의 사이트 간 VPN 터널에서 크로스-프레미스 VPN 연결이 손실되는 경우에 유용합니다. 이 상황에서 온-프레미스 VPN 디바이스는 모두 올바르게 작동하지만 Azure VPN 게이트웨이와 IPsec 터널을 설정할 수 없습니다. 자세한 단계는 [VPN 게이트웨이 다시 설정](./reset-gateway.md#resetclassic)을 참조하세요.
 
 ## <a name="how-to-change-a-gateway-sku"></a><a name="changesku"></a>게이트웨이 SKU를 변경하는 방법
 
@@ -143,5 +143,5 @@ Azure VPN Gateway 재설정은 하나 이상의 사이트 간 VPN 터널에서 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/)를 참조하세요.
+* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조하세요.
 * 강제 터널링에 대 한 자세한 내용은 [강제 터널링](vpn-gateway-about-forced-tunneling.md)정보를 참조 하세요.

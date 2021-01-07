@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: c869069e40780b1fd399758e84b0ffba311398e3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7b52a066f80b686a0e424d8f63d520d46691a72a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334194"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187819"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Azure Cosmos DB 계정에 대해 노트북 사용 (미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -76,4 +76,4 @@ Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Cosmos DB Jupyter Notebooks](cosmosdb-jupyter-notebooks.md)의 이점에 대해 알아보기
+- [Jupyter 노트북 Azure Cosmos DB](cosmosdb-jupyter-notebooks.md) 의 이점에 대해 알아봅니다.

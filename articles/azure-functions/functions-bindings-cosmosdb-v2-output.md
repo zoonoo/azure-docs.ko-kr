@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6a75b0c5b30f60afe51eebc395d21b7c05e8af7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 454ac9a377800bd11a53250569c3e7b65bac713a
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212755"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558796"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Azure Functions 2.x 이상에 대 한 Azure Cosmos DB 출력 바인딩
 
@@ -303,6 +303,29 @@ JavaScript 코드는 다음과 같습니다.
     };
 ```
 
+대량 삽입의 경우 개체를 먼저 만든 다음 json.stringify 함수를 실행 합니다. JavaScript 코드는 다음과 같습니다.
+
+```javascript
+    module.exports = function (context) {
+    
+        context.bindings.employeeDocument = JSON.stringify([
+        {
+            "id": "John Henry-123456",
+            "name": "John Henry",
+            "employeeId": "123456",
+            "address": "A town nearby"
+        },
+        {
+            "id": "John Doe-123457",
+            "name": "John Doe",
+            "employeeId": "123457",
+            "address": "A town far away"
+        }]);
+    
+      context.done();
+    };
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 다음 예제에서는 Azure CosmosDB 데이터베이스에 문서를 함수의 출력으로 작성 하는 방법을 보여 줍니다.
@@ -571,7 +594,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** | **DatabaseName**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
 |**collectionName** |**CollectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
-|**createIfNotExists**  |**CreateIfNotExists**    | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 기본값은 *false*입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.  |
+|**createIfNotExists**  |**CreateIfNotExists**    | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 기본값은 *false* 입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.  |
 |**partitionKey**|**PartitionKey** |`CreateIfNotExists`이 true 이면 생성 된 컬렉션에 대 한 파티션 키 경로를 정의 합니다.|
 |**collectionThroughput**|**CollectionThroughput**| `CreateIfNotExists`이 true 이면 생성 된 컬렉션의 [처리량](../cosmos-db/set-throughput.md) 을 정의 합니다.|
 |**connectionStringSetting**    |**ConnectionStringSetting** |Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
@@ -589,7 +612,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참조 |
+| 바인딩 | 참고 |
 |---|---|
 | CosmosDB | [CosmosDB 오류 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
@@ -614,7 +637,7 @@ Python에서는 특성을 지원하지 않습니다.
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
 |프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.|

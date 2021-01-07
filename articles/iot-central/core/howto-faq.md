@@ -3,16 +3,16 @@ title: Azure IoT Central 질문과 대답 | Microsoft Docs
 description: Azure IoT Central FAQ (질문과 대답) 및 답변
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/23/2020
+ms.date: 12/20/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: cbe0dbe55f903c25556698a5d510bf9e67b408be
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: acabaf843f8acfe7bc0b5e9456dee09bde74bef7
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126723"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796043"
 ---
 # <a name="frequently-asked-questions-for-iot-central"></a>IoT Central에 대 한 질문과 대답
 
@@ -32,21 +32,21 @@ ms.locfileid: "92126723"
 
 :::image type="content" source="media/howto-faq/blocked.png" alt-text="차단 된 장치를 보여 주는 스크린샷":::
 
-운영자가 장치를 차단 해제 하면 상태가 이전 값으로 반환 되 고 **등록** 되거나 **프로 비전**됩니다.
+운영자가 장치를 차단 해제 하면 상태가 이전 값으로 반환 되 고 **등록** 되거나 **프로 비전** 됩니다.
 
 **장치를 승인 어떻게 할까요??**
 
 **장치 페이지에서** 장치 상태가 **승인 대기** 중인 경우 **자동 승인** 옵션이 사용 되지 않도록 설정 되어 있음을 의미 합니다.
 
-:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="차단 된 장치를 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="자동 승인 옵션이 사용 하지 않도록 설정 된 응용 프로그램을 보여 주는 스크린샷":::
 
-운영자는 데이터 보내기를 시작 하기 전에 장치를 명시적으로 승인 해야 합니다. **장치 페이지에** 수동으로 등록 되지 않았지만 유효한 자격 증명으로 연결 된 장치는 **승인 대기 중인**장치 상태를 가집니다. 운영자는 **승인** 단추를 사용 하 여 **장치** 페이지에서 이러한 장치를 승인할 수 있습니다.
+운영자는 데이터 보내기를 시작 하기 전에 장치를 명시적으로 승인 해야 합니다. **장치 페이지에** 수동으로 등록 되지 않았지만 유효한 자격 증명으로 연결 된 장치는 **승인 대기 중인** 장치 상태를 가집니다. 운영자는 **승인** 단추를 사용 하 여 **장치** 페이지에서 이러한 장치를 승인할 수 있습니다.
 
-:::image type="content" source="media/howto-faq/approve-device.png" alt-text="차단 된 장치를 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-faq/approve-device.png" alt-text="장치를 승인 하는 방법을 보여 주는 스크린샷":::
 
 **장치를 장치 템플릿과 연결 어떻게 할까요??**
 
-장치 상태가 **연결 되지 않음 인 경우**IoT Central 연결 하는 장치에 연결 된 장치 템플릿이 없음을 의미 합니다. 이 상황은 일반적으로 다음과 같은 시나리오에서 발생 합니다.
+장치 상태가 **연결 되지 않음 인 경우** IoT Central 연결 하는 장치에 연결 된 장치 템플릿이 없음을 의미 합니다. 이 상황은 일반적으로 다음과 같은 시나리오에서 발생 합니다.
 
 - 장치 템플릿을 지정 하지 않고 **장치 페이지에서** **가져오기** 를 사용 하 여 일련의 장치를 추가 합니다.
 - 장치 템플릿을 지정 하지 않고 **장치 페이지에서** 장치를 수동으로 등록 했습니다. 그런 다음 장치는 유효한 자격 증명으로 연결 됩니다.  

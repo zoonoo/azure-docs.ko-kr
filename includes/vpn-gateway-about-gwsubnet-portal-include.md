@@ -9,10 +9,10 @@ ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 92a6fef3305891b47c4dc2e0f0432e1079df5a69
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "71266532"
 ---
 가상 네트워크 게이트웨이는 '게이트웨이 서브넷'이라는 특정 서브넷을 사용합니다. 게이트웨이 서브넷은 가상 네트워크를 구성할 때 지정하는 가상 네트워크 IP 주소 범위에 속합니다. 여기에는 가상 네트워크 게이트웨이 리소스 및 서비스에서 사용하는 IP 주소가 포함됩니다. 

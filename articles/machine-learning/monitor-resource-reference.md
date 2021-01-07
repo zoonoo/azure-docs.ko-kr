@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning 데이터 참조 모니터링 | Microsoft Docs
-description: Azure Machine Learning를 모니터링할 때 필요한 중요 한 참조 자료입니다. Azure Machine Learning에 대해 수집 되 고 Azure Monitor에서 사용할 수 있는 데이터 및 리소스에 대해 알아봅니다. Azure Monitor은 Azure Machine Learning 작업 영역에 대 한 데이터를 수집 및 표시 하 고, 메트릭을 보고, 경고를 설정 하 고, 기록 데이터를 분석할 수 있도록 합니다.
+description: Azure Machine Learning 모니터링에 대 한 참조 설명서입니다. 수집 되 고 Azure Monitor에서 사용할 수 있는 데이터 & 리소스에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323951"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542085"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Azure machine learning 데이터 참조 모니터링
 
@@ -61,7 +61,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | CpuUtilization | 백분율 | 실행/작업 중 지정 된 노드에 대해 사용 된 CPU의 양 (%)입니다. 이 메트릭은 노드에서 작업을 실행 하는 경우에만 게시 됩니다. 한 작업에서 하나 이상의 노드를 사용할 수 있습니다. 이 메트릭은 노드당 게시 됩니다. |
 | GpuUtilization | 백분율 | 실행/작업 중 지정 된 노드에 대해 사용 된 GPU의 비율입니다. 한 노드에 하나 이상의 Gpu가 있을 수 있습니다. 이 메트릭은 노드당 GPU 당 게시 됩니다. |
 
-**실행**
+**Run**
 
 학습 실행에 대 한 정보입니다.
 
@@ -79,7 +79,7 @@ Azure Machine Learning에는 해당 메트릭과 관련 된 다음과 같은 차
 
 | 차원 | 설명 |
 | ---- | ---- |
-| 클러스터 이름 | 계산 인스턴스의 이름입니다. 모든 할당량 메트릭에 사용할 수 있습니다. |
+| 클러스터 이름 | 계산 클러스터 리소스의 이름입니다. 모든 할당량 메트릭에 사용할 수 있습니다. |
 | Vm 제품군 이름 | 클러스터에서 사용 하는 VM 제품군의 이름입니다. 할당량 사용률에 사용할 수 있습니다. |
 | Vm 우선 순위 | VM의 우선 순위입니다. 할당량 사용률에 사용할 수 있습니다.
 | CreatedTime | CpuUtilization 및 GpuUtilization에만 사용할 수 있습니다. |
@@ -228,7 +228,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 | TotalE2ETimeInSeconds | 노드가 활성 상태 였던 총 시간 |
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - Azure Machine Learning 모니터링에 대 한 설명은 [monitoring Azure Machine Learning](monitor-azure-machine-learning.md) 를 참조 하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.

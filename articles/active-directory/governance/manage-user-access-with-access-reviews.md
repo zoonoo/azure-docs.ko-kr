@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 001adaff1fed901638276e548ac1d5fdb41bdc53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc12b4cb7e97a0808405baebc64ca83cdb742bf1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798310"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696951"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
 
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 > [!NOTE]
 > 게스트 사용자 액세스만 검토하고 모든 종류의 사용자 액세스는 검토하지 않으려면 [액세스 검토를 사용하여 게스트 사용자 액세스 관리](manage-guest-access-with-access-reviews.md)를 참조하세요. 전역 관리자와 같은 관리 역할에서 사용자의 멤버 자격을 검토하려면 [Azure AD Privileged Identity Management에서 액세스 검토를 시작하는 방법](../privileged-identity-management/pim-how-to-start-security-review.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure AD Premium P2
 
@@ -44,7 +44,7 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 
 2. 각 사용자가 자신의 액세스를 검토하도록 할지 또는 하나 이상의 사용자가 모든 사용자의 액세스를 검토하도록 할지를 결정합니다.
 
-3. 전역 관리자 또는 사용자 관리자는 [Id 거 버 넌 스 페이지로](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)이동 합니다.
+3. 검토할 그룹의 전역 관리자, 사용자 관리자 또는 (미리 보기) M365 또는 AAD 보안 그룹 소유자 역할 중 하나에서 [Id 거 버 넌 스 페이지로](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)이동 합니다.
 
 4. 액세스 검토를 만듭니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](create-access-review.md)를 참조 하세요.
 

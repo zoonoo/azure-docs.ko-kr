@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 95856db9288e5860dfab47dce506d1e7d6de1ffc
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 68e08b0f029e6297beee85135b4af1e4575d5470
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913333"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703792"
 ---
 # <a name="quickstart-create-a-nat-gateway---arm-template"></a>빠른 시작: NAT 게이트웨이 만들기 - ARM 템플릿
 
@@ -76,7 +76,7 @@ az group create \
 --name $resourceGroupName \
 --location $location
 
-az group deployment create \
+az deployment group create \
 --resource-group $resourceGroupName \
 --template-uri  $templateUri
 ```

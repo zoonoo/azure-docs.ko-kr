@@ -8,17 +8,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 7afc16beaacee5b75d57c4e4216a105734d20a09
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: bd18a26a1c199e1ecc32cfc371d2931b1dee0c3f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637074"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494973"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -97,7 +97,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 }
 ```
 
-오류를 해결 하려면 _ *external* * 속성과 선택적 **externalData** 섹션을 입력 테이블의 JSON 정의에 추가 하 고 테이블을 다시 만듭니다.
+오류를 해결 하려면 _ *external** 속성과 선택적 **externalData** 섹션을 입력 테이블의 JSON 정의에 추가 하 고 테이블을 다시 만듭니다.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>문제: 하이브리드 복사 작업 실패
 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소 간 복사 작업에서 발생하는 문제를 해결하는 단계는 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.

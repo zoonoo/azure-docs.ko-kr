@@ -4,6 +4,8 @@
   items:
     - name: Azure Backup 개요
       href: backup-overview.md
+    - name: Azure Backup의 새로운 기능
+      href: whats-new.md
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/backup/'
 - name: 빠른 시작
@@ -64,6 +66,8 @@
           href: sap-hana-backup-support-matrix.md
         - name: Azure 파일 공유 백업 지원 매트릭스
           href: azure-file-share-support-matrix.md
+        - name: Active Directory 도메인 컨트롤러
+          href: active-directory-backup-restore.md
         - name: Azure Policy에 지원되는 VM SKU
           href: backup-azure-policy-supported-skus.md
     - name: 질문과 대답(FAQ)
@@ -71,7 +75,7 @@
         - name: FAQ-Recovery Services 자격 증명 모음
           href: backup-azure-backup-faq.md
         - name: FAQ 백업 센터
-          href: backup-center-faq.md
+          href: backup-center-faq.yml
         - name: FAQ-Azure VM 백업
           href: backup-azure-vm-backup-faq.md
         - name: FAQ-MARS 에이전트
@@ -90,6 +94,8 @@
       href: backup-architecture.md
     - name: 지침 및 모범 사례
       href: guidance-best-practices.md
+    - name: 용어집
+      href: azure-backup-glossary.md
 - name: 방법 가이드
   items:
     - name: 자격 증명 모음
@@ -158,6 +164,10 @@
           items:
             - name: Azure VM 백업 관리
               href: backup-azure-manage-vms.md
+            - name: 복구 지점 관리
+              href: manage-recovery-points.md
+            - name: Azure CLI를 사용하여 백업 정책 수정
+              href: modify-vm-policy-cli.md
     - name: Azure VM의 SQL Server 데이터베이스 백업
       items:
         - name: 개요
@@ -417,6 +427,8 @@
       items:
         - name: Azure VM
           href: backup-azure-vms-troubleshoot.md
+        - name: Azure VM 파일 복구
+          href: backup-azure-vm-file-recovery-troubleshoot.md
         - name: Azure Backup 에이전트 또는 VM 확장 시간 초과
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Azure Backup 에이전트

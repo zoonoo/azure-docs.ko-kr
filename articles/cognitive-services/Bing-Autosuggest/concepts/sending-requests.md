@@ -10,19 +10,19 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: a42b282ac2c42480473186f90a542e33781c8a68
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: dd845c0fb877afa76b84eb5c2d86392f763eccf7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364040"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353394"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Bing Autosuggest API에 요청 보내기
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 애플리케이션에서 Bing Search API에 쿼리를 보내는 경우 Bing Autosuggest API를 사용하여 사용자의 검색 환경을 개선할 수 있습니다. Bing Autosuggest API는 검색 상자에 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 애플리케이션의 검색 상자에 문자를 입력하면 제안이 드롭다운 목록으로 표시될 수 있습니다. 이 문서에서는 이 API에 요청을 전송하는 방법을 자세히 알아봅니다. 
 
@@ -110,7 +110,7 @@ Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 �
 
 `displayText` 필드에는 검색 상자의 드롭다운 목록을 채우는 데 사용하는 제안된 쿼리가 포함됩니다. 응답에 포함된 모든 제안을 지정된 순서대로 표시해야 합니다.  
 
-사용자가 드롭다운 목록에서 쿼리를 선택하면 이 쿼리를 사용하여 [Bing Search API](../../bing-web-search/bing-api-comparison.md?bc=%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fen-us%252fazure%252fcognitive-services%252fbing-autosuggest%252ftoc.json) 중 하나를 호출하고 결과를 직접 표시하거나, 반환된 `url` 필드를 사용하여 사용자를 Bing 결과 페이지로 보낼 수 있습니다.
+사용자가 드롭다운 목록에서 쿼리를 선택하면 이 쿼리를 사용하여 [Bing Search API](../../bing-web-search/bing-api-comparison.md?bc=%2fen-us%2fazure%2fbread%2ftoc.json&toc=%2fen-us%2fazure%2fcognitive-services%2fbing-autosuggest%2ftoc.json) 중 하나를 호출하고 결과를 직접 표시하거나, 반환된 `url` 필드를 사용하여 사용자를 Bing 결과 페이지로 보낼 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 

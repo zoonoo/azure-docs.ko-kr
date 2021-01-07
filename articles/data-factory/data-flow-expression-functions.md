@@ -3,18 +3,16 @@ title: 매핑 데이터 흐름의 식 함수
 description: 매핑 데이터 흐름의 식 함수에 대해 알아봅니다.
 author: kromerm
 ms.author: makromer
-manager: anandsub
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/06/2020
-ms.openlocfilehash: 5645bd37ec466619a4093d767db1c846b90a4365
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.date: 12/18/2020
+ms.openlocfilehash: f715a51367a82f190d394ecb8e10dea24ca70e97
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281423"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706918"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름의 데이터 변환 식
 
@@ -86,48 +84,6 @@ ___
 <code><b>atan2(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 평면의 양의 x 축과 좌표가 지정 하는 점의 각도를 라디안으로 반환 합니다.  
 * ``atan2(0, 0) -> 0.0``  
-___
-### <code>byOrigin</code>
-<code><b>byOrigin(<i>&lt;column name&gt;</i> : string, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
-원본 스트림에서 이름을 기준으로 열 값을 선택 합니다. 두 번째 인수는 원본 스트림 이름입니다. 일치하는 항목이 여러 개 있는 경우 첫 번째 일치 항목을 반환합니다. 일치하는 항목이 없으면 Null 값을 반환합니다. 반환 된 값은 형식 변환 함수 (TO_DATE, TO_STRING ...) 중 하나로 변환 되어야 합니다. 디자인 타임에 알려진 열 이름은 해당 이름 으로만 처리 되어야 합니다. 계산된 입력은 지원되지 않지만 매개 변수 대체를 사용할 수 있습니다.  
-* ``toString(byOrigin('ancestor', 'ancestorStream'))``
-___
-### <code>byOrigins</code>
-<code><b>byOrigins(<i>&lt;column names&gt;</i> : array, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
-스트림에서 이름으로 열 배열을 선택 합니다. 두 번째 인수는 해당 인수가 시작 된 스트림입니다. 일치하는 항목이 여러 개 있는 경우 첫 번째 일치 항목을 반환합니다. 일치하는 항목이 없으면 Null 값을 반환합니다. 반환 된 값은 형식 변환 함수 (TO_DATE, TO_STRING ...) 중 하나로 변환 되어야 합니다. 디자인 타임에 알려진 열 이름은 해당 이름 으로만 처리 되어야 합니다. 계산된 입력은 지원되지 않지만 매개 변수 대체를 사용할 수 있습니다.
-* ``toString(byOrigins(['ancestor1', 'ancestor2'], 'ancestorStream'))``
-___
-### <code>byName</code>
-<code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-스트림에서 이름을 기준으로 열 값을 선택합니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다. 일치하는 항목이 여러 개 있는 경우 첫 번째 일치 항목을 반환합니다. 일치하는 항목이 없으면 Null 값을 반환합니다. 반환된 값은 형식 변환 함수(TO_DATE, TO_STRING ...) 중 하나를 통해 유형이 변환되어야 합니다.  디자인 타임에 알려진 열 이름은 해당 이름으로만 처리되어야 합니다. 계산된 입력은 지원되지 않지만 매개 변수 대체를 사용할 수 있습니다.  
-* ``toString(byName('parent'))``  
-* ``toLong(byName('income'))``  
-* ``toBoolean(byName('foster'))``  
-* ``toLong(byName($debtCol))``  
-* ``toString(byName('Bogus Column'))``  
-* ``toString(byName('Bogus Column', 'DeriveStream'))``  
-___
-### <code>byNames</code>
-<code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-스트림에서 이름을 기준으로 열 배열을 선택합니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다. 일치하는 항목이 여러 개 있는 경우 첫 번째 일치 항목을 반환합니다. 열에 일치하는 항목이 없는 경우 전체 출력은 Null 값입니다. 반환된 값에는 형식 변환 함수(toDate, toString, ...)가 필요합니다.  디자인 타임에 알려진 열 이름은 해당 이름으로만 처리되어야 합니다. 계산된 입력은 지원되지 않지만 매개 변수 대체를 사용할 수 있습니다.
-* ``toString(byNames(['parent', 'child']))``
-* ``byNames(['parent']) ? string``
-* ``toLong(byNames(['income']))``
-* ``byNames(['income']) ? long``
-* ``toBoolean(byNames(['foster']))``
-* ``toLong(byNames($debtCols))``
-* ``toString(byNames(['a Column']))``
-* ``toString(byNames(['a Column'], 'DeriveStream'))``
-* ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
-___
-### <code>byPosition</code>
-<code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-스트림에서 상대 위치만큼(1부터 시작) 열 값을 선택합니다. 위치가 범위를 벗어나는 경우 Null 값을 반환합니다. 반환 된 값은 형식 변환 함수 (TO_DATE, TO_STRING ...) 중 하나로 변환 되어야 합니다. 계산 된 입력은 지원 되지 않지만 매개 변수 대체를 사용할 수 있습니다.  
-* ``toString(byPosition(1))``  
-* ``toDecimal(byPosition(2), 10, 2)``  
-* ``toBoolean(byName(4))``  
-* ``toString(byName($colName))``  
-* ``toString(byPosition(1234))``  
 ___
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -480,7 +436,7 @@ ___
 * ``levenshtein('boys', 'girls') -> 4``  
 ___
 ### <code>like</code>
-<code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></코드><br/><br/> 패턴은 문자 그대로 일치 하는 문자열입니다. 예외는 다음과 같은 특수 기호입니다. _는 입력에서 하나의 문자와 일치합니다( posix regu l ar 식의 경우)%는 입력에서 0 개 이상의 문자 (posix regu 식의. *와 유사)와 일치 합니다 a r .
+<code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></코드><br/><br/> 패턴은 문자 그대로 일치 하는 문자열입니다. 예외는 다음과 같은 특수 기호입니다. _는 ' ' ' posix ' ' ' ' regu 식 '의 입력에 있는 한 문자를 일치 시킵니다. (similar to  . l ar %는 입력에서 0 개 이상의 문자 (' ' ' similar to . * posix ' ' ' regu a r 식)와 일치 합니다.
 이스케이프 문자는 ''입니다. 특수 기호 또는 다른 이스케이프 문자 앞에 이스케이프 문자가 오면 다음 문자는 글자 그대로 일치됩니다. 이스케이프를 사용할 수 없습니다. other character.  
 * ``like('icecream', 'ice%') -> true``  
 ___
@@ -730,7 +686,8 @@ ___
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
 ___
 ### <code>soundex</code>
-<code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></코드><br/><br/> soundex 코드를 가져옵니다. for the string.  
+<code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></코드><br /><br/>
+Gets t h e ' ' ' soundex ' ' ' 코드for the string.  
 * ``soundex('genius') -> 'G520'``  
 ___
 ### <code>split</code>
@@ -773,86 +730,6 @@ ___
 ### <code>tanh</code>
 <code><b>tanh(<i>&lt;value1&gt;</i> : number) => double</b></코드><br/><br/>은 hyperboli를 계산 합니다.c tangent value.  
 * ``tanh(0) -> 0.0``  
-___
-### <code>toBase64</code>
-<code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></코드><br/><br/>는 지정 된를 인코딩합니다.tring in base64.  
-* ``toBase64('bojjus') -> 'Ym9qanVz'``  
-___
-### <code>toBinary</code>
-<code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></코드><br/><br/>는 모든 숫자/날짜/타임 스탬프/문자열을 이진으로 변환 합니다. representation.  
-* ``toBinary(3) -> [0x11]``  
-___
-### <code>toBoolean</code>
-<code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></코드><br/><br/>는 (' t ', ' true ', ' y ', ' yes ', ' 1 ') 값을 true 및 (' f ', ' false ', ' n ', ' no ', ' 0 ')로 변환 합니다. any other value.  
-* ``toBoolean('true') -> true``  
-* ``toBoolean('n') -> false``  
-* ``isNull(toBoolean('truthy')) -> true``  
-___
-### <code>toDate</code>
-<code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></코드><br/><br/>는 입력 날짜 문자열을 at. Refer Java's `S i 사용 가능한 형식에 대 한 선택적 입력 날짜 폼 mpleDateFormat ' 클래스를 사용 하 여 날짜로 변환 합니다. 입력 날짜 형식이 생략된 경우 기본 형식은 yyyy-[M]M-[d]d입니다. 허용 되는 형식은 다음과 같습니다. [yyyy, yyyy-[M] M, yyyy-[M] M-[d] d, yyyy-[M]M-[d]dT* ].  
-* ``toDate('2012-8-18') -> toDate('2012-08-18')``  
-* ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``  
-___
-### <code>toDecimal</code>
-<code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></코드><br/><br/> 숫자 또는 문자열을 10 진수 값으로 변환 합니다. 자릿수와 소수 자릿수를 지정하지 않으면 기본값인 (10,2)가 사용됩니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. BCP47 언어 형식의 선택적 로캘 형식 (예: e)n-US, de, zh-CN.  
-* ``toDecimal(123.45) -> 123.45``  
-* ``toDecimal('123.45', 8, 4) -> 123.4500``  
-* ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``  
-* ``toDecimal('Ç123,45', 10, 2, 'Ç###,##', 'de') -> 123.45``  
-___
-### <code>toDouble</code>
-<code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></코드><br/><br/>는 임의의 숫자 또는 문자열을 double 값으로 변환 합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. BCP47 언어 형식의 선택적 로캘 형식 (예: e)n-US, de, zh-CN.  
-* ``toDouble(123.45) -> 123.45``  
-* ``toDouble('123.45') -> 123.45``  
-* ``toDouble('$123.45', '$###.00') -> 123.45``  
-* ``toDouble('Ç123,45', 'Ç###,##', 'de') -> 123.45``  
-___
-### <code>toFloat</code>
-<code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></코드><br/><br/>는 임의의 숫자 또는 문자열을 float 값으로 변환 합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. Truncates any double.  
-* ``toFloat(123.45) -> 123.45f``  
-* ``toFloat('123.45') -> 123.45f``  
-* ``toFloat('$123.45', '$###.00') -> 123.45f``  
-___
-### <code>toInteger</code>
-<code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></코드><br/><br/>는 임의의 숫자 또는 문자열을 정수 값으로 변환 합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. Long을 자릅니다., float, double.  
-* ``toInteger(123) -> 123``  
-* ``toInteger('123') -> 123``  
-* ``toInteger('$123', '$###') -> 123``  
-___
-### <code>toLong</code>
-<code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></코드><br/><br/>는 임의의 숫자 또는 문자열을 long 값으로 변환 합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. 을 자릅니다.y float, double.  
-* ``toLong(123) -> 123``  
-* ``toLong('123') -> 123``  
-* ``toLong('$123', '$###') -> 123``  
-___
-### <code>toShort</code>
-<code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></코드><br/><br/>는 임의의 숫자 또는 문자열을 short 값으로 변환 합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. 정수 (long)를 자릅니다., float, double.  
-* ``toShort(123) -> 123``  
-* ``toShort('123') -> 123``  
-* ``toShort('$123', '$###') -> 123``  
-___
-### <code>toString</code>
-<code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></코드><br/><br/>는 기본 데이터 형식을 문자열로 변환 합니다. 숫자 및 날짜의 경우 형식을 지정할 수 있습니다. 지정하지 않으면 시스템 기본값은 picked.Java입니다. 숫자에는 10진수 형식이 사용됩니다. 가능한 모든 날짜 형식에 대해서는 Java SimpleDateFormat를 참조 하세요. t is yyyy-MM-dd.  
-* ``toStri ng(10) -> '10'``  
-* ``toString('engineer') -> 'engineer'``  
-* ``toString(123456.789, '##,###.##') - 기본 > '123,456.79'``  
-* ``toString(123.78, '000000.000') - 형식의 > '000123.780'``  
-* ``toString(12345, '##0.#####E0')-> '12.345E3'``  
-* ``toString(toDate('2018-12-31')) -> '2018-12-31'``  
-* ``isNull(toString(toDate('2018-12-31', 'MM/dd/yy'))) -> true``  
-* ``toString(4 == 20) -> 'false'``  
-___
-### <code>toTimestamp</code>
-<code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></코드><br/><br/>는 선택적 타임 스탬프 형식을 제공 하는 타임 스탬프에 대 한 문자열을 변환 합니다. 타임 스탬프를 생략 하면 기본 패턴 yyyy-[M] M-[d] d hh: mm: ss [.f ...]가 사용 됩니다. 'GMT', 'PST', 'UTC', 'America/Cayman' 형태로 선택적 표준 시간대를 제공할 수 있습니다. Timestamp는 99. Refer Java's `S i 사용 가능한 형식에 대해 9 mpleDateFormat의 값을 사용 하 여 최대 밀리초의 정확도를 지원 합니다. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
-* ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
-___
-### <code>toUTC</code>
-<code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></코드><br/><br/>는 타임 스탬프를 UTC로 변환 합니다. 'GMT', 'PST', 'UTC', 'America/Cayman' 형태로 선택적 표준 시간대를 제공할 수 있습니다. ne. Refer Java's `S i 사용 가능한 형식에 대 한 현재 timezo mpleDateFormat ' 클래스를 기본값으로 사용 합니다. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
-* ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
-* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></코드><br/><br/> 문자열에서 한 문자 집합을 다른 문자 집합으로 바꿉니다. 문자는 1 t o 1 replacement.  
@@ -1051,38 +928,8 @@ ___
 * ``varianceSample(sales)``  
 ___
 ### <code>varianceSampleIf</code>
-<code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></코드><br/><br/> 조건에 따라, 비편향 vara nce of a column.  
-* ``varianceSampleIf(region ==  'West' , sales) ' ' # # indow 함수를 가져옵니다. W 다음 함수는 창 에서만 사용할 수 있습니다.transformations.
-___
-### <code>cumeDist</code>
-<code><b>cumeDist() => integer</b></코드><br/><br/> CumeDist 함수는 파티션의 모든 값을 기준으로 값의 위치를 계산 합니다. 결과는 파티션 순서에서 현재 행보다 앞에 있거나 같은 위치에 있는 행 수를 창 파티션의 총 행 수로 나눈 값입니다. 순서에 관계 없이 모든 동률 값은 th로 평가 됩니다.e same position.  
-* ``cumeDist()``  
-___
-### <code>denseRank</code>
-<code><b>denseRank() => integer</b></코드><br/><br/>는 창의 order by 절에 지정 된 값 그룹에 있는 값의 순위를 계산 합니다. 결과는 파티션 순서에서 현재 행보다 앞에 있거나 같은 위치에 있는 행의 수에 1을 더한 것입니다. 값은 시퀀스에 간격을 생성하지 않습니다. 조밀한 Rank는 데이터가 정렬 되지 않은 경우에도 작동 하며 c를 검색 합니다.hange in values.  
-* ``denseRank()``  
-___
-### <code>lag</code>
-<code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></코드><br/><br/> 현재 행 앞에서 n 번째 행이 계산 된 첫 번째 매개 변수의 값을 가져옵니다. 두 번째 매개 변수는 거꾸로 확인할 행의 수이며 기본값은 1입니다. 행이 많지 않은 경우 기본값 val이 아닌 경우 null 값이 반환 됩니다.ue is specified.  
-* ``lag(amount, 2)``  
-* ``lag(amount, 2000, 100)``  
-___
-### <code>lead</code>
-<code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></코드><br/><br/> 현재 행 뒤에서 계산 된 첫 번째 매개 변수의 값을 가져옵니다. 두 번째 매개 변수는 앞으로 조회할 행의 수이며 기본값은 1입니다. 행이 많지 않은 경우 기본값 val이 아닌 경우 null 값이 반환 됩니다.ue is specified.  
-* ``lead(amount, 2)``  
-* ``lead(amount, 2000, 100)``  
-___
-### <code>nTile</code>
-<code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></코드><br/><br/> NTile 함수는 각 windo의 행을 w pa r f 1의 ' n ' 버킷으로 rom 최대 ' n ' 개로 나눕니다. 버킷 값 차이는 최대 1 이내입니다. 파티션의 행 수가 버킷 수로 균일하게 나누어 떨어지지 않으면 나머지 값은 첫 번째 버킷부터 시작해서 하나씩 분산됩니다. NTile 함수는 삼분위수, 사분위수, 십분위수 및 기타 일반적인 요약 통계 계산에 유용합니다. 이 함수는 초기화하는 동안 두 개의 변수를 계산합니다. 일반 버킷의 크기에는 하나의 행이 더 추가됩니다. 두 변수는 현재 파티션의 크기를 기준으로 합니다. 계산 프로세스 동안 이 함수는 현재 행 번호, 현재 버킷 수 및 버킷이 변경되는 행 번호(bucketThreshold)를 추적합니다. 현재 행 번호가 버킷 임계값에 도달 하면 버킷 값이 1 씩 증가 하 고 임계값이 버킷 크기 (현재 bu cket is padded). 인 경우 1 개 추가)로 증가 합니다. * ``nTile()``  
-* ``nTile(numOfBuckets)``  
-___
-### <code>rank</code>
-<code><b>rank() => integer</b></코드><br/><br/>는 창의 order by 절에 지정 된 값 그룹에 있는 값의 순위를 계산 합니다. 결과는 파티션 순서에서 현재 행보다 앞에 있거나 같은 위치에 있는 행의 수에 1을 더한 것입니다. 값은 시퀀스에 간격을 생성합니다. 데이터를 정렬 하지 않고 c를 찾는 경우에도 Rank가 작동 합니다.hange in values.  
-* ``rank()``  
-___
-### <code>rowNumber</code>
-<code><b>rowNumber() => integer</b></코드><br/><br/> 창에서 행에 대 한 순차적 행 번호 매기기를 할당 합니다. starting with 1.  
-* ``rowNumber()``* ``
+<code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></조건에 따른 코드><br/><br/>은 비편향 vara를 가져옵니다.nce of a column.  
+* ``varianceSampleIf(region == 'West', sales)``* ``
  @(
        name = 'Mark',
        types = [
@@ -1268,8 +1115,8 @@ Gets the levenshtein distance between two strings.
 ___
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
-The pattern is a string that is matched literally. The exceptions are the following special symbols:  _ matches any one character in the input (similar to . in posix regular expressions)
-  % matches zero or more characters in the input (similar to .* in posix regular expressions).
+The pattern is a string that is matched literally. The exceptions are the following special symbols:  _ matches any one character in the input (similar to . in ```posix``` regular expressions)
+  % matches zero or more characters in the input (similar to .* in ```posix``` regular expressions).
   The escape character is ''. If an escape character precedes a special symbol or another escape character, the following character is matched literally. It is invalid to escape any other character.  
 * ``like('icecream', 'ice%') -> true``  
 ___
@@ -1582,7 +1429,7 @@ Sorts the array using the provided predicate function. Sort expects a reference 
 ___
 ### <code>soundex</code>
 <code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Gets the soundex code for the string.  
+Gets the ```soundex``` code for the string.  
 * ``soundex('genius') -> 'G520'``  
 ___
 ### <code>split</code>
@@ -1633,99 +1480,6 @@ ___
 <code><b>tanh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calculates a hyperbolic tangent value.  
 * ``tanh(0) -> 0.0``  
-___
-### <code>toBase64</code>
-<code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Encodes the given string in base64.  
-* ``toBase64('bojjus') -> 'Ym9qanVz'``  
-___
-### <code>toBinary</code>
-<code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></code><br/><br/>
-Converts any numeric/date/timestamp/string to binary representation.  
-* ``toBinary(3) -> [0x11]``  
-___
-### <code>toBoolean</code>
-<code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></code><br/><br/>
-Converts a value of ('t', 'true', 'y', 'yes', '1') to true and ('f', 'false', 'n', 'no', '0') to false and NULL for any other value.  
-* ``toBoolean('true') -> true``  
-* ``toBoolean('n') -> false``  
-* ``isNull(toBoolean('truthy')) -> true``  
-___
-### <code>toDate</code>
-<code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
-Converts input date string to date using an optional input date format. Refer Java's `SimpleDateFormat` class for available formats. If the input date format is omitted, default format is yyyy-[M]M-[d]d. Accepted formats are :[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ].  
-* ``toDate('2012-8-18') -> toDate('2012-08-18')``  
-* ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``  
-___
-### <code>toDecimal</code>
-<code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
-Converts any numeric or string to a decimal value. If precision and scale are not specified, it is defaulted to (10,2).An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN.  
-* ``toDecimal(123.45) -> 123.45``  
-* ``toDecimal('123.45', 8, 4) -> 123.4500``  
-* ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``  
-* ``toDecimal('Ç123,45', 10, 2, 'Ç###,##', 'de') -> 123.45``  
-___
-### <code>toDouble</code>
-<code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></code><br/><br/>
-Converts any numeric or string to a double value. An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN.  
-* ``toDouble(123.45) -> 123.45``  
-* ``toDouble('123.45') -> 123.45``  
-* ``toDouble('$123.45', '$###.00') -> 123.45``  
-* ``toDouble('Ç123,45', 'Ç###,##', 'de') -> 123.45``  
-___
-### <code>toFloat</code>
-<code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></code><br/><br/>
-Converts any numeric or string to a float value. An optional Java decimal format can be used for the conversion. Truncates any double.  
-* ``toFloat(123.45) -> 123.45f``  
-* ``toFloat('123.45') -> 123.45f``  
-* ``toFloat('$123.45', '$###.00') -> 123.45f``  
-___
-### <code>toInteger</code>
-<code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></code><br/><br/>
-Converts any numeric or string to an integer value. An optional Java decimal format can be used for the conversion. Truncates any long, float, double.  
-* ``toInteger(123) -> 123``  
-* ``toInteger('123') -> 123``  
-* ``toInteger('$123', '$###') -> 123``  
-___
-### <code>toLong</code>
-<code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></code><br/><br/>
-Converts any numeric or string to a long value. An optional Java decimal format can be used for the conversion. Truncates any float, double.  
-* ``toLong(123) -> 123``  
-* ``toLong('123') -> 123``  
-* ``toLong('$123', '$###') -> 123``  
-___
-### <code>toShort</code>
-<code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></code><br/><br/>
-Converts any numeric or string to a short value. An optional Java decimal format can be used for the conversion. Truncates any integer, long, float, double.  
-* ``toShort(123) -> 123``  
-* ``toShort('123') -> 123``  
-* ``toShort('$123', '$###') -> 123``  
-___
-### <code>toString</code>
-<code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
-Converts a primitive datatype to a string. For numbers and date a format can be specified. If unspecified the system default is picked.Java decimal format is used for numbers. Refer to Java SimpleDateFormat for all possible date formats; the default format is yyyy-MM-dd.  
-* ``toString(10) -> '10'``  
-* ``toString('engineer') -> 'engineer'``  
-* ``toString(123456.789, '##,###.##') -> '123,456.79'``  
-* ``toString(123.78, '000000.000') -> '000123.780'``  
-* ``toString(12345, '##0.#####E0') -> '12.345E3'``  
-* ``toString(toDate('2018-12-31')) -> '2018-12-31'``  
-* ``isNull(toString(toDate('2018-12-31', 'MM/dd/yy'))) -> true``  
-* ``toString(4 == 20) -> 'false'``  
-___
-### <code>toTimestamp</code>
-<code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts a string to a timestamp given an optional timestamp format. If the timestamp is omitted the default pattern yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. Timestamp supports up to millisecond accuracy with value of 999. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
-* ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
-___
-### <code>toUTC</code>
-<code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
-* ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
-* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
@@ -1976,45 +1730,228 @@ ___
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the unbiased variance of a column.  
 * ``varianceSampleIf(region == 'West', sales)``  
-## Window functions
-The following functions are only available in window transformations.
+
+## <a name="conversion-functions"></a>변환 함수
+
+변환 함수는 데이터 및 데이터 형식을 변환 하는 데 사용 됩니다.
+
+### <code>toBase64</code>
+<code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
+Base64에서 지정 된 문자열을 인코딩합니다.  
+* ``toBase64('bojjus') -> 'Ym9qanVz'``  
+___
+### <code>toBinary</code>
+<code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></code><br/><br/>
+숫자/날짜/타임 스탬프/문자열을 이진 표현으로 변환 합니다.  
+* ``toBinary(3) -> [0x11]``  
+___
+### <code>toBoolean</code>
+<code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></code><br/><br/>
+(' T ', ' true ', ' y ', ' yes ', ' 1 ') 값을 true 및 (' f ', ' false ', ' n ', ' no ', ' 0 ')로 변환 하 고 다른 값에 대해서는 NULL로 변환 합니다.  
+* ``toBoolean('true') -> true``  
+* ``toBoolean('n') -> false``  
+* ``isNull(toBoolean('truthy')) -> true``  
+___
+### <code>toByte</code>
+<code><b>toByte(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => byte</b></code><br/><br/>
+숫자 또는 문자열을 바이트 값으로 변환 합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다.  
+* ``toByte(123)``
+* ``123``
+* ``toByte(0xFF)``
+* ``-1``
+* ``toByte('123')``
+* ``123``
+___
+### <code>toDate</code>
+<code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
+선택적 입력 날짜 형식을 사용하여 입력 날짜 문자열을 날짜로 변환합니다. `SimpleDateFormat`사용 가능한 형식에 대 한 자세한 내용은 Java의 클래스를 참조 하세요. 입력 날짜 형식이 생략된 경우 기본 형식은 yyyy-[M]M-[d]d입니다. 허용 되는 형식은 다음과 같습니다. [yyyy, yyyy-[M] M, yyyy-[M] M-[d] d, yyyy-[M] M-[d] dT *].  
+* ``toDate('2012-8-18') -> toDate('2012-08-18')``  
+* ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``  
+___
+### <code>toDecimal</code>
+<code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
+숫자 또는 문자열을 10진수 값으로 변환합니다. 자릿수와 소수 자릿수를 지정하지 않으면 기본값인 (10,2)가 사용됩니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. En-us, de, zh-cn와 같은 BCP47 언어 형식의 선택적 로캘 형식입니다.  
+* ``toDecimal(123.45) -> 123.45``  
+* ``toDecimal('123.45', 8, 4) -> 123.4500``  
+* ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``  
+* ``toDecimal('Ç123,45', 10, 2, 'Ç###,##', 'de') -> 123.45``  
+___
+### <code>toDouble</code>
+<code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></code><br/><br/>
+숫자 또는 문자열을 배정도 값으로 변환합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. En-us, de, zh-cn와 같은 BCP47 언어 형식의 선택적 로캘 형식입니다.  
+* ``toDouble(123.45) -> 123.45``  
+* ``toDouble('123.45') -> 123.45``  
+* ``toDouble('$123.45', '$###.00') -> 123.45``  
+* ``toDouble('Ç123,45', 'Ç###,##', 'de') -> 123.45``  
+___
+### <code>toFloat</code>
+<code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></code><br/><br/>
+숫자 또는 문자열을 부동 소수점 값으로 변환합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. Double을 자릅니다.  
+* ``toFloat(123.45) -> 123.45f``  
+* ``toFloat('123.45') -> 123.45f``  
+* ``toFloat('$123.45', '$###.00') -> 123.45f``  
+___
+### <code>toInteger</code>
+<code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></code><br/><br/>
+숫자 또는 문자열을 정수 값으로 변환합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. Long, float, double을 자릅니다.  
+* ``toInteger(123) -> 123``  
+* ``toInteger('123') -> 123``  
+* ``toInteger('$123', '$###') -> 123``  
+___
+### <code>toLong</code>
+<code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></code><br/><br/>
+숫자 또는 문자열을 긴 값으로 변환합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. Float, double을 자릅니다.  
+* ``toLong(123) -> 123``  
+* ``toLong('123') -> 123``  
+* ``toLong('$123', '$###') -> 123``  
+___
+### <code>toShort</code>
+<code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></code><br/><br/>
+숫자 또는 문자열을 짧은 값으로 변환합니다. 변환을 위해 선택적인 Java 10진수 형식을 사용할 수 있습니다. 정수, long, float, double을 자릅니다.  
+* ``toShort(123) -> 123``  
+* ``toShort('123') -> 123``  
+* ``toShort('$123', '$###') -> 123``  
+___
+### <code>toString</code>
+<code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
+기본 데이터 형식을 문자열로 변환합니다. 숫자 및 날짜의 경우 형식을 지정할 수 있습니다. 지정하지 않으면 시스템 기본값은 picked.Java입니다. 숫자에는 10진수 형식이 사용됩니다. 가능한 모든 날짜 형식에 대해서는 Java SimpleDateFormat를 참조 하세요. 기본 형식은 yyyy-mm-dd입니다.  
+* ``toString(10) -> '10'``  
+* ``toString('engineer') -> 'engineer'``  
+* ``toString(123456.789, '##,###.##') -> '123,456.79'``  
+* ``toString(123.78, '000000.000') -> '000123.780'``  
+* ``toString(12345, '##0.#####E0') -> '12.345E3'``  
+* ``toString(toDate('2018-12-31')) -> '2018-12-31'``  
+* ``isNull(toString(toDate('2018-12-31', 'MM/dd/yy'))) -> true``  
+* ``toString(4 == 20) -> 'false'``  
+___
+### <code>toTimestamp</code>
+<code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
+지정된 선택적 타임스탬프 형식으로 문자열을 타임스탬프로 변환합니다. 타임 스탬프를 생략 하면 기본 패턴 yyyy-[M] M-[d] d hh: mm: ss [.f ...]가 사용 됩니다. 'GMT', 'PST', 'UTC', 'America/Cayman' 형태로 선택적 표준 시간대를 제공할 수 있습니다. Timestamp는 값이 999 인 최대 밀리초의 정확도를 지원 합니다. `SimpleDateFormat`사용 가능한 형식에 대 한 자세한 내용은 Java의 클래스를 참조 하세요. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
+* ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
+* ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
+* ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
+* ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
+___
+### <code>toUTC</code>
+<code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
+타임스탬프를 UTC로 변환합니다. 'GMT', 'PST', 'UTC', 'America/Cayman' 형태로 선택적 표준 시간대를 제공할 수 있습니다. 기본적으로 현재 표준 시간대가 사용됩니다. `SimpleDateFormat`사용 가능한 형식에 대 한 자세한 내용은 Java의 클래스를 참조 하세요. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
+* ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
+* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
+
+## <a name="metafunctions"></a>Metafunctions
+
+Metafunctions는 주로 데이터 흐름에서 메타 데이터에 대해 작동 합니다.
+
+### <code>byItem</code>
+<code><b>byItem(<i>&lt;parent column&gt;</i> : any, <i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
+구조체 또는 구조체의 배열 내에서 하위 항목을 찾습니다. 일치 항목이 여러 개 있으면 첫 번째 일치 항목이 반환 됩니다. 일치하는 항목이 없으면 Null 값을 반환합니다. 반환 된 값은 형식 변환 작업 (? 날짜,? 문자열 ...).  디자인 타임에 알려진 열 이름은 해당 이름 으로만 처리 되어야 합니다. 계산 된 입력은 지원 되지 않지만 매개 변수 대체를 사용할 수 있습니다. * ``byItem( byName('customer'), 'orderItems') ? (itemName as string, itemQty as integer)``
+* ````
+* ``byItem( byItem( byName('customer'), 'orderItems'), 'itemName') ? string``
+* ````
+___
+### <code>byOrigin</code>
+<code><b>byOrigin(<i>&lt;column name&gt;</i> : string, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
+원본 스트림에서 이름을 기준으로 열 값을 선택 합니다. 두 번째 인수는 원본 스트림 이름입니다. 일치하는 항목이 여러 개 있는 경우 첫 번째 일치 항목을 반환합니다. 일치하는 항목이 없으면 Null 값을 반환합니다. 반환 된 값은 형식 변환 함수 (TO_DATE, TO_STRING ...) 중 하나로 변환 되어야 합니다. 디자인 타임에 알려진 열 이름은 해당 이름 으로만 처리 되어야 합니다. 계산된 입력은 지원되지 않지만 매개 변수 대체를 사용할 수 있습니다.  
+* ``toString(byOrigin('ancestor', 'ancestorStream'))``
+___
+### <code>byOrigins</code>
+<code><b>byOrigins(<i>&lt;column names&gt;</i> : array, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
+스트림에서 이름으로 열 배열을 선택 합니다. 두 번째 인수는 해당 인수가 시작 된 스트림입니다. 일치하는 항목이 여러 개 있는 경우 첫 번째 일치 항목을 반환합니다. 일치하는 항목이 없으면 Null 값을 반환합니다. 반환 된 값은 형식 변환 함수 (TO_DATE, TO_STRING ...) 중 하나로 변환 되어야 합니다. 디자인 타임에 알려진 열 이름은 해당 이름 으로만 처리 되어야 합니다. 계산된 입력은 지원되지 않지만 매개 변수 대체를 사용할 수 있습니다.
+* ``toString(byOrigins(['ancestor1', 'ancestor2'], 'ancestorStream'))``
+___
+### <code>byName</code>
+<code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+스트림에서 이름을 기준으로 열 값을 선택합니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다. 일치하는 항목이 여러 개 있는 경우 첫 번째 일치 항목을 반환합니다. 일치하는 항목이 없으면 Null 값을 반환합니다. 반환된 값은 형식 변환 함수(TO_DATE, TO_STRING ...) 중 하나를 통해 유형이 변환되어야 합니다.  디자인 타임에 알려진 열 이름은 해당 이름으로만 처리되어야 합니다. 계산된 입력은 지원되지 않지만 매개 변수 대체를 사용할 수 있습니다.  
+* ``toString(byName('parent'))``  
+* ``toLong(byName('income'))``  
+* ``toBoolean(byName('foster'))``  
+* ``toLong(byName($debtCol))``  
+* ``toString(byName('Bogus Column'))``  
+* ``toString(byName('Bogus Column', 'DeriveStream'))``  
+___
+### <code>byNames</code>
+<code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+스트림에서 이름을 기준으로 열 배열을 선택합니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다. 일치하는 항목이 여러 개 있는 경우 첫 번째 일치 항목을 반환합니다. 열에 일치하는 항목이 없는 경우 전체 출력은 Null 값입니다. 반환된 값에는 형식 변환 함수(toDate, toString, ...)가 필요합니다.  디자인 타임에 알려진 열 이름은 해당 이름으로만 처리되어야 합니다. 계산된 입력은 지원되지 않지만 매개 변수 대체를 사용할 수 있습니다.
+* ``toString(byNames(['parent', 'child']))``
+* ``byNames(['parent']) ? string``
+* ``toLong(byNames(['income']))``
+* ``byNames(['income']) ? long``
+* ``toBoolean(byNames(['foster']))``
+* ``toLong(byNames($debtCols))``
+* ``toString(byNames(['a Column']))``
+* ``toString(byNames(['a Column'], 'DeriveStream'))``
+* ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
+___
+### <code>byPosition</code>
+<code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
+스트림에서 상대 위치만큼(1부터 시작) 열 값을 선택합니다. 위치가 범위를 벗어나는 경우 Null 값을 반환합니다. 반환 된 값은 형식 변환 함수 (TO_DATE, TO_STRING ...) 중 하나로 변환 되어야 합니다. 계산 된 입력은 지원 되지 않지만 매개 변수 대체를 사용할 수 있습니다.  
+* ``toString(byPosition(1))``  
+* ``toDecimal(byPosition(2), 10, 2)``  
+* ``toBoolean(byName(4))``  
+* ``toString(byName($colName))``  
+* ``toString(byPosition(1234))``  
+
+## <a name="cached-lookup-functions"></a>캐시 된 조회 함수
+다음 함수는 캐시 된 싱크를 포함할 때 캐시 된 조회를 사용 하는 경우에만 사용할 수 있습니다.
+___
+### <code>lookup</code>
+<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
+캐시 된 싱크의 키와 일치 하는 지정 된 키를 사용 하 여 캐시 된 싱크에서 첫 번째 행을 조회 합니다.
+* ``cacheSink#lookup(movieId)``  
+___
+### <code>mlookup</code>
+<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
+캐시 된 싱크의 키와 일치 하는 지정 된 키를 사용 하 여 캐시 된 싱크에서 일치 하는 모든 행을 조회 합니다.
+* ``cacheSink#mlookup(movieId)``  
+___
+### <code>output</code>
+<code><b>output() => any</b></code><br/><br/>
+캐시 싱크 결과의 첫 번째 행을 반환 합니다. * ``cacheSink#output()``  
+___
+### <code>outputs</code>
+<code><b>output() => any</b></code><br/><br/>
+캐시 싱크 결과의 전체 출력 행 집합을 반환 합니다. * ``cacheSink#outputs()``
+___
+
+## <a name="window-functions"></a>창 함수
+다음 함수는 창 변환 에서만 사용할 수 있습니다.
 ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
-The CumeDist function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition divided by the total number of rows in the window partition. Any tie values in the  ordering will evaluate to the same position.  
+CumeDist 함수는 파티션의 모든 값을 기준으로 값의 위치를 계산합니다. 결과는 파티션 순서에서 현재 행보다 앞에 있거나 같은 위치에 있는 행 수를 창 파티션의 총 행 수로 나눈 값입니다. 같은 순서의 값은 같은 위치로 계산됩니다.  
 * ``cumeDist()``  
 ___
 ### <code>denseRank</code>
 <code><b>denseRank() => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values.  
+지정된 값 그룹에서 값의 순위는 절에 따른 창 순서로 계산됩니다. 결과는 파티션 순서에서 현재 행보다 앞에 있거나 같은 위치에 있는 행의 수에 1을 더한 것입니다. 값은 시퀀스에 간격을 생성하지 않습니다. 조밀한 Rank는 데이터가 정렬 되지 않은 경우에도 작동 하며 값의 변경 내용을 찾습니다.  
 * ``denseRank()``  
 ___
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Gets the value of the first parameter evaluated n rows before the current row. The second parameter is the number of rows to look back and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified.  
+현재 행보다 n개 행 전에 평가되는 첫 번째 매개 변수의 값을 가져옵니다. 두 번째 매개 변수는 거꾸로 확인할 행의 수이며 기본값은 1입니다. 기본값이 없는 경우 기본값을 지정 하지 않으면 null 값이 반환 됩니다.  
 * ``lag(amount, 2)``  
 * ``lag(amount, 2000, 100)``  
 ___
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Gets the value of the first parameter evaluated n rows after the current row. The second parameter is the number of rows to look forward and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified.  
+현재 행보다 n개 행 뒤에 평가되는 첫 번째 매개 변수의 값을 가져옵니다. 두 번째 매개 변수는 앞으로 조회할 행의 수이며 기본값은 1입니다. 기본값이 없는 경우 기본값을 지정 하지 않으면 null 값이 반환 됩니다.  
 * ``lead(amount, 2)``  
 * ``lead(amount, 2000, 100)``  
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-The NTile function divides the rows for each window partition into `n` buckets ranging from 1 to at most `n`. Bucket values will differ by at most 1. If the number of rows in the partition does not divide evenly into the number of buckets, then the remainder values are distributed one per bucket, starting with the first bucket. The NTile function is useful for the calculation of tertiles, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization: The size of a regular bucket will have one extra row added to it. Both variables are based on the size of the current partition. During the calculation process the function keeps track of the current row number, the current bucket number, and the row number at which the bucket will change (bucketThreshold). When the current row number reaches bucket threshold, the bucket value is increased by one and the threshold is increased by the bucket size (plus one extra if the current bucket is padded).  
+```NTile```함수는 각 창 파티션의 행을 `n` 1에서 최대 까지의 버킷으로 나눕니다 `n` . 버킷 값 차이는 최대 1 이내입니다. 파티션의 행 수가 버킷 수로 균일하게 나누어 떨어지지 않으면 나머지 값은 첫 번째 버킷부터 시작해서 하나씩 분산됩니다. ```NTile```함수는 ```tertiles``` , 변 위치, deciles 및 기타 일반적인 요약 통계 계산에 유용 합니다. 이 함수는 초기화하는 동안 두 개의 변수를 계산합니다. 일반 버킷의 크기에는 하나의 행이 더 추가됩니다. 두 변수는 현재 파티션의 크기를 기준으로 합니다. 계산 프로세스 동안 이 함수는 현재 행 번호, 현재 버킷 수 및 버킷이 변경되는 행 번호(bucketThreshold)를 추적합니다. 현재 행 번호가 버킷 임계값에 도달하면 버킷 값이 1씩 커지고, 임계값은 버킷 크기만큼 커집니다(현재 버킷이 채워질 경우 하나씩 추가).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___
 ### <code>rank</code>
 <code><b>rank() => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data is not sorted and looks for change in values.  
+지정된 값 그룹에서 값의 순위는 절에 따른 창 순서로 계산됩니다. 결과는 파티션 순서에서 현재 행보다 앞에 있거나 같은 위치에 있는 행의 수에 1을 더한 것입니다. 값은 시퀀스에 간격을 생성합니다. Rank는 데이터가 정렬 되지 않은 경우에도 작동 하며 값의 변경 내용을 찾습니다.  
 * ``rank()``  
 ___
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>
-Assigns a sequential row numbering for rows in a window starting with 1.  
+1부터 시작 하 여 창에서 행에 대 한 순차 행 번호 매기기를 할당 합니다.  
 * ``rowNumber()``  
 
 ## <a name="next-steps"></a>다음 단계

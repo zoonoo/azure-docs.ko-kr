@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48cde51ee9941f705aa848d121c419a8f0c9ad1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399706"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013707"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>자습서: 테넌트 모델 만들기(미리 보기)
 
@@ -40,30 +40,30 @@ ms.locfileid: "91399706"
 
 1. [Microsoft 365 관리 센터](https://admin.microsoft.com)에 로그인합니다.
 
-1. 왼쪽 창에서 **설정**을 선택하고 중첩된 메뉴에서 **설정**을 선택한 다음, 기본 창에서 **Azure Speech Services**를 선택합니다.
+1. 왼쪽 창에서 **설정** 을 선택하고 중첩된 메뉴에서 **설정** 을 선택한 다음, 기본 창에서 **Azure Speech Services** 를 선택합니다.
 
    !["서비스 및 추가 기능" 창](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-1. **조직 전체의 언어 모델 사용 허용** 확인란을 선택하고 **변경 내용 저장**을 선택합니다.
+1. **조직 전체의 언어 모델 사용 허용** 확인란을 선택하고 **변경 내용 저장** 을 선택합니다.
 
    ![Azure Speech Services 창](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
 테넌트 모델 인스턴스를 해제하려면 다음을 수행합니다.
 1. 위의 1~2단계를 반복합니다.
-1. **조직 전체의 언어 모델 사용 허용** 확인란을 선택 취소하고 **변경 내용 저장**을 선택합니다.
+1. **조직 전체의 언어 모델 사용 허용** 확인란을 선택 취소하고 **변경 내용 저장** 을 선택합니다.
 
 ## <a name="get-a-speech-subscription-key"></a>Speech 구독 키 가져오기
 
 테넌트 모델에서 Speech SDK를 사용하려면 Speech 리소스와 관련 구독 키가 필요합니다.
 
 1. [Azure Portal](https://aka.ms/azureportal)에 로그인합니다.
-1. **리소스 만들기**를 선택합니다.
-1. **검색** 상자에 **Speech**를 입력합니다.
-1. 결과 목록에서 **Speech**를 선택한 다음, **만들기**를 선택합니다.
+1. **리소스 만들기** 를 선택합니다.
+1. **검색** 상자에 **Speech** 를 입력합니다.
+1. 결과 목록에서 **Speech** 를 선택한 다음, **만들기** 를 선택합니다.
 1. 화면의 지시에 따라 리소스를 만듭니다. 확인할 사항은 다음과 같습니다.
-   * **위치**가 **eastus** 또는 **westus**로 설정되어 있어야 합니다.
-   * **가격 책정 계층**이 **S0**으로 설정되어 있어야 합니다.
-1. **만들기**를 선택합니다.
+   * **위치** 가 **eastus** 또는 **westus** 로 설정되어 있어야 합니다.
+   * **가격 책정 계층** 이 **S0** 으로 설정되어 있어야 합니다.
+1. **만들기** 를 선택합니다.
 
    몇 분 후에 리소스가 만들어집니다. 구독 키는 리소스의 **개요** 섹션에서 사용할 수 있습니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "91399706"
 관리자가 조직에서 테넌트 모델을 사용하도록 설정한 후에는 Microsoft 365 데이터를 기반으로 언어 모델을 만들 수 있습니다.
 
 1. [Speech Studio](https://speech.microsoft.com/)에 로그인합니다.
-1. 오른쪽 위에서 **설정**(기어 아이콘)을 선택한 다음, **테넌트 모델 설정**을 선택합니다.
+1. 오른쪽 위에서 **설정**(기어 아이콘)을 선택한 다음, **테넌트 모델 설정** 을 선택합니다.
 
    !["테넌트 모델 설정" 링크](media/tenant-language-model/tenant-language-settings.png)
 
@@ -84,7 +84,7 @@ ms.locfileid: "91399706"
    > * [고객 키](/microsoft-365/compliance/customer-key-overview)
    > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
-1. **옵트인**을 선택합니다.
+1. **옵트인** 을 선택합니다.
 
    테넌트 모델이 준비되면 추가 지침이 포함된 확인 이메일 메시지를 받게 됩니다.
 
@@ -93,19 +93,19 @@ ms.locfileid: "91399706"
 테넌트 모델 인스턴스가 준비되면 다음을 수행하여 배포합니다.
 
 1. 확인 이메일 메시지에서 **모델 보기** 단추를 선택합니다. 또는 [Speech Studio](https://speech.microsoft.com/)에 로그인합니다.
-1. 오른쪽 위에서 **설정**(기어 아이콘)을 선택한 다음, **테넌트 모델 설정**을 선택합니다.
+1. 오른쪽 위에서 **설정**(기어 아이콘)을 선택한 다음, **테넌트 모델 설정** 을 선택합니다.
 
    !["테넌트 모델 설정" 링크](media/tenant-language-model/tenant-language-settings.png)
 
-1. **배포**를 선택합니다.
+1. **배포** 를 선택합니다.
 
-   모델을 배포하면 상태가 *배포됨*으로 변경됩니다.
+   모델을 배포하면 상태가 *배포됨* 으로 변경됩니다.
 
 ## <a name="use-your-tenant-model-with-the-speech-sdk"></a>Speech SDK와 함께 테넌트 모델 사용
 
 이제 모델을 배포했으므로 모델을 Speech SDK와 함께 사용할 수 있습니다. 이 섹션에서는 Azure AD(Azure Active Directory) 인증을 사용하여 Speech Service를 호출하는 샘플 코드를 사용합니다.
 
-C#에서 Speech SDK를 호출하는 데 사용할 코드를 살펴보겠습니다. 이 예에서는 여러분의 테넌트 모델을 사용하여 음성 인식을 수행합니다. 이 가이드에서는 플랫폼이 이미 설정되어 있다고 가정합니다. 설치와 관련하여 도움이 필요한 경우 [빠른 시작: 음성 인식, C#(.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)을 참조하세요.
+C#에서 Speech SDK를 호출하는 데 사용할 코드를 살펴보겠습니다. 이 예에서는 여러분의 테넌트 모델을 사용하여 음성 인식을 수행합니다. 이 가이드에서는 플랫폼이 이미 설정되어 있다고 가정합니다. 설치와 관련하여 도움이 필요한 경우 [빠른 시작: 음성 인식, C#(.NET Core)](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)을 참조하세요.
 
 이 코드를 프로젝트에 복사합니다.
 

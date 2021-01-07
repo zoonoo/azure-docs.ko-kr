@@ -9,16 +9,16 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0e3bbb2532340664d0fc54b29bea3ef3af75f9b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318406"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459166"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse SQL 리소스 사용
 
-이 문서에서는 Synapse SQL(미리 보기)의 리소스 사용 모델을 설명합니다.
+이 문서에서는 Synapse SQL의 리소스 사용 모델을 설명합니다.
 
 ## <a name="serverless-sql-pool"></a>서버리스 SQL 풀
 

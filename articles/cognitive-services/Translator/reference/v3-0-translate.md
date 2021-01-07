@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f20bab91a4feab056a9f8cd6b012792f036be2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566605"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016550"
 ---
 # <a name="translator-30-translate"></a>Translator 3.0: 변환
 
@@ -55,7 +55,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   <th>Description</th>
   <tr>
     <td>원본</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 <a href="./v3-0-languages.md">지원되는 언어</a>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다. <br/><br/><code>from</code> <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">동적 사전</a> 기능을 사용 하는 경우 인코딩이 대신 매개 변수를 사용 해야 합니다.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 <a href="./v3-0-languages.md">지원되는 언어</a>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다. <br/><br/><code>from</code> <a href="/azure/cognitive-services/translator/dynamic-dictionary">동적 사전</a> 기능을 사용 하는 경우 인코딩이 대신 매개 변수를 사용 해야 합니다.</td>
   </tr>  
   <tr>
     <td>textType</td>
@@ -63,7 +63,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>category</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 <a href="../customization.md">Custom Translator</a>로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 사용자 지정 변환기 <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">프로젝트 세부 정보의</a> 범주 ID를이 매개 변수에 추가 하 여 배포 된 사용자 지정 시스템을 사용 합니다. 기본값은 <code>general</code>입니다.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 <a href="../customization.md">Custom Translator</a>로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 사용자 지정 변환기 <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">프로젝트 세부 정보의</a> 범주 ID를이 매개 변수에 추가 하 여 배포 된 사용자 지정 시스템을 사용 합니다. 기본값은 <code>general</code>입니다.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -107,7 +107,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   <th>Description</th>
   <tr>
     <td>인증 헤더</td>
-    <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
+    <td><em>필수 요청 헤더</em><br/><a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
     <td>콘텐츠 형식</td>
@@ -234,9 +234,9 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
   </tr>
 </table> 
 
-오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 찾을 수 있습니다. 
+오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](./v3-0-reference.md#errors)에서 찾을 수 있습니다. 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="translate-a-single-input"></a>단일 입력 번역
 
@@ -367,7 +367,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
   <th>작업</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>기본 동작입니다. 욕설이 원본에서 대상으로 전달됩니다.<br/><br/>
+    <td>이것은 기본적인 동작입니다. 욕설이 원본에서 대상으로 전달됩니다.<br/><br/>
     <strong>예제 원본(일본어)</strong>: 彼はジャッカスです。<br/>
     <strong>예제 번역(영어)</strong>: He is a jackass.
     </td>
@@ -533,7 +533,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 <mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 
-예를 들어, 영어 문장 "The word wordomatic is a dictionary entry"를 고려해보세요. 단어 _wordomatic_을 번역에 유지하려면 다음 요청을 보냅니다.
+예를 들어, 영어 문장 "The word wordomatic is a dictionary entry"를 고려해보세요. 단어 _wordomatic_ 을 번역에 유지하려면 다음 요청을 보냅니다.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"

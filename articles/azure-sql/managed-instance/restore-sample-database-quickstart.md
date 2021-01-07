@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 413786cf8946c1ffbb76bd0e18eae7c7ba16a9c1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b2333e38415a2c0ad50ce36c213ead711c70ab4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790749"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928803"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>빠른 시작: SSMS를 사용하여 Azure SQL Managed Instance로 데이터베이스 복원
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,6 +51,9 @@ SQL Server Management Studio에서 이러한 단계에 따라 SQL Managed Instan
 1. SSMS를 열고 관리형 인스턴스에 연결합니다.
 2. **개체 탐색기** 에서 관리형 인스턴스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택하여 새 쿼리 창을 엽니다.
 3. 미리 구성된 스토리지 계정과 SAS 키를 사용하여 관리형 인스턴스에 [자격 증명을 만드는](/sql/t-sql/statements/create-credential-transact-sql) 다음 SQL 스크립트를 실행합니다.
+ 
+   > [!IMPORTANT]
+   > `CREDENTIAL`은 컨테이너 경로와 일치해야 하고, `https`로 시작해야 하며, 후행 슬래시를 포함할 수 없습니다. `IDENTITY`는 `SHARED ACCESS SIGNATURE`여야 합니다. `SECRET`은 공유 액세스 서명 토큰이어야 하며 선행 `?`를 포함할 수 없습니다.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]

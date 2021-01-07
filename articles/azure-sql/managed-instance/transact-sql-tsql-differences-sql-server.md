@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 06/02/2020
+ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: e6dc4656e33b55a2cc695874376baf1cd816a838
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337647"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796298"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -69,6 +69,7 @@ SQL Managed Instance에는 자동 백업이 있으므로 사용자는 전체 데
 
 - SQL Managed Instance를 사용 하면 최대 32 개의 스트라이프를 사용 하 여 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 백업 압축을 사용 하는 경우 최대 2TB의 데이터베이스에 충분 합니다.
 - 서비스 관리 TDE(투명한 데이터 암호화)로 암호화된 데이터베이스에서는 `BACKUP DATABASE ... WITH COPY_ONLY`를 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용하여 백업을 암호화합니다. 키를 내보낼 수 없어 백업을 복원할 수 없습니다. 자동 백업 및 특정 시점 복원을 사용하거나 [고객 관리(BYOK) TDE](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key)를 대신 사용합니다. 데이터베이스에서 암호화를 사용하지 않도록 설정할 수 있습니다.
+- Managed Instance에서 수행 되는 기본 백업은 SQL Server 복원할 수 없습니다. 이는 Managed Instance 모든 버전의 SQL Server와 비교 하 여 내부 데이터베이스 버전이 더 높기 때문입니다.
 - SQL Managed Instance의 명령을 사용 하 여 최대 백업 스트라이프 크기는 `BACKUP` 최대 blob 크기인 195 GB입니다. 개별 스트라이프 크기를 줄이고 이 제한 내로 유지하려면 백업 명령에서 스트라이프 수를 늘립니다.
 
     > [!TIP]
@@ -114,7 +115,7 @@ SQL Managed Instance는 파일 공유 및 Windows 폴더에 액세스할 수 없
 
 [CREATE CERTIFICATE](/sql/t-sql/statements/create-certificate-transact-sql) 및 [BACKUP CERTIFICATE](/sql/t-sql/statements/backup-certificate-transact-sql)를 참조하세요. 
  
-**해결 방법** : 인증서의 백업을 만들고 백업을 복원하는 대신 [인증서 이진 콘텐츠 및 프라이빗 키를 가져와서 .sql 파일로 저장하고 이진에서 만듭니다](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database).
+**해결 방법**: 인증서의 백업을 만들고 백업을 복원하는 대신 [인증서 이진 콘텐츠 및 프라이빗 키를 가져와서 .sql 파일로 저장하고 이진에서 만듭니다](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database).
 
 ```sql
 CREATE CERTIFICATE  
@@ -396,9 +397,9 @@ SQL Server에서 사용 하도록 설정 된 문서화 되지 않은 DBCC 문은
 
 SQL Managed Instance의 연결 된 서버는 제한 된 수의 대상을 지원 합니다.
 
-- 지원 되는 대상은 SQL Managed Instance, SQL Database, Azure Synapse SQL 및 SQL Server 인스턴스입니다. 
+- 지원 되는 대상은 SQL Managed Instance, SQL Database, Azure Synapse [SQL server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 를 사용 하지 않으며 전용 풀 및 SQL Server 인스턴스입니다. 
 - 연결된 서버는 분산 쓰기 가능 트랜잭션(MS DTC)을 지원하지 않습니다.
-- 지원되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다. 파일 가져오기의 대안으로 `BULK INSERT` 또는 `OPENROWSET`를 사용하여 Azure Blob Storage에서 기본 CSV 가져오기를 사용합니다.
+- 지원되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다. `BULK INSERT`또는 파일 가져오기에 대 한 대체 방법으로 또는를 사용 하 여 Azure Blob Storage에서 네이티브 CSV 가져오기를 사용 `OPENROWSET` 하거나 [Azure Synapse Analytics에서 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용 하지 않는 SQL 풀을 사용 하 여 파일을 로드 하십시오.
 
 작업: 
 
@@ -406,11 +407,12 @@ SQL Managed Instance의 연결 된 서버는 제한 된 수의 대상을 지원 
 - `sp_dropserver`는 연결된 서버를 삭제하는 데 지원됩니다. [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)를 참조하세요.
 - `OPENROWSET` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
 - `OPENDATASOURCE` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. `SQLNCLI`, `SQLNCLI11` 및 `SQLOLEDB` 값만 공급자로 지원됩니다. 예제는 `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`입니다. [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
-- 연결된 서버를 네트워크 공유에서 파일(Excel, CSV)을 읽는 데 사용할 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 또는 [ OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)을 사용해 보세요. [SQL Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources) 에서이 요청 추적|
+- 연결된 서버를 네트워크 공유에서 파일(Excel, CSV)을 읽는 데 사용할 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file)또는 [Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 참조 하는 연결 된 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용 하십시오. [](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) [SQL Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources) 에서이 요청 추적|
 
 ### <a name="polybase"></a>PolyBase
 
-HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지원되지 않습니다. PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
+Azure SQL database, Azure SQL 관리 되는 인스턴스 및 Azure Synapse 풀에는 RDBMS (공개 미리 보기의 경우)만 사용할 수 있습니다. [Synapse Analytics에서 서버 리스 SQL 풀을 참조 하는 외부 테이블](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) 을 Azure storage에서 직접 읽는 Polybase 외부 테이블에 대 한 해결 방법으로 사용할 수 있습니다. Azure SQL 관리 되는 인스턴스에서 연결 된 서버를 [Synapse Analytics의 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 를 사용 하지 않는 sql 풀에 사용 하거나 SQL Server 하 여 azure storage 데이터를 읽을 수 있습니다.
+PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
 
 ### <a name="replication"></a>복제
 
@@ -517,12 +519,11 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 ### <a name="failover-groups"></a>장애 조치(failover) 그룹
 시스템 데이터베이스는 장애 조치 (failover) 그룹의 보조 인스턴스에 복제 되지 않습니다. 따라서 시스템 데이터베이스의 개체에 종속 된 시나리오는 보조 인스턴스에서 개체를 수동으로 만들지 않는 한 보조 인스턴스에서는 불가능 합니다.
 
-### <a name="failover-groups"></a>장애 조치(failover) 그룹
-시스템 데이터베이스는 장애 조치 (failover) 그룹의 보조 인스턴스에 복제 되지 않습니다. 따라서 시스템 데이터베이스의 개체에 종속 된 시나리오는 보조 인스턴스에서 개체를 수동으로 만들지 않는 한 보조 인스턴스에서는 불가능 합니다.
-
 ### <a name="tempdb"></a>TEMPDB
-
-`tempdb`의 최대 파일 크기는 범용 계층에서 코어당 24GB보다 클 수 없습니다. `tempdb`중요 비즈니스용 계층의 최대 크기는 SQL Managed Instance 저장소 크기에 의해 제한 됩니다. `Tempdb` 로그 파일 크기는 범용 계층에서 120GB로 제한됩니다. 일부 쿼리는 `tempdb`에서 코어당 24GB보다 많이 필요하거나 120GB보다 많이 로그 데이터를 생성하는 경우 오류를 반환할 수 있습니다.
+- `tempdb`의 최대 파일 크기는 범용 계층에서 코어당 24GB보다 클 수 없습니다. `tempdb`중요 비즈니스용 계층의 최대 크기는 SQL Managed Instance 저장소 크기에 의해 제한 됩니다. `Tempdb` 로그 파일 크기는 범용 계층에서 120GB로 제한됩니다. 일부 쿼리는 `tempdb`에서 코어당 24GB보다 많이 필요하거나 120GB보다 많이 로그 데이터를 생성하는 경우 오류를 반환할 수 있습니다.
+- `Tempdb` 는 항상 12 개의 데이터 파일로 분할 됩니다. 주 복제본은 master, data file 및 11 이외의 주 데이터 파일이 라고도 합니다. 파일 구조를 변경할 수 없으며 새 파일을에 추가할 수 없습니다 `tempdb` . 
+- 새 SQL Server 2019 메모리 내 데이터베이스 기능이 있는 [메모리 최적화 `tempdb` 메타 데이터](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata)는 지원 되지 않습니다.
+- Model 데이터베이스에서 만든 개체는 `tempdb` `tempdb` model 데이터베이스에서 초기 개체 목록을 가져오지 않으므로 다시 시작 또는 장애 조치 (failover) 후에에서 자동으로 만들 수 없습니다. `tempdb`각 다시 시작 또는 장애 조치 (failover) 후에는 수동으로 개체를 만들어야 합니다.
 
 ### <a name="msdb"></a>MSDB
 

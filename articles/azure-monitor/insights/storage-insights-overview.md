@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 250a06d81f929d0e3d3befa1e7494db13044fc97
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2538bc91be59ff12b39ee3f5f629e4c016480a97
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101275"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296338"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Storage용 Azure Monitor를 사용하여 스토리지 서비스 모니터링
 
@@ -36,9 +36,6 @@ Storage용 Azure Monitor는 Azure Storage 서비스 성능, 용량 및 가용성
 >[!NOTE]
 >이 기능은 무료로 사용할 수 있으며 [Azure Monitor 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/monitor/) 페이지에 설명된 것처럼 Azure Monitor 필수 기능을 구성하거나 설정하는 경우에만 요금이 부과됩니다.
 
->[!NOTE]
->Storage용 Azure Monitor는 [범용 v1 계정](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts)을 지원하지 않습니다.
->
 
 ## <a name="view-from-azure-monitor"></a>Azure Monitor에서 보기
 
@@ -64,10 +61,10 @@ Azure Monitor에서 구독의 여러 스토리지 계정의 트랜잭션, 대기
 
 드롭다운 목록 아래의 카운터 타일은 구독의 총 스토리지 계정 수를 롤업하고 선택된 총 수를 반영합니다. 통합 문서에는 트랜잭션 메트릭 또는 오류를 보고하는 열에 대한 조건부 컬러 코딩 또는 열 지도가 있습니다. 가장 진한 색이 가장 높은 값을 가지며 밝은 색은 가장 작은 값을 기준으로 합니다. 오류 기반 열의 경우 값이 빨간색이고 메트릭 기반 열의 경우 값이 파란색으로 되어 있습니다.
 
-**가용성** , **E2E 대기 시간** , **서버 대기 시간** 및 **트랜잭션 오류 유형/오류** 열에서 값을 선택하면 해당 스토리지 계정에 대해 선택한 열과 일치하는 특정 유형의 스토리지 메트릭에 맞게 조정된 보고서로 연결됩니다. 각 범주의 통합 문서에 대한 자세한 내용은 아래의 [자세한 스토리지 통합 문서](#detailed-storage-workbooks) 섹션을 참조하세요. 
+**가용성**, **E2E 대기 시간**, **서버 대기 시간** 및 **트랜잭션 오류 유형/오류** 열에서 값을 선택하면 해당 스토리지 계정에 대해 선택한 열과 일치하는 특정 유형의 스토리지 메트릭에 맞게 조정된 보고서로 연결됩니다. 각 범주의 통합 문서에 대한 자세한 내용은 아래의 [자세한 스토리지 통합 문서](#detailed-storage-workbooks) 섹션을 참조하세요. 
 
 >[!NOTE]
->보고서에 표시될 수 있는 오류에 대한 자세한 내용은 [응답 유형 스키마](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions)를 참조하고 **ServerOtherError** , **ClientOtherError** , **ClientThrottlingError** 와 같은 응답 유형을 찾습니다. 선택한 스토리지 계정에 따라 세 가지가 넘는 오류 유형이 보고되는 경우 다른 모든 오류는 **기타** 범주에 표시됩니다.
+>보고서에 표시될 수 있는 오류에 대한 자세한 내용은 [응답 유형 스키마](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions)를 참조하고 **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError** 와 같은 응답 유형을 찾습니다. 선택한 스토리지 계정에 따라 세 가지가 넘는 오류 유형이 보고되는 경우 다른 모든 오류는 **기타** 범주에 표시됩니다.
 
 기본 **가용성** 임계값은 다음과 같습니다.
 
@@ -104,13 +101,13 @@ Azure Monitor에서 구독의 여러 스토리지 계정의 트랜잭션, 대기
 
 * 서비스 가용성, 스토리지 서비스에 대한 총 트랜잭션 수, E2E 대기 시간 및 서버 대기 시간이 강조 표시된 메트릭 및 상태 타일
 
-**오류** , **성능** , **가용성** 및 **용량** 단추 중 하나를 선택하면 해당 통합 문서가 열립니다. 
+**오류**, **성능**, **가용성** 및 **용량** 단추 중 하나를 선택하면 해당 통합 문서가 열립니다. 
 
 ![선택한 스토리지 계정 개요 페이지](./media/storage-insights-overview/storage-account-capacity-01.png)
 
 ## <a name="detailed-storage-workbooks"></a>자세한 스토리지 통합 문서
 
-여러 스토리지 계정 **개요** 통합 문서의 **가용성** , **E2E 대기 시간** , **서버 대기 시간** 및 **트랜잭션 오류 유형/오류** 열의 값을 선택하거나 특정 스토리지 계정의 **개요** 통합 문서에서 **오류** , **성능** , **가용성** 및 **용량** 단추 중 하나를 선택하면 각각 해당 범주에 맞게 조정된 일련의 대화형 스토리지 관련 정보를 제공합니다.  
+여러 스토리지 계정 **개요** 통합 문서의 **가용성**, **E2E 대기 시간**, **서버 대기 시간** 및 **트랜잭션 오류 유형/오류** 열의 값을 선택하거나 특정 스토리지 계정의 **개요** 통합 문서에서 **오류**, **성능**, **가용성** 및 **용량** 단추 중 하나를 선택하면 각각 해당 범주에 맞게 조정된 일련의 대화형 스토리지 관련 정보를 제공합니다.  
 
 * **가용성** 을 선택하면 **가용성** 통합 문서가 열립니다. Azure Storage 서비스의 현재 상태, 선택된 시간 범위를 나타내는 추세선을 사용하여 스토리지 계정에 정의된 데이터 서비스로 분류된 사용 가능한 각 개체의 상태를 나타내는 표, 계정의 각 데이터 서비스에 대한 가용성 추세 차트가 표시됩니다.  
 
@@ -174,7 +171,7 @@ Azure Monitor에서 구독의 여러 스토리지 계정의 트랜잭션, 대기
 * 메트릭 제거
 * 색 렌더링 변경
 
-미리 작성된 **오류** , **성능** , **가용성** 및 **용량** 통합 문서 중 하나에 대해 동일한 변경 내용을 수행할 수 있습니다.
+미리 작성된 **오류**, **성능**, **가용성** 및 **용량** 통합 문서 중 하나에 대해 동일한 변경 내용을 수행할 수 있습니다.
 
 1. 포털에서 **모니터** 를 선택한 다음 왼쪽 창에서 **스토리지 계정** 을 선택합니다.
 

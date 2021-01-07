@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37099b551e004ebfc702dce37c2a1499aa46ff10
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531392"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950731"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>이전에 자동으로 프로비전된 디바이스의 프로비전을 해제하는 방법 
 
@@ -25,7 +25,7 @@ ms.locfileid: "90531392"
    - 디바이스의 등록을 해제하는 방법을 알아보려면 [Azure IoT Hub Device Provisioning 서비스에서 디바이스 등록을 해제하는 방법](how-to-revoke-device-access-portal.md)을 참조하세요.
    - 프로비전 서비스 SDK 중 하나를 사용하여 프로그래밍 방식으로 디바이스 등록을 해제하는 방법을 알아보려면 [서비스 SDK를 사용하여 디바이스 등록 관리](how-to-manage-enrollments-sdks.md)를 참조하세요.
 
-2. 향후 통신 및 데이터 전송을 방지하기 위해 IoT Hub에서 디바이스 등록을 취소합니다. 다시, 프로비전된 IoT Hub에 대한 ID 레지스트리에서 해당 디바이스의 항목을 일시적으로 사용하지 않도록 설정하거나 영구적으로 삭제할 수 있습니다. 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [디바이스 사용 안 함](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices)을 참조하세요. [Azure Portal](https://portal.azure.com)의 IoT Hub 리소스에 대해서는 "디바이스 관리/IoT 디바이스"를 참조하세요.
+2. 향후 통신 및 데이터 전송을 방지하기 위해 IoT Hub에서 디바이스 등록을 취소합니다. 다시, 프로비전된 IoT Hub에 대한 ID 레지스트리에서 해당 디바이스의 항목을 일시적으로 사용하지 않도록 설정하거나 영구적으로 삭제할 수 있습니다. 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [디바이스 사용 안 함](../iot-hub/iot-hub-devguide-identity-registry.md#disable-devices)을 참조하세요. [Azure Portal](https://portal.azure.com)의 IoT Hub 리소스에 대해서는 "디바이스 관리/IoT 디바이스"를 참조하세요.
 
 디바이스의 프로비전을 해제하기 위해 수행하는 정확한 단계는 프로비전 서비스에 대한 증명 메커니즘 및 해당 등록 항목에 따라 달라집니다. 다음 섹션에서는 등록 및 증명 형식을 기준으로 하는 프로세스의 개요를 제공합니다.
 
@@ -47,9 +47,9 @@ X.509 증명을 사용하면 등록 그룹을 통해 디바이스를 프로비�
 
 등록 그룹을 통해 프로비전된 디바이스 목록을 보려면 등록 그룹의 세부 정보를 확인하면 됩니다. 이는 각 디바이스가 프로비전된 IoT 허브를 이해하는 쉬운 방법입니다. 디바이스 목록을 보려면 다음을 수행합니다. 
 
-1. Azure Portal에 로그인하고 왼쪽 메뉴에서 **모든 리소스**를 클릭합니다.
+1. Azure Portal에 로그인하고 왼쪽 메뉴에서 **모든 리소스** 를 클릭합니다.
 2. 리소스 목록에서 프로비전 서비스를 클릭합니다.
-3. 프로비전 서비스에서 **등록 관리**를 클릭한 후 **등록 그룹** 탭을 선택합니다.
+3. 프로비전 서비스에서 **등록 관리** 를 클릭한 후 **등록 그룹** 탭을 선택합니다.
 4. 등록 그룹을 클릭하여 엽니다.
 
    ![포털에서 등록 그룹 항목 보기](./media/how-to-unprovision-devices/view-enrollment-group.png)
@@ -63,4 +63,4 @@ X.509 증명을 사용하면 등록 그룹을 통해 디바이스를 프로비�
 
 - 등록 그룹에서 단일 디바이스의 프로비전을 해제하려면:
   1. 리프(디바이스) 인증서에 대해 사용하지 않도록 설정된 개별 등록을 만듭니다. 이렇게 하면 인증서 체인에 등록 그룹의 서명 인증서가 있는 다른 디바이스에 대한 액세스를 허용하면서도 해당 디바이스에 대한 프로비전 서비스에 대한 액세스가 취소됩니다. 디바이스에 대해 사용하지 않도록 설정된 개별 등록은 삭제하지 않습니다. 이렇게 하면 해당 디바이스가 등록 그룹을 통해 다시 등록될 수 있습니다. 
-  2. 등록 그룹의 프로비전된 디바이스 목록을 사용하여 디바이스가 프로비전된 IoT 허브를 찾고 해당 허브의 ID 레지스트리에서 사용하지 않도록 설정하거나 삭제할 수 있습니다. 
+  2. 등록 그룹의 프로비전된 디바이스 목록을 사용하여 디바이스가 프로비전된 IoT 허브를 찾고 해당 허브의 ID 레지스트리에서 사용하지 않도록 설정하거나 삭제할 수 있습니다.

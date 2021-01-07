@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 7c1bfa618ea0ddddd7666698bc4fffa3ced5079d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323070"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862140"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -110,7 +110,7 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한
 
 * [계산 인스턴스를 만듭니다](#create). 
 * 계산 인스턴스 탭을 새로 고칩니다.
-* 계산 인스턴스를 시작, 중지 및 다시 시작 합니다.  인스턴스가 실행 될 때마다 해당 인스턴스에 대 한 비용을 지불 합니다. 계산 인스턴스를 사용 하 여 비용을 줄일 수 없는 경우 중지 합니다. 계산 인스턴스를 중지 하면 할당을 취소 합니다. 그런 다음, 필요할 때 다시 시작합니다.
+* 계산 인스턴스를 시작, 중지 및 다시 시작 합니다.  인스턴스가 실행 될 때마다 해당 인스턴스에 대 한 비용을 지불 합니다. 계산 인스턴스를 사용 하 여 비용을 줄일 수 없는 경우 중지 합니다. 계산 인스턴스를 중지 하면 할당을 취소 합니다. 그런 다음, 필요할 때 다시 시작합니다. 계산 인스턴스를 중지 하면 계산 시간에 대 한 청구를 중지 하지만 디스크, 공용 IP 및 표준 부하 분산 장치에 대 한 요금이 계속 청구 됩니다.
 * 계산 인스턴스를 삭제 합니다.
 * 생성 한 계산만 표시 되도록 인스턴스 생성 목록을 필터링 합니다.
 
@@ -130,7 +130,12 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한
 * *MachineLearningServices/작업 영역/계산/중지/작업*
 * *MachineLearningServices/작업 영역/계산/다시 시작/작업*
 
-### <a name="create-a-compute-instance"></a><a name="create"></a>컴퓨팅 인스턴스 만들기
+계산 인스턴스를 만들려면 다음 동작에 대 한 사용 권한이 있어야 합니다.
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *MachineLearningServices/작업 영역/checkComputeNameAvailability/작업*
+
+
+### <a name="create-a-compute-instance"></a><a name="create"></a>계산 인스턴스 만들기
 
 Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 실행할 준비가 되 면 **계산** 섹션 또는 **노트북** 섹션에서 [새 계산 인스턴스를 만듭니다](how-to-create-attach-compute-studio.md#compute-instance) . 
 

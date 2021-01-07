@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: b2cd5e32503953de874ab470ca3f9413d2b37d59
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 74f891ba7f5b400b5782565e670539167f4e2464
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014650"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703435"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>방법: 시계열 데이터에서 변칙 탐지기 API 사용  
 
@@ -26,7 +26,7 @@ ms.locfileid: "92014650"
 변칙 탐지기 API는 검색 모드 (일괄 처리 및 스트리밍)를 제공 합니다.
 
 > [!NOTE]
-> 다음 요청 Url은 구독에 적합 한 끝점과 결합 되어야 합니다. 예: `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
+> 다음 요청 Url은 구독에 적합 한 끝점과 결합 되어야 합니다. `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
 ### <a name="batch-detection"></a>일괄 검색
@@ -71,4 +71,4 @@ ms.locfileid: "92014650"
 ## <a name="next-steps"></a>다음 단계
 
 * [Anomaly Detector API란?](../overview.md)
-* [빠른 시작: Anomaly Detector REST API를 사용하여 시계열 데이터에서 변칙 검색](../quickstarts/detect-data-anomalies-csharp.md)
+* [빠른 시작: 변칙 탐지기를 사용 하 여 시계열 데이터의 변칙 검색](../quickstarts/client-libraries.md)

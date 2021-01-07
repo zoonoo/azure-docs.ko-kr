@@ -8,18 +8,19 @@ manager: juergent
 editor: ''
 keywords: HLI, HANA, Sku, S896, S224, S448, S672, Optane, SAP
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/23/2020
+ms.date: 12/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08872b95c4cff3c261a545f117cc4e6bf24e15a5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 886cd57b59bd4103ced9d496021e54ab0bdc99ad
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411476"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723289"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>HANA Large Instances에 대해 사용 가능한 Sku
 
@@ -34,10 +35,13 @@ ms.locfileid: "94411476"
 
 - 미국 서부 2
 - 미국 동부
-- 미국 동부 2
-- 미국 중남부
+
+개정판 4.2 스탬프를 기반으로 하는 BareMetal 인프라 (SAP HANA 워크 로드에 대 한 인증) 서비스입니다. 다음의 Azure 지역에서 여러 구성으로 사용할 수 있습니다.
 - 서유럽
 - 북유럽
+- 미국 동부 2
+- 미국 중남부
+
 
 
 
@@ -48,7 +52,7 @@ ms.locfileid: "94411476"
 
 
 
-| SAP HANA 인증 됨 | 모델 | 총 메모리 | 메모리 DRAM | 메모리 Optane | Storage | 가용성 |
+| SAP HANA 인증 됨 | 모델 | 총 메모리 | 메모리 DRAM | 메모리 Optane | 스토리지 | 가용성 |
 | --- | --- | --- | --- | --- | --- | --- |
 | YES <br />[OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2185), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2265) | Azure의 SAP HANA S96<br /> – 2 x Intel® Xeon® Processor E7-8890 v4 <br /> 48개 CPU 코어 및 96개 CPU 스레드 |  768 GB | 768 GB | --- | 3.0 TB | 사용 가능 |
 | YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2186), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2269) | Azure S224의 SAP HANA<br /> – 4 x Intel® Xeon® Platinum 8276 프로세서 <br /> 112 CPU 코어 및 224 CPU 스레드 |  3.0 TB | 3.0 TB | --- | 6.3 TB | 사용 가능 |
@@ -60,24 +64,24 @@ ms.locfileid: "94411476"
 | YES <br />[OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=1983), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2268) | Azure S384에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  4.0 TB | 4.0 TB | --- | 16TB | 사용 가능 |
 | YES <br />[OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2080) | Azure S384m에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  6.0 TB | 6.0 TB | --- | 18 TB |  사용 가능  |
 | YES <br />[OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=1984), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2267) | Azure S384xm에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  8.0 TB | 8.0 TB | --- | 22 TB | 사용 가능 |
-| YES <br />[OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2378) | Azure S448의 SAP HANA<br /> – 8 x Intel® Xeon® Platinum 8276 프로세서 <br /> 224 CPU 코어 및 448 CPU 스레드 | 6.0 TB |  6.0 TB |  --- | 10.5 TB | 사용 가능 (Rev 4에만 해당) |
-| YES <br />[OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2377) | Azure S448m의 SAP HANA<br /> – 8 x Intel® Xeon® Platinum 8276 프로세서 <br /> 224 CPU 코어 및 448 CPU 스레드 | 12.0 TB |  12.0 TB |  --- | 18.9 TB | 사용 가능 (Rev 4에만 해당) |
+| YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24&id=s:2411), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2378) | Azure S448의 SAP HANA<br /> – 8 x Intel® Xeon® Platinum 8276 프로세서 <br /> 224 CPU 코어 및 448 CPU 스레드 | 6.0 TB |  6.0 TB |  --- | 10.5 TB | 사용 가능 (Rev 4에만 해당) |
+| YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24&id=s:2410), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2377) | Azure S448m의 SAP HANA<br /> – 8 x Intel® Xeon® Platinum 8276 프로세서 <br /> 224 CPU 코어 및 448 CPU 스레드 | 12.0 TB |  12.0 TB |  --- | 18.9 TB | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S448oo의 SAP HANA<br /> – 8 x Intel® Xeon® Platinum 8276 프로세서 <br /> 224 CPU 코어 및 448 CPU 스레드 | 9.0 TB |  3.0 TB |  6.0 TB | 14.8 TB  | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S448om의 SAP HANA<br /> – 8 x Intel® Xeon® Platinum 8276 프로세서 <br /> 224 CPU 코어 및 448 CPU 스레드 | 12.0 TB |  6.0 TB |  6.0 TB | 18.9 TB  | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S448ooo의 SAP HANA<br /> – 8 x Intel® Xeon® Platinum 8276 프로세서 <br /> 224 CPU 코어 및 448 CPU 스레드 | 15.0 TB |  3.0 TB |  12.0 TB | 23.2 TB  | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S448oom의 SAP HANA<br /> – 8 x Intel® Xeon® Platinum 8276 프로세서 <br /> 224 CPU 코어 및 448 CPU 스레드 | 18.0TB |  6.0 TB |  12.0 TB | 27.4 TB  | 사용 가능 (Rev 4에만 해당) |
-| YES <br />[OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2049) | Azure의 SAP HANA S576m<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 288 CPU 코어 및 576 CPU 스레드 |  12.0 TB | 12.0 TB | --- | 28 TB | 사용 가능 (Rev 4에만 해당) |
+| YES <br /> [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2049) | Azure의 SAP HANA S576m<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 288 CPU 코어 및 576 CPU 스레드 |  12.0 TB | 12.0 TB | --- | 28 TB | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S576xm에서 SAP HANA<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 288 CPU 코어 및 576 CPU 스레드 |  18.0TB | 18.0 | --- |  41TB | 사용 가능 |
-| YES <br />[OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2380) | Azure S672의 SAP HANA<br /> – 12 x Intel® Xeon® Platinum 8276 프로세서 <br /> 336 CPU 코어 및 672 CPU 스레드 | 9.0 TB |  9.0 TB |  --- | 14.7 TB | 사용 가능 (Rev 4에만 해당) |
-| YES <br />[OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2379) | Azure S672m의 SAP HANA<br /> – 12 x Intel® Xeon® Platinum 8276 프로세서 <br /> 336 CPU 코어 및 672 CPU 스레드 | 18.0TB |  18.0TB |  --- | 27.4 TB | 사용 가능 (Rev 4에만 해당) |
+| YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24&id=s:2409), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2380) | Azure S672의 SAP HANA<br /> – 12 x Intel® Xeon® Platinum 8276 프로세서 <br /> 336 CPU 코어 및 672 CPU 스레드 | 9.0 TB |  9.0 TB |  --- | 14.7 TB | 사용 가능 (Rev 4에만 해당) |
+| YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24&id=s:2408), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2379) | Azure S672m의 SAP HANA<br /> – 12 x Intel® Xeon® Platinum 8276 프로세서 <br /> 336 CPU 코어 및 672 CPU 스레드 | 18.0TB |  18.0TB |  --- | 27.4 TB | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S672oo의 SAP HANA<br /> – 12 x Intel® Xeon® Platinum 8276 프로세서 <br /> 336 CPU 코어 및 672 CPU 스레드 | 13.5 TB |  4.5 TB |  9.0 TB | 21.1 TB  | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S672om의 SAP HANA<br /> – 12 x Intel® Xeon® Platinum 8276 프로세서 <br /> 336 CPU 코어 및 672 CPU 스레드 | 18.0TB |  9.0 TB |  9.0 TB | 27.4 TB  | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S672ooo의 SAP HANA<br /> – 12 x Intel® Xeon® Platinum 8276 프로세서 <br /> 336 CPU 코어 및 672 CPU 스레드 | 22.5TB |  4.5 TB |  18.0TB | 33.7 TB  | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S672oom의 SAP HANA<br /> – 12 x Intel® Xeon® Platinum 8276 프로세서 <br /> 336 CPU 코어 및 672 CPU 스레드 | 27.0 TB |  9.0 TB |  18.0TB | 40.0 TB  | 사용 가능 (Rev 4에만 해당) |
 | YES <br />[OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=1985) | Azure의 SAP HANA S768m<br /> – 16 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 384 CPU 코어 및 768 CPU 스레드 |  16.0 TB | 16.0 TB | -- | 36 TB | 사용 가능 |
 | 아니요 | Azure S768xm에서 SAP HANA<br /> – 16 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 384 CPU 코어 및 768 CPU 스레드 |  24.0TB | 24.0TB | --- | 56TB | 사용 가능 |
-|  YES <br />[OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2376)  | Azure S896의 SAP HANA<br /> – 16 x Intel® Xeon® 플래티넘 8276 프로세서 <br /> 448 CPU 코어 및 896 CPU 스레드 | 12.0 TB |  12.0 TB |  --- | 18.9 TB | 사용 가능 (Rev 4에만 해당) |
-| YES <br />[OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2328) | Azure S896m의 SAP HANA<br /> – 16 x Intel® Xeon® 플래티넘 8276 프로세서 <br /> 448 CPU 코어 및 896 CPU 스레드 | 24.0TB | 24.0TB | -- | 35.8 TB | 사용 가능 |
+|  YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24&id=s:2407), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2376)  | Azure S896의 SAP HANA<br /> – 16 x Intel® Xeon® 플래티넘 8276 프로세서 <br /> 448 CPU 코어 및 896 CPU 스레드 | 12.0 TB |  12.0 TB |  --- | 18.9 TB | 사용 가능 (Rev 4에만 해당) |
+| YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24&id=s:2406), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2328) | Azure S896m의 SAP HANA<br /> – 16 x Intel® Xeon® 플래티넘 8276 프로세서 <br /> 448 CPU 코어 및 896 CPU 스레드 | 24.0TB | 24.0TB | -- | 35.8 TB | 사용 가능 |
 | 아니요 | Azure S896oo의 SAP HANA<br /> – 16 x Intel® Xeon® 플래티넘 8276 프로세서 <br /> 448 CPU 코어 및 896 CPU 스레드 | 18.0TB |  6.0 TB |  12.0 TB | 27.4 TB  | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S896om의 SAP HANA<br /> – 16 x Intel® Xeon® 플래티넘 8276 프로세서 <br /> 448 CPU 코어 및 896 CPU 스레드 | 24.0TB |  12.0 TB |  12.0 TB | 35.8 TB  | 사용 가능 (Rev 4에만 해당) |
 | 아니요 | Azure S896ooo의 SAP HANA<br /> – 16 x Intel® Xeon® 플래티넘 8276 프로세서 <br /> 448 CPU 코어 및 896 CPU 스레드 | 30.0 TB |  6.0 TB |  24.0TB | 44.3 TB  | 사용 가능 (Rev 4에만 해당) |
@@ -104,9 +108,9 @@ SKU를 구분하는 두 가지 하드웨어 클래스는 다음과 같습니다.
 
 HANA 대규모 인스턴스 스탬프 전체는 단일 고객용으로만 할당되지 않습니다. 이 사실은 Azure에 배포된 네트워크 패브릭을 통해 연결된 컴퓨팅 및 스토리지 리소스 랙에도 적용됩니다. HANA 대규모 인스턴스 인프라는 Azure와 마찬가지로 다음 세 가지 수준에서 서로 격리된 서로 다른 고객 &quot;테넌트&quot;를 배포합니다.
 
-- **네트워크** : HANA Large Instance 스탬프 내의 가상 네트워크를 통해 격리 됩니다.
-- **저장소** : 저장소 볼륨이 할당 되 고 테 넌 트 간 저장소 볼륨을 격리 하는 저장소 가상 머신을 통해 격리 됩니다.
-- **Compute** : 서버 단위를 단일 테 넌 트에 전용으로 할당 합니다. 서버 장치에 대한 하드 분할 또는 소프트 분할이 없습니다. 테넌트 간 단일 서버 또는 호스트 단위의 공유 없음. 
+- **네트워크**: HANA Large Instance 스탬프 내의 가상 네트워크를 통해 격리 됩니다.
+- **저장소**: 저장소 볼륨이 할당 되 고 테 넌 트 간 저장소 볼륨을 격리 하는 저장소 가상 머신을 통해 격리 됩니다.
+- **Compute**: 서버 단위를 단일 테 넌 트에 전용으로 할당 합니다. 서버 장치에 대한 하드 분할 또는 소프트 분할이 없습니다. 테넌트 간 단일 서버 또는 호스트 단위의 공유 없음. 
 
 서로 다른 테넌트 간의 HANA 대규모 인스턴스 장치 배포는 상호 간에 표시되지 않습니다. 서로 다른 테넌트에 배포된 HANA 대규모 인스턴스 장치는 HANA 대규모 인스턴스 스탬프 수준에서 서로 직접 통신 할 수 없습니다. 한 테넌트 내의 HANA 대규모 인스턴스 장치만 HANA 대규모 인스턴스 스탬프 수준에서 서로 통신할 수 있습니다.
 

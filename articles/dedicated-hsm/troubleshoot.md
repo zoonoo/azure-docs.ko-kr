@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 42bfa52721160a469db2aa0507dadfa85ff41389
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927841"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508274"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Azure Dedicated HSM 서비스 문제 해결
 
@@ -85,7 +85,7 @@ Dedicated HSM은 ExpressRoute 게이트웨이를 고객 개인 IP 주소 공간�
 
 Dedicated HSM에 제공되는 템플릿 샘플은 지정된 서브넷 범위에서 HSM IP를 자동으로 가져온다고 가정합니다. HSM에 대한 명시적 IP 주소는 ARM 템플릿의 "NetworkInterfaces" 특성을 통해 지정할 수 있습니다. 
 
-![전용 HSM에 대한 샘플 템플릿을 보여주는 스크린샷.](./media/troubleshoot/private-ip-address.png)
+![Dedicated HSM에 대한 샘플 템플릿을 보여주는 스크린샷.](./media/troubleshoot/private-ip-address.png)
 
 ## <a name="hsm-initialization"></a>HSM 초기화
 

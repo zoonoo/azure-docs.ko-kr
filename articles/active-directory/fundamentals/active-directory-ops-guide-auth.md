@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 90e215ea445c8c700e351149e9c7a91d9a595252
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371055"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859524"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -31,7 +31,7 @@ ms.locfileid: "92371055"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되지 않을 수 있는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 환경 최적화를 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| Task | 소유자 |
+| 작업 | 소유자 |
 | :- | :- |
 | Azure AD에서 SSO (Single Sign-On) 구성의 수명 주기 관리 | IAM 운영 팀 |
 | Azure AD 응용 프로그램에 대 한 조건부 액세스 정책 디자인 | InfoSec 아키텍처 팀 |
@@ -95,7 +95,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>온-프레미스 중단 인증 복원 력
 
-간단 하 고 누출 된 자격 증명 검색을 사용 하는 것 외에도 Azure AD의 PHS (암호 해시 동기화) 및 Azure MFA를 사용 하면 사용자가 [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/)와 같은 사이버 공격으로 인해 온-프레미스 중단에도 불구 하 고 SaaS 응용 프로그램 및 Microsoft 365에 액세스할 수 있습니다. 페더레이션을 사용 하는 동시에 페더레이션을 사용 하도록 설정할 수도 있습니다. PHS를 사용 하도록 설정 하면 페더레이션 서비스를 사용할 수 없을 때 인증을 대체 합니다.
+간단한 자격 증명 검색 기능 외에도 Azure AD의 PHS (암호 해시 동기화)와 Azure AD MFA를 사용 하면 사용자가 [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/)와 같은 사이버 공격으로 인해 온-프레미스 중단에도 불구 하 고 사용자가 SaaS 응용 프로그램 및 Microsoft 365에 액세스할 수 있습니다. 페더레이션을 사용 하는 동시에 페더레이션을 사용 하도록 설정할 수도 있습니다. PHS를 사용 하도록 설정 하면 페더레이션 서비스를 사용할 수 없을 때 인증을 대체 합니다.
 
 온-프레미스 조직에 중단 복원 력이 없거나 Azure AD와 통합 되지 않은 전략이 있는 경우 Azure AD PHS를 배포 하 고 PHS를 포함 하는 재해 복구 계획을 정의 해야 합니다. Azure AD PHS를 사용 하도록 설정 하면 사용자가 온-프레미스 Active Directory을 사용할 수 없는 경우 Azure AD에 대해 인증할 수 있습니다.
 
@@ -160,7 +160,7 @@ Windows 10에서 [비즈니스용 Windows Hello](/windows/security/identity-prot
 > [!NOTE]
 > 조직에서 관리 되지 않는 응용 프로그램을 검색 하는 메커니즘이 없는 경우 [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security)와 같은 cloud access security broker 솔루션 (casb)을 사용 하 여 검색 프로세스를 구현 하는 것이 좋습니다.
 
-마지막으로 Azure AD 앱 갤러리가 있고 Azure AD에서 SSO를 지 원하는 응용 프로그램을 사용 하는 경우 [앱 갤러리에 응용 프로그램을 나열](../azuread-dev/howto-app-gallery-listing.md)하는 것이 좋습니다.
+마지막으로 Azure AD 앱 갤러리가 있고 Azure AD에서 SSO를 지 원하는 응용 프로그램을 사용 하는 경우 [앱 갤러리에 응용 프로그램을 나열](../develop/v2-howto-app-gallery-listing.md)하는 것이 좋습니다.
 
 #### <a name="single-sign-on-recommended-reading"></a>Single sign-on 권장 읽기
 
@@ -255,7 +255,7 @@ MAM (Microsoft Intune 응용 프로그램 관리)은 저장소 암호화, PIN, �
 
 #### <a name="conditional-access-recommended-reading"></a>조건부 액세스 권장 읽기
 
-- [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](../conditional-access/best-practices.md)
+- [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](../conditional-access/overview.md)
 - [ID 및 디바이스 액세스 구성](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory 조건부 액세스 설정 참조](../conditional-access/concept-conditional-access-conditions.md)
 - [일반 조건부 액세스 정책](../conditional-access/concept-conditional-access-policy-common.md)
@@ -281,14 +281,14 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
    
    b. 아래 단계에 따라 잠글 일정을 계획 합니다.
    
-   c. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
+   다. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
 
 2. 레거시 인증을 사용 하지 않는 사용자가 더 많은 노출을 방지 하기 위해 원본 (예: Exchange 사서함)에서 레거시 프로토콜을 사용 하지 않도록 설정 합니다.
 3. 나머지 계정 (서비스 계정 등의 비 사용자 id)의 경우 조건부 액세스를 사용 하 여 인증 후 [레거시 프로토콜을 제한](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) 합니다.
 
 #### <a name="legacy-authentication-recommended-reading"></a>레거시 인증 권장 읽기
 
-- [Exchange Server의 사서함에 POP3 또는 IMAP4 액세스를 사용 하거나 사용 하지 않도록 설정](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Exchange Server의 사서함에 POP3 또는 IMAP4 액세스를 사용 하거나 사용 하지 않도록 설정](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### <a name="consent-grants"></a>승인 허가
 

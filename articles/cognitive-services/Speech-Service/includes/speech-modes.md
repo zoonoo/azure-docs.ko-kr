@@ -5,15 +5,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2020
 ms.author: trbye
-ms.openlocfilehash: d97a1bf00d722414bedda4be79adc0c26d02c751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc569050b78a5797808f2e2e000019ba516ba22e
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81421820"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739242"
 ---
-## <a name="speech-modes"></a>음성 모드
-
 **대화형**
 - 명령 및 제어 시나리오를 위한 것입니다.
 - 의 조각화 시간 제한 값이 X입니다.

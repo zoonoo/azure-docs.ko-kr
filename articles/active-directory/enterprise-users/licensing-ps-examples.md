@@ -7,19 +7,19 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86b3b44e480ccdc823853b5c790cad02a0821795
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 77483920e327b95c699c9bb2b494f41eff3d2605
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377098"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586383"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대 한 PowerShell 및 그래프 예제
 
@@ -71,7 +71,7 @@ location: https://graph.microsoft.com/v2/d056d009-17b3-4106-8173-cd3978ada898/di
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>그룹에 할당된 제품 라이선스 보기
 
-[Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet은 그룹 개체를 검색하고 *라이선스* 속성을 확인하는 데 사용됩니다. 그룹에 현재 할당된 모든 제품 라이선스를 나열합니다.
+[Get-MsolGroup](/powershell/module/msonline/get-msolgroup) cmdlet은 그룹 개체를 검색하고 *라이선스* 속성을 확인하는 데 사용됩니다. 그룹에 현재 할당된 모든 제품 라이선스를 나열합니다.
 
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
@@ -402,7 +402,7 @@ function UserHasLicenseAssignedFromGroup
 }
 ```
 
-이 스크립트는 SKU ID를 입력으로 사용 하 여 조직의 각 사용자에 대해 해당 함수를 실행 합니다 .이 예제에서는 조직에서 ID *contoso: EMS*로 표시 되는 *Enterprise Mobility + Security*에 대 한 라이선스에 관심이 있습니다.
+이 스크립트는 SKU ID를 입력으로 사용 하 여 조직의 각 사용자에 대해 해당 함수를 실행 합니다 .이 예제에서는 조직에서 ID *contoso: EMS* 로 표시 되는 *Enterprise Mobility + Security* 에 대 한 라이선스에 관심이 있습니다.
 
 ```powershell
 #the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your organization
@@ -662,9 +662,9 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 그룹의 라이선스를 관리할 수 있는 기능 집합에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Active Directory의 그룹 기반 라이선스란?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Azure Active Directory에서 그룹에 라이선스 할당](../users-groups-roles/licensing-groups-assign.md)
+* [Azure Active Directory에서 그룹에 라이선스 할당](./licensing-groups-assign.md)
 * [Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결](licensing-groups-resolve-problems.md)
 * [Azure Active Directory에서 개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](licensing-groups-migrate-users.md)
 * [Azure Active Directory에서 그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 마이그레이션하는 방법](licensing-groups-change-licenses.md)
-* [Azure Active Directory 그룹 기반 라이선스 추가 시나리오](../users-groups-roles/licensing-group-advanced.md)
+* [Azure Active Directory 그룹 기반 라이선스 추가 시나리오](./licensing-group-advanced.md)
 * [Azure Active Directory의 그룹 기반 라이선싱에 대한 PowerShell 예제](licensing-ps-examples.md)

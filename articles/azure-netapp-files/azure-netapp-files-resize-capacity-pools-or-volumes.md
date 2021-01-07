@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: b-juche
 ms.openlocfilehash: 62bf154c1dbf1a0d3f12e2cef916b37059ce985b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325507"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012479"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>용량 풀 또는 볼륨 크기 조정
 필요에 따라 용량 풀 또는 볼륨의 크기를 변경할 수 있습니다. 
@@ -36,7 +36,7 @@ ms.locfileid: "91325507"
 
 필요에 따라 볼륨의 크기를 변경할 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다.
 
-1. NetApp 계정 관리 블레이드에서 **볼륨**을 클릭합니다. 
+1. NetApp 계정 관리 블레이드에서 **볼륨** 을 클릭합니다. 
 2. 상황에 맞는 메뉴를 표시하려면 크기를 조정하려는 볼륨 이름을 마우스 오른쪽 단추로 클릭하거나 볼륨의 행의 끝에 있는 "..." 아이콘을 클릭합니다.
 3. 상황에 맞는 메뉴 옵션을 사용하여 볼륨을 크기 조정하거나 삭제합니다.
 

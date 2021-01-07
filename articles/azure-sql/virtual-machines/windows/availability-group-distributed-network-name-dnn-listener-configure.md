@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: abfcd6a13bc5e8ad262fe47111eb680ad00a34df
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 07ce01304f27ded4e0a566777fcf7027f7a15e4b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168976"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359441"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>가용성 그룹에 대 한 DNN 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +37,7 @@ DNN listener 기능은 현재 Windows Server 2016 이상에서 SQL Server 2019 C
 
 DNN (분산 네트워크 이름) 수신기는 [SQL Server vm에서 Always On 가용성 그룹](availability-group-overview.md)와 함께 사용 될 때 기존 vnn (가상 네트워크 이름) 가용성 그룹 수신기를 대체 합니다. 이렇게 하면 트래픽을 라우팅하는 데 필요한 Azure Load Balancer, 배포 및 유지 관리를 간소화 하 고 장애 조치 (failover)를 향상 시킬 필요가 없습니다. 
 
-DNN 수신기를 사용 하 여 기존 VNN 수신기를 교체 하거나 기존 VNN 수신기와 함께 사용 하 여 가용성 그룹에 두 개의 고유 연결 지점이 있습니다. 하나는 VNN 수신기 이름 (기본값이 아닌 경우 포트)을 사용 하 고 다른 하나는 DNN 수신기 이름 및 포트를 사용 합니다. 
+DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개의 고유한 연결 지점이 가용성 그룹에 있도록 기존 VNN 수신기와 함께 이 수신기를 사용합니다. 한 연결 지점은 VNN 수신기 이름(기본값이 아닌 경우 포트)을 사용하고 다른 하나는 DNN 수신기 및 포트를 사용합니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -52,7 +53,7 @@ DNN 수신기를 사용 하 여 기존 VNN 수신기를 교체 하거나 기존 
 
 PowerShell을 사용 하 여 DNN (분산 네트워크 이름) 리소스를 만들고 가용성 그룹에 연결 합니다. 
 
-이렇게 하려면 다음 단계를 수행하세요. 
+이렇게 하려면 다음 단계를 따르십시오. 
 
 1. 메모장과 같은 텍스트 편집기를 엽니다. 
 1. 다음 스크립트를 복사하여 붙여넣습니다. 
@@ -110,7 +111,7 @@ DNN 수신기를 만들려면 가용성 그룹, 수신기 이름 및 포트의 �
 
 1. 명령 프롬프트 또는 PowerShell과 같은 명령줄 인터페이스 도구를 엽니다. 
 1. 스크립트를 저장 `.ps1` 한 위치 (예: c:\documents.)로 이동 합니다. 
-1. 스크립트를 실행 ```add_dnn_listener.ps1 <ag name> <listener-name> <listener port>``` 합니다. 예를 들면 다음과 같습니다. 
+1. 스크립트를 실행 ```add_dnn_listener.ps1 <ag name> <listener-name> <listener port>``` 합니다. 예를 들어: 
 
    ```console
    c:\Documents> add_dnn_listener.ps1 ag1 dnnlsnr 6789
@@ -136,7 +137,7 @@ SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 
 `1`에 대 한 값은 `is_distributed_network_name` 수신기가 DNN (분산 네트워크 이름) 수신기 임을 나타냅니다. 
 
-:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="SQL Server Management Studio의 가용성 그룹 수신기에서 DNN 수신기 보기 (SSMS)":::
+:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Sys.availability_group_listeners를 사용 하 여의 값이 1 인 DNN 수신기를 식별 is_distributed_network_name":::
 
 
 ## <a name="update-connection-string"></a>연결 문자열 업데이트
@@ -150,8 +151,8 @@ DNN 수신기에 연결 하도록 응용 프로그램에 대 한 연결 문자�
 장애 조치 (failover)를 테스트 하려면 다음 단계를 수행 합니다. 
 
 1. [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용 하 여 DNN 수신기 또는 복제본 중 하나에 연결 합니다. 
-1. **개체 탐색기**에서 **Always On 가용성 그룹** 을 확장 합니다. 
-1. 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **장애 조치** (failover)를 선택 하 여 **장애 조치 마법사**를 엽니다. 
+1. **개체 탐색기** 에서 **Always On 가용성 그룹** 을 확장 합니다. 
+1. 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **장애 조치** (failover)를 선택 하 여 **장애 조치 마법사** 를 엽니다. 
 1. 메시지의 지시에 따라 장애 조치 (failover) 대상을 선택 하 고 보조 복제본에 대 한 가용성 그룹을 장애 조치 (failover) 합니다. 
 1. 데이터베이스가 새 주 복제본에서 동기화 된 상태 인지 확인 합니다. 
 1. 필드 원래 주 복제본 또는 다른 보조 복제본으로 장애 복구 (failback) 합니다. 

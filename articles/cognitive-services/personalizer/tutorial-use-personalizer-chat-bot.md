@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ae22294d86ab65be0f09b734735885177c1cf63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c4920eaa7a5619be37d38afd763e7be416d3124
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777312"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565724"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>자습서: .NET 채팅 봇에서 Personalizer 사용
 
@@ -43,9 +43,9 @@ Personalizer 반복을 사용하는 C# .NET 채팅 봇을 사용하여 사용자
 |--|--|--|
 |입력 텍스트 없음 - 봇에서 대화를 시작합니다.|`This is a simple chatbot example that illustrates how to use Personalizer. The bot learns what coffee or tea order is preferred by customers given some context information (such as weather, temperature, and day of the week) and information about the user.`<br>`To use the bot, just follow the prompts. To try out a new imaginary context, type “Reset” and a new one will be randomly generated.`<br>`Welcome to the coffee bot, please tell me if you want to see the menu or get a coffee or tea suggestion for today. Once I’ve given you a suggestion, you can reply with ‘like’ or ‘don’t like’. It’s Tuesday today and the weather is Snowy.`|봇에서 지침 텍스트를 사용하여 대화를 시작하고 컨텍스트(`Tuesday`, `Snowy`)를 알려줍니다.|
 |`Show menu`|`Here is our menu: Coffee: Cappuccino Espresso Latte Macchiato Mocha Tea: GreenTea Rooibos`|LUIS를 사용하여 쿼리 의도를 확인한 다음, 커피 및 차 항목의 메뉴 선택 항목을 표시합니다. 작업의 기능입니다. |
-|`What do you suggest`|`How about Latte?`|LUIS를 사용하여 쿼리 의도를 확인한 다음, **순위 API**를 호출하고, 상위 선택 항목을 질문(`How about {response.RewardActionId}?`)으로 표시합니다. 또한 설명을 위해 JSON 호출 및 응답을 표시합니다.|
-|`I like it`|`That’s great! I’ll keep learning your preferences over time.`<br>`Would you like to get a new suggestion or reset the simulated context to a new day?`|LUIS를 사용하여 쿼리 의도를 확인한 다음, 보상(`1`)을 사용하여 **보상 API**를 호출하고, 설명을 위해 JSON 호출 및 응답을 표시합니다.|
-|`I don't like it`|`Oh well, maybe I’ll guess better next time.`<br>`Would you like to get a new suggestion or reset the simulated context to a new day?`|LUIS를 사용하여 쿼리 의도를 확인한 다음, 보상(`0`)을 사용하여 **보상 API**를 호출하고, 설명을 위해 JSON 호출 및 응답을 표시합니다.|
+|`What do you suggest`|`How about Latte?`|LUIS를 사용하여 쿼리 의도를 확인한 다음, **순위 API** 를 호출하고, 상위 선택 항목을 질문(`How about {response.RewardActionId}?`)으로 표시합니다. 또한 설명을 위해 JSON 호출 및 응답을 표시합니다.|
+|`I like it`|`That’s great! I’ll keep learning your preferences over time.`<br>`Would you like to get a new suggestion or reset the simulated context to a new day?`|LUIS를 사용하여 쿼리 의도를 확인한 다음, 보상(`1`)을 사용하여 **보상 API** 를 호출하고, 설명을 위해 JSON 호출 및 응답을 표시합니다.|
+|`I don't like it`|`Oh well, maybe I’ll guess better next time.`<br>`Would you like to get a new suggestion or reset the simulated context to a new day?`|LUIS를 사용하여 쿼리 의도를 확인한 다음, 보상(`0`)을 사용하여 **보상 API** 를 호출하고, 설명을 위해 JSON 호출 및 응답을 표시합니다.|
 |`Reset`|지침 텍스트를 반환합니다.|LUIS를 사용하여 쿼리 의도를 확인한 다음, 지침 텍스트를 표시하고, 컨텍스트를 다시 설정합니다.|
 
 
@@ -55,7 +55,7 @@ Personalizer 반복을 사용하는 C# .NET 채팅 봇을 사용하여 사용자
 
 봇에서 컨텍스트 기능과 함께 작업 목록을 Personalizer 반복에 보냅니다. Personalizer에서 봇에 표시되는 가장 적합한 단일 작업을 봇에 반환합니다.
 
-이 자습서에서 **작업**은 다음과 같은 커피와 차의 유형입니다.
+이 자습서에서 **작업** 은 다음과 같은 커피와 차의 유형입니다.
 
 |커피|차|
 |--|--|
@@ -66,7 +66,7 @@ Personalizer 반복을 사용하는 C# .NET 채팅 봇을 사용하여 사용자
 * _기능이 포함된_ 작업
 * 컨텍스트 기능
 
-모델의 **기능**은 채팅 봇 사용자 기반의 멤버 간에 집계(그룹화)할 수 있는 작업 또는 컨텍스트에 대한 정보입니다. 기능은 개별적으로 구체적(예: 사용자 ID)이거나 매우 구체적(예: 정확한 하루 중 시간)이지 _않습니다_.
+모델의 **기능** 은 채팅 봇 사용자 기반의 멤버 간에 집계(그룹화)할 수 있는 작업 또는 컨텍스트에 대한 정보입니다. 기능은 개별적으로 구체적(예: 사용자 ID)이거나 매우 구체적(예: 정확한 하루 중 시간)이지 _않습니다_.
 
 기능은 작업을 모델의 현재 컨텍스트에 정렬하는 데 사용됩니다. 모델은 작업, 컨텍스트 및 학습에 따른 결정을 수행할 수 있도록 하는 기능에 대한 Personalizer의 과거 지식을 나타냅니다.
 
@@ -130,7 +130,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 이 채팅 봇을 사용하려면 Personalizer 및 LUIS(Language Understanding)용 Azure 리소스를 만들어야 합니다.
 
-* [LUIS 리소스를 만듭니다](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal). 작성 리소스 및 예측 리소스가 모두 필요하므로 만들기 단계에서 **모두**를 선택합니다.
+* [LUIS 리소스를 만듭니다](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal). 작성 리소스 및 예측 리소스가 모두 필요하므로 만들기 단계에서 **모두** 를 선택합니다.
 * [Personalizer 리소스를 만든](how-to-create-resource.md) 다음, Azure Portal에서 키와 엔드포인트를 복사합니다. 이러한 값은 .NET 프로젝트의 `appsettings.json` 파일에서 설정해야 합니다.
 
 ### <a name="create-luis-app"></a>LUIS 앱 만들기
@@ -138,14 +138,14 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 LUIS를 처음 사용하는 경우 [로그인](https://www.luis.ai)하여 계정을 즉시 마이그레이션해야 합니다. 새 리소스를 만들 필요가 없습니다. 대신 이 자습서의 이전 섹션에서 만든 리소스를 선택합니다.
 
 1. 새 LUIS 애플리케이션을 만들려면 [LUIS 포털](https://www.luis.ai)에서 구독 및 작성 리소스를 선택합니다.
-1. 그런 다음, 여전히 동일한 페이지에서 **+ 대화용 새 앱**을 선택하고, **JSON으로 가져오기**를 선택합니다.
+1. 그런 다음, 여전히 동일한 페이지에서 **+ 대화용 새 앱** 을 선택하고, **JSON으로 가져오기** 를 선택합니다.
 1. 팝업 대화 상자에서 **파일 선택**, `/samples/ChatbotExample/CognitiveModels/coffeebot.json` 파일을 차례로 선택합니다. `Personalizer Coffee bot`이라는 이름을 입력합니다.
 1. LUIS 포털의 오른쪽 위 탐색 영역에서 **학습** 단추를 선택합니다.
-1. **게시** 단추를 선택하여 앱을 예측 런타임용 **프로덕션 슬롯**에 게시합니다.
-1. **관리**, **설정**을 차례로 선택합니다. **앱 ID**의 값을 복사합니다. 이 값은 .NET 프로젝트의 `appsettings.json` 파일에서 설정해야 합니다.
-1. 여전히 **관리** 섹션에서 **Azure 리소스**를 선택합니다. 그러면 앱에 연결된 리소스가 표시됩니다.
-1. **예측 리소스 추가**를 선택합니다. 팝업 대화 상자에서 구독 및 이 자습서의 이전 섹션에서 만든 예측 리소스를 선택한 다음, **완료**를 선택합니다.
-1. **기본 키** 및 **엔드포인트 URL**의 값을 복사합니다. 이러한 값은 .NET 프로젝트의 `appsettings.json` 파일에서 설정해야 합니다.
+1. **게시** 단추를 선택하여 앱을 예측 런타임용 **프로덕션 슬롯** 에 게시합니다.
+1. **관리**, **설정** 을 차례로 선택합니다. **앱 ID** 의 값을 복사합니다. 이 값은 .NET 프로젝트의 `appsettings.json` 파일에서 설정해야 합니다.
+1. 여전히 **관리** 섹션에서 **Azure 리소스** 를 선택합니다. 그러면 앱에 연결된 리소스가 표시됩니다.
+1. **예측 리소스 추가** 를 선택합니다. 팝업 대화 상자에서 구독 및 이 자습서의 이전 섹션에서 만든 예측 리소스를 선택한 다음, **완료** 를 선택합니다.
+1. **기본 키** 및 **엔드포인트 URL** 의 값을 복사합니다. 이러한 값은 .NET 프로젝트의 `appsettings.json` 파일에서 설정해야 합니다.
 
 ### <a name="configure-bot-with-appsettingsjson-file"></a>appsettings.json 파일을 사용하여 봇 구성
 
@@ -176,20 +176,20 @@ LUIS를 처음 사용하는 경우 [로그인](https://www.luis.ai)하여 계정
 
 ## <a name="set-up-the-bot-emulator"></a>봇 에뮬레이터 설정
 
-1. Bot Framework Emulator를 열고, **봇 열기**를 선택합니다.
+1. Bot Framework Emulator를 열고, **봇 열기** 를 선택합니다.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="채팅 봇 웹 사이트를 표시하는 브라우저의 스크린샷":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="봇 에뮬레이터 시작 화면의 스크린샷":::
 
 
-1. 다음 **봇 URL**을 사용하여 봇을 구성한 다음, **연결**을 선택합니다.
+1. 다음 **봇 URL** 을 사용하여 봇을 구성한 다음, **연결** 을 선택합니다.
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="채팅 봇 웹 사이트를 표시하는 브라우저의 스크린샷":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="봇 에뮬레이터 봇 열기 설정의 스크린샷":::
 
     에뮬레이터에서 채팅 봇에 연결하고, 로컬 개발에 유용한 로깅 및 디버그 정보와 함께 지침 텍스트를 표시합니다.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="채팅 봇 웹 사이트를 표시하는 브라우저의 스크린샷":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="첫 번째 대화 턴의 봇 에뮬레이터에 대한 스크린샷":::
 
 ## <a name="use-the-bot-in-the-bot-emulator"></a>봇 에뮬레이터에서 봇 사용
 

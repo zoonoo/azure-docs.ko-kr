@@ -1,17 +1,17 @@
 ---
 title: 최소 가동 중지 시간 마이그레이션-Azure Database for MySQL
 description: 이 문서에서는 Azure Database Migration Service를 사용하여 Azure Database for MySQL로 MySQL 데이터베이스의 최소 가동 중지 시간 마이그레이션을 수행하는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: 9a3eefc9e820735efec302eed0f879a748cb1200
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 75b548b53de4c0f4ea39959c3d70e9ddb361d64c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125787"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540334"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Azure Database for MySQL로 최소 가동 중지 시간 마이그레이션
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]

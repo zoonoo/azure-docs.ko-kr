@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: dd68fd79d25e839876180ff25cacfa1ddf64eb2b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c2b440413599ce07112231af17daa0bc14817b76
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368811"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832780"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치에 보안 모듈 배포
 
@@ -32,9 +32,9 @@ ms.locfileid: "92368811"
 
 다음 단계를 사용 하 여 IoT Edge에 대 한 IoT 용 Defender 보안 모듈을 배포 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
-1. IoT Hub에서 장치가 [IoT Edge 장치로 등록](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device)되어 있는지 확인 합니다.
+1. IoT Hub에서 장치가 [IoT Edge 장치로 등록](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device)되어 있는지 확인 합니다.
 
 1. Defender for IoT Edge 모듈을 사용 하려면 IoT Edge 장치에 [Auditd framework](https://linux.die.net/man/8/auditd) 가 설치 되어 있어야 합니다.
 
@@ -49,25 +49,25 @@ ms.locfileid: "92368811"
 
 ### <a name="deployment-using-azure-portal"></a>Azure Portal를 사용 하 여 배포
 
-1. Azure Portal에서 **Marketplace**를 엽니다.
+1. Azure Portal에서 **Marketplace** 를 엽니다.
 
-1. **사물 인터넷**를 선택 하 고 **Defender for IoT** 를 검색 하 여 선택 합니다.
+1. **사물 인터넷** 를 선택 하 고 **Defender for IoT** 를 검색 하 여 선택 합니다.
 
-   ![IoT 용 Defender 선택](media/howto/edge-onboarding-8.png)
+   :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="IoT 용 Defender 선택":::
 
 1. **만들기** 를 클릭 하 여 배포를 구성 합니다.
 
-1. IoT Hub의 Azure **구독** 을 선택한 다음 **IoT Hub**를 선택 합니다.<br>**장치에 배포** 를 선택 하 여 단일 장치를 대상으로 하거나, **대규모로 배포** 를 선택 하 여 여러 장치를 대상으로 하 고, **만들기**를 클릭 합니다. 대규모로 배포 하는 방법에 대 한 자세한 내용은 [배포 방법](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor)을 참조 하세요.
+1. IoT Hub의 Azure **구독** 을 선택한 다음 **IoT Hub** 를 선택 합니다.<br>**장치에 배포** 를 선택 하 여 단일 장치를 대상으로 하거나, **대규모로 배포** 를 선택 하 여 여러 장치를 대상으로 하 고, **만들기** 를 클릭 합니다. 대규모로 배포 하는 방법에 대 한 자세한 내용은 [배포 방법](../iot-edge/how-to-deploy-at-scale.md)을 참조 하세요.
 
     >[!Note]
-    >**대규모로 배포**를 선택한 경우 다음 지침의 **모듈 추가** 탭으로 계속 하기 전에 장치 이름 및 세부 정보를 추가 합니다.
+    >**대규모로 배포** 를 선택한 경우 다음 지침의 **모듈 추가** 탭으로 계속 하기 전에 장치 이름 및 세부 정보를 추가 합니다.
 
 각 단계를 완료 하 여 IoT 용 Defender에 대 한 IoT Edge 배포를 완료 합니다.
 
 #### <a name="step-1-modules"></a>1 단계: 모듈
 
 1. **AzureSecurityCenterforIoT** 모듈을 선택 합니다.
-1. **모듈 설정** 탭에서 **이름을** **azureiotsecurity**로 변경 합니다.
+1. **모듈 설정** 탭에서 **이름을** **azureiotsecurity** 로 변경 합니다.
 1. **환경 변수** 탭에서 필요한 경우 변수를 추가 합니다 (예: 디버그 수준).
 1. **컨테이너 만들기 옵션** 탭에서 다음 구성을 추가 합니다.
 
@@ -105,14 +105,14 @@ ms.locfileid: "92368811"
      }
    ```
     
-   에이전트를 구성 하는 방법에 대 한 자세한 내용은 [보안 에이전트 구성](https://docs.microsoft.com/azure/defender-for-iot/how-to-agent-configuration)을 참조 하세요.
+   에이전트를 구성 하는 방법에 대 한 자세한 내용은 [보안 에이전트 구성](./how-to-agent-configuration.md)을 참조 하세요.
 
-1. **업데이트**를 선택합니다.
+1. **업데이트** 를 선택합니다.
 
 #### <a name="step-2-runtime-settings"></a>2 단계: 런타임 설정
 
-1. **런타임 설정**을 선택 합니다.
-1. **Edge Hub**에서 **이미지** 를 **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**로 변경 합니다.
+1. **런타임 설정** 을 선택 합니다.
+1. **Edge Hub** 에서 **이미지** 를 **mcr.microsoft.com/azureiotedge-hub:1.0.8.3** 로 변경 합니다.
 1. **만들기 옵션** 은 다음 구성으로 설정 되어 있는지 확인 합니다.
 
     ``` json
@@ -139,13 +139,13 @@ ms.locfileid: "92368811"
     }
     ```
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
-1. **다음**을 선택합니다.
+1. **다음** 을 선택합니다.
 
 #### <a name="step-3-specify-routes"></a>3 단계: 경로 지정
 
-1. **경로 지정** 탭에서 다음 예제에 따라 **azureiotsecurity** 모듈에서 **$upstream** 로 메시지를 전달 하는 경로 (명시적 또는 암시적)가 있는지 확인 합니다. 경로가 준비 된 경우에만 **다음**을 선택 합니다.
+1. **경로 지정** 탭에서 다음 예제에 따라 **azureiotsecurity** 모듈에서 **$upstream** 로 메시지를 전달 하는 경로 (명시적 또는 암시적)가 있는지 확인 합니다. 경로가 준비 된 경우에만 **다음** 을 선택 합니다.
 
    경로 예:
 
@@ -157,7 +157,7 @@ ms.locfileid: "92368811"
     "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
     ```
 
-1. **다음**을 선택합니다.
+1. **다음** 을 선택합니다.
 
 #### <a name="step-4-review-deployment"></a>4 단계: 배포 검토
 

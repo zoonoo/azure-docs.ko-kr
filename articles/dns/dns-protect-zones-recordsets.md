@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 52cb1f144608202739dc46f2053950b38d810631
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8163fcb3b349e298bc89f06523e3e784bdc4ed49
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330158"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965675"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS 영역 및 레코드를 보호하는 방법
 
@@ -34,7 +34,7 @@ DNS 영역 참가자 역할은 개인 DNS 리소스를 관리 하기 위한 기�
 
 Azure RBAC 사용 권한을 할당 하는 가장 간단한 방법은 [Azure Portal](../role-based-access-control/role-assignments-portal.md)를 사용 하는 것입니다.  
 
-리소스 그룹에 대 한 **액세스 제어 (IAM)** 를 열고 **추가**를 선택한 다음 **DNS 영역 참가자** 역할을 선택 합니다. 필요한 사용자 또는 그룹을 선택 하 여 사용 권한을 부여 합니다.
+리소스 그룹에 대 한 **액세스 제어 (IAM)** 를 열고 **추가** 를 선택한 다음 **DNS 영역 참가자** 역할을 선택 합니다. 필요한 사용자 또는 그룹을 선택 하 여 사용 권한을 부여 합니다.
 
 ![Azure Portal를 통한 리소스 그룹 수준 Azure RBAC](./media/dns-protect-zones-recordsets/rbac1.png)
 
@@ -65,9 +65,9 @@ az role assignment create \
 
 구독, 리소스 그룹 또는 개별 리소스에 Azure RBAC 규칙을 적용할 수 있습니다. 해당 리소스는 개별 DNS 영역 또는 개별 레코드 집합이 될 수 있습니다.
 
-예를 들어 리소스 그룹 *Myresourcegroup* 에는 영역 *contoso.com* 및 하위 영역 *customers.contoso.com*포함 됩니다. CNAME 레코드는 각 고객 계정에 대해 생성 됩니다. CNAME 레코드를 관리 하는 데 사용 되는 관리자 계정에는 *customers.contoso.com* 영역에 레코드를 만들 수 있는 권한이 할당 됩니다. 이 계정은 *customers.contoso.com* 관리할 수 있습니다.
+예를 들어 리소스 그룹 *Myresourcegroup* 에는 영역 *contoso.com* 및 하위 영역 *customers.contoso.com* 포함 됩니다. CNAME 레코드는 각 고객 계정에 대해 생성 됩니다. CNAME 레코드를 관리 하는 데 사용 되는 관리자 계정에는 *customers.contoso.com* 영역에 레코드를 만들 수 있는 권한이 할당 됩니다. 이 계정은 *customers.contoso.com* 관리할 수 있습니다.
 
-Azure Portal를 통해 영역 수준 Azure RBAC 권한을 부여할 수 있습니다.  영역에 대 한 **액세스 제어 (IAM)** 를 열고 **추가**를 선택한 다음 **DNS 영역 참가자** 역할을 선택 하 고 사용 권한을 부여 하는 데 필요한 사용자 또는 그룹을 선택 합니다.
+Azure Portal를 통해 영역 수준 Azure RBAC 권한을 부여할 수 있습니다.  영역에 대 한 **액세스 제어 (IAM)** 를 열고 **추가** 를 선택한 다음 **DNS 영역 참가자** 역할을 선택 하 고 사용 권한을 부여 하는 데 필요한 사용자 또는 그룹을 선택 합니다.
 
 ![Azure Portal를 통한 DNS 영역 수준 Azure RBAC](./media/dns-protect-zones-recordsets/rbac2.png)
 
@@ -192,17 +192,17 @@ az role create -inputfile <file path>
 
 Azure Resource Manager는 리소스를 잠글 수 있는 다른 유형의 보안 제어를 지원 합니다. 리소스 잠금은 리소스에 적용 되 고 모든 사용자 및 역할에서 적용 됩니다. 자세한 내용은 [Azure Resource Manager를 사용 하 여 리소스 잠그기](../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
 
-리소스 잠금의 두 가지 유형은 **Cannotdelete** 및 **ReadOnly**입니다. 이러한 잠금 유형은 사설 DNS 영역 또는 개별 레코드 집합에 적용 될 수 있습니다. 다음 섹션에서는 몇 가지 일반적인 시나리오와 리소스 잠금을 사용하여 지원하는 방법에 대해 설명합니다.
+리소스 잠금의 두 가지 유형은 **Cannotdelete** 및 **ReadOnly** 입니다. 이러한 잠금 유형은 사설 DNS 영역 또는 개별 레코드 집합에 적용 될 수 있습니다. 다음 섹션에서는 몇 가지 일반적인 시나리오와 리소스 잠금을 사용하여 지원하는 방법에 대해 설명합니다.
 
 ### <a name="protecting-against-all-changes"></a>모든 변경으로부터 보호
 
 변경을 방지 하려면 영역에 ReadOnly 잠금을 적용 합니다. 이 잠금은 새 레코드 집합을 만들지 못하도록 하며 기존 레코드 집합을 수정 또는 삭제 하지 못하도록 합니다.
 
-Azure Portal을 통해 영역 수준의 리소스 잠금을 만들 수 있습니다.  DNS 영역 페이지에서 **잠금**을 선택한 다음, **+추가**를 선택합니다.
+Azure Portal을 통해 영역 수준의 리소스 잠금을 만들 수 있습니다.  DNS 영역 페이지에서 **잠금** 을 선택한 다음, **+추가** 를 선택합니다.
 
 ![Azure Portal을 통한 영역 수준 리소스 잠금](./media/dns-protect-zones-recordsets/locks1.png)
 
-[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest)를 통해 영역 수준 리소스 잠금을 만들 수도 있습니다.
+[Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest)를 통해 영역 수준 리소스 잠금을 만들 수도 있습니다.
 
 ```azurepowershell
 # Lock a DNS zone
@@ -216,7 +216,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-동일한 명령을 [Azure CLI를 통해 사용](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create)할 수도 있습니다.
+동일한 명령을 [Azure CLI를 통해 사용](/cli/azure/lock?view=azure-cli-latest#az-lock-create)할 수도 있습니다.
 
 ```azurecli
 # Lock a DNS zone

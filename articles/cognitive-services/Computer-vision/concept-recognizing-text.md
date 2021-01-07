@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 34a7cd8669c1545361bc7cd9579cfb6140c0c946
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 37a989082b63dc101bb519fea1cc4ef16c76ae49
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331705"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621538"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -61,7 +61,7 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 
 두 번째 단계는 [Get Results Get](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) 작업을 호출 하는 것입니다. 이 작업은 읽기 작업에서 만든 작업 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)가 초과 되는 것을 방지 하려면 1 ~ 2 초 간격을 사용 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 작업이 처리 중입니다. |
@@ -72,6 +72,9 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 > 무료 계층은 요청 률을 분당 20 개의 호출로 제한 합니다. 유료 계층에서는 요청에 따라 증가할 수 있는 RPS (초당 요청 수)를 허용 합니다. Azure 지원 채널 또는 계정 팀을 사용 하 여 RPS (초당 요청 수) 요금을 요청 합니다.
 
 **상태** 필드에 **성공** 값이 있는 경우 JSON 응답은 이미지 또는 문서에서 추출 된 텍스트 콘텐츠를 포함 합니다. JSON 응답은 인식 된 단어의 원래 줄 그룹을 유지 관리 합니다. 추출 된 텍스트 줄과 해당 경계 상자 좌표가 포함 됩니다. 각 텍스트 줄에는 추출 된 모든 단어가 해당 좌표와 신뢰도 점수가 포함 됩니다.
+
+> [!NOTE]
+> 작업에 전송 된 데이터는 `Read` 임시로 암호화 되 고 저장 된 상태로 저장 되며 48 시간 이내에 삭제 됩니다. 이렇게 하면 응용 프로그램이 서비스 응답의 일부로 추출 된 텍스트를 검색할 수 있습니다.
 
 ## <a name="sample-json-output"></a>샘플 JSON 출력
 
@@ -87,7 +90,6 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
     "readResults": [
       {
         "page": 1,
-        "language": "en",
         "angle": 0.8551,
         "width": 2661,
         "height": 1901,
@@ -131,12 +133,12 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Read 3.2 preview는 텍스트 선 스타일을 추가 합니다 (라틴어 언어에만 해당).
 [읽기 3.2 미리 보기 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) 는 신뢰도 점수와 함께 각 텍스트 줄이 인쇄 또는 필기 스타일 인지 여부를 분류 하는 **모양** 개체를 출력 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다.
 
-Ocr [SDK 퀵 스타트를 읽고](./quickstarts-sdk/client-library.md) [읽기 REST API](./QuickStarts/CSharp-hand-text.md) 빠른 시작을 사용 하 여 ocr 기능을 응용 프로그램에 통합 하기 시작 하는 Computer Vision를 시작 합니다.
+OCR 기능을 응용 프로그램에 통합 하기 시작 하려면 [Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md) 빠른 시작을 시작 하세요.
 
 ## <a name="supported-languages-for-print-text"></a>인쇄 텍스트에 대해 지원 되는 언어
 [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 는 영어, 스페인어, 독일어, 프랑스어, 이탈리아어, 포르투갈어 및 네덜란드어 언어로 인쇄 텍스트 추출을 지원 합니다.
 
-OCR 지원 언어의 전체 목록은 [지원 되는 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 를 참조 하세요.
+OCR 지원 언어의 전체 목록은 [지원 되는 언어](./language-support.md#optical-character-recognition-ocr) 를 참조 하세요.
 
 ### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Read 3.2 preview는 중국어 간체 및 일본어를 추가 합니다.
 [읽기 3.2 API 공개 미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) 에는 중국어 간체 및 일본어에 대 한 지원이 추가 되었습니다. 시나리오에서 더 많은 언어를 지원 해야 하는 경우에는 [OCR API](#ocr-api) 섹션을 참조 하세요. 
@@ -145,10 +147,10 @@ OCR 지원 언어의 전체 목록은 [지원 되는 언어](https://docs.micros
 읽기 작업은 현재 필기 텍스트를 영어로 독점적으로 추출할 수 있도록 지원 합니다.
 
 ## <a name="use-the-rest-api-and-sdk"></a>REST API 및 SDK 사용
-[읽기 2.x REST API](./QuickStarts/CSharp-hand-text.md) 는 간편 하 게 통합 되 고 빠르게 생산성을 높일 수 있기 때문에 대부분의 고객에 게 선호 되는 옵션입니다. Azure와 Computer Vision 서비스는 고객의 요구를 충족 하는 동안 규모, 성능, 데이터 보안 및 규정 준수 요구 사항을 처리 합니다.
+[읽기 2.x REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 는 간편 하 게 통합 되 고 빠르게 생산성을 높일 수 있기 때문에 대부분의 고객에 게 선호 되는 옵션입니다. Azure와 Computer Vision 서비스는 고객의 요구를 충족 하는 동안 규모, 성능, 데이터 보안 및 규정 준수 요구 사항을 처리 합니다.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Docker 컨테이너를 사용 하 여 온-프레미스 배포
-[Docker 컨테이너 읽기 (미리 보기)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) 를 사용 하면 새 OCR 기능을 자체 로컬 환경에 배포할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다.
+[Docker 컨테이너 읽기 (미리 보기)](./computer-vision-how-to-install-containers.md) 를 사용 하면 새 OCR 기능을 자체 로컬 환경에 배포할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다.
 
 ## <a name="example-outputs"></a>예제 출력
 
@@ -184,7 +186,7 @@ OCR 지원 언어의 전체 목록은 [지원 되는 언어](https://docs.micros
 
 ## <a name="ocr-api"></a>OCR API
 
-[OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 는 이전 인식 모델을 사용 하 고 이미지만 지원 하며 동기적으로 실행 되어 검색 된 텍스트로 즉시 반환 됩니다. [OCR 지원 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 를 확인 한 후 API를 읽습니다.
+[OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) 는 이전 인식 모델을 사용 하 고 이미지만 지원 하며 동기적으로 실행 되어 검색 된 텍스트로 즉시 반환 됩니다. [OCR 지원 언어](./language-support.md#optical-character-recognition-ocr) 를 확인 한 후 API를 읽습니다.
 
 ## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
 
@@ -195,7 +197,6 @@ OCR 지원 언어의 전체 목록은 [지원 되는 언어](https://docs.micros
 
 ## <a name="next-steps"></a>다음 단계
 
-- C #, Java, JavaScript 또는 Python에서 SDK 빠른 시작 [Computer Vision 읽어](./quickstarts-sdk/client-library.md) 보세요.
-- C #, Java, JavaScript 또는 Python에서 [Read REST API](./QuickStarts/CSharp-hand-text.md) 빠른 시작을 사용 하 여 REST api를 사용 하는 방법을 알아보세요.
+- [Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md)빠른 시작을 시작 하세요.
 - [읽기 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)에 대해 알아봅니다.
 - 중국어 간체 및 일본어에 대 한 지원이 추가 된 [REST API 읽기 3.2 공개 미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) 에 대해 알아봅니다.

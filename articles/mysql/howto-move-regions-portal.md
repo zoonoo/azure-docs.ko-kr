@@ -1,18 +1,18 @@
 ---
 title: Azure 지역 이동-Azure Portal-Azure Database for MySQL
 description: 읽기 복제본과 Azure Portal를 사용 하 여 한 Azure 지역에서 다른 지역으로 Azure Database for MySQL 서버를 이동 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: 88f9b82df0ce1fae78f0c9de9c8d7a7b158d151e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 279526d31adf25d1f4cd5a6d9b15519679bd88b9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546333"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540232"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 서버를 다른 지역으로 이동
 
@@ -23,7 +23,7 @@ Azure Database for MySQL [지역 간 읽기 복제본](concepts-read-replicas.md
 > [!NOTE]
 > 이 문서에서는 서버를 다른 지역으로 이동 하는 방법을 집중적으로 설명 합니다. 서버를 다른 리소스 그룹 또는 구독으로 이동 하려면 [이동](../azure-resource-manager/management/move-resource-group-and-subscription.md) 문서를 참조 하세요. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 읽기 복제본 기능은 범용 또는 메모리 최적화 가격 책정 계층의 Azure Database for MySQL 서버에서만 사용 가능합니다. 원본 서버가 이러한 가격 책정 계층 중 하나에 있는지 확인 합니다.
 

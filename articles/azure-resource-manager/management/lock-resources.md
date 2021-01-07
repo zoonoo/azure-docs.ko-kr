@@ -1,15 +1,15 @@
 ---
 title: 변경을 방지하기 위해 리소스 잠그기
-description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용자가 중요한 Azure 리소스를 업데이트하거나 삭제하지 못하도록 합니다.
+description: 사용자가 모든 사용자 및 역할에 대 한 잠금을 적용 하 여 Azure 리소스를 업데이트 하거나 삭제 하지 못하도록 합니다.
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 57b4fecd0293c714dfd910ae2ad4866397646ce8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340144"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555671"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -74,19 +74,91 @@ Azure Databricks와 같은 일부 Azure 서비스는 [관리형 애플리케이�
 
 ### <a name="arm-template"></a>ARM 템플릿
 
-Resource Manager 템플릿을 사용하여 잠금을 배포할 때 잠금 범위에 따라 이름 및 형식에 대해 서로 다른 값을 사용합니다.
+Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 잠금을 배포 하는 경우 잠금의 범위와 배포 범위를 알고 있어야 합니다. 리소스 그룹 또는 구독 잠금과 같은 배포 범위에서 잠금을 적용 하려면 범위 속성을 설정 하지 마세요. 배포 범위 내에서 리소스를 잠그면 범위 속성을 설정 합니다.
 
-**리소스** 에 잠금을 적용하는 경우 다음 형식을 사용합니다.
+다음 템플릿은 배포 되는 리소스 그룹에 잠금을 적용 합니다. 잠금 범위가 배포 범위와 일치 하므로 잠금 리소스에 범위 속성이 없습니다. 이 템플릿은 리소스 그룹 수준에서 배포 됩니다.
 
-* 이름 - `{resourceName}/Microsoft.Authorization/{lockName}`
-* 형식 - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {  
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/locks",
+            "apiVersion": "2016-09-01",
+            "name": "rgLock",
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Resource Group should not be deleted."
+            }
+        }
+    ]
+}
+```
 
-**리소스 그룹** 또는 **구독** 에 잠금을 적용하는 경우 다음 형식을 사용합니다.
+리소스 그룹을 만들어 잠그려면 해당 구독 수준에서 다음 템플릿을 배포 합니다.
 
-* 이름 - `{lockName}`
-* 형식 - `Microsoft.Authorization/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2019-10-01",
+            "name": "[parameters('rgName')]",
+            "location": "[parameters('rgLocation')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "lockDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/locks",
+                            "apiVersion": "2016-09-01",
+                            "name": "rgLock",
+                            "properties": {
+                                "level": "CanNotDelete",
+                                "notes": "Resource group and its resources should not be deleted."
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
-다음 예제에서는 웹 사이트에 App Service 계획, 웹 사이트 및 잠금을 만드는 템플릿을 보여 줍니다. 잠금의 리소스 종류는 잠그려는 리소스의 리소스 종류로, **입니다**. 잠금의 이름은 리소스 이름을 **/Microsoft.Authorization/** 과 연결하여 만들어집니다.
+리소스 그룹 내의 **리소스** 에 잠금을 적용 하는 경우 scope 속성을 추가 합니다. 범위를 잠글 리소스의 이름으로 설정 합니다.
+
+다음 예제에서는 웹 사이트에 App Service 계획, 웹 사이트 및 잠금을 만드는 템플릿을 보여 줍니다. 잠금의 범위는 웹 사이트로 설정 됩니다.
 
 ```json
 {
@@ -95,6 +167,10 @@ Resource Manager 템플릿을 사용하여 잠금을 배포할 때 잠금 범위
   "parameters": {
     "hostingPlanName": {
       "type": "string"
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
     }
   },
   "variables": {
@@ -103,9 +179,9 @@ Resource Manager 템플릿을 사용하여 잠금을 배포할 때 잠금 범위
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('hostingPlanName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
         "tier": "Free",
         "name": "f1",
@@ -117,9 +193,9 @@ Resource Manager 템플릿을 사용하여 잠금을 배포할 때 잠금 범위
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[variables('siteName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
@@ -128,9 +204,10 @@ Resource Manager 템플릿을 사용하여 잠금을 배포할 때 잠금 범위
       }
     },
     {
-      "type": "Microsoft.Web/sites/providers/locks",
+      "type": "Microsoft.Authorization/locks",
       "apiVersion": "2016-09-01",
-      "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+      "name": "siteLock",
+      "scope": "[concat('Microsoft.Web/sites/', variables('siteName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
       ],
@@ -142,8 +219,6 @@ Resource Manager 템플릿을 사용하여 잠금을 배포할 때 잠금 범위
   ]
 }
 ```
-
-리소스 그룹에 대한 잠금을 설정하는 방법에 대한 예제는 [리소스 그룹 만들기 및 잠그기](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment)를 참조하세요.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

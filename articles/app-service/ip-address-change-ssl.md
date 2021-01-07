@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: dcfe11bcab25f6267a557de5faf7befab467bc29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81535726"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020962"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>SSL IP 주소 변경 준비하는 방법
 
@@ -19,15 +19,15 @@ Azure App Service 앱의 SSL IP 주소가 변경된다는 알림을 받은 경�
 
 1.  [Azure Portal](https://portal.azure.com)을 엽니다.
 
-2.  왼쪽 탐색 메뉴에서 **App Service**를 선택합니다.
+2.  왼쪽 탐색 메뉴에서 **App Service** 를 선택합니다.
 
 3.  목록에서 App Service 앱을 선택합니다.
 
-4.  **설정** 헤더 아래의 왼쪽 탐색에서 **SSL 설정**을 클릭합니다.
+4.  **설정** 헤더 아래의 왼쪽 탐색에서 **SSL 설정** 을 클릭합니다.
 
-1. TLS/SSL 바인딩 섹션에서 호스트 이름 레코드를 선택 합니다. 열린 편집기의 **SSL 형식** 드롭 다운 메뉴에서 **SNI SSL**를 선택하고 **바인딩 추가**를 클릭합니다. 작업 성공 메시지가 표시되는 경우 기존 IP 주소가 릴리스되었습니다.
+1. TLS/SSL 바인딩 섹션에서 호스트 이름 레코드를 선택 합니다. 열린 편집기의 **SSL 형식** 드롭 다운 메뉴에서 **SNI SSL** 를 선택하고 **바인딩 추가** 를 클릭합니다. 작업 성공 메시지가 표시되는 경우 기존 IP 주소가 릴리스되었습니다.
 
-6.  **SSL 바인딩** 섹션에서 인증서를 사용하여 동일한 호스트 이름 레코드를 다시 선택합니다. 이번에는 열린 편집기의 **SSL 형식** 드롭 다운 메뉴에서 **IP 기반 SSL**를 선택하고 **바인딩 추가**를 클릭합니다. 작업 성공 메시지가 표시되는 경우 새 IP 주소를 획득했습니다.
+6.  **SSL 바인딩** 섹션에서 인증서를 사용하여 동일한 호스트 이름 레코드를 다시 선택합니다. 이번에는 열린 편집기의 **SSL 형식** 드롭 다운 메뉴에서 **IP 기반 SSL** 를 선택하고 **바인딩 추가** 를 클릭합니다. 작업 성공 메시지가 표시되는 경우 새 IP 주소를 획득했습니다.
 
 7.  A 레코드(IP 주소를 직접 가리키는 DNS 레코드)가 도메인 등록 포털(타사 DNS 공급자 또는 Azure DNS)에서 구성되는 경우 기존 IP 주소를 새로 생성된 주소로 바꿉니다. 다음 섹션의 지침을 따르면 새 IP 주소를 찾을 수 있습니다.
 
@@ -35,11 +35,11 @@ Azure App Service 앱의 SSL IP 주소가 변경된다는 알림을 받은 경�
 
 1.  몇 분 정도 기다린 다음, [Azure Portal](https://portal.azure.com)을 엽니다.
 
-2.  왼쪽 탐색 메뉴에서 **App Service**를 선택합니다.
+2.  왼쪽 탐색 메뉴에서 **App Service** 를 선택합니다.
 
 3.  목록에서 App Service 앱을 선택합니다.
 
-4.  **설정** 헤더 아래의 왼쪽 탐색에서 **속성**을 클릭하고 **가상 IP 주소**라는 섹션을 찾습니다.
+4.  **설정** 헤더 아래의 왼쪽 탐색에서 **속성** 을 클릭하고 **가상 IP 주소** 라는 섹션을 찾습니다.
 
 5. IP 주소를 복사하고 도메인 레코드 또는 IP 메커니즘을 다시 구성합니다.
 

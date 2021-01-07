@@ -1,57 +1,83 @@
 ---
-title: 빠른 시작 - 사용자가 Azure 리소스에 대해 갖는 액세스 권한 보기 - Azure RBAC
-description: 이 빠른 시작에서는 Azure Portal 및 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자 또는 다른 보안 주체가 Azure 리소스에 대해 갖는 액세스 권한을 보는 방법을 알아봅니다.
+title: 빠른 시작 - Azure 리소스에 대한 사용자 액세스 확인 - Azure RBAC
+description: 이 빠른 시작에서는 Azure Portal 및 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자 또는 다른 사용자의 Azure 리소스에 대한 액세스를 확인하는 방법을 알아봅니다.
 services: role-based-access-control
-documentationCenter: ''
 author: rolyon
 manager: mtillman
-editor: ''
 ms.service: role-based-access-control
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 12/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 9be53aa964e75bab0b90495640537fe927a5af0e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 7cf4020ad38224b25ea8bb7dc7f0fdea7dd6f3b1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82734164"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034006"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>빠른 시작: 사용자가 Azure 리소스에 대해 갖는 액세스 권한 보기
+# <a name="quickstart-check-access-for-a-user-to-azure-resources"></a>빠른 시작: Azure 리소스에 대한 사용자 액세스 확인
 
-[Azure RBAC(Azure 역할 기반 액세스 제어)](overview.md)의 **액세스 제어(IAM)** 블레이드를 사용하여 사용자 또는 다른 보안 주체가 Azure 리소스에 대해 갖는 액세스 권한을 볼 수 있습니다. 단, 단일 사용자 또는 다른 보안 주체의 경우 액세스 권한을 빠르게 확인해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 Azure Portal에서 **액세스 권한 확인** 기능을 사용하는 것입니다.
+경우에 따라 사용자가 Azure 리소스 세트에 대해 어떤 액세스 권한이 있는지 확인해야 합니다. 해당 할당을 나열하여 액세스 권한을 확인합니다. 단일 사용자에 대한 액세스를 확인하는 빠른 방법은 **액세스 제어(IAM)** 페이지에서 **액세스 확인** 기능을 사용하는 것입니다.
 
-## <a name="view-role-assignments"></a>역할 할당 보기
+## <a name="step-1-open-the-azure-resources"></a>1단계: Azure 리소스 열기
 
- 사용자의 액세스 권한을 보는 방법은 역할 할당을 나열하는 것입니다. 다음 단계에 따라 구독 범위에서 단일 사용자, 그룹, 서비스 주체 또는 관리 ID에 대한 역할 할당을 확인합니다.
+사용자에 대한 액세스를 확인하려면 먼저 액세스 권한을 확인하려는 Azure 리소스를 열어야 합니다. Azure 리소스는 일반적으로 *범위* 라고 하는 수준으로 구성됩니다. Azure에서는 광범위한 범위에서 좁은 범위까지 네 가지 수준(관리 그룹, 구독, 리소스 그룹 또는 리소스)에서 범위를 지정할 수 있습니다.
 
-1. Azure Portal에서 **모든 서비스**, **구독**을 차례로 클릭합니다.
+![Azure RBAC의 범위 수준](../../includes/role-based-access-control/media/scope-levels.png)
 
-1. 구독을 클릭합니다.
+액세스를 확인하려는 Azure 리소스 세트를 열려면 다음 단계를 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
+
+1. **관리 그룹**, **구독**, **리소스 그룹** 또는 특정 리소스와 같은 Azure 리소스 세트를 엽니다.
+
+1. 해당 범위에서 특정 리소스를 클릭합니다.
+
+    다음은 예제 리소스 그룹을 보여줍니다.
+
+    ![리소스 그룹 개요](./media/check-access/rg-overview.png)
+
+## <a name="step-2-check-access-for-a-user"></a>2단계: 사용자에 대한 액세스 확인
+
+다음 단계에 따라 이전에 선택한 Azure 리소스에 대한 단일 사용자, 그룹, 서비스 주체 또는 관리 ID의 액세스 권한을 확인합니다.
 
 1. **액세스 제어(IAM)** 를 클릭합니다.
 
-1. **액세스 권한 확인** 탭을 클릭합니다.
+    다음은 리소스 그룹에 대한 액세스 제어(IAM) 페이지의 예를 보여줍니다.
 
-    ![액세스 제어 - 액세스 권한 확인 탭](./media/check-access/access-control-check-access.png)
+    ![리소스 그룹 액세스 제어 - 액세스 권한 확인 탭](./media/check-access/rg-access-control.png)
 
-1. **찾기** 목록에서 액세스 권한을 확인하려는 보안 주체의 유형을 선택합니다.
+1. **액세스 확인** 탭의 **찾기** 목록에서 액세스를 확인할 사용자, 그룹, 서비스 주체 또는 관리 ID를 선택합니다.
 
 1. 검색 상자에서 표시 이름, 이메일 주소 또는 개체 ID에 대한 디렉터리를 검색할 문자열을 입력합니다.
 
-    ![액세스 권한 확인 선택 목록](./media/check-access/check-access-select.png)
+    ![액세스 권한 확인 선택 목록](./media/shared/rg-check-access-select.png)
 
 1. 보안 주체를 클릭하여 **할당** 창을 엽니다.
 
-    ![할당 창](./media/check-access/check-access-assignments.png)
+    이 창의 이 범위에서 선택한 보안 주체에 대한 액세스 권한을 볼 수 있으며 이 범위로 상속됩니다. 자식 범위의 할당은 나열되지 않습니다. 다음 할당이 표시됩니다.
 
-    이 창에서 선택한 보안 주체 및 범위에 할당된 역할을 볼 수 있습니다. 이 범위에 거부 할당이 있거나 이 범위에 상속된 거부 할당이 있으면 나열됩니다.
+    - Azure RBAC를 사용하여 역할 할당을 추가했습니다.
+    - Azure Blueprints 또는 Azure 관리형 앱을 사용하여 추가된 할당을 거부합니다.
+    - 클래식 배포를 위한 클래식 서비스 관리자 또는 공동 관리자 할당. 
+
+    ![사용자에 대한 역할 및 거부 할당 창](./media/shared/rg-check-access-assignments-user.png)
+
+## <a name="step-3-check-your-access"></a>3단계: 액세스 권한 확인
+
+다음 단계에 따라 이전에 선택한 Azure 리소스에 대한 액세스 권한을 확인합니다.
+
+1. **액세스 제어(IAM)** 를 클릭합니다.
+
+1. **액세스 확인** 탭에서 **내 액세스 보기** 단추를 클릭합니다.
+
+    이 범위에 대한 액세스 권한을 나열하고 이 범위에 상속된 할당 창이 표시됩니다. 자식 범위의 할당은 나열되지 않습니다.
+
+    ![역할 및 거부 할당 창](./media/check-access/rg-check-access-assignments.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](quickstart-assign-role-user-portal.md)
+> [Azure Portal을 사용하여 Azure 역할 할당을 나열](role-assignments-list-portal.md)합니다.

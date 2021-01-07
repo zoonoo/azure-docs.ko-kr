@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: eee32dc7edd4256dd2bd120609504042d7ab78ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fbdeda4cce737a6220d42642473e5f86ef8e525
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836888"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96295964"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Azure에서 OpenSUSE Linux를 실행하는 가상 머신에 MySQL 설치
 
@@ -26,13 +26,13 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>OpenSUSE Linux를 실행하는 가상 머신 만들기
 
-먼저 리소스 그룹을 만듭니다. 이 예제에서 리소스 그룹은 *mySQSUSEResourceGroup*으로 이름이 지정되고 *미국 동부* 지역에 만들어집니다.
+먼저 리소스 그룹을 만듭니다. 이 예제에서 리소스 그룹은 *mySQSUSEResourceGroup* 으로 이름이 지정되고 *미국 동부* 지역에 만들어집니다.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-VM을 만듭니다. 이 예제에서 VM은 *myVM*으로 이름이 지정되고 VM 크기는 *Standard_D2s_v3*이지만 워크로드에 가장 적합한 것으로 생각되는 [VM 크기](../sizes.md)를 선택해야 합니다.
+VM을 만듭니다. 이 예제에서 VM은 *myVM* 으로 이름이 지정되고 VM 크기는 *Standard_D2s_v3* 이지만 워크로드에 가장 적합한 것으로 생각되는 [VM 크기](../sizes.md)를 선택해야 합니다.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -50,7 +50,7 @@ az vm open-port --port 3306 --resource-group mySQLSUSEResourceGroup --name myVM
 
 ## <a name="connect-to-the-vm"></a>VM에 연결
 
-SSH를 사용하여 VM에 연결합니다. 이 예제에서 VM의 공용 IP 주소는 *10.111.112.113*입니다. VM을 만들 때 출력에서 IP 주소를 볼 수 있습니다.
+SSH를 사용하여 VM에 연결합니다. 이 예제에서 VM의 공용 IP 주소는 *10.111.112.113* 입니다. VM을 만들 때 출력에서 IP 주소를 볼 수 있습니다.
 
 ```azurecli-interactive  
 ssh 10.111.112.113
@@ -117,7 +117,7 @@ mysql_secure_installation
 이제 로그인하여 MySQL 프롬프트에 진입할 수 있습니다.
 
 ```bash  
-mysql -u root -p
+sudo mysql -u root -p
 ```
 그러면 SQL 문을 발행하여 데이터베이스와 상호 작용할 수 있는 MySQL 프롬프트로 전환됩니다.
 
@@ -142,7 +142,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 데이터베이스 사용자 이름과 암호는 데이터베이스에 연결하는 스크립트에서만 사용됩니다.  데이터베이스 사용자 계정 이름에 시스템에 있는 실제 사용자 계정을 반영할 필요는 없습니다.
 
-다른 컴퓨터에서 로그인을 사용하도록 설정합니다. 이 예제에서 로그인을 허용하는 컴퓨터의 IP 주소는 *10.112.113.114*입니다.
+다른 컴퓨터에서 로그인을 사용하도록 설정합니다. 이 예제에서 로그인을 허용하는 컴퓨터의 IP 주소는 *10.112.113.114* 입니다.
 
 ```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

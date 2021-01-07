@@ -9,11 +9,11 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077084"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004299"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>빠른 시작: .NET Core에서 Azure Cache for Redis 사용
 

@@ -3,12 +3,12 @@ title: Azure Site Recovery 사용 하는 VMware 재해 복구에 대 한 일반�
 description: Azure Site Recovery를 사용 하 여 Azure에 온-프레미스 VMware Vm의 재해 복구에 대 한 일반적인 질문에 대 한 답을 얻을 수 있습니다.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379993"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587795"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
 
@@ -146,6 +146,10 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 ### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
 
 확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.
+
+### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>초기 복제/동기화 진행률을 추적 하려면 어떻게 해야 하나요?
+
+이 기능은 최근에 Site Recovery 서비스에 대 한 것입니다. 정확한 세부 정보를 얻으려면 Site Recovery 인프라 (구성 서버, 스케일 아웃 프로세스 서버) 및 모바일 에이전트를 버전 9.36 이상으로 업데이트 합니다. 진행률을 추적 하는 방법에 대 한 자세한 내용은 [여기](vmware-azure-enable-replication.md#monitor-initial-replication)를 참조 하세요.
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
 
@@ -286,7 +290,7 @@ Site Recovery는 N-1 지원 모델을 따릅니다. 이전 버전에서 업그�
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
 
-Recovery Services 자격 증명 모음에서 **Site Recovery 인프라** 관리에서 **구성 서버** 를 선택  >  **Manage** 합니다. 그런 다음 **서버** 에서 **등록 키 다운로드** 를 선택 하 여 자격 증명 모음 자격 증명 파일을 다운로드 합니다.
+Recovery Services 자격 증명 모음에서 **Site Recovery 인프라** 관리에서 **구성 서버** 를 선택  >  합니다. 그런 다음 **서버** 에서 **등록 키 다운로드** 를 선택 하 여 자격 증명 모음 자격 증명 파일을 다운로드 합니다.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>단일 구성 서버를 사용 하 여 여러 vCenter 인스턴스를 보호할 수 있나요?
 

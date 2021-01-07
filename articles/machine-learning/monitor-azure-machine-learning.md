@@ -9,24 +9,26 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/01/2020
-ms.openlocfilehash: b8ca96dd0b11f7a4c76f7a954959ef5005fb4a40
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a77f9c8f7e37d2c5a040a48b6bd96bef11d51f14
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323979"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533483"
 ---
 # <a name="monitor-azure-machine-learning"></a>Azure Machine Learning 모니터링
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 Azure Machine Learning에서 생성 되는 모니터링 데이터와 Azure Monitor를 사용 하 여이 데이터를 분석 하 고 경고 하는 방법을 설명 합니다.
 
 > [!TIP]
-> 이 문서의 정보는 *작업 영역* 수준에서 Azure Machine Learning에 대 한 모니터링을 설명 하므로 주로 관리자를 위한 것입니다. 데이터 과학자 또는 개발자 이며 *모델 학습 실행과* 관련 된 정보를 모니터링 하려는 경우 다음 문서를 참조 하세요.
+> 이 문서의 정보는 Azure Machine Learning 서비스 및 연결 된 Azure 서비스에 대 한 모니터링을 설명 하므로 주로 __관리자__ 를 위한 것입니다. __데이터 과학자__ 또는 __개발자__ 이며 *모델 학습 실행과* 관련 된 정보를 모니터링 하려는 경우 다음 문서를 참조 하세요.
 >
 > * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
 > * [학습 실행에 대한 메트릭 로그](how-to-track-experiments.md)
 > * [MLflow로 실험 추적](how-to-use-mlflow.md)
 > * [TensorBoard로 시각화 실행](how-to-monitor-tensorboard.md)
+>
+> 웹 서비스로 배포 된 모델 또는 IoT Edge 모듈로 생성 된 정보를 모니터링 하려는 경우 [모델 데이터 수집](how-to-enable-data-collection.md) 및 [Application Insights로 모니터링](how-to-enable-app-insights.md)을 참조 하세요.
 
 ## <a name="what-is-azure-monitor"></a>Azure Monitor란?
 
@@ -66,7 +68,7 @@ Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는
 
 Azure Machine Learning에 대해 다음 로그를 구성할 수 있습니다.
 
-| 범주 | 설명 |
+| 범주 | Description |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 계산 클러스터의 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 계산 클러스터 내의 노드에서 발생 한 이벤트입니다. |
@@ -104,7 +106,7 @@ Azure Monitor Log Analytics를 사용 하려면 진단 구성을 만들고 __Log
 
 Azure Monitor 로그의 데이터는 테이블에 저장 되 고 각 테이블에는 고유한 속성 집합이 있습니다. Azure Machine Learning은 다음 테이블에 데이터를 저장 합니다.
 
-| 테이블 | 설명 |
+| 테이블 | Description |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 계산 클러스터의 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 계산 클러스터 내의 노드에서 발생 한 이벤트입니다. |
@@ -160,7 +162,7 @@ Azure Machine Learning 리소스를 모니터링 하는 데 사용할 수 있는
 
 다음 표에서는 Azure Machine Learning에 대 한 일반적인 메트릭 경고 규칙과 권장 메트릭을 보여 줍니다.
 
-| 경고 유형 | 조건 | 설명 |
+| 경고 유형 | 조건 | Description |
 |:---|:---|:---|
 | 모델 배포 실패 | 집계 유형: 합계, 연산자: 보다 큼, 임계값: 0 | 하나 이상의 모델 배포에 실패 한 경우 |
 | 할당량 사용률 | 집계 유형: 평균, 연산자: 보다 큼, 임계값: 90| 할당량 사용률 백분율이 90% 보다 큰 경우 |

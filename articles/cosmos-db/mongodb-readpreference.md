@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 3d21aadd8174bf933e55320c8596c57274140582
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3c78ad6605e927015d35df12cadf0347dd0337cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096396"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349047"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API를 사용하여 읽기를 전역 배포하는 방법
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -146,7 +146,7 @@ MongoClient.connect(url, function(err, client) {
       }
 ```
 
-따라서 MongoClient에서 지역 이름과 함께 `region` 태그를 사용하여 특정 지역에 읽기 작업을 보낼 수 있습니다. Cosmos 계정의 경우 지역 이름은 Azure Portal의 왼쪽에 있는 **설정 -> 전역 복제본 데이터** 에서 확인할 수 있습니다. 이 설정은 **읽기 격리** , 즉 클라이언트 애플리케이션에서 읽기 작업을 특정 지역에만 보내려는 경우에 유용합니다. 이 설정은 백그라운드에서 실행되지만 프로덕션에 중요한 서비스가 아닌 비프로덕션/분석 유형 시나리오에 적합합니다.
+따라서 MongoClient에서 지역 이름과 함께 `region` 태그를 사용하여 특정 지역에 읽기 작업을 보낼 수 있습니다. Cosmos 계정의 경우 지역 이름은 Azure Portal의 왼쪽에 있는 **설정 -> 전역 복제본 데이터** 에서 확인할 수 있습니다. 이 설정은 **읽기 격리**, 즉 클라이언트 애플리케이션에서 읽기 작업을 특정 지역에만 보내려는 경우에 유용합니다. 이 설정은 백그라운드에서 실행되지만 프로덕션에 중요한 서비스가 아닌 비프로덕션/분석 유형 시나리오에 적합합니다.
 
 샘플 애플리케이션의 다음 코드 조각에서는 NodeJS에서 태그를 사용하여 읽기 기본 설정을 구성하는 방법을 보여 줍니다.
 
@@ -172,6 +172,6 @@ MongoClient.connect(url, function(err, client) {
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+* [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
 * [Azure Cosmos DB의 MongoDB용 API를 사용하여 전역 분산 데이터베이스 설정](tutorial-global-distribution-mongodb.md)합니다.
 * [Azure Cosmos DB 에뮬레이터를 사용 하 여 로컬로 개발](local-emulator.md)

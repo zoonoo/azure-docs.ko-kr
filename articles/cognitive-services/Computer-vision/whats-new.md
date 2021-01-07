@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: e4c56700e75eb5bc7e5e7faec073fe7157e5df88
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 98b8cca95b8815b32fb5de6567adcf4f150551eb
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976371"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561973"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
@@ -80,7 +80,7 @@ Computer Vision API v3.0에서 [읽기 API](concept-recognizing-text.md)에 대�
 * 추출된 각 단어에 대한 신뢰도 점수
 * 추가 언어 매개 변수를 사용하여 스페인어 및 영어 모두 지원
 
-3\.0 API 사용을 시작하려면 [텍스트 추출 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text?tabs=version-3)을 따르세요.
+3\.0 API 사용을 시작하려면 [텍스트 추출 빠른 시작](./quickstarts/csharp-hand-text.md?tabs=version-3)을 따르세요.
 
 ## <a name="cognitive-service-updates"></a>Cognitive Service 업데이트
 

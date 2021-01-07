@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59bf5eb22289238633b1f07c29a878bd0a9ae620
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500252"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696169"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드-아웃 바운드 연결이 필요 하지 않음
-[Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/skus#skus)를 참조 하세요.
+[Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](./skus.md#skus)를 참조 하세요.
 
 이 문서에서는 기본 Load Balancer에서 표준 Load Balancer로의 트래픽을 마이그레이션하는 것과 함께 기본 Load Balancer와 동일한 구성을 사용 하 여 표준 Load Balancer를 만드는 PowerShell 스크립트를 소개 합니다.
 
@@ -23,25 +23,25 @@ ms.locfileid: "89500252"
 
 다음을 수행 하는 Azure PowerShell 스크립트를 사용할 수 있습니다.
 
-* 지정 하는 위치에 표준 내부 SKU Load Balancer을 만듭니다. [아웃 바운드 연결은](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 표준 내부 Load Balancer에서 제공 되지 않습니다.
+* 지정 하는 위치에 표준 내부 SKU Load Balancer을 만듭니다. [아웃 바운드 연결은](./load-balancer-outbound-connections.md) 표준 내부 Load Balancer에서 제공 되지 않습니다.
 * 기본 SKU Load Balancer의 구성을 새로 만든 표준 Load Balancer에 원활 하 게 복사 합니다.
 * 기본 Load Balancer에서 새로 만든 표준 Load Balancer으로 개인 Ip를 원활 하 게 이동 합니다.
 * 기본 Load Balancer의 백 엔드 풀에서 표준 Load Balancer의 백 엔드 풀로 Vm을 원활 하 게 이동 합니다.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* 스크립트는 아웃 바운드 연결이 필요 하지 않은 내부 Load Balancer 업그레이드만 지원 합니다. 일부 Vm에 대 한 [아웃 바운드 연결이](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 필요한 경우에는이 [페이지](upgrade-InternalBasic-To-PublicStandard.md) 에서 지침을 참조 하세요. 
+* 스크립트는 아웃 바운드 연결이 필요 하지 않은 내부 Load Balancer 업그레이드만 지원 합니다. 일부 Vm에 대 한 [아웃 바운드 연결이](./load-balancer-outbound-connections.md) 필요한 경우에는이 [페이지](upgrade-InternalBasic-To-PublicStandard.md) 에서 지침을 참조 하세요. 
 * 기본 Load Balancer 백엔드 Vm 및 Nic와 동일한 리소스 그룹에 있어야 합니다.
 * 표준 부하 분산 장치를 다른 지역에 만든 경우 이전 지역의 기존 Vm을 새로 만든 표준 Load Balancer에 연결할 수 없습니다. 이 제한 사항을 해결 하려면 새 지역에 새 VM을 만들어야 합니다.
 * Load Balancer 프런트 엔드 IP 구성 또는 백 엔드 풀이 없는 경우 스크립트를 실행 하는 동안 오류가 발생할 수 있습니다. 비어 있지 않은지 확인 합니다.
 
 ## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>프런트 엔드 IP 구성의 IP 할당 방법을 정적으로 변경 (이미 정적인 경우이 단계 무시)
 
-1. 왼쪽 메뉴에서 **모든 서비스** 를 선택 하 고 **모든 리소스**를 선택한 다음, 리소스 목록에서 기본 Load Balancer를 선택 합니다.
+1. 왼쪽 메뉴에서 **모든 서비스** 를 선택 하 고 **모든 리소스** 를 선택한 다음, 리소스 목록에서 기본 Load Balancer를 선택 합니다.
 
-2. **설정**아래에서 **프런트 엔드 ip 구성**을 선택 하 고 첫 번째 프런트 엔드 ip 구성을 선택 합니다. 
+2. **설정** 아래에서 **프런트 엔드 ip 구성** 을 선택 하 고 첫 번째 프런트 엔드 ip 구성을 선택 합니다. 
 
-3. **할당**에 대해 **정적** 을 선택 합니다.
+3. **할당** 에 대해 **정적** 을 선택 합니다.
 
 4. 기본 Load Balancer의 모든 프런트 엔드 IP 구성에 대해 3 단계를 반복 합니다.
 

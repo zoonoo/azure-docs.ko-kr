@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple 프라이빗 클라우드 관리
 description: CloudSimple 프라이빗 클라우드 리소스 및 작업을 관리하는 데 사용할 수 있는 기능에 대해 설명합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 06/10/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b0aff8298ac2335e5216252eb2cbd5a393cc37d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f2f66c2e1e2e8aa596393d4c69a757138ab5a91
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86524999"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895209"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>프라이빗 클라우드 리소스 및 작업 관리
 
@@ -47,7 +47,7 @@ ms.locfileid: "86524999"
 * [노드 구매](create-nodes.md). 이 프라이빗 클라우드에 노드를 추가합니다.
 * [확장](expand-private-cloud.md). 이 프라이빗 클라우드에 노드를 추가합니다.
 * **새로 고침**. 이 페이지의 정보를 업데이트합니다.
-* **삭제**. 언제든지 프라이빗 클라우드를 삭제할 수 있습니다. **삭제하기 전에 모든 시스템 및 데이터를 백업했는지 확인합니다.** 프라이빗 클라우드를 삭제하면 모든 VM, vCenter 구성 및 데이터가 삭제됩니다. 선택한 프라이빗 클라우드의 요약 섹션에서 **삭제**를 클릭합니다. 삭제 후 모든 프라이빗 클라우드 데이터는 안전하고 호환되는 삭제 프로세스에 따라 지워집니다.
+* **삭제**. 언제든지 프라이빗 클라우드를 삭제할 수 있습니다. **삭제하기 전에 모든 시스템 및 데이터를 백업했는지 확인합니다.** 프라이빗 클라우드를 삭제하면 모든 VM, vCenter 구성 및 데이터가 삭제됩니다. 선택한 프라이빗 클라우드의 요약 섹션에서 **삭제** 를 클릭합니다. 삭제 후 모든 프라이빗 클라우드 데이터는 안전하고 호환되는 삭제 프로세스에 따라 지워집니다.
 * [vSphere 권한 변경](escalate-private-cloud-privileges.md).  이 프라이빗 클라우드에서 권한을 에스컬레이션합니다.
 
 ## <a name="private-cloud-vlanssubnets"></a>프라이빗 클라우드 VLAN/서브넷

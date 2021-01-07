@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory를 사용 하 여 암호 기반 인증
-description: 이 인증 패턴을 달성 하는 데 대 한 아키텍처 지침
+description: Azure Active Directory를 사용 하 여 암호 기반 인증을 얻기 위한 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f05bf8f5f7ec4907c2cd61ff48e3438dfa1e097a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 5bd6a5c8af117bf6cb39969a5f1b1f17ff08681c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114358"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172825"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 암호 기반 인증
 
@@ -45,10 +45,9 @@ ms.locfileid: "92114358"
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Azure AD를 사용 하 여 암호 기반 SSO 구현
 
-* [암호 기반 SSO 란?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) 
+* [암호 기반 SSO 란?](../manage-apps/what-is-single-sign-on.md) 
 
-* [클라우드 응용 프로그램에 대 한 암호 기반 SSO 구성 ](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications)
+* [클라우드 응용 프로그램에 대 한 암호 기반 SSO 구성 ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [응용 프로그램 프록시를 사용 하 여 온-프레미스 응용 프로그램에 대 한 암호 기반 SSO 구성](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting)
+* [응용 프로그램 프록시를 사용 하 여 온-프레미스 응용 프로그램에 대 한 암호 기반 SSO 구성](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 
- 

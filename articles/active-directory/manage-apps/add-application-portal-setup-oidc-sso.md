@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0a25d910b694968802e853a81c16e34dd0539f7a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 2ff35a8d86534a99b8957a9272f9a1eb59fc27ab
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203503"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399981"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정
 
 Azure AD(Azure Active Directory) 테넌트에 추가한 애플리케이션에 대한 SSO(Single Sign-On)를 설정하여 간단한 사용자 로그인을 시작합니다. SSO를 설정한 후 사용자는 해당 Azure AD 자격 증명을 사용하여 애플리케이션에 로그인할 수 있습니다. SSO는 Azure AD 평가판에 포함되어 있습니다.
+
+OIDC 기반 SSO에 대한 자세한 내용은 [OIDC 기반 Single Sign-On 이해](configure-oidc-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -52,16 +54,21 @@ SSO에 대한 OIDC 표준을 사용하는 앱을 추가하는 경우 설정 단�
    > [!IMPORTANT]
     > 애플리케이션에 대한 구독이 이미 있는 경우 사용자 세부 정보 및 테넌트/디렉터리 정보에 대한 유효성 검사가 수행됩니다. 애플리케이션에서 사용자를 확인할 수 없는 경우 사용자가 애플리케이션 서비스 또는 오류 페이지에 가입하도록 리디렉션됩니다.
 
-3. 인증에 성공하면 관리자 동의를 요청하는 대화 상자가 나타납니다. **조직 대신 동의** 를 선택하고 **수락** 을 선택합니다. 
+3. 인증에 성공하면 관리자 동의를 요청하는 대화 상자가 나타납니다. **조직 대신 동의** 를 선택하고 **수락** 을 선택합니다. 사용자 및 관리자 동의에 대한 자세한 내용은 [사용자 및 관리자 동의 이해](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)를 참조하세요.
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Single Sign-On 옵션 및 가입 단추를 보여 주는 스크린샷" lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="앱에 대한 동의 화면을 보여 주는 스크린샷" lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. 애플리케이션이 테넌트에 추가되고 애플리케이션 홈 페이지가 표시됩니다.
 
 
 > [!TIP]
-> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](https://docs.microsoft.com/graph/application-saml-sso-configure-api)를 참조하세요.
+> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](/graph/application-saml-sso-configure-api)를 참조하세요.
 
+다음은 Azure AD에 OIDC 기반 앱을 추가하는 방법에 대한 추가 세부 정보를 안내하는 비디오입니다.
+
+Azure Active Directory에서 OIDC 기반 앱 추가
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 31d98e0d37da1b957d86e425e01fe04de842f532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b818b8b46b6ac3af98ff5f25ef69335231744cc
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715137"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779042"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Azure CLI를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.
 
@@ -57,6 +57,9 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>보안 주체에 Azure 역할 할당
 
 보안 주체에 Azure 역할을 할당 하려면 [az role assign create](/cli/azure/role/assignment#az-role-assignment-create) 명령을 사용 합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 다음 예에서는 다양 한 범위에서 사용자에 게 역할을 할당 하는 방법을 보여 주지만 동일한 명령을 사용 하 여 보안 주체에 역할을 할당할 수 있습니다.
+
+> [!NOTE]
+> Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당 되지 않습니다. Azure Storage에 대 한 Azure 역할을 명시적으로 할당 해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
 
 ### <a name="container-scope"></a>컨테이너 범위
 

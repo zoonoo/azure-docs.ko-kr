@@ -4,12 +4,12 @@ description: Recovery Services 자격 증명 모음 및 Azure Backup 기능과 �
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 29a2499bfd3125cad98e72f7543bb9a29293f624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4c2f444cb821f7979571b9d777895a59450e7c2
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755197"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309582"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Backup용 Azure Resource Manager 템플릿
 
@@ -29,4 +29,6 @@ ms.locfileid: "88755197"
 | [Azure Backup을 통한 Azure Monitor 로그 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Recovery Services 자격 증명 모음에서 사용된 백업 및 복원 작업, 백업 경고 및 클라우드 스토리지를 모니터링할 수 있는 Azure Backup을 통해 Azure Monitor 로그를 배포하는 템플릿입니다.|  
 |**Azure VM에서 SQL Server 백업** |  |
 | [Azure VM에서 SQL Server 백업](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | Recovery Services 자격 증명 모음 및 워크로드 관련 백업 정책을 만드는 템플릿입니다. Azure Backup 서비스에 VM을 등록하고 해당 VM에서 보호를 구성합니다. 현재 SQL 갤러리 이미지에 대해서만 작동합니다. |
+|**Azure 파일 공유 백업** |  |
+| [Azure 파일 공유 백업](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-backup-file-share) | 이 템플릿은 Recovery Services 자격 증명 모음 및 백업 정책에 대한 적절한 세부 정보를 지정하여 기존 Azure 파일 공유에 대한 보호를 구성합니다. 필요에 따라 새 Recovery Services 자격 증명 모음 및 백업 정책을 만들고 파일 공유를 포함하는 스토리지 계정을 Recovery Services 자격 증명 모음에 등록합니다. |
 |   |   |

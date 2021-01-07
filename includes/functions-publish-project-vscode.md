@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: f4e58f4f510450db13ae13d3beecba4d55e766bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a525d1e14e642a64235c263ba29bf7a181bf9e30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408601"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008207"
 ---
 ## <a name="publish-the-project-to-azure"></a>Azure에 프로젝트 게시
 
@@ -33,14 +33,6 @@ ms.locfileid: "91408601"
       
     - **함수 앱에 대해 전역적으로 고유 이름을 입력합니다**. URL 경로에 유효한 이름을 입력합니다. 입력한 이름이 Azure Functions에서 고유한지 확인하기 위해 유효성을 검사합니다.
     
-    ::: zone pivot="programming-language-python"
-    - **런타임 선택**: 로컬에서 실행 중인 Python 버전을 선택합니다. `python --version` 명령을 사용하여 버전을 확인할 수 있습니다.
-    ::: zone-end
-
-    ::: zone pivot="programming-language-javascript,programming-language-typescript"
-    - **런타임 선택**: 로컬에서 실행 중인 Node.js 버전을 선택합니다. `node --version` 명령을 사용하여 버전을 확인할 수 있습니다.
-    ::: zone-end
-
     - **새 리소스의 위치 선택**:  성능을 향상시키려면 근처에 있는 [지역](https://azure.microsoft.com/regions/)을 선택합니다. 
     
 1.  완료되면 함수 앱 이름을 기반으로 하는 이름을 사용하여 구독에 다음 Azure 리소스가 생성됩니다.
@@ -53,6 +45,6 @@ ms.locfileid: "91408601"
 
     함수 앱을 만들고 배포 패키지가 적용되면 알림이 표시됩니다. 
     
-1. 이 알림에서 **출력 보기**를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다. 알림이 누락된 경우 오른쪽 아래 모서리에 있는 종 모양 아이콘을 선택하여 다시 확인합니다.
+1. 이 알림에서 **출력 보기** 를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다. 알림이 누락된 경우 오른쪽 아래 모서리에 있는 종 모양 아이콘을 선택하여 다시 확인합니다.
 
     ![전체 알림 만들기](media/functions-publish-project-vscode/function-create-notifications.png)

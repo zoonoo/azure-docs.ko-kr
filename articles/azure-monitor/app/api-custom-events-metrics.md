@@ -4,12 +4,12 @@ description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 �
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae64888669fb9a3c053802ee4f7ad7db6316265d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264136"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780504"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -108,7 +108,7 @@ Node.js 프로젝트에서 `new applicationInsights.TelemetryClient(instrumentat
 
 ## <a name="trackevent"></a>TrackEvent
 
-Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기](../platform/metrics-charts.md)에 집계된 개수로 표시하고 [진단 검색](./diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
+Application Insights에서 *사용자 지정 이벤트* 는 [메트릭 탐색기](../platform/metrics-charts.md)에 집계된 개수로 표시하고 [진단 검색](./diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
 
 다양한 이벤트를 계산하기 위해 코드에 `TrackEvent`를 삽입합니다. 사용자가 특정 기능을 얼마나 자주 선택하는지, 특정 목표를 얼마나 자주 달성하는지 또는 특정 유형의 실수를 얼마나 자주 하는지를 계산할 수 있습니다.
 
@@ -165,7 +165,7 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 * 단일 값. 애플리케이션에서 측정을 수행할 때마다 Application Insights에 해당 값을 보냅니다. 예를 들어 컨테이너의 항목 수를 설명하는 메트릭이 있다고 가정합니다. 특정 기간 동안 먼저 컨테이너에 3개 항목을 추가한 다음 2개 항목을 제거합니다. 따라서 `TrackMetric`을 두 번 호출합니다. 처음에는 값 `3`을 전달하고 그 다음에는 값 `-2`를 전달합니다. Application Insights는 두 값을 자동으로 저장합니다.
 
-* 집계. 메트릭을 사용하여 작업하는 경우 모든 단일 측정값은 거의 유용하지 않습니다. 대신 특정 기간 동안 발생한 내용의 요약이 중요합니다. 이러한 요약을 _집계_라고 합니다. 위의 예에서는 해당 기간에 대한 집계 메트릭 합계는 `1`이고 메트릭 값의 개수는 `2`입니다. 집계 방법을 사용할 때는 `TrackMetric`을 기간당 한 번만 호출하고 집계 값을 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 Application Insights로 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있기 때문에 권장되는 방법입니다.
+* 집계. 메트릭을 사용하여 작업하는 경우 모든 단일 측정값은 거의 유용하지 않습니다. 대신 특정 기간 동안 발생한 내용의 요약이 중요합니다. 이러한 요약을 _집계_ 라고 합니다. 위의 예에서는 해당 기간에 대한 집계 메트릭 합계는 `1`이고 메트릭 값의 개수는 `2`입니다. 집계 방법을 사용할 때는 `TrackMetric`을 기간당 한 번만 호출하고 집계 값을 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 Application Insights로 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있기 때문에 권장되는 방법입니다.
 
 ### <a name="examples"></a>예제
 
@@ -247,7 +247,7 @@ appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
 ### <a name="timing-page-views"></a>페이지 보기 시간
 
-기본적으로 시간은 브라우저가 요청을 보낼 때부터 브라우저의 페이지 로드 이벤트를 호출할 때까지 측정되는 **페이지 보기 로드 시간**으로 보고됩니다.
+기본적으로 시간은 브라우저가 요청을 보낼 때부터 브라우저의 페이지 로드 이벤트를 호출할 때까지 측정되는 **페이지 보기 로드 시간** 으로 보고됩니다.
 
 대신, 다음을 수행할 수 있습니다.
 
@@ -437,7 +437,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들면 다음과 같습니다.
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예:
 
 ```kusto
 exceptions
@@ -500,7 +500,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예:
 
 *C#*
 
@@ -530,6 +530,9 @@ telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties
 ## <a name="trackdependency"></a>TrackDependency
 
 TrackDependency 호출을 사용하여 응답 시간과 외부 코드 부분에 대한 호출의 성공률을 추적합니다. 포털에서 종속성 차트에 결과가 나타납니다. 종속성 호출이 수행 될 때마다 아래 코드 조각을 추가 해야 합니다.
+
+> [!NOTE]
+> .NET 및 .NET Core의 경우 `TelemetryClient.StartOperation` `DependencyTelemetry` , 아래 예제와 같이 사용자 지정 타이머를 만들 필요가 없도록 상관 관계를 지정 하는 데 필요한 속성을 채우는 (확장) 메서드를 사용할 수 있습니다. 자세한 내용은 [나가는 종속성 추적에 대](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking)한이 문서의 섹션을 참조 하세요.
 
 *C#*
 
@@ -566,8 +569,8 @@ finally {
     Instant endTime = Instant.now();
     Duration delta = Duration.between(startTime, endTime);
     RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-    RemoteDependencyTelemetry.setTimeStamp(startTime);
-    RemoteDependencyTelemetry.trackDependency(dependencyTelemetry);
+    dependencyTelemetry.setTimeStamp(startTime);
+    telemetry.trackDependency(dependencyTelemetry);
 }
 ```
 
@@ -690,7 +693,7 @@ ASP.NET 웹 MVC 애플리케이션에서의 예:
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-[메트릭 탐색기](../platform/metrics-charts.md)에서 **사용자, 인증** 및 **사용자 계정**을 계산하는 차트를 만들 수 있습니다.
+[메트릭 탐색기](../platform/metrics-charts.md)에서 **사용자, 인증** 및 **사용자 계정** 을 계산하는 차트를 만들 수 있습니다.
 
 특정 사용자 이름 및 계정을 사용 하 여 클라이언트 데이터 요소를 [검색할](./diagnostic-search.md) 수도 있습니다.
 
@@ -698,7 +701,7 @@ appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
 이벤트에(그리고 메트릭, 페이지 보기, 예외 및 기타 원격 분석 데이터에) 속성 및 측정을 연결할 수 있습니다.
 
-*속성*은 사용 현황 보고서에서 원격 분석을 필터링하는 데 사용할 수 있는 문자열 값입니다. 예를 들어 앱이 여러 게임을 제공하는 경우 각 이벤트에 게임 이름을 연결하여 인기가 더 많은 게임을 확인할 수 있습니다.
+*속성* 은 사용 현황 보고서에서 원격 분석을 필터링하는 데 사용할 수 있는 문자열 값입니다. 예를 들어 앱이 여러 게임을 제공하는 경우 각 이벤트에 게임 이름을 연결하여 인기가 더 많은 게임을 확인할 수 있습니다.
 
 문자열 길이는 8192로 제한됩니다. (많은 양의 데이터를 보내려면 메시지 매개 변수 TrackTrace를 사용하세요.)
 
@@ -918,7 +921,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 개별 원격 분석 호출이 자신의 속성 사전에 있는 기본값을 재정의할 수 있습니다.
 
-*Javascript 웹 클라이언트의*경우 javascript 원격 분석 이니셜라이저를 사용 합니다.
+*Javascript 웹 클라이언트의* 경우 javascript 원격 분석 이니셜라이저를 사용 합니다.
 
 표준 컬렉션 모듈의 데이터를 포함하여 *모든 원격 분석에 속성을 추가하려면*[`ITelemetryInitializer`를 구현합니다](./api-filtering-sampling.md#add-properties).
 
@@ -952,7 +955,7 @@ TelemetryConfiguration.Active.DisableTelemetry = true;
 telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
-선택한 표준 수집기 (예: 성능 카운터, HTTP 요청 또는 종속성)를 *사용 하지 않도록 설정*하려면 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제 하거나 주석으로 처리 합니다. 예를 들어 사용자 고유의 자체 요청 데이터를 전송 하려는 경우이 작업을 수행할 수 있습니다.
+선택한 표준 수집기 (예: 성능 카운터, HTTP 요청 또는 종속성)를 *사용 하지 않도록 설정* 하려면 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제 하거나 주석으로 처리 합니다. 예를 들어 사용자 고유의 자체 요청 데이터를 전송 하려는 경우이 작업을 수행할 수 있습니다.
 
 *Node.js*
 
@@ -1063,7 +1066,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

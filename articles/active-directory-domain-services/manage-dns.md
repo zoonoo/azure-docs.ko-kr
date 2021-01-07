@@ -1,7 +1,7 @@
 ---
 title: Azure AD Domain Services에 대 한 DNS 관리 | Microsoft Docs
 description: Dns 서버 도구를 설치 하 여 DNS를 관리 하 고 Azure Active Directory Domain Services 관리 되는 도메인에 대 한 조건부 전달자를 만드는 방법을 알아봅니다.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: b347f8043216d4347099d68ff1c62156410582a3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: afa6920a36a5a7218571239b36815004d8f2d450
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963179"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619354"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에서 DNS를 관리 하 고 조건부 전달자를 만듭니다.
 
@@ -48,18 +48,18 @@ Azure Active Directory Domain Services (Azure AD DS)에서 키 구성 요소는 
 관리 되는 도메인에서 DNS 레코드를 만들고 수정 하려면 DNS 서버 도구를 설치 해야 합니다. 이러한 도구는 Windows Server의 기능으로 설치할 수 있습니다. Windows 클라이언트에 관리 도구를 설치 하는 방법에 대 한 자세한 내용은 install [원격 서버 관리 도구 (RSAT)][install-rsat]를 참조 하십시오.
 
 1. 관리 VM에 로그인 합니다. Azure Portal를 사용 하 여 연결 하는 방법에 대 한 단계는 [Windows SERVER VM에 연결][connect-windows-server-vm]을 참조 하세요.
-1. VM에 로그인할 때 **서버 관리자**가 기본적으로 열리지 않는 경우 **시작** 메뉴를 선택한 다음, **서버 관리자**를 선택합니다.
-1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
-1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
-1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
-1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.aaddscontoso.com*), **다음**을 차례로 선택합니다.
-1. **서버 역할** 페이지에서 **다음**을 클릭합니다.
+1. VM에 로그인할 때 **서버 관리자** 가 기본적으로 열리지 않는 경우 **시작** 메뉴를 선택한 다음, **서버 관리자** 를 선택합니다.
+1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가** 를 선택합니다.
+1. *역할 및 기능 추가 마법사* 의 **시작하기 전에** 페이지에서 **다음** 을 선택합니다.
+1. *설치 유형* 에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음** 을 선택합니다.
+1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.aaddscontoso.com*), **다음** 을 차례로 선택합니다.
+1. **서버 역할** 페이지에서 **다음** 을 클릭합니다.
 1. **기능** 페이지에서 **원격 서버 관리 도구** 노드, **역할 관리 도구** 노드를 차례로 펼칩니다. 역할 관리 도구 목록에서 **DNS 서버 도구** 기능을 선택합니다.
 
     ![사용 가능한 역할 관리 도구 목록에서 DNS 서버 도구를 설치 하도록 선택 합니다.](./media/manage-dns/install-dns-tools.png)
 
-1. **확인** 페이지에서 **설치**를 선택합니다. DNS 서버 도구를 설치 하는 데 1 ~ 2 시간이 걸릴 수 있습니다.
-1. 기능 설치가 완료되면 **닫기**를 선택하여 **역할 및 기능 추가** 마법사를 종료합니다.
+1. **확인** 페이지에서 **설치** 를 선택합니다. DNS 서버 도구를 설치 하는 데 1 ~ 2 시간이 걸릴 수 있습니다.
+1. 기능 설치가 완료되면 **닫기** 를 선택하여 **역할 및 기능 추가** 마법사를 종료합니다.
 
 ## <a name="open-the-dns-management-console-to-administer-dns"></a>Dns 관리 콘솔을 열어 DNS 관리
 
@@ -68,8 +68,8 @@ DNS 서버 도구가 설치 된 상태에서 관리 되는 도메인의 DNS 레�
 > [!NOTE]
 > 관리 되는 도메인의 DNS를 관리 하려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
 
-1. 시작 화면에서 **관리 도구**를 선택 합니다. 이전 섹션에 설치 된 **DNS** 를 비롯 하 여 사용 가능한 관리 도구 목록이 표시 됩니다. Dns **를 선택 하 여 Dns** 관리 콘솔을 시작 합니다.
-1. **Dns 서버에 연결** 대화 상자에서 **다음 컴퓨터**를 선택 하 고 관리 되는 도메인의 DNS 도메인 이름 (예: *aaddscontoso.com*)을 입력 합니다.
+1. 시작 화면에서 **관리 도구** 를 선택 합니다. 이전 섹션에 설치 된 **DNS** 를 비롯 하 여 사용 가능한 관리 도구 목록이 표시 됩니다. Dns **를 선택 하 여 Dns** 관리 콘솔을 시작 합니다.
+1. **Dns 서버에 연결** 대화 상자에서 **다음 컴퓨터** 를 선택 하 고 관리 되는 도메인의 DNS 도메인 이름 (예: *aaddscontoso.com*)을 입력 합니다.
 
     ![DNS 콘솔에서 관리 되는 도메인에 연결](./media/manage-dns/connect-dns-server.png)
 
@@ -89,19 +89,19 @@ Azure AD DS DNS 영역에는 관리 되는 도메인에 대 한 영역 및 레�
 관리 되는 도메인에서 조건부 전달자를 만들려면 다음 단계를 완료 합니다.
 
 1. DNS 영역 (예: *aaddscontoso.com*)을 선택 합니다.
-1. **조건부 전달자**를 선택한 다음 마우스 오른쪽 단추를 선택 하 고 **새 조건부 전달자** ...를 선택 합니다.
+1. **조건부 전달자** 를 선택한 다음 마우스 오른쪽 단추를 선택 하 고 **새 조건부 전달자** ...를 선택 합니다.
 1. 다음 예제와 같이 다른 **Dns 도메인**(예: *contoso.com*)을 입력 한 후 해당 네임 스페이스에 대 한 dns 서버의 IP 주소를 입력 합니다.
 
     ![DNS 서버에 대 한 조건부 전달자 추가 및 구성](./media/manage-dns/create-conditional-forwarder.png)
 
-1. **Active Directory에서이 조건부 전달자 저장**확인란을 선택 하 고 다음과 같이 복제 한 다음 *이 도메인의 모든 DNS 서버*에 대 한 옵션을 선택 합니다.
+1. **Active Directory에서이 조건부 전달자 저장** 확인란을 선택 하 고 다음과 같이 복제 한 다음 *이 도메인의 모든 DNS 서버* 에 대 한 옵션을 선택 합니다.
 
     ![DNS 콘솔-이 도메인의 모든 DNS 서버를 선택 합니다.](./media/manage-dns/store-in-domain.png)
 
     > [!IMPORTANT]
-    > 조건부 전달 자가 *도메인*대신 *포리스트에* 저장 된 경우에는 조건부 전달 자가 실패 합니다.
+    > 조건부 전달 자가 *도메인* 대신 *포리스트에* 저장 된 경우에는 조건부 전달 자가 실패 합니다.
 
-1. 조건부 전달자를 만들려면 **확인**을 선택 합니다.
+1. 조건부 전달자를 만들려면 **확인** 을 선택 합니다.
 
 이제 관리 되는 도메인에 연결 된 Vm의 다른 네임 스페이스에 있는 리소스의 이름 확인이 올바르게 확인 되어야 합니다. 조건부 전달자에 구성 된 DNS 도메인에 대 한 쿼리는 관련 DNS 서버로 전달 됩니다.
 

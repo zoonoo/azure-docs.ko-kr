@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: e034149372ba061ec958e0c1e22187d33009080c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096b8ed60bf9880b6904ab952d4558939ca13574
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265836"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652078"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -72,7 +72,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.Applic
 
 **ResourceGroupName** 매개 변수를 사용하여 역할 할당의 범위를 특정 리소스 그룹으로 지정할 수 있습니다. **ResourceType** 및 **ResourceName** 매개 변수를 사용하여 범위를 특정 리소스로 지정할 수도 있습니다. 
 
-**Windows 10 또는 Windows Server 2016**이 설치되지 않은 경우 Microsoft 스크립트 센터에서 [자체 서명된 인증서 생성기](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/)를 다운로드해야 합니다. 해당 내용을 추출하고 필요한 cmdlet을 가져옵니다.
+**Windows 10 또는 Windows Server 2016** 이 설치되지 않은 경우 Microsoft 스크립트 센터에서 [자체 서명된 인증서 생성기](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/)를 다운로드해야 합니다. 해당 내용을 추출하고 필요한 cmdlet을 가져옵니다.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate
@@ -97,8 +97,8 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
 $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).ApplicationId
 
- $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -eq "CN=exampleappScriptCert" }).Thumbprint
- Connect-AzAccount -ServicePrincipal `
+$Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -eq "CN=exampleappScriptCert" }).Thumbprint
+Connect-AzAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
@@ -126,7 +126,7 @@ Param (
  Connect-AzAccount
  Import-Module Az.Resources
  Set-AzContext -Subscription $SubscriptionId
- 
+
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
 
  $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
@@ -146,7 +146,7 @@ Param (
     $NewRole = Get-AzRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
- 
+
  $NewRole
 ```
 
@@ -155,13 +155,13 @@ Param (
 
 ```powershell
 Param (
- 
+
  [Parameter(Mandatory=$true)]
  [String] $CertPath,
 
  [Parameter(Mandatory=$true)]
  [String] $CertPlainPassword,
- 
+
  [Parameter(Mandatory=$true)]
  [String] $ApplicationId,
 
@@ -225,4 +225,4 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 * 암호를 사용하여 서비스 주체를 설정하려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조하세요.
 * 애플리케이션 및 서비스 주체에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 * Azure AD 인증에 대한 자세한 내용은 [Azure AD의 인증 시나리오](./authentication-vs-authorization.md)를 참조하세요.
-* **Microsoft Graph**를 사용 하 여 앱 등록을 작업 하는 방법에 대 한 자세한 내용은 [응용 프로그램](/graph/api/resources/application) API 참조를 참조 하세요.
+* **Microsoft Graph** 를 사용 하 여 앱 등록을 작업 하는 방법에 대 한 자세한 내용은 [응용 프로그램](/graph/api/resources/application) API 참조를 참조 하세요.

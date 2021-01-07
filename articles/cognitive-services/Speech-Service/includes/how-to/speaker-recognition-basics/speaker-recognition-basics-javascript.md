@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/07/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: bb78a60b911823da96c52a104a3e06ecfc634da6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a8a34a483390e12ba49123e26d2071d3aa667c89
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210702"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425073"
 ---
 이 빠른 시작에서는 다음을 포함하여 Speech SDK를 사용하는 Speaker Recognition에 대한 기본적인 디자인 패턴을 알아봅니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "92210702"
 이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
-> Speaker Recognition는 현재 `westus` 지역에서 만든 Azure Speech 리소스에서만 지원되는 *유일한 것*입니다.
+> Speaker Recognition는 현재 `westus` 지역에서 만든 Azure Speech 리소스에서만 지원되는 *유일한 것* 입니다.
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
@@ -84,11 +84,11 @@ Speech Service에서 사용할 오디오 파일을 스트림으로 읽어들이�
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="helpers":::
 
-이 함수에서는 [AudioInputStream.createPushStream](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioinputstream?view=azure-node-latest&preserve-view=true#createpushstream-audiostreamformat-) 및 [AudioConfig.fromStreamInput](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true#fromstreaminput-audioinputstream---pullaudioinputstreamcallback-) 메서드를 사용하여 [AudioConfig](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true) 개체를 만듭니다. 이 `AudioConfig` 개체는 오디오 스트림을 나타냅니다. 다음 작업 중에 이러한 `AudioConfig` 개체 중 몇 가지를 사용합니다.
+이 함수에서는 [AudioInputStream.createPushStream](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioinputstream?preserve-view=true&view=azure-node-latest#createpushstream-audiostreamformat-) 및 [AudioConfig.fromStreamInput](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest#fromstreaminput-audioinputstream---pullaudioinputstreamcallback-) 메서드를 사용하여 [AudioConfig](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest) 개체를 만듭니다. 이 `AudioConfig` 개체는 오디오 스트림을 나타냅니다. 다음 작업 중에 이러한 `AudioConfig` 개체 중 몇 가지를 사용합니다.
 
 ## <a name="text-dependent-verification"></a>텍스트-종속 확인
 
-Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 일치하는지 확인하는 행위입니다. 첫 번째 단계는 음성 프로필을 **등록**하는 것입니다. 따라서 서비스에 향후 음성 샘플과 비교할 내용이 있습니다. 다음 예제에서는 **텍스트 종속** 전략을 사용하여 프로필을 등록합니다. 이 전략에서는 특정 암호를 등록 및 검증 모두에 사용해야 합니다. 지원되는 암호 목록은 [참조 문서](https://docs.microsoft.com/rest/api/speakerrecognition/)를 확인하세요.
+Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 일치하는지 확인하는 행위입니다. 첫 번째 단계는 음성 프로필을 **등록** 하는 것입니다. 따라서 서비스에 향후 음성 샘플과 비교할 내용이 있습니다. 다음 예제에서는 **텍스트 종속** 전략을 사용하여 프로필을 등록합니다. 이 전략에서는 특정 암호를 등록 및 검증 모두에 사용해야 합니다. 지원되는 암호 목록은 [참조 문서](/rest/api/speakerrecognition/)를 확인하세요.
 
 ### <a name="textdependentverification-function"></a>TextDependentVerification 함수
 
@@ -96,7 +96,7 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_dependent_verification":::
 
-이 함수는 [VoiceProfileClient.createProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 메서드를 사용하여 [VoiceProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?view=azure-node-latest&preserve-view=true) 개체를 만듭니다. `VoiceProfile`에는 다음 세 가지 [형식](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofiletype?view=azure-node-latest&preserve-view=true)이 있습니다.
+이 함수는 [VoiceProfileClient.createProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 메서드를 사용하여 [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) 개체를 만듭니다. `VoiceProfile`에는 다음 세 가지 [형식](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofiletype?preserve-view=true&view=azure-node-latest)이 있습니다.
 
 - TextIndependentIdentification
 - TextDependentVerification
@@ -104,7 +104,7 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 이 경우 `VoiceProfileType.TextDependentVerification`을 `VoiceProfileClient.createProfileAsync`에 전달합니다.
 
-그런 다음, 다음에 정의할 두 개의 도우미 함수(`AddEnrollmentsToTextDependentProfile` 및 `SpeakerVerify`)를 호출합니다. 마지막으로 [VoiceProfileClient.deleteProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-)를 호출하여 프로필을 제거합니다.
+그런 다음, 다음에 정의할 두 개의 도우미 함수(`AddEnrollmentsToTextDependentProfile` 및 `SpeakerVerify`)를 호출합니다. 마지막으로 [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-)를 호출하여 프로필을 제거합니다.
 
 ### <a name="addenrollmentstotextdependentprofile-function"></a>AddEnrollmentsToTextDependentProfile 함수
 
@@ -112,7 +112,7 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="add_enrollments_dependent":::
 
-이 함수에서는 이전에 정의한 `GetAudioConfigFromFile` 함수를 호출하여 오디오 샘플에서 `AudioConfig` 개체를 만듭니다. 이러한 오디오 샘플에는 "내 목소리가 내 여권입니다. 나를 확인해 보세요."와 같은 암호가 포함되어 있습니다. 그런 다음, [VoiceProfileClient.enrollProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-) 메서드를 사용하여 이러한 오디오 샘플을 등록합니다.
+이 함수에서는 이전에 정의한 `GetAudioConfigFromFile` 함수를 호출하여 오디오 샘플에서 `AudioConfig` 개체를 만듭니다. 이러한 오디오 샘플에는 "내 목소리가 내 여권입니다. 나를 확인해 보세요."와 같은 암호가 포함되어 있습니다. 그런 다음, [VoiceProfileClient.enrollProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-) 메서드를 사용하여 이러한 오디오 샘플을 등록합니다.
 
 ### <a name="speakerverify-function"></a>SpeakerVerify 함수
 
@@ -120,13 +120,13 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="speaker_verify":::
 
-이 함수에서는 이전에 만든 [VoiceProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?view=azure-node-latest&preserve-view=true) 개체를 전달하는 [SpeakerVerificationModel.FromProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel?view=azure-node-latest&preserve-view=true#fromprofile-voiceprofile-) 메서드를 사용하여 [SpeakerVerificationModel](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel?view=azure-node-latest&preserve-view=true) 개체를 만듭니다.
+이 함수에서는 이전에 만든 [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) 개체를 전달하는 [SpeakerVerificationModel.FromProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel?preserve-view=true&view=azure-node-latest#fromprofile-voiceprofile-) 메서드를 사용하여 [SpeakerVerificationModel](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel?preserve-view=true&view=azure-node-latest) 개체를 만듭니다.
 
-다음으로 [SpeechRecognizer.recognizeOnceAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) 메서드를 호출하여 이전에 등록한 오디오 샘플과 동일한 암호가 포함된 오디오 샘플의 유효성을 검사합니다. `SpeechRecognizer.recognizeOnceAsync`는 `score` 속성에 0.0~1.0 범위의 유사성 점수가 포함된 [SpeakerRecognitionResult](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult?view=azure-node-latest&preserve-view=true) 개체를 반환합니다. 또한 `SpeakerRecognitionResult` 개체에는 [ResultReason](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/resultreason?view=azure-node-latest&preserve-view=true) 형식의 `reason` 속성이 포함되어 있습니다. 검증에 성공하면 `reason` 속성의 값이 `RecognizedSpeaker`입니다.
+다음으로 [SpeechRecognizer.recognizeOnceAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?preserve-view=true&view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) 메서드를 호출하여 이전에 등록한 오디오 샘플과 동일한 암호가 포함된 오디오 샘플의 유효성을 검사합니다. `SpeechRecognizer.recognizeOnceAsync`는 `score` 속성에 0.0~1.0 범위의 유사성 점수가 포함된 [SpeakerRecognitionResult](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult?preserve-view=true&view=azure-node-latest) 개체를 반환합니다. 또한 `SpeakerRecognitionResult` 개체에는 [ResultReason](/javascript/api/microsoft-cognitiveservices-speech-sdk/resultreason?preserve-view=true&view=azure-node-latest) 형식의 `reason` 속성이 포함되어 있습니다. 검증에 성공하면 `reason` 속성의 값이 `RecognizedSpeaker`입니다.
 
 ## <a name="text-independent-verification"></a>텍스트 독립 확인
 
-**텍스트-종속** 확인을 하는 것과 달리 **텍스트-독립**을 확인합니다:
+**텍스트-종속** 확인을 하는 것과 달리 **텍스트-독립** 을 확인합니다:
 
 * 특정 암호를 말할 필요가 없고, 모든 항목을 말할 수 있습니다.
 * 세 개의 오디오 샘플이 필요하지 않지만, 총 20초의 오디오가 *필요합니다*.
@@ -137,11 +137,11 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_independent_verification":::
 
-이 함수는 `TextDependentVerification` 함수와 마찬가지로 [VoiceProfileClient.createProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 메서드를 사용하여 [VoiceProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?view=azure-node-latest&preserve-view=true) 개체를 만듭니다.
+이 함수는 `TextDependentVerification` 함수와 마찬가지로 [VoiceProfileClient.createProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 메서드를 사용하여 [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) 개체를 만듭니다.
 
 이 경우 `VoiceProfileType.TextIndependentVerification`을 `createProfileAsync`에 전달합니다.
 
-그런 다음, 다음에 정의할 `AddEnrollmentsToTextIndependentProfile` 및 이미 정의한 `SpeakerVerify`의 두 가지 도우미 함수를 호출합니다. 마지막으로 [VoiceProfileClient.deleteProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-)를 호출하여 프로필을 제거합니다.
+그런 다음, 다음에 정의할 `AddEnrollmentsToTextIndependentProfile` 및 이미 정의한 `SpeakerVerify`의 두 가지 도우미 함수를 호출합니다. 마지막으로 [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-)를 호출하여 프로필을 제거합니다.
 
 ### <a name="addenrollmentstotextindependentprofile"></a>AddEnrollmentsToTextIndependentProfile
 
@@ -149,11 +149,11 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="add_enrollments_independent":::
 
-이 함수에서는 이전에 정의한 `GetAudioConfigFromFile` 함수를 호출하여 오디오 샘플에서 `AudioConfig` 개체를 만듭니다. 그런 다음, [VoiceProfileClient.enrollProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-) 메서드를 사용하여 이러한 오디오 샘플을 등록합니다.
+이 함수에서는 이전에 정의한 `GetAudioConfigFromFile` 함수를 호출하여 오디오 샘플에서 `AudioConfig` 개체를 만듭니다. 그런 다음, [VoiceProfileClient.enrollProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-) 메서드를 사용하여 이러한 오디오 샘플을 등록합니다.
 
 ## <a name="speaker-identification"></a>화자 식별
 
-화자 식별은 지정 등록된 음성 그룹에서**누가 말하고 있는지**확인하는 데 사용됩니다. 이 프로세스는 **텍스트 독립 검증**과 비슷합니다. 주요 차이점은 단일 프로필과 비교하여 검증하는 것이 아니라 한 번에 여러 음성 프로필과 비교하여 검증할 수 있다는 것입니다.
+화자 식별은 지정 등록된 음성 그룹에서 **누가 말하고 있는지** 확인하는 데 사용됩니다. 이 프로세스는 **텍스트 독립 검증** 과 비슷합니다. 주요 차이점은 단일 프로필과 비교하여 검증하는 것이 아니라 한 번에 여러 음성 프로필과 비교하여 검증할 수 있다는 것입니다.
 
 ### <a name="textindependentidentification-function"></a>TextIndependentIdentification 함수
 
@@ -161,11 +161,11 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_independent_indentification":::
 
-이 함수는 `TextDependentVerification` 및 `TextIndependentVerification` 함수와 마찬가지로 [VoiceProfileClient.createProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 메서드를 사용하여 [VoiceProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?view=azure-node-latest&preserve-view=true) 개체를 만듭니다.
+이 함수는 `TextDependentVerification` 및 `TextIndependentVerification` 함수와 마찬가지로 [VoiceProfileClient.createProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 메서드를 사용하여 [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) 개체를 만듭니다.
 
 이 경우 `VoiceProfileType.TextIndependentIdentification`을 `VoiceProfileClient.createProfileAsync`에 전달합니다.
 
-그런 다음, 이미 정의한 `AddEnrollmentsToTextIndependentProfile` 및 다음에 정의할 `SpeakerIdentify`의 두 가지 도우미 함수를 호출합니다. 마지막으로 [VoiceProfileClient.deleteProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-)를 호출하여 프로필을 제거합니다.
+그런 다음, 이미 정의한 `AddEnrollmentsToTextIndependentProfile` 및 다음에 정의할 `SpeakerIdentify`의 두 가지 도우미 함수를 호출합니다. 마지막으로 [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-)를 호출하여 프로필을 제거합니다.
 
 ### <a name="speakeridentify-function"></a>SpeakerIdentify 함수
 
@@ -173,10 +173,10 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="speaker_identify":::
 
-이 함수에서는 이전에 만든 [VoiceProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?view=azure-node-latest&preserve-view=true) 개체를 전달하는 [SpeakerIdentificationModel.fromProfiles](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel?view=azure-node-latest&preserve-view=true#fromprofiles-voiceprofile---) 메서드를 사용하여 [SpeakerIdentificationModel](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel?view=azure-node-latest&preserve-view=true) 개체를 만듭니다.
+이 함수에서는 이전에 만든 [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) 개체를 전달하는 [SpeakerIdentificationModel.fromProfiles](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel?preserve-view=true&view=azure-node-latest#fromprofiles-voiceprofile---) 메서드를 사용하여 [SpeakerIdentificationModel](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel?preserve-view=true&view=azure-node-latest) 개체를 만듭니다.
 
-다음으로 [SpeechRecognizer.recognizeOnceAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) 메서드를 호출하여 오디오 샘플을 전달합니다.
-`SpeechRecognizer.recognizeOnceAsync`는 `SpeakerIdentificationModel`을 만드는 데 사용한 `VoiceProfile` 개체에 따라 이 오디오 샘플의 음성을 식별하려고 합니다. 이는 `profileId` 속성에서 일치하는 `VoiceProfile`을 식별하지만(있는 경우) `score` 속성에 0.0~1.0 범위의 유사성 점수가 포함된 [SpeakerRecognitionResult](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult?view=azure-node-latest&preserve-view=true) 개체를 반환합니다.
+다음으로 [SpeechRecognizer.recognizeOnceAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?preserve-view=true&view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) 메서드를 호출하여 오디오 샘플을 전달합니다.
+`SpeechRecognizer.recognizeOnceAsync`는 `SpeakerIdentificationModel`을 만드는 데 사용한 `VoiceProfile` 개체에 따라 이 오디오 샘플의 음성을 식별하려고 합니다. 이는 `profileId` 속성에서 일치하는 `VoiceProfile`을 식별하지만(있는 경우) `score` 속성에 0.0~1.0 범위의 유사성 점수가 포함된 [SpeakerRecognitionResult](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult?preserve-view=true&view=azure-node-latest) 개체를 반환합니다.
 
 ## <a name="main-function"></a>main 함수
 
@@ -184,4 +184,4 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="main":::
 
-이 함수는 음성 프로필을 만들고, 등록하고, 삭제하는 데 사용되는 [VoiceProfileClient](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true) 개체를 만듭니다. 그런 다음, 이전에 정의한 함수를 호출합니다.
+이 함수는 음성 프로필을 만들고, 등록하고, 삭제하는 데 사용되는 [VoiceProfileClient](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest) 개체를 만듭니다. 그런 다음, 이전에 정의한 함수를 호출합니다.

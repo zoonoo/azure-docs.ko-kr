@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
-ms.openlocfilehash: ec0ffdcf86e67a7126a3100c1e20b6e5c3474e35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 92df45e38a926b4a791315f731e1d1cb078d5852
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "78253087"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371597"
 ---
 Python용 Bing Custom Search 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Bing Custom Search API를 사용하면 관심 있는 토픽에 대한 맞춤형 광고 없는 검색 경험을 만들 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py)에서 확인할 수 있습니다.
 
 Python용 Bing Custom Search 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 * Bing Custom Search 인스턴스에서 웹의 검색 결과를 찾습니다.
 
-[참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch) | [패키지(PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) | [샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+[참조 설명서](/python/api/azure-cognitiveservices-search-customsearch/?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch) | [패키지(PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) | [샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 
 
 ## <a name="prerequisites"></a>사전 요구 사항

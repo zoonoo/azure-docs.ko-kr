@@ -5,14 +5,14 @@ description: Azure Monitor에서 Azure Digital Twins 메트릭을 보는 방법�
 author: baanders
 ms.author: baanders
 ms.date: 8/4/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4b72bb8bac8f9949c83d0bbc85a0995f790c437d
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091704"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347900"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure Digital Twins 문제 해결: 메트릭
 
@@ -34,12 +34,12 @@ ms.locfileid: "93091704"
     
 3. 메뉴에서 **진단 설정** 을 선택 하 고 **진단 설정 추가** 를 선택 하 여 Event Hubs 끝점 또는 Azure Storage 계정에 메트릭 데이터를 보내도록 선택할 수 있습니다.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Azure Digital Twins의 메트릭 페이지를 보여 주는 스크린샷":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="진단 설정 페이지 및 추가할 단추를 보여 주는 스크린샷":::
 
     이 프로세스에 대 한 자세한 내용은 [*문제 해결: 진단 설정*](troubleshoot-diagnostics.md)을 참조 하세요.
 
 4. 메뉴에서 **경고** 를 선택 하 고 **+ 새 경고 규칙** 을 선택 하 여 메트릭 데이터에 대 한 경고를 설정 하도록 선택할 수 있습니다.
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Azure Digital Twins의 메트릭 페이지를 보여 주는 스크린샷":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="경고 페이지 및 추가할 단추를 보여 주는 스크린샷":::
 
     이 프로세스에 대 한 자세한 내용은 [*문제 해결: 경고 설정*](troubleshoot-alerts.md)을 참조 하세요.
 
@@ -48,6 +48,17 @@ ms.locfileid: "93091704"
 Azure Digital Twins는 인스턴스 상태와 연결 된 리소스의 상태에 대 한 개요를 제공 하는 몇 가지 메트릭을 제공 합니다. 여러 메트릭의 정보를 결합 하 여 인스턴스의 상태를 더 크게 파악할 수도 있습니다. 
 
 다음 표에서는 각 Azure Digital Twins 인스턴스가 추적 하는 메트릭과 각 메트릭이 인스턴스의 전체 상태와 어떻게 관련 되는지를 설명 합니다.
+
+#### <a name="metrics-for-tracking-service-limits"></a>추적 서비스 제한에 대 한 메트릭
+
+이러한 메트릭은 솔루션의 일부 측면에 대해 [게시 된 서비스 제한](reference-service-limits.md#functional-limits) 에 도달 하는 시기를 추적 하도록 구성할 수 있습니다. 
+
+이를 설정 하려면 Azure Monitor의 [경고](troubleshoot-alerts.md) 기능을 사용 합니다. 메트릭이 게시 된 한도의 특정 비율에 도달 하면 경고를 받도록 이러한 메트릭에 대 한 임계값을 정의할 수 있습니다.
+
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | 쌍 개수 (미리 보기) | 개수 | 합계 | Azure Digital 쌍 인스턴스의 총 쌍 수입니다. 이 메트릭을 사용 하 여 인스턴스당 허용 되는 최대 수에 대 한 [서비스 제한](reference-service-limits.md#functional-limits) 에 근접 하 고 있는지 여부를 확인 합니다. |  없음 |
+| ModelCount | 모델 수 (미리 보기) | 개수 | 합계 | Azure Digital Twins 인스턴스의 총 모델 수입니다. 이 메트릭을 사용 하 여 인스턴스당 허용 되는 최대 모델 수에 대 한 [서비스 제한](reference-service-limits.md#functional-limits) 에 근접 하 고 있는지 여부를 확인 합니다. | 없음 |
 
 #### <a name="api-request-metrics"></a>API 요청 메트릭
 
@@ -63,14 +74,13 @@ API 요청으로 수행 해야 하는 메트릭:
 
 청구로 수행 해야 하는 메트릭:
 
->[!NOTE]
->이러한 메트릭은 선택 가능한 목록에 계속 표시 되지만 서비스의 새로운 가격 책정을 사용할 수 있게 될 때까지 0으로 유지 됩니다. 자세히 알아보려면 [*Azure Digital Twins 가격 책정*](https://azure.microsoft.com/pricing/details/digital-twins/)을 참조 하세요.
-
 | 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | 청구 API 작업 | 개수 | 합계 | Azure Digital Twins 서비스에 대해 수행 된 모든 API 요청 수에 대 한 청구 메트릭입니다. | 측정기 Id |
 | BillingMessagesProcessed | 처리 된 청구 메시지 | 개수 | 합계 | Azure Digital Twins에서 외부 끝점으로 전송 된 메시지 수에 대 한 청구 메트릭입니다.<br><br>요금 청구를 위해 단일 메시지로 간주 되려면 페이로드가 1kb 보다 크지 않아야 합니다. 이 보다 큰 페이로드는 1kb 씩 추가 메시지로 계산 됩니다. 즉, 1에서 2kb 사이의 메시지는 2 개 메시지로 계산 되 고, 2와 3kb 사이의 메시지는 3 개의 메시지로 계산 됩니다.<br>이 제한은 응답에도 적용 되므로 응답 본문에서 1.5 k b를 반환 하는 호출은 2 개의 작업으로 청구 됩니다. | 측정기 Id |
 | BillingQueryUnits | 청구 쿼리 단위 | 개수 | 합계 | 쿼리 실행에 사용 되는 서비스 리소스 사용의 내부적으로 계산 된 측정값 인 쿼리 단위의 수입니다. 쿼리 단위를 측정 하는 데 사용할 수 있는 도우미 API 인 [QueryChargeHelper 클래스](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) 도 있습니다. | 측정기 Id |
+
+Azure 디지털 쌍이 청구 되는 방식에 대 한 자세한 내용은 [*Azure Digital twins 가격 책정*](https://azure.microsoft.com/pricing/details/digital-twins/)을 참조 하세요.
 
 #### <a name="ingress-metrics"></a>수신 메트릭
 

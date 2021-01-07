@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.date: 10/23/2020
-ms.openlocfilehash: 875d04751475d1d5236e9f15fbca585cdc9b1ab0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1140f765b21e68e206142cf341649af061ebdd33
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897632"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705305"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>빠른 시작: CentOS 8 기반 WildFly
 
@@ -49,29 +49,39 @@ WildFly는 **독립 실행형 서버** 모드에서 부팅할 수 있습니다. 
 
 예를 들어 클러스터링 기능이 있는 Jakarta EE Platform 8을 사용하려면 다음 명령을 사용합니다.
 
-`./standalone.sh --server-config=standalone-full-ha.xml`
+```
+./standalone.sh --server-config=standalone-full-ha.xml
+```
 
 구성에 대한 자세한 내용은 [WildFly 시작 가이드](https://docs.wildfly.org/18/Getting_Started_Guide.html#wildfly-10-configurations)를 확인하세요.
 
 ## <a name="licensing-support-and-subscription-notes"></a>라이선스, 지원 및 구독 정보
 
-Azure CentOS 8 이미지는 PAYG(종량제) VM 이미지이며 사용자가 라이선스를 얻을 필요가 없습니다. VM을 처음 시작하면 사용이 허가된 VM의 OS가 자동으로 활성화되고 시간당 요금이 청구됩니다. 이는 Microsoft의 Linux 시간당 VM 요금에 추가됩니다. 자세한 내용을 보려면 [Linux VM 가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux)을 클릭합니다. WildFly는 무료로 다운로드하여 사용할 수 있으며 Red Hat 구독 또는 라이선스가 필요하지 않습니다.
+Azure CentOS 8 이미지는 PAYG(종량제) VM 이미지이며 사용자가 라이선스를 얻을 필요가 없습니다. VM을 처음 시작하면 VM의 OS 라이선스가 자동으로 활성화되고 시간당 요금이 청구됩니다. 이는 Microsoft의 Linux 시간당 VM 요금에 추가됩니다. 자세한 내용을 보려면 [Linux VM 가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux)을 클릭합니다. WildFly는 무료로 다운로드하여 사용할 수 있으며 Red Hat 구독 또는 라이선스가 필요하지 않습니다.
 
 ## <a name="how-to-consume"></a>사용 방법
 
 템플릿을 배포할 수 있는 세 가지 방법은 다음과 같습니다.
 
-- PowerShell 사용 - 다음 명령을 실행하여 템플릿을 배포합니다. (Azure PowerShell 설치 및 구성에 대한 자세한 내용은 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)을 확인하세요.)
+- PowerShell 사용 - 다음 명령을 실행하여 템플릿을 배포합니다. (Azure PowerShell 설치 및 구성에 대한 자세한 내용은 [Azure PowerShell](/powershell/azure/)을 확인하세요.)
 
-    `New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
     
-- Azure CLI 사용 - 다음 명령을 실행하여 템플릿을 배포합니다. (Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄](https://docs.microsoft.com/cli/azure/install-azure-cli)을 확인하세요.)
+- Azure CLI 사용 - 다음 명령을 실행하여 템플릿을 배포합니다. (Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄](/cli/azure/install-azure-cli)을 확인하세요.)
 
-    `az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    az deployment group create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
 
 - Azure Portal 사용 - <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">여기</a>를 클릭하여 템플릿을 배포하고 Azure Portal에 로그인합니다.
 
@@ -81,8 +91,8 @@ Azure CentOS 8 이미지는 PAYG(종량제) VM 이미지이며 사용자가 라�
 
 ## <a name="resource-links"></a>리소스 링크
 
-* [WildFly 18](https://wildfly.org/18)에 대한 자세한 정보
-* [Azure의 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)에 대한 자세한 정보
+* [WildFly 18](https://docs.wildfly.org/18/)에 대한 자세한 정보
+* [Azure의 Linux 배포판](../../linux/endorsed-distros.md)에 대한 자세한 정보
 * [Java용 Azure 개발자 설명서](https://github.com/JasonFreeberg/jboss-on-app-service)
 
 ## <a name="next-steps"></a>다음 단계

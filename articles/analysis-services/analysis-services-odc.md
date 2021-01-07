@@ -4,19 +4,19 @@ description: Azure의 Analysis Services 서버에서 데이터에 연결하고 �
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 12/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 039783fc10fb08523dc81e13b5f6f456fa8d0c97
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8fa657f3b343cdf49723dc68601bb1c9513ff504
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014769"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487340"
 ---
 # <a name="create-an-office-data-connection-file"></a>Office 데이터 연결 파일 만들기
 
-이 문서의 정보는 Excel 2016 버전 번호 16.0.7369.2117 이하 또는 Excel 2013에서 Azure Analysis Services 서버에 연결하기 위한 Office 데이터 연결 파일을 만드는 방법을 보여 줍니다. 업데이트된 [MSOLAP.7 공급자](/analysis-services/client-libraries?view=azure-analysis-services-current)도 필요합니다.
+이 문서의 정보는 Excel 2016 버전 번호 16.0.7369.2117 이하 또는 Excel 2013에서 Azure Analysis Services 서버에 연결하기 위한 Office 데이터 연결 파일을 만드는 방법을 보여 줍니다. 업데이트된 [MSOLAP.7 공급자](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)도 필요합니다.
 
 
 1. 아래 샘플 연결 파일을 복사하여 텍스트 편집기에 붙여 넣습니다. 
@@ -31,7 +31,7 @@ ms.locfileid: "92014769"
 
 4. `.odc` 확장명의 파일을 C:\Users\\*username*\Documents\My Data Sources 폴더에 저장합니다.
 
-5. 파일을 마우스 오른쪽 단추로 클릭한 후 **Excel에서 열기**를 클릭합니다. 또는 Excel의 **데이터** 리본 메뉴에서 **기존 연결**을 클릭하고 파일을 선택한 후 **열기**를 클릭합니다.
+5. 파일을 마우스 오른쪽 단추로 클릭한 후 **Excel에서 열기** 를 클릭합니다. 또는 Excel의 **데이터** 리본 메뉴에서 **기존 연결** 을 클릭하고 파일을 선택한 후 **열기** 를 클릭합니다.
 
 
 

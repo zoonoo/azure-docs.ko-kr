@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0b3bec9c4d4476b95279e35953ff89177f4488d4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 65752321f94bfa1403839889ead284d46b5f7191
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305831"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740065"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Azure Stream Analytics의 Azure Synapse Analytics 출력
 
-[Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)(이전의 SQL Data Warehouse)는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 무제한 분석 서비스입니다. 
+[Azure Synapse analytics](https://azure.microsoft.com/services/synapse-analytics) 는 엔터프라이즈 데이터 웨어하우징 및 빅 데이터 분석을 통합 하는 무제한 분석 서비스입니다. 
 
 Azure Stream Analytics 작업은 Azure Synapse Analytics의 전용 SQL 풀 테이블로 출력 될 수 있으며 최대 200MB/초의 처리량 속도를 처리할 수 있습니다. 이는 보고 및 일점 보 딩과 같은 워크 로드에 대 한 가장 까다로운 실시간 분석 및 핫 경로 데이터 처리 요구를 지원 합니다.  
 
@@ -39,9 +39,5 @@ Azure Synapse를 출력으로 사용하려면 스토리지 계정이 구성되�
 
 ## <a name="next-steps"></a>다음 단계
 
+* [관리 되는 id를 사용 하 여 Azure Stream Analytics 작업에서 Azure SQL Database 또는 Azure Synapse Analytics에 액세스 (미리 보기)](sql-database-output-managed-identity.md)
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
-* [빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-cli.md)
-* [빠른 시작: ARM 템플릿을 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-resource-manager.md)
-* [빠른 시작: Azure PowerShell를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
-* [빠른 시작: Visual Studio를 사용하여 Azure Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)

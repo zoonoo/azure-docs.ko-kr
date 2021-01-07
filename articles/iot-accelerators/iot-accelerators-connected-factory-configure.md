@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290690"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002241"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
 
@@ -88,7 +88,7 @@ ms.locfileid: "91290690"
 }
 ```
 
- `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` 및 `<station_configuration>`의 공통 속성은 다음과 같습니다.
+`<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` 및 `<station_configuration>`의 공통 속성은 다음과 같습니다.
 
 * **Name**(문자열 형식)
 
@@ -239,7 +239,7 @@ ms.locfileid: "91290690"
 
 * **ConstValue**(double 형식)
 
-  **OpCode**가 **Const**이면 이 속성은 노드의 값입니다.
+  **OpCode** 가 **Const** 이면 이 속성은 노드의 값입니다.
 
 * **Minimum**(double 형식)
 
@@ -265,10 +265,10 @@ ms.locfileid: "91290690"
 
 ### <a name="visual-appearance"></a>시각적 모양
 
-이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 다음은 이러한 템플릿의 예입니다.
+이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 예를 들어 다음과 같습니다.
 
 * Name
-* 설명
+* Description
 * 이미지
 * 위치
 * 단위
@@ -276,7 +276,7 @@ ms.locfileid: "91290690"
 
 ### <a name="internal-topology-tree-addressing"></a>내부 토폴로지 트리 주소 지정
 
-WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 사전을 유지 관리합니다. 속성 **Guid** 및 **OpcUri**는 이 사전에 액세스하기 위한 키로 사용되며, 고유해야 합니다.
+WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 사전을 유지 관리합니다. 속성 **Guid** 및 **OpcUri** 는 이 사전에 액세스하기 위한 키로 사용되며, 고유해야 합니다.
 
 ### <a name="oeekpi-computation"></a>OEE/KPI 계산
 
@@ -304,11 +304,11 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 
 * **OpcUri**
 
-  원격 분석을 제공하는 OPC UA 서버를 식별(전역 고유)합니다. 수집된 메시지에서 이 속성은 **ApplicationUri**로 전송됩니다.
+  원격 분석을 제공하는 OPC UA 서버를 식별(전역 고유)합니다. 수집된 메시지에서 이 속성은 **ApplicationUri** 로 전송됩니다.
 
 * **NodeId**
 
-  OPC UA 서버에서 노드 값을 식별합니다. 속성의 형식은 UA OPC 사양에 지정되어야 합니다. 수집된 메시지에서 이 속성은 **NodeId**로 전송됩니다.
+  OPC UA 서버에서 노드 값을 식별합니다. 속성의 형식은 UA OPC 사양에 지정되어야 합니다. 수집된 메시지에서 이 속성은 **NodeId** 로 전송됩니다.
 
 원격 분석 데이터를 연결 된 팩터리에 수집 하는 방법에 대 한 자세한 내용은 [OPC 게시자 란?](overview-opc-publisher.md) 을 참조 하세요.
 
@@ -337,9 +337,9 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 * 모든 값의 평균
 * 지정된 시간 범위의 모든 고유한 **OpcUri**(**ApplicationUri**), **NodeId** 쌍의 모든 값 합계.
 
-**NumberOfManufactureredProducts** 노드 값의 특징 중 하나는 증가하지만 한다는 것입니다. 시간 범위 내에 제조된 제품 수를 계산하기 위해 연결된 팩터리는 **OpCode** **SubMaxMin**을 사용합니다. 이러한 계산에서 시간 범위 시작의 최소값과 시간 범위 끝의 최대값을 검색합니다.
+**NumberOfManufactureredProducts** 노드 값의 특징 중 하나는 증가하지만 한다는 것입니다. 시간 범위 내에 제조된 제품 수를 계산하기 위해 연결된 팩터리는 **OpCode** **SubMaxMin** 을 사용합니다. 이러한 계산에서 시간 범위 시작의 최소값과 시간 범위 끝의 최대값을 검색합니다.
 
-구성의 **OpCode**는 최대값과 최소값의 차이 결과를 계산하도록 계산 논리를 구성합니다. 해당 결과는 루트(전역) 수준으로 상향식으로 계산된 후 대시보드에 표시됩니다.
+구성의 **OpCode** 는 최대값과 최소값의 차이 결과를 계산하도록 계산 논리를 구성합니다. 해당 결과는 루트(전역) 수준으로 상향식으로 계산된 후 대시보드에 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

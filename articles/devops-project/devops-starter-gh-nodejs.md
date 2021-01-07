@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 08/24/2020
 ms.author: ninallam
-ms.openlocfilehash: 92fa445cee75b2311cbadf96e24c31a1dbd579b8
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e3c72ce6a15f90f0dbe08bbff10db0ca5f6b5c8f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332715"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588814"
 ---
 # <a name="set-up-cicd-for-a-nodejs-app-with-devops-starter-using-github-actions"></a>GitHub Actions를 사용하여 DevOps Starter로 Node.js 앱에 대한 CI/CD 설정
 
@@ -74,7 +74,7 @@ DevOps Starter는 GitHub 작업을 사용하여 CI/CD 워크플로를 만듭니�
    
 3. **찾아보기** 를 선택하여 실행 중인 애플리케이션을 볼 수 있습니다.
     
-    이 대시보드에는 GitHub 워크플로 및 Azure 리소스의 세부 정보가 포함되어 있습니다. 최신 실행, 커밋, 작업 상태 등의 GitHub 워크플로 세부 정보를 보려면 **GitHub에 대한 권한을 부여해야 합니다** .
+    이 대시보드에는 GitHub 워크플로 및 Azure 리소스의 세부 정보가 포함되어 있습니다. 최신 실행, 커밋, 작업 상태 등의 GitHub 워크플로 세부 정보를 보려면 **GitHub에 대한 권한을 부여해야 합니다**.
    
    ![Authorize_dashboard](_img/azure-devops-project-nodejs/authenticate-dashboard.png)
 
@@ -86,9 +86,9 @@ DevOps Starter는 GitHub 작업을 사용하여 빌드 및 배포 작업을 통�
 
 DevOps Starter는 GitHub에서 리포지토리를 만듭니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다.
 
-1. DevOps Starter 대시보드 왼쪽에서 마스터 분기에 대한 링크를 선택합니다. 이 링크를 선택하면 새로 만든 GitHub 리포지토리에 대한 보기가 열립니다.
+1. DevOps Starter 대시보드 왼쪽에서 기본 분기에 대한 링크를 선택합니다. 이 링크를 선택하면 새로 만든 GitHub 리포지토리에 대한 보기가 열립니다.
 
-1. 리포지토리 복제 URL을 보려면 브라우저의 오른쪽 위에서 **복제** 를 선택합니다. 즐겨찾는 IDE에서 Git 리포지토리를 복제할 수 있습니다. 다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 마스터 분기에 만들고 커밋할 수 있습니다.
+1. 리포지토리 복제 URL을 보려면 브라우저의 오른쪽 위에서 **복제** 를 선택합니다. 즐겨찾는 IDE에서 Git 리포지토리를 복제할 수 있습니다. 다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 기본 분기에 만들고 커밋할 수 있습니다.
 
 1. 브라우저의 왼쪽에서 **/Application/views/index.pug** 파일로 이동합니다.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71b57eae1a66e6966f61123e638c4790410ef445
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900044"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862522"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure Cognitive Services 컨테이너 FAQ (질문과 대답)
 
@@ -22,7 +22,7 @@ ms.locfileid: "90900044"
 
 **Q: 사용할 수 있는 기능은 무엇 인가요?**
 
-**A:** Azure Cognitive Services 컨테이너는 개발자가 Azure에서 사용할 수 있는 것과 동일한 지능형 Api를 사용할 수 있지만 컨테이너 화의 [이점이](../cognitive-services-container-support.md#features-and-benefits) 있습니다. 일부 컨테이너는 응용 프로그램에 액세스 해야 하는 제어 된 미리 보기로 사용할 수 있습니다. 다른 컨테이너는 일반적으로 제어 되지 않는 미리 보기로 사용할 수 있거나 일반 공급 됩니다. 컨테이너 및 [Azure Cognitive Services의 컨테이너 지원](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) 문서에서 전체 컨테이너 및 해당 가용성 목록을 찾을 수 있습니다. [Docker 허브](https://hub.docker.com/_/microsoft-azure-cognitive-services)에서 컨테이너를 볼 수도 있습니다.
+**A:** Azure Cognitive Services 컨테이너는 개발자가 Azure에서 사용할 수 있는 것과 동일한 지능형 Api를 사용할 수 있지만 컨테이너 화의 [이점이](../cognitive-services-container-support.md#features-and-benefits) 있습니다. 일부 컨테이너는 응용 프로그램에 액세스 해야 하는 제어 된 미리 보기로 사용할 수 있습니다. 다른 컨테이너는 일반적으로 제어 되지 않는 미리 보기로 사용할 수 있거나 일반 공급 됩니다. 컨테이너 및 [Azure Cognitive Services의 컨테이너 지원](../cognitive-services-container-support.md) 문서에서 전체 컨테이너 및 해당 가용성 목록을 찾을 수 있습니다. [Docker 허브](https://hub.docker.com/_/microsoft-azure-cognitive-services)에서 컨테이너를 볼 수도 있습니다.
 
 **Q: Cognitive Services 클라우드와 컨테이너 간에 차이가 있나요?**
 
@@ -50,7 +50,7 @@ ms.locfileid: "90900044"
 
 **A:** "소 버린 클라우드" 라는 용어를 모두 사용 하는 것은 아니므로 정의로 시작 하겠습니다.
 
-> "소 버린 클라우드"는 [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure 독일](../../germany/germany-welcome.md)및 [azure 중국 21vianet](https://docs.microsoft.com/azure/china/overview-operations) 클라우드로 구성 됩니다.
+> "소 버린 클라우드"는 [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure 독일](../../germany/germany-welcome.md)및 [azure 중국 21vianet](/azure/china/overview-operations) 클라우드로 구성 됩니다.
 
 아쉽게도 Cognitive Services 컨테이너는 소 버린 클라우드에서 기본적으로 지원 *되지 않습니다* . 컨테이너는 이러한 클라우드에서 실행할 수 있지만 공용 클라우드에서 끌어온 다음 사용 데이터를 공용 끝점으로 보내야 합니다.
 
@@ -86,7 +86,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 
 **A:** 상태 메시지 및 오류 목록은 다음 표를 참조 하세요.
 
-|상태  | Description  |
+|Status  | 설명  |
 |---------|---------|
 | `Valid` | API 키가 올바르지만 아무런 조치도 필요 하지 않습니다. |
 | `Invalid` |   API 키가 잘못 되었습니다. 컨테이너를 실행 하려면 올바른 API 키를 제공 해야 합니다. Azure Portal에서 Azure Cognitive Services 리소스에 대 한 **키 및 끝점** 섹션에서 API 키 및 서비스 지역을 찾습니다. |
@@ -164,7 +164,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
  
 **Q: 컨테이너를 검색 어떻게 할까요?**
 
-**A:** Cognitive Services 컨테이너는 Azure Portal, Docker 허브, Azure container registry 등의 다양 한 위치에서 사용할 수 있습니다. 최신 컨테이너 위치는 [컨테이너 리포지토리 및 이미지](../cognitive-services-container-support.md#container-repositories-and-images)를 참조 하세요.
+**A:** Cognitive Services 컨테이너는 Azure Portal, Docker 허브, Azure container registry 등의 다양 한 위치에서 사용할 수 있습니다. 최신 컨테이너 위치는 [컨테이너 이미지](container-image-tags.md)를 참조 하세요.
 
 **Q: Cognitive Services 컨테이너가 AWS 및 Google 제품에 어떻게 비교 되나요?**
 

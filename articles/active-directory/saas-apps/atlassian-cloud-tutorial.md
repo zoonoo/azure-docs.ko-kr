@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 7690977f23b193bb3ba282df14d348b3fac0ad6b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fe83a012cac68f705bc9fabc7748f5a7c7c61bbb
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457540"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330570"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>자습서: Azure Active Directory와 Atlassian Cloud 통합
 
@@ -158,7 +158,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    
 1. Atlassian Cloud 애플리케이션은 특정 형식의 SAML 어설션을 예상하며, 따라서 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. **편집** 아이콘을 클릭하여 특성 매핑을 편집할 수 있습니다. 
 
-   ![특성](./media/atlassian-cloud-tutorial/default-attributes.png)
+   ![특성](./media/atlassian-cloud-tutorial/edit-attribute.png)
    
    1. Microsoft 365 라이선스를 사용하는 Azure AD 테넌트에 대한 특성 매핑
       
@@ -172,7 +172,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
       
       c. 최종 특성 매핑은 다음과 같습니다.
 
-      ![이미지 2](common/default-attributes.png)
+      ![이미지 2](./media/atlassian-cloud-tutorial/default-attributes-1.png)
       
    1. Microsoft 365 라이선스가 없는 Azure AD 테넌트에 대한 특성 매핑 
 
@@ -186,7 +186,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
          
       c. 최종 특성 매핑은 다음과 같습니다.
 
-      ![이미지 4](common/default-attributes.png)
+      ![이미지 4](./media/atlassian-cloud-tutorial/default-attributes-2.png)
      
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

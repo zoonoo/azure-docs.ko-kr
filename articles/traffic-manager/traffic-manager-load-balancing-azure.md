@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
 ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393070"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021693"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 
@@ -29,7 +29,7 @@ Microsoft Azure는 네트워크 트래픽을 분산하고 부하를 분산하는
 
 개념 수준에서 이러한 서비스는 각각 부하 분산 계층 구조에서 고유한 역할을 담당합니다.
 
-* **Traffic Manager**는 전역 DNS 부하 분산을 제공 합니다. 고객이 선택한 라우팅 정책에 따라 들어오는 DNS 요청을 보고 정상적인 엔드포인트를 통해 응답합니다. 라우팅 메서드의 옵션은 다음과 같습니다.
+* **Traffic Manager** 는 전역 DNS 부하 분산을 제공 합니다. 고객이 선택한 라우팅 정책에 따라 들어오는 DNS 요청을 보고 정상적인 엔드포인트를 통해 응답합니다. 라우팅 메서드의 옵션은 다음과 같습니다.
   * 대기 시간 측면에서 가장 가까운 엔드포인트에 요청자를 보내는 성능 라우팅
   * 백업인 다른 엔드포인트를 통해 엔드포인트에 모든 트래픽을 다이렉트하는 우선 순위 라우팅
   * 각 엔드포인트에 할당된 가중치에 따라 트래픽을 분산하는 가중치가 적용된 라운드 로빈 라우팅
@@ -65,11 +65,11 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>1단계: Traffic Manager 프로필 만들기
 
-1. Azure Portal에서 **리소스 만들기**  >  **네트워킹**  >  **Traffic Manager 프로필**  >  **만들기**를 클릭 합니다.
+1. Azure Portal에서 **리소스 만들기**  >  **네트워킹**  >  **Traffic Manager 프로필**  >  **만들기** 를 클릭 합니다.
 2. 다음 기본 정보를 입력하세요.
 
    * **이름**: Traffic Manager 프로필에 DNS 접두사 이름을 지정합니다.
-   * **라우팅 정책**에서 트래픽 라우팅 메서드 정책을 선택합니다. 메서드에 대한 자세한 내용은 [Traffic Manager 트래픽 라우팅 메서드 정보](traffic-manager-routing-methods.md)를 참조하세요.
+   * **라우팅 정책** 에서 트래픽 라우팅 메서드 정책을 선택합니다. 메서드에 대한 자세한 내용은 [Traffic Manager 트래픽 라우팅 메서드 정보](traffic-manager-routing-methods.md)를 참조하세요.
    * **구독**: 프로필을 포함하는 구독을 선택합니다.
    * **리소스 그룹**: 프로필을 포함하는 리소스 그룹을 선택합니다. 새 리소스 그룹이나 기존 리소스 그룹을 선택할 수 있습니다.
    * **리소스 그룹 위치**: Traffic Manager 서비스는 전역적이며 위치에 묶여 있지 않습니다. 그러나 Traffic Manager 프로필과 연결된 메타데이터가 있는 그룹의 지역을 지정해야 합니다. 이 위치는 프로필의 런타임 가용성에 영향을 주지 않습니다.
@@ -80,7 +80,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 ### <a name="step-2-create-the-application-gateways"></a>2단계: Application Gateway 만들기
 
-1. Azure Portal의 왼쪽 창에서 **리소스 만들기**  >  **네트워킹**  >  **Application Gateway**를 클릭 합니다.
+1. Azure Portal의 왼쪽 창에서 **리소스 만들기**  >  **네트워킹**  >  **Application Gateway** 를 클릭 합니다.
 2. Application Gateway에 대한 기본 정보를 입력합니다.
 
    * **이름**: Application Gateway의 이름입니다.
@@ -88,11 +88,11 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
    * **인스턴스 개수**: 인스턴스의 수이며 2에서 10사이의 값입니다.
    * **리소스 그룹**: Application Gateway를 보유하는 리소스 그룹입니다. 기존 리소스 그룹이나 새 리소스 그룹을 선택할 수 있습니다.
    * **위치**: Application Gateway의 지역이며 리소스 그룹과 동일한 위치입니다. 위치는 가상 네트워크와 공용 IP가 게이트웨이와 동일한 위치에 있어야 하므로 중요합니다.
-3. **확인**을 클릭합니다.
-4. Application Gateway에 대한 가상 네트워크, 서브넷, 프런트 엔드 IP 및 수신기 구성을 정의합니다. 이 시나리오에서 프런트 엔드 IP 주소는 **공용**이며 따라서 나중에 Traffic Manager 프로필에 엔드포인트로 추가할 수 있습니다.
+3. **확인** 을 클릭합니다.
+4. Application Gateway에 대한 가상 네트워크, 서브넷, 프런트 엔드 IP 및 수신기 구성을 정의합니다. 이 시나리오에서 프런트 엔드 IP 주소는 **공용** 이며 따라서 나중에 Traffic Manager 프로필에 엔드포인트로 추가할 수 있습니다.
 5. 다음 옵션 중 하나를 사용하여 수신기를 구성합니다.
-    * HTTP를 사용하면 구성할 항목이 없습니다. **확인**을 클릭합니다.
-    * HTTPS를 사용하는 경우 추가 구성이 필요합니다. 9단계에서 시작하는 [Application Gateway 만들기](../application-gateway/application-gateway-create-gateway-portal.md)를 참조하세요. 구성 작업을 완료한 경우 **확인**을 클릭합니다.
+    * HTTP를 사용하면 구성할 항목이 없습니다. **확인** 을 클릭합니다.
+    * HTTPS를 사용하는 경우 추가 구성이 필요합니다. 9단계에서 시작하는 [Application Gateway 만들기](../application-gateway/application-gateway-create-gateway-portal.md)를 참조하세요. 구성 작업을 완료한 경우 **확인** 을 클릭합니다.
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Application Gateway에 대한 URL 라우팅 구성
 
@@ -101,12 +101,12 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 ![Application Gateway 웹 계층 다이어그램](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
 1. 리소스 그룹에서 앞의 섹션에서 만든 Application Gateway의 인스턴스로 이동합니다.
-2. **설정**에서 **백 엔드 풀**을 선택한 다음 **추가**를 선택하여 웹 계층 백 엔드 풀과 연결하려는 VM을 추가합니다.
+2. **설정** 에서 **백 엔드 풀** 을 선택한 다음 **추가** 를 선택하여 웹 계층 백 엔드 풀과 연결하려는 VM을 추가합니다.
 3. 백 엔드 풀의 이름과 풀에 있는 컴퓨터의 모든 IP 주소를 입력합니다. 이 시나리오에서는 가상 머신에 있는 두 개의 백 엔드 서버 풀을 연결합니다.
 
    ![Application Gateway “백 엔드 풀 추가”](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
-4. Application Gateway의 **설정**에서 **규칙**을 선택한 다음, **경로 기반** 단추를 클릭하여 새 규칙을 추가합니다.
+4. Application Gateway의 **설정** 에서 **규칙** 을 선택한 다음, **경로 기반** 단추를 클릭하여 새 규칙을 추가합니다.
 
    ![Application Gateway 규칙 "경로 기반" 단추](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
@@ -135,16 +135,16 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 이 시나리오에서 Traffic Manager는 다른 지역에 있는 Application Gateway(위의 단계에서 구성됨)에 연결됩니다. Application Gateway를 구성했으므로 다음 단계에서는 Traffic Manager 프로필에 연결합니다.
 
-1. Traffic Manager 프로필을 엽니다. 이렇게 하려면 리소스 그룹을 확인하거나 **모든 리소스**에서 Traffic Manager 프로필의 이름을 검색합니다.
-2. 왼쪽 창에서 **엔드포인트**를 선택한 다음 **추가**를 클릭하여 엔드포인트를 추가합니다.
+1. Traffic Manager 프로필을 엽니다. 이렇게 하려면 리소스 그룹을 확인하거나 **모든 리소스** 에서 Traffic Manager 프로필의 이름을 검색합니다.
+2. 왼쪽 창에서 **엔드포인트** 를 선택한 다음 **추가** 를 클릭하여 엔드포인트를 추가합니다.
 
    ![Traffic Manager 엔드포인트 "추가" 단추](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. 다음 정보를 입력하여 엔드포인트을 만드세요.
 
-   * **유형**: 부하 분산 엔드포인트의 유형을 선택합니다. 이 시나리오에서는 이전에 구성된 Application Gateway 인스턴스에 연결 중이기 때문에 **Azure 엔드포인트**를 선택합니다.
+   * **유형**: 부하 분산 엔드포인트의 유형을 선택합니다. 이 시나리오에서는 이전에 구성된 Application Gateway 인스턴스에 연결 중이기 때문에 **Azure 엔드포인트** 를 선택합니다.
    * **이름**: 엔드포인트의 이름을 입력합니다.
-   * **대상 리소스 유형**: **공용 IP 주소**를 선택한 다음, **대상 리소스**에서 앞서 구성한 Application Gateway의 공용 IP를 선택합니다.
+   * **대상 리소스 유형**: **공용 IP 주소** 를 선택한 다음, **대상 리소스** 에서 앞서 구성한 Application Gateway의 공용 IP를 선택합니다.
 
    ![Traffic Manager “엔드포인트 추가”](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -158,18 +158,18 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 내부 부하 분산 장치 구성에 대한 자세한 내용은 [Azure Portal에서 내부 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)를 참조하세요.
 
-1. Azure Portal의 왼쪽 창에서 **리소스 만들기**  >  **네트워킹**  >  **부하 분산 장치**를 클릭 합니다.
+1. Azure Portal의 왼쪽 창에서 **리소스 만들기**  >  **네트워킹**  >  **부하 분산 장치** 를 클릭 합니다.
 2. 부하 분산 장치의 이름을 선택합니다.
-3. **유형**을 **내부**로 설정하고 부하 분산 장치가 배치될 적절한 가상 네트워크 및 서브넷을 선택합니다.
-4. **IP 주소 할당**에서 **동적** 또는 **정적**중 하나를 선택 합니다.
-5. **리소스 그룹**에서 부하 분산 장치에 대한 리소스 그룹을 선택합니다.
-6. **위치**아래에서 부하 분산 장치에 대 한 적절 한 지역을 선택 합니다.
-7. **만들기**를 클릭하여 부하 분산 장치를 생성합니다.
+3. **유형** 을 **내부** 로 설정하고 부하 분산 장치가 배치될 적절한 가상 네트워크 및 서브넷을 선택합니다.
+4. **IP 주소 할당** 에서 **동적** 또는 **정적** 중 하나를 선택 합니다.
+5. **리소스 그룹** 에서 부하 분산 장치에 대한 리소스 그룹을 선택합니다.
+6. **위치** 아래에서 부하 분산 장치에 대 한 적절 한 지역을 선택 합니다.
+7. **만들기** 를 클릭하여 부하 분산 장치를 생성합니다.
 
 #### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>백 엔드 데이터베이스 계층을 부하 분산 장치에 연결
 
 1. 리소스 그룹에서 이전 단계에서 만든 부하 분산 장치를 찾습니다.
-2. **설정**에서 **백 엔드 풀**과 **추가**를 차례로 클릭하여 새 백 엔드 풀을 추가합니다.
+2. **설정** 에서 **백 엔드 풀** 과 **추가** 를 차례로 클릭하여 새 백 엔드 풀을 추가합니다.
 
    ![부하 분산 장치 “백 엔드 풀 추가”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
@@ -178,32 +178,32 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 #### <a name="configure-a-probe"></a>프로브를 구성합니다.
 
-1. 부하 분산 장치의 **설정**에서 **프로브**와 **추가**를 차례로 선택합니다.
+1. 부하 분산 장치의 **설정** 에서 **프로브** 와 **추가** 를 차례로 선택합니다.
 
    ![부하 분산 장치 “프로브 추가”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. 프로브의 이름을 입력합니다.
-3. 프로브에 대한 **프로토콜**을 선택합니다. 데이터베이스의 경우 HTTP 프로브가 아닌 TCP 프로브를 사용하려고 할 수 있습니다. 부하 분산 장치 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
-4. 프로브에 액세스하는 데 사용될 데이터베이스의 **포트**를 입력합니다.
-5. **간격**에서 응용 프로그램을 검색 하는 빈도를 지정 합니다.
-6. **비정상 임계값**에서 백 엔드 VM을 비정상으로 간주 하기 위해 발생 해야 하는 연속 프로브 오류 수를 지정 합니다.
+3. 프로브에 대한 **프로토콜** 을 선택합니다. 데이터베이스의 경우 HTTP 프로브가 아닌 TCP 프로브를 사용하려고 할 수 있습니다. 부하 분산 장치 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
+4. 프로브에 액세스하는 데 사용될 데이터베이스의 **포트** 를 입력합니다.
+5. **간격** 에서 응용 프로그램을 검색 하는 빈도를 지정 합니다.
+6. **비정상 임계값** 에서 백 엔드 VM을 비정상으로 간주 하기 위해 발생 해야 하는 연속 프로브 오류 수를 지정 합니다.
 7. **확인** 을 클릭 하 여 프로브를 만듭니다.
 
 #### <a name="configure-the-load-balancing-rules"></a>부하 분산 규칙 구성
 
-1. 부하 분산 장치의 **설정**에서 규칙을 만들려면 **부하 분산 규칙**과 **추가**를 차례로 선택합니다.
-2. 부하 분산 규칙의 **이름**을 입력합니다.
-3. 부하 분산 장치의 **프런트 엔드 IP 주소**, **프로토콜** 및 **포트**를 선택합니다.
-4. **백 엔드 포트**에서 백 엔드 풀에 사용할 포트를 지정합니다.
-5. 규칙을 적용할 이전 단계에서 만든 **백 엔드 풀**과 **프로브**를 선택합니다.
-6. **세션 지속성**에서 세션을 얼마나 지속할지 선택합니다.
-7. **유휴**시간 제한에서 유휴 시간 제한 까지의 시간 (분)을 지정 합니다.
-8. **부동 IP**에서 **사용 안 함**이나 **사용**을 선택합니다.
+1. 부하 분산 장치의 **설정** 에서 규칙을 만들려면 **부하 분산 규칙** 과 **추가** 를 차례로 선택합니다.
+2. 부하 분산 규칙의 **이름** 을 입력합니다.
+3. 부하 분산 장치의 **프런트 엔드 IP 주소**, **프로토콜** 및 **포트** 를 선택합니다.
+4. **백 엔드 포트** 에서 백 엔드 풀에 사용할 포트를 지정합니다.
+5. 규칙을 적용할 이전 단계에서 만든 **백 엔드 풀** 과 **프로브** 를 선택합니다.
+6. **세션 지속성** 에서 세션을 얼마나 지속할지 선택합니다.
+7. **유휴** 시간 제한에서 유휴 시간 제한 까지의 시간 (분)을 지정 합니다.
+8. **부동 IP** 에서 **사용 안 함** 이나 **사용** 을 선택합니다.
 9. **확인** 을 클릭 하 여 규칙을 만듭니다.
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>5단계: 부하 분산 장치에 웹 계층 VM 연결
 
-이제 모든 데이터베이스 연결에 대해 웹 계층 VM에서 실행 중인 애플리케이션의 IP 주소 및 부하 분산 장치 프런트 엔드 포트를 구성합니다. 이 구성은 이러한 VM에서 실행되는 애플리케이션에 지정됩니다. 대상 IP 주소와 포트를 구성하려면 애플리케이션 설명서를 참조하세요. 프런트 엔드의 IP 주소를 찾으려면 Azure Portal의 **부하 분산 장치 설정**에서 프런트 엔드 IP 풀로 이동합니다.
+이제 모든 데이터베이스 연결에 대해 웹 계층 VM에서 실행 중인 애플리케이션의 IP 주소 및 부하 분산 장치 프런트 엔드 포트를 구성합니다. 이 구성은 이러한 VM에서 실행되는 애플리케이션에 지정됩니다. 대상 IP 주소와 포트를 구성하려면 애플리케이션 설명서를 참조하세요. 프런트 엔드의 IP 주소를 찾으려면 Azure Portal의 **부하 분산 장치 설정** 에서 프런트 엔드 IP 풀로 이동합니다.
 
 ![부하 분산 장치 "프런트 엔드 IP 풀" 탐색 창](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 

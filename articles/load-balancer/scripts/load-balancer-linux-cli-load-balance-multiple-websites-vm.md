@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8be0dd6e68d6d50ef80c75ffa87974a63d2e0b36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d425cfbb093d19efec19dfa02af5ff264c1bae
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501766"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696696"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Azure CLI 스크립트 예제: 여러 웹 사이트 부하 분산
 
@@ -44,22 +44,22 @@ az group delete --name myResourceGroup --yes
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-network-vnet-create) | Azure Virtual Network 및 서브넷을 만듭니다. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-create) | 고정 IP 주소 및 연결된 DNS 이름을 사용하여 공용 IP 주소를 만듭니다. |
-| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#az-network-lb-create) | Azure Load Balancer를 만듭니다. |
-| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#az-network-lb-probe-create) | 부하 분산 장치 프로브를 만듭니다. 부하 분산 장치 프로브는 부하 분산 장치 집합의 각 VM을 모니터링하는 데 사용됩니다. 모든 VM이 액세스할 수 없게 되면 트래픽은 VM에 라우팅되지 않습니다. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az-network-lb-rule-create) | 부하 분산 장치 규칙을 만듭니다. 이 샘플에서는 포트 80에 대한 규칙을 만듭니다. HTTP 트래픽이 부하 분산 장치에 도착하면 부하 분산 장치 집합에서 VM 중 하나인 포트 80에 라우팅됩니다. |
-| [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-create) | 부하 분산 장치의 프런트 엔드 IP 주소를 만듭니다. |
-| [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create) | 백 엔드 주소 풀을 만듭니다. |
-| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az-network-nic-create) | 가상 네트워크 카드를 만들고 가상 네트워크 및 서브넷에 연결합니다. |
-| [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule#az-network-lb-rule-create) | 가용성 집합을 만듭니다. 가용성 집합을 사용하면 오류가 발생하는 경우 물리적 리소스 간에 가상 머신을 분산하여 애플리케이션 가동 시간을 확인합니다. 전체 집합은 영향을 받지 않습니다. |
-| [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config#az-network-nic-ip-config-create) | IP 구성을 만듭니다. 구독에서 Microsoft.Network/AllowMultipleIpConfigurationsPerNic 기능을 사용하도록 설정해야 합니다. --make-primary 플래그를 사용하여 하나의 구성만 NIC당 기본 IP 구성으로 지정될 수 있습니다. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az-vm-availability-set-create) | 가상 머신을 만들고 네트워크 카드, 가상 네트워크, 서브넷 및 NSG에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다.  |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Azure Virtual Network 및 서브넷을 만듭니다. |
+| [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) | 고정 IP 주소 및 연결된 DNS 이름을 사용하여 공용 IP 주소를 만듭니다. |
+| [az network lb create](/cli/azure/network/lb#az-network-lb-create) | Azure Load Balancer를 만듭니다. |
+| [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create) | 부하 분산 장치 프로브를 만듭니다. 부하 분산 장치 프로브는 부하 분산 장치 집합의 각 VM을 모니터링하는 데 사용됩니다. 모든 VM이 액세스할 수 없게 되면 트래픽은 VM에 라우팅되지 않습니다. |
+| [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) | 부하 분산 장치 규칙을 만듭니다. 이 샘플에서는 포트 80에 대한 규칙을 만듭니다. HTTP 트래픽이 부하 분산 장치에 도착하면 부하 분산 장치 집합에서 VM 중 하나인 포트 80에 라우팅됩니다. |
+| [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-create) | 부하 분산 장치의 프런트 엔드 IP 주소를 만듭니다. |
+| [az network lb address-pool create](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create) | 백 엔드 주소 풀을 만듭니다. |
+| [az network nic create](/cli/azure/network/nic#az-network-nic-create) | 가상 네트워크 카드를 만들고 가상 네트워크 및 서브넷에 연결합니다. |
+| [az vm availability-set create](/cli/azure/network/lb/rule#az-network-lb-rule-create) | 가용성 집합을 만듭니다. 가용성 집합을 사용하면 오류가 발생하는 경우 물리적 리소스 간에 가상 머신을 분산하여 애플리케이션 가동 시간을 확인합니다. 전체 집합은 영향을 받지 않습니다. |
+| [az network nic ip-config create](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-create) | IP 구성을 만듭니다. 구독에서 Microsoft.Network/AllowMultipleIpConfigurationsPerNic 기능을 사용하도록 설정해야 합니다. --make-primary 플래그를 사용하여 하나의 구성만 NIC당 기본 IP 구성으로 지정될 수 있습니다. |
+| [az vm create](/cli/azure/vm/availability-set#az-vm-availability-set-create) | 가상 머신을 만들고 네트워크 카드, 가상 네트워크, 서브넷 및 NSG에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다.  |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 네트워킹 CLI 스크립트 샘플은 [Azure 네트워킹 개요 설명서](../cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json)에서 찾을 수 있습니다.

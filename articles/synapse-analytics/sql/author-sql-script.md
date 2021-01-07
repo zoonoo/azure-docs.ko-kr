@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Studio의 SQL 스크립트 (미리 보기)
-description: Azure Synapse Studio (미리 보기) SQL 스크립트 소개
+title: Synapse Studio의 SQL 스크립트
+description: Azure Synapse Analytics의 Synapse Studio SQL 스크립트에 대해 소개 합니다.
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 3618ba28403882ee1f949a2bbc97e586674b3772
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8d4c1928ae1fac9b840245756c4bf5fe22a83f0f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317560"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590514"
 ---
-# <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Azure Synapse Studio에서 SQL 스크립트 사용 (미리 보기)
+# <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Synapse Studio SQL 스크립트 
 
-Azure Synapse Studio (미리 보기)는 SQL 쿼리를 작성 하는 데 사용할 수 있는 SQL 스크립트 웹 인터페이스를 제공 합니다. SQL 풀 (미리 보기)에 연결할 수 있습니다. 
+Synapse Studio는 SQL 쿼리를 작성 하는 데 사용할 수 있는 SQL 스크립트 웹 인터페이스를 제공 합니다. 
 
 ## <a name="begin-authoring-in-sql-script"></a>SQL 스크립트에서 작성 시작 
 
@@ -73,6 +73,18 @@ SQL 스크립트를 사용 하 여 저장소 계정의 Parquet 파일을 탐색 
 SQL 데이터베이스의 노드를 마우스 오른쪽 단추로 클릭 하 여 사용 가능한 제스처를 탐색 합니다.
  
 ![새 스크립트 데이터베이스](media/author-sql-script/new-script-database.png)
+
+## <a name="create-folders-and-move-sql-scripts-into-a-folder"></a>폴더 만들기 및 SQL 스크립트를 폴더로 이동
+
+SQL 스크립트 개발의 동작 메뉴에서 SQL 스크립트 개발의 "작업" 메뉴에서 "새 폴더"를 선택 합니다. 을 입력 하 고 팝업 창에서 새 폴더의 이름을 입력 합니다. 
+
+> [!div class="mx-imgBorder"] 
+> ![' 새 폴더 '가 선택 된 SQL 스크립트의 예를 보여 주는 스크린샷](./media/author-sql-script/new-sql-script-create-folder.png)
+
+SQL 스크립트를 폴더로 이동 하려면 sql 스크립트를 선택 하 고 동작 메뉴에서 "이동"을 선택 하면 됩니다. 그런 다음 새 창에서 대상 폴더를 찾고 sql 스크립트를 선택한 폴더로 이동 합니다. Sql 스크립트를 신속 하 게 끌어 폴더에 놓을 수도 있습니다.  
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-move-folder.png)
 
 ## <a name="next-steps"></a>다음 단계
 

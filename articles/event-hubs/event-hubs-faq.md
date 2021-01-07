@@ -3,12 +3,12 @@ title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: e7a34fe0f2ef04fffeeddc5615d3ac1749467902
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909712"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955419"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -58,70 +58,7 @@ Event Hubs는 [Azure Monitor](../azure-monitor/overview.md)에 리소스 상태�
 ### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Azure Event Hubs 고객 데이터를 저장 하는 위치
 Azure Event Hubs는 고객 데이터를 저장 합니다. 이 데이터는 단일 지역에 Event Hubs 의해 자동으로 저장 되므로이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 데이터를 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
-Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고받을 수 있습니다.
-
-- AMQP
-- HTTP
-- Apache Kafka
-
-이러한 프로토콜을 사용하여 Azure Event Hubs와 통신하기 위해 열어야 하는 아웃바운드 포트는 다음 표를 참조하세요. 
-
-| 프로토콜 | 포트 | 세부 정보 | 
-| -------- | ----- | ------- | 
-| AMQP | 5671 및 5672 | [AMQP 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md)를 참조하세요. | 
-| HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | [Kafka 애플리케이션에서 Event Hubs 사용](event-hubs-for-kafka-ecosystem-overview.md)을 참조하세요.
-
-### <a name="what-ip-addresses-do-i-need-to-allow"></a>허용 해야 하는 IP 주소는 무엇 인가요?
-연결에 대해 허용 된 목록에 추가할 올바른 IP 주소를 찾으려면 다음 단계를 수행 합니다.
-
-1. 명령 프롬프트에서 다음 명령을 실행합니다. 
-
-    ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
-    ```
-2. `Non-authoritative answer`에서 반환된 IP 주소를 적어 둡니다. 
-
-네임 스페이스에 **영역 중복성** 을 사용 하는 경우 몇 가지 추가 단계를 수행 해야 합니다. 
-
-1. 먼저 네임스페이스에서 nslookup을 실행합니다.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. **신뢰할 수 없는 응답** 섹션에서 다음 형식 중 하나로 표시되는 이름을 적어 둡니다. 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. 접미사 s1, s2 및 s3를 포함하는 각 이름에 대해 nslookup을 실행하여 세 개의 가용성 영역에서 실행되는 세 인스턴스의 IP 주소를 모두 가져옵니다. 
-
-    > [!NOTE]
-    > 명령에서 반환 된 IP 주소는 `nslookup` 고정 ip 주소가 아닙니다. 그러나 기본 배포가 삭제 되거나 다른 클러스터로 이동 될 때까지 일정 하 게 유지 됩니다.
-
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>네임 스페이스에 메시지를 보내거나 받는 클라이언트 IP를 어디에서 찾을 수 있나요?
-먼저 네임 스페이스에서 [IP 필터링](event-hubs-ip-filtering.md) 을 사용 하도록 설정 합니다. 
-
-그런 다음 [진단 로그 사용](event-hubs-diagnostic-logs.md#enable-diagnostic-logs)의 지침에 따라 [가상 네트워크 연결 이벤트 Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) 에 대 한 진단 로그를 사용 하도록 설정 합니다. 연결이 거부 된 IP 주소가 표시 됩니다.
-
-```json
-{
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "IPAddress": "1.2.3.4",
-    "Action": "Deny Connection",
-    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
-    "Count": "65",
-    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "Category": "EventHubVNetConnectionEvent"
-}
-```
-
-> [!IMPORTANT]
-> 가상 네트워크 로그는 네임 스페이스에서 **특정 ip 주소** (ip 필터 규칙)의 액세스를 허용 하는 경우에만 생성 됩니다. 이러한 기능을 사용 하 여 네임 스페이스에 대 한 액세스를 제한 하지 않고, Event Hubs 네임 스페이스에 연결 하는 클라이언트의 IP 주소를 추적 하기 위해 가상 네트워크 로그를 가져오려는 경우 다음 해결 방법을 사용할 수 있습니다. IP 필터링을 사용 하도록 설정 하 고 주소 지정 가능한 총 IPv4 범위 (1.0.0.0/1-255.0.0.0/1)를 추가 합니다. Event Hubs은 IPv6 주소 범위를 지원 하지 않습니다. 
+[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka 통합
 
@@ -148,7 +85,7 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
 ```
-참고: sasl.jaas.config가 프레임워크에서 지원되는 구성이 아닌 경우 SASL 사용자 이름과 암호를 설정하는 데 사용되는 구성을 찾아 대신 사용하세요. 사용자 이름은 $ConnectionString으로 설정하고, 암호는 Event Hubs 연결 문자열로 설정합니다.
+참고: sasl.jaas.config 프레임 워크에서 지원 되는 구성이 아닌 경우 SASL 사용자 이름 및 암호를 설정 하는 데 사용 되는 구성을 찾아 대신 사용 합니다. 사용자 이름은 $ConnectionString으로 설정하고, 암호는 Event Hubs 연결 문자열로 설정합니다.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Event Hubs의 메시지/이벤트 크기는 어떻게 되나요?
 Event Hubs에 허용되는 최대 메시지 크기는 1MB입니다.
@@ -178,7 +115,7 @@ TU(처리량 단위)는 시간 단위로 청구됩니다. 청구는 지정된 �
 예를 들어 2TU와 같이 낮은 TU(처리량 단위)로 시작하는 것이 좋습니다. 트래픽이 15TU까지 증가할 수 있다고 예상하는 경우 네임스페이스에서 자동 팽창 기능을 설정하고 최대 제한을 15TU로 설정합니다. 이제 트래픽이 증가함에 따라 TU를 자동으로 늘릴 수 있습니다.
 
 ### <a name="is-there-a-cost-associated-when-i-turn-on-the-auto-inflate-feature"></a>자동 팽창 기능을 설정하면 관련 비용이 발생하나요?
-이 기능과 관련된 **비용은 없습니다** . 
+이 기능과 관련된 **비용은 없습니다**. 
 
 ### <a name="how-are-throughput-limits-enforced"></a>처리량 제한은 어떻게 적용되나요?
 전체 **수신** 처리량 또는 네임스페이스 내 모든 이벤트 허브에서의 전체 수신 이벤트 비율이 집계 처리량 단위 허용 한도를 초과하면, 발신자가 제한되고 수신 할당량을 초과했음을 나타내는 오류가 표시됩니다.
@@ -193,7 +130,7 @@ Azure Portal에서 기본 또는 표준 계층 네임 스페이스를 만들 때
 
 1. **이벤트 버스 네임 스페이스** 페이지의 왼쪽 메뉴에서 **새 지원 요청** 을 선택 합니다. 
 1. **새 지원 요청** 페이지에서 다음 단계를 수행 합니다.
-    1. **요약 하자면** , 문제를 몇 가지 단어로 설명 합니다. 
+    1. **요약 하자면**, 문제를 몇 가지 단어로 설명 합니다. 
     1. **문제 유형** 으로 **할당량** 을 선택합니다. 
     1. **문제 하위 형식** 에 대해 **처리량 단위 증가 또는 감소 요청** 을 선택 합니다. 
     
@@ -216,7 +153,7 @@ Event Hubs 전용 클러스터를 설정 하는 방법에 대 한 단계별 지�
 ## <a name="partitions"></a>파티션
 
 ### <a name="how-many-partitions-do-i-need"></a>얼마나 많은 파티션이 필요한가요?
-파티션 수는 생성 시 지정 되며 1에서 32 사이 여야 합니다. 파티션 수는 변경할 수 없으므로 파티션 수를 설정할 때 장기적인 규모를 고려해야 합니다. 파티션은 애플리케이션을 사용하는 데 필요한 다운스트림 병렬 처리와 관련된 데이터 구성 메커니즘입니다. Event Hub의 파티션 수는 예상되는 동시 판독기의 수와 직접적으로 관련이 있습니다. 파티션에 대한 자세한 내용은 [파티션](event-hubs-features.md#partitions)을 참조하세요.
+파티션 수는 만들 때 지정되며 1과 32 사이여야 합니다. [전용 계층](event-hubs-dedicated-overview.md)을 제외 하 고 모든 계층에서 파티션 수를 변경할 수 없으므로 파티션 수를 설정할 때 장기적인 규모를 고려해 야 합니다. 파티션은 애플리케이션을 사용하는 데 필요한 다운스트림 병렬 처리와 관련된 데이터 구성 메커니즘입니다. Event Hub의 파티션 수는 예상되는 동시 판독기의 수와 직접적으로 관련이 있습니다. 파티션에 대한 자세한 내용은 [파티션](event-hubs-features.md#partitions)을 참조하세요.
 
 만들 때 가장 높은 값(32)으로 설정할 수 있습니다. 두 개 이상의 파티션이 있는 경우 전송자가 32개 중에서 단일 파티션으로만 전송하도록 구성하여 나머지 31개 파티션이 중복되도록 하지 않는 한, 두 개 이상의 파티션이 순서를 유지하지 않으면서 여러 파티션으로 이벤트가 전송됩니다. 전자의 경우에는 모든 32개 파티션에서 이벤트를 읽어야 합니다. 후자의 경우에는 이벤트 프로세서 호스트에서 수행해야 하는 추가 구성에 대한 명확한 추가 비용이 발생하지 않습니다.
 
@@ -229,11 +166,11 @@ Event Hubs는 소비자 그룹당 단일 파티션 판독기를 허용하도록 
 
 1. **이벤트 버스 네임 스페이스** 페이지의 왼쪽 메뉴에서 **새 지원 요청** 을 선택 합니다. 
 1. **새 지원 요청** 페이지에서 다음 단계를 수행 합니다.
-    1. **요약 하자면** , 문제를 몇 가지 단어로 설명 합니다. 
+    1. **요약 하자면**, 문제를 몇 가지 단어로 설명 합니다. 
     1. **문제 유형** 으로 **할당량** 을 선택합니다. 
     1. **문제 하위 형식** 에 대해 **파티션 변경 요청** 을 선택 합니다. 
     
-        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="지원 요청 페이지":::
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="파티션 수 늘리기":::
 
 파티션 수를 정확 하 게 40으로 늘릴 수 있습니다. 이 경우 Tu 수도 40로 늘려야 합니다. 나중에 TU 한도를 다시 <= 20으로 낮추는 것을 결정 하면 최대 파티션 한도가 32으로 줄어듭니다. 
 
@@ -257,7 +194,7 @@ Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시�
 
 이벤트 허브에 전송된 각 이벤트는 청구 가능한 메시지로 계산됩니다. *수신 이벤트* 는 64KB보다 작은 데이터 단위로 정의됩니다. 크기가 64KB 이하인 모든 이벤트는 하나의 청구 가능한 이벤트로 간주됩니다. 이벤트가 64KB보다 큰 경우 64KB의 배수로 이벤트 크기에 따라 청구 가능한 이벤트 수가 계산됩니다. 예를 들어 이벤트 허브에 전송된 8KB 이벤트는 하나의 이벤트로 청구되지만, 이벤트 허브에 전송된 96KB 메시지는 두 개의 이벤트로 청구됩니다.
 
-이벤트 허브에서 사용된 이벤트와 검사점 등의 제어 호출 및 관리 작업은 청구 가능한 수신 이벤트로 계산되지 않고 처리량 단위 허용 한도까지 누적됩니다.
+이벤트 허브에서 사용 된 이벤트 및 검사점과 같은 제어 호출 및 관리 작업은 청구 가능한 수신 이벤트로 계산 되지 않지만 처리량 단위 허용으로 계산 됩니다.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>조정된 연결 요금이 Event Hubs에 적용됩니까?
 
@@ -299,13 +236,13 @@ SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계�
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Azure Blob Storage를 검사점 저장소로 사용할 때 특정 버전의 Azure Storage SDK를 대상으로 지정 하려면 어떻게 해야 하나요?
-Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hub SDK가 Azure에서 사용할 수 있는 최신 Azure Storage API를 사용하지만 Azure Stack Hub 플랫폼에서는 사용할 수 없기 때문입니다. Azure Stack 허브는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
+Azure Stack 허브에서이 코드를 실행 하는 경우 특정 저장소 API 버전을 대상으로 지정 하지 않으면 런타임 오류가 발생 합니다. 이는 Event Hub SDK가 Azure에서 사용할 수 있는 최신 Azure Storage API를 사용하지만 Azure Stack Hub 플랫폼에서는 사용할 수 없기 때문입니다. Azure Stack 허브는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. Azure 블로그 저장소를 검사점 저장소로 사용 하는 경우 [Azure Stack 허브 빌드에 대해 지원 되는 AZURE STORAGE API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version) 을 확인 하 고 코드에서 해당 버전을 대상으로 합니다. 
 
-예를 들어 Azure Stack 허브 버전 2005에서 실행 중인 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
+예를 들어 Azure Stack 허브 버전 2005에서 실행 중인 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우이 섹션의 다음 단계 외에도 저장소 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
 
 코드에서 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
 
-- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
+- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
 - Python- [동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [비동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)

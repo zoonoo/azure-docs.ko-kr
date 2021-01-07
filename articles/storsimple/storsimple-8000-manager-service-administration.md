@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: c8d8e3b9058b753dc2a6da35878449c94399225e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a36f38cc76693f596b45d4df6e232bc01584d5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85508047"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967978"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 관리
 
@@ -65,7 +65,7 @@ StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러
 | 액세스 제어 레코드 정보</br>액세스 제어 레코드 만들기</br>액세스 제어 레코드 편집</br>액세스 제어 레코드 삭제 |[액세스 제어 레코드 관리](storsimple-8000-manage-acrs.md) |
 | 작업 세부 정보 보기</br>작업 취소 |[작업 관리](storsimple-8000-manage-jobs-u2.md) |
 | 경고 알림 받기</br>경고 관리</br>경고 검토 |[StorSimple 경고 보기 및 관리](storsimple-8000-manage-alerts.md) |
-| 모니터링 차트 만들기 |[StorSimple 디바이스 모니터링](storsimple-monitor-device.md) |
+| 모니터링 차트 만들기 |[StorSimple 디바이스 모니터링](./storsimple-8000-monitor-device.md) |
 | 볼륨 컨테이너 추가</br>볼륨 컨테이너 수정</br>볼륨 컨테이너 삭제 |[볼륨 컨테이너 관리](storsimple-8000-manage-volume-containers.md) |
 | 볼륨 추가</br>볼륨 수정</br>볼륨을 오프라인으로 전환</br>볼륨 삭제</br>볼륨 모니터링 |[볼륨 관리](storsimple-8000-manage-volumes-u2.md) |
 | 디바이스 설정 수정</br>시간 설정 수정</br>DNS.md 설정 수정</br>네트워크 인터페이스 구성 |[StorSimple 디바이스에 대한 디바이스 구성 수정](storsimple-8000-modify-device-config.md) |
@@ -73,7 +73,7 @@ StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러
 | 디바이스 관리자 암호 수정</br>StorSimple 스냅샷 관리자 암호 수정 |[StorSimple 암호 변경](storsimple-8000-change-passwords.md) |
 | 원격 관리 구성 |[StorSimple 디바이스에 원격으로 연결](storsimple-8000-remote-connect.md) |
 | 경고 설정 구성 |[StorSimple 경고 보기 및 관리](storsimple-8000-manage-alerts.md) |
-| StorSimple 디바이스에 대한 CHAP 구성 |[StorSimple 디바이스에 대한 CHAP 구성](storsimple-configure-chap.md) |
+| StorSimple 디바이스에 대한 CHAP 구성 |[StorSimple 디바이스에 대한 CHAP 구성](./storsimple-8000-configure-chap.md) |
 | 백업 정책 추가</br>일정 추가 또는 수정</br>백업 정책 삭제</br>수동 백업 수행</br>여러 볼륨과 일정의 사용자 지정 백업 정책 만들기 |[백업 정책 관리](storsimple-8000-manage-backup-policies-u2.md) |
 | 디바이스 컨트롤러 중지</br>디바이스 컨트롤러 다시 시작</br>디바이스 컨트롤러 종료</br>디바이스를 공장 기본값으로 다시 설정</br>(위의 내용은 온-프레미스 디바이스만 해당) |[StorSimple 디바이스 컨트롤러 관리](storsimple-8000-manage-device-controller.md) |
 | StorSimple 하드웨어 구성 요소</br>하드웨어 상태 모니터링</br>(위의 내용은 온-프레미스 디바이스만 해당) |[하드웨어 구성 요소 모니터링](storsimple-8000-monitor-hardware-status.md) |
@@ -88,4 +88,3 @@ StorSimple 디바이스의 일상적인 작업 또는 해당 하드웨어 구성
 * [StorSimple 모니터링 표시기 LED 사용](storsimple-monitoring-indicators.md)
 
 문제를 해결할 수 없고 서비스 요청을 만드는 데 필요한 경우 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)를 참조합니다.
-

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: a4c97b8baaf5265f984622e2dc47e6c8c714172a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272640"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995729"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
 
@@ -42,7 +42,7 @@ ms.locfileid: "88272640"
 
 제공된 템플릿은 편집 가능하므로 사용자는 템플릿을 수정하여 새 데이터와 시각 효과를 추가하거나 본인의 요구 사항에 맞게 쿼리를 편집할 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 시작하기 전에 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 
@@ -59,7 +59,7 @@ ms.locfileid: "88272640"
 
       ![power BI 메인][2]
 
-1. 스토리지 계정의 액세스 키를 입력합니다. Azure Portal에서 스토리지 계정으로 이동한 후 설정 메뉴에서 **액세스 키**를 선택하면 유효한 액세스 키를 찾을 수 있습니다. 그런 다음 **연결**을 클릭하여 변경 내용을 적용합니다.
+1. 스토리지 계정의 액세스 키를 입력합니다. Azure Portal에서 스토리지 계정으로 이동한 후 설정 메뉴에서 **액세스 키** 를 선택하면 유효한 액세스 키를 찾을 수 있습니다. 그런 다음 **연결** 을 클릭하여 변경 내용을 적용합니다.
 
     ![액세스 키][3]
 

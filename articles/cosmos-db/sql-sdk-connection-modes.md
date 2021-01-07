@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: 892d73c2b23a9806cd38b188f594f129fda9303d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: cf985999bac0cf45eec5d8f0f5f9e921b6f4591c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340722"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934954"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB SQL SDK 연결 모드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "93340722"
       
     게이트웨이 모드는 모든 SDK 플랫폼에서 지원 됩니다. 응용 프로그램이 엄격한 방화벽 제한을 사용 하는 회사 네트워크 내에서 실행 되는 경우 표준 HTTPS 포트 및 단일 DNS 끝점을 사용 하기 때문에 게이트웨이 모드를 선택 하는 것이 가장 좋습니다. 그러나 성능 단점은 데이터를 Azure Cosmos DB에서 읽거나 쓸 때마다 게이트웨이 모드에 추가 네트워크 홉이 포함 된다는 것입니다. 또한 소켓 연결 수가 제한 된 환경에서 응용 프로그램을 실행할 때 게이트웨이 연결 모드를 권장 합니다.
 
-    특히 [소비 계획](../azure-functions/functions-scale.md#consumption-plan)에서 Azure Functions SDK를 사용 하는 경우 [연결에 대 한 현재 제한](../azure-functions/manage-connections.md)사항을 알고 있어야 합니다.
+    특히 [소비 계획](../azure-functions/consumption-plan.md)에서 Azure Functions SDK를 사용 하는 경우 [연결에 대 한 현재 제한](../azure-functions/manage-connections.md)사항을 알고 있어야 합니다.
 
   * 직접 모드
 
@@ -47,7 +47,7 @@ ms.locfileid: "93340722"
 |연결 모드  |지원되는 프로토콜  |지원되는 SDK  |API/서비스 포트  |
 |---------|---------|---------|---------|
 |게이트웨이  |   HTTPS    |  모든 Sdk    |   SQL (443), MongoDB (10250, 10255, 10256), 테이블 (443), Cassandra (10350), 그래프 (443) <br> 10250 포트는 지역에서 복제를 사용 하지 않고 MongoDB 인스턴스에 대 한 기본 Azure Cosmos DB API에 매핑됩니다. 반면에 포트 10255 및 10256은 지역에서 복제를 포함 하는 인스턴스에 매핑됩니다.   |
-|직접    |     TCP    |  .NET SDK    | 공개/서비스 끝점을 사용 하는 경우: 1만 ~ 2만 범위의 포트<br>개인 끝점을 사용 하는 경우: 0-65535 범위의 포트 |
+|직접    |     TCP    |  .NET SDK Java SDK    | 공개/서비스 끝점을 사용 하는 경우: 1만 ~ 2만 범위의 포트<br>개인 끝점을 사용 하는 경우: 0-65535 범위의 포트 |
 
 ## <a name="next-steps"></a>다음 단계
 

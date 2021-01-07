@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: eb53e7052db6d4de365864184b9bd2e6585b7e2d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412125"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461588"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>IoT Hub를 작업 모니터링에서 Azure Monitor 리소스 로그로 마이그레이션
 
@@ -29,7 +29,7 @@ Azure Portal에서 IoT Hub를 업데이트 하려면 먼저 진단 설정을 만
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
 
-1. 왼쪽 창의 **모니터링** 아래에서 **진단 설정** 을 선택 합니다. 그런 다음 **진단 설정 추가** 를 선택 합니다.
+1. 왼쪽 창의 **모니터링** 아래에서 **진단 설정** 을 선택 합니다. 그런 다음, **진단 설정 추가** 를 선택합니다.
 
    :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/open-diagnostic-settings.png" alt-text="모니터링 섹션의 진단 설정을 강조 표시하는 스크린샷.":::
 
@@ -49,9 +49,9 @@ Azure Portal에서 IoT Hub를 업데이트 하려면 먼저 진단 설정을 만
 
 1. **저장** 을 선택하여 설정을 저장합니다.
 
-새 설정은 약 10분 후에 적용됩니다. 그런 다음 로그는 구성 된 대상에 표시 됩니다. 진단을 구성 하는 방법에 대 한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](/azure/azure-monitor/platform/platform-logs-overview)을 참조 하세요.
+새 설정은 약 10분 후에 적용됩니다. 그런 다음 로그는 구성 된 대상에 표시 됩니다. 진단을 구성 하는 방법에 대 한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/platform-logs-overview.md)을 참조 하세요.
 
-PowerShell 및 Azure CLI을 포함 하 여 진단 설정을 만드는 방법에 대 한 자세한 내용은 Azure Monitor 설명서의 [진단 설정](/azure/azure-monitor/platform/diagnostic-settings) 을 참조 하세요.
+PowerShell 및 Azure CLI을 포함 하 여 진단 설정을 만드는 방법에 대 한 자세한 내용은 Azure Monitor 설명서의 [진단 설정](../azure-monitor/platform/diagnostic-settings.md) 을 참조 하세요.
 
 ### <a name="turn-off-operations-monitoring"></a>작업 모니터링 끄기
 

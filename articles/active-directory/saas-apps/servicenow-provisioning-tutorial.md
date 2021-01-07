@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b592591f3d2190fdcc9ed7b3b12b2eca20a25a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675834"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897297"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ServiceNow 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "92675834"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md) 
-* 프로비저닝을 구성할 [권한](../users-groups-roles/directory-assign-admin-roles.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
+* 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * Calgary 이상의 [ServiceNow 인스턴스](https://www.servicenow.com/)
 * Helsinki 이상의 [ServiceNow Express 인스턴스](https://www.servicenow.com/)
 * 관리자 역할이 있는 ServiceNow의 사용자 계정
@@ -50,19 +50,12 @@ ms.locfileid: "92675834"
 
 1. ServiceNow 인스턴스 이름을 식별합니다. ServiceNow에 액세스하는 데 사용하는 URL에서 인스턴스 이름을 찾을 수 있습니다. 아래 예제에서 인스턴스 이름은 dev35214입니다.
 
-   ![ServiceNow 인스턴스](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![ServiceNow 인스턴스](media/servicenow-provisioning-tutorial/servicenow-instance.png)
 
 2. ServiceNow에서 관리자에 대한 자격 증명을 가져옵니다. ServiceNow의 사용자 프로필로 이동하여 사용자에게 관리자 역할이 있는지 확인합니다. 
 
    ![ServiceNow 관리자 역할](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-3. ServiceNow에서 다음 설정이 **사용 되지** 않도록 설정 되어 있는지 확인 합니다.
-
-   1. **시스템 보안**  >  **높은 보안 설정** 에서  >  **들어오는 스키마 요청에 대 한 기본 인증 필요를** 선택 합니다.
-   2. **시스템 속성**  >  을 선택 합니다. **웹 서비스**  >  **는 들어오는 SOAP 요청에 대 한 기본 권한 부여가 필요** 합니다.
-     
-   > [!IMPORTANT]
-   > 이러한 설정을 *사용* 하는 경우 프로 비전 엔진은 ServiceNow와 통신 하지 못합니다.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 ServiceNow 추가
 
@@ -83,7 +76,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ### <a name="to-configure-automatic-user-provisioning-for-servicenow-in-azure-ad"></a>Azure AD에서 ServiceNow에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -93,15 +86,15 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
+    ![프로비저닝 옵션이 호출된 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
+    ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션에서 ServiceNow 관리자 자격 증명 및 사용자 이름을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 ServiceNow에 연결할 수 있는지 확인합니다. 연결에 실패하면 ServiceNow 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
-    ![관리자 자격 증명을 입력할 수 있는 서비스 프로 비전 페이지를 보여 주는 스크린샷](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![스크린샷은 관리자 자격 증명을 입력할 수 있는 서비스 프로비저닝 페이지를 보여 줍니다.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
 6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 
@@ -144,16 +137,21 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * **InvalidLookupReference:** ServiceNow에서 부서 및 위치와 같은 특정 특성을 프로비저닝할 때 ServiceNow의 참조 테이블에 값이 이미 있어야 합니다. 예를 들어 ServiceNow의 **테이블 이름 삽입** 테이블에 두 개의 위치(Seattle, Los Angeles)와 3개의 부서(Sales, Finance, Marketing)가 있을 수 있습니다. 해당 부서가 "Sales"이고 위치가 "Seattle"인 사용자를 프로비저닝하면 성공적으로 프로비저닝됩니다. 부서가 "Sales"이고 위치가 "LA"인 사용자는 프로비저닝되지 않습니다. 위치 LA를 ServiceNow의 참조 테이블에 추가하거나, ServiceNow의 형식과 일치하도록 Azure AD의 사용자 특성을 업데이트해야 합니다. 
 * **EntryJoiningPropertyValueIsMissing:** [특성 매핑](../app-provisioning/customize-application-attributes.md)을 검토하여 일치하는 특성을 식별합니다. 이 값이 프로비저닝하려는 사용자 또는 그룹에 있어야 합니다. 
 * [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html)를 검토하여 요구 사항 또는 제한 사항을 파악합니다(예: 사용자에 대한 국가 코드를 지정하는 형식).
-* 프로비저닝 요청은 기본적으로 https://{인스턴스 이름}.service-now.com/{테이블 이름}으로 전송됩니다. 사용자 지정 테넌트 URL이 필요한 경우 인스턴스 이름 필드에 전체 URL을 제공할 수 있습니다.
+* 프로비저닝 요청은 기본적으로 https://{your-instance-name}.service-now.com/{table-name}으로 보내집니다. 사용자 지정 테넌트 URL이 필요한 경우 인스턴스 이름 필드에 전체 URL을 제공할 수 있습니다.
 * **ServiceNowInstanceInvalid** 
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   이 오류는 ServiceNow 인스턴스와 통신 하는 데 문제가 있음을 나타냅니다. 다음 설정이 ServiceNow에서 *사용 하지 않도록* 설정 되었는지 확인 합니다.
+   이 오류는 ServiceNow 인스턴스와 통신하는 데 문제가 있음을 나타냅니다. 
    
-   1. **시스템 보안**  >  **높은 보안 설정** 에서  >  **들어오는 스키마 요청에 대 한 기본 인증 필요를** 선택 합니다.
-   2. **시스템 속성**  >  을 선택 합니다. **웹 서비스**  >  **는 들어오는 SOAP 요청에 대 한 기본 권한 부여가 필요** 합니다.
+   테스트 연결 문제가 있는 경우 ServiceNow에서 다음 설정을 **사용 안 함** 으로 설정해 봅니다.
+   
+   1. **시스템 보안** > **높은 보안 설정** > **들어오는 SCHEMA 요청에 대한 기본 인증 요구** 를 선택합니다.
+   2. **시스템 속성** > **웹 서비스** > **들어오는 SOAP 요청에 대한 기본 권한 부여 요구** 를 선택합니다.
 
+   ![SOAP 요청 권한 부여](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
+
+   문제가 해결되면 ServiceNow 지원에 문의하여 문제 해결에 도움이 되도록 SOAP 디버깅을 켜도록 요청합니다. 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -1,30 +1,33 @@
 ---
-title: 서버리스 Apache Spark 풀(미리 보기)과 SQL 풀 간에 데이터 가져오기 및 내보내기
-description: 이 문서에서는 전용 SQL 풀과 서버리스 Apache Spark 풀(미리 보기) 간에 데이터를 이동하기 위해 사용자 지정 커넥터를 사용하는 방법에 대한 정보를 제공합니다.
+title: 서버리스 Apache Spark 풀과 SQL 풀 간에 데이터 가져오기 및 내보내기
+description: 이 문서에서는 전용 SQL 풀과 서버리스 Apache Spark 풀 간에 데이터를 이동하기 위해 사용자 지정 커넥터를 사용하는 방법에 대한 정보를 제공합니다.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 11/19/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: ee82fbaa9687e064747908600c7e5c9017f8f1a9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0bdfa4a451269e82b73194e921f9067d848868e
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323897"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511086"
 ---
 # <a name="introduction"></a>소개
 
-Azure Synapse Apache Spark-Synapse SQL 커넥터는 Azure Synapse에서 서버리스 Apache Spark 풀(미리 보기)과 SQL 풀 간에 데이터를 효율적으로 전송하도록 설계되었습니다. Azure Synapse Apache Spark-Synapse SQL 커넥터는 전용 SQL 풀에서만 작동하며, 서버리스 SQL 풀에서는 작동하지 않습니다.
+Azure Synapse Apache Spark-Synapse SQL 커넥터는 Azure Synapse의 서버리스 Apache Spark 풀과 전용 SQL 풀 간에 데이터를 효율적으로 전송하도록 설계되었습니다. Azure Synapse Apache Spark-Synapse SQL 커넥터는 전용 SQL 풀에서만 작동하며, 서버리스 SQL 풀에서는 작동하지 않습니다.
+
+> [!WARNING]
+> **sqlanalytics()** 함수 이름이 **synapsesql()** 로 변경되었습니다. sqlanalytics 함수는 계속 작동하지만 더 이상 사용되지 않습니다.  **sqlanalytics()** 에서 **synapsesql()** 로 참조를 변경하여 나중에 중단되지 않도록 하세요.
 
 ## <a name="design"></a>디자인
 
 JDBC를 사용하여 Spark 풀과 SQL 풀 간에 데이터를 전송할 수 있습니다. 그러나 Spark 및 SQL 풀과 같은 두 개의 분산 시스템이 사용되므로 JDBC는 직렬 데이터를 전송할 때 병목 상태가 발생하는 경향이 있습니다.
 
-Azure Synapse Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 데이터 원본 구현입니다. Azure Data Lake Storage Gen2 및 전용 SQL 풀의 Polybase를 사용하여 Spark 클러스터와 Synapse SQL 인스턴스 간에 데이터를 효율적으로 전송합니다.
+Azure Synapse Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 데이터 원본 구현입니다. Azure Data Lake Storage Gen2 및 전용 SQL 풀의 Polybase를 사용하여 Spark 클러스터와 Synapse 전용 SQL 인스턴스 간에 데이터를 효율적으로 전송합니다.
 
 ![커넥터 아키텍처](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -37,6 +40,8 @@ Azure Synapse Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 �
 ## <a name="constraints"></a>제약 조건
 
 - 이 커넥터는 Scala에서만 작동합니다.
+- pySpark의 경우 [Python 사용](#use-pyspark-with-the-connector) 섹션의 세부 정보를 참조하세요.
+- 이 커넥터는 SQL 보기 쿼리를 지원하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -80,7 +85,7 @@ import 문은 필요하지 않으며 Notebook 환경용으로 미리 가져옵�
 #### <a name="read-api"></a>읽기 API
 
 ```scala
-val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
+val df = spark.read.synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 위의 API는 SQL 풀의 내부(관리형)뿐 아니라 외부 테이블에 대해서도 작동합니다.
@@ -88,7 +93,7 @@ val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
 #### <a name="write-api"></a>쓰기 API
 
 ```scala
-df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+df.write.synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 쓰기 API는 전용 SQL 풀에 테이블을 만든 다음, Polybase를 호출하여 데이터를 로드합니다.  테이블이 전용 SQL 풀에 존재하지 않아야 합니다. 그렇지 않으면 "같은 이름의 개체가 이미 있습니다"라는 오류가 반환됩니다.
@@ -101,7 +106,7 @@ TableType 값
 SQL 풀 관리형 테이블
 
 ```scala
-df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
+df.write.synapsesql("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 ```
 
 SQL 풀 외부 테이블
@@ -130,7 +135,7 @@ WITH (
 df.write.
     option(Constants.DATA_SOURCE, <DataSourceName>).
     option(Constants.FILE_FORMAT, <FileFormatName>).
-    sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
+    synapsesql("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
 
 ```
 
@@ -149,7 +154,7 @@ df.write.
 ```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
-sqlanalytics("<DBName>.<Schema>.<TableName>")
+synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 #### <a name="write-api"></a>쓰기 API
@@ -157,7 +162,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```scala
 df.write.
 option(Constants.SERVER, "samplews.database.windows.net").
-sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="use-sql-auth-instead-of-azure-ad"></a>Azure AD 대신 SQL 인증 사용
@@ -171,7 +176,7 @@ val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, <SQLServer Login UserName>).
 option(Constants.PASSWORD, <SQLServer Login Password>).
-sqlanalytics("<DBName>.<Schema>.<TableName>")
+synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 #### <a name="write-api"></a>쓰기 API
@@ -181,10 +186,10 @@ df.write.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, <SQLServer Login UserName>).
 option(Constants.PASSWORD, <SQLServer Login Password>).
-sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="use-the-pyspark-connector"></a>PySpark 커넥터 사용
+### <a name="use-pyspark-with-the-connector"></a>커넥터에서 PySpark 사용
 
 > [!NOTE]
 > 이 예제는 노트북 환경만을 고려하여 제공됩니다.
@@ -203,7 +208,7 @@ pyspark_df.createOrReplaceTempView("pysparkdftemptable")
 %%spark
 val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
-scala_df.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
+scala_df.write.synapsesql("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
 
 마찬가지로 읽기 시나리오에서는 Scala를 사용하여 데이터를 읽고 임시 테이블에 쓰고, PySpark에서 Spark SQL을 사용하여 임시 테이블을 데이터 프레임으로 쿼리합니다.
@@ -234,6 +239,7 @@ scala_df.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 
 > [!IMPORTANT]
 > 원하지 않는 경우 “기본값”을 선택하지 않아야 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

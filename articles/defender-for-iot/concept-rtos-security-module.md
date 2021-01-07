@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9f816b35fd79d3f158ea12fd2c7e1d811823dc8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f521bd593369509fd520831f90ce9c601227f09
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939504"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340053"
 ---
 # <a name="security-module-for-azure-rtos-preview"></a>Azure RTOS 용 보안 모듈 (미리 보기)
 
@@ -32,7 +32,7 @@ Azure RTOS의 보안 모듈은 백그라운드에서 실행 되며, 각 고객�
 
 ## <a name="azure-rtos-netx-duo"></a>Azure RTOS NetX Duo
 
-Azure RTOS NetX Duo는 강력 하 고 임베디드 실시간 및 IoT 응용 프로그램을 위해 특별히 설계 된 고급 산업 등급 TCP/IP 네트워크 스택입니다. Azure RTOS NetX 듀어은 보안 및 클라우드를 비롯 한 다양 한 프로토콜 집합을 제공 하는 이중 IPv4 및 IPv6 네트워크 스택입니다. [Azure RTOS NetX 듀오](https://aka.ms/netxduo) 솔루션에 대해 자세히 알아보세요.
+Azure RTOS NetX Duo는 강력 하 고 임베디드 실시간 및 IoT 응용 프로그램을 위해 특별히 설계 된 고급 산업 등급 TCP/IP 네트워크 스택입니다. Azure RTOS NetX 듀어은 보안 및 클라우드를 비롯 한 다양 한 프로토콜 집합을 제공 하는 이중 IPv4 및 IPv6 네트워크 스택입니다. [Azure RTOS NetX 듀오](/azure/rtos/netx-duo/) 솔루션에 대해 자세히 알아보세요.
 
 모듈은 다음과 같은 기능을 제공 합니다.
 
@@ -47,11 +47,11 @@ Azure RTOS의 보안 모듈은 Azure IoT 미들웨어 플랫폼에 의해 초기
 :::image type="content" source="media/architecture/security-module-state-diagram.png" alt-text="Azure IoT 보안 모듈 상태 다이어그램 및 정보 흐름":::
 
 Azure RTOS의 보안 모듈은 세 가지 수집기를 사용 하 여 다음 장치 활동 및 정보를 모니터링 합니다.
-- 장치 네트워크 활동 **TCP**, **UDP**및 **ICM**
+- 장치 네트워크 활동 **TCP**, **UDP** 및 **ICM**
 - **Threadx** 및 **netx Duo** 버전의 시스템 정보
 - 하트비트 이벤트
 
-각 수집기는 우선 순위 그룹에 연결 되 고 각 우선 순위 그룹에는 **낮음**, **중간**및 **높음**의 가능한 값을 가진 고유한 간격이 있습니다. 간격은 데이터를 수집 하 고 전송 하는 시간 간격에 영향을 줍니다.
+각 수집기는 우선 순위 그룹에 연결 되 고 각 우선 순위 그룹에는 **낮음**, **중간** 및 **높음** 의 가능한 값을 가진 고유한 간격이 있습니다. 간격은 데이터를 수집 하 고 전송 하는 시간 간격에 영향을 줍니다.
 
 각 시간 간격은 구성 가능 하며, 솔루션을 추가로 [사용자 지정](how-to-azure-rtos-security-module.md)하기 위해 IoT 커넥터를 사용 하도록 설정 하 고 사용 하지 않도록 설정할 수 있습니다. 
 
@@ -68,4 +68,3 @@ Azure RTOS 용 보안 모듈은 IoT 장치에 대 한 무료 다운로드로 제
 - Azure RTOS [필수 구성 요소 및 설치](quickstart-azure-rtos-security-module.md)에 대 한 보안 모듈을 시작 합니다.
 - Azure RTOS [보안 경고 및 권장 사항 지원](concept-rtos-security-alerts-recommendations.md)에 대 한 보안 모듈에 대해 자세히 알아보세요. 
 - Azure RTOS [참조 API](azure-rtos-security-module-api.md)에 대 한 보안 모듈을 사용 합니다.
-

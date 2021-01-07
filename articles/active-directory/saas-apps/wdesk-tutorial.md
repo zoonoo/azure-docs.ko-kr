@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 7eac2ed58608ac5814e1f907b863a2977df830d4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 11539e7d6e685703810537cf69e0e7ed3ec0be4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636717"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609091"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>자습서: Wdesk와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -120,7 +120,7 @@ Wdesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -170,11 +170,11 @@ Wdesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 1. 다른 웹 브라우저 창에서 Wdesk에 보안 관리자로 로그인합니다.
 
-2. 왼쪽 아래에서 **관리** 를 클릭하고 **계정 관리자** 를 선택합니다.
+1. 왼쪽 아래에서 **관리** 를 클릭하고 **계정 관리자** 를 선택합니다.
  
-     ![스크린샷은 관리 메뉴에서 선택한 계정 관리자를 보여줍니다.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+    ![스크린샷은 관리 메뉴에서 선택한 계정 관리자를 보여줍니다.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-3. Wdesk 관리에서 **보안** , **SAML** > **SAML 설정** 으로 이동합니다.
+1. Wdesk 관리에서 **보안**, **SAML** > **SAML 설정** 으로 이동합니다.
 
     ![스크린샷은 SAML 탭에서 선택한 SAML 설정을 보여줍니다.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
@@ -190,19 +190,19 @@ Wdesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![스크린샷은 설명된 값을 입력할 수 있는 서비스 공급자 세부 정보를 보여줍니다.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
-      a. **로그인 URL** 을 복사한 후 Azure Portal의 **로그온 URL** 텍스트 상자에 붙여 넣습니다.
-   
-      b. **메타데이터 URL** 을 복사한 후 Azure Portal의 **식별자** 텍스트 상자에 붙여 넣습니다.
-       
-      다. **소비자 URL** 을 복사한 후 Azure Portal의 **회신 URL** 텍스트 상자에 붙여 넣습니다.
-   
-      d. Azure Portal에서 **저장** 을 클릭하여 변경 내용을 저장합니다.      
+    1. **로그인 URL** 을 복사한 후 Azure Portal의 **로그온 URL** 텍스트 상자에 붙여 넣습니다.
 
-6. **IdP 설정 구성** 을 클릭하여 **IdP 설정 편집** 대화 상자를 엽니다. **파일 선택** 을 클릭하여 Azure Portal에서 저장한 **Metadata.xml** 파일을 찾습니다.
+    1. **메타데이터 URL** 을 복사한 후 Azure Portal의 **식별자** 텍스트 상자에 붙여 넣습니다.
+
+    1. **소비자 URL** 을 복사한 후 Azure Portal의 **회신 URL** 텍스트 상자에 붙여 넣습니다.
+
+    1. Azure Portal에서 **저장** 을 클릭하여 변경 내용을 저장합니다.      
+
+1. **IdP 설정 구성** 을 클릭하여 **IdP 설정 편집** 대화 상자를 엽니다. **파일 선택** 을 클릭하여 Azure Portal에서 저장한 **Metadata.xml** 파일을 찾습니다.
     
     ![스크린샷은 메타데이터를 업로드할 수 있는 IdP 설정 편집을 보여줍니다.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
-7. **변경 내용 저장** 을 클릭합니다.
+1. **변경 내용 저장** 을 클릭합니다.
 
     ![스크린샷은 변경 내용 저장 단추를 보여줍니다.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
@@ -234,9 +234,9 @@ Azure AD 사용자가 Wdesk에 로그인할 수 있도록 하려면 Azure AD 사
  
     a. **이메일** 텍스트 상자에 사용자의 이메일(예: b.simon@contoso.com)을 입력합니다.
 
-    b. **이름** 텍스트 상자에 사용자의 이름(예: **B** )을 입력합니다.
+    b. **이름** 텍스트 상자에 사용자의 이름(예: **B**)을 입력합니다.
 
-    다. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
+    다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
 7. **구성원 저장** 단추를 클릭합니다.  
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ec2c0089295cdd269b5bb3bccf0baaef3cb14849
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dde618b28e004e87edc2783bc44c5e7dd9f0ebba
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456125"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670675"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>자습서: Cisco Umbrella와 Azure Active Directory 통합
 
@@ -63,7 +63,7 @@ Cisco Umbrella와 Azure AD의 통합을 구성하려면 갤러리의 Cisco Umbre
 
 4. 검색 상자에서 **Cisco Umbrella** 를 입력하고, 결과 패널에서 **Cisco Umbrella** 를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Cisco Umbrella](common/search-new-app.png)
+    ![결과 목록의 Cisco Umbrella](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -155,7 +155,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -168,7 +168,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
@@ -224,8 +224,8 @@ Cisco Umbrella의 경우 프로비전은 수동 작업입니다.
     b. **성** 필드에서 **simon** 과 같은 성을 입력합니다.
 
     다. **위임된 관리자 역할 선택** 에서 역할을 선택합니다.
-  
-    d. **이메일 주소** 필드에서 사용자의 이메일 주소(예: **brittasimon\@contoso.com** )를 입력합니다.
+
+    d. **이메일 주소** 필드에서 사용자의 이메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
 
     e. **암호** 필드에 암호를 입력합니다.
 

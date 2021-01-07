@@ -3,21 +3,98 @@ title: Azure 엔터프라이즈 등록 청구서
 description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하고 작업하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c64127f7ebbb416d9dfebb5e417cd27d51697665
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316140"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030725"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
 이 문서에서는 Azure EA(Azure 기업계약) 청구서를 관리하고 작업하는 방법에 대해 설명합니다. 청구서는 요금 청구 명세를 나타냅니다. 이에 대한 정확성을 검토합니다. 또한 청구서 관리에 필요할 수 있는 다른 작업에도 익숙해져야 합니다.
+
+## <a name="view-usage-summary-and-download-reports"></a>사용 요약 정보 보기 및 보고서 다운로드
+
+엔터프라이즈 관리자는 Azure Enterprise Portal에서 사용량 데이터, 사용된 Azure 선불 및 추가 사용량 관련 요금에 대한 요약 정보를 볼 수 있습니다. 요금 정보는 모든 계정 및 구독에서 요약 정보로 제공됩니다.
+
+특정 계정의 자세한 사용량을 보려면 사용량 세부 정보 보고서를 다운로드합니다.
+
+1. Azure Enterprise Portal에 로그인합니다.
+1. **보고서** 를 선택합니다.
+1. **사용량 다운로드** 탭을 선택합니다.
+1. 보고서 목록에서, 가져오려는 월간 보고서의 **다운로드** 를 선택합니다.
+
+   > [!NOTE]
+   > 사용량 세부 정보 보고서에는 관련 세금이 포함되지 않습니다.
+   >
+   > 사용량이 발생한 시점부터 보고서에 반영되는 시점까지 최대 8시간의 대기 시간이 있을 수 있습니다.
+
+사용 요약 보고서 및 그래프를 보려면 다음을 수행합니다.
+
+1. Azure Enterprise Portal에 로그인합니다.
+1. 선불 기간을 선택합니다.
+   **사용 요약** 의 날짜 범위를 변경하려면 페이지의 오른쪽 위에서 **M**(월별)을 **C**(사용자 지정)로 전환하고 사용자 지정 시작 및 종료 날짜를 입력합니다.  
+   ![사용자 지정 보기에서 사용 요약 정보를 작성하여 살펴보고 보고서 다운로드](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. 추가 세부 정보를 보려면 그래프에서 보고 싶은 기간 또는 월을 선택합니다.
+   - 이 그래프에는 사용량, 서비스 초과 요금, 별도로 청구된 요금, Azure Marketplace 요금의 자세한 분석 내용과 함께 월별 사용 정보가 표시됩니다.
+   - 선택한 월에서, 그래프 아래의 필드를 사용하여 부서, 계정 및 구독으로 필터링할 수 있습니다.
+   - **서비스별 요금** 과 **계층 구조별 요금** 간에 전환할 수 있습니다.
+   - 관련 섹션을 확장하여 **Azure 서비스**, **별도 청구 요금** 및 **Azure Marketplace** 의 세부 정보를 봅니다.
+
+다음 비디오를 보면서 사용량 확인 방법을 알아보세요.
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### <a name="download-csv-reports"></a>CSV 보고서 다운로드
+
+엔터프라이즈 관리자는 [월간 보고서 다운로드] 페이지를 사용하여 다음 보고서를 CSV 파일로 다운로드할 수 있습니다.
+
+- 잔액 및 요금
+- 사용량 세부 정보
+- Azure Marketplace 요금
+- 가격표
+
+보고서를 다운로드하려면 다음을 수행합니다.
+
+1. Azure Enterprise Portal에서 **보고서** 를 선택합니다.
+2. 페이지 위쪽에서 **사용량 다운로드** 를 선택합니다.
+3. 해당 월의 보고서 옆에 있는 **다운로드** 를 선택합니다.
+
+   > [!NOTE]
+   > 발생한 사용량 날짜와 사용량이 보고서에 표시되는 시간 사이에 최대 72시간의 대기 시간이 있을 수 있습니다.
+   >
+   > Safari를 사용하여 CSV 파일을 Excel로 다운로드하는 사용자는 형식 오류가 발생할 수 있습니다. 이 오류를 피하려면 텍스트 편집기를 사용하여 파일을 여세요.
+
+![사용량 다운로드 페이지를 보여주는 예제](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+다음 비디오를 보면서 사용량 정보를 다운로드하는 방법을 알아보세요.
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### <a name="advanced-report-download"></a>고급 보고서 다운로드
+
+고급 보고서 다운로드를 사용하여 특정 날짜 범위 또는 계정에 대한 보고서를 얻을 수 있습니다. 출력 파일은 대량의 레코드 세트를 수용할 수 있는 CSV 형식입니다.
+
+1. Azure Enterprise Portal에서 **고급 보고서 다운로드** 를 선택합니다.
+1. 적절한 날짜 범위와 적절한 계정을 선택합니다.
+1. **사용 데이터 요청** 을 선택합니다.
+1. 보고서 상태가 **다운로드** 로 업데이트될 때까지 **새로 고침** 단추를 선택합니다.
+1. 보고서를 다운로드합니다.
+
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>이전 등록의 사용량 보고서 및 청구 정보 다운로드
+
+등록 양도가 끝난 후 이전 등록의 사용량 보고서 및 청구 정보를 다운로드할 수 있습니다. 기록 보고서는 Azure Enterprise Portal 및 Cost Management에서 사용할 수 있습니다.
+
+Azure Enterprise Portal은 보기에서 비활성 등록을 필터링합니다. 양도된 비활성 등록을 보려면 **활성** 상자를 선택 취소해야 합니다.  
+
+![활성 상자를 선택 취소하면 사용자가 비활성 등록을 볼 수 있습니다.](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>예정된 초과분 청구서의 PO 번호 변경
 
@@ -25,25 +102,25 @@ ms.locfileid: "91316140"
 
 ### <a name="to-update-the-azure-services-purchase-order-number"></a>Azure 서비스 구매 주문 번호를 업데이트하는 방법은 다음과 같습니다.
 
-1. Azure Enterprise Portal에서 **보고서** > **사용 요약**을 차례로 선택합니다.
-1. 오른쪽 위 모서리에서 **PO 번호 편집**을 선택합니다.
+1. Azure Enterprise Portal에서 **보고서** > **사용 요약** 을 차례로 선택합니다.
+1. 오른쪽 위 모서리에서 **PO 번호 편집** 을 선택합니다.
 1. **Azure 서비스** 라디오 단추를 선택합니다.
-1. 날짜 범위 드롭다운 메뉴에서 **청구서 기간**을 선택합니다.
+1. 날짜 범위 드롭다운 메뉴에서 **청구서 기간** 을 선택합니다.
 
    PO 번호는 청구서 알림을 받은 후 청구서를 결제하기 전에 7일 동안 편집할 수 있습니다.
 1. **PO 번호** 필드에서 새 PO 번호를 입력합니다.
-1. **저장**을 선택하여 변경 내용을 제출합니다.
+1. **저장** 을 선택하여 변경 내용을 제출합니다.
 
 ### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Azure Marketplace 구매 주문 번호를 업데이트하려는 경우,
 
-1. Azure Enterprise Portal에서 **보고서** > **사용 요약**을 차례로 선택합니다.
-1. 오른쪽 위 모서리에서 **PO 번호 편집**을 선택합니다.
+1. Azure Enterprise Portal에서 **보고서** > **사용 요약** 을 차례로 선택합니다.
+1. 오른쪽 위 모서리에서 **PO 번호 편집** 을 선택합니다.
 1. **Marketplace** 라디오 단추를 선택합니다.
-1. 날짜 범위 드롭다운 메뉴에서 **청구서 기간**을 선택합니다.
+1. 날짜 범위 드롭다운 메뉴에서 **청구서 기간** 을 선택합니다.
 
    PO 번호는 청구서 알림을 받은 후 청구서를 결제하기 전에 7일 동안 편집할 수 있습니다.
 1. **PO 번호** 필드에서 새 PO 번호를 입력합니다.
-1. **저장**을 선택하여 변경 내용을 제출합니다.
+1. **저장** 을 선택하여 변경 내용을 제출합니다.
 
 ## <a name="azure-enterprise-billing-frequency"></a>Azure 엔터프라이즈 대금 청구 주기
 
@@ -110,9 +187,9 @@ Microsoft는 Microsoft Azure 서비스의 모든 선불 구매에 대한 요금�
 
 고객의 대금 청구 주기는 연간, 분기별 또는 월간입니다. 청구 기간은 고객이 계약서에 서명할 때 결정됩니다. 월간 청구는 가장 짧은 청구 간격입니다.
 
-- 직접 등록의 청구 기간을 연간에서 분기별로 변경하려면 엔터프라이즈 관리자의 **승인**이 필요합니다. 간접 등록의 경우 파트너 관리자의 승인이 필요합니다. 현재 청구 분기가 끝나면 변경 내용이 적용됩니다.
-- 청구 기간을 연간 또는 분기별에서 월간으로 변경하려면 계약에 대한 **수정**이 필요합니다.  기존 등록 청구 기간을 변경하려면 엔터프라이즈 관리자 또는 "대금 청구 담당자"의 승인이 필요합니다.
-- 승인을 [Azure Enterprise Portal 지원](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c)에 **제출**합니다. 발급 범주, 즉 **요금 청구 및 청구서 발부**를 선택합니다.
+- 직접 등록의 청구 기간을 연간에서 분기별로 변경하려면 엔터프라이즈 관리자의 **승인** 이 필요합니다. 간접 등록의 경우 파트너 관리자의 승인이 필요합니다. 현재 청구 분기가 끝나면 변경 내용이 적용됩니다.
+- 청구 기간을 연간 또는 분기별에서 월간으로 변경하려면 계약에 대한 **수정** 이 필요합니다.  기존 등록 청구 기간을 변경하려면 엔터프라이즈 관리자 또는 "대금 청구 담당자"의 승인이 필요합니다.
+- 승인을 [Azure Enterprise Portal 지원](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c)에 **제출** 합니다. 발급 범주, 즉 **요금 청구 및 청구서 발부** 를 선택합니다.
 
 현재 청구 분기가 끝나면 변경 내용이 적용됩니다.
 
@@ -129,8 +206,8 @@ Microsoft는 Microsoft Azure 서비스의 모든 선불 구매에 대한 요금�
 크레딧을 보려면,
 
 1. [Azure Enterprise Portal](https://ea.azure.com)에서 **보고서** 섹션을 선택합니다.
-1. **사용 요약**을 선택합니다.
-1. 오른쪽 위 모서리에서 **M**을 **C** 보기로 변경합니다.
+1. **사용 요약** 을 선택합니다.
+1. 오른쪽 위 모서리에서 **M** 을 **C** 보기로 변경합니다.
 1. Azure 서비스 선불 테이블에서 조정 필드를 확장합니다.
 1. 등록에 적용되는 크레딧과 간단한 설명이 표시됩니다. 예를 들면 다음과 같습니다. 서비스 수준 계약 크레딧이라는 설명이 표시될 수 있습니다.
 

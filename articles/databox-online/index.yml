@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure Stack Edge 및 Azure Data Box Gateway 설명서 - 온라인 전송
-summary: Azure Stack Edge 및 Azure Data Box Gateway 디바이스를 사용하여 네트워크를 통해 고성능 데이터를 전송합니다. 데이터를 Azure로 이동하기 전에 컴퓨팅 가속 하드웨어가 탑재된 Azure Stack Edge Pro 디바이스를 사용하여 필터링, 분석 및 변환합니다. 클라우드 아카이브, 재해 복구를 위해 또는 클라우드 규모에서 데이터를 처리하도록 데이터를 보내려면 Data Box Gateway를 선택합니다.
+title: Azure Stack Edge 설명서
+summary: Azure Stack Edge 디바이스를 사용하여 컴퓨팅, 스토리지, 네트워킹 및 하드웨어 가속 기계 학습 등의 Azure 기능을 모든 에지 위치에 제공합니다.
 metadata:
-  title: Azure Stack Edge 및 Azure Data Box Gateway 설명서 - 온라인 전송
-  description: Azure로의 네트워크 데이터 전송을 통해 고성능을 발휘하기 위한 Data Box Gateway, Azure Stack Edge 설명서
+  title: Azure Stack Edge 설명서
+  description: 네트워크를 통한 고성능 데이터를 Azure로 전송하기 위한 Azure Stack Edge 설명서
   services: databox
   ms.service: databox
   ms.subservice: edge
@@ -11,15 +11,15 @@ metadata:
   ms.collection: collection
   author: alkohli
   ms.author: alkohli
-  ms.date: 09/08/2020
-  ms.openlocfilehash: 2995a94f1b56144afd191bc3e8eb97c2da4593ef
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 10/27/2020
+  ms.openlocfilehash: e0b1c488635314a8583f216d966a75095ac5e279
+  ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90902996"
+  ms.lasthandoff: 12/12/2020
+  ms.locfileid: "97356092"
 landingContent:
-- title: Azure Stack Edge 및 Data Box Gateway 정보
+- title: Azure Stack Edge 정보
   linkLists:
   - linkListType: overview
     links:
@@ -29,20 +29,18 @@ landingContent:
       url: azure-stack-edge-overview.md
     - text: Azure Stack Edge R이란?
       url: azure-stack-edge-j-series-overview.md
-    - text: Azure Stack Edge Mini란?
+    - text: Azure Stack Edge Mini R이란?
       url: azure-stack-edge-k-series-overview.md
-    - text: Data Box Gateway란?
-      url: data-box-gateway-overview.md
   - linkListType: architecture
     links:
     - text: Azure 데이터 전송 옵션 선택
-      url: /azure/storage/common/storage-choose-data-transfer-solution
+      url: ../storage/common/storage-choose-data-transfer-solution.md
     - text: 네트워크 또는 오프라인 전송 사용
-      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+      url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
   - linkListType: whats-new
     links:
-    - text: 2009 릴리스 정보
-      url: azure-stack-edge-gpu-2008-release-notes.md
+    - text: 2012 릴리스 정보
+      url: azure-stack-edge-gpu-2012-release-notes.md
 - title: 요구 사항 및 제한 사항
   linkLists:
   - linkListType: concept
@@ -51,12 +49,8 @@ landingContent:
       url: azure-stack-edge-gpu-system-requirements.md
     - text: Azure Stack Edge Pro FPGA 요구 사항
       url: azure-stack-edge-gpu-system-requirements.md
-    - text: Data Box Gateway 요구 사항
-      url: data-box-gateway-system-requirements.md
     - text: Azure Stack Edge Pro 제한 사항
       url: azure-stack-edge-limits.md
-    - text: Data Box Gateway 제한 사항
-      url: data-box-gateway-limits.md
 - title: 배포
   linkLists:
   - linkListType: tutorial
@@ -65,8 +59,6 @@ landingContent:
       url: azure-stack-edge-gpu-deploy-checklist.md
     - text: Azure Stack Edge Pro GPU
       url: azure-stack-edge-gpu-deploy-prep.md
-    - text: Data Box Gateway
-      url: data-box-gateway-deploy-prep.md
     - text: Marketplace를 통한 GPU 모듈
       url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
     - text: IoT Edge를 통한 Kubernetes 워크로드
@@ -80,15 +72,13 @@ landingContent:
   - linkListType: download
     links:
     - text: 샘플 - Azure Stack Edge Pro GPU용 C#
-      url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
+      url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 - title: 관리
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Azure Stack Edge Pro 공유
       url: azure-stack-edge-manage-shares.md
-    - text: Data Box Gateway 공유
-      url: data-box-gateway-manage-shares.md
     - text: Edge 컴퓨팅
       url: azure-stack-edge-manage-compute.md
     - text: Edge 스토리지 계정
@@ -99,8 +89,6 @@ landingContent:
     links:
     - text: Azure Stack Edge GPU
       url: azure-stack-edge-gpu-troubleshoot.md
-    - text: Data Box Gateway
-      url: data-box-gateway-troubleshoot.md
     - text: Edge 컴퓨팅 모듈
       url: azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge
     - text: Azure Stack Edge GPU 반환

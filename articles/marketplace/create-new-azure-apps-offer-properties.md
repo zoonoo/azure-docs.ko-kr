@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 1414f2ce53d1764e788749fc2d225c56f624bcdc
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6f92c138a02c9dbdc1d22ca04c733cfbee69dcd0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370248"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488522"
 ---
 # <a name="how-to-configure-your-azure-application-offer-properties"></a>Azure 애플리케이션 제품 속성을 구성 하는 방법
 
@@ -76,10 +76,6 @@ ms.locfileid: "94370248"
 
 1. **법적** 에서 **Microsoft의 상용 marketplace에 대 한 표준 계약 사용** 확인란의 선택을 취소 했는지 확인 합니다.
 1. 사용 **약관** 상자에 최대 1만 문자 텍스트를 입력 합니다.
-
-   > [!NOTE]
-   > 더 긴 설명이 필요한 경우 사용 약관을 찾을 수 있는 위치를 가리키는 단일 웹 주소를 입력 합니다. 이는 고객에게 활성 링크로 표시됩니다.
-
 1. 다음 탭을 계속 하기 전에 **초안 저장** 을 선택 합니다. 제품 목록.
 
 ## <a name="next-steps"></a>다음 단계

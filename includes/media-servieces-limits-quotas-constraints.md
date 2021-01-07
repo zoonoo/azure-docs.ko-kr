@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 84aa07ef282dd7100043f7e9bfcc97cb3b3673a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 59ff0ba854fa609e6d29f3473f662a89ab5f3dbc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755951"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554127"
 ---
 > [!NOTE]
 > 고정되지 않은 리소스의 경우 지원 티켓을 열어 할당량 증가를 요청하세요. 더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 마세요.
@@ -81,7 +81,7 @@ ms.locfileid: "92755951"
 | 스트리밍 정책 | 100<sup>(6)</sup> |
 | 한번에 자산과 연결된 고유 스트리밍 로케이터 | 100<sup>(7)</sup>(고정) |
 
-<sup>6</sup> 사용자 지정 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)을 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 스트리밍 로케이터에 다시 사용해야 합니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
+<sup>6</sup> 사용자 지정 [스트리밍 정책](/rest/api/media/streamingpolicies)을 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 스트리밍 로케이터에 다시 사용해야 합니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
 
 <sup>7</sup> 스트리밍 로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. 개별 사용자에게 서로 다른 액세스 권한을 부여하려면 DRM(Digital Rights Management)솔루션을 사용 합니다.
 

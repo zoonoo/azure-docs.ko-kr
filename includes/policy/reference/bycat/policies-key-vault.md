@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: bacc54ac4a21e5e9d5a4b2d19801022cde65701d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d6ca21e3e44866d644367e7606cec15bd6ca7bf0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311822"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96007884"
 ---
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -25,7 +25,8 @@ ms.locfileid: "92311822"
 |[Key Vault의 진단 설정을 Event Hub에 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2) |이 진단 설정이 누락된 Key Vault를 만들거나 업데이트할 때 Key Vault의 진단 설정을 배포하여 지역별 Event Hub로 스트림합니다. |deployIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_DiagnosticLog_Deploy.json) |
 |[Key Vault의 진단 로그를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |진단 로그 사용을 감사합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 사용할 활동 내역을 다시 만들 수 있습니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 |[Key Vault에서 방화벽을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |키 자격 증명 모음 방화벽은 무단 트래픽이 키 자격 증명 모음에 도달하는 것을 방지하고 비밀에 대한 추가 보호 계층을 제공합니다. 키 자격 증명 모음 방화벽을 활성화하여 허용된 네트워크의 트래픽만 키 자격 증명 모음에 액세스할 수 있도록 합니다. |감사, 사용 안 함 |[1.0.1 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
-|[Key Vault 개체를 복구할 수 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |이 정책은 Key Vault 개체를 복구할 수 없는 경우 감사합니다. Soft Delete 기능은 DELETE 작업 후에도 지정된 보존 기간(90일) 동안 리소스를 효율적으로 유지하는 동시에 개체가 삭제된 것처럼 보이게 합니다. '제거 보호'가 켜져 있으면 보존 기간인 90일이 지날 때까지 삭제된 상태의 자격 증명 모음이나 개체를 제거할 수 없습니다. 이러한 자격 증명 모음 및 개체는 계속 복구할 수 있으며, 고객에게 보존 정책을 준수하도록 합니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[키 자격 증명 모음에서 제거 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |키 자격 증명 모음을 악의적으로 삭제하면 데이터가 영구적으로 손실될 수 있습니다. 조직의 악의적인 내부자가 잠재적으로 키 자격 증명 모음을 삭제하고 제거할 수 있는 액세스 권한을 얻을 수 있습니다. 제거 보호는 일시 삭제된 키 자격 증명 모음에 대해 필수 보존 기간을 적용하여 내부자 공격으로부터 보호합니다. 일시 삭제 보존 기간 동안에는 조직 또는 Microsoft 내부의 어느 누구도 키 자격 증명 모음을 제거할 수 없습니다. |감사, 거부, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[키 자격 증명 모음에서 일시 삭제를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d) |일시 삭제를 사용하지 않고 키 자격 증명 모음을 삭제하면 키 자격 증명 모음에 저장된 모든 비밀, 키 및 인증서가 영구적으로 삭제됩니다. 키 자격 증명 모음을 실수로 삭제하면 데이터가 영구적으로 손실될 수 있습니다. 일시 삭제를 사용하면 실수로 삭제된 키 자격 증명 모음을 구성 가능한 보존 기간 동안 복구할 수 있습니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_SoftDeleteMustBeEnabled_Audit.json) |
 |[키는 HSM(하드웨어 보안 모듈)에서 지원되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F587c79fe-dd04-4a5e-9d0b-f89598c7261b) |HSM은 키를 저장하는 하드웨어 보안 모듈입니다. HSM은 암호화 키에 대한 물리적 보호 계층을 제공합니다. 암호화 키는 소프트웨어 키보다 높은 수준의 보안을 제공하는 물리적 HSM을 벗어날 수 없습니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_HSMBacked.json) |
 |[키는 지정된 RSA 또는 EC 암호화 유형이어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75c4f823-d65c-4f29-a733-01d0077fdbcb) |일부 애플리케이션에서는 특정 암호화 유형으로 지원되는 키를 사용해야 합니다. 사용자 환경에서 특정 암호화 키 유형(RSA 또는 EC)을 적용합니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_AllowedKeyTypes.json) |
 |[키에는 만료 날짜가 설정되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |암호화 키에는 정의된 만료 날짜가 있어야 하며 영구적이지 않아야 합니다. 영구적으로 유효한 키는 잠재적인 공격자에게 키를 손상시킬 수 있는 시간을 더 많이 제공합니다. 보안상 암호화 키에 대한 만료 날짜를 설정하는 것이 좋습니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |

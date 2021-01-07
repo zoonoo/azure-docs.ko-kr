@@ -9,15 +9,15 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 08/31/2020
-ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/16/2020
+ms.openlocfilehash: 4b1c98d8621267b300a82b697bce66a6b94e82f3
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791633"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825917"
 ---
-# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치
+# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치(failover)
 
 이 문서에서는 SQL Managed Instance 일반 용도 (GP) 및 중요 비즈니스용 (BC) 서비스 계층에서 주 노드를 수동으로 장애 조치 하는 방법 및 BC 서비스 계층에서 보조 읽기 전용 복제본 노드를 수동으로 장애 조치 (failover) 하는 방법을 설명 합니다.
 
@@ -37,9 +37,9 @@ ms.locfileid: "92791633"
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 수동 장애 조치 (failover) 시작
 
-### <a name="rbac-permissions-required"></a>RBAC 권한 필요
+### <a name="azure-rbac-permissions-required"></a>Azure RBAC 권한 필요
 
-장애 조치 (failover)를 시작 하는 사용자에 게는 다음 RBAC 역할 중 하나가 있어야 합니다.
+장애 조치 (failover)를 시작 하는 사용자에 게는 다음 Azure 역할 중 하나가 있어야 합니다.
 
 - 구독 소유자 역할 또는
 - Managed Instance 참가자 역할 또는
@@ -140,7 +140,7 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 > [!IMPORTANT]
 > 사용자가 시작한 수동 장애 조치 (failover)의 기능 제한 사항은 다음과 같습니다.
-> - **30 분** 마다 동일한 Managed Instance에서 하나의 장애 조치 (failover)가 시작 될 수 있습니다.
+> - **15 분** 마다 동일한 Managed Instance에서 하나의 장애 조치 (failover)가 시작 될 수 있습니다.
 > - BC 인스턴스의 경우 장애 조치 (failover) 요청이 허용 되려면 복제본의 쿼럼이 있어야 합니다.
 > - BC 인스턴스의 경우 장애 조치 (failover)를 시작할 읽을 수 있는 보조 복제본을 지정할 수 없습니다.
 

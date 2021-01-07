@@ -3,16 +3,17 @@ title: Azure의 Oracle 데이터베이스에 대 한 참조 아키텍처 | Micro
 description: Microsoft Azure Virtual Machines에서 Oracle Database Enterprise Edition 데이터베이스를 실행 하기 위한 아키텍처를 참조 합니다.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: d2a6954ffdb9f992ada7fc24dbcc161658b21d23
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480431"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486745"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
 
@@ -108,7 +109,7 @@ Oracle Data Guard Far 동기화는 Oracle 데이터베이스에 대해 제로 �
 
 GoldenGate를 사용 하면 엔터프라이즈 전체에서 여러 유형의 여러 플랫폼 간에 트랜잭션 수준에서 데이터를 교환 및 조작할 수 있습니다. 기존 인프라의 트랜잭션 무결성 및 최소 오버 헤드로 커밋된 트랜잭션을 이동 합니다. 모듈식 아키텍처를 사용 하면 선택한 데이터 레코드, 트랜잭션 변경 내용, 다양 한 토폴로지에서 DDL (데이터 정의 언어)에 대 한 변경 내용을 추출 하 고 복제할 수 있습니다.
 
-Oracle GoldenGate를 사용 하면 양방향 복제를 제공 하 여 고가용성을 위해 데이터베이스를 구성할 수 있습니다. 이렇게 하면 **다중 마스터** 또는 **활성-활성 구성을**설정할 수 있습니다. 다음 다이어그램은 Azure의 Oracle GoldenGate 활성-활성 설치에 권장 되는 아키텍처입니다. 다음 아키텍처에서는 라이선스 비용을 절감 하 고 성능을 최대화 하기 위해 [제약이 있는 코어 vCPUs](../../../virtual-machines/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../sizes-memory.md) 사용 하 여 Oracle 데이터베이스를 구성 했습니다. 성능 및 가용성을 위해 여러 프리미엄 또는 ultra 디스크 (관리 디스크)가 사용 됩니다.
+Oracle GoldenGate를 사용 하면 양방향 복제를 제공 하 여 고가용성을 위해 데이터베이스를 구성할 수 있습니다. 이렇게 하면 **다중 마스터** 또는 **활성-활성 구성을** 설정할 수 있습니다. 다음 다이어그램은 Azure의 Oracle GoldenGate 활성-활성 설치에 권장 되는 아키텍처입니다. 다음 아키텍처에서는 라이선스 비용을 절감 하 고 성능을 최대화 하기 위해 [제약이 있는 코어 vCPUs](../../../virtual-machines/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../sizes-memory.md) 사용 하 여 Oracle 데이터베이스를 구성 했습니다. 성능 및 가용성을 위해 여러 프리미엄 또는 ultra 디스크 (관리 디스크)가 사용 됩니다.
 
 ![Data Guard Broker-FSFO에서 가용성 영역을 사용 하는 Oracle Database](./media/oracle-reference-architecture/oracledb_gg_az.png)
 
@@ -168,7 +169,7 @@ Oracle 설명서의 다른 [분할 메서드에](https://docs.oracle.com/en/data
 
 Oracle Data Guard는 시스템 관리, 사용자 정의 및 복합 분할 메서드를 사용 하 여 분할에 사용할 수 있습니다.
 
-다음 다이어그램은 각 분할 된 데이터의 고가용성을 위해 Oracle Data Guard를 사용 하는 Oracle 분할에 대 한 참조 아키텍처입니다. 아키텍처 다이어그램은 _복합 분할 메서드_를 보여 줍니다. 아키텍처 다이어그램은 데이터 위치, 부하 분산, 고가용성, 재해 복구 등에 대 한 요구 사항이 서로 다른 응용 프로그램에 대해 다를 수 있으며, 다른 방법을 사용 하 여 분할 수 있습니다. Oracle 분할를 통해 이러한 요구 사항을 충족 하 고 이러한 옵션을 제공 하 여 가로 및 효율적으로 확장할 수 있습니다. Oracle GoldenGate를 사용 하 여 유사한 아키텍처를 배포할 수도 있습니다.
+다음 다이어그램은 각 분할 된 데이터의 고가용성을 위해 Oracle Data Guard를 사용 하는 Oracle 분할에 대 한 참조 아키텍처입니다. 아키텍처 다이어그램은 _복합 분할 메서드_ 를 보여 줍니다. 아키텍처 다이어그램은 데이터 위치, 부하 분산, 고가용성, 재해 복구 등에 대 한 요구 사항이 서로 다른 응용 프로그램에 대해 다를 수 있으며, 다른 방법을 사용 하 여 분할 수 있습니다. Oracle 분할를 통해 이러한 요구 사항을 충족 하 고 이러한 옵션을 제공 하 여 가로 및 효율적으로 확장할 수 있습니다. Oracle GoldenGate를 사용 하 여 유사한 아키텍처를 배포할 수도 있습니다.
 
 ![분할를 사용 하 여 데이터 보호 브로커-FSFO과 함께 가용성 영역 사용 Oracle Database](./media/oracle-reference-architecture/oracledb_dg_sh_az.png)
 
@@ -206,12 +207,12 @@ Oracle Data Guard는 시스템 관리, 사용자 정의 및 복합 분할 메서
 
 Oracle 워크 로드를 Azure에 배포 하는 경우 Microsoft는 모든 호스트 OS 수준 패치를 처리 합니다. 계획 된 모든 OS 수준 유지 관리는 고객이 계획 된 유지 관리를 위해 고객에 게 미리 전달 됩니다. 서로 다른 두 가용성 영역의 두 서버는 동시에 패치할 수 없습니다. VM 유지 관리 및 패치 적용에 대 한 자세한 내용은 [virtual machines의 가용성 관리](../../manage-availability.md) 를 참조 하세요. 
 
-[Azure Automation 업데이트 관리](../../../automation/update-management/update-mgmt-overview.md)를 사용 하 여 가상 머신 운영 체제 패치를 자동화할 수 있습니다. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) 또는 [Azure Automation 업데이트 관리](../../../automation/update-management/update-mgmt-overview.md) 를 사용 하 여 Oracle 데이터베이스를 패치 및 유지 관리 하 여 가동 중지 시간을 최소화할 수 있습니다. Oracle 데이터베이스의 컨텍스트에서 사용할 수 있는 방법을 이해 하려면 [연속 배달 및 Blue/녹색 배포](/azure/devops/learn/what-is-continuous-delivery) 를 참조 하세요.
+[Azure Automation 업데이트 관리](../../../automation/update-management/overview.md)를 사용 하 여 가상 머신 운영 체제 패치를 자동화할 수 있습니다. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) 또는 [Azure Automation 업데이트 관리](../../../automation/update-management/overview.md) 를 사용 하 여 Oracle 데이터베이스를 패치 및 유지 관리 하 여 가동 중지 시간을 최소화할 수 있습니다. Oracle 데이터베이스의 컨텍스트에서 사용할 수 있는 방법을 이해 하려면 [연속 배달 및 Blue/녹색 배포](/azure/devops/learn/what-is-continuous-delivery) 를 참조 하세요.
 
 ## <a name="architecture-and-design-considerations"></a>아키텍처 및 디자인 고려 사항
 
 - 라이선스 비용을 절감 하 고 성능을 최대화 하려면 Oracle Database VM에 대해 [제약이 있는 코어 vCPUs](../../../virtual-machines/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../sizes-memory.md) 사용 하는 것이 좋습니다. 성능 및 가용성을 위해 여러 프리미엄 또는 ultra disks (관리 디스크)를 사용 합니다.
-- 관리 디스크를 사용 하는 경우 재부팅 시 디스크/장치 이름이 변경 될 수 있습니다. 다시 부팅 간에 탑재를 유지 하려면 이름 대신 장치 UUID를 사용 하는 것이 좋습니다. 자세한 내용은 [여기](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab)를 참조하세요.
+- 관리 디스크를 사용 하는 경우 재부팅 시 디스크/장치 이름이 변경 될 수 있습니다. 다시 부팅 간에 탑재를 유지 하려면 이름 대신 장치 UUID를 사용 하는 것이 좋습니다. 자세한 내용은 [여기](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab)를 참조하세요.
 - 가용성 영역을 사용 하 여 지역에서 고가용성을 구현 합니다.
 - Oracle 데이터베이스에 대 한 ultra disks (사용 가능한 경우) 또는 프리미엄 디스크를 사용 하는 것이 좋습니다.
 - Oracle Data Guard를 사용 하 여 다른 Azure 지역에 대기 Oracle 데이터베이스를 설정 하는 것이 좋습니다.

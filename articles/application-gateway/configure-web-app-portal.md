@@ -6,18 +6,18 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 01/02/2021
 ms.author: victorh
-ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: aadd4904ff218613c0dd24daff784ad5b8b90fbb
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397555"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854913"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Application Gateway를 사용하여 App Service 구성
 
-App service는 전용 배포가 아닌 다중 테 넌 트 서비스 이므로 들어오는 요청의 호스트 헤더를 사용 하 여 올바른 app service 끝점에 대 한 요청을 확인 합니다. 일반적으로 응용 프로그램의 DNS 이름은 app service 앞단에 application gateway와 연결 된 DNS 이름으로, 백엔드 app service의 도메인 이름과 다릅니다. 따라서 application gateway에서 받은 원래 요청의 호스트 헤더는 백 엔드 서비스의 호스트 이름과 동일 하지 않습니다. 이 때문에 응용 프로그램 게이트웨이에서 백 엔드에 대 한 요청에 있는 호스트 헤더를 백 엔드 서비스의 호스트 이름으로 변경 하지 않는 한 다중 테 넌 트 백 엔드는 해당 요청을 올바른 끝점으로 확인할 수 없습니다.
+App Service는 전용 배포가 아닌 다중 테넌트 서비스이므로 들어오는 요청의 호스트 헤더를 사용하여 올바른 App Service 엔드포인트에 대한 요청을 확인합니다. 일반적으로 응용 프로그램의 DNS 이름은 app service 앞단에 application gateway와 연결 된 DNS 이름으로, 백엔드 app service의 도메인 이름과 다릅니다. 따라서 application gateway에서 받은 원래 요청의 호스트 헤더는 백 엔드 서비스의 호스트 이름과 동일 하지 않습니다. 이 때문에 응용 프로그램 게이트웨이에서 백 엔드에 대 한 요청에 있는 호스트 헤더를 백 엔드 서비스의 호스트 이름으로 변경 하지 않는 한 다중 테 넌 트 백 엔드는 해당 요청을 올바른 끝점으로 확인할 수 없습니다.
 
 Application Gateway는 요청이 `Pick host name from backend target` Application Gateway에서 백 엔드로 라우팅될 때 백 엔드의 호스트 이름을 사용 하 여 요청의 호스트 헤더를 재정의 하는 스위치를 제공 합니다. 이 기능을 사용 하면 Azure app service 및 API management와 같은 다중 테 넌 트 백 엔드를 지원할 수 있습니다. 
 

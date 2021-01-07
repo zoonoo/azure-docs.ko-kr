@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314504"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448021"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 테이블 분할
 
@@ -30,7 +30,7 @@ ms.locfileid: "93314504"
 
 ### <a name="benefits-to-loads"></a>로드에 대한 이점
 
-전용 SQL 풀에서 분할 하는 주요 장점은 파티션 삭제, 전환 및 병합을 사용 하 여 데이터 로드의 효율성과 성능을 향상 시키는 것입니다. 대부분의 경우 데이터는 데이터가 데이터베이스에 로드되는 순서에 밀접하게 관련된 날짜 열에서 분할됩니다. 파티션을 사용 하 여 데이터를 유지 하는 가장 큰 이점 중 하나는 트랜잭션 로깅의 방지입니다. 단순히 데이터를 삽입, 업데이트 또는 삭제하는 것이 생각과 노력이 거의 필요하지 않은 가장 간단한 방법일 수 있지만, 로드 프로세스 중에 분할을 사용하면 성능을 크기 향상시킬 수 있습니다.
+전용 SQL 풀에서 분할 하는 주요 장점은 파티션 삭제, 전환 및 병합을 사용 하 여 데이터 로드의 효율성과 성능을 향상 시키는 것입니다. 대부분의 경우 데이터는 SQL 풀로 로드 되는 순서와 밀접 하 게 연관 된 날짜 열에 분할 됩니다. 파티션을 사용 하 여 데이터를 유지 하는 가장 큰 이점 중 하나는 트랜잭션 로깅의 방지입니다. 단순히 데이터를 삽입, 업데이트 또는 삭제하는 것이 생각과 노력이 거의 필요하지 않은 가장 간단한 방법일 수 있지만, 로드 프로세스 중에 분할을 사용하면 성능을 크기 향상시킬 수 있습니다.
 
 파티션 전환을 사용하여 테이블 섹션을 빠르게 제거하거나 바꿀 수 있습니다.  예를 들어 판매 팩트 테이블은 지난 36개월 동안의 데이터만 포함할 수 있습니다. 매월 말에 가장 오래된 달의 판매 데이터는 테이블에서 삭제됩니다.  이 데이터는 delete 문을 사용하여 가장 오래된 월의 데이터를 삭제하는 방식으로 삭제할 수 있습니다. 
 
@@ -355,7 +355,7 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
     DROP TABLE #partitions;
     ```
 
-이 방법을 사용 하는 경우 소스 제어의 코드는 정적으로 유지 되 고 분할 경계 값은 동적이 될 수 있습니다. 시간이 지남에 따라 데이터베이스와 진화 합니다.
+이 방법을 사용 하는 경우 소스 제어의 코드는 정적으로 유지 되 고 분할 경계 값은 동적이 될 수 있습니다. 시간이 지남에 따라 SQL 풀에서 진화 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

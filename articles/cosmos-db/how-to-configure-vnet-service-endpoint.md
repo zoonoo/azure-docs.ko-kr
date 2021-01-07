@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2bbdbc7a0ed71634522bd68dbf0807264a409525
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1d63d21f4c49e3c7aef035208477ac9fc79f2e51
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101734"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637186"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>VNet (가상 네트워크)에서 Azure Cosmos DB에 대 한 액세스 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -50,7 +50,7 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 1. Azure Cosmos DB 계정을 가상 네트워크에서 액세스할 수 있도록 활성화한 후에 선택한 이 서브넷의 트래픽만 허용합니다. 추가한 가상 네트워크 및 서브넷은 다음 스크린샷에 표시된 것처럼 표시됩니다.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Virtual Network 및 서브넷 선택":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="성공적으로 구성된 가상 네트워크 및 서브넷":::
 
 > [!NOTE]
 > 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하려면 다음 구독 사용 권한이 필요합니다.
@@ -70,7 +70,7 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 1. 새 가상 네트워크를 만드는 데 필요한 세부 정보를 제공한 다음, **만들기** 를 선택합니다. “Microsoft.AzureCosmosDB”가 활성화된 서비스 엔드포인트와 함께 서브넷이 생성됩니다.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Virtual Network 및 서브넷 선택":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="새 가상 네트워크에 대한 가상 네트워크 및 서브넷을 선택합니다.":::
 
 Azure Cosmos DB 계정이 Azure Cognitive Search 같은 다른 Azure 서비스에서 사용 되거나 Stream analytics 또는 Power BI에서 액세스 되는 경우 **글로벌 Azure 데이터 센터 내에서 연결 허용** 을 선택 하 여 액세스를 허용 합니다.
 
@@ -84,7 +84,7 @@ Azure Cosmos DB 계정이 Azure Cognitive Search 같은 다른 Azure 서비스�
 
 1. 가상 네트워크 또는 서브넷 규칙을 제거하려면 가상 네트워크 또는 서브넷 옆에 있는 **...** 를 선택하고, **제거** 를 선택합니다.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Virtual Network 및 서브넷 선택":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="가상 네트워크 제거":::
 
 1. **저장** 을 선택하여 변경 내용을 적용합니다.
 
@@ -322,7 +322,7 @@ IP 방화벽 규칙을 사용 하 여 가상 네트워크 서비스 끝점을 �
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>가상 네트워크 서비스 엔드포인트 및 IP 액세스 제어 정책 모두 Azure Cosmos 계정에서 지정할 수 있나요? 
 
-가상 네트워크 서비스 엔드포인트 및 IP 액세스 제어 정책(일명 방화벽) 모두 Azure Cosmos 계정에서 사용하도록 설정할 수 있습니다. 이러한 두 기능은 상호 보완적이며 전체적으로 Azure Cosmos 계정의 격리 및 보안을 보장합니다. IP 방화벽을 사용하면 고정 IP가 사용자 계정에 액세스할 수 있습니다. 
+Azure Cosmos 계정에 가상 네트워크 서비스 끝점 및 IP 액세스 제어 정책 (방화벽이 라고도 함)을 모두 사용 하도록 설정할 수 있습니다. 이러한 두 기능은 상호 보완적이며 전체적으로 Azure Cosmos 계정의 격리 및 보안을 보장합니다. IP 방화벽을 사용하면 고정 IP가 사용자 계정에 액세스할 수 있습니다. 
 
 ### <a name="how-do-i-limit-access-to-subnet-within-a-virtual-network"></a>가상 네트워크 내의 서브넷에 대한 액세스를 제한하려면 어떻게 해야 하나요? 
 
@@ -336,7 +336,7 @@ IP 방화벽 또는 가상 네트워크 액세스 규칙이 추가되면 허용�
 
 Azure Cosmos DB에 대한 서비스 엔드포인트가 서브넷에서 사용하도록 설정되면 계정에 도달하는 트래픽의 원본이 공용 IP에서 가상 네트워크 및 서브넷으로 전환됩니다. Azure Cosmos 계정에 IP 기반 방화벽이 있는 경우에만 서브넷을 사용하는 서비스의 요청이 더 이상 IP 방화벽 규칙과 일치하지 않아 거부됩니다. IP 기반 방화벽에서 가상 네트워크 기반 액세스 제어로 원활하게 마이그레이션하는 단계로 이동하세요.
 
-### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>VNET 서비스 엔드포인트를 사용하는 Azure Cosmos 계정에 추가적인 RBAC 권한이 필요합니까?
+### <a name="are-additional-azure-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>VNET 서비스 끝점을 사용 하는 Azure Cosmos 계정에 추가 Azure RBAC 권한이 필요 한가요?
 
 Azure Cosmos 계정에 VNet 서비스 엔드포인트를 추가한 후 계정 설정을 변경하려면 Azure Cosmos 계정에 구성된 모든 VNET의 `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` 작업에 액세스해야 합니다. 속성을 평가하기 전에 권한 부여 프로세스에서 리소스(예: 데이터베이스 및 가상 네트워크 리소스)에 대한 액세스의 유효성을 검사하기 때문에 이 권한이 필요합니다.
  

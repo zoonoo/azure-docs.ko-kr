@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab14413de1f999747e5b3fb58b505e0a9258a55
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cd2aa5e9ff8cbaeead69f11d2e3de7f760b53ec
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441218"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168647"
 ---
 # <a name="saml-authentication-with-azure-active-directory"></a>Azure Active Directory 사용 하는 SAML 인증
 
@@ -53,8 +53,8 @@ SAML 주소를 사용 하는 가장 중요 한 사용 사례 중 하나는 SSO �
 
 ## <a name="implement-saml-authentication-with-azure-ad"></a>Azure AD를 사용 하 여 SAML 인증 구현
 
-* [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램을 통합 하기 위한 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램을 통합 하기 위한 자습서](../saas-apps/tutorial-list.md) 
 
-* [비 갤러리 응용 프로그램에 대 한 SAML 기반 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) 
+* [비 갤러리 응용 프로그램에 대 한 SAML 기반 Single Sign-On 구성](../manage-apps/add-application-portal.md) 
 
-* [Azure AD에서 SAML 프로토콜을 사용하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference)
+* [Azure AD에서 SAML 프로토콜을 사용하는 방법](../develop/active-directory-saml-protocol-reference.md)

@@ -1,7 +1,7 @@
 ---
 title: Azure Functions 앱에 ml 모델 배포 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning를 사용 하 여 Azure Functions 앱에 모델을 배포 하는 방법을 알아봅니다.
+description: Azure Machine Learning를 사용 하 여 모델을 패키지 하 고 Azure Functions 앱에서 웹 서비스로 배포 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: 5e5ab4e3c9332d0daa1acf32edeeba2423c97ac3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 901e4d458cc2d77d4e7f13c1782b86c8532ca499
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324593"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327171"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 
@@ -277,7 +277,7 @@ print(blob.location)
     }
     ```
 
-3. 함수에서 생성 된 출력을 보려면 다음 명령을 사용 하 여 생성 된 출력 파일을 나열 합니다. `<triggerConnectionString>`이전에 반환 된 연결 문자열로 대체 합니다. 이 예에서 `output` 는 앞에서 만든 출력 컨테이너의 이름입니다. 다른 이름을 사용 하는 경우 다음 값을 바꿉니다.:
+3. 함수에서 생성 된 출력을 보려면 다음 명령을 사용 하 여 생성 된 출력 파일을 나열 합니다. `<triggerConnectionString>`이전에 반환 된 연결 문자열로 대체 합니다. 이 예에서 `output` 는 앞에서 만든 출력 컨테이너의 이름입니다. 다른 이름을 사용 하는 경우 다음 값을 바꿉니다.
 
     ```azurecli-interactive
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv

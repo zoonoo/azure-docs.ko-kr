@@ -3,19 +3,19 @@ title: Service Fabric 서비스 끝점 지정
 description: HTTPS 엔드포인트를 설정하는 방법을 포함하여 서비스 매니페스트에서 엔드포인트 리소스를 설명하는 방법
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 0ed5a4aa8993f52d42b97288cd143e6114ff36ff
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313580"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033309"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요
 매니페스트 파일을 사용 하 여 응용 프로그램 및 서비스를 정의 하 고 버전을 Service Fabric 합니다. ServiceManifest.xml 및 ApplicationManifest.xml에 대 한 높은 수준의 개요는 [Service Fabric 응용 프로그램 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)를 참조 하세요.
 
-서비스 매니페스트를 사용 하면 컴파일된 코드를 변경 하지 않고 서비스에서 사용 하는 리소스를 선언 하거나 변경할 수 있습니다. Service Fabric은 서비스에 대 한 끝점 리소스의 구성을 지원 합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 애플리케이션 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 배포 시에 이러한 리소스를 변경할 수 있으며 즉, 서비스에 새로운 구성 메커니즘을 도입하지 않아도 됩니다. ServiceManifest.xml 파일에 대 한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치 되며 [servicefabricservicemodel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명 되어 있습니다.
+서비스 매니페스트를 사용 하면 컴파일된 코드를 변경 하지 않고 서비스에서 사용 하는 리소스를 선언 하거나 변경할 수 있습니다. Service Fabric은 서비스에 대 한 끝점 리소스의 구성을 지원 합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 애플리케이션 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 배포 시에 이러한 리소스를 변경할 수 있으며 즉, 서비스에 새로운 구성 메커니즘을 도입하지 않아도 됩니다. ServiceManifest.xml 파일에 대 한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd* 에 설치 되며 [servicefabricservicemodel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명 되어 있습니다.
 
 ## <a name="endpoints"></a>엔드포인트
 서비스 매니페스트에 엔드포인트 리소스가 정의되면 서비스 패브릭에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. 예를 들어 이 단락 다음에 제공된 매니페스트 코드 조각에 지정된 엔드포인트 *ServiceEndpoint1* 을 보세요. 또한 서비스에서 리소스의 특정 포트를 요청할 수도 있습니다. 다른 클러스터 노드에서 실행되는 서비스 복제본을 다른 포트 번호에 할당할 수 있으며, 같은 노드에서 실행되는 서비스의 복제본은 포트를 공유합니다. 그러면 서비스 복제본은 복제 및 클라이언트 요청의 수신 대기를 위해 필요한 경우 이러한 포트를 사용할 수 있습니다.
@@ -40,7 +40,7 @@ Https 끝점을 지정 하는 서비스를 활성화할 때 포트에 대 한 �
 </Resources>
 ```
 
-단일 서비스 패키지에 여러 코드 패키지가 있으면 해당 코드 패키지가 **엔드포인트** 섹션에서도 참조되어야 합니다.  예를 들어 **ServiceEndpoint2a** 및 **ServiceEndpoint2b**가 다른 코드 패키지를 참조하는 동일한 서비스 패키지의 엔드포인트이면, 각 엔드포인트에 해당하는 코드 패키지는 다음과 같이 구분됩니다.
+단일 서비스 패키지에 여러 코드 패키지가 있으면 해당 코드 패키지가 **엔드포인트** 섹션에서도 참조되어야 합니다.  예를 들어 **ServiceEndpoint2a** 및 **ServiceEndpoint2b** 가 다른 코드 패키지를 참조하는 동일한 서비스 패키지의 엔드포인트이면, 각 엔드포인트에 해당하는 코드 패키지는 다음과 같이 구분됩니다.
 
 ```xml
 <Resources>
@@ -199,7 +199,7 @@ Parameters에서 아래 내용을 추가합니다.
   </Parameters>
 ```
 
-응용 프로그램을 배포 하는 동안 이러한 값을 ApplicationParameters로 전달할 수 있습니다.  예를 들면 다음과 같습니다.
+응용 프로그램을 배포 하는 동안 이러한 값을 ApplicationParameters로 전달할 수 있습니다.  예를 들어:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -207,7 +207,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 참고: 지정 된 ApplicationParameter에 제공 된 값이 비어 있으면 해당 EndPointName에 대해 Servicemanifest.xml에 제공 된 기본값으로 돌아갑니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ServiceManifest에서 다음을 지정했습니다.
 

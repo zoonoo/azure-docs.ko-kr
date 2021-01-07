@@ -3,12 +3,12 @@ title: 신뢰할 수 있는 컬렉션 작업
 description: Azure Service Fabric 응용 프로그램 내에서 신뢰할 수 있는 컬렉션을 사용 하기 위한 모범 사례를 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86255798"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651909"
 ---
 # <a name="working-with-reliable-collections"></a>신뢰할 수 있는 컬렉션 작업
 Service Fabric은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용법을 살펴보고 실제로 수행 하는 작업을 확인 합니다.
@@ -35,6 +35,7 @@ catch (TimeoutException)
 {
    // choose how to handle the situation where you couldn't get a lock on the file because it was 
    // already in use. You might delay and retry the operation
+   await Task.Delay(100);
 }
 ```
 
@@ -119,7 +120,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 }
 ```
 
-다시 일반 .NET 사전으로 위의 코드가 제대로 작동하며 이는 일반적인 패턴입니다. 개발자는 키를 사용하여 값을 조회합니다. 값이 있는 경우 개발자는 속성의 값을 변경 합니다. 그러나 신뢰할 수 있는 컬렉션으로 이 코드는 **개체를 신뢰할 수 있는 컬렉션에 제공하면 수정해서는 안됩니다**에서 설명한 바와 같이 동일한 문제를 보여줍니다.
+다시 일반 .NET 사전으로 위의 코드가 제대로 작동하며 이는 일반적인 패턴입니다. 개발자는 키를 사용하여 값을 조회합니다. 값이 있는 경우 개발자는 속성의 값을 변경 합니다. 그러나 신뢰할 수 있는 컬렉션으로 이 코드는 **개체를 신뢰할 수 있는 컬렉션에 제공하면 수정해서는 안됩니다** 에서 설명한 바와 같이 동일한 문제를 보여줍니다.
 
 신뢰할 수 있는 컬렉션에서 값을 업데이트하는 올바른 방법은 기존 값에 대한 참조를 가져오고 변경할 수 없는 이 참조에서 참조하는 개체를 고려하는 것입니다. 그런 다음, 원본 개체의 정확한 복사본인 새 개체를 만듭니다. 이제 이 새 개체의 상태를 수정하고 새 개체를 컬렉션에 작성하여 바이트 배열로 직렬화되며 이는 로컬 파일에 추가되고 복제본에 전송됩니다. 변경 내용을 커밋한 후에 메모리내 개체인 로컬 파일 및 모든 복제본은 정확히 동일한 상태입니다. 모두 정상입니다.
 

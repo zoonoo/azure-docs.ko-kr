@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: 4491171062e582db8388c3eff380d67ea1a0c51c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82ed1d57d72a4479005d8bfd2234c124a97096ee
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085659"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965989"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
@@ -37,9 +38,9 @@ ms.locfileid: "87085659"
 
 | 배포 | 버전 |
 |---|---|
-| 윈도우 10 | 핵심 |
-| Windows Server 2016 | 핵심 |
-| Windows Server 2012 R2 | 핵심 |
+| Windows 10 | 코어 |
+| Windows Server 2016 | 코어 |
+| Windows Server 2012 R2 | 코어 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 

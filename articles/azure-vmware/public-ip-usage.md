@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에서 공용 IP 기능을 사용 하는 방법
 description: 이 문서에서는 Azure 가상 WAN에서 공용 IP 기능을 사용 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: f51f00a9adc1fd122e723909ecaa6193c152d496
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912670"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517906"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 공용 IP 기능을 사용 하는 방법
 
@@ -29,7 +29,7 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 이 문서에서는 가상 WAN에서 공용 IP 기능을 사용할 수 있는 방법을 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure VMware 솔루션 환경
 - Azure VMware 솔루션 환경에서 실행 중인 웹 서버입니다.
@@ -39,14 +39,14 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 :::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="공용 IP 아키텍처 다이어그램" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
-아키텍처 다이어그램은 Azure VMware 솔루션 환경에서 호스트 되 고 RFC1918 개인 IP 주소를 사용 하 여 구성 된 고객 웹 서버를 보여 줍니다.  이 웹 서비스는 가상 WAN 공용 IP 기능을 통해 인터넷에서 사용할 수 있게 됩니다.  공용 IP는 일반적으로 Azure 방화벽에서 변환 되는 대상 NAT입니다. DNAT 규칙을 사용 하는 방화벽 정책은 공용 IP 주소 요청을 포트를 사용 하는 개인 주소 (웹 서버)로 변환 합니다.
+아키텍처 다이어그램은 Azure VMware 솔루션 환경에서 호스트 되 고 RFC1918 개인 IP 주소를 사용 하 여 구성 된 웹 서버를 보여 줍니다.  웹 서비스는 가상 WAN 공용 IP 기능을 통해 인터넷에서 사용할 수 있게 됩니다.  공용 IP는 일반적으로 Azure 방화벽에서 변환 되는 대상 NAT입니다. DNAT 규칙을 사용 하는 방화벽 정책은 공용 IP 주소 요청을 포트를 사용 하는 개인 주소 (웹 서버)로 변환 합니다.
 
 사용자 요청은 Azure 방화벽의 규칙에 따라 DNAT 사용 하 여 개인 IP로 변환 된 공용 IP의 방화벽을 적중 합니다. 방화벽은 NAT 테이블을 확인 하 고, 요청이 항목과 일치 하는 경우 Azure VMware 솔루션 환경의 변환 된 주소 및 포트로 트래픽을 전달 합니다.
 
 웹 서버는 요청을 수신 하 고 요청 된 정보 또는 페이지를 사용 하 여 방화벽에 회신 한 다음 사용자에 게 공용 IP 주소에 대 한 정보를 전달 합니다.
 
 ## <a name="test-case"></a>테스트 사례
-이 시나리오에서는 IIS 웹 서버를 인터넷에 게시 해야 합니다. Azure VMware 솔루션의 공용 IP 기능을 사용 하 여 공용 IP 주소에 웹 사이트를 게시 합니다.  방화벽에서 NAT 규칙을 구성 하 고 공용 IP를 사용 하 여 Azure VMware 솔루션 리소스 (웹 서버를 사용 하는 Vm)에 액세스 합니다.
+이 시나리오에서는 IIS 웹 서버를 인터넷에 게시 합니다. Azure VMware 솔루션의 공용 IP 기능을 사용 하 여 공용 IP 주소에 웹 사이트를 게시 합니다.  또한 방화벽에서 NAT 규칙을 구성 하 고 공용 IP를 사용 하는 Azure VMware 솔루션 리소스 (웹 서버를 사용 하는 Vm)에 액세스 합니다.
 
 ## <a name="deploy-virtual-wan"></a>Virtual WAN을 배포합니다.
 
@@ -54,21 +54,21 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 1. Azure VMware 솔루션 사설 클라우드를 선택 합니다.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="공용 IP 아키텍처 다이어그램" border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Azure VMware 솔루션 사설 클라우드의 스크린샷." border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
 1. **관리** 에서 **연결** 을 선택 합니다.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="공용 IP 아키텍처 다이어그램" border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="연결 섹션의 스크린샷" border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
 1. **공용 IP** 탭을 선택한 다음 **구성** 을 선택 합니다.
 
-   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="공용 IP 아키텍처 다이어그램" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
+   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="공용 IP 구성 시작 위치를 보여 주는 스크린샷" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
 1. 기본값을 그대로 적용 하거나 변경 하 고 **만들기** 를 선택 합니다.
 
-   - 가상 광역 네트워크 리소스 그룹
+   - 가상 WAN 리소스 그룹
 
-   - 가상 광역 네트워크 이름
+   - 가상 WAN 이름
 
    - 가상 허브 주소 블록 (겹치지 않는 새 IP 범위 사용)
 
@@ -87,19 +87,19 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 1. 배포 된 방화벽을 선택 하 고 **Azure 방화벽 관리자 방문을 선택 하 여이 방화벽을 구성 하 고 관리** 합니다.
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="공용 IP 아키텍처 다이어그램" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="방화벽을 구성 하 고 관리 하는 옵션을 보여 주는 스크린샷" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. **보안 된 가상 허브** 를 선택 하 고, 목록에서 가상 허브를 선택 합니다.
 
-   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="공용 IP 아키텍처 다이어그램" lightbox="media/public-ip-usage/select-virtual-hub.png":::
+   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="방화벽 관리자의 스크린샷" lightbox="media/public-ip-usage/select-virtual-hub.png":::
 
 1. 가상 허브 페이지에서 **공용 ip 구성** 을 선택 하 고, 공용 ip 주소를 더 추가 하려면 **추가** 를 선택 합니다. 
 
-   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="공용 IP 아키텍처 다이어그램" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
+   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="방화벽 관리자에서 공용 IP 구성을 추가 하는 방법의 스크린샷" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
 
 1. 필요한 Ip 수를 제공 하 고 **추가** 를 선택 합니다.
 
-   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="공용 IP 아키텍처 다이어그램" border="true":::
+   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="지정 된 수의 공용 IP 구성을 추가 하는 스크린샷" border="true":::
 
 
 ## <a name="create-firewall-policies"></a>방화벽 정책 만들기
@@ -110,11 +110,11 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 1. 배포 된 방화벽을 선택 하 고 **Azure 방화벽 관리자 방문을 선택 하 여이 방화벽을 구성 하 고 관리** 합니다.
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="공용 IP 아키텍처 다이어그램" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="방화벽을 구성 하 고 관리 하는 옵션을 보여 주는 스크린샷" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. **Azure 방화벽** 정책을 선택 하 고 **Azure 방화벽 정책 만들기** 를 선택 합니다.
 
-   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="공용 IP 아키텍처 다이어그램" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
+   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="방화벽 관리자에서 방화벽 정책을 만드는 방법의 스크린샷" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
 1. **기본 사항** 탭에서 필요한 세부 정보를 입력 하 고 **다음: DNS 설정** 을 선택 합니다. 
 
@@ -122,7 +122,7 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 1. **규칙 컬렉션 추가** 를 선택 하 고 아래 세부 정보를 입력 한 후 **추가** 를 선택 하 고 **다음: 위협 인텔리전스** 를 선택 합니다.
 
-   -  이름
+   -  Name
    -  규칙 컬렉션 형식-DNAT
    -  우선 순위
    -  규칙 컬렉션 작업 – 허용
@@ -140,15 +140,13 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 1. **가상 허브 연결** 을 선택 합니다.
 
-   :::image type="content" source="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png" alt-text="공용 IP 아키텍처 다이어그램" border="true" lightbox="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png":::
-
 1. 목록에서 허브를 선택 하 고 **추가** 를 선택 합니다.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="공용 IP 아키텍처 다이어그램" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="보안이 설정 된 가상 허브로 변환 될 선택 된 허브를 보여 주는 스크린샷" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
 1. **다음: 태그** 를 선택합니다. 
 
-1. 필드 리소스를 범주화 하는 이름/값 쌍을 만듭니다. 
+1. 필드 리소스를 범주화 하는 이름 및 값 쌍을 만듭니다. 
 
 1. **다음: 검토 + 만들기** 를 선택 하 고 **만들기** 를 선택 합니다.
 

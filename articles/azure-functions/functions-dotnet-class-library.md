@@ -4,12 +4,12 @@ description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 77ae736c787666df5e78358bc78e06eee9b7d4f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380966"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936926"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -17,12 +17,13 @@ ms.locfileid: "94380966"
 
 이 문서는 .NET 클래스 라이브러리의 C#을 사용하여 Azure Functions를 개발하는 방법을 소개합니다.
 
+C # 개발자는 다음 문서 중 하나에 관심이 있을 수도 있습니다.
+
+| 시작 | 개념| 단계별 학습/샘플 |
+| -- | -- | -- | 
+| <ul><li>[Visual Studio 사용](functions-create-your-first-function-visual-studio.md)</li><li>[Visual Studio Code 사용](create-first-function-vs-code-csharp.md)</li><li>[명령줄 도구 사용](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li><li>[Visual Studio 개발](functions-develop-vs.md)</li><li>[종속성 주입](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[C# 샘플](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+
 Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니다. [Azure Portal에서 C#을 사용하는 방법](functions-create-function-app-portal.md)에 대한 지침은 [C# 스크립트(.csx) 개발자 참조](functions-reference-csharp.md)를 참조하세요.
-
-이 문서에서는 사용자가 이미 다음 문서를 읽었다고 가정합니다.
-
-* [Azure Functions 개발자 가이드](functions-reference.md)
-* [Azure Functions Visual Studio 2019 도구](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>지원되는 버전
 
@@ -137,9 +138,9 @@ public static class BindingExpressionsExample
 
 빌드 프로세스는 build 폴더의 function 폴더에 *function.json* 파일을 만듭니다. 앞에서 설명한 대로 이 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 
 
-이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](functions-scale.md#how-the-consumption-and-premium-plans-work)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 이 파일에는 트리거 정보만 있고 입력 또는 출력 바인딩은 없습니다.
+이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](event-driven-scaling.md)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 이 파일에는 트리거 정보만 있고 입력 또는 출력 바인딩은 없습니다.
 
-생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예를 들면 다음과 같습니다.
+생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예는 다음과 같습니다.
 
 ```json
 {
@@ -207,7 +208,7 @@ npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사
 
 ## <a name="readytorun"></a>ReadyToRun
 
-함수 앱을 [ReadyToRun 이진](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images)파일로 컴파일할 수 있습니다. ReadyToRun는 [소비 계획](functions-scale.md#consumption-plan)에서 실행 될 때 [콜드 시작](functions-scale.md#cold-start) 의 영향을 줄이는 데 도움이 되는 시작 성능을 향상 시킬 수 있는 사전 컴파일 형태입니다.
+함수 앱을 [ReadyToRun 이진](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images)파일로 컴파일할 수 있습니다. ReadyToRun는 [소비 계획](consumption-plan.md)에서 실행 될 때 [콜드 시작](event-driven-scaling.md#cold-start) 의 영향을 줄이는 데 도움이 되는 시작 성능을 향상 시킬 수 있는 사전 컴파일 형태입니다.
 
 ReadyToRun는 .NET 3.0에서 사용할 수 있으며 [Azure Functions 런타임의 버전 3.0](functions-versions.md)이 필요 합니다.
 
@@ -326,6 +327,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 {
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
+
+함수를 구현 하는 방법에 대 한 자세한 `ILogger` 내용은 [원격 분석 데이터 수집](functions-monitoring.md#collecting-telemetry-data)을 참조 하세요. 접두사가 접두사로 붙은 범주는 `Function` 인스턴스를 사용 하 고 있다고 가정 `ILogger` 합니다. 대신를 사용 하도록 선택 하 `ILogger<T>` 는 경우 범주 이름은 대신을 기반으로 할 수 있습니다 `T` .  
 
 ### <a name="structured-logging"></a>구조적 로깅
 
@@ -512,14 +515,14 @@ namespace functionapp0915
             
             // Track a Dependency
             var dependency = new DependencyTelemetry
-                {
-                    Name = "GET api/planets/1/",
-                    Target = "swapi.co",
-                    Data = "https://swapi.co/api/planets/1/",
-                    Timestamp = start,
-                    Duration = DateTime.UtcNow - start,
-                    Success = true
-                };
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
         }
@@ -557,7 +560,7 @@ public static class EnvironmentVariablesExample
         log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
-    public static string GetEnvironmentVariable(string name)
+    private static string GetEnvironmentVariable(string name)
     {
         return name + ": " +
             System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);

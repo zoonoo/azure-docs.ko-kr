@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 28169e43d0e6949a16cc56c7e7d5d91d6db1ef57
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636921"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003041"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사를 사용하여 데이터를 쉽게 복사 또는 이동
 > [!NOTE]
@@ -62,7 +62,7 @@ Azure Data Factory Copy Wizard는 일반적으로 엔드투엔드 데이터 통�
 ![식 유효성 검사](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
-폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** 및 **{custom}** 입니다. 예: inputfolder/{year}/{month}/{day}.
+폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** 및 **{custom}** 입니다. 예: inputfolder/{year}/{month}/{day}.
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
 

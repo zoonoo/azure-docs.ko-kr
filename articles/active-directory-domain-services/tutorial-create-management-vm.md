@@ -1,20 +1,20 @@
 ---
 title: 자습서 - Azure Active Directory Domain Services에 대한 관리 VM 만들기 | Microsoft Docs
 description: 이 자습서에서는 Azure Active Directory Domain Services 관리되는 도메인을 관리하는 데 사용하는 Windows 가상 머신을 만들고 구성하는 방법을 알아봅니다.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: cc183a047023e5377d7a45088b7c9ae2407f6829
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d017fc3fc53c9f89978893670df10ecd731da904
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967123"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618181"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>자습서: 관리 VM을 만들어 Azure Active Directory Domain Services 관리되는 도메인 구성 및 관리
 
@@ -84,12 +84,12 @@ Azure AD DS는 사용자, 애플리케이션 및 서비스에서 사용할 관�
 
 시작하려면 다음과 같이 Windows Server VM에 연결합니다.
 
-1. Azure Portal의 왼쪽에서 **리소스 그룹**을 선택합니다. VM을 만든 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, VM(예: *myVM*)을 선택합니다.
-1. VM에 대한 **개요** 창에서 **연결**, **Bastion**을 차례로 선택합니다.
+1. Azure Portal의 왼쪽에서 **리소스 그룹** 을 선택합니다. VM을 만든 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, VM(예: *myVM*)을 선택합니다.
+1. VM에 대한 **개요** 창에서 **연결**, **Bastion** 을 차례로 선택합니다.
 
     ![Azure Portal에서 Bastion을 사용하여 Windows 가상 머신에 연결](./media/join-windows-vm/connect-to-vm.png)
 
-1. VM에 대한 자격 증명을 입력한 다음, **연결**을 선택합니다.
+1. VM에 대한 자격 증명을 입력한 다음, **연결** 을 선택합니다.
 
    ![Azure Portal에서 Bastion 호스트를 통해 연결](./media/join-windows-vm/connect-to-bastion.png)
 
@@ -101,45 +101,45 @@ Azure AD DS는 사용자, 애플리케이션 및 서비스에서 사용할 관�
 
 Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 단계를 수행합니다.
 
-1. VM에 로그인할 때 **서버 관리자**가 기본적으로 열리지 않는 경우 **시작** 메뉴를 선택한 다음, **서버 관리자**를 선택합니다.
-1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
-1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
-1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
-1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.aaddscontoso.com*), **다음**을 차례로 선택합니다.
-1. **서버 역할** 페이지에서 **다음**을 클릭합니다.
+1. VM에 로그인할 때 **서버 관리자** 가 기본적으로 열리지 않는 경우 **시작** 메뉴를 선택한 다음, **서버 관리자** 를 선택합니다.
+1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가** 를 선택합니다.
+1. *역할 및 기능 추가 마법사* 의 **시작하기 전에** 페이지에서 **다음** 을 선택합니다.
+1. *설치 유형* 에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음** 을 선택합니다.
+1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.aaddscontoso.com*), **다음** 을 차례로 선택합니다.
+1. **서버 역할** 페이지에서 **다음** 을 클릭합니다.
 1. **기능** 페이지에서 **원격 서버 관리 도구** 노드, **역할 관리 도구** 노드를 차례로 펼칩니다.
 
-    역할 관리 도구 목록에서 **AD DS 및 AD LDS 도구** 기능, **다음**을 차례로 선택합니다.
+    역할 관리 도구 목록에서 **AD DS 및 AD LDS 도구** 기능, **다음** 을 차례로 선택합니다.
 
     ![기능 페이지에서 'AD DS 및 AD LDS 도구' 설치](./media/tutorial-create-management-vm/install-features.png)
 
-1. **확인** 페이지에서 **설치**를 선택합니다. 관리 도구를 설치하는 데 1-2분 정도 걸릴 수 있습니다.
-1. 기능 설치가 완료되면 **닫기**를 선택하여 **역할 및 기능 추가** 마법사를 종료합니다.
+1. **확인** 페이지에서 **설치** 를 선택합니다. 관리 도구를 설치하는 데 1-2분 정도 걸릴 수 있습니다.
+1. 기능 설치가 완료되면 **닫기** 를 선택하여 **역할 및 기능 추가** 마법사를 종료합니다.
 
 ## <a name="use-active-directory-administrative-tools"></a>Active Directory 관리 도구 사용
 
 관리 도구가 설치되었으면 이 도구를 사용하여 관리되는 도메인을 관리하는 방법을 알아보겠습니다. *AAD DC Administrators* 그룹의 멤버인 사용자 계정을 사용하여 VM에 로그인했는지 확인합니다.
 
-1. **시작** 메뉴에서 **Windows 관리 도구**를 선택합니다. 이전 단계에서 설치한 AD 관리 도구가 나열됩니다.
+1. **시작** 메뉴에서 **Windows 관리 도구** 를 선택합니다. 이전 단계에서 설치한 AD 관리 도구가 나열됩니다.
 
     ![서버에 설치된 관리 도구 목록](./media/tutorial-create-management-vm/list-admin-tools.png)
 
-1. **Active Directory 관리 센터**를 선택합니다.
-1. 관리되는 도메인을 검색하려면 왼쪽 창에서 도메인 이름(예: *aaddscontoso*)을 선택합니다. *AADDC Computers* 및 *AADDC Users*라는 두 개의 컨테이너가 목록 위쪽에 있습니다.
+1. **Active Directory 관리 센터** 를 선택합니다.
+1. 관리되는 도메인을 검색하려면 왼쪽 창에서 도메인 이름(예: *aaddscontoso*)을 선택합니다. *AADDC Computers* 및 *AADDC Users* 라는 두 개의 컨테이너가 목록 위쪽에 있습니다.
 
     ![관리되는 도메인의 사용 가능한 컨테이너 부분 나열](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
 1. 관리되는 도메인에 속한 사용자와 그룹을 확인하려면 **AADDC Users** 컨테이너를 선택합니다. Azure AD 테넌트의 사용자 계정과 그룹이 이 컨테이너에 나열됩니다.
 
-    다음 출력 예에는 이름이 *Contoso Admin*인 사용자 계정과 *AAD DC Administrators*에 대한 그룹이 이 컨테이너에 표시됩니다.
+    다음 출력 예에는 이름이 *Contoso Admin* 인 사용자 계정과 *AAD DC Administrators* 에 대한 그룹이 이 컨테이너에 표시됩니다.
 
     ![Active Directory 관리 센터에서 Azure AD DS 도메인 사용자 목록 보기](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. 관리되는 도메인에 조인된 컴퓨터를 확인하려면 **AADDC Computers** 컨테이너를 선택합니다. 현재 가상 머신에 대한 항목(예: *myVM*)이 나열됩니다. 관리되는 도메인에 조인된 모든 디바이스의 컴퓨터 계정은 이 *AADDC Computers* 컨테이너에 저장됩니다.
 
-사용자 계정 암호 재설정 또는 그룹 멤버 자격 관리와 같은 일반적인 Active Directory 관리 센터 작업을 사용할 수 있습니다. 이러한 작업은 관리되는 도메인에서 직접 만든 사용자 및 그룹에 대해서만 작동합니다. ID 정보는 Azure AD*에서* Azure AD DS로만 동기화됩니다. Azure AD DS에서 Azure AD로 다시 쓸 수는 없습니다. Azure AD에서 동기화된 사용자의 암호 또는 관리 그룹 멤버 자격을 변경하고 해당 변경 내용을 다시 동기화할 수 없습니다.
+사용자 계정 암호 재설정 또는 그룹 멤버 자격 관리와 같은 일반적인 Active Directory 관리 센터 작업을 사용할 수 있습니다. 이러한 작업은 관리되는 도메인에서 직접 만든 사용자 및 그룹에 대해서만 작동합니다. ID 정보는 Azure AD *에서* Azure AD DS로만 동기화됩니다. Azure AD DS에서 Azure AD로 다시 쓸 수는 없습니다. Azure AD에서 동기화된 사용자의 암호 또는 관리 그룹 멤버 자격을 변경하고 해당 변경 내용을 다시 동기화할 수 없습니다.
 
-또한 관리 도구의 일부로 설치된 *Windows PowerShell용 Active Directory 모듈*을 사용하여 관리되는 도메인에서 일반적인 작업을 관리할 수도 있습니다.
+또한 관리 도구의 일부로 설치된 *Windows PowerShell용 Active Directory 모듈* 을 사용하여 관리되는 도메인에서 일반적인 작업을 관리할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -160,4 +160,4 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md

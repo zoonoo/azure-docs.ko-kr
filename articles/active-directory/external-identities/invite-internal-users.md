@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75839893d0048841440f2c790df7d23ad825d962
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909325"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093471"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>내부 사용자를 B2B 공동 작업에 초대
 
@@ -32,7 +32,7 @@ Azure AD B2B 공동 작업을 사용 하기 전에 조직에서 내부 자격 �
 
 공개 미리 보기에서 내부 사용자를 B2B 공동 작업에 초대 하는 방법에 대 한이 문서에서 설명 하는 방법은 다음과 같은 경우에 사용할 수 없습니다.
 
-- 내부 사용자에 게 이미 Exchange 라이선스가 할당 되었습니다.
+- 내부 사용자에 게 할당 된 Exchange 라이선스가 있습니다.
 - 사용자는 디렉터리에서 직접 페더레이션을 위해 설정 된 도메인에서 온 것입니다.
 - 내부 사용자는 클라우드 전용 계정이 며 해당 주 계정은 Azure AD에 없습니다.
 

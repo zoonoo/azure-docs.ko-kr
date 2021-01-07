@@ -1,7 +1,7 @@
 ---
 title: Studio를 사용 하 여 디자이너에 학습 된 모델 배포
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning studio를 사용 하 여 디자이너에서 학습 한 모델을 배포 합니다.
+description: Azure Machine Learning studio를 사용 하 여 코드를 한 줄도 작성 하지 않고 Machine Learning 모델을 배포 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,19 @@ author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.custom: how-to, deploy, studio, designer
+ms.openlocfilehash: 35acfc51ae76fdacef11f03b1fbd91ad58650ae6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927586"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722626"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Studio를 사용 하 여 디자이너에 학습 된 모델 배포
 
-이 문서에서는 디자이너의 학습 된 모델을 Azure Machine Learning studio에서 실시간 끝점으로 배포 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Machine Learning studio에서 디자이너 모델을 실시간 끝점으로 배포 하는 방법에 대해 알아봅니다.
+
+등록 하거나 다운로드 한 후에는 다른 모델과 마찬가지로 디자이너에서 학습 한 모델을 사용할 수 있습니다. 내보낸 모델은 IoT (사물 인터넷) 및 로컬 배포와 같은 사용 사례에서 배포할 수 있습니다.
 
 스튜디오에서 배포는 다음 단계로 구성 됩니다.
 
@@ -33,7 +35,7 @@ ms.locfileid: "92927586"
 
 디자이너에서 학습 한 모델은 SDK 또는 CLI (명령줄 인터페이스)를 통해 배포할 수도 있습니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 기존 모델 배포](how-to-deploy-existing-model.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
@@ -61,7 +63,6 @@ ms.locfileid: "92927586"
 모델을 등록 한 후에는 스튜디오의 **모델** 자산 페이지에서 찾을 수 있습니다.
     
 ![모델 자산 페이지에서 등록 된 모델의 스크린샷](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## <a name="download-the-entry-script-file-and-conda-dependencies-file"></a>항목 스크립트 파일 및 conda 종속성 파일 다운로드
 
@@ -300,7 +301,7 @@ score_params = dict(
 
 * [디자이너에서 모델 학습](tutorial-designer-automobile-price-train-score.md)
 * [Azure Machine Learning SDK를 사용 하 여 모델 배포](how-to-deploy-and-where.md)
-* [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용 하는 클라이언트 응용 프로그램 만들기](how-to-consume-web-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)

@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: 63879350eba897cfe5a793309e5129323fe8bbde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e13f18ef9c2ec71a351d8a80d72d600bf8e9715
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372377"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607408"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Azure 배포 관리자에 상태 통합 출시 소개 (공개 미리 보기)
 
@@ -135,7 +135,7 @@ Azure 배포 관리자 상태 검사를 사용 하 여 설치를 가져오는 �
     },
     ```
 
-1. Azure 배포 관리자 롤아웃에서 적절 한 시간에 healthCheck 단계를 호출 합니다. 다음 예제에서는 **stepGroup2**의 **postdeploymentsteps** 에서 상태 검사 단계를 호출 합니다.
+1. Azure 배포 관리자 롤아웃에서 적절 한 시간에 healthCheck 단계를 호출 합니다. 다음 예제에서는 **stepGroup2** 의 **postdeploymentsteps** 에서 상태 검사 단계를 호출 합니다.
 
     ```json
     "stepGroups": [

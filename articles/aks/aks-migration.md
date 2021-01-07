@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 9371feb527bbb2d94d43072bb8a44a6705b45055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e73ca9e485e6926c30a73ba56b24bcd4dc9a836
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87280225"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929738"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
 
@@ -54,7 +54,7 @@ AKS는 관리 오버 헤드가 낮은 고유한 기능을 제공 하는 관리 �
 
 [가상 컴퓨터 가용성 집합](../virtual-machines/availability.md#availability-sets) 으로 지원 되는 AKS 클러스터는 이러한 기능 중 상당수를 지원 하지 않습니다.
 
-다음 예제에서는 가상 머신 확장 집합에 의해 지원 되는 단일 노드 풀로 AKS 클러스터를 만듭니다. 표준 부하 분산 장치를 사용 합니다. 또한 클러스터의 노드 풀에서 클러스터 자동 크기 조정기를 사용하도록 설정하고 최소 *1*개 및 최대 *3*개 노드를 설정합니다.
+다음 예제에서는 가상 머신 확장 집합에 의해 지원 되는 단일 노드 풀로 AKS 클러스터를 만듭니다. 표준 부하 분산 장치를 사용 합니다. 또한 클러스터의 노드 풀에서 클러스터 자동 크기 조정기를 사용하도록 설정하고 최소 *1* 개 및 최대 *3* 개 노드를 설정합니다.
 
 ```azurecli-interactive
 # First create a resource group
@@ -89,7 +89,7 @@ az aks create \
 
 [네트워크 할당량](../azure-portal/supportability/networking-quota-requests.md) 에 대 한 증가를 요청 하 여 ip가 고갈 되지 않도록 해야 할 수도 있습니다. 추가 정보는 [AKS에 대 한 네트워킹 및 IP 범위](./configure-kubenet.md) 를 참조 하세요.
 
-자세한 내용은 [Azure 구독 및 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요. 현재 할당량을 확인 하려면 Azure Portal [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동 하 여 구독을 선택한 다음 **사용량 + 할당량**을 선택 합니다.
+자세한 내용은 [Azure 구독 및 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요. 현재 할당량을 확인 하려면 Azure Portal [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동 하 여 구독을 선택한 다음 **사용량 + 할당량** 을 선택 합니다.
 
 ## <a name="high-availability-and-business-continuity"></a>고가용성 및 비즈니스 연속성
 
@@ -99,7 +99,7 @@ az aks create \
 
 마이그레이션을 완료 하기 위해 클라이언트가 AKS에서 실행 되는 새 서비스를 가리키도록 할 수 있습니다. AKS 클러스터 앞에 있는 Load Balancer를 가리키도록 DNS를 업데이트 하 여 트래픽을 리디렉션하는 것이 좋습니다.
 
-[Azure Traffic Manager](../traffic-manager/index.yml) 는 고객에 게 원하는 Kubernetes 클러스터 및 응용 프로그램 인스턴스로 지시할 수 있습니다.  Traffic Manager는 지역 간에 네트워크 트래픽을 분산할 수 있는 DNS 기반 트래픽 부하 분산 장치입니다.  최상의 성능 및 중복성을 위해 AKS 클러스터로 이동 하기 전에 Traffic Manager를 통해 모든 응용 프로그램 트래픽을 보냅니다.  Multicluster 배포에서 고객은 각 AKS 클러스터의 서비스를 가리키는 Traffic Manager DNS 이름에 연결 해야 합니다. Traffic Manager 끝점을 사용 하 여 이러한 서비스를 정의 합니다. 각 끝점은 *서비스 부하 분산 장치 IP*입니다. 이 구성을 사용 하 여 한 지역의 Traffic Manager 끝점에서 다른 지역의 끝점으로의 네트워크 트래픽을 보낼 수 있습니다.
+[Azure Traffic Manager](../traffic-manager/index.yml) 는 고객에 게 원하는 Kubernetes 클러스터 및 응용 프로그램 인스턴스로 지시할 수 있습니다.  Traffic Manager는 지역 간에 네트워크 트래픽을 분산할 수 있는 DNS 기반 트래픽 부하 분산 장치입니다.  최상의 성능 및 중복성을 위해 AKS 클러스터로 이동 하기 전에 Traffic Manager를 통해 모든 응용 프로그램 트래픽을 보냅니다.  Multicluster 배포에서 고객은 각 AKS 클러스터의 서비스를 가리키는 Traffic Manager DNS 이름에 연결 해야 합니다. Traffic Manager 끝점을 사용 하 여 이러한 서비스를 정의 합니다. 각 끝점은 *서비스 부하 분산 장치 IP* 입니다. 이 구성을 사용 하 여 한 지역의 Traffic Manager 끝점에서 다른 지역의 끝점으로의 네트워크 트래픽을 보낼 수 있습니다.
 
 ![Traffic Manager AKS](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
@@ -132,7 +132,7 @@ Azure Managed Disks를 사용 하는 경우 VM에 연결 되지 않은 경우에
 * 새 AKS 클러스터에 대 한 라이브 트래픽을 가리킵니다.
 * 이전 클러스터의 연결을 끊습니다.
 
-빈 공유로 시작 하 고 원본 데이터의 복사본을 만들려면 [`az storage file copy`](/cli/azure/storage/file/copy?view=azure-cli-latest) 명령을 사용 하 여 데이터를 마이그레이션합니다.
+빈 공유로 시작 하 고 원본 데이터의 복사본을 만들려면 [`az storage file copy`](/cli/azure/storage/file/copy) 명령을 사용 하 여 데이터를 마이그레이션합니다.
 
 
 #### <a name="migrating-persistent-volumes"></a>영구적 볼륨 마이그레이션
@@ -159,7 +159,7 @@ Azure Managed Disks를 사용 하는 경우 VM에 연결 되지 않은 경우에
 
 ### <a name="deployment-of-your-cluster-configuration"></a>클러스터 구성 배포
 
-기존 CI (지속적인 통합) 및 CD (지속적인 배달) 파이프라인을 사용 하 여 AKS에 알려진 양호한 구성을 배포 하는 것이 좋습니다. Azure Pipelines를 사용 하 여 [응용 프로그램을 빌드하고 응용 프로그램을 AKS에 배포할](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)수 있습니다. 기존 배포 작업을 복제 하 고이 `kubeconfig` 새 AKS 클러스터를 가리키는지 확인 합니다.
+기존 CI (지속적인 통합) 및 CD (지속적인 배달) 파이프라인을 사용 하 여 AKS에 알려진 양호한 구성을 배포 하는 것이 좋습니다. Azure Pipelines를 사용 하 여 [응용 프로그램을 빌드하고 응용 프로그램을 AKS에 배포할](/azure/devops/pipelines/ecosystems/kubernetes/aks-template)수 있습니다. 기존 배포 작업을 복제 하 고이 `kubeconfig` 새 AKS 클러스터를 가리키는지 확인 합니다.
 
 가능 하지 않은 경우 기존 Kubernetes 클러스터에서 리소스 정의를 내보낸 다음 AKS에 적용 합니다. `kubectl`을 사용하여 개체를 내보낼 수 있습니다.
 

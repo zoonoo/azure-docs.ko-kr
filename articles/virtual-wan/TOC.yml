@@ -15,10 +15,6 @@
       href: virtual-wan-expressroute-portal.md
 - name: 개념
   items:
-    - name: 보안
-      items:
-        - name: 보안 기준
-          href: security-baseline.md
     - name: 원격으로 작업
       items:
         - name: 원격 작업 지원
@@ -31,7 +27,7 @@
           href: virtual-wan-locations-partners.md
         - name: 파트너를 위한 자동화 지침
           href: virtual-wan-configure-automation-providers.md
-    - name: Architecture
+    - name: 아키텍처
       items:
         - name: Virtual WAN으로 마이그레이션
           href: migrate-from-hub-spoke-topology.md
@@ -71,6 +67,10 @@
           href: virtual-wan-ipsec.md
         - name: 여러 ISP 링크 - Azure 경로 선택
           href: path-selection-multiple-links.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 가격 책정 개념
       href: pricing-concepts.md
     - name: 가상 허브의 NVA 정보
@@ -109,6 +109,8 @@
           href: about-vpn-profile-download.md
         - name: 글로벌 및 허브 기반 프로필
           href: global-hub-profile.md
+        - name: Windows 10용 Azure VPN Client 구성
+          href: openvpn-azure-ad-client.md
         - name: OpenVPN 클라이언트 구성
           href: howto-openvpn-clients.md?
         - name: Always On VPN 사용자 터널 구성
@@ -119,8 +121,6 @@
           href: openvpn-azure-ad-mfa.md
         - name: Azure AD 인증 구성
           href: virtual-wan-point-to-site-azure-ad.md
-        - name: Windows 10용 Azure VPN Client 구성
-          href: openvpn-azure-ad-client.md
         - name: 다중 애플리케이션 Azure AD 인증 구성
           href: openvpn-azure-ad-tenant-multi-app.md
     - name: 라우팅
@@ -141,6 +141,8 @@
           href: howto-firewall.md
         - name: Private Link 연결 구성
           href: howto-private-link.md
+        - name: 리소스에 대한 액세스 관리 - Spoke VNet P2S
+          href: manage-secure-access-resources-spoke-p2s.md
     - name: 모니터링
       items:
         - name: 로그 및 메트릭

@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: f2a62cb08fcce6597f02c080231f5e1808794054
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c149e92276265b5b5236ae56c475d7307c18e4
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509963"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093913"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Azure virtual machines에 SAP HANA 설치
 ## <a name="introduction"></a>소개
@@ -87,7 +88,7 @@ Azure의 세부 사항 중 하나는 SAP 호스트 에이전트에 대 한 모�
 -  [SAP NetWeaver에 대한 Azure Virtual Machines 배포](./deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 
 ## <a name="sap-hana-installation"></a>SAP HANA 설치
-Azure 가상 컴퓨터를 배포 하 고 등록 및 구성 된 운영 체제를 사용 하 여 SAP 설치에 따라 SAP HANA를 설치할 수 있습니다. 이 설명서를 시작 하는 것이 좋습니다 .이 SAP 웹 사이트 [HANA 리소스](https://www.sap.com/products/hana/implementation/resources.html) 부터 시작 하세요.
+Azure 가상 컴퓨터를 배포 하 고 등록 및 구성 된 운영 체제를 사용 하 여 SAP 설치에 따라 SAP HANA를 설치할 수 있습니다. 이 설명서를 시작 하는 것이 좋습니다 .이 SAP 웹 사이트 [HANA 리소스](https://www.sap.com/products/s4hana-erp.html?btp=9d3e6f82-d8ab-4122-8d2d-bf4971217afd) 부터 시작 하세요.
 
 Azure Premium Storage 또는 Ultra disk의 직접 연결 된 디스크를 사용 하는 SAP HANA 스케일 아웃 구성의 경우 [azure의 인프라 구성 및 작업 문서 SAP HANA](./hana-vm-operations.md#configuring-azure-infrastructure-for-sap-hana-scale-out) 문서에서 구체적인 내용을 읽으십시오.
 

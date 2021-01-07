@@ -7,18 +7,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: e8323c5a290ee2a78e2a3a131d50883d5f8c5a28
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: fe0280e302882fd5e50830950b531ea9ca169618
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92330991"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660545"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
 이 문서에서는 VNet-VNet 연결 형식을 사용하여 VNet(가상 네트워크)를 연결합니다. 가상 네트워크가 서로 다른 지역과 구독에 있어도 됩니다. 다른 구독의 VNet을 연결할 때 구독을 동일한 Active Directory 테넌트에 연결할 필요는 없습니다. 
 
-![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet 간 다이어그램":::
 
 이 문서의 단계는 Azure Resource Manager 배포 모델에 적용되며 Azure Portal을 사용합니다. 다음 문서에 설명된 옵션을 사용하여 다른 배포 도구 또는 모델을 통해 이 구성을 만들 수 있습니다.
 
@@ -65,7 +65,7 @@ VNet-VNet 연결을 사용하여 가상 네트워크를 연결하는 이유는 �
 
 VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이렇게 구성하면 다음 다이어그램에 표시된 것처럼 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
-![연결 정보](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "연결 정보")
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="VNet 연결 다이어그램":::
 
 이 문서에서는 VNet-VNet 연결 형식을 사용하여 VNet을 연결하는 방법을 보여줍니다. 이러한 단계를 연습으로 사용하는 경우 다음 예제 설정 값을 사용할 수 있습니다. 예제에서는 가상 네트워크가 동일한 구독에 있지만 다른 리소스 그룹에 있습니다. VNet이 다른 구독에 있으면 포털에서 연결을 만들 수 없습니다. [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 또는 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)를 대신 사용합니다. VNet-VNet 연결에 대한 자세한 내용은 [VNet-VNet FAQ](#vnet-to-vnet-faq)를 참조하세요.
 
@@ -74,58 +74,58 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 **VNet1에 대 한 값:**
 
 * **가상 네트워크 설정**
-  * **이름** : VNet1
-  * **주소 공간** : 10.1.0.0/16
-  * **구독** : 사용 하려는 구독을 선택 합니다.
-  * **리소스 그룹** : TestRG1
-  * **위치** : 미국 동부
+  * **이름**: VNet1
+  * **주소 공간**: 10.1.0.0/16
+  * **구독**: 사용 하려는 구독을 선택 합니다.
+  * **리소스 그룹**: TestRG1
+  * **위치**: 미국 동부
   * **서브넷**
-    * **이름** : 프런트 엔드
-    * **주소 범위** : 10.1.0.0/24
+    * **이름**: 프런트 엔드
+    * **주소 범위**: 10.1.0.0/24
 
 * **가상 네트워크 게이트웨이 설정**
-  * **이름** : VNet1GW
-  * **리소스 그룹** : 미국 동부
-  * **생성** : 1 세대
-  * **게이트웨이 유형** : **VPN** 을 선택합니다.
-  * **VPN 유형** : **경로 * 기반** 을 선택 합니다.
-  * **SKU** : VpnGw1
-  * **가상 네트워크** : VNet1
-  * **게이트웨이 서브넷 주소 범위** : 10.1.255.0/27
-  * **공용 IP 주소** : 새로 만들기
-  * **공용 IP 주소 이름** : VNet1GWpip
+  * **이름**: VNet1GW
+  * **리소스 그룹**: 미국 동부
+  * **생성**: 1 세대
+  * **게이트웨이 유형**: **VPN** 을 선택합니다.
+  * **VPN 유형**: **경로 * 기반** 을 선택 합니다.
+  * **SKU**: VpnGw1
+  * **가상 네트워크**: VNet1
+  * **게이트웨이 서브넷 주소 범위**: 10.1.255.0/27
+  * **공용 IP 주소**: 새로 만들기
+  * **공용 IP 주소 이름**: VNet1GWpip
 
 * **연결**
-  * **이름** : VNet1toVNet4
-  * **공유 키** : 공유 키를 직접 만들 수 있습니다. VNet 간 연결을 만들 때 값이 일치해야 합니다. 이 연습에서는 abc123를 사용 합니다.
+  * **이름**: VNet1toVNet4
+  * **공유 키**: 공유 키를 직접 만들 수 있습니다. VNet 간 연결을 만들 때 값이 일치해야 합니다. 이 연습에서는 abc123를 사용 합니다.
 
 **V에 대 한 값:**
 
 * **가상 네트워크 설정**
-  * **이름** : v
-  * **주소 공간** : 10.41.0.0/16
-  * **구독** : 사용 하려는 구독을 선택 합니다.
-  * **리소스 그룹** : TestRG4
-  * **위치** : 미국 서 부
+  * **이름**: v
+  * **주소 공간**: 10.41.0.0/16
+  * **구독**: 사용 하려는 구독을 선택 합니다.
+  * **리소스 그룹**: TestRG4
+  * **위치**: 미국 서 부
   * **서브넷**
-  * **이름** : 프런트 엔드
-  * **주소 범위** : 10.41.0.0/24
+  * **이름**: 프런트 엔드
+  * **주소 범위**: 10.41.0.0/24
 
 * **가상 네트워크 게이트웨이 설정**
-  * **이름** : VNet4GW
-  * **리소스 그룹** : 미국 서 부
-  * **생성** : 1 세대
-  * **게이트웨이 유형** : **VPN** 을 선택합니다.
-  * **VPN 유형** : **경로 기반** 을 선택합니다.
-  * **SKU** : VpnGw1
-  * **가상 네트워크** : v
-  * **게이트웨이 서브넷 주소 범위** : 10.41.255.0/27
-  * **공용 IP 주소** : 새로 만들기
-  * **공용 IP 주소 이름** : VNet4GWpip
+  * **이름**: VNet4GW
+  * **리소스 그룹**: 미국 서 부
+  * **생성**: 1 세대
+  * **게이트웨이 유형**: **VPN** 을 선택합니다.
+  * **VPN 유형**: **경로 기반** 을 선택합니다.
+  * **SKU**: VpnGw1
+  * **가상 네트워크**: v
+  * **게이트웨이 서브넷 주소 범위**: 10.41.255.0/27
+  * **공용 IP 주소**: 새로 만들기
+  * **공용 IP 주소 이름**: VNet4GWpip
 
 * **연결**
-  * **이름** : VNet4toVNet1
-  * **공유 키** : 공유 키를 직접 만들 수 있습니다. VNet 간 연결을 만들 때 값이 일치해야 합니다. 이 연습에서는 abc123를 사용 합니다.
+  * **이름**: VNet4toVNet1
+  * **공유 키**: 공유 키를 직접 만들 수 있습니다. VNet 간 연결을 만들 때 값이 일치해야 합니다. 이 연습에서는 abc123를 사용 합니다.
 
 ## <a name="create-and-configure-vnet1"></a>VNet1 만들기 및 구성
 
@@ -163,25 +163,25 @@ VNet1 및 v 둘 다에 대 한 가상 네트워크 게이트웨이가 완료 되
    :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="연결 페이지":::
 1. **연결 추가** 페이지가 열립니다.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="연결 페이지":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="연결 추가":::
 
    **연결 추가** 페이지에서 연결의 값을 입력합니다.
 
-   * **이름** : 연결의 이름을 입력 합니다. 예를 들면 *VNet1toVNet4* 입니다.
+   * **이름**: 연결의 이름을 입력 합니다. 예를 들면 *VNet1toVNet4* 입니다.
 
-   * **연결 형식** : 드롭다운에서 **vnet 간을** 선택 합니다.
+   * **연결 형식**: 드롭다운에서 **vnet 간을** 선택 합니다.
 
-   * **첫 번째 가상 네트워크 게이트웨이** :이 필드 값은 지정 된 가상 네트워크 게이트웨이에서이 연결을 만들 때 자동으로 채워집니다.
+   * **첫 번째 가상 네트워크 게이트웨이**:이 필드 값은 지정 된 가상 네트워크 게이트웨이에서이 연결을 만들 때 자동으로 채워집니다.
 
-   * **두 번째 가상 네트워크 게이트웨이** :이 필드는 연결을 만들려는 VNet의 가상 네트워크 게이트웨이입니다. **다른 가상 네트워크 게이트웨이 선택** 을 선택하여 **선택 가상 네트워크 게이트웨이** 페이지를 엽니다.
+   * **두 번째 가상 네트워크 게이트웨이**:이 필드는 연결을 만들려는 VNet의 가상 네트워크 게이트웨이입니다. **다른 가상 네트워크 게이트웨이 선택** 을 선택하여 **선택 가상 네트워크 게이트웨이** 페이지를 엽니다.
 
-      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="연결 페이지":::
+      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="게이트웨이 선택":::
 
      * 이 페이지에 나열된 가상 네트워크 게이트웨이를 봅니다. 구독에 있는 가상 네트워크 게이트웨이만 나열되어 있는지 확인합니다. 구독에 없는 가상 네트워크 게이트웨이에 연결하려면 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)을 사용합니다.
 
      * 연결하려는 가상 네트워크 게이트웨이를 선택합니다.
 
-   * **공유 키 (PSK)** :이 필드에는 연결에 대 한 공유 키를 입력 합니다. 이 키를 생성하거나 직접 만들 수 있습니다. 사이트 간 연결에 사용되는 키는 온-프레미스 디바이스 및 가상 네트워크 게이트웨이 연결에서 사용하는 키와 동일합니다. 개념은 비슷하지만, 여기서는 VPN 디바이스에 연결하지 않고 다른 가상 네트워크 게이트웨이를 연결합니다.
+   * **공유 키 (PSK)**:이 필드에는 연결에 대 한 공유 키를 입력 합니다. 이 키를 생성하거나 직접 만들 수 있습니다. 사이트 간 연결에 사용되는 키는 온-프레미스 디바이스 및 가상 네트워크 게이트웨이 연결에서 사용하는 키와 동일합니다. 개념은 비슷하지만, 여기서는 VPN 디바이스에 연결하지 않고 다른 가상 네트워크 게이트웨이를 연결합니다.
 1. **확인** 을 선택하여 변경 내용을 저장합니다.
 
 ## <a name="configure-the-vnet4-gateway-connection"></a>V 게이트웨이 연결 구성
@@ -193,10 +193,10 @@ VNet1 및 v 둘 다에 대 한 가상 네트워크 게이트웨이가 완료 되
 1. Azure Portal에서 가상 네트워크 게이트웨이를 찾습니다. 
 1. **가상 네트워크 게이트웨이** 페이지에서 **연결** 을 선택하여 가상 네트워크 게이트웨이에 대한 **연결** 페이지를 봅니다. 연결이 설정 되 면 **상태** 값이 **연결 됨** 으로 변경 되는 것을 볼 수 있습니다.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="연결 페이지":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="연결 확인":::
 1. **이름** 열에서 연결 중 하나를 선택 하 여 자세한 정보를 확인 합니다. 데이터 흐름이 시작되면 **데이터 입력** 및 **데이터 출력** 값이 보입니다.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="연결 페이지":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="데이터 값 및 데이터 출력에 대 한 값이 포함 된 리소스 그룹을 보여 주는 스크린샷":::
 
 ## <a name="add-additional-connections"></a>연결 추가
 
@@ -210,6 +210,6 @@ VNet 간 연결에 대한 자세한 내용은 FAQ 세부 정보를 봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 가상 네트워크에서 리소스에 대한 네트워크 트래픽을 제한하는 방법에 대한 자세한 내용은 [네트워크 보안](../virtual-network/security-overview.md)을 참조하세요.
+* 가상 네트워크에서 리소스에 대한 네트워크 트래픽을 제한하는 방법에 대한 자세한 내용은 [네트워크 보안](../virtual-network/network-security-groups-overview.md)을 참조하세요.
 
 * Azure에서 트래픽을 Azure, 온-프레미스 및 인터넷 리소스간에 라우팅하는 방법에 대한 정보는 [가상 네트워크 트래픽 라우팅](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.

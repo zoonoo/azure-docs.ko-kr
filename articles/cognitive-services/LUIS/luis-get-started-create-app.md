@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/13/2020
-ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128205"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019163"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
 
@@ -223,4 +223,4 @@ ms.locfileid: "93128205"
 다음 코드에서 엔드포인트를 호출할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [코드를 사용하여 LUIS 엔드포인트 호출](luis-get-started-cs-get-intent.md)
+> [코드를 사용하여 LUIS 엔드포인트 호출](./luis-get-started-get-intent-from-rest.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0da49a6f5299ef4e53b06acd5ce3fb838915a661
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c694cf58f4c6b613cbc183753785a34bc15063bd
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633929"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093607"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 
@@ -28,12 +28,12 @@ ms.locfileid: "92633929"
 
 Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](data-factory-create-pipelines.md)를 만듭니다. 파이프라인은 한데 모여 작업을 수행하는 작업의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다. 
 
-Data Factory는 **미국 서부** , **미국 동부** 및 **북유럽** 지역에서만 사용할 수 있지만, 데이터 이동 서비스는 [여러 지역에서 전역적으로](data-factory-data-movement-activities.md#global) 사용할 수 있습니다. Data Factory 서비스는 데이터 이동 서비스가 아직 해당 지역에 배포되지 않은 경우 서비스가 대체 지역을 사용하도록 명시적으로 지시하지 않는 한 데이터가 지리적 영역/지역을 벗어나지 않도록 합니다. 
+Data Factory는 **미국 서부**, **미국 동부** 및 **북유럽** 지역에서만 사용할 수 있지만, 데이터 이동 서비스는 [여러 지역에서 전역적으로](data-factory-data-movement-activities.md#global) 사용할 수 있습니다. Data Factory 서비스는 데이터 이동 서비스가 아직 해당 지역에 배포되지 않은 경우 서비스가 대체 지역을 사용하도록 명시적으로 지시하지 않는 한 데이터가 지리적 영역/지역을 벗어나지 않도록 합니다. 
 
 Azure Data Factory 자체는 인증서를 사용하여 암호화된 클라우드 데이터 저장소에 대한 링크된 서비스 자격 증명을 제외한 모든 데이터를 저장하지 않습니다. 데이터 기반 워크플로를 만들어서 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 간의 데이터 이동을 조정하고 다른 지역 또는 온-프레미스 환경에서 [컴퓨팅 서비스](data-factory-compute-linked-services.md)를 사용하여 데이터의 처리를 조정할 수 있습니다. 또한 프로그래밍 방식 및 UI 메커니즘을 모두 사용하여 [워크플로를 모니터링하고 관리](data-factory-monitor-manage-pipelines.md) 할 수 있습니다.
 
-Azure Data Factory를 사용한 데이터 이동은 다음에 대해 **인증을 받았습니다** .
--   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
+Azure Data Factory를 사용한 데이터 이동은 다음에 대해 **인증을 받았습니다**.
+-   [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)  
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
 -   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
@@ -42,7 +42,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
-- **클라우드 시나리오** - 이 시나리오에서는 출처와 목적지 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure Synapse Analytics (이전의 SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 되는 클라우드 저장소 서비스가 포함 됩니다. 지원되는 데이터 원본 목록은 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 있습니다.
+- **클라우드 시나리오** - 이 시나리오에서는 출처와 목적지 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure Synapse Analytics, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 되는 클라우드 저장소 서비스가 포함 됩니다. 지원되는 데이터 원본 목록은 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 있습니다.
 - **하이브리드 시나리오** - 이 시나리오에서는 원본 또는 대상이 방화벽 뒤에 있거나 회사 내 회사 네트워크 내에 있거나 데이터 저장소가 프라이빗 네트워크/가상 네트워크(주로 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -61,7 +61,7 @@ Azure Data Factory는 **Microsoft에서 관리하는 인증서** 를 사용하�
 일부 데이터 저장소가 미사용 데이터 암호화를 지원합니다. 이러한 데이터 저장소에 데이터 암호화 메커니즘을 사용하는 것이 좋습니다. 
 
 #### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
-Azure Synapse Analytics의 TDE (투명한 데이터 암호화)는 미사용 데이터에 대 한 실시간 암호화 및 암호 해독을 수행 하 여 악의적인 활동의 위협 으로부터 보호 하는 데 도움이 됩니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Synapse Analytics에서 데이터베이스 보안](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)설정을 참조 하세요.
+Azure Synapse Analytics의 TDE (투명한 데이터 암호화)는 미사용 데이터에 대 한 실시간 암호화 및 암호 해독을 수행 하 여 악의적인 활동의 위협 으로부터 보호 하는 데 도움이 됩니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Azure Synapse Analytics에서 데이터베이스 보안](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)을 참조 하세요.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database는 애플리케이션을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Azure SQL Database를 사용한 투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)를 참조하세요. 
@@ -91,7 +91,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 ### <a name="on-premises-data-store-credentials"></a>온-프레미스 데이터 저장소 자격 증명
 온-프레미스 데이터 저장소의 자격 증명은 로컬이 아닌 클라우드에 저장됩니다. 세 가지 방법으로 설정할 수 있습니다. 
 
-- Azure Portal/복사 마법사에서 HTTPS를 통해 **일반 텍스트** (보안 수준 낮음)를 사용합니다. 자격 증명은 일반 텍스트로 온-프레미스 게이트웨이에 전달됩니다.
+- Azure Portal/복사 마법사에서 HTTPS를 통해 **일반 텍스트**(보안 수준 낮음)를 사용합니다. 자격 증명은 일반 텍스트로 온-프레미스 게이트웨이에 전달됩니다.
 - **복사 마법사에서 JavaScript 암호화 라이브러리** 사용 중.
 - **한 번 클릭 기반 자격 증명 관리자 앱** 사용. 1회성 애플리케이션은 게이트웨이에 액세스할 수 있는 온-프레미스 시스템에서 실행되며 데이터 저장소에 대한 인증 정보를 설정합니다. 이 옵션과 다음 옵션은 가장 안전한 옵션입니다. 자격 증명 관리자 앱은 기본적으로 보안 통신을 위해 게이트웨이가 있는 컴퓨터에서 포트 8050을 사용합니다.  
 - [AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell cmdlet을 사용 하 여 자격 증명을 암호화 합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet이 반환 하는 암호화 된 자격 증명을 사용 하 여 [AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet에서 사용 하는 json 파일에서 **ConnectionString** 의 **encryptedcredential** 요소에 추가 하거나 포털의 Data Factory 편집기에서 json 코드 조각에 추가할 수 있습니다. 이 옵션과 클릭 1회 애플리케이션은 가장 안전한 옵션입니다. 

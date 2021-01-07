@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory LDAP 인증
-description: 이 인증 패턴을 달성 하는 데 대 한 아키텍처 지침
+description: Azure Active Directory를 사용 하 여 LDAP 인증을 구현 하는 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a70cb4754d98f4573670860c510692a7a2d134c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f209d394e1a0c2c4ddde9cbf8df2704647e2822a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114418"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168715"
 ---
 # <a name="ldap-authentication-with-azure-active-directory"></a>Azure Active Directory LDAP 인증
 
@@ -60,12 +60,11 @@ Azure Active Directory (Azure AD)는 Azure AD Domain Services (AD DS)를 통해�
 
 ## <a name="implement-ldap-authentication-with-azure-ad"></a>Azure AD를 사용 하 여 LDAP 인증 구현
 
-* [Azure AD DS 인스턴스 만들기 및 구성](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance) 
+* [Azure AD DS 인스턴스 만들기 및 구성](../../active-directory-domain-services/tutorial-create-instance.md) 
 
-* [Azure AD DS 인스턴스에 대 한 가상 네트워킹 구성](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-networking) 
+* [Azure AD DS 인스턴스에 대 한 가상 네트워킹 구성](../../active-directory-domain-services/tutorial-configure-networking.md) 
 
-* [Azure AD DS 관리 되는 도메인에 대 한 보안 LDAP 구성](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps) 
+* [Azure AD DS 관리 되는 도메인에 대 한 보안 LDAP 구성](../../active-directory-domain-services/tutorial-configure-ldaps.md) 
 
-* [Azure AD DS에서 온-프레미스 도메인에 대 한 아웃 바운드 포리스트 트러스트 만들기](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-forest-trust)
+* [Azure AD DS에서 온-프레미스 도메인에 대 한 아웃 바운드 포리스트 트러스트 만들기](../../active-directory-domain-services/tutorial-create-forest-trust.md)
 
- 

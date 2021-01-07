@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376887"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170925"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 TheAccessHub Admin 도구를 구성 하기 위한 자습서
 
@@ -38,13 +38,13 @@ ms.locfileid: "93376887"
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)입니다. 테 넌 트는 Azure 구독에 연결 되어야 합니다.
+- [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md)입니다. 테 넌 트는 Azure 구독에 연결 되어야 합니다.
 
 - TheAccessHub 관리 도구 환경: 새 환경을 프로 비전 하려면 [N8 Identity](https://n8id.com/contact/) 에 문의 하세요.
 
 - 필드 고객 데이터를 마이그레이션하려는 모든 데이터베이스 또는 LDAPs (Lightweight Directory Access protocol)에 대 한 연결 및 자격 증명 정보입니다.
 
-- 필드 TheAccessHub 관리 도구를 등록 정책 흐름에 통합 하려는 경우 [사용자 지정 정책을](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started)사용 하기 위한 Azure AD B2C 환경을 구성 합니다.
+- 필드 TheAccessHub 관리 도구를 등록 정책 흐름에 통합 하려는 경우 [사용자 지정 정책을](./custom-policy-get-started.md)사용 하기 위한 Azure AD B2C 환경을 구성 합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -84,7 +84,7 @@ TheAccessHub Admin 도구를 사용 하려면 전역 관리자를 대신 하 여
 
    b. 전역 관리자 레코드 확인
 
-   c. **선택**  >  **만들기**
+   다. **선택**  >  **만들기**
 
 ## <a name="connect-theaccesshub-admin-tool-with-your-azure-ad-b2c-tenant"></a>Azure AD B2C 테 넌 트와 TheAccessHub 관리 도구 연결
 
@@ -122,7 +122,7 @@ SSO (Single Sign-on)를 사용 하 여 CSR/헬프데스크 사용자를 구성 �
 
    b. 로그인 ID/Azure AD 사용자 이름의 경우 사용자의 Azure Active Directory 계정에서 사용자 계정 이름을 제공 합니다.
 
-   c. TheAccessHub 역할 탭에서 관리 되는 역할 기술 지원팀을 선택 합니다. 그러면 사용자가 동료 관리 보기에 액세스할 수 있습니다. 사용자를 그룹에 배치 하거나 조직 소유자에 게 고객에 게 조치를 적용 해야 합니다.
+   다. TheAccessHub 역할 탭에서 관리 되는 역할 기술 지원팀을 선택 합니다. 그러면 사용자가 동료 관리 보기에 액세스할 수 있습니다. 사용자를 그룹에 배치 하거나 조직 소유자에 게 고객에 게 조치를 적용 해야 합니다.
 
 6. **제출** 을 선택합니다.
 
@@ -162,9 +162,9 @@ TheAccessHub 관리 도구에서 고객 및 CSR/기술 지원팀 사용자를 �
 
 3. **그룹 추가** > 선택
 
-4. **그룹 이름** , **그룹 설명** 및 **그룹 소유자** 입력
+4. **그룹 이름**, **그룹 설명** 및 **그룹 소유자** 입력
 
-5. 그룹의 멤버로 지정할 동료의 상자를 검색 하 고 선택한 다음, > **추가** 를 선택 합니다.
+5. 그룹의 멤버로 지정할 동료의 상자를 검색 하 고 선택한 다음, >**추가** 를 선택 합니다.
 
 6. 페이지 맨 아래에서 그룹의 모든 멤버를 볼 수 있습니다.
 
@@ -180,13 +180,13 @@ TheAccessHub 관리 도구에서 고객 및 CSR/기술 지원팀 사용자를 �
 
 3. > **조직** 선택
 
-4. **조직 이름** , **조직 소유자** 및 **부모 조직을** 제공 합니다.
+4. **조직 이름**, **조직 소유자** 및 **부모 조직을** 제공 합니다.
 
     a. 조직 이름은 고객 데이터에 해당 하는 값입니다. 동료와 고객 데이터를 로드할 때 부하에서 조직의 이름을 제공 하는 경우 동료가 조직에 자동으로 배치 될 수 있습니다.
 
     b. 소유자는이 조직의 고객과 동료를 관리 하는 개인 또는 그룹 및 내 모든 suborganization을 나타냅니다.
 
-    c. 부모 조직은 본질적으로이 조직을 담당 하는 다른 조직을 나타냅니다.
+    다. 부모 조직은 본질적으로이 조직을 담당 하는 다른 조직을 나타냅니다.
 
 5. **제출** 을 선택합니다.
 
@@ -242,7 +242,7 @@ TheAccessHub Admin 도구를 사용 하 여 다양 한 데이터베이스, LDAPs
 
    b. **데이터베이스 유형** – 지원 되는 데이터베이스 유형 중 하나에서 데이터베이스를 선택 합니다.
 
-   c. **연결 URL** – 올바른 형식의 JDBC 연결 문자열을 입력 합니다. 예: ``jdbc:postgresql://myhost.com:5432/databasename``
+   다. **연결 URL** – 올바른 형식의 JDBC 연결 문자열을 입력 합니다. 예: ``jdbc:postgresql://myhost.com:5432/databasename``
 
    d. **사용자 이름** – 데이터베이스에 액세스 하기 위한 사용자 이름을 입력 합니다.
 
@@ -258,7 +258,7 @@ TheAccessHub Admin 도구를 사용 하 여 다양 한 데이터베이스, LDAPs
 
    b. **호스트** – LDAP 서버가 실행 되는 컴퓨터의 호스트 이름 또는 IP를 입력 합니다. 예: ``mysite.com``
 
-   c. **포트** – LDAP 서버가 수신 대기 하는 포트 번호를 입력 합니다.
+   다. **포트** – LDAP 서버가 수신 대기 하는 포트 번호를 입력 합니다.
 
    d. **Ssl** – TheAccessHub 관리 도구가 SSL을 사용 하 여 안전 하 게 LDAP와 통신 해야 하는 경우 확인란을 선택 합니다. SSL을 사용 하는 것이 좋습니다.
 
@@ -280,7 +280,7 @@ TheAccessHub Admin 도구를 사용 하 여 다양 한 데이터베이스, LDAPs
 
    b. **연결 권한 부여** 선택
 
-   c. Onedrive 계정에 대 한 읽기 권한이 있는 사용자로 로그인 하 여 **onedrive** 에 로그인 하 라는 메시지가 새 창에 표시 됩니다. TheAccessHub Admin Tool은이 사용자가 CSV 로드 파일을 읽을 수 있도록 합니다.
+   다. Onedrive 계정에 대 한 읽기 권한이 있는 사용자로 로그인 하 여 **onedrive** 에 로그인 하 라는 메시지가 새 창에 표시 됩니다. TheAccessHub Admin Tool은이 사용자가 CSV 로드 파일을 읽을 수 있도록 합니다.
 
    d. 프롬프트에 따라 **동의 함** 을 선택 하 여 TheAccessHub 관리 도구에 요청 된 사용 권한을 부여 합니다.
 
@@ -358,7 +358,7 @@ Azure AD B2C에서 TheAccessHub Admin 도구로 데이터를 동기화 하려면
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Azure AD B2C 정책 구성
 
-Azure AD B2C를 사용 하 여 상태를 최신 상태로 유지 하는 기능이 TheAccessHub 관리 도구를 동기화 하는 경우도 있습니다. TheAccessHub 관리 도구의 API 및 Azure AD B2C 정책을 활용 하 여 TheAccessHub 관리 도구를 변경 하는 것을 알릴 수 있습니다. 이 솔루션에는 [Azure AD B2C 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20)에 대 한 기술 지식이 필요 합니다. 다음 섹션에서는 Sign-Up 사용자 지정 정책에 새 계정에 대 한 TheAccessHub 관리 도구를 알리는 정책 단계 및 보안 인증서 예제를 제공 합니다.
+Azure AD B2C를 사용 하 여 상태를 최신 상태로 유지 하는 기능이 TheAccessHub 관리 도구를 동기화 하는 경우도 있습니다. TheAccessHub 관리 도구의 API 및 Azure AD B2C 정책을 활용 하 여 TheAccessHub 관리 도구를 변경 하는 것을 알릴 수 있습니다. 이 솔루션에는 [Azure AD B2C 사용자 지정 정책](./custom-policy-get-started.md)에 대 한 기술 지식이 필요 합니다. 다음 섹션에서는 Sign-Up 사용자 지정 정책에 새 계정에 대 한 TheAccessHub 관리 도구를 알리는 정책 단계 및 보안 인증서 예제를 제공 합니다.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>TheAccessHub 관리 도구의 API를 호출 하는 보안 자격 증명 만들기
 
@@ -372,7 +372,7 @@ Azure AD B2C를 사용 하 여 상태를 최신 상태로 유지 하는 기능�
 
 5. **다운로드** 를 선택 하 여 클라이언트 인증서를 가져옵니다.
 
-6. 이 [자습서](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#https-client-certificate-authentication ) 에 따라 클라이언트 인증서를 Azure AD B2C에 추가 합니다.
+6. 이 [자습서](./secure-rest-api.md#https-client-certificate-authentication ) 에 따라 클라이언트 인증서를 Azure AD B2C에 추가 합니다.
 
 ### <a name="retrieve-your-custom-policy-examples"></a>사용자 지정 정책 예제 검색
 
@@ -386,12 +386,12 @@ Azure AD B2C를 사용 하 여 상태를 최신 상태로 유지 하는 기능�
 
 5. **다운로드** 를 선택 하 여 고객이 등록할 때 TheAccessHub Admin Tool에 고객을 추가 하는 기본 정책으로 zip 파일을 가져옵니다.
 
-6. 이 [자습서](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) 에 따라 Azure AD B2C에서 사용자 지정 정책 디자인을 시작할 수 있습니다.
+6. 이 [자습서](./custom-policy-get-started.md) 에 따라 Azure AD B2C에서 사용자 지정 정책 디자인을 시작할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

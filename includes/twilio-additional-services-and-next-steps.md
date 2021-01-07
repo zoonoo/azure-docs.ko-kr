@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 8acb75f1cac83595da88a4a5ffa33102136266f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67182229"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003766"
 ---
 ## <a name="how-to-use-additional-twilio-services"></a><a name="AdditionalServices"></a>방법: 추가 Twilio 서비스 사용
 여기에서 보여 준 예뿐만 아니라 Twilio는 Azure 애플리케이션에서 Twilio 기능을 활용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [Twilio API 설명서][twilio_api_documentation]를 참조하세요.

@@ -1,22 +1,22 @@
 ---
 title: 리소스 및 할당량 관리
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 리소스에 대 한 할당량 및 할당량 향상을 요청 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning에 대 한 리소스에 대 한 할당량 및 제한 및 할당량 향상을 요청 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 10/13/2020
+ms.date: 12/1/2020
 ms.topic: conceptual
-ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
+ms.openlocfilehash: 1b43a1ceb1f9e098e4932b405553ae8f33e27262
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309080"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937351"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 리소스에 대 한 할당량 관리 및 늘리기
 
@@ -29,7 +29,7 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 > + 할당량을 늘리는 중입니다.
 > + 개인 끝점 및 DNS 할당량.
 
-할당량 관리와 함께 [Azure Machine Learning에 대 한 비용을 계획 하 고 관리](concept-plan-manage-cost.md)하는 방법을 배울 수 있습니다.
+할당량 관리와 함께 [Azure Machine Learning에 대 한 비용을 계획 하 고 관리](concept-plan-manage-cost.md) 하는 방법과 [Azure Machine Learning의 서비스 제한](resource-limits-quotas-capacity.md)에 대해 알아볼 수 있습니다.
 
 ## <a name="special-considerations"></a>특별 고려 사항
 
@@ -45,28 +45,34 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 
 이 섹션에서는 다음 리소스에 대 한 기본 및 최대 할당량 한도에 대해 알아봅니다.
 
++ Azure Machine Learning 자산
+  + Azure Machine Learning 컴퓨팅
+  + 파이프라인 Azure Machine Learning
 + 가상 머신
-+ Azure Machine Learning 컴퓨팅
-+ 파이프라인 Azure Machine Learning
 + Azure Container Instances
 + Azure Storage
 
 > [!IMPORTANT]
-> 한도는 변경될 수 있습니다. 최신 정보는 azure [구독 및 서비스 제한, 할당량 및](../azure-resource-manager/management/azure-subscription-service-limits.md) 모든 azure에 대 한 제약 조건을 참조 하세요.
+> 한도는 변경될 수 있습니다. 최신 정보는  [Azure Machine Learning의 서비스 제한](resource-limits-quotas-capacity.md)을 참조 하세요.
 
-### <a name="virtual-machines"></a>가상 머신
-각 Azure 구독에는 모든 서비스의 가상 머신 수에 대 한 제한이 있습니다. 가상 컴퓨터 코어에는 지역별 총 한도와 크기 별 지역별 제한이 있습니다. 두 제한 모두 개별적으로 적용 됩니다.
 
-미국 동부 총 VM 코어 한도가 30이고, A 시리즈 코어 한도 30이며, D 시리즈 코어 한도는 30인 구독을 예로 들 수 있습니다. 이 구독은 30 개의 A1 Vm 또는 30 D1 개의 Vm을 배포할 수 있도록 허용 하거나 총 30 개 코어를 초과 하지 않는 둘의 조합을 허용 합니다.
 
-다음 표에 표시 된 값을 초과 하 여 가상 컴퓨터에 대 한 제한을 발생 시킬 수 없습니다.
+### <a name="azure-machine-learning-assets"></a>Azure Machine Learning 자산
+자산에 대 한 다음 제한은 작업 영역 별로 적용 됩니다. 
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+| **리소스** | **최대 한도** |
+| --- | --- |
+| 데이터 세트 | 1천만 |
+| 실행 | 1천만 |
+| 모델 | 1천만|
+| Artifacts | 1천만 |
+
+또한 최대 **실행 시간은** 30 일이 고 **실행 당 로깅되** 는 최대 메트릭 수는 100만입니다.
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
-[Azure Machine Learning 계산](concept-compute-target.md#azure-machine-learning-compute-managed) 에는 코어 수와 구독에서 지역 당 허용 되는 고유 계산 리소스 수에 대 한 기본 할당량 한도가 있습니다. 이 할당량은 이전 섹션의 VM 코어 할당량과 별개입니다.
+[Azure Machine Learning 계산](concept-compute-target.md#azure-machine-learning-compute-managed) 에는 코어 수 (각 VM 제품군 및 누적 총 코어로 분할)와 구독에서 지역별 허용 되는 고유 계산 리소스 수에 대 한 기본 할당량 한도가 있습니다. 이 할당량은 Azure Machine Learning의 관리 되는 계산 리소스에만 적용 되므로 이전 섹션에 나열 된 VM 코어 할당량과는 다릅니다.
 
-[할당량 증가를 요청](#request-quota-increases) 하 여이 섹션의 제한을 표에 표시 된 최대 제한까지 올립니다.
+[할당량 증가를 요청](#request-quota-increases) 하 여이 섹션에서 다양 한 VM 제품군 코어 할당량, 총 구독 코어 할당량 및 리소스에 대 한 제한을 증가 시킵니다.
 
 사용 가능한 리소스:
 + **지역별 전용 코어** 의 기본 제한은 구독 제안 유형에 따라 24 ~ 300입니다. 각 VM 제품군에 대해 구독 당 전용 코어 수를 늘릴 수 있습니다. NCv2, NCv3 또는 ND 시리즈와 같은 특수 한 VM 제품군은 기본 제로 코어를 사용 하 여 시작 합니다.
@@ -75,12 +81,19 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 
 + **지역별 클러스터** 의 기본 제한은 200입니다. 이러한 설정은 교육 클러스터와 계산 인스턴스 간에 공유 됩니다. (계산 인스턴스는 할당량을 위해 단일 노드 클러스터로 간주 됩니다.)
 
-다음 표에서는 초과할 수 없는 추가 제한을 보여 줍니다.
+> [!TIP]
+> 할당량 증가를 요청 하는 VM 제품군에 대해 자세히 알아보려면 [Azure에서 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/sizes)를 참조 하세요. 예를 들어 GPU VM 제품군은 제품군 이름에 "N"으로 시작 합니다 (예: NCv3 시리즈)
 
-| **리소스** | **최대 한도** |
+다음 표에서는 플랫폼의 추가 제한을 보여 줍니다. 예외를 요청 하는 **기술** 지원 티켓을 통해 AzureML 제품 팀에 연락 하세요.
+
+| **리소스 또는 작업** | **최대 한도** |
 | --- | --- |
 | 리소스 그룹당 작업 영역 | 800 |
-| 단일 Azure Machine Learning 계산 (AmlCompute) 리소스의 노드 | 100개 노드 |
+| 단일 Azure Machine Learning 계산 (AmlCompute) **클러스터** 설정의 노드 (예: MPI 작업을 실행할 수 없음) | 100 노드 하지만 최대 65000 노드로 구성 가능 |
+| 단일 병렬 실행 단계의 노드가 AmlCompute (Azure Machine Learning 계산) 클러스터에서 **실행** 됩니다. | 100 노드는 클러스터를 설치 하는 경우 위에 나와 있는 경우 최대 65000 노드로 구성할 수 있습니다. |
+| 통신 사용 풀로 서의 단일 Azure Machine Learning 계산 (AmlCompute) **클러스터** 설정의 노드 | 300 노드 하지만 최대 4000 노드로 구성 가능 |
+| RDMA 지원 VM 제품군에서 통신 사용 풀로 서의 단일 Azure Machine Learning 계산 (AmlCompute) **클러스터** 설정의 노드 | 100개 노드 |
+| 단일 MPI의 노드는 AmlCompute (Azure Machine Learning 계산) 클러스터에서 **실행** 됩니다. | 100 노드 하지만 300 노드로 늘릴 수 있습니다. |
 | 노드당 GPU MPI 프로세스 | 1-4 |
 | 노드당 GPU 작업자 | 1-4 |
 | 작업 수명 | 21 일<sup>1</sup> |
@@ -90,13 +103,22 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 <sup>1</sup> 최대 수명은 실행 시작 시간과 완료 시간 사이의 기간입니다. 완료 된 실행은 무기한 지속 됩니다. 최대 수명 내에 완료 되지 않은 실행에 대 한 데이터는 액세스할 수 없습니다.
 용량 제약 조건이 있을 때마다 우선 순위가 낮은 노드의 작업 <sup>2</sup> 개를 선점할 수 있습니다. 작업에서 검사점을 구현 하는 것이 좋습니다.
 
-### <a name="azure-machine-learning-pipelines"></a>파이프라인 Azure Machine Learning
+#### <a name="azure-machine-learning-pipelines"></a>파이프라인 Azure Machine Learning
 [Azure Machine Learning 파이프라인](concept-ml-pipelines.md) 의 제한은 다음과 같습니다.
 
 | **리소스** | **제한** |
 | --- | --- |
 | 파이프라인의 단계 | 30,000 |
 | 리소스 그룹당 작업 영역 | 800 |
+
+### <a name="virtual-machines"></a>가상 머신
+각 Azure 구독에는 모든 서비스의 가상 머신 수에 대 한 제한이 있습니다. 가상 컴퓨터 코어에는 지역별 총 한도와 크기 별 지역별 제한이 있습니다. 두 제한 모두 개별적으로 적용 됩니다.
+
+미국 동부 총 VM 코어 한도가 30이고, A 시리즈 코어 한도 30이며, D 시리즈 코어 한도는 30인 구독을 예로 들 수 있습니다. 이 구독은 30 개의 A1 Vm 또는 30 D1 개의 Vm을 배포할 수 있도록 허용 하거나 총 30 개 코어를 초과 하지 않는 둘의 조합을 허용 합니다.
+
+다음 표에 표시 된 값을 초과 하 여 가상 컴퓨터에 대 한 제한을 발생 시킬 수 없습니다.
+
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### <a name="container-instances"></a>Container Instances
 
@@ -190,3 +212,4 @@ Azure Machine Learning는 (고객) 구독에 리소스를 만들지만 일부 �
 ## <a name="next-steps"></a>다음 단계
 
 + [Azure Machine Learning에 대 한 비용 계획 및 관리](concept-plan-manage-cost.md)
++ [Azure Machine Learning의 서비스 제한](resource-limits-quotas-capacity.md)

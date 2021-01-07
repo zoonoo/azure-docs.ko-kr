@@ -1,17 +1,17 @@
 ---
 title: 읽기 복제본 관리-Azure Portal-Azure Database for MariaDB
 description: 이 문서에서는 포털을 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 설정 하 고 관리 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ca6ef3c368a5f578cc90fae3923caa89f3b076a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742862"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537750"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -35,9 +35,9 @@ ms.locfileid: "91742862"
 
 2. 마스터로 사용 하려는 기존 Azure Database for MariaDB 서버를 선택 합니다. 이 작업은 **개요** 페이지를 엽니다.
 
-3. 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
+3. 메뉴의 **설정** 아래에서 **복제** 를 선택합니다.
 
-4. **복제본 추가**를 선택합니다.
+4. **복제본 추가** 를 선택합니다.
 
    ![Azure Database for MariaDB-복제](./media/howto-read-replica-portal/add-replica.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "91742862"
 
     ![Azure Database for MariaDB-복제본 위치](./media/howto-read-replica-portal/replica-location.png)
 
-7. **확인**을 선택하여 복제본 만들기를 확인합니다.
+7. **확인** 을 선택하여 복제본 만들기를 확인합니다.
 
 > [!NOTE]
 > 읽기 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본이 생성된 후에 복제본 서버 구성을 변경할 수 있습니다. 복제본이 마스터를 유지할 수 있도록 복제본 서버 구성을 원본과 같거나 큰 값으로 유지 하는 것이 좋습니다.
@@ -67,17 +67,17 @@ Azure Portal에서 원본과 복제 서버 간의 복제를 중지 하려면 다
 
 1. Azure Portal에서 원본 Azure Database for MariaDB 서버를 선택 합니다. 
 
-2. 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
+2. 메뉴의 **설정** 아래에서 **복제** 를 선택합니다.
 
 3. 복제를 중지할 복제본 서버를 선택합니다.
 
    ![Azure Database for MariaDB-복제 중지 서버 선택](./media/howto-read-replica-portal/stop-replication-select.png)
 
-4. **복제 중지**를 선택합니다.
+4. **복제 중지** 를 선택합니다.
 
    ![Azure Database for MariaDB-복제 중지](./media/howto-read-replica-portal/stop-replication.png)
 
-5. **확인**을 클릭하여 복제 중지를 확인합니다.
+5. **확인** 을 클릭하여 복제 중지를 확인합니다.
 
    ![Azure Database for MariaDB-복제 중지 확인](./media/howto-read-replica-portal/stop-replication-confirm.png)
 
@@ -87,17 +87,17 @@ Azure Portal에서 읽기 복제본 서버를 삭제하려면 다음 단계를 �
 
 1. Azure Portal에서 원본 Azure Database for MariaDB 서버를 선택 합니다.
 
-2. 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
+2. 메뉴의 **설정** 아래에서 **복제** 를 선택합니다.
 
 3. 삭제할 복제본 서버를 선택합니다.
 
    ![Azure Database for MariaDB-복제본을 삭제 합니다. 서버 선택](./media/howto-read-replica-portal/delete-replica-select.png)
 
-4. **복제본 삭제**를 선택합니다.
+4. **복제본 삭제** 를 선택합니다.
 
    ![Azure Database for MariaDB-복제본 삭제](./media/howto-read-replica-portal/delete-replica.png)
 
-5. 복제본의 이름을 입력하고 **삭제**를 클릭하여 복제본 삭제를 확인합니다.  
+5. 복제본의 이름을 입력하고 **삭제** 를 클릭하여 복제본 삭제를 확인합니다.  
 
    ![Azure Database for MariaDB-복제본 삭제 확인](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
@@ -110,7 +110,7 @@ Azure Portal에서 원본 서버를 삭제 하려면 다음 단계를 사용 합
 
 1. Azure Portal에서 원본 Azure Database for MariaDB 서버를 선택 합니다.
 
-2. **개요**에서 **삭제**를 선택합니다.
+2. **개요** 에서 **삭제** 를 선택합니다.
 
    ![Azure Database for MariaDB-마스터 삭제](./media/howto-read-replica-portal/delete-master-overview.png)
 
@@ -122,7 +122,7 @@ Azure Portal에서 원본 서버를 삭제 하려면 다음 단계를 사용 합
 
 1. [Azure Portal](https://portal.azure.com/)에서 모니터링할 복제본 Azure Database for MariaDB 서버를 선택 합니다.
 
-2. 사이드바의 **모니터링** 섹션에서 **메트릭**을 선택합니다.
+2. 사이드바의 **모니터링** 섹션에서 **메트릭** 을 선택합니다.
 
 3. 사용 가능한 메트릭의 드롭다운 목록에서 **복제 지연 시간(초)** 를 선택합니다.
 

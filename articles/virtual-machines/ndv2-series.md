@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: ff828024610ce498d40a4039d8116e28366aebb9
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dcfbacb788225d936b236c901e9477a9bbb23b94
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494425"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585295"
 ---
 # <a name="updated-ndv2-series"></a>업데이트 된 NDv2 시리즈
 
@@ -39,6 +39,7 @@ NDv2는 계산에 강한 확장 (VM 당 활용 8 Gpu) 및 규모 확장 (여러 
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 2 세대<br>
 InfiniBand: 지원 됨<br>
+Nvidia NVLink Interconnect: 지원 됨<br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 네트워크 대역폭 | 최대 NIC 수 |

@@ -3,18 +3,18 @@ title: 빠른 시작 - 비용 분석을 사용하여 Azure 비용 살펴보기
 description: 이 빠른 시작에서는 비용 분석을 사용하여 Azure 조직 비용을 탐색하고 분석하는 데 도움이 되는 정보를 제공합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contentperfq2
-ms.openlocfilehash: 31a95d8c02ee540fe6b52088159f04535c39ea93
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 1926a5a2ee81b6be4abee5e4064a4a23354da1a1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676831"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033581"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -52,17 +52,17 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 
 초기 비용 분석 보기에는 다음 영역에 포함됩니다.
 
-**누적 비용 보기** : 미리 정의된 비용 분석 보기 구성을 나타냅니다. 각 보기에는 날짜 범위, 세분성, 그룹화 방법 및 필터 설정이 있습니다. 기본 보기에는 현재 청구 기간에 대한 누적 비용이 표시되지만 다른 기본 제공 보기로 변경할 수 있습니다.
+**누적 비용 보기**: 미리 정의된 비용 분석 보기 구성을 나타냅니다. 각 보기에는 날짜 범위, 세분성, 그룹화 방법 및 필터 설정이 있습니다. 기본 보기에는 현재 청구 기간에 대한 누적 비용이 표시되지만 다른 기본 제공 보기로 변경할 수 있습니다.
 
-**실제 비용** : 청구서에서 누적된 현재 월의 총 사용량 및 구매 비용을 보여 줍니다.
+**실제 비용**: 청구서에서 누적된 현재 월의 총 사용량 및 구매 비용을 보여 줍니다.
 
-**예측** : 선택한 기간에 대한 예상 총 비용을 보여 줍니다.
+**예측**: 선택한 기간에 대한 예상 총 비용을 보여 줍니다.
 
-**예산** : 선택한 범위에 대한 계획된 지출 한도(사용 가능한 경우)를 보여 줍니다.
+**예산**: 선택한 범위에 대한 계획된 지출 한도(사용 가능한 경우)를 보여 줍니다.
 
-**누적 세분성** : 청구 기간의 시작일부터 시작되는 총 일일 집계 비용을 보여 줍니다. 청구 계정 또는 구독용으로 예산을 생성한 후에는 예산을 기준으로 한 지출 추세를 빠르게 확인할 수 있습니다. 날짜 위로 마우스를 가져가면 해당일의 누적 비용을 확인할 수 있습니다.
+**누적 세분성**: 청구 기간의 시작일부터 시작되는 총 일일 집계 비용을 보여 줍니다. 청구 계정 또는 구독용으로 예산을 생성한 후에는 예산을 기준으로 한 지출 추세를 빠르게 확인할 수 있습니다. 날짜 위로 마우스를 가져가면 해당일의 누적 비용을 확인할 수 있습니다.
 
-**피벗(도넛형) 차트** : 공통 표준 속성 집합을 기준으로 총 비용이 구분되는 동적 피벗을 제공합니다. 이번 달의 가장 큰 비용부터 가장 작은 비용까지 표시됩니다. 언제든지 다른 피벗을 선택하여 피벗 차트를 변경할 수 있습니다. 기본적으로 비용은 서비스(요금 범주), 위치(지역) 및 하위 범위로 분류됩니다. 예를 들어 등록 계정은 청구 계정의 하위 범위로, 리소스 그룹은 구독의 하위 범위로, 리소스는 리소스 그룹의 하위 범위로 분류됩니다.
+**피벗(도넛형) 차트**: 공통 표준 속성 집합을 기준으로 총 비용이 구분되는 동적 피벗을 제공합니다. 이번 달의 가장 큰 비용부터 가장 작은 비용까지 표시됩니다. 언제든지 다른 피벗을 선택하여 피벗 차트를 변경할 수 있습니다. 기본적으로 비용은 서비스(요금 범주), 위치(지역) 및 하위 범위로 분류됩니다. 예를 들어 등록 계정은 청구 계정의 하위 범위로, 리소스 그룹은 구독의 하위 범위로, 리소스는 리소스 그룹의 하위 범위로 분류됩니다.
 
 ![Azure Portal에서 비용 분석의 초기 보기](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
@@ -82,12 +82,13 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 일별 비용 | 지난 30일 동안 일별 비용이 증가했나요?
 서비스별 비용 | 지난 3건의 청구서에서 월별 사용량이 어떻게 달라졌나요?
 리소스별 비용 | 이번 달에 지금까지 비용이 가장 많은 리소스는 무엇인가요?
+청구서 세부 정보 | 마지막 청구서에 부과된 요금은 얼마인가요?
 
 ![이번 달에 선택한 예를 보여 주는 보기 선택기](./media/quick-acm-cost-analysis/view-selector.png)
 
 그러나 심층 분석이 필요한 경우가 많이 있습니다. 사용자 지정은 날짜 선택을 사용하여 페이지의 맨 위에서 시작됩니다.
 
-기본적으로 비용 분석은 현재 월에 대한 데이터를 표시합니다. 일반적인 날짜 범위로 빠르게 전환하려면 날짜 선택기를 사용합니다. 예에는 최근 7일, 지난 달, 현재 연도 또는 사용자 지정 날짜 범위가 포함됩니다. 종량제 구독에는 현재 청구 기간 또는 마지막 청구서와 같이 역월에 바인딩되지 않은 청구 기간 기준의 날짜 범위도 포함됩니다. 메뉴 위쪽의 **<이전** 및 **다음>** 링크를 사용하여 각각 이전 기간 또는 다음 기간으로 이동합니다. 예를 들어 **<이전** 은 **최근 7일** 에서 **8-14일 전** 또는 **15-21일 전** 으로 전환합니다.
+기본적으로 비용 분석은 현재 월에 대한 데이터를 표시합니다. 일반적인 날짜 범위로 빠르게 전환하려면 날짜 선택기를 사용합니다. 예에는 최근 7일, 지난 달, 현재 연도 또는 사용자 지정 날짜 범위가 포함됩니다. 종량제 구독에는 현재 청구 기간 또는 마지막 청구서와 같이 역월에 바인딩되지 않은 청구 기간 기준의 날짜 범위도 포함됩니다. 메뉴 위쪽의 **<이전** 및 **다음>** 링크를 사용하여 각각 이전 기간 또는 다음 기간으로 이동합니다. 예를 들어 **<이전** 은 **최근 7일** 에서 **8-14일 전** 또는 **15-21일 전** 으로 전환합니다. 사용자 지정 날짜 범위를 선택하는 경우 최대 일년(예: 1월 1일~12월 31일)까지 선택할 수 있습니다.
 
 ![이번 달의 선택 예제를 보여 주는 날짜 선택기](./media/quick-acm-cost-analysis/date-selector.png)
 
@@ -156,9 +157,58 @@ Azure 태그 정책을 사용하여 비용 데이터 가시성을 향상시키�
 
 ## <a name="download-usage-data"></a>사용량 데이터 다운로드
 
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
 추가 분석을 위해 데이터를 다운로드하거나, 사용자 고유의 데이터와 병합하거나, 사용자 고유의 시스템에 통합해야 하는 경우가 있습니다. Cost Management는 몇 가지 다른 옵션을 제공합니다. 처음에 비용 분석 내에서 제공되는 것과 같은 일시적인 개괄적 요약이 필요한 경우 필요한 보기를 작성합니다. 그런 다음, **내보내기** 를 선택하고 **CSV로 데이터 다운로드** 또는 **Excel에 데이터 다운로드** 를 선택하여 다운로드합니다. Excel 다운로드는 범위, 쿼리 구성, 총계 및 생성 날짜와 같이 다운로드를 생성하는 데 사용한 보기에 대한 추가 컨텍스트를 제공합니다.
 
 집계되지 않은 전체 데이터 세트가 필요한 경우 청구 계정에서 해당 데이터 세트를 다운로드합니다. 그런 다음, 포털의 왼쪽 탐색 창에 있는 서비스 목록에서 **비용 관리 + 청구** 로 이동합니다. 청구 계정(해당하는 경우)을 선택합니다. **사용량 + 요금** 으로 이동한 후 원하는 청구 기간에 대해 **다운로드** 아이콘을 선택합니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+로그인한 후 [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query) 명령을 사용하여 구독에 대한 월간 누계 사용 정보를 쿼리합니다.
+
+```azurecli
+az costmanagement query --timeframe MonthToDate --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+```
+
+**--dataset-filter** 매개 변수 또는 기타 매개 변수를 사용하여 쿼리 범위를 좁힐 수도 있습니다.
+
+```azurecli
+az costmanagement query --timeframe MonthToDate --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
+   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
+```
+
+**--dataset-filter** 매개 변수는 JSON 문자열 또는 `@json-file`을 사용합니다.
+
+[az costmanagement export](/cli/azure/ext/costmanagement/costmanagement/export) 명령을 사용하여 사용량 데이터를 Azure 스토리지 계정으로 내보낼 수도 있습니다. 여기에서 데이터를 다운로드할 수 있습니다.
+
+1. 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. 리소스 그룹을 만들려면 [az group create](/cli/azure/group#az_group_create) 명령을 실행합니다.
+
+   ```azurecli
+   az group create --name TreyNetwork --location "East US"
+   ```
+
+1. 내보내기를 수신하거나 기존 스토리지 계정을 사용할 스토리지 계정을 만듭니다. 계정을 만들려면 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용합니다.
+
+   ```azurecli
+   az storage account create --resource-group TreyNetwork --name cmdemo
+   ```
+
+1. [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) 명령을 실행하여 내보내기를 만듭니다.
+
+   ```azurecli
+   az costmanagement export create --name DemoExport --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
+   --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
+   ```
+
+---
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

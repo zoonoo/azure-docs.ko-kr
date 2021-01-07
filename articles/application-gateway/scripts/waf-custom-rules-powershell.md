@@ -7,16 +7,16 @@ ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8bf19052c11301412a299c31a2cd73ed2f9ffc7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 312f052671036d8153dd19fcf4e559e825fd8464
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079900"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396994"
 ---
 # <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Azure PowerShell을 사용하여 WAF(웹 애플리케이션 방화벽) 사용자 지정 규칙 만들기
 
-이 스크립트는 사용자 지정 규칙을 사용하는 Application Gateway 웹 애플리케이션 방화벽을 만듭니다. 요청 헤더에 사용자 에이전트 *evilbot*이 포함되어 있으면 사용자 지정 규칙이 트래픽을 차단합니다.
+이 스크립트는 사용자 지정 규칙을 사용하는 Application Gateway 웹 애플리케이션 방화벽을 만듭니다. 요청 헤더에 사용자 에이전트 *evilbot* 이 포함되어 있으면 사용자 지정 규칙이 트래픽을 차단합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,6 +70,6 @@ Remove-AzResourceGroup -Name CustomRulesTest
 
 ## <a name="next-steps"></a>다음 단계
 
-- WAF 사용자 지정 규칙에 대한 자세한 내용은 [웹 애플리케이션 방화벽에 대한 사용자 지정 규칙](../custom-waf-rules-overview.md)을 참조하세요.
+- WAF 사용자 지정 규칙에 대한 자세한 내용은 [웹 애플리케이션 방화벽에 대한 사용자 지정 규칙](../../web-application-firewall/ag/custom-waf-rules-overview.md)을 참조하세요.
 - Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 - 추가 애플리케이션 게이트웨이 PowerShell 스크립트 샘플은 [Azure Application Gateway 설명서](../powershell-samples.md)에서 찾을 수 있습니다.

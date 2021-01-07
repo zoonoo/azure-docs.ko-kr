@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f757d8f59c06d573d71099941530dfc28174ac42
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9a3e2dd1ac58c89060fc3e09e97617cb2a68d8ac
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420491"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094576"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
 
@@ -82,6 +82,9 @@ Seamless SSO는 Azure Government 클라우드에 사용할 수 있습니다. 자
 >적어도 30일마다 Kerberos 암호 해독 키를 롤오버하는 것이 좋습니다.
 
 Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 따릅니다.
+
+   > [!NOTE]
+   >아래 단계를 수행 하려면 도메인 관리자와 전역 관리자 자격 증명이 모두 필요 합니다.
 
    **1단계. Seamless SSO가 활성화된 AD 포리스트 목록 가져오기**
 

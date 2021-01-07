@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130870"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006732"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
 
@@ -147,11 +147,11 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 
 다음은 연결해야 하는 필드와 기타 구성에 대한 설명입니다.
 
-* **\<database name\>** : 만들려는 데이터베이스의 이름입니다. 기본 데이터베이스를 사용하려는 경우 " *create database...* " 쿼리를 생략할 수 있습니다.
-* **\<table name\>** : 지정 된 데이터베이스 내에서 만들려는 테이블의 이름입니다. 기본 데이터베이스를 사용 하려는 경우를 사용 하지 않고 테이블을 직접 참조할 수 있습니다 *\<table name\>* \<database name\> .
-* **\<field separator\>** : Hive 테이블에 업로드할 데이터 파일의 필드를 구분 하는 구분 기호입니다.
-* **\<line separator\>** : 데이터 파일에서 줄을 구분 하는 구분 기호입니다.
-* **\<storage location\>** : Hive 테이블의 데이터를 저장 하는 Azure Storage 위치입니다.  디렉터리에 저장됩니다. 스토리지 위치를 지정하려면 스토리지 위치가 데이터베이스 및 테이블의 기본 컨테이너 내부에 있어야 합니다. 이 위치는 *' wasb:/// \<directory 1> /'* 또는 *' wasb:/// \<directory 1> / \<directory 2> /'* 등의 형식으로 클러스터의 기본 컨테이너를 기준으로 하는 위치를 참조 해야 합니다. 쿼리가 실행 된 후에는 기본 컨테이너 내에서 상대 디렉터리가 만들어집니다.
+* **\<database name\>**: 만들려는 데이터베이스의 이름입니다. 기본 데이터베이스를 사용하려는 경우 "*create database...* " 쿼리를 생략할 수 있습니다.
+* **\<table name\>**: 지정 된 데이터베이스 내에서 만들려는 테이블의 이름입니다. 기본 데이터베이스를 사용 하려는 경우를 사용 하지 않고 테이블을 직접 참조할 수 있습니다 *\<table name\>* \<database name\> .
+* **\<field separator\>**: Hive 테이블에 업로드할 데이터 파일의 필드를 구분 하는 구분 기호입니다.
+* **\<line separator\>**: 데이터 파일에서 줄을 구분 하는 구분 기호입니다.
+* **\<storage location\>**: Hive 테이블의 데이터를 저장 하는 Azure Storage 위치입니다. *LOCATION\<storage location\>* 을 지정하지 않으면 데이터베이스 및 테이블이 기본적으로 Hive 클러스터의 기본 컨테이너에 있는 hive/warehouse/ 디렉터리에 저장됩니다. 스토리지 위치를 지정하려면 스토리지 위치가 데이터베이스 및 테이블의 기본 컨테이너 내부에 있어야 합니다. 이 위치는 *' wasb:/// \<directory 1> /'* 또는 *' wasb:/// \<directory 1> / \<directory 2> /'* 등의 형식으로 클러스터의 기본 컨테이너를 기준으로 하는 위치를 참조 해야 합니다. 쿼리가 실행 된 후에는 기본 컨테이너 내에서 상대 디렉터리가 만들어집니다.
 * **TBLPROPERTIES("skip.header.line.count"="1")** : 데이터 파일에 헤더 줄이 있으면 *create table* 쿼리의 **끝** 에 이 속성을 추가해야 합니다. 그렇지 않으면 헤더 줄이 테이블의 레코드로 로드됩니다. 데이터 파일에 헤더 줄이 없으면 쿼리에서 이 구성을 생략해도 됩니다.
 
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Hive 테이블에 데이터 로드
@@ -161,7 +161,7 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 ```
 
-* **\<path to blob data\>** : Hive 테이블에 업로드할 blob 파일이 HDInsight Hadoop 클러스터의 기본 컨테이너에 있는 경우은 *\<path to blob data\>* *' wasb:// \<directory in this container> / \<blob file name> '* 형식 이어야 합니다. blob 파일이 HDInsight Hadoop 클러스터의 추가 컨테이너에 있을 수도 있습니다. 이 경우는 *\<path to blob data\>* *' wasb:// \<container name> @ \<storage account name> . blob.core.windows.net/ \<blob file name> '* 형식 이어야 합니다.
+* **\<path to blob data\>**: Hive 테이블에 업로드할 blob 파일이 HDInsight Hadoop 클러스터의 기본 컨테이너에 있는 경우은 *\<path to blob data\>* *' wasb:// \<directory in this container> / \<blob file name> '* 형식 이어야 합니다. blob 파일이 HDInsight Hadoop 클러스터의 추가 컨테이너에 있을 수도 있습니다. 이 경우는 *\<path to blob data\>* *' wasb:// \<container name> @ \<storage account name> . blob.core.windows.net/ \<blob file name> '* 형식 이어야 합니다.
 
   > [!NOTE]
   > Hive 테이블에 업로드할 blob 데이터가 Hadoop 클러스터에 대한 스토리지 계정의 기본 또는 추가 컨테이너에 있어야 합니다. 그렇지 않으면 데이터에 액세스할 수 없기 때문에 *LOAD DATA* 쿼리가 실패합니다.

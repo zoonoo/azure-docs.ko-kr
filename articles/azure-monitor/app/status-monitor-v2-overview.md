@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318949"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186221"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대 한 Azure Monitor Application Insights 에이전트 배포
 
@@ -31,7 +31,7 @@ Application Insights 에이전트는에 https://www.powershellgallery.com/packag
 ![PowerShell 갤러리](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>지침
 - 간결한 코드 샘플을 가져오려면 [시작 지침](status-monitor-v2-get-started.md) 을 참조 하세요.
 - 시작 하는 방법에 대 한 심층 [정보는 자세한 지침](status-monitor-v2-detailed-instructions.md) 을 참조 하세요.
 
@@ -67,7 +67,7 @@ Application Insights 에이전트는에 https://www.powershellgallery.com/packag
   - [ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet을 사용 하 여 사용이 성공 했는지 확인할 수 있습니다.
   - 앱에서 원격 분석을 전송 하 고 있는지 신속 하 게 확인 하려면 [라이브 메트릭을](./live-stream.md) 사용 하는 것이 좋습니다.
 
-  - [Log Analytics](../log-query/get-started-portal.md) 를 사용 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수도 있습니다.
+  - [Log Analytics](../log-query/log-analytics-tutorial.md) 를 사용 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수도 있습니다.
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -86,4 +86,3 @@ Application Insights 에이전트는에 https://www.powershellgallery.com/packag
 * [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지되고 있는지 확인합니다.
 * 웹 [클라이언트 원격 분석을 추가](./javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
 * 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](./asp-net.md) 합니다.
-

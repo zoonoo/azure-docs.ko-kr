@@ -3,12 +3,12 @@ title: Azure Functions 보안 설정
 description: Azure에서 실행 중인 함수 코드가 일반적인 공격으로부터 더욱 안전하게 보호하는 방법을 알아봅니다.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: cd97193fdf6549e667578e36f0be9104e4381d30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102309"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491327"
 ---
 # <a name="securing-azure-functions"></a>Azure Functions 보안 설정
 
@@ -28,7 +28,7 @@ Security Center는 포털의 함수 앱과 통합됩니다. 잠재적인 구성 
 
 ### <a name="log-and-monitor"></a>로그 및 모니터
 
-작업 모니터링 작업 및 로그 분석을 통해 공격을 감지합니다. Functions는 함수 앱에 대한 로그, 성능 및 오류 데이터를 수집하는 Application Insights와 통합됩니다. Application Insights는 성능 이상을 자동으로 감지하며, 문제를 진단하고 함수가 어떻게 사용되는지 이해할 수 있는 강력한 분석 도구를 포함하고 있습니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
+공격을 검색 하는 한 가지 방법은 활동 모니터링 작업 및 로깅 분석을 통하는 것입니다. Functions는 함수 앱에 대한 로그, 성능 및 오류 데이터를 수집하는 Application Insights와 통합됩니다. Application Insights는 성능 이상을 자동으로 감지하며, 문제를 진단하고 함수가 어떻게 사용되는지 이해할 수 있는 강력한 분석 도구를 포함하고 있습니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 
 Functions는 또한 더욱 쉬운 분석을 위해 함수 앱 로그를 시스템 이벤트와 통합할 수 있도록 Azure Monitor 로그와 통합됩니다. 진단 설정을 사용하여 Logs Analytics 작업 영역 등 사용자가 선택한 대상으로 함수에 대한 플랫폼 로그 및 메트릭의 스트리밍 내보내기를 구성할 수 있습니다. 자세한 내용은 [Azure Monitor 로그를 사용한 Azure Functions 모니터링](functions-monitor-log-analytics.md)을 참조하세요. 
 
@@ -76,7 +76,7 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 
 기본적으로 키는 설정에서 제공 하는 계정의 Blob 저장소 컨테이너에 저장 됩니다 `AzureWebJobsStorage` . 특정 응용 프로그램 설정을 사용 하 여이 동작을 재정의 하 고 다른 위치에 키를 저장할 수 있습니다.
 
-|위치  |설정 | 값 | Description  |
+|위치  |설정 | 값 | 설명  |
 |---------|---------|---------|---------|
 |다른 저장소 계정     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | 제공 된 SAS URL에 따라 두 번째 저장소 계정의 Blob 저장소에 키를 저장 합니다. 키는 함수 앱에 고유한 암호를 사용 하 여 저장 하기 전에 암호화 됩니다. |
 |파일 시스템   | `AzureWebJobsSecretStorageType`   |  `files`       | 키는 함수 앱에 고유한 암호를 사용 하 여 저장소 전에 암호화 된 상태로 파일 시스템에 유지 됩니다. |
@@ -153,7 +153,7 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 
 ### <a name="disable-remote-debugging"></a>원격 디버깅 사용 안 함
 
-함수를 적극적으로 디버깅하는 경우를 제외하고 원격 디버깅을 사용하지 않도록 설정되어 있는지 확인합니다. 포털에서 함수 앱 **구성**의 **일반 설정**에서 원격 디버깅을 사용하지 않도록 설정할 수 있습니다. 
+함수를 적극적으로 디버깅하는 경우를 제외하고 원격 디버깅을 사용하지 않도록 설정되어 있는지 확인합니다. 포털에서 함수 앱 **구성** 의 **일반 설정** 에서 원격 디버깅을 사용하지 않도록 설정할 수 있습니다. 
 
 ### <a name="restrict-cors-access"></a>CORS 액세스 제한
 

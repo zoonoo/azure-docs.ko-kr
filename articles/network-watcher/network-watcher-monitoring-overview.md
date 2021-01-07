@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9b19beae43f1d4a5b0788d9d7662828355c3dd2c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "76844992"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895889"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure Network Watcher란?
 
@@ -31,7 +31,7 @@ Azure Network Watcher는 Azure 가상 네트워크의 리소스를 모니터링 
 
 또 다른 VM(가상 머신), FQDN(정규화된 도메인 이름), URI(Uniform Resource Identifier) 또는 IPv4 주소가 엔드포인트일 수 있습니다. *연결 모니터* 기능은 VM과 엔드포인트 간의 통신을 일정한 간격으로 모니터링하고 연결, 대기 시간 및 네트워크 토폴로지 변경을 알립니다. 예를 들어 데이터베이스 서버 VM과 통신하는 웹 서버 VM이 있다고 가정해 보겠습니다. 사용자가 모르는 조직의 누군가가 웹 서버, 데이터베이스 서버 VM 또는 서브넷에 사용자 지정 경로 또는 네트워크 보안 규칙을 적용할 수 있습니다.
 
-엔드포인트에 연결할 수 없으면 연결 문제 해결 기능이 그 원인을 알립니다. 가능한 원인으로 DNS 이름 확인 문제, VM 운영 체제 내의 CPU, 메모리 또는 방화벽, 사용자 지정 경로의 홉 형식, 또는 아웃바운드 연결의 VM 또는 서브넷의 사용자 지정 경로나 보안 규칙이 있습니다. Azure의 [보안 규칙](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) 및 [경로 홉 형식](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)에 대해 알아봅니다.
+엔드포인트에 연결할 수 없으면 연결 문제 해결 기능이 그 원인을 알립니다. 가능한 원인으로 DNS 이름 확인 문제, VM 운영 체제 내의 CPU, 메모리 또는 방화벽, 사용자 지정 경로의 홉 형식, 또는 아웃바운드 연결의 VM 또는 서브넷의 사용자 지정 경로나 보안 규칙이 있습니다. Azure의 [보안 규칙](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) 및 [경로 홉 형식](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)에 대해 알아봅니다.
 
 연결 모니터는 시간 경과에 따라 관찰한 최소, 평균 및 최대 대기 시간도 제공합니다. 연결의 대기 시간을 알아본 후 Azure 리소스를 다른 Azure 지역으로 이동하여 대기 시간을 줄일 수 있다는 것을 확인할 수도 있습니다. [Azure 지역과 인터넷 서비스 공급자 간의 상대 대기 시간](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) 및 [연결 모니터](connection-monitor.md)로 VM과 엔드포인트 간의 통신을 모니터링하는 방법의 결정에 대해 더 자세히 알아봅니다. 연결 모니터로 수행하는 것과 유사하게 시간 경과에 따른 연결을 모니터링하지 않고 어느 시점에 연결을 시험하려는 경우, [연결 문제 해결](#connection-troubleshoot) 기능을 사용합니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: c224332eec31b343bdc53564ef4075a0620ac340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 759bd94aee98aa04dee56acf0e50ca90cd0541b8
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289573"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96000609"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Azure에서 표준 내부 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-PowerShell (미리 보기)
 
@@ -29,7 +29,7 @@ IPv6 지원 내부 Load Balancer를 만드는 절차는 [여기](virtual-network
 ```azurepowershell
  $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
  -Name "dsLbFrontEnd_v6" `
- -PrivateIpAddress "ace:cab:deca:deed::100" `
+ -PrivateIpAddress "fd00:db8:deca:deed::100" `
  -PrivateIpAddressVersion "IPv6" `
  -Subnet $DsSubnet
 ```
@@ -43,7 +43,7 @@ IPv6 지원 내부 Load Balancer를 만드는 절차는 [여기](virtual-network
 
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 Azure에서 이중 스택 응용 프로그램을 배포 하기 전에 다음 Azure PowerShell를 사용 하 여이 미리 보기 기능에 대 한 구독을 구성 해야 합니다.
 
 다음과 같이 등록 합니다.
@@ -94,20 +94,20 @@ $RdpPublicIP_2 = New-AzPublicIpAddress `
 ```
 ## <a name="create-the-virtual-network-and-the-subnet"></a>가상 네트워크 및 서브넷 만들기
 
-[AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 를 사용 하 여 가상 네트워크 만들기- [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)을 사용 하 여 서브넷 구성 이중 스택 구성. 다음 예제에서는 *Dsvnet*을 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
+[AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 를 사용 하 여 가상 네트워크 만들기- [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)을 사용 하 여 서브넷 구성 이중 스택 구성. 다음 예제에서는 *Dsvnet* 을 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
 
 ```azurepowershell
 # Create dual stack subnet config
 $DsSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name "dsSubnet" `
-  -AddressPrefix "10.0.0.0/24","ace:cab:deca:deed::/64"
+  -AddressPrefix "10.0.0.0/24","fd00:db8:deca:deed::/64"
 
 # Create the virtual network
 $vnet = New-AzVirtualNetwork `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
   -Name "dsVnet" `
-  -AddressPrefix "10.0.0.0/16","ace:cab:deca::/48"  `
+  -AddressPrefix "10.0.0.0/16","fd00:db8:deca::/48"  `
   -Subnet $DsSubnet
 
 #Refresh the fully populated subnet for use in load balancer frontend configuration
@@ -119,7 +119,7 @@ $DsSubnet = get-AzVirtualNetworkSubnetconfig -name dsSubnet -VirtualNetwork $vne
 
 ### <a name="create-front-end-ip"></a>프런트 엔드 IP 만들기
 
-[AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용 하 여 프런트 엔드 IP를 만듭니다. 다음 예제에서는 *dsLbFrontEnd_v4* 및 *dsLbFrontEnd_v6*라는 IPv4 및 IPv6 프런트 엔드 IP 구성을 만듭니다.
+[AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용 하 여 프런트 엔드 IP를 만듭니다. 다음 예제에서는 *dsLbFrontEnd_v4* 및 *dsLbFrontEnd_v6* 라는 IPv4 및 IPv6 프런트 엔드 IP 구성을 만듭니다.
 
 ```azurepowershell
 $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `
@@ -130,7 +130,7 @@ $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `
 
 $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
   -Name "dsLbFrontEnd_v6" `
-  -PrivateIpAddress "ace:cab:deca:deed::100"  `
+  -PrivateIpAddress "fd00:db8:deca:deed::100"  `
   -PrivateIpAddressVersion "IPv6"   `
   -Subnet $DsSubnet
 
@@ -192,7 +192,7 @@ $lb = New-AzLoadBalancer  `
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 응용 프로그램의 고가용성을 향상 시키려면 Vm을 가용성 집합에 저장 합니다.
 
-[New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset)을 사용하여 가용성 집합을 만듭니다. 다음 예에서는 *dsavset*이라는 가용성 집합을 만듭니다.
+[New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset)을 사용하여 가용성 집합을 만듭니다. 다음 예에서는 *dsavset* 이라는 가용성 집합을 만듭니다.
 
 ```azurepowershell
 $avset = New-AzAvailabilitySet `
@@ -260,18 +260,18 @@ $nsg = New-AzNetworkSecurityGroup `
 ```azurepowershell
 
 # Create the IPv4 configuration for NIC 1
-$Ip4Config=New-AzNetworkInterfaceIpConfig `
-  -Name dsIp4Config `
+$Ip4Config=New-AzNetworkInterfaceIpConfig `
+  -Name dsIp4Config `
   -Subnet $vnet.subnets[0] `
-  -PrivateIpAddressVersion IPv4 `
+  -PrivateIpAddressVersion IPv4 `
   -LoadBalancerBackendAddressPool $backendPoolv4 `
   -PublicIpAddress  $RdpPublicIP_1
 
 # Create the IPv6 configuration
-$Ip6Config=New-AzNetworkInterfaceIpConfig `
-  -Name dsIp6Config `
+$Ip6Config=New-AzNetworkInterfaceIpConfig `
+  -Name dsIp6Config `
   -Subnet $vnet.subnets[0] `
-  -PrivateIpAddressVersion IPv6 `
+  -PrivateIpAddressVersion IPv6 `
   -LoadBalancerBackendAddressPool $backendPoolv6
 
 # Create NIC 1
@@ -283,10 +283,10 @@ $NIC_1 = New-AzNetworkInterface `
   -IpConfiguration $Ip4Config,$Ip6Config
 
 # Create the IPv4 configuration for NIC 2
-$Ip4Config=New-AzNetworkInterfaceIpConfig `
-  -Name dsIp4Config `
+$Ip4Config=New-AzNetworkInterfaceIpConfig `
+  -Name dsIp4Config `
   -Subnet $vnet.subnets[0] `
-  -PrivateIpAddressVersion IPv4 `
+  -PrivateIpAddressVersion IPv4 `
   -LoadBalancerBackendAddressPool $backendPoolv4 `
   -PublicIpAddress  $RdpPublicIP_2
 
@@ -327,8 +327,8 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 ## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Azure Portal에서 IPv6 이중 스택 가상 네트워크 보기
 다음과 같이 Azure Portal에서 IPv6 이중 스택 가상 네트워크를 볼 수 있습니다.
-1. 포털의 검색 창에서 *Dsvnet*을 입력 합니다.
-2. **Dsvnet** 이 검색 결과에 표시 되 면 선택 합니다. 그러면 *Dsvnet*이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작 됩니다. 이중 스택 가상 네트워크는 *Dssubnet*이라는 이중 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 사용 하 여 두 개의 nic를 표시 합니다.
+1. 포털의 검색 창에서 *Dsvnet* 을 입력 합니다.
+2. **Dsvnet** 이 검색 결과에 표시 되 면 선택 합니다. 그러면 *Dsvnet* 이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작 됩니다. 이중 스택 가상 네트워크는 *Dssubnet* 이라는 이중 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 사용 하 여 두 개의 nic를 표시 합니다.
 
 ![표준 내부 Load Balancer를 사용 하는 IPv6 이중 스택 Virtual Network](./media/ipv6-dual-stack-standard-internal-load-balancer-powershell/ipv6-dual-stack-virtual-network.png)
 

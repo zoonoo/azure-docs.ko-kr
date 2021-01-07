@@ -3,14 +3,14 @@ title: 애플리케이션 설정
 description: 발화 정규화 및 앱 개인 정보 보호와 같은 LUIS 포털에서 애플리케이션 및 버전 설정을 구성합니다.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 05/17/2020
-ms.openlocfilehash: 0a07e423b5307934938727cd8ccc475989e04362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: conceptual
+ms.date: 11/30/2020
+ms.openlocfilehash: aabe05924e781fbab5f92bd620ddcd566365f7e8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309628"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436643"
 ---
 # <a name="application-and-version-settings"></a>애플리케이션 및 버전 설정
 
@@ -23,7 +23,7 @@ ms.locfileid: "91309628"
 1. [LUIS 포털](https://www.luis.ai)에 로그인합니다.
 1. **내 앱** 목록에서 앱을 선택합니다.
 .
-1. 위쪽 탐색 모음에서 **관리**를 선택한 다음, 왼쪽 탐색 모음에서 **설정**을 선택합니다.
+1. 위쪽 탐색 모음에서 **관리** 를 선택한 다음, 왼쪽 탐색 모음에서 **설정** 을 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![LUIS 포털, 관리 섹션, 애플리케이션 설정 페이지의 스크린샷](media/app-settings/luis-portal-manage-section-application-settings.png)

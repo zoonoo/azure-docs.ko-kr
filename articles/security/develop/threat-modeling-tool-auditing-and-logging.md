@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bac17073650736df9ec48e951290852e082e9417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3f3ca7b5d4516c2ad5dc9cb19a2eaed0a8a4a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87542996"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518280"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>보안 프레임: 감사 및 로깅 | 완화 
 
@@ -28,7 +28,7 @@ ms.locfileid: "87542996"
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[솔루션의 중요 한 엔터티를 식별 하 고 변경 감사 구현](#sensitive-entities)</li></ul> |
 | **웹 애플리케이션** | <ul><li>[응용 프로그램에 감사 및 로깅이 적용 되는지 확인](#auditing)</li><li>[로그 회전 및 분리가 준비 되어 있는지 확인](#log-rotation)</li><li>[애플리케이션이 민감한 사용자 데이터를 기록하지 않도록 확인](#log-sensitive-data)</li><li>[감사 및 로그 파일의 액세스 제한](#log-restricted-access)</li><li>[사용자 관리 이벤트 기록](#user-management)</li><li>[시스템에 악용 방지 수단을 기본적으로 제공](#inbuilt-defenses)</li><li>[Azure App Service에서 웹앱에 대한 진단 로깅 사용](#diagnostics-logging)</li></ul> |
-| **Database** | <ul><li>[SQL Server에서 로그인 감사를 사용하도록 설정](#identify-sensitive-entities)</li><li>[Azure SQL에서 위협 감지 사용](#threat-detection)</li></ul> |
+| **데이터베이스** | <ul><li>[SQL Server에서 로그인 감사를 사용하도록 설정](#identify-sensitive-entities)</li><li>[Azure SQL에서 위협 감지 사용](#threat-detection)</li></ul> |
 | **Azure Storage** | <ul><li>[Azure 스토리지 분석을 사용하여 Azure Storage에 대한 액세스 감사](#analytics)</li></ul> |
 | **WCF** | <ul><li>[충분한 로깅 구현](#sufficient-logging)</li><li>[충분한 감사 실패 처리 구현](#audit-failure-handling)</li></ul> |
 | **앱 API** | <ul><li>[웹 API에 감사 및 로깅이 적용 되는지 확인](#logging-web-api)</li></ul> |
@@ -131,7 +131,7 @@ ms.locfileid: "87542996"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [로그인 감사 구성](https://msdn.microsoft.com/library/ms175850.aspx) |
+| **참조**              | [로그인 감사 구성](/sql/ssms/configure-login-auditing-sql-server-management-studio) |
 | **단계** | <p>암호 추측 공격을 감지/확인할 수 있도록 데이터베이스 서버 로그인 감사를 사용해야 합니다. 실패한 로그인 시도를 캡처하는 것이 중요합니다. 성공한 로그인 시도와 실패한 로그인 시도를 모두 캡처하면 법정 조사 시 추가적인 이점이 있습니다.</p>|
 
 ## <a name="enable-threat-detection-on-azure-sql"></a><a id="threat-detection"></a>Azure SQL에서 위협 감지 사용
@@ -142,7 +142,7 @@ ms.locfileid: "87542996"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | SQL Azure |
 | **특성**              | SQL 버전 - V12 |
-| **참조**              | [SQL Database 위협 검색 시작](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **참조**              | [SQL Database 위협 검색 시작](../../azure-sql/database/threat-detection-configure.md)|
 | **단계** |<p>위협 감지는 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다. 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 고객이 이를 감지하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다.</p><p>사용자는 데이터베이스의 데이터를 액세스, 침범 또는 악용하려는 시도로 인해 의심스러운 이벤트가 발생했는지를 판단하기 위해서 Azure SQL Database 감사를 사용하여 의심스러운 이벤트를 살펴 볼 수 있습니다.</p><p>위협 감지는 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대한 잠재적인 위협에 간단하게 대처할 수 있도록 합니다.</p>|
 
 ## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Azure 스토리지 분석을 사용하여 Azure Storage에 대한 액세스 감사
@@ -153,7 +153,7 @@ ms.locfileid: "87542996"
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음 |
-| **참조**              | [스토리지 분석을 사용하여 인증 유형 모니터링](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **참조**              | [스토리지 분석을 사용하여 인증 유형 모니터링](../../storage/blobs/security-recommendations.md#loggingmonitoring) |
 | **단계** | <p>각 Storage 계정에 대해 Azure Storage 분석을 사용하도록 설정하여 로깅을 수행하고 메트릭 데이터를 저장할 수 있습니다. 스토리지 분석 로그는 누군가가 스토리지에 액세스할 때 사용한 인증 방법 등의 중요한 정보를 제공합니다.</p><p>스토리지에 대한 액세스를 엄격히 관리하는 경우에는 이 방법이 도움이 될 수 있습니다. 예를 들어, Blob Storage에서 모든 컨테이너를 프라이빗으로 설정하고 애플리케이션 전체에서 SAS 서비스를 사용을 구현할 수 있습니다. 그런 다음, 스토리지 계정 키를 사용하여 Blob에 액세스하는지(보안 위반을 의미할 수 있음) 또는 Blob이 공용이지만 공용이면 안 되는지 알아보기 위해 로그를 주기적으로 확인할 수 있습니다.</p>|
 
 ## <a name="implement-sufficient-logging"></a><a id="sufficient-logging"></a>충분한 로깅 구현
@@ -164,10 +164,10 @@ ms.locfileid: "87542996"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
+| **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **단계** | <p>보안 문제가 발생한 후 적절한 감사 내역이 부족하면 범죄 수사가 제한될 수 있습니다. WCF(Windows Communication Foundation)는 성공한/실패한 인증 시도를 기록하는 기능을 제공합니다.</p><p>실패한 인증 시도를 기록하면 관리자에게 무차별 암호 대입 공격 가능성을 경고할 수 있습니다. 마찬가지로, 성공한 인증 이벤트를 기록하면 합법적 계정이 손상될 때 유용한 감사 추적을 제공할 수 있습니다. WCF의 서비스 보안 감사 기능을 사용하도록 설정 |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음은 감사를 사용하도록 설정된 구성 예제입니다.
 ```
 <system.serviceModel>
@@ -193,10 +193,10 @@ ms.locfileid: "87542996"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
+| **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **단계** | <p>개발된 솔루션은 감사 로그에 쓸 수 없는 경우 예외를 생성하지 않도록 구성됩니다. 감사 로그에 쓸 수 없는 경우 예외를 throw하지 않도록 WCF가 구성되면 프로그램에서는 실패에 대한 알림을 받지 못하고 중요한 보안 이벤트의 감사가 발생하지 않을 수 있습니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래에 보이는 WCF 구성 파일의 `<behavior/>` 요소는 WCF가 감사 로그에 쓸 수 없는 경우 그 사실을 애플리케이션에게 알리지 말라고 WCF에 지시합니다.
 ```
 <behaviors>
@@ -242,5 +242,5 @@ ms.locfileid: "87542996"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [IoT Hub 작업 모니터링 소개](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **참조**              | [IoT Hub 작업 모니터링 소개](../../iot-hub/iot-hub-operations-monitoring.md) |
 | **단계** | <p>IoT Hub 작업 모니터링을 통해 모은 감사 데이터를 수집하고 저장하도록 설계합니다. 다음 모니터링 범주를 사용하도록 설정합니다.</p><ul><li>디바이스 ID 작업</li><li>디바이스-클라우드 통신</li><li>클라우드-디바이스 통신</li><li>Connections</li><li>파일 업로드</li></ul>|

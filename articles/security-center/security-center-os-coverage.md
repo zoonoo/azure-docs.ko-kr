@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 68cb738ae6e4689a0356ea56c1de2d383ea83ad6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31ff3620bcab6b10b59582daa255ff1f259ab0d3
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449940"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852645"
 ---
 # <a name="supported-platforms"></a>지원되는 플랫폼 
 
@@ -44,8 +44,10 @@ Security Center는 [Log Analytics 에이전트](../azure-monitor/platform/agents
 
 또한 Log Analytics 에이전트가 [Security Center에 데이터를 전송하도록 제대로 구성](security-center-enable-data-collection.md#manual-agent)되었는지 확인
 
-> [!TIP]
-> Windows 및 Linux에서 사용할 수 있는 특정 Security Center 기능에 대한 자세한 내용은 [머신의 기능 적용 범위](security-center-services.md)를 참조하세요.
+Windows 및 Linux에서 사용할 수 있는 특정 Security Center 기능에 대한 자세한 내용은 [머신의 기능 적용 범위](security-center-services.md)를 참조하세요.
+
+> [!NOTE]
+> Azure Defender는 서버를 보호하도록 설계되었지만 **서버용 Azure Defender** 의 대부분 기능은 Windows 10 머신에서 지원됩니다. 현재 지원되지 않는 기능 중 하나는 [Security Center의 통합 EDR 솔루션: 엔드포인트용 Microsoft Defender](security-center-wdatp.md)입니다.
 
 ## <a name="managed-virtual-machine-services"></a>관리형 가상 머신 서비스 <a name="virtual-machine"></a>
 

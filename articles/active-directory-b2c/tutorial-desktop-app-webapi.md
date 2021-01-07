@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84298853"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953154"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API에 대한 액세스 권한 부여
 
@@ -49,31 +49,31 @@ ms.locfileid: "84298853"
 
 네이티브 클라이언트 애플리케이션에서 보호된 웹 API를 호출하려면 등록된 네이티브 클라이언트 애플리케이션에 Azure AD B2C에 등록된 웹 API에 대한 권한을 부여해야 합니다.
 
-필수 조건 자습서에서 *nativeapp1*이라는 네이티브 클라이언트 애플리케이션을 등록했습니다. 다음 단계에서는 이전 섹션에서 *webapi1*을 위해 노출한 API 범위를 사용하여 이 네이티브 애플리케이션 등록을 구성합니다. 이렇게 하면 데스크톱 애플리케이션이 Azure AD B2C에서 액세스 토큰을 가져올 수 있으며, 웹 API는 이 액세스 토큰을 사용하여 Azure AD B2C 리소스에 대한 범위가 지정된 액세스를 확인하고 제공할 수 있습니다. 자습서의 뒷부분에서 데스크톱 애플리케이션과 웹 API의 코드 샘플을 모두 구성하고 실행합니다.
+필수 조건 자습서에서 *nativeapp1* 이라는 네이티브 클라이언트 애플리케이션을 등록했습니다. 다음 단계에서는 이전 섹션에서 *webapi1* 을 위해 노출한 API 범위를 사용하여 이 네이티브 애플리케이션 등록을 구성합니다. 이렇게 하면 데스크톱 애플리케이션이 Azure AD B2C에서 액세스 토큰을 가져올 수 있으며, 웹 API는 이 액세스 토큰을 사용하여 Azure AD B2C 리소스에 대한 범위가 지정된 액세스를 확인하고 제공할 수 있습니다. 자습서의 뒷부분에서 데스크톱 애플리케이션과 웹 API의 코드 샘플을 모두 구성하고 실행합니다.
 
-Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
+Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
-1. **앱 등록**을 선택한 다음, API에 대한 액세스 권한이 있어야 하는 네이티브 클라이언트 애플리케이션을 선택합니다. 예를 들어 *nativeapp1*과 같습니다.
-1. **관리** 아래에서 **API 권한**을 선택합니다.
-1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
+1. **앱 등록** 을 선택한 다음, API에 대한 액세스 권한이 있어야 하는 네이티브 클라이언트 애플리케이션을 선택합니다. 예를 들어 *nativeapp1* 과 같습니다.
+1. **관리** 아래에서 **API 권한** 을 선택합니다.
+1. **구성된 사용 권한** 아래에서 **권한 추가** 를 선택합니다.
 1. **내 API** 탭을 선택합니다.
-1. 네이티브 클라이언트 애플리케이션에 액세스 권한을 부여할 API를 선택합니다. 예를 들어 *webapi1*과 같습니다.
-1. **권한** 아래에서 **데모**를 확장한 다음, 앞에서 정의한 범위를 선택합니다. *demo.read* 및 *demo.write*가 예입니다.
-1. **권한 추가**를 선택합니다. 안내에 따라 몇 분 정도 기다린 후 다음 단계를 진행하세요.
-1. **(테넌트 이름)에 대한 관리자 동의 허용**을 선택합니다.
+1. 네이티브 클라이언트 애플리케이션에 액세스 권한을 부여할 API를 선택합니다. 예를 들어 *webapi1* 과 같습니다.
+1. **권한** 아래에서 **데모** 를 확장한 다음, 앞에서 정의한 범위를 선택합니다. *demo.read* 및 *demo.write* 가 예입니다.
+1. **권한 추가** 를 선택합니다. 안내에 따라 몇 분 정도 기다린 후 다음 단계를 진행하세요.
+1. **(테넌트 이름)에 대한 관리자 동의 허용** 을 선택합니다.
 1. 현재 로그인된 관리자 계정을 선택하거나 Azure AD B2C 테넌트에서 최소한 *클라우드 애플리케이션 관리자* 역할이 할당된 계정으로 로그인합니다.
-1. **수락**을 선택합니다.
-1. **새로 고침**을 선택한 다음, 두 범위 모두 **상태** 아래에 "...에 대해 허용됨"이 표시되는지 확인합니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
+1. **수락** 을 선택합니다.
+1. **새로 고침** 을 선택한 다음, 두 범위 모두 **상태** 아래에 "...에 대해 허용됨"이 표시되는지 확인합니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
 
 #### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
 
-1. **애플리케이션(레거시)** 을 선택한 다음, *nativeapp1*을 선택합니다.
-1. **API 액세스**를 선택한 다음, **추가**를 선택합니다.
-1. **API 선택** 드롭다운에서 *webapi1*을 선택합니다.
-1. **범위 선택** 드롭다운에서 이전에 정의한 범위를 선택합니다. *demo.read* 및 *demo.write*가 예입니다.
-1. **확인**을 선택합니다.
+1. **애플리케이션(레거시)** 을 선택한 다음, *nativeapp1* 을 선택합니다.
+1. **API 액세스** 를 선택한 다음, **추가** 를 선택합니다.
+1. **API 선택** 드롭다운에서 *webapi1* 을 선택합니다.
+1. **범위 선택** 드롭다운에서 이전에 정의한 범위를 선택합니다. *demo.read* 및 *demo.write* 가 예입니다.
+1. **확인** 을 선택합니다.
 
 * * *
 
@@ -85,12 +85,12 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 
 ### <a name="update-the-desktop-application"></a>데스크톱 애플리케이션 업데이트
 
-이 문서의 필수 조건에서 [WPF 데스크톱 애플리케이션](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)를 수정하여 Azure AD B2C 테넌트의 사용자 흐름을 사용하여 로그인할 수 있도록 설정했습니다. 이 섹션에서는 앞서 등록한 웹 API를 참조하도록 동일한 애플리케이션 *webapi1*을 업데이트합니다.
+이 문서의 필수 조건에서 [WPF 데스크톱 애플리케이션](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)를 수정하여 Azure AD B2C 테넌트의 사용자 흐름을 사용하여 로그인할 수 있도록 설정했습니다. 이 섹션에서는 앞서 등록한 웹 API를 참조하도록 동일한 애플리케이션 *webapi1* 을 업데이트합니다.
 
 1. Visual Studio에서 **active-directory-b2c-wpf** 솔루션(`active-directory-b2c-wpf.sln`)을 엽니다.
 1. **active-directory-b2c-wpf** 프로젝트에서 *App.xaml.cs* 파일을 열고 다음 변수 정의를 찾습니다.
     1. `ApiScopes` 변수의 값을 앞서 **demo.read** 범위를 정의할 때 기록한 값으로 바꿉니다.
-    1. `ApiEndpoint` 변수의 값을 앞서 테넌트에 웹 API(예: *webapi1*)를 등록할 때 기록한 **리디렉션 URI**로 바꿉니다.
+    1. `ApiEndpoint` 변수의 값을 앞서 테넌트에 웹 API(예: *webapi1*)를 등록할 때 기록한 **리디렉션 URI** 로 바꿉니다.
 
     예를 들면 다음과 같습니다.
 
@@ -112,7 +112,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 Node.js Web API 샘플에서는 Passport.js 라이브러리를 사용하여 Azure AD B2C가 API 호출을 보호하도록 설정합니다.
 
 1. `index.js` 파일을 엽니다.
-1. 다음 값을 사용하여 이러한 변수 정의를 업데이트합니다. `<web-API-application-ID>`를 앞서 등록한 웹 API(*webapi1*)의 **애플리케이션(클라이언트) ID**로 변경합니다. `<your-b2c-tenant>`를 Azure AD B2C 테넌트의 이름으로 변경합니다.
+1. 다음 값을 사용하여 이러한 변수 정의를 업데이트합니다. `<web-API-application-ID>`를 앞서 등록한 웹 API(*webapi1*)의 **애플리케이션(클라이언트) ID** 로 변경합니다. `<your-b2c-tenant>`를 Azure AD B2C 테넌트의 이름으로 변경합니다.
 
     ```nodejs
     var clientID = "<web-API-application-ID>";

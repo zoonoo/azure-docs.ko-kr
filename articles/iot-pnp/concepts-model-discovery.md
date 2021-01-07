@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dda0e3d6739e94df4ce5910938c164e3db336bce
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445577"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495290"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Iot 솔루션에서 IoT 플러그 앤 플레이 모델 사용
 
@@ -125,7 +125,7 @@ content-encoding:utf-8
 
 1. 연결 된 장치의 모델 정의를 사용 하 여 장치의 기능을 열거할 수 있습니다.
 
-1. 장치의 열거 된 기능을 사용 하 여 사용자가 [장치와 상호 작용](quickstart-service-node.md)하도록 허용할 수 있습니다.
+1. 장치의 열거 된 기능을 사용 하 여 사용자가 [장치와 상호 작용](quickstart-service.md)하도록 허용할 수 있습니다.
 
 ### <a name="custom-store"></a>사용자 지정 저장소
 
@@ -137,12 +137,12 @@ content-encoding:utf-8
 
 1. 연결 된 장치의 모델 정의를 사용 하 여 장치의 기능을 열거할 수 있습니다. 
 
-1. 장치의 열거 된 기능을 사용 하 여 사용자가 [장치와 상호 작용](quickstart-service-node.md)하도록 허용할 수 있습니다.  
+1. 장치의 열거 된 기능을 사용 하 여 사용자가 [장치와 상호 작용](quickstart-service.md)하도록 허용할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
 Iot 솔루션에서 IoT 플러그 앤 플레이 모델을 통합 하는 방법을 배웠으므로 이제 몇 가지 제안 된 다음 단계를 수행 합니다.
 
-- [솔루션에서 디바이스와 상호 작용](quickstart-service-node.md)
+- [솔루션에서 디바이스와 상호 작용](quickstart-service.md)
 - [IoT 디지털 쌍 REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT 탐색기](howto-use-iot-explorer.md)

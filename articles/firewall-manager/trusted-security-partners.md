@@ -5,24 +5,24 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399434"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490111"
 ---
 # <a name="what-are-security-partner-providers"></a>보안 파트너 공급자란?
 
-Azure 방화벽 관리자의 *보안 파트너 공급자* 를 사용 하면 사용자에 대 한 인터넷 액세스를 보호 하기 위해 친숙 하 고, 최고 수준의 타사의 secaas (security as a service) 제품을 사용할 수 있습니다.
+Azure 방화벽 관리자의 *보안 파트너 공급자* 를 사용 하 여 사용자에 대 한 인터넷 액세스를 보호 하기 위해 친숙 하 고, 최고 수준의 타사의 secaas (security as a service) 제품을 사용할 수 있습니다.
 
 빠른 구성에서는 지원 되는 보안 파트너를 사용 하 여 허브를 보호 하 고, 가상 네트워크 (Vnet) 또는 지역 내의 분기 위치에서 인터넷 트래픽을 라우팅하고 필터링 할 수 있습니다. UDRs (사용자 정의 경로)를 설정 및 관리 하지 않고도 자동 경로 관리를 사용 하 여이 작업을 수행할 수 있습니다.
 
 여러 Azure 지역에서 선택한 보안 파트너를 사용 하 여 구성 된 보안 허브를 배포 하 여 해당 지역의 전 세계 어디에서 나 사용자에 대 한 연결 및 보안을 얻을 수 있습니다. 인터넷/SaaS 응용 프로그램 트래픽에 대 한 보안 파트너의 제품 및 보안 허브의 개인 트래픽에 대 한 Azure 방화벽을 사용 하는 기능을 사용 하 여 전역으로 분산 된 사용자 및 응용 프로그램에 가까운 Azure에서 보안에 지를 구축할 수 있습니다.
 
-지원 되는 보안 파트너는 **ZScaler**, **Check Point** (preview) 및 **iboss** (미리 보기)입니다.
+지원 되는 보안 파트너는 **Zscaler**, **[Check Point](check-point-overview.md)** 및 **iboss** 입니다.
 
 ![보안 파트너 공급자](media/trusted-security-partners/trusted-security-partners.png)
 

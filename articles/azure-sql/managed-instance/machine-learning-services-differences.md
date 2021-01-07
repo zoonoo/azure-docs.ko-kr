@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 10/26/2020
-ms.openlocfilehash: adf454ac697f8cabf4256ebfc5baa5d0d1c76264
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c806c0a13f9f5f13588b780054d1f285beb44802
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782470"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324536"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Azure SQL Managed Instance와 SQL Server의 Machine Learning Services에 대한 주요 차이점
 
@@ -46,7 +46,7 @@ SQL Managed Instance에서 Machine Learning Services 하 고 Python 및 R [확�
   | 시스템               | Python | R     |
   |----------------------|--------|-------|
   | SQL Managed Instance | 3.7.1  | 3.5.2 |
-  | SQL Server           | 3.5.2  | 3.3.3 |
+  | SQL  Server           | 3.5.2  | 3.3.3 |
 
 - `sp_configure`를 통해 `external scripts enabled`를 구성할 필요가 없습니다. 미리 보기에 [등록](machine-learning-services-overview.md#signup) 한 후에는 Azure SQL Managed Instance에 대해 기계 학습을 사용할 수 있습니다.
 
@@ -55,7 +55,7 @@ SQL Managed Instance에서 Machine Learning Services 하 고 Python 및 R [확�
 Python 및 R 패키지 관리는 SQL Managed Instance와 SQL Server 간에 다르게 작동 합니다. 차이점은 다음과 같습니다.
 
 - 설치나 사용을 위해 OS API에 대한 액세스가 필요하거나 외부 런타임(예: Java)에 의존하는 패키지는 지원되지 않습니다.
-- 패키지는 아웃 바운드 네트워크 호출을 수행할 수 있습니다 (미리 보기의 이전에서 변경). [네트워크 보안 그룹](/azure/virtual-network/network-security-groups-overview) 수준에서 적절 한 아웃 바운드 보안 규칙을 설정 하 여 아웃 바운드 네트워크 호출을 사용 하도록 설정할 수 있습니다.
+- 패키지는 아웃 바운드 네트워크 호출을 수행할 수 있습니다 (미리 보기의 이전에서 변경). [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md) 수준에서 적절 한 아웃 바운드 보안 규칙을 설정 하 여 아웃 바운드 네트워크 호출을 사용 하도록 설정할 수 있습니다.
 
 Python 및 R 패키지를 관리 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 

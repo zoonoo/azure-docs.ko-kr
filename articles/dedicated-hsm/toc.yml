@@ -10,6 +10,10 @@
       href: tutorial-deploy-hsm-cli.md
     - name: PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
       href: tutorial-deploy-hsm-powershell.md
+- name: 빠른 시작
+  items:
+    - name: Azure PowerShell을 사용하여 Azure Dedicated HSM 만들기
+      href: quickstart-create-hsm-powershell.md
 - name: 개념
   items:
     - name: 고가용성

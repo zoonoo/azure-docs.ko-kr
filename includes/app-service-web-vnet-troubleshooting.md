@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93235897"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999451"
 ---
 이 기능을 설정 하는 것은 쉽지만 사용자 환경이 문제가 없는 것은 아닙니다. 원하는 끝점에 액세스 하는 데 문제가 발생 하는 경우 응용 프로그램 콘솔에서 연결을 테스트 하는 데 사용할 수 있는 몇 가지 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이 고 다른 하나는 콘솔 Azure Portal입니다. 앱에서 Kudu 콘솔에 연결 하려면 **도구**  >  **Kudu** 로 이동 합니다. [Sitename]. Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드 된 후 **디버그 콘솔** 탭으로 이동 합니다. 앱에서 Azure Portal 호스트 콘솔로 이동 하려면 **도구**  >  **콘솔** 로 이동 합니다.
 
 #### <a name="tools"></a>도구
-네이티브 Windows 앱에서 **ping** , **nslookup** 및 **tracert** 도구는 보안 제약 조건 ( [사용자 지정 Windows 컨테이너](../articles/app-service/quickstart-custom-container.md)에서 작동)으로 인해 콘솔을 통해 작동 하지 않습니다. Void를 채우기 위해 별도의 두 도구를 추가 합니다. DNS 기능을 테스트 하기 위해 **nameresolver.exe** 라는 도구를 추가 했습니다. 구문은 다음과 같습니다.
+네이티브 Windows 앱에서 **ping**, **nslookup** 및 **tracert** 도구는 보안 제약 조건 ( [사용자 지정 Windows 컨테이너](../articles/app-service/quickstart-custom-container.md)에서 작동)으로 인해 콘솔을 통해 작동 하지 않습니다. Void를 채우기 위해 별도의 두 도구를 추가 합니다. DNS 기능을 테스트 하기 위해 **nameresolver.exe** 라는 도구를 추가 했습니다. 구문은 다음과 같습니다.
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]

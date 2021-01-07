@@ -5,18 +5,18 @@ services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a9c4f6d9e98e721370f54dfbe261025cf186b6c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87283897"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497489"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Data Factory 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "87283897"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure 데이터 팩터리를 만드는 방법을 보여 줍니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure 데이터 팩터리를 만드는 방법을 보여 줍니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환** 하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="create-a-file"></a>파일 만들기
 
-**메모장**과 같은 텍스트 편집기를 열고 다음 내용을 사용하여 **emp.txt**라는 파일을 만듭니다.
+**메모장** 과 같은 텍스트 편집기를 열고 다음 내용을 사용하여 **emp.txt** 라는 파일을 만듭니다.
 
 ```emp.txt
 John, Doe
@@ -83,7 +83,7 @@ Jane, Doe
     지정되지 않은 경우 기본값을 사용하여 Azure Data Factory 리소스를 만듭니다.
 
     - **구독**: Azure 구독을 선택합니다.
-    - **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인**을 선택합니다.
+    - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인** 을 선택합니다.
     - **지역**: 위치를 선택합니다.  예: *미국 동부*
     - **Data Factory 이름**: 기본값을 사용합니다.
     - **위치**: 기본값을 사용합니다.
@@ -92,41 +92,41 @@ Jane, Doe
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
-1. **리소스 그룹으로 이동**을 선택합니다.
+1. **리소스 그룹으로 이동** 을 선택합니다.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="ADF ARM 템플릿 배포":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="리소스 그룹":::
 
 2.  Azure Data Factory가 생성되었는지 확인합니다.
     1. Azure Data Factory 이름은 - datafactory\<uniqueid\>형식입니다.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="ADF ARM 템플릿 배포":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="샘플 Data Factory":::
 
 2. 스토리지 계정이 생성되었는지 확인합니다.
     1. 스토리지 계정 이름은 - 스토리지\<uniqueid\> 형식입니다.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="ADF ARM 템플릿 배포":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Storage 계정":::
 
-3. 생성한 스토리지 계정을 선택한 다음, **컨테이너**를 선택합니다.
+3. 생성한 스토리지 계정을 선택한 다음, **컨테이너** 를 선택합니다.
     1. **컨테이너** 페이지에서 원하는 Blob 컨테이너를 선택합니다.
         1. Blob 컨테이너 이름은 - Blob\<uniqueid\>형식입니다.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="ADF ARM 템플릿 배포":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Blob 컨테이너":::
 
 ### <a name="upload-a-file"></a>파일 업로드
 
-1. **컨테이너** 페이지에서 **업로드**를 선택합니다.
+1. **컨테이너** 페이지에서 **업로드** 를 선택합니다.
 
 2. 오른쪽 창에서 **파일** 상자를 선택한 다음, 이전에 만든 **emp.txt** 파일을 찾아 선택합니다.
 
 3. **고급** 제목을 펼칩니다.
 
-4. **폴더에 업로드** 상자에서 *입력*을 입력합니다.
+4. **폴더에 업로드** 상자에서 *입력* 을 입력합니다.
 
 5. **업데이트** 단추를 선택합니다. 목록에서 **emp.txt** 파일 및 업로드 상태를 참조하세요.
 
 6. **닫기** 아이콘(**X**)을 선택하여 **Blob 업로드** 페이지를 닫습니다.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="ADF ARM 템플릿 배포":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="입력 폴더에 파일 업로드":::
 
 이 빠른 시작의 끝에서 출력을 확인하는 데 사용할 수 있으므로 컨테이너 페이지를 열어 둡니다.
 
@@ -136,19 +136,19 @@ Jane, Doe
 
 2. **작성자 & 모니터** 타일을 선택합니다. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="ADF ARM 템플릿 배포":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="작성자 및 모니터":::
 
 2. **작성자** 탭 :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::을 선택합니다.
 
 3. 만든 파이프라인 - ArmtemplateSampleCopyPipeline을 선택합니다.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="ADF ARM 템플릿 배포":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="ARM 템플릿 파이프라인":::
 
-4. **트리거 추가** > **지금 트리거**를 선택합니다.
+4. **트리거 추가** > **지금 트리거** 를 선택합니다.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="ADF ARM 템플릿 배포":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="트리거":::
 
-5. 오른쪽 창의 **파이프라인 실행**에서 **확인**을 선택합니다.
+5. 오른쪽 창의 **파이프라인 실행** 에서 **확인** 을 선택합니다.
 
 ### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 
@@ -156,19 +156,19 @@ Jane, Doe
 
 2. 파이프라인 실행과 연결된 작업 실행이 표시됩니다. 이 빠른 시작의 파이프라인에는 복사 유형의 작업 하나밖에 없습니다. 따라서 해당 작업에 대한 실행이 표시됩니다.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="ADF ARM 템플릿 배포":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="실행 성공":::
 
 ### <a name="verify-the-output-file"></a>출력 파일 확인
 
 파이프라인은 자동으로 Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음 입력 폴더에서 출력 폴더로 emp.txt 파일을 복사합니다. 
 
-1. Azure Portal의 **컨테이너** 페이지에서 **새로 고침**을 선택하여 출력 폴더를 확인합니다. 
+1. Azure Portal의 **컨테이너** 페이지에서 **새로 고침** 을 선택하여 출력 폴더를 확인합니다. 
 
-2. 폴더 목록에서 **출력**을 선택합니다.
+2. 폴더 목록에서 **출력** 을 선택합니다.
 
-3. **emp.txt**가 출력 폴더에 복사되었는지 확인합니다. 
+3. **emp.txt** 가 출력 폴더에 복사되었는지 확인합니다. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="ADF ARM 템플릿 배포":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="출력":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

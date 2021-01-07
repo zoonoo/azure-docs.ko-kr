@@ -5,14 +5,14 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 12/11/2020
 ms.custom: seo-nov-2020
-ms.openlocfilehash: aaedca5acf7861db05f0ec724e05449316379829
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ba0dd347c4ee2cb41b34c2fc34f1848a7295dc3a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337545"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368667"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>자동 크기 조정 처리량을 사용하여 Azure Cosmos 컨테이너 및 데이터베이스 만들기
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -59,7 +59,7 @@ Azure Cosmos DB에서 데이터베이스 및 컨테이너에 대 한 표준 (수
 
 ## <a name="enable-autoscale-on-existing-resources"></a>기존 리소스에서 자동 크기 조정 사용
 
-[Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container)을 사용하여 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정합니다. 언제든지 자동 크기 조정과 표준(수동) 프로비저닝된 처리량 사이를 전환할 수 있습니다. 자세한 내용은 이 [설명서](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work)를 참조하세요. 현재 모든 Api에 대해 Azure Portal를 사용 하 여 기존 리소스에 자동 크기 조정을 사용 하도록 설정할 수 있습니다.
+[Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), [Azure Resource Manager 템플릿](how-to-provision-autoscale-throughput.md#azure-resource-manager), [CLI](how-to-provision-autoscale-throughput.md#azure-cli) 또는 [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) 을 사용 하 여 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용 하도록 설정 합니다. 언제든지 자동 크기 조정과 표준(수동) 프로비저닝된 처리량 사이를 전환할 수 있습니다. 자세한 내용은 이 [설명서](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work)를 참조하세요.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> 자동 크기 조정에 대한 처리량 및 스토리지 제한
 

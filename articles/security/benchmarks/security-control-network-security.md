@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b74baebd964ee43658f74e0050dff838e29f9b8a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3a232f8e8c35e265a8243ac79e465c03f6b9650e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409062"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487867"
 ---
 # <a name="security-control-network-security"></a>보안 제어: 네트워크 보안
 
@@ -76,7 +76,7 @@ Azure Security Center Just-in-time 네트워크 액세스를 사용 하 여 제�
 
 적응 네트워크 강화 Azure Security Center 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트와 원본 Ip를 제한 하는 NSG 구성을 권장 합니다.
 
-- [DDoS 보호를 구성 하는 방법](../../virtual-network/manage-ddos-protection.md)
+- [DDoS 보호를 구성 하는 방법](../../ddos-protection/manage-ddos-protection.md)
 
 - [Azure 방화벽을 배포 하는 방법](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -148,7 +148,7 @@ Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 �
 
 Azure Policy를 사용 하 여 네트워크 리소스에 대 한 표준 보안 구성을 정의 하 고 구현 합니다.
 
-Azure 청사진을 사용 하 여 azure 리소스 관리자 템플릿, RBAC 컨트롤 및 정책과 같은 주요 환경 아티팩트를 단일 청사진 정의로 패키지화 하 여 대규모 Azure 배포를 간소화할 수도 있습니다. 청사진을 새 구독에 적용 하 고 버전 관리를 통해 제어 및 관리를 세부적으로 조정할 수 있습니다.
+Azure 청사진을 사용 하 여 azure 리소스 관리자 템플릿, Azure RBAC 컨트롤 및 정책과 같은 주요 환경 아티팩트를 단일 청사진 정의로 패키지화 하 여 대규모 Azure 배포를 간소화할 수도 있습니다. 청사진을 새 구독에 적용 하 고 버전 관리를 통해 제어 및 관리를 세부적으로 조정할 수 있습니다.
 
 - [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 

@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: troubleshooting
-ms.date: 11/08/2019
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8730ac8aa6a6056db67613f2ac8decf11740c467
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 41bfdf11bad28ab772b68839a5a7bf7776eb4dff
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376691"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548106"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>문제 해결 및 그룹 문제 해결
 
@@ -43,7 +43,7 @@ Powershell에서 관리자가 아닌 사용자에 대 한 그룹 만들기를 �
    ```
 
 <br/>**Powershell에서 동적 그룹을 만들려고 할 때 허용 되는 최대 그룹 오류가 수신 되었습니다.**<br/>
-동적 그룹 정책을 나타내는 메시지가 Powershell에 수신 _되는 경우 허용 되는 최대 그룹 수에 도달_하면 조직의 동적 그룹에 대 한 최대 제한에 도달 했음을 의미 합니다. 조직 당 최대 동적 그룹 수는 5000입니다.
+동적 그룹 정책을 나타내는 메시지가 Powershell에 수신 _되는 경우 허용 되는 최대 그룹 수에 도달_ 하면 조직의 동적 그룹에 대 한 최대 제한에 도달 했음을 의미 합니다. 조직 당 최대 동적 그룹 수는 5000입니다.
 
 새 동적 그룹을 만들려면 먼저 일부 기존 동적 그룹을 삭제 해야 합니다. 한도를 늘릴 수 있는 방법은 없습니다.
 

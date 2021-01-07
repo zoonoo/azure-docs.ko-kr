@@ -3,13 +3,12 @@ title: Service Fabric 클러스터의 x.509 인증서 기반 인증
 description: Service Fabric 클러스터의 인증서 기반 인증에 대해 알아보고 인증서 관련 문제를 검색, 완화 및 수정 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.custom: sfrev
-ms.openlocfilehash: 36717f526f88af753f3929d62e84ee65be4320e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259026"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901252"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Service Fabric 클러스터의 x.509 인증서 기반 인증
 
@@ -171,7 +170,10 @@ X.509 인증서를 사용 하 여 보호 되는 클러스터의 연결에 대 �
   </NodeTypes>
 ```
 
-두 유형의 선언 모두 Service Fabric 노드는 시작 시 구성을 읽고, 지정 된 인증서를 찾아서 로드 하 고, NotAfter 특성의 내림차순으로 정렬 합니다. 만료 된 인증서는 무시 되 고 목록의 첫 번째 요소는이 노드에서 시도 하는 모든 Service Fabric 연결에 대 한 클라이언트 자격 증명으로 선택 됩니다. 실제로는 Service Fabric 가장 오래 된 인증서를 우선 합니다.
+두 유형의 선언 모두 Service Fabric 노드는 시작 시 구성을 읽고, 지정 된 인증서를 찾아서 로드 하 고, NotBefore 특성의 내림차순으로 정렬 합니다. 만료 된 인증서는 무시 되 고 목록의 첫 번째 요소는이 노드에서 시도 하는 모든 Service Fabric 연결에 대 한 클라이언트 자격 증명으로 선택 됩니다. 실제로는 가장 최근에 발급 된 인증서를 우선 Service Fabric 합니다.
+
+> [!NOTE]
+> 버전 7.2.445 (7.2 CU4) 이전에는 곧 만료 되는 인증서 (가장 먼 ' NotAfter ' 속성이 있는 인증서)를 선택 Service Fabric.
 
 일반 이름 기반 프레젠테이션 선언의 경우 인증서는 해당 주체 일반 이름이 대/소문자를 구분 하는 정확한 문자열 비교 인 선언의 X509FindValue (또는 X509FindValueSecondary) 필드와 동일한 경우 일치 항목으로 간주 됩니다. 이는 와일드 카드 일치 및 대/소문자를 구분 하지 않는 문자열 비교를 지 원하는 유효성 검사 규칙과 대조 됩니다.  
 

@@ -1,16 +1,16 @@
 ---
-title: Python API를 사용하여 병렬 워크로드 실행
+title: 자습서 - Python API를 사용하여 병렬 워크로드 실행
 description: 자습서 - Batch Python 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 병렬 처리
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 34cea5e0b60c0a7ee8c3d31dd02a6f7e975de738
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7013ef1e9b6dda4554b665fa8199edb86a8a9adb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87853333"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106515"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -102,13 +102,13 @@ Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Azure Portal에서 Batch 계정으로 가서 풀, 컴퓨팅 노드, 작업 및 태스크를 모니터링합니다. 예를 들어 풀의 컴퓨팅 노드에 대한 열 지도를 보려면 **풀** > *LinuxFFmpegPool*을 클릭합니다.
+Azure Portal에서 Batch 계정으로 가서 풀, 컴퓨팅 노드, 작업 및 태스크를 모니터링합니다. 예를 들어 풀의 컴퓨팅 노드에 대한 열 지도를 보려면 **풀** > *LinuxFFmpegPool* 을 클릭합니다.
 
 태스크가 실행 중일 때 열 지도는 다음과 유사합니다.
 
 ![풀 열 지도](./media/tutorial-parallel-python/pool.png)
 
-기본 구성에서 애플리케이션을 실행하는 경우 일반적인 실행 시간은 **약 5분**입니다. 풀을 만드는 데 가장 많은 시간이 걸립니다. 
+기본 구성에서 애플리케이션을 실행하는 경우 일반적인 실행 시간은 **약 5분** 입니다. 풀을 만드는 데 가장 많은 시간이 걸립니다. 
 
 [!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
 
@@ -264,11 +264,11 @@ while datetime.datetime.now() < timeout_expiration:
 
 앱은 태스크를 실행한 후 생성된 입력 스토리지 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) 및 [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) 클래스에는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 컴퓨팅 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 입력 및 출력 파일은 스토리지 계정에 남아 있습니다.
 
-더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 스토리지 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
+더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 스토리지 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Batch 및 Storage 계정 인증

@@ -11,8 +11,7 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Azure NetApp Files 설정 및 NFS 볼륨 만들기 - ARM 템플릿
-      displayName: Resource Manager
+    - name: Azure NetApp Files 설정 및 NFS 볼륨 만들기
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: 개념
   items:
@@ -60,6 +59,8 @@
               href: solutions-windows-virtual-desktop.md
     - name: Azure NetApp Files에 대한 FAQ
       href: azure-netapp-files-faqs.md
+    - name: Azure Application Consistent Snapshot Tool이란?
+      href: azacsnap-introduction.md
 - name: 방법 가이드
   items:
     - name: Azure NetApp Files에 등록
@@ -98,13 +99,13 @@
       href: dynamic-change-volume-service-level.md
     - name: 지역 간 복제 관리
       items:
-        - name: 복제 피어링 만들기
+        - name: 볼륨 복제 만들기
           href: cross-region-replication-create-peering.md
         - name: 복제 관계의 상태 표시
           href: cross-region-replication-display-health-status.md
         - name: 재해 복구 관리
           href: cross-region-replication-manage-disaster-recovery.md
-        - name: 복제 삭제
+        - name: 볼륨 복제 또는 볼륨 삭제
           href: cross-region-replication-delete.md
     - name: 개발
       items:
@@ -114,8 +115,6 @@
           href: develop-rest-api-powershell.md
         - name: 'SDK, CLI 도구 및 ARM 템플릿'
           href: azure-netapp-files-sdk-cli.md
-        - name: Azure NetApp Files 리소스 공급자 오류 문제 해결
-          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
     - name: 문제 해결
       items:
         - name: 용량 풀 문제 해결
@@ -126,12 +125,40 @@
           href: troubleshoot-dual-protocol-volumes.md
         - name: 스냅샷 정책 문제 해결
           href: troubleshoot-snapshot-policies.md
+        - name: 리소스 공급자 오류 문제 해결
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: 참조
   items:
     - name: REST (영문)
       href: /rest/api/netapp/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.netapp/allversions
+    - name: Azure Application Consistent Snapshot Tool(AzAcSnap)
+      items:
+        - name: AzAcSnap 시작
+          href: azacsnap-get-started.md
+        - name: AzAcSnap 설치
+          href: azacsnap-installation.md
+        - name: AzAcSnap을 사용하여 재해 복구
+          href: azacsnap-disaster-recovery.md
+        - name: AzAcSnap 사용을 위한 팁과 요령
+          href: azacsnap-tips.md
+        - name: AzAcSnap 문제 해결
+          href: azacsnap-troubleshoot.md
+        - name: AzAcSnap 명령 참조
+          items:
+            - name: AzAcSnap 구성
+              href: azacsnap-cmd-ref-configure.md
+            - name: AzAcSnap 테스트
+              href: azacsnap-cmd-ref-test.md
+            - name: AzAcSnap을 사용하여 백업
+              href: azacsnap-cmd-ref-backup.md
+            - name: AzAcSnap을 사용하여 세부 정보 가져오기
+              href: azacsnap-cmd-ref-details.md
+            - name: AzAcSnap을 사용하여 삭제
+              href: azacsnap-cmd-ref-delete.md
+            - name: AzAcSnap을 사용하여 복원
+              href: azacsnap-cmd-ref-restore.md
 - name: 리소스
   items:
     - name: 가격 책정

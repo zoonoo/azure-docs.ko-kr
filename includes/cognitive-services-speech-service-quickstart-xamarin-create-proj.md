@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: 6d20df031633df4642ce9fb5cbbc469fd7f0a5da
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097238"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188500"
 ---
 Xamarin을 사용하여 플랫폼 간 모바일 앱 .NET 개발용 Visual Studio 프로젝트를 만들려면 다음을 수행해야 합니다.
 - Visual Studio 개발 옵션을 설정합니다.
@@ -54,7 +54,7 @@ Xamarin을 사용하여 플랫폼 간 모바일 앱 .NET 개발용 Visual Studio
 
 1. **Blank** 템플릿을 선택합니다.
 
-1. **플랫폼** 에서 **Android** , **iOS** 및 **Windows(UWP)** 의 확인란을 선택합니다.
+1. **플랫폼** 에서 **Android**, **iOS** 및 **Windows(UWP)** 의 확인란을 선택합니다.
 
 1. **확인** 을 선택합니다. 새 프로젝트가 만들어지고 **솔루션 탐색기** 창에 표시되는 Visual Studio IDE로 돌아갑니다.
 
@@ -81,7 +81,7 @@ Xamarin을 사용하여 플랫폼 간 모바일 앱 .NET 개발용 Visual Studio
    > [!NOTE] 
    > `Microsoft.CognitiveServices.Speech` NuGet 내의 iOS 라이브러리는 bitcode를 사용하도록 설정되어 있지 않습니다. 애플리케이션에 bitcode 라이브러리를 사용하도록 설정해야 하는 경우 구체적으로 iOS 프로젝트용 `Microsoft.CognitiveServices.Speech.Xamarin.iOS` NuGet을 사용하세요.
 
-1. 검색 결과 옆의 패키지 상태 창에서 **helloworld** , **helloworld.Android** , **helloworld.iOS** 및 **helloworld.UWP** 프로젝트를 모두 선택합니다.
+1. 검색 결과 옆의 패키지 상태 창에서 **helloworld**, **helloworld.Android**, **helloworld.iOS** 및 **helloworld.UWP** 프로젝트를 모두 선택합니다.
 
 1. **설치** 를 선택합니다.
 

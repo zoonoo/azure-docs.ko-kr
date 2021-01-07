@@ -9,14 +9,17 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 18bf8d865a5bb4d96fb55199137b38ec30861dbe
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3bced101516e91259ea9018fe3c4aa44f867cbe6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793044"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96023111"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Key Vault 및 Azure PowerShell을 사용하여 스토리지 계정 키 관리
+> [!IMPORTANT]
+> Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스인 Azure AD(Azure Active Directory)와 Azure Storage를 통합하여 사용하는 것이 좋습니다. Azure AD 통합은 [Azure BLOB 및 큐](../../storage/common/storage-auth-aad.md)에 사용할 수 있으며, Azure Key Vault와 마찬가지로 Azure Storage에 대한 OAuth2 토큰 기반 액세스를 제공합니다.
+> Azure AD를 사용하면 스토리지 계정 자격 증명 대신 애플리케이션 또는 사용자 ID를 사용하여 클라이언트 애플리케이션을 인증할 수 있습니다. Azure에서 실행할 때 [Azure AD 관리 ID](../../active-directory/managed-identities-azure-resources/index.yml)를 사용할 수 있습니다. 관리 ID를 사용하면 클라이언트 인증이 필요 없는 것은 물론이고, 애플리케이션에 또는 애플리케이션을 통해 자격 증명을 저장할 필요가 없습니다. Azure AD 인증을 사용할 수 없는 경우에만 아래 솔루션을 사용하세요.
 
 Azure 스토리지 계정은 계정 이름과 키로 구성된 자격 증명을 사용합니다. 키는 자동 생성되며 암호화 키가 아닌 암호 역할을 합니다. Key Vault는 스토리지 계정에서 스토리지 계정 키를 주기적으로 다시 생성하여 스토리지 계정 키를 관리하며, 스토리지 계정의 리소스에 대한 위임된 액세스가 가능하도록 공유 액세스 서명 토큰을 제공합니다.
 
@@ -29,17 +32,11 @@ Key Vault 관리형 스토리키 계정 키 기능을 사용하여 키를 나열
 - 단일 Key Vault 개체에서만 스토리지 계정 키를 관리해야 합니다. 여러 개체에서 키를 관리하도록 허용하지 마세요.
 - Key Vault만을 사용하여 키를 다시 생성해야 합니다. 스토리지 계정 키를 수동으로 다시 생성하지 않습니다.
 
-Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스인 Azure AD(Azure Active Directory)와 Azure Storage를 통합하여 사용하는 것이 좋습니다. Azure AD 통합은 [Azure BLOB 및 큐](../../storage/common/storage-auth-aad.md)에 사용할 수 있으며, Azure Key Vault와 마찬가지로 Azure Storage에 대한 OAuth2 토큰 기반 액세스를 제공합니다.
-
-Azure AD를 사용하면 스토리지 계정 자격 증명 대신 애플리케이션 또는 사용자 ID를 사용하여 클라이언트 애플리케이션을 인증할 수 있습니다. Azure에서 실행할 때 [Azure AD 관리 ID](../../active-directory/managed-identities-azure-resources/index.yml)를 사용할 수 있습니다. 관리 ID를 사용하면 클라이언트 인증이 필요 없는 것은 물론이고, 애플리케이션에 또는 애플리케이션을 통해 자격 증명을 저장할 필요가 없습니다.
-
-Azure AD는 Key Vault에서도 지원되는 RBAC(역할 기반 액세스 제어)를 사용하여 권한 부여를 관리합니다.
-
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="service-principal-application-id"></a>서비스 주체 애플리케이션 ID
 
-Azure AD 테넌트는 등록된 각 애플리케이션에 [서비스 주체](../../active-directory/develop/developer-glossary.md#service-principal-object)를 제공합니다. 서비스 주체는 애플리케이션 ID 역할을 하며, RBAC를 통해 다른 Azure 리소스에 액세스하기 위해 권한 부여를 설정하는 동안 사용됩니다.
+Azure AD 테넌트는 등록된 각 애플리케이션에 [서비스 주체](../../active-directory/develop/developer-glossary.md#service-principal-object)를 제공합니다. 서비스 주체는 애플리케이션 ID 역할을 하며, Azure RBAC를 통해 다른 Azure 리소스에 액세스하기 위해 권한 부여를 설정하는 동안 사용됩니다.
 
 Key Vault는 모든 Azure AD 테넌트에서 미리 등록되는 Microsoft 애플리케이션입니다. Key Vault는 각 Azure 클라우드에서 동일한 애플리케이션 ID로 등록됩니다.
 
@@ -256,14 +253,20 @@ Content Type : application/vnd.ms-sastoken-storage
 Tags         :
 ```
 
-이제 [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet 및 비밀 `Name` 속성을 사용하여 해당 비밀의 내용을 볼 수 있습니다.
+이제 `VaultName` 및 `Name` 매개 변수와 함께 [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet을 사용하여 해당 비밀의 내용을 볼 수 있습니다.
 
 ```azurepowershell-interactive
-Write-Host (Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>).SecretValue | ConvertFrom-SecureString -AsPlainText
+$secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 이 명령의 출력은 SAS 정의 문자열을 보여줍니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

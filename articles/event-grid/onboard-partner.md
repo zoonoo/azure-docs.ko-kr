@@ -3,12 +3,12 @@ title: Azure Portal를 사용 하 여 Azure Event Grid 파트너로 등록
 description: Azure Portal를 사용 하 여 Azure Event Grid 파트너를 등록 합니다.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 36fab35923b8a536a9054e5dc4bfa4c5b82172a7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8344fcd822bfcdc67e2c27b200d97fa70dfefdf2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102916"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349389"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Event Grid 파트너로 등록
 이 문서에서는 이벤트 게시자 또는 파트너 라고도 하는 타사 SaaS 공급자를 사용 하 여 서비스에서 이벤트를 게시 하 고 최종 사용자가 이러한 이벤트를 사용 하는 방법을 등록 Event Grid 하는 방법을 설명 합니다.
@@ -62,13 +62,13 @@ ms.locfileid: "93102916"
         3. **리소스 종류에 대 한 설명을** 입력 합니다. 
         4. **시나리오에 대 한 설명을** 입력 합니다. 리소스에 대 한 파트너 항목을 사용할 수 있는 방법 또는 시나리오를 설명 해야 합니다.  
 
-            :::image type="content" source="./media/onboard-partner/create-partner-registration-page.png" alt-text="파트너 등록 링크 추가":::            
+            :::image type="content" source="./media/onboard-partner/create-partner-registration-page.png" alt-text="파트너 등록 만들기":::            
 1. 페이지 맨 아래에서 **다음: 사용자 지정 서비스** 를 선택 합니다. **파트너 등록 만들기** 페이지의 **고객 서비스** 탭에서, 이벤트 원본에 문제가 발생 하는 경우 구독자가 사용자에 게 연락 하는 데 사용할 정보를 입력 합니다.
     1. **전화 번호** 를 입력 합니다.
     1. 전화 번호에 대 한 **내선** 번호를 입력 합니다.
     1. 지원 웹 사이트 **URL** 을 입력 하십시오. 
     
-        :::image type="content" source="./media/onboard-partner/create-partner-registration-customer-service.png" alt-text="파트너 등록 링크 추가":::        
+        :::image type="content" source="./media/onboard-partner/create-partner-registration-customer-service.png" alt-text="파트너 등록 만들기-고객 서비스":::        
 1. 페이지 맨 아래에 있는 **다음: 태그** 를 선택 합니다. 
 1. **태그** 페이지에서 다음 값을 구성 합니다. 
     1. 추가할 태그의 **이름** 및 **값** 을 입력합니다. 이 단계는 **선택 사항** 입니다. 
@@ -79,7 +79,7 @@ ms.locfileid: "93102916"
 1. Azure Portal의 왼쪽 탐색 메뉴에서 **모든 서비스** 를 선택 하 고 검색 표시줄에 **Event Grid Partner 네임 스페이스** 를 입력 한 다음 목록에서 선택 합니다. 
 1. **Event Grid 파트너 네임 스페이스** 페이지의 도구 모음에서 **+ 추가** 를 선택 합니다. 
     
-    :::image type="content" source="./media/onboard-partner/add-partner-namespace-link.png" alt-text="파트너 등록 링크 추가":::
+    :::image type="content" source="./media/onboard-partner/add-partner-namespace-link.png" alt-text="파트너 네임 스페이스-링크 추가":::
 1. **파트너 네임 스페이스-기본 사항 만들기** 페이지에서 다음 정보를 지정 합니다.
     1. **프로젝트 세부 정보** 섹션에서 다음 단계를 수행 합니다. 
         1. Azure **구독** 을 선택 합니다.
@@ -93,7 +93,7 @@ ms.locfileid: "93102916"
         1. 드롭다운 목록에서 **파트너 등록** 을 선택 합니다.
     1. 페이지 맨 아래에 있는 **다음: 태그** 를 선택 합니다.
 
-        :::image type="content" source="./media/onboard-partner/create-partner-namespace-basics-page.png" alt-text="파트너 등록 링크 추가":::
+        :::image type="content" source="./media/onboard-partner/create-partner-namespace-basics-page.png" alt-text="파트너 네임 스페이스 만들기-기본 페이지":::
 1. **태그** 페이지에서 태그를 추가 합니다 (선택 사항).
     1. 추가할 태그의 **이름** 및 **값** 을 입력합니다. 이 단계는 **선택 사항** 입니다.
     1. 페이지 아래쪽에서 **검토 + 만들기** 를 선택합니다.         
@@ -105,7 +105,7 @@ ms.locfileid: "93102916"
 
 1. 만든 네임 스페이스의 **개요** 페이지로 이동 합니다. 
 
-    :::image type="content" source="./media/onboard-partner/partner-namespace-overview.png" alt-text="파트너 등록 링크 추가":::
+    :::image type="content" source="./media/onboard-partner/partner-namespace-overview.png" alt-text="파트너 네임 스페이스-개요 페이지":::
     partner-namespace-overview.png
 1. 도구 모음에서 **+ 이벤트 채널** 을 선택 합니다. 
 1. **이벤트 채널 만들기-기본 사항** 페이지에서 다음 정보를 지정 합니다. 
@@ -119,23 +119,23 @@ ms.locfileid: "93102916"
         1. **파트너 항목의 이름을** 입력 합니다. 
     1. 페이지 맨 아래에서 **다음: 필터** 를 선택 합니다. 
     
-        :::image type="content" source="./media/onboard-partner/create-event-channel-basics-page.png" alt-text="파트너 등록 링크 추가":::
+        :::image type="content" source="./media/onboard-partner/create-event-channel-basics-page.png" alt-text="이벤트 채널 만들기-기본 페이지":::
 1. **필터** 페이지에서 필터를 추가 합니다. 다음 단계를 수행합니다.
     1. 각 이벤트의 특성을 필터링 합니다. 모든 필터와 일치 하는 이벤트만 배달 됩니다. 최대 25 개의 필터를 지정할 수 있습니다. 비교는 대/소문자를 구분 하지 않습니다. 필터에 사용 되는 유효한 키는 이벤트 스키마에 따라 다릅니다. 다음 예제에서는,, `eventid` `source` 및를 `eventtype` `eventtypeversioin` 키에 사용할 수 있습니다. 를 중첩 연산자로 사용 하 여 데이터 페이로드 내에서 사용자 지정 속성을 사용할 수도 있습니다 `.` . 예: `data` , `data.key` , `data.key1.key2` .
     1. 페이지 맨 아래에 있는 **추가 기능** 을 선택 합니다. 
     
-        :::image type="content" source="./media/onboard-partner/create-event-channel-filters-page.png" alt-text="파트너 등록 링크 추가":::
+        :::image type="content" source="./media/onboard-partner/create-event-channel-filters-page.png" alt-text="이벤트 채널 만들기-필터 페이지":::
         create-event-channel-filters-page.png
 1. **추가 기능** 페이지에서 **파트너 항목에 대 한** **만료 시간** 및 설명을 설정할 수 있습니다. 
     1. **만료 시간은** 고객이 활성화 하지 않은 경우 토픽 및 연결 된 이벤트 채널이 자동으로 삭제 되는 시간입니다. 시간이 제공 되지 않는 경우 기본값은 7 일로 사용 됩니다. 사용자 고유의 만료 시간을 지정 하려면이 확인란을 선택 합니다. 
     1. 이 항목에서는 사용자가 만들지 않은 리소스를 **설명** 하므로 사용자에 게이 항목의 특성을 이해 하는 데 도움이 될 수 있습니다. 설정이 없는 경우에는 일반 설명이 제공 됩니다. 사용자의 파트너 토픽 설명을 설정 하려면이 확인란을 선택 합니다. 
     1. 완료되면 **다음: 리뷰 + 만들기** 를 클릭합니다. 
     
-        :::image type="content" source="./media/onboard-partner/create-event-channel-additional-features-page.png" alt-text="파트너 등록 링크 추가":::
+        :::image type="content" source="./media/onboard-partner/create-event-channel-additional-features-page.png" alt-text="이벤트 채널 만들기-추가 기능 페이지":::
 1. **검토 + 만들기** 에서 설정을 검토 하 고 **만들기** 를 선택 하 여 이벤트 채널을 만듭니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- [파트너 토픽 개요](partner-topics-overview.md)
+- [파트너 토픽 개요](./partner-events-overview.md)
 - [파트너 토픽 등록 양식](https://aka.ms/gridpartnerform)
 - [좋아하게 되었습니다 partner 항목](auth0-overview.md)
 - [좋아하게 되었습니다 partner 항목을 사용 하는 방법](auth0-how-to.md)

@@ -1,19 +1,19 @@
 ---
 title: '자습서: Azure Database for MariaDB 디자인 - Azure CLI'
 description: 이 자습서에서는 명령줄에서 Azure CLI를 사용하여 Azure Database for MariaDB 서버 및 데이터베이스를 만들고 관리하는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 205fe47acb6d10b7596c462476b4e9e718a3d813
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8f6f8d5a2cc9dc17d08486125fc2e44307c1be46
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424967"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436660"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MariaDB 디자인
 
@@ -30,11 +30,9 @@ Azure Database for MariaDB는 MariaDB 커뮤니티 버전 데이터베이스 엔
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-브라우저에서 Azure Cloud Shell을 사용하거나 컴퓨터에 [Azure CLI를 설치]( /cli/azure/install-azure-cli)하여 이 자습서의 코드 블록을 실행할 수 있습니다.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+- 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다. 
 
 구독이 여러 개인 경우 리소스가 있거나 요금이 청구되는 적절한 구독을 선택합니다. [az account set](/cli/azure/account#az-account-set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다.
 ```azurecli-interactive
@@ -174,7 +172,7 @@ SELECT * FROM inventory;
 
 복원에는 다음 정보가 필요합니다.
 
-- 복원 지점: 서버를 변경하기 전 발생한 특정 시점을 선택합니다. 원본 데이터베이스의 가장 오래된 백업 값보다 크거나 같아야 합니다.
+- 복원 지점: 데이터베이스를 변경하기 전의 특정 시점을 선택합니다. 원본 데이터베이스의 가장 오래된 백업 값보다 크거나 같아야 합니다.
 - 대상 서버: 복원해 두려는 새 서버의 이름을 제공합니다.
 - 원본 서버: 복원해 오려는 서버의 이름을 제공합니다.
 - 위치: 지역은 선택할 수 없으며, 기본적으로 원본 서버와 동일합니다.

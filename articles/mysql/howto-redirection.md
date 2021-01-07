@@ -1,17 +1,17 @@
 ---
 title: 리디렉션을 사용하여 연결 - Azure Database for MySQL
 description: 이 문서에서는 리디렉션을 사용하여 Azure Database for MySQL에 연결하도록 애플리케이션을 구성하는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: be660101a28d5ef289de1b25f8f7d33fbe9f617b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bea618b34809544308caba46a0ffbdecee91d69f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86107821"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541813"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>리디렉션을 사용하여 Azure Database for MySQL에 연결
 

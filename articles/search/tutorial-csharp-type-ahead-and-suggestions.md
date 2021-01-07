@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739666"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013839"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 자동 완성 및 제안 추가
 
@@ -45,7 +45,7 @@ ms.locfileid: "91739666"
 
 사용자에게 대안을 제공하는 가장 간단한 방법인 제안된 결과 드롭다운 목록부터 시작하겠습니다.
 
-1. Index.cshtml 파일에서 **TextBoxFor** 문의 `@id`를 **azureautosuggest**로 변경합니다.
+1. Index.cshtml 파일에서 **TextBoxFor** 문의 `@id`를 **azureautosuggest** 로 변경합니다.
 
     ```cs
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
@@ -132,7 +132,7 @@ ms.locfileid: "91739666"
     }
     ```
 
-    **Size** 매개 변수는 반환할 결과 수를 지정합니다(지정하지 않으면 기본값은 5). 인덱스를 만들 때 검색 인덱스에 대한 _제안기_가 지정됩니다. Microsoft에서 호스트하는 샘플 호텔 인덱스의 제안기 이름은 "sg"이며, **HotelName** 필드에서만 제안된 일치 항목을 검색합니다.
+    **Size** 매개 변수는 반환할 결과 수를 지정합니다(지정하지 않으면 기본값은 5). 인덱스를 만들 때 검색 인덱스에 대한 _제안기_ 가 지정됩니다. Microsoft에서 호스트하는 샘플 호텔 인덱스의 제안기 이름은 "sg"이며, **HotelName** 필드에서만 제안된 일치 항목을 검색합니다.
 
     유사 일치를 사용하면 "니어 미스"를 한 번의 편집 거리까지 출력에 포함할 수 있습니다. **highlights** 매개 변수를 true로 설정하면 볼드 HTML 태그가 출력에 추가됩니다. 다음 섹션에서는 이 두 매개 변수를 true로 설정하겠습니다.
 
@@ -149,9 +149,9 @@ ms.locfileid: "91739666"
 
     단순히 단어의 중간에 있는 문자를 입력하면 안 되고 _반드시_ 단어의 시작 문자를 입력해야 합니다.
 
-4. 보기 스크립트에서 **&fuzzy**를 true로 설정하고, 앱을 다시 실행합니다. 이제 "po"를 입력합니다. 검색에서는 한 글자가 잘못 입력된 것으로 가정합니다.
+4. 보기 스크립트에서 **&fuzzy** 를 true로 설정하고, 앱을 다시 실행합니다. 이제 "po"를 입력합니다. 검색에서는 한 글자가 잘못 입력된 것으로 가정합니다.
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="&quot;po&quot;를 입력하면 두 가지 제안이 표시됨" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="fuzzy를 true로 설정하고 *pa* 입력" border="false":::
 
     관심이 있는 분들은 유사 항목 검색에 사용되는 논리에 대해 설명하는 [Azure Cognitive Search의 Lucene 쿼리 구문](./query-lucene-syntax.md)을 읽어보세요.
 
@@ -196,7 +196,7 @@ ms.locfileid: "91739666"
 
 1. 앱을 다시 실행하면 입력한 텍스트가 제안에 굵은 글씨로 표시되는 것을 볼 수 있습니다. "pa"를 입력해 봅시다.
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="&quot;po&quot;를 입력하면 두 가지 제안이 표시됨" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="&quot;pa&quot;를 입력하면 강조 표시됨" border="false":::
 
    위에서 스크립트를 강조 표시하는 데 사용된 논리는 완벽하지 않습니다. 같은 이름에 두 번 표시되는 용어를 입력하면 볼드가 원하는 대로 적용되지 않습니다. "mo"를 입력해 봅시다.
 
@@ -251,11 +251,11 @@ ms.locfileid: "91739666"
 
     앞에서 제안에 했던 것처럼, "sg"라고 하는 동일한 *제안기* 함수를 자동 완성 검색에 사용합니다(즉, 호텔 이름만 자동 완성을 시도).
 
-    다양한 **AutocompleteMode** 설정이 있는데, 여기서는 **OneTermWithContext**를 사용하겠습니다. 추가 옵션에 대한 설명은 [자동 완성 API](/rest/api/searchservice/autocomplete)를 참조하세요.
+    다양한 **AutocompleteMode** 설정이 있는데, 여기서는 **OneTermWithContext** 를 사용하겠습니다. 추가 옵션에 대한 설명은 [자동 완성 API](/rest/api/searchservice/autocomplete)를 참조하세요.
 
 1. 앱을 실행합니다. 드롭다운 목록에 표시되는 옵션의 범위가 단일 단어라는 것을 알 수 있습니다. "re"로 시작하는 단어를 입력합니다. 더 많은 문자를 입력할수록 옵션 수가 감소합니다.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="&quot;po&quot;를 입력하면 두 가지 제안이 표시됨" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="기본 자동 완성을 사용하여 입력" border="false":::
 
     앞에서 실행한 제안 스크립트는 그 이름처럼 이 자동 완성 스크립트보다 더 유용합니다. 사용자에게 더 친숙한 자동 완성을 만들려면 제안된 결과와 함께 사용하는 것이 좋습니다.
 
@@ -265,7 +265,7 @@ ms.locfileid: "91739666"
 
 이 기능을 제공하는 라이브러리가 있는데, "인라인 자동 완성" 또는 이와 비슷한 이름으로 부르기도 합니다. 하지만 여기서는 API를 살펴볼 수 있도록 이 기능을 기본적으로 구현하겠습니다. 이 예제에서는 컨트롤러부터 작업하겠습니다.
 
-1. 지정된 수의 제안과 함께 자동 완성 결과를 딱 하나만 반환하는 작업을 컨트롤러에 추가합니다. 이 작업을 **AutoCompleteAndSuggestAsync**라고 부르겠습니다. 홈 컨트롤러에서 다음 작업과 기타 새 작업을 추가합니다.
+1. 지정된 수의 제안과 함께 자동 완성 결과를 딱 하나만 반환하는 작업을 컨트롤러에 추가합니다. 이 작업을 **AutoCompleteAndSuggestAsync** 라고 부르겠습니다. 홈 컨트롤러에서 다음 작업과 기타 새 작업을 추가합니다.
 
     ```cs
     public async Task<ActionResult> AutoCompleteAndSuggestAsync(string term)
@@ -317,7 +317,7 @@ ms.locfileid: "91739666"
 
     자동 완성 옵션 중 하나가 **결과** 목록의 맨 위에 반환되고, 그 뒤에는 모든 제안이 표시됩니다.
 
-1. 보기에서, 사용자가 입력한 볼드 텍스트 바로 아래에 밝은 회색 자동 완성 단어가 렌더링되도록 트릭을 먼저 구현합니다. HTML에는 이 용도로 사용되는 상대 위치가 포함되어 있습니다. **TextBoxFor** 문(및 주변 &lt;div&gt; 문)을 다음과 같이 변경하면 **underneath**로 식별되는 두 번째 검색창이 일반 검색창 바로 아래에 있고, 이 검색창을 기본 위치로부터 39픽셀만큼 끌어옵니다.
+1. 보기에서, 사용자가 입력한 볼드 텍스트 바로 아래에 밝은 회색 자동 완성 단어가 렌더링되도록 트릭을 먼저 구현합니다. HTML에는 이 용도로 사용되는 상대 위치가 포함되어 있습니다. **TextBoxFor** 문(및 주변 &lt;div&gt; 문)을 다음과 같이 변경하면 **underneath** 로 식별되는 두 번째 검색창이 일반 검색창 바로 아래에 있고, 이 검색창을 기본 위치로부터 39픽셀만큼 끌어옵니다.
 
     ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">
@@ -328,7 +328,7 @@ ms.locfileid: "91739666"
     </div>
     ```
 
-    이 예에서는 ID를 다시 **azureautocomplete**로 변경합니다.
+    이 예에서는 ID를 다시 **azureautocomplete** 로 변경합니다.
 
 1. 또한 보기에서 지금까지 입력한 모든 스크립트 뒤에 다음 스크립트를 입력합니다. 스크립트는 다양한 입력 동작을 처리하기 때문에 길고 복잡합니다.
 
@@ -451,7 +451,7 @@ ms.locfileid: "91739666"
 
 1. 이제 앱을 실행합니다. 검색창에 "pa"를 입력합니다. "pa"가 들어 있는 두 호텔과 함께 "palace"가 자동 완성 제안으로 제공되나요?
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="&quot;po&quot;를 입력하면 두 가지 제안이 표시됨" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="인라인 자동 완성 및 제안을 사용하여 입력" border="false":::
 
 1. 탭하여 자동 완성 제안을 수락하고, 화살표 키와 Tab 키를 사용하여 제안을 선택하고, 마우스로 한 번 클릭하여 다시 시도해 보세요. 스크립트가 이 모든 상황을 깔끔하게 처리하는지 확인합니다.
 

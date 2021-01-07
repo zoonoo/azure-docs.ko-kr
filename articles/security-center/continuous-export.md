@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289236"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832712"
 ---
 # <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
 
@@ -24,6 +24,7 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 - 모든 심각도가 높은 경고는 Azure 이벤트 허브로 전송 됩니다.
 - SQL server의 취약성 평가 검사에서 발생 하는 모든 중간 또는 높은 심각도가 특정 Log Analytics 작업 영역으로 전송 됩니다.
 - 특정 권장 사항은 생성 될 때마다 이벤트 허브 또는 Log Analytics 작업 영역으로 전달 됩니다. 
+- 구독에 대 한 보안 점수는 컨트롤의 점수가 0.01 이상 변경 될 때마다 Log Analytics 작업 영역으로 전송 됩니다. 
 
 이 문서에서는 Log Analytics 작업 영역 또는 Azure Event Hubs에 연속 내보내기를 구성 하는 방법을 설명 합니다.
 
@@ -41,12 +42,22 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free|
 |필요한 역할 및 권한:|<ul><li>리소스 그룹에 대 한 **보안 관리자** 또는 **소유자**</li><li>대상 리소스에 대 한 쓰기 권한</li><li>아래에서 설명 하는 ' DeployIfNotExist ' 정책을 사용 하는 경우에는 정책을 할당할 수 Azure Policy 있는 권한도 필요 합니다.</li></ul>|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov, 기타 .Gov<br>![예](./media/icons/yes-icon.png) 중국 .Gov (이벤트 허브로)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 미국 정부, 기타 정부<br>![예](./media/icons/yes-icon.png) 중국 .Gov (이벤트 허브로)|
 |||
 
 
+## <a name="what-data-types-can-be-exported"></a>내보낼 수 있는 데이터 형식은 무엇입니까?
 
+연속 내보내기는 변경 될 때마다 다음 데이터 형식을 내보낼 수 있습니다.
 
+- 보안 경고
+- 보안 권장 사항 
+- 취약성 평가 스캐너 또는 특정 시스템 업데이트의 결과와 같은 ' sub ' 권장 사항으로 간주할 수 있는 보안 결과입니다. "시스템 업데이트를 컴퓨터에 설치 해야 합니다."와 같은 ' 부모 ' 권장 사항을 사용 하 여 포함 하도록 선택할 수 있습니다.
+- 보안 점수 (구독 당 또는 컨트롤 단위)
+- 규정 준수 데이터
+
+> [!NOTE]
+> 보안 점수 및 규정 준수 데이터 내보내기는 미리 보기 기능이 며 정부 클라우드에서 사용할 수 없습니다. 
 
 ## <a name="set-up-a-continuous-export"></a>연속 내보내기 설정 
 
@@ -61,13 +72,18 @@ Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내�
 1. Security Center의 사이드바에서 **가격 책정 & 설정** 을 선택 합니다.
 1. 데이터 내보내기를 구성할 특정 구독을 선택 합니다.
 1. 해당 구독에 대 한 설정 페이지의 사이드바에서 **연속 내보내기** 를 선택 합니다.
-    [ ![ 내보내기 옵션 Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) 내보내기 옵션을 볼 수 있습니다. 사용 가능한 각 내보내기 대상에 대 한 탭이 있습니다. 
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Azure Security Center의 내보내기 옵션":::
+
+    여기에서 내보내기 옵션을 볼 수 있습니다. 사용 가능한 각 내보내기 대상에 대 한 탭이 있습니다. 
+
 1. 내보낼 데이터 형식을 선택 하 고 각 유형의 필터에서 선택 합니다 (예: 높은 심각도 경고만 내보내기).
-1. 선택 사항에 따라 이러한 4 가지 권장 사항 중 하나를 포함 하는 경우 취약성 평가 결과를 함께 포함할 수 있습니다.
+1. 선택 사항에 따라 이러한 권장 사항 중 하나가 포함 된 경우 취약성 평가 결과를 함께 포함할 수 있습니다.
     - SQL 데이터베이스에 대 한 취약성 평가 결과를 재구성 해야 합니다.
     - 컴퓨터의 SQL server에 대 한 취약성 평가 결과를 재구성 해야 함 (미리 보기)
     - Azure Container Registry 이미지의 취약성을 수정해야 함(Qualys 제공)
     - 가상 머신의 취약성을 수정해야 함
+    - 머신에 시스템 업데이트를 설치해야 합니다.
 
     이러한 권장 사항을 포함 하는 결과를 포함 하려면 **보안 결과 포함** 옵션을 사용 하도록 설정 합니다.
 
@@ -163,7 +179,7 @@ Log Analytics 작업 영역 내의 Azure Security Center 데이터를 분석 하
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Azure Monitor에서 내보낸 경고 및 권장 사항 보기
 
-경우에 따라 [Azure Monitor](../azure-monitor/platform/alerts-overview.md)에서 내보낸 보안 경고 및/또는 권장 사항을 보도록 선택할 수 있습니다. 
+[Azure Monitor](../azure-monitor/platform/alerts-overview.md)에서 내보낸 보안 경고 및/또는 권장 사항을 보도록 선택할 수도 있습니다. 
 
 Azure Monitor는 진단 로그, 메트릭 경고 및 Log Analytics 작업 영역 쿼리를 기반으로 하는 사용자 지정 경고를 비롯 한 다양 한 Azure 경고에 대 한 통합 경고 환경을 제공 합니다.
 
@@ -211,6 +227,9 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
 - 내보내기를 사용 하도록 설정 하기 전에 받은 **경고** 는 내보내지 않습니다.
 - **권장 사항은** 리소스의 호환성 상태가 변경 될 때마다 전송 됩니다. 예를 들어 리소스가 정상에서 비정상으로 전환 되는 경우입니다. 따라서 경고와 마찬가지로 내보내기를 사용 하도록 설정한 이후 상태를 변경 하지 않은 리소스에 대 한 권장 사항을 내보내지 않습니다.
+- 보안 제어 또는 구독에 대 한 보안 **점수 (미리 보기)** 는 보안 제어의 점수가 0.01 이상으로 변경 될 때 전송 됩니다. 
+- **규정 준수 상태 (미리 보기)** 는 리소스의 호환성 상태가 변경 될 때 전송 됩니다.
+
 
 
 ### <a name="why-are-recommendations-sent-at-different-intervals"></a>권장 사항이 다른 간격으로 전송되는 이유는 무엇인가요?

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0903828b04922104a9dd93ac79459bf73644f35c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365836"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575825"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
 
@@ -48,11 +48,11 @@ Azure AD 역할을 로컬 관리자 그룹에 추가하면 디바이스에서 �
 Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 역할을 관리할 수 있습니다. **디바이스** 페이지를 엽니다.
 
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. *Azure Active Directory*를 검색하고 선택합니다.
-1. **관리** 섹션에서 **디바이스**를 클릭합니다.
-1. **디바이스** 페이지에서 **디바이스 설정**을 클릭합니다.
+1. *Azure Active Directory* 를 검색하고 선택합니다.
+1. **관리** 섹션에서 **디바이스** 를 클릭합니다.
+1. **디바이스** 페이지에서 **디바이스 설정** 을 클릭합니다.
 
-디바이스 관리자 역할을 수정하려면 **Azure AD 조인 디바이스의 추가 로컬 관리자**를 구성합니다.  
+디바이스 관리자 역할을 수정하려면 **Azure AD 조인 디바이스의 추가 로컬 관리자** 를 구성합니다.  
 
 ![추가 로컬 관리자](./media/assign-local-admin/10.png)
 
@@ -72,14 +72,19 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 >[!NOTE]
 > 이 기능은 현재 미리 보기로 제공됩니다.
 
+
 Windows 10 2004 업데이트부터 Azure AD 그룹을 사용 하 여 [제한 된 그룹](/windows/client-management/mdm/policy-csp-restrictedgroups) MDM 정책을 사용 하 여 azure ad 가입 장치에 대 한 관리자 권한을 관리할 수 있습니다. 이 정책을 사용 하면 개별 사용자 또는 Azure AD 그룹을 Azure AD 조인 장치에 있는 로컬 관리자 그룹에 할당 하 여 여러 장치 그룹에 대 한 고유한 관리자를 구성 하는 세분성을 제공할 수 있습니다. 
 
-현재, Intune에서이 정책을 관리 하는 UI가 없으므로 [사용자 지정 Oma-uri 설정을](/mem/intune/configuration/custom-settings-windows-10)사용 하 여 구성 해야 합니다. 이 정책에 대 한 몇 가지 고려 사항: 
+>[!NOTE]
+> Windows 10 20H2 업데이트를 시작 하는 경우 제한 된 그룹 정책 대신 [로컬 사용자 및 그룹](/windows/client-management/mdm/policy-csp-localusersandgroups) 정책을 사용 하는 것이 좋습니다.
 
-- 정책을 통해 Azure AD 그룹을 추가 하려면 그룹 API를 실행 하 여 가져올 수 있는 그룹의 SID가 필요 합니다. SID는 그룹 API의 속성으로 정의 됩니다 `securityIdentifier` .
-- 제한 된 그룹 정책을 적용 하면 멤버 목록에 없는 그룹의 현재 구성원이 제거 됩니다. 따라서이 정책을 새 구성원 또는 그룹으로 적용 하면 장치에서 장치 관리자 역할 및 전역 관리자 역할을 조인한 기존 관리자가 제거 됩니다. 기존 구성원을 제거 하지 않으려면 제한 된 그룹 정책에서 구성원 목록의 일부로 구성 해야 합니다. 
-- 이 정책은 Windows 10 장치 (관리자, 사용자, 게스트, 고급 사용자, 원격 데스크톱 사용자 및 원격 관리 사용자)의 잘 알려진 다음 그룹에만 적용 됩니다. 
-- 제한 된 그룹을 사용 하는 로컬 관리자 관리 정책은 하이브리드 Azure AD 조인 또는 Azure AD 등록 장치에 적용 되지 않습니다.
+
+현재는 이러한 정책을 관리 하는 데 Intune에 UI가 없으며 [사용자 지정 Oma-uri 설정을](/mem/intune/configuration/custom-settings-windows-10)사용 하 여 구성 해야 합니다. 이러한 정책 중 하나를 사용 하기 위한 몇 가지 고려 사항은 다음과 같습니다. 
+
+- 정책을 통해 Azure AD 그룹을 추가 하려면 그룹 [에 대 한 MICROSOFT GRAPH API](/graph/api/resources/group?view=graph-rest-beta)를 실행 하 여 가져올 수 있는 그룹의 SID가 필요 합니다. SID는 API 응답의 속성에 의해 정의 됩니다 `securityIdentifier` .
+- 제한 된 그룹 정책을 적용 하면 멤버 목록에 없는 그룹의 현재 구성원이 제거 됩니다. 따라서이 정책을 새 구성원 또는 그룹으로 적용 하면 장치에서 장치 관리자 역할 및 전역 관리자 역할을 조인한 기존 관리자가 제거 됩니다. 기존 구성원을 제거 하지 않으려면 제한 된 그룹 정책에서 구성원 목록의 일부로 구성 해야 합니다. 그룹 구성원 자격에 대 한 증분 업데이트를 허용 하는 로컬 사용자 및 그룹 정책을 사용 하는 경우에는이 제한 사항이 적용 됩니다.
+- 두 정책을 모두 사용 하는 관리자 권한은 Windows 10 장치 (관리자, 사용자, 게스트, Power Users, 원격 데스크톱 사용자 및 원격 관리 사용자)의 잘 알려진 다음 그룹에 대해서만 평가 됩니다. 
+- Azure AD 그룹을 사용 하 여 로컬 관리자를 관리 하는 것은 하이브리드 Azure AD 조인 또는 Azure AD 등록 장치에 적용 되지 않습니다.
 - Windows 10 2004 업데이트 이전에는 제한 된 그룹 정책이 있었지만, 장치의 로컬 관리자 그룹의 구성원으로 Azure AD 그룹을 지원 하지 않았습니다. 
 
 ## <a name="manage-regular-users"></a>일반 사용자 관리
@@ -93,7 +98,7 @@ Windows 10 2004 업데이트부터 Azure AD 그룹을 사용 하 여 [제한 된
 
 Azure AD 조인 프로세스를 사용하는 것 외에, 수동으로 하나의 특정 디바이스에서 일반 사용자를 로컬 관리자로 권한을 상승시킬 수 있습니다. 이 단계를 사용하려면 로컬 관리자 그룹의 구성원이어야 합니다. 
 
-**Windows 10 1709** 릴리스부터 **설정-> 계정-다른 사용자 >** 에서이 작업을 수행할 수 있습니다. **회사 또는 학교 사용자 추가**를 선택하고 **사용자 계정** 아래에 사용자의 UPN을 입력한 다음, **계정 유형**에서 ‘관리자’를 선택합니다.**  
+**Windows 10 1709** 릴리스부터 **설정-> 계정-다른 사용자 >** 에서이 작업을 수행할 수 있습니다. **회사 또는 학교 사용자 추가** 를 선택하고 **사용자 계정** 아래에 사용자의 UPN을 입력한 다음, **계정 유형** 에서 ‘관리자’를 선택합니다.  
  
 또한 명령 프롬프트를 사용하여 사용자를 추가할 수 있습니다.
 

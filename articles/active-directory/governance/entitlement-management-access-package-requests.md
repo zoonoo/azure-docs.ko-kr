@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be03996f3f88efeb02893f815162a04d6a1e8aa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b484b19282c8ad42890f6e04f03563c29baa49dd
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979942"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746000"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 요청 보기
 
@@ -31,11 +31,11 @@ Azure AD 자격 관리에서 액세스 패키지, 정책 및 상태를 요청한
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
-1. **요청**을 클릭 합니다.
+1. **요청** 을 클릭 합니다.
 
 1. 특정 요청을 클릭 하면 추가 세부 정보를 볼 수 있습니다.
 

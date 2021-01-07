@@ -1,7 +1,7 @@
 ---
 title: Machine Learning 웹 서비스 끝점에서 데이터 모니터링 및 수집
 titleSuffix: Azure Machine Learning
-description: Azure 애플리케이션 Insights를 사용 하 여 Azure Machine Learning 배포 된 웹 서비스 모니터링
+description: AKS (Azure Kubernetes Service) 또는 ACI (Azure Container Instances)에서 웹 서비스 끝점에 배포 된 모델에서 데이터를 수집 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 1f02c9b080b87b4fbffcd1870dd139b9d32de0c7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 13b99fe129191b89b5bb2d7f5473e910fa619ce7
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357674"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739844"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>ML 웹 서비스 엔드포인트에서 데이터 모니터링 및 수집
 
@@ -32,7 +32,7 @@ ms.locfileid: "93357674"
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독- [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -157,14 +157,24 @@ Azure Machine Learning studio에서 Azure 애플리케이션 Insights를 사용 
 
 ### <a name="query-logs-for-deployed-models"></a>배포 된 모델에 대 한 로그 쿼리
 
-함수를 사용 하 여 `get_logs()` 이전에 배포 된 웹 서비스에서 로그를 검색할 수 있습니다. 로그에는 배포 중에 발생한 오류에 대한 자세한 정보가 포함되어 있을 수 있습니다.
+실시간 끝점의 로그는 고객 데이터입니다. 함수를 사용 하 여 `get_logs()` 이전에 배포 된 웹 서비스에서 로그를 검색할 수 있습니다. 로그에는 배포 중에 발생한 오류에 대한 자세한 정보가 포함되어 있을 수 있습니다.
 
 ```python
+from azureml.core import Workspace
 from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
 
 # load existing web service
 service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
+```
+
+여러 테 넌 트가 있는 경우 다음 인증 코드를 추가 해야 할 수 있습니다. `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ### <a name="view-logs-in-the-studio"></a>스튜디오에서 로그 보기

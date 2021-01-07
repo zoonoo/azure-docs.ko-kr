@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: Azure DB for MariaDB 만들기 - ARM 템플릿'
 description: 이 빠른 시작 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Database for MariaDB 서버를 만드는 방법을 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/14/2020
-ms.openlocfilehash: dc3999193356dd9cddc52b9873d22b4172c0030c
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: de6df8349025c3e87e5b005196008053039fa49f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042504"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537145"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -74,26 +74,26 @@ Azure Database for MariaDB 템플릿 샘플은 [Azure 빠른 시작 템플릿](h
 
 2. 새 리소스 그룹을 만든 경우 리소스 그룹 및 새 서버에 대한 **위치** 를 선택합니다.
 
-3. **서버 이름** , **관리자 로그인** 및 **관리자 로그인 암호** 를 입력합니다.
+3. **서버 이름**, **관리자 로그인** 및 **관리자 로그인 암호** 를 입력합니다.
 
     ![VNet 창, Azure 빠른 시작 템플릿, Azure Portal을 사용하여 Azure Database for MariaDB 배포](./media/quickstart-create-mariadb-server-database-arm-template/deploy-azure-database-mariadb-vnet.png)
 
 4. 원하는 경우 다른 기본 설정을 변경합니다.
 
-    * **구독** : 서버에 사용하려는 Azure 구독
-    * **SKU 용량** : vCore 용량( *2* (기본값), *4* , *8* , *16* , *32* 또는 *64* 일 수 있음)
-    * **SKU 이름** : 밑줄로 조인된 SKU 계층 접두사, SKU 제품군 및 SKU 용량(예: *B_Gen5_1* , *GP_Gen5_2* (기본값) 또는 *MO_Gen5_32* )
-    * **SKU 크기(MB)** : Azure Database for MariaDB 서버의 스토리지 크기(메가바이트 단위)(기본값: *51200* )
-    * **SKU 계층** : 배포 계층(예: *기본* , *범용* (기본값) 또는 *메모리 최적화* )
-    * **SKU 제품군** : *Gen4* 또는 *Gen5* (기본값) - 서버 배포용 하드웨어 세대를 나타냄
-    * **Mariadb 버전** : 배포할 MariaDB 서버 버전(예: *10.2* 또는 *10.3* (기본값))
-    * **백업 보존 기간(일)** : 원하는 지역 중복 백업 보존 기간(일 단위)(기본값: *7* )
-    * **지역 중복 백업** : Geo-DR(지역 재해 복구) 요구 사항에 따라 *사용* 또는 *사용 안 함* (기본값)
-    * **가상 네트워크 이름** : 가상 네트워크의 이름(기본값: *azure_mariadb_vnet* ).
-    * **서브넷 이름** : 서브넷의 이름(기본값: *azure_mariadb_subnet* ).
-    * **가상 네트워크 규칙 이름** : 서브넷을 허용하는 가상 네트워크 규칙의 이름(기본값: *AllowSubnet* )
-    * **Vnet 주소 접두사** : 가상 네트워크에 대한 주소 접두사(기본값: *10.0.0.0/16* )
-    * **서브넷 접두사** : 서브넷에 대한 주소 접두사(기본값: *10.0.0.0/16* )
+    * **구독**: 서버에 사용하려는 Azure 구독
+    * **SKU 용량**: vCore 용량(*2*(기본값), *4*, *8*, *16*, *32* 또는 *64* 일 수 있음)
+    * **SKU 이름**: 밑줄로 조인된 SKU 계층 접두사, SKU 제품군 및 SKU 용량(예: *B_Gen5_1*, *GP_Gen5_2*(기본값) 또는 *MO_Gen5_32*)
+    * **SKU 크기(MB)** : Azure Database for MariaDB 서버의 스토리지 크기(메가바이트 단위)(기본값: *51200*)
+    * **SKU 계층**: 배포 계층(예: *기본*, *범용*(기본값) 또는 *메모리 최적화*)
+    * **SKU 제품군**: *Gen4* 또는 *Gen5*(기본값) - 서버 배포용 하드웨어 세대를 나타냄
+    * **Mariadb 버전**: 배포할 MariaDB 서버 버전(예: *10.2* 또는 *10.3*(기본값))
+    * **백업 보존 기간(일)** : 원하는 지역 중복 백업 보존 기간(일 단위)(기본값: *7*)
+    * **지역 중복 백업**: Geo-DR(지역 재해 복구) 요구 사항에 따라 *사용* 또는 *사용 안 함*(기본값)
+    * **가상 네트워크 이름**: 가상 네트워크의 이름(기본값: *azure_mariadb_vnet*).
+    * **서브넷 이름**: 서브넷의 이름(기본값: *azure_mariadb_subnet*).
+    * **가상 네트워크 규칙 이름**: 서브넷을 허용하는 가상 네트워크 규칙의 이름(기본값: *AllowSubnet*)
+    * **Vnet 주소 접두사**: 가상 네트워크에 대한 주소 접두사(기본값: *10.0.0.0/16*)
+    * **서브넷 접두사**: 서브넷에 대한 주소 접두사(기본값: *10.0.0.0/16*)
 
 5. 사용 약관을 읽은 다음 **위에 명시된 사용 약관에 동의함** 을 선택합니다.
 

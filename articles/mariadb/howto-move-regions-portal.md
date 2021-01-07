@@ -1,18 +1,18 @@
 ---
 title: Azure 지역 이동-Azure Portal-Azure Database for MariaDB
 description: 읽기 복제본과 Azure Portal를 사용 하 여 한 Azure 지역에서 다른 지역으로 Azure Database for MariaDB 서버를 이동 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 75fabeeb7fa879a0f2843538d34f85e5ccec40e4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f4ce34bc1a1af7b2c0ee57a3297415bd9d033517
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425897"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540827"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB 서버를 다른 지역으로 이동
 
@@ -35,11 +35,11 @@ Azure Portal를 사용 하 여 대상 지역에 지역 간 읽기 복제 서버�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 원본 서버로 사용 하려는 기존 Azure Database for MariaDB 서버를 선택 합니다. 이 작업은 **개요** 페이지를 엽니다.
-1. 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
-1. **복제본 추가**를 선택합니다.
+1. 메뉴의 **설정** 아래에서 **복제** 를 선택합니다.
+1. **복제본 추가** 를 선택합니다.
 1. 복제본 서버의 이름을 입력합니다.
 1. 복제본 서버의 위치를 선택합니다. 기본 위치는 원본 서버의와 동일 합니다. 복제본을 배포할 대상 위치를 선택 했는지 확인 합니다.
-1. **확인**을 선택하여 복제본 만들기를 확인합니다. 복제본을 만드는 동안 원본 서버에서 복제본으로 데이터가 복사 됩니다. 생성 시간은 원본 서버의 크기에 비례하여 몇 분 이상 지속 될 수 있습니다.
+1. **확인** 을 선택하여 복제본 만들기를 확인합니다. 복제본을 만드는 동안 원본 서버에서 복제본으로 데이터가 복사 됩니다. 생성 시간은 원본 서버의 크기에 비례하여 몇 분 이상 지속 될 수 있습니다.
 
 >[!NOTE]
 > 복제본을 만들 때 원본 서버의 VNet 서비스 끝점은 상속 되지 않습니다. 이러한 규칙은 복제본에 대해 별도로 설정해야 합니다.
@@ -53,19 +53,19 @@ Azure Portal를 사용 하 여 대상 지역에 지역 간 읽기 복제 서버�
 복제 서버로 복제를 중지 하면 해당 서버가 독립 실행형 서버가 됩니다. Azure Portal에서 복제본에 대 한 복제를 중지 하려면 다음 단계를 사용 합니다.
 
 1. 복제본을 만든 후 Azure Database for MariaDB 원본 서버를 찾아 선택 합니다. 
-1. 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
+1. 메뉴의 **설정** 아래에서 **복제** 를 선택합니다.
 1. 복제 서버를 선택 합니다.
-1. **복제 중지**를 선택합니다.
-1. **확인**을 클릭하여 복제 중지를 확인합니다.
+1. **복제 중지** 를 선택합니다.
+1. **확인** 을 클릭하여 복제 중지를 확인합니다.
 
 ## <a name="clean-up-source-server"></a>원본 서버 정리
 
 원본 Azure Database for MariaDB 서버를 삭제 하는 것이 좋습니다. 이렇게 하려면 다음 단계를 수행합니다.
 
 1. 복제본을 만든 후 Azure Database for MariaDB 원본 서버를 찾아 선택 합니다.
-1. **개요** 창에서 **삭제**를 선택 합니다.
+1. **개요** 창에서 **삭제** 를 선택 합니다.
 1. 삭제할 원본을 확인할 원본 서버의 이름을 입력 합니다.
-1. **삭제**를 선택합니다.
+1. **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

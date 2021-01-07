@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 0e5a8698da03ee4d9c7d8b0d4d59eda1be3b1883
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79dd751c43443790aafc494d89ad45e3b6705a64
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88185505"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95799222"
 ---
 # <a name="use-azure-portal-to-create-a-service-bus-namespace-and-a-queue"></a>Azure Portal을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 이 빠른 시작에서는 [Azure Portal][Azure portal]을 사용하여 Service Bus 네임스페이스 및 큐를 만드는 방법을 보여줍니다. 또한 클라이언트 애플리케이션이 큐에 메시지를 보내고 받는 데 사용할 수 있는 권한 부여 자격 증명을 가져오는 방법을 보여줍니다. 
@@ -30,7 +30,7 @@ ms.locfileid: "88185505"
 
 - [.NET](service-bus-dotnet-get-started-with-queues.md)
 - [Java](service-bus-java-how-to-use-queues.md)
-- [JavaScript](service-bus-nodejs-how-to-use-queues-new-package.md)
+- [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
 - [PHP](service-bus-php-how-to-use-queues.md)
 - [Ruby](service-bus-ruby-how-to-use-queues.md)

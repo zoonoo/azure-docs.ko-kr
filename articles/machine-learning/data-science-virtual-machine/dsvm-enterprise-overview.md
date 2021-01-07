@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 538802cc2129a8e8f379c8b569bd1f8696097dab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9126dbcfbfe9e3a94514ebf45685bdfc55dd0306
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314183"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462998"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine 기반 팀 분석 및 AI 환경 
 [DSVM](overview.md)(Data Science Virtual Machine)은 미리 빌드된 AI(인공 지능) 및 데이터 분석용 소프트웨어가 포함된 다양한 환경을 Azure 플랫폼에 제공합니다.
@@ -38,7 +38,7 @@ DSVM은 Azure 인프라 수준에서 작동하므로, IT 관리자가 엔터프�
 이 시리즈에서는 위의 각 항목에 대한 지침 및 포인터를 제공합니다. 대규모 엔터프라이즈 구성에 DSVM을 배포하기 위한 모든 고려 사항과 요구 사항을 다루지는 않습니다. 엔터프라이즈에서 DSVM 인스턴스를 구현하면서 사용할 수 있는 몇 가지 다른 Azure 리소스는 다음과 같습니다.
 
 * [네트워크 보안](../../security/fundamentals/network-overview.md)
-* [모니터링](../../azure-monitor/insights/monitor-vm-azure.md) 및 [관리](../../virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)
+* [모니터링](../../azure-monitor/insights/monitor-vm-azure.md) 및 [관리](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [로깅 및 감사](../../security/fundamentals/log-audit.md)
 * [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)
 * [정책 설정 및 적용](../../governance/policy/overview.md)

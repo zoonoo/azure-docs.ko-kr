@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595531"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016754"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
 
@@ -32,11 +32,11 @@ ms.locfileid: "91595531"
 > * *변경할* 수 없는 속성: 만든 후에는 변경할 수 없습니다.
 
 > [!TIP]
-> 이벤트 원본이 IoT hub 인 경우 시계열 ID는 ***iothub***가 될 수 있습니다.
+> 이벤트 원본이 IoT hub 인 경우 시계열 ID는 ***iothub** _가 될 가능성이 높습니다.
 
 주요 모범 사례는 다음과 같습니다.
 
-* 고유 값이 많은 파티션 키를 선택 합니다 (예: 수백 또는 수천). 대부분의 경우 JSON의 장치 ID, 센서 ID 또는 태그 ID 일 수 있습니다.
+_ 고유 값이 많은 파티션 키를 선택 합니다 (예: 수백 또는 수천). 대부분의 경우 JSON의 장치 ID, 센서 ID 또는 태그 ID 일 수 있습니다.
 * 시계열 ID는 [시계열 모델](./concepts-model-overview.md)의 리프 노드 수준에서 고유해야 합니다.
 * 시계열 ID의 속성 이름 문자열에 대 한 문자 제한은 128입니다. 시계열 ID의 속성 값에 대 한 문자 제한은 1024입니다.
 * 시계열 ID의 고유한 속성 값이 누락 된 경우 null 값으로 처리 되 고 고유성 제약 조건의 동일한 규칙을 따릅니다.
@@ -53,15 +53,15 @@ ms.locfileid: "91595531"
 ### <a name="example-1-time-series-id-with-a-unique-key"></a>예제 1: 고유 키가 있는 시계열 ID
 
 * 자산의 레거시 대규모 있습니다. 각에는 고유한 키가 있습니다.
-* 한 가지는 속성 **deviceId**에 의해 고유 하 게 식별 됩니다. 다른의 경우 고유한 속성은 **objectId**입니다. 두 쪽 모두 다른 제의 고유한 속성을 포함 하지 않습니다. 이 예제에서는 두 개의 키 **deviceId** 및 **objectId**를 고유 키로 선택 합니다.
+* 한 가지는 속성 **deviceId** 에 의해 고유 하 게 식별 됩니다. 다른의 경우 고유한 속성은 **objectId** 입니다. 두 쪽 모두 다른 제의 고유한 속성을 포함 하지 않습니다. 이 예제에서는 두 개의 키 **deviceId** 및 **objectId** 를 고유 키로 선택 합니다.
 * Null 값이 허용 되 고 이벤트 페이로드에 속성의 존재 여부가 null 값으로 계산 되지 않습니다. 이는 각 이벤트 소스의 데이터에 고유한 시계열 ID가 있는 두 개의 이벤트 원본에 대 한 데이터 전송을 처리 하는 적절 한 방법 이기도 합니다.
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>예 2: 복합 키가 있는 시계열 ID
 
 * 동일한 자산 집합 내에서 여러 속성이 고유해야 합니다.
-* 스마트 건물의 제조업체 이며 모든 방에 센서를 배포 합니다. 각 방에는 일반적으로 **sensorId**에 대해 동일한 값이 있습니다. 예는 **sensor1**, **sensor2**및 **sensor3**입니다.
-* 건물이 **flrRm**속성의 사이트에서 겹치는 층과 방 번호를 갖고 있습니다. 이러한 숫자에는 **1a**, **2b**및 **3a**와 같은 값이 있습니다.
-* **Redmond**, **바르셀로나**및 **도쿄**와 같은 값을 포함 하는 속성 **위치가**있습니다. 고유성을 만들려면 시계열 ID 키로 **sensorId**, **flrRm**및 **location**의 세 가지 속성을 지정 합니다.
+* 스마트 건물의 제조업체 이며 모든 방에 센서를 배포 합니다. 각 방에는 일반적으로 **sensorId** 에 대해 동일한 값이 있습니다. 예는 **sensor1**, **sensor2** 및 **sensor3** 입니다.
+* 건물이 **flrRm** 속성의 사이트에서 겹치는 층과 방 번호를 갖고 있습니다. 이러한 숫자에는 **1a**, **2b** 및 **3a** 와 같은 값이 있습니다.
+* **Redmond**, **바르셀로나** 및 **도쿄** 와 같은 값을 포함 하는 속성 **위치가** 있습니다. 고유성을 만들려면 시계열 ID 키로 **sensorId**, **flrRm** 및 **location** 의 세 가지 속성을 지정 합니다.
 
 원시 이벤트 예제:
 
@@ -86,4 +86,4 @@ Azure Portal에서 다음과 같이 복합 키를 입력할 수 있습니다.
 
 * 이벤트를 저장 하는 방법을 이해 하려면 [JSON 평면화 및 이스케이프 규칙](./concepts-json-flattening-escaping-rules.md) 을 참조 하세요.
 
-* [Azure Time Series Insights Gen2 환경을](./time-series-insights-update-plan.md)계획 합니다.
+* [Azure Time Series Insights Gen2 환경을](./how-to-plan-your-environment.md)계획 합니다.

@@ -3,12 +3,12 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 182df937ae5c0194aecfbe20b5962b44b363c708
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412934"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934472"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -132,7 +132,7 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-자세한 내용은 [함수 호스팅 계획 비교](../../azure-functions/functions-scale.md#hosting-plans-comparison)를 참조 하세요.
+자세한 내용은 [함수 호스팅 계획 비교](../../azure-functions/functions-scale.md)를 참조 하세요.
 
 ## <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes 서비스 제한
 
@@ -155,6 +155,10 @@ Azure Machine Learning 계산 할당량의 최신 값은 [Azure Machine Learning
 ### <a name="action-groups"></a>작업 그룹
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
+
+### <a name="autoscale"></a>자동 크기 조정
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
 
 ### <a name="log-queries-and-language"></a>로그 쿼리 및 언어
 
@@ -308,6 +312,10 @@ Media Services v2 (레거시)에 한정 되는 한도 [Media Services v2 (레거
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
+## <a name="purview-limits"></a>부서의 범위 제한
+
+Azure 부서의 범위 할당량에 대 한 최신 값은 [Azure 부서의 범위 할당량 페이지](../../purview/how-to-manage-quotas.md) 에서 찾을 수 있습니다.
+
 ### <a name="traffic-manager-limits"></a>Traffic Manager 제한
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
@@ -394,7 +402,7 @@ Azure Files 제한에 대 한 자세한 내용은 [Azure Files 확장성 및 성
 
 #### <a name="disk-encryption-sets"></a>디스크 암호화 집합
 
-구독 당 지역 당 50 디스크 암호화 집합의 제한이 있습니다. 자세한 내용은 [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) 또는 [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) 가상 머신에 대 한 암호화 설명서를 참조 하세요. 할당량을 늘려야 하는 경우 Azure 지원에 문의 하세요.
+구독 당 지역 당 50 디스크 암호화 집합의 제한이 있습니다. 자세한 내용은 [Linux](../../virtual-machines/disk-encryption.md#restrictions) 또는 [Windows](../../virtual-machines/disk-encryption.md#restrictions) 가상 머신에 대 한 암호화 설명서를 참조 하세요. 할당량을 늘려야 하는 경우 Azure 지원에 문의 하세요.
 
 ### <a name="managed-virtual-machine-disks"></a>관리되는 가상 머신 디스크
 
@@ -438,7 +446,7 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참조
 
 * [Azure 제한 및 향상 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

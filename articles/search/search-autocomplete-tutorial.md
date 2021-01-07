@@ -1,5 +1,5 @@
 ---
-title: 검색 상자에 자동 완성 및 제안 추가
+title: 검색 상자에 자동 완성 추가
 titleSuffix: Azure Cognitive Search
 description: 완성 된 용어나 구를 사용 하 여 검색 상자를 자동으로 자동 완성 하는 요청을 확인 기 하 고 작성 하 여 Azure Cognitive Search에서 검색 형식 쿼리 작업을 사용 하도록 설정 합니다. 제안 된 일치 항목을 반환할 수도 있습니다.
 manager: nitinme
@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426173"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339611"
 ---
-# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>클라이언트 앱에 자동 완성 및 제안 추가
+# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 클라이언트 앱에 자동 완성 및 제안 추가
 
-검색 형식은 사용자가 시작한 쿼리의 생산성을 개선 하는 일반적인 기술입니다. Azure Cognitive Search에서는이 환경이 *자동 완성* 을 통해 지원 되며,이는 부분 입력 ("microsoft"로 "마이크로" 완료)을 기반으로 용어 또는 구를 완료 합니다. 또 다른 양식은 *제안* : 일치 하는 문서의 짧은 목록 (세부 정보 페이지에 연결할 수 있도록 ID가 있는 책 제목 반환)입니다. 인덱스의 일치 항목에 대 한 자동 완성 및 제안이 모두 예측 됩니다. 서비스는 결과를 0으로 반환 하는 쿼리를 제공 하지 않습니다.
+검색 형식은 사용자가 시작한 쿼리의 생산성을 개선 하는 일반적인 기술입니다. Azure Cognitive Search에서는이 환경이 *자동 완성* 을 통해 지원 되며,이는 부분 입력 ("microsoft"로 "마이크로" 완료)을 기반으로 용어 또는 구를 완료 합니다. 두 번째 사용자 환경에는 *제안 사항이* 나 일치 하는 문서의 짧은 목록 (해당 책에 대 한 세부 정보 페이지에 연결할 수 있도록 책 제목을 ID로 반환)이 있습니다. 인덱스의 일치 항목에 대 한 자동 완성 및 제안이 모두 예측 됩니다. 서비스는 결과를 0으로 반환 하는 쿼리를 제공 하지 않습니다.
 
 Azure Cognitive Search에서 이러한 환경을 구현 하려면 다음이 필요 합니다.
 
-+ 백 엔드에서 *확인 기* 입니다.
++ 인덱스 스키마에 포함 된 *확인 기* 정의입니다.
 + 요청에 대 한 [자동 완성](/rest/api/searchservice/autocomplete) 또는 [제안](/rest/api/searchservice/suggestions) API를 지정 하는 *쿼리입니다* .
 + 클라이언트 앱에서 검색 형식 상호 작용을 처리 하는 *UI 컨트롤* 입니다. 이 목적을 위해 기존 JavaScript 라이브러리를 사용 하는 것이 좋습니다.
 

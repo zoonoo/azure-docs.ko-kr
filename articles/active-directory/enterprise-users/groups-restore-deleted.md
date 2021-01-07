@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 092288d320874488cee4d2f097d7406c0757e8a0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfdc96df548a4a3df2b789759889b85835e1382a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378832"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860731"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 Microsoft 365 그룹 복원
 
@@ -50,7 +50,7 @@ Azure AD(Azure Active Directory)에서 Microsoft 365 그룹을 삭제하는 경�
 
 ## <a name="view-the-deleted-microsoft-365-groups-that-are-available-to-restore-using-powershell"></a>Powershell을 사용하여 복원할 수 있는 삭제된 Microsoft 365 그룹 보기
 
-다음 cmdlet을 사용하여 관심 있는 그룹이 영구적으로 제거되었는지 확인하기 위해 삭제된 그룹을 볼 수 있습니다. 이러한 cmdlet은 [Azure AD PowerShell 모듈](https://www.powershellgallery.com/packages/AzureAD/)에 포함됩니다. 이 모듈에 대한 자세한 정보는 [Azure Active Directory PowerShell 버전 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) 문서에서 찾을 수 있습니다.
+다음 cmdlet을 사용하여 관심 있는 그룹이 영구적으로 제거되었는지 확인하기 위해 삭제된 그룹을 볼 수 있습니다. 이러한 cmdlet은 [Azure AD PowerShell 모듈](https://www.powershellgallery.com/packages/AzureAD/)에 포함됩니다. 이 모듈에 대한 자세한 정보는 [Azure Active Directory PowerShell 버전 2](/powershell/azure/active-directory/install-adv2) 문서에서 찾을 수 있습니다.
 
 1.  다음 cmdlet을 실행하여 여전히 복원할 수 있는 Azure AD 조직의 모든 삭제된 Microsoft 365 그룹을 표시합니다.
    

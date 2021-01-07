@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.openlocfilehash: 7bb74732074482c12d3bc760e259bb014ccf006f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454193"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179291"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>자습서: ekarda와 Azure Active Directory SSO(Single Sign-On) 통합
 

@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 74a4178cc6b9645f3cb22bf3d1c7c0ee942c3f5f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b3cb6bf56820da84d17f0b981f461a545bbe5ab6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485293"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549262"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>자습서: Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -65,9 +66,9 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
-1. 먼저, Java 프로젝트를 만듭니다. Eclipse를 시작한 후 **파일** , **새로 만들기** , **동적 웹 프로젝트** 를 차례로 클릭합니다. **동적 웹 프로젝트** 가 사용 가능한 프로젝트로 나열되지 않았으면 다음을 수행합니다. **파일** , **새로 만들기** , **프로젝트** …를 차례로 클릭하고 **웹** 을 확장하여 **동적 웹 프로젝트** 를 클릭하고 **다음** 을 클릭합니다.
+1. 먼저, Java 프로젝트를 만듭니다. Eclipse를 시작한 후 **파일**, **새로 만들기**, **동적 웹 프로젝트** 를 차례로 클릭합니다. **동적 웹 프로젝트** 가 사용 가능한 프로젝트로 나열되지 않았으면 다음을 수행합니다. **파일**, **새로 만들기**, **프로젝트**…를 차례로 클릭하고 **웹** 을 확장하여 **동적 웹 프로젝트** 를 클릭하고 **다음** 을 클릭합니다.
    
-    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="My ToDo List Java 애플리케이션":::
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="JSP Java 애플리케이션 개발":::
 
 1. **프로젝트 이름** 상자에 프로젝트 이름을 입력하고 **대상 런타임** 드롭다운 메뉴에서 선택적으로 값(예: Apache Tomcat v7.0)을 선택한 후 **마침** 을 클릭합니다. 대상 런타임을 선택하면 Eclipse를 통해 프로젝트를 로컬로 실행할 수 있습니다.
 
@@ -75,7 +76,7 @@ JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
 1. **새 JSP 파일** 대화 상자에서 파일 이름을 **index.jsp** 로 지정합니다. 다음 그림에 표시된 것처럼 상위 폴더를 **WebContent** 로 유지하고 **다음** 을 클릭합니다.
    
-    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="My ToDo List Java 애플리케이션":::
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="새 JSP 파일 만들기 - Java 웹 애플리케이션 자습서":::
 
 1. **JSP 템플릿 선택** 대화 상자에서 이 자습서의 목적에 따라, **새 JSP 파일(html)** 을 선택한 후 **마침** 을 클릭합니다.
 
@@ -89,9 +90,9 @@ JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
 1. *index.jsp* 파일을 저장합니다.
 
-1. 2단계에서 대상 런타임을 설정했으면 **프로젝트** , **실행** 을 차례로 클릭하여 JSP 애플리케이션을 로컬로 실행할 수 있습니다.
+1. 2단계에서 대상 런타임을 설정했으면 **프로젝트**, **실행** 을 차례로 클릭하여 JSP 애플리케이션을 로컬로 실행할 수 있습니다.
 
-   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="My ToDo List Java 애플리케이션":::
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hello World – Java 애플리케이션 자습서":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>SQL Java SDK 설치
 
@@ -211,13 +212,13 @@ Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 
 
 1. Eclipse의 **파일** 메뉴에서 **가져오기** 를 클릭합니다.
 
-1. **가져오기** 창에서 **Git** , **Git의 프로젝트** , **다음** 을 차례로 클릭합니다.
+1. **가져오기** 창에서 **Git**, **Git의 프로젝트**, **다음** 을 차례로 클릭합니다.
 
 1. **리포지토리 원본 선택** 화면에서 **URI 복제** 를 클릭합니다.
 
 1. **원본 Git 리포지토리** 화면의 **URI** 상자에 https://github.com/Azure-Samples/documentdb-java-todo-app.git 를 입력한 다음, **다음** 을 클릭합니다.
 
-1. **분기 선택** 화면에서 **마스터** 가 선택되었는지 확인하고 **다음** 을 클릭합니다.
+1. **분기 선택** 화면에서 **주** 가 선택되었는지 확인한 후, **다음** 을 클릭합니다.
 
 1. **로컬 대상** 화면에서 **찾아보기** 를 클릭하여 리포지토리를 복사할 수 있는 폴더를 선택한 후 **다음** 을 클릭합니다.
 

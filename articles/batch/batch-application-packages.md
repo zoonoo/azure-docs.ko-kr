@@ -6,13 +6,13 @@ ms.date: 09/24/2020
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
-- contperfq1
-ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+- contperf-fy21q1
+ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91277702"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033734"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>애플리케이션을 배포하여 Batch 애플리케이션 패키지에서 노드 컴퓨팅
 
@@ -77,13 +77,13 @@ Batch 서비스는 Azure Storage를 사용하여 애플리케이션 패키지를
 
 Batch 계정의 응용 프로그램을 보려면 왼쪽 탐색 메뉴에서 **응용 프로그램** 을 선택 합니다.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="응용 프로그램 및 응용 프로그램 패키지의 상위 수준 보기를 보여 주는 다이어그램":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Azure Portal에서 응용 프로그램 메뉴 항목의 스크린샷":::
 
 이 메뉴 옵션을 선택 하면 **응용 프로그램** 창이 열립니다. 이 창은 계정의 각 애플리케이션 ID 및 다음 속성을 표시합니다.
 
-- **패키지** : 이 애플리케이션과 연결된 버전의 수입니다.
-- **기본 버전** : 해당 하는 경우 응용 프로그램을 배포할 때 버전이 지정 되지 않은 경우 설치 될 응용 프로그램 버전입니다.
-- **업데이트 허용** : 패키지 업데이트 및 삭제가 허용 되는지 여부를 지정 합니다.
+- **패키지**: 이 애플리케이션과 연결된 버전의 수입니다.
+- **기본 버전**: 해당 하는 경우 응용 프로그램을 배포할 때 버전이 지정 되지 않은 경우 설치 될 응용 프로그램 버전입니다.
+- **업데이트 허용**: 패키지 업데이트 및 삭제가 허용 되는지 여부를 지정 합니다.
 
 계산 노드에서 응용 프로그램 패키지의 [파일 구조](files-and-directories.md) 를 보려면 Azure Portal의 Batch 계정으로 이동 합니다. **풀** 을 선택 합니다. 그런 다음 계산 노드를 포함 하는 풀을 선택 합니다. 응용 프로그램 패키지가 설치 된 계산 노드를 선택 하 고 **응용 프로그램** 폴더를 엽니다.
 
@@ -91,9 +91,9 @@ Batch 계정의 응용 프로그램을 보려면 왼쪽 탐색 메뉴에서 **�
 
 응용 프로그램에 대 한 세부 정보를 보려면 **응용** 프로그램 창에서 응용 프로그램을 선택 합니다. 응용 프로그램에 대해 다음 설정을 구성할 수 있습니다.
 
-- **업데이트 허용** : 응용 프로그램 패키지를 [업데이트 하거나 삭제할](#update-or-delete-an-application-package)수 있는지 여부를 나타냅니다. 기본값은 **예** 입니다. **아니요** 로 설정 하면 기존 응용 프로그램 패키지를 업데이트 하거나 삭제할 수 없지만 새 응용 프로그램 패키지 버전을 계속 추가할 수 있습니다.
-- **기본 버전** : 지정 된 버전이 없는 경우 응용 프로그램이 배포 될 때 사용할 기본 응용 프로그램 패키지입니다.
-- **표시 이름** : 응용 프로그램에 대 한 정보를 표시할 때 Batch 솔루션에서 사용할 수 있는 친숙 한 이름입니다. 예를 들어이 이름은 Batch를 통해 고객에 게 제공 하는 서비스의 UI에서 사용할 수 있습니다.
+- **업데이트 허용**: 응용 프로그램 패키지를 [업데이트 하거나 삭제할](#update-or-delete-an-application-package)수 있는지 여부를 나타냅니다. 기본값은 **예** 입니다. **아니요** 로 설정 하면 기존 응용 프로그램 패키지를 업데이트 하거나 삭제할 수 없지만 새 응용 프로그램 패키지 버전을 계속 추가할 수 있습니다.
+- **기본 버전**: 지정 된 버전이 없는 경우 응용 프로그램이 배포 될 때 사용할 기본 응용 프로그램 패키지입니다.
+- **표시 이름**: 응용 프로그램에 대 한 정보를 표시할 때 Batch 솔루션에서 사용할 수 있는 친숙 한 이름입니다. 예를 들어이 이름은 Batch를 통해 고객에 게 제공 하는 서비스의 UI에서 사용할 수 있습니다.
 
 ### <a name="add-a-new-application"></a>새 애플리케이션 추가
 
@@ -101,13 +101,13 @@ Batch 계정의 응용 프로그램을 보려면 왼쪽 탐색 메뉴에서 **�
 
 Batch 계정에서 **응용 프로그램** 을 선택 하 고 **추가** 를 선택 합니다.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="응용 프로그램 및 응용 프로그램 패키지의 상위 수준 보기를 보여 주는 다이어그램":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Azure Portal에서 새 응용 프로그램 만들기 프로세스의 스크린샷":::
 
 다음 정보를 입력합니다.
 
-- **응용 프로그램 id** : 새 응용 프로그램의 id입니다.
-- **Version** ": 업로드할 응용 프로그램 패키지의 버전입니다.
-- **응용 프로그램 패키지** : 응용 프로그램을 실행 하는 데 필요한 응용 프로그램 이진 파일 및 지원 파일이 포함 된 .zip 파일입니다.
+- **응용 프로그램 id**: 새 응용 프로그램의 id입니다.
+- **Version**": 업로드할 응용 프로그램 패키지의 버전입니다.
+- **응용 프로그램 패키지**: 응용 프로그램을 실행 하는 데 필요한 응용 프로그램 이진 파일 및 지원 파일이 포함 된 .zip 파일입니다.
 
 입력 한 **응용 프로그램 ID** 및 **버전** 은 다음 요구 사항을 따라야 합니다.
 
@@ -128,7 +128,7 @@ Batch 계정에서 **응용 프로그램** 을 선택 하 고 **추가** 를 선
 
 기존 응용 프로그램 패키지를 업데이트 하거나 삭제 하려면 Batch 계정의 **응용 프로그램** 섹션에서 응용 프로그램을 선택 합니다. 수정 하려는 응용 프로그램 패키지의 행에서 줄임표를 선택 하 고 수행할 작업을 선택 합니다.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="응용 프로그램 및 응용 프로그램 패키지의 상위 수준 보기를 보여 주는 다이어그램":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Azure Portal의 응용 프로그램 패키지에 대 한 업데이트 및 삭제 옵션을 보여 주는 스크린샷":::
 
 **업데이트** 를 선택 하면 새 .zip 파일을 업로드할 수 있습니다. 그러면 해당 버전에 대해 업로드 한 이전 .zip 파일이 대체 됩니다.
 

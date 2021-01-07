@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130955"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005778"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>StorSimple Device Manager 서비스를 사용하여 StorSimple Virtual Array에 대한 지원 요청 기록
 
@@ -41,7 +41,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
 
     1. **문제점 유형** 드롭다운 목록에서 **기술** 을 선택합니다. 
     
-    2. 현재 **구독** , **서비스** 유형 및 **리소스** (StorSimple 디바이스 관리자 서비스)가 자동으로 선택됩니다. 
+    2. 현재 **구독**, **서비스** 유형 및 **리소스**(StorSimple 디바이스 관리자 서비스)가 자동으로 선택됩니다. 
 
     3. 문제가 발생하는 서비스에 등록된 하나 이상의 디바이스를 지정합니다.
 

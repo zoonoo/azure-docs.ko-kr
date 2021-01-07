@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 43d4b20564fb4d76b2cb8441c805f391d6ece68b
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.date: 12/08/2020
+ms.openlocfilehash: 925a0270c50d20790c093eaf193d66e0acd4cd11
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280229"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347407"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Amazon Simple Storage 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -183,12 +183,12 @@ Amazon S3 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 | type                     | 아래의 **type** 속성은 `storeSettings` **AmazonS3ReadSettings** 로 설정 해야 합니다. | 예                                                         |
 | **_복사할 파일 찾기:_* _ |  |  |
 | 옵션 1: 고정 경로<br> | 지정된 버킷 또는 데이터 세트에 지정된 폴더/파일 경로에서 복사합니다. 버킷 또는 폴더의 모든 파일을 복사 하려면을 `wildcardFileName` 로 지정 `_` 합니다. |  |
-| 옵션 2: S3 접두사<br>- 접두사 | 원본 S3 파일을 필터링 하기 위해 데이터 집합에 구성 된 지정 된 버킷의 S3 키 이름에 대 한 접두사입니다. 이름이로 시작 하는 S3 키 `bucket_in_dataset/this_prefix` 가 선택 됩니다. S3's 서비스 쪽 필터를 활용 하 여 와일드 카드 필터 보다 더 나은 성능을 제공 합니다. | 예 |
+| 옵션 2: S3 접두사<br>- 접두사 | 원본 S3 파일을 필터링 하기 위해 데이터 집합에 구성 된 지정 된 버킷의 S3 키 이름에 대 한 접두사입니다. 이름이로 시작 하는 S3 키 `bucket_in_dataset/this_prefix` 가 선택 됩니다. S3's 서비스 쪽 필터를 활용 하 여 와일드 카드 필터 보다 더 나은 성능을 제공 합니다.<br/><br/>접두사를 사용 하 고 유지 계층 구조를 유지 하는 파일 기반 싱크로 복사를 선택 하는 경우 접두사에서 마지막 "/" 이후의 하위 경로를 유지 합니다. 예를 들어 소스가 있고  `bucket/folder/subfolder/file.txt` 접두사를로 구성한 후에 `folder/sub` 는 유지 되는 파일 경로가 `subfolder/file.txt` 입니다. | 예 |
 | 옵션 3: 와일드카드<br>- wildcardFolderPath | 원본 폴더를 필터링 하기 위해 데이터 집합에 구성 된 지정 된 버킷 아래에 와일드 카드 문자가 있는 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`폴더 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                            |
-| 옵션 3: 와일드카드<br>- wildcardFileName | 소스 파일을 필터링 하기 위해 지정 된 버킷 및 폴더 경로 (또는 와일드 카드 폴더 경로) 아래에 와일드 카드 문자가 있는 파일 이름입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`폴더 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예 |
+| 옵션 3: 와일드카드<br>- wildcardFileName | 소스 파일을 필터링 하기 위해 지정 된 버킷 및 폴더 경로 (또는 와일드 카드 폴더 경로) 아래에 와일드 카드 문자가 있는 파일 이름입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`파일 이름에 와일드 카드 또는이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예 |
 | 옵션 4: 파일 목록<br>- fileListPath | 지정된 파일 집합을 복사하도록 지정합니다. 복사할 파일 목록이 포함 된 텍스트 파일을 가리키고, 데이터 집합에 구성 된 경로에 대 한 상대 경로인 한 줄에 하나씩 파일을 표시 합니다.<br/>이 옵션을 사용 하는 경우 데이터 집합에서 파일 이름을 지정 하지 마십시오. [파일 목록 예](#file-list-examples)에서 더 많은 예를 참조하세요. |예 |
 | ***추가 설정:** _ |  | |
-| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. _ *Recursive* *를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. <br>허용되는 값은 **true** (기본값) 및 **false** 입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
+| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. _ *Recursive**를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. <br>허용되는 값은 **true**(기본값) 및 **false** 입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
 | deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 파일 복사 시나리오 에서만 사용할 수 있습니다. 기본값은 false입니다. |예 |
 | modifiedDatetimeStart    | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. <br>마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 "2018-12-01T05:00:00Z" 형식의 UTC 표준 시간대에 적용 됩니다. <br> 속성은 **NULL** 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL** 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL** 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
 | modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                                          |
@@ -290,8 +290,8 @@ Amazon s 3에서 Azure Data Lake Storage Gen2 또는 Azure Blob Storage로 파�
 | 버전 | S3 버전 관리를 사용하도록 설정하면 S3 개체의 버전입니다. 버전을 지정 하지 않으면 최신 버전이 인출 됩니다. |예 |
 | modifiedDatetimeStart | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 이 설정을 사용 하면 대량의 파일을 필터링 하려는 경우 데이터 이동의 전반적인 성능에 영향을 줍니다. <br/><br/> 속성은 **NULL** 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL** 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.| 예 |
 | modifiedDatetimeEnd | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 이 설정을 사용 하면 대량의 파일을 필터링 하려는 경우 데이터 이동의 전반적인 성능에 영향을 줍니다. <br/><br/> 속성은 **NULL** 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL** 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL** 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.| 예 |
-| format | 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식의 파일을 구문 분석하거나 생성하려는 경우, 지원되는 파일 형식 유형은 **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** , **ParquetFormat** 입니다. **format** 의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON 형식](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs-legacy.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs-legacy.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip** , **Deflate** , **BZip2** 및 **ZipDeflate** 입니다.<br/>**Optimal** 및 **Fastest** 수준이 지원됩니다. |예 |
+| format | 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식의 파일을 구문 분석하거나 생성하려는 경우, 지원되는 파일 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 입니다. **format** 의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON 형식](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs-legacy.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs-legacy.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다.<br/>**Optimal** 및 **Fastest** 수준이 지원됩니다. |예 |
 
 >[!TIP]
 >폴더 아래의 모든 파일을 복사 하려면 버킷 및 폴더 부분의 **접두사** 에 대해 **bucketName** 를 지정 합니다.
@@ -364,7 +364,7 @@ Amazon s 3에서 Azure Data Lake Storage Gen2 또는 Azure Blob Storage로 파�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **FileSystemSource** 로 설정 해야 합니다. |예 |
-| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. **Recursive** 를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다.<br/>허용되는 값은 **true** (기본값) 및 **false** 입니다. | 예 |
+| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. **Recursive** 를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다.<br/>허용되는 값은 **true**(기본값) 및 **false** 입니다. | 예 |
 | maxConcurrentConnections | 데이터 저장소에 동시에 연결할 수 있는 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예 |
 
 **예:**

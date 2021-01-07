@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/27/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 375dff1dacc949dd4373bbf26908feb504750224
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 484a8c7c230863f230719ddaf4e98a6248512bcc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372344"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560256"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -31,13 +31,101 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 > 6개월 이상된 항목을 찾으려는 경우 [Azure Security Center의 새로운 기능 아카이브](release-notes-archive.md)에서 찾을 수 있습니다.
 
 
+## <a name="december-2020"></a>2020년 12월
+
+12월의 업데이트는 다음과 같습니다.
+
+- [머신의 SQL 서버용 Azure Defender를 일반적으로 사용할 수 있습니다.](#azure-defender-for-sql-servers-on-machines-is-generally-available)
+- [Azure Synapse Analytics 전용 SQL 풀에 대한 Azure Defender for SQL 지원이 일반적으로 제공됩니다.](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [전역 관리자는 이제 자신에게 테넌트 수준 권한을 부여할 수 있습니다.](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
+- [새로운 두 가지 Azure Defender 계획: Azure Defender for DNS 및 Azure Defender for Resource Manager(미리 보기)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
+- [Azure Portal의 새 보안 경고 페이지(미리 보기)](#new-security-alerts-page-in-the-azure-portal-preview)
+
+### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>머신의 SQL 서버용 Azure Defender를 일반적으로 사용할 수 있습니다.
+
+Azure Security Center는 SQL Server에 대한 두 가지 Azure Defender 플랜을 제공합니다.
+
+- **Azure SQL 데이터베이스 서버용 Azure Defender** - Azure 네이티브 SQL Server 방어 
+- **머신의 SQL 서버용 Azure Defender** - 하이브리드, 다중 클라우드 및 온-프레미스 환경의 SQL 서버로 동일한 보호를 확장합니다.
+
+이 공지를 통해 **Azure Defender for SQL** 은 이제 데이터베이스와 해당 데이터가 어디에 있든 보호합니다.
+
+Azure Defender for SQL에는 취약성 평가 기능이 포함되어 있습니다. 취약성 평가 도구에는 다음과 같은 고급 기능이 포함되어 있습니다.
+
+- **기본 구성**(신규!)을 통해 취약성 검색 결과를 실제 보안 문제를 나타낼 수 있는 결과로 지능적으로 구체화할 수 있습니다. 기본 보안 상태를 설정한 후 취약성 평가 도구는 해당 기준 상태의 편차만 보고합니다. 기준과 일치하는 결과는 후속 검색을 통과한 것으로 간주됩니다. 이를 통해 사용자와 분석가는 중요한 부분에 집중할 수 있습니다.
+- 검색된 결과 및 리소스와 관련된 이유를 *이해* 하는 데 도움이 되는 **자세한 벤치마크 정보**.
+- 식별된 위험을 완화하는 데 도움이 되는 **수정 스크립트**.
+
+[Azure Defender for SQL](defender-for-sql-introduction.md)에 대해 자세히 알아봅니다.
+
+
+### <a name="azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available"></a>Azure Synapse Analytics 전용 SQL 풀에 대한 Azure Defender for SQL 지원이 일반적으로 제공됩니다.
+
+Azure Synapse Analytics(이전의 SQL DW)는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 분석 서비스입니다. 전용 SQL 풀은 Azure Synapse의 엔터프라이즈 데이터 웨어하우징 기능입니다. [Azure Synapse Analytics(이전의 SQL DW)란?](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에서 자세히 알아봅니다.
+
+Azure Defender for SQL은 다음을 통해 전용 SQL 풀을 보호합니다.
+
+- 위협 및 공격을 감지하는 **지능형 위협 방지** 
+- 보안 오류를 식별하고 수정하기 위한 **취약성 평가 기능**
+
+Azure Synapse Analytics SQL 풀에 대한 Azure Defender for SQL의 지원은 Azure Security Center의 Azure SQL 데이터베이스 번들에 자동으로 추가됩니다. Azure Portal의 Synapse 작업 영역 페이지에 새로운 "Azure Defender for SQL" 탭을 찾을 수 있습니다.
+
+[Azure Defender for SQL](defender-for-sql-introduction.md)에 대해 자세히 알아봅니다.
+
+
+### <a name="global-administrators-can-now-grant-themselves-tenant-level-permissions"></a>전역 관리자는 이제 자신에게 테넌트 수준 권한을 부여할 수 있습니다.
+
+**전역 관리자** 의 Azure Active Directory 역할을 가진 사용자는 테넌트 전체의 책임이 있지만 Azure Security Center에서 해당 조직 전체 정보를 볼 수 있는 Azure 권한은 없습니다. 
+
+자신에게 테넌트 수준 사용 권한을 할당하려면 [자신에게 테넌트 전체 사용 권한 부여](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself)의 지침을 따르세요.
+
+
+### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>새로운 두 가지 Azure Defender 계획: Azure Defender for DNS 및 Azure Defender for Resource Manager(미리 보기)
+
+Azure 환경을 위한 새로운 두 가지 클라우드 네이티브 너비 위협 방지 기능이 추가되었습니다.
+
+이러한 새로운 보호 기능은 위협 행위자의 공격에 대한 복원력을 크게 향상시키고 Azure Defender로 보호되는 Azure 리소스의 수를 크게 늘립니다.
+
+- **Azure Defender for Resource Manager** - 조직에서 수행되는 모든 리소스 관리 작업을 자동으로 모니터링합니다. 자세한 내용은 다음을 참조하세요.
+    - [Azure Defender for Resource Manager 소개](defender-for-resource-manager-introduction.md)
+    - [Azure Defender for Resource Manager 경고에 대한 대응](defender-for-resource-manager-usage.md)
+    - [Azure Defender for Resource Manager에서 제공하는 경고 목록](alerts-reference.md#alerts-resourcemanager)
+
+- **Azure Defender for DNS** - Azure 리소스의 모든 DNS 쿼리를 지속적으로 모니터링합니다. 자세한 내용은 다음을 참조하세요.
+    - [Azure Defender for DNS 소개](defender-for-dns-introduction.md)
+    - [Azure Defender for DNS 경고에 대한 대응](defender-for-dns-usage.md)
+    - [Azure Defender for DNS에서 제공하는 경고 목록](alerts-reference.md#alerts-dns)
+
+
+### <a name="new-security-alerts-page-in-the-azure-portal-preview"></a>Azure Portal의 새 보안 경고 페이지(미리 보기)
+
+Azure Security Center의 보안 경고 페이지가 다음을 제공하도록 다시 디자인되었습니다.
+
+- **경고에 대한 향상된 심사 환경** - 경고 피로를 줄이고 가장 관련성이 높은 위협에 더 쉽게 집중하는 데 도움이 됩니다. 목록에는 사용자 지정 가능한 필터 및 그룹화 옵션이 포함되어 있습니다.
+- **경고 목록의 추가 정보** - 예: MITRE ATT&ACK 전술
+- **샘플 경고를 만드는 단추** - Azure Defender 기능을 평가하고 경고 구성(SIEM 통합, 이메일 알림 및 워크플로 자동화)을 테스트하기 위해 모든 Azure Defender 계획의 샘플 경고를 만들 수 있습니다.
+- **Azure Sentinel의 인시던트 환경에 맞춤** - 이제 두 제품을 사용하는 고객이 두 제품 간에 더 직관적으로 전환할 수 있는 환경이 제공되며, 두 제품을 손쉽게 알아볼 수 있습니다.
+- 대규모 경고 목록의 **성능 개선**
+- 경고 목록 **키보드 탐색**
+- **Azure Resource Graph의 경고** - 모든 리소스에 대한 Kusto 같은 API인 Azure Resource Graph에서 경고를 쿼리할 수 있습니다. 이는 자체 경고 대시보드를 빌드하는 경우에도 유용합니다. [Azure Resource Graph에 대한 자세한 정보](../governance/resource-graph/index.yml).
+
+새 환경에 액세스하려면 보안 경고 페이지 맨 위에 있는 배너에서 '지금 사용해 보기' 링크를 사용합니다.
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="새 미리 보기 경고 환경에 대한 링크가 포함된 배너":::
+
+새 경고 환경에서 샘플 경고를 만들려면 [샘플 Azure Defender 경고 생성](security-center-alert-validation.md#generate-sample-azure-defender-alerts)을 참조하세요.
+
 ## <a name="november-2020"></a>2020년 11월
 
 11월의 업데이트는 다음과 같습니다.
 
 - [Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 추천 사항이 추가됨](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [Security Center의 규정 준수 대시보드에 NIST SP 800 171 R2가 추가됨](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
-
+- [이제 추천 목록에 필터가 포함됨](#recommendations-list-now-includes-filters)
+- [자동 프로비저닝 환경 향상 및 확장](#auto-provisioning-experience-improved-and-expanded)
+- [이제 연속 내보내기(미리 보기)에서 보안 점수를 사용할 수 있습니다.](#secure-score-is-now-available-in-continuous-export-preview)
+- ["시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다." 권장 사항이 이제 하위 권장 사항을 포함합니다.](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- [이제 기본 정책 할당의 상태를 보여주는 Azure Portal의 정책 관리 페이지](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 권장 사항 추가됨
 
@@ -78,6 +166,69 @@ NIST SP 800-171 R2 표준은 이제 Azure Security Center의 규정 준수 대�
 이 규정 준수 표준에 대한 자세한 내용은 [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final)를 참조하세요.
 
 
+### <a name="recommendations-list-now-includes-filters"></a>이제 추천 목록에 필터가 포함됨
+
+이제 일련의 조건에 따라 보안 추천 목록을 필터링할 수 있습니다. 다음 예에서는 다음과 같은 추천을 보여주기 위해 추천 목록이 필터링되었습니다.
+
+- **일반 공급**(즉, 미리 보기 아님)
+- **스토리지 계정** 에 대한 추천
+- **빠른 수정** 수정을 지원하는 추천
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="추천 목록에 대한 필터":::
+
+
+### <a name="auto-provisioning-experience-improved-and-expanded"></a>자동 프로비저닝 환경 향상 및 확장
+
+자동 프로비저닝 기능은 신규 및 기존 Azure VM에 필요한 확장을 설치하여 관리 오버헤드를 줄이는 데 도움이 되므로 Security Center의 보호 기능을 활용할 수 있습니다. 
+
+Azure Security Center가 성장함에 따라 더 많은 확장이 개발되었으며 보안 센터에서 더 많은 리소스 유형을 모니터링할 수 있습니다. 이제 Azure Policy의 기능을 활용하여 추가 확장 및 리소스 유형을 지원하도록 자동 프로비저닝 도구가 확장되었습니다.
+
+이제 다음 항목의 자동 프로비저닝을 구성할 수 있습니다.
+
+- Log Analytics 에이전트
+- (신규) Kubernetes에 대한 Azure Policy 추가 기능
+- (신규) Microsoft Dependency Agent
+
+[Azure Security Center에서 에이전트 및 확장 자동 프로비저닝](security-center-enable-data-collection.md)에서 자세히 알아보세요.
+
+
+### <a name="secure-score-is-now-available-in-continuous-export-preview"></a>이제 연속 내보내기(미리 보기)에서 보안 점수를 사용할 수 있습니다.
+
+보안 점수를 연속적으로 내보내면 점수 변경 내용을 Azure Event Hubs 또는 Log Analytics 작업 영역에 실시간으로 스트리밍할 수 있습니다. 이 기능을 사용하여 다음을 수행할 수 있습니다.
+
+- 동적 보고서로 시간 경과에 따른 보안 점수 추적
+- 보안 점수 데이터를 Azure Sentinel(또는 기타 SIEM)로 내보내기
+- 이 데이터를 조직에서 보안 점수를 모니터링하는 데 이미 사용하고 있을 수 있는 프로세스와 통합
+
+[Security Center 데이터를 연속적으로 내보내는](continuous-export.md) 방법에 대해 자세히 알아보세요.
+
+
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations"></a>"시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다." 권장 사항이 이제 하위 권장 사항을 포함합니다.
+
+**시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다.** 권장 사항이 향상되었습니다. 새 버전에는 누락된 각 업데이트에 대한 하위 권장 사항이 포함되어 있으며 다음과 같은 기능이 향상되었습니다.
+
+- Azure Portal의 Azure Security Center 페이지에서 새롭게 디자인된 환경. **시스템 업데이트는 머신에 설치되어야 합니다** 에 대한 권장 사항 세부 정보 페이지에는 아래와 같은 결과 목록이 포함되어 있습니다. 단일 찾기를 선택하면 재구성 정보 및 영향을 받는 리소스의 목록에 대한 링크가 포함된 세부 정보 창이 열립니다.
+
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="업데이트된 권장 사항에 대한 포털 환경에서 하위 권장 사항 중 하나 열기":::
+
+- ARG(Azure Resource Graph)의 권장 사항에 대한 보강 데이터. ARG는 효율적인 리소스 탐색을 제공하도록 디자인된 Azure 서비스입니다. ARG를 사용하여 사용자 환경을 효과적으로 관리할 수 있도록 지정된 구독 세트에서 대규모로 쿼리할 수 있습니다. 
+
+    Azure Security Center의 경우 ARG 및 [KQL(Kusto Query Language)](/azure/data-explorer/kusto/query/)을 사용하여 다양한 보안 태세 데이터를 쿼리할 수 있습니다.
+
+    이전에는 ARG에서 이 권장 사항을 쿼리한 경우 권장 사항을 머신에서 수정해야 한다는 정보만 제공되었습니다. 향상된 버전의 다음 쿼리는 누락된 각 시스템 업데이트를 머신별로 그룹화하여 반환합니다.
+
+    ```kusto
+    securityresources
+    | where type =~ "microsoft.security/assessments/subassessments"
+    | where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+    | where properties.status.code == "Unhealthy"
+    ```
+
+### <a name="policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments"></a>이제 기본 정책 할당의 상태를 보여주는 Azure Portal의 정책 관리 페이지
+
+이제 Azure Portal의 Security Center **보안 정책** 페이지에서 구독에 기본 Security Center 정책이 할당되었는지 여부를 확인할 수 있습니다.
+
+:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="기본 정책 할당을 보여주는 Azure Security Center의 정책 관리 페이지":::
 
 ## <a name="october-2020"></a>2020년 10월
 
@@ -105,7 +256,7 @@ Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Secur
 
 [하이브리드 머신에 통합 취약성 스캐너를 배포하는 내용을 자세히 알아보세요](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Azure Arc 사용 서버에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-arc/servers/).
+[Azure Arc 사용 서버에 대해 자세히 알아보세요](../azure-arc/servers/index.yml).
 
 
 ### <a name="azure-firewall-recommendation-added-preview"></a>Azure Firewall 권장 사항 추가(미리 보기)
@@ -121,7 +272,7 @@ Azure Firewall을 통해 모든 가상 네트워크를 보호하기 위해 새�
 
 **Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함** 권장 사항은 이제 빠른 픽스 옵션을 제공합니다.
 
-이 권장 사항 및 그 밖의 모든 Security Center 권장 사항에 대한 자세한 내용은 [보안 권장 사항 - 참조 가이드](recommendations-reference.md)를 확인하세요.
+이 권장 사항 및 기타 모든 Security Center 권장 사항에 대한 자세한 내용은 [보안 권장 사항 - 참조 가이드](recommendations-reference.md)를 참조하세요.
 
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="빠른 픽스 옵션을 제공하는 [Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항":::
 
@@ -139,7 +290,7 @@ Security Center의 규정 준수 대시보드는 특정 규정 준수 제어 및
 
 Azure Resource Graph는 작업 환경을 효과적으로 관리할 수 있도록 특정 구독 세트에서 대규모로 쿼리를 수행할 수 있는 효율적인 리소스 탐색 기능을 제공하도록 디자인된 Azure 서비스입니다. 
 
-Azure Security Center의 경우 ARG 및 [KQL(Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)을 사용하여 다양한 보안 태세 데이터를 쿼리할 수 있습니다. 예를 들어:
+Azure Security Center의 경우 ARG 및 [KQL(Kusto Query Language)](/azure/data-explorer/kusto/query/)을 사용하여 다양한 보안 태세 데이터를 쿼리할 수 있습니다. 예를 들어:
 
 - 자산 인벤토리 활용(ARG)
 - [MFA(다단계 인증)를 사용하지 않고 계정을 식별](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)하는 방법에 대한 샘플 ARG 쿼리가 문서로 준비되어 있습니다.
@@ -228,7 +379,7 @@ extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 
 다음 링크에서 자세한 내용을 알아보세요.
 - [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
-- [Kusto Query Language(KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Kusto Query Language(KQL)](/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>2020년 9월
@@ -420,7 +571,7 @@ Pod 보안 정책(미리 보기)이 더 이상 사용되지 않는 경우 향후
 보안 경고와 관련하여 향상된 이메일 영역은 다음과 같습니다. 
 
 - 모든 심각도 수준에 대한 경고와 관련된 이메일 알림을 보내는 기능이 추가되었습니다.
-- 구독에서 다른 RBAC 역할의 사용자에게 알리는 기능이 추가되었습니다.
+- 구독에서 다른 Azure 역할의 사용자에게 알리는 기능이 추가되었습니다.
 - 심각도가 높은 경고(진짜 위반일 가능성이 높음)는 기본적으로 구독 소유자에게 사전에 알려줍니다.
 - 이메일 알림 구성 페이지에서 전화 번호 필드가 제거되었습니다.
 
@@ -673,119 +824,3 @@ SQL 컴퓨터의 고급 데이터 보안과 관련된 6가지 정책은 더 이�
 - SQL Server Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
 
 [기본 제공 정책](./policy-reference.md)에 대해 자세히 알아보세요.
-
-
-
-
-
-## <a name="june-2020"></a>2020년 6월
-
-6월의 업데이트는 다음과 같습니다.
-- [보안 점수 API(미리 보기)](#secure-score-api-preview)
-- [SQL 컴퓨터(Azure, 기타 클라우드 및 온-프레미스)에 대한 고급 데이터 보안(미리 보기)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview)
-- [Log Analytics 에이전트를 Azure Arc 컴퓨터에 배포하기 위한 두 가지 새 추천 사항(미리 보기)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
-- [연속 내보내기 및 워크플로 자동화 구성을 규모에 맞게 만들기 위한 새 정책](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
-- [NSG를 사용하여 인터넷에 연결되지 않은 가상 머신을 보호하기 위한 새 추천 사항](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
-- [위협 방지 및 고급 데이터 보안을 사용하도록 설정하기 위한 새 정책](#new-policies-for-enabling-threat-protection-and-advanced-data-security)
-
-
-
-### <a name="secure-score-api-preview"></a>보안 점수 API(미리 보기)
-
-이제 [보안 점수 API](/rest/api/securitycenter/securescores/)(현재 미리 보기 상태)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 **보안 점수** API를 사용하여 특정 구독에 대한 점수를 가져올 수 있습니다. 또한 **보안 점수 제어** API를 사용하여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
-
-보안 점수 API를 사용하여 가능한 외부 도구의 예는 [GitHub 커뮤니티의 보안 점수 영역](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)을 참조하세요.
-
-[Azure Security Center의 보안 점수 및 보안 제어](secure-score-security-controls.md)에 대해 자세히 알아보세요.
-
-
-
-### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview"></a>SQL 컴퓨터(Azure, 기타 클라우드 및 온-프레미스)에 대한 고급 데이터 보안(미리 보기)
-
-SQL 컴퓨터에 대한 Azure Security Center의 고급 데이터 보안 기능은 이제 Azure, 다른 클라우드 환경 및 심지어 온-프레미스 컴퓨터에서 호스팅되는 SQL Server를 보호합니다. 이렇게 하면 Azure 네이티브 SQL Server에 대한 보호 기능이 확장되어 하이브리드 환경을 완벽하게 지원합니다.
-
-고급 데이터 보안은 SQL 컴퓨터가 어디에 있든 취약성 평가 및 지능형 위협 방지 기능을 제공합니다.
-
-설정에는 다음 두 가지 단계가 포함됩니다.
-
-1. Log Analytics 에이전트를 SQL Server의 호스트 컴퓨터에 배포하여 Azure 계정에 대한 연결을 제공합니다.
-
-1. Security Center의 가격 책정 및 설정 페이지에서 선택적 번들을 사용하도록 설정합니다.
-
-[SQL 컴퓨터에 대한 고급 데이터 보안](defender-for-sql-usage.md)에 대해 자세히 알아보세요.
-
-
-
-### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Log Analytics 에이전트를 Azure Arc 컴퓨터에 배포하기 위한 두 가지 새 추천 사항(미리 보기)
-
-[Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md)를 Azure Arc 컴퓨터에 배포하고 Azure Security Center에서 보호하도록 하는 데 도움이 되는 두 가지 추천 사항이 새로 추가되었습니다.
-
-- **Windows 기반 Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치해야 함(미리 보기)**
-- **Linux 기반 Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치해야 함(미리 보기)**
-
-이러한 새 추천 사항은 기존(관련) 추천 사항( **컴퓨터에 모니터링 에이전트를 설치해야 합니다.** )과 동일한 네 가지 보안 제어(보안 구성 수정, 적응형 애플리케이션 제어 적용, 시스템 업데이트 적용 및 엔드포인트 보호 사용)에 나타납니다.
-
-또한 추천 사항에는 배포 프로세스 속도를 높이는 데 도움이 되는 빠른 수정 기능도 포함됩니다. 
-
-이러한 두 가지 새 추천 사항에 대해 [컴퓨팅 및 앱 추천 사항](recommendations-reference.md#recs-computeapp) 표에서 자세히 알아보세요.
-
-Azure Security Center에서 에이전트를 사용하는 방법에 대해 [Log Analytics 에이전트는 무엇인가요?](faq-data-collection-agents.md#what-is-the-log-analytics-agent)에서 자세히 알아보세요.
-
-[Azure Arc 컴퓨터용 확장](../azure-arc/servers/manage-vm-extensions.md)에 대해 자세히 알아보세요.
-
-
-### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>연속 내보내기 및 워크플로 자동화 구성을 규모에 맞게 만들기 위한 새 정책
-
-조직의 모니터링 및 인시던트 대응 프로세스를 자동화하면 보안 인시던트를 조사하고 완화하는 데 걸리는 시간을 크게 향상시킬 수 있습니다.
-
-자동화 구성을 조직 전체에 배포하려면 다음과 같은 기본 제공 'DeployIfdNotExist' Azure 정책을 사용하여 [연속 내보내기](continuous-export.md) 및 [워크플로 자동화](workflow-automation.md) 프로시저를 만들고 구성합니다.
-
-정책은 Azure Policy에서 찾을 수 있습니다.
-
-
-|목표  |정책  |정책 ID  |
-|---------|---------|---------|
-|이벤트 허브로 연속 내보내기|[Azure Security Center 경고 및 권장 사항에 대한 Event Hub로 내보내기 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-|Log Analytics 작업 영역으로 연속 내보내기|[Azure Security Center 경고 및 권장 사항에 대한 Log Analytics 작업 영역으로 내보내기 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
-|보안 경고에 대한 워크플로 자동화|[Azure Security Center 경고에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
-|보안 추천 사항에 대한 워크플로 자동화|[Azure Security Center 권장 사항에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
-||||
-
-[워크플로 자동화 템플릿](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)을 시작합니다.
-
-[제공된 정책을 사용하여 대규모 워크플로 자동화 구성](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) 및 [연속 내보내기 설정](continuous-export.md#set-up-a-continuous-export)에서 두 가지 내보내기 정책 사용에 대해 자세히 알아봅니다.
-
-
-### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>NSG를 사용하여 인터넷에 연결되지 않은 가상 머신을 보호하기 위한 새 추천 사항
-
-"보안 모범 사례 구현" 보안 제어에는 이제 다음과 같은 새 추천 사항이 포함됩니다.
-
-- **네트워크 보안 그룹을 사용하여 비인터넷 연결 가상 머신을 보호해야 함**
-
-**네트워크 보안 그룹을 사용하여 인터넷 연결 가상 머신을 보호해야 함** 이라는 기존 추천 사항은 VM을 대상으로 하는 인터넷 연결 VM과 인터넷에 연결되지 않은 VM을 구분하지 않았습니다. 두 경우 모두에서 VM이 네트워크 보안 그룹에 할당되지 않은 경우 높은 심각도 추천 사항이 생성되었습니다. 이 새 추천 사항은 인터넷에 연결되지 않은 머신을 분리하여 가양성을 줄이고 불필요한 높은 심각도 경고를 방지합니다.
-
-[네트워크 추천 사항](recommendations-reference.md#recs-network) 표에서 자세히 알아보세요.
-
-
-
-
-### <a name="new-policies-for-enabling-threat-protection-and-advanced-data-security"></a>위협 방지 및 고급 데이터 보안을 사용하도록 설정하기 위한 새 정책
-
-아래의 새 정책은 ASC 기본 이니셔티브에 추가되었으며, 관련 리소스 종류에 대한 위협 방지 또는 고급 데이터 보안을 지원하도록 설계되었습니다.
-
-정책은 Azure Policy에서 찾을 수 있습니다.
-
-
-| 정책                                                                                                                                                                                                                                                                | 정책 ID                            |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| [Azure SQL Database 서버에서 Advanced Data Security를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
-| [머신의 SQL 서버에서 Advanced Data Security를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
-| [Azure Storage 계정에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
-| [Azure Key Vault 자격 증명 모음에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
-| [Azure App Service 계획에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
-| [Azure Container Registry 레지스트리에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
-| [Azure Kubernetes Service 클러스터에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
-| [Virtual Machines에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
-|                                                                                                                                                                                                                                                                       |                                      |
-
-[Azure Security Center의 위협 방지](azure-defender.md)에 대해 자세히 알아보세요.

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 10/15/2020
-ms.openlocfilehash: fb4746972f78dc40a3ec264d2e1964e8d4e99b3d
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: e706f64a7caab6873a3eec86505eaee11374ae2c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097595"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882310"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>VCore 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |메모리(GB)|7|14|21|28|35|42|
 |풀 당 최대 Db 수 <sup>1</sup>|100|200|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|예|
-|메모리 내 OLTP 스토리지(GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|512|756|1536|1536|1536|2048|
 |최대 로그 크기|154|227|461|461|461|614|
 |TempDB 최대 데이터 크기 (GB)|32|64|96|128|160|192|
@@ -60,8 +60,8 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |복제본 수|1|1|1|1|1|1|
-|다중 AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|읽기 확장|N/A|N/A|N/A|N/A|N/A|N/A|
+|다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
+|읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
 <sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
@@ -79,7 +79,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |메모리(GB)|49|56|63|70|112|159.5|
 |풀 당 최대 Db 수 <sup>1</sup>|500|500|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|예|
-|메모리 내 OLTP 스토리지(GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|2048|2048|2048|2048|3584|4096|
 |최대 로그 크기(GB)|614|614|614|614|1075|1,229|
 |TempDB 최대 데이터 크기 (GB)|224|256|288|320|512|768|
@@ -92,8 +92,8 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |복제본 수|1|1|1|1|1|1|
-|다중 AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|읽기 확장|N/A|N/A|N/A|N/A|N/A|N/A|
+|다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
+|읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
 <sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
@@ -113,7 +113,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |메모리(GB)|10.4|20.8|31.1|41.5|51.9|62.3|72.7|
 |풀 당 최대 Db 수 <sup>1</sup>|100|200|500|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|예|예|
-|메모리 내 OLTP 스토리지(GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|512|756|1536|1536|1536|2048|2048|
 |최대 로그 크기(GB)|154|227|461|461|461|614|614|
 |TempDB 최대 데이터 크기 (GB)|64|128|192|256|320|384|448|
@@ -126,8 +126,8 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |복제본 수|1|1|1|1|1|1|1|
-|다중 AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|읽기 확장|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|다중 AZ|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
+|읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
 <sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
@@ -145,7 +145,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |메모리(GB)|83|93.4|103.8|124.6|166.1|207.6|415.2|
 |풀 당 최대 Db 수 <sup>1</sup>|500|500|500|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|예|예|
-|메모리 내 OLTP 스토리지(GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|2048|3072|3072|3072|4096|4096|4096|
 |최대 로그 크기(GB)|614|922|922|922|1,229|1,229|1,229|
 |TempDB 최대 데이터 크기 (GB)|512|576|640|768|1024|1280|2560|
@@ -158,8 +158,8 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |복제본 수|1|1|1|1|1|1|1|
-|다중 AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|읽기 확장|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|다중 AZ|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
+|읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
 <sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
@@ -179,7 +179,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |메모리(GB)|15.1|18.9|22.7|26.5|30.2|
 |풀 당 최대 Db 수 <sup>1</sup>|500|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|
-|메모리 내 OLTP 스토리지(GB)|N/A|N/A|N/A|N/A|N/A|
+|메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|1024|1024|1024|1024|1536|
 |최대 로그 크기(GB)|336|336|336|336|512|
 |TempDB 최대 데이터 크기 (GB)|333|333|333|333|333|
@@ -192,8 +192,8 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0-8|0-10|0-12|0-14|0-16|
 |복제본 수|1|1|1|1|1|
-|다중 AZ|N/A|N/A|N/A|N/A|N/A|
-|읽기 확장|N/A|N/A|N/A|N/A|N/A|
+|다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
+|읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
 
@@ -212,7 +212,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |메모리(GB)|34.0|37.8|45.4|60.5|68.0|136.0|
 |풀 당 최대 Db 수 <sup>1</sup>|500|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|예|
-|메모리 내 OLTP 스토리지(GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|1536|1536|1536|3072|3072|4096|
 |최대 로그 크기(GB)|512|512|512|1024|1024|1024|
 |TempDB 최대 데이터 크기 (GB)|83.25|92.5|111|148|166.5|333|
@@ -225,8 +225,8 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0-18|0-20|0-24|0-32|0-36|0-72|
 |복제본 수|1|1|1|1|1|1|
-|다중 AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|읽기 확장|N/A|N/A|N/A|N/A|N/A|N/A|
+|다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
+|읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
 <sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
@@ -280,7 +280,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |vCore 수|7|8|9|10|16|24|
 |메모리(GB)|49|56|63|70|112|159.5|
 |풀 당 최대 Db 수 <sup>1</sup>|100|100|100|100|100|100|
-|Columnstore 지원 여부|N/A|N/A|N/A|N/A|N/A|N/A|
+|Columnstore 지원 여부|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |메모리 내 OLTP 스토리지(GB)|7|8|9.5|11|20|36|
 |스토리지 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |최대 데이터 크기(GB)|1024|1024|1024|1024|1024|1024|

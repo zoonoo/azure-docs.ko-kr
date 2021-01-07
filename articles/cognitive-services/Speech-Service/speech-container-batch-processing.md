@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 80e0de73bbeae2ee1a79199fde34a3c430959ac8
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: cc6bcef77ca1601b76468586aa6af202836f1438
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356708"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631995"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>음성 컨테이너 용 Batch 처리 키트
 
@@ -25,7 +25,7 @@ ms.locfileid: "93356708"
 
 Batch 키트 컨테이너는 [GitHub](https://github.com/microsoft/batch-processing-kit) 및   [Docker 허브](https://hub.docker.com/r/batchkit/speech-batch-kit/tags)에서 무료로 제공 됩니다. 사용 중인 음성 컨테이너에 대해서만 [요금이 청구](speech-container-howto.md#billing) 됩니다.
 
-| 기능  | Description  |
+| 기능  | 설명  |
 |---------|---------|
 | Batch 오디오 파일 배포     | 많은 수의 파일을 온-프레미스 또는 클라우드 기반 음성 컨테이너 끝점으로 자동으로 디스패치합니다. 파일은 네트워크 파일 시스템을 비롯 한 모든 POSIX 규격 볼륨에 있을 수 있습니다.       |
 | Speech SDK 통합 | N-best 가설, diarization, language, 비속어 마스킹을 포함 하 여 일반 플래그를 음성 SDK에 전달 합니다.  |
@@ -86,13 +86,13 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mn
 Batch 클라이언트를 실행 하려면 다음을 수행 합니다.  
 
 ```Docker
-run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 단일 명령으로 batch 클라이언트 및 컨테이너를 실행 하려면 다음을 수행 합니다.
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 
@@ -156,7 +156,7 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batc
 > [!NOTE]
 > 일괄 처리 클라이언트는 *실행 로그* 파일이 너무 클 경우 정기적으로 덮어쓸 수 있습니다.
 
-클라이언트는 docker 명령의 인수로 지정 된 디렉터리에 *실행 .log* 파일을 만듭니다 `-log_folder` `run` . 로그는 기본적으로 디버그 수준에서 캡처됩니다. 동일한 로그가에 전송 되 `stdout/stderr` 고 인수에 따라 필터링 됩니다 `-log_level` . 이 로그는 디버깅에만 필요 하며, 지원에 대 한 추적을 보내야 하는 경우에만 필요 합니다. 로깅 폴더에는 각 오디오 파일에 대 한 음성 SDK 로그도 포함 됩니다.
+클라이언트는 docker 명령의 인수로 지정 된 디렉터리에 *실행 .log* 파일을 만듭니다 `-log_folder` `run` . 로그는 기본적으로 디버그 수준에서 캡처됩니다. 동일한 로그가에 전송 되 `stdout/stderr` 고 또는 인수에 따라 필터링 됩니다 `-file_log_level` `console_log_level` . 이 로그는 디버깅에만 필요 하며, 지원에 대 한 추적을 보내야 하는 경우에만 필요 합니다. 로깅 폴더에는 각 오디오 파일에 대 한 음성 SDK 로그도 포함 됩니다.
 
 로 지정 된 출력 디렉터리에는 `-output_folder` 파일 *에 대 한run_summary.js* 이 포함 됩니다   .이 파일은 30 초 마다 또는 새로운 새 최종 스크립트가 완료 될 때마다 정기적으로 다시 작성 됩니다. 일괄 처리가 진행 되는 동안이 파일을 사용 하 여 진행률을 확인할 수 있습니다. 또한 일괄 처리가 완료 되 면 모든 파일의 최종 실행 통계 및 최종 상태를 포함 합니다. 프로세스가 완전히 종료 되 면 일괄 처리가 완료 됩니다. 
 

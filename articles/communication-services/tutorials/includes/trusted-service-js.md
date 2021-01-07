@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: d4ef8baa123f805d380b14fa24abff65903cb41d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: daf2d675bbbee324769b6e1e8d8d34587d37c72f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945256"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886626"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -37,7 +37,7 @@ ms.locfileid: "90945256"
 
 ### <a name="azure-functions-set-up"></a>Azure Functions 설정
 
-먼저 Azure 함수에 대한 기본 구조를 설정해 보겠습니다. 설정에 대한 단계별 지침은 [Visual Studio Code를 사용하여 함수 만들기](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)에서 확인할 수 있습니다.
+먼저 Azure 함수에 대한 기본 구조를 설정해 보겠습니다. 설정에 대한 단계별 지침은 [Visual Studio Code를 사용하여 함수 만들기](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)에서 확인할 수 있습니다.
 
 Azure 함수에 필요한 구성은 다음과 같습니다.
 
@@ -46,7 +46,7 @@ Azure 함수에 필요한 구성은 다음과 같습니다.
 - 권한 부여 수준: 익명(다른 권한 부여 모델을 원하는 경우 나중에 전환할 수 있음)
 - 함수 이름: 사용자 정의
 
-위의 구성과 함께 [Azure Functions 지침](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)을 수행한 후에는 함수 자체가 포함된 `index.js` 파일을 사용하는 프로젝트가 Azure 함수에 대한 Visual Studio Code에 있습니다. 이 파일의 내부 코드는 다음과 같습니다.
+위의 구성과 함께 [Azure Functions 지침](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)을 수행한 후에는 함수 자체가 포함된 `index.js` 파일을 사용하는 프로젝트가 Azure 함수에 대한 Visual Studio Code에 있습니다. 이 파일의 내부 코드는 다음과 같습니다.
 
 ```javascript
 
@@ -128,15 +128,15 @@ module.exports = async function (context, req) {
 
 ## <a name="test-the-azure-function"></a>Azure 함수 테스트
 
-`F5` 키를 사용하여 Azure 함수를 로컬로 실행합니다. 이렇게 하면 Azure 함수가 로컬로 초기화되고 `http://localhost:7071/api/FUNCTION_NAME`을 통해 액세스할 수 있습니다. [로컬 실행](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#run-the-function-locally)에 대한 추가 설명서를 확인하세요.
+`F5` 키를 사용하여 Azure 함수를 로컬로 실행합니다. 이렇게 하면 Azure 함수가 로컬로 초기화되고 `http://localhost:7071/api/FUNCTION_NAME`을 통해 액세스할 수 있습니다. [로컬 실행](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-locally)에 대한 추가 설명서를 확인하세요.
 
 브라우저에서 URL을 엽니다. 그러면 통신 사용자 ID, 토큰 및 토큰 만료 날짜가 포함된 응답 본문이 표시됩니다.
 
-:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="신뢰할 수 있는 서비스 아키텍처에 대한 다이어그램":::
+:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="만든 Azure 함수에 대한 응답 예제를 보여 주는 스크린샷":::
 
 ## <a name="deploy-the-function-to-azure"></a>Azure에 Function 배포
 
-Azure 함수를 배포하려면 [단계별 지침](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#sign-in-to-azure)을 따를 수 있습니다.
+Azure 함수를 배포하려면 [단계별 지침](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)을 따를 수 있습니다.
 
 일반적으로 다음을 수행해야 합니다.
 1. Visual Studio에서 Azure에 로그인합니다.
@@ -151,4 +151,4 @@ Azure 함수를 배포하려면 [단계별 지침](https://docs.microsoft.com/az
 
 URL은 Visual Studio Code에서 마우스 오른쪽 단추로 함수를 클릭하고 Function URL을 복사하여 확인할 수 있습니다.
 
-자세한 내용은 [Azure 함수 실행](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#run-the-function-in-azure)을 참조하세요.
+자세한 내용은 [Azure 함수 실행](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-in-azure)을 참조하세요.

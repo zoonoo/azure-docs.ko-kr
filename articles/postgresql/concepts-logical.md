@@ -5,18 +5,15 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/09/2020
+ms.openlocfilehash: 0ea58050c5dc952392df56b4fb556a0998eef165
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421812"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938905"
 ---
 # <a name="logical-decoding"></a>논리 디코딩
- 
-> [!NOTE]
-> 논리적 디코딩은 Azure Database for PostgreSQL 단일 서버에서 공개 미리 보기로 제공 됩니다.
 
 [PostgreSQL의 논리적 디코딩을](https://www.postgresql.org/docs/current/logicaldecoding.html) 통해 외부 소비자에 게 데이터 변경 내용을 스트리밍할 수 있습니다. 논리적 디코딩은 이벤트 스트리밍 및 변경 데이터 캡처 시나리오에 사용 되는 많이입니다.
 
@@ -37,7 +34,6 @@ Postgres 논리적 디코딩이 작동 하는 방식에 대 한 개요를 보려
 * **복제본** -보다 자세한 정보를 **해제** 합니다. 이는 [읽기 복제본](concepts-read-replicas.md) 이 작동 하는 데 필요한 최소 수준의 로깅입니다. 이 설정은 대부분의 서버에서 기본값입니다.
 * **논리적** - **복제본** 보다 자세한 정보를 표시 합니다. 논리적 디코딩을 작동 하기 위한 최소 로깅 수준입니다. 읽기 복제본도이 설정에서 작동 합니다.
 
-이 매개 변수를 변경한 후에는 서버를 다시 시작 해야 합니다. 내부적으로이 매개 변수는 Postgres 매개 변수, 및를 설정 합니다 `wal_level` `max_replication_slots` `max_wal_senders` .
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 

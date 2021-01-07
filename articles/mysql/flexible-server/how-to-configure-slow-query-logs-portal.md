@@ -1,17 +1,17 @@
 ---
 title: 저속 쿼리 로그 구성-Azure Portal Azure Database for MySQL 유연한 서버
 description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL 유연한 서버에서 느리게 쿼리 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61c8e3451d661dae2e5ad56a0d4a947252ec873
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565739"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540066"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 느리게 쿼리 로그 구성 및 액세스
 
@@ -30,17 +30,17 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
 1. 유연한 서버를 선택 합니다.
 
-1. 사이드바의 **설정** 섹션에서 **서버 매개 변수**를 선택 합니다.
+1. 사이드바의 **설정** 섹션에서 **서버 매개 변수** 를 선택 합니다.
    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/server-parameters.png" alt-text="서버 매개 변수 페이지.":::
 
-1. **Slow_query_log** 매개 변수를 **ON**으로 업데이트 합니다.
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="서버 매개 변수 페이지.":::
+1. **Slow_query_log** 매개 변수를 **ON** 으로 업데이트 합니다.
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="저속 쿼리 로그를 설정 합니다.":::
 
 1. 필요한 다른 매개 변수를 변경 합니다 (예: `long_query_time`, `log_slow_admin_statements`). 더 많은 매개 변수는 [저속 쿼리 로그](./concepts-slow-query-logs.md#configure-slow-query-logging) 문서를 참조 하세요.  
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="서버 매개 변수 페이지.":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="저속 쿼리 로그 관련 매개 변수를 업데이트 합니다.":::
 
-1. **저장**을 선택합니다. 
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="서버 매개 변수 페이지.":::
+1. **저장** 을 선택합니다. 
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="느리게 쿼리 로그 매개 변수를 저장 합니다.":::
 
 **서버 매개 변수** 페이지에서 페이지를 닫아 로그 목록으로 돌아갈 수 있습니다.
 
@@ -48,19 +48,19 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
 저속 쿼리 로그는 로그를 Azure Monitor 로그, Event Hubs 또는 Azure Storage로 파이프 하는 데 사용할 수 있는 Azure Monitor 진단 설정에 통합 됩니다.
 
-1. 사이드바의 **모니터링** 섹션에서 **진단 설정**  >  **진단 설정 추가**를 선택 합니다.
+1. 사이드바의 **모니터링** 섹션에서 **진단 설정**  >  **진단 설정 추가** 를 선택 합니다.
 
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="서버 매개 변수 페이지.":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="진단 설정 옵션의 스크린샷":::
 
 1. 진단 설정 이름을 제공 합니다.
 
 1. 저속 쿼리 로그를 보낼 대상 (저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역)을 지정 합니다.
 
 1. 로그 형식으로 **MySqlSlowLogs** 를 선택 합니다.
-    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="서버 매개 변수 페이지.":::
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="진단 설정 구성 옵션의 스크린샷":::
 
-1. 저속 쿼리 로그를 파이프 하도록 데이터 싱크를 구성한 후 **저장**을 선택 합니다.
-    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="서버 매개 변수 페이지.":::
+1. 저속 쿼리 로그를 파이프 하도록 데이터 싱크를 구성한 후 **저장** 을 선택 합니다.
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="저장이 강조 표시 된 진단 설정 구성 옵션의 스크린샷":::
 
 1. 구성 된 데이터 싱크에서 탐색 하 여 느리게 쿼리 로그에 액세스 합니다. 로그가 표시 되는 데 최대 10 분이 소요 될 수 있습니다.
 

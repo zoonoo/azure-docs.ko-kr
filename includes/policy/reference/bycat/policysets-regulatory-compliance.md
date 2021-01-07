@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 394bad6623eeb4ce4b43cadd9bef53934ed7e852
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dc4ec31a307d559fad84392522e6847aab1e3873
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311578"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986971"
 ---
 |Name |Description |정책 |버전 |
 |---|---|---|---|
@@ -18,7 +18,7 @@ ms.locfileid: "92311578"
 |[Azure Security Benchmark](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |이 이니셔티브에는 Azure Security 벤치마크 권장 사항의 하위 집합을 다루는 감사 및 가상 머신 확장 배포 정책이 포함됩니다. 이후 릴리스에 추가 정책이 추가됩니다. 자세한 내용은 [https://aka.ms/azsecbm](https://aka.ms/azsecbm)를 방문하세요. |136 |6.1.0-preview |
 |[캐나다 연방 PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |이 이니셔티브에는 캐나다 연방 PBMM 컨트롤의 하위 집합을 다루는 감사 및 가상 머신 확장 배포 정책이 포함됩니다. 이후 릴리스에 추가 정책이 추가됩니다. 자세한 내용은 [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint)를 방문하세요. |60 |3.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json) |이 이니셔티브에는 CIS Microsoft Azure Foundations Benchmark 권장 사항의 하위 집합을 다루는 감사 정책이 포함됩니다. 이후 릴리스에 추가 정책이 추가됩니다. 자세한 내용은 [https://aka.ms/cisazure-blueprint](https://aka.ms/cisazure-blueprint)를 방문하세요. |87 |7.1.0 |
-|[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |이 이니셔티브에는 FedRAMP H 컨트롤의 하위 집합을 다루는 감사 및 가상 머신 확장 배포 정책이 포함됩니다. 이후 릴리스에 추가 정책이 추가됩니다. 자세한 내용은 [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint)를 방문하세요. |72 |3.0.0 |
+|[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |이 이니셔티브에는 FedRAMP H 컨트롤의 하위 집합을 다루는 감사 및 가상 머신 확장 배포 정책이 포함됩니다. 이후 릴리스에 추가 정책이 추가됩니다. 자세한 내용은 [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint)를 방문하세요. |72 |3.0.1 |
 |[FedRAMP Moderate](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_M_audit.json) |이 이니셔티브에는 FedRAMP M 컨트롤의 하위 집합을 다루는 감사 및 가상 머신 확장 배포 정책이 포함됩니다. 이후 릴리스에 추가 정책이 추가됩니다. 자세한 내용은 [https://aka.ms/fedrampm-blueprint](https://aka.ms/fedrampm-blueprint)를 방문하세요. |62 |3.0.0 |
 |[HITRUST/HIPAA](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |이 이니셔티브에는 HITRUST/HIPAA 컨트롤의 하위 집합을 다루는 감사 및 가상 머신 확장 배포 정책이 포함됩니다. 이후 릴리스에 추가 정책이 추가됩니다. 자세한 내용은 [https://aka.ms/hipaa-blueprint](https://aka.ms/hipaa-blueprint)를 방문하세요. |121 |4.1.0 |
 |[IRS1075 2016년 9월](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRS1075_audit.json) |이 이니셔티브에는 IRS1075 2016년 9월 컨트롤의 하위 집합을 다루는 감사 및 가상 머신 확장 배포 정책이 포함됩니다. 이후 릴리스에 추가 정책이 추가됩니다. 자세한 내용은 [https://aka.ms/irs1075-blueprint](https://aka.ms/irs1075-blueprint)를 방문하세요. |62 |3.0.0 |

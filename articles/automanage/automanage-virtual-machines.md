@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891505"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695786"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>가상 컴퓨터에 대 한 Azure Automanage
 
@@ -28,7 +28,7 @@ ms.locfileid: "92891505"
 
 ## <a name="overview"></a>개요
 
-가상 컴퓨터에 대 한 azure Automanage는 Azure에서 가상 컴퓨터에 유용한 특정 서비스를 검색 하 고, 등록 하는 방법을 파악 하 고, Azure에서 특정 서비스를 구성 하는 방법을 파악 하지 않아도 되는 서비스입니다. 이러한 서비스는 가상 컴퓨터에 대 한 안정성, 보안 및 관리를 개선 하는 데 도움이 되며, [azure 업데이트 관리](../automation/update-management/update-mgmt-overview.md) 및 [Azure Backup](../backup/backup-overview.md) 와 같은 azure 모범 사례 서비스로 간주 되어 이름을 지정할 수 있습니다.
+가상 컴퓨터에 대 한 azure Automanage는 Azure에서 가상 컴퓨터에 유용한 특정 서비스를 검색 하 고, 등록 하는 방법을 파악 하 고, Azure에서 특정 서비스를 구성 하는 방법을 파악 하지 않아도 되는 서비스입니다. 이러한 서비스는 가상 컴퓨터에 대 한 안정성, 보안 및 관리를 개선 하는 데 도움이 되며, [azure 업데이트 관리](../automation/update-management/overview.md) 및 [Azure Backup](../backup/backup-overview.md) 와 같은 azure 모범 사례 서비스로 간주 되어 이름을 지정할 수 있습니다.
 
 Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 사례 서비스가 권장 설정으로 구성 됩니다. 모범 사례는 각 서비스 마다 다릅니다. Azure Backup 예를 들어, 하루에 한 번 가상 머신을 백업 하 고 6 개월의 보존 기간을 설정 하는 것이 가장 좋습니다.
 
@@ -37,7 +37,7 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 마지막으로 경험이 매우 간단 합니다.
 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 가상 머신에서 Azure Automanage를 사용 하도록 설정 하기 전에 고려해 야 할 몇 가지 필수 구성 요소가 있습니다.
 
@@ -52,7 +52,7 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 > [!NOTE]
 > 다른 구독의 작업 영역에 연결 된 VM에서 Automanage를 사용 하려면 각 구독에서 위에 설명 된 사용 권한이 있어야 합니다.
 
-Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부 및 지역에 있는 Windows Vm만 지원 한다는 점에 유의 해야 합니다.
+Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부, 일본 동부와 같은 지역에 있는 Windows Vm만 지원 한다는 점에 유의 해야 합니다.
 
 ## <a name="participating-services"></a>참여 하는 서비스
 
@@ -69,7 +69,7 @@ Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 
 
 Azure Portal에서 기존 가상 컴퓨터에 대해 자동 관리를 사용 하도록 설정 하거나 새 가상 컴퓨터를 만들 수 있습니다. 이 프로세스에 대 한 간결한 단계는 [virtual machines의 Automanage 빠른](quick-create-virtual-machines-portal.md)시작을 참조 하세요.
 
-VM에 대해 Automanage를 처음 사용 하는 경우 **automanage – Azure virtual machines 모범 사례** 에 대 한 Azure Portal에서 검색할 수 있습니다. **기존 vm에서 사용** 을 클릭 하 고, 등록 하려는 vm을 선택 하 고, **선택** , **사용** 을 차례로 클릭 한 후 완료 합니다.
+VM에 대해 Automanage를 처음 사용 하는 경우 **automanage – Azure virtual machines 모범 사례** 에 대 한 Azure Portal에서 검색할 수 있습니다. **기존 vm에서 사용** 을 클릭 하 고, 등록 하려는 vm을 선택 하 고, **선택**, **사용** 을 차례로 클릭 한 후 완료 합니다.
 
 이러한 서비스를 관리 하기 위해이 VM과 상호 작용 해야 하는 경우에는 VM을 수정 하려고 했지만 그렇게 하지 못한 이벤트에 있습니다. VM을 성공적으로 재구성 한 경우 경고를 표시 하지 않고 다시 준수 상태로 전환 합니다.
 
@@ -114,7 +114,7 @@ Azure Portal 환경에서 Vm에 대해 Automanage를 사용 하도록 설정 하
 
 Azure Portal에서 자동 관리 되는 모든 Vm을 나열 하는 **Automanage – Azure virtual machines 모범 사례** 페이지로 이동 합니다. 여기에서 각 가상 머신의 전반적인 상태를 확인할 수 있습니다.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="지능적으로 서비스를 등록 합니다.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="구성 된 가상 컴퓨터 목록입니다.":::
 
 나열 된 각 VM에 대해 이름, 구성 프로필, 구성 기본 설정, 상태, 계정, 구독 및 리소스 그룹 세부 정보가 표시 됩니다.
 
@@ -132,7 +132,7 @@ Azure Portal에서 자동 관리 되는 모든 Vm을 나열 하는 **Automanage 
 
 Azure Portal에서이 작업을 수행 하려면 자동 관리 되는 모든 Vm을 나열 하는 **Automanage – Azure virtual machines 모범 사례** 페이지로 이동 합니다. Automanage에서 사용 하지 않도록 설정할 가상 컴퓨터 옆의 확인란을 선택 하 고 **Automanage 사용 안 함** 단추를 클릭 합니다.
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="지능적으로 서비스를 등록 합니다.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="가상 머신에서 Automanage 사용 안 함":::
 
 **사용 안 함** 에 동의하기 전에 결과 팝업의 메시지를 자세히 읽어 보세요.
 

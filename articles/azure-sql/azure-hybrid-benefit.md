@@ -5,18 +5,18 @@ description: Azure SQL Database 및 SQL Managed Instance 할인에 기존 SQL Se
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: features
-ms.custom: sqldbrb=4
+ms.custom: sqldbrb=4, devx-track-azurecli
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
-ms.openlocfilehash: 186721fbb52ae153bd51076a9fe3a7413f29d1b4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 872b36eae9142473885885d5bf5ad3fa10ae5ccb
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479122"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841600"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure 하이브리드 혜택-Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]

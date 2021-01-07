@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214909"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516096"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 정보
 
@@ -98,7 +98,7 @@ ms.locfileid: "92214909"
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Phone 요소 인증](phone-factor-technical-profile.md) |  |  | X |  |
-| [Azure MFA 인증](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Azure AD MFA 인증](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [일회용 암호](one-time-password-technical-profile.md) |  | X |  |  |
 | 로컬 디렉터리로서의 [Azure Active Directory](active-directory-technical-profile.md) |  |  | X |  |
 | 이메일 확인을 위한 Azure 이메일 하위 시스템 |  |  | X |  |
@@ -108,16 +108,6 @@ ms.locfileid: "92214909"
 | [표시 컨트롤](display-controls.md) |  |X  |  |  |
 
 
-### <a name="page-layout-versions"></a>페이지 레이아웃 버전
-
-| 기능 | 개발 | 미리 보기 | GA | 메모 |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md) |  | X |  |  |
-| [1.2.0](page-layout.md) |  | X |  |  |
-| [1.1.0](page-layout.md) |  |  | X |  |
-| [1.0.0](page-layout.md) |  |  | X |  |
-| [JavaScript 지원](javascript-samples.md) |  | X |  |  |
-
 ### <a name="app-ief-integration"></a>App-IEF 통합
 
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
@@ -126,7 +116,8 @@ ms.locfileid: "92214909"
 | 쿼리 문자열 매개 변수 `login_hint` |  |  | X | 클레임으로 사용 가능, IDP로 전달될 수 있음 |
 | `client_assertion`을 통해 사용자 경험에 JSON 삽입 | X |  |  | 지원 중단 예정 |
 | 사용자 경험에 `id_token_hint`로 JSON 삽입 |  | X |  | JSON을 전달하는 진행 방법 |
-| [애플리케이션에 ID 공급자 토큰 전달](idp-pass-through-custom.md) |  | X |  | 예: Facebook에서 앱으로 전달 |
+| [애플리케이션에 ID 공급자 토큰 전달](idp-pass-through-user-flow.md) |  | X |  | 예: Facebook에서 앱으로 전달 |
+
 
 ### <a name="session-management"></a>세션 관리
 
@@ -136,7 +127,7 @@ ms.locfileid: "92214909"
 | [외부 로그인 세션 공급자](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [SAML SSO 세션 공급자](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
 | [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
-| [Single Sign-Out](session-overview.md#sign-out)  |  | X |  |  |
+| [Single Sign-Out](session-behavior.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>보안
 

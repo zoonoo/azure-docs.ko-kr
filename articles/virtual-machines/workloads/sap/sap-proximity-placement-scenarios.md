@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2020
+ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b48e4223e4e5fc5100de250d85441fcb96d50a3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977241"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827226"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위한 Azure 근접 배치 그룹
 Sap NetWeaver 또는 SAP S/4HANA 아키텍처를 기반으로 하는 SAP 응용 프로그램은 SAP 응용 프로그램 계층과 SAP 데이터베이스 계층 간의 네트워크 대기 시간을 구분 합니다. 이러한 민감도는 응용 프로그램 계층에서 실행 되는 대부분의 비즈니스 논리에 대 한 결과입니다. SAP 응용 프로그램 계층은 비즈니스 논리를 실행 하기 때문에 데이터베이스 계층에 대 한 쿼리를 초당 수천 또는 수만 개의 속도로 데이터베이스 계층에 보냅니다. 대부분의 경우 이러한 쿼리의 특성은 간단 합니다. 500 마이크로초 이하로 데이터베이스 계층에서 실행 되는 경우가 많습니다.
@@ -41,6 +42,8 @@ Sap NetWeaver 또는 SAP S/4HANA 아키텍처를 기반으로 하는 SAP 응용 
 > - 필요한 경우에만
 > - 단일 SAP 시스템의 세분성만이 아니라 전체 시스템 가로 또는 전체 SAP 환경을 위한 것이 아닙니다.
 > - 다른 VM 유형 및 근접 배치 그룹 내의 Vm 수를 최소로 유지 하는 방법
+
+가용성 영역 지정 하 여 Vm을 배포 하 고 동일한 가용성 영역를 선택 하는 경우 이러한 Vm 간의 네트워크 대기 시간은 SAP NetWeaver 및 S/4HANA 시스템을 충족 하 고 성능 및 처리량을 충족 하는 데 충분 해야 합니다. 이 가정은 특정 영역이 하나의 데이터 센터 또는 여러 데이터 센터에서 구축 되었는지 여부와는 독립적입니다. 영역 배포에서 근접 배치 그룹을 사용 하는 유일한 이유는 Azure 가용성 집합 배포 된 Vm을 영역 배포 Vm과 함께 할당 하려는 경우입니다.
 
 
 ## <a name="what-are-proximity-placement-groups"></a>근접 배치 그룹 이란? 

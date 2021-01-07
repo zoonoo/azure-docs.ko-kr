@@ -1,6 +1,6 @@
 ---
-title: Dmv를 사용 하 여 SQL 풀 워크 로드 모니터링
-description: Dmv를 사용 하 여 Azure Synapse Analytics SQL 풀 작업 및 쿼리 실행을 모니터링 하는 방법에 대해 알아봅니다.
+title: Dmv를 사용 하 여 전용 SQL 풀 워크 로드 모니터링
+description: Dmv를 사용 하 여 Azure Synapse Analytics 전용 SQL 풀 작업 및 쿼리 실행을 모니터링 하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1992c3d525fc1f5a098e1969887a752233d47990
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515732"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453811"
 ---
-# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Dmv를 사용 하 여 Azure Synapse Analytics SQL 풀 워크 로드 모니터링
+# <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>Dmv를 사용 하 여 Azure Synapse Analytics 전용 SQL 풀 워크 로드 모니터링
 
 이 문서에서는 Dmv (동적 관리 뷰)를 사용 하 여 SQL 풀에서 쿼리 실행을 조사 하는 작업을 비롯 한 작업을 모니터링 하는 방법을 설명 합니다.
 
@@ -100,10 +100,10 @@ ORDER BY step_index;
 
 DSQL 계획의 시간이 생각보다 오래 걸리는 경우 계획이 여러 DSQL 단계를 포함하여 복잡하거나 한 단계에 시간이 오래 걸리는 것일 수 있습니다.  계획에 많은 단계가 포함되어 있으며 여러 이동 작업이 수행되는 경우에는 테이블 분산을 최적화하여 데이터 이동을 줄일 수 있습니다. [테이블 배포](sql-data-warehouse-tables-distribute.md) 문서에는 쿼리를 해결 하기 위해 데이터를 이동 해야 하는 이유가 설명 되어 있습니다. 이 문서에서는 데이터 이동을 최소화 하기 위한 몇 가지 배포 전략에 대해서도 설명 합니다.
 
-한 단계에서 추가 세부 정보를 조사하려면 오래 실행되는 쿼리 단계의 *operation_type* 열을 확인하고 **단계 인덱스**를 적어 둡니다.
+한 단계에서 추가 세부 정보를 조사하려면 오래 실행되는 쿼리 단계의 *operation_type* 열을 확인하고 **단계 인덱스** 를 적어 둡니다.
 
 * **SQL 작업**: Onoperation, Remoteoperation, ReturnOperation에 대해 3 단계를 진행 합니다.
-* **데이터 이동 작업**에 대해 4 단계를 진행 합니다. ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, 파티션 된 MoveOperation, Moveoperation, copyoperation.
+* **데이터 이동 작업** 에 대해 4 단계를 진행 합니다. ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, 파티션 된 MoveOperation, Moveoperation, copyoperation.
 
 ### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>3 단계: 분산 데이터베이스에서 SQL 조사
 
@@ -176,7 +176,7 @@ WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-쿼리가 적극적으로 다른 쿼리의 리소스를 대기 중인 경우 상태는 **AcquireResources**입니다.  쿼리가 필요한 리소스를 모두 가지고 있으면 상태는 **Granted**입니다.
+쿼리가 적극적으로 다른 쿼리의 리소스를 대기 중인 경우 상태는 **AcquireResources** 입니다.  쿼리가 필요한 리소스를 모두 가지고 있으면 상태는 **Granted** 입니다.
 
 ## <a name="monitor-tempdb"></a>tempdb 모니터링
 

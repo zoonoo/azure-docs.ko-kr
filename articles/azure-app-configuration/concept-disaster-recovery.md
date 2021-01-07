@@ -1,17 +1,17 @@
 ---
 title: Azure 앱 구성 복원 력 및 재해 복구
 description: Azure 앱 구성을 사용 하 여 복원 력 및 재해 복구를 구현 하는 방법에 대해 설명 합니다.
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/20/2020
-ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 07/09/2020
+ms.openlocfilehash: 7910e2092259081aade799fc662052e5a1375e25
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207193"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930486"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>복원력 및 재해 복구
 
@@ -72,11 +72,11 @@ App Configuration에서 **내보내기** 함수를 사용하여 요청에 따라
 
 Azure Portal에서 다음 단계를 수행하면 다른 구성 저장소에 대한 변경을 푸시할 수 있습니다.
 
-1. **가져오기/내보내기** 탭으로 이동하고 **내보내기** > **App Configuration** > **대상** > **리소스 선택**을 선택합니다.
+1. **가져오기/내보내기** 탭으로 이동하고 **내보내기** > **App Configuration** > **대상** > **리소스 선택** 을 선택합니다.
 
-1. 열리는 새 블레이드에서 보조 저장소의 구독, 리소스 그룹 및 리소스 이름을 지정한 다음 **적용**을 선택 합니다.
+1. 열리는 새 블레이드에서 보조 저장소의 구독, 리소스 그룹 및 리소스 이름을 지정한 다음 **적용** 을 선택 합니다.
 
-1. UI가 업데이트되어 보조 저장소로 내보내려는 구성 데이터를 선택할 수 있습니다. 기본 시간 값을 그대로 두고 **레이블과** 레이블 둘 다를 같은 **값으로 설정할** 수 있습니다. **적용**을 선택합니다. 기본 저장소의 모든 레이블에 대해이를 반복 합니다.
+1. UI가 업데이트되어 보조 저장소로 내보내려는 구성 데이터를 선택할 수 있습니다. 기본 시간 값을 그대로 두고 **레이블과** 레이블 둘 다를 같은 **값으로 설정할** 수 있습니다. **적용** 을 선택합니다. 기본 저장소의 모든 레이블에 대해이를 반복 합니다.
 
 1. 구성이 변경 될 때마다 이전 단계를 반복 합니다.
 

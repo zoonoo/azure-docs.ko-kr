@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598114"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016788"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 계획
 
@@ -45,7 +45,7 @@ Azure Time Series Insights Gen2 환경을 프로 비전 할 때 두 가지 Azure
 웜 저장소에 대 한 쿼리는 무료 이지만 콜드 스토어의 쿼리는 비용이 발생 합니다. 쿼리 패턴을 이해 하 고 웜 저장소 구성을 적절 하 게 계획 하는 것이 중요 합니다. 최신 데이터에 대 한 대화형 분석은 웜 저장소에 있고 패턴 분석과 장기적 추세는 콜드에 상주 하는 것이 좋습니다.
 
 > [!NOTE]
-> 웜 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [API 참조를 참조](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters)하세요.
+> 웜 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [API 참조를 참조](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters)하세요.
 
 시작하려면 다음 세 개의 추가 항목이 필요합니다.
 
@@ -64,7 +64,7 @@ Azure Time Series Insights Gen2 환경을 프로 비전 할 때 두 가지 Azure
 > [!IMPORTANT]
 > 시계열 Id는 *나중에 변경할 수 없습니다*. 최종 선택하고 처음 사용하기 전에 각 항목을 확인합니다.
 
-최대 3 개의 키를 선택 하 여 리소스를 고유 하 게 구분할 수 있습니다. 자세한 내용은 시계열 ID 및 수집 [규칙](concepts-json-flattening-escaping-rules.md) [선택에 대 한 모범 사례](./time-series-insights-update-how-to-id.md) 를 참조 하세요.
+최대 3 개의 키를 선택 하 여 리소스를 고유 하 게 구분할 수 있습니다. 자세한 내용은 시계열 ID 및 수집 [규칙](concepts-json-flattening-escaping-rules.md) [선택에 대 한 모범 사례](./how-to-select-tsid.md) 를 참조 하세요.
 
 **Timestamp** 속성도 중요 합니다. 이벤트 원본을 추가할 때 이 속성을 지정할 수 있습니다. 각 이벤트 원본에는 시간 경과에 따라 이벤트 원본을 추적하는 데 사용되는 선택적 타임스탬프 속성이 있습니다. 타임스탬프 값은 대/소문자를 구분하며 각 이벤트 원본의 개별 사양에 맞는 형식이어야 합니다.
 
@@ -74,7 +74,7 @@ Azure Time Series Insights Gen2 환경을 프로 비전 할 때 두 가지 Azure
 
 이제 Azure Time Series Insights 환경의 시계열 모델을 구성할 수 있습니다. 새 모델을 사용하면 IoT 데이터를 쉽게 찾아서 분석할 수 있습니다. 시계열 데이터의 큐레이션, 유지 관리 및 보강을 가능하게 하며, 소비자가 바로 사용할 수 있는 데이터 세트를 준비하는 데 도움이 됩니다. 모델은 고유한 리소스를 변수(형식이라고도 함) 및 계층 구조와 연결하는 인스턴스에 매핑되는 시계열 ID를 사용합니다. 자세한 내용은 [시계열 모델](./concepts-model-overview.md) 개요를 참조 하세요.
 
-모델은 동적이므로 언제든지 빌드할 수 있습니다. 신속 하 게 시작 하려면 데이터를 Azure Time Series Insights 푸시 하기 전에 빌드 및 업로드 하세요. 모델을 작성 하려면 [시계열 모델 사용](/azure/time-series-insights/concepts-model-overview)을 참조 하세요.
+모델은 동적이므로 언제든지 빌드할 수 있습니다. 신속 하 게 시작 하려면 데이터를 Azure Time Series Insights 푸시 하기 전에 빌드 및 업로드 하세요. 모델을 작성 하려면 [시계열 모델 사용](./concepts-model-overview.md)을 참조 하세요.
 
 많은 고객의 경우, 시계열 모델은 이미 구현된 기존 자산 모델 또는 ERP 시스템에 매핑됩니다. 기존 모델이 없는 경우, 빠르게 시작하고 실행하도록 사전 빌드된 사용자 환경이 [제공](https://github.com/Microsoft/tsiclient)됩니다. 모델이 어떻게 도움이 되는지를 확인하려면 [샘플 데모 환경](https://insights.timeseries.azure.com/preview/demo)을 살펴보세요.
 

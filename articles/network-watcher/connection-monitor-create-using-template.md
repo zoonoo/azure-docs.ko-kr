@@ -1,7 +1,7 @@
 ---
-title: 연결 모니터 미리 보기 만들기-ARMClient
+title: 연결 모니터 만들기-ARM 템플릿
 titleSuffix: Azure Network Watcher
-description: ARMClient를 사용 하 여 연결 모니터 (미리 보기)를 만드는 방법에 대해 알아봅니다.
+description: ARMClient를 사용 하 여 연결 모니터를 만드는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -10,24 +10,25 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 5a351e550cac9edcc8ce1c54fbe5c57d012ee607
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c3b228d2652d5f7dcf7c6596ee5425b3f5f9a4d8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447668"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544006"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>ARMClient를 사용 하 여 연결 모니터 (미리 보기) 만들기
+# <a name="create-a-connection-monitor-using-the-arm-template"></a>ARM 템플릿을 사용 하 여 연결 모니터 만들기
 
-ARMClient를 사용 하 여 리소스 간의 통신을 모니터링 하는 연결 모니터 (미리 보기)를 만드는 방법에 대해 알아봅니다. 하이브리드 및 Azure 클라우드 배포를 지원 합니다.
+ARMClient를 사용 하 여 리소스 간의 통신을 모니터링 하는 연결 모니터를 만드는 방법에 대해 알아봅니다. 하이브리드 및 Azure 클라우드 배포를 지원 합니다.
+
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 
-연결 모니터 (미리 보기)에서 만든 연결 모니터에서 온-프레미스 컴퓨터와 Azure Vm을 모두 원본으로 추가할 수 있습니다. 이러한 연결 모니터는 끝점에 대 한 연결을 모니터링할 수도 있습니다. 끝점은 Azure 또는 다른 모든 URL 또는 IP에 있을 수 있습니다.
+연결 모니터에서 만드는 연결 모니터에서 온-프레미스 컴퓨터와 Azure Vm을 모두 원본으로 추가할 수 있습니다. 이러한 연결 모니터는 끝점에 대 한 연결을 모니터링할 수도 있습니다. 끝점은 Azure 또는 다른 모든 URL 또는 IP에 있을 수 있습니다.
 
-연결 모니터 (미리 보기)에는 다음 엔터티가 포함 됩니다.
+연결 모니터에는 다음 엔터티가 포함 됩니다.
 
 * **연결 모니터 리소스** – 지역별 Azure 리소스입니다. 다음 엔터티는 모두 연결 모니터 리소스의 속성입니다.
 * **끝점** – 연결 확인에 참여 하는 원본 또는 대상입니다. 끝점의 예로는 Azure Vm, 온-프레미스 에이전트, Url 및 Ip가 있습니다.
@@ -359,7 +360,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * 엔드포인트
     * 이름 – 각 끝점에 대 한 고유 이름
-    * resourceId – Azure 끝점의 경우 리소스 ID는 가상 머신에 대 한 Azure resource manager 리소스 ID를 나타냅니다. 비 Azure 끝점의 경우 리소스 ID는 비 Azure 에이전트에 연결 된 Log Analytics 작업 영역에 대 한 Azure resource manager 리소스 ID를 나타냅니다.
+    * resourceId – Azure 끝점의 경우 리소스 ID는 가상 머신의 Azure Resource Manager 리소스 ID를 나타냅니다. 비 Azure 끝점의 경우 리소스 ID는 비 Azure 에이전트에 연결 된 Log Analytics 작업 영역에 대 한 Azure Resource Manager 리소스 ID를 나타냅니다.
     * address – 리소스 ID가 지정 되지 않았거나 리소스 ID가 작업 영역 Log Analytics 경우에만 적용 됩니다. Log Analytics 리소스 ID와 함께 사용 하는 경우이는 모니터링에 사용할 수 있는 에이전트의 FQDN을 나타냅니다. 리소스 ID 없이 사용 하는 경우이는 모든 공용 끝점의 URL 또는 IP 일 수 있습니다.
     * filter – 비 Azure 끝점의 경우 필터를 사용 하 여 연결 모니터 리소스의 모니터링에 사용할 Log Analytics 작업 영역에서 에이전트를 선택 합니다. 필터를 설정 하지 않으면 Log Analytics 작업 영역에 속하는 모든 에이전트를 모니터링에 사용할 수 있습니다.
         * 유형 – 유형을 "에이전트 주소"로 설정 합니다.
@@ -368,7 +369,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * 테스트 그룹
     * 이름-테스트 그룹 이름을로 합니다.
     * testConfigurations-대상 끝점에 연결 하는 소스 끝점을 기준으로 하는 테스트 구성
-    * 소스-위에서 만든 끝점에서 선택 합니다. Azure 기반 소스 끝점은 Azure Network Watcher 확장을 설치 해야 하며 Azure 기반이 아닌 소스 끝점은 haveAzure Log Analytics 에이전트가 설치 되어야 합니다. 원본에 대 한 에이전트를 설치 하려면 [모니터링 에이전트 설치](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents)를 참조 하세요.
+    * 소스-위에서 만든 끝점에서 선택 합니다. Azure 기반 소스 끝점은 Azure Network Watcher 확장을 설치 해야 하며 Azure 기반이 아닌 소스 끝점은 haveAzure Log Analytics 에이전트가 설치 되어야 합니다. 원본에 대 한 에이전트를 설치 하려면 [모니터링 에이전트 설치](./connection-monitor-overview.md#install-monitoring-agents)를 참조 하세요.
     * 대상-위에서 만든 끝점에서 선택 합니다. 대상으로 지정 하 여 Azure Vm 또는 끝점 (공용 IP, URL 또는 FQDN)에 대 한 연결을 모니터링할 수 있습니다. 단일 테스트 그룹에서 Azure Vm, Office 365 Url, Dynamics 365 Url 및 사용자 지정 끝점을 추가할 수 있습니다.
     * disable-이 필드를 사용 하 여 테스트 그룹에서 지정 하는 모든 원본 및 대상에 대해 모니터링을 사용 하지 않도록 설정 합니다.
 
@@ -400,5 +401,5 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 ## <a name="next-steps"></a>다음 단계
 
-* [모니터링 데이터를 분석 하 고 경고를 설정 하는 방법](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts) 알아보기
-* [네트워크에서 문제를 진단 하는 방법을](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network) 알아봅니다.
+* [모니터링 데이터를 분석 하 고 경고를 설정 하는 방법](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts) 알아보기
+* [네트워크에서 문제를 진단 하는 방법을](./connection-monitor-overview.md#diagnose-issues-in-your-network) 알아봅니다.

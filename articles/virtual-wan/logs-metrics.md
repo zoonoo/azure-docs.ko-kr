@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440866"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566370"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure 가상 WAN 로그 및 메트릭
 
@@ -60,13 +60,13 @@ Azure Express 경로 게이트웨이에서는 다음 메트릭을 사용할 수 
 
 2. **VPN (사이트 간)** 을 선택 하 여 사이트 간 게이트웨이를 찾습니다. **express** 경로를 선택 하 여 express 경로 게이트웨이를 찾거나 **사용자 VPN (지점 및 사이트 간)** 을 선택 하 여 지점 및 사이트 간 게이트웨이를 찾습니다. 페이지에서 게이트웨이 정보를 볼 수 있습니다. 이 정보를 복사 합니다. 나중에 Azure Monitor를 사용 하 여 진단을 확인 하는 데 사용 합니다.
 
-3. **메트릭**을 선택합니다.
+3. **메트릭** 을 선택합니다.
 
    :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="스크린샷 Azure Monitor 선택 된 보기가 포함 된 사이트 간 V P N 창을 보여 줍니다.":::
 
 4. **메트릭** 페이지에서 관심 있는 메트릭을 볼 수 있습니다.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="스크린샷 Azure Monitor 선택 된 보기가 포함 된 사이트 간 V P N 창을 보여 줍니다.":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="범주가 강조 표시 된 ' 메트릭 ' 페이지를 보여 주는 스크린샷":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>진단 로그
 
@@ -93,19 +93,19 @@ Azure Express 경로 게이트웨이에서는 다음 메트릭을 사용할 수 
 
 1. 포털에서 가상 WAN 리소스로 이동 합니다. 포털의 가상 WAN 페이지 **개요** 섹션에서 **Essentials** 를 선택 하 여 보기를 확장 하 고 리소스 그룹 정보를 가져옵니다. 리소스 그룹 정보를 복사 합니다.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="스크린샷 Azure Monitor 선택 된 보기가 포함 된 사이트 간 V P N 창을 보여 줍니다.":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="' ' 복사 ' 단추를 가리키는 화살표가 있는 ' 개요 ' 섹션을 보여 주는 스크린샷":::
 
-2. 모니터링 섹션에서 리소스 그룹으로 이동 합니다. **진단 설정**을 선택 하 고 리소스 정보를 입력 합니다. 이 정보는이 문서 앞부분의 [게이트웨이 메트릭 보기](#metrics-steps) 섹션에서 2 단계에서 복사한 리소스 정보입니다.
+2. 모니터링 섹션에서 리소스 그룹으로 이동 합니다. **진단 설정** 을 선택 하 고 리소스 정보를 입력 합니다. 이 정보는이 문서 앞부분의 [게이트웨이 메트릭 보기](#metrics-steps) 섹션에서 2 단계에서 복사한 리소스 정보입니다.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="스크린샷 Azure Monitor 선택 된 보기가 포함 된 사이트 간 V P N 창을 보여 줍니다.":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="' 리소스 ' 드롭다운을 가리키는 화살표가 있는 ' 모니터링 ' 섹션을 보여 주는 스크린샷":::
 
-3. 결과 페이지에서 **+ 진단 설정 추가**를 선택한 다음 옵션을 선택 합니다. Log Analytics로 보내거나, 이벤트 허브로 스트림 하거나, 저장소 계정에 보관 하도록 선택할 수 있습니다.
+3. 결과 페이지에서 **+ 진단 설정 추가** 를 선택한 다음 옵션을 선택 합니다. Log Analytics로 보내거나, 이벤트 허브로 스트림 하거나, 저장소 계정에 보관 하도록 선택할 수 있습니다.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="스크린샷 Azure Monitor 선택 된 보기가 포함 된 사이트 간 V P N 창을 보여 줍니다.":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="메트릭 페이지":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Log Analytics 샘플 쿼리
 
-로그는 **Azure Log Analytics 작업 영역**에 있습니다. Log Analytics에서 쿼리를 설정할 수 있습니다. 다음 예제에는 사이트 간 경로 진단을 가져오는 쿼리가 포함 되어 있습니다.
+로그는 **Azure Log Analytics 작업 영역** 에 있습니다. Log Analytics에서 쿼리를 설정할 수 있습니다. 다음 예제에는 사이트 간 경로 진단을 가져오는 쿼리가 포함 되어 있습니다.
 
 ```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
 
@@ -119,9 +119,9 @@ Azure Express 경로 게이트웨이에서는 다음 메트릭을 사용할 수 
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>활동 로그
 
-**활동 로그** 항목은 기본적으로 수집 되며 Azure Portal에서 볼 수 있습니다. Azure 활동 로그 (이전의 *작업 로그* 및 *감사 로그*)를 사용 하 여 azure 구독에 제출 된 모든 작업을 볼 수 있습니다.
+**활동 로그** 항목은 기본적으로 수집 되며 Azure Portal에서 볼 수 있습니다. Azure 활동 로그 (이전의 *작업 로그* 및 *감사 로그* )를 사용 하 여 azure 구독에 제출 된 모든 작업을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Firewall 로그 및 메트릭을 모니터링하는 방법은 [자습서: Azure Firewall 로그 모니터링](../firewall/tutorial-diagnostics.md)을 참조하세요.
+* Azure Firewall 로그 및 메트릭을 모니터링하는 방법은 [자습서: Azure Firewall 로그 모니터링](../firewall/firewall-diagnostics.md)을 참조하세요.
 * Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.

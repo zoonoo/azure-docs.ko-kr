@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33329fc30d1c20b4e20901d06a061accb2aeceb0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: d8c3f64e5cb5269bfe7e555615f874ac3443c6eb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456903"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357830"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Bonusly 구성
 
@@ -46,7 +46,7 @@ Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Bonusly
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -54,7 +54,7 @@ Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Bonusly
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Bonusly**를 입력하고 결과 패널에서 **Bonusly**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Bonusly** 를 입력하고 결과 패널에서 **Bonusly** 를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Bonusly](common/search-new-app.png)
 
@@ -81,73 +81,73 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Azure AD에서 Bonusly에 대한 자동 사용자 프로비전을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 하 고 **Bonusly**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Bonusly** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Bonusly**를 선택합니다.
+2. 애플리케이션 목록에서 **Bonusly** 를 선택합니다.
 
     ![애플리케이션 목록의 Bonusly 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningTab.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningTab.png" alt-text="Bonusly - 프로비저닝 탭의 스크린샷 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="자동이 선택되고 강조 표시된 프로비저닝 모드 목록 상자를 보여 주는 스크린샷" border="false":::
 
-5. **관리자 자격 증명** 섹션에서 6단계에서 설명한 것처럼 Bonusly 계정의 **비밀 토큰**을 입력합니다.
+5. **관리자 자격 증명** 섹션에서 6단계에서 설명한 것처럼 Bonusly 계정의 **비밀 토큰** 을 입력합니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="관리자 자격 증명 섹션의 스크린샷 비밀 토큰 상자는 비어 있지만 상자가 강조 표시됩니다." border="false":::
 
-6. Bonusly 계정의 **비밀 토큰**은 **관리자 > 회사 > 통합**에 있습니다. **코드가 필요한 경우** 섹션에서 **API > 새 API 액세스 토큰 만들기**를 클릭하여 새 비밀 토큰을 만듭니다.
+6. Bonusly 계정의 **비밀 토큰** 은 **관리자 > 회사 > 통합** 에 있습니다. **코드가 필요한 경우** 섹션에서 **API > 새 API 액세스 토큰 만들기** 를 클릭하여 새 비밀 토큰을 만듭니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Bonusly 메뉴의 스크린샷 관리자 아래에 회사가 강조 표시됩니다. 회사 아래에 통합이 강조 표시됩니다." border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="API가 강조 표시된 Bonusly 사이트의 섹션을 코딩할 경우의 스크린샷" border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Bonusly 사이트의 스크린샷 서비스 탭이 열려 있습니다. API 액세스 토큰 아래에서 새 API 액세스 토큰 만들기가 강조 표시됩니다." border="false":::
 
-7. 다음 화면에서 액세스 토큰에 사용할 이름을 제공된 텍스트 상자에 입력한 다음, **API 키 만들기**를 누릅니다. 새 액세스 토큰이 팝업으로 몇 초간 표시됩니다.
+7. 다음 화면에서 액세스 토큰에 사용할 이름을 제공된 텍스트 상자에 입력한 다음, **API 키 만들기** 를 누릅니다. 새 액세스 토큰이 팝업으로 몇 초간 표시됩니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Bonusly 사이트의 새 액세스 토큰 페이지 스크린샷 레이블이 없는 상자에는 내 토큰이 포함되고, API 키 만들기 단추가 강조 표시됩니다." border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Bonusly 사이트의 스크린샷 새 액세스 토큰이 생성되고, 그 뒤에 해독할 수 없는 토큰을 표시하는 알림이 표시됩니다." border="false":::
 
-8. 5단계에 표시된 필드를 채운 후, **연결 테스트**를 클릭하여 Azure AD에서 Bonusly에 연결할 수 있는지 확인합니다. 연결이 실패하면 Bonusly 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
+8. 5단계에 표시된 필드를 채운 후, **연결 테스트** 를 클릭하여 Azure AD에서 Bonusly에 연결할 수 있는지 확인합니다. 연결이 실패하면 Bonusly 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Azure Portal의 관리자 자격 증명 섹션의 스크린샷 텍스트 연결 단추가 강조 표시됩니다." border="false":::
 
 9. **알림 이메일** 필드에 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="빈 알림 이메일 상자를 보여 주는 스크린샷 오류가 발생할 경우 이메일 알림 보내기라는 레이블이 있는 옵션이 표시됩니다." border="false":::
 
-10. **저장**을 클릭합니다.
+10. **저장** 을 클릭합니다.
 
-11. **매핑** 섹션에서 **Azure Active Directory 사용자를 Bonusly에 동기화**를 선택합니다.
+11. **매핑** 섹션에서 **Azure Active Directory 사용자를 Bonusly에 동기화** 를 선택합니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="매핑 섹션의 스크린샷 이름 아래에서 Bonusly에 Azure Active Directory 사용자 동기화가 강조 표시됩니다." border="false":::
 
 12. **특성 매핑** 섹션에서 Azure AD에서 Bonusly로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Bonusly의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="특성 매핑 페이지의 스크린샷 테이블에 Azure Active Directory 특성, 해당 Bonusly 특성 및 일치 상태가 나열됩니다." border="false":::
 
 13. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-14. Bonusly에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+14. Bonusly에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="설정 섹션의 스크린샷 프로비전 상태 토글은 Off로 설정됩니다." border="false":::
 
-15. **설정** 섹션의 **범위**에서 원하는 값을 선택하여 Bonusly에 프로비전하려는 사용자 및/또는 그룹을 정의합니다.
+15. **설정** 섹션의 **범위** 에서 원하는 값을 선택하여 Bonusly에 프로비전하려는 사용자 및/또는 그룹을 정의합니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="범위 목록 상자를 보여 주는 스크린샷 할당된 사용자 및 그룹만 동기화가 상자에서 선택됩니다." border="false":::
 
-16. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+16. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="저장 단추가 강조 표시된 Bonusly - 프로비저닝 페이지의 스크린샷" border="false":::
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고, Bonusly의 Azure AD 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 활동 보고서에 대한 링크를 따를 수 있습니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고, Bonusly의 Azure AD 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 활동 보고서에 대한 링크를 따를 수 있습니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 

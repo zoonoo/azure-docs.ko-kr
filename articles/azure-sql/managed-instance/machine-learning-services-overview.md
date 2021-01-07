@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: c5392c822c42c2e0ee3f6ce9edffc6229d572165
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782419"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324519"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance (미리 보기)의 Machine Learning Services
 
@@ -85,6 +85,6 @@ Python 및 R의 기본 배포판은 Machine Learning Services에 포함되어 �
 ## <a name="next-steps"></a>다음 단계
 
 - [SQL Server Machine Learning Services의 주요 차이점](machine-learning-services-differences.md)을 참조 하세요.
-- Machine Learning Services에서 Python을 사용 하는 방법에 대 한 자세한 내용은 [python 스크립트 실행](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15)을 참조 하세요.
-- Machine Learning Services에서 R을 사용 하는 방법에 대 한 자세한 내용은 [r 스크립트 실행](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15)을 참조 하세요.
+- Machine Learning Services에서 Python을 사용 하는 방법에 대 한 자세한 내용은 [python 스크립트 실행](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15)을 참조 하세요.
+- Machine Learning Services에서 R을 사용 하는 방법에 대 한 자세한 내용은 [r 스크립트 실행](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15)을 참조 하세요.
 - 다른 SQL 플랫폼의 기계 학습에 대 한 자세한 내용은 [sql machine learning 설명서](/sql/machine-learning/)를 참조 하세요.

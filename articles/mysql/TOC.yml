@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: 공유 설명서
   items:
+    - name: 데이터베이스 배포
+      items:
+        - name: GitHub 작업
+          href: quickstart-mysql-github-actions.md
     - name: 마이그레이션
       items:
         - name: mysqldump 또는 phpmyadmin을 사용하여 데이터 마이그레이션
@@ -88,8 +92,6 @@
               href: connect-cpp.md
             - name: Go
               href: connect-go.md
-            - name: GitHub 작업
-              href: quickstart-mysql-github-actions.md
     - name: 자습서
       items:
         - name: 데이터베이스 설계
@@ -116,8 +118,6 @@
           href: sample-scripts-azure-cli.md
         - name: Java 연결 풀링
           href: sample-scripts-java-connection-pooling.md
-        - name: Azure Policy 기본 제공 기능
-          href: ./policy-reference.md
     - name: 개념
       items:
         - name: 서버
@@ -126,6 +126,8 @@
           href: concepts-supported-versions.md
         - name: 제한 사항
           href: concepts-limits.md
+        - name: 운영 모범 사례
+          href: concept-operation-excellence-best-practices.md
         - name: 가격 책정 계층
           items:
             - name: 가격 책정 계층
@@ -156,6 +158,9 @@
               href: concepts-azure-ad-authentication.md
             - name: 인프라 이중 암호화
               href: concepts-infrastructure-double-encryption.md
+            - name: Azure Policy의 보안 컨트롤
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: 보안 기준
               href: security-baseline.md
         - name: 계획된 유지 보수
@@ -194,6 +199,10 @@
             - name: 성능 권장 사항
               href: concepts-performance-recommendations.md
               displayName: recommendation
+            - name: 모범 사례 모니터링
+              href: concept-monitoring-best-practices.md
+            - name: 성능 모범 사례
+              href: concept-performance-best-practices.md
         - name: 애플리케이션 개발
           items:
             - name: 애플리케이션 개발 개요
@@ -287,6 +296,10 @@
           items:
             - name: MySQL 서버 시작 중지
               href: how-to-stop-start-server.md
+        - name: 주 버전 업그레이드
+          items:
+            - name: 주 버전 업그레이드
+              href: how-to-major-version-upgrade.md
         - name: 자동 증가 스토리지
           items:
             - name: Azure portal
@@ -442,6 +455,8 @@
               href: flexible-server/connect-python.md
     - name: 자습서
       items:
+        - name: Azure Kubernetes의 WordPress
+          href: flexible-server/tutorial-deploy-wordpress-on-aks.md
         - name: 데이터베이스를 사용하는 PHP(Laravel) 앱 빌드
           href: flexible-server/tutorial-php-database-app.md
         - name: 프라이빗 웹앱을 사용하여 연결
@@ -471,6 +486,8 @@
               href: flexible-server/concepts-high-availability.md
         - name: 모니터링 및 로그
           items:
+            - name: 서버 매개 변수
+              href: flexible-server/concepts-server-parameters.md
             - name: 느린 쿼리 로그
               href: flexible-server/concepts-slow-query-logs.md
             - name: 감사 로그
@@ -567,6 +584,9 @@
       href: /azure/templates/microsoft.dbformysql/allversions
     - name: 관리 저장 프로시저
       href: reference-stored-procedures.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: 배포 템플릿

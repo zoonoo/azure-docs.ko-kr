@@ -15,11 +15,11 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 09068064f24594ef35a8a1bf64213b48d83873ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296866"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018735"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay 라이선스 요구 사항 및 구성
 
@@ -31,7 +31,7 @@ Azure Media Services를 사용하면 **Apple FairPlay**(AES-128 CBC)로 HLS 콘�
 
 ## <a name="requirements"></a>요구 사항
 
-Media Services를 사용하여 **Apple FairPlay**로 암호화된 HLS 콘텐츠를 암호화하고 FairPlay 라이선스를 배달할 때 다음이 필요합니다.
+Media Services를 사용하여 **Apple FairPlay** 로 암호화된 HLS 콘텐츠를 암호화하고 FairPlay 라이선스를 배달할 때 다음이 필요합니다.
 
 * [Apple Development Program](https://developer.apple.com/)에 등록합니다.
 * Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. 이미 Media Services로 KSM(키 보안 모듈)을 구현했고 최종 FPS 패키지를 요청하고 있음을 명시합니다. 최종 FPS 패키지에는 인증을 생성하고 ASK(애플리케이션 비밀 키)를 얻기 위한 지침이 있습니다. ASK를 사용하여 FairPlay를 구성합니다.
@@ -69,7 +69,7 @@ Media Services를 사용하여 **Apple FairPlay**로 암호화된 HLS 콘텐츠�
 
 ## <a name="fairplay-and-player-apps"></a>FairPlay 및 플레이어 앱
 
-콘텐츠가 **Apple FairPlay**로 암호화된 경우, 개별 비디오 및 오디오 샘플은 **AES-128 CBC** 모드를 사용하여 암호화됩니다. **FairPlay 스트리밍** (FPS)은 디바이스 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 사용하여 FPS를 지원합니다.
+콘텐츠가 **Apple FairPlay** 로 암호화된 경우, 개별 비디오 및 오디오 샘플은 **AES-128 CBC** 모드를 사용하여 암호화됩니다. **FairPlay 스트리밍** (FPS)은 디바이스 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 사용하여 FPS를 지원합니다.
 
 Azure Media Player는 FairPlay 재생도 지원합니다. 자세한 내용은 [Azure Media Player 설명서](https://amp.azure.net/libs/amp/latest/docs/index.html)를 참조하세요.
 

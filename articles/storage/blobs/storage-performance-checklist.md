@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714815"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544754"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 스토리지에 대한 성능 및 확장성 검사 목록
 
@@ -59,7 +59,7 @@ Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대한 확장�
 
 애플리케이션이 확장성 목표에 도달하거나 목표를 초과하는 경우 트랜잭션 대기 시간이 길어지거나 제한이 증가할 수 있습니다. Azure Storage에서 애플리케이션을 제한하면 서비스에서 503(서버 작업 중) 또는 500(작업 시간 제한) 오류 코드를 반환하기 시작합니다. 확장성 목표의 한도 내에서 유지하여 이러한 오류를 방지하는 것은 애플리케이션의 성능을 향상시키는 데 중요한 부분입니다.
 
-큐 서비스의 확장성 목표에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage)를 참조하세요.
+큐 서비스의 확장성 목표에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../queues/scalability-targets.md#scale-targets-for-queue-storage)를 참조하세요.
 
 ### <a name="maximum-number-of-storage-accounts"></a>최대 스토리지 계정 수
 
@@ -100,7 +100,7 @@ Azure CDN와 같은 CDN (content delivery network)을 사용 하 여 blob에 대
 
 Blob storage는 크기 조정 및 부하 분산을 위해 범위 기반 파티션 구성표를 사용 합니다. 각 blob에는 전체 blob 이름 (계정 + 컨테이너 + blob)으로 구성 된 파티션 키가 있습니다. 파티션 키는 blob 데이터를 범위로 분할 하는 데 사용 됩니다. 그러면 범위는 Blob storage에서 부하가 분산 됩니다.
 
-범위 기반 분할은 어휘 순서 (예: *mypayroll*, *myperformance*, *myperformance*등) 또는 타임 스탬프 (*log20160101*, *log20160102*, *log20160102*등)를 사용 하는 명명 규칙이 동일한 파티션 서버에 배치 될 가능성이 더 높습니다. 부하가 증가 될 때까지 더 작은 범위로 분할 되어야 합니다. 동일한 파티션 서버에 blob을 배치 하면 성능이 향상 되므로 성능 향상의 중요 한 부분은 blob의 이름을 가장 효과적으로 구성 하는 방식으로 blob의 이름을 지정 하는 것입니다.
+범위 기반 분할은 어휘 순서 (예: *mypayroll*, *myperformance*, *myperformance* 등) 또는 타임 스탬프 (*log20160101*, *log20160102*, *log20160102* 등)를 사용 하는 명명 규칙이 동일한 파티션 서버에 배치 될 가능성이 더 높습니다. 부하가 증가 될 때까지 더 작은 범위로 분할 되어야 합니다. 동일한 파티션 서버에 blob을 배치 하면 성능이 향상 되므로 성능 향상의 중요 한 부분은 blob의 이름을 가장 효과적으로 구성 하는 방식으로 blob의 이름을 지정 하는 것입니다.
 
 예를 들어 컨테이너 내 모든 Blob는 이러한 Blob의 부하가 파티션 범위의 추가 리밸런싱을 요구하기 전까지 단일 서버가 지원할 수 있습니다. 마찬가지로, 이러한 계정 중 하나 또는 모두에 대 한 부하가 여러 파티션 서버 간에 분할 되어야 하는 경우에만 단일 서버에서 사전순으로 정렬 된 이름으로 적은 로드 된 계정 그룹을 제공할 수 있습니다.
 
@@ -112,7 +112,7 @@ Blob storage는 크기 조정 및 부하 분산을 위해 범위 기반 파티�
 - 계정, 컨테이너, blob, 테이블 및 큐에 사용할 명명 규칙을 검사 합니다. 사용자의 요구에 가장 적합 한 해싱 함수를 사용 하 여 세 자리 해시를 사용 하 여 계정, 컨테이너 또는 blob 이름을 접두사로 사용 하는 것이 좋습니다.
 - 타임 스탬프 또는 숫자 식별자를 사용 하 여 데이터를 구성 하는 경우에는 추가 전용 또는 앞 으로만 사용 되는 트래픽 패턴을 사용 하지 않아야 합니다. 이러한 패턴은 범위 기반 분할 시스템에 적합 하지 않습니다. 이러한 패턴은 모든 트래픽이 단일 파티션으로 이동 하 고 시스템을 효과적으로 부하 분산 하는 것을 제한 합니다.
 
-    예를 들어 *yyyymmdd*와 같이 타임 스탬프를 사용 하 여 blob을 사용 하는 일상적인 작업이 있는 경우 해당 일별 작업의 모든 트래픽은 단일 파티션 서버에서 제공 하는 단일 blob으로 전달 됩니다. Blob 당 제한과 파티션당 한도가 요구 사항을 충족 하는지 여부를 고려 하 고 필요한 경우이 작업을 여러 blob으로 분리 하는 것이 좋습니다. 마찬가지로 테이블에 시계열 데이터를 저장 하는 경우 모든 트래픽이 키 네임 스페이스의 마지막 부분으로 전달 될 수 있습니다. 숫자 Id를 사용 하는 경우 3 자리 해시를 사용 하 여 ID에 접두사를 붙입니다. 타임 스탬프를 사용 하는 경우 타임 스탬프에 초 값 (예: *ssyyyymmdd*)을 접두사로 사용 합니다. 응용 프로그램에서 정기적으로 나열 및 쿼리 작업을 수행 하는 경우 쿼리 수를 제한 하는 해싱 함수를 선택 합니다. 경우에 따라 임의의 접두사 만으로도 충분할 수 있습니다.
+    예를 들어 *yyyymmdd* 와 같이 타임 스탬프를 사용 하 여 blob을 사용 하는 일상적인 작업이 있는 경우 해당 일별 작업의 모든 트래픽은 단일 파티션 서버에서 제공 하는 단일 blob으로 전달 됩니다. Blob 당 제한과 파티션당 한도가 요구 사항을 충족 하는지 여부를 고려 하 고 필요한 경우이 작업을 여러 blob으로 분리 하는 것이 좋습니다. 마찬가지로 테이블에 시계열 데이터를 저장 하는 경우 모든 트래픽이 키 네임 스페이스의 마지막 부분으로 전달 될 수 있습니다. 숫자 Id를 사용 하는 경우 3 자리 해시를 사용 하 여 ID에 접두사를 붙입니다. 타임 스탬프를 사용 하는 경우 타임 스탬프에 초 값 (예: *ssyyyymmdd*)을 접두사로 사용 합니다. 응용 프로그램에서 정기적으로 나열 및 쿼리 작업을 수행 하는 경우 쿼리 수를 제한 하는 해싱 함수를 선택 합니다. 경우에 따라 임의의 접두사 만으로도 충분할 수 있습니다.
   
 - Azure Storage에서 사용 되는 파티션 구성표에 대 한 자세한 내용은 [Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)를 참조 하세요.
 
@@ -195,7 +195,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 다른 프로그래밍 언어의 경우 연결 제한을 설정 하는 방법을 확인 하려면 설명서를 참조 하세요.  
 
-자세한 내용은 [웹 서비스: 동시 연결](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/) 블로그 게시물을 참조하세요.  
+자세한 내용은 [웹 서비스: 동시 연결](/archive/blogs/darrenj/web-services-concurrent-connections) 블로그 게시물을 참조하세요.  
 
 ### <a name="increase-minimum-number-of-threads"></a>최소 스레드 수 늘리기
 
@@ -213,7 +213,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 ## <a name="client-libraries-and-tools"></a>클라이언트 라이브러리 및 도구
 
-최상의 성능을 위해 항상 Microsoft에서 제공하는 최신 클라이언트 라이브러리와 도구를 사용합니다. Azure Storage 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 또한 Azure Storage는 PowerShell 및 Azure CLI도 지원합니다. Microsoft는 성능을 고려하여 이러한 클라이언트 라이브러리와 도구를 적극적으로 개발하고, 최신 서비스 버전으로 해당 도구를 최신 상태로 유지하며, 이를 통해 검증된 여러 성능 사례를 내부적으로 처리하고 있습니다. 자세한 내용은 [Azure Storage 참조 설명서](/azure/storage/#reference)를 참조하세요.
+최상의 성능을 위해 항상 Microsoft에서 제공하는 최신 클라이언트 라이브러리와 도구를 사용합니다. Azure Storage 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 또한 Azure Storage는 PowerShell 및 Azure CLI도 지원합니다. Microsoft는 성능을 고려하여 이러한 클라이언트 라이브러리와 도구를 적극적으로 개발하고, 최신 서비스 버전으로 해당 도구를 최신 상태로 유지하며, 이를 통해 검증된 여러 성능 사례를 내부적으로 처리하고 있습니다.
 
 ## <a name="handle-service-errors"></a>서비스 오류 처리
 
@@ -243,11 +243,11 @@ Azure Storage는 저장소 계정, 저장소 계정 간, 온-프레미스 시스
 
 ### <a name="use-azcopy"></a>AzCopy 사용
 
-AzCopy 명령줄 유틸리티는 저장소 계정 간에 blob을 대량으로 대량 전송할 수 있는 간단 하 고 효율적인 옵션입니다. AzCopy는이 시나리오에 맞게 최적화 되었으며 높은 전송 속도를 달성할 수 있습니다. AzCopy 버전 10은 작업을 사용 하 여 `Put Block From URL` 저장소 계정 간에 blob 데이터를 복사 합니다. 자세한 내용은 [AzCopy v10를 사용 하 여 Azure Storage에 데이터 복사 또는 이동](/azure/storage/common/storage-use-azcopy-v10)을 참조 하세요.  
+AzCopy 명령줄 유틸리티는 저장소 계정 간에 blob을 대량으로 대량 전송할 수 있는 간단 하 고 효율적인 옵션입니다. AzCopy는이 시나리오에 맞게 최적화 되었으며 높은 전송 속도를 달성할 수 있습니다. AzCopy 버전 10은 작업을 사용 하 여 `Put Block From URL` 저장소 계정 간에 blob 데이터를 복사 합니다. 자세한 내용은 [AzCopy v10를 사용 하 여 Azure Storage에 데이터 복사 또는 이동](../common/storage-use-azcopy-v10.md)을 참조 하세요.  
 
 ### <a name="use-azure-data-box"></a>Azure Data Box 사용
 
-대용량의 데이터를 Blob 저장소로 가져오려면 오프 라인 전송에 Azure Data Box 패밀리를 사용 하는 것이 좋습니다. Microsoft에서 제공 하는 Data Box 장치는 시간, 네트워크 가용성 또는 비용을 기준으로 제한 될 때 Azure로 많은 양의 데이터를 이동 하는 데 적합 합니다. 자세한 내용은 [Azure DataBox 설명서](/azure/databox/)를 참조 하세요.
+대용량의 데이터를 Blob 저장소로 가져오려면 오프 라인 전송에 Azure Data Box 패밀리를 사용 하는 것이 좋습니다. Microsoft에서 제공 하는 Data Box 장치는 시간, 네트워크 가용성 또는 비용을 기준으로 제한 될 때 Azure로 많은 양의 데이터를 이동 하는 데 적합 합니다. 자세한 내용은 [Azure DataBox 설명서](../../databox/index.yml)를 참조 하세요.
 
 ## <a name="content-distribution"></a>콘텐츠 배포
 

@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 문제 해결 개요-Azure
 description: Windows 가상 데스크톱 환경을 설정 하는 동안 발생 하는 문제 해결에 대 한 개요입니다.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d051594572f742b290867d12e0fb148f2abbf370
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009361"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621317"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 문제 해결 개요, 피드백 및 지원
 
@@ -45,7 +45,7 @@ Azure Resource Manager 통합으로 Windows 가상 데스크톱에 대 한 문�
 | 클라이언트 연결                                                                    | [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection.md) 을 참조 하 고, 문제가 해결 되지 않으면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요. |
 | 원격 응용 프로그램 또는 데스크톱의 응답성                                      | 문제가 특정 응용 프로그램 또는 제품에 연결 된 경우 해당 제품을 담당 하는 팀에 문의 하십시오. |
 | 라이선스 메시지 또는 오류                                                          | 문제가 특정 응용 프로그램 또는 제품에 연결 된 경우 해당 제품을 담당 하는 팀에 문의 하십시오. |
-| 타사 인증 방법에 대 한 문제 | 타사 공급자가 Windows 가상 데스크톱 시나리오를 지원 하는지 확인 하 고 알려진 문제와 관련 된 방법을 확인 합니다. |
+| 타사 인증 방법 또는 도구와 관련 된 문제 | 타사 공급자가 Windows 가상 데스크톱 시나리오를 지원 하는지 확인 하 고 알려진 문제와 관련 된 방법을 확인 합니다. |
 | Windows 가상 데스크톱에 대 한 Log Analytics 사용 문제 | 진단 스키마 문제에 대 한 자세한 내용은 [Azure 지원 요청을 여세요](https://azure.microsoft.com/support/create-ticket/).<br><br>Log Analytics의 쿼리, 시각화 또는 기타 문제의 경우 Log Analytics에서 적절 한 문제 유형을 선택 합니다. |
 | M365 apps를 사용 하는 문제 | [M365 관리 센터 도움말 옵션](/microsoft-365/admin/contact-support-for-business-products/)중 하나를 사용 하 여 M365 관리 센터에 문의 하십시오. |
 

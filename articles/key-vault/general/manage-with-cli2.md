@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504537"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289904"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 `az keyvault create` 명령을 사용하여 키 자격 증명 모음을 만듭니다. 이 스크립트에는 3개의 필수 매개 변수, 리소스 그룹 이름, 키 자격 증명 모음 이름 및 지리적 위치가 있습니다.
 
-**동아시아 지역**에 있는 **ContosoResourceGroup** 리소스 그룹에 이름이 **ContosoKeyVault**인 새 자격 증명 모음을 만들려면 다음을 입력합니다. 
+**동아시아 지역** 에 있는 **ContosoResourceGroup** 리소스 그룹에 이름이 **ContosoKeyVault** 인 새 자격 증명 모음을 만들려면 다음을 입력합니다. 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 이 명령의 출력에는 만든 자격 증명 모음의 속성이 표시됩니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
 
-* **name**: 이 예제에서 이름은 ContosoKeyVault입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
-* **vaultUri**: 이 예제에서 URI는 https://contosokeyvault.vault.azure.net 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
+* **name** : 이 예제에서 이름은 ContosoKeyVault입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
+* **vaultUri** : 이 예제에서 URI는 https://contosokeyvault.vault.azure.net 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수행할 권한을 가지게 됩니다. 아직까지는 권한이 부여된 사용자가 없습니다.
 
@@ -189,12 +189,12 @@ az keyvault certificate list --vault-name "ContosoKeyVault"
 
 자격 증명 모음 키를 사용하는 애플리케이션은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다.  애플리케이션 소유자가 먼저 Azure Active Directory에 등록해야 합니다. 등록 끝에 애플리케이션 소유자는 다음 값을 가져옵니다.
 
-- **애플리케이션 ID**(AAD 클라이언트 ID 또는 appID라고도 함)
-- **인증 키**(또한 공유 암호라고도 함) 
+- **애플리케이션 ID** (AAD 클라이언트 ID 또는 appID라고도 함)
+- **인증 키** (또한 공유 암호라고도 함) 
 
 애플리케이션은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 토큰을 가져오도록 애플리케이션을 구성하는 방법은 애플리케이션에 따라 다릅니다. [Key Vault 샘플 애플리케이션](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 애플리케이션 소유자는 app.config 파일에서 이러한 값을 설정합니다.
 
-Azure Active Directory에 애플리케이션을 등록하는 방법에 대한 자세한 단계를 알아보려면 [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/active-directory-integrating-applications.md), [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli) 문서를 검토해야 합니다.
+Azure Active Directory에 애플리케이션을 등록하는 방법에 대한 자세한 단계를 알아보려면 [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/quickstart-register-app.md), [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli) 문서를 검토해야 합니다.
 
 Azure Active Directory에서 애플리케이션을 등록하려면 다음을 수행합니다.
 

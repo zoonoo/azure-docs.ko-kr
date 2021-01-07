@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 12bc1de62217a598a478d8d7e4d71a4b60e000b9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ad88f2a469fb89145c39990fe55e92abf0f2a4c1
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896636"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608887"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>자습서: Zscaler Three와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -89,10 +89,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ![스크린샷은 편집 아이콘이 선택된 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
 6. 위에서 언급한 특성 외에도 Zscaler Three 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
-    
+
     | 속성 | 원본 특성 |
     | ---------| ------------ |
-    | memberOf     | user.assignedroles |
+    | memberOf | user.assignedroles |
 
     > [!NOTE]
     > [여기](../develop/active-directory-enterprise-app-role-management.md)를 클릭하여 Azure AD에서 역할을 구성하는 방법을 알아봅니다.
@@ -109,7 +109,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -148,7 +148,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 3. Zscaler Three를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Zscaler Three 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
 
 4. **관리 > 인증 > 인증 설정** 으로 이동하고 다음 단계를 수행합니다.
-   
+
     ![스크린샷은 설명된 단계가 있는 Zscaler One 사이트를 보여줍니다.](./media/zscaler-three-tutorial/ic800206.png "관리")
 
     a. 인증 형식에서 **SAML** 을 선택합니다.
@@ -156,9 +156,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     b. **SAML 구성** 을 클릭합니다.
 
 5. **SAML 편집** 창에서 다음 단계를 수행하고 저장을 클릭합니다.  
-            
+
     ![사용자 및 인증 관리](./media/zscaler-three-tutorial/ic800208.png "사용자 & 인증 관리")
-    
+
     a. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML 포털 URL** 텍스트 상자에 붙여넣습니다.
 
     b. **로그인 이름 특성** 텍스트 상자에 **NameID** 을 입력합니다.
@@ -189,17 +189,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Internet Explorer** 를 시작합니다.
 
 2. **도구** 메뉴에서 **인터넷 옵션** 을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.   
-    
+
      ![인터넷 옵션](./media/zscaler-three-tutorial/ic769492.png "인터넷 옵션")
 
 3. **연결** 탭을 클릭합니다.   
-  
+
      ![연결](./media/zscaler-three-tutorial/ic769493.png "Connections")
 
 4. **LAN 설정** 을 클릭하여 **LAN 설정** 대화 상자를 엽니다.
 
 5. 프록시 서버 섹션에서 다음 단계를 수행합니다.   
-   
+
     ![프록시 서버](./media/zscaler-three-tutorial/ic769494.png "프록시 서버")
 
     a. **사용자 LAN의 프록시 서버 사용** 을 선택합니다.
@@ -229,9 +229,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 

@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f39380e253d3fa9e86bfea3a8c436862738ff8e3
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146691"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359934"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Azure VM의 SQL Server에 대한 Always On 가용성 그룹
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +40,9 @@ Azure Virtual Machines의 Always On 가용성 그룹은 [온-프레미스의 Alw
 
 중복성 및 고가용성을 강화하려면 SQL Server VM이 동일한 [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) 또는 다른 [가용성 영역](../../../availability-zones/az-overview.md)에 있어야 합니다.
 
-가용성 집합은 동일한 가용성 영역에 두 개의 하위 영역이 없도록 구성된 리소스의 그룹입니다. 이렇게 하면 배포를 롤아웃하는 중에 그룹의 여러 리소스에 영향을 주지 않습니다. 
+동일한 가용성 집합에 VM 세트를 배치하면 장비 장애(가용성 집합 내의 VM은 리소스를 공유하지 않음)로 인한 데이터 센터 내의 운영 중단이나 업데이트(가용성 집합 내의 VM은 동시에 업데이트되지 않음)로부터 보호됩니다. 가용성 영역은 영역 내의 데이터 센터 세트를 나타내는 각 영역으로 전체 데이터 센터의 장애로부터 보호합니다.  리소스를 서로 다른 가용성 영역에 배치하면 데이터 센터 수준의 운영 중단으로 인해 모든 VM이 오프라인 상태가 되지는 않습니다.
+
+Azure VM을 만들 때는 가용성 집합과 가용성 영역 중 하나를 선택하여 구성해야 합니다.  한 Azure VM이 두 가지 모두에 있을 수 없습니다.
 
 
 ## <a name="connectivity"></a>연결 
@@ -72,16 +75,16 @@ DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개�
 
 가용성 그룹을 Azure VM의 SQL Server에 배포하는 여러 가지 옵션이 있으며, 일부는 다른 옵션보다 더 많은 자동화를 사용합니다. 
 
-사용 가능한 옵션을 비교한 표는 다음과 같습니다. 
+사용 가능한 옵션을 비교한 표는 다음과 같습니다.
 
-| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)**|**[빠른 시작 템플릿](availability-group-quickstart-template-configure.md)**|**[수동](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Azure portal | Azure CLI/PowerShell | 빠른 시작 템플릿 | 수동 |
+|---------|---------|---------|---------|---------|
 |**SQL Server 버전** |2016 이상 |2016 이상|2016 이상|2012 이상|
 |**SQL Server 에디션** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Windows Server 버전**| 2016 이상 | 2016 이상 | 2016 이상 | 모두| 
+|**Windows Server 버전**| 2016 이상 | 2016 이상 | 2016 이상 | 모두|
 |**사용자에 대한 클러스터 만들기**|예|예 | 예 |아니요|
 |**사용자에 대한 가용성 그룹 만들기** |예 |아니요|아니요|예|
-|**독립적으로 수신기 및 부하 분산 장치 만들기** |아니요|아니요|예|예|
+|**독립적으로 수신기 및 부하 분산 장치 만들기** |예|아니요|아니요|예|
 |**이 메서드를 사용하여 DNN 수신기를 만들 수 있는지 여부**|아니요|아니요|아니요|예|
 |**WSFC 쿼럼 구성**|클라우드 감시|클라우드 감시|클라우드 감시|모두|
 |**여러 지역이 포함된 DR** |아니요|아니요|아니요|예|
@@ -90,9 +93,8 @@ DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개�
 |**동일한 지역의 다중 영역이 포함된 DR**|예|예|예|예|
 |**AD가 없는 분산 AG**|아니요|아니요|아니요|예|
 |**클러스터가 없는 분산 AG** |아니요|아니요|아니요|예|
-||||||
 
-
+자세한 내용은 [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md), [빠른 시작 템플릿](availability-group-quickstart-template-configure.md) 및 [설명서](availability-group-manually-configure-prerequisites-tutorial.md)를 참조하세요.
 
 ## <a name="considerations"></a>고려 사항 
 

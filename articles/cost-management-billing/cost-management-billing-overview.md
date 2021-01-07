@@ -8,13 +8,13 @@ ms.date: 10/26/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
-ms.custom: contentperfq2
-ms.openlocfilehash: 2c533ea08534444e5bf8d8d57d585e2bf975a93b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 34034a99641d75e44783cb5b87af8948b4db1628
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677390"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029943"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Azure Cost Management + 청구란?
 
@@ -43,11 +43,11 @@ Azure 청구 기능은 송장이 발부된 비용을 검토하고 청구 정보�
 
 현재 Azure Portal에서는 다음과 같은 유형의 청구 계정을 지원합니다.
 
-- **Microsoft Online Services 프로그램** : Microsoft Online Services 프로그램의 개별 청구 계정은 Azure 웹 사이트를 통해 Azure에 가입할 때 생성됩니다. 예를 들어 Azure 체험 계정에 가입하는 경우 종량제 요금을 사용하는 계정 또는 Visual studio 구독자 자격입니다.
+- **Microsoft Online Services 프로그램**: Microsoft Online Services 프로그램의 개별 청구 계정은 Azure 웹 사이트를 통해 Azure에 가입할 때 생성됩니다. 예를 들어 Azure 체험 계정에 가입하는 경우 종량제 요금을 사용하는 계정 또는 Visual studio 구독자 자격입니다.
 
-- **기업 계약** : 기업계약에 대한 청구 계정은 조직에서 Azure를 사용하기 위해 EA(기업계약)에 서명할 때 생성됩니다.
+- **기업 계약**: 기업계약에 대한 청구 계정은 조직에서 Azure를 사용하기 위해 EA(기업계약)에 서명할 때 생성됩니다.
 
-- **Microsoft 고객 계약** : Microsoft 고객 계약에 대한 청구 계정은 조직이 Microsoft 담당자와 협력하여 Microsoft 고객 계약에 서명할 때 생성됩니다. Azure 웹 사이트를 통해 종량제 요금을 사용한 계정에 가입하거나 Azure 체험 계정을 업그레이드한 특정 지역의 일부 고객은 Microsoft 고객 계약에 대한 청구 계정도 가질 수도 있습니다.
+- **Microsoft 고객 계약**: Microsoft 고객 계약에 대한 청구 계정은 조직이 Microsoft 담당자와 협력하여 Microsoft 고객 계약에 서명할 때 생성됩니다. Azure 웹 사이트를 통해 종량제 요금을 사용한 계정에 가입하거나 Azure 체험 계정을 업그레이드한 특정 지역의 일부 고객은 Microsoft 고객 계약에 대한 청구 계정도 가질 수도 있습니다.
 
 ### <a name="scopes-for-billing-accounts"></a>청구 계정의 범위
 범위는 청구를 보고 관리하는 데 사용하는 청구 계정 내의 노드입니다. 여기서 청구 데이터, 결제, 청구서를 관리하고 일반 계정 관리를 수행합니다.
@@ -108,7 +108,7 @@ Cloudyn은 2020년 말에 더 이상 사용되지 않는 Cost Management와 관�
 Azure에는 Azure Cost Management + 청구 기능 세트에 포함되지 않는 다른 도구가 있습니다. 그러나 비용 관리 프로세스에서 중요한 역할을 합니다. 이러한 도구에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 - [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) - 이 도구를 사용하여 선불 클라우드 비용을 예측합니다.
-- [Azure Migrate](/azure/migrate/migrate-services-overview) - 현재 데이터 센터 워크로드를 평가하여 Azure 대체 솔루션에서 필요한 항목을 이해합니다.
+- [Azure Migrate](../migrate/migrate-services-overview.md) - 현재 데이터 센터 워크로드를 평가하여 Azure 대체 솔루션에서 필요한 항목을 이해합니다.
 - [Azure Advisor](../advisor/advisor-overview.md) - 사용하지 않은 VM을 식별하고 Azure 예약 인스턴스 구매에 대한 권장 사항을 받습니다.
 - [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/) - Azure의 VM에 대해 현재 온-프레미스 Windows Server 또는 SQL Server 라이선스를 사용하여 비용을 절감합니다.
 

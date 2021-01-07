@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.openlocfilehash: f07aaa3b1d133d8011b7e98df5c36a8bac1b5f29
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b9a85c7093d0f42ac97c4a548ba6f0feebae8b89
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92506899"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350724"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>자습서: NetDocuments와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -84,7 +84,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     다. **식별자(엔터티 ID)** 텍스트 상자에서 `http://netdocuments.com/VAULT` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL로 해당 값을 업데이트합니다. 리포지토리 ID는 **CA-** 로 시작하고 뒤에 NetDocuments 리포지토리와 연결된 8자 코드가 나오는 값입니다. 자세한 내용은 [NetDocuments 페더레이션 ID 지원 문서](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login)에서 확인할 수 있습니다. 또는 위 정보로 구성하는 데 문제가 있는 경우 [NetDocuments 클라이언트 지원 팀](https://support.netdocuments.com/hc/)에 문의하여 이러한 값을 받을 수 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL로 해당 값을 업데이트합니다. 리포지토리 ID는 **CA-** 로 시작하고 뒤에 NetDocuments 리포지토리와 연결된 8자 코드가 나오는 값입니다. 자세한 내용은 [NetDocuments 페더레이션 ID 지원 문서](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login)에서 확인할 수 있습니다. 또는 위 정보로 구성하는 데 문제가 있는 경우 [NetDocuments 클라이언트 지원 팀](https://support.netdocuments.com/hc/)에 문의하여 이러한 값을 가져올 수 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. NetDocuments 애플리케이션은 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 **nameidentifier** 가 **user.userprincipalname** 과 매핑되는 기본 특성 목록을 보여줍니다. NetDocuments 애플리케이션에서는 **nameidentifier** 가 **employeeid** 와 매핑되거나 **nameidentifier** 로 조직에 적용 가능한 다른 모든 클레임과 매핑되어야 하므로 **편집** 아이콘을 클릭하고 특성 매핑을 변경하여 특성 매핑을 편집해야 합니다.
 
@@ -102,7 +102,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -132,7 +132,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다른 웹 브라우저 창에서 NetDocuments 회사 사이트에 관리자로 로그인합니다.
 
-2. 오른쪽 위 모서리에서 이름> **관리자** 를 선택합니다.
+2. 오른쪽 위 모서리에서 이름>**관리자** 를 선택합니다.
 
 3. **보안 센터** 를 선택합니다.
    
@@ -150,7 +150,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
     b.  **파일 선택** 을 선택하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
     
-    다.  **SAVE** (저장)를 선택합니다.
+    다.  **SAVE**(저장)를 선택합니다.
 
 ### <a name="create-netdocuments-test-user"></a>NetDocuments 테스트 사용자 만들기
 
@@ -160,7 +160,7 @@ Azure AD 사용자가 NetDocuments에 로그인할 수 있게 하려면 NetDocum
 
 1. **NetDocuments** 회사 사이트에 관리자 권한으로 로그온합니다.
 
-2. 오른쪽 위 모서리에서 이름> **관리자** 를 선택합니다.
+2. 오른쪽 위 모서리에서 이름>**관리자** 를 선택합니다.
    
     ![관리자](./media/netdocuments-tutorial/user-admin.png "Admin")
 

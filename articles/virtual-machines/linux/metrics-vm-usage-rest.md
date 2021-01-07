@@ -8,12 +8,12 @@ ms.custom: REST
 ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 925246eb2adae59ca74e363c4d4a6952f11c3744
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a448d4b4538d62c1631cf16d88ec0a7e7f2a399
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292325"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508036"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>REST API를 사용하여 가상 머신 사용률 메트릭 가져오기
 
@@ -40,7 +40,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="uri-parameters"></a>URI 매개 변수
 
-| Name | Description |
+| 이름 | Description |
 | :--- | :---------- |
 | subscriptionId | Azure 구독을 식별하는 구독 ID입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다. |
 | resourceGroupName | 리소스와 연결된 Azure 리소스 그룹의 이름입니다. Azure Resource Manager API, CLI 또는 포털에서 이 값을 가져올 수 있습니다. |

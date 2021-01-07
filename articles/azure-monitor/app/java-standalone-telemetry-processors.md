@@ -1,16 +1,19 @@
 ---
-title: 원격 분석 프로세서 (미리 보기)-Azure Monitor Application Insights Java
-description: Azure Monitor Application Insights Java 용 원격 분석 프로세서
+title: 원격 분석 프로세서 (미리 보기)-Java 용 Azure Monitor Application Insights
+description: Java 용 Azure Monitor Application Insights에서 원격 분석 프로세서를 구성 하는 방법
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: e3c41a7a9968a7de743f0c513b1f2b194501d0df
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 7fd53c77b64e028ffad25c8fa7a9eefd95439513
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425799"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387159"
 ---
-# <a name="telemetry-processors-preview-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java 용 원격 분석 프로세서 (미리 보기)
+# <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>원격 분석 프로세서 (미리 보기)-Java 용 Azure Monitor Application Insights
 
 > [!NOTE]
 > 이 기능은 아직 미리 보기 상태입니다.
@@ -56,10 +59,10 @@ Application Insights 용 Java 3.0 에이전트는 데이터를 내보내기 전�
 
 특성 프로세서와 범위 프로세서는 일치 시킬 범위의 속성 집합을 제공 하는 옵션을 노출 하 여 범위를 프로세서에서 포함할지 또는 제외할지를 결정 합니다. 이 옵션을 구성 하려면 `include` 및/또는 `exclude` 하나 이상의 `matchType` 및 또는 중 하나가 `spanNames` `attributes` 필요 합니다. 포함/제외 구성은 지정 된 조건을 두 개 이상 포함할 수 있습니다. 일치가 발생 하려면 지정 된 모든 조건이 true로 평가 되어야 합니다. 
 
-**필수 필드** : 
+**필수 필드**: 
 * `matchType` 및 배열의 항목을 해석 하는 방법을 제어 `spanNames` `attributes` 합니다. 가능한 값은 `regexp` 또는 `strict`입니다. 
 
-**선택적 필드** : 
+**선택적 필드**: 
 * `spanNames` 항목 중 하나 이상과 일치 해야 합니다. 
 * `attributes` 일치 시킬 특성 목록을 지정 합니다. 일치 항목 일치가 발생 하려면 이러한 특성이 모두 정확히 일치 해야 합니다.
 

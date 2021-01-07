@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor의 메트릭 경고
 description: 이 문서에서는 공개 미리 보기로 제공 되는 컨테이너에 대 한 Azure Monitor에서 사용할 수 있는 권장 메트릭 경고를 검토 합니다.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: cda5639fdf72f5731af851860f37afa888e7d965
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: a81dfb3fab57b378a56bfa8ac8102d723a50dbbc
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927824"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695963"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 권장 메트릭 경고 (미리 보기)
 
@@ -18,7 +18,7 @@ ms.locfileid: "92927824"
 
 Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 를 참조 하세요. 메트릭 경고에 대해 자세히 알아보려면 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음을 확인 합니다.
 
@@ -39,7 +39,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 중요 한 사항에 대해 경고 하기 위해 컨테이너에 대 한 Azure Monitor에는 AKS 및 Azure Arc enabled Kubernetes 클러스터에 대 한 다음과 같은 메트릭 경고가 포함 됩니다.
 
-|Name| 설명 |기본 임계값 |
+|Name| Description |기본 임계값 |
 |----|-------------|------------------|
 |평균 컨테이너 CPU (%) |컨테이너 당 사용 되는 평균 CPU를 계산 합니다.|컨테이너 당 평균 CPU 사용량이 95% 보다 큰 경우| 
 |평균 컨테이너 작업 집합 메모리% |컨테이너 당 사용 되는 평균 작업 집합 메모리를 계산 합니다.|컨테이너 당 평균 작업 집합 메모리 사용량이 95% 보다 큰 경우 |
@@ -74,15 +74,15 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 * *oomKilledContainerCount* 메트릭은 OOM이 종료 된 컨테이너에 있는 경우에만 전송 됩니다.
 
-* *cpuExceededPercentage* , *memoryRssExceededPercentage* 및 *MemoryWorkingSetExceededPercentage* 메트릭은 CPU, 메모리 Rss 및 메모리 작업 집합 값이 구성 된 임계값을 초과할 때 전송 됩니다 (기본 임계값은 95%). 이러한 임계값은 해당 경고 규칙에 대해 지정 된 경고 조건 임계값을 제외 합니다. 즉, 이러한 메트릭을 수집 하 고 [메트릭 탐색기](../platform/metrics-getting-started.md)에서 분석 하려는 경우 경고 임계값 보다 낮은 값으로 임계값을 구성 하는 것이 좋습니다. 컨테이너 리소스 사용률 임계값에 대 한 컬렉션 설정과 관련 된 구성은 ConfigMaps 파일의 섹션 아래에서 재정의할 수 있습니다 `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Configmaps 구성 파일 구성과 관련 된 자세한 내용은 [했어야 메트릭 구성 ConfigMaps](#configure-alertable-metrics-in-configmaps) 섹션을 참조 하세요.
+* *cpuExceededPercentage*, *memoryRssExceededPercentage* 및 *MemoryWorkingSetExceededPercentage* 메트릭은 CPU, 메모리 Rss 및 메모리 작업 집합 값이 구성 된 임계값을 초과할 때 전송 됩니다 (기본 임계값은 95%). 이러한 임계값은 해당 경고 규칙에 대해 지정 된 경고 조건 임계값을 제외 합니다. 즉, 이러한 메트릭을 수집 하 고 [메트릭 탐색기](../platform/metrics-getting-started.md)에서 분석 하려는 경우 경고 임계값 보다 낮은 값으로 임계값을 구성 하는 것이 좋습니다. 컨테이너 리소스 사용률 임계값에 대 한 컬렉션 설정과 관련 된 구성은 ConfigMaps 파일의 섹션 아래에서 재정의할 수 있습니다 `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Configmaps 구성 파일 구성과 관련 된 자세한 내용은 [했어야 메트릭 구성 ConfigMaps](#configure-alertable-metrics-in-configmaps) 섹션을 참조 하세요.
 
-* *pvUsageExceededPercentage* 메트릭은 영구적 볼륨 사용 백분율이 구성 된 임계값을 초과할 때 전송 됩니다 (기본 임계값은 60%). 이 임계값은 해당 경고 규칙에 대해 지정 된 경고 조건 임계값을 제외 합니다. 즉, 이러한 메트릭을 수집 하 고 [메트릭 탐색기](../platform/metrics-getting-started.md)에서 분석 하려는 경우 경고 임계값 보다 낮은 값으로 임계값을 구성 하는 것이 좋습니다. 영구적 볼륨 사용률 임계값에 대 한 컬렉션 설정과 관련 된 구성은 ConfigMaps 파일의 섹션 아래에서 재정의할 수 있습니다 `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Configmaps 구성 파일 구성과 관련 된 자세한 내용은 [했어야 메트릭 구성 ConfigMaps](#configure-alertable-metrics-in-configmaps) 섹션을 참조 하세요. *Kube* 네임 스페이스의 클레임이 있는 영구적 볼륨 메트릭의 컬렉션은 기본적으로 제외 됩니다. 이 네임 스페이스에서 컬렉션을 사용 하도록 설정 하려면 `[metric_collection_settings.collect_kube_system_pv_metrics]` ConfigMap 파일의 섹션을 사용 합니다. 자세한 내용은 [메트릭 컬렉션 설정](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) 을 참조 하세요.
+* *pvUsageExceededPercentage* 메트릭은 영구적 볼륨 사용 백분율이 구성 된 임계값을 초과할 때 전송 됩니다 (기본 임계값은 60%). 이 임계값은 해당 경고 규칙에 대해 지정 된 경고 조건 임계값을 제외 합니다. 즉, 이러한 메트릭을 수집 하 고 [메트릭 탐색기](../platform/metrics-getting-started.md)에서 분석 하려는 경우 경고 임계값 보다 낮은 값으로 임계값을 구성 하는 것이 좋습니다. 영구적 볼륨 사용률 임계값에 대 한 컬렉션 설정과 관련 된 구성은 ConfigMaps 파일의 섹션 아래에서 재정의할 수 있습니다 `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Configmaps 구성 파일 구성과 관련 된 자세한 내용은 [했어야 메트릭 구성 ConfigMaps](#configure-alertable-metrics-in-configmaps) 섹션을 참조 하세요. *Kube* 네임 스페이스의 클레임이 있는 영구적 볼륨 메트릭의 컬렉션은 기본적으로 제외 됩니다. 이 네임 스페이스에서 컬렉션을 사용 하도록 설정 하려면 `[metric_collection_settings.collect_kube_system_pv_metrics]` ConfigMap 파일의 섹션을 사용 합니다. 자세한 내용은 [메트릭 컬렉션 설정](./container-insights-agent-config.md#metric-collection-settings) 을 참조 하세요.
 
 ## <a name="metrics-collected"></a>수집 된 메트릭
 
 이 기능의 일부로 달리 지정 되지 않은 경우 다음과 같은 메트릭이 활성화 되 고 수집 됩니다.
 
-|메트릭 네임스페이스 |메트릭 |설명 |
+|메트릭 네임스페이스 |메트릭 |Description |
 |---------|----|------------|
 |정보. 컨테이너/노드 |cpuUsageMillicores |Millicores에서 호스트에의 한 CPU 사용률입니다.|
 |정보. 컨테이너/노드 |cpuUsagePercentage |노드당 CPU 사용량 백분율입니다.|
@@ -186,7 +186,7 @@ Azure Resource Manager 템플릿 및 매개 변수 파일을 사용 하 여 Azur
     ```azurecli
     az login
 
-    az group deployment create \
+    az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file templateFileName.json \

@@ -9,22 +9,23 @@ manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
-ms.openlocfilehash: 15ece836e172b8316222ea606ca638650795d5d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5593257fa17944eebce6346a1eb9e88e7af2c06
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852604"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965955"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Python 3 사용 Linux Azure Virtual Machines 시스템에서 VM 확장을 사용 하는 문제
 
 > [!NOTE]
-> 워크 로드에 **python** 2.x가 지원 되어야 하는 경우가 아니면 사용자는 자신의 시스템에 **python** 3.x를 채택 하는 것이 좋습니다. 이러한 요구 사항의 예에는 레거시 관리 스크립트나 **Azure Disk Encryption** 및 **Azure Monitor**같은 확장이 포함 될 수 있습니다.
+> 워크 로드에 **python** 2.x가 지원 되어야 하는 경우가 아니면 사용자는 자신의 시스템에 **python** 3.x를 채택 하는 것이 좋습니다. 이러한 요구 사항의 예에는 레거시 관리 스크립트나 **Azure Disk Encryption** 및 **Azure Monitor** 같은 확장이 포함 될 수 있습니다.
 >
 > 프로덕션 환경에 **python** 2.x를 설치 하기 전에 python 2.x의 장기 지원, 특히 보안 업데이트를 받을 수 있는 기능을 고려 합니다. 언급 된 확장 중 일부를 비롯 한 제품 ( **python 3.8** 지원으로 업데이트)은 python 2.x 사용을 중단 해야 합니다.
 
@@ -35,11 +36,11 @@ ms.locfileid: "88852604"
 
 **Python** 3.x로 전환 된 Linux 배포 사용자는 `/usr/bin/python` 해당 vm에 확장을 배포 하기 전에 레거시 entrypoint가 존재 하는지 확인 해야 합니다. 그렇지 않으면 확장 배포가 실패할 수 있습니다. 
 
-- 영향을 받는 보증 Linux 배포판에는 **Ubuntu Server 20.04 lts** 및 **ubuntu Pro 20.04 lts**가 포함 됩니다.
+- 영향을 받는 보증 Linux 배포판에는 **Ubuntu Server 20.04 lts** 및 **ubuntu Pro 20.04 lts** 가 포함 됩니다.
 
 - 영향을 받는 VM 확장에는 **Azure Disk Encryption**, **Log Analytics**, **vm 액세스** (암호 재설정에 사용 됨) 및 **게스트 진단** (추가 성능 카운터에 사용 됨)이 포함 됩니다.
 
-**Ubuntu 18.04 LTS** 에서 **ubuntu 20.04 lts**로 업그레이드 하는 것과 같은 현재 위치의 업그레이드는 `/usr/bin/python` symlink를 유지 하 고 영향을 받지 않은 상태로 유지 되어야 합니다.
+**Ubuntu 18.04 LTS** 에서 **ubuntu 20.04 lts** 로 업그레이드 하는 것과 같은 현재 위치의 업그레이드는 `/usr/bin/python` symlink를 유지 하 고 영향을 받지 않은 상태로 유지 되어야 합니다.
 
 ## <a name="resolution"></a>해결 방법
 
@@ -47,7 +48,7 @@ ms.locfileid: "88852604"
 
 1. 확장을 배포 하기 전에 `/usr/bin/python` Linux 배포 공급 업체에서 제공 하는 방법을 사용 하 여 symlink를 복원 합니다.
 
-   - 예를 들어 **Python 2.7**의 경우 다음을 사용 합니다. `sudo apt update && sudo apt install python-is-python2`
+   - 예를 들어 **Python 2.7** 의 경우 다음을 사용 합니다. `sudo apt update && sudo apt install python-is-python2`
 
 1. 이 권장 사항은 Azure 고객을 위한 것 이며 Azure Stack에서 지원 되지 않습니다.
 

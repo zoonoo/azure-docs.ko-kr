@@ -4,15 +4,15 @@ description: Excel을 사용하여 Azure Analysis Services 서버에 연결하�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4658a4c05aac7932d8a99c3511f21024f19fbe47
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fccb919a7eac79080fefeac70326b8aa7a967622
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013732"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499473"
 ---
 # <a name="connect-with-excel"></a>Excel로 연결
 
@@ -26,21 +26,21 @@ ms.locfileid: "92013732"
 
 Excel 2016 이상에서 Get Data를 사용하여 Excel에서 서버에 연결합니다. 파워 피벗에서 테이블 가져오기 마법사를 사용하여 연결하는 작업은 지원되지 않습니다. 
 
-1. Excel의 **데이터** 리본 메뉴에서 **외부 데이터 가져오기** > **다른 원본에서** > **Analysis Services에서**를 클릭합니다.
+1. Excel의 **데이터** 리본에서 **Get Data**  >  Analysis Services의 **데이터베이스에서** 데이터 가져오기를 클릭  >  **From Analysis Services** 합니다.
 
-2. 데이터 연결 마법사에서 **서버 이름**에 프로토콜 및 URI를 포함하여 서버 이름을 입력합니다. 예를 들어 asazure://westcentralus.asazure.windows.net/advworks 같이 입력합니다. 그런 다음 **로그온 자격 증명**에서 **다음 사용자 이름 및 암호 사용**을 선택하고 조직 사용자 이름(예: nancy@adventureworks.com 및 암호)을 입력합니다.
+2. 데이터 연결 마법사에서 **서버 이름** 에 프로토콜 및 URI를 포함하여 서버 이름을 입력합니다. 예를 들어 asazure://westcentralus.asazure.windows.net/advworks 같이 입력합니다. 그런 다음 **로그온 자격 증명** 에서 **다음 사용자 이름 및 암호 사용** 을 선택하고 조직 사용자 이름(예: nancy@adventureworks.com 및 암호)을 입력합니다.
 
     > [!IMPORTANT]
     > Microsoft 계정, Live ID, Yahoo, Gmail 등을 사용하여 로그인하려고 하거나 다단계 인증을 사용하여 로그인해야 하는 경우 암호 필드를 비워 둡니다. 다음을 클릭하면 암호를 묻는 메시지가 표시됩니다. 
 
     ![Excel 로그온에서 연결](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
-3. **데이터베이스 및 테이블 선택**에서 데이터베이스, 모델 또는 큐브 뷰를 선택한 다음 **마침**을 클릭합니다.
+3. **데이터베이스 및 테이블 선택** 에서 데이터베이스, 모델 또는 큐브 뷰를 선택한 다음 **마침** 을 클릭합니다.
    
     ![Excel 선택 모델에서 연결](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
 ## <a name="see-also"></a>참고 항목
 
-[클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
 [서버 관리](analysis-services-manage.md)

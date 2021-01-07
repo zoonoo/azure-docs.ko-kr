@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e90c78e8e7cb474756c1a5ea03fd90c33e14300
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a3ef3fc2afa07590ff676d57c22f05ed723539f9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963587"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957727"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
 
@@ -80,7 +81,7 @@ Sap NetWeaver 응용 프로그램에 대 한 SAP ASE는 [sap support #1928533 no
 
 SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사이인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| 구성 | Windows | Linux | 주석 |
+| 구성 | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | E4s_v3 (4 개 vCPU/32gb RAM) | E4s_v3 (4 개 vCPU/32gb RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|
@@ -101,7 +102,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 
 데이터베이스 크기가 250 GB – 750 GB (예: 작은 SAP Business Suite 시스템) 사이인 medium SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| 구성 | Windows | Linux | 주석 |
+| 구성 | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | E16s_v3 (16 vCPU/128gb RAM) | E16s_v3 (16 vCPU/128gb RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|
@@ -121,7 +122,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 
 데이터베이스 크기가 750 GB – 2000 GB (예: 대형 SAP Business Suite 시스템) 사이인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| 구성 | Windows | Linux | 주석 |
+| 구성 | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | E64s_v3 (64 vCPU/432 GB RAM) | E64s_v3 (64 vCPU/432 GB RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|
@@ -142,7 +143,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 
 전체적으로 사용 되는 더 큰 SAP Business Suite 시스템과 같이 데이터베이스 크기가 2tb 이상인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| 구성 | Windows | Linux | 주석 |
+| 구성 | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | M 시리즈 (1.0 ~ 4.0 TB RAM)  | M 시리즈 (1.0 ~ 4.0 TB RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|

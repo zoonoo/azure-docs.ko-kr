@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 432cc733ee31bdaa18d555d9a6aeb6aee9879a44
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b4de685accf665c7555a454ef247ddf589c6ba5f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748535"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572340"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 디바이스 펌웨어 업데이트 프로세스 구현
 
@@ -38,11 +38,9 @@ IoT Hub에 연결된 디바이스에서 펌웨어를 업데이트해야 합니�
 > * 디바이스에서 펌웨어 업데이트 프로세스를 시뮬레이션합니다.
 > * 펌웨어 업데이트 과정이 진행되면 디바이스의 상태 업데이트를 수신합니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 머신에 Node.js v10.x.x 이상이 필요합니다.
 

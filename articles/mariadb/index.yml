@@ -3,17 +3,17 @@ title: Azure Database for MariaDB 설명서
 summary: Azure Database for MariaDB는 오픈 소스 MariaDB 서버 엔진을 기반으로 하는 관계형 데이터베이스 서비스입니다.  예측 가능한 성능과 동적인 확장성으로 중요 업무 워크로드를 처리할 수 있는 완전 관리형 Database as a Service 제품입니다. 사용자가 선택한 오픈 소스 도구 및 플랫폼을 활용한 Azure Database for MariaDB로 애플리케이션을 개발해보세요. 빠른 시작, 자습서 및 샘플을 통해 Azure Database for MariaDB를 사용하는 방법을 알아봅니다.
 metadata:
   description: Azure Database for MariaDB는 오픈 소스 MariaDB 데이터베이스 엔진을 기반으로 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다.
-  author: ajlam
-  ms.author: andrela
+  author: savjani
+  ms.author: pariks
   ms.date: 09/05/2019
   ms.service: mariadb
   ms.topic: landing-page
-  ms.openlocfilehash: 3e49a860cca6cb59543f450cda4bda8c6b0c0a38
-  ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+  ms.openlocfilehash: a94e88dc1f7dca73f20cfee3b8cbea8cfad011af
+  ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92428322"
+  ms.lasthandoff: 12/15/2020
+  ms.locfileid: "97516574"
 landingContent:
 - title: Azure Database for MariaDB 정보
   linkLists:
@@ -114,8 +114,8 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure CLI 개발자 참조
-      url: /rest/api/mariadb/
+      url: /cli/azure/mariadb/
     - text: REST API 개발자 참조
-      url: /cli/azure/mariadb
+      url: /rest/api/mariadb/
     - text: Azure 리소스 관리자 템플릿
       url: /azure/templates/microsoft.dbformariadb/allversions

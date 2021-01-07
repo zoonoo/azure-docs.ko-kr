@@ -4,15 +4,15 @@ description: Azure Functions에서 타이머 트리거를 사용하는 방법을
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025904"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874086"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거
 
@@ -299,11 +299,11 @@ Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리
 
 |Type  |예제  |트리거될 때  |
 |---------|---------|---------|
-|특정 값 |<nobr>"0 5 * * * *"</nobr>|hh:05:00에서 hh는 매시간임(시간당 한 번)|
-|모든 값(`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm:00에서 mm은 해당 시간의 매분임(하루 60번)|
-|범위(`-` 연산자)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05,hh:mm:06 및 hh:mm:07에서 hh:mm은 매시간의 매분임(분당 3번)|
-|값 집합(`,` 연산자)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05,hh:mm:08 및 hh:mm:10에서 hh:mm은 매시간의 매분임(분당 3번)|
-|간격 값(`/` 연산자)|<nobr>"0 */5 * * * *"</nobr>|hh: 00:00, hh: 05:00, hh: 10:00, hh: 55:00, hh는 매시간 (12 번 a 시간)|
+|특정 값 |<nobr>`0 5 * * * *`</nobr>| 매일 1 시간 마다 1 시간 마다 |
+|모든 값(`*`)|<nobr>`0 * 5 * * *`</nobr>| 1 시간 마다 1 시간 마다 5 시간 마다 시작 |
+|범위(`-` 연산자)|<nobr>`5-7 * * * * *`</nobr>| 매 1 분 마다 분의 3 번 (1 ~ 7) |
+|값 집합(`,` 연산자)|<nobr>`5,8,10 * * * * *`</nobr>| 매 1 분 마다 분 5, 8, 10, 매일 1 분 마다 3 번 |
+|간격 값(`/` 연산자)|<nobr>`0 */5 * * * *`</nobr>| 1 시간 12 번-매 1 시간 마다 매 5 분 마다 0 초 |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -311,18 +311,18 @@ Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리
 
 Azure Functions에서 타이머 트리거에 사용할 수 있는 NCRONTAB 식의 몇 가지 예는 다음과 같습니다.
 
-|예제|트리거될 때  |
-|---------|---------|
-|`"0 */5 * * * *"`|5분마다 한 번|
-|`"0 0 * * * *"`|1시간이 시작할 때마다 한 번|
-|`"0 0 */2 * * *"`|2시간마다 한 번|
-|`"0 0 9-17 * * *"`|오전 9시에서 오후 5시까지 1시간마다 한 번|
-|`"0 30 9 * * *"`|매일 오전 9시 30분|
-|`"0 30 9 * * 1-5"`|평일 오전 9:30|
-|`"0 30 9 * Jan Mon"`|1월 매주 월요일 오전 9:30|
+| 예            | 트리거될 때                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | 5분마다 한 번            |
+| `0 0 * * * *`      | 1시간이 시작할 때마다 한 번      |
+| `0 0 */2 * * *`    | 2시간마다 한 번               |
+| `0 0 9-17 * * *`   | 오전 9시에서 오후 5시까지 1시간마다 한 번  |
+| `0 30 9 * * *`     | 매일 오전 9시 30분               |
+| `0 30 9 * * 1-5`   | 평일 오전 9:30           |
+| `0 30 9 * Jan Mon` | 1월 매주 월요일 오전 9:30 |
 
 > [!NOTE]
-> NCRONTAB 식에는 **6 개의 필드** 형식이 필요 합니다. Azure에서는 5 개의 field cron 식이 지원 되지 않습니다.
+> NCRONTAB 식에는 **6 개의 필드** 형식이 필요 합니다. 여섯 번째 필드 위치는 식의 시작 부분에 배치 되는 초 값입니다. Azure에서는 5 개의 field cron 식이 지원 되지 않습니다.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB 표준 시간대
 
@@ -336,9 +336,9 @@ CRON 식에 있는 숫자는 시간 범위가 아닌 시간 및 날짜를 가리
 
 CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격을 지정합니다. 함수가 지정된 간격보다 오랫동안 실행한 후에 완료되면 타이머는 즉시 함수를 다시 호출합니다.
 
-`hh`이 24 미만인 경우 문자열로 표현되는 `TimeSpan` 형식은 `hh:mm:ss`입니다. 처음 두 자리가 24 이상인 경우 형식은 `dd:hh:mm`입니다. 몇 가지 예제는 다음과 같습니다.
+`hh`이 24 미만인 경우 문자열로 표현되는 `TimeSpan` 형식은 `hh:mm:ss`입니다. 처음 두 자리가 24 이상인 경우 형식은 `dd:hh:mm`입니다. 다음은 몇 가지 예입니다.
 
-| 예제      | 트리거될 때 |
+| 예      | 트리거될 때 |
 |--------------|----------------|
 | "01:00:00"   | 매시간     |
 | "00:01:00"   | 매분   |

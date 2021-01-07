@@ -1,17 +1,17 @@
 ---
 title: 느리게 쿼리 로그-Azure Database for MySQL 유연한 서버
 description: Azure Database for MySQL 유연한 서버에서 사용할 수 있는 저속 쿼리 로그를 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 512a103f5ac116f1f4eb18631cdc8e4a8b9380c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde9575a70ea80ad262bc01bb9d5d0015c803427
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399213"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543020"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 느리게 쿼리 로그 (미리 보기)
 
@@ -23,14 +23,14 @@ Azure Database for MySQL 유연한 서버에서 저속 쿼리 로그는 사용�
 MySQL 저속 쿼리 로그에 대 한 자세한 내용은 MySQL 엔진 설명서의 [저속 쿼리 로그 섹션](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) 을 참조 하세요.
 
 ## <a name="configure-slow-query-logging"></a>저속 쿼리 로깅 구성 
-기본적으로 저속 쿼리 로그는 사용할 수 없습니다. 로그를 사용 하도록 설정 하려면 `slow_query_log` 서버 매개 변수를 *ON*으로 설정 합니다. Azure Portal 또는 Azure CLI를 사용 하 여 구성할 수 있습니다. <!-- add link to server parameter-->. 
+기본적으로 저속 쿼리 로그는 사용할 수 없습니다. 로그를 사용 하도록 설정 하려면 `slow_query_log` 서버 매개 변수를 *ON* 으로 설정 합니다. Azure Portal 또는 Azure CLI를 사용 하 여 구성할 수 있습니다. <!-- add link to server parameter-->. 
 
 느리게 쿼리 로깅 동작을 제어 하기 위해 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
-- **long_query_time**: `long_query_time` 완료 하는 데 (초) 보다 오래 걸리면 쿼리를 기록 합니다. 기본값은 10초입니다.
-- **log_slow_admin_statements**: 관리 문이 있는지 확인 합니다 (예: `ALTER_TABLE`, `ANALYZE_TABLE` )가 기록 됩니다.
-- **log_queries_not_using_indexes**: 인덱스를 사용 하지 않는 쿼리를 로깅할지 여부를 결정 합니다.
-- **log_throttle_queries_not_using_indexes**: 저속 쿼리 로그에 쓸 수 있는 인덱싱되지 않은 쿼리 수를 제한 합니다. 이 매개 변수 `log_queries_not_using_indexes` 는가 *ON* 으로 설정 된 경우에 적용 됩니다.
+- **long_query_time** : `long_query_time` 완료 하는 데 (초) 보다 오래 걸리면 쿼리를 기록 합니다. 기본값은 10초입니다.
+- **log_slow_admin_statements** : 관리 문이 있는지 확인 합니다 (예: `ALTER_TABLE`, `ANALYZE_TABLE` )가 기록 됩니다.
+- **log_queries_not_using_indexes** : 인덱스를 사용 하지 않는 쿼리를 로깅할지 여부를 결정 합니다.
+- **log_throttle_queries_not_using_indexes** : 저속 쿼리 로그에 쓸 수 있는 인덱싱되지 않은 쿼리 수를 제한 합니다. 이 매개 변수 `log_queries_not_using_indexes` 는가 *ON* 으로 설정 된 경우에 적용 됩니다.
 
 > [!IMPORTANT]
 > 테이블이 인덱싱되지 않은 경우 `log_queries_not_using_indexes` 및 `log_throttle_queries_not_using_indexes` 매개 변수를 **ON** 으로 설정 하면 이러한 인덱싱되지 않은 테이블에 대해 실행 되는 모든 쿼리가 저속 쿼리 로그에 기록 되기 때문에 MySQL 성능에 영향을 줄 수 있습니다.

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 12/18/2020
 ms.locfileid: "92459682"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>자습서: ITRP와 Azure Active Directory 통합
@@ -133,7 +133,7 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 1. 새 웹 브라우저 창에서 ITRP 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. 창 위쪽에서 **Settings** (설정) 아이콘을 선택합니다.
+1. 창 위쪽에서 **Settings**(설정) 아이콘을 선택합니다.
 
     ![설정 아이콘](./media/itrp-tutorial/ic775570.png "설정 아이콘")
 
@@ -153,7 +153,7 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
     1. Azure Portal에서 복사한 **로그인 URL** 을 **SAML SSO URL** 상자에 붙여넣습니다.
 
-    1. Azure Portal에서 복사한 인증서의 **지문** 값을 **Certificate fingerprint** (인증서 지문) 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 인증서의 **지문** 값을 **Certificate fingerprint**(인증서 지문) 상자에 붙여넣습니다.
 
     1. **저장** 을 선택합니다.
 
@@ -161,7 +161,7 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     ![모든 사용자 선택](common/users.png)
 
@@ -185,7 +185,7 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ITRP에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **ITRP** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **ITRP** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -215,11 +215,11 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 설정하려면 해당 
 
 1. ITRP 테넌트에 로그인합니다.
 
-1. 창 위쪽에서 **Records** (레코드) 아이콘을 선택합니다.
+1. 창 위쪽에서 **Records**(레코드) 아이콘을 선택합니다.
 
     ![레코드 아이콘](./media/itrp-tutorial/ic775575.png "레코드 아이콘")
 
-1. 메뉴에서 **People** (사람)을 선택합니다.
+1. 메뉴에서 **People**(사람)을 선택합니다.
 
     ![사용자 선택](./media/itrp-tutorial/ic775587.png "사용자 선택")
 
@@ -227,7 +227,7 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 설정하려면 해당 
 
     ![더하기 기호 선택](./media/itrp-tutorial/ic775576.png "더하기 기호 선택")
 
-1. **Add New Person** (새 사람 추가) 대화 상자에서 다음 단계를 수행합니다.
+1. **Add New Person**(새 사람 추가) 대화 상자에서 다음 단계를 수행합니다.
 
     ![새 사람 추가 대화 상자](./media/itrp-tutorial/ic775577.png "새 사람 추가 대화 상자")
 

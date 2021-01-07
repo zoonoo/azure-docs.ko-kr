@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: d6b1085d51d7345b233087986127cbc97c0597e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb03721baa80e77a5fd387600a272e6b1cfc7d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362064"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013645"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Translator Speech API에서 Speech service로 마이그레이션
 
@@ -37,7 +37,7 @@ ms.locfileid: "91362064"
 | 단일 요청을 통해 여러 언어 번역 | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | SDK 사용 가능                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 사용 가능한 Sdk는 [음성 서비스 설명서](index.yml) 를 참조 하세요.                                                                                                                                                    |
 | WebSocket 연결                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Languages API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | 음성 서비스는 [Translator 언어 참조](../translator-speech/languages-reference.md) 문서에 설명 된 것과 동일한 언어 범위를 지원 합니다. |
+| Languages API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | 음성 서비스는 [Translator 언어 참조]() 문서에 설명 된 것과 동일한 언어 범위를 지원 합니다. |
 | 욕설 필터 및 표식                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM을 입력으로 사용                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 다른 파일 형식을 입력으로 사용                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -62,9 +62,9 @@ ms.locfileid: "91362064"
 ## <a name="next-steps"></a>다음 단계
 
 * [음성 서비스를 무료로 사용해 보세요.](overview.md#try-the-speech-service-for-free)
-* [빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [음성 서비스는 무엇 인가요?](overview.md)
-* [Speech service 및 Speech SDK 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [Speech service 및 Speech SDK 설명서](./speech-devices-sdk-quickstart.md?pivots=platform-android)

@@ -1,17 +1,17 @@
 ---
 title: 서버 다시 시작-Azure Portal-Azure Database for MySQL
 description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Database for MySQL 서버를 다시 시작 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: d885cc64eeebd4873ad5993b39b48845d1365c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d19c0bd4ef5c49b8be82ffa11115ff6a1c6b302
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902760"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541796"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 다시 시작
 이 항목에서는 Azure Database for MySQL 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
@@ -30,21 +30,21 @@ ms.locfileid: "90902760"
 
 1. Azure Portal에서 Azure Database for MySQL Server를 찾습니다.
 
-2. 서버 **개요** 페이지의 도구 모음에서 **다시 시작**을 클릭합니다.
+2. 서버 **개요** 페이지의 도구 모음에서 **다시 시작** 을 클릭합니다.
 
    :::image type="content" source="./media/howto-restart-server-portal/2-server.png" alt-text="Azure Database for MySQL - 개요 - 다시 시작 단추":::
 
-3. **예**를 클릭하여 서버 다시 시작을 확인합니다.
+3. **예** 를 클릭하여 서버 다시 시작을 확인합니다.
 
-   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for MySQL - 개요 - 다시 시작 단추":::
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for MySQL - 다시 시작 확인":::
 
 4. 서버 상태가 "다시 시작하는 중"으로 변경되는지 확인합니다.
 
-   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for MySQL - 개요 - 다시 시작 단추":::
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for MySQL - 다시 시작 상태":::
 
 5. 서버가 성공적으로 다시 시작되는지 확인합니다.
 
-   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for MySQL - 개요 - 다시 시작 단추":::
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for MySQL - 다시 시작 성공":::
 
 ## <a name="next-steps"></a>다음 단계
 

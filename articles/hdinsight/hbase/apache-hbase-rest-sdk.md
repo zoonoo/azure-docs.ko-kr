@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9b5693ddef5e512b0a95c87a700fd12acd4b5fae
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540315"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654645"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase 용 .NET SDK 사용
 
@@ -42,7 +42,7 @@ CLUSTERNAME은 HDInsight HBase 클러스터 이름으로, 그리고 USERNAME 및
 
 ## <a name="create-a-new-table"></a>새 테이블 만들기
 
-HBase는 테이블에 데이터를 저장합니다. 테이블은 *Rowkey* , 기본 키 및 *열 패밀리* 라는 하나 이상의 열 그룹으로 구성됩니다. 각 테이블의 데이터는 Rowkey 범위에 의해 *영역* 에 수평으로 배포됩니다. 각 영역에는 시작 및 종료 키가 있습니다. 테이블은 하나 이상의 영역을 포함할 수 있습니다. 테이블의 데이터가 확장하면서 HBase는 큰 영역을 더 작은 영역으로 분할합니다. 영역은 한 지역 서버가 여러 영역을 저장할 수 있는 *지역 서버* 에 저장됩니다.
+HBase는 테이블에 데이터를 저장합니다. 테이블은 *Rowkey*, 기본 키 및 *열 패밀리* 라는 하나 이상의 열 그룹으로 구성됩니다. 각 테이블의 데이터는 Rowkey 범위에 의해 *영역* 에 수평으로 배포됩니다. 각 영역에는 시작 및 종료 키가 있습니다. 테이블은 하나 이상의 영역을 포함할 수 있습니다. 테이블의 데이터가 확장하면서 HBase는 큰 영역을 더 작은 영역으로 분할합니다. 영역은 한 지역 서버가 여러 영역을 저장할 수 있는 *지역 서버* 에 저장됩니다.
 
 데이터는 물리적으로 *HFiles* 에 저장됩니다. 단일 HFile은 한 테이블과 한 영역, 하나의 열 패밀리용 데이터를 포함합니다. HFile의 행은 Rowkey를 기준으로 정렬 저장됩니다. 각 HFile에는 행의 빠른 검색용 *B+트리* 인덱스가 있습니다.
 

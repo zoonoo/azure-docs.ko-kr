@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ef16a4c0b6ea40fb4934307916f1fe79ccea72f9
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316980"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609142"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Azure Arc 지원 데이터 서비스(미리 보기)란?
 
@@ -50,7 +50,7 @@ Azure Arc 지원 SQL 관리형 인스턴스 및 Azure Arc 지원 PostgreSQL 하�
 ## <a name="next-steps"></a>다음 단계
 
 > **작업을 시도해보시겠습니까?**  
-> AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)를 사용하여 빠르게 시작하세요.
+> AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)를 사용하여 빠르게 시작하세요.
 
 [클라이언트 도구 설치](install-client-tools.md)
 

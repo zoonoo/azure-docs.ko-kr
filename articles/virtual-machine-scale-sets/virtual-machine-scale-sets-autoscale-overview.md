@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 092b95845ed033ac0705e325fc6535739088848f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86527407"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888796"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 Azure 가상 머신 확장 집합은 애플리케이션을 실행하는 VM 인스턴스의 수를 자동으로 늘리거나 줄입니다. 자동화되고 탄력적인 이 동작은 관리 오버헤드를 줄여 애플리케이션의 성능을 모니터링하고 최적화합니다. 긍정적인 고객 만족을 위해 허용되는 성능을 정의하는 규칙을 만듭니다. 정의된 임계값이 충족되면 자동 크기 조정 규칙에 따라 확장 집합의 용량을 조정하는 작업을 수행합니다. 확정된 시간에 확장 집합의 용량을 자동으로 늘리거나 줄이도록 이벤트를 예약할 수도 있습니다. 이 문서에서는 사용 가능한 성능 메트릭과 자동 크기 조정에서 수행할 수 있는 작업에 대해 간략히 설명합니다.
@@ -22,6 +22,9 @@ Azure 가상 머신 확장 집합은 애플리케이션을 실행하는 VM 인�
 
 ## <a name="benefits-of-autoscale"></a>자동 크기 조정의 이점
 애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다.
+
+> [!NOTE]
+> 확장 집합에 대해 자동 인스턴스 복구를 사용하는 경우 확장 집합의 최대 인스턴스 수는 200개일 수 있습니다. [자동 인스턴스 복구](./virtual-machine-scale-sets-automatic-instance-repairs.md)에 대해 자세히 알아보세요.
 
 이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 메모리), 애플리케이션 로드가 지정된 임계값을 충족해야 하는 기간 및 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
 
@@ -105,7 +108,7 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 
 
 ## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>Azure 진단 확장이 있는 게스트 내 VM 메트릭
-Azure 진단 확장은 VM 인스턴스 내부에서 실행되는 에이전트입니다. 에이전트는 성능 메트릭을 모니터링하고 Azure Storage에 저장합니다. 이러한 성능 메트릭에는 디스크에 대한 *AverageReadTime* 또는 CPU에 대한 *PercentIdleTime*과 같은 VM 상태에 대한 자세한 정보가 포함됩니다. CPU 사용률이나 메모리 사용량 외에도 VM 성능에 대한 자세한 인식에 따라 자동 크기 조정 규칙을 만들 수 있습니다.
+Azure 진단 확장은 VM 인스턴스 내부에서 실행되는 에이전트입니다. 에이전트는 성능 메트릭을 모니터링하고 Azure Storage에 저장합니다. 이러한 성능 메트릭에는 디스크에 대한 *AverageReadTime* 또는 CPU에 대한 *PercentIdleTime* 과 같은 VM 상태에 대한 자세한 정보가 포함됩니다. CPU 사용률이나 메모리 사용량 외에도 VM 성능에 대한 자세한 인식에 따라 자동 크기 조정 규칙을 만들 수 있습니다.
 
 Azure 진단 확장을 사용하려면 VM 인스턴스에 대한 Azure 스토리지 계정을 만들고, Azure 진단 에이전트를 설치한 다음, 특정 성능 카운터를 스토리지 계정에 스트림하도록 VM을 구성해야 합니다.
 
@@ -135,7 +138,7 @@ App Insights에 대한 자세한 내용은 [Application Insights란?](../azure-m
 - [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure 템플릿](tutorial-autoscale-template.md)
 
-이 개요에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고, 확장 집합의 VM 인스턴스 *수*를 늘리거나 줄이는 방법에 대해 자세히 설명했습니다. 또한 수직으로 크기를 조정하여 VM 인스턴스의 *크기*를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [가상 머신 확장 집합을 사용하여 수직으로 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 참조하세요.
+이 개요에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고, 확장 집합의 VM 인스턴스 *수* 를 늘리거나 줄이는 방법에 대해 자세히 설명했습니다. 또한 수직으로 크기를 조정하여 VM 인스턴스의 *크기* 를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [가상 머신 확장 집합을 사용하여 수직으로 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 참조하세요.
 
 VM 인스턴스 관리 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 가상 머신 확장 집합 관리](./virtual-machine-scale-sets-manage-powershell.md)를 참조하세요.
 

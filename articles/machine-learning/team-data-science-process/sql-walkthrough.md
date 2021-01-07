@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 580181aaaea975ee07bcec8108297079c5373b92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320414"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007412"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
 이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 세트([NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트)를 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
@@ -144,7 +144,7 @@ AzCopy를 사용하여 데이터를 복사하려면
    
    * **bcp\_parallel\_generic.ps1** 은 대량의 데이터를 테이블로 병렬로 가져오는 일반 스크립트입니다. 이 스크립트를 수정하여 스크립트의 명령줄에 표시된 대로 입력 및 대상 변수를 설정합니다.
    * **bcp\_parallel\_nyctaxi.ps1** 은 미리 구성된 버전의 일반 스크립트로서, NYC Taxi Trips 데이터의 두 테이블을 모두 로드하는 데 사용될 수 있습니다.  
-8. **bcp\_parallel\_nyctaxi.ps1** 스크립트 이름을 마우스 오른쪽 단추로 클릭하고 **편집** 을 클릭하여 PowerShell에서 엽니다. 사전 설정 변수를 검토하고 선택한 데이터베이스 이름, 입력 데이터 폴더, 대상 로그 폴더 및 샘플 형식파일 **nyctaxi_trip.xml** 및 **nyctaxi\_fare.xml** ( **Sample Scripts** 폴더에 제공)의 경로에 따라 수정합니다.
+8. **bcp\_parallel\_nyctaxi.ps1** 스크립트 이름을 마우스 오른쪽 단추로 클릭하고 **편집** 을 클릭하여 PowerShell에서 엽니다. 사전 설정 변수를 검토하고 선택한 데이터베이스 이름, 입력 데이터 폴더, 대상 로그 폴더 및 샘플 형식파일 **nyctaxi_trip.xml** 및 **nyctaxi\_fare.xml**(**Sample Scripts** 폴더에 제공)의 경로에 따라 수정합니다.
    
     ![대용량 데이터 가져오기][16]
    
@@ -258,7 +258,7 @@ AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 ```
 
 #### <a name="feature-engineering-in-sql-queries"></a>SQL 쿼리의 기능 엔지니어링
-레이블 생성 및 지리 변환 탐색 쿼리는 계산 부분을 제거하여 레이블/기능을 생성하는 데에도 사용될 수 있습니다. 추가적인 기능 엔지니어링 SQL 예제는 [IPython Notebook에서 데이터 탐색 및 기능 엔지니어링](#ipnb) 섹션에서 제공됩니다. SQL Server 데이터베이스 인스턴스에서 직접 실행 되는 SQL 쿼리를 사용 하 여 전체 데이터 집합 또는 해당 데이터 집합에 대 한 기능 생성 쿼리를 실행 하는 것이 더 효율적입니다. 쿼리는 **SQL Server Management Studio** , ipython 노트북 또는 데이터베이스에 로컬로 또는 원격으로 액세스할 수 있는 개발 도구나 환경에서 실행할 수 있습니다.
+레이블 생성 및 지리 변환 탐색 쿼리는 계산 부분을 제거하여 레이블/기능을 생성하는 데에도 사용될 수 있습니다. 추가적인 기능 엔지니어링 SQL 예제는 [IPython Notebook에서 데이터 탐색 및 기능 엔지니어링](#ipnb) 섹션에서 제공됩니다. SQL Server 데이터베이스 인스턴스에서 직접 실행 되는 SQL 쿼리를 사용 하 여 전체 데이터 집합 또는 해당 데이터 집합에 대 한 기능 생성 쿼리를 실행 하는 것이 더 효율적입니다. 쿼리는 **SQL Server Management Studio**, ipython 노트북 또는 데이터베이스에 로컬로 또는 원격으로 액세스할 수 있는 개발 도구나 환경에서 실행할 수 있습니다.
 
 #### <a name="preparing-data-for-model-building"></a>모델 빌드를 위한 데이터 준비
 다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped** 와 다중 클래스 분류 레이블 **tip\_class** 를 생성하며, 조인된 전체 데이터 세트에서 1% 무작위 샘플을 추출합니다. Azure의 SQL Server 데이터베이스 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure Machine Learning Studio](https://studio.azureml.net) [데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
@@ -364,7 +364,7 @@ print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.sha
 검색된 행 및 열 수 = (84952, 21)
 
 #### <a name="descriptive-statistics"></a>기술 통계
-이제 샘플링된 데이터를 탐색할 준비가 완료되었습니다. **trip\_distance** (또는 다른 모든) 필드에 대한 기술 통계부터 살펴봅니다.
+이제 샘플링된 데이터를 탐색할 준비가 완료되었습니다. **trip\_distance**(또는 다른 모든) 필드에 대한 기술 통계부터 살펴봅니다.
 
 ```sql
 df1['trip_distance'].describe()
@@ -496,7 +496,7 @@ pd.read_sql(query,conn)
 다음 예제에서는 모델링에 사용할 두 개의 레이블 집합을 생성합니다.
 
 1. 이진 클래스 레이블 **tipped** (팁이 제공되는지 예측)
-2. 다중 클래스 레이블 **tip\_class** (팁 bin 또는 범위 예측)
+2. 다중 클래스 레이블 **tip\_class**(팁 bin 또는 범위 예측)
 
 ```sql   
     nyctaxi_one_percent_add_col = '''
@@ -661,7 +661,7 @@ SQL Server 데이터베이스에서 직접 데이터를 읽는 이진 분류 실
 ![Azure Machine Learning 학습][10]
 
 > [!IMPORTANT]
-> 이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설** 을 **제외** 하는 것입니다. 예를 들어, 이진 분류를 사용할 때는 레이블 **tipped** 를 사용하고, **tip\_class** , **tip\_amount** 및 **total\_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
+> 이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설** 을 **제외** 하는 것입니다. 예를 들어, 이진 분류를 사용할 때는 레이블 **tipped** 를 사용하고, **tip\_class**, **tip\_amount** 및 **total\_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
 > 
 > 필요 없는 열 또는 목표 누설을 제외하려면 [데이터 세트의 열 선택][select-columns] 모듈 또는 [메타데이터 편집][edit-metadata]을 사용하면 됩니다. 자세한 내용은 [데이터 세트의 열 선택][select-columns] 및 [메타데이터 편집][edit-metadata] 참조 페이지를 참조하세요.
 > 

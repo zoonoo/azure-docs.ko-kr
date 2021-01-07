@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: b2369e3f941b3d7c86b5c09a11d3e17ade8e99cf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f87db54b43f0ece49b940521bea34737da676a31
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136081"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912210"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -23,13 +23,15 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
-작업을 수행하려면 먼저 [Go용 Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Cwindows%2Cjre%2Cbrowser&pivots=programming-language-go)를 설치해야 합니다.
+작업을 수행하려면 먼저 [Go용 Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser)를 설치해야 합니다.
 
 ## <a name="speech-to-text-from-microphone"></a>마이크에서 음성을 텍스트로 변환
 
 다음 코드 샘플을 사용하여 기본 디바이스 마이크에서 음성 인식을 실행할 수 있습니다. 변수 `subscription` 및 `region`은 구독 및 지역 키로 바꿉니다. 스크립트를 실행하면 기본 마이크 및 출력 텍스트에서 인식 세션이 시작됩니다.
 
 ```go
+package main
+
 import (
     "bufio"
     "fmt"
@@ -104,6 +106,8 @@ func main() {
 오디오 파일에서 음성 인식을 실행하려면 다음 샘플을 사용합니다. 변수 `subscription` 및 `region`은 구독 및 지역 키로 바꿉니다. 또한 변수 `file`을 .wav 파일의 경로로 바꿉니다. 스크립트를 실행하면 파일에서 음성이 인식되고 텍스트 결과가 출력됩니다.
 
 ```go
+package main
+
 import (
     "fmt"
     "time"

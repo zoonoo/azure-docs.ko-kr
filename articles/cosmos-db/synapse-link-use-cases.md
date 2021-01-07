@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340178"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463118"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Microsoft Azure Cosmos DB용 Synapse Link: 근 실시간 분석 사용 사례
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -53,9 +53,9 @@ Microsoft Azure Cosmos DB용 [Azure Synapse Link](synapse-link.md)는 클라우�
 
   Microsoft Azure Cosmos DB용 Synapse Link는 다양한 BI(비즈니스 인텔리전스)/보고 시나리오를 지원합니다.
 
-  * Synapse SQL server를 사용 하지 않는 기본 및 T-sql 언어의 표현을를 사용 하 여 네이티브 통합을 사용 하 여 Azure Cosmos DB 분석 저장소에서 작동 데이터를 쿼리 합니다.
+  * 서버 리스 SQL 풀과 네이티브 통합을 사용 하 여 Azure Cosmos DB 분석 저장소에서 작동 데이터를 쿼리하고 T-sql 언어의 전체 표현을을 쿼리 합니다.
 
-  * 친숙 한 BI 도구에 대 한 Synapse SQL 서버를 사용 하지 않는 지원을 통해 Azure Cosmos DB를 통해 BI 대시보드를 모델 및 게시 합니다. Azure Analysis Services, Power BI Premium 등을 예로 들 수 있습니다.
+  * 익숙한 BI 도구에 대 한 서버를 사용 하지 않는 SQL 풀 지원을 통해 Azure Cosmos DB를 통해 BI 대시보드를 모델링 및 게시 합니다. Azure Analysis Services, Power BI Premium 등을 예로 들 수 있습니다.
 
 다음은 Microsoft Azure Cosmos DB에 일괄 처리 및 스트리밍 데이터 통합에 대한 몇 가지 지침입니다.
 
@@ -143,4 +143,4 @@ Azure Synapse Link를 통해 Microsoft Azure Cosmos DB는 트랜잭션 워크로
 
 * [Azure Synapse Analytics의 Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [Azure Synapse Analytics의 SQL server 서버를 사용 하지 않는 런타임 지원](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 런타임 지원](../synapse-analytics/sql/on-demand-workspace-overview.md)

@@ -3,19 +3,19 @@ title: Azure CLI 스크립트 샘플 - App Configuration 저장소로 가져오�
 titleSuffix: Azure App Configuration
 description: Azure CLI 스크립트를 사용하여 구성을 Azure App Configuration으로 가져옵니다.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fe4c22042c31d55575320d9c3823783902700f9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a8bd22629bf0aa269125187a77710f6dc9fd93e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494777"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931320"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Azure App Configuration 저장소로 가져오기
 
@@ -23,9 +23,9 @@ ms.locfileid: "87494777"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+ - 이 자습서에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

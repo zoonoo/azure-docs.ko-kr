@@ -1,47 +1,47 @@
 ---
 title: 서버 매개 변수 구성-Azure Portal-Azure Database for MariaDB
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MariaDB에서 MariaDB 서버 매개 변수를 구성하는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 9d0b6865c7fb5b59f379568d15bd9b96883202e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7081535bb709e6731a9a15436334e8742e7bdd08
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626431"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539459"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB에서 서버 매개 변수 구성
 
 Azure Database for MariaDB에서는 일부 서버 매개 변수를 구성할 수 있습니다. 이 문서에서는 Azure Portal을 사용하여 이러한 매개 변수를 구성하는 방법을 설명합니다. 일부 서버 매개 변수를 조정할 수 있습니다.
 
 >[!Note]
-> 서버 매개 변수는 서버 수준에서 전역적으로 업데이트할 수 있으며 [Azure CLI](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md)또는 [Azure Portal](./howto-server-parameters.md)를 사용할 수 있습니다.
+> 서버 매개 변수는 서버 수준에서 전역적으로 업데이트될 수 있으며 [Azure CLI](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) 또는 [Azure Portal](./howto-server-parameters.md)을 사용합니다.
 
 ## <a name="configure-server-parameters"></a>서버 매개 변수 구성
 
 1. Azure Portal에 로그인한 다음 Azure Database for MariaDB 서버를 찾습니다.
-2. **설정** 섹션에서 **서버 매개 변수**를 클릭하여 Azure Database for MariaDB 서버의 매개 변수 페이지를 엽니다.
+2. **설정** 섹션에서 **서버 매개 변수** 를 클릭하여 Azure Database for MariaDB 서버의 매개 변수 페이지를 엽니다.
 ![Azure Portal 서버 매개 변수 페이지](./media/howto-server-parameters/azure-portal-server-parameters.png)
 3. 조정해야 하는 설정을 모두 찾습니다. **설명** 열을 검토하여 용도 및 허용되는 값을 이해합니다.
 ![드롭다운 열거](./media/howto-server-parameters/3-toggle_parameter.png)
 4. **저장** 을 클릭 하 여 변경 내용을 저장 합니다.
 ![변경 내용 저장 또는 제거](./media/howto-server-parameters/4-save_parameters.png)
-5. 매개 변수에 새 값을 저장한 경우 언제든지 **모두 기본값으로 다시 설정**을 선택하여 모든 항목을 기본값으로 되돌릴 수있습니다.
+5. 매개 변수에 새 값을 저장한 경우 언제든지 **모두 기본값으로 다시 설정** 을 선택하여 모든 항목을 기본값으로 되돌릴 수있습니다.
 ![모두 기본값으로 다시 설정](./media/howto-server-parameters/5-reset_parameters.png)
 
 ## <a name="setting-parameters-not-listed"></a>나열 되지 않은 매개 변수 설정
 
 업데이트 하려는 서버 매개 변수가 Azure Portal에 나열 되어 있지 않으면를 사용 하 여 연결 수준에서 매개 변수를 선택적으로 설정할 수 있습니다 `init_connect` . 서버에 연결 하는 각 클라이언트에 대 한 서버 매개 변수를 설정 합니다. 
 
-1. **설정** 섹션에서 **서버 매개 변수**를 클릭하여 Azure Database for MariaDB 서버의 매개 변수 페이지를 엽니다.
+1. **설정** 섹션에서 **서버 매개 변수** 를 클릭하여 Azure Database for MariaDB 서버의 매개 변수 페이지를 엽니다.
 2. 검색 `init_connect`
 3. 서버 매개 변수를 다음 형식으로 추가 합니다. 값 열에 값을 추가 `SET parameter_name=YOUR_DESIRED_VALUE` 합니다.
 
     예를 들어를로 설정 하 여 서버의 문자 집합을 변경할 수 있습니다. `init_connect``SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
-4. **저장**을 클릭하여 변경 내용을 저장합니다.
+4. **저장** 을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="working-with-the-time-zone-parameter"></a>표준 시간대 매개 변수 작업
 

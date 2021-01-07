@@ -1,23 +1,23 @@
 ---
 title: 클라우드에서 템플릿 재사용
-description: 서로 다른 클라우드 환경에서 일관되게 작동하는 Azure Resource Manager 템플릿을 개발합니다. Azure Stack을 위해 새 템플릿을 만들거나, 기존 템플릿을 업데이트합니다.
+description: 여러 클라우드 환경에서 일관 되 게 작동 하는 Azure Resource Manager 템플릿 (ARM 템플릿)을 개발 합니다. Azure Stack을 위해 새 템플릿을 만들거나, 기존 템플릿을 업데이트합니다.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 806556a8da97ec84fe8141b95198b4a7da95c062
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744760"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928361"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 ARM 템플릿 개발
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Azure의 핵심 이점은 일관성입니다. 한 위치에 대한 개발 투자를 다른 위치에서 다시 사용할 수 있습니다. ARM (Azure Resource Manager) 템플릿을 통해 글로벌 Azure, Azure 소 버린 클라우드 및 Azure Stack를 비롯 한 여러 환경에서 배포가 일관적이 고 반복 가능 합니다. 그러나 클라우드 간에 템플릿을 재사용하려면 이 가이드에서 설명하는 클라우드 특정 종속성을 고려해야 합니다.
+Azure의 핵심 이점은 일관성입니다. 한 위치에 대한 개발 투자를 다른 위치에서 다시 사용할 수 있습니다. Azure Resource Manager 템플릿 (ARM 템플릿)은 전역 Azure, Azure 소 버린 클라우드 및 Azure Stack를 비롯 한 여러 환경에서 배포가 일관적이 고 반복 가능 하 게 합니다. 그러나 클라우드 간에 템플릿을 재사용하려면 이 가이드에서 설명하는 클라우드 특정 종속성을 고려해야 합니다.
 
 Microsoft는 여러 위치에서 다음을 비롯한 지능형 엔터프라이즈 지원 클라우드 서비스를 제공합니다.
 
@@ -439,12 +439,12 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 * 연결 문자열(MySql, SQLServer, SQLAzure, Custom, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Traffic Manager
 * 공용 IP 주소의 domainNameLabel
-* Cloud Services
+* 클라우드 서비스
 
 일반적으로, 템플릿에 하드 코딩된 엔드포인트를 사용하면 안 됩니다. 모범 사례는 reference 템플릿 함수를 사용하여 엔드포인트를 동적으로 검색하는 것입니다. 예를 들어, 가장 일반적으로 하드 코딩되는 엔드포인트는 스토리지 계정의 엔드포인트 네임스페이스입니다. 각 스토리지 계정에는 스토리지 계정 이름과 엔드포인트 네임스페이스를 연결하여 생성된 고유 FQDN이 있습니다. mystorageaccount1이라는 Blob Storage 계정은 클라우드에 따라 다른 FQDN을 생성합니다.
 
-* 전역 Azure 클라우드에 만든 경우, **mystorageaccount1.blob.core.windows.net**
-* Azure 중국 21Vianet 클라우드에서 만든 **mystorageaccount1.blob.core.chinacloudapi.cn** .
+* `mystorageaccount1.blob.core.windows.net` 글로벌 Azure 클라우드에서 생성 된 경우
+* `mystorageaccount1.blob.core.chinacloudapi.cn` Azure 중국 21Vianet 클라우드에서 만든 경우.
 
 다음 reference 템플릿 함수는 스토리지 리소스 공급자에서 엔드포인트 네임스페이스를 검색합니다.
 

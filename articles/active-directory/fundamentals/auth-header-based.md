@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory를 사용 하 여 헤더 기반 인증
-description: 이 인증 패턴을 달성 하는 데 대 한 아키텍처 지침
+description: Azure Active Directory를 사용 하 여 헤더 기반 인증을 수행 하는 방법에 대 한 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f364e4e14dd1b7c60cb81f06051d9dedd94396a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 69e87fc919893a544f5d0b1b615a110f25486e57
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114459"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168749"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 헤더 기반 인증
 
@@ -48,8 +48,8 @@ ms.locfileid: "92114459"
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Azure AD를 사용 하 여 헤더 기반 인증 구현
 
-* [Azure AD에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)  
+* [Azure AD에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](../manage-apps/application-proxy-add-on-premises-application.md)  
 
-* [애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access) 
+* [애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md) 
 
-* [앱 제공 컨트롤러 및 네트워크를 사용하여 레거시 앱 보호](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
+* [앱 제공 컨트롤러 및 네트워크를 사용하여 레거시 앱 보호](../manage-apps/secure-hybrid-access.md)

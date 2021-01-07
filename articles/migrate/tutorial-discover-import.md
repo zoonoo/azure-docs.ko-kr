@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate 서버 평가에서 가져온 CSV 파일을 사용하여 온-프레미스 서버 평가
 description: Azure Migrate 서버 평가에서 가져온 CSV 파일을 사용하여 Azure로 마이그레이션할 온-프레미스 서버를 검색하는 방법에 대해 설명합니다.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 30f17bb6b22d4d19cf225aa52d8284f5306a44ee
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dfa7ee941e2c373b02fe5fb2f2a648a60a677670
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308381"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753113"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>자습서: 가져온 CSV 파일을 사용하여 서버 평가
 
@@ -53,23 +56,23 @@ Azure Migrate 프로젝트를 만들려면 다음이 포함된 계정이 필요�
 
 Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다. 구독 소유자가 아닌 경우 소유자와 협력하여 다음과 같이 권한을 할당합니다.
 
-1. Azure Portal에서 "구독"을 검색하여 **서비스** 아래에서 **구독**을 선택합니다.
+1. Azure Portal에서 "구독"을 검색하여 **서비스** 아래에서 **구독** 을 선택합니다.
 
     ![Azure 구독을 검색하는 검색 상자](./media/tutorial-discover-import/search-subscription.png)
 
 2. **구독** 페이지에서 Azure Migrate 프로젝트를 만들려는 구독을 선택합니다. 
-3. 구독에서 **액세스 제어(IAM)**  > **액세스 확인**을 차례로 선택합니다.
-4. **액세스 확인**에서 관련 사용자 계정을 검색합니다.
-5. **역할 할당 추가**에서 **추가**를 클릭합니다.
+3. 구독에서 **액세스 제어(IAM)**  > **액세스 확인** 을 차례로 선택합니다.
+4. **액세스 확인** 에서 관련 사용자 계정을 검색합니다.
+5. **역할 할당 추가** 에서 **추가** 를 클릭합니다.
 
     ![사용자 계정을 검색하여 액세스 권한을 확인하고, 역할을 할당합니다.](./media/tutorial-discover-import/azure-account-access.png)
 
-6. **역할 할당 추가**에서 기여자 또는 소유자 역할을 선택하고, 계정(이 예에서는 azmigrateuser)을 선택합니다. 그런 다음 **Save**를 클릭합니다.
+6. **역할 할당 추가** 에서 기여자 또는 소유자 역할을 선택하고, 계정(이 예에서는 azmigrateuser)을 선택합니다. 그런 다음 **Save** 를 클릭합니다.
 
     ![역할을 계정에 할당하기 위해 열린 역할 할당 추가 페이지](./media/tutorial-discover-import/assign-role.png)
 
-7. 포털에서 사용자를 검색하고, **서비스** 아래에서 **사용자**를 선택합니다.
-8. **사용자 설정**에서 Azure AD 사용자가 애플리케이션을 등록할 수 있는지 확인합니다(기본적으로 **예**로 설정됨).
+7. 포털에서 사용자를 검색하고, **서비스** 아래에서 **사용자** 를 선택합니다.
+8. **사용자 설정** 에서 Azure AD 사용자가 애플리케이션을 등록할 수 있는지 확인합니다(기본적으로 **예** 로 설정됨).
 
     ![사용자 설정에서 사용자가 Active Directory 앱을 등록할 수 있는지 확인](./media/tutorial-discover-import/register-apps.png)
 
@@ -79,15 +82,15 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
 Azure Migrate 프로젝트가 없는 경우 새 Azure Migrate 프로젝트를 설정합니다.
 
-1. Azure Portal > **모든 서비스**에서 **Azure Migrate**를 검색합니다.
-2. **서비스** 아래에서 **Azure Migrate**를 선택합니다.
-3. **개요**에서 **프로젝트 만들기**를 선택합니다.
-5. **프로젝트 만들기**에서 Azure 구독 및 리소스 그룹을 선택합니다. 리소스 그룹이 없는 경우 새로 만듭니다.
-6. **프로젝트 세부 정보**에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
+1. Azure Portal > **모든 서비스** 에서 **Azure Migrate** 를 검색합니다.
+2. **서비스** 아래에서 **Azure Migrate** 를 선택합니다.
+3. **개요** 에서 **프로젝트 만들기** 를 선택합니다.
+5. **프로젝트 만들기** 에서 Azure 구독 및 리소스 그룹을 선택합니다. 리소스 그룹이 없는 경우 새로 만듭니다.
+6. **프로젝트 세부 정보** 에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
    ![프로젝트 이름 및 지역 상자](./media/tutorial-discover-import/new-project.png)
 
-7. **만들기**를 선택합니다.
+7. **만들기** 를 선택합니다.
 8. Azure Migrate 프로젝트가 배포될 때까지 몇 분 정도 기다립니다.
 
 **Azure Migrate: 서버 평가** 도구는 기본적으로 새 프로젝트에 추가됩니다.
@@ -100,9 +103,9 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 
 ### <a name="download-the-template"></a>템플릿 다운로드
 
-1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 선택합니다.
-2. **머신 검색**에서 **CSV를 사용하여 가져오기**를 선택합니다.
-3. **다운로드**를 선택하여 CSV 템플릿을 다운로드합니다. 또는 [직접 다운로드](https://go.microsoft.com/fwlink/?linkid=2109031)할 수 있습니다.
+1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가** 에서 **검색** 을 선택합니다.
+2. **머신 검색** 에서 **CSV를 사용하여 가져오기** 를 선택합니다.
+3. **다운로드** 를 선택하여 CSV 템플릿을 다운로드합니다. 또는 [직접 다운로드](https://go.microsoft.com/fwlink/?linkid=2109031)할 수 있습니다.
 
     ![CSV 템플릿 다운로드](./media/tutorial-discover-import/download-template.png)
 
@@ -163,28 +166,28 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 
 정보가 CSV 템플릿에 추가되면 CSV 파일을 서버 평가로 가져옵니다.
 
-1. Azure Migrate의 **머신 검색**에서 완료된 템플릿으로 이동합니다.
-2. **가져오기**를 선택합니다.
+1. Azure Migrate의 **머신 검색** 에서 완료된 템플릿으로 이동합니다.
+2. **가져오기** 를 선택합니다.
 3. 가져오기 상태가 표시됩니다.
     - 상태에 경고가 표시되면 해당 경고를 해결하거나 이를 해결하지 않고 계속 진행할 수 있습니다.
     - 평가 정확도를 높이기 위해 경고에서 제시한 대로 서버 정보를 향상시킵니다.
-    - 경고를 확인하고 해결하려면 **경고 정보 .CSV 다운로드**를 선택합니다. 이 작업에서는 경고가 포함된 CSV를 다운로드합니다. 경고를 검토하고, 필요에 따라 문제를 해결합니다.
-    - 상태에 오류가 표시되어 가져오기 상태가 **실패**이면 가져오기를 계속하기 전에 해당 오류를 해결해야 합니다.
+    - 경고를 확인하고 해결하려면 **경고 정보 .CSV 다운로드** 를 선택합니다. 이 작업에서는 경고가 포함된 CSV를 다운로드합니다. 경고를 검토하고, 필요에 따라 문제를 해결합니다.
+    - 상태에 오류가 표시되어 가져오기 상태가 **실패** 이면 가져오기를 계속하기 전에 해당 오류를 해결해야 합니다.
         1. 이제 오류 세부 정보가 포함된 CSV를 다운로드합니다.
         1. 필요에 따라 오류를 검토하고 해결합니다. 
         1. 수정된 파일을 다시 업로드합니다.
-4. 가져오기 상태가 **완료됨**이면 서버 정보를 가져온 것입니다. 가져오기 프로세스가 완료되지 않은 것으로 보이는 경우 새로 고칩니다.
+4. 가져오기 상태가 **완료됨** 이면 서버 정보를 가져온 것입니다. 가져오기 프로세스가 완료되지 않은 것으로 보이는 경우 새로 고칩니다.
 
 ## <a name="update-server-information"></a>서버 정보 업데이트
 
-동일한 **서버 이름**을 사용하여 서버 데이터를 다시 가져와 서버 정보를 업데이트할 수 있습니다. **서버 이름** 필드는 수정할 수 없습니다. 서버 삭제는 현재 지원되지 않습니다.
+동일한 **서버 이름** 을 사용하여 서버 데이터를 다시 가져와 서버 정보를 업데이트할 수 있습니다. **서버 이름** 필드는 수정할 수 없습니다. 서버 삭제는 현재 지원되지 않습니다.
 
 ## <a name="verify-servers-in-the-portal"></a>포털에서 서버 확인
 
 검색 후 Azure Portal에서 해당 서버가 표시되는지 확인하려면 다음을 수행합니다.
 
 1. Azure Migrate 대시보드를 엽니다.
-2. **Azure Migrate - 서버** > **Azure Migrate: 서버 평가** 페이지에서 **검색된 서버**의 수를 표시하는 아이콘을 선택합니다.
+2. **Azure Migrate - 서버** > **Azure Migrate: 서버 평가** 페이지에서 **검색된 서버** 의 수를 표시하는 아이콘을 선택합니다.
 3. **가져오기 기반** 탭을 선택합니다.
 
 

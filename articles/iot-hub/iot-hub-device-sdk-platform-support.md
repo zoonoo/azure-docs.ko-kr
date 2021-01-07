@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 5df36cdb3c02fd4c813625c4869c21581f009b02
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152225"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588763"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
 
@@ -34,7 +34,7 @@ Microsoft는 C, .NET (c #), Node.js, Java 및 Python 언어로 GitHub에 오픈 
 
 나열 된 각 Sdk에 대해 Microsoft:
 
-* 는 널리 사용 되는 여러 플랫폼에서 GitHub에 있는 관련 SDK의 마스터 분기에 대 한 종단 간 테스트를 지속적으로 빌드하고 실행 합니다.  여러 컴파일러 버전에서 테스트 검사를 제공 하기 위해 일반적으로 최신 LTS 버전 및 가장 인기 있는 버전을 테스트 합니다.
+* 는 널리 사용 되는 여러 플랫폼에서 GitHub에 있는 관련 SDK의 주 분기에 대 한 종단 간 테스트를 지속적으로 빌드하고 실행 합니다.  여러 컴파일러 버전에서 테스트 검사를 제공 하기 위해 일반적으로 최신 LTS 버전 및 가장 인기 있는 버전을 테스트 합니다.
 
 * 해당 하는 경우 설치 지침 또는 설치 패키지를 제공 합니다.
 
@@ -147,4 +147,4 @@ Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 아�
 ## <a name="next-steps"></a>다음 단계
 
 * [디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)
-* [이식 지침](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+* [포팅 지침](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)

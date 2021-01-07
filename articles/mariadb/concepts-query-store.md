@@ -1,17 +1,17 @@
 ---
 title: 쿼리 저장소-Azure Database for MariaDB
 description: 시간에 따른 성능을 추적 하는 데 도움이 되는 Azure Database for MariaDB의 쿼리 저장소 기능에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a502638744009fc34a7f0a27f8034b89d2c8fa26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bca995f8b2cea33266e032b543abb18ee7140f3f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79527812"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541184"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>쿼리 저장소를 사용 하 여 Azure Database for MariaDB 성능 모니터링
 
@@ -34,14 +34,14 @@ Azure Database for Mariadb의 쿼리 저장소 기능은 시간이 지남에 따
 ### <a name="enable-query-store-using-the-azure-portal"></a>Azure Portal을 통해 쿼리 저장소 사용
 
 1. Azure Portal에 로그인 하 고 Azure Database for MariaDB 서버를 선택 합니다.
-1. 메뉴의 **설정** 섹션에서 **서버 매개 변수**를 선택합니다.
+1. 메뉴의 **설정** 섹션에서 **서버 매개 변수** 를 선택합니다.
 1. query_store_capture_mode 매개 변수를 검색합니다.
-1. 값을 모두로 설정하고 **저장**합니다.
+1. 값을 모두로 설정하고 **저장** 합니다.
 
 쿼리 저장소에서 대기 통계를 사용하도록 설정하려면 다음과 같이 합니다.
 
 1. query_store_wait_sampling_capture_mode 매개 변수를 검색합니다.
-1. 값을 모두로 설정하고 **저장**합니다.
+1. 값을 모두로 설정하고 **저장** 합니다.
 
 데이터의 첫 번째 배치가 mysql 데이터베이스에서 지속되는 데 최대 20분이 걸립니다.
 
@@ -78,8 +78,8 @@ SELECT * FROM mysql.query_store_wait_stats;
 | **관찰** | **동작** |
 |---|---|
 |최고 잠금 대기 | 영향을 받는 쿼리에 대한 쿼리 텍스트를 확인하고 대상 엔터티를 식별합니다. 쿼리 저장소에서 자주 실행되거나 오래 실행되는 동일한 엔터티를 수정하는 다른 쿼리를 확인합니다. 이러한 쿼리를 식별한 후 애플리케이션 논리를 변경하여 동시성을 개선하거나 덜 제한적인 격리 수준을 사용하는 것이 좋습니다. |
-|높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. 해당 쿼리가 IO 대기가 많은 쿼리와 일치하는 경우 검사 대신 검색을 수행하기 위해 기본 엔터티에 인덱스를 도입하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버에 대한 **성능 권장 사항**을 확인하여 쿼리를 최적화하는 이 서버에 대한 인덱스 권장 사항이 있는지 확인합니다. |
-|높은 메모리 대기 | 쿼리 저장소에서 메모리 사용량이 많은 상위 쿼리를 찾습니다. 이러한 쿼리는 영향을 받는 쿼리의 추가 진행을 지연시킬 수 있습니다. 포털에서 서버에 대한 **성능 권장 사항**을 확인하여 이러한 쿼리를 최적화하는 인덱스 권장 사항이 있는지 확인합니다.|
+|높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. 해당 쿼리가 IO 대기가 많은 쿼리와 일치하는 경우 검사 대신 검색을 수행하기 위해 기본 엔터티에 인덱스를 도입하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버에 대한 **성능 권장 사항** 을 확인하여 쿼리를 최적화하는 이 서버에 대한 인덱스 권장 사항이 있는지 확인합니다. |
+|높은 메모리 대기 | 쿼리 저장소에서 메모리 사용량이 많은 상위 쿼리를 찾습니다. 이러한 쿼리는 영향을 받는 쿼리의 추가 진행을 지연시킬 수 있습니다. 포털에서 서버에 대한 **성능 권장 사항** 을 확인하여 이러한 쿼리를 최적화하는 인덱스 권장 사항이 있는지 확인합니다.|
 
 ## <a name="configuration-options"></a>구성 옵션
 
@@ -102,7 +102,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 | query_store_wait_sampling_frequency | 대기 샘플링 빈도(초)를 변경합니다. 5~300초 | 30 | 5-300 |
 
 > [!NOTE]
-> 현재 **query_store_capture_mode**는 이 구성을 대체합니다. 즉, **query_store_capture_mode** 및 **query_store_wait_sampling_capture_mode**를 모두 사용하도록 설정하여 대기 통계가 작동하도록 해야 합니다. **query_store_capture_mode**가 꺼져 있는 경우, 대기 통계가 performance_schema enabled 및 쿼리 저장소에 의해 캡처된 query_text를 활용하므로 대기 통계도 켜집니다.
+> 현재 **query_store_capture_mode** 는 이 구성을 대체합니다. 즉, **query_store_capture_mode** 및 **query_store_wait_sampling_capture_mode** 를 모두 사용하도록 설정하여 대기 통계가 작동하도록 해야 합니다. **query_store_capture_mode** 가 꺼져 있는 경우, 대기 통계가 performance_schema enabled 및 쿼리 저장소에 의해 캡처된 query_text를 활용하므로 대기 통계도 켜집니다.
 
 [Azure Portal](howto-server-parameters.md) 를 사용 하 여 매개 변수에 대 한 다른 값을 가져오거나 설정 합니다.
 

@@ -2,20 +2,20 @@
 title: Azure AD Domain Services를 사용 하 여 도메인 가입 문제 해결 | Microsoft Docs
 description: VM을 도메인에 가입 하거나 응용 프로그램을 Azure Active Directory Domain Services에 연결 하려고 할 때 일반적인 문제를 해결 하는 방법에 대해 알아보고 관리 되는 도메인에 연결 하거나 인증할 수 없습니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: ee60b684d64ef49fbb669de8c98203e2df5268bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 86d6ca79a12e4706f558e92c3c83c5bddaa99b3c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967514"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618606"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 도메인 가입 문제 해결
 
@@ -43,7 +43,7 @@ VM이 관리 되는 도메인을 찾을 수 없는 경우 일반적으로 네트
 
 연결 문제가 계속 되 면 다음 문제 해결 단계를 검토 합니다.
 
-1. Azure Portal에서 관리 되는 도메인의 상태를 확인 합니다. *AADDS001*에 대 한 경고가 있는 경우 네트워크 보안 그룹 규칙은 액세스를 차단 합니다.
+1. Azure Portal에서 관리 되는 도메인의 상태를 확인 합니다. *AADDS001* 에 대 한 경고가 있는 경우 네트워크 보안 그룹 규칙은 액세스를 차단 합니다.
 1. [필요한 포트 및 네트워크 보안 그룹 규칙][network-ports]을 검토 합니다. 연결 중인 VM 또는 가상 네트워크에 적용 되는 네트워크 보안 그룹 규칙이 이러한 네트워크 포트를 차단 하지 않는지 확인 합니다.
 1. 네트워크 보안 그룹 구성 문제를 해결 한 후에는 *AADDS001* 경고가 상태 페이지에서 약 2 시간으로 사라집니다. 이제 네트워크 연결을 사용할 수 있습니다. VM에 도메인 가입을 다시 시도 합니다.
 

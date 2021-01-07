@@ -4,12 +4,12 @@ description: Azure 컨테이너 인스턴스 만들기를 자동화하는 HTTP �
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b94d583ca26b88d093810528d3193f20d765f1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072046"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349251"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>자습서: HTTP 트리거 Azure 함수를 사용하여 컨테이너 그룹 만들기
 
@@ -27,15 +27,15 @@ ms.locfileid: "89072046"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-OS에서 Azure Functions 확장을 사용하여 Visual Studio Code를 설치하고 사용하기 위한 필수 구성 요소는 [ Visual Studio Code를 사용하여 Azure에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment)를 참조하세요.
+OS에서 Azure Functions 확장을 사용하여 Visual Studio Code를 설치하고 사용하기 위한 필수 구성 요소는 [ Visual Studio Code를 사용하여 Azure에서 첫 번째 함수 만들기](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell#configure-your-environment)를 참조하세요.
 
 이 문서의 추가 단계에서는 Azure PowerShell을 사용합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 설치][azure-powershell-install] 및 [Azure에 로그인](/powershell/azure/get-started-azureps#sign-in-to-azure)을 참조하세요.
 
 ## <a name="create-a-basic-powershell-function"></a>기본 PowerShell 함수 만들기
 
-[Azure에서 첫 번째 PowerShell 함수 만들기](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell)의 단계에 따라 HTTP 트리거 템플릿을 사용하여 PowerShell 함수를 만듭니다. 기본 Azure 함수 이름 **HttpTrigger**를 사용합니다. 빠른 시작에서 볼 수 있듯이, 함수를 로컬로 테스트하고 Azure의 함수 앱에 프로젝트를 게시합니다. 이 예제는 텍스트 문자열을 반환하는 기본 HTTP 트리거 함수입니다. 이 문서의 뒷부분에서는 컨테이너 그룹을 만들도록 함수를 수정합니다.
+[Azure에서 첫 번째 PowerShell 함수 만들기](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell)의 단계에 따라 HTTP 트리거 템플릿을 사용하여 PowerShell 함수를 만듭니다. 기본 Azure 함수 이름 **HttpTrigger** 를 사용합니다. 빠른 시작에서 볼 수 있듯이, 함수를 로컬로 테스트하고 Azure의 함수 앱에 프로젝트를 게시합니다. 이 예제는 텍스트 문자열을 반환하는 기본 HTTP 트리거 함수입니다. 이 문서의 뒷부분에서는 컨테이너 그룹을 만들도록 함수를 수정합니다.
 
-이 문서에서는 함수 앱 이름(*myfunctionapp*)에 따라 자동으로 이름이 지정된 Azure 리소스 그룹에서 *myfunctionapp*이라는 이름을 사용하여 프로젝트를 게시한다고 가정합니다. 이후 단계에서 각자 함수 앱 이름 및 리소스 그룹 이름을 바꾸세요.
+이 문서에서는 함수 앱 이름(*myfunctionapp*)에 따라 자동으로 이름이 지정된 Azure 리소스 그룹에서 *myfunctionapp* 이라는 이름을 사용하여 프로젝트를 게시한다고 가정합니다. 이후 단계에서 각자 함수 앱 이름 및 리소스 그룹 이름을 바꾸세요.
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>함수 앱에서 Azure 관리 ID 사용
 
@@ -69,7 +69,7 @@ if ($name) {
 [...]
 ```
 
-이 코드를 다음 예제 블록으로 바꿉니다. 여기서, 이름 값이 쿼리 문자열에 전달되는 경우 이름 값은 [New-AzContainerGroup][new-azcontainergroup] cmdlet을 사용하여 이름을 지정하고 컨테이너 그룹을 만드는 데 사용됩니다. 리소스 그룹 이름 *myfunctionapp*을 함수 앱의 리소스 그룹 이름으로 바꿔야 합니다.
+이 코드를 다음 예제 블록으로 바꿉니다. 여기서, 이름 값이 쿼리 문자열에 전달되는 경우 이름 값은 [New-AzContainerGroup][new-azcontainergroup] cmdlet을 사용하여 이름을 지정하고 컨테이너 그룹을 만드는 데 사용됩니다. 리소스 그룹 이름 *myfunctionapp* 을 함수 앱의 리소스 그룹 이름으로 바꿔야 합니다.
 
 ```powershell
 [...]
@@ -101,7 +101,7 @@ if ($name) {
 1. 압축하여 배포할 현재 작업 폴더를 선택합니다.
 1. 구독을 선택한 다음, 기존 함수 앱의 이름(*myfunctionapp*)을 선택합니다. 이전 배포를 덮어쓸 것인지 확인합니다.
 
-함수 앱을 만들고 배포 패키지가 적용되면 알림이 표시됩니다. 이 알림에서 **출력 보기**를 선택하여 여러분이 업데이트한 Azure 리소스를 비롯한 만들기 및 배포 결과를 살펴봅니다.
+함수 앱을 만들고 배포 패키지가 적용되면 알림이 표시됩니다. 이 알림에서 **출력 보기** 를 선택하여 여러분이 업데이트한 Azure 리소스를 비롯한 만들기 및 배포 결과를 살펴봅니다.
 
 ## <a name="run-the-function-in-azure"></a>Azure에서 함수 실행
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: e583bb1b9cad79ee3e48e838d81d6a504c44f72c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 849743dd756eff27ec0670cc39d2419c60538183
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408093"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701017"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Azure App Service를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안을 유지하는 모범 사례
 
@@ -33,7 +33,7 @@ Azure App Service는 플랫폼이나 디바이스를 위한 웹 및 모바일 �
 App Service는 ID 공급자를 위한 OAuth 2.0 서비스를 제공합니다. OAuth 2.0은 클라이언트 개발자의 단순성에 기반하여 웹 애플리케이션, 데스크톱 애플리케이션 및 휴대폰에 대한 특정 권한 부여 흐름을 제공합니다. Azure AD는 OAuth 2.0을 사용하여 모바일 및 웹 애플리케이션에 대한 액세스 권한을 부여합니다. 자세히 알아보려면 [Azure App Service에서 인증 및 권한 부여](../../app-service/overview-authentication-authorization.md)를 참조하세요.
 
 ## <a name="restrict-access-based-on-role"></a>역할 기반 액세스 제한
-데이터 액세스를 위한 보안 정책을 시행하려는 조직에서는 액세스를 반드시 제한해야 합니다. RBAC(역할 기반 액세스 제어)를 사용하여 특정 범위에서 사용자, 그룹 및 애플리케이션에 권한을 할당할 수 있습니다. 예를 들어 꼭 알아야 할 필요가 있는 경우에 한하여 권한을 할당하거나, 최소 권한 보안 원칙에 따라 권한을 할당할 수 있습니다. 사용자에 게 응용 프로그램 액세스 권한을 부여 하는 방법에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
+데이터 액세스를 위한 보안 정책을 시행하려는 조직에서는 액세스를 반드시 제한해야 합니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 특정 범위에서 사용자, 그룹 및 응용 프로그램에 대 한 권한을 할당할 수 있습니다. 예를 들어 보안 원칙을 알아야 할 필요가 있습니다. 사용자에 게 응용 프로그램 액세스 권한을 부여 하는 방법에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
 
 ## <a name="protect-your-keys"></a>키 보호
 보안이 아무리 훌륭하더라도 구독 키를 분실하면 안됩니다. Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Key Vault를 사용하면 HSM(하드웨어 보안 모듈)을 통해 보호되는 키를 통해 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, .PFX 파일 및 암호)를 암호화할 수 있습니다. 추가된 보증을 위해, HSM에서 키를 생성하거나 가져올 수 있습니다. 또한 Key Vault를 사용하여 자동 갱신으로 TLS 인증서를 관리할 수도 있습니다. 자세히 알아보려면 [Azure Key Vault란](../../key-vault/general/overview.md)을 참조하세요.

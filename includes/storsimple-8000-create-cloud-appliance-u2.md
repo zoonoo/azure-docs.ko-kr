@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b827a80059cecadd7b76263f13dd4a0d141fc7a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375953"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556872"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>클라우드 어플라이언스를 만들려면
 
@@ -33,8 +33,7 @@ ms.locfileid: "93375953"
    7. 클라우드 어플라이언스에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다.
        * 물리적 디바이스만 사용하는 경우, 암호화 키는 사용자 디바이스와 함께 유지되므로 Microsoft는 해독할 수 없습니다.
 
-       * 클라우드 어플라이언스를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [클라우드 어플라이언스를 사용하기 위한 보안 고려 사항](../articles/storsimple/storsimple-security.md)을 참조하세요.
+       * 클라우드 어플라이언스를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [클라우드 어플라이언스를 사용하기 위한 보안 고려 사항](../articles/storsimple/storsimple-8000-security.md)을 참조하세요.
    8. **만들기** 를 클릭하여 클라우드 어플라이언스를 프로비전합니다. 디바이스를 프로비전하는 데 30분 정도 걸릴 수 있습니다. 클라우드 어플라이언스가 성공적으로 만들어지면 알림이 표시됩니다. 디바이스 블레이드로 이동하고 디바이스 목록을 새로 고치면 클라우드 어플라이언스가 표시됩니다. 어플라이언스의 상태는 **설정 준비 완료** 입니다.
       
       ![StorSimple Cloud Appliance 설정 준비 완료](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
-

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e20183356655668750cb1450338d4c8af1ee2d8c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4cab1765a387bbae61c9c242a8e7a1ca881ea1f5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951709"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966669"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>자습서: DPS(Device Provisioning Service)에서 사용자 지정 할당 정책 사용
 
@@ -46,7 +46,7 @@ ms.locfileid: "91951709"
 
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
-* Windows 개발 환경의 경우 ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019가 필요합니다. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+* Windows 개발 환경의 경우 ['C++를 사용한 데스크톱 개발'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019가 필요합니다. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
 
 * Linux 또는 macOS의 경우 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
@@ -55,40 +55,40 @@ ms.locfileid: "91951709"
 
 ## <a name="create-the-custom-allocation-function"></a>사용자 지정 할당 함수 만들기
 
-이 섹션에서는 사용자 지정 할당 정책을 구현하는 Azure 함수를 만듭니다. 이 함수는 등록 ID에 문자열 접두사 **contoso-toaster**가 포함되어 있는지 여부에 따라 디바이스를 IoT Hub에 등록해야 하는지 여부를 결정합니다.
+이 섹션에서는 사용자 지정 할당 정책을 구현하는 Azure 함수를 만듭니다. 이 함수는 등록 ID에 문자열 접두사 **contoso-toaster** 가 포함되어 있는지 여부에 따라 디바이스를 IoT Hub에 등록해야 하는지 여부를 결정합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 홈 페이지에서 **+ 리소스 만들기**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 홈 페이지에서 **+ 리소스 만들기** 를 선택합니다.
 
-2. *Marketplace 검색* 검색 상자에 "함수 앱"을 입력합니다. 드롭다운 목록에서 **함수 앱**을 선택한 후 **만들기**를 선택합니다.
+2. *Marketplace 검색* 검색 상자에 "함수 앱"을 입력합니다. 드롭다운 목록에서 **함수 앱** 을 선택한 후 **만들기** 를 선택합니다.
 
-3. **함수 앱** 만들기 페이지의 **기본** 탭에서 새 함수 앱에 대해 다음 설정을 입력하고 **검토 + 만들기**를 선택합니다.
+3. **함수 앱** 만들기 페이지의 **기본** 탭에서 새 함수 앱에 대해 다음 설정을 입력하고 **검토 + 만들기** 를 선택합니다.
 
     **구독**: 구독이 여러 개 있고 원하는 구독이 선택되지 않은 경우 사용할 구독을 선택합니다.
 
     **리소스 그룹**: 이 필드를 통해 새 리소스 그룹을 만들거나 함수 앱을 포함할 기존 리소스 그룹을 선택할 수 있습니다. 이전에 테스트를 위해 만든 Iot 허브가 포함된 동일한 리소스 그룹(예: **TestResources**)을 선택합니다. 모든 관련 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다.
 
-    **함수 앱 이름**: 고유한 함수 앱 이름을 입력합니다. 이 예제에서는 **contoso-function-app**을 사용합니다.
+    **함수 앱 이름**: 고유한 함수 앱 이름을 입력합니다. 이 예제에서는 **contoso-function-app** 을 사용합니다.
 
-    **게시**: **코드**가 선택되어 있는지 확인합니다.
+    **게시**: **코드** 가 선택되어 있는지 확인합니다.
 
-    **런타임 스택**: 드롭다운에서 **.NET Core**를 선택합니다.
+    **런타임 스택**: 드롭다운에서 **.NET Core** 를 선택합니다.
 
-    **지역**: 리소스 그룹과 동일한 지역을 선택합니다. 이 예제에서는 **미국 서부**를 사용합니다.
+    **지역**: 리소스 그룹과 동일한 지역을 선택합니다. 이 예제에서는 **미국 서부** 를 사용합니다.
 
     > [!NOTE]
-    > 기본적으로 Application Insights를 사용하도록 설정되어 있습니다. 이 문서에서는 Application Insights가 필요하지 않지만 사용자 지정 할당을 통해 발생하는 문제를 이해하고 조사하는 데 도움이 될 수 있습니다. 원하는 경우 **모니터링** 탭을 선택한 다음, **Application Insights 사용**에 **아니오**를 선택하여 Application Insights를 사용하지 않도록 설정할 수 있습니다.
+    > 기본적으로 Application Insights를 사용하도록 설정되어 있습니다. 이 문서에서는 Application Insights가 필요하지 않지만 사용자 지정 할당을 통해 발생하는 문제를 이해하고 조사하는 데 도움이 될 수 있습니다. 원하는 경우 **모니터링** 탭을 선택한 다음, **Application Insights 사용** 에 **아니오** 를 선택하여 Application Insights를 사용하지 않도록 설정할 수 있습니다.
 
     ![사용자 지정 할당 함수를 호스트할 Azure 함수 앱 만들기](./media/tutorial-custom-allocation-policies/create-function-app.png)
 
-4. **요약** 페이지에서 **만들기**를 선택하여 함수 앱을 만듭니다. 배포하는 데 몇 분 정도 걸릴 수 있습니다. 완료되면 **리소스로 이동**을 선택합니다.
+4. **요약** 페이지에서 **만들기** 를 선택하여 함수 앱을 만듭니다. 배포하는 데 몇 분 정도 걸릴 수 있습니다. 완료되면 **리소스로 이동** 을 선택합니다.
 
-5. **함수** 아래 왼쪽 창에서 **함수**를 클릭한 다음, **+ 추가**를 클릭하여 새 함수를 추가합니다.
+5. **함수** 아래 왼쪽 창에서 **함수** 를 클릭한 다음, **+ 추가** 를 클릭하여 새 함수를 추가합니다.
 
-6. 템플릿 페이지에서 **HTTP 트리거** 타일을 선택하고 **함수 만들기**를 선택합니다. **HttpTrigger1**이라는 함수가 만들어지고 함수에 대한 개요 페이지가 포털에 표시됩니다.
+6. 템플릿 페이지에서 **HTTP 트리거** 타일을 선택하고 **함수 만들기** 를 선택합니다. **HttpTrigger1** 이라는 함수가 만들어지고 함수에 대한 개요 페이지가 포털에 표시됩니다.
 
-7. 새 함수에 대해 **코드 + 테스트**를 클릭합니다. 포털에 **run.csx** 코드 파일의 콘텐츠가 표시됩니다. 
+7. 새 함수에 대해 **코드 + 테스트** 를 클릭합니다. 포털에 **run.csx** 코드 파일의 콘텐츠가 표시됩니다. 
 
-8. **HttpTrigger1** 함수의 코드를 다음 코드로 바꾸고 **저장**을 선택합니다. 사용자 지정 할당 코드를 사용할 준비가 되었습니다.
+8. **HttpTrigger1** 함수의 코드를 다음 코드로 바꾸고 **저장** 을 선택합니다. 사용자 지정 할당 코드를 사용할 준비가 되었습니다.
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -170,7 +170,7 @@ ms.locfileid: "91951709"
     }
     ```
 
-9. **run.csx** 코드 파일의 바로 아래에 있는 **로그**를 클릭하여 사용자 지정 할당 함수의 로깅을 모니터링합니다. 
+9. **run.csx** 코드 파일의 바로 아래에 있는 **로그** 를 클릭하여 사용자 지정 할당 함수의 로깅을 모니터링합니다. 
 
 
 ## <a name="create-the-enrollment"></a>등록 만들기
@@ -179,9 +179,9 @@ ms.locfileid: "91951709"
 
 1. [Azure Portal](https://portal.azure.com)에서 프로비저닝 서비스를 엽니다.
 
-2. 왼쪽 창에서 **등록 관리**를 선택한 다음, 페이지 맨 위에 있는 **등록 그룹 추가** 단추를 선택합니다.
+2. 왼쪽 창에서 **등록 관리** 를 선택한 다음, 페이지 맨 위에 있는 **등록 그룹 추가** 단추를 선택합니다.
 
-3. **등록 그룹 추가**에서 아래 표에 있는 정보를 입력하고 **저장** 단추를 클릭합니다.
+3. **등록 그룹 추가** 에서 아래 표에 있는 정보를 입력하고 **저장** 단추를 클릭합니다.
 
     | 필드 | 설명 및/또는 제안 값 |
     | :---- | :----------------------------- |
@@ -190,11 +190,11 @@ ms.locfileid: "91951709"
     | **키 자동 생성** | 이 확인란은 이미 선택되어 있습니다. |
     | **허브에 디바이스를 할당할 방법 선택** | **사용자 지정(Azure Function 사용)** 을 선택합니다. |
     | **이 그룹을 할당할 수 있는 IoT 허브 선택** | 빠른 시작을 완료할 때 이전에 만든 IoT 허브를 선택합니다. |
-    | **Azure Function 선택** | 직접 만든 함수 앱이 포함된 구독을 선택합니다. 그런 다음, 함수에 **contoso-function-app** 및 **HttpTrigger1**을 선택합니다. |
+    | **Azure Function 선택** | 직접 만든 함수 앱이 포함된 구독을 선택합니다. 그런 다음, 함수에 **contoso-function-app** 및 **HttpTrigger1** 을 선택합니다. |
 
     ![대칭 키 증명에 대한 사용자 지정 할당 등록 그룹 추가](./media/tutorial-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-4. 등록을 저장한 후 등록을 다시 열고 **기본 키**를 기록해 두세요. 키를 생성하려면 먼저 등록을 저장해야 합니다. 이 기본 대칭 키는 나중에 프로비저닝을 시도하는 디바이스에 대해 고유한 디바이스 키를 생성하는 데 사용됩니다. 
+4. 등록을 저장한 후 등록을 다시 열고 **기본 키** 를 기록해 두세요. 키를 생성하려면 먼저 등록을 저장해야 합니다. 이 기본 대칭 키는 나중에 프로비저닝을 시도하는 디바이스에 대해 고유한 디바이스 키를 생성하는 데 사용됩니다. 
 
 ## <a name="derive-unique-device-keys"></a>고유한 디바이스 키 파생
 
@@ -207,7 +207,7 @@ ms.locfileid: "91951709"
 * **contoso-toaster-007**
 * **contoso-heatpump-088**
 
-**KEY** 변수 값을 앞서 등록 그룹을 만든 후에 적어둔 **기본 키**로 바꿉니다. 아래 코드와 함께 표시된 키 값과 출력은 예시일 뿐입니다.
+**KEY** 변수 값을 앞서 등록 그룹을 만든 후에 적어둔 **기본 키** 로 바꿉니다. 아래 코드와 함께 표시된 키 값과 출력은 예시일 뿐입니다.
 
 #### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -296,7 +296,7 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    `cmake`에서 C++ 컴파일러를 찾을 수 없으면 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 명령을 실행합니다.
+    `cmake`에서 C++ 컴파일러를 찾을 수 없으면 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](/dotnet/framework/tools/developer-command-prompt-for-vs)에서 명령을 실행합니다.
 
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
 
@@ -316,7 +316,7 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 ## <a name="simulate-the-devices"></a>디바이스 시뮬레이트
 
-이 섹션에서는 이전에 설정한 Azure IoT C SDK에 있는 **prov\_dev\_client\_sample**이라는 프로비저닝 샘플을 업데이트합니다.
+이 섹션에서는 이전에 설정한 Azure IoT C SDK에 있는 **prov\_dev\_client\_sample** 이라는 프로비저닝 샘플을 업데이트합니다.
 
 이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 토스터 디바이스가 인식되고 사용자 지정 할당 정책을 통해 IoT Hub에 할당됩니다.
 
@@ -330,7 +330,7 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
 
-3. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Samples** 폴더로 이동합니다. **prov\_dev\_client\_sample**이라는 샘플 프로젝트를 확장합니다. **원본 파일**을 확장하고, **prov\_dev\_client\_sample.c**를 엽니다.
+3. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Samples** 폴더로 이동합니다. **prov\_dev\_client\_sample** 이라는 샘플 프로젝트를 확장합니다. **원본 파일** 을 확장하고, **prov\_dev\_client\_sample.c** 를 엽니다.
 
 4. `id_scope` 상수를 찾고, 값을 앞에서 복사한 **ID 범위** 값으로 바꿉니다. 
 
@@ -347,7 +347,7 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. `main()` 함수에서 `Prov_Device_Register_Device()`에 대한 호출을 찾습니다. 해당 호출 직전에 [`Prov_Device_Set_Provisioning_Payload()`](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload)를 사용하는 다음 코드 줄을 추가하여 프로비저닝 중에 사용자 지정 JSON 페이로드를 전달합니다. 사용자 지정 할당 함수에 더 많은 정보를 제공하는 데 사용할 수 있습니다. 등록 ID를 검사하는 대신 디바이스 유형을 전달하는 데에도 사용할 수 있습니다.
+6. `main()` 함수에서 `Prov_Device_Register_Device()`에 대한 호출을 찾습니다. 해당 호출 직전에 [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload)를 사용하는 다음 코드 줄을 추가하여 프로비저닝 중에 사용자 지정 JSON 페이로드를 전달합니다. 사용자 지정 할당 함수에 더 많은 정보를 제공하는 데 사용할 수 있습니다. 등록 ID를 검사하는 대신 디바이스 유형을 전달하는 데에도 사용할 수 있습니다.
 
     ```c
     // An example custom payload
@@ -360,11 +360,11 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     }
     ```
 
-7. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
+7. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택합니다.
 
 ### <a name="simulate-the-contoso-toaster-device"></a>Contoso 토스터 디바이스 시뮬레이트
 
-1. 토스터 디바이스를 시뮬레이션하려면 **prov\_dev\_client\_sample.c**에서 주석으로 처리된 `prov_dev_set_symmetric_key_info()` 호출을 찾습니다.
+1. 토스터 디바이스를 시뮬레이션하려면 **prov\_dev\_client\_sample.c** 에서 주석으로 처리된 `prov_dev_set_symmetric_key_info()` 호출을 찾습니다.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -380,11 +380,11 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
     파일을 저장합니다.
 
-2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
+2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예** 를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
     다음 텍스트는 토스터 디바이스에 대해 실행 중인 사용자 지정 할당 함수 코드의 로깅 출력 예입니다. 토스터 디바이스용 허브가 성공적으로 선택되었는지 확인합니다. 또한 코드에 추가한 사용자 지정 JSON 콘텐츠를 포함하는 `payload` 멤버를 확인합니다. `deviceRuntimeContext` 내에서 코드를 사용할 수 있습니다.
 
-    이 로깅은 포털의 함수 코드에서 **로그**를 클릭하여 사용할 수 있습니다.
+    이 로깅은 포털의 함수 코드에서 **로그** 를 클릭하여 사용할 수 있습니다.
 
     ```cmd
     2020-09-23T11:44:37.505 [Information] Executing 'Functions.HttpTrigger1' (Reason='This function was programmatically called via the host APIs.', Id=4596d45e-086f-4e86-929b-4a02814eee40)
@@ -416,7 +416,7 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 ### <a name="simulate-the-contoso-heat-pump-device"></a>Contoso 열 펌프 디바이스 시뮬레이트
 
-1. 열 펌프 디바이스를 시뮬레이션하려면 다시 **prov\_dev\_client\_sample.c**의 `prov_dev_set_symmetric_key_info()` 호출을 이전에 생성한 열 펌프 등록 ID 및 파생된 디바이스 키로 업데이트합니다. 아래 표시된 키 값 **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg**도 예제로만 제공됩니다.
+1. 열 펌프 디바이스를 시뮬레이션하려면 다시 **prov\_dev\_client\_sample.c** 의 `prov_dev_set_symmetric_key_info()` 호출을 이전에 생성한 열 펌프 등록 ID 및 파생된 디바이스 키로 업데이트합니다. 아래 표시된 키 값 **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg** 도 예제로만 제공됩니다.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -425,11 +425,11 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
     파일을 저장합니다.
 
-2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
+2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예** 를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
     다음 텍스트는 열 펌프 디바이스에 대해 실행 중인 사용자 지정 할당 함수 코드의 로깅 출력 예입니다. 사용자 지정 할당 정책은 이 등록을 거부하고 HTTP 오류 400 잘못된 요청을 표시합니다. 코드에 추가한 사용자 지정 JSON 콘텐츠를 포함하는 `payload` 멤버를 확인합니다. `deviceRuntimeContext` 내에서 코드를 사용할 수 있습니다.
 
-    이 로깅은 포털의 함수 코드에서 **로그**를 클릭하여 사용할 수 있습니다.
+    이 로깅은 포털의 함수 코드에서 **로그** 를 클릭하여 사용할 수 있습니다.
 
     ```cmd
     2020-09-23T11:50:23.652 [Information] Executing 'Functions.HttpTrigger1' (Reason='This function was programmatically called via the host APIs.', Id=2fa77f10-42f8-43fe-88d9-a8c01d4d3f68)
@@ -465,7 +465,7 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 이 문서에서 생성된 리소스를 계속 사용하려는 경우 리소스를 그대로 유지할 수 있습니다. 리소스를 계속 사용하지 않으려면 다음 단계를 통해 이 문서에서 만든 모든 리소스를 삭제해야 불필요한 비용을 방지할 수 있습니다.
 
-이러한 단계에서는 **contoso-us-resource-group**이라는 동일한 리소스 그룹에 표시된 대로 이 문서에서 모든 리소스를 만들었다고 가정합니다.
+이러한 단계에서는 **contoso-us-resource-group** 이라는 동일한 리소스 그룹에 표시된 대로 이 문서에서 모든 리소스를 만들었다고 가정합니다.
 
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 보관할 리소스가 포함된 기존 리소스 그룹 내에 IoT Hub를 만든 경우 리소스 그룹을 삭제하지 말고 IoT Hub 리소스만 삭제하면 됩니다.
@@ -473,13 +473,13 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 이름별로 리소스 그룹을 삭제하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹** 을 선택합니다.
 
-2. **이름별 필터...** 텍스트 상자에 리소스 **contoso-us-resource-group**을 포함하는 리소스 그룹의 이름을 입력합니다. 
+2. **이름별 필터...** 텍스트 상자에 리소스 **contoso-us-resource-group** 을 포함하는 리소스 그룹의 이름을 입력합니다. 
 
-3. 결과 목록의 리소스 그룹 오른쪽에서 **...** 를 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
+3. 결과 목록의 리소스 그룹 오른쪽에서 **...** 를 선택한 다음, **리소스 그룹 삭제** 를 선택합니다.
 
-4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제**를 선택합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제** 를 선택합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

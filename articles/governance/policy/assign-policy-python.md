@@ -3,13 +3,13 @@ title: '빠른 시작: Python을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Python을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: b2bbe38ce979dd12694908240a6adab317332a35
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: aa67b3a2bae2beb62daa6e64871411ee760f802b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074093"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832202"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>빠른 시작: Python을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -32,7 +32,7 @@ Python이 Azure Policy와 작업할 수 있도록 하려면 라이브러리를 �
 1. 최신 Azure CLI가 설치되었는지 확인합니다(**2.5.1** 이상). 아직 설치되지 않았으면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
    > [!NOTE]
-   > 다음 예시에서 **CLI 기반 인증**을 사용하도록 Python을 설정하려면 Azure CLI가 필요합니다. 다른 옵션들에 대한 자세한 내용은 [Python용 Azure 관리 라이브러리를 사용하여 인증](/azure/developer/python/azure-sdk-authenticate)을 참조하세요.
+   > 다음 예시에서 **CLI 기반 인증** 을 사용하도록 Python을 설정하려면 Azure CLI가 필요합니다. 다른 옵션들에 대한 자세한 내용은 [Python용 Azure 관리 라이브러리를 사용하여 인증](/azure/developer/python/azure-sdk-authenticate)을 참조하세요.
 
 1. Azure CLI를 통해 인증을 수행합니다.
 
@@ -104,7 +104,7 @@ print(policyAssignment)
 할당 생성:
 
 - 범위 - 이 범위는 정책 할당이 저장되는 위치를 결정합니다. 할당 세부 정보에 설정된 범위는 이 범위 내에 있어야 합니다.
-- 이름 - 할당의 실제 이름입니다. 이 예제에서는 _audit-vm-manageddisks_가 사용되었습니다.
+- 이름 - 할당의 실제 이름입니다. 이 예제에서는 _audit-vm-manageddisks_ 가 사용되었습니다.
 - 정책 할당 - 이전 단계에서 만든 Python **PolicyAssignment** 개체입니다.
 
 이제 비규격 리소스를 식별하여 환경의 규정 준수 상태를 파악할 준비가 되었습니다.

@@ -1,25 +1,25 @@
 ---
 title: 서버 매개 변수 구성 - Azure CLI - Azure Database for MariaDB
 description: 이 문서에서는 Azure CLI 명령줄 유틸리티를 사용하여 Azure Database for MariaDB에서 서비스 매개 변수를 구성하는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ce9fc7a7af18a163207f8fc497149d885423607b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4009d8047dae7bf8d9ba66566ff8797fa09a8878
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626448"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538141"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MariaDB에서 서버 매개 변수 구성
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MariaDB 서버의 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다.
 
 >[!Note]
-> 서버 매개 변수는 서버 수준에서 전역적으로 업데이트할 수 있으며 [Azure CLI](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md)또는 [Azure Portal](./howto-server-parameters.md)를 사용할 수 있습니다.
+> 서버 매개 변수는 서버 수준에서 전역적으로 업데이트될 수 있으며 [Azure CLI](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) 또는 [Azure Portal](./howto-server-parameters.md)을 사용합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
@@ -57,7 +57,7 @@ az mariadb server configuration set --name slow_query_log --resource-group myres
 az mariadb server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 
-이 코드는 **slow\_query\_log** 구성을 기본값인 **OFF**로 다시 설정합니다. 
+이 코드는 **slow\_query\_log** 구성을 기본값인 **OFF** 로 다시 설정합니다. 
 
 ## <a name="setting-parameters-not-listed"></a>나열 되지 않은 매개 변수 설정
 업데이트 하려는 서버 매개 변수가 Azure Portal에 나열 되어 있지 않으면를 사용 하 여 연결 수준에서 매개 변수를 선택적으로 설정할 수 있습니다 `init_connect` . 서버에 연결 하는 각 클라이언트에 대 한 서버 매개 변수를 설정 합니다. 
@@ -93,7 +93,7 @@ SELECT name FROM mysql.time_zone_name;
 
 전역 수준 표준 시간대는 [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) 명령을 사용하여 설정할 수 있습니다.
 
-다음 명령은 **myresourcegroup** 리소스 그룹에 있는 **mydemoserver.mariadb.database.azure.com** 서버의 **time\_zone** 서버 구성 매개 변수를 **US/Pacific**으로 업데이트합니다.
+다음 명령은 **myresourcegroup** 리소스 그룹에 있는 **mydemoserver.mariadb.database.azure.com** 서버의 **time\_zone** 서버 구성 매개 변수를 **US/Pacific** 으로 업데이트합니다.
 
 ```azurecli-interactive
 az mariadb server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"

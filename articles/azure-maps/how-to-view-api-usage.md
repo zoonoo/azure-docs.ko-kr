@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: c9b732bd25e7ef8aa084c98d5b059d422f86a4b0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895412"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003517"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Azure Maps API 사용 메트릭 보기
 
@@ -21,7 +21,7 @@ ms.locfileid: "92895412"
 
 ## <a name="view-metric-snapshot"></a>메트릭 스냅샷 보기
 
-Maps 계정의 **개요** 페이지에서 몇 가지 일반적인 메트릭을 볼 수 있습니다. 현재 선택할 수 있는 기간 동안의 *총 요청 수* , *총 오류 수* 및 *가용성* 이 표시됩니다.
+Maps 계정의 **개요** 페이지에서 몇 가지 일반적인 메트릭을 볼 수 있습니다. 현재 선택할 수 있는 기간 동안의 *총 요청 수*, *총 오류 수* 및 *가용성* 이 표시됩니다.
 
 ![Azure Maps 사용 메트릭 개요](media/how-to-view-api-usage/portal-overview.png)
 

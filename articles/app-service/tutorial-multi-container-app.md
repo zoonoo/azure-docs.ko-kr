@@ -4,15 +4,15 @@ description: WordPress 앱 및 MySQL 컨테이너를 포함하는 Azure App Serv
 keywords: Azure App Service, 웹앱, Linux, Docker, Compose, 다중 컨테이너, 다중-컨테이너, 컨테이너용 웹앱, 다중 컨테이너, 컨테이너, wordpress, azure db for mysql, 컨테이너를 포함한 프로덕션 데이터베이스
 author: msangapu-msft
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e73d681cadaddd32290cec40ae7a9c8f6e8ac758
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743446"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005650"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-Cloud Shell에서 [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *미국 중남부* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. **표준** 계층에서 Linux의 App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations) 명령을 실행합니다.
+Cloud Shell에서 [`az group create`](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *미국 중남부* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. **표준** 계층에서 Linux의 App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice#az-appservice-list-locations) 명령을 실행합니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -75,7 +75,7 @@ az group create --name myResourceGroup --location "South Central US"
 
 ## <a name="create-an-azure-app-service-plan"></a>Azure App Service 계획 만들기
 
-Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다.
+Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
@@ -109,7 +109,7 @@ App Service 계획을 만든 경우 Cloud Shell은 다음 예제와 비슷한 �
 
 ## <a name="create-a-docker-compose-app"></a>Docker Compose 앱 만들기
 
-Cloud Shell에서 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 다중 컨테이너 [웹앱](overview.md)을 만듭니다. _\<app-name>_ 를 고유한 앱 이름으로 바꾸어야 합니다.
+Cloud Shell에서 [az webapp create](/cli/azure/webapp#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 다중 컨테이너 [웹앱](overview.md)을 만듭니다. _\<app-name>_ 를 고유한 앱 이름으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -146,12 +146,12 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 ### <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
 
-[`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) 명령을 사용하여 Azure Database for MySQL 서버를 만듭니다.
+[`az mysql server create`](/cli/azure/mysql/server#az-mysql-server-create) 명령을 사용하여 Azure Database for MySQL 서버를 만듭니다.
 
 다음 명령에서 _&lt;mysql-server-name>_ 자리 표시자를 고유한 MySQL 서버 이름으로 바꿉니다(유효한 문자: `a-z`, `0-9` 및 `-`). 이 이름은 MySQL 서버의 호스트 이름(`<mysql-server-name>.database.windows.net`)의 일부이며, 전역적으로 고유해야 합니다.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen5_1 --version 5.7
 ```
 
 서버를 만드는 작업이 완료될 때까지 몇 분 정도 걸릴 수 있습니다. MySQL 서버를 만들면 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
@@ -171,7 +171,7 @@ az mysql server create --resource-group myResourceGroup --name <mysql-server-nam
 
 ### <a name="configure-server-firewall"></a>서버 방화벽 구성
 
-[`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다.
+[`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -205,7 +205,7 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql-server-
 
 WordPress 앱을 이 새 MySQL 서버에 연결하려면 `MYSQL_SSL_CA`에서 정의된 SSL CA 경로를 포함하여 몇 가지 WordPress 관련 환경 변수를 구성합니다. [DigiCert](https://www.digicert.com/)의 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)는 아래의 [사용자 지정 이미지](#use-a-custom-image-for-mysql-ssl-and-other-configurations)에서 제공됩니다.
 
-이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
+이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql-server-name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
@@ -262,14 +262,14 @@ Redis에 대해 다음과 같이 변경되었습니다(다음 섹션에서 사�
 * [Redis Object Cache 1.3.8 WordPress 플러그 인 추가](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [WordPress wp-config.php에서 Redis 호스트 이름에 대한 앱 설정 사용](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-사용자 지정 이미지를 사용하려면 docker-compose-wordpress.yml 파일을 업데이트합니다. Cloud Shell에서 `nano docker-compose-wordpress.yml`을 입력하여 Nano 텍스트 편집기를 엽니다. `image: microsoft/multicontainerwordpress`를 사용하도록 `image: wordpress`를 변경합니다. 데이터베이스 컨테이너가 더 이상 필요하지 않습니다. 따라서 구성 파일에서 `db`, `environment`, `depends_on` 및 `volumes` 섹션을 제거합니다. 파일은 다음 코드와 같습니다.
+사용자 지정 이미지를 사용하려면 docker-compose-wordpress.yml 파일을 업데이트합니다. Cloud Shell에서 `nano docker-compose-wordpress.yml`을 입력하여 Nano 텍스트 편집기를 엽니다. `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`를 사용하도록 `image: wordpress`를 변경합니다. 데이터베이스 컨테이너가 더 이상 필요하지 않습니다. 따라서 구성 파일에서 `db`, `environment`, `depends_on` 및 `volumes` 섹션을 제거합니다. 파일은 다음 코드와 같습니다.
 
 ```yaml
 version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
@@ -279,7 +279,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>새 구성으로 앱 업데이트
 
-Cloud Shell에서 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 명령을 사용하여 다중 컨테이너 [웹앱](overview.md)을 다시 구성합니다. _\<app-name>_ 를 앞에서 만든 웹앱의 이름으로 바꾸어야 합니다.
+Cloud Shell에서 [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set) 명령을 사용하여 다중 컨테이너 [웹앱](overview.md)을 다시 구성합니다. _\<app-name>_ 를 앞에서 만든 웹앱의 이름으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -308,7 +308,7 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 ### <a name="configure-environment-variables"></a>환경 변수 구성
 
-영구 스토리지를 사용하려면 App Service 내에서 이 설정을 사용하도록 설정합니다. 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
+영구 스토리지를 사용하려면 App Service 내에서 이 설정을 사용하도록 설정합니다. 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -345,7 +345,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      volumes:
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
      ports:
@@ -355,7 +355,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>새 구성으로 앱 업데이트
 
-Cloud Shell에서 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 명령을 사용하여 다중 컨테이너 [웹앱](overview.md)을 다시 구성합니다. _\<app-name>_ 를 고유한 앱 이름으로 바꾸어야 합니다.
+Cloud Shell에서 [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set) 명령을 사용하여 다중 컨테이너 [웹앱](overview.md)을 다시 구성합니다. _\<app-name>_ 를 고유한 앱 이름으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -401,19 +401,21 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
 
    redis:
-     image: redis:3-alpine
+     image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+     environment: 
+      - ALLOW_EMPTY_PASSWORD=yes
      restart: always
 ```
 
 ### <a name="configure-environment-variables"></a>환경 변수 구성
 
-Redis를 사용하려면 App Service 내에서 `WP_REDIS_HOST` 설정을 사용하도록 설정합니다. 이는 WordPress에서 Redis 호스트와 통신하는 데 *필요한 설정* 입니다. 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
+Redis를 사용하려면 App Service 내에서 `WP_REDIS_HOST` 설정을 사용하도록 설정합니다. 이는 WordPress에서 Redis 호스트와 통신하는 데 *필요한 설정* 입니다. 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WP_REDIS_HOST="redis"
@@ -439,7 +441,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 ### <a name="update-app-with-new-configuration"></a>새 구성으로 앱 업데이트
 
-Cloud Shell에서 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 명령을 사용하여 다중 컨테이너 [웹앱](overview.md)을 다시 구성합니다. _\<app-name>_ 를 고유한 앱 이름으로 바꾸어야 합니다.
+Cloud Shell에서 [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set) 명령을 사용하여 다중 컨테이너 [웹앱](overview.md)을 다시 구성합니다. _\<app-name>_ 를 고유한 앱 이름으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml

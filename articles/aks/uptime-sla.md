@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: dd1836220b5fd5a0af2d4ece3d9bc3932f1ae554
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748870"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607342"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
@@ -25,13 +25,8 @@ ms.locfileid: "92748870"
 
 ## <a name="region-availability"></a>지역 가용성
 
-작동 시간 SLA는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 지역 및 Azure Government 지역에서 사용할 수 있습니다.
-
-* Azure 중국 21Vianet은 현재 지원 되지 않습니다.
-
-## <a name="limitations"></a>제한 사항
-
-* 프라이빗 클러스터는 현재 지원되지 않습니다.
+* 작동 시간 SLA는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 지역 및 Azure Government 지역에서 사용할 수 있습니다.
+* 가동 시간 SLA는 AKS이 지원 되는 모든 지역에서 [개인 AKS 클러스터][private-clusters] 에 대해 사용할 수 있습니다.
 
 ## <a name="sla-terms-and-conditions"></a>SLA 사용 약관
 
@@ -39,7 +34,7 @@ ms.locfileid: "92748870"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 버전 2.8.0 이상을 설치 합니다.
+* [Azure CLI](/cli/azure/install-azure-cli) 버전 2.8.0 이상을 설치 합니다.
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>작동 시간 SLA를 사용 하 여 새 클러스터 만들기
 
@@ -136,9 +131,10 @@ az group delete --name myResourceGroup --yes --no-wait
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az-aks-create
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[private-clusters]: private-clusters.md

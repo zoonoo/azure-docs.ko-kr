@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 08/27/2019
-ms.openlocfilehash: a9f5bac475fd019b294f79abf0acdfaff198f52b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdbc44158de2f24d7d33d68311979c3b8bdda85d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442751"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593980"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>자습서: Azure SQL Database 탄력적 풀을 장애 조치(failover) 그룹에 추가
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,27 +48,27 @@ Azure SQL Database 탄력적 풀의 장애 조치(failover) 그룹을 구성하�
 
 Azure Portal을 사용하여 탄력적 풀을 만듭니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색창에 "Azure SQL"을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다.
-1. **+ 추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. 데이터베이스 타일에서 세부 정보 표시를 선택하여 다른 데이터베이스에 대한 추가 정보를 볼 수 있습니다.
-1. **SQL Database** 타일의 **리소스 종류** 드롭다운에서 **탄력적 풀**을 선택합니다. **만들기**를 선택하여 탄력적 풀을 만듭니다.
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL** 을 선택합니다. **Azure SQL** 이 목록에 없는 경우 **모든 서비스** 를 선택한 다음, 검색창에 "Azure SQL"을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다.
+1. **+ 추가** 를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. 데이터베이스 타일에서 세부 정보 표시를 선택하여 다른 데이터베이스에 대한 추가 정보를 볼 수 있습니다.
+1. **SQL Database** 타일의 **리소스 종류** 드롭다운에서 **탄력적 풀** 을 선택합니다. **만들기** 를 선택하여 탄력적 풀을 만듭니다.
 
     ![탄력적 풀 선택](./media/failover-group-add-elastic-pool-tutorial/select-azure-sql-elastic-pool.png)
 
 1. 다음 값을 사용하여 탄력적 풀을 구성합니다.
-   - **이름**: 탄력적 풀에 대한 고유한 이름을 제공합니다(예: `myElasticPool`).
-   - **구독**: 드롭다운에서 구독을 선택합니다.
-   - **ResourceGroup**: 드롭다운 목록에서 섹션 1에서 만든 리소스 그룹인 `myResourceGroup`을 선택합니다.
-   - **서버**: 드롭다운 목록에서 섹션 1에서 만든 서버를 선택합니다.  
+   - **이름** : 탄력적 풀에 대한 고유한 이름을 제공합니다(예: `myElasticPool`).
+   - **구독** : 드롭다운에서 구독을 선택합니다.
+   - **ResourceGroup** : 드롭다운 목록에서 섹션 1에서 만든 리소스 그룹인 `myResourceGroup`을 선택합니다.
+   - **서버** : 드롭다운 목록에서 섹션 1에서 만든 서버를 선택합니다.  
 
        ![탄력적 풀에 대한 새 서버 만들기](./media/failover-group-add-elastic-pool-tutorial/use-existing-server-for-elastic-pool.png)
 
-   - **컴퓨팅 및 스토리지**: **탄력적 풀 구성**을 선택하여 컴퓨팅, 스토리지를 구성하고 단일 데이터베이스를 탄력적 풀에 추가합니다. **풀 설정** 탭에서 기본값 Gen5(vCore 2개 및 32GB)를 그대로 둡니다.
+   - **컴퓨팅 및 스토리지** : **탄력적 풀 구성** 을 선택하여 컴퓨팅, 스토리지를 구성하고 단일 데이터베이스를 탄력적 풀에 추가합니다. **풀 설정** 탭에서 기본값 Gen5(vCore 2개 및 32GB)를 그대로 둡니다.
 
-1. **구성** 페이지에서 **데이터베이스** 탭을 선택한 후 **데이터베이스 추가**를 선택합니다. 섹션 1에서 만든 데이터베이스를 선택한 다음, **적용**을 선택하여 탄력적 풀에 추가합니다. **적용**을 다시 선택하여 탄력적 풀 설정을 적용하고 **구성** 페이지를 닫습니다.
+1. **구성** 페이지에서 **데이터베이스** 탭을 선택한 후 **데이터베이스 추가** 를 선택합니다. 섹션 1에서 만든 데이터베이스를 선택한 다음, **적용** 을 선택하여 탄력적 풀에 추가합니다. **적용** 을 다시 선택하여 탄력적 풀 설정을 적용하고 **구성** 페이지를 닫습니다.
 
     ![탄력적 풀에 데이터베이스 추가](./media/failover-group-add-elastic-pool-tutorial/add-database-to-elastic-pool.png)
 
-1. **검토 + 만들기**를 선택하여 탄력적 풀 설정을 검토한 후 **만들기**를 선택하여 탄력적 풀을 만듭니다.
+1. **검토 + 만들기** 를 선택하여 탄력적 풀 설정을 검토한 후 **만들기** 를 선택하여 탄력적 풀을 만듭니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -133,34 +133,34 @@ PowerShell을 사용하여 탄력적 풀 및 보조 서버를 만듭니다.
 
 Azure Portal을 사용하여 장애 조치(failover) 그룹을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 Azure SQL을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL** 을 선택합니다. **Azure SQL** 이 목록에 없는 경우 **모든 서비스** 를 선택한 다음, 검색 상자에 Azure SQL을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다.
 1. 이전 섹션에서 만든 탄력적 풀(예: `myElasticPool`)을 선택합니다.
-1. **개요** 창의 **서버 이름**에서 서버 이름을 선택하여 서버에 대한 설정을 엽니다.
+1. **개요** 창의 **서버 이름** 에서 서버 이름을 선택하여 서버에 대한 설정을 엽니다.
   
     ![탄력적 풀에 대한 서버 열기](./media/failover-group-add-elastic-pool-tutorial/server-for-elastic-pool.png)
 
-1. **설정** 창에서 **장애 조치(Failover) 그룹**을 선택한 후 **그룹 추가**를 선택하여 새 장애 조치(failover) 그룹을 만듭니다.
+1. **설정** 창에서 **장애 조치(Failover) 그룹** 을 선택한 후 **그룹 추가** 를 선택하여 새 장애 조치(failover) 그룹을 만듭니다.
 
     ![새 장애 조치(failover) 그룹 추가](./media/failover-group-add-elastic-pool-tutorial/elastic-pool-failover-group.png)
 
-1. **장애 조치(failover) 그룹** 페이지에서 다음 값을 입력하거나 선택한 다음, **만들기**를 선택합니다.
-    - **장애 조치(failover) 그룹 이름**: `failovergrouptutorial` 같은 고유한 장애 조치(failover) 그룹 이름을 입력합니다.
-    - **보조 서버**: *필요한 설정 구성* 옵션을 선택한 다음, **새 서버 만들기**를 선택합니다. 또는 기존 서버를 보조 서버로 선택할 수도 있습니다. 새 보조 서버에 대해 다음 값을 입력한 후 **선택**을 선택합니다.
-        - **서버 이름**: 보조 서버의 고유한 이름을 입력합니다(예: `mysqlsecondary`).
-        - **서버 관리자 로그인**: `azureuser`를 입력합니다.
-        - **암호**: 암호 요구 사항을 충족하는 복잡한 암호를 입력합니다.
-        - **위치**: 드롭다운 목록에서 위치를 선택합니다(예: `East US`). 이 위치는 주 서버와 동일한 위치가 될 수 없습니다.
+1. **장애 조치(failover) 그룹** 페이지에서 다음 값을 입력하거나 선택한 다음, **만들기** 를 선택합니다.
+    - **장애 조치(failover) 그룹 이름** : `failovergrouptutorial` 같은 고유한 장애 조치(failover) 그룹 이름을 입력합니다.
+    - **보조 서버** : *필요한 설정 구성* 옵션을 선택한 다음, **새 서버 만들기** 를 선택합니다. 또는 기존 서버를 보조 서버로 선택할 수도 있습니다. 새 보조 서버에 대해 다음 값을 입력한 후 **선택** 을 선택합니다.
+        - **서버 이름** : 보조 서버의 고유한 이름을 입력합니다(예: `mysqlsecondary`).
+        - **서버 관리자 로그인** : `azureuser`를 입력합니다.
+        - **암호** : 암호 요구 사항을 충족하는 복잡한 암호를 입력합니다.
+        - **위치** : 드롭다운 목록에서 위치를 선택합니다(예: `East US`). 이 위치는 주 서버와 동일한 위치가 될 수 없습니다.
 
        > [!NOTE]
        > 서버 로그인 및 방화벽 설정은 주 서버와 일치해야 합니다.
 
        ![장애 조치(failover) 그룹에 대한 보조 서버 만들기](./media/failover-group-add-elastic-pool-tutorial/create-secondary-failover-server.png)
 
-1. **그룹 내의 데이터베이스**를 선택한 다음, 섹션 2에서 만든 탄력적 풀을 선택합니다. 보조 서버에서 탄력적 풀을 만들지 묻는 경고가 표시됩니다. 경고를 선택한 다음, **확인**을 선택하여 보조 서버에서 탄력적 풀을 만듭니다. 
+1. **그룹 내의 데이터베이스** 를 선택한 다음, 섹션 2에서 만든 탄력적 풀을 선택합니다. 보조 서버에서 탄력적 풀을 만들지 묻는 경고가 표시됩니다. 경고를 선택한 다음, **확인** 을 선택하여 보조 서버에서 탄력적 풀을 만듭니다. 
 
    ![장애 조치(failover) 그룹에 탄력적 풀 추가](./media/failover-group-add-elastic-pool-tutorial/add-elastic-pool-to-failover-group.png)
 
-1. **선택**을 선택하여 탄력적 풀 설정을 장애 조치(failover) 그룹에 적용한 후 **만들기**를 선택하여 장애 조치(failover) 그룹을 만듭니다. 장애 조치(failover) 그룹에 탄력적 풀을 추가하면 지역 복제 프로세스가 자동으로 시작됩니다.
+1. **선택** 을 선택하여 탄력적 풀 설정을 장애 조치(failover) 그룹에 적용한 후 **만들기** 를 선택하여 장애 조치(failover) 그룹을 만듭니다. 장애 조치(failover) 그룹에 탄력적 풀을 추가하면 지역 복제 프로세스가 자동으로 시작됩니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -254,19 +254,19 @@ PowerShell을 사용하여 장애 조치(failover) 그룹을 만듭니다.
 
 Azure Portal을 사용하여 장애 조치(failover) 그룹의 장애 조치를 테스트합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 Azure SQL을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL** 을 선택합니다. **Azure SQL** 이 목록에 없는 경우 **모든 서비스** 를 선택한 다음, 검색 상자에 Azure SQL을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다.
 1. 이전 섹션에서 만든 탄력적 풀(예: `myElasticPool`)을 선택합니다.
-1. **서버 이름**에서 서버 이름을 선택하여 서버에 대한 설정을 엽니다.
+1. **서버 이름** 에서 서버 이름을 선택하여 서버에 대한 설정을 엽니다.
 
     ![탄력적 풀에 대한 서버 열기](./media/failover-group-add-elastic-pool-tutorial/server-for-elastic-pool.png)
 
-1. **설정** 창에서 **장애 조치(failover) 그룹**을 선택한 후 섹션 2에서 만든 장애 조치(failover) 그룹을 선택합니다.
+1. **설정** 창에서 **장애 조치(failover) 그룹** 을 선택한 후 섹션 2에서 만든 장애 조치(failover) 그룹을 선택합니다.
   
    ![포털에서 장애 조치(failover) 그룹 선택](./media/failover-group-add-elastic-pool-tutorial/select-failover-group.png)
 
 1. 주 서버와 보조 서버를 검토합니다.
 1. 작업창에서 **장애 조치(failover)** 를 선택하여 탄력적 풀이 포함된 장애 조치 그룹을 장애 조치합니다.
-1. TDS 세션의 연결이 해제됨을 알려주는 경고에서 **예**를 선택합니다.
+1. TDS 세션의 연결이 해제됨을 알려주는 경고에서 **예** 를 선택합니다.
 
    ![데이터베이스가 포함된 장애 조치(failover) 그룹 장애 조치](./media/failover-group-add-elastic-pool-tutorial/failover-sql-db.png)
 
@@ -355,8 +355,8 @@ PowerShell을 사용하여 장애 조치(failover) 그룹의 장애 조치를 �
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동합니다.
-1. 리소스 그룹 자체뿐만 아니라 그룹의 모든 리소스를 삭제하려면 **리소스 그룹 삭제**를 선택합니다.
-1. 텍스트 상자에 리소스 그룹 이름(`myResourceGroup`)을 입력한 후 **삭제**를 선택하여 리소스 그룹을 삭제합니다.
+1. 리소스 그룹 자체뿐만 아니라 그룹의 모든 리소스를 삭제하려면 **리소스 그룹 삭제** 를 선택합니다.
+1. 텍스트 상자에 리소스 그룹 이름(`myResourceGroup`)을 입력한 후 **삭제** 를 선택하여 리소스 그룹을 삭제합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

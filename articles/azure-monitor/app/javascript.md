@@ -4,12 +4,12 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 6678c662c4646a8181b1617ccddf9b8718c957bf
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876212"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858555"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -19,8 +19,11 @@ Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니�
 
 ## <a name="adding-the-javascript-sdk"></a>JavaScript SDK 추가
 
+> [!IMPORTANT]
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=js) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+
 1. 먼저 Application Insights 리소스가 필요 합니다. 리소스 및 계측 키가 아직 없는 경우 [새 리소스 만들기 지침](create-new-resource.md)을 따르세요.
-2. 1 단계에서 JavaScript 원격 분석을 전송 하려는 리소스에 대 한 _계측 키_ ("ikey" 라고도 함)를 복사 합니다. `instrumentationKey` Application Insights JAVASCRIPT SDK의 설정에 추가 합니다.
+2. 1 단계에서 JavaScript 원격 분석을 전송 하려는 리소스에 대 한 [연결 문자열](#connection-string-setup) 또는 _계측 키_ ("ikey" 라고도 함)를 복사 합니다. `instrumentationKey` `connectionString` APPLICATION INSIGHTS JavaScript SDK의 또는 설정에 추가 합니다.
 3. 다음 두 옵션 중 하나를 통해 웹 페이지 또는 앱에 Application Insights JavaScript SDK를 추가 합니다.
     * [npm 설정](#npm-based-setup)
     * [JavaScript 코드 조각](#snippet-based-setup)
@@ -40,7 +43,7 @@ npm i --save @microsoft/applicationinsights-web
 ```
 
 > [!Note]
-> **이 패키지에는 제공이 포함 되어**있으므로 별도의 제공 패키지를 설치할 필요가 **없습니다** .
+> **이 패키지에는 제공이 포함 되어** 있으므로 별도의 제공 패키지를 설치할 필요가 **없습니다** .
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -102,7 +105,7 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 각 구성 옵션은 위에 표시 된 항목의 기본값을 [옵션]으로 재정의 하지 않으려는 경우 반환 된 페이지의 결과 크기를 최소화 하기 위해 해당 줄을 제거할 수 있습니다.
 
-사용 가능한 구성 옵션은 
+사용 가능한 구성 옵션은
 
 | Name | 유형 | 설명
 |------|------|----------------
@@ -113,9 +116,23 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 | 위치 원점 | 문자열 *[선택 사항]* | 이 설정을 포함 하 여 SDK를 다운로드 하는 데 추가 된 스크립트 태그에는이 문자열 값을 포함 하는 간 원본 특성이 포함 됩니다. 정의 되지 않은 경우 (기본값) 간 원본 특성이 추가 되지 않습니다. 권장 값은 정의 되지 않습니다 (기본값). ""; 또는 "anonymous" (모든 유효한 값의 경우 [HTML 특성: `crossorigin` ](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) 문서 참조)
 | cfg | 개체 **[필수]** | 초기화 하는 동안 Application Insights SDK에 전달 되는 구성입니다.
 
+### <a name="connection-string-setup"></a>연결 문자열 설정
+
+NPM 또는 코드 조각 설치의 경우 연결 문자열을 사용 하 여 Application Insights 인스턴스를 구성할 수도 있습니다. 필드를 필드로 대체 하기만 하면 됩니다 `instrumentationKey` `connectionString` .
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
+
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Azure Portal 원격 분석 보내기
 
-기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 내용은 다음과 같습니다.
+기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 이러한 위협은 다음과 같습니다.
 
 - 에 대 한 정보를 포함 하 여 앱의 Catch 되지 않은 **예외**
     - 스택 추적
@@ -150,7 +167,7 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. 을 제외한 모든 필드는 선택 사항 `instrumentationKey` 입니다.
 
 | 속성 | 기본값 | 설명 |
@@ -163,8 +180,8 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | maxBatchInterval | 15000 | 보내기 전에 원격 분석을 일괄 처리 하는 시간 (밀리초) |
 | disableExceptionTracking | false | True 이면 예외가 자동으로 수집 되지 않습니다. 기본값은 false입니다. |
 | disableTelemetry | false | True 이면 원격 분석이 수집 되거나 전송 되지 않습니다. 기본값은 false입니다. |
-| enableDebug | false | True 이면 SDK 로깅 설정에 관계 없이 **내부** 디버깅 데이터가 기록 되는 **대신** 예외로 throw 됩니다. 기본값은 false입니다. <br>***참고:*** 이 설정을 사용 하도록 설정 하면 내부 오류가 발생할 때마다 원격 분석이 삭제 됩니다. 이는 SDK의 구성 또는 사용과 관련 된 문제를 신속 하 게 식별 하는 데 유용할 수 있습니다. 디버깅 하는 동안 원격 분석을 잃지 않으려면 대신 또는를 사용 하는 것이 좋습니다 `consoleLoggingLevel` `telemetryLoggingLevel` `enableDebug` . |
-| loggingLevelConsole | 0 | **내부** Application Insights 오류를 콘솔에 기록 합니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) |
+| enableDebug | false | True 이면 SDK 로깅 설정에 관계 없이 **내부** 디버깅 데이터가 기록 되는 **대신** 예외로 throw 됩니다. 기본값은 false입니다. <br>**_참고:_* _이 설정을 사용 하도록 설정 하면 내부 오류가 발생할 때마다 원격 분석이 삭제 됩니다. 이는 SDK의 구성 또는 사용과 관련 된 문제를 신속 하 게 식별 하는 데 유용할 수 있습니다. 디버깅 하는 동안 원격 분석을 잃지 않으려면 대신 또는를 사용 하는 것이 좋습니다 `consoleLoggingLevel` `telemetryLoggingLevel` `enableDebug` . |
+| loggingLevelConsole | 0 | _ *내부** Application Insights 오류를 콘솔에 기록 합니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) |
 | loggingLevelTelemetry | 1 | **내부** Application Insights 오류를 원격 분석으로 보냅니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) |
 | diagnosticLogInterval | 10000 | 사내 내부 로깅 큐의 폴링 간격 (밀리초) |
 | samplingPercentage | 100 | 전송 될 이벤트의 백분율입니다. 기본값은 100입니다. 즉, 모든 이벤트가 전송 됩니다. 대규모 응용 프로그램에 대 한 데이터 캡을 유지 하려는 경우에 설정 합니다. |
@@ -259,7 +276,7 @@ cfg: { // Application Insights Configuration
 
 포털의 브라우저 경험을 통해 JavaScript SDK에서 데이터를 볼 수도 있습니다.
 
-**브라우저** 를 선택한 다음 **실패** 또는 **성능**을 선택 합니다.
+**브라우저** 를 선택한 다음 **실패** 또는 **성능** 을 선택 합니다.
 
 ![웹 응용 프로그램에 대해 볼 수 있는 메트릭에 브라우저 오류 또는 브라우저 성능을 추가 하는 방법을 보여 주는 Application Insights 브라우저 페이지의 스크린샷](./media/javascript/browser.png)
 
@@ -312,7 +329,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. 특정 원격 분석 유형 (예:, 등)을 전송 하는 Api는 `trackTrace` `trackException` 이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track` 입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/Azure-Samples?q=applicationinsights-js-demo)을 참조 하세요.
 
@@ -322,7 +339,7 @@ SDK V2 버전의 주요 변경 내용:
 - 더 나은 API 서명을 허용 하기 위해 trackPageView 및 기능 예외와 같은 API 호출 중 일부는 업데이트 되었습니다. Internet Explorer 8 및 이전 버전의 브라우저에서를 실행 하는 것은 지원 되지 않습니다.
 - 데이터 스키마 업데이트로 인해 원격 분석 봉투 (envelope)에 필드 이름 및 구조 변경 내용이 있습니다.
 - `context.operation`로 이동 `context.telemetryTrace` 했습니다. 일부 필드도 변경 되었습니다 ( `operation.id`  -->  `telemetryTrace.traceID` ).
-  - 현재 페이지 보기 ID (예: SPA 앱)를 수동으로 새로 고치려면를 사용 `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()` 합니다.
+  - 현재 페이지 보기 ID (예: SPA 앱)를 수동으로 새로 고치려면를 사용 `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()` 합니다.
     > [!NOTE]
     > 이전에를 사용 하 여 추적 ID를 고유 하 게 유지 하려면 `Util.newId()` 이제를 사용 `Util.generateW3CId()` 합니다. 결국 모두 작업 ID가 됩니다.
 

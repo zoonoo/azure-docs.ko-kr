@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 4eb794fa35164e3f86a5e3d6f67d446321f91f0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26c158145de6ce729d8a7060152b19fb14b63d58
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67133622"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556253"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Azure Resource Manager 요청 인증 준비
 Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]를 사용하여 리소스에서 수행하는 모든 작업을 인증해야 합니다. 가장 쉽게 구성할 수 있는 방법은 PowerShell 또는 Azure CLI를 사용하는 것입니다.
@@ -37,25 +37,25 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
         -SubscriptionName "{your subscription name}"
     ```
 
-2. **TenantId** 및 **SubscriptionId**를 적어둡니다. 나중에 필요합니다.
+2. **TenantId** 및 **SubscriptionId** 를 적어둡니다. 나중에 필요합니다.
 3. 다음 명령을 사용하여 새 Azure Active Directory 애플리케이션을 만듭니다. 자리 표시자는 바꿉니다.
    
-   * **{표시 이름}:****MySampleApp**과 같은 애플리케이션의 표시 이름입니다.
-   * **{Home PAGE URL}:** **http: \/ /mysampleapp/home**와 같은 응용 프로그램 홈페이지의 url입니다. 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
-   * **{응용 프로그램 식별자}:** **Http: \/ /mysampleapp**와 같은 고유 식별자입니다. 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
+   * **{표시 이름}:****MySampleApp** 과 같은 애플리케이션의 표시 이름입니다.
+   * **{Home PAGE URL}:** **http: \/ /mysampleapp/home** 와 같은 응용 프로그램 홈페이지의 url입니다. 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
+   * **{응용 프로그램 식별자}:** **Http: \/ /mysampleapp** 와 같은 고유 식별자입니다. 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
    * **{암호}:** 앱에서 인증하기 위해 사용할 암호입니다.
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
      New-AzADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
-4. 만든 애플리케이션의 **ApplicationId**를 적어 둡니다. 나중에 필요합니다.
-5. 다음 명령을 사용하여 새 서비스 주체를 만듭니다. 이전 단계에서 **{MyApplicationId}** 를 **ApplicationId**로 바꿉니다.
+4. 만든 애플리케이션의 **ApplicationId** 를 적어 둡니다. 나중에 필요합니다.
+5. 다음 명령을 사용하여 새 서비스 주체를 만듭니다. 이전 단계에서 **{MyApplicationId}** 를 **ApplicationId** 로 바꿉니다.
    
     ```powershell
     New-AzADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-6. 다음 명령을 사용하여 역할 할당을 설정합니다. **{MyApplicationId}** 를 **ApplicationId**로 바꿉니다.
+6. 다음 명령을 사용하여 역할 할당을 설정합니다. **{MyApplicationId}** 를 **ApplicationId** 로 바꿉니다.
    
     ```powershell
     New-AzRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
@@ -68,5 +68,5 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
 * ApplicationId
 * 암호
 
-[lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
+[lnk-authenticate-arm]: /rest/api/
 [lnk-powershell-install]: /powershell/azure/install-az-ps

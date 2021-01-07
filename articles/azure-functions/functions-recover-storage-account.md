@@ -3,12 +3,12 @@ title: '오류 문제 해결: Azure Functions 런타임에 연결할 수 없음'
 description: 잘못된 스토리지 계정 문제를 해결하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054732"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579014"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>오류 해결: "Azure Functions 런타임에 연결할 수 없습니다."
 
@@ -76,7 +76,7 @@ Azure Portal에서 저장소 계정을 검색 하 여 여전히 존재 하는지
 
 * 함수 앱은 [내부적으로 부하 분산 된 App Service Environment](../app-service/environment/create-ilb-ase.md) 에서 호스팅되며 인바운드 인터넷 트래픽을 차단 하도록 구성 됩니다.
 
-* 함수 앱에는 인터넷 액세스를 차단 하도록 구성 된 [인바운드 IP 제한이](functions-networking-options.md#inbound-ip-restrictions) 있습니다. 
+* 함수 앱에는 인터넷 액세스를 차단 하도록 구성 된 [인바운드 IP 제한이](functions-networking-options.md#inbound-access-restrictions) 있습니다. 
 
 Azure Portal는 실행 중인 앱을 직접 호출 하 여 함수 목록을 가져오고 Kudu 끝점에 대 한 HTTP 호출을 수행 합니다. 플랫폼 수준 설정은 **플랫폼 기능** 탭에서 계속 사용할 수 있습니다.
 

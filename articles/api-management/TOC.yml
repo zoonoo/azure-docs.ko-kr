@@ -42,6 +42,8 @@
       href: api-management-get-started-publish-versions.md
     - name: 9 - 개발자 포털 사용자 지정
       href: api-management-howto-developer-portal-customize.md
+    - name: 10 - Visual Studio Code의 API 관리
+      href: visual-studio-code-tutorial.md
 - name: 샘플
   items:
     - name: 정책
@@ -58,6 +60,8 @@
           href: api-management-howto-policies.md
         - name: 정책 참조 인덱스
           href: api-management-policies.md
+        - name: 오류 처리
+          href: api-management-error-handling-policies.md
     - name: 보안
       items:
         - name: 보안 기준
@@ -70,8 +74,6 @@
       href: api-management-revisions.md
     - name: 자동화를 사용하여 관리
       href: automation-manage-api-management.md
-    - name: 오류 처리
-      href: api-management-error-handling-policies.md
     - name: API 가져오기 제한
       href: api-management-api-import-restrictions.md
     - name: 자체 호스팅 게이트웨이 개요
@@ -80,6 +82,8 @@
       href: observability.md
     - name: ARM 템플릿을 사용하는 CI/CD
       href: devops-api-development-templates.md
+    - name: 일시 삭제
+      href: soft-delete.md
 - name: 방법 가이드
   items:
     - name: API 정의
@@ -106,6 +110,8 @@
       items:
         - name: 용량 메트릭
           href: api-management-capacity.md
+        - name: 비용 계획 및 관리
+          href: plan-manage-costs.md
         - name: 업그레이드 및 크기 조정
           href: upgrade-and-scale.md
         - name: 자동 크기 조정 구성
@@ -214,7 +220,7 @@
           href: api-management-sample-flexible-throttling.md
         - name: 외부 서비스 사용
           href: api-management-sample-send-request.md
-        - name: 속성을 사용하여 기밀 관리
+        - name: 명명된 값을 사용하여 비밀 관리
           href: api-management-howto-properties.md
         - name: 액세스 제한 정책
           href: api-management-access-restriction-policies.md
@@ -238,6 +244,8 @@
           href: api-management-howto-create-groups.md
         - name: IP 주소 검색
           href: api-management-howto-ip-addresses.md
+        - name: API 분석 가져오기
+          href: howto-use-analytics.md
         - name: Azure Event Hubs에 이벤트 기록
           href: api-management-howto-log-event-hubs.md
         - name: Azure Application Insights를 사용하여 로그 요청
@@ -303,5 +311,9 @@
       href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: API 구현 지침
       href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
-    - name: 호스트 이름 오류를 업데이트하지 못하는 문제 해결
-      href: api-management-troubleshoot-cannot-add-custom-domain.md
+    - name: 문제 해결
+      items:
+        - name: 호스트 이름 오류를 업데이트하지 못하는 문제 해결
+          href: api-management-troubleshoot-cannot-add-custom-domain.md
+        - name: 응답 시간 제한 및 오류 문제 해결
+          href: troubleshoot-response-timeout-and-errors.md

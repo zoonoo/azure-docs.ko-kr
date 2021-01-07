@@ -4,18 +4,20 @@ description: '자습서: .NET, Java, Python 및 기타 다양한 SDK와 함께 S
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a9594e8cf3e16e9e7e9a009b8edb7dbbd5a6ca92
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: aacb8d4ffb98d553b17aa52e4c4b11a4837dc1c6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476572"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337883"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 전역 배포 설정
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Portal을 사용하여 Azure Cosmos DB 글로벌 배포를 설정한 다음, SQL API를 사용하여 연결하는 방법을 보여 줍니다.
 

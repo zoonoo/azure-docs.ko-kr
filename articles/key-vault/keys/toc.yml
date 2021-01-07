@@ -13,8 +13,14 @@
       href: quick-create-powershell.md
     - name: 포털
       href: quick-create-portal.md
+    - name: .NET
+      href: quick-create-net.md
+    - name: Node.js
+      href: quick-create-node.md
     - name: Python
       href: quick-create-python.md
+    - name: Java
+      href: quick-create-java.md
     - name: ARM 템플릿
       displayName: Resource Manager
       href: quick-create-template.md

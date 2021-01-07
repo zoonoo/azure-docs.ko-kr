@@ -11,9 +11,9 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: .NET Core
+    - name: ASP.NET Core
       href: quickstart-dotnetcore.md
-    - name: .NET Framework
+    - name: ASP.NET
       href: quickstart-dotnet-framework.md
     - name: Node.js
       href: quickstart-nodejs.md
@@ -36,11 +36,25 @@
       href: quickstart-multi-container.md
 - name: 자습서
   items:
+    - name: 보안 앱이 스토리지 및 Microsoft Graph에 액세스
+      items:
+        - name: 개요
+          href: scenario-secure-app-overview.md
+        - name: App Service 인증 설정
+          href: scenario-secure-app-authentication-app-service.md
+        - name: 보안 앱이 스토리지에 액세스
+          href: scenario-secure-app-access-storage.md
+        - name: 보안 앱이 사용자로 Microsoft Graph에 액세스
+          href: scenario-secure-app-access-microsoft-graph-as-user.md
+        - name: 보안 앱이 앱으로 Microsoft Graph에 액세스
+          href: scenario-secure-app-access-microsoft-graph-as-app.md
+        - name: 리소스 정리
+          href: scenario-secure-app-clean-up-resources.md
     - name: DB를 사용한 앱
       items:
-        - name: SQL DB를 사용한 .NET Core
+        - name: SQL DB를 사용한 ASP.NET Core
           href: tutorial-dotnetcore-sqldb-app.md
-        - name: SQL DB를 사용하는 .NET Framework
+        - name: SQL DB를 사용한 ASP.NET
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: MySQL을 사용하는 PHP
           href: tutorial-php-mysql-app.md
@@ -100,8 +114,8 @@
           href: overview-authentication-authorization.md
         - name: OS 및 런타임 패치
           href: overview-patch-os-runtime.md
-        - name: 기본 제공 보안 컨트롤
-          href: app-service-security-controls.md
+        - name: 보안 기준
+          href: security-baseline.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -209,6 +223,8 @@
               href: configure-authentication-provider-twitter.md
             - name: OpenID Connect 공급자를 사용하여 인증(미리 보기)
               href: configure-authentication-provider-openid-connect.md
+            - name: Apple에서 로그인을 사용하여 인증(미리 보기)
+              href: configure-authentication-provider-apple.md
         - name: 고급 인증
           href: app-service-authentication-how-to.md
         - name: 액세스 제한

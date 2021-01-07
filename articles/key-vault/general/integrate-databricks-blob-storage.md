@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: bb574bb3dd000682090c6c3f861e885761753e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba80d78cbc7d34b1496daffbd489a1d0dbfed8b4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588520"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285668"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>자습서: Azure Databricks와 Azure Key Vault를 사용하여 Azure Blob Storage에 액세스
 
@@ -29,11 +29,11 @@ ms.locfileid: "88588520"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 자습서를 시작하기 전에 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)를 설치해야 합니다.
+이 자습서를 시작하기 전에 [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)를 설치해야 합니다.
 
 ## <a name="create-a-storage-account-and-blob-container-with-azure-cli"></a>Azure CLI를 사용하여 스토리지 계정 및 Blob 컨테이너 만들기
 
-Blob을 사용하려면 먼저 범용 스토리지 계정을 만들어야 합니다. [리소스 그룹](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create)이 없는 경우 명령을 실행하기 전에 하나를 만듭니다. 다음 명령은 스토리지 컨테이너의 메타데이터를 만들고 표시합니다. **ID**를 복사합니다.
+Blob을 사용하려면 먼저 범용 스토리지 계정을 만들어야 합니다. [리소스 그룹](/cli/azure/group?view=azure-cli-latest#az-group-create)이 없는 경우 명령을 실행하기 전에 하나를 만듭니다. 다음 명령은 스토리지 컨테이너의 메타데이터를 만들고 표시합니다. **ID** 를 복사합니다.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob
@@ -41,7 +41,7 @@ az storage account create --name contosoblobstorage5 --resource-group contosoRes
 
 ![위의 명령의 콘솔 출력입니다. ID는 최종 사용자가 볼 수 있도록 녹색으로 강조 표시됩니다.](../media/databricks-command-output-1.png)
 
-Blob을 업로드하는 컨테이너를 만들려면 먼저 스스로에게 [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) 역할을 할당해야 합니다. 이 예제에서는 이전에 만든 스토리지 계정에 역할이 할당됩니다.
+Blob을 업로드하는 컨테이너를 만들려면 먼저 스스로에게 [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 할당해야 합니다. 이 예제에서는 이전에 만든 스토리지 계정에 역할이 할당됩니다.
 
 ```azurecli
 az role assignment create --role "Storage Blob Data Contributor" --assignee t-trtr@microsoft.com --scope "/subscriptions/885e24c8-7a36-4217-b8c9-eed31e110504/resourceGroups/contosoResourceGroup5/providers/Microsoft.Storage/storageAccounts/contosoblobstorage5
@@ -77,7 +77,7 @@ az storage account keys list -g contosoResourceGroup5 -n contosoblobstorage5
 
 ## <a name="create-a-key-vault-and-set-a-secret"></a>Key Vault 만들기 및 비밀 설정
 
-다음 명령을 사용하여 Key Vault를 만듭니다. 이 명령은 Key Vault의 메타데이터도 표시합니다. **ID**및 **vaultUri**를 복사합니다.
+다음 명령을 사용하여 Key Vault를 만듭니다. 이 명령은 Key Vault의 메타데이터도 표시합니다. **ID** 및 **vaultUri** 를 복사합니다.
 
 ```azurecli
 az keyvault create --name contosoKeyVault10 --resource-group contosoResourceGroup5 --location eastus
@@ -94,7 +94,7 @@ az keyvault secret set --vault-name contosoKeyVault10 --name storageKey --value 
 
 ## <a name="create-an-azure-databricks-workspace-and-add-key-vault-secret-scope"></a>Azure Databricks 작업 영역 만들기 및 Key Vault 비밀 범위 추가
 
-이 섹션은 명령줄을 통해 완료할 수 없습니다. 이 [가이드](https://docs.microsoft.com/azure/azure-databricks/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope)를 따릅니다. [Azure Portal](https://ms.portal.azure.com/#home)에 액세스할 때 필요합니다.
+이 섹션은 명령줄을 통해 완료할 수 없습니다. 이 [가이드](/azure/databricks/scenarios/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope)를 따릅니다. [Azure Portal](https://ms.portal.azure.com/#home)에 액세스할 때 필요합니다.
 
 1. Azure Databricks 리소스 만들기
 1. 작업 영역 시작
@@ -102,7 +102,7 @@ az keyvault secret set --vault-name contosoKeyVault10 --name storageKey --value 
 
 ## <a name="access-your-blob-container-from-azure-databricks-workspace"></a>Azure Databricks 작업 영역에서 Blob 컨테이너에 액세스
 
-이 섹션은 명령줄을 통해 완료할 수 없습니다. 이 [가이드](https://docs.microsoft.com/azure/azure-databricks/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks)를 따릅니다. Azure Databricks 작업 영역을 사용하여 다음 작업을 수행해야 합니다.
+이 섹션은 명령줄을 통해 완료할 수 없습니다. 이 [가이드](/azure/databricks/scenarios/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks)를 따릅니다. Azure Databricks 작업 영역을 사용하여 다음 작업을 수행해야 합니다.
 
 1. **새 클러스터** 만들기
 1. **새 Notebook** 만들기
@@ -124,4 +124,4 @@ df.show()
 
 Key Vault를 복구할 수 있는지 확인합니다.
 > [!div class="nextstepaction"]
-> [리소스 정리](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+> [리소스 정리](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)

@@ -2,13 +2,13 @@
 title: Azure Lighthouse 샘플 및 템플릿
 description: 이러한 샘플과 Azure Resource Manager 템플릿은 Azure가 위임한 리소스 관리를 위해 고객을 온보딩하고 Azure Lighthouse 시나리오를 지원하는 방법을 보여줍니다.
 ms.topic: sample
-ms.date: 10/12/2020
-ms.openlocfilehash: decb0d48f8fd5c52d6bf4301baff0bdfffb32d71
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 12/11/2020
+ms.openlocfilehash: c91f79f50b03142a4be935eac6409e0a07371a54
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974290"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356272"
 ---
 # <a name="azure-lighthouse-samples"></a>Azure Lighthouse 샘플
 

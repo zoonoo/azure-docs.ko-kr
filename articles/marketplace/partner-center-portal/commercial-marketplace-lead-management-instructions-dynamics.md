@@ -4,15 +4,15 @@ description: Dynamics 365 Customer Engagement를 설정하여 Microsoft AppSourc
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 54754f4c7753661b247f3f90942fb3074c34a38b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5d07dda82361ff59a43aa6753669bf38f4463059
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130615"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491140"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Dynamics 365 Customer Engagement에 대해 잠재 고객 관리 구성
 

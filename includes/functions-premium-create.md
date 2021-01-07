@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: 4dc85988d904fdec72e1e6d92f03582a2a8f1427
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eaea46044f0da4766fda051655d57caee9d98b6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85121360"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937021"
 ---
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "85121360"
 
     | 설정      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Storage 계정](../articles/storage/common/storage-account-create.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](../articles/azure-functions/functions-scale.md#storage-account-requirements)을 충족해야 합니다. |
+    | **[Storage 계정](../articles/storage/common/storage-account-create.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](../articles/azure-functions/storage-considerations.md#storage-account-requirements)을 충족해야 합니다. |
     |**운영 체제**| 기본 설정 운영 체제 | 운영 체제는 런타임 스택 선택에 따라 미리 선택되지만 필요한 경우 설정을 변경할 수 있습니다. Python은 Linux에서만 지원됩니다. |
     | **[계획](../articles/azure-functions/functions-scale.md)** | Premium | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. **프리미엄** 을 선택합니다. 기본적으로 새 App Service 요금제가 만들어집니다. 기본 **SKU 및 크기** 는 **EP1** 입니다. 여기서 EP는 _탄력적 프리미엄_ 을 의미합니다. 자세한 내용은 [프리미엄 SKU 목록](../articles/azure-functions/functions-premium-plan.md#available-instance-skus)을 참조하세요.<br/>프리미엄 계획에서 JavaScript 함수를 실행 중인 경우 vCPU 수가 더 작은 인스턴스를 선택해야 합니다. 자세한 내용은 [단일 코어 프리미엄 계획 선택](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions)을 참조하세요.  |
 

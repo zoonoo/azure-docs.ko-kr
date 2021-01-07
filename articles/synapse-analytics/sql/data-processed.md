@@ -1,6 +1,6 @@
 ---
-title: 서버를 사용 하지 않는 SQL 풀을 사용 하 여 처리 되는 데이터
-description: 이 문서에서는 data lake에서 데이터를 쿼리할 때 데이터 처리 금액을 계산 하는 방법을 설명 합니다.
+title: 서버를 사용 하지 않는 SQL 풀에 대 한 비용 관리
+description: 이 문서에서는 서버 리스 SQL 풀의 비용을 관리 하는 방법 및 Azure storage에서 데이터를 쿼리할 때 처리 되는 데이터를 계산 하는 방법을 설명 합니다.
 services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,22 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a108e5fdd30c21cdb7771e3f683dad22773653a4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381204"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491572"
 ---
-# <a name="data-processed-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 처리 되는 데이터
+# <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀에 대 한 Cost management
+
+이 문서에서는 Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀의 비용을 예측 하 고 관리 하는 방법을 설명 합니다.
+- 쿼리를 실행 하기 전에 처리 된 데이터의 예상 작업량
+- 비용 제어 기능을 사용 하 여 예산 설정
+
+Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀의 비용은 Azure 청구서의 월간 비용 중 일부일 뿐입니다. 다른 Azure 서비스를 사용 하는 경우 타사 서비스를 포함 하 여 Azure 구독에 사용 되는 모든 Azure 서비스 및 리소스에 대 한 요금이 청구 됩니다. 이 문서에서는 Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀의 비용을 계획 하 고 관리 하는 방법을 설명 합니다.
+
+## <a name="data-processed"></a>처리된 데이터
 
 *처리 된 데이터* 는 쿼리가 실행 되는 동안 시스템이 일시적으로 저장 하는 데이터의 양입니다. 처리 된 데이터는 다음 수량으로 구성 됩니다.
 
@@ -84,6 +92,53 @@ Parquet와 같은 압축 및 열 기반 형식을 쿼리하면 쿼리 1 보다 �
 이 쿼리는 전체 파일을 읽습니다. 이 테이블에 대 한 저장소에 있는 파일의 총 크기는 100 KB입니다. 노드는이 테이블의 조각을 처리 하 고 각 조각의 합계는 노드 간에 전송 됩니다. 최종 합계가 끝점으로 전송 됩니다. 
 
 이 쿼리는 100 KB 보다 약간 더 많은 데이터를 처리 합니다. 이 쿼리에 대해 처리 되는 데이터의 양은이 문서의 [반올림](#rounding) 섹션에 지정 된 대로 최대 10mb로 반올림 됩니다.
+
+## <a name="cost-control"></a>비용 제어
+
+서버를 사용 하지 않는 SQL 풀의 비용 제어 기능을 사용 하면 처리 되는 데이터의 양에 대 한 예산을 설정할 수 있습니다. 하루, 주 및 월에 처리 되는 데이터의 예산 (TB)을 설정할 수 있습니다. 동시에 하나 이상의 예산을 설정할 수 있습니다. 서버를 사용 하지 않는 SQL 풀에 대해 비용 제어를 구성 하려면 Synapse Studio 또는 T-sql을 사용 하면 됩니다.
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-synapse-studio"></a>Synapse Studio에서 서버를 사용 하지 않는 SQL 풀에 대 한 비용 제어 구성
+ 
+Synapse Studio에서 서버를 사용 하지 않는 SQL 풀에 대 한 비용 제어를 구성 하려면 왼쪽의 메뉴에서 관리 항목으로 이동 하 고 분석 풀에서 SQL 풀 항목을 선택 합니다. 서버를 사용 하지 않는 SQL 풀을 가리키면 비용 제어 아이콘을 볼 수 있습니다 .이 아이콘을 클릭 하면 됩니다.
+
+![비용 제어 탐색](./media/data-processed/cost-control-menu.png)
+
+비용 제어 아이콘을 클릭 하면 다음과 같은 사이드 막대가 표시 됩니다.
+
+![비용 제어 구성](./media/data-processed/cost-control-sidebar.png)
+
+하나 이상의 예산을 설정 하려면 먼저 텍스트 상자에 정수 값을 입력 하는 것 보다 설정 하려는 예산에 대해 라디오 단추 사용을 클릭 합니다. 값의 단위는 TBs입니다. 예산을 구성한 후에는 양쪽 표시줄의 아래쪽에 있는 적용 단추를 클릭 합니다. 이제 예산이 설정 되었습니다.
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-t-sql"></a>T-sql에서 서버를 사용 하지 않는 SQL 풀에 대 한 비용 제어 구성
+
+T-sql에서 서버를 사용 하지 않는 SQL 풀에 대 한 비용 제어를 구성 하려면 다음 저장 프로시저 중 하나 이상을 실행 해야 합니다.
+
+```sql
+sp_set_data_processed_limit
+    @type = N'daily',
+    @limit_tb = 1
+
+sp_set_data_processed_limit
+    @type= N'weekly',
+    @limit_tb = 2
+
+sp_set_data_processed_limit
+    @type= N'monthly',
+    @limit_tb = 3334
+```
+
+현재 구성을 보려면 다음 T-sql 문을 실행 합니다.
+
+```sql
+SELECT * FROM sys.configurations
+WHERE name like 'Data processed %';
+```
+
+현재 날짜, 주 또는 월에 처리 된 데이터의 양을 확인 하려면 다음 T-sql 문을 실행 합니다.
+
+```sql
+SELECT * FROM sys.dm_external_data_processed
+```
 
 ## <a name="next-steps"></a>다음 단계
 

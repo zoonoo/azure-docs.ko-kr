@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41cfff11e44a3d052614aa3c81a4623f59bbbbf5
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531307"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095290"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 용량 계획 및 크기 조정
 
@@ -42,7 +42,7 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트 하�
 
 ## <a name="vertical-scaling-considerations"></a>수직 크기 조정 관련 고려 사항
 
-Azure Service Fabric에서 노드 유형을 [수직 확장](./virtual-machine-scale-set-scale-node-type-scale-out.md) 하려면 여러 단계와 고려 사항이 필요 합니다. 예를 들면 다음과 같습니다.
+Azure Service Fabric에서 노드 유형을 [수직 확장](./virtual-machine-scale-set-scale-node-type-scale-out.md) 하려면 여러 단계와 고려 사항이 필요 합니다. 예를 들어:
 
 * 크기 조정 전에 클러스터가 정상 상태여야 합니다. 그렇지 않으면 클러스터를 추가로 불안정 하 게 됩니다.
 * 상태 저장 서비스를 호스트 하는 모든 Service Fabric 클러스터 노드 형식에는 실버 내구성 수준 이상이 필요 합니다.
@@ -50,21 +50,11 @@ Azure Service Fabric에서 노드 유형을 [수직 확장](./virtual-machine-sc
 > [!NOTE]
 > 상태 저장 Service Fabric 시스템 서비스를 호스트 하는 주 노드 형식은 실버 내구성 수준 이상 이어야 합니다. 실버 내구성을 사용 하도록 설정한 후에는 업그레이드, 노드 추가 또는 제거와 같은 클러스터 작업이 속도가 더 느릴 수 있습니다 .이는 시스템에서 작업 속도를 통해 데이터 안전을 최적화 하기 때문입니다.
 
-가상 머신 확장 집합의 수직 확장은 파괴적인 작업입니다. 대신 원하는 SKU를 사용 하 여 새 확장 집합을 추가 하 여 클러스터를 수평으로 확장 합니다. 그런 다음 서비스를 원하는 SKU로 마이그레이션하여 안전한 수직 크기 조정 작업을 완료 합니다. 가상 머신 확장 집합 리소스 SKU를 변경 하는 작업은 호스트를 다시 이미지 하 여 모든 로컬에서 지속 되는 상태를 제거 하기 때문에 파괴적인 작업입니다.
+가상 머신 확장 집합의 수직 확장은 단순히 리소스 SKU를 변경 하 여 가상 머신 확장 집합을 변경 하는 것은 호스트를 다시 설치 하 여 로컬로 유지 되는 모든 상태를 제거 하므로 파괴적인 작업입니다. 대신 원하는 SKU를 사용 하 여 새 확장 집합을 추가한 다음 서비스를 새 확장 집합으로 마이그레이션하여 안전 하 게 수직 크기 조정 작업을 완료 하는 방법으로 클러스터를 수평으로 확장할 수 있습니다.
 
-클러스터는 Service Fabric [노드 속성 및 배치 제약 조건을](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) 사용 하 여 응용 프로그램의 서비스를 호스트할 위치를 결정 합니다. 주 노드 형식의 크기를 세로로 조정 하는 경우에 대해 동일한 속성 값을 선언 `"nodeTypeRef"` 합니다. 이러한 값은 가상 머신 확장 집합에 대 한 Service Fabric 확장에서 찾을 수 있습니다. 
-
-리소스 관리자 템플릿의 다음 코드 조각은 선언할 속성을 보여 줍니다. 크기를 조정 하는 새로 프로 비전 된 확장 집합에 대해 동일한 값을 가지 며, 클러스터에 대 한 임시 상태 저장 서비스로만 지원 됩니다.
-
-```json
-"settings": {
-   "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
-}
-```
+클러스터는 Service Fabric [노드 속성 및 배치 제약 조건을](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) 사용 하 여 응용 프로그램의 서비스를 호스트할 위치를 결정 합니다. 주 노드 유형의 수직 크기를 조정 하는 경우 두 번째 주 노드 유형을 배포한 다음 `"isPrimary": false` 원래 주 노드 유형에 대해 ()를 설정 하 고 해당 노드를 사용 하지 않도록 설정 하 고 해당 확장 집합 및 관련 리소스를 제거 합니다. 자세한 내용은 [확장 Service Fabric 클러스터 주 노드 유형](service-fabric-scale-up-primary-node-type.md)을 참조 하세요.
 
 > [!NOTE]
-> `nodeTypeRef`성공적인 수직 크기 조정 작업을 완료 하는 데 필요한 것 보다 더 긴 동일한 속성 값을 사용 하는 여러 확장 집합을 사용 하 여 클러스터를 실행 하지 마세요.
->
 > 프로덕션 환경에 대 한 변경을 시도 하기 전에 항상 테스트 환경에서 작업의 유효성을 검사 합니다. 기본적으로 Service Fabric 클러스터 시스템 서비스에는 대상 주 노드 형식에 대 한 배치 제약 조건만 있습니다.
 
 노드 속성 및 배치 제약 조건을 선언한 후 다음 단계를 한 번에 한 VM 인스턴스씩 수행합니다. 이렇게 하면 새 복제본이 생성 될 때 제거 하려는 VM 인스턴스에서 시스템 서비스 (및 상태 저장 서비스)를 정상적으로 종료할 수 있습니다.
@@ -127,7 +117,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 }
 ```
 
-프로그래밍 방식으로 크기를 조정 하려면 종료 하기 위해 노드를 준비 해야 합니다. 제거할 노드 (가장 높은 인스턴스 노드)를 찾습니다. 예를 들면 다음과 같습니다.
+프로그래밍 방식으로 크기를 조정 하려면 종료 하기 위해 노드를 준비 해야 합니다. 제거할 노드 (가장 높은 인스턴스 노드)를 찾습니다. 예를 들어:
 
 ```csharp
 using (var client = new FabricClient())
@@ -198,7 +188,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ## <a name="durability-levels"></a>내구성 수준
 
 > [!WARNING]
-> Bronze 내구성으로 실행되는 노드 형식은 _권한 없음_이 됩니다. 상태 비저장 워크 로드에 영향을 주는 인프라 작업은 중지 되거나 지연 되지 않으므로 워크 로드에 영향을 줄 수 있습니다. 
+> Bronze 내구성으로 실행되는 노드 형식은 _권한 없음_ 이 됩니다. 상태 비저장 워크 로드에 영향을 주는 인프라 작업은 중지 되거나 지연 되지 않으므로 워크 로드에 영향을 줄 수 있습니다. 
 >
 > Bronze 내구성은 상태 비저장 워크로드를 실행하는 노드 형식에만 사용해야 합니다. 프로덕션 워크 로드의 경우 상태 일관성을 유지 하려면 실버 이상을 실행 합니다. [용량 계획 설명서](./service-fabric-cluster-capacity.md)의 지침에 따라 올바른 안정성을 선택합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 증명 문제 해결 가이드
+title: Azure Attestation 문제 해결 가이드
 description: 자주 관찰 되는 문제에 대 한 문제 해결 가이드
 services: attestation
 author: msmbaldwin
@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 46e3521a54f6bfdfbfb25634a09b8c8e0cfdcac0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343108"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704319"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Microsoft Azure 증명 문제 해결 가이드
 
@@ -64,7 +64,7 @@ PowerShell에서 역할을 확인 하려면 다음을 실행 합니다.
 
 a. PowerShell을 시작 하 고 "AzAccount" cmdlet을 통해 Azure에 로그인 합니다.
 
-b. RBAC 역할 할당 설정 확인
+b. Azure 역할 할당 설정 확인
 
 
   ```powershell
@@ -95,7 +95,7 @@ b. RBAC 역할 할당 설정 확인
  
   ```
 
-c. 목록에서 적절 한 역할 할당을 찾지 못한 경우 [여기](/azure/role-based-access-control/role-assignments-powershell) 에 있는 지침을 따르세요.
+다. 목록에서 적절 한 역할 할당을 찾지 못한 경우 [여기](../role-based-access-control/role-assignments-powershell.md) 에 있는 지침을 따르세요.
 
 ## <a name="2-http--400-errors"></a>2. HTTP-400 오류
 
@@ -123,7 +123,7 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 
 "DraftPolicyForAttestation" 매개 변수에 정책 텍스트를 제공 하 여 증명 API에 요청을 보냅니다. AttestSgxEnclave API는 증명 호출 중에이 정책 문서를 사용 하며 증명 정책을 사용 하기 전에 증명 정책을 테스트 하는 데 사용할 수 있습니다. 이 필드가 있을 때 생성 된 증명 토큰은 보안이 적용 되지 않습니다.
 
-[증명 정책 예제](/azure/attestation/policy-examples) 참조
+[증명 정책 예제](./policy-examples.md) 참조
 
 ### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. 입력이 잘못 되어 증명 실패
 
@@ -163,7 +163,7 @@ At line:1 char:1
 
 그렇지 않으면 인증서 체인이 잘못 된 것으로 간주 됩니다.
 
-[정책 서명자](/azure/attestation/policy-signer-examples) 및 [정책](/azure/attestation/policy-examples) 예제 참조 
+[정책 서명자](./policy-signer-examples.md) 및 [정책](./policy-examples.md) 예제 참조 
 
 ### <a name="24-adddelete-policy-signer-failure"></a>2.4. 정책 서명자 추가/삭제 실패
 
@@ -209,7 +209,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
 ```
 
-**문제 해결 단계** 새 정책 서명자 인증서를 추가/삭제 하려면 "JSON Web Token RFC7519" (JWT) 클레임에 "x-m-policyCertificate"를 사용 합니다. 클레임의 값은 추가할 인증서를 포함 하는 RFC7517 JSON 웹 키입니다. JWT는 공급자와 연결 된 유효한 정책 서명자 인증서의 개인 키로 서명 해야 합니다. [정책 서명자 예](/azure/attestation/policy-signer-examples)를 참조 하세요.
+**문제 해결 단계** 새 정책 서명자 인증서를 추가/삭제 하려면 "JSON Web Token RFC7519" (JWT) 클레임에 "x-m-policyCertificate"를 사용 합니다. 클레임의 값은 추가할 인증서를 포함 하는 RFC7517 JSON 웹 키입니다. JWT는 공급자와 연결 된 유효한 정책 서명자 인증서의 개인 키로 서명 해야 합니다. [정책 서명자 예](./policy-signer-examples.md)를 참조 하세요.
 
 ### <a name="25-attestation-policy-configuration-failure"></a>2.5. 증명 정책 구성 오류
 
@@ -255,13 +255,13 @@ JWT 형식으로 정책을 구성 하려면 "AttestationPolicy" 라는 클레임
 
 PowerShell에서 PolicyFormat을 jwt로 지정 하 여 JWT 형식으로 정책을 구성 합니다. 기본 정책 형식은 텍스트입니다.
 
-증명 [정책 예제](/azure/attestation/policy-examples) 및 [증명 정책을 작성 하는 방법을](/azure/attestation/author-sign-policy) 참조 하세요. 
+증명 [정책 예제](./policy-examples.md) 및 [증명 정책을 작성 하는 방법을](./author-sign-policy.md) 참조 하세요. 
 
 ## <a name="3-azattestation-installation-issues-in-powershell"></a>3. Az. PowerShell의 증명 설치 문제
 
 PowerShell에서 Az 또는 Az. 증명 모듈을 설치할 수 없습니다.
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 경고: 패키지 원본 ' ' PackageManagement\Install-Package를 확인할 수 없습니다 https://www.powershellgallery.com/api/v2 . 지정 된 검색 조건 및 모듈 이름과 일치 하는 항목이 없습니다.
 
@@ -279,8 +279,8 @@ PowerShell 갤러리와 계속 상호 작용하려면 Install-Module 명령을 �
 
 사용자에 게 적절 한 역할이 할당 되었습니다. 그러나 PowerShell을 통해 증명 정책을 관리 하는 동안 권한 부여 문제가 발생 했습니다.
 
-### <a name="error"></a>Error
-개체 id가 있는 클라이언트에 게 <object Id>  작업을 수행할 수 있는 권한이 없습니다. 구독/ <subscriptionId> resourcegroups/secure_enclave_poc/providers/microsoft.authorization/roleassignments/' 범위에 대 한 authorization/roleassignments/write <role assignmentId> 또는 범위가 잘못 되었습니다. 액세스 권한이 최근에 부여 된 경우 자격 증명을 새로 고 치세요.
+### <a name="error"></a>오류
+개체 id가 개체 Id 인 클라이언트에 게 &lt; &gt;  작업을 수행할 수 있는 권한이 없습니다. ' 구독/ &lt; subscriptionId &gt; resourcegroups/secure_enclave_poc/providers/microsoft.authorization/roleassignments/role assignmentId ' 범위에 대 한 authorization/roleassignments/write &lt; &gt; 또는 범위가 잘못 되었습니다. 액세스 권한이 최근에 부여 된 경우 자격 증명을 새로 고 치세요.
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 
@@ -301,4 +301,3 @@ Get-InstalledModule
 버전이 최소 요구 사항과 일치 하지 않는 경우 Update-Module 명령을 실행 합니다.
 
 예:-Update-Module-Name Az. 증명
-

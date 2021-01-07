@@ -2,15 +2,15 @@
 title: 템플릿 사양 개요
 description: 템플릿 사양을 만들고 조직의 다른 사용자와 공유 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/25/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd7616bdc07aee86ac56a2f2fe0ac282838c58b4
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728474"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518858"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure Resource Manager 템플릿 사양 (미리 보기)
 
@@ -21,7 +21,7 @@ ms.locfileid: "91728474"
 템플릿 사양을 배포 하려면 PowerShell, Azure CLI, Azure Portal, REST 및 기타 지원 되는 Sdk와 클라이언트와 같은 표준 Azure 도구를 사용 합니다. 템플릿과 동일한 명령을 사용 합니다.
 
 > [!NOTE]
-> 템플릿 사양은 현재 미리 보기 상태입니다. 이를 사용하려면 [대기 목록에 등록](https://aka.ms/templateSpecOnboarding)해야 합니다.
+> 템플릿 사양은 현재 미리 보기 상태입니다. Azure PowerShell에서 사용 하려면 [버전 5.0.0 이상을](/powershell/azure/install-az-ps)설치 해야 합니다. Azure CLI에서 사용 하려면 [버전 2.14.2](/cli/azure/install-azure-cli)이상을 사용 합니다.
 
 ## <a name="why-use-template-specs"></a>템플릿 사양을 사용 하는 이유
 
@@ -73,7 +73,7 @@ ms.locfileid: "91728474"
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0a -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -81,7 +81,7 @@ New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpe
 ```azurecli
 az ts create \
   --name storageSpec \
-  --version "1.0" \
+  --version "1.0a" \
   --resource-group templateSpecRG \
   --location "westus2" \
   --template-file "./mainTemplate.json"
@@ -119,7 +119,7 @@ Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 az ts show \
     --name storageSpec \
     --resource-group templateSpecRG \
-    --version "1.0"
+    --version "1.0a"
 ```
 
 ---
@@ -134,14 +134,14 @@ az ts show \
 
 **/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Resources/templateSpecs/{template-spec-name}/versions/{template-spec-version}**
 
-리소스 ID는 템플릿 사양의 버전 번호를 포함 합니다.
+리소스 ID는 템플릿 사양의 버전 이름을 포함 하 고 있습니다.
 
 예를 들어 다음 명령을 사용 하 여 템플릿 사양을 배포 합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
@@ -151,7 +151,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 az deployment group create \
   --resource-group demoRG \
@@ -160,12 +160,12 @@ az deployment group create \
 
 ---
 
-실제로는를 실행 `Get-AzTemplateSpec` 하 여 배포 하려는 템플릿 사양의 ID를 가져옵니다.
+실제로 `Get-AzTemplateSpec` `az ts show` 는 또는를 실행 하 여 배포 하려는 템플릿 사양의 ID를 가져옵니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0a).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `
@@ -175,7 +175,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0a" --query "id")
 
 az deployment group create \
   --resource-group demoRG \
@@ -294,7 +294,7 @@ az deployment group create \
 
 예를 들어 네트워킹 리소스를 배포 하는 템플릿 사양 및 저장소 리소스를 배포 하는 다른 템플릿 사양을 만들 수 있습니다. ARM 템플릿에서 네트워킹 또는 저장소 리소스를 구성 해야 하는 경우 언제 든 지 이러한 두 템플릿 사양에 연결할 수 있습니다.
 
-다음 예제는 이전 예제와 비슷하지만 속성을 사용 하 여 `id` `relativePath` 로컬 템플릿에 연결 하는 속성이 아닌 템플릿 사양에 연결 합니다. `2020-06-01`배포 리소스에 대 한 API 버전을 사용 합니다. 이 예제에서 템플릿 사양은 **templateSpecsRG**이라는 리소스 그룹에 있습니다.
+다음 예제는 이전 예제와 비슷하지만 속성을 사용 하 여 `id` `relativePath` 로컬 템플릿에 연결 하는 속성이 아닌 템플릿 사양에 연결 합니다. `2020-06-01`배포 리소스에 대 한 API 버전을 사용 합니다. 이 예제에서 템플릿 사양은 **templateSpecsRG** 이라는 리소스 그룹에 있습니다.
 
 ```json
 {
@@ -309,7 +309,7 @@ az deployment group create \
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0')]"
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0a')]"
         }
       }
     },
@@ -321,7 +321,7 @@ az deployment group create \
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0a')]"
         }
       }
     }
@@ -334,7 +334,7 @@ az deployment group create \
 
 ## <a name="versioning"></a>버전 관리
 
-템플릿 사양을 만들 때이에 대 한 버전 번호를 제공 합니다. 템플릿 코드를 반복 하면 기존 버전을 업데이트 하거나 (핫픽스의 경우) 새 버전을 게시할 수 있습니다. 버전은 텍스트 문자열입니다. 의미 체계 버전 관리를 포함 하 여 모든 버전 관리 시스템을 따르도록 선택할 수 있습니다. 템플릿 사양의 사용자는 배포할 때 사용할 버전 번호를 제공할 수 있습니다.
+템플릿 사양을 만들 때이에 대 한 버전 이름을 제공 합니다. 템플릿 코드를 반복 하면 기존 버전을 업데이트 하거나 (핫픽스의 경우) 새 버전을 게시할 수 있습니다. 버전은 텍스트 문자열입니다. 의미 체계 버전 관리를 포함 하 여 모든 버전 관리 시스템을 따르도록 선택할 수 있습니다. 템플릿 사양의 사용자는 배포할 때 사용 하려는 버전 이름을 제공할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

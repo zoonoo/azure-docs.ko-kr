@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e52c09e6fc3d5e3d4210e213e0eb6af4e473559
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9e5f7d4e3c358c05713301ac1b1b896062f12bee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205033"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914759"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Windows Virtual Machines에 대 한 Azure 보안 기준
 
@@ -76,7 +76,7 @@ Windows Virtual Machines에 대 한 Azure 보안 기준에는 배포의 보안 �
 
 Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 제한 된 기간 동안 Windows Virtual Machines의 노출을 승인 된 IP 주소로 제한할 수 있습니다. 또한 적응 네트워크 강화 Azure Security Center 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트와 원본 Ip를 제한 하는 NSG 구성을 권장 합니다.
 
-* [DDoS 보호를 구성 하는 방법](../../virtual-network/manage-ddos-protection.md)
+* [DDoS 보호를 구성 하는 방법](../../ddos-protection/manage-ddos-protection.md)
 
 * [Azure 방화벽을 배포 하는 방법](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -274,7 +274,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 * [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
-* [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/get-started-portal.md)
+* [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -430,7 +430,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다. 관리 id를 사용 하 여 코드에 자격 증명 없이 Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다. 가상 머신에서 실행 되는 코드는 관리 되는 id를 사용 하 여 Azure AD 인증을 지 원하는 서비스에 대 한 액세스 토큰을 요청할 수 있습니다.
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](../../active-directory-domain-services/tutorial-create-instance.md)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](../../active-directory-domain-services/tutorial-create-instance.md)
 
 * [Azure 리소스에 대한 관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -452,7 +452,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 **지침**: Azure Active Directory에 대 한 진단 설정을 구성 하 여 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 보냅니다. 또한 Azure Monitor를 사용 하 여 Azure 가상 머신에서 로그 데이터에 대 한 로그를 검토 하 고 쿼리를 수행 합니다.
 
-* [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/get-started-portal.md)
+* [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -580,7 +580,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: VM (Windows Virtual Machines)의 가상 디스크는 서버 쪽 암호화 또는 ADE (Azure disk encryption)를 사용 하 여 미사용으로 암호화 됩니다. Azure Disk Encryption은 Windows의 BitLocker 기능을 활용하여 게스트 VM 내에서 고객 관리 키를 사용하여 Managed Disks를 암호화합니다. 고객 관리형 키를 사용하는 서버 쪽 암호화는 스토리지 서비스의 데이터를 암호화하여 VM에 대한 모든 OS 유형 및 이미지를 사용할 수 있도록 설정하여 ADE에서 향상됩니다.
 
-* [Azure managed disks의 서버 쪽 암호화](./disk-encryption.md)
+* [Azure managed disks의 서버 쪽 암호화](../disk-encryption.md)
 
 * [Windows Vm에 대 한 Azure Disk Encryption](./disk-encryption-overview.md)
 
@@ -620,9 +620,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure 업데이트 관리 솔루션을 사용 하 여 가상 머신에 대 한 업데이트 및 패치를 관리할 수 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하 여 WSUS (Windows Server Update Services)에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오를 사용 하면 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어를 사용 하 여 업데이트 리포지토리로 패치 업데이트 관리 수 있습니다.
 
-* [Azure의 업데이트 관리 솔루션](../../automation/update-management/update-mgmt-overview.md)
+* [Azure의 업데이트 관리 솔루션](../../automation/update-management/overview.md)
 
-* [Vm에 대 한 업데이트 및 패치 관리](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Vm에 대 한 업데이트 및 패치 관리](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -632,9 +632,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: 타사 패치 관리 솔루션을 사용할 수 있습니다. Azure 업데이트 관리 솔루션을 사용 하 여 가상 컴퓨터에 대 한 업데이트 및 패치를 관리할 수 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하 여 WSUS (Windows Server Update Services)에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오를 사용 하면 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어를 사용 하 여 업데이트 리포지토리로 패치 업데이트 관리 수 있습니다.
 
-* [Azure의 업데이트 관리 솔루션](../../automation/update-management/update-mgmt-overview.md)
+* [Azure의 업데이트 관리 솔루션](../../automation/update-management/overview.md)
 
-* [Vm에 대 한 업데이트 및 패치 관리](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Vm에 대 한 업데이트 및 패치 관리](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -893,7 +893,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [ARM 템플릿 만들기에 대 한 정보](./ps-template.md)
 
-* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Azure Security Center 모니터링**: 예
 
@@ -971,7 +971,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure-Managed Id와 통합 하는 방법](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Key Vault를 만드는 방법](../../key-vault/secrets/quick-create-portal.md)
+* [Key Vault를 만드는 방법](../../key-vault/general/quick-create-portal.md)
 
 * [Key Vault에 인증 하는 방법](../../key-vault/general/authentication.md)
 
@@ -1181,9 +1181,9 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 **지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-* [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 

@@ -1,6 +1,6 @@
 ---
-title: 워크로드 중요도 관리 및 모니터링
-description: Azure Synapse Analytics에서 요청 수준 중요도를 관리 하 고 모니터링 하는 방법에 대해 알아봅니다.
+title: 전용 SQL 풀에서 워크 로드 중요도 관리 및 모니터링
+description: Azure Synapse Analytics에 대 한 요청 수준 중요도 전용 SQL 풀을 관리 하 고 모니터링 하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0a5fbf33b48521882646bf8fb5eb3fe5dacca6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211972"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459213"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 워크 로드 중요도 관리 및 모니터링
+# <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Azure Synapse Analytics 전용 SQL 풀에서 워크 로드 중요도 관리 및 모니터링
 
-Dmv 및 카탈로그 뷰를 사용 하 여 Azure Synapse의 Synapse SQL 요청 수준 중요도를 관리 하 고 모니터링 합니다.
+Dmv 및 카탈로그 뷰를 사용 하 여 Azure Synapse에서 전용 SQL 풀 요청 수준 중요도를 관리 하 고 모니터링 합니다.
 
 ## <a name="monitor-importance"></a>중요도 모니터링
 

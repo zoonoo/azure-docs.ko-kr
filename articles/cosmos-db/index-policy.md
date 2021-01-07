@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 9e62d6c475a4aeb366d034af1c80fc728f1a9211
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335826"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903023"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,8 +28,8 @@ Azure Cosmos DB에서 모든 컨테이너에는 컨테이너 항목을 인덱싱
 
 Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
-- **일관성** : 항목이 생성, 업데이트 또는 삭제 될 때 인덱스가 동기적으로 업데이트 됩니다. 즉, 읽기 쿼리의 일관성은 [계정에 대해 구성 된 일관성](consistency-levels.md)이 됩니다.
-- **없음** : 컨테이너에서 인덱싱을 사용할 수 없습니다. 이는 컨테이너를 보조 인덱스가 없어도 순수 키-값 저장소로 사용할 때 일반적으로 사용 됩니다. 이를 사용 하 여 대량 작업의 성능을 향상 시킬 수도 있습니다. 대량 작업이 완료 되 면 인덱스 모드를 일관 된 상태로 설정 하 고 완료 될 때까지 [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) 를 사용 하 여 모니터링할 수 있습니다.
+- **일관성**: 항목이 생성, 업데이트 또는 삭제 될 때 인덱스가 동기적으로 업데이트 됩니다. 즉, 읽기 쿼리의 일관성은 [계정에 대해 구성 된 일관성](consistency-levels.md)이 됩니다.
+- **없음**: 컨테이너에서 인덱싱을 사용할 수 없습니다. 이는 컨테이너를 보조 인덱스가 없어도 순수 키-값 저장소로 사용할 때 일반적으로 사용 됩니다. 이를 사용 하 여 대량 작업의 성능을 향상 시킬 수도 있습니다. 대량 작업이 완료 되 면 인덱스 모드를 일관 된 상태로 설정 하 고 완료 될 때까지 [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) 를 사용 하 여 모니터링할 수 있습니다.
 
 > [!NOTE]
 > Azure Cosmos DB는 지연 인덱싱 모드도 지원 합니다. 지연 인덱싱은 엔진이 다른 작업을 수행하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행합니다. 이로 인해 **불일치 또는 불완전** 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택하지 않아야 합니다. 새 컨테이너는 지연 인덱스를 선택할 수 없습니다. [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 에 문의 하 여 예외를 요청할 수 있습니다 (지연 인덱싱을 지원 하지 않는 [서버](serverless.md) 를 사용 하지 않는 모드에서 azure Cosmos 계정을 사용 하는 경우 제외).
@@ -105,9 +105,9 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 예를 들면 다음과 같습니다.
 
-**포함 된 경로** : `/food/ingredients/nutrition/*`
+**포함 된 경로**: `/food/ingredients/nutrition/*`
 
-**제외 된 경로** : `/food/ingredients/*`
+**제외 된 경로**: `/food/ingredients/*`
 
 이 경우 포함 된 경로는 보다 정확 하기 때문에 제외 된 경로 보다 우선 적용 됩니다. 이러한 경로를 기반으로 하는 `food/ingredients` 경로 또는 중첩 된 내의 모든 데이터는 인덱스에서 제외 됩니다. 예외는 포함 된 경로 () 내의 데이터 `/food/ingredients/nutrition/*` 입니다 .이는 인덱싱됩니다.
 
@@ -125,7 +125,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 * Point
 
-* Polygon
+* 다각형
 
 * MultiPolygon
 
@@ -201,6 +201,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age > 18
 - 여러 필터를 사용 하 여 쿼리를 최적화 하기 위해 복합 인덱스를 만들 때 `ORDER` 복합 인덱스의는 결과에 영향을 주지 않습니다. 이 속성은 선택 사항입니다.
 - 여러 속성에서 필터를 사용 하 여 쿼리에 대 한 복합 인덱스를 정의 하지 않은 경우에도 쿼리는 성공적으로 수행 됩니다. 그러나 복합 인덱스를 사용 하 여 쿼리 비용을 줄일 수 있습니다.
 - 집계를 사용 하는 쿼리 (예: COUNT 또는 SUM)와 필터는 복합 인덱스를 사용 하는 경우에도 유용 합니다.
+- 필터 식은 여러 복합 인덱스를 사용할 수 있습니다.
 
 복합 인덱스가 속성 이름, 나이 및 타임 스탬프에 정의 되어 있는 다음 예제를 고려 합니다.
 
@@ -213,6 +214,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age > 18
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+| ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
 ### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>필터 및 ORDER BY 절이 포함된 쿼리
 

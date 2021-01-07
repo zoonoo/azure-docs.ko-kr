@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 098256c3174f5a737bec4f6a62cb1d2af99e6f4f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ef8e2a3d1a6b78e8f2b6b9a900ed2485c1a4a5d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311068"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451589"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 Synapse SQL에 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "93311068"
 Visual Studio를 사용 하 여 Azure Synapse Analytics를 사용 하 여 전용 SQL 풀을 쿼리 합니다. 이 메서드는 Visual Studio 2019에서 SSDT(SQL Server Data Tools) 확장을 사용합니다. 
 
 > [!NOTE]
-> 서버를 사용 하지 않는 SQL 풀 (미리 보기)은 SSDT에서 지원 되지 않습니다.
+> SSDT에서는 서버를 사용 하지 않는 SQL 풀을 지원 하지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -52,9 +52,9 @@ Visual Studio를 사용 하 여 Azure Synapse Analytics를 사용 하 여 전용
    
     ![서버에 연결](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **서버 이름** : 이전에 식별한 **서버 이름** 을 입력합니다.
-   * **인증** : **SQL Server 인증** 또는 **Active Directory 통합 인증** 을 선택합니다.
-   * **사용자 이름** 및 **암호** : 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
+   * **서버 이름**: 이전에 식별한 **서버 이름** 을 입력합니다.
+   * **인증**: **SQL Server 인증** 또는 **Active Directory 통합 인증** 을 선택합니다.
+   * **사용자 이름** 및 **암호**: 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
    * **연결** 을 클릭합니다.
 5. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
    

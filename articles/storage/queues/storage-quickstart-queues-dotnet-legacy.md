@@ -3,25 +3,25 @@ title: '빠른 시작: .NET용 Azure Storage v11을 사용하여 큐 관리'
 description: 이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리를 사용하여 큐를 만들고 메시지를 큐에 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 처리하는 방법을 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 07/24/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
-ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d73f225f0e6f230509c856af0d15bc02e80fcd98
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 23703dc507aa909aea4711289a4d7d5c5e6a170e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425884"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588202"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>빠른 시작: .NET용 Azure Storage SDK v11을 사용하여 큐 관리
 
-이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리 버전 11을 사용하여 큐를 만들고 메시지를 큐에 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 처리하는 방법을 알아봅니다. 
+이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리 v11을 사용하여 큐를 만들고 메시지를 큐에 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 처리하는 방법을 알아봅니다.
 
 > [!NOTE]
-> 이 빠른 시작에서는 Azure Queue storage 클라이언트 라이브러리의 레거시 버전을 사용합니다. 최신 버전을 시작하려면 [빠른 시작: .NET용 Azure Queue storage 클라이언트 라이브러리 v12](storage-quickstart-queues-dotnet.md)를 참조하세요.
+> 이 빠른 시작에서는 Azure Queue Storage 클라이언트 라이브러리의 레거시 버전을 사용합니다. 최신 버전을 시작하려면 [빠른 시작: .NET용 Azure Queue Storage 클라이언트 라이브러리 v12](storage-quickstart-queues-dotnet.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -32,7 +32,7 @@ ms.locfileid: "92425884"
 ### <a name="windows"></a>Windows
 
 - [Windows용 .NET Core](https://www.microsoft.com/net/download/windows) 또는 [.NET Framework](https://www.microsoft.com/net/download/windows)(Windows용 Visual Studio에 포함)를 설치합니다.
-- [Windows용 Visual Studio](https://www.visualstudio.com/)를 설치합니다. .NET Core를 사용하는 경우 Visual Studio는 선택 사항입니다.  
+- [Windows용 Visual Studio](https://www.visualstudio.com/)를 설치합니다. .NET Core를 사용하는 경우 Visual Studio는 선택 사항입니다.
 
 .NET Core와 .NET Framework 중에서 선택하는 방법에 대한 내용은 [서버 앱에 .NET Core와 .NET Framework 중에서 무엇을 사용할지 선택하는 방법](/dotnet/standard/choosing-core-framework-server)을 참조하세요.
 
@@ -50,13 +50,13 @@ ms.locfileid: "92425884"
 
 이 빠른 시작 가이드에서 사용되는 샘플 애플리케이션은 기본적인 콘솔 애플리케이션입니다. [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart)에서 샘플 애플리케이션을 탐색할 수 있습니다.
 
-[git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드합니다. 
+[Git](https://git-scm.com/)을 사용하여 애플리케이션 복사본을 개발 환경에 다운로드합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. Visual Studio 솔루션을 열려면 *storage-queues-dotnet-quickstart* 폴더를 찾아서 열고 *storage-queues-dotnet-quickstart.sln* 을 두 번 클릭합니다. 
+이 명령은 로컬 Git 폴더에 해당 리포지토리를 복제합니다. Visual Studio 솔루션을 열려면 `storage-queues-dotnet-quickstart` 폴더를 찾아서 열고 `storage-queues-dotnet-quickstart.sln`을 두 번 클릭합니다.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -72,7 +72,7 @@ git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-환경 변수를 추가한 후에는 콘솔 창을 포함하여 실행 중인 프로그램 중에서 환경 변수를 읽어야 하는 프로그램을 다시 시작해야 할 수도 있습니다. 예를 들어 편집기로 Visual Studio를 사용하는 경우 Visual Studio를 다시 시작한 후 샘플을 실행합니다. 
+환경 변수를 추가한 후에는 콘솔 창을 포함하여 실행 중인 프로그램 중에서 환경 변수를 읽어야 하는 프로그램을 다시 시작해야 할 수도 있습니다. 예를 들어 편집기로 Visual Studio를 사용하는 경우 Visual Studio를 다시 시작한 후 샘플을 실행합니다.
 
 ### <a name="linux"></a>Linux
 
@@ -98,7 +98,7 @@ export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 
 ### <a name="windows"></a>Windows
 
-편집기로 Visual Studio를 사용하는 경우 **F5** 키를 눌러 실행할 수 있습니다. 
+편집기로 Visual Studio를 사용하는 경우 `F5` 키를 눌러 실행할 수 있습니다.
 
 그렇지 않으면 애플리케이션 디렉터리로 이동하여 `dotnet run` 명령으로 애플리케이션을 실행합니다.
 
@@ -148,7 +148,7 @@ Press any key to delete the sample queue.
 
 ### <a name="try-parsing-the-connection-string"></a>연결 문자열 구문 분석 시도
 
-샘플에서는 먼저 환경 변수에 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열이 포함되는지 확인합니다. 연결 문자열이 유효한지 확인하기 위해, 샘플은 [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse** 가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true** 를 반환합니다.
+샘플에서는 먼저 환경 변수에 스토리지 계정을 가리키는 [`CloudStorageAccount`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열이 포함되는지 확인합니다. 연결 문자열이 유효한지 확인하기 위해 샘플은 [`TryParse`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 메서드를 사용합니다. `TryParse`가 성공하면 `storageAccount` 변수를 초기화하고 `true`를 반환합니다.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -161,7 +161,7 @@ string storageConnectionString = Environment.GetEnvironmentVariable("storageconn
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with calls to Azure Queues here.
-    ...    
+    ...
 }
 else
 {
@@ -174,11 +174,11 @@ else
 
 ### <a name="create-the-queue"></a>큐 만들기
 
-먼저, 샘플은 큐를 만들고 여기에 메시지를 추가합니다. 
+먼저, 샘플은 큐를 만들고 여기에 메시지를 추가합니다.
 
 ```csharp
-// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name 
-// is unique in your storage account. 
+// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name
+// is unique in your storage account.
 queue = cloudQueueClient.GetQueueReference("quickstartqueues-" + Guid.NewGuid().ToString());
 await queue.CreateAsync();
 
@@ -188,7 +188,7 @@ Console.WriteLine();
 
 ### <a name="add-a-message"></a>메시지 추가
 
-다음으로, 샘플은 큐의 뒤쪽에 메시지를 추가합니다. 
+다음으로, 샘플은 큐의 뒤쪽에 메시지를 추가합니다.
 
 메시지는 UTF-8 인코딩을 사용하는 XML 요청에 포함될 수 있는 형식이어야 하며, 크기는 최대 64KB까지 가능합니다. 메시지에 이진 데이터가 포함되어 있으면 메시지를 Base64로 인코딩하는 것이 좋습니다.
 
@@ -204,7 +204,7 @@ Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToStrin
 Console.WriteLine();
 ```
 
-만기되지 않는 메시지를 추가하려면 [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync) 호출에 `Timespan.FromSeconds(-1)`를 사용합니다.
+만기되지 않는 메시지를 추가하려면 [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync) 호출에 `Timespan.FromSeconds(-1)`를 사용합니다.
 
 ```csharp
 await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
@@ -215,8 +215,8 @@ await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null)
 이 샘플에서는 큐의 메시지를 피킹하는 방법을 보여줍니다. 메시지를 피킹하면 메시지의 콘텐츠를 읽을 수 있습니다. 하지만 메시지가 다른 클라이언트에게 계속 표시되기 때문에 이후에 다른 클라이언트가 메시지를 검색하고 처리할 수 있습니다.
 
 ```csharp
-// Peek at the message at the front of the queue. Peeking does not alter the message's 
-// visibility, so that another client can still retrieve and process it. 
+// Peek at the message at the front of the queue. Peeking does not alter the message's
+// visibility, so that another client can still retrieve and process it.
 CloudQueueMessage peekedMessage = await queue.PeekMessageAsync();
 
 // Display the ID and contents of the peeked message.
@@ -231,7 +231,7 @@ Console.WriteLine();
 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지 처리에 실패하는 경우에는, 보이지 않는 기간이 지나면 메시지가 다시 표시됩니다. 다른 클라이언트가 동일한 메시지를 검색하고 다시 시도할 수 있습니다.
 
 ```csharp
-// Retrieve the message at the front of the queue. The message becomes invisible for 
+// Retrieve the message at the front of the queue. The message becomes invisible for
 // a specified interval, during which the client attempts to process it.
 CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
 
@@ -262,23 +262,23 @@ if (queue != null)
 
 ## <a name="resources-for-developing-net-applications-with-queues"></a>큐를 사용하는 .NET 애플리케이션 개발을 위한 리소스
 
-Azure Queues를 사용하는 .NET 개발에 대한 다음 추가 리소스를 참조하세요.
+Azure Queue Storage를 사용하는 .NET 개발에 대한 다음 추가 리소스를 참조하세요.
 
 ### <a name="binaries-and-source-code"></a>이진 파일 및 소스 코드
 
 - 최신 버전의 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)에 대한 NuGet 패키지를 다운로드합니다.
-    - [일반](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-    - [큐](https://www.nuget.org/packages/Azure.Storage.Queues/)
+  - [일반](https://www.nuget.org/packages/microsoft.azure.storage.common/)
+  - [큐](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - GitHub에서 [.NET 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-net)를 찾아보세요.
 
-### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
+### <a name="azure-storage-client-library-reference-and-samples"></a>Azure Storage 클라이언트 라이브러리 참조 및 샘플
 
-- .NET 클라이언트 라이브러리에 대한 자세한 내용은 [.NET API 참조](/dotnet/api/overview/azure/storage)를 참조하세요.
-- .NET 클라이언트 라이브러리를 사용하여 작성된 [큐 스토리지 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues)을 살펴보세요.
+- .NET 클라이언트 라이브러리에 대한 자세한 내용은 [.NET용 Azure Storage 클라이언트 라이브러리 참조](/dotnet/api/overview/azure/storage)를 참조하세요.
+- .NET 클라이언트 라이브러리를 사용하여 작성된 [Queue Storage 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues)을 살펴보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서 .NET을 사용하여 큐에 메시지를 추가하고, 큐의 메시지를 피킹하고, 메시지를 큐에서 제거하고 처리하는 방법을 알아보았습니다. 
+이 빠른 시작에서 .NET을 사용하여 큐에 메시지를 추가하고, 큐의 메시지를 피킹하고, 메시지를 큐에서 제거하고 처리하는 방법을 알아보았습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Queue Storage로 애플리케이션 간 통신](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)

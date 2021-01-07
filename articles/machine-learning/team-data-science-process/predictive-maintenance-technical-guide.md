@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 3edeee8f41c806c90f32208c0c4f174c76ba38d0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 01/05/2021
 ms.locfileid: "93321988"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>항공 우주에서 예측 유지 관리를 위한 솔루션 템플릿에 대한 기술 가이드
@@ -91,16 +91,16 @@ Azure Stream Analytics 리소스는 데이터 스트림에서 읽고 원하는 �
 Azure Stream Analytics 쿼리는 다음으로 찾을 수 있습니다.
 
 * Azure Portal에 연결
-* 솔루션이 배포될 때 생성된 Stream Analytics 작업 ![Stream Analytics 아이콘](./media/predictive-maintenance-technical-guide/icon-stream-analytics.png)( *예:* 예측 유지 관리 솔루션에 대한 **maintenancesa02asapbi** 및 **maintenancesa02asablob** ) 찾기
+* 솔루션이 배포될 때 생성된 Stream Analytics 작업 ![Stream Analytics 아이콘](./media/predictive-maintenance-technical-guide/icon-stream-analytics.png)(*예:* 예측 유지 관리 솔루션에 대한 **maintenancesa02asapbi** 및 **maintenancesa02asablob**) 찾기
 * 선택
   
-  * ***입력** _ 쿼리 입력 _ * **쿼리** _를 보려면 쿼리 자체를 보려면 **_ * output _은** 다른 출력을 볼 수 있습니다.
+  * ***입력** _ 쿼리 입력 _ ***쿼리** _를 보려면 쿼리 자체를 보려면 **_ * output _은** 다른 출력을 볼 수 있습니다.
 
 Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analytics 쿼리 참조](/stream-analytics-query/stream-analytics-query-language-reference) 에서 찾을 수 있습니다.
 
 이 솔루션에서 쿼리는 이 솔루션 템플릿의 일부로 제공되는 Power BI 대시보드에 들어오는 데이터 스트림에 대한 거의 실시간 분석 정보로 세 개의 데이터 세트를 출력합니다. 들어오는 데이터 형식에 대한 암시적 지식이 있기 때문에 이러한 쿼리는 데이터 형식에 기반하여 변경되어야 합니다.
 
-두 번째 Stream Analytics 작업 _ *maintenancesa02asablob* *의 쿼리는 모든 [이벤트 허브](https://azure.microsoft.com/services/event-hubs/) 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/) 으로 출력 하므로 전체 이벤트 정보가 저장소로 스트리밍되 기 때문에 데이터 형식에 관계 없이 변경이 필요 하지 않습니다.
+두 번째 Stream Analytics 작업 _ *maintenancesa02asablob**의 쿼리는 모든 [이벤트 허브](https://azure.microsoft.com/services/event-hubs/) 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/) 으로 출력 하므로 전체 이벤트 정보가 저장소로 스트리밍되 기 때문에 데이터 형식에 관계 없이 변경이 필요 하지 않습니다.
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스는 데이터의 이동 및 처리를 오케스트레이션합니다. 항공 솔루션 템플릿에 대한 예측 유지 관리에서 데이터 팩터리는 다양한 기술을 사용하여 데이터를 이동 및 처리하는 세 개의 [파이프라인](../../data-factory/concepts-pipelines-activities.md)으로 구성됩니다.  솔루션의 배포로 만든 솔루션 템플릿 다이어그램 맨 아래의 데이터 팩터리 노드를 열어 데이터 팩터리에 액세스합니다. 데이터 세트에서 발생한 오류는 데이터 생성기가 시작되기 전에 배포된 데이터로 인한 것입니다. 해당 오류는 무시할 수 있으며 데이터 팩터리도 제대로 작동합니다.
@@ -118,7 +118,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
 이 [파이프라인](../../data-factory/concepts-pipelines-activities.md)은 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 작업 동안 [Azure Storage](https://azure.microsoft.com/services/storage/)에 넣은 데이터를 분할하도록 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 스크립트를 실행하는 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100))를 사용한 단일 작업([HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 작업)을 포함합니다.
 
-이 분할 태스크에 대 한 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 스크립트는 * **AggregateFlightInfo. hql** _입니다.
+이 분할 태스크에 대 한 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 스크립트는 ***AggregateFlightInfo. hql** _입니다.
 
 #### <a name="_mlscoringpipeline"></a>_MLScoringPipeline *
 이 [파이프라인](../../data-factory/concepts-pipelines-activities.md)은 여러 작업을 포함하며 최종 결과는 이 솔루션 템플릿과 연결된 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험의 점수가 매겨진 예측입니다.
@@ -126,12 +126,12 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 포함된 작업은 다음과 같습니다.
 
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험에 필요한 집계 및 기능 엔지니어링을 수행하도록 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 스크립트를 실행하는 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100))를 사용한 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 작업.
-  이 분할 태스크에 대 한 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 스크립트는 * **preparemlinput** _입니다.
+  이 분할 태스크에 대 한 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 스크립트는 ***preparemlinput** _입니다.
   _ [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 활동의 결과를 [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) 활동에서 액세스 하는 단일 [Azure Storage](https://azure.microsoft.com/services/storage/) blob으로 이동 하는 [복사](/previous-versions/azure/dn835035(v=azure.100)) 활동입니다.
 * [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) 작업은 단일 [Azure Storage](https://azure.microsoft.com/services/storage/) Blob에 배치되는 결과로 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험을 호출합니다.
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
-이 [파이프라인](../../data-factory/concepts-pipelines-activities.md) 은 [Azure Machine Learning](#azure-machine-learning) 실험의 결과를 * **은 mlscoringpipeline** _에서 솔루션 템플릿 설치의 일부로 프로 비전 된 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 이동 하는 [복사](/previous-versions/azure/dn835035(v=azure.100)) 작업 인 단일 작업을 포함 합니다.
+이 [파이프라인](../../data-factory/concepts-pipelines-activities.md) 은 [Azure Machine Learning](#azure-machine-learning) 실험의 결과를 ***은 mlscoringpipeline** _에서 솔루션 템플릿 설치의 일부로 프로 비전 된 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 이동 하는 [복사](/previous-versions/azure/dn835035(v=azure.100)) 작업 인 단일 작업을 포함 합니다.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 이 솔루션 템플릿에 사용된 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험은 항공기 엔진의 잔여 수명(RUL)을 제공합니다. 실험은 사용된 데이터 집합에 특정되며 가져온 데이터에 특정된 수정 또는 대체가 필요합니다.
@@ -176,8 +176,8 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
      
      ![쿼리 편집](./media/predictive-maintenance-technical-guide/edit-queries.png)
    * 두 개의 테이블, **RemainingUsefulLife** 및 **PMResult** 가 표시됩니다. 첫 번째 테이블을 선택하고 오른쪽 **'쿼리 설정'** 패널의 **'적용된 단계'** 아래에서 **'원본'** 옆의 ![쿼리 설정 아이콘](./media/predictive-maintenance-technical-guide/icon-query-settings.png)을 클릭합니다. 표시되는 경고 메시지를 무시합니다.
-   * 팝 아웃 창에서 **"서버"** 및 **"데이터베이스"** 를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"** 을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다( **YourSolutionName.database.windows.net, 1433** ). 데이터베이스 필드를 **pmaintenancedb** 로 남겨 둡니다. 화면에 나타나는 경고 메시지를 무시합니다.
-   * 다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다( **Windows** 및 **데이터베이스** ). **‘데이터베이스’** 를 클릭하고 **‘사용자 이름’** 및 **‘암호’** 를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL Database를 만들 때 입력한 사용자 이름 및 암호). **_이러한 설정을 적용할 수준 선택_*_에서 데이터베이스 수준 옵션을 선택 합니다. _* ' 연결 '을 클릭** 합니다.
+   * 팝 아웃 창에서 **"서버"** 및 **"데이터베이스"** 를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"** 을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSolutionName.database.windows.net, 1433**). 데이터베이스 필드를 **pmaintenancedb** 로 남겨 둡니다. 화면에 나타나는 경고 메시지를 무시합니다.
+   * 다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **‘데이터베이스’** 를 클릭하고 **‘사용자 이름’** 및 **‘암호’** 를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL Database를 만들 때 입력한 사용자 이름 및 암호). **_이러한 설정을 적용할 수준 선택_*_에서 데이터베이스 수준 옵션을 선택 합니다. _*' 연결 '을 클릭** 합니다.
    * 두 번째 테이블 **PMResult** 를 클릭하고 오른쪽 **'쿼리 설정'** 패널의 **'적용된 단계'** 아래 **'원본'** 옆에 있는 ![탐색 아이콘](./media/predictive-maintenance-technical-guide/icon-navigation.png)을 클릭한 다음 위 단계와 마찬가지로 서버 및 데이터베이스 이름을 업데이트하고 확인을 클릭합니다.
    * 이전 페이지로 안내된 후 창을 닫습니다. 메시지가 표시되면 **적용** 을 클릭합니다. 마지막으로 **저장** 단추를 클릭하여 변경 내용을 저장합니다. Power BI 파일은 이제 서버에 대한 연결을 설정합니다. 시각화가 비어 있는 경우 범례의 오른쪽 위 모퉁이의 지우개 아이콘을 클릭하여 모든 데이터를 시각화하도록 시각화의 선택 항목을 해제해야 합니다. 새로 고침 단추를 사용하여 시각화에 새 데이터를 반영합니다. 처음에 데이터 팩터리는 3시간마다 새로 고치도록 예약되어 있으므로 시각화에는 시드 데이터만 나타납니다. 3시간 후 데이터를 새로 고치면 시각화에 적용된 새 예측이 표시됩니다.
 3. (선택 사항) 콜드 경로 대시보드를 [Power BI 온라인](https://www.powerbi.com/)에 게시합니다. 이 단계에는 Power BI 계정 (또는 회사 또는 학교 계정)이 필요 합니다.
@@ -206,11 +206,11 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
 1. Azure Stream Analytics(ASA)에 Power BI 출력을 추가합니다.
    
    * [Azure Stream Analytics 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 분석 대시보드](../../stream-analytics/stream-analytics-power-bi-dashboard.md)의 지침에 따라 Power BI 대시보드로 Azure Stream Analytics 작업의 출력을 설정해야 합니다.
-   * ASA 쿼리에는 **aircraftmonitor** , **aircraftalert** 및 **flightsbyhour** 의 세 가지 출력이 있습니다. 쿼리 탭을 클릭하여 쿼리를 볼 수 있습니다. 이 테이블 각각에 해당하는 출력을 ASA에 추가해야 합니다. 첫 번째 출력( **aircraftmonitor** )을 추가하는 경우 **출력 별칭** , **데이터 세트 이름** 및 **테이블 이름** 이 동일( **aircraftmonitor** )한지 확인합니다. 단계를 반복하여 **aircraftalert** 및 **flightsbyhour** 에 대한 출력을 추가합니다. 세 개의 모든 출력 테이블을 추가하고 ASA 작업을 시작한 후 확인 메시지를 받아야 합니다("Stream Analytics 작업 maintenancesa02asapbi 시작 성공").
+   * ASA 쿼리에는 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour** 의 세 가지 출력이 있습니다. 쿼리 탭을 클릭하여 쿼리를 볼 수 있습니다. 이 테이블 각각에 해당하는 출력을 ASA에 추가해야 합니다. 첫 번째 출력(**aircraftmonitor**)을 추가하는 경우 **출력 별칭**, **데이터 세트 이름** 및 **테이블 이름** 이 동일(**aircraftmonitor**)한지 확인합니다. 단계를 반복하여 **aircraftalert** 및 **flightsbyhour** 에 대한 출력을 추가합니다. 세 개의 모든 출력 테이블을 추가하고 ASA 작업을 시작한 후 확인 메시지를 받아야 합니다("Stream Analytics 작업 maintenancesa02asapbi 시작 성공").
 2. [Power BI 온라인](https://www.powerbi.com)
    
-   * 내 작업 영역의 왼쪽 패널 데이터 집합 섹션에서 * **데이터 집합** _ 이름 _ * aircraftmonitor * *, **aircraftalert** 및 **flightsbyhour** 가 표시 되어야 합니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다. 데이터 세트 **flightsbyhour** 는 SQL 쿼리의 특성상 다른 두 데이터 세트로 동시에 표시되지 않을 수 있습니다. 그러나 한 시간 후에 표시됩니다.
-   * * **시각화** _ 창이 열려 있고 화면 오른쪽에 표시 되는지 확인 합니다.
+   * 내 작업 영역의 왼쪽 패널 데이터 집합 섹션에서 ***데이터 집합** _ 이름 _ * aircraftmonitor * *, **aircraftalert** 및 **flightsbyhour** 가 표시 되어야 합니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다. 데이터 세트 **flightsbyhour** 는 SQL 쿼리의 특성상 다른 두 데이터 세트로 동시에 표시되지 않을 수 있습니다. 그러나 한 시간 후에 표시됩니다.
+   * ***시각화** _ 창이 열려 있고 화면 오른쪽에 표시 되는지 확인 합니다.
 3. 데이터가 Power BI로 흐르게 한 후 스트리밍 데이터의 시각화를 시작할 수 있습니다. 다음은 고정된 몇 가지 실행 부하 과다 경로 시각화를 사용한 예제 대시보드입니다. 적절한 데이터 세트에 따라 다른 대시보드 타일을 만들 수 있습니다. 데이터 생성기의 실행 시간에 따라 시각화에 대한 숫자가 달라질 수 있습니다.
 
     ![대시보드 보기](media/predictive-maintenance-technical-guide/dashboard-view.png)

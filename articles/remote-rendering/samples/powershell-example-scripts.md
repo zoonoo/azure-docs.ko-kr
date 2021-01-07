@@ -7,11 +7,11 @@ ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279012"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009758"
 ---
 # <a name="example-powershell-scripts"></a>예제 PowerShell 스크립트
 
@@ -149,7 +149,7 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> [-Poll]
 ```
 
-세션이 준비되거나 오류가 발생할 때까지 대기하려면 `-Poll`을 사용합니다. 
+세션이 준비되거나 오류가 발생할 때까지 대기하려면 `-Poll`을 사용합니다.
 
 ### <a name="list-active-sessions"></a>활성 세션 나열
 

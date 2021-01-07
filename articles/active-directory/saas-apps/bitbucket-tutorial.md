@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: ffd93016a2cbde3aa2a5844cfdb72e4c0cc8b623
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5e0b1d8d2cb80886131a88c01a6c24102ad7c77c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457115"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673562"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>자습서: SAML SSO for Bitbucket by resolution GmbH와 Azure Active Directory 통합
 
@@ -65,7 +65,7 @@ SAML SSO for Bitbucket by resolution GmbH가 Azure AD에 통합하도록 구성�
 
 4. 검색 상자에 **SAML SSO for Bitbucket by resolution GmbH** 를 입력하고 결과 패널에서 **SAML SSO for Bitbucket by resolution GmbH** 를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 SAML SSO for Bitbucket by resolution GmbH](common/search-new-app.png)
+    ![결과 목록의 SAML SSO for Bitbucket by resolution GmbH](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -130,15 +130,15 @@ SAML SSO for Bitbucket by resolution GmbH에서 Azure AD Single Sign-On을 구�
 
     ![Samlsingle](./media/bitbucket-tutorial/tutorial_bitbucket_samlsingle.png)
 
-4. **SAML SIngleSignOn Plugin Configuration page** (SAML SIngleSignOn 플러그 인 구성 페이지)에서 **Add idp** (idp 추가)를 클릭합니다. 
+4. **SAML SIngleSignOn Plugin Configuration page**(SAML SIngleSignOn 플러그 인 구성 페이지)에서 **Add idp**(idp 추가)를 클릭합니다. 
 
     ![idp 추가](./media/bitbucket-tutorial/tutorial_bitbucket_addidp.png)
 
-5. **Choose your SAML Identity Provider** (SAML ID 공급자 선택) 페이지에서 다음 단계를 수행합니다.
+5. **Choose your SAML Identity Provider**(SAML ID 공급자 선택) 페이지에서 다음 단계를 수행합니다.
 
     ![ID 공급자](./media/bitbucket-tutorial/tutorial_bitbucket_identityprovider.png)
 
-    a. **Idp Type** (Idp 유형)을 **AZURE AD** 로 선택합니다.
+    a. **Idp Type**(Idp 유형)을 **AZURE AD** 로 선택합니다.
 
     b. **이름** 텍스트 상자에 이름을 입력합니다.
 
@@ -146,14 +146,14 @@ SAML SSO for Bitbucket by resolution GmbH에서 Azure AD Single Sign-On을 구�
 
     d. **다음** 을 클릭합니다.
 
-6. **Identity provider configuration** (ID 공급자 구성) 페이지에서 **다음** 을 클릭합니다.
+6. **Identity provider configuration**(ID 공급자 구성) 페이지에서 **다음** 을 클릭합니다.
 
     ![ID 구성](./media/bitbucket-tutorial/tutorial_bitbucket_identityconfig.png)
 
-7.  **Import SAML Idp Metadata** (SAML Idp 메타데이터 가져 오기) 페이지에서 **파일 로드** 를 클릭하여 Azure Portal에서 다운로드한 **메타데이터 XML** 파일을 업로드합니다.
+7.  **Import SAML Idp Metadata**(SAML Idp 메타데이터 가져 오기) 페이지에서 **파일 로드** 를 클릭하여 Azure Portal에서 다운로드한 **메타데이터 XML** 파일을 업로드합니다.
 
     ![idpmetadata](./media/bitbucket-tutorial/tutorial_bitbucket_idpmetadata.png)
-    
+
 8. **다음** 을 클릭합니다.
 
 9. **설정 저장** 을 클릭합니다.
@@ -164,7 +164,7 @@ SAML SSO for Bitbucket by resolution GmbH에서 Azure AD Single Sign-On을 구�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -177,7 +177,7 @@ SAML SSO for Bitbucket by resolution GmbH에서 Azure AD Single Sign-On을 구�
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
@@ -189,7 +189,7 @@ SAML SSO for Bitbucket by resolution GmbH에서 Azure AD Single Sign-On을 구�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 SAML SSO for Bitbucket by resolution GmbH에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **SAML SSO for Bitbucket by resolution GmbH** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **SAML SSO for Bitbucket by resolution GmbH** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

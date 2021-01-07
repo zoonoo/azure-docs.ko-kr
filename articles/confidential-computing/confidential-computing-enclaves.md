@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/3/2020
 ms.author: JenCook
-ms.openlocfilehash: a7e3ade66aa4ebf7584e03b75f85c48b44537d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 565f4971fffde1cbeb2234b43aaad5cce73b5404
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997840"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564381"
 ---
 # <a name="azure-confidential-computing-virtual-machines-vms-overview"></a>Azure 기밀 컴퓨팅 Vm (가상 머신) 개요
 
@@ -29,7 +29,7 @@ Azure 기밀 컴퓨팅 가상 머신에서 CPU 하드웨어의 일부는 애플�
 
 Azure 기밀 컴퓨팅 인프라는 현재 VM(가상 머신)의 특수 SKU로 구성되어 있습니다. 이러한 VM은 Intel SGX(Software Guard Extension)가 있는 Intel 프로세서에서 실행됩니다. [Intel SGX](https://intel.com/sgx)는 기밀 컴퓨팅을 통해 더 강화된 보호를 허용하는 구성 요소입니다. 
 
-현재 Azure는 하드웨어 기반 enclave를 만들기 위한 Intel SGX 기술을 기반으로 하는 [DCsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)를 제공하고 있습니다. DCsv2 시리즈 VM에서 실행하는 보안 enclave 기반 애플리케이션을 빌드하여 사용 중인 애플리케이션 데이터와 코드를 보호할 수 있습니다. 
+현재 Azure는 하드웨어 기반 enclave를 만들기 위한 Intel SGX 기술을 기반으로 하는 [DCsv2 시리즈](../virtual-machines/dcv2-series.md)를 제공하고 있습니다. DCsv2 시리즈 VM에서 실행하는 보안 enclave 기반 애플리케이션을 빌드하여 사용 중인 애플리케이션 데이터와 코드를 보호할 수 있습니다. 
 
 하드웨어 기반의 신뢰할 수 있는 enclaves를 사용 하 여 Azure 기밀 컴퓨팅 가상 머신을 배포 하는 방법에 대해 [자세히](virtual-machine-solutions.md) 알아보세요.
 
@@ -39,7 +39,7 @@ Enclaves는 하드웨어 프로세서와 메모리의 보안 부분입니다. �
 
 기본적으로 enclave는 보안 박스로 간주됩니다. 암호화된 코드와 데이터를 박스에 넣습니다. 박스 외부에서는 아무것도 볼 수 없습니다. 데이터를 해독할 수 있는 키를 enclave에 지정합니다. 그러면 데이터를 처리하고 다시 암호화한 후에 enclave에서 내보냅니다.
 
-각 enclave에는 각 enclave에서 보유할 수 있는 메모리 양을 결정 하는 EPC (암호화 된 페이지 캐시)의 크기가 설정 되어 있습니다. DCsv2 가상 머신에는 더 많은 EPC 메모리가 있습니다. [DCsv2 사양](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) 페이지에서 VM 당 최대 EPC 크기를 읽습니다.
+각 enclave에는 각 enclave에서 보유할 수 있는 메모리 양을 결정 하는 EPC (암호화 된 페이지 캐시)의 크기가 설정 되어 있습니다. DCsv2 가상 머신에는 더 많은 EPC 메모리가 있습니다. [DCsv2 사양](../virtual-machines/dcv2-series.md) 페이지에서 VM 당 최대 EPC 크기를 읽습니다.
 
 
 

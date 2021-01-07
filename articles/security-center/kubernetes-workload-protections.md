@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ed9c3c86336a7b0a2fe989cbe9bd0dd825c5575b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 08bcb74fd50be0eeb7a73c0743db2c4f3a57be32
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372634"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030852"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -47,18 +47,27 @@ Security Center는 Azure Defender를 사용 하도록 설정 하는 경우 더 �
 
 Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능** 을 설치한 경우 사용할 수 있는 권장 구성 번들이 포함 되어 있습니다.
 
-1. 권장 사항을 구성 하려면 먼저 추가를 설치 해야 합니다.
+### <a name="step-1-deploy-the-add-on"></a>1 단계: 추가 기능 배포
 
-    1. 권장 사항 페이지에서 **Kubernetes에 대 한 추가 기능 Azure Policy 이라는 권장 사항을 검색 하 여 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다**.
+권장 사항을 구성 하려면  **Kubernetes에 대 한 Azure Policy 추가 기능** 을 설치 합니다. 
+
+- [확장의 자동 프로 비전 사용](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions)에 설명 된 대로이 추가 기능을 자동으로 배포할 수 있습니다. 추가 기능에 대 한 자동 프로비저닝을 "설정"으로 설정 하면 모든 기존 및 향후 클러스터 (추가 기능 설치 요구 사항에 맞는)에서 확장이 기본적으로 사용 하도록 설정 됩니다.
+
+- 추가 기능을 수동으로 배포 하려면:
+
+    1. 권장 사항 페이지에서 "**Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야** 합니다." 라는 권장 사항을 검색 합니다. 
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="권장 사항 * * Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다. * *":::
 
         > [!TIP]
         > 권장 사항은 다섯 가지 보안 제어에 포함 되며, 다음 단계에서 어떤 것을 선택 하 든 중요 하지 않습니다.
 
-    1. 보안 제어에서 추가를 설치할 수 있는 리소스를 확인 하는 권장 사항을 선택 하 고 **재구성** 을 선택 합니다. 
+    1. 보안 제어에서 권장 사항을 선택 하 여 추가를 설치할 수 있는 리소스를 확인 합니다.
+    1. 관련 클러스터를 선택 하 고 **재구성** 합니다.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Kubernetes에 대 한 * * Azure Policy 추가 기능에 대 한 권장 사항 정보 페이지를 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다. * *":::
+
+### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>2 단계: 13 개 권장 구성의 번들 보기 및 구성
 
 1. 추가 기능 설치가 완료 Security Center 되 고 약 30 분 후에는 다음과 같은 권장 사항에 대 한 클러스터의 상태를 표시 합니다 .이에 대 한 자세한 내용은 각각 관련 보안 제어에서 다음과 같이 표시 됩니다.
 
@@ -69,12 +78,12 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능** 을 �
 
     | 권장 사항 이름                                                         | 보안 컨트롤                         | 구성 필요 |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격 으로부터 응용 프로그램 보호 | 예                     |
-    | 권한 있는 컨테이너를 피해야 함                                     | 액세스 및 사용 권한 관리            | 예                     |
-    | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | 예                     |
-    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | 예                     |
-    | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | 예                     |
-    | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | 예                     |
+    | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격 으로부터 응용 프로그램 보호 | No                     |
+    | 권한 있는 컨테이너를 피해야 함                                     | 액세스 및 사용 권한 관리            | No                     |
+    | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | No                     |
+    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | No                     |
+    | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | No                     |
+    | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | No                     |
     | 컨테이너에 대해 최소 권한 Linux 기능을 적용 해야 함       | 액세스 및 사용 권한 관리            | **예**                |
     | Pod HostPath 볼륨 탑재 사용은 알려진 목록으로 제한되어야 함    | 액세스 및 사용 권한 관리            | **예**                |
     | 컨테이너는 허용되는 포트에서만 수신 대기해야 함                              | 무단 네트워크 액세스 제한     | **예**                |
@@ -82,6 +91,7 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능** 을 �
     | 호스트 네트워킹 및 포트 사용을 제한해야 함                     | 무단 네트워크 액세스 제한     | **예**                |
     | 컨테이너 AppArmor 프로필의 재정의 또는 비활성화를 제한해야 함 | 보안 구성 수정        | **예**                |
     | 컨테이너 이미지는 신뢰할 수 있는 레지스트리에서만 배포 해야 합니다.            | 취약성 해결                | **예**                |
+    |||
 
 
 1. 매개 변수가 포함 된 권장 사항을 사용자 지정 해야 합니다. 매개 변수를 설정 합니다.

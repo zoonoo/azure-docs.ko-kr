@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 960657d27be4b9dab9f242428592bbb404a49d86
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399230"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697172"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure SQL 데이터 인덱싱
 
@@ -55,23 +55,23 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)합니다.
 
-1. **SQL Database**를 찾거나 만듭니다. 기본값 및 가장 낮은 수준의 가격 책정 계층을 사용할 수 있습니다. 서버를 만드는 이점은 이후 단계에서 테이블을 만들고 로드하는 데 필요한 관리자 사용자 이름 및 암호를 지정할 수 있다는 것입니다.
+1. **SQL Database** 를 찾거나 만듭니다. 기본값 및 가장 낮은 수준의 가격 책정 계층을 사용할 수 있습니다. 서버를 만드는 이점은 이후 단계에서 테이블을 만들고 로드하는 데 필요한 관리자 사용자 이름 및 암호를 지정할 수 있다는 것입니다.
 
    :::image type="content" source="media/search-indexer-tutorial/indexer-new-sqldb.png" alt-text="새 데이터베이스 페이지" border="false":::
 
-1. **검토 + 만들기**를 클릭하여 새 서버와 데이터베이스를 배포합니다. 서버 및 데이터베이스를 배포하도록 대기합니다.
+1. **검토 + 만들기** 를 클릭하여 새 서버와 데이터베이스를 배포합니다. 서버 및 데이터베이스를 배포하도록 대기합니다.
 
 1. 탐색 창에서 **쿼리 편집기(미리 보기)** 를 클릭하여 서버 관리자의 사용자 이름과 암호를 입력합니다. 
 
    액세스가 거부되면 오류 메시지에서 클라이언트 IP 주소를 복사한 다음, **서버 방화벽 설정** 링크를 클릭하여 클라이언트 IP를 통해 클라이언트 컴퓨터에서 액세스할 수 있도록 허용하는 규칙을 추가합니다. 규칙을 적용하는 데 몇 분 정도 걸릴 수 있습니다.
 
-1. 쿼리 편집기에서 **쿼리 열기**를 클릭하고, 로컬 컴퓨터에서 *hotels.sql* 파일의 위치로 이동합니다. 
+1. 쿼리 편집기에서 **쿼리 열기** 를 클릭하고, 로컬 컴퓨터에서 *hotels.sql* 파일의 위치로 이동합니다. 
 
-1. 파일을 선택하고 **열기**를 클릭합니다. 이 스크립트는 다음 스크린샷과 비슷하게 표시됩니다.
+1. 파일을 선택하고 **열기** 를 클릭합니다. 이 스크립트는 다음 스크린샷과 비슷하게 표시됩니다.
 
-   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="새 데이터베이스 페이지" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="SQL 스크립트" border="false":::
 
-1. **실행**을 클릭하여 쿼리를 실행합니다. 결과 창에서 3행에 대한 쿼리 성공 메시지가 표시됩니다.
+1. **실행** 을 클릭하여 쿼리를 실행합니다. 결과 창에서 3행에 대한 쿼리 성공 메시지가 표시됩니다.
 
 1. 이 테이블에서 행 집합을 반환하려면 확인 단계로 다음 쿼리를 실행할 수 있습니다.
 
@@ -97,15 +97,15 @@ API 호출에는 서비스 URL과 액세스 키가 필요합니다. 검색 서�
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+1. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="새 데이터베이스 페이지" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="HTTP 엔드포인트 및 액세스 키 가져오기" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 - 환경 설정
 
-1. Visual Studio를 시작하고 **DotNetHowToIndexers.sln**을 엽니다.
+1. Visual Studio를 시작하고 **DotNetHowToIndexers.sln** 을 엽니다.
 
-1. 솔루션 탐색기에서 **appsettings.json**을 열고 연결 정보를 제공합니다.
+1. 솔루션 탐색기에서 **appsettings.json** 을 열고 연결 정보를 제공합니다.
 
 1. `searchServiceName`의 경우 전체 URL이 "https://my-demo-service.search.windows.net"이면 제공할 서비스 이름은 "my-demo-service"입니다.
 
@@ -145,7 +145,7 @@ public string HotelName { get; set; }
 
 기본 프로그램에는 클라이언트, 인덱스, 데이터 원본 및 인덱서를 만드는 논리가 포함되어 있습니다. 코드는 이 프로그램을 여러 번 실행한다는 가정 하에서 동일한 이름의 기존 리소스를 확인하고 삭제합니다.
 
-데이터 원본 개체는 Azure SQL의 기본 제공 [변경 내용 검색 기능](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 활용하기 위한 [부분 또는 증분 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)을 포함하여 Azure SQL Database 리소스에 한정된 설정을 사용하여 구성됩니다. Azure SQL의 데모 호텔 데이터베이스에는 **IsDeleted**라는 "일시 삭제" 열이 있습니다. 데이터베이스에서 이 열을 true로 설정하면 인덱서가 Azure Cognitive Search 인덱스에서 해당 문서를 제거합니다.
+데이터 원본 개체는 Azure SQL의 기본 제공 [변경 내용 검색 기능](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 활용하기 위한 [부분 또는 증분 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)을 포함하여 Azure SQL Database 리소스에 한정된 설정을 사용하여 구성됩니다. Azure SQL의 데모 호텔 데이터베이스에는 **IsDeleted** 라는 "일시 삭제" 열이 있습니다. 데이터베이스에서 이 열을 true로 설정하면 인덱서가 Azure Cognitive Search 인덱스에서 해당 문서를 제거합니다.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -201,31 +201,31 @@ public string HotelName { get; set; }
 
 F5 키를 눌러 솔루션을 빌드하고 실행합니다. 디버그 모드로 프로그램을 실행합니다. 콘솔 창에서는 각 작업의 상태를 보고합니다.
 
-   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="새 데이터베이스 페이지" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="콘솔 출력" border="false":::
 
 코드는 Visual Studio에서 로컬로 실행되어 Azure의 검색 서비스에 연결됩니다. 그러면 Azure SQL Database에 연결되어 데이터 세트를 검색합니다. 이러한 많은 작업을 수행하는 경우 몇 가지 잠재적인 실패 지점이 있습니다. 오류가 발생하면 먼저 다음 조건을 확인하세요.
 
 + 제공한 검색 서비스 연결 정보가 이 자습서에서 해당 서비스 이름으로 제한됩니다. 전체 URL을 입력한 경우 인덱스 생성 시 연결 오류와 함께 작업이 중지됩니다.
 
-+ **appsettings.json**에 있는 데이터베이스 연결 정보입니다. 해당 항목은 포털에서 가져온 ADO.NET 연결 문자열이며 데이터베이스에 유효한 사용자 이름 및 암호를 포함하도록 수정되어야 합니다. 사용자 계정에는 데이터를 검색할 수 있는 권한이 있어야 합니다. 로컬 클라이언트 IP 주소에 액세스할 수 있어야 합니다.
++ **appsettings.json** 에 있는 데이터베이스 연결 정보입니다. 해당 항목은 포털에서 가져온 ADO.NET 연결 문자열이며 데이터베이스에 유효한 사용자 이름 및 암호를 포함하도록 수정되어야 합니다. 사용자 계정에는 데이터를 검색할 수 있는 권한이 있어야 합니다. 로컬 클라이언트 IP 주소에 액세스할 수 있어야 합니다.
 
 + 리소스 제한 무료 계층에는 3개의 인덱스, 인덱서 및 데이터 원본이 제한되어 있습니다. 최대 제한 시 서비스는 새 개체를 만들 수 없습니다.
 
 ## <a name="5---search"></a>5 - 검색
 
-Azure Portal을 사용하여 개체 만들기를 확인한 다음, **Search 탐색기**를 사용하여 인덱스를 쿼리합니다.
+Azure Portal을 사용하여 개체 만들기를 확인한 다음, **Search 탐색기** 를 사용하여 인덱스를 쿼리합니다.
 
-1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 각 목록을 차례로 열어 개체가 만들어졌는지 확인합니다. **인덱스**, **인덱서** 및 **데이터 원본**에는 각각 "hotels", "azure-sql-indexer" 및 "azure-sql"이 있습니다.
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 각 목록을 차례로 열어 개체가 만들어졌는지 확인합니다. **인덱스**, **인덱서** 및 **데이터 원본** 에는 각각 "hotels", "azure-sql-indexer" 및 "azure-sql"이 있습니다.
 
-   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="새 데이터베이스 페이지" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="인덱서 및 데이터 원본 타일" border="false":::
 
-1. hotels 인덱스를 선택합니다. hotels 페이지에서 첫 번째 탭은 **Search 탐색기**입니다. 
+1. hotels 인덱스를 선택합니다. hotels 페이지에서 첫 번째 탭은 **Search 탐색기** 입니다. 
 
-1. **검색**을 클릭하여 빈 쿼리를 실행합니다. 
+1. **검색** 을 클릭하여 빈 쿼리를 실행합니다. 
 
    인덱스에 있는 세 개의 항목이 JSON 문서로 반환됩니다. 전체 구조를 볼 수 있도록 검색 탐색기는 JSON으로 문서를 반환합니다.
 
-   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="새 데이터베이스 페이지" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="인덱스 쿼리" border="false":::
    
 1. 다음으로 검색 문자열을 입력합니다.`search=river&$count=true` 
 

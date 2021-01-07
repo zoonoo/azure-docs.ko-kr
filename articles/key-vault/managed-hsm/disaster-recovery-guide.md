@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 69a0272061d8518119114e8fe7b023c889639844
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760396"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171563"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>관리형 HSM 재해 복구
 
@@ -35,7 +35,7 @@ ms.locfileid: "91760396"
 1. 새 HSM에 대한 백업을 수행합니다. HSM이 비어 있는 경우에도 복원하기 전에 백업이 필요합니다. 백업을 통해 쉽게 롤백할 수 있습니다.
 1. 원본 HSM에서 최근 HSM 백업을 복원합니다.
 
-주요 자격 증명 모음의 내용은 지역 내에는 물론 동일한 지리 내에 150마일 이상 떨어진 보조 지역에도 복제됩니다. 이 기능은 키와 비밀의 높은 내구성을 유지합니다. 특정 지역 쌍에 대한 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md) 문서를 참조하세요.
+이러한 단계를 통해 HSM의 콘텐츠를 다른 지역에 수동으로 복제할 수 있습니다. HSM 이름(및 서비스 엔드포인트 URI)이 서로 다르므로 애플리케이션 구성을 변경하여 다른 위치에서 이러한 키를 사용해야 할 수도 있습니다.
 
 ## <a name="create-a-new-managed-hsm"></a>새 관리형 HSM 만들기
 
@@ -48,7 +48,7 @@ ms.locfileid: "91760396"
 - Azure 위치
 - 초기 관리자 목록
 
-아래 예제에서는 **현재 로그인한 사용자**를 유일한 관리자로 사용하여 **ContosoMHSM**이라는 HSM을 **미국 동부 2** 위치에 있는 **ContosoResourceGroup** 리소스 그룹에 만듭니다.
+아래 예제에서는 **현재 로그인한 사용자** 를 유일한 관리자로 사용하여 **ContosoMHSM** 이라는 HSM을 **미국 동부 2** 위치에 있는 **ContosoResourceGroup** 리소스 그룹에 만듭니다.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -86,7 +86,7 @@ az keyvault security-domain init-recovery --hsm-name ContosoMHSM2 --sd-exchange-
 - 이전 단계에서 다운로드한 보안 도메인 교환 키를 사용하여 암호화된 보안 도메인 업로드 Blob을 만든 다음,
 - 보안 도메인 업로드 Blob을 HSM에 업로드하여 보안 도메인 복구를 완료합니다.
 
-아래 예제에서는 해당 프라이빗 키가 2인 **ContosoMHSM**에서 보안 도메인을 사용하여 보안 도메인을 받기 위해 기다리고 있는 **ContosoMHSM2**에 업로드합니다. 
+아래 예제에서는 해당 프라이빗 키가 2인 **ContosoMHSM** 에서 보안 도메인을 사용하여 보안 도메인을 받기 위해 기다리고 있는 **ContosoMHSM2** 에 업로드합니다. 
 
 ```azurecli-interactive
 az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
@@ -102,11 +102,12 @@ HSM 백업을 만들려면 다음 항목이 필요합니다.
 - 백업이 저장되는 스토리지 계정
 - 백업 프로세스에서 암호화된 백업을 저장할 새 폴더를 만드는 이 스토리지 계정의 Blob 스토리지 컨테이너
 
-아래 예제에서는 스토리지 계정 **ContosoBackup**에 있는 스토리지 컨테이너 **mhsmbackupcontainer**의 HSM 백업에 `az keyvault backup` 명령을 사용합니다. 30분 후에 만료되는 SAS 토큰을 만들고, 이를 관리형 HSM에 제공하여 백업을 작성합니다.
+아래 예제에서는 스토리지 계정 **ContosoBackup** 에 있는 스토리지 컨테이너 **mhsmbackupcontainer** 의 HSM 백업에 `az keyvault backup` 명령을 사용합니다. 30분 후에 만료되는 SAS 토큰을 만들고, 이를 관리형 HSM에 제공하여 백업을 작성합니다.
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
+az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 

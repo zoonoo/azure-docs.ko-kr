@@ -6,23 +6,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddf418c90857b5bb7eca97eb2c6943cc93fce9ab
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 73902cf53d9995f7dfc1991e3b7ed7c7c469bf2a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518928"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026664"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
+## <a name="november-2020"></a>2020년 11월
+
+|기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
+|------------------------------|----------|-------------|---------------|
+|[인덱서, 데이터 원본 및 기술 세트에 대한 고객 관리형 키 암호화](search-security-manage-encryption-keys.md) | 보안 | 이러한 추가는 검색 서비스에서 만들고 관리하는 전체 자산의 범위에 대해 고객 관리 암호화를 확장합니다. 고객 관리형 키 지원에서는 Microsoft에서 수행하고 관리하는 기본 암호화 위에 추가 암호화 계층을 추가합니다. | 일반적으로 REST api-version=2020-06-30을 통해 사용 가능 |  
+
 ## <a name="september-2020"></a>2020년 9월
 
 Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, Azure RBAC 권한을 사용하여 Azure 데이터 원본에 ID 읽기 전용 권한을 부여합니다. IP 규칙이 옵션이 아닌 경우, 필요에 따라 [신뢰할 수 있는 서비스 예외](search-indexer-howto-access-trusted-service-exception.md) 기능을 선택합니다.
-
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |------------------------------|----------|-------------|---------------|
@@ -36,13 +41,13 @@ Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, Azu
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
-| [이중 암호화](search-security-overview.md#encryption) | 보안 | 새 검색 서비스에서 CMK(고객 관리형 키) 암호화를 구성하여 스토리지 레이어에서 이중 암호화를 사용하도록 설정합니다. 새 서비스를 만들고, [고객 관리형 키를 구성하여 인덱스 또는 동의어 맵에 적용](search-security-manage-encryption-keys.md)하고, 해당 콘텐츠에 이중 암호화 기능을 활용합니다. | 2020년 8월 1일 이후에 미국 서부 2, 미국 동부, 미국 중부, US Gov 버지니아, US Gov 애리조나 지역에서 만든 모든 검색 서비스에 일반 공급됩니다. 포털, 관리 REST API 또는 SDK를 사용하여 서비스를 만들어야 합니다. |
+| [이중 암호화](search-security-overview.md#encryption) | 보안 | 새 검색 서비스에서 고객 관리형 키 암호화를 구성하여 스토리지 계층에서 이중 암호화를 사용하도록 설정합니다. 새 서비스를 만들고, [고객 관리형 키를 구성하여 인덱스 또는 동의어 맵에 적용](search-security-manage-encryption-keys.md)하고, 해당 콘텐츠에 이중 암호화 기능을 활용합니다. | 2020년 8월 1일 이후에 미국 서부 2, 미국 동부, 미국 중부, US Gov 버지니아, US Gov 애리조나 지역에서 만든 모든 검색 서비스에 일반 공급됩니다. 포털, 관리 REST API 또는 SDK를 사용하여 서비스를 만들어야 합니다. |
 
 ## <a name="july-2020"></a>2020년 7월
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
-| [Azure.Search.Documents 클라이언트 라이브러리](/dotnet/api/overview/azure/search.documents-readme) | Azure SDK for .NET | 다른 .NET 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 .NET 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST api-version=2020-06-30을 대상으로 하지만 기술 자료 저장소, 지리 공간적 형식 또는 [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder)는 아직 지원하지 않습니다. <br/><br/>자세한 내용은 [빠른 시작: 인덱스 만들기](search-get-started-dotnet.md) 및 [Azure.Search.Documents(v11)로 업그레이드](search-dotnet-sdk-migration-version-11.md)를 참조하세요. | 일반 공급. </br> NuGet에서 [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)를 설치합니다. |
+| [Azure.Search.Documents 클라이언트 라이브러리](/dotnet/api/overview/azure/search.documents-readme) | Azure SDK for .NET | 다른 .NET 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 .NET 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST api-version=2020-06-30을 대상으로 하지만 기술 자료 저장소 또는 지리 공간적 형식은 아직 지원하지 않습니다. <br/><br/>자세한 내용은 [빠른 시작: 인덱스 만들기](search-get-started-dotnet.md) 및 [Azure.Search.Documents(v11)로 업그레이드](search-dotnet-sdk-migration-version-11.md)를 참조하세요. | 일반 공급. </br> NuGet에서 [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)를 설치합니다. |
 | [azure.search.documents 클라이언트 라이브러리](/python/api/overview/azure/search-documents-readme)  | Python용 Azure SDK| 다른 Python 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 Python 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST API 2020-06-30을 대상으로 합니다. | 일반 공급. </br> PyPI에서 [azure-search-documents 패키지](https://pypi.org/project/azure-search-documents/)를 설치합니다. |
 | [@azure/search-documents 클라이언트 라이브러리](/javascript/api/overview/azure/search-documents-readme)  | JavaScript용 Azure SDK | 다른 JavaScript 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 JavaScript 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST API 2020-06-30을 대상으로 합니다. | 일반 공급. </br> npm에서 [@azure/search-documents 패키지](https://www.npmjs.com/package/@azure/search-documents)를 설치합니다. |
 

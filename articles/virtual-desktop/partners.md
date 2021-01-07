@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e116c590e07ffcdb1b7c8ae2e30b2e76bb909bff
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056460"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802714"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -62,7 +62,7 @@ Automai의 ScenarioBuilder 도구와 GUI 기반 워크플로 엔진을 사용 �
 Automai를 사용 하면 단일 플랫폼에서 성능 테스트, 기능 테스트, 성능 모니터링 및 로보틱 프로세스 자동화에 동일한 스크립트를 사용할 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N)하세요.
-- [파트너 웹 사이트로 이동](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580)합니다.
+- [파트너 웹 사이트로 이동](https://www.automai.com/windows-virtual-desktop-performance-testing/)합니다.
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -114,7 +114,7 @@ deviceTRUST는 회사 엔터프라이즈를 tsi 하는 Windows 가상 데스크�
 
 deviceTRUST는 Windows 가상 데스크톱의 가치를 상황별 보안 기술로 확장 합니다. deviceTRUST를 사용 하면 보안 Windows 가상 데스크톱 액세스에 대 한 조건부 액세스, Windows 가상 데스크톱 내에서 조건부 응용 프로그램 액세스 및 추가 인프라 없이 조건부 Windows 가상 데스크톱 정책을 적용할 수 있습니다. DeviceTRUST를 사용 하면 모든 보안, 규정 준수 및 규정 요구 사항을 충족 하는 유연한 모바일 작업 영역을 사용할 수 있습니다.
 
-- [파트너 웹 사이트로 이동](https://devicetrust.com/wvd)합니다.
+- [파트너 웹 사이트로 이동](https://devicetrust.com/)합니다.
 
 ## <a name="ekran-system"></a>Ekran 시스템
 
@@ -350,7 +350,7 @@ SSH2는 IT 팀이 소프트웨어를 사용 하 여 현재 플랫폼에서 Windo
 appCURE은 최종 사용자의 응용 프로그램에 영향을 줄 수 있는 모든 요소가 인식 되도록 실행 중인 응용 프로그램에서 응용 프로그램 세부 정보를 캡처합니다. 그런 다음 appCURE를 업데이트 하 고 새 Windows 가상 데스크톱에 전달 합니다. AppCURE는 현재 환경에 있는 모든 응용 프로그램 통합 요소를 캡처하여 IT 리소스를 최적화 하 고 이전 보다 더 빠르게 마이그레이션을 계획 하는 속도를 제공 하므로 조직에서 더 빠르게 프로덕션에 사용할 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38)하세요.
-- [파트너 페이지로 이동](https://www.ssh2.xyz/windows-virtual-desktop/)합니다.
+- [파트너 페이지로 이동](#ssh2)합니다.
 
 ## <a name="thinprint"></a>ThinPrint
 

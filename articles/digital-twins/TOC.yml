@@ -83,6 +83,8 @@
       items:
         - name: API 및 SDK 사용
           href: how-to-use-apis-sdks.md
+        - name: Postman으로 요청하기
+          href: how-to-use-postman.md
         - name: AutoRest를 사용하여 사용자 지정 SDK 만들기
           href: how-to-create-custom-sdks.md
         - name: Azure SignalR 서비스와 통합
@@ -111,7 +113,7 @@
       items:
         - name: Azure Monitor의 메트릭 보기
           href: troubleshoot-metrics.md
-        - name: 진단 로그 사용
+        - name: 진단 로그 사용 및 쿼리
           href: troubleshoot-diagnostics.md
         - name: 경고 사용
           href: troubleshoot-alerts.md
@@ -136,7 +138,7 @@
         - name: 제어 평면
           items:
             - name: Swagger
-              href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
+              href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable'
             - name: .NET (C#) SDK - NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/'
             - name: .NET (C#) SDK - 참조
@@ -146,7 +148,7 @@
             - name: Java SDK - Maven
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar'
             - name: Java SDK - 참조
-              href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
+              href: /azure/developer/java/sdk/
             - name: Java SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31'
             - name: JavaScript SDK
@@ -249,5 +251,7 @@
       items:
         - name: 가격 책정
           href: 'https://azure.microsoft.com/pricing/details/digital-twins'
+        - name: SLA
+          href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
         - name: 지역 및 가용성
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'

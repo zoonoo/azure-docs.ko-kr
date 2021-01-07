@@ -9,10 +9,10 @@ ms.date: 12/03/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "67182024"
 ---
 VNet 간 FAQ는 VPN 게이트웨이 연결에 적용됩니다. VNet 피어링에 대한 자세한 내용은 [가상 네트워크 피어링](../articles/virtual-network/virtual-network-peering-overview.md)을 참조하세요.

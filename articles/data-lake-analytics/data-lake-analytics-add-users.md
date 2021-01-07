@@ -6,21 +6,21 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 05/24/2018
 ms.openlocfilehash: c04b1bbd62e156aeb8d3a0ebb244cfbc753dec52
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219380"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020826"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Azure Portal에서 사용자 추가
 
 ## <a name="start-the-add-user-wizard"></a>사용자 추가 마법사 시작
 1. https://portal.azure.com을 통해 Azure Data Lake Analytics를 엽니다.
-2. **사용자 추가 마법사**를 클릭합니다.
-3. **사용자 선택** 단계에서 추가하려는 사용자를 찾습니다. **선택**을 클릭합니다.
-4. **역할 선택** 단계에서 **Data Lake Analytics 개발자**를 선택합니다. 이 역할에는 U-SQL 작업을 제출/모니터링/관리하는 데 필요한 최소한의 사용 권한 집합이 있습니다. Azure 서비스를 관리하기 위한 그룹이 없는 경우 이 역할에 할당합니다.
-5. **카탈로그 사용 권한 선택** 단계에서 사용자가 액세스해야 하는 추가 데이터베이스를 선택합니다. 작업을 제출 하려면 "master" 라는 기본 정적 데이터베이스에 대 한 읽기 및 쓰기 권한이 필요 합니다. 작업이 끝나면 **확인**을 클릭합니다.
-6. **선택한 사용 권한 할당**이라는 마지막 단계에서 마법사에 의한 변경 내용을 검토합니다. **확인**을 클릭합니다.
+2. **사용자 추가 마법사** 를 클릭합니다.
+3. **사용자 선택** 단계에서 추가하려는 사용자를 찾습니다. **선택** 을 클릭합니다.
+4. **역할 선택** 단계에서 **Data Lake Analytics 개발자** 를 선택합니다. 이 역할에는 U-SQL 작업을 제출/모니터링/관리하는 데 필요한 최소한의 사용 권한 집합이 있습니다. Azure 서비스를 관리하기 위한 그룹이 없는 경우 이 역할에 할당합니다.
+5. **카탈로그 사용 권한 선택** 단계에서 사용자가 액세스해야 하는 추가 데이터베이스를 선택합니다. 작업을 제출 하려면 "master" 라는 기본 정적 데이터베이스에 대 한 읽기 및 쓰기 권한이 필요 합니다. 작업이 끝나면 **확인** 을 클릭합니다.
+6. **선택한 사용 권한 할당** 이라는 마지막 단계에서 마법사에 의한 변경 내용을 검토합니다. **확인** 을 클릭합니다.
 
 
 ## <a name="configure-acls-for-data-folders"></a>데이터 폴더에 대한 ACL 구성
@@ -29,12 +29,12 @@ ms.locfileid: "92219380"
 
 ## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>필요에 따라 Azure Data Lake Storage Gen1 **읽기 권한자** 역할에 사용자를 추가합니다.
 1.  Azure Data Lake Storage Gen1 계정을 찾습니다.
-2.  **사용자**를 클릭합니다.
-3. **추가**를 클릭합니다.
+2.  **사용자** 를 클릭합니다.
+3. **추가** 를 클릭합니다.
 4.  이 그룹을 할당할 Azure 역할을 선택 합니다.
 5.  읽기 권한자 역할에 할당합니다. 이 역할에는 ADLSGen1에 저장된 데이터를 이동/관리하는 데 필요한 최소한의 사용 권한 집합이 있습니다. Azure 서비스를 관리하기 위한 그룹이 없는 경우 이 역할에 할당합니다.
 6.  그룹의 이름에 입력합니다.
-7.  **확인**을 클릭합니다.
+7.  **확인** 을 클릭합니다.
 
 ## <a name="adding-a-user-using-powershell"></a>PowerShell을 사용하여 사용자 추가
 

@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91761835"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
@@ -60,7 +60,7 @@ ms.locfileid: "91761835"
 
 1. 서브넷의 **이름** 에 'GatewaySubnet' 값이 자동으로 채워집니다. Azure가 서브넷을 게이트웨이 서브넷으로 인식하기 위해 이 값이 필요합니다. 자동으로 채워진 **주소 범위** 값을 구성 요구 사항과 일치하도록 조정합니다. /27 이상의 게이트웨이 서브넷을 만드는 것이 좋습니다(/26, /25 등). 그런 다음, **확인** 을 선택하여 값을 저장하고 게이트웨이 서브넷을 만듭니다.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="게이트웨이 서브넷 추가":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="서브넷 추가":::
 
 ## <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
 
@@ -81,13 +81,13 @@ ms.locfileid: "91761835"
 
 1. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택하여 게이트웨이를 만들기 시작합니다. 설정이 검증되었으며 게이트웨이가 배포됩니다. 가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="게이트웨이 서브넷 추가":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="가상 네트워크 게이트웨이 만들기 페이지 필드":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 ExpressRoute 게이트웨이가 더 이상 필요하지 않으면 가상 네트워크 리소스 그룹에서 게이트웨이를 찾아 **삭제** 를 선택합니다. 게이트웨이가 회로에 연결되어 있지 않은지 확인합니다.
 
-:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="게이트웨이 서브넷 추가":::
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="가상 네트워크 게이트웨이 삭제":::
 
 ## <a name="next-steps"></a>다음 단계
 VNet 게이트웨이를 만든 후 VNet을 ExpressRoute 회로에 연결할 수 있습니다. 

@@ -7,6 +7,8 @@
       href: overview.md
     - name: 기술 및 기능 개요
       href: technical-overview.md
+    - name: Docs의 새로운 기능
+      href: whats-new-docs.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -52,17 +54,17 @@
 - name: 개념
   items:
     - name: External Identities용 솔루션 비교
-      href: 'https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+      href: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: 기본 사항 알아보기
       items:
         - name: 인증 및 권한 부여
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
         - name: 토큰
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
         - name: 프로토콜
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
         - name: 인증 라이브러리
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Azure AD B2C 모범 사례
       href: best-practices.md
     - name: 애플리케이션 형식
@@ -93,8 +95,6 @@
       href: user-overview.md
     - name: 사용자 프로필 특성
       href: user-profile-attributes.md
-    - name: SSO 세션
-      href: session-overview.md
     - name: ID 보호 및 조건부 액세스
       href: conditional-access-identity-protection-overview.md
 - name: 방법 가이드
@@ -119,157 +119,117 @@
           href: signin-appauth-ios.md
         - name: 앱 인증을 사용한 Android
           href: signin-appauth-android.md
-    - name: 사용자 흐름
+    - name: 흐름 만들기
       items:
-        - name: 흐름 만들기
-          items:
-            - name: 등록 또는 로그인
-              href: tutorial-create-user-flows.md
-            - name: 리소스 소유자 암호 자격 증명
-              href: configure-ropc.md
-            - name: 셀프 서비스 암호 재설정 설정
-              href: user-flow-self-service-password-reset.md
+        - name: 등록 또는 로그인 정책
+          href: add-sign-up-and-sign-in-policy.md
+        - name: 암호 재설정 정책
+          href: add-password-reset-policy.md
+        - name: 암호 변경 정책
+          href: add-password-change-policy.md
+        - name: 프로필 편집 정책
+          href: add-profile-editing-policy.md
+        - name: 리소스 소유자 암호 자격 증명 정책
+          href: add-ropc-policy.md
+        - name: 셀프 서비스 암호 재설정 정책 설정(사용되지 않음)
+          href: user-flow-self-service-password-reset.md
+        - name: 휴대폰 등록 및 로그인
+          href: phone-authentication-user-flows.md
+    - name: ID 공급자
+      items:
+        - name: ID 공급자 추가
+          href: add-identity-provider.md
+        - name: AD FS
+          href: identity-provider-adfs.md
+        - name: Amazon
+          href: identity-provider-amazon.md
+        - name: Azure AD(단일 테넌트)
+          href: identity-provider-azure-ad-single-tenant.md
+        - name: Azure AD(다중 테넌트)
+          href: identity-provider-azure-ad-multi-tenant.md
+        - name: Facebook
+          href: identity-provider-facebook.md
+        - name: 일반 ID 공급자
+          href: identity-provider-generic-openid-connect.md
+        - name: GitHub
+          href: identity-provider-github.md
+        - name: Google
+          href: identity-provider-google.md
+        - name: ID.me
+          href: identity-provider-id-me.md
+        - name: LinkedIn
+          href: identity-provider-linkedin.md
+        - name: Microsoft 계정
+          href: identity-provider-microsoft-account.md
+        - name: QQ
+          href: identity-provider-qq.md
+        - name: Salesforce(SAML)
+          href: identity-provider-salesforce-saml.md
+        - name: Twitter
+          href: identity-provider-twitter.md
+        - name: WeChat
+          href: identity-provider-wechat.md
+        - name: Weibo
+          href: identity-provider-weibo.md
+        - name: ID 공급자 토큰을 통해 전달
+          href: idp-pass-through-user-flow.md
+    - name: UX 사용자 지정
+      items:
+        - name: 사용자 입력 구성
+          href: configure-user-input.md
+        - name: 회사 브랜딩을 사용하여 UI 사용자 지정
+          href: company-branding.md
+        - name: HTML 템플릿을 사용하여 UI 사용자 지정
+          href: customize-ui-with-html.md
+        - name: JavaScript 및 페이지 레이아웃
+          href: javascript-and-page-layout.md
+        - name: 언어 사용자 지정
+          href: language-customization.md
+        - name: 암호 복잡성
+          href: password-complexity.md
+        - name: 메일 확인을 사용하지 않도록 설정
+          href: disable-email-verification.md
+        - name: MFA 사용
+          href: multi-factor-authentication.md
+          displayName: multi-factor auth
+        - name: 직접 로그인 설정
+          href: direct-signin.md
+    - name: 토큰 및 세션 관리
+      items:
+        - name: 세션 동작 구성
+          href: session-behavior.md
+          displayName: 'SSO, KMSI, Keep me signed in'
+        - name: 토큰 구성
+          href: configure-tokens.md
+    - name: 사용자 지정 특성 정의
+      href: user-flow-custom-attributes.md
+    - name: ID 보호 및 조건부 액세스
+      items:
+        - name: ID 보호 및 조건부 액세스 설정
+          href: conditional-access-identity-protection-setup.md
         - name: 조건부 액세스 추가
           href: conditional-access-user-flow.md
-        - name: UX 사용자 지정
-          items:
-            - name: UI 사용자 지정
-              href: customize-ui-overview.md
-            - name: JavaScript 및 페이지 레이아웃
-              href: user-flow-javascript-overview.md
-            - name: 언어 사용자 지정
-              href: user-flow-language-customization.md
-            - name: 암호 복잡성
-              href: user-flow-password-complexity.md
-            - name: 메일 확인을 사용하지 않도록 설정
-              href: user-flow-disable-email-verification.md
-            - name: MFA 사용
-              href: custom-policy-multi-factor-authentication.md
-              displayName: multi-factor auth
-        - name: 외부 ID 공급자
-          items:
-            - name: Amazon
-              href: identity-provider-amazon.md
-            - name: Azure AD(단일 테넌트)
-              href: identity-provider-azure-ad-single-tenant.md
-            - name: Microsoft 계정
-              href: identity-provider-microsoft-account.md
-            - name: Facebook
-              href: identity-provider-facebook.md
-            - name: GitHub
-              href: identity-provider-github.md
-            - name: Google
-              href: identity-provider-google.md
-            - name: LinkedIn
-              href: identity-provider-linkedin.md
-            - name: QQ
-              href: identity-provider-qq.md
-            - name: Twitter
-              href: identity-provider-twitter.md
-            - name: WeChat
-              href: identity-provider-wechat.md
-            - name: Weibo
-              href: identity-provider-weibo.md
-            - name: 일반 ID 공급자
-              href: identity-provider-generic-openid-connect.md
-        - name: 토큰 및 세션 관리
-          items:
-            - name: 토큰 구성
-              href: configure-tokens.md
-            - name: 세션 동작 구성
-              href: session-behavior.md
-        - name: 나이 제한 구성
-          href: basic-age-gating.md
-        - name: 사용자 지정 특성 정의
-          href: user-flow-custom-attributes.md
-        - name: API 커넥터(미리 보기)
-          items:
-            - name: 개요
-              href: api-connectors-overview.md
-            - name: API 커넥터 추가
-              href: add-api-connector.md
-        - name: 외부 IdP 토큰 통과
-          href: idp-pass-through-user-flow.md
-    - name: ID 보호 및 조건부 액세스
-      href: conditional-access-identity-protection-setup.md
+    - name: 나이 제한 구성
+      href: basic-age-gating.md
+    - name: API 커넥터(미리 보기)
+      items:
+        - name: 개요
+          href: api-connectors-overview.md
+        - name: API 커넥터 추가
+          href: add-api-connector.md
     - name: 사용자 지정 정책
       items:
-        - name: 정책 만들기
+        - name: 사용자 지정 정책 개요
+          href: custom-policy-trust-frameworks.md
+        - name: 사용자 지정 정책 시작
+          href: custom-policy-get-started.md
+        - name: 사용자 지정 이메일 확인
           items:
-            - name: 사용자 지정 정책 시작
-              href: custom-policy-get-started.md
-            - name: 리소스 소유자 암호 자격 증명
-              href: ropc-custom.md
-              displayName: ropc
-            - name: 로그인 유지 사용
-              href: custom-policy-keep-me-signed-in.md
-              displayName: kmsi
-            - name: 암호 변경
-              href: custom-policy-password-change.md
-            - name: 휴대폰 등록 및 로그인
-              href: phone-authentication.md
-              displayName: 'otp, passwordless, phone number'
-        - name: UX 사용자 지정
-          items:
-            - name: 사용자 입력 구성
-              href: custom-policy-configure-user-input.md
-              displayName: 'ui, ux'
-            - name: UI 사용자 지정
-              href: custom-policy-ui-customization.md
-              displayName: 'ux, input, cors, html, css'
-            - name: 언어 사용자 지정
-              href: custom-policy-localization.md
-            - name: 사용자 지정 이메일 확인
-              items:
-                - name: Mailjet
-                  href: custom-email-mailjet.md
-                - name: SendGrid
-                  href: custom-email-sendgrid.md
-              displayName: verification
-            - name: 메일 확인을 사용하지 않도록 설정
-              href: custom-policy-disable-email-verification.md
-            - name: JavaScript 사용
-              href: javascript-samples.md
-            - name: 암호 복잡성
-              href: custom-policy-password-complexity.md
-        - name: 외부 ID 공급자
-          items:
-            - name: OIDC/OAuth 공급자
-              items:
-                - name: Amazon
-                  href: identity-provider-amazon-custom.md
-                - name: Azure AD(단일 테넌트)
-                  href: identity-provider-azure-ad-single-tenant-custom.md
-                - name: Azure AD(다중 테넌트)
-                  href: identity-provider-azure-ad-multi-tenant-custom.md
-                - name: Google
-                  href: identity-provider-google-custom.md
-                - name: LinkedIn
-                  href: identity-provider-linkedin-custom.md
-                - name: Microsoft 계정
-                  href: identity-provider-microsoft-account-custom.md
-                - name: Twitter
-                  href: identity-provider-twitter-custom.md
-            - name: SAML 공급자
-              items:
-                - name: AD FS
-                  href: identity-provider-adfs2016-custom.md
-                  displayName: SAML
-                - name: Salesforce
-                  href: identity-provider-salesforce-custom.md
-                  displayName: SAML
-        - name: 토큰 및 세션 관리
-          items:
-            - name: 토큰 사용자 지정
-              href: configure-tokens-custom-policy.md
-            - name: 세션 동작 구성
-              href: session-behavior-custom-policy.md
-        - name: 외부 IdP 토큰 통과
-          href: idp-pass-through-custom.md
-        - name: 적응 환경
-          items:
-            - name: 직접 로그인 설정
-              href: direct-signin.md
+            - name: Mailjet
+              href: custom-email-mailjet.md
+            - name: SendGrid
+              href: custom-email-sendgrid.md
+          displayName: verification
         - name: 고유한 비즈니스 논리 추가
           items:
             - name: REST API 통합
@@ -282,8 +242,6 @@
               displayName: rest claims exchange
             - name: 보안 REST API
               href: secure-rest-api.md
-        - name: 사용자 지정 특성 정의
-          href: custom-policy-custom-attributes.md
         - name: 문제 해결
           items:
             - name: Application Insights를 사용하여 로그 수집
@@ -296,8 +254,6 @@
           href: analytics-with-application-insights.md
         - name: 참조
           items:
-            - name: 보안 프레임워크 정의
-              href: custom-policy-trust-frameworks.md
             - name: TrustFrameworkPolicy
               href: trustframeworkpolicy.md
             - name: BuildingBlocks
@@ -343,18 +299,16 @@
             - name: ClaimsProviders
               href: claimsproviders.md
               items:
-                - name: TechnicalProfiles
+                - name: 기술 프로필
                   href: technicalprofiles.md
                   items:
-                    - name: 기술 프로필 정보
-                      href: technical-profiles-overview.md
                     - name: 유효성 검사 기술 프로필 정보
                       href: validation-technical-profile.md
                     - name: Application Insights
                       href: application-insights-technical-profile.md
                     - name: Azure Active Directory
                       href: active-directory-technical-profile.md
-                    - name: Azure Multi-Factor Authentication
+                    - name: Azure AD Multi-Factor Authentication
                       href: multi-factor-auth-technical-profile.md
                       displayName: mfa
                     - name: Azure AD SSPR
@@ -398,6 +352,8 @@
               href: relyingparty.md
             - name: 클레임 해결자
               href: claim-resolver-overview.md
+    - name: UserInfo 엔드포인트
+      href: userinfo-endpoint.md
     - name: 파트너 통합
       items:
         - name: Azure AD B2C 파트너 갤러리
@@ -418,6 +374,8 @@
           href: partner-lexisnexis.md
         - name: N8 Identity
           href: partner-n8identity.md
+        - name: Nevis
+          href: partner-nevis.md
         - name: Onfido
           href: partner-onfido.md
         - name: Saviynt
@@ -432,6 +390,8 @@
           href: partner-typingdna.md
         - name: WhoIAM
           href: partner-whoiam.md
+        - name: Zscaler
+          href: partner-zscaler.md
     - name: b2clogin.com 사용
       items:
         - name: b2clogin.com 개요
@@ -510,7 +470,7 @@
     - name: 질문과 대답
       href: faq.md
     - name: 도움말 보기
-      href: /azure/active-directory/develop/developer-support-help-options
+      href: ../active-directory/develop/developer-support-help-options.md
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory-b2c/'
     - name: 요금 계산기

@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b94ece73d5f9dc9b8343e45fb1f616599b9a1c1f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368607"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450935"
 ---
-# <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark 작업(미리 보기) 최적화
+# <a name="optimize-apache-spark-jobs-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark 작업 최적화
 
 특정 워크로드에 대해 [Apache Spark](https://spark.apache.org/) 클러스터 구성을 최적화하는 방법에 대해 알아봅니다.  가장 일반적인 문제는 부적절한 구성(특히 크기가 틀린 실행기), 장기 실행 작업, Cartesian 작업으로 이어지는 작업으로 인한 메모리 압력입니다. 적절한 캐싱을 사용하고 [데이터 기울이기](#optimize-joins-and-shuffles)를 허용하여 작업 속도를 높일 수 있습니다. 최고의 성능을 얻기 위해 장기 실행 및 리소스 소모 Spark 작업 실행을 모니터링하고 검토합니다.
 

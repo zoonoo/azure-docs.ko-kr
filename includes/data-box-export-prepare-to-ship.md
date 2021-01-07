@@ -16,7 +16,7 @@ ms.locfileid: "86208866"
 > [!IMPORTANT]
 > - 이 단계에서 디바이스에 있는 데이터를 영구적으로 지우고 디바이스를 정리하도록 선택할 수 있습니다. Azure Storage 계정의 데이터는 그대로 유지되며 요금이 청구됩니다. 온-프레미스 데이터 서버에 대한 데이터 복사가 완료된 것을 확인한 후에만 이 데이터를 삭제하는 것이 좋습니다.
 
-1. **배송 준비**로 이동하여 **준비 시작**을 선택합니다. 
+1. **배송 준비** 로 이동하여 **준비 시작** 을 선택합니다. 
    
     ![배송 준비 1](media/data-box-export-prepare-to-ship/prepare-to-ship1.png)
 
@@ -31,7 +31,7 @@ ms.locfileid: "86208866"
     ![배송 준비 3](media/data-box-export-prepare-to-ship/prepare-to-ship3.png)
 
 
-3. **배송 준비**가 시작되면 진행률 표시줄이 있는 진행률 알림이 표시됩니다.
+3. **배송 준비** 가 시작되면 진행률 표시줄이 있는 진행률 알림이 표시됩니다.
 
     ![배송 준비 4](media/data-box-export-prepare-to-ship/prepare-to-ship4.png)
 

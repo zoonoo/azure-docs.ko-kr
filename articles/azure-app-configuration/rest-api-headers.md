@@ -1,17 +1,17 @@
 ---
 title: Azure 앱 구성 REST API-헤더
 description: Azure 앱 구성에 사용 되는 헤더에 대 한 참조 페이지 REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 5e1f92c68004d0197391ab72df775913c0940fec
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 80b20b0b55219766872166685c0b1257f3c39c55
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424320"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932577"
 ---
 # <a name="headers"></a>헤더
 
@@ -21,7 +21,7 @@ ms.locfileid: "93424320"
 
 다음 표에서는 Azure 앱 구성에 사용 되는 일반적인 요청 헤더에 대해 설명 합니다.
 
-| 헤더 | 설명 | 예 |
+| 헤더 | 설명 | 예제 |
 |--|--|--|
 | **권한 부여** | 서비스에 대 한 요청을 [인증](./rest-api-authentication-index.md) 하는 데 사용 됩니다. [섹션 14.8](https://tools.ietf.org/html/rfc2616#section-14.8) 을 참조 하세요. | `Authorization: HMAC-SHA256 Credential=<Credential>&SignedHeaders=Host;x-ms-date;x-ms-content-sha256&Signature=<Signature>` |
 | **수락** | 클라이언트에서 HTTP 응답을 허용할 미디어 유형을 서버에 알립니다. [섹션 14.1](https://tools.ietf.org/html/rfc2616#section-14.1) 을 참조 하세요. | `Accept: application/vnd.microsoft.appconfig.kv+json;` |
@@ -41,7 +41,7 @@ ms.locfileid: "93424320"
 
 서버는 응답에 다음 HTTP 헤더를 포함할 수 있습니다.
 
-| 헤더 | 설명 | 예 |
+| 헤더 | 설명 | 예제 |
 |--|--|--|
 | **Content-Type** | HTTP 응답 본문에 있는 콘텐츠의 미디어 형식을 포함 합니다. [섹션 14.17](https://tools.ietf.org/html/rfc2616#section-14.17) 을 참조 하세요. | `Content-Type: application/vnd.microsoft.appconfig.kv+json; charset=utf-8;` |
 | **ETag** | 지정 된 리소스의 상태를 나타내는 불투명 토큰입니다. 조건부 연산에 사용할 수 있습니다. [섹션 14.19](https://tools.ietf.org/html/rfc2616#section-14.19) 을 참조 하세요. | `ETag: "4f6dd610dd5e4deebc7fbaef685fb903"` |

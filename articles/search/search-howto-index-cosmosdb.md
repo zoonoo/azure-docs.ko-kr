@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: bf2282c5fda29cd266778a322efa4a0a33139c35
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: be7c6ec9dbc577143e6c7219580f42c876f536bc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372384"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499971"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 사용하여 Cosmos DB 데이터를 인덱싱하는 방법 
 
@@ -24,13 +24,13 @@ ms.locfileid: "94372384"
 > [REST API 미리 보기 버전](search-api-preview.md) 은 이러한 기능을 제공 합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
 > [!WARNING]
-> [인덱싱 정책이](/azure/cosmos-db/index-policy) [일관](/azure/cosmos-db/index-policy#indexing-mode) 로 설정 된 Cosmos DB 컬렉션만 Azure Cognitive Search에서 지원 됩니다. 지연 인덱싱 정책으로 컬렉션을 인덱싱하는 것은 권장 되지 않으며 데이터가 누락 될 수 있습니다. 인덱싱이 비활성화 된 컬렉션은 지원 되지 않습니다.
+> [인덱싱 정책이](../cosmos-db/index-policy.md) [일관](../cosmos-db/index-policy.md#indexing-mode) 로 설정 된 Cosmos DB 컬렉션만 Azure Cognitive Search에서 지원 됩니다. 지연 인덱싱 정책으로 컬렉션을 인덱싱하는 것은 권장 되지 않으며 데이터가 누락 될 수 있습니다. 인덱싱이 비활성화 된 컬렉션은 지원 되지 않습니다.
 
 이 문서에서는 콘텐츠를 추출 하 고 Azure Cognitive Search에서 검색할 수 있도록 Azure Cosmos DB [인덱서](search-indexer-overview.md) 를 구성 하는 방법을 보여 줍니다. 이 워크플로는 Azure Cognitive Search 인덱스를 만들고 Azure Cosmos DB에서 추출한 기존 텍스트를 사용 하 여 로드 합니다. 
 
-용어는 혼동 될 수 있기 때문에 각 서비스에 고유한 [Azure Cosmos DB 인덱싱](/azure/cosmos-db/index-overview) 및 [Azure Cognitive Search 인덱싱이](search-what-is-an-index.md) 고유한 작업 이라고 주목 해야 합니다. Azure Cognitive Search 인덱싱을 시작 하기 전에 Azure Cosmos DB 데이터베이스가 이미 존재 하 고 데이터를 포함 해야 합니다.
+용어는 혼동 될 수 있기 때문에 각 서비스에 고유한 [Azure Cosmos DB 인덱싱](../cosmos-db/index-overview.md) 및 [Azure Cognitive Search 인덱싱이](search-what-is-an-index.md) 고유한 작업 이라고 주목 해야 합니다. Azure Cognitive Search 인덱싱을 시작 하기 전에 Azure Cosmos DB 데이터베이스가 이미 존재 하 고 데이터를 포함 해야 합니다.
 
-Azure Cognitive Search의 Cosmos DB 인덱서는 다른 프로토콜을 통해 액세스 되는 [Azure Cosmos DB 항목](../cosmos-db/databases-containers-items.md#azure-cosmos-items) 을 탐색할 수 있습니다. 
+Azure Cognitive Search의 Cosmos DB 인덱서는 다른 프로토콜을 통해 액세스 되는 [Azure Cosmos DB 항목](../cosmos-db/account-databases-containers-items.md#azure-cosmos-items) 을 탐색할 수 있습니다. 
 
 + 일반적으로 사용할 수 있는 [SQL API](../cosmos-db/sql-query-getting-started.md)의 경우 [포털](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations)또는 [.net SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer) 를 사용 하 여 데이터 원본 및 인덱서를 만들 수 있습니다.
 
@@ -130,14 +130,14 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 > [!NOTE]
 > Cosmos DB Gremlin API 또는 Cosmos DB Cassandra API에서 데이터를 인덱싱하는 경우 먼저 [이 양식을](https://aka.ms/azure-cognitive-search/indexer-preview)작성 하 여 제어 된 미리 보기에 대 한 액세스를 요청 해야 합니다. 요청이 처리 되 면 [REST API 버전 2020-06-30-Preview](search-api-preview.md) 를 사용 하 여 데이터 원본을 만드는 방법에 대 한 지침을 받게 됩니다.
 
-이 문서의 앞 부분에서 [Azure Cosmos DB 인덱싱](/azure/cosmos-db/index-overview) 및 [Azure Cognitive Search 인덱싱](search-what-is-an-index.md) 인덱싱이 고유한 작업 이라고 설명 했습니다. Cosmos DB 인덱싱의 경우 기본적으로 모든 문서는 Cassandra API를 제외 하 고 자동으로 인덱싱됩니다. 자동 인덱싱을 해제 하면 자체 링크를 통하거나 문서 ID를 사용 하 여 쿼리를 통해서만 문서에 액세스할 수 있습니다. Azure Cognitive Search 인덱싱을 Cosmos DB 사용 하려면 Azure Cognitive Search에서 인덱싱되는 컬렉션에서 자동 인덱싱을 설정 해야 합니다. Cosmos DB Cassandra API 인덱서 미리 보기에 등록 하는 경우 Cosmos DB 인덱싱을 설정 하는 방법에 대 한 지침이 제공 됩니다.
+이 문서의 앞 부분에서 [Azure Cosmos DB 인덱싱](../cosmos-db/index-overview.md) 및 [Azure Cognitive Search 인덱싱](search-what-is-an-index.md) 인덱싱이 고유한 작업 이라고 설명 했습니다. Cosmos DB 인덱싱의 경우 기본적으로 모든 문서는 Cassandra API를 제외 하 고 자동으로 인덱싱됩니다. 자동 인덱싱을 해제 하면 자체 링크를 통하거나 문서 ID를 사용 하 여 쿼리를 통해서만 문서에 액세스할 수 있습니다. Azure Cognitive Search 인덱싱을 Cosmos DB 사용 하려면 Azure Cognitive Search에서 인덱싱되는 컬렉션에서 자동 인덱싱을 설정 해야 합니다. Cosmos DB Cassandra API 인덱서 미리 보기에 등록 하는 경우 Cosmos DB 인덱싱을 설정 하는 방법에 대 한 지침이 제공 됩니다.
 
 > [!WARNING]
 > Azure Cosmos DB는 DocumentDB의 다음 세대입니다. 이전에는 API 버전 **2017-11-11** 을 사용 하 여 구문을 사용할 수 있었습니다 `documentdb` . 즉, 데이터 원본 유형을 또는로 지정할 수 있습니다 `cosmosdb` `documentdb` . API 버전 **2019-05-06** 부터 Azure Cognitive Search Api 및 포털은 모두 `cosmosdb` 이 문서에 설명 된 대로 구문만 지원 합니다. 즉, `cosmosdb` Cosmos DB 끝점에 연결 하려면 데이터 원본 유형이 필요 합니다.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-요청에 대 한 입력을 조합 합니다.
 
-각 요청에 대해 Azure Cognitive Search (POST 헤더)에 대 한 서비스 이름 및 관리자 키와 blob storage의 저장소 계정 이름 및 키를 제공 해야 합니다. [Postman](search-get-started-postman.md) 을 사용 하 여 Azure COGNITIVE SEARCH에 HTTP 요청을 보낼 수 있습니다.
+각 요청에 대해 Azure Cognitive Search (POST 헤더)에 대 한 서비스 이름 및 관리자 키와 blob storage의 저장소 계정 이름 및 키를 제공 해야 합니다. [Postman 또는 Visual Studio Code](search-get-started-rest.md) 를 사용 하 여 Azure COGNITIVE SEARCH에 HTTP 요청을 보낼 수 있습니다.
 
 다음 4 개 값을 메모장에 복사 하 여 요청에 붙여 넣을 수 있습니다.
 
@@ -186,7 +186,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 | **name** | 필수 사항입니다. 데이터 원본 개체를 나타낼 이름을 선택합니다. |
 |**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |
 |**credentials** | 필수 사항입니다. Cosmos DB 연결 문자열 형식 또는 관리 id 연결 문자열 형식을 따라야 합니다.<br/><br/>**SQL 컬렉션** 의 경우 연결 문자열은 다음 형식 중 하나를 따를 수 있습니다. <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>계정 키를 포함 하지 않는 다음 형식의 관리 되는 id 연결 문자열 `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` 입니다. 이 연결 문자열 형식을 사용 하려면 [관리 되는 id를 사용 하 여 Cosmos DB 데이터베이스에 대 한 인덱서 연결을 설정](search-howto-managed-identities-cosmos-db.md)하는 지침을 따르세요.<br/><br/>버전 3.2 및 버전 3.6 **MongoDB 컬렉션** 의 경우 연결 문자열에 다음 형식 중 하나를 사용 합니다. <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>계정 키를 포함 하지 않는 다음 형식의 관리 되는 id 연결 문자열 `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` 입니다. 이 연결 문자열 형식을 사용 하려면 [관리 되는 id를 사용 하 여 Cosmos DB 데이터베이스에 대 한 인덱서 연결을 설정](search-howto-managed-identities-cosmos-db.md)하는 지침을 따르세요.<br/><br/>**Gremlin 그래프 및 Cassandra 테이블** 의 경우 미리 보기에 액세스 하 고 자격 증명의 형식을 지정 하는 방법에 대 한 정보를 보려면 [제어 된 인덱서 미리 보기](https://aka.ms/azure-cognitive-search/indexer-preview) 에 등록 합니다.<br/><br/>엔드포인트 URL에는 포트 번호를 사용하지 않습니다. 포트 번호를 포함 하는 경우 Azure Cognitive Search는 Azure Cosmos DB 데이터베이스를 인덱싱할 수 없게 됩니다.|
-| **container** | 다음과 같은 요소가 있습니다. <br/>**name** : 필수 사항입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정합니다.<br/>**query** : (선택 사항) 추상 JSON 문서를 Azure Cognitive Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.<br/>MongoDB API, Gremlin API 및 Cassandra API의 경우 쿼리는 지원되지 않습니다. |
+| **container** | 다음과 같은 요소가 있습니다. <br/>**name**: 필수 사항입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정합니다.<br/>**query**: (선택 사항) 추상 JSON 문서를 Azure Cognitive Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.<br/>MongoDB API, Gremlin API 및 Cassandra API의 경우 쿼리는 지원되지 않습니다. |
 | **dataChangeDetectionPolicy** | 권장됩니다. [변경된 문서 인덱싱](#DataChangeDetectionPolicy) 섹션을 참조하세요.|
 |**dataDeletionDetectionPolicy** | 선택 사항입니다. [삭제된 문서 인덱싱](#DataDeletionDetectionPolicy) 섹션을 참조하세요.|
 
@@ -194,7 +194,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 중첩된 속성 또는 배열을 평면화하고, JSON 속성을 프로젝션하고, 인덱싱할 데이터를 필터링하는 SQL 쿼리를 지정할 수 있습니다. 
 
 > [!WARNING]
-> **MONGODB api** , **Gremlin api** 및 **Cassandra API** 에 대 한 사용자 지정 쿼리는 지원 되지 않습니다. `container.query` 매개 변수는 null로 설정 하거나 생략 해야 합니다. 사용자 지정 쿼리를 사용해야 하는 경우 [사용자 의견](https://feedback.azure.com/forums/263029-azure-search)에서 알려주세요.
+> **MONGODB api**, **Gremlin api** 및 **Cassandra API** 에 대 한 사용자 지정 쿼리는 지원 되지 않습니다. `container.query` 매개 변수는 null로 설정 하거나 생략 해야 합니다. 사용자 지정 쿼리를 사용해야 하는 경우 [사용자 의견](https://feedback.azure.com/forums/263029-azure-search)에서 알려주세요.
 
 예제 문서:
 
@@ -278,7 +278,7 @@ SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @High
 | 기본 형식의 배열, 예: ["a", "b", "c"] |Collection(Edm.String) |
 | 날짜처럼 보이는 문자열 |Edm.DateTimeOffset, Edm.String |
 | GeoJSON 개체, 예: { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
-| 기타 JSON 개체 |N/A |
+| 기타 JSON 개체 |해당 없음 |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4-인덱서 구성 및 실행
 
@@ -391,7 +391,7 @@ SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @High
 
 ## <a name="next-steps"></a><a name="NextSteps"></a>다음 단계
 
-지금까지 인덱서를 사용 하 여 Azure Cognitive Search와 Azure Cosmos DB를 통합 하는 방법을 알아보았습니다.
+축하합니다! 인덱서를 사용 하 여 Azure Cognitive Search와 Azure Cosmos DB를 통합 하는 방법을 알아보았습니다.
 
 * Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 서비스 페이지](https://azure.microsoft.com/services/cosmos-db/)를 참조하세요.
 * Azure Cognitive Search에 대 한 자세한 내용은 [Search 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조 하세요.

@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여�
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: db153123622a59bbdde71afca4ea30e03a6fbf98
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900092"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694241"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
@@ -452,7 +452,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 Taint 정보는 노드에 대 한 예약 규칙을 처리 하기 위해 Kubernetes에 표시 됩니다. Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실행할 수 있는 워크로드를 제한할 수 있습니다.
 
 * **Taint** 는 노드에서 특정 Pod만 예약할 수 있음을 나타내는 노드에 적용됩니다.
-* A <bpt id="p1">**</bpt>toleration<ept id="p1">**</ept> is then applied to a pod that allows them to <bpt id="p2">*</bpt>tolerate<ept id="p2">*</ept> a node's taint.
+* **Toleration** 은 노드의 오류를 ‘허용’할 수 있도록 하는 Pod에 적용됩니다.
 
 고급 Kubernetes 예약 기능을 사용 하는 방법에 대 한 자세한 내용은 [AKS의 advanced scheduler 기능 모범 사례][taints-tolerations] 를 참조 하세요.
 
@@ -577,7 +577,7 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> 또한 `--tags` [az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하는 경우와 클러스터를 만드는 동안 매개 변수를 사용할 수 있습니다. 클러스터를 만드는 동안 `--tags` 매개 변수는 클러스터를 사용 하 여 만든 초기 노드 풀에 태그를 적용 합니다. 모든 태그 이름은 [Azure 리소스를 구성 하는 데 사용 하는 태그][tag-limitation]의 제한 사항을 준수 해야 합니다. 매개 변수를 사용 하 여 노드 풀을 업데이트 하면 `--tags` 기존 태그 값이 업데이트 되 고 새 태그가 추가 됩니다. 예를 들어 노드 풀에 태그에 대 한 *dept = IT* 및 *costcenter = 9999* 가 있고 태그에 대해 *team = dev* 및 *costcenter = 111* 로 업데이트 한 경우 nodepool에는 *dept = it* , *costcenter = 111* 및 *team = dev* for tags가 있습니다.
+> 또한 `--tags` [az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하는 경우와 클러스터를 만드는 동안 매개 변수를 사용할 수 있습니다. 클러스터를 만드는 동안 `--tags` 매개 변수는 클러스터를 사용 하 여 만든 초기 노드 풀에 태그를 적용 합니다. 모든 태그 이름은 [Azure 리소스를 구성 하는 데 사용 하는 태그][tag-limitation]의 제한 사항을 준수 해야 합니다. 매개 변수를 사용 하 여 노드 풀을 업데이트 하면 `--tags` 기존 태그 값이 업데이트 되 고 새 태그가 추가 됩니다. 예를 들어 노드 풀에 태그에 대 한 *dept = IT* 및 *costcenter = 9999* 가 있고 태그에 대해 *team = dev* 및 *costcenter = 111* 로 업데이트 한 경우 nodepool에는 *dept = it*, *costcenter = 111* 및 *team = dev* for tags가 있습니다.
 
 [Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *tagnodepool* 가 지정 된 *태그* 를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
 
@@ -685,10 +685,10 @@ Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리
 }
 ```
 
-다음 예제와 같이 [az group deployment create][az-group-deployment-create] 명령을 사용 하 여이 템플릿을 배포 합니다. 기존 AKS 클러스터 이름 및 위치를 묻는 메시지가 표시 됩니다.
+다음 예제와 같이 [az deployment group create][az-deployment-group-create] 명령을 사용 하 여이 템플릿을 배포 합니다. 기존 AKS 클러스터 이름 및 위치를 묻는 메시지가 표시 됩니다.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
     --resource-group myResourceGroup \
     --template-file aks-agentpools.json
 ```
@@ -829,7 +829,7 @@ Windows Server 컨테이너 노드 풀을 만들고 사용 하려면 [AKS에서 
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

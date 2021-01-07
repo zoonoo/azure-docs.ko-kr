@@ -3,16 +3,17 @@ title: Azure Linux 가상 머신에 Oracle ASM 설정 | Microsoft Docs
 description: Azure 환경에서 Oracle ASM을 빠르게 준비하여 실행합니다.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: b9653cded11edd36602caea0ecd50cfb8dd05ebe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547183"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602617"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에 Oracle ASM 설정  
 
@@ -32,7 +33,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹을 만들려면 [az group create](/cli/azure/group) 명령을 사용합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
+리소스 그룹을 만들려면 [az group create](/cli/azure/group) 명령을 사용 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -344,7 +345,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
 
 Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 다음 단계를 완료합니다.
 
-1. [Oracle ASM 다운로드 페이지](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)에서 Oracle Grid Infrastructure를 다운로드합니다. 
+1. [Oracle ASM 다운로드 페이지](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html)에서 Oracle Grid Infrastructure를 다운로드합니다. 
 
    다운로드 제목 **Linux x86-64용 Oracle Database 12c 릴리스 1 Grid Infrastructure(12.1.0.2.0)** 에서 두 개의 .zip 파일을 다운로드합니다.
 

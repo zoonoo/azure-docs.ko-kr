@@ -13,21 +13,19 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 514782d62f117af5bfff4a5d2b3354c4e263eece
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cd7074467332f89d4d6c60830be34f4e2a638c1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80550241"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562086"
 ---
 # <a name="overview-of-shared-device-mode"></a>공유 장치 모드 개요
 
 공유 장치 모드는 Firstline 작업자를 지 원하는 응용 프로그램을 작성 하 고 배포 된 장치에서 공유 장치 모드를 사용 하도록 설정 하는 Azure Active Directory의 기능입니다.
 
-> [!NOTE]
-> 이 기능은 공개 미리 보기 상태입니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>[!IMPORTANT]
+> 이 기능 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="what-are-firstline-workers"></a>Firstline 작업자 란?
 
@@ -45,7 +43,7 @@ IOS 또는 Android를 실행 하는 모바일 장치는 단일 사용자 용으�
 
 조직의 직원이 해당 직원 들이 공유 하는 장치 풀에서 해당 앱을 사용할 수 있도록 하려면 개발자가 반대 환경을 사용 하도록 설정 해야 합니다. 직원은 풀에서 장치를 선택 하 고, 이동 기간 동안 단일 제스처를 수행 하 여 "자신 있게" 할 수 있습니다. 이동이 끝나면 다른 제스처를 수행 하 여 장치에서 전체적으로 로그 아웃 하 고 모든 개인 및 회사 정보가 제거 되어 장치 풀로 돌아올 수 있습니다. 또한 직원이 로그 아웃 하는 것을 잊은 경우에는 해당 장치는 교대조의 끝 이나 비활성 기간 후에 자동으로 로그 아웃 됩니다.
 
-Azure Active Directory **공유 장치 모드**라는 기능을 사용 하 여 이러한 시나리오를 가능 하 게 합니다.
+Azure Active Directory **공유 장치 모드** 라는 기능을 사용 하 여 이러한 시나리오를 가능 하 게 합니다.
 
 ## <a name="introducing-shared-device-mode"></a>공유 장치 모드 소개
 
@@ -56,7 +54,7 @@ Azure Active Directory **공유 장치 모드**라는 기능을 사용 하 여 �
 
 ### <a name="build-applications-that-support-firstline-workers"></a>Firstline Worker를 지 원하는 응용 프로그램 빌드
 
-MSAL (Microsoft 인증 라이브러리) 및 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 사용 하 여 *공유 장치 모드*라는 장치 상태를 사용 하도록 설정 하 여 응용 프로그램의 firstline worker를 지원할 수 있습니다. 장치가 공유 장치 모드에 있는 경우 Microsoft는 장치에서 사용자의 상태에 따라 해당 동작을 수정 하 여 사용자 데이터를 보호 하는 정보를 응용 프로그램에 제공 합니다.
+MSAL (Microsoft 인증 라이브러리) 및 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 사용 하 여 *공유 장치 모드* 라는 장치 상태를 사용 하도록 설정 하 여 응용 프로그램의 firstline worker를 지원할 수 있습니다. 장치가 공유 장치 모드에 있는 경우 Microsoft는 장치에서 사용자의 상태에 따라 해당 동작을 수정 하 여 사용자 데이터를 보호 하는 정보를 응용 프로그램에 제공 합니다.
 
 지원 되는 기능은 다음과 같습니다.
 
@@ -75,7 +73,7 @@ MSAL (Microsoft 인증 라이브러리) 및 [Microsoft Authenticator 앱](../use
 
 응용 프로그램이 공유 장치 모드를 지원 하 고 필요한 데이터 및 보안 변경 내용을 포함 하는 경우 Firstline Worker에서 사용할 수 있는 것으로 알릴 수 있습니다.
 
-조직의 장치 관리자는 Microsoft Intune와 같은 MDM (모바일 장치 관리) 솔루션을 통해 장치와 응용 프로그램을 자신의 저장소에 배포 하 고 작업 영역 등에 수 있습니다. 프로 비전 프로세스의 일부로 장치를 *공유 장치로*표시 하 고 있습니다. 관리자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 배포 하 고 구성 매개 변수를 통해 공유 장치 모드를 설정 하 여 공유 장치 모드를 구성 합니다. 이러한 단계를 수행한 후에는 공유 장치 모드를 지 원하는 모든 응용 프로그램에서 Microsoft Authenticator 응용 프로그램을 사용 하 여 사용자 상태를 관리 하 고 장치와 조직의 보안 기능을 제공 합니다.
+조직의 장치 관리자는 Microsoft Intune와 같은 MDM (모바일 장치 관리) 솔루션을 통해 장치와 응용 프로그램을 자신의 저장소에 배포 하 고 작업 영역 등에 수 있습니다. 프로 비전 프로세스의 일부로 장치를 *공유 장치로* 표시 하 고 있습니다. 관리자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 배포 하 고 구성 매개 변수를 통해 공유 장치 모드를 설정 하 여 공유 장치 모드를 구성 합니다. 이러한 단계를 수행한 후에는 공유 장치 모드를 지 원하는 모든 응용 프로그램에서 Microsoft Authenticator 응용 프로그램을 사용 하 여 사용자 상태를 관리 하 고 장치와 조직의 보안 기능을 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

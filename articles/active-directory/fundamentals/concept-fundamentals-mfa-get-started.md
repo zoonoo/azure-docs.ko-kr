@@ -1,6 +1,6 @@
 ---
-title: 조직의 Azure Multi-Factor Authentication - Azure Active Directory
-description: 라이선스 모델을 기준으로 조직의 사용 가능한 Azure Multi-Factor Authentication 기능에 대해 알아봅니다.
+title: 조직의 Azure AD Multi-Factor Authentication-Azure Active Directory
+description: 라이선스 모델을 기반으로 조직에 대 한 Azure AD Multi-Factor Authentication의 사용 가능한 기능에 대해 알아봅니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: daveba
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 093d9fdd75b8a4a581faa0708cf97ea67774d734
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 85e7f02f8cbda6218396bf4a9a4654a113b7817c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241721"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836745"
 ---
-# <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>조직의 Azure Multi-Factor Authentication 개요
+# <a name="overview-of-azure-ad-multi-factor-authentication-for-your-organization"></a>조직의 Azure AD Multi-Factor Authentication 개요
 
-조직에서 소유하는 라이선스에 따라 Azure AD(Azure Active Directory) 사용자에 대해 Azure Multi-Factor Authentication을 사용하도록 설정하는 방법에는 여러 가지가 있습니다. 
+조직에서 소유 하는 라이선스에 따라 AD (Azure Active Directory) 사용자에 대해 Azure AD Multi-Factor Authentication를 사용 하도록 설정 하는 방법에는 여러 가지가 있습니다. 
 
 ![신호 조사 및 필요한 경우 MFA 적용](./media/concept-fundamentals-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
 
@@ -36,7 +36,7 @@ Azure AD의 무료 혜택을 활용하는 고객은 [보안 기본값](../fundam
 
 Microsoft 365 있는 고객의 경우 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
 
-* 모든 로그인 이벤트에서 모든 사용자에 대해 Azure Multi-Factor Authentication을 사용하거나 사용하지 않도록 설정합니다. 사용자의 일부에 대해서만 또는 특정 시나리오에서만 다단계 인증을 사용하도록 설정하는 기능은 없습니다. Office 365 포털을 통해 관리할 수 있습니다. 
+* 모든 로그인 이벤트에 대해 Azure AD Multi-Factor Authentication는 모든 사용자에 대해 사용 되거나 사용 하지 않도록 설정 됩니다. 사용자의 일부에 대해서만 또는 특정 시나리오에서만 다단계 인증을 사용하도록 설정하는 기능은 없습니다. Office 365 포털을 통해 관리할 수 있습니다. 
 * 향상된 사용자 환경을 위해 Azure AD Premium P1 또는 P2로 업그레이드하고 조건부 액세스를 사용합니다. 자세한 내용은 multi-factor authentication을 사용 하 여 리소스 Microsoft 365 보안을 참조 하세요.
 
 ## <a name="azure-ad-premium-p1"></a>Azure AD Premium P1
@@ -62,6 +62,6 @@ Enterprise Mobility + Security E5 또는 Microsoft 365 F5와 같이 이 기능�
 
 ## <a name="next-steps"></a>다음 단계
 
-시작하려면 [Azure Multi-Factor Authentication을 사용하여 사용자 로그인 이벤트 보호](../authentication/tutorial-enable-azure-mfa.md) 자습서를 참조하세요.
+시작 하려면 [AZURE AD Multi-Factor Authentication를 사용 하 여 사용자 로그인 이벤트를 보호](../authentication/tutorial-enable-azure-mfa.md)하기 위한 자습서를 참조 하세요.
 
-라이선스에 대한 자세한 내용은 [Azure Multi-Factor Authentication의 기능 및 라이선스](../authentication/concept-mfa-licensing.md)를 참조하세요.
+라이선스에 대 한 자세한 내용은 [AZURE AD Multi-Factor Authentication의 기능 및 라이선스](../authentication/concept-mfa-licensing.md)를 참조 하세요.

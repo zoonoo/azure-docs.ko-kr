@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에 대 한 전자 메일 알림 Microsoft Docs
 description: Azure Active Directory Domain Services 관리 되는 도메인의 문제를 경고 하도록 전자 메일 알림을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: c273b1a6c497ec8dcb8c5bc5f50ccfccc9fce155
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 4242092af86f8bc06ef9c9eba068ce07725de01f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968020"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619167"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 문제에 대 한 전자 메일 알림 구성
 
@@ -57,9 +57,9 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 
 기존 전자 메일 알림 받는 사람을 검토 하거나 수신자를 더 추가 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal에서 **Azure AD Domain Services**를 검색하여 선택합니다.
+1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다.
 1. 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
-1. Azure AD DS 리소스 창의 왼쪽에서 **알림 설정**을 선택 합니다. 전자 메일 알림의 기존 받는 사람이 표시 됩니다.
+1. Azure AD DS 리소스 창의 왼쪽에서 **알림 설정** 을 선택 합니다. 전자 메일 알림의 기존 받는 사람이 표시 됩니다.
 1. 전자 메일 받는 사람을 추가 하려면 추가 받는 사람 테이블에 전자 메일 주소를 입력 합니다.
 1. 완료 되 면 상단 탐색에서 **저장** 을 선택 합니다.
 
@@ -68,7 +68,7 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>경고 이메일 알림을 받았지만 Azure Portal에 로그온하면 경고가 없습니다. 무슨 일이 일어났나요?
+### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>경고 이메일 알림을 받았지만 Azure Portal에 로그온하면 경고가 없습니다. 어떻게 되었나요?
 
 경고가 해결 되 면 Azure Portal에서 경고가 지워집니다. 전자 메일 알림을 받는 사용자가 관리 되는 도메인에 대 한 경고를 해결 했거나 Azure platform에 의해 autoresolved 이유 때문일 수 있습니다.
 

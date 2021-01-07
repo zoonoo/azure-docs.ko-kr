@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: d50ce842a1b2bca26ef14dfbc81aab90d4ac2d8c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482745"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97692035"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -53,7 +53,7 @@ Azure Communication Services 통화 클라이언트 라이브러리의 주요 �
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationUserCredential(userToken);
-const callAgent = await callClient.createCallAgent(tokenCredential);
+const callAgent = await callClient.createCallAgent(tokenCredential, { displayName: 'optional ACS user name' });
 const deviceManager = await callClient.getDeviceManager()
 ```
 
@@ -90,6 +90,8 @@ const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 비디오 전화를 걸려면 deviceManager API를 사용 하 여 로컬 카메라를 열거 해야 `getCameraList` 합니다.
 원하는 카메라를 선택한 후에는이를 사용 하 여 인스턴스를 생성 하 `LocalVideoStream` 고이를 `videoOptions` 배열 내에 있는 항목으로 `localVideoStream` 메서드에 전달 `call` 합니다.
 전화를 연결 하면 선택한 카메라에서 다른 참가자로 비디오 스트림을 자동으로 보내기 시작 합니다.
+
+이는 Call () 비디오 옵션과 CallAgent. join () 비디오 옵션에도 적용 됩니다.
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
@@ -99,13 +101,41 @@ const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
+### <a name="receiving-an-incoming-call"></a>들어오는 호출 받기
+```js
+callAgent.on('callsUpdated', e => {
+    e.added.forEach(addedCall => {
+        if(addedCall.isIncoming) {
+        addedCall.accept();
+    }
+    });
+})
+```
+
 ### <a name="join-a-group-call"></a>그룹 통화 참가
 새 그룹 호출을 시작 하거나 진행 중인 그룹 호출을 조인 하려면 ' join ' 메서드를 사용 하 고 속성을 사용 하 여 개체를 전달 합니다 `groupId` . 값은 GUID 여야 합니다.
 ```js
 
-const context = { groupId: <GUID>}
-const call = callAgent.join(context);
+const locator = { groupId: <GUID>}
+const call = callAgent.join(locator);
 
+```
+
+### <a name="join-a-teams-meeting"></a>팀 참여 모임
+팀에 참여 하려면 ' join ' 메서드를 사용 하 고 모임 링크 또는 모임의 좌표를 전달 합니다.
+```js
+// Join using meeting link
+const locator = { meetingLink: <meeting link>}
+const call = callAgent.join(locator);
+
+// Join using meeting coordinates
+const locator = {
+    threadId: <thread id>,
+    organizerId: <organizer id>,
+    tenantId: <tenant id>,
+    messageId: <message id>
+}
+const call = callAgent.join(locator);
 ```
 
 ## <a name="call-management"></a>호출 관리
@@ -162,6 +192,11 @@ const callEndReason = call.callEndReason;
 * 현재 호출이 들어오는 호출 인지 확인 하려면 속성을 검사 하 여를 `isIncoming` 반환 `Boolean` 합니다.
 ```js
 const isIncoming = call.isIncoming;
+```
+
+* 호출을 기록 하 고 있는지 확인 하려면 속성을 검사 하 여를 `isRecordingActive` 반환 `Boolean` 합니다.
+```js
+const isResordingActive = call.isRecordingActive;
 ```
 
 *  현재 마이크가 음소거 되어 있는지 확인 하려면 속성을 검사 하 여를 `muted` 반환 `Boolean` 합니다.

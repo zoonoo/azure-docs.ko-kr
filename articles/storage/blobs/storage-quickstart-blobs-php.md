@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: af35927abfa491891dffe2c2397d6daf8c1ccde2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87835751"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543122"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>PHP를 사용하여 Azure Blob Storage에서 개체 전송
 이 빠른 시작에서 PHP를 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법에 대해 알아봅니다. 
@@ -91,9 +91,9 @@ This is the content of the blob uploaded: Hello Azure!
 **blobClient** 컨테이너 개체가 있으면 관심 있는 특정 Blob을 가리키는 **Block** Blob 개체를 만들 수 있습니다. 그런 다음, 업로드, 다운로드 및 복사와 같은 작업을 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
+> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
-이 섹션에서는 Azure Storage 클라이언트의 인스턴스를 설정하고, Blob 서비스 개체를 인스턴스화하고, 새 컨테이너를 만들고, Blob이 공개되도록 컨테이너에 대한 권한을 설정합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
+이 섹션에서는 Azure Storage 클라이언트의 인스턴스를 설정하고, Blob 서비스 개체를 인스턴스화하고, 새 컨테이너를 만들고, Blob이 공개되도록 컨테이너에 대한 권한을 설정합니다. 컨테이너를 **quickstartblobs** 로 지칭합니다. 
 
 ```PHP
     # Setup a specific instance of an Azure::Storage::Client
@@ -124,7 +124,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 Blob에 파일을 업로드하려면 로컬 드라이브에서 디렉터리 이름과 파일 이름을 조인하여 파일의 전체 경로를 가져옵니다. 그런 다음, **createBlockBlob()** 메서드를 사용하여 지정된 경로에 파일을 업로드할 수 있습니다. 
 
-샘플 코드에서는 로컬 파일을 가져와서 Azure에 업로드합니다. 코드에서 파일은 **myfile**로, Blob의 이름은 **fileToUpload**로 저장됩니다. 다음 예제에서는 **quickstartblobs**라는 저장소에 이 파일을 업로드합니다.
+샘플 코드에서는 로컬 파일을 가져와서 Azure에 업로드합니다. 코드에서 파일은 **myfile** 로, Blob의 이름은 **fileToUpload** 로 저장됩니다. 다음 예제에서는 **quickstartblobs** 라는 저장소에 이 파일을 업로드합니다.
 
 ```PHP
     $myfile = fopen("HelloWorld.txt", "w") or die("Unable to open file!");

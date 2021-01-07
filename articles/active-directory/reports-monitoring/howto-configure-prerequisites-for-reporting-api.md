@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cabf5f40bc17828bc37b5c094de7b90de3ec8b26
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4ca618dc234ff4383083ff5eb21299fb1e3e7128
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130224"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348741"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
 
@@ -185,7 +185,7 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
     a. **설명** 텍스트 상자에서 `Reporting API`를 입력합니다.
 
-    b. **만료** 로 **In 2 years** (2년)를 선택합니다.
+    b. **만료** 로 **In 2 years**(2년)를 선택합니다.
 
     다. **저장** 을 클릭합니다.
 

@@ -15,12 +15,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e78efd71943332e8a40e5b44b6b78f88e516649a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99fb466debd5a2ee4bb659aea3494469a8bbe8e1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759966"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658420"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시에 대한 개인 데이터 제거
 
@@ -35,7 +35,7 @@ Azure Active Directory 애플리케이션 프록시에서는 디바이스에 커
 
 ## <a name="remove-personal-data-from-windows-event-logs"></a>Windows 이벤트 로그에서 개인 데이터 제거
 
-Windows 이벤트 로그에 대한 데이터 보존을 구성하는 방법은 [이벤트 로그에 대한 설정](https://technet.microsoft.com/library/cc952132.aspx)을 참조하세요. Windows 이벤트 로그에 대한 자세한 내용은 [Windows 이벤트 로그 사용](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx)을 참조하세요.
+Windows 이벤트 로그에 대한 데이터 보존을 구성하는 방법은 [이벤트 로그에 대한 설정](https://technet.microsoft.com/library/cc952132.aspx)을 참조하세요. Windows 이벤트 로그에 대한 자세한 내용은 [Windows 이벤트 로그 사용](/windows/win32/wes/using-windows-event-log)을 참조하세요.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -54,7 +54,7 @@ Windows 이벤트 로그에 대한 데이터 보존을 구성하는 방법은 [�
 
 특정 데이터를 보거나 내보내려면 각각의 커넥터 이벤트 로그에서 관련 항목을 검색합니다. 로그는 `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`에 있습니다.
 
-로그는 텍스트 파일이므로 [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr)을 사용하여 사용자와 관련한 텍스트 항목을 검색할 수 있습니다.  
+로그는 텍스트 파일이므로 [findstr](/windows-server/administration/windows-commands/findstr)을 사용하여 사용자와 관련한 텍스트 항목을 검색할 수 있습니다.  
 
 개인 데이터를 찾으려면 UserID에 대 한 로그 파일을 검색합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory와 SCIM 동기화
-description: 이 동기화 패턴을 달성 하기 위한 아키텍처 지침
+description: Azure Active Directory로 SCIM 동기화를 달성 하는 데 대 한 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b95aac504bc6ee72c353faecad25384e2dc90840
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367859"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172421"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Azure Active Directory와 SCIM 동기화
 
@@ -45,11 +45,10 @@ HCM 시스템에서 Azure AD 및 Windows Server Active Directory로 사용자 �
 
 ## <a name="implement-scim-with-azure-ad"></a>Azure AD로 SCIM 구현 
 
-* [Azure AD에서 프로 비전이 작동 하는 방식 ](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)
+* [Azure AD에서 프로 비전이 작동 하는 방식 ](../app-provisioning/how-provisioning-works.md)
 
-* [Azure Portal에서 엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리 ](https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal)
+* [Azure Portal에서 엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리 ](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
-* [SCIM 끝점을 빌드하고 Azure AD를 사용 하 여 사용자 프로 비전 구성  ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
+* [SCIM 끝점을 빌드하고 Azure AD를 사용 하 여 사용자 프로 비전 구성  ](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-* [Azure AD 프로 비전 서비스의 SCIM 2.0 프로토콜 준수](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility)
-
+* [Azure AD 프로 비전 서비스의 SCIM 2.0 프로토콜 준수](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)

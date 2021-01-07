@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: fbbb298dd9e5b568e6a1dc2c4ef731b8521f8308
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d736c09fc1c9490f79dfc526895970e01b8b45cc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85556026"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963184"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Government 포털에서 온-프레미스 StorSimple 디바이스 배포
 
@@ -42,7 +42,7 @@ Microsoft Azure StorSimple 디바이스 배포를 시작합니다. 이러한 배
 ## <a name="deployment-steps"></a>배포 단계
 StorSimple 디바이스를 구성하여 StorSimple 디바이스 관리자 서비스에 연결하려면 다음과 같은 필수 단계를 수행합니다. 필수 단계 외에 선택적 단계 및 배포하는 동안 완료해야 할 수도 있는 절차가 있습니다. 단계별 배포 지침은 각 선택적 단계를 수행해야 하는 시기를 나타냅니다.
 
-| 단계 | 설명 |
+| 단계 | Description |
 | --- | --- |
 | **사전** |향후 배포 준비 과정에서 완료해야 합니다. |
 | [배포 구성 검사 목록](#deployment-configuration-checklist) |이 검사 목록을 사용하여 배포 이전 및 배포하는 동안 정보를 수집하고 기록합니다. |
@@ -153,7 +153,7 @@ Windows Server 호스트에서 이러한 단계를 수행합니다.
 
 > [!IMPORTANT]
 > * StorSimple 솔루션의 고가용성을 위해 iSCSI를 구성하기 전에 호스트 서버에 MPIO를 구성하는 것이 좋습니다(선택 사항). 호스트 서버에 MPIO를 구성하면 서버가 링크, 네트워크 또는 인터페이스 오류를 허용할 수 있습니다.
-> * Windows Server 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple 디바이스에 대한 MPIO 구성](storsimple-configure-mpio-windows-server.md)으로 이동합니다. StorSimple 볼륨을 탑재, 초기화 및 포맷하는 단계도 포함됩니다.
+> * Windows Server 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple 디바이스에 대한 MPIO 구성](./storsimple-8000-configure-mpio-windows-server.md)으로 이동합니다. StorSimple 볼륨을 탑재, 초기화 및 포맷하는 단계도 포함됩니다.
 > * Linux 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-on-linux.md)
 
 MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows Server 호스트에서 StorSimple 볼륨을 탑재, 초기화 및 포맷합니다.
@@ -161,7 +161,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows S
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
 ## <a name="step-8-take-a-backup"></a>8단계: 백업 수행
-Backup은 볼륨의 지정 시간 보호 기능을 제공하며 복원 시간을 최소화하면서 복구 기능을 개선합니다. StorSimple 디바이스에서 두 유형(로컬 스냅샷 및 클라우드 스냅샷)의 백업을 수행할 수 있습니다. 이러한 각 백업 유형은 **예약된 백업**일 수도 있고 **수동 백업**일 수도 있습니다.
+Backup은 볼륨의 지정 시간 보호 기능을 제공하며 복원 시간을 최소화하면서 복구 기능을 개선합니다. StorSimple 디바이스에서 두 유형(로컬 스냅샷 및 클라우드 스냅샷)의 백업을 수행할 수 있습니다. 이러한 각 백업 유형은 **예약된 백업** 일 수도 있고 **수동 백업** 일 수도 있습니다.
 
 예약된 백업을 만들려면 Government 포털에서 다음 단계를 수행합니다.
 
@@ -172,7 +172,7 @@ Backup은 볼륨의 지정 시간 보호 기능을 제공하며 복원 시간을
 ## <a name="configure-a-new-storage-account-for-the-service"></a>서비스에 대한 새 스토리지 계정 구성
 서비스와 스토리지 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 하는 선택적 단계입니다. StorSimple 볼륨 컨테이너를 만들려면 Microsoft Azure Storage 계정이 필요합니다.
 
-다른 지역에 Azure Storage 계정을 만들어야 하는 경우 단계별 지침은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md) 를 참조하세요.
+다른 지역에 Azure Storage 계정을 만들어야 하는 경우 단계별 지침은 [Azure Storage 계정 정보](../storage/common/storage-account-create.md) 를 참조하세요.
 
 Government 포털의 **StorSimple 디바이스 관리자 서비스** 페이지에서 다음 단계를 수행합니다.
 
@@ -199,4 +199,3 @@ StorSimple 디바이스에서 단일 볼륨에 대한 주문형 수동 백업을
 ## <a name="next-steps"></a>다음 단계
 * [가상 디바이스](storsimple-8000-cloud-appliance-u2.md)를 구성합니다.
 * Storsimple [Device Manager 서비스](storsimple-8000-manager-service-administration.md) 를 사용 하 여 storsimple 장치를 관리 합니다.
-

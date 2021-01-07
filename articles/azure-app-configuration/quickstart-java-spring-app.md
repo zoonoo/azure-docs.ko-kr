@@ -3,20 +3,19 @@ title: Azure App Configuration 사용 방법을 배우기 위한 빠른 시작
 description: 이 빠른 시작에서는 Azure App Configuration을 사용하여 Java Spring 앱을 만들어 코드와 별도로 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
-ms.author: lcozzens
-ms.openlocfilehash: dd2305e13322540e9e30223f200baed9919d1840
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: 40c8fae292f465b3ecc8778a21e4903bdf423a3a
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075402"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932033"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 Java Spring 앱 만들기
 
@@ -32,15 +31,15 @@ ms.locfileid: "92075402"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. **구성 탐색기** >  **+ 만들기** > **키-값**을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+7. **구성 탐색기** >  **+ 만들기** > **키-값** 을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
     | /application/config.message | 안녕하세요. |
 
-    지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
+    지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
 
-8. **적용**을 선택합니다.
+8. **적용** 을 선택합니다.
 
 ## <a name="create-a-spring-boot-app"></a>Spring Boot 앱 만들기
 
@@ -50,12 +49,12 @@ ms.locfileid: "92075402"
 
 1. 다음 옵션을 지정합니다.
 
-   - **Java**를 사용하는 **Maven** 프로젝트를 생성합니다.
+   - **Java** 를 사용하는 **Maven** 프로젝트를 생성합니다.
    - **Spring Boot** 버전 2.0 이상을 지정합니다.
    - 애플리케이션에 대한 **그룹** 및 **아티팩트** 이름을 지정합니다.
    - **Spring Web** 종속성을 추가합니다.
 
-1. 이전 옵션을 지정한 후 **프로젝트 생성**을 선택합니다. 메시지가 표시되면 로컬 컴퓨터의 경로에 프로젝트를 다운로드합니다.
+1. 이전 옵션을 지정한 후 **프로젝트 생성** 을 선택합니다. 메시지가 표시되면 로컬 컴퓨터의 경로에 프로젝트를 다운로드합니다.
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
@@ -83,7 +82,7 @@ ms.locfileid: "92075402"
     </dependency>
     ```
 
-1. 앱의 패키지 디렉터리에 *MessageProperties.java*라는 새 Java 파일을 만듭니다. 다음 줄을 추가합니다.
+1. 앱의 패키지 디렉터리에 *MessageProperties.java* 라는 새 Java 파일을 만듭니다. 다음 줄을 추가합니다.
 
     ```java
     package com.example.demo;
@@ -104,7 +103,7 @@ ms.locfileid: "92075402"
     }
     ```
 
-1. 앱의 패키지 디렉터리에 *HelloController.java*라는 새 Java 파일을 만듭니다. 다음 줄을 추가합니다.
+1. 앱의 패키지 디렉터리에 *HelloController.java* 라는 새 Java 파일을 만듭니다. 다음 줄을 추가합니다.
 
     ```java
     package com.example.demo;
@@ -147,7 +146,7 @@ ms.locfileid: "92075402"
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-1. **APP_CONFIGURATION_CONNECTION_STRING**이이라는 환경 변수를 설정하고, App Configuration 저장소에 대한 액세스 키로 설정합니다. 명령줄에서 다음 명령을 실행하고 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
+1. **APP_CONFIGURATION_CONNECTION_STRING** 이이라는 환경 변수를 설정하고, App Configuration 저장소에 대한 액세스 키로 설정합니다. 명령줄에서 다음 명령을 실행하고 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
     ```cmd
     setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
@@ -174,7 +173,7 @@ ms.locfileid: "92075402"
     mvn spring-boot:run
     ```
 
-2. 애플리케이션이 실행되면 *curl*을 사용하여 애플리케이션을 테스트합니다. 예를 들어 다음과 같습니다.
+2. 애플리케이션이 실행되면 *curl* 을 사용하여 애플리케이션을 테스트합니다. 예를 들어 다음과 같습니다.
 
       ```cmd
       curl -X GET http://localhost:8080/

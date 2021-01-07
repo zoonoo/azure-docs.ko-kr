@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 11/30/2020
 ms.author: raynew
-ms.openlocfilehash: 38a633a7a11ac29271231679e7075920e1f33a70
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 63548e2bf470c012e0dd8a5f879a51eeb631f453
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945946"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459275"
 ---
 # <a name="manage-move-collections-and-resource-groups"></a>컬렉션 및 리소스 그룹 이동 관리
 
@@ -22,11 +22,11 @@ ms.locfileid: "91945946"
 
 리소스 이동 (move) 포털의 이동 컬렉션에서 다음과 같이 리소스를 제거할 수 있습니다.
 
-1. **여러 지역**에서 컬렉션에서 제거 하려는 모든 리소스를 선택 하 고 **제거**를 선택 합니다. 
+1. **여러 지역** 에서 컬렉션에서 제거 하려는 모든 리소스를 선택 하 고 **제거** 를 선택 합니다. 
 
     ![제거 하도록 선택 하는 단추](./media/remove-move-resources/portal-select-resources.png)
 
-2. **리소스 제거**에서 **제거**를 클릭 합니다.
+2. **리소스 제거** 에서 **제거** 를 클릭 합니다.
 
     ![이동 컬렉션에서 리소스를 제거 하도록 선택 하는 단추](./media/remove-move-resources/remove-portal.png)
 
@@ -43,12 +43,11 @@ ms.locfileid: "91945946"
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus - Name PSDemoVM
+Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus -Name PSDemoVM
 ```
-**예상 출력** 
- ![ 이동 컬렉션에서 리소스를 제거한 후 출력 텍스트](./media/remove-move-resources/remove-resource.png)
+**예상 출력**
 
-
+![이동 컬렉션에서 리소스를 제거한 후 출력 텍스트](./media/remove-move-resources/remove-resource.png)
 
 ## <a name="remove-a-collection-powershell"></a>컬렉션 제거 (PowerShell)
 
@@ -59,9 +58,11 @@ Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceG
 
     ```azurepowershell-interactive
     # Remove a resource using the resource ID
-    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    Remove-AzResourceMoverMoveCollection -SubscriptionId <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus -MoveCollectionName MoveCollection-centralus-westcentralus
     ```
-    **예상 출력** ![ 이동 컬렉션을 제거한 후 출력 텍스트](./media/remove-move-resources/remove-collection.png)
+    **예상 출력**
+    
+    ![이동 컬렉션을 제거한 후 출력 텍스트](./media/remove-move-resources/remove-collection.png)
 
 ## <a name="vm-resource-state-after-removing"></a>제거 후 VM 리소스 상태
 

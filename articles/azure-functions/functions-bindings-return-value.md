@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 1dd9fabbe235e45290e607f861b67466d33319ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58ee9b682bc97dc4044d811392cf4ff5b51a69fd
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212167"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491361"
 ---
 # <a name="using-the-azure-function-return-value"></a>Azure Function 반환 값 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "88212167"
 
 * C# 클래스 라이브러리에서 출력 바인딩 특성을 메서드 반환 값에 적용합니다.
 * Java에서 출력 바인딩 주석을 함수 메서드에 적용 합니다.
-* 다른 언어에서 *function.json*의 `name` 속성을 `$return`에 설정합니다.
+* 다른 언어에서 *function.json* 의 `name` 속성을 `$return`에 설정합니다.
 
 여러 개의 출력 바인딩이 있으면 둘 중 하나에 대한 반환 값을 사용합니다.
 
@@ -129,6 +129,27 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
+```
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+*function.json* 파일의 출력 바인딩은 다음과 같습니다.
+
+```json
+{
+    "name": "Response",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{blobname}"
+}
+```
+
+Http 출력 바인딩에 대해 반환 값을 사용 하는 PowerShell 코드는 다음과 같습니다.
+
+```powershell
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body = $blobname
+    })
 ```
 
 # <a name="python"></a>[Python](#tab/python)

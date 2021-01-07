@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/12/2020
+ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324903"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555586"
 ---
 # <a name="convert-to-image-directory"></a>이미지 디렉터리로 변환
 
@@ -47,7 +47,8 @@ ms.locfileid: "93324903"
     
     ![이미지 샘플 데이터 집합](./media/module/image-sample-dataset.png)
 
-    점수 매기기를 위해 이미지 데이터 집합 폴더에는 미분류 이미지만 포함 되어야 합니다.
+    > [!NOTE]
+    > 유추의 경우 이미지 데이터 집합 폴더에는 미분류 이미지만 포함 되어야 합니다.
 
 1. 이미지 디렉터리로 변환 모듈의 입력이 **파일 데이터 집합** 이어야 하므로 이미지 데이터 집합을 작업 영역에서 [파일 데이터 집합으로 등록](../how-to-create-register-datasets.md) 합니다.
 
@@ -70,13 +71,13 @@ ms.locfileid: "93324903"
 
 ###  <a name="expected-inputs"></a>예상 입력  
 
-| 이름          | 유형                  | 설명   |
+| Name          | Type                  | Description   |
 | ------------- | --------------------- | ------------- |
 | 입력 데이터 세트 | AnyDirectory, ZipFile | 입력 데이터 세트 |
 
 ###  <a name="output"></a>출력  
 
-| 이름                   | 유형           | 설명            |
+| Name                   | Type           | Description            |
 | ---------------------- | -------------- | ---------------------- |
 | 출력 이미지 디렉터리 | ImageDirectory | 출력 이미지 디렉터리 |
 

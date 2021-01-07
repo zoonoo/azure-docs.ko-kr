@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: 0c518e3233773f02db1fff13af9201a9370b82ec
-  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+  ms.openlocfilehash: c4c364a6c448fcee3d3c7ad3b3b2b0c4d32fec92
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/08/2020
-  ms.locfileid: "94363683"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96462967"
 highlightedContent:
   items:
   - title: Cognitive Services란?
@@ -34,7 +34,7 @@ highlightedContent:
     url: ./cognitive-services-and-machine-learning.md
   - title: Cognitive Services 온-프레미스 컨테이너
     itemType: concept
-    url: ./cognitive-services-container-support.md
+    url: ./containers/index.yml
   - title: 데이터베이스를 사용하는 Cognitive Services
     itemType: concept
     url: ./big-data/cognitive-services-for-big-data.md
@@ -147,7 +147,7 @@ conceptualContent:
       text: 빅 데이터에 대한 Cognitive Services
     - url: ./big-data/getting-started.md
       itemType: get-started
-      text: Azure Databricks 및 Synapse Analytics 내에서 Cognitive Services 사용
+      text: Azure Databricks 및 Azure Synapse Analytics 내에서 Cognitive Services 사용
     - url: ./big-data/samples-python.md
       itemType: reference
       text: Python 샘플

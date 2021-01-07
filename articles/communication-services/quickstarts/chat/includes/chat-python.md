@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3c05596e16edc5243b8a97002a5cc5990c69ec43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2b7d00335253772683b867acf0765b77fc493e79
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945624"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523763"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "90945624"
 mkdir chat-quickstart && cd chat-quickstart
 ```
 
-텍스트 편집기를 사용하여 프로젝트 루트 디렉터리에 **start-chat.py**라는 파일을 만들고 기본 예외 처리를 비롯한 프로그램의 구조를 추가합니다. 이 빠른 시작의 모든 소스 코드를 다음 섹션의 이 파일에 추가합니다.
+텍스트 편집기를 사용하여 프로젝트 루트 디렉터리에 **start-chat.py** 라는 파일을 만들고 기본 예외 처리를 비롯한 프로그램의 구조를 추가합니다. 이 빠른 시작의 모든 소스 코드를 다음 섹션의 이 파일에 추가합니다.
 
 ```python
 import os
@@ -85,7 +85,7 @@ chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
 `create_chat_thread` 메서드를 사용하여 채팅 스레드를 만듭니다.
 
 - `topic`을 사용하여 스레드 주제를 지정합니다. 주제는 `update_thread` 함수를 사용하여 채팅 스레드를 만든 후 업데이트할 수 있습니다.
-- `members`를 사용하여 채팅 스레드에 추가할 `ChatThreadMember`를 나열합니다. `ChatThreadMember`는 `user`로 `CommunicationUser` 유형을 사용합니다. 이는 [사용자 생성](../../access-tokens.md#create-a-user)으로 사용자가 생성된 후에 가져올 수 있습니다.
+- `members`를 사용하여 채팅 스레드에 추가할 `ChatThreadMember`를 나열합니다. `ChatThreadMember`는 `user`로 `CommunicationUser` 유형을 사용합니다. 이는 [사용자 생성](../../access-tokens.md#create-an-identity)으로 사용자가 생성된 후에 가져올 수 있습니다.
 
 `chat_thread_client` 응답은 새로 생성된 채팅 스레드에서 작업(예: 채팅 스레드에 멤버 추가, 메시지 보내기, 메시지 삭제 등)을 수행하는 데 사용됩니다. 여기에는 채팅 스레드의 고유 ID인 `thread_id` 속성이 포함되어 있습니다.
 
@@ -158,7 +158,7 @@ chat_messages = chat_thread_client.list_messages()
 `add_members` 메서드를 사용하여 threadId로 식별되는 스레드에 스레드 멤버를 추가합니다.
 
 - `members`를 사용하여 채팅 스레드에 추가할 멤버를 나열합니다.
-- `user`(필수)는 [사용자 생성](../../access-tokens.md#create-a-user) 시 `CommunicationIdentityClient`로 만든 `CommunicationUser`입니다.
+- `user`(필수)는 [사용자 생성](../../access-tokens.md#create-an-identity) 시 `CommunicationIdentityClient`로 만든 `CommunicationUser`입니다.
 - `display_name`(선택 사항)은 스레드 멤버의 표시 이름입니다.
 - `share_history_time`(선택 사항)은 채팅 기록이 멤버와 공유된 시간입니다. 채팅 스레드가 시작된 이후의 기록을 공유하려면 이 속성을 스레드 생성 날짜와 동일한 날짜 또는 그 이전의 날짜로 설정합니다. 멤버가 추가되기 전의 기록을 공유하지 않으려면 현재 날짜로 설정합니다. 부분 기록을 공유하려면 이를 중간 날짜로 설정합니다.
 

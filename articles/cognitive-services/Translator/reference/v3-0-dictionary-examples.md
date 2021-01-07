@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: a1d86ac354524cb4d7bf9f9776b8605f244d92f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fe5a5669173733e3d0cf1b56b9997d15a3ff138
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83592511"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021306"
 ---
 # <a name="translator-30-dictionary-examples"></a>Translator 3.0: 사전 예제
 
@@ -33,17 +33,17 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 쿼리 문자열에 전달된 요청 매개 변수는 다음과 같습니다.
 
-| 쿼리 매개 변수 | 설명 |
+| 쿼리 매개 변수 | Description |
 | --------- | ----------- |
-| api-version <img width=200/> | **필수 매개 변수**입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
-| 원본 | **필수 매개 변수**입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다. |
-| to | **필수 매개 변수**입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.  | 
+| api-version <img width=200/> | **필수 매개 변수** 입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
+| 원본 | **필수 매개 변수** 입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다. |
+| to | **필수 매개 변수** 입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.  | 
 
 요청 헤더에는 다음이 포함됩니다.
 
 | headers  | Description |
 | ------ | ----------- |
-| 인증 헤더 <img width=200/>  | **필수 요청 헤더**<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요. |
+| 인증 헤더 <img width=200/>  | **필수 요청 헤더**<br/><a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요. |
 | 콘텐츠 형식 | **필수 요청 헤더**<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다. |
 | Content-Length   | **필수 요청 헤더**<br/>요청 본문의 길이입니다. |
 | X-ClientTraceId   | **선택 사항입니다**.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다. |
@@ -94,7 +94,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
     > [!NOTE]
     > 사전에 예제가 없는 경우 응답은 200(정상)이지만 `examples` 목록은 빈 목록이 됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 이 예제에서는 영어 용어 `fly` 및 해당 스페인어 번역 `volar`로 구성된 쌍의 예제를 조회하는 방법을 보여 줍니다.
 

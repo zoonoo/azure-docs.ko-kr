@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate Server 평가에서 에이전트 없는 종속성 분석 설정
 description: Azure Migrate Server 평가에서 에이전트 없는 종속성 분석을 설정 합니다.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d84c85326c6f5d87189a2c24a3b13654f157cb05
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337696"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754286"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>머신 종속성 분석(에이전트 없음)
 
@@ -31,7 +34,7 @@ ms.locfileid: "93337696"
 
 - 지원 되는 운영 체제 및 필요한 권한을 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) 합니다.
 - 다음을 확인합니다.
-    - Azure Migrate 프로젝트가 있어야 합니다. 그렇지 않은 경우 지금 [만듭니다](how-to-add-tool-first-time.md) .
+    - Azure Migrate 프로젝트가 있어야 합니다. 그렇지 않은 경우 지금 [만듭니다](./create-manage-projects.md) .
     - Azure Migrate: 서버 평가 도구를 프로젝트에 [추가](how-to-assess.md) 했는지 확인 합니다.
     - 온-프레미스 컴퓨터를 검색 하도록 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 설정 합니다. VMware Vm에 대 한 [어플라이언스를 설정](how-to-set-up-appliance-vmware.md) 합니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다.
 - 분석 하려는 각 VM에 VMware 도구 (10.2 이상)가 설치 되어 있는지 확인 합니다.

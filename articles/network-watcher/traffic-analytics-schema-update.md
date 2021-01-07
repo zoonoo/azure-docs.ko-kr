@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
-ms.openlocfilehash: 31d0de63185c56eafda8c42efbe44d8e7ffcaf1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be69e7fc0c836257b92aa8573826fe1e8a36d770
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87022466"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948445"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>트래픽 분석 스키마에 새 필드가 있는 샘플 쿼리 (8 월 2019 스키마 업데이트)
 
-[트래픽 분석 로그 스키마](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) 는 **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**의 새 필드를 포함 합니다. 새 필드는 원본 및 대상 Ip에 대 한 정보를 제공 하 고 쿼리를 단순화 합니다.
+[트래픽 분석 로그 스키마](./traffic-analytics-schema.md) 는 **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s** 의 새 필드를 포함 합니다. 새 필드는 원본 및 대상 Ip에 대 한 정보를 제공 하 고 쿼리를 단순화 합니다.
 
-다음 몇 개월 후에는 **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**와 같은 오래 된 필드가 사용 되지 않습니다.
+다음 몇 개월 후에는 **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d** 와 같은 오래 된 필드가 사용 되지 않습니다.
 
 다음 세 가지 예제에서는 이전 필드를 새 필드로 바꾸는 방법을 보여 줍니다.
 

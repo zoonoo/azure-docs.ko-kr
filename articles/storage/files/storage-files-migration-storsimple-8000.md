@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322216"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723981"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
 
@@ -45,7 +45,7 @@ StorSimple Data Manager 리소스의 데이터 변환 서비스 작업을 통해
 
 Azure 파일 공유는 파일 서비스 배포를 구성 하기 위한 새로운 세계 세계 전체를 엽니다. Azure 파일 공유는 기본적으로 작동 하는 친숙 한 Kerberos 인증 및 기존 NTFS 권한 (파일 및 폴더 Acl)을 사용 하 여 사용자가 SMB 프로토콜을 통해 직접 액세스 하도록 설정할 수 있는 클라우드의 SMB 공유 일 뿐입니다. [Azure 파일 공유에 대 한 id 기반 액세스](storage-files-active-directory-overview.md)에 대해 자세히 알아보세요.
 
-직접 액세스에 대 한 대안은 [Azure File Sync](https://aka.ms/AFS)입니다. Azure File Sync은 온-프레미스에서 자주 사용 하는 파일을 캐시 하는 StorSimple의 직접적인 아날로그 기능입니다.
+직접 액세스에 대 한 대안은 [Azure File Sync](./storage-sync-files-planning.md)입니다. Azure File Sync은 온-프레미스에서 자주 사용 하는 파일을 캐시 하는 StorSimple의 직접적인 아날로그 기능입니다.
 
 Azure File Sync는 다음과 같은 두 가지 주요 구성 요소를 기반으로 하는 Microsoft 클라우드 서비스입니다.
 
@@ -56,7 +56,7 @@ Azure 파일 공유는 특성, 권한, 타임 스탬프 등의 저장 된 파일
 
 이 문서에서는 마이그레이션 단계를 중점적으로 설명 합니다. 마이그레이션하기 전에 Azure File Sync에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
-* [Azure File Sync 개요](https://aka.ms/AFS "개요")
+* [Azure File Sync 개요](./storage-sync-files-planning.md "개요")
 * [Azure File Sync 배포 가이드](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>StorSimple 서비스 데이터 암호화 키
@@ -133,11 +133,11 @@ StorSimple은 볼륨 수준에서 차등 백업을 제공 합니다. Azure 파�
 
 여러 Azure storage 계정을 배포 해야 할 수도 있습니다. 각 항목에는이 문서의 이전 섹션에서 완료 한 배포 계획에 따라 적은 수의 Azure 파일 공유가 포함 됩니다. Azure Portal로 이동 하 여 [계획 된 저장소 계정을 배포](../common/storage-account-create.md#create-a-storage-account)합니다. 새 저장소 계정에 대해 다음과 같은 기본 설정을 준수 하는 것이 좋습니다.
 
-#### <a name="subscription"></a>Subscription
+#### <a name="subscription"></a>구독
 
 StorSimple 배포에 사용한 것과 동일한 구독 또는 다른 구독을 사용할 수 있습니다. 유일한 제한 사항은 구독이 StorSimple 구독과 동일한 Azure Active Directory 테 넌 트에 있어야 한다는 것입니다. 마이그레이션을 시작 하기 전에 StorSimple 구독을 올바른 테 넌 트로 이동 하는 것이 좋습니다. 전체 구독만 이동할 수 있습니다. 개별 StorSimple 리소스는 다른 테 넌 트 또는 구독으로 이동할 수 없습니다.
 
-#### <a name="resource-group"></a>Resource group
+#### <a name="resource-group"></a>리소스 그룹
 
 리소스 그룹은 리소스 구성과 관리 관리 권한을 지원 합니다. [Azure에서 리소스 그룹](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)에 대해 자세히 알아보세요.
 
@@ -160,7 +160,7 @@ Azure 파일 공유 또는 표준 저장소에 대해 premium storage (SSD)를 �
 
 아직 확실 하지 않나요?
 
-* [프리미엄 Azure 파일 공유의 성능이](storage-files-planning.md#understanding-provisioning-for-premium-file-shares)필요한 경우 premium storage를 선택 합니다.
+* [프리미엄 Azure 파일 공유의 성능이](understanding-billing.md#provisioned-billing)필요한 경우 premium storage를 선택 합니다.
 * 핫 데이터 및 보관 데이터를 포함 하는 범용 파일 서버 작업에 대 한 표준 저장소를 선택 합니다. 또한 클라우드의 공유에서 유일한 작업을 Azure File Sync 하는 경우 standard storage를 선택 합니다.
 
 #### <a name="account-kind"></a>계정 종류
@@ -209,7 +209,7 @@ Azure 파일 공유 또는 표준 저장소에 대해 premium storage (SSD)를 �
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="새 파일 공유 UI를 보여 주는 Azure Portal 스크린샷.":::
     :::column-end:::
     :::column:::
-        </br>**이름**</br>소문자, 숫자 및 하이픈만 사용할 수 있습니다.</br></br>**할당량**</br>여기에서 할당량은 Windows Server 인스턴스의 SMB 하드 할당량과 비교할 수 있습니다. 할당량에 도달 하면 마이그레이션 및 기타 서비스가 실패 하기 때문에 여기서 할당량을 설정 하지 않는 것이 좋습니다.</br></br>**계층**</br>새 파일 공유에 대해 **최적화 된 트랜잭션** 을 선택 합니다. 마이그레이션 중에는 많은 트랜잭션이 발생 합니다. 계층을 나중에 작업에 가장 적합 한 계층으로 변경 하는 것이 더 비용 효율적입니다.
+        </br>**Name**</br>소문자, 숫자 및 하이픈만 사용할 수 있습니다.</br></br>**할당량**</br>여기에서 할당량은 Windows Server 인스턴스의 SMB 하드 할당량과 비교할 수 있습니다. 할당량에 도달 하면 마이그레이션 및 기타 서비스가 실패 하기 때문에 여기서 할당량을 설정 하지 않는 것이 좋습니다.</br></br>**계층**</br>새 파일 공유에 대해 **최적화 된 트랜잭션** 을 선택 합니다. 마이그레이션 중에는 많은 트랜잭션이 발생 합니다. 계층을 나중에 작업에 가장 적합 한 계층으로 변경 하는 것이 더 비용 효율적입니다.
     :::column-end:::
 :::row-end:::
 
@@ -244,7 +244,7 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
         ![StorSimple 8000 시리즈 마이그레이션 작업](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "데이터 변환 서비스 작업에 대 한 새 작업 생성 양식의 스크린샷")
     :::column-end:::
     :::column:::
-        **작업 정의 이름**</br>이 이름은 이동 하는 파일 집합을 나타내야 합니다. Azure 파일 공유와 비슷한 이름을 제공 하는 것이 좋습니다. </br></br>**작업이 실행 되는 위치**</br>지역을 선택 하는 경우 StorSimple 저장소 계정과 동일한 지역을 선택 하거나, 사용할 수 없는 경우 해당 지역을 가까운 지역으로 선택 해야 합니다. </br></br><h3>원본</h3>**원본 구독**</br>StorSimple Device Manager 리소스를 저장 하는 구독을 선택 합니다. </br></br>**StorSimple 리소스**</br>기기가 등록 된 Device Manager StorSimple을 선택 합니다. </br></br>**서비스 데이터 암호화 키**</br>레코드에서 키를 찾을 수 없는 경우 [이 문서의 이전 섹션](#storsimple-service-data-encryption-key) 을 확인 하세요. </br></br>**디바이스**</br>마이그레이션하려는 볼륨을 보유 하는 StorSimple 장치를 선택 합니다. </br></br>**볼륨**</br>원본 볼륨을 선택 합니다. 나중에 전체 볼륨 또는 하위 디렉터리를 대상 Azure 파일 공유로 마이그레이션할 것인지 결정 합니다. </br></br><h3>Target</h3>구독, 저장소 계정 및 Azure 파일 공유를이 마이그레이션 작업의 대상으로 선택 합니다.
+        **작업 정의 이름**</br>이 이름은 이동 하는 파일 집합을 나타내야 합니다. Azure 파일 공유와 비슷한 이름을 제공 하는 것이 좋습니다. </br></br>**작업이 실행 되는 위치**</br>지역을 선택 하는 경우 StorSimple 저장소 계정과 동일한 지역을 선택 하거나, 사용할 수 없는 경우 해당 지역을 가까운 지역으로 선택 해야 합니다. </br></br><h3>원본</h3>**원본 구독**</br>StorSimple Device Manager 리소스를 저장 하는 구독을 선택 합니다. </br></br>**StorSimple 리소스**</br>기기가 등록 된 Device Manager StorSimple을 선택 합니다. </br></br>**서비스 데이터 암호화 키**</br>레코드에서 키를 찾을 수 없는 경우 [이 문서의 이전 섹션](#storsimple-service-data-encryption-key) 을 확인 하세요. </br></br>**디바이스**</br>마이그레이션하려는 볼륨을 보유 하는 StorSimple 장치를 선택 합니다. </br></br>**볼륨**</br>원본 볼륨을 선택 합니다. 나중에 전체 볼륨 또는 하위 디렉터리를 대상 Azure 파일 공유로 마이그레이션할 것인지 결정 합니다. </br></br><h3>대상</h3>구독, 저장소 계정 및 Azure 파일 공유를이 마이그레이션 작업의 대상으로 선택 합니다.
     :::column-end:::
 :::row-end:::
 
@@ -273,7 +273,7 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
 | **\>**                     | [원본] 및 [대상-매핑] 연산자가 있습니다.     |
 |**\|** 또는 RETURN (새 줄) | 두 폴더 매핑 명령의 구분 기호입니다. </br>또는이 문자를 생략 하 고 **Enter 키** 를 선택 하 여 한 줄에 다음 매핑 식을 가져올 수 있습니다.        |
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 *사용자 데이터* 폴더의 콘텐츠를 대상 파일 공유의 루트로 이동 합니다.
 ``` console
 \User data > \
@@ -320,8 +320,8 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
 
 Azure 파일 공유에 액세스 하는 두 가지 주요 전략은 다음과 같습니다.
 
-* **Azure File Sync** : 온-프레미스 Windows Server 인스턴스에 [Azure File Sync를 배포](#deploy-azure-file-sync) 합니다. Azure File Sync에는 StorSimple과 마찬가지로 로컬 캐시의 모든 이점이 있습니다.
-* **직접 공유-액세스** : [직접 공유 액세스를 배포](#deploy-direct-share-access)합니다. 지정 된 Azure 파일 공유에 대 한 액세스 시나리오에서 로컬 캐싱을 활용 하지 않거나 더 이상 온-프레미스 Windows Server 인스턴스를 호스트할 수 없는 경우이 전략을 사용 합니다. 여기서 사용자와 앱은 SMB 프로토콜을 통해 SMB 공유에 계속 액세스 합니다. 이러한 공유는 더 이상 온-프레미스 서버에 없지만 클라우드에서 직접 사용할 수 있습니다.
+* **Azure File Sync**: 온-프레미스 Windows Server 인스턴스에 [Azure File Sync를 배포](#deploy-azure-file-sync) 합니다. Azure File Sync에는 StorSimple과 마찬가지로 로컬 캐시의 모든 이점이 있습니다.
+* **직접 공유-액세스**: [직접 공유 액세스를 배포](#deploy-direct-share-access)합니다. 지정 된 Azure 파일 공유에 대 한 액세스 시나리오에서 로컬 캐싱을 활용 하지 않거나 더 이상 온-프레미스 Windows Server 인스턴스를 호스트할 수 없는 경우이 전략을 사용 합니다. 여기서 사용자와 앱은 SMB 프로토콜을 통해 SMB 공유에 계속 액세스 합니다. 이러한 공유는 더 이상 온-프레미스 서버에 없지만 클라우드에서 직접 사용할 수 있습니다.
 
 이 가이드의 [1 단계](#phase-1-prepare-for-migration) 에서 사용자에 게 가장 적합 한 옵션을 이미 결정 해야 합니다.
 
@@ -385,7 +385,7 @@ Azure File Sync의 일부를 배포할 때입니다.
 * [Windows P2S VPN을 구성 하는 방법](storage-files-configure-p2s-vpn-windows.md)
 * [Linux P2S VPN을 구성 하는 방법](storage-files-configure-p2s-vpn-linux.md)
 * [DNS 전달을 구성 하는 방법](storage-files-networking-dns.md)
-* [DFS 구성-N](https://aka.ms/AzureFiles/Namespaces)
+* [DFS 구성-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -429,8 +429,8 @@ Windows Server 인스턴스에서 이벤트 뷰어를 사용 하 여 네임 스�
 1. 로 이동 하 여 **Microsoft\FileSync\Agent\Telemetry** 를 엽니다.
 1. 완료 된 동기화 세션에 해당 하는 최신 **이벤트 9102** 을 찾습니다.
 1. **세부 정보** 를 선택 하 고 **Syncdirection** 값이 **다운로드** 되는 이벤트를 확인 하 고 있는지 확인 합니다.
-1. 네임 스페이스에서 서버에 대 한 다운로드를 완료 한 경우에는 **시나리오** , 값 **FullGhostedSync** 및 **HResult** 0을 포함 하는 단일 이벤트가 발생  =  **0** 합니다.
-1. 해당 이벤트를 놓친 경우 **syncdirection** **9102 events**  =  **다운로드** 및 **시나리오**  =  **"RegularSync"** 를 사용 하 여 다른 9102 이벤트를 찾을 수도 있습니다. 이러한 이벤트 중 하나를 찾으면 동기화가 완료 되었는지 여부에 관계 없이 네임 스페이스의 다운로드 및 동기화가 일반 동기화 세션으로 진행 되었음을 알 수 있습니다.
+1. 네임 스페이스에서 서버에 대 한 다운로드를 완료 한 경우에는 **시나리오**, 값 **FullGhostedSync** 및 **HResult** 0을 포함 하는 단일 이벤트가 발생  =  합니다.
+1. 해당 이벤트를 놓친 경우 **syncdirection**   =  **다운로드** 및 **시나리오**  =  **"RegularSync"** 를 사용 하 여 다른 9102 이벤트를 찾을 수도 있습니다. 이러한 이벤트 중 하나를 찾으면 동기화가 완료 되었는지 여부에 관계 없이 네임 스페이스의 다운로드 및 동기화가 일반 동기화 세션으로 진행 되었음을 알 수 있습니다.
 
 ### <a name="a-final-robocopy"></a>최종 RoboCopy
 
@@ -448,7 +448,7 @@ Windows Server 인스턴스에서 이벤트 뷰어를 사용 하 여 네임 스�
 RoboCopy에는 여러 매개 변수가 있습니다. 다음 예제에서는 완성 된 명령과 이러한 매개 변수를 선택 하는 이유 목록을 보여 줍니다.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 배경:
@@ -475,6 +475,14 @@ Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
    :::column-end:::
    :::column span="1":::
       콘솔 창에 출력 합니다. 로그 파일에 대 한 출력과 함께 사용 됩니다.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      로그를 읽을 수 있도록 진행률 기록을 생략 합니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -535,7 +543,7 @@ Azure File Sync 사용 하는 경우 StorSimple 볼륨에 있는 공유와 일�
 
 DFS N을 배포 하는 경우 DFN-Namespaces 새 서버 폴더 위치를 가리키도록 할 수 있습니다. DFS N이 배포 되지 않은 상태에서 8100 또는 8600 어플라이언스를 Windows Server 인스턴스와 로컬로 제어 되 하는 경우 해당 서버를 도메인에서 사용할 수 있습니다. 그런 다음 새 Azure File Sync 사용 Windows Server 인스턴스에 도메인 가입 합니다. 이 프로세스 중에는 사용자, 그룹 정책 및 스크립트에 대해 잘라내기를 투명 하 게 유지 하도록 서버에 이전 서버와 동일한 서버 이름과 공유 이름을 지정 합니다.
 
-[DFS-N](https://aka.ms/AzureFiles/Namespaces)에 대해 자세히 알아보세요.
+[DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)에 대해 자세히 알아보세요.
 
 ## <a name="deprovision"></a>프로비전 해제
 
@@ -561,7 +569,7 @@ DFS N을 배포 하는 경우 DFN-Namespaces 새 서버 폴더 위치를 가리�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure File Sync: aka.ms/AFS](https://aka.ms/AFS)에 대해 자세히 알아보세요.
+* [Azure File Sync: aka.ms/AFS](./storage-sync-files-planning.md)에 대해 자세히 알아보세요.
 * [클라우드 계층화](storage-sync-cloud-tiering.md) 정책의 유연성을 이해 합니다.
 * Azure 파일 공유에 대 한 [Azure Backup를 사용 하도록 설정](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) 하 여 스냅숏을 예약 하 고 백업 보존 일정을 정의 합니다.
 * Azure Portal에서 일부 파일이 영구적으로 동기화 되지 않는 것을 확인 하는 경우 문제 [해결 가이드](storage-sync-files-troubleshoot.md) 를 검토 하 여 이러한 문제를 해결 합니다.

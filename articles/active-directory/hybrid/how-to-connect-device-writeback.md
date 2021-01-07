@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d526394ac89e2d29b2002004736e8480bb15b954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279264"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973425"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 디바이스 쓰기 저장 사용
 > [!NOTE]
@@ -44,14 +44,14 @@ ms.locfileid: "89279264"
 사용자 지정 또는 Express 설정을 사용하여 Azure AD Connect를 설치합니다. Microsoft는 디바이스 쓰기 저장을 사용하도록 설정하기 전에 모든 사용자 및 그룹을 성공적으로 동기화하고 시작할 것을 권장합니다.
 
 ## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>2부: Azure AD Connect에서 디바이스 쓰기 저장 사용
-1. 설치 마법사를 다시 실행합니다. [추가 작업] 페이지에서 **디바이스 옵션 구성**을 선택하고 **다음**을 클릭합니다. 
+1. 설치 마법사를 다시 실행합니다. [추가 작업] 페이지에서 **디바이스 옵션 구성** 을 선택하고 **다음** 을 클릭합니다. 
 
     ![디바이스 옵션 구성](./media/how-to-connect-device-writeback/deviceoptions.png)
 
     >[!NOTE]
     > 새로운 디바이스 구성 옵션은 버전 1.1.819.0 이상에서만 사용할 수 있습니다.
 
-2. 디바이스 옵션 페이지에서 **디바이스 쓰기 저장 구성**을 선택합니다. **디바이스 쓰기 저장을 사용하지 않도록 설정** 옵션은 디바이스 쓰기 저장을 사용하기 전에는 사용할 수 없습니다. **다음**을 클릭하여 마법사의 다음 페이지로 이동합니다.
+2. 디바이스 옵션 페이지에서 **디바이스 쓰기 저장 구성** 을 선택합니다. **디바이스 쓰기 저장을 사용하지 않도록 설정** 옵션은 디바이스 쓰기 저장을 사용하기 전에는 사용할 수 없습니다. **다음** 을 클릭하여 마법사의 다음 페이지로 이동합니다.
     ![디바이스 작업 선택](./media/how-to-connect-device-writeback/configuredevicewriteback1.png)
 
 3. 쓰기 저장 페이지에서 기본 디바이스 쓰기 저장 포리스트로 제공된 도메인이 표시됩니다.
@@ -94,11 +94,11 @@ ms.locfileid: "89279264"
 * 디바이스 개체 및 관련 특성이 존재하려면 디바이스가 있는 포리스트의 포리스트 스키마가 Windows 2012 R2 수준으로 업그레이드되어야 합니다.
 * 설치 마법사가 이미 실행 중인 경우 변경 내용이 검색되지 않습니다. 이 경우 설치 마법사를 완료하고 다시 실행하세요.
 * 초기화 스크립트에서 제공하는 계정이 Active Directory Connector에서 사용하는 올바른 사용자인지 확인합니다. 이를 확인하려면 다음 단계를 수행하세요.
-  * 시작 메뉴에서 **동기화 서비스**를 엽니다.
+  * 시작 메뉴에서 **동기화 서비스** 를 엽니다.
   * **커넥터** 탭을 엽니다.
   * 형식이 Active Directory Domain Services인 커넥터를 찾아 선택합니다.
-  * **작업**아래에서 **속성**을 선택 합니다.
-  * **Active Directory 포리스트에 연결**로 이동합니다. 이 화면에 지정된 도메인 및 사용자 이름이 스크립트에 제공된 계정과 일치하는지 확인합니다.
+  * **작업** 아래에서 **속성** 을 선택 합니다.
+  * **Active Directory 포리스트에 연결** 로 이동합니다. 이 화면에 지정된 도메인 및 사용자 이름이 스크립트에 제공된 계정과 일치하는지 확인합니다.
     ![동기화 서비스 관리자의 커넥터 계정](./media/how-to-connect-device-writeback/connectoraccount.png)
 
 Active Directory의 구성 확인:

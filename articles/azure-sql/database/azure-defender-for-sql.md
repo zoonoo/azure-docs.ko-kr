@@ -11,13 +11,13 @@ ms.author: memildin
 manager: rkarlin
 author: memildin
 ms.reviewer: vanto
-ms.date: 09/21/2020
-ms.openlocfilehash: d147303df43c4f86843df518c71316e6a97b6671
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 12/01/2020
+ms.openlocfilehash: 4bb7f2fd5823a9d8ebf4234f3bb41d955574b838
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678072"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451503"
 ---
 # <a name="azure-defender-for-sql"></a>SQL용 Azure Defender
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,12 +41,14 @@ SQL 가격에 대 한 Azure Defender에 대 한 자세한 내용은 [Azure Secur
 
 ## <a name="enable-azure-defender"></a>Azure Defender 사용
 
-Azure Defender는 [Azure Portal](https://portal.azure.com)를 통해 액세스할 수 있습니다. 서버 또는 관리 되는 인스턴스의 **보안** 제목 아래에 있는 **security center** 로 이동 하 여 Azure Defender를 사용 하도록 설정 합니다.
+Azure Defender는 [Azure Portal](https://portal.azure.com)를 통해 액세스할 수 있습니다. 서버 또는 관리 되는 인스턴스의 **보안** 제목 아래 **Security Center** 으로 이동 하 여 Azure Defender를 사용 하도록 설정 합니다.
 
 > [!NOTE]
 > 저장소 계정이 자동으로 만들어지고 **취약성 평가** 검사 결과를 저장 하도록 구성 됩니다. 동일한 리소스 그룹 및 지역에 있는 다른 서버에 대해 Azure Defender를 이미 사용 하도록 설정한 경우 기존 저장소 계정이 사용 됩니다.
 >
 > Azure Defender 비용은 노드당 표준 계층 가격 책정에 따라 결정 Azure Security Center 됩니다. 여기서 노드는 전체 서버 또는 관리 되는 인스턴스입니다. 따라서 Azure Defender를 사용 하 여 서버 또는 관리 되는 인스턴스의 모든 데이터베이스를 보호 하기 위해 한 번만 지불 하면 됩니다. 처음에는 무료 평가판을 사용 하 여 Azure Defender를 사용해 볼 수 있습니다.
+
+:::image type="content" source="media/azure-defender-for-sql/enable-azure-defender.png" alt-text="Azure Defender 사용":::
 
 ## <a name="start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>취약점 추적 및 위협 경고 조사 시작
 
@@ -54,15 +56,19 @@ Azure Defender는 [Azure Portal](https://portal.azure.com)를 통해 액세스�
 
 ## <a name="manage-azure-defender-settings"></a>Azure Defender 설정 관리
 
-Azure Defender 설정을 보고 관리 하려면 서버 또는 관리 되는 인스턴스의 **보안** 제목 아래에 있는 **security center** 로 이동 합니다. 이 페이지에서 Azure Defender를 사용 하거나 사용 하지 않도록 설정 하 고 전체 서버 또는 관리 되는 인스턴스에 대 한 취약성 평가 및 고급 위협 방지 설정을 수정할 수 있습니다.
+Azure Defender 설정을 보고 관리 하려면 서버 또는 관리 되는 인스턴스의 **보안** 제목 아래 **Security Center** 로 이동 합니다. 이 페이지에서 Azure Defender를 사용 하거나 사용 하지 않도록 설정 하 고 전체 서버 또는 관리 되는 인스턴스에 대 한 취약성 평가 및 고급 위협 방지 설정을 수정할 수 있습니다.
+
+:::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="보안 서버 설정":::
 
 ## <a name="manage-azure-defender-settings-for-a-database"></a>데이터베이스에 대 한 Azure Defender 설정 관리
 
-특정 데이터베이스에 대 한 Azure Defender 설정을 재정의 하려면 **데이터베이스 수준에서 azure defender FOR SQL 사용** 확인란을 선택 합니다. 이 옵션은 서버 또는 관리 되는 인스턴스의 모든 데이터베이스에 대해 발생 하는 경고 및 결과와 더불어 개별 데이터베이스에 대 한 별도의 Advanced Threat Protection 경고 또는 취약점 평가 결과를 수신 해야 하는 특정 요구 사항이 있는 경우에만 사용 합니다.
+특정 데이터베이스에 대 한 Azure Defender 설정을 재정의 하려면 데이터베이스 **Security Center** 설정에서 **데이터베이스 수준에서 SQL 용 azure defender 사용** 확인란을 선택 합니다. 이 옵션은 서버 또는 관리 되는 인스턴스의 모든 데이터베이스에 대해 발생 하는 경고 및 결과와 더불어 개별 데이터베이스에 대 한 별도의 Advanced Threat Protection 경고 또는 취약점 평가 결과를 수신 해야 하는 특정 요구 사항이 있는 경우에만 사용 합니다.
 
 이 확인란을 선택 하면이 데이터베이스에 대 한 관련 설정을 구성할 수 있습니다.
 
-서버 또는 관리 되는 인스턴스에 대 한 azure Defender for SQL 설정은 Azure Defender 데이터베이스 창에서 연결할 수도 있습니다. 기본 Azure Defender 창에서 **설정** 을 클릭 한 다음 **SQL Server 용 Azure defender 설정 보기** 를 클릭 합니다.
+:::image type="content" source="media/azure-defender-for-sql/enable-for-database-level.png" alt-text="데이터베이스 수준에서 Azure Defender 사용":::
+
+서버 또는 관리 되는 인스턴스에 대 한 azure Defender for SQL 설정은 Azure Defender 데이터베이스 창에서 연결할 수도 있습니다. 기본 Security Center 창에서 **설정** 을 클릭 한 다음 **SQL Server 용 Azure Defender 설정 보기** 를 클릭 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

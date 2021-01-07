@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c6b976ca1beb9beb78f7c56d7ae512c1f499c2c5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107949"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186527"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor에 대 한 모니터링 데이터의 원본
 Azure Monitor는 [로그](data-platform-logs.md) 및 [메트릭을](data-platform-metrics.md)포함 하는 [일반적인 모니터링 데이터 플랫폼](data-platform.md) 을 기반으로 합니다. 이 플랫폼에 데이터를 수집 하면 Azure Monitor의 공통 도구 집합을 사용 하 여 여러 리소스의 데이터를 함께 분석할 수 있습니다. 모니터링 데이터는 특정 시나리오를 지원 하기 위해 다른 위치로 전송 될 수도 있으며, 일부 리소스는 로그 나 메트릭에 수집 되기 전에 다른 위치에 기록 될 수 있습니다.
@@ -106,7 +106,7 @@ Azure [활동 로그](platform-logs-overview.md) 에는 azure 구독의 리소�
 | 대상 | Description | 참조 |
 |:---|:---|:---|
 | Azure Monitor 로그 | 다른 수집 된 로그 데이터를 사용 하 여 분석을 위해 Azure Monitor 로그에 리소스 로그를 보냅니다. | [Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그를 수집 합니다.](./resource-logs.md#send-to-azure-storage) |
-| 스토리지 | 보관을 위해 Azure Storage로 리소스 로그를 보냅니다. | [Azure 리소스 로그 보관](./resource-logs.md#send-to-log-analytics-workspace) |
+| Storage | 보관을 위해 Azure Storage로 리소스 로그를 보냅니다. | [Azure 리소스 로그 보관](./resource-logs.md#send-to-log-analytics-workspace) |
 | Event Hubs | Event Hubs를 사용 하 여 리소스 로그를 다른 위치로 스트림 합니다. |[이벤트 허브로 Azure 리소스 로그 스트림](./resource-logs.md#send-to-azure-event-hubs) |
 
 ## <a name="operating-system-guest"></a>운영 체제 (게스트)
@@ -119,7 +119,7 @@ Azure Virtual machines에 대해 Azure 진단 확장을 사용 하도록 설정 
 
 | 대상 | Description | 참조 |
 |:---|:---|:---|
-| 스토리지 | Azure 진단 확장은 항상 Azure Storage 계정에 기록 합니다. | [WAD(Windows Azure Diagnostics) 확장 설치 및 구성](diagnostics-extension-windows-install.md)<br>[Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링](../../virtual-machines/extensions/diagnostics-linux.md) |
+| Storage | Azure 진단 확장은 항상 Azure Storage 계정에 기록 합니다. | [WAD(Windows Azure Diagnostics) 확장 설치 및 구성](diagnostics-extension-windows-install.md)<br>[Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Azure Monitor 메트릭 | 성능 카운터를 수집 하도록 진단 확장을 구성 하면 Azure Monitor 메트릭 데이터베이스에 기록 됩니다. | [Windows 가상 머신에 대 한 리소스 관리자 템플릿을 사용 하 여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기](collect-custom-metrics-guestos-resource-manager-vm.md) |
 | Event Hubs | Event Hubs를 사용 하 여 다른 위치로 데이터를 스트리밍하는 진단 확장을 구성 합니다.  | [Event Hubs를 사용 하 여 스트리밍 Azure 진단 데이터](diagnostics-extension-stream-event-hubs.md)<br>[Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Application Insights 로그 | 다른 응용 프로그램 데이터를 사용 하 여 분석할 응용 프로그램을 지 원하는 계산 리소스에서 로그 및 성능 카운터를 수집 합니다. | [Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기](diagnostics-extension-to-application-insights.md) |
@@ -164,7 +164,7 @@ Azure Monitor의 자세한 응용 프로그램 모니터링은 다양 한 플랫
 |            | 예외 하위 집합에 대해 캡처된 디버그 스냅숏 데이터는 Azure Storage에 저장 됩니다. Azure Portal에서 Application Insights를 사용 하 여 로컬 분석을 다운로드 합니다.  | [스냅샷 작동 방식](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## <a name="monitoring-solutions-and-insights"></a>솔루션 및 통찰력 모니터링
-[모니터링 솔루션](../insights/solutions.md) 및 [통찰력](../insights/insights-overview.md) 은 데이터를 수집 하 여 특정 서비스나 응용 프로그램의 작업에 대 한 추가 정보를 제공 합니다. 서로 다른 응용 프로그램 계층 및 여러 계층의 리소스를 처리할 수 있습니다.
+[모니터링 솔루션](../insights/solutions.md) 및 [통찰력](../monitor-reference.md) 은 데이터를 수집 하 여 특정 서비스나 응용 프로그램의 작업에 대 한 추가 정보를 제공 합니다. 서로 다른 응용 프로그램 계층 및 여러 계층의 리소스를 처리할 수 있습니다.
 
 ### <a name="monitoring-solutions"></a>모니터링 솔루션
 

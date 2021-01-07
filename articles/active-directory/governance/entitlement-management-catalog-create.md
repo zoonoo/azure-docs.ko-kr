@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf6e02ebad2ac5150be4775ad0ff6069fe3db89f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980049"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97745966"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 리소스 카탈로그 만들기 및 관리
 
@@ -31,21 +31,21 @@ ms.locfileid: "90980049"
 
 **필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 작성자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
-1. 왼쪽 메뉴에서 **카탈로그**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **카탈로그** 를 클릭 합니다.
 
     ![Azure Portal의 권한 관리 카탈로그](./media/entitlement-management-catalog-create/catalogs.png)
 
-1. **새 카탈로그**를 클릭 합니다.
+1. **새 카탈로그** 를 클릭 합니다.
 
 1. 카탈로그에 대 한 고유한 이름을 입력 하 고 설명을 입력 합니다.
 
     사용자는 액세스 패키지의 세부 정보에서이 정보를 볼 수 있습니다.
 
-1. 사용자가이 카탈로그의 액세스 패키지를 만드는 즉시 요청 하 게 하려면 **사용** 을 **예**로 설정 합니다.
+1. 사용자가이 카탈로그의 액세스 패키지를 만드는 즉시 요청 하 게 하려면 **사용** 을 **예** 로 설정 합니다.
 
-1. 선택한 외부 디렉터리의 사용자가이 카탈로그에서 액세스 패키지를 요청할 수 있도록 하려면 **외부 사용자에 대해 사용** 을 **예**로 설정 합니다.
+1. 선택한 외부 디렉터리의 사용자가이 카탈로그에서 액세스 패키지를 요청할 수 있도록 하려면 **외부 사용자에 대해 사용** 을 **예** 로 설정 합니다.
 
     ![새 카탈로그 창](./media/entitlement-management-shared/new-catalog.png)
 
@@ -61,15 +61,15 @@ Microsoft Graph를 사용 하 여 카탈로그를 만들 수도 있습니다.  �
 
 **필수 역할:** [카탈로그에 리소스를 추가 하려면 필수 역할을](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog) 참조 하세요.
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **카탈로그** 를 클릭 한 다음 리소스를 추가 하려는 카탈로그를 엽니다.
 
-1. 왼쪽 메뉴에서 **리소스**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **리소스** 를 클릭 합니다.
 
-1. **리소스 추가**를 클릭 합니다.
+1. **리소스 추가** 를 클릭 합니다.
 
-1. 리소스 종류를 클릭 합니다 ( **그룹, 팀**, **응용 프로그램**또는 **SharePoint 사이트**).
+1. 리소스 종류를 클릭 합니다 ( **그룹, 팀**, **응용 프로그램** 또는 **SharePoint 사이트**).
 
     추가 하려는 리소스가 표시 되지 않거나 리소스를 추가할 수 없는 경우 필요한 Azure AD 디렉터리 역할 및 자격 관리 역할이 있는지 확인 합니다. 필요한 역할이 있는 사용자에 게 카탈로그에 리소스를 추가 해야 할 수도 있습니다. 자세한 내용은 [카탈로그에 리소스를 추가하는 데 필요한 역할](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)를 참조하세요.
 
@@ -77,7 +77,7 @@ Microsoft Graph를 사용 하 여 카탈로그를 만들 수도 있습니다.  �
 
     ![카탈로그에 리소스 추가](./media/entitlement-management-catalog-create/catalog-add-resources.png)
 
-1. 완료 되 면 **추가**를 클릭 합니다.
+1. 완료 되 면 **추가** 를 클릭 합니다.
 
     이러한 리소스는 이제 카탈로그 내에서 액세스 패키지에 포함 될 수 있습니다.
 
@@ -91,15 +91,15 @@ Microsoft Graph를 사용 하 여 카탈로그에 리소스를 추가할 수도 
 
 **필수 역할:** [카탈로그에 리소스를 추가 하려면 필수 역할을](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog) 참조 하세요.
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **카탈로그** 를 클릭 한 다음 리소스를 제거 하려는 카탈로그를 엽니다.
 
-1. 왼쪽 메뉴에서 **리소스**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **리소스** 를 클릭 합니다.
 
 1. 제거 하려는 리소스를 선택 합니다.
 
-1. **제거** 를 클릭 하거나 줄임표 (**...**)를 클릭 한 다음 **리소스 제거**를 클릭 합니다.
+1. **제거** 를 클릭 하거나 줄임표 (**...**)를 클릭 한 다음 **리소스 제거** 를 클릭 합니다.
 
 
 ## <a name="add-additional-catalog-owners"></a>카탈로그 소유자 추가
@@ -110,11 +110,11 @@ Microsoft Graph를 사용 하 여 카탈로그에 리소스를 추가할 수도 
 
 **필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 소유자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **카탈로그** 를 클릭 한 다음 관리자를 추가 하려는 카탈로그를 엽니다.
 
-1. 왼쪽 메뉴에서 **역할 및 관리자**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **역할 및 관리자** 를 클릭 합니다.
 
     ![역할 및 관리자 카탈로그](./media/entitlement-management-shared/catalog-roles-administrators.png)
 
@@ -128,17 +128,17 @@ Microsoft Graph를 사용 하 여 카탈로그에 리소스를 추가할 수도 
 
 **필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 소유자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **카탈로그** 를 클릭 한 다음 편집 하려는 카탈로그를 엽니다.
 
-1. 카탈로그의 **개요** 페이지에서 **편집**을 클릭 합니다.
+1. 카탈로그의 **개요** 페이지에서 **편집** 을 클릭 합니다.
 
 1. 카탈로그의 이름, 설명 또는 사용 설정을 편집 합니다.
 
     ![카탈로그 설정 편집](./media/entitlement-management-shared/catalog-edit.png)
 
-1. **Save**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 ## <a name="delete-a-catalog"></a>카탈로그 삭제
 
@@ -146,13 +146,13 @@ Microsoft Graph를 사용 하 여 카탈로그에 리소스를 추가할 수도 
 
 **필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 소유자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **카탈로그** 를 클릭 하 고 삭제 하려는 카탈로그를 엽니다.
 
-1. 카탈로그의 **개요**에서 **삭제**를 클릭 합니다.
+1. 카탈로그의 **개요** 에서 **삭제** 를 클릭 합니다.
 
-1. 표시되는 메시지 상자에서 **예**를 클릭합니다.
+1. 표시되는 메시지 상자에서 **예** 를 클릭합니다.
 
 ### <a name="deleting-a-catalog-programmatically"></a>프로그래밍 방식으로 카탈로그 삭제
 

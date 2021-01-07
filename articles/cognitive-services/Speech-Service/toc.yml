@@ -28,8 +28,6 @@
       items:
         - name: 음성 인식 소스 언어 변경
           href: how-to-specify-source-language.md
-        - name: Custom Speech를 사용하여 정확도 향상
-          href: how-to-custom-speech.md
         - name: 압축된 오디오 입력 형식 사용
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
@@ -39,28 +37,28 @@
           href: how-to-automatic-language-detection.md
         - name: 일괄 처리 기록 API 사용
           href: batch-transcription.md
+        - name: v2.0에서 v3.0으로 마이그레이션
+          href: migrate-v2-to-v3.md
+        - name: 발음 평가
+          href: how-to-pronunciation-assessment.md
     - name: 자습서
       items:
-        - name: Blob 스토리지에 저장된 음성 인식
-          href: quickstarts/from-blob.md
         - name: 테넌트 모델을 사용하여 정확도 향상
           href: tutorial-tenant-model.md
     - name: 사용자 지정
       items:
+        - name: Custom Speech란?
+          href: custom-speech-overview.md
         - name: Speech Studio에서 오디오 파일을 사용하여 모델 테스트
           href: quickstarts/speech-studio-test-model.md
         - name: Custom Speech에 대한 데이터 준비
           href: how-to-custom-speech-test-and-train.md
         - name: Custom Speech 데이터 검사
           href: how-to-custom-speech-inspect-data.md
-        - name: Custom Speech 정확도 평가
+        - name: Custom Speech 정확도 평가 및 개선
           href: how-to-custom-speech-evaluate-data.md
-        - name: Custom Speech 정확도 개선
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Custom Speech 모델 학습
+        - name: Custom Speech 모델 학습 및 배포
           href: how-to-custom-speech-train-model.md
-        - name: 사용자 지정 모델 배포
-          href: how-to-custom-speech-deploy-model.md
         - name: Custom Speech용 CI/CD
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: 휴먼 레이블 전사 만들기
@@ -69,22 +67,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/cppref'
+          href: /cpp/cognitive-services/speech/
         - name: C#
           displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/csharpref'
+          href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javaref'
+          href: /java/api/com.microsoft.cognitiveservices.speech
         - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javascriptref'
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
         - name: Objective-C
           displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/objectivecref'
+          href: /objectivec/cognitive-services/speech/
         - name: Python
           displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/pythonref'
+          href: /python/api/azure-cognitiveservices-speech/
         - name: 릴리스 정보
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -122,13 +120,13 @@
             - name: 합성 기술 배포
               href: concepts-guidelines-responsible-deployment-synthetic.md
             - name: 발화자 공개 지침
-              href: 'https://aka.ms/disclosure-voice-talent'
+              href: /legal/cognitive-services/speech-service/disclosure-voice-talent
             - name: 디자인 지침 공개
               href: concepts-disclosure-guidelines.md
             - name: 디자인 패턴 공개
               href: concepts-disclosure-patterns.md
             - name: 사용 규정
-              href: 'https://aka.ms/custom-neural-code-of-conduct'
+              href: /legal/cognitive-services/speech-service/tts-code-of-conduct
         - name: Custom Voice 포털
           items:
             - name: Custom Voice 시작
@@ -148,22 +146,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/cppref'
+          href: /cpp/cognitive-services/speech/
         - name: C#
           displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/csharpref'
+          href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javaref'
+          href: /java/api/com.microsoft.cognitiveservices.speech
         - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javascriptref'
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
         - name: Objective-C
           displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/objectivecref'
+          href: /objectivec/cognitive-services/speech/
         - name: Python
           displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/pythonref'
+          href: /python/api/azure-cognitiveservices-speech/
         - name: 릴리스 정보
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -198,22 +196,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/cppref'
+          href: /cpp/cognitive-services/speech/
         - name: C#
           displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/csharpref'
+          href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javaref'
+          href: /java/api/com.microsoft.cognitiveservices.speech
         - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javascriptref'
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
         - name: Objective-C
           displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/objectivecref'
+          href: /objectivec/cognitive-services/speech/
         - name: Python
           displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/pythonref'
+          href: /python/api/azure-cognitiveservices-speech/
         - name: 릴리스 정보
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -243,29 +241,29 @@
           items:
             - name: C++
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/cppref'
+              href: /cpp/cognitive-services/speech/
             - name: C#
               displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/csharpref'
+              href: /dotnet/api/microsoft.cognitiveservices.speech
             - name: Java
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javaref'
+              href: /java/api/com.microsoft.cognitiveservices.speech
             - name: JavaScript
               displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javascriptref'
+              href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
             - name: Objective-C
               displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/objectivecref'
+              href: /objectivec/cognitive-services/speech/
             - name: Python
               displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/pythonref'
+              href: /python/api/azure-cognitiveservices-speech/
             - name: 릴리스 정보
               displayName: 'release notes,updates,what''s new,what is new,changes'
               href: releasenotes.md
         - name: LUIS 서비스
           items:
             - name: LUIS 개발자 리소스
-              href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
+              href: ../luis/developer-reference-resource.md
     - name: 리소스
       items:
         - name: 언어 지원
@@ -281,7 +279,7 @@
     - name: 참조
       items:
         - name: Speaker Recognition REST API
-          href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+          href: /rest/api/speakerrecognition/
 - name: 사용자 지정 키워드
   items:
     - name: 사용자 지정 키워드 개요
@@ -314,22 +312,22 @@
                   items:
                     - name: C++
                       displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/cppref'
+                      href: /cpp/cognitive-services/speech/
                     - name: C#
                       displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/csharpref'
+                      href: /dotnet/api/microsoft.cognitiveservices.speech
                     - name: Java
                       displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/javaref'
+                      href: /java/api/com.microsoft.cognitiveservices.speech
                     - name: JavaScript
                       displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/javascriptref'
+                      href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
                     - name: Objective-C
                       displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/objectivecref'
+                      href: /objectivec/cognitive-services/speech/
                     - name: Python
                       displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-                      href: 'https://aka.ms/csspeech/pythonref'
+                      href: /python/api/azure-cognitiveservices-speech/
                     - name: 릴리스 정보
                       displayName: 'release notes,updates,what''s new,what is new,changes'
                       href: releasenotes.md
@@ -348,11 +346,11 @@
                 - name: Speech SDK
                   items:
                     - name: C++
-                      href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
+                      href: /cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace
                     - name: C#
-                      href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
+                      href: /dotnet/api/microsoft.cognitiveservices.speech.transcription
                     - name: Java
-                      href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
+                      href: /java/api/com.microsoft.cognitiveservices.speech.transcription
     - name: 음성 도우미
       items:
         - name: 음성 도우미 설명서
@@ -365,25 +363,13 @@
               href: custom-commands.md
             - name: 빠른 시작
               items:
-                - name: 사용자 지정 명령 앱 빌드
+                - name: 사용자 지정 명령 앱 만들기
                   href: quickstart-custom-commands-application.md
             - name: 방법 가이드
               items:
-                - name: 개발
-                  items:
-                    - name: 간단한 명령으로 애플리케이션 만들기
-                      href: how-to-custom-commands-create-application-with-simple-commands.md
-                    - name: 명령에 매개 변수 추가
-                      href: how-to-custom-commands-add-parameters-to-commands.md
-                    - name: 명령 매개 변수에 구성 추가
-                      href: how-to-custom-commands-add-parameter-configuration.md
-                    - name: 상호 작용 규칙 추가
-                      href: how-to-custom-commands-add-interaction-rules.md
-                    - name: 음성 응답을 위한 언어 생성 템플릿 추가
-                      href: how-to-custom-commands-add-language-generation-templates.md
-                    - name: 사용자 지정 음성 사용
-                      href: how-to-custom-commands-use-custom-voice.md
-                - name: 통합
+                - name: 사용자 지정 명령 앱 개발 및 사용자 지정
+                  href: how-to-develop-custom-commands-application.md
+                - name: 클라이언트 애플리케이션과 통합
                   items:
                     - name: 음성 SDK를 사용하여 클라이언트 앱과 통합
                       href: how-to-custom-commands-setup-speech-sdk.md
@@ -393,26 +379,22 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: 사용자 지정 명령 앱을 기술로 내보내기
                       href: how-to-custom-commands-integrate-remote-skills.md
-                - name: 배포
-                  items:
-                    - name: Azure DevOps를 사용한 지속적인 배포
-                      href: how-to-custom-commands-deploy-cicd.md
-                - name: 테스트
-                  items:
-                    - name: 사용자 지정 명령 앱 테스트
-                      href: how-to-custom-commands-developer-flow-test.md
-                - name: 디버그
-                  items:
-                    - name: 앱을 작성할 때 오류 디버그
-                      href: how-to-custom-commands-debug-build-time.md
-                    - name: 앱을 실행할 때 오류 디버그
-                      href: how-to-custom-commands-debug-runtime.md
-                - name: 참조
-                  items:
-                    - name: 사용자 지정 명령 개념
-                      href: custom-commands-references.md
+                    - name: 클라이언트 앱에서 명령 업데이트
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: 웹 엔드포인트에서 명령 업데이트
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
+                - name: Azure DevOps를 사용한 지속적인 배포
+                  href: how-to-custom-commands-deploy-cicd.md
+                - name: 사용자 지정 명령 애플리케이션 테스트
+                  href: how-to-custom-commands-developer-flow-test.md
+                - name: 앱을 작성할 때 오류 디버그
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: 앱을 실행할 때 오류 디버그
+                  href: how-to-custom-commands-debug-runtime.md
             - name: 리소스
               items:
+                - name: 사용자 지정 명령 개념
+                  href: custom-commands-references.md
                 - name: 사용자 지정 명령 샘플(GitHub)
                   href: 'https://aka.ms/speech/cc-samples'
                 - name: 음성 도우미 샘플(GitHub)
@@ -468,17 +450,17 @@
         - name: 참조
           items:
             - name: C++
-              href: 'https://aka.ms/csspeech/cppref'
+              href: /cpp/cognitive-services/speech/
             - name: C#
-              href: 'https://aka.ms/csspeech/csharpref'
+              href: /dotnet/api/microsoft.cognitiveservices.speech
             - name: Java
-              href: 'https://aka.ms/csspeech/javaref'
+              href: /java/api/com.microsoft.cognitiveservices.speech
             - name: JavaScript
-              href: 'https://aka.ms/csspeech/javascriptref'
+              href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
             - name: Objective-C
-              href: 'https://aka.ms/csspeech/objectivecref'
+              href: /objectivec/cognitive-services/speech/
             - name: Python
-              href: 'https://aka.ms/csspeech/pythonref'
+              href: /python/api/azure-cognitiveservices-speech/
             - name: Go
               href: 'https://github.com/microsoft/cognitive-services-speech-sdk-go'
     - name: Speech CLI
@@ -495,13 +477,15 @@
         - name: Speech Studio 개요
           href: 'https://speech.microsoft.com'
         - name: Speech Studio를 사용하여 사용자 지정 명령 앱 만들기
-          href: quickstart-custom-speech-commands-create-new.md
+          href: ./quickstart-custom-commands-application.md
 - name: 배포
   items:
     - name: 로깅 사용
       href: how-to-use-logging.md
     - name: 메모리 사용량 추적
       href: how-to-track-speech-sdk-memory-usage.md
+    - name: 프라이빗 엔드포인트 사용
+      href: speech-services-private-link.md
     - name: Linux용 OpenSSL 구성
       displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
       href: how-to-configure-openssl-linux.md
@@ -523,7 +507,8 @@
           href: speech-container-howto-on-premises.md
         - name: Azure 컨테이너 인스턴스의 음성 컨테이너
           displayName: 'ACI,azure container instances,container instances,containers'
-          href: deploy-speech-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: 컨테이너 FAQ
           href: speech-container-faq.md
         - name: Cognitive Services 컨테이너 설명서

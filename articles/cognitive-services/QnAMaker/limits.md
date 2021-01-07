@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380908"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708943"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -39,7 +39,7 @@ ms.locfileid: "94380908"
 
 ### <a name="maximum-file-size"></a>최대 파일 크기
 
-|서식|최대 파일 크기 (MB)|
+|형식|최대 파일 크기 (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -82,10 +82,10 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 ## <a name="knowledge-base-content-limits"></a>기술 자료 콘텐츠 제한
 기술 자료에서 전반적인 콘텐츠 제한 사항은 아래와 같습니다.
-* 답변 텍스트 길이: 25,000
-* 질문 텍스트 길이: 1,000
-* 메타 데이터 키 텍스트의 길이: 100
-* 메타 데이터 값 텍스트의 길이: 500
+* 대답 텍스트 길이: 25000 문자
+* 질문 텍스트 길이: 1000 문자
+* 메타 데이터 키 텍스트의 길이: 100 문자
+* 메타 데이터 값 텍스트의 길이: 500 문자
 * 메타 데이터 이름에 대해 지원 되는 문자: 영문자, 숫자 및 `_`
 * 메타 데이터 값에 대해 지원 되는 문자: 및를 제외한 모든 값 `:``|`
 * 파일 이름 길이: 200

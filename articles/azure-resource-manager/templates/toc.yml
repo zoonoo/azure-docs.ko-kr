@@ -19,7 +19,7 @@
             - name: Cognitive Search
               href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Cognitive Services
-              href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%252fazure%252fazure-resource-manager%252ftemplates%252ftoc.json
+              href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
             - name: 데이터 과학 Virtual Machine
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Machine Learning
@@ -48,7 +48,7 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Synapse Analytics SQL 풀
+            - name: 전용 SQL 풀(이전에는 SQL DW)
               href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 블록체인
           items:
@@ -126,6 +126,8 @@
               href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: IoT Hub
               href: ../../iot-hub/horizontal-arm-route-messages.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: IoT Hub Device Provisioning Service
+              href: ../../iot-dps/quick-setup-auto-provision-rm.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 관리 및 거버넌스
           items:
             - name: Advisor
@@ -288,6 +290,8 @@
         - name: 배포 관리자에서 상태 검사 사용
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+    - name: 템플릿에 대한 Microsoft Learn 경로
+      href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: 개념
   items:
     - name: 템플릿 모범 사례
@@ -513,6 +517,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: 리소스
   items:
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: /learn/paths/deploy-manage-resource-manager-templates/
     - name: Azure 빠른 시작 템플릿
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: Azure 로드맵

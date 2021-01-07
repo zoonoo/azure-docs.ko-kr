@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0feaf4a984f40ddee7a30291fe0a8f671b6512a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092809"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636846"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Azure Cosmos DB 제어 평면 작업을 감사 하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,7 +28,7 @@ Azure Cosmos DB의 컨트롤 평면은 Azure Cosmos 계정에서 다양 한 작�
 
 ## <a name="disable-key-based-metadata-write-access"></a>키 기반 메타 데이터 쓰기 액세스 사용 안 함
 
-Azure Cosmos DB에서 제어 평면 작업을 감사 하기 전에 계정에 대 한 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 합니다. 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 하면 계정 키를 통해 Azure Cosmos 계정에 연결 하는 클라이언트가 계정에 액세스할 수 없습니다. 속성을 true로 설정 하 여 쓰기 액세스를 비활성화할 수 있습니다 `disableKeyBasedMetadataWriteAccess` . 이 속성을 설정한 후에는 적절 한 RBAC (역할 기반 액세스 제어) 역할 및 자격 증명을 사용 하는 사용자가 리소스에 대 한 변경 내용을 수행할 수 있습니다. 이 속성을 설정 하는 방법에 대 한 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#prevent-sdk-changes) 문서를 참조 하세요. 
+Azure Cosmos DB에서 제어 평면 작업을 감사 하기 전에 계정에 대 한 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 합니다. 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 하면 계정 키를 통해 Azure Cosmos 계정에 연결 하는 클라이언트가 계정에 액세스할 수 없습니다. 속성을 true로 설정 하 여 쓰기 액세스를 비활성화할 수 있습니다 `disableKeyBasedMetadataWriteAccess` . 이 속성을 설정한 후에는 적절 한 Azure 역할 및 자격 증명이 있는 사용자가 모든 리소스에 대 한 변경 내용을 수행할 수 있습니다. 이 속성을 설정 하는 방법에 대 한 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#prevent-sdk-changes) 문서를 참조 하세요. 
 
 `disableKeyBasedMetadataWriteAccess`가 설정 된 후 SDK 기반 클라이언트가 만들기 또는 업데이트 작업을 실행 하는 경우 *' ContainerNameorDatabaseName ' 리소스에 대 한 작업 ' POST '는 Azure Cosmos DB 끝점이 반환 될 수 없습니다* . 계정에 대 한 이러한 작업에 대 한 액세스를 설정 하거나 Azure Resource Manager, Azure CLI 또는 Azure PowerShell를 통해 만들기/업데이트 작업을 수행 해야 합니다. 다시 전환 하려면 [COSMOS SDK에서 변경 방지](role-based-access-control.md#prevent-sdk-changes) 문서에 설명 된 대로 Azure CLI를 사용 하 여 disableKeyBasedMetadataWriteAccess을 **false** 로 설정 합니다. 의 값을 `disableKeyBasedMetadataWriteAccess` true 대신 false로 변경 해야 합니다.
 
@@ -70,17 +70,17 @@ Azure Portal를 사용 하 여 제어 평면 작업에 대 한 진단 로그를 
 
 다음 스크린샷은 Azure Cosmos 계정에 대 한 일관성 수준이 변경 될 때 로그를 캡처합니다.
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="제어 평면 요청 로깅 사용":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="VNet이 추가 될 때의 제어 평면 로그":::
 
 다음 스크린샷은 Cassandra 계정의 keyspace 또는 테이블이 만들어지고 처리량이 업데이트 될 때 로그를 캡처합니다. 다음 스크린샷에 표시 된 것 처럼 데이터베이스 및 컨테이너에 대 한 만들기 및 업데이트 작업의 제어 평면 로그는 별도로 기록 됩니다.
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="제어 평면 요청 로깅 사용":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="처리량이 업데이트 되는 경우의 제어 평면 로그":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>특정 작업에 연결 된 id를 식별 합니다.
 
 추가로 디버깅 하려는 경우 작업 ID 또는 작업 타임 스탬프를 사용 하 여 **활동 로그** 에서 특정 작업을 식별할 수 있습니다. 타임 스탬프는 활동 ID가 명시적으로 전달 되지 않은 일부 리소스 관리자 클라이언트에 사용 됩니다. 활동 로그는 작업이 시작 된 id에 대 한 세부 정보를 제공 합니다. 다음 스크린샷에서는 활동 ID를 사용 하 고 활동 로그에서 활동 ID와 연결 된 작업을 찾는 방법을 보여 줍니다.
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="제어 평면 요청 로깅 사용":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="작업 ID를 사용 하 여 작업을 찾습니다.":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Azure Cosmos 계정에 대 한 제어 평면 작업
 

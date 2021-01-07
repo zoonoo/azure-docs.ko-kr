@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
 ms.openlocfilehash: 23db3457458d34852f164649137c2b20cf99238b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458442"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006016"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>자습서: Litmus와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -97,7 +97,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -167,11 +167,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![스크린샷은 설명된 값을 입력할 수 있는 사용자 추가 섹션을 보여줍니다.](./media/litmus-tutorial/user-profile.png)
 
-    a. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **B.Simon\@contoso.com** )를 입력합니다.
+    a. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **B.Simon\@contoso.com**)를 입력합니다.
 
-    b. **이름** 텍스트 상자에 사용자의 이름(예: **B** )을 입력합니다.
+    b. **이름** 텍스트 상자에 사용자의 이름(예: **B**)을 입력합니다.
 
-    다. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
+    다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
     d. **사용자 만들기** 를 클릭합니다.
 

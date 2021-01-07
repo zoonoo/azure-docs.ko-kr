@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: eae4aece79cd387aaa7e708591ca31442eaa05c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d50d4c554f47629f6e04adf957e02f8ffcc48fe5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135904"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509464"
 ---
 이 가이드에서는 Python용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려면 `pip install azure-cognitiveservices-speech`를 실행합니다.
 
@@ -79,7 +79,7 @@ import azure.cognitiveservices.speech as speechsdk
    ![Python 확장 설치](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. Visual Studio Code 내에서도 통합 명령줄을 통해 Speech SDK Python 패키지를 설치합니다.
-   1. 터미널을 엽니다(드롭다운 메뉴에서 **터미널** > **새 터미널** ).
+   1. 터미널을 엽니다(드롭다운 메뉴에서 **터미널** > **새 터미널**).
    1. 열리는 터미널에서 `python -m pip install azure-cognitiveservices-speech` 명령을 입력합니다.
 
 Visual Studio Code를 처음 접하는 경우 더 광범위한 [Visual Studio Code 설명서](https://code.visualstudio.com/docs)를 참조하세요. Visual Studio Code 및 Python에 대한 자세한 내용은 [Visual Studio Code Python 자습서](https://code.visualstudio.com/docs/python/python-tutorial)를 참조하세요.
@@ -90,7 +90,7 @@ Speech SDK Python 패키지에 대한 업데이트는 PyPI를 통해 배포되�
 새 버전을 사용할 수 있는 경우 `pip install --upgrade azure-cognitiveservices-speech` 명령을 사용하여 업데이트할 수 있습니다.
 `azure.cognitiveservices.speech.__version__` 변수를 검사하여 현재 설치된 버전을 확인하세요.
 
-문제가 있거나 기능이 누락된 경우 [지원 및 도움말 옵션](~/articles/cognitive-services/speech-service/support.md)을 참조하세요.
+문제가 있거나 기능이 누락된 경우 [지원 및 도움말 옵션](../../../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

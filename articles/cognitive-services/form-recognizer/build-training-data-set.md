@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911718"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845602"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>사용자 지정 모델에 대 한 학습 데이터 집합 작성
 
@@ -72,11 +72,8 @@ ms.locfileid: "92911718"
 
 학습 데이터 집합을 작성 하는 방법을 배웠으므로 이제 빠른 시작을 따라 사용자 지정 양식 인식기 모델을 학습 하 고 폼에서 사용 하기 시작 합니다.
 
-* [클라이언트 라이브러리를 사용 하 여 모델 학습 및 양식 데이터 추출](./quickstarts/client-library.md)
-* [모델 학습 및 말아 넘기기를 사용 하 여 양식 데이터 추출](./quickstarts/curl-train-extract.md)
-* [REST API와 Python을 사용 하 여 모델을 학습 하 고 양식 데이터를 추출 합니다.](./quickstarts/python-train-extract.md)
+* [클라이언트 라이브러리나 REST API 사용 하 여 모델을 학습 하 고 양식 데이터를 추출 합니다.](./quickstarts/client-library.md)
 * [샘플 레이블 도구를 사용 하 여 레이블로 학습](./quickstarts/label-tool.md)
-* [REST API 및 Python을 사용하여 레이블로 학습](./quickstarts/python-labeled-data.md)
 
 ## <a name="see-also"></a>참조
 

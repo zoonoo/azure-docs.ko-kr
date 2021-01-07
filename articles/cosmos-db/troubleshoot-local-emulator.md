@@ -1,29 +1,29 @@
 ---
-title: Azure Cosmos 에뮬레이터를 사용 하는 경우 문제 해결
-description: Azure Cosmos 에뮬레이터를 사용 하는 경우 서비스를 사용할 수 없음, 인증서, 암호화 및 버전 관리 문제를 해결 하는 방법에 대해 알아봅니다.
+title: Azure Cosmos DB 에뮬레이터를 사용 하는 경우 문제 해결
+description: Azure Cosmos DB 에뮬레이터를 사용 하는 경우 서비스를 사용할 수 없음, 인증서, 암호화 및 버전 관리 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.service: cosmos-db
 ms.topic: troubleshooting
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
-ms.custom: contperfq1
-ms.openlocfilehash: cf174d45f33c50ce93b45b19c6030cf42cb20983
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: bb07adafbc68ff1e9b7d3ee49bb7631dc4395d77
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081453"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033462"
 ---
-# <a name="troubleshoot-issues-when-using-the-azure-cosmos-emulator"></a>Azure Cosmos 에뮬레이터를 사용 하는 경우 문제 해결
+# <a name="troubleshoot-issues-when-using-the-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터를 사용 하는 경우 문제 해결
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos emulator는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. 이 문서의 팁을 사용 하 여 Azure Cosmos 에뮬레이터를 설치 하거나 사용할 때 발생 하는 문제를 해결할 수 있습니다. 
+Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 문서의 팁을 사용 하 여 Azure Cosmos DB 에뮬레이터를 설치 하거나 사용할 때 발생 하는 문제를 해결할 수 있습니다. 
 
-새 버전의 에뮬레이터를 설치했는데 오류가 발생하는 경우 데이터를 다시 설정합니다. 시스템 트레이에서 Azure Cosmos 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭 한 다음 데이터 다시 설정 ...을 클릭 하 여 데이터를 다시 설정할 수 있습니다. 그래도 오류가 해결 되지 않으면 에뮬레이터와 에뮬레이터의 이전 버전을 제거할 수 있습니다 .이 경우에는 *C:\Program files\Azure Cosmos DB emulator* 디렉터리를 제거 하 고 에뮬레이터를 다시 설치 합니다. 지침은 [로컬 에뮬레이터 제거](local-emulator.md#uninstall)를 참조하세요. 또는 데이터를 다시 설정 하는 것이 작동 하지 않으면 위치로 이동 하 여 `%LOCALAPPDATA%\CosmosDBEmulator` 폴더를 삭제 합니다.
+새 버전의 에뮬레이터를 설치했는데 오류가 발생하는 경우 데이터를 다시 설정합니다. 시스템 트레이에서 Azure Cosmos DB 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭 한 다음 데이터 다시 설정 ...을 클릭 하 여 데이터를 다시 설정할 수 있습니다. 그래도 오류가 해결 되지 않으면 에뮬레이터와 에뮬레이터의 이전 버전을 제거할 수 있습니다 .이 경우에는 *C:\Program files\Azure Cosmos DB emulator* 디렉터리를 제거 하 고 에뮬레이터를 다시 설치 합니다. 지침은 [로컬 에뮬레이터 제거](local-emulator.md#uninstall)를 참조하세요. 또는 데이터를 다시 설정 하는 것이 작동 하지 않으면 위치로 이동 하 여 `%LOCALAPPDATA%\CosmosDBEmulator` 폴더를 삭제 합니다.
 
 ## <a name="troubleshoot-corrupted-windows-performance-counters"></a>손상 된 windows 성능 카운터 문제 해결
 
-* Azure Cosmos 에뮬레이터가 충돌 하는 경우 폴더에서 덤프 파일 `%LOCALAPPDATA%\CrashDumps` 을 수집 하 고 압축 한 다음 [Azure Portal](https://portal.azure.com)에서 지원 티켓을 엽니다.
+* Azure Cosmos DB 에뮬레이터가 충돌 하는 경우 폴더에서 덤프 파일 `%LOCALAPPDATA%\CrashDumps` 을 수집 하 고 압축 한 다음 [Azure Portal](https://portal.azure.com)에서 지원 티켓을 엽니다.
 
 * `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`에서 크래시가 발생하는 경우에는 성능 카운터가 손상된 상태에서 발생하는 증상일 수 있습니다. 일반적으로 관리자 명령 프롬프트에서 다음 명령을 실행하면 문제가 해결됩니다.
 
@@ -51,7 +51,7 @@ Azure Cosmos emulator는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬
    cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"
    ```
 
-1. 에뮬레이터를 종료 하 고 시스템 트레이를 시청 하 여 프로그램이 종료 되었는지 확인 합니다. 완료 하는 데 1 분 정도 걸릴 수 있습니다. Azure Cosmos emulator 사용자 인터페이스에서 **끝내기** 를 선택할 수도 있습니다.
+1. 에뮬레이터를 종료 하 고 시스템 트레이를 시청 하 여 프로그램이 종료 되었는지 확인 합니다. 완료 하는 데 1 분 정도 걸릴 수 있습니다. Azure Cosmos DB 에뮬레이터 사용자 인터페이스에서 **끝내기** 를 선택할 수도 있습니다.
 
    ```bash
    Microsoft.Azure.Cosmos.Emulator.exe /shutdown
@@ -85,5 +85,5 @@ Azure Cosmos emulator는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬
 
 이 문서에서는 로컬 에뮬레이터를 사용 하 여 문제를 디버그 하는 방법을 배웠습니다. 이제 다음 문서를 진행할 수 있습니다.
 
-* [Java, Python 및 Node.js apps와 함께 사용 하기 위해 Azure Cosmos 에뮬레이터 인증서를 내보냅니다.](local-emulator-export-ssl-certificates.md)
+* [Java, Python 및 Node.js 앱에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기](local-emulator-export-ssl-certificates.md)
 * [명령줄 매개 변수 및 PowerShell 명령을 사용 하 여 에뮬레이터 제어](emulator-command-line-parameters.md)

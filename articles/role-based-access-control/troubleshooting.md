@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741066"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184266"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -59,7 +59,7 @@ $ras.Count
     az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-    "작업을 완료할 수 있는 권한이 부족 합니다." 오류가 발생 하는 경우 Azure CLI가 Azure AD에서 담당자 id를 조회 하려고 시도 하 고 서비스 사용자가 기본적으로 Azure AD를 읽을 수 없기 때문일 수 있습니다.
+    "작업을 완료 하는 데 필요한 권한이 부족 합니다." 오류가 발생 하는 경우 Azure CLI가 Azure AD에서 담당자 id를 조회 하려고 시도 하 고 서비스 사용자가 기본적으로 Azure AD를 읽을 수 없기 때문일 수 있습니다.
 
     이 오류를 해결 하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 디렉터리의 데이터를 읽을 수 있도록 서비스 사용자에 게 [디렉터리 판독기](../active-directory/roles/permissions-reference.md#directory-readers) 역할을 할당 하는 것입니다.
 
@@ -68,6 +68,7 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- 구독에 대 한 마지막 소유자 역할 할당을 제거 하려고 하면 "마지막 RBAC 관리자 할당을 삭제할 수 없습니다." 라는 오류가 표시 될 수 있습니다. 구독에 대 한 분리을 방지 하기 위해 구독에 대 한 마지막 소유자 역할 할당은 제거할 수 없습니다. 구독을 취소 하려면 [Azure 구독 취소](../cost-management-billing/manage/cancel-azure-subscription.md)를 참조 하세요.
 
 ## <a name="problems-with-custom-roles"></a>사용자 지정 역할의 문제
 
@@ -79,7 +80,7 @@ $ras.Count
 
 ## <a name="custom-roles-and-management-groups"></a>사용자 지정 역할 및 관리 그룹
 
-- 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다.
+- 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 - 를 사용 하는 사용자 지정 역할 `DataActions` 은 관리 그룹 범위에서 할당할 수 없습니다.
 - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인 하지 않습니다.
 - 사용자 지정 역할 및 관리 그룹에 대 한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)을 참조 하세요.
@@ -150,7 +151,7 @@ CanDelegate        : False
 }
 ```
 
-보안 주체가 삭제 된 위치에서 이러한 역할 할당을 유지 하는 것은 문제가 되지 않습니다. 원하는 경우 다른 역할 할당과 비슷한 단계를 사용 하 여 이러한 역할 할당을 제거할 수 있습니다. 역할 할당을 제거 하는 방법에 대 한 자세한 내용은 [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)또는 [Azure CLI](role-assignments-cli.md#remove-role-assignment) 를 참조 하세요.
+보안 주체가 삭제 된 위치에서 이러한 역할 할당을 유지 하는 것은 문제가 되지 않습니다. 원하는 경우 다른 역할 할당과 비슷한 단계를 사용 하 여 이러한 역할 할당을 제거할 수 있습니다. 역할 할당을 제거 하는 방법에 대 한 자세한 내용은 [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)또는 [Azure CLI](role-assignments-cli.md#remove-a-role-assignment) 를 참조 하세요.
 
 PowerShell에서 개체 ID 및 역할 정의 이름을 사용 하 여 역할 할당을 제거 하려고 하지만 둘 이상의 역할 할당이 매개 변수와 일치 하는 경우 "제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 오류 메시지가 표시 됩니다. 다음 출력은 오류 메시지의 예를 보여 줍니다.
 
@@ -229,7 +230,7 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 * 디스크  
 * 확장  
 
-다음 항목을 사용하려면 **가상 머신** 와 가상 머신이 속한 **리소스 그룹** (도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.  
+다음 항목을 사용하려면 **가상 머신** 와 가상 머신이 속한 **리소스 그룹**(도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.  
 
 * 가용성 집합  
 * 부하 분산된 집합  

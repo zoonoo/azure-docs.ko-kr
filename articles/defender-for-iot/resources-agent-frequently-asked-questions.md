@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 9862519a2003eb373c43fef1b660986a8d830327
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f584f11603e41b63f3c96749ed6c720eb5ce07a8
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094455"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835060"
 ---
 # <a name="azure-defender-for-iot-agent-frequently-asked-questions"></a>IoT 에이전트에 대 한 Azure Defender 질문과 대답
 
 이 문서에서는 IoT 에이전트의 Defender에 대 한 질문과 대답 목록을 제공 합니다.
-
 
 ## <a name="do-i-have-to-install-an-embedded-security-agent"></a>포함 된 보안 에이전트를 설치 해야 하나요?
 
@@ -41,7 +40,6 @@ Iot 용 Defender를 사용 하도록 설정 하기 위해 IoT 장치에 에이�
 IoT 용 Defender 에이전트는 장치 구성, 동작 및 액세스를 위한 장치 수준 위협 범위 (구성을 검색 하 여)를 제공 하 고 & 연결을 처리 합니다. IoT 용 Defender 보안 에이전트는 비즈니스 관련 데이터 또는 활동을 검색 하지 않습니다.
 
 IoT 보안 에이전트의 Defender는 오픈 소스 이며 GitHub에서 32 비트 및 64 비트 Windows 및 Linux 버전으로 제공 https://github.com/Azure/Azure-IoT-Security 됩니다.
-
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>에이전트의 종속성 및 필수 조건은 무엇인가요?
 
@@ -65,7 +63,7 @@ IoT 용 Defender는 다양 한 플랫폼을 지원 합니다. 특정 디바이�
 
 1. [디바이스에서 에이전트가 실행되고 있는지](how-to-agent-configuration.md) 확인합니다.
 
-1. IoT Hub에서 **보안**에 대해 [서비스를 사용하도록 설정했는지](quickstart-onboard-iot-hub.md) 확인합니다.
+1. IoT Hub에서 **보안** 에 대해 [서비스를 사용하도록 설정했는지](quickstart-onboard-iot-hub.md) 확인합니다.
 
 1. 장치가 [IoT 용 Defender 모듈을 사용 하 여 IoT Hub에서 구성](quickstart-create-security-twin.md)되었는지 확인 합니다.
 
@@ -87,13 +85,11 @@ IoT 용 Defender는 다양 한 플랫폼을 지원 합니다. 특정 디바이�
 
 에이전트가 통신을 중지하거나 보안 메시지를 보내지 못하는 경우 **디바이스가 자동임** 경고가 생성됩니다.
 
-
-
 ## <a name="next-steps"></a>다음 단계
 
 IoT 용 Defender를 시작 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 - IoT 용 Defender [개요](overview.md) 읽기
-- [서비스 필수 조건](service-prerequisites.md) 확인
-- [시작](getting-started.md) 방법에 대한 자세한 정보
+- [시스템 필수 구성 요소](quickstart-system-prerequisites.md) 확인
+- [IoT 용 Defender를 시작](getting-started.md) 하는 방법에 대 한 자세한 정보
 - [IoT 보안 경고에 대 한 Defender](concept-security-alerts.md) 이해

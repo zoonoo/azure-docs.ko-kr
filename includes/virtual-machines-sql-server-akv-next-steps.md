@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: e0ff4e91ed55a37e710a5655e7da9ec76b7d1dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6195b949cc71043dfa7a12bdece7a311dbde5e21
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84014702"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554629"
 ---
 ## <a name="next-steps"></a>다음 단계
 
@@ -25,7 +25,7 @@ Azure Key Vault 통합을 설정한 후에는 SQL VM에서 SQL Server 암호화�
 
 ### <a name="prerequisites-for-examples"></a>예에 대한 필수 조건
 
-각 예제는 **CONTOSO_KEY** 이라는 주요 자격 증명 모음의 비대칭 키와 **Azure_EKM_cred**라는 AKV 통합 기능으로 만든 자격 증명 이라는 두 가지 필수 조건을 기반으로 합니다. 다음 Transact-SQL 명령은 예를 실행하기 위한 필수 구성 요소를 설치합니다.
+각 예제는 **CONTOSO_KEY** 이라는 주요 자격 증명 모음의 비대칭 키와 **Azure_EKM_cred** 라는 AKV 통합 기능으로 만든 자격 증명 이라는 두 가지 필수 조건을 기반으로 합니다. 다음 Transact-SQL 명령은 예를 실행하기 위한 필수 구성 요소를 설치합니다.
 
 ``` sql
 USE master;
@@ -144,6 +144,6 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
 ## <a name="additional-resources"></a>추가 리소스
 
-이러한 암호화 기능을 사용하는 방법에 대한 자세한 내용은 [SQL Server 암호화 기능과 함께 EKM 사용](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM)을 참조하세요.
+이러한 암호화 기능을 사용하는 방법에 대한 자세한 내용은 [SQL Server 암호화 기능과 함께 EKM 사용](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server#UsesOfEKM)을 참조하세요.
 
 이 문서의 단계는 Azure 가상 머신에서 이미 SQL Server가 실행되고 있는 것으로 가정합니다. 아직 실행하고 있지 않다면 [Azure에서 SQL Server 가상 머신 프로비전](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md)을 참조하세요. Azure VM에서 SQL Server 실행과 관련된 기타 참고 자료는 [Azure Virtual Machines의 SQL Server 개요](../articles/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요.

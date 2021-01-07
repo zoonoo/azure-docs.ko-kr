@@ -3,17 +3,16 @@ title: Azure Service Fabric-컨테이너 리포지토리 자격 증명 구성
 description: 컨테이너 레지스트리에서 이미지를 다운로드 하기 위한 리포지토리 자격 증명 구성
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.custom: sfrev
-ms.openlocfilehash: 47a3fb39693bf6143d4033eed437f65b7e63eabb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0c6421fed88a3909db717c13a6b3faf51c4491cd
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978682"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574822"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>컨테이너 이미지를 다운로드 하기 위해 응용 프로그램에 대 한 리포지토리 자격 증명 구성
 
-`RepositoryCredentials`응용 프로그램 매니페스트의 섹션에를 추가 하 여 컨테이너 레지스트리 인증을 구성 `ContainerHostPolicies` 합니다. 컨테이너 레지스트리에 대 한 계정 및 암호를 추가 합니다 (아래 예제에서는*myregistry.azurecr.io* ) .이를 통해 서비스는 리포지토리에서 컨테이너 이미지를 다운로드할 수 있습니다.
+`RepositoryCredentials`응용 프로그램 매니페스트의 섹션에를 추가 하 여 컨테이너 레지스트리 인증을 구성 `ContainerHostPolicies` 합니다. 컨테이너 레지스트리에 대 한 계정 및 암호를 추가 합니다 (아래 예제에서는 *myregistry.azurecr.io* ) .이를 통해 서비스는 리포지토리에서 컨테이너 이미지를 다운로드할 수 있습니다.
 
 ```xml
 <ServiceManifestImport>

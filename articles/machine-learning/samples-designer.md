@@ -1,7 +1,7 @@
 ---
 title: 디자이너의 파이프라인 및 데이터 세트 예제
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 디자이너에서 샘플을 사용하여 기계 학습 파이프라인을 신속하게 시작합니다.
+description: Azure Machine Learning 디자이너에서 샘플을 사용하여 기계 학습 파이프라인을 바로 시작하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: ecdb011310d8aa5bd63e9b9e9679bb525cb4f7b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a27e18d9b6f6307f1cc8ed48ca897dd4d1f0f1f3
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074603"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555501"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너의 파이프라인 및 데이터 세트 예제
 
@@ -36,19 +36,19 @@ Azure Machine Learning 디자이너에서 기본 제공되는 예제를 사용�
 
 1. <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>에 로그인하고, 사용하려는 작업 영역을 선택합니다.
 
-1. **디자이너**를 선택합니다.
+1. **디자이너** 를 선택합니다.
 
 1. **새 파이프라인** 섹션에서 샘플 파이프라인을 선택합니다.
 
-    샘플의 전체 목록을 보려면 **더 많은 샘플 표시**를 선택합니다.
+    샘플의 전체 목록을 보려면 **더 많은 샘플 표시** 를 선택합니다.
 
 1. 파이프라인을 실행하려면 먼저 파이프라인을 실행할 기본 컴퓨팅 대상을 설정해야 합니다.
 
-   1. 캔버스 오른쪽에 있는 **설정** 창에서 **컴퓨팅 대상 선택**을 선택합니다.
+   1. 캔버스 오른쪽에 있는 **설정** 창에서 **컴퓨팅 대상 선택** 을 선택합니다.
 
-   1. 표시되는 대화 상자에서 기존 컴퓨팅 대상을 선택하거나 새로 만듭니다. **저장**을 선택합니다.
+   1. 표시되는 대화 상자에서 기존 컴퓨팅 대상을 선택하거나 새로 만듭니다. **저장** 을 선택합니다.
 
-   1. 캔버스 맨 위에 있는 **제출**을 선택하여 파이프라인 실행을 제출합니다.
+   1. 캔버스 맨 위에 있는 **제출** 을 선택하여 파이프라인 실행을 제출합니다.
 
    샘플 파이프라인 및 컴퓨팅 설정에 따라 실행을 완료하는 데 다소 시간이 걸릴 수 있습니다. 기본 컴퓨팅 설정의 최소 노드 크기는 0입니다. 즉, 디자이너가 유휴 상태가 된 후에 리소스를 할당해야 합니다. 컴퓨팅 리소스가 이미 할당되었기 때문에 반복되는 파이프라인 실행은 시간이 덜 걸립니다. 또한 디자이너는 각 모듈에 대해 캐시된 결과를 사용하여 효율성을 더욱 향상시킵니다.
 
@@ -56,7 +56,7 @@ Azure Machine Learning 디자이너에서 기본 제공되는 예제를 사용�
 1. 파이프라인 실행이 완료되면 파이프라인을 검토하고 각 모듈의 출력을 확인하여 자세히 알아볼 수 있습니다. 다음 단계를 사용하여 모듈 출력을 봅니다.
 
    1. 표시하려는 출력의 캔버스에서 모듈을 마우스 오른쪽 단추로 클릭합니다.
-   1. **시각화**를 선택합니다.
+   1. **시각화** 를 선택합니다.
 
 
    가장 일반적인 기계 학습 시나리오 중 일부에 대한 샘플을 시작점으로 사용합니다.

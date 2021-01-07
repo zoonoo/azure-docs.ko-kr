@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2eab79d79a287bc8a92133c6901c420dfaee2fd5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7dfc704fb38550993adb7835d4500dee890117a8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082048"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486983"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Bing Visual Search API란?
 
 > [!WARNING]
-> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Visual Search API는 이미지에 대한 인사이트를 반환합니다. 이미지를 업로드하거나 이미지에 대한 URL을 제공할 수 있습니다. 인사이트는 시각적으로 비슷한 이미지, 쇼핑 소스, 이미지가 포함된 웹 페이지 등입니다. Bing Visual Search API가 반환하는 인사이트는 Bing.com/이미지에 표시되는 것과 유사합니다. 
 
@@ -53,7 +53,7 @@ Bing Visual Search 결과에는 이미지의 관심 영역에 대한 경계 상�
 
 Bing Visual Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 프로그래밍 언어에서 쉽게 호출할 수 있습니다. 서비스에 REST API 또는 SDK를 사용할 수 있습니다.
 
-1. Bing Search API에 액세스하기 위한 [Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/cognitive-services/) 수 있습니다.
+1. Bing Search API에 액세스하기 위한 [Cognitive Services 계정](../cognitive-services-apis-create-account.md)을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/cognitive-services/) 수 있습니다.
 2. 유효한 검색 쿼리를 사용하여 API에 요청을 보냅니다.
 3. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
 
@@ -74,8 +74,8 @@ Bing Visual Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하�
 
 ## <a name="see-also"></a>참고 항목
 
-* [이미지 - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) 참조에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 요청, 헤더, 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 설명되어 있습니다.
+* [이미지 - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) 참조에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 요청, 헤더, 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 설명되어 있습니다.
 
 * [Bing Search API 사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)에서는 Bing Search API를 통해 확보한 콘텐츠와 정보의 적합한 용도를 지정합니다.
 
-* [Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.
+* [Bing Search API 허브 페이지](../bing-web-search/overview.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.

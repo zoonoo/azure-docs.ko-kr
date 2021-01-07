@@ -4,15 +4,15 @@ description: Marketplace 시험 구동 기능 설명
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 4f78aa110ed42e17db873b9593de62602aa4193f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911140"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490043"
 ---
 # <a name="what-is-a-test-drive"></a>시험 사용이란?
 
@@ -24,7 +24,7 @@ ms.locfileid: "92911140"
 
 테스트 드라이브는 솔루션을 요청 하는 고객에 대해 주문형 응용 프로그램 또는 응용 프로그램을 실행 하는 관리 되는 인스턴스입니다. 테스트 드라이브 인스턴스가 할당 되 면 해당 고객이 설정 된 기간 동안 사용할 수 있습니다. 기간이 종료 된 후에는 다른 고객을 위한 공간을 확보 하기 위해 삭제 됩니다.
 
-게시자는 파트너 센터에서 테스트 드라이브 설정을 관리 하 고 구성 합니다. 기술 구성 세부 정보는 제품 유형에 따라 달라 집니다. 자세한 지침은 [테스트 드라이브 기술 구성](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration)을 참조 하세요.
+게시자는 파트너 센터에서 테스트 드라이브 설정을 관리 하 고 구성 합니다. 기술 구성 세부 정보는 제품 유형에 따라 달라 집니다. 자세한 지침은 [테스트 드라이브 기술 구성](./test-drive-technical-configuration.md)을 참조 하세요.
 
 잠재적 고객은 [Appsource](https://appsource.microsoft.com/en-US/)에서 제품의 cta로 테스트 드라이브를 검색할 수 있습니다. 연락처 정보를 제공 하 고 제품의 사용 약관 및 개인 정보 취급 방침에 동의한 다음, 미리 구성 된 환경에 대 한 액세스 권한을 획득 하 여 고정 된 기간 동안 시험해 보세요. 고객은 제품의 주요 기능 및 혜택에 대 한 실습 자체 기반 평가판을 받고 귀중 한 잠재 고객을 받게 됩니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "92911140"
 - 논리 앱 (지원 모드 에서만)
 - Power BI
 
-이러한 테스트 드라이브 중 하나를 구성 하는 방법에 대 한 자세한 내용은 [테스트 드라이브 기술 구성](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration)을 참조 하세요. 
+이러한 테스트 드라이브 중 하나를 구성 하는 방법에 대 한 자세한 내용은 [테스트 드라이브 기술 구성](./test-drive-technical-configuration.md)을 참조 하세요. 
 
 ### <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
 
@@ -65,7 +65,7 @@ ms.locfileid: "92911140"
 
 ### <a name="logic-app-test-drive"></a>논리 앱 테스트 드라이브
 
-이 유형의 테스트 드라이브는 Microsoft에서 호스팅되지 않으며 Dynamics AX/CRM 제품 유형에 대 한 ARM (Azure Resource Manager) 템플릿을 사용 합니다. Azure 구독에 필요한 리소스를 만들려면 ARM 템플릿을 실행 해야 합니다. 논리 앱 테스트 드라이브는 현재 지원 모드 전용 이며 Microsoft에서 논리 앱 테스트 드라이브를 구성 하는 방법에 대 한 자세한 내용은 [테스트 드라이브 기술 구성](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration)을 참조 하세요.
+이 유형의 테스트 드라이브는 Microsoft에서 호스팅되지 않으며 Dynamics AX/CRM 제품 유형에 대 한 ARM (Azure Resource Manager) 템플릿을 사용 합니다. Azure 구독에 필요한 리소스를 만들려면 ARM 템플릿을 실행 해야 합니다. 논리 앱 테스트 드라이브는 현재 지원 모드 전용 이며 Microsoft에서 논리 앱 테스트 드라이브를 구성 하는 방법에 대 한 자세한 내용은 [테스트 드라이브 기술 구성](./test-drive-technical-configuration.md)을 참조 하세요.
 
 ### <a name="power-bi-test-drive"></a>Power BI 시험 사용
 
@@ -87,7 +87,7 @@ ms.locfileid: "92911140"
 
 시험 사용 리드를 사용 하 여 처리를 종료 하는 경우 [Microsoft 파트너 판매 연결](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect)에 등록 해야 합니다. 또한 테스트 드라이브가 역할을 수행 하는 고객의 wins에 대해 알아보겠습니다.
 
-## <a name="other-resources"></a>다른 리소스
+## <a name="other-resources"></a>관련 자료
 
 추가 시험 사용 리소스:
 

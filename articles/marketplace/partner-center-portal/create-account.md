@@ -1,19 +1,19 @@
 ---
-title: 파트너 센터에서 상용 마켓플레이스 계정 만들기
+title: Azure Marketplace 파트너 센터에서 상용 마켓플레이스 계정 만들기
 description: 파트너 센터에서 Microsoft 상업적 marketplace 계정을 만드는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.custom: contperfq2
-ms.openlocfilehash: deb64d1c8268268061a8121151c00ccb55902274
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: d88e2b18d4e4f9df0606832356e383aaaf51cf73
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130462"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028447"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -65,9 +65,9 @@ ms.locfileid: "93130462"
     > [!IMPORTANT]
     > 이러한 약관에 동의 하려면 회사를 대신 하 여 작업할 수 있는 권한이 있어야 합니다.
 
-    등록 한 후에는 상업적 marketplace 개요 페이지로 이동 합니다. 상업적 marketplace 계정이 왼쪽 창에 표시 됩니다. 
-    
-1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **파트너 설정**  >  **프로그램** 을 선택 합니다.
+    등록 한 후에는 상업적 marketplace 개요 페이지로 이동 합니다. 상업적 marketplace 계정이 왼쪽 창에 표시 됩니다.
+
+1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 오른쪽 위 모서리에서 **설정** (기어 아이콘)을 선택 하 > **계정 설정**  >  **프로그램** 을 선택 합니다.
 
 이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. [상업적 marketplace에 새 게시자](#add-new-publishers-to-the-commercial-marketplace-program)를 계속 추가 합니다.
 
@@ -91,19 +91,19 @@ Microsoft 파트너 네트워크 계정을 사용 하는 경우 회사의 회사
 > Microsoft 파트너 네트워크에 로그인 하려면 **계정 관리자** 또는 **전역 관리자** 역할이 있어야 합니다.
 
 1. Microsoft 파트너 네트워크 계정으로 [파트너 센터](https://partner.microsoft.com/dashboard/) 에 로그인 합니다.
-1. **설정**  >  **파트너 설정**  >  **프로그램**  >  **시작** 을 선택 합니다.
+1. **설정**  >  **계정 설정**  >  **프로그램**  >  **시작** 을 선택 합니다.
 
    Microsoft 파트너 네트워크는 구독을 검색 하 고 **게시자 프로필** 창을 표시 합니다.
-   
+
 1. 회사 이름 및 MPN ID를 입력 합니다.
 1. [Microsoft 게시자 규약](https://go.microsoft.com/fwlink/?LinkID=699560)에서 사용 약관을 읽은 다음 **동의 함** 을 선택 하 여 등록을 완료 합니다.
 
     > [!IMPORTANT]
     > 이러한 약관에 동의 하려면 회사를 대신 하 여 작업할 수 있는 권한이 있어야 합니다.
 
-    등록 한 후에는 상업적 marketplace 개요 페이지로 이동 합니다. 상업적 marketplace 계정이 왼쪽 창에 표시 됩니다. 
-    
-1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **파트너 설정**  >  **프로그램** 을 선택 합니다.
+    등록 한 후에는 상업적 marketplace 개요 페이지로 이동 합니다. 상업적 marketplace 계정이 왼쪽 창에 표시 됩니다.
+
+1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **계정 설정**  >  **프로그램** 을 선택 합니다.
 
 이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. [상업적 marketplace에 새 게시자](#add-new-publishers-to-the-commercial-marketplace-program)를 계속 추가 합니다.
 
@@ -112,23 +112,23 @@ Microsoft 파트너 네트워크 계정을 사용 하는 경우 회사의 회사
 >[!NOTE]
 >사용자가 로그인 하는 것과 동일한 계정으로 상업적 marketplace에 등록 하려면 회사 계정으로 파트너 센터에 등록 되어 있어야 합니다. 개별 계정에 등록 한 경우 새 계정 아래에 상용 marketplace 등록이 표시 됩니다.
 >
->개별 계정은 각자 작업 하는 개발자를 위한 것입니다. 회사 계정은 조직과 기업을 위한 것입니다. 회사 계정은 추가 기능을 사용 하 여 앱을 제출할 수 있는 액세스 권한을 제공 합니다. 
+>개별 계정은 각자 작업 하는 개발자를 위한 것입니다. 회사 계정은 조직과 기업을 위한 것입니다. 회사 계정은 추가 기능을 사용 하 여 앱을 제출할 수 있는 액세스 권한을 제공 합니다.
 >
 > 회사에 대 한 계정을 설정할 수 있는 권한이 있는지 확인 하려면 등록 한 후 회사 계정에 대 한 추가 확인이 필요 합니다. 이 확인은 며칠에서 몇 주까지 걸릴 수 있으며 회사에 대 한 전화 통화를 포함 하는 경우가 많습니다. 두 가지 유형의 계정을 모두 사용 하 여 앱, 추가 기능 및 서비스를 제출할 수 있습니다. 자세한 내용은 [계정 유형, 위치 및 요금](/windows/uwp/publish/account-types-locations-and-fees)을 참조 하세요.
 
 개발자 프로그램과 동일한 계정으로 상용 marketplace 프로그램을 등록 하면 파트너 센터의 왼쪽 창에서 기존 프로그램 등록 모두 볼 수 있습니다.
 
 1. 기존 계정을 사용 하 여 [파트너 센터](https://partner.microsoft.com/dashboard/) 에 로그인 합니다.
-1. **설정**  >  **개발자 설정**  >  **프로그램**  >  **시작** 을 선택 하 고 회사 메일 주소를 입력 합니다.
+1. **설정**  >  **계정 설정**  >  **프로그램**  >  **시작** 을 선택 하 고 회사 메일 주소를 입력 합니다.
 1. **게시자 프로필** 페이지에서 세부 정보를 완료 합니다.
 2. [Microsoft 게시자 규약](https://go.microsoft.com/fwlink/?LinkID=699560)에서 사용 약관을 읽은 다음 **동의 함** 을 선택 하 여 등록을 완료 합니다.
 
     >[!Important]
     > 이러한 약관에 동의 하려면 회사를 대신 하 여 작업할 수 있는 권한이 있어야 합니다.
 
-    등록 한 후에는 상업적 marketplace 개요 페이지로 이동 합니다. 상업적 marketplace 계정이 왼쪽 창에 표시 됩니다. 
-    
-1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **파트너 설정**  >  **프로그램** 을 선택 합니다.
+    등록 한 후에는 상업적 marketplace 개요 페이지로 이동 합니다. 상업적 marketplace 계정이 왼쪽 창에 표시 됩니다.
+
+1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **계정 설정**  >  **프로그램** 을 선택 합니다.
 
 이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. 게시자를 추가 하는 데 도움이 필요한 경우 계속 해 서 [새 게시자를 상업적 marketplace에 추가](#add-new-publishers-to-the-commercial-marketplace-program)합니다.
 
@@ -142,10 +142,10 @@ Cloud 파트너 포털 계정이 있는 경우 파트너 센터로 이동 했습
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>상용 marketplace 프로그램에 새 게시자 추가
 
-조직에는 상업적 marketplace 계정과 연결 된 여러 게시자가 있을 수 있습니다. 기존 사용자는 **계정 설정**  >  **게시자**  >  **추가 게시자** 를 선택 하 여 파트너 센터에 로그인 한 후 더 많은 게시자를 추가할 수 있습니다.
+조직에는 상업적 marketplace 계정과 연결 된 여러 게시자가 있을 수 있습니다. 기존 사용자는 **설정**  >  **계정 설정**  >  **조직 프로필**  >  **식별자**  >  **게시자 추가** 를 선택 하 여 파트너 센터에 로그인 한 후 더 많은 게시자를 추가할 수 있습니다.
 
 >[!NOTE]
->새 게시자를 추가 하기 전에 파트너 센터에 로그인 하 고 **계정 설정** 게시자를 선택 하 여 기존 게시자의 목록을 검토  >  **Publishers** 합니다.
+>새 게시자를 추가 하기 전에 파트너 센터에 로그인 하 고 **계정 설정** 게시자를 선택 하 여 기존 게시자의 목록을 검토  >  합니다.
 
 동일한 Azure Active Directory 테 넌 트의 추가 사용자는 다음 단계를 사용 하 여 새 게시자를 추가할 수 있습니다.
 
@@ -155,9 +155,9 @@ Cloud 파트너 포털 계정이 있는 경우 파트너 센터로 이동 했습
 4. 게시자와 연결 하려는 MPN ID를 선택 합니다.
 5. 양식의 **게시자 세부 정보** 를 업데이트 합니다.
 
-   * **게시자 이름** : 제품을 사용 하 여 상업적 marketplace에 표시 되는 이름입니다.  
-   * **PublisherID** : 파트너 센터에서 게시자를 고유 하 게 식별 하는 데 사용 되는 식별자입니다. 이 필드의 기본값은 시스템의 기존 및 고유 게시자 ID에 매핑됩니다. 게시자 ID를 다시 사용할 수 없으므로이 필드를 업데이트 해야 합니다.  
-   * **연락처 정보** : 필요한 경우 연락처 정보를 업데이트 합니다.
+   * **게시자 이름**: 제품을 사용 하 여 상업적 marketplace에 표시 되는 이름입니다.  
+   * **PublisherID**: 파트너 센터에서 게시자를 고유 하 게 식별 하는 데 사용 되는 식별자입니다. 이 필드의 기본값은 시스템의 기존 및 고유 게시자 ID에 매핑됩니다. 게시자 ID를 다시 사용할 수 없으므로이 필드를 업데이트 해야 합니다.  
+   * **연락처 정보**: 필요한 경우 연락처 정보를 업데이트 합니다.
 
 이 프로세스가 완료 되 면 왼쪽 창에 나열 된 상용 marketplace 계정으로 이동 하 여 새로 만든 게시자를 관리 합니다. 상업적 marketplace 계정이 표시 되지 않으면 페이지를 새로 고칩니다. 새 게시자가 **게시자** 목록에 표시 됩니다.
 

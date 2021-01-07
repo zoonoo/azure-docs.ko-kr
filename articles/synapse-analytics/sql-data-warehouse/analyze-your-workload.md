@@ -1,6 +1,6 @@
 ---
-title: 워크로드 분석
-description: Azure Synapse Analytics에서 작업에 대 한 쿼리 우선 순위를 분석 하기 위한 기술입니다.
+title: 전용 SQL 풀에 대 한 워크 로드 분석
+description: Azure Synapse Analytics에서 전용 SQL 풀의 쿼리 우선 순위를 분석 하기 위한 기술입니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c547263be8c61d75491d1517b58c03b6365ef929
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c3ad30bac7cec4c11822d825323bb9db2ba440
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85208402"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454542"
 ---
-# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 워크 로드 분석
+# <a name="analyze-your-workload-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대 한 워크 로드 분석
 
-Azure Synapse Analytics에서 Synapse SQL 작업을 분석 하기 위한 기술입니다. 
+Azure Synapse Analytics에서 전용 SQL 풀 작업을 분석 하는 기술입니다. 
 
 ## <a name="resource-classes"></a>리소스 클래스
 
-Synapse SQL은 시스템 리소스를 쿼리에 할당 하기 위한 리소스 클래스를 제공 합니다.  리소스 클래스에 대 한 자세한 내용은 [리소스 클래스 & 워크 로드 관리](resource-classes-for-workload-management.md)를 참조 하세요.  쿼리에 할당 된 리소스 클래스가 현재 사용할 수 있는 것 보다 많은 리소스를 필요로 하는 경우 쿼리가 대기 합니다.
+전용 SQL 풀은 리소스 클래스를 제공 하 여 시스템 리소스를 쿼리에 할당 합니다.  리소스 클래스에 대 한 자세한 내용은 [리소스 클래스 & 워크 로드 관리](resource-classes-for-workload-management.md)를 참조 하세요.  쿼리에 할당 된 리소스 클래스가 현재 사용할 수 있는 것 보다 많은 리소스를 필요로 하는 경우 쿼리가 대기 합니다.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>큐에 대기 중인 쿼리 검색 및 다른 DMV
 
-`sys.dm_pdw_exec_requests` DMV는 동시성 큐에 대기 중인 쿼리를 식별하는 데 사용할 수 있습니다. 동시성 슬롯을 대기하는 쿼리는 **일시 중단**상태가 됩니다.
+`sys.dm_pdw_exec_requests` DMV는 동시성 큐에 대기 중인 쿼리를 식별하는 데 사용할 수 있습니다. 동시성 슬롯을 대기하는 쿼리는 **일시 중단** 상태가 됩니다.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Synapse SQL에는 다음과 같은 대기 유형이 있습니다.
+전용 SQL 풀에는 다음과 같은 대기 유형이 있습니다.
 
 * **LocalQueriesConcurrencyResourceType**: 동시성 슬롯 프레임워크 외부에 존재하는 쿼리. `SELECT @@VERSION` 과 같은 DMV 쿼리 및 시스템 함수는 로컬 쿼리의 예입니다.
 * **UserConcurrencyResourceType**: 동시성 슬롯 프레임워크 내에 존재하는 쿼리. 최종 사용자 테이블에 대한 쿼리는 이 리소스 형식을 사용하는 예를 나타냅니다.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터베이스 사용자 및 보안을 관리하는 방법에 대한 자세한 내용은 [Synapse SQL에서 데이터베이스 보호](sql-data-warehouse-overview-manage-security.md)를 참조하세요. 더 큰 리소스 클래스가 클러스터형 columnstore 인덱스 품질을 향상 시킬 수 있는 방법에 대 한 자세한 내용은 [인덱스를 다시 작성 하 여 세그먼트 품질 향상](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)을 참조 하세요.
+데이터베이스 사용자 및 보안을 관리 하는 방법에 대 한 자세한 내용은 [전용 sql 풀 보호 (이전의 SQL DW)](sql-data-warehouse-overview-manage-security.md)를 참조 하세요. 더 큰 리소스 클래스가 클러스터형 columnstore 인덱스 품질을 향상 시킬 수 있는 방법에 대 한 자세한 내용은 [인덱스를 다시 작성 하 여 세그먼트 품질 향상](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)을 참조 하세요.

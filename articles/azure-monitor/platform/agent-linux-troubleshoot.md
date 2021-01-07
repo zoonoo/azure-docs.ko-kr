@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 13959c4a3c798656efdc72b5c8e5f96e4fb2392a
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 2b811b1ace646cc4e0a93b937fbb90cfbf7aec0f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375355"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704897"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -92,9 +92,9 @@ Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령
 | NOT_DEFINED | 필요한 종속성이 설치되지 않아 auoms auditd 플러그 인이 설치되지 않습니다. | auoms 설치가 실패했습니다. 패키지 auditd를 설치하세요. |
 | 2 | 셸 번들에 잘못된 옵션이 제공되었습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
 | 3 | 셸 번들에 옵션이 제공되지 않았습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
-| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent- *rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent- *deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
+| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent-*rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent-*deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
 | 5 | 셸 번들을 루트로 실행하지 않았거나 온보딩 중에 403 오류가 반환되었습니다. `sudo`를 사용하여 명령을 실행하세요. |
-| 6 | 패키지 아키텍처가 잘못되었거나 온보딩 중에 200 오류가 반환되었습니다. omsagent- *x64.sh 패키지는 64비트 시스템에만 설치할 수 있고, omsagent-* x86.sh 패키지는 32비트 시스템에만 설치할 수 있습니다. [최신 릴리스](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)에서 아키텍처에 적합한 패키지를 다운로드하세요. |
+| 6 | 패키지 아키텍처가 잘못되었거나 온보딩 중에 200 오류가 반환되었습니다. omsagent-*x64.sh 패키지는 64비트 시스템에만 설치할 수 있고, omsagent-* x86.sh 패키지는 32비트 시스템에만 설치할 수 있습니다. [최신 릴리스](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)에서 아키텍처에 적합한 패키지를 다운로드하세요. |
 | 17 | OMS 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
 | 19 | OMI 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
 | 20 | SCX 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
@@ -241,23 +241,6 @@ Nss의 회귀 [1.0.3 -5. el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.
 3. OMI 다시 시작: <br/>
 `sudo scxadmin -restart`
 
-## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>문제: Azure Portal에서 데이터가 보이지 않습니다.
-
-### <a name="probable-causes"></a>가능한 원인
-
-- Azure Monitor에 등록 하지 못했습니다.
-- Azure Monitor에 대 한 연결이 차단 되었습니다.
-- Linux용 Log Analytics 에이전트가 백업되었습니다.
-
-### <a name="resolution"></a>해결 방법
-1. 다음 파일이 있는지 확인 하 여 온 보 딩 Azure Monitor 성공 했는지 확인 합니다. `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. `omsadmin.sh` 명령줄 명령을 사용하여 다시 등록합니다.
-3. 프록시를 사용하는 경우 앞서 제공된 프록시 문제 해결 단계를 참조하세요.
-4. Linux용 Log Analytics 에이전트가 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]` 명령을 실행하여 에이전트를 다시 시작해야 합니다. 
-
-    >[!NOTE]
-    >이 문제는 에이전트 버전 1.1.0-28 및 이상에서 해결되었습니다.
-
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>문제: 전달된 Syslog 메시지가 보이지 않음 
 
@@ -335,6 +318,7 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 * Azure Monitor에 대 한 연결이 차단 되었습니다.
 * 가상 머신이 다시 부팅되었습니다.
 * OMI 패키지가 Linux용 Log Analytics 에이전트 패키지에서 설치한 버전보다 높은 버전으로 수동 업그레이드되었습니다.
+* OMI가 고정 되어 OMS 에이전트를 차단 합니다.
 * DSC 리소스가 `omsconfig.log` 로그 파일에 *클래스를 찾을 수 없음* 오류를 기록합니다.
 * 데이터용 Log Analytics 에이전트가 백업되었습니다.
 * DSC 로그 *현재 구성이 없습니다. -Path 매개 변수를 사용 하 여 Start-DscConfiguration 명령을 실행 하 여 구성 파일을 지정 하 고 현재 구성을 먼저 만듭니다.* 오류를 `omsconfig.log` 로그 파일에 기록하지만, `PerformRequiredConfigurationChecks` 작업에 대한 로그 메시지가 없습니다.
@@ -345,6 +329,7 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 4. 프록시를 사용하는 경우 위의 프록시 문제 해결 단계를 확인합니다.
 5. 일부 Azure 배포 시스템에서는 가상 머신이 다시 부팅된 후 omid OMI 서버 디먼이 시작되지 않습니다. 따라서 감사, ChangeTracking 또는 UpdateManagement 솔루션과 관련된 데이터가 표시되지 않습니다. 해결책은 `sudo /opt/omi/bin/service_control restart` 명령을 실행하여 omi 서버를 수동으로 시작하는 것입니다.
 6. OMI 패키지를 더 높은 버전으로 수동 업그레이드한 후에는 수동으로 다시 시작해야만 Log Analytics 에이전트가 계속 작동합니다. OMI 서버가 업그레이드 후 자동으로 시작되지 않는 일부 배포판에서는 이 단계가 필수입니다. `sudo /opt/omi/bin/service_control restart` 명령을 실행하여 OMI를 다시 시작합니다.
+* 경우에 따라 OMI는 고정 될 수 있습니다. OMS 에이전트는 모든 데이터 수집을 차단 하 여 OMI을 기다리는 차단 된 상태를 입력할 수 있습니다. OMS 에이전트 프로세스가 실행 되 고 있지만,에는 새 로그 선 (예: 보낸 하트 비트)이 없는 활동이 복합적 `omsagent.log` . OMI with를 다시 시작 `sudo /opt/omi/bin/service_control restart` 하 여 에이전트를 복구 합니다.
 7. omsconfig.log에 DSC 리소스 *클래스를 찾을 수 없음* 오류가 표시되면 `sudo /opt/omi/bin/service_control restart` 명령을 실행합니다.
 8. 경우에 따라 Linux 용 Log Analytics 에이전트가 Azure Monitor와 통신할 수 없는 경우 에이전트의 데이터가 전체 버퍼 크기로 백업 됩니다: 50. `/opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작해야 합니다.
 

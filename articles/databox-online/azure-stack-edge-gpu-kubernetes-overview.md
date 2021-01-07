@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899248"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448649"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Kubernetes
 
@@ -67,7 +67,7 @@ Kubernetes 네트워킹을 사용 하면 컨테이너 간 네트워킹, pod-pod 
 
 ## <a name="access-monitoring"></a>액세스, 모니터링
 
-Azure Stack Edge Pro 장치의 Kubernetes 클러스터는 RBAC (역할 기반 액세스 제어)를 허용 합니다. 자세한 내용은 [Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 대 한 역할 기반 액세스 제어](azure-stack-edge-gpu-kubernetes-rbac.md)를 참조 하세요.
+Azure Stack Edge Pro 장치의 Kubernetes 클러스터는 Kubernetes (역할 기반 액세스 제어)를 허용 합니다 (Kubernetes RBAC). 자세한 내용은 [Azure Stack Edge PRO GPU 장치에서 역할 기반 액세스 제어 Kubernetes](azure-stack-edge-gpu-kubernetes-rbac.md)를 참조 하세요.
 
 Kubernetes 대시보드를 통해 클러스터 및 리소스의 상태를 모니터링할 수도 있습니다. 컨테이너 로그도 사용할 수 있습니다. 자세한 내용은 [Kubernetes 대시보드를 사용 하 여 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터 상태 모니터링을](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)참조 하세요.
 
@@ -106,7 +106,7 @@ IoT Edge를 통해 Kubernetes 클러스터에 응용 프로그램을 배포 하�
 
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes 및 Azure Arc
 
-Azure Arc는 Kubernetes 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 또한 Azure Arc를 사용 하면 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure-Arc Enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)를 참조 하세요. Azure Arc 가격 책정에 대 한 자세한 내용은 [Azure arc 가격 책정](https://azure.microsoft.com/services/azure-arc/#pricing)을 참조 하세요.
+Azure Arc는 Kubernetes 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 또한 Azure Arc를 사용 하면 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure-Arc Enabled Kubernetes?](../azure-arc/kubernetes/overview.md)를 참조 하세요. Azure Arc 가격 책정에 대 한 자세한 내용은 [Azure arc 가격 책정](https://azure.microsoft.com/services/azure-arc/#pricing)을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

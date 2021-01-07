@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 77cb3b0c13a6bfe41c6f7a1a5a0f9d7278aea1db
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b82e300128a41f8315132e1ff93af33c853edb15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930155"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173518"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Microsoft Id 웹 인증 라이브러리
 
@@ -58,14 +58,14 @@ dotnet new --install Microsoft.Identity.Web.ProjectTemplates::1.0.0
 
 다음 다이어그램은 지원 되는 앱 형식 및 관련 인수에 대 한 개략적인 뷰를 보여 줍니다.
 
-:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Microsoft Identity Web 용 사용 가능한 점 net CLI 프로젝트 템플릿 다이어그램&quot;:::
+:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Microsoft Identity Web 용 사용 가능한 점 net CLI 프로젝트 템플릿 다이어그램":::
 <br /><sup><b>*</b></sup>`MultiOrg`는에서 지원 되지 `webapi2` 않지만 테 넌 트를 또는로 설정 하 여 *appsettings.js* 에서 사용 하도록 설정할 수 있습니다. `common``organizations`
 <br /><sup><b>**</b></sup>`--calls-graph`는 Azure AD B2C 지원 되지 않습니다.
 
 [Blazor Server 자습서](tutorial-blazor-server.md)에서 가져온이 예제 .net CLI 명령은 올바른 패키지 및 시작 코드 (표시 된 자리 표시자 값)를 포함 하는 새 Blazor 서버 프로젝트를 생성 합니다.
 
 ```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id &quot;00000000-0000-0000-0000-000000000000&quot; --tenant-id &quot;11111111-1111-1111-1111-111111111111" --output my-blazor-app
+dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-0000-0000-0000-000000000000" --tenant-id "11111111-1111-1111-1111-111111111111" --output my-blazor-app
 ```
 
 #### <a name="github"></a>GitHub
@@ -82,20 +82,20 @@ Microsoft Identity Web에는 기본 ASP.NET 3.1 프로젝트 템플릿을 사용
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | 웹 앱에서 [사용자 로그인](scenario-web-app-sign-user-app-configuration.md)             | <li>회사 또는 학교 계정<li>소셜 id (Azure AD B2C) | <li>회사 또는 학교 계정<li>개인 Microsoft 계정<li>소셜 id (Azure AD B2C)     |
 | [웹 Api 보호](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>회사 또는 학교 계정<li>소셜 id (Azure AD B2C) | <li>회사 또는 학교 계정<li>개인 Microsoft 계정<li>소셜 id (Azure AD B2C)     |
-| 다중 테 넌 트 앱의 발급자 유효성 검사                                                   | 아니요                                                                   | 예, [모든 클라우드](authentication-national-cloud.md) 및 [Azure AD B2C](/azure/active-directory-b2c) |
-| 웹 앱/a p i [Microsoft graph 호출] [시나리오-api-호출 그래프]                             | 아니요                                                                   | 예                                                                                                     |
-| 웹 앱/a p i [웹 API 호출] [시나리오-api 호출]                                       | 아니요                                                                   | 예                                                                                                     |
-| 인증서 자격 증명 지원                                                         | 아니요                                                                   | 예, Azure Key Vault 포함                                                                          |
-| 웹 앱의 증분 승인 및 조건부 액세스 지원                           | 아니요                                                                   | 예, MVC, Razor 페이지 및 Blazor                                                                    |
-| 웹 Api의 토큰 암호화 인증서                                                | 아니요                                                                   | 예                                                                                                     |
-| [범위/앱 역할 유효성 검사] [시나리오-api-유효성 검사] 웹 Api                        | 아니요                                                                   | 예                                                                                                     |
-| `WWW-Authenticate` 웹 Api의 헤더 생성                                         | 아니요                                                                   | 예                                                                                                     |
+| 다중 테 넌 트 앱의 발급자 유효성 검사                                                   | No                                                                   | 예, [모든 클라우드](authentication-national-cloud.md) 및 [Azure AD B2C](../../active-directory-b2c/index.yml) |
+| 웹 앱/a p i [Microsoft graph 호출] [시나리오-api-호출 그래프]                             | 예                                                                   | 예                                                                                                     |
+| 웹 앱/a p i [웹 API 호출] [시나리오-api 호출]                                       | 예                                                                   | 예                                                                                                     |
+| 인증서 자격 증명 지원                                                         | No                                                                   | 예, Azure Key Vault 포함                                                                          |
+| 웹 앱의 증분 승인 및 조건부 액세스 지원                           | No                                                                   | 예, MVC, Razor 페이지 및 Blazor                                                                    |
+| 웹 Api의 토큰 암호화 인증서                                                | 예                                                                   | 예                                                                                                     |
+| [범위/앱 역할 유효성 검사] [시나리오-api-유효성 검사] 웹 Api                        | 예                                                                   | 예                                                                                                     |
+| `WWW-Authenticate` 웹 Api의 헤더 생성                                         | 예                                                                   | 예                                                                                                     |
 
 ## <a name="next-steps"></a>다음 단계
 
 작동 중인 Microsoft Identity Web을 보려면 Blazor Server 자습서를 사용해 보세요.
 
-[자습서: 인증을 위해 Microsoft id 플랫폼을 사용 하는 Blazor 서버 앱 만들기](tutorial-blazor-server.md)
+[자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 Blazor Server 앱 만들기](tutorial-blazor-server.md)
 
 GitHub의 Microsoft Identity 웹 wiki에는 라이브러리의 다양 한 기능에 대 한 광범위 한 참조 설명서가 포함 되어 있습니다. 예를 들어 인증서 사용, 증분 승인 및 조건부 액세스 참조는 다음 위치에서 찾을 수 있습니다.
 

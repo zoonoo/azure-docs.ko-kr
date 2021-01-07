@@ -11,21 +11,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e4ad7ba75edd1899cbe2d7cd7d3b1b6c124ce35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 887ac4197321b4015eff7cc839abd8f57ae67760
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267652"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512021"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>.NET에서 인코더 표준을 사용 하 여 미리 보기를 생성 하는 방법
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 미리 보기를 [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 또는 [BMP](https://en.wikipedia.org/wiki/BMP_file_format) 이미지 파일 형식으로 생성할 수 있습니다.
+Media Encoder Standard를 사용 하 여 [JPEG](https://en.wikipedia.org/wiki/JPEG) 또는 [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 이미지 파일 형식으로 입력 비디오에서 하나 이상의 미리 보기를 생성할 수 있습니다.
 
 ## <a name="recommended-reading-and-practice"></a>권장 읽기 및 연습
 

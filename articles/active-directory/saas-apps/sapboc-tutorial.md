@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 946388fa60e0f6147db2986192392740fa3949f4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 84b0a761b52baca4ae1ab81b3c67f18f6b14db92
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671845"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608836"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>자습서: Azure Active Directory와 SAP Analytics Cloud 통합
 
@@ -107,7 +107,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
     ![메뉴, 시스템 및 관리 선택](./media/sapboc-tutorial/config1.png)
 
-3. **보안** 탭에서 **편집** (펜) 아이콘을 선택합니다.
+3. **보안** 탭에서 **편집**(펜) 아이콘을 선택합니다.
     
     ![보안 탭에서 편집 아이콘 선택](./media/sapboc-tutorial/config2.png)  
 
@@ -139,7 +139,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -183,21 +183,21 @@ Azure AD 사용자는 먼저 SAP Analytics Cloud에서 프로비저닝한 후에
 
     그리고 나서 다음 단계를 완료합니다.
 
-    a. **사용자 ID** 상자에서 사용자의 사용자 ID(예: **B** )를 입력합니다.
+    1. **사용자 ID** 상자에서 사용자의 사용자 ID(예: **B**)를 입력합니다.
 
-    b. **이름** 텍스트 상자에서 사용자의 이름(예: **B** )을 입력합니다.
+    1. **이름** 텍스트 상자에서 사용자의 이름(예: **B**)을 입력합니다.
 
-    다. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
+    1. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
-    d. **표시 이름** 텍스트 상자에서 사용자의 전체 이름(예: **B.Simon** )을 입력합니다.
+    1. **표시 이름** 텍스트 상자에서 사용자의 전체 이름(예: **B.Simon**)을 입력합니다.
 
-    e. **이메일** 상자에서 사용자의 이메일 주소(예: `b.simon@contoso.com`)를 입력합니다.
+    1. **전자 메일** 상자에 사용자의 이메일 주소(예: `b.simon@contoso.com`)를 입력합니다.
 
-    f. **역할 선택** 페이지에서 사용자에 대한 적절한 역할을 선택하고 **확인** 을 선택합니다.
+    1. **역할 선택** 페이지에서 사용자에 대한 적절한 역할을 선택하고 **확인** 을 선택합니다.
 
-      ![역할 선택](./media/sapboc-tutorial/user3.png)
+        ![직무 선택](./media/sapboc-tutorial/user3.png)
 
-    g. **저장** 아이콘을 선택합니다.
+    1. **저장** 아이콘을 선택합니다.
 
 ### <a name="test-sso"></a>SSO 테스트 
 

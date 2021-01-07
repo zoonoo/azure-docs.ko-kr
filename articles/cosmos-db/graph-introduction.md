@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB Gremlin API 소개
 description: Azure Cosmos DB를 사용하여 Apache TinkerPop의 Gremlin 그래프 쿼리 언어로 대기 시간을 단축하면서 대량의 그래프를 저장하고 쿼리하고 트래버스하는 방법을 알아봅니다.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 07/10/2020
-ms.author: jasonh
-ms.openlocfilehash: 98ad02c134df919c593c87dd96a9a71d73371a1c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/25/2020
+ms.author: chrande
+ms.openlocfilehash: c2165ea6273ad90cfb95242dfe72538c0a5ef64c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087420"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350061"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Gremlin API 소개
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -24,6 +24,9 @@ ms.locfileid: "93087420"
 이 문서에서는 Azure Cosmos DB Gremlin API의 개요를 제공하고 이를 사용하여 수십억 개의 꼭짓점 및 에지가 있는 대량의 그래프를 저장하는 방법을 설명합니다. 밀리초 단위 대기 시간 내에 그래프를 쿼리하고 그래프 구조를 쉽게 발전시킬 수 있습니다. Azure Cosmos DB의 Gremlin API는 그래프 컴퓨팅 프레임워크인 [Apache TinkerPop](https://tinkerpop.apache.org)를 기반으로 빌드되었습니다. Azure Cosmos DB의 Gremlin API는 Gremlin 쿼리 언어를 사용합니다.
 
 Azure Cosmos DB의 Gremlin API는 그래프 데이터베이스 알고리즘의 기능을 확장성 높은 관리형 인프라와 결합하여 유연성과 관계형 접근 방식이 결여되어 발생하는 대부분의 일반적인 데이터 문제에 대한 고유하고 유연한 솔루션을 제공합니다.
+
+> [!NOTE]
+> 이제 Azure Cosmos DB의 Gremlin API에서 [서버리스 용량 모드](serverless.md)를 사용할 수 있습니다.
 
 ## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Azure Cosmos DB의 Gremlin API 기능
  
@@ -51,9 +54,9 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
   
   완전 관리형 서비스인 Cosmos DB는 가상 머신을 관리하고, 런타임 소프트웨어를 업데이트하고, 분할 또는 복제를 관리하고, 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 그래프가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 이를 통해 개발자는 그래프 데이터베이스를 운영하고 관리하는 대신 애플리케이션의 가치를 실현하는 데 집중할 수 있습니다. 
 
-* **자동 인덱싱** :
+* **자동 인덱싱**:
 
-  기본적으로 Azure Cosmos DB는 그래프에서 노드(꼭짓점이라고도 함) 및 에지 내의 모든 속성을 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. [Azure Cosmos DB의 인덱싱](/azure/cosmos-db/index-overview)에 대해 자세히 알아봅니다.
+  기본적으로 Azure Cosmos DB는 그래프에서 노드(꼭짓점이라고도 함) 및 에지 내의 모든 속성을 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. [Azure Cosmos DB의 인덱싱](./index-overview.md)에 대해 자세히 알아봅니다.
 
 * **Apache TinkerPop과의 호환성**
 
@@ -111,19 +114,19 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 
 이 그래프에는 다음과 같은 *꼭짓점* 유형(Gremlin에서는 "레이블"이라고도 함)이 있습니다.
 
-* **사람** : 그래프에는 Robin, Thomas 및 Ben 세 사람이 있음
-* **관심 분야** : 관심 있는 분야로 이 예제에서는 축구 게임
-* **디바이스** : 사람들이 사용하는 디바이스
-* **운영 체제** : 디바이스가 실행되는 운영 체제
-* **Place** : 디바이스에 액세스하는 위치
+* **사람**: 그래프에는 Robin, Thomas 및 Ben 세 사람이 있음
+* **관심 분야**: 관심 있는 분야로 이 예제에서는 축구 게임
+* **디바이스**: 사람들이 사용하는 디바이스
+* **운영 체제**: 디바이스가 실행되는 운영 체제
+* **Place**: 디바이스에 액세스하는 위치
 
 이러한 엔터티 간 관계는 다음 *에지* 유형을 통해 나타냅니다.
 
-* **알고 있습니다** : 예: “Thomas knows Robin”
-* **관심 분야** : 그래프에서 사람의 관심 분야를 나타내는 데 사용합니다(예: “Ben is interested in Football”).
-* **OS 실행** : 노트북에서 Windows OS가 실행됩니다.
-* **사용** : 사람이 사용하는 디바이스를 나타냅니다. 예를 들어 Robin은 일련 번호가 77인 Motorola 휴대폰을 사용합니다.
-* **located** : 디바이스에 액세스하는 위치를 나타내려면
+* **알고 있습니다**: 예: “Thomas knows Robin”
+* **관심 분야**: 그래프에서 사람의 관심 분야를 나타내는 데 사용합니다(예: “Ben is interested in Football”).
+* **OS 실행**: 노트북에서 Windows OS가 실행됩니다.
+* **사용**: 사람이 사용하는 디바이스를 나타냅니다. 예를 들어 Robin은 일련 번호가 77인 Motorola 휴대폰을 사용합니다.
+* **located**: 디바이스에 액세스하는 위치를 나타내려면
 
 Gremlin 콘솔은 Apache TinkerPop에서 제공하는 대화형 터미널이며, 이 터미널은 그래프 데이터와 상호 작용하는 데 사용됩니다. 자세한 내용은 [Gremlin 콘솔을 사용하는 방법](create-graph-gremlin-console.md)의 빠른 시작 문서를 참조하세요. 또한 원하는 플랫폼(Java, Node.js, Python 또는 .NET)에서 Gremlin 드라이버를 사용하여 이러한 작업을 수행할 수도 있습니다. 다음 예제에서는 Gremlin 콘솔을 사용하여 이 그래프 데이터에 대해 쿼리를 실행하는 방법을 보여줍니다.
 

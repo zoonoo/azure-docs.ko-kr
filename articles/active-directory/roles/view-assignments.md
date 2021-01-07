@@ -1,6 +1,6 @@
 ---
-title: Azure AD 포털에서 사용자 지정 역할 할당 보기 | Microsoft Docs
-description: 이제 Azure AD 관리 센터에서 Azure AD 관리자 역할의 멤버를 보고 관리할 수 있습니다.
+title: Azure Active Directory 포털에서 사용자 지정 역할 할당 보기 | Microsoft Docs
+description: 이제 Azure Active Directory 관리 센터에서 Azure Active Directory 관리자 역할의 멤버를 보고 관리할 수 있습니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,14 +13,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a0300bd66dbeec84aba2102a510b4f6194debc5
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 8546c2b50c78c7a24d07c75d2d730fd2566e8ba0
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378587"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862091"
 ---
-# <a name="view-custom-role-assignments-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 할당 보기
+# <a name="view-custom-role-assignments-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 사용자 지정 역할 할당 보기
 
 이 문서에서는 Azure Active Directory (Azure AD)에서 할당 한 사용자 지정 역할을 보는 방법을 설명 합니다. Azure AD (Azure Active Directory)에서 역할은 조직 전체의 범위 또는 단일 응용 프로그램 범위에서 할당 될 수 있습니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "93378587"
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Azure AD PowerShell을 사용 하 여 역할 할당 보기
 
-이 섹션에서는 조직 전체 범위에서 역할의 할당을 보는 방법을 설명 합니다. 이 문서에서는 [Azure Active Directory PowerShell 버전 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 모듈을 사용 합니다. PowerShell을 사용 하 여 단일 응용 프로그램 범위 할당을 보려면 PowerShell을 사용 하 [여 사용자 지정 역할 할당](custom-assign-powershell.md)에서 cmdlet을 사용할 수 있습니다.
+이 섹션에서는 조직 전체 범위에서 역할의 할당을 보는 방법을 설명 합니다. 이 문서에서는 [Azure Active Directory PowerShell 버전 2](/powershell/module/azuread/#directory_roles) 모듈을 사용 합니다. PowerShell을 사용 하 여 단일 응용 프로그램 범위 할당을 보려면 PowerShell을 사용 하 [여 사용자 지정 역할 할당](custom-assign-powershell.md)에서 cmdlet을 사용할 수 있습니다.
 
 ### <a name="prepare-powershell"></a>PowerShell 준비
 

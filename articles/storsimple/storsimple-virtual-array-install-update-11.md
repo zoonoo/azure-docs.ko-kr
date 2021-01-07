@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: c403f5381cba03727ad85ff7de7e73fabaab67f9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 709794dcccf9b100cbb11381ac34cfb86238b22b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977445"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533994"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 1.1을 설치합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "91977445"
 StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업데이트 또는 핫픽스를 적용합니다. 업데이트를 적용하기 전에 호스트에서 볼륨 또는 공유를 오프라인으로 전환한 후 디바이스를 오프라인으로 전환하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화됩니다. 볼륨 또는 공유가 오프라인 상태가 되면 디바이스의 수동 백업도 수행해야 합니다.
 
 > [!IMPORTANT]
-> - 업데이트 1.1은 디바이스에 있는 소프트웨어 버전 **10.0.10307.0**에 해당합니다. 이 업데이트의 새로운 기능에 대한 자세한 내용은 [업데이트 1.1에 대한 릴리스 정보](storsimple-virtual-array-update-11-release-notes.md)로 이동합니다.
+> - 업데이트 1.1은 디바이스에 있는 소프트웨어 버전 **10.0.10307.0** 에 해당합니다. 이 업데이트의 새로운 기능에 대한 자세한 내용은 [업데이트 1.1에 대한 릴리스 정보](storsimple-virtual-array-update-11-release-notes.md)로 이동합니다.
 >
 > - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. StorSimple 가상 배열이 단일 노드 디바이스인 경우 진행 중인 모든 IO가 중단되고 디바이스에 가동 중지 시간이 발생합니다.
 >
@@ -46,7 +46,7 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-11.md)]
 
-설치가 완료된 후 StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스**를 선택한 후 방금 업데이트한 디바이스를 선택하고 클릭합니다. **설정 &gt; 관리 &gt; 디바이스 업데이트**로 이동합니다. 표시된 소프트웨어 버전은 **10.0.10307.0**이어야 합니다.
+설치가 완료된 후 StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스** 를 선택한 후 방금 업데이트한 디바이스를 선택하고 클릭합니다. **설정 &gt; 관리 &gt; 디바이스 업데이트** 로 이동합니다. 표시된 소프트웨어 버전은 **10.0.10307.0** 이어야 합니다.
 
 ![업데이트 후 소프트웨어 버전](./media/storsimple-virtual-array-install-update-11/azupdate17m2.png)
 
@@ -68,15 +68,15 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 
 1. Internet Explorer를 시작 하 고로 이동 [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) 합니다.
 
-2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치**를 클릭합니다.
+2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치** 를 클릭합니다.
 
-3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호를 입력합니다. 업데이트 1.1의 경우 **4337628**을 입력하고 **검색**을 클릭합니다.
+3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호를 입력합니다. 업데이트 1.1의 경우 **4337628** 을 입력하고 **검색** 을 클릭합니다.
    
-    핫픽스 목록(예: **StorSimple 가상 배열 업데이트 1.1**)이 나타납니다.
+    핫픽스 목록(예: **StorSimple 가상 배열 업데이트 1.1** )이 나타납니다.
    
     ![카탈로그 검색](./media/storsimple-virtual-array-install-update-11/download1.png)
 
-4. **다운로드**를 클릭합니다.
+4. **다운로드** 를 클릭합니다.
 
 5. 폴더에 두 개의 파일을 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 
@@ -99,28 +99,28 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 설치하려면
 
-1. 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트**로 이동 합니다. 실행 중인 소프트웨어 버전을 기록해 둡니다. **업데이트 1 (10.0.10296.0)을 실행 하는 경우에만이 업데이트를 진행 합니다. 업데이트 0.6을 실행 중인 경우 먼저 장치에 [업데이트 1을 설치한](storsimple-virtual-array-install-update-1.md) 다음 업데이트 1.1을 적용 합니다.**
+1. 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트** 로 이동 합니다. 실행 중인 소프트웨어 버전을 기록해 둡니다. **업데이트 1 (10.0.10296.0)을 실행 하는 경우에만이 업데이트를 진행 합니다. 업데이트 0.6을 실행 중인 경우 먼저 장치에 [업데이트 1을 설치한](storsimple-virtual-array-install-update-1.md) 다음 업데이트 1.1을 적용 합니다.**
    
-    ![장치 업데이트 1](./media/storsimple-virtual-array-install-update-11/update1m.png)
+    ![[유지 관리] 메뉴에서 선택한 소프트웨어 업데이트를 보여 주는 스크린샷](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
-2. **업데이트 파일 경로**에 업데이트 또는 핫픽스의 파일 이름을 입력합니다. 네트워크 공유에 있는 경우 업데이트 또는 핫픽스 설치 파일로 이동할 수 있습니다. **적용**을 클릭합니다.
+2. **업데이트 파일 경로** 에 업데이트 또는 핫픽스의 파일 이름을 입력합니다. 네트워크 공유에 있는 경우 업데이트 또는 핫픽스 설치 파일로 이동할 수 있습니다. **적용** 을 클릭합니다.
    
-    ![장치 업데이트 2](./media/storsimple-virtual-array-install-update-11/update2m.png)
+    ![스크린샷 소프트웨어 업데이트 페이지의 업데이트 파일 경로 텍스트 상자를 표시 합니다.](./media/storsimple-virtual-array-install-update-11/update2m.png)
 
 3. 경고가 표시됩니다. 가상 배열이 단일 노드 디바이스인 경우 업데이트가 적용된 후 디바이스를 다시 시작하고 가동 중지 시간이 발생합니다. 확인 아이콘을 클릭합니다.
    
-   ![장치 업데이트 3](./media/storsimple-virtual-array-install-update-11/update3m.png)
+   ![스크린샷에는 가동 중지 시간에 대 한 대화 상자 경고가 표시 됩니다.](./media/storsimple-virtual-array-install-update-11/update3m.png)
 
 4. 업데이트가 시작됩니다. 디바이스가 성공적으로 업데이트된 후 다시 시작됩니다. 이 시간 동안 로컬 UI에 액세스할 수 없습니다.
    
-    ![업데이트 장치 4](./media/storsimple-virtual-array-install-update-11/update5m.png)
+    ![스크린샷 업데이트에 대 한 성공 메시지를 표시 합니다.](./media/storsimple-virtual-array-install-update-11/update5m.png)
 
-5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트**로 이동 합니다. 표시된 소프트웨어 버전은 업데이트 1.1의 경우 **10.0.0.0.0.10307**이어야 합니다.
+5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트** 로 이동 합니다. 표시된 소프트웨어 버전은 업데이트 1.1의 경우 **10.0.0.0.0.10307** 이어야 합니다.
    
    > [!NOTE]
-   > 로컬 웹 UI 및 Azure Portal에서 약간 다른 방법으로 소프트웨어 버전을 보고합니다. 예를 들어 같은 버전에 대해 로컬 웹 UI는 **10.0.0.0.0.10307**을, Azure Portal은 **10.0.10307.0**을 보고합니다.
+   > 로컬 웹 UI 및 Azure Portal에서 약간 다른 방법으로 소프트웨어 버전을 보고합니다. 예를 들어 같은 버전에 대해 로컬 웹 UI는 **10.0.0.0.0.10307** 을, Azure Portal은 **10.0.10307.0** 을 보고합니다.
    
-    ![업데이트 장치 5](./media/storsimple-virtual-array-install-update-11/update6m.png)
+    ![스크린샷 현재 소프트웨어 버전을 포함 하는 소프트웨어 업데이트 페이지를 표시 합니다.](./media/storsimple-virtual-array-install-update-11/update6m.png)
 
 6. 2-4단계를 반복하여 `Windows8.1-KB4284815-x64` 파일을 통해 Windows 보안 수정을 설치합니다. 설치 후 가상 배열이 다시 시작되고 로컬 웹 UI에 로그인해야 합니다.
 

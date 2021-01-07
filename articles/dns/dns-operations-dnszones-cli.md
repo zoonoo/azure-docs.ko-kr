@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ff1abd48282a4ec9278d7182fea286178b5bd3ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 469fdbced4601c6ffb4b6aa35e8f943bcb5dde1b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495916"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965785"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS에서 DNS 영역을 관리하는 방법
 
@@ -43,11 +43,11 @@ ms.locfileid: "87495916"
 
 * Azure 구독 Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-* Windows, Linux 또는 MAC용 최신 버전의 Azure CLI를 설치합니다. 자세한 내용은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-az-cli2)를 참조하세요.
+* Windows, Linux 또는 MAC용 최신 버전의 Azure CLI를 설치합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-az-cli2)를 참조하세요.
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure 계정에 로그인
 
-콘솔 창을 열고 자격 증명을 사용하여 인증합니다. 자세한 내용은 [Azure CLI에서 Azure에 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 을 참조 하세요.
+콘솔 창을 열고 자격 증명을 사용하여 인증합니다. 자세한 내용은 [Azure CLI에서 Azure에 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 을 참조 하세요.
 
 ```
 az login
@@ -97,7 +97,7 @@ az network dns zone create --help
 
 `az network dns zone create` 명령을 사용하여 DNS 영역을 만듭니다. 도움말을 보려면 `az network dns zone create -h`을 참조하세요.
 
-다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 *contoso.com* 이라는 DNS 영역을 만듭니다.
+다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에 *contoso.com* 이라는 DNS 영역을 만듭니다.
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com
@@ -105,7 +105,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com
 
 ### <a name="to-create-a-dns-zone-with-tags"></a>태그를 사용하여 DNS 영역을 만들려면
 
-다음 예제에서는 두 [Azure Resource Manager 태그](dns-zones-records.md#tags), *project = demo* 및 *env = test*와 함께 `--tags` 매개 변수(짧은 양식 `-t`)를 사용하여 DNS 영역을 만드는 방법을 보여 줍니다.
+다음 예제에서는 두 [Azure Resource Manager 태그](dns-zones-records.md#tags), *project = demo* 및 *env = test* 와 함께 `--tags` 매개 변수(짧은 양식 `-t`)를 사용하여 DNS 영역을 만드는 방법을 보여 줍니다.
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com --tags "project=demo" "env=test"
@@ -115,7 +115,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com -
 
 DNS 영역을 가져오려면 `az network dns zone show`를 사용합니다. 도움말을 보려면 `az network dns zone show --help`을 참조하세요.
 
-다음 예제에서는 DNS 영역 *contoso.com* 및 해당 관련 데이터를 리소스 그룹 *MyResourceGroup*에서 반환합니다. 
+다음 예제에서는 DNS 영역 *contoso.com* 및 해당 관련 데이터를 리소스 그룹 *MyResourceGroup* 에서 반환합니다. 
 
 ```azurecli
 az network dns zone show --resource-group myresourcegroup --name contoso.com
@@ -185,7 +185,7 @@ az network dns zone update --resource-group myresourcegroup --name contoso.com -
 
 이 명령은 확인 메시지를 표시합니다. 선택적 `--yes` 스위치는 이 프롬프트를 표시하지 않습니다.
 
-다음 예제는 리소스 그룹 *MyResourceGroup*에서 *contoso.com* 영역을 삭제하는 방법을 보여 줍니다.
+다음 예제는 리소스 그룹 *MyResourceGroup* 에서 *contoso.com* 영역을 삭제하는 방법을 보여 줍니다.
 
 ```azurecli
 az network dns zone delete --resource-group myresourcegroup --name contoso.com
@@ -193,7 +193,6 @@ az network dns zone delete --resource-group myresourcegroup --name contoso.com
 
 ## <a name="next-steps"></a>다음 단계
 
-DNS 영역에서 [레코드 집합 및 레코드 관리](dns-getstarted-create-recordset-cli.md) 방법을 알아봅니다.
+DNS 영역에서 [레코드 집합 및 레코드 관리](./dns-getstarted-cli.md) 방법을 알아봅니다.
 
 [Azure DNS에 도메인을 위임](dns-domain-delegation.md)하는 방법을 알아봅니다.
-

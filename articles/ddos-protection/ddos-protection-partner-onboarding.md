@@ -8,12 +8,12 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: 70793b585a11da2eccb43fd6cf47053774f1e991
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 962f6bcf7747a82749e7ccab95de34f7834a8372
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905406"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814213"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준과 파트너
 이 문서에서는 Azure DDoS Protection 표준에서 사용 하도록 설정 된 파트너 기회에 대해 설명 합니다. 이 문서는 제품 관리자 및 비즈니스 개발 역할이 투자 경로를 이해 하 고 파트너 가치 제안을 이해 하는 데 도움을 주기 위해 작성 되었습니다.
@@ -40,8 +40,8 @@ Azure DDoS Protection Standard는 계층 3 및 계층 4 DDoS 공격에 대해 �
 Azure DDoS Protection은 사용자 개입 없이 DDoS 공격을 식별 하 고 완화 합니다.
 
 - 보호 된 리소스가 Azure Security Center에서 설명 하는 구독에 있는 경우 DDoS Protection 표준에서는 DDoS 공격이 감지 되 고 보호 된 응용 프로그램에 대해 완화 될 때마다 Security Center에 경고를 자동으로 보냅니다.
-- 또는 보호 된 공용 IP에 대 한 활성 완화가 있는 경우 알림을 받으려면 DDoS attack에서 메트릭에 대 한 [경고를 구성할](telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics) 수 있습니다.
-- 또한 다른 DDoS 메트릭에 대 한 경고를 생성 하 고 공격 범위, 손실 되는 트래픽, 공격 벡터, 상위 참가자 및 기타 세부 정보를 이해 하도록 [공격 분석을 구성할](telemetry-monitoring-alerting.md) 수 있습니다.
+- 또는 보호 된 공용 IP에 대 한 활성 완화가 있는 경우 알림을 받으려면 DDoS attack에서 메트릭에 대 한 [경고를 구성할](alerts.md) 수 있습니다.
+- 또한 다른 DDoS 메트릭에 대 한 경고를 생성 하 고 공격 규모, 손실 되는 트래픽, 공격 벡터, 상위 참가자 및 기타 세부 정보를 이해 하기 위해 [공격 원격 분석을 구성할](telemetry.md) 수 있습니다.
 
 ![DDoS 메트릭](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
 
@@ -71,14 +71,14 @@ Azure DDoS Protection 표준 파트너 기회는 Azure Portal, Api 및 CLI/PS를
 3. 첫 번째 단계에서 만든 DDoS Protection 계획을 사용 하 여 공용 끝점이 있는 서비스의 가상 네트워크에서 Azure DDoS Protection Standard를 사용 하도록 설정 합니다. Stpe 단계별 지침은 [Enable DDoS Standard Protection plan](manage-ddos-protection.md#enable-ddos-protection-for-an-existing-virtual-network) 항목을 참조 하세요.
    > [!IMPORTANT] 
    > 가상 네트워크에서 Azure DDoS Protection Standard를 사용 하도록 설정 하면 해당 가상 네트워크 내의 모든 공용 Ip가 자동으로 보호 됩니다. 이러한 공용 Ip의 원본은 Azure (클라이언트 구독) 또는 Azure 외부에 있을 수 있습니다. 
-4. 필요에 따라 응용 프로그램별 고객 관련 대시보드의 표준 원격 분석과 공격 분석 Azure DDoS Protection 통합 합니다. 원격 분석 사용에 대 한 자세한 내용은 [DDoS protection 원격 분석 보기 및 구성](telemetry-monitoring-alerting.md)을 참조 하세요. 
+4. 필요에 따라 응용 프로그램별 고객 관련 대시보드의 표준 원격 분석과 공격 분석 Azure DDoS Protection 통합 합니다. 원격 분석 사용에 대 한 자세한 내용은 [DDoS protection 원격 분석 보기 및 구성](telemetry.md)을 참조 하세요. 
 
 ### <a name="onboarding-guides-and-technical-documentation"></a>온 보 딩 가이드 및 기술 문서
 
 - [Azure DDoS Protection 제품 페이지](https://azure.microsoft.com/services/ddos-protection/)
 - [Azure DDoS Protection 설명서](ddos-protection-overview.md)
-- [Azure DDoS Protection API 참조](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
-- [Azure 가상 네트워크 API 참조](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
+- [Azure DDoS Protection API 참조](/rest/api/virtualnetwork/ddosprotectionplans)
+- [Azure 가상 네트워크 API 참조](/rest/api/virtualnetwork/virtualnetworks)
 
 ### <a name="get-help"></a>도움말 보기
 

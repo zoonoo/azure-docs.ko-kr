@@ -40,6 +40,10 @@
       href: threat-intelligence-settings.md
     - name: 네트워크 규칙의 FQDN
       href: fqdn-filtering-network-rules.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 보안 파트너 공급자 배포

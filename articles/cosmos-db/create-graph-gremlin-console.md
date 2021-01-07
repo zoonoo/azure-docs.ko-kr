@@ -1,18 +1,18 @@
 ---
 title: 'TinkerPop Gremlin 콘솔을 사용하여 Azure Cosmos DB Gremlin API로 쿼리: 자습서'
 description: Azure Cosmos DB 빠른 시작은 Azure Cosmos DB Gremlin API를 사용하여 꼭짓점, 에지 및 쿼리를 만듭니다.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: jasonh
-ms.openlocfilehash: be93df10614e32fb14e5ca7497461f0f2d6fc93e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.author: chrande
+ms.openlocfilehash: 20cb4cea52317022aea8a5b9e4b8280f8b88ff85
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099715"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361514"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

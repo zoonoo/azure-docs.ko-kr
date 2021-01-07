@@ -6,18 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 99dd3da3f9e8434f9c859afd347bd19d10628083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38dcb32b2993838f8c3f13334e0bc44e9146f113
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938604"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448582"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에 대 한 액세스, 기능 및 연결 모드 관리
 
 이 문서에서는 GPU 장치를 사용 하 여 Azure Stack Edge Pro에 대 한 액세스, 기능 및 연결 모드를 관리 하는 방법을 설명 합니다. 이러한 작업은 로컬 웹 UI 또는 Azure Portal을 통해 수행합니다.
+
+이 문서는 Azure Stack Edge Pro GPU, Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R 장치에 적용 됩니다.
+
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -32,29 +35,65 @@ ms.locfileid: "90938604"
 
 Azure Stack Edge Pro 장치에 대 한 액세스는 장치 암호를 사용 하 여 제어 됩니다. 로컬 웹 UI를 통해 암호를 변경할 수 있습니다. Azure Portal에서 장치 암호를 다시 설정할 수도 있습니다.
 
+장치 디스크의 데이터에 대 한 액세스는 미사용 암호화 키로도 제어 됩니다.
+
 ### <a name="change-device-password"></a>디바이스 암호 변경
 
 로컬 UI에서 다음 단계를 수행 하 여 장치 암호를 변경 합니다.
 
-1. 로컬 웹 UI에서 **유지 관리 > 암호로**이동 합니다.
+1. 로컬 웹 UI에서 **유지 관리 > 암호로** 이동 합니다.
 2. 현재 암호를 입력한 다음, 새 암호를 입력합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. 새 암호를 확인합니다.
 
     ![암호 변경](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/change-password-1.png)
 
-3. **암호 변경**을 선택합니다.
+3. **암호 변경** 을 선택합니다.
  
 ### <a name="reset-device-password"></a>장치 암호 다시 설정
 
 재설정 워크플로에서는 사용자가 이전 암호를 기억할 필요가 없으며 암호를 분실했을 때 유용합니다. 이 워크플로는 Azure Portal에서 수행합니다.
 
-1. Azure Portal에서 **개요 > 관리자 암호 재설정**으로 이동합니다.
+1. Azure Portal에서 **개요 > 관리자 암호 재설정** 으로 이동합니다.
 
-    ![암호 재설정](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![장치 암호 다시 설정이 선택 된 장치를 보여 주는 스크린샷](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
-2. 새 암호를 입력하고 확인합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. **재설정**을 선택합니다.
+2. 새 암호를 입력하고 확인합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. **재설정** 을 선택합니다.
 
-    ![암호 재설정](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![암호 다시 설정 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+### <a name="manage-access-to-device-data"></a>장치 데이터에 대 한 액세스 관리
+
+Edge Pro R 및 Azure Stack Edge 미니 R 장치에 대 Azure Stack 한 액세스는 장치 드라이브에 대 한 미사용 암호화 키를 사용 하 여 제어 됩니다. 미사용 암호화를 위해 장치를 성공적으로 구성한 후에는 장치 로컬 UI에서 미사용 암호화 키 회전 옵션을 사용할 수 있게 됩니다. 
+
+이 작업을 통해 BitLocker 볼륨 `HcsData` 및 `HcsInternal` 장치의 모든 자동 암호화 드라이브에 대 한 키를 변경할 수 있습니다.
+
+미사용 암호화 키를 회전 하려면 다음 단계를 수행 합니다.
+
+1. 장치의 로컬 UI에서 **시작** 페이지로 이동 합니다. **보안** 타일에서 **암호화-휴지: 키 회전** 옵션을 선택 합니다. 이 옵션은 미사용 암호화 키를 성공적으로 구성한 경우에만 사용할 수 있습니다.
+
+    ![시작 페이지에서 미사용 암호화를 위한 키 회전을 선택 합니다.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-1.png)
+
+1. 사용자 고유의 BitLocker 키를 사용 하거나 시스템에서 생성 된 키를 사용할 수 있습니다.  
+
+    사용자 고유의 키를 제공 하려면 32 문자 길이가 Base-64로 인코딩된 문자열을 입력 합니다. 입력은 미사용 암호화를 처음으로 구성할 때 제공 하는 것과 비슷합니다.
+
+    ![사용자 고유의 암호화-rest 키 가져오기](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-2.png)
+
+    시스템에서 생성 된 키를 사용 하도록 선택할 수도 있습니다.
+
+    ![시스템에서 생성 한 미사용 암호화 키 사용](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-3.png)
+
+1. **적용** 을 선택합니다. 키 보호기가 회전 됩니다.
+
+    ![새 미사용 암호화 키 적용](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-4.png)
+
+1. 키 파일을 다운로드 하 고 저장 하 라는 메시지가 표시 되 면 **다운로드 및 계속** 을 선택 합니다. 
+
+    ![키 파일 다운로드 및 계속](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-5.png)
+
+    `.json`키 파일을 안전한 위치에 저장 합니다. 이 파일은 나중에 장치를 복구할 수 있도록 하는 데 사용 됩니다.
+
+    ![스크린샷 장치 암호 다시 설정 대화 상자를 표시 합니다.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>리소스 액세스 관리
 
@@ -69,7 +108,7 @@ Azure Stack Edge Pro 장치에 대 한 정품 인증 키를 생성 하거나 자
 
 `User`가능 하면 Active Directory 테 넌 트에 대 한 액세스 권한이 있어야 합니다 `Read all directory objects` . 권한이 없는 게스트 사용자는 사용할 수 없습니다 `Read all directory objects` . 게스트 인 경우 활성화 키 생성, Azure Stack Edge Pro 장치에서 공유 만들기, 사용자 만들기, Edge 계산 역할의 구성, 장치 암호 다시 설정 등의 작업이 모두 실패 합니다.
 
-Microsoft Graph API에 대 한 사용자 액세스를 제공 하는 방법에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요.
+Microsoft Graph API에 대 한 사용자 액세스를 제공 하는 방법에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](/graph/permissions-reference)를 참조 하세요.
 
 ### <a name="register-resource-providers"></a>리소스 공급자 등록
 
@@ -114,15 +153,15 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 
 디바이스 모드를 변경하려면 다음 단계를 수행합니다.
 
-1. 장치의 로컬 웹 UI에서 **구성 > 클라우드**로 이동 합니다.
-2. 드롭다운 목록에서 장치를 작동 하는 데 사용할 모드를 선택 합니다. **전체 연결 됨**, **부분적으로 연결 됨**및 **완전히 분리**됨에서 선택할 수 있습니다. 부분적으로 연결이 끊긴 모드에서 디바이스를 실행하려면 **Azure Portal 관리**를 사용하도록 설정합니다.
+1. 장치의 로컬 웹 UI에서 **구성 > 클라우드** 로 이동 합니다.
+2. 드롭다운 목록에서 장치를 작동 하는 데 사용할 모드를 선택 합니다. **전체 연결 됨**, **부분적으로 연결 됨** 및 **완전히 분리** 됨에서 선택할 수 있습니다. 부분적으로 연결이 끊긴 모드에서 디바이스를 실행하려면 **Azure Portal 관리** 를 사용하도록 설정합니다.
 
  
 ## <a name="manage-power"></a>전원 관리
 
 로컬 웹 UI를 사용하여 물리적 디바이스를 종료하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 데이터 서버에서 공유를 오프라인으로 전환한 후 디바이스를 다시 시작하는 것이 좋습니다. 이 작업을 수행하면 데이터 손상 가능성이 최소화됩니다.
 
-1. 로컬 웹 UI에서 **유지 관리 > 기능**으로 이동 합니다.
+1. 로컬 웹 UI에서 **유지 관리 > 기능** 으로 이동 합니다.
 2. 수행 하려는 작업에 따라 **종료** 또는 **다시 시작** 을 선택 합니다.
 
     ![전원 설정](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/shut-down-restart-1.png)

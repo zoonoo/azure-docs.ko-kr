@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5970e82619667a47ba160c84df2cdeb145b0dab8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80298816"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966176"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
 
@@ -29,7 +29,7 @@ ms.locfileid: "80298816"
 
 이 문서에 게시된 StorSimple 시스템 요구 사항 정보는 StorSimple 가상 배열에만 적용됩니다.
 
-* 8000 시리즈 디바이스는 [System requirements for your StorSimple 8000 series device](storsimple-system-requirements.md)(StorSimple 8000 시리즈 디바이스에 대한 시스템 요구 사항)을 참조하세요.
+* 8000 시리즈 디바이스는 [System requirements for your StorSimple 8000 series device](./storsimple-8000-system-requirements.md)(StorSimple 8000 시리즈 디바이스에 대한 시스템 요구 사항)을 참조하세요.
 * 7000 시리즈 디바이스는 [System requirements for your StorSimple 5000-7000 series device](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements)(StorSimple 5000-7000 시리즈 디바이스에 대한 시스템 요구 사항)을 참조하세요.
 
 ## <a name="software-requirements"></a>소프트웨어 요구 사항
@@ -67,7 +67,7 @@ ms.locfileid: "80298816"
 ### <a name="supported-storage-clients"></a>지원되는 스토리지 클라이언트
 다음 소프트웨어 요구 사항은 StorSimple 가상 배열(iSCSI 서버로 구성됨)에 액세스하는 iSCSI 초기자에 대한 것입니다.
 
-| **지원되는 운영 체제** | **필요한 버전** | **추가 요구 사항/메모** |
+| **지원 되는 운영 체제** | **필요한 버전** | **추가 요구 사항/메모** |
 | --- | --- | --- |
 | Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다. StorSimple iSCSI 볼륨은 다음에 대해서만 지원합니다: <ul><li>Windows 기본 디스크의 단순 볼륨.</li><li>볼륨 포맷을 위한 Windows NTFS.</li> |
 
@@ -84,20 +84,20 @@ ms.locfileid: "80298816"
 
 
 ### <a name="supported-storage-format"></a>지원되는 스토리지 형식
-Azure 블록 Blob Storage만 지원됩니다. 페이지 Blob은 지원되지 않습니다. [블록 Blob 및 페이지 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 자세한 내용입니다.
+Azure 블록 Blob Storage만 지원됩니다. 페이지 Blob은 지원되지 않습니다. [블록 Blob 및 페이지 Blob에 대한](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 자세한 내용입니다.
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
-다음 테이블에는 iSCSI, SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 디바이스에서 방향을 참조합니다.
+다음 테이블에는 iSCSI, SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드* 는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드* 는 배포 후 데이터를 외부로 보내는 StorSimple 디바이스에서 방향을 참조합니다.
 
-| **포트 번호<sup>1</sup>** | **인 또는 아웃** | **포트 범위** | **필수** | **참고** |
+| **포트 번호 <sup>1</sup>** | **인 또는 아웃** | **포트 범위** | **필수** | **참고** |
 | --- | --- | --- | --- | --- |
-| TCP 80(HTTP) |아웃 |WAN |아니요 |업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
+| TCP 80(HTTP) |아웃 |WAN |예 |업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | TCP 443(HTTPS) |아웃 |WAN |예 |아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | UDP 53(DNS) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. <br></br> 파일 서버를 배포하는 경우에는 로컬 DNS 서버를 사용하는 것이 좋습니다. |
 | UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다.<br></br> 파일 서버를 배포하는 경우 Active Directory 도메인 컨트롤러와 시간을 동기화하는 것이 좋습니다. |
 | TCP 80(HTTP) |In(다음 안에) |LAN |예 |로컬 관리용 StorSimple 디바이스의 로컬 UI에 대한 인바운드 포트입니다. <br></br> HTTP를 통해 로컬 UI에 액세스하면 HTTPS로 자동으로 리디렉션됩니다. |
 | TCP 443(HTTPS) |In(다음 안에) |LAN |예 |로컬 관리용 StorSimple 디바이스의 로컬 UI에 대한 인바운드 포트입니다. |
-| TCP 3260(iSCSI) |In(다음 안에) |LAN |아니요 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
+| TCP 3260(iSCSI) |In(다음 안에) |LAN |예 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 

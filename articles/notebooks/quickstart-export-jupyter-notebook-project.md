@@ -3,12 +3,12 @@ title: Azure Notebooks 미리 보기에서 Jupyter Notebook 프로젝트 내보�
 description: Jupyter Notebook 프로젝트를 빠르게 내보냅니다.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: 3153247b9d15167ab437d6c46142bbd41f8e4b23
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: ea16bd61b542217fb6f2d5ba1d926a0bc19d4cce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030449"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844423"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Azure Notebooks 미리 보기에서 Jupyter Notebook 프로젝트 내보내기
 
@@ -24,7 +24,7 @@ ms.locfileid: "90030449"
 
 1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. 자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.
 
-1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
+1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트** 를 선택합니다.
 
     ![브라우저 창 맨 위에 있는 내 프로젝트 링크](media/quickstarts/my-projects-link.png)
 
@@ -76,10 +76,10 @@ Azure Machine Learning은 사용자가 Azure에서 더 빠르게 모델을 빌�
    ![작업 영역 만들기](../machine-learning/media/how-to-manage-workspace/create-workspace.gif)
  
 1. [Azure Studio(미리 보기)](https://ml.azure.com/)를 엽니다.
-1. 왼쪽에 있는 탐색 모음을 사용하여 **Notebook**을 선택합니다.
+1. 왼쪽에 있는 탐색 모음을 사용하여 **Notebook** 을 선택합니다.
 1. **파일 업로드** 단추를 클릭하고, Azure Notebooks에서 다운로드한 프로젝트 파일을 업로드합니다.
 
-Azure ML 및 Jupyter Notebook 실행에 대한 자세한 내용은 [설명서](../machine-learning/how-to-run-jupyter-notebooks.md)를 검토하거나 Microsoft Learn에서 [Machine Learning 소개](https://docs.microsoft.com/learn/modules/intro-to-azure-machine-learning-service/) 모듈을 사용해보세요.
+Azure ML 및 Jupyter Notebook 실행에 대한 자세한 내용은 [설명서](../machine-learning/how-to-run-jupyter-notebooks.md)를 검토하거나 Microsoft Learn에서 [Machine Learning 소개](/learn/modules/intro-to-azure-machine-learning-service/) 모듈을 사용해보세요.
 
 
 ## <a name="use-azure-lab-services"></a>Azure Lab Services 사용

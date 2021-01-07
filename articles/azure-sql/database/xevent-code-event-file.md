@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 06/06/2020
-ms.openlocfilehash: 9674b7188251312056812ac8e1dcae5885579e2a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d7a57f98551cf91ed87858caba0907471bcf6b12
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791310"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501229"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -258,7 +258,7 @@ PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했�
 6. 저장한 다음 스크립트를 실행합니다.
 
 > [!WARNING]
-> 앞의 PowerShell 스크립트에서 생성된 SAS 키 값은 '?'(물음표)로 시작될 수 있습니다. 다음 T-SQL 스크립트에서 SAS 키를 사용하는 경우 *앞의 '?'를 제거해야 합니다* . 그렇지 않으면 보안에 의해 작업이 차단될 수 있습니다.
+> 앞의 PowerShell 스크립트에서 생성된 SAS 키 값은 '?'(물음표)로 시작될 수 있습니다. 다음 T-SQL 스크립트에서 SAS 키를 사용하는 경우 *앞의 '?'를 제거해야 합니다*. 그렇지 않으면 보안에 의해 작업이 차단될 수 있습니다.
 
 ### <a name="transact-sql-code"></a>Transact-SQL 코드
 

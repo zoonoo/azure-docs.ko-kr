@@ -4,16 +4,16 @@ description: 포함 파일
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: fabd79829425147667c46f686a1ec1ceb6a29b00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87132898"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386517"
 ---
 이 Postman 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 
@@ -28,6 +28,8 @@ ms.locfileid: "87132898"
 > 기술 자료에서 질문에 대한 대답을 생성할 준비가 되면 기술 자료를 [학습](../Quickstarts/create-publish-knowledge-base.md#save-and-train) 및 [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)해야 합니다. 기술 자료가 게시되면 **게시** 페이지에 대답을 생성하기 위한 HTTP 요청 설정이 표시됩니다. **Postman** 탭에는 대답을 생성하는 데 필요한 설정이 표시됩니다.
 
 ## <a name="set-up-postman-for-requests"></a>요청을 위한 Postman 설정
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 이 빠른 시작은 Postman **POST** 요청에 대해 동일한 설정을 사용한 다음, 쿼리하려는 내용에 따라 서비스로 전송된 POST 본문 JSON으로 구성합니다.
 
@@ -44,6 +46,25 @@ ms.locfileid: "87132898"
     ||`{"question":"<Your question>"}`|JSON 개체인 POST 요청의 본문입니다. 이 값은 쿼리의 용도에 따라 다음 각 섹션에서 변경됩니다.|
 
 1. Postman을 열고 게시된 기술 자료 설정을 사용하여 새 기본 **POST** 요청을 만듭니다. 다음 섹션에서 POST 본문 JSON을 변경하여 쿼리를 기술 자료로 변경합니다.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+
+이 빠른 시작은 Postman **POST** 요청에 대해 동일한 설정을 사용한 다음, 쿼리하려는 내용에 따라 서비스로 전송된 POST 본문 JSON으로 구성합니다.
+
+다음 절차를 사용하여 Postman을 구성한 다음, 각 후속 섹션을 참조하여 POST 본문 JSON을 구성합니다.
+
+1. 기술 자료의 **설정** 페이지에서 **Postman** 탭을 선택하여 기술 자료에서 대답을 생성하는 데 사용되는 구성을 확인합니다. Postman에서 사용하는 다음 정보를 복사합니다.
+
+    |Name|설정|용도 및 값|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|이는 URL에 대한 HTTP 메서드 및 경로입니다.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|이는 URL의 호스트입니다. 호스트 및 게시 값을 연결하여 전체 generateAnswer URL을 가져옵니다.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|요청에 대한 권한을 부여하기 위한 헤더 값입니다. |
+    |`Content-type`|`application/json`|콘텐츠에 대한 헤더 값입니다.|
+    ||`{"question":"<Your question>"}`|JSON 개체인 POST 요청의 본문입니다. 이 값은 쿼리의 용도에 따라 다음 각 섹션에서 변경됩니다.|
+
+1. Postman을 열고 게시된 기술 자료 설정을 사용하여 새 기본 **POST** 요청을 만듭니다. 다음 섹션에서 POST 본문 JSON을 변경하여 쿼리를 기술 자료로 변경합니다.
+---
 
 ## <a name="use-metadata-to-filter-answer"></a>대답을 필터링하기 위한 메타데이터 사용
 

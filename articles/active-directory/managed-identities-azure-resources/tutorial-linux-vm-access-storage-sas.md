@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0bb70b82e8c34c50743bf56069488e2d4c4e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3edc63a1532bb6889fc490e400dbb57e7bce10d0
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968789"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360414"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Linux VM 시스템 할당 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
 
@@ -49,11 +49,11 @@ ms.locfileid: "90968789"
 스토리지 계정이 아직 없는 경우 이제 하나 만들게 됩니다.  또한 이 단계를 건너뛰고 기존 스토리지 계정의 키에 대한 VM 시스템 할당 관리 ID 액세스 권한을 부여할 수 있습니다. 
 
 1. Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
-2. **스토리지**를 클릭하면 **스토리지 계정**, 새 “스토리지 계정 만들기” 패널이 표시됩니다.
-3. 나중에 사용할 스토리지 계정에 대한 **이름**을 입력합니다.  
-4. **배포 모델** 및 **계정 종류**는 각각 “리소스 관리자” 및 “범용”으로 설정해야 합니다. 
-5. **구독** 및 **리소스 그룹**은 이전 단계에서 VM을 만들 때 지정한 것과 일치합니다.
-6. **만들기**를 클릭합니다.
+2. **스토리지** 를 클릭하면 **스토리지 계정** , 새 “스토리지 계정 만들기” 패널이 표시됩니다.
+3. 나중에 사용할 스토리지 계정에 대한 **이름** 을 입력합니다.  
+4. **배포 모델** 및 **계정 종류** 는 각각 “리소스 관리자” 및 “범용”으로 설정해야 합니다. 
+5. **구독** 및 **리소스 그룹** 은 이전 단계에서 VM을 만들 때 지정한 것과 일치합니다.
+6. **만들기** 를 클릭합니다.
 
     ![새 스토리지 계정 만들기](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -63,22 +63,22 @@ ms.locfileid: "90968789"
 
 1. 새로 만든 스토리지 계정으로 다시 이동합니다.
 2. 왼쪽 패널에서 “Blob service” 아래에 있는 **컨테이너** 링크를 클릭합니다.
-3. 페이지 맨 위에 있는 **+ 컨테이너**를 클릭하면 “새 컨테이너” 패널이 나타납니다.
-4. 컨테이너에 이름을 지정하고 액세스 수준을 선택한 다음 **확인**을 클릭합니다. 지정한 이름은 이 자습서의 뒷부분에 사용됩니다. 
+3. 페이지 맨 위에 있는 **+ 컨테이너** 를 클릭하면 “새 컨테이너” 패널이 나타납니다.
+4. 컨테이너에 이름을 지정하고 액세스 수준을 선택한 다음 **확인** 을 클릭합니다. 지정한 이름은 이 자습서의 뒷부분에 사용됩니다. 
 
     ![스토리지 컨테이너 만들기](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>스토리지 SAS를 사용하도록 VM의 시스템 할당 관리 ID 액세스 부여 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>스토리지 SAS를 사용하도록 VM의 시스템 할당 관리 ID 액세스 부여
 
 Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  그러나 VM의 시스템 할당 관리 ID를 사용하여 Resource Manager에서 스토리지 SAS를 검색한 다음, 해당 SAS를 사용하여 스토리지에 액세스할 수 있습니다.  이 단계에서 스토리지 계정 SAS에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여합니다.   
 
 1. 새로 만든 스토리지 계정으로 다시 이동합니다.
 2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  
-3. 페이지의 위쪽에서 **+ 역할 할당 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
-4. 페이지 오른쪽에서 **역할**을 &quot;스토리지 계정 참가자&quot;로 설정합니다. 
-5. 다음 드롭다운에서 **다음에 대한 액세스 할당**을 “Virtual Machine” 리소스로 설정합니다.  
-6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인하고 **리소스 그룹**을 "모든 리소스 그룹"으로 설정합니다.  
-7. 마지막으로 **선택** 드롭다운에서 Linux Virtual Machine을 선택하고 **저장**을 클릭합니다.  
+3. 페이지의 위쪽에서 **+ 역할 할당 추가** 를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
+4. 페이지 오른쪽에서 **역할** 을 &quot;스토리지 계정 참가자&quot;로 설정합니다. 
+5. 다음 드롭다운에서 **다음에 대한 액세스 할당** 을 “Virtual Machine” 리소스로 설정합니다.  
+6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인하고 **리소스 그룹** 을 "모든 리소스 그룹"으로 설정합니다.  
+7. 마지막으로 **선택** 드롭다운에서 Linux Virtual Machine을 선택하고 **저장** 을 클릭합니다.  
 
     ![대체 이미지 텍스트](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
@@ -88,9 +88,9 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 
 아래의 단계를 완료하려면 SSH 클라이언트가 필요합니다. Windows를 사용 중인 경우 [Linux용 Windows 하위 시스템](/windows/wsl/install-win10)에서 SSH 클라이언트를 사용할 수 있습니다. SSH 클라이언트의 키 구성에 대한 도움이 필요하면 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](../../virtual-machines/linux/ssh-from-windows.md) 또는 [Azure에서 Linux VM용 SSH 공개 및 프라이빗 키 쌍을 만들고 사용하는 방법](../../virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
 
-1. Azure Portal에서 **Virtual Machines**, Linux 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결**을 클릭합니다. VM에 연결하기 위한 문자열을 복사합니다. 
+1. Azure Portal에서 **Virtual Machines** , Linux 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결** 을 클릭합니다. VM에 연결하기 위한 문자열을 복사합니다. 
 2. SSH 클라이언트를 사용하여 VM에 연결합니다.  
-3. 그리고 나면 **Linux VM**을 만들 때 추가했던 **암호**를 입력하라는 메시지가 표시됩니다. 이제 정상적으로 로그인되어야 합니다.  
+3. 그리고 나면 **Linux VM** 을 만들 때 추가했던 **암호** 를 입력하라는 메시지가 표시됩니다. 이제 정상적으로 로그인되어야 합니다.  
 4. CURL을 사용하여 Azure Resource Manager에 대한 액세스 토큰을 가져옵니다.  
 
     액세스 토큰에 대한 CURL 요청 및 응답은 다음과 같습니다.

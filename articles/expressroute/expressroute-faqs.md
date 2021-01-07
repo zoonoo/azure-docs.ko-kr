@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: ef5b065425fa05d016c1b1c1688cc28508f32d30
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027111"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462050"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -46,8 +46,9 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>지정 된 대역폭의 Express 경로 회로에 대 한 요금을 지불 하는 경우 내 확보 대역폭을 초과 하는 기능을 사용할 수 있나요?
 
-예, Express 경로 회로의 보조 연결에서 사용할 수 있는 대역폭을 사용 하 여 확보 한 대역폭 제한의 최대 2 배를 사용할 수 있습니다. 회로의 기본 제공 중복성은 두 개의 Microsoft Enterprise Edge 라우터 (MSEEs)에 대 한 기본 및 보조 연결 (각 확보 대역폭)을 사용 하 여 구성 됩니다. 필요한 경우 보조 연결을 통해 사용할 수 있는 대역폭을 추가 트래픽에 사용할 수 있습니다. 그러나 보조 연결은 중복성을 위해 사용 되기 때문에 보장 되지 않으며 지속적으로 추가 트래픽에 사용 되어서는 안 됩니다. 대를 사용 하 여 트래픽을 전송 하는 방법에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)를 참조 하세요.
-기본 연결을 사용 하 여 트래픽을 전송 하려는 경우에는 연결에 대 한 대역폭이 고정 되 고 oversubscribe 시도 하면 패킷이 늘어납니다. 트래픽이 Express 경로 게이트웨이를 통해 이동 하는 경우 SKU에 대 한 대역폭이 고정 되 고 안정화 되지 않습니다.
+예, Express 경로 회로의 보조 연결에서 사용할 수 있는 대역폭을 사용 하 여 확보 한 대역폭 제한의 최대 2 배를 사용할 수 있습니다. 회로의 기본 제공 중복성은 두 개의 Microsoft Enterprise Edge 라우터 (MSEEs)에 대 한 기본 및 보조 연결 (각 확보 대역폭)을 사용 하 여 구성 됩니다. 필요한 경우 보조 연결을 통해 사용할 수 있는 대역폭을 추가 트래픽에 사용할 수 있습니다. 그러나 보조 연결은 중복성을 위해 사용 되기 때문에 보장 되지 않으며 지속적으로 추가 트래픽에 사용 되어서는 안 됩니다. 대를 사용 하 여 트래픽을 전송 하는 방법에 대 한 자세한 내용은 [경로 앞에 사용](./expressroute-optimize-routing.md#solution-use-as-path-prepending)을 참조 하세요.
+
+트래픽을 전송 하는 데 기본 연결만 사용 하려는 경우에는 연결에 대 한 대역폭이 고정 되 고 oversubscribe 시도 하면 패킷이 늘어납니다. 트래픽이 Express 경로 게이트웨이를 통해 이동 하는 경우 게이트웨이 SKU에 대 한 대역폭이 고정 되 고 안정화 되지 않습니다. 각 게이트웨이 SKU의 대역폭은 [express 경로 가상 네트워크 게이트웨이 정보](expressroute-about-virtual-network-gateways.md#aggthroughput)를 참조 하세요.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>가상 네트워크 및 다른 Azure 서비스와 동일한 프라이빗 네트워크 연결을 동시에 사용할 수 있나요?
 

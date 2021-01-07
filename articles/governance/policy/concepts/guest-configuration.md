@@ -1,14 +1,14 @@
 ---
 title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
-description: Azure Policy가 게스트 구성 에이전트를 사용하여 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
+description: Azure Policy 게스트 구성 클라이언트를 사용 하 여 가상 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 58fe1c630de4abfb2fe04ddedb45b360cfebd423
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075487"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862329"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -58,11 +58,11 @@ Azure의 컴퓨터 및 연결 된 컴퓨터를 포함 하 여 사용자 환경 �
 
 ## <a name="supported-client-types"></a>지원되는 클라이언트 유형
 
-게스트 구성 정책 정의는 새 버전을 포함 합니다. 게스트 구성 에이전트가 호환 되지 않는 경우 Azure Marketplace에서 사용할 수 있는 이전 버전의 운영 체제가 제외 됩니다. 다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
+게스트 구성 정책 정의는 새 버전을 포함 합니다. 게스트 구성 클라이언트가 호환 되지 않는 경우 Azure Marketplace에서 사용할 수 있는 이전 버전의 운영 체제가 제외 됩니다. 다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
 
 |게시자|속성|버전|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 이상|
+|Canonical|Ubuntu Server|14.04-18.04|
 |Credativ|Debian|8 이상|
 |Microsoft|Windows Server|2012 이상|
 |Microsoft|Windows 클라이언트|윈도우 10|
@@ -84,7 +84,7 @@ Azure Arc 컴퓨터는 온-프레미스 네트워크 인프라를 사용 하 여
 
 ### <a name="communicate-over-private-link-in-azure"></a>Azure에서 개인 링크를 통해 통신
 
-가상 머신은 게스트 구성 서비스에 대 한 통신에 [개인 링크](../../../private-link/private-link-overview.md) 를 사용할 수 있습니다. `EnablePrivateNeworkGC`이 기능을 사용 하도록 설정 하려면 이름과 값을 사용 하 여 태그를 적용 `TRUE` 합니다. 태그는 게스트 구성 정책 정의가 컴퓨터에 적용 되기 전이나 후에 적용할 수 있습니다.
+가상 머신은 게스트 구성 서비스에 대 한 통신에 [개인 링크](../../../private-link/private-link-overview.md) 를 사용할 수 있습니다. `EnablePrivateNeworkGC`이 기능을 사용 하도록 설정 하려면 이름에 "t"가 없는 태그를 적용 하 고 값을 `TRUE` 사용 합니다. 태그는 게스트 구성 정책 정의가 컴퓨터에 적용 되기 전이나 후에 적용할 수 있습니다.
 
 Azure platform 리소스를 사용 하 여 안전 하 고 인증 된 채널을 설정 하기 위해 Azure [가상 공용 IP 주소](../../../virtual-network/what-is-ip-address-168-63-129-16.md) 를 사용 하 여 트래픽을 라우팅합니다.
 
@@ -133,7 +133,7 @@ Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 정책을 할
 
 _Windows 컴퓨터의 표준 시간대를 구성_ 하는 정의만 표준 시간대를 구성 하 여 컴퓨터를 변경 합니다. 컴퓨터 내에서 설정을 구성 하기 위한 사용자 지정 정책 정의는 지원 되지 않습니다.
 
-_구성_으로 시작하는 정의를 할당하는 경우 _필수 조건을 배포하여 Windows VM에서 게스트 구성 정책을 사용하도록 설정_ 정의도 할당해야 합니다. 선택하는 경우 이러한 정의를 하나의 이니셔티브에 결합할 수 있습니다.
+_구성_ 으로 시작하는 정의를 할당하는 경우 _필수 조건을 배포하여 Windows VM에서 게스트 구성 정책을 사용하도록 설정_ 정의도 할당해야 합니다. 선택하는 경우 이러한 정의를 하나의 이니셔티브에 결합할 수 있습니다.
 
 > [!NOTE]
 > 기본 제공 표준 시간대 정책은 컴퓨터 내부에서 설정을 구성 하는 것을 지 원하는 유일한 정의 이며, 컴퓨터 내에서 설정을 구성 하는 사용자 지정 정책 정의는 지원 되지 않습니다.

@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 64b8956c47cbdbf31bb8253dac0c1e1f12833bf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171774"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001051"
 ---
 # <a name="advanced-filtering"></a>고급 필터링
 Event Grid json 페이로드의 모든 속성에 필터를 지정할 수 있습니다. 이러한 필터는 조건 집합으로 모델링 되며 `AND` 각 외부 조건은 선택적 내부 `OR` 조건이 있습니다. 각 조건에 대해 `AND` 다음 값을 지정 합니다.
@@ -77,7 +77,7 @@ Event Grid 스키마의 이벤트:
 
 * ID
 * 항목
-* 주체
+* 제목
 * EventType
 * DataVersion
 * Prop1

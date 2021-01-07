@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88122040"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565775"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>콘텐츠 형식을 활용 하 여 앱 구성에 JSON 키-값 저장
 
@@ -25,9 +25,9 @@ ms.locfileid: "88122040"
 ## <a name="overview"></a>개요
 
 앱 구성에서 JSON 미디어 형식을 키-값의 콘텐츠 형식으로 사용 하 여 다음과 같은 이점을 얻을 수 있습니다.
-- **간단한 데이터 관리**: 배열과 같은 키 값을 관리 하는 것이 Azure Portal에서 훨씬 더 쉬워집니다.
-- **향상 된 데이터 내보내기**: 기본 형식, 배열 및 JSON 개체는 데이터를 내보내는 동안 보존 됩니다.
-- **앱 구성 공급자의 기본 지원**: JSON 콘텐츠가 있는 키-값은 응용 프로그램의 앱 구성 공급자 라이브러리에서 사용 하는 경우 정상적으로 작동 합니다.
+- **간단한 데이터 관리** : 배열과 같은 키 값을 관리 하는 것이 Azure Portal에서 훨씬 더 쉬워집니다.
+- **향상 된 데이터 내보내기** : 기본 형식, 배열 및 JSON 개체는 데이터를 내보내는 동안 보존 됩니다.
+- **앱 구성 공급자의 기본 지원** : JSON 콘텐츠가 있는 키-값은 응용 프로그램의 앱 구성 공급자 라이브러리에서 사용 하는 경우 정상적으로 작동 합니다.
 
 #### <a name="valid-json-content-type"></a>유효한 JSON 콘텐츠 형식
 
@@ -53,9 +53,9 @@ ms.locfileid: "88122040"
 - {"ObjectSetting": {"대상 지정": {"Default": true, "Level": "Information"}}}
 
 > [!NOTE]
-> 이 문서의 나머지 부분에서는 유효한 JSON content-type 및 유효한 JSON 값을 포함 하는 앱 구성의 키-값을 **json 키-값**이라고 합니다. 
+> 이 문서의 나머지 부분에서는 유효한 JSON content-type 및 유효한 JSON 값을 포함 하는 앱 구성의 키-값을 **json 키-값** 이라고 합니다. 
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서 학습할 방법은 다음과 같습니다.
 > [!div class="checklist"]
 > * 앱 구성에서 JSON 키-값을 만듭니다.
 > * Json 파일에서 JSON 키-값을 가져옵니다.
@@ -63,13 +63,11 @@ ms.locfileid: "88122040"
 > * 응용 프로그램에서 JSON 키 값을 사용 합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/).
-- 최신 버전의 Azure CLI (2.10.0 이상) 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 사용 하는 경우 먼저를 사용 하 여 로그인 해야 `az login` 합니다. Azure Cloud Shell을 사용할 수도 있습니다.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- 이 자습서에는 버전 2.10.0 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-an-app-configuration-store"></a>App Configuration 저장소 만들기
 
@@ -84,7 +82,7 @@ JSON 키-값은 Azure Portal Azure CLI 사용 하거나 JSON 파일에서 가져
 
 앱 구성 저장소로 이동 하 여 **구성 탐색기**  >  **Create**  >  **키-값** 만들기를 선택 하 여 다음 키-값 쌍을 추가 합니다.
 
-| Key | 값 | 콘텐츠 유형 |
+| 키 | 값 | 콘텐츠 유형 |
 |---|---|---|
 | 설정: BackgroundColor | 녹색 | application/json |
 | 설정: FontSize | 24 | application/json |
@@ -94,7 +92,7 @@ JSON 키-값은 Azure Portal Azure CLI 사용 하거나 JSON 파일에서 가져
 | 설정: RolloutPercentage | [25, 50, 75100] | application/json |
 | 설정: 로깅 | {"Test": {"Level": "Debug"}, "Prod": {"Level": "Warning"}} | application/json |
 
-**레이블** 을 비워 두고 **적용**을 선택 합니다.
+**레이블** 을 비워 두고 **적용** 을 선택 합니다.
 
 ### <a name="create-json-key-values-using-azure-cli"></a>Azure CLI를 사용 하 여 JSON 키-값 만들기
 
@@ -150,7 +148,7 @@ JSON 키 값을 사용 하는 경우의 주요 이점 중 하나는 내보내는
 
 JSON 콘텐츠가 없는 키-값을 고려 합니다.
 
-| Key | 값 | 콘텐츠 유형 |
+| 키 | 값 | 콘텐츠 유형 |
 |---|---|---|
 | 설정: FontSize | 24 | |
 | 설정: UseDefaultRouting | false | |

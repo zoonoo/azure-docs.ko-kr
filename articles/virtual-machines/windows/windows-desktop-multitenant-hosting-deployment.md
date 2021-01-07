@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 101f2cfe57624502764d145351a6343cfdd2a334
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279028"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572867"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
 Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machines를 실행할 수 있습니다. 자세한 내용은 [Windows 10용 다중 테넌트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)을 참조하세요.
@@ -24,7 +24,7 @@ Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Acce
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Azure Marketplace에서 Windows 10 이미지 배포 
-Powershell, CLI 및 Azure Resource Manager 템플릿 배포의 경우 Windows 10 이미지를 다음 publishername, 제품, SKU로 찾을 수 있습니다.
+PowerShell, CLI 및 Azure Resource Manager 템플릿 배포의 경우 Windows 10 이미지는 다음에 제공 되는 Azure, 제품, sku를 사용 하 여 찾을 수 있습니다.
 
 | OS  |      PublisherName      |  제안 | SKU |
 |:----------|:-------------:|:------|:------|
@@ -33,6 +33,17 @@ Powershell, CLI 및 Azure Resource Manager 템플릿 배포의 경우 Windows 10
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
+## <a name="qualify-for-multi-tenant-hosting-rights"></a>다중 테 넌 트 호스팅 권한 한정 
+다중 테 넌 트 호스팅 권한을 부여 하 고 Azure 사용자에 대해 Windows 10 이미지를 실행 하려면 다음 구독 중 하나가 있어야 합니다. 
+
+-   Microsoft 365 E3/E5 
+-   Microsoft 365 F3 
+-   Microsoft 365 A3/A5 
+-   Windows 10 Enterprise E3/E5
+-   Windows 10 교육 A3/A5 
+-   Windows VDA E3/E5
+
+
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Azure에 Windows 10 VHD 업로드
 일반화된 Windows 10 VHD를 업로드하는 경우 Windows 10에는 기본적으로 활성화된 기본 제공 관리자 계정이 없습니다. 기본 제공 관리자 계정을 사용하도록 설정하려면 사용자 지정 스크립트 확장의 일환으로 다음 명령을 포함합니다.
 
@@ -40,7 +51,7 @@ Powershell, CLI 및 Azure Resource Manager 템플릿 배포의 경우 Windows 10
 Net user <username> /active:yes
 ```
 
-다음 powershell 코드 조각은 기본 제공 관리자를 포함하여 모든 관리자 계정을 활성화하기 위한 것입니다. 이 예제는 기본 제공 관리자 사용자 이름을 알 수 없는 경우에 유용합니다.
+다음 PowerShell 코드 조각은 기본 제공 관리자를 포함 하 여 모든 관리자 계정을 활성으로 표시 하는 것입니다. 이 예제는 기본 제공 관리자 사용자 이름을 알 수 없는 경우에 유용합니다.
 ```powershell
 $adminAccount = Get-WmiObject Win32_UserAccount -filter "LocalAccount=True" | ? {$_.SID -Like "S-1-5-21-*-500"}
 if($adminAccount.Disabled)
@@ -101,7 +112,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Azure AD 가입에 대한 추가 정보
 >[!NOTE]
->Azure는 AAD 가입에 사용될 수 없는 기본 제공 관리자 계정을 사용하여 모든 Windows VM을 프로비전합니다. 예를 들어 *설정 > 계정 > 회사 또는 학교 액세스 > + 연결*은 작동하지 않습니다. Azure AD에 수동으로 가입하려면 두 번째 관리자 계정을 만들어 로그온해야 합니다. 또한 프로비저닝 패키지를 사용하여 Azure AD를 구성할 수 있습니다. *다음 단계* 섹션에 대한 링크를 사용하여 자세한 내용을 알아보세요.
+>Azure는 AAD 가입에 사용될 수 없는 기본 제공 관리자 계정을 사용하여 모든 Windows VM을 프로비전합니다. 예를 들어 *설정 > 계정 > 회사 또는 학교 액세스 > + 연결* 은 작동하지 않습니다. Azure AD에 수동으로 가입하려면 두 번째 관리자 계정을 만들어 로그온해야 합니다. 프로 비전 패키지를 사용 하 여 Azure AD를 구성 하 고, *다음 단계* 섹션의 링크를 사용 하 여 자세한 내용을 확인할 수도 있습니다.
 >
 >
 

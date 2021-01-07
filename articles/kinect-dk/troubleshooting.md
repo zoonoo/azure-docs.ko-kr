@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: 문제 해결, 업데이트, 버그, kinect, 피드백, 복구, 로깅, 팁
-ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356385"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587284"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Azure Kinect 알려진 문제 및 문제 해결
 
@@ -144,7 +144,7 @@ K4A.dll에 대 한 로깅은 환경 변수를 통해 사용 하도록 설정 됩
 
 장치 관리자에서 장치를 열거 하지 않는 경우 지원 되지 않는 USB3 controller에 연결 되었기 때문일 수 있습니다. 
 
-Azure Kinect 진한 Windows의 경우 **Intel** , **텍사스 악기 (TI)** 및 **Renesas** 는 지원 되는 *유일한 호스트 컨트롤러* 입니다. Windows 플랫폼의 Azure Kinect SDK는 통합 컨테이너 ID를 사용 하며, SDK가 실제로 동일한 장치에 있는 깊이, 색 및 오디오 장치를 찾을 수 있도록 USB 2.0 및 3.0 장치를 확장 해야 합니다. Linux에서 더 많은 호스트 컨트롤러가 지원 될 수 있습니다. 해당 플랫폼은 장치 일련 번호에 대 한 컨테이너 ID와 더 적은 수를 사용 합니다. 
+Azure Kinect 진한 Windows의 경우 **Intel**, **텍사스 악기 (TI)** 및 **Renesas** 는 지원 되는 *유일한 호스트 컨트롤러* 입니다. Windows 플랫폼의 Azure Kinect SDK는 통합 컨테이너 ID를 사용 하며, SDK가 실제로 동일한 장치에 있는 깊이, 색 및 오디오 장치를 찾을 수 있도록 USB 2.0 및 3.0 장치를 확장 해야 합니다. Linux에서 더 많은 호스트 컨트롤러가 지원 될 수 있습니다. 해당 플랫폼은 장치 일련 번호에 대 한 컨테이너 ID와 더 적은 수를 사용 합니다. 
 
 USB 호스트 컨트롤러의 항목은 PC에 호스트 컨트롤러가 두 개 이상 설치 된 경우 훨씬 더 복잡해 집니다. 호스트 컨트롤러가 혼합 되어 있는 경우 사용자에 게 일부 포트가 정상적으로 작동 하 고 다른 포트가 전혀 작동 하지 않는 문제가 발생할 수 있습니다. 포트를 케이스에 연결 하는 방법에 따라 Azure Kinect에 문제가 있는 모든 front 포트가 표시 될 수 있습니다.
 
@@ -165,6 +165,21 @@ PC에서 연결 된 USB 포트를 더 잘 이해 하려면 Azure Kinect 진한�
 ## <a name="using-body-tracking-sdk-with-unreal"></a>Unreal에서 본문 추적 SDK 사용
 
 Unreal에서 본문 추적 SDK를 사용 하려면 `<SDK Installation Path>\tools` 환경 변수에를 추가 하 `PATH` 고 및를에 복사 했는지 확인 `dnn_model_2_0.onnx` `cudnn64_7.dll` `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64` 합니다.
+
+## <a name="using-azure-kinect-on-headless-linux-system"></a>헤드리스 Linux 시스템에서 Azure Kinect 사용
+
+Linux의 Azure Kinect depth 엔진은 OpenGL을 사용 합니다. OpenGL을 사용 하려면 모니터를 시스템에 연결 해야 하는 창 인스턴스가 필요 합니다. 이 문제에 대 한 해결 방법은 다음과 같습니다.
+
+1. 사용 하려는 사용자 계정에 대해 자동 로그인을 사용 하도록 설정 합니다. 자동 로그인을 사용 하는 방법에 대 한 지침은 [이](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) 문서를 참조 하세요.
+2. 시스템 전원을 끄고 모니터의 연결을 끊고 시스템 전원을 켭니다. 자동 로그인은 x 서버 세션을 강제로 만듭니다.
+2. Ssh를 통해 연결 하 고 디스플레이 env 변수를 설정 합니다. `export DISPLAY=:0`
+3. Azure Kinect 응용 프로그램을 시작 합니다.
+
+## <a name="missing-c-documentation"></a>C # 설명서 누락
+
+센서 SDK c # 설명서는 [여기](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html)에 있습니다.
+
+본문 추적 SDK c # 설명서는 [여기](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html)에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

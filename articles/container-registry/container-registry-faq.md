@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346998"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606286"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대한 질문과 대답
 
@@ -111,6 +111,7 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 - [레지스트리 리소스를 관리할 수 있는 권한 없이 이미지를 풀하거나 푸시할 수 있는 액세스 권한을 부여하려면 어떻게 하나요?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [자동 이미지 격리를 레지스트리에 사용하도록 설정하려면 어떻게 하나요?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [익명 풀 액세스를 사용하도록 설정하려면 어떻게 하나요?](#how-do-i-enable-anonymous-pull-access)
+- [배포 되지 않은 계층을 레지스트리에 푸시할 어떻게 할까요? 있나요?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Docker 레지스트리 HTTP API V2에 액세스하려면 어떻게 하나요?
 
@@ -264,6 +265,33 @@ ACR은 다양한 수준의 권한을 제공하는 [사용자 지정 역할](cont
 > [!NOTE]
 > * 알려진 이미지를 가져오는 데 필요한 Api만 익명으로 액세스할 수 있습니다. 태그 목록 또는 리포지토리 목록과 같은 작업에 대 한 다른 Api는 익명으로 액세스할 수 없습니다.
 > * 익명 끌어오기 작업을 시도 하기 전에를 실행 `docker logout` 하 여 기존 Docker 자격 증명을 모두 지울 수 있도록 합니다.
+
+### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>배포 되지 않은 계층을 레지스트리에 푸시할 어떻게 할까요? 있나요?
+
+매니페스트의 배포할 수 없는 계층에는 콘텐츠를 가져올 수 있는 URL 매개 변수가 포함 되어 있습니다. 배포 되지 않은 계층 푸시를 사용 하도록 설정 하는 몇 가지 가능한 사용 사례는 네트워크 제한 된 레지스트리, 제한 된 액세스 권한이 있는 gapped 레지스트리 또는 인터넷에 연결 되지 않은 레지스트리에 대 한 것입니다.
+
+예를 들어 VM이 Azure container registry 에서만 이미지를 끌어올 수 있도록 NSG 규칙을 설정한 경우 Docker는 외부/배포 불가능 계층에 대 한 오류를 가져옵니다. 예를 들어 Windows Server Core 이미지는 매니페스트의 Azure container registry에 대 한 외래 계층 참조를 포함 하 고이 시나리오에서 끌어오기에 실패 합니다.
+
+배포 불가능 한 계층 푸시를 사용 하도록 설정 하려면 다음을 수행 합니다.
+
+1. `daemon.json` `/etc/docker/` Linux 호스트 및 Windows Server의에 있는 파일을 편집 합니다 `C:\ProgramData\docker\config\daemon.json` . 파일이 이전에 비어 있는 것으로 가정 하 고 다음 내용을 추가 합니다.
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > 값은 쉼표로 구분 된 레지스트리 주소 배열입니다.
+
+2. 파일을 저장하고 종료합니다.
+
+3. Docker를 다시 시작 합니다.
+
+목록에서 레지스트리에 이미지를 푸시할 때 배포 되지 않은 레이어가 레지스트리에 푸시됩니다.
+
+> [!WARNING]
+> 배포할 수 없는 아티팩트에는 일반적으로 배포 및 공유할 수 있는 방법과 위치에 대 한 제한이 있습니다. 이 기능을 사용 하 여 아티팩트를 개인 레지스트리로 푸시할 수 있습니다. 배포 되지 않은 아티팩트 재배포를 다루는 용어를 준수 하는지 확인 합니다.
 
 ## <a name="diagnostics-and-health-checks"></a>진단 및 상태 검사
 

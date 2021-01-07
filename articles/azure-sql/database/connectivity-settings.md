@@ -3,18 +3,18 @@ title: Azure SQL Database 및 Azure Synapse Analytics에 대 한 연결 설정
 description: 이 문서에서는 TLS (Transport Layer Security) 버전 선택 및 Azure SQL Database 및 Azure Synapse Analytics에 대 한 프록시 및 리디렉션 설정에 대해 설명 합니다.
 services: sql-database
 ms.service: sql-database
-titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 9856d71a6398bcea5b979788846afce17e7955f7
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e3422f468d1355245fb31e8f04d5f8625f583c37
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412986"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462181"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Azure SQL 연결 설정
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,12 +104,12 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 최소 [tls (전송 계층 보안)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 버전 설정을 사용 하면 고객이 SQL database에서 사용 하는 tls 버전을 선택할 수 있습니다.
 
-현재 TLS 1.0, 1.1 및 1.2을 지원 합니다. 최소 TLS 버전을 설정 하면 최신 TLS 버전이 지원 됩니다. 예를 들어 1.1 보다 큰 TLS 버전을 선택 하면 TLS 1.1 및 1.2에 대 한 연결만 허용 되며 TLS 1.0을 사용한 연결은 거부 됩니다. 테스트를 통해 응용 프로그램이 지원 되는지 확인 한 후 최소 TLS 버전을 1.2로 설정 하는 것이 좋습니다. 이 버전에는 이전 버전의 취약성에 대 한 수정 프로그램이 포함 되어 있으며, Azure SQL Database에서 지원 되는 가장 높은 버전의 TLS입니다.
+현재 TLS 1.0, 1.1 및 1.2를 지원합니다. 최소 TLS 버전을 설정하면 최신 TLS 버전이 지원됩니다. 예를 들어 1.1보다 큰 TLS 버전을 선택하면 TLS 1.1 및 1.2에 대한 연결만 허용되며 TLS 1.0을 사용한 연결은 거부됩니다. 테스트를 통해 애플리케이션이 지원되는지 확인한 후 최소 TLS 버전을 1.2로 설정하는 것이 좋습니다. 이 버전에는 이전 버전의 취약성에 대한 수정 프로그램이 포함되어 있으며 Azure SQL Database에서 지원되는 가장 높은 버전의 TLS입니다.
 
 > [!IMPORTANT]
 > 최소 TLS 버전의 기본값은 모든 버전을 허용 하는 것입니다. TLS 버전을 적용 한 후에는 기본값으로 되돌릴 수 없습니다.
 
-이전 버전의 TLS를 사용 하는 응용 프로그램을 사용 하는 고객의 경우 응용 프로그램의 요구 사항에 따라 최소 TLS 버전을 설정 하는 것이 좋습니다. 암호화 되지 않은 연결을 사용 하 여 연결 하는 응용 프로그램을 사용 하는 고객의 경우 최소 TLS 버전을 설정 하지 않는 것이 좋습니다.
+이전 버전의 TLS가 사용되는 애플리케이션을 사용하는 고객의 경우 애플리케이션의 요구 사항에 따라 최소 TLS 버전을 설정하는 것이 좋습니다. 암호화되지 않은 연결을 사용하여 연결하는 애플리케이션을 사용하는 고객의 경우 최소 TLS 버전을 설정하지 않는 것이 좋습니다.
 
 자세한 내용은 [SQL Database 연결에 대 한 TLS 고려 사항](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity)을 참조 하세요.
 

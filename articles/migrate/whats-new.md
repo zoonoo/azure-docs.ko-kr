@@ -2,18 +2,24 @@
 title: Azure Migrate의 새로운 기능
 description: Azure Migrate 서비스의 새로운 기능 및 최신 업데이트에 대해 알아봅니다.
 ms.topic: overview
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: ed2347d2d322e272b4fb7f4dfd697f3499419124
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7ff9d9c6624016d4b1ea94072d52de1c42d73913
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545177"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400474"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+## <a name="update-december-2020"></a>업데이트(2020년 12월)
+- 이제 Azure Migrate는 에이전트 없는 VMware 마이그레이션 메서드를 사용하여 Azure로 마이그레이션하는 동안 VMware VM에 Azure VM 에이전트를 자동으로 설치합니다.
+- 이제 Azure Portal을 통해 사용 가능한 Azure Migrate 서버 마이그레이션(에이전트 없는 복제)을 사용하여 CMK(고객 관리형 키)에서 SSE(서버 쪽 암호화)를 사용하여 암호화된 디스크로 VMware VM을 Azure 가상 머신으로 마이그레이션할 수 있습니다.
 
 ## <a name="update-september-2020"></a>업데이트(2020년 9월)
 - 이제 가용성 영역으로의 서버 마이그레이션이 지원됩니다.
@@ -22,7 +28,7 @@ ms.locfileid: "92545177"
 - 이제 1000개의 VM에서 종속성 분석(에이전트 없는)을 동시에 실행할 수 있습니다.
 - 이제 PowerShell 스크립트를 사용하여 종속성 분석(에이전트 없는)을 대규모로 활성화하거나 비활성화할 수 있습니다. [자세한 정보](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - 종속성 분석(에이전트 없음)을 통해 수집된 데이터를 사용하여 Power BI에서 네트워크 연결을 시각화합니다. [자세히 알아보세요.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
-- 이제 Azure Migrate를 사용하여 데이터 디스크 크기가 최대 32TB인 VMware VM 마이그레이션이 지원됩니다. 서버 마이그레이션 에이전트 없는 VMware 마이그레이션 메서드. 
+- 이제 Azure Migrate를 사용하여 데이터 디스크 크기가 최대 32TB인 VMware VM 마이그레이션이 지원됩니다. 서버 마이그레이션 에이전트 없는 VMware 마이그레이션 메서드.
 
 ## <a name="update-august-2020"></a>업데이트(2020년 8월)
 
@@ -67,15 +73,15 @@ Azure Migrate에 여러 가지 새로운 기능이 추가되었습니다.
 
 - **물리적 서버 평가**. 이미 지원되는 물리적 서버 마이그레이션 외에도 온-프레미스 물리적 서버의 평가가 지원됩니다.
 - **가져오기 기반 평가**. 이제 CSV 파일로 제공되는 메타데이터 및 성능 데이터를 사용한 컴퓨터 평가가 지원됩니다.
-- **애플리케이션 검색** : Azure Migrate는 이제 Azure Migrate 어플라이언스를 사용하여 애플리케이션 수준의 앱, 역할 및 기능 검색을 지원합니다. 이는 현재 VMware VM에서만 지원되며 검색으로만 제한됩니다(평가는 현재 지원되지 않음). [자세히 알아보기](how-to-discover-applications.md)
-- **에이전트 없는 종속성 시각화** : 종속성 시각화를 위해 더 이상 에이전트를 명시적으로 설치할 필요가 없습니다. 이제 에이전트 없이 또는 에이전트 기반이 모두 지원됩니다.
-- **가상 데스크톱** : ISV 도구를 사용하여 온-프레미스 VDI(가상 데스크톱 인프라)를 평가하고 Azure의 Windows Virtual Desktop으로 마이그레이션합니다.
-- **웹앱** : 이제 웹앱을 평가하고 마이그레이션하는 데 사용되는 Azure App Service Migration Assistant가 Azure Migrate에 통합되었습니다.
+- **애플리케이션 검색**: Azure Migrate는 이제 Azure Migrate 어플라이언스를 사용하여 애플리케이션 수준의 앱, 역할 및 기능 검색을 지원합니다. 이는 현재 VMware VM에서만 지원되며 검색으로만 제한됩니다(평가는 현재 지원되지 않음). [자세히 알아보기](how-to-discover-applications.md)
+- **에이전트 없는 종속성 시각화**: 종속성 시각화를 위해 더 이상 에이전트를 명시적으로 설치할 필요가 없습니다. 이제 에이전트 없이 또는 에이전트 기반이 모두 지원됩니다.
+- **가상 데스크톱**: ISV 도구를 사용하여 온-프레미스 VDI(가상 데스크톱 인프라)를 평가하고 Azure의 Windows Virtual Desktop으로 마이그레이션합니다.
+- **웹앱**: 이제 웹앱을 평가하고 마이그레이션하는 데 사용되는 Azure App Service Migration Assistant가 Azure Migrate에 통합되었습니다.
 
 Azure Migrate에 새로운 평가 및 마이그레이션 도구가 추가되었습니다.
 
-- **Rackware** : 제품 클라우드 마이그레이션.
-- **Movere** : 제품 평가.
+- **Rackware**: 제품 클라우드 마이그레이션.
+- **Movere**: 제품 평가.
 
 Azure Migrate에서 평가 및 마이그레이션을 위해 도구 및 ISV 제품을 사용하는 방법에 대해 [자세히 알아봅니다](migrate-services-overview.md).
 
@@ -83,17 +89,17 @@ Azure Migrate에서 평가 및 마이그레이션을 위해 도구 및 ISV 제�
 
 현재 버전의 Azure Migrate(2019년 7월 릴리스됨)는 다음과 같은 여러 가지 새로운 기능을 제공합니다.
 
-- **통합 마이그레이션 플랫폼** : 이제 Azure Migrate는 향상된 배포 흐름과 포털 환경을 통해 Azure에 대한 마이그레이션 과정을 중앙에서 처리하고, 관리 및 추적하는 단일 포털을 제공합니다.
-- **평가 및 마이그레이션 도구** : Azure Migrate는 기본 도구를 제공하고, ISV(독립 소프트웨어 공급업체) 도구 뿐만 아니라 다른 Azure 서비스와 연결됩니다. ISV 통합에 대해 [자세히 알아보세요](migrate-services-overview.md#isv-integration).
-- **Azure Migrate 평가** : Azure Migrate Server 평가 도구를 사용하여 Azure로의 마이그레이션에 대해 VMware VM 및 Hyper-V VM을 평가할 수 있습니다. 또한 다른 Azure 서비스 및 ISV 도구를 사용하여 마이그레이션을 평가할 수도 있습니다.
-- **Azure Migrate 마이그레이션** : Azure Migrate 서버 마이그레이션 도구를 사용하여 온-프레미스 VMware VM 및 Hyper-V VM을 실제 서버, 다른 가상화된 서버, 프라이빗/퍼블릭 클라우드 VM 뿐만 아니라 Azure로 마이그레이션할 수 있습니다. 또한 ISV 도구를 사용하여 Azure로 마이그레이션할 수 있습니다.
-- **Azure Migrate 어플라이언스** : Azure Migrate는 온-프레미스 VMware VM 및 Hyper-V VM의 검색 및 평가를 위해 경량 어플라이언스를 배포합니다.
+- **통합 마이그레이션 플랫폼**: 이제 Azure Migrate는 향상된 배포 흐름과 포털 환경을 통해 Azure에 대한 마이그레이션 과정을 중앙에서 처리하고, 관리 및 추적하는 단일 포털을 제공합니다.
+- **평가 및 마이그레이션 도구**: Azure Migrate는 기본 도구를 제공하고, ISV(독립 소프트웨어 공급업체) 도구 뿐만 아니라 다른 Azure 서비스와 연결됩니다. ISV 통합에 대해 [자세히 알아보세요](migrate-services-overview.md#isv-integration).
+- **Azure Migrate 평가**: Azure Migrate Server 평가 도구를 사용하여 Azure로의 마이그레이션에 대해 VMware VM 및 Hyper-V VM을 평가할 수 있습니다. 또한 다른 Azure 서비스 및 ISV 도구를 사용하여 마이그레이션을 평가할 수도 있습니다.
+- **Azure Migrate 마이그레이션**: Azure Migrate 서버 마이그레이션 도구를 사용하여 온-프레미스 VMware VM 및 Hyper-V VM을 실제 서버, 다른 가상화된 서버, 프라이빗/퍼블릭 클라우드 VM 뿐만 아니라 Azure로 마이그레이션할 수 있습니다. 또한 ISV 도구를 사용하여 Azure로 마이그레이션할 수 있습니다.
+- **Azure Migrate 어플라이언스**: Azure Migrate는 온-프레미스 VMware VM 및 Hyper-V VM의 검색 및 평가를 위해 경량 어플라이언스를 배포합니다.
     - 이 어플라이언스는 Azure Migrate 서버 평가에 사용되고, 에이전트 없는 마이그레이션을 위해 Azure Migrate 서버 마이그레이션에서 사용됩니다.
     - 어플라이언스는 평가 및 마이그레이션을 위해 서버 메타데이터 및 성능 데이터를 지속적으로 검색합니다.  
-- **VMware VM 마이그레이션** :  Azure Migrate 서버 마이그레이션은 온-프레미스 VMware VM을 Azure로 마이그레이션하기 위한 몇 가지 방법을 제공합니다.  Azure Migrate 어플라이언스를 사용하는 에이전트 없는 마이그레이션과 복제 어플라이언스를 사용하며 마이그레이션하려는 각 VM에 에이전트를 배포하는 에이전트 기반 마이그레이션이 있습니다. [자세히 알아보기](server-migrate-overview.md)
- - **데이터베이스 평가 및 마이그레이션** : Azure Migrate에서 Azure Database Migration Assistant를 사용하여 Azure로 마이그레이션하기 위한 온-프레미스 데이터베이스를 평가할 수 있습니다. Azure Database Migration Service를 사용하여 데이터베이스를 마이그레이션할 수 있습니다.
-- **웹앱 마이그레이션** : Azure App Service와 함께 퍼블릭 엔드포인트 URL을 사용하여 웹앱을 평가할 수 있습니다. 내부 .NET 앱의 마이그레이션을 위해 App Service Migration Assistant를 다운로드하여 실행할 수 있습니다.
-- **Data Box** : Azure Migrate에서 Azure Data Box를 사용하여 많은 양의 오프라인 데이터를 Azure로 가져옵니다.
+- **VMware VM 마이그레이션**:  Azure Migrate 서버 마이그레이션은 온-프레미스 VMware VM을 Azure로 마이그레이션하기 위한 몇 가지 방법을 제공합니다.  Azure Migrate 어플라이언스를 사용하는 에이전트 없는 마이그레이션과 복제 어플라이언스를 사용하며 마이그레이션하려는 각 VM에 에이전트를 배포하는 에이전트 기반 마이그레이션이 있습니다. [자세히 알아보기](server-migrate-overview.md)
+ - **데이터베이스 평가 및 마이그레이션**: Azure Migrate에서 Azure Database Migration Assistant를 사용하여 Azure로 마이그레이션하기 위한 온-프레미스 데이터베이스를 평가할 수 있습니다. Azure Database Migration Service를 사용하여 데이터베이스를 마이그레이션할 수 있습니다.
+- **웹앱 마이그레이션**: Azure App Service와 함께 퍼블릭 엔드포인트 URL을 사용하여 웹앱을 평가할 수 있습니다. 내부 .NET 앱의 마이그레이션을 위해 App Service Migration Assistant를 다운로드하여 실행할 수 있습니다.
+- **Data Box**: Azure Migrate에서 Azure Data Box를 사용하여 많은 양의 오프라인 데이터를 Azure로 가져옵니다.
 
 ## <a name="azure-migrate-previous-version"></a>Azure Migrate 이전 버전
 

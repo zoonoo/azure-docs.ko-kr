@@ -12,11 +12,11 @@ ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-js
 ms.openlocfilehash: 79320144264766a504a71c554c2a138779c55331
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097136"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188404"
 ---
 이 가이드에서는 NodeJS와 함께 사용할 JavaScript용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여줍니다. 패키지 이름을 직접 시작하려면 기존 프로젝트에서 `npm install microsoft-cognitiveservices-speech-sdk`를 실행합니다.
 

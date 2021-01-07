@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/30/2020
-ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/18/2020
+ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131363"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917905"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -36,9 +36,9 @@ SQL Database와 SQL Managed Instance는 모두 SQL Server 기술을 사용 하 �
 
 ### <a name="backup-storage-redundancy"></a>백업 저장소 중복성
 
-기본적으로 SQL Database 및 SQL Managed Instance는 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 복제 되는 지역 중복 (RA-GRS) [저장소 blob](../../storage/common/storage-redundancy.md) 에 데이터를 저장 합니다. 이를 통해 주 지역의 백업 저장소에 영향을 주는 중단 으로부터 보호 하 고 재해 발생 시 다른 지역으로 서버를 복원할 수 있습니다. 
+기본적으로 SQL Database 및 SQL Managed Instance는 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 복제 되는 지역 중복 [저장소 blob](../../storage/common/storage-redundancy.md) 에 데이터를 저장 합니다. 이를 통해 주 지역의 백업 저장소에 영향을 주는 중단 으로부터 보호 하 고 재해 발생 시 다른 지역으로 서버를 복원할 수 있습니다. 
 
-백업 저장소 중복성을 구성 하는 옵션은 SQL Managed Instance 또는 SQL Database에 대해 로컬 중복, 영역 중복 또는 지역 중복 저장소 blob 중에서 선택할 수 있는 유연성을 제공 합니다. 관리 되는 인스턴스 또는 SQL 데이터베이스를 배포 하는 동일한 지역 내에 데이터가 유지 되도록 하려면 기본 지역 중복 백업 저장소 중복성을 변경 하 고 백업용으로 LRS (로컬 중복) 또는 ZRS (영역 중복) 저장소 blob을 구성할 수 있습니다. 저장소 중복성 메커니즘은 일시적인 하드웨어 오류, 네트워크 또는 정전 또는 대규모 자연 재해를 비롯 하 여 계획 되거나 계획 되지 않은 이벤트에서 보호 되도록 데이터의 여러 복사본을 저장 합니다. 구성 된 백업 저장소 중복성은 PITR (특정 시점 복원)에 사용 되는 단기 백업 보존 설정 및 장기 백업 (LTR)에 사용 되는 장기 보존 백업 모두에 적용 됩니다. 
+백업 저장소 중복성을 구성 하는 옵션은 SQL Managed Instance 또는 SQL Database에 대해 로컬 중복, 영역 중복 또는 지역 중복 저장소 blob 중에서 선택할 수 있는 유연성을 제공 합니다. 관리 되는 인스턴스 또는 SQL 데이터베이스를 배포 하는 동일한 지역 내에 데이터가 유지 되도록 하려면 기본 지역 중복 백업 저장소 중복성을 변경 하 고 백업에 대해 로컬 중복 또는 영역 중복 저장소 blob을 구성할 수 있습니다. 저장소 중복성 메커니즘은 일시적인 하드웨어 오류, 네트워크 또는 정전 또는 대규모 자연 재해를 비롯 하 여 계획 되거나 계획 되지 않은 이벤트에서 보호 되도록 데이터의 여러 복사본을 저장 합니다. 구성 된 백업 저장소 중복성은 PITR (특정 시점 복원)에 사용 되는 단기 백업 보존 설정 및 장기 백업 (LTR)에 사용 되는 장기 보존 백업 모두에 적용 됩니다. 
 
 SQL Database 데이터베이스를 만들 때 백업 저장소 중복성을 구성 하거나 기존 데이터베이스에 대해 업데이트할 수 있습니다. 기존 데이터베이스에 대 한 변경 내용은 이후 백업에만 적용 됩니다. 기존 데이터베이스의 백업 저장소 중복성을 업데이트 한 후 변경 내용을 적용 하는 데 최대 48 시간이 걸릴 수 있습니다. 로컬 또는 영역 중복 저장소를 사용 하도록 데이터베이스를 업데이트 하는 즉시 지역 복원은 사용 하지 않도록 설정 됩니다. 
 
@@ -179,9 +179,9 @@ SQL Database 및 SQL Managed Instance은 모든 백업 파일에서 총 청구 �
 ### <a name="backup-storage-redundancy"></a>백업 저장소 중복성
 
 백업 저장소 중복성은 다음과 같은 방식으로 백업 비용에 영향을 줍니다.
-- LRS price = x
-- ZRS price = 1.25 x
-- RA-GRS price = 2x
+- 로컬 중복 가격 = x
+- 영역 중복 가격 = 1.25 x
+- 지역 중복 가격 = 2x
 
 백업 저장소 가격 책정에 대 한 자세한 내용은 가격 책정 페이지 및 [AZURE SQL Managed Instance 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) 하세요.
 
@@ -373,7 +373,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 > [!NOTE]
 > SQL Managed Instance 백업에 대 한 구성 가능한 저장소 중복성은 관리 되는 인스턴스 만들기 프로세스 중에만 지정할 수 있습니다. 리소스가 프로 비전 되 면 백업 저장소 중복성 옵션을 변경할 수 없습니다. SQL Database의 경우이 기능의 공개 미리 보기는 현재 브라질 남부에서 사용할 수 있으며, 일반적으로 동남 아시아 Azure 지역에서 사용할 수 있습니다. 
 
-관리 되는 인스턴스의 백업 저장소 중복성은 인스턴스를 만드는 동안에만 설정할 수 있습니다. SQL Database 데이터베이스를 만들 때 설정 하거나 기존 데이터베이스에 대해 업데이트할 수 있습니다. 기본값은 지역 중복 저장소 (RA-GRS)입니다. LRS (로컬 중복), ZRS (영역 중복) 및 지역 중복 (RA-GRS) 백업 저장소 간의 가격 차이에 대 한 자세한 내용은 [관리 되는 인스턴스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 참조 하세요.
+관리 되는 인스턴스의 백업 저장소 중복성은 인스턴스를 만드는 동안에만 설정할 수 있습니다. SQL Database 데이터베이스를 만들 때 설정 하거나 기존 데이터베이스에 대해 업데이트할 수 있습니다. 기본값은 지역 중복 저장소입니다. 로컬 중복, 영역 중복 및 지역 중복 백업 저장소 간의 가격 차이를 보려면 [관리 되는 인스턴스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 방문 하세요.
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 백업 저장소 중복성 구성
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 86e3422cbd1cbf92a0d0d218267001c934403753
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: cc3a08f383368b189e41bebd204707f2483e77c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930699"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018310"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>호스트 풀의 RDP (원격 데스크톱 프로토콜) 속성 사용자 지정
 
@@ -20,7 +20,7 @@ ms.locfileid: "91930699"
 
 다중 모니터 환경 및 오디오 리디렉션과 같은 RDP (호스트 풀의 원격 데스크톱 프로토콜) 속성을 사용자 지정 하면 요구 사항에 따라 사용자에 게 최적의 환경을 제공할 수 있습니다. Azure Portal를 사용 하거나 **AzWvdHostPool** cmdlet의 *-customrdpproperty* 매개 변수를 사용 하 여 WINDOWS 가상 데스크톱에서 RDP 속성을 사용자 지정할 수 있습니다.
 
-지원 되는 속성 및 해당 기본값의 전체 목록은 [지원 되는 RDP 파일 설정](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) 을 참조 하세요.
+지원 되는 속성 및 해당 기본값의 전체 목록은 [지원 되는 RDP 파일 설정](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext) 을 참조 하세요.
 
 ## <a name="default-rdp-file-properties"></a>기본 RDP 파일 속성
 
@@ -42,7 +42,7 @@ Azure Portal에서 RDP 속성을 구성 하려면 다음을 수행 합니다.
 
 1. <https://portal.azure.com> 에서 Azure에 로그인합니다.
 2. 검색 창에 **windows 가상 데스크톱** 을 입력 합니다.
-3. 서비스에서 **Windows 가상 데스크톱**을 선택 합니다.
+3. 서비스에서 **Windows 가상 데스크톱** 을 선택 합니다.
 4. Windows 가상 데스크톱 페이지의 화면 왼쪽에 있는 메뉴에서 **호스트 풀** 을 선택 합니다.
 5. 업데이트 하려는 **호스트 풀의 이름을** 선택 합니다.
 6. 화면 왼쪽의 메뉴에서 **RDP 속성** 을 선택 합니다.

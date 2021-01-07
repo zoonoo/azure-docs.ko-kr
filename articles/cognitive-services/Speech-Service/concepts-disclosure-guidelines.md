@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: bae801ac64950b0b0e9fe45585a3411477ebf12b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2276e66fa47b1c125a8c30f3c73a7c948f65a35d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150852"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021935"
 ---
 # <a name="disclosure-design-guidelines"></a>디자인 지침 공개
 음성 환경의 가상 특성에 대해 투명 하 게 하 여 고객과 신뢰를 구축 하 고 유지 관리 하는 방법을 알아보세요.
@@ -76,7 +76,7 @@ ms.locfileid: "92150852"
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [음성 인재 공개](https://aka.ms/disclosure-voice-talent)
+* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [가상 음성 기술의 책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md)
 * [제어 개요](concepts-gating-overview.md)
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 7669b49735843bf941c52aee5cc3b71d1644c01a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5a666d265550de6e24d791db6daa954d50ddde38
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635816"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094185"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -32,27 +32,27 @@ Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](concep
 
 Data Factory가 몇몇 지역에서만 지원되더라도 데이터 이동 서비스는 [전역적으로 지원](concepts-integration-runtime.md#integration-runtime-location)되며 데이터 준수, 효율성 및 네트워크 송신 비용 감소를 보장합니다. 
 
-Azure Data Factory는 인증서를 사용하여 암호화된 클라우드 데이터 저장소에 대한 링크된 서비스 자격 증명을 제외한 모든 데이터를 저장하지 않습니다. Data Factory를 사용하면 데이터 기반 워크플로를 만들어서 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 [컴퓨팅 서비스](compute-linked-services.md)를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 SDK 및 Azure Monitor를 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
+Integration Runtime를 포함 하는 Azure Data Factory는 인증서를 사용 하 여 암호화 된 클라우드 데이터 저장소에 대 한 연결 된 서비스 자격 증명을 제외한 모든 데이터를 저장 하지 않습니다. Data Factory를 사용하면 데이터 기반 워크플로를 만들어서 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 [컴퓨팅 서비스](compute-linked-services.md)를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 SDK 및 Azure Monitor를 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
 
 Data Factory는 다음에 대해 인증을 받았습니다.
 
 | **[CSA STAR 인증](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
 | **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
-| **[ISO 22301:2012](https://www.microsoft.com/trustcenter/compliance/iso-22301)** |
+| **[ISO 22301:2012](/compliance/regulatory/offering-iso-22301)** |
 | **[ISO 27001:2013](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001)** |
 | **[ISO 27017:2015](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)** |
 | **[ISO 27018:2014](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)** |
 | **[ISO 9001:2015](https://www.microsoft.com/trustcenter/compliance/iso-9001)** |
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
-| **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
+| **[HIPAA BAA](/compliance/regulatory/offering-hipaa-hitech)** |
 
 Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문해 보세요. 모든 Azure 규정 준수 제품에 대한 최신 목록은 https://aka.ms/AzureCompliance를 확인하세요.
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
-- **클라우드 시나리오** : 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure Synapse Analytics (이전의 SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 저장소 서비스가 포함 됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
-- **하이브리드 시나리오** : 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 프라이빗 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
+- **클라우드 시나리오**: 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure Synapse Analytics, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 되는 클라우드 저장소 서비스가 포함 됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
+- **하이브리드 시나리오**: 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 프라이빗 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -60,7 +60,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 ### <a name="securing-data-store-credentials"></a>데이터 저장소 자격 증명 보안
 
-- **Azure Data Factory 관리 저장소에 암호화된 자격 증명을 저장합니다** . Data Factory는 Microsoft에서 관리하는 인증서로 암호화하여 데이터 저장소 자격 증명을 보호합니다. 이러한 인증서는 2년마다 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../storage/blobs/security-recommendations.md)를 참조하세요.
+- **Azure Data Factory 관리 저장소에 암호화된 자격 증명을 저장합니다**. Data Factory는 Microsoft에서 관리하는 인증서로 암호화하여 데이터 저장소 자격 증명을 보호합니다. 이러한 인증서는 2년마다 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../storage/blobs/security-recommendations.md)를 참조하세요.
 - **Azure Key Vault에 자격 증명을 저장** 합니다. 또한 데이터 저장소의 자격 증명을 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 저장할 수 있습니다. Data Factory는 활동을 실행하는 동안 자격 증명을 검색합니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.
 
 ### <a name="data-encryption-in-transit"></a>전송 중 암호화

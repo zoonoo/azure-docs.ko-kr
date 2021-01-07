@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: c79586703c49fe37d4d0915f49b69e6aa842083e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a17e6cc0479cf8ff2306736994a369d9e44dfdda
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017525"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745947"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Azure NetApp Files에 대한 메트릭
 
@@ -42,10 +42,8 @@ Azure NetApp Files 할당 된 저장소, 실제 저장소 사용량, 볼륨 IOPS
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>볼륨에 대한 사용량 메트릭
 
-<!-- ANF-5023: fixed version: 2020.08, 2020.09
-- *Percentage Volume Consumed Size*    
-    The percentage of the volume consumed, including snapshots.  
--->
+- *사용 된 볼륨 크기 비율*    
+    스냅숏을 포함 하 여 사용 된 볼륨의 백분율입니다.  
 - *볼륨 할당 크기*   
     프로 비전 된 볼륨 크기
 - *볼륨 할당량 크기*    
@@ -88,7 +86,8 @@ Azure NetApp Files 할당 된 저장소, 실제 저장소 사용량, 볼륨 IOPS
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>볼륨 복제 메트릭
 
 > [!NOTE] 
-> 네트워크 전송 크기 (예: *볼륨 복제 총 전송* 메트릭)는 지역 간 복제의 원본 또는 대상 볼륨과 다를 수 있습니다. 이 동작은 네트워크 전송 비용을 최소화 하기 위해 효율적인 복제 엔진을 사용 하는 결과입니다.
+> * 네트워크 전송 크기 (예: *볼륨 복제 총 전송* 메트릭)는 지역 간 복제의 원본 또는 대상 볼륨과 다를 수 있습니다. 이 동작은 네트워크 전송 비용을 최소화 하기 위해 효율적인 복제 엔진을 사용 하는 결과입니다.
+> * 볼륨 복제 메트릭은 현재 복제 관계의 원본이 아니라 복제 대상 볼륨에 대해 채워집니다.
 
 - *볼륨 복제 상태가 정상 임*   
     복제 관계의 조건입니다. 정상 상태는로 표시 됩니다 `1` . 비정상 상태는로 표시 됩니다 `0` .

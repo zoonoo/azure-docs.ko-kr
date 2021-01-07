@@ -1,6 +1,6 @@
 ---
 title: 전용 SQL 풀에 대 한 사용자 정의 복원 지점 만들기
-description: 전용 SQL 풀의 복원 지점을 만드는 방법
+description: Azure Portal를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀에 대 한 사용자 정의 복원 지점을 만드는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: joannapea
 manager: igorstan
@@ -11,12 +11,12 @@ ms.date: 10/29/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c0835fb48d00fe5277732f34fd6b0de1448f6a78
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 21fd20100095040fda9f72b00e17147ff560fbca
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94332134"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579541"
 ---
 # <a name="user-defined-restore-points"></a>사용자 정의 복원 지점이
 

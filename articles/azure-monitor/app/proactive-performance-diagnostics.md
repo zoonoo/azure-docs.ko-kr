@@ -4,12 +4,12 @@ description: Application Insights는 앱 원격 분석의 스마트 분석을 �
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321312"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763777"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -49,7 +49,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
-스마트 검색 알림은 기본적으로 사용되도록 설정되며 Application Insights 리소스에 대해 [모니터링 리더](../../role-based-access-control/built-in-roles.md#monitoring-reader) 및 [모니터링 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 액세스 권한이 있는 자들에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
+스마트 검색 알림은 기본적으로 사용되도록 설정되며 Application Insights 리소스에 대해 [모니터링 리더](../../role-based-access-control/built-in-roles.md#monitoring-reader) 및 [모니터링 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 액세스 권한이 있는 자들에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성** 을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
   
   ![스마트 검색 설정](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -75,7 +75,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
-* 이것이 *메트릭 경고[를 대신하나요](../platform/alerts-log.md)?*
+* 이것이 *메트릭 경고 [를 대신하나요](../platform/alerts-log.md)?*
   * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
@@ -99,7 +99,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 브라우저 메트릭 블레이드를 엽니다. 브라우저 페이지 로드 시간의 분할된 표시는 시간의 흐름을 보여줍니다. 
 
-* **보내기 요청 시간** 이 높은 경우 서버가 느리게 응답하거나 데이터가 많은 게시물이 요청된 것입니다. [성능 메트릭](./web-monitor-performance.md#metrics) 을 살펴 응답 시간을 조사합니다.
+* **보내기 요청 시간** 이 높은 경우 서버가 느리게 응답하거나 데이터가 많은 게시물이 요청된 것입니다. [성능 메트릭](./performance-counters.md) 을 살펴 응답 시간을 조사합니다.
 * [종속성 추적](./asp-net-dependencies.md) 을 설정하여 속도 저하의 원인이 외부 서비스인지 아니면 사용자의 데이터베이스인지를 확인합니다.
 * **응답 수신** 이 주된 경우 페이지 및 종속 파트 즉, JavaScript, CSS, 이미지 등(그러나 비동기적으로 로드 된 데이터가 아닌)의 길이가 깁니다. [가용성 테스트](./monitor-web-app-availability.md)를 설정하고 종속 파트를 로드하는 옵션을 설정합니다. 일부 결과 얻을 때 결과의 세부 사항을 열고 확장하여 다른 파일의 로드 시간을 확인합니다.
 * 긴 **클라이언트 처리 시간** 은 스크립트가 느리게 실행됨을 의미합니다. 이유가 명확하지 않다면 일부 타이밍 코드를 추가하는 것이 좋고 trackMetric 호출에 시간을 보냅니다.
@@ -175,11 +175,10 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 
 * [프로파일러](profiler.md) 
 * [스냅숏 디버거](./snapshot-debugger.md)
-* [분석](../log-query/get-started-portal.md)
+* [분석](../log-query/log-analytics-tutorial.md)
 * [분석 스마트 진단](../log-query/log-query-overview.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
 * [수동으로 구성된 메트릭 경고](../platform/alerts-log.md)
 * [가용성 웹 테스트](./monitor-web-app-availability.md)
-

@@ -2,21 +2,21 @@
 title: Azure Event Grid에서 지역 재해 복구 | Microsoft Docs
 description: Azure Event Grid에서 자동으로 지역 재해 복구 (GeoDR)를 지 원하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/19/2020
+ms.openlocfilehash: 10beaf0ae25f3ed9b7bcda5961a89494b18b84d9
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105849"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980854"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Azure Event Grid의 서버 쪽 지역 재해 복구
 이제 Event Grid에는 새로운 기능에 대 한 메타 데이터의 자동 지역 재해 복구 (GeoDR) 뿐만 아니라 기존의 모든 도메인, 토픽 및 이벤트 구독이 있습니다. 전체 Azure 지역이 중단 되는 경우 Event Grid는 이미 쌍을 이루는 지역에 동기화 된 모든 이벤트 관련 인프라 메타 데이터를 포함 합니다. 새 이벤트는 사용자의 개입 없이 다시 전달 되기 시작 합니다. 
 
 재해 복구는 다음과 같은 두 가지 메트릭을 사용 하 여 측정 됩니다.
 
-- [RPO (복구 지점 목표](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Point_Objective)): 손실 될 수 있는 데이터의 시간 (분)입니다.
-- [RTO (복구 시간 목표)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_time_objective): 서비스가 종료 될 수 있는 시간 (분)입니다.
+- RPO (복구 지점 목표): 손실 될 수 있는 데이터의 시간 (분)입니다.
+- RTO (복구 시간 목표): 서비스가 다운 될 수 있는 시간 (분)입니다.
 
 Event Grid의 자동 장애 조치 (failover)에는 메타 데이터 (이벤트 구독 등) 및 데이터 (이벤트)에 대 한 Rpo 및 RTOs가 다릅니다. 다음 사양과 다른 사양이 필요한 경우 [상태 api 항목을 사용 하 여 클라이언트 쪽 장애 조치 (failover)](custom-disaster-recovery.md)를 계속 구현할 수 있습니다.
 

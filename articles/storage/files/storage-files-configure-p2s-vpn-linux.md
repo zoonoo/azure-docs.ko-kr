@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 685373203da14a6aa83c608d90d6416ab2b30ae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74422318718e318a00d7bd7ebaf8e4093ef75aa6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515301"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629277"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Azure Files에서 사용하기 위한 Linux의 P2S(지점 및 사이트 간) VPN 구성
 P2S(지점 및 사이트 간) VPN 연결을 사용하여 포트 445을 열지 않고 Azure 외부에서 SMB를 통해 Azure 파일 공유를 탑재할 수 있습니다. 지점 및 사이트 간 VPN 연결은 Azure와 개별 클라이언트 간의 VPN 연결입니다. Azure Files에서 P2S VPN 연결을 사용하려면 연결하려는 각 클라이언트에 대해 P2S VPN 연결을 구성해야 합니다. 온-프레미스 네트워크에서 Azure 파일 공유에 연결해야 하는 클라이언트가 많은 경우에는 각 클라이언트에 대해 지점 및 사이트 간 연결 대신 S2S(사이트 간) VPN 연결을 사용할 수 있습니다. 자세한 내용은 [Azure Files에서 사용하기 위한 사이트 간 VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
@@ -22,7 +22,7 @@ Azure Files에 사용할 수 있는 네트워킹 옵션에 대해 자세히 알�
 이 문서에서는 Linux에서 지점 및 사이트 간 VPN을 구성하여 Azure 파일 공유를 온-프레미스에 직접 탑재하는 단계를 자세히 설명합니다. VPN을 통해 Azure 파일 동기화 트래픽을 라우팅하는 경우 [Azure 파일 동기화 프록시 및 방화벽 설정 구성](storage-sync-files-firewall-and-proxy.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-- 최신 버전의 Azure CLI. Azure CLI를 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하고 해당 운영 체제를 선택합니다. Linux에서 Azure PowerShell 모듈을 사용하려는 경우에는 Azure CLI에 대한 아래 지침이 제공될 수 있습니다.
+- 최신 버전의 Azure CLI. Azure CLI를 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell CLI 설치](/cli/azure/install-azure-cli)를 참조하고 해당 운영 체제를 선택합니다. Linux에서 Azure PowerShell 모듈을 사용하려는 경우에는 Azure CLI에 대한 아래 지침이 제공될 수 있습니다.
 
 - 온-프레미스에 탑재하려는 Azure 파일 공유. Azure 파일 공유는 스토리지 계정 내에 배포됩니다. 스토리지 계정은 여러 파일 공유뿐만 아니라 다른 스토리지 리소스(예: Blob 컨테이너 또는 큐)도 배포할 수 있는 공유 스토리지 풀을 나타내는 관리 구조입니다. [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)에서 Azure 파일 공유 및 스토리지 계정을 배포하는 방법에 대해 자세히 알아봅니다.
 

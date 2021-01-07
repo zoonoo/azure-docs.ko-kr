@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116659"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371864"
 ---
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "92116659"
 
 ### <a name="configure-authentication-values"></a>인증 값 구성
 
-_Solution Explorer_ 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **사용자 비밀 관리** 를 선택합니다. 그러면 _secrets.json_ 이라는 파일이 열립니다. 이 파일은 소스 제어에 체크 인되지 않습니다. [여기](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true)를 참조하세요. 몰입형 판독기 리소스를 만들 때 지정된 값을 제공하여 _secrets.json_ 의 콘텐츠를 다음으로 바꿉니다.
+_Solution Explorer_ 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **사용자 비밀 관리** 를 선택합니다. 그러면 _secrets.json_ 이라는 파일이 열립니다. 이 파일은 소스 제어에 체크 인되지 않습니다. [여기](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1)를 참조하세요. 몰입형 판독기 리소스를 만들 때 지정된 값을 제공하여 _secrets.json_ 의 콘텐츠를 다음으로 바꿉니다.
 
 ```json
 {
@@ -218,7 +218,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>몰입형 리더 시작을 처리하는 JavaScript 추가
 
-몰입형 판독기 라이브러리는 몰입형 판독기를 시작하고 몰입형 판독기 단추를 렌더링하는 등의 기능을 제공합니다. [여기](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)를 참조하세요.
+몰입형 판독기 라이브러리는 몰입형 판독기를 시작하고 몰입형 판독기 단추를 렌더링하는 등의 기능을 제공합니다. [여기](../../reference.md)를 참조하세요.
 
 _Views\Home\Index.cshtml_ 의 맨 아래에 다음 코드를 추가합니다.
 

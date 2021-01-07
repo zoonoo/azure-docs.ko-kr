@@ -12,11 +12,11 @@ ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
 ms.openlocfilehash: 142d4504ab12e7df5cc1e009038554a5b90dff0c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135961"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188420"
 ---
 이 가이드에서는 64비트 Java 8 JRE용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려는 경우에는 Maven 중앙 리포지토리에 Java SDK가 없습니다. Gradle 또는 `pom.xml` 종속성 파일을 사용하는 경우 `https://csspeechstorage.blob.core.windows.net/maven/`을 가리키는 사용자 지정 리포지토리를 추가해야 합니다(패키지 이름은 아래 참조).
 

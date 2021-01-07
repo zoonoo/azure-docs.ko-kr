@@ -1,19 +1,19 @@
 ---
 title: Azure Data Factory 관리 되는 가상 네트워크 매핑 데이터 흐름을 사용 하 여 데이터 변환
 description: 이 자습서에서는 Azure Data Factory 사용 하 여 데이터 흐름이 매핑되는 데이터를 변환 하는 방법에 대 한 단계별 지침을 제공 합니다.
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/19/2019
-ms.openlocfilehash: 52e45017643c63937ffc521adfe08d6415460254
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9a4b57f3813adfeee53891f733dd4d303dbbef8d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637142"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497132"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>매핑 데이터 흐름을 사용 하 여 데이터를 안전 하 게 변환
 
@@ -34,8 +34,8 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 > * 데이터 흐름 작업을 모니터링 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-* **Azure 구독** . Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정** . Data Lake Storage를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal)를 참조하세요. *스토리지 계정이 선택한 네트워크에서만 액세스를 허용하는지 확인합니다.* 
+* **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure Storage 계정**. Data Lake Storage를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal)를 참조하세요. *스토리지 계정이 선택한 네트워크에서만 액세스를 허용하는지 확인합니다.* 
 
 이 자습서에서 변형할 파일은이 [GitHub 콘텐츠 사이트](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv)에서 찾을 수 있는 moviesDB.csv입니다. GitHub에서 파일을 검색 하려면 콘텐츠를 원하는 텍스트 편집기에 복사 하 여 로컬에 .csv 파일로 저장 합니다. 저장소 계정에 파일을 업로드 하려면 [Azure Portal을 사용 하 여 Blob 업로드](../storage/blobs/storage-quickstart-blobs-portal.md)를 참조 하세요. 예제는 **샘플 데이터** 라는 컨테이너를 참조 합니다.
 

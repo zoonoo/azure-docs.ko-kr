@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 310be095af10f5ed5860c4f627caa0373be55835
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394869"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629668"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Azure IoT Connector for FHIR(미리 보기) 데이터 흐름
 
-이 문서에서는 FHIR * 용 Azure IoT 커넥터의 데이터 흐름에 대 한 개요를 제공 합니다. 장치 데이터를 FHIR 기반 [관찰](https://www.hl7.org/fhir/observation.html) 리소스로 변환 하는 Azure IoT 커넥터 내에서 다양 한 데이터 처리 단계에 대해 알아봅니다.
+이 문서에서는 신속한 의료 상호 운용성 리소스 (FHIR&#174;) *에 대 한 Azure IoT 커넥터의 데이터 흐름에 대 한 개요를 제공 합니다. 장치 데이터를 FHIR 기반 [관찰](https://www.hl7.org/fhir/observation.html) 리소스로 변환 하는 Azure IoT 커넥터 내에서 다양 한 데이터 처리 단계에 대해 알아봅니다.
 
 ![Azure IoT Connector for FHIR 데이터 흐름](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
@@ -31,7 +31,7 @@ ms.locfileid: "93394869"
 > [!NOTE]
 > 이번에는 장치 데이터에 대해 JSON이 유일 하 게 지원 되는 형식입니다.
 
-## <a name="normalize"></a>일반화
+## <a name="normalize"></a>Normalize
 정규화는 위의 Azure 이벤트 허브에서 장치 데이터를 검색 하 고 장치 매핑 템플릿을 사용 하 여 처리 하는 다음 단계입니다. 이 매핑 프로세스는 장치 데이터를 정규화 된 스키마로 변환 합니다. 
 
 정규화 프로세스는 이후 단계에서 데이터 처리를 간소화할 뿐만 아니라 하나의 입력 메시지를 여러 정규화 된 메시지로 프로젝션 하는 기능도 제공 합니다. 예를 들어 장치는 단일 메시지에서 본문 온도, 펄스 율, 혈압 및 respiration 요금에 대 한 여러 가지 중요 한 기호를 보낼 수 있습니다. 이 입력 메시지는 4 개의 별도의 FHIR 리소스를 만듭니다. 각 리소스는 서로 다른 중요 한 기호를 나타내며, 입력 메시지는 서로 다른 4 개의 정규화 된 메시지에 프로젝션 됩니다.
@@ -64,6 +64,4 @@ ms.locfileid: "93394869"
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR 매핑 템플릿](iot-mapping-templates.md)
 
-*Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다.
-
-FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.
+* Azure Portal에서 FHIR 용 Azure IoT 커넥터를 IoT 커넥터 (미리 보기) 라고 합니다. FHIR은 HL7의 등록 상표 이며 HL7의 사용 권한과 함께 사용 됩니다. 

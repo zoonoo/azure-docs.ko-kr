@@ -3,12 +3,12 @@ title: Azure Functions에서 소비 계획 비용 예측
 description: Azure의 소비 계획에서 함수 앱을 실행할 때 발생할 수 있는 비용을 보다 정확 하 게 예측 하는 방법을 알아봅니다.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 58082e03c1416848e9aa1e97308bed1ceaa67295
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168117"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934886"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획 비용 예측
 
@@ -16,9 +16,9 @@ ms.locfileid: "92168117"
 
 | 계획 | 설명 |
 | ---- | ----------- |
-| [**소비율**](functions-scale.md#consumption-plan) | 함수 앱이 실행 되는 시간에 대해서만 요금이 청구 됩니다. 이 요금제에는 구독 별로 [무료 부여][가격 책정 페이지가] 포함 되어 있습니다.|
-| [**Premium**](functions-scale.md#premium-plan) | 는 소비 계획과 동일한 기능 및 크기 조정 메커니즘을 제공 하지만 향상 된 성능 및 VNET 액세스를 제공 합니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다. 자세한 내용은 [Azure Functions Premium 요금제](functions-premium-plan.md)를 참조 하세요. |
-| [**전용 (App Service)**](functions-scale.md#app-service-plan) <br/>(기본 계층 이상) | 전용 Vm 또는 격리에서 실행 해야 하는 경우 사용자 지정 이미지를 사용 하거나 과도 한 App Service 계획 용량을 사용 하려고 합니다. [정기적인 App Service 요금제 청구](https://azure.microsoft.com/pricing/details/app-service/)를 사용 합니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다.|
+| [**Consumption**](consumption-plan.md) | 함수 앱이 실행 되는 시간에 대해서만 요금이 청구 됩니다. 이 요금제에는 구독 별로 [무료 부여][가격 책정 페이지가] 포함 되어 있습니다.|
+| [**Premium**](functions-premium-plan.md) | 는 소비 계획과 동일한 기능 및 크기 조정 메커니즘을 제공 하지만 향상 된 성능 및 VNET 액세스를 제공 합니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다. 자세한 내용은 [Azure Functions Premium 요금제](functions-premium-plan.md)를 참조 하세요. |
+| [**전용 (App Service)**](dedicated-plan.md) <br/>(기본 계층 이상) | 전용 Vm 또는 격리에서 실행 해야 하는 경우 사용자 지정 이미지를 사용 하거나 과도 한 App Service 계획 용량을 사용 하려고 합니다. [정기적인 App Service 요금제 청구](https://azure.microsoft.com/pricing/details/app-service/)를 사용 합니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다.|
 
 함수 성능 및 비용 요구 사항을 가장 잘 지 원하는 계획을 선택 했습니다. 자세한 내용은 [Azure Functions 크기 조정 및 호스팅](functions-scale.md)을 참조하세요.
 
@@ -28,7 +28,7 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 ## <a name="consumption-plan-costs"></a>소비 계획 비용
 
-단일 함수 실행의 실행 *비용은* *GB 초*단위로 측정 됩니다. 실행 비용은 메모리 사용량과 실행 시간을 결합 하 여 계산 됩니다. 더 많은 메모리를 소비 하는 함수를 사용 하 여 더 많은 비용을 위해 실행 하는 함수입니다. 
+단일 함수 실행의 실행 *비용은* *GB 초* 단위로 측정 됩니다. 실행 비용은 메모리 사용량과 실행 시간을 결합 하 여 계산 됩니다. 더 많은 메모리를 소비 하는 함수를 사용 하 여 더 많은 비용을 위해 실행 하는 함수입니다. 
 
 함수에서 사용 되는 메모리 양이 일정 하 게 유지 되는 경우를 고려 합니다. 이 경우 비용을 계산 하는 것은 간단한 곱셈입니다. 예를 들어 함수가 3 초 동안 0.5 GB를 사용 한다고 가정 합니다. 실행 비용은 `0.5GB * 3s = 1.5 GB-seconds` 입니다. 
 
@@ -63,7 +63,7 @@ HTTP 트리거 함수의 경우 함수 코드가 실행 되기 전에 오류가 
 
 ## <a name="viewing-cost-related-data"></a>비용 관련 데이터 보기
 
-[청구서](../cost-management-billing/understand/download-azure-invoice.md)에서 실제 청구 된 비용과 함께 **총 실행** 수, 함수 및 **실행 시간 함수**에 대 한 비용 관련 데이터를 볼 수 있습니다. 그러나이 송장 데이터는 과거 송장 기간에 대 한 월별 집계입니다. 
+[청구서](../cost-management-billing/understand/download-azure-invoice.md)에서 실제 청구 된 비용과 함께 **총 실행** 수, 함수 및 **실행 시간 함수** 에 대 한 비용 관련 데이터를 볼 수 있습니다. 그러나이 송장 데이터는 과거 송장 기간에 대 한 월별 집계입니다. 
 
 ### <a name="function-app-level-metrics"></a>함수 앱 수준 메트릭
 
@@ -73,9 +73,9 @@ HTTP 트리거 함수의 경우 함수 코드가 실행 되기 전에 오류가 
 
 [Azure Monitor 메트릭 탐색기](../azure-monitor/platform/metrics-getting-started.md) 를 사용 하 여 소비 계획 함수 앱에 대 한 비용 관련 데이터를 그래픽 형식으로 볼 수 있습니다. 
 
-1. **검색 서비스, 리소스 및 문서** 에서 [Azure Portal] 맨 위에 있는 `monitor` **서비스**에서 **모니터** 를 검색 하 고 선택 합니다.
+1. **검색 서비스, 리소스 및 문서** 에서 [Azure Portal] 맨 위에 있는 `monitor` **서비스** 에서 **모니터** 를 검색 하 고 선택 합니다.
 
-1. 왼쪽에서 메트릭을 선택한 **Metrics**  >  **Select a resource**다음 이미지 아래의 설정을 사용 하 여 함수 앱을 선택 합니다.
+1. 왼쪽에서 메트릭을 선택한   >  다음 이미지 아래의 설정을 사용 하 여 함수 앱을 선택 합니다.
 
     ![함수 앱 리소스 선택](media/functions-consumption-costing/select-a-resource.png)
 
@@ -84,12 +84,12 @@ HTTP 트리거 함수의 경우 함수 코드가 실행 되기 전에 오류가 
     |---------|---------|---------|
     | Subscription    |  사용자의 구독  | 함수 앱을 사용 하는 구독입니다.  |
     | Resource group     | 리소스 그룹  | 함수 앱을 포함 하는 리소스 그룹입니다.   |
-    | 리소스 유형     |  App Services | 함수 앱은 모니터의 App Services 인스턴스로 표시 됩니다. |
+    | 리소스 종류     |  App Services | 함수 앱은 모니터의 App Services 인스턴스로 표시 됩니다. |
     | 리소스     |  함수 앱  | 모니터링할 함수 앱입니다.        |
 
 1. **적용** 을 선택 하 여 모니터링할 리소스로 함수 앱을 선택 합니다.
 
-1. **메트릭**에서 **함수 실행 수** 및 **집계**에 대 한 **합계** 를 선택 합니다. 이렇게 하면 선택한 기간 동안의 실행 횟수 합계가 차트에 추가 됩니다.
+1. **메트릭** 에서 **함수 실행 수** 및 **집계** 에 대 한 **합계** 를 선택 합니다. 이렇게 하면 선택한 기간 동안의 실행 횟수 합계가 차트에 추가 됩니다.
 
     ![차트에 추가할 함수 앱 메트릭을 정의 합니다.](media/functions-consumption-costing/monitor-metrics-add-metric.png)
 

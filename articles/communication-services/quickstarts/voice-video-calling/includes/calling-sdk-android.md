@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5d81e37ab547d12e33cfacb9725d9bdb22666142
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886670"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97628720"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -78,6 +78,19 @@ android.content.Context appContext = this.getApplicationContext(); // From withi
 CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential).get();
 DeviceManage deviceManager = await callClient.getDeviceManager().get();
 ```
+호출자에 대 한 표시 이름을 설정 하려면이 대체 방법을 사용 합니다.
+
+```java
+String userToken = '<user token>';
+CallClient callClient = new CallClient();
+CommunicationUserCredential tokenCredential = new CommunicationUserCredential(userToken);
+android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
+CallAgentOptions callAgentOptions = new CallAgentOptions();
+callAgentOptions.setDisplayName("Alice Bob");
+CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential, callAgentOptions).get();
+DeviceManage deviceManager = await callClient.getDeviceManager().get();
+```
+
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>나가는 호출을 수행 하 고 그룹 호출을 조인 합니다.
 
@@ -136,7 +149,7 @@ startCallOptions.setVideoOptions(videoOptions);
 Call call = callAgent.call(context, participants, startCallOptions);
 ```
 
-### <a name="join-a-group-call"></a>그룹 호출 조인
+### <a name="join-a-group-call"></a>그룹 통화 참가
 새 그룹 호출을 시작 하거나 진행 중인 그룹 호출을 조인 하려면 ' join ' 메서드를 호출 하 고 속성을 사용 하 여 개체를 전달 해야 `groupId` 합니다. 값은 GUID 여야 합니다.
 ```java
 Context appContext = this.getApplicationContext();
@@ -146,6 +159,49 @@ JoinCallOptions joinCallOptions = new JoinCallOptions();
 call = callAgent.join(context, groupCallContext, joinCallOptions);
 ```
 
+### <a name="accept-a-call"></a>통화 수락
+호출을 수락 하려면 호출 개체에서 ' accept ' 메서드를 호출 합니다.
+
+```java
+Context appContext = this.getApplicationContext();
+Call incomingCall = retrieveIncomingCall();
+incomingCall.accept(context).get();
+```
+
+비디오 카메라를 사용 하 여 통화를 수락 하려면:
+
+```java
+Context appContext = this.getApplicationContext();
+Call incomingCall = retrieveIncomingCall();
+AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
+VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
+acceptCallOptions.setVideoOptions(new VideoOptions(new LocalVideoStream(desiredCamera, appContext)));
+incomingCall.accept(context, acceptCallOptions).get();
+```
+
+들어오는 호출은 `CallsUpdated` 개체의 이벤트를 구독 하 `callAgent` 고 추가 된 호출을 반복 하 여 가져올 수 있습니다.
+
+```java
+// Assuming "callAgent" is an instance property obtained by calling the 'createCallAgent' method on CallClient instance 
+public Call retrieveIncomingCall() {
+    Call incomingCall;
+    callAgent.addOnCallsUpdatedListener(new CallsUpdatedListener() {
+        void onCallsUpdated(CallsUpdatedEvent callsUpdatedEvent) {
+            // Look for incoming call
+            List<Call> calls = callsUpdatedEvent.getAddedCalls();
+            for (Call call : calls) {
+                if (call.getState() == CallState.Incoming) {
+                    incomingCall = call;
+                    break;
+                }
+            }
+        }
+    });
+    return incomingCall;
+}
+```
+
+
 ## <a name="push-notifications"></a>푸시 알림
 
 ### <a name="overview"></a>개요
@@ -153,7 +209,7 @@ call = callAgent.join(context, groupCallContext, joinCallOptions);
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-FCM (Cloud Messaging)를 사용 하도록 설정 하 고 Azure Notification Hub 인스턴스에 연결 된 Firebase 클라우드 메시징 서비스로 설정 된 Firebase 계정 자세한 내용은 [Communication Services 알림](https://docs.microsoft.com/azure/communication-services/concepts/notifications) 을 참조 하세요.
+FCM (Cloud Messaging)를 사용 하도록 설정 하 고 Azure Notification Hub 인스턴스에 연결 된 Firebase 클라우드 메시징 서비스로 설정 된 Firebase 계정 자세한 내용은 [Communication Services 알림](../../../concepts/notifications.md) 을 참조 하세요.
 또한이 자습서에서는 Android Studio 버전 3.6 이상을 사용 하 여 응용 프로그램을 빌드하는 것으로 가정 합니다.
 
 Firebase 클라우드 메시징에서 알림 메시지를 받을 수 있으려면 Android 응용 프로그램에 대 한 권한 집합이 필요 합니다. 파일에서 `AndroidManifest.xml` *<매니페스트 ... >* 또는 태그 바로 뒤에 다음 권한 집합을 추가 합니다. *</application>*

@@ -9,16 +9,16 @@ ms.subservice: business-intelligence
 ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 36334142595d4a6bd4865a690f154279967a70d5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 996233e2526b8b69c13abd4340ead4c5e2175916
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746333"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450683"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역에 Power BI 작업 영역 연결
 
-이 빠른 시작에서는 Synapse Analytics 작업 영역에 Power BI 작업 영역을 연결하여 Synapse Studio(미리 보기)에서 새 Power BI 보고서 및 데이터 세트를 만드는 방법에 대해 설명합니다.
+이 빠른 시작에서는 Azure Synapse Analytics 작업 영역에 Power BI 작업 영역을 연결하여 Synapse Studio에서 새 Power BI 보고서 및 데이터 세트를 만드는 방법에 대해 설명합니다.
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 

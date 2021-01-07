@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ec7a32739940d53d976e73a7e170df96a0acc245
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367604"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449515"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Azure Stack Edge와 Azure Key Vault 통합 
 
@@ -49,7 +49,7 @@ Azure Stack Edge 서비스의 경우 사용 되는 암호 중 하나는 HK (채�
 
 - 실수로 인 한 삭제를 방지 하기 위해 키 자격 증명 모음에서 리소스 잠금이 사용 됩니다. 또한 키 자격 증명 모음에 대 한 일시 삭제는 키 자격 증명 모음을 90 복원 하는 데 사용할 수 있습니다. 자세한 내용은 [Azure Key Vault 일시 삭제 개요](../key-vault/general/soft-delete-overview.md) 를 참조 하세요.
 
-    키 자격 증명 모음을 실수로 삭제 하 고 제거 보호 기간 90 일이 경과 하지 않은 경우 다음 단계에 따라 [주요 자격 증명 모음을 복구](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)합니다. 
+    키 자격 증명 모음을 실수로 삭제 하 고 제거 보호 기간 90 일이 경과 하지 않은 경우 다음 단계에 따라 [주요 자격 증명 모음을 복구](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates)합니다. 
 
 - Azure Key Vault Azure Stack Edge 리소스와 통합 되기 전에 기존 Azure Stack Edge 리소스가 있는 경우에는 영향을 받지 않습니다. 기존 Azure Stack Edge 리소스를 계속 사용할 수 있습니다. 
 
@@ -73,4 +73,3 @@ When you generate an activation key, the following events occur:
 ## <a name="next-steps"></a>다음 단계
 
 - [활성화 키를 생성](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key)하는 방법에 대해 자세히 알아보세요.
-

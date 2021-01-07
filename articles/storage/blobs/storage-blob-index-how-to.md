@@ -3,18 +3,18 @@ title: Blob 인덱스 태그를 사용 하 여 Azure Blob Storage에서 데이�
 description: Blob 인덱스 태그를 사용 하 여 blob 개체를 분류, 관리 및 쿼리 하는 방법에 대 한 예를 참조 하세요.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 159252cf850fd59f40d1b59e592153f50d7cb813
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371973"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95541252"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Blob 인덱스 태그 (미리 보기)를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기
 
@@ -38,7 +38,7 @@ Blob 인덱스가 미리 보기 상태 이므로 .NET storage 패키지는 미�
 
 2. NuGet 패키지 관리자에서 **Azure.** 12.7.0 패키지를 찾고 프로젝트에 버전 **-preview. 1** 이상을 설치 합니다. PowerShell 명령을 실행할 수도 있습니다. `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
-   방법에 대한 자세한 내용은 [패키지 찾기 및 설치](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package)를 참조하세요.
+   방법에 대한 자세한 내용은 [패키지 찾기 및 설치](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package)를 참조하세요.
 
 3. 코드 파일 맨 위에 다음 using 문을 추가합니다.
 
@@ -56,13 +56,13 @@ Blob 인덱스가 미리 보기 상태 이므로 .NET storage 패키지는 미�
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>인덱스 태그를 사용하여 새 Blob 업로드
 
-인덱스 태그를 사용 하 여 새 blob을 업로드 하는 것은 [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 의해 수행 될 수 있습니다. 또한 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [역할 기반 액세스 제어](/azure/role-based-access-control/overview) 권한이 있는 사용자는이 작업을 수행할 수 있습니다.
+이 작업은 [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 사용 권한을 부여 받은 저장소 Blob 데이터 소유자 또는 보안 주체에 의해 수행 될 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다. 
 
-2. **Blob service**아래 컨테이너 **옵션으로** 이동 하 여 컨테이너를 선택 합니다.
+2. **Blob service** 아래 컨테이너 **옵션으로** 이동 하 여 컨테이너를 선택 합니다.
 
 3. **업로드** 단추를 선택 하 고 로컬 파일 시스템을 검색 하 여 블록 blob으로 업로드할 파일을 찾습니다.
 
@@ -114,9 +114,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Blob 인덱스 태그 가져오기, 설정 및 업데이트
 
-Blob 인덱스 태그 가져오기는 [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)가 수행할 수 있습니다. 또한 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [역할 기반 액세스 제어](/azure/role-based-access-control/overview) 권한이 있는 사용자는이 작업을 수행할 수 있습니다.
+Blob 인덱스 태그 가져오기는 [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 사용 권한을 부여 받은 저장소 blob 데이터 소유자 또는 보안 주체에서 수행할 수 있습니다.
 
-Blob 인덱스 태그 설정 및 업데이트는 [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 의해 수행 될 수 있습니다. 또한 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [역할 기반 액세스 제어](/azure/role-based-access-control/overview) 권한이 있는 사용자는이 작업을 수행할 수 있습니다.
+Blob 인덱스 태그를 설정 하 고 업데이트 하는 작업 [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 은 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 권한을 부여 받은 저장소 blob 데이터 소유자 또는 보안 주체에 의해 수행 될 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -126,13 +126,13 @@ Blob 인덱스 태그 설정 및 업데이트는 [저장소 Blob 데이터 소�
 
 3. 선택한 컨테이너 내의 blob 목록에서 blob을 선택 합니다.
 
-4. Blob 개요 탭은 **Blob 인덱스 태그**를 포함하여 Blob의 속성을 표시합니다.
+4. Blob 개요 탭은 **Blob 인덱스 태그** 를 포함하여 Blob의 속성을 표시합니다.
 
 5. Blob에 대한 키/값 인덱스 태그를 가져오거나 설정하거나 수정하거나 삭제할 수 있습니다.
 
 6. **저장** 단추를 선택하여 Blob에 대한 업데이트를 확인합니다.
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="인덱스 태그를 사용 하 여 blob을 업로드 하는 방법을 보여 주는 Azure Portal의 스크린샷":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Blob에서 인덱스 태그를 가져오고, 설정 하 고, 업데이트 하 고, 삭제 하는 방법을 보여 주는 Azure Portal의 스크린샷":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Blob 인덱스 태그를 사용 하 여 데이터 필터링 및 찾기
 
-[저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)는 blob 인덱스 태그를 기준으로 검색 및 필터링을 수행할 수 있습니다. 또한 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [역할 기반 액세스 제어](/azure/role-based-access-control/overview) 권한이 있는 사용자는이 작업을 수행할 수 있습니다.
+이 작업은 [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` 사용자 지정 azure 역할을 통해 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 에 대 한 사용 권한을 부여 받은 저장소 Blob 데이터 소유자 또는 보안 주체에 의해 수행 될 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -201,7 +201,7 @@ Azure Portal 내에서 blob 인덱스 태그 필터는 매개 변수를 자동�
 
 1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다. 
 
-2. **Blob service**아래 컨테이너 **옵션으로** 이동 하 여 컨테이너를 선택 합니다.
+2. **Blob service** 아래 컨테이너 **옵션으로** 이동 하 여 컨테이너를 선택 합니다.
 
 3. **Blob 인덱스 태그 필터** 단추를 선택하여 선택한 컨테이너 내에서 필터링합니다.
 
@@ -209,7 +209,7 @@ Azure Portal 내에서 blob 인덱스 태그 필터는 매개 변수를 자동�
 
 5. **Blob 인덱스 태그 필터** 단추를 선택하여 추가 태그 필터를 추가합니다(최대 10개).
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="인덱스 태그를 사용 하 여 blob을 업로드 하는 방법을 보여 주는 Azure Portal의 스크린샷":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="인덱스 태그를 사용 하 여 태그가 지정 된 blob을 필터링 하 고 찾는 방법을 보여 주는 Azure Portal의 스크린샷":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -297,19 +297,19 @@ static async Task FindBlobsByTagsExample()
 
 1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다. 
 
-2. **Blob Service**에서 **수명 주기 관리** 옵션으로 이동합니다.
+2. **Blob Service** 에서 **수명 주기 관리** 옵션으로 이동합니다.
 
 3. ‘규칙 추가’를 선택한 다음, 작업 세트 양식 필드를 채웁니다.
 
 4. 접두사 일치 및 blob 인덱스 일치에 대 한 선택적 필터를 추가 하려면 **필터** 설정을 선택 합니다.
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="인덱스 태그를 사용 하 여 blob을 업로드 하는 방법을 보여 주는 Azure Portal의 스크린샷":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="수명 주기 관리에 대 한 인덱스 태그를 추가 하는 방법을 보여 주는 Azure Portal의 스크린샷":::
 
 5. **검토 + 추가** 를 선택 하 여 규칙 설정을 검토 합니다.
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="인덱스 태그를 사용 하 여 blob을 업로드 하는 방법을 보여 주는 Azure Portal의 스크린샷":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Blob 인덱스 태그를 사용 하 여 수명 주기 관리 규칙을 보여 주는 Azure Portal의 스크린샷 필터 예":::
 
-6. **추가**를 선택하여 수명 주기 관리 정책에 새 규칙을 적용합니다.
+6. **추가** 를 선택하여 수명 주기 관리 정책에 새 규칙을 적용합니다.
 
 # <a name="net"></a>[.NET](#tab/net)
 

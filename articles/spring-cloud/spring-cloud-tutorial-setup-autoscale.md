@@ -1,20 +1,20 @@
 ---
-title: 자습서 - 마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
+title: 마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
 description: 이 문서에서는 Microsoft Azure Portal 또는 Azure CLI를 사용하여 애플리케이션에 대한 자동 스케일링을 설정하는 방법에 대해 설명합니다.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742671"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533828"
 ---
-# <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>자습서: 마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
+# <a name="set-up-autoscale-for-microservice-applications"></a>마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-java
-ms.openlocfilehash: b73f5013fdbef34344ece672bacff90db9bac60b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dea46a07a7357be6079c52634be8ea2ff79cc8f3
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89051579"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369123"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>빠른 시작: Ink Recognizer REST API와 Java로 디지털 잉크 인식
 
@@ -32,7 +32,7 @@ ms.locfileid: "89051579"
 
 이 빠른 시작의 소스 코드는 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Java&trade; Development Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상.
 
@@ -94,7 +94,7 @@ ms.locfileid: "89051579"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [REST API 참조](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [REST API 참조](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 
 Ink Recognizer API가 디지털 잉크 입력 앱에서 어떻게 작동하는지 알아보려면 GitHub에서 다음 샘플 애플리케이션을 살펴보세요.

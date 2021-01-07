@@ -3,8 +3,7 @@ title: .NET Framework 앱에 기능 플래그를 추가하는 빠른 시작 | Mi
 description: .NET Framework 앱에 기능 플래그 추가 및 Azure App Configuration에서 기능 플래그 관리에 대한 빠른 시작
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -14,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/19/2020
-ms.author: lcozzens
-ms.openlocfilehash: c379d3f99628c2d3fb32ae34ca0214f608d365c7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.author: alkemper
+ms.openlocfilehash: 513c826e11ff9dfe6ea94349c67620da9d1bba48
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201270"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932050"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>빠른 시작: .NET Framework 앱에 기능 플래그 추가
 
@@ -38,7 +37,7 @@ ms.locfileid: "92201270"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. **기능 관리자** >  **+추가**를 선택하여 `Beta`라는 기능 플래그를 추가합니다.
+7. **기능 관리자** >  **+추가** 를 선택하여 `Beta`라는 기능 플래그를 추가합니다.
 
     > [!div class="mx-imgBorder"]
     > ![Beta라는 기능 플래그 사용](media/add-beta-feature-flag.png)
@@ -47,15 +46,15 @@ ms.locfileid: "92201270"
 
 ## <a name="create-a-net-console-app"></a>.NET 콘솔 앱 만들기
 
-1. Visual Studio를 시작하고 **파일** > **새로 만들기** > **프로젝트**를 차례로 선택합니다.
+1. Visual Studio를 시작하고 **파일** > **새로 만들기** > **프로젝트** 를 차례로 선택합니다.
 
-1. **새 프로젝트 만들기**에서 **콘솔** 프로젝트 형식을 필터링하고 **콘솔 앱(.NET Framework)** 을 클릭합니다. **다음**을 클릭합니다.
+1. **새 프로젝트 만들기** 에서 **콘솔** 프로젝트 형식을 필터링하고 **콘솔 앱(.NET Framework)** 을 클릭합니다. **다음** 을 클릭합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 입력합니다. **프레임워크** 아래에서 **.NET Framework 4.8** 이상을 선택합니다. **만들기**를 클릭합니다.
+1. **새 프로젝트 구성** 에서 프로젝트 이름을 입력합니다. **프레임워크** 아래에서 **.NET Framework 4.8** 이상을 선택합니다. **만들기** 를 클릭합니다.
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
-1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
+1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리** 를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
 
     ```
     Microsoft.Extensions.DependencyInjection
@@ -63,7 +62,7 @@ ms.locfileid: "92201270"
     Microsoft.FeatureManagement
     ```
 
-1. *Program.cs*를 열고, 다음 명령문을 추가합니다.
+1. *Program.cs* 를 열고, 다음 명령문을 추가합니다.
 
     ```csharp
     using Microsoft.Extensions.DependencyInjection;
@@ -107,7 +106,7 @@ ms.locfileid: "92201270"
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
-1. **ConnectionString**이라는 환경 변수를 App Configuration 저장소의 연결 문자열로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행합니다.
+1. **ConnectionString** 이라는 환경 변수를 App Configuration 저장소의 연결 문자열로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행합니다.
 
     ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"

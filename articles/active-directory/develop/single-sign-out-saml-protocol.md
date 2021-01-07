@@ -12,16 +12,18 @@ ms.date: 07/19/2017
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118266"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703418"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
 
-Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-Out 프로필을 지원합니다. Single Sign-Out이 제대로 작동하려면, 애플리케이션 등록 중에 애플리케이션에 대한 **LogoutURL**이 Azure AD에 명시적으로 등록되어야 합니다. Azure AD는 LogoutURL을 사용하여 로그아웃된 사용자를 리디렉션합니다.
+Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-Out 프로필을 지원합니다. Single Sign-Out이 제대로 작동하려면, 애플리케이션 등록 중에 애플리케이션에 대한 **LogoutURL** 이 Azure AD에 명시적으로 등록되어야 합니다. Azure AD는 LogoutURL을 사용하여 로그아웃된 사용자를 리디렉션합니다.
+
+Azure AD는 HTTP POST 바인딩이 아닌 리디렉션 바인딩 (HTTP GET)을 지원 합니다.
 
 다음 다이어그램에서는 Azure AD Single Sign-Out 프로세스의 워크플로를 보여 줍니다.
 
@@ -41,7 +43,7 @@ Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-
 Azure AD로 전송된 `LogoutRequest` 요소에는 다음 특성이 필요합니다.
 
 * `ID` - 로그아웃 요청을 식별합니다. `ID` 값은 숫자로 시작할 수 없습니다. 일반적인 방법은 **id** 를 GUID의 문자열 표현에 추가하는 것입니다.
-* `Version` - 이 요소의 값을 **2.0**으로 설정합니다. 이 값은 필수입니다.
+* `Version` - 이 요소의 값을 **2.0** 으로 설정합니다. 이 값은 필수입니다.
 * `IssueInstant` - UTC(Coordinate Universal Time) 값과 [왕복 형식("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings)이 포함된 `DateTime` 문자열입니다. Azure AD에는 이 형식의 값이 필요하지만 적용되지는 않습니다.
 
 ### <a name="issuer"></a>발급자
@@ -70,5 +72,5 @@ Azure AD는 이 값을 `https://login.microsoftonline.com/<TenantIdGUID>/`로 �
 
 `Issuer` 요소 값을 평가하려면 애플리케이션 등록 중에 제공한 **앱 ID URI** 값을 사용합니다.
 
-### <a name="status"></a>상태
+### <a name="status"></a>Status
 Azure AD는 요소의 요소를 사용 하 여 `StatusCode` `Status` 로그 아웃 성공 또는 실패를 표시 합니다. 로그 아웃 시도가 실패 하면 `StatusCode` 요소에 사용자 지정 오류 메시지가 포함 될 수도 있습니다.

@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87190e9a7aa3c3a26b77220dd0332d65c640bc2e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763213"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658998"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 
@@ -30,7 +30,7 @@ ms.locfileid: "84763213"
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>갤러리 및 비갤러리 애플리케이션에 대해 자동 생성된 인증서
 
-갤러리에서 새 응용 프로그램을 추가 하 고 saml 기반 로그온을 구성 하는 경우 (응용 프로그램 개요 페이지에서 **Single sign-on**saml을 선택 하 여  >  **SAML** ) Azure AD는 3 년 동안 유효한 응용 프로그램에 대 한 인증서를 생성 합니다. 활성 인증서를 보안 인증서 (**.cer**) 파일로 다운로드 하려면 해당 페이지로 돌아가 (**saml 기반 로그온**) **saml 서명 인증서** 제목에서 다운로드 링크를 선택 합니다. Raw (이진) 인증서 또는 Base64 (base 64 인코딩 텍스트) 인증서 중에서 선택할 수 있습니다. 갤러리 응용 프로그램의 경우이 섹션에는 응용 프로그램의 요구 사항에 따라 페더레이션 메타 데이터 XML ( **.xml** 파일)로 인증서를 다운로드 하는 링크가 표시 될 수도 있습니다.
+갤러리에서 새 응용 프로그램을 추가 하 고 saml 기반 로그온을 구성 하는 경우 (응용 프로그램 개요 페이지에서 **Single sign-on** saml을 선택 하 여  >  **SAML** ) Azure AD는 3 년 동안 유효한 응용 프로그램에 대 한 인증서를 생성 합니다. 활성 인증서를 보안 인증서 (**.cer**) 파일로 다운로드 하려면 해당 페이지로 돌아가 (**saml 기반 로그온**) **saml 서명 인증서** 제목에서 다운로드 링크를 선택 합니다. Raw (이진) 인증서 또는 Base64 (base 64 인코딩 텍스트) 인증서 중에서 선택할 수 있습니다. 갤러리 응용 프로그램의 경우이 섹션에는 응용 프로그램의 요구 사항에 따라 페더레이션 메타 데이터 XML ( **.xml** 파일)로 인증서를 다운로드 하는 링크가 표시 될 수도 있습니다.
 
 ![SAML 활성 서명 인증서 다운로드 옵션](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
@@ -55,15 +55,15 @@ Saml **서명 인증서 제목의** **편집** 아이콘 (연필)을 선택 하 
 먼저 다른 만료 날짜를 사용 하 여 새 인증서를 만들고 저장 합니다.
 
 1. [Azure Active Directory 포털](https://aad.portal.azure.com/)에 로그인합니다. **Azure Active Directory 관리 센터** 페이지가 나타납니다.
-1. 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택합니다. 계정의 엔터프라이즈 응용 프로그램 목록이 표시 됩니다.
+1. 왼쪽 창에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 계정의 엔터프라이즈 응용 프로그램 목록이 표시 됩니다.
 1. 영향을 받는 응용 프로그램을 선택 합니다. 응용 프로그램에 대 한 개요 페이지가 표시 됩니다.
-1. 응용 프로그램 개요 페이지의 왼쪽 창에서 **Single sign-on**을 선택 합니다.
-1. **Single Sign-On 방법 선택** 페이지가 표시 되 면 **SAML**을 선택 합니다.
+1. 응용 프로그램 개요 페이지의 왼쪽 창에서 **Single sign-on** 을 선택 합니다.
+1. **Single Sign-On 방법 선택** 페이지가 표시 되 면 **SAML** 을 선택 합니다.
 1. **Saml 미리 보기를 사용 하 여 단일 Sign-On 설정** 페이지에서 **saml 서명 인증서** 제목을 찾고 **편집** 아이콘 (연필)을 선택 합니다. **SAML 서명 인증서** 페이지가 표시 됩니다. 여기에는 각 인증서의 상태 (**활성** 또는 **비활성**), 만료 날짜 및 지문 (해시 문자열)이 표시 됩니다.
-1. **새 인증서**를 선택 합니다. 인증서 목록 아래에 새 행이 나타납니다. 여기에서 만료 날짜의 기본값은 현재 날짜에서 정확히 3 년입니다. 변경 내용이 아직 저장 되지 않았으므로 만료 날짜를 수정할 수 있습니다.
+1. **새 인증서** 를 선택 합니다. 인증서 목록 아래에 새 행이 나타납니다. 여기에서 만료 날짜의 기본값은 현재 날짜에서 정확히 3 년입니다. 변경 내용이 아직 저장 되지 않았으므로 만료 날짜를 수정할 수 있습니다.
 1. 새 인증서 행에서 만료 날짜 열 위로 마우스를 이동 하 고 **날짜 선택** 아이콘 (일정)을 선택 합니다. 새 행의 현재 만료 날짜의 월을 표시 하는 달력 컨트롤이 나타납니다.
 1. 달력 컨트롤을 사용 하 여 새 날짜를 설정할 수 있습니다. 현재 날짜와 3 년 사이에 현재 날짜 사이의 날짜를 설정할 수 있습니다.
-1. **저장**을 선택합니다. 이제 새 인증서에 **비활성**상태, 선택한 만료 날짜 및 지문이 표시 됩니다.
+1. **저장** 을 선택합니다. 이제 새 인증서에 **비활성** 상태, 선택한 만료 날짜 및 지문이 표시 됩니다.
 1. **SAML 미리 보기 페이지를 사용 하 여 단일 Sign-On 설정** 으로 돌아가려면 **X** 를 선택 합니다.
 
 ### <a name="upload-and-activate-a-certificate"></a>인증서 업로드 및 활성화
@@ -77,7 +77,7 @@ Saml **서명 인증서 제목의** **편집** 아이콘 (연필)을 선택 하 
 
 1. 지침에서 인증서 업로드에 필요한 인코딩 형식을 확인 합니다.
 1. 앞에서 [갤러리 및 비 갤러리 응용 프로그램에 대해 자동 생성 된 인증서](#auto-generated-certificate-for-gallery-and-non-gallery-applications) 섹션의 지침을 따르세요. 이 단계에서는 응용 프로그램에서 업로드 하는 데 필요한 인코딩 형식으로 인증서를 다운로드 합니다.
-1. 새 인증서로 롤오버 하려면 **SAML 서명 인증서** 페이지로 돌아가 새로 저장 된 인증서 행에서 줄임표 (**...**)를 선택 하 고 **인증서를 활성화 하도록**선택 합니다. 새 인증서의 상태가 **활성**으로 변경 되 고 이전에 활성화 된 인증서가 **비활성**상태로 변경 됩니다.
+1. 새 인증서로 롤오버 하려면 **SAML 서명 인증서** 페이지로 돌아가 새로 저장 된 인증서 행에서 줄임표 (**...**)를 선택 하 고 **인증서를 활성화 하도록** 선택 합니다. 새 인증서의 상태가 **활성** 으로 변경 되 고 이전에 활성화 된 인증서가 **비활성** 상태로 변경 됩니다.
 1. 앞에서 표시 한 응용 프로그램의 SAML 로그온 구성 지침에 따라 계속 하 여 SAML 서명 인증서를 올바른 인코딩 형식으로 업로드할 수 있습니다.
 
 ## <a name="add-email-notification-addresses-for-certificate-expiration"></a>인증서 만료에 대 한 전자 메일 알림 주소 추가
@@ -88,7 +88,7 @@ Azure AD는 SAML 인증서가 만료 되기 전에 60, 30 및 7 일의 전자 �
 1. 최종 전자 메일 주소 아래에 인증서의 만료 알림을 받을 전자 메일 주소를 입력 한 다음 Enter 키를 누릅니다.
 1. 추가 하려는 각 전자 메일 주소에 대해 이전 단계를 반복 합니다.
 1. 삭제 하려는 각 전자 메일 주소에 대해 전자 메일 주소 옆에 있는 **삭제** 아이콘 (가비지를 사용할 수 있음)을 선택 합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 스팸 메일로 전송 되는 전자 메일을 방지 하려면이 전자 메일을 연락처에 추가 합니다.
 
@@ -99,7 +99,7 @@ aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 스�
 1. 기존 인증서와 겹치는 날짜를 사용 하 여 이전에 [새 인증서 만들기](#create-a-new-certificate) 섹션의 지침을 따릅니다. 이 날짜는 인증서 만료로 인 한 가동 중지 시간을 제한 합니다.
 1. 응용 프로그램이 인증서를 자동으로 롤포워드할 수 있는 경우 다음 단계를 수행 하 여 새 인증서를 활성으로 설정 합니다.
    1. **SAML 서명 인증서** 페이지로 돌아갑니다.
-   1. 새로 저장 된 인증서 행에서 줄임표 (**...**)를 선택한 다음 **인증서를 활성 상태로 만들기**를 선택 합니다.
+   1. 새로 저장 된 인증서 행에서 줄임표 (**...**)를 선택한 다음 **인증서를 활성 상태로 만들기** 를 선택 합니다.
    1. 다음 두 단계를 건너뜁니다.
 
 1. 앱이 한 번에 하나의 인증서만 처리할 수 있는 경우에는 다음 단계를 수행 하는 데 가동 중지 시간 간격을 선택 합니다. 응용 프로그램이 새 인증서를 자동으로 선택 하지 않고 둘 이상의 서명 인증서를 처리할 수 있는 경우에는 다음 단계를 언제 든 지 수행할 수 있습니다.
@@ -111,4 +111,4 @@ aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 스�
 - [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](../saas-apps/tutorial-list.md)
 - [Azure Active Directory를 사용한 애플리케이션 관리](what-is-application-management.md)
 - [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](what-is-single-sign-on.md)
-- [Azure Active Directory의 애플리케이션에 대한 Single Sign-On 디버그](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Azure Active Directory의 애플리케이션에 대한 Single Sign-On 디버그](./debug-saml-sso-issues.md)

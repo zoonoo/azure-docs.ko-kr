@@ -5,35 +5,41 @@ description: .NET 클라이언트 라이브러리를 사용 하 여 계정 유�
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/06/2019
+ms.date: 11/12/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 17f18f84ac1c1738f8c248bb0071c748e15dacf3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0fd693573858df095b62a7a7917563141ac19c5b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090933"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579337"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>.NET을 사용 하 여 저장소 계정 유형 및 SKU 이름 가져오기
 
 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 사용 하 여 blob에 대 한 Azure Storage 계정 유형 및 SKU 이름을 가져오는 방법을 보여 줍니다.
 
-계정 정보는 버전 2018-03-28부터 제공 됩니다.
-
 ## <a name="about-account-type-and-sku-name"></a>계정 유형 및 SKU 이름 정보
 
-**계정 유형**: 올바른 계정 유형에는 `BlobStorage` , `BlockBlobStorage` , `FileStorage` , `Storage` 및가 포함 됩니다 `StorageV2` . [Azure storage 계정 개요](storage-account-overview.md) 에는 다양 한 저장소 계정에 대 한 설명을 포함 하 여 자세한 정보가 포함 되어 있습니다.
+**계정 유형** : 올바른 계정 유형에는 `BlobStorage` , `BlockBlobStorage` , `FileStorage` , `Storage` 및가 포함 됩니다 `StorageV2` . [Azure storage 계정 개요](storage-account-overview.md) 에는 다양 한 저장소 계정에 대 한 설명을 포함 하 여 자세한 정보가 포함 되어 있습니다.
 
-**Sku 이름**: 유효한 sku 이름 `Premium_LRS` 에는,, `Premium_ZRS` `Standard_GRS` , `Standard_GZRS` , `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` `Standard_ZRS` ,, 및가 포함 됩니다. SKU 이름은 대/소문자를 구분 하며, 지 수 [클래스](/dotnet/api/microsoft.azure.management.storage.models.skuname)의 문자열 필드입니다.
+**Sku 이름** : 유효한 sku 이름 `Premium_LRS` 에는,, `Premium_ZRS` `Standard_GRS` , `Standard_GZRS` , `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` `Standard_ZRS` ,, 및가 포함 됩니다. SKU 이름은 대/소문자를 구분 하며, 지 수 [클래스](/dotnet/api/microsoft.azure.management.storage.models.skuname)의 문자열 필드입니다.
 
 ## <a name="retrieve-account-information"></a>계정 정보 검색
 
-Blob와 연결 된 저장소 계정 유형 및 SKU 이름을 가져오려면 [Getaccountproperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) 또는 [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync) 메서드를 호출 합니다.
-
 다음 코드 예제에서는 읽기 전용 계정 속성을 검색 하 고 표시 합니다.
+
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+Blob와 연결 된 저장소 계정 유형 및 SKU 이름을 가져오려면 [Getaccountinfo](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfo) 또는 [Getaccountinfoasync](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfoasync) 메서드를 호출 합니다.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Account.cs" id="Snippet_GetAccountInfo":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+Blob와 연결 된 저장소 계정 유형 및 SKU 이름을 가져오려면 [Getaccountproperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) 또는 [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync) 메서드를 호출 합니다.
 
 ```csharp
 private static async Task GetAccountInfoAsync(CloudBlob blob)
@@ -58,6 +64,8 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
     }
 }
 ```
+
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

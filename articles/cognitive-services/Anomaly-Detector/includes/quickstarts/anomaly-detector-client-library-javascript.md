@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
 ms.custom: devx-track-js
-ms.openlocfilehash: 376ad893bf6fee36543e691fe50f369d8a43142c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b970b099d87148d169b2be3b7e72d32c159f5046
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018515"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371770"
 ---
 JavaScript용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 서비스에서 제공하는 알고리즘을 사용하여 패키지 시작을 설치하려면 다음 단계를 따르세요. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
 
@@ -72,11 +72,11 @@ npm install @azure/ai-anomaly-detector @azure/ms-rest-js csv-parse
 
 ## <a name="object-model"></a>개체 모델
 
-Anomaly Detector 클라이언트는 키를 사용하여 Azure에 인증하는 [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) 개체입니다. 클라이언트는 전체 데이터 세트에 대해 [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--)를 사용하거나 최신 데이터 포인트에 대해 [LastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-)를 사용하여 변칙 검색을 수행할 수 있습니다. [ChangePointDetectAsync](https://go.microsoft.com/fwlink/?linkid=2090788) 메서드는 추세의 변화를 표시하는 포인트를 검색합니다. 
+Anomaly Detector 클라이언트는 키를 사용하여 Azure에 인증하는 [AnomalyDetectorClient](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) 개체입니다. 클라이언트는 전체 데이터 세트에 대해 [entireDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--)를 사용하거나 최신 데이터 포인트에 대해 [LastDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-)를 사용하여 변칙 검색을 수행할 수 있습니다. [ChangePointDetectAsync](https://go.microsoft.com/fwlink/?linkid=2090788) 메서드는 추세의 변화를 표시하는 포인트를 검색합니다. 
 
-시계열 데이터는 [요청](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest) 개체에 일련의 [포인트](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest)로 전송됩니다. `Request` 개체에는 데이터를 설명하는 속성(예: [Granularity](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest#granularity)) 및 변칙 검색용 매개 변수가 포함됩니다. 
+시계열 데이터는 [요청](/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest) 개체에 일련의 [포인트](/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest)로 전송됩니다. `Request` 개체에는 데이터를 설명하는 속성(예: [Granularity](/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest#granularity)) 및 변칙 검색용 매개 변수가 포함됩니다. 
 
-Anomaly Detector 응답은 사용된 메서드에 따라 [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest), [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) 또는 [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788) 개체입니다. 
+Anomaly Detector 응답은 사용된 메서드에 따라 [LastDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest), [EntireDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) 또는 [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788) 개체입니다. 
 
 ## <a name="code-examples"></a>코드 예제 
 
@@ -90,32 +90,32 @@ Anomaly Detector 응답은 사용된 메서드에 따라 [LastDetectResponse](ht
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-엔드포인트와 자격 증명을 사용하여 [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) 개체를 인스턴스화합니다.
+엔드포인트와 자격 증명을 사용하여 [AnomalyDetectorClient](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) 개체를 인스턴스화합니다.
 
 [!code-javascript[Authentication](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=authentication)]
 
 ## <a name="load-time-series-data-from-a-file"></a>파일에서 시계열 데이터 로드
 
 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/AnomalyDetector/request-data.csv)에서 이 빠른 시작의 예제 데이터를 다운로드합니다.
-1. 브라우저에서 **Raw**를 마우스 오른쪽 단추로 클릭합니다.
-2. **다른 이름으로 링크 저장**을 클릭합니다.
+1. 브라우저에서 **Raw** 를 마우스 오른쪽 단추로 클릭합니다.
+2. **다른 이름으로 링크 저장** 을 클릭합니다.
 3. 해당 파일을 .csv 파일로 애플리케이션 디렉터리에 저장합니다.
 
 이 시계열 데이터는 .csv 파일로 형식이 지정되며 Anomaly Detector API로 전송됩니다.
 
-csv-구문 분석 라이브러리의 `readFileSync()` 메서드를 사용하여 데이터 파일을 읽고 `parse()` 메서드를 사용하여 파일을 구문 분석합니다. 각 줄에서, 타임스탬프가 포함된 [Point](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) 개체와 숫자 값을 푸시합니다.
+csv-구문 분석 라이브러리의 `readFileSync()` 메서드를 사용하여 데이터 파일을 읽고 `parse()` 메서드를 사용하여 파일을 구문 분석합니다. 각 줄에서, 타임스탬프가 포함된 [Point](/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) 개체와 숫자 값을 푸시합니다.
 
 [!code-javascript[Read the data file](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=readFile)]
 
 ## <a name="detect-anomalies-in-the-entire-data-set"></a>전체 데이터 세트에서 변칙 검색 
 
-API를 호출하여 클라이언트의 [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) 메서드를 통해 전체 시계열의 변칙을 일괄 처리로 검색합니다. 반환된 [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) 개체를 저장합니다. 응답의 `isAnomaly` 목록을 반복하고 `true` 값의 인덱스를 출력합니다. 이러한 값은 변칙 데이터 요소의 인덱스와 일치합니다(발견된 경우).
+API를 호출하여 클라이언트의 [entireDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) 메서드를 통해 전체 시계열의 변칙을 일괄 처리로 검색합니다. 반환된 [EntireDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) 개체를 저장합니다. 응답의 `isAnomaly` 목록을 반복하고 `true` 값의 인덱스를 출력합니다. 이러한 값은 변칙 데이터 요소의 인덱스와 일치합니다(발견된 경우).
 
 [!code-javascript[Batch detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=batchCall)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>최신 데이터 요소의 변칙 상태 검색
 
-Anomaly Detector API를 호출하여 클라이언트의 [lastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) 메서드를 통해 최신 데이터 요소가 변칙인지 확인하고 반환된 [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) 개체를 저장합니다. 응답의 `isAnomaly` 값은 해당 포인트의 변칙 상태를 지정하는 부울 값입니다.  
+Anomaly Detector API를 호출하여 클라이언트의 [lastDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) 메서드를 통해 최신 데이터 요소가 변칙인지 확인하고 반환된 [LastDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) 개체를 저장합니다. 응답의 `isAnomaly` 값은 해당 포인트의 변칙 상태를 지정하는 부울 값입니다.  
 
 [!code-javascript[Last point detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=lastDetection)]
 

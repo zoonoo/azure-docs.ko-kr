@@ -12,12 +12,12 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c9a15761a4b37dfcf5ba7cc4cf046390092145
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948133"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672148"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Microsoft id 플랫폼에서 서명 키 롤오버
 이 문서에서는 Microsoft id 플랫폼에서 보안 토큰에 서명 하는 데 사용 되는 공개 키에 대해 알아야 할 사항을 설명 합니다. 이러한 키는 정기적으로 롤오버 되며 응급 상황에서 즉시 롤오버 될 수 있다는 점에 유의 해야 합니다. Microsoft id 플랫폼을 사용 하는 모든 응용 프로그램은 키 롤오버 프로세스를 프로그래밍 방식으로 처리할 수 있어야 합니다. 키의 작동 방식과 롤오버가 애플리케이션에 미친 영향을 평가하는 방법, 필요한 경우 키 롤오버를 처리하도록 애플리케이션을 업데이트하거나 정기적인 수동 롤오버 프로세스를 설정하는 방법을 이해하려면 계속 읽어 보세요.
@@ -68,28 +68,30 @@ Azure App Services의 인증/권한 부여(EasyAuth) 기능에는 이미 키 롤
 ### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>.NET OWIN OpenID Connect, WS-Fed 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 애플리케이션/API
 애플리케이션에서 .NET OWIN OpenID Connect, WS-Fed 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용 하는 경우, 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다.
 
-애플리케이션의 Startup.cs 또는 Startup.Auth.cs에서 다음 코드 조각을 찾아봄으로써 애플리케이션에서 이들 미들웨어를 사용하는지 확인할 수 있습니다.
+응용 프로그램의 Startup.cs 또는 Startup.Auth.cs 파일에서 다음 코드 조각을 검색 하 여 응용 프로그램에서 이러한 방법 중 하나를 사용 하 고 있는지 확인할 수 있습니다.
 
-```
+```csharp
 app.UseOpenIdConnectAuthentication(
-     new OpenIdConnectAuthenticationOptions
-     {
-         // ...
-     });
+    new OpenIdConnectAuthenticationOptions
+    {
+        // ...
+    });
 ```
-```
+
+```csharp
 app.UseWsFederationAuthentication(
     new WsFederationAuthenticationOptions
     {
-     // ...
-     });
+        // ...
+    });
 ```
-```
- app.UseWindowsAzureActiveDirectoryBearerAuthentication(
-     new WindowsAzureActiveDirectoryBearerAuthenticationOptions
-     {
-     // ...
-     });
+
+```csharp
+app.UseWindowsAzureActiveDirectoryBearerAuthentication(
+    new WindowsAzureActiveDirectoryBearerAuthenticationOptions
+    {
+        // ...
+    });
 ```
 
 ### <a name="web-applications--apis-protecting-resources-using-net-core-openid-connect-or--jwtbearerauthentication-middleware"></a><a name="owincore"></a>.NET Core OpenID Connect 또는 JwtBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 애플리케이션/API
@@ -131,26 +133,26 @@ Visual Studio 2015 이상에서 웹 응용 프로그램 템플릿을 사용 하 
 인증을 솔루션에 수동으로 추가하면 애플리케이션에 필요한 키 롤오버 논리가 없을 수도 있습니다. 직접 작성 하거나 [다른 라이브러리를 사용 하거나 지원 되는 프로토콜을 수동으로 구현 하는 웹 응용 프로그램/api](#other)의 단계를 수행 해야 합니다.
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 애플리케이션
-Visual Studio 2013에서 웹 애플리케이션 템플릿을 사용하여 애플리케이션을 빌드했고 **인증 변경** 메뉴에서 **조직 계정**을 선택한 경우 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다. 이 논리는 조직의 고유 ID 및 서명 키 정보를 프로젝트와 연결된 두 데이터베이스 테이블에 저장합니다. 프로젝트의 Web.config 파일에서 데이터베이스에 대한 연결 문자열을 찾을 수 있습니다.
+Visual Studio 2013에서 웹 애플리케이션 템플릿을 사용하여 애플리케이션을 빌드했고 **인증 변경** 메뉴에서 **조직 계정** 을 선택한 경우 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다. 이 논리는 조직의 고유 ID 및 서명 키 정보를 프로젝트와 연결된 두 데이터베이스 테이블에 저장합니다. 프로젝트의 Web.config 파일에서 데이터베이스에 대한 연결 문자열을 찾을 수 있습니다.
 
 인증을 솔루션에 수동으로 추가하면 애플리케이션에 필요한 키 롤오버 논리가 없을 수도 있습니다. 사용자가 직접 작성하거나 [웹 애플리케이션/다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하는 API](#other)의 단계를 따라야 합니다.
 
 다음 단계는 애플리케이션에서 논리가 제대로 작동하는지 확인하는 데 도움이 됩니다.
 
 1. Visual Studio 2013에서 솔루션을 연 다음 오른쪽 창에서 **서버 탐색기** 탭을 클릭합니다.
-2. **데이터 연결**, **DefaultConnection** 및 **테이블**을 차례로 확장합니다. **IssuingAuthorityKeys** 테이블을 찾아 마우스 오른쪽 단추로 클릭한 다음 **테이블 데이터 표시**를 클릭합니다.
+2. **데이터 연결**, **DefaultConnection** 및 **테이블** 을 차례로 확장합니다. **IssuingAuthorityKeys** 테이블을 찾아 마우스 오른쪽 단추로 클릭한 다음 **테이블 데이터 표시** 를 클릭합니다.
 3. **IssuingAuthorityKeys** 테이블에는 각 키의 지문에 해당하는 행이 하나 이상 있습니다. 테이블의 모든 행을 삭제합니다.
-4. **Tenants** 테이블을 마우스 오른쪽 단추로 클릭한 다음 **테이블 데이터 표시**를 클릭합니다.
+4. **Tenants** 테이블을 마우스 오른쪽 단추로 클릭한 다음 **테이블 데이터 표시** 를 클릭합니다.
 5. **Tenants** 테이블에는 고유한 디렉터리 테넌트 식별자에 해당하는 행이 하나 이상 있습니다. 테이블의 모든 행을 삭제합니다. **테넌트** 테이블 및 **IssuingAuthorityKeys** 테이블 모두에서 행을 삭제하지 않으면 런타임에 오류가 발생합니다.
 6. 애플리케이션을 빌드 및 실행합니다. 계정에 로그인한 후에 애플리케이션을 중지할 수 있습니다.
-7. **서버 탐색기**로 돌아와서 **IssuingAuthorityKeys** 및 **Tenants** 테이블의 값을 확인합니다. 페더레이션 메타데이터 문서의 적절한 정보로 자동으로 다시 채워진 것을 알 수 있습니다.
+7. **서버 탐색기** 로 돌아와서 **IssuingAuthorityKeys** 및 **Tenants** 테이블의 값을 확인합니다. 페더레이션 메타데이터 문서의 적절한 정보로 자동으로 다시 채워진 것을 알 수 있습니다.
 
 ### <a name="web-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 API
-Web API 템플릿을 사용하여 Visual Studio 2013에서 Web API 응용 프로그램을 만들고 **인증 변경** 메뉴에서 **조직 계정**을 선택한 경우 응용 프로그램에는 이미 필수 논리가 있습니다.
+Web API 템플릿을 사용하여 Visual Studio 2013에서 Web API 응용 프로그램을 만들고 **인증 변경** 메뉴에서 **조직 계정** 을 선택한 경우 응용 프로그램에는 이미 필수 논리가 있습니다.
 
 수동으로 인증을 구성한 경우 아래 지침에 따라 웹 API를 구성 하 여 키 정보를 자동으로 업데이트 하는 방법을 알아보세요.
 
-다음 코드 조각은 페더레이션 메타데이터 문서에서 최신 키를 가져온 후 [JWT 토큰 처리기](https://msdn.microsoft.com/library/dn205065.aspx) 를 사용하여 토큰의 유효성을 검사하는 방법을 보여 줍니다. 이 코드 조각에서는 데이터베이스, 구성 파일 또는 다른 위치에 있든 관계 없이 Microsoft id 플랫폼에서 이후 토큰의 유효성을 검사 하기 위해 키를 유지 하는 데 사용자 고유의 캐싱 메커니즘을 사용 한다고 가정 합니다.
+다음 코드 조각은 페더레이션 메타데이터 문서에서 최신 키를 가져온 후 [JWT 토큰 처리기](/previous-versions/dotnet/framework/security/json-web-token-handler) 를 사용하여 토큰의 유효성을 검사하는 방법을 보여 줍니다. 이 코드 조각에서는 데이터베이스, 구성 파일 또는 다른 위치에 있든 관계 없이 Microsoft id 플랫폼에서 이후 토큰의 유효성을 검사 하기 위해 키를 유지 하는 데 사용자 고유의 캐싱 메커니즘을 사용 한다고 가정 합니다.
 
 ```
 using System;
@@ -241,11 +243,11 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>리소스를 보호하며 Visual Studio 2012를 사용하여 만든 웹 애플리케이션
-Visual Studio 2012에서 애플리케이션을 빌드한 경우 애플리케이션을 구성하는 데 아마도 ID 및 액세스 도구를 사용한 것입니다. 또한 [발급자 이름 레지스트리 유효성 검사(VINR)](https://msdn.microsoft.com/library/dn205067.aspx)를 사용할 가능성이 높습니다. VINR는 신뢰할 수 있는 id 공급자 (Microsoft id 플랫폼) 및 해당 토큰에서 발급 된 토큰의 유효성을 검사 하는 데 사용 되는 키에 대 한 정보를 유지 관리 합니다. 또한 VINR을 통해 해당 디렉터리에 연결된 최신 페더레이션 메타데이터 문서를 다운로드하고 구성이 최신 문서와 함께 만료되었는지 확인하며 필요에 따라 새 키를 사용하도록 애플리케이션을 업데이트하여 Web.config 파일에 저장된 키 정보를 자동으로 간편하게 업데이트할 수 있습니다.
+Visual Studio 2012에서 애플리케이션을 빌드한 경우 애플리케이션을 구성하는 데 아마도 ID 및 액세스 도구를 사용한 것입니다. 또한 [발급자 이름 레지스트리 유효성 검사(VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry)를 사용할 가능성이 높습니다. VINR는 신뢰할 수 있는 id 공급자 (Microsoft id 플랫폼) 및 해당 토큰에서 발급 된 토큰의 유효성을 검사 하는 데 사용 되는 키에 대 한 정보를 유지 관리 합니다. 또한 VINR을 통해 해당 디렉터리에 연결된 최신 페더레이션 메타데이터 문서를 다운로드하고 구성이 최신 문서와 함께 만료되었는지 확인하며 필요에 따라 새 키를 사용하도록 애플리케이션을 업데이트하여 Web.config 파일에 저장된 키 정보를 자동으로 간편하게 업데이트할 수 있습니다.
 
 Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 애플리케이션을 만든 경우 키 롤오버 논리가 프로젝트에 이미 포함됩니다. 아래 코드가 프로젝트에 이미 있는 것을 확인할 수 있습니다. 애플리케이션에 이 논리가 아직 없는 경우 아래 단계에 따라 추가하고 제대로 작동하는지 확인합니다.
 
-1. **솔루션 탐색기**에서 해당 프로젝트의 **System.IdentityModel** 어셈블리에 참조를 추가합니다.
+1. **솔루션 탐색기** 에서 해당 프로젝트의 **System.IdentityModel** 어셈블리에 참조를 추가합니다.
 2. **Global.asax.cs** 파일을 열고 지시문을 사용하여 다음을 추가합니다.
    ```
    using System.Configuration;
@@ -261,7 +263,7 @@ Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 
     ValidatingIssuerNameRegistry.WriteToConfig(metadataAddress, configPath);
    }
    ```
-4. 아래 표시된 것처럼 **Global.asax.cs**의 **Application_Start()** 메서드에서 **RefreshValidationSettings()** 메서드를 호출합니다.
+4. 아래 표시된 것처럼 **Global.asax.cs** 의 **Application_Start()** 메서드에서 **RefreshValidationSettings()** 메서드를 호출합니다.
    ```
    protected void Application_Start()
    {
@@ -290,15 +292,15 @@ Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 
 WIF v1.0에서 애플리케이션을 빌드한 경우 새 키를 사용하도록 애플리케이션의 구성을 자동으로 새로 고치는 데 제공된 메커니즘이 없습니다.
 
 * *가장 쉬운 방법* WIF SDK에 포함된 FedUtil 도구를 사용합니다. 이 도구를 통해 최신 메타데이터 문서를 검색하고 구성을 업데이트할 수 있습니다.
-* 애플리케이션을 시스템 네임스페이스에 있는 최신 버전의 WIF를 포함하는 .NET 4.5로 업데이트합니다. 그런 다음, [발급자 이름 레지스트리 유효성 검사(VINR)](https://msdn.microsoft.com/library/dn205067.aspx)를 사용하여 애플리케이션 구성의 자동 업데이트를 수행할 수 있습니다.
+* 애플리케이션을 시스템 네임스페이스에 있는 최신 버전의 WIF를 포함하는 .NET 4.5로 업데이트합니다. 그런 다음, [발급자 이름 레지스트리 유효성 검사(VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry)를 사용하여 애플리케이션 구성의 자동 업데이트를 수행할 수 있습니다.
 * 이 지침 문서의 끝에 있는 지침에 따라 수동 롤오버를 수행합니다.
 
 구성을 업데이트하기 위해 FedUtil을 사용하는 지침:
 
 1. Visual Studio 2008 또는 2010의 개발 컴퓨터에 WIF v1.0 SDK가 설치되어 있는지 확인합니다. 아직 설치되어 있지 않은 경우 [여기에서 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=4451) 할 수 있습니다.
-2. Visual Studio에서 솔루션을 연 다음 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **페더레이션 메타데이터 업데이트**를 선택합니다. 이 옵션을 사용할 수 없는 경우 FedUtil 및/또는 WIF v1.0 SDK가 설치되지 않은 것입니다.
-3. 표시된 메시지에서 **업데이트**를 선택하여 페더레이션 메타데이터 업데이트를 시작합니다. 애플리케이션이 호스팅되는 서버 환경에 대한 액세스 권한이 있는 경우 필요에 따라 FedUtil의 [자동 메타데이터 업데이트 스케줄러](https://msdn.microsoft.com/library/ee517272.aspx)를 사용할 수 있습니다.
-4. **마침**을 클릭하여 업데이트 프로세스를 완료합니다.
+2. Visual Studio에서 솔루션을 연 다음 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **페더레이션 메타데이터 업데이트** 를 선택합니다. 이 옵션을 사용할 수 없는 경우 FedUtil 및/또는 WIF v1.0 SDK가 설치되지 않은 것입니다.
+3. 표시된 메시지에서 **업데이트** 를 선택하여 페더레이션 메타데이터 업데이트를 시작합니다. 애플리케이션이 호스팅되는 서버 환경에 대한 액세스 권한이 있는 경우 필요에 따라 FedUtil의 [자동 메타데이터 업데이트 스케줄러](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))를 사용할 수 있습니다.
+4. **마침** 을 클릭하여 업데이트 프로세스를 완료합니다.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하여 리소스를 보호하는 웹 애플리케이션/API
 다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하는 경우, 키가 OpenID Connect discovery 문서 또는 페더레이션 메타데이터 문서에서 검색되는지 확인하기 위해 라이브러리나 구현을 검토할 필요가 있습니다. 이를 확인하는 하나의 방법은 OpenID discovery 문서 또는 페더레이션 메타데이터 문서에 대한 모든 호출 코드 또는 라이브러리 코드를 검색하는 것입니다.

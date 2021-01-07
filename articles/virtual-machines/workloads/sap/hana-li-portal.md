@@ -9,20 +9,25 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 887adb3e8b0a5f0410fc9a7732e2220049b7ba6c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927195"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827515"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
+
+>[!NOTE]
+>Rev 4.2의 경우 Azure Portal 항목을 [통해 BareMetal 인스턴스 관리](../../../baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal.md) 항목의 지침을 따르세요.
+
 이 문서에서는 [Azure Portal](https://portal.azure.com) 에 [hana](./hana-overview-architecture.md) 를 표시 하는 방법 및 사용자를 위해 배포 되는 hana large Instance 단위를 사용 하 여 Azure Portal를 통해 수행할 수 있는 작업을 설명 합니다. Azure Portal에서 HANA Large Instances의 표시 유형은 현재 공개 미리 보기로 제공 되는 HANA Large Instances 용 Azure 리소스 공급자를 통해 제공 됩니다.
 
 ## <a name="register-hana-large-instance-resource-provider"></a>HANA Large Instance 리소스 공급자 등록

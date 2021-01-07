@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837383"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023655"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services에서 Azure Logic Apps 앱 및 솔루션 마이그레이션
 
@@ -93,7 +93,7 @@ BizTalk Services는 들어오는 메시지 또는 데이터를 보낼 엔드포�
 
 ![라우팅 필터 옵션을 보여 주는 스크린샷](media/logic-apps-move-from-mabs/route-filter.png)
 
-BizTalk Services에서 두 가지 옵션만 있는 경우 *조건*을 사용하는 것이 BizTalk Services의 라우팅 필터를 변환하는 가장 좋은 방법입니다. 세 개 이상 있으면 **스위치**를 사용합니다.
+BizTalk Services에서 두 가지 옵션만 있는 경우 *조건* 을 사용하는 것이 BizTalk Services의 라우팅 필터를 변환하는 가장 좋은 방법입니다. 세 개 이상 있으면 **스위치** 를 사용합니다.
 
 Logic Apps는 [조건문](../logic-apps/logic-apps-control-flow-conditional-statement.md) 및 [switch 문](../logic-apps/logic-apps-control-flow-switch-statement.md)을 사용하여 정교한 논리 기능, 고급 제어 흐름 및 라우팅을 제공합니다.
 

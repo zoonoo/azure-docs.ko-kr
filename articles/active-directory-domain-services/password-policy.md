@@ -2,7 +2,7 @@
 title: Azure AD Domain Services |에서 암호 정책 만들기 및 사용 Microsoft Docs
 description: 세분화 된 암호 정책을 사용 하 여 Azure AD DS 관리 되는 도메인에서 계정 암호를 보호 하 고 제어 하는 방법과 이유를 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: justinha
+ms.openlocfilehash: df132af1675b3f373fe1eab5685c5d2f07813445
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393169"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619235"
 ---
 # <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Azure Active Directory Domain Services 관리 되는 도메인에 대 한 암호 및 계정 잠금 정책
 
@@ -92,7 +92,7 @@ Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 �
 
 1. 시작 화면에서 **관리 도구** 를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. Ou를 만들고 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
-1. 왼쪽 창에서 관리 되는 도메인 (예: *aaddscontoso.com* )을 선택 합니다.
+1. 왼쪽 창에서 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
 1. **시스템** 컨테이너를 열고 **암호 설정 컨테이너** 합니다.
 
     관리 되는 도메인에 대 한 기본 제공 암호 정책이 표시 됩니다. 이 기본 제공 정책은 수정할 수 없습니다. 대신, 기본 정책을 재정의 하는 사용자 지정 암호 정책을 만듭니다.
@@ -117,7 +117,7 @@ Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 �
 
     ![암호 정책을 적용할 사용자 및 그룹을 선택 합니다.](./media/password-policy/fgpp-applies-to.png)
 
-1. 암호 정책은 그룹에만 적용할 수 있습니다. **위치** 대화 상자에서 도메인 이름 (예: *aaddscontoso.com* )을 확장 한 다음 **AADDC 사용자** 와 같은 OU를 선택 합니다. 적용 하려는 사용자 그룹을 포함 하는 사용자 지정 OU가 있는 경우 해당 OU를 선택 합니다.
+1. 암호 정책은 그룹에만 적용할 수 있습니다. **위치** 대화 상자에서 도메인 이름 (예: *aaddscontoso.com*)을 확장 한 다음 **AADDC 사용자** 와 같은 OU를 선택 합니다. 적용 하려는 사용자 그룹을 포함 하는 사용자 지정 OU가 있는 경우 해당 OU를 선택 합니다.
 
     ![그룹이 속하는 OU를 선택 합니다.](./media/password-policy/fgpp-container.png)
 

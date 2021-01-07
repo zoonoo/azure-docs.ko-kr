@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 302f1a081ca44cf6436f2c318b03e227f6640489
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1bbc3b3cd755aabd348a238ad65cda132b9a7547
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543086"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746612"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -64,7 +64,7 @@ Spark & Hive Tools는 Visual Studio Code가 지원하는 플랫폼에 설치할 
 국가별 클라우드 사용자의 경우 다음 단계에 따라 먼저 Azure 환경을 설정 하 고 azure **: 로그인** 명령을 사용 하 여 azure에 로그인 합니다.
 
 1. **파일**  >  **기본**  >  **설정** 으로 이동 합니다.
-2. 다음 문자열을 검색 합니다. **Azure: Cloud** .
+2. 다음 문자열을 검색 합니다. **Azure: Cloud**.
 3. 목록에서 국가 클라우드를 선택 합니다.
 
    ![기본 로그인 항목 구성 설정](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -211,29 +211,31 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
    ![pyspark 설치 성공](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Python: Select Interpreter to start Jupyter Server** 를 입력합니다.
+7. 명령 프롬프트를 사용 하 여 **pip install numpy = = 1.19.3** 를 실행 한 다음 vscode 창을 다시 로드 하십시오.
+
+8. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Python: Select Interpreter to start Jupyter Server** 를 입력합니다.
 
    ![jupyter 서버를 시작할 인터프리터 선택](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
-8. 아래의 python 옵션을 선택합니다.
+9. 아래의 python 옵션을 선택합니다.
 
    ![아래 옵션을 선택합니다.](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-9. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Developer: Reload Window** 를 입력합니다.
+10. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Developer: Reload Window** 를 입력합니다.
 
-   ![창 다시 로드](./media/hdinsight-for-vscode/reload-window.png)
+    ![창 다시 로드](./media/hdinsight-for-vscode/reload-window.png)
 
-10. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
+11. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
-11. 모든 코드를 선택 하 고 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark interactive/Synapse: PySpark interactive** 를 선택 하 여 쿼리를 제출 합니다. 
+12. 모든 코드를 선택 하 고 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark interactive/Synapse: PySpark interactive** 를 선택 하 여 쿼리를 제출 합니다. 
 
     ![pyspark 대화형 상황에 맞는 메뉴](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-12. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark을 클릭 하 여 커널을 **PySpark/Synapse PySpark** 로 전환 하면 코드가 성공적으로 실행 됩니다. Synapse Pyspark kernel로 전환 하려는 경우 Azure Portal에서 자동 설정을 사용 하지 않도록 설정 하는 것이 좋습니다. 그렇지 않으면 클러스터의 절전 모드를 해제하고 처음 사용할 때 synapse 커널을 설정하는 데 시간이 오래 걸릴 수 있습니다. 도구를 통해 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다.
+13. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark을 클릭 하 여 커널을 **PySpark/Synapse PySpark** 로 전환 하면 코드가 성공적으로 실행 됩니다. Synapse Pyspark kernel로 전환 하려는 경우 Azure Portal에서 자동 설정을 사용 하지 않도록 설정 하는 것이 좋습니다. 그렇지 않으면 클러스터의 절전 모드를 해제하고 처음 사용할 때 synapse 커널을 설정하는 데 시간이 오래 걸릴 수 있습니다. 도구를 통해 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다.
 
     ![pyspark 대화형 python 대화형 창](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-13. **%% Info** 를 입력 한 다음 Shift + enter를 눌러 작업 정보를 확인 합니다 (선택 사항).
+14. **%% Info** 를 입력 한 다음 Shift + enter를 눌러 작업 정보를 확인 합니다 (선택 사항).
 
     ![pyspark 대화형 보기 작업 정보](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -266,7 +268,8 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
 
 > [!NOTE]
-> Ms-python >=2020.5.78807 버전이 이 확장에서 지원되지 않는 것은 [알려진 문제](#known-issues)입니다.
+>
+> ["Ms-python >= 2020.5.78807 version은이 확장에서 지원 되지](#issues-changed) 않습니다."가 해결 되었습니다. 최신 ms python 버전을 지금 사용할 수 있습니다.
 
 ## <a name="submit-pyspark-batch-job"></a>PySpark 일괄 작업 제출
 
@@ -305,7 +308,7 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
    ![Python 작업 결과 출력 제출](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Python 작업을 제출한 후 제출 로그는 Visual Studio Code의 _ *출력* * 창에 표시 됩니다. Spark UI URL 및 Yarn UI URL도 표시 됩니다. Apache Spark 풀에 batch 작업을 제출 하는 경우 Spark 기록 UI URL 및 Spark 작업 응용 프로그램 UI URL도 표시 됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
+Python 작업을 제출한 후 제출 로그는 Visual Studio Code의 _ *출력** 창에 표시 됩니다. Spark UI URL 및 Yarn UI URL도 표시 됩니다. Apache Spark 풀에 batch 작업을 제출 하는 경우 Spark 기록 UI URL 및 Spark 작업 응용 프로그램 UI URL도 표시 됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>HIB(HDInsight Identity Broker)와 통합
 
@@ -350,34 +353,34 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
   
   **요청 본문**
 
-  | name | description | 형식 |
+  | name | description | type |
   | --- | --- | --- |
   | 파일 | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
-  | proxyUser | 작업을 실행할 때 가장할 사용자 | 문자열 |
-  | className | 애플리케이션 Java/Spark 주 클래스 | 문자열 |
+  | proxyUser | 작업을 실행할 때 가장할 사용자 | String |
+  | className | 애플리케이션 Java/Spark 주 클래스 | String |
   | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
   | jars | 이 세션에서 사용할 jar | 문자열 목록 | 
   | pyFiles | 이 세션에서 사용할 Python 파일 | 문자열 목록 |
   | files | 이 세션에 사용할 파일입니다. | 문자열 목록 |
-  | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | 문자열 |
+  | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | String |
   | driverCores | 드라이버 프로세스에 사용할 코어 수 | Int |
-  | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | 문자열 |
+  | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | String |
   | executorCores | 각 실행기에 사용할 코어 수 | Int |
   | numExecutors | 이 세션에서 시작할 실행기 수 | Int |
   | archives | 이 세션에서 사용할 보관 파일 | 문자열 목록 |
-  | queue | 제출할 YARN 큐의 이름입니다.| 문자열 |
-  | name | 이 세션의 이름 | 문자열 |
+  | queue | 제출할 YARN 큐의 이름입니다.| String |
+  | name | 이 세션의 이름 | String |
   | conf | Spark 구성 속성 | 키=값 맵 |
 
   **응답 본문** 만든 일괄 처리 개체입니다.
 
-  | name | description | 형식 |
+  | name | description | type |
   | --- | ---| --- |
   | ID | 세션 ID | Int |
-  | appId | 이 세션의 응용 프로그램 ID | 문자열 |
+  | appId | 이 세션의 응용 프로그램 ID | String |
   | appInfo | 자세한 응용 프로그램 정보 | 키=값 맵 |
   | log | 로그 줄 | 문자열 목록 |
-  | state |일괄 처리 상태 | 문자열 |
+  | state |일괄 처리 상태 | String |
 
   > [!NOTE]
   > 할당 된 Livy 구성은 스크립트를 제출할 때 출력 창에 표시 됩니다.
@@ -394,7 +397,7 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
 4. 클러스터를 확장 하 여 Hive 메타 데이터 데이터베이스 및 테이블 스키마를 확인 합니다.
 
-5. Hive 테이블을 마우스 오른쪽 단추로 클릭 합니다. 예: **hivesampletable** . **미리 보기** 를 선택합니다.
+5. Hive 테이블을 마우스 오른쪽 단추로 클릭 합니다. 예: **hivesampletable**. **미리 보기** 를 선택합니다.
 
    ![Visual Studio Code 미리 보기 hive 테이블의 Spark & Hive](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
@@ -422,12 +425,12 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
 Visual Studio Code에 대 한 Spark & Hive는 또한 다음과 같은 기능을 지원 합니다.
 
-- **IntelliSense 자동 완성** . 키워드, 메서드, 변수 및 기타 프로그래밍 요소에 대 한 제안이 팝업 됩니다. 다음과 같이 개체 형식마다 다른 아이콘으로 표시됩니다.
+- **IntelliSense 자동 완성**. 키워드, 메서드, 변수 및 기타 프로그래밍 요소에 대 한 제안이 팝업 됩니다. 다음과 같이 개체 형식마다 다른 아이콘으로 표시됩니다.
 
     ![IntelliSense 개체 Visual Studio Code Spark & Hive 도구](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 
 - **IntelliSense 오류 표식** 입니다. 언어 서비스는 Hive 스크립트의 편집 오류에 밑줄을 긋습니다.     
-- **구문 강조 표시** . 언어 서비스는 변수, 키워드, 데이터 형식, 함수 및 기타 프로그래밍 요소를 구분 하는 데 서로 다른 색을 사용 합니다.
+- **구문 강조 표시**. 언어 서비스는 변수, 키워드, 데이터 형식, 함수 및 기타 프로그래밍 요소를 구분 하는 데 서로 다른 색을 사용 합니다.
 
     ![Visual Studio Code용 Spark & Hive Tools 구문 강조 표시](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
@@ -486,13 +489,10 @@ Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터에 작업을 제
 
 메뉴 모음에서 **보기**  >  **명령 팔레트** 로 이동한 다음 **Azure: 로그 아웃** 을 입력 합니다.
 
-## <a name="known-issues"></a>알려진 문제
+## <a name="issues-changed"></a>변경 된 문제
 
-### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>ms-python >=2020.5.78807 버전은 이 확장에서 지원되지 않음 
+이 문제에 대 한 "ms-python >= 2020.5.78807 버전은이 확장에서 지원 되지 않습니다."가 해결 되었으므로 지금은 **최신 ms python 버전** 을 사용할 수 있습니다.
 
-"Jupyter Notebook에 연결하지 못했습니다."는 python 버전 >=2020.5.78807의 알려진 문제입니다. 이 문제를 방지하려면 사용자가 **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** 버전의 ms-python을 사용하는 것이 좋습니다.
-
-![의 알려진 문제](./media/hdinsight-for-vscode/known-issue.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/10/2020
 ms.author: baanders
-ms.openlocfilehash: a07c2684856cfe21001f996bb62ce4ea3297e8c2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 37bccbcd92f627fd45a7f786725afe5b2e475f3c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379838"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533882"
 ---
 ## <a name="visualization"></a>시각화
 
 Azure Digital 쌍 인스턴스와 상호 작용 하는 기본 방법은 [api 및 sdk](../articles/digital-twins/how-to-use-apis-sdks.md)를 사용 하는 것 이지만 인스턴스에서 만드는 쌍 및 그래프의 시각화를 확인 하는 것이 유용할 수 있습니다.
 
-[**Azure Digital twins 탐색기**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 는 Azure Digital twins를 시각화 하 고 작업 하는 샘플 응용 프로그램입니다. 샘플과 함께 제공 된 지침에 따라 응용 프로그램 코드를 다운로드 하 여 실행 합니다. 
+[**Azure Digital twins (ADT) 탐색기**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 는 Azure Digital twins를 시각화 하 고 작업 하는 샘플 응용 프로그램입니다. 샘플과 함께 제공 된 지침에 따라 응용 프로그램 코드를 다운로드 하 여 실행 합니다. 
 
 이 샘플을 사용 하 여 다른 생성 및 관리 작업 중에서 디지털 쌍 및 자신이 만드는 그래프의 시각적 표현을 볼 수 있습니다.
 

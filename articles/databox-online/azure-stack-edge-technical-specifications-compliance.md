@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: c177de3a862370f4d1daa19c6560950b66b18352
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b36bb34f4c9081d807998cb8287797443625a6b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826834"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460298"
 ---
 # <a name="azure-stack-edge-pro-technical-specifications"></a>Azure Stack Edge Pro 기술 사양
 
@@ -34,7 +34,7 @@ FPGA (필드 프로그래밍 가능 게이트 배열)는 ML (Machine Learning) �
 
 | 사양           | 값                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> 사용 가능한 DNN(심층 신경망) 모델은 [클라우드 FPGA 인스턴스에서 지원하는](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure) 모델과 동일합니다.|
+| FPGA   | Intel Arria 10 <br> 사용 가능한 DNN(심층 신경망) 모델은 [클라우드 FPGA 인스턴스에서 지원하는](../machine-learning/how-to-deploy-fpga-web-service.md#fpga-support-in-azure) 모델과 동일합니다.|
 
 ## <a name="power-supply-unit-specifications"></a>전원 공급 장치 사양
 

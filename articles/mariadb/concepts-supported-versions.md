@@ -1,17 +1,17 @@
 ---
 title: 지원 되는 버전-Azure Database for MariaDB
 description: Azure Database for MariaDB service에서 지원 되는 모든 버전의 Aadb 서버에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/20/2020
-ms.openlocfilehash: 0b495bf21b1f78e5e6a9285f67e1769d2d2a0db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbf32626714200e6712c67b701ebc597c4a7ba7e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065700"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541031"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>지원되는 Azure Database for MariaDB 서버 버전
 
@@ -43,4 +43,4 @@ Azure Database for MariaDB는 현재 다음 버전을 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대 한 자세한 내용은 [서비스 계층](./concepts-pricing-tiers.md)을 참조 하세요.
+- **서비스 계층** 에 따른 특정 리소스 할당량 및 제한 사항에 대 한 자세한 내용은 [서비스 계층](./concepts-pricing-tiers.md)을 참조 하세요.

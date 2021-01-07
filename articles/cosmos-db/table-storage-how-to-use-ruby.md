@@ -9,14 +9,15 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 2229eea7b91168507ea9568a1e53930cf983b1df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d0c8433fff58854cb77a4e806058eae1937e71b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171945"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101122"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Ruby에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -41,8 +42,8 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 Table REST 서비스와 
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems를 사용하여 패키지 가져오기
 
-1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix)와 같은 명령줄 인터페이스를 사용합니다.
-2. 명령 창에서 **gem install azure-storage-table**을 입력하여 gem 및 종속성을 설치합니다.
+1. **PowerShell** (Windows), **Terminal** (Mac) 또는 **Bash** (Unix)와 같은 명령줄 인터페이스를 사용합니다.
+2. 명령 창에서 **gem install azure-storage-table** 을 입력하여 gem 및 종속성을 설치합니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
 
@@ -58,7 +59,7 @@ Azure 스토리지 계정 또는 Azure Cosmos DB Table API 계정에 연결할 �
 
 ### <a name="add-an-azure-storage-connection"></a>Azure Storage 연결 추가
 
-Azure Storage 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::Storage::Table::TableService**를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
+Azure Storage 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::Storage::Table::TableService** 를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
 
 ```ruby
 Azure.config.storage_account_name = "<your Azure Storage account>"
@@ -69,7 +70,7 @@ Azure 포털의 클래식 또는 Resource Manager 스토리지 계정에서 이�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 사용하려는 Storage 계정으로 이동합니다.
-3. 오른쪽의 설정 블레이드에서 **액세스 키**를 클릭합니다.
+3. 오른쪽의 설정 블레이드에서 **액세스 키** 를 클릭합니다.
 4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다.
 5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다.
 
@@ -97,7 +98,7 @@ end
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
 
-엔터티를 추가하려면 먼저 엔터티 속성을 정의하는 해시 개체를 만듭니다. 모든 엔터티에 대해 **PartitionKey** 및 **RowKey**를 지정해야 합니다. 이 두 키는 엔터티의 고유한 식별자이며, 다른 속성보다 훨씬 더 빠르게 쿼리할 수 있는 값입니다. Azure Storage는 **PartitionKey** 를 사용하여 여러 스토리지 노드를 통해 테이블의 엔터티를 자동으로 분산합니다. **PartitionKey** 가 동일한 엔터티는 동일한 노드에 저장됩니다. **RowKey** 는 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다.
+엔터티를 추가하려면 먼저 엔터티 속성을 정의하는 해시 개체를 만듭니다. 모든 엔터티에 대해 **PartitionKey** 및 **RowKey** 를 지정해야 합니다. 이 두 키는 엔터티의 고유한 식별자이며, 다른 속성보다 훨씬 더 빠르게 쿼리할 수 있는 값입니다. Azure Storage는 **PartitionKey** 를 사용하여 여러 스토리지 노드를 통해 테이블의 엔터티를 자동으로 분산합니다. **PartitionKey** 가 동일한 엔터티는 동일한 노드에 저장됩니다. **RowKey** 는 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다.
 
 ```ruby
 entity = { "content" => "test entity",
@@ -126,7 +127,7 @@ azure_table_service.update_entity("testtable", entity)
 
 ## <a name="work-with-groups-of-entities"></a>엔터티 그룹 작업
 
-서버에서 원자성 처리를 수행하도록 여러 작업을 일괄적으로 제출하는 것이 좋은 경우도 있습니다. 이렇게 하려면 먼저 **Batch** 개체를 만든 다음 **TableService**에서 **execute_batch()** 메서드를 사용합니다. 다음 예제에서는 RowKey 2와 3을 가진 두 엔터티를 일괄 제출하는 방법을 보여 줍니다. 동일한 PartitionKey를 가진 엔터티에 대해서만 작동합니다.
+서버에서 원자성 처리를 수행하도록 여러 작업을 일괄적으로 제출하는 것이 좋은 경우도 있습니다. 이렇게 하려면 먼저 **Batch** 개체를 만든 다음 **TableService** 에서 **execute_batch()** 메서드를 사용합니다. 다음 예제에서는 RowKey 2와 3을 가진 두 엔터티를 일괄 제출하는 방법을 보여 줍니다. 동일한 PartitionKey를 가진 엔터티에 대해서만 작동합니다.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -140,7 +141,7 @@ results = azure_table_service.execute_batch(batch)
 
 ## <a name="query-for-an-entity"></a>엔터티 쿼리
 
-테이블에서 엔터티를 쿼리하려면 테이블 이름인 **PartitionKey** 및 **RowKey**를 전달하여 **get_entity()** 메서드를 사용합니다.
+테이블에서 엔터티를 쿼리하려면 테이블 이름인 **PartitionKey** 및 **RowKey** 를 전달하여 **get_entity()** 메서드를 사용합니다.
 
 ```ruby
 result = azure_table_service.get_entity("testtable", "test-partition-key",
@@ -149,7 +150,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 
 ## <a name="query-a-set-of-entities"></a>엔터티 집합 쿼리
 
-테이블에서 엔터티 집합을 쿼리하려면 쿼리 해시 개체를 만들고 **query_entities()** 메서드를 사용합니다. 다음 예제에서는 동일한 **PartitionKey**를 가진 엔터티를 모두 가져오는 방법을 보여 줍니다.
+테이블에서 엔터티 집합을 쿼리하려면 쿼리 해시 개체를 만들고 **query_entities()** 메서드를 사용합니다. 다음 예제에서는 동일한 **PartitionKey** 를 가진 엔터티를 모두 가져오는 방법을 보여 줍니다.
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }

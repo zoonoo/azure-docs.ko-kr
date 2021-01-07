@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c71ddbf1d2b435697b2707acf0b1262f2c5dc31
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68934879"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517192"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 배포
-이 문서에서는 클라우드의 응용 프로그램을 배포할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 릴리스 및 응답 단계 중에 고려해 야 하는 보안 질문 및 개념을 다룹니다. 목표는 보다 안전한 응용 프로그램을 배포 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
+이 문서에서는 클라우드의 응용 프로그램을 배포할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) 의 릴리스 및 응답 단계 중에 고려해 야 하는 보안 질문 및 개념을 다룹니다. 목표는 보다 안전한 응용 프로그램을 배포 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
 
 이 문서에서 다루는 SDL 단계는 다음과 같습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "68934879"
 
 웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 악용 중에는 SQL 삽입 공격과 사이트 간 스크립팅 공격이 있습니다. 응용 프로그램 코드에서 이러한 공격을 방지 하는 것은 어려울 수 있습니다. 응용 프로그램 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 WAF를 사용 하면 보안을 보다 간단 하 게 관리할 수 있습니다. WAF 솔루션은 각각의 개별 웹 응용 프로그램에 대 한 보안을 유지 하 고 중앙 위치에서 알려진 취약성을 패치 하 여 보안 위협에 대응할 수도 있습니다.
 
-[Azure 애플리케이션 Gateway WAF](../../application-gateway/waf-overview.md) 는 일반적인 악용 및 취약점 으로부터 웹 응용 프로그램에 대 한 중앙 집중식 보호를 제공 합니다. WAF는 [OWASP core 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙을 기반으로 합니다.
+[Azure 애플리케이션 Gateway WAF](../../web-application-firewall/ag/ag-overview.md) 는 일반적인 악용 및 취약점 으로부터 웹 응용 프로그램에 대 한 중앙 집중식 보호를 제공 합니다. WAF는 [OWASP core 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙을 기반으로 합니다.
 
 ### <a name="create-an-incident-response-plan"></a>인시던트 대응 계획 만들기
 
@@ -75,9 +75,9 @@ ms.locfileid: "68934879"
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../../security-center/security-center-intro.md) 를 통해 웹 응용 프로그램을 포함 하 여 Azure 리소스의 보안을 향상 하 고 제어 하 여 위협을 예방, 감지 및 대응 하는 데 도움이 됩니다. Azure Security Center는 다른 방법으로는 알지 못할 수 있는 위협을 검색 하는 데 도움이 됩니다. 다양 한 보안 솔루션에서 작동 합니다.
+[Azure Security Center](../../security-center/security-center-introduction.md) 를 통해 웹 응용 프로그램을 포함 하 여 Azure 리소스의 보안을 향상 하 고 제어 하 여 위협을 예방, 감지 및 대응 하는 데 도움이 됩니다. Azure Security Center는 다른 방법으로는 알지 못할 수 있는 위협을 검색 하는 데 도움이 됩니다. 다양 한 보안 솔루션에서 작동 합니다.
 
-Security Center의 무료 계층에서는 Azure 리소스에만 사용 가능한 제한적 보안 기능이 제공됩니다. [Security Center 표준 계층](../../security-center/security-center-onboarding.md) 은 이러한 기능을 온-프레미스 리소스 및 기타 클라우드로 확장 합니다.
+Security Center의 무료 계층에서는 Azure 리소스에만 사용 가능한 제한적 보안 기능이 제공됩니다. [Security Center 표준 계층](../../security-center/security-center-get-started.md) 은 이러한 기능을 온-프레미스 리소스 및 기타 클라우드로 확장 합니다.
 Security Center 표준은 다음을 지원 합니다.
 
   - 보안 취약성을 찾아 해결 합니다.

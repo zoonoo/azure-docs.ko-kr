@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356640"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903533"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 새 액세스 패키지 만들기
 
@@ -67,7 +67,7 @@ ms.locfileid: "93356640"
    
     ![Azure Portal에서 권한 관리](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>기본 사항
+## <a name="basics"></a>기본
 
 **기본 사항** 탭에서 액세스 패키지에 이름을 지정 하 고 액세스 패키지를 만들 카탈로그를 지정 합니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "93356640"
 
 **리소스 역할** 탭에서 액세스 패키지에 포함할 리소스를 선택 합니다. 액세스 패키지를 요청 하 고 수신 하는 사용자는 액세스 패키지의 모든 리소스 역할을 받게 됩니다.
 
-1. 추가 하려는 리소스 종류 ( **그룹 및 팀** , **응용 프로그램** 또는 **SharePoint 사이트** )를 클릭 합니다.
+1. 추가 하려는 리소스 종류 (**그룹 및 팀**, **응용 프로그램** 또는 **SharePoint 사이트**)를 클릭 합니다.
 
 1. 표시 되는 선택 창의 목록에서 하나 이상의 리소스를 선택 합니다.
 
@@ -106,6 +106,9 @@ ms.locfileid: "93356640"
     ![액세스 패키지-리소스 역할 선택](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
 1. **다음** 을 클릭합니다.
+
+>[!NOTE]
+>카탈로그 및 액세스 패키지에 동적 그룹을 추가할 수 있습니다. 그러나 액세스 패키지에서 동적 그룹 리소스를 관리 하는 경우에는 소유자 역할만 선택할 수 있습니다.
 
 ## <a name="requests"></a>요청
 

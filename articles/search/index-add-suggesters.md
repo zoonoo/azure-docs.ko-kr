@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445339"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030784"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
-Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-is-an-index.md)에 추가 된 **확인 기** 구문을 통해 사용 하도록 설정 됩니다. 확인 기는 두 가지 환경을 지원 합니다. *자동 완성* 은 전체 용어 쿼리에 대 한 부분 입력을 완료 하 고, 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 지원 합니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
+Azure Cognitive Search에서 "검색 형식"은 *확인 기* 를 통해 사용 하도록 설정 됩니다. 확인 기는 fields 컬렉션으로 구성 된 내부 데이터 구조입니다. 필드는 추가 토큰화를 거쳐 부분 용어에 대 한 일치를 지원 하기 위해 접두사 시퀀스를 생성 합니다.
+
+예를 들어 확인 기에 City 필드가 포함 된 경우 "서울" 이라는 용어에 대해 "해상", "좌석", "seatt" 및 "seattl"의 접두사 조합이 생성 됩니다. 접두사는 확인 기 fields 컬렉션에 지정 된 각 필드에 대 한 반전 된 인덱스에 저장 됩니다.
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>Cognitive Search에서 보다 앞선 경험
+
+확인 기는 두 가지 환경을 지원 합니다. *자동 완성* 은 전체 용어 쿼리에 대 한 부분 입력을 완료 하 고, 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 지원 합니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
 
 [C #에서 첫 번째 앱 만들기](tutorial-csharp-type-ahead-and-suggestions.md) 의 다음 스크린샷은 두 가지를 모두 보여 줍니다. 자동 완성 기능을 사용 하는 경우 "내"에서 "휴먼"를 마무리 하는 잠재적인 용어 제안 사항은 최소 검색 결과입니다. 호텔 이름과 같은 필드는 인덱스에서 일치 하는 호텔 검색 문서를 나타냅니다. 제안 사항을 위해 설명 정보를 제공 하는 모든 필드를 표시할 수 있습니다.
 
@@ -32,17 +38,15 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 검색 형식 지원은 문자열 필드에 대 한 필드 기준으로 설정 됩니다. 스크린샷에 표시 된 것과 비슷한 환경을 원할 경우 동일한 검색 솔루션 내에서 형식 미리 동작을 구현할 수 있습니다. 두 요청은 특정 인덱스의 *문서* 컬렉션을 대상으로 하 고 사용자가 적어도 3 개의 문자 입력 문자열을 제공한 후 응답이 반환 됩니다.
 
-## <a name="what-is-a-suggester"></a>확인 기 무엇 인가요?
-
-확인 기는 부분 쿼리에 일치 하는 접두사를 저장 하 여 검색 형식 동작을 지 원하는 내부 데이터 구조입니다. 토큰화 된 용어와 마찬가지로 접두사는 확인 기 fields 컬렉션에 지정 된 각 필드에 대해 하나씩 반전 된 인덱스에 저장 됩니다.
-
 ## <a name="how-to-create-a-suggester"></a>확인 기를 만드는 방법
 
 확인 기를 만들려면 [인덱스 정의](/rest/api/searchservice/create-index)에 하나를 추가 합니다. 확인 기에는 이름 및 필드의 컬렉션을 가져옵니다 .이 필드의 형식에 따라 미리 결정 된 형식이 사용 됩니다. [각 속성을 설정](#property-reference)합니다. 확인 기를 만드는 가장 좋은 시기는이를 사용할 필드를 정의 하는 경우입니다.
 
-+ 문자열 필드만 사용
++ 문자열 필드만 사용 합니다.
 
-+ 필드에 기본 표준 Lucene 분석기 ( `"analyzer": null` ) 또는 [언어 분석기](index-add-language-analyzers.md) (예:)를 사용 합니다. `"analyzer": "en.Microsoft"`
++ 문자열 필드가 복합 형식 (예: 주소 내의 City 필드)의 일부인 경우 필드에 부모를 포함 합니다 ( `"Address/City"` REST 및 c # 및 Python) 또는 `["Address"]["City"]` (JavaScript).
+
++ 필드에 기본 표준 Lucene 분석기 ( `"analyzer": null` ) 또는 [언어 분석기](index-add-language-analyzers.md) (예:)를 사용 `"analyzer": "en.Microsoft"` 합니다.
 
 기존 필드를 사용 하 여 확인 기를 만들려고 하면 API에서이를 허용 하지 않습니다. 두 개 이상의 문자 조합에서 부분 용어를 전체 용어와 함께 토큰화 하는 경우 인덱싱을 수행 하는 동안 접두사가 생성 됩니다. 기존 필드가 이미 토큰화 된 경우 확인 기에 추가 하려면 인덱스를 다시 작성 해야 합니다. 자세한 내용은 [Azure Cognitive Search 인덱스를 다시 작성 하는 방법](search-howto-reindex.md)을 참조 하세요.
 
@@ -54,7 +58,7 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 반면에 제안 사항은 필드를 선택 하는 경우 더 나은 결과를 생성 합니다. 제안에는 검색 문서에 대 한 프록시가 있으므로 단일 결과를 가장 잘 나타내는 필드를 사용할 수 있습니다. 여러 일치 항목을 구분 하는 이름, 제목 또는 기타 고유 필드가 가장 잘 작동 합니다. 필드가 반복 되는 값으로 구성 된 경우 제안 사항은 동일한 결과로 구성 되며 사용자는 어떤 항목을 클릭할 지 알지 못합니다.
 
-검색에 사용 되는 환경을 모두 만족 시키려면 자동 완성에 필요한 모든 필드를 추가한 다음 **$select** , **$top** , **$filter** 및 **searchfields** 를 사용 하 여 제안에 대 한 결과를 제어 합니다.
+검색에 사용 되는 환경을 모두 만족 시키려면 자동 완성에 필요한 모든 필드를 추가한 다음 **$select**, **$top**, **$filter** 및 **searchfields** 를 사용 하 여 제안에 대 한 결과를 제어 합니다.
 
 ### <a name="choose-analyzers"></a>분석기 선택
 
@@ -117,7 +121,7 @@ REST API에서 [Create index](/rest/api/searchservice/create-index) 또는 [Upda
 
 ## <a name="create-using-net"></a>.NET을 사용 하 여 만들기
 
-C #에서 [SearchSuggester 개체](/dotnet/api/azure.search.documents.indexes.models.searchsuggester)를 정의 합니다. `Suggesters` 는 SearchIndex 개체의 컬렉션 이지만 하나의 항목만 사용할 수 있습니다. 
+C #에서 [SearchSuggester 개체](/dotnet/api/azure.search.documents.indexes.models.searchsuggester)를 정의 합니다. `Suggesters` 는 SearchIndex 개체의 컬렉션 이지만 하나의 항목만 사용할 수 있습니다. 인덱스 정의에 확인 기를 추가 합니다.
 
 ```csharp
 private static void CreateIndex(string indexName, SearchIndexClient indexClient)
@@ -125,12 +129,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
     FieldBuilder fieldBuilder = new FieldBuilder();
     var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
-
     var definition = new SearchIndex(indexName, searchFields);
 
-    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
-
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
     definition.Suggesters.Add(suggester);
 
     indexClient.CreateOrUpdateIndex(definition);

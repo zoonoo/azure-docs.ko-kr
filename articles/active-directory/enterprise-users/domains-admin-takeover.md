@@ -6,20 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11708aeb434f3b258377c02f15214f1ac9ae4295
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 0af74967e2de47afeb357e2ac31b1a0ee849ef36
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393628"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547103"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -113,7 +112,7 @@ SharePoint, OneDrive 또는 비즈니스용 Skype를 포함 하는 서비스 계
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.
 
-Cmdlet | 사용량
+Cmdlet | 사용
 ------- | -------
 `connect-msolservice` | 메시지가 표시 되 면 관리 되는 조직에 로그인 합니다.
 `get-msoldomain` | 현재 조직과 연결 된 도메인 이름을 표시 합니다.
@@ -144,12 +143,12 @@ Cmdlet | 사용량
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    예를 들면 다음과 같습니다.
+    다음은 그 예입니다. 
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예를 들면 다음과 같습니다.
+4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 다음은 그 예입니다. 
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -160,7 +159,7 @@ Cmdlet | 사용량
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다. 
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force

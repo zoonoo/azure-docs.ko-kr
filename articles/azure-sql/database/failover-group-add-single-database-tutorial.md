@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 06/19/2019
-ms.openlocfilehash: e4709bf901ed74e0ea7589824a280651f8b73866
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8298c673ddc707130d0873f686e1baed3677a46f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793384"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593964"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>자습서: 자동 장애 조치(failover) 그룹에 Azure SQL Database 추가
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ ms.locfileid: "92793384"
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 - Azure 구독 아직 체험 계정이 없는 경우 [새로 만듭니다](https://azure.microsoft.com/free/).
-- 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 ---
 
@@ -199,7 +199,7 @@ Azure CLI를 사용하여 장애 조치(failover) 그룹을 만들고 데이터�
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | 데이터베이스 및 탄력적 풀을 호스트하는 서버를 만듭니다. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | 서버의 방화벽 규칙을 만듭니다. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | 장애 조치(failover) 그룹을 만듭니다. |
+| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create&preserve-view=true) | 장애 조치(failover) 그룹을 만듭니다. |
 
 ---
 
@@ -322,8 +322,8 @@ Azure CLI를 사용하여 장애 조치(failover)를 테스트합니다.
 
 | 명령 | 메모 |
 |---|---|
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | 서버에 있는 장애 조치(failover) 그룹을 나열합니다. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | 현재 주 서버의 모든 데이터베이스를 장애 조치(failover)하여 주 장애 조치(failover) 그룹을 설정합니다. |
+| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list&preserve-view=true) | 서버에 있는 장애 조치(failover) 그룹을 나열합니다. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary&preserve-view=true) | 현재 주 서버의 모든 데이터베이스를 장애 조치(failover)하여 주 장애 조치(failover) 그룹을 설정합니다. |
 
 ---
 
@@ -409,14 +409,14 @@ Azure CLI를 사용하여 리소스 그룹을 삭제합니다.
 
 | 명령 | 메모 |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | 현재 활성 구독이 되도록 구독을 설정합니다. |
+| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | 현재 활성 구독이 되도록 구독을 설정합니다. |
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Azure SQL Database에서 단일 데이터베이스 및 탄력적 풀을 호스트하는 서버를 만듭니다. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Azure SQL Database에서 서버 수준 IP 방화벽 규칙을 만듭니다. |
-| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Azure SQL Database에서 데이터베이스를 만듭니다. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Azure SQL Database에서 장애 조치(failover) 그룹을 만듭니다. |
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Azure SQL Database의 서버에 있는 장애 조치(failover) 그룹을 나열합니다. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | 현재 주 서버의 모든 데이터베이스를 장애 조치(failover)하여 주 장애 조치(failover) 그룹을 설정합니다. |
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest&preserve-view=true) | Azure SQL Database에서 데이터베이스를 만듭니다. |
+| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create&preserve-view=true) | Azure SQL Database에서 장애 조치(failover) 그룹을 만듭니다. |
+| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list&preserve-view=true) | Azure SQL Database의 서버에 있는 장애 조치(failover) 그룹을 나열합니다. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary&preserve-view=true) | 현재 주 서버의 모든 데이터베이스를 장애 조치(failover)하여 주 장애 조치(failover) 그룹을 설정합니다. |
 | [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 # <a name="the-portal"></a>[포털](#tab/azure-portal)

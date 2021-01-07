@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f1c703f2bd2e90e15c566b7e04e8a878c16f6de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b73fa80085cc0491c8b4d0856d0baacfef1b51c0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772824"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301535"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -22,7 +22,7 @@ Hybrid Runbook Worker에서 실행되도록 Runbook을 작성하는 경우, 해�
 
 Azure Automation는 Azure 샌드박스에서 실행 되는 작업과는 다른 Hybrid Runbook Worker 작업을 처리 합니다. 장기 실행 Runbook의 경우 다시 시작할 수 있는 복원력이 있는지 확인해야 합니다. 작업 동작에 대한 자세한 내용은 [Hybrid Runbook Worker 작업](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs)을 참조하세요.
 
-Hybrid Runbook Worker에 대 한 작업은 Windows의 로컬 **시스템** 계정 또는 Linux의 **nxautomation** 계정에서 실행 됩니다. Linux의 경우 **nxautomation** 계정에 runbook 모듈이 저장 된 위치에 대 한 액세스 권한이 있는지 확인 합니다. [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용할 때는 **nxautomation** 계정이 액세스 권한을 갖도록 `Scope` 매개 변수에 AllUsers를 지정하세요. Linux의 PowerShell에 대한 자세한 내용은 [비 Windows 플랫폼에서 PowerShell의 알려진 문제](/powershell/scripting/whats-new/known-issues-ps6#known-issues-for-powershell-on-non-windows-platforms)를 참조하세요.
+Hybrid Runbook Worker에 대 한 작업은 Windows의 로컬 **시스템** 계정 또는 Linux의 **nxautomation** 계정에서 실행 됩니다. Linux의 경우 **nxautomation** 계정에 runbook 모듈이 저장 된 위치에 대 한 액세스 권한이 있는지 확인 합니다. [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용할 때는 **nxautomation** 계정이 액세스 권한을 갖도록 `Scope` 매개 변수에 AllUsers를 지정하세요. Linux의 PowerShell에 대한 자세한 내용은 [비 Windows 플랫폼에서 PowerShell의 알려진 문제](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1)를 참조하세요.
 
 ## <a name="configure-runbook-permissions"></a>Runbook 사용 권한 구성
 
@@ -86,16 +86,16 @@ Hybrid Runbook Worker 그룹에 실행 계정을 지정하려면 다음 절차�
 
 1. 로컬 리소스에 대한 액세스로 [자격 증명 자산](./shared-resources/credentials.md)을 만듭니다.
 2. Azure Portal에서 Automation 계정을 엽니다.
-3. **Hybrid Worker 그룹**을 선택하고 특정 그룹을 선택합니다.
-4. **모든 설정**을 선택하고 **Hybrid Worker 그룹 설정**을 선택합니다.
-5. **실행 계정**의 값을 **기본값**에서 **사용자 지정**으로 변경합니다.
-6. 자격 증명을 선택하고 **저장**을 클릭합니다.
+3. **Hybrid Worker 그룹** 을 선택하고 특정 그룹을 선택합니다.
+4. **모든 설정** 을 선택하고 **Hybrid Worker 그룹 설정** 을 선택합니다.
+5. **실행 계정** 의 값을 **기본값** 에서 **사용자 지정** 으로 변경합니다.
+6. 자격 증명을 선택하고 **저장** 을 클릭합니다.
 
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>실행 계정 인증서 설치
 
 Azure에서 리소스를 배포하는 자동화된 빌드 프로세스의 일부로 배포 시퀀스의 작업 또는 단계 집합을 지원하기 위해 온-프레미스 시스템에 대한 액세스가 필요할 수 있습니다. 실행 계정을 사용하여 Azure에 대해 인증을 제공하려면 실행 계정 인증서를 설치해야 합니다.
 
-PowerShell Runbook인 다음 **Export-RunAsCertificateToHybridWorker**는 Azure Automation 계정에서 실행 인증서를 내보내고 다운로드하며 동일한 계정에 연결된 Hybrid Runbook Worker의 로컬 머신 인증서 저장소로 가져옵니다. 이 단계가 완료되면 Runbook은 Worker가 실행 계정을 사용하여 Azure를 성공적으로 인증할 수 있는지 확인합니다.
+PowerShell Runbook인 다음 **Export-RunAsCertificateToHybridWorker** 는 Azure Automation 계정에서 실행 인증서를 내보내고 다운로드하며 동일한 계정에 연결된 Hybrid Runbook Worker의 로컬 머신 인증서 저장소로 가져옵니다. 이 단계가 완료되면 Runbook은 Worker가 실행 계정을 사용하여 Azure를 성공적으로 인증할 수 있는지 확인합니다.
 
 >[!NOTE]
 >이 PowerShell runbook은 대상 컴퓨터의 스크립트로 Automation 계정 외부에서 실행 되도록 설계 되지 않았거나 사용 하기 위한 것이 아닙니다.
@@ -263,13 +263,13 @@ GPG 인증 키와 키 쌍을 만들려면 Hybrid Runbook Worker [nxautomation �
     sudo su – nxautomation
     ```
 
-2. **nxautomation**을 사용하는 상태에서 GPG 키 쌍을 생성합니다. GPG에서 이 단계를 안내합니다. 이름, 메일 주소, 만료 시간, 암호를 지정해야 합니다. 그런 다음 키가 생성될 수 있을 만큼 머신에서 충분한 엔트로피가 발생할 때까지 기다려야 합니다.
+2. **nxautomation** 을 사용하는 상태에서 GPG 키 쌍을 생성합니다. GPG에서 이 단계를 안내합니다. 이름, 메일 주소, 만료 시간, 암호를 지정해야 합니다. 그런 다음 키가 생성될 수 있을 만큼 머신에서 충분한 엔트로피가 발생할 때까지 기다려야 합니다.
 
     ```bash
     sudo gpg --generate-key
     ```
 
-3. GPG 디렉터리는 sudo를 사용하여 생성되었으므로 다음 명령을 사용하여 소유자를 **nxautomation**으로 변경해야 합니다.
+3. GPG 디렉터리는 sudo를 사용하여 생성되었으므로 다음 명령을 사용하여 소유자를 **nxautomation** 으로 변경해야 합니다.
 
     ```bash
     sudo chown -R nxautomation ~/.gnupg
@@ -299,7 +299,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 gpg –-clear-sign <runbook name>
 ```
 
-서명된 Runbook을 **<runbook name>.asc**라고 합니다.
+서명된 Runbook을 **<runbook name>.asc** 라고 합니다.
 
 이제 서명된 Runbook을 Azure Automation에 업로드하여 일반 Runbook처럼 실행할 수 있습니다.
 
@@ -307,9 +307,9 @@ gpg –-clear-sign <runbook name>
 
 [Azure Automation에서 Runbook 시작](start-runbooks.md)에서 Runbook을 시작하는 여러 가지 방법을 설명합니다. Hybrid Runbook Worker에서 runbook을 시작 하는 경우 **실행** 대상 옵션을 사용 하 여 Hybrid Runbook Worker 그룹의 이름을 지정할 수 있습니다. 그룹이 지정되면 이 그룹에 있는 Worker 중 하나가 Runbook을 검색하여 실행합니다. Runbook에서 이 옵션을 지정하지 않을 경우 Azure Automation이 평소와 같이 Runbook을 실행합니다.
 
-Azure Portal에서 Runbook을 시작하면 **실행 대상** 옵션이 표시됩니다. 여기에서 **Azure** 또는 **Hybrid Worker**를 선택할 수 있습니다. **Hybrid Worker**를 선택한 경우 드롭다운에서 Hybrid Runbook Worker 그룹을 선택할 수 있습니다.
+Azure Portal에서 Runbook을 시작하면 **실행 대상** 옵션이 표시됩니다. 여기에서 **Azure** 또는 **Hybrid Worker** 를 선택할 수 있습니다. **Hybrid Worker** 를 선택한 경우 드롭다운에서 Hybrid Runbook Worker 그룹을 선택할 수 있습니다.
 
-PowerShell을 사용하여 Runbook을 시작한 경우 `RunOn` 매개 변수로 [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet을 사용합니다. 다음 예제에서는 Windows PowerShell을 사용하여 MyHybridGroup이라는 Hybrid Runbook Worker 그룹에서 **Test-Runbook**이라는 Runbook을 시작합니다.
+PowerShell을 사용하여 Runbook을 시작한 경우 `RunOn` 매개 변수로 [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet을 사용합니다. 다음 예제에서는 Windows PowerShell을 사용하여 MyHybridGroup이라는 Hybrid Runbook Worker 그룹에서 **Test-Runbook** 이라는 Runbook을 시작합니다.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"

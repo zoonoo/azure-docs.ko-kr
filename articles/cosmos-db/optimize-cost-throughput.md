@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097467"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296542"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,7 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 
 다음은 프로비전된 처리량 전략을 결정하기 위한 몇 가지 지침입니다.
 
-다음과 같은 **경우 Azure Cosmos 데이터베이스 (컨테이너 집합 포함)에서 처리량을 프로 비전 하는 것이 좋습니다** .
+다음과 같은 **경우 Azure Cosmos 데이터베이스 (컨테이너 집합 포함)에서 처리량을 프로 비전 하는 것이 좋습니다**.
 
 1. Azure Cosmos 컨테이너가 몇십 개 정도 있으며 일부 또는 전체에서 처리량을 공유하려고 합니다. 
 
@@ -137,7 +137,7 @@ Azure Portal에서 사용한 RU의 수 뿐만 아니라 프로비전된 RU의 �
 
 새 워크로드에 대해 프로비전된 처리량을 확인하려면 다음 단계를 사용할 수 있습니다. 
 
-1. Capacity Planner를 사용하여 초기에 대략적인 평가를 수행하고 Azure Portal의 Azure Cosmos 탐색기를 사용하여 예상치를 조정합니다. 
+1. Capacity planner를 사용 하 여 초기 대략적인 평가를 수행 하 고 Azure Portal Azure Cosmos DB 탐색기를 통해 예측을 조정 합니다. 
 
 2. 예상보다 더 높은 처리량을 갖는 컨테이너를 만든 후 필요에 따라 축소하는 것이 좋습니다. 
 

@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3fdc9a9f99b239f68022067a5aedbc7e6e0d12a4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 455caf0b80d82b03f8d00929addeab15a1af6d7e
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287505"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754218"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Azure Key Vault에 인증
 
@@ -38,7 +38,7 @@ Key Vault를 사용한 인증은 [Azure AD(Azure Active Directory)](../../active
 
     자세한 내용은 [관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. 또한 [관리 ID를 지원하는 Azure 서비스](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 참조하세요. 특정 서비스(예: App Service, Azure Functions, Virtual Machines 등)에 대해 관리 ID를 사용하도록 설정하는 방법이 담긴 문서로 연결됩니다.
 
-* 관리 ID를 사용할 수 없는 경우 대신 Azure AD 테넌트를 사용하여 애플리케이션에 **등록** 합니다( [빠른 시작: Azure ID 플랫폼에 애플리케이션 등록](../../active-directory/develop/quickstart-register-app.md) 참조). 또한 등록은 모든 테넌트에서 앱을 식별하는 두 번째 애플리케이션 개체를 만듭니다.
+* 관리 ID를 사용할 수 없는 경우 대신 Azure AD 테넌트를 사용하여 애플리케이션에 **등록** 합니다([빠른 시작: Azure ID 플랫폼에 애플리케이션 등록](../../active-directory/develop/quickstart-register-app.md) 참조). 또한 등록은 모든 테넌트에서 앱을 식별하는 두 번째 애플리케이션 개체를 만듭니다.
 
 ## <a name="authorize-a-security-principal-to-access-key-vault"></a>보안 주체에게 Key Vault에 대한 액세스 권한 부여
 
@@ -103,6 +103,9 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
 
 ![Azure Key Vault 인증 흐름](../media/authentication/authentication-flow.png)
 
+> [!NOTE]
+> 비밀, 인증서 및 키에 대한 키 자격 증명 모음 SDK 클라이언트는 액세스 토큰 없이 키 자격 증명 모음을 추가로 호출하므로 테넌트 정보를 검색하기 위해 401 응답이 발생합니다. 자세한 내용은 [인증, 요청 및 응답](authentication-requests-and-responses.md)을 참조하세요.
+
 ## <a name="code-examples"></a>코드 예제
 
 다음 표는 해당 언어에 대해 Azure SDK 라이브러리를 사용하여 애플리케이션 코드에서 Key Vault와 작업하는 방법을 설명하는 여러 문서가 연결되어 있습니다. Azure CLI 및 Azure Portal과 같은 다른 인터페이스는 편의를 위해 포함되었습니다.
@@ -125,4 +128,4 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
 - [Key Vault 액세스 정책 문제 해결](troubleshooting-access-issues.md)
 - [Key Vault REST API 오류 코드](rest-error-codes.md)
 - [Key Vault 개발자 가이드](developers-guide.md)
-- [Azure RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
+- [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)

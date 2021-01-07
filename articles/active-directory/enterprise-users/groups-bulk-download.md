@@ -4,21 +4,21 @@ description: Azure Active Directory에서 Azure 관리 센터에 대량으로 �
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/16/2020
+manager: daveba
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db800f3827d1b818115c886412ff7d4ffea3e768
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 98c61679fed04c0a696b60bb7ee53009a8a530e0
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376859"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547681"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Azure Active Directory에서 그룹 목록 대량 다운로드
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) 포털을 사용 하 여 조직에 있는 모�
 ## <a name="to-download-a-list-of-groups"></a>그룹 목록을 다운로드 하려면
 
 1. 조직의 관리자 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-1. Azure AD에서 **그룹**  >  **다운로드 그룹**을 선택 합니다.
+1. Azure AD에서 **그룹**  >  **다운로드 그룹** 을 선택 합니다.
 1. **그룹 다운로드** 페이지에서 **시작** 을 선택 하 여 그룹을 나열 하는 CSV 파일을 받습니다.
 
    ![그룹 다운로드 명령은 모든 그룹 페이지에 있습니다.](./media/groups-bulk-download/bulk-download.png)

@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782504"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861547"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Azure SQL Managed Instance 관리 작업 취소
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 
 다음 표에서는 관리 작업을 취소할 수 있는지 여부와 일반적인 전체 지속 시간을 요약 하 여 보여 줍니다.
 
-Category  |작업(Operation)  |취소  |예상 취소 기간  |
+범주  |연산  |취소  |예상 취소 기간  |
 |---------|---------|---------|---------|
 |배포 |인스턴스 만들기 |예 |작업의 90%가 5분 후에 완료됩니다. |
 |업데이트 |인스턴스 저장소 확장/축소 (범용) |아니요 |  |
@@ -61,7 +61,7 @@ Azure Portal를 사용 하 여 관리 작업을 취소 하려면 다음 단계�
 
 1. 페이지 맨 아래에 있는 **작업 취소** 를 선택 합니다. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="진행 중인 작업 상자를 선택 하 여 진행 중인 작업 페이지를 엽니다.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="작업을 취소 하려면 취소를 선택 합니다.":::
 
 1. 작업을 취소할 것인지 확인 합니다. 
 
@@ -122,7 +122,6 @@ API 버전 2020-02-02을 사용 하는 경우 인스턴스 생성 요청이 수�
 
 - 요금이 부과 되지 않음
 - 리소스 제한 (서브넷 또는 vCore 할당량)을 계산 하지 않습니다.
-- 인스턴스 이름을 예약 된 상태로 유지-동일한 이름의 인스턴스를 배포 하려면 실패 한 인스턴스를 삭제 하 여 이름을 해제 합니다.
 
 
 > [!NOTE]

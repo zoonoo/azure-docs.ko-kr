@@ -11,14 +11,14 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 11145abb06fb84f533ee6d556cafe1e943579131
-  ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+  ms.openlocfilehash: 665692e1d902dfed8cdab535d0639f356f4e709c
+  ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92890227"
+  ms.lasthandoff: 11/19/2020
+  ms.locfileid: "94885923"
 landingContent:
-- title: 시작하기
+- title: 시작
   linkLists:
   - linkListType: quickstart
     links:
@@ -78,6 +78,20 @@ landingContent:
       url: tutorial-routing-config-message-routing-rm-template.md
     - text: 라우팅 결과 실행 및 보기
       url: tutorial-routing-view-message-routing-results.md
+- title: Azure Stack Hub의 IoT Hub(미리 보기)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 연산자 개요
+      url: /azure-stack/operator/iot-hub-rp-overview
+    - text: 사용자 개요
+      url: /azure-stack/user/iot-hub-overview
+  - linkListType: how-to-guide
+    links:
+    - text: 설치 필수 구성 요소
+      url: /azure-stack/operator/iot-hub-rp-prerequisites
+    - text: Azure Stack Hub의 IoT Hub 설치 방법
+      url: /azure-stack/operator/iot-hub-rp-install
 - title: IoT Hub Tools 사용
   linkLists:
   - linkListType: how-to-guide

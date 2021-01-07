@@ -2,25 +2,25 @@
 title: 개념-Id 및 액세스
 description: Azure VMware 솔루션의 id 및 액세스 개념에 대해 알아보기
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 7127109801d92d2177f6edac3efcaf76ddf217e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/11/2020
+ms.openlocfilehash: e9c0d62968d94e2b018186f67072b6ae7078db02
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674650"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536101"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Azure VMware 솔루션 id 개념
 
-사설 클라우드를 배포할 때 vCenter server 및 NSX manager가 프로 비전 됩니다. VCenter를 사용 하 여 VM (가상 컴퓨터) 워크 로드를 관리 합니다. NSX-T 관리자를 사용 하 여 사설 클라우드 소프트웨어 정의 네트워크를 확장 합니다.
+Azure VMware 솔루션 사설 클라우드는 vCenter server 및 NSX Manager를 사용 하 여 프로 비전 됩니다. VCenter를 사용 하 여 VM (가상 컴퓨터) 워크 로드를 관리 합니다. NSX-T 관리자를 사용 하 여 사설 클라우드를 확장 합니다.
 
 액세스 및 id 관리에서는 NSX-T 관리자에 대 한 vCenter 및 제한 된 관리자 권한으로 CloudAdmin 그룹 권한을 사용 합니다. 이를 통해 사설 클라우드 플랫폼은 최신 기능과 패치를 사용 하 여 자동으로 업그레이드 됩니다.  자세한 내용은 [사설 클라우드 업그레이드 개념 문서][concepts-upgrades]를 참조 하세요.
 
 ## <a name="vcenter-access-and-identity"></a>vCenter 액세스 및 id
 
-VCenter의 권한은 CloudAdmin 그룹을 통해 제공 됩니다. 이 그룹은 vCenter에서 로컬로 관리 하거나 vCenter LDAP Single Sign-On Azure Active Directory와 통합할 수 있습니다. 사설 클라우드를 배포한 후 해당 통합을 사용 하도록 설정 하는 기능이 제공 됩니다.
+CloudAdmin 그룹은 vCenter에서 권한을 제공 합니다. VCenter에서 로컬로 그룹을 관리 합니다. 또 다른 옵션은 vCenter LDAP Single Sign-On Azure Active Directory 통합 하는 것입니다. 사설 클라우드를 배포한 후이 통합을 사용 하도록 설정 합니다. 
 
-CloudAdmin 및 CloudGlobalAdmin 권한은 아래 표에 나와 있습니다.
+이 표에는 **cloudadmin** 및 **cloudglobaladmin** 권한이 나와 있습니다.
 
 |  권한 집합           | CloudAdmin | CloudGlobalAdmin | 의견 |
 | :---                     |    :---:   |       :---:      |   :--:  |

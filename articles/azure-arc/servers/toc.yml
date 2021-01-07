@@ -55,8 +55,16 @@
               href: manage-vm-extensions-powershell.md
             - name: ARM 템플릿을 사용하여 확장 배포
               href: manage-vm-extensions-template.md
+        - name: 서버에서 사용된 관리 ID
+          href: managed-identity-authentication.md
         - name: 에이전트 관리
           href: manage-agent.md
+    - name: 시나리오
+      items:
+        - name: Azure Sentinel에 온보딩
+          href: scenario-onboard-azure-sentinel.md
+        - name: Azure Security Center에 온보딩
+          href: ../../security-center/quickstart-onboard-machines.md
     - name: 문제 해결
       items:
         - name: 에이전트 연결 문제
@@ -78,7 +86,7 @@
     - name: Go
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
     - name: Java
-      href: /java/api/overview/azure/hybridcompute/management
+      href: /java/api/overview/azure/compute/resourcemanagement
     - name: JavaScript
       href: /javascript/api/%40azure/arm-hybridcompute
     - name: Python

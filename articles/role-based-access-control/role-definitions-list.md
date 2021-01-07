@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368250"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369279"
 ---
 # <a name="list-azure-role-definitions"></a>Azure 역할 정의 나열
 
@@ -27,7 +27,7 @@ ms.locfileid: "92368250"
 
 Azure Active Directory에 대 한 관리자 역할 목록을 보려면 [Azure Active Directory의 관리자 역할 권한](../active-directory/roles/permissions-reference.md)을 참조 하세요.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 ### <a name="list-all-roles"></a>모든 역할 나열
 
@@ -351,7 +351,7 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
-    이전 예제에서 microsoft. web은 App Service 인스턴스를 참조 하는 리소스 공급자입니다. 마찬가지로 다른 리소스 공급자를 사용 하 여 범위를 지정할 수 있습니다. 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md) 및 지원 되는 [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)을 참조 하세요.  
+    이전 예제에서 microsoft. web은 App Service 인스턴스를 참조 하는 리소스 공급자입니다. 마찬가지로 다른 리소스 공급자를 사용 하 여 범위를 지정할 수 있습니다. 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md) 및 지원 되는 [azure 리소스 공급자 작업](resource-provider-operations.md)을 참조 하세요.  
      
 1. *{Filter}* 를 역할 정의 목록 필터에 적용 하려는 조건으로 바꿉니다.
 

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/07/2020
+ms.date: 12/28/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319720"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803530"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
 
@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - **보안** 
     - **위험한 로그인** - [위험한 로그인](../identity-protection/overview-identity-protection.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자가 수행 했을 수 있는 로그인 시도에 대 한 표시기입니다.
-    - **위험 플래그가 지정된 사용자** - [위험한 사용자](../identity-protection/overview-identity-protection.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
+    - **위험 플래그가 지정** 된 사용자- [위험한 사용자](../identity-protection/overview-identity-protection.md) 는 손상 되었을 수 있는 사용자 계정에 대 한 표시기입니다.
 
 이 항목에서는 프로 비전 보고서의 개요를 제공 합니다.
 
@@ -44,6 +44,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 응용 프로그램 소유자는 자신이 소유한 응용 프로그램에 대 한 로그를 볼 수 있습니다.
 * 보안 관리자, 보안 읽기 권한자, 보고서 구독자, 응용 프로그램 관리자 및 클라우드 응용 프로그램 관리자 역할의 사용자
+* [ProvisioningLogs 권한이](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions) 있는 사용자 지정 역할의 사용자
 * 글로벌 관리자
 
 
@@ -56,7 +57,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 프로 비전 로그는 다음 질문에 대 한 답변을 제공 합니다.
 
 * ServiceNow에서 성공적으로 생성 된 그룹은 무엇 인가요?
-* Amazon Web Services에서 가져온 역할은 무엇 인가요?
+* Adobe에서 성공적으로 제거 된 사용자는 무엇입니까?
 * DropBox에서 어떤 사용자를 만들지 못했습니다.
 
 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **모니터링** 섹션에서 **프로 비전** 로그를 선택 하 여 프로 비전 로그에 액세스할 수 있습니다. 일부 프로 비전 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
@@ -128,9 +129,9 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **작업** 필터를 사용 하 여를 필터링 할 수 있습니다.
 
-- 생성 
+- 만들기 
 - 업데이트
-- 삭제
+- DELETE
 - 사용 안 함
 - 기타
 
@@ -211,7 +212,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 
-- 이 Azure Portal는 premium edition이 있는 경우 30 일 동안 보고 된 프로 비전 데이터를 저장 하 고 무료 버전이 있는 경우 7 일 동안 저장 합니다. 프로 비전 로그는 30 일 이상 보존을 위해 [log analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) 에 게시할 수 있습니다. 
+- 이 Azure Portal는 premium edition이 있는 경우 30 일 동안 보고 된 프로 비전 데이터를 저장 하 고 무료 버전이 있는 경우 7 일 동안 저장 합니다. 프로 비전 로그는 30 일 이상 보존을 위해 [log analytics](../app-provisioning/application-provisioning-log-analytics.md) 에 게시할 수 있습니다. 
 
 - 변경 ID 특성을 고유 식별자로 사용할 수 있습니다. 예를 들어 제품 지원과 상호 작용할 때 유용 합니다.
 
@@ -219,7 +220,9 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - 범위에 없는 사용자에 대 한 건너뛴 이벤트를 볼 수 있습니다. 이는 특히 동기화 범위가 모든 사용자 및 그룹으로 설정 된 경우에 필요 합니다. 서비스는 범위를 벗어난 모든 개체를 포함 하 여 테 넌 트의 모든 개체를 평가 합니다. 
 
-- 프로 비전 로그는 현재 정부 클라우드에서 사용할 수 없습니다. 프로 비전 로그에 액세스할 수 없는 경우 감사 로그를 임시 해결 방법으로 사용 하세요.  
+- 프로 비전 로그는 현재 정부 클라우드에서 사용할 수 없습니다. 프로 비전 로그에 액세스할 수 없는 경우 감사 로그를 임시 해결 방법으로 사용 하세요. 
+
+- 프로 비전 로그에는 역할 가져오기가 표시 되지 않습니다 (AWS, SalesForce 및 ZenDesk에 적용 됨). 역할 가져오기에 대 한 로그는 감사 로그에서 찾을 수 있습니다. 
 
 ## <a name="error-codes"></a>오류 코드
 

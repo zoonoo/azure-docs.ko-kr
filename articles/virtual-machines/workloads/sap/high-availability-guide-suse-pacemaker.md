@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57c6caea2de9063b133d4d5d643629184e412dad
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797749"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957693"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -54,7 +55,7 @@ Azure 펜스 에이전트는 추가 가상 머신을 배포할 필요가 없습�
 
 1. 새 SLES 12 SP1 이상의 가상 머신을 배포하고 ssh를 통해 머신에 연결합니다. 컴퓨터가 클 필요는 없습니다. Standard_E2s_v3 또는 Standard_D2s_v3과 같은 가상 머신 크기이면 충분합니다. OS 디스크에 대해 Premium Storage를 사용해야 합니다.
 
-모든 **iSCSI 대상 가상 머신**에 대해 다음 명령을 실행합니다.
+모든 **iSCSI 대상 가상 머신** 에 대해 다음 명령을 실행합니다.
 
 1. SLES 업데이트
 
@@ -84,9 +85,9 @@ Azure 펜스 에이전트는 추가 가상 머신을 배포할 필요가 없습�
 
 ### <a name="create-iscsi-device-on-iscsi-target-server"></a>iSCSI 대상 서버에 iSCSI 디바이스 만들기
 
-모든 **iSCSI 대상 가상 머신**에 대해 다음 명령을 실행하여 SAP 시스템에서 사용하는 클러스터에 대해 iSCSI 디스크를 만듭니다. 다음 예제에서는 여러 클러스터에 대한 SBD 디바이스가 만들어집니다. 또한 여러 클러스터에 대해 하나의 iSCSI 대상 서버를 사용하는 방법을 보여 줍니다. SBD 디바이스는 OS 디스크에 배치됩니다. 충분한 공간이 있는지 확인합니다.
+모든 **iSCSI 대상 가상 머신** 에 대해 다음 명령을 실행하여 SAP 시스템에서 사용하는 클러스터에 대해 iSCSI 디스크를 만듭니다. 다음 예제에서는 여러 클러스터에 대한 SBD 디바이스가 만들어집니다. 또한 여러 클러스터에 대해 하나의 iSCSI 대상 서버를 사용하는 방법을 보여 줍니다. SBD 디바이스는 OS 디스크에 배치됩니다. 충분한 공간이 있는지 확인합니다.
 
-**`nfs`** 는 NFS 클러스터를, **ascsnw1**은 **NW1**의 ASCS 클러스터를, **dbnw1**은 **NW1**의 데이터베이스 클러스터를 식별하는 데 사용됩니다. **nfs-0** 및 **nfs-1**은 NFS 클러스터 노드의 호스트 이름, **nw1-xscs-0** 및 **nw1-xscs-1**은 **NW1** ASCS 클러스터 노드의 호스트 이름, **nw1-db-0** 및 **nw1-db-1**은 데이터베이스 클러스터 노드의 호스트 이름입니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
+**`nfs`** 는 NFS 클러스터를, **ascsnw1** 은 **NW1** 의 ASCS 클러스터를, **dbnw1** 은 **NW1** 의 데이터베이스 클러스터를 식별하는 데 사용됩니다. **nfs-0** 및 **nfs-1** 은 NFS 클러스터 노드의 호스트 이름, **nw1-xscs-0** 및 **nw1-xscs-1** 은 **NW1** ASCS 클러스터 노드의 호스트 이름, **nw1-db-0** 및 **nw1-db-1** 은 데이터베이스 클러스터 노드의 호스트 이름입니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -367,7 +368,7 @@ o- / ...........................................................................
 1. **[A]** HA 클러스터에 대한 cloud-netconfig-azure 구성
 
    >[!NOTE]
-   > **zypper info cloud-netconfig-azure**를 실행하여 설치된 **cloud-netconfig-azure** 패키지의 버전을 확인합니다. 사용자 환경의 버전이 1.3 이상인 경우, 더 이상 클라우드 네트워크 플러그 인에 의한 네트워크 인터페이스의 관리를 억제하지 않아도 됩니다. 1\.3 미만 버전에서는 **cloud-netconfig-azure** 패키지를 사용 가능한 최신 버전으로 업데이트하는 것이 좋습니다.  
+   > **zypper info cloud-netconfig-azure** 를 실행하여 설치된 **cloud-netconfig-azure** 패키지의 버전을 확인합니다. 사용자 환경의 버전이 1.3 이상인 경우, 더 이상 클라우드 네트워크 플러그 인에 의한 네트워크 인터페이스의 관리를 억제하지 않아도 됩니다. 1\.3 미만 버전에서는 **cloud-netconfig-azure** 패키지를 사용 가능한 최신 버전으로 업데이트하는 것이 좋습니다.  
 
    클라우드 네트워크 플러그 인이 가상 IP 주소를 제거하지 않도록 아래와 같이 네트워크 인터페이스에서 구성 파일을 변경합니다(Pacemaker가 VIP 할당을 제어해야 함). 자세한 내용은 [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)을 참조하세요. 
 
@@ -442,7 +443,7 @@ o- / ...........................................................................
    >SUSEConnect---list-extensions를 실행 하 여 확장을 확인할 수 있습니다.  
    >Azure 펜스 에이전트를 사용 하 여 더 빠른 장애 조치 (failover) 시간을 얻으려면:
    > - SLES 12 SP4 또는 SLES 12 SP5의 패키지 설치 버전 **4.6.2** 이상  
-   > - SLES 15의 **4.6.2** 이상 버전의 패키지 python**3**-azure 관리-계산 
+   > - SLES 15의 **4.6.2** 이상 버전의 패키지 python **3**-azure 관리-계산 
 
 1. **[A]** 호스트 이름 확인 설정
 
@@ -575,7 +576,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 1. [https://editor.swagger.io](<https://portal.azure.com>) 으로 이동합니다.
 1. Azure Active Directory 블레이드 열기  
-   속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
+   속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID** 입니다.
 1. 앱 등록 클릭
 1. 새 등록 클릭
 1. 이름을 입력하고 “이 조직 디렉터리의 계정만” 선택 
@@ -583,7 +584,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
    로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 인증서 및 암호를 선택한 다음, 새 클라이언트 암호 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음, 추가 클릭
-1. 값을 기록해 둡니다. 서비스 주체의 **암호**로 사용됨
+1. 값을 기록해 둡니다. 서비스 주체의 **암호** 로 사용됨
 1. 개요를 선택합니다. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 펜스 에이전트에 대한 사용자 지정 역할 만들기

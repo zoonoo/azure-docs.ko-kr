@@ -8,17 +8,18 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e38fcd069fa6a3e8582dcd96b2bd0b4074986de7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511163"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955806"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 확장과 Azure Resource Manager 템플릿
 
@@ -179,17 +180,17 @@ Resource Manager 템플릿에 있는 Azure DSC 확장의 **설정** 섹션에서
 
 | 속성 이름 | Type | Description |
 | --- | --- | --- |
-| settings.wmfVersion |문자열 |VM에 설치해야 하는 WMF(Windows Management Framework)의 버전을 지정합니다. 이 속성을 **latest**'로 설정하면 WMF의 가장 최신 버전이 설치됩니다. 현재, 이 속성에 대해 사용할 수 있는 값은 **4.0**, **5.0**, **5.1** 및 **최신**뿐입니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 **latest**입니다. |
-| settings.configuration.url |문자열 |DSC 구성 .zip 파일을 다운로드할 URL 위치를 지정합니다. 제공된 URL에서 액세스를 위해 SAS 토큰을 요구하는 경우 **protectedSettings.configurationUrlSasToken** 속성을 SAS 토큰 값으로 설정합니다. **settings.configuration.script** 또는 **settings.configuration.function**이 정의된 경우 이 속성이 필요합니다. 이러한 속성에 대한 값을 지정하지 않으면 확장은 기본 구성 스크립트를 호출하여 LCM(위치 구성 관리자) 메타데이터를 설정하며, 인수를 지정해야 합니다. |
-| settings.configuration.script |문자열 |DSC 구성의 정의를 포함하는 스크립트의 파일 이름을 지정합니다. 이 스크립트는 **settings.configuration.url** 속성에 지정된 URL에서 다운로드된 zip 파일의 루트 폴더에 있어야 합니다. **settings.configuration.url** 또는 **settings.configuration.script**가 정의된 경우 이 속성이 필요합니다. 이러한 속성에 대한 값이 없는 경우 확장은 기본 구성 스크립트를 호출하여 제공해야 할 LCM 메타데이터 및 인수를 설정합니다. |
-| settings.configuration.function |문자열 |DSC 구성의 이름을 지정합니다. 명명된 구성은 **settings.configuration.script**에서 정의하는 스크립트에 포함되어야 합니다. **settings.configuration.url** 또는 **settings.configuration.function**이 정의된 경우 이 속성이 필요합니다. 이러한 속성에 대한 값이 없는 경우 확장은 기본 구성 스크립트를 호출하여 제공해야 할 LCM 메타데이터 및 인수를 설정합니다. |
+| settings.wmfVersion |문자열 |VM에 설치해야 하는 WMF(Windows Management Framework)의 버전을 지정합니다. 이 속성을 **latest**'로 설정하면 WMF의 가장 최신 버전이 설치됩니다. 현재, 이 속성에 대해 사용할 수 있는 값은 **4.0**, **5.0**, **5.1** 및 **최신** 뿐입니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 **latest** 입니다. |
+| settings.configuration.url |문자열 |DSC 구성 .zip 파일을 다운로드할 URL 위치를 지정합니다. 제공된 URL에서 액세스를 위해 SAS 토큰을 요구하는 경우 **protectedSettings.configurationUrlSasToken** 속성을 SAS 토큰 값으로 설정합니다. **settings.configuration.script** 또는 **settings.configuration.function** 이 정의된 경우 이 속성이 필요합니다. 이러한 속성에 대한 값을 지정하지 않으면 확장은 기본 구성 스크립트를 호출하여 LCM(위치 구성 관리자) 메타데이터를 설정하며, 인수를 지정해야 합니다. |
+| settings.configuration.script |문자열 |DSC 구성의 정의를 포함하는 스크립트의 파일 이름을 지정합니다. 이 스크립트는 **settings.configuration.url** 속성에 지정된 URL에서 다운로드된 zip 파일의 루트 폴더에 있어야 합니다. **settings.configuration.url** 또는 **settings.configuration.script** 가 정의된 경우 이 속성이 필요합니다. 이러한 속성에 대한 값이 없는 경우 확장은 기본 구성 스크립트를 호출하여 제공해야 할 LCM 메타데이터 및 인수를 설정합니다. |
+| settings.configuration.function |문자열 |DSC 구성의 이름을 지정합니다. 명명된 구성은 **settings.configuration.script** 에서 정의하는 스크립트에 포함되어야 합니다. **settings.configuration.url** 또는 **settings.configuration.function** 이 정의된 경우 이 속성이 필요합니다. 이러한 속성에 대한 값이 없는 경우 확장은 기본 구성 스크립트를 호출하여 제공해야 할 LCM 메타데이터 및 인수를 설정합니다. |
 | settings.configurationArguments |컬렉션 |DSC 구성에 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화되지 않습니다. |
 | settings.configurationData.url |문자열 |DSC 구성에 대한 입력으로 사용할 구성 데이터(.psd1) 파일을 다운로드할 URL을 지정합니다. 제공된 URL에서 액세스를 위해 SAS 토큰을 요구하는 경우 **protectedSettings.configurationDataUrlSasToken** 속성을 SAS 토큰 값으로 설정합니다. |
-| settings.privacy.dataCollection |문자열 |원격 분석 수집을 사용하거나 사용하지 않도록 설정합니다. 이 속성에 사용할 수 있는 값은 **Enable**, **Disable**, **''** 또는 **$null**뿐입니다. 이 속성을 비워 두거나 null로 설정하면 원격 분석이 사용됩니다. 기본값은 **''** 입니다. 자세한 내용은 [Azure DSC 확장 데이터 컬렉션](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/)을 참조하세요. |
+| settings.privacy.dataCollection |문자열 |원격 분석 수집을 사용하거나 사용하지 않도록 설정합니다. 이 속성에 사용할 수 있는 값은 **Enable**, **Disable**, **''** 또는 **$null** 뿐입니다. 이 속성을 비워 두거나 null로 설정하면 원격 분석이 사용됩니다. 기본값은 **''** 입니다. 자세한 내용은 [Azure DSC 확장 데이터 컬렉션](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/)을 참조하세요. |
 | settings.advancedOptions.downloadMappings |컬렉션 |WMF를 다운로드할 대체 위치를 정의합니다. 자세한 내용은 [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](https://devblogs.microsoft.com/powershell/azure-dsc-extension-2-8-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location/)(Azure DSC 확장 2.8 및 확장 종속성의 다운로드를 사용자 고유의 위치에 매핑하는 방법)을 참조하세요. |
 | protectedSettings.configurationArguments |컬렉션 |DSC 구성에 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화됩니다. |
-| protectedSettings.configurationUrlSasToken |문자열 |**settings.configuration.url**에서 정의한 URL에 액세스하기 위해 사용할 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
-| protectedSettings.configurationDataUrlSasToken |문자열 |**settings.configurationData.url**에서 정의한 URL에 액세스하기 위해 사용할 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
+| protectedSettings.configurationUrlSasToken |문자열 |**settings.configuration.url** 에서 정의한 URL에 액세스하기 위해 사용할 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
+| protectedSettings.configurationDataUrlSasToken |문자열 |**settings.configurationData.url** 에서 정의한 URL에 액세스하기 위해 사용할 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
 
 ## <a name="default-configuration-script"></a>기본 구성 스크립트
 
@@ -201,12 +202,12 @@ DSC 확장 기본 구성 스크립트를 사용하여 다음 표에 나열되어
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |필수 속성입니다. 노드에서 Azure Automation 서비스에 등록하는 데 PowerShell 자격 증명 개체의 암호로 사용되는 키를 지정합니다. 이 값은 Automation 계정에 대해 **listkeys** 메서드를 사용하여 자동으로 검색할 수 있습니다.  [예제](#example-using-referenced-azure-automation-registration-values)를 참조하세요. |
 | settings.configurationArguments.RegistrationUrl |문자열 |필수 속성입니다. 노드가 등록하려는 Automation 엔드포인트의 URL을 지정합니다. 이 값은 Automation 계정에 대해 **reference** 메서드를 사용하여 자동으로 검색될 수 있습니다. |
 | settings.configurationArguments.NodeConfigurationName |문자열 |필수 속성입니다. 노드를 할당할 Automation 계정의 노드 구성을 지정합니다. |
-| settings.configurationArguments.ConfigurationMode |문자열 |LCM의 모드를 지정합니다. 올바른 옵션에는 **ApplyOnly**, **ApplyandMonitor** 및 **ApplyandAutoCorrect**가 포함됩니다.  기본값은 **ApplyandMonitor**입니다. |
-| settings.configurationArguments.RefreshFrequencyMins | uint32 | LCM이 업데이트를 위해 Automation 계정을 확인하는 빈도를 지정합니다.  기본값은 **30**입니다.  최소값은 **15**입니다. |
-| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | LCM이 현재 구성의 유효성을 검사하는 빈도를 지정합니다. 기본값은 **15**입니다. 최소값은 **15**입니다. |
-| settings.configurationArguments.RebootNodeIfNeeded | boolean | DSC 작업에서 요청할 경우 노드를 자동으로 다시 부팅할 수 있는지 여부를 지정합니다. 기본값은 **false**입니다. |
-| settings.configurationArguments.ActionAfterReboot | 문자열 | 구성을 적용하는 경우 다시 부팅 후 수행할 작업을 지정합니다. 유효한 옵션은 **ContinueConfiguration** 및 **StopConfiguration**입니다. 기본값은 **ContinueConfiguration**입니다. |
-| settings.configurationArguments.AllowModuleOverwrite | boolean | LCM이 노드의 기존 모듈을 덮어쓸지 여부를 지정합니다. 기본값은 **false**입니다. |
+| settings.configurationArguments.ConfigurationMode |문자열 |LCM의 모드를 지정합니다. 올바른 옵션에는 **ApplyOnly**, **ApplyandMonitor** 및 **ApplyandAutoCorrect** 가 포함됩니다.  기본값은 **ApplyandMonitor** 입니다. |
+| settings.configurationArguments.RefreshFrequencyMins | uint32 | LCM이 업데이트를 위해 Automation 계정을 확인하는 빈도를 지정합니다.  기본값은 **30** 입니다.  최소값은 **15** 입니다. |
+| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | LCM이 현재 구성의 유효성을 검사하는 빈도를 지정합니다. 기본값은 **15** 입니다. 최소값은 **15** 입니다. |
+| settings.configurationArguments.RebootNodeIfNeeded | boolean | DSC 작업에서 요청할 경우 노드를 자동으로 다시 부팅할 수 있는지 여부를 지정합니다. 기본값은 **false** 입니다. |
+| settings.configurationArguments.ActionAfterReboot | 문자열 | 구성을 적용하는 경우 다시 부팅 후 수행할 작업을 지정합니다. 유효한 옵션은 **ContinueConfiguration** 및 **StopConfiguration** 입니다. 기본값은 **ContinueConfiguration** 입니다. |
+| settings.configurationArguments.AllowModuleOverwrite | boolean | LCM이 노드의 기존 모듈을 덮어쓸지 여부를 지정합니다. 기본값은 **false** 입니다. |
 
 ## <a name="settings-vs-protectedsettings"></a>settings 및 protectedSettings
 
@@ -215,7 +216,7 @@ DSC 확장 기본 구성 스크립트를 사용하여 다음 표에 나열되어
 공용 속성은 설정 텍스트 파일에서 암호화되지 않습니다.
 **protectedSettings** 아래에 나열된 속성은 인증서를 사용하여 암호화되므로 VM에서 설정 파일에 일반 텍스트로 표시되지 않습니다.
 
-구성에 자격 증명이 필요한 경우 **protectedSettings**에 자격 증명을 포함할 수 있습니다.
+구성에 자격 증명이 필요한 경우 **protectedSettings** 에 자격 증명을 포함할 수 있습니다.
 
 ```json
 "protectedSettings": {
@@ -275,7 +276,7 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 ## <a name="example-using-referenced-azure-automation-registration-values"></a>참조된 Azure Automation 등록 값을 사용하는 예제
 
-다음 예제는 Azure Automation 계정 속성을 참조하고 **listkeys** 메서드를 사용해서 기본 키(0)를 검색하여 **RegistrationUrl** 및 **RegistrationKey**를 가져옵니다.  이 예제에서는 **automationAccountName** 및 **NodeConfigName** 매개 변수가 템플릿에 제공되었습니다.
+다음 예제는 Azure Automation 계정 속성을 참조하고 **listkeys** 메서드를 사용해서 기본 키(0)를 검색하여 **RegistrationUrl** 및 **RegistrationKey** 를 가져옵니다.  이 예제에서는 **automationAccountName** 및 **NodeConfigName** 매개 변수가 템플릿에 제공되었습니다.
 
 ```json
 "settings": {
@@ -393,14 +394,14 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 **문제점**: *ConfigurationArguments* 속성을 **해시 테이블** 개체로 확인할 수 없습니다.
 
-**솔루션**: *ConfigurationArguments* 속성을 **해시 테이블**로 지정합니다.
+**솔루션**: *ConfigurationArguments* 속성을 **해시 테이블** 로 지정합니다.
 위의 예제에 제공된 형식을 따릅니다. 따옴표, 쉼표 및 중괄호를 확인합니다.
 
 ### <a name="duplicate-configurationarguments"></a>중복 ConfigurationArguments
 
 “공용 및 보호된 configurationArguments에 중복 인수 ‘{0}’이 있습니다.”
 
-**문제점**: 퍼블릭 설정의 *ConfigurationArguments* 및 보호된 설정의 *ConfigurationArguments*에 동일한 이름의 속성이 포함되어 있습니다.
+**문제점**: 퍼블릭 설정의 *ConfigurationArguments* 및 보호된 설정의 *ConfigurationArguments* 에 동일한 이름의 속성이 포함되어 있습니다.
 
 **솔루션**: 중복된 속성 중 하나를 제거합니다.
 

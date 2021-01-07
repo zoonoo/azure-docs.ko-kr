@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 558e03e698d184aa9b5914f7d494ea61b5a6b18e
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360074"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616935"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -23,9 +23,13 @@ ms.locfileid: "93360074"
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-twins"></a>쌍를 관리 하는 방법
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-a-digital-twin"></a>디지털 쌍 만들기
 
@@ -82,7 +86,7 @@ Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateOrReplaceDigitalTwinAsync()` 합니다. 예를 들면 다음과 같습니다.
+> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateOrReplaceDigitalTwinAsync()` 합니다. 예:
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -95,7 +99,7 @@ Console.WriteLine("The twin is created successfully");
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-이 호출은와 같은 강력한 형식의 개체 형식으로 쌍으로 된 데이터를 반환 `BasicDigitalTwin` 합니다. 다음은이를 사용 하 여 쌍 세부 정보를 보는 방법에 대 한 예입니다.
+이 호출은와 같은 강력한 형식의 개체 형식으로 쌍으로 된 데이터를 반환 `BasicDigitalTwin` 합니다. `BasicDigitalTwin` 는 SDK에 포함 된 serialization 도우미 클래스로,이 클래스는 미리 구문 분석 된 형식으로 핵심 쌍 메타 데이터 및 속성을 반환 합니다. 다음은이를 사용 하 여 쌍 세부 정보를 보는 방법에 대 한 예입니다.
 
 ```csharp
 Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
@@ -167,26 +171,23 @@ foreach (string prop in twin.Contents.Keys)
 디지털 쌍의 정의 된 속성은 디지털 쌍의 최상위 속성으로 반환 됩니다. DTDL 정의의 일부가 아닌 메타 데이터 또는 시스템 정보는 접두사와 함께 반환 됩니다 `$` . 메타 데이터 속성은 다음과 같습니다.
 * 이 Azure Digital Twins 인스턴스의 디지털 쌍 ID `$dtId` 입니다.
 * `$etag`-웹 서버에서 할당 한 표준 HTTP 필드입니다.
-* 섹션의 기타 속성 `$metadata` 여기에는 다음이 포함됩니다.
+* 섹션의 기타 속성 `$metadata` 여기에는 다음이 해당합니다.
     - 디지털 쌍 모델의 DTMI입니다.
     - 쓰기 가능한 각 속성의 동기화 상태입니다. 장치에 가장 유용 합니다 .이는 서비스와 장치에 분기 된 상태가 있을 수 있습니다 (예: 장치가 오프 라인 상태인 경우). 현재이 속성은 IoT Hub에 연결 된 물리적 장치에만 적용 됩니다. 메타 데이터 섹션의 데이터를 사용 하 여 마지막 수정 타임 스탬프 뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대 한 자세한 내용은 장치 상태 동기화에 대 한 [이 IoT Hub 자습서](../iot-hub/tutorial-device-twins.md) 를 참조 하세요.
     - IoT Hub 또는 Azure Digital Twins와 같은 서비스별 메타 데이터. 
 
-와 같이 선택한 JSON 구문 분석 라이브러리를 사용 하 여 쌍에 대해 반환 된 JSON을 구문 분석할 수 있습니다 `System.Text.Json` .
+`BasicDigitalTwin` [*방법: Azure Digital Twins Api 및 sdk 사용*](how-to-use-apis-sdks.md)에서와 같은 serialization 도우미 클래스에 대해 자세히 알아볼 수 있습니다.
 
-SDK에 포함 된 serialization 도우미 클래스를 사용할 수도 있습니다 .이 클래스 `BasicDigitalTwin` 는 미리 구문 분석 된 형식으로 핵심 쌍 메타 데이터 및 속성을 반환 합니다. 다음은 예제입니다.
+## <a name="view-all-digital-twins"></a>모든 디지털 쌍 보기
 
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
+인스턴스의 모든 디지털 쌍을 보려면 [쿼리](how-to-query-graph.md)를 사용 합니다. 쿼리 [api](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령을](how-to-use-cli.md)사용 하 여 쿼리를 실행할 수 있습니다.
 
-[*방법: Azure Digital Twins api 및 Sdk 사용*](how-to-use-apis-sdks.md)에서 serialization 도우미 클래스에 대해 자세히 알아볼 수 있습니다.
+인스턴스의 모든 디지털 쌍 목록을 반환 하는 기본 쿼리의 본문은 다음과 같습니다.
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="update-a-digital-twin"></a>디지털 쌍 업데이트
 
@@ -217,7 +218,7 @@ Patch 호출은 모든 속성을 원하는 대로 단일 쌍으로 업데이트�
   }
 ]
 ```
-SDK에서를 사용 하 여 패치를 만들 수 있습니다 `JsonPatchDocument` . [SDK](how-to-use-apis-sdks.md) 다음은 예제입니다.
+SDK에서를 사용 하 여 패치를 만들 수 있습니다 `JsonPatchDocument` . [](how-to-use-apis-sdks.md) 다음은 예제입니다.
 
 ```csharp
 var updateTwinData = new JsonPatchDocument();
@@ -259,7 +260,7 @@ await client.UpdateDigitalTwinAsync(twin_Id, updateTwinData);
 
 이 작업은 패치로 수정 되는 디지털 쌍이 새 모델을 준수 하는 경우에만 성공 합니다. 
 
-다음과 같은 예제를 참조하세요.
+다음 예제를 참조하세요.
 1. *Foo_old* 모델을 사용 하는 디지털 쌍을 생각해 보세요. *foo_old* 은 필요한 속성 *질량* 을 정의 합니다.
 2. 새 모델 *foo_new* 는 속성 질량을 정의 하 고 새 필수 속성 *온도* 를 추가 합니다.
 3. 패치 후에 디지털 쌍에는 질량 속성과 온도 속성이 모두 있어야 합니다. 
@@ -270,12 +271,12 @@ await client.UpdateDigitalTwinAsync(twin_Id, updateTwinData);
 [
   {
     "op": "replace",
-    "path": "$metadata.$model",
-    "value": "dtmi:example:foo_new"
+    "path": "/$metadata/$model",
+    "value": "dtmi:example:foo_new;1"
   },
   {
     "op": "add",
-    "path": "temperature",
+    "path": "/temperature",
     "value": 60
   }
 ]
@@ -360,7 +361,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 한 번에 모든 쌍를 삭제 하는 방법에 대 한 예제를 보려면 [샘플 클라이언트 앱을 사용 하 여 기본 사항 살펴보기 * _Tutorial](tutorial-command-line-app.md)에 사용 된 샘플 앱을 다운로드 하세요. *CommandLoop.cs* 파일은 함수에서이를 수행 `CommandDeleteAllTwins()` 합니다.
 
-## <a name="manage-twins-using-runnable-code-sample"></a>실행 가능 코드를 사용 하 여 쌍 관리 샘플
+## <a name="runnable-digital-twin-code-sample"></a>실행 가능한 디지털 쌍 코드 샘플
 
 아래 실행 가능한 코드 샘플을 사용 하 여 쌍을 만들고, 해당 세부 정보를 업데이트 하 고, 쌍을 삭제할 수 있습니다. 
 
@@ -535,22 +536,6 @@ namespace minimal
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="쌍을 만들고, 업데이트 하 고, 삭제 하는 것을 보여 주는 콘솔 출력" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
-## <a name="manage-twins-with-cli"></a>CLI를 사용 하 여 쌍 관리
-
-Twins는 Azure Digital Twins CLI를 사용 하 여 관리할 수도 있습니다. 명령은 _How에서 찾을 수 있습니다 [. Azure Digital Twins CLI *를 사용](how-to-use-cli.md)합니다.
-
-## <a name="view-all-digital-twins"></a>모든 디지털 쌍 보기
-
-인스턴스의 모든 디지털 쌍을 보려면 [쿼리](how-to-query-graph.md)를 사용 합니다. 쿼리 [api](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령을](how-to-use-cli.md)사용 하 여 쿼리를 실행할 수 있습니다.
-
-인스턴스의 모든 디지털 쌍 목록을 반환 하는 기본 쿼리의 본문은 다음과 같습니다.
-
-```sql
-SELECT *
-FROM DIGITALTWINS
-``` 
-
 ## <a name="next-steps"></a>다음 단계
 
-디지털 쌍 간의 관계를 만들고 관리 하는 방법을 참조 하세요.
-* [*방법: 관계로 쌍 그래프 관리*](how-to-manage-graph.md)
+디지털 쌍 간의 관계를 만들고 관리 하는 방법을 참조 하세요. _ [ *방법: 관계를 사용 하 여 쌍으로 된 쌍 그래프 관리*](how-to-manage-graph.md)

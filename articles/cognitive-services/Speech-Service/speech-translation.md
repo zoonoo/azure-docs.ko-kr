@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 음성 번역
-ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630073"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015208"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 
@@ -36,7 +36,7 @@ Microsoft의 변환 엔진은 SMT (통계적 기계 번역) 및 NMT (신경망 �
 * 여러 대상 언어로의 변환을 지원 합니다.
 * 중간 인식 및 번역 결과.
 
-## <a name="get-started"></a>시작 
+## <a name="get-started"></a>시작하기 
 
 음성 번역을 시작 하려면 [빠른](get-started-speech-translation.md) 시작을 참조 하세요. 음성 번역 서비스는 [음성 SDK](speech-sdk.md) 및 [음성 CLI](spx-overview.md)를 통해 사용할 수 있습니다.
 
@@ -48,13 +48,13 @@ Microsoft의 변환 엔진은 SMT (통계적 기계 번역) 및 NMT (신경망 �
 
 ## <a name="migration-guides"></a>마이그레이션 가이드
 
-응용 프로그램, 도구 또는 제품이 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview)를 사용 하는 경우 음성 서비스로 마이그레이션하는 데 도움이 되는 가이드를 만들었습니다.
+응용 프로그램, 도구 또는 제품이 [Translator Speech API](./how-to-migrate-from-translator-speech-api.md)를 사용 하는 경우 음성 서비스로 마이그레이션하는 데 도움이 되는 가이드를 만들었습니다.
 
 * [Translator Speech API에서 Speech service로 마이그레이션](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](./speech-sdk.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)

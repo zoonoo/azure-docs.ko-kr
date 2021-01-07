@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780362"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989193"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL Database 및 SQL Managed Instance 보안 기능 개요
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -46,17 +46,17 @@ Azure SQL Database는 [가상 네트워크 규칙](vnet-service-endpoint-rule-ov
 ## <a name="access-management"></a>액세스 관리
 
 > [!IMPORTANT]
-> Azure 내에서 데이터베이스와 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 문서에 대 한 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 참조 하세요.
+> Azure 내에서 데이터베이스와 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 문서에 대 한 자세한 내용은 [Azure Portal의 Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 참조 하세요.
 
 ### <a name="authentication"></a>인증
 
 인증은 사용자의 신원을 증명하는 과정입니다. Azure SQL Database 및 SQL Managed Instance는 두 가지 유형의 인증을 지원 합니다.
 
-- **SQL 인증** :
+- **SQL 인증**:
 
     SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database 또는 Azure SQL Managed Instance에 연결할 때 사용자의 인증을 나타냅니다. 서버를 만들 때 사용자 이름 및 암호를 사용 하는 **서버 관리자** 로그인을 지정 해야 합니다. **서버 관리자** 는 이러한 자격 증명을 사용 하 여 해당 서버 또는 인스턴스의 모든 데이터베이스를 데이터베이스 소유자로 인증할 수 있습니다. 그리고 나면 서버 관리자는 추가 SQL 로그인 및 사용자를 만들 수 있으며, 그러면 사용자가 사용자 이름과 암호를 사용하여 연결할 수 있습니다.
 
-- **Azure Active Directory 인증** :
+- **Azure Active Directory 인증**:
 
     Azure Active Directory 인증은 Azure Active Directory (Azure AD)에서 id를 사용 하 여 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 및 [azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 연결 하는 메커니즘입니다. 관리자는 azure AD 인증을 사용 하 여 하나의 중앙 위치에서 다른 Azure 서비스와 함께 데이터베이스 사용자의 id 및 사용 권한을 중앙에서 관리할 수 있습니다. 그러면 스토리지해야 하는 암호를 최소화하고 중앙 집중식 암호 순환 정책을 사용할 수 있습니다.
 
@@ -65,7 +65,7 @@ Azure SQL Database는 [가상 네트워크 규칙](vnet-service-endpoint-rule-ov
     사용 가능한 추가 Azure AD 인증 옵션으로는 [다단계 인증](../../active-directory/authentication/concept-mfa-howitworks.md) 및 [조건부 액세스](conditional-access-configure.md)를 비롯한 [SQL Server Management Studio용 Active Directory 유니버설 인증](authentication-mfa-ssms-overview.md) 연결이 있습니다.
 
 > [!IMPORTANT]
-> Azure 내에서 데이터베이스와 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 아티클에 대한 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 참조하세요. 방화벽 규칙을 사용 하 여 액세스를 제어 하는 것은 **SQL Managed Instance** 에는 적용 *되지* 않습니다. 필요한 네트워킹 구성에 대 한 자세한 내용은 [관리 되는 인스턴스에 연결 하](../managed-instance/connect-application-instance.md) 는 다음 문서를 참조 하세요.
+> Azure 내에서 데이터베이스와 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 문서에 대 한 자세한 내용은 [Azure Portal의 Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 참조 하세요. 방화벽 규칙을 사용 하 여 액세스를 제어 하는 것은 **SQL Managed Instance** 에는 적용 *되지* 않습니다. 필요한 네트워킹 구성에 대 한 자세한 내용은 [관리 되는 인스턴스에 연결 하](../managed-instance/connect-application-instance.md) 는 다음 문서를 참조 하세요.
 
 ## <a name="authorization"></a>권한 부여
 

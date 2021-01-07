@@ -3,22 +3,19 @@ title: IoT Central을 사용하여 에너지 산업 솔루션 빌드 | Microsoft
 description: Azure IoT Central 애플리케이션 템플릿을 사용하여 에너지 솔루션을 빌드하는 방법을 알아봅니다.
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 0cc9fd5836371a925be531de773ea9c2e276c0eb
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ff7b98908296714a59aa9a24767e80e212e00e68
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127355"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516655"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>IoT Central을 사용하여 에너지 산업 솔루션 빌드 
-
-
-
 
 스마트 미터 및 태양 전지판은 에너지 산업 혁신에 있어서 중요한 역할을 합니다. 스마트 미터는 에너지 사용량에 대한 보다 강력한 제어 및 실시간 인사이트를 제공하며, 태양 전지판은 재생 에너지 생성의 돌파구가 되고 있습니다. 스마트 미터 및 태양 전지판 모니터링 앱은 다양한 기능을 보여 주는 샘플 템플릿입니다. 파트너는 이러한 템플릿을 활용하여 IoT Central에서 특정 요구에 맞는 에너지 솔루션을 빌드할 수 있습니다. 이러한 애플리케이션을 배포하고 사용하는 데는 새로운 코딩 및 추가 비용이 필요하지 않습니다. 에너지 애플리케이션 템플릿 및 해당 기능에 대해 자세히 알아보세요.
 

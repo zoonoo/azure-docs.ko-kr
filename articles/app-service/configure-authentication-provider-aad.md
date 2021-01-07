@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 2968fd84febdd3b98aa5d8b42cbf3fb66cad2036
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0c06cb11d916b417cf577b7b8f3578749feddd62
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289801"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092230"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -44,15 +44,17 @@ ms.locfileid: "93289801"
    1. **기존 AD 앱 선택** 을 선택한 다음, **Azure AD 앱** 을 클릭합니다.
    2. 기존 앱 등록을 선택하고 **확인** 을 클릭합니다.
 
-3. **확인** 을 선택하여 Azure Active Directory에 App Service 앱을 등록합니다. 새 앱이 등록됩니다.
+4. **확인** 을 선택하여 Azure Active Directory에 App Service 앱을 등록합니다. 새 앱이 등록됩니다.
 
     ![Azure Active Directory의 기본 설정](./media/configure-authentication-provider-aad/express-settings.png)
 
-4. (선택 사항) 기본적으로 App Service는 인증을 제공하지만, 사이트 콘텐츠 및 API에 대한 권한 있는 액세스를 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다. Azure Active Directory에서 인증된 사용자만 앱에 액세스할 수 있도록 제한하려면 **요청이 인증되지 않은 경우 수행할 작업** 을 **Azure Active Directory로 로그인** 으로 설정합니다. 이 기능을 설정하면 앱에서 모든 요청을 인증해야 합니다. 또한 앱은 인증되지 않은 모든 요청을 인증받기 위해 Azure Active Directory로 리디렉션합니다.
+5. (선택 사항) 기본적으로 App Service는 인증을 제공하지만, 사이트 콘텐츠 및 API에 대한 권한 있는 액세스를 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다. Azure Active Directory에서 인증된 사용자만 앱에 액세스할 수 있도록 제한하려면 **요청이 인증되지 않은 경우 수행할 작업** 을 **Azure Active Directory로 로그인** 으로 설정합니다. 이 기능을 설정하면 앱에서 모든 요청을 인증해야 합니다. 또한 앱은 인증되지 않은 모든 요청을 인증받기 위해 Azure Active Directory로 리디렉션합니다.
 
     > [!CAUTION]
     > 이러한 방식으로 액세스를 제한하면 모든 앱 호출에 제한이 적용되며, 여러 단일 페이지 애플리케이션이 그렇듯이 공개적으로 사용 가능한 홈페이지가 있는 앱에는 이 방법이 바람직하지 않을 수 있습니다. 이러한 애플리케이션에서는 **익명 요청 허용(작업 없음)** 으로 설정하고, 앱에서 수동으로 로그인을 시작하는 것이 더 좋은 방법일 수 있습니다. 자세한 내용은 [인증 흐름](overview-authentication-authorization.md#authentication-flow)을 참조하세요.
-5. **저장** 을 선택합니다.
+6. **저장** 을 선택합니다.
+
+Azure Storage 및 Microsoft Graph에 액세스 하는 웹 앱에 대 한 Azure AD 로그인 구성 예제는 [이 자습서](scenario-secure-app-authentication-app-service.md)를 참조 하세요.
 
 ## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>고급 설정을 사용하여 구성
 
@@ -157,6 +159,7 @@ App Service 앱을 구성할 때 다음 정보가 필요합니다.
 ## <a name="next-steps"></a><a name="related-content"> </a>다음 단계
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
+* [자습서: Azure Storage 및 Microsoft Graph에 액세스 하는 웹 앱에서 사용자 인증 및 권한 부여](scenario-secure-app-authentication-app-service.md)
 * [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여](tutorial-auth-aad.md)
 <!-- URLs. -->
 

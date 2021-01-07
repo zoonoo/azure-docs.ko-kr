@@ -5,14 +5,14 @@ keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, 자연어 이해, nlu
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 11/23/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 242d131e79966ebdb286a20f75d20f91f5fa7406
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fb36ab8a86a89d6383f93ad58c23956472841de2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334653"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95539263"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -50,7 +50,7 @@ LUIS 앱은 클라이언트 애플리케이션이 현명한 선택을 내릴 수
 
 LUIS 앱은 도메인별 자연어 모델을 포함합니다. 미리 작성된 모델로 LUIS 앱을 시작할 수도 있고, 직접 작성할 수도 있고, 미리 작성된 도메인 조각을 사용자 고유의 정보와 혼합할 수도 있습니다.
 
-* **미리 작성된 모델** LUIS에는 의도, 발언 및 미리 작성된 엔터티를 비롯하여 미리 작성된 여러 도메인 모델이 포함되어 있습니다. 미리 작성된 모델의 의도 및 발언을 사용하지 않고도 미리 작성된 엔터티를 사용할 수 있습니다. [미리 작성된 도메인 모델](luis-how-to-use-prebuilt-domains.md "미리 빌드된 도메인 모델")에는 모든 디자인이 포함되며 LUIS를 빠르게 시작하는 유용한 방법입니다.
+* **미리 작성된 모델** LUIS에는 의도, 발언 및 미리 작성된 엔터티를 비롯하여 미리 작성된 여러 도메인 모델이 포함되어 있습니다. 미리 작성된 모델의 의도 및 발언을 사용하지 않고도 미리 작성된 엔터티를 사용할 수 있습니다. [미리 작성된 도메인 모델](./howto-add-prebuilt-models.md "미리 빌드된 도메인 모델")에는 모든 디자인이 포함되며 LUIS를 빠르게 시작하는 유용한 방법입니다.
 
 * **사용자 지정 모델** LUIS는 의도와 엔터티를 포함한 사용자 지정 모델을 식별하는 여러 가지 방법을 제공합니다. 엔터티에는 기계 학습 엔터티, 특정 또는 리터럴 엔터티 및 기계 학습과 리터럴의 조합이 포함됩니다.
 
@@ -116,7 +116,7 @@ LUIS(Language Understanding)는 REST API로서 HTTP 요청과 함께 모든 제�
 
 ## <a name="integrate-with-a-bot"></a>봇과 통합
 
-[Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework")와 함께 [Azure Bot 서비스](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0 "Azure Bot 서비스")를 사용하여 채팅 봇을 빌드 및 배포합니다. 상위 봇 시나리오를 위해 디자인된 그래픽 인터페이스 도구, [작성기](https://docs.microsoft.com/composer/ "작성기") 또는 [작업 봇 샘플](https://github.com/microsoft/BotBuilder-Samples "작업 봇 샘플")을 사용하여 디자인하고 개발합니다.
+[Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework")와 함께 [Azure Bot 서비스](/azure/bot-service/ "Azure Bot 서비스")를 사용하여 채팅 봇을 빌드 및 배포합니다. 상위 봇 시나리오를 위해 디자인된 그래픽 인터페이스 도구, [작성기](/composer/ "작성기") 또는 [작업 봇 샘플](https://github.com/microsoft/BotBuilder-Samples "작업 봇 샘플")을 사용하여 디자인하고 개발합니다.
 
 ## <a name="integrate-with-other-cognitive-services"></a>다른 Cognitive Services와 통합
 
@@ -131,6 +131,10 @@ LUIS는 기존 LUIS 리소스의 일부로 Text Analytics의 기능을 제공합
 [포털](get-started-portal-build-app.md "portal") 및 [SDK 클라이언트 라이브러리](azure-sdk-quickstart.md "SDK 클라이언트 라이브러리")를 사용하여 실습 빠른 시작이 포함된 LUIS에 대해 알아봅니다.
 
 
+## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
+
+[LUIS 컨테이너를 사용하여](luis-container-howto.md) 온-프레미스에 API 기능을 배포합니다. 이러한 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 * 서비스 및 설명서의 [새로운 기능](whats-new.md "새로운 기능")
@@ -138,8 +142,8 @@ LUIS는 기존 LUIS 리소스의 일부로 Text Analytics의 기능을 제공합
 * [예측 엔드포인트를 쿼리](luis-get-started-get-intent-from-browser.md "예측 엔드포인트 쿼리")합니다.
 * LUIS의 [개발자 리소스](developer-reference-resource.md "개발자 리소스").
 
-[bot-framework]: https://docs.microsoft.com/bot-framework/
-[flow]: https://docs.microsoft.com/connectors/luis/
+[bot-framework]: /bot-framework/
+[flow]: /connectors/luis/
 [authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
 [endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

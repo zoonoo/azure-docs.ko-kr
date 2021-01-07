@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd64c80acceb1542c080fc45efbce59f287d448a
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895395"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680696"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Azure Maps 공간 IO 모듈을 사용 하는 방법
 
@@ -30,15 +30,14 @@ Azure Maps 웹 SDK는 공간 **IO 모듈** 을 제공 합니다 .이 모듈은 �
 
 이 비디오는 Azure Maps Web SDK의 공간 IO 모듈에 대 한 개요를 제공 합니다.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="공간 데이터를 Azure Maps에 쉽게 통합-Microsoft Channel 9 비디오"></iframe>
-
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
 
 > [!WARNING]
 > 신뢰 하는 원본에서 가져온 데이터 및 서비스만 사용 합니다. 특히 다른 도메인에서 참조 하는 경우에만 사용 합니다. 공간 IO 모듈은 위험을 최소화 하는 단계를 수행 하지만, 가장 안전한 방법은 응용 프로그램에 danagerous 데이터를 사용할 수 없는 것입니다. 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 조건
 
 공간 IO 모듈을 사용 하려면 먼저 [Azure Maps 계정을](./quick-demo-map-app.md#create-an-azure-maps-account) 만들고 [계정에 대 한 기본 구독 키를 가져와야](./quick-demo-map-app.md#get-the-primary-key-for-your-account)합니다.
 

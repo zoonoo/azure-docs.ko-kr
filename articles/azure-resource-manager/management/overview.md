@@ -3,19 +3,19 @@ title: Azure Resource Manager 개요
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
 ms.topic: overview
 ms.date: 09/01/2020
-ms.custom: contperfq1
-ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f3b3ebce3dd34637a787895e7724736adfc186fb
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372275"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032255"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
 Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure 계정에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성합니다.
 
-Azure Resource Manager 템플릿에 대한 자세한 내용은 [템플릿 배포 개요](../templates/overview.md)를 참조하세요.
+ARM 템플릿(Azure Resource Manager 템플릿)에 대한 자세한 내용은 [템플릿 배포 개요](../templates/overview.md)를 참조하세요.
 
 ## <a name="consistent-management-layer"></a>일관적인 관리 계층
 
@@ -95,7 +95,7 @@ Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독
 
 * 일부 리소스는 리소스 그룹 외부에 존재할 수 있습니다. 이러한 리소스는 [구독](../templates/deploy-to-subscription.md), [관리 그룹](../templates/deploy-to-management-group.md) 또는 [테넌트](../templates/deploy-to-tenant.md)에 배포됩니다. 이러한 범위에서는 특정 리소스 유형만 지원됩니다.
 
-* 리소스 그룹을 만들려면 [포털](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups) 또는 [ARM(Azure Resource Manager) 템플릿](../templates/deploy-to-subscription.md#resource-groups)을 사용하면 됩니다.
+* 리소스 그룹을 만들려면 [포털](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups) 또는 [ARM 템플릿](../templates/deploy-to-subscription.md#resource-groups)을 사용하면 됩니다.
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Manager의 복원력
 

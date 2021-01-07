@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 398e964ad773e4c015129c6dd3d4784f1300e16b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896852"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905777"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -76,12 +76,12 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 데이터의 스크린샷을 살펴보면 다음을 확인할 수 있습니다.
 
-* 위치 정보는 **AddressLine** , **City** , **Municipality** (준주), **AdminDivision** (시/도), **PostCode** (우편 번호) 및 **Country** 열을 사용하여 저장합니다.  
+* 위치 정보는 **AddressLine**, **City**, **Municipality**(준주), **AdminDivision**(시/도), **PostCode**(우편 번호) 및 **Country** 열을 사용하여 저장합니다.  
 * **Latitude** 및 **Longitude** 열에는 각 Contoso Coffee 커피숍 위치의 좌표가 포함됩니다. 좌표 정보가 없으면 Azure Maps의 Search Service를 사용하여 위치 좌표를 확인할 수 있습니다.
 * 몇 개의 추가 열에 커피숍에 관련된 메타데이터, 즉 전화 번호, 부울 열 및 매장 개장 및 마감 시간(24시간 형식)이 포함됩니다. 부울 열은 Wi-Fi 핫스폿 및 휠체어 이용 가능성을 위한 것입니다. 위치 데이터와 관련성이 좀 더 깊은 메타데이터를 포함하는 고유한 열을 만들 수 있습니다.
 
 > [!NOTE]
-> Azure Maps는 구형 Mercator 프로젝션 "EPSG:3857"의 데이터를 렌더링하되, WGS84 데이터를 사용하는 "EPSG:4325"의 데이터를 읽습니다.
+> Azure Maps는 구형 Mercator 프로젝션 "EPSG:3857"의 데이터를 렌더링하지만, WGS84 데이텀을 사용하는 "EPSG:4326"의 데이터를 읽습니다.
 
 애플리케이션에 데이터 세트를 노출하는 방법은 다양합니다. 한 가지 방법은 데이터베이스에 데이터를 로드하고, 데이터를 쿼리하는 웹 서비스를 노출하는 것입니다. 그런 다음, 결과를 사용자의 브라우저로 보낼 수 있습니다. 이 옵션은 대형 데이터 세트 또는 자주 업데이트되는 데이터 세트에 이상적입니다. 그러나 이 옵션을 제공하려면 더 많은 개발 작업이 필요하며 비용도 많이 듭니다.
 
@@ -97,7 +97,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 ## <a name="set-up-the-project"></a>프로젝트 설정
 
-프로젝트를 만들려면 [Visual Studio](https://visualstudio.microsoft.com) 또는 원하는 코드 편집기를 사용할 수 있습니다. 프로젝트 폴더에서 세 개의 파일 *index.html* , *index.css* , 및 *index.js* 를 만듭니다. 이러한 파일은 애플리케이션에 대한 레이아웃, 스타일 및 논리를 정의합니다. *data* 라는 폴더를 만들고 이 폴더에 *ContosoCoffee.txt* 를 추가합니다. *images* 라는 다른 폴더를 만듭니다. 이 애플리케이션에서는 지도의 아이콘, 단추 및 마커에 10개의 이미지를 사용합니다. [이러한 이미지를 다운로드](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)할 수 있습니다. 이제 프로젝트 폴더는 다음 그림과 같이 표시됩니다.
+프로젝트를 만들려면 [Visual Studio](https://visualstudio.microsoft.com) 또는 원하는 코드 편집기를 사용할 수 있습니다. 프로젝트 폴더에서 세 개의 파일 *index.html*, *index.css*, 및 *index.js* 를 만듭니다. 이러한 파일은 애플리케이션에 대한 레이아웃, 스타일 및 논리를 정의합니다. *data* 라는 폴더를 만들고 이 폴더에 *ContosoCoffee.txt* 를 추가합니다. *images* 라는 다른 폴더를 만듭니다. 이 애플리케이션에서는 지도의 아이콘, 단추 및 마커에 10개의 이미지를 사용합니다. [이러한 이미지를 다운로드](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)할 수 있습니다. 이제 프로젝트 폴더는 다음 그림과 같이 표시됩니다.
 
 ![간단한 매장 로케이터 프로젝트 폴더 스크린샷](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
@@ -432,7 +432,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
             }
         };
 
-        //If the user selects the My Location button, use the Geolocation API to get the user's location. Center and zoom the map on that location.
+        //If the user selects the My Location button, use the Geolocation API (Preview) to get the user's location. Center and zoom the map on that location.
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation;
 
         //Wait until the map resources are ready.
@@ -472,7 +472,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
     function setMapToUserLocation() {
         //Request the user's location.
         navigator.geolocation.getCurrentPosition(function(position) {
-            //Convert the Geolocation API position to a longitude and latitude position value that the map can interpret and center the map over it.
+            //Convert the Geolocation API (Preview) position to a longitude and latitude position value that the map can interpret and center the map over it.
             map.setCamera({
                 center: [position.coords.longitude, position.coords.latitude],
                 zoom: maxClusterZoomLevel + 1

@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 481f1353e16fecd0e413152db89a4ae54824a0f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e184d85e3daee41f530334aa0034fc98f40a8766
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019286"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099225"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>자습서: Table API를 사용하여 Azure Cosmos DB 쿼리
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Azure Cosmos DB의 [Table API](table-introduction.md)는 키/값(테이블) 데이터에 대한 OData 및 [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 쿼리를 지원합니다.  
 

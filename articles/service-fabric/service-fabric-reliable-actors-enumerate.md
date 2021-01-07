@@ -1,17 +1,15 @@
 ---
 title: Azure Service Fabric에서 행위자 열거
 description: 예제를 사용 하 여 Azure Service Fabric 응용 프로그램에서 Reliable Actors 및 해당 메타 데이터 열거에 대해 알아봅니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd3a61db32fb8e442beb42bd45c88da8559a29dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11742d1a1c0837588e7122ee615f3f7929aae363
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016651"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571353"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 열거
 Reliable Actors 서비스를 사용하면 클라이언트가 서비스가 호스트하는 행위자에 대한 메타데이터를 열거할 수 있습니다. 행위자 서비스는 분할된 상태 저장 서비스이므로 열거는 파티션에 따라 수행됩니다. 각 파티션에는 많은 행위자가 포함될 수 있으므로 이 열거는 일련의 페이징된 결과로 반환됩니다. 페이지는 모든 페이지를 읽을 때까지 반복됩니다. 다음 예제에서는 행위자 서비스의 한 파티션에 있는 모든 활성 행위자의 목록을 만드는 방법을 보여줍니다.

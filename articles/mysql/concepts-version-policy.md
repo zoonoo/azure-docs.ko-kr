@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0670107d84374589aa60cc18f184b9b3d3facce1
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 4903f1e48eb2f33c68d62c635201474b841ed146
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331807"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591515"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Azure Database for MySQL 버전 관리 정책
 
@@ -30,7 +30,7 @@ Azure Database for MySQL는 다음 데이터베이스 버전을 지원 합니다
 
 
 ## <a name="major-version-support"></a>주 버전 지원
-각 주 버전의 MySQL은 버전 [관리 정책](https://en.wikipedia.org/wiki/mysql)에 제공 된 대로 mysql 커뮤니티에서 버전을 사용 중지할 때까지 Azure에서 버전을 지원 하기 시작 하는 날짜의 Azure Database for MySQL에서 지원 됩니다.
+각 주 버전의 MySQL은 버전 [관리 정책](https://www.mysql.com/support/eol-notice.html)에 제공 된 대로 mysql 커뮤니티에서 버전을 사용 중지할 때까지 Azure에서 버전을 지원 하기 시작 하는 날짜의 Azure Database for MySQL에서 지원 됩니다.
 
 ## <a name="minor-version-support"></a>부 버전 지원
 정기적 유지 관리의 일환으로 Azure 기본 설정 MySQL 버전으로 자동으로 부 버전 업그레이드를 수행 Azure Database for MySQL 합니다. 
@@ -40,8 +40,8 @@ Azure Database for MySQL는 다음 데이터베이스 버전을 지원 합니다
 
 | 버전 | What's New | Azure 지원 시작 날짜 | 사용 중지 날짜|
 | ----- | ----- | ------ | ----- |
-| [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/)| [기능](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | 2018년 3월 20일 | 2 월 2021
-| [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/) | [기능](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | 2018년 3월 20일 | 10 월 2023
+| [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/)| [기능](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | 2018년 3월 20일 | 2 월 2021
+| [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [기능](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | 2018년 3월 20일 | 10 월 2023
 | [MySQL 8](https://mysqlserverteam.com/whats-new-in-mysql-8-0-generally-available/) | [기능](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)) | 2019년 12월 11일 | 4 월 2026
 
 

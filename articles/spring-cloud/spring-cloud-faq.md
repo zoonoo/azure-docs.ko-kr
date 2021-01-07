@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 99246ecee27f7ded693e2a797f8e98480e350983
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900280"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854532"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -37,7 +37,7 @@ Azure 스프링 클라우드는 Azure Monitor, Application Insights 및 Log Anal
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Azure 스프링 클라우드를 사용할 수 있는 지역은 어디 인가요?
 
-미국 동부, 미국 동부 2, 미국 중부, 미국 중 북부, 미국 서 부 2, 유럽 서부, 유럽 서 부, 영국 남부, 동남 아시아 및 오스트레일리아 동부.
+미국 동부, 미국 동부 2, 미국 중부, 미국 중 북부, 미국 중 북부, 미국 서 부, 미국 서 부 2, 유럽 서부, 북부, 영국 남부, 동남 아시아, 오스트레일리아 동부, 캐나다 중부 및 아랍에미리트 북부
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>지정 된 지역 외부에 저장 된 고객 데이터는 무엇 인가요?
 
@@ -69,13 +69,30 @@ Azure 스프링 클라우드를 시작 하는 가장 빠른 방법은 [빠른 �
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Azure Spring Cloud에서 지원하는 Java 런타임은 어떻게 되나요?
 
 Azure Spring Cloud는 Java 8 및 11을 지원합니다. [Java 런타임 및 OS 버전을](#java-runtime-and-os-versions) 참조 하세요.
+
+### <a name="is-spring-boot-24x-supported"></a>스프링 부팅 2.4. x가 지원 되나요?
+스프링 부팅 2.4 문제를 확인 하 고 현재 스프링 커뮤니티와 협력 하 여 문제를 해결 하 고 있습니다. 그 동안에는 이러한 두 가지 종속성을 포함 하 여 앱과 Eureka 간에 TLS 인증을 사용 하도록 설정 하세요.
+
+```xml
+<dependency> 
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-client</artifactId>
+    <version>1.19.4</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.jersey.contribs</groupId>
+    <artifactId>jersey-apache-client4</artifactId>
+    <version>1.19.4</version>
+</dependency>
+```
+
 ::: zone-end
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>내 스프링 클라우드 응용 프로그램 로그 및 메트릭은 어디에서 볼 수 있나요?
 
-메트릭은 [앱 개요] 탭 및 [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) 탭에서 찾습니다.
+메트릭은 [앱 개요] 탭 및 [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer) 탭에서 찾습니다.
 
-Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, EventHub 및 [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries)으로 내보내는 것을 지원 합니다. Log Analytics의 테이블 이름은 *AppPlatformLogsforSpring* 입니다. 사용 하도록 설정 하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조 하세요.
+Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, EventHub 및 [Log Analytics](../azure-monitor/platform/data-platform-logs.md)으로 내보내는 것을 지원 합니다. Log Analytics의 테이블 이름은 *AppPlatformLogsforSpring* 입니다. 사용 하도록 설정 하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조 하세요.
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud는 분산 추적을 지원하나요?
 
@@ -93,6 +110,21 @@ Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로�
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>내 응용 프로그램 내에서 영구적 볼륨을 보거나 추가 하거나 이동할 수 있나요?
 
 예.
+
+### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>Azure 스프링 클라우드 인스턴스에 있는 아웃 바운드 공용 IP 주소의 수는 몇 개입니까?
+
+아웃 바운드 공용 IP 주소의 수는 계층 및 기타 요인에 따라 달라질 수 있습니다. 
+
+| Azure 스프링 클라우드 인스턴스 유형 | 기본 아웃 바운드 공용 IP 주소 수 |
+| -------------------------------- | ---------------------------------------------- |
+| 기본 계층 인스턴스             | 1                                              |
+| 표준 계층 인스턴스          | 2                                              |
+| VNet 삽입 인스턴스         | 1                                              |
+
+
+### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>아웃 바운드 공용 IP 주소의 수를 늘릴 수 있나요?
+
+예, 추가 아웃 바운드 공용 IP 주소를 요청 하는 [지원 티켓](https://azure.microsoft.com/support/faq/)  을 열 수 있습니다.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Azure 스프링 클라우드 서비스 인스턴스를 삭제/이동할 때 확장 리소스도 삭제/이동 됩니까?
 

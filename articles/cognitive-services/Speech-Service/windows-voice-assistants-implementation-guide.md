@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a529875536c2feafe05695e5d20daed0873a95e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0503e0bf2fe152296ca6890e14503d05bd3bbeef
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934449"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024775"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Windows에서 음성 도우미 구현
 
@@ -30,15 +30,15 @@ ms.locfileid: "88934449"
 
 #### <a name="ensure-that-the-microphone-is-available-and-accessible-then-monitor-its-state"></a>마이크가 사용 가능 하 고 액세스 가능한 지 확인 한 다음 해당 상태를 모니터링 합니다.
 
-MVA는 마이크가 있어야 하 고 음성 정품 인증을 검색할 수 있는 액세스 가능 해야 합니다. [Appcapability](https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [Devicewatcher](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362)및 [MediaCapture](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) 클래스를 사용 하 여 마이크 개인 정보 액세스, 장치 상태 및 장치 상태 (예: 볼륨 및 음소거)를 각각 확인 합니다.
+MVA는 마이크가 있어야 하 고 음성 정품 인증을 검색할 수 있는 액세스 가능 해야 합니다. [Appcapability](/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [Devicewatcher](/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362)및 [MediaCapture](/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) 클래스를 사용 하 여 마이크 개인 정보 액세스, 장치 상태 및 장치 상태 (예: 볼륨 및 음소거)를 각각 확인 합니다.
 
 ### <a name="register-the-application-with-the-background-service"></a>백그라운드 서비스에 응용 프로그램 등록
 
-MVA가 백그라운드에서 응용 프로그램을 시작 하도록 하려면 백그라운드 서비스에 응용 프로그램을 등록 해야 합니다. [여기](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task)에서 백그라운드 서비스 등록에 대 한 전체 가이드를 참조 하세요.
+MVA가 백그라운드에서 응용 프로그램을 시작 하도록 하려면 백그라운드 서비스에 응용 프로그램을 등록 해야 합니다. [여기](/windows/uwp/launch-resume/register-a-background-task)에서 백그라운드 서비스 등록에 대 한 전체 가이드를 참조 하세요.
 
 ### <a name="unlock-the-limited-access-feature"></a>제한 된 액세스 기능 잠금 해제
 
-Microsoft에서 제공 하는 제한 된 액세스 기능 키를 사용 하 여 음성 도우미 기능의 잠금을 해제 합니다. Windows SDK에서 [LimitedAccessFeature](https://docs.microsoft.com/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) 클래스를 사용 하 여이 작업을 수행 합니다.
+Microsoft에서 제공 하는 제한 된 액세스 기능 키를 사용 하 여 음성 도우미 기능의 잠금을 해제 합니다. Windows SDK에서 [LimitedAccessFeature](/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) 클래스를 사용 하 여이 작업을 수행 합니다.
 
 ### <a name="register-the-keyword-for-the-application"></a>응용 프로그램에 대 한 키워드 등록
 
@@ -86,7 +86,7 @@ Windows는 두 가지 방법 중 하나로 키워드를 검색할 때 앱에 신
 
 ### <a name="retrieve-activation-audio"></a>정품 인증 오디오 검색
 
-[오디오 그래프](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) 를 만들어의에 전달 합니다 `CreateAudioDeviceInputNodeAsync` `ConversationalAgentSession` . 그러면 *키워드가 검색 되기 약 3 초 전에*오디오를 사용 하 여 그래프의 오디오 버퍼가 로드 됩니다. 이 추가 선행 오디오는 광범위 한 키워드 길이와 스피커 속도를 수용 하기 위해 포함 되었습니다. 그런 다음 오디오 그래프에서 [QuantumStarted](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) 이벤트를 처리 하 여 오디오 데이터를 검색 합니다.
+[오디오 그래프](/uwp/api/windows.media.audio.audiograph) 를 만들어의에 전달 합니다 `CreateAudioDeviceInputNodeAsync` `ConversationalAgentSession` . 그러면 *키워드가 검색 되기 약 3 초 전에* 오디오를 사용 하 여 그래프의 오디오 버퍼가 로드 됩니다. 이 추가 선행 오디오는 광범위 한 키워드 길이와 스피커 속도를 수용 하기 위해 포함 되었습니다. 그런 다음 오디오 그래프에서 [QuantumStarted](/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) 이벤트를 처리 하 여 오디오 데이터를 검색 합니다.
 
 ```csharp
 var inputNode = await agentSession.CreateAudioDeviceInputNodeAsync(audioGraph);
@@ -118,7 +118,7 @@ await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);
 
 위의 잠금 환경을 디자인 하는 방법에 대 한 지침은 [모범 사례 가이드](windows-voice-assistants-best-practices.md)를 참조 하세요.
 
-앱이 잠금 위에 표시 되 면 "키오스크 모드"로 간주 됩니다. 키오스크 모드를 사용 하는 앱을 구현 하는 방법에 대 한 자세한 내용은 [키오스크 모드 설명서](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access)를 참조 하세요.
+앱이 잠금 위에 표시 되 면 "키오스크 모드"로 간주 됩니다. 키오스크 모드를 사용 하는 앱을 구현 하는 방법에 대 한 자세한 내용은 [키오스크 모드 설명서](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access)를 참조 하세요.
 
 ### <a name="transitioning-above-lock"></a>위의 잠금 전환
 
@@ -149,7 +149,7 @@ conversationalAgentSession.SystemStateChanged += (s, e) =>
 잠금 보다 높거나 낮은 상태에서 프로그래밍 방식으로 응용 프로그램을 닫으려면 API를 사용 `WindowService.CloseWindow()` 합니다. 이렇게 하면 OnSuspend를 비롯 한 모든 UWP 수명 주기 메서드가 트리거되고 응용 프로그램에서 인스턴스를 삭제 하는 것을 허용 `ConversationalAgentSession` 합니다.
 
 > [!NOTE]
-> 응용 프로그램은 [아래 잠금 인스턴스](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-)를 닫지 않고 닫을 수 있습니다. 이 경우 위의 잠금 보기를 "정리" 하 여 화면이 잠금 해제 된 후에는 위의 잠금 보기를 조작 하려고 하는 이벤트 처리기 나 태스크가 없도록 해야 합니다.
+> 응용 프로그램은 [아래 잠금 인스턴스](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-)를 닫지 않고 닫을 수 있습니다. 이 경우 위의 잠금 보기를 "정리" 하 여 화면이 잠금 해제 된 후에는 위의 잠금 보기를 조작 하려고 하는 이벤트 처리기 나 태스크가 없도록 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

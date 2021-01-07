@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913112"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359849"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
 
@@ -37,7 +37,7 @@ ms.locfileid: "92913112"
 * [Azure Portal 사용](#azure-portal)
 * [Azure CLI 사용](#azure-cli)
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 수행 합니다. 
 
@@ -86,7 +86,7 @@ Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 �
    * 서버 URL-로 설정 합니다. `https://mcr.microsoft.com`
    * Username (선택 사항)-사용자 이름을 만듭니다. 
    * 암호 (선택 사항)-기억할 보안 암호를 만듭니다.
-   * 이미지 및 태그-로 설정 합니다. `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * 이미지 및 태그-로 설정 합니다. `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
    * 연속 배포-개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면이를 **On** 으로 설정 합니다.
    * 시작 명령-이를로 설정 합니다. `./run.sh eula=accept`
     
@@ -95,10 +95,13 @@ Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 �
    > [!div class="mx-imgBorder"]
    > ![Docker 구성](./media/quickstarts/formre-configure-docker.png)
 
-7. 정말 간단하죠. 그런 다음 **검토 + 만들기** , **만들기** 를 차례로 선택 하 여 웹 앱을 배포 합니다. 완료 되 면 리소스에 대 한 **개요** 에 제공 된 URL에서 웹 앱에 액세스할 수 있습니다.
+7. 정말 간단하죠. 그런 다음 **검토 + 만들기**, **만들기** 를 차례로 선택 하 여 웹 앱을 배포 합니다. 완료 되 면 리소스에 대 한 **개요** 에 제공 된 URL에서 웹 앱에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 웹 앱을 만들 때 권한 부여/인증을 구성할 수도 있습니다. 시작 하는 데 필요 하지 않습니다. 
+
+> [!IMPORTANT]
+> 웹 앱에 대 한 TLS를 사용 하도록 설정 해야 해당 주소에서 볼 수 있습니다 `https` . 웹 앱에 TLS/SSL을 사용 하도록 설정 하는 것 보다 사이드카 컨테이너를 설정 하려면 [tls 끝점 사용](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) 의 지침을 따르세요.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -136,7 +139,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \

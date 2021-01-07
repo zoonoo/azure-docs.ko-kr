@@ -1,6 +1,6 @@
 ---
-title: 연속 통합 및 배포
-description: Azure Pipelines를 사용한 연속 통합 및 배포에 대 한 기본 제공 지원을 통해 데이터 웨어하우징에 대 한 엔터프라이즈급 데이터베이스 DevOps 환경
+title: 전용 SQL 풀에 대 한 지속적인 통합 및 배포
+description: Azure Pipelines를 사용한 연속 통합 및 배포에 대 한 기본 제공 지원을 통해 Azure Synapse Analytics의 전용 SQL 풀에 대 한 엔터프라이즈급 데이터베이스 DevOps 환경
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 061be5addd0c236db5d982e6103e3cf455b9c361
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9f2bbc39b9c9c4770775bf49a7775ab8980a1f3b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480533"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589902"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>데이터 웨어하우징에 대 한 지속적인 통합 및 배포
+# <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대 한 연속 통합 및 배포
 
 이 간단한 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 Azure DevOps와 통합하고, Azure Pipelines를 활용하여 지속적인 통합 및 배포를 설정하는 방법에 대해 간략히 설명합니다. 이 자습서는 데이터 웨어하우징에 대 한 연속 통합 및 배포 파이프라인을 구축 하는 두 번째 단계입니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "92480533"
 
       ![YAML](./media/sql-data-warehouse-continuous-integration-and-deployment/3-yaml-file.png "YAML")
 
-이 시점에서 원본 제어 리포지토리 마스터 분기에 대한 체크 인에서 데이터베이스 프로젝트의 성공적인 Visual Studio 빌드를 자동으로 트리거하는 간단한 환경이 있습니다. 로컬 데이터베이스 프로젝트를 변경하고 마스터 분기에서 변경 내용을 체크 인하여 자동화가 엔드투엔드 방식으로 작동하는지 확인합니다.
+이 시점에서는 소스 제어 리포지토리 주 분기에 대 한 체크 인이 데이터베이스 프로젝트의 성공적인 Visual Studio 빌드를 자동으로 트리거하는 간단한 환경을 만들었습니다. 로컬 데이터베이스 프로젝트를 변경 하 고 주 분기에 대 한 변경 내용을 체크 인하여 자동화가 종단 간 작업을 수행 하는지 확인 합니다.
 
 ## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>Azure Synapse Analytics (또는 데이터베이스) 배포 작업을 사용한 연속 배포
 
@@ -60,7 +60,7 @@ ms.locfileid: "92480533"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SYNAPSE SQL 풀 아키텍처](massively-parallel-processing-mpp-architecture.md) 살펴보기
-- 빠르게 [SQL 풀 만들기](create-data-warehouse-portal.md)
+- [전용 sql 풀 (이전의 SQL DW) 아키텍처](massively-parallel-processing-mpp-architecture.md) 탐색
+- [전용 sql 풀 빠르게 만들기 (이전의 SQL DW)](create-data-warehouse-portal.md)
 - [샘플 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
 - [비디오](sql-data-warehouse-videos.md) 살펴보기

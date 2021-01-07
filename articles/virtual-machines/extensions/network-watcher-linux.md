@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
-ms.openlocfilehash: 37a2724e28269d5f8b10d6ae7073aacc8272255b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 870606299ee0e76c7a55578f258e837c4b8a9368
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86494771"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952270"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux용 Network Watcher 에이전트 가상 머신 확장
 
@@ -75,11 +76,11 @@ Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 구성�
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 |
+| 속성 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | 게시자 | Microsoft.Azure.NetworkWatcher |
-| type | NetworkWatcherAgentLinux |
+| 형식 | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>템플릿 배포
@@ -117,6 +118,6 @@ Azure Portal 및 Azure CLI를 사용하여 확장 배포 상태에 대한 데이
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1
 ```
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 [Network Watcher 설명서](../../network-watcher/index.yml)를 참조 하거나 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어느 시점에서 든 도움이 필요한 경우 [Network Watcher 설명서](../../network-watcher/index.yml)를 참조 하거나 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기** 를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

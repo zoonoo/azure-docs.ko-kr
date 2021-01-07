@@ -6,19 +6,19 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
-ms.openlocfilehash: eb2212d618d45187779b328c7ba164bbacc980a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2dd60d1962734f7a4264587fd1b5b0d2a03c9ff0
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088693"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359747"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 오늘날의 애플리케이션은 응답성이 뛰어나며 항상 온라인을 유지해야 합니다. 짧은 대기 시간 및 고가용성을 이루려면 이러한 애플리케이션의 인스턴스를 해당 사용자에서 가까운 데이터 센터에 배포해야 합니다. 애플리케이션은 최고 사용 시간의 큰 변화에 실시간으로 응답하고, 계속 증가하는 데이터 볼륨을 저장하며, 사용자가 이 데이터를 밀리초 단위로 사용할 수 있도록 해야 합니다.
 
-Azure Cosmos DB는 최신 앱 개발을 위한 완전 관리형 NoSQL 데이터베이스입니다. 한 자릿수 밀리초 응답 시간과 자동 및 즉시 확장성은 모든 규모에서 속도를 보장합니다. 비즈니스 연속성은 [SLA 지원](https://azure.microsoft.com/support/legal/sla/cosmos-db) 가용성 및 엔터프라이즈급 보안을 통해 보장됩니다. 전 세계 어디서나 턴키 다중 마스터 데이터 배포, 인기 있는 언어를 위한 오픈 소스 API 및 SDK를 통해 더 빠르고 효율적으로 웹 개발이 이루어집니다. 완전 관리형 서비스인 Azure Cosmos DB는 자동 관리, 업데이트 및 패치를 통해 데이터베이스 관리를 직접 수행할 수 있습니다. 또한 용량과 비용을 일치시키기 위해 애플리케이션 요구 사항에 대응하는 비용 효율적인 서버리스 및 자동 확장 옵션으로 용량 관리를 처리합니다.
+Azure Cosmos DB는 최신 앱 개발을 위한 완전 관리형 NoSQL 데이터베이스입니다. 한 자릿수 밀리초 응답 시간과 자동 및 즉시 확장성은 모든 규모에서 속도를 보장합니다. 비즈니스 연속성은 [SLA 지원](https://azure.microsoft.com/support/legal/sla/cosmos-db) 가용성 및 엔터프라이즈급 보안을 통해 보장됩니다. 전 세계 어디서나 턴키 다중 지역 데이터 배포, 인기 있는 언어를 위한 오픈 소스 API 및 SDK를 통해 더 빠르고 효율적으로 웹 개발이 이루어집니다. 완전 관리형 서비스인 Azure Cosmos DB는 자동 관리, 업데이트 및 패치를 통해 데이터베이스 관리를 직접 수행할 수 있습니다. 또한 용량과 비용을 일치시키기 위해 애플리케이션 요구 사항에 대응하는 비용 효율적인 서버리스 및 자동 확장 옵션으로 용량 관리를 처리합니다.
 
 Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://azure.microsoft.com/try/cosmosdb/)을 사용해 보거나, [Azure Cosmos DB 체험 계층](optimize-dev-test.md#azure-cosmos-db-free-tier)을 사용하여 처음에 400RU/초 및 5GB의 스토리지를 무료로 사용할 수 있는 계정을 얻을 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://a
 - Azure Cosmos DB는 전 세계 업계 최고의 가용성을 포함하는 포괄적인 [SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) 제품군을 제공합니다.
 - 자동 데이터 복제를 통해 모든 Azure 지역에 데이터를 쉽게 배포할 수 있습니다. 강력한 일관성을 사용하는 경우 다중 지역 쓰기 또는 RPO 0으로 가동 중지 시간을 방지합니다.
 - 자체 관리형 키를 사용하여 엔터프라이즈급 미사용 암호화 기능을 이용하세요.
-- 역할 기반 액세스 제어는 데이터를 안전하게 유지하고 세밀하게 조정되는 컨트롤을 제공합니다.
+- Azure 역할 기반 액세스 제어는 데이터를 안전하게 유지하고 세밀하게 조정되는 컨트롤을 제공합니다.
 
 ### <a name="fully-managed-and-cost-effective"></a>완전 관리형 및 비용 효율성
 

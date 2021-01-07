@@ -2,13 +2,13 @@
 title: 템플릿 사양을 연결 된 템플릿으로 배포
 description: 연결 된 배포에 기존 템플릿 사양을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: 9755774f79ee4901c8aa691054da749f37756742
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/17/2020
+ms.openlocfilehash: b30a99a469ec010dcc2e128bbeb446b493631608
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321576"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518875"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>자습서: 템플릿 사양을 연결 된 템플릿으로 배포 (미리 보기)
 
@@ -19,7 +19,7 @@ ms.locfileid: "93321576"
 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> 템플릿 사양은 현재 미리 보기 상태입니다. 이를 사용하려면 [미리 보기에 가입](https://aka.ms/templateSpecOnboarding)해야 합니다.
+> 템플릿 사양은 현재 미리 보기 상태입니다. Azure PowerShell에서 사용 하려면 [버전 5.0.0 이상을](/powershell/azure/install-az-ps)설치 해야 합니다. Azure CLI에서 사용 하려면 [버전 2.14.2](/cli/azure/install-azure-cli)이상을 사용 합니다.
 
 ## <a name="create-a-template-spec"></a>템플릿 사양 만들기
 

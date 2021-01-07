@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 545399e1d7941351ce861ac98d995d5e57006ea1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074365"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022856"
 ---
 # <a name="use-the-azure-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 Azure 직렬 콘솔 사용
 
@@ -38,12 +38,12 @@ SysRq 시퀀스가 전달되면 커널 구성이 시스템의 응답을 제어�
 SysRq 명령은 중지된 가상 머신 또는 해당 커널이 응답하지 않는 상태의 가상 머신에서 사용할 수 없습니다. (예: 커널 패닉)
 
 ### <a name="enable-sysrq"></a>SysRq를 사용하도록 설정
-위의 *SysRq 관리자 가이드*에 설명된 대로 모두, 없음 또는 특정 명령만 사용할 수 있도록 SysRq를 구성할 수 있습니다. 아래 단계를 사용하여 모든 SysRq 명령을 사용하도록 설정할 수 있지만 재부팅하면 해제됩니다.
+위의 *SysRq 관리자 가이드* 에 설명된 대로 모두, 없음 또는 특정 명령만 사용할 수 있도록 SysRq를 구성할 수 있습니다. 아래 단계를 사용하여 모든 SysRq 명령을 사용하도록 설정할 수 있지만 재부팅하면 해제됩니다.
 ```
 echo "1" >/proc/sys/kernel/sysrq
 ```
 SysReq 구성을 영구적으로 유지하려면 다음을 수행하여 모든 SysRq 명령을 사용하도록 설정할 수 있습니다.
-1. 이 줄을 */etc/sysctl.conf*에 추가 <br>
+1. 이 줄을 */etc/sysctl.conf* 에 추가 <br>
     `kernel.sysrq = 1`
 1. 다음을 실행하여 다시 부팅하거나 sysctl 업데이트 <br>
     `sysctl -p`
@@ -106,7 +106,7 @@ NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어
 
 ### <a name="enable-nmi"></a>NMI 사용
 커널 매개 변수를 구성하기 위해 sysctl을 지원하는 Linux 시스템의 경우 다음을 사용하여 이 NMI을 받으면 패닉을 사용하도록 설정할 수 있습니다.
-1. 이 줄을 */etc/sysctl.conf*에 추가 <br>
+1. 이 줄을 */etc/sysctl.conf* 에 추가 <br>
     `kernel.panic_on_unrecovered_nmi=1`
 1. 다음을 실행하여 다시 부팅하거나 sysctl 업데이트 <br>
     `sysctl -p`

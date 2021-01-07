@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.openlocfilehash: fe8acfd1bfd14f339a0109cab215b8a9ab65256f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893882"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021557"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>자습서: Segment와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -104,7 +104,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -158,7 +158,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Segment 구성](./media/segment-tutorial/segment5.PNG)
 
-1. Azure Portal에서 복사한 **로그인 URL** 을 **SAML 2.0 Endpoint URL** (SAML 2.0 엔드포인트 URL) 상자에 붙여넣습니다.
+1. Azure Portal에서 복사한 **로그인 URL** 을 **SAML 2.0 Endpoint URL**(SAML 2.0 엔드포인트 URL) 상자에 붙여넣습니다.
 
 1. Azure Portal에서, 다운로드한 **인증서(Base64)** 를 메모장으로 열고, 내용을 **공용 인증서** 텍스트 상자에 붙여넣습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Dv2 및 Dsv2 시리즈-Azure Virtual Machines
+title: Dv2 및 DSv2 시리즈-Azure Virtual Machines
 description: Dv2 및 Dsv2 시리즈 Vm에 대 한 사양입니다.
 author: joelpelley
 ms.service: virtual-machines
@@ -7,16 +7,16 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 785e72a47d68bf368e160b1f3bf2a6d762d1f100
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1bd2e0360b064a71dd91241d40513d8c37447bb
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649697"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635639"
 ---
 # <a name="dv2-and-dsv2-series"></a>Dv2 및 DSv2 시리즈
 
-원본 D 시리즈에 대 한 후속 작업 인 Dv2 및 Dsv2 시리즈는 대부분의 프로덕션 워크 로드에 적합 한 강력한 CPU 및 최적의 CPU 메모리 구성을 기능 합니다. Dv2 시리즈는 D 시리즈보다 약 35% 빠릅니다. Dv2 시리즈는 intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 g h z (Skylake), Intel® Xeon® E5-2673 v4 2.3 g h z (Broadwell) 또는 intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 되며 Intel 터보 부스트 기술 2.0입니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
+원본 D 시리즈에 대 한 후속 작업 인 Dv2 및 DSv2 시리즈는 대부분의 프로덕션 워크 로드에 적합 한 강력한 CPU 및 최적의 CPU 메모리 구성을 기능 합니다. Dv2 시리즈는 D 시리즈보다 약 35% 빠릅니다. Dv2 시리즈는 intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 g h z (Skylake), Intel® Xeon® E5-2673 v4 2.3 g h z (Broadwell) 또는 intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 되며 Intel 터보 부스트 기술 2.0입니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
 ## <a name="dv2-series"></a>Dv2 시리즈
 

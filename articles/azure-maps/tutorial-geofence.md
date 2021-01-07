@@ -10,11 +10,11 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: ee32749e2c6f0118507fcfc6d4994a04ea3a6d69
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896803"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997276"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
@@ -56,7 +56,7 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 
     URL 경로의 `geojson` 매개 변수는 업로드되는 데이터의 데이터 형식을 나타냅니다.
 
-4. **본문** 탭을 선택합니다. 입력 형식으로 **raw** , **JSON** 을 차례로 선택합니다. 다음 GeoJSON 데이터를 복사하여 **Body** 텍스트 영역에 붙여넣습니다.
+4. **본문** 탭을 선택합니다. 입력 형식으로 **raw**, **JSON** 을 차례로 선택합니다. 다음 GeoJSON 데이터를 복사하여 **Body** 텍스트 영역에 붙여넣습니다.
 
    ```JSON
    {
@@ -199,7 +199,7 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 5. **Logic App** 페이지에서 다음 값을 입력합니다.
     * 이 논리 앱에 사용하려는 **구독**
     * 이 논리 앱에 대한 **리소스 그룹** 이름 **새로 만들기** 를 선택할 수도 있고 **기존 리소스 그룹 사용** 을 선택할 수도 있습니다.
-    * 논리 앱의 **Logic App 이름** . 여기서는 `Equipment-Enter`를 이름으로 사용합니다.
+    * 논리 앱의 **Logic App 이름**. 여기서는 `Equipment-Enter`를 이름으로 사용합니다.
 
     이 자습서의 목적을 위해 그 외의 값은 기본 설정을 유지합니다.
 
@@ -209,19 +209,19 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 
 7. 트리거 형식을 선택합니다. **일반적인 트리거로 시작** 섹션이 나올 때까지 아래로 스크롤합니다. **HTTP 요청을 수신한 경우** 를 선택합니다.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="논리 앱 만들기 스크린샷":::
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="논리 앱 HTTP 트리거 만들기 스크린샷":::
 
 8. 논리 앱 디자이너의 오른쪽 위 모서리에서 **저장** 을 선택합니다. **HTTP POST URL** 이 자동으로 생성됩니다. URL을 저장합니다. 다음 섹션에서 이벤트 엔드포인트를 만드는 데 필요합니다.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="논리 앱 만들기 스크린샷":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="논리 앱 HTTP 요청 URL 및 JSON의 스크린샷":::
 
 9. **+ 새 단계** 를 선택합니다. 이제 작업을 선택합니다. 검색 상자에 `outlook.com email`를 입력합니다. **작업** 목록에서 아래로 스크롤하여 **이메일 보내기(V2)** 를 선택합니다.
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="논리 앱 만들기 스크린샷":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="논리 앱 만들기 디자이너의 스크린샷":::
 
 10. Outlook 계정에 로그인합니다. 논리 앱이 계정에 액세스할 수 있도록 **예** 를 선택합니다. 이메일을 보내기 위한 필드를 채웁니다.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="논리 앱 만들기 스크린샷":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="논리 앱 만들기 이메일 보내기 단계의 스크린샷":::
 
     >[!TIP]
     > 이메일 알림에서 `geometryId` 또는 `deviceId`와 같은 GeoJSON 응답 데이터를 검색할 수 있습니다. Event Grid에서 보낸 데이터를 읽도록 Logic Apps를 구성할 수 있습니다. 이벤트 데이터를 사용하고 이메일 알림에 전달하도록 Logic App을 구성하는 방법에 대한 자세한 내용은 [자습서: Event Grid 및 Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기](../event-grid/publish-iot-hub-events-to-logic-apps.md)를 참조하세요.
@@ -238,11 +238,11 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 
 1. Azure Maps 계정으로 이동합니다. 대시보드에서 **구독** 을 선택합니다. 구독 이름을 선택하고, 설정 메뉴에서 **이벤트** 를 선택합니다.
 
-    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="논리 앱 만들기 스크린샷":::
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Azure Maps 계정 이벤트로 이동 스크린샷":::
 
 2. 이벤트 구독을 만들려면 이벤트 페이지에서 **+ 이벤트 구독** 을 선택합니다.
 
-    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="논리 앱 만들기 스크린샷":::
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Azure Maps 이벤트 구독 만들기 스크린샷":::
 
 3. **이벤트 구독 만들기** 페이지에서 다음 값을 입력합니다.
     * 이벤트 구독의 **이름**
@@ -252,7 +252,7 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
     * **엔드포인트 유형** 으로 `Web Hook`를 선택합니다.
     * **엔드포인트** 에는 이전 섹션에서 만든 논리 앱 입장 엔드포인트의 HTTP POST URL을 복사합니다. 이 URL을 저장하지 않은 경우 논리 앱 디자이너로 돌아가서 HTTP 트리거 단계에서 복사하면 됩니다.
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="논리 앱 만들기 스크린샷":::
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Azure Maps 이벤트 구독 세부 정보 스크린샷":::
 
 4. **만들기** 를 선택합니다.
 

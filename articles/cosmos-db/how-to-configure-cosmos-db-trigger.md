@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: c47d18726d9581b1b03aa2e676a71d6ca1bc1b7d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f753010eb994c9f3c286ad6eca6392ca7b643075
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086469"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932914"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 로깅 및 연결을 구성 하는 방법
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -82,7 +82,7 @@ Azure Functions 프로젝트가 Azure Functions V1 런타임과 함께 작동하
 ```
 
 > [!NOTE]
-> Azure Functions 사용량 계획 호스팅 계획을 사용하면 각 인스턴스가 유지할 수 있는 소켓 연결의 양에 제한이 있습니다. 직접/TCP 모드를 사용하면 기본적으로 더 많은 연결이 생성되며 [사용량 계획 제한](../azure-functions/manage-connections.md#connection-limit)에 도달할 수 있습니다. 이 경우 게이트웨이 모드를 사용하거나 [앱 서비스 모드](../azure-functions/functions-scale.md#app-service-plan)에서 Azure Functions를 실행하면 됩니다.
+> 소비 계획에서 함수 앱을 호스트 하는 경우 각 인스턴스는 유지 관리할 수 있는 소켓 연결의 양에 제한이 있습니다. 직접/TCP 모드로 작업할 때 더 많은 연결을 디자인 하 고 [소비 계획 제한](../azure-functions/manage-connections.md#connection-limit)에 도달할 수 있습니다 .이 경우 게이트웨이 모드를 사용 하거나 대신 [프리미엄 계획](../azure-functions/functions-premium-plan.md) 또는 [전용 (App Service) 계획](../azure-functions/dedicated-plan.md)에서 함수 앱을 호스팅할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

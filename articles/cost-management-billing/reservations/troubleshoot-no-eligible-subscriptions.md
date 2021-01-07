@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/14/2020
-ms.openlocfilehash: fd7a2bde47f34a61390082a223409070275b64ce
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/15/2020
+ms.openlocfilehash: ad85bd278b5dff1532f218acc0b8e88515d96070
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92115204"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561208"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>적격 구독 없음 문제 해결
 
@@ -22,12 +22,12 @@ ms.locfileid: "92115204"
 ## <a name="symptoms"></a>증상
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, **예약** 으로 이동합니다.
-1. **추가** , 서비스를 차례로 선택합니다.
+1. **추가**, 서비스를 차례로 선택합니다.
 1. 다음 오류 메시지가 표시됩니다.
    ```
     No eligible subscriptions
     
-    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should be an owner on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
+    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should have owner or reservation purchaser permission on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
     ```
 1. **구매할 제품 선택** 영역에서 **청구 구독** 목록을 펼쳐서 특정 구독에서 예약 인스턴스를 구매할 수 없는 이유를 확인합니다. 다음 이미지에서는 예약을 구매할 수 없는 예를 보여 줍니다.  
     :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="예약을 구매할 수 없는 이유를 보여 주는 예" lightbox="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" :::
@@ -37,7 +37,7 @@ ms.locfileid: "92115204"
 Azure 예약 인스턴스를 구매하려면 다음 요구 사항을 충족하는 하나 이상의 구독이 있어야 합니다.
 
 - 구독은 지원되는 제안 유형이어야 합니다. 지원되는 제안 유형은 종량제, CSP(클라우드 솔루션 공급자), Microsoft Azure 엔터프라이즈 또는 Microsoft 고객 계약입니다.
-- 구독의 소유자여야 합니다.
+- 구독의 소유자 또는 예약 구매자여야 합니다.
 
 요구 사항을 충족하는 구독이 없는 경우 `No eligible subscriptions` 오류가 발생합니다.
 
@@ -51,19 +51,17 @@ Subscription not eligible for purchase
 This subscription is not eligible for reservation benefit an cannot be used to purchase a reservation.
 ```
 
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="예약을 구매할 수 없는 이유를 보여 주는 예" :::
+:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="'구독으로 구입할 수 없음' 오류 메시지를 보여 주는 예" :::
 
 ### <a name="cause-2"></a>원인 2
 
-구독의 소유자여야 합니다. 구독의 소유자가 아닙니다. 소유자가 아닌 구독을 선택하면 다음과 같은 오류가 표시됩니다.
+구독의 소유자 또는 예약 구매자여야 합니다. 충분한 권한이 없으면 다음과 같은 오류가 표시됩니다.
 
 ```
-You do not have owner access on the subscription
+You do not have owner or reservation purchaser access on the subscription
 
-You can only purchase reservations using subscriptions on which you have owner access.
+You can only purchase reservations using subscriptions on which you have owner or reservation purchaser access.
 ```
-
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/no-owner-access.png" alt-text="예약을 구매할 수 없는 이유를 보여 주는 예" :::
 
 ## <a name="solution"></a>해결 방법
 
@@ -96,8 +94,8 @@ You can only purchase reservations using subscriptions on which you have owner a
 1. 소유자로 추가할 사용자의 메일 주소를 입력합니다.
 1. 사용자를 선택한 다음 **저장** 을 선택합니다.
 
-자세한 내용은 [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)을 참조하세요.
+자세한 내용은 [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 예약 소유자에게 액세스 권한을 부여해야 하는 경우 [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)을 검토합니다.
+- 예약 소유자에게 액세스 권한을 부여해야 하는 경우 [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default)을 검토합니다.

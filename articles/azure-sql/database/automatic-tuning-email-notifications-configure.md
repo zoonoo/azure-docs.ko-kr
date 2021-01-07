@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: cdc43add2e57e45a32b0b42ead8c3107d93c193f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a373a28a180b2a6c72f6a291b9d1437a2e88d9ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675249"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500957"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -41,15 +41,15 @@ Azure Automation을 사용하려는 경우 첫 번째 단계는 자동화 계정
 Azure Marketplace에서 자동화 앱을 선택 하 고 구성 하는 방법을 통해 Azure Automation 계정을 만들려면 다음 단계를 따르세요.
 
 1. Azure Portal에 로그인합니다.
-1. 왼쪽 위 모서리에서 " **+ 리소스 만들기** "를 클릭 합니다.
-1. " **Automation** "을 검색 합니다 (enter 키 누름).
+1. 왼쪽 위 모서리에서 "**+ 리소스 만들기**"를 클릭 합니다.
+1. "**Automation**"을 검색 합니다 (enter 키 누름).
 1. 검색 결과에서 Automation 앱을 클릭 합니다.
 
     ![Azure Automation 추가](./media/automatic-tuning-email-notifications-configure/howto-email-01.png)
 
-1. "Automation 계정 만들기" 창 내에서 " **만들기** "를 클릭 합니다.
+1. "Automation 계정 만들기" 창 내에서 "**만들기**"를 클릭 합니다.
 1. 필요한 정보를 입력 합니다 .이 automation 계정의 이름을 입력 하 고 PowerShell 스크립트 실행에 사용할 azure 구독 ID 및 Azure 리소스를 선택 합니다.
-1. " **Azure 실행 계정 만들기** " 옵션에 대해 **예** 를 선택 하 여 Azure Automation 도움말을 사용 하 여 PowerShell 스크립트를 실행 하는 계정 유형을 구성 합니다. 계정 유형에 대해 자세히 알아보려면 [실행 계정](../../automation/manage-runas-account.md)을 참조 하세요.
+1. "**Azure 실행 계정 만들기**" 옵션에 대해 **예** 를 선택 하 여 Azure Automation 도움말을 사용 하 여 PowerShell 스크립트를 실행 하는 계정 유형을 구성 합니다. 계정 유형에 대해 자세히 알아보려면 [실행 계정](../../automation/manage-runas-account.md)을 참조 하세요.
 1. **만들기** 를 클릭 하 여 automation 계정 만들기를 마칩니다.
 
 > [!TIP]
@@ -70,16 +70,16 @@ Azure Marketplace에서 자동화 앱을 선택 하 고 구성 하는 방법을 
 Azure Automation Runbook을 만들려면 다음 단계를 수행합니다.
 
 1. 이전 단계에서 만든 Azure Automation 계정에 액세스 합니다.
-1. Automation 계정 창에서 왼쪽의 " **runbook** " 메뉴 항목을 클릭 하 여 PowerShell 스크립트를 사용 하 여 새 Azure Automation runbook을 만듭니다. Automation runbook을 만드는 방법에 대해 자세히 알아보려면 [새 Runbook 만들기](../../automation/manage-runbooks.md#create-a-runbook)를 참조 하세요.
-1. 새 runbook을 추가 하려면 " **+ Runbook 추가** " 메뉴 옵션을 클릭 한 다음 " **빠른 생성 – 새 runbook 만들기** "를 클릭 합니다.
-1. Runbook 창에서 runbook의 이름을 입력 하 고 (이 예제에서는 " **자동 Tuningemailautomation** " 사용) runbook의 유형을 **PowerShell** 로 선택 하 고이 runbook의 용도를 설명 하는 설명을 작성 합니다.
+1. Automation 계정 창에서 왼쪽의 "**runbook**" 메뉴 항목을 클릭 하 여 PowerShell 스크립트를 사용 하 여 새 Azure Automation runbook을 만듭니다. Automation runbook을 만드는 방법에 대해 자세히 알아보려면 [새 Runbook 만들기](../../automation/manage-runbooks.md#create-a-runbook)를 참조 하세요.
+1. 새 runbook을 추가 하려면 "**+ Runbook 추가**" 메뉴 옵션을 클릭 한 다음 "**빠른 생성 – 새 runbook 만들기**"를 클릭 합니다.
+1. Runbook 창에서 runbook의 이름을 입력 하 고 (이 예제에서는 "**자동 Tuningemailautomation**" 사용) runbook의 유형을 **PowerShell** 로 선택 하 고이 runbook의 용도를 설명 하는 설명을 작성 합니다.
 1. **만들기** 단추를 클릭 하 여 새 runbook 만들기를 완료 합니다.
 
     ![Azure Automation Runbook 추가](./media/automatic-tuning-email-notifications-configure/howto-email-03.png)
 
 만든 Runbook 내에 PowerShell 스크립트를 로드하려면 다음 단계를 수행합니다.
 
-1. " **PowerShell Runbook 편집** " 창의 메뉴 트리에서 " **runbook** "을 선택 하 고 Runbook 이름이 표시 될 때까지 보기를 확장 합니다 (이 예제에서는 " **자동 tuningemailautomation** "). 이 Runbook을 선택합니다.
+1. "**PowerShell Runbook 편집**" 창의 메뉴 트리에서 "**runbook**"을 선택 하 고 Runbook 이름이 표시 될 때까지 보기를 확장 합니다 (이 예제에서는 "**자동 tuningemailautomation**"). 이 Runbook을 선택합니다.
 1. "PowerShell Runbook 편집"의 첫 번째 줄 (숫자 1부터 시작)에서 다음 PowerShell 스크립트 코드를 복사 하 여 붙여넣습니다. 이 PowerShell 스크립트는 사용자가 시작할 수 있도록만 제공됩니다. 요구에 맞게 스크립트를 수정합니다.
 
 제공된 PowerShell 스크립트의 헤더에서 `<SUBSCRIPTION_ID_WITH_DATABASES>`를 Azure 구독 ID로 바꾸어야 합니다. Azure 구독 ID를 검색하는 방법을 알아보려면 [Azure 구독 GUID 가져오기](/archive/blogs/mschray/getting-your-azure-subscription-guid-new-portal)를 참조하세요.
@@ -171,9 +171,9 @@ $table = $results | Format-List
 Write-Output $table
 ```
 
-오른쪽 위 모서리에서 " **저장** " 단추를 클릭 하 여 스크립트를 저장 합니다. 스크립트에 만족 하는 경우 " **게시** " 단추를 클릭 하 여이 runbook을 게시 합니다.
+오른쪽 위 모서리에서 "**저장**" 단추를 클릭 하 여 스크립트를 저장 합니다. 스크립트에 만족 하는 경우 "**게시**" 단추를 클릭 하 여이 runbook을 게시 합니다.
 
-주 runbook 창에서 " **시작** " 단추를 클릭 하 여 스크립트를 **테스트** 하도록 선택할 수 있습니다. " **출력** "을 클릭 하 여 실행 된 스크립트의 결과를 확인 합니다. 이 출력은 전자 메일의 콘텐츠로 사용될 것입니다. 스크립트의 샘플 출력은 다음 스크린샷에 확인할 수 있습니다.
+주 runbook 창에서 "**시작**" 단추를 클릭 하 여 스크립트를 **테스트** 하도록 선택할 수 있습니다. "**출력**"을 클릭 하 여 실행 된 스크립트의 결과를 확인 합니다. 이 출력은 전자 메일의 콘텐츠로 사용될 것입니다. 스크립트의 샘플 출력은 다음 스크린샷에 확인할 수 있습니다.
 
 ![Azure Automation을 사용한 자동 조정 권장 사항 보기 실행](./media/automatic-tuning-email-notifications-configure/howto-email-04.png)
 
@@ -185,45 +185,45 @@ Write-Output $table
 
 솔루션을 완료하려면 최종 단계로, Microsoft Flow에서 다음 3가지 작업으로 구성되는 자동화 흐름을 만듭니다.
 
-- " **Azure Automation-작업 만들기** " – PowerShell 스크립트를 실행 하 여 Azure Automation runbook 내에서 자동 조정 권장 사항을 검색 하는 데 사용 됩니다.
-- " **Azure Automation-작업 출력 가져오기** "-실행 된 PowerShell 스크립트에서 출력을 검색 하는 데 사용 됩니다.
-- " **Office 365 Outlook-전자 메일 보내기** "-전자 메일을 보내는 데 사용 됩니다. 전자 메일은 흐름을 만드는 개별의 회사 또는 학교 계정을 사용 하 여 전송 됩니다.
+- "**Azure Automation-작업 만들기**" – PowerShell 스크립트를 실행 하 여 Azure Automation runbook 내에서 자동 조정 권장 사항을 검색 하는 데 사용 됩니다.
+- "**Azure Automation-작업 출력 가져오기**"-실행 된 PowerShell 스크립트에서 출력을 검색 하는 데 사용 됩니다.
+- "**Office 365 Outlook-전자 메일 보내기**"-전자 메일을 보내는 데 사용 됩니다. 전자 메일은 흐름을 만드는 개별의 회사 또는 학교 계정을 사용 하 여 전송 됩니다.
 
 Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](/flow/getting-started)을 참조하세요.
 
 이 단계의 전제 조건은 [Microsoft Flow](https://flow.microsoft.com) 계정에 등록 하 고 로그인 하는 것입니다. 솔루션 내부에서 다음 단계에 따라 **새 흐름** 을 설정합니다.
 
-1. " **내 흐름** " 메뉴 항목에 액세스 합니다.
-1. 내 흐름 내에서 페이지 맨 위에 있는 " **+ 빈 페이지에서 만들기** " 링크를 선택 합니다.
-1. 페이지 맨 아래에 있는 " **수백 개의 커넥터 및 트리거 검색** " 링크를 클릭 합니다.
-1. 검색 필드에 " **되풀이** "를 입력 하 고 검색 결과에서 " **일정-되풀이** "를 선택 하 여 전자 메일 배달 작업이 실행 되도록 예약 합니다.
+1. "**내 흐름**" 메뉴 항목에 액세스 합니다.
+1. 내 흐름 내에서 페이지 맨 위에 있는 "**+ 빈 페이지에서 만들기**" 링크를 선택 합니다.
+1. 페이지 맨 아래에 있는 "**수백 개의 커넥터 및 트리거 검색**" 링크를 클릭 합니다.
+1. 검색 필드에 "**되풀이**"를 입력 하 고 검색 결과에서 "**일정-되풀이**"를 선택 하 여 전자 메일 배달 작업이 실행 되도록 예약 합니다.
 1. 되풀이 창의 빈도 필드에서 이 흐름을 실행할 예약 빈도(예: 분, 시, 일, 주 등의 빈도로 자동 전자 메일 전송)를 선택합니다.
 
 다음 단계는 새로 만든 되풀이 흐름에 3개의 작업(전자 메일 만들기, 출력 가져오기 및 전자 메일 전송)을 추가하는 것입니다. 필요한 작업을 흐름에 추가하려면 다음 단계를 따릅니다.
 
 1. 조정 권장 사항을 검색하는 PowerShell 스크립트를 실행하는 작업을 만듭니다.
 
-   - " **+ 새 단계** "를 선택 하 고 되풀이 흐름 창 내에서 " **작업 추가** "를 선택 합니다.
-   - 검색 필드에 " **automation** "을 입력 하 고 검색 결과에서 " **Azure Automation – 작업 만들기** "를 선택 합니다.
+   - "**+ 새 단계**"를 선택 하 고 되풀이 흐름 창 내에서 "**작업 추가**"를 선택 합니다.
+   - 검색 필드에 "**automation**"을 입력 하 고 검색 결과에서 "**Azure Automation – 작업 만들기**"를 선택 합니다.
    - 작업 만들기 창에서 작업 속성을 구성합니다. 이 구성에 대해 **Automation 계정 창** 에서 **이전에 기록한** Azure 구독 ID, 리소스 그룹 및 Automation 계정의 세부 정보가 필요합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 만들기](/connectors/azureautomation/#create-job)를 참조하세요.
-   - " **흐름 저장** "을 클릭 하 여이 작업 만들기를 완료 합니다.
+   - "**흐름 저장**"을 클릭 하 여이 작업 만들기를 완료 합니다.
 
 2. 실행 된 PowerShell 스크립트에서 출력을 검색 하는 작업 만들기
 
-   - " **+ 새 단계** "를 선택 하 고 되풀이 흐름 창 내에서 " **작업 추가** "를 선택 합니다.
-   - 검색 필드에 " **automation** "을 입력 하 고 검색 결과에서 " **Azure Automation – 작업 출력 가져오기** "를 선택 합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 출력 가져오기](/connectors/azureautomation/#get-job-output)를 참조하세요.
+   - "**+ 새 단계**"를 선택 하 고 되풀이 흐름 창 내에서 "**작업 추가**"를 선택 합니다.
+   - 검색 필드에 "**automation**"을 입력 하 고 검색 결과에서 "**Azure Automation – 작업 출력 가져오기**"를 선택 합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 출력 가져오기](/connectors/azureautomation/#get-job-output)를 참조하세요.
    - 필요한 필드 채우기 (이전 작업을 만드는 것과 유사)-Azure 구독 ID, 리소스 그룹 및 Automation 계정 (Automation 계정 창에 입력)을 채웁니다.
-   - " **동적 콘텐츠** " 메뉴에 대해 " **작업 ID** " 필드 내부를 클릭 하 여 표시 합니다. 이 메뉴에서 " **작업 ID** " 옵션을 선택 합니다.
-   - " **흐름 저장** "을 클릭 하 여이 작업 만들기를 완료 합니다.
+   - "**동적 콘텐츠**" 메뉴에 대해 "**작업 ID**" 필드 내부를 클릭 하 여 표시 합니다. 이 메뉴에서 "**작업 ID**" 옵션을 선택 합니다.
+   - "**흐름 저장**"을 클릭 하 여이 작업 만들기를 완료 합니다.
 
 3. Office 365 통합을 사용 하 여 전자 메일을 보내는 작업 만들기
 
-   - " **+ 새 단계** "를 선택 하 고 되풀이 흐름 창 내에서 " **작업 추가** "를 선택 합니다.
-   - 검색 필드에서 " **전자 메일 보내기** "를 입력 하 고 검색 결과에서 " **Office 365 Outlook-전자 메일 보내기** "를 선택 합니다.
-   - " **대상** " 필드에서 알림 전자 메일을 보내야 하는 전자 메일 주소를 입력 합니다.
-   - " **제목** " 필드에 전자 메일의 제목 (예: "자동 조정 권장 구성 전자 메일 알림")을 입력 합니다.
-   - " **동적 콘텐츠** " 메뉴의 " **본문** " 내부를 클릭 하 여 표시 합니다. 이 메뉴 내에서 " **작업 출력 가져오기** " 아래에 있는 " **콘텐츠** "를 선택 합니다.
-   - " **흐름 저장** "을 클릭 하 여이 작업 만들기를 완료 합니다.
+   - "**+ 새 단계**"를 선택 하 고 되풀이 흐름 창 내에서 "**작업 추가**"를 선택 합니다.
+   - 검색 필드에서 "**전자 메일 보내기**"를 입력 하 고 검색 결과에서 "**Office 365 Outlook-전자 메일 보내기**"를 선택 합니다.
+   - "**대상**" 필드에서 알림 전자 메일을 보내야 하는 전자 메일 주소를 입력 합니다.
+   - "**제목**" 필드에 전자 메일의 제목 (예: "자동 조정 권장 구성 전자 메일 알림")을 입력 합니다.
+   - "**동적 콘텐츠**" 메뉴의 "**본문**" 내부를 클릭 하 여 표시 합니다. 이 메뉴 내에서 "**작업 출력 가져오기**" 아래에 있는 "**콘텐츠**"를 선택 합니다.
+   - "**흐름 저장**"을 클릭 하 여이 작업 만들기를 완료 합니다.
 
 > [!TIP]
 > 자동화된 전자 메일을 다른 받는 사람에게 전송하려면 별도 흐름을 만듭니다. 이러한 추가 흐름에서 "받는 사람" 필드의 받는 사람 전자 메일 주소를 변경 하 고 "제목" 필드에 전자 메일 제목 줄을 변경 합니다. Azure 구독 ID를 변경 하는 등의 사용자 지정 된 PowerShell 스크립트를 사용 하 여 Azure Automation에서 새 runbook을 만드는 경우에는 별도의 구독에 대 한 자동화 된 조정 권장 사항을 별도의 받는 사람에 게 전자 메일로 보내는 예 등 자동화 된 시나리오의 추가
@@ -232,7 +232,7 @@ Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](/flo
 
 ![자동 조정 전자 메일 알림 흐름 보기](./media/automatic-tuning-email-notifications-configure/howto-email-05.png)
 
-흐름을 테스트 하려면 흐름 창 안쪽의 오른쪽 위 모서리에서 " **지금 실행** "을 클릭 합니다.
+흐름을 테스트 하려면 흐름 창 안쪽의 오른쪽 위 모서리에서 "**지금 실행**"을 클릭 합니다.
 
 전자 메일 알림이 성공적으로 전송되었음을 나타내는 자동화 작업 실행에 대한 통계를 Flow 분석 창에서 볼 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 30ac28ef996c42e99ebece27ec156777f0d033d2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087029"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587879"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Azure Database for MySQL의 복제 지연 문제 해결
 
@@ -30,6 +30,9 @@ ms.locfileid: "93087029"
 - 원본 서버와 보조 서버에서 실행 되는 쿼리입니다. 
 
 이 문서에서는 Azure Database for MySQL의 복제 대기 시간 문제를 해결 하는 방법을 알아봅니다. 또한 복제 서버에서 복제 대기 시간이 증가 하는 몇 가지 일반적인 원인을 이해 하 게 됩니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 종속 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 ## <a name="replication-concepts"></a>복제 개념
 

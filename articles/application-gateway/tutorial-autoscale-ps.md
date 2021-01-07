@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5731b65892877e5c363220d84a0bddeb5f958cee
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74011357"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396875"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>자습서: 웹 애플리케이션 액세스를 향상시키는 애플리케이션 게이트웨이 만들기
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 자습서에서는 Azure PowerShell을 로컬로 실행해야 합니다. Azure PowerShell 모듈 버전 1.0.0 이상이 설치되어 있어야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+이 자습서에서는 Azure PowerShell을 로컬로 실행해야 합니다. Azure PowerShell 모듈 버전 1.0.0 이상이 설치되어 있어야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name $rg -Location $location
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
-프로덕션에 사용하려면 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서에서는 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate)를 사용하여 자체 서명된 인증서를 만듭니다. [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate)을 인증서에서 pfx 파일을 내보내도록 반환된 지문과 함께 사용할 수 있습니다.
+프로덕션에 사용하려면 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서에서는 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate)를 사용하여 자체 서명된 인증서를 만듭니다. [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate)을 인증서에서 pfx 파일을 내보내도록 반환된 지문과 함께 사용할 수 있습니다.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -101,7 +101,7 @@ $vnet = New-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
 
 ## <a name="create-a-reserved-public-ip"></a>예약된 공용 IP 만들기
 
-PublicIPAddress의 할당 메서드를 **Static**(고정)으로 지정합니다. 자동 크기 조정 애플리케이션 게이트웨이 VIP는 정적일 수만 있습니다. 동적 IP는 지원되지 않습니다. 표준 PublicIpAddress SKU만 지원됩니다.
+PublicIPAddress의 할당 메서드를 **Static** (고정)으로 지정합니다. 자동 크기 조정 애플리케이션 게이트웨이 VIP는 정적일 수만 있습니다. 동적 IP는 지원되지 않습니다. 표준 PublicIpAddress SKU만 지원됩니다.
 
 ```azurepowershell
 #Create static public IP

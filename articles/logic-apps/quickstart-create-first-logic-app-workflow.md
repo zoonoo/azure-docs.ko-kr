@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7ec4515d5f1d096cfb83f06c398da4c1254279f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099150"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455060"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>빠른 시작: 첫 번째 Logic Apps 워크플로 만들기 - Azure Portal
 
@@ -112,7 +112,7 @@ ms.locfileid: "93099150"
 
 ## <a name="add-the-send-email-action"></a>"메일 보내기" 작업 추가
 
-[논리 앱에 대한 트리거가 추가](#add-rss-trigger)되면 논리 앱에서 RSS 피드를 확인하고 새 항목을 표시할 때 응답을 결정하는 [작업](../logic-apps/logic-apps-overview.md#logic-app-concepts)을 추가해야 합니다. 또한 [Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일 처리](/tutorial-process-email-attachments-workflow.md) 자습서와 같이 훨씬 더 복잡한 작업이 포함된 논리 앱을 만들 수도 있습니다.
+[논리 앱에 대한 트리거가 추가](#add-rss-trigger)되면 논리 앱에서 RSS 피드를 확인하고 새 항목을 표시할 때 응답을 결정하는 [작업](../logic-apps/logic-apps-overview.md#logic-app-concepts)을 추가해야 합니다. 또한 [Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일 처리](./tutorial-process-email-attachments-workflow.md) 자습서와 같이 훨씬 더 복잡한 작업이 포함된 논리 앱을 만들 수도 있습니다.
 
 > [!NOTE]
 > 이 예제에서는 Office 365 Outlook을 이메일 서비스로 사용합니다. 논리 앱에서 지원되는 다른 이메일 서비스를 사용하는 경우 사용자 인터페이스가 다르게 보일 수 있습니다. 그러나 다른 이메일 서비스에 연결하기 위한 기본 개념은 동일하게 유지됩니다.
@@ -167,7 +167,7 @@ ms.locfileid: "93099150"
 
       !["이메일 보내기" 작업 및 "피드 제목" 속성이 포함된 이메일 제목 예제를 보여주는 Logic Apps 디자이너의 스크린샷](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
-      디자이너에 "For each" 루프가 표시되면 배열에 대한 토큰(예: **categories-Item** 토큰)을 선택한 것입니다. 이러한 종류의 토큰에 대해 디자이너는 해당 토큰을 참조하는 작업 주변에 이 루프를 자동으로 추가합니다. 그렇게 하면 논리 앱이 각 배열 항목에 대해 동일한 작업을 수행합니다. 루프를 제거하려면 루프의 제목 표시줄에서 **줄임표** ( **...** )를 선택한 다음, **삭제** 를 선택합니다.
+      디자이너에 "For each" 루프가 표시되면 배열에 대한 토큰(예: **categories-Item** 토큰)을 선택한 것입니다. 이러한 종류의 토큰에 대해 디자이너는 해당 토큰을 참조하는 작업 주변에 이 루프를 자동으로 추가합니다. 그렇게 하면 논리 앱이 각 배열 항목에 대해 동일한 작업을 수행합니다. 루프를 제거하려면 루프의 제목 표시줄에서 **줄임표**(**...**)를 선택한 다음, **삭제** 를 선택합니다.
 
    1. **본문** 상자에서 이메일 본문에 대한 콘텐츠를 입력합니다. 이 예제에서 콘텐츠에는 각각에 대한 설명 텍스트가 있는 세 가지 속성이 포함되어 있습니다. 즉, `Title:`에는 **피드 제목** 속성, `Date published:`에는 **피드 게시 날짜** 속성 및 `Link:`에는 **기본 피드 링크** 속성이라는 설명 텍스트가 있습니다. 편집 상자에서 빈 줄을 추가하려면 Shift + Enter 키를 누릅니다.
 

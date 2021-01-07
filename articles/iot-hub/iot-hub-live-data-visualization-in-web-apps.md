@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 35df99d0a30b0952521281fa0d6bb95ce0509695
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7753c6c118d763163e6bc8f69f5b4eee13fe2393
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740995"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588797"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -51,13 +51,7 @@ ms.locfileid: "92740995"
 
 * 이 문서의 단계에서는 Windows 개발 머신을 가정합니다. 그러나 선호하는 셸을 사용하여 Linux 시스템에서 이러한 단계를 쉽게 수행할 수 있습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>IoT Hub에 소비자 그룹 추가
 
@@ -190,7 +184,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 5. App Service에 코드를 배포하려면 [사용자 수준 배포 자격 증명](../app-service/deploy-configure-credentials.md)을 사용합니다. 사용자 수준 배포 자격 증명은 Azure 자격 증명과는 다르며 웹앱에 대한 Git 로컬 및 FTP 배포에 사용됩니다. 설정되면 Azure 계정의 모든 구독에 있는 모든 App Service 앱에서 유효합니다. 사용자 수준 배포 자격 증명을 이전에 설정한 경우 해당 자격 증명을 사용할 수 있습니다.
 
-   이전에 사용자 수준 배포 자격 증명을 설정하지 않았거나 암호를 기억할 수 없는 경우 다음 명령을 실행합니다. 배포 사용자 이름은 Azure 내에서 고유해야 하며 로컬 Git 푸시에 대한 '@' 기호를 포함하지 않아야 합니다. 암호를 묻는 메시지가 표시되면 암호를 입력하고 새 암호를 확인합니다. 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다.
+   이전에 사용자 수준 배포 자격 증명을 설정하지 않았거나 암호를 기억할 수 없는 경우 다음 명령을 실행합니다. 배포 사용자 이름은 Azure 내에서 고유 해야 하며 \@ 로컬 Git 푸시에 대 한 ' ' 기호를 포함 하지 않아야 합니다. 암호를 묻는 메시지가 표시되면 암호를 입력하고 새 암호를 확인합니다. 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>
@@ -208,10 +202,10 @@ set EventHubConsumerGroup=YourConsumerGroupName
    git remote add webapp <Git clone URL>
    ```
 
-8. App Service에 코드를 배포하려면 명령 창에 다음 명령을 입력합니다. 자격 증명을 묻는 메시지가 표시되면 5단계에서 만든 사용자 수준 배포 자격 증명을 입력합니다. App Service 원격 기능의 master 분기로 푸시하는지 확인합니다.
+8. App Service에 코드를 배포하려면 명령 창에 다음 명령을 입력합니다. 자격 증명을 묻는 메시지가 표시되면 5단계에서 만든 사용자 수준 배포 자격 증명을 입력합니다. App Service 원격의 주 분기로 푸시 해야 합니다.
 
     ```cmd
-    git push webapp master:master
+    git push webapp main:main
     ```
 
 9. 배포 진행률이 명령 창에서 업데이트됩니다. 성공적으로 배포되면 다음 출력과 유사한 줄로 끝납니다.
@@ -222,7 +216,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
     remote: Running post deployment command(s)...
     remote: Deployment successful.
     To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
-    6b132dd..7cbc994  master -> master
+    6b132dd..7cbc994  main -> main
     ```
 
 10. 다음 명령을 실행하여 웹앱의 상태를 쿼리하고 실행 중인지 확인합니다.

@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 07/01/2020
 ms.author: alkohli
-ms.openlocfilehash: d099e33e7b35381f5404c9f8964d3ea90d4f3908
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a78bce9f6e714aa5564791f6bb63996554beabf1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959479"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375904"
 ---
 마지막 단계는 배송할 디바이스를 준비하는 것입니다. 이 단계에서는 모든 디바이스 공유가 오프라인 상태가 됩니다. 이 프로세스를 시작한 후에는 공유에 액세스할 수 없습니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "85959479"
 
     이 단계에서 오류가 발생하는 경우 상태가 *검사가 완료되었지만 오류 발생* 으로 업데이트됩니다. 디바이스를 잠금 해제하고 **연결 및 복사** 페이지로 이동하여 문제 목록을 다운로드하고 오류를 해결합니다.
 
-    ![배송 준비 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
+    ![배송 준비 4](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 
     오류가 해결되면 **배송 준비** 를 실행합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "85959479"
     1. 완료 참조 번호를 기록해 둡니다. 사용자가 있는 국가에 따라 이 번호는 다른 작업에 필요할 수 있습니다.
     2. 이 프로세스에서 복사된 파일 목록(매니페스트라고도 함)을 다운로드합니다. 나중에 이 목록을 사용하여 Azure에 업로드된 파일을 확인할 수 있습니다. 자세한 내용은 [배송 준비 동안 BOM 파일 검사](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship)를 참조하세요.
         
-        ![배송 준비 1](media/data-box-prepare-to-ship/prepare-to-ship5.png)
+        ![배송 준비 5](media/data-box-prepare-to-ship/prepare-to-ship5.png)
     3. 디바이스에 대한 배송 지침을 선택하고 다운로드합니다. 배송 지침은 사용자가 있는 국가에 따라 다릅니다.
     4. E-ink에 배송 레이블이 표시되지 않는 경우 여기에서 역 배송 레이블을 다운로드할 수 있습니다. 
 

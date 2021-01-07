@@ -8,14 +8,15 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f99d7430b76c0b1c4e9c07835267a4a0807efdb1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e876ca028532bb3721146e90a91d68c4c12bf79f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481366"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096082"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정으로 데이터 마이그레이션
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 이 자습서에서는 Azure Cosmos DB [테이블 API](table-introduction.md)로 사용할 데이터 가져오기에 대한 지침을 제공합니다. Azure Table Storage에 저장된 데이터가 있는 경우 데이터 마이그레이션 도구 또는 AzCopy를 사용하여 데이터를 Azure Cosmos DB Table API로 가져올 수 있습니다. 데이터가 Azure Cosmos DB 테이블 API(미리 보기) 계정에 저장된 경우 데이터 마이그레이션 도구를 사용하여 데이터를 마이그레이션해야 합니다. 
 
@@ -72,7 +73,7 @@ Azure Table Storage에서 가져올 때 원본 연결 문자열을 검색하려�
 
 Azure Cosmos DB 테이블 API(미리 보기) 계정에서 가져올 때 원본 연결 문자열을 검색하려면 Azure Portal을 열고 **Azure Cosmos DB** > **계정** > **연결 문자열** 을 클릭하고 복사 단추를 사용하여 **연결 문자열** 을 복사합니다.
 
-:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="스토리지 계정 > 계정 > 액세스 키 옵션을 보여주고 복사 단추를 강조 표시하는 스크린샷.":::
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="HBase 원본 옵션의 스크린샷":::
 
 [Azure Table Storage 명령 예제](#azure-table-storage)
 

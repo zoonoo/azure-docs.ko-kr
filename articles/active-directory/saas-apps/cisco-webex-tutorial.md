@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d53cfc874bca6529fdee821ce3173607d5f06b3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7a4e3a4a6049b48fa70e5352680bdc7342676c0b
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456057"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670284"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>자습서: Cisco Webex Meetings와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -92,8 +92,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     a. **기본 SAML 구성 섹션** 에서 편집/펜 아이콘을 클릭합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
-    
-    b. **로그온 URL** 텍스트 상자에서 ` https://<customername>.my.webex.com` 패턴을 사용하여 URL을 입력합니다.
+
+    b. **로그온 URL** 텍스트 상자에서 `https://<customername>.my.webex.com` 패턴을 사용하여 URL을 입력합니다.
 
 5. Cisco Webex Meetings 애플리케이션은 특정 서식에서 SAML 어설션이 필요합니다. 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
@@ -132,7 +132,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
     1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -163,7 +163,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 관리 자격 증명을 사용하여 `https://<customername>.webex.com/admin` URL로 이동합니다.
 
 2. **일반 사이트 설정** 으로 이동하여 **SSO 구성** 을 찾습니다.
- 
+
     ![스크린샷은 일반 사이트 설정 및 SSO 구성이 선택된 Cisco Webex 관리를 보여줍니다.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
 3. **Webex 관리** 페이지에서 다음 단계를 수행합니다.
@@ -200,9 +200,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 

@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sashan, sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d1ce51306e846e2d842bef33bb9782da14019a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617743"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593997"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>자습서: 장애 조치(failover) 그룹에 SQL Managed Instance 추가
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -63,21 +63,21 @@ Azure SQL Managed Instance의 관리되는 인스턴스를 장애 조치(failove
 
 Azure Portal을 사용하여 리소스 그룹 및 기본 관리형 인스턴스를 만듭니다. 
 
-1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 `Azure SQL`을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
-1. **+ 추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **데이터베이스** 타일에서 **세부 정보 표시**를 선택하여 다른 데이터베이스에 대한 추가 정보를 볼 수 있습니다.
-1. **SQL Managed Instances** 타일에서 **만들기**를 선택합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL** 을 선택합니다. **Azure SQL** 이 목록에 없는 경우 **모든 서비스** 를 선택한 다음, 검색 상자에 `Azure SQL`을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **+ 추가** 를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **데이터베이스** 타일에서 **세부 정보 표시** 를 선택하여 다른 데이터베이스에 대한 추가 정보를 볼 수 있습니다.
+1. **SQL Managed Instances** 타일에서 **만들기** 를 선택합니다. 
 
     ![SQL Managed Instance 선택](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
 1. **Azure SQL Managed Instance** 만들기 페이지의 **기본** 탭에서 다음을 수행합니다.
-    1. **프로젝트 세부 정보** 아래 드롭다운에서 **구독**을 선택한 후 **새로 만들기** 리소스 그룹을 선택합니다. 리소스 그룹의 이름을 입력합니다(예: `myResourceGroup`). 
-    1. **SQL Managed Instance 세부 정보** 아래에 관리되는 인스턴스의 이름과 관리되는 인스턴스를 배포할 지역을 제공합니다. **컴퓨팅 + 스토리지**는 기본값으로 둡니다. 
+    1. **프로젝트 세부 정보** 아래 드롭다운에서 **구독** 을 선택한 후 **새로 만들기** 리소스 그룹을 선택합니다. 리소스 그룹의 이름을 입력합니다(예: `myResourceGroup`). 
+    1. **SQL Managed Instance 세부 정보** 아래에 관리되는 인스턴스의 이름과 관리되는 인스턴스를 배포할 지역을 제공합니다. **컴퓨팅 + 스토리지** 는 기본값으로 둡니다. 
     1. **관리자 계정** 아래에 관리자 로그인(예: `azureuser`)과 복잡한 관리자 암호를 제공합니다. 
 
     ![기본 관리형 인스턴스 만들기](./media/failover-group-add-instance-tutorial/primary-sql-mi-values.png)
 
-1. 나머지 설정은 기본값으로 두고 **검토 + 만들기**를 선택하여 SQL Managed Instance 설정을 검토합니다. 
-1. **만들기**를 선택하여 기본 관리형 인스턴스를 만듭니다. 
+1. 나머지 설정은 기본값으로 두고 **검토 + 만들기** 를 선택하여 SQL Managed Instance 설정을 검토합니다. 
+1. **만들기** 를 선택하여 기본 관리형 인스턴스를 만듭니다. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -161,8 +161,8 @@ PowerShell을 사용하여 리소스 그룹 및 기본 관리형 인스턴스를
    # Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
    Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
    
-   # Set the subscription context
-   Set-AzContext -SubscriptionId $subscriptionId 
+   # Set the subscription context
+   Set-AzContext -SubscriptionId $subscriptionId 
    
    # Create the resource group
    Write-host "Creating resource group..."
@@ -415,16 +415,16 @@ Azure Portal을 사용하여 관리되는 인스턴스를 만드는 경우에는
 기본 가상 네트워크의 서브넷 범위를 확인하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동하고 기본 인스턴스의 가상 네트워크를 선택합니다.  
-2. **설정**에서 **서브넷**을 선택하고 **주소 범위**를 확인합니다. 보조 관리형 인스턴스에 대한 가상 네트워크의 서브넷 주소 범위는 이 범위와 겹칠 수 없습니다. 
+2. **설정** 에서 **서브넷** 을 선택하고 **주소 범위** 를 확인합니다. 보조 관리형 인스턴스에 대한 가상 네트워크의 서브넷 주소 범위는 이 범위와 겹칠 수 없습니다. 
 
 
    ![기본 서브넷](./media/failover-group-add-instance-tutorial/verify-primary-subnet-range.png)
 
 가상 네트워크를 만들려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기**를 선택하고 *가상 네트워크*를 검색합니다. 
-1. Microsoft에서 게시한 **Virtual Network** 옵션을 선택한 후 다음 페이지에서 **만들기**를 선택합니다. 
-1. 보조 관리형 인스턴스에 대한 가상 네트워크를 구성하는 데 필요한 필드를 입력한 다음, **만들기**를 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택하고 *가상 네트워크* 를 검색합니다. 
+1. Microsoft에서 게시한 **Virtual Network** 옵션을 선택한 후 다음 페이지에서 **만들기** 를 선택합니다. 
+1. 보조 관리형 인스턴스에 대한 가상 네트워크를 구성하는 데 필요한 필드를 입력한 다음, **만들기** 를 선택합니다. 
 
    다음 표에서는 보조 가상 네트워크에 필요한 값을 보여줍니다.
 
@@ -457,9 +457,9 @@ Azure Portal을 사용하여 관리되는 인스턴스를 만드는 경우에는
 
 Azure Portal을 사용하여 보조 관리형 인스턴스를 만듭니다. 
 
-1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 `Azure SQL`을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
-1. **+ 추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **데이터베이스** 타일에서 **세부 정보 표시**를 선택하여 다른 데이터베이스에 대한 추가 정보를 볼 수 있습니다.
-1. **SQL Managed Instances** 타일에서 **만들기**를 선택합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL** 을 선택합니다. **Azure SQL** 이 목록에 없는 경우 **모든 서비스** 를 선택한 다음, 검색 상자에 `Azure SQL`을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **+ 추가** 를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **데이터베이스** 타일에서 **세부 정보 표시** 를 선택하여 다른 데이터베이스에 대한 추가 정보를 볼 수 있습니다.
+1. **SQL Managed Instances** 타일에서 **만들기** 를 선택합니다. 
 
     ![SQL Managed Instance 선택](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
@@ -481,14 +481,14 @@ Azure Portal을 사용하여 보조 관리형 인스턴스를 만듭니다.
 
    ![보조 MI 네트워킹](./media/failover-group-add-instance-tutorial/networking-settings-for-secondary-mi.png)
 
-1. **추가 설정** 탭에 있는 **지역에서 복제**의 보조 장애 조치(failover)로 사용에 대해 **예**를 선택합니다. 드롭다운에서 기본 관리형 인스턴스를 선택합니다. 
+1. **추가 설정** 탭에 있는 **지역에서 복제** 의 보조 장애 조치(failover)로 사용에 대해 **예** 를 선택합니다. 드롭다운에서 기본 관리형 인스턴스를 선택합니다. 
     
    데이터 정렬 및 표준 시간대가 기본 관리형 인스턴스와 일치해야 합니다. 이 자습서에서 만든 기본 관리형 인스턴스에는 기본값으로 `SQL_Latin1_General_CP1_CI_AS` 데이터 정렬 및 `(UTC) Coordinated Universal Time` 표준 시간대를 사용했습니다. 
 
    ![보조 관리형 인스턴스 네트워킹](./media/failover-group-add-instance-tutorial/secondary-mi-failover.png)
 
-1. **검토 + 만들기**를 선택하여 보조 관리형 인스턴스에 대한 설정을 검토합니다. 
-1. **만들기**를 선택하여 보조 관리형 인스턴스를 만듭니다. 
+1. **검토 + 만들기** 를 선택하여 보조 관리형 인스턴스에 대한 설정을 검토합니다. 
+1. **만들기** 를 선택하여 보조 관리형 인스턴스를 만듭니다. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -751,11 +751,11 @@ Azure Portal을 사용하여 기본 관리형 인스턴스의 가상 네트워�
 
 
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동하여 기본 관리형 인스턴스에 대한 **가상 네트워크** 리소스를 선택합니다. 
-1. **설정**에서 **서브넷**을 선택한 후 새 **게이트웨이 서브넷**을 추가하도록 선택합니다. 기본값을 그대로 둡니다. 
+1. **설정** 에서 **서브넷** 을 선택한 후 새 **게이트웨이 서브넷** 을 추가하도록 선택합니다. 기본값을 그대로 둡니다. 
 
    ![기본 관리형 인스턴스에 대한 게이트웨이 추가](./media/failover-group-add-instance-tutorial/add-subnet-gateway-primary-vnet.png)
 
-1. 서브넷 게이트웨이를 만든 후 왼쪽 탐색 창에서 **리소스 만들기**를 선택한 후 검색 상자에 `Virtual network gateway`를 입력합니다. **Microsoft**에서 게시한 **가상 네트워크 게이트웨이** 리소스를 선택합니다. 
+1. 서브넷 게이트웨이를 만든 후 왼쪽 탐색 창에서 **리소스 만들기** 를 선택한 후 검색 상자에 `Virtual network gateway`를 입력합니다. **Microsoft** 에서 게시한 **가상 네트워크 게이트웨이** 리소스를 선택합니다. 
 
    ![새 가상 네트워크 게이트웨이 만들기](./media/failover-group-add-instance-tutorial/create-virtual-network-gateway.png)
 
@@ -768,19 +768,19 @@ Azure Portal을 사용하여 기본 관리형 인스턴스의 가상 네트워�
     | **구독** |  기본 관리형 인스턴스가 있는 구독입니다. |
     | **이름** | 가상 네트워크 게이트웨이의 이름입니다(예: `primary-mi-gateway`). | 
     | **지역** | 기본 관리형 인스턴스가 있는 지역입니다. |
-    | **게이트웨이 유형** | **VPN**을 선택합니다. |
-    | **VPN 유형** | **경로 기반**을 선택합니다. |
+    | **게이트웨이 유형** | **VPN** 을 선택합니다. |
+    | **VPN 유형** | **경로 기반** 을 선택합니다. |
     | **SKU**| `VpnGw1` 기본값을 그대로 둡니다. |
     | **가상 네트워크**| 섹션 2에서 만든 가상 네트워크를 선택합니다(예: `vnet-sql-mi-primary`). |
-    | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
+    | **공용 IP 주소**| **새로 만들기** 를 선택합니다. |
     | **공용 IP 주소 이름**| IP 주소의 이름을 입력합니다(예: `primary-gateway-IP`). |
     | &nbsp; | &nbsp; |
 
-1. 다른 값은 기본값으로 그대로 두고 **검토 + 만들기**를 선택하여 가상 네트워크 게이트웨이에 대한 설정을 검토합니다.
+1. 다른 값은 기본값으로 그대로 두고 **검토 + 만들기** 를 선택하여 가상 네트워크 게이트웨이에 대한 설정을 검토합니다.
 
    ![기본 게이트웨이 설정](./media/failover-group-add-instance-tutorial/settings-for-primary-gateway.png)
 
-1. **만들기**를 선택하여 새 가상 네트워크 게이트웨이를 만듭니다. 
+1. **만들기** 를 선택하여 새 가상 네트워크 게이트웨이를 만듭니다. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -849,11 +849,11 @@ Azure Portal을 사용하여 이전 섹션의 단계를 반복하여 보조 관�
    | **구독** |  보조 관리형 인스턴스가 있는 구독입니다. |
    | **이름** | 가상 네트워크 게이트웨이의 이름입니다(예: `secondary-mi-gateway`). | 
    | **지역** | 보조 관리형 인스턴스가 있는 지역입니다. |
-   | **게이트웨이 유형** | **VPN**을 선택합니다. |
-   | **VPN 유형** | **경로 기반**을 선택합니다. |
+   | **게이트웨이 유형** | **VPN** 을 선택합니다. |
+   | **VPN 유형** | **경로 기반** 을 선택합니다. |
    | **SKU**| `VpnGw1` 기본값을 그대로 둡니다. |
    | **가상 네트워크**| 보조 관리형 인스턴스의 가상 네트워크를 선택합니다(예: `vnet-sql-mi-secondary`). |
-   | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
+   | **공용 IP 주소**| **새로 만들기** 를 선택합니다. |
    | **공용 IP 주소 이름**| IP 주소의 이름을 입력합니다(예: `secondary-gateway-IP`). |
    | &nbsp; | &nbsp; |
 
@@ -922,27 +922,27 @@ PowerShell을 사용하여 보조 관리형 인스턴스의 가상 네트워크�
 Azure Portal을 사용하여 두 게이트웨이를 연결합니다. 
 
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택합니다.
 1. 검색 상자에 `connection`을 입력한 다음, Enter 키를 눌러 검색하면 Microsoft에서 게시한 **연결** 리소스로 이동합니다.
-1. **만들기**를 선택하여 연결을 만듭니다. 
-1. **기본** 페이지에서 다음 값을 선택한 다음, **확인**을 선택합니다. 
-    1. **연결 형식**에 대해 `VNet-to-VNet`을 선택합니다. 
+1. **만들기** 를 선택하여 연결을 만듭니다. 
+1. **기본** 페이지에서 다음 값을 선택한 다음, **확인** 을 선택합니다. 
+    1. **연결 형식** 에 대해 `VNet-to-VNet`을 선택합니다. 
     1. 드롭다운에서 구독을 선택합니다. 
     1. 드롭다운에서 SQL Managed Instance에 대한 리소스 그룹을 선택합니다. 
     1. 드롭다운에서 기본 관리형 인스턴스의 위치를 선택합니다. 
-1. **설정** 페이지에서 다음 값을 선택하거나 입력한 다음, **확인**을 선택합니다.
-    1. **첫 번째 가상 네트워크 게이트웨이**에 대한 기본 네트워크 게이트웨이를 선택합니다(예: `primaryGateway`).  
-    1. **두 번째 가상 네트워크 게이트웨이**에 대한 보조 네트워크 게이트웨이를 선택합니다(예: `secondaryGateway`). 
+1. **설정** 페이지에서 다음 값을 선택하거나 입력한 다음, **확인** 을 선택합니다.
+    1. **첫 번째 가상 네트워크 게이트웨이** 에 대한 기본 네트워크 게이트웨이를 선택합니다(예: `primaryGateway`).  
+    1. **두 번째 가상 네트워크 게이트웨이** 에 대한 보조 네트워크 게이트웨이를 선택합니다(예: `secondaryGateway`). 
     1. **양방향 연결 설정** 옆에 있는 확인란을 선택합니다. 
     1. 기본 연결 이름의 기본값을 그대로 두거나 원하는 값으로 이름을 바꿉니다. 
     1. 연결에 대해 **공유 키(PSK)** 를 제공합니다(예: `mi1m2psk`). 
-    1. **확인**을 선택하여 설정을 저장합니다. 
+    1. **확인** 을 선택하여 설정을 저장합니다. 
 
     ![게이트웨이 연결 만들기](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
     
 
-1. **검토 + 만들기** 페이지에서 양방향 연결에 대한 설정을 검토한 다음, **확인**을 선택하여 연결을 만듭니다. 
+1. **검토 + 만들기** 페이지에서 양방향 연결에 대한 설정을 검토한 다음, **확인** 을 선택하여 연결을 만듭니다. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -983,13 +983,13 @@ PowerShell을 사용하여 두 게이트웨이를 연결합니다.
 Azure Portal을 사용하여 장애 조치(failover) 그룹을 만듭니다. 
 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 `Azure SQL`을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL** 을 선택합니다. **Azure SQL** 이 목록에 없는 경우 **모든 서비스** 를 선택한 다음, 검색 상자에 `Azure SQL`을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 첫 번째 섹션에서 만든 기본 관리형 인스턴스를 선택합니다(예: `sql-mi-primary`). 
-1. **설정**에서 **인스턴스 장애 조치(Failover) 그룹**으로 이동한 다음, **그룹 추가**를 선택하여 **인스턴스 장애 조치(Failover) 그룹** 페이지를 엽니다. 
+1. **설정** 에서 **인스턴스 장애 조치(Failover) 그룹** 으로 이동한 다음, **그룹 추가** 를 선택하여 **인스턴스 장애 조치(Failover) 그룹** 페이지를 엽니다. 
 
    ![장애 조치(failover) 그룹 추가](./media/failover-group-add-instance-tutorial/add-failover-group.png)
 
-1. **인스턴스 장애 조치(Failover) 그룹** 페이지에서 장애 조치(failover) 그룹의 이름을 입력합니다(예: `failovergrouptutorial`). 그런 다음, 드롭다운에서 보조 관리형 인스턴스를 선택합니다(예: `sql-mi-secondary`). **만들기**를 선택하여 장애 조치(failover) 그룹을 만듭니다. 
+1. **인스턴스 장애 조치(Failover) 그룹** 페이지에서 장애 조치(failover) 그룹의 이름을 입력합니다(예: `failovergrouptutorial`). 그런 다음, 드롭다운에서 보조 관리형 인스턴스를 선택합니다(예: `sql-mi-secondary`). **만들기** 를 선택하여 장애 조치(failover) 그룹을 만듭니다. 
 
    ![장애 조치 그룹 만들기](./media/failover-group-add-instance-tutorial/create-failover-group.png)
 
@@ -1026,9 +1026,9 @@ PowerShell을 사용하여 장애 조치(failover) 그룹을 만듭니다.
 Azure Portal을 사용하여 장애 조치(failover) 테스트 
 
 
-1. [Azure Portal](https://portal.azure.com)에서 _보조_ 관리형 인스턴스로 이동하고 설정 아래에서 **인스턴스 장애 조치(Failover) 그룹**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 _보조_ 관리형 인스턴스로 이동하고 설정 아래에서 **인스턴스 장애 조치(Failover) 그룹** 을 선택합니다. 
 1. 어떤 관리되는 인스턴스가 기본이고 어떤 관리되는 인스턴스가 보조인지 검토합니다. 
-1. **장애 조치(failover)** 를 선택한 다음, TDS 세션 연결이 끊어진다는 경고에서 **예**를 선택합니다. 
+1. **장애 조치(failover)** 를 선택한 다음, TDS 세션 연결이 끊어진다는 경고에서 **예** 를 선택합니다. 
 
    ![장애 조치(failover) 그룹에 대한 장애 조치(failover)](./media/failover-group-add-instance-tutorial/failover-mi-failover-group.png)
 
@@ -1090,10 +1090,10 @@ PowerShell을 사용하여 장애 조치(failover) 테스트
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동합니다. 
-1. 관리형 인스턴스를 선택한 다음, **삭제**를 선택합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제**를 선택합니다. 이 프로세스는 백그라운드에서 완료하는 데 다소 시간이 걸릴 수 있으며, 완료될 때까지 *가상 클러스터* 또는 기타 종속 리소스를 삭제할 수 없습니다. **활동** 탭에서 삭제를 모니터링하여 관리되는 인스턴스가 삭제되었는지 확인합니다. 
-1. 관리되는 인스턴스가 삭제되면 리소스 그룹에서 *가상 클러스터*를 선택한 다음, **삭제**를 선택하여 해당 클러스터를 삭제합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제**를 선택합니다. 
-1. 나머지 리소스를 삭제합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제**를 선택합니다. 
-1. **리소스 그룹 삭제**를 선택하고, 리소스 그룹 이름(`myResourceGroup`)을 입력한 다음, **삭제**를 선택하여 해당 리소스 그룹을 삭제합니다. 
+1. 관리형 인스턴스를 선택한 다음, **삭제** 를 선택합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제** 를 선택합니다. 이 프로세스는 백그라운드에서 완료하는 데 다소 시간이 걸릴 수 있으며, 완료될 때까지 *가상 클러스터* 또는 기타 종속 리소스를 삭제할 수 없습니다. **활동** 탭에서 삭제를 모니터링하여 관리되는 인스턴스가 삭제되었는지 확인합니다. 
+1. 관리되는 인스턴스가 삭제되면 리소스 그룹에서 *가상 클러스터* 를 선택한 다음, **삭제** 를 선택하여 해당 클러스터를 삭제합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제** 를 선택합니다. 
+1. 나머지 리소스를 삭제합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제** 를 선택합니다. 
+1. **리소스 그룹 삭제** 를 선택하고, 리소스 그룹 이름(`myResourceGroup`)을 입력한 다음, **삭제** 를 선택하여 해당 리소스 그룹을 삭제합니다. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

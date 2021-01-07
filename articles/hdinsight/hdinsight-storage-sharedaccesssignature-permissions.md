@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
-ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 141db7feee987b7fffc578e19c60bd94ad56d239
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742061"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511640"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Blob storage 공유 액세스 서명을 사용 하 여 HDInsight에서 데이터에 대 한 액세스 제한
 
@@ -86,7 +86,7 @@ HDInsight는 클러스터와 연결 된 Azure Blob storage 계정의 데이터�
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>PowerShell 사용
+### <a name="using-powershell"></a>PowerShell 사용하기
 
 `RESOURCEGROUP`, `STORAGEACCOUNT` 및을 `STORAGECONTAINER` 기존 저장소 컨테이너에 대 한 적절 한 값으로 바꿉니다. 디렉터리를로 변경 `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` 하거나 `-File` 의 절대 경로를 포함 하도록 매개 변수를 수정 `Set-AzStorageblobcontent` 합니다. 다음 PowerShell 명령을 입력 합니다.
 
@@ -188,7 +188,7 @@ Set-AzStorageblobcontent `
     az storage container policy list --container-name %AZURE_STORAGE_CONTAINER% --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
 
     # Generate a shared access signature for the container
-    az storage container generate-sas --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+    az storage container generate-sas --name %AZURE_STORAGE_CONTAINER% --policy-name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
 
     # Reversal
     # az storage container policy delete --container-name %AZURE_STORAGE_CONTAINER% --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
@@ -211,7 +211,7 @@ Set-AzStorageblobcontent `
 
 3. **설정** 을 선택하고 다음 항목에 대한 값을 추가합니다.
 
-    |항목 |Description |
+    |항목 |설명 |
     |---|---|
     |StorageConnectionString|저장된 정책 및 SAS를 만들 스토리지 계정에 대한 연결 문자열입니다. 형식은 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`여야 하며 여기서 `myaccount`는 사용자의 스토리지 계정 이름이고 `mykey`는 스토리지 계정에 대한 키입니다.|
     |ContainerName|액세스를 제한할 스토리지 계정의 컨테이너입니다.|
@@ -357,8 +357,8 @@ Remove-AzResourceGroup `
 
 1. **사용자 지정 핵심 사이트** 섹션을 확장 하 고 끝으로 스크롤한 다음 **속성 추가 ...** 를 선택 합니다. **키** 와 **값** 에 다음 값을 사용 합니다.
 
-    * **키** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **값** : 이전에 실행 된 메서드 중 하나에서 반환 된 SAS입니다.
+    * **키**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **값**: 이전에 실행 된 메서드 중 하나에서 반환 된 SAS입니다.
 
     을 `CONTAINERNAME` c # 또는 SAS 응용 프로그램에서 사용한 컨테이너 이름으로 바꿉니다. `STORAGEACCOUNTNAME`을 사용한 저장소 계정 이름으로 바꿉니다.
 

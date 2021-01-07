@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d6676187f87cecb7f876150d1582cde9051dd251
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f6c990b3ce5edaab4d2ce6600c0291272058e092
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367485"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369296"
 ---
 # <a name="security-control-v2-privileged-access"></a>보안 제어 V2: 권한 있는 액세스
 
 권한 있는 액세스는 Azure 테 넌 트 및 리소스에 대 한 권한 있는 액세스를 보호 하는 컨트롤을 다룹니다. 여기에는 계획적이 고 실수로 인 한 위험 으로부터 관리 모델, 관리 계정 및 권한 있는 액세스 워크스테이션을 보호 하는 다양 한 컨트롤이 포함 됩니다.
 
-## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: 권한이 높은 사용자를 보호 하 고 제한 합니다.
+## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: 권한이 높은 사용자 보호 및 제한
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | PA-1 | 4.3, 4.8 | AC-2 |
 
@@ -32,7 +32,7 @@ ms.locfileid: "92367485"
 
 참고: 권한 있는 특정 권한이 할당 된 사용자 지정 역할을 사용 하는 경우 관리 해야 하는 다른 중요 한 역할이 있을 수 있습니다. 또한 중요 한 비즈니스 자산의 관리자 계정에 비슷한 컨트롤을 적용할 수 있습니다.  
 
-Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 및 Azure AD에 대 한 JIT (just-in-time) 권한 있는 액세스를 사용 하도록 설정할 수 있습니다. JIT는 사용자가 필요한 경우에만 권한 있는 작업을 수행할 수 있는 임시 권한을 부여 합니다. 또한 PIM은 Azure AD 조직에 의심 스러운 또는 안전 하지 않은 활동이 있을 때 보안 경고를 생성할 수 있습니다.
+Azure AD PIM(Privileged Identity Management)을 사용하여 Azure 리소스 및 Azure AD에 대한 JIT(Just-In-Time) 권한 있는 액세스를 사용하도록 설정할 수 있습니다. JIT는 사용자가 필요한 경우에만 권한 있는 작업을 수행할 수 있는 임시 권한을 부여합니다. 또한 PIM은 Azure AD 조직에서 의심스럽거나 안전하지 않은 활동이 있을 때 보안 경고를 생성할 수 있습니다.
 
 - [Azure AD의 관리자 역할 권한](../../active-directory/roles/permissions-reference.md)
 
@@ -52,9 +52,9 @@ Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 
 
 - [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-## <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 업무상 중요 한 시스템에 대 한 관리 액세스 제한
+## <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 중요 비즈니스용 시스템에 대한 관리 액세스 제한
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | PA-2 | 13.2, 2.10 | AC-2, SC-3, SC-7 |
 
@@ -80,9 +80,9 @@ Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-## <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: 사용자 액세스를 정기적으로 검토 및 조정
+## <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: 정기적으로 사용자 액세스 권한 검토 및 조정
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | PA-3 | 4.1, 16.9, 16.10 | AC-2 |
 
@@ -93,7 +93,7 @@ Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 
 
 - [Privileged Identity Management (PIM)에서 Azure 리소스 역할에 대 한 액세스 검토 만들기](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md)
 
-- [Azure AD id 및 액세스 검토를 사용 하는 방법](../../active-directory/governance/access-reviews-overview.md)
+- [Azure AD ID 및 액세스 검토를 사용하는 방법](../../active-directory/governance/access-reviews-overview.md)
 
 **책임**: Customer
 
@@ -107,12 +107,12 @@ Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 
 
 ## <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Azure AD에서 응급 액세스 설정
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | PA-4 | 16 | AC-2, CP-2 |
 
-실수로 Azure AD 조직에서 잠기는 것을 방지 하려면 일반 관리 계정을 사용할 수 없는 경우 액세스를 위한 응급 액세스 계정을 설정 합니다. 응급 액세스 계정은 일반적으로 매우 특권 이며 특정 사용자에 게 할당 되 면 안 됩니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 '비상' 시나리오의 긴급한 상황으로 제한됩니다.
-응급 액세스 계정에 대 한 자격 증명 (예: 암호, 인증서 또는 스마트 카드)을 안전 하 게 유지 하 고 비상 시에만 사용할 권한이 있는 개인 에게만 알려집니다.
+실수로 Azure AD 조직에서 잠기는 것을 방지 하려면 일반 관리 계정을 사용할 수 없는 경우 액세스를 위한 응급 액세스 계정을 설정 합니다. 응급 액세스 계정은 일반적으로 권한이 높으며 특정 사용자에게 할당되면 안 됩니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 '비상' 시나리오의 긴급한 상황으로 제한됩니다.
+응급 액세스 계정의 자격 증명(예: 암호, 인증서 또는 스마트 카드)을 안전하게 유지하고 비상시에만 사용할 권한이 있는 사용자에게만 알립니다.
 
 - [Azure AD에서 응급 액세스 계정 관리](../../active-directory/roles/security-emergency-access.md)
 
@@ -130,7 +130,7 @@ Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 
 
 ## <a name="pa-5-automate-entitlement-management"></a>PA-5: 자격 관리 자동화
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | PA-5 | 16 | AC-2, AC-5, PM-10 |
 
@@ -151,11 +151,11 @@ Azure AD 자격 관리 기능을 사용 하 여 액세스 권한 부여, 검토,
 
 ## <a name="pa-6-use-privileged-access-workstations"></a>PA-6: 권한 있는 액세스 워크스테이션 사용
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3, SC-7 |
 
-안전 하 고 격리 된 워크스테이션은 관리자, 개발자 및 중요 서비스 운영자와 같은 중요 한 역할의 보안에 매우 중요 합니다. 관리 작업에는 매우 안전한 사용자 워크스테이션 및/또는 Azure 방호를 사용 합니다. Azure Active Directory, Microsoft Defender ATP (Advanced Threat Protection) 및/또는 Microsoft Intune를 사용 하 여 관리 작업을 위한 안전 하 고 관리 되는 사용자 워크스테이션을 배포할 수 있습니다. 보안 된 워크스테이션을 중앙에서 관리 하 여 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한 된 논리 및 네트워크 액세스를 비롯 한 보안 구성을 적용할 수 있습니다. 
+안전 하 고 격리 된 워크스테이션은 관리자, 개발자 및 중요 서비스 운영자와 같은 중요 한 역할의 보안에 매우 중요 합니다. 관리 작업에는 매우 안전한 사용자 워크스테이션 및/또는 Azure 방호를 사용 합니다. Azure Active Directory, Microsoft Defender ATP(Advanced Threat Protection) 및/또는 Microsoft Intune을 사용하여 관리 작업을 위한 관리형 보안 사용자 워크스테이션을 배포할 수 있습니다. 보안 된 워크스테이션을 중앙에서 관리 하 여 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한 된 논리 및 네트워크 액세스를 비롯 한 보안 구성을 적용할 수 있습니다. 
 
 - [권한 있는 액세스 워크스테이션 이해](../../active-directory/devices/concept-azure-managed-workstation.md)
 
@@ -171,20 +171,20 @@ Azure AD 자격 관리 기능을 사용 하 여 액세스 권한 부여, 검토,
 
 - [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-## <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>PA-7: 충분 한 관리 수행 (최소 권한 원칙)
+## <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>PA-7: 충분한 관리 수행(최소 권한 원칙)
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | PA-7 | 14.6 | AC-2, AC-3, SC-3 |
 
 Azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 Azure 리소스 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대해 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 및 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다. Azure RBAC를 통해 리소스에 할당 하는 권한은 항상 역할에 필요한 것으로 제한 되어야 합니다. 제한 된 권한은 Azure AD Privileged Identity Management (PIM)의 JIT (just-in-time) 접근 방식을 보완 하며 이러한 권한은 정기적으로 검토 해야 합니다.
-기본 제공 역할을 사용 하 여 사용 권한을 할당 하 고 필요한 경우에만 사용자 지정 역할을 만듭니다. 
+기본 제공 역할을 사용하여 권한을 할당하고 필요한 경우에만 사용자 지정 역할을 만듭니다. 
 
 - [Azure 역할 기반 access control (Azure RBAC) 이란?](../../role-based-access-control/overview.md)
 
 - [Azure RBAC를 구성 하는 방법](../../role-based-access-control/role-assignments-portal.md)
 
-- [Azure AD id 및 액세스 검토를 사용 하는 방법](../../active-directory/governance/access-reviews-overview.md)
+- [Azure AD ID 및 액세스 검토를 사용하는 방법](../../active-directory/governance/access-reviews-overview.md)
 
 **책임**: Customer
 
@@ -200,7 +200,7 @@ Azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 Az
 
 ## <a name="pa-8-choose-approval-process-for-microsoft-support"></a>PA-8: Microsoft 지원에 대 한 승인 프로세스 선택 
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | PA-8 | 16 | AC-2, AC-3, AC-4 |
 

@@ -17,32 +17,34 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5f6f9cfaff722245f6105b5e86390b8aeb769f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302250"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539722"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>가상 머신 네트워크 라우팅 문제 진단 - Azure CLI
 
 이 문서에서는 VM(가상 머신)을 배포한 다음, IP 주소와 URL로 전송되는 통신을 확인합니다. 통신 오류의 원인 및 해결 방법을 확인합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 2.0.28 이상 버전을 실행 해야 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI 버전을 확인한 후 `az login`을 실행하여 Azure와의 연결을 만듭니다. 이 문서의 Azure CLI 명령은 Bash 셸에서 실행 되도록 형식이 지정 되어 있습니다.
+- 이 문서에는 Azure CLI 버전 2.0 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다. 
+
+- 이 문서의 Azure CLI 명령은 Bash 셸에서 실행 되도록 형식이 지정 되어 있습니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-[az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 다음 예제에서는 *myVm*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 다음 예제에서는 *myVm* 이라는 VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -85,7 +87,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-몇 초 후에는 **nextHopType** 가 **인터넷**임을 알리고 **routeTableId** **시스템 경로**인지를 알 수 있습니다. 이 출력 결과를 통해 대상에 대한 유효한 경로가 있음을 알 수 있습니다.
+몇 초 후에는 **nextHopType** 가 **인터넷** 임을 알리고 **routeTableId** **시스템 경로** 인지를 알 수 있습니다. 이 출력 결과를 통해 대상에 대한 유효한 경로가 있음을 알 수 있습니다.
 
 VM에서 172.31.0.100으로 아웃바운드 통신을 테스트합니다.
 
@@ -99,7 +101,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-반환된 결과는 **없음**이 **nextHopType**이며, **routeTableId**가 **시스템 경로**임도 알려줍니다. 이 결과를 사용하면 대상에 대한 유효한 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
+반환된 결과는 **없음** 이 **nextHopType** 이며, **routeTableId** 가 **시스템 경로** 임도 알려줍니다. 이 결과를 사용하면 대상에 대한 유효한 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
 
 ## <a name="view-details-of-a-route"></a>경로의 세부 정보 보기
 
@@ -113,7 +115,7 @@ az network nic show-effective-route-table \
 
 반환되는 출력에 다음 텍스트가 포함됩니다.
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -133,7 +135,7 @@ az network nic show-effective-route-table \
 
 그러나 `az network watcher show-next-hop` 명령을 사용하여 172.31.0.100에 대한 아웃바운드 통신을 테스트하는 경우 결과에서 다음 홉 유형이 없음을 알 수 있습니다. 반환되는 출력에서 다음 텍스트를 볼 수 있습니다.
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -149,7 +151,7 @@ az network nic show-effective-route-table \
 },
 ```
 
-`az network watcher nic show-effective-route-table` 명령의 출력에서 볼 수 있듯이 172.31.0.100 주소를 포함하는 172.16.0.0/12 접두사에 대한 기본 경로가 있더라도 **nextHopType**은 **없음**입니다. Azure에서는 172.16.0.0/12에 대한 기본 경로를 만들지만 필요가 있을 때까지 다음 홉 형식을 지정하지 않습니다. 예를 들어, 가상 네트워크의 주소 공간에 172.16.0.0/12 주소 범위를 추가한 경우, Azure는 경로의 **nextHopType**을 **가상 네트워크**로 변경합니다. 그런 다음, 검사에서는 **가상 네트워크**를 **nextHopType**으로 표시합니다.
+`az network watcher nic show-effective-route-table` 명령의 출력에서 볼 수 있듯이 172.31.0.100 주소를 포함하는 172.16.0.0/12 접두사에 대한 기본 경로가 있더라도 **nextHopType** 은 **없음** 입니다. Azure에서는 172.16.0.0/12에 대한 기본 경로를 만들지만 필요가 있을 때까지 다음 홉 형식을 지정하지 않습니다. 예를 들어, 가상 네트워크의 주소 공간에 172.16.0.0/12 주소 범위를 추가한 경우, Azure는 경로의 **nextHopType** 을 **가상 네트워크** 로 변경합니다. 그런 다음, 검사에서는 **가상 네트워크** 를 **nextHopType** 으로 표시합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

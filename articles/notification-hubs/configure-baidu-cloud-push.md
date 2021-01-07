@@ -12,11 +12,11 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 759e35ba353f470ea3abc5f5d4182fa2b2ea0e73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71212509"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003585"
 ---
 # <a name="deprecated-configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>사용 되지 않음: Azure Portal에서 알림 허브에 대 한 Baidu 클라우드 푸시 설정을 구성 합니다.
 
@@ -25,16 +25,16 @@ ms.locfileid: "71212509"
 > [!IMPORTANT]
 > 이 자습서는 더 이상 사용 되지 않습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 알림 허브를 아직 만들지 않은 경우 지금 만듭니다. 자세한 내용은 [Azure Portal에 Azure 알림 허브 만들기](create-notification-hub-portal.md)를 참조하세요. 
 
 ## <a name="configure-baidu-cloud-push"></a>Baidu 클라우드 푸시 구성
 다음 절차에서는 알림 허브에 대 한 Baidu 클라우드 푸시 설정을 구성 하는 단계를 제공 합니다.
 
 1. Azure Portal의 **알림 허브** 페이지에서 왼쪽 메뉴에 있는 **Baidu (Android China)** 를 선택 합니다. 
-2. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **Api 키**를 입력합니다. 
-3. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **비밀 키**를 입력합니다. 
-4. **저장**을 선택합니다. 
+2. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **Api 키** 를 입력합니다. 
+3. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **비밀 키** 를 입력합니다. 
+4. **저장** 을 선택합니다. 
 
     ![푸시 알림에 대한 Baidu(Android China) 구성을 보여주는 Notification Hubs의 스크린샷](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 

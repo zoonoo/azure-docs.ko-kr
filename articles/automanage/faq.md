@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 2b15389ae35a63c71ac4cb9e167e578e7e1e690e
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891464"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695780"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vm에 대 한 Azure Automanage 질문과 대답
 
@@ -43,7 +43,7 @@ Azure Automanage를 사용 하도록 설정 하기 위한 필수 구성 요소�
 
 **지원되는 지역은 어떻게 되나요?**
 
-유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부 및 지역의 Vm이 지원 됩니다.
+유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부, 일본 동부와 같은 지역의 Vm이 지원 됩니다.
 
 
 **Azure Automanage가 자동화 하는 기능은 무엇 인가요?**

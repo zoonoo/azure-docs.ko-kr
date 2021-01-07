@@ -1,16 +1,14 @@
 ---
 title: Service Fabric 응용 프로그램의 업그레이드 구성
 description: Microsoft Visual Studio를 사용하여 Service Fabric 애플리케이션을 업그레이드하기 위한 설정을 구성하는 방법에 대해 알아봅니다.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.author: mikhegn
-ms.openlocfilehash: 1db6cea0af229664b07e88463e279b2a64d7e267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11df0387db07669ebacdba2e3d850e32903da133
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256053"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573683"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio에서 Service Fabric 애플리케이션의 업그레이드 구성
 Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 클러스터에 게시하기 위한 업그레이드를 지원합니다. 테스트 및 디버그 중에 애플리케이션을 바꾸지 않고 새 버전으로 업그레이드하려는 세 가지 시나리오가 있습니다.
@@ -22,7 +20,7 @@ Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 
 ## <a name="parameters-needed-to-upgrade"></a>업그레이드하기 위해 필요한 매개 변수
 두 가지의 배포 형식(일반 또는 업그레이드)에서 선택할 수 있습니다. 일반 배포는 클러스터에서 이전 배포 정보 및 데이터를 지우는 반면 업그레이드 배포는 이러한 정보 및 데이터를 유지합니다. Visual Studio에서 Service Fabric 애플리케이션을 업그레이드하는 경우 애플리케이션 업그레이드 매개 변수 및 상태 검사 정책을 제공해야 합니다. 애플리케이션 업그레이드 매개 변수는 업그레이드를 제어하는 반면 상태 검사 정책은 업그레이드가 성공적인지 여부를 확인합니다. 자세한 내용은 [Service Fabric 애플리케이션 업그레이드: 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 참조하세요.
 
-*Monitored*, *UnmonitoredAuto* 및 *UnmonitoredManual*의 세 가지 업그레이드 모드가 있습니다.
+*Monitored*, *UnmonitoredAuto* 및 *UnmonitoredManual* 의 세 가지 업그레이드 모드가 있습니다.
 
 * Monitored 업그레이드는 업그레이드 및 애플리케이션 상태 검사를 자동화합니다.
 * UnmonitoredAuto 업그레이드는 업그레이드를 자동화하지만 애플리케이션 상태 검사는 건너뜁니다.
@@ -37,7 +35,7 @@ Visual Studio Service Fabric 도구를 사용하여 Service Fabric 애플리케�
 1. 확인란 옆의 **설정** 단추를 클릭합니다. **업그레이드 매개 변수 편집** 대화 상자가 나타납니다. **업그레이드 매개 변수 편집** 대화 상자는 Monitored, UnmonitoredAuto 및 UnmonitoredManual 업그레이드 모드를 지원합니다.
 2. 사용하려는 업그레이드 모드를 선택한 다음 매개 변수 그리드를 채웁니다.
 
-    각 매개 변수에는 기본값이 있습니다. 선택적 매개 변수 *DefaultServiceTypeHealthPolicy* 는 해시 테이블 입력을 사용합니다. 다음은 *DefaultServiceTypeHealthPolicy*에 대한 해시 테이블 입력 형식의 예제입니다.
+    각 매개 변수에는 기본값이 있습니다. 선택적 매개 변수 *DefaultServiceTypeHealthPolicy* 는 해시 테이블 입력을 사용합니다. 다음은 *DefaultServiceTypeHealthPolicy* 에 대한 해시 테이블 입력 형식의 예제입니다.
 
     ```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }

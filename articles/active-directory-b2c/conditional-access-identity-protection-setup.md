@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309779"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949771"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Azure AD B2C에서 ID 보호 및 조건부 액세스 설정
 
@@ -26,7 +26,7 @@ ID 보호는 Azure AD B2C 테넌트에 대한 지속적인 위험 검색을 제�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure AD B2C 테넌트는 [Azure AD 구독에 연결](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription)되어야 합니다.
-- 로그인 및 사용자 위험 기반 조건부 액세스를 사용하려면 Azure AD B2C Premium P2가 필요합니다. 필요한 경우 [Azure AD B2C 가격 책정 계층을 Premium P2로 변경](https://aka.ms/exid-pricing-tier)하세요. 
+- 로그인 및 사용자 위험 기반 조건부 액세스를 사용하려면 Azure AD B2C Premium P2가 필요합니다. 필요한 경우 [Azure AD B2C 가격 책정 계층을 Premium P2로 변경](./billing.md)하세요. 
 - B2C 테넌트에서 ID 보호 및 조건부 액세스를 관리하려면 전역 관리자 역할 또는 보안 관리자 역할이 할당된 계정이 필요합니다.
 - 테넌트에서 이러한 기능을 사용하려면 먼저 Azure AD B2C Premium P2 가격 책정 계층으로 전환해야 합니다.
 
@@ -107,7 +107,7 @@ ID 보호 위험 검색을 기반으로 하는 조건부 액세스 정책을 추
    
    - **사용자 및 그룹** 에 대해 테스트 사용자를 선택합니다. **모든 사용자** 를 선택하지 마세요. 그렇지 않으면 로그인하지 못하도록 차단될 수 있습니다.
    - **클라우드 앱 또는 작업** 에 대해 **앱 선택** 을 선택한 다음, 신뢰 당사자 애플리케이션을 선택합니다.
-   - [조건]에 대해 **로그인 위험** 과 **높음** , **중간** 및 **낮음** 위험 수준을 선택합니다.
+   - [조건]에 대해 **로그인 위험** 과 **높음**, **중간** 및 **낮음** 위험 수준을 선택합니다.
    - **권한 부여** 에 대해 **액세스 차단** 을 선택합니다.
 
       ![액세스 차단 선택](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
@@ -136,8 +136,8 @@ ID 보호 위험 검색을 기반으로 하는 조건부 액세스 정책을 추
 
 6. 최대 7일 동안의 최근 감사 활동을 검토합니다. 포함되는 활동 유형은 다음과 같습니다.
 
-   - **조건부 액세스 정책 평가** : 이 감사 로그 항목은 인증 중에 조건부 액세스 평가가 수행되었음을 나타냅니다.
-   - **사용자 수정** : 이 항목은 최종 사용자가 조건부 액세스 정책의 권한 부여 또는 요구 사항을 충족했으며 사용자의 위험을 줄이기(완화) 위해 이 활동이 위험 엔진에 보고되었음을 나타냅니다.
+   - **조건부 액세스 정책 평가**: 이 감사 로그 항목은 인증 중에 조건부 액세스 평가가 수행되었음을 나타냅니다.
+   - **사용자 수정**: 이 항목은 최종 사용자가 조건부 액세스 정책의 권한 부여 또는 요구 사항을 충족했으며 사용자의 위험을 줄이기(완화) 위해 이 활동이 위험 엔진에 보고되었음을 나타냅니다.
 
 7. 목록에서 **조건부 액세스 정책 평가** 로그 항목을 선택하여 **활동 세부 정보: 감사 로그** 페이지를 엽니다. **추가 세부 정보** 섹션에서 감사 로그 식별자를 다음 정보와 함께 보여 줍니다.
 

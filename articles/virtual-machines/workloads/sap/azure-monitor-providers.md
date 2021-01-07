@@ -3,16 +3,17 @@ title: SAP 솔루션 공급자에 대 한 Azure Monitor | Microsoft Docs
 description: 이 문서에서는 SAP 솔루션 공급자 용 Azure monitor에 대해 자주 묻는 질문에 대 한 답변을 제공 합니다.
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: f5df8bccc10ca64ee9a04f195299c5228b7274c1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 056eba8694d1727350809121f763181e3cdbdc64
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356453"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968607"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>SAP 솔루션 공급자 용 Azure monitor (미리 보기)
 

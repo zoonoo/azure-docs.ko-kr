@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542277"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697988"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
 Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
@@ -49,7 +49,7 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 기능이 미리 보기 상태인 경우 기능 작동 방법에 대한 피드백을 찾고 있음을 의미합니다. 기능이 미리 보기 상태인 경우 기능적으로 완전하지만 고객 피드백에 대한 응답으로 변경 내용을 만들 가능성이 있습니다. 프로덕션 환경에서 미리 보기에 있는 기능에 의존하지 않는 것이 좋습니다.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>API Management 게이트웨이와 백 엔드 서비스 간의 연결을 어떻게 보호할 수 있습니까?
-API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음과 같습니다.
+API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
 
 * HTTP 기본 인증을 사용할 수 있습니다. 자세한 내용은 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 참조하세요.
 * [Azure API Management에서 클라이언트 인증서 인증을 사용 하 여 백 엔드 서비스를 보호 하는 방법](api-management-howto-mutual-certificates.md)에 설명 된 대로 TLS 상호 인증을 사용 합니다.
@@ -57,7 +57,7 @@ API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호�
 * API Management 인스턴스를 Azure Virtual Network에 연결합니다.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>API Management 서비스 인스턴스를 새 인스턴스에 복사하려면 어떻게 해야 합니까?
-API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음과 같습니다.
+API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
 
 * API Management의 백업 및 복원 기능을 사용할 수 있습니다. 자세한 내용은 [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](api-management-howto-disaster-recovery-backup-restore.md)을 참조하세요.
 * 사용자 고유의 백업을 만들고 [API Management REST API](/rest/api/apimanagement/)를 사용하여 기능을 복원합니다. REST API를 사용하여 원하는 서비스 인스턴스에서 엔터티를 저장 및 복원합니다.
@@ -71,24 +71,13 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 * [서비스 배포](/powershell/module/wds) 및 [서비스 관리](/powershell/azure/servicemanagement/overview) PowerShell cmdlet
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>관리자 그룹에 사용자를 추가하려면 어떻게 해야 합니까?
-관리자 그룹에 사용자를 추가하는 방법은 다음과 같습니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 업데이트하려는 API Management 인스턴스가 있는 리소스 그룹으로 이동합니다.
-3. API Management에서 **API Management 서비스 참가자** 역할을 사용자에 게 할당 합니다.
-
-이제 새롭게 추가된 참여자는 Azure PowerShell [cmdlet](/powershell/azure/)을 사용할 수 있습니다. 관리자 권한으로 로그인하는 방법은 다음과 같습니다.
-
-1. `Connect-AzAccount` cmdlet을 사용하여 로그인합니다.
-2. `Set-AzContext -SubscriptionID <subscriptionGUID>`를 사용하여 서비스가 있는 구독에 컨텍스트를 설정합니다.
-3. `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`을(를) 사용하여 Single Sign-On URL을 가져옵니다.
-4. URL을 사용하여 관리 포털에 액세스합니다.
+Administrators 그룹은 변경할 수 없는 시스템 그룹입니다. Azure 구독 관리자는이 그룹의 구성원입니다. 사용자를이 그룹에 추가할 수 없습니다. 자세한 내용은 [Azure에서 개발자 계정을 관리 하는 그룹을 만들고 사용 하는 방법 API Management](./api-management-howto-create-groups.md) 을 참조 하세요.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>추가하려는 정책을 정책 편집기에서 사용할 수 없는 이유는 무엇입니까?
 추가하려는 정책이 정책 편집기에서 흐리게 표시되거나 음영으로 표시되는 경우 정책에 대해 올바른 범위에 있는지 확인합니다. 각 정책 문은 특정 범위 및 정책 섹션에서 사용하도록 되어 있습니다. 정책의 정책 섹션 및 범위를 검토하려면 [API Management 정책](./api-management-policies.md)에서 정책의 사용 섹션을 확인하세요.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>단일 API에서 여러 환경을 설정하려면 어떻게 해야 합니까?
-단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음과 같습니다.
+단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
 
 * 동일한 테넌트에 다른 API를 호스팅할 수 있습니다.
 * 다른 테넌트에 동일한 API를 호스팅할 수 있습니다.
@@ -118,8 +107,8 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 
 #### <a name="direct-api-update-method"></a>직접 API 업데이트 메서드 ####
 1. API Management를 사용하여 [백 엔드](/rest/api/apimanagement/) 엔터티를 만듭니다.     
-2. **skipCertificateChainValidation** 속성을 **true**로 설정합니다.     
-3. 자체 서명된 인증서를 더 이상 허용하지 않으려면 백 엔드 엔터티를 삭제하거나 **skipCertificateChainValidation** 속성을 **false**로 설정합니다.
+2. **skipCertificateChainValidation** 속성을 **true** 로 설정합니다.     
+3. 자체 서명된 인증서를 더 이상 허용하지 않으려면 백 엔드 엔터티를 삭제하거나 **skipCertificateChainValidation** 속성을 **false** 로 설정합니다.
 
 ### <a name="why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository"></a>Git 리포지토리를 복제하려고 할 때 인증 실패가 발생하는 이유는 무엇입니까?
 Git 자격 증명 관리자를 사용하는 경우 또는 Visual Studio를 사용하여 Git 리포지토리를 복제하려는 경우 Windows 자격 증명 대화 상자와 함께 알려진 문제가 발생할 수 있습니다. 대화 상자는 암호 길이를 127자로 제한하고 Microsoft에서 생성된 암호를 자릅니다. 암호 길이를 줄이는 작업 중입니다. 현재는 Git 리포지토리를 복제하는 데 Git Bash를 사용하세요.

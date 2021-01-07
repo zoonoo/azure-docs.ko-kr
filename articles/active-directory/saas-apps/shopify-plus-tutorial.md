@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.openlocfilehash: d7a5d160fa8a0209478fe81d2880e8956828350d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504732"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993502"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>자습서: Shopify Plus와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -108,7 +108,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -138,7 +138,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 전체 단계를 보려면 [SAML 통합 설정에 대한 Shopify 설명서](https://help.shopify.com/en/manual/shopify-plus/saml)를 참조하세요.
 
-**Shopify Plus** 쪽에서 Single Sign-On을 구성하려면 Azure Active Directory에서 **앱 페더레이션 메타데이터 URL** 을 복사합니다. 그런 다음, [조직 관리자](https://shopify.plus)에 로그인하여 **사용자** > **보안** 으로 이동합니다. **Set up configuration** (구성 설정)을 선택한 다음, **ID 공급자 메타데이터 URL** 섹션에 앱 페더레이션 메타데이터 URL을 붙여넣습니다. **추가** 를 선택하여 이 단계를 완료합니다.
+**Shopify Plus** 쪽에서 Single Sign-On을 구성하려면 Azure Active Directory에서 **앱 페더레이션 메타데이터 URL** 을 복사합니다. 그런 다음, [조직 관리자](https://shopify.plus)에 로그인하여 **사용자** > **보안** 으로 이동합니다. **Set up configuration**(구성 설정)을 선택한 다음, **ID 공급자 메타데이터 URL** 섹션에 앱 페더레이션 메타데이터 URL을 붙여넣습니다. **추가** 를 선택하여 이 단계를 완료합니다.
 
 ### <a name="create-shopify-plus-test-user"></a>Shopify Plus 테스트 사용자 만들기
 

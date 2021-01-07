@@ -1,20 +1,20 @@
 ---
-title: MQTT를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트 만들기 | Microsoft Docs
-description: Azure IoT 디바이스 SDK를 사용하지 않고 MQTT 프로토콜을 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트를 직접 만듭니다.
+title: 자습서 - MQTT를 사용하여 Azure IoT 플러그 앤 플레이 디바이스 클라이언트 만들기 | Microsoft Docs
+description: 자습서 - Azure IoT 디바이스 SDK를 사용하지 않고 MQTT 프로토콜을 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트를 직접 만듭니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d0ac0f000b6a096ae3de1f4f00a17b64f1948c1e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6852b0532b23e46c7b986926b21cd0b7e9f9736d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046284"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421382"
 ---
-# <a name="use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>MQTT를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트 개발
+# <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>자습서 - MQTT를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트 개발
 
 가급적이면 Azure IoT 디바이스 SDK 중 하나를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트를 빌드해야 합니다. 그러나 메모리가 제한된 디바이스를 사용하는 시나리오에서는 MQTT 라이브러리를 사용하여 IoT 허브와 통신해야 할 수도 있습니다.
 
@@ -33,12 +33,12 @@ Windows에서 이 자습서를 완료하려면 로컬 Windows 환경에 다음 �
 *Azure IoT 탐색기* 도구를 사용하여 IoT Hub에 새 디바이스를 추가합니다. [IoT 플러그 앤 플레이 빠른 시작 및 자습서에 대한 환경 설정](set-up-environment.md)을 완료할 때 IoT 허브 및 Azure IoT 탐색기 도구를 구성했습니다.
 
 1. **Azure IoT 탐색기** 도구를 실행합니다.
-1. **IoT 허브** 페이지에서 **이 허브의 디바이스 보기**를 선택합니다.
-1. **디바이스** 페이지에서 **+ 새로 만들기**를 선택합니다.
-1. 자동 생성된 대칭 키를 사용하는 *my-mqtt-device*라는 디바이스를 만듭니다.
-1. **디바이스 ID** 페이지에서 **SAS 토큰을 사용하여 연결 문자열**을 확장합니다.
-1. **대칭 키**로 사용할 **기본 키**를 선택하고, 만료 시간을 60분으로 설정하고, **생성**을 선택합니다.
-1. 생성된 **SAS 토큰 연결 문자열**을 복사합니다. 자습서의 뒷부분에서 이 값을 사용합니다.
+1. **IoT 허브** 페이지에서 **이 허브의 디바이스 보기** 를 선택합니다.
+1. **디바이스** 페이지에서 **+ 새로 만들기** 를 선택합니다.
+1. 자동 생성된 대칭 키를 사용하는 *my-mqtt-device* 라는 디바이스를 만듭니다.
+1. **디바이스 ID** 페이지에서 **SAS 토큰을 사용하여 연결 문자열** 을 확장합니다.
+1. **대칭 키** 로 사용할 **기본 키** 를 선택하고, 만료 시간을 60분으로 설정하고, **생성** 을 선택합니다.
+1. 생성된 **SAS 토큰 연결 문자열** 을 복사합니다. 자습서의 뒷부분에서 이 값을 사용합니다.
 
 ## <a name="clone-sample-repo"></a>샘플 리포지토리 복제
 
@@ -80,7 +80,7 @@ cd vcpkg
 
 Visual Studio에서 샘플 코드를 보려면 *IoTMQTTSample\src\Windows* 폴더의 *MQTTWin32.sln* 솔루션 파일을 엽니다.
 
-**솔루션 탐색기**에서 **TelemetryMQTTWin32** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
+**솔루션 탐색기** 에서 **TelemetryMQTTWin32** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택합니다.
 
 **TelemetryMQTTWin32** 프로젝트에서 **MQTT_Mosquitto.cpp** 원본 파일을 엽니다. 연결 정보 정의를 이전에 적어 둔 디바이스 세부 정보로 업데이트합니다. 다음 항목의 토큰 문자열 자리 표시자를 바꿉니다.
 
@@ -96,7 +96,7 @@ Azure IoT 탐색기를 시작하고 원격 분석 수신 대기를 시작하여 
 
 Azure IoT 탐색기를 보면 IoT 플러그 앤 플레이 디바이스가 아닌 것을 확인할 수 있습니다.
 
-:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="MQTT 샘플 애플리케이션의 출력":::
+:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Azure IoT 탐색기의 비 IoT 플러그 앤 플레이 디바이스":::
 
 ### <a name="make-the-device-an-iot-plug-and-play-device"></a>디바이스를 IoT 플러그 앤 플레이 디바이스로 만들기
 
@@ -117,11 +117,11 @@ IoT 플러그 앤 플레이 디바이스는 일련의 간단한 규칙을 따라
 
 이제 다음과 같이 디바이스 쌍에 모델 ID가 포함됩니다.
 
-:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="MQTT 샘플 애플리케이션의 출력":::
+:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Azure IoT 탐색기에서 모델 ID 보기":::
 
 이제 IoT 플러그 앤 플레이 구성 요소를 탐색할 수 있습니다.
 
-:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="MQTT 샘플 애플리케이션의 출력":::
+:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Azure IoT 탐색기에서 구성 요소 보기":::
 
 이제 모델에 정의된 원격 분석, 속성 및 명령을 구현하도록 디바이스 코드를 수정할 수 있습니다. Mosquitto 라이브러리를 사용하여 자동 온도 조절기 디바이스를 구현하는 예제를 보려면 GitHub의 [Windows에서 IoT SDK를 사용하지 않고 Azure IoTHub에서 MQTT PnP 사용](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32)을 참조하세요.
 

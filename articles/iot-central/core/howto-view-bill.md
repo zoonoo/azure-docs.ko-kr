@@ -3,17 +3,17 @@ title: Azure IoT Central 응용 프로그램에서 청구서를 관리 하 고 �
 description: 관리자는 청구서를 관리 하 고 Azure IoT Central 응용 프로그램에서 무료 요금제를 표준 가격 책정 요금제로 이동 하는 방법에 대해 알아봅니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 11/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 515f5f665e947ff9594cce6dbbaea9b5e0c50ebf
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999700"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549024"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>IoT Central 응용 프로그램에서 청구 관리
 
@@ -34,15 +34,15 @@ ms.locfileid: "91999700"
 
 1. **관리** 섹션의 **가격 책정** 페이지로 이동 합니다.
 
-    ![평가판 상태](media/howto-view-bill/freetrialbilling.png)
+    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="평가판 상태":::
 
-1. **유료 요금제로 변환을**선택 합니다.
+1. **유료 요금제로 변환을** 선택 합니다.
 
-    ![평가판 변환](media/howto-view-bill/convert.png)
+    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="평가판 변환":::
 
 1. 적절 한 Azure Active Directory를 선택 하 고 유료 요금제를 사용 하는 응용 프로그램에 사용할 Azure 구독을 선택 합니다.
 
-1. **변환**을 선택 하면 응용 프로그램에서 유료 요금제를 사용 하 고 청구를 시작 합니다.
+1. **변환** 을 선택 하면 응용 프로그램에서 유료 요금제를 사용 하 고 청구를 시작 합니다.
 
 > [!Note]
 > 기본적으로 *표준 2* 가격 책정 요금제로 변환 됩니다.
@@ -55,7 +55,7 @@ ms.locfileid: "91999700"
 
 1. **관리** 섹션의 **가격 책정** 페이지로 이동 합니다.
 
-    ![업그레이드 prcing 계획](media/howto-view-bill/pricing.png)
+    :::image type="content" source="media/howto-view-bill/pricing.png" alt-text="업그레이드 가격 책정 계획":::
 
 1. **계획** 을 선택한 다음 **저장** 을 선택 하 여 업그레이드 또는 다운 그레이드를 선택 합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "91999700"
 
 1. 적절 한 Azure Active Directory를 선택 하 고 유료 요금제를 사용 하는 응용 프로그램에 사용할 Azure 구독을 선택 합니다.
 
-1. **변환**을 선택 하면 응용 프로그램에서 유료 요금제를 사용 하 고 청구를 시작 합니다.
+1. **변환** 을 선택 하면 응용 프로그램에서 유료 요금제를 사용 하 고 청구를 시작 합니다.
 
 > [!Note]
 > 기본적으로 *표준 2* 가격 책정 요금제로 변환 됩니다.

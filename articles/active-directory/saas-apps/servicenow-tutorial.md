@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 3413e594179cdca0704cb5db7908276b7502e719
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901155"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353613"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -25,6 +25,8 @@ ms.locfileid: "92901155"
 * ServiceNow에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
 * 사용자가 자신의 Azure AD 계정으로 ServiceNow에 자동으로 로그인되도록 합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -260,7 +262,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
              ![[ID 공급자] 섹션의 스크린샷](./media/servicenow-tutorial/automatic-config.png "Single Sign-On 구성")
 
-               a. **이름** 에 구성의 이름을 입력합니다(예: **Microsoft Azure 페더레이션된 Single Sign-On** ).
+               a. **이름** 에 구성의 이름을 입력합니다(예: **Microsoft Azure 페더레이션된 Single Sign-On**).
 
                b. **ServiceNow 홈페이지** 값을 복사하여 Azure Portal의 **ServiceNow 기본 SAML 구성** 섹션에 있는 **로그온 URL** 에 붙여넣습니다.
 
@@ -324,7 +326,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
         ![[ID 공급자]의 스크린샷](./media/servicenow-tutorial/ic7694982.png "Single Sign-On 구성")
 
-        a. **이름** 에 구성의 이름을 입력합니다(예: **Microsoft Azure 페더레이션된 Single Sign-On** ).
+        a. **이름** 에 구성의 이름을 입력합니다(예: **Microsoft Azure 페더레이션된 Single Sign-On**).
 
         b. **ServiceNow 홈페이지** 값을 복사합니다. Azure Portal의 **ServiceNow 기본 SAML 구성** 섹션에 있는 **로그온 URL** 에 붙여넣습니다.
 
@@ -384,7 +386,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![[X.509 인증서] 대화 상자의 스크린샷](./media/servicenow-tutorial/ic7694975.png "Single Sign-On 구성")
 
-    a. **이름** 에 구성의 이름을 입력합니다(예: **TestSAML2.0** ).
+    a. **이름** 에 구성의 이름을 입력합니다(예: **TestSAML2.0**).
 
     b. **활성** 을 선택합니다.
 
@@ -404,7 +406,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![[새 ID 공급자 추가] 대화 상자의 스크린샷](./media/servicenow-tutorial/ic7694982ex.png "Single Sign-On 구성")
 
-    a. **이름** 에 구성의 이름을 입력합니다(예: **SAML 2.0** ).
+    a. **이름** 에 구성의 이름을 입력합니다(예: **SAML 2.0**).
 
     b. **ID 공급자 URL** 에 Azure Portal에서 복사한 ID 공급자 ID 값을 붙여넣습니다.
 
@@ -478,5 +480,4 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="next-steps"></a>다음 단계
 
-ServiceNow를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
+ServiceNow를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)

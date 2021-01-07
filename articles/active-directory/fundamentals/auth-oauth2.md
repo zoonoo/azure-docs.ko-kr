@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory로 OAUTH 2.0 인증
-description: 이 인증 패턴을 달성 하는 데 대 한 아키텍처 지침
+description: Azure Active Directory를 사용 하 여 OAUTH 2.0 인증을 구현 하는 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea22c4e5b363eaa3ecc2a736dfef714666310062
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c1604d79ce5eb9949028cd677b340bf3d4b09f6c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114370"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172842"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>Azure Active Directory로 OAuth 2.0 인증
 
@@ -44,10 +44,9 @@ OAuth 2.0은 OIDC (Openid connect Connect)와 직접적으로 관련이 있습�
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>Azure AD를 사용 하 여 OAuth 2.0 구현
 
-* [Azure AD와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Azure AD와 애플리케이션 통합](../saas-apps/tutorial-list.md) 
 
-* [Microsoft Id 플랫폼의 OAuth 2.0 및 Openid connect Connect 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [Microsoft Id 플랫폼의 OAuth 2.0 및 Openid connect Connect 프로토콜](../develop/active-directory-v2-protocols.md) 
 
-* [응용 프로그램 종류 및 OAuth2](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) 
+* [응용 프로그램 종류 및 OAuth2](../develop/v2-app-types.md) 
 
- 

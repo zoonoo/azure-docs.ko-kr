@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a00dc5beb2bde02f71b40f6eb374502136c37c67
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410490"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854617"
 ---
 # <a name="data-encryption-models"></a>데이터 암호화 모델
 
@@ -159,7 +159,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | Translator Text                  | 예                | 예                | -                  |
 | Power BI                         | 예                | 예, RSA 4096 비트  | -                  |
 | **분석**                    |                    |                    |                    |
-| Azure Stream Analytics           | 예                | 해당 없음\*              | -                  |
+| Azure Stream Analytics           | 예                | 예\*\*            | -                  |
 | Event Hubs                       | 예                | 예                | -                  |
 | Functions                        | 예                | 예                | -                  |
 | Azure Analysis Services          | 예                | -                  | -                  |
@@ -215,7 +215,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | Azure Site Recovery              | 예                | -                  | -                  |
 | Azure Migrate                    | 예                | 예                | -                  |
 | **미디어**                        |                    |                    |                    |
-| Media Services                   | 예                | -                  | 예                |
+| Media Services                   | 예                | 예                | 예                |
 | **보안**                     |                    |                    |                    |
 | IoT용 Azure Security Center    | 예                | 예                | -                  |
 | Azure Sentinel                   | 예                | 예                | -                  |

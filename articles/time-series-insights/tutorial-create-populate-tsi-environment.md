@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518112"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023227"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>자습서: Azure Time Series Insights Gen1 환경 만들기
 
@@ -101,7 +101,7 @@ Azure IoT Hub는 자습서의 모든 디바이스(시뮬레이션된 디바이�
 
    매개 변수|Description
    ---|---
-   **환경 이름** | Azure Time Series Insights 환경의 고유한 이름을 선택합니다. 이 이름은 Azure Time Series Insights 탐색기 및 [쿼리 API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query)에서 사용합니다.
+   **환경 이름** | Azure Time Series Insights 환경의 고유한 이름을 선택합니다. 이 이름은 Azure Time Series Insights 탐색기 및 [쿼리 API](/rest/api/time-series-insights/gen1-query)에서 사용합니다.
    **구독** | 구독은 Azure 리소스에 대한 컨테이너입니다. Azure Time Series Insights 환경을 만들 구독을 선택합니다.
    **리소스 그룹** | 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. 기존 리소스 그룹을 선택하거나 Azure Time Series Insights 환경 리소스에 대한 새 리소스 그룹을 만듭니다.
    **위치** | Azure Time Series Insights 환경에 대한 데이터 센터 지역을 선택합니다. 대기 시간이 추가되는 것을 방지하려면 다른 IoT 리소스와 동일한 지역에 Azure Time Series Insights 환경을 만듭니다.

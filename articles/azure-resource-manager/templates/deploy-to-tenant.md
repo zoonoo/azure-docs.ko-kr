@@ -2,13 +2,13 @@
 title: 테넌트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/24/2020
+ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668699"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807643"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 테 넌 트 배포
 
@@ -36,11 +36,19 @@ Azure RBAC (역할 기반 액세스 제어)의 경우 다음을 사용 합니다
 
 * [managementGroups](/azure/templates/microsoft.management/managementgroups)
 
+구독을 만들려면 다음을 사용 합니다.
+
+* [별칭](/azure/templates/microsoft.subscription/aliases)
+
 비용 관리를 위해 다음을 사용 합니다.
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
 * [따릅니다](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+
+포털을 구성 하려면 다음을 사용 합니다.
+
+* [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
 
 ## <a name="schema"></a>스키마
 
@@ -121,14 +129,22 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 * [배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포](deploy-to-azure-button.md)
 * [Cloud Shell에서 ARM 템플릿 배포](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>배포 위치 및 이름
+
+테넌트 수준 배포의 경우 배포할 위치를 제공해야 합니다. 배포 위치는 배포하는 리소스의 위치와는 별개입니다. 배포 위치는 배포 데이터를 저장할 위치를 지정합니다. [구독](deploy-to-subscription.md) 및 [관리 그룹](deploy-to-management-group.md) 배포에도 위치가 필요 합니다. [리소스 그룹](deploy-to-resource-group.md) 배포의 경우 리소스 그룹의 위치는 배포 데이터를 저장 하는 데 사용 됩니다.
+
+배포 이름을 제공하거나 기본 배포 이름을 사용할 수 있습니다. 기본 이름은 템플릿 파일의 이름입니다. 예를 들어 **azuredeploy.json** 이라는 템플릿을 배포하면 **azuredeploy** 라는 기본 배포 이름을 만듭니다.
+
+각 배포 이름의 경우 위치는 변경할 수 없습니다. 다른 위치의 이름이 동일한 기존 배포가 있는 경우 하나의 위치에서 배포를 만들 수 없습니다. 예를 들어 **centralus** 에서 이름이 **deployment1** 인 테 넌 트 배포를 만드는 경우 나중에 **deployment1** 이름 이지만 **westus** 의 위치로 다른 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
+
 ## <a name="deployment-scopes"></a>배포 범위
 
-관리 그룹에 배포 하는 경우 다음에 리소스를 배포할 수 있습니다.
+테 넌 트에 배포 하는 경우 다음에 리소스를 배포할 수 있습니다.
 
 * 테 넌 트
 * 테 넌 트 내의 관리 그룹
 * 구독
-* 리소스 그룹 (두 개의 중첩 된 배포를 통해)
+* 리소스 그룹
 * 리소스에 [확장 리소스](scope-extension-resources.md) 를 적용할 수 있습니다.
 
 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
@@ -145,7 +161,7 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 
 테 넌 트 내에서 관리 그룹을 대상으로 지정 하려면 중첩 된 배포를 추가 하 고 속성을 지정 `scope` 합니다.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>구독 범위
 
@@ -153,83 +169,27 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 
 테 넌 트 내에서 구독을 대상으로 하려면 중첩 된 배포 및 `subscriptionId` 속성을 사용 합니다.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
 
-## <a name="deployment-location-and-name"></a>배포 위치 및 이름
+### <a name="scope-to-resource-group"></a>리소스 그룹에 대 한 범위
 
-테넌트 수준 배포의 경우 배포할 위치를 제공해야 합니다. 배포 위치는 배포하는 리소스의 위치와는 별개입니다. 배포 위치는 배포 데이터를 저장할 위치를 지정합니다.
+또한 테 넌 트 내의 리소스 그룹을 대상으로 지정할 수 있습니다. 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
 
-배포 이름을 제공하거나 기본 배포 이름을 사용할 수 있습니다. 기본 이름은 템플릿 파일의 이름입니다. 예를 들어 **azuredeploy.json** 이라는 템플릿을 배포하면 **azuredeploy** 라는 기본 배포 이름을 만듭니다.
+테 넌 트 내의 리소스 그룹을 대상으로 하려면 중첩 된 배포를 사용 합니다. `subscriptionId` 및 `resourceGroup` 속성을 설정합니다. 중첩 된 배포는 리소스 그룹의 위치에 배포 되므로 위치를 설정 하지 마세요.
 
-각 배포 이름의 경우 위치는 변경할 수 없습니다. 다른 위치의 이름이 동일한 기존 배포가 있는 경우 하나의 위치에서 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
 
 ## <a name="create-management-group"></a>관리 그룹 만들기
 
-[다음 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg)은 관리 그룹을 만듭니다.
+다음 템플릿은 관리 그룹을 만듭니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "mgName": {
-      "type": "string",
-      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2019-11-01",
-      "name": "[parameters('mgName')]",
-      "properties": {
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
 
 ## <a name="assign-role"></a>역할 할당
 
-[다음 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment)은 테넌트 범위에서 역할을 할당합니다.
+다음 템플릿은 테넌트 범위에서 역할을 할당합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "principalId if the user that will be given contributor access to the resourceGroup"
-      }
-    },
-    "roleDefinitionId": {
-      "type": "string",
-      "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
-      "metadata": {
-        "description": "roleDefinition for the assignment - default is owner"
-      }
-    }
-  },
-  "variables": {
-    // This creates an idempotent guid for the role assignment
-    "roleAssignmentName": "[guid('/', parameters('principalId'), parameters('roleDefinitionId'))]"
-  },
-  "resources": [
-    {
-      "name": "[variables('roleAssignmentName')]",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2019-04-01-preview",
-      "properties": {
-        "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-        "principalId": "[parameters('principalId')]",
-        "scope": "/"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/tenant-role-assignment/azuredeploy.json":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7a5cd7a6019451b27b509aa7f486540c04c29ee2
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412649"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498883"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>보안 제어: 인벤토리 및 자산 관리
 
@@ -100,7 +100,7 @@ Azure Security Center의 변경 내용 추적 (파일 무결성 모니터링) �
 
 - [파일 무결성 모니터링을 사용 하는 방법](../../security-center/security-center-file-integrity-monitoring.md)
 
-- [Azure 변경 내용 추적 이해](../../automation/change-tracking.md)
+- [Azure 변경 내용 추적 이해](../../automation/change-tracking/overview.md)
 
 - [Azure 가상 컴퓨터 인벤토리를 사용 하도록 설정 하는 방법](../../automation/automation-tutorial-installed-software.md)
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b3ba007f03b3aa4883d9455dc43b2bc19676da59
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748473"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803972"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>IoT 플러그 앤 플레이 디바이스를 인증하는 방법
 
@@ -41,9 +41,13 @@ IoT 플러그 앤 플레이에서 실행 되는 응용 프로그램 코드는 �
 - [DPS](../iot-dps/about-iot-dps.md)를 사용 하 여 Azure IoT Hub에 연결 합니다.
 - IoT 플러그 앤 플레이 규칙에 따라 원격 분석, 속성 또는 명령을 구현 합니다.
 - [Dtdl v2](https://aka.ms/dtdl) 모델과의 장치 상호 작용에 대해 설명 합니다.
-- [Azure IoT 공용 모델 리포지토리에](https://devicemodels.azureiotsolutions.com/) 모델 및 모든 필수 인터페이스를 게시 합니다.
-- Dps 프로 비전 페이로드의 [dps 등록](concepts-developer-guide-device-csharp.md#dps-payload) 중에 모델 ID를 보냅니다.
-- [Mqtt 연결](concepts-developer-guide-device-csharp.md#model-id-announcement)중에 모델 ID를 알립니다.
+- Azure IoT 공용 모델 리포지토리에 모델 및 모든 필수 인터페이스를 게시 합니다.
+- Dps 프로 비전 페이로드의 [dps 등록](./concepts-developer-guide-device.md#dps-payload) 중에 모델 ID를 보냅니다.
+- [Mqtt 연결](./concepts-developer-guide-device.md#model-id-announcement)중에 모델 ID를 알립니다.
+- 모든 장치 모델은 [Azure IoT Central](../iot-central/core/overview-iot-central-developer.md)와 호환 되어야 합니다.
+
+> [!NOTE]
+> 현재 Azure IoT Central는 **배열** 및 **지리 공간적** dtdl 데이터 형식을 완전히 지원 하지 않습니다.
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Azure IoT 확장 CLI를 사용하여 테스트
 
@@ -170,7 +174,7 @@ az iot product test task create --type QueueTestRun --test-id d45d53d9-656d-4be7
 
 [인증 포털](https://aka.ms/acdp)을 사용 하려면 회사 또는 학교 테 넌 트에서 Azure Active Directory를 사용 해야 합니다.
 
-Azure IoT 공용 모델 리포지토리에 모델을 게시 하려면 계정이 [Microsoft 파트너 네트워크](https://partner.microsoft.com)의 멤버 여야 합니다. 시스템은 Microsoft 파트너 네트워크 ID가 존재 하는지 확인 하 고, 계정이 완전히 점검 되었다는 장치 카탈로그에 게시 합니다.
+[Azure IoT 공용 모델 리포지토리에](https://github.com/Azure/iot-plugandplay-models)모델을 게시 하려면 계정이 [Microsoft 파트너 네트워크](https://partner.microsoft.com)의 멤버 여야 합니다. 시스템은 Microsoft 파트너 네트워크 ID가 존재 하는지 확인 하 고, 계정이 완전히 점검 되었다는 장치 카탈로그에 게시 합니다.
 
 ### <a name="company-profile"></a>회사 프로필
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6f4610887092b1dac5cdc85622739318d5921d7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460702"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852237"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -233,14 +233,14 @@ ssh를 사용하여 HSM에 연결하는 경우 HSM이 작동하도록 다음 명
 
 ![스크린샷은 PowerShell 창의 출력을 보여줍니다.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-이제 고가용성의 두 HSM 배포에 모든 리소스가 할당되고, 액세스 및 작동 상태에 대한 유효성 검사가 완료된 상태여야 합니다. 추가 구성 또는 테스트를 위해서는 HSM 디바이스 자체로 추가 작업을 수행해야 합니다. 이를 위해서는 Gemalto Luna Network HSM 7 Administration Guide 7장의 지침을 따라 HSM을 초기화하고 파티션을 만들어야 합니다. Gemalto 고객 지원 포털에 등록되어 있고 고객 ID가 있으면 모든 설명서 및 소프트웨어를 Gemalto에서 직접 다운로드할 수 있습니다. 모든 필수 구성 요소를 받으려면 클라이언트 소프트웨어 7.2 버전을 다운로드하세요.
+이제 고가용성의 두 HSM 배포에 모든 리소스가 할당되고, 액세스 및 작동 상태에 대한 유효성 검사가 완료된 상태여야 합니다. 추가 구성 또는 테스트를 위해서는 HSM 디바이스 자체로 추가 작업을 수행해야 합니다. 이를 위해서는 Thales Luna Network HSM 7 Administration Guide 7장의 지침을 따라 HSM을 초기화하고 파티션을 만들어야 합니다. Thales 고객 지원 포털에 등록되어 있고 고객 ID가 있으면 모든 설명서 및 소프트웨어를 Thales에서 직접 다운로드할 수 있습니다. 모든 필수 구성 요소를 받으려면 클라이언트 소프트웨어 7.2 버전을 다운로드하세요.
 
 ## <a name="delete-or-clean-up-resources"></a>리소스 삭제 또는 정리
 
 HSM 디바이스로만 완료한 경우 리소스로 삭제하고 사용 가능 풀로 반환할 수 있습니다. 이 작업을 수행할 때 확실한 문제는 디바이스에 있는 모든 중요한 고객 데이터입니다. 디바이스를 "제로화"하는 가장 좋은 방법은 HSM 관리자 암호를 3번 잘못 가져오는 것입니다(참고: 이는 어플라이언스 관리자가 아니라 실제 HSM 관리자임). 핵심 자료를 보호하는 차원에서 디바이스는 초기화 상태가 될 때까지 Azure 리소스로 간주하며, 삭제할 수 없습니다.
 
 > [!NOTE]
-> Gemalto 디바이스 구성과 관련하여 문제가 발생할 경우 [Gemalto 고객 지원팀](https://safenet.gemalto.com/technical-support/)에 연락하시기 바랍니다.
+> Thales 디바이스 구성과 관련하여 문제가 발생할 경우 [Thales 고객 지원팀](https://safenet.gemalto.com/technical-support/)에 문의해야 합니다.
 
 이 리소스 그룹의 모든 리소스를 완료한 경우 다음 명령을 사용하여 모두 제거할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 1053eb9772650dce040570bda04addf93df49178
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e2a4d8635a1a793fd8a5d98b8957bea6b36cecda
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743534"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934937"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP 및 MySQL 앱 빌드
 
@@ -46,11 +46,12 @@ ms.locfileid: "92743534"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Git 설치](https://git-scm.com/)
-* [PHP 5.6.4 이상 설치](https://php.net/downloads.php)
-* [작성기 설치](https://getcomposer.org/doc/00-intro.md)
-* Laravel에 필요한 OpenSSL, PDO-MySQL, Mbstring, 토크나이저, XML 등의 PHP 확장 사용
-* [MySQL 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+- [Git 설치](https://git-scm.com/)
+- [PHP 5.6.4 이상 설치](https://php.net/downloads.php)
+- [작성기 설치](https://getcomposer.org/doc/00-intro.md)
+- Laravel에 필요한 OpenSSL, PDO-MySQL, Mbstring, 토크나이저, XML 등의 PHP 확장 사용
+- [MySQL 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="prepare-local-mysql"></a>로컬 MySQL 준비
 
@@ -148,8 +149,6 @@ php artisan serve
 ![PHP가 MySQL 연결에 성공](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-mysql-in-azure"></a>Azure에서 MySQL 만들기
 
@@ -428,7 +427,7 @@ Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update)
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-기본적으로 Azure App Service에서는 루트 가상 애플리케이션 경로( _/_ )가 배포된 애플리케이션 파일의 루트 디렉터리( _sites\wwwroot_ )를 가리킵니다.
+기본적으로 Azure App Service에서는 루트 가상 애플리케이션 경로( _/_ )가 배포된 애플리케이션 파일의 루트 디렉터리(_sites\wwwroot_)를 가리킵니다.
 
 ::: zone-end
 
@@ -452,7 +451,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -483,7 +482,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -498,7 +497,7 @@ remote: Running deployment command...
 
 `http://<app-name>.azurewebsites.net`으로 이동한 후 목록에 몇 가지 작업을 추가합니다.
 
-:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="작업 목록이라는 제목의 PHP 앱 예제 스크린샷.":::
+:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="새로 추가된 작업을 보여주는 작업 목록이라는 제목의 Azure 앱 예제 스크린샷.":::
 
 축하합니다! Azure App Service에서 데이터 기반 PHP 앱을 실행하고 있습니다.
 
@@ -550,7 +549,7 @@ public function down()
 php artisan migrate
 ```
 
-[Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`( _app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
+[Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`(_app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
 
 ### <a name="update-application-logic"></a>애플리케이션 논리 업데이트
 
@@ -635,7 +634,7 @@ Git에서 모든 변경 내용을 커밋한 다음 Azure에 코드 변경 내용
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 `git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.

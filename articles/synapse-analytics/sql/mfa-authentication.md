@@ -10,16 +10,16 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: a430bb41f88bfec1299d52d8237c9534b28acc5d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: fb8aad52eeaef2366afe28aa71059b7f8f780501
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093381"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843301"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Synapse SQL에서 다단계 AAD 인증 사용(MFA용 SSMS 지원)
 
-Synapse SQL은 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서 연결을 지원합니다. 
+Synapse SQL은 *Active Directory 유니버설 인증* 을 사용하여 SSMS(SQL Server Management Studio)에서 연결을 지원합니다. 
 
 이 문서에서는 다양한 인증 옵션 간의 차이점과 유니버설 인증 사용과 관련된 제한 사항에 대해 설명합니다. 
 
@@ -40,11 +40,11 @@ Active Directory 유니버설 인증은 다음과 같은 두 가지 비대화형
 - `Active Directory - Password`
 - `Active Directory - Integrated`
 
-Azure MFA(다단계 인증)도 지원하는 대화형 방법은 다음과 같습니다.
+Azure AD MFA(Multi-Factor Authentication)도 지원하는 대화형 방법은 다음과 같습니다.
 
 - `Active Directory - Universal with MFA`
 
-Azure MFA를 사용하면 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동시에 데이터 및 애플리케이션에 대한 액세스를 보호할 수 있습니다. 또한 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 통해 강력한 인증을 제공하므로 사용자는 선호하는 방법을 선택할 수 있습니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다.
+Azure AD MFA를 사용하면 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동시에 데이터 및 애플리케이션에 대한 액세스를 보호할 수 있습니다. 또한 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 통해 강력한 인증을 제공하므로 사용자는 선호하는 방법을 선택할 수 있습니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다.
 
 Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authentication](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
 
@@ -52,7 +52,7 @@ Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authenti
 
 [SSMS 버전 17](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)부터 다른 Azure Active 디렉터리에서 현재 Active Directory로 가져온 게스트 사용자는 연결할 때 Azure AD 도메인 이름 또는 테넌트 ID를 제공할 수 있습니다. 
 
-게스트 사용자에는 타 Azure AD에서 초대 받은 사용자, outlook.com, hotmail.com, live.com 등의 Microsoft 계정, gmail.com 등의 타 계정이 포함됩니다. 이 정보를 통해 **MFA를 통한 Active Directory 유니버설 인증**에서 올바른 인증 기관을 식별할 수 있습니다. 이 옵션은 outlook.com, hotmail.com 또는 live.com과 같은 Microsoft 계정(MSA)이나 비 MSA 계정을 지원하는 데도 필요합니다. 
+게스트 사용자에는 타 Azure AD에서 초대 받은 사용자, outlook.com, hotmail.com, live.com 등의 Microsoft 계정, gmail.com 등의 타 계정이 포함됩니다. 이 정보를 통해 **MFA를 통한 Active Directory 유니버설 인증** 에서 올바른 인증 기관을 식별할 수 있습니다. 이 옵션은 outlook.com, hotmail.com 또는 live.com과 같은 Microsoft 계정(MSA)이나 비 MSA 계정을 지원하는 데도 필요합니다. 
 
 유니버설 인증을 사용하여 인증을 받으려면 이러한 모든 사용자는 Azure AD 도메인 이름 또는 테넌트 ID를 입력해야 합니다. 이 매개 변수는 Azure 서버와 연결되는 현재 Azure AD 도메인 이름/테넌트 ID를 나타냅니다. 
 
@@ -60,7 +60,7 @@ Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authenti
 
 사용자가 Azure 서버에 연결된 Azure AD의 네이티브 사용자이고 MSA 계정이 아닌 경우 도메인 이름 또는 테넌트 ID는 필요하지 않습니다. 
 
-(SSMS 버전 17.2부터) 매개 변수를 **데이터베이스 연결** 대화 상자에 입력하려면 **Active Directory - MFA를 통한 유니버설**을 인증을 선택하여 대화 상자를 입력하고 **옵션**을 선택하여 **사용자 이름** 상자를 입력한 다음, **연결 속성** 탭을 선택합니다. 
+(SSMS 버전 17.2부터) 매개 변수를 **데이터베이스 연결** 대화 상자에 입력하려면 **Active Directory - MFA를 통한 유니버설** 을 인증을 선택하여 대화 상자를 입력하고 **옵션** 을 선택하여 **사용자 이름** 상자를 입력한 다음, **연결 속성** 탭을 선택합니다. 
 
 **AD 도메인 이름 또는 테넌트 ID** 상자를 선택한 다음 인증 기관(예: 도메인 이름, **contosotest.onmicrosoft.com**) 또는 테넌트 ID의 GUID를 제공합니다.  
 

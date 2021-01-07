@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0591825bf187648293d5aabc88597b19ab2436e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033475"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491055"
 ---
 # <a name="deploy-azure-monitor"></a>Azure Monitor 배포
 모든 Azure 리소스의 모니터링에 Azure Monitor를 사용 하도록 설정 하는 것은 Azure Monitor 구성 요소를 구성 하 고 Azure 리소스를 구성 하 여 Azure Monitor 수집할 모니터링 데이터를 생성 하는 것입니다. 이 문서에서는 Azure 구독의 모든 리소스를 모니터링 하기 위해 일반적인 구성을 사용 하 Azure Monitor의 전체 구현을 수행 하는 데 필요한 여러 단계를 설명 합니다. 각 단계에 대 한 기본 설명은 자세한 구성 요구 사항에 대 한 다른 설명서에 대 한 링크와 함께 제공 됩니다.
@@ -118,7 +118,7 @@ VM용 Azure Monitor는 Log Analytics 작업 영역으로 성능 데이터를 전
 Azure Monitor는 모니터링 하려는 각 응용 프로그램에 대해 구성 해야 하는 [Application Insights](app/app-insights-overview.md)를 사용 하 여 사용자 지정 응용 프로그램을 모니터링 합니다. 구성 프로세스는 모니터링 되는 응용 프로그램의 유형과 수행 하려는 모니터링 유형에 따라 달라 집니다. Application Insights에 의해 수집 된 데이터는 기능에 따라 Azure Monitor 메트릭, Azure Monitor 로그 및 Azure blob 저장소에 저장 됩니다. 성능 데이터는 추가 구성이 필요 없는 Azure Monitor 메트릭과 Azure Monitor 로그에 저장 됩니다.
 
 ### <a name="create-an-application-resource"></a>응용 프로그램 리소스 만들기
-모니터링할 각 응용 프로그램에 대해 Application Insights에서 리소스를 만들어야 합니다. Application Insights에 의해 수집 된 로그 데이터는 작업 영역 기반 응용 프로그램에 대 한 Azure Monitor 로그에 저장 됩니다. 클래식 응용 프로그램의 로그 데이터는 [데이터 구조](platform/data-platform-logs.md#structure-of-data)에 설명 된 대로 Log Analytics 작업 영역과 별도로 저장 됩니다.
+모니터링할 각 응용 프로그램에 대해 Application Insights에서 리소스를 만들어야 합니다. Application Insights에 의해 수집 된 로그 데이터는 작업 영역 기반 응용 프로그램에 대 한 Azure Monitor 로그에 저장 됩니다. 클래식 응용 프로그램의 로그 데이터는 [데이터 구조](platform/data-platform-logs.md#data-structure)에 설명 된 대로 Log Analytics 작업 영역과 별도로 저장 됩니다.
 
  응용 프로그램을 만들 때 클래식 또는 작업 영역 기반을 사용할지 여부를 선택 해야 합니다. 클래식 응용 프로그램을 만들려면 [Application Insights 리소스 만들기](app/create-new-resource.md) 를 참조 하세요. 작업 영역 기반 응용 프로그램을 만들려면 [작업 영역 기반 Application Insights 리소스 (미리 보기)](app/create-workspace-resource.md) 를 참조 하세요.
 

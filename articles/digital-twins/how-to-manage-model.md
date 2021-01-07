@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279418"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534758"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -23,6 +23,10 @@ ms.locfileid: "93279418"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-models"></a>모델을 관리 하는 방법
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-models"></a>모델 만들기
 
@@ -73,17 +77,7 @@ Azure 디지털 쌍에 대 한 모델은 DTDL로 작성 되 고 *.* i n i 파일
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="manage-models-with-apis"></a>Api를 사용 하 여 모델 관리
-
-다음 섹션에서는 [Azure Digital Twins api 및 sdk](how-to-use-apis-sdks.md)를 사용 하 여 다양 한 모델 관리 작업을 완료 하는 방법을 보여 줍니다.
-
-> [!NOTE]
-> 아래 예제에는 간결 하 게 하는 오류 처리가 포함 되지 않습니다. 그러나 프로젝트 내에서 try/catch 블록에 서비스 호출을 래핑하는 것이 좋습니다.
-
-> [!TIP] 
-> 모든 SDK 메서드는 동기 및 비동기 버전으로 제공 됩니다. 페이징 호출의 경우 비동기 메서드는 `AsyncPageable<T>` 동기 버전이 반환 되는 동안를 반환 합니다 `Pageable<T>` .
-
-### <a name="upload-models"></a>모델 업로드
+## <a name="upload-models"></a>모델 업로드
 
 모델을 만든 후에는 Azure Digital Twins 인스턴스에 업로드할 수 있습니다.
 
@@ -117,7 +111,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 다음은 그 예입니다.
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 다음은 그 예입니다. 
 
 ```json
 [
@@ -136,7 +130,7 @@ client.CreateModels(dtdlStrings);
  
 업로드할 때 서비스에서 모델 파일의 유효성을 검사 합니다.
 
-### <a name="retrieve-models"></a>모델 검색
+## <a name="retrieve-models"></a>모델 검색
 
 Azure Digital Twins 인스턴스에 저장 된 모델을 나열 하 고 검색할 수 있습니다. 
 
@@ -166,13 +160,13 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `DigitalTwinsMode
 
 모델은 업로드 된 문서 양식으로 정확히 반환 될 필요는 없습니다. Azure Digital Twins는 반환 폼이 의미상 동일 함을 보장 합니다. 
 
-### <a name="update-models"></a>모델 업데이트
+## <a name="update-models"></a>모델 업데이트
 
 모델이 Azure Digital Twins 인스턴스에 업로드 되 면 모델 인터페이스 전체를 변경할 수 없습니다. 이는 기존의 모델 "편집"이 없음을 의미 합니다. 또한 Azure Digital Twins는 동일한 모델을 다시 업로드할 수 없습니다.
 
 대신 모델을 변경 하려는 경우 (예: `displayName` 또는 업데이트 `description` ) 모델의 **새 버전** 을 업로드 하는 방법이 있습니다. 
 
-#### <a name="model-versioning"></a>모델 버전 관리
+### <a name="model-versioning"></a>모델 버전 관리
 
 기존 모델의 새 버전을 만들려면 원래 모델의 DTDL로 시작 합니다. 변경할 필드를 업데이트, 추가 또는 제거 합니다.
 
@@ -194,7 +188,7 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `DigitalTwinsMode
 
 이 버전의 모델은 디지털 쌍에 사용 하기 위해 인스턴스에서 사용할 수 있습니다. 이전 버전의 모델을 덮어쓰지 않으므로 [제거](#remove-models)될 때까지 여러 버전의 모델이 인스턴스에 **공존 하 게** 됩니다.
 
-#### <a name="impact-on-twins"></a>쌍에 미치는 영향
+### <a name="impact-on-twins"></a>쌍에 미치는 영향
 
 새 쌍을 만들 때 새 모델 버전과 이전 모델 버전이 공존 하므로 새 쌍은 새 버전의 모델 또는 이전 버전을 사용할 수 있습니다.
 
@@ -202,7 +196,7 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `DigitalTwinsMode
 
 *방법: digital 쌍 관리* 의 [*디지털 쌍 모델 업데이트*](how-to-manage-twin.md#update-a-digital-twins-model) 섹션에 설명 된 대로 패치를 적용 하 여 기존 쌍를 새 모델 버전으로 업데이트할 수 있습니다. 동일한 패치 내에서 새 모델을 따르도록 **모델 ID** (새 버전) 및 쌍 **에서 변경 해야 하는 모든 필드** 를 업데이트 해야 합니다.
 
-### <a name="remove-models"></a>모델 제거
+## <a name="remove-models"></a>모델 제거
 
 모델은 다음 두 가지 방법 중 하나로 서비스에서 제거 될 수도 있습니다.
 * **서비스** 해제: 모델을 서비스 해제 한 후에는 더 이상 새 디지털 쌍을 만드는 데 사용할 수 없습니다. 이미이 모델을 사용 하는 기존 digital 쌍는 영향을 받지 않으므로 속성 변경, 관계 추가 또는 삭제와 같은 항목을 사용 하 여 업데이트할 수 있습니다.
@@ -210,7 +204,7 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `DigitalTwinsMode
 
 이러한 기능은 개별 기능이 며 서로에 게 영향을 주지 않지만 모델을 점진적으로 제거 하는 데 함께 사용할 수 있습니다. 
 
-#### <a name="decommissioning"></a>서비스 해제
+### <a name="decommissioning"></a>서비스 해제
 
 모델을 서비스 해제 하는 코드는 다음과 같습니다.
 
@@ -223,7 +217,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 모델의 서비스 해제 상태는 `ModelData` 모델 검색 api에서 반환 하는 레코드에 포함 됩니다.
 
-#### <a name="deletion"></a>삭제
+### <a name="deletion"></a>삭제
 
 인스턴스의 모든 모델을 한 번에 삭제 하거나 개별적으로 수행할 수 있습니다.
 
@@ -231,7 +225,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 이 섹션의 나머지 부분에서는 모델 삭제를 자세히 설명 하 고 개별 모델에 대해이 작업을 수행 하는 방법을 보여 줍니다.
 
-##### <a name="before-deletion-deletion-requirements"></a>삭제 전: 삭제 요구 사항
+#### <a name="before-deletion-deletion-requirements"></a>삭제 전: 삭제 요구 사항
 
 일반적으로 모델은 언제 든 지 삭제할 수 있습니다.
 
@@ -239,7 +233,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 종속 모델을 업데이트 하 여 종속성을 제거 하거나 종속 모델을 완전히 삭제 하 여이 작업을 수행할 수 있습니다.
 
-##### <a name="during-deletion-deletion-process"></a>삭제 중: 삭제 프로세스
+#### <a name="during-deletion-deletion-process"></a>삭제 중: 삭제 프로세스
 
 모델이 즉시 삭제 하는 요구 사항을 충족 하는 경우에도 몇 가지 단계를 수행 하 여 남아 있는 쌍의 의도 하지 않은 결과를 방지 하는 것이 좋습니다. 프로세스를 관리 하는 데 도움이 되는 몇 가지 단계는 다음과 같습니다.
 1. 먼저 모델을 서비스 해제 합니다.
@@ -255,7 +249,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 await client.DeleteModelAsync(IDToDelete);
 ```
 
-##### <a name="after-deletion-twins-without-models"></a>삭제 후: 모델 없이 Twins
+#### <a name="after-deletion-twins-without-models"></a>삭제 후: 모델 없이 Twins
 
 모델을 삭제 한 후에는 모델을 사용 하 던 모든 디지털 쌍이 이제 모델 없이 사용 되는 것으로 간주 됩니다. 이 상태의 모든 쌍 목록을 제공할 수 있는 쿼리가 없습니다. 그러나 삭제 된 모델에 의해 쌍이 영향을 받는 항목을 확인 하기 위해 여전히 해당 쌍을 쿼리할 *수* 있습니다.
 
@@ -274,17 +268,13 @@ await client.DeleteModelAsync(IDToDelete);
 * 나가는 관계 편집 (에서로,이 쌍 *에서* 다른 쌍으로의 관계)
 * 속성 편집
 
-##### <a name="after-deletion-re-uploading-a-model"></a>삭제 후: 모델 다시 업로드
+#### <a name="after-deletion-re-uploading-a-model"></a>삭제 후: 모델 다시 업로드
 
 모델을 삭제 한 후 나중에 삭제 한 ID와 동일한 ID를 사용 하 여 새 모델을 업로드 하도록 결정할 수 있습니다. 이 경우 발생 하는 작업은 다음과 같습니다.
 * 솔루션 상점의 관점에서이는 완전히 새로운 모델을 업로드 하는 것과 같습니다. 서비스는 이전에 업로드 된 것을 기억할 필요가 없습니다.   
 * 삭제 된 모델을 참조 하는 그래프에 남아 있는 쌍이 있으면 더 이상 분리 되지 않습니다. 새 정의를 사용 하 여이 모델 ID를 다시 사용할 수 있습니다. 그러나 모델에 대 한 새 정의가 삭제 된 모델 정의와 다를 경우 이러한 쌍은 삭제 된 정의와 일치 하 고 새 속성과 관계가 없을 수 있습니다.
 
 Azure Digital 쌍는이 상태를 방지 하지 않으므로 모델 정의 스위치를 통해 유효 하 게 유지 하기 위해 적절 한 wins를 적절 하 게 패치 해야 합니다.
-
-## <a name="manage-models-with-cli"></a>CLI를 사용 하 여 모델 관리
-
-Azure Digital Twins CLI를 사용 하 여 모델을 관리할 수도 있습니다. 명령은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

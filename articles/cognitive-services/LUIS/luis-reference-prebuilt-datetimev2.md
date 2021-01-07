@@ -10,11 +10,11 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/13/2020
 ms.openlocfilehash: 83522de9c00056a3808b002b3103f45c72553399
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534185"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013074"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
 
@@ -114,7 +114,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 |속성 이름 |속성 형식 및 설명|
 |---|---|
 |엔터티|**문자열** - 날짜, 시간, 날짜 범위 또는 시간 범위라는 형식이 있는 발언에서 추출된 텍스트입니다.|
-|type|**문자열** - [datetimeV2의 하위 식형](#subtypes-of-datetimev2) 중 하나입니다.
+|형식|**문자열** - [datetimeV2의 하위 식형](#subtypes-of-datetimev2) 중 하나입니다.
 |startIndex|**int** - 엔터티가 시작하는 발언의 인덱스입니다.|
 |endIndex|**int** - 엔터티가 끝나는 발언의 인덱스입니다.|
 |확인|하나, 둘 또는 네 가지 [해결 방법](#values-of-resolution)이 있는 `values` 배열이 포함됩니다.|
@@ -145,12 +145,12 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 |--|--|
 |timex|[ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601) 뒤에 오는 TIMEX 형식으로 표현된 시간, 날짜 또는 날짜 범위와 TimeML 언어를 사용하는 주석에 대한 TIMEX3 특성입니다.|
 |mod|,와 같은 값을 사용 하는 방법을 설명 하는 데 사용 되는 용어 `before` `after` 입니다.|
-|type|하위 형식으로,,,,,,, 등의 항목 중 하나일 수 있습니다. `datetime` `date` `time` `daterange` `timerange` `datetimerange` `duration` `set`|
-|value|**필드.** Yyyy-MM-dd (date), HH: mm: ss (time) yyyy-mm-dd HH: MM: ss (datetime) 형식의 datetime 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
+|형식|하위 형식으로,,,,,,, 등의 항목 중 하나일 수 있습니다. `datetime` `date` `time` `daterange` `timerange` `datetimerange` `duration` `set`|
+|값|**필드.** Yyyy-MM-dd (date), HH: mm: ss (time) yyyy-mm-dd HH: MM: ss (datetime) 형식의 datetime 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
 
 ## <a name="valid-date-values"></a>유효한 날짜 값
 
-**datetimeV2**는 다음 범위 사이의 날짜를 지원합니다.
+**datetimeV2** 는 다음 범위 사이의 날짜를 지원합니다.
 
 | 최소값 | 최대값 |
 |----------|-------------|
@@ -480,7 +480,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 
 ## <a name="time-range-resolution-example"></a>시간 범위 해결 방법 예제
 
-API V3에서 DatetimeV2 JSON 응답이 변경 되었습니다. 다음 예제에서는 LUIS가 **datetimeV2**를 사용하여 시간 범위가 있는 발언을 확인하는 방법을 보여줍니다.
+API V3에서 DatetimeV2 JSON 응답이 변경 되었습니다. 다음 예제에서는 LUIS가 **datetimeV2** 를 사용하여 시간 범위가 있는 발언을 확인하는 방법을 보여줍니다.
 
 API v 2의 변경 내용:
 * `datetimeV2.timex.type` 속성은 부모 수준에서 반환 되기 때문에 더 이상 반환 되지 않습니다 `datetimev2.type` .
@@ -669,14 +669,14 @@ API v 2의 변경 내용:
 
 ## <a name="deprecated-prebuilt-datetime"></a>미리 작성된 날짜/시간 사용되지 않음
 
-`datetime` 미리 빌드된 엔터티는 더 이상 사용되지 않으며 **datetimeV2**로 바뀌었습니다.
+`datetime` 미리 빌드된 엔터티는 더 이상 사용되지 않으며 **datetimeV2** 로 바뀌었습니다.
 
 LUIS 앱에서 `datetime`을 `datetimeV2`로 바꾸려면 다음 단계를 완료합니다.
 
 1. LUIS 웹 인터페이스의 **엔터티** 창을 엽니다.
 2. **datetime** 미리 작성된 엔터티를 삭제합니다.
-3. **미리 빌드된 엔터티 추가**를 클릭합니다.
-4. **datetimeV2**를 선택하고 **저장**을 클릭합니다.
+3. **미리 빌드된 엔터티 추가** 를 클릭합니다.
+4. **datetimeV2** 를 선택하고 **저장** 을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

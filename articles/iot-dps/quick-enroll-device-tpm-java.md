@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 6c6282f487d6a20de4654118df94c8bfac8a441d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0a1f4ed46ab9e467a19cfa722a2d345284fdc94a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075928"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463054"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>빠른 시작: Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 
@@ -27,7 +27,7 @@ ms.locfileid: "93075928"
 - [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 완료
 - [TPM 디바이스의 암호화 키 읽기](quick-create-simulated-device.md#simulatetpm) 완료
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks). 이 빠른 시작에서는 아래 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/master/service/)를 설치합니다. Windows와 Linux 모두에서 작동합니다. 이 빠른 시작에서는 Windows를 사용합니다.
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). 이 빠른 시작에서는 아래 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/master/service/)를 설치합니다. Windows와 Linux 모두에서 작동합니다. 이 빠른 시작에서는 Windows를 사용합니다.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Git](https://git-scm.com/download/)
 
@@ -35,7 +35,7 @@ ms.locfileid: "93075928"
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비 
 
-1. 컴퓨터에 [Java SE Development Kit 8](https://aka.ms/azure-jdks)이 설치되어 있는지 확인합니다. 
+1. 컴퓨터에 [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)이 설치되어 있는지 확인합니다. 
 
 2. Java 설치 환경 변수를 설정합니다. `PATH` 변수에는 *jdk1.8.x\bin* 디렉터리의 전체 경로가 포함되어야 합니다. 컴퓨터의 첫 번째 Java 설치인 경우 `JAVA_HOME`이라는 새 환경 변수를 만들고 *jdk1.8.x* 디렉터리의 전체 경로를 가리키도록 지정합니다. Windows 머신에서 이 디렉터리는 *C:\\Program Files\\Java\\* 폴더에 있으며, Windows 머신의 **제어판** 에서 **시스템 환경 변수 편집** 을 검색하여 환경 변수를 만들거나 편집할 수 있습니다. 
 

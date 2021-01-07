@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: ecb4203c822f5b72068e11d0ad4b988d294aab0d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b346a23ccde6abd0f76982a4d19e00e28e8511a7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427057"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930874"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Azure Sentinel 고객 관리형 키 설정
 
@@ -59,11 +59,11 @@ CMK를 프로비저닝하려면 다음 단계를 수행합니다.
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>1단계: Azure Key Vault 만들기 및 키 저장
 
-1.  [Azure Key Vault 리소스를 만든](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) 다음 데이터 암호화에 사용할 키를 생성하거나 가져옵니다.
+1.  [Azure Key Vault 리소스를 만든](/azure-stack/user/azure-stack-key-vault-manage-portal) 다음 데이터 암호화에 사용할 키를 생성하거나 가져옵니다.
     > [!NOTE]
     >  키와 액세스를 보호하기 위해 Azure Key Vault를 복구 가능으로 구성해야 합니다.
 
-1.  [복구 옵션 설정:](../key-vault/general/best-practices.md#turn-on-recovery-options)
+1.  [복구 옵션 설정:](../key-vault/general/key-vault-recovery.md)
 
     -   [일시 삭제](../key-vault/general/soft-delete-overview.md)가 설정되어 있는지 확인합니다.
 
@@ -132,6 +132,5 @@ Azure Sentinel 및 Log Analytics에서 동일한 키를 사용하는 경우 새 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서 Azure Sentinel에서 고객 관리형 키를 설정하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats.md)을 시작합니다.
+- [Azure Sentinel을 사용하여 위협 검색](./tutorial-detect-threats-built-in.md)을 시작합니다.
 - [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
-

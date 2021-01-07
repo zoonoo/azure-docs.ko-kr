@@ -12,13 +12,15 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-- contperfq1
-ms.openlocfilehash: 9f063b147fbddaeaa7888af755dba8f325d4fe0f
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+- contperf-fy21q1
+- fasttrack-edit
+- iot
+ms.openlocfilehash: d206f40380ddb60a53ec8af2802a65af94f5820d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899096"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027801"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -298,7 +300,8 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 * IoT Hub에서는 보관 메시지가 지속되지 않습니다. 장치에서 **RETAIN** 플래그가 1로 설정 된 메시지를 보내는 경우 IoT Hub는 **mqtt-RETAIN** 응용 프로그램 속성을 메시지에 추가 합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
 
-* IoT Hub는 디바이스 당 하나의 활성 MQTT 연결만을 지원합니다. 동일한 디바이스 ID를 대신하는 모든 새 MQTT 연결로 인해 IoT Hub가 기존 연결을 삭제하게 됩니다.
+* IoT Hub는 디바이스 당 하나의 활성 MQTT 연결만을 지원합니다. 동일한 장치 ID를 대신 하 여 모든 새 MQTT 연결이 IoT Hub 기존 연결을 삭제 하 고 **400027 ConnectionForcefullyClosedOnNewConnection** 가 IoT Hub 로그에 기록 됩니다.
+
 
 자세한 내용은 [메시징 개발자 가이드](iot-hub-devguide-messaging.md)를 참조하세요.
 
@@ -308,7 +311,7 @@ IoT Hub에서 메시지를 수신하려면 디바이스는 `devices/{device_id}/
 
 장치는 토픽 필터로 표시 되는 장치 특정 끝점을 성공적으로 구독할 때까지 IoT Hub의 메시지를 수신 하지 않습니다 `devices/{device_id}/messages/devicebound/#` . 구독이 설정된 후에는 디바이스가 구독 시간 이후 전송된 클라우드-디바이스 메시지를 수신합니다. 디바이스가 **CleanSession** 플래그가 **0** 으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 디바이스가 **CleanSession 0** 으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 디바이스가 **1** 로 설정된 **CleanSession** 플래그를 사용하는 경우 디바이스-엔드포인트를 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
 
-IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** 이 `devices/{device_id}/messages/devicebound/` 또는 `devices/{device_id}/messages/devicebound/{property_bag}`인 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 애플리케이션 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId** )만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 애플리케이션 속성은 접두사가 없는 원래 속성 이름을 사용합니다. 속성 모음 형식에 대 한 자세한 내용은 [장치-클라우드 메시지 보내기](#sending-device-to-cloud-messages)를 참조 하세요.
+IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** 이 `devices/{device_id}/messages/devicebound/` 또는 `devices/{device_id}/messages/devicebound/{property_bag}`인 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 애플리케이션 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 애플리케이션 속성은 접두사가 없는 원래 속성 이름을 사용합니다. 속성 모음 형식에 대 한 자세한 내용은 [장치-클라우드 메시지 보내기](#sending-device-to-cloud-messages)를 참조 하세요.
 
 클라우드-장치 메시지에서 속성 모음의 값은 다음 표에서와 같이 표시 됩니다.
 
@@ -318,7 +321,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** 이 `devices/{dev
 | 빈 문자열 | `key=` | 키 뒤에 값이 없는 등호 기호가 있습니다. |
 | null이 아닌 값이 비어 있지 않습니다. | `key=value` | 키 뒤에 등호와 값을 입력 합니다. |
 
-다음 예제에서는 세 가지 응용 프로그램 속성이 포함 된 속성 모음을 보여 줍니다. **prop1** 값은 `null` **prop2** , 빈 문자열 (""); and **prop3** 를 사용 하 여 값을 "a string"으로 바꿉니다.
+다음 예제에서는 세 가지 응용 프로그램 속성이 포함 된 속성 모음을 보여 줍니다. **prop1** 값은 `null` **prop2**, 빈 문자열 (""); and **prop3** 를 사용 하 여 값을 "a string"으로 바꿉니다.
 
 ```mqtt
 /?prop1&prop2=&prop3=a%20string

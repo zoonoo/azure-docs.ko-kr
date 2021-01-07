@@ -145,6 +145,10 @@
           href: tutorial-deploy-ssis-packages-azure-powershell.md
         - name: 가상 네트워크 조인
           href: tutorial-deploy-ssis-virtual-network.md
+    - name: 계보
+      items:
+        - name: Data Factory 계보 데이터를 Azure Purview에 푸시
+          href: turorial-push-lineage-to-purview.md
     - name: 엔드투엔드 랩
       items:
         - name: 데이터 팩터리 및 데이터 공유를 사용하여 데이터 통합
@@ -259,7 +263,7 @@
           href: connector-azure-sql-database.md
         - name: Azure SQL Managed Instance
           href: connector-azure-sql-managed-instance.md
-        - name: Azure Synapse Analytics(이전의 SQL Data Warehouse)
+        - name: Azure Synapse Analytics
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
           href: connector-azure-table-storage.md
@@ -451,6 +455,8 @@
           href: copy-activity-fault-tolerance.md
         - name: 데이터 일관성 확인
           href: copy-activity-data-consistency.md
+        - name: 복사 작업 로그
+          href: copy-activity-log.md
         - name: 형식 및 압축 지원(레거시)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: 데이터 변환
@@ -686,6 +692,10 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: 연속 창 트리거 종속성 만들기
           href: tumbling-window-trigger-dependency.md
+    - name: 계보
+      items:
+        - name: Azure Purview에 Data Factory 연결
+          href: connect-data-factory-to-azure-purview.md
     - name: 시나리오
       items:
         - name: 데이터 레이크 및 EDW용 데이터 마이그레이션
@@ -748,8 +758,14 @@
           href: data-factory-troubleshoot-guide.md
         - name: 커넥터
           href: connector-troubleshoot-guide.md
+        - name: 파이프라인 트리거
+          href: pipeline-trigger-troubleshoot-guide.md
         - name: 데이터 흐름
           href: data-flow-troubleshoot-guide.md
+        - name: 연속 통합 및 배포
+          href: ci-cd-github-troubleshoot-guide.md
+        - name: 보안 및 액세스 제어
+          href: security-and-access-control-troubleshoot-guide.md
         - name: 자체 호스팅 통합 런타임
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Azure SSIS 통합 런타임

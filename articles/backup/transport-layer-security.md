@@ -3,12 +3,12 @@ title: Azure Backup의 전송 계층 보안
 description: 암호화 프로토콜 TLS (전송 계층 보안)를 사용 하 여 네트워크를 통해 전송 될 때 데이터를 안전 하 게 유지 하도록 Azure Backup 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/01/2020
-ms.openlocfilehash: 9881fd3532cbc7d67c7d5adbce75e02fc62e0bcf
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ba9c9d91f562f54695a0739908c8a409d14d5852
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280682"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327120"
 ---
 # <a name="transport-layer-security-in-azure-backup"></a>Azure Backup의 전송 계층 보안
 
@@ -45,7 +45,7 @@ TLS (전송 계층 보안)는 네트워크를 통해 전송 될 때 데이터를
 
 ### <a name="configuring-net-framework"></a>.NET Framework 구성
 
-다음 레지스트리 키는 강력한 암호화를 지원 하도록 .NET Framework를 구성 합니다. [여기에서 .NET Framework 구성](https://docs.microsoft.com/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry)에 대해 자세히 알아볼 수 있습니다.
+다음 레지스트리 키는 강력한 암호화를 지원 하도록 .NET Framework를 구성 합니다. [여기에서 .NET Framework 구성](/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry)에 대해 자세히 알아볼 수 있습니다.
 
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
@@ -65,7 +65,7 @@ TLS 1.2는 SSL 2.0, SSL 3.0, TLS 1.0 및 TLS 1.1과 같은 이전 암호화 프�
 
 ### <a name="what-determines-the-encryption-protocol-used"></a>사용 되는 암호화 프로토콜은 무엇 인가요?
 
-클라이언트와 서버 모두에서 지원 되는 가장 높은 프로토콜 버전은 암호화 된 대화를 설정 하기 위해 협상 됩니다. TLS 핸드셰이크 프로토콜에 대 한 자세한 내용은 TLS를 [사용 하 여 보안 세션 설정](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls)을 참조 하세요.
+클라이언트와 서버 모두에서 지원 되는 가장 높은 프로토콜 버전은 암호화 된 대화를 설정 하기 위해 협상 됩니다. TLS 핸드셰이크 프로토콜에 대 한 자세한 내용은 TLS를 [사용 하 여 보안 세션 설정](/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls)을 참조 하세요.
 
 ### <a name="what-is-the-impact-of-not-enabling-tls-12"></a>TLS 1.2을 사용 하지 않을 경우의 영향은 무엇 인가요?
 
@@ -77,6 +77,6 @@ TLS 1.2는 SSL 2.0, SSL 3.0, TLS 1.0 및 TLS 1.1과 같은 이전 암호화 프�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [전송 계층 보안 프로토콜](https://docs.microsoft.com/windows/win32/secauthn/transport-layer-security-protocol)
-- [배포 된 운영 체제에서 TLS 1.2에 대 한 지원 보장](https://docs.microsoft.com/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
-- [.NET Framework에 대한 TLS(전송 계층 보안) 모범 사례](https://docs.microsoft.com/dotnet/framework/network-programming/tls)
+- [전송 계층 보안 프로토콜](/windows/win32/secauthn/transport-layer-security-protocol)
+- [배포 된 운영 체제에서 TLS 1.2에 대 한 지원 보장](/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
+- [.NET Framework에 대한 TLS(전송 계층 보안) 모범 사례](/dotnet/framework/network-programming/tls)

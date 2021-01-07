@@ -3,13 +3,13 @@ title: OS 및 런타임 패치 주기
 description: OS 및 런타임, 앱의 런타임 및 패치 수준, 업데이트 공지를 가져오는 방법 Azure App Service 업데이트 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 02/02/2018
-ms.custom: seodec18
-ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961519"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558490"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
 
@@ -51,7 +51,7 @@ Azure는 App Service 리소스를 실행하는 2개의 수준, 즉 물리적 서
 
 ### <a name="new-patch-updates"></a>새 패치 업데이트
 
-.NET, PHP, Java SDK 또는 Tomcat/Jetty 버전에 대한 패치 업데이트는 기존 설치를 새 버전으로 덮어쓰는 방법으로 자동으로 적용됩니다. Node.js 패치 업데이트는 기존 버전과 병렬로 설치됩니다(다음 섹션의 주 및 부 버전과 유사). 새 Python 패치 버전은 [사이트 확장](https://azure.microsoft.com/blog/azure-web-sites-extensions/)을 통해 기본 제공 python 설치와 함께 수동으로 설치할 수 있습니다.
+.NET, PHP, Java SDK 또는 Tomcat 버전에 대 한 패치 업데이트는 기존 설치를 최신 버전으로 덮어써서 자동으로 적용 됩니다. Node.js 패치 업데이트는 기존 버전과 병렬로 설치됩니다(다음 섹션의 주 및 부 버전과 유사). 새 Python 패치 버전은 [사이트 확장](https://azure.microsoft.com/blog/azure-web-sites-extensions/)을 통해 기본 제공 python 설치와 함께 수동으로 설치할 수 있습니다.
 
 ### <a name="new-major-and-minor-versions"></a>새 주 버전 및 부 버전
 

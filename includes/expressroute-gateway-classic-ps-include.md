@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c05eb88df27ba9e71c0f61bad75457d893a7ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67181937"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560170"
 ---
 > [!NOTE]
 > 이러한 예제가 S2S/ExpressRoute 공존 구성에는 적용되지 않습니다.
@@ -25,7 +25,7 @@ ms.locfileid: "67181937"
 
 ### <a name="download-the-network-configuration-file"></a>네트워크 구성 파일 다운로드
 
-1. [네트워크 구성 파일](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) 문서의 단계를 사용하여 네트워크 구성 파일을 다운로드합니다. 텍스트 편집기를 사용하여 파일을 엽니다.
+1. [네트워크 구성 파일](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file) 문서의 단계를 사용하여 네트워크 구성 파일을 다운로드합니다. 텍스트 편집기를 사용하여 파일을 엽니다.
 2. 파일에 로컬 네트워크 사이트를 추가합니다. 올바른 어떤 주소 접두사도 사용 가능합니다. VPN Gateway에 유효한 어떤 IP 주소도 추가할 수 있습니다. 이 섹션의 주소 값은 ExpressRoute 작업에 사용되지 않지만 파일 유효성 검사에 반드시 필요합니다. 예제에서 “branch1”은 사이트의 이름입니다. 다른 이름을 사용할 수 있지만 파일의 게이트웨이 섹션에서 동일한 값을 사용해야 합니다.
 
    ```

@@ -4,12 +4,12 @@ description: 이 자습서에서는 독립 실행형 Service Fabric 클러스터
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 0b35bd02af5e1c90cac2e94d31dfca2344f3cc85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae946321b34f12c816a717db4a3d07f57feefe52
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840628"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485363"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>자습서: Service Fabric 독립 실행형 클러스터에 애플리케이션 배포
 
@@ -27,7 +27,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 
 이 자습서를 시작하기 전에:
 
-* [Visual Studio 2019를 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
+* [Visual Studio 2019를 설치](https://www.visualstudio.com/)하고 **Azure 개발** 과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 샘플 다운로드
@@ -50,7 +50,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 4. 솔루션 탐색기에서 `Voting` 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택
 
-5. **연결 엔드포인트**에 대한 드롭다운을 선택하고 클러스터에서 노드 중 하나의 공용 DNS 이름을 입력합니다.  `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`)을 입력합니다. Azure에서는 FQDN(정규화된 도메인 이름)이 자동으로 제공되지 않지만 쉽게 [VM 개요 페이지에서 설정](../virtual-machines/linux/portal-create-fqdn.md)할 수 있습니다.
+5. **연결 엔드포인트** 에 대한 드롭다운을 선택하고 클러스터에서 노드 중 하나의 공용 DNS 이름을 입력합니다.  `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`)을 입력합니다. Azure에서는 FQDN(정규화된 도메인 이름)이 자동으로 제공되지 않지만 쉽게 [VM 개요 페이지에서 설정](../virtual-machines/create-fqdn.md)할 수 있습니다.
 
 6. 기본 설정 브라우저 및 유형을 클러스터 주소(이 앱이 포트 8080에 배포하는 연결 엔드포인트 - 예를 들어 ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080)를 엽니다.
 

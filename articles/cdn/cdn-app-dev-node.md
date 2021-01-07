@@ -16,11 +16,11 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: devx-track-js
 ms.openlocfilehash: f5d5c7a6e1f6993b19f38db2ae846b213a1d553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316763"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993366"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 npm init
 ```
 
-그런 다음 프로젝트를 초기화하는 일련의 질문이 나타납니다.  **진입점**의 경우 이 자습서에서는 *app.js*를 사용합니다.  다음 예제에서 다른 선택 항목을 볼 수 있습니다.
+그런 다음 프로젝트를 초기화하는 일련의 질문이 나타납니다.  **진입점** 의 경우 이 자습서에서는 *app.js* 를 사용합니다.  다음 예제에서 다른 선택 항목을 볼 수 있습니다.
 
 ![NPM init 출력](./media/cdn-app-dev-node/cdn-npm-init.png)
 
@@ -80,7 +80,7 @@ npm install --save azure-arm-cdn
 }
 ```
 
-마지막으로 텍스트 편집기를 사용하여 빈 텍스트 파일을 만들고 프로젝트 폴더의 루트에 *app.js*로 저장합니다.  이제 코드 작성을 시작할 준비가 되었습니다.
+마지막으로 텍스트 편집기를 사용하여 빈 텍스트 파일을 만들고 프로젝트 폴더의 루트에 *app.js* 로 저장합니다.  이제 코드 작성을 시작할 준비가 되었습니다.
 
 ## <a name="requires-constants-authentication-and-structure"></a>requires, 상수, 인증 및 구조
 편집기에서 열린 *app.js* 를 사용하여 작성된 프로그램의 기본 구조를 살펴보겠습니다.
@@ -124,7 +124,7 @@ npm install --save azure-arm-cdn
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    ** &lt; 꺾쇠 괄호 &gt; ** 안의 항목을 올바른 정보로 바꾸어야 합니다.  `<redirect URI>`의 경우 Azure AD에서 애플리케이션을 등록할 때 입력한 리디렉션 URI를 사용합니다.
+    **&lt; 꺾쇠 괄호 &gt;** 안의 항목을 올바른 정보로 바꾸어야 합니다.  `<redirect URI>`의 경우 Azure AD에서 애플리케이션을 등록할 때 입력한 리디렉션 URI를 사용합니다.
 4. Node.js 콘솔 애플리케이션에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다.  적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
    
    ```javascript
@@ -345,7 +345,7 @@ function cdnDelete() {
 이제 선호하는 디버거를 사용하거나 콘솔에서 Node.js 프로그램을 실행할 수 있습니다.
 
 > [!TIP]
-> Visual Studio 코드를 디버거로 사용하는 경우 사용자 환경을 설정하여 명령줄 매개 변수를 전달해야 합니다.  Visual Studio Code는 **launch.json** 파일에서 이 작업을 수행합니다.  **args**라는 속성을 찾고 다음과 유사하게 표시되도록 사용자 매개 변수에 대한 문자열 값의 배열을 추가합니다. `"args": ["list", "profiles"]`.
+> Visual Studio 코드를 디버거로 사용하는 경우 사용자 환경을 설정하여 명령줄 매개 변수를 전달해야 합니다.  Visual Studio Code는 **launch.json** 파일에서 이 작업을 수행합니다.  **args** 라는 속성을 찾고 다음과 유사하게 표시되도록 사용자 매개 변수에 대한 문자열 값의 배열을 추가합니다. `"args": ["list", "profiles"]`.
 > 
 > 
 

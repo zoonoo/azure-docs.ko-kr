@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate Server 마이그레이션에 대 한 일반적인 질문
 description: Azure Migrate Server 마이그레이션을 사용 하 여 컴퓨터를 마이그레이션하는 방법에 대 한 일반적인 질문에 대 한 답변을 받으세요.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: b62110e6b2ce97cdd80ed91ee4b1e75d119c7c7d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1f32e9788b2255be373a4db8c159ef2a6b6ccf04
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315246"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753844"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
 
@@ -143,7 +146,7 @@ New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWi
 
 ## <a name="how-does-churn-rate-affect-agentless-replication"></a>변동 률은 에이전트 없는 복제에 어떤 영향을 미칩니까?
 
-에이전트 없는 복제는 데이터를 접기 하므로 변동 률 *패턴* 은 *변동 률*보다 더 중요 합니다. 다시 파일을 다시 쓰면 속도가 큰 영향을 주지 않습니다. 그러나 다른 모든 섹터가 기록 되는 패턴은 다음 주기에 높은 변동 (code churn)을 발생 시킵니다. 전송 되는 데이터의 양을 최소화 하기 때문에 다음 주기를 예약 하기 전에 데이터를 최대한 활용할 수 있습니다.
+에이전트 없는 복제는 데이터를 접기 하므로 변동 률 *패턴* 은 *변동 률* 보다 더 중요 합니다. 다시 파일을 다시 쓰면 속도가 큰 영향을 주지 않습니다. 그러나 다른 모든 섹터가 기록 되는 패턴은 다음 주기에 높은 변동 (code churn)을 발생 시킵니다. 전송 되는 데이터의 양을 최소화 하기 때문에 다음 주기를 예약 하기 전에 데이터를 최대한 활용할 수 있습니다.
 
 ## <a name="how-frequently-is-a-replication-cycle-scheduled"></a>복제 주기는 얼마나 자주 예약 됩니까?
 
@@ -199,7 +202,7 @@ New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWi
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>VMware Vm을 마이그레이션하려면 VMware vCenter가 필요 한가요?
 
-VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세히 알아보기](migrate-support-matrix-physical-migration.md).
+VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세히 알아봅니다](migrate-support-matrix-physical-migration.md).
 
 ## <a name="can-i-upgrade-my-os-while-migrating"></a>마이그레이션하는 동안 OS를 업그레이드할 수 있나요?
 

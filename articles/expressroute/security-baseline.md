@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e1a9a644e3ec4690dbb1f536dd15db995b56cf12
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a92802f0b121a332afccf7f6c12e876b3263bd82
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331722"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343946"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Express 경로에 대 한 Azure 보안 기준
 
@@ -56,9 +56,9 @@ Express 경로에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: 해당 사항 없음 각 고객의 연결할 expressroutes 자체의 라우팅 도메인 내에 포함 되 고 자체 가상 네트워크로 터널링 됩니다. 연결할 expressroutes 격리 되는 반면 동일한 가상 네트워크를 공유 하는 다른 리소스에 대 한 추가 보호를 위해 DDoS Protection Standard를 사용 하 여 DDoS 공격 으로부터 보호할 수 있습니다.
 
-* [Azure Express 경로에 대 한 보안 제어 이해](./expressroute-security-controls.md)
+* [Azure Express 경로에 대 한 보안 제어 이해]()
 
-* [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+* [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -76,7 +76,7 @@ Express 경로에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: 해당 사항 없음 각 고객의 연결할 expressroutes 자체의 라우팅 도메인 내에 포함 되 고 자체 가상 네트워크로 터널링 됩니다.
 
-* [Azure Express 경로에 대 한 보안 제어 이해](./expressroute-security-controls.md)
+* [Azure Express 경로에 대 한 보안 제어 이해]()
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -299,11 +299,11 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
 
-**지침**: MFA (azure Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성 합니다.
+**지침**: MFA (azure AD Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성 합니다.
 
 * [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [클라우드 기반 Azure Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
+* [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -337,7 +337,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 센티널 인스턴스에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -447,7 +447,7 @@ Express 경로를 통해 사이트 간 IPSEC을 구성 하는 방법: https://do
 
 **지침**: 해당 사항 없음 Azure Express 경로는 고객 데이터를 저장 하지 않습니다.
 
-* [Azure Express 경로에 대 한 보안 제어 이해](./expressroute-security-controls.md)
+* [Azure Express 경로에 대 한 보안 제어 이해]()
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -861,7 +861,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 해당 사항 없음 Azure Express 경로는 고객 데이터를 저장 하지 않습니다.
 
-* [Azure Express 경로에 대 한 보안 제어 이해](./expressroute-security-controls.md)
+* [Azure Express 경로에 대 한 보안 제어 이해]()
 
 **Azure Security Center 모니터링**: 해당 없음
 

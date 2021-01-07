@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 962bb7a4484f28d52ffd4f0cae985140ec2f0d28
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f1ded1ce87df1cb57960bbc99cd950ed7b3f97ee
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792925"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573938"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>보통-높은 네트워크 대역폭에서 대용량 데이터 세트의 데이터 전송
  
@@ -69,7 +69,7 @@ ms.locfileid: "92792925"
 |    **폼 팩터**                  |    주문당 5개 SSD             |    1 X 50lbs 주문당 데스크톱 크기 디바이스    |    1 X ~500lbs 주문당 대형 디바이스    |    주문당 최대 10개 HDD/SSD        |
 |    **초기 설치 시간**               |    낮음 <br>(15분)            |    낮음-보통 <br> (30분 미만)               |    보통<br>(1~2시간)               |    보통-어려움<br>(가변적) |
 |    **Azure에 데이터 보내기**           |    예                          |    예                                           |    예                                   |    예                                 |
-|    **Azure에서 데이터 가져오기**           |    아니요                           |    아니요                                            |    아니요                                    |    예                                 |
+|    **Azure에서 데이터 내보내기**           |    아니요                           |    아니요                                            |    아니요                                    |    예                                 |
 |    **암호화**                   |    AES 128비트                  |    AES 256비트                                   |    AES 256비트                           |    AES 128비트                         |
 |    **하드웨어**                     |     Microsoft 제공          |    Microsoft 제공                            |    Microsoft 제공                    |    고객 제공                   |
 |    **네트워크 인터페이스**            |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
@@ -98,12 +98,12 @@ ms.locfileid: "92792925"
 - [Import/Export를 사용하여 데이터를 전송하는 방법 알아보기](./storage-import-export-data-to-blobs.md)
 - 다음 작업을 수행하는 방법을 이해합니다.
 
-    - [Data Box Disk를 사용하여 데이터 전송](../../databox/data-box-disk-quickstart-portal.md)
-    - [Data Box를 사용하여 데이터 전송](../../databox/data-box-quickstart-portal.md)
+    - [Data Box Disk를 사용 하 여 데이터를 전송](../../databox/data-box-disk-quickstart-portal.md)합니다.
+    - [Data Box를 사용 하 여 데이터를 전송](../../databox/data-box-quickstart-portal.md)합니다.
 - [AzCopy를 사용 하 여 데이터를 전송](./storage-use-azcopy-v10.md)합니다.
 - 다음 작업을 수행하는 방법을 이해합니다.
-    - [Data Box Gateway를 통해 데이터 전송](../../databox-online/data-box-gateway-deploy-add-shares.md).
-    - [Azure로 보내기 전에 Data Box Edge를 사용하여 데이터 변환](../../databox-online/azure-stack-edge-deploy-configure-compute.md)
+    - [Data Box Gateway를 통해 데이터 전송](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
+    - [Azure로 보내기 전에 Data Box Edge 데이터를 변환](../../databox-online/azure-stack-edge-deploy-configure-compute.md)합니다.
 - [Azure Data Factory를 사용하여 데이터를 전송하는 방법 알아보기](../../data-factory/quickstart-create-data-factory-portal.md)
 - REST API를 사용하여 데이터 전송
 

@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f105acaa4e2801ca6dc8c33b404fdb9f9d65adc8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+adobe-target: true
+ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633725"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359105"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -70,7 +71,7 @@ Visual Studio Code를 사용하여 Node.js/Express 앱을 로컬로 만든 다�
 
 1. VS Code의 **AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 선택하여 앱을 Azure에 배포합니다. ('웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 를 선택하여 **명령 팔레트** ( **Ctrl**+**Shift**+**P** )에서 동일한 명령을 호출할 수도 있습니다.)
 
-    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="선택한 파란색 화살표 아이콘을 표시하는 VS Code의 Azure App 서비스 스크린샷.&quot;:::
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="선택한 파란색 화살표 아이콘을 표시하는 VS Code의 Azure App 서비스 스크린샷.":::
         
 1. *nodejs-docs-hello-world* 폴더를 선택합니다.
 
@@ -96,7 +97,7 @@ Visual Studio Code를 사용하여 Node.js/Express 앱을 로컬로 만든 다�
 
     ![대상 Linux 서버에서 구성을 업데이트하도록 요구하는 메시지](media/quickstart-nodejs/server-build.png)
 
-1. **항상 &quot;nodejs-docs-hello-world" 작업 영역을 (앱 이름)에 배포합니다.** 라는 메시지가 표시되면 **예** 를 선택합니다. **예** 를 선택하면 VS Code에서 자동으로 후속 배포에서 동일한 App Service Web App을 대상으로 지정하도록 지시합니다.
+1. **항상 "nodejs-docs-hello-world" 작업 영역을 (앱 이름)에 배포합니다.** 라는 메시지가 표시되면 **예** 를 선택합니다. **예** 를 선택하면 VS Code에서 자동으로 후속 배포에서 동일한 App Service Web App을 대상으로 지정하도록 지시합니다.
 
 1. Linux에 배포하는 경우 배포가 완료되면 프롬프트에서 **웹 사이트 찾아보기** 를 선택하여 새로 배포된 웹앱을 확인합니다. 브라우저에서 "Hello World!"가 표시됩니다.
 
@@ -142,33 +143,7 @@ VS Code 출력 창에서 직접 앱의 로그 출력(`console.log`에 대한 호
 
 1. 메시지가 표시되면 로깅을 사용하도록 설정하고 애플리케이션을 다시 시작합니다. 애플리케이션이 다시 시작되면 VS Code 출력 창이 열려 로그 스트림에 연결됩니다. 
 
-    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="선택한 파란색 화살표 아이콘을 표시하는 VS Code의 Azure App 서비스 스크린샷.&quot;:::
-        
-1. *nodejs-docs-hello-world* 폴더를 선택합니다.
-
-1. 배포하려는 운영 체제에 따라 만들기 옵션을 선택합니다.
-
-    - Linux: **새 웹앱 만들기** 를 선택합니다.
-    - Windows: **새 웹앱 만들기... 고급** 을 선택합니다.
-
-1. 웹앱에 대해 전역적으로 고유한 이름을 입력하고, **Enter** 키를 누릅니다. 이름은 모든 Azure에서 고유해야 하며, 영숫자 문자('A-Z', 'a-z' 및 '0-9')와 하이픈('-')만 사용해야 합니다.
-
-1. Linux를 대상으로 하는 경우 메시지가 표시되면 Node.js 버전을 선택합니다. **LTS** 버전을 권장합니다.
-
-1. Windows를 대상으로 하는 경우 추가 프롬프트를 따릅니다.
-    1. **새 리소스 그룹 만들기** 를 선택한 다음, 리소스 그룹 이름(예: `AppServiceQS-rg`)을 입력합니다.
-    1. 운영 체제에 대해 **Windows** 를 선택합니다.
-    1. **새 App Service 계획 만들기** 를 선택하고, 계획 이름(예: `AppServiceQS-plan`)을 입력한 다음, 가격 책정 계층에 대해 **F1 체험** 을 선택합니다.
-    1. Application Insights에 대한 메시지가 표시되면 **지금 건너뛰기** 를 선택합니다.
-    1. 액세스하려는 사용자 근처의 지역 또는 근처의 리소스를 선택합니다.
-
-1. 모든 프롬프트에 응답하면 VS Code의 알림 팝업에 앱용으로 만들어지는 Azure 리소스가 표시됩니다.
-
-    Linux에 배포하는 경우 대상 Linux 서버에서 `npm install`을 실행하도록 구성을 업데이트하라는 메시지가 표시되면 **예** 를 선택합니다.
-
-    ![대상 Linux 서버에서 구성을 업데이트하도록 요구하는 메시지](media/quickstart-nodejs/server-build.png)
-
-1. **항상 &quot;nodejs-docs-hello-world":::
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="[예] 단추를 선택한 상태에서 파일 로깅을 활성화하고 애플리케이션을 다시 시작하는 Visual Studio Code 프롬프트의 스크린샷.":::
 
 1. 몇 초 후 출력 창에 로그 스트리밍 서비스에 연결되었다는 메시지가 표시됩니다. 브라우저에서 페이지를 새로 고쳐 더 많은 출력 활동을 생성할 수 있습니다.
 
@@ -290,33 +265,7 @@ code .
 
 **AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 선택하여 앱을 Azure에 배포합니다.
 
-:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="선택한 파란색 화살표 아이콘을 표시하는 VS Code의 Azure App 서비스 스크린샷.&quot;:::
-        
-1. *nodejs-docs-hello-world* 폴더를 선택합니다.
-
-1. 배포하려는 운영 체제에 따라 만들기 옵션을 선택합니다.
-
-    - Linux: **새 웹앱 만들기** 를 선택합니다.
-    - Windows: **새 웹앱 만들기... 고급** 을 선택합니다.
-
-1. 웹앱에 대해 전역적으로 고유한 이름을 입력하고, **Enter** 키를 누릅니다. 이름은 모든 Azure에서 고유해야 하며, 영숫자 문자('A-Z', 'a-z' 및 '0-9')와 하이픈('-')만 사용해야 합니다.
-
-1. Linux를 대상으로 하는 경우 메시지가 표시되면 Node.js 버전을 선택합니다. **LTS** 버전을 권장합니다.
-
-1. Windows를 대상으로 하는 경우 추가 프롬프트를 따릅니다.
-    1. **새 리소스 그룹 만들기** 를 선택한 다음, 리소스 그룹 이름(예: `AppServiceQS-rg`)을 입력합니다.
-    1. 운영 체제에 대해 **Windows** 를 선택합니다.
-    1. **새 App Service 계획 만들기** 를 선택하고, 계획 이름(예: `AppServiceQS-plan`)을 입력한 다음, 가격 책정 계층에 대해 **F1 체험** 을 선택합니다.
-    1. Application Insights에 대한 메시지가 표시되면 **지금 건너뛰기** 를 선택합니다.
-    1. 액세스하려는 사용자 근처의 지역 또는 근처의 리소스를 선택합니다.
-
-1. 모든 프롬프트에 응답하면 VS Code의 알림 팝업에 앱용으로 만들어지는 Azure 리소스가 표시됩니다.
-
-    Linux에 배포하는 경우 대상 Linux 서버에서 `npm install`을 실행하도록 구성을 업데이트하라는 메시지가 표시되면 **예** 를 선택합니다.
-
-    ![대상 Linux 서버에서 구성을 업데이트하도록 요구하는 메시지](media/quickstart-nodejs/server-build.png)
-
-1. **항상 &quot;nodejs-docs-hello-world":::
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="파란색 배포 화살표가 선택된 Visual Studio Code의 Azure App Service 메뉴 스크린샷.":::
 
 > [!TIP]
 > '웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 명령을 실행하여 **명령 팔레트** (Ctrl+Shift+P)에서 배포할 수도 있습니다.
@@ -333,63 +282,11 @@ code .
 
 1. 대상 서버에서 `npm install`을 실행하도록 구성을 업데이트하라는 메시지가 표시되면 **예** 를 선택합니다. 그러면 앱이 배포됩니다.
 
-    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="선택한 파란색 화살표 아이콘을 표시하는 VS Code의 Azure App 서비스 스크린샷.&quot;:::
-        
-1. *nodejs-docs-hello-world* 폴더를 선택합니다.
-
-1. 배포하려는 운영 체제에 따라 만들기 옵션을 선택합니다.
-
-    - Linux: **새 웹앱 만들기** 를 선택합니다.
-    - Windows: **새 웹앱 만들기... 고급** 을 선택합니다.
-
-1. 웹앱에 대해 전역적으로 고유한 이름을 입력하고, **Enter** 키를 누릅니다. 이름은 모든 Azure에서 고유해야 하며, 영숫자 문자('A-Z', 'a-z' 및 '0-9')와 하이픈('-')만 사용해야 합니다.
-
-1. Linux를 대상으로 하는 경우 메시지가 표시되면 Node.js 버전을 선택합니다. **LTS** 버전을 권장합니다.
-
-1. Windows를 대상으로 하는 경우 추가 프롬프트를 따릅니다.
-    1. **새 리소스 그룹 만들기** 를 선택한 다음, 리소스 그룹 이름(예: `AppServiceQS-rg`)을 입력합니다.
-    1. 운영 체제에 대해 **Windows** 를 선택합니다.
-    1. **새 App Service 계획 만들기** 를 선택하고, 계획 이름(예: `AppServiceQS-plan`)을 입력한 다음, 가격 책정 계층에 대해 **F1 체험** 을 선택합니다.
-    1. Application Insights에 대한 메시지가 표시되면 **지금 건너뛰기** 를 선택합니다.
-    1. 액세스하려는 사용자 근처의 지역 또는 근처의 리소스를 선택합니다.
-
-1. 모든 프롬프트에 응답하면 VS Code의 알림 팝업에 앱용으로 만들어지는 Azure 리소스가 표시됩니다.
-
-    Linux에 배포하는 경우 대상 Linux 서버에서 `npm install`을 실행하도록 구성을 업데이트하라는 메시지가 표시되면 **예** 를 선택합니다.
-
-    ![대상 Linux 서버에서 구성을 업데이트하도록 요구하는 메시지](media/quickstart-nodejs/server-build.png)
-
-1. **항상 &quot;nodejs-docs-hello-world":::
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="[예] 단추를 선택한 상태에서 대상 서버의 구성을 업데이트하라는 프롬프트의 스크린샷.":::
 
 1. 배포가 시작되면 이후 배포에서 자동으로 동일한 App Service 웹앱을 대상으로 지정하도록 작업 영역을 업데이트하라는 메시지가 표시됩니다. 변경 내용이 올바른 앱에 배포되도록 하려면 **예** 를 선택합니다.
 
-    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="선택한 파란색 화살표 아이콘을 표시하는 VS Code의 Azure App 서비스 스크린샷.&quot;:::
-        
-1. *nodejs-docs-hello-world* 폴더를 선택합니다.
-
-1. 배포하려는 운영 체제에 따라 만들기 옵션을 선택합니다.
-
-    - Linux: **새 웹앱 만들기** 를 선택합니다.
-    - Windows: **새 웹앱 만들기... 고급** 을 선택합니다.
-
-1. 웹앱에 대해 전역적으로 고유한 이름을 입력하고, **Enter** 키를 누릅니다. 이름은 모든 Azure에서 고유해야 하며, 영숫자 문자('A-Z', 'a-z' 및 '0-9')와 하이픈('-')만 사용해야 합니다.
-
-1. Linux를 대상으로 하는 경우 메시지가 표시되면 Node.js 버전을 선택합니다. **LTS** 버전을 권장합니다.
-
-1. Windows를 대상으로 하는 경우 추가 프롬프트를 따릅니다.
-    1. **새 리소스 그룹 만들기** 를 선택한 다음, 리소스 그룹 이름(예: `AppServiceQS-rg`)을 입력합니다.
-    1. 운영 체제에 대해 **Windows** 를 선택합니다.
-    1. **새 App Service 계획 만들기** 를 선택하고, 계획 이름(예: `AppServiceQS-plan`)을 입력한 다음, 가격 책정 계층에 대해 **F1 체험** 을 선택합니다.
-    1. Application Insights에 대한 메시지가 표시되면 **지금 건너뛰기** 를 선택합니다.
-    1. 액세스하려는 사용자 근처의 지역 또는 근처의 리소스를 선택합니다.
-
-1. 모든 프롬프트에 응답하면 VS Code의 알림 팝업에 앱용으로 만들어지는 Azure 리소스가 표시됩니다.
-
-    Linux에 배포하는 경우 대상 Linux 서버에서 `npm install`을 실행하도록 구성을 업데이트하라는 메시지가 표시되면 **예** 를 선택합니다.
-
-    ![대상 Linux 서버에서 구성을 업데이트하도록 요구하는 메시지](media/quickstart-nodejs/server-build.png)
-
-1. **항상 &quot;nodejs-docs-hello-world":::
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="[예] 단추를 선택한 상태에서 작업 영역을 업데이트하라는 프롬프트의 스크린샷.":::
 
 > [!TIP]
 > 애플리케이션이 PORT 환경 변수(`process.env.PORT`)에서 제공하는 포트를 수신 대기하고 있는지 확인하세요.
@@ -419,33 +316,7 @@ VS Code 출력 창이 열려 로그 스트림에 연결됩니다.
 
 ![스트리밍 로그 보기](./media/quickstart-nodejs/view-logs.png)
 
-:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="선택한 파란색 화살표 아이콘을 표시하는 VS Code의 Azure App 서비스 스크린샷.&quot;:::
-        
-1. *nodejs-docs-hello-world* 폴더를 선택합니다.
-
-1. 배포하려는 운영 체제에 따라 만들기 옵션을 선택합니다.
-
-    - Linux: **새 웹앱 만들기** 를 선택합니다.
-    - Windows: **새 웹앱 만들기... 고급** 을 선택합니다.
-
-1. 웹앱에 대해 전역적으로 고유한 이름을 입력하고, **Enter** 키를 누릅니다. 이름은 모든 Azure에서 고유해야 하며, 영숫자 문자('A-Z', 'a-z' 및 '0-9')와 하이픈('-')만 사용해야 합니다.
-
-1. Linux를 대상으로 하는 경우 메시지가 표시되면 Node.js 버전을 선택합니다. **LTS** 버전을 권장합니다.
-
-1. Windows를 대상으로 하는 경우 추가 프롬프트를 따릅니다.
-    1. **새 리소스 그룹 만들기** 를 선택한 다음, 리소스 그룹 이름(예: `AppServiceQS-rg`)을 입력합니다.
-    1. 운영 체제에 대해 **Windows** 를 선택합니다.
-    1. **새 App Service 계획 만들기** 를 선택하고, 계획 이름(예: `AppServiceQS-plan`)을 입력한 다음, 가격 책정 계층에 대해 **F1 체험** 을 선택합니다.
-    1. Application Insights에 대한 메시지가 표시되면 **지금 건너뛰기** 를 선택합니다.
-    1. 액세스하려는 사용자 근처의 지역 또는 근처의 리소스를 선택합니다.
-
-1. 모든 프롬프트에 응답하면 VS Code의 알림 팝업에 앱용으로 만들어지는 Azure 리소스가 표시됩니다.
-
-    Linux에 배포하는 경우 대상 Linux 서버에서 `npm install`을 실행하도록 구성을 업데이트하라는 메시지가 표시되면 **예** 를 선택합니다.
-
-    ![대상 Linux 서버에서 구성을 업데이트하도록 요구하는 메시지](media/quickstart-nodejs/server-build.png)
-
-1. **항상 &quot;nodejs-docs-hello-world":::
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="[예] 단추를 선택한 상태에서 파일 로깅을 활성화하고 웹앱을 다시 시작하는 VS Code 프롬프트의 스크린샷.":::
 
 몇 초 후에 로그 스트리밍 서비스에 연결되었다는 메시지가 표시됩니다. 페이지를 몇 번 새로 고쳐 더 많은 작업을 볼 수 있습니다.
 

@@ -10,12 +10,12 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 07e306c6c428a0e3a3f64a29a2574cb0378bb81f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74860b7adf4dade5aedc71a4960595cbe55eaf0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230231"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95995304"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Blob에 대한 일시 삭제를 사용 및 관리
 
@@ -32,9 +32,9 @@ Blob 일시 삭제는 실수로 또는 실수로 수정 또는 삭제 되지 않
 Azure Portal을 사용하여 스토리지 계정의 Blob에 대해 일시 삭제를 다음과 같이 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정으로 이동합니다.
-1. **Blob service**에서 **데이터 보호** 옵션을 찾습니다.
-1. **Blob 일시 삭제** 속성을 *사용*으로 설정 합니다.
-1. **보존 정책**에서 일시 삭제 된 blob을 Azure Storage에서 보존할 기간을 지정 합니다.
+1. **Blob service** 에서 **데이터 보호** 옵션을 찾습니다.
+1. **Blob 일시 삭제** 속성을 *사용* 으로 설정 합니다.
+1. **보존 정책** 에서 일시 삭제 된 blob을 Azure Storage에서 보존할 기간을 지정 합니다.
 1. 변경 내용을 저장합니다.
 
 ![데이터 보호 blob 서비스가 선택 된 Azure Portal의 스크린샷](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
@@ -43,7 +43,7 @@ Azure Portal을 사용하여 스토리지 계정의 Blob에 대해 일시 삭제
 
 ![삭제 된 blob 표시 옵션이 강조 표시 된 데이터 보호 blob 서비스 페이지의 스크린샷](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
-지정된 Blob에 대한 일시 삭제된 스냅샷을 보려면 Blob을 선택한 다음, **스냅샷 보기**를 클릭합니다.
+지정된 Blob에 대한 일시 삭제된 스냅샷을 보려면 Blob을 선택한 다음, **스냅샷 보기** 를 클릭합니다.
 
 ![스냅숏 보기 옵션이 강조 표시 된 데이터 보호 blob 서비스 페이지의 스크린샷](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
@@ -55,11 +55,11 @@ Azure Portal을 사용하여 스토리지 계정의 Blob에 대해 일시 삭제
 
 ![일시 삭제 된 개체에 대 한 세부 정보의 스크린샷](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-properties.png)
 
-Blob 삭제 취소는 연결된 모든 스냅샷도 삭제 취소합니다. 활성 Blob에 대해 일시 삭제된 스냅샷을 삭제 취소하려면 Blob을 클릭하고 **모든 스냅샷 삭제 취소**를 선택합니다.
+Blob 삭제 취소는 연결된 모든 스냅샷도 삭제 취소합니다. 활성 Blob에 대해 일시 삭제된 스냅샷을 삭제 취소하려면 Blob을 클릭하고 **모든 스냅샷 삭제 취소** 를 선택합니다.
 
 ![일시 삭제 된 blob에 대 한 세부 정보의 스크린샷](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
-Blob의 스냅샷을 삭제 취소하면 **승격**을 클릭하여 루트 Blob에 대한 스냅샷을 복사할 수 있으므로 Blob을 스냅샷으로 복원합니다.
+Blob의 스냅샷을 삭제 취소하면 **승격** 을 클릭하여 루트 Blob에 대한 스냅샷을 복사할 수 있으므로 Blob을 스냅샷으로 복원합니다.
 
 ![수준 올리기 옵션이 강조 표시 된 스냅숏 보기 페이지의 스크린샷](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
@@ -82,7 +82,7 @@ $MatchingAccounts | $account = Get-AzStorageAccount -ResourceGroupName myresourc
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context | Select-Object -ExpandProperty DeleteRetentionPolicy
 ```
 
-실수로 삭제 된 blob을 복구 하려면 해당 blob에서 삭제 **취소 blob** 을 호출 합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소 Blob**을 호출하면 활성으로 연결된 모든 일시 삭제된 스냅샷을 복원합니다. 다음 예에서는 컨테이너의 모든 일시 삭제 된 blob 및 활성 blob에서 삭제 **취소 Blob** 을 호출 합니다.
+실수로 삭제 된 blob을 복구 하려면 해당 blob에서 삭제 **취소 blob** 을 호출 합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소 Blob** 을 호출하면 활성으로 연결된 모든 일시 삭제된 스냅샷을 복원합니다. 다음 예에서는 컨테이너의 모든 일시 삭제 된 blob 및 활성 blob에서 삭제 **취소 Blob** 을 호출 합니다.
 
 ```powershell
 # Create a context by specifying storage account name and key
@@ -140,7 +140,7 @@ block_blob_service.set_blob_service_properties(
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_EnableSoftDelete":::
 
-실수로 삭제된 Blob을 복구하려면 해당 Blob에서 삭제 취소를 호출합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소**를 호출하면 활성으로 연결된 모든 일시 삭제된 스냅샷을 복원합니다. 다음 예제에서는 컨테이너의 모든 일시 삭제된 Blob 및 활성 Blob에서 삭제 취소를 호출합니다.
+실수로 삭제된 Blob을 복구하려면 해당 Blob에서 삭제 취소를 호출합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소** 를 호출하면 활성으로 연결된 모든 일시 삭제된 스냅샷을 복원합니다. 다음 예제에서는 컨테이너의 모든 일시 삭제된 Blob 및 활성 Blob에서 삭제 취소를 호출합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
 
@@ -164,7 +164,7 @@ serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 blobClient.SetServiceProperties(serviceProperties);
 ```
 
-실수로 삭제 된 blob을 복구 하려면 해당 blob에서 삭제 **취소 blob** 을 호출 합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소 Blob**을 호출하면 활성으로 연결된 모든 일시 삭제된 스냅샷을 복원합니다. 다음 예에서는 컨테이너의 모든 일시 삭제 된 blob 및 활성 blob에서 **삭제 취소 Blob** 을 호출 합니다.
+실수로 삭제 된 blob을 복구 하려면 해당 blob에서 삭제 **취소 blob** 을 호출 합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소 Blob** 을 호출하면 활성으로 연결된 모든 일시 삭제된 스냅샷을 복원합니다. 다음 예에서는 컨테이너의 모든 일시 삭제 된 blob 및 활성 blob에서 **삭제 취소 Blob** 을 호출 합니다.
 
 ```csharp
 // Recover all blobs in a container
@@ -194,5 +194,5 @@ blockBlob.StartCopy(copySource);
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Blob Storage에 대한 일시 삭제](soft-delete-overview.md)
+- [Blob Storage에 대한 일시 삭제](./soft-delete-blob-overview.md)
 - [Blob 버전 관리](versioning-overview.md)

@@ -7,15 +7,15 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
-  author: keferna
-  ms.author: keferna
+  author: mingshen-ms
+  ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: 01ab8b0e27e8f1b9bfc326330214bcdb118dd6bd
-  ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+  ms.openlocfilehash: 95903c1068d64545ae025fb5899a80014b8f26f2
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93127283"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96746389"
 landingContent:
 - title: 상용 마켓플레이스에서 작업
   linkLists:
@@ -45,8 +45,8 @@ landingContent:
     links:
     - text: 마켓플레이스 제품의 잠재 고객
       url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
-    - text: 파트너 센터의 공동 판매 옵션
-      url: ./partner-center-portal/commercial-marketplace-co-sell.md
+    - text: 상업용 마켓플레이스에서 공동 판매 옵션
+      url: commercial-marketplace-co-sell.md
     - text: 공동 판매 파트너 참여
       url: ./marketplace-co-sell.md
     - text: Microsoft AppSource 및 Office 내에서 솔루션을 사용할 수 있도록 설정
@@ -60,15 +60,15 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 요약 대시보드
-      url: ./partner-center-portal/summary-dashboard.md
+      url: ./summary-dashboard.md
     - text: Marketplace 인사이트 대시보드
-      url: ./partner-center-portal/insights-dashboard.md
+      url: ./insights-dashboard.md
     - text: 사용량 대시보드
-      url: ./partner-center-portal/usage-dashboard.md
+      url: ./usage-dashboard.md
     - text: 고객 대시보드
-      url: ./partner-center-portal/customer-dashboard.md
+      url: ./customer-dashboard.md
     - text: 주문 대시보드
-      url: ./partner-center-portal/orders-dashboard.md
+      url: ./orders-dashboard.md
     - text: 다운로드 대시보드
       url: ./partner-center-portal/downloads-dashboard.md
     - text: 평점 및 리뷰 대시보드
@@ -82,7 +82,7 @@ landingContent:
     - text: 가상 머신 제품
       url: ./marketplace-virtual-machines.md
     - text: Azure 애플리케이션 제품
-      url: ./partner-center-portal/create-new-azure-apps-offer.md
+      url: ./create-new-azure-apps-offer.md
     - text: Dynamics 365 for Customer Engagement/PowerApps 제품
       url: ./partner-center-portal/create-new-customer-engagement-offer.md
     - text: Dynamics 365 Business Central 제품

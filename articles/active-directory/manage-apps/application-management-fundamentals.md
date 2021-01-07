@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642438"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656410"
 ---
 # <a name="application-management-best-practices"></a>애플리케이션 관리 모범 사례
 
@@ -30,7 +30,7 @@ ms.locfileid: "88642438"
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>클라우드 앱 및 Single Sign-On 권장 사항
 | 권장 | 주석 |
 | --- | --- |
-| 앱에 대 한 Azure AD 응용 프로그램 갤러리 확인  | Azure AD에는 SSO (Enterprise Single Sign-On)를 사용 하 여 사용할 수 있는 수천 개의 사전 통합 된 응용 프로그램이 포함 된 갤러리가 있습니다. 앱 별 설치 지침은 [SaaS 앱 자습서 목록](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)을 참조 하세요.  | 
+| 앱에 대 한 Azure AD 응용 프로그램 갤러리 확인  | Azure AD에는 SSO (Enterprise Single Sign-On)를 사용 하 여 사용할 수 있는 수천 개의 사전 통합 된 응용 프로그램이 포함 된 갤러리가 있습니다. 앱 별 설치 지침은 [SaaS 앱 자습서 목록](../saas-apps/tutorial-list.md)을 참조 하세요.  | 
 | 페더레이션된 SAML 기반 SSO 사용  | 응용 프로그램에서 지 원하는 경우 암호 기반 SSO 및 ADFS 대신 Azure AD에서 페더레이션된 SAML 기반 SSO를 사용 합니다.  | 
 | 인증서 서명에 SHA-256 사용  | Azure AD에서는 기본적으로 SHA-256 알고리즘을 사용 하 여 SAML 응답에 서명 합니다. 응용 프로그램에 SHA-1이 필요 하지 않으면 SHA-256을 사용 합니다 ( [인증서 서명 옵션](certificate-signing-options.md) 및 [응용 프로그램 로그인 문제](application-sign-in-problem-application-error.md)참조).  | 
 | 사용자 할당 필요  | 기본적으로 사용자는 할당 되지 않은 엔터프라이즈 응용 프로그램에 액세스할 수 있습니다. 그러나 응용 프로그램이 역할을 노출 하거나 사용자의 내 앱에 응용 프로그램을 표시 하려는 경우에는 사용자 할당이 필요 합니다. [응용 프로그램 통합을 위한 개발자 가이드](developer-guidance-for-integrating-applications.md)를 참조 하세요.  | 
@@ -41,7 +41,7 @@ ms.locfileid: "88642438"
 ## <a name="provisioning-recommendations"></a>프로 비전 권장 사항
 | 권장 | 주석 |
 | --- | --- |
-| 자습서를 사용 하 여 클라우드 앱으로 프로 비전 설정 | 추가 하려는 갤러리 앱의 프로 비전을 구성 하는 방법에 대 한 단계별 지침은 [SaaS 앱 자습서 목록을](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) 확인 하세요. |
+| 자습서를 사용 하 여 클라우드 앱으로 프로 비전 설정 | 추가 하려는 갤러리 앱의 프로 비전을 구성 하는 방법에 대 한 단계별 지침은 [SaaS 앱 자습서 목록을](../saas-apps/tutorial-list.md) 확인 하세요. |
 | 프로 비전 로그 (미리 보기)를 사용 하 여 상태 모니터링 | [프로 비전 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 는 개별 사용자의 상태를 포함 하 여 프로 비전 서비스에서 수행 하는 모든 작업에 대 한 세부 정보를 제공 합니다. |
 | 프로 비전 알림 전자 메일에 메일 그룹 할당 | 프로 비전 서비스에서 보낸 중요 한 경고의 표시 유형을 높이려면 메일 그룹을 알림 전자 메일 설정에 할당 합니다. |
 

@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/13/2020
   ms.author: mbullwin
-  ms.openlocfilehash: 2c651480b1195eaecea1d6d0d81695eb9caae141
-  ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+  ms.openlocfilehash: 62b24a855fca9e12ecd6770f78ef8b4dacc719dd
+  ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/09/2020
-  ms.locfileid: "94379445"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94445356"
 landingContent:
 - title: Metrics Advisor 정보
   linkLists:
@@ -30,6 +30,8 @@ landingContent:
     links:
     - text: 웹에서 첫 번째 메트릭 모니터링
       url: quickstarts/web-portal.md
+    - text: REST API 또는 클라이언트 라이브러리 사용
+      url: quickstarts/rest-api-and-client-library.md
 - title: 방법 문서
   linkLists:
   - linkListType: how-to-guide

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761484"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542680"
 ---
 # <a name="sizing-guidance"></a>크기 조정 지침
 
@@ -56,7 +56,7 @@ Azure Arc 데이터 서비스 배포를 계획할 때 Azure Arc 데이터 컨트
 |**logsdb**|200m|1600Mi|2|1600Mi||
 |**logsui**|100m|500Mi|2|2Gi||
 |**metricsdb**|200m|800Mi|400m|2Gi||
-|**metricsdc**|100m|200Mi|200m|300Mi|Metricsdc는 클러스터의 각 Kubernetes 노드에 생성 되는 daemonset입니다.  여기에 있는 테이블의 숫자는 _노드당_입니다. 데이터 컨트롤러를 만들기 전에 배포 프로필 파일에서 allowNodeMetricsCollection = false를 설정 하는 경우 metricsdc daemonset가 생성 되지 않습니다.|
+|**metricsdc**|100m|200Mi|200m|300Mi|Metricsdc는 클러스터의 각 Kubernetes 노드에 생성 되는 daemonset입니다.  여기에 있는 테이블의 숫자는 _노드당_ 입니다. 데이터 컨트롤러를 만들기 전에 배포 프로필 파일에서 allowNodeMetricsCollection = false를 설정 하는 경우 metricsdc daemonset가 생성 되지 않습니다.|
 |**metricsui**|20m|200Mi|500m|200Mi||
 |**mgmtproxy**|200m|250Mi|500m|500Mi||
 
@@ -89,6 +89,7 @@ Azure Arc 데이터 서비스 배포를 계획할 때 Azure Arc 데이터 컨트
 - 코어: 1
 
 생성 된 각 SQL 관리 되는 인스턴스 pod에는 세 개의 컨테이너가 있습니다.
+
 |컨테이너 이름|CPU 요청|메모리 요청|CPU 제한|메모리 제한|참고|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|지정되지 않음|지정되지 않음|Fluentbit container 리소스 요청은 SQL 관리 되는 인스턴스에 대해 지정 된 요청 _에 추가_ 됩니다.||
@@ -104,6 +105,7 @@ Azure Arc 데이터 서비스 배포를 계획할 때 Azure Arc 데이터 컨트
 - 코어: 1
 
 만든 각 PostgreSQL Hyperscale server 그룹 코디네이터 또는 작업자 pod에는 세 개의 컨테이너가 있습니다.
+
 |컨테이너 이름|CPU 요청|메모리 요청|CPU 제한|메모리 제한|참고|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|지정되지 않음|지정되지 않음|Fluentbit container resource 요청은 PostgreSQL Hyperscale 서버 그룹 노드에 대해 지정 된 요청에 _추가_ 됩니다.|
@@ -122,9 +124,9 @@ Azure Arc 사용 데이터 서비스에 필요한 환경의 전체 크기는 주
 
 요구 사항:
 
-- **"SQL1"**: 1 개의 SQL 관리 되는 인스턴스 (16gb RAM, 4 개 코어)
-- **"SQL2"**: 1 개의 SQL 관리 되는 인스턴스 (256 g b RAM, 16 개 코어)
-- **"Postgres1"**: 1 PostgreSQL hyperscale server 그룹, RAM이 12 GB, 4 개 코어
+- **"SQL1"** : 1 개의 SQL 관리 되는 인스턴스 (16gb RAM, 4 개 코어)
+- **"SQL2"** : 1 개의 SQL 관리 되는 인스턴스 (256 g b RAM, 16 개 코어)
+- **"Postgres1"** : 1 PostgreSQL hyperscale server 그룹, RAM이 12 GB, 4 개 코어
 
 크기 조정 계산:
 

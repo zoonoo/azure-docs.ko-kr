@@ -3,22 +3,20 @@ title: Azure IoT Central을 사용하여 정부 기관 솔루션 빌드
 description: Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 솔루션을 빌드하는 방법을 알아봅니다.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126569"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590820"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Azure IoT Central을 사용하여 정부 기관 솔루션 빌드
 
-
-
-Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 솔루션 빌드를 시작합니다. **용수 품질 모니터링**, **용수 사용량 모니터링**, **커넥티드 폐기물 관리**부터 시작할 수 있습니다.
+Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 솔루션 빌드를 시작합니다. **용수 품질 모니터링**, **용수 사용량 모니터링**, **커넥티드 폐기물 관리** 부터 시작할 수 있습니다.
 
 ## <a name="what-is-water-quality-monitoring-application-template"></a>용수 품질 모니터링 애플리케이션 템플릿이란?   
 
@@ -41,7 +39,6 @@ Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>용수 사용량 모니터링 애플리케이션 템플릿이란? 
 
 기존의 용수 사용량 추적은 상수도 작업자가 측정기가 있는 지점에서 용수 사용량 측정기를 수동으로 판독하는 방식으로 진행되었습니다. 점점 더 많은 도시가 기존의 측정기를 고급 스마트 측정기로 교체하여 용수 사용량을 원격 모니터링하고 밸브를 원격으로 제어하여 물 흐름을 조절합니다. 용수 사용량 모니터링을 진행하는 동시에 시민들에게 디지털 피드백 메시지를 제공하면 용수 사용량에 대한 인지도를 높이고 용수 사용량을 줄일 수 있습니다. 
-
 
 용수 사용량 모니터링 앱은 IoT 솔루션 개발을 시작하고 상수도 시설과 도시가 물 흐름을 원격으로 모니터링하여 용수 사용량을 줄이도록 도와주는 IoT Central 앱 템플릿입니다. 
 

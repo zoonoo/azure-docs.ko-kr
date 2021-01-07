@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3a6ce5860704e6fd16b79fc253650dd45ec743e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f7746f079e740493348731376d0a5a7b1a9e954
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852619"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317849"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>자습서: ML 실험을 프로덕션 Python 코드로 변환
 
@@ -33,7 +33,7 @@ ms.locfileid: "87852619"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [MLOpsPython 템플릿](https://github.com/microsoft/MLOpsPython/generate)을 생성하고 `experimentation/Diabetes Ridge Regression Training.ipynb` 및 `experimentation/Diabetes Ridge Regression Scoring.ipynb` 노트북을 사용합니다. 이러한 노트북은 실험에서 프로덕션으로 변환하는 예로 사용 됩니다. 이러한 Notebooks는 [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation)에서 찾을 수 있습니다.
-- `nbconvert`설치 [Installation](https://nbconvert.readthedocs.io/en/latest/install.html)(설치) 페이지의 __Installing nbconvert__(nbconvert 설치) 섹션에 있는 설치 지침을 따릅니다.
+- `nbconvert`설치 [Installation](https://nbconvert.readthedocs.io/en/latest/install.html)(설치) 페이지의 __Installing nbconvert__ (nbconvert 설치) 섹션에 있는 설치 지침을 따릅니다.
 
 ## <a name="remove-all-nonessential-code"></a>불필요한 코드 모두 제거
 
@@ -67,7 +67,7 @@ args = {
 }
 
 reg_model = Ridge(**args)
-reg.fit(data["train"]["X"], data["train"]["y"])
+reg_model.fit(data["train"]["X"], data["train"]["y"])
 
 preds = reg_model.predict(data["test"]["X"])
 mse = mean_squared_error(preds, y_test)
@@ -527,5 +527,5 @@ def test_train_model():
 실험에서 프로덕션 코드로 변환하는 방법을 살펴보았으므로, 다음 링크를 통해 자세한 내용을 살펴보고 다음 단계를 수행하세요.
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): Azure Pipelines 및 Azure Machine Learning을 사용하여 사용자 고유의 모델을 학습, 평가 및 배포할 수 있는 CI/CD 파이프라인 빌드
-+ [Azure ML 실험 실행 및 메트릭 모니터링](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-+ [ML 웹 서비스 엔드포인트에서 데이터 모니터링 및 수집](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)
++ [Azure ML 실험 실행 및 메트릭 모니터링](./how-to-track-experiments.md)
++ [ML 웹 서비스 엔드포인트에서 데이터 모니터링 및 수집](./how-to-enable-app-insights.md)

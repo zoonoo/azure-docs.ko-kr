@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425935"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900895"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
 
@@ -124,7 +124,7 @@ Azure 센티널은 보안 분석가가 컨텍스트의 비정상적인 활동을
 
 타임 라인은 Azure 센티널의 동작 분석에 대 한 엔터티 페이지 기여의 주요 부분입니다. 엔터티 관련 이벤트에 대 한 스토리를 제공 하 여 특정 시간 프레임 내에서 엔터티의 작업을 이해 하도록 도와줍니다.
 
-몇 가지 미리 설정 된 옵션 (예: *최근 24 시간* ) 중에서 **시간 범위** 를 선택 하거나 사용자 지정 된 시간 프레임으로 설정할 수 있습니다. 또한 타임 라인의 정보를 특정 유형의 이벤트 또는 경고로 제한 하는 필터를 설정할 수 있습니다.
+몇 가지 미리 설정 된 옵션 (예: *최근 24 시간*) 중에서 **시간 범위** 를 선택 하거나 사용자 지정 된 시간 프레임으로 설정할 수 있습니다. 또한 타임 라인의 정보를 특정 유형의 이벤트 또는 경고로 제한 하는 필터를 설정할 수 있습니다.
 
 타임 라인에는 다음과 같은 유형의 항목이 포함 되어 있습니다.
 
@@ -155,7 +155,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 
 ### <a name="behavior-analytics-table"></a>동작 분석 테이블
 
-| 필드                     | Description                                                         |
+| 필드                     | 설명                                                         |
 |---------------------------|---------------------------------------------------------------------|
 | TenantId                  | 테 넌 트의 고유 ID 번호                                      |
 | SourceRecordId            | EBA 이벤트의 고유 ID 번호                                   |
@@ -163,7 +163,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 | TimeProcessed 됨             | EBA 엔진에서 작업을 처리 하는 타임 스탬프            |
 | ActivityType              | 활동의 상위 수준 범주                                 |
 | ActionType                | 활동의 정규화 된 이름입니다.                                     |
-| UserName                  | 활동을 시작한 사용자의 사용자 이름입니다.                    |
+| 사용자 이름                  | 활동을 시작한 사용자의 사용자 이름입니다.                    |
 | UserPrincipalName         | 활동을 시작한 사용자의 전체 사용자 이름입니다.               |
 | EventSource               | 원래 이벤트를 제공한 데이터 원본                        |
 | Sourceipaddress의 경우           | 작업이 시작 된 IP 주소                        |
@@ -178,9 +178,11 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 | **InvestigationPriority** | 이상 점수, 0-10 (0 = 양성, 10 = 매우 비정상)         |
 |
 
+[Ueba 강화 참조 문서의](ueba-enrichments.md) **UsersInsights**, **DevicesInsights** 및 **activityinsights** 에서 참조 되는 전체 상황별 강화 집합을 볼 수 있습니다.
+
 ### <a name="querying-behavior-analytics-data"></a>동작 분석 데이터 쿼리
 
-[KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/)를 사용 하 여 동작 분석 테이블을 쿼리할 수 있습니다.
+[KQL](/azure/data-explorer/kusto/query/)를 사용 하 여 동작 분석 테이블을 쿼리할 수 있습니다.
 
 예를 들어 Azure 리소스에 로그인 하지 못한 사용자의 모든 사례를 찾으려고 하 고, 사용자가 지정 된 국가에서 연결을 처음 시도 하는 경우, 해당 국가에서의 연결은 일반적으로 사용자의 피어에 대해서도 발생 하지 않습니다. 다음 쿼리를 사용할 수 있습니다.
 
@@ -205,7 +207,7 @@ Azure 센티널 GitHub 리포지토리에 제공 된 [Jupyter 노트북](https:/
 
 권한 분석은 공격자의 조직 자산의 손상으로 인 한 잠재적 영향을 확인 하는 데 도움이 됩니다. 이러한 영향을 자산의 "폭발 반지름이" 라고도 합니다. 보안 분석가는이 정보를 사용 하 여 조사 및 인시던트 처리의 우선 순위를 지정할 수 있습니다.
 
-Azure 센티널은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가 하 여 지정 된 사용자가 Azure 리소스에 대해 보유 한 직접 및 전이적 액세스 권한을 결정 합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대 한 전체 목록이 **Useraccessanalytics** 테이블에 저장 됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대 한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이 고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식의** 값은 대상 엔터티의 액세스 제어 모델에 따라 달라 집니다. Alex에 Azure 구독 *Contoso 호텔 테 넌 트* 에 대 한 참가자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 RBAC입니다.   
+Azure 센티널은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가 하 여 지정 된 사용자가 Azure 리소스에 대해 보유 한 직접 및 전이적 액세스 권한을 결정 합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대 한 전체 목록이 **Useraccessanalytics** 테이블에 저장 됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대 한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이 고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식의** 값은 대상 엔터티의 액세스 제어 모델에 따라 달라 집니다. Alex에 Azure 구독 *Contoso 호텔 테 넌 트* 에 대 한 참가자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 Azure RBAC입니다.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="사용자 액세스 분석 테이블의 스크린샷":::
 

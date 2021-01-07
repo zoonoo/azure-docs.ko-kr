@@ -10,15 +10,15 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/23/2019
+ms.date: 11/20/2020
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: ac1105f1fce2ac04abfa8a809161580104952917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00095eed3fe6d143d9ed7a0c748c4702028f4632
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404904"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832063"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
@@ -55,7 +55,7 @@ ms.locfileid: "91404904"
     ```Powershell
     $rgName = "myResourceGroup"
     $osDiskName = "ProblemOsDisk"
-
+    # Set the EncryptionSettingsEnabled property to false, so you can attach the disk to the recovery VM.
     New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
 
     $recoveryVMName = "myRecoveryVM" 
@@ -87,24 +87,21 @@ ms.locfileid: "91404904"
             | Sort-Object -Property Created `
             | ft  Created, `
                 @{Label="Content Type";Expression={$_.ContentType}}, `
+                @{Label ="MachineName"; Expression = {$_.Tags.MachineName}}, `
                 @{Label ="Volume"; Expression = {$_.Tags.VolumeLetter}}, `
                 @{Label ="DiskEncryptionKeyFileName"; Expression = {$_.Tags.DiskEncryptionKeyFileName}}
     ```
 
-    다음은 출력의 샘플입니다. 연결된 디스크의 BEK 파일 이름을 찾습니다. 이 경우 연결된 디스크의 드라이브 문자를 F로, BEK 파일을 EF7B2F5A-50 C 6-4637-9F13-7F599C12F85C.BEK로 가정합니다.
+    다음은 출력의 샘플입니다. 이 경우에는 파일 이름이 EF7B2F5A-50C6-4637-0001-7F599C12F85C 이라고 가정 합니다. BEK.
 
     ```
-    Created             Content Type Volume DiskEncryptionKeyFileName               
-    -------             ------------ ------ -------------------------               
-    4/5/2018 7:14:59 PM Wrapped BEK  C:\    B4B3E070-836C-4AF5-AC5B-66F6FDE6A971.BEK
-    4/7/2018 7:21:16 PM Wrapped BEK  F:\    EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
-    4/7/2018 7:26:23 PM Wrapped BEK  G:\    70148178-6FAE-41EC-A05B-3431E6252539.BEK
-    4/7/2018 7:26:26 PM Wrapped BEK  H:\    5745719F-4886-4940-9B51-C98AFABE5305.BEK
+    Created               Content Type Volume MachineName DiskEncryptionKeyFileName
+    -------               ------------ ------ ----------- -------------------------
+    11/20/2020 7:41:56 AM BEK          C:\    myVM   EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK
     ```
-
     두 개의 복제된 볼륨이 표시되는 경우 최신 타임스탬프가 있는 볼륨이 복구 VM에서 사용되는 현재 BEK 파일입니다.
 
-    **콘텐츠 형식** 값이 **래핑된 BEK**이면 [KEK(키 암호화 키) 시나리오](#key-encryption-key-scenario)로 이동합니다.
+    **콘텐츠 형식** 값이 **래핑된 BEK** 이면 [KEK(키 암호화 키) 시나리오](#key-encryption-key-scenario)로 이동합니다.
 
     드라이브의 BEK 파일 이름을 확인했으므로 secret-file-name.BEK 파일을 만들어 드라이브의 잠금을 해제해야 합니다.
 
@@ -112,9 +109,10 @@ ms.locfileid: "91404904"
 
     ```powershell
     $vault = "myKeyVault"
-    $bek = " EF7B2F5A-50C6-4637-9F13-7F599C12F85C"
+    $bek = "EF7B2F5A-50C6-4637-0001-7F599C12F85C"
     $keyVaultSecret = Get-AzKeyVaultSecret -VaultName $vault -Name $bek
-    $bekSecretBase64 = $keyVaultSecret.SecretValueText
+    $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($keyVaultSecret.SecretValue)
+    $bekSecretBase64 = [Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
     $bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
     $path = "C:\BEK\DiskEncryptionKeyFileName.BEK"
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
@@ -123,7 +121,7 @@ ms.locfileid: "91404904"
 7.  BEK 파일을 사용 하 여 연결 된 디스크의 잠금을 해제 하려면 다음 명령을 실행 합니다.
 
     ```powershell
-    manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
+    manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK
     ```
     이 샘플에서 연결된 OS 디스크는 드라이브 F입니다. 올바른 드라이브 문자를 사용하는지 확인합니다. 
 
@@ -150,7 +148,7 @@ ms.locfileid: "91404904"
 
 키 암호화 키 시나리오의 경우 다음 단계를 수행합니다.
 
-1. **사용자|키 권한|암호화 작업 |키 래핑 해제**의 Key Vault 액세스 정책에서 로그인한 사용자 계정에 “래핑 해제된” 권한이 필요한지 확인합니다.
+1. **사용자|키 권한|암호화 작업 |키 래핑 해제** 의 Key Vault 액세스 정책에서 로그인한 사용자 계정에 “래핑 해제된” 권한이 필요한지 확인합니다.
 2. 에 다음 스크립트를 저장 합니다. PS1 파일:
 
     ```powershell
@@ -172,11 +170,21 @@ ms.locfileid: "91404904"
             [string] 
             $adTenant
             )
-    # Load ADAL Assemblies. The following script assumes that the Azure PowerShell version you installed is 1.0.0. 
-    $adal = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\1.0.0\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\1.0.0\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
+    # Load ADAL Assemblies
+    $adal = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
+    $adalforms = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
+    If ((Test-Path -Path $adal) -and (Test-Path -Path $adalforms)) { 
+
     [System.Reflection.Assembly]::LoadFrom($adal)
     [System.Reflection.Assembly]::LoadFrom($adalforms)
+     }
+     else
+     {
+    $adal="${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
+    $adalforms ="${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
+    [System.Reflection.Assembly]::LoadFrom($adal)
+    [System.Reflection.Assembly]::LoadFrom($adalforms)
+     }  
 
     # Set well-known client ID for AzurePowerShell
     $clientId = "1950a258-227b-4e31-a9cf-717495945fc2" 
@@ -205,7 +213,8 @@ ms.locfileid: "91404904"
 
     #Get wrapped BEK and place it in JSON object to send to KeyVault REST API
     $keyVaultSecret = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name $secretName
-    $wrappedBekSecretBase64 = $keyVaultSecret.SecretValueText
+    $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($keyVaultSecret.SecretValue)
+    $wrappedBekSecretBase64 = [Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
     $jsonObject = @"
     {
     "alg": "RSA-OAEP",
@@ -236,6 +245,10 @@ ms.locfileid: "91404904"
     #Convert base64 string to bytes and write to BEK file
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
+
+    #Delete the key from the memory
+    [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
+    clear-variable -name wrappedBekSecretBase64
     ```
 3. 매개 변수를 설정합니다. 스크립트는 KEK 암호를 처리하여 BEK 키를 만든 다음, 복구 VM의 로컬 폴더에 저장합니다. 스크립트를 실행할 때 오류가 발생 하는 경우 [스크립트 문제 해결](#script-troubleshooting) 섹션을 참조 하세요.
 
@@ -283,9 +296,7 @@ ms.locfileid: "91404904"
 
 **오류: 파일 또는 어셈블리를 로드할 수 없습니다.**
 
-이 오류는 ADAL 어셈블리의 경로가 잘못 되었기 때문에 발생 합니다. AZ module이 현재 사용자에 대해 설치 된 경우 ADAL 어셈블리는에 배치 됩니다 `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>` .
-
-폴더를 검색 하 여 `Az.Accounts` 올바른 경로를 찾을 수도 있습니다.
+이 오류는 ADAL 어셈블리의 경로가 잘못 되었기 때문에 발생 합니다. 폴더를 검색 `Az.Accounts` 하 여 올바른 경로를 찾을 수 있습니다.
 
 **오류: Get-AzKeyVaultSecret 또는 Get-AzKeyVaultSecret cmdlet의 이름으로 인식 되지 않습니다.**
 

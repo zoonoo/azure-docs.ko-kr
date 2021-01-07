@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
-ms.openlocfilehash: f76f6bc77a26a8574218a07321ab72acc9280569
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: af1c0702929e7cd700c8d19ab24e40f9c6f43a21
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517993"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602175"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>자습서: MongoDB Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -162,7 +162,7 @@ MongoDB Cloud는 기본적으로 사용하도록 설정되는 Just-In-Time 사�
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 
-- [Azure에서 MongoDB Atlas 등록](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mongodb_atlas_may_2020?tab=Overview)
+- [Azure에서 MongoDB Atlas 등록](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mdb_atlas_oct2020?tab=Overview)
 
 - [Azure AD로 MongoDB Cloud 사용해보기](https://aad.portal.azure.com/)
 

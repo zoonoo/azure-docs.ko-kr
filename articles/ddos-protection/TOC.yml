@@ -15,9 +15,11 @@
 - name: 자습서
   items:
     - name: DDoS 보호 원격 분석 보기 및 구성
-      href: telemetry-monitoring-alerting.md
-    - name: DDoS 공격 완화 보고서 및 흐름 로그 구성
-      href: reports-and-flow-logs.md
+      href: telemetry.md
+    - name: DDoS 진단 로깅 보기 및 구성
+      href: diagnostic-logging.md
+    - name: DDoS 보호 경고 보기 및 구성
+      href: alerts.md
 - name: 개념
   items:
     - name: 공격 유형
@@ -45,21 +47,21 @@
 - name: 참조
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest'
+      href: /cli/azure/network/ddos-protection?view=azure-cli-latest
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0'
+      href: /powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0
     - name: .NET
-      href: 'https://docs.microsoft.com/dotnet/api/'
+      href: /dotnet/api/
     - name: Java
-      href: 'https://docs.microsoft.com/java/api/'
+      href: /java/api/
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST (영문)
-      href: 'https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans'
-    - name: Azure Resource Manager
-      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/overview'
+      href: /rest/api/virtualnetwork/ddosprotectionplans
+    - name: Azure 리소스 관리자
+      href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:
     - name: FAQ

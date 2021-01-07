@@ -4,11 +4,11 @@ description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: 60c9848e12de80bcafe4553a9e8f3e27e8876d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88826500"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021387"
 ---
 # <a name="restore-azure-files-with-powershell"></a>PowerShell을 사용 하 여 Azure Files 복원
 
@@ -29,7 +29,7 @@ ms.locfileid: "88826500"
 다음 스크립트에서:
 
 * **$Rp** 변수는 지난 7 일간 선택한 백업 항목에 대 한 복구 지점의 배열입니다.
-* 배열은 인덱스 **0**의 가장 최근 복구 지점부터 시간이 역순으로 정렬됩니다.
+* 배열은 인덱스 **0** 의 가장 최근 복구 지점부터 시간이 역순으로 정렬됩니다.
 * 복구 지점을 선택하려면 표준 PowerShell 배열 인덱싱을 사용합니다.
 * 예에서, **$rp[0]** 은 최신 복구 지점을 선택합니다.
 
@@ -68,7 +68,7 @@ BackupManagementType : AzureStorage
 * **Targetstorageaccountname**: 백업 된 콘텐츠를 복원할 저장소 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
 * **TargetFileShareName**: 백업 된 콘텐츠가 복원 되는 대상 저장소 계정 내의 파일 공유입니다.
 * **Targetfolder**: 데이터가 복원 되는 파일 공유의 폴더입니다. 백업된 콘텐츠를 루트 폴더로 복원해야 하는 경우 대상 폴더 값을 빈 문자열로 제공합니다.
-* **Resolveconflict가**: 복원 된 데이터와 충돌 하는 경우 명령입니다. **덮어쓰기** 또는 **건너뛰기**를 수락합니다.
+* **Resolveconflict가**: 복원 된 데이터와 충돌 하는 경우 명령입니다. **덮어쓰기** 또는 **건너뛰기** 를 수락합니다.
 
 다음과 같이 매개 변수를 사용 하 여 cmdlet을 실행 합니다.
 
@@ -92,8 +92,8 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 * **TargetFileShareName**: 백업 된 콘텐츠가 복원 되는 대상 저장소 계정 내의 파일 공유입니다.
 * **Targetfolder**: 데이터가 복원 되는 파일 공유의 폴더입니다. 백업된 콘텐츠를 루트 폴더로 복원해야 하는 경우 대상 폴더 값을 빈 문자열로 제공합니다.
 * **Sourcefilepath**: 파일 공유 내에서 복원할 파일의 절대 경로입니다. 이 경로는 **Get-AzStorageFile** PowerShell cmdlet에 사용되는 경로와 동일합니다.
-* **Sourcefiletype**: 디렉터리 또는 파일을 선택 했는지 여부입니다. **디렉터리** 또는 **파일**을 허용 합니다.
-* **Resolveconflict가**: 복원 된 데이터와 충돌 하는 경우 명령입니다. **덮어쓰기** 또는 **건너뛰기**를 수락합니다.
+* **Sourcefiletype**: 디렉터리 또는 파일을 선택 했는지 여부입니다. **디렉터리** 또는 **파일** 을 허용 합니다.
+* **Resolveconflict가**: 복원 된 데이터와 충돌 하는 경우 명령입니다. **덮어쓰기** 또는 **건너뛰기** 를 수락합니다.
 
 추가 매개 변수 (SourceFilePath 및 Sourcefilepath)는 복원 하려는 개별 파일에만 관련 됩니다.
 
@@ -105,7 +105,7 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccount
 
 ## <a name="restore-azure-file-shares-and-files-to-the-original-location"></a>Azure 파일 공유 및 파일을 원래 위치로 복원
 
-원래 위치로 복원 하는 경우 대상 및 대상 관련 매개 변수를 지정할 필요가 없습니다. **ResolveConflict**만 제공해야 합니다.
+원래 위치로 복원 하는 경우 대상 및 대상 관련 매개 변수를 지정할 필요가 없습니다. **ResolveConflict** 만 제공해야 합니다.
 
 ### <a name="overwrite-an-azure-file-share"></a>Azure 파일 공유 덮어쓰기
 

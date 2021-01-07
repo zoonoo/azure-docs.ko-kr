@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
 ms.openlocfilehash: eb7062b745ae6eb97dc2cd4ba2051cc221031630
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453776"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179166"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>자습서: ExpenseIn과 Azure Active Directory 연결
 
@@ -94,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -169,9 +169,9 @@ Azure AD 사용자가 ExpenseIn에 로그인할 수 있도록 하려면 ExpenseI
 
     ![ExpenseIn 구성](./media/expenseIn-tutorial/config04.png)
 
-    a. **이름** 텍스트 상자에 사용자의 이름(예: **B** )을 입력합니다.
+    a. **이름** 텍스트 상자에 사용자의 이름(예: **B**)을 입력합니다.
 
-    b. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
+    b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
     다. **전자 메일** 텍스트 상자에 사용자의 전자 메일(예: `B.Simon@contoso.com`)을 입력합니다.
 

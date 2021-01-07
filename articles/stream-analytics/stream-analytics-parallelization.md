@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: b41677d1e4f3ba3889472a3fb9bd6c6a9db4c0a8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 326af3bc38ce70cc7cb205384bb4302c5ff73d28
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123373"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704183"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -270,7 +270,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 | 5,000     |    6    |  6TU   |
 | 10,000    |    12   |  10TU  |
 
-[Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) 솔루션은 SU(스트리밍 단위) 및 처리량 측면에서 선형적으로 스케일링되므로 Stream Analytics에서 데이터를 분석하고 스트리밍할 수 있는 가장 효율적이고 우수한 방법입니다. 작업은 최대 192SU까지 스케일 업 될 수 있는데, 이는 대략 최대 200MB/초 또는 하루 19조 개의 이벤트를 처리할 수 있음을 의미합니다.
+[Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) 솔루션은 SU(스트리밍 단위) 및 처리량 측면에서 선형적으로 스케일링되므로 Stream Analytics에서 데이터를 분석하고 스트리밍할 수 있는 가장 효율적이고 우수한 방법입니다. 작업은 최대 192SU까지 스케일 업 될 수 있는데, 이는 대략 최대 200MB/초 또는 하루 19조 개의 이벤트를 처리할 수 있음을 의미합니다.
 
 #### <a name="azure-sql"></a>Azure SQL
 |수집 속도(초당 이벤트 수) | 스트리밍 단위 | 출력 리소스  |
@@ -279,7 +279,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 |    5,000   |   18 |  P4   |
 |    10,000  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)은 분할 상속이라는 병렬로 쓰기를 지원하지만 기본적으로 사용하도록 설정되어 있지는 않습니다. 그러나 완전한 병렬 쿼리와 함께 분할 상속을 사용하도록 설정하는 것만으로는 높은 처리량을 달성하기에 충분하지 않을 수 있습니다. SQL 쓰기 처리량은 데이터베이스 구성 및 테이블 스키마에 따라 크게 달라 집니다. [SQL 출력 성능](./stream-analytics-sql-output-perf.md) 문서에서는 쓰기 처리량을 최대화할 수 있는 매개 변수에 대해 자세히 설명합니다. [Azure SQL Database에 대한 Azure Stream Analytics 출력](./stream-analytics-sql-output-perf.md#azure-stream-analytics) 문서에 설명된 것처럼 이 솔루션은 8개의 파티션을 초과하는 완전한 병렬 파이프라인으로 선형 스케일링되지 않으므로 SQL 출력 전에 다시 분할해야 할 수 있습니다([INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 참조). 프리미엄 SKU는 몇 분마다 발생하는 로그 백업에서 발생하는 오버헤드와 함께 높은 IO 속도를 유지하는 데 필요합니다.
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-azuresql)은 분할 상속이라는 병렬로 쓰기를 지원하지만 기본적으로 사용하도록 설정되어 있지는 않습니다. 그러나 완전한 병렬 쿼리와 함께 분할 상속을 사용하도록 설정하는 것만으로는 높은 처리량을 달성하기에 충분하지 않을 수 있습니다. SQL 쓰기 처리량은 데이터베이스 구성 및 테이블 스키마에 따라 크게 달라 집니다. [SQL 출력 성능](./stream-analytics-sql-output-perf.md) 문서에서는 쓰기 처리량을 최대화할 수 있는 매개 변수에 대해 자세히 설명합니다. [Azure SQL Database에 대한 Azure Stream Analytics 출력](./stream-analytics-sql-output-perf.md#azure-stream-analytics) 문서에 설명된 것처럼 이 솔루션은 8개의 파티션을 초과하는 완전한 병렬 파이프라인으로 선형 스케일링되지 않으므로 SQL 출력 전에 다시 분할해야 할 수 있습니다([INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 참조). 프리미엄 SKU는 몇 분마다 발생하는 로그 백업에서 발생하는 오버헤드와 함께 높은 IO 속도를 유지하는 데 필요합니다.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |수집 속도(초당 이벤트 수) | 스트리밍 단위 | 출력 리소스  |
@@ -288,7 +288,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 |  5,000   |  24   | 60,000RU  |
 |  10,000  |  48   | 120,000RU |
 
-[호환성 수준 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12)에서 네이티브 통합을 사용하도록 Stream Analytics에서의 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) 출력이 업데이트되었습니다. 호환성 수준 1.2를 사용하면 처리량이 크게 향상되고 새 작업에 대한 기본 호환성 수준인 1.1에 비해 RU 사용이 감소합니다. 솔루션은 /deviceId에서 분할된 CosmosDB 컨테이너를 사용하고 나머지 솔루션은 동일하게 구성됩니다.
+[호환성 수준 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12)에서 네이티브 통합을 사용하도록 Stream Analytics에서의 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-cosmosdb) 출력이 업데이트되었습니다. 호환성 수준 1.2를 사용하면 처리량이 크게 향상되고 새 작업에 대한 기본 호환성 수준인 1.1에 비해 RU 사용이 감소합니다. 솔루션은 /deviceId에서 분할된 CosmosDB 컨테이너를 사용하고 나머지 솔루션은 동일하게 구성됩니다.
 
 [Azure 샘플 규모의 모든 스트리밍은](https://github.com/Azure-Samples/streaming-at-scale) 부하 시뮬레이션 테스트 클라이언트에서 공급 하는 입력으로 이벤트 허브를 사용 합니다. 각 입력 이벤트는 구성된 수집 속도를 처리량 속도(1MB/s, 5MB/s 및 10MB)로 쉽게 변환하는 1KB JSON 문서입니다. 이벤트는 최대 1,000대 디바이스에 대해 다음과 같은 JSON 데이터(축약 형식)를 전송하는 IoT 디바이스를 시뮬레이션합니다.
 

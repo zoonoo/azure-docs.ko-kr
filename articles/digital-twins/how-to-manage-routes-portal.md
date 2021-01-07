@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 21188f473cbd5a6fd2a1ee549f47ad9b0e5b8af3
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279479"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533789"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Azure Digital Twins에서 끝점 및 경로 관리 (포털)
 
@@ -22,7 +22,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)를 사용 하 여 끝점과 경로를 만드는 과정을 안내 합니다.
 
-[이벤트 경로 api](/rest/api/digital-twins/dataplane/eventroutes), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털 대신 이러한 메커니즘을 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md)를 참조 하세요.
+또는 [이벤트 경로 api](/rest/api/digital-twins/dataplane/eventroutes), [Sdk](how-to-use-apis-sdks.md#overview-data-plane-apis)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털 대신 이러한 메커니즘을 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

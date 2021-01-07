@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure SignalR Service 설명서
-summary: Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애플리케이션을 빌드할 수 있게 하는 Azure 관리 서비스입니다.
+summary: Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애플리케이션을 빌드할 수 있게 하는 Azure 관리형 서비스입니다.
 metadata:
   title: Azure SignalR Service 설명서
   description: 서버리스 또는 서버 모드에서 실시간 웹앱을 쉽게 빌드하고 확장합니다. 광범위한 언어 및 프레임워크를 지원하는 WebSocket을 기반으로 합니다.
@@ -9,12 +9,12 @@ metadata:
   author: v-chmccl
   ms.author: wesmc
   ms.date: 03/11/2020
-  ms.openlocfilehash: d60587516fe021085e39227d45865ed10f81990e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 377d0c8daa864b6ee936fbb487ef8a7235ee638e
+  ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91855421"
+  ms.lasthandoff: 12/28/2020
+  ms.locfileid: "97796740"
 landingContent:
 - title: Azure SignalR Service 정보
   linkLists:

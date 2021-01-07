@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 6a20708c5564075c24eb031a39292b020a2ecc00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7027dd86945e53149b3c4daeb9d6faee3593e95
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371323"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702245"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Azure에서 FreeBSD 패킷 필터를 사용하여 보안 방화벽을 만드는 방법
 이 문서에서는 일반 웹 서버 시나리오에 대해 Azure Resource Manager 템플릿을 통해 FreeBSD 패킷 필터를 사용하여 NAT 방화벽을 배포하는 방법을 소개합니다.
@@ -34,10 +34,10 @@ Azure Resource Manager 템플릿은 Nginx 웹 서버가 설치 및 구성된 2�
 az group create --name myResourceGroup --location westus
 ```
 
-다음으로, [az group deployment create](/cli/azure/group/deployment)를 사용하여 pf-freebsd-setup 템플릿을 배포합니다. 동일한 경로 아래에서 azuredeploy.parameters.jso을 다운로드하고, `adminPassword`, `networkPrefix` 및 `domainNamePrefix`와 같은 고유한 리소스 값을 정의합니다. 
+다음으로 [az deployment group create](/cli/azure/deployment/group)를 사용 하 여 freebsd-setup 템플릿을 배포 합니다. 동일한 경로 아래에서 azuredeploy.parameters.jso을 다운로드하고, `adminPassword`, `networkPrefix` 및 `domainNamePrefix`와 같은 고유한 리소스 값을 정의합니다. 
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup --name myDeploymentName \
+az deployment group create --resource-group myResourceGroup --name myDeploymentName \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json \
     --parameters '@azuredeploy.parameters.json' --verbose
 ```

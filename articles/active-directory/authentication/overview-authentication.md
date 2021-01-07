@@ -6,24 +6,24 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01751caba2b14f899588deba083a8c59c41d13ba
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964012"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741255"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Azure Active Directory 인증이란?
 
-ID 플랫폼의 주요 기능 중 하나는 사용자가 디바이스, 애플리케이션 또는 서비스에 로그인할 때 자격 증명을 확인하거나 *인증*하는 것입니다. Azure AD(Azure Active Directory)에서 인증은 사용자 이름과 암호를 확인하는 것 외에도 더 많은 작업을 수행합니다. 보안을 강화하고 지원 센터 지원의 필요성을 줄이기 위해 Azure AD 인증에 포함되는 구성 요소는 다음과 같습니다.
+ID 플랫폼의 주요 기능 중 하나는 사용자가 디바이스, 애플리케이션 또는 서비스에 로그인할 때 자격 증명을 확인하거나 *인증* 하는 것입니다. Azure AD(Azure Active Directory)에서 인증은 사용자 이름과 암호를 확인하는 것 외에도 더 많은 작업을 수행합니다. 보안을 강화하고 지원 센터 지원의 필요성을 줄이기 위해 Azure AD 인증에 포함되는 구성 요소는 다음과 같습니다.
 
 * 셀프 서비스 암호 재설정
-* Azure Multi-Factor Authentication
+* Azure AD Multi-Factor Authentication
 * 온-프레미스 환경에 암호 변경 쓰기를 저장하기 위한 하이브리드 통합
 * 온-프레미스 환경에 암호 보호 정책을 적용하기 위한 하이브리드 통합
 * 암호 없는 인증
@@ -32,7 +32,7 @@ ID 플랫폼의 주요 기능 중 하나는 사용자가 디바이스, 애플리
 
 Azure AD는 사용자의 ID를 보호하고 로그인 환경을 간소화하는 데 도움이 됩니다. 셀프 서비스 암호 재설정과 같은 기능을 통해 사용자는 모든 디바이스에서 웹 브라우저를 사용하여 암호를 업데이트하거나 변경할 수 있습니다. 이 기능은 사용자가 암호를 잊어버렸거나 계정이 잠겨 있는 경우에 특히 유용합니다. 지원 센터 또는 관리자가 지원을 제공할 때까지 기다리지 않고 사용자가 자신을 차단 해제하여 작업을 계속 수행할 수 있습니다.
 
-Azure Multi-Factor Authentication을 사용하면 사용자가 로그인하는 동안 전화 통화 또는 모바일 앱 알림과 같은 추가 형식의 인증을 선택할 수 있습니다. 이 기능을 통해 하드웨어 토큰과 같이 고정된 단일 형식의 보조 인증에 대한 요구 사항을 줄일 수 있습니다. 사용자에게 현재 한 가지 형식의 추가 인증이 없는 경우 다른 방법을 선택하여 작업을 계속 수행할 수 있습니다.
+Azure AD Multi-Factor Authentication을 사용하면 사용자가 로그인하는 동안 전화 통화 또는 모바일 앱 알림과 같은 추가 형식의 인증을 선택할 수 있습니다. 이 기능을 통해 하드웨어 토큰과 같이 고정된 단일 형식의 보조 인증에 대한 요구 사항을 줄일 수 있습니다. 사용자에게 현재 한 가지 형식의 추가 인증이 없는 경우 다른 방법을 선택하여 작업을 계속 수행할 수 있습니다.
 
 ![로그인 화면에서 사용하는 인증 방법](media/concept-authentication-methods/overview-login.png)
 
@@ -50,7 +50,7 @@ Azure Multi-Factor Authentication을 사용하면 사용자가 로그인하는 �
 
 사용자가 셀프 서비스 암호 재설정을 사용하여 암호를 업데이트하거나 다시 설정하는 경우 해당 암호 쓰기를 온-프레미스 Active Directory 환경에 저장할 수도 있습니다. 비밀번호 쓰기 저장을 통해 사용자가 업데이트된 자격 증명을 온-프레미스 디바이스 및 애플리케이션에 즉시 사용할 수 있습니다.
 
-## <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
+## <a name="azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication
 
 다단계 인증은 로그인 프로세스 중에 코드를 휴대폰에 입력하거나 지문 검사를 제공하는 것과 같은 추가 형식의 식별을 요구하는 프로세스입니다.
 
@@ -58,17 +58,17 @@ Azure Multi-Factor Authentication을 사용하면 사용자가 로그인하는 �
 
 ![다양한 형식의 다단계 인증에 대한 개념적 이미지](./media/concept-mfa-howitworks/methods.png)
 
-Azure Multi-Factor Authentication은 다음 인증 방법 중 둘 이상을 요구하여 작동합니다.
+Azure AD Multi-Factor Authentication은 다음 인증 방법 중 둘 이상을 요구하여 작동합니다.
 
 * 사용자가 알고 있는 정보(일반적으로 암호)
 * 사용자의 소유물 정보(예: 휴대폰 또는 하드웨어 키와 같이 쉽게 복제되지 않는 신뢰할 수 있는 디바이스)
 * 사용자의 생체 인식 정보(예: 지문 또는 얼굴 스캔)
 
-사용자는 셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication을 모두 한 단계로 등록하여 온보딩 환경을 간소화할 수 있습니다. 관리자는 사용할 수 있는 보조 인증 형식을 정의할 수 있습니다. 사용자가 셀프 서비스 암호 재설정을 수행하여 프로세스를 더 안전하게 보호하는 경우에도 Azure Multi-Factor Authentication이 필요할 수 있습니다.
+사용자는 셀프 서비스 암호 재설정 및 Azure AD Multi-Factor Authentication을 모두 한 단계로 등록하여 온보딩 환경을 간소화할 수 있습니다. 관리자는 사용할 수 있는 보조 인증 형식을 정의할 수 있습니다. 사용자가 셀프 서비스 암호 재설정을 수행하여 프로세스를 더 안전하게 보호하는 경우에도 Azure AD Multi-Factor Authentication이 필요할 수 있습니다.
 
 ## <a name="password-protection"></a>암호 보호
 
-Azure AD는 기본적으로 *Password1*와 같은 취약한 암호를 차단합니다. 알려진 취약한 암호가 포함되는 글로벌로 금지된 암호 목록이 자동으로 업데이트되고 적용됩니다. Azure AD 사용자가 암호를 이러한 취약한 암호 중 하나로 설정하려고 하면 더 안전한 암호를 선택하라는 알림이 받습니다.
+Azure AD는 기본적으로 *Password1* 와 같은 취약한 암호를 차단합니다. 알려진 취약한 암호가 포함되는 글로벌로 금지된 암호 목록이 자동으로 업데이트되고 적용됩니다. Azure AD 사용자가 암호를 이러한 취약한 암호 중 하나로 설정하려고 하면 더 안전한 암호를 선택하라는 알림이 받습니다.
 
 보안을 강화하기 위해 사용자 지정 암호 보호 정책을 정의할 수 있습니다. 예를 들어 이러한 정책은 필터를 사용하여 이름(예: *Contoso*) 또는 위치(예: *London*)가 포함되는 암호의 변형을 차단할 수 있습니다.
 
@@ -76,7 +76,7 @@ Azure AD는 기본적으로 *Password1*와 같은 취약한 암호를 차단합�
 
 ## <a name="passwordless-authentication"></a>암호 없는 인증
 
-대부분의 환경에서 최종 목표는 로그인 이벤트의 일부로 암호 사용을 제거하는 것입니다. Azure 암호 보호 또는 Azure Multi-Factor Authentication과 같은 기능은 보안을 향상시키는 데 도움이 되지만, 사용자 이름과 암호는 노출되거나 무차별 암호 대입 공격을 받을 수 있는 취약한 형식의 인증으로 유지됩니다.
+대부분의 환경에서 최종 목표는 로그인 이벤트의 일부로 암호 사용을 제거하는 것입니다. Azure 암호 보호 또는 Azure AD Multi-Factor Authentication과 같은 기능은 보안을 향상시키는 데 도움이 되지만, 사용자 이름과 암호는 노출되거나 무차별 암호 대입 공격을 받을 수 있는 취약한 형식의 인증으로 유지됩니다.
 
 ![암호 없는 인증 프로세스를 통한 보안 및 편의성](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
@@ -86,11 +86,11 @@ Azure AD는 기본적으로 암호 없는 방법을 통해 인증하여 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-시작하려면 [SSPR(셀프 서비스 암호 재설정)에 대한 자습서][tutorial-sspr] 및 [Azure Multi-Factor Authentication][tutorial-azure-mfa]을 참조하세요.
+시작하려면 [SSPR(셀프 서비스 암호 재설정)에 대한 자습서][tutorial-sspr] 및 [Azure AD Multi-Factor Authentication][tutorial-azure-mfa]을 참조하세요.
 
 셀프 서비스 암호 재설정 개념에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정 작동 방법][concept-sspr]을 참조하세요.
 
-다단계 인증 개념에 대한 자세한 내용은 [Azure Multi-Factor Authentication 작동 방법][concept-mfa]을 참조하세요.
+다단계 인증 개념에 대한 자세한 내용은 [Azure AD Multi-Factor Authentication 작동 방법][concept-mfa]을 참조하세요.
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

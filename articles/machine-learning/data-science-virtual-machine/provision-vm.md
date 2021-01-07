@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 3b5f96e60e088f94561bf3398469ec913a71bba6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e876ddc9b4df32cad5bbf15215da5ce2f912bba1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322438"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109728"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>빠른 시작: Windows용 Data Science Virtual Machine 설정
 
@@ -36,14 +36,14 @@ DSVM 인스턴스를 만들려면
 1. "가상 머신 만들기" 블레이드로 리디렉션됩니다.
 
 1. **기본** 탭을 채웁니다.
-      * **구독** : 둘 이상의 구독이 있으면 머신을 만들고 요금을 청구할 구독을 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
-      * **리소스 그룹** : 새 그룹을 만들거나 기존 그룹을 사용합니다.
-      * **가상 머신 이름** : 가상 머신의 이름을 입력합니다. 입력한 대로 Azure Portal에 표시됩니다.
-      * **위치** : 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
-      * **이미지** : 기본값을 그대로 둡니다.
-      * **Size** : 일반 워크로드에 적합한 크기가 자동으로 채워집니다. [Azure에서 Windows VM 크기](../../virtual-machines/sizes.md)에 대해 자세히 읽어보세요.
-      * **사용자 이름** : 관리자 사용자 이름을 입력합니다. 가상 머신에 로그인할 때 사용할 사용자 이름이며 Azure 사용자 이름과 같지 않아도 됩니다.
-      * **암호** : 가상 머신에 로그인하는 데 사용할 암호를 입력합니다.    
+      * **구독**: 둘 이상의 구독이 있으면 머신을 만들고 요금을 청구할 구독을 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
+      * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용합니다.
+      * **가상 머신 이름**: 가상 머신의 이름을 입력합니다. 입력한 대로 Azure Portal에 표시됩니다.
+      * **위치**: 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
+      * **이미지**: 기본값을 그대로 둡니다.
+      * **Size**: 일반 워크로드에 적합한 크기가 자동으로 채워집니다. [Azure에서 Windows VM 크기](../../virtual-machines/sizes.md)에 대해 자세히 읽어보세요.
+      * **사용자 이름**: 관리자 사용자 이름을 입력합니다. 가상 머신에 로그인할 때 사용할 사용자 이름이며 Azure 사용자 이름과 같지 않아도 됩니다.
+      * **암호**: 가상 머신에 로그인하는 데 사용할 암호를 입력합니다.    
 1. **검토 + 만들기** 를 선택합니다.
 1. **검토+만들기**
    * 입력한 모든 정보가 올바른지 확인합니다. 
@@ -59,8 +59,6 @@ DSVM 인스턴스를 만들려면
 VM을 만들고 프로비저닝한 후에 [Azure 기반 가상 머신에 연결](../../marketplace/azure-vm-create-using-approved-base.md)에 나열된 단계를 따릅니다. 가상 머신 만들기의 **기본** 단계에서 구성한 관리자 계정 자격 증명을 사용합니다. 
 
 VM에 설치되고 구성된 도구를 사용할 준비가 되었습니다. 대부분의 도구에는 **시작** 메뉴 타일과 바탕 화면 아이콘을 통해 액세스할 수 있습니다.
-
-또한 Azure Notebooks에 DSVM을 연결하여 VM에서 Jupyter Notebooks를 실행하고 체험 서비스 계층의 제한을 무시할 수 있습니다. 자세한 내용은 [Notebooks 프로젝트 관리 및 구성](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects)을 참조하세요.
 
 <a name="tools"></a>
 

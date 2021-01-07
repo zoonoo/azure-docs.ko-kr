@@ -11,11 +11,11 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912874"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002003"
 ---
 # <a name="moderate-text-from-the-api-console"></a>API 콘솔에서 텍스트 조정
 
@@ -46,15 +46,15 @@ Azure Content Moderator에서 [텍스트 조정 API](https://westus.dev.cognitiv
 텍스트 화면에서 사용하려는 쿼리 매개 변수를 선택합니다. 이 예제의 경우 **언어** 에 대한 기본값을 사용합니다. 작업에서 실행의 일부로 가능성이 있는 언어를 자동으로 검색하므로 비워둘 수도 있습니다.
 
 > [!NOTE]
-> **language** 매개 변수에 대해 `eng`를 할당하거나, 기계 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워 둡니다. **이 기능은 영어만 지원합니다** .
+> **language** 매개 변수에 대해 `eng`를 할당하거나, 기계 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워 둡니다. **이 기능은 영어만 지원합니다**.
 >
 > **욕설** 감지의 경우 이 문서에 나열된 지원되는 언어의 [ISO 639-3 코드](http://www-01.sil.org/iso639-3/codes.asp)를 사용하거나 비워 둡니다.
 
-**자동 수정** , **PII** 및 **분류(미리 보기)** 의 경우 **true** 를 선택합니다. **ListId** 필드는 비워둡니다.
+**자동 수정**, **PII** 및 **분류(미리 보기)** 의 경우 **true** 를 선택합니다. **ListId** 필드는 비워둡니다.
 
   ![텍스트 - 화면 콘솔 쿼리 매개 변수](images/text-api-console-inputs.PNG)
 
-### <a name="content-type"></a>내용 유형
+### <a name="content-type"></a>콘텐츠 유형
 
 **Content-type** 의 경우 차단하려는 콘텐츠 유형을 선택합니다. 이 예제의 경우 기본 **텍스트/일반** 콘텐츠 형식을 사용합니다. **Ocp-Apim-Subscription-Key** 상자에 구독 키를 입력합니다.
 

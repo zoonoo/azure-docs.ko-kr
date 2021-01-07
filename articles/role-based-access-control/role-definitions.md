@@ -15,12 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc3640fecbe1138e46fd0d36975691740bc669dd
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511639"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369262"
 ---
 # <a name="understand-azure-role-definitions"></a>Azure 역할 정의 이해
 
@@ -28,7 +28,7 @@ Azure 역할의 작동 방식을 파악 하려고 하거나 고유한 [azure 사
 
 ## <a name="role-definition"></a>역할 정의
 
-*역할 정의*는 권한 컬렉션입니다. 때로는 단순히 *역할*이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 또한 허용 되는 작업 또는 기본 데이터와 관련 된 작업에서 제외 된 작업을 나열할 수 있습니다.
+*역할 정의* 는 권한 컬렉션입니다. 때로는 단순히 *역할* 이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 또한 허용 되는 작업 또는 기본 데이터와 관련 된 작업에서 제외 된 작업을 나열할 수 있습니다.
 
 다음은 Azure PowerShell를 사용 하 여 표시 될 때 역할 정의의 속성 예를 보여 줍니다.
 
@@ -324,7 +324,7 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `AssignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
 
 > [!div class="mx-tableFixed"]
-> | 역할을 할당에 사용할 수 있습니다. | 예 |
+> | 역할을 할당에 사용할 수 있습니다. | 예제 |
 > |----------|---------|
 > | 구독 하나 사용 | `"/subscriptions/{subscriptionId1}"` |
 > | 두 구독 | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
@@ -339,4 +339,4 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 * [Azure 기본 제공 역할](built-in-roles.md)
 * [Azure 사용자 지정 역할](custom-roles.md)
-* [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)
+* [Azure 리소스 공급자 작업](resource-provider-operations.md)

@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에 대 한 그룹 관리 서비스 계정 | Microsoft Docs
 description: Azure Active Directory Domain Services 관리 되는 도메인에서 사용할 그룹 관리 서비스 계정 (gMSA)을 만드는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: e6faeddd-ef9e-4e23-84d6-c9b3f7d16567
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: af1df1dd95d570038c44ea9052db88ae80586c32
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: f975d3e0e605b7c24b9fd31dc8fc78f0f37bb6b9
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960986"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619987"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 그룹 관리 서비스 계정 (gMSA) 만들기
 
@@ -65,7 +65,7 @@ GMSA (그룹 관리 서비스 계정)는 동일한 관리 간소화를 제공 �
 > [!TIP]
 > 이러한 단계를 완료 하 여 gMSA를 만들려면 [관리 VM을 사용][tutorial-create-management-vm]합니다. 이 관리 VM에는 필수 AD PowerShell cmdlet 및 관리 되는 도메인에 대 한 연결이 이미 있어야 합니다.
 
-다음 예제에서는 *aaddscontoso.com*이라는 관리 되는 도메인에 *myNewOU* 이라는 사용자 지정 OU를 만듭니다. 사용자 고유의 OU 및 관리 되는 도메인 이름 사용:
+다음 예제에서는 *aaddscontoso.com* 이라는 관리 되는 도메인에 *myNewOU* 이라는 사용자 지정 OU를 만듭니다. 사용자 고유의 OU 및 관리 되는 도메인 이름 사용:
 
 ```powershell
 New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=aaddscontoso,DC=COM"

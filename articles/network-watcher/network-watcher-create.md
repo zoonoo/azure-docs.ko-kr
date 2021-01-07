@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6809e8a44120eddbae4965bff30f80b617bdd024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c308824afdcae5f5c04a316c199bad71ad84a429
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272164"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962011"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
 
@@ -49,13 +49,13 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>포털에서 Network Watcher 만들기
 
-**모든 서비스**  >  **네트워킹**  >  **Network Watcher**로 이동 합니다. Network Watcher에 대해 사용하도록 설정하려는 모든 구독을 선택할 수 있습니다. 이 작업은 사용할 수 있는 모든 지역에서 Network Watcher를 만듭니다.
+**모든 서비스**  >  **네트워킹**  >  **Network Watcher** 로 이동 합니다. Network Watcher에 대해 사용하도록 설정하려는 모든 구독을 선택할 수 있습니다. 이 작업은 사용할 수 있는 모든 지역에서 Network Watcher를 만듭니다.
 
 ![Network Watcher 만들기](./media/network-watcher-create/figure1.png)
 
-포털을 사용하여 Network Watcher를 사용하도록 설정하면 Network Watcher 인스턴스의 이름이 *NetworkWatcher_region_name*으로 자동 설정됩니다. 여기서 *region_name*은 인스턴스가 설정된 Azure 지역에 해당됩니다. 예를 들어 미국 중서부에서 활성화된 Network Watcher의 이름은 *NetworkWatcher_westcentralus*입니다.
+포털을 사용하여 Network Watcher를 사용하도록 설정하면 Network Watcher 인스턴스의 이름이 *NetworkWatcher_region_name* 으로 자동 설정됩니다. 여기서 *region_name* 은 인스턴스가 설정된 Azure 지역에 해당됩니다. 예를 들어 미국 중서부에서 활성화된 Network Watcher의 이름은 *NetworkWatcher_westcentralus* 입니다.
 
-Network Watcher 인스턴스가 *NetworkWatcherRG*라는 리소스 그룹에 자동으로 생성됩니다. 리소스 그룹은 아직 존재하지 않는 경우 만들어집니다.
+Network Watcher 인스턴스가 *NetworkWatcherRG* 라는 리소스 그룹에 자동으로 생성됩니다. 리소스 그룹은 아직 존재하지 않는 경우 만들어집니다.
 
 Network Watcher 인스턴스와 해당 인스턴스가 배치 된 리소스 그룹의 이름을 사용자 지정 하려는 경우 다음 섹션에 설명 된 PowerShell, Azure CLI, REST API 또는 ARMClient 메서드를 사용할 수 있습니다. 각 옵션에서 Network Watcher를 배치하려면 리소스 그룹이 있어야 합니다.  
 
@@ -107,7 +107,7 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>포털에서 Network Watcher 삭제
 
-**모든 서비스**  >  **네트워킹**  >  **Network Watcher**로 이동 합니다.
+**모든 서비스**  >  **네트워킹**  >  **Network Watcher** 로 이동 합니다.
 
 아직 없는 경우 개요 탭을 선택 합니다. 드롭다운을 사용 하 여에서 네트워크 감시자를 사용 하지 않도록 설정할 구독을 선택 합니다.
 화살표를 클릭 하 여 선택한 구독에 대 한 영역 목록을 확장 합니다. 지정 된 경우 오른쪽에 있는 3 개의 점을 사용 하 여 상황에 맞는 메뉴에 액세스 합니다.
@@ -129,7 +129,7 @@ Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup Networ
 
 이제 Network Watcher의 인스턴스가 있으니 제공되는 기능에 대해 알아봅니다.
 
-* [토폴로지](network-watcher-topology-overview.md)
+* [토폴로지](./view-network-topology.md)
 * [패킷 캡처](network-watcher-packet-capture-overview.md)
 * [IP 흐름 확인](network-watcher-ip-flow-verify-overview.md)
 * [다음 홉](network-watcher-next-hop-overview.md)

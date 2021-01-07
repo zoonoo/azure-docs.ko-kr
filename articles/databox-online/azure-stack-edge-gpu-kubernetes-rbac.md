@@ -1,6 +1,6 @@
 ---
-title: Edge Pro 장치 Azure Stack Kubernetes 역할 기반 Access Control 이해 | Microsoft Docs
-description: Kubernetes 역할 기반 Access Control Azure Stack Edge Pro 장치에서 발생 하는 방법에 대해 설명 합니다.
+title: Azure Stack Edge Pro 장치에서 Kubernetes 역할 기반 액세스 제어 이해 | Microsoft Docs
+description: Azure Stack Edge Pro 장치에서 Kubernetes 역할 기반 액세스 제어를 수행 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 0880ae64520997fc6b41ba4a7e8508d927235a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320815"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635843"
 ---
-# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Kubernetes 역할 기반 Access Control
+# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 역할 기반 액세스 제어를 Kubernetes
 
 
-Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes를 사용 하 여 RBAC (역할 기반 액세스 제어)를 사용 하 여 장치의 클러스터 리소스에 대 한 액세스를 제한할 수 있습니다.
+Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하 여 장치의 클러스터 리소스에 대 한 액세스를 제한할 수 있습니다.
 
-이 문서에서는 Kubernetes에서 제공 하는 RBAC 시스템에 대 한 개요를 제공 하 고,가 Kubernetes RBAC를 Azure Stack Edge Pro 장치에 구현 하는 방법을 제공 합니다. 
+이 문서에서는 Kubernetes에서 제공 하는 Kubernetes RBAC 시스템에 대 한 개요와 Azure Stack Edge Pro 장치에서 Kubernetes RBAC를 구현 하는 방법에 대해 설명 합니다. 
 
-## <a name="rbac-for-kubernetes"></a>Kubernetes 용 RBAC
+## <a name="kubernetes-rbac"></a>Kubernetes RBAC
 
 Kubernetes RBAC를 사용 하 여 사용자 또는 사용자 그룹을 할당 하거나, 리소스를 만들거나 수정 하는 등의 작업을 수행 하거나, 실행 중인 응용 프로그램 워크 로드에서 로그를 볼 수 있습니다. 이러한 권한은 단일 네임 스페이스로 범위를 지정 하거나 전체 클러스터에서 부여할 수 있습니다. 
 
@@ -42,7 +42,7 @@ Azure Stack Edge Pro 장치에는 다음과 같은 네임 스페이스가 있습
     - kube-시스템
     - metallb-시스템
     - d 네임 스페이스
-    - default
+    - 기본값
     - kubernetes-대시보드
     - kube-임대
     - kube-public
@@ -61,21 +61,21 @@ Azure Stack Edge Pro 장치에는 다음과 같은 네임 스페이스가 있습
 
 실제 세계에서는 클러스터를 여러 네임 스페이스로 분할 하는 것이 중요 합니다. 
 
-- **여러 사용자**: 여러 사용자가 있는 경우 여러 네임 스페이스에서 각 사용자가 서로 격리 된 특정 네임 스페이스에 응용 프로그램 및 서비스를 배포할 수 있도록 허용 합니다. 
-- **단일 사용자**: 단일 사용자가 있는 경우에도 여러 네임 스페이스를 사용 하면 해당 사용자가 동일한 Kubernetes 클러스터에서 여러 버전의 응용 프로그램을 실행할 수 있습니다.
+- **여러 사용자** : 여러 사용자가 있는 경우 여러 네임 스페이스에서 각 사용자가 서로 격리 된 특정 네임 스페이스에 응용 프로그램 및 서비스를 배포할 수 있도록 허용 합니다. 
+- **단일 사용자** : 단일 사용자가 있는 경우에도 여러 네임 스페이스를 사용 하면 해당 사용자가 동일한 Kubernetes 클러스터에서 여러 버전의 응용 프로그램을 실행할 수 있습니다.
 
 ### <a name="roles-and-rolebindings"></a>역할 및 RoleBindings
 
 Kubernetes에는 네임 스페이스 수준 및 클러스터 수준에서 사용자 또는 리소스에 대 한 권한을 부여할 수 있는 역할 및 역할 바인딩 개념이 있습니다. 
 
-- **역할**: 사용자에 대 한 권한을 **역할로** 정의한 다음 **역할** 을 사용 하 여 네임 스페이스 내에서 사용 권한을 부여할 수 있습니다. 
-- **Rolebindings**: 역할을 정의한 후에는 **rolebindings** 를 사용 하 여 지정 된 네임 스페이스에 대 한 역할을 할당할 수 있습니다. 
+- **역할** : 사용자에 대 한 권한을 **역할로** 정의한 다음 **역할** 을 사용 하 여 네임 스페이스 내에서 사용 권한을 부여할 수 있습니다. 
+- **Rolebindings** : 역할을 정의한 후에는 **rolebindings** 를 사용 하 여 지정 된 네임 스페이스에 대 한 역할을 할당할 수 있습니다. 
 
 이 접근 방식을 사용 하면 사용자가 할당 된 네임 스페이스의 응용 프로그램 리소스에만 액세스할 수 있는 단일 Kubernetes 클러스터를 논리적으로 구분할 수 있습니다. 
 
-## <a name="rbac-on-azure-stack-edge-pro"></a>Azure Stack Edge Pro의 RBAC
+## <a name="kubernetes-rbac-on-azure-stack-edge-pro"></a>Azure Stack Edge Pro의 Kubernetes RBAC
 
-현재 RBAC 구현에서는 Edge Pro Azure Stack를 사용 하 여 제한 된 PowerShell runspace에서 다음 작업을 수행할 수 있습니다.
+Kubernetes RBAC의 현재 구현에서 Azure Stack Edge Pro를 사용 하면 제한 된 PowerShell runspace에서 다음 작업을 수행할 수 있습니다.
 
 - 네임 스페이스를 만듭니다.  
 - 추가 사용자를 만듭니다.
@@ -85,9 +85,9 @@ Kubernetes에는 네임 스페이스 수준 및 클러스터 수준에서 사용
 
 Azure Stack Edge Pro 장치에는 여러 시스템 네임 스페이스가 있으며, 파일을 사용 `kubeconfig` 하 여 해당 네임 스페이스에 액세스 하는 사용자 네임 스페이스를 만들 수 있습니다. 사용자는 이러한 네임 스페이스에 대 한 모든 권한을 가지 며 사용자를 만들거나 수정 하거나 사용자에 게 액세스 권한을 부여할 수 있습니다. 클러스터 관리자만 시스템 네임 스페이스 및 클러스터 차원 리소스에 대 한 모든 권한을 가집니다. 에는 `aseuser` 시스템 네임 스페이스에 대 한 읽기 전용 액세스 권한이 있습니다.
 
-다음은 Azure Stack Edge Pro 장치에서 RBAC의 구현을 보여 주는 다이어그램입니다.
+Azure Stack Edge Pro 장치에서 Kubernetes RBAC의 구현을 보여 주는 다이어그램은 다음과 같습니다.
 
-![Azure Stack Edge Pro 장치 RBAC](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
+![Azure Stack Edge Pro 장치에서 RBAC Kubernetes](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
 
 이 다이어그램에서 Alice, Bob 및 척 적은 할당 된 사용자 네임 스페이스에만 액세스할 수 있습니다 .이 경우에는 `ns1` `ns2` 각각, 및 `ns3` 입니다. 이러한 네임 스페이스 내에는 관리자 액세스 권한이 있습니다. 반면에 클러스터 관리자는 시스템 네임 스페이스 및 클러스터 차원 리소스에 대 한 관리자 액세스 권한을 가집니다.
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0d030240ebe22886826b7a25bd5ca7b8f54e358
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a0d91677770e89f3e249fc699057332cccaa323
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81001112"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347475"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>마이크로 처리 센터 아키텍처
 
@@ -22,11 +22,11 @@ ms.locfileid: "81001112"
 
 ![Azure IoT Central 매장 분석](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
-- 게이트웨이 디바이스로 원격 분석 데이터를 보내는 IoT 센서 세트
-- 원격 분석 및 집계된 인사이트를 IoT Central로 보내는 게이트웨이 디바이스
-- 조작을 위해 원하는 Azure 서비스로 연속 데이터 내보내기
-- 데이터를 원하는 형식으로 구조화하여 스토리지 서비스로 보낼 수 있습니다.
-- 비즈니스 애플리케이션은 데이터를 쿼리하고 소매점 업무를 지원하는 인사이트를 생성할 수 있습니다.
+1. 게이트웨이 디바이스로 원격 분석 데이터를 보내는 IoT 센서 세트
+2. 원격 분석 및 집계된 인사이트를 IoT Central로 보내는 게이트웨이 디바이스
+3. 조작을 위해 원하는 Azure 서비스로 연속 데이터 내보내기
+4. 데이터를 원하는 형식으로 구조화하여 스토리지 서비스로 보낼 수 있습니다.
+5. 비즈니스 애플리케이션은 데이터를 쿼리하고 소매점 업무를 지원하는 인사이트를 생성할 수 있습니다.
  
 마이크로 처리 센터 솔루션에 일반적으로 관여하는 주요 구성 요소를 살펴보겠습니다.
 

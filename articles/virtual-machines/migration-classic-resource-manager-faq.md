@@ -1,6 +1,6 @@
 ---
 title: 클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
-description: 클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
+description: 클래식에서 Azure Resource Manager로 마이그레이션하는 방법에 대 한 질문과 대답입니다.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: ccbf7e8aaab5463abf8fa9e129ba9f0ea8599c4e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 24e52f517f46de06fef8aa52e889185826c20d44
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969843"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498398"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
 
@@ -42,11 +42,13 @@ IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manage
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>"NewClassicVMCreationNotAllowedForSubscription"이라는 오류가 발생하는 이유는 무엇인가요?
 
-사용 중지 프로세스의 일부로 IaaS VM(클래식)은 새 고객에게 더 이상 제공되지 않습니다. 귀하는 새 고객으로 식별되었으며 따라서 귀하의 작업은 권한이 부여되지 않았습니다. [ARM을 사용하는 Azure Virtual Machines](./windows/quick-create-powershell.md)를 사용하는 것이 좋습니다. ARM을 사용 하 여 Azure Vm을 사용할 수 없는 경우 지원에 문의 하 여 허용 목록에 구독을 추가 하세요.
+사용 중지 프로세스의 일부로 IaaS VM(클래식)은 새 고객에게 더 이상 제공되지 않습니다. 귀하는 새 고객으로 식별되었으며 따라서 귀하의 작업은 권한이 부여되지 않았습니다. Azure Resource Manager를 사용 하는 것이 좋습니다. Azure Resource Manager를 사용 하 여 Azure Vm을 사용할 수 없는 경우 지원에 문의 하 여 허용 목록에 구독을 추가 하세요.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 애플리케이션에 영향을 미치나요? 
 
-2023년 3월 1일까지는 IaaS VM(클래식)에 영향을 미치지 않습니다. IaaS VM(클래식)은 일반 공급에서 완전하게 지원되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다. 2023년 3월 1일부터 이러한 VM은 완전히 사용 중지되며 활성 또는 할당된 VM이 중지 및 할당 취소됩니다. Cloud Services(클래식), 스토리지 계정(클래식) 등 다른 클래식 리소스에는 영향을 주지 않습니다.   
+2023년 3월 1일까지는 IaaS VM(클래식)에 영향을 미치지 않습니다. IaaS VM(클래식)은 일반 공급에서 완전하게 지원되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다. 2023년 3월 1일부터 이러한 VM은 완전히 사용 중지되며 활성 또는 할당된 VM이 중지 및 할당 취소됩니다.
+
+Cloud Services(클래식), 스토리지 계정(클래식) 등 다른 클래식 리소스에는 영향을 주지 않습니다.
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>가까운 미래에 마이그레이션할 계획이 없는 경우 내 VM은 어떻게 됩니까? 
 
@@ -72,16 +74,16 @@ IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manage
 
 아니요. 최근에 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](../expressroute/expressroute-move.md)을 사용하도록 설정했습니다. 이미 ExpressRoute 회로가 있는 경우 새로 구입하지 않아도 됩니다.
 
-## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>클래식 IaaS 리소스에 대해 역할 기반 Access Control 정책을 구성한 경우 어떻게 되나요? 
+## <a name="what-if-i-had-configured-azure-role-based-access-control-policies-for-my-classic-iaas-resources"></a>클래식 IaaS 리소스에 대해 Azure 역할 기반 액세스 제어 정책을 구성한 경우 어떻게 되나요? 
 
-마이그레이션 중에는 리소스가 클래식에서 Resource Manager로 전환됩니다. 따라서 마이그레이션 후 필요한 RBAC 정책 업데이트를 계획하는 것이 좋습니다.
+마이그레이션 중에는 리소스가 클래식에서 Resource Manager로 전환됩니다. 따라서 마이그레이션 후에 수행 해야 하는 Azure RBAC 정책 업데이트를 계획 하는 것이 좋습니다.
 
 ## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>자격 증명 모음에 내 클래식 VM을 백업했습니다. 클래식 모드에서 Resource Manager 모드로 내 VM을 마이그레이션하고 Recovery Services 자격 증명 모음에서 보호할 수 있나요?
 
 클래식 모드에서 Resource Manager 모드로 VM을 이동하는 경우 마이그레이션 이전에 생성된 백업은 새로 마이그레이션된 Resource Manager VM으로 마이그레이션되지 않습니다. 하지만 클래식 VM의 백업을 보관하려는 경우 마이그레이션 전에 다음 단계를 수행하세요. 
 
 1. Recovery Services 자격 증명 모음에서 **보호된 항목** 탭으로 이동하고 VM을 선택합니다. 
-2. 보호 중지를 클릭합니다. *연결된 백업 데이터 삭제* 옵션을 **검사하지 않음**으로 둡니다.
+2. 보호 중지를 클릭합니다. *연결된 백업 데이터 삭제* 옵션을 **검사하지 않음** 으로 둡니다.
 
 > [!NOTE]
 > 데이터를 보존할 때까지 백업 인스턴스 비용이 청구됩니다. 백업 복사본은 보존 범위에 따라 정리됩니다. 그러나 마지막 백업 복사본은 백업 데이터를 명시적으로 삭제할 때까지 항상 유지됩니다. 가상 머신의 보존 범위를 확인하고, 이러한 보존 범위가 경과한 경우 자격 증명 모음에서 보호된 항목에 대해 "백업 데이터 삭제"를 트리거하는 것이 좋습니다. 
@@ -124,20 +126,20 @@ VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지�
 
 Linux의 경우:
 
-* [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션 개요](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](./migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획](./linux/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [클래식에서 Azure Resource Manager로의 IaaS 리소스 마이그레이션을 지원하기 위한 커뮤니티 도구](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [가장 일반적인 마이그레이션 오류 검토](./linux/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션 개요](./migration-classic-resource-manager-overview.md)
+* [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](migration-classic-resource-manager-deep-dive.md)
+* [클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획](migration-classic-resource-manager-plan.md)
+* [PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](migration-classic-resource-manager-ps.md)
+* [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](migration-classic-resource-manager-cli.md)
+* [클래식에서 Azure Resource Manager로의 IaaS 리소스 마이그레이션을 지원하기 위한 커뮤니티 도구](migration-classic-resource-manager-community-tools.md)
+* [가장 일반적인 마이그레이션 오류 검토](migration-classic-resource-manager-errors.md)
 
 Windows의 경우:
 
-* [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션 개요](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](./migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획](./windows/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [클래식에서 Azure Resource Manager로의 IaaS 리소스 마이그레이션을 지원하기 위한 커뮤니티 도구](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [가장 일반적인 마이그레이션 오류 검토](./windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션 개요](migration-classic-resource-manager-overview.md)
+* [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](migration-classic-resource-manager-deep-dive.md)
+* [클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획](migration-classic-resource-manager-plan.md)
+* [PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](migration-classic-resource-manager-ps.md)
+* [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](migration-classic-resource-manager-cli.md)
+* [클래식에서 Azure Resource Manager로의 IaaS 리소스 마이그레이션을 지원하기 위한 커뮤니티 도구](migration-classic-resource-manager-community-tools.md)
+* [가장 일반적인 마이그레이션 오류 검토](migration-classic-resource-manager-errors.md)

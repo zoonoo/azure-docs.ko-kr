@@ -13,19 +13,17 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7ec6ab8b52d9d43d898f481a2f36310e5c0897d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530700"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561083"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인 (미리 보기)
 
-> [!NOTE]
-> 이 기능은 공개 미리 보기 상태입니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>[!IMPORTANT]
+> 이 기능 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 *Apple 장치에 대 한 Microsoft Enterprise SSO 플러그* 인은 apple의 [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) 기능을 지 원하는 모든 응용 프로그램에서 Azure Active Directory (Azure AD) 계정에 대 한 Single Sign-On (SSO) 계정을 제공 합니다. Microsoft는 apple과 긴밀 하 게 협력 하 여 Apple 및 Microsoft가 제공할 수 있는 최상의 보호 기능을 제공 하는 동시에 응용 프로그램의 유용성을 향상 시키기 위해이 플러그 인을 개발 했습니다.
 
@@ -53,10 +51,10 @@ Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인을 사용 하도�
 
 다음 매개 변수를 사용 하 여 Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인을 구성 합니다.
 
-- **유형**: 리디렉션
-- **확장 ID**: `com.microsoft.azureauthenticator.ssoextension`
-- **팀 ID**: (이 필드는 iOS에는 필요 하지 않음)
-- **Url**:
+- **유형** : 리디렉션
+- **확장 ID** : `com.microsoft.azureauthenticator.ssoextension`
+- **팀 ID** : (이 필드는 iOS에는 필요 하지 않음)
+- **Url** :
   - `https://login.microsoftonline.com`
   - `https://login.microsoft.com`
   - `https://sts.windows.net`
@@ -80,10 +78,10 @@ SSO 플러그 인은 Microsoft Authenticator 앱을 다운로드 하 고 자신�
 
 MSAL을 사용 하지 않는 앱에 대 한 Microsoft Enterprise SSO 플러그 인을 구성 하려면 다음 매개 변수를 사용 합니다.
 
-- **키**: `AppAllowList`
-- **형식**: `String`
-- **값**: SSO에 참여할 수 있는 응용 프로그램에 대 한 응용 프로그램 번들 id의 쉼표로 구분 된 목록입니다.
-- **예**: `com.contoso.workapp, com.contoso.travelapp`
+- **키** : `AppAllowList`
+- **형식** : `String`
+- **값** : SSO에 참여할 수 있는 응용 프로그램에 대 한 응용 프로그램 번들 id의 쉼표로 구분 된 목록입니다.
+- **예** : `com.contoso.workapp, com.contoso.travelapp`
 
 MDM 관리자가 SSO에 참여할 수 있도록 허용 하는 [동의한 apps](./application-consent-experience.md) 는 최종 사용자에 대 한 토큰을 자동으로 가져올 수 있습니다. 따라서 신뢰할 수 있는 응용 프로그램만 허용 목록에 추가 하는 것이 중요 합니다. 
 
@@ -95,9 +93,9 @@ MSAL 또는 ASWebAuthenticationSession을 사용 하는 응용 프로그램을�
 
 플래그를 사용 하도록 설정 하면 `browser_sso_interaction_enabled` MSAL 앱 및 Safari 브라우저에서 초기 부트스트래핑을 수행 하 고 공유 자격 증명을 가져올 수 있습니다. Microsoft Enterprise SSO 플러그 인에 공유 자격 증명이 아직 없는 경우 Safari 브라우저, ASWebAuthenticationSession, SafariViewController 또는 다른 허용 되는 네이티브 응용 프로그램 내에서 Azure AD URL의 로그인이 요청 될 때마다 하나를 가져오려고 시도 합니다.  
 
-- **키**: `browser_sso_interaction_enabled`
-- **형식**: `Integer`
-- **값**: 1 또는 0
+- **키** : `browser_sso_interaction_enabled`
+- **형식** : `Integer`
+- **값** : 1 또는 0
 
 이 플래그를 사용 하 여 모든 앱에서 보다 일관 된 환경을 얻는 것이 좋습니다. 기본적으로 사용하지 않도록 설정되어 있습니다. 
 
@@ -107,9 +105,9 @@ Microsoft Enterprise SSO 플러그 인은 허용 된 응용 프로그램에서 �
 
 플래그를 사용 하도록 설정 하면 `disable_explicit_app_prompt` 기본 및 웹 응용 프로그램에서 프로토콜 계층에 대 한 최종 사용자 프롬프트를 실행 하 고 SSO를 우회 하는 기능이 제한 됩니다.
 
-- **키**: `disable_explicit_app_prompt`
-- **형식**: `Integer`
-- **값**: 1 또는 0
+- **키** : `disable_explicit_app_prompt`
+- **형식** : `Integer`
+- **값** : 1 또는 0
 
 이 플래그를 사용 하 여 모든 앱에서 보다 일관 된 환경을 얻는 것이 좋습니다. 기본적으로 사용하지 않도록 설정되어 있습니다. 
 

@@ -12,17 +12,20 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779971"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461842"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 Azure CLI: Azure Key Vault에서 고객이 관리 하는 키로 투명한 데이터 암호화 사용
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 문서에서는 Azure SQL Database 또는 Azure Synapse Analytics (이전의 SQL Data Warehouse)에서 TDE (Azure Key Vault 투명한 데이터 암호화)의 키를 사용 하는 방법을 안내 합니다. Azure Key Vault 통합으로 TDE - BYOK(Bring Your Own Key) 지원에 대해 자세히 알아보려면 [Azure Key Vault에서 고객 관리형 키로 TDE](transparent-data-encryption-byok-overview.md)를 참조하세요.
+이 문서에서는 Azure SQL Database 또는 Azure Synapse Analytics에서 TDE (Azure Key Vault 투명한 데이터 암호화)의 키를 사용 하는 방법을 안내 합니다. Azure Key Vault 통합으로 TDE - BYOK(Bring Your Own Key) 지원에 대해 자세히 알아보려면 [Azure Key Vault에서 고객 관리형 키로 TDE](transparent-data-encryption-byok-overview.md)를 참조하세요.
+
+> [!NOTE] 
+> 이제 Azure SQL은 TDE 보호기로 관리 되는 HSM에 저장 된 RSA 키를 사용 하도록 지원 합니다. 이 기능은 **공개 미리 보기로** 제공 됩니다. Azure Key Vault 관리 되는 HSM은 FIPS 140-2 수준 3의 유효성을 검사 한 Hsm을 사용 하 여 클라우드 응용 프로그램에 대 한 암호화 키를 보호할 수 있도록 하는 완전히 관리 되 고 항상 사용 가능한 단일 테 넌 트 표준 호환 클라우드 서비스입니다. [관리 되는 hsm](../../key-vault/managed-hsm/index.yml)에 대해 자세히 알아보세요.
 
 ## <a name="prerequisites-for-powershell"></a>PowerShell용 필수 구성 요소
 
@@ -36,13 +39,14 @@ ms.locfileid: "92779971"
 - 키에는 TDE에 사용할 다음 특성이 있어야 합니다.
   - 만료 날짜 없음
   - 사용 안 함 없음
-  - *가져오기* , *키 래핑* , *키 래핑 해제* 작업도 수행 가능
+  - *가져오기*, *키 래핑*, *키 래핑 해제* 작업도 수행 가능
+- **(미리 보기)** 관리 되는 HSM 키를 사용 하려면 지침에 따라 [Azure CLI를 사용 하 여 관리 되는 hsm을 만들고 활성화](../../key-vault/managed-hsm/quick-create-cli.md) 합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 특정 cmdlet에 대 한 자세한 내용은 [AzureRM](/powershell/module/AzureRM.Sql/)를 참조 하세요.
 
-Key Vault에 대 한 자세한 내용은 [Key Vault powershell 지침](../../key-vault/secrets/quick-create-powershell.md) 및 [powershell에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/soft-delete-powershell.md)을 참조 하세요.
+Key Vault에 대 한 자세한 내용은 [Key Vault powershell 지침](../../key-vault/secrets/quick-create-powershell.md) 및 [powershell에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/key-vault-recovery.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > PowerShell Azure RM(Resource Manager) 모듈은 여전히 지원되지만 향후 모든 개발은 Az.Sql 모듈을 위한 것입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 수신할 예정입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대한 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요.
@@ -70,6 +74,8 @@ TDE에 대해 키를 사용 하기 전에 [AzKeyVaultAccessPolicy](/powershell/m
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
+관리 되는 HSM에서 서버에 권한을 추가 하려면 ' 관리 되는 HSM 암호화 서비스 암호화 ' 로컬 RBAC 역할을 서버에 추가 합니다. 이렇게 하면 서버에서 관리 되는 HSM의 키에 대 한 가져오기, 키 래핑, 키 래핑 작업을 수행할 수 있습니다.
+[관리 HSM에서 서버 액세스를 프로 비전 하는 방법에 대 한 지침](../../key-vault/managed-hsm/role-management.md)
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Key Vault 키를 서버에 추가하고 TDE 보호기를 설정합니다
 
@@ -79,10 +85,15 @@ TDE에 대해 키를 사용 하기 전에 [AzKeyVaultAccessPolicy](/powershell/m
 - [AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet을 사용 하 여 tde 보호기가 의도 한 대로 구성 되었는지 확인 합니다.
 
 > [!NOTE]
+> **(미리 보기)** 관리 되는 HSM 키의 경우 Az. Sql 2.11.1 버전의 PowerShell을 사용 합니다.
+
+> [!NOTE]
 > 키 자격 증명 모음 이름과 키 이름을 결합한 길이는 94자를 초과할 수 없습니다.
 
 > [!TIP]
-> Key Vault의 KeyId 예제: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Key Vault의 KeyId 예제: <br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>
+> 관리 되는 HSM의 예제 KeyId:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```powershell
 # add the key from Key Vault to the server
@@ -125,7 +136,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 필요한 버전의 Azure CLI (버전 2.0 이상)을 설치 하 고 Azure 구독에 연결 하려면 [Azure 플랫폼 간 Command-Line 설치 및 구성 2.0](/cli/azure/install-azure-cli)을 참조 하세요.
 
-Key Vault에 대 한 자세한 내용은 [cli 2.0를 사용 하 여 Key Vault 관리](../../key-vault/general/manage-with-cli2.md) 및 [cli에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/soft-delete-cli.md)을 참조 하세요.
+Key Vault에 대 한 자세한 내용은 [cli 2.0를 사용 하 여 Key Vault 관리](../../key-vault/general/manage-with-cli2.md) 및 [cli에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/key-vault-recovery.md)을 참조 하세요.
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>서버에 Azure AD ID 할당
 
@@ -239,7 +250,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 - 새 키를 서버에 추가할 수 없거나 TDE 보호기로 업데이트할 수 없으면 다음을 확인합니다.
    - 키의 만료 날짜가 없어야 합니다.
-   - 키에는 사용하도록 설정된 *가져오기* , *키 래핑* 및 *키 래핑 해제* 작업이 있어야 합니다.
+   - 키에는 사용하도록 설정된 *가져오기*, *키 래핑* 및 *키 래핑 해제* 작업이 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965916"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837266"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>주 새로 고침 토큰이란?
 
@@ -59,8 +59,8 @@ PRT는 Windows 10 디바이스에서 사용자 인증을 수행하는 동안 다
 
 * **Azure AD 조인** 또는 **하이브리드 Azure AD 조인**: 사용자가 조직 자격 증명을 사용하여 로그인하면 Windows 로그온 중에 PRT가 발급됩니다. PRT는 암호 및 비즈니스용 Windows Hello와 같은 모든 Windows 10 지원 자격 증명과 함께 발급됩니다. 이 시나리오에서 Azure AD CloudAP 플러그 인은 PRT의 기본 인증 기관입니다.
 * **Azure AD 등록 디바이스**: 사용자가 Windows 10 디바이스에 보조 회사 계정을 추가하면 PRT가 발급됩니다. 사용자는 다음 두 가지 방법으로 Windows 10에 계정을 추가할 수 있습니다.  
-   * 앱(예: Outlook)에 로그인한 후에 **이 디바이스의 모든 위치에서 이 계정 사용**을 통해 계정 추가
-   * **설정** > **계정** > **회사 또는 학교 액세스** > **연결**에서 계정 추가
+   * 앱(예: Outlook)에 로그인한 후에 **이 디바이스의 모든 위치에서 이 계정 사용** 을 통해 계정 추가
+   * **설정** > **계정** > **회사 또는 학교 액세스** > **연결** 에서 계정 추가
 
 Azure AD 등록 디바이스 시나리오에서 Azure AD WAM 플러그 인은 이 Azure AD 계정으로 Windows 로그온이 발생하지 않기 때문에 PRT의 기본 인증 기관입니다.
 
@@ -85,7 +85,7 @@ PRT는 다음 두 가지 방법으로 갱신됩니다.
 * **4시간마다 Azure AD CloudAP 플러그 인**: CloudAP 플러그 인은 Windows 로그인 동안 4시간마다 PRT를 갱신합니다. 사용자가 해당 시간 동안 인터넷에 연결되지 않은 경우 CloudAP 플러그 인은 디바이스가 인터넷에 연결된 후에 PRT를 갱신합니다.
 * **앱 토큰 요청 동안 Azure AD WAM 플러그 인**: WAM 플러그 인은 애플리케이션에 대한 자동 토큰 요청을 사용하도록 설정하여 Windows 10 디바이스에서 SSO를 사용하도록 설정합니다. WAM 플러그 인은 다음 두 가지 방법으로 이러한 토큰 요청 동안 PRT를 갱신할 수 있습니다.
    * 앱은 WAM에 자동으로 액세스 토큰을 요청하지만 해당 앱에 사용할 수 있는 새로 고침 토큰이 없습니다. 이 경우 WAM은 PRT를 사용하여 앱에 대한 토큰을 요청하고 응답에서 새 PRT를 다시 가져옵니다.
-   * 앱은 WAM에 액세스 토큰을 요청하지만 PRT가 유효하지 않거나 Azure AD가 추가 권한 부여를 요구합니다(예: Azure Multi-Factor Authentication). 이 시나리오에서 WAM은 사용자에게 다시 인증하거나 추가 확인을 제공하도록 요구하는 대화형 로그온을 시작하고, 인증이 성공하면 새 PRT를 발급합니다.
+   * 앱이 액세스 토큰에 대해 WAM를 요청 하지만 PRT가 잘못 되었거나 azure AD에 추가 권한 부여가 필요 합니다 (예: Azure AD Multi-Factor Authentication). 이 시나리오에서 WAM은 사용자에게 다시 인증하거나 추가 확인을 제공하도록 요구하는 대화형 로그온을 시작하고, 인증이 성공하면 새 PRT를 발급합니다.
 
 ADFS 환경에서 도메인 컨트롤러에 대 한 직접적인 시야는 PRT를 갱신 하는 데 필요 하지 않습니다. PRT 갱신에는 WS-Trust 프로토콜을 사용 하 여 프록시에서 사용 하도록 설정 된/adfs/services/trust/2005/usernamemixed 및/adfs/services/trust/13/usernamemixed 끝점만 필요 합니다.
 

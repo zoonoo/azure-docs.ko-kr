@@ -1,19 +1,19 @@
 ---
 title: C++/WinRT에서 앵커 만들기 및 찾기
 description: C++/WinRT에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법에 대해 자세히 설명합니다.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0c11e87934ee3ba2af97ee8d885b87d087a1c531
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a6b51da695037fd84053ac0bf1b9be091781fbbf
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096422"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96018871"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>C++/WinRT에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법
 

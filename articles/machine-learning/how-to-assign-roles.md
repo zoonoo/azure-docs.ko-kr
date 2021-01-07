@@ -10,24 +10,24 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
-ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: dd8eff01cd52f8d80eb56f3a1ebe924763c8b70c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
+ms.openlocfilehash: 636f63b3f7e43bd8f27d1df58ab82d24bd19a616
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441702"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033751"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
 이 문서에서는 Azure Machine Learning 작업 영역에 대 한 액세스 (권한 부여)를 관리 하는 방법에 대해 알아봅니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 는 새 리소스를 만들거나 기존 리소스를 사용 하는 기능과 같은 azure 리소스에 대 한 액세스를 관리 하는 데 사용 됩니다. Azure AD (Azure Active Directory)의 사용자에 게는 리소스에 대 한 액세스 권한을 부여 하는 특정 역할이 할당 됩니다. Azure는 기본 제공 역할 및 사용자 지정 역할을 만드는 기능을 모두 제공 합니다.
 
 > [!TIP]
-> 이 문서에서는 Azure Machine Learning에 중점을 둔 반면, Azure ML에 의존 하는 개별 서비스는 자체 RBAC 설정을 제공 합니다. 예를 들어이 문서의 정보를 사용 하 여 Azure Kubernetes Service에서 웹 서비스로 배포 된 모델에 점수 매기기 요청을 제출할 수 있는 사람을 구성할 수 있습니다. 그러나 Azure Kubernetes Service는 자체 Azure RBAC 역할 집합을 제공 합니다. Azure Machine Learning에 유용할 수 있는 서비스별 RBAC 정보는 다음 링크를 참조 하세요.
+> 이 문서에서는 Azure Machine Learning에 중점을 둔 반면, Azure ML에 의존 하는 개별 서비스는 자체 RBAC 설정을 제공 합니다. 예를 들어이 문서의 정보를 사용 하 여 Azure Kubernetes Service에서 웹 서비스로 배포 된 모델에 점수 매기기 요청을 제출할 수 있는 사람을 구성할 수 있습니다. 그러나 Azure Kubernetes Service는 자체 Azure 역할 집합을 제공 합니다. Azure Machine Learning에 유용할 수 있는 서비스별 RBAC 정보는 다음 링크를 참조 하세요.
 >
 > * [Azure Kubernetes 클러스터 리소스에 대 한 액세스 제어](../aks/azure-ad-rbac.md)
 > * [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
-> * [Blob 데이터에 액세스 하기 위해 Azure RBAC 사용](/storage/common/storage-auth-aad-rbac-portal.md)
+> * [Blob 데이터에 액세스 하기 위해 Azure RBAC 사용](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!WARNING]
 > 일부 역할을 적용 하면 Azure Machine Learning studio에서 다른 사용자에 대 한 UI 기능이 제한 될 수 있습니다. 예를 들어 사용자의 역할에 계산 인스턴스를 만들 수 있는 권한이 없는 경우에는 계산 인스턴스를 만드는 옵션을 스튜디오에서 사용할 수 없습니다. 이 동작은 예상 된 것 이며, 사용자가 액세스 거부 오류를 반환 하는 작업을 시도 하지 못하도록 합니다.
@@ -170,16 +170,16 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 | 활동 | 구독 수준 범위 | 리소스 그룹 수준 범위 | 작업 영역 수준 범위 |
 | ----- | ----- | ----- | ----- |
-| 새 작업 영역 만들기 | 필요하지 않음 | 소유자 또는 참가자 | 해당 없음 (소유자가 되거나 생성 후 상위 범위 역할 상속) |
+| 새 작업 영역 만들기 | 필요 없음 | 소유자 또는 참가자 | 해당 없음 (소유자가 되거나 생성 후 상위 범위 역할 상속) |
 | 구독 수준 Amlcompute 할당량을 요청 하거나 작업 영역 수준 할당량을 설정 합니다. | 소유자, 참가자 또는 사용자 지정 역할 </br>있어 `/locations/updateQuotas/action`</br> 구독 범위 | 권한 없음 | 권한 없음 |
-| 새 계산 클러스터 만들기 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
-| 새 계산 인스턴스 만들기 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
-| 모든 유형의 실행 제출 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| 파이프라인 끝점 게시 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
-| AKS/ACI 리소스에 등록 된 모델 배포 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| 배포 된 AKS 끝점에 대 한 점수 매기기 | 필요하지 않음 | 필요하지 않음 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (Azure Active Directory auth를 사용 하지 않는 경우) 또는 `"/workspaces/read"` (토큰 인증을 사용 하는 경우) |
-| 대화형 전자 필기장을 사용 하 여 저장소 액세스 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
-| 새 사용자 지정 역할 만들기 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할 `Microsoft.Authorization/roleDefinitions/write` | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
+| 새 계산 클러스터 만들기 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
+| 새 계산 인스턴스 만들기 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
+| 모든 유형의 실행 제출 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| 파이프라인 및 끝점 게시 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| AKS/ACI 리소스에 등록 된 모델 배포 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| 배포 된 AKS 끝점에 대 한 점수 매기기 | 필요 없음 | 필요 없음 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (Azure Active Directory auth를 사용 하지 않는 경우) 또는 `"/workspaces/read"` (토큰 인증을 사용 하는 경우) |
+| 대화형 전자 필기장을 사용 하 여 저장소 액세스 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
+| 새 사용자 지정 역할 만들기 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할 `Microsoft.Authorization/roleDefinitions/write` | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
 
 > [!TIP]
 > 작업 영역을 처음 만들 때 오류가 발생 하는 경우 역할에서을 허용 하는지 확인 `Microsoft.MachineLearningServices/register/action` 합니다. 이 작업을 통해 Azure 구독에 Azure Machine Learning 리소스 공급자를 등록할 수 있습니다.

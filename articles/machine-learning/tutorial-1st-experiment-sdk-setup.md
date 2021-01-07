@@ -1,7 +1,7 @@
 ---
 title: '자습서: Jupyter Notebook에서 시작(Python)'
 titleSuffix: Azure Machine Learning
-description: Jupyter Notebook을 설정하는 방법에 대한 자습서입니다. Azure Machine Learning 작업 영역을 만들고, Japyter Notebook을 작업 영역에 복제하고, Notebook을 실행하는 컴퓨팅 인스턴스를 만듭니다.
+description: Jupyter Notebook을 설정하는 방법에 대한 자습서입니다. 작업 영역을 만들고, Notebooks를 작업 영역에 복제하고, Notebooks를 실행하는 컴퓨팅 인스턴스를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ebde8048c26364d77d95b9c7b34f9d1d7a4a20ee
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913299"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326286"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>자습서: Jupyter Notebook에서 Azure Machine Learning 시작
 
@@ -80,7 +80,7 @@ Azure Machine Learning 스튜디오에서 다음 실험 설정 및 실행 단계
     > [!IMPORTANT]
     > **samples** 폴더에서는 Notebook을 볼 수 있지만 실행할 수는 없습니다. Notebook을 실행하려면 **사용자 파일** 섹션에서 복제된 버전의 Notebook을 열어야 합니다.
     
-1. **tutorials/image-classification-mnist-data** 폴더에서 **tutorial-1st-experiment-sdk-train.ipynb** 파일을 선택합니다.
+1. **tutorials/image-classification-mnist-data** 폴더에서 **img-classification-part1-training.ipynb** 파일을 선택합니다.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="tutorials 폴더 열기를 보여 주는 스크린샷":::
 

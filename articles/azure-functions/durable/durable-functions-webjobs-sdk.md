@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093003"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009503"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 Durable Functions를 실행 하는 방법
 
@@ -21,7 +21,7 @@ WebJobs SDK의 버전 2.x에서 호스트는의 구현 `IHost` 이며, 버전 2.
 
 연결 Durable Functions 샘플은 WebJobs SDK 2.x 버전에서 사용할 수 있습니다. [Durable Functions 리포지토리](https://github.com/azure/azure-functions-durable-extension/)를 다운로드 하거나 복제 하 고, *v1* 분기를 체크 아웃 하 고 *samples \\ \\ webjobss00stststststststststststststststststst*
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 WebJobs SDK의 기본 사항, Azure Functions에 대한 C# 클래스 라이브러리 개발 및 지속성 함수에 대해 익숙한 것으로 가정합니다. 이러한 항목에 대한 소개가 필요한 경우 다음 리소스를 참조하세요.
 
@@ -33,7 +33,7 @@ WebJobs SDK의 버전 2.x에서 호스트는의 구현 `IHost` 이며, 버전 2.
 
 * **Azure 개발** 워크로드를 사용하여 [Visual Studio 2019](/visualstudio/install/)를 설치합니다.
 
-  Visual Studio가 이미 있지만 해당 워크 로드가 없는 경우 **도구**  >  **도구 및 기능 가져오기**를 선택 하 여 작업을 추가 합니다.
+  Visual Studio가 이미 있지만 해당 워크 로드가 없는 경우 **도구**  >  **도구 및 기능 가져오기** 를 선택 하 여 작업을 추가 합니다.
 
   (대신 [Visual Studio Code](https://code.visualstudio.com/)를 사용할 수 있지만 지침 중 일부는 Visual Studio에 국한됩니다.)
 
@@ -119,7 +119,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 WebJobs의 컨텍스트에서 Durable Functions는 Azure Functions 컨텍스트에서 Durable Functions는 약간 다릅니다. 코드를 작성할 때의 차이점을 파악 하는 것이 중요 합니다.
 
@@ -224,7 +224,7 @@ WebJob으로 실행 되도록 설정 Durable Functions 했으며, 이제는이�
     * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. .NET Core 구성 프레임 워크를 사용 하 여 파일 * 의appsettings.js* 에서 저장소 연결 문자열과 Application Insights 계측 키를 설정 합니다. 예를 들면 다음과 같습니다.
+1. .NET Core 구성 프레임 워크를 사용 하 여 파일 *의appsettings.js* 에서 저장소 연결 문자열과 Application Insights 계측 키를 설정 합니다. 예를 들면 다음과 같습니다.
 
     ```json
         {

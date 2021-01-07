@@ -12,14 +12,14 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47c3c091e767cac63bb814469397ef1a0aeca3a4
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116804"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516505"
 ---
-# <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft id 플랫폼 모범 사례 및 권장 사항
+# <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft ID 플랫폼 모범 사례 및 권장 사항
 
 이 문서에서는 Microsoft id 플랫폼과 통합 하는 경우 모범 사례, 권장 사항 및 일반적인 oversights에 대해 중점적으로 설명 합니다.  이 검사 목록에서는 고품질의 보안 통합을 안내 합니다. 이 목록을 정기적으로 검토 하 여 id 플랫폼과 응용 프로그램의 통합에 대 한 품질 및 보안을 유지 해야 합니다. 검사 목록은 전체 응용 프로그램을 검토 하기 위한 것이 아닙니다. 플랫폼이 향상 되 면 검사 목록의 내용이 변경 될 수 있습니다.
 
@@ -28,11 +28,11 @@ ms.locfileid: "88116804"
 다음 검사 목록을 사용 하 여 응용 프로그램이 [Microsoft id 플랫폼과](./index.yml)효과적으로 통합 되었는지 확인 합니다.
 
 > [!TIP]
-> Azure Portal의 *통합 길잡이* 를 통해 이러한 모범 사례와 권장 사항을 대부분 적용할 수 있습니다. Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 중 하나를 선택한 다음 **Integration assistant (미리 보기)** 메뉴 항목을 선택 하 여 길잡이를 시작 합니다.
+> Azure Portal의 *통합 길잡이* 를 통해 이러한 모범 사례와 권장 사항을 대부분 적용할 수 있습니다. Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 중 하나를 선택한 다음 **Integration assistant** 메뉴 항목을 선택 하 여 길잡이를 시작 합니다.
 
-## <a name="basics"></a>기본 사항
+## <a name="basics"></a>기본
 
-![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) [Microsoft Platform 정책을](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409)읽고 이해 합니다. 응용 프로그램이 사용자 및 플랫폼을 보호 하도록 설계 된 용어를 준수 하는지 확인 합니다.
+![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) [Microsoft Platform 정책을](/legal/microsoft-identity-platform/terms-of-use)읽고 이해 합니다. 응용 프로그램이 사용자 및 플랫폼을 보호 하도록 설계 된 용어를 준수 하는지 확인 합니다.
 
 ## <a name="ownership"></a>소유권
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/12/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb442a913ac8bde869144de1a75869a39b12398
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fbddd2eb52414827561d8896dfc8bc9ff705f41b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966902"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584394"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>최신 Azure Multi-Factor Authentication 서버로 업그레이드
 
@@ -25,24 +25,24 @@ ms.locfileid: "91966902"
 v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 모든 구성 요소가 .NET 2.0에서 .NET 4.5로 변경됩니다. 모든 구성 요소에는 Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트 1 이상이 필요합니다. 이러한 구성 요소의 x86 및 x64 버전이 아직 설치되지 않았으면 MFA 서버 설치 관리자가 설치합니다. 사용자 포털 및 모바일 앱 웹 서비스가 별도 서버에서 실행되는 경우 해당 구성 요소를 업그레이드하기 전에 해당 패키지를 설치해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/)에서 최신 Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트를 검색할 수 있습니다. 
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다.
 >
-> 클라우드 기반 MFA를 시작 하려면 [자습서: Azure Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
+> 클라우드 기반 MFA를 시작 하려면 [자습서: AZURE AD Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
 >
 > 2019 년 7 월 1 일 이전에 MFA 서버를 정품 인증 한 기존 고객은 평소와 같이 최신 버전, 향후 업데이트 및 활성화 자격 증명 생성을 다운로드할 수 있습니다.
 
 업그레이드 단계 한 눈에 보기:
 
-* Azure MFA 서버 업그레이드(하위 다음에 마스터)
+* Azure MFA 서버 업그레이드 (하위 항목 및 주)
 * 사용자 포털 인스턴스 업그레이드
 * AD FS 어댑터 인스턴스 업그레이드
 
 ## <a name="upgrade-azure-mfa-server"></a>Azure MFA 서버 업그레이드
 
 1. [Azure Multi-Factor Authentication 서버 다운로드](howto-mfaserver-deploy.md#download-the-mfa-server)의 지침을 사용하여 최신 버전의 Azure MFA 서버 설치 관리자를 다운로드합니다.
-2. C:\Program Files\multi-factor Authentication Server\Data\PhoneFactor.pfdata(기본 설치 위치로 가정)에 있는 MFA 서버 데이터 파일의 백업을 마스터 MFA 서버에 만듭니다.
+2. 기본 MFA 서버에서 C:\Program Files\multi-factor authentication Authentication Server\Data\PhoneFactor.pfdata (기본 설치 위치 라고 가정)에 있는 MFA 서버 데이터 파일의 백업을 만듭니다.
 3. 고가용성을 위해 여러 서버를 실행하는 경우 업그레이드하려는 MFA 서버에 트래픽을 더 이상 전송하지 않도록 MFA 서버에서 인증을 받는 클라이언트 시스템을 변경합니다. 부하 분산 장치를 사용하는 경우 부하 분산 장치에서 하위 MFA 서버를 제거하고 업그레이드한 다음, 해당 서버를 팜에 다시 추가합니다.
-4. 각 MFA 서버에서 새 설치 관리자를 실행합니다. 하위 서버는 마스터에 의해 복제되는 이전 데이터 파일을 읽을 수 있으므로 먼저 업그레이드합니다.
+4. 각 MFA 서버에서 새 설치 관리자를 실행합니다. 기본 서버에서 복제 중인 이전 데이터 파일을 읽을 수 있으므로 먼저 하위 서버를 업그레이드 합니다.
 
    > [!NOTE]
    > 서버를 업그레이드 하는 경우 다른 MFA 서버와의 부하 분산 또는 트래픽 공유에서 제거 해야 합니다.
@@ -51,7 +51,7 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
   
 5. Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트 패키지를 설치할 것인지 묻는 메시지가 표시되면 수락합니다. x86 및 x64 버전 패키지가 모두 설치됩니다.
 6. 웹 서비스 SDK를 사용하는 경우 새 웹 서비스 SDK를 설치하라는 메시지가 표시됩니다. 새 웹 서비스 SDK를 설치하면 가상 디렉터리 이름이 이전에 설치된 가상 디렉터리(예: MultiFactorAuthWebServiceSdk)와 일치하는지 확인합니다.
-7. 모든 하위 서버에서 이 단계를 반복합니다. 하위 서버 중 하나를 새 마스터 서버로 승격한 다음 이전 마스터 서버를 업그레이드합니다.
+7. 모든 하위 서버에서 이 단계를 반복합니다. 종속 항목 중 하나를 새로운 주 서버로 수준을 올린 다음 이전 주 서버를 업그레이드 합니다.
 
 ## <a name="upgrade-the-user-portal"></a>사용자 포털 업그레이드
 
@@ -102,7 +102,7 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 
    “Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트 1 이상이 필요하다”는 오류가 발생하는 경우 [Microsoft 다운로드 센터](https://www.microsoft.com/download/)에서 최신 업데이트 패키지를 다운로드하여 설치합니다. x86 및 x64 버전을 둘 다 설치합니다.
 
-3. **AD FS**  >  **인증 정책**  >  **전역 다단계 인증 정책 편집**으로 이동 합니다. **WindowsAzureMultiFactorAuthentication** 또는 **AzureMFAServerAuthentication**(현재 설치된 버전에 따라 다름)을 선택 취소합니다.
+3. **AD FS**  >  **인증 정책**  >  **전역 다단계 인증 정책 편집** 으로 이동 합니다. **WindowsAzureMultiFactorAuthentication** 또는 **AzureMFAServerAuthentication**(현재 설치된 버전에 따라 다름)을 선택 취소합니다.
 
    이 단계가 완료되면 8단계를 완료할 때까지 이 AD FS 클러스터에서 MFA 서버를 통한 2단계 인증을 사용할 수 없습니다.
 
@@ -110,7 +110,7 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 5. Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell 스크립트를 실행하여 새 AD FS 어댑터를 등록합니다. 하나의 중앙 구성이 있으므로 동일한 AD FS 클러스터의 모든 서버도 마찬가지입니다.
 6. AD FS 팜에서 제거된 각 서버에서 AD FS 서비스를 다시 시작합니다.
 7. 업데이트된 서버를 AD FS 팜에 다시 추가하고 팜에서 다른 서버를 제거합니다.
-8. **AD FS**  >  **인증 정책**  >  **전역 다단계 인증 정책 편집**으로 이동 합니다. **AzureMfaServerAuthentication**을 선택합니다.
+8. **AD FS**  >  **인증 정책**  >  **전역 다단계 인증 정책 편집** 으로 이동 합니다. **AzureMfaServerAuthentication** 을 선택합니다.
 9. 2단계를 반복하여 AD FS 팜에서 제거된 서버를 업데이트하고 해당 서버에서 AD FS 서비스를 다시 시작합니다.
 10. 해당 서버를 AD FS 팜에 다시 추가합니다.
 

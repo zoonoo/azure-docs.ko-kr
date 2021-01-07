@@ -3,12 +3,12 @@ title: Azure Resource Manager를 사용 하 여 배포 및 업그레이드
 description: Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터로 애플리케이션 및 서비스를 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed6bc7d96cb3ea0934929e6543c5e637a9f42c1f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256512"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930840"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>애플리케이션 및 서비스를 Azure Resource Manager 리소스로 관리
 
@@ -17,8 +17,8 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
 이 방법은 클러스터에 필요한 설치, 거버넌스 또는 클러스터 관리 애플리케이션을 배포할 때 권장되는 방법입니다. 여기에는 [패치 오케스트레이션 애플리케이션](service-fabric-patch-orchestration-application.md), Watchdogs 또는 다른 서비스나 애플리케이션을 배포하기 위해 먼저 클러스터에서 실행 중이어야 하는 모든 애플리케이션이 포함됩니다. 
 
 해당하는 경우 애플리케이션을 Resource Manager 리소스로 관리하여 다음을 향상시킬 수 있습니다.
-* 감사 내역: Resource Manager는 모든 작업을 감사하고, 이러한 애플리케이션 및 클러스터에 대한 변경 내용을 추적하는 데 도움이 될 수 있는 자세한 *활동 로그*를 유지합니다.
-* RBAC(역할 기반 액세스 제어): 클러스터에 배포된 애플리케이션뿐만 아니라 클러스터에 대한 액세스 관리 작업을 동일한 Resource Manager 템플릿을 통해 수행할 수 있습니다.
+* 감사 내역: Resource Manager는 모든 작업을 감사하고, 이러한 애플리케이션 및 클러스터에 대한 변경 내용을 추적하는 데 도움이 될 수 있는 자세한 *활동 로그* 를 유지합니다.
+* Azure RBAC (역할 기반 액세스 제어): 클러스터 및 클러스터에 배포 된 응용 프로그램에 대 한 액세스 관리는 동일한 리소스 관리자 템플릿을 통해 수행할 수 있습니다.
 * Azure Resource Manager(Azure Portal을 통해)는 클러스터 및 중요한 애플리케이션 배포를 관리하기 위한 원스톱 상점이 됩니다.
 
 다음 코드 조각에서는 한 템플릿을 통해 관리될 수 있는 여러 종류의 리소스를 보여 줍니다.
@@ -50,13 +50,12 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
 }
 ```
 
-
 ## <a name="add-a-new-application-to-your-resource-manager-template"></a>Resource Manager 템플릿에 새 애플리케이션 추가
 
 1. 배포를 위해 클러스터의 Resource Manager 템플릿을 준비합니다. 이에 대한 자세한 내용은 [Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 2. 클러스터에 배포하려는 일부 애플리케이션을 고려해보세요. 다른 애플리케이션이 종속성을 가질 수 있는 애플리케이션이 항상 실행되고 있나요? 클러스터 거버넌스 또는 설치 애플리케이션을 배포할 계획인가요? 이러한 종류의 애플리케이션은 위에서 설명한 것처럼 Resource Manager 템플릿을 통해 가장 잘 관리됩니다. 
-3. 이러한 방식으로 배포하려는 애플리케이션을 결정했으면 애플리케이션을 패키지하고, 압축하고, 파일 공유에 추가해야 합니다. Azure Resource Manager가 배포 중에 사용할 수 있도록 하려면 REST 엔드포인트를 통해 공유에 액세스할 수 있어야 합니다.
-4. Resource Manager 템플릿에서 클러스터 선언 아래에는 각 애플리케이션의 속성이 설명되어 있습니다. 이러한 속성에는 복제본 또는 인스턴스 수와 리소스(다른 애플리케이션이나 서비스) 간의 모든 종속성 체인이 포함됩니다. 포괄적인 속성 목록은 [REST API Swagger 사양을](https://aka.ms/sfrpswaggerspec)참조 하십시오. 이는 응용 프로그램 또는 서비스 매니페스트를 대체 하지는 않지만 클러스터의 리소스 관리자 템플릿에 포함 된 내용 중 일부를 설명 합니다. 다음은 상태 비저장 서비스 *Service1*과 상태 저장 서비스 *Service2*를 *Application1*의 일부로 배포하는 작업을 포함하는 샘플 템플릿입니다.
+3. 이러한 방식으로 배포 하려는 응용 프로그램을 파악 했으면 응용 프로그램을 패키지 하 고, 압축 하 고, 저장소 공유에 배치 해야 합니다. Azure Resource Manager가 배포 중에 사용할 수 있도록 하려면 REST 엔드포인트를 통해 공유에 액세스할 수 있어야 합니다. 자세한 내용은 [저장소 계정 만들기를](service-fabric-concept-resource-model.md#create-a-storage-account) 참조 하세요.
+4. Resource Manager 템플릿에서 클러스터 선언 아래에는 각 애플리케이션의 속성이 설명되어 있습니다. 이러한 속성에는 복제본 또는 인스턴스 수와 리소스(다른 애플리케이션이나 서비스) 간의 모든 종속성 체인이 포함됩니다. 이 목록은 애플리케이션 또는 서비스 매니페스트를 대신하지 않으며, 포함된 일부 항목을 클러스터의 Resource Manager 템플릿의 일부로 설명합니다. 다음은 상태 비저장 서비스 *Service1* 과 상태 저장 서비스 *Service2* 를 *Application1* 의 일부로 배포하는 작업을 포함하는 샘플 템플릿입니다.
 
    ```json
    {
@@ -244,7 +243,7 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
    ```
 
    > [!NOTE] 
-   > *apiVersion*을 `"2019-03-01"`로 설정해야 합니다. 클러스터가 이미 배포된 경우 이 템플릿을 클러스터와는 별도로 배포할 수도 있습니다.
+   > 개별 템플릿 속성에 대 한 사용 및 세부 정보를 찾으려면 Service Fabric [Azure Resource Manager 참조](/azure/templates/microsoft.servicefabric/clusters/applicationtypes) 를 참조 하세요.
 
 5. 배포합니다. 
 

@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 08426c74b26c18b15466578d9921520da1e9c923
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536235"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993791"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
@@ -27,7 +27,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](/visual
 
     ![Visual Studio 2017에서 RTVS 설치](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
-2. *데이터 과학 및 분석 애플리케이션* 워크로드를 선택한 후 **R 언어 지원** , **R 개발에 대한 런타임 지원** 및 **Microsoft R Client** 옵션을 선택합니다.
+2. *데이터 과학 및 분석 애플리케이션* 워크로드를 선택한 후 **R 언어 지원**, **R 개발에 대한 런타임 지원** 및 **Microsoft R Client** 옵션을 선택합니다.
 
 3. SSH 인증에 대한 공용 및 프라이빗 키가 필요합니다.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
@@ -121,7 +121,7 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
 
         ![Azure HDInsight 저장소 컨테이너](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
-    4. 클러스터의 컨테이너 이름을 선택하고, **사용자** 폴더(목록 맨 아래의 *추가 로드* 를 클릭해야 할 수 있음)로 이동한 후 *RevoShare* , **newUser** 를 차례로 선택합니다. `people.json` 파일이 `newUser` 폴더에 표시되어야 합니다.
+    4. 클러스터의 컨테이너 이름을 선택하고, **사용자** 폴더(목록 맨 아래의 *추가 로드* 를 클릭해야 할 수 있음)로 이동한 후 *RevoShare*, **newUser** 를 차례로 선택합니다. `people.json` 파일이 `newUser` 폴더에 표시되어야 합니다.
 
         ![HDInsight에서 복사한 파일 폴더 위치](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 

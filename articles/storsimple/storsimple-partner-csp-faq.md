@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 2f606a2ff036c6bc3b4e3c508632d48ae8d40f15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36b96581d98465b860b630fe2f9a8aa64cf0f64f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400046"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964935"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>클라우드 솔루션 공급자 프로그램용 StorSimple: 질문과 대답
 
@@ -59,7 +59,7 @@ CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모
 다음과 같은 여러 솔루션이 있습니다.
 
 - 파트너는 StorSimple 가상 배열을 다시 판매할 수 있습니다. 
-- 파트너는 StorSimple을 구축하는 솔루션 및 다른 Azure 서비스 또는 타사 소프트웨어를 제공할 수 있습니다. 자세한 내용은 일부 가능한 [StorSimple에 존재하는 솔루션](https://aka.ms/storsimple-build-solutions)을 검토합니다.
+- 파트너는 StorSimple을 구축하는 솔루션 및 다른 Azure 서비스 또는 타사 소프트웨어를 제공할 수 있습니다. 자세한 내용은 일부 가능한 [StorSimple에 존재하는 솔루션](./storsimple-disaster-recovery-using-azure-site-recovery.md)을 검토합니다.
 - 관리되는 서비스를 제공하여 새로운 비즈니스 모델을 검색할 수도 있습니다.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>StorSimple CSP 파트너에 사용할 수 있는 인센티브는 무엇입니까? 모든 CSP 프로그램 인센티브에 대한 자격이 있습니까?
@@ -86,7 +86,7 @@ CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모
 ## <a name="support-for-storsimple-and-csp"></a>StorSimple 및 CSP에 대한 지원
 
 ### <a name="are-there-any-forums-to-get-additional-support-for-csp-partners-to-deploy-and-manage-storsimple"></a>CSP 파트너가 StorSimple을 배포하고 관리하는 데 추가 지원을 얻을 수 있는 포럼이 있습니까?
-CSP 포럼에서 StorSimple을 방문하여 몇 가지 자주 묻는 질문에 대한 답변을 얻을 수 있습니다. 먼저 [Azure Advisor Yammer 그룹](https://www.yammer.com/azureadvisors)에 가입해야 합니다. 다음으로 그룹 - **StorSimple 파트너 조언자**를 검색하고 가입합니다.
+CSP 포럼에서 StorSimple을 방문하여 몇 가지 자주 묻는 질문에 대한 답변을 얻을 수 있습니다. 먼저 [Azure Advisor Yammer 그룹](https://www.yammer.com/azureadvisors)에 가입해야 합니다. 다음으로 그룹 - **StorSimple 파트너 조언자** 를 검색하고 가입합니다.
 
 ### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>CSP용 StorSimple에 대한 지원은 어떤 방식으로 이루어집니까? 
 CSP에서 StorSimple에 대한 지원 모델은 CSP의 다른 Azure 서비스의 지원 모델과 동일합니다. 자세한 내용은 [CSP에 대한 고객 지원](/partner-center/csp-overview)으로 이동합니다.

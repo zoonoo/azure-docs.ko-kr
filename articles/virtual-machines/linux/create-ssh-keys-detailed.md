@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 07/31/2020
 ms.author: cynthn
 ms.openlocfilehash: 34a84ed333172ea0931c529d2dbeee1b774ae8c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513193"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016389"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리
 
@@ -140,7 +140,7 @@ cat ~/.ssh/id_rsa.pub
 ssh-rsa XXXXXXXXXXc2EAAAADAXABAAABAXC5Am7+fGZ+5zXBGgXS6GUvmsXCLGc7tX7/rViXk3+eShZzaXnt75gUmT1I2f75zFn2hlAIDGKWf4g12KWcZxy81TniUOTjUsVlwPymXUXxESL/UfJKfbdstBhTOdy5EG9rYWA0K43SJmwPhH28BpoLfXXXXXG+/ilsXXXXXKgRLiJ2W19MzXHp8z3Lxw7r9wx3HaVlP4XiFv9U4hGcp8RMI1MP1nNesFlOBpG4pV2bJRBTXNXeY4l6F8WZ3C4kuf8XxOo08mXaTpvZ3T1841altmNTZCcPkXuMrBjYSJbA8npoXAXNwiivyoe3X2KMXXXXXdXXXXXXXXXXCXXXXX/ azureuser@myserver
 ```
 
-Azure Portal 또는 Resource Manager 템플릿에 공개 키 파일의 내용을 복사하여 붙여넣으려는 경우 추가 공백을 복사하거나 줄 바꿈을 더 추가하면 안 됩니다. 예를 들어 macOS를 사용하는 경우 공개 키 파일(기본적으로 `~/.ssh/id_rsa.pub`)을 **pbcopy**로 파이프하여 내용을 복사할 수 있습니다. `xclip` 등의 기타 Linux 프로그램을 통해 같은 작업을 수행할 수 있습니다.
+Azure Portal 또는 Resource Manager 템플릿에 공개 키 파일의 내용을 복사하여 붙여넣으려는 경우 추가 공백을 복사하거나 줄 바꿈을 더 추가하면 안 됩니다. 예를 들어 macOS를 사용하는 경우 공개 키 파일(기본적으로 `~/.ssh/id_rsa.pub`)을 **pbcopy** 로 파이프하여 내용을 복사할 수 있습니다. `xclip` 등의 기타 Linux 프로그램을 통해 같은 작업을 수행할 수 있습니다.
 
 여러 줄 형식으로 된 공개 키 사용을 선호하는 경우 이전에 만든 공개 키에서 pem 컨테이너에 RFC4716 형식 키를 생성할 수 있습니다.
 
@@ -154,7 +154,7 @@ ssh-keygen \
 ```
 
 ## <a name="ssh-to-your-vm-with-an-ssh-client"></a>SSH 클라이언트를 통해 VM에 SSH를 사용
-Azure VM에서 배포된 공개 키 및 로컬 시스템에서 배포된 프라이빗 키를 통해 IP 주소 또는 VM의 DNS 이름을 사용하여 VM에 SSH를 사용합니다. 다음 명령에서 *azureuser* 및 *myvm.westus.cloudapp.azure.com*을 관리자 사용자 이름 및 정규화된 도메인 이름(또는 IP 주소)으로 바꿉니다.
+Azure VM에서 배포된 공개 키 및 로컬 시스템에서 배포된 프라이빗 키를 통해 IP 주소 또는 VM의 DNS 이름을 사용하여 VM에 SSH를 사용합니다. 다음 명령에서 *azureuser* 및 *myvm.westus.cloudapp.azure.com* 을 관리자 사용자 이름 및 정규화된 도메인 이름(또는 IP 주소)으로 바꿉니다.
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -208,7 +208,7 @@ touch ~/.ssh/config
 vim ~/.ssh/config
 ```
 
-VM 호스트에 대해 적절한 구성 설정을 추가합니다. 이 예제에서 VM 이름은 *myvm* 이 고 계정 이름은 *azureuser*입니다.
+VM 호스트에 대해 적절한 구성 설정을 추가합니다. 이 예제에서 VM 이름은 *myvm* 이 고 계정 이름은 *azureuser* 입니다.
 
 ```bash
 # Azure Keys

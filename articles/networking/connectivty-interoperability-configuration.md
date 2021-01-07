@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "86171859"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Azure 백 엔드 연결 기능의 상호 운용성: 테스트 구성 세부 정보
@@ -45,11 +45,11 @@ Azure VPN Gateway에서 VPN 게이트웨이를 사용하여 허브와 분기 VNe
 
 다음 그림은 온-프레미스 위치 1 CE(고객 에지) 라우터를 지향하는 Azure 지역 1 ExpressRoute 회로 구성을 보여줍니다.
 
-[![3-4]][4]
+[![4]][4]
 
 다음 그림은 ExpressRoute 1 회로와 허브 VNet 간의 연결 구성을 보여줍니다.
 
-[ ![5]][5]
+[![5]][5]
 
 다음 목록은 ExpressRoute 프라이빗 피어링 연결에 대한 기본 CE 라우터 구성을 보여줍니다. Cisco ASR1000 라우터는 테스트 설정에서 CE 라우터로 사용 됩니다. 사이트 간 VPN 및 Express 경로 회로를 병렬로 구성 하 여 온-프레미스 네트워크를 Azure에 연결 하는 경우 Azure는 기본적으로 Express 경로 회로의 우선 순위를 설정 합니다. 비대칭 라우팅을 방지하려면 온-프레미스 네트워크도 사이트 간 VPN 연결에 비해 ExpressRoute 연결을 우선 순위로 지정해야 합니다. 다음 구성은 BGP **로컬 기본 설정** 특성을 사용하여 우선 순위를 설정합니다.
 
@@ -164,7 +164,7 @@ ip route vrf 30 10.10.30.254 255.255.255.255 Tunnel30
 
 ExpressRoute 1은 허브 VNet과 온-프레미스 위치 1을 모두 서로 다른 Azure 지역의 원격 VNet에 연결합니다.
 
-[![20cm(8]][8]
+[![8]][8]
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>탠덤에서 ExpressRoute 및 사이트 간 VPN 연결
 

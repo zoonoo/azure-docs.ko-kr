@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 76fea0c8b6f3c13c9f462ecbb72611c6659c65d0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 24dafd63de1a37140c6a56547c4701729df1c8fb
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397079"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566557"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Azure CLI를 사용 하 여 TLS 종료로 응용 프로그램 게이트웨이 만들기
 
@@ -28,11 +28,12 @@ Azure CLI를 사용 하 여 [TLS 종료](ssl-overview.md)를 위한 인증서로
 
 원하는 경우 [Azure PowerShell](tutorial-ssl-powershell.md)을 사용하여 이 절차를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+ - 이 자습서에는 버전 2.0.4 이상을 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 

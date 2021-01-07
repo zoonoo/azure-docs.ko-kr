@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2018
+ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d29edec6145ebc03218264532cae07b6afc9654c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908fb1ac869ec2b22085af2e07ced6ff64229308
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254205"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592486"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스
 
@@ -34,7 +34,12 @@ ms.locfileid: "89254205"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- 관리 ID에 대한 이해. Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요](overview.md)를 참조하세요. 
+- Azure 계정, [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
+- 적절한 범위(사용자 구독 또는 리소스 그룹)에서 필요한 리소스 생성 및 역할 관리 단계를 수행할 수 있는 "소유자" 권한. 역할 할당에 관한 도움이 필요한 경우 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+- 시스템 할당 관리 ID가 활성화된 Windows 가상 머신도 필요합니다.
+  - 이 자습서에 대한 가상 머신을 만들어야 하는 경우 [시스템 할당 ID가 설정된 가상 머신 만들기](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)라는 제목의 문서를 수행하면 됩니다.
+
 
 
 
@@ -50,17 +55,17 @@ ms.locfileid: "89254205"
 
 Data Lake Store에서 새 폴더를 만들고, 해당 폴더에서 파일을 읽고, 쓰고, 실행할 수 있는 VM의 시스템 할당 ID 권한을 부여합니다.
 
-1. Azure Portal의 왼쪽 탐색 창에서 **Data Lake Store**를 클릭합니다.
+1. Azure Portal의 왼쪽 탐색 창에서 **Data Lake Store** 를 클릭합니다.
 2. 이 자습서에 사용하려는 Data Lake Store를 클릭합니다.
-3. 명령 모음에서 **데이터 탐색기**를 클릭합니다.
-4. Data Lake Store의 루트 폴더를 선택합니다.  명령 모음에서 **액세스**를 클릭합니다.
-5. **추가**를 클릭합니다.  **선택** 필드에서 VM의 이름을 입력합니다(예: **DevTestVM**).  검색 결과에서 VM을 선택하도록 클릭한 다음 **선택**을 클릭합니다.
-6. **사용 권한 선택**을 클릭합니다.  **읽기** 및 **실행**을 선택하고, **이 폴더**에 추가하고, **액세스 권한 전용**으로 추가합니다.  **Ok**를 클릭합니다.  사용 권한은 성공적으로 추가되어야 합니다.
+3. 명령 모음에서 **데이터 탐색기** 를 클릭합니다.
+4. Data Lake Store의 루트 폴더를 선택합니다.  명령 모음에서 **액세스** 를 클릭합니다.
+5. **추가** 를 클릭합니다.  **선택** 필드에서 VM의 이름을 입력합니다(예: **DevTestVM**).  검색 결과에서 VM을 선택하도록 클릭한 다음 **선택** 을 클릭합니다.
+6. **사용 권한 선택** 을 클릭합니다.  **읽기** 및 **실행** 을 선택하고, **이 폴더** 에 추가하고, **액세스 권한 전용** 으로 추가합니다.  **확인** 을 클릭합니다.  사용 권한은 성공적으로 추가되어야 합니다.
 7. **액세스** 블레이드를 닫습니다.
-8. 이 자습서에서는 새 폴더를 만듭니다.  명령 모음에서 **새 폴더**를 클릭하고 새 폴더에 이름을 입력합니다(예: **TestFolder**).  **Ok**를 클릭합니다.
-9. 사용자가 만든 폴더를 클릭한 다음 명령 모음에서 **액세스**를 클릭합니다.
-10. 5단계와 유사하게 **선택** 필드에서 **추가**를 클릭하고, VM의 이름을 입력하고, 선택하고, **선택**을 클릭합니다.
-11. 6단계와 유사하게 **사용 권한 선택**을 클릭하고, **읽기**, **쓰기** 및 **실행**을 선택하고, **이 폴더**에 추가하고, **액세스 권한 항목 및 기본 권한 항목**으로 추가합니다.  **Ok**를 클릭합니다.  사용 권한은 성공적으로 추가되어야 합니다.
+8. 이 자습서에서는 새 폴더를 만듭니다.  명령 모음에서 **새 폴더** 를 클릭하고 새 폴더에 이름을 입력합니다(예: **TestFolder**).  **확인** 을 클릭합니다.
+9. 사용자가 만든 폴더를 클릭한 다음 명령 모음에서 **액세스** 를 클릭합니다.
+10. 5단계와 유사하게 **선택** 필드에서 **추가** 를 클릭하고, VM의 이름을 입력하고, 선택하고, **선택** 을 클릭합니다.
+11. 6단계와 유사하게 **사용 권한 선택** 을 클릭하고, **읽기**, **쓰기** 및 **실행** 을 선택하고, **이 폴더** 에 추가하고, **액세스 권한 항목 및 기본 권한 항목** 으로 추가합니다.  **확인** 을 클릭합니다.  사용 권한은 성공적으로 추가되어야 합니다.
 
 VM의 시스템 할당 관리 ID는 사용자가 만든 폴더에 있는 파일에서 모든 작업을 수행할 수 있습니다.  Data Lake Store에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Data Lake Store의 액세스 제어](../../data-lake-store/data-lake-store-access-control.md)에서 이 문서를 참고하세요.
 
@@ -73,9 +78,9 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 Azur
 
 이 자습서에서는 REST를 요청하는 PowerShell을 사용하여 Data Lake Store 파일 시스템 REST API에 인증합니다. 인증을 위해 VM의 시스템 할당 관리 ID를 사용하려면 VM에서 요청해야 합니다.
 
-1. Portal에서 **Virtual Machines** -> Windows VM으로 이동한 다음 **개요**에서 **연결**을 클릭합니다.
-2. Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다. 
-3. 이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 **PowerShell**을 엽니다. 
+1. Portal에서 **Virtual Machines** -> Windows VM으로 이동한 다음 **개요** 에서 **연결** 을 클릭합니다.
+2. Windows VM을 만들 때 추가한 **사용자 이름** 과 **암호** 를 입력합니다. 
+3. 이제 가상 머신에 대한 **원격 데스크톱 연결** 을 만들었으므로 원격 세션에서 **PowerShell** 을 엽니다. 
 4. PowerShell의 `Invoke-WebRequest`를 사용하여 Azure Data Lake Store에 대한 액세스 토큰을 가져오도록 Azure 리소스 엔드포인트의 로컬 관리 ID에 요청합니다.  Data Lake Store의 리소스 식별자는 `https://datalake.azure.net/`입니다.  Data Lake가 리소스 식별자와 정확히 일치하고 후행 슬래시가 중요합니다.
 
    ```powershell

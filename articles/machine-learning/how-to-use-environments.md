@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 32748a996e0622c4b75d887aebf8a1805c5368bd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: f464664737ab56b43ca0c0a159837487494a1eaa
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319075"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826041"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 
@@ -95,7 +95,7 @@ myenv = Environment.from_conda_specification(name = "myenv",
                                              file_path = "path-to-conda-specification-file")
 
 # From a pip requirements file
-myenv = Environment.from_pip_requirements(name = "myenv"
+myenv = Environment.from_pip_requirements(name = "myenv",
                                           file_path = "path-to-pip-requirements-file")                                          
 ```
 
@@ -110,11 +110,11 @@ Docker를 사용 하도록 설정 하면 Azure Machine Learning는 Docker 이미
 myenv.docker.enabled = True
 ```
 
-기본적으로 새로 빌드된 Docker 이미지는 작업 영역과 연결 된 컨테이너 레지스트리에 나타납니다.  리포지토리 이름의 형식은 *azureml/azureml_ \<uuid\>* 입니다. 이름의 고유 식별자 ( *uuid* ) 부분은 환경 구성에서 계산 된 해시에 해당 합니다. 이러한 대응을 통해 서비스는 지정 된 환경의 이미지가 다시 사용 하기 위해 이미 있는지 여부를 확인할 수 있습니다.
+기본적으로 새로 빌드된 Docker 이미지는 작업 영역과 연결 된 컨테이너 레지스트리에 나타납니다.  리포지토리 이름의 형식은 *azureml/azureml_ \<uuid\>* 입니다. 이름의 고유 식별자 (*uuid*) 부분은 환경 구성에서 계산 된 해시에 해당 합니다. 이러한 대응을 통해 서비스는 지정 된 환경의 이미지가 다시 사용 하기 위해 이미 있는지 여부를 확인할 수 있습니다.
 
 #### <a name="use-a-prebuilt-docker-image"></a>미리 빌드된 Docker 이미지 사용
 
-기본적으로 서비스는 Ubuntu Linux 기반 [기본 이미지](https://github.com/Azure/AzureML-Containers)중 하나를 자동으로 사용 합니다. 특히에서 정의한 이미지를 사용 합니다 `azureml.core.environment.DEFAULT_CPU_IMAGE` . 그런 다음 제공 된 Azure ML 환경에서 정의한 모든 지정 된 Python 패키지를 설치 합니다. 또한 [사용자 지정 Docker 기본 이미지](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image)를 사용할 수 있습니다.
+기본적으로 서비스는 Ubuntu Linux 기반 [기본 이미지](https://github.com/Azure/AzureML-Containers)중 하나를 자동으로 사용 합니다. 특히에서 정의한 이미지를 사용 합니다 `azureml.core.environment.DEFAULT_CPU_IMAGE` . 그런 다음 제공 된 Azure ML 환경에서 정의한 모든 지정 된 Python 패키지를 설치 합니다. 다른 Azure ML CPU 및 GPU 기본 이미지는 컨테이너 [리포지토리에서](https://github.com/Azure/AzureML-Containers)사용할 수 있습니다. 또한 [사용자 지정 Docker 기본 이미지](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image)를 사용할 수 있습니다.
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -261,7 +261,7 @@ myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 ```
 
 >[!IMPORTANT]
-> 다른 실행에 동일한 환경 정의를 사용 하는 경우 Azure Machine Learning 서비스는 사용자 환경의 캐시 된 이미지를 재사용 합니다. 예를 들어 고정 해제 된 패키지 종속성을 사용 하 여 환경을 만드는 경우 환경을 만들 때 ```numpy``` 설치 된 패키지 버전을 _at the time of environment creation_ 계속 사용 하 게 됩니다. 또한 일치 하는 정의가 있는 이후의 모든 환경은 이전 버전을 계속 사용 합니다. 자세한 내용은 [환경 빌드, 캐싱 및 다시 사용](./concept-environments.md#environment-building-caching-and-reuse)을 참조 하세요.
+> 다른 실행에 동일한 환경 정의를 사용 하는 경우 Azure Machine Learning 서비스는 사용자 환경의 캐시 된 이미지를 재사용 합니다. 예를 들어 고정 해제 된 패키지 종속성을 사용 하 여 환경을 만드는 경우 환경을 만들 때 ```numpy``` 설치 된 패키지 버전을 계속 사용 하 게 됩니다. 또한 일치 하는 정의가 있는 이후의 모든 환경은 이전 버전을 계속 사용 합니다. 자세한 내용은 [환경 빌드, 캐싱 및 다시 사용](./concept-environments.md#environment-building-caching-and-reuse)을 참조 하세요.
 
 ### <a name="private-python-packages"></a>개인 Python 패키지
 

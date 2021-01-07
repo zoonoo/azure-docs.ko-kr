@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 37a17105be0b6754bbdfd935c6c17933314114d4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289599"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861887"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -45,8 +45,8 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 |
-| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check]  | 사용할 수 없음  | 사용할 수 없음 |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
+| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check]  | 사용할 수 없음  | ![사용 가능][check] |
 
 Azure 앱 구성 (사용 가능한 경우 지역)에 대해 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요.
 
@@ -70,10 +70,20 @@ Azure 앱 구성 (사용 가능한 경우 지역)에 대해 관리 되는 id를 
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 
+| 시스템 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes)합니다. 관리 서비스 id 인증서는 Azure와의 통신을 위해 모든 Azure Arc 사용 Kubernetes 에이전트에 사용 됩니다.
+
+### <a name="azure-automanage"></a>Azure Automanage
+
+| 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+구독을 새 테 넌 트로 이동한 경우 관리 되는 id를 다시 구성 하려면 다음 문서를 참조 하세요.
+* [손상 된 Automanage 계정 복구](../../automanage/repair-automanage-account.md)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
@@ -151,7 +161,7 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 
 
 
-### <a name="azure-event-grid"></a>Azure Event Grid 
+### <a name="azure-event-grid"></a>Azure Event Grid
 
 관리 ID 유형 |모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -202,7 +212,7 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 
@@ -222,7 +232,7 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 - [Azure Portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager 템플릿](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
-### <a name="azure-machine-learning"></a>Azure Machine Learning 
+### <a name="azure-machine-learning"></a>Azure Machine Learning
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -242,7 +252,7 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 - [Azure Portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
-- [Azure CLI](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [Azure CLI](/cli/azure/policy/assignment#az-policy-assignment-create)
 - [Azure 리소스 관리자 템플릿](/azure/templates/microsoft.authorization/policyassignments)
 - [REST (영문)](/rest/api/resources/policyassignments/create)
 
@@ -264,7 +274,7 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 
+| 시스템 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | ![사용 가능][check] |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 
@@ -281,8 +291,8 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 |관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
-| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | ![사용 가능][check] |
+| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | ![사용 가능][check] |
 
 사용 가능한 지역에서 Azure Virtual Machines Scale Sets용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
@@ -298,8 +308,8 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 | 
-| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | ![사용 가능][check] |
+| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | ![사용 가능][check] |
 
 사용 가능한 지역에서 Azure Virtual Machines용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
@@ -315,7 +325,7 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 
+| 시스템 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | [지원 되는 지역에서 사용 가능](../../virtual-machines/windows/image-builder-overview.md#regions) | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 Azure VM 이미지 작성기 (사용 가능한 지역)에 대해 관리 id를 구성 하는 방법을 알아보려면 [이미지 작성기 개요](../../virtual-machines/windows/image-builder-overview.md#permissions)를 참조 하세요.

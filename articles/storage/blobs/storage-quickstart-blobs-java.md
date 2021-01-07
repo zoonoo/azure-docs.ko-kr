@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Java용 Azure Blob 스토리지 클라�
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 09/10/2020
+ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: e6f731a72308db98309d40bceb95f6108abab4eb
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 02752af77d443e19278a96206bb7516fedd59d7f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017050"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501127"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>빠른 시작: Java v12 SDK로 Blob 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "90017050"
 * [API 참조 설명서](/java/api/overview/azure/storage-blob-readme)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
 * [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
-* [샘플](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [샘플](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -41,17 +41,33 @@ ms.locfileid: "90017050"
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
-*blob-quickstart-v12*라는 Java 애플리케이션을 만듭니다.
+*blob-quickstart-v12* 라는 Java 애플리케이션을 만듭니다.
 
-1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 Maven을 사용하여 *blob-quickstart-v12*라는 새 콘솔 앱을 만듭니다. 다음 **mvn** 명령을 입력하여 "Hello world!"를 생성합니다. Java 프로젝트를 만듭니다.
+1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 Maven을 사용하여 *blob-quickstart-v12* 라는 새 콘솔 앱을 만듭니다. 다음 **mvn** 명령을 입력하여 "Hello world!"를 생성합니다. Java 프로젝트를 만듭니다.
 
-   ```console
-   mvn archetype:generate -DgroupId=com.blobs.quickstart \
-                          -DartifactId=blob-quickstart-v12 \
-                          -DarchetypeArtifactId=maven-archetype-quickstart \
-                          -DarchetypeVersion=1.4 \
-                          -DinteractiveMode=false
-   ```
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    mvn archetype:generate `
+        --define interactiveMode=n `
+        --define groupId=com.blobs.quickstart `
+        --define artifactId=blob-quickstart-v12 `
+        --define archetypeArtifactId=maven-archetype-quickstart `
+        --define archetypeVersion=1.4
+    ```
+
+    # <a name="bash"></a>[Bash](#tab/bash)
+
+    ```bash
+    mvn archetype:generate \
+        --define interactiveMode=n \
+        --define groupId=com.blobs.quickstart \
+        --define artifactId=blob-quickstart-v12 \
+        --define archetypeArtifactId=maven-archetype-quickstart \
+        --define archetypeVersion=1.4
+    ```
+
+    ---
 
 1. 프로젝트를 생성하는 출력은 다음과 같습니다.
 
@@ -96,7 +112,7 @@ ms.locfileid: "90017050"
    cd blob-quickstart-v12
    ```
 
-1. *blob-quickstart-v12* 디렉터리에서 *data*라는 다른 디렉터리를 만듭니다. 여기에서 Blob 데이터 파일이 생성되고 저장됩니다.
+1. *blob-quickstart-v12* 디렉터리에서 *data* 라는 다른 디렉터리를 만듭니다. 여기에서 Blob 데이터 파일이 생성되고 저장됩니다.
 
     ```console
     mkdir data
@@ -159,9 +175,9 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 다음 Java 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [ 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다. 스토리지 계정은 Blob Service에 대한 최상위 네임스페이스를 제공합니다.
+* [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient): `BlobServiceClient` 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다. 스토리지 계정은 Blob Service에 대한 최상위 네임스페이스를 제공합니다.
 * [ 클래스는 ](/java/api/com.azure.storage.blob.blobserviceclientbuilder) 개체의 구성과 인스턴스화를 지원하기 위한 뛰어난 작성기 API를 제공합니다.
-* [ 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
+* [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient): `BlobContainerClient` 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
 * [ 클래스를 사용하여 Azure Storage blob을 조작할 수 있습니다.
 * [BlobItem](/java/api/com.azure.storage.blob.models.blobitem): `BlobItem` 클래스는 [listBlobs](/java/api/com.azure.storage.blob.blobcontainerclient.listblobs) 호출에서 반환된 개별 Blob을 나타냅니다.
 

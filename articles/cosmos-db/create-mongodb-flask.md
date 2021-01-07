@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 58f22a335f4c619a6348e9e127e60f5a79f658b2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3d066005ac18bf42f913885558bf6f0ee5fc50c4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099660"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349166"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Azure Cosmos DB의 MongoDB API를 사용하여 Python 앱 빌드
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -162,4 +162,4 @@ Azure에 배포할 때 애플리케이션 키를 제거하고 아래 섹션이 �
 이 빠른 시작에서는 Azure Cosmos DB for Mongo DB API 계정을 만들고 Azure Cosmos DB 에뮬레이터를 사용하여 GitHub에서 복제된 Python Flask To-Do 웹앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

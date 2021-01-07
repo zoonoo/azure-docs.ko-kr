@@ -1,18 +1,18 @@
 ---
-title: 사용자 지정 처리기 Azure Functions (미리 보기)
+title: Azure Functions 사용자 지정 처리기
 description: 모든 언어 또는 런타임 버전과 Azure Functions를 사용 하는 방법에 대해 알아봅니다.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164553"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936994"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>사용자 지정 처리기 Azure Functions (미리 보기)
+# <a name="azure-functions-custom-handlers"></a>Azure Functions 사용자 지정 처리기
 
 모든 함수 앱은 언어별 처리기를 통해 실행 됩니다. Azure Functions는 기본적으로 다양 한 [언어 처리기](./supported-languages.md) 를 지원 하지만 다른 언어나 런타임을 사용 하려는 경우가 있습니다.
 
@@ -20,10 +20,12 @@ ms.locfileid: "92164553"
 
 사용자 지정 처리기는 다음을 수행 하려는 경우에 가장 적합 합니다.
 
-- Go 및 Rust와 같이 현재 지원 되지 않는 언어로 함수 앱을 구현 합니다.
+- Go 또는 Rust와 같이 현재 지원 되지 않는 언어로 함수 앱을 구현 합니다.
 - Deno와 같이 현재 지원 되지 않는 런타임에 함수 앱을 구현 합니다.
 
 사용자 지정 처리기를 사용 하 여 [확장 번들](./functions-bindings-register.md)을 통해 [트리거와 입력 및 출력 바인딩을](./functions-triggers-bindings.md) 사용할 수 있습니다.
+
+[Go 및 Rust에서](create-first-function-vs-code-other.md)빠른 시작을 사용 하 여 Azure Functions 사용자 지정 처리기를 시작 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -36,7 +38,7 @@ ms.locfileid: "92164553"
 1. 웹 서버는 개별 함수를 실행 하 고 함수 호스트에 [응답 페이로드](#response-payload) 를 반환 합니다.
 1. 함수 호스트는 응답의 데이터를 처리를 위해 함수의 출력 바인딩에 전달 합니다.
 
-사용자 지정 처리기로 구현 된 Azure Functions 앱은 몇 가지 규칙에 따라 파일에 대 한 *host.js*on, *local.settings.js*및 *function.js* 를 구성 해야 합니다.
+사용자 지정 처리기로 구현 된 Azure Functions 앱은 몇 가지 규칙에 따라 파일에 대 한 *host.js* on, *local.settings.js* 및 *function.js* 를 구성 해야 합니다.
 
 ## <a name="application-structure"></a>애플리케이션 구조
 
@@ -44,10 +46,10 @@ ms.locfileid: "92164553"
 
 - 응용 프로그램의 루트에 있는 파일 *에 대 한host.js*
 - 응용 프로그램의 루트에 있는 파일 *에 대 한local.settings.js*
-- 각 함수에 대 한 파일 * 에function.js* (함수 이름과 일치 하는 폴더 내)
+- 각 함수에 대 한 파일 *에function.js* (함수 이름과 일치 하는 폴더 내)
 - 웹 서버를 실행 하는 명령, 스크립트 또는 실행 파일
 
-다음 다이어그램에서는 이러한 파일이 "MyQueueFunction" 함수 및 *handler.exe*이라는 사용자 지정 처리기 실행 파일의 파일 시스템에서 어떻게 표시 되는지 보여 줍니다.
+다음 다이어그램에서는 이러한 파일이 "MyQueueFunction" 함수 및 *handler.exe* 이라는 사용자 지정 처리기 실행 파일의 파일 시스템에서 어떻게 표시 되는지 보여 줍니다.
 
 ```bash
 | /MyQueueFunction
@@ -60,13 +62,13 @@ ms.locfileid: "92164553"
 
 ### <a name="configuration"></a>구성
 
-응용 프로그램은 *host.js* 를 통해 구성 되 고 파일 * 에local.settings.js* 됩니다.
+응용 프로그램은 *host.js* 를 통해 구성 되 고 파일 *에local.settings.js* 됩니다.
 
 #### <a name="hostjson"></a>host.json
 
 *host.js* 은 HTTP 이벤트를 처리할 수 있는 웹 서버를 가리켜 요청을 보낼 위치를 함수 호스트에 알려 줍니다.
 
-사용자 지정 처리기는 섹션을 통해 웹 서버를 실행 하는 방법에 대 한 세부 정보를 사용 하 여 파일 * 에host.js* 를 구성 하 여 정의 합니다 `customHandler` .
+사용자 지정 처리기는 섹션을 통해 웹 서버를 실행 하는 방법에 대 한 세부 정보를 사용 하 여 파일 *에host.js* 를 구성 하 여 정의 합니다 `customHandler` .
 
 ```json
 {
@@ -109,7 +111,7 @@ ms.locfileid: "92164553"
 
 *local.settings.js* 는 함수 앱을 로컬로 실행할 때 사용 되는 응용 프로그램 설정을 정의 합니다. 비밀을 포함할 수 있으므로 *local.settings.js* 는 소스 제어에서 제외 해야 합니다. Azure에서 응용 프로그램 설정을 대신 사용 합니다.
 
-사용자 지정 처리기의 경우 `FUNCTIONS_WORKER_RUNTIME` `Custom` *local.settings.json*에서을로 설정 합니다.
+사용자 지정 처리기의 경우 `FUNCTIONS_WORKER_RUNTIME` `Custom` *local.settings.json* 에서을로 설정 합니다.
 
 ```json
 {
@@ -125,9 +127,9 @@ ms.locfileid: "92164553"
 
 ### <a name="function-metadata"></a>함수 메타 데이터
 
-사용자 지정 처리기와 함께 사용 하는 경우 내용 * 에 대 한function.js* 다른 모든 컨텍스트에서 함수를 정의 하는 방법과 다르지 않습니다. 유일한 요구 사항은 파일 * 의function.js* 가 함수 이름과 일치 하도록 이름이 지정 된 폴더에 있어야 한다는 것입니다.
+사용자 지정 처리기와 함께 사용 하는 경우 내용 *에 대 한function.js* 다른 모든 컨텍스트에서 함수를 정의 하는 방법과 다르지 않습니다. 유일한 요구 사항은 파일 *의function.js* 가 함수 이름과 일치 하도록 이름이 지정 된 폴더에 있어야 한다는 것입니다.
 
-*에 대* 한 다음function.js는 큐 트리거 및 큐 출력 바인딩이 있는 함수를 구성 합니다. *Myqueuefunction*이라는 폴더에 있기 때문에 *myqueuefunction*이라는 함수를 정의 합니다.
+*에 대* 한 다음function.js는 큐 트리거 및 큐 출력 바인딩이 있는 함수를 구성 합니다. *Myqueuefunction* 이라는 폴더에 있기 때문에 *myqueuefunction* 이라는 함수를 정의 합니다.
 
 **MyQueueFunction/function.json**
 
@@ -189,9 +191,9 @@ ms.locfileid: "92164553"
 
 | <nobr>페이로드 키</nobr>   | 데이터 형식 | 설명                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | 개체    | function.js에서 배열에 정의 된 응답 값을 포함 `bindings` 합니다. *function.json*<br /><br />예를 들어 함수가 "myQueueOutput" 이라는 큐 출력 바인딩으로 구성 된 경우에는 `Outputs` `myQueueOutput` 사용자 지정 처리기에 의해 큐에 전송 되는 메시지에 설정 되는 라는 키가 포함 됩니다. |
+| `Outputs`     | 개체    | function.js에서 배열에 정의 된 응답 값을 포함 `bindings` 합니다. <br /><br />예를 들어 함수가 "myQueueOutput" 이라는 큐 출력 바인딩으로 구성 된 경우에는 `Outputs` `myQueueOutput` 사용자 지정 처리기에 의해 큐에 전송 되는 메시지에 설정 되는 라는 키가 포함 됩니다. |
 | `Logs`        | array     | 메시지는 함수 호출 로그에 표시 됩니다.<br /><br />Azure에서 실행 하는 경우 메시지가 Application Insights 표시 됩니다. |
-| `ReturnValue` | 문자열    | function.js파일에서로 출력을 구성할 때 응답을 제공 하는 데 사용 됩니다 `$return` . *function.json* |
+| `ReturnValue` | 문자열    | function.js파일에서로 출력을 구성할 때 응답을 제공 하는 데 사용 됩니다 `$return` .  |
 
 이는 응답 페이로드의 예입니다.
 
@@ -226,7 +228,7 @@ ms.locfileid: "92164553"
 
 #### <a name="implementation"></a>구현
 
-이름이 *order*인 폴더에서 파일 * 의function.js* 는 HTTP 트리거 함수를 구성 합니다.
+이름이 *order* 인 폴더에서 파일 *의function.js* 는 HTTP 트리거 함수를 구성 합니다.
 
 **주문/function.js**
 
@@ -257,7 +259,7 @@ ms.locfileid: "92164553"
 
 이 함수는 [http 응답](./functions-bindings-http-webhook-output.md) 을 반환 하 고 [큐 저장소](./functions-bindings-storage-queue-output.md) 메시지를 출력 하는 [http 트리거 함수로](./functions-bindings-http-webhook-trigger.md) 정의 됩니다.
 
-앱의 루트에서 파일 * 의host.js* 는 `handler.exe` ( `handler` Linux 또는 macos에서) 라는 실행 파일을 실행 하도록 구성 됩니다.
+앱의 루트에서 파일 *의host.js* 는 `handler.exe` ( `handler` Linux 또는 macos에서) 라는 실행 파일을 실행 하도록 구성 됩니다.
 
 ```json
 {
@@ -405,7 +407,7 @@ func main() {
 추가 바인딩이나 출력이 없는 HTTP 트리거 함수의 경우 처리기가 사용자 지정 처리기 [요청](#request-payload) 및 [응답](#response-payload) 페이로드 대신 http 요청 및 응답과 함께 직접 작동 하도록 할 수 있습니다. 이 동작은 설정을 사용 하 여 *host.js* 에서 구성할 수 있습니다 `enableForwardingHttpRequest` .
 
 > [!IMPORTANT]
-> 사용자 지정 처리기 기능의 주요 목적은 현재 Azure Functions에 대 한 최고 수준의 지원을 제공 하지 않는 언어와 런타임을 사용 하도록 설정 하는 것입니다. 사용자 지정 처리기를 사용 하 여 웹 응용 프로그램을 실행할 수는 있지만 Azure Functions 표준 역방향 프록시가 아닙니다. 응답 스트리밍, HTTP/2 및 Websocket과 같은 일부 기능은 사용할 수 없습니다. 특정 헤더 및 경로와 같은 HTTP 요청의 일부 구성 요소가 제한 될 수 있습니다. 응용 프로그램에 과도 한 [콜드 시작](functions-scale.md#cold-start)이 발생할 수도 있습니다.
+> 사용자 지정 처리기 기능의 주요 목적은 현재 Azure Functions에 대 한 최고 수준의 지원을 제공 하지 않는 언어와 런타임을 사용 하도록 설정 하는 것입니다. 사용자 지정 처리기를 사용 하 여 웹 응용 프로그램을 실행할 수는 있지만 Azure Functions 표준 역방향 프록시가 아닙니다. 응답 스트리밍, HTTP/2 및 Websocket과 같은 일부 기능은 사용할 수 없습니다. 특정 헤더 및 경로와 같은 HTTP 요청의 일부 구성 요소가 제한 될 수 있습니다. 응용 프로그램에 과도 한 [콜드 시작](event-driven-scaling.md#cold-start)이 발생할 수도 있습니다.
 >
 > 이러한 상황을 해결 하려면 [Azure App Service](../app-service/overview.md)에서 웹 앱을 실행 하는 것이 좋습니다.
 
@@ -415,7 +417,7 @@ func main() {
 
 #### <a name="implementation"></a>구현
 
-*Hello*라는 폴더에서 파일 *의function.js* 는 HTTP 트리거 함수를 구성 합니다.
+*Hello* 라는 폴더에서 파일 *의function.js* 는 HTTP 트리거 함수를 구성 합니다.
 
 **hello/function.json**
 
@@ -440,7 +442,7 @@ func main() {
 
 함수는 및 요청을 모두 허용 하도록 구성 되 `GET` `POST` 고, 결과 값은 라는 인수를 통해 제공 됩니다 `res` .
 
-앱의 루트에서 파일 * 의host.js* 은 실행 되도록 구성 되 `handler.exe` 고 `enableForwardingHttpRequest` 는로 설정 됩니다 `true` .
+앱의 루트에서 파일 *의host.js* 은 실행 되도록 구성 되 `handler.exe` 고 `enableForwardingHttpRequest` 는로 설정 됩니다 `true` .
 
 ```json
 {
@@ -544,7 +546,7 @@ func azure functionapp publish $functionAppName
 
 사용자 지정 처리기 프로세스가 시작 되지 않거나 함수 호스트와 통신 하는 데 문제가 있는 경우 함수 앱의 로그 수준을로 늘려 `Trace` 호스트에서 더 많은 진단 메시지를 볼 수 있습니다.
 
-함수 앱의 기본 로그 수준을 변경 하려면 `logLevel` `logging` * onhost.js*의 섹션에서 설정을 구성 합니다.
+함수 앱의 기본 로그 수준을 변경 하려면 `logLevel` `logging` *onhost.js* 의 섹션에서 설정을 구성 합니다.
 
 ```json
 {
@@ -570,7 +572,7 @@ Azure에서 [Application Insights 추적을 쿼리하여](analyze-telemetry-data
 
 ### <a name="test-custom-handler-in-isolation"></a>격리에서 사용자 지정 처리기 테스트
 
-사용자 지정 처리기 앱은 웹 서버 프로세스 이므로,이를 자체적으로 시작 하 고 함수 호출을 [테스트 하는](#request-payload) 것이 도움이 될 수 [있습니다.](https://www.postman.com/) [cURL](https://curl.haxx.se/)
+사용자 지정 처리기 앱은 웹 서버 프로세스 이므로,이를 자체적으로 시작 하 고 함수 호출을 [테스트 하는](#request-payload) 것이 도움이 될 수 [있습니다.](https://www.postman.com/) [](https://curl.haxx.se/)
 
 CI/CD 파이프라인에서이 전략을 사용 하 여 사용자 지정 처리기에서 자동화 된 테스트를 실행할 수도 있습니다.
 
@@ -583,3 +585,7 @@ CI/CD 파이프라인에서이 전략을 사용 하 여 사용자 지정 처리�
 사용자 지정 처리기를 사용 하는 함수 앱에 대 한 도움이 필요한 경우 정기 지원 채널을 통해 요청을 제출할 수 있습니다. 그러나 사용자 지정 처리기 앱을 빌드하는 데 사용 되는 다양 한 언어 때문에 지원이 제한 되지 않습니다.
 
 함수 호스트에서 사용자 지정 처리기 프로세스를 시작 하거나이 프로세스와 통신 하는 데 문제가 있는 경우에는 지원을 사용할 수 있습니다. 선택한 언어나 프레임 워크와 관련 된 문제 등 사용자 지정 처리기 프로세스의 내부 작업에 관련 된 문제의 경우 지원 팀은이 컨텍스트에서 지원을 제공할 수 없습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+[사용자 지정 처리기 퀵 스타트](create-first-function-vs-code-other.md)를 사용 하 여 Go 또는 Rust에서 Azure Functions 앱 빌드를 시작 하세요.

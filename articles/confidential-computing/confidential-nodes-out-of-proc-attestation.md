@@ -6,12 +6,12 @@ author: agowdamsft
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 90b74e51dce994c3041c15feec729ff1fae2bb00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998453"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564160"
 ---
 # <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>SGX quote 도우미 디먼 집합을 사용하는 플랫폼 소프트웨어 관리
 
@@ -57,7 +57,7 @@ Intel 플랫폼 업데이트 또는 DCAP 드라이버 업데이트 중에 enclav
 아래 docker 파일은 Open Enclave 기반 애플리케이션에 대한 샘플입니다. docker 파일 또는 배포 파일에서 SGX_AESM_ADDR=1 환경 변수를 설정합니다. docker 파일 및 배포 yaml 세부 정보는 아래 샘플을 따릅니다. 
 
   > [!Note] 
-  > out-of-proc 증명이 제대로 작동하려면 Intel의 **libsgx-quote-ex**를 애플리케이션 컨테이너에 패키지해야 합니다.
+  > out-of-proc 증명이 제대로 작동하려면 Intel의 **libsgx-quote-ex** 를 애플리케이션 컨테이너에 패키지해야 합니다.
     
 ```yaml
 # Refer to Intel_SGX_Installation_Guide_Linux for detail
@@ -126,10 +126,10 @@ spec:
 
 [빠른 시작 샘플 기밀 컨테이너](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2 SKU 목록](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+[DCsv2 SKU 목록](../virtual-machines/dcv2-series.md)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation]: ../attestation/index.yml
 
 
 <!-- LINKS - internal -->

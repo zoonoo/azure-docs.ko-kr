@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3988bbb46782f6dbc703823135f5bda4e2539bd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4b17fb5547c1522ec81369f2e362868a3f216a1
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262263"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652996"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법
 
@@ -282,7 +282,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>인코딩하는 동안 미리 보기 생성의 예
 
-위의 모든 예제는 이미지만을 생성하는 인코딩 작업을 전송하는 방법을 설명했지만 미리 보기 생성으로 동영상/오디오 인코딩을 결합할 수도 있습니다. 다음 JSON 및 XML 사전 설정은 **Media Encoder Standard**에서 인코딩하는 동안 미리 보기를 생성하도록 합니다.
+위의 모든 예제는 이미지만을 생성하는 인코딩 작업을 전송하는 방법을 설명했지만 미리 보기 생성으로 동영상/오디오 인코딩을 결합할 수도 있습니다. 다음 JSON 및 XML 사전 설정은 **Media Encoder Standard** 에서 인코딩하는 동안 미리 보기를 생성하도록 합니다.
 
 ### <a name="json-preset"></a><a id="json"></a>JSON 사전 설정
 스키마에 대한 자세한 내용은 [이 문서](./media-services-mes-schema.md)를 참조하세요.
@@ -352,7 +352,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 ### <a name="xml-preset"></a><a id="xml"></a>XML 사전 설정
 스키마에 대한 자세한 내용은 [이 문서](./media-services-mes-schema.md)를 참조하세요.
 
-```csharp
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>

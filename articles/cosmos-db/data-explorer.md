@@ -1,22 +1,22 @@
 ---
-title: Azure Cosmos DB 탐색기를 사용하여 데이터 관리
-description: Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 관리할 수 있는 독립 실행형 웹 기반 인터페이스입니다.
+title: Azure Cosmos DB 탐색기를 사용 하 여 데이터 관리
+description: Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장 된 데이터를 보고 관리할 수 있는 독립 실행형 웹 기반 인터페이스입니다.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: d5958ea947f6b786e9fbc6c44ab914ea895d6e08
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d4baa92fe4aa2ed402c394198684c4deec2bf9f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096804"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348605"
 ---
-# <a name="work-with-data-using-azure-cosmos-explorer"></a>Azure Cosmos 탐색기를 사용하여 데이터 작업 
+# <a name="work-with-data-using-azure-cosmos-db-explorer"></a>Azure Cosmos DB 탐색기를 사용 하 여 데이터 작업 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 관리할 수 있는 독립 실행형 웹 기반 인터페이스입니다. Azure Cosmos DB 탐색기는 Azure Cosmos DB 계정을 만들 때 Azure Portal에서 사용할 수 있는 기존 **데이터 탐색기** 탭과 동일합니다. 기존 데이터 탐색기에 비해 Azure Cosmos DB 탐색기의 주요 이점은 다음과 같습니다.
+Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장 된 데이터를 보고 관리할 수 있는 독립 실행형 웹 기반 인터페이스입니다. Azure Cosmos DB 탐색기는 Azure Cosmos DB 계정을 만들 때 Azure Portal에서 사용할 수 있는 기존 **데이터 탐색기** 탭과 동일 합니다. 기존 데이터 탐색기에서 Azure Cosmos DB 탐색기의 주요 장점은 다음과 같습니다.
 
 * 전체 화면에서 데이터를 보고, 쿼리, 저장 프로시저, 트리거를 실행하고, 해당 결과를 볼 수 있습니다.  
 
@@ -26,11 +26,11 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 
 ## <a name="access-azure-cosmos-db-explorer"></a>Azure Cosmos DB 탐색기 액세스
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인 합니다. 
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. 
 
 2. **모든 리소스** 에서 Azure Cosmos DB 계정을 찾아서 탐색한 다음, 키를 선택하고 **기본 연결 문자열** 을 복사합니다.  
 
-3. https://cosmos.azure.com/으로 이동하여 연결 문자열을 붙여넣고 **연결** 을 선택합니다. 연결 문자열을 사용하면 시간 제한 없이 Azure Cosmos DB 탐색기에 액세스할 수 있습니다.  
+3. https://cosmos.azure.com/으로 이동하여 연결 문자열을 붙여넣고 **연결** 을 선택합니다. 연결 문자열을 사용 하 여 시간 제한 없이 Azure Cosmos DB 탐색기에 액세스할 수 있습니다.  
 
    Azure Cosmos DB 계정에 대한 임시 액세스를 다른 사용자에게 제공하려는 경우, 읽기/쓰기 및 읽기 권한 URL을 사용하면 됩니다. 
 
@@ -50,10 +50,10 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 
 현재는 데이터 탐색기에서 UUID가 포함 된 문서 보기를 지원 하지 않습니다. 이러한 문서를 포함 하는 개별 문서 또는 쿼리를 보기만 하 여 컬렉션을 로드 하는 데에는 영향을 주지 않습니다. 이러한 문서를 보고 관리 하려면 사용자가 원래 이러한 문서를 만드는 데 사용 된 도구를 계속 사용 해야 합니다.
 
-HTTP-401 오류를 수신 하는 고객은 고객의 Azure 계정에 대 한 RBAC 권한이 부족 하기 때문일 수 있습니다. 특히 계정에 사용자 지정 RBAC 역할이 있는 경우이 문제가 발생할 수 있습니다. 사용자 지정 역할은 `Microsoft.DocumentDB/databaseAccounts/listKeys/*` Azure Active Directory 자격 증명을 사용 하 여 로그인 하는 경우 데이터 탐색기를 사용 하는 조치가 필요 합니다.
+HTTP-401 오류를 수신 하는 고객은 고객의 Azure 계정에 대 한 Azure RBAC 권한이 부족 하기 때문일 수 있습니다. 특히 계정에 사용자 지정 역할이 있는 경우에 한 합니다. 사용자 지정 역할은 `Microsoft.DocumentDB/databaseAccounts/listKeys/*` Azure Active Directory 자격 증명을 사용 하 여 로그인 하는 경우 데이터 탐색기를 사용 하는 조치가 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Cosmos DB 탐색기를 시작하여 데이터를 관리하는 방법을 배웠으므로 이제 다음 작업을 수행할 수 있습니다.
+이제 Azure Cosmos DB 탐색기를 시작 하 여 데이터를 관리 하는 방법을 배웠으므로 이제 다음을 수행할 수 있습니다.
 
 * SQL 구문을 사용하여 [쿼리](./sql-query-getting-started.md) 정의를 시작하고, 저장 프로시저, UDF, 트리거를 사용하여 [서버 쪽 프로그래밍](stored-procedures-triggers-udfs.md)을 수행합니다.

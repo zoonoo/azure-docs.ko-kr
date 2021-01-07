@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e32f50e02e45487830c5ea7ff476a0571960f6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385929"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954004"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 관리
 
@@ -48,12 +48,12 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 현재 Azure AD B2C 인
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal에서 **Azure AD B2C**를 검색하고 선택합니다.
-1. **앱 등록**을 선택한 다음, **새 등록**을 선택합니다.
-1. 애플리케이션의 **이름**을 입력합니다. 예를 들면 *managementapp1*입니다.
-1. **이 조직 디렉터리 에서만 계정을**선택 하십시오.
-1. **사용 권한**아래에서 *openid connect 및 offline_access 권한으로 관리자 동의 부여* 확인란의 선택을 취소 합니다.
-1. **등록**을 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
+1. **앱 등록** 을 선택한 다음, **새 등록** 을 선택합니다.
+1. 애플리케이션의 **이름** 을 입력합니다. 예를 들면 *managementapp1* 입니다.
+1. **이 조직 디렉터리 에서만 계정을** 선택 하십시오.
+1. **사용 권한** 아래에서 *openid connect 및 offline_access 권한으로 관리자 동의 부여* 확인란의 선택을 취소 합니다.
+1. **등록** 을 선택합니다.
 1. 응용 프로그램 개요 페이지에 표시 되는 **응용 프로그램 (클라이언트) ID** 를 기록 합니다. 이후 단계에서이 값을 사용 합니다.
 
 ### <a name="grant-api-access"></a>API 액세스 권한 부여
@@ -66,7 +66,7 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 현재 Azure AD B2C 인
 
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-이제 Azure AD B2C 테 넌 트에서 사용자를 *만들고*, *읽고*, *업데이트*하 고, *삭제할* 수 있는 권한을 가진 응용 프로그램이 있습니다. 다음 섹션을 계속 진행 하 여 *암호 업데이트* 권한을 추가 합니다.
+이제 Azure AD B2C 테 넌 트에서 사용자를 *만들고*, *읽고*, *업데이트* 하 고, *삭제할* 수 있는 권한을 가진 응용 프로그램이 있습니다. 다음 섹션을 계속 진행 하 여 *암호 업데이트* 권한을 추가 합니다.
 
 ## <a name="enable-user-delete-and-password-update"></a>사용자 삭제 및 암호 업데이트 사용
 
@@ -75,22 +75,22 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 현재 Azure AD B2C 인
 응용 프로그램 또는 스크립트가 사용자를 삭제 하거나 암호를 업데이트 해야 하는 경우 *사용자 관리자* 역할을 응용 프로그램에 할당 합니다.
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **디렉터리 + 구독** 필터를 사용 하 여 Azure AD B2C 테 넌 트로 전환 합니다.
-1. **Azure AD B2C**를 검색하고 선택합니다.
-1. **관리**에서 **역할 및 관리자**를 선택 합니다.
+1. **Azure AD B2C** 를 검색하고 선택합니다.
+1. **관리** 에서 **역할 및 관리자** 를 선택 합니다.
 1. **사용자 관리자** 역할을 선택 합니다.
-1. **할당 추가**를 선택 합니다.
+1. **할당 추가** 를 선택 합니다.
 1. **선택** 텍스트 상자에 이전에 등록 한 응용 프로그램의 이름 (예: *managementapp1*)을 입력 합니다. 검색 결과에 표시 되는 응용 프로그램을 선택 합니다.
-1. **추가**를 선택합니다. 권한이 완전히 전파 되는 데 몇 분 정도 걸릴 수 있습니다.
+1. **추가** 를 선택합니다. 권한이 완전히 전파 되는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 관리 응용 프로그램을 등록 하 고 필요한 권한을 부여 했으므로 응용 프로그램 및 서비스 (예: Azure Pipelines)에서 자격 증명 및 사용 권한을 사용 하 여 Microsoft Graph API와 상호 작용할 수 있습니다. 
 
-* [Azure AD에서 액세스 토큰 가져오기](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
-* [액세스 토큰을 사용 하 여 Microsoft Graph 호출](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Azure AD에서 액세스 토큰 가져오기](/graph/auth-v2-service#4-get-an-access-token)
+* [액세스 토큰을 사용 하 여 Microsoft Graph 호출](/graph/auth-v2-service#4-get-an-access-token)
 * [Microsoft Graph에서 지 원하는 B2C 작업](microsoft-graph-operations.md)
 * [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](manage-user-accounts-graph-api.md)
 * [Azure AD reporting API를 사용 하 여 감사 로그 가져오기](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
-[ms-graph]: https://docs.microsoft.com/graph/
+[ms-graph]: /graph/
 [ms-graph-api]: https://docs.microsoft.com/graph/api/overview

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: a24c0fdb244f87dbf281bcf59b5e1986a215142a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e01b56f88270348167ef1eef9d913e65074d9247
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275617"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327256"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하는 고가용성 글로벌 웹 애플리케이션을 위한 Front Door 만들기
 
@@ -44,7 +44,7 @@ az extension add --name front-door
 
 Azure에서 관련 리소스를 리소스 그룹에 할당합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다.
 
-이 빠른 시작에서는 두 개의 리소스 그룹이 필요합니다. *미국 중부*에서 하나이며 *미국 중남부*에서 두 번째입니다.
+이 빠른 시작에서는 두 개의 리소스 그룹이 필요합니다. *미국 중부* 에서 하나이며 *미국 중남부* 에서 두 번째입니다.
 
 [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true)를 사용하여 리소스 그룹을 만듭니다.
 
@@ -66,7 +66,7 @@ az group create \
 
 ### <a name="create-app-service-plans"></a>앱 서비스 계획 만들기
 
-웹앱을 만들기 전에 *미국 중부*에서 하나와 *미국 중남부*에서 하나씩 두 개의 앱 서비스 계획이 필요합니다.
+웹앱을 만들기 전에 *미국 중부* 에서 하나와 *미국 중남부* 에서 하나씩 두 개의 앱 서비스 계획이 필요합니다.
 
 [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true)를 사용하여 앱 서비스 계획을 만듭니다.
 
@@ -77,7 +77,7 @@ az appservice plan create \
 
 az appservice plan create \
 --name myAppServicePlanSouthCentralUS \
--resource-groupg myRGFDSouthCentral
+--resource-group myRGFDSouthCentral
 ```
 
 ### <a name="create-web-apps"></a>웹앱 만들기
@@ -118,7 +118,7 @@ az network front-door create \
 
 **--name:** Azure Front Door의 전역적으로 고유 이름을 지정합니다. 
 
-**--accepted-protocols:** 허용되는 값은 **http** 및 **https**입니다. 두 가지를 모두 사용하려는 경우 공백으로 구분합니다.
+**--accepted-protocols:** 허용되는 값은 **http** 및 **https** 입니다. 두 가지를 모두 사용하려는 경우 공백으로 구분합니다.
 
 **--backend-address:** 여기에서 두 웹앱 호스트 이름을 공백으로 구분하여 정의합니다.
 

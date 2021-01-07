@@ -3,14 +3,14 @@ title: Azure에서 업데이트 관리 배포의 사전 스크립트 및 사후 
 description: 이 문서에서는 업데이트 배포를 위한 사전 및 사후 스크립트를 구성하고 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 05/17/2019
+ms.date: 12/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb2a272829374cfeba5c334ff87268c4928885f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 4c37fe107d9256461e5aa632f859ae02c5dc42f5
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222493"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683416"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
@@ -96,13 +96,13 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
 
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>배포에 사전 스크립트 또는 사후 스크립트 사용
 
-업데이트 배포에 사전 스크립트 또는 사후 스크립트를 사용하려면 업데이트 배포부터 만들어야 합니다. **사전 스크립트 + 사후 스크립트**를 선택합니다. 그러면 **사전 스크립트 + 사후 스크립트 선택** 페이지가 열립니다.
+업데이트 배포에 사전 스크립트 또는 사후 스크립트를 사용하려면 업데이트 배포부터 만들어야 합니다. **사전 스크립트 + 사후 스크립트** 를 선택합니다. 그러면 **사전 스크립트 + 사후 스크립트 선택** 페이지가 열립니다.
 
 ![스크립트 선택](./media/pre-post-scripts/select-scripts.png)
 
-사용할 스크립트를 선택합니다. 이 예제에서는 **UpdateManagement-TurnOnVms** Runbook을 사용합니다. Runbook을 선택하면 **스크립트 구성** 페이지가 열립니다. **사전 스크립트**를 선택한 다음 **확인**을 선택합니다.
+사용할 스크립트를 선택합니다. 이 예제에서는 **UpdateManagement-TurnOnVms** Runbook을 사용합니다. Runbook을 선택하면 **스크립트 구성** 페이지가 열립니다. **사전 스크립트** 를 선택한 다음 **확인** 을 선택합니다.
 
-**UpdateManagement-TurnOffVms** 스크립트에 대해 이 프로세스를 반복합니다. 하지만 **스크립트 유형**을 선택할 때 **사후 스크립트**를 선택합니다.
+**UpdateManagement-TurnOffVms** 스크립트에 대해 이 프로세스를 반복합니다. 하지만 **스크립트 유형** 을 선택할 때 **사후 스크립트** 를 선택합니다.
 
 이제 **선택한 항목** 섹션에 선택한 스크립트가 모두 표시됩니다. 하나는 사전 스크립트이고 다른 하나는 사후 스크립트입니다.
 
@@ -110,7 +110,7 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
 
 업데이트 배포 구성을 마칩니다.
 
-업데이트 배포가 완료되면 **업데이트 배포**로 이동하여 결과를 볼 수 있습니다. 여기서 알 수 있듯이 사전 스크립트 및 사후 스크립트의 상태가 제공됩니다.
+업데이트 배포가 완료되면 **업데이트 배포** 로 이동하여 결과를 볼 수 있습니다. 여기서 알 수 있듯이 사전 스크립트 및 사후 스크립트의 상태가 제공됩니다.
 
 ![업데이트 결과](./media/pre-post-scripts/update-results.png)
 
@@ -146,7 +146,7 @@ foreach($summary in $finalStatus)
 * 실행 계정
 * 실행하려는 Runbook
 
-Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) cmdlet을 사용하여 Azure VM과 상호 작용해야 합니다. 이 작업을 수행하는 방법의 예는 Runbook 예제 [업데이트 관리 – 실행 명령을 사용하여 스크립트 실행](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)를 참조하세요.
+Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet을 사용하여 Azure VM과 상호 작용해야 합니다. 이 작업을 수행하는 방법의 예는 Runbook 예제 [업데이트 관리 – 실행 명령을 사용하여 스크립트 실행](https://github.com/azureautomation/update-management-run-script-with-run-command)를 참조하세요.
 
 ### <a name="interact-with-non-azure-machines"></a>비 Azure 머신과의 상호 작용
 
@@ -157,7 +157,7 @@ Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](/powershell/modul
 * 로컬에서 실행하려는 Runbook
 * 부모 Runbook
 
-비 Azure 머신과 상호 작용하기 위해 부모 Runbook이 Azure 컨텍스트에서 실행됩니다. 이 Runbook은 [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) cmdlet을 사용하여 자식 Runbook을 호출합니다. `RunOn` 매개 변수를 지정하고, 스크립트가 실행될 Hybrid Runbook Worker의 이름을 제공해야 합니다. Runbook 예제 [업데이트 관리 – 로컬에서 스크립트 실행](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)을 참조하세요.
+비 Azure 머신과 상호 작용하기 위해 부모 Runbook이 Azure 컨텍스트에서 실행됩니다. 이 Runbook은 [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet을 사용하여 자식 Runbook을 호출합니다. `RunOn` 매개 변수를 지정하고, 스크립트가 실행될 Hybrid Runbook Worker의 이름을 제공해야 합니다. Runbook 예제 [업데이트 관리 – 로컬에서 스크립트 실행](https://github.com/azureautomation/update-management-run-script-locally)을 참조하세요.
 
 ## <a name="abort-patch-deployment"></a>패치 배포 중단
 
@@ -173,7 +173,7 @@ if (<My custom error logic>)
 
 ## <a name="samples"></a>샘플
 
-사전 스크립트 및 사후 스크립트 샘플은 [스크립트 센터 갤러리](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) 및 [PowerShell 갤러리](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)에서 찾을 수 있습니다. 또는 Azure Portal을 통해 가져올 수 있습니다. 이렇게 하려면 Automation 계정의 **프로세스 자동화** 아래에서 **Runbook 갤러리**를 선택합니다. 필터에 대해 **업데이트 관리**를 사용합니다.
+사전 스크립트 및 사후 스크립트에 대 한 샘플은 [Azure Automation GitHub 조직](https://github.com/azureautomation) 및 [PowerShell 갤러리](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)에서 찾을 수 있습니다. 또는 Azure Portal를 통해 가져올 수 있습니다. 이렇게 하려면 Automation 계정의 **프로세스 자동화** 아래에서 **Runbook 갤러리** 를 선택합니다. 필터에 대해 **업데이트 관리** 를 사용합니다.
 
 ![갤러리 목록](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -186,7 +186,7 @@ if (<My custom error logic>)
 * 업데이트 관리 - 실행 명령을 사용하여 스크립트 실행
 
 > [!IMPORTANT]
-> 가져온 Runbook은 먼저 게시한 후에 사용해야 합니다. 이렇게 하려면 Automation 계정에서 Runbook을 찾고 **편집**을 선택한 다음 **게시**를 클릭합니다.
+> 가져온 Runbook은 먼저 게시한 후에 사용해야 합니다. 이렇게 하려면 Automation 계정에서 Runbook을 찾고 **편집** 을 선택한 다음 **게시** 를 클릭합니다.
 
 샘플은 모두 다음 예제에 정의된 기본 템플릿을 기반으로 합니다. 이 템플릿은 사전 스크립트 및 사후 스크립트에 사용할 사용자 고유의 Runbook을 만드는 데 사용할 수 있습니다. Azure로 인증하고 `SoftwareUpdateConfigurationRunContext` 매개 변수를 처리하는 데 필요한 논리가 포함되어 있습니다.
 
@@ -242,8 +242,8 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](../automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
+> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](../automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 업데이트 관리에 대 한 자세한 내용은 [vm에 대 한 업데이트 및 패치 관리](manage-updates-for-vm.md)를 참조 하세요.
+업데이트 관리에 대 한 자세한 내용은 [vm에 대 한 업데이트 및 패치 관리](manage-updates-for-vm.md)를 참조 하세요.

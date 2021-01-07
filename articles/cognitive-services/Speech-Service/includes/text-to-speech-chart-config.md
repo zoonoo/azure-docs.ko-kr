@@ -11,17 +11,17 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 22168974ab8b285413b4fa6e947c05f65a73ae12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80874353"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002290"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>텍스트 음성 변환 (하위 차트: 차트/textToSpeech)
 
 "파라솔" 차트를 재정의 하려면 매개 변수에 접두사를 추가 하 여 `textToSpeech.` 더 구체적으로 만듭니다. 예를 들어이 매개 변수는 재정의와 같이 해당 매개 변수를 재정의 `textToSpeech.numberOfConcurrentRequest` `numberOfConcurrentRequest` 합니다.
 
-|매개 변수|설명|기본값|
+|매개 변수|Description|기본값|
 | -- | -- | -- |
 | `enabled` | **텍스트 음성 변환** 서비스의 사용 여부를 지정 합니다. | `false` |
 | `numberOfConcurrentRequest` | **텍스트 음성 변환** 서비스에 대 한 동시 요청 수입니다. 이 차트는이 값에 따라 CPU 및 메모리 리소스를 자동으로 계산 합니다. | `2` |

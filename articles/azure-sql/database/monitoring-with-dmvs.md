@@ -8,16 +8,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: juliemsft
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: b76390efaed94003a792b04836d6850e6b7a7ead
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789559"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493645"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Microsoft Azure SQL Database 및 Azure SQL Managed Instance 성능 모니터링
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Microsoft Azure SQL Database 및 Azure SQL Managed Instance는 세 가지 범주
 
 동적 관리 뷰에 대 한 자세한 내용은 [동적 관리 뷰 및 함수 (transact-sql)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)를 참조 하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 Azure SQL Database에서 동적 관리 뷰를 쿼리하려면 **VIEW DATABASE STATE** 권한이 필요 합니다. **VIEW DATABASE STATE** 권한은 현재 데이터베이스 내의 모든 개체에 대한 정보를 반환합니다.
 특정 데이터베이스 사용자에게 **VIEW DATABASE STATE** 권한을 부여하려면 다음 쿼리를 실행합니다.

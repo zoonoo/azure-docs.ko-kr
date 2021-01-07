@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: d1e6f4e16e3eda8519913a9e2ae14f7cc909bf61
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445458"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630278"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인의 AML 기술
 
@@ -29,11 +29,11 @@ ms.locfileid: "94445458"
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [AML 작업 영역](../machine-learning/concept-workspace.md)
 * [배포 된 모델](../machine-learning/how-to-deploy-azure-kubernetes-service.md) 을 사용 하 여이 작업 영역의 [AZURE Kubernetes 서비스 AML 계산 대상](../machine-learning/concept-compute-target.md)
-  * [계산 대상에서 SSL을 사용 하도록 설정 해야](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga)합니다. Azure Cognitive Search는 **https** 끝점에 대 한 액세스만 허용 합니다.
+  * [계산 대상에서 SSL을 사용 하도록 설정 해야](../machine-learning/how-to-secure-web-service.md#deploy-on-azure-kubernetes-service)합니다. Azure Cognitive Search는 **https** 끝점에 대 한 액세스만 허용 합니다.
   * 자체 서명 된 인증서를 사용할 수 없습니다.
 
 ## <a name="odatatype"></a>@odata.type  

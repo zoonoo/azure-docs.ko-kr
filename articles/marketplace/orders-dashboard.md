@@ -5,23 +5,23 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 2682202b68deeeb1dbbe2493ecb9592acd1788b8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415092"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955028"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
 이 문서에서는 파트너 센터의 주문 대시보드에 대한 정보를 제공합니다. 이 대시보드에는 그래픽 및 다운로드 가능한 형식으로 제공 되는 증가 추세를 비롯 하 여 주문에 대 한 정보가 표시 됩니다.
 
-파트너 센터의 주문 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 주문 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 을 선택  >  **Orders** 합니다.
+파트너 센터의 주문 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 주문 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 을 선택  >  합니다.
 
 >[!NOTE]
-> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.
 
 ## <a name="orders-dashboard"></a>주문 대시보드
 
@@ -69,9 +69,9 @@ _활성_ 및 _취소_ 라는 두 개의 Orders 카운터가 있습니다.
 
 SaaS 제품은 각 계획에 대 한 두 가지 가격 책정 모델 중 하나를 사용할 수 있습니다. 즉, 플랫 요율 (사이트 기반) 또는 사용자 단위 (사용자 기반) 중 하나를 사용할 수 있습니다.
 
-- 고정 **률** : 단일 월별 또는 연간 정액 요금 가격으로 제품에 대 한 액세스를 허용 합니다. 이를 사이트 기반 가격 책정이라고도 합니다.
-- **사용자 단위** : 제품에 액세스할 수 있는 사용자 수에 따라 가격으로 제품에 대 한 액세스를 허용 합니다. 이 사용 빈도 기반 모델을 사용 하면 계획에서 지원 되는 사용자의 최소 및 최대 수를 설정할 수 있습니다. 여러 요금제를 만들어 사용자 수에 따라 다양 한 가격을 구성할 수 있습니다. 이러한 필드는 선택 사항입니다. 이를 선택 하지 않은 경우 사용자 수는 제한이 없는 것으로 해석 됩니다 (최소 1 개, 서비스에서 지원할 수 있는 최대 개수). 이러한 필드는 계획에 대 한 업데이트의 일부로 편집할 수 있습니다.
-- **요금제 요금제** : 정액 요금 가격 책정. 이 가격 책정 모델을 사용 하면 필요에 따라 marketplace 계량 서비스 API를 사용 하 여 고객에 게 정액 요금에 포함 되지 않은 사용량에 대 한 요금을 부과 하는 요금제 요금제를 정의할 수 있습니다.
+- 고정 **률**: 단일 월별 또는 연간 정액 요금 가격으로 제품에 대 한 액세스를 허용 합니다. 이를 사이트 기반 가격 책정이라고도 합니다.
+- **사용자 단위**: 제품에 액세스할 수 있는 사용자 수에 따라 가격으로 제품에 대 한 액세스를 허용 합니다. 이 사용 빈도 기반 모델을 사용 하면 계획에서 지원 되는 사용자의 최소 및 최대 수를 설정할 수 있습니다. 여러 요금제를 만들어 사용자 수에 따라 다양 한 가격을 구성할 수 있습니다. 이러한 필드는 선택 사항입니다. 이를 선택 하지 않은 경우 사용자 수는 제한이 없는 것으로 해석 됩니다 (최소 1 개, 서비스에서 지원할 수 있는 최대 개수). 이러한 필드는 계획에 대 한 업데이트의 일부로 편집할 수 있습니다.
+- **요금제 요금제**: 정액 요금 가격 책정. 이 가격 책정 모델을 사용 하면 필요에 따라 marketplace 계량 서비스 API를 사용 하 여 고객에 게 정액 요금에 포함 되지 않은 사용량에 대 한 요금을 부과 하는 요금제 요금제를 정의할 수 있습니다.
 
 사용자, 사이트 및 요금제 기반 요금 청구에 대 한 자세한 내용은 [상용 marketplace에 대 한 SaaS 제품을 계획 하는 방법](plan-saas-offer.md)을 참조 하세요.
 
@@ -94,7 +94,7 @@ SaaS 제품은 각 계획에 대 한 두 가지 가격 책정 모델 중 하나�
 
 [![주문 대시보드의 지리적 스프레드 차트를 보여 줍니다.](./media/orders-dashboard/geographical-spread.png)](./media/orders-dashboard/geographical-spread.png#lightbox)
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 지도를 이동하여 정확한 위치를 볼 수 있습니다.
 - 특정 위치를 확대할 수 있습니다.
@@ -109,14 +109,13 @@ SaaS 제품은 각 계획에 대 한 두 가지 가격 책정 모델 중 하나�
 - 데이터를로 추출할 수 있습니다. CSV 또는 레코드 수가 1000 보다 작은 경우 TSV 파일입니다.
 - 1000를 초과 하는 레코드를 기록 하는 경우 내보낸 데이터는 다음 30 일 동안 비동기적으로 다운로드 페이지에 배치 됩니다.
 - **주문 정보** 테이블에 필터를 적용 하 여 관심 있는 데이터만 표시 합니다. 국가/지역, Azure 라이선스 유형, 상업적 마켓플레이스 라이선스 유형, 제안 유형, 주문 상태, 무료 내역, 상업적 marketplace 구독 ID, 고객 ID 및 회사 이름으로 필터링 합니다.
-- SaaS는 Azure Marketplace 또는 Microsoft AppSource를 통해 구매한 경우 Azure 구독이 필요 하지 않으므로 마켓플레이스 구독 ID는 **자세한 주문 데이터** 섹션의 00000000-0000-0000-0000-000000000000 형식으로 표시 됩니다.
 - 보호 된 고객이 주문을 구매 하면 **자세한 데이터 주문** 정보가 마스킹 됩니다 (* * * * * * * * * * * *).
 
 **_표 1: 데이터 용어 _ 사전_*
 
 | 열 이름 | 특성 이름 | 정의 |
 | ------------ | ------------- | ------------- |
-| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. ID는 이전에 Azure 구독 GUID였습니다. |
+| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. 인프라 제품의 경우 고객의 Azure 구독 GUID입니다. Saas 제품의 경우 SaaS 구매에는 Azure 구독이 필요 하지 않으므로 0으로 표시 됩니다. |
 | MonthStartDate | 월 시작 날짜 | 월 시작 날짜는 구매 월을 나타냅니다. |
 | 제품 유형 | 제품 유형 | 상용 marketplace 제품의 유형입니다. |
 | Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널이라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>대리점을 통해 엔터프라이즈</li><li>종 량 제</li></ul> |
@@ -135,7 +134,7 @@ SaaS 제품은 각 계획에 대 한 두 가지 가격 책정 모델 중 하나�
 | 제품 이름 | 제품 이름 | 상용 marketplace 제품의 이름입니다. |
 | 평가판 종료 날짜 | 평가판 종료 날짜 | 이 주문의 평가 기간이 종료되었거나 종료될 예정인 날짜입니다. |
 | Customer Id | 고객 ID | 고객에게 할당된 고유 식별자입니다. 고객은 Azure Marketplace 구독이 0 개 이상 있을 수 있습니다. |
-| 청구 계정 Id | 청구 계정 ID | 청구를 생성 하는 계정의 식별자입니다. _ *청구 계정 ID* *를 **CustomerID** 에 매핑하여 지급 트랜잭션 보고서를 고객, 주문 및 사용 현황 보고서에 연결 합니다. |
+| 청구 계정 Id | 청구 계정 ID | 청구를 생성 하는 계정의 식별자입니다. _ *청구 계정 ID**를 **CustomerID** 에 매핑하여 지급 트랜잭션 보고서를 고객, 주문 및 사용 현황 보고서에 연결 합니다. |
 | AssetCount | 자산 수 | 주문 ID와 연결 된 자산 수입니다. |
 ||||
 
@@ -154,4 +153,4 @@ SaaS 제품은 각 계획에 대 한 두 가지 가격 책정 모델 중 하나�
 - VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 Marketplace 분석의 사용량 대시보드](./usage-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](./partner-center-portal/downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 AppSource의 제품에 대 한 고객 의견의 통합 보기를 보려면 [파트너 센터의 등급 & 리뷰 분석 대시보드](./partner-center-portal/ratings-reviews.md)를 참조 하세요.
-- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.

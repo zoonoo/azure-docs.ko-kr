@@ -3,13 +3,15 @@ title: Java 웹 앱에서 Azure 애플리케이션 Insights 원격 분석 필터
 description: 모니터링하지 않아도 되는 이벤트를 필터링하여 원격 분석 트래픽을 줄입니다.
 ms.topic: conceptual
 ms.date: 3/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 329f07a530a584a14d5312631ec977773e70af29
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.author: jgol
+ms.openlocfilehash: 1e37b38170fb32aa4f9bdb64318ac36767c4bf78
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378196"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653149"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 
@@ -201,32 +203,31 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 
     public class SuccessFilter implements TelemetryProcessor {
 
-       /* Any parameters that are required to support the filter.*/
-       private final String successful;
+        /* Any parameters that are required to support the filter.*/
+        private final String successful;
 
-       /* Initializers for the parameters, named "setParameterName" */
-       public void setNotNeeded(String successful)
-       {
-          this.successful = successful;
-       }
-
-       /* This method is called for each item of telemetry to be sent.
-          Return false to discard it.
-          Return true to allow other processors to inspect it. */
-       @Override
-       public boolean process(Telemetry telemetry) {
-        if (telemetry == null) { return true; }
-        if (telemetry instanceof RequestTelemetry)
+        /* Initializers for the parameters, named "setParameterName" */
+        public void setNotNeeded(String successful)
         {
-            RequestTelemetry requestTelemetry = (RequestTelemetry)telemetry;
-            return request.getSuccess() == successful;
+            this.successful = successful;
         }
-        return true;
-       }
+
+        /* This method is called for each item of telemetry to be sent.
+           Return false to discard it.
+           Return true to allow other processors to inspect it. */
+        @Override
+        public boolean process(Telemetry telemetry) {
+            if (telemetry == null) { return true; }
+            if (telemetry instanceof RequestTelemetry)
+            {
+                RequestTelemetry requestTelemetry = (RequestTelemetry)    telemetry;
+                return request.getSuccess() == successful;
+            }
+            return true;
+        }
     }
 
 ```
-
 
 ### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. 구성 파일에서 필터를 호출 합니다.
 

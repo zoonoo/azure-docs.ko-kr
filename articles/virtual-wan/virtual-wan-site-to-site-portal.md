@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a25ead5983e56f56ba0daea23c2775b3332fb8b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7ba0f1b6f37da923e389964b99a02295dc3d6050
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057912"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359530"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -41,13 +41,7 @@ ms.locfileid: "92057912"
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
-* 연결하려는 가상 네트워크가 있습니다. 온-프레미스 네트워크의 어떤 서브넷도 연결하려는 가상 네트워크 서브넷과 중첩되지 않는지 확인합니다. Azure Portal에서 가상 네트워크를 만들려면 [빠른 시작](../virtual-network/quick-create-portal.md)을 참조하세요.
-
-* 가상 네트워크에 가상 네트워크 게이트웨이가 없습니다. 가상 네트워크에 게이트웨이(VPN 또는 ExpressRoute)가 있으면 모든 게이트웨이를 제거해야 합니다. 이 구성을 사용하려면 가상 네트워크가 Virtual WAN 허브 게이트웨이에 연결되어야 합니다.
-
-* 허브 지역의 IP 주소 범위를 확보합니다. 허브는 Virtual WAN에서 만들고 사용하는 가상 네트워크입니다. 허브에 지정하는 주소 범위는 연결하는 기존 가상 네트워크와 겹칠 수 없습니다. 온-프레미스에 연결하는 주소 범위와도 겹칠 수 없습니다. 온-프레미스 네트워크 구성에 있는 IP 주소 범위를 잘 모른다면 세부 정보를 알고 있는 다른 사람의 도움을 받으세요.
-
-* Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
 
 ## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Virtual WAN 만들기
 
@@ -79,8 +73,8 @@ ms.locfileid: "92057912"
 
 VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구성합니다.
 
-1. 가상 WAN에 대한 페이지에서 **개요**를 클릭합니다.
-2. **허브 -> VPNSite** 페이지의 맨 위에서 **VPN 구성 다운로드**를 클릭합니다. Azure는 'microsoft-network-[location]' 리소스 그룹에 스토리지 계정을 만듭니다. 여기서 위치는 WAN의 위치입니다. VPN 디바이스에 구성을 적용한 후에는 이 스토리지 계정을 삭제할 수 있습니다.
+1. 가상 WAN에 대한 페이지에서 **개요** 를 클릭합니다.
+2. **허브 -> VPNSite** 페이지의 맨 위에서 **VPN 구성 다운로드** 를 클릭합니다. Azure는 'microsoft-network-[location]' 리소스 그룹에 스토리지 계정을 만듭니다. 여기서 위치는 WAN의 위치입니다. VPN 디바이스에 구성을 적용한 후에는 이 스토리지 계정을 삭제할 수 있습니다.
 3. 파일 만들기가 끝나면 링크를 클릭하여 다운로드할 수 있습니다.
 4. 온-프레미스 VPN 디바이스에 구성을 적용합니다.
 
@@ -229,7 +223,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 
 ## <a name="configure-your-vpn-gateway"></a><a name="gateway-config"></a>VPN 게이트웨이 구성
 
-언제든지 **보기/구성**을 선택하여 VPN 게이트웨이 설정을 보고 구성할 수 있습니다.
+언제든지 **보기/구성** 을 선택하여 VPN 게이트웨이 설정을 보고 구성할 수 있습니다.
 
 :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="'보기/구성' 작업을 가리키는 화살표가 있는 'VPN(사이트 간)' 페이지를 보여주는 스크린샷." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
@@ -240,7 +234,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 * VPN Gateway 기본 BGP IP 주소(Azure에서 할당)
 * 사용자 지정 BGP IP 주소에 대한 구성 옵션: 이 필드는 APIPA(자동 개인 IP 주소 지정)용으로 예약되어 있습니다. Azure는 169.254.21.* 및 169.254.22.* 범위에서 BGP IP를 지원합니다. Azure는 이러한 범위에서 BGP 연결을 허용하지만 기본 BGP IP를 사용하여 연결을 다이얼링합니다.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="'보기/구성' 작업을 가리키는 화살표가 있는 'VPN(사이트 간)' 페이지를 보여주는 스크린샷." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="구성 보기" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>리소스 정리
 

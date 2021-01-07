@@ -1,7 +1,7 @@
 ---
 title: 개발 하는 mobile apps의 Single Sign-On 및 앱 보호 정책 지원 | Microsoft
 titleSuffix: Microsoft identity platform
-description: Single Sign-On 및 앱 보호 정책을 지 원하는 모바일 응용 프로그램 빌드에 대 한 설명 및 개요
+description: Microsoft id 플랫폼을 사용 하 고 Azure Active Directory와 통합 하 여 Single Sign-On 및 앱 보호 정책을 지 원하는 모바일 응용 프로그램 빌드에 대 한 설명 및 개요입니다.
 services: active-directory
 author: knicholasa
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331609"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173467"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>개발 하는 mobile apps의 Single Sign-On 및 앱 보호 정책 지원
 
-SSO (Single sign-on)는 앱 사용자에 게 쉽고 안전한 로그인을 제공 합니다. 앱 보호 정책 (앱)을 사용 하면 사용자의 데이터를 안전 하 게 유지 하는 키 보안 정책을 지원할 수 있습니다. 이러한 기능을 함께 사용 하면 앱 데이터를 안전 하 게 사용자 로그인 및 관리할 수 있습니다.
+SSO (Single sign-on)는 Microsoft id 플랫폼 및 Azure Active Directory의 핵심 제품으로 앱 사용자에 게 쉽고 안전한 로그인을 제공 합니다. 또한 앱 보호 정책 (앱)을 사용 하면 사용자의 데이터를 안전 하 게 유지 하는 키 보안 정책을 지원할 수 있습니다. 이러한 기능을 함께 사용 하면 앱 데이터를 안전 하 게 사용자 로그인 및 관리할 수 있습니다.
 
 이 문서에서는 SSO와 앱이 중요 한 이유를 설명 하 고 이러한 기능을 지 원하는 모바일 응용 프로그램을 빌드하기 위한 개략적인 지침을 제공 합니다. 이는 휴대폰 및 태블릿 앱 모두에 적용 됩니다. 조직의 Azure Active Directory 테 넌 트에 SSO를 배포 하려는 IT 관리자 인 경우 [Single Sign-On 배포 계획에 대 한 지침](../manage-apps/plan-sso-deployment.md) 을 확인 하세요.
 
@@ -38,7 +38,7 @@ SSO (Single sign-on)는 앱 사용자에 게 쉽고 안전한 로그인을 제�
 
 ### <a name="use-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리) 사용
 
-응용 프로그램에서 Single Sign-On을 구현 하는 가장 좋은 방법은 [MSAL (Microsoft 인증 라이브러리)](msal-overview.md)을 사용 하는 것입니다. MSAL을 사용 하면 최소한의 코드 및 API 호출을 사용 하 여 앱에 인증을 추가 하 고 [microsoft id 플랫폼](/azure/active-directory/develop/)의 전체 기능을 활용할 수 있으며 microsoft에서 보안 인증 솔루션의 유지 관리를 처리할 수 있습니다. 기본적으로 MSAL은 응용 프로그램에 대 한 SSO 지원을 추가 합니다. 또한 앱 보호 정책을 구현 하려는 경우 MSAL을 사용 하는 것이 요구 사항입니다.
+응용 프로그램에서 Single Sign-On을 구현 하는 가장 좋은 방법은 [MSAL (Microsoft 인증 라이브러리)](msal-overview.md)을 사용 하는 것입니다. MSAL을 사용 하면 최소한의 코드 및 API 호출을 사용 하 여 앱에 인증을 추가 하 고 [microsoft id 플랫폼](./index.yml)의 전체 기능을 활용할 수 있으며 microsoft에서 보안 인증 솔루션의 유지 관리를 처리할 수 있습니다. 기본적으로 MSAL은 응용 프로그램에 대 한 SSO 지원을 추가 합니다. 또한 앱 보호 정책을 구현 하려는 경우 MSAL을 사용 하는 것이 요구 사항입니다.
 
 > [!NOTE]
 > MSAL을 구성 하 여 포함 된 웹 보기를 사용할 수 있습니다. 그러면 Single Sign-On 되지 않습니다. 기본 동작 (즉, 시스템 웹 브라우저)을 사용 하 여 SSO가 작동 하는지 확인 합니다.
@@ -64,7 +64,7 @@ Apple에는 iOS 응용 프로그램에서 [웹 서비스를 통해 사용자 인
 
 앱 보호 정책을 사용 하도록 설정 하려면 [MSAL (Microsoft 인증 라이브러리)](msal-overview.md)을 사용 합니다. MSAL은 Microsoft id 플랫폼의 인증 및 권한 부여 라이브러리 이며 Intune SDK는 함께 작동 하도록 개발 되었습니다.
 
-또한 인증을 위해 broker 앱을 사용 해야 합니다. Broker를 사용 하려면 앱이 앱을 준수 하도록 응용 프로그램 및 장치 정보를 제공 해야 합니다. iOS 사용자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-sign-in.md) 을 사용 하며, Android 사용자는 Microsoft Authenticator 앱 또는 [회사 포털 앱](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) 을 사용 하 여 조정 된 [인증](brokered-auth.md)을 받습니다. 기본적으로 MSAL은 인증 요청을 수행 하기 위한 첫 번째 옵션으로 broker를 사용 하므로, MSAL을 사용 하는 경우 broker를 사용 하 여 자동으로 앱에 대 한 인증을 사용할 수 있습니다.
+또한 인증을 위해 broker 앱을 사용 해야 합니다. Broker를 사용 하려면 앱이 앱을 준수 하도록 응용 프로그램 및 장치 정보를 제공 해야 합니다. iOS 사용자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-sign-in.md) 을 사용 하며, Android 사용자는 Microsoft Authenticator 앱 또는 [회사 포털 앱](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) 을 사용 하 여 조정 된 [인증](./msal-android-single-sign-on.md)을 받습니다. 기본적으로 MSAL은 인증 요청을 수행 하기 위한 첫 번째 옵션으로 broker를 사용 하므로, MSAL을 사용 하는 경우 broker를 사용 하 여 자동으로 앱에 대 한 인증을 사용할 수 있습니다.
 
 마지막으로 앱에 [INTUNE SDK를 추가](/mem/intune/developer/app-sdk-get-started) 하 여 앱 보호 정책을 사용 하도록 설정 합니다. 대부분의 파트에 대 한 SDK는 가로채기 모델을 따르며 앱 보호 정책을 자동으로 적용 하 여 앱에서 수행 하는 작업이 허용 되는지 여부를 확인 합니다. 특정 작업에 대 한 제한이 있는 경우 앱에 알리기 위해 수동으로 호출할 수 있는 Api도 있습니다.
 
@@ -73,8 +73,8 @@ Apple에는 iOS 응용 프로그램에서 [웹 서비스를 통해 사용자 인
 - [Azure Active Directory Single Sign-On 배포 계획](../manage-apps/plan-sso-deployment.md)
 - [방법: macOS 및 iOS에서 SSO 구성](single-sign-on-macos-ios.md)
 - [Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인 (미리 보기)](apple-sso-plugin.md)
-- [Android에서 조정 된 인증](brokered-auth.md)
-- [권한 부여 에이전트 및 사용 하도록 설정 하는 방법](authorization-agents.md)
+- [Android에서 조정 된 인증](./msal-android-single-sign-on.md)
+- [권한 부여 에이전트 및 사용 하도록 설정 하는 방법](./msal-android-single-sign-on.md)
 - [Microsoft Intune 앱 SDK 시작](/mem/intune/developer/app-sdk-get-started)
 - [Intune 앱 SDK에 대한 설정 구성](/mem/intune/developer/app-sdk-ios#configure-settings-for-the-intune-app-sdk)
 - [Microsoft Intune 보호 앱](/mem/intune/apps/apps-supported-intune-apps)

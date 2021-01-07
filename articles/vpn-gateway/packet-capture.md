@@ -5,14 +5,14 @@ services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: radwiv
-ms.openlocfilehash: 3be01f6d8e1fb1f6ba541f8d1cb0c92d2a43b0da
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073107"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733809"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>VPN gateway에 대 한 패킷 캡처 구성
 
@@ -31,6 +31,7 @@ ms.locfileid: "92073107"
 - 여러 게이트웨이 차원의 패킷 캡처를 동시에 실행할 수 없습니다.
 - 단일 연결에서 동시에 여러 패킷 캡처를 실행할 수 없습니다. 서로 다른 연결에서 여러 패킷 캡처를 동시에 실행할 수 있습니다.
 - 게이트웨이 당 최대 5 개의 패킷 캡처를 병렬로 실행할 수 있습니다. 이러한 패킷 캡처는 게이트웨이 차원의 패킷 캡처 및 연결당 패킷 캡처의 조합일 수 있습니다.
+- MaxPacketBufferSize의 단위는 바이트이 고 MaxFileSize는 mb입니다.
 
 ### <a name="example-json"></a>예제 JSON
 ```JSON-interactive
@@ -318,7 +319,7 @@ ms.locfileid: "92073107"
 
 ## <a name="set-up-packet-capture-by-using-powershell"></a>PowerShell을 사용 하 여 패킷 캡처 설정
 
-다음 예제에서는 패킷 캡처를 시작 및 중지 하는 PowerShell 명령을 보여 줍니다. 매개 변수 옵션에 대 한 자세한 내용은 [AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)를 참조 하세요.
+다음 예제에서는 패킷 캡처를 시작 및 중지 하는 PowerShell 명령을 보여 줍니다. 매개 변수 옵션에 대 한 자세한 내용은 [AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)를 참조 하세요.
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>VPN gateway에 대 한 패킷 캡처 시작
 
@@ -354,7 +355,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - 제안 된 최소 패킷 캡처 기간은 600 초입니다. 경로의 여러 구성 요소 간 동기화 문제로 인해 짧은 패킷 캡처가 전체 데이터를 제공 하지 않을 수 있습니다.
 - 패킷 캡처 데이터 파일은 PCAP 형식으로 생성 됩니다. Wireshark 또는 기타 일반적으로 사용할 수 있는 응용 프로그램을 사용 하 여 PCAP 파일을 엽니다.
 - 패킷 캡처는 정책 기반 게이트웨이에서 지원 되지 않습니다.
-- `SASurl`매개 변수가 올바르게 구성 되지 않은 경우 추적에 저장소 오류가 발생 했을 수 있습니다. 매개 변수를 올바르게 생성 하는 방법에 대 한 예제는 `SASurl` [AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture)를 참조 하세요.
+- `SASurl`매개 변수가 올바르게 구성 되지 않은 경우 추적에 저장소 오류가 발생 했을 수 있습니다. 매개 변수를 올바르게 생성 하는 방법에 대 한 예제는 `SASurl` [AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture)를 참조 하세요.
 
 
 

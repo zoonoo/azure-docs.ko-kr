@@ -7,24 +7,24 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: faa4df8633c34b23703a3fe9fa405bad959ec894
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b4381c4acbea8a3b7d86d9c32aaf9cea24cf15fa
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167205"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422657"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Java 함수를 Azure Storage에 연결
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-[이전의 빠른 시작 문서](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)에서 Azure Storage 큐를 사용하여 만든 함수를 통합하는 방법을 보여줍니다. 이 함수에 추가하는 출력 바인딩은 HTTP 요청의 데이터를 큐의 메시지에 씁니다.
+[이전의 빠른 시작 문서](./create-first-function-cli-java.md?tabs=bash,browser)에서 Azure Storage 큐를 사용하여 만든 함수를 통합하는 방법을 보여줍니다. 이 함수에 추가하는 출력 바인딩은 HTTP 요청의 데이터를 큐의 메시지에 씁니다.
 
 대부분의 바인딩은 Functions에서 바인딩된 서비스에 액세스할 때 사용할 저장된 연결 문자열이 필요합니다. 이 연결을 더 쉽게 만들려면 함수 앱에서 만든 Storage 계정을 사용합니다. 이 계정에 대한 연결은 이미 `AzureWebJobsStorage` 앱 설정에 저장되어 있습니다.  
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서를 시작하기에 앞서 [Java 빠른 시작의 1부](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser) 단계를 먼저 완료합니다.
+이 문서를 시작하기에 앞서 [Java 빠른 시작의 1부](./create-first-function-cli-java.md?tabs=bash,browser) 단계를 먼저 완료합니다.
 
 ## <a name="download-the-function-app-settings"></a>함수 앱 설정 다운로드
 

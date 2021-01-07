@@ -10,13 +10,13 @@ ms.author: jordane
 author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, devx-track-python, deploy
-ms.openlocfilehash: 6ac28e430681f35d9935cf0f484529074403bf54
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
+ms.openlocfilehash: 9e43291325510f92f2e5fd6c07cdb9257fdede9d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324970"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033071"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 ML 모델을 필드 프로그래밍 가능 게이트 배열 (FPGAs)에 배포 
 
@@ -31,9 +31,9 @@ FPGAs는 실시간 유추 (또는 모델 점수 매기기) 요청에 대해 짧�
 
 ![Azure Machine Learning FPGA 비교 다이어그램](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|프로세서| 약어 |설명|
+|프로세서| 약어 |Description|
 |---|:-------:|------|
-|애플리케이션 관련 집적 회로|ASIC|Google의 TPU(TensorFlow Processor Units) 같은 사용자 지정 회로는 가장 높은 효율성을 제공합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
+|애플리케이션 관련 집적 회로|ASIC|Google의 TPU (텐서 Processor Unit)와 같은 사용자 지정 회로는 최고 수준의 효율성을 제공 합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
 |Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|
 |그래픽 처리 장치|GPU|GPU는 AI 계산에 널리 사용되며, CPU보다 이미지 렌더링 속도가 빠른 병렬 처리 기능을 제공합니다.|
 |중앙 처리 장치|CPU|범용 프로세서이며, 성능이 그래픽 및 비디오 처리에 적합하지 않습니다.|
@@ -362,6 +362,8 @@ converted_model.delete()
 ## <a name="next-steps"></a>다음 단계
 
 + [웹 서비스](how-to-secure-web-service.md) 문서를 보호 하는 방법을 알아봅니다.
+
++ FPGA 및 [Azure Machine Learning 가격 책정 및 비용](https://azure.microsoft.com/pricing/details/machine-learning/)에 대해 알아보세요.
 
 + [하이퍼 크기 조정 하드웨어: Azure + FPGA의 맨 위에 있는 ML: 빌드 2018 (비디오)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 

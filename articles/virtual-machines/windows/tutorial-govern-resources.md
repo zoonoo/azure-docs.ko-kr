@@ -1,6 +1,6 @@
 ---
 title: 자습서 - PowerShell을 사용하여 가상 머신 관리
-description: 이 자습서에서는 Azure PowerShell을 사용하여 RBAC, 정책, 잠금 및 태그를 적용하여 Azure 가상 머신을 관리하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure PowerShell을 사용하여 Azure RBAC, 정책, 잠금 및 태그를 적용하여 Azure 가상 머신을 관리하는 방법을 알아봅니다.
 author: tfitzmac
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 723eaeb6eb8946473b31b447e817a0a3b696f1cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 393606eb4211131b2b530e3900746e5024321aa3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926572"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844253"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>자습서: Azure PowerShell을 사용한 Windows 가상 머신 관리에 대해 알아보기
 
@@ -23,7 +23,7 @@ ms.locfileid: "87926572"
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="understand-scope"></a>범위 이해
 
@@ -39,7 +39,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 현재 리소스 그룹이 비어 있습니다.
 
-## <a name="role-based-access-control"></a>역할 기반 액세스 제어
+## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
 조직의 사용자에게 이러한 리소스에 대한 적절한 수준의 액세스 권한이 있는지 확인하려고 합니다. 사용자에게 무제한 액세스 권한은 부여하지 않으면서 동시에 사용자가 작업을 수행할 수 있는지 확인해야 합니다. [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 범위에서 특정 작업을 완료할 수 있는 권한이 있는 사용자를 관리할 수 있습니다.
 
@@ -63,9 +63,9 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-**보안 주체 \<guid>가 디렉터리에 없다**는 오류 메시지가 표시된다면 새 그룹이 Azure Active Directory 전체에 전파되지 않은 것입니다. 명령을 다시 실행합니다.
+**보안 주체 \<guid>가 디렉터리에 없다** 는 오류 메시지가 표시된다면 새 그룹이 Azure Active Directory 전체에 전파되지 않은 것입니다. 명령을 다시 실행합니다.
 
-일반적으로 *네트워크 참가자*와 *Storage 계정 참가자*를 위한 프로세스를 반복해 배포된 리소스를 관리하도록 사용자가 할당됐는지 확인합니다. 이 문서에서는 이러한 단계를 건너뛸 수 있습니다.
+일반적으로 *네트워크 참가자* 와 *Storage 계정 참가자* 를 위한 프로세스를 반복해 배포된 리소스를 관리하도록 사용자가 할당됐는지 확인합니다. 이 문서에서는 이러한 단계를 건너뛸 수 있습니다.
 
 ## <a name="azure-policy"></a>Azure Policy
 
@@ -133,7 +133,7 @@ New-AzVm -ResourceGroupName "myResourceGroup" `
 
 ## <a name="lock-resources"></a>리소스 잠금
 
-[리소스 잠금](../../azure-resource-manager/management/lock-resources.md)은 조직의 사용자가 실수로 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다. 역할 기반 액세스 제어와 달리 리소스 잠금은 모든 사용자와 역할 전반에 제한을 적용합니다. 잠금 수준을 *CanNotDelete* 또는 *ReadOnly*로 설정할 수 있습니다.
+[리소스 잠금](../../azure-resource-manager/management/lock-resources.md)은 조직의 사용자가 실수로 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다. 역할 기반 액세스 제어와 달리 리소스 잠금은 모든 사용자와 역할 전반에 제한을 적용합니다. 잠금 수준을 *CanNotDelete* 또는 *ReadOnly* 로 설정할 수 있습니다.
 
 가상 머신 및 네트워크 보안 그룹을 잠그려면 [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) 명령을 사용합니다.
 

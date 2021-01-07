@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18c3b0397a0ad3e9e368d1a14e20a999ced5545b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0339e9f7688555b4d99c2d3255461b5675f642ff
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88690275"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649554"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 사용하는 경우 발생하는 "이 회사 애플리케이션에 액세스할 수 없습니다." 오류
 
@@ -64,13 +64,13 @@ Azure의 애플리케이션에 사용자가 할당되었는지 확인하려면 �
 
 ## <a name="check-the-applications-internal-url"></a>애플리케이션의 내부 URL 확인
 
-첫 번째 빠른 단계로, **엔터프라이즈 애플리케이션**을 통해 애플리케이션을 연 다음, **애플리케이션 프록시** 메뉴를 선택하여 내부 URL을 다시 확인하고 수정합니다. 내부 URL이 온-프레미스 네트워크에서 애플리케이션에 액세스하는 데 사용된 URL인지 확인합니다.
+첫 번째 빠른 단계로, **엔터프라이즈 애플리케이션** 을 통해 애플리케이션을 연 다음, **애플리케이션 프록시** 메뉴를 선택하여 내부 URL을 다시 확인하고 수정합니다. 내부 URL이 온-프레미스 네트워크에서 애플리케이션에 액세스하는 데 사용된 URL인지 확인합니다.
 
 ## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>애플리케이션이 작동하는 커넥터 그룹에 할당되었는지 확인합니다.
 
 애플리케이션이 작동하는 커넥터 그룹에 할당되었는지 확인하려면 다음을 수행합니다.
 
-1. **Azure Active Directory**로 이동하고 **엔터프라이즈 애플리케이션**을 클릭한 다음 **애플리케이션 프록시**를 클릭하여 포털에서 애플리케이션을 엽니다. 애플리케이션을 열고 왼쪽 메뉴에서 **애플리케이션 프록시**를 선택합니다.
+1. **Azure Active Directory** 로 이동하고 **엔터프라이즈 애플리케이션** 을 클릭한 다음 **애플리케이션 프록시** 를 클릭하여 포털에서 애플리케이션을 엽니다. 애플리케이션을 열고 왼쪽 메뉴에서 **애플리케이션 프록시** 를 선택합니다.
 1. 커넥터 그룹 필드를 확인합니다. 그룹에 활성 커넥터가 없는 경우 경고가 표시됩니다. 경고가 표시 되지 않으면 [필요한 모든 포트가](application-proxy-add-on-premises-application.md) 허용 되는지 확인 하기 위해 이동 합니다.
 1. 잘못된 커넥터 그룹이 표시되면 드롭다운을 사용하여 올바른 그룹을 선택하고 경고가 더 이상 표시되지 않는지 확인합니다. 원하는 커넥터 그룹이 표시되면 경고 메시지를 클릭하여 커넥터 관리가 있는 페이지를 엽니다.
 1. 여기에서부터는 자세히 다룰 몇 가지 방법이 있습니다.
@@ -87,7 +87,7 @@ Azure의 애플리케이션에 사용자가 할당되었는지 확인하려면 �
 
 ## <a name="check-for-other-connector-errors"></a>다른 커넥터 오류에 대한 확인
 
-이 문제를 해결하는 사항이 하는 경우 다음 단계에서는 커넥터를 사용하여 문제 또는 오류를 확인합니다. [문제 해결 문서](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors)에서 일반적인 오류를 확인할 수 있습니다.
+이 문제를 해결하는 사항이 하는 경우 다음 단계에서는 커넥터를 사용하여 문제 또는 오류를 확인합니다. [문제 해결 문서](./application-proxy-troubleshoot.md#connector-errors)에서 일반적인 오류를 확인할 수 있습니다.
 
 오류를 식별하기 위해 커넥터 로그를 직접 찾아볼 수도 있습니다. 대부분의 오류 메시지는 수정에 대한 특정 권장 사항을 공유합니다. 로그를 보려면 [커넥터 설명서](application-proxy-connectors.md#under-the-hood)를 참조하세요.
 
@@ -95,7 +95,7 @@ Azure의 애플리케이션에 사용자가 할당되었는지 확인하려면 �
 
 위의 방법으로 문제가 해결 되지 않으면 몇 가지 원인이 있을 수 있습니다. 이 문제를 식별하려면 다음을 수행합니다.
 
-애플리케이션이 IWA(통합 Windows 인증)를 사용하도록 구성된 경우 Single Sign-On 없이 애플리케이션을 테스트합니다. 그렇지 않으면 다음 단락으로 이동합니다. Single Sign-On 없이 애플리케이션을 확인하려면 **엔터프라이즈 애플리케이션**을 통해 애플리케이션을 열고 **Single Sign-On** 메뉴로 이동합니다. "Windows 통합 인증"에서 "Azure AD Single Sign-On 사용 안 함"으로 드롭다운을 변경 합니다.
+애플리케이션이 IWA(통합 Windows 인증)를 사용하도록 구성된 경우 Single Sign-On 없이 애플리케이션을 테스트합니다. 그렇지 않으면 다음 단락으로 이동합니다. Single Sign-On 없이 애플리케이션을 확인하려면 **엔터프라이즈 애플리케이션** 을 통해 애플리케이션을 열고 **Single Sign-On** 메뉴로 이동합니다. "Windows 통합 인증"에서 "Azure AD Single Sign-On 사용 안 함"으로 드롭다운을 변경 합니다.
 
 브라우저를 열고 애플리케이션에 다시 액세스를 시도합니다. 인증을 위한 메시지가 표시되고 애플리케이션을 가져와야 합니다. 인증할 수 있는 경우 Single Sign-On을 사용할 수 있게 하는 KCD(Kerberos 제한 위임) 구성에 문제가 있습니다. 자세한 내용은 KCD 문제 해결 페이지를 참조하세요.
 

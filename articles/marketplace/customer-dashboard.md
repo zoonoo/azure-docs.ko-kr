@@ -5,23 +5,23 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: shganesh-dev
-ms.author: shganesh
-ms.openlocfilehash: 08a889a0a26f90798f3ac8524cceb6ca83d4955a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415251"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954280"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>상용 marketplace 분석의 고객 대시보드
 
 이 문서에서는 파트너 센터의 고객 대시보드에 대 한 정보를 제공 합니다. 이 대시보드에서 그래픽 및 다운로드 가능한 형식으로 제공되는 증가 추세를 비롯한 고객 정보를 볼 수 있습니다.
 
-파트너 센터의 고객 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 고객 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 을 선택  >  **Customers** 합니다.
+파트너 센터의 고객 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 고객 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 을 선택  >  합니다.
 
 >[!NOTE]
-> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.
 
 ## <a name="customers-dashboard"></a>고객 대시보드
 
@@ -82,7 +82,7 @@ _고객 유형_ 에는 신규, 기존 및 변동 세 가지가 있습니다.
 
 :::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="고객 페이지의 주문 및 사용 현황 위젯의 고객의 주문 탭을 보여 줍니다.":::
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 리더 보드는 주문 수로 순위가 매겨진 고객의 세부 정보를 표시 합니다. 고객을 선택한 후에는 인접 한 "세부 정보", "Sku 별 주문" 및 "좌석 별 Sku" 섹션에 고객 세부 정보가 표시 됩니다.
 - 게시자가 소유자 역할을 사용 하 여 로그인 할 때 고객 프로필 세부 정보는이 공간에 표시 됩니다. 게시자가 참가자 역할을 사용 하 여 로그인 한 경우에는이 섹션의 세부 정보를 사용할 수 없습니다.
@@ -119,7 +119,7 @@ _고객 유형_ 에는 신규, 기존 및 변동 세 가지가 있습니다.
 
 [![고객 페이지에서 지리 위젯의 주문 탭을 보여 줍니다.](./media/customer-dashboard/customers-by-geography.png)](./media/customer-dashboard/customers-by-geography.png#lightbox)
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 지도를 이동하여 정확한 위치를 볼 수 있습니다.
 - 특정 위치를 확대할 수 있습니다.
@@ -130,7 +130,7 @@ _고객 유형_ 에는 신규, 기존 및 변동 세 가지가 있습니다.
 
 **고객 세부 정보** 테이블에는 제품 중 하나를 처음 획득 한 날짜를 기준으로 정렬 된 상위 1000 고객의 번호가 매겨진 목록이 표시 됩니다. 세부 정보 리본에서 확장 아이콘을 선택 하 여 섹션을 확장할 수 있습니다.
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 고객의 개인 정보는 고객이 동의한 경우에만 사용할 수 있습니다. 소유자 역할 수준의 사용 권한으로 로그인 한 경우에만이 정보를 볼 수 있습니다.
 - 그리드의 각 열을 정렬할 수 있습니다.
@@ -144,14 +144,14 @@ _**표 1: 데이터 용어 사전**_
 
 | 열 이름 | 특성 이름 | 정의 |
 | ------------ | ------------- | ------------- |
-| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. ID는 이전에 Azure 구독 GUID였습니다. |
+| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. 인프라 제품의 경우 고객의 Azure 구독 GUID입니다. Saas 제품의 경우 SaaS 구매에는 Azure 구독이 필요 하지 않으므로 0으로 표시 됩니다. |
 | 가져온 날짜 | 취득일 | 사용자가 게시 한 제품을 처음 구입한 날짜입니다. |
 | DateLost | 취소일 | 고객이 이전에 구매한 모든 제품의 마지막 날짜를 취소 한 마지막 날짜입니다. |
 | Provider Name | Provider Name | Microsoft와 고객 간의 관계와 관련 된 공급자의 이름입니다. 고객이 재판매인을 통한 Enterprise인 경우 재판매인이 됩니다. CSP(클라우드 솔루션 공급자)가 관련된 경우 이는 CSP가 됩니다. |
 | 공급자 이메일 | 공급자 이메일 | Microsoft와 고객 간의 관계와 관련 된 공급자의 전자 메일 주소입니다. 고객이 재판매인을 통한 Enterprise인 경우 재판매인이 됩니다. CSP(클라우드 솔루션 공급자)가 관련된 경우 이는 CSP가 됩니다. |
 | FirstName | 고객 이름 | 고객이 제공한 이름입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다. |
 | LastName | 고객 성 | 고객이 제공한 성입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다. |
-| 메일 | 고객 이메일 | 최종 고객이 입력한 이메일 주소입니다. 전자 메일은 고객의 Azure 구독에 있는 전자 메일 주소와 다를 수 있습니다. |
+| Email | 고객 이메일 | 최종 고객이 입력한 이메일 주소입니다. 전자 메일은 고객의 Azure 구독에 있는 전자 메일 주소와 다를 수 있습니다. |
 | 고객 회사 이름 | 고객 회사 이름 | 고객이 입력한 회사 이름입니다. 이름은 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. |
 | CustomerCity | 고객 구/군/시 | 고객이 입력한 구/군/시 이름입니다. 도시는 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. |
 | 고객 우편 번호 | 고객 우편 번호 | 고객이 입력한 우편 번호입니다. 코드는 고객의 Azure 구독에서 제공 되는 우편 번호와 다를 수 있습니다. |
@@ -180,4 +180,4 @@ _**표 1: 데이터 용어 사전**_
 - VM (가상 컴퓨터)은 사용량 및 요금제 청구 메트릭을 제공 합니다. [상용 marketplace 분석의 사용량 대시보드](./usage-dashboard.md)를 참조 하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](./partner-center-portal/downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 Microsoft AppSource에서 제공 하는 제품에 대 한 고객 피드백의 통합 보기를 보려면 [파트너 센터에서 등급 & 리뷰 분석 대시보드](./partner-center-portal/ratings-reviews.md)를 참조 하세요.
-- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.

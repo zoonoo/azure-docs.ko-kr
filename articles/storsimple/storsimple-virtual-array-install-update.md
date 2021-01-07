@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0e661cb3c3bafa92a060b0fdfd899aa152b46a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3bd6f298ad2bb01503492b52c2d50dec82ec0ca5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977462"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534052"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>StorSimple 가상 배열에 업데이트 설치 - Azure Portal
 
@@ -53,17 +53,17 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치** 를 클릭합니다.
 
-3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호를 입력합니다. 업데이트 0.3의 경우 **3182061**을 입력하고 **검색**을 클릭합니다.
+3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호를 입력합니다. 업데이트 0.3의 경우 **3182061** 을 입력하고 **검색** 을 클릭합니다.
    
-    핫픽스 목록(예: **StorSimple 가상 배열 업데이트 0.3**)이 나타납니다.
+    핫픽스 목록(예: **StorSimple 가상 배열 업데이트 0.3** )이 나타납니다.
    
     ![카탈로그 검색](./media/storsimple-virtual-array-install-update/download1.png)
 
-4. **추가**를 클릭합니다. 업데이트는 장바구니에 추가됩니다.
+4. **추가** 를 클릭합니다. 업데이트는 장바구니에 추가됩니다.
 
-5. **바구니 보기**를 클릭 합니다.
+5. **바구니 보기** 를 클릭 합니다.
 
-6. **다운로드**를 클릭합니다. 다운로드를 표시할 로컬 위치를 지정하거나 **검색** 합니다. 업데이트를 지정된 위치에 다운로드하고 업데이트와 같은 이름의 하위 폴더에 배치합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
+6. **다운로드** 를 클릭합니다. 다운로드를 표시할 로컬 위치를 지정하거나 **검색** 합니다. 업데이트를 지정된 위치에 다운로드하고 업데이트와 같은 이름의 하위 폴더에 배치합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 
 7. 복사된 폴더를 열면 Microsoft 업데이트 독립 실행형 패키지 파일 `WindowsTH-KB3011067-x64`가 표시됩니다. 이 파일은 업데이트 또는 핫픽스를 설치하는 데 사용됩니다.
 
@@ -75,28 +75,28 @@ GA 또는 업데이트 0.1 소프트웨어 버전을 실행하는 디바이스�
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 설치하려면
 
-1. 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트**로 이동 합니다.
+1. 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트** 로 이동 합니다.
    
-    ![장치 업데이트 1](./media/storsimple-virtual-array-install-update/update1m.png)
+    ![[유지 관리] 메뉴에서 선택한 소프트웨어 업데이트를 보여 주는 스크린샷](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. **업데이트 파일 경로**에 업데이트 또는 핫픽스의 파일 이름을 입력합니다. 네트워크 공유에 있는 경우 업데이트 또는 핫픽스 설치 파일로 이동할 수 있습니다. **적용**을 클릭합니다.
+2. **업데이트 파일 경로** 에 업데이트 또는 핫픽스의 파일 이름을 입력합니다. 네트워크 공유에 있는 경우 업데이트 또는 핫픽스 설치 파일로 이동할 수 있습니다. **적용** 을 클릭합니다.
    
-    ![장치 업데이트 2](./media/storsimple-virtual-array-install-update/update2m.png)
+    ![스크린샷 소프트웨어 업데이트 페이지의 업데이트 파일 경로 텍스트 상자를 표시 합니다.](./media/storsimple-virtual-array-install-update/update2m.png)
 
 3. 경고가 표시됩니다. 단일 노드 디바이스인 경우 업데이트가 적용된 후 디바이스를 다시 시작하고 가동 중지 시간이 발생합니다. 확인 아이콘을 클릭합니다.
    
-   ![장치 업데이트 3](./media/storsimple-virtual-array-install-update/update3m.png)
+   ![스크린샷에는 가동 중지 시간에 대 한 대화 상자 경고가 표시 됩니다.](./media/storsimple-virtual-array-install-update/update3m.png)
 
 4. 업데이트가 시작됩니다. 디바이스가 성공적으로 업데이트된 후 다시 시작됩니다. 이 시간 동안 로컬 UI에 액세스할 수 없습니다.
    
-    ![업데이트 장치 4](./media/storsimple-virtual-array-install-update/update5m.png)
+    ![스크린샷 업데이트에 대 한 성공 메시지를 표시 합니다.](./media/storsimple-virtual-array-install-update/update5m.png)
 
-5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트**로 이동 합니다. 표시된 소프트웨어 버전은 업데이트 0.3의 경우 **10.0.0.0.0.10288.0** 입니다.
+5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트** 로 이동 합니다. 표시된 소프트웨어 버전은 업데이트 0.3의 경우 **10.0.0.0.0.10288.0** 입니다.
    
    > [!NOTE]
-   > 로컬 웹 UI 및 Azure Portal에서 약간 다른 방법으로 소프트웨어 버전을 보고합니다. 예를 들어 같은 버전에 대해 로컬 웹 UI는 **10.0.0.0.0.10288**, Azure Portal은 **10.0.10288.0**을 보고합니다.
+   > 로컬 웹 UI 및 Azure Portal에서 약간 다른 방법으로 소프트웨어 버전을 보고합니다. 예를 들어 같은 버전에 대해 로컬 웹 UI는 **10.0.0.0.0.10288** , Azure Portal은 **10.0.10288.0** 을 보고합니다.
    
-    ![업데이트 장치 5](./media/storsimple-virtual-array-install-update/update6m.png)
+    ![스크린샷 현재 소프트웨어 버전을 포함 하는 소프트웨어 업데이트 페이지를 표시 합니다.](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
@@ -104,7 +104,7 @@ GA 또는 업데이트 0.1 소프트웨어 버전을 실행하는 디바이스�
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal.md)]
 
-설치가 완료된 후(작업 상태 100%로 표시) StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스**를 선택한 다음, 서비스에 연결된 디바이스 목록에서 업데이트하려는 디바이스를 선택하고 클릭합니다. **설정** 블레이드에서 **관리** 섹션으로 이동하여 **디바이스 업데이트**를 선택합니다. 표시 된 소프트웨어 버전은 **10.0.10288.0**여야 합니다.
+설치가 완료된 후(작업 상태 100%로 표시) StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스** 를 선택한 다음, 서비스에 연결된 디바이스 목록에서 업데이트하려는 디바이스를 선택하고 클릭합니다. **설정** 블레이드에서 **관리** 섹션으로 이동하여 **디바이스 업데이트** 를 선택합니다. 표시 된 소프트웨어 버전은 **10.0.10288.0** 여야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

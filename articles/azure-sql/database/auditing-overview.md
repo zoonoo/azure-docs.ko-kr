@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8cf0652148ad54eeacdec874823ea680f39f670c
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b09eb03994098f8cb68033f3c42309a77e15f91c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372730"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620994"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,10 +61,22 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
    > [!NOTE]
    > 다음과 같은 경우를 제외 하 고 서버 감사와 데이터베이스 blob 감사를 함께 사용 하지 않아야 합니다.
     >
-    > - 특정 데이터베이스에 대해 다른 *저장소 계정* , *보존 기간* 또는 *Log Analytics 작업 영역* 을 사용 하려고 합니다.
+    > - 특정 데이터베이스에 대해 다른 *저장소 계정*, *보존 기간* 또는 *Log Analytics 작업 영역* 을 사용 하려고 합니다.
     > - 서버의 나머지 데이터베이스와는 다른 특정 데이터베이스에 대해 이벤트 형식이나 범주를 감사하려 합니다. 예를 들어 특정 데이터베이스에 대해서만 감사해야 하는 테이블 삽입이 있을 수 있습니다.
    >
    > 그렇지 않으면 서버 수준 감사만 사용 하도록 설정 하 고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 사용 하지 않도록 설정 하는 것이 좋습니다.
+
+#### <a name="remarks"></a>설명
+
+- 감사 로그는 Azure 구독의 Azure Blob storage에 있는 **추가 blob** 에 기록 됩니다.
+- 감사 로그는 xel 형식 이므로 [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용 하 여 열 수 있습니다.
+- 서버 또는 데이터베이스 수준 감사 이벤트에 대 한 변경할 수 없는 로그 저장소를 구성 하려면 [Azure Storage에서 제공](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes)하는 지침을 따르세요. 변경할 수 없는 blob storage를 구성할 때 **추가 추가 허용** 을 선택 했는지 확인 합니다.
+- VNet 또는 방화벽 뒤에 Azure Storage 계정에 감사 로그를 쓸 수 있습니다. 특정 지침은 [VNet 및 방화벽 뒤에 있는 저장소 계정에 감사 작성](audit-write-storage-account-behind-vnet-firewall.md)을 참조 하세요.
+- 로그 형식, 스토리지 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](./audit-log-format.md)를 참조하세요.
+- 읽기 전용 [복제본](read-scale-out.md) 에 대 한 감사는 자동으로 설정 됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대 한 자세한 내용은 [SQL Database 감사 로그 형식](audit-log-format.md)을 참조 하세요.
+- Azure AD 인증 사용 하는 경우 실패 한 로그인 레코드가 SQL 감사 로그에 표시 *되지* 않습니다. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
+- 로그인은 게이트웨이가 데이터베이스가 있는 특정 인스턴스로 라우팅됩니다.  AAD 로그인의 경우 자격 증명이 확인 된 후 해당 사용자를 사용 하 여 요청 된 데이터베이스에 로그인을 시도 합니다.  오류가 발생 하는 경우 요청 된 데이터베이스는 액세스 되지 않으므로 감사가 수행 되지 않습니다.  SQL 로그인의 경우 요청 된 데이터에 대 한 자격 증명이 확인 되므로이 경우 감사를 수행할 수 있습니다.  데이터베이스에 연결 된 성공적인 로그인은 두 경우 모두 감사 됩니다.
+- 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](threat-detection-overview.md)을 참조하세요.
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>서버에 대한 감사 설정
 
@@ -82,7 +94,7 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
   > [!NOTE]
   > 일시 중지 된 전용 SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 전용 SQL 풀을 일시 중지 합니다. [전용 SQL 풀](../..//synapse-analytics/sql/best-practices-sql-pool.md)에 대해 자세히 알아보세요.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. **Sql database** 또는 **Sql server** 창의 보안 제목에서 **감사** 로 이동 합니다.
 3. 서버 감사 정책을 설정하는 것을 선호하면 데이터베이스 감사 페이지에서 **서버 설정 보기** 링크를 선택할 수 있습니다. 그런 다음 서버 감사 설정을 보거나 수정할 수 있습니다. 서버 감사 정책은이 서버의 모든 기존 및 새로 만든 데이터베이스에 적용 됩니다.
 
@@ -120,17 +132,6 @@ AzureDiagnostics
   - 보존 기간을 0(무제한 보존)에서 다른 값으로 변경하는 경우 보존 값이 변경된 후에 작성된 로그에만 보존이 적용됩니다(보존이 무제한으로 설정된 기간 동안 작성된 로그는 보존이 활성화된 후에도 보존됨).
 
   ![스토리지 계정 만들기](./media/auditing-overview/auditing_select_storage.png)
-
-#### <a name="remarks"></a>설명
-
-- 감사 로그는 Azure 구독의 Azure Blob storage에 있는 **추가 blob** 에 기록 됩니다.
-- 감사 로그는 xel 형식 이므로 [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용 하 여 열 수 있습니다.
-- 서버 또는 데이터베이스 수준 감사 이벤트에 대 한 변경할 수 없는 로그 저장소를 구성 하려면 [Azure Storage에서 제공](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes)하는 지침을 따르세요. 변경할 수 없는 blob storage를 구성할 때 **추가 추가 허용** 을 선택 했는지 확인 합니다.
-- VNet 또는 방화벽 뒤에 Azure Storage 계정에 감사 로그를 쓸 수 있습니다. 특정 지침은 [VNet 및 방화벽 뒤에 있는 저장소 계정에 감사 작성](audit-write-storage-account-behind-vnet-firewall.md)을 참조 하세요.
-- 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](threat-detection-overview.md)을 참조하세요.
-- 로그 형식, 스토리지 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](./audit-log-format.md)를 참조하세요.
-- Azure AD 인증 사용 하는 경우 실패 한 로그인 레코드가 SQL 감사 로그에 표시 *되지* 않습니다. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
-- 읽기 전용 [복제본](read-scale-out.md) 에 대 한 감사는 자동으로 설정 됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대 한 자세한 내용은 [SQL Database 감사 로그 형식](audit-log-format.md)을 참조 하세요.
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Log Analytics 대상 감사
   
@@ -192,7 +193,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
        ![감사 레코드를 표시 하는 옵션을 보여 주는 스크린샷]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
-- 시스템 함수 **sys.fn_get_audit_file** (T-SQL)을 사용하여 테이블 형식의 감사 로그 데이터를 반환할 수 있습니다. 이 함수 사용에 대한 자세한 내용은 [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)을 참조하세요.
+- 시스템 함수 **sys.fn_get_audit_file**(T-SQL)을 사용하여 테이블 형식의 감사 로그 데이터를 반환할 수 있습니다. 이 함수 사용에 대한 자세한 내용은 [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)을 참조하세요.
 
 - SQL Server Management Studio에서 **감사 파일 병합** 사용(SSMS 17부터 지원):
     1. SSMS 메뉴에서 **파일**  >  **Open**  >  **병합 감사 파일** 열기를 선택 합니다.
@@ -221,7 +222,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 지역 복제 데이터베이스에서 주 데이터베이스에 대해 감사를 활성화하면 보조 데이터베이스에도 동일한 감사 정책이 적용됩니다. 또한 주 데이터베이스와는 별도로 **보조 서버** 에서 감사를 활성화하여 보조 데이터베이스에 대한 감사를 설정할 수도 있습니다.
 
-- 서버 수준( **권장** ): **주 서버** 및 **보조 서버** 둘 다에서 감사를 켭니다. 주 데이터베이스 및 보조 데이터베이스가 해당하는 서버 수준 정책에 따라 독립적으로 감사됩니다.
+- 서버 수준(**권장**): **주 서버** 및 **보조 서버** 둘 다에서 감사를 켭니다. 주 데이터베이스 및 보조 데이터베이스가 해당하는 서버 수준 정책에 따라 독립적으로 감사됩니다.
 - 데이터베이스 수준: 보조 데이터베이스에 대한 데이터베이스 수준 감사는 주 데이터베이스 감사 설정에서만 구성될 수 있습니다.
   - 감사는 서버가 아니라 *주 데이터베이스 자체* 에서 활성화해야 합니다.
   - 주 데이터베이스에서 감사가 활성화되면 보조 데이터베이스에서도 활성화됩니다.
@@ -246,7 +247,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 ### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 
-**PowerShell cmdlet(추가 필터링을 위한 WHERE 절 지원 포함)** :
+**PowerShell cmdlet(추가 필터링을 위한 WHERE 절 지원 포함)**:
 
 - [데이터베이스 감사 정책 만들기 또는 업데이트(Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [서버 감사 정책 만들기 또는 업데이트(Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
@@ -259,7 +260,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 ### <a name="using-rest-api"></a>REST API 사용
 
-**REST API** :
+**REST API**:
 
 - [데이터베이스 감사 정책 만들기 또는 업데이트](/rest/api/sql/database%20auditing%20settings/createorupdate)
 - [서버 감사 정책 만들기 또는 업데이트](/rest/api/sql/server%20auditing%20settings/createorupdate)

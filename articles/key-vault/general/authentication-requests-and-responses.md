@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 48f223a55e4a1e4db4ac7057065d67ae64fa0f2c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288475"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752280"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
 
@@ -134,3 +134,6 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 -   권한 부여: 요청에 대한 액세스 토큰을 가져오는 데 사용할 수 있는 OAuth2 권한 부여 서비스의 주소입니다.  
 
 -   리소스: `https://vault.azure.net` 권한 부여 요청에 사용할 리소스 ()의 이름입니다.
+
+> [!NOTE]
+> Key Vault에 대 한 첫 번째 호출에서 암호, 인증서 및 키에 대 한 Key Vault SDK 클라이언트는 테 넌 트 정보를 검색 하는 액세스 토큰을 제공 하지 않습니다. 응용 프로그램에 리소스를 포함 하는 WWW-Authenticate 헤더와 토큰을 요청 하 고 요청 하는 테 넌 트가 응용 프로그램에 표시 Key Vault 되는 Key Vault SDK 클라이언트를 사용 하 여 HTTP 401을 수신 해야 합니다. 모든 것이 올바르게 구성 되어 있으면 응용 프로그램에서 Key Vault에 대 한 두 번째 호출에 유효한 토큰이 포함 되 고 성공 하 게 됩니다. 

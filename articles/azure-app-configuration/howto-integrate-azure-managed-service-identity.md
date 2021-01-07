@@ -2,18 +2,18 @@
 title: 관리 ID를 사용하여 App Configuration 액세스
 titleSuffix: Azure App Configuration
 description: 관리 id를 사용 하 여 Azure 앱 구성에 인증
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: f2d8c6e94638c01fb21e070a756c0c97c330fb26
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8ef3ff20c67eefa2091ffb1732ced813b169e596
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671606"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929755"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
@@ -22,6 +22,9 @@ Azure Active Directory [관리 되는 id는](../active-directory/managed-identit
 Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라이언트 라이브러리에는 관리 되는 id 지원이 기본적으로 제공 됩니다. 이를 반드시 사용할 필요는 없지만 관리 되는 id를 사용 하면 암호를 포함 하는 액세스 토큰이 필요 하지 않습니다. 코드는 서비스 끝점만 사용 하 여 앱 구성 저장소에 액세스할 수 있습니다. 비밀을 노출 하지 않고 코드에이 URL을 직접 포함할 수 있습니다.
 
 이 문서에서는 관리 되는 id를 활용 하 여 앱 구성에 액세스 하는 방법을 보여 줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 하기 전에 먼저  [앱 구성을 사용 하 여 ASP.NET Core 앱을 만듭니다](./quickstart-aspnet-core-app.md) .
+
+> [!NOTE]
+> 이 문서에서는 Azure App Service를 예로 사용 하지만 관리 되는 id를 지 원하는 다른 Azure 서비스 (예: [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), [azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)및 [Azure Container Instances](../container-instances/container-instances-managed-identity.md))에도 동일한 개념이 적용 됩니다. 워크 로드가 이러한 서비스 중 하나에서 호스트 되는 경우 서비스의 관리 되는 id 지원도 활용할 수 있습니다.
 
 또한이 문서에서는 관리 되는 id를 앱 구성의 Key Vault 참조와 함께 사용할 수 있는 방법을 보여 줍니다. 관리 되는 단일 id를 사용 하 여 Key Vault 및 앱 구성의 구성 값에서 모두 원활 하 게 액세스할 수 있습니다. 이 기능을 탐색 하려면 먼저 [ASP.NET Core를 사용 하 여 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md) 을 완료 합니다.
 
@@ -136,7 +139,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     ```
     ---
 
-1. 앱 구성 값과 Key Vault 참조를 모두 사용 하려면 아래와 같이 *Program.cs* 를 업데이트 합니다. 이 코드 `KeyVaultClient` 는를 사용 하 여 새를 만들고 `AzureServiceTokenProvider` 이 참조를 메서드에 대 한 호출에 전달 `UseAzureKeyVault` 합니다.
+1. 앱 구성 값과 Key Vault 참조를 모두 사용 하려면 아래와 같이 *Program.cs* 를 업데이트 합니다. 이 코드는 `SetCredential` 의 일부로를 호출 하 여 `ConfigureKeyVault` Key Vault에 인증할 때 사용할 자격 증명을 구성 공급자에 게 알립니다.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -151,10 +154,10 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
                    config.AddAzureAppConfiguration(options =>
                    {
                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                           .ConfigureKeyVault(kv =>
-                           {
-                              kv.SetCredential(credentials);
-                           });
+                              .ConfigureKeyVault(kv =>
+                              {
+                                 kv.SetCredential(credentials);
+                              });
                    });
                })
                .UseStartup<Startup>();
@@ -175,10 +178,10 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
                     config.AddAzureAppConfiguration(options =>
                     {
                         options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                            .ConfigureKeyVault(kv =>
-                            {
-                                kv.SetCredential(credentials);
-                            });
+                               .ConfigureKeyVault(kv =>
+                               {
+                                   kv.SetCredential(credentials);
+                               });
                     });
                 });
             })
@@ -186,10 +189,10 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     ```
     ---
 
-    이제 다른 앱 구성 키와 마찬가지로 Key Vault 참조에 액세스할 수 있습니다. 구성 공급자는 `KeyVaultClient` Key Vault에 대 한 인증을 위해 구성한를 사용 하 고 값을 검색 합니다.
+    이제 다른 앱 구성 키와 마찬가지로 Key Vault 참조에 액세스할 수 있습니다. 구성 공급자는를 사용 하 여 `ManagedIdentityCredential` Key Vault에 인증 하 고 값을 검색 합니다.
 
-> [!NOTE]
-> `ManagedIdentityCredential` 에서는 관리 되는 id 인증만 지원 합니다. 로컬 환경에서는 작동 하지 않습니다. 코드를 로컬로 실행 하려면 `DefaultAzureCredential` 서비스 주체 인증도 지 원하는를 사용 하는 것이 좋습니다. 자세한 내용은 [링크](/dotnet/api/azure.identity.defaultazurecredential) 를 확인 하세요.
+    > [!NOTE]
+    > 는 `ManagedIdentityCredential` 관리 되는 id 인증을 지 원하는 서비스의 Azure 환경 에서만 작동 합니다. 로컬 환경에서는 작동 하지 않습니다. [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential)로컬 및 Azure 환경에서 작업 하는 데를 사용 하 여 관리 id를 비롯 한 몇 가지 인증 옵션으로 대체 합니다.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -235,7 +238,7 @@ git remote add azure <url>
 다음 명령을 사용하여 Azure 원격에 푸시하여 앱을 배포합니다. 암호를 입력하라는 메시지가 표시되면 [배포 사용자 구성](#configure-a-deployment-user)에서 만든 암호를 입력합니다. Azure Portal에 로그인하는 데 사용하는 암호는 사용하지 마세요.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 출력에 ASP.NET용 MSBuild, Node.js용 `npm install` 및 Python용 `pip install`과 같은 런타임 관련 자동화가 표시될 수 있습니다.

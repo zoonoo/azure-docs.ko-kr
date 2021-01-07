@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
+ms.openlocfilehash: adec2a85373d33d08fe9aa16895d03229e40f475
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748196"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825828"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions의 Azure Event Grid 트리거
 
@@ -128,78 +128,6 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-다음 예제는 *function.json* 파일의 트리거 바인딩과 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다.
-
-*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "eventGridEvent",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-JavaScript 코드는 다음과 같습니다.
-
-```javascript
-module.exports = function (context, eventGridEvent) {
-    context.log("JavaScript Event Grid function processed a request.");
-    context.log("Subject: " + eventGridEvent.subject);
-    context.log("Time: " + eventGridEvent.eventTime);
-    context.log("Data: " + JSON.stringify(eventGridEvent.data));
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다.
-
-*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "event",
-      "direction": "in"
-    }
-  ],
-  "disabled": false,
-  "scriptFile": "__init__.py"
-}
-```
-
-다음은 Python 코드입니다.
-
-```python
-import json
-import logging
-
-import azure.functions as func
-
-def main(event: func.EventGridEvent):
-
-    result = json.dumps({
-        'id': event.id,
-        'data': event.get_json(),
-        'topic': event.topic,
-        'subject': event.subject,
-        'event_type': event.event_type,
-    })
-
-    logging.info('Python EventGrid trigger processed an event: %s', result)
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
@@ -265,6 +193,103 @@ public class EventSchema {
 
 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 EventGrid에서 제공되는 매개 변수에 대한 `EventGridTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+다음 예제는 *function.json* 파일의 트리거 바인딩과 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다.
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript 코드는 다음과 같습니다.
+
+```javascript
+module.exports = function (context, eventGridEvent) {
+    context.log("JavaScript Event Grid function processed a request.");
+    context.log("Subject: " + eventGridEvent.subject);
+    context.log("Time: " + eventGridEvent.eventTime);
+    context.log("Data: " + JSON.stringify(eventGridEvent.data));
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+다음 예제에서는 파일 *의function.js* 에서 Event Grid 트리거 바인딩을 구성 하는 방법을 보여 줍니다.
+
+```powershell
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+다음 PowerShell 예제와 같이 이라는 매개 변수를 통해 함수에서 Event Grid 이벤트를 사용할 수 있습니다 `eventGridEvent` .
+
+```powershell
+param($eventGridEvent, $TriggerMetadata)
+
+# Make sure to pass hashtables to Out-String so they're logged correctly
+$eventGridEvent | Out-String | Write-Host
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다.
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "event",
+      "direction": "in"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+다음은 Python 코드입니다.
+
+```python
+import json
+import logging
+
+import azure.functions as func
+
+def main(event: func.EventGridEvent):
+
+    result = json.dumps({
+        'id': event.id,
+        'data': event.get_json(),
+        'topic': event.topic,
+        'subject': event.subject,
+        'event_type': event.event_type,
+    })
+
+    logging.info('Python EventGrid trigger processed an event: %s', result)
+```
+
 ---
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
@@ -289,17 +314,21 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 C# 스크립트에서는 특성을 지원하지 않습니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+[EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) 주석을 사용하면 구성 값을 제공하여 Event Grid 바인딩을 선언적으로 구성할 수 있습니다. 자세한 내용은 [예제](#example) 및 [구성](#configuration) 섹션을 참조하세요.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원하지 않습니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+특성은 PowerShell에서 지원 되지 않습니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python에서는 특성을 지원하지 않습니다.
-
-# <a name="java"></a>[Java](#tab/java)
-
-[EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) 주석을 사용하면 구성 값을 제공하여 Event Grid 바인딩을 선언적으로 구성할 수 있습니다. 자세한 내용은 [예제](#example) 및 [구성](#configuration) 섹션을 참조하세요.
 
 ---
 
@@ -343,17 +372,21 @@ Azure Functions 2.x 이상의 경우 Event Grid 트리거에 대해 다음 매�
 > [!NOTE]
 > Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Event Grid 이벤트 인스턴스는 `EventSchema`로 형식화된 `EventGridTrigger` 특성에 연결된 매개 변수를 통해 사용할 수 있습니다. 자세한 내용은 [예제](#example)를 참조하세요.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Event Grid 인스턴스는 *function.json* 파일의 `name` 속성에 구성된 매개 변수를 통해 사용할 수 있습니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Event Grid 인스턴스는 *function.json* 파일의 `name` 속성에 구성된 매개 변수를 통해 사용할 수 있습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Event Grid 인스턴스는 `func.EventGridEvent`로 형식화된 *function.json* 파일의 `name` 속성에 구성된 매개 변수를 통해 사용할 수 있습니다.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Event Grid 이벤트 인스턴스는 `EventSchema`로 형식화된 `EventGridTrigger` 특성에 연결된 매개 변수를 통해 사용할 수 있습니다. 자세한 내용은 [예제](#example)를 참조하세요.
 
 ---
 
@@ -407,13 +440,13 @@ Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수의 �
 
 이 링크를 선택하면 포털에서 현재 트리거 엔드포인트가 이미 정의된 **이벤트 구독 만들기** 페이지가 열립니다.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="포털에서 새 이벤트 구독을 트리거에 연결합니다." :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="함수 엔드포인트가 이미 정의된 이벤트 구독 만들기" :::
 
 Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내용은 Event Grid 설명서에서 [사용자 지정 이벤트 만들기 - Azure Portal](../event-grid/custom-event-quickstart-portal.md)을 참조하세요.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 구독을 만들려면 [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create)를 사용합니다.
+[Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용하여 구독을 만들려면 [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create)를 사용합니다.
 
 이 명령에는 함수를 호출하는 엔드포인트 URL이 필요합니다. 다음 예제에서는 버전별 URL 패턴을 보여줍니다.
 
@@ -435,25 +468,55 @@ https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionC
 
 #### <a name="version-2x-and-higher-runtime"></a>버전 2.x 이상 런타임
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 #### <a name="version-1x-runtime"></a>버전 1.x 런타임
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 구독을 만드는 방법에 대한 자세한 내용은 [Blob Storage 빠른 시작](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) 또는 다른 Event Grid 빠른 시작을 참조하세요.
 
@@ -508,7 +571,7 @@ Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에�
 1. [요청을 생성](#generate-a-request)하고 뷰어 앱에서 요청 본문을 복사합니다.
 1. Event Grid 트리거 함수의 localhost URL에 [요청을 수동으로 게시](#manually-post-the-request)합니다.
 
-테스트가 완료되면 엔드포인트를 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
+테스트가 완료되면 엔드포인트를 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
 
 ### <a name="create-a-viewer-web-app"></a>뷰어 웹앱 만들기
 

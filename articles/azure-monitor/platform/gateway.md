@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107779"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008857"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -106,25 +106,25 @@ Microsoft 다운로드 센터 ([다운로드 링크](https://go.microsoft.com/fw
 
 Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단계를 수행 합니다.
 
-1. 서비스 목록을 찾아본 다음 **Log Analytics**를 선택합니다. 
+1. 서비스 목록을 찾아본 다음 **Log Analytics** 를 선택합니다. 
 1. 작업 영역을 선택합니다.
-1. **일반**의 작업 영역 블레이드에서 **빠른 시작**을 선택합니다. 
-1. **작업 영역에 연결하는 데이터 원본 선택**에서 **컴퓨터**를 선택합니다.
-1. **직접 에이전트** 블레이드에서 **다운로드 Log Analytics 게이트웨이**를 선택 합니다.
+1. **일반** 의 작업 영역 블레이드에서 **빠른 시작** 을 선택합니다. 
+1. **작업 영역에 연결하는 데이터 원본 선택** 에서 **컴퓨터** 를 선택합니다.
+1. **직접 에이전트** 블레이드에서 **다운로드 Log Analytics 게이트웨이** 를 선택 합니다.
  
    ![Log Analytics 게이트웨이를 다운로드 하는 단계 스크린샷](./media/gateway/download-gateway.png)
 
 또는 
 
-1. **설정** 아래 작업 영역 블레이드에서 **고급 설정**을 선택합니다.
-1. **연결 된 원본**  >  **Windows 서버** 로 이동 하 고 **다운로드 Log Analytics 게이트웨이**를 선택 합니다.
+1. **설정** 아래 작업 영역 블레이드에서 **고급 설정** 을 선택합니다.
+1. **연결 된 원본**  >  **Windows 서버** 로 이동 하 고 **다운로드 Log Analytics 게이트웨이** 를 선택 합니다.
 
 ## <a name="install-log-analytics-gateway-using-setup-wizard"></a>설치 마법사를 사용 하 여 Log Analytics 게이트웨이 설치
 
 설치 마법사를 사용 하 여 게이트웨이를 설치 하려면 다음 단계를 수행 합니다. 
 
-1. 대상 폴더에서 **Log Analytics gateway.msi**를 두 번 클릭합니다.
-1. **Welcome** 페이지에서 **다음**을 선택합니다.
+1. 대상 폴더에서 **Log Analytics gateway.msi** 를 두 번 클릭합니다.
+1. **Welcome** 페이지에서 **다음** 을 선택합니다.
 
    ![게이트웨이 설치 마법사의 시작 페이지 스크린샷](./media/gateway/gateway-wizard01.png)
 
@@ -136,14 +136,14 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
 
    b. 게이트웨이가 설치 되어 있는 서버에서 프록시를 통해 통신 해야 하는 경우 게이트웨이를 연결 해야 하는 프록시 주소를 입력 합니다. 예를 들어 다음과 같이 입력합니다. `http://myorgname.corp.contoso.com:80`  이 필드를 비워 두면 게이트웨이가 인터넷에 직접 연결을 시도 합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.
 
-   c. **다음**을 선택합니다.
+   c. **다음** 을 선택합니다.
 
    ![게이트웨이 프록시에 대 한 구성 스크린샷](./media/gateway/gateway-wizard02.png)
 
-1. Microsoft 업데이트 사용 하도록 설정 되지 않은 경우 Microsoft 업데이트 페이지가 표시 되 고 사용 하도록 선택할 수 있습니다. 항목을 선택 하 고 **다음**을 선택 합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
-1. **대상 폴더** 페이지에서 기본 폴더인 C:\Program Files\OMS gateway를 그대로 두거나 게이트웨이를 설치 하려는 위치를 입력 합니다. 그런 후 **다음**을 선택합니다.
-1. **설치 준비 완료** 페이지에서 **설치**를 선택 합니다. 사용자 계정 컨트롤에서 설치 권한을 요청 하는 경우 **예**를 선택 합니다.
-1. 설치가 완료 되 면 **마침**을 선택 합니다. 서비스가 실행 되 고 있는지 확인 하려면 services.msc 스냅인을 열고 서비스 목록에 **OMS 게이트웨이가** 표시 되 고 해당 상태가 **실행**중인지 확인 합니다.
+1. Microsoft 업데이트 사용 하도록 설정 되지 않은 경우 Microsoft 업데이트 페이지가 표시 되 고 사용 하도록 선택할 수 있습니다. 항목을 선택 하 고 **다음** 을 선택 합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
+1. **대상 폴더** 페이지에서 기본 폴더인 C:\Program Files\OMS gateway를 그대로 두거나 게이트웨이를 설치 하려는 위치를 입력 합니다. 그런 후 **다음** 을 선택합니다.
+1. **설치 준비 완료** 페이지에서 **설치** 를 선택 합니다. 사용자 계정 컨트롤에서 설치 권한을 요청 하는 경우 **예** 를 선택 합니다.
+1. 설치가 완료 되 면 **마침** 을 선택 합니다. 서비스가 실행 되 고 있는지 확인 하려면 services.msc 스냅인을 열고 서비스 목록에 **OMS 게이트웨이가** 표시 되 고 해당 상태가 **실행** 중인지 확인 합니다.
 
    ![OMS 게이트웨이가 실행 중임을 보여 주는 로컬 서비스의 스크린샷](./media/gateway/gateway-service.png)
 
@@ -192,8 +192,8 @@ Microsoft [nlb (네트워크 부하 분산)](/windows-server/networking/technolo
 Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배포하는 방법을 알아보려면 [네트워크 부하 분산](/windows-server/networking/technologies/network-load-balancing)을 참조하세요. 다음 단계에서는 Microsoft 네트워크 부하 분산 클러스터를 구성하는 방법에 대해 설명합니다.  
 
 1. NLB 클러스터의 구성원인 Windows 서버에 관리 계정으로 로그인합니다.  
-2. [서버 관리자]에서 [네트워크 부하 분산 관리자]를 열고, **도구**를 클릭한 다음 **네트워크 부하 분산 관리자**를 클릭합니다.
-3. Log Analytics 게이트웨이 서버를 설치되어 있는 Microsoft Monitoring Agent와 연결하려면 클러스터의 IP 주소를 마우스 오른쪽 단추로 클릭한 다음, **클러스터에 호스트 추가**를 클릭합니다. 
+2. [서버 관리자]에서 [네트워크 부하 분산 관리자]를 열고, **도구** 를 클릭한 다음 **네트워크 부하 분산 관리자** 를 클릭합니다.
+3. Log Analytics 게이트웨이 서버를 설치되어 있는 Microsoft Monitoring Agent와 연결하려면 클러스터의 IP 주소를 마우스 오른쪽 단추로 클릭한 다음, **클러스터에 호스트 추가** 를 클릭합니다. 
 
     ![네트워크 부하 분산 관리자 – 클러스터에 호스트 추가](./media/gateway/nlb02.png)
  
@@ -203,10 +203,10 @@ Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배�
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Azure Load Balancer를 디자인 하 고 배포 하는 방법을 알아보려면 [Azure Load Balancer 무엇 인가요?](../../load-balancer/load-balancer-overview.md)를 참조 하세요. 기본 부하 분산 장치를 배포 하려면 **백 엔드 서버 만들기**섹션에 설명 된 단계를 제외 하 고이 [빠른](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) 시작에 설명 된 단계를 수행 합니다.   
+Azure Load Balancer를 디자인 하 고 배포 하는 방법을 알아보려면 [Azure Load Balancer 무엇 인가요?](../../load-balancer/load-balancer-overview.md)를 참조 하세요. 기본 부하 분산 장치를 배포 하려면 **백 엔드 서버 만들기** 섹션에 설명 된 단계를 제외 하 고이 [빠른](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) 시작에 설명 된 단계를 수행 합니다.   
 
 > [!NOTE]
-> **기본 SKU**를 사용 하 여 Azure Load Balancer를 구성 하려면 Azure virtual Machines가 가용성 집합에 속해야 합니다. 가용성 집합에 대해 자세히 알아보려면 [Azure에서 Windows 가상 머신의 가용성 관리](../../virtual-machines/manage-availability.md)를 참조 하세요. 기존 가상 컴퓨터를 가용성 집합에 추가 하려면 [VM 가용성 집합 Azure Resource Manager 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)을 참조 하세요.
+> **기본 SKU** 를 사용 하 여 Azure Load Balancer를 구성 하려면 Azure virtual Machines가 가용성 집합에 속해야 합니다. 가용성 집합에 대해 자세히 알아보려면 [Azure에서 Windows 가상 머신의 가용성 관리](../../virtual-machines/manage-availability.md)를 참조 하세요. 기존 가상 컴퓨터를 가용성 집합에 추가 하려면 [VM 가용성 집합 Azure Resource Manager 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)을 참조 하세요.
 > 
 
 부하 분산 장치를 만든 후에는 하나 이상의 게이트웨이 서버에 트래픽을 분산 하는 백 엔드 풀을 만들어야 합니다. 빠른 시작 문서 섹션 [부하 분산 장치에 대 한 리소스 만들기](../../load-balancer/quickstart-load-balancer-standard-public-portal.md)에 설명 된 단계를 따릅니다.  
@@ -252,9 +252,9 @@ Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 
 
 1. 관리자 권한 명령 프롬프트를 엽니다.
 
-   a. **시작** 을 선택 하 고 **cmd**를 입력 합니다.  
+   a. **시작** 을 선택 하 고 **cmd** 를 입력 합니다.  
 
-   b. **명령 프롬프트** 를 마우스 오른쪽 단추로 클릭 하 고 **관리자 권한으로 실행**을 선택 합니다.  
+   b. **명령 프롬프트** 를 마우스 오른쪽 단추로 클릭 하 고 **관리자 권한으로 실행** 을 선택 합니다.  
 
 1. 다음 명령을 입력합니다.
 
@@ -262,7 +262,7 @@ Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 
 
 Log Analytics와의 통합을 완료 한 후에는를 실행 하 여 변경 내용을 제거 합니다 `netsh winhttp reset proxy` . 그런 다음 운영 콘솔에서 **프록시 서버 구성** 옵션을 사용 하 여 Log Analytics 게이트웨이 서버를 지정 합니다. 
 
-1. Operations Manager 콘솔의 **Operations Management Suite**에서 **연결**을 선택한 다음 **프록시 서버 구성**을 선택 합니다.
+1. Operations Manager 콘솔의 **Operations Management Suite** 에서 **연결** 을 선택한 다음 **프록시 서버 구성** 을 선택 합니다.
 
    ![선택 항목을 보여 주는 Operations Manager의 스크린샷 구성 프록시 서버](./media/gateway/scom01.png)
 
@@ -270,7 +270,7 @@ Log Analytics와의 통합을 완료 한 후에는를 실행 하 여 변경 내�
 
    ![프록시 서버 주소를 표시 하는 Operations Manager의 스크린샷](./media/gateway/scom02.png)
 
-1. **완료**를 선택합니다. 이제 Operations Manager 관리 그룹이 게이트웨이 서버를 통해 Log Analytics 서비스와 통신하도록 구성되었습니다.
+1. **마침** 을 선택합니다. 이제 Operations Manager 관리 그룹이 게이트웨이 서버를 통해 Log Analytics 서비스와 통신하도록 구성되었습니다.
 
 ### <a name="configure-operations-manager-where-specific-agents-use-a-proxy-server"></a>특정 에이전트에서 프록시 서버를 사용 하는 Operations Manager 구성
 
@@ -283,10 +283,10 @@ Log Analytics와의 통합을 완료 한 후에는를 실행 하 여 변경 내�
 Log Analytics 게이트웨이 서버를 사용 하도록 특정 서버 또는 그룹을 구성 하려면: 
 
 1. Operations Manager 콘솔을 열고 **작성** 작업 영역을 선택합니다.  
-1. 제작 작업 영역에서 **규칙**을 선택합니다. 
+1. 제작 작업 영역에서 **규칙** 을 선택합니다. 
 1. Operations Manager 도구 모음에서 **범위** 단추를 선택 합니다. 이 단추를 사용할 수 없는 경우에는 **모니터링** 창에서 폴더가 아니라 개체를 선택 했는지 확인 합니다. **관리 팩 개체 범위 지정** 대화 상자에서 일반적인 대상 클래스, 그룹 또는 개체의 목록을 표시합니다. 
-1. **찾을 대상** 필드에 **상태 관리 서비스** 를 입력 하 고 목록에서 선택 합니다. **확인**을 선택합니다.  
-1. **Advisor 프록시 설정 규칙**을 검색 합니다. 
+1. **찾을 대상** 필드에 **상태 관리 서비스** 를 입력 하 고 목록에서 선택 합니다. **확인** 을 선택합니다.  
+1. **Advisor 프록시 설정 규칙** 을 검색 합니다. 
 1. Operations Manager 도구 모음에서 **재정의** 를 선택 하 고 다음 **클래스의 특정 개체에 대 한 rule\for: 상태 관리 서비스** 를 가리킨 다음 목록에서 개체를 선택 합니다.  또는이 재정의를 적용 하려는 서버의 상태 관리 서비스 개체를 포함 하는 사용자 지정 그룹을 만듭니다. 그런 다음 사용자 지정 그룹에 재정의를 적용 합니다.
 1. **재정의 속성** 대화 상자의 **재정의** 열에서 **webproxyaddress** 매개 변수 옆에 있는 확인 표시를 추가 합니다.  **재정의 값** 필드에 Log Analytics 게이트웨이 서버의 URL을 입력 합니다. 접두사를 사용 하 여 시작 해야 `http://` 합니다.  
 
@@ -294,8 +294,8 @@ Log Analytics 게이트웨이 서버를 사용 하도록 특정 서버 또는 �
     > 규칙을 사용하도록 설정하지 않아도 됩니다. Microsoft System center advisor 모니터링 서버 그룹을 대상으로 하는 Microsoft System Center Advisor 보안 참조 재정의 관리 팩의 재정의를 사용 하 여 이미 자동으로 관리 됩니다.
     > 
 
-1. **대상 관리 팩 선택** 목록에서 관리 팩을 선택 하거나 **새로**만들기를 선택 하 여 봉인 되지 않은 새 관리 팩을 만듭니다. 
-1. 완료하면 **확인**을 선택합니다. 
+1. **대상 관리 팩 선택** 목록에서 관리 팩을 선택 하거나 **새로** 만들기를 선택 하 여 봉인 되지 않은 새 관리 팩을 만듭니다. 
+1. 완료하면 **확인** 을 선택합니다. 
 
 ### <a name="configure-for-automation-hybrid-runbook-workers"></a>Automation Hybrid Runbook Worker에 대 한 구성
 
@@ -325,9 +325,9 @@ Cmdlet을 사용 하 여 Log Analytics 게이트웨이의 구성 설정을 업�
 1. 이전 단계에서 오류가 발생하지 않은 경우 모듈을 성공적으로 가져왔으며 cmdlet을 사용할 수 있습니다. `Get-Module OMSGateway`을 입력합니다.
 1. Cmdlet을 사용 하 여 변경을 수행한 후 OMS 게이트웨이 서비스를 다시 시작 합니다.
 
-3 단계의 오류는 모듈을 가져오지 못했음을 의미 합니다. PowerShell이 모듈을 찾을 수 없는 경우 오류가 발생할 수 있습니다. OMS 게이트웨이 설치 경로: *C:\Program FILES\MICROSOFT oms Gateway\PowerShell\OmsGateway*에서 모듈을 찾을 수 있습니다.
+3 단계의 오류는 모듈을 가져오지 못했음을 의미 합니다. PowerShell이 모듈을 찾을 수 없는 경우 오류가 발생할 수 있습니다. OMS 게이트웨이 설치 경로: *C:\Program FILES\MICROSOFT oms Gateway\PowerShell\OmsGateway* 에서 모듈을 찾을 수 있습니다.
 
-| **#A0** | **매개 변수** | **설명** | **예제** |
+| **Cmdlet** | **매개 변수** | **설명** | **예제** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
@@ -382,7 +382,7 @@ Cmdlet을 사용 하 여 Log Analytics 게이트웨이의 구성 설정을 업�
 ## <a name="assistance"></a>지원
 
 Azure Portal에 로그인 하면 Log Analytics 게이트웨이 또는 다른 Azure 서비스나 기능을 통해 도움을 받을 수 있습니다.
-도움말을 보려면 포털의 오른쪽 위 모퉁이에 있는 물음표 아이콘을 선택 하 고 **새 지원 요청**을 선택 합니다. 그런 다음 새 지원 요청 양식을 작성 합니다.
+도움말을 보려면 포털의 오른쪽 위 모퉁이에 있는 물음표 아이콘을 선택 하 고 **새 지원 요청** 을 선택 합니다. 그런 다음 새 지원 요청 양식을 작성 합니다.
 
 ![새 지원 요청 스크린샷](./media/gateway/support.png)
 

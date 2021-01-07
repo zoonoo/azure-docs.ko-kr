@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999108"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635708"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>OS 시작 - Windows 업데이트 설치 용량 문제 해결
 
@@ -62,8 +62,6 @@ ms.locfileid: "86999108"
 
 1. 디스크가 꽉 찼는지 확인합니다. 디스크 크기가 1TB 미만이면 [PowerShell을 사용](../windows/expand-os-disk.md)하여 최대 1TB까지 확장합니다.
 1. 디스크가 이미 1TB인 경우 디스크 정리를 수행해야 합니다.
-   1. [손상된 VM](../windows/detach-disk.md)에서 데이터 디스크를 분리합니다.
-   1. 데이터 디스크를 [작동하는 VM](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm)에 연결합니다.
    1. [디스크 정리 도구](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup)를 사용하여 공간을 확보합니다.
 1. 크기 조정 및 정리가 완료되면 다음 명령을 사용하여 드라이브의 조각을 제거합니다.
 
@@ -75,12 +73,12 @@ ms.locfileid: "86999108"
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>직렬 콘솔과 메모리 덤프 수집 사용
 
-**권장**: VM을 다시 빌드하기 전에 다음 스크립트를 실행하여 직렬 콘솔과 메모리 덤프 수집을 사용하도록 설정합니다.
+**권장** : VM을 다시 빌드하기 전에 다음 스크립트를 실행하여 직렬 콘솔과 메모리 덤프 수집을 사용하도록 설정합니다.
 
 1. 관리자 권한 명령 프롬프트 세션을 엽니다.
 1. 다음 명령을 실행합니다.
 
-   **직렬 콘솔을 사용하도록 설정합니다**.
+   **직렬 콘솔을 사용하도록 설정합니다.**
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 48dec3a87ab540af224ae4ac59dd37cee7c9d0ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ec88e4e97d45b27c0226198491b3adec6448496
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76271335"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000898"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>StorSimple 가상 배열 업데이트 1.0 릴리스 정보
 
@@ -21,7 +21,7 @@ ms.locfileid: "76271335"
 
 릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. StorSimple 가상 배열을 배포하기 전에 릴리스 정보에 포함된 정보를 주의 깊게 검토하세요.
 
-업데이트 1.0은 소프트웨어 버전 **10.0.10296.0**에 해당합니다.
+업데이트 1.0은 소프트웨어 버전 **10.0.10296.0** 에 해당합니다.
 
 > [!IMPORTANT]
 > - 업데이트는 작업 중단 업데이트이며 디바이스를 다시 시작합니다. I/O가 진행 중인 경우 디바이스에 가동 중지 시간이 발생합니다. 업데이트를 적용하는 방법에 대한 자세한 내용은 [업데이트 1.0 설치](storsimple-virtual-array-install-update-1.md)를 참조하세요.
@@ -90,4 +90,4 @@ StorSimple 가상 배열에 [업데이트 1.0을 설치](storsimple-virtual-arra
 * [StorSimple 가상 배열 업데이트 0.4 릴리스 정보](storsimple-virtual-array-update-04-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](storsimple-ova-update-03-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](storsimple-ova-update-01-release-notes.md)
-* [StorSimple 가상 배열 일반 공급 릴리스 정보](storsimple-ova-pp-release-notes.md)
+* [StorSimple 가상 배열 일반 공급 릴리스 정보](./storsimple-virtual-array-update-06-release-notes.md)

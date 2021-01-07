@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6ddce9bd8eaa57571cd3c3eac660806340db4b74
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4c87dd905ae842647e7ec2e365abf450caf352b0
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408671"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369330"
 ---
 # <a name="security-control-v2-network-security"></a>보안 제어 V2: 네트워크 보안
 
@@ -20,7 +20,7 @@ ms.locfileid: "94408671"
 
 ## <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: 내부 트래픽에 대 한 보안 구현
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-1 | 9.2, 9.4, 14.1, 14.2, 14.3 | AC-4, 캐나다-3, SC-7 |
 
@@ -40,9 +40,9 @@ Azure 센티널을 사용 하 여 SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, 서명 �
 
 - [Azure 센티널 안전 하지 않은 프로토콜 통합 문서](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -52,7 +52,7 @@ Azure 센티널을 사용 하 여 SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, 서명 �
 
 ## <a name="ns-2-connect-private-networks-together"></a>NS-2: 개인 네트워크를 함께 연결
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-2 | 해당 없음 | CA-3, AC-17, MA-4 |
 
@@ -68,9 +68,9 @@ Azure에서 둘 이상의 가상 네트워크를 함께 연결 하려면 가상 
 
 - [Azure Private Link](../../private-link/private-link-service-overview.md)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -78,9 +78,9 @@ Azure에서 둘 이상의 가상 네트워크를 함께 연결 하려면 가상 
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-## <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Azure 서비스에 대 한 개인 네트워크 액세스 설정
+## <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Azure 서비스에 대한 프라이빗 네트워크 액세스 설정
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-3 | 14.1 | AC-4, 캐나다-3, SC-7 |
 
@@ -92,9 +92,9 @@ Azure 개인 링크를 사용 하 여 인터넷을 거치지 않고 가상 네�
 
 - [Virtual Network 서비스 끝점 이해](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -104,7 +104,7 @@ Azure 개인 링크를 사용 하 여 인터넷을 거치지 않고 가상 네�
 
 ## <a name="ns-4-protect-applications-and-services-from-external-network-attacks"></a>NS-4: 외부 네트워크 공격 으로부터 응용 프로그램 및 서비스 보호
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-4 | 9.5, 12.3, 12.9 | SC-5, SC-7 |
 
@@ -120,17 +120,21 @@ DDoS (분산 서비스 거부) 공격, 응용 프로그램별 공격, 원치 않
 
 - [Azure WAF를 배포 하는 방법](../../web-application-firewall/overview.md)
 
-- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](../../virtual-network/manage-ddos-protection.md)
+- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](../../ddos-protection/manage-ddos-protection.md)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-없음
+- [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
+
+- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+
+- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 ## <a name="ns-5-deploy-intrusion-detectionintrusion-prevention-systems-idsips"></a>NS-5: 침입 감지/침입 방지 시스템 (IDS/IPS) 배포
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-5 | 12.6, 12.7 | SI-4 |
 
@@ -144,9 +148,9 @@ Azure 방화벽 위협 인텔리전스 기반 필터링을 사용 하 여 알려
 
 - [Microsoft Defender ATP EDR 기능](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -156,7 +160,7 @@ Azure 방화벽 위협 인텔리전스 기반 필터링을 사용 하 여 알려
 
 ## <a name="ns-6-simplify-network-security-rules"></a>NS-6: 네트워크 보안 규칙 단순화
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-6 | 1.5 | IA-4 |
 
@@ -170,9 +174,9 @@ Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 �
 
 - [응용 프로그램 보안 그룹 이해 및 사용](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -182,7 +186,7 @@ Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 �
 
 ## <a name="ns-7-secure-domain-name-service-dns"></a>NS-7: 보안 DNS (Domain Name Service)
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | NS-7 | 해당 없음 | SC-20, SC-21 |
 
@@ -196,9 +200,9 @@ Azure DNS를 권한 있는 DNS 서비스로 사용 하는 경우 DNS 영역 및 
 
 - [현 수 DNS 항목을 방지 하 고 하위 도메인 인수 방지](../fundamentals/subdomain-takeover.md)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

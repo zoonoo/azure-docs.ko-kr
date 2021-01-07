@@ -1,17 +1,17 @@
 ---
 title: 자습서 - 매개 변수 파일을 사용하여 템플릿 배포
-description: Azure Resource Manager 템플릿을 배포하는 데 사용할 값이 포함된 매개 변수 파일을 사용합니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)을 배포하는 데 사용할 값이 포함된 매개 변수 파일을 사용합니다.
 author: mumian
 ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6257161017afc9dab692c43fcc64e5d961a90ba
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069512"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368429"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>자습서: 매개 변수 파일을 사용하여 ARM 템플릿 배포
 
@@ -41,23 +41,25 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 템플릿의 매개 변수 이름과 일치하지 않는 매개 변수 파일에 매개 변수 이름을 지정할 수 없습니다. 알 수 없는 매개 변수가 제공되면 오류가 발생합니다.
 
-VS Code에서 다음 내용이 포함된 새 파일을 만듭니다. 이 파일을 **azuredeploy.parameters.dev.json**이라는 이름으로 저장합니다.
+Visual Studio Code에서 다음 내용이 포함된 새 파일을 만듭니다. 이 파일을 _azuredeploy.parameters.dev.json_ 이라는 이름으로 저장합니다.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
-이 파일은 개발 환경에 대한 매개 변수 파일입니다. 스토리지 계정에 Standard_LRS를 사용하고, 리소스 이름에 **dev**를 접두사로 사용하고 **Environment** 태그를 **Dev**로 설정합니다.
+이 파일은 개발 환경에 대한 매개 변수 파일입니다. 스토리지 계정에 **Standard_LRS** 를 사용하고, 리소스 이름에 **dev** 를 접두사로 사용하고 `Environment` 태그를 **Dev** 로 설정합니다.
 
-다시, 다음 내용이 포함된 새 파일을 만듭니다. 이 파일을 **azuredeploy.parameters.prod.json**이라는 이름으로 저장합니다.
+다시, 다음 내용이 포함된 새 파일을 만듭니다. 이 파일을 _azuredeploy.parameters.prod.json_ 이라는 이름으로 저장합니다.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
-이 파일은 프로덕션 환경에 대한 매개 변수 파일입니다. 스토리지 계정에 Standard_GRS를 사용하고, 리소스 이름에 **contoso**를 접두사로 사용하고 **Environment** 태그를 **Production**으로 설정합니다. 실제 프로덕션 환경에서는 무료가 아닌 SKU로 App Service를 사용할 수 있지만 이 자습서에서는 이 SKU를 계속 사용합니다.
+이 파일은 프로덕션 환경에 대한 매개 변수 파일입니다. 스토리지 계정에 **Standard_GRS** 를 사용하고, 리소스 이름에 **contoso** 를 접두사로 사용하고, `Environment` 태그를 **Production** 으로 설정합니다. 실제 프로덕션 환경에서는 무료가 아닌 SKU로 App Service를 사용할 수 있지만 이 자습서에서는 이 SKU를 계속 사용합니다.
 
 ## <a name="deploy-template"></a>템플릿 배포
 
 Azure CLI 또는 Azure PowerShell을 사용하여 템플릿을 배포합니다.
 
 템플릿의 최종 테스트로, 두 가지 리소스 그룹을 새로 만들어 보겠습니다. 하나는 개발 환경용이고 다른 하나는 프로덕션 환경용입니다.
+
+템플릿 및 매개 변수 변수의 경우 `{path-to-the-template-file}`, `{path-to-azuredeploy.parameters.dev.json}`, `{path-to-azuredeploy.parameters.prod.json}` 및 중괄호 `{}`을(를) 템플릿 및 매개 변수 파일 경로로 바꿉니다.
 
 먼저 개발 환경에 배포합니다.
 
@@ -128,23 +130,23 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> 배포에 실패한 경우 **자세한 정보** 스위치를 사용하여 생성되는 리소스에 대한 정보를 가져옵니다. 디버깅에 대한 자세한 정보를 보려면 **디버그** 스위치를 사용합니다.
+> 배포에 실패한 경우 `verbose` 스위치를 사용하여 생성 중인 리소스에 대한 정보를 가져옵니다. 디버깅에 대한 자세한 정보를 보려면 `debug` 스위치를 사용합니다.
 
 ## <a name="verify-deployment"></a>배포 확인
 
 Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 1. 이 자습서에서 배포한 두 가지 새 리소스 그룹이 보입니다.
 1. 리소스 그룹을 선택하고 배포된 리소스를 살펴봅니다. 해당 환경에 대한 매개 변수 파일에 지정한 값과 일치하는 것을 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
-2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다. 이 시리즈를 완료했으면, 삭제할 리소스 그룹이 세 개(myResourceGroup, myResourceGroupDev 및 myResourceGroupProd) 있습니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
+2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다. 이 시리즈를 완료했으면 삭제할 세 개의 리소스 그룹(**myResourceGroup**, **myResourceGroupDev** 및 **myResourceGroupProd**)이 있습니다.
 3. 해당 리소스 그룹 이름을 선택합니다.
-4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
+4. 위쪽 메뉴에서 **리소스 그룹 삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd9b07f1f7aed479e94e77a5641130cb784dd69e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74847852"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741969"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 암호 보호 에이전트에 대한 버전 기록
 
@@ -44,7 +44,7 @@ ms.locfileid: "74847852"
 * Set-AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 자동 업그레이드를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. Get-AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다.
 * DC 에이전트 서비스의 서비스 이진 파일 이름이 AzureADPasswordProtectionDCAgent.exe (으)로 바뀌었습니다.
 * 프록시 서비스에 대 한 서비스 이진 파일의 이름이 AzureADPasswordProtectionProxy.exe로 바뀌었습니다. 타사 방화벽을 사용 하는 경우 방화벽 규칙을 적절 하 게 수정 해야 할 수 있습니다.
-  * 참고: 이전 프록시 설치에서 http 프록시 구성 파일을 사용 하는 경우이 업그레이드 후에는 *proxyservice.exe.config* 에서 *AzureADPasswordProtectionProxy.exe.config*로 이름을 변경 해야 합니다.
+  * 참고: 이전 프록시 설치에서 http 프록시 구성 파일을 사용 하는 경우이 업그레이드 후에는 *proxyservice.exe.config* 에서 *AzureADPasswordProtectionProxy.exe.config* 로 이름을 변경 해야 합니다.
 * 모든 시간 제한 기능 검사가 DC 에이전트에서 제거 되었습니다.
 * 사소한 버그 수정 및 로깅 향상
 

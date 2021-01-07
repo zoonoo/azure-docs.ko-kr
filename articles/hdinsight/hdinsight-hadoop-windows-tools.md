@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 770c73cb6f1309e64cd44c5a1b1570899108e4e7
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539703"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821046"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Windows PC에서 HDInsight의 Apache Hadoop 에코시스템 작업
 
@@ -75,9 +75,9 @@ Visual Studio에서 .NET SDK와 함께 수행할 수 있는 작업의 예:
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>데이터 과학자들을 위한 Spark의 Notebook
 
-HDInsight의 Apache Spark 클러스터는 Jupyter Notebook과 함께 사용할 수 있는 Apache Zeppelin Notebook 및 커널을 포함합니다.
+HDInsight의 Apache Spark 클러스터에는 Jupyter 노트북에서 사용할 수 있는 Apache Zeppelin 노트북 및 커널이 포함 되어 있습니다.
 
-* [Apache Spark 클러스터에서 Jupyter Notebook과 함께 커널을 사용하여 Spark 애플리케이션을 테스트하는 방법 알아보기](spark/apache-spark-zeppelin-notebook.md)
+* [Jupyter 노트북에서 Apache Spark 클러스터의 커널을 사용 하 여 Spark 응용 프로그램을 테스트 하는 방법을 알아봅니다.](spark/apache-spark-zeppelin-notebook.md)
 * [Apache Spark 클러스터에서 Apache Zeppelin Notebook을 사용하여 Spark 작업을 실행하는 방법 알아보기](spark/apache-spark-jupyter-notebook-kernels.md)
 
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Windows에서 Linux 기반 도구 및 기술 실행
@@ -85,7 +85,7 @@ HDInsight의 Apache Spark 클러스터는 Jupyter Notebook과 함께 사용할 �
 Linux 에서만 사용할 수 있는 도구 또는 기술을 사용 해야 하는 상황이 발생 하는 경우 다음 옵션을 고려 하십시오.
 
 * **Windows 10의 Ubuntu에 있는 Bash** 는 Windows에서 Linux 하위 시스템을 제공 합니다. Bash를 사용하면 전용 Linux 설치를 유지하지 않고도 Linux 유틸리티를 직접 실행할 수 있습니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.
-* **Windows용 Docker** 는 대부분의 Linux 기반 도구에 대한 액세스를 제공하며 Windows에서 직접 실행할 수 있습니다. 예를 들어, Docker를 사용하여 Hive에 대한 Beeline 클라이언트를 Windows에서 직접 실행할 수 있습니다. 또한 Docker를 사용하여 로컬 Jupyter Notebook을 실행하고 HDInsight의 Spark에 원격으로 연결할 수 있습니다. [Windows용 Docker 시작](https://docs.docker.com/docker-for-windows/)
+* **Windows용 Docker** 는 대부분의 Linux 기반 도구에 대한 액세스를 제공하며 Windows에서 직접 실행할 수 있습니다. 예를 들어, Docker를 사용하여 Hive에 대한 Beeline 클라이언트를 Windows에서 직접 실행할 수 있습니다. Docker를 사용 하 여 로컬 Jupyter Notebook를 실행 하 고 HDInsight의 Spark에 원격으로 연결할 수도 있습니다. [Windows용 Docker 시작](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** 을 사용하면 그래픽 방식으로 SSH 연결을 통해 클러스터 파일 시스템을 찾아볼 수 있습니다.
 
 ## <a name="cross-platform-tools"></a>플랫폼 간 도구

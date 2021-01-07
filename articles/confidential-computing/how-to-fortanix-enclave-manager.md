@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2c266d31a3aacc5bc97434de2246bfb1285a1ee
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462431"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565707"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>방법: Fortanix Enclave Manager를 사용 하 여 응용 프로그램 실행 
 
@@ -60,39 +60,39 @@ Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 �
 
 6. 이 자습서에서는 샘플 응용 프로그램에 대해 Fortanix의 docker 레지스트리를 사용 합니다. 다음 정보에서 세부 정보를 입력 합니다. 개인 docker 레지스트리를 사용 하 여 출력 이미지를 유지 합니다. 
  
-    - **응용 프로그램 이름**: Python 응용 프로그램 서버
-    - **설명**: Python Flask 서버
-    - **입력 이미지 이름**: fortanix/python-flask
-    - **출력 이미지 이름**: fortanx-private/python-flask-sgx
-    - **ISVPRODID**: 1
-    - **Isvsvm**: 1
-    - **메모리 크기**: 1gb
-    - **스레드 수**: 128
+    - **응용 프로그램 이름** : Python 응용 프로그램 서버
+    - **설명** : Python Flask 서버
+    - **입력 이미지 이름** : fortanix/python-flask
+    - **출력 이미지 이름** : fortanx-private/python-flask-sgx
+    - **ISVPRODID** : 1
+    - **Isvsvm** : 1
+    - **메모리 크기** : 1gb
+    - **스레드 수** : 128
 
-    *선택 사항*: 응용 프로그램을 실행 합니다.
-    - **Docker 허브**: [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
-    - **앱**: fortanix/python-flask
+    *선택 사항* : 응용 프로그램을 실행 합니다.
+    - **Docker 허브** : [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
+    - **앱** : fortanix/python-flask
 
         다음 명령을 실행합니다.
          ```bash
             sudo docker run fortanix/python-flask
          ```
 
-1. 인증서를 추가 합니다. 아래 세부 정보를 사용 하 여 정보를 입력 하 고 **다음**을 선택 합니다.
-    - **도메인**: myapp. domain. dom
-    - **유형**: Enclave Manager에서 발급 한 인증서 
-    - **키 경로**:/appkey.pem
-    - **키 유형**: RSA
-    - **인증서 경로**:/appcert.pem
-    - **RSA 키 크기**: 2048 비트
+1. 인증서를 추가 합니다. 아래 세부 정보를 사용 하 여 정보를 입력 하 고 **다음** 을 선택 합니다.
+    - **도메인** : myapp. domain. dom
+    - **유형** : Enclave Manager에서 발급 한 인증서 
+    - **키 경로** :/appkey.pem
+    - **키 유형** : RSA
+    - **인증서 경로** :/appcert.pem
+    - **RSA 키 크기** : 2048 비트
     
 
 ## <a name="create-an-image"></a>이미지 만들기
 Fortanix EM 이미지는 소프트웨어 릴리스 또는 응용 프로그램의 버전입니다. 각 이미지는 하나의 MRENCLAVE (enclave hash)와 연결 되어 있습니다. 
-1. **이미지 추가** 페이지에서 **출력 이미지 이름**에 대 한 **레지스트리 자격 증명** 을 입력 합니다. 이러한 자격 증명은 이미지가 푸시되는 개인 docker 레지스트리에 액세스 하는 데 사용 됩니다. 
+1. **이미지 추가** 페이지에서 **출력 이미지 이름** 에 대 한 **레지스트리 자격 증명** 을 입력 합니다. 이러한 자격 증명은 이미지가 푸시되는 개인 docker 레지스트리에 액세스 하는 데 사용 됩니다. 
 
     ![이미지 만들기](media/how-to-fortanix-enclave-manager/create-image.png)
-1. 이미지 태그를 제공 하 고 **만들기**를 선택 합니다.
+1. 이미지 태그를 제공 하 고 **만들기** 를 선택 합니다.
 
     ![태그 추가](media/how-to-fortanix-enclave-manager/add-tag.png)
 
@@ -113,14 +113,14 @@ Fortanix Enclave Manager에서 토큰을 만듭니다. 이 토큰을 통해 Azur
 Fortanix 노드 에이전트를 만들면 가상 컴퓨터, 네트워크 인터페이스, 가상 네트워크, 네트워크 보안 그룹 및 공용 IP 주소가 Azure 리소스 그룹에 배포 됩니다. Azure 구독은 가상 컴퓨터에 대해 시간당 요금이 청구 됩니다. Fortanix 노드 에이전트를 만들기 전에 DCsv2 시리즈에 대 한 Azure [virtual machine 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 를 검토 하세요. 사용 하지 않는 경우 Azure 리소스를 삭제 합니다. 
 
 1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) 로 이동 하 여 Azure 자격 증명으로 로그인 합니다.
-1. 검색 창에서 **Fortanix 기밀 컴퓨팅 노드 에이전트**를 입력 합니다. **Fortanix 기밀 컴퓨팅 노드 에이전트** 라는 검색 상자에 표시 되는 앱을 선택 하 여 제공의 홈 페이지로 이동 합니다. 
+1. 검색 창에서 **Fortanix 기밀 컴퓨팅 노드 에이전트** 를 입력 합니다. **Fortanix 기밀 컴퓨팅 노드 에이전트** 라는 검색 상자에 표시 되는 앱을 선택 하 여 제공의 홈 페이지로 이동 합니다. 
      ![marketplace 검색](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
-1. **지금 가져오기**를 선택 하 고 필요한 경우 정보를 입력 하 고 **계속**을 선택 합니다. Azure Portal으로 리디렉션됩니다. 
+1. **지금 가져오기** 를 선택 하 고 필요한 경우 정보를 입력 하 고 **계속** 을 선택 합니다. Azure Portal으로 리디렉션됩니다. 
 1. **만들기** 를 선택 하 여 Fortanix 기밀 컴퓨팅 노드 에이전트 배포 페이지를 입력 합니다.
 1. 이 페이지에서 가상 머신을 배포 하기 위한 정보를 입력 합니다. 특히이 VM은 Fortanix Node Agent 소프트웨어가 설치 된 Azure에서 Intel SGX 지원 가상 컴퓨터 DCsv2-Series입니다. 노드 에이전트는 변환 된 이미지가 Azure의 Intel SGX 노드에서 안전 하 게 실행 될 수 있도록 합니다.  가상 컴퓨터 및 관련 리소스를 배포 하려는 **구독** 및 **리소스 그룹** 을 선택 합니다. 
  
     > [!NOTE]
-    > Azure에서 DCsv2-Series 가상 머신을 배포 하는 경우 제약 조건이 있습니다. 추가 코어에 대 한 할당량을 요청 해야 할 수도 있습니다. 자세한 내용은 [Azure vm의 기밀 컴퓨팅 솔루션](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) 을 참조 하세요. 
+    > Azure에서 DCsv2-Series 가상 머신을 배포 하는 경우 제약 조건이 있습니다. 추가 코어에 대 한 할당량을 요청 해야 할 수도 있습니다. 자세한 내용은 [Azure vm의 기밀 컴퓨팅 솔루션](./virtual-machine-solutions.md) 을 참조 하세요. 
 
 1. 사용 가능한 지역을 선택합니다.
 1. **노드 이름** 필드에 가상 컴퓨터의 이름을 입력 합니다. 
@@ -130,7 +130,7 @@ Fortanix 노드 에이전트를 만들면 가상 컴퓨터, 네트워크 인터�
 
      ![리소스 배포](media/how-to-fortanix-enclave-manager/deploy-fortanix-node-agent.png)
 
-1. **검토 + 만들기**를 선택합니다. 유효성 검사를 통과 했는지 확인 한 다음 **만들기**를 선택 합니다. 모든 리소스가 배포 되 면 이제 계산 노드가 Enclave Manager에 등록 됩니다. 
+1. **검토 + 만들기** 를 선택합니다. 유효성 검사를 통과 했는지 확인 한 다음 **만들기** 를 선택 합니다. 모든 리소스가 배포 되 면 이제 계산 노드가 Enclave Manager에 등록 됩니다. 
 
 ## <a name="run-the-application-image-on-the-compute-node"></a>계산 노드에서 응용 프로그램 이미지 실행
 다음 명령을 실행 하 여 응용 프로그램을 실행 합니다. 노드 IP, 포트 및 변환 된 이미지 이름을 특정 응용 프로그램에 대 한 입력으로 변경 해야 합니다. 
@@ -162,11 +162,11 @@ Fortanix 노드 에이전트를 만들면 가상 컴퓨터, 네트워크 인터�
 
 더 이상 필요 하지 않은 경우 리소스 그룹, 가상 머신 및 관련 리소스를 삭제할 수 있습니다. 리소스 그룹을 삭제 하면 변환 된 이미지와 연결 된 노드의 등록을 취소 합니다. 
 
-가상머신에 대한 리소스 그룹을 선택한 다음 **삭제**를 선택합니다. 리소스 그룹의 이름을 확인하고 리소스 삭제를 마칩니다.
+가상머신에 대한 리소스 그룹을 선택한 다음 **삭제** 를 선택합니다. 리소스 그룹의 이름을 확인하고 리소스 삭제를 마칩니다.
 
-만든 Fortanix Enclave Manager 계정을 삭제 하려면 Enclave Manager의 [계정 페이지로](https://em.fortanix.com/accounts) 이동 합니다. 삭제 하려는 계정 위로 마우스를 가져갑니다. 오른쪽 위 모서리에서 세로 검은색 점을 선택 하 고 **계정 삭제**를 선택 합니다.
+만든 Fortanix Enclave Manager 계정을 삭제 하려면 Enclave Manager의 [계정 페이지로](https://em.fortanix.com/accounts) 이동 합니다. 삭제 하려는 계정 위로 마우스를 가져갑니다. 오른쪽 위 모서리에서 세로 검은색 점을 선택 하 고 **계정 삭제** 를 선택 합니다.
 
-  ![삭제](media/how-to-fortanix-enclave-manager/delete-account.png)
+  ![delete](media/how-to-fortanix-enclave-manager/delete-account.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -174,4 +174,4 @@ Fortanix 노드 에이전트를 만들면 가상 컴퓨터, 네트워크 인터�
 
 Azure의 기밀 컴퓨팅 제품에 대해 자세히 알아보려면 [azure 기밀 컴퓨팅 개요](overview.md) 를 참조 하세요.
 
- [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) 및 [scone](https://sconedocs.github.io)와 같이 Azure에서 다른 타사 제품을 사용 하 여 유사한 작업을 완료 하는 방법을 알아봅니다.  
+ [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) 및 [scone](https://sconedocs.github.io)와 같이 Azure에서 다른 타사 제품을 사용 하 여 유사한 작업을 완료 하는 방법을 알아봅니다.

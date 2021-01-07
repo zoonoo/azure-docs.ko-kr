@@ -3,12 +3,12 @@ title: 보안 기능 개요
 description: 백업 데이터를 보호하고 비즈니스의 보안 요구를 충족하는 데 도움이 되는 Azure Backup의 보안 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 8c4d3af9205df43c3596da64d7fcad2a9eb82500
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9aa1909f1590b477d9a7f7a09ad0c2b1936e3e29
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093347"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325658"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Azure Backup의 보안 기능 개요
 
@@ -26,7 +26,7 @@ Azure Backup은 백업 관리 작업을 제어할 수 있는 [기본 제공 역�
 
 [Azure 역할 기반 액세스 제어에서 Azure Backup 관리](./backup-rbac-rs-vault.md)에 대해 자세히 알아보세요.
 
-Azure Backup에는 보안 취약성을 예방, 감지 및 대응하기 위해 서비스에 기본 제공되는 몇 가지 보안 컨트롤이 있습니다. [Azure Backup에 대한 보안 제어](./backup-security-controls.md)에 대해 자세히 알아보세요.
+Azure Backup에는 보안 취약성을 예방, 감지 및 대응하기 위해 서비스에 기본 제공되는 몇 가지 보안 컨트롤이 있습니다. [Azure Backup에 대한 보안 제어](./security-baseline.md)에 대해 자세히 알아보세요.
 
 ## <a name="separation-between-guest-and-azure-storage"></a>게스트와 Azure 스토리지 간의 분리
 

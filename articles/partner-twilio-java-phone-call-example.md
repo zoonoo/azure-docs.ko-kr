@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a28677063c6f6dd7bb7bcf6746dbc541308891f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cad25990d0ba7e27f4a90adc587f0c8a0a2c551a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305910"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521073"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Azure의 Java 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법
 다음 예제는 Azure에 호스트된 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 보여 줍니다. 결과 응용 프로그램은 다음 스크린샷에 표시 된 것 처럼 사용자에 게 전화 통화 값을 입력 하 라는 메시지를 표시 합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "87305910"
 또한 [Azure Toolkit for Eclipse를 사용하여 Hello World 애플리케이션 만들기][azure_java_eclipse_hello_world]에 나온 정보나 Eclipse를 사용하지 않는 경우 Azure에서 Java 애플리케이션을 호스트하는 다른 기술을 익히는 것이 좋습니다.
 
 ## <a name="create-a-web-form-for-making-a-call"></a>전화 걸기 웹 양식 만들기
-다음 코드는 전화를 걸기 위해 웹 양식을 만들고 사용자 데이터를 검색하는 방법을 보여 줍니다. 이 예제에서는 **TwilioCloud**라는 새 동적 웹 프로젝트가 생성되고 **callform.jsp**가 JSP 파일로 추가되었습니다.
+다음 코드는 전화를 걸기 위해 웹 양식을 만들고 사용자 데이터를 검색하는 방법을 보여 줍니다. 이 예제에서는 **TwilioCloud** 라는 새 동적 웹 프로젝트가 생성되고 **callform.jsp** 가 JSP 파일로 추가되었습니다.
 
 ```jsp
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -80,7 +80,7 @@ ms.locfileid: "87305910"
 ```
 
 ## <a name="create-the-code-to-make-the-call"></a>코드를 만들어 전화 걸기
-사용자가 callform.jsp에 의해 표시되는 양식을 다 작성하면 호출되는 다음 코드는 통화 메시지를 만들고 통화를 생성합니다. 이 예제에서는 JSP 파일이 **makecall.jsp**로 이름이 지정되고 **TwilioCloud** 프로젝트에 추가되었습니다. (아래 코드에서 **accountSID** 및 **authToken**에 할당된 자리 표시자 값 대신 Twilio 계정 및 인증 토큰을 사용하십시오.)
+사용자가 callform.jsp에 의해 표시되는 양식을 다 작성하면 호출되는 다음 코드는 통화 메시지를 만들고 통화를 생성합니다. 이 예제에서는 JSP 파일이 **makecall.jsp** 로 이름이 지정되고 **TwilioCloud** 프로젝트에 추가되었습니다. (아래 코드에서 **accountSID** 및 **authToken** 에 할당된 자리 표시자 값 대신 Twilio 계정 및 인증 토큰을 사용하십시오.)
 
 ```jsp
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -177,16 +177,16 @@ catch (Exception e)
 3. 컴퓨팅 에뮬레이터에 대해 애플리케이션을 컴파일합니다.
 4. 컴퓨팅 에뮬레이터에서 배포를 시작합니다.
 5. 브라우저를 열고를 실행 `http://localhost:8080/TwilioCloud/callform.jsp` 합니다.
-6. 양식에 값을 입력하고 **Make this call**을 클릭한 다음 makecall.jsp의 결과를 확인합니다.
+6. 양식에 값을 입력하고 **Make this call** 을 클릭한 다음 makecall.jsp의 결과를 확인합니다.
 
-Azure에 배포할 준비가 되면 클라우드에 배포에 대해 다시 컴파일하고 Azure에 배포한 다음 브라우저에서 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp를 실행합니다(*your_hosted_name*의 값 대체).
+Azure에 배포할 준비가 되면 클라우드에 배포에 대해 다시 컴파일하고 Azure에 배포한 다음 브라우저에서 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp를 실행합니다(*your_hosted_name* 의 값 대체).
 
 ## <a name="next-steps"></a>다음 단계
-이 코드는 Azure의 Java에서 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
+이 코드는 Azure의 Java에서 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예:
 
 * 웹 양식을 사용하는 대신, Azure Storage Blob 또는 SQL Database를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Java에서 Azure 스토리지 Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법][howto_blob_storage_java]을 참조하십시오. 
 * makecall.jsp에서 값을 하드 코딩하는 대신, **RoleEnvironment.getConfigurationSettings** 를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. **Roleenvironment** 클래스에 대 한 자세한 내용은 [JSP에서 Azure 서비스 런타임 라이브러리 사용][azure_runtime_jsp]을 참조 하세요.
-* makecall.jsp 코드는 Url 변수에 Twilio 제공 URL을 할당 합니다 [https://twimlets.com/message][twimlet_message_url] . **Url** 이 URL은 Twilio에 통화를 진행하는 방법을 알리는 TwiML(Twilio Markup Language) 응답을 제공합니다. 예를 들어, 반환 되는 TwiML에는 통화 수신자에 게 텍스트를 표시 하는 ** &lt; 단어 &gt; ** 동사가 포함 될 수 있습니다. Twilio 제공 URL을 사용하는 대신, 고유한 서비스를 빌드하여 Twilio의 요청에 응답할 수 있습니다. 자세한 내용은 [Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][howto_twilio_voice_sms_java]을 참조하세요. TwiML에 대 한 자세한 내용은에서 확인할 수 있습니다 [https://www.twilio.com/docs/api/twiml][twiml] . 및 기타 ** &lt; &gt; ** Twilio 동사에 대 한 자세한 내용은을 참조 [https://www.twilio.com/docs/api/twiml/say][twilio_say] 하십시오.
+* makecall.jsp 코드는 Url 변수에 Twilio 제공 URL을 할당 합니다 [https://twimlets.com/message][twimlet_message_url] . **Url** 이 URL은 Twilio에 통화를 진행하는 방법을 알리는 TwiML(Twilio Markup Language) 응답을 제공합니다. 예를 들어, 반환 되는 TwiML에는 통화 수신자에 게 텍스트를 표시 하는 **&lt; 단어 &gt;** 동사가 포함 될 수 있습니다. Twilio 제공 URL을 사용하는 대신, 고유한 서비스를 빌드하여 Twilio의 요청에 응답할 수 있습니다. 자세한 내용은 [Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][howto_twilio_voice_sms_java]을 참조하세요. TwiML에 대 한 자세한 내용은에서 확인할 수 있습니다 [https://www.twilio.com/docs/api/twiml][twiml] . 및 기타 **&lt; &gt;** Twilio 동사에 대 한 자세한 내용은을 참조 [https://www.twilio.com/docs/api/twiml/say][twilio_say] 하십시오.
 * 에서 Twilio 보안 지침을 읽습니다 [https://www.twilio.com/docs/security][twilio_docs_security] .
 
 Twilio에 대 한 자세한 내용은을 참조 하십시오 [https://www.twilio.com/docs][twilio_docs] .
@@ -203,12 +203,12 @@ Twilio에 대 한 자세한 내용은을 참조 하십시오 [https://www.twilio
 [twimlet_message_url]: https://twimlets.com/message
 [twiml]: https://www.twilio.com/docs/api/twiml
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: java-add-certificate-ca-store.md
-[azure_java_eclipse_hello_world]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app 
+[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
+[azure_java_eclipse_hello_world]: /java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app
 [howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
 [howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: https://msdn.microsoft.com/library/windowsazure/hh749029.aspx
-[azure_runtime_jsp]: https://msdn.microsoft.com/library/windowsazure/hh690948.aspx
+[azure_runtime_jsp]: /previous-versions/azure/hh690948(v=azure.100)
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs
 [twilio_say]: https://www.twilio.com/docs/api/twiml/say

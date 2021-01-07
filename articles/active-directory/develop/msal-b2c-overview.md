@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ef1c0003978251dd2637915e56dc396e85f4438f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673499"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107875"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>JavaScript 용 Microsoft 인증 라이브러리를 사용 하 여 Azure AD B2C 작업
 
@@ -32,7 +32,7 @@ Id 관리 서비스로 Azure AD B2C를 사용 하 여 고객이 응용 프로그
 - SPA (단일 페이지 응용 프로그램)에서의 로그인을 지원 하 고 보호 *된* 웹 API를 호출 합니다.
 - 암호 재설정 지원 사용
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 아직 없는 경우 [Azure AD B2C 테 넌 트](../../active-directory-b2c/tutorial-create-tenant.md)를 만듭니다.
 
@@ -207,9 +207,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
     암호를 재설정 한 후 다시 로그인 하도록 사용자가 다시 응용 프로그램에 반환 됩니다.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Azure AD B2C에서 표시 하는 로그인 화면" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Azure AD B2C 표시 된 암호 다시 설정 흐름 화면" border="false":::
 
-    오류 코드 및 예외 처리에 대 한 자세한 내용은 [Msal 오류 및 예외 코드](msal-handling-exceptions.md)를 참조 하세요.
+    오류 코드 및 예외 처리에 대 한 자세한 내용은 [Msal 오류 및 예외 코드](msal-error-handling-js.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -217,4 +217,4 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 - [사용자 흐름](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [사용자 지정 정책](../../active-directory-b2c/custom-policy-get-started.md)
-- [UX 사용자 지정](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [UX 사용자 지정](../../active-directory-b2c/configure-user-input.md)

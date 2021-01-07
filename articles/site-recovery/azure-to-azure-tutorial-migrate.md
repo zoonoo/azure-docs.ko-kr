@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045349"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394835"
 ---
 # <a name="move-vms-to-another-azure-region"></a>다른 Azure 지역으로 VM 이동
 
@@ -68,7 +68,7 @@ ms.locfileid: "92045349"
 - Linux VM의 경우 Linux 배포자가 제공한 지침에 따라 신뢰할 수 있는 최신 루트 인증서 및 인증서 해지 목록을 VM에 가져옵니다.
 - 이동하려는 VM의 네트워크 연결을 제어하기 위해 인증 프록시를 사용하지 않도록 합니다.
 
-- 이동하려는 VM이 인터넷에 액세스할 수 없고 방화벽 프록시를 사용하여 아웃바운드 액세스를 제어하는 경우 [요구 사항을 확인](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms)합니다.
+- 이동하려는 VM이 인터넷에 액세스할 수 없고 방화벽 프록시를 사용하여 아웃바운드 액세스를 제어하는 경우 [요구 사항을 확인](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity)합니다.
 
 - 현재 사용하고 있는 모든 리소스와 원본 네트워킹 레이아웃을 식별합니다. 여기에는 부하 분산 장치, 네트워크 보안 그룹(NSG) 및 공용 IP를 포함하되 국한되지 않습니다.
 
@@ -97,45 +97,45 @@ ms.locfileid: "92045349"
 1. [Azure 포털](https://portal.azure.com)
 1. 검색 시 Recovery Services를 입력하고 Recovery Services 자격 증명 모음을 클릭합니다.
 1. Recovery Services 자격 증명 모음 메뉴에서 +추가를 클릭합니다.
-1. **이름**에서 **ContosoVMVault**라는 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
+1. **이름** 에서 **ContosoVMVault** 라는 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 1. **ContosoRG** 리소스 그룹을 만듭니다.
 1. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
-1. **Recovery Services 자격 증명 모음**에서 **ContosoVMVault** > **복제된 항목** >  **+복제**를 선택합니다.
-1. 드롭다운에서 **Azure Virtual Machines**를 선택합니다.
-1. **원본 위치**에서 VM이 현재 실행 중인 원본 Azure 지역을 선택합니다.
-1. 리소스 관리자 배포 모델을 선택합니다. 그런 다음, **원본 구독** 및 **원본 리소스 그룹**을 선택합니다.
-1. **확인**을 선택하여 설정을 저장합니다.
+1. **Recovery Services 자격 증명 모음** 에서 **ContosoVMVault** > **복제된 항목** >  **+복제** 를 선택합니다.
+1. 드롭다운에서 **Azure Virtual Machines** 를 선택합니다.
+1. **원본 위치** 에서 VM이 현재 실행 중인 원본 Azure 지역을 선택합니다.
+1. 리소스 관리자 배포 모델을 선택합니다. 그런 다음, **원본 구독** 및 **원본 리소스 그룹** 을 선택합니다.
+1. **확인** 을 선택하여 설정을 저장합니다.
 
 ### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Azure VM에 대한 복제를 사용하도록 설정하고 데이터 복사 시작
 
 Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합니다.
 
-1. 다음 단계에서는 이동하려는 VM을 선택하고 **확인**을 선택합니다.
-1. **설정**에서 **재해 복구**를 선택합니다.
-1. **재해 복구 구성** > **대상 지역**에서 복제할 대상 지역을 선택합니다.
+1. 다음 단계에서는 이동하려는 VM을 선택하고 **확인** 을 선택합니다.
+1. **설정** 에서 **재해 복구** 를 선택합니다.
+1. **재해 복구 구성** > **대상 지역** 에서 복제할 대상 지역을 선택합니다.
 1. 이 자습서에서는 다른 기본 설정을 적용합니다.
-1. **복제 사용**을 선택합니다. 이 단계는 VM에 대해 복제를 활성화하는 작업을 시작합니다.
+1. **복제 사용** 을 선택합니다. 이 단계는 VM에 대해 복제를 활성화하는 작업을 시작합니다.
 
-    ![복제 사용](media/tutorial-migrate-azure-to-azure/settings.png)
+
 
 ## <a name="move"></a>이동
 
 다음 단계에서는 대상 영역으로 이동하는 방법을 보여줍니다.
 
-1. 자격 증명 모음으로 이동합니다. **설정** > **복제된 항목**에서 VM을 선택한 후 **장애 조치(failover)** 를 선택합니다.
-2. **장애 조치(failover)** 에서 **최신**을 선택합니다.
+1. 자격 증명 모음으로 이동합니다. **설정** > **복제된 항목** 에서 VM을 선택한 후 **장애 조치(failover)** 를 선택합니다.
+2. **장애 조치(failover)** 에서 **최신** 을 선택합니다.
 3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 4. 작업이 완료되면 VM이 예상대로 대상 Azure 지역에 표시되는지 확인합니다.
 
 
 ## <a name="discard"></a>취소 
 
-이동된 VM을 확인하고 장애 조치(failover) 지점으로 변경하거나 이전 지점으로 다시 이동해야 하는 경우 **복제된 항목**에서 마우스 오른쪽 단추로 VM > **복구 지점 변경**을 선택합니다. 이 단계에서는 다른 복구 지점을 지정하고이에 대한 장애 조치(failover)를 수행할 수 있는 옵션을 제공합니다. 
+이동된 VM을 확인하고 장애 조치(failover) 지점으로 변경하거나 이전 지점으로 다시 이동해야 하는 경우 **복제된 항목** 에서 마우스 오른쪽 단추로 VM > **복구 지점 변경** 을 선택합니다. 이 단계에서는 다른 복구 지점을 지정하고이에 대한 장애 조치(failover)를 수행할 수 있는 옵션을 제공합니다. 
 
 
 ## <a name="commit"></a>Commit 
 
-이동된 VM을 확인하고 변경 내용을 커밋할 준비가 되면 **복제된 항목**에서 마우스 오른쪽 단추로 VM > **커밋**을 선택합니다. 이 단계로, 대상 Azure 지역으로 이동하는 프로세스가 끝났습니다. 커밋 작업이 완료될 때까지 기다립니다.
+이동된 VM을 확인하고 변경 내용을 커밋할 준비가 되면 **복제된 항목** 에서 마우스 오른쪽 단추로 VM > **커밋** 을 선택합니다. 이 단계로, 대상 Azure 지역으로 이동하는 프로세스가 끝났습니다. 커밋 작업이 완료될 때까지 기다립니다.
 
 ## <a name="clean-up"></a>정리
 
@@ -143,7 +143,7 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 
 이동에 사용된 모든 리소스의 경우:
 
-- VM으로 이동합니다. **복제 사용 안 함**을 선택합니다. 이 단계로, VM에 대한 데이터 복사 프로세스가 중지됩니다.
+- VM으로 이동합니다. **복제 사용 안 함** 을 선택합니다. 이 단계로, VM에 대한 데이터 복사 프로세스가 중지됩니다.
 
    > [!IMPORTANT]
    > Azure Site Recovery 복제 요금이 청구되지 않도록 이 단계를 수행해야 합니다.

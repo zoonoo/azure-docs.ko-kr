@@ -5,31 +5,31 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 183d12b5e9d32c777c8acf01177c8cbbe1b6ca00
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091779"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027362"
 ---
 ### <a name="functional-limits"></a>기능 제한
 
 아래 표에는 Azure Digital Twins의 기능 한도가 나열 되어 있습니다.
 
-| Area | 기능 | 기본 제한 | 빗변? |
+| 영역 | 기능 | 기본 제한 | 빗변? |
 | --- | --- | --- | --- |
 | Azure 리소스 | 구독 당 지역의 Azure Digital Twins 인스턴스 수 | 10 | 예 |
 | Digital Twins | Azure Digital 쌍 인스턴스의 쌍 수 | 200,000 | Yes |
-| Digital Twins | 단일 쌍으로 들어오는 관계의 수 | 5,000 | 아니요 |
-| Digital Twins | 단일 쌍의 나가는 관계 수 | 5,000 | 아니요 |
-| Digital Twins | 단일 쌍의 최대 크기 | 32KB | 아니요 |
-| Digital Twins | 최대 요청 페이로드 크기 | 32KB | 아니요 | 
-| 라우팅 | 단일 Azure Digital Twins 인스턴스의 끝점 수 | 6 | 아니요 |
+| Digital Twins | 단일 쌍으로 들어오는 관계의 수 | 5,000 | No |
+| Digital Twins | 단일 쌍의 나가는 관계 수 | 5,000 | No |
+| Digital Twins | 단일 쌍의 최대 크기 | 32KB | No |
+| Digital Twins | 최대 요청 페이로드 크기 | 32KB | No | 
+| 라우팅 | 단일 Azure Digital Twins 인스턴스의 끝점 수 | 6 | No |
 | 라우팅 | 단일 Azure Digital Twins 인스턴스의 경로 수 | 6 | 예 |
 | 모델 | 단일 Azure Digital Twins 인스턴스 내의 모델 수 | 10000 | Yes |
-| 모델 | 단일 API 호출에서 업로드할 수 있는 모델 수 | 250 | 아니요 |
-| 모델 | 단일 페이지에 반환 된 항목 수 | 100 | 아니요 |
-| 쿼리 | 단일 페이지에 반환 된 항목 수 | 100 | 아니요 |
+| 모델 | 단일 API 호출에서 업로드할 수 있는 모델 수 | 250 | No |
+| 모델 | 단일 페이지에 반환 된 항목 수 | 100 | No |
+| 쿼리 | 단일 페이지에 반환 된 항목 수 | 100 | 예 |
 | 쿼리 | `AND`  /  `OR` 쿼리의 식 수 | 50 | 예 |
 | 쿼리 | 절의 배열 항목 수 `IN`  /  `NOT IN` | 50 | 예 |
 | 쿼리 | 쿼리의 문자 수 | 8,000 | 예 |

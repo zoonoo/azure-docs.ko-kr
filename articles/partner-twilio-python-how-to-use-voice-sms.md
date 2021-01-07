@@ -14,11 +14,11 @@ ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
 ms.openlocfilehash: ba93591ade730c4e9c9bdb6a42232e71e10d6469
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87850154"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000439"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Python에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS를 Twilio 하 고 사용 하는 방법에 대 한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조 하세요.
@@ -26,8 +26,8 @@ ms.locfileid: "87850154"
 ## <a name="what-is-twilio"></a><a id="WhatIs"></a>Twilio 정의
 Twilio는 개발자가 애플리케이션에 음성, VoIP 및 메시징을 포함할 수 있도록 하면서 비즈니스 통신의 미래를 이끌고 있습니다. 개발자는 클라우드 기반 글로벌 환경에 필요한 모든 인프라를 가상화하고, Twilio 통신 API 플랫폼을 통해 이를 공개합니다. 덕분에 애플리케이션을 간단히 빌드하고 확장할 수 있습니다. 종량제 가격의 유연성과 클라우드 안정성의 이점을 누리십시오.
 
-**Twilio 음성**을 통해 애플리케이션에서 전화를 걸고 받을 수 있습니다.
-**Twilio SMS**를 사용하면 애플리케이션에서 문자 메시지를 보내고 받을 수 있습니다.
+**Twilio 음성** 을 통해 애플리케이션에서 전화를 걸고 받을 수 있습니다.
+**Twilio SMS** 를 사용하면 애플리케이션에서 문자 메시지를 보내고 받을 수 있습니다.
 **Twilio 클라이언트** 를 통해서는 전화, 태블릿 또는 브라우저에서 VoIP 통화를 하고 WebRTC를 지원할 수 있습니다.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Twilio 가격 책정 및 특별 제공
@@ -41,21 +41,21 @@ Twilio API는 애플리케이션에 대한 음성 및 SMS 기능을 제공하는
 Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입니다.
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Twilio 동사
-API는 Twilio 동사를 사용 합니다. 예를 들어, ** &lt; &gt; ** Twilio는 호출 시 통화에 게 메시지를 배달 하도록 지시 합니다.
+API는 Twilio 동사를 사용 합니다. 예를 들어, **&lt; &gt;** Twilio는 호출 시 통화에 게 메시지를 배달 하도록 지시 합니다.
 
 다음은 Twilio 동사의 목록입니다. 기타 동사 및 기능에 대해서는 [Twilio Markup Language 설명서][twiml]에서 알아보세요.
 
-* ** &lt; 전화 &gt; 걸기**: 호출자를 다른 휴대폰에 연결 합니다.
-* ** &lt; 수집 &gt; **: 전화 키패드에서 입력 한 숫자를 수집 합니다.
-* ** &lt; 끊기 &gt; **: 호출을 종료 합니다.
-* ** &lt; 일시 &gt; 중지**: 지정 된 시간 (초) 동안 자동으로 대기 합니다.
-* ** &lt; 재생 &gt; **: 오디오 파일을 재생 합니다.
-* ** &lt; Queue &gt; **: 호출자의 큐에를 추가 합니다.
-* ** &lt; Record &gt; **: 호출자의 음성을 기록 하 고 기록을 포함 하는 파일의 URL을 반환 합니다.
-* ** &lt; 리디렉션 &gt; **: 호출 또는 SMS의 제어를 다른 URL의 TwiML으로 전송 합니다.
-* ** &lt; 거부 &gt; **: 청구 하지 않고 Twilio 번호에 대 한 들어오는 호출을 거부 합니다.
-* ** &lt; 예 &gt; **:를 호출 하는 경우 텍스트를 음성으로 변환 합니다.
-* ** &lt; SMS &gt; **: sms 메시지를 보냅니다.
+* **&lt; 전화 &gt; 걸기**: 호출자를 다른 휴대폰에 연결 합니다.
+* **&lt; 수집 &gt;**: 전화 키패드에서 입력 한 숫자를 수집 합니다.
+* **&lt; 끊기 &gt;**: 호출을 종료 합니다.
+* **&lt; 일시 &gt; 중지**: 지정 된 시간 (초) 동안 자동으로 대기 합니다.
+* **&lt; 재생 &gt;**: 오디오 파일을 재생 합니다.
+* **&lt; Queue &gt;**: 호출자의 큐에를 추가 합니다.
+* **&lt; Record &gt;**: 호출자의 음성을 기록 하 고 기록을 포함 하는 파일의 URL을 반환 합니다.
+* **&lt; 리디렉션 &gt;**: 호출 또는 SMS의 제어를 다른 URL의 TwiML으로 전송 합니다.
+* **&lt; 거부 &gt;**: 청구 하지 않고 Twilio 번호에 대 한 들어오는 호출을 거부 합니다.
+* **&lt; 예 &gt;**:를 호출 하는 경우 텍스트를 음성으로 변환 합니다.
+* **&lt; SMS &gt;**: sms 메시지를 보냅니다.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 Twilio 동사를 사용하는 XML 기반 명령 집합입니다.
@@ -86,12 +86,12 @@ Twilio 서비스를 사용하고 Azure에서 실행되고 있는 Python 애플�
 ### <a name="add-an-incoming-rule"></a>수신 규칙 추가
   1. [네트워크 보안 그룹][azure_nsg] 페이지로 이동합니다.
   2. Virtual Machine과 일치하는 네트워크 보안 그룹을 선택합니다.
-  3. **포트 80**에 대한 **발신 규칙**을 추가합니다. 모든 주소에서의 수신을 허용해야 합니다.
+  3. **포트 80** 에 대한 **발신 규칙** 을 추가합니다. 모든 주소에서의 수신을 허용해야 합니다.
 
 ### <a name="set-the-dns-name-label"></a>DNS 이름 레이블 설정
   1. [공용 IP 주소][azure_ips] 페이지로 이동합니다.
   2. Virtual Machine과 일치하는 공용 IP를 선택합니다.
-  3. **구성** 섹션에서 **DNS 이름 레이블**을 설정합니다. 이 예제의 경우 *your-domain-label*.centralus.cloudapp.azure.com 같이 표시됩니다.
+  3. **구성** 섹션에서 **DNS 이름 레이블** 을 설정합니다. 이 예제의 경우 *your-domain-label*.centralus.cloudapp.azure.com 같이 표시됩니다.
 
 SSH를 통해 Virtual Machine에 연결할 수 있으면 선택한 웹 프레임워크를 설치할 수 있습니다(Python에서 가장 잘 알려진 두 개의 웹 프레임워크는 [Flask](http://flask.pocoo.org/) 및 [Django](https://www.djangoproject.com)임). `pip install` 명령을 실행하여 둘 중 하나를 설치할 수 있습니다.
 
@@ -104,7 +104,7 @@ SSH를 통해 Virtual Machine에 연결할 수 있으면 선택한 웹 프레임
    
   `$ pip install twilio`
 
-    -또는-
+    또는
 
 * GitHub ()에서 Python 용 Twilio 라이브러리를 다운로드 [https://github.com/twilio/twilio-python][twilio_python] 하 고 다음과 같이 설치 합니다.
 
@@ -183,7 +183,7 @@ message = client.messages.create(to=to_number,
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 사이트를 만들 수 있습니다. XML 응답을 반환하는 모든 언어로 사이트를 만들 수 있습니다. 이 항목에서는 TwiML을 만들기 위해 Python를 사용 중이라고 가정합니다.
 
-다음 예제에서는 호출 시 **Hello World**라고 말하는 TwiML 응답이 출력됩니다.
+다음 예제에서는 호출 시 **Hello World** 라고 말하는 TwiML 응답이 출력됩니다.
 
 Flask 사용:
 
@@ -216,7 +216,7 @@ print(str(response))
 
 TwiML에 대 한 자세한 내용은을 참조 하십시오 [https://www.twilio.com/docs/api/twiml][twiml_reference] .
 
-Python 애플리케이션이 TwiML 응답을 제공하도록 설정된 경우 `client.calls.create` 메서드에 전달되는 URL로 Python 애플리케이션의 URL을 사용합니다. 예를 들어 **MyTwiML**이라는 웹 애플리케이션이 Azure 호스티드 서비스에 배포되어 있으면 다음 예제에 표시된 것처럼 URL을 웹후크로 사용할 수 있습니다.
+Python 애플리케이션이 TwiML 응답을 제공하도록 설정된 경우 `client.calls.create` 메서드에 전달되는 URL로 Python 애플리케이션의 URL을 사용합니다. 예를 들어 **MyTwiML** 이라는 웹 애플리케이션이 Azure 호스티드 서비스에 배포되어 있으면 다음 예제에 표시된 것처럼 URL을 웹후크로 사용할 수 있습니다.
 
 ```python
 from twilio.rest import TwilioRestClient

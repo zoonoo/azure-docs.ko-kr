@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
-ms.openlocfilehash: 6cb455880852295d7176e813208a93919a2c14bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy21q1
+ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318260"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031031"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning studio에서 모델 학습 및 배포를 위한 계산 대상 만들기
 
@@ -93,7 +93,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 |가상 머신 유형 |  CPU 또는 GPU를 선택 합니다. 이 형식을 만든 후에는 변경할 수 없습니다.     |
 |가상 머신 크기     |  지원 되는 가상 머신 크기는 해당 지역에서 제한 될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 확인     |
 |SSH 액세스 사용/사용 안 함     |   SSH 액세스는 기본적으로 사용 되지 않습니다.  SSH 액세스는 일 수 없습니다. 만든 후 변경 됩니다. [VS Code 원격](how-to-set-up-vs-code-remote.md) 으로 대화형으로 디버깅 하려는 경우 액세스를 사용 하도록 설정 해야 합니다.   |
-|고급 설정     |  (선택 사항) 가상 네트워크를 구성 합니다. **리소스 그룹** , **가상 네트워크** 및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](./how-to-secure-training-vnet.md) 을 참조 하세요.  |
+|고급 설정     |  선택 사항입니다. 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크** 및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](./how-to-secure-training-vnet.md) 을 참조 하세요.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> 계산 클러스터
 
@@ -108,7 +108,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 |가상 머신 크기     |  지원 되는 가상 머신 크기는 해당 지역에서 제한 될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 확인     |
 |최소 노드 개수 | 프로 비전 하려는 최소 노드 수입니다. 전용 노드 수를 원하는 경우 여기에서 해당 개수를 설정 합니다. 최소값을 0으로 설정 하 여 비용을 절약 하 여 클러스터가 유휴 상태일 때 노드에 대해 지불 하지 않습니다. |
 |최대 노드 수 | 프로 비전 하려는 최대 노드 수입니다. 작업이 제출 되 면 계산은이 노드 수의 최대값으로 자동 조정 됩니다. |
-|고급 설정     |  (선택 사항) 가상 네트워크를 구성 합니다. **리소스 그룹** , **가상 네트워크** 및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](./how-to-secure-training-vnet.md) 을 참조 하세요.   또한 [관리 id](#managed-identity) 를 연결 하 여 리소스에 대 한 액세스 권한 부여     |
+|고급 설정     |  선택 사항입니다. 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크** 및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](./how-to-secure-training-vnet.md) 을 참조 하세요.   또한 [관리 id](#managed-identity) 를 연결 하 여 리소스에 대 한 액세스 권한 부여     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> 관리 id 설정
 
@@ -132,7 +132,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 |---------|---------|
 |컴퓨팅 이름     |  <li>이름은 필수입니다. 이름은 2 ~ 007e; 16 자 사이 여야 합니다. </li><li>유효한 문자는 대 문자와 소문자, 숫자 및  **-** 문자입니다.</li><li>이름은 문자로 시작 해야 합니다.</li><li>이름은 Azure 지역 내의 모든 기존 계산에서 고유 해야 합니다. 선택한 이름이 고유 하지 않으면 경고가 표시 됩니다.</li><li>문자를 사용 하는 경우 **-**  이름 뒤에 하나 이상의 문자가와 야 합니다.</li>     |
 |Kubernetes Service | **새로 만들기** 를 선택 하 고 폼의 나머지 부분을 채웁니다.  또는 **기존 사용** 을 선택한 다음 구독에서 기존 AKS 클러스터를 선택 합니다.
-|Azure 지역 |  클러스터가 생성 될 지역 선택 |
+|지역 |  클러스터가 생성 될 지역 선택 |
 |가상 머신 크기     |  지원 되는 가상 머신 크기는 해당 지역에서 제한 될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 확인     |
 |클러스터 용도  | **프로덕션** 또는 **개발-테스트** 선택 |
 |노드 수 | 가상 컴퓨터의 코어 수 (vCPUs)를 곱한 노드 수는 12 보다 크거나 같아야 합니다. |

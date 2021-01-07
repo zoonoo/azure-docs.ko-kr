@@ -3,18 +3,18 @@ title: Azure Data Factory의 파이프라인 및 작업
 description: Azure Data Factory의 파이프라인 및 작업에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ceaced5860976b0fa9f84903804700f778ed9550
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371174"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500084"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 
@@ -50,14 +50,14 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 데이터 변환 작업 | 컴퓨팅 환경
 ---------------------------- | -------------------
 [데이터 흐름](control-flow-execute-data-flow-activity.md) | Azure Data Factory에서 관리 하는 Azure Databricks
-[Azure 함수](control-flow-azure-function-activity.md) | Azure Functions
+[Azure 함수](control-flow-azure-function-activity.md) | Azure 기능
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Azure Machine Learning Studio (클래식) 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) | Azure VM
-[저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (이전의 SQL Data Warehouse) 또는 SQL Server
+[Azure Machine Learning Studio(클래식) 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) | Azure VM
+[저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics 또는 SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure 데이터 레이크 분석
 [사용자 지정 작업](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
@@ -224,7 +224,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 - 작업 B가 작업 A에 대해 **성공** 종속성 조건을 가지면 작업 B는 작업 A의 최종 상태가 성공인 경우에만 실행
 - 작업 B가 작업 A에 대해 **실패** 종속성 조건을 가지면 작업 B는 작업 A의 최종 상태가 실패인 경우에만 실행
 - 작업 B가 작업 A에 대해 **완료됨** 종속성 조건을 가지면 작업 B는 작업 A의 최종 상태가 성공 또는 실패인 경우에만 실행
-- 작업 B의 작업 A에 대해 **건너뜀**종속성 조건이 있습니다. 작업 b는 작업 a의 최종 상태가 건너뜀 인 경우에 실행 됩니다. 건너뜀은 각 작업이 이전 작업이 성공한 경우에만 실행하는 작업 X -> 작업 Y -> 작업 Z의 시나리오에서 발생합니다. 작업 X가 실패 하면 작업 Y는 실행 되지 않기 때문에 "건너뜀" 상태가 됩니다. 마찬가지로 활동 Z의 상태도 "건너뜀"입니다.
+- 작업 B의 작업 A에 대해 **건너뜀** 종속성 조건이 있습니다. 작업 b는 작업 a의 최종 상태가 건너뜀 인 경우에 실행 됩니다. 건너뜀은 각 작업이 이전 작업이 성공한 경우에만 실행하는 작업 X -> 작업 Y -> 작업 Z의 시나리오에서 발생합니다. 작업 X가 실패 하면 작업 Y는 실행 되지 않기 때문에 "건너뜀" 상태가 됩니다. 마찬가지로 활동 Z의 상태도 "건너뜀"입니다.
 
 #### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>예: 작업 2는 작업 1의 성공에 따라 달라짐
 
@@ -310,9 +310,9 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 ```
 다음 사항에 유의하세요.
 
-- 작업 섹션에는 **형식**이 **복사**로 설정된 작업만 있습니다.
-- 작업에 대한 입력을 **InputDataset**으로 설정하고 작업에 대한 출력을 **OutputDataset**으로 설정합니다. JSON의 데이터 세트 정의에 대해서는 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요.
-- **typeProperties** 섹션에서 **BlobSource**를 원본 유형으로 지정하고 **SqlSink**를 싱크 유형으로 지정합니다. 데이터 [이동 활동](#data-movement-activities) 섹션에서 원본 또는 싱크로 사용할 데이터 저장소를 클릭 하 여 해당 데이터 저장소로/에서 데이터를 이동 하는 방법에 대해 자세히 알아보세요.
+- 작업 섹션에는 **형식** 이 **복사** 로 설정된 작업만 있습니다.
+- 작업에 대한 입력을 **InputDataset** 으로 설정하고 작업에 대한 출력을 **OutputDataset** 으로 설정합니다. JSON의 데이터 세트 정의에 대해서는 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요.
+- **typeProperties** 섹션에서 **BlobSource** 를 원본 유형으로 지정하고 **SqlSink** 를 싱크 유형으로 지정합니다. 데이터 [이동 활동](#data-movement-activities) 섹션에서 원본 또는 싱크로 사용할 데이터 저장소를 클릭 하 여 해당 데이터 저장소로/에서 데이터를 이동 하는 방법에 대해 자세히 알아보세요.
 
 이 파이프라인 만드는 전체 연습은 [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
@@ -357,8 +357,8 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 ```
 다음 사항에 유의하세요.
 
-- activities 섹션에는 **type**이 **HDInsightHive**로 설정된 작업만 있습니다.
-- Hive 스크립트 파일 **partitionweblogs.hql. hql**는 ScriptLinkedService, AzureStorageLinkedService 라는에 의해 지정 된 Azure Storage 계정에 저장 되며 컨테이너의 스크립트 폴더에 저장 됩니다 `adfgetstarted` .
+- activities 섹션에는 **type** 이 **HDInsightHive** 로 설정된 작업만 있습니다.
+- Hive 스크립트 파일 **partitionweblogs.hql. hql** 는 ScriptLinkedService, AzureStorageLinkedService 라는에 의해 지정 된 Azure Storage 계정에 저장 되며 컨테이너의 스크립트 폴더에 저장 됩니다 `adfgetstarted` .
 - `defines` 섹션은 Hive 스크립트에 Hive 구성 값(예: $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`)으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
 **typeProperties** 섹션은 각 변환 활동마다 다릅니다. 변환 작업에 대해 지원되는 형식 속성에 대해 알아보려면 [데이터 변환 작업](#data-transformation-activities)에서 변환 작업을 클릭합니다.

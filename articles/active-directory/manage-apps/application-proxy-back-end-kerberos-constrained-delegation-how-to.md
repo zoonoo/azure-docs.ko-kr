@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: b18eb0f8d57c06e82d243c10bf038a861bcf88d1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: c28e79c9a6f8c489a97d360c4fe142d431b5ab5d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042705"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656550"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 
@@ -33,7 +33,7 @@ KCD를 사용하도록 설정하는 절차는 간단합니다. SSO를 지원하�
 - 서버 및 애플리케이션 호스트는 단일 Azure Active Directory 도메인에 상주합니다. 도메인 및 포리스트 간 시나리오에 대한 자세한 내용은 [KCD 백서](https://aka.ms/KCDPaper)를 참조하세요.
 - 주체 애플리케이션은 사전 인증을 사용하도록 설정하여 Azure 테넌트에 게시됩니다. 사용자는 양식 기반 인증을 통해 Azure에 인증해야 합니다. 리치 클라이언트 인증 시나리오는 이 문서에서 다루지 않습니다. 나중에 특정 시점에 추가될 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 애플리케이션 프록시는 여러 유형의 인프라 또는 환경에 배포할 수 있습니다. 아키텍처는 조직마다 다릅니다. KCD 관련 문제의 가장 일반적인 원인은 환경이 아닙니다. 대부분의 문제가 단순한 구성 오류나 일반적인 실수로 인해 발생합니다.
 
@@ -90,7 +90,7 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 1. 애플리케이션의 주소에 대해 내부 DNS의 **A** 레코드를 사용하고 **CName** 은 사용하지 마세요.
 1. 커넥터 호스트에 지정된 대상 계정의 SPN에 위임할 수 있는 권한이 부여되었는지 다시 확인합니다. **인증 프로토콜 사용** 이 선택되었는지 다시 확인합니다. 자세한 내용은 [SSO 구성 문서](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
 1. Azure AD에 SPN 인스턴스가 하나만 있는지 확인합니다. 도메인 구성원 호스트의 명령 프롬프트에서 `setspn -x`를 실행합니다.
-1. [실행된 Kerberos 토큰의 최대 크기](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/)를 제한하는 도메인 정책이 적용되는지 확인합니다. 이 정책은 과도한 경우 커넥터의 토큰 가져오기를 중지합니다.
+1. [실행된 Kerberos 토큰의 최대 크기](/archive/blogs/askds/maxtokensize-and-windows-8-and-windows-server-2012)를 제한하는 도메인 정책이 적용되는지 확인합니다. 이 정책은 과도한 경우 커넥터의 토큰 가져오기를 중지합니다.
 
 문제에 대한 보다 구체적인 정보를 얻기 위한 차선책은 커넥터 호스트와 도메인 KDC 간의 교환을 캡처하는 네트워크 추적입니다. 자세한 내용은 [심층 분석 문제 해결 문서](https://aka.ms/proxytshootpaper)를 참조하세요.
 
@@ -102,7 +102,7 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
 1. 포털에 정의된 애플리케이션의 내부 URL을 사용하여 커넥터 호스트의 브라우저에서 애플리케이션에 직접 액세스할 수 있는지 확인합니다. 그러면 성공적으로 로그인할 수 있습니다. 자세한 내용은 커넥터 **문제 해결** 페이지에서 확인할 수 있습니다.
 1. 커넥터 호스트에서 브라우저와 애플리케이션 간의 인증이 Kerberos를 사용하는지 확인합니다. 다음 작업 중 하나를 수행합니다.
-1. Internet Explorer에서 DevTools( **F12** )를 실행하거나, 커넥터 호스트에서 [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/)를 사용합니다. 내부 URL을 사용하여 애플리케이션으로 이동합니다. 애플리케이션의 응답에 반환된, 제공된 WWW 인증 헤더를 검사하여 협상 또는 Kerberos가 있는지 확인합니다.
+1. Internet Explorer에서 DevTools(**F12**)를 실행하거나, 커넥터 호스트에서 [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/)를 사용합니다. 내부 URL을 사용하여 애플리케이션으로 이동합니다. 애플리케이션의 응답에 반환된, 제공된 WWW 인증 헤더를 검사하여 협상 또는 Kerberos가 있는지 확인합니다.
 
    - 애플리케이션에 대한 브라우저의 응답에 반환되는 다음 Kerberos Blob은 **YII** 로 시작합니다. 이 문자는 Kerberos가 실행 중임을 알려 줍니다. 반면에 Microsoft NTLM(NT LAN Manager)은 항상 **TlRMTVNTUAAB** 로 시작합니다. 이 경우 Base64에서 디코드될 때 NTLMSSP(NTLM Security Support Provider)를 읽습니다. Blob 시작 부분에 **TlRMTVNTUAAB** 가 표시되면 Kerberos를 사용할 수 없습니다. **TlRMTVNTUAAB** 가 표시되지 않으면 Kerberos를 사용할 수 있을 가능성이 큽니다.
 
@@ -115,7 +115,7 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
 1. IIS 사이트의 공급자 목록에서 NTLM을 일시적으로 제거합니다. 커넥터 호스트의 Internet Explorer에서 직접 앱에 액세스합니다. 이제 NTLM이 공급자 목록에 없습니다. Kerberos만 사용하여 애플리케이션에 액세스할 수 있습니다. 액세스가 실패하면 애플리케이션 구성에 문제가 있는 것입니다. Kerberos 인증이 작동하지 않습니다.
 
-   - Kerberos를 사용할 수 없는 경우, IIS에서 애플리케이션의 인증 설정을 확인합니다. **Negotiate** (협상)가 맨 위에 나열되고, 바로 아래에 NTLM이 있는지 확인합니다. **Not Negotiate** (협상 안 함), **Kerberos or Negotiate** (Kerberos 또는 협상), **PKU2U** 가 표시되면 Kerberos가 작동하는 경우에만 계속 진행합니다.
+   - Kerberos를 사용할 수 없는 경우, IIS에서 애플리케이션의 인증 설정을 확인합니다. **Negotiate**(협상)가 맨 위에 나열되고, 바로 아래에 NTLM이 있는지 확인합니다. **Not Negotiate**(협상 안 함), **Kerberos or Negotiate**(Kerberos 또는 협상), **PKU2U** 가 표시되면 Kerberos가 작동하는 경우에만 계속 진행합니다.
 
      ![Windows 인증 공급자](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
 

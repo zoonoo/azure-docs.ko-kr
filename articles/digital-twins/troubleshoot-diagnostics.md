@@ -5,14 +5,14 @@ description: 진단 설정으로 로깅을 사용 하도록 설정 하는 방법
 author: baanders
 ms.author: baanders
 ms.date: 11/9/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411768"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616657"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure Digital Twins 문제 해결: 진단 로깅
 
@@ -76,7 +76,7 @@ Azure Digital Twins가 수집 하는 로그의 범주에 대 한 자세한 내�
 | --- | --- |
 | 쓰기 | PUT 및 PATCH |
 | 읽기 | GET |
-| 삭제 | Delete |
+| DELETE | Delete |
 | 작업 | POST |
 
 다음은 각 범주에 기록 되는 작업 및 해당 [Azure Digital Twins REST API 호출](/rest/api/azure-digitaltwins/) 의 포괄적인 목록입니다. 

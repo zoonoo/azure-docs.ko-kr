@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate를 사용 하 여 마이그레이션하기 위해 Windows Server 2003 서버 준비
 description: Azure Migrate를 사용 하 여 마이그레이션하기 위해 Windows Server 2003 서버를 준비 하는 방법을 알아봅니다.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 350eab98a2b40d5ca1382bbfc24245e7cb47b48e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f8d3dea970d07d951467a44661e12000ba413f72
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146844"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753753"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>마이그레이션을 위해 Windows Server 2003 컴퓨터 준비
 

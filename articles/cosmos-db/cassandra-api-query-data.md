@@ -8,14 +8,15 @@ ms.reviewer: sngun
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: e1e6f977d47d98e7c9f5300dc8165ee44a531499
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 693984ceaef1a71ebfbe4122c18a45a563c9c101
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91564870"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100442"
 ---
 # <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB의 Cassandra API 계정에서 데이터 쿼리
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 개발자는 키/값 쌍을 사용하는 애플리케이션을 가질 수도 있습니다. Azure Cosmos DB에서 Cassandra API 계정을 사용하여 키/값 데이터를 저장 및 쿼리할 수 있습니다. 이 자습서에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정에서 사용자 데이터를 쿼리하는 방법을 보여줍니다. Java 애플리케이션은 [Java 드라이버](https://github.com/datastax/java-driver)를 사용하며 사용자 ID, 사용자 이름, 사용자 도시와 같은 사용자 데이터를 쿼리합니다. 
 
@@ -102,11 +103,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.examples.UserProfile
    ```
 
-2. 이제 Azure Portal에서 **데이터 탐색기**를 열고 사용자 테이블이 삭제되었는지 확인합니다.
+2. 이제 Azure Portal에서 **데이터 탐색기** 를 열고 사용자 테이블이 삭제되었는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 없는 경우 리소스 그룹, Azure Cosmos 계정 및 모든 관련 리소스를 삭제해도 됩니다. 삭제하려면 가상 머신의 리소스 그룹을 선택하고, **삭제**를 선택한 다음, 삭제할 리소스 그룹의 이름을 확인합니다.
+더 이상 필요 없는 경우 리소스 그룹, Azure Cosmos 계정 및 모든 관련 리소스를 삭제해도 됩니다. 삭제하려면 가상 머신의 리소스 그룹을 선택하고, **삭제** 를 선택한 다음, 삭제할 리소스 그룹의 이름을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

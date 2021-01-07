@@ -6,18 +6,18 @@ ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 03/22/2020
-ms.openlocfilehash: 39963e9dadca0ee0be7bb8ad0ebf824c287bfee0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e182d40d20529b5743fa9105c68108a8ae55d943
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317908"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516903"
 ---
 # <a name="threat-modeling-tool-update-release-73003161---03222020"></a>Threat Modeling Tool 업데이트 릴리스 7.3.00316.1-03/22/2020
 
 TMT (Microsoft Threat Modeling Tool 버전 7.3.00316.1)는 3 월 22 2020 일에 출시 되었으며 다음과 같은 변경 내용이 포함 되어 있습니다.
 
-- 향상된 접근성 기능
+- 내게 필요한 옵션 기능 향
 - 버그 수정
 - New DiagramReader 기능
 
@@ -49,7 +49,7 @@ CSV로 내보내기 함수가 일관 되지 않아 위협 목록에서 내보낼
 
 ## <a name="documentation-and-feedback"></a>문서 및 피드백
 
-- Threat Modeling Tool에 대한 문서는 [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)에 있으며 [도구 사용](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started)에 대한 정보를 포함합니다.
+- Threat Modeling Tool에 대한 문서는 [docs.microsoft.com](./threat-modeling-tool.md)에 있으며 [도구 사용](./threat-modeling-tool-getting-started.md)에 대한 정보를 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

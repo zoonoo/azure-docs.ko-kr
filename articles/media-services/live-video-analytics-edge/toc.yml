@@ -66,6 +66,7 @@
     - name: 미디어 그래프
       href: media-graph-concept.md
     - name: 미디어 그래프 확장
+      displayName: AI
       href: media-graph-extension-concept.md
     - name: 비디오 녹화
       href: video-recording-concept.md
@@ -99,6 +100,10 @@
       href: configure-signal-gate-how-to.md
     - name: 문제 해결
       href: troubleshoot-how-to.md
+    - name: 업그레이드 중
+      href: upgrading-lva-module.md
+    - name: gRPC 유추 서버 개발 및 배포
+      href: develop-deploy-grpc-inference-srv-how-to.md
 - name: 참조
   items:
     - name: HTTP 확장 프로토콜

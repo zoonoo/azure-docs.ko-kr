@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: 76aae596c145c736ae75e65f7f72fdbdcead5919
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: cb8e6934125630590a337ed7bf7f4c81b2b73bb3
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779058"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915250"
 ---
 Communication Services Java SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
 
@@ -28,9 +28,9 @@ Communication Services Java SMS 클라이언트 라이브러리를 사용하여 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [JDK(Java Development Kit)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), 버전 8 이상.
+- [JDK(Java Development Kit)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), 버전 8 이상.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- 활성 Communication Services 리소스 및 연결 문자열. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
+- 활성 Communication Services 리소스 및 연결 문자열입니다. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
 - SMS 지원 전화 번호입니다. [전화 번호를 가져옵니다](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
@@ -48,7 +48,7 @@ Communication Services Java SMS 클라이언트 라이브러리를 사용하여 
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-'생성' 목표는 artifactId와 같은 이름으로 디렉터리를 만듭니다. 이 디렉터리 아래에서 **src/main/java** 디렉터리는 프로젝트 소스 코드를 포함하고, **src/test/java 디렉터리**는 테스트 원본을 포함하고, **pom.xml** 파일은 프로젝트의 프로젝트 개체 모델 또는 POM입니다.
+'생성' 목표는 artifactId와 같은 이름으로 디렉터리를 만듭니다. 이 디렉터리 아래에서 **src/main/java** 디렉터리는 프로젝트 소스 코드를 포함하고, **src/test/java 디렉터리** 는 테스트 원본을 포함하고, **pom.xml** 파일은 프로젝트의 프로젝트 개체 모델 또는 POM입니다.
 
 ### <a name="install-the-package"></a>패키지 설치
 
@@ -58,13 +58,13 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.2</version>
+    <version>1.0.0-beta.3</version>
 </dependency>
 ```
 
 ### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
 
-**pom.xml**에 `azure-core-http-netty` 종속성을 추가합니다.
+**pom.xml** 에 `azure-core-http-netty` 종속성을 추가합니다.
 
 ```xml
 <dependency>
@@ -74,7 +74,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 </dependency>
 ```
 
-텍스트 편집기에서 **/src/main/java/com/communication/quickstart/App.java**를 열고, 가져오기 지시문을 추가하고, `System.out.println("Hello world!");` 문을 제거합니다.
+텍스트 편집기에서 **/src/main/java/com/communication/quickstart/App.java** 를 열고, 가져오기 지시문을 추가하고, `System.out.println("Hello world!");` 문을 제거합니다.
 
 ```java
 package com.communication.quickstart;
@@ -85,7 +85,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.azure.communication.common.CommunicationClientCredential;
 import com.azure.communication.common.PhoneNumber;
 import com.azure.communication.sms.SmsClient;
 import com.azure.communication.sms.SmsClientBuilder;
@@ -113,7 +112,6 @@ public class App
 | SmsClientBuilder              | 이 클래스는 SmsClient를 만듭니다. 엔드포인트, 자격 증명 및 http 클라이언트를 제공합니다. |
 | SmsClient                    | 이 클래스는 모든 SMS 기능에 필요합니다. SMS 메시지를 보내는 데 사용합니다.                |
 | SendSmsResponse               | 이 클래스는 SMS 서비스의 응답을 포함합니다.                                          |
-| CommunicationClientCredential | 이 클래스는 서명 요청을 처리합니다.                                                            |
 | PhoneNumber                   | 이 클래스에는 전화 번호 정보가 있습니다.
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
@@ -123,20 +121,32 @@ public class App
 `main` 메서드에 다음 코드를 추가합니다.
 
 ```java
+// Your can find your endpoint and access key from your resource in the Azure Portal
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+String accessKey = "SECRET";
+
 // Create an HttpClient builder of your choice and customize it
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
-
-CommunicationClientCredential credential = new CommunicationClientCredential(accessKey);
 
 // Configure and build a new SmsClient
 SmsClient client = new SmsClientBuilder()
     .endpoint(endpoint)
-    .credential(credential)
+    .accessKey(accessKey)
     .httpClient(httpClient)
     .buildClient();
 ```
 
-`com.azure.core.http.HttpClient` 인터페이스를 구현하는 사용자 지정 HTTP 클라이언트를 사용하여 클라이언트를 초기화할 수 있습니다. 위의 코드는 `azure-core`에서 제공하는 [Azure Core Netty HTTP 클라이언트](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true)의 사용 방법을 보여줍니다.
+`com.azure.core.http.HttpClient` 인터페이스를 구현하는 사용자 지정 HTTP 클라이언트를 사용하여 클라이언트를 초기화할 수 있습니다. 위의 코드는 `azure-core`에서 제공하는 [Azure Core Netty HTTP 클라이언트](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable)의 사용 방법을 보여줍니다.
+
+엔드포인트 및 액세스 키를 제공하는 대신 connectionString() 함수를 사용하여 전체 연결 문자열을 제공할 수도 있습니다. 
+```java
+// Your can find your connection string from your resource in the Azure Portal
+String connectionString = "<connection_string>";
+SmsClient client = new SmsClientBuilder()
+    .connectionString(connectionString)
+    .httpClient(httpClient)
+    .buildClient();
+```
 
 ## <a name="send-an-sms-message"></a>SMS 메시지 보내기
 

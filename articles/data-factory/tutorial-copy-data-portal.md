@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: becebf5e56840b8430dd8d4a7714229503e677da
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34eb34a86948a2b4c043d5d9b58b50958855e449
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637125"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508717"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 스토리지에서 Azure SQL Database의 데이터베이스로 데이터 복사
 
@@ -26,7 +26,7 @@ ms.locfileid: "92637125"
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 스토리지에서 Azure SQL Database의 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 > [!NOTE]
-> - Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
+> Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
 
 이 자습서에서는 다음 단계를 수행합니다.
 
@@ -39,9 +39,9 @@ ms.locfileid: "92637125"
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* **Azure 구독** . Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정** . Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
-* **Azure SQL Database** . 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 데이터베이스를 만드는 단계는 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조하세요.
+* **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure Storage 계정**. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
+* **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 데이터베이스를 만드는 단계는 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 
@@ -81,25 +81,27 @@ ms.locfileid: "92637125"
 이 단계에서는 데이터 팩터리를 만들고, Data Factory UI를 시작하여 파이프라인을 데이터 팩터리에 만듭니다.
 
 1. **Microsoft Edge** 또는 **Google Chrome** 을 엽니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-2. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory** 를 차례로 선택합니다.
-3. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory** 를 입력합니다.
+2. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다.
+3. **Data Factory 만들기** 페이지의 **기본 사항** 탭에서 데이터 팩터리를 만들려는 위치에 Azure **구독** 을 선택합니다.
+4. **리소스 그룹** 에 대해 다음 단계 중 하나를 사용합니다.
+
+    a. 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
+
+    b. **새로 만들기** 를 선택하고 새 리소스 그룹의 이름을 입력합니다.
+    
+    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요. 
+5. **지역** 에서 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Azure Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
+6. **이름** 에 **ADFTutorialDataFactory** 를 입력합니다.
 
    Azure Data Factory의 이름은 *전역적으로 고유* 해야 합니다. 이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. (예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
 
      ![새 data factory](./media/doc-common-process/name-not-available-error.png)
-4. 데이터 팩터리를 만들 Azure **구독** 을 선택합니다.
-5. **리소스 그룹** 에 대해 다음 단계 중 하나를 사용합니다.
 
-    a. **기존 항목 사용** 을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
-
-    b. **새로 만들기** 를 선택하고 리소스 그룹의 이름을 입력합니다. 
-         
-    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요. 
-6. **버전** 에서 **V2** 를 선택합니다.
-7. **위치** 에서 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Azure Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
-8. **만들기** 를 선택합니다.
-9. 만들기가 완료되면 알림 센터에 알림이 표시됩니다. **리소스로 이동** 을 선택하여 Data Factory 페이지로 이동합니다.
-10. **작성 및 모니터링** 을 선택하여 별도의 탭에서 Data Factory UI를 선택합니다.
+7. **버전** 에서 **V2** 를 선택합니다.
+8. 상단에 있는 **Git 구성** 탭을 선택하고 **나중에 Git 구성** 확인란을 선택합니다.
+9. **검토 + 만들기** 를 선택하고 유효성 검사를 통과한 후 **만들기** 를 선택합니다.
+10. 만들기가 완료되면 알림 센터에 알림이 표시됩니다. **리소스로 이동** 을 선택하여 Data Factory 페이지로 이동합니다.
+11. **작성 및 모니터링** 을 선택하여 별도의 탭에서 Azure Data Factory UI를 시작합니다.
 
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
@@ -115,7 +117,7 @@ ms.locfileid: "92637125"
 
    ![파이프라인 만들기](./media/doc-common-process/get-started-page.png)
 
-1. 1. **속성** 아래의 일반 패널에서 **이름** 에 **CopyPipeline** 을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
+1. **속성** 아래의 일반 패널에서 **이름** 에 **CopyPipeline** 을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
 1. **활동** 도구 상자에서 **이동 및 변환** 범주를 펼치고, **데이터 복사** 활동을 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **이름** 에 대해 **CopyFromBlobToSql** 을 지정합니다.
 
@@ -124,7 +126,7 @@ ms.locfileid: "92637125"
 ### <a name="configure-source"></a>원본 구성
 
 >[!TIP]
->이 자습서에서는 *계정 키* 를 원본 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *SAS URI* , *서비스 주체* 및 *관리 ID* 를 선택합니다. 자세한 내용은 [이 문서](./connector-azure-blob-storage.md#linked-service-properties)의 해당 섹션을 참조하세요.
+>이 자습서에서는 *계정 키* 를 원본 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *SAS URI*, *서비스 주체* 및 *관리 ID* 를 선택합니다. 자세한 내용은 [이 문서](./connector-azure-blob-storage.md#linked-service-properties)의 해당 섹션을 참조하세요.
 >데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 그림은 [이 문서](./store-credentials-in-key-vault.md)를 참조하세요.
 
 1. **원본** 탭으로 이동합니다. **+ 새로 만들기** 를 선택하여 원본 데이터 세트를 만듭니다.
@@ -224,19 +226,17 @@ ms.locfileid: "92637125"
 
     a. **이름** 아래에서 **RunEveryMinute** 를 입력합니다.
 
-    b. **종료** 아래에서 **날짜** 를 선택합니다.
+    b. 트리거의 **시작 날짜** 를 업데이트합니다. 날짜가 현재 날짜/시간 이전인 경우 변경 내용이 게시되면 트리거가 적용되기 시작합니다. 
 
-    다. **종료 날짜/시간** 아래에서 드롭다운 목록을 선택합니다.
+    c. **표준 시간대** 에서 드롭다운 목록을 선택합니다.
 
-    d. **현재 날짜** 옵션을 선택합니다. 기본적으로 종료 날짜는 다음 날로 설정됩니다.
+    d. **되풀이** 를 **1분마다** 로 설정합니다.
 
-    e. **종료 시간** 부분을 현재 날짜/시간 이후 몇 분으로 업데이트합니다. 트리거는 변경 내용을 게시한 후에만 활성화됩니다. 몇 분 이후로 설정하고 그때까지 게시하지 않으면 트리거 실행이 표시되지 않습니다.
+    e. **종료일 지정** 확인란을 선택하고 **종료 날짜** 부분을 현재 날짜/시간보다 몇 분 늦게 업데이트합니다. 트리거는 변경 내용을 게시한 후에만 활성화됩니다. 몇 분 이후로 설정하고 그때까지 게시하지 않으면 트리거 실행이 표시되지 않습니다.
 
-    f. **확인** 을 선택합니다.
+    f. **활성화됨** 옵션에서 **예** 를 선택합니다.
 
-    g. **활성화됨** 옵션에서 **예** 를 선택합니다.
-
-    h. **확인** 을 선택합니다.
+    g. **확인** 을 선택합니다.
 
     > [!IMPORTANT]
     > 비용은 각 파이프라인 실행과 연결되므로 종료 날짜를 적절하게 설정합니다.

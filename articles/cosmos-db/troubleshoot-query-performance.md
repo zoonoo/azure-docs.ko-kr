@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411357"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905114"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -131,7 +131,7 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-**검색된 문서 수** (60,951)가 **출력 문서 수** (7)보다 훨씬 크며 이는 쿼리 결과가 문서 검색임을 의미합니다. 이 경우 시스템 함수 [UPPER()](sql-query-upper.md)는 인덱스를 사용하지 않습니다.
+**검색된 문서 수**(60,951)가 **출력 문서 수**(7)보다 훨씬 크며 이는 쿼리 결과가 문서 검색임을 의미합니다. 이 경우 시스템 함수 [UPPER()](sql-query-upper.md)는 인덱스를 사용하지 않습니다.
 
 ### <a name="include-necessary-paths-in-the-indexing-policy"></a>인덱싱 정책에 필요한 경로를 포함
 
@@ -196,9 +196,7 @@ WHERE c.description = "Malabar spinach, cooked"
 
 ### <a name="understand-which-system-functions-use-the-index"></a>인덱스를 사용하는 시스템 함수를 파악
 
-식을 문자열 값의 범위로 변환할 수 있는 경우 해당 식은 인덱스를 사용할 수 있습니다. 그렇지 않은 경우는 사용할 수 없습니다.
-
-인덱스를 사용할 수 있는 몇 가지 일반적인 문자열 함수 목록은 다음과 같습니다.
+대부분의 시스템 함수는 인덱스를 사용 합니다. 인덱스를 사용 하는 몇 가지 일반적인 문자열 함수 목록은 다음과 같습니다.
 
 - STARTSWITH(str_expr1, str_expr2, bool_expr)  
 - CONTAINS(str_expr, str_expr, bool_expr)
@@ -214,7 +212,26 @@ WHERE c.description = "Malabar spinach, cooked"
 
 ------
 
-시스템 함수에서는 사용하지 않더라도 쿼리의 다른 부분은 인덱스를 계속 사용할 수 있습니다.
+시스템 함수에서 인덱스를 사용 하 고 있는 경우에도 항상 높은 수준의 요금이 발생 하면 쿼리에 추가 해 볼 수 있습니다 `ORDER BY` . 경우에 따라를 추가 하면 `ORDER BY` 특히 쿼리가 장기 실행 되거나 여러 페이지에 걸쳐 있는 경우 시스템 함수 인덱스 사용률을 향상 시킬 수 있습니다.
+
+예를 들어를 사용 하는 다음 쿼리를 살펴보세요 `CONTAINS` . `CONTAINS` 는 인덱스를 사용 해야 하지만, 관련 인덱스를 추가한 후에도 아래 쿼리를 실행 하는 경우 매우 높은 수준의 요금이 계속 표시 된다고 가정해 보겠습니다.
+
+원본 쿼리:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+업데이트 된 쿼리 `ORDER BY` :
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>인덱스를 사용하는 집계 쿼리를 파악
 

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4abd16d6b5c9593cb1a4df52a7135a658c513410
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455940"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358902"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GoToMeeting 구성
 
@@ -52,15 +52,15 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-account-provisioning"></a>자동 사용자 계정 프로비전을 구성하려면
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > Enterprise Apps > 모든 응용 프로그램** 섹션으로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
-1. Single Sign-On에 대한 GoToMeeting을 이미 구성한 경우 검색 필드를 사용하여 GoToMeeting의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **GoToMeeting**을 검색합니다. 검색 결과에서 GoToMeeting을 선택하고 애플리케이션의 목록에 추가합니다.
+1. Single Sign-On에 대한 GoToMeeting을 이미 구성한 경우 검색 필드를 사용하여 GoToMeeting의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가** 를 선택하고 애플리케이션 갤러리에서 **GoToMeeting** 을 검색합니다. 검색 결과에서 GoToMeeting을 선택하고 애플리케이션의 목록에 추가합니다.
 
 1. GoToMeeting의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
-1. **프로 비전** 모드를 **자동**으로 설정 합니다. 
+1. **프로비전 모드** 를 **자동** 으로 설정합니다. 
 
-    ![Azure Portal에서 GoToMeeting에 대 한 프로 비전 탭의 스크린샷 프로 비전 모드를 자동으로 설정 하 고, 관리자 사용자 이름으로 설정 하 고, 암호 및 연결 테스트를 강조 표시 합니다.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Azure Portal에서 GoToMeeting에 대한 프로비저닝 탭의 스크린샷 프로비저닝 모드를 자동으로 설정하고, 관리자 사용자 이름, 암호 및 연결 테스트를 강조 표시합니다.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. 관리자 자격 증명 섹션에서 다음 단계를 수행합니다.
    
@@ -68,19 +68,19 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     b. **GoToMeeting 관리자 암호** 텍스트 상자에 관리자의 암호를 입력입니다.
 
-1. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 GoToMeeting 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 사용자의 GoToMeeting 계정에 팀 관리자 권한이 있는지 확인하고 **"관리자 자격 증명"** 단계를 다시 시도합니다.
+1. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD가 GoToMeeting 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 사용자의 GoToMeeting 계정에 팀 관리자 권한이 있는지 확인하고 **"관리자 자격 증명"** 단계를 다시 시도합니다.
 
 1. 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 1. 매핑 섹션에서 **Synchronize Azure Active Directory Users to GoToMeeting**(Azure Active Directory 사용자를 GoToMeeting에 동기화)를 선택합니다.
 
 1. **특성 매핑** 섹션에서 Azure AD에서 GoToMeeting으로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 GoToMeeting의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
-1. GoToMeeting에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 설정 섹션에서 **프로비전 상태**를 **설정**으로 변경합니다.
+1. GoToMeeting에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 설정 섹션에서 **프로비전 상태** 를 **설정** 으로 변경합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 사용자 및 그룹 섹션에서 GoToMeeting에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 GoToMeeting 앱의 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 로그에 연결된 링크를 따를 수 있습니다.
 
@@ -90,4 +90,4 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-on 구성](./citrix-gotomeeting-tutorial.md)
+* [Single Sign-On 구성](./citrix-gotomeeting-tutorial.md)

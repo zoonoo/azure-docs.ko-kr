@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 639f2ef12d190a56e04a9b48d96ea0a6537d243c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568639"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020115"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Gen1 탐색기 Azure Time Series Insights
 
@@ -31,7 +31,7 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 > [!TIP]
 > 데모 환경에서 둘러보기를 보려면 [Azure Time Series Insights 빠른](time-series-quickstart.md)시작을 참조 하세요.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="learn-about-querying-data-by-using-the-azure-time-series-insights-explorer-br"></a>Azure Time Series Insights 탐색기를 사용 하 여 데이터를 쿼리 하는 방법에 대해 알아봅니다. </br>
 
@@ -40,13 +40,13 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 >[!NOTE]
 >이전 비디오 <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Azure IoT 솔루션 가속기를 사용 하 여 Azure Time Series Insights 시작"을 재생 합니다.</a>
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Time Series Insights 탐색기를 사용 하려면 먼저 다음을 수행 해야 합니다.
 
 - Azure Time Series Insights 환경을 만듭니다. 자세한 내용은 [Azure Time Series Insights 시작 하는 방법](./time-series-insights-get-started.md)을 참조 하세요.
-- 환경에서 사용자 계정에 대 한 [액세스를 제공](time-series-insights-data-access.md) 합니다.
-- [IoT hub](time-series-insights-how-to-add-an-event-source-iothub.md) 또는 [이벤트 허브](time-series-insights-how-to-add-an-event-source-eventhub.md) 이벤트 원본을 추가 합니다.
+- 환경에서 사용자 계정에 대 한 [액세스를 제공](./concepts-access-policies.md) 합니다.
+- [IoT hub](./how-to-ingest-data-iot-hub.md) 또는 [이벤트 허브](./how-to-ingest-data-event-hub.md) 이벤트 원본을 추가 합니다.
 
 ## <a name="explore-and-query-data"></a>데이터 탐색 및 쿼리하기
 
@@ -54,7 +54,7 @@ Azure Time Series Insights 환경에 이벤트 원본을 연결 하는 데 몇 �
 
 1. 시작 하려면 웹 브라우저에서 [Azure Time Series Insights 탐색기](https://insights.timeseries.azure.com/) 를 엽니다. 창 왼쪽에서 환경을 선택 합니다. 액세스 가능한 모든 환경이 알파벳 순으로 표시됩니다.
 
-1. 환경을 선택한 후에는 맨 위에서 **시작** 및 구성 **을** 사용 하거나 원하는 timespan을 선택 하 고 끕니다. 오른쪽 위 모서리에서 돋보기를 선택 하거나 선택한 timespan을 마우스 오른쪽 단추로 클릭 하 고 **검색**을 선택 합니다.
+1. 환경을 선택한 후에는 맨 위에서 **시작** 및 구성 **을** 사용 하거나 원하는 timespan을 선택 하 고 끕니다. 오른쪽 위 모서리에서 돋보기를 선택 하거나 선택한 timespan을 마우스 오른쪽 단추로 클릭 하 고 **검색** 을 선택 합니다.
 
 1. **자동 켜기** 단추를 선택 하 여 1 분 마다 자동으로 가용성을 새로 고칠 수도 있습니다. **자동 켜기** 단추는 주 시각화의 내용이 아니라 가용성 차트에만 적용 됩니다.
 
@@ -67,7 +67,7 @@ Azure Time Series Insights 환경에 이벤트 원본을 연결 하는 데 몇 �
     - **용어 편집기 패널**: 용어 공간은 환경을 쿼리 하는 위치입니다. 화면 왼쪽에 있습니다.
       - **MEASURE**:이 드롭다운 목록에는 모든 숫자 열 (**double**)이 표시 됩니다.
       - **분할 기준**:이 드롭다운 목록은 범주 열 (**문자열**)을 표시 합니다.
-      - 단계 보간을 사용 하도록 설정 하 고, 최소값과 최대값을 표시 하 고, **측정**옆의 제어판에서 y 축을 조정할 수 있습니다. 표시 된 데이터가 데이터의 개수, 평균 또는 합계 인지를 조정할 수도 있습니다.
+      - 단계 보간을 사용 하도록 설정 하 고, 최소값과 최대값을 표시 하 고, **측정** 옆의 제어판에서 y 축을 조정할 수 있습니다. 표시 된 데이터가 데이터의 개수, 평균 또는 합계 인지를 조정할 수도 있습니다.
       - 동일한 x 축에 대해 볼 수 있는 최대 5 개의 용어를 추가할 수 있습니다. **추가** 를 선택 하 여 새 용어를 추가 하거나 **이 용어 복제** 단추를 사용 하 여 기존 용어의 복사본을 추가 합니다.
 
         [![용어 선택, 필터링 및 쿼리 패널](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png)](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png#lightbox)

@@ -1,18 +1,18 @@
 ---
 title: 연결 문자열-Azure Database for MariaDB
 description: 이 문서에는 ADO.NET(C#), JDBC, Node.js, ODBC, PHP, Python, Ruby 등 애플리케이션을 Azure Database for MariaDB와 연결하려는 경우 현재 지원되는 연결 문자열이 나와 있습니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 73c91343057c12d7534cd79de346182f32964f72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8119f0bfd1f9007cab0df93ad2c7ef22b4db2199
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268762"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533007"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 애플리케이션을 연결하는 방법
 이 항목에는 템플릿 및 예제와 함께 Azure Database for MariaDB에서 지원되는 연결 문자열 형식이 나와 있습니다. 연결 문자열에 다른 매개 변수 및 설정을 사용할 수도 있습니다.
@@ -63,7 +63,7 @@ client = Mysql2::Client.new(username: "{username@servername}", password: {your_p
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Azure Portal에서 연결 문자열 세부 정보 가져오기
-[Azure Portal](https://portal.azure.com)에서 Azure Database for MariaDB 서버로 이동한 다음 **연결 문자열**을 클릭하여 사용자 인스턴스에 대한 문자열 목록을 가져옵니다. ![Azure Portal의 연결 문자열 창](./media/howto-connection-strings/connection-strings-on-portal.png)
+[Azure Portal](https://portal.azure.com)에서 Azure Database for MariaDB 서버로 이동한 다음 **연결 문자열** 을 클릭하여 사용자 인스턴스에 대한 문자열 목록을 가져옵니다. ![Azure Portal의 연결 문자열 창](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 문자열은 드라이버, 서버 및 다른 데이터베이스 연결 매개 변수와 같은 세부 정보를 제공합니다. 데이터베이스 이름, 암호 등과 같은 고유한 매개 변수를 사용하여 이러한 예제를 수정합니다. 그런 다음, 이 문자열을 사용하여 사용자 코드와 애플리케이션에서 서버에 연결할 수 있습니다.
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
 ms.openlocfilehash: b70de1915e6c068bd658dff60776085075412789
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539788"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024013"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -66,7 +66,7 @@ Scala 플러그 인을 설치 하는 단계:
 3. 주 창에서 **Spark 프로젝트(Scala)** 를 선택합니다.
 
 4. **빌드 도구** 드롭다운 목록에서 다음 옵션 중 하나를 선택 합니다.
-   * **Maven** : Scala 프로젝트 만들기 마법사 지원의 경우
+   * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
    * **SBT** - 종속성 관리 및 Scala 프로젝트용 빌드의 경우
 
      ![IntelliJ IDEA 새 프로젝트 대화 상자](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
@@ -104,7 +104,7 @@ Scala 플러그 인을 설치 하는 단계:
 
    ![프로젝트에서 Scala 클래스를 만들기 위한 명령](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
-   c. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 드롭다운 목록에서 **개체** 를 선택한 다음, **확인** 을 선택합니다.
+   다. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 드롭다운 목록에서 **개체** 를 선택한 다음, **확인** 을 선택합니다.
 
      ![새 Scala 클래스 만들기 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
@@ -224,11 +224,11 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
 
 Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 있습니다.
 
-1. 프로젝트에서 **myApp** > **src** > **main** > **scala** > **myApp** 으로 이동합니다.  **myApp** 을 마우스 오른쪽 단추로 클릭하고 **Spark 애플리케이션 제출** (일반적으로 목록 맨 아래에 표시됨)을 선택합니다.
+1. 프로젝트에서 **myApp** > **src** > **main** > **scala** > **myApp** 으로 이동합니다.  **myApp** 을 마우스 오른쪽 단추로 클릭하고 **Spark 애플리케이션 제출**(일반적으로 목록 맨 아래에 표시됨)을 선택합니다.
 
       ![HDInsight에 Spark 애플리케이션 제출 명령](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-2. **Spark 응용 프로그램 제출** 대화 상자 창에서 1을 선택 **합니다. HDInsight의 Spark** .
+2. **Spark 응용 프로그램 제출** 대화 상자 창에서 1을 선택 **합니다. HDInsight의 Spark**.
 
 3. **구성 편집** 창에서 다음 값을 제공하고 **확인** 을 선택합니다.
 
@@ -274,7 +274,7 @@ Azure Toolkit for IntelliJ를 사용 하 여 다양 한 작업을 수행할 수 
 
     ![Spark 작업 보기 작업 단계 세부 정보](./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
-4. *드라이버 Stderr* , *드라이버 Stdout* 및 *디렉터리 정보* 와 같은 자주 사용되는 로그를 보려면 **로그** 탭을 선택합니다.
+4. *드라이버 Stderr*, *드라이버 Stdout* 및 *디렉터리 정보* 와 같은 자주 사용되는 로그를 보려면 **로그** 탭을 선택합니다.
 
     ![Spark 작업 보기 로그 세부 정보](./media/apache-spark-intellij-tool-plugin/intellij-job-log-info.png)
 
@@ -403,7 +403,7 @@ Spark 로컬 콘솔 (Scala)을 실행 하거나 ID Broker ()를 사용 하 여 H
 
     ![' IntelliJ Azure Explorer 역할: 판독기 '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer15.png)
 
-3. 판독기 전용 역할 권한이 있는 클러스터를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **Link this cluster** (이 클러스터 연결)를 선택하여 클러스터를 연결합니다. Ambari 사용자 이름 및 암호를 입력합니다.
+3. 판독기 전용 역할 권한이 있는 클러스터를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **Link this cluster**(이 클러스터 연결)를 선택하여 클러스터를 연결합니다. Ambari 사용자 이름 및 암호를 입력합니다.
 
     ![IntelliJ Azure Explorer에서 이 클러스터에 연결](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer11.png)
 
@@ -414,15 +414,15 @@ Spark 로컬 콘솔 (Scala)을 실행 하거나 ID Broker ()를 사용 하 여 H
 
 ### <a name="link-cluster-by-expanding-jobs-node"></a>작업 노드를 확장하여 클러스터 연결
 
-1. **작업** 노드를 클릭하면 **Cluster Job Access Denied** (클러스터 작업 액세스 거부됨) 창이 표시됩니다.
+1. **작업** 노드를 클릭하면 **Cluster Job Access Denied**(클러스터 작업 액세스 거부됨) 창이 표시됩니다.
 
-2. **Link this cluster** (이 클러스터 연결)를 클릭하여 클러스터를 연결합니다.
+2. **Link this cluster**(이 클러스터 연결)를 클릭하여 클러스터를 연결합니다.
 
     ![클러스터 작업 액세스 거부 대화 상자](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer9.png)
 
 ### <a name="link-cluster-from-rundebug-configurations-window"></a>실행/디버그 구성 창에서 클러스터 연결
 
-1. HDInsight 구성을 만듭니다. 그런 다음, **Remotely Run in Cluster** (클러스터에서 원격으로 실행)를 선택합니다.
+1. HDInsight 구성을 만듭니다. 그런 다음, **Remotely Run in Cluster**(클러스터에서 원격으로 실행)를 선택합니다.
 
 2. **Spark 클러스터(Linux 전용)** 에 대해 판독기 전용 역할 권한이 있는 클러스터를 선택합니다. 경고 메시지가 표시 됩니다. **이 클러스터에 연결** 을 클릭 하 여 클러스터에 연결할 수 있습니다.
 
@@ -430,13 +430,13 @@ Spark 로컬 콘솔 (Scala)을 실행 하거나 ID Broker ()를 사용 하 여 H
 
 ### <a name="view-storage-accounts"></a>스토리지 계정 보기
 
-* 판독기 전용 역할 권한이 있는 클러스터에 대해 **스토리지 계정** 노드를 클릭하면 **Storage Access Denied** (스토리지 계정 거부됨) 창이 표시됩니다. **Azure Storage Explorer 열기** 를 클릭하여 Storage Explorer를 엽니다.
+* 판독기 전용 역할 권한이 있는 클러스터에 대해 **스토리지 계정** 노드를 클릭하면 **Storage Access Denied**(스토리지 계정 거부됨) 창이 표시됩니다. **Azure Storage Explorer 열기** 를 클릭하여 Storage Explorer를 엽니다.
 
    ![' IntelliJ 아이디어 저장소 액세스 거부 '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer14.png)
 
    ![IntelliJ IDEA 스토리지 액세스 거부됨 단추](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer10.png)
 
-* 연결된 클러스터에 대해 **스토리지 계정** 노드를 클릭하면 **Storage Access Denied** (스토리지 계정 거부됨) 창이 표시됩니다. **Azure Storage 열기** 를 클릭하여 Storage Explorer를 엽니다.
+* 연결된 클러스터에 대해 **스토리지 계정** 노드를 클릭하면 **Storage Access Denied**(스토리지 계정 거부됨) 창이 표시됩니다. **Azure Storage 열기** 를 클릭하여 Storage Explorer를 엽니다.
 
    ![' IntelliJ 아이디어 저장소 액세스 Denied2 '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer13.png)
 

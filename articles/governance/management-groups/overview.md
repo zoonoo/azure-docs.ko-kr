@@ -1,15 +1,15 @@
 ---
 title: 관리 그룹으로 리소스 구성 - Azure Governance
 description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대해 알아봅니다.
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
-ms.custom: contperfq1
-ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 9f23a279733169f17f0f82cb80aa08bfafcd45d0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951879"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030674"
 ---
 # <a name="what-are-azure-management-groups"></a>Azure 관리 그룹이란?
 
@@ -45,7 +45,7 @@ ms.locfileid: "91951879"
 
 ### <a name="important-facts-about-the-root-management-group"></a>루트 관리 그룹에 대한 중요한 사실
 
-- 기본적으로 루트 관리 그룹의 표시 이름은 **테넌트 루트 그룹**입니다. ID는 Azure Active Directory ID입니다.
+- 기본적으로 루트 관리 그룹의 표시 이름은 **테넌트 루트 그룹** 입니다. ID는 Azure Active Directory ID입니다.
 - 표시 이름을 변경하려면 계정에 루트 관리 그룹의 소유자 또는 기여자 역할이 할당되어야 합니다. 관리 그룹 이름을 변경하려면 [관리 그룹의 이름 변경](manage.md#change-the-name-of-a-management-group)을 참조하세요.
 - 루트 관리 그룹은 다른 관리 그룹과는 다르게 이동하거나 삭제할 수 없습니다.  
 - 모든 구독 및 관리 그룹은 디렉터리 내의 한 루트 관리 그룹까지 접을 수 있습니다.
@@ -150,7 +150,7 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 
 예를 들어 시각적 개체의 계층 구조 일부를 살펴보겠습니다.
 
-:::image type="complex" source="./media/subtree.png" alt-text="샘플 관리 그룹 계층 구조 다이어그램" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="샘플 관리 그룹 계층 구조의 하위 집합에 대한 다이어그램" border="false":::
    이 다이어그램은 자식 I T 및 마케팅 관리 그룹을 사용하는 루트 관리 그룹을 중심으로 합니다. I T 관리 그룹에는 프로덕션이라는 단일 자식 관리 그룹이 있고 마케팅 관리 그룹에는 두 개의 평가판 자식 구독이 있습니다.
 :::image-end:::
 
@@ -171,7 +171,11 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
  - 새 역할의 할당 가능한 범위에서 관리 그룹을 하나만 정의할 수 있습니다. 이 제한은 역할 정의와 역할 할당의 연결이 끊어지는 상황을 줄이기 위해 마련되었습니다. 이 상황은 역할 할당이 있는 구독 또는 관리 그룹을 역할 정의가 없는 다른 부모로 이동할 때 발생합니다.  
  - 리소스 공급자 데이터 평면 작업은 관리 그룹 사용자 지정 역할에서 정의할 수 없습니다. 이 제한은 데이터 평면 리소스 공급자를 업데이트하는 동안 대기 시간 문제가 있기 때문에 마련되었습니다.
    이 대기 시간 이슈를 해결하기 위해 노력 중이며, 위험을 줄이기 위해 역할 정의에서 이러한 작업을 사용하지 않을 것입니다.
- - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인하지 않습니다. 철자 오류가 있거나 잘못된 관리 그룹 ID가 있는 경우에도 역할 정의는 계속 생성됩니다.  
+ - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인하지 않습니다. 철자 오류가 있거나 잘못된 관리 그룹 ID가 있는 경우에도 역할 정의는 계속 생성됩니다.
+
+> [!IMPORTANT]
+> `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다.
+> 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="moving-management-groups-and-subscriptions"></a>관리 그룹 및 구독 이동 
 
@@ -194,7 +198,7 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 
 관리 그룹은 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 내에서 지원됩니다. 다른 Azure 리소스와 동일한 중앙 위치에서 관리 그룹에 발생하는 모든 이벤트를 검색할 수 있습니다. 예를 들어, 특정 관리 그룹에 이루어진 모든 역할 할당 또는 정책 할당 변경 내용을 볼 수 있습니다.
 
-:::image type="content" source="./media/al-mg.png" alt-text="샘플 관리 그룹 계층 구조 다이어그램" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="선택한 관리 그룹과 관련된 활동 로그 및 작업의 스크린샷" border="false":::
 
 Azure Portal 외부에서 관리 그룹의 쿼리를 살펴보면 관리 그룹에 대한 대상 범위가 **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** 와 같이 표시됩니다.
 

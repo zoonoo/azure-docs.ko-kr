@@ -9,14 +9,14 @@ ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 06/05/2020
 ms.author: ajburnle
-ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
+ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1709bd42fb77bd4f18b8a5e9d1af6e07be67b6c4
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e773be4331be3170a04c8cf5221200589dd13689
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043079"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029031"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 
@@ -26,7 +26,7 @@ Azure AD(Azure Active Directory)는 직원들이 로그인하여 다음 리소�
 
 - 조직에서 자체 개발한 클라우드 앱과 함께 회사 네트워크와 인트라넷의 앱 같은 내부 리소스. 조직의 테넌트를 만드는 방법에 대한 자세한 내용은 [빠른 시작을 참조하세요. Azure Active Directory에서 새 테넌트 만들기](active-directory-access-create-new-tenant.md)
 
-Azure AD와 Active Directory Domain Services 간의 차이점에 대한 자세한 내용은 [Active Directory와 Azure Active Directory 비교](active-directory-compare-azure-ad-to-ad.md)를 참조하세요. 다양한 [Microsoft Cloud for Enterprise Architects 시리즈](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) 포스터를 사용하여 Azure, Azure AD 및 Microsoft 365의 핵심 ID 서비스를 보다 잘 이해할 수 있습니다.
+Azure AD와 Active Directory Domain Services 간의 차이점에 대한 자세한 내용은 [Active Directory와 Azure Active Directory 비교](active-directory-compare-azure-ad-to-ad.md)를 참조하세요. 다양한 [Microsoft Cloud for Enterprise Architects 시리즈](/microsoft-365/solutions/cloud-architecture-models) 포스터를 사용하여 Azure, Azure AD 및 Microsoft 365의 핵심 ID 서비스를 보다 잘 이해할 수 있습니다.
 
 ## <a name="who-uses-azure-ad"></a>누가 Azure AD를 사용하나요?
 

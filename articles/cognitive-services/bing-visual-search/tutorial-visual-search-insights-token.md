@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: acb32e2fe3dae45cc4a95cea1b9fa4ea01d576c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a9005082148803423ac20b4f18dd974bb5b43b80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102182"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486864"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>자습서: 이미지 인사이트 토큰을 사용하여 이전 검색에서 유사한 이미지 찾기
 
 > [!WARNING]
-> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Visual Search 클라이언트 라이브러리를 통해 `ImageInsightsToken`을 반환하는 이전 검색에서 온라인으로 이미지를 찾을 수 있습니다. 이 애플리케이션은 `ImageInsightsToken`을 가져와 후속 검색에서 토큰을 사용합니다. 그런 다음, `ImageInsightsToken`을 Bing에 보내고 Bing Search URL 및 온라인에서 찾은 비슷한 이미지의 URL을 포함하는 결과를 반환합니다.
 
@@ -44,7 +44,7 @@ Visual Search 클라이언트 라이브러리를 통해 `ImageInsightsToken`을 
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Bing Image Search 클라이언트 라이브러리에서 ImageInsightsToken 가져오기
 
-이 애플리케이션은 [Bing Image Search 클라이언트 라이브러리](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)를 통해 가져온 `ImageInsightsToken`을 사용합니다. 새 C# 콘솔 애플리케이션에서 클라이언트를 만들어 `ImageSearchClient()`를 사용하는 API를 호출합니다. 그런 다음, 쿼리와 함께 `SearchAsync()`를 사용합니다.
+이 애플리케이션은 [Bing Image Search 클라이언트 라이브러리](../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)를 통해 가져온 `ImageInsightsToken`을 사용합니다. 새 C# 콘솔 애플리케이션에서 클라이언트를 만들어 `ImageSearchClient()`를 사용하는 API를 호출합니다. 그런 다음, 쿼리와 함께 `SearchAsync()`를 사용합니다.
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -129,7 +129,7 @@ if (visualSearchResults.Tags.Count > 0)
     }
 ```
 
-이러한 데이터 형식에 대한 자세한 내용은 [이미지 - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)를 참조합니다.
+이러한 데이터 형식에 대한 자세한 내용은 [이미지 - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)를 참조합니다.
 
 ## <a name="returned-urls"></a>반환된 URL
 

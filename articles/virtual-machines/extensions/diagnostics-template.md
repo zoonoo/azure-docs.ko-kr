@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31f690277675650323763a7bc6872ad736f5776c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181f226a4d7aa37ffd8c667db4736a96450e2be5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837009"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955959"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용
 Azure Diagnostics Extension은 Windows 기반 Azure 가상 머신에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure Resource Manager 템플릿에 속하도록 포함시켜서 가상 머신에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 머신 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](../windows/template-description.md#extensions) 을 참조하세요. 이 문서는 Azure Diagnostics 확장을 Windows 가상 머신 템플릿에 추가하는 방법을 설명합니다.  
@@ -71,20 +72,20 @@ Windows 가상 머신에서 진단 확장을 사용하도록 설정하려면 진
 
 확장은 가상 머신과 항상 연결되므로, 가상 머신의 리소스 노드 아래에 직접적으로 확장을 정의하거나 기본 수준에서 확장을 정의하고 계층적인 명명 규칙을 사용하여 가상 머신과 확장을 연결할 수 있습니다.
 
-Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile*의 *extensionProfile* 속성에 지정됩니다.
+Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile* 의 *extensionProfile* 속성에 지정됩니다.
 
-*publisher* 속성의 값이 **Microsoft.Azure.Diagnostics**이고 *type* 속성의 값이 **IaaSDiagnostics**이면, Azure Diagnostics 확장이 고유하게 식별됩니다.
+*publisher* 속성의 값이 **Microsoft.Azure.Diagnostics** 이고 *type* 속성의 값이 **IaaSDiagnostics** 이면, Azure Diagnostics 확장이 고유하게 식별됩니다.
 
-*name* 속성의 값은 리소스 그룹에서 확장을 참조하는 데 사용될 수 있습니다. 이 값을 구체적으로 **Microsoft.Insights.VMDiagnosticsSettings**로 설정하면 Azure Portal에서 해당 속성을 쉽게 식별하여 모니터링 차트를 올바르게 표시할 수 있습니다.
+*name* 속성의 값은 리소스 그룹에서 확장을 참조하는 데 사용될 수 있습니다. 이 값을 구체적으로 **Microsoft.Insights.VMDiagnosticsSettings** 로 설정하면 Azure Portal에서 해당 속성을 쉽게 식별하여 모니터링 차트를 올바르게 표시할 수 있습니다.
 
 *typeHandlerVersion* 은 사용할 확장의 버전을 지정합니다. *autoUpgradeMinorVersion* 부 버전을 **true** 로 설정하면 사용 가능한 최신 부 버전 확장이 제공됩니다. 새로운 기능과 버그 수정을 모두 포함하는 최신의 진단 확장을 사용하려면 항상 *autoUpgradeMinorVersion* 을 **true** 로 설정하는 것이 좋습니다. 
 
-*settings* 요소는 설정하고 확장에서 다시 읽어올 수 있는(공용 구성으로 참조되기도 하는) 확장에 대한 구성 속성을 포함합니다. *xmlcfg* 속성은 진단 에이전트에 의해 수집되는 진단 로그, 성능 카운터 등에 대한 XML 기반 구성을 포함합니다. XML 스키마 자체에 대한 자세한 내용은 [진단 구성 스키마](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) 를 참조하세요. 실제 XML 구성은 Azure 리소스 관리자 템플릿에 변수로 저장한 후 연결하여 base64로 인코딩하여 *xmlcfg*에 대한 값을 설정하는 것이 일반적인 방식입니다. 변수에 xml을 저장하는 방법에 대한 자세한 내용은 [진단 구성 변수](#diagnostics-configuration-variables) 섹션을 참조하세요. *storageAccount* 속성은 진단 데이터가 전송되는 스토리지 계정의 이름을 지정합니다. 
+*settings* 요소는 설정하고 확장에서 다시 읽어올 수 있는(공용 구성으로 참조되기도 하는) 확장에 대한 구성 속성을 포함합니다. *xmlcfg* 속성은 진단 에이전트에 의해 수집되는 진단 로그, 성능 카운터 등에 대한 XML 기반 구성을 포함합니다. XML 스키마 자체에 대한 자세한 내용은 [진단 구성 스키마](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) 를 참조하세요. 실제 XML 구성은 Azure 리소스 관리자 템플릿에 변수로 저장한 후 연결하여 base64로 인코딩하여 *xmlcfg* 에 대한 값을 설정하는 것이 일반적인 방식입니다. 변수에 xml을 저장하는 방법에 대한 자세한 내용은 [진단 구성 변수](#diagnostics-configuration-variables) 섹션을 참조하세요. *storageAccount* 속성은 진단 데이터가 전송되는 스토리지 계정의 이름을 지정합니다. 
 
-*protectedSettings* 의 속성은(프라이빗 구성으로 참조되기도 하는) 설정할 수 있지만 설정된 후에는 다시 읽어올 수 없습니다. *protectedSettings*는 쓰기 전용이므로 진단 데이터를 기록하는 스토리지 계정 키와 같은 중요한 비밀을 저장하는 데 유용합니다.    
+*protectedSettings* 의 속성은(프라이빗 구성으로 참조되기도 하는) 설정할 수 있지만 설정된 후에는 다시 읽어올 수 없습니다. *protectedSettings* 는 쓰기 전용이므로 진단 데이터를 기록하는 스토리지 계정 키와 같은 중요한 비밀을 저장하는 데 유용합니다.    
 
 ## <a name="specifying-diagnostics-storage-account-as-parameters"></a>진단 스토리지 계정을 매개 변수로 지정
-위의 진단 스토리지 JSON 코드 조각은 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageResourceGroup*이라는 두 가지 매개 변수를 사용하여 진단 데이터가 저장되는 진단 스토리지 계정을 지정합니다. 진단 스토리지 계정을 매개 변수로 지정하면 다양한 환경에서 진단 스토리지 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 스토리지 계정을 사용할 수 있습니다.  
+위의 진단 스토리지 JSON 코드 조각은 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageResourceGroup* 이라는 두 가지 매개 변수를 사용하여 진단 데이터가 저장되는 진단 스토리지 계정을 지정합니다. 진단 스토리지 계정을 매개 변수로 지정하면 다양한 환경에서 진단 스토리지 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 스토리지 계정을 사용할 수 있습니다.  
 
 ```json
 "existingdiagnosticsStorageAccountName": {
@@ -131,7 +132,7 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile*의 *extensio
 위의 구성에서 Metrics 정의 XML 노드는 앞서 XML에서 *PerformanceCounter* 노드에 정의한 성능 카운터가 집계되고 저장되는 방식을 정의하기 때문에 중요한 구성 요소입니다. 
 
 > [!IMPORTANT]
-> 이러한 메트릭은 Azure 포털에서 모니터링 차트 및 경고를 실행합니다.  Azure 포털의 VM 모니터링 데이터를 확인하려는 경우 VM에 대한 진단 구성에 *resourceID* 및 **MetricAggregation**이 있는 **메트릭** 노드가 포함되어 있어야 합니다. 
+> 이러한 메트릭은 Azure 포털에서 모니터링 차트 및 경고를 실행합니다.  Azure 포털의 VM 모니터링 데이터를 확인하려는 경우 VM에 대한 진단 구성에 *resourceID* 및 **MetricAggregation** 이 있는 **메트릭** 노드가 포함되어 있어야 합니다. 
 > 
 > 
 
@@ -163,7 +164,7 @@ MetricAggregation의 *PT1M* 및 *PT1H* 값은 각각 1분간의 집계와 1시�
 * **V2S**: 문자열 상수입니다.
 * **yyyymmdd**: 테이블이 데이터 수집을 시작한 날짜입니다.
 
-예제: *WADMetricsPT1HP10DV2S20151108*은 2015년 11월 11일부터 10일간 1시간 넘게 수집한 메트릭 데이터를 포함합니다.    
+예제: *WADMetricsPT1HP10DV2S20151108* 은 2015년 11월 11일부터 10일간 1시간 넘게 수집한 메트릭 데이터를 포함합니다.    
 
 각각의 WADMetrics 테이블은 다음 열을 포함합니다.
 

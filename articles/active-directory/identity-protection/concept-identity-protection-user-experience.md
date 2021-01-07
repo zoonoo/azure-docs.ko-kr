@@ -11,25 +11,25 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d4897b9187caab50be4db75bbc0af03e3d35aa4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950207"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835988"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Azure AD ID 보호 사용자 환경
 
 Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습니다.
 
-* 사용자가 MFA (Azure Multi-Factor Authentication에 등록 해야 함)
+* 사용자가 MFA (Azure AD Multi-Factor Authentication)에 등록 하도록 요구
 * 위험한 로그인 및 손상 된 사용자의 재구성 자동화
 
-모든 Id 보호 정책은 사용자의 로그인 환경에 영향을 줍니다. 사용자가 Azure MFA 및 셀프 서비스 암호 재설정과 같은 도구를 등록 하 고 사용할 수 있도록 하면 영향을 줄일 수 있습니다. 이러한 도구는 적절 한 정책 선택과 함께 사용자에 게 필요할 때 자체 수정 옵션을 제공 합니다.
+모든 Id 보호 정책은 사용자의 로그인 환경에 영향을 줍니다. 사용자가 Azure AD MFA 및 셀프 서비스 암호 재설정과 같은 도구를 등록 하 고 사용할 수 있도록 하면 영향을 줄일 수 있습니다. 이러한 도구는 적절 한 정책 선택과 함께 사용자에 게 필요할 때 자체 수정 옵션을 제공 합니다.
 
 ## <a name="multi-factor-authentication-registration"></a>Multi-Factor Authentication 등록
 
-Multi-factor authentication 등록을 요구 하 고 모든 사용자를 대상으로 하는 Id 보호 정책을 사용 하도록 설정 하면 나중에 Azure MFA를 사용 하 여 자동으로 수정할 수 있습니다. 이 정책을 구성 하면 사용자에 게 등록을 선택할 수 있는 14 일 기간을 제공 하 고 끝에는 등록이 강제로 적용 됩니다. 사용자 환경에 대 한 개요는 아래에 설명 되어 있습니다. 자세한 내용은 [2 단계 인증 및 회사 또는 학교 계정에 대 한 개요](../user-help/multi-factor-authentication-end-user-first-time.md)문서의 최종 사용자 설명서에서 찾을 수 있습니다.
+Multi-factor authentication 등록을 요구 하 고 모든 사용자를 대상으로 하는 Id 보호 정책을 사용 하도록 설정 하면 Azure AD MFA를 사용 하 여 나중에 스스로 수정할 수 있습니다. 이 정책을 구성 하면 사용자에 게 등록을 선택할 수 있는 14 일 기간을 제공 하 고 끝에는 등록이 강제로 적용 됩니다. 사용자 환경에 대 한 개요는 아래에 설명 되어 있습니다. 자세한 내용은 [2 단계 인증 및 회사 또는 학교 계정에 대 한 개요](../user-help/multi-factor-authentication-end-user-first-time.md)문서의 최종 사용자 설명서에서 찾을 수 있습니다.
 
 ### <a name="registration-interrupt"></a>등록 인터럽트
 
@@ -37,7 +37,7 @@ Multi-factor authentication 등록을 요구 하 고 모든 사용자를 대상�
    
     ![추가 정보 필요](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
 
-1. 단계별 단계를 완료 하 여 Azure Multi-Factor Authentication에 등록 하 고 로그인을 완료 합니다.
+1. 단계별 단계를 완료 하 여 Azure AD Multi-Factor Authentication 등록 하 고 로그인을 완료 합니다.
 
 ## <a name="risky-sign-in-remediation"></a>위험한 로그인 수정
 
@@ -49,7 +49,7 @@ Multi-factor authentication 등록을 요구 하 고 모든 사용자를 대상�
    
     ![비정상적인 프롬프트](./media/concept-identity-protection-user-experience/120.png)
 
-1. 사용자는 이전에 등록 된 메서드 중 하나를 사용 하 여 Azure MFA를 완료 하 여 id를 증명 해야 합니다. 
+1. 사용자는 이전에 등록 한 방법 중 하나를 사용 하 여 Azure AD MFA를 완료 함으로써 id를 증명 해야 합니다. 
 
 ### <a name="risky-sign-in-administrator-unblock"></a>위험한 로그인 관리자의 차단 해제
 
@@ -69,7 +69,7 @@ IT 담당자는 사용자가 다시 로그인 할 수 있도록 [차단](howto-i
    
     ![수정](./media/concept-identity-protection-user-experience/101.png)
 
-1. 사용자는 이전에 등록 된 메서드 중 하나를 사용 하 여 Azure MFA를 완료 하 여 id를 증명 해야 합니다. 
+1. 사용자는 이전에 등록 한 방법 중 하나를 사용 하 여 Azure AD MFA를 완료 함으로써 id를 증명 해야 합니다. 
 1. 마지막으로 사용자는 자신의 계정에 대 한 액세스 권한이 있을 수 있으므로 셀프 서비스 암호 재설정을 사용 하 여 자신의 암호를 변경 해야 합니다.
 
 ## <a name="risky-sign-in-administrator-unblock"></a>위험한 로그인 관리자의 차단 해제

@@ -1,6 +1,6 @@
 ---
-title: 전용 SQL 풀의 테이블 데이터 형식
-description: 전용 SQL 풀에서 테이블 데이터 형식을 정의 하기 위한 권장 사항입니다.
+title: 전용 SQL 풀의 테이블 데이터 형식 (이전의 SQL DW)
+description: Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)의 테이블 데이터 형식을 정의 하기 위한 권장 사항입니다.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 01/06/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5bb1d10978171b93ee697b37ee9ac0702d3f898c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6526ae2c15bd53af69854309632c83fa65af8d85
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313076"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449687"
 ---
-# <a name="table-data-types-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 테이블 데이터 형식 
+# <a name="table-data-types-for-dedicated-sql-pool-formerly--sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW)에 대 한 테이블 데이터 형식 
 
 이 문서에는 전용 SQL 풀에서 테이블 데이터 형식을 정의 하기 위한 권장 사항이 포함 되어 있습니다.
 
 ## <a name="supported-data-types"></a>지원되는 데이터 형식
 
-전용 SQL 풀은 가장 일반적으로 사용 되는 데이터 형식을 지원 합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문에서 [데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes)을 참조하세요.
+전용 SQL 풀 (이전의 SQL DW)은 가장 일반적으로 사용 되는 데이터 형식을 지원 합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문에서 [데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes)을 참조하세요.
 
 ## <a name="minimize-row-length"></a>행 길이 최소화
 
@@ -51,7 +51,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="workarounds-for-unsupported-data-types"></a><a name="unsupported-data-types"></a>지원되지 않는 데이터 형식에 대한 해결 방법
 
-다음 목록에서는 전용 SQL 풀에서 지원 하지 않는 데이터 형식을 보여 주고 지원 되지 않는 데이터 형식에 대 한 유용한 대안을 제공 합니다.
+다음 목록에서는 전용 SQL 풀 (이전의 SQL DW)이 지원 하지 않는 데이터 형식을 보여 주고 지원 되지 않는 데이터 형식에 대 한 유용한 대안을 제공 합니다.
 
 | 지원되지 않는 데이터 형식 | 해결 방법 |
 | --- | --- |

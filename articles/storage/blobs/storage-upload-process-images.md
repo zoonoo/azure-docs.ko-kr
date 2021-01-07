@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7446e9391b39d068cef4cda2fea7817a63b6f99a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: c20c78cb3c946c666b1640ccac6f86c9b52387ea
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323552"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843879"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -284,7 +284,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-**파일 선택**을 선택하여 파일을 선택한 다음, **이미지 업로드**를 클릭합니다. **생성된 썸네일** 섹션은 이 자습서의 뒷부분에서 테스트할 때까지 비어 있습니다.
+**파일 선택** 을 선택하여 파일을 선택한 다음, **이미지 업로드** 를 클릭합니다. **생성된 썸네일** 섹션은 이 자습서의 뒷부분에서 테스트할 때까지 비어 있습니다.
 
 ![Node.js에서 사진 업로드](media/storage-upload-process-images/upload-app-nodejs.png)
 
@@ -395,7 +395,7 @@ module.exports = router;
 
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>스토리지 계정에서 이미지가 표시되는지 확인합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정**을 선택하고 스토리지 계정의 이름을 선택합니다. **컨테이너**를 선택한 다음, **이미지** 컨테이너를 선택합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정** 을 선택하고 스토리지 계정의 이름을 선택합니다. **컨테이너** 를 선택한 다음, **이미지** 컨테이너를 선택합니다.
 
 컨테이너에 이미지가 표시되는지 확인합니다.
 
@@ -405,9 +405,9 @@ module.exports = router;
 
 썸네일 보기를 테스트하려면 이미지를 **thumbnails** 컨테이너에 업로드하여 앱에서 **thumbnails** 컨테이너를 읽을 수 있는지 확인합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정**을 선택하고 스토리지 계정의 이름을 선택합니다. **컨테이너**를 선택한 다음, **썸네일** 컨테이너를 선택합니다. **업로드**를 선택하여 **blob 업로드** 창을 엽니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정** 을 선택하고 스토리지 계정의 이름을 선택합니다. **컨테이너** 를 선택한 다음, **썸네일** 컨테이너를 선택합니다. **업로드** 를 선택하여 **blob 업로드** 창을 엽니다.
 
-파일 선택기를 사용하여 파일을 선택하고, **업로드**를 선택합니다.
+파일 선택기를 사용하여 파일을 선택하고, **업로드** 를 선택합니다.
 
 앱으로 다시 이동하여 **썸네일** 컨테이너에 업로드된 이미지가 보이는지 확인합니다.
 
@@ -421,7 +421,7 @@ module.exports = router;
 
 ---
 
-시리즈의 2부에서는 썸네일 이미지를 자동으로 만들므로 이 이미지가 필요하지 않습니다. **썸네일** 컨테이너에서 업로드한 이미지를 선택하고 **삭제**를 선택하여 이미지를 제거합니다.
+시리즈의 2부에서는 썸네일 이미지를 자동으로 만들므로 이 이미지가 필요하지 않습니다. **썸네일** 컨테이너에서 업로드한 이미지를 선택하고 **삭제** 를 선택하여 이미지를 제거합니다.
 
 CDN(Content Delivery Network)을 사용하도록 설정하여 Azure 스토리지 계정의 콘텐츠를 캐시할 수 있습니다. 자세한 내용은 [Azure CDN과 Azure Storage 계정 통합](../../cdn/cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
 

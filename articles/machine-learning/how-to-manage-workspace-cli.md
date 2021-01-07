@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4c457ef2c4957308735c222488ad04dac80235df
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442143"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740388"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 
@@ -29,6 +29,10 @@ ms.locfileid: "94442143"
 * **로컬 환경** 에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)가 필요합니다.
 
     [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)을 사용하는 경우 CLI는 브라우저를 통해 액세스하고 클라우드에 있습니다.
+
+## <a name="limitations"></a>제한 사항
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Azure 구독에 CLI 연결
 
@@ -76,6 +80,8 @@ Azure Machine Learning 작업 영역은 다음과 같은 Azure 서비스 또는 
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
+ACR (Azure Container Registry)은 현재 리소스 그룹 이름에서 유니코드 문자를 지원 하지 않습니다. 이 문제를 완화 하려면 이러한 문자를 포함 하지 않는 리소스 그룹을 사용 합니다.
+
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 리소스 그룹 내에 Azure Machine Learning 작업 영역을 만들어야 합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다. __새 리소스 그룹을 만들려면__ 다음 명령을 사용합니다. `<resource-group-name>`을 이 리소스 그룹에 사용할 이름으로 바꿉니다. `<location>`을 이 리소스 그룹에 사용할 Azure 지역으로 바꿉니다.
@@ -103,7 +109,7 @@ az group create --name <resource-group-name> --location <location>
 }
 ```
 
-리소스 그룹 작업에 대한 자세한 내용은 [az 그룹](//cli/azure/group?preserve-view=true&view=azure-cli-latest)을 참조하세요.
+리소스 그룹 작업에 대한 자세한 내용은 [az 그룹](/cli/azure/group?preserve-view=true&view=azure-cli-latest)을 참조하세요.
 
 ### <a name="automatically-create-required-resources"></a>자동으로 필수 리소스 만들기
 
@@ -156,9 +162,12 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>고객 관리 키 및 높은 비즈니스 영향 작업 영역
 
-기본적으로 작업 영역에 대 한 메트릭 및 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다. 
+기본적으로 작업 영역에 대 한 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다.
 
-Microsoft에서 관리 하는 키를 사용 하는 대신 사용자 고유의 키 제공을 사용할 수 있습니다. 이렇게 하면 Azure 구독에 메트릭 및 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. `--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 URL을 지정 합니다.
+> [!NOTE]
+> Azure Cosmos DB은 모델 성능, 실험에서 기록한 정보 또는 모델 배포에서 기록 된 정보와 같은 정보를 저장 하는 데 사용 __되지 않습니다__ . 이러한 항목을 모니터링 하는 방법에 대 한 자세한 내용은 아키텍처 및 개념 문서의 [모니터링 및 로깅](concept-azure-machine-learning-architecture.md) 섹션을 참조 하세요.
+
+Microsoft에서 관리 하는 키를 사용 하는 대신 사용자 고유의 키 제공을 사용할 수 있습니다. 이렇게 하면 Azure 구독에 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. `--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 URL을 지정 합니다.
 
 `--cmk-keyvault`및 `--resource-cmk-uri` 매개 변수를 사용 하기 전에 먼저 다음 작업을 수행 해야 합니다.
 
@@ -186,7 +195,7 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
 > [!IMPORTANT]
 > 기존 리소스를 모두 지정할 필요는 없습니다. 하나 이상의 리소스를 지정할 수 있습니다. 예를 들어, 기존 스토리지 계정을 지정할 수 있으며 작업 영역에서는 다른 리소스를 만듭니다.
 
-+ **Azure Storage 계정** : `az storage account show --name <storage-account-name> --query "id"`
++ **Azure Storage 계정**: `az storage account show --name <storage-account-name> --query "id"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 스토리지 계정의 ID입니다.
 
@@ -195,7 +204,7 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
     > [!IMPORTANT]
     > 기존 Azure Storage 계정을 사용 하려는 경우 premium 계정 (Premium_LRS 및 Premium_GRS)이 될 수 없습니다. 또한 계층적 네임 스페이스 (Azure Data Lake Storage Gen2에서 사용)를 가질 수 없습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 _기본_ 저장소 계정에서 지원 되지 않습니다. _기본이 아닌_ 저장소 계정이 포함 된 premium storage 또는 계층적 네임 스페이스를 사용할 수 있습니다.
 
-+ **Azure Application Insights** :
++ **Azure Application Insights**:
 
     1. Application Insights 확장을 선택합니다.
 
@@ -213,13 +222,13 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault** : `az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 Key Vault의 ID입니다.
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry** : `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 컨테이너 레지스트리의 ID입니다.
 

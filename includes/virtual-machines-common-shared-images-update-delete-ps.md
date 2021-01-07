@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6e0612a017650f0c6e4c9f63d9a5fd097b0b92c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32978257c3e209dc78a29c6e8ae0d1c4ae016a5b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89303993"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559543"
 ---
 ## <a name="update-resources"></a>리소스 업데이트
 
@@ -36,7 +36,7 @@ ms.locfileid: "89303993"
 
 복제본 영역을 추가 하려는 경우 원본 관리 이미지를 삭제 하지 마십시오. 원본 관리 이미지는 이미지 버전을 추가 지역에 복제 하는 데 필요 합니다. 
 
-갤러리에 대 한 설명을 업데이트 하려면 [AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery)를 사용 합니다.
+갤러리에 대 한 설명을 업데이트 하려면 [AzGallery](/powershell/module/az.compute/update-azgallery)를 사용 합니다.
 
 ```azurepowershell-interactive
 Update-AzGallery `
@@ -44,7 +44,7 @@ Update-AzGallery `
    -ResourceGroupName $resourceGroup.Name
 ```
 
-이 예제에서는 [AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimagedefinition) 를 사용 하 여 이미지 정의의 수명 종료 날짜를 업데이트 하는 방법을 보여 줍니다.
+이 예제에서는 [AzGalleryImageDefinition](/powershell/module/az.compute/update-azgalleryimagedefinition) 를 사용 하 여 이미지 정의의 수명 종료 날짜를 업데이트 하는 방법을 보여 줍니다.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageDefinition `
@@ -54,7 +54,7 @@ Update-AzGalleryImageDefinition `
    -EndOfLifeDate 01/01/2030
 ```
 
-이 예제에서는 [AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) 를 사용 하 여이 이미지 버전이 *최신* 이미지로 사용 되지 않도록 제외 하는 방법을 보여 줍니다.
+이 예제에서는 [AzGalleryImageVersion](/powershell/module/az.compute/update-azgalleryimageversion) 를 사용 하 여이 이미지 버전이 *최신* 이미지로 사용 되지 않도록 제외 하는 방법을 보여 줍니다.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -65,7 +65,7 @@ Update-AzGalleryImageVersion `
    -PublishingProfileExcludeFromLatest
 ```
 
-이 예제에서는 [AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) 를 사용 하 여이 이미지 버전을 *최신* 이미지를 고려 하는 것으로 포함 하는 방법을 보여 줍니다.
+이 예제에서는 [AzGalleryImageVersion](/powershell/module/az.compute/update-azgalleryimageversion) 를 사용 하 여이 이미지 버전을 *최신* 이미지를 고려 하는 것으로 포함 하는 방법을 보여 줍니다.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -103,4 +103,3 @@ Remove-AzGallery `
 
 Remove-AzResourceGroup -Name $resourceGroup
 ```
-

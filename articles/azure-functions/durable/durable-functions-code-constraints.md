@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee1561e85e769bf8a82ce96d5ce010eece92a0fa
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392619"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833098"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Orchestrator 함수 코드 제약 조건
 
@@ -30,8 +30,8 @@ Orchestrator 함수는 대상 언어의 모든 API를 호출할 수 있습니다
 
 | API 범주 | 이유 | 해결 방법 |
 | ------------ | ------ | ---------- |
-| 날짜 및 시간  | 반환 된 값은 각 재생 마다 다르므로 현재 날짜 또는 시간을 반환 하는 Api는 비결 정적입니다. | `CurrentUtcDateTime`.Net의 api, `currentUtcDateTime` JavaScript의 api 또는 `current_utc_datetime` 재생에 안전한 Python의 api를 사용 합니다. |
-| Guid 및 Uuid  | 임의 GUID 또는 UUID를 반환 하는 Api는 생성 된 값이 각 재생 마다 다르기 때문에 비결 정적입니다. | `NewGuid`.Net 또는 JavaScript에서를 사용 `newGuid` 하 여 임의의 guid를 안전 하 게 생성 합니다. |
+| 날짜 및 시간  | 반환 된 값은 각 재생 마다 다르므로 현재 날짜 또는 시간을 반환 하는 Api는 비결 정적입니다. | .NET의 [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) 속성, `currentUtcDateTime` JavaScript의 api 또는 `current_utc_datetime` 재생에 안전한 Python의 api를 사용 합니다. |
+| Guid 및 Uuid  | 임의 GUID 또는 UUID를 반환 하는 Api는 생성 된 값이 각 재생 마다 다르기 때문에 비결 정적입니다. | .NET 또는 JavaScript에서 [Newguid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) `newGuid` 를 사용 하 여 임의의 guid를 안전 하 게 생성 합니다. |
 | 난수 | 난수를 반환 하는 Api는 생성 된 값이 각 재생 마다 다르기 때문에 비결 정적입니다. | 작업 함수를 사용 하 여 임의의 숫자를 오케스트레이션에 반환 합니다. 작업 함수의 반환 값은 항상 재생에 안전 합니다. |
 | 바인딩 | 입력 및 출력 바인딩은 일반적으로 i/o를 수행 하 고 비결 정적입니다. 오 케 스트레이 터 함수는 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 및 [엔터티 클라이언트](durable-functions-bindings.md#entity-client) 바인딩을 직접 사용 하지 않아야 합니다. | 클라이언트 또는 작업 함수 내에서 입력 및 출력 바인딩을 사용 합니다. |
 | 네트워크 | 네트워크 호출은 외부 시스템과 관련 되며 비결 정적입니다. | 작업 함수를 사용 하 여 네트워크 호출을 수행 합니다. Orchestrator 함수에서 HTTP 호출을 수행 해야 하는 경우 [내구성이 있는 Http api](durable-functions-http-features.md#consuming-http-apis)를 사용할 수도 있습니다. |
@@ -57,7 +57,7 @@ Orchestrator 함수는 대상 언어의 모든 API를 호출할 수 있습니다
 > [!NOTE]
 > 이 섹션에서는 지속성 작업 프레임워크의 내부 구현에 대해 자세히 설명합니다. 이 정보를 몰라도 지 속성 함수를 사용할 수 있습니다. 여기서는 재생 동작을 이해하는 데에만 도움이 됩니다.
 
-오 케 스트레이 터 함수에서 안전 하 게 대기할 수 있는 작업을 종종 *내구성이 있는 작업* 이라고 합니다. 지 속성 작업 프레임 워크는 이러한 작업을 만들고 관리 합니다. .NET orchestrator 함수에서 **Callactivityasync** , **Waitforexternalevent** 및 **createtimer** 에 의해 반환 되는 작업을 예로 들 수 있습니다.
+오 케 스트레이 터 함수에서 안전 하 게 대기할 수 있는 작업을 종종 *내구성이 있는 작업* 이라고 합니다. 지 속성 작업 프레임 워크는 이러한 작업을 만들고 관리 합니다. .NET orchestrator 함수에서 **Callactivityasync**, **Waitforexternalevent** 및 **createtimer** 에 의해 반환 되는 작업을 예로 들 수 있습니다.
 
 이러한 지 속성 작업은 .NET의 개체 목록에 의해 내부적으로 관리 됩니다 `TaskCompletionSource` . 재생 하는 동안 이러한 작업은 orchestrator 코드 실행의 일부로 생성 됩니다. 디스패처가 해당 기록 이벤트를 열거 하는 것 처럼 완료 됩니다.
 

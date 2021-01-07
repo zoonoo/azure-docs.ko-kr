@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 167ed7e5c00452db4ee77e10236fec3ff86f0439
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145588"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175103"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>프로 비전이 Azure Monitor 로그와 통합 되는 방식 이해
 
@@ -30,13 +30,13 @@ Azure 모니터링을 구성한 후에는 응용 프로그램 프로 비전에 �
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="진단 설정 액세스" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="진단 설정 액세스" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="응용 프로그램 프로 비전 로그 사용" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
 
 > [!NOTE]
 > 작업 영역을 최근에 프로 비전 한 경우 로그를 보내기 전에 약간의 시간이 걸릴 수 있습니다. *Microsoft insights* 를 사용 하도록 구독을 등록 하지 않은 오류가 표시 되 면 몇 분 후에 다시 확인 하세요.
  
 ## <a name="understanding-the-data"></a>데이터 이해
-프로 비전에서 로그 뷰어를 보내는 기본 데이터 스트림은 거의 동일 합니다. Azure Monitor 로그는 Azure Portal UI 및 Azure API와 거의 동일한 스트림을 가져옵니다. 로그 필드에는 다음 표에 설명 된 것 처럼 몇 가지 **차이점이** 있습니다. 이러한 필드에 대해 자세히 알아보려면 [ProvisioningObjectSummary 나열](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true)을 참조 하세요.
+프로 비전에서 로그 뷰어를 보내는 기본 데이터 스트림은 거의 동일 합니다. Azure Monitor 로그는 Azure Portal UI 및 Azure API와 거의 동일한 스트림을 가져옵니다. 로그 필드에는 다음 표에 설명 된 것 처럼 몇 가지 **차이점이** 있습니다. 이러한 필드에 대해 자세히 알아보려면 [ProvisioningObjectSummary 나열](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta)을 참조 하세요.
 
 |Azure Monitor 로그   |Azure Portal UI   |Azure API |
 |----------|-----------|------------|
@@ -51,9 +51,9 @@ Azure Monitor 통합 문서는 데이터 분석을 위한 유연한 캔버스를
 
 응용 프로그램 프로 비전은 미리 작성 된 통합 문서 집합과 함께 제공 됩니다. 이러한 항목은 통합 문서 페이지에서 찾을 수 있습니다. 데이터를 보려면 모든 필터 (timeRange, jobID, appName)가 채워져 있는지 확인 해야 합니다. 앱을 프로 비전 했는지 확인 해야 합니다. 그렇지 않으면 로그에 데이터가 없을 수도 있습니다.
 
-:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="진단 설정 액세스" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="응용 프로그램 프로 비전 통합 문서" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="진단 설정 액세스" lightbox="media/application-provisioning-log-analytics/report.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="응용 프로그램 프로 비전 대시보드" lightbox="media/application-provisioning-log-analytics/report.png":::
 
 ## <a name="custom-queries"></a>사용자 지정 쿼리
 
@@ -100,15 +100,15 @@ Azure Monitor를 사용 하면 프로 비전 관련 주요 이벤트에 대 한 
 
 오류가 급증 하는 경우 경고 합니다. JobID를 응용 프로그램에 대 한 jobID로 바꿉니다.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="진단 설정 액세스" lightbox="media/application-provisioning-log-analytics/alert1.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="오류가 급증 하는 경우 경고 합니다." lightbox="media/application-provisioning-log-analytics/alert1.png":::
 
 프로 비전 서비스의 실행이 중지 되는 문제가 있을 수 있습니다. 지정 된 시간 간격 동안 프로 비전 이벤트가 없는 경우 다음 경고를 사용 하 여 검색 합니다.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="진단 설정 액세스" lightbox="media/application-provisioning-log-analytics/alert2.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="프로 비전 서비스의 실행이 중지 되는 문제가 있을 수 있습니다." lightbox="media/application-provisioning-log-analytics/alert2.png":::
 
 사용 하지 않도록 설정 하거나 삭제할 때 스파이크가 발생 하면 경고 합니다.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="진단 설정 액세스" lightbox="media/application-provisioning-log-analytics/alert3.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="사용 하지 않도록 설정 하거나 삭제할 때 스파이크가 발생 하면 경고 합니다." lightbox="media/application-provisioning-log-analytics/alert3.png":::
 
 
 ## <a name="community-contributions"></a>커뮤니티 기여
@@ -121,4 +121,4 @@ Azure Monitor를 사용 하면 프로 비전 관련 주요 이벤트에 대 한 
 - [Azure Monitor 로그에서 쿼리 시작](../../azure-monitor/log-query/get-started-queries.md)
 - [Azure Portal에서 경고 그룹 만들기 및 관리](../../azure-monitor/platform/action-groups.md)
 - [Azure Active Directory용 로그 분석 보기 설치 및 사용](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [프로 비전 로그 API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
+- [프로 비전 로그 API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

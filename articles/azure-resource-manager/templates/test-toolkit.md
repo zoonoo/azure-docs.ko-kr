@@ -1,20 +1,20 @@
 ---
 title: ARM 템플릿 테스트 도구 키트
-description: 템플릿에서 ARM 템플릿 테스트 도구 키트를 실행 하는 방법을 설명 합니다. 도구 키트를 사용 하 여 권장 사례를 구현 했는지 확인할 수 있습니다.
+description: 템플릿에서 Azure Resource Manager 템플릿 (ARM 템플릿) 테스트 도구 키트를 실행 하는 방법을 설명 합니다. 도구 키트를 사용 하 여 권장 사례를 구현 했는지 확인할 수 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5ad0b6dca7718166517b52148fbc6dd49f38869
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439563"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674015"
 ---
 # <a name="use-arm-template-test-toolkit"></a>ARM 템플릿 테스트 도구 키트 사용
 
-[ARM (Azure Resource Manager) 템플릿 테스트 도구 키트](https://aka.ms/arm-ttk) 는 템플릿에서 권장 사례를 사용 하는지 여부를 확인 합니다. 템플릿이 권장 사례를 준수 하지 않는 경우 제안 된 변경 내용과 함께 경고 목록을 반환 합니다. 테스트 도구 키트를 사용 하 여 템플릿 개발에서 일반적인 문제를 방지 하는 방법을 배울 수 있습니다.
+[Azure Resource Manager 템플릿 (ARM 템플릿) 테스트 도구 키트](https://aka.ms/arm-ttk) 는 템플릿에서 권장 사례를 사용 하는지 여부를 확인 합니다. 템플릿이 권장 사례를 준수 하지 않는 경우 제안 된 변경 내용과 함께 경고 목록을 반환 합니다. 테스트 도구 키트를 사용 하 여 템플릿 개발에서 일반적인 문제를 방지 하는 방법을 배울 수 있습니다.
 
 테스트 도구 키트는 [일련의 기본 테스트](test-cases.md)를 제공 합니다. 이러한 테스트는 권장 사항 이지만 요구 사항은 아닙니다. 목표와 관련 된 테스트를 결정 하 고 실행 되는 테스트를 사용자 지정할 수 있습니다.
 
@@ -162,11 +162,11 @@ Test-AzTemplate -TemplatePath $TemplateFolder -Test "Resources Should Have Locat
 
 ## <a name="customize-tests"></a>테스트 사용자 지정
 
-ARM 템플릿의 경우 도구 키트는 **\arm-ttk\testcases\deploymentTemplate**폴더의 모든 테스트를 실행 합니다. 테스트를 영구적으로 제거 하려면 폴더에서 해당 파일을 삭제 합니다.
+ARM 템플릿의 경우 도구 키트는 **\arm-ttk\testcases\deploymentTemplate** 폴더의 모든 테스트를 실행 합니다. 테스트를 영구적으로 제거 하려면 폴더에서 해당 파일을 삭제 합니다.
 
-[Createuidefinition](../managed-applications/create-uidefinition-overview.md) 파일의 경우 **\arm-ttk\testcases\CreateUiDefinition**폴더의 모든 테스트를 실행 합니다.
+[Createuidefinition](../managed-applications/create-uidefinition-overview.md) 파일의 경우 **\arm-ttk\testcases\CreateUiDefinition** 폴더의 모든 테스트를 실행 합니다.
 
-사용자 고유의 테스트를 추가 하려면 **Your-Custom-Test-Name.test.ps1**명명 규칙을 사용 하 여 파일을 만듭니다.
+사용자 고유의 테스트를 추가 하려면 **Your-Custom-Test-Name.test.ps1** 명명 규칙을 사용 하 여 파일을 만듭니다.
 
 테스트는 개체 매개 변수 또는 문자열 매개 변수로 템플릿을 가져올 수 있습니다. 일반적으로는 둘 중 하나를 사용 하지만 둘 다 사용할 수 있습니다.
 
@@ -282,4 +282,5 @@ Azure 파이프라인에 테스트 도구 키트를 추가할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-기본 테스트에 대 한 자세한 내용은 [Toolkit 테스트 사례](test-cases.md)를 참조 하세요.
+- 기본 테스트에 대 한 자세한 내용은 [ARM 템플릿 테스트 도구 키트에 대 한 기본 테스트 사례](test-cases.md)를 참조 하세요.
+- 테스트 도구 키트를 사용 하는 Microsoft Learn 모듈은 [변경 내용 미리 보기 및 가상 및 ARM 템플릿 테스트 도구 키트를 사용 하 여 Azure 리소스 유효성 검사](/learn/modules/arm-template-test/)를 참조 하세요.

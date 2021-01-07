@@ -1,17 +1,17 @@
 ---
 title: Query Performance Insight-Azure Database for MariaDB
 description: 이 문서에서는의 Query Performance Insight 기능에 대해 설명 Azure Database for MariaDB
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 88777ee44551ed6abdb7a6c7c909d6bf55db48c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b643ba3305736480e06d7c10d594b2271839038f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79527847"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536335"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 Query Performance Insight
 
@@ -33,7 +33,7 @@ Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼�
 
 ## <a name="permissions"></a>사용 권한
 
-Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자**는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
+Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자** 는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -56,7 +56,7 @@ Azure Database for MariaDB 서버의 포털 페이지에서 메뉴 모음의 **�
 ### <a name="wait-statistics"></a>대기 통계 
 
 > [!NOTE]
-> 대기 통계는 쿼리 성능 문제를 해결하기 위한 것입니다. 문제 해결 목적을 위해서만 켜지도록 하는 것이 좋습니다. <br>Azure Portal "에 오류 메시지가 표시 되 면"*DBforMariaDB "에 대 한 문제가 발생 한 것입니다. 에서 요청을 수행할 수 없습니다. 이 문제가 계속 되거나 예기치 않은 경우 지원 서비스에 문의 하세요.*" 받은 경우 더 작은 기간을 사용하세요.
+> 대기 통계는 쿼리 성능 문제를 해결하기 위한 것입니다. 문제 해결 목적을 위해서만 켜지도록 하는 것이 좋습니다. <br>Azure Portal "에 오류 메시지가 표시 되 면" *DBforMariaDB "에 대 한 문제가 발생 한 것입니다. 에서 요청을 수행할 수 없습니다. 이 문제가 계속 되거나 예기치 않은 경우 지원 서비스에 문의 하세요.* " 받은 경우 더 작은 기간을 사용하세요.
 
 대기 통계는 특정 쿼리를 실행하는 동안 발생하는 대기 이벤트에 대한 보기를 제공합니다. [MySQL 엔진 설명서](https://go.microsoft.com/fwlink/?linkid=2098206)에서 대기 이벤트 유형에 대해 자세히 알아보세요.
 

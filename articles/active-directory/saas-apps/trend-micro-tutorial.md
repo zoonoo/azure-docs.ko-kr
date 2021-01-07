@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514540"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008398"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>자습서: TMWS(Trend Micro Web Security)와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -48,7 +48,7 @@ TMWS가 Azure AD에 통합되도록 구성하려면 갤러리의 TMWS를 관리�
 
 1. 회사 또는 학교 계정, 개인 Microsoft 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
+1. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **TMWS(Trend Micro Web Security)** 를 입력합니다.
 1. 검색 결과에서 **TMWS(Trend Micro Web Security)** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
@@ -112,11 +112,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 를 선택합니다. **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 를 선택합니다. **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 상자에서 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 상자에서 * *_username_@* companydomain *.* extension***을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 상자에서 **_username_@* companydomain *.* extension***을 입력합니다. 예: `B.Simon@contoso.com`
    1. **암호 표시** 를 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 선택합니다.
 
@@ -124,7 +124,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 TMWS에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 1. 애플리케이션 목록에서 **TMWS(Trend Micro Web Security)** 를 선택합니다.
 1. 앱의 개요 페이지에 있는 **관리** 섹션에서 **사용자 및 그룹** 을 선택합니다.
 
@@ -156,7 +156,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **API 권한** 창에서 **권한 추가** 를 선택합니다.
 
-1. **API 권한 요청** 창의 **Microsoft API** 탭에서 **Microsoft Graph** , **애플리케이션 권한** 을 차례로 선택합니다.
+1. **API 권한 요청** 창의 **Microsoft API** 탭에서 **Microsoft Graph**, **애플리케이션 권한** 을 차례로 선택합니다.
 
 1. 다음 권한을 찾아서 추가합니다. 
 
@@ -224,7 +224,7 @@ Azure AD 서비스가 구성되고 Azure AD가 사용자 인증 방법으로 지
 
 1. 인터넷 웹 사이트를 방문합니다. TMWS에서 TMWS 종속 포털로 안내합니다.
 
-1. Active Directory 계정(형식: *domain*\\*sAMAccountName* 또는 *sAMAccountName*@*domain* ), 이메일 주소 또는 UPN을 지정한 다음, **로그온** 을 선택합니다. TMWS에서 사용자를 Azure AD 로그인 창으로 보냅니다.
+1. Active Directory 계정(형식: *domain*\\*sAMAccountName* 또는 *sAMAccountName*@*domain*), 이메일 주소 또는 UPN을 지정한 다음, **로그온** 을 선택합니다. TMWS에서 사용자를 Azure AD 로그인 창으로 보냅니다.
 
 1. Azure AD 로그인 창에서 Azure AD 계정 자격 증명을 입력합니다. 이제 TMWS에 로그인됩니다.
 

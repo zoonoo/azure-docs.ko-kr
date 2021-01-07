@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398510"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660936"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
@@ -119,7 +119,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 1. 이전 단계를 완료 한 후에는 역할을 역순으로 사용 하 여 동일한 단계를 실행 합니다. 그러면 서버 노드가 클라이언트 노드가 되 고 반대의 경우도 마찬가지입니다.
 
 > [!Note]
-> Iperf는 유일한 도구가 아닙니다. [Ntttcp는 테스트를 위한 대체 솔루션](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing)입니다.
+> Iperf는 유일한 도구가 아닙니다. [Ntttcp는 테스트를 위한 대체 솔루션](../virtual-network/virtual-network-bandwidth-testing.md)입니다.
 
 ## <a name="test-vms-running-windows"></a>Windows를 실행 하는 Vm 테스트
 
@@ -225,7 +225,7 @@ Bash 명령줄에서 (git가 설치 된 것으로 가정)
 
 이전 단계 (iPERF/NTTTCP/등)로 평가 되는 전체 처리량이 양호 하더라도 Windows 탐색기를 사용 하거나 RDP 세션을 통해 끌어서 놓는 경우 파일 복사 속도가 느려질 수 있습니다. 일반적으로 이 문제의 원인은 다음 요소 중 하나이거나 둘 다에 해당합니다.
 
-* Windows 탐색기 및 RDP와 같은 파일 복사 애플리케이션은 파일을 복사할 때 여러 스레드를 사용하지 않습니다. 성능을 개선하기 위해 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)와 같은 다중 스레드 파일 복사 애플리케이션을 통해 16개 또는 32개의 스레드를 사용하여 파일을 복사합니다. Richcopy에서 파일 복사에 대 한 스레드 번호를 변경 하려면 **작업**  >  **복사 옵션**  >  **파일 복사**를 클릭 합니다.
+* Windows 탐색기 및 RDP와 같은 파일 복사 애플리케이션은 파일을 복사할 때 여러 스레드를 사용하지 않습니다. 성능을 개선하기 위해 [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10))와 같은 다중 스레드 파일 복사 애플리케이션을 통해 16개 또는 32개의 스레드를 사용하여 파일을 복사합니다. Richcopy에서 파일 복사에 대 한 스레드 번호를 변경 하려면 **작업**  >  **복사 옵션**  >  **파일 복사** 를 클릭 합니다.
 
    ![느린 파일 복사 문제](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -233,7 +233,7 @@ Bash 명령줄에서 (git가 설치 된 것으로 가정)
    > 모든 응용 프로그램이 동일 하 게 작동 하는 것은 아니므로 모든 응용 프로그램/프로세스가 모든 스레드를 사용 하는 것은 아닙니다. 테스트를 실행 하면 일부 스레드가 비어 있고 정확한 처리량 결과를 제공 하지 않을 수 있습니다.
    > 응용 프로그램 파일 전송 성능을 확인 하려면 응용 프로그램이 나 파일 전송의 최적 처리량을 찾기 위해 스레드 수를 연속 해 서 늘리거나 줄여서 다중 스레드를 사용 합니다.
 
-* 부족한 VM 디스크 읽기/쓰기 속도. 자세한 내용은 [Azure Storage 문제 해결](../storage/common/storage-e2e-troubleshooting.md)을 참조하세요.
+* 부족한 VM 디스크 읽기/쓰기 속도. 자세한 내용은 [Azure Storage 문제 해결](/previous-versions/azure/storage/common/storage-e2e-troubleshooting)을 참조하세요.
 
 ## <a name="on-premises-device-external-facing-interface"></a>온-프레미스 디바이스 외부 연결 인터페이스
 

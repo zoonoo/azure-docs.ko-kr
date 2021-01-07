@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7518d6ac8bc0cde515ab8da2f3d9c1496cb93f08
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b8b0ac002cb52acdc043e4e8ca4fa91daae4e665
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311721"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457985"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Synapse SQL에서 인증에 Azure Active Directory 인증 사용
 
@@ -36,7 +36,7 @@ Azure AD 인증을 사용하면 Azure Synapse에 액세스할 수 있는 사용�
 
 1. Azure AD를 만들고 채웁니다.
 2. Azure Active Directory ID 만들기
-3. Synapse 작업 영역(미리 보기)에서 만든 Azure Active Directory ID에 역할 할당
+3. Synapse 작업 영역에서 만든 Azure Active Directory ID에 역할 할당
 4. Azure AD ID를 사용하여 Synapse Studio에 연결합니다.
 
 ## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Azure AD 통과
@@ -65,7 +65,7 @@ Azure AD 인증을 사용하는 경우 Synapse SQL의 관리자 계정으로는 
 
 Azure AD 관리자 로그인은 Azure AD 사용자나 Azure AD 그룹이 될 수 있습니다. 관리자가 그룹 계정인 경우 모든 그룹 구성원이 사용할 수 있으므로 해당 Synapse SQL 인스턴스에 대해 여러 Azure AD 관리자를 지정할 수 있습니다. 
 
-그룹 계정을 관리자로 사용하면 Synapse Analytics 작업 영역에서 사용자나 권한을 변경하지 않고도 Azure AD의 그룹 구성원을 중앙에서 추가 및 제거할 수 있으므로 관리 효율성이 향상됩니다. 한 번에 하나의 Azure AD 관리자(그룹 또는 사용자)를 구성할 수 있습니다.
+그룹 계정을 관리자로 사용하면 Azure Synapse Analytics 작업 영역에서 사용자나 권한을 변경하지 않고도 Azure AD의 그룹 구성원을 중앙에서 추가 및 제거할 수 있으므로 관리 효율성이 향상됩니다. 한 번에 하나의 Azure AD 관리자(그룹 또는 사용자)를 구성할 수 있습니다.
 
 ![관리자 구조](./media/aad-authentication/3-admin-structure.png)
 
@@ -109,7 +109,7 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 - Azure Active Directory MFA 지원을 통한 유니버설 인증
 - 애플리케이션 토큰 인증 사용
 
-Azure AD 서버 보안 주체(로그인)( **공개 미리 보기** )에 대해 지원되는 인증 방법은 다음과 같습니다.
+Azure AD 서버 보안 주체(로그인)에 대해 지원되는 인증 방법은 다음과 같습니다.
 
 - Azure Active Directory 암호
 - Azure Active Directory 통합
@@ -119,10 +119,10 @@ Azure AD 서버 보안 주체(로그인)( **공개 미리 보기** )에 대해 �
 
 - 관리 효율성을 높일 수 있게 관리자 권한으로 전용 Azure AD 그룹을 프로비전하는 것이 좋습니다.
 - Synapse SQL 풀에 대한 Azure AD 관리자(사용자 또는 그룹)는 항상 한 명만 구성할 수 있습니다.
-  - Synapse SQL(미리 보기)에 대한 Azure AD 서버 보안 주체(로그인)를 추가하면 `sysadmin` 역할에 추가할 수 있는 Azure AD 서버 보안 주체(로그인)를 여러 개 만들 수 있습니다.
+  - Synapse SQL에 대한 Azure AD 서버 보안 주체(로그인)를 추가하면 `sysadmin` 역할에 추가할 수 있는 Azure AD 서버 보안 주체(로그인)를 여러 개 만들 수 있습니다.
 - Synapse SQL의 Azure AD 관리자만이 Azure Active Directory 계정을 사용하여 Synapse SQL에 처음 연결할 수 있습니다. Active Directory 관리자가 이후의 Azure AD 데이터베이스 사용자를 구성할 수 있습니다.
 - 연결 제한 시간은 30초로 설정하는 것이 좋습니다.
-- SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure AD 인증은 **.NET Framework Data Provider for SqlServer** (.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 애플리케이션(DAC 및 .BACPAC)의 최신 버전에서는 Azure AD 인증을 사용할 수 있습니다.
+- SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure AD 인증은 **.NET Framework Data Provider for SqlServer**(.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 애플리케이션(DAC 및 .BACPAC)의 최신 버전에서는 Azure AD 인증을 사용할 수 있습니다.
 - 버전 15.0.1부터 [sqlcmd 유틸리티](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [bcp 유틸리티](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)는 MFA를 사용하는 Active Directory 대화형 인증을 지원합니다.
 - Visual Studio 2015용 SQL Server Data Tools는 Data Tools의 2016년 4월 버전 이상이 필요합니다(버전 14.0.60311.1). 현재 Azure AD 사용자는 SSDT 개체 탐색기에 표시되지 않습니다. 해결 방법으로 [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에서 사용자를 봅니다.
 - [SQL Server용 Microsoft JDBC 드라이버 6.0](https://www.microsoft.com/download/details.aspx?id=11774)은 Azure AD 인증을 지원합니다. 또한 [연결 속성 설정](/sql/connect/jdbc/setting-the-connection-properties?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.

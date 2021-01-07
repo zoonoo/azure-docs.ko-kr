@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center에서 사용할 수 있는 지원되는 기능 | Microsoft Docs
-description: 이 문서에서는 Azure Security Center에서 지원하는 서비스 목록을 제공합니다.
+title: OS, 머신 유형 및 클라우드에 따른 Azure Security Center 기능
+description: OS, 유형 및 클라우드 배포에 따라 사용할 수 있는 Azure Security Center 기능에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 40d70c7bd740d8c72ddb72047a3bae3586e1aa1f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f5d6d6255b48192a5943159599531fac18ebeb26
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445254"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796995"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -99,10 +99,45 @@ ms.locfileid: "94445254"
 | McAfee v10+ | Linux 서버 제품군  | 아니요 | 예 * *\** _ |
 | Sophos V9+| Linux 서버 제품군  | 아니요 | 예 _*\**_  |
 
- _ *\** * 현재는 보호된 구독과 연결된 Log Analytics 작업 영역에서만 적용 범위 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영되지 않습니다.
+ _*\**_ 현재는 보호된 구독과 연결된 Log Analytics 작업 영역에서만 적용 범위 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영되지 않습니다.
 
 > [!NOTE]
 > Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell(v3.0 이상)이 설치된 후 SCEP가 설치되어야 합니다.
+
+
+
+## <a name="feature-support-in-government-clouds"></a>정부 클라우드의 기능 지원
+
+| 서비스/기능 | US Gov | 중국 정부 |
+|------|:----:|:----:|
+|[Just-in-time VM 액세스](security-center-just-in-time.md)(1)|✔|✔|
+|[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)(1)|✔|✔|
+|[적응 애플리케이션 제어](security-center-adaptive-application.md)(1)|✔|✔|
+|[적응형 네트워크 강화](security-center-adaptive-network-hardening.md)(1)|-|-|
+|[Docker 호스트 강화](harden-docker-hosts.md)(1)|✔|✔|
+|[머신의 통합 취약성 평가](deploy-vulnerability-assessment-vm.md)(1)|-|-|
+|[엔드포인트용 Microsoft Defender](harden-docker-hosts.md)(1)|✔|-|
+|[AWS 계정 연결](quickstart-onboard-aws.md)(1)|-|-|
+|[GCP 계정 연결](quickstart-onboard-gcp.md)(1)|-|-|
+|[연속 내보내기](continuous-export.md)|✔|✔(2)|
+|[워크플로 자동화](workflow-automation.md)|✔|✔|
+|[권장 사항 제외 규칙](exempt-resource.md)|-|-|
+|[경고 비표시 규칙](alerts-suppression-rules.md)|✔|✔|
+|[보안 경고에 대한 이메일 알림](security-center-provide-security-contact-details.md)|✔|✔|
+|[자산 인벤토리](asset-inventory.md)|✔|✔|
+|[App Service용 Azure Defender](defender-for-app-service-introduction.md)|-|-|
+|[스토리지용 Azure Defender](defender-for-storage-introduction.md)|✔(2)|-|
+|[Azure Defender for SQL](defender-for-sql-introduction.md)|✔|✔(2)|
+|[Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)|-|-|
+|[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
+|[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
+|[Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)|✔(2)|✔|
+|[컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)|✔(2)|-|
+|||
+
+(1) *서버용 Azure Defender** 필요
+
+(2) 부분
 
 
 ## <a name="next-steps"></a>다음 단계

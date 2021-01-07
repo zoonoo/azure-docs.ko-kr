@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
 ms.openlocfilehash: e90086be18e344e3061b9e683780f4427b3c15a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148979"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018633"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 제거
 ## <a name="overview"></a>개요
@@ -57,7 +57,7 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
     3. **루트 도메인 제거**: 경로에 "/"가 포함된 엔드포인트의 루트를 제거합니다.
    
    > [!TIP]
-   > 제거할 경로를 지정해야 하며 경로는 다음 [정규식](/dotnet/standard/base-types/regular-expression-language-quick-reference)에 맞는 상대 URL이어야 합니다. **모두 제거** 및 **와일드 카드 제거**는 현재 **Akamai의 Azure CDN**에서 지원되지 않습니다.
+   > 제거할 경로를 지정해야 하며 경로는 다음 [정규식](/dotnet/standard/base-types/regular-expression-language-quick-reference)에 맞는 상대 URL이어야 합니다. **모두 제거** 및 **와일드 카드 제거** 는 현재 **Akamai의 Azure CDN** 에서 지원되지 않습니다.
    > > 단일 URL 제거 `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > 쿼리 문자열 `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > 와일드 카드 제거 `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";` 
@@ -69,11 +69,11 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
     ![제거 단추](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> 제거 요청은 **Microsoft에서 Azure CDN**를 처리 하는 데 약 10 분, Verizon (표준 및 프리미엄) **의 Azure CDN** , **Akamai의 Azure CDN**를 사용 하 여 약 10 초까지 소요 됩니다.  Azure CDN는 프로필 수준에서 지정 된 시간에 동시 제거 요청 수가 100 개로 제한 됩니다. 
+> 제거 요청은 **Microsoft에서 Azure CDN** 를 처리 하는 데 약 10 분, Verizon (표준 및 프리미엄) **의 Azure CDN** , **Akamai의 Azure CDN** 를 사용 하 여 약 10 초까지 소요 됩니다.  Azure CDN는 프로필 수준에서 지정 된 시간에 동시 제거 요청 수가 100 개로 제한 됩니다. 
 > 
 > 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 * [Azure CDN 엔드포인트에 자산 미리 로드](cdn-preload-endpoint.md)
 * [Azure CDN REST API 참조 - 엔드포인트 제거 또는 미리 로드](/rest/api/cdn/endpoints)
 

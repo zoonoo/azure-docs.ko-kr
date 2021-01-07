@@ -4,15 +4,15 @@ description: Microsoft AppSource 및 Azure Marketplace 제품에 대한 시장 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 07/06/2020
-ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708648"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492092"
 ---
 # <a name="offer-listing-best-practices"></a>목록에 제품 추가 모범 사례
 
@@ -93,7 +93,7 @@ Marketplace 고객이 제품을 보고 구매할 수 있는 방법에 대 한 �
 | **아키텍처 & 생성** | |
 | **자동차** | |
 | **배포** | 도매 <br> Parcel & 패키지 전달 |  
-| **교육** | 높은 교육 <br> 기본 & 보조 .Edu/K-12 <br> 라이브러리 & Museums |
+| **Education** | 높은 교육 <br> 기본 & 보조 .Edu/K-12 <br> 라이브러리 & Museums |
 | **금융 서비스** | 은행 & 자본 시장 <br> 보험 | 
 | **정부** |  방어 & 인텔리전스 <br> Civilian 정부 <br> 공용 안전 & |
 | **의료** | 상태 보험사 <br> 상태 제공자 <br> 제약 | 
@@ -130,8 +130,8 @@ Microsoft AppSource에 대 한 산업:
 ## <a name="link-to-your-offer-page-from-your-website"></a>웹 사이트에서 제품 페이지에 연결
 
 사이트의 AppSource 또는 Azure Marketplace 배지에서 상용 Marketplace의 목록에 연결 하는 경우 URL의 끝에 다음 쿼리 매개 변수를 포함 하 여 강력한 분석 및 보고를 지원할 수 있습니다.
-* **src**: 트래픽이 AppSource(예: 웹 사이트, LinkedIn 또는 Facebook)로 라우팅되는 원본을 포함합니다.
-* **mktcmpid**: 문자, 숫자, 밑줄 및 하이픈(예: *blogpost_12*)의 조합으로 최대 16자까지 포함할 수 있는 마케팅 캠페인 ID입니다.
+* **src** : 트래픽이 AppSource(예: 웹 사이트, LinkedIn 또는 Facebook)로 라우팅되는 원본을 포함합니다.
+* **mktcmpid** : 문자, 숫자, 밑줄 및 하이픈(예: *blogpost_12* )의 조합으로 최대 16자까지 포함할 수 있는 마케팅 캠페인 ID입니다.
 
 다음 예제 URL에는 앞의 두 쿼리 매개 변수가 모두 포함되어 있습니다. `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

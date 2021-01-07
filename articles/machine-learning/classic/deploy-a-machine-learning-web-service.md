@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f77c0fb09dddd884335d31d630904ea6aeafeaf5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322830"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495205"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스 배포
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:** ![ 이는이 문서가 Machine Learning Studio (클래식)에 적용 됨을 의미 하는 확인 표시입니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 이것 ![ 은 X 이므로이 문서는 Azure Machine Learning에 적용 됩니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Azure Machine Learning Studio (클래식)를 사용 하 여 예측 분석 솔루션을 빌드 및 테스트할 수 있습니다. 그런 다음, 솔루션을 웹 서비스로 배포할 수 있습니다.
@@ -250,7 +250,7 @@ Batch 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클�
 
 **구성** 페이지에서 서비스의 표시 이름을 변경하고 설명을 제공할 수 있습니다. 웹 서비스를 관리하는 [Azure Portal](https://portal.azure.com/)에 이름과 설명이 표시됩니다.
 
-입력 **스키마** , **출력 스키마** 및 **웹 서비스 매개 변수의** 각 열에 대해 문자열을 입력 하 여 입력 데이터, 출력 데이터 및 웹 서비스 매개 변수에 대 한 설명을 제공할 수 있습니다. 이러한 설명은 웹 서비스에 제공된 샘플 코드 설명서에서 사용합니다.
+입력 **스키마**, **출력 스키마** 및 **웹 서비스 매개 변수의** 각 열에 대해 문자열을 입력 하 여 입력 데이터, 출력 데이터 및 웹 서비스 매개 변수에 대 한 설명을 제공할 수 있습니다. 이러한 설명은 웹 서비스에 제공된 샘플 코드 설명서에서 사용합니다.
 
 로깅을 사용하도록 설정하면 웹 서비스에 액세스할 때 나타나는 실패를 진단할 수 있습니다. 자세한 내용은 [Machine Learning Studio (클래식) 웹 서비스에 대 한 로깅 사용](web-services-logging.md)을 참조 하세요.
 

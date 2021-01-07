@@ -8,7 +8,6 @@
     - name: 지원되는 데이터 저장소
       href: supported-data-stores.md
 - name: 빠른 시작
-  expanded: true
   items:
     - name: 데이터 공유 - Azure Portal
       href: share-your-data-portal.md
@@ -16,13 +15,22 @@
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: 자습서
+  expanded: true
   items:
     - name: 데이터 공유
       href: share-your-data.md
+      displayName: 'Azure CLI, az datashare account create, az datashare create'
     - name: 데이터 수락 및 받기
       href: subscribe-to-data-share.md
+      displayName: 'Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription'
 - name: 개념
   items:
+    - name: 보안
+      items:
+        - name: 보안 개요
+          href: security.md
+        - name: 보안 기준
+          href: security-baseline.md
     - name: Azure Data Share 용어
       href: terminology.md
     - name: 역할 및 요구 사항
@@ -39,7 +47,7 @@
       items:
         - name: Azure Storage에서 공유
           href: how-to-share-from-storage.md
-        - name: Azure SQL Database 또는 Synapse Analytics에서 공유
+        - name: Azure SQL Database 또는 Azure Synapse Analytics에서 공유
           href: how-to-share-from-sql.md
         - name: Azure Data Explorer에서 공유
           href: /azure/data-explorer/data-share
@@ -56,8 +64,6 @@
       href: how-to-revoke-share-subscription.md
     - name: 모니터
       href: how-to-monitor.md
-    - name: 보안
-      href: security.md
     - name: 재해 복구
       href: disaster-recovery.md
     - name: 문제 해결

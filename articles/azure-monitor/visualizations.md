@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983608"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522671"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -49,7 +49,7 @@ ms.locfileid: "90983608"
 - Azure에 긴밀하게 통합됩니다. 시각화는 메트릭 탐색기, Log Analytics, Application Insights 등 여러 Azure 페이지의 대시보드에 고정될 수 있습니다.
 - 메트릭 및 로그를 둘 다 지원합니다.
 - [메트릭 탐색기](platform/metrics-charts.md), [로그 쿼리](log-query/log-query-overview.md), Application Insights의 [맵](app/app-map.md)과 가용성 출력을 비롯한 여러 출처의 데이터를 결합할 수 있습니다.
-- 개인 또는 공유 대시보드 옵션을 제공합니다. Azure [역할 기반 인증(RBAC)](../role-based-access-control/overview.md)과 통합됩니다.
+- 개인 또는 공유 대시보드 옵션을 제공합니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)와 통합 됩니다.
 - 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 지정된 시각화에서 "새로 고침" 아이콘을 클릭하거나 전체 대시보드를 새로 고쳐 요청 시 수동 새로 고침 옵션을 사용하면 로그가 매시간 새로 고침됩니다.
 - 타임스탬프 및 사용자 지정 매개 변수로 메트릭 대시보드가 매개 변수화됩니다.
 - 유연한 레이아웃 옵션을 제공합니다.

@@ -1,7 +1,7 @@
 ---
 title: 아키텍처 및 주요 개념
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning를 구성 하는 아키텍처, 용어 및 개념에 대해 알아봅니다.
+description: 이 문서에서는 Azure Machine Learning를 구성 하는 아키텍처, 용어 및 개념에 대 한 개략적인 이해를 제공 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444831"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540199"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -267,6 +267,18 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 기계 [학습 파이프라인](concept-ml-pipelines.md) 을 사용 하 여 기계 학습 단계를 함께 연결 하는 워크플로를 만들고 관리 합니다. 예를 들어, 파이프라인에는 데이터 준비, 모델 학습, 모델 배포 및 추론/점수 매기기 단계가 포함될 수 있습니다. 각 단계(phase)는 각각 다양한 컴퓨팅 대상에서 자동으로 실행될 수 있는 여러 단계(step)를 포함할 수 있습니다. 
 
 파이프라인 단계는 다시 사용할 수 있으며 해당 단계의 출력이 변경되지 않은 경우 이전 단계를 다시 실행하지 않고 실행할 수 있습니다. 예를 들어, 데이터가 변경되지 않은 경우 비용이 많이 드는 데이터 준비 단계를 다시 실행하지 않고 모델을 다시 학습할 수 있습니다. 파이프라인을 사용하여 데이터 과학자들은 기계 학습 워크플로의 개별 영역에서 작업하면서 협력할 수 있습니다.
+
+## <a name="monitoring-and-logging"></a>모니터링 및 로깅
+
+Azure Machine Learning는 다음과 같은 모니터링 및 로깅 기능을 제공 합니다.
+
+* __데이터 과학자__ 경우 학습 실행에서 실험을 모니터링 하 고 정보를 기록할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+   * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
+   * [학습 실행에 대한 메트릭 로그](how-to-track-experiments.md)
+   * [MLflow로 실험 추적](how-to-use-mlflow.md)
+   * [TensorBoard로 시각화 실행](how-to-monitor-tensorboard.md)
+* __관리자__ 의 경우 작업 영역에 대 한 정보, 관련 된 Azure 리소스 및 Azure Monitor를 사용 하 여 리소스 만들기 및 삭제와 같은 이벤트에 대 한 정보를 모니터링할 수 있습니다. 자세한 내용은 [Azure Machine Learning를 모니터링 하는 방법](monitor-azure-machine-learning.md)을 참조 하세요.
+* __Devops__ 또는 __mlops__ 의 경우, 웹 서비스 또는 IoT Edge 모듈로 배포 된 모델에 의해 생성 된 정보를 모니터링 하 여 배포 문제를 식별 하 고 서비스에 전송 된 데이터를 수집할 수 있습니다. 자세한 내용은 [Application Insights를 사용 하 여](how-to-enable-app-insights.md) [모델 데이터 수집](how-to-enable-data-collection.md) 및 모니터링을 참조 하세요.
 
 ## <a name="interacting-with-your-workspace"></a>작업 영역과 상호 작용
 

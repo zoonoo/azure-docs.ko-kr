@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 12/18/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 1d621d39ac6f7c296286f7a3b06d5cc32c513170
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ae4dd3fc0963d1e1683b2bff75c8c1a019c42424
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946174"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97691957"
 ---
 | 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -31,7 +31,7 @@ ms.locfileid: "91946174"
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Managed Instance](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Synapse Analytics(이전의 SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Synapse Analytics](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
@@ -49,7 +49,7 @@ ms.locfileid: "91946174"
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |✓ | |✓ |✓  |
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | |✓ |✓  |
-| &nbsp; |[Presto(미리 보기)](../articles/data-factory/connector-presto.md) |✓ | |✓ |✓  |
+| &nbsp; |[Presto](../articles/data-factory/connector-presto.md) |✓ | |✓ |✓  |
 | &nbsp; |[Open Hub를 통한 SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
 | &nbsp; |[MDX를 통한 SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  |
@@ -73,7 +73,7 @@ ms.locfileid: "91946174"
 | **일반 프로토콜** |[일반 HTTP](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[일반 OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[일반 ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
-| &nbsp; |[일반 REST](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  |
+| &nbsp; |[일반 REST](../articles/data-factory/connector-rest.md) |✓ | ✓ |✓ |✓  |
 | **서비스 및 앱** |[Amazon Marketplace 웹 서비스](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Common Data Service](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur(미리 보기)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
@@ -81,7 +81,7 @@ ms.locfileid: "91946174"
 | &nbsp; |[Azure IoT Hub](../articles/data-factory/connector-dynamics-ax.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Google AdWords](../articles/data-factory/connector-google-adwords.md) |✓ | |✓ |✓  |
-| &nbsp; |[HubSpot(미리 보기)](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
+| &nbsp; |[HubSpot](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
 | &nbsp; |[Jira](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento(미리 보기)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo(미리 보기)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
@@ -105,4 +105,4 @@ ms.locfileid: "91946174"
 | &nbsp; |[Zoho(미리 보기)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]
-> 커넥터가 *미리 보기*로 표시되어 있으면 이를 사용해보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
+> 커넥터가 *미리 보기* 로 표시되어 있으면 이를 사용해보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.

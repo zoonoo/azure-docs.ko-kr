@@ -3,17 +3,17 @@ title: Azure Notification Hubs 및 iOS SDK를 사용하여 iOS에 푸시 알림 
 description: 이 자습서에서는 Azure Notification Hubs 및 Apple Push Notification Service를 사용하여 푸시 알림을 iOS 디바이스에 보내는 방법을 알아봅니다.
 author: sethmanheim
 ms.author: sethm
-ms.date: 08/10/2020
+ms.date: 10/30/2020
 ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 3ec96ff0fdebc0ac862af00c699ec489567a7144
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c920c9b3b28df7f5bf3bf169ef88ab967f23649e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426769"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001323"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기
 
@@ -74,32 +74,32 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 푸시 알림을 iOS 앱에 보내려면 Apple에 애플리케이션을 등록하고 푸시 알림도 등록합니다.
 
-1. 앱을 아직 등록하지 않은 경우 Apple Developer Center에서 [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 이동합니다. Apple ID를 사용하여 포털에 로그인하고 **Identifier** (식별자)를 선택합니다. 그런 다음, **+** 를 선택하여 새 앱을 등록합니다.
+1. 앱을 아직 등록하지 않은 경우 Apple Developer Center에서 [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 이동합니다. Apple ID를 사용하여 포털에 로그인하고 **Identifier**(식별자)를 선택합니다. 그런 다음, **+** 를 선택하여 새 앱을 등록합니다.
 
    :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="앱 ID 페이지":::
 
-2. **Register a New Identifier** (새 식별자 등록) 화면에서 **App ID** (앱 ID) 라디오 단추를 선택합니다. 그런 다음, **계속** 을 선택합니다.
+2. **Register a New Identifier**(새 식별자 등록) 화면에서 **App ID**(앱 ID) 라디오 단추를 선택합니다. 그런 다음, **계속** 을 선택합니다.
 
    :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="새 ID 등록 페이지":::
 
 3. 새 앱에 다음과 같은 세 개의 값을 업데이트한 다음, **계속** 을 선택합니다.
 
-   - **설명** : 앱에 대한 설명이 포함된 이름을 입력합니다.
-   - **Bundle ID** (번들 ID): [앱 배포 가이드](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)에서 설명한 대로 **Organization Identifier.Product Name** 형식의 번들 ID를 입력합니다. **조직 식별자** 및 **제품 이름** 값은 XCode 프로젝트를 만들 때 사용하는 조직 식별자 및 제품 이름과 일치해야 합니다. 다음 스크린샷에서는 조직 식별자로 **NotificationHubs** 값이 사용되고 제품 이름으로 **GetStarted** 값이 사용되었습니다. Xcode에서 올바른 게시 프로필을 사용하도록 **번들 식별자** 값이 Xcode 프로젝트의 값과 일치하는지 확인합니다.
+   - **설명**: 앱에 대한 설명이 포함된 이름을 입력합니다.
+   - **Bundle ID**(번들 ID): [앱 배포 가이드](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)에서 설명한 대로 **Organization Identifier.Product Name** 형식의 번들 ID를 입력합니다. **조직 식별자** 및 **제품 이름** 값은 XCode 프로젝트를 만들 때 사용하는 조직 식별자 및 제품 이름과 일치해야 합니다. 다음 스크린샷에서는 조직 식별자로 **NotificationHubs** 값이 사용되고 제품 이름으로 **GetStarted** 값이 사용되었습니다. Xcode에서 올바른 게시 프로필을 사용하도록 **번들 식별자** 값이 Xcode 프로젝트의 값과 일치하는지 확인합니다.
 
       :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="앱 ID 등록":::
 
-   - **Push Notifications** : **Capabilities** (기능) 섹션에서 **Push Notifications** (푸시 알림) 옵션을 선택합니다.
+   - **Push Notifications**: **Capabilities**(기능) 섹션에서 **Push Notifications**(푸시 알림) 옵션을 선택합니다.
 
       :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="새 앱 ID 등록":::
 
-      이 작업은 앱 ID를 생성하고 사용자에게 정보 확인을 요청합니다. **Continue** (계속)를 선택한 다음, **Register** (등록)를 선택하여 새 앱 ID를 확인합니다.
+      이 작업은 앱 ID를 생성하고 사용자에게 정보 확인을 요청합니다. **Continue**(계속)를 선택한 다음, **Register**(등록)를 선택하여 새 앱 ID를 확인합니다.
 
       :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="새 앱 ID 확인":::
 
-      **Register** (등록)가 선택되면 **인증서, 식별자 및 프로필** 페이지에서 새 앱 ID가 줄 항목으로 표시됩니다.
+      **Register**(등록)가 선택되면 **인증서, 식별자 및 프로필** 페이지에서 새 앱 ID가 줄 항목으로 표시됩니다.
 
-4. **Certificates, Identifiers & Profiles** (인증서, 식별자 및 프로필) 페이지의 **Identifiers** (식별자) 아래에서 방금 만든 앱 ID 줄 항목을 찾고, 해당 행을 선택하여 **Edit your App ID Configuration** (앱 ID 구성 편집) 화면을 표시합니다.
+4. **Certificates, Identifiers & Profiles**(인증서, 식별자 및 프로필) 페이지의 **Identifiers**(식별자) 아래에서 방금 만든 앱 ID 줄 항목을 찾고, 해당 행을 선택하여 **Edit your App ID Configuration**(앱 ID 구성 편집) 화면을 표시합니다.
 
 ## <a name="create-a-certificate-for-notification-hubs"></a>Notification Hubs에 대한 인증서 만들기
 
@@ -116,22 +116,22 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 ### <a name="option-1-create-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hubs"></a>옵션 1: Notification Hubs에 직접 업로드할 수 있는 .p12 푸시 인증서 만들기
 
-1. 아래로 스크롤하여 선택한 **Push Notifications** (푸시 알림) 옵션으로 이동한 다음, **Configure** (구성)를 선택하여 인증서를 만듭니다.
+1. 아래로 스크롤하여 선택한 **Push Notifications**(푸시 알림) 옵션으로 이동한 다음, **Configure**(구성)를 선택하여 인증서를 만듭니다.
 
    :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="앱 ID":::
 
-2. **Apple Push Notification service SSL Certificates** (Apple 푸시 알림 서비스 SSL 인증서) 창이 표시됩니다. **개발 SSL 인증서** 섹션에서 **인증서 만들기** 단추를 선택합니다.
+2. **Apple Push Notification service SSL Certificates**(Apple 푸시 알림 서비스 SSL 인증서) 창이 표시됩니다. **개발 SSL 인증서** 섹션에서 **인증서 만들기** 단추를 선택합니다.
 
    :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="인증서 만들기":::
 
-   **Create a new Certificate** (새 인증서 만들기) 화면이 표시됩니다.
+   **Create a new Certificate**(새 인증서 만들기) 화면이 표시됩니다.
 
    > [!NOTE]
    > 이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 알림을 보낼 때 동일한 인증서 유형을 사용하는지만 확인합니다.
 
 3. **파일 선택** 을 선택하고 첫 번째 작업에서 CSR 파일을 저장한 위치로 이동한 다음, 인증서 이름을 두 번 클릭하여 로드합니다. 그런 다음, **계속** 을 선택합니다.
 
-4. 포털에서 인증서가 만들어지면 **Download** (다운로드) 단추를 선택합니다. 인증서를 저장하고 저장된 위치를 기억합니다.
+4. 포털에서 인증서가 만들어지면 **Download**(다운로드) 단추를 선택합니다. 인증서를 저장하고 저장된 위치를 기억합니다.
 
    :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="인증서 다운로드":::
 
@@ -151,7 +151,7 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
    :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="인증서 내보내기":::
 
-   암호를 사용하여 인증서를 보호하도록 선택할 수 있지만 이는 선택 사항입니다. 암호 만들기를 무시하려면 **OK** (확인)를 클릭합니다. 내보낸 .p12 인증서의 파일 이름과 위치를 적어둡니다. 이는 APNS를 통한 인증을 사용하도록 설정하는 데 사용됩니다.
+   암호를 사용하여 인증서를 보호하도록 선택할 수 있지만 이는 선택 사항입니다. 암호 만들기를 무시하려면 **OK**(확인)를 클릭합니다. 내보낸 .p12 인증서의 파일 이름과 위치를 적어둡니다. 이는 APNS를 통한 인증을 사용하도록 설정하는 데 사용됩니다.
 
    > [!NOTE]
    > .p12 파일 이름과 위치가 이 자습서에 표시된 것과 다를 수 있습니다.
@@ -160,12 +160,12 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 1. 다음 세부 사항에 유의합니다.
 
-   - **앱 ID 접두사** ( **팀 ID** )
+   - **앱 ID 접두사**(**팀 ID**)
    - **번들 ID**
 
 2. **인증서, 식별자 및 프로필** 로 돌아가서 **키** 를 클릭합니다. **APNS** 에 대해 구성된 키가 이미 있는 경우 만든 직후 바로 다운로드한 .p8 인증서를 다시 사용할 수 있습니다. 그렇다면 3-5단계를 무시할 수 있습니다.
 
-3. **+** 단추( **키 만들기** 단추)를 클릭하여 새 키를 만듭니다.
+3. **+** 단추(**키 만들기** 단추)를 클릭하여 새 키를 만듭니다.
 
 4. 적절한 **키 이름** 값을 입력하여 **APNS(Apple Push Notification service)** 옵션을 선택한 다음, **계속** 을 클릭하고 다음 화면에서 **등록** 을 클릭합니다.
 
@@ -190,16 +190,16 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 이 단계를 마치면 나중에 [APNS 정보를 사용하여 알림 허브 구성](#configure-the-notification-hub-with-apns-information) 단계에서 사용할 수 있는 다음 정보가 확보됩니다.
 
-- **팀 ID** (1단계 참조)
-- **번들 ID** (1단계 참조)
-- **키 ID** (7단계 참조)
-- **토큰 값** (.p8 키 값, 8단계 참조)
+- **팀 ID**(1단계 참조)
+- **번들 ID**(1단계 참조)
+- **키 ID**(7단계 참조)
+- **토큰 값**(.p8 키 값, 8단계 참조)
 
 ## <a name="create-a-provisioning-profile"></a>프로비저닝 프로필 만들기
 
-1. [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 돌아가서 **Certificates, Identifiers & Profiles** (인증서, 식별자 및 프로필)를 선택하고, 왼쪽 메뉴에서 **Profiles** (프로필)를 선택한 다음, **+** 를 선택하여 새 프로필을 만듭니다. **Register a New Provisioning Profile** (새 프로비저닝 프로필 등록) 화면이 표시됩니다.
+1. [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 돌아가서 **Certificates, Identifiers & Profiles**(인증서, 식별자 및 프로필)를 선택하고, 왼쪽 메뉴에서 **Profiles**(프로필)를 선택한 다음, **+** 를 선택하여 새 프로필을 만듭니다. **Register a New Provisioning Profile**(새 프로비저닝 프로필 등록) 화면이 표시됩니다.
 
-2. **Development** (개발) 아래에서 프로비저닝 프로필 유형으로 **iOS App Development** (iOS 앱 개발)를 선택한 다음, **Continue** (계속)를 선택합니다.
+2. **Development**(개발) 아래에서 프로비저닝 프로필 유형으로 **iOS App Development**(iOS 앱 개발)를 선택한 다음, **Continue**(계속)를 선택합니다.
 
    :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="프로비저닝 프로필 목록":::
 
@@ -207,18 +207,18 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
    :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="앱 ID 선택":::
 
-4. **Select certificates** (인증서 선택) 창에서 코드 서명에 사용하는 개발 인증서를 선택하고, **Continue** (계속)를 선택합니다. 이 인증서는 사용자가 만든 푸시 인증서가 아닙니다. 계정이 없으면 만들어야 합니다. 인증서가 있으면 다음 단계로 건너뜁니다. 개발 인증서가 없으면 해당 인증서를 만들기 위해 다음을 수행합니다.
+4. **Select certificates**(인증서 선택) 창에서 코드 서명에 사용하는 개발 인증서를 선택하고, **Continue**(계속)를 선택합니다. 이 인증서는 사용자가 만든 푸시 인증서가 아닙니다. 계정이 없으면 만들어야 합니다. 인증서가 있으면 다음 단계로 건너뜁니다. 개발 인증서가 없으면 해당 인증서를 만들기 위해 다음을 수행합니다.
 
-   1. **No Certificates are available** (사용할 수 있는 인증서가 없습니다)이 표시되면 **Create Certificate** (인증서 만들기)를 선택합니다.
-   2. **Software** (소프트웨어) 섹션에서 **Apple Development** (Apple 개발)를 선택합니다. 그런 다음, **계속** 을 선택합니다.
-   3. **Create a New Certificate** (새 인증서 만들기) 화면에서 **Choose File** (파일 선택)을 선택합니다.
-   4. 이전에 만든 **Certificate Signing Request** (인증서 서명 요청) 인증서를 찾아서 선택한 다음, **Open** (열기)을 선택합니다.
+   1. **No Certificates are available**(사용할 수 있는 인증서가 없습니다)이 표시되면 **Create Certificate**(인증서 만들기)를 선택합니다.
+   2. **Software**(소프트웨어) 섹션에서 **Apple Development**(Apple 개발)를 선택합니다. 그런 다음, **계속** 을 선택합니다.
+   3. **Create a New Certificate**(새 인증서 만들기) 화면에서 **Choose File**(파일 선택)을 선택합니다.
+   4. 이전에 만든 **Certificate Signing Request**(인증서 서명 요청) 인증서를 찾아서 선택한 다음, **Open**(열기)을 선택합니다.
    5. **계속** 을 선택합니다.
    6. 개발 인증서를 다운로드하고, 저장된 위치를 기억합니다.
 
-5. **Certificates, Identifiers & Profiles** (인증서, 식별자 및 프로필) 페이지로 돌아가고, 왼쪽 메뉴에서 **Profiles** (프로필)를 선택한 다음, **+** 를 선택하여 새 프로필을 만듭니다. **Register a New Provisioning Profile** (새 프로비저닝 프로필 등록) 화면이 표시됩니다.
+5. **Certificates, Identifiers & Profiles**(인증서, 식별자 및 프로필) 페이지로 돌아가고, 왼쪽 메뉴에서 **Profiles**(프로필)를 선택한 다음, **+** 를 선택하여 새 프로필을 만듭니다. **Register a New Provisioning Profile**(새 프로비저닝 프로필 등록) 화면이 표시됩니다.
 
-6. **Select certificates** (인증서 선택) 창에서 방금 만든 개발 인증서를 선택합니다. 그런 다음, **계속** 을 선택합니다.
+6. **Select certificates**(인증서 선택) 창에서 방금 만든 개발 인증서를 선택합니다. 그런 다음, **계속** 을 선택합니다.
 
 7. 다음으로 테스트에 사용할 디바이스를 선택하고, **계속** 을 선택합니다.
 
@@ -254,7 +254,7 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
    :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="속성 설정":::
 
-5. **알림** (벨 아이콘)을 선택하고, **리소스로 이동** 을 선택합니다. **Notification Hubs** 페이지의 목록을 새로 고치고 허브를 선택할 수도 있습니다.
+5. **알림**(벨 아이콘)을 선택하고, **리소스로 이동** 을 선택합니다. **Notification Hubs** 페이지의 목록을 새로 고치고 허브를 선택할 수도 있습니다.
 
    :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="포털 알림":::
 
@@ -309,4 +309,4 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 이 자습서에서는 Azure에서 알림 허브를 만들고, 구성하고, APNS(Apple Push Notification Service)를 통해 알림을 애플리케이션에 보낼 수 있도록 구성했습니다. 다음으로, iOS 애플리케이션 샘플을 만들고 Azure Notifications Hubs SDK를 통합하여 Azure Portal을 통해 보내는 푸시 알림을 받을 수 있습니다. 선택한 언어에 따라 다음 자습서로 계속 진행하세요.
 
-- [자습서: Swift를 사용하여 iOS 앱과 통합]()
+- [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기](ios-sdk-300.md)

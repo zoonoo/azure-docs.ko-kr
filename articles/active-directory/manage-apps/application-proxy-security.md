@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8051621cf05b0f8c387c41cf0b95bb32e15e667
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825894"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649571"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -49,7 +49,7 @@ Azure AD 애플리케이션 프록시는 모든 인증에 Azure AD STS(보안 �
 
 [조건부 액세스](../conditional-access/concept-conditional-access-cloud-apps.md)를 사용하면 사용자가 애플리케이션에 액세스할 수 있는 방법에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
 
-또한 조건부 액세스를 사용하여 Multi-Factor Authentication 정책을 구성하고 사용자 인증에 또 다른 보안 계층을 추가할 수 있습니다. 또한 [액세스](https://docs.microsoft.com/cloud-app-security/access-policy-aad) 및 [세션](https://docs.microsoft.com/cloud-app-security/session-policy-aad) 정책을 사용하여 Azure AD 조건부 액세스를 통해 애플리케이션을 Microsoft Cloud App Security로 라우팅하면 실시간 모니터링 및 제어를 제공할 수 있습니다.
+또한 조건부 액세스를 사용하여 Multi-Factor Authentication 정책을 구성하고 사용자 인증에 또 다른 보안 계층을 추가할 수 있습니다. 또한 [액세스](/cloud-app-security/access-policy-aad) 및 [세션](/cloud-app-security/session-policy-aad) 정책을 사용하여 Azure AD 조건부 액세스를 통해 애플리케이션을 Microsoft Cloud App Security로 라우팅하면 실시간 모니터링 및 제어를 제공할 수 있습니다.
 
 ### <a name="traffic-termination"></a>트래픽 종료
 
@@ -61,7 +61,7 @@ Azure AD 애플리케이션 프록시가 역방향 프록시이기 때문에 백
 
 회사 네트워크에 대한 인바운드 연결을 열 필요가 없습니다.
 
-애플리케이션 프록시 커넥터는 Azure AD 애플리케이션 프록시 서비스에 대한 아웃바운드 연결만 사용하므로 들어오는 연결에 대한 방화벽 포트를 열지 않아도 됩니다. 전통적인 프록시에서는 경계 네트워크(*DMZ*, *완충 영역* 또는 *스크린된 서브넷*이라고도 함)가 필요하고 네트워크 에지에서 인증되지 않은 연결에 대한 액세스를 허용해야 했습니다. 이 시나리오에서는 트래픽을 분석하고 환경에 보호를 제공하기 위해 웹 애플리케이션 방화벽 제품에 상당한 투자가 필요했습니다. 애플리케이션 프록시를 사용하는 경우에는 모든 연결은 아웃바운드이고 보안 채널을 통해 발생하기 때문에 경계 네트워크가 필요하지 않습니다.
+애플리케이션 프록시 커넥터는 Azure AD 애플리케이션 프록시 서비스에 대한 아웃바운드 연결만 사용하므로 들어오는 연결에 대한 방화벽 포트를 열지 않아도 됩니다. 전통적인 프록시에서는 경계 네트워크(*DMZ*, *완충 영역* 또는 *스크린된 서브넷* 이라고도 함)가 필요하고 네트워크 에지에서 인증되지 않은 연결에 대한 액세스를 허용해야 했습니다. 이 시나리오에서는 트래픽을 분석하고 환경에 보호를 제공하기 위해 웹 애플리케이션 방화벽 제품에 상당한 투자가 필요했습니다. 애플리케이션 프록시를 사용하는 경우에는 모든 연결은 아웃바운드이고 보안 채널을 통해 발생하기 때문에 경계 네트워크가 필요하지 않습니다.
 
 커넥터에 대한 자세한 내용은 [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요.
 
@@ -69,7 +69,7 @@ Azure AD 애플리케이션 프록시가 역방향 프록시이기 때문에 백
 
 최첨단 보안 보호를 가져옵니다.
 
-애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 Microsoft Security Response Center 및 Digital Crimes Unit에서 제공하는 데이터를 통해 [Azure AD Identity Protection](../active-directory-identityprotection.md)을 활용할 수 있습니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 보호를 제공합니다. 어떤 로그인 시도가 위험이 높은지 판단하기 위해 여러 요소를 고려합니다. 이러한 요소에는 감염 디바이스 플래그,네트워크 익명화, 불규칙 또는 임의 위치 등이 포함됩니다.
+애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 Microsoft Security Response Center 및 Digital Crimes Unit에서 제공하는 데이터를 통해 [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md)을 활용할 수 있습니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 보호를 제공합니다. 어떤 로그인 시도가 위험이 높은지 판단하기 위해 여러 요소를 고려합니다. 이러한 요소에는 감염 디바이스 플래그,네트워크 익명화, 불규칙 또는 임의 위치 등이 포함됩니다.
 
 SIEM(보안 정보 및 이벤트 관리) 시스템과 통합을 위해 이러한 많은 보고서 및 이벤트가 API를 통해 제공됩니다.
 
@@ -107,8 +107,8 @@ Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 
 커넥터를 처음 설정할 때 다음과 같은 흐름 이벤트가 발생합니다.
 
-1. 커넥터 설치 과정의 일부로 서비스에 커넥터 등록이 발생합니다. 사용자에게 Azure AD 관리자 자격 증명을 입력하라는 메시지가 표시됩니다. 이 인증에서 얻은 토큰이 Azure AD 애플리케이션 프록시 서비스에 제공됩니다.
-2. 애플리케이션 프록시 서비스에서 토큰을 평가합니다. 사용자가 테넌트의 회사 관리자인지 확인합니다. 관리자가 아닌 사용자인 경우 프로세스가 종료됩니다.
+1. 커넥터 설치 과정의 일부로 서비스에 커넥터 등록이 발생합니다. 사용자에게 Azure AD 관리자 자격 증명을 입력하라는 메시지가 표시됩니다.  이 인증에서 얻은 토큰이 Azure AD 애플리케이션 프록시 서비스에 제공됩니다.
+2. 애플리케이션 프록시 서비스에서 토큰을 평가합니다. 사용자가 테넌트의 회사 관리자인지 확인합니다.  관리자가 아닌 사용자인 경우 프로세스가 종료됩니다.
 3. 커넥터에서 클라이언트 인증서 요청을 생성하고, 토큰과 함께 이 요청을 애플리케이션 프록시 서비스에 전달합니다. 서비스에서 차례로 토큰을 확인하고 클라이언트 인증서 요청에 서명합니다.
 4. 커넥터는 나중에 애플리케이션 프록시 서비스와 통신하는 데 이 클라이언트 인증서를 사용합니다.
 5. 커넥터는 해당 클라이언트 인증서를 사용하여 처음으로 서비스로부터 시스템 구성 데이터 끌어오기를 수행하고 이제 요청을 받을 준비가 됩니다.
@@ -173,7 +173,7 @@ Azure AD를 사용하여 사전 인증하도록 앱을 구성한 경우 사용�
 
 응답이 수신된 후에 커넥터가 애플리케이션 프록시 서비스로 아웃바운드 연결을 만들어 헤더 세부 정보를 반환하고 반환 데이터의 스트리밍을 시작합니다.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. 서비스에서 사용자에게 데이터 스트리밍 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. 서비스에서 사용자에게 데이터 스트리밍 
 
 애플리케이션의 처리 일부가 여기서 발생할 수 있습니다. 애플리케이션에서 헤더 또는 URL을 변환하도록 애플리케이션 프록시를 구성한 경우 이 단계에서 필요에 따라 해당 처리가 수행됩니다.
 

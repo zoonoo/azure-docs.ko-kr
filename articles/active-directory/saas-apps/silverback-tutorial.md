@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a70b6bb50b397429af1af41869bbe9ecf7e8bad9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92510844"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>자습서: Silverback과 Azure Active Directory 통합
 
@@ -146,7 +146,7 @@ Silverback에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -171,7 +171,7 @@ Silverback에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Silverback에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Silverback** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Silverback** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -207,13 +207,13 @@ Azure AD 사용자가 Silverback에 로그인할 수 있도록 하려면 Silverb
 
     ![사용자](./media/silverback-tutorial/tutorial_silverback_user.png)
 
-    a. **사용자 이름** 텍스트 상자에 사용자 이름(예: **Britta** )을 입력합니다.
+    a. **사용자 이름** 텍스트 상자에 사용자 이름(예: **Britta**)을 입력합니다.
 
-    b. **이름** 텍스트 상자에 사용자의 이름(예: **Britta** )을 입력합니다.
+    b. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 
-    다. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
+    다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
-    d. **이메일 주소** 텍스트 상자에 사용자의 이메일(예: **Brittasimon\@contoso.com** )을 입력합니다.
+    d. **이메일 주소** 텍스트 상자에 사용자의 이메일(예: **Brittasimon\@contoso.com**)을 입력합니다.
 
     e. **암호** 텍스트 상자에 암호를 입력합니다.
 

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
 ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235820"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994811"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>방법: 프로 비전 구성 내보내기 및 알려진 정상 상태로 롤백
 
@@ -30,9 +30,9 @@ ms.locfileid: "88235820"
 
 구성을 내보내려면:
 
-1. [Azure Portal](https://portal.azure.com/)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택합니다.
 1. **Azure Active Directory** 창에서 **엔터프라이즈 응용 프로그램** 을 선택 하 고 응용 프로그램을 선택 합니다.
-1. 왼쪽 탐색 창에서 **프로 비전**을 선택 합니다. 프로 비전 구성 페이지에서 **특성 매핑**을 클릭 한 다음 **고급 옵션을 표시**하 고 마지막으로 **스키마를 검토**합니다. 그러면 스키마 편집기로 이동 합니다.
+1. 왼쪽 탐색 창에서 **프로 비전** 을 선택 합니다. 프로 비전 구성 페이지에서 **특성 매핑** 을 클릭 한 다음 **고급 옵션을 표시** 하 고 마지막으로 **스키마를 검토** 합니다. 그러면 스키마 편집기로 이동 합니다.
 1. 페이지 맨 위에 있는 명령 모음에서 다운로드를 클릭 하 여 스키마를 다운로드 합니다.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>재해 복구-알려진 정상 상태로 롤백
@@ -49,7 +49,7 @@ Microsoft Graph API 및 Microsoft Graph 탐색기를 사용 하 여 사용자 �
 ### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>1 단계: 프로 비전 App Service 보안 주체 ID (개체 ID)를 검색 합니다.
 
 1. [Azure Portal](https://portal.azure.com)를 시작 하 고 프로 비전 응용 프로그램의 속성 섹션으로 이동 합니다. 예를 들어 *Workday를 AD 사용자 프로 비전 응용 프로그램* 매핑으로 내보내려는 경우 해당 앱의 속성 섹션으로 이동 합니다.
-1. 프로비전 앱의 속성 섹션에서 ‘개체 ID’ 필드와 연결된 GUID 값을 복사합니다.** 이 값은 앱의 **ServicePrincipalId** 라고도 하며 Microsoft Graph 탐색기 작업에 사용 됩니다.
+1. 프로비전 앱의 속성 섹션에서 ‘개체 ID’ 필드와 연결된 GUID 값을 복사합니다. 이 값은 앱의 **ServicePrincipalId** 라고도 하며 Microsoft Graph 탐색기 작업에 사용 됩니다.
 
    ![Workday 앱 서비스 주체 ID](./media/export-import-provisioning-configuration/wd_export_01.png)
 
@@ -64,13 +64,13 @@ Microsoft Graph API 및 Microsoft Graph 탐색기를 사용 하 여 사용자 �
 
 ### <a name="step-3-retrieve-the-provisioning-job-id-of-the-provisioning-app"></a>3 단계: 프로 비전 앱의 프로 비전 작업 ID 검색
 
-Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출된 **ServicePrincipalId**로 바꾸고 다음 GET 쿼리를 실행합니다.
+Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출된 **ServicePrincipalId** 로 바꾸고 다음 GET 쿼리를 실행합니다.
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
 ```
 
-다음과 같은 응답이 제공됩니다. 응답에 있는 “id 특성”을 복사합니다. 이 값은 **ProvisioningJobId**이고 기본 스키마 메타데이터를 검색하는 데 사용됩니다.
+다음과 같은 응답이 제공됩니다. 응답에 있는 “id 특성”을 복사합니다. 이 값은 **ProvisioningJobId** 이고 기본 스키마 메타데이터를 검색하는 데 사용됩니다.
 
    [![프로 비전 작업 ID](./media/export-import-provisioning-configuration/wd_export_03.png)](./media/export-import-provisioning-configuration/wd_export_03.png#lightbox)
 

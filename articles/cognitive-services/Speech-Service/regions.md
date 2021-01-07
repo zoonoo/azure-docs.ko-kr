@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18,references_regions
+ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749305"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854862"
 ---
 # <a name="speech-service-supported-regions"></a>음성 서비스 지원 지역
 
@@ -27,7 +27,7 @@ ms.locfileid: "88749305"
 지역을 고려할 때 다음 사항에 유의 하세요.
 
 * 응용 프로그램에서 [음성 SDK](speech-sdk.md)를 사용 하는 경우 음성 구성을 만들 때와 같은 지역 식별자를 제공 `westus` 합니다.
-* 애플리케이션에서 Speech 서비스의 [REST API](rest-apis.md) 중 하나를 사용하는 경우 지역은 요청 시 사용하는 엔드포인트 URI의 일부가 됩니다.
+* 애플리케이션에서 Speech 서비스의 [REST API](./overview.md#reference-docs) 중 하나를 사용하는 경우 지역은 요청 시 사용하는 엔드포인트 URI의 일부가 됩니다.
 * 지역에 대해 만든 키는 해당 지역에서만 유효합니다. 다른 지역에서 사용하려고 하면 인증 오류가 발생합니다.
 
 ## <a name="speech-sdk"></a>Speech SDK
@@ -38,15 +38,17 @@ ms.locfileid: "88749305"
 
 음성 사용자 지정 포털은 다음 위치에서 제공 됩니다. https://speech.microsoft.com
 
-음성 **인식**, **텍스트 음성**변환 및 **번역**을 위해 음성 서비스를 이러한 지역에서 사용할 수 있습니다.
+음성 **인식**, **텍스트 음성** 변환 및 **번역** 을 위해 음성 서비스를 이러한 지역에서 사용할 수 있습니다.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 [SPEECH SDK](speech-sdk.md)를 사용 하는 경우 **지역 식별자** (예:에 대 한 매개 변수로)가 영역을 지정 `SpeechConfig.FromSubscription` 합니다. 지역이 구독의 지역과 일치 하는지 확인 합니다.
 
+오디오 데이터를 사용 하 여 사용자 지정 모델을 학습 하려면 더 빠른 학습을 위해 [전용 하드웨어에서 지역](custom-speech-overview.md#set-up-your-azure-account) 중 하나를 사용 합니다. [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) 를 사용 하 여 나중에 완전히 학습 된 모델을 다른 지역에 복사할 수 있습니다.
+
 ### <a name="intent-recognition"></a>의도 인식
 
-Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음과 같습니다.
+Speech SDK를 통해 **의도 인식** 을 사용할 수 있는 지역은 다음과 같습니다.
 
 | 글로벌 지역 | 지역           | 영역 식별자 |
 | ------------- | ---------------- | -------------------- |
@@ -63,21 +65,25 @@ Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음�
 | 북아메리카 | 미국 서부 2        | `westus2`            |
 | 남아메리카 | 브라질 남부     | `brazilsouth`        |
 
-[LUIS(Language Understanding Service)](/azure/cognitive-services/luis/luis-reference-regions)에서 지원하는 게시 지역의 하위 집합입니다.
+[LUIS(Language Understanding Service)](../luis/luis-reference-regions.md)에서 지원하는 게시 지역의 하위 집합입니다.
 
 ### <a name="voice-assistants"></a>음성 도우미
 
-[음성 SDK](speech-sdk.md) 는 이러한 지역에서 **음성 도우미** 기능을 지원 합니다.
+[음성 SDK](speech-sdk.md) 는 이러한 지역에서 [직접 줄 음성을](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) 통해 **음성 도우미** 기능을 지원 합니다.
 
-| 지역         | 영역 식별자 |
-| -------------- | -------------------- |
-| 미국 서부        | `westus`             |
-| 미국 서부 2      | `westus2`            |
-| 미국 동부        | `eastus`             |
-| 미국 동부 2      | `eastus2`            |
-| 서유럽    | `westeurope`         |
-| 북유럽   | `northeurope`        |
-| 동남 아시아 | `southeastasia`      |
+| 글로벌 지역 | 지역           | 영역 식별자    |
+| ------------- | ---------------- | -------------------- |
+| 북아메리카 | 미국 서부          | `westus`             |
+| 북아메리카 | 미국 서부 2        | `westus2`            |
+| 북아메리카 | 미국 동부          | `eastus`             |
+| 북아메리카 | 미국 동부 2        | `eastus2`            |
+| 북아메리카 | 미국 중서부  | `westcentralus`      |
+| 북아메리카 | 미국 중남부 | `southcentralus`     |
+| 유럽        | 서유럽      | `westeurope`         |
+| 유럽        | 북유럽     | `northeurope`        |
+| 아시아          | 동아시아        | `eastasia`           |
+| 아시아          | 동남아시아   | `southeastasia`      |
+| 인도         | 인도 중부    | `centralindia`       |
 
 ### <a name="speaker-recognition"></a>Speaker Recognition
 

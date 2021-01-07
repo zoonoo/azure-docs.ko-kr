@@ -4,16 +4,17 @@ description: 클래식 배포 모델을 사용하여 새로운 또는 기존 Azu
 author: roiyz
 tags: azure-service-management
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: a89ec99af02b32d452fba1dffb0387ae6013a7c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e001c85dd960e9d60ff321cfecc8bf8b80de087c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292427"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967944"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
@@ -42,7 +43,7 @@ $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-**write-host** 명령에서 **True**가 표시되면 VM 에이전트가 설치되어 있는 것입니다. **False**가 표시되면 Azure 블로그 게시물 [VM 에이전트 및 확장 - 2부][Agent]에서 지침 및 다운로드 링크를 참조합니다.
+**write-host** 명령에서 **True** 가 표시되면 VM 에이전트가 설치되어 있는 것입니다. **False** 가 표시되면 Azure 블로그 게시물 [VM 에이전트 및 확장 - 2부][Agent]에서 지침 및 다운로드 링크를 참조합니다.
 
 VM 에이전트가 설치된 경우 이러한 명령을 실행하여 Symantec Endpoint Protection 에이전트를 설치합니다.
 
@@ -56,7 +57,7 @@ Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionNam
 Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다음을 수행합니다.
 
 1. 가상 머신에 로그온합니다. 자세한 내용은 [Windows Server를 실행 하는 가상 컴퓨터에 로그온 하는 방법][Logon]을 참조 하세요.
-2. Windows Server 2008 R2의 경우, **시작 > Symantec Endpoint Protection**을 클릭합니다. Windows Server 2012 또는 Windows Server 2012 R2의 경우, 시작 화면에서 **Symantec**을 입력하고 **Symantec Endpoint Protection**을 클릭합니다.
+2. Windows Server 2008 R2의 경우, **시작 > Symantec Endpoint Protection** 을 클릭합니다. Windows Server 2012 또는 Windows Server 2012 R2의 경우, 시작 화면에서 **Symantec** 을 입력하고 **Symantec Endpoint Protection** 을 클릭합니다.
 3. **Status-Symantec Endpoint Protection** 창의 **상태** 탭에서 필요한 경우 업데이트를 적용하거나 다시 시작합니다.
 
 ## <a name="additional-resources"></a>추가 리소스

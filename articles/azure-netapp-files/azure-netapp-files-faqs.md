@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089318"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913501"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -60,7 +60,7 @@ ms.locfileid: "92089318"
 
 NFSv 4.1 클라이언트와 Azure NetApp Files 볼륨 간의 데이터 트래픽은 AES-256 암호화를 사용 하는 Kerberos를 사용 하 여 암호화할 수 있습니다. 자세한 내용은 [nfsv 4.1 Kerberos 암호화 구성 Azure NetApp Files을](configure-kerberos-encryption.md) 참조 하세요.   
 
-NFSv3 또는 SMBv3 클라이언트 간의 데이터 트래픽이 Azure NetApp Files 볼륨으로 암호화 되지 않습니다. 그러나 Azure VM (NFS 또는 SMB 클라이언트를 실행 하는)에서 Azure NetApp Files로의 트래픽은 다른 Azure VM 간 트래픽과도 안전 합니다. 이 트래픽은 Azure 데이터 센터 네트워크에 대 한 로컬 트래픽입니다. 
+NFSv3 또는 SMB3 클라이언트 간의 데이터 트래픽이 Azure NetApp Files 볼륨으로 암호화 되지 않습니다. 그러나 Azure VM (NFS 또는 SMB 클라이언트를 실행 하는)에서 Azure NetApp Files로의 트래픽은 다른 Azure VM 간 트래픽과도 안전 합니다. 이 트래픽은 Azure 데이터 센터 네트워크에 대 한 로컬 트래픽입니다. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>미사용 저장소를 암호화할 수 있나요?
 
@@ -138,6 +138,16 @@ Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하
 
 예를 들어 라는 볼륨을 만듭니다 `vol1` . 그런 다음 다른 `vol1` 용량 풀에 있지만 동일한 구독 및 지역에 있는 다른 볼륨을 만듭니다. 이 경우 동일한 볼륨 이름을 사용 하면 오류가 발생 `vol1` 합니다. 동일한 파일 경로를 사용 하려면 이름이 다른 지역 또는 구독에 있어야 합니다.
 
+### <a name="when-i-try-to-access-nfs-volumes-through-a-windows-client-why-does-the-client-take-a-long-time-to-search-folders-and-subfolders"></a>Windows 클라이언트를 통해 NFS 볼륨에 액세스 하려고 할 때 클라이언트에서 폴더와 하위 폴더를 검색 하는 데 시간이 오래 걸리는 이유는 무엇 인가요?
+
+`CaseSensitiveLookup`Windows 클라이언트에서를 사용 하 여 폴더 및 하위 폴더의 조회 속도를 높일 수 있는지 확인 합니다.
+
+1. 다음 PowerShell 명령을 사용 하 여 CaseSensitiveLookup를 사용 하도록 설정 합니다.   
+    `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Windows 서버에 볼륨을 탑재 합니다.   
+    예제:   
+    `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
 ## <a name="smb-faqs"></a>SMB FAQ
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Azure NetApp Files에서 지 원하는 SMB 버전은 무엇 인가요?
@@ -150,7 +160,7 @@ Azure NetApp Files smb 2.1 및 smb 3.1 (SMB 3.0에 대 한 지원 포함)을 지
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>지원 되는 Active Directory 연결은 몇 개입니까?
 
-AD 연결이 다른 NetApp 계정에 있는 경우에도 Azure NetApp Files는 단일 *지역*에서 여러 ad (Active Directory) 연결을 지원 하지 않습니다. 그러나 AD 연결이 서로 다른 지역에 있는 한 단일 *구독*에서 여러 ad 연결을 사용할 수 있습니다. 단일 지역에 여러 AD 연결이 필요한 경우 별도의 구독을 사용 하 여이 작업을 수행할 수 있습니다. 
+AD 연결이 다른 NetApp 계정에 있는 경우에도 Azure NetApp Files는 단일 *지역* 에서 여러 ad (Active Directory) 연결을 지원 하지 않습니다. 그러나 AD 연결이 서로 다른 지역에 있는 한 단일 *구독* 에서 여러 ad 연결을 사용할 수 있습니다. 단일 지역에 여러 AD 연결이 필요한 경우 별도의 구독을 사용 하 여이 작업을 수행할 수 있습니다. 
 
 AD 연결은 NetApp 계정에 따라 구성 됩니다. AD 연결은 생성 된 NetApp 계정을 통해서만 볼 수 있습니다.
 
@@ -168,21 +178,15 @@ Azure NetApp Files는 Windows Server 2008 R2sp1-2019 버전의 Active Directory 
 
 SMB 클라이언트에서 보고 하는 볼륨 크기는 Azure NetApp Files 볼륨의 크기를 늘릴 수 있는 최대 크기입니다. SMB 클라이언트에 표시 되는 Azure NetApp Files 볼륨의 크기는 볼륨의 할당량 또는 크기를 반영 하지 않습니다. Azure Portal 또는 API를 통해 Azure NetApp Files 볼륨 크기 또는 할당량을 가져올 수 있습니다.
 
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>내 SMB 공유에 연결 하는 데 문제가 있습니다. 어떻게 해야 합니까?
+
+컴퓨터 클록 동기화에 대 한 최대 허용 오차를 5 분으로 설정 하는 것이 가장 좋습니다. 자세한 내용은 [컴퓨터 클록 동기화에 대 한 최대 허용 오차](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11))를 참조 하세요. 
+
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
-
-## <a name="dual-protocol-faqs"></a>이중 프로토콜 Faq
-
-### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>' Root ' 및 로컬 사용자를 사용 하 여 UNIX 시스템의 NTFS 보안 스타일로 이중 프로토콜 볼륨에 액세스 하려고 했습니다. "사용 권한이 거부 되었습니다." 오류가 발생 하는 이유는 무엇 인가요?   
-
-해상도에 대 한 [이중 프로토콜 볼륨 문제 해결](troubleshoot-dual-protocol-volumes.md) 을 참조 하세요.
-
-### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>이중 프로토콜 볼륨을 만들려고 할 때 "LDAP 구성의 유효성을 검사 하지 못했습니다." 라는 오류와 함께 만들기 프로세스가 실패 하는 이유는 무엇 인가요?  
-
-해상도에 대 한 [이중 프로토콜 볼륨 문제 해결](troubleshoot-dual-protocol-volumes.md) 을 참조 하세요.
 
 ## <a name="capacity-management-faqs"></a>용량 관리 Faq
 
@@ -200,7 +204,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
-예:
+예제:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin

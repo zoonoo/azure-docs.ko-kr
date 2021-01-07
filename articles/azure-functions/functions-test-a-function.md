@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: ff64d5c17174f8e1e67111ebca9ccf050deb2f26
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2488a476fe40c2bf1f3e290b462babceff30a9b0
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409657"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601393"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -28,18 +28,18 @@ ms.locfileid: "94409657"
 
 ## <a name="c-in-visual-studio"></a>Visual Studio의 C#
 
-다음 예제에서는 Visual Studio에서 C# 함수 앱을 만들고 [xUnit](https://xunit.github.io)을 사용하여 실행 및 테스트하는 방법을 설명합니다.
+다음 예제에서는 Visual Studio에서 C# 함수 앱을 만들고 [xUnit](https://github.com/xunit/xunit)을 사용하여 실행 및 테스트하는 방법을 설명합니다.
 
 ![Visual Studio의 C#을 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 
 환경을 설정하려면 함수 및 테스트 앱을 만듭니다. 다음 단계에서는 테스트를 지원하는 데 필요한 앱 및 함수를 만들 수 있습니다.
 
 1. [새 Functions 앱을 만들고](./functions-create-first-azure-function.md) 이름을 **Functions** 로 지정합니다.
 2. [템플릿에서 HTTP 함수를 만들고](./functions-create-first-azure-function.md) 이름을 **myhttptrigger** 로 이름을로 만듭니다.
 3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 **myto trigger** 로 이름을로 합니다.
-4. 솔루션에서 [xUnit 테스트 앱을 만들고](https://xunit.github.io/docs/getting-started-dotnet-core) 이름을 test.txt로 합니다 **.**
+4. 솔루션에서 [xUnit 테스트 앱을 만들고](https://xunit.net/docs/getting-started/netcore/cmdline) 이름을 test.txt로 합니다 **.**
 5. NuGet을 사용 하 여 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/) 에 테스트 앱의 참조를 추가 합니다.
 6. [함수 앱에서 *함수* 앱을 참조](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) 합니다 *.*
 
@@ -107,11 +107,11 @@ namespace Functions.Tests
 
 `ListLogger` 클래스는 `ILogger` 인터페이스에서 계약된 대로 다음 멤버를 구현합니다.
 
-- **Beginscope** : 범위는 로깅에 컨텍스트를 추가 합니다. 이 경우 테스트는 `NullScope` 테스트를 작동할 수 있도록 클래스의 정적 인스턴스를 가리킵니다.
+- **Beginscope**: 범위는 로깅에 컨텍스트를 추가 합니다. 이 경우 테스트는 `NullScope` 테스트를 작동할 수 있도록 클래스의 정적 인스턴스를 가리킵니다.
 
-- **IsEnabled** :의 기본값이 `false` 제공 됩니다.
+- **IsEnabled**:의 기본값이 `false` 제공 됩니다.
 
-- **로그** :이 메서드는 제공 된 함수를 사용 하 여 `formatter` 메시지의 서식을 지정한 다음 결과 텍스트를 컬렉션에 추가 합니다 `Logs` .
+- **로그**:이 메서드는 제공 된 함수를 사용 하 여 `formatter` 메시지의 서식을 지정한 다음 결과 텍스트를 컬렉션에 추가 합니다 `Logs` .
 
 `Logs` 컬렉션은 `List<string>`의 인스턴스이고 생성자에서 초기화됩니다.
 
@@ -193,13 +193,13 @@ namespace Functions.Tests
 
 `TestFactory` 클래스는 다음 멤버를 구현합니다.
 
-- **데이터** :이 속성은 예제 데이터의 [IEnumerable](/dotnet/api/system.collections.ienumerable) 컬렉션을 반환 합니다. 키 값 쌍은 쿼리 문자열로 전달되는 값을 나타냅니다.
+- **데이터**:이 속성은 예제 데이터의 [IEnumerable](/dotnet/api/system.collections.ienumerable) 컬렉션을 반환 합니다. 키 값 쌍은 쿼리 문자열로 전달되는 값을 나타냅니다.
 
-- **CreateDictionary** :이 메서드는 키/값 쌍을 인수로 수락 하 고 `Dictionary` `QueryCollection` 쿼리 문자열 값을 나타내기 위해 만드는 데 사용 되는 새을 반환 합니다.
+- **CreateDictionary**:이 메서드는 키/값 쌍을 인수로 수락 하 고 `Dictionary` `QueryCollection` 쿼리 문자열 값을 나타내기 위해 만드는 데 사용 되는 새을 반환 합니다.
 
-- **CreateHttpRequest** :이 메서드는 지정 된 쿼리 문자열 매개 변수를 사용 하 여 초기화 된 HTTP 요청을 만듭니다.
+- **CreateHttpRequest**:이 메서드는 지정 된 쿼리 문자열 매개 변수를 사용 하 여 초기화 된 HTTP 요청을 만듭니다.
 
-- **Createlogger** :로 거 형식을 기반으로 하는이 메서드는 테스트에 사용 되는로 거 클래스를 반환 합니다. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
+- **Createlogger**:로 거 형식을 기반으로 하는이 메서드는 테스트에 사용 되는로 거 클래스를 반환 합니다. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
 
 마지막으로 **FunctionsTests.cs** *이라는 프로젝트에서* 새 클래스를 만들고 다음 코드를 입력 합니다.
 
@@ -245,11 +245,11 @@ namespace Functions.Tests
 
 이 클래스에 구현된 멤버는 다음과 같습니다.
 
-- **Http_trigger_should_return_known_string** :이 테스트는 Http 함수에 대해 쿼리 문자열 값을 사용 하 여 요청을 만들고 `name=Bill` 필요한 응답이 반환 되는지 확인 합니다.
+- **Http_trigger_should_return_known_string**:이 테스트는 Http 함수에 대해 쿼리 문자열 값을 사용 하 여 요청을 만들고 `name=Bill` 필요한 응답이 반환 되는지 확인 합니다.
 
-- **Http_trigger_should_return_string_from_member_data** :이 테스트는 xunit 특성을 사용 하 여 Http 함수에 샘플 데이터를 제공 합니다.
+- **Http_trigger_should_return_string_from_member_data**:이 테스트는 xunit 특성을 사용 하 여 Http 함수에 샘플 데이터를 제공 합니다.
 
-- **Timer_should_log_message** :이 테스트는의 인스턴스를 만들어 `ListLogger` 타이머 함수에 전달 합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
+- **Timer_should_log_message**:이 테스트는의 인스턴스를 만들어 `ListLogger` 타이머 함수에 전달 합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
 
 테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [inject](./functions-dotnet-dependency-injection.md) `IConfiguration` 모의 환경 변수 값을 사용 하 여 인스턴스를 함수에 삽입할 수 있습니다.
 
@@ -269,7 +269,7 @@ namespace Functions.Tests
 
 ![VS Code의 JavaScript를 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 
 환경을 설정하려면 `npm init`를 실행하여 빈 폴더에서 새 Node.js 앱을 초기화합니다.
 

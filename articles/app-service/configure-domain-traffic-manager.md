@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962879"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012949"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Traffic Manager 통합을 사용 하 여 Azure App Service에서 사용자 지정 도메인 이름 구성
 
@@ -19,7 +19,7 @@ ms.locfileid: "88962879"
 > [!NOTE]
 > Cloud Services의 경우 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요.
 
-[Azure Traffic Manager](../traffic-manager/index.yml) 을 사용 하 여 [Azure App Service](overview.md)에 대 한 트래픽 부하를 분산 하는 경우 ** \<traffic-manager-endpoint> trafficmanager.net**를 사용 하 여 App Service 앱에 액세스할 수 있습니다. \.사용자에 게 보다 쉽게 알아볼 수 있는 도메인 이름을 제공 하기 위해 App Service 앱과 함께 www contoso.com와 같은 사용자 지정 도메인 이름을 할당할 수 있습니다.
+[Azure Traffic Manager](../traffic-manager/index.yml) 을 사용 하 여 [Azure App Service](overview.md)에 대 한 트래픽 부하를 분산 하는 경우 **\<traffic-manager-endpoint> trafficmanager.net** 를 사용 하 여 App Service 앱에 액세스할 수 있습니다. \.사용자에 게 보다 쉽게 알아볼 수 있는 도메인 이름을 제공 하기 위해 App Service 앱과 함께 www contoso.com와 같은 사용자 지정 도메인 이름을 할당할 수 있습니다.
 
 이 문서에서는 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 통합 된 App Service 앱을 사용 하 여 사용자 지정 도메인 이름을 구성 하는 방법을 보여 줍니다.
 
@@ -33,7 +33,7 @@ Azure Traffic Manager와 통합 된 앱에 사용자 지정 DNS 이름을 매핑
 
 ### <a name="check-the-pricing-tier"></a>가격 책정 계층 확인
 
-[Azure Portal](https://portal.azure.com)에서 **App Services**를 검색 하 고 선택 합니다.
+[Azure Portal](https://portal.azure.com)에서 **App Services** 를 검색 하 고 선택 합니다.
 
 **App Service** 페이지에서 Azure 앱의 이름을 선택합니다.
 
@@ -49,9 +49,9 @@ Azure Traffic Manager와 통합 된 앱에 사용자 지정 DNS 이름을 매핑
 
 ### <a name="scale-up-the-app-service-plan"></a>강화 - App Service 계획
 
-앱을 확장 해야 하는 경우 **프로덕션** 범주의 가격 책정 계층을 선택 합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 클릭합니다.
+앱을 확장 해야 하는 경우 **프로덕션** 범주의 가격 책정 계층을 선택 합니다. 추가 옵션을 보려면 **추가 옵션 보기** 를 클릭합니다.
 
-**적용**을 클릭합니다.
+**적용** 을 클릭합니다.
 
 ## <a name="create-traffic-manager-endpoint"></a>Traffic Manager 끝점 만들기
 
@@ -66,10 +66,10 @@ App Service 앱이 지원 되는 가격 책정 계층에 있으면 끝점을 추
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-각 도메인 공급자의 세부 사항이 변경 되는 반면, [루트가 아닌 사용자 지정 도메인 이름](#what-about-root-domains) (예: **www.contoso.com**) *에서* 앱과 통합 된**contoso.trafficmanager.net**(Traffic Manager 도메인 이름) *로* 매핑합니다. 
+각 도메인 공급자의 세부 사항이 변경 되는 반면, [루트가 아닌 사용자 지정 도메인 이름](#what-about-root-domains) (예: **www.contoso.com**) *에서* 앱과 통합 된 **contoso.trafficmanager.net**(Traffic Manager 도메인 이름) *로* 매핑합니다. 
 
 > [!NOTE]
-> 레코드를 이미 사용 중이고 앱을 우선적으로 바인딩해야 하는 경우 추가 CNAME 레코드를 만들 수 있습니다. 예를 들어 **www \. contoso.com** 를 앱에 미리 바인딩하려면 **AWVERIFY** 에서 **contoso.trafficmanager.net**로 CNAME 레코드를 만듭니다. 그런 다음 \. "www" CNAME 레코드를 변경할 필요 없이 "www contoso.com"를 앱에 추가할 수 있습니다. 자세한 내용은 [Azure App Service에 활성 DNS 이름 마이그레이션](manage-custom-dns-migrate-domain.md)을 참조 하세요.
+> 레코드를 이미 사용 중이고 앱을 우선적으로 바인딩해야 하는 경우 추가 CNAME 레코드를 만들 수 있습니다. 예를 들어 **www \. contoso.com** 를 앱에 미리 바인딩하려면 **AWVERIFY** 에서 **contoso.trafficmanager.net** 로 CNAME 레코드를 만듭니다. 그런 다음 \. "www" CNAME 레코드를 변경할 필요 없이 "www contoso.com"를 앱에 추가할 수 있습니다. 자세한 내용은 [Azure App Service에 활성 DNS 이름 마이그레이션](manage-custom-dns-migrate-domain.md)을 참조 하세요.
 
 도메인 공급자에서 DNS 레코드를 추가하거나 수정했다면 변경 내용을 저장합니다.
 
@@ -88,11 +88,11 @@ Traffic Manager는 CNAME 레코드를 사용 하는 사용자 지정 도메인 �
 > 
 
 1. 도메인 확인에 성공 하면 [Azure Portal](https://portal.azure.com) 에서 앱 페이지로 돌아갑니다.
-2. 왼쪽 탐색 영역에서 **사용자 지정 도메인**  >  **호스트 이름 추가**를 선택 합니다.
-4. 이전에 매핑한 사용자 지정 도메인 이름을 입력 하 고 **유효성 검사**를 선택 합니다.
-5. **호스트 이름 레코드 형식**이 **CNAME(www\.example.com 또는 하위 도메인)** 으로 설정되어 있는지 확인합니다.
+2. 왼쪽 탐색 영역에서 **사용자 지정 도메인**  >  **호스트 이름 추가** 를 선택 합니다.
+4. 이전에 매핑한 사용자 지정 도메인 이름을 입력 하 고 **유효성 검사** 를 선택 합니다.
+5. **호스트 이름 레코드 형식** 이 **CNAME(www\.example.com 또는 하위 도메인)** 으로 설정되어 있는지 확인합니다.
 
-6. App Service 앱은 이제 Traffic Manager 끝점과 통합 되기 때문에 **CNAME 구성**아래에 Traffic Manager 도메인 이름이 표시 됩니다. 이를 선택 하 고 **사용자 지정 도메인 추가**를 클릭 합니다.
+6. App Service 앱은 이제 Traffic Manager 끝점과 통합 되기 때문에 **CNAME 구성** 아래에 Traffic Manager 도메인 이름이 표시 됩니다. 이를 선택 하 고 **사용자 지정 도메인 추가** 를 클릭 합니다.
 
     ![앱에 DNS 이름 추가](./media/configure-domain-traffic-manager/enable-traffic-manager-domain.png)
 

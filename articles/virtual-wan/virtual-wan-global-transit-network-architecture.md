@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102326"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563735"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
 
@@ -127,7 +127,7 @@ VNet 간 전송 기능을 사용 하면 여러 Vnet에서 구현 된 다중 계�
 
 Azure 가상 WAN 허브는 하이브리드 네트워크에서 모든 네트워킹 끝점을 상호 연결 하 고 잠재적으로 모든 전송 네트워크 트래픽을 표시 합니다. 클라우드 기반 보안, 액세스 및 정책 제어를 사용 하기 위해 VWAN 허브 내에 Azure 방화벽을 배포 하 여 가상 WAN 허브를 보안 가상 허브로 변환할 수 있습니다. Azure 방화벽 관리자에서 가상 WAN 허브의 Azure 방화벽 오케스트레이션을 수행할 수 있습니다.
 
-[Azure 방화벽 관리자](https://go.microsoft.com/fwlink/?linkid=2107683) 는 글로벌 전송 네트워크에 대 한 보안을 관리 하 고 확장 하는 기능을 제공 합니다. Azure 방화벽 관리자는 Azure 방화벽과 함께 타사를 통해 라우팅, 글로벌 정책 관리, 고급 인터넷 보안 서비스를 중앙에서 관리 하는 기능을 제공 합니다.
+[Azure 방화벽 관리자](../firewall-manager/index.yml) 는 글로벌 전송 네트워크에 대 한 보안을 관리 하 고 확장 하는 기능을 제공 합니다. Azure 방화벽 관리자는 Azure 방화벽과 함께 타사를 통해 라우팅, 글로벌 정책 관리, 고급 인터넷 보안 서비스를 중앙에서 관리 하는 기능을 제공 합니다.
 
 ![Azure 방화벽으로 보호 된 가상 허브](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
@@ -177,4 +177,4 @@ VNet 간 인터넷을 통해 Vnet는 가상 WAN 허브의 Azure 방화벽을 통
 
 * [가상 WAN을 사용 하 여 사이트 간 연결](virtual-wan-site-to-site-portal.md)
 * [가상 WAN을 사용한 Express 경로 연결](virtual-wan-expressroute-portal.md)
-* [VWAN에서 Azure FW를 배포 하는 azure 방화벽 관리자](https://go.microsoft.com/fwlink/?linkid=2107683)
+* [VWAN에서 Azure FW를 배포 하는 azure 방화벽 관리자](../firewall-manager/index.yml)

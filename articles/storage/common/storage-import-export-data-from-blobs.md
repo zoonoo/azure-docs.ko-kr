@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 39f9a5802d7f10753c8ea81bf414da195e137cc6
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: e2e25f2fb806cb6e88745ffdfefe3dd82c0e9a6d
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234140"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326543"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 데이터 내보내기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 스토리지 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 내보내기 작업을 만들어 Azure Blob Storage에서 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -60,20 +60,20 @@ ms.locfileid: "93234140"
     - 구독을 선택합니다.
     - 리소스 그룹을 입력하거나 선택합니다.
 
-        ![기본 사항](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![기본](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
 5. **작업 세부 정보** 에서:
 
     - 내보낼 데이터가 있는 스토리지 계정을 선택합니다. 현재 위치에 가까운 스토리지 계정을 사용합니다.
     - 하차 위치는 선택한 스토리지 계정의 지역을 기반으로 자동으로 채워집니다.
     - 스토리지 계정에서 빈 드라이브로 내보내려는 Blob 데이터를 지정합니다.
-    - 스토리지 계정의 Blob 데이터를 모두 내보내도록 선택합니다( **모두 내보내기** ).
+    - 스토리지 계정의 Blob 데이터를 모두 내보내도록 선택합니다(**모두 내보내기**).
 
          ![모두 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
 
     - 내보낼 컨테이너와 Blob을 지정할 수 있습니다.
-        - **내보낼 Blob을 지정하려면** : **같음** 선택기를 사용합니다. 컨테이너 이름으로 시작하는 Blob에 대한 상대 경로를 지정합니다. 루트 컨테이너를 지정하려면 *$root* 를 사용합니다.
-        - **접두사로 시작하는 모든 Blob을 지정하려면** : **시작** 선택기를 사용합니다. 슬래시('/')로 시작하는 접두사를 지정합니다. 접두사는 컨테이너 이름의 접두사, 완전한 컨테이너 이름 또는 Blob 이름 접두사가 뒤에 오는 완전한 컨테이너 이름일 수 있습니다. 처리 중에 오류가 발생하지 않도록 방지하려면 다음 스크린샷과 같이 유효한 형식의 Blob 경로를 제공해야 합니다. 자세한 내용은 [유효한 Blob 경로의 예](#examples-of-valid-blob-paths)를 참조하세요.
+        - **내보낼 Blob을 지정하려면**: **같음** 선택기를 사용합니다. 컨테이너 이름으로 시작하는 Blob에 대한 상대 경로를 지정합니다. 루트 컨테이너를 지정하려면 *$root* 를 사용합니다.
+        - **접두사로 시작하는 모든 Blob을 지정하려면**: **시작** 선택기를 사용합니다. 슬래시('/')로 시작하는 접두사를 지정합니다. 접두사는 컨테이너 이름의 접두사, 완전한 컨테이너 이름 또는 Blob 이름 접두사가 뒤에 오는 완전한 컨테이너 이름일 수 있습니다. 처리 중에 오류가 발생하지 않도록 방지하려면 다음 스크린샷과 같이 유효한 형식의 Blob 경로를 제공해야 합니다. 자세한 내용은 [유효한 Blob 경로의 예](#examples-of-valid-blob-paths)를 참조하세요.
 
            ![선택한 컨테이너 및 Blob 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "93234140"
         > [!TIP]
         > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
 
-7. **요약** :
+7. **요약**:
 
     - 작업에 대한 세부 정보를 검토합니다.
     - 작업 이름과 Azure로의 배송 디스크에 제공되는 Azure 데이터 센터 배송 주소를 기록합니다.
@@ -322,12 +322,12 @@ Install-Module -Name Az.ImportExport
 
     |명령줄 매개 변수|설명|
     |--------------------------|-----------------|
-    |**/logdir**|(선택 사항) 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|
+    |**/logdir**|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|
     |**/sn**|필수 요소. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|
     |**/sk**|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 스토리지 계정의 계정 키입니다.|
     |**/csas:**|스토리지 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|
     |**/ExportBlobListFile:**|필수 요소. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|
-    |**/DriveSize:**|필수 요소. 내보내기 작업에 사용할 드라이브의 크기입니다( *예* : 500GB, 1.5TB).|
+    |**/DriveSize:**|필수 요소. 내보내기 작업에 사용할 드라이브의 크기입니다(*예*: 500GB, 1.5TB).|
 
     [PreviewExport 명령 예제](#example-of-previewexport-command)를 참조하세요.
 

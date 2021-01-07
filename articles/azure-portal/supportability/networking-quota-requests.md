@@ -1,24 +1,23 @@
 ---
-title: 네트워킹 제한 증가 | Microsoft Docs
+title: 네트워킹 제한 증가
 description: 네트워킹 제한 증가
 author: anavinahar
 ms.author: anavin
 ms.date: 01/23/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e945dec2ce8514c3e4f1edecdecd13c5c43f7c75
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764268"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745454"
 ---
 # <a name="networking-limit-increase"></a>네트워킹 제한 증가
 
 [Azure Portal](https://portal.azure.com) 사용 하 여 네트워킹 할당량을 늘립니다.
 
-Azure Portal에서 현재 네트워킹 사용 및 할당량을 보려면 구독을 연 다음 **사용량 + 할당량**을 선택 합니다. 다음 옵션을 사용 하 여 네트워크 사용량 및 제한을 확인할 수도 있습니다.
+Azure Portal에서 현재 네트워킹 사용 및 할당량을 보려면 구독을 연 다음 **사용량 + 할당량** 을 선택 합니다. 다음 옵션을 사용 하 여 네트워크 사용량 및 제한을 확인할 수도 있습니다.
 
 * [사용 CLI](/cli/azure/network#az-network-list-usages)
 * [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
@@ -27,21 +26,21 @@ Azure Portal에서 현재 네트워킹 사용 및 할당량을 보려면 구독�
 포털에서 **도움말 + 지원** 또는 **사용량 + 할당량** 을 사용 하 여 증가를 요청할 수 있습니다.
 
 > [!Note]
-> **공용 Ip 접두사**의 기본 크기를 변경 하려면 드롭다운 목록에서 **최소 공용 Ip 인터네트워크 접두사 길이** 를 선택 합니다.
+> **공용 Ip 접두사** 의 기본 크기를 변경 하려면 드롭다운 목록에서 **최소 공용 Ip 인터네트워크 접두사 길이** 를 선택 합니다.
 
 ## <a name="request-networking-quota-increase-at-subscription-level-using-help--support"></a>도움말 + 지원을 사용 하 여 구독 수준에서 네트워킹 할당량 증가 요청
 
 Azure Portal에서 **도움말 + 지원을** 사용 하 여 지원 요청을 만들려면 아래 지침을 따르세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 Azure Portal 메뉴에서 **도움말 + 지원** 을 선택 하거나 검색을 선택 하 고 **도움말 + 지원**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 Azure Portal 메뉴에서 **도움말 + 지원** 을 선택 하거나 검색을 선택 하 고 **도움말 + 지원** 을 선택 합니다.
 
     ![도움말 + 지원](./media/networking-quota-request/help-plus-support.png)
 
-1. **새 지원 요청**을 선택합니다.
+1. **새 지원 요청** 을 선택합니다.
 
     ![새 지원 요청](./media/networking-quota-request/new-support-request.png)
 
-1. **문제 유형**에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
+1. **문제 유형** 에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
 
     ![문제 유형 드롭다운에서 구독 제한 선택](./media/networking-quota-request/select-quota-issue-type.png)
 
@@ -49,11 +48,11 @@ Azure Portal에서 **도움말 + 지원을** 사용 하 여 지원 요청을 만
 
     ![구독 newSR 선택](./media/networking-quota-request/select-subscription-support-request.png)
 
-1. **할당량 유형**에서 **네트워킹**을 선택 합니다. **다음: 솔루션**을 선택 합니다.
+1. **할당량 유형** 에서 **네트워킹** 을 선택 합니다. **다음: 솔루션** 을 선택 합니다.
 
     ![할당량 유형 선택](./media/networking-quota-request/select-quota-type-network.png)
 
-1. **문제 세부**정보에서 **세부 정보 제공** 을 선택 하 고 요청을 처리 하는 데 도움이 되는 추가 정보를 입력 합니다.
+1. **문제 세부** 정보에서 **세부 정보 제공** 을 선택 하 고 요청을 처리 하는 데 도움이 되는 추가 정보를 입력 합니다.
 
     ![세부 정보 제공](./media/networking-quota-request/provide-details-link.png)
 
@@ -69,9 +68,9 @@ Azure Portal에서 **도움말 + 지원을** 사용 하 여 지원 요청을 만
 
 Azure Portal에서 **사용량 + 할당량** 을 사용 하 여 지원 요청을 만들려면 다음 지침을 따르세요.
 
-1. 에서 https://portal.azure.com **구독**을 검색 하 고 선택 합니다.
+1. 에서 https://portal.azure.com **구독** 을 검색 하 고 선택 합니다.
 
-    ![Subscriptions](./media/networking-quota-request/search-for-suscriptions.png)
+    ![구독](./media/networking-quota-request/search-for-suscriptions.png)
 
 1. 할당량을 늘려야 하는 구독을 선택합니다.
 
@@ -81,7 +80,7 @@ Azure Portal에서 **사용량 + 할당량** 을 사용 하 여 지원 요청을
 
     ![사용량 + 할당량 선택](./media/networking-quota-request/select-usage-plus-quotas.png)
 
-1. 오른쪽 위의 모서리에서 **요청 증가**를 선택 합니다.
+1. 오른쪽 위의 모서리에서 **요청 증가** 를 선택 합니다.
 
     ![증가 요청](./media/networking-quota-request/request-increase-from-subscription.png)
 

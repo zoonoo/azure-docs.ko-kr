@@ -5,17 +5,17 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: ''
 manager: anandsub
 ms.date: 09/08/2020
-ms.openlocfilehash: 6f8d74ade382db9bfa28c3ab6f03b95b5ac7947c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3204d33cac9f0944ec2ea2cf43be65c7afa46df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567125"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500141"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 
@@ -27,7 +27,7 @@ Azure Data Factory UX(사용자 인터페이스 환경)을 사용하면 코드�
 
 ## <a name="authoring-canvas"></a>제작 캔버스
 
-**제작 캔버스**를 열려면 연필 아이콘을 클릭합니다. 
+**제작 캔버스** 를 열려면 연필 아이콘을 클릭합니다. 
 
 ![제작 캔버스](media/author-visually/authoring-canvas.png)
 
@@ -61,11 +61,11 @@ Azure Data Factory UX의 *관리* 탭에서 액세스할 수 있는 관리 허�
 
 정적 값 대신 함수를 사용하여 Azure Data Factory에서 많은 속성을 지정할 수 있습니다.
 
-속성 값에 대한 식을 지정하려면 **동적 콘텐츠 추가**를 선택하거나 필드에 초점을 맞춘 상태에서 **Alt + P**를 클릭합니다.
+속성 값에 대한 식을 지정하려면 **동적 콘텐츠 추가** 를 선택하거나 필드에 초점을 맞춘 상태에서 **Alt + P** 를 클릭합니다.
 
 ![동적 콘텐츠 추가](media/author-visually/dynamic-content-1.png)
 
-그러면 지원되는 시스템 변수, 작업 출력, 함수 및 사용자가 지정한 변수 또는 매개 변수에서 식을 빌드할 수 있는 **Data Factory 식 작성기**가 열립니다. 
+그러면 지원되는 시스템 변수, 작업 출력, 함수 및 사용자가 지정한 변수 또는 매개 변수에서 식을 빌드할 수 있는 **Data Factory 식 작성기** 가 열립니다. 
 
 ![식 작성기](media/author-visually/dynamic-content-2.png)
 
@@ -73,7 +73,7 @@ Azure Data Factory UX의 *관리* 탭에서 액세스할 수 있는 관리 허�
 
 ## <a name="provide-feedback"></a>피드백 제공
 
-기능에 대한 의견을 남기거나 Microsoft에 도구 관련 문제를 알리려면 **피드백**을 선택하세요.
+기능에 대한 의견을 남기거나 Microsoft에 도구 관련 문제를 알리려면 **피드백** 을 선택하세요.
 
 ![사용자 의견](media/author-visually/provide-feedback.png)
 

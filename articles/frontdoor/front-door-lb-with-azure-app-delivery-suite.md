@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542175"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019466"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure 애플리케이션 배달 제품군을 통해 부하 분산
 
@@ -39,7 +39,7 @@ Azure의 많은 지역 및 영역 아키텍처와 함께 이러한 서비스를 
 이러한 글로벌 및 지역 서비스를 결합 하는 경우 응용 프로그램은 최종 사용자에 게 IaaS, PaaS 또는 온-프레미스 서비스로 전송 되는 안정적이 고 안전한 종단 간 트래픽을 활용 합니다. 다음 섹션에서는 이러한 각 서비스에 대해 설명합니다.
 
 ## <a name="global-load-balancing"></a>전역 부하 분산
-**Traffic Manager**는 전역 DNS 부하 분산을 제공 합니다. 들어오는 DNS 요청을 확인 하 고 고객이 선택한 라우팅 정책에 따라 정상 백엔드를 사용 하 여 응답 합니다. 라우팅 메서드의 옵션은 다음과 같습니다.
+**Traffic Manager** 는 전역 DNS 부하 분산을 제공 합니다. 들어오는 DNS 요청을 확인 하 고 고객이 선택한 라우팅 정책에 따라 정상 백엔드를 사용 하 여 응답 합니다. 라우팅 메서드의 옵션은 다음과 같습니다.
 - * * 성능 라우팅은 최소 대기 시간을 사용 하 여 가장 가까운 백 엔드로 요청을 보냅니다.
 - **우선 순위 라우팅은** 백 엔드에 모든 트래픽을 전달 하 고 다른 백 엔드를 백업으로 보냅니다.
 - **가중치가 적용 된 라운드 로빈 라우팅은** 각 백 엔드에 할당 된 가중치에 따라 트래픽을 분산 합니다.
@@ -82,7 +82,7 @@ IaaS 서비스의 각 지역에서 응용 프로그램 개발자는/images/* 패
 
 다음 다이어그램은 이 시나리오의 아키텍처를 보여 줍니다.
 
-:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="애플리케이션 배달 제품군":::
+:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="애플리케이션 배달 제품군에 대한 세부 아키텍처":::
 
 > [!NOTE]
 > 이 예제는 Azure에서 제공하는 부하 분산 서비스의 다양한 구성 중 하나에 불과합니다. Traffic Manager, Front Door, Application Gateway 및 Load Balancer는 부하 분산 요구 사항에 가장 적합하게 혼합하여 일치시킬 수 있습니다. 예를 들어 TLS/SSL 오프 로드 또는 계층 7 처리가 필요 하지 않은 경우 Application Gateway 대신 Load Balancer를 사용할 수 있습니다.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997765"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024758"
 ---
 # <a name="voice-assistants-on-windows"></a>Windows의 음성 도우미
 
@@ -37,7 +37,7 @@ AAR (에이전트 활성화 런타임)는 음성 키워드나 단추 누름에�
 
 ### <a name="registration"></a>등록
 
-음성 활성화 된 응용 프로그램이 처음으로 실행 될 때 ConversationalAgent Api를 통해 해당 앱 ID 및 키워드 정보를 등록 합니다. AAR는 응용 프로그램의 키워드를 검색할 수 있도록 시스템의 하드웨어 또는 소프트웨어 키워드인 관찰자를 사용 하 여 전역 매핑의 모든 구성을 등록 합니다. 응용 프로그램은 [백그라운드 서비스](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task)에도 등록 됩니다.
+음성 활성화 된 응용 프로그램이 처음으로 실행 될 때 ConversationalAgent Api를 통해 해당 앱 ID 및 키워드 정보를 등록 합니다. AAR는 응용 프로그램의 키워드를 검색할 수 있도록 시스템의 하드웨어 또는 소프트웨어 키워드인 관찰자를 사용 하 여 전역 매핑의 모든 구성을 등록 합니다. 응용 프로그램은 [백그라운드 서비스](/windows/uwp/launch-resume/register-a-background-task)에도 등록 됩니다.
 
 즉, 응용 프로그램을 한 번 실행 하 여 등록을 완료할 수 있을 때까지 음성으로 활성화할 수 없습니다.
 
@@ -57,4 +57,4 @@ AAR는 키워드를 말한 경우에도 활성 응용 프로그램에 신호를 
 
 - **디자인 지침을 검토 합니다.** Microsoft의 [디자인 지침은](windows-voice-assistants-best-practices.md) Windows 10에서 음성 정품 인증에 대 한 최상의 환경을 제공 하는 데 필요한 주요 작업을 레이아웃 합니다.
 - **시작 페이지를 방문 하세요.** 구현 소개 가이드를 통해 개발 환경 설정에서 Windows에서 음성 도우미를 구현 하기 시작 하는 단계 [를 시작 합니다](how-to-windows-voice-assistants-get-started.md) .
-- **샘플 앱**체험: 이러한 기능을 어떠한 체험 [UWP Voice Assistant 샘플](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) 페이지를 방문 하 여 샘플 클라이언트를 실행 하는 단계를 따르세요.
+- **샘플 앱** 체험: 이러한 기능을 어떠한 체험 [UWP Voice Assistant 샘플](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) 페이지를 방문 하 여 샘플 클라이언트를 실행 하는 단계를 따르세요.

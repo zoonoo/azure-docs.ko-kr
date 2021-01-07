@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: c1bf6b33176bf7942fbd76fa86ecd61b4f24e154
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc32b4f583aea2fa9a34ab8b235f3f99fe4def9d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366006"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562171"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Android 디바이스의 공유 디바이스 모드
 
-> [!NOTE]
-> 이 기능은 공개 미리 보기 상태입니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>[!IMPORTANT]
+> 이 기능 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 소매 연결, 비행 crew 구성원 및 현장 서비스 작업자와 같은 firstline Worker는 종종 공유 모바일 장치를 사용 하 여 작업을 수행 합니다. 공유 장치에서 고객 및 비즈니스 데이터에 액세스 하기 위해 암호 또는 pin 번호 공유를 시작 하는 경우 문제가 됩니다.
 
@@ -36,7 +34,7 @@ ms.locfileid: "92366006"
 공유 장치 모드 앱을 만들기 위해 개발자와 클라우드 장치 관리자는 함께 작동 합니다.
 
 - 개발자는 단일 계정 앱 (여러 계정 앱은 공유 장치 모드에서 지원 되지 않음)을 작성 하 `"shared_device_mode_supported": true` 고, 앱의 구성에 추가 하 고, 공유 장치 로그 아웃 등의 작업을 처리 하는 코드를 작성 합니다.
-- 장치 관리자는 인증자 앱을 설치 하 고 인증자 앱을 사용 하 여 장치를 공유 모드로 설정 하 여 공유할 장치를 준비 합니다. [클라우드 장치 관리자](../roles/permissions-reference.md#cloud-device-administrator-permissions) 역할에 속한 사용자만 [인증자 앱](../user-help/user-help-auth-app-overview.md)을 사용 하 여 장치를 공유 모드로 전환할 수 있습니다. **Azure Active Directory**  >  **역할 및 관리자**  >  **클라우드 장치 관리자**를 통해 Azure Portal에서 조직 역할의 멤버 자격을 구성할 수 있습니다.
+- 장치 관리자는 인증자 앱을 설치 하 고 인증자 앱을 사용 하 여 장치를 공유 모드로 설정 하 여 공유할 장치를 준비 합니다. [클라우드 장치 관리자](../roles/permissions-reference.md#cloud-device-administrator-permissions) 역할에 속한 사용자만 [인증자 앱](../user-help/user-help-auth-app-overview.md)을 사용 하 여 장치를 공유 모드로 전환할 수 있습니다. **Azure Active Directory**  >  **역할 및 관리자**  >  **클라우드 장치 관리자** 를 통해 Azure Portal에서 조직 역할의 멤버 자격을 구성할 수 있습니다.
 
  이 문서에서는 개발자가 주로 고려해 야 할 사항에 대해 중점적으로 설명 합니다.
 
@@ -44,7 +42,7 @@ ms.locfileid: "92366006"
 
 MSAL (Microsoft Authentication Library SDK)을 사용 하 여 작성 된 응용 프로그램은 단일 계정 또는 여러 계정을 관리할 수 있습니다. 자세한 내용은 [단일 계정 모드 또는 여러 계정 모드](single-multi-account.md)를 참조 하세요. 앱에서 사용할 수 있는 Microsoft id 플랫폼 기능은 응용 프로그램이 단일 계정 모드에서 실행 되는지 또는 여러 계정 모드로 실행 되는지에 따라 달라 집니다.
 
-**공유 장치 모드 앱은 단일 계정 모드 에서만 작동**합니다.
+**공유 장치 모드 앱은 단일 계정 모드 에서만 작동** 합니다.
 
 > [!IMPORTANT]
 > 여러 계정 모드를 지 원하는 응용 프로그램은 공유 장치에서 실행할 수 없습니다. 직원이 단일 계정 모드를 지원 하지 않는 앱을 로드 하는 경우 공유 장치에서 실행 되지 않습니다.

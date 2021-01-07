@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 810a08d2f72359b385d2a7567b796aa222c6ab14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c42acb69e13cc1eb0fbba3fcafaec1451bc4d77
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940780"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589222"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL Managed Instance의 기능 및 기능
 
@@ -31,7 +31,7 @@ Azure Arc 사용 SQL Managed Instance은 안정적인 최신 버전의 SQL Serve
 
 ## <a name="features-of-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL Managed Instance의 기능
 
-###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS 고가용성  
+###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS High Availability  
   
 |기능|Azure Arc 지원 SQL Managed Instance|
 |-------------|----------------|
@@ -57,80 +57,80 @@ Azure Arc 사용 SQL Managed Instance은 안정적인 최신 버전의 SQL Serve
 
 <sup>2</sup> 이후 릴리스는 AG 기능을 제공 합니다. 
 
-###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS 확장성 및 성능  
+###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 
-|기능|Azure Arc 지원 SQL Managed Instance|
-|-------------|----------------|
-|columnstore|   예|
-|클러스터형 columnstore 인덱스의 큰 개체 이진 파일|    예|
-|온라인 비클러스터형 columnstore 인덱스 다시 작성| 예|
-|메모리 내 OLTP|    예|
-|영구 주 메모리|    예|
-|테이블 및 인덱스 분할|  예
-|데이터 압축|  예|
-|관리| 예|
-|분할된 테이블 병렬 처리| 예|
-|NUMA 인식 및 큰 페이지 메모리 및 버퍼 배열 할당|  예|
-|IO 리소스 관리|    예|
-|지연된 내구성|    예|
-|자동 튜닝|  예|
-|일괄 처리 모드 적응 조인| 예|
-|일괄 처리 모드 메모리 부여 피드백|  예|
-|다중 문 테이블 반환 함수에 대한 인터리브 실행|  예|
-|대량 삽입 기능 개선   |예|
+| 기능 | Azure Arc 지원 SQL Managed Instance |
+|--|--|
+| columnstore | 예 |
+| 클러스터형 columnstore 인덱스의 큰 개체 이진 파일 | 예 |
+| 온라인 비클러스터형 columnstore 인덱스 다시 작성 | 예 |
+| 메모리 내 OLTP | 예 |
+| 영구 주 메모리 | 예 |
+| 테이블 및 인덱스 분할 | 예 |
+| 데이터 압축 | 예 |
+| 관리 | 예 |
+| 분할된 테이블 병렬 처리 | 예 |
+| NUMA 인식 및 큰 페이지 메모리 및 버퍼 배열 할당 | 예 |
+| IO 리소스 관리 | 예 |
+| 지연된 내구성 | 예 |
+| 자동 튜닝 | 예 |
+| 일괄 처리 모드 적응 조인 | 예 |
+| 일괄 처리 모드 메모리 부여 피드백 | 예 |
+| 다중 문 테이블 반환 함수에 대한 인터리브 실행 | 예 |
+| 대량 삽입 기능 개선 | 예 |
 
-###  <a name="rdbms-security"></a><a name="RDBMSS"></a> RDBMS 보안  
-|기능|Azure Arc 지원 SQL Managed Instance|
-|-------------|----------------|
-|행 수준 보안|    예|
-|Always Encrypted|  예|
-|보안 Enclave를 사용한 Always Encrypted| 아니요|
-|동적 데이터 마스킹|  예|
-|기본 감사|    예|
-|미세 감사| 예|
-|투명한 데이터베이스 암호화|   예|
-|사용자 정의 역할|    예|
-|포함된 데이터베이스|   예|
-|백업을 위한 암호화|    예|
+###  <a name="rdbms-security"></a><a name="RDBMSS"></a> RDBMS Security
 
-###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> RDBMS 관리 효율  
+| 기능 | Azure Arc 지원 SQL Managed Instance |
+|--|--|
+| 행 수준 보안 | 예 |
+| Always Encrypted | 예 |
+| 보안 Enclave를 사용한 Always Encrypted | 예 |
+| 동적 데이터 마스킹 | 예 |
+| 기본 감사 | 예 |
+| 미세 감사 | 예 |
+| 투명한 데이터베이스 암호화 | 예 |
+| 사용자 정의 역할 | 예 |
+| 포함된 데이터베이스 | 예 |
+| 백업을 위한 암호화 | 예 |
 
-|기능|Azure Arc 지원 SQL Managed Instance|
-|-------------|----------------|
-|관리자 전용 연결|    예|
-|PowerShell 스크립팅 지원|  예|
-|데이터 계층 애플리케이션 구성 요소 작업 지원 - 추출, 배포, 업그레이드, 삭제| 예
-|정책 자동화(일정 및 변경 내용 검사)   |예|
-|성능 데이터 수집기|    예|
-|표준 성능 보고서   |예|
-|계획 지침을 위한 계획 지침 및 계획 고정| 예|
-|인덱스 뷰의 직접 쿼리(NOEXPAND 힌트 사용)|   예|
-|인덱싱된 뷰의 자동 유지 관리    |예|
-|분산형 분할 뷰| 예|
-|병렬 인덱스 작업    |예|
-|쿼리 최적화 프로그램의 인덱싱된 뷰 자동 사용|  예|
-|병렬 일관성 검사 |예|
+###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> RDBMS Manageability  
 
+| 기능 | Azure Arc 지원 SQL Managed Instance |
+|--|--|
+| 관리자 전용 연결 | 예 |
+| PowerShell 스크립팅 지원 | 예 |
+| 데이터 계층 애플리케이션 구성 요소 작업 지원 - 추출, 배포, 업그레이드, 삭제 | 예 |
+| 정책 자동화(일정 및 변경 내용 검사) | 예 |
+| 성능 데이터 수집기 | 예 |
+| 표준 성능 보고서 | 예 |
+| 계획 지침을 위한 계획 지침 및 계획 고정 | 예 |
+| 인덱스 뷰의 직접 쿼리(NOEXPAND 힌트 사용) | 예 |
+| 인덱싱된 뷰의 자동 유지 관리 | 예 |
+| 분산형 분할 뷰 | 예 |
+| 병렬 인덱스 작업 | 예 |
+| 쿼리 최적화 프로그램의 인덱싱된 뷰 자동 사용 | 예 |
+| 병렬 일관성 검사 | 예 |
 
 ### <a name="programmability"></a><a name="Programmability"></a> Programmability  
 
-|기능|Azure Arc 지원 SQL Managed Instance|
-|-------------|----------------|
-|JSON|  예 |       |
-|쿼리 저장소    |예    |       
-|임시 테이블|  예 |       
-|네이티브 XML 지원|    예 |       
-|XML 인덱싱   |예    |       
-|MERGE 및 UPSERT 기능|   예 |       
-|날짜 및 시간 데이터 형식    |예    |       
-|국제화 지원|  예 |       
-|전체 텍스트 및 의미 체계 검색 |    아니요      |
-|쿼리에서 언어 지정 |예        |   
-|Service Broker(메시징)|    예     |   
-|Transact-SQL 엔드포인트|    예 |       
-|그래프| 예 |   
-|Machine Learning Services| 아니요  |   
-|PolyBase| 아니요   |
+| 기능 | Azure Arc 지원 SQL Managed Instance |
+|--|--|
+| JSON | 예 |
+| 쿼리 저장소 | 예 |  |
+| 임시 테이블 | 예 |  |
+| 네이티브 XML 지원 | 예 |  |
+| XML 인덱싱 | 예 |  |
+| MERGE 및 UPSERT 기능 | 예 |  |
+| 날짜 및 시간 데이터 형식 | 예 |  |
+| 국제화 지원 | 예 |  |
+| 전체 텍스트 및 의미 체계 검색 | 아니요 |
+| 쿼리에서 언어 지정 | 예 |  |
+| Service Broker(메시징) | 예 |  |
+| Transact-SQL 엔드포인트 | 예 |  |
+| 그래프 | 예 |  |
+| Machine Learning Services | 예 |  |
+| PolyBase | 예 |
 
 
 ### <a name="tools"></a>도구
@@ -139,8 +139,8 @@ Azure Arc 사용 SQL Managed Instance은 데이터를 관리 하는 데 도움�
 
 | **도구** | Azure Arc 지원 SQL Managed Instance|
 | --- | --- | --- |
-| Azure Portal <sup>1</sup> | 아니요 |
-| Azure CLI | 아니요 |
+| Azure Portal <sup>1</sup> | 예 |
+| Azure CLI | 예 |
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | 예 |
 | Azure PowerShell | 예 |
 | [BACPAC 파일(내보내기)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 예 |

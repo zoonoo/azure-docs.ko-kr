@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
 ms.openlocfilehash: a96b04df56dc7d5ea26463073d673275b8a4a8c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324300"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015080"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업을 사용 하 여 메타 데이터 및 Acl 유지
 
@@ -98,7 +98,7 @@ Azure Data Lake Storage Gen1에서 Gen2로 업그레이드 하거나 ADLS Gen2 �
 >[!IMPORTANT]
 >Acl을 유지 하도록 선택 하는 경우 싱크 Data Lake Storage Gen2 계정에 대해 작동 하는 Data Factory에 대 한 충분 한 권한을 부여 해야 합니다. 예를 들어 계정 키 인증을 사용 하거나 저장소 Blob 데이터 소유자 역할을 서비스 주체 또는 관리 id에 할당 합니다.
 
-이진 형식 또는 이진 복사 옵션을 사용 하 여 소스를 Data Lake Storage Gen1/Gen2로 구성 하거나 이진 형식 또는 이진 복사 옵션을 사용 하 여 Data Lake Storage Gen2으로 싱크를 구성 하는 경우, 작업 작성을 위한 **복사 작업**설정 탭 또는 데이터 복사 도구의 **설정** 페이지에서 **보존** 옵션을 찾을 수 있습니다  >  **Settings** .
+이진 형식 또는 이진 복사 옵션을 사용 하 여 소스를 Data Lake Storage Gen1/Gen2로 구성 하거나 이진 형식 또는 이진 복사 옵션을 사용 하 여 Data Lake Storage Gen2으로 싱크를 구성 하는 경우, 작업 작성을 위한 **복사 작업** 설정 탭 또는 데이터 복사 도구의 **설정** 페이지에서 **보존** 옵션을 찾을 수 있습니다  >  **Settings** .
 
 ![Gen2/Gen2 to Preserve ACL Data Lake Storage Gen1](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 

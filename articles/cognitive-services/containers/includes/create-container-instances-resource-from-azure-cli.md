@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: c36a47f99424b3d6e6b8ac6eca0d9dc5c6476e8b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 87007d3df3fe44ab04a330b09b8e495ec4b47e54
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92526137"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97866069"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Azure CLI에서 Azure Container Instance 리소스 만들기
 
@@ -25,7 +25,7 @@ apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
 properties:
-  imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access.
+  imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access. For example Text Analytics for health.
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
@@ -77,9 +77,9 @@ az container create -g <resource-group> -f my-aci.yaml
 > [!TIP]
 > YAML은 위치와 일치 하도록 적절히 조정 해야 하므로 공개 미리 보기 Azure 인지 서비스 제공의 위치에 주의 하세요.
 
-[azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
+[azure-container-create]: /cli/azure/container#az-container-create
+[template-format]: /azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
 [aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
-[repositories-and-images]: ../../cognitive-services-container-support.md#container-repositories-and-images
+[repositories-and-images]: ../container-image-tags.md
 [location-to-resource]: ../../../container-instances/container-instances-region-availability.md
 [secure-values]: ../../../container-instances/container-instances-environment-variables.md#secure-values

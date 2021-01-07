@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ac1e82c267dee521143c4ed5f6c2be4d32e2ea
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400590"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531329"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -27,7 +27,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 [Azure Application Insights][start]의 기본 가격은 수집된 데이터 볼륨을 기반으로 하며 필요에 따라 데이터를 더 오래 보존하기 위한 **종량제** 모델에 속합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다. 데이터 볼륨은 애플리케이션의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다. [라이브 메트릭 스트림](./live-stream.md) 사용에 대한 데이터 볼륨 요금은 없습니다.
 
-[다중 단계 웹 테스트](./availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다. 단일 페이지의 *ping 테스트*에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
+[다중 단계 웹 테스트](./availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다. 단일 페이지의 *ping 테스트* 에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
 
 [사용자 지정 메트릭 차원에 대한 경고를 사용하도록 설정](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)하는 Application Insights 옵션을 사용할 경우 추가로 사전 집계 메트릭이 생성될 수 있으므로 추가 비용이 발생할 수 있습니다. Application Insights의 로그 기반 및 사전 집계 메트릭과 Azure Monitor 사용자 지정 메트릭 [가격](https://azure.microsoft.com/pricing/details/monitor/)에 대해 [자세히 알아보세요](./pre-aggregated-metrics-log-metrics.md).
 
@@ -74,7 +74,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 ### <a name="using-data-volume-metrics"></a>데이터 볼륨 메트릭 사용
 <a id="understanding-ingested-data-volume"></a>
 
-데이터 볼륨에 대해 자세히 알아보려면 Application Insights 리소스의 **메트릭**을 선택하고 새 차트를 추가합니다. 차트 메트릭의 경우 **로그 기반 메트릭** 아래에서 **데이터 요소 볼륨**을 선택합니다. **분할 적용**을 클릭하고 **`Telemetryitem` 형식** 기준 그룹화를 선택합니다.
+데이터 볼륨에 대해 자세히 알아보려면 Application Insights 리소스의 **메트릭** 을 선택하고 새 차트를 추가합니다. 차트 메트릭의 경우 **로그 기반 메트릭** 아래에서 **데이터 요소 볼륨** 을 선택합니다. **분할 적용** 을 클릭하고 **`Telemetryitem` 형식** 기준 그룹화를 선택합니다.
 
 ![메트릭을 사용하여 데이터 볼륨 검토](./media/pricing/10-billing.png)
 
@@ -148,7 +148,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
 | render areachart
 ```
@@ -167,7 +167,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | where _ResourceId contains "<myAppInsightsResourceName>"
 | summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
 | render areachart
@@ -216,7 +216,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 ### <a name="set-the-daily-cap"></a>일일 상한 설정
 
-일일 한도를 변경하려면 Application Insights 리소스의 **구성** 섹션에 있는 **사용량 및 예상 비용** 페이지에서 **일일 한도**를 선택합니다.
+일일 한도를 변경하려면 Application Insights 리소스의 **구성** 섹션에 있는 **사용량 및 예상 비용** 페이지에서 **일일 한도** 를 선택합니다.
 
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-003.png)
 
@@ -238,7 +238,7 @@ Application Insights 일일 한도는 수집된 데이터 볼륨이 경고 수�
 샘플링에는 여러 가지 유형이 있습니다.
 
 * [적응 샘플링](./sampling.md)은 ASP.NET SDK에 대한 기본값입니다. 적응 샘플링은 앱이 보내는 원격 분석의 양을 자동으로 조정합니다. 웹앱의 SDK에서 자동으로 작동하여 네트워크에서 원격 분석 트래픽이 감소됩니다. 
-* *수집 샘플링*은 한 가지 대안으로서 앱의 원격 분석이 Application Insights 서비스에 들어가는 지점에서 작동합니다. 수집 샘플링은 앱에서 보낸 원격 분석의 양에 영향을 주지 않지만 서비스에서 보존하는 양을 줄여 줍니다. 수집 샘플링을 사용하여 브라우저 및 다른 SDK의 원격 분석에서 사용한 할당량을 줄일 수 있습니다.
+* *수집 샘플링* 은 한 가지 대안으로서 앱의 원격 분석이 Application Insights 서비스에 들어가는 지점에서 작동합니다. 수집 샘플링은 앱에서 보낸 원격 분석의 양에 영향을 주지 않지만 서비스에서 보존하는 양을 줄여 줍니다. 수집 샘플링을 사용하여 브라우저 및 다른 SDK의 원격 분석에서 사용한 할당량을 줄일 수 있습니다.
 
 수집 샘플링을 설정하려면 **가격 책정** 창으로 이동합니다.
 
@@ -280,7 +280,7 @@ Application Insights로 데이터를 전송하면 데이터 대역폭 요금이 
 
 ## <a name="disable-daily-cap-e-mails"></a>일일 상한도 이메일을 사용하지 않도록 설정
 
-일일 볼륨 상한 이메일을 사용하지 않도록 설정하려면 Application Insights 리소스의 **구성** 섹션 아래에 있는 **사용량 및 예상 비용** 창에서 **일일 상한**을 선택합니다. 상한에 도달할 때, 그리고 조정 가능한 경고 수준에 도달할 때 이메일을 보내는 설정이 있습니다. 일일 상한 볼륨과 관련된 모든 메일을 사용하지 않도록 설정하려면 확인란을 선택 취소합니다.
+일일 볼륨 상한 이메일을 사용하지 않도록 설정하려면 Application Insights 리소스의 **구성** 섹션 아래에 있는 **사용량 및 예상 비용** 창에서 **일일 상한** 을 선택합니다. 상한에 도달할 때, 그리고 조정 가능한 경고 수준에 도달할 때 이메일을 보내는 설정이 있습니다. 일일 상한 볼륨과 관련된 모든 메일을 사용하지 않도록 설정하려면 확인란을 선택 취소합니다.
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>레거시 엔터프라이즈(노드당) 가격 책정 계층
 
@@ -308,7 +308,7 @@ Application Insights로 데이터를 전송하면 데이터 대역폭 요금이 
 ### <a name="how-the-per-node-tier-works"></a>노드당 계층이 작동하는 방식
 
 * 노드당 계층의 모든 앱에 대한 원격 분석을 보내는 노드당 비용을 지불해야 합니다.
-  * *노드*는 앱을 호스트하는 실제/가상 서버 컴퓨터 또는 PaaS(Platform-as-a-Service) 역할 인스턴스입니다.
+  * *노드* 는 앱을 호스트하는 실제/가상 서버 컴퓨터 또는 PaaS(Platform-as-a-Service) 역할 인스턴스입니다.
   * 개발 컴퓨터, 클라이언트 브라우저 및 모바일 디바이스는 노드로 계산되지 않습니다.
   * 원격 분석을 보내는 여러 구성 요소(예: 웹 서비스 및 백 엔드 작업자)가 앱에 있는 경우 해당 구성 요소는 개별적으로 집계됩니다.
   * [라이브 메트릭 스트림](./live-stream.md) 데이터는 가격 책정에 계산 되지 않습니다. 구독에서 요금은 앱 기준이 아니라 노드 기준으로 부과됩니다. 12개 앱에 대해 원격 분석을 보내는 노드가 5개 있는 경우 5개 노드에 대한 요금이 부과됩니다.
@@ -331,7 +331,7 @@ Application Insights로 데이터를 전송하면 데이터 대역폭 요금이 
 * 정확한 노드 계산은 애플리케이션에서 사용하는 Application Insights SDK에 따라 다릅니다. 
   * SDK 버전 2.2 이상에서 Application Insights [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) 및 [웹 SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 둘 다 각 애플리케이션 호스트를 노드로 보고합니다. 물리적 서버 및 VM 호스트에 대한 컴퓨터 이름이나 클라우드 서비스에 대한 인스턴스 이름을 예로 들 수 있습니다.  유일한 예외는 [.NET Core](https://dotnet.github.io/) 및 Application Insights Core SDK만 사용하는 애플리케이션입니다. 이 경우 호스트 이름을 사용할 수 없으므로 모든 호스트에 대해 하나의 노드만 보고됩니다.
   * 이전 버전의 SDK에서는 [웹 SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)가 최신 SDK 버전과 마찬가지로 작동하지만, [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)는 애플리케이션 호스트 수에 관계 없이 하나의 노드만 보고합니다.
-  * 애플리케이션에서 SDK를 사용하여 **roleInstance**를 사용자 지정 값으로 설정하는 경우 기본적으로 이 동일한 값이 노드 수를 결정하는 데 사용됩니다.
+  * 애플리케이션에서 SDK를 사용하여 **roleInstance** 를 사용자 지정 값으로 설정하는 경우 기본적으로 이 동일한 값이 노드 수를 결정하는 데 사용됩니다.
   * 클라이언트 컴퓨터 또는 모바일 디바이스에서 실행되는 앱과 함께 새 SDK 버전을 사용하는 경우, 노드 계산 시 큰 숫자가 반환될 수 있습니다(클라이언트 컴퓨터 또는 모바일 디바이스 수가 많으므로).
 
 ## <a name="automation"></a>Automation

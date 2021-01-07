@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9181ef93dfedbc28b297bef48a0bc37ba6d69798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e43ad35cdaad89d5b9f43007bad8782f358c1a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646764"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954344"
 ---
 # <a name="what-is-a-virtual-network-link"></a>Virtual network 링크 란?
 
@@ -23,7 +23,7 @@ Azure에서 개인 DNS 영역을 만들면 가상 네트워크에서 즉시 액�
 
 ## <a name="registration-virtual-network"></a>등록 가상 네트워크
 
-개인 DNS 영역과 가상 네트워크 간에 [링크를 만들](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) 때 가상 컴퓨터에 대 한 DNS 레코드 [이라고](./private-dns-autoregistration.md) 를 설정 하는 옵션이 있습니다. 이 옵션을 선택 하는 경우 가상 네트워크는 개인 DNS 영역에 대 한 등록 가상 네트워크가 됩니다. DNS 레코드는 네트워크에 배포 하는 가상 컴퓨터에 대해 자동으로 생성 됩니다. 가상 네트워크에 이미 배포 된 가상 컴퓨터에 대 한 DNS 레코드가 생성 됩니다. 가상 네트워크 관점에서 개인 DNS 영역은 해당 가상 네트워크의 등록 영역이 됩니다.
+개인 DNS 영역과 가상 네트워크 간에 [링크를 만들](./private-dns-getstarted-portal.md#link-the-virtual-network) 때 가상 컴퓨터에 대 한 DNS 레코드 [이라고](./private-dns-autoregistration.md) 를 설정 하는 옵션이 있습니다. 이 옵션을 선택 하는 경우 가상 네트워크는 개인 DNS 영역에 대 한 등록 가상 네트워크가 됩니다. DNS 레코드는 네트워크에 배포 하는 가상 컴퓨터에 대해 자동으로 생성 됩니다. 가상 네트워크에 이미 배포 된 가상 컴퓨터에 대 한 DNS 레코드가 생성 됩니다. 가상 네트워크 관점에서 개인 DNS 영역은 해당 가상 네트워크의 등록 영역이 됩니다.
 하나의 개인 DNS 영역에는 여러 개의 등록 가상 네트워크가 있을 수 있지만, 모든 가상 네트워크에는 정확히 하나의 등록 영역을 연결할 수 있습니다.
 
 ## <a name="resolution-virtual-network"></a>확인 가상 네트워크
@@ -33,7 +33,7 @@ Azure에서 개인 DNS 영역을 만들면 가상 네트워크에서 즉시 액�
 
 ## <a name="limits"></a>제한
 
-등록 및 해상도 네트워크의 수를 이해 하려면 개인 DNS 영역에 연결할 수 있습니다 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
+등록 및 해상도 네트워크의 수를 이해 하려면 개인 DNS 영역에 연결할 수 있습니다 [Azure DNS 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) 을 참조 하세요.
 
 ## <a name="other-considerations"></a>기타 고려 사항
 
@@ -43,13 +43,13 @@ Azure에서 개인 DNS 영역을 만들면 가상 네트워크에서 즉시 액�
 
 * 개인 DNS 영역 아래의 각 가상 네트워크 링크는 개인 DNS 영역의 컨텍스트 내에서 고유한 이름을 가져야 합니다. 다른 개인 DNS 영역에 동일한 이름의 링크가 있을 수 있습니다.
 
-* 가상 네트워크 링크를 만든 후 가상 네트워크 링크 리소스의 "링크 상태" 필드를 확인 합니다. 가상 네트워크의 크기에 따라 링크가 작동 하 고 링크 상태가 *완료*로 변경 되기까지 몇 분 정도 걸릴 수 있습니다.
+* 가상 네트워크 링크를 만든 후 가상 네트워크 링크 리소스의 "링크 상태" 필드를 확인 합니다. 가상 네트워크의 크기에 따라 링크가 작동 하 고 링크 상태가 *완료* 로 변경 되기까지 몇 분 정도 걸릴 수 있습니다.
 
 * 가상 네트워크를 삭제 하면 다른 개인 DNS 영역에 연결 된 모든 가상 네트워크 연결 및 자동 등록 된 DNS 레코드가 자동으로 삭제 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Portal](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) 를 사용 하 여 사설 DNS 영역에 가상 네트워크를 연결 하는 방법을 알아봅니다.
+* [Azure Portal](./private-dns-getstarted-portal.md#link-the-virtual-network) 를 사용 하 여 사설 DNS 영역에 가상 네트워크를 연결 하는 방법을 알아봅니다.
 
 * [Azure PowerShell](./private-dns-getstarted-powershell.md) 또는 [Azure CLI](./private-dns-getstarted-cli.md)를 사용하여 Azure DNS에서 프라이빗 영역을 만드는 방법을 알아봅니다.
 

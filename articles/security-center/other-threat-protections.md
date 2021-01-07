@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900394"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754337"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Azure Security Center의 추가 위협 방지
 또한 Azure Security Center는 기본 제공 [Azure Defender 보호](azure-defender.md)뿐만 아니라 다음과 같은 위협 방지 기능도 제공합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "92900394"
 ## <a name="threat-protection-for-azure-network-layer"></a>Azure 네트워크 계층에 대한 위협 방지 <a name="network-layer"></a>
 Security Center 네트워크 계층 분석은 Azure 핵심 라우터에서 수집하는 패킷 헤더인 [IPFIX 데이터](https://en.wikipedia.org/wiki/IP_Flow_Information_Export) 샘플을 기반으로 합니다. 이 데이터 피드를 기반으로 하여 Security Center에서 기계 학습 모델을 사용하여 악성 트래픽 활동을 식별하고 플래그를 지정합니다. 또한 Security Center에서 Microsoft 위협 인텔리전스 데이터베이스를 사용하여 IP 주소를 보강합니다.
 
-일부 네트워크 구성에서는 Security Center에서 의심스러운 네트워크 활동에 대한 경고를 생성하지 않도록 제한할 수 있습니다. Security Center에서 네트워크 경고를 생성하려면 다음을 확인합니다.
+일부 네트워크 구성에서는 Security Center에서 의심스러운 네트워크 활동에 대한 경고를 생성하지 않도록 제한합니다. Security Center에서 네트워크 경고를 생성하려면 다음을 확인합니다.
 - 가상 머신에서 공용 IP 주소를 사용하거나 가상 머신이 공용 IP 주소가 있는 부하 분산 장치에 있습니다.
 - 가상 머신의 네트워크 송신 트래픽은 외부 IDS 솔루션에서 차단되지 않습니다.
 
@@ -41,7 +41,7 @@ Azure Resource Manager를 기반으로 하는 Security Center의 보호 계층�
 
 Security Center는 Azure Resource Manager 이벤트를 사용하여 추가 보호 계층을 제공하며, 이는 Azure의 제어 평면으로 간주됩니다. Security Center는 Azure Resource Manager 레코드를 분석하여 Azure 구독 환경에서 비정상적이거나 잠재적으로 유해한 작업을 탐지합니다.
 
-Azure Resource Manager(미리 보기) 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-azureresourceman)를 참조하세요.
+Azure Defender for Resource Manager 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-resourcemanager)를 참조하세요.
 
 
 >[!NOTE]
@@ -89,7 +89,7 @@ DDoS(분산 서비스 거부) 공격은 쉽게 실행되는 것으로 알려져 
 
 DDoS 공격은 애플리케이션의 리소스를 소진시켜서 정상적인 사용자가 애플리케이션을 사용할 수 없게 만듭니다. DDoS 공격은 인터넷을 통해 연결할 수 있는 모든 엔드포인트를 대상으로 할 수 있습니다.
 
-DDoS 공격을 방어하려면 Azure DDoS Protection 라이선스를 구매하고 애플리케이션 디자인 모범 사례를 따릅니다. DDoS Protection은 다양한 서비스 계층을 제공합니다. 자세한 내용은 [Azure DDoS Protection 개요](../virtual-network/ddos-protection-overview.md)를 참조하세요.
+DDoS 공격을 방어하려면 Azure DDoS Protection 라이선스를 구매하고 애플리케이션 디자인 모범 사례를 따릅니다. DDoS Protection은 다양한 서비스 계층을 제공합니다. 자세한 내용은 [Azure DDoS Protection 개요](../ddos-protection/ddos-protection-overview.md)를 참조하세요.
 
 Azure DDoS Protection 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-azureddos)를 참조하세요.
 

@@ -4,12 +4,12 @@ description: Azure의 경고에 대한 개요입니다. 경고, 클래식 경고
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d0f71ebf8a7acab6d4b46f59049bf1efd5290284
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108799"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186646"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -40,7 +40,7 @@ ms.locfileid: "92108799"
 
 대상 리소스에서 나가는 **신호** 입니다. 신호는 메트릭, 활동 로그, Application Insights 및 로그 유형 중 하나일 수 있습니다.
 
-**조건** -대상 리소스에 적용 되는 신호 및 논리의 조합입니다. 예: 
+**조건** -대상 리소스에 적용 되는 신호 및 논리의 조합입니다. 예제: 
 
 - 백분율 CPU > 70%
 - 서버 응답 시간 > 4 ms 
@@ -72,7 +72,7 @@ ms.locfileid: "92108799"
 
 ## <a name="manage-alerts"></a>경고 관리
 
-경고가 해결 과정에 있는지 지정하는 경고 상태를 설정할 수 있습니다. 경고 규칙에 지정 된 조건이 충족 되 면 경고가 만들어지거나 실행 되며 *새*상태를 가집니다. 경고를 확인할 때 및 경고를 닫을 때 상태를 변경할 수 있습니다. 모든 상태 변경은 경고 기록에 저장됩니다.
+경고가 해결 과정에 있는지 지정하는 경고 상태를 설정할 수 있습니다. 경고 규칙에 지정 된 조건이 충족 되 면 경고가 만들어지거나 실행 되며 *새* 상태를 가집니다. 경고를 확인할 때 및 경고를 닫을 때 상태를 변경할 수 있습니다. 모든 상태 변경은 경고 기록에 저장됩니다.
 
 다음은 지원되는 경고 상태입니다.
 
@@ -80,11 +80,11 @@ ms.locfileid: "92108799"
 |:---|:---|
 | 새로 만들기 | 문제가 검색 되었으며 아직 검토 되지 않았습니다. |
 | 승인됨 | 관리자가 경고를 검토하고 작업을 시작했습니다. |
-| 폐쇄형 | 문제가 해결되었습니다. 경고가 닫힌 후 다른 상태로 변경하면 경고를 다시 열 수 있습니다. |
+| 해결됨 | 문제가 해결되었습니다. 경고가 닫힌 후 다른 상태로 변경하면 경고를 다시 열 수 있습니다. |
 
-*경고 상태*는 *모니터 조건*과 다르며 독립적입니다. 경고 상태는 사용자가 설정합니다. 모니터 조건은 시스템에 의해 설정됩니다. 경고가 발생 하면 경고의 모니터 조건이 ' 실행 됨 *'* 으로 설정 되 고 경고를 발생 시킨 기본 조건이 지워집니다. 그러면 모니터 조건이 *' 해결 됨 '* 으로 설정 됩니다. 
+*경고 상태* 는 *모니터 조건* 과 다르며 독립적입니다. 경고 상태는 사용자가 설정합니다. 모니터 조건은 시스템에 의해 설정됩니다. 경고가 발생 하면 경고의 모니터 조건이 ' 실행 됨 *'* 으로 설정 되 고 경고를 발생 시킨 기본 조건이 지워집니다. 그러면 모니터 조건이 *' 해결 됨 '* 으로 설정 됩니다. 
 
-경고 상태는 사용자가 변경할 때까지 변경되지 않습니다. [경고 및 스마트 그룹의 상태를 변경하는 방법](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)을 알아보세요.
+경고 상태는 사용자가 변경할 때까지 변경되지 않습니다. [경고 및 스마트 그룹의 상태를 변경하는 방법](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)을 알아보세요.
 
 ## <a name="alerts-experience"></a>경고 환경 
 기본 경고 페이지에는 특정 시간 범위 내에 생성 된 경고에 대 한 요약이 제공 됩니다. 각 심각도에 대 한 총 경고 수를 표시 하 고 각 심각도의 각 상태에 대 한 총 경고 수를 식별 하는 열을 표시 합니다. 아무 심각도나 선택하면 해당 심각도를 기준으로 필터링된 [모든 경고](#all-alerts-page) 페이지가 열립니다.
@@ -102,8 +102,8 @@ ms.locfileid: "92108799"
 
 | 열 | Description |
 |:---|:---|
-| Subscription | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
-| 리소스 그룹 | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
+| 구독 | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
+| Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
 | 시간 범위 | 선택한 시간 범위 내에서 발생 한 경고만 보기에 포함 됩니다. 지원되는 값은 지난 1시간, 지난 24시간, 지난 7일 및 지난 30일입니다. |
 
 경고 페이지 위쪽에서 다음 값을 선택 하 여 다른 페이지를 엽니다.
@@ -116,7 +116,7 @@ ms.locfileid: "92108799"
 
 
 ## <a name="manage-alert-rules"></a>경고 규칙 관리
-**규칙** 페이지를 표시 하려면 **경고 규칙 관리**를 선택 합니다. 규칙 페이지는 Azure 구독에서 모든 경고 규칙을 관리 하기 위한 단일 장소입니다. 모든 경고 규칙을 나열하며 대상 리소스, 리소스 그룹, 규칙 이름 또는 상태에 따라 정렬할 수 있습니다. 또한이 페이지에서 경고 규칙을 편집, 사용 또는 사용 하지 않도록 설정할 수 있습니다.  
+**규칙** 페이지를 표시 하려면 **경고 규칙 관리** 를 선택 합니다. 규칙 페이지는 Azure 구독에서 모든 경고 규칙을 관리 하기 위한 단일 장소입니다. 모든 경고 규칙을 나열하며 대상 리소스, 리소스 그룹, 규칙 이름 또는 상태에 따라 정렬할 수 있습니다. 또한이 페이지에서 경고 규칙을 편집, 사용 또는 사용 하지 않도록 설정할 수 있습니다.  
 
  ![규칙 페이지의 스크린샷](./media/alerts-overview/alerts-preview-rules.png)
 
@@ -128,9 +128,9 @@ ms.locfileid: "92108799"
 
  
 새 경고 규칙을 만드는 방법은 다음과 같습니다.
-1. 경고의 _대상_을 선택합니다.
-1. 대상에 사용 가능한 신호 중에서 _신호_를 선택합니다.
-1. 신호의 데이터에 적용할 _논리_를 지정합니다.
+1. 경고의 _대상_ 을 선택합니다.
+1. 대상에 사용 가능한 신호 중에서 _신호_ 를 선택합니다.
+1. 신호의 데이터에 적용할 _논리_ 를 지정합니다.
 
 이 간소화된 작성 프로세스에서는 Azure 리소스를 선택하기 전에 지원되는 모니터링 원본 또는 신호를 더 이상 알 필요가 없습니다. 사용 가능한 신호 목록은 선택한 대상 리소스를 기준으로 자동 필터링됩니다. 또한 해당 대상을 기반으로 경고 규칙의 논리를 자동으로 정의 하는 과정을 안내 합니다.  
 
@@ -140,7 +140,7 @@ ms.locfileid: "92108799"
 
 
 ## <a name="all-alerts-page"></a>[모든 경고] 페이지 
-**모든 경고** 페이지를 표시 하려면 **총 경고**를 선택 합니다. 여기에서 선택한 시간 내에 생성 된 경고의 목록을 볼 수 있습니다. 개별 경고 목록 또는 경고가 포함된 스마트 그룹 목록을 볼 수 있습니다. 페이지 맨 위에 있는 배너를 선택하면 보기가 전환됩니다.
+**모든 경고** 페이지를 표시 하려면 **총 경고** 를 선택 합니다. 여기에서 선택한 시간 내에 생성 된 경고의 목록을 볼 수 있습니다. 개별 경고 목록 또는 경고가 포함된 스마트 그룹 목록을 볼 수 있습니다. 페이지 맨 위에 있는 배너를 선택하면 보기가 전환됩니다.
 
 ![모든 경고 페이지의 스크린샷](media/alerts-overview/all-alerts-page.png)
 
@@ -148,8 +148,8 @@ ms.locfileid: "92108799"
 
 | 열 | Description |
 |:---|:---|
-| Subscription | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
-| 리소스 그룹 | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
+| 구독 | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
+| Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
 | 리소스 유형 | 리소스 종류를 하나 이상 선택합니다. 선택한 형식의 대상이 있는 경고만 보기에 포함됩니다. 이 열은 리소스 그룹을 지정한 후에만 사용할 수 있습니다. |
 | 리소스 | 리소스를 선택합니다. 해당 리소스가 대상으로 지정된 경고만 보기에 포함됩니다. 이 열은 리소스 종류를 지정한 후에만 사용할 수 있습니다. |
 | 심각도 | 경고 심각도를 선택 하거나 모두를 **선택 하 여** 모든 심각도의 경고를 포함 합니다. |
@@ -171,11 +171,11 @@ ms.locfileid: "92108799"
 |:---|:---|
 | 요약 | 경고에 대한 속성과 기타 중요한 정보를 표시합니다. |
 | 기록 | 경고에서 수행한 각 작업과 경고의 변경 내용을 나열합니다. 현재는 상태 변경으로 제한되어 있습니다. |
-| 진단 | 경고가 포함 된 스마트 그룹에 대 한 정보입니다. *경고 수*는 스마트 그룹에 포함된 경고 수를 나타냅니다. 이전 30 일 동안 생성 된 것과 동일한 스마트 그룹의 다른 경고, 경고 목록 페이지의 시간 필터를 포함 합니다. 경고를 선택하면 세부 정보를 볼 수 있습니다. |
+| 진단 | 경고가 포함 된 스마트 그룹에 대 한 정보입니다. *경고 수* 는 스마트 그룹에 포함된 경고 수를 나타냅니다. 이전 30 일 동안 생성 된 것과 동일한 스마트 그룹의 다른 경고, 경고 목록 페이지의 시간 필터를 포함 합니다. 경고를 선택하면 세부 정보를 볼 수 있습니다. |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>경고 인스턴스에 대 한 RBAC (역할 기반 액세스 제어)
+## <a name="azure-role-based-access-control-azure-rbac-for-your-alert-instances"></a>경고 인스턴스에 대 한 azure RBAC (역할 기반 액세스 제어)
 
-경고 인스턴스의 소비 및 관리를 위해서는 사용자에 게 [모니터링 참여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 또는 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader)의 Azure 기본 제공 역할이 있어야 합니다. 이러한 역할은 구독 수준에서 리소스 수준의 세부적인 할당까지 모든 Azure Resource Manager 범위에서 지원 됩니다. 예를 들어 사용자가 가상 컴퓨터에 대 한 참가자 액세스를 모니터링 하는 경우 `ContosoVM1` 해당 사용자는에 생성 된 경고만 사용 하 고 관리할 수 있습니다 `ContosoVM1` .
+경고 인스턴스의 사용 및 관리를 위해서는 사용자에게 [모니터링 기여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 또는 [모니터링 읽기 권한자](../../role-based-access-control/built-in-roles.md#monitoring-reader)의 Azure 기본 제공 역할이 있어야 합니다. 이러한 역할은 구독 수준에서 리소스 수준의 세부적인 할당까지의 모든 Azure Resource Manager 범위에서 지원됩니다. 예를 들어 사용자가 가상 컴퓨터에 대 한 참가자 액세스를 모니터링 하는 경우 `ContosoVM1` 해당 사용자는에 생성 된 경고만 사용 하 고 관리할 수 있습니다 `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>프로그래밍 방식으로 경고 인스턴스 관리
 
@@ -204,12 +204,12 @@ Azure 리소스 그래프 탐색기: [portal.azure.com](https://portal.azure.com
 
 ## <a name="smart-groups"></a>스마트 그룹
 
-스마트 그룹은 기계 학습 알고리즘을 기반으로 하는 경고의 집계로, 경고 노이즈를 줄이고 문제를 해결 하는 데 도움이 될 수 있습니다. [스마트 그룹](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) 및 [스마트 그룹을 관리하는 방법](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)을 알아보세요.
+스마트 그룹은 기계 학습 알고리즘을 기반으로 하는 경고의 집계로, 경고 노이즈를 줄이고 문제를 해결 하는 데 도움이 될 수 있습니다. [스마트 그룹](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) 및 [스마트 그룹을 관리하는 방법](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)을 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [스마트 그룹에 대해 자세히 알아보기](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [스마트 그룹에 대해 자세히 알아보기](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [작업 그룹](./action-groups.md)에 대해 자세히 알아보기
-- [Azure에서 경고 인스턴스 관리](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [스마트 그룹 관리](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Azure에서 경고 인스턴스 관리](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [스마트 그룹 관리](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Azure alerts 가격에 대 한 자세한 정보](https://azure.microsoft.com/pricing/details/monitor/)

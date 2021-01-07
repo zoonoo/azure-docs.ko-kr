@@ -1,19 +1,19 @@
 ---
 title: Azure 앱 구성 REST API-제한
 description: Azure 앱 구성을 사용할 때 제한을 이해 하기 위한 참조 페이지 REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 26464138b7739bb476d9d0dd1078194473ecd23e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b4472fdcacfe5b62c0cded089224c6d41e32f47d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424269"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932441"
 ---
-# <a name="throttling"></a>스로틀
+# <a name="throttling"></a>제한
 
 구성 저장소에는 제공 되는 요청에 대 한 제한이 있습니다. 구성 저장소에 할당 된 할당량을 초과 하는 모든 요청은 HTTP 429 (너무 많은 요청) 응답을 수신 합니다.
 

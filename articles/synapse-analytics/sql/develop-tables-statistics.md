@@ -11,16 +11,16 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: cf85b0ea658ae6459644dd710630a30f78ad99aa
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339396"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451796"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 
-이 문서에는 Synapse SQL 리소스 (전용 SQL 풀 및 서버 리스 SQL 풀 (미리 보기)를 사용 하 여 쿼리 최적화 통계를 만들고 업데이트 하기 위한 권장 사항 및 예제가 나와 있습니다.
+이 문서에서 제공 하는 권장 사항 및 예제는 Synapse SQL 리소스를 사용 하 여 쿼리 최적화 통계를 만들고 업데이트 하는 예제입니다. 전용 SQL 풀 및 서버 리스 SQL 풀.
 
 ## <a name="statistics-in-dedicated-sql-pool"></a>전용 SQL 풀의 통계
 
@@ -74,7 +74,7 @@ SET AUTO_CREATE_STATISTICS ON
 > [!NOTE]
 > 통계 생성은 다른 사용자 컨텍스트의 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에 로깅됩니다.
 
-생성되는 자동 통계의 형식은 _WA_Sys_ <16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. 이미 생성된 통계는 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 명령을 실행하여 볼 수 있습니다.
+생성되는 자동 통계의 형식은 _WA_Sys_<16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. 이미 생성된 통계는 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 명령을 실행하여 볼 수 있습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -557,7 +557,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - 사용자 지정 오류 2767은 지원되지 않습니다.
 
 
-## <a name="statistics-in-serverless-sql-pool-preview"></a>서버를 사용 하지 않는 SQL 풀의 통계 (미리 보기)
+## <a name="statistics-in-serverless-sql-pool"></a>서버를 사용 하지 않는 SQL 풀의 통계
 
 통계는 특정 데이터 세트(스토리지 경로)의 특정 열에 대해 생성됩니다.
 
@@ -566,7 +566,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="why-use-statistics"></a>통계를 사용하는 이유
 
-서버를 사용 하지 않는 SQL 풀 (미리 보기)에서 데이터에 대해 알고 있으므로 데이터에 대 한 쿼리를 더 빠르게 실행할 수 있습니다. 데이터에 대해 통계를 수집하는 것은 쿼리 최적화를 위해 할 수 있는 가장 중요한 작업입니다. 
+서버를 사용 하지 않는 SQL 풀에서 데이터를 알고 있으므로 데이터에 대 한 쿼리를 더 빠르게 실행할 수 있습니다. 데이터에 대해 통계를 수집하는 것은 쿼리 최적화를 위해 할 수 있는 가장 중요한 작업입니다. 
 
 서버를 사용 하지 않는 SQL 풀 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다. 
 
@@ -812,6 +812,74 @@ DROP STATISTICS census_external_table.sState
 CREATE STATISTICS sState
     on census_external_table (STATENAME)
     WITH FULLSCAN, NORECOMPUTE
+```
+
+### <a name="statistics-metadata"></a>통계 메타데이터
+
+통계에 대한 정보를 찾는 데 사용할 수 있는 몇 가지 시스템 뷰 및 함수가 있습니다. 예를 들어 STATS_DATE() 함수를 사용하여 통계 개체가 오래되었는지 확인할 수 있습니다. STATS_DATE()를 사용하면 통계가 마지막으로 만들어졌거나 업데이트된 시기를 확인할 수 있습니다.
+
+> [!NOTE]
+> 통계 메타 데이터는 외부 테이블 열에만 사용할 수 있습니다. OPENROWSET 열에는 통계 메타 데이터를 사용할 수 없습니다.
+
+#### <a name="catalog-views-for-statistics"></a>통계에 대한 카탈로그 뷰
+
+이 시스템 뷰는 통계에 대한 정보를 제공합니다.
+
+| 카탈로그 뷰                                                 | Description                                                  |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 각 열에 대해 한 행입니다.                                     |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 데이터베이스의 각 개체에 대해 한 행입니다.                     |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 데이터베이스의 각 스키마에 대해 한 행입니다.                     |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 각 통계 개체에 대해 한 행입니다.                          |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 통계 개체의 각 열에 대해 한 행입니다. sys.columns에 다시 연결합니다. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 각 테이블에 대해 한 행입니다(외부 테이블 포함).           |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 각 데이터 유형에 대해 한 행입니다.                                  |
+
+#### <a name="system-functions-for-statistics"></a>통계에 대한 시스템 함수
+
+이 시스템 함수는 통계를 작업할 때 유용합니다.
+
+| 시스템 함수                                              | Description                                  |
+| :----------------------------------------------------------- | :------------------------------------------- |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 통계 개체가 마지막으로 업데이트된 날짜입니다. |
+
+#### <a name="combine-statistics-columns-and-functions-into-one-view"></a>통계 열 및 함수를 하나의 보기로 결합
+
+이 뷰는 통계와 관련된 열 및 STATS_DATE() 함수의 결과를 모두 제공합니다.
+
+```sql
+CREATE VIEW dbo.vstats_columns
+AS
+SELECT
+        sm.[name]                           AS [schema_name]
+,       tb.[name]                           AS [table_name]
+,       st.[name]                           AS [stats_name]
+,       st.[filter_definition]              AS [stats_filter_definition]
+,       st.[has_filter]                     AS [stats_is_filtered]
+,       STATS_DATE(st.[object_id],st.[stats_id])
+                                            AS [stats_last_updated_date]
+,       co.[name]                           AS [stats_column_name]
+,       ty.[name]                           AS [column_type]
+,       co.[max_length]                     AS [column_max_length]
+,       co.[precision]                      AS [column_precision]
+,       co.[scale]                          AS [column_scale]
+,       co.[is_nullable]                    AS [column_is_nullable]
+,       co.[collation_name]                 AS [column_collation_name]
+,       QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])
+                                            AS two_part_name
+,       QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])
+                                            AS three_part_name
+FROM    sys.objects                         AS ob
+JOIN    sys.stats           AS st ON    ob.[object_id]      = st.[object_id]
+JOIN    sys.stats_columns   AS sc ON    st.[stats_id]       = sc.[stats_id]
+                            AND         st.[object_id]      = sc.[object_id]
+JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
+                            AND         sc.[object_id]      = co.[object_id]
+JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
+JOIN    sys.tables          AS tb ON    co.[object_id]      = tb.[object_id]
+JOIN    sys.schemas         AS sm ON    tb.[schema_id]      = sm.[schema_id]
+WHERE   st.[user_created] = 1
+;
 ```
 
 ## <a name="next-steps"></a>다음 단계

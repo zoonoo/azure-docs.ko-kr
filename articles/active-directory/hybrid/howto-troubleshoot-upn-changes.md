@@ -11,16 +11,16 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319846"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858538"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Azure Active Directory에서 사용자 계정 이름 변경 계획 및 문제 해결
 
-UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 표준인 특성입니다. UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. 접두사는 "@" 기호를 사용 하 여 접미사를 조인 합니다. 예들 들어 someone@example.com입니다. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
+UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 표준인 특성입니다. UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. 접두사는 "" 기호를 사용 하 여 접미사를 조인 합니다 \@ . someone@example.com)을 입력합니다. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
 
 **이 문서에서는 사용자가 UPN을 사용 하 고 있다고 가정 합니다. UPN 변경에 대 한 계획을 수립 하 고 UPN 변경으로 인해 발생할 수 있는 문제를 해결 합니다.**
 
@@ -53,7 +53,7 @@ BSimon@contoso.com대상BJohnson@contoso.com
    * 접두사에 대 한 회사 표준도 변경할 수 있습니다.  
 Bsimon@contoso.com대상Britta.Simon@contoso.com
 
-* **접미사를 변경**합니다. <br>
+* **접미사를 변경** 합니다. <br>
 
     예를 들어 사용자가 부서를 변경한 경우 해당 도메인을 변경할 수 있습니다. 
 
@@ -135,7 +135,7 @@ UserPrincipalName 특성의 값이 Azure AD의 확인 된 도메인에 해당 �
 이 섹션에서 설명 하는 문제는 Windows 10 2020 업데이트 (2004)에서 해결 되었습니다.
 
 **해결 방법** <br>
-UPN 변경 내용이 Azure AD로 동기화 될 때까지 충분 한 시간을 허용 합니다. 새 UPN이 Azure AD 포털에 반영 되는지 확인 한 후 사용자에 게 "기타 사용자" 타일을 선택 하 여 새 UPN으로 로그인 하도록 요청 합니다. [PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)을 통해 확인할 수도 있습니다. 새 UPN을 사용 하 여 로그인 한 후에는 이전 UPN에 대 한 참조가 "회사 또는 학교 액세스" 창 설정에 계속 나타날 수 있습니다.
+UPN 변경 내용이 Azure AD로 동기화 될 때까지 충분 한 시간을 허용 합니다. 새 UPN이 Azure AD 포털에 반영 되는지 확인 한 후 사용자에 게 "기타 사용자" 타일을 선택 하 여 새 UPN으로 로그인 하도록 요청 합니다. [PowerShell](/powershell/module/azuread/get-azureaduser)을 통해 확인할 수도 있습니다. 새 UPN을 사용 하 여 로그인 한 후에는 이전 UPN에 대 한 참조가 "회사 또는 학교 액세스" 창 설정에 계속 나타날 수 있습니다.
 
 ![확인 된 도메인의 스크린샷](./media/howto-troubleshoot-upn-changes/other-user.png)
 
@@ -174,7 +174,7 @@ Windows 10 하이브리드 Azure AD 조인 장치에서 예기치 않은 다시 
 
 * 푸시 알림 또는 확인 코드를 통한 multi-factor authentication
 
-* 조정 된 [인증](../develop/brokered-auth.md) 을 사용 하는 응용 프로그램에 대 한 Single Sign-On를 제공 하기 위해 IOS 및 Android 장치에서 인증 브로커로 작동
+* 조정 된 [인증](../develop/msal-android-single-sign-on.md) 을 사용 하는 응용 프로그램에 대 한 Single Sign-On를 제공 하기 위해 IOS 및 Android 장치에서 인증 브로커로 작동
 
 * 장치 등록 (Workplace Join 라고도 함)은 Azure AD에 대 한 Intune 앱 보호 및 장치 등록/관리와 같은 다른 기능을 요구 하는 요구 사항입니다.
 

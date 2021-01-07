@@ -1,18 +1,17 @@
 ---
 title: Azure Migrate를 사용 하 여 Azure로의 마이그레이션에 대 한 많은 수의 Hyper-v Vm 평가 Microsoft Docs
 description: Azure Migrate 서비스를 사용 하 여 Azure로 마이그레이션하기 위한 많은 수의 Hyper-v Vm을 평가 하는 방법을 설명 합니다.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: raynew
-ms.openlocfilehash: 393c58334f4a1bead7e089d0a64b2d165b67401d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 92c275ee3f8e00e71b80e448c9adb94f0b6d21dc
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317170"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753725"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 Hyper-v Vm 평가
 
@@ -75,7 +74,7 @@ ms.locfileid: "92317170"
 1. Azure Migrate 프로젝트를 만듭니다.
 2. 프로젝트에 Azure Migrate 서버 평가 도구를 추가 합니다.
 
-[자세히 알아보기](how-to-add-tool-first-time.md)
+[자세히 알아보기](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>평가 만들기 및 검토
 

@@ -8,35 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 12/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c746666d58e21c2705a2ef1d6a17d0d1196f7590
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532520"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504477"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
-음성 [SDK](speech-sdk.md)대신 음성 서비스를 사용 하면 REST API를 사용 하 여 음성을 텍스트로 변환할 수 있습니다. 액세스 가능한 각 엔드포인트는 지역과 연결됩니다. 사용하려는 엔드포인트에 대한 구독 키가 애플리케이션에 필요합니다. REST API은 매우 제한적 이며, [음성 SDK](speech-sdk.md) 가 없는 경우에만 사용 해야 합니다.
+음성 텍스트에는 두 가지 REST Api가 있습니다. 각 API는 특별 한 용도로 사용 되며 다른 끝점 집합을 사용 합니다.
 
-음성 텍스트 REST API를 사용 하기 전에 다음 사항을 고려 하세요.
+음성 텍스트 REST Api는 다음과 같습니다.
+- [음성 텍스트 REST API v 3.0](#speech-to-text-rest-api-v30) 은 [일괄 처리](batch-transcription.md) 기록 및 [Custom Speech](custom-speech-overview.md)에 사용 됩니다. v 3.0은 v2.0 [의 후속 작업](/azure/cognitive-services/speech-service/migrate-v2-to-v3)입니다.
+- [짧은 오디오의 음성 텍스트 REST API](#speech-to-text-rest-api-for-short-audio) 는 [음성 SDK](speech-sdk.md)대신 온라인 기록에 사용 됩니다. 이 API를 사용 하는 요청은 요청당 최대 60 초의 오디오를 전송할 수 있습니다. 
 
-* REST API를 사용 하 고 오디오를 직접 전송 하는 요청은 최대 60 초의 오디오만 포함할 수 있습니다.
-* Speech-to-Text REST API는 최종 결과만 반환합니다. 부분 결과는 제공되지 않습니다.
+## <a name="speech-to-text-rest-api-v30"></a>음성 텍스트 REST API v 3.0
 
-응용 프로그램의 요구 사항이 긴 오디오를 보내는 경우에는 [음성 SDK](speech-sdk.md) 또는 [배치](batch-transcription.md)전송과 같은 파일 기반 REST API를 사용 하는 것이 좋습니다.
+음성 텍스트 REST API v 3.0은 [일괄 처리](batch-transcription.md) 기록 및 [Custom Speech](custom-speech-overview.md)에 사용 됩니다. REST를 통해 온라인 기록을 통해 통신 해야 하는 경우 [짧은 오디오에 대해 음성 텍스트 REST API](#speech-to-text-rest-api-for-short-audio)를 사용 합니다.
+
+REST API v 3.0을 사용 하 여 다음을 수행 합니다.
+- 동료가 만든 모델에 대 한 액세스 권한을 보유 하거나 둘 이상의 지역에 모델을 배포 하려는 경우에는 다른 구독에 모델을 복사 합니다.
+- 컨테이너 (대량 기록)에서 데이터를 높여줄 하 고 여러 오디오 파일 Url 제공
+- SAS Uri를 사용 하 여 Azure Storage 계정에서 데이터 업로드
+- 해당 끝점에 대해 로그가 요청 된 경우 끝점 당 로그를 가져옵니다.
+- 온-프레미스 컨테이너를 설정 하기 위해 만드는 모델의 매니페스트를 요청 합니다.
+
+REST API v 3.0에는 다음과 같은 기능이 포함 되어 있습니다.
+- **알림-웹 후크**-이제 서비스의 모든 실행 중인 프로세스가 webhook 알림을 지원 합니다. REST API v 3.0은 알림이 전송 되는 웹 후크를 등록할 수 있는 호출을 제공 합니다.
+- **끝점 뒤에 있는 모델 업데이트** 
+- **여러 데이터 집합으로 모델 적응**-음향, 언어 및 발음 데이터의 여러 데이터 집합 조합을 사용 하 여 모델을 조정 합니다.
+- 사용자 **고유의 저장소 가져오기**-로그, 기록 파일 및 기타 데이터에 고유한 저장소 계정을 사용 합니다.
+
+일괄 처리 기록을 통해 REST API v 3.0 사용에 대 한 예제는 [이 문서](batch-transcription.md)를 참조 하세요.
+
+음성 텍스트 REST API v 2.0을 사용 하는 경우 [이 가이드](/azure/cognitive-services/speech-service/migrate-v2-to-v3)의 v 3.0으로 마이그레이션하는 방법을 참조 하세요.
+
+[여기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)에서 전체 음성 텍스트 REST API v 3.0 참조를 참조 하세요.
+
+## <a name="speech-to-text-rest-api-for-short-audio"></a>짧은 오디오에 대 한 음성 텍스트 REST API
+
+음성 [SDK](speech-sdk.md)대신 음성 서비스를 사용 하면 REST API를 사용 하 여 음성을 텍스트로 변환할 수 있습니다. 액세스 가능한 각 엔드포인트는 지역과 연결됩니다. 사용하려는 엔드포인트에 대한 구독 키가 애플리케이션에 필요합니다. 짧은 오디오의 REST API은 매우 제한적 이며, [음성 SDK](speech-sdk.md) 가 없는 경우에만 사용 해야 합니다.
+
+짧은 오디오에 음성 텍스트 REST API를 사용 하기 전에 다음 사항을 고려 하세요.
+
+* 짧은 오디오에 REST API를 사용 하 고 오디오를 직접 전송 하는 요청은 최대 60 초의 오디오만 포함할 수 있습니다.
+* 짧은 오디오의 음성 텍스트 REST API는 최종 결과만 반환 합니다. 부분 결과는 제공되지 않습니다.
+
+응용 프로그램에 대 한 긴 오디오 보내기가 요구 사항은 [음성 SDK](speech-sdk.md) 또는 [음성 텍스트 REST API v 3.0](#speech-to-text-rest-api-v30)을 사용 하는 것이 좋습니다.
 
 > [!TIP]
-> FairFax (정부 클라우드) 끝점에 대 한 Azure 정부 [설명서](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) 를 참조 하세요.
+> FairFax (정부 클라우드) 끝점에 대 한 Azure 정부 [설명서](../../azure-government/compare-azure-government-global-azure.md) 를 참조 하세요.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="regions-and-endpoints"></a>지역 및 엔드포인트
+### <a name="regions-and-endpoints"></a>지역 및 엔드포인트
 
-REST API 끝점에는 다음과 같은 형식이 있습니다.
+짧은 오디오 REST API의 끝점은 다음과 같은 형식입니다.
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
@@ -49,20 +80,20 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 > [!NOTE]
 > 4xx HTTP 오류가 발생하지 않도록 언어 매개 변수를 URL에 추가해야 합니다. 예를 들어 미국 서부 엔드포인트를 사용하는 미국 영어로 설정된 언어는 `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`입니다.
 
-## <a name="query-parameters"></a>쿼리 매개 변수
+### <a name="query-parameters"></a>쿼리 매개 변수
 
 이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
-| 매개 변수 | 설명 | 필수/선택 |
+| 매개 변수 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원 되는 언어](language-support.md#speech-to-text)를 참조 하세요. | 필수 |
 | `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. 자세한 응답에는 표시 텍스트의 네 가지 표현이 포함 되어 있습니다. 기본 설정은 `simple`입니다. | 선택 사항 |
 | `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용 되는 값은 사용 금지를 별표 ()로 대체 하는로, 결과의 `masked` `removed` 모든 비속어를 제거 하는 또는 `raw` 결과의 비속어를 포함 하는입니다. 기본 설정은 `masked`입니다. | 선택 사항 |
-| `cid` | [Custom Speech 포털](how-to-custom-speech.md) 을 사용 하 여 사용자 지정 모델을 만드는 경우 **배포** 페이지에서 찾을 수 있는 **끝점 ID** 를 통해 사용자 지정 모델을 사용할 수 있습니다. 쿼리 문자열 매개 변수에 대 한 인수로 **끝점 ID** 를 사용 합니다 `cid` . | 선택 사항 |
+| `cid` | [Custom Speech 포털](./custom-speech-overview.md) 을 사용 하 여 사용자 지정 모델을 만드는 경우 **배포** 페이지에서 찾을 수 있는 **끝점 ID** 를 통해 사용자 지정 모델을 사용할 수 있습니다. 쿼리 문자열 매개 변수에 대 한 인수로 **끝점 ID** 를 사용 합니다 `cid` . | 선택 사항 |
 
-## <a name="request-headers"></a>요청 헤더
+### <a name="request-headers"></a>요청 헤더
 
-이 표에는 음성 텍스트 변환 요청에 대한 필수 헤더 및 선택적 헤더가 나와 있습니다.
+다음 표에서는 음성 텍스트 요청에 대 한 필수 및 선택적 헤더를 보여 줍니다.
 
 |헤더| 설명 | 필수/선택 |
 |------|-------------|---------------------|
@@ -74,26 +105,26 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 | `Expect` | 청크 분할된 전송을 사용하는 경우 `Expect: 100-continue`를 전송합니다. Speech Service는 초기 요청을 인식하고 추가 데이터를 대기합니다.| 청크 분할된 오디오 데이터를 전송하는 경우에 필요합니다. |
 | `Accept` | 제공하는 경우 `application/json`이어야 합니다. 음성 서비스는 JSON에서 결과를 제공 합니다. 일부 요청 프레임 워크는 호환 되지 않는 기본값을 제공 합니다. 항상를 포함 하는 것이 좋습니다 `Accept` . | 선택 사항이지만 권장됩니다. |
 
-## <a name="audio-formats"></a>오디오 형식
+### <a name="audio-formats"></a>오디오 형식
 
 오디오는 HTTP `POST` 요청 본문에서 전송됩니다. 오디오는 이 테이블의 형식 중 하나여야 합니다.
 
-| 형식 | Codec | 비트 전송률 | 샘플링 주기  |
+| 서식 | Codec | 비트 전송률 | 샘플링 주기  |
 |--------|-------|----------|--------------|
 | WAV    | PCM   | 256 kbps | 16kHz, mono |
 | OGG    | OPUS  | 256 kpbs | 16kHz, mono |
 
 >[!NOTE]
->위의 형식은 음성 서비스의 REST API 및 WebSocket을 통해 지원 됩니다. [음성 SDK](speech-sdk.md) 는 현재 [다른 형식](how-to-use-codec-compressed-audio-input-streams.md)뿐만 아니라 PCM 코덱으로 WAV 형식을 지원 합니다.
+>위의 형식은 음성 서비스의 짧은 오디오 및 WebSocket에 대 한 REST API를 통해 지원 됩니다. [음성 SDK](speech-sdk.md) 는 현재 [다른 형식](how-to-use-codec-compressed-audio-input-streams.md)뿐만 아니라 PCM 코덱으로 WAV 형식을 지원 합니다.
 
-## <a name="pronunciation-assessment-parameters"></a>발음 평가 매개 변수
+### <a name="pronunciation-assessment-parameters"></a>발음 평가 매개 변수
 
 다음 표에서는 발음 평가를 위한 필수 및 선택적 매개 변수를 보여 줍니다.
 
-| 매개 변수 | 설명 | 필수/선택 |
+| 매개 변수 | Description | 필수 여부 |
 |-----------|-------------|---------------------|
 | ReferenceText | 발음이 계산 될 텍스트입니다. | 필수 |
-| GradingSystem | 점수 보정의 시점 시스템입니다. 허용되는 값은 `FivePoint` 및 `HundredMark`입니다. 기본 설정은 `FivePoint`입니다. | 선택 사항 |
+| GradingSystem | 점수 보정의 시점 시스템입니다. `FivePoint`시스템은 0-5 부동 소수점 점수를 제공 하 고 `HundredMark` 0-100 부동 소수점 점수를 제공 합니다. 기본값: `FivePoint`. | 선택 사항 |
 | 세분성 | 평가 세분성입니다. 허용 되는 값은 전체 텍스트의 점수를 표시 하는 전체 텍스트, word 및 음소 수준에 대 한 점수를 표시 하는입니다 .이 값은 전체 텍스트 `Phoneme` `Word` `FullText` 수준 에서만 점수를 표시 합니다. 기본 설정은 `Phoneme`입니다. | 선택 사항 |
 | 차원 | 출력 조건을 정의 합니다. 허용 되는 값은 정확도 점수를 표시 하는 이며, `Basic` `Comprehensive` 더 많은 차원에 대 한 점수를 표시 합니다 (예: 전체 텍스트 수준에서 점수와 완전성 점수, 단어 수준의 오류 유형 능숙). [응답 매개 변수](#response-parameters) 를 확인 하 여 다른 점수 차원 및 단어 오류 유형의 정의를 확인 합니다. 기본 설정은 `Basic`입니다. | 선택 사항 |
 | EnableMiscue | Miscue 계산을 사용 합니다. 이 기능을 사용 하도록 설정 하면 단어를 참조 텍스트와 비교 하 여 비교에 따라 생략/삽입으로 표시 됩니다. 허용되는 값은 `False` 및 `True`입니다. 기본 설정은 `False`입니다. | 선택 사항 |
@@ -123,7 +154,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 >[!NOTE]
 >발음 평가 기능은 현재 `westus` , 및 지역 에서만 사용할 수 `eastasia` 있습니다 `centralindia` . 이 기능은 현재 언어 에서만 사용할 수 있습니다 `en-US` .
 
-## <a name="sample-request"></a>샘플 요청
+### <a name="sample-request"></a>샘플 요청
 
 아래 샘플에는 호스트 이름 및 필수 헤더가 포함되어 있습니다. 서비스는 이 샘플에 포함되지 않은 오디오 데이터도 예상한다는 것에 유의해야 합니다. 앞에서 언급한 대로 청크 분할은 권장되지만 필수는 아닙니다.
 
@@ -143,11 +174,11 @@ Expect: 100-continue
 Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
-## <a name="http-status-codes"></a>HTTP 상태 코드
+### <a name="http-status-codes"></a>HTTP 상태 코드
 
 각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
 
-| HTTP 상태 코드 | 설명 | 가능한 원인 |
+| HTTP 상태 코드 | Description | 가능한 원인 |
 |------------------|-------------|-----------------|
 | `100` | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송에 사용 됨) |
 | `200` | 정상 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
@@ -155,9 +186,9 @@ Pronunciation-Assessment: eyJSZWZlcm...
 | `401` | 권한 없음 | 구독 키 또는 권한 부여 토큰이 지정된 지역에서 올바르지 않거나 엔드포인트가 올바르지 않습니다. |
 | `403` | 사용할 수 없음 | 구독 키 또는 권한 부여 토큰이 없습니다. |
 
-## <a name="chunked-transfer"></a>청크 분할 전송
+### <a name="chunked-transfer"></a>청크 분할 전송
 
-청크 분할 전송 ( `Transfer-Encoding: chunked` )을 통해 인식 대기 시간을 줄일 수 있습니다. 음성 서비스는 전송 되는 동안 오디오 파일의 처리를 시작할 수 있습니다. REST API는 부분 또는 중간 결과를 제공하지 않습니다.
+청크 분할 전송 ( `Transfer-Encoding: chunked` )을 통해 인식 대기 시간을 줄일 수 있습니다. 음성 서비스는 전송 되는 동안 오디오 파일의 처리를 시작할 수 있습니다. 짧은 오디오의 REST API는 부분 또는 중간 결과를 제공 하지 않습니다.
 
 이 코드 샘플은 오디오를 청크로 보내는 방법을 보여 줍니다. 오직 첫 번째 청크만 오디오 파일의 헤더를 포함해야 합니다. `request` 는 `HttpWebRequest` 적절 한 REST 끝점에 연결 된 개체입니다. `audioFile`은 디스크에서 오디오 파일의 경로입니다.
 
@@ -191,11 +222,11 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-## <a name="response-parameters"></a>응답 매개 변수
+### <a name="response-parameters"></a>응답 매개 변수
 
 결과는 JSON으로 제공됩니다. `simple` 형식에는 이러한 최상위 수준 필드가 포함됩니다.
 
-| 매개 변수 | 설명  |
+| 매개 변수 | Description  |
 |-----------|--------------|
 |`RecognitionStatus`|상태(예: 인식 성공에 `Success`)입니다. 다음 표를 참조하세요.|
 |`DisplayText`|대/소문자, 문장 부호, 역 텍스트 정규화 (음성 텍스트를 "200"의 경우 200, "의사 smith"의 경우 "Dr. Smith"의 경우) 및 불경 마스킹을 통해 인식 되는 텍스트입니다. 성공 시만 표시합니다.|
@@ -204,7 +235,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 필드에는 다음 값이 포함될 수 있습니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 |--------|-------------|
 | `Success` | 성공적으로 인식했고 `DisplayText` 필드가 있습니다. |
 | `NoMatch` | 오디오 스트림에서 음성이 감지되었지만 대상 언어의 단어가 일치하지 않습니다. 일반적으로 인식 언어는 사용자가 말하는 것과 다른 언어를 의미합니다. |
@@ -220,7 +251,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 목록의 개체는 `NBest` 다음을 포함할 수 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | `Confidence` | 0.0(신뢰도 없음)에서 1.0(완전 신뢰도)까지 항목의 신뢰도 점수입니다. |
 | `Lexical` | 인식된 텍스트의 어휘 형태, 즉 인식된 실제 단위입니다. |
@@ -233,7 +264,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 | `PronScore` | 지정 된 음성의 발음 품질을 나타내는 전체 점수입니다. 이는에서 `AccuracyScore` , 가중치를 사용 하 여 집계 됩니다 `FluencyScore` `CompletenessScore` . |
 | `ErrorType` | 이 값은와 비교 하 여 단어를 생략 하거나, 삽입 하거나, 잘못 표시 하는지 여부를 나타냅니다 `ReferenceText` . 가능한 값은 `None` (이 단어에 오류가 없음을 의미 함) `Omission` , `Insertion` 및 `Mispronunciation` 입니다. |
 
-## <a name="sample-responses"></a>샘플 응답
+### <a name="sample-responses"></a>샘플 응답
 
 인식에 대 한 일반적인 응답 `simple` :
 
@@ -306,6 +337,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="next-steps"></a>다음 단계
 
-- [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
-- [언어 모델 사용자 지정](how-to-customize-language-model.md)
+- [무료 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
+- [음향 모델 사용자 지정](./how-to-custom-speech-train-model.md)
+- [언어 모델 사용자 지정](./how-to-custom-speech-train-model.md)
+- [Batch 기록에 대해 알아보기](batch-transcription.md)

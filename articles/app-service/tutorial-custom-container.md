@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: f3c687d5c8b4e4c6d0b7f4ff912137066fe10bbb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 68fe49ff201ead89d846a0676e81dda9fc9b75b9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743717"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558609"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션
 
@@ -62,9 +62,9 @@ Visual Studio에서 *custom-font-win-container/CustomFontSample.sln* 파일을 �
 
 ### <a name="configure-windows-container"></a>Windows 컨테이너 구성
 
-솔루션 탐색기에서 **CustomFontSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **Container Orchestration Support** (컨테이너 오케스트레이션 지원)를 선택합니다.
+솔루션 탐색기에서 **CustomFontSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **Container Orchestration Support**(컨테이너 오케스트레이션 지원)를 선택합니다.
 
-:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="기본 브라우저에 표시되는 앱을 보여주는 스크린샷.":::
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="CustomFontSample 프로젝트, 추가 및 컨테이너 Orchestrator 지원 메뉴 항목이 선택된 솔루션 탐색기 창의 스크린샷.":::
 
 **Docker Compose** > **확인** 을 선택합니다.
 
@@ -98,13 +98,13 @@ _InstallFont.ps1_ 은 **CustomFontSample** 프로젝트에서 찾을 수 있습�
 
 솔루션 탐색기에서 **CustomFontSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
-:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="기본 브라우저에 표시되는 앱을 보여주는 스크린샷.":::
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="CustomFontSample 프로젝트 및 선택한 게시를 보여주는 솔루션 탐색기의 스크린샷.":::
 
 ### <a name="create-registry-and-publish"></a>레지스트리 만들기 및 게시
 
 게시 마법사에서 **Container Registry** > **새 Azure Container Registry 만들기** > **게시** 를 선택합니다.
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="기본 브라우저에 표시되는 앱을 보여주는 스크린샷.":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Container Registry, 새 Azure Container Registry 생성 및 선택한 게시 단추를 보여주는 게시 마법사의 스크린샷.":::
 
 ### <a name="sign-in-with-azure-account"></a>Azure 계정으로 로그인
 
@@ -228,31 +228,16 @@ Azure App Service는 Docker 컨테이너 기술을 사용하여 기본 제공 �
 
 ## <a name="set-up-your-initial-environment"></a>초기 환경 설정
 
-* 활성 구독이 포함된 Azure 계정이 있어야 합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Docker 이미지를 빌드하는 데 사용하는 [Docker](https://docs.docker.com/get-started/#setup)를 설치합니다. Docker를 설치하려면 컴퓨터를 다시 시작해야 할 수 있습니다.
-* <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 이상을 설치합니다. 이를 통해 셸에서 명령을 실행하여 Azure 리소스를 프로비저닝하고 구성할 수 있습니다.
+- 활성 구독이 포함된 Azure 계정이 있어야 합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Docker 이미지를 빌드하는 데 사용하는 [Docker](https://docs.docker.com/get-started/#setup)를 설치합니다. Docker를 설치하려면 컴퓨터를 다시 시작해야 할 수 있습니다.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- 이 자습서에는 Azure CLI 버전 2.0.80 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-Docker 및 Azure CLI가 설치되면 터미널 창을 열고 Docker가 설치되어 있는지 확인합니다.
+Docker를 설치하거나 Azure Cloud Shell을 실행한 후 터미널 창을 열고 Docker가 설치되어 있는지 확인합니다.
 
 ```bash
 docker --version
 ```
-
-또한 Azure CLI 버전이 2.0.80 이상인지 확인합니다.
-
-```azurecli
-az --version
-```
-
-그런 다음, CLI를 통해 Azure에 로그인합니다.
-
-```azurecli
-az login
-```
-
-`az login` 명령은 브라우저를 열어 자격 증명을 수집합니다. 명령이 완료되면 구독에 대한 정보가 포함된 JSON 출력이 표시됩니다.
-
-로그인하면 Azure CLI에서 Azure 명령을 실행하여 구독의 리소스를 사용할 수 있습니다.
 
 ## <a name="clone-or-download-the-sample-app"></a>샘플 앱 복제 또는 다운로드
 
@@ -319,6 +304,10 @@ ENTRYPOINT ["init.sh"]
 
 ## <a name="build-and-test-the-image-locally"></a>로컬로 이미지 빌드 및 테스트
 
+> [!NOTE]
+> Docker Hub에는 [IP당 익명 풀 수와 무료 사용자당 인증된 풀 수에 대한 할당량(**데이터 전송** 참조)](https://www.docker.com/pricing)이 있습니다. Docker Hub에서의 끌어오기가 제한되면 아직 로그인하지 않은 경우 `docker login`을 시도해 보세요.
+> 
+
 1. 다음 명령을 실행하여 이미지를 빌드합니다.
 
     ```bash
@@ -339,8 +328,6 @@ ENTRYPOINT ["init.sh"]
 1. `http://localhost:8000`으로 이동하여 웹앱과 컨테이너가 올바르게 작동하는지 확인합니다.
 
     ![로컬로 웹앱 테스트](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
-
-[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

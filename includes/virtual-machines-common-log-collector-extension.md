@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a442b5de7a256dd8bcf47da741bd41894709c3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74085262"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558109"
 ---
 Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure Storage 계정으로 보낼 수 있습니다.
 
@@ -44,11 +44,11 @@ Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제�
 * Azure PowerShell. 설치 지침은 install [Azure PowerShell](/powershell/azure/install-az-ps)]를 참조 하세요.
 
 ## <a name="add-the-extension"></a>확장 추가
-[Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlet 또는 [서비스 관리 REST API](https://msdn.microsoft.com/library/ee460799.aspx)를 사용하여 AzureLogCollector 확장을 추가할 수 있습니다.
+[Microsoft Azure PowerShell](/previous-versions/azure/dn495240(v=azure.100)) cmdlet 또는 [서비스 관리 REST API](/previous-versions/azure/ee460799(v=azure.100))를 사용하여 AzureLogCollector 확장을 추가할 수 있습니다.
 
-Cloud Services의 경우 기존 Azure Powershell cmdlet인 **Set-azureserviceextension**을 사용하여 클라우드 서비스 역할 인스턴스에서 확장을 사용하도록 설정할 수 있습니다. 이 확장이 cmdlet을 통해 사용하도록 설정될 때마다 선택한 역할의 선택한 역할 인스턴스에서 로그 수집이 트리거됩니다.
+Cloud Services의 경우 기존 Azure Powershell cmdlet인 **Set-azureserviceextension** 을 사용하여 클라우드 서비스 역할 인스턴스에서 확장을 사용하도록 설정할 수 있습니다. 이 확장이 cmdlet을 통해 사용하도록 설정될 때마다 선택한 역할의 선택한 역할 인스턴스에서 로그 수집이 트리거됩니다.
 
-Virtual Machines의 경우 기존 Azure Powershell cmdlet인 **Set-AzureVMExtension**을 사용하여 Virtual Machines에서 확장을 사용하도록 설정할 수 있습니다. 이 확장이 cmdlet을 통해 사용하도록 설정될 때마다 각 인스턴스에서 로그 수집이 트리거됩니다.
+Virtual Machines의 경우 기존 Azure Powershell cmdlet인 **Set-AzureVMExtension** 을 사용하여 Virtual Machines에서 확장을 사용하도록 설정할 수 있습니다. 이 확장이 cmdlet을 통해 사용하도록 설정될 때마다 각 인스턴스에서 로그 수집이 트리거됩니다.
 
 내부적으로 이 확장은 JSON 기반 PublicConfiguration 및 PrivateConfiguration을 사용합니다. 다음은 공용 및 프라이빗 구성에 대한 샘플 JSON의 레이아웃입니다.
 
@@ -86,7 +86,7 @@ Virtual Machines의 경우 기존 Azure Powershell cmdlet인 **Set-AzureVMExtens
 ```
 
 > [!NOTE]
-> 이 확장에는 **privateConfiguration**이 필요하지 않습니다. **–PrivateConfiguration** 인수에 대해 비어 있는 구조를 제공할 수 있습니다.
+> 이 확장에는 **privateConfiguration** 이 필요하지 않습니다. **–PrivateConfiguration** 인수에 대해 비어 있는 구조를 제공할 수 있습니다.
 > 
 > 
 
@@ -528,4 +528,3 @@ else
 
 ## <a name="next-steps"></a>다음 단계
 이제 간단한 위치에서 로그를 검사하거나 복사할 수 있습니다.
-

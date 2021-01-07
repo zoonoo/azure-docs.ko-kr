@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 2579d24e1a1754e873c6591b6d86ec12dd0dfa60
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 73b25ce1093ce697aa0937161d2af49526c231b7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367321"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352357"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing Custom Search API에 대한 언어 및 지역 지원
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다.
 
@@ -96,7 +96,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
 |일본|일본어|ja-JP|
-|한국|한국어|en-US|
+|한국|한국어|ko-KR|
 |말레이시아|영어|en-MY|
 |멕시코|스페인어|es-MX|
 |네덜란드|네덜란드어|nl-NL|

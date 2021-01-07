@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: cffa6b1200b7236b3c0a3e48b50c58275cf4c57b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675791"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95316623"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -26,7 +26,7 @@ Azure 파일 동기화는 Windows Server, Azure 파일 공유 및 일부 기타 
 
 - Azure Storage
 - Azure 파일 동기화
-- Azure 리소스 관리자
+- Azure Resource Manager
 - 인증 서비스
 
 > [!Note]  
@@ -86,7 +86,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
       참고: Storage 동기화 에이전트(filesyncsvc) 서비스는 중지되면 자동으로 시작됩니다.
 
-## <a name="firewall"></a>방화벽
+## <a name="firewall"></a>Firewall
 이전 섹션에서 설명한 것처럼 포트 443을 아웃바운드로 열어 두어야 합니다. 데이터 센터, 분기 또는 지역의 정책에 따라, 이 포트를 통한 트래픽을 특정 도메인으로 추가로 제한하는 것이 바람직하거나 필요할 수 있습니다.
 
 다음 표에서는 통신에 필요한 도메인에 대해 설명합니다.
@@ -100,6 +100,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 | **Azure Storage** | &ast;.core.windows.net | &ast;. core.usgovcloudapi.net | 서버는 파일을 다운로드할 때 스토리지 계정의 Azure 파일 공유와 직접 소통하면서 데이터 이동을 보다 효율적으로 수행합니다. 서버에는 대상으로 지정된 파일 공유 액세스만 허용하는 SAS 키가 있습니다. |
 | **Azure 파일 동기화** | &ast;.one.microsoft.com<br>&ast;. afs.azure.net | &ast;. afs.azure.us | 초기 서버 등록 후 서버는 해당 지역에서 Azure 파일 동기화 서비스 인스턴스에 대한 지역별 URL을 수신합니다. 서버는 이 URL을 사용하여 동기화를 처리하는 인스턴스와 직접 효율적으로 통신할 수 있습니다. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Azure 파일 동기화 에이전트가 설치되면 PKI URL을 사용하여 Azure 파일 동기화 서비스 및 Azure 파일 공유와 통신하는 데 필요한 중간 인증서를 다운로드합니다. OCSP URL은 인증서의 상태를 확인하는 데 사용됩니다. |
+| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Azure File Sync 에이전트가 설치 되 면 Microsoft 업데이트 Url을 사용 하 여 Azure File Sync 에이전트 업데이트를 다운로드 합니다. |
 
 > [!Important]
 > Afs.azure.net에 대 한 트래픽을 허용 하는 경우 &ast; 트래픽은 동기화 서비스에만 가능 합니다. 이 도메인을 사용 하는 다른 Microsoft 서비스가 없습니다.
@@ -109,35 +110,35 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스토리지) 스토리지 계정에서 Azure 파일 공유를 지정했을 수도 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure 파일 동기화는 동일한 지역 쌍을 스토리지로 사용합니다. 따라서 GRS 저장소 계정을 사용 하는 경우 추가 Url을 사용 하도록 설정 하 여 서버에서 Azure File Sync에 대 한 쌍을 이루는 지역과 통신할 수 있도록 해야 합니다. 아래 표에서는이 "쌍을 이루는 지역"을 호출 합니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
 
-| 클라우드  | Azure 지역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL |
+| 클라우드  | 지역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL |
 |--------|--------|----------------------|---------------|---------------|
-| Public |오스트레일리아 동부 | https: \/ /australiaeast01.afs.azure.net<br>https: \/ /kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https: \/ /tm-australiaeast01.afs.azure.net<br>https: \/ /tm-kailani-aue.one.microsoft.com |
-| Public |오스트레일리아 남동부 | https: \/ /australiasoutheast01.afs.azure.net<br>https: \/ /kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https: \/ /tm-australiasoutheast01.afs.azure.net<br>https: \/ /tm-kailani-aus.one.microsoft.com |
-| Public | 브라질 남부 | https: \/ /brazilsouth01.afs.azure.net | 미국 중남부 | https: \/ /tm-brazilsouth01.afs.azure.net |
-| Public | 캐나다 중부 | https: \/ /canadacentral01.afs.azure.net<br>https: \/ /kailani-cac.one.microsoft.com | 캐나다 동부 | https: \/ /tm-canadacentral01.afs.azure.net<br>https: \/ /tm-kailani-cac.one.microsoft.com |
-| Public | 캐나다 동부 | https: \/ /canadaeast01.afs.azure.net<br>https: \/ /kailani-cae.one.microsoft.com | 캐나다 중부 | https: \/ /tm-canadaeast01.afs.azure.net<br>https: \/ /tm-kailani.cae.one.microsoft.com |
-| Public | 인도 중부 | https: \/ /centralindia01.afs.azure.net<br>https: \/ /kailani-cin.one.microsoft.com | 인도 남부 | https: \/ /tm-centralindia01.afs.azure.net<br>https: \/ /tm-kailani-cin.one.microsoft.com |
-| Public | 미국 중부 | https: \/ /centralus01.afs.azure.net<br>https: \/ /kailani-cus.one.microsoft.com | 미국 동부 2 | https: \/ /tm-centralus01.afs.azure.net<br>https: \/ /tm-kailani-cus.one.microsoft.com |
-| Public | 동아시아 | https: \/ /eastasia01.afs.azure.net<br>https: \/ /kailani11.one.microsoft.com | 동남아시아 | https: \/ /tm-eastasia01.afs.azure.net<br>https: \/ /tm-kailani11.one.microsoft.com |
-| Public | 미국 동부 | https: \/ /eastus01.afs.azure.net<br>https: \/ /kailani1.one.microsoft.com | 미국 서부 | https: \/ /tm-eastus01.afs.azure.net<br>https: \/ /tm-kailani1.one.microsoft.com |
-| Public | 미국 동부 2 | https: \/ /eastus201.afs.azure.net<br>https: \/ /kailani-ess.one.microsoft.com | 미국 중부 | https: \/ /tm-eastus201.afs.azure.net<br>https: \/ /tm-kailani-ess.one.microsoft.com |
-| Public | 독일 북부 | https: \/ /germanynorth01.afs.azure.net | 독일 중서부 | https: \/ /tm-germanywestcentral01.afs.azure.net |
-| Public | 독일 중서부 | https: \/ /germanywestcentral01.afs.azure.net | 독일 북부 | https: \/ /tm-germanynorth01.afs.azure.net |
-| Public | 일본 동부 | https: \/ /japaneast01.afs.azure.net | 일본 서부 | https: \/ /tm-japaneast01.afs.azure.net |
-| Public | 일본 서부 | https: \/ /japanwest01.afs.azure.net | 일본 동부 | https: \/ /tm-japanwest01.afs.azure.net |
-| Public | 한국 중부 | https: \/ /koreacentral01.afs.azure.net/ | 한국 남부 | https: \/ /tm-koreacentral01.afs.azure.net/ |
-| Public | 한국 남부 | https: \/ /koreasouth01.afs.azure.net/ | 한국 중부 | https: \/ /tm-koreasouth01.afs.azure.net/ |
-| Public | 미국 중북부 | https: \/ /northcentralus01.afs.azure.net | 미국 중남부 | https: \/ /tm-northcentralus01.afs.azure.net |
-| Public | 북유럽 | https: \/ /northeurope01.afs.azure.net<br>https: \/ /kailani7.one.microsoft.com | 서유럽 | https: \/ /tm-northeurope01.afs.azure.net<br>https: \/ /tm-kailani7.one.microsoft.com |
-| Public | 미국 중남부 | https: \/ /southcentralus01.afs.azure.net | 미국 중북부 | https: \/ /tm-southcentralus01.afs.azure.net |
-| Public | 인도 남부 | https: \/ /southindia01.afs.azure.net<br>https: \/ /kailani-sin.one.microsoft.com | 인도 중부 | https: \/ /tm-southindia01.afs.azure.net<br>https: \/ /tm-kailani-sin.one.microsoft.com |
-| Public | 동남아시아 | https: \/ /southeastasia01.afs.azure.net<br>https: \/ /kailani10.one.microsoft.com | 동아시아 | https: \/ /tm-southeastasia01.afs.azure.net<br>https: \/ /tm-kailani10.one.microsoft.com |
-| Public | 영국 남부 | https: \/ /uksouth01.afs.azure.net<br>https: \/ /kailani-uks.one.microsoft.com | 영국 서부 | https: \/ /tm-uksouth01.afs.azure.net<br>https: \/ /tm-kailani-uks.one.microsoft.com |
-| Public | 영국 서부 | https: \/ /ukwest01.afs.azure.net<br>https: \/ /kailani-ukw.one.microsoft.com | 영국 남부 | https: \/ /tm-ukwest01.afs.azure.net<br>https: \/ /tm-kailani-ukw.one.microsoft.com |
-| Public | 미국 중서부 | https: \/ /westcentralus01.afs.azure.net | 미국 서부 2 | https: \/ /tm-westcentralus01.afs.azure.net |
-| Public | 서유럽 | https: \/ /westeurope01.afs.azure.net<br>https: \/ /kailani6.one.microsoft.com | 북유럽 | https: \/ /tm-westeurope01.afs.azure.net<br>https: \/ /tm-kailani6.one.microsoft.com |
-| Public | 미국 서부 | https: \/ /westus01.afs.azure.net<br>https: \/ /kailani.one.microsoft.com | 미국 동부 | https: \/ /tm-westus01.afs.azure.net<br>https: \/ /tm-kailani.one.microsoft.com |
-| Public | 미국 서부 2 | https: \/ /westus201.afs.azure.net | 미국 중서부 | https: \/ /tm-westus201.afs.azure.net |
+| 공용 |오스트레일리아 동부 | https: \/ /australiaeast01.afs.azure.net<br>https: \/ /kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https: \/ /tm-australiaeast01.afs.azure.net<br>https: \/ /tm-kailani-aue.one.microsoft.com |
+| 공용 |오스트레일리아 남동부 | https: \/ /australiasoutheast01.afs.azure.net<br>https: \/ /kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https: \/ /tm-australiasoutheast01.afs.azure.net<br>https: \/ /tm-kailani-aus.one.microsoft.com |
+| 공용 | 브라질 남부 | https: \/ /brazilsouth01.afs.azure.net | 미국 중남부 | https: \/ /tm-brazilsouth01.afs.azure.net |
+| 공용 | 캐나다 중부 | https: \/ /canadacentral01.afs.azure.net<br>https: \/ /kailani-cac.one.microsoft.com | 캐나다 동부 | https: \/ /tm-canadacentral01.afs.azure.net<br>https: \/ /tm-kailani-cac.one.microsoft.com |
+| 공용 | 캐나다 동부 | https: \/ /canadaeast01.afs.azure.net<br>https: \/ /kailani-cae.one.microsoft.com | 캐나다 중부 | https: \/ /tm-canadaeast01.afs.azure.net<br>https: \/ /tm-kailani.cae.one.microsoft.com |
+| 공용 | 인도 중부 | https: \/ /centralindia01.afs.azure.net<br>https: \/ /kailani-cin.one.microsoft.com | 인도 남부 | https: \/ /tm-centralindia01.afs.azure.net<br>https: \/ /tm-kailani-cin.one.microsoft.com |
+| 공용 | 미국 중부 | https: \/ /centralus01.afs.azure.net<br>https: \/ /kailani-cus.one.microsoft.com | 미국 동부 2 | https: \/ /tm-centralus01.afs.azure.net<br>https: \/ /tm-kailani-cus.one.microsoft.com |
+| 공용 | 동아시아 | https: \/ /eastasia01.afs.azure.net<br>https: \/ /kailani11.one.microsoft.com | 동남아시아 | https: \/ /tm-eastasia01.afs.azure.net<br>https: \/ /tm-kailani11.one.microsoft.com |
+| 공용 | 미국 동부 | https: \/ /eastus01.afs.azure.net<br>https: \/ /kailani1.one.microsoft.com | 미국 서부 | https: \/ /tm-eastus01.afs.azure.net<br>https: \/ /tm-kailani1.one.microsoft.com |
+| 공용 | 미국 동부 2 | https: \/ /eastus201.afs.azure.net<br>https: \/ /kailani-ess.one.microsoft.com | 미국 중부 | https: \/ /tm-eastus201.afs.azure.net<br>https: \/ /tm-kailani-ess.one.microsoft.com |
+| 공용 | 독일 북부 | https: \/ /germanynorth01.afs.azure.net | 독일 중서부 | https: \/ /tm-germanywestcentral01.afs.azure.net |
+| 공용 | 독일 중서부 | https: \/ /germanywestcentral01.afs.azure.net | 독일 북부 | https: \/ /tm-germanynorth01.afs.azure.net |
+| 공용 | 일본 동부 | https: \/ /japaneast01.afs.azure.net | 일본 서부 | https: \/ /tm-japaneast01.afs.azure.net |
+| 공용 | 일본 서부 | https: \/ /japanwest01.afs.azure.net | 일본 동부 | https: \/ /tm-japanwest01.afs.azure.net |
+| 공용 | 한국 중부 | https: \/ /koreacentral01.afs.azure.net/ | 한국 남부 | https: \/ /tm-koreacentral01.afs.azure.net/ |
+| 공용 | 한국 남부 | https: \/ /koreasouth01.afs.azure.net/ | 한국 중부 | https: \/ /tm-koreasouth01.afs.azure.net/ |
+| 공용 | 미국 중북부 | https: \/ /northcentralus01.afs.azure.net | 미국 중남부 | https: \/ /tm-northcentralus01.afs.azure.net |
+| 공용 | 북유럽 | https: \/ /northeurope01.afs.azure.net<br>https: \/ /kailani7.one.microsoft.com | 서유럽 | https: \/ /tm-northeurope01.afs.azure.net<br>https: \/ /tm-kailani7.one.microsoft.com |
+| 공용 | 미국 중남부 | https: \/ /southcentralus01.afs.azure.net | 미국 중북부 | https: \/ /tm-southcentralus01.afs.azure.net |
+| 공용 | 인도 남부 | https: \/ /southindia01.afs.azure.net<br>https: \/ /kailani-sin.one.microsoft.com | 인도 중부 | https: \/ /tm-southindia01.afs.azure.net<br>https: \/ /tm-kailani-sin.one.microsoft.com |
+| 공용 | 동남아시아 | https: \/ /southeastasia01.afs.azure.net<br>https: \/ /kailani10.one.microsoft.com | 동아시아 | https: \/ /tm-southeastasia01.afs.azure.net<br>https: \/ /tm-kailani10.one.microsoft.com |
+| 공용 | 영국 남부 | https: \/ /uksouth01.afs.azure.net<br>https: \/ /kailani-uks.one.microsoft.com | 영국 서부 | https: \/ /tm-uksouth01.afs.azure.net<br>https: \/ /tm-kailani-uks.one.microsoft.com |
+| 공용 | 영국 서부 | https: \/ /ukwest01.afs.azure.net<br>https: \/ /kailani-ukw.one.microsoft.com | 영국 남부 | https: \/ /tm-ukwest01.afs.azure.net<br>https: \/ /tm-kailani-ukw.one.microsoft.com |
+| 공용 | 미국 중서부 | https: \/ /westcentralus01.afs.azure.net | 미국 서부 2 | https: \/ /tm-westcentralus01.afs.azure.net |
+| 공용 | 서유럽 | https: \/ /westeurope01.afs.azure.net<br>https: \/ /kailani6.one.microsoft.com | 북유럽 | https: \/ /tm-westeurope01.afs.azure.net<br>https: \/ /tm-kailani6.one.microsoft.com |
+| 공용 | 미국 서부 | https: \/ /westus01.afs.azure.net<br>https: \/ /kailani.one.microsoft.com | 미국 동부 | https: \/ /tm-westus01.afs.azure.net<br>https: \/ /tm-kailani.one.microsoft.com |
+| 공용 | 미국 서부 2 | https: \/ /westus201.afs.azure.net | 미국 중서부 | https: \/ /tm-westus201.afs.azure.net |
 | 정부 | US Gov 애리조나 | https: \/ /usgovarizona01.afs.azure.us | US Gov 텍사스 | https: \/ /tm-usgovarizona01.afs.azure.us |
 | 정부 | US Gov 텍사스 | https: \/ /usgovtexas01.afs.azure.us | US Gov 애리조나 | https: \/ /tm-usgovtexas01.afs.azure.us |
 
@@ -154,7 +155,7 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스�
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Azure File Sync IP 주소에 대 한 허용 목록
 Azure File Sync는 지정 된 Azure 서비스에 대 한 IP 주소 접두사 그룹을 나타내는 [서비스 태그](../../virtual-network/service-tags-overview.md)의 사용을 지원 합니다. 서비스 태그를 사용 하 여 Azure File Sync 서비스와의 통신을 가능 하 게 하는 방화벽 규칙을 만들 수 있습니다. Azure File Sync에 대 한 서비스 태그는 `StorageSyncService` 입니다.
 
-Azure 내에서 Azure File Sync를 사용 하는 경우 네트워크 보안 그룹에서 직접 서비스 태그 이름을 사용 하 여 트래픽을 허용할 수 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](../../virtual-network/security-overview.md)을 참조하세요.
+Azure 내에서 Azure File Sync를 사용 하는 경우 네트워크 보안 그룹에서 직접 서비스 태그 이름을 사용 하 여 트래픽을 허용할 수 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md)을 참조하세요.
 
 온-프레미스 Azure 파일 동기화를 사용하는 경우 서비스 태그 API를 사용하여 방화벽의 허용 목록에 대한 특정 IP 주소 범위를 가져올 수 있습니다. 이 정보를 가져오는 방법에는 다음 두 가지가 있습니다.
 
@@ -164,9 +165,9 @@ Azure 내에서 Azure File Sync를 사용 하는 경우 네트워크 보안 그�
     - [Azure 중국](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure 독일](https://www.microsoft.com/download/details.aspx?id=57064)
 - 서비스 태그 검색 API(미리 보기)를 사용 하면 현재 서비스 태그 목록을 프로그래밍 방식으로 검색할 수 있습니다. 미리 보기에서 서비스 태그 검색 API는 Microsoft 다운로드 센터에 게시된 JSON 문서에서 반환된 정보 보다 최신 정보가 아닌 정보를 반환할 수 있습니다. 자동화 기본 설정에 따라 API surface를 사용할 수 있습니다.
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 서비스 태그 검색 API는 Microsoft 다운로드 센터에 게시 된 JSON 문서 만큼 자주 업데이트 되지 않으므로 JSON 문서를 사용 하 여 온-프레미스 방화벽의 허용 목록을 업데이트 하는 것이 좋습니다. 이 작업은 다음과 같이 수행할 수 있습니다.
 

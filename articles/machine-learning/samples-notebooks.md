@@ -1,7 +1,7 @@
 ---
-title: 예제 Jupyter Notebook
+title: 예제 Jupyter Notebooks
 titleSuffix: Azure Machine Learning
-description: Jupyter Notebook 예제를 찾아 사용하여 SDK용 Azure Machine Learning Python을 검색합니다.
+description: SDK를 살펴보고 자체 기계 학습 프로젝트의 모델로 사용하도록 설계된 Juypter Notebooks를 찾고 사용하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8b4256f33a143c711a23a3564c2a46c69e0783b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 38d0c350718480506e1267c161a85505ece4b69d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675767"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452257"
 ---
-# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 검색
+# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 탐색
 
 > [!NOTE] 
 > 커뮤니티 기반 예제 리포지토리는 https://github.com/Azure/azureml-examples 에서 찾을 수 있습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "92675767"
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-이러한 지침은 빠른 시작 및 자습서 Notebook에 필요한 기본 SDK 패키지를 설치합니다. 다른 샘플 Notebook에서는 추가 구성 요소를 설치해야 할 수 있습니다. 자세한 내용은 [Python용 Azure Machine Learning SDK 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install)를 참조하세요.
+이러한 지침은 빠른 시작 및 자습서 Notebook에 필요한 기본 SDK 패키지를 설치합니다. 다른 샘플 Notebook에서는 추가 구성 요소를 설치해야 할 수 있습니다. 자세한 내용은 [Python용 Azure Machine Learning SDK 설치](/python/api/overview/azure/ml/install)를 참조하세요.
 
 <a name="dsvm"></a>
 ## <a name="get-samples-on-dsvm"></a>DSVM에서 샘플 가져오기

@@ -7,17 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/18/2018
+ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9e7c537e85039675f27fa3e276b6b964ce1679b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: b2342ed978204284bee4d2be0f1c983aa10ade36
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388598"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585040"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 직접 로그인 설정
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Azure AD(Active Directory) B2C를 사용하여 애플리케이션에 대한 로그인을 설정하는 경우 로그인 이름을 미리 채우거나 Facebook, LinkedIn, Microsoft 계정 같은 특정 소셜 ID 공급자로 직접 로그인할 수 있습니다.
 
@@ -29,7 +33,9 @@ Azure AD(Active Directory) B2C를 사용하여 애플리케이션에 대한 로�
 
 사용자는 로그인 텍스트 상자에서 해당 값을 변경할 수 있습니다.
 
-사용자 지정 정책을 사용하는 경우 `SelfAsserted-LocalAccountSignin-Email` 기술 프로필을 재정의합니다. `<InputClaims>` 섹션에서 signInName 클레임의 , DefaultValue를 `{OIDC:LoginHint}`로 설정합니다. `{OIDC:LoginHint}` 변수는 `login_hint` 매개 변수의 값을 포함합니다. Azure AD B2C는 signInName 클레임의 값을 읽고, signInName 텍스트 상자를 미리 채웁니다.
+::: zone pivot="b2c-custom-policy"
+
+로그인 힌트 매개 변수를 지원 하려면 `SelfAsserted-LocalAccountSignin-Email` 기술 프로필을 재정의 합니다. `<InputClaims>` 섹션에서 signInName 클레임의 , DefaultValue를 `{OIDC:LoginHint}`로 설정합니다. `{OIDC:LoginHint}` 변수는 `login_hint` 매개 변수의 값을 포함합니다. Azure AD B2C는 signInName 클레임의 값을 읽고, signInName 텍스트 상자를 미리 채웁니다.
 
 ```xml
 <ClaimsProvider>
@@ -45,13 +51,35 @@ Azure AD(Active Directory) B2C를 사용하여 애플리케이션에 대한 로�
 </ClaimsProvider>
 ```
 
+::: zone-end
+
 ## <a name="redirect-sign-in-to-a-social-provider"></a>소셜 공급자로 로그인 리디렉션
 
 Facebook, LinkedIn 또는 Google 등과 같은 소셜 계정을 포함하도록 애플리케이션에 대한 로그인 과정을 구성한 경우 `domain_hint` 매개 변수를 지정할 수 있습니다. 이 쿼리 매개 변수는 로그인에 사용해야 하는 소셜 ID 공급자에 대한 힌트를 Azure AD B2C에 제공합니다. 예를 들어, 애플리케이션이 `domain_hint=facebook.com`을 지정하는 경우 로그인을 수행하면 Facebook 로그인 페이지로 직접 이동됩니다.
 
 ![URL에 강조 표시 된 domain_hint 쿼리 매개 변수를 사용 하 여 로그인 페이지 등록](./media/direct-signin/domain-hint.png)
 
-사용자 지정 정책을 사용하는 경우 `<ClaimsProvider>`의 `<Domain>domain name</Domain>` XML 요소를 사용하여 도메인 이름을 구성할 수 있습니다.
+::: zone pivot="b2c-user-flow"
+
+도메인 힌트 쿼리 문자열 매개 변수는 다음 도메인 중 하나로 설정할 수 있습니다.
+
+- amazon.com
+- facebook.com
+- github.com
+- google.com
+- linkedin.com
+- microsoft.com
+- qq.com
+- twitter.com
+- wechat.com
+- weibo.com 
+- [일반 Openid connect Connect](identity-provider-generic-openid-connect.md)의 경우 [도메인 힌트](identity-provider-generic-openid-connect.md#response-mode)를 참조 하세요.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+도메인 hing 매개 변수를 지원 하기 위해 `<Domain>domain name</Domain>` 모든의 XML 요소를 사용 하 여 도메인 이름을 구성할 수 있습니다 `<ClaimsProvider>` .
 
 ```xml
 <ClaimsProvider>
@@ -62,4 +90,5 @@ Facebook, LinkedIn 또는 Google 등과 같은 소셜 계정을 포함하도록 
     ...
 ```
 
+::: zone-end
 

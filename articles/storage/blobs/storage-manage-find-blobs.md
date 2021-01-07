@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370256"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523283"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Blob 인덱스 태그를 사용 하 여 Azure Blob 데이터 관리 및 찾기 (미리 보기)
 
@@ -44,14 +44,14 @@ Blob 인덱스를 사용 하는 방법에 대 한 예제를 시작 하려면 [bl
 - *logs/2020/01/01/logfile.txt*
 
 
-이러한 blob은 *컨테이너/가상 폴더/b*s n 이름의 접두사를 사용 하 여 분리 됩니다. 이러한 다섯 개의 blob에 대 한의 인덱스 태그 특성을 설정 `Project = Contoso` 하 여 현재 접두사 조직을 유지 하면서 함께 범주화 할 수 있습니다. 인덱스 태그를 추가 하면 인덱스를 사용 하 여 데이터를 필터링 하 고 찾는 기능을 노출 하 여 데이터를 이동할 필요가 없습니다.
+이러한 blob은 *컨테이너/가상 폴더/b* s n 이름의 접두사를 사용 하 여 분리 됩니다. 이러한 다섯 개의 blob에 대 한의 인덱스 태그 특성을 설정 `Project = Contoso` 하 여 현재 접두사 조직을 유지 하면서 함께 범주화 할 수 있습니다. 인덱스 태그를 추가 하면 인덱스를 사용 하 여 데이터를 필터링 하 고 찾는 기능을 노출 하 여 데이터를 이동할 필요가 없습니다.
 
 ## <a name="setting-blob-index-tags"></a>Blob 인덱스 태그 설정
 
 Blob 인덱스 태그는 저장소 계정 내의 새 개체 또는 기존 개체에 적용할 수 있는 키-값 특성입니다. [Put blob](/rest/api/storageservices/put-blob), [put Block List](/rest/api/storageservices/put-block-list)또는 [Copy blob](/rest/api/storageservices/copy-blob) 작업 및 선택적 헤더를 사용 하 여 업로드 프로세스 중에 인덱스 태그를 지정할 수 있습니다 `x-ms-tags` . 저장소 계정에 blob이 이미 있는 경우 요청 본문의 인덱스 태그를 사용 하 여 서식이 지정 된 XML 문서를 전달 하는 [Set Blob 태그](/rest/api/storageservices/set-blob-tags) 를 호출 합니다.
 
 > [!IMPORTANT]
-> Blob 인덱스 태그 설정은 blob의 태그 (SAS 권한)에 액세스할 수 있는 권한이 있는 공유 액세스 서명을 사용 하는 모든 사용자 및 [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) 에 의해 수행 될 수 있습니다 `t` .
+> Blob 인덱스 태그 설정은 blob의 태그 (SAS 권한)에 액세스할 수 있는 권한이 있는 공유 액세스 서명을 사용 하는 모든 사용자 및 [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 에 의해 수행 될 수 있습니다 `t` .
 >
 > 또한 권한이 있는 RBAC 사용자는 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` 이 작업을 수행할 수 있습니다.
 
@@ -87,7 +87,7 @@ Blob 인덱스 태그에는 다음과 같은 제한이 적용 됩니다.
 Blob 인덱스 태그는 blob 데이터와 함께 하위 리소스로 저장 되며 기본 blob 데이터 콘텐츠와 독립적으로 검색할 수 있습니다. Blob [태그 가져오기](/rest/api/storageservices/get-blob-tags) 작업을 사용 하 여 단일 blob에 대 한 blob 인덱스 태그를 검색할 수 있습니다. 매개 변수를 사용 하 여 [Blob 나열](/rest/api/storageservices/list-blobs) 작업은 `include:tags` blob 인덱스 태그와 함께 컨테이너 내의 모든 blob도 반환 합니다.
 
 > [!IMPORTANT]
-> Blob 인덱스 태그 가져오기 및 나열은 blob의 태그 (SAS 권한)에 액세스할 수 있는 권한이 있는 공유 액세스 서명을 가진 모든 사용자가 [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) 에 의해 수행 될 수 있습니다 `t` .
+> Blob 인덱스 태그 가져오기 및 나열은 blob의 태그 (SAS 권한)에 액세스할 수 있는 권한이 있는 공유 액세스 서명을 가진 모든 사용자가 [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 에 의해 수행 될 수 있습니다 `t` .
 >
 > 또한 권한이 있는 RBAC 사용자는 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` 이 작업을 수행할 수 있습니다.
 
@@ -100,7 +100,7 @@ Blob 인덱스 태그는 blob 데이터와 함께 하위 리소스로 저장 되
 [태그별로 Blob 찾기](/rest/api/storageservices/find-blobs-by-tags) 작업을 사용 하면 인덱스 태그가 지정 된 쿼리 식과 일치 하는 필터링 된 blob 집합을 가져올 수 있습니다. `Find Blobs by Tags` 는 저장소 계정 내의 모든 컨테이너에서 필터링을 지원 하거나 필터링의 범위를 단일 컨테이너로 지정할 수 있습니다. 모든 인덱스 태그 키 및 값은 문자열 이므로 관계형 연산자는 사전적 정렬을 사용 합니다.
 
 > [!IMPORTANT]
-> Blob 인덱스 태그를 사용 하 여 데이터 찾기는 [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) 및 태그로 blob을 찾을 수 있는 권한이 있는 모든 사용자 (SAS 권한)에 의해 수행 될 수 있습니다 `f` .
+> Blob 인덱스 태그를 사용 하 여 데이터 찾기는 [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 및 태그로 blob을 찾을 수 있는 권한이 있는 모든 사용자 (SAS 권한)에 의해 수행 될 수 있습니다 `f` .
 >
 > 또한 권한이 있는 RBAC 사용자는 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` 이 작업을 수행할 수 있습니다.
 
@@ -164,7 +164,7 @@ Blob 인덱스 태그는 blob 데이터를 분류, 관리 및 검색 하는 데 
 
 태그가 지정 된 데이터에 대 한 작업을 적용 하기 위해 수명 주기 규칙에 있는 독립 실행형 필터 집합으로 blob 인덱스 일치를 설정할 수 있습니다. 또는 접두사와 blob 인덱스를 결합 하 여 보다 구체적인 데이터 집합을 일치 시킬 수 있습니다. 수명 주기 규칙에 여러 필터를 지정 하면 논리적 AND 연산이 적용 됩니다. 작업은 *모든* 필터 조건이 일치 하는 경우에만 적용 됩니다.
 
-다음 샘플 수명 주기 관리 규칙은 *videofiles*라는 컨테이너의 블록 blob에 적용 됩니다. 이 규칙은 데이터가의 blob 인덱스 태그 조건과 일치 하는 경우에만 저장소를 보관 하도록 blob을 계층화 합니다 `"Status" == 'Processed' AND "Source" == 'RAW'` .
+다음 샘플 수명 주기 관리 규칙은 *videofiles* 라는 컨테이너의 블록 blob에 적용 됩니다. 이 규칙은 데이터가의 blob 인덱스 태그 조건과 일치 하는 경우에만 저장소를 보관 하도록 blob을 계층화 합니다 `"Status" == 'Processed' AND "Source" == 'RAW'` .
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -235,7 +235,7 @@ Blob 인덱스 태그는 blob 데이터에 대 한 하위 리소스입니다. Bl
 | [Blob 태그 가져오기](/rest/api/storageservices/get-blob-tags)           | Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/태그/읽기     |
 | [태그로 Blob 찾기](/rest/api/storageservices/find-blobs-by-tags) | Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/필터/작업 |
 
-인덱스 태그 작업을 수행 하려면 기본 blob 데이터와는 별도로 추가 사용 권한이 필요 합니다. [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) 역할에는 세 가지 Blob 인덱스 태그 작업 모두에 대 한 사용 권한이 부여 됩니다. [저장소 Blob 데이터 판독기](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) 에는 및 작업에 대 한 권한만 부여 됩니다 `Find Blobs by Tags` `Get Blob Tags` .
+인덱스 태그 작업을 수행 하려면 기본 blob 데이터와는 별도로 추가 사용 권한이 필요 합니다. [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할에는 세 가지 Blob 인덱스 태그 작업 모두에 대 한 사용 권한이 부여 됩니다. [저장소 Blob 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 에는 및 작업에 대 한 권한만 부여 됩니다 `Find Blobs by Tags` `Get Blob Tags` .
 
 ### <a name="sas-permissions"></a>SAS 권한
 
@@ -327,6 +327,7 @@ az provider register --namespace 'Microsoft.Storage'
 - 필터링이 단일 컨테이너로 범위가 지정 된 경우 `@container` 필터 식의 모든 인덱스 태그가 같음 검사 (키 = 값) 인 경우에만를 전달할 수 있습니다.
 - 조건에 범위 연산자를 사용 하는 경우 `AND` 동일한 인덱스 태그 키 이름 ()만 지정할 수 있습니다 `"Age" > '013' AND "Age" < '100'` .
 - 버전 관리 및 blob 인덱스는 지원 되지 않습니다. Blob 인덱스 태그는 버전에 대해 유지 되지만 blob 인덱스 엔진에는 전달 되지 않습니다.
+- 인덱스 태그가 인덱싱되어 있는지 여부를 확인 하는 API는 없습니다.
 - 계정 장애 조치 (failover)는 지원 되지 않습니다. 장애 조치 (failover) 후 blob 인덱스가 제대로 업데이트 되지 않을 수 있습니다.
 - 수명 주기 관리는 blob 인덱스 일치를 사용 하는 같음 검사만 지원 합니다.
 - `Copy Blob` 원본 blob의 blob 인덱스 태그를 새 대상 blob에 복사 하지 않습니다. 복사 작업 중에 대상 blob에 적용 하려는 태그를 지정할 수 있습니다.

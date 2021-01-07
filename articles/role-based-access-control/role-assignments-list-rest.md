@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 634e1111c9374a1749e7dbb0666740ce2833a688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b717d84c8fedf4a87c0b81752b14914ece185250
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790979"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369211"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>REST API를 사용 하 여 Azure 역할 할당 나열
 
@@ -42,14 +42,14 @@ Azure RBAC에서 액세스를 나열 하려면 역할 할당을 나열 합니다
 1. URI 내에서 *{scope}* 를 역할 할당을 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | 형식 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | 구독 |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
-    이전 예제에서 microsoft. web은 App Service 인스턴스를 참조 하는 리소스 공급자입니다. 마찬가지로 다른 리소스 공급자를 사용 하 여 범위를 지정할 수 있습니다. 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md) 및 지원 되는 [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)을 참조 하세요.  
+    이전 예제에서 microsoft. web은 App Service 인스턴스를 참조 하는 리소스 공급자입니다. 마찬가지로 다른 리소스 공급자를 사용 하 여 범위를 지정할 수 있습니다. 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md) 및 지원 되는 [azure 리소스 공급자 작업](resource-provider-operations.md)을 참조 하세요.  
      
 1. *{filter}* 를 역할 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다.
 

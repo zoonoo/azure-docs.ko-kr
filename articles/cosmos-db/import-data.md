@@ -3,17 +3,19 @@ title: '자습서: Azure Cosmos DB용 데이터베이스 마이그레이션 도�
 description: '자습서: 오픈 소스 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 MongoDB, SQL Server, 테이블 스토리지, Amazon DynamoDB, CSV 및 JSON 파일을 비롯한 다양한 원본에서 Azure Cosmos DB로 데이터를 가져오는 방법을 알아봅니다. CSV에서 JSON로 변환합니다.'
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: dech
-ms.openlocfilehash: 8613d3b02d396f16008ee771cdff25fe8b2e2f10
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1cee4d2ad1bc7f362a045a5991624ec43521b8d2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490648"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341651"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>자습서: 데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 자습서에서는 다양한 원본에서 Azure Cosmos 컨테이너 및 테이블로 데이터를 가져올 수 있는 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하는 지침을 제공합니다. JSON 파일, CSV 파일, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB 및 Azure Cosmos DB SQL API 컬렉션에서도 데이터를 가져올 수 있습니다. Azure Cosmos DB에서 사용할 수 있도록 해당 데이터를 컬렉션 및 테이블로 마이그레이션할 수도 있습니다. 또한 데이터 마이그레이션 도구는 단일 파티션 컬렉션에서 SQL API용 다중 파티션 컬렉션으로 마이그레이션하는 경우에도 사용할 수 있습니다.
 
@@ -22,7 +24,7 @@ ms.locfileid: "92490648"
 
 * **[SQL API](./introduction.md)** - 데이터 마이그레이션 도구에서 제공되는 원본 옵션 중 하나를 사용하여 소규모로 데이터를 가져올 수 있습니다. [대규모로 데이터를 가져오기 위한 마이그레이션 옵션에 대해 알아봅니다](cosmosdb-migrationchoices.md).
 * **[Table API](table-introduction.md)** - 데이터 마이그레이션 도구 또는 [AzCopy](table-import.md#migrate-data-by-using-azcopy)를 사용하여 데이터를 가져올 수 있습니다. 자세한 정보는 [Azure Cosmos DB Table API와 함께 사용할 데이터 가져오기](table-import.md)를 참조하세요.
-* **[Azure Cosmos DB의 MongoDB API](mongodb-introduction.md)** - 데이터 마이그레이션 도구는 Azure Cosmos DB의 API for MongoDB를 원본 또는 대상으로 지원하지 않습니다. Azure Cosmos DB의 API 컬렉션에서 데이터를 마이그레이션하려는 경우 지침은 [Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB 데이터를 Cosmos 데이터베이스로 마이그레이션하는 방법](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)을 참조하세요. 데이터 마이그레이션 도구를 사용하여 SQL API와 함께 사용할 수 있도록 MongoDB에서 Azure Cosmos DB SQL API 컬렉션으로 데이터를 내보낼 수 있습니다.
+* **[Azure Cosmos DB의 MongoDB API](mongodb-introduction.md)** - 데이터 마이그레이션 도구는 Azure Cosmos DB의 API for MongoDB를 원본 또는 대상으로 지원하지 않습니다. Azure Cosmos DB의 API 컬렉션에서 데이터를 마이그레이션하려는 경우 지침은 [Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB 데이터를 Cosmos 데이터베이스로 마이그레이션하는 방법](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)을 참조하세요. 데이터 마이그레이션 도구를 사용하여 SQL API와 함께 사용할 수 있도록 MongoDB에서 Azure Cosmos DB SQL API 컬렉션으로 데이터를 내보낼 수 있습니다.
 * **[Gremlin API](graph-introduction.md)** - 데이터 마이그레이션 도구는 Cassandra API 계정에 대해 지원되는 가져오기 도구가 아닙니다. [Cassandra API로 데이터를 가져오기 위한 마이그레이션 옵션에 대해 알아보기](cosmosdb-migrationchoices.md#azure-cosmos-db-cassandra-api)
 * **[Gremlin API](graph-introduction.md)** - 데이터 마이그레이션 도구는 이 경우에 Gremlin API 계정에 지원되는 가져오기 도구가 아닙니다. [Gremlin API로 데이터를 가져오기 위한 마이그레이션 옵션에 대해 알아보기](cosmosdb-migrationchoices.md#other-apis) 
 
@@ -68,8 +70,8 @@ ms.locfileid: "92490648"
 
 마이그레이션 도구 소스 코드는 GitHub의 [이 리포지토리](https://github.com/azure/azure-documentdb-datamigrationtool)에서 사용할 수 있습니다. 솔루션을 로컬로 다운로드하여 컴파일하거나 [미리 컴파일된 이진 파일을 다운로드](https://aka.ms/csdmtool)한 후 다음 중 하나를 실행할 수 있습니다.
 
-* **Dtui.exe** : 도구의 그래픽 인터페이스 버전
-* **Dt.exe** : 도구의 명령줄 버전
+* **Dtui.exe**: 도구의 그래픽 인터페이스 버전
+* **Dt.exe**: 도구의 명령줄 버전
 
 ## <a name="select-data-source"></a>데이터 원본 선택
 
@@ -129,7 +131,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a name="import-from-mongodb"></a><a id="MongoDB"></a>MongoDB에서 가져오기
 
 > [!IMPORTANT]
-> Azure Cosmos DB의 MongoDB API로 구성된 Cosmos 계정으로 가져오는 경우 이러한 [지침](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)을 따르세요.
+> Azure Cosmos DB의 MongoDB API로 구성된 Cosmos 계정으로 가져오는 경우 이러한 [지침](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)을 따르세요.
 
 MongoDB 원본 가져오기 옵션을 사용하면 단일 MongoDB 컬렉션에서 가져오고 필요에 따라 쿼리를 사용하여 문서를 필터링하거나 프로젝션을 사용하여 문서 구조를 수정할 수 있습니다.  
 
@@ -157,7 +159,7 @@ dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<po
 ## <a name="import-mongodb-export-files"></a><a id="MongoDBExport"></a>MongoDB 내보내기 파일 가져오기
 
 > [!IMPORTANT]
-> MongoDB에 대한 지원을 포함한 Azure Cosmos DB 계정을 가져오는 경우 다음 [지침](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)을 수행합니다.
+> MongoDB에 대한 지원을 포함한 Azure Cosmos DB 계정을 가져오는 경우 다음 [지침](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)을 수행합니다.
 
 MongoDB 내보내기 JSON 파일 원본 가져오기 옵션을 사용하면 mongoexport 유틸리티에서 생성된 JSON 파일을 하나 이상 가져올 수 있습니다.  
 
@@ -340,7 +342,7 @@ dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;Ac
 dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:singleCollection /t.CollectionThroughput:2500
 
 #Export an Azure Cosmos container to a JSON file
-dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
+dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite
 ```
 
 > [!TIP]
@@ -384,7 +386,7 @@ Azure Cosmos DB 연결 문자열의 형식은 다음과 같습니다.
 > [!NOTE]
 > Verify 명령을 사용하여 연결 문자열 필드에 지정된 Azure Cosmos DB 인스턴스를 액세스할 수 있는지 확인합니다.
 
-단일 컬렉션으로 가져오려면, 데이터를 가져올 컬렉션의 이름을 입력하고 추가 단추를 클릭합니다. 둘 이상의 컬렉션을 가져오려면 개별적으로 각 컬렉션 이름을 입력하거나 둘 이상의 컬렉션을 지정하려면 다음 구문을 사용합니다. *collection_prefix* [start index - end index]. 앞서 언급한 구문을 사용하여 둘 이상의 컬렉션을 지정할 때 다음 지침에 유의해야 합니다.
+단일 컬렉션으로 가져오려면, 데이터를 가져올 컬렉션의 이름을 입력하고 추가 단추를 클릭합니다. 둘 이상의 컬렉션을 가져오려면 개별적으로 각 컬렉션 이름을 입력하거나 둘 이상의 컬렉션을 지정하려면 다음 구문을 사용합니다. *collection_prefix*[start index - end index]. 앞서 언급한 구문을 사용하여 둘 이상의 컬렉션을 지정할 때 다음 지침에 유의해야 합니다.
 
 1. 정수 범위 이름 패턴만 지원됩니다. 예를 들어, 컬렉션 [0-3]을 지정하면 collection0, collection1, collection2, collection3 컬렉션을 생성합니다.
 2. 축약된 구문을 사용할 수 있습니다. [3] 컬렉션은 1단계에서 설명한 동일한 집합을 생성합니다.
@@ -443,7 +445,7 @@ Azure Cosmos DB 연결 문자열의 형식은 다음과 같습니다.
 > [!NOTE]
 > Verify 명령을 사용하여 연결 문자열 필드에 지정된 Azure Cosmos DB 인스턴스를 액세스할 수 있는지 확인합니다.
 
-단일 컬렉션으로 가져오려면, 데이터를 가져올 컬렉션의 이름을 입력하고 추가 단추를 클릭합니다. 둘 이상의 컬렉션을 가져오려면 각 컬렉션 이름을 따로 입력합니다. 둘 이상의 컬렉션을 지정하려면 다음 구문을 사용할 수도 있습니다. *collection_prefix* [start index - end index]. 앞서 언급한 구문을 사용하여 둘 이상의 컬렉션을 지정할 때 다음 지침에 유의해야 합니다.
+단일 컬렉션으로 가져오려면, 데이터를 가져올 컬렉션의 이름을 입력하고 추가 단추를 클릭합니다. 둘 이상의 컬렉션을 가져오려면 각 컬렉션 이름을 따로 입력합니다. 둘 이상의 컬렉션을 지정하려면 다음 구문을 사용할 수도 있습니다. *collection_prefix*[start index - end index]. 앞서 언급한 구문을 사용하여 둘 이상의 컬렉션을 지정할 때 다음 지침에 유의해야 합니다.
 
 1. 정수 범위 이름 패턴만 지원됩니다. 예를 들어, 컬렉션 [0-3]을 지정하면 collection0, collection1, collection2, collection3 컬렉션을 생성합니다.
 2. 축약된 구문을 사용할 수 있습니다. [3] 컬렉션은 1단계에서 설명한 동일한 집합을 생성합니다.

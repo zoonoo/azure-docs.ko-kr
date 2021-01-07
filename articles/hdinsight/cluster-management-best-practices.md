@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3a96a7116c83bf9ea2c3798c335c6cefcbdbc36d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542321"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659491"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>HDInsight 클러스터 관리 모범 사례
 
@@ -47,9 +47,9 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 
 ## <a name="what-are-some-errors-i-might-face-when-creating-clusters"></a>클러스터를 만들 때 발생할 수 있는 몇 가지 오류는 무엇 인가요?
 
-| 오류 | 자세한 정보 |
+| 오류 | 추가 정보 |
 |---|---|
-| 할당량 없음 | 각 지역에서 구독에 만들 수 있는 할당량 수에 대 한 할당량이 있습니다. 자세한 내용은 [용량 계획: 할당량](./hdinsight-capacity-planning.md)을 참조 하세요. |
+| 할당량 없음 | 각 지역에서 구독에 만들 수 있는 코어 수에 대 한 할당량이 있습니다. 자세한 내용은 [용량 계획: 할당량](./hdinsight-capacity-planning.md)을 참조 하세요. |
 | 사용 가능한 IP 주소가 더 이상 없습니다. | 각 VNet에는 제한 된 수의 IP 주소가 있습니다. HDInsight 클러스터를 만들 때 각 노드 (사육 아웃 및 게이트웨이 노드 포함)는 할당 된 IP 주소 중 일부를 사용 합니다. 모든 IP 주소를 사용 중인 경우에는이 오류가 발생 합니다.  |
 | NSG (네트워크 보안 그룹) 규칙은 HDInsight 리소스 공급자와의 통신을 허용 하지 않습니다. | NSGs 또는 UDRs (사용자 정의 경로)를 사용 하 여 HDInsight 클러스터에 대 한 인바운드 트래픽을 제어 하는 경우 클러스터가 중요 한 Azure 상태 및 관리 서비스와 통신할 수 있는지 확인 해야 합니다. 자세한 내용은 [Azure HDInsight에 대 한 NSG (네트워크 보안 그룹) 서비스 태그](./hdinsight-service-tags.md) 를 참조 하세요. |
 | 클러스터 이름 다시 사용 | 이전에 사용한 클러스터 이름을 사용 하는 경우 클러스터를 다시 만들기 전에 X 분을 기다려야 합니다. 그렇지 않으면 리소스가 이미 존재 한다는 메시지가 표시 됩니다. |

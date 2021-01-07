@@ -1,7 +1,7 @@
 ---
-title: AutoML 실험의 기능화
+title: 자동화 된 기계 학습으로 기능화
 titleSuffix: Azure Machine Learning
-description: 기능화 설정 Azure Machine Learning 제품 및 기능 엔지니어링이 자동화 된 ML 실험에서 지원 되는 방법에 대해 알아봅니다.
+description: Azure Machine Learning의 데이터 기능화 설정 및 자동화 된 ML 실험을 위해 이러한 기능을 사용자 지정 하는 방법에 대해 알아봅니다.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -9,27 +9,26 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, automl
-ms.date: 05/28/2020
-ms.openlocfilehash: 658db1604895515525e5a4826a43c0b21d9698b1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.custom: how-to,automl,contperf-fy21q2
+ms.date: 12/18/2020
+ms.openlocfilehash: b26b0d9086f464556cbca2c70773374c3cccbd52
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359632"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915864"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>자동화된 Machine Learning의 기능화
+# <a name="data-featurization-in-automated-machine-learning"></a>자동화 된 기계 학습의 데이터 기능화
 
 
 
-이 가이드에서는 다음에 대해 알아봅니다.
+Azure Machine Learning의 데이터 기능화 설정 및 [자동화 된 ML 실험](concept-automated-ml.md)을 위해 이러한 기능을 사용자 지정 하는 방법에 대해 알아봅니다.
 
-- 기능화 설정 Azure Machine Learning 제공 합니다.
-- [자동화 된 machine learning 실험](concept-automated-ml.md)을 위해 이러한 기능을 사용자 지정 하는 방법입니다.
+## <a name="feature-engineering-and-featurization"></a>기능 엔지니어링 및 기능화
 
-*기능 엔지니어링* 은 데이터에 대 한 도메인 정보를 사용 하 여 기계 학습 (ML) 알고리즘을 통해 더 나은 학습을 돕는 기능을 만드는 프로세스입니다. Azure Machine Learning에서 데이터 크기 조정 및 정규화 기술이 기능 엔지니어링을 용이 하 게 하기 위해 적용 됩니다. 이러한 기술과이 기능 엔지니어링은 자동화 된 기계 학습 또는 *Automl* , 실험에서 *기능화* 이라고 통칭 됩니다.
+*기능 엔지니어링* 은 데이터에 대 한 도메인 정보를 사용 하 여 기계 학습 (ML) 알고리즘을 통해 더 나은 학습을 돕는 기능을 만드는 프로세스입니다. Azure Machine Learning에서 데이터 크기 조정 및 정규화 기술이 기능 엔지니어링을 용이 하 게 하기 위해 적용 됩니다. 이러한 기술과이 기능 엔지니어링은 자동화 된 기계 학습 또는 *Automl*, 실험에서 *기능화* 이라고 통칭 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 AutoML 실험을 구성 하는 방법을 이미 알고 있다고 가정 합니다. 구성에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
@@ -38,7 +37,7 @@ ms.locfileid: "93359632"
 
 ## <a name="configure-featurization"></a>기능화 구성
 
-자동화 된 모든 기계 학습 실험에서 [자동 크기 조정 및 정규화 기술이](#featurization) 기본적으로 데이터에 적용 됩니다. 이러한 기술은 다양 한 규모의 기능에 중요 한 *특정* 알고리즘을 지 원하는 기능화의 유형입니다. 그러나 *누락 값 대체* , *인코딩* 및 *변환과* 같은 추가 기능화를 사용 하도록 설정할 수도 있습니다.
+자동화 된 모든 기계 학습 실험에서 [자동 크기 조정 및 정규화 기술이](#featurization) 기본적으로 데이터에 적용 됩니다. 이러한 기술은 다양 한 규모의 기능에 중요 한 *특정* 알고리즘을 지 원하는 기능화의 유형입니다. *누락 값 대체*, *인코딩* 및 *변환과* 같은 추가 기능화를 사용 하도록 설정할 수 있습니다.
 
 > [!NOTE]
 > 자동화 된 machine learning 기능화 (예: 기능 정규화, 누락 된 데이터 처리 또는 텍스트를 숫자로 변환)에 대 한 단계는 기본 모델의 일부가 됩니다. 예측에 모델을 사용 하는 경우 학습 중에 적용 되는 것과 동일한 기능화 단계가 입력 데이터에 자동으로 적용 됩니다.
@@ -47,9 +46,9 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 다음 표에서는 `featurization` [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에서에 대해 허용 되는 설정을 보여 줍니다.
 
-|기능화 구성 | Description|
+|기능화 구성 | 설명|
 ------------- | ------------- |
-|`"featurization": 'auto'`| 전처리의 일부로 [데이터 guardrails 및 기능화 단계](#featurization) 를 자동으로 수행 하도록 지정 합니다. 이 설정은 기본값입니다.|
+|`"featurization": 'auto'`| 전처리의 일부로 [데이터 guardrails](#data-guardrails) 및 [기능화 단계](#featurization) 를 자동으로 수행 하도록 지정 합니다. 이 설정은 기본값입니다.|
 |`"featurization": 'off'`| 기능화 단계가 자동으로 수행 되지 않도록 지정 합니다.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| 사용자 지정 된 기능화 단계를 사용 하도록 지정 합니다. [기능화를 사용자 지정하는 방법을 알아보세요](#customize-featurization).|
 
@@ -62,16 +61,13 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 > [!NOTE]
 > AutoML에서 만든 모델을 [onnx 모델로](concept-onnx.md)내보낼 계획인 경우 별표 ("*")로 표시 된 기능화 옵션만 onnx 형식으로 지원 됩니다. [모델을 ONNX로 변환](concept-automated-ml.md#use-with-onnx)하는 방법에 대해 자세히 알아보세요.
 
-|기능화 &nbsp; 단계| Description |
+|기능화 &nbsp; 단계| 설명 |
 | ------------- | ------------- |
 |**상위 카디널리티를 삭제 하거나 가변성 기능 없음** _ |이러한 기능을 학습 및 유효성 검사 집합에서 삭제 합니다. 모든 행에서 동일한 값을 가진 모든 값이 누락 된 기능 또는 높은 카디널리티 (예: 해시, Id 또는 Guid)를 가진 기능에 적용 됩니다.|
 |_*누락 값 돌립니다**_ |숫자 기능의 경우 돌립니다는 열에 있는 값의 평균을 사용 합니다.<br/><br/>범주 기능의 경우 가장 자주 사용 되는 값을 돌립니다 합니다.|
-|_*추가 기능 생성**_ |DateTime 기능: 연도, 월, 일, 요일, 연간 일자, 분기, 연간 주, 시간, 분, 초<br><br> _For 예측 작업, * 이러한 추가 DateTime 기능 (ISO 연도, 반기, 월, 문자열, 주, 요일, 요일, 월, 일, 월, 오전 1 시, 오전 1 시, 오전 1 시, 오전 1 시, 오전 1 시, 오전 12 시), am/PM<br/><br/>텍스트 기능의 경우: 선 그램, bigrams 및 trigrams을 기반으로 하는 용어 빈도. [BERT를 사용 하 여이 작업을 수행 하는 방법](#bert-integration) 에 대해 자세히 알아보세요.|
+|_*더 많은 기능 생성**_ |DateTime 기능: 연도, 월, 일, 요일, 연간 일자, 분기, 연간 주, 시간, 분, 초<br><br> _For 예측 작업, * 이러한 추가 DateTime 기능 (ISO 연도, 반기, 월, 문자열, 주, 요일, 요일, 월, 일, 월, 오전 1 시, 오전 1 시, 오전 1 시, 오전 1 시, 오전 1 시, 오전 12 시), am/PM<br/><br/>텍스트 기능의 경우: 선 그램, bigrams 및 trigrams을 기반으로 하는 용어 빈도. [BERT를 사용 하 여이 작업을 수행 하는 방법](#bert-integration) 에 대해 자세히 알아보세요.|
 |**변환 및 인코딩** _|고유 값이 적은 숫자 기능을 범주 기능으로 변환 합니다.<br/><br/>단일 핫 인코딩은 낮은 카디널리티 범주 기능에 사용 됩니다. 단일 핫 해시 인코딩은 고급 카디널리티 범주 기능에 사용 됩니다.|
 |_ *Word 포함**|Featurizer 텍스트는 미리 학습 된 모델을 사용 하 여 텍스트 토큰의 벡터를 문장 벡터로 변환 합니다. 문서에 있는 각 단어의 포함 벡터는 문서 기능 벡터를 생성 하기 위해 나머지와 함께 집계 됩니다.|
-|**대상 인코딩**|범주 기능의 경우이 단계는 회귀 문제에 대 한 평균 목표 값과 분류 문제에 대 한 각 클래스의 확률에 각 범주를 매핑합니다. 빈도 기반 가중치 및 k 접기 교차 유효성 검사를 적용 하 여 스파스 데이터 범주로 인 한 매핑의 과잉 맞춤을 줄입니다.|
-|**텍스트 대상 인코딩**|텍스트 입력의 경우 단어 모음이 포함된 누적 선형 모델을 사용하여 각 클래스의 확률을 생성합니다.|
-|**WoE(증명 정보 가중치)**|WoE를 대상 열에 대한 범주별 열의 상관 관계 측정값으로 계산합니다. WoE는 클래스 내 및 클래스 외부 확률의 비율로 계산 됩니다. 이 단계에서는 클래스 당 하나의 숫자 기능 열을 생성 하 고 누락 된 값 및 이상 값 처리를 명시적으로 돌립니다 필요가 없습니다.|
 |**클러스터 거리**|K를 트레인 하 여 모든 숫자 열에 대 한 클러스터링 모델을 의미 합니다. 각 클러스터의 중심에 대 한 각 샘플의 거리가 포함 된 *k* 개의 새로운 기능 (클러스터당 하나의 새 숫자 기능)을 생성 합니다.|
 
 ## <a name="data-guardrails"></a>데이터 가드 레일
@@ -80,8 +76,8 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 데이터 guardrails 적용 됩니다.
 
-- **SDK 실험** : `"featurization": 'auto'` 개체에 또는 매개 변수가 `validation=auto` 지정 된 경우 `AutoMLConfig`
-- **Studio 실험** : 자동 기능화을 사용 하는 경우.
+- **SDK 실험**: `"featurization": 'auto'` 개체에 또는 매개 변수가 `validation=auto` 지정 된 경우 `AutoMLConfig`
+- **Studio 실험**: 자동 기능화을 사용 하는 경우.
 
 실험에 대 한 데이터 guardrails을 검토할 수 있습니다.
 
@@ -93,7 +89,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 데이터 guardrails 세 가지 상태 중 하나를 표시 합니다.
 
-|시스템 상태| Description |
+|주| 설명 |
 |----|---- |
 |**통과**| 데이터 문제가 검색 되지 않았으므로 사용자에 게 아무런 조치도 필요 하지 않습니다. |
 |**완료**| 변경 내용이 데이터에 적용되었습니다. 변경 내용이 예상 된 결과와 일치 하는지 확인 하기 위해 AutoML에서 수행한 정정 작업을 검토 하는 것이 좋습니다. |
@@ -303,16 +299,18 @@ class_prob = fitted_model.predict_proba(X_test)
 
 기본 모델이 `predict_proba()` 함수를 지원하지 않거나 형식이 잘못된 경우 모델 클래스 관련 예외가 throw됩니다. 이 함수를 다른 모델 유형에 맞게 구현하는 방법의 예제는 [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) 및 [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) 참조 문서에서 확인할 수 있습니다.
 
-## <a name="bert-integration"></a>BERT 통합
+<a name="bert-integration"></a>
+
+## <a name="bert-integration-in-automated-ml"></a>자동화 된 ML의 BERT 통합
 
 [BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) 는 automl의 기능화 계층에서 사용 됩니다. 이 계층에서 열에 사용 가능한 텍스트 또는 타임 스탬프 나 단순 숫자 등의 다른 데이터 형식이 포함 된 경우에는 그에 따라 기능화이 적용 됩니다.
 
 BERT의 경우 모델은 사용자가 제공한 레이블을 사용 하 여 미세 하 게 조정 되 고 학습 됩니다. 여기에서 문서 포함는 타임 스탬프 기반 기능, 요일 등 다른 사용자와 함께 기능으로 출력 됩니다. 
 
 
-### <a name="bert-steps"></a>BERT 단계
+### <a name="steps-to-invoke-bert"></a>BERT를 호출 하는 단계
 
-BERT를 호출 하려면 automl_settings를 설정 하  `enable_dnn: True` 고 gpu 계산 (예: `vm_size = "STANDARD_NC6"` 또는 더 높은 gpu)을 사용 해야 합니다. CPU 계산을 사용 하는 경우 BERT 대신 AutoML을 사용 하 여 BiLSTM DNN featurizer를 사용 하도록 설정 합니다.
+BERT를 호출 하려면 automl_settings를 설정 하  `enable_dnn: True` 고 gpu 계산 ( `vm_size = "STANDARD_NC6"` 또는 더 높은 gpu)을 사용 합니다. CPU 계산을 사용 하는 경우 BERT 대신 AutoML을 사용 하 여 BiLSTM DNN featurizer를 사용 하도록 설정 합니다.
 
 AutoML은 BERT에 대해 다음 단계를 수행 합니다. 
 
@@ -327,9 +325,10 @@ AutoML은 BERT에 대해 다음 단계를 수행 합니다.
 BERT는 일반적으로 다른 featurizers 보다 오래 실행 됩니다. 성능을 향상 시키려면 RDMA 기능에 "STANDARD_NC24r" 또는 "STANDARD_NC24rs_V3"를 사용 하는 것이 좋습니다. 
 
 AutoML은 사용 가능한 경우 여러 노드에 BERT 교육을 분산 합니다 (최대 8 개 노드 사용). 이 작업은 `AutoMLConfig` `max_concurrent_iterations` 매개 변수를 1 보다 높게 설정 하 여 개체에서 수행할 수 있습니다. 
-### <a name="supported-languages"></a>지원되는 언어
 
-AutoML은 현재 100 언어를 지원 하며, 데이터 집합의 언어에 따라 AutoML은 적절 한 BERT 모델을 선택 합니다. 독일 데이터의 경우 독일어 BERT 모델을 사용 합니다. 영어의 경우 영어 BERT 모델을 사용 합니다. 다른 모든 언어의 경우에는 다국어 BERT 모델을 사용 합니다.
+## <a name="supported-languages-for-bert-in-automl"></a>AutoML에서 BERT에 대해 지원 되는 언어 
+
+AutoML은 현재 100 언어를 지원 하며, 데이터 집합의 언어에 따라 autoML은 적절 한 BERT 모델을 선택 합니다. 독일 데이터의 경우 독일어 BERT 모델을 사용 합니다. 영어의 경우 영어 BERT 모델을 사용 합니다. 다른 모든 언어의 경우에는 다국어 BERT 모델을 사용 합니다.
 
 다음 코드에서는 데이터 집합 언어가 `deu` [ISO 분류](https://iso639-3.sil.org/code/deu)에 따라 독일어에 대 한 세 문자 언어 코드를 지정 하기 때문에 독일어 BERT 모델이 트리거됩니다.
 

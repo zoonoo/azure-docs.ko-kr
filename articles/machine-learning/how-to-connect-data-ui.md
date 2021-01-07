@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 554c815e6384115d56611e497f49a2c97ed15e38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359870"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461434"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 데이터에 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "93359870"
 
 다음 표에서는 데이터 저장소 및 데이터 집합의 이점을 정의 하 고 요약 합니다. 
 
-|Object|Description| 이점|   
+|Object|설명| 이점|   
 |---|---|---|
 |데이터 저장소| 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하 여 Azure의 저장소 서비스에 안전 하 게 연결 합니다. | 사용자 정보를 안전 하 게 저장 하기 때문에 <br><br> <li> &nbsp; &nbsp; 인증 &nbsp; 자격 증명이 &nbsp; 나 &nbsp; 원본 &nbsp; 데이터 원본을 위험에 노출 하지 마십시오. <li> 더 이상 스크립트에서 하드 코드를 코딩할 필요가 없습니다.
 |데이터 세트| 데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다. <br><br><li> 모델 학습 중 데이터에 액세스 합니다.<li> 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.<li> 데이터 탐색을 위해 pandas와 같은 오픈 소스 라이브러리를 활용 합니다. | 데이터 집합은 지연 평가 되 고 데이터는 기존 위치에 남아 있기 때문에 <br><br><li>저장소에 데이터의 단일 복사본을 유지 합니다.<li> 추가 저장소 비용이 발생 하지 않음 <li> 실수로 원래 데이터 원본을 변경 하는 것은 위험 하지 않습니다.<li>ML 워크플로 성능 속도를 향상 시킵니다. 
@@ -138,7 +138,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 
 ### <a name="access-validation"></a>액세스 유효성 검사
 
-**초기 데이터 저장소 만들기 및 등록 프로세스의 일부로** , Azure Machine Learning는 기본 저장소 서비스가 존재 하 고 사용자가 제공한 주체 (사용자 이름, 서비스 주체 또는 SAS 토큰)가 지정 된 저장소에 액세스할 수 있는지 자동으로 검사 합니다.
+**초기 데이터 저장소 만들기 및 등록 프로세스의 일부로**, Azure Machine Learning는 기본 저장소 서비스가 존재 하 고 사용자가 제공한 주체 (사용자 이름, 서비스 주체 또는 SAS 토큰)가 지정 된 저장소에 액세스할 수 있는지 자동으로 검사 합니다.
 
 **데이터 저장소를 만든 후** 에는 데이터 저장소 개체가 검색 **될 때마다 기본** 저장소 컨테이너에 액세스 해야 하는 메서드에 대해서만이 유효성 검사가 수행 됩니다. 예를 들어 데이터 저장소에서 파일을 다운로드하려는 경우에는 유효성 검사가 수행되지만, 기본 데이터 저장소만 변경하려는 경우에는 유효성 검사가 수행되지 않습니다.
 
@@ -160,7 +160,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 
 ### <a name="permissions"></a>사용 권한
 
-Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 
+Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 
 * 데이터 **읽기 액세스** 의 경우 인증 자격 증명에는 최소한의 목록 및 컨테이너와 개체에 대 한 읽기 권한이 있어야 합니다. 
 
 * 데이터 **쓰기 액세스** 의 경우 쓰기 및 추가 권한도 필요 합니다.

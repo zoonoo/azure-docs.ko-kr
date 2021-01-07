@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c458508dbf8d98349ec8549af32e3dd48bbd09b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76840811"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966431"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Azure Network Watcher에서 변수 패킷 캡처 소개
 
@@ -25,7 +25,7 @@ Network Watcher 변수 패킷을 사용하면 가상 머신 간에 트래픽을 
 패킷 캡처는 Network Watcher를 통해 원격으로 시작되는 가상 머신 확장입니다. 이 기능은 원하는 가상 머신에서 수동으로 패킷 캡처를 실행하는 부담을 줄이고 시간을 단축합니다. 포털, PowerShell, CLI 또는 REST API를 통해 패킷 캡처를 트리거할 수 있습니다. 패킷 캡처를 트리거하는 방식에 대한 한 가지 예는 Virtual Machine 경고를 사용하는 것입니다. 모니터링할 트래픽을 캡처할 수 있도록 캡처 세션에 대한 필터가 제공됩니다. 필터는 5개 튜플(프로토콜, 로컬 IP 주소, 원격 IP 주소, 로컬 포트 및 원격 포트) 정보를 기반으로 합니다. 캡처된 데이터는 로컬 디스크 또는 스토리지 BLOB에 저장됩니다. 구독당 하위 지역별로 패킷 캡처 세션 수가 10개로 제한됩니다. 이 제한은 세션에만 적용되며 VM에 로컬로 또는 스토리지 계정에 저장된 패킷 캡처 파일에는 적용되지 않습니다.
 
 > [!IMPORTANT]
-> 패킷 캡처에는 가상 머신 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
+> 패킷 캡처에는 가상 머신 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/extensions/network-watcher-windows.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/extensions/network-watcher-linux.md)을 방문하세요.
 
 캡처할 정보를 원하는 정보로 한정하기 위해 패킷 캡처 세션에 대해 다음 옵션이 제공됩니다.
 
@@ -55,16 +55,3 @@ Network Watcher 변수 패킷을 사용하면 가상 머신 간에 트래픽을 
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png
-
-
-
-
-
-
-
-
-
-
-
-
-

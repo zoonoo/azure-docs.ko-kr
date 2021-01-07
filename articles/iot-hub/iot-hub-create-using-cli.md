@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: 6daed4f5f1871d76da707edec00010cd27dfa8db
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e9757b94330f889869080a0e961ab2728cee86f6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142326"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659933"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 만들기
 
@@ -20,23 +20,9 @@ ms.locfileid: "92142326"
 
 이 문서는 Azure CLI를 사용하여 IoT Hub를 만드는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-이 방법 문서를 완료하려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
-
-Cloud Shell을 사용하는 대신 로컬로 Azure CLI를 실행하는 경우 Azure 계정에 로그인해야 합니다.
-
-명령 프롬프트에서 [login 명령](/cli/azure/get-started-with-azure-cli)을 실행합니다.
-
-   ```azurecli
-   az login
-   ```
-
-지침에 따라 코드를 사용하여 인증하고 웹 브라우저를 통해 Azure 계정에 로그인합니다.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

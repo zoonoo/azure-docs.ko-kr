@@ -12,18 +12,18 @@ ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305893"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021952"
 ---
 # <a name="get-started-with-custom-keyword"></a>사용자 지정 키워드 시작
 
 이 빠른 시작에서는 Speech Studio 및 Speech SDK를 사용 하 여 사용자 지정 키워드로 작업 하는 기본 사항을 알아봅니다. 키워드는 제품이 음성으로 활성화 될 수 있도록 하는 단어 또는 짧은 문구입니다. Speech Studio에서 키워드 모델을 만든 다음 응용 프로그램에서 Speech SDK와 함께 사용 하는 모델 파일을 내보냅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계에는 음성 구독과 음성 SDK가 필요 합니다. 아직 구독이 없는 경우 [음성 서비스를 무료로 사용해 보세요](overview.md#try-the-speech-service-for-free). SDK를 다운로드 하려면 해당 플랫폼에 대 한 [설치 가이드](quickstarts/setup-platform.md) 를 참조 하세요.
 
@@ -39,7 +39,7 @@ ms.locfileid: "93305893"
 
 1. [사용자 지정 키워드](https://aka.ms/sdsdk-wakewordportal) 페이지에서 **새 프로젝트** 를 만듭니다. 
 
-1. **이름** , **설명** (선택 사항)을 입력 하 고 언어를 선택 합니다. 언어 당 하나의 프로젝트가 필요 하 고 현재 언어에 대 한 지원이 제한 됩니다 `en-US` .
+1. **이름**, **설명**(선택 사항)을 입력 하 고 언어를 선택 합니다. 언어 당 하나의 프로젝트가 필요 하 고 현재 언어에 대 한 지원이 제한 됩니다 `en-US` .
 
     ![키워드 프로젝트 설명](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "93305893"
 
 1. 새 키워드 모델을 만들려면 **모델 학습** 을 클릭 합니다.
 
-1. 모델 **이름** , 선택적 **설명** 및 선택한 **키워드** 를 입력 한 후 **다음** 을 클릭 합니다. 효과적인 키워드를 선택 하는 방법에 대 한 [지침](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) 을 참조 하세요.
+1. 모델 **이름** , 선택적 **설명** 및 선택한 **키워드** 를 입력 한 후 **다음** 을 클릭 합니다. 효과적인 키워드를 선택 하는 방법에 대 한 [지침](./custom-keyword-overview.md#choose-an-effective-keyword) 을 참조 하세요.
 
     ![키워드 입력](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -79,4 +79,4 @@ ms.locfileid: "93305893"
 
 ## <a name="next-steps"></a>다음 단계
 
-[음성 장치 SDK 퀵 스타트](https://aka.ms/sdsdk-quickstart)를 사용 하 여 사용자 지정 키워드를 테스트 합니다.
+[음성 장치 SDK 퀵 스타트](./speech-devices-sdk-quickstart.md?pivots=platform-android)를 사용 하 여 사용자 지정 키워드를 테스트 합니다.

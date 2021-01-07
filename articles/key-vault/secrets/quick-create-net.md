@@ -1,37 +1,44 @@
 ---
-title: 빠른 시작 - .NET용 Azure Key Vault 클라이언트 라이브러리(v4)
-description: .NET 클라이언트 라이브러리(v4)를 사용하여 Azure Key Vault에서 암호를 생성, 검색 및 삭제하는 방법을 알아봅니다.
+title: 빠른 시작 - .NET용 Azure Key Vault 비밀 클라이언트 라이브러리(버전 4)
+description: .NET 클라이언트 라이브러리(버전 4)를 사용하여 Azure Key Vault에서 비밀을 생성, 검색 및 삭제하는 방법을 알아봅니다.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 20974367b9d4b75bb9746cd065bc7490011f37ad
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7dd5725e55800034fc3d142ef47c61275dc165d1
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786159"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97824619"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>빠른 시작: .NET용 Azure Key Vault 비밀 클라이언트 라이브러리(SDK v4)
 
-.NET용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
+.NET용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니다. [Azure Key Vault](../general/overview.md)는 보안 비밀 저장소를 제공하는 클라우드 서비스입니다. 키, 암호, 인증서 및 기타 비밀을 안전하게 저장할 수 있습니다. Azure Portal을 통해 Azure Key Vault를 만들고 관리할 수 있습니다. 이 빠른 시작에서는 .NET 클라이언트 라이브러리를 사용하여 Azure Key Vault에서 비밀을 만들고, 검색하고, 삭제하는 방법을 알아봅니다.
+
+Key Vault 클라이언트 라이브러리 리소스:
 
 [API 참조 설명서](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet&preserve-view=true) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+
+Key Vault 및 비밀에 대한 자세한 내용은 다음을 참조하세요.
+- [Key Vault 개요](../general/overview.md)
+- [비밀 개요](about-secrets.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/dotnet)
 * [.NET Core 3.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core)
 * [Azure CLI](/cli/azure/install-azure-cli)
+* Key Vault - [Azure Portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md) 또는 [Azure PowerShell](../general/quick-create-powershell.md)을 사용하여 만들 수 있습니다.
 
 이 빠른 시작에서는 `dotnet` 및 Azure CLI를 사용합니다.
 
 ## <a name="setup"></a>설치 프로그램
 
-이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](/dotnet/api/overview/azure/identity-readme#authenticate-the-client&preserve-view=true)을 참조하세요.
+이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true)을 참조하세요.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -47,6 +54,13 @@ ms.locfileid: "92786159"
 
 2. 브라우저에서 계정 자격 증명으로 로그인합니다.
 
+### <a name="grant-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한 부여
+
+비밀 권한을 사용자 계정에 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다.
+
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
+```
 
 ### <a name="create-new-net-console-app"></a>새 .NET 콘솔 앱 만들기
 
@@ -83,19 +97,6 @@ dotnet add package Azure.Security.KeyVault.Secrets
 ```dotnetcli
 dotnet add package Azure.Identity
 ```
-
-### <a name="create-a-resource-group-and-key-vault"></a>리소스 그룹 및 키 자격 증명 모음 만들기
-
-[!INCLUDE[Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
-
-#### <a name="grant-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한 부여
-
-비밀 권한을 사용자 계정에 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다.
-
-```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
-```
-
 #### <a name="set-environment-variables"></a>환경 변수 설정
 
 이 애플리케이션은 키 자격 증명 모음 이름을 `KEY_VAULT_NAME`이라는 환경 변수로 사용합니다.
@@ -130,7 +131,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 기본적으로 설정되는 방법인 키 자격 증명 모음에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
 
-아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) 클래스를 사용합니다. 자세한 내용은 [기본 Azure 자격 증명 인증](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#defaultazurecredential)을 참조하세요. 
+아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제에서는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 [Azure Identity Library](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)에서 ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) 클래스를 사용합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [개발자 가이드](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)를 참조하세요.
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -140,17 +141,11 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ```csharp
 await client.SetSecretAsync(secretName, secretValue);
-``````
-
-[az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show&preserve-view=true) 명령을 사용하여 비밀이 설정되었는지 확인할 수 있습니다.
-
-```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
-```
+> [!NOTE]
+> 비밀 이름이 있는 경우 위의 코드에서 해당 비밀의 새 버전을 만듭니다.
+
 
 ### <a name="retrieve-a-secret"></a>비밀 검색
 
@@ -158,60 +153,20 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ```csharp
 var secret = await client.GetSecretAsync(secretName);
-``````
+```
 
 이제 비밀이 `secret.Value`로 저장됩니다.
 
 ### <a name="delete-a-secret"></a>비밀 삭제
 
-마지막으로, [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) 메서드를 사용하여 키 자격 증명 모음에서 비밀을 삭제해 보겠습니다.
+마지막으로, [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) 및 [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.keys.keyclient) 메서드를 사용하여 키 자격 증명 모음에서 비밀을 삭제해 보겠습니다.
 
 ```csharp
-await client.StartDeleteSecretAsync(secretName);
-``````
+var operation = await client.StartDeleteSecretAsync("mySecret");
+// You only need to wait for completion if you want to purge or recover the key.
+await operation.WaitForCompletionAsync();
 
-[az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show&preserve-view=true) 명령을 사용하여 비밀이 삭제되었는지 확인할 수 있습니다.
-
-```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
-```
-
-```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
-```
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-더 이상 필요하지 않은 경우 Azure CLI 또는 Azure PowerShell을 사용하여 키 자격 증명 모음 및 해당 리소스 그룹을 제거할 수 있습니다.
-
-### <a name="delete-a-key-vault"></a>Key Vault 삭제
-
-```azurecli
-az keyvault delete --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
-```
-
-### <a name="purge-a-key-vault"></a>Key Vault 제거
-
-```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
-```
-
-### <a name="delete-a-resource-group"></a>리소스 그룹 삭제
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
+await client.PurgeDeletedKeyAsync("mySecret");
 ```
 
 ## <a name="sample-code"></a>예제 코드
@@ -222,6 +177,7 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
     ```csharp
     using System;
+    using System.Threading.Tasks;
     using Azure.Identity;
     using Azure.Security.KeyVault.Secrets;
     
@@ -256,13 +212,16 @@ Remove-AzResourceGroup -Name "myResourceGroup"
                 DeleteSecretOperation operation = await client.StartDeleteSecretAsync(secretName);
                 // You only need to wait for completion if you want to purge or recover the secret.
                 await operation.WaitForCompletionAsync();
-
-                await client.PurgeDeletedSecret(secretName);
+                Console.WriteLine(" done.");
+                
+                Console.Write($"Purging your secret from {keyVaultName} ...");
+                await client.PurgeDeletedSecretAsync(secretName);
                 Console.WriteLine(" done.");
             }
         }
     }
     ```
+### <a name="test-and-verify"></a>테스트 및 확인
 
 1. 다음 명령을 실행하여 앱을 실행합니다.
 
@@ -272,21 +231,20 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 1. 메시지가 표시되면 비밀 값을 입력합니다. 예를 들어 mySecretPassword입니다.
 
-    다음과 유사한 출력이 표시됩니다.
+다음과 유사한 출력이 표시됩니다.
 
-    ```console
-    Input the value of your secret > mySecretPassword
-    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
-    Forgetting your secret.
-    Your secret is ''.
-    Retrieving your secret from <your-unique-keyvault-name>.
-    Your secret is 'mySecretPassword'.
-    Deleting your secret from <your-unique-keyvault-name> ... done.    
-    ```
+```console
+Input the value of your secret > mySecretPassword
+Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
+Forgetting your secret.
+Your secret is ''.
+Retrieving your secret from <your-unique-keyvault-name>.
+Your secret is 'mySecretPassword'.
+Deleting your secret from <your-unique-keyvault-name> ... done.    
+Purging your secret from <your-unique-keyvault-name> ... done.
+```
 
 ## <a name="next-steps"></a>다음 단계
-
-이 빠른 시작에서는 키 자격 증명 모음을 만들고, 비밀을 저장하고, 해당 비밀을 검색했습니다. [GitHub의 전체 콘솔 앱](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app)을 참조하세요.
 
 Key Vault 및 이를 앱과 통합하는 방법에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 

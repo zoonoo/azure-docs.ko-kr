@@ -8,11 +8,11 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085489"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016100"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB를 사용하여 Linux VM에 Azure File Storage 탑재
 
@@ -22,12 +22,12 @@ File Storage는 표준 SMB 프로토콜을 사용하는 클라우드에서 파�
 
 VM에서 File Storage에서 호스팅되는 SMB 탑재로 파일을 이동하는 것은 로그를 디버깅하는 유용한 방법입니다. 동일한 SMB 공유를 Mac, Linux 또는 Windows 워크스테이션에 로컬로 탑재할 수 있습니다. SMB 프로토콜이 이러한 과도한 로깅 작업을 다루도록 빌드되지 않았기 때문에 SMB는 Linux 또는 애플리케이션 로그를 실시간으로 스트리밍하기 위한 최선의 솔루션은 아닐 수 있습니다. Linux 및 애플리케이션 로그 출력을 수집하려는 경우 Fluentd와 같은 전용 통합 로깅 계층 도구가 SMB보다 더 적합할 것입니다.
 
-이 가이드에서는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 찾으려면 **az --version**을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+이 가이드에서는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 찾으려면 **az --version** 을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-*미국 동부* 위치에 *myResourceGroup*이라는 이름의 리소스 그룹을 만듭니다.
+*미국 동부* 위치에 *myResourceGroup* 이라는 이름의 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -65,7 +65,7 @@ STORAGEKEY=$(az storage account keys list \
 
 공유 이름은 모두 소문자, 숫자 및 단일 하이픈이어야 하지만, 하이픈으로 시작할 수는 없습니다. 파일 공유 및 파일 이름 지정에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)를 참조하세요.
 
-다음 예제에서는 10GiB 할당량이 있는 *myshare*라는 공유를 만듭니다. 
+다음 예제에서는 10GiB 할당량이 있는 *myshare* 라는 공유를 만듭니다. 
 
 ```azurecli
 az storage share create --name myshare \

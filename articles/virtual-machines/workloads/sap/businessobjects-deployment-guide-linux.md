@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: da04e7704274336f7f92237c1d7c30459caa7bc8
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427465"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936484"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Azure의 linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
 
@@ -36,7 +37,7 @@ ms.locfileid: "94427465"
 - Azure Database for MySQL (버전: 8.0.15)
 - MySQL C API 커넥터-Libmysqlclient (버전: 6.1.11)
 
-| 파일 시스템        | Description                                                                                                               | 크기(GB)             | 소유자  | 그룹  | Storage                    |
+| 파일 시스템        | 설명                                                                                                               | 크기(GB)             | 소유자  | 그룹  | 스토리지                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | SAP BOBI 인스턴스, 기본 Tomcat 웹 응용 프로그램 및 데이터베이스 드라이버 (필요한 경우)를 설치 하기 위한 파일 시스템 | SAP 크기 조정 지침 | bl1adm | sapsys | 관리 되는 프리미엄 디스크-SSD |
 | /usr/sap/frsinput  | 탑재 디렉터리는 입력 파일 리포지토리 디렉터리로 사용 되는 모든 BOBI 호스트에서 공유 파일에 대 한 것입니다.  | 비즈니스 요구 사항         | bl1adm | sapsys | Azure NetApp Files         |
@@ -113,7 +114,7 @@ SAP BOBI Platform 파일 리포지토리 서버에 대 한 Azure NetApp Files를
 
 이 섹션의 다음 단계에서는 다음과 같은 접두사를 사용합니다.
 
-**[A]** : 단계가 모든 호스트에 적용 됩니다.
+**[A]**: 단계가 모든 호스트에 적용 됩니다.
 
 ### <a name="format-and-mount-sap-file-system"></a>SAP 파일 시스템 포맷 및 탑재
 
@@ -316,8 +317,9 @@ Azure Portal에 로그인 하 고이 [빠른 시작 가이드 Azure Database for
 
    # auditbl1 is the database name of Audit database. You can provide the name you want for CMS database.
    CREATE SCHEMA `auditbl1` DEFAULT CHARACTER SET utf8;
-
-4. Create user account to connect to schema
+   ```
+   
+4. 스키마에 연결할 사용자 계정 만들기
 
    ```sql
    # Create a user that can connect from any host, use the '%' wildcard as a host part
@@ -395,15 +397,15 @@ SAP BOBI 응용 프로그램 서버에서 데이터베이스에 액세스 하려
 
 이 섹션의 다음 단계에서는 다음과 같은 접두사를 사용합니다.
 
-**[A]** : 단계가 모든 호스트에 적용 됩니다.
+**[A]**: 단계가 모든 호스트에 적용 됩니다.
 
 1. **[A]** Linux의 버전 (SLES 또는 RHEL)에 따라 커널 매개 변수를 설정 하 고 필요한 라이브러리를 설치 해야 합니다. [Unix 용 비즈니스 인텔리전스 플랫폼 설치 가이드](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US)의 **시스템 요구 사항** 섹션을 참조 하세요.
 
 2. **[A]** 컴퓨터의 표준 시간대가 올바르게 설정 되었는지 확인 합니다. 설치 가이드의 [추가 Unix 및 Linux 요구 사항 섹션](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) 을 참조 하세요.
 
-3. **[A]** 소프트웨어의 백그라운드 프로세스를 실행할 수 있는 사용자 계정 ( **bl1** adm) 및 그룹 (sapsys)을 만듭니다. 이 계정을 사용 하 여 설치를 실행 하 고 소프트웨어를 실행 합니다. 계정에 루트 권한이 필요 하지 않습니다.
+3. **[A]** 소프트웨어의 백그라운드 프로세스를 실행할 수 있는 사용자 계정 (**bl1** adm) 및 그룹 (sapsys)을 만듭니다. 이 계정을 사용 하 여 설치를 실행 하 고 소프트웨어를 실행 합니다. 계정에 루트 권한이 필요 하지 않습니다.
 
-4. **[A]** 지원 되는 utf-8 로캘을 사용 하도록 사용자 계정 ( **bl1** adm) 환경을 설정 하 고 콘솔 소프트웨어가 utf-8 문자 집합을 지원 하는지 확인 합니다. 운영 체제에서 올바른 로캘을 사용 하는지 확인 하려면 LC_ALL 및 LANG 환경 변수를 ( **bl1** adm) 사용자 환경에서 기본 설정 로캘로 설정 합니다.
+4. **[A]** 지원 되는 utf-8 로캘을 사용 하도록 사용자 계정 (**bl1** adm) 환경을 설정 하 고 콘솔 소프트웨어가 utf-8 문자 집합을 지원 하는지 확인 합니다. 운영 체제에서 올바른 로캘을 사용 하는지 확인 하려면 LC_ALL 및 LANG 환경 변수를 (**bl1** adm) 사용자 환경에서 기본 설정 로캘로 설정 합니다.
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +415,7 @@ SAP BOBI 응용 프로그램 서버에서 데이터베이스에 액세스 하려
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** 사용자 계정 구성 ( **bl1** adm).
+5. **[A]** 사용자 계정 구성 (**bl1** adm).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -614,7 +616,7 @@ CMS 데이터베이스에 대 한 다른 DBMS 배포의 경우 [SAP 워크 로�
 
 FRS (파일 리포지토리 서버)는 보고서, universe 및 연결과 같은 내용이 저장 된 디스크 디렉터리를 나타냅니다. 해당 시스템의 모든 응용 프로그램 서버에서 공유 됩니다. 따라서 항상 사용 가능한 지 확인 해야 합니다.
 
-Azure에서 항상 사용 가능 하 고 내구성이 매우 뛰어난 파일 공유에 대해 [Azure Premium Files](../../../storage/files/storage-files-introduction.md) 또는 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) 를 선택할 수 있습니다. 자세한 내용은 Azure Files에 대 한 [중복](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) 섹션을 참조 하세요.
+Azure에서 항상 사용 가능 하 고 내구성이 매우 뛰어난 파일 공유에 대해 [Azure Premium Files](../../../storage/files/storage-files-introduction.md) 또는 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) 를 선택할 수 있습니다. 자세한 내용은 Azure Files에 대 한 [중복](../../../storage/files/storage-files-planning.md#redundancy) 섹션을 참조 하세요.
 
 > [!NOTE]
 > Azure Files에 대 한 SMB 프로토콜은 일반적으로 사용할 수 있지만 Azure Files에 대 한 NFS 프로토콜 지원은 현재 미리 보기 상태입니다. 자세한 내용은 [현재 preview로 제공 되는 Azure Files에 대 한 NFS 4.1 지원](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/) 을 참조 하세요.
@@ -666,7 +668,7 @@ Azure Site Recovery 서비스를 사용 하 여 보조 지역의 웹 및 BI 응�
 
   Azure NetApp Files 지역 간 복제를 사용할 수 있습니다 .이 복제는 현재 NetApp SnapMirror® 기술을 사용 하는 [미리 보기](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) 상태입니다. 따라서 변경 된 블록만 압축 된 효율적인 형식으로 네트워크를 통해 전송 됩니다. 이러한 소유 기술은 데이터 전송 비용을 절감 하는 지역에서 복제 하는 데 필요한 데이터의 양을 최소화 합니다. 또한 더 작은 RPO (복원 지점 목표)를 달성할 수 있도록 복제 시간도 단축 됩니다. 자세한 내용은 [지역 간 복제 사용을 위한 요구 사항 및 고려 사항](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md) 을 참조 하세요.
 
-- **Azure premium 파일** 은 LRS (로컬 중복) 및 ZRS (영역 중복 저장소)만 지원 합니다. Azure Premium Files DR 전략의 경우 [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) 또는 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) 를 사용 하 여 다른 지역에 있는 다른 저장소 계정에 파일을 복사할 수 있습니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치 (failover)](../../../storage/common/storage-disaster-recovery-guidance.md) 를 참조 하세요.
+- **Azure premium 파일** 은 LRS (로컬 중복) 및 ZRS (영역 중복 저장소)만 지원 합니다. Azure Premium Files DR 전략의 경우 [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) 또는 [Azure PowerShell](/powershell/module/az.storage/) 를 사용 하 여 다른 지역에 있는 다른 저장소 계정에 파일을 복사할 수 있습니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치 (failover)](../../../storage/common/storage-disaster-recovery-guidance.md) 를 참조 하세요.
 
 #### <a name="cms-database"></a>CMS 데이터베이스
 
@@ -694,4 +696,4 @@ Azure Site Recovery 서비스를 사용 하 여 보조 지역의 웹 및 BI 응�
 - [다중 계층 SAP 앱 배포에 대 한 재해 복구 설정](../../../site-recovery/site-recovery-sap.md)
 - [SAP용 Azure Virtual Machines 계획 및 구현](planning-guide.md)
 - [SAP용 Azure Virtual Machines 배포](deployment-guide.md)
-- [SAP용 Azure Virtual Machines DBMS 배포](dbms-guide.md)
+- [SAP용 Azure Virtual Machines DBMS 배포](./dbms_guide_general.md)

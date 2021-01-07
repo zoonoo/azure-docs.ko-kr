@@ -233,7 +233,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ---
 
-동일한 쿼리를 작성하는 다른 방법은 속성을 `extend`한 후 쿼리 내에서 사용할 임시 이름(이 경우에는 **os**)을 부여하는 것입니다. 그런 다음 **OS**는 이전 예제에서와 같이 `summarize` 및 `count()`에서 사용됩니다.
+동일한 쿼리를 작성하는 다른 방법은 속성을 `extend`한 후 쿼리 내에서 사용할 임시 이름(이 경우에는 **os**)을 부여하는 것입니다. 그런 다음 **OS** 는 이전 예제에서와 같이 `summarize` 및 `count()`에서 사용됩니다.
 
 ```kusto
 Resources
@@ -269,7 +269,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ## <a name="show-resources-that-contain-storage"></a><a name="show-storage"></a>스토리지를 포함하는 리소스 표시
 
-일치시킬 형식을 명시적으로 정의하는 대신, 이 예제에서는 단어 **storage**를 `contains`하는 Azure 리소스를 찾습니다.
+일치시킬 형식을 명시적으로 정의하는 대신, 이 예제에서는 단어 **storage** 를 `contains`하는 Azure 리소스를 찾습니다.
 
 ```kusto
 Resources
@@ -302,7 +302,7 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 이전 쿼리와 마찬가지로 **publicIPAddresses** 단어를 포함하는 형식에 해당하는 모든 항목을 찾습니다.
 이 쿼리는 **properties.ipAddress**
-`isnotempty`인 결과만 포함하고 **properties.ipAddress**를 반환하고, 맨 위에서 `limit`까지의 결과만 포함하도록 확장됩니다.
+`isnotempty`인 결과만 포함하고 **properties.ipAddress** 를 반환하고, 맨 위에서 `limit`까지의 결과만 포함하도록 확장됩니다.
 100. 선택한 셸에 따라 따옴표를 이스케이프해야 할 수도 있습니다.
 
 ```kusto
@@ -368,7 +368,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 ## <a name="list-resources-with-a-specific-tag-value"></a><a name="list-tag"></a>특정 태그 값이 있는 리소스 나열
 
-태그와 같은 Azure 리소스 형식 이외의 속성으로 결과를 제한할 수 있습니다. 이 예제에서는 값이 **Internal**이며 태그 이름이 **Environment**인 Azure 리소스를 필터링합니다.
+태그와 같은 Azure 리소스 형식 이외의 속성으로 결과를 제한할 수 있습니다. 이 예제에서는 값이 **Internal** 이며 태그 이름이 **Environment** 인 Azure 리소스를 필터링합니다.
 
 ```kusto
 Resources
@@ -465,7 +465,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 ## <a name="show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases"></a>가상 머신 리소스에 대한 별칭 표시
 
-[Azure Policy 별칭](../../policy/concepts/definition-structure.md#aliases)은 Azure Policy에서 리소스 규정 준수를 관리하는 데 사용됩니다. Azure Resource Graph는 리소스 종류의 _별칭_을 반환할 수 있습니다. 이러한 값은 사용자 지정 정책 정의를 만들 때 별칭의 현재 값을 비교하는 데 유용합니다. _별칭_ 배열은 쿼리의 결과에 기본적으로 제공되지 않습니다. 결과에 명시적으로 추가하려면 `project aliases`를 사용합니다.
+[Azure Policy 별칭](../../policy/concepts/definition-structure.md#aliases)은 Azure Policy에서 리소스 규정 준수를 관리하는 데 사용됩니다. Azure Resource Graph는 리소스 종류의 _별칭_ 을 반환할 수 있습니다. 이러한 값은 사용자 지정 정책 정의를 만들 때 별칭의 현재 값을 비교하는 데 유용합니다. _별칭_ 배열은 쿼리의 결과에 기본적으로 제공되지 않습니다. 결과에 명시적으로 추가하려면 `project aliases`를 사용합니다.
 
 ```kusto
 Resources

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 0b10a4de78c44e4c0a113a1f1a46c316b13a1f78
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995337"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96902166"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -65,7 +65,7 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 복사 작업을 사용 하도록 설정 하는 서비스는 [Azure integration runtime 위치](concepts-integration-runtime.md#integration-runtime-location)에 나열 된 지역 및 지역에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 특정 지역에서 Data Factory 및 데이터 이동의 가용성을 확인 하려면 [지역별 제품](https://azure.microsoft.com/regions/#services) 을 참조 하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -127,9 +127,9 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 #### <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | 설명 | 필수 여부 |
+| 속성 | Description | 필수 여부 |
 |:--- |:--- |:--- |
-| type | 복사 활동의 경우를로 설정 합니다. `Copy` | 예 |
+| 형식 | 복사 활동의 경우를로 설정 합니다. `Copy` | 예 |
 | 입력 | 원본 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 입력만 지원 합니다. | 예 |
 | outputs | 싱크 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 출력만 지원 합니다. | 예 |
 | typeProperties | 속성을 지정 하 여 복사 작업을 구성 합니다. | 예 |
@@ -183,7 +183,7 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 ## <a name="add-additional-columns-during-copy"></a>복사 하는 동안 다른 열 추가
 
-원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 예:
+원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 예를 들어:
 
 - 파일 기반 원본에서 복사 하는 경우 데이터를 가져온 파일에서 추적할 추가 열로 상대 파일 경로를 저장 합니다.
 - 지정한 원본 열을 다른 열로 복제 합니다. 
@@ -199,7 +199,7 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 프로그래밍 방식으로 구성 하려면 `additionalColumns` 복사 작업 원본에 속성을 추가 합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | additionalColumns | 추가 데이터 열을 추가 하 여 싱크에 복사 합니다.<br><br>배열의 각 개체 `additionalColumns` 는 추가 열을 나타냅니다. 는 `name` 열 이름을 정의 하 고은 해당 `value` 열의 데이터 값을 나타냅니다.<br><br>허용 되는 데이터 값은 다음과 같습니다.<br>- **`$$FILEPATH`** -예약 변수는 데이터 집합에 지정 된 폴더 경로에 소스 파일의 상대 경로를 저장 함을 나타냅니다. 파일 기반 원본에 적용 합니다.<br>- **`$$COLUMN:<source_column_name>`** -예약 된 변수 패턴은 지정한 원본 열을 다른 열로 복제 함을 나타냅니다.<br>- **식**<br>- **정적 값** | 예 |
 
@@ -250,11 +250,11 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 SQL database/Azure Synapse Analytics로 데이터를 복사 하는 경우 대상 테이블이 존재 하지 않는 경우 복사 작업은 원본 데이터를 기반으로 하 여 자동으로 생성을 지원 합니다. 데이터 로드를 빠르게 시작 하 고 SQL database/Azure Synapse Analytics를 평가 하는 데 도움이 됩니다. 데이터 수집 후에는 필요에 따라 싱크 테이블 스키마를 검토 하 고 조정할 수 있습니다.
 
-이 기능은 원본에서 다음 싱크 데이터 저장소로 데이터를 복사할 때 지원 됩니다. *ADF 제작 UI* – > *복사 작업 싱크* – > *테이블 옵션* – > *자동 생성 테이블*또는 `tableOption` 복사 작업 싱크 페이로드의 속성을 통해이 옵션을 찾을 수 있습니다.
+이 기능은 원본에서 다음 싱크 데이터 저장소로 데이터를 복사할 때 지원 됩니다. *ADF 제작 UI* – > *복사 작업 싱크* – > *테이블 옵션* – > *자동 생성 테이블* 또는 `tableOption` 복사 작업 싱크 페이로드의 속성을 통해이 옵션을 찾을 수 있습니다.
 
 - [Azure SQL Database](connector-azure-sql-database.md)
 - [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics(이전의 SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![싱크 테이블 만들기](media/copy-activity-overview/create-sink-table.png)
@@ -262,6 +262,13 @@ SQL database/Azure Synapse Analytics로 데이터를 복사 하는 경우 대상
 ## <a name="fault-tolerance"></a>내결함성
 
 기본적으로 복사 작업은 원본 데이터 행이 싱크 데이터 행과 호환 되지 않는 경우 데이터 복사를 중지 하 고 오류를 반환 합니다. 복사를 성공적으로 수행 하려면 호환 되지 않는 행을 건너뛰고 기록 하 고 호환 되는 데이터만 복사 하도록 복사 작업을 구성할 수 있습니다. 자세한 내용은 [복사 작업 내결함성](copy-activity-fault-tolerance.md) 을 참조 하세요.
+
+## <a name="data-consistency-verification"></a>데이터 일관성 확인
+
+원본 저장소에서 대상 저장소로 데이터를 이동하는 경우 Azure Data Factory 복사 활동은 추가적인 데이터 일관성 확인을 수행하여 데이터가 원본 저장소에서 대상 저장소로 복사될 뿐 아니라 원본 저장소와 대상 저장소 간에 일관된 것으로 확인되는지 확인하는 옵션을 제공합니다. 데이터를 이동 하는 동안 일관 되지 않은 파일이 발견 되 면 복사 작업을 중단 하거나, 내결함성을 사용 하도록 설정 하 여 일관 되지 않은 파일을 건너뛸 수 있습니다. 복사 작업에서 세션 로그 설정을 사용 하 여 건너뛴 파일 이름을 가져올 수 있습니다. 자세한 내용은 [복사 작업에서 데이터 일관성 확인](copy-activity-data-consistency.md) 을 참조 하세요.
+
+## <a name="session-log"></a>세션 로그
+복사 된 파일 이름을 기록할 수 있습니다. 그러면 복사 작업 세션 로그를 검토 하 여 데이터를 원본 저장소에서 대상 저장소로 복사 하 고 원본 및 대상 저장소 간에 일관성을 유지 하는 데 도움이 될 수 있습니다. 자세한 내용은 [복사 활동의 세션 로그를](copy-activity-log.md) 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 퀵 스타트, 자습서 및 샘플을 참조하세요.

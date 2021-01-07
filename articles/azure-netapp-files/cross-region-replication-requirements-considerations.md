@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708785"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243140"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>지역 간 복제 사용을 위한 요구 사항 및 고려 사항 
 
@@ -38,12 +38,14 @@ Azure NetApp Files의 [볼륨의 지역 간 복제 기능 사용](cross-region-r
 * 스냅숏에서 생성 된 원본 볼륨에 대 한 볼륨 복제 구성은 지금은 지원 되지 않습니다.
 * 지역 간 복제를 설정 하 고 나면 복제 프로세스에서 원본 볼륨과 대상 볼륨 간의 참조를 제공 하는 *snapmirror 스냅숏을* 만듭니다. Snapmirror 스냅숏은 모든 증분 전송에 대해 새 스냅숏이 생성 될 때 자동으로 순환 됩니다. 복제 관계와 볼륨이 삭제 될 때까지 snapmirror 스냅숏을 삭제할 수 없습니다. 
 * 복제 관계가 활성 상태 이거나 손상 된 경우 및 복제 관계가 삭제 된 후에 복제 관계의 원본 볼륨에서 수동 스냅숏을 삭제할 수 있습니다. 복제 관계가 끊어질 때까지 대상 볼륨의 수동 스냅숏을 삭제할 수 없습니다.
+* 복제 대상 볼륨을 만들기 전에 만들어진 스냅숏으로 되돌릴 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [복제 피어링 만들기](cross-region-replication-create-peering.md)
+* [볼륨 복제 만들기](cross-region-replication-create-peering.md)
 * [복제 관계의 상태 표시](cross-region-replication-display-health-status.md)
 * [재해 복구 관리](cross-region-replication-manage-disaster-recovery.md)
 * [볼륨 복제 메트릭](azure-netapp-files-metrics.md#replication)
+* [볼륨 복제 또는 볼륨 삭제](cross-region-replication-delete.md)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)
 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4f17fbfad1e7e550b3a1e95c93e4b061d0f1c3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507167"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993428"
 ---
 ### <a name="general-requirements"></a>일반 요구 사항
 
@@ -36,7 +36,7 @@ ms.locfileid: "87507167"
 
 **VNet 지원** - Azure Resource Manager 기반 VNet만
 
-**서브넷 식별자** - Batch API를 사용하여 서브넷을 지정할 경우 서브넷의 *리소스 식별자*를 사용합니다. 서브넷 식별자 형식은 다음과 같습니다.
+**서브넷 식별자** - Batch API를 사용하여 서브넷을 지정할 경우 서브넷의 *리소스 식별자* 를 사용합니다. 서브넷 식별자 형식은 다음과 같습니다.
 
 `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}`
 
@@ -57,7 +57,7 @@ ms.locfileid: "87507167"
 * 모든 포트에서 인터넷으로의 아웃바운드 트래픽. 이는 서브넷 수준 NSG 규칙에 따라 수정될 수 있습니다(아래 참조).
 
 > [!IMPORTANT]
-> Batch에서 구성한 NSG에서 인바운드 또는 아웃바운드 규칙을 수정하거나 추가하는 경우 주의해야 합니다. NSG에서 지정된 서브넷의 컴퓨팅 노드와 통신할 수 없도록 거부하는 경우 Batch 서비스는 컴퓨팅 노드의 상태를 **사용할 수 없음**으로 설정합니다. 또한 Batch에서 만든 리소스에는 리소스 잠금을 적용하지 않아야 합니다. 적용하는 경우 풀 삭제와 같은 사용자가 시작한 작업으로 인해 리소스가 정리되지 않을 수 있습니다.
+> Batch에서 구성한 NSG에서 인바운드 또는 아웃바운드 규칙을 수정하거나 추가하는 경우 주의해야 합니다. NSG에서 지정된 서브넷의 컴퓨팅 노드와 통신할 수 없도록 거부하는 경우 Batch 서비스는 컴퓨팅 노드의 상태를 **사용할 수 없음** 으로 설정합니다. 또한 Batch에서 만든 리소스에는 리소스 잠금을 적용하지 않아야 합니다. 적용하는 경우 풀 삭제와 같은 사용자가 시작한 작업으로 인해 리소스가 정리되지 않을 수 있습니다.
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>네트워크 보안 그룹: 서브넷 수준 규칙 지정
 
@@ -69,7 +69,7 @@ Batch는 자체 NSG를 구성하므로 가상 네트워크 서브넷 수준에�
 
 | 원본 IP 주소 | 원본 서비스 태그 | 원본 포트 | 대상 | 대상 포트 | 프로토콜 | 작업 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 해당 없음 | `BatchNodeManagement` [서비스 태그](../articles/virtual-network/security-overview.md#service-tags)(Batch 계정과 동일한 지역에서 지역별 변형을 사용하는 경우) | * | 모두 | 29876-29877 | TCP | Allow |
+| 해당 없음 | `BatchNodeManagement` [서비스 태그](../articles/virtual-network/network-security-groups-overview.md#service-tags)(Batch 계정과 동일한 지역에서 지역별 변형을 사용하는 경우) | * | 모두 | 29876-29877 | TCP | Allow |
 | 필요한 경우 Linux 다중 인스턴스 작업을 위해 컴퓨팅 노드 및/또는 컴퓨팅 노드 서브넷에 원격으로 액세스하기 위한 사용자 원본 IP입니다. | 해당 없음 | * | 모두 | 3389(Windows), 22(Linux) | TCP | Allow |
 
 > [!WARNING]
@@ -79,13 +79,13 @@ Batch는 자체 NSG를 구성하므로 가상 네트워크 서브넷 수준에�
 
 | 원본 | 원본 포트 | 대상 | 대상 서비스 태그 | 대상 포트 | 프로토콜 | 작업 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 모두 | * | [Service 태그](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(Batch 계정과 동일한 지역에서 지역별 변형을 사용하는 경우) | 443 | TCP | Allow |
+| 모두 | * | [Service 태그](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage`(Batch 계정과 동일한 지역에서 지역별 변형을 사용하는 경우) | 443 | TCP | Allow |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Cloud Services 구성의 풀
 
 **VNet 지원** -클래식 VNet 전용
 
-**서브넷 식별자** - Batch API를 사용하여 서브넷을 지정할 경우 서브넷의 *리소스 식별자*를 사용합니다. 서브넷 식별자 형식은 다음과 같습니다.
+**서브넷 식별자** - Batch API를 사용하여 서브넷을 지정할 경우 서브넷의 *리소스 식별자* 를 사용합니다. 서브넷 식별자 형식은 다음과 같습니다.
 
 `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
@@ -95,7 +95,7 @@ Batch는 자체 NSG를 구성하므로 가상 네트워크 서브넷 수준에�
 
 서브넷에서는 컴퓨팅 노드에서 작업을 예약하기 위해 Batch 서비스로부터의 인바운드 통신을 허용하고 Azure Storage 또는 기타 리소스와의 통신을 위해 아웃바운트 통신을 허용해야 합니다.
 
-Batch는 Batch IP 주소로부터 풀 노드로 가는 인바운드 통신만 구성하므로 NSG를 지정할 필요가 없습니다. 그러나 지정된 서브넷에 연결된 NSG 및/또는 방화벽이 있는 경우 다음 표에서처럼 인바운드 및 아웃바운드 보안 규칙을 구성합니다. NSG에서 지정된 서브넷의 컴퓨팅 노드와 통신할 수 없도록 거부하는 경우 Batch 서비스는 컴퓨팅 노드의 상태를 **사용할 수 없음**으로 설정합니다.
+Batch는 Batch IP 주소로부터 풀 노드로 가는 인바운드 통신만 구성하므로 NSG를 지정할 필요가 없습니다. 그러나 지정된 서브넷에 연결된 NSG 및/또는 방화벽이 있는 경우 다음 표에서처럼 인바운드 및 아웃바운드 보안 규칙을 구성합니다. NSG에서 지정된 서브넷의 컴퓨팅 노드와 통신할 수 없도록 거부하는 경우 Batch 서비스는 컴퓨팅 노드의 상태를 **사용할 수 없음** 으로 설정합니다.
 
 풀 노드에 대한 RDP 액세스를 허용해야 하는 경우 Windows용 3389 포트에서 인바운드 트래픽을 구성합니다. 풀 노드를 사용할 수 있는 경우에는 필요하지 않습니다.
 

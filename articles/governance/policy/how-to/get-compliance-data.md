@@ -3,12 +3,12 @@ title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 36645d5eb50aaf571c608fc51127b47ac885777d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 112badce00ec56df0f80c7b51bb4789a414cdcbd
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320417"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920239"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -22,7 +22,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 준수를 보고하는 메서드를 살펴보기 전에 호환성 정보가 업데이트되는 시기 및 평가 주기를 트리거하는 빈도 및 이벤트를 살펴보겠습니다.
 
 > [!WARNING]
-> 준수 상태가 **등록 되지 않음**으로 보고 되는 경우, **Microsoft Policyinsights** 리소스 공급자가 등록 되어 있고, [Azure Policy의 azure rbac 권한](../overview.md#azure-rbac-permissions-in-azure-policy)에 설명 된 대로 사용자에 게 적절 한 azure rbac (역할 기반 액세스 제어) 권한이 있는지 확인 합니다.
+> 준수 상태가 **등록 되지 않음** 으로 보고 되는 경우, **Microsoft Policyinsights** 리소스 공급자가 등록 되어 있고, [Azure Policy의 azure rbac 권한](../overview.md#azure-rbac-permissions-in-azure-policy)에 설명 된 대로 사용자에 게 적절 한 azure rbac (역할 기반 액세스 제어) 권한이 있는지 확인 합니다.
 
 ## <a name="evaluation-triggers"></a>평가 트리거
 
@@ -53,7 +53,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 [Azure Policy 준수 검사 작업](https://github.com/marketplace/actions/azure-policy-compliance-scan) 을 사용 하 여 하나 또는 여러 리소스, 리소스 그룹 또는 구독에 대 한 [GitHub 워크플로에서](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) 주문형 평가 검사를 트리거하고 리소스의 준수 상태에 따라 워크플로를 게이트 합니다. 또한 예약 된 시간에 실행 되도록 워크플로를 구성 하 여 편리한 시간에 최신 준수 상태를 가져올 수 있습니다. 필요에 따라이 GitHub 동작은 추가 분석 또는 보관을 위해 스캔 된 리소스의 준수 상태에 대 한 보고서를 생성할 수 있습니다.
 
-다음 예에서는 구독에 대 한 준수 검사를 실행 합니다. 
+다음 예제에서는 구독의 규정 준수 검사를 실행합니다. 
 
 ```yaml
 on:
@@ -80,7 +80,7 @@ jobs:
 
 #### <a name="on-demand-evaluation-scan---azure-cli"></a>주문형 평가 검사-Azure CLI
 
-호환성 검사가 [az policy state trigger-scan](/cli/azure/policy/state#az-policy-state-trigger-scan) 명령으로 시작 됩니다.
+호환성 검사가 [az policy state trigger-scan](/cli/azure/policy/state#az_policy_state_trigger_scan) 명령으로 시작 됩니다.
 
 기본적으로 `az policy state trigger-scan`은 현재 구독의 모든 리소스에 대한 평가를 시작합니다. 특정 리소스 그룹에 대 한 평가를 시작 하려면 **리소스 그룹** 매개 변수를 사용 합니다. 다음 예에서는 _MyRG_ 리소스 그룹에 대해 현재 구독에서 규정 준수 검사를 시작합니다.
 
@@ -118,7 +118,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
 ```
 
-규정 준수 검사가 완료되면 **상태** 속성이 _완료_로 변경됩니다.
+규정 준수 검사가 완료되면 **상태** 속성이 _완료_ 로 변경됩니다.
 
 #### <a name="on-demand-evaluation-scan---rest"></a>주문형 평가 검사 - REST
 
@@ -149,7 +149,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2019-10-01
 ```
 
-`{ResourceContainerGUID}`는 요청한 범위에 대해 정적으로 생성됩니다. 범위가 이미 주문형 검사를 실행하고 있는 경우 새 검사는 시작되지 않습니다. 대신, 새 요청은 상태에 대해 동일한 `{ResourceContainerGUID}`위**치** URI가 제공됩니다. 평가가 진행되는 동안 **위치** URI에 대한 REST API **GET** 명령은 **202 수락됨**을 반환합니다. 평가 검사가 완료되면 **200 확인** 상태를 반환합니다. 완성된 검사의 본문은 다음 상태가 포함된 JSON 응답입니다.
+`{ResourceContainerGUID}`는 요청한 범위에 대해 정적으로 생성됩니다. 범위가 이미 주문형 검사를 실행하고 있는 경우 새 검사는 시작되지 않습니다. 대신, 새 요청은 상태에 대해 동일한 `{ResourceContainerGUID}`위 **치** URI가 제공됩니다. 평가가 진행되는 동안 **위치** URI에 대한 REST API **GET** 명령은 **202 수락됨** 을 반환합니다. 평가 검사가 완료되면 **200 확인** 상태를 반환합니다. 완성된 검사의 본문은 다음 상태가 포함된 JSON 응답입니다.
 
 ```json
 {
@@ -164,7 +164,7 @@ Visual Studio code에 대 한 Azure Policy 확장은 특정 리소스에 대 한
 
 ## <a name="how-compliance-works"></a>준수 작동 방식
 
-할당에서 정책이 나 이니셔티브 규칙을 따르지 않는 리소스는 **비준수** 이며 _예외_는 아닙니다. 다음 표는 다양한 정책 효과가 결과 규정 준수 상태에 대한 조건 평가와 어떻게 작동하는지 보여줍니다.
+할당에서 정책이 나 이니셔티브 규칙을 따르지 않는 리소스는 **비준수** 이며 _예외_ 는 아닙니다. 다음 표는 다양한 정책 효과가 결과 규정 준수 상태에 대한 조건 평가와 어떻게 작동하는지 보여줍니다.
 
 | 리소스 상태 | 영향 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
@@ -182,25 +182,25 @@ Visual Studio code에 대 한 Azure Policy 확장은 특정 리소스에 대 한
    Contoso R G 리소스 그룹의 5 개 저장소 계정에 대 한 이미지를 보여 주는 다이어그램  저장소 계정 1과 3은 파란색이 고 저장소 계정은 2, 4, 5는 빨강입니다.
 :::image-end:::
 
-이 예에서는 보안 위험에 주의해야 합니다. 이제 정책 할당을 만들었으므로 ContosoRG 리소스 그룹에 포함 된 모든 제외 저장소 계정에 대해 평가 됩니다. 이 정책 할당은 비준수 스토리지 계정 3개를 감사하여 해당 상태를 **비준수**로 변경합니다.
+이 예에서는 보안 위험에 주의해야 합니다. 이제 정책 할당을 만들었으므로 ContosoRG 리소스 그룹에 포함 된 모든 제외 저장소 계정에 대해 평가 됩니다. 이 정책 할당은 비준수 스토리지 계정 3개를 감사하여 해당 상태를 **비준수** 로 변경합니다.
 
-:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Contoso R G 리소스 그룹의 저장소 계정 준수 다이어그램" border="false":::
    Contoso R G 리소스 그룹의 5 개 저장소 계정에 대 한 이미지를 보여 주는 다이어그램 이제 저장소 계정 1과 3에는 아래 녹색의 체크 표시가 있으며, 저장소 계정 2, 4, 5에는 이제 아래에 빨간 경고 기호가 있습니다.
 :::image-end:::
 
-**규격** 및 **비호환**정책 외에도 정책 및 리소스에는 다음과 같은 네 가지 상태가 있습니다.
+**규격** 및 **비호환** 정책 외에도 정책 및 리소스에는 다음과 같은 네 가지 상태가 있습니다.
 
 - **제외**: 리소스가 할당 범위 내에 있지만 [정의 된 예외가](../concepts/exemption-structure.md)있습니다.
 - **충돌**: 규칙이 충돌 하는 둘 이상의 정책 정의가 있습니다. 예를 들어 두 정의는 서로 다른 값을 사용 하 여 동일한 태그를 추가 합니다.
 - **시작되지 않음**: 정책이나 리소스에 대한 평가 주기가 시작되지 않았습니다.
 - **등록되지 않음**: Azure Policy Resource Provider가 등록되지 않았거나 로그인한 계정에 규정 준수 데이터를 읽을 권한이 없습니다.
 
-Azure Policy는 정의의 **유형**, **이름**또는 **kind** 필드를 사용 하 여 리소스가 일치 하는지 여부를 확인 합니다. 리소스가 일치 하면 해당 리소스는 적용 가능한 것으로 간주 되며 **규격**, 비규격 또는 **예외** **상태를 가집니다**. 정의에서 **형식**, **이름**또는 **종류** 중 하나가 유일한 속성인 경우 포함 된 모든 리소스와 제외 리소스는 적용 가능한 것으로 간주 되어 평가 됩니다.
+Azure Policy는 정의의 **유형**, **이름** 또는 **kind** 필드를 사용 하 여 리소스가 일치 하는지 여부를 확인 합니다. 리소스가 일치 하면 해당 리소스는 적용 가능한 것으로 간주 되며 **규격**, 비규격 또는 **예외** **상태를 가집니다**. 정의에서 **형식**, **이름** 또는 **종류** 중 하나가 유일한 속성인 경우 포함 된 모든 리소스와 제외 리소스는 적용 가능한 것으로 간주 되어 평가 됩니다.
 
-규정 준수 비율은 _전체 리소스_별로 **규격** 및 **제외** 리소스를 분할 하 여 결정 됩니다. _총 리소스_ 는 **규격**, **비규격**, **제외**및 **충돌** 하는 리소스의 합계로 정의 됩니다. 전반적인 **규정 준수 번호** 는 모든 고유 리소스의 **합계로 나눈 고유** 리소스의 합계입니다. 아래 그림의 경우 정책을 적용할 수 있는 고유 리소스 20개 중 **비준수** 리소스는 1개뿐입니다.
+규정 준수 비율은 _전체 리소스_ 별로 **규격** 및 **제외** 리소스를 분할 하 여 결정 됩니다. _총 리소스_ 는 **규격**, **비규격**, **제외** 및 **충돌** 하는 리소스의 합계로 정의 됩니다. 전반적인 **규정 준수 번호** 는 모든 고유 리소스의 **합계로 나눈 고유** 리소스의 합계입니다. 아래 그림의 경우 정책을 적용할 수 있는 고유 리소스 20개 중 **비준수** 리소스는 1개뿐입니다.
 전체 리소스 규정 준수 비율은 95%(20개 중 19)입니다.
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="규정 준수 페이지의 정책 준수 세부 정보 스크린샷" border="false":::
 
 > [!NOTE]
 > Azure Policy의 규정 준수는 미리 보기 기능입니다. SDK 및 포털의 페이지에서 준수 속성은 사용 하도록 설정 된 이니셔티브와 다릅니다. 자세한 내용은 [규정 준수](../concepts/regulatory-compliance.md) 를 참조 하세요.
@@ -209,31 +209,31 @@ Azure Policy는 정의의 **유형**, **이름**또는 **kind** 필드를 사용
 
 Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는 그래픽 환경을 보여줍니다. **정책** 페이지에서 **개요** 옵션은 정책 및 이니셔티브 모두에 사용할 수 있는 준수 범위에 대한 세부 정보를 제공합니다. 준수 상태 및 할당별 개수뿐만 아니라 지난 7일 동안의 준수를 표시하는 차트가 포함됩니다. **준수** 페이지에는 차트를 제외하고 이 동일한 정보 대부분이 포함되지만 추가 필터링 및 정렬 옵션을 제공합니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="준수 페이지의 스크린샷, 필터링 옵션 및 세부 정보입니다." border="false":::
 
 정책 또는 이니셔티브가 서로 다른 범위에 할당될 수 있으므로 테이블에는 각 할당의 범위 및 할당된 정의의 형식이 포함됩니다. 각 할당의 비준수 리소스 및 비준수 정책 수도 제공됩니다. 테이블의 정책 또는 이니셔티브를 선택 하면 해당 특정 할당에 대 한 준수를 자세히 확인할 있습니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="개수 및 리소스 규격 세부 정보를 포함 하는 준수 정보 페이지의 스크린샷" border="false":::
 
-**리소스 준수** 탭의 리소스 목록에는 현재 할당에 대한 기존 리소스의 평가 상태가 표시됩니다. 탭에는 기본적으로 **비준수**로 표시되지만 필터링할 수 있습니다.
+**리소스 준수** 탭의 리소스 목록에는 현재 할당에 대한 기존 리소스의 평가 상태가 표시됩니다. 탭에는 기본적으로 **비준수** 로 표시되지만 필터링할 수 있습니다.
 리소스 만들기 요청에 의해 트리거되는 이벤트 (추가, 감사, 거부, 배포, 수정)는 **이벤트** 탭에 표시 됩니다.
 
 > [!NOTE]
 > AKS Engine 정책의 경우 표시된 리소스는 리소스 그룹입니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="호환성 정보 페이지에 있는 이벤트 탭의 스크린샷" border="false":::
 
 <a name="component-compliance"></a> 리소스 [공급자 모드](../concepts/definition-structure.md#resource-provider-modes) 리소스의 경우 **리소스 호환성** 탭에서 리소스를 선택 하거나 행을 마우스 오른쪽 단추로 클릭 하 고 **준수 세부 정보 보기** 를 선택 하면 구성 요소 준수 정보가 열립니다. 이 페이지에는 이 리소스, 이벤트, 구성 요소 이벤트 및 변경 기록에 할당된 정책을 보기 위한 탭도 있습니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="리소스 공급자 모드 할당에 대 한 구성 요소 호환성 탭의 스크린샷 및 호환성 세부 정보입니다." border="false":::
 
-자세한 세부 정보를 수집하려는 이벤트의 행을 마우스 오른쪽 단추로 클릭하고 **활동 로그 표시**를 선택합니다. 활동 로그 페이지가 열리고 할당 및 이벤트에 대한 세부 정보를 보여주는 검색에 대해 미리 필터링됩니다. 활동 로그는 해당 이벤트에 대한 추가 컨텍스트 및 정보를 제공합니다.
+자세한 세부 정보를 수집하려는 이벤트의 행을 마우스 오른쪽 단추로 클릭하고 **활동 로그 표시** 를 선택합니다. 활동 로그 페이지가 열리고 할당 및 이벤트에 대한 세부 정보를 보여주는 검색에 대해 미리 필터링됩니다. 활동 로그는 해당 이벤트에 대한 추가 컨텍스트 및 정보를 제공합니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Azure Policy 작업 및 평가에 대 한 활동 로그의 스크린샷" border="false":::
 
 ### <a name="understand-non-compliance"></a>규정 비준수 이해
 
-리소스가 **규정 비준수**로 확인되는 데는 여러 가지 원인이 있을 수 있습니다. 리소스가 **규정 비준수**로 확인되거나 변경의 원인을 확인하려면 [비준수 확인](./determine-non-compliance.md)을 참조하세요.
+리소스가 **규정 비준수** 로 확인되는 데는 여러 가지 원인이 있을 수 있습니다. 리소스가 **규정 비준수** 로 확인되거나 변경의 원인을 확인하려면 [비준수 확인](./determine-non-compliance.md)을 참조하세요.
 
 ## <a name="command-line"></a>명령 줄
 
@@ -249,7 +249,7 @@ REST API를 사용하여 컨테이너, 정의 또는 할당별로 요약을 수�
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
 ```
 
-출력은 구독을 요약합니다. 다음 출력에서 요약된 준수는 **value.results.nonCompliantResources** 및 **value.results.nonCompliantPolicies** 아래에 있습니다. 이 요청은 각 할당에 호환되지 않는 숫자 및 정의 정보를 구성하는 각 할당을 포함한 추가 세부 정보를 제공합니다. 계층 구조의 각 정책 개체는 해당 수준에서 추가 세부 정보를 가져오는 데 사용할 수 있는 **queryResultsUri**를 제공합니다.
+출력은 구독을 요약합니다. 다음 출력에서 요약된 준수는 **value.results.nonCompliantResources** 및 **value.results.nonCompliantPolicies** 아래에 있습니다. 이 요청은 각 할당에 호환되지 않는 숫자 및 정의 정보를 구성하는 각 할당을 포함한 추가 세부 정보를 제공합니다. 계층 구조의 각 정책 개체는 해당 수준에서 추가 세부 정보를 가져오는 데 사용할 수 있는 **queryResultsUri** 를 제공합니다.
 
 ```json
 {
@@ -287,7 +287,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Micro
 
 ### <a name="query-for-resources"></a>리소스 쿼리
 
-위의 예제에서 **value.policyAssignments.policyDefinitions.results.queryResultsUri**는 특정 정책 정의의 호환되지 않는 모든 리소스에 대해 샘플 URI를 제공합니다. **$Filter** 값을 살펴보면 ComplianceState가 ' 비준수 '로, PolicyAssignmentId가 정책 정의에 지정 된 다음 PolicyDefinitionId 자체에 대해 지정 됩니다. PolicyDefinitionId가 여러 다른 범위의 여러 정책 또는 이니셔티브 할당에 존재할 수 있기 때문에 필터에 PolicyAssignmentId를 포함합니다. PolicyAssignmentId 및 PolicyDefinitionId 모두를 지정하여 찾는 결과를 명시적으로 볼 수 있습니다. 이전에는 PolicyStates로 **latest**를 사용했습니다. 이 항목은 지난 24시간의 **from** 및 **to** 시간대를 자동으로 설정합니다.
+위의 예제에서 **value.policyAssignments.policyDefinitions.results.queryResultsUri** 는 특정 정책 정의의 호환되지 않는 모든 리소스에 대해 샘플 URI를 제공합니다. **$Filter** 값을 살펴보면 ComplianceState가 ' 비준수 '로, PolicyAssignmentId가 정책 정의에 지정 된 다음 PolicyDefinitionId 자체에 대해 지정 됩니다. PolicyDefinitionId가 여러 다른 범위의 여러 정책 또는 이니셔티브 할당에 존재할 수 있기 때문에 필터에 PolicyAssignmentId를 포함합니다. PolicyAssignmentId 및 PolicyDefinitionId 모두를 지정하여 찾는 결과를 명시적으로 볼 수 있습니다. 이전에는 PolicyStates로 **latest** 를 사용했습니다. 이 항목은 지난 24시간의 **from** 및 **to** 시간대를 자동으로 설정합니다.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant' and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
@@ -333,7 +333,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ### <a name="view-events"></a>이벤트 보기
 
-리소스가 생성되거나 업데이트되면 정책 평가 결과가 생성됩니다. 생성된 결과를 _정책 이벤트_라고 합니다. 다음 URI를 사용하여 구독과 관련된 최신 정책 이벤트를 볼 수 있습니다.
+리소스가 생성되거나 업데이트되면 정책 평가 결과가 생성됩니다. 생성된 결과를 _정책 이벤트_ 라고 합니다. 다음 URI를 사용하여 구독과 관련된 최신 정책 이벤트를 볼 수 있습니다.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2019-10-01
@@ -685,7 +685,7 @@ Trent Baker
 
 구독에 연결 된 활동 로그 분석 솔루션에서 [Log Analytics 작업 영역](../../../azure-monitor/log-query/log-query-overview.md) 을 사용 하는 경우 `AzureActivity` 단순 kusto 쿼리 및 테이블을 사용 하 여 새 리소스와 업데이트 된 리소스를 평가 하 여 비호환 결과를 볼 수도 있습니다 [Activity Log Analytics solution](../../../azure-monitor/platform/activity-log.md) `AzureActivity` . Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="AzureActivity 테이블의 Azure Policy 작업을 보여 주는 Azure Monitor 로그의 스크린샷" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

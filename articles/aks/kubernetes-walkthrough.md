@@ -12,13 +12,13 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-- contperfq1
-ms.openlocfilehash: cf2f8a7bd7abbb8ad2e604205f35f35f49e1f01c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+- contperf-fy21q1
+ms.openlocfilehash: e69db59789dbaf45c0830ba6e6ac3afbe87f9a19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070863"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029450"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Kubernetes Service 클러스터 배포
 
@@ -30,11 +30,11 @@ Windows Server 노드 풀을 만드는 방법에 대한 자세한 내용은 [Win
 
 이 빠른 시작에서는 Kubernetes 기본 개념을 이해하고 있다고 가정합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.64 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 > [!NOTE]
 > 이 빠른 시작의 명령을 로컬로(Azure Cloud Shell 대신) 실행하는 경우 관리자 권한으로 명령을 실행해야 합니다.
@@ -43,7 +43,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,17 +66,17 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다. 이 작업을 완료하는 데는 몇 분 정도 걸립니다.
+[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 이 작업을 완료하는 데는 몇 분 정도 걸립니다.
 
 > [!NOTE]
-> [컨테이너에 대한 Azure Monitor][azure-monitor-containers]는 *--enable-addons monitoring* 매개 변수를 사용하여 설정되며, 구독에서 *Microsoft.OperationsManagement* 및 *Microsoft.OperationalInsights*를 등록해야 합니다. 등록 상태를 확인하는 방법은 다음과 같습니다.
+> [컨테이너에 대한 Azure Monitor][azure-monitor-containers]는 *--enable-addons monitoring* 매개 변수를 사용하여 설정되며, 구독에서 *Microsoft.OperationsManagement* 및 *Microsoft.OperationalInsights* 를 등록해야 합니다. 등록 상태를 확인하는 방법은 다음과 같습니다.
 > 
 > ```azurecli
 > az provider show -n Microsoft.OperationsManagement -o table
 > az provider show -n Microsoft.OperationalInsights -o table
 > ```
 > 
-> 아직 등록되지 않은 경우 다음 명령을 사용하여 *Microsoft.OperationsManagement* 및 *Microsoft.OperationalInsights*를 등록합니다.
+> 아직 등록되지 않은 경우 다음 명령을 사용하여 *Microsoft.OperationsManagement* 및 *Microsoft.OperationalInsights* 를 등록합니다.
 > 
 > ```azurecli
 > az provider register --namespace Microsoft.OperationsManagement
@@ -107,7 +107,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 > [!NOTE]
-> 위의 명령은 [Kubernetes 구성 파일][kubeconfig-file]의 기본 위치인 `~/.kube/config`를 사용합니다. *--file*을 사용하여 Kubernetes 구성 파일의 다른 위치를 지정할 수 있습니다.
+> 위의 명령은 [Kubernetes 구성 파일][kubeconfig-file]의 기본 위치인 `~/.kube/config`를 사용합니다. *--file* 을 사용하여 Kubernetes 구성 파일의 다른 위치를 지정할 수 있습니다.
 
 클러스터에 대한 연결을 확인하려면 [kubectl get][kubectl-get] 명령을 사용하여 클러스터 노드 목록을 반환합니다.
 
@@ -115,7 +115,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-다음 예제 출력은 이전 단계에서 만든 단일 노드를 보여줍니다. 노드 상태가 *준비*인지 확인합니다.
+다음 예제 출력은 이전 단계에서 만든 단일 노드를 보여줍니다. 노드 상태가 *준비* 인지 확인합니다.
 
 ```output
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -241,14 +241,14 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
+처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP* 가 *보류 중* 으로 표시됩니다.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-*EXTERNAL-IP* 주소가 *보류 중*에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
+*EXTERNAL-IP* 주소가 *보류 중* 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m

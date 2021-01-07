@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f2ad0cb67a41c0a5c59f6428a4912bd91a00e56
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1424669af9fe28257e66c8c5438f6e1d171954e0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318814"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672902"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>자습서: Azure Active Directory와 Amazon Business 통합
 
@@ -48,14 +48,14 @@ Amazon Business가 Azure AD에 통합되도록 구성하려면 갤러리에서 A
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에서 **Amazon Business**를 입력합니다.
-1. 결과 패널에서 **Amazon Business**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에서 **Amazon Business** 를 입력합니다.
+1. 결과 패널에서 **Amazon Business** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 Amazon Business에서 Azure AD SSO를 구성하고 테스트합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 Amazon Business에서 Azure AD SSO를 구성하고 테스트합니다.
 
 Amazon Business에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 단계를 완료합니다.
 
@@ -70,16 +70,16 @@ Amazon Business에서 Azure AD SSO를 구성하고 테스트하려면 다음 구
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Amazon Business** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Amazon Business** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
-   ![기본 SAML 구성 편집](common/edit-urls.png)
+    ![기본 SAML 구성 편집](common/edit-urls.png)
 
 1. **IDP** 시작 모드에서 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     1. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
-    
+
        | URL | 지역 |
        |-|-|
        | `https://www.amazon.com`| 북아메리카 |
@@ -87,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
        | `https://www.amazon.de`| 유럽 |
 
     1. **회신 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
-    
+
        | URL | 지역 |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| 북아메리카 |
@@ -97,7 +97,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
        > [!NOTE]
        > [회신 URL] 값은 실제 값이 아닙니다. 실제 회신 URL로 이 값을 업데이트하세요. `<idpid>` 값은 자습서의 뒷부분에서 설명하는 Amazon Business SSO 구성 섹션에서 가져올 수 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 Amazon Business 구성에서 제공된 전체 URL을 **추가 URL 설정** 섹션의 **로그온 URL**에 추가해야 합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 Amazon Business 구성에서 제공된 전체 URL을 **추가 URL 설정** 섹션의 **로그온 URL** 에 추가해야 합니다.
 
 1. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **사용자 특성 및 클레임** 섹션에서 **편집** 아이콘을 클릭하여 특성을 편집합니다.
 
@@ -109,21 +109,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Amazon Business 애플리케이션에는 SAML 응답에서 다시 전달되는 몇 가지 특성이 추가로 필요합니다. **그룹 클레임** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 다음 단계를 수행합니다.
 
-    a. **클레임에서 반환되는 그룹** 옆에 있는 **펜**을 클릭합니다.
+    1. **클레임에서 반환되는 그룹** 옆에 있는 **펜** 을 클릭합니다.
 
-    ![선택한 클레임에서 반환된 그룹의 아이콘이 있는 [사용자 특성 및 클레임]을 보여주는 스크린샷](./media/amazon-business-tutorial/config04.png)
+        ![선택한 클레임에서 반환된 그룹의 아이콘이 있는 [사용자 특성 및 클레임]을 보여주는 스크린샷](./media/amazon-business-tutorial/config04.png)
 
-    ![이 절차에 설명된 값이 있는 [그룹 클레임]을 보여주는 스크린샷](./media/amazon-business-tutorial/config05.png)
+        ![이 절차에 설명된 값이 있는 [그룹 클레임]을 보여주는 스크린샷](./media/amazon-business-tutorial/config05.png)
 
-    b. 라디오 단추 목록에서 **모든 그룹**을 선택합니다.
+    1. 라디오 단추 목록에서 **모든 그룹** 을 선택합니다.
 
-    다. **원본 특성**으로 **그룹 ID**를 선택합니다.
+    1. **원본 특성** 으로 **그룹 ID** 를 선택합니다.
 
-    d. **그룹 클레임 이름 사용자 지정** 확인란을 선택하고, 조직 요구 사항에 따라 그룹 이름을 입력합니다.
+    1. **그룹 클레임 이름 사용자 지정** 확인란을 선택하고, 조직 요구 사항에 따라 그룹 이름을 입력합니다.
 
-    e. **저장**을 클릭합니다.
+    1. **저장** 을 클릭합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하여 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드하여 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -146,7 +146,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Set up SSO**(SSO 설정) 마법사에서 조직의 요구 사항에 따라 공급자를 선택하고 **Next**(다음)를 클릭합니다.
 
     ![Microsoft Azure AD 및 [다음]을 선택한 [SSO 설정]을 보여주는 스크린샷](media/amazon-business-tutorial/default-group1.png)
-    
+
     > [!NOTE]
     > Microsoft ADFS는 목록에 있는 옵션이지만 Azure AD SSO에서는 작동하지 않습니다.
 
@@ -182,7 +182,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![[테스트] 단추가 있는 [SSO 연결 테스트]를 보여주는 스크린샷](media/amazon-business-tutorial/sso-connection2.png)
 
-1. **IDP initiated URL**(IDP 시작 URL) 마법사에서 **Activate**(활성화)를 클릭하기 전에 **idpid**에 할당된 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL**의 **idpid** 매개 변수에 붙여넣습니다.
+1. **IDP initiated URL**(IDP 시작 URL) 마법사에서 **Activate**(활성화)를 클릭하기 전에 **idpid** 에 할당된 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 의 **idpid** 매개 변수에 붙여넣습니다.
 
     ![테스트에 필요한 URL을 가져온 후 [활성화]를 선택할 수 있는 IDP 시작 URL을 보여주는 스크린샷](media/amazon-business-tutorial/sso-connection3.png)
 
@@ -193,12 +193,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 마지막으로 **SSO Connection details**(SSO 연결 세부 정보) 섹션에서 **Status**(상태)가 **Active**(활성)로 표시됩니다.
 
     ![상태가 [활성]인 [SSO 연결 세부 정보]를 보여주는 스크린샷](media/amazon-business-tutorial/sso-connection5.png)
-    
+
     > [!NOTE]
     > **SP** 시작 모드에서 애플리케이션을 구성하려면 다음 단계를 완료하고 Azure Portal에서 **추가 URL 설정** 섹션의 **로그온 URL** 텍스트 상자에 있는 상단의 스크린샷에서 로그온 URL을 붙여넣습니다. 이때 다음 형식을 사용합니다.
     >
     > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
-    
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -206,25 +206,25 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 > [!NOTE]
 > 관리자는 필요에 따라 테넌트에서 테스트 사용자를 만들어야 합니다. 다음 단계에서는 테스트 사용자를 만드는 방법을 보여 줍니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Azure Portal에서 Azure AD 보안 그룹 만들기
 
-1. **Azure Active Directory > 모든 그룹**을 클릭합니다.
+1. **Azure Active Directory > 모든 그룹** 을 클릭합니다.
 
     ![[그룹] 창에서 Azure Active Directory 및 [모든 그룹]을 선택한 Azure Portal 메뉴를 보여주는 스크린샷](./media/amazon-business-tutorial/all-groups-tab.png)
 
-1. **새 그룹**을 클릭합니다.
+1. **새 그룹** 을 클릭합니다.
 
     ![[새 그룹] 단추를 보여주는 스크린샷](./media/amazon-business-tutorial/new-group-tab.png)
 
-1. **그룹 유형**, **그룹 이름**, **그룹 설명**, **멤버 자격 유형**을 입력합니다. 화살표를 클릭하여 멤버를 선택하고 그룹에 추가하려는 멤버를 검색하거나 클릭합니다. **선택**을 클릭하여 선택한 멤버를 추가하고 **만들기**를 클릭합니다.
+1. **그룹 유형**, **그룹 이름**, **그룹 설명**, **멤버 자격 유형** 을 입력합니다. 화살표를 클릭하여 멤버를 선택하고 그룹에 추가하려는 멤버를 검색하거나 클릭합니다. **선택** 을 클릭하여 선택한 멤버를 추가하고 **만들기** 를 클릭합니다.
 
     ![멤버 선택 및 외부 사용자 초대를 비롯한 옵션이 포함된 [그룹] 창을 보여주는 스크린샷](./media/amazon-business-tutorial/group-information.png)
 
@@ -232,17 +232,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Amazon Business에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **Amazon Business**를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **Amazon Business** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
+    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![[사용자 추가] 단추를 보여주는 스크린샷](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
@@ -253,23 +253,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>Azure Portal에서 Azure AD 보안 그룹 할당
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Amazon Business**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Amazon Business** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Amazon Business**를 입력하고 선택합니다.
+2. 애플리케이션 목록에서 **Amazon Business** 를 입력하고 선택합니다.
 
     ![애플리케이션 목록의 Amazon Business 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가**를 클릭합니다.
+4. **사용자 추가** 를 클릭합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. 사용하려는 보안 그룹을 검색하고 그룹을 클릭하여 멤버 선택 섹션에 추가합니다. **선택**을 클릭한 다음, **할당**을 클릭합니다.
+5. 사용하려는 보안 그룹을 검색하고 그룹을 클릭하여 멤버 선택 섹션에 추가합니다. **선택** 을 클릭한 다음, **할당** 을 클릭합니다.
 
     ![보안 그룹 검색](./media/amazon-business-tutorial/assign-group.png)
 
@@ -288,8 +288,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

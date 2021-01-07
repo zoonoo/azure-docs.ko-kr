@@ -4,11 +4,11 @@ description: 처리량 단위를 자동으로 확장하려면 네임스페이스
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1be564472011622b71b3066495748dfdbe6cc791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537244"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020809"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs 처리량 단위 자동 확장
 Azure Event Hubs는 확장성이 뛰어난 데이터 스트리밍 플랫폼입니다. 따라서 서비스를 사용하기 시작한 후에 Event Hubs 사용량이 증가합니다. 그러려면 Event Hubs의 크기를 조정하고 더 빠른 전송 속도를 처리할 수 있도록 미리 지정된 [처리량 단위](event-hubs-scalability.md#throughput-units)를 늘려야 합니다. Event Hubs의 **자동 확장** 기능은 필요한 사용량에 맞게 처리량 단위 수를 증가하여 자동으로 확장합니다. 처리량 단위를 늘리면 다음과 같은 상황에서 제한 시나리오를 예방할 수 있습니다.
@@ -40,7 +40,7 @@ Event Hubs 트래픽은 [처리량 단위](event-hubs-scalability.md#throughput-
 
 
 #### <a name="enable-at-the-time-of-creation"></a>생성 시 사용 
-**Event Hubs 네임 스페이스를 만들 때**자동 확장 기능을 사용 하도록 설정할 수 있습니다.
+**Event Hubs 네임 스페이스를 만들 때** 자동 확장 기능을 사용 하도록 설정할 수 있습니다.
  
 ![이벤트 허브 생성 시 자동 확장 사용](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
@@ -49,7 +49,7 @@ Event Hubs 트래픽은 [처리량 단위](event-hubs-scalability.md#throughput-
 #### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>기존 이벤트 허브에 대해 자동 확장 사용
 또한 자동 확장 기능을 사용하도록 설정하고 다음 지침에 따라 해당 설정을 수정할 수 있습니다. 
  
-1. **Event Hubs 네임스페이스** 페이지의 **처리량 단위 자동 확장**에서 **사용 안 함**을 선택합니다.  
+1. **Event Hubs 네임스페이스** 페이지의 **처리량 단위 자동 확장** 에서 **사용 안 함** 을 선택합니다.  
 
     ![Event Hubs 네임스페이스 페이지에서 처리량 단위 선택](./media/event-hubs-auto-inflate/select-throughput-units.png)
 2. **크기 조정 설정** 페이지에서 **사용** 확인란을 선택합니다(자동 크기 조정 기능을 사용하도록 설정하지 않은 경우).
@@ -60,11 +60,11 @@ Event Hubs 트래픽은 [처리량 단위](event-hubs-scalability.md#throughput-
 
 
 > [!NOTE]
-> 처리량 단위를 늘리는 자동 팽창 구성을 사용하면 Event Hubs 서비스는 처리량이 증가한 이유 및 시기에 대한 정보를 제공하는 진단 로그를 내보냅니다. 이벤트 허브에 진단 로깅을 사용하려면 Azure Portal에서 이벤트 허브 페이지 왼쪽 메뉴에서 **진단 설정**을 선택합니다. 자세한 내용은 [Azure 이벤트 허브에 대한 진단 로그 설정](event-hubs-diagnostic-logs.md)을 참조하세요. 
+> 처리량 단위를 늘리는 자동 팽창 구성을 사용하면 Event Hubs 서비스는 처리량이 증가한 이유 및 시기에 대한 정보를 제공하는 진단 로그를 내보냅니다. 이벤트 허브에 진단 로깅을 사용하려면 Azure Portal에서 이벤트 허브 페이지 왼쪽 메뉴에서 **진단 설정** 을 선택합니다. 자세한 내용은 [Azure 이벤트 허브에 대한 진단 로그 설정](event-hubs-diagnostic-logs.md)을 참조하세요. 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 자동 확장 사용
 
-Azure Resource Manager 템플릿을 배포하는 동안 자동 확장을 사용하도록 설정할 수 있습니다. 예를 들어 `isAutoInflateEnabled` 속성을 **true**로 설정하고 `maximumThroughputUnits`를 10으로 설정합니다. 예를 들면 다음과 같습니다.
+Azure Resource Manager 템플릿을 배포하는 동안 자동 확장을 사용하도록 설정할 수 있습니다. 예를 들어 `isAutoInflateEnabled` 속성을 **true** 로 설정하고 `maximumThroughputUnits`를 10으로 설정합니다. 예들 들어 다음과 같습니다.
 
 ```json
 "resources": [

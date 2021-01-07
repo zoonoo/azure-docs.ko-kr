@@ -1,5 +1,6 @@
 ---
 title: Azure Machine Learning 파이프라인 이란?
+titleSuffix: Azure Machine Learning
 description: 기계 학습 (ML) 파이프라인이 기계 학습 워크플로를 빌드, 최적화 및 관리 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2ebe3976813c00e92f041faf267ef0d8ae98a909
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c29ee87ab177357f4289134bb39353c764a0d75b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323032"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535302"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
@@ -141,7 +142,7 @@ pipeline_run.wait_for_completion()
 
 기계 학습 워크플로에 파이프라인을 사용 하는 경우의 주요 이점은 다음과 같습니다.
 
-|주요 장점|설명|
+|주요 장점|Description|
 |:-------:|-----------|
 |**무인&nbsp;실행**|안정적이 고 무인 방식으로 병렬로 실행 하거나 순서 대로 실행 하는 단계를 예약 합니다. 데이터 준비 및 모델링은 마지막 일 또는 몇 주, 그리고 파이프라인을 사용 하 여 프로세스가 실행 되는 동안 다른 작업에 집중할 수 있습니다. |
 |**다른 유형의 계산**|다른 유형의 확장 가능한 계산 리소스 및 저장소 위치에서 안정적으로 조정 된 여러 파이프라인을 사용 합니다. HDInsight, GPU 데이터 과학 Vm 및 Databricks 같은 다양 한 계산 대상에서 개별 파이프라인 단계를 실행 하 여 사용 가능한 계산 리소스를 효율적으로 사용 합니다.|

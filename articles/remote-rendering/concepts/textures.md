@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27395fe377972f51c849f8a61f51a628612ed54d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b951dab1ad01187c7612fad047bc52eb6aa9700e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202670"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701877"
 ---
 # <a name="textures"></a>질감
 
@@ -21,12 +21,12 @@ ms.locfileid: "92202670"
 
 텍스처 형식마다 사용 사례가 다릅니다.
 
-* **2D 텍스처**는 주로 [재료](materials.md)에서 사용됩니다.
-* [sky](../overview/features/sky.md)에 **Cubemaps**를 사용할 수 있습니다.
+* **2D 텍스처** 는 주로 [재료](materials.md)에서 사용됩니다.
+* [sky](../overview/features/sky.md)에 **Cubemaps** 를 사용할 수 있습니다.
 
 ## <a name="supported-texture-formats"></a>지원되는 텍스처 형식
 
-ARR에 지정된 모든 텍스처는 [DDS 형식](https://en.wikipedia.org/wiki/DirectDraw_Surface)이어야 합니다. mipmaps 및 텍스처 압축을 사용하는 것이 좋습니다. 변환 프로세스를 자동화하려면 [TexConv 명령줄 도구](../resources/tools/tex-conv.md)를 참조하세요.
+ARR에 지정된 모든 텍스처는 [DDS 형식](https://en.wikipedia.org/wiki/DirectDraw_Surface)이어야 합니다. mipmaps 및 텍스처 압축을 사용하는 것이 좋습니다.
 
 ## <a name="loading-textures"></a>텍스처 로드
 

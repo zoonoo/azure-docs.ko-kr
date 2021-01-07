@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 98d3beef72d314f93f6a2bc580b1dd5de5735f23
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242469"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995287"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Azure Database for PostgreSQL에 대 한 개인 링크 만들기 및 관리-포털을 사용 하는 단일 서버
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | *MyVirtualNetwork* 를 입력 합니다. |
+    | Name | *MyVirtualNetwork* 를 입력 합니다. |
     | 주소 공간 | *10.1.0.0/16* 을 입력 합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력한 다음, **확인** 을 선택합니다. |
@@ -143,7 +143,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup** 을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 세부 정보** |  |
-    | 속성 | *myPrivateEndpoint* 를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    | Name | *myPrivateEndpoint* 를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     |지역|**서유럽** 를 선택합니다.|
     |||
 5. 완료되면 **다음: 리소스** 를 선택합니다.
@@ -190,7 +190,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결** 이 열립니다.
 
-1. **RDP 파일 다운로드** 를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp* ) 파일을 만들고, 컴퓨터에 다운로드합니다.
+1. **RDP 파일 다운로드** 를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
 1. *downloaded.rdp* 파일을 엽니다.
 
@@ -222,7 +222,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     Address:  10.1.3.4
     ```
 
-3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15) 를 사용 하 여 작업을 수행 했습니다.
+3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) 를 사용 하 여 작업을 수행 했습니다.
 
 4. **새 연결** 에서 다음 정보를 입력 하거나 선택 합니다.
 

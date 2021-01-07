@@ -4,15 +4,15 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/16/2019
 ms.author: alkohli
-ms.openlocfilehash: baf18ae0263215e6ff83570557255d06c3117fd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 417fbdea3f46dfb3e90ab4890cec5e88c5aa4e07
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89085278"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523818"
 ---
-| 포트 번호| 인 또는 아웃 | 포트 범위| 필수|   참고 |   |
-|--------|-----|-----|-----------|----------|-----------|
+| 포트 번호| 인 또는 아웃 | 포트 범위| 필수 | 참고 |
+|---------|-----------|-----------|----------|-------|
 | TCP 80(HTTP)|아웃|WAN |아니요|업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다. <br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | TCP 443(HTTPS)|아웃|WAN|예|아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.<br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.|
 | UDP 123(NTP)|아웃|WAN|일부 경우<br>참고 사항 보기|이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다.  |   

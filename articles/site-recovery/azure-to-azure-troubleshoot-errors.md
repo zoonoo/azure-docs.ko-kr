@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: b71c6b834a6217007134b3be961a0ffa103e2706
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6d61a44e671c43754fa7cccbe8ea8fe54eeba387
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368046"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900419"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -143,15 +143,15 @@ SUSE Linux는 기호화 된 링크 또는 symlink를 사용 하 여 인증서 �
    -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem
    ```
 
-1. _VeriSign_Class_3_Public_Primary_Certification_Authority_G5_ 파일 이름 b204d74a를 사용 하 여 파일의 복사본을 만듭니다. _b204d74a.0_:
+1. _VeriSign_Class_3_Public_Primary_Certification_Authority_G5_ 파일 이름 b204d74a를 사용 하 여 파일의 복사본을 만듭니다. :
 
    `cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0`
 
-1. _Baltimore_CyberTrust_Root_ 파일 이름 653b494a를 사용 하 여 파일의 복사본을 만듭니다. _653b494a.0_:
+1. _Baltimore_CyberTrust_Root_ 파일 이름 653b494a를 사용 하 여 파일의 복사본을 만듭니다. :
 
    `cp Baltimore_CyberTrust_Root.pem 653b494a.0`
 
-1. 파일 이름이 _3513523f_인 _DigiCert_Global_Root_CA_ 파일의 복사본을 만듭니다. 0:
+1. 파일 이름이 _3513523f_ 인 _DigiCert_Global_Root_CA_ 파일의 복사본을 만듭니다. 0:
 
    `cp DigiCert_Global_Root_CA.pem 3513523f.0`
 
@@ -185,11 +185,14 @@ Site Recovery 복제가 작동 하려면 VM에서 특정 Url에 대 한 아웃 �
 VM에서 사용자 지정 DNS 설정을 사용 하는지 확인 하려면:
 
 1. **가상 컴퓨터** 를 열고 VM을 선택 합니다.
-1. Vm **설정** 으로 이동 하 고 **네트워킹**을 선택 합니다.
-1. **가상 네트워크/서브넷**에서 링크를 선택 하 여 가상 네트워크의 리소스 페이지를 엽니다.
-1. **설정** 으로 이동 하 고 **DNS 서버**를 선택 합니다.
+1. Vm **설정** 으로 이동 하 고 **네트워킹** 을 선택 합니다.
+1. **가상 네트워크/서브넷** 에서 링크를 선택 하 여 가상 네트워크의 리소스 페이지를 엽니다.
+1. **설정** 으로 이동 하 고 **DNS 서버** 를 선택 합니다.
 
 가상 머신에서 DNS 서버에 액세스를 시도 합니다. DNS 서버에 액세스할 수 없는 경우 DNS 서버를 장애 조치 (failover) 하거나 DR 네트워크와 DNS 사이에 사이트의 줄을 만들어 해당 서버에 액세스할 수 있도록 합니다.
+
+> [!NOTE]
+> 개인 끝점을 사용 하는 경우 Vm이 개인 DNS 레코드를 확인할 수 있는지 확인 합니다.
 
 :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.png" alt-text="com-오류입니다.":::
 
@@ -237,9 +240,9 @@ Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 
    ```
 
 > [!NOTE]
-> 모바일 서비스 에이전트는 **인증 되지 않은 프록시**만 지원 합니다.
+> 모바일 서비스 에이전트는 **인증 되지 않은 프록시** 만 지원 합니다.
 
-### <a name="more-information"></a>추가 정보
+### <a name="more-information"></a>자세한 정보
 
 [필수 url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필수 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)를 지정 하려면 azure [에서 Azure로 복제에 대 한 정보](azure-to-azure-about-networking.md)를 참조 하세요.
 
@@ -278,17 +281,17 @@ VM의 복제 상태를 다시 정상으로 설정 하려면 디스크를 보호 
 
 #### <a name="to-protect-the-disks"></a>디스크를 보호 하려면
 
-1. 복제 된 **항목**  >  _VM 이름_  >  **디스크**로 이동 합니다.
-1. 보호 되지 않은 디스크를 선택한 다음 **복제 사용**을 선택 합니다.
+1. 복제 된 **항목**  >  _VM 이름_  >  **디스크** 로 이동 합니다.
+1. 보호 되지 않은 디스크를 선택한 다음 **복제 사용** 을 선택 합니다.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="com-오류입니다.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="VM 디스크에서 복제를 사용 하도록 설정 합니다.":::
 
 #### <a name="to-dismiss-the-warning"></a>경고를 해제 하려면
 
-1. 복제 된 **항목**  >  _VM 이름_으로 이동 합니다.
-1. **개요** 섹션에서 경고를 선택 하 고 **확인**을 선택 합니다.
+1. 복제 된 **항목**  >  _VM 이름_ 으로 이동 합니다.
+1. **개요** 섹션에서 경고를 선택 하 고 **확인** 을 선택 합니다.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="com-오류입니다.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="새 디스크 경고를 해제 합니다.":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>자격 증명 모음에서 제거 된 VM이 정보를 사용 하 여 완료 됨 (오류 코드 150225)
 
@@ -300,7 +303,7 @@ Site Recovery에서 가상 컴퓨터를 보호 하는 경우 원본 가상 컴�
 > 정리 하지 않은 경우:
 >
 > - Recovery Services 자격 증명 모음을 통해 복제를 사용 하도록 설정 하면 가상 컴퓨터가 나열 되지 않습니다.
-> - **가상 컴퓨터**설정 재해 복구를 사용 하 여 vm을 보호 하려고 하면  >  **Settings**  >  **Disaster Recovery** **vm의 기존 부실 리소스 링크로 인해 메시지 복제를 사용 하도록 설정할**수 없으므로 작업이 실패 합니다.
+> - **가상 컴퓨터** 설정 재해 복구를 사용 하 여 vm을 보호 하려고 하면  >    >   **vm의 기존 부실 리소스 링크로 인해 메시지 복제를 사용 하도록 설정할** 수 없으므로 작업이 실패 합니다.
 
 ### <a name="fix-the-problem"></a>문제 해결
 
@@ -309,10 +312,10 @@ Site Recovery에서 가상 컴퓨터를 보호 하는 경우 원본 가상 컴�
 
 1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다. 예를 들어, 다음 이미지에서 이라는 VM에 대 한 리소스 잠금을 `MoveDemo` 삭제 해야 합니다.
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-오류입니다.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="VM에서 잠금을 제거 합니다.":::
 
 1. 스크립트를 다운로드 하 여 [오래 된 Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
-1. _Cleanup-stale-asr-config-Azure-VM.ps1_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
+1. _Cleanup-stale-asr-config-Azure-VM.ps1_ 스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹** 및 **vm 이름을** 매개 변수로 제공 합니다.
 1. Azure 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 제공 합니다. 그런 다음 스크립트가 오류 없이 실행 되는지 확인 합니다.
 
 ## <a name="replication-not-enabled-on-vm-with-stale-resources-error-code-150226"></a>부실 리소스를 사용 하는 VM에서 복제를 사용 하도록 설정 하지 않음 (오류 코드 150226)
@@ -334,10 +337,10 @@ Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 �
 
 1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다. 예를 들어, 다음 이미지에서 이라는 VM에 대 한 리소스 잠금을 `MoveDemo` 삭제 해야 합니다.
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-오류입니다.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="VM에서 잠금을 제거 합니다.":::
 
 1. 스크립트를 다운로드 하 여 [오래 된 Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
-1. _Cleanup-stale-asr-config-Azure-VM.ps1_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
+1. _Cleanup-stale-asr-config-Azure-VM.ps1_ 스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹** 및 **vm 이름을** 매개 변수로 제공 합니다.
 1. Azure 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 제공 합니다. 그런 다음 스크립트가 오류 없이 실행 되는지 확인 합니다.
 
 ## <a name="cant-select-vm-or-resource-group-in-enable-replication-job"></a>복제 사용 작업에서 VM 또는 리소스 그룹을 선택할 수 없습니다.
@@ -367,10 +370,10 @@ Azure VM에 오래 된 Site Recovery 구성이 있는 경우 복제에 사용할
 
 1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다 (있는 경우). 예를 들어, 다음 이미지에서 이라는 VM에 대 한 리소스 잠금을 `MoveDemo` 삭제 해야 합니다.
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-오류입니다.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="VM에서 잠금을 제거 합니다.":::
 
 1. 스크립트를 다운로드 하 여 [오래 된 Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
-1. _Cleanup-stale-asr-config-Azure-VM.ps1_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
+1. _Cleanup-stale-asr-config-Azure-VM.ps1_ 스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹** 및 **vm 이름을** 매개 변수로 제공 합니다.
 1. Azure 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 제공 합니다. 그런 다음 스크립트가 오류 없이 실행 되는지 확인 합니다.
 
 ## <a name="unable-to-select-a-vm-for-protection"></a>보호할 VM을 선택할 수 없습니다.
@@ -381,13 +384,13 @@ Azure VM에 오래 된 Site Recovery 구성이 있는 경우 복제에 사용할
 
 ### <a name="fix-the-problem"></a>문제 해결
 
-**Virtual machines**설정 확장으로 이동 하 여  >  **Settings**  >  **Extensions** 실패 상태에 있는 확장을 확인 합니다. 실패 한 확장을 제거 하 고 다시 시도 하 여 가상 머신을 보호 합니다.
+**Virtual machines** 설정 확장으로 이동 하 여  >    >   실패 상태에 있는 확장을 확인 합니다. 실패 한 확장을 제거 하 고 다시 시도 하 여 가상 머신을 보호 합니다.
 
 ## <a name="vm-provisioning-state-isnt-valid-error-code-150019"></a>VM 프로 비전 상태가 잘못 되었습니다 (오류 코드 150019).
 
-VM에서 복제를 사용 하도록 설정 하려면 해당 프로 비전 상태가 **성공**이어야 합니다. 프로 비전 상태를 확인 하려면 다음 단계를 수행 합니다.
+VM에서 복제를 사용 하도록 설정 하려면 해당 프로 비전 상태가 **성공** 이어야 합니다. 프로 비전 상태를 확인 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에서 **모든 서비스**의 **리소스 탐색기** 를 선택 합니다.
+1. Azure Portal에서 **모든 서비스** 의 **리소스 탐색기** 를 선택 합니다.
 1. **구독** 목록을 확장하고 본인의 구독을 선택합니다.
 1. **리소스 그룹** 목록을 확장하고 VM의 리소스 그룹을 선택합니다.
 1. **리소스** 목록을 확장 하 고 VM을 선택 합니다.
@@ -395,8 +398,8 @@ VM에서 복제를 사용 하도록 설정 하려면 해당 프로 비전 상태
 
 ### <a name="fix-the-problem"></a>문제 해결
 
-- **ProvisioningState** 가 **실패**한 경우 지원 담당자에 게 문제 해결에 대 한 세부 정보를 문의 합니다.
-- **ProvisioningState** 를 **업데이트**하는 경우 다른 확장을 배포할 수 있습니다. VM에 진행 중인 작업이 있는지 확인 하 고, 작업이 완료 될 때까지 기다린 후 실패 한 Site Recovery 작업을 다시 시도 하 여 복제를 사용 하도록 설정 합니다.
+- **ProvisioningState** 가 **실패** 한 경우 지원 담당자에 게 문제 해결에 대 한 세부 정보를 문의 합니다.
+- **ProvisioningState** 를 **업데이트** 하는 경우 다른 확장을 배포할 수 있습니다. VM에 진행 중인 작업이 있는지 확인 하 고, 작업이 완료 될 때까지 기다린 후 실패 한 Site Recovery 작업을 다시 시도 하 여 복제를 사용 하도록 설정 합니다.
 
 ## <a name="unable-to-select-target-vm"></a>대상 VM을 선택할 수 없습니다.
 
@@ -404,17 +407,17 @@ VM에서 복제를 사용 하도록 설정 하려면 해당 프로 비전 상태
 
 재해 복구를 구성 하는 동안 원본 VM이 가상 네트워크의 일부이 고 동일한 가상 네트워크의 다른 VM이 이미 대상 리소스 그룹의 네트워크에 매핑된 경우 네트워크 선택 드롭다운 목록 상자는 기본적으로 사용할 수 없습니다 (흐리게 표시 됨).
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="com-오류입니다.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="네트워크 선택 목록을 사용할 수 없습니다.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>문제 2: 이전에 VM을 보호 한 후 복제를 사용 하지 않도록 설정 했습니다.
 
-VM의 복제를 사용 하지 않도록 설정 해도 네트워크 매핑이 삭제 되지 않습니다. 이 매핑은 VM이 보호 된 Recovery Services 자격 증명 모음에서 삭제 해야 합니다. **Recovery Services 자격 증명 모음** 을 선택 하 **Manage**고  >  **Site Recovery Infrastructure**  >  **Azure virtual machines에 대 한**Site Recovery 인프라 관리  >  **네트워크 매핑을**이동 합니다.
+VM의 복제를 사용 하지 않도록 설정 해도 네트워크 매핑이 삭제 되지 않습니다. 이 매핑은 VM이 보호 된 Recovery Services 자격 증명 모음에서 삭제 해야 합니다. **Recovery Services 자격 증명 모음** 을 선택 하 고  >    >  **Azure virtual machines에 대 한** Site Recovery 인프라 관리  >  **네트워크 매핑을** 이동 합니다.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="com-오류입니다.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="네트워크 매핑을 삭제 합니다.":::
 
 재해 복구를 설정 하는 동안 구성 된 대상 네트워크는 초기 설치 후 및 VM이 보호 된 후에 변경할 수 있습니다. **네트워크 매핑을 수정** 하려면 네트워크 이름을 선택 합니다.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="com-오류입니다.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="네트워크 매핑을 수정 합니다.":::
 
 
 ## <a name="com-or-vss-error-code-151025"></a>COM + 또는 VSS (오류 코드 151025)
@@ -435,9 +438,9 @@ Site Recovery extension failed to install.
 COM + 시스템 응용 프로그램을 설정 하 고 볼륨 섀도 복사본 서비스 자동 또는 수동 시작 모드로 설정 합니다.
 
 1. Windows에서 서비스 콘솔을 엽니다.
-1. COM + 시스템 응용 프로그램 및 볼륨 섀도 복사본 서비스 **시작 유형**으로 **사용 안 함으로** 설정 되지 않았는지 확인 합니다.
+1. COM + 시스템 응용 프로그램 및 볼륨 섀도 복사본 서비스 **시작 유형** 으로 **사용 안 함으로** 설정 되지 않았는지 확인 합니다.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="com-오류입니다.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="COM과 시스템 응용 프로그램의 시작 유형을 확인 하 고 볼륨 섀도 복사본 서비스 합니다.":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>지원 되지 않는 관리 디스크 크기 (오류 코드 150172)
 
@@ -459,7 +462,7 @@ Protection couldn't be enabled for the virtual machine as it has <DiskName> with
 
 ### <a name="possible-causes"></a>가능한 원인
 
-Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_또는 _/etc/default/grub_)은 `root` 및 매개 변수에 대 한 UUID (범용 고유 식별자) 값 대신 실제 장치 이름을 지정할 수 있습니다 `resume` . 장치 이름이 변경 될 수 있으므로 Site Recovery에는 Uuid가 필요 합니다. 다시 시작 시 VM이 장애 조치 (failover) 시 동일한 이름으로 나타나지 않을 수 있으므로 문제가 발생 합니다.
+Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_ 또는 _/etc/default/grub_)은 `root` 및 매개 변수에 대 한 UUID (범용 고유 식별자) 값 대신 실제 장치 이름을 지정할 수 있습니다 `resume` . 장치 이름이 변경 될 수 있으므로 Site Recovery에는 Uuid가 필요 합니다. 다시 시작 시 VM이 장애 조치 (failover) 시 동일한 이름으로 나타나지 않을 수 있으므로 문제가 발생 합니다.
 
 다음 예는 필요한 Uuid 대신 장치 이름이 표시 되는 GRUB 파일의 줄입니다.
 
@@ -475,7 +478,7 @@ Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_
 
 각 장치 이름을 해당 하는 UUID로 바꿉니다.
 
-1. 명령을 실행 하 여 장치의 UUID를 찾습니다 `blkid <device name>` . 예를 들어:
+1. 명령을 실행 하 여 장치의 UUID를 찾습니다 `blkid <device name>` . 예를 들면 다음과 같습니다.
 
    ```shell
    blkid /dev/sda1
@@ -494,7 +497,7 @@ Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_
 
 ### <a name="possible-cause"></a>가능한 원인
 
-GRUB 구성 파일 (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_또는 _/etc/default/grub_)에는 또는 매개 변수가 포함 될 수 있습니다 `rd.lvm.lv` `rd_LVM_LV` . 이러한 매개 변수는 부팅 시 검색 되는 LVM (논리 볼륨 관리자) 장치를 식별 합니다. 이러한 LVM 장치가 존재 하지 않는 경우 보호 된 시스템 자체는 부팅 되지 않으므로 부팅 프로세스에서 중단 됩니다. 동일한 문제가 장애 조치 (failover) VM에도 표시 됩니다. 다음은 몇 가지 예입니다.
+GRUB 구성 파일 (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_ 또는 _/etc/default/grub_)에는 또는 매개 변수가 포함 될 수 있습니다 `rd.lvm.lv` `rd_LVM_LV` . 이러한 매개 변수는 부팅 시 검색 되는 LVM (논리 볼륨 관리자) 장치를 식별 합니다. 이러한 LVM 장치가 존재 하지 않는 경우 보호 된 시스템 자체는 부팅 되지 않으므로 부팅 프로세스에서 중단 됩니다. 동일한 문제가 장애 조치 (failover) VM에도 표시 됩니다. 다음은 몇 가지 예입니다.
 
 - File: _/boot/grub2/grub.cfg_ on RHEL7:
 

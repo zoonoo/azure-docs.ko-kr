@@ -1,6 +1,6 @@
 ---
 title: 테 넌 트 간에 갤러리 이미지 공유
-description: Linux 예제를 사용 하 여 공유 이미지 갤러리를 사용 하 여 Azure 테 넌 트 간에 VM 이미지를 공유 하는 방법을 알아봅니다.
+description: Azure CLI를 사용 하 여 공유 이미지 갤러리를 통해 Azure 테 넌 트에서 VM 이미지를 공유 하는 방법을 알아봅니다.
 author: axayjo
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,16 +10,16 @@ ms.date: 05/04/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f6ffa23818a223ef1c0d46823955668ad96292d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0192a6eb60c72c9f7ac605db492f4e5f97b76ed
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307214"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779263"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants---linux-examples"></a>Azure 테 넌 트 간에 갤러리 VM 이미지 공유-Linux 예제
+# <a name="share-gallery-vm-images-across-azure-tenants-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure 테 넌 트 간에 갤러리 VM 이미지 공유
 
-공유 이미지 갤러리를 사용 하면 RBAC를 사용 하 여 이미지를 공유할 수 있습니다. RBAC를 사용 하 여 테 넌 트 내에서 이미지를 공유 하 고 테 넌 트 외부의 사용자도 공유할 수 있습니다. 이 간단한 공유 옵션에 대 한 자세한 내용은 [갤러리 공유](./shared-images-portal.md#share-the-gallery)를 참조 하세요.
+공유 이미지 갤러리를 사용 하면 Azure RBAC를 사용 하 여 이미지를 공유할 수 있습니다. Azure RBAC를 사용 하 여 테 넌 트 내에 있는 이미지와 테 넌 트 외부의 개인 에게도 공유할 수 있습니다. 이 간단한 공유 옵션에 대 한 자세한 내용은 [갤러리 공유](./shared-images-portal.md#share-the-gallery)를 참조 하세요.
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 

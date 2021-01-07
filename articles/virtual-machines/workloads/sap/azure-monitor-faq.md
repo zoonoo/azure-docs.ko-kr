@@ -1,23 +1,24 @@
 ---
 title: FAQ-SAP 솔루션에 대 한 Azure Monitor | Microsoft Docs
-description: 이 문서에서는 SAP 솔루션에 대 한 Azure monitor에 대 한 FAQ (질문과 대답)에 대해 알아봅니다.
+description: 이 문서에서는 SAP 솔루션에 대 한 Azure Monitor FAQ (질문과 대답)에 대해 알아봅니다.
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: f584601c2dcbea989f1b68d9fbac5a7f53a59d86
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 204b809966fbf63a48f6d1ce1d80f87f706c9a56
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994216"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968573"
 ---
-# <a name="azure-monitor-for-sap-solutions-faq-preview"></a>SAP 솔루션에 대 한 Azure monitor FAQ (미리 보기)
+# <a name="azure-monitor-for-sap-solutions-faq-preview"></a>SAP 솔루션에 대 한 Azure Monitor FAQ (미리 보기)
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-이 문서에서는 SAP 솔루션에 대 한 Azure monitor에 대 한 FAQ (질문과 대답)를 제공 합니다.  
+이 문서에서는 SAP 솔루션에 대 한 Azure Monitor FAQ (질문과 대답)를 제공 합니다.  
 
  - **SAP 솔루션에 대 한 Azure Monitor 요금을 지불 해야 하나요?**  
 SAP 솔루션에 대 한 Azure Monitor에 대 한 라이선스 요금은 없습니다.  

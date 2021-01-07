@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66bac512711651d1f780f1f3c23644eb5bbbb7fb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 117f9a1c173f2083dd4621f4f3f41b6e83d1d46b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356725"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546695"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>REST API 호출을 사용 하 여 사용자 할당 관리 id 만들기, 나열 또는 삭제
-
-[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Azure 리소스에 대 한 관리 되는 id는 코드에서 자격 증명을 필요로 하지 않고 azure AD 인증을 지 원하는 서비스에 인증 하는 기능을 제공 합니다. 
 
@@ -78,9 +76,9 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **요청 본문**
 
-|이름  |Description  |
+|이름  |설명  |
 |---------|---------|
-|위치     | 필수 사항입니다. 리소스 위치.        |
+|위치     | 필수 요소. 리소스 위치.        |
 
 ## <a name="list-user-assigned-managed-identities"></a>사용자 할당 관리 ID 나열
 

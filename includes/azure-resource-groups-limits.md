@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: tomfitz
-ms.openlocfilehash: 949118214851c3eceffd8c1d638a4093bdf7f366
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1e7b33630ea52bb0cb675b81fff9cc738f27980
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89304132"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556873"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -37,4 +37,4 @@ ms.locfileid: "89304132"
 | 템플릿 크기 |4MB |
 | 매개 변수 파일 크기 |64KB |
 
-중첩된 템플릿을 사용하여 일부 템플릿 제한을 초과할 수 있습니다. 자세한 내용은 [Azure 리소스를 배포할 때 연결된 템플릿 사용](../articles/azure-resource-manager/templates/linked-templates.md)을 참조하세요. 매개 변수, 변수 또는 출력의 수를 줄이려면 개체에 여러 값을 결합할 수 있습니다. 자세한 내용은 [매개 변수로 개체 사용](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md)을 참조하세요.
+중첩된 템플릿을 사용하여 일부 템플릿 제한을 초과할 수 있습니다. 자세한 내용은 [Azure 리소스를 배포할 때 연결된 템플릿 사용](../articles/azure-resource-manager/templates/linked-templates.md)을 참조하세요. 매개 변수, 변수 또는 출력의 수를 줄이려면 개체에 여러 값을 결합할 수 있습니다. 자세한 내용은 [매개 변수로 개체 사용](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)을 참조하세요.

@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: ef9322c17a20ab5bfcf348649a1272dd4f301c5c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284476"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000677"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Azure HDInsight의 스크립트 작업 문제 해결
 
@@ -45,13 +45,13 @@ Apache Ambari 웹 UI를 사용 하 여 스크립트 동작에 의해 기록 된 
 
     ![스크립트 동작 로그](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    이 디렉터리에서 로그는 **헤드 노드** , **작업자 노드** 및 **Zookeeper 노드** 에 대해 별도로 구성됩니다. 다음 예제를 참조하세요.
+    이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드** 에 대해 별도로 구성됩니다. 다음 예제를 참조하세요.
 
-    * **헤드 노드** : `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **헤드 노드**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **작업자 노드** : `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **작업자 노드**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **사육 아웃 노드** : `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **사육 아웃 노드**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * 해당 호스트의 모든 **stdout** 및 **stderr** 이 스토리지 계정에 업로드됩니다. 각 스크립트 동작에 대해 **output-\*.txt** 및 **errors-\*.txt** 가 하나씩 있습니다. **output-*.txt** 파일에는 호스트에서 실행된 스크립트의 URI 정보를 포함되어 있습니다. 다음 텍스트는 이 정보의 예제입니다.
 
@@ -59,7 +59,7 @@ Apache Ambari 웹 UI를 사용 하 여 스크립트 동작에 의해 기록 된 
     'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
     ```
 
-* 같은 이름으로 반복해서 스크립트 작업 클러스터를 만들 수 있습니다. 이 경우 **날짜** 폴더 이름에 따라 관련 로그를 구분할 수 있습니다. 예를 들어 서로 다른 날짜에 만든 클러스터( **mycluster** )의 폴더 구조는 다음 로그 항목과 비슷하게 나타납니다.
+* 같은 이름으로 반복해서 스크립트 작업 클러스터를 만들 수 있습니다. 이 경우 **날짜** 폴더 이름에 따라 관련 로그를 구분할 수 있습니다. 예를 들어 서로 다른 날짜에 만든 클러스터(**mycluster**)의 폴더 구조는 다음 로그 항목과 비슷하게 나타납니다.
 
     `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 

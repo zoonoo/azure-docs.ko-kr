@@ -3,12 +3,12 @@ title: Azure Vm에서 성능 모니터링-Azure 애플리케이션 정보
 description: Azure VM 및 Azure virtual machine scale sets에 대 한 응용 프로그램 성능 모니터링. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 8b025c5196d65234a632bd1f939bc1116b72dce0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bc70b3d9a1a7a2d3fffb71ad28f2cf64cbd323b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024635"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461731"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure virtual machines 및 Azure virtual machine scale sets에 Azure Monitor Application Insights 에이전트 배포
 
@@ -17,8 +17,8 @@ ms.locfileid: "87024635"
 이 문서에서는 Application Insights 에이전트를 사용 하 여 Application Insights 모니터링을 사용 하도록 설정 하는 과정을 안내 하 고 대규모 배포 프로세스를 자동화 하기 위한 예비 지침을 제공 합니다.
 
 > [!IMPORTANT]
-> Azure 애플리케이션 Insights Agent for .NET은 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 일부 기능은 지원 되지 않을 수 있으며 일부 기능은 제한 된 기능을 가질 수 있습니다.
+> Azure Vm에서 실행 되는 ASP.NET 응용 프로그램 **및 VMSS** 에 대 한 Azure 애플리케이션 Insights 에이전트는 현재 공개 미리 보기로 제공 됩니다. 온 **-프레미스에서** 실행 되는 ASP.Net 응용 프로그램을 모니터링 하려면 일반적으로 사용 가능 하 고 완전히 지원 되는 [온-프레미스 서버에 대해 Azure 애플리케이션 Insights 에이전트](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)를 사용 합니다.
+> Azure Vm 및 VMSS에 대 한 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 일부 기능은 지원 되지 않을 수 있으며 일부 기능은 제한 된 기능을 가질 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용

@@ -7,76 +7,76 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c553652d4d8abd16b4e5fd4ff896e42bdba103ad
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f0c2fe78c32357798e1f9acb43f5867df9148b38
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408977"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368905"
 ---
 # <a name="security-control-v2-asset-management"></a>보안 제어 V2: 자산 관리
 
 자산 관리는 Azure 리소스에 대 한 보안 표시 및 관리를 보장 하는 컨트롤을 포함 합니다. 여기에는 보안 담당자, 자산 인벤토리에 대 한 보안 액세스, 서비스 및 리소스에 대 한 승인 관리 (인벤토리, 추적, 수정)에 대 한 권장 사항이 포함 됩니다.
 
-## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>오전-1: 보안 팀이 자산에 대 한 위험을 볼 권한이 있는지 확인
+## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀이 자산의 위험에 대한 가시성 확보
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | 오전-1 | 1.1, 1.2 | CM-8, PM-5 |
 
 Azure Security Center를 사용 하 여 보안 위험을 모니터링할 수 있도록 Azure 테 넌 트 및 구독에서 보안 팀에 보안 읽기 권한자 권한이 부여 되었는지 확인 합니다. 
 
-보안 팀의 책임이 구성 된 방식에 따라 보안 위험에 대 한 모니터링은 중앙 보안 팀 또는 로컬 팀의 책임입니다. 즉, 보안 정보 및 위험은 항상 조직 내에서 중앙에서 집계 되어야 합니다. 
+보안 팀의 책임이 구성된 방식에 따라 보안 위험 모니터링은 중앙 보안 팀 또는 로컬 팀의 책임이 될 수 있습니다. 즉, 보안 인사이트 및 위험이 항상 조직 내의 중앙에서 집계되어야 합니다. 
 
-보안 읽기 권한자 권한은 전체 테 넌 트 (루트 관리 그룹)에 광범위 하 게 적용 하거나 관리 그룹 또는 특정 구독으로 범위를 지정할 수 있습니다. 
+보안 읽기 권한자 권한은 전체 테넌트(루트 관리 그룹)에 광범위하게 적용하거나 범위를 관리 그룹 또는 특정 구독으로 지정할 수 있습니다. 
 
-참고: 작업 및 서비스에 대 한 가시성을 확보 하려면 추가 권한이 필요할 수 있습니다. 
+참고: 워크로드 및 서비스에 대한 가시성을 얻으려면 추가 권한이 필요할 수 있습니다. 
 
 - [보안 읽기 권한자 역할 개요](../../role-based-access-control/built-in-roles.md#security-reader)
 
 - [Azure 관리 그룹 개요](../../governance/management-groups/overview.md)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>오전-2: 보안 팀에 asset inventory and metadata에 대 한 액세스 권한이 있는지 확인
+## <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: 보안 팀에 자산 인벤토리 및 메타데이터에 대한 액세스 권한이 있는지 확인
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | 오전-2 | 1.1, 1.2, 1.4, 1.5, 9.1, 12.1 | CM-8, PM-5 |
 
-보안 팀이 Azure에서 지속적으로 업데이트 되는 자산의 인벤토리에 액세스할 수 있는지 확인 합니다. 보안 팀은 조직의 잠재적인 노출을 새로운 위험에 대해 평가 하 고 지속적으로 향상 된 보안 기능에 대 한 입력으로이 인벤토리를 필요로 하는 경우가 많습니다. 
+보안 팀이 Azure에서 지속적으로 업데이트 되는 자산의 인벤토리에 액세스할 수 있는지 확인 합니다. 보안 팀은 새로운 위험에 대한 조직의 잠재적인 노출을 평가하기 위해, 그리고 지속적으로 보안을 향상하기 위한 입력 정보로서 이 인벤토리가 필요한 경우가 많습니다. 
 
 Azure Security Center inventory 기능 및 Azure 리소스 그래프는 Azure 서비스, 응용 프로그램 및 네트워크 리소스를 포함 하 여 구독에 있는 모든 리소스를 쿼리하고 검색할 수 있습니다.  
 
-Azure의 다른 메타 데이터 (이름, 설명 및 범주)를 사용 하 여 조직의 분류에 따라 자산을 논리적으로 구성 합니다.  
+Azure에서 태그뿐만 아니라 다른 메타데이터(이름, 설명, 범주)도 사용하여 조직의 분류법에 따라 자산을 논리적으로 구성합니다.  
 
 - [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
 
 - [Azure Security Center asset inventory management](../../security-center/asset-inventory.md)
 
-- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태그 지정 결정 가이드를 참조 하세요.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태그 지정 결정 가이드를 참조 하세요.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="am-3-use-only-approved-azure-services"></a>오전 3: 승인 된 Azure 서비스만 사용
+## <a name="am-3-use-only-approved-azure-services"></a>AM-3: 승인된 Azure 서비스만 사용
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | 오전-3 | 2.3, 2.4 | CM-7, CM-8 |
 
-Azure Policy를 사용 하 여 사용자 환경에서 사용자가 프로 비전 할 수 있는 서비스를 감사 하 고 제한할 수 있습니다. Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리하고 검색 합니다.  또한 Azure Monitor를 사용 하 여 승인 되지 않은 서비스가 검색 될 때 경고를 트리거하는 규칙을 만들 수 있습니다.
+Azure Policy를 사용하여 환경에서 사용자가 프로비저닝할 수 있는 서비스를 감사하고 제한합니다. Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 검색합니다.  또한 Azure Monitor를 사용하여 승인되지 않은 서비스가 검색되면 경고를 트리거하는 규칙을 만들 수 있습니다.
 
 - [Azure Policy 구성 및 관리](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -84,9 +84,9 @@ Azure Policy를 사용 하 여 사용자 환경에서 사용자가 프로 비전
 
 - [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -94,19 +94,19 @@ Azure Policy를 사용 하 여 사용자 환경에서 사용자가 프로 비전
 
 ## <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: 자산 수명 주기 관리의 보안 보장
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | 오전-4 | 2.3, 2.4, 2.5 | CM-7, CM-8, CM-10, CM-11 |
 
-잠재적으로 큰 영향을 주는 수정 작업을 위해 자산 수명 주기 관리 프로세스를 해결 하는 보안 정책을 설정 하거나 업데이트 합니다. 이러한 수정 사항에는 id 공급자 및 액세스, 데이터 민감도, 네트워크 구성 및 관리 권한 할당에 대 한 변경 내용이 포함 됩니다.
+잠재적으로 큰 영향을 주는 수정 작업을 위해 자산 수명 주기 관리 프로세스를 해결 하는 보안 정책을 설정 하거나 업데이트 합니다. 이러한 수정에는 ID 공급자 및 액세스, 데이터 민감도, 네트워크 구성 및 관리 권한 할당에 대한 변경이 포함됩니다.
 
-더 이상 필요 하지 않은 경우 Azure 리소스를 제거 합니다.
+더 이상 필요하지 않은 Azure 리소스를 제거합니다.
 
 - [Azure 리소스 그룹 및 리소스 삭제](../../azure-resource-manager/management/delete-resource-group.md)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -116,7 +116,7 @@ Azure Policy를 사용 하 여 사용자 환경에서 사용자가 프로 비전
 
 ## <a name="am-5-limit-users-ability-to-interact-with-azure-resource-manager"></a>오전 5: 사용자가 Azure Resource Manager 상호 작용할 수 있도록 제한
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | 오전-5 | 2.9 | AC-3 |
 
@@ -124,9 +124,9 @@ Azure AD 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 �
 
 - [Azure 리소스 관리자에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법](../../role-based-access-control/conditional-access-azure-management.md)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -134,7 +134,7 @@ Azure AD 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 �
 
 ## <a name="am-6-use-only-approved-applications-in-compute-resources"></a>AM-6: 계산 리소스에서 승인 된 응용 프로그램만 사용
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | 오전-6 | 2.6, 2.7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
 
@@ -154,9 +154,9 @@ Azure Automation 변경 내용 추적 및 인벤토리를 사용 하 여 Windows
 
 - [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-**책임** : Customer
+**책임**: Customer
 
-**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

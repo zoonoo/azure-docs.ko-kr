@@ -4,15 +4,15 @@ description: 가상 네트워크에서 개인 IP 주소를 사용하여 Azure Co
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 12/16/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4ba4e5f462a3cc88de5b23b32a5e749f9363e93f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081895"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629649"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Azure Cosmos 계정에 대한 Azure Private Link 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -99,7 +99,7 @@ Azure Cosmos 계정에 대한 Private Link를 승인하면 Azure Portal에서 **
 1. 이전에 만든 프라이빗 엔드포인트를 검색합니다. 이 문서에서는 **cdbPrivateEndpoint3** 입니다.
 1. **개요** 탭을 선택하여 DNS 설정 및 IP 주소를 확인합니다.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Azure Portal에서 프라이빗 엔드포인트를 만들기 위해 선택하는 항목":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Azure Portal의 개인 IP 주소":::
 
 프라이빗 엔드포인트마다 다음과 같은 여러 IP 주소가 생성됩니다.
 
@@ -412,7 +412,7 @@ PowerShell 스크립트의 `GroupId` 변수는 하나의 값만 포함할 수 �
 
 템플릿이 성공적으로 배포되면 다음 이미지와 비슷한 출력을 볼 수 있습니다. 프라이빗 엔드포인트가 올바르게 설정되면 `provisioningState` 값이 `Succeeded`입니다.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Azure Portal에서 프라이빗 엔드포인트를 만들기 위해 선택하는 항목":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Resource Manager 템플릿의 배포 출력":::
 
 템플릿이 배포된 후에는 서브넷 내에서 개인 IP 주소가 예약됩니다. Azure Cosmos 계정의 방화벽 규칙은 프라이빗 엔드포인트의 연결만 허용하도록 구성됩니다.
 
@@ -616,6 +616,9 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 프라이빗 엔드포인트를 만든 서브넷 내부의 프라이빗 DNS 영역을 사용해야 합니다. 각 개인 IP 주소가 DNS 항목에 매핑되도록 엔드포인트를 구성합니다. 앞에 표시된 응답의 `fqdns` 속성을 참조하세요.
 
 프라이빗 엔드포인트를 만들 때 Azure의 프라이빗 DNS 영역과 통합할 수 있습니다. 사용자 지정 DNS 영역을 대신 사용하기로 선택하는 경우 프라이빗 엔드포인트에 대해 예약된 모든 개인 IP 주소의 DNS 레코드를 추가하도록 구성해야 합니다.
+
+> [!IMPORTANT]
+> 요청에 대 한 DNS 확인은 이러한 요청이 개인 끝점을 통과 하는지 또는 표준 공용 경로를 사용 하는지 결정 합니다. 로컬 DNS가 개인 끝점에서 매핑한 개인 IP 주소를 올바르게 참조 하는지 확인 합니다.
 
 ## <a name="private-link-combined-with-firewall-rules"></a>방화벽 규칙과 결합된 Private Link
 

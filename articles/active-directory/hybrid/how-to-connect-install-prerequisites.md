@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337a66f50338692508ab2e5b4b7d489c735aa20
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: edace0298514d1fc3cfd3afcff73fa0d29e18f0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420492"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858776"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -52,7 +52,7 @@ Azure Active Directory Connect는 설치의 일부로 서명 된 PowerShell 스�
 
 설치 중에 권장 되는 실행 정책은 "RemoteSigned"입니다.
 
-PowerShell 실행 정책 설정에 대 한 자세한 내용은 [set-executionpolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)를 참조 하세요.
+PowerShell 실행 정책 설정에 대 한 자세한 내용은 [set-executionpolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy)를 참조 하세요.
 
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 서버
@@ -82,7 +82,7 @@ IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역�
 - [권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 계정을](/windows-server/identity/securing-privileged-access/securing-privileged-access)만듭니다. 관리자는 웹을 탐색 하 고, 전자 메일을 확인 하 고, 높은 권한의 계정을 사용 하 여 일상적인 생산성 작업을 수행 하지 않아야 합니다.
 - [권한 있는 액세스 보안](/windows-server/identity/securing-privileged-access/securing-privileged-access)에 제공 된 지침을 따릅니다. 
 - AADConnect 서버에서 NTLM 인증 사용을 거부 합니다. 이 작업을 수행 하는 몇 가지 방법은 다음과 같습니다. [AADConnect 서버에서 ntlm을 제한](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) 하 고 [도메인에서 ntlm을 제한](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain) 합니다.
-- 모든 컴퓨터에 고유한 로컬 관리자 암호가 있는지 확인 합니다. 자세한 내용은 [LAPS (로컬 관리자 암호 솔루션)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) 에서 각 워크스테이션에 고유한 임의의 암호를 구성 하 고 ACL로 보호 되 Active Directory에 저장할 수 있습니다. 권한 있는 적격 사용자만이 이러한 로컬 관리자 계정 암호를 읽거나 재설정을 요청할 수 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.)에서 워크스테이션 및 서버에 사용할 LAPS를 가져올 수 있습니다. LAPS 및 Paw (권한 있는 액세스 워크스테이션)를 사용 하 여 환경을 운영 하는 방법에 대 한 추가 지침은 [클린 소스 원칙을 기반으로 하는 운영 표준](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle)에서 찾을 수 있습니다. 
+- 모든 컴퓨터에 고유한 로컬 관리자 암호가 있는지 확인 합니다. 자세한 내용은 [LAPS (로컬 관리자 암호 솔루션)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) 에서 각 워크스테이션에 고유한 임의의 암호를 구성 하 고 ACL로 보호 되 Active Directory에 저장할 수 있습니다. 권한 있는 적격 사용자만이 이러한 로컬 관리자 계정 암호를 읽거나 재설정을 요청할 수 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=46899)에서 워크스테이션 및 서버에 사용할 LAPS를 가져올 수 있습니다. LAPS 및 Paw (권한 있는 액세스 워크스테이션)를 사용 하 여 환경을 운영 하는 방법에 대 한 추가 지침은 [클린 소스 원칙을 기반으로 하는 운영 표준](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle)에서 찾을 수 있습니다. 
 - 조직의 정보 시스템에 대 한 권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations) 을 구현 합니다. 
 - 이러한 [추가 지침](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) 에 따라 Active Directory 환경의 공격 노출 영역을 줄입니다.
 
@@ -102,7 +102,7 @@ IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역�
 ### <a name="connectivity"></a>연결
 * Azure AD Connect 서버는 인트라넷 및 인터넷에 대해 DNS 확인을 해야 합니다. DNS 서버는 온-프레미스 Active Directory와 Azure AD 엔드포인트 모두에 대해 이름을 확인할 수 있어야 합니다.
 * 인트라넷에 방화벽이 있고 Azure AD Connect 서버와 도메인 컨트롤러 사이에서 포트를 열어야 하는 경우 자세한 내용은 [Azure AD Connect 포트](reference-connect-ports.md) 를 참조 하세요.
-* 프록시 또는 방화벽에 액세스할 수 있는 Url을 제한 하는 경우 [Office 365 url 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 에 설명 된 url을 열어야 합니다.
+* 프록시 또는 방화벽에 액세스할 수 있는 Url을 제한 하는 경우 [Office 365 url 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 에 설명 된 url을 열어야 합니다. [방화벽 또는 프록시 서버에서 Azure Portal Url Safelist](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud)도 참조 하세요.
   * 독일 또는 Microsoft Azure Government 클라우드에서 Microsoft 클라우드를 사용 하는 경우 Url에 대 한 [동기화 서비스 인스턴스 고려 사항 Azure AD Connect](reference-connect-instances.md) 을 참조 하세요.
 * Azure AD Connect(1.1.614.0 버전 이상)는 기본적으로 TLS 1.2를 사용하여 동기화 엔진과 Azure AD 간의 통신을 암호화합니다. 기본 운영 체제에서 TLS 1.2를 사용할 수 없는 경우 Azure AD Connect에 이전 프로토콜(TLS 1.1 및 TLS 1.0)이 점차적으로 다시 적용됩니다.
 * 1.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진과 Azure AD 간의 통신을 암호화합니다. TLS 1.2로 변경하려면 [Azure AD Connect에 TLS 1.2 사용](#enable-tls-12-for-azure-ad-connect)의 단계를 수행합니다.
@@ -215,8 +215,8 @@ Azure AD Connect는 Azure AD Connect가 설치 된 서버에서 다음 구성 �
 
 | Active Directory의 개체 수 | CPU | 메모리 | 하드 드라이브 크기 |
 | --- | --- | --- | --- |
-| 10,000개 미만 |1.6GHz |4GB |70GB |
-| 10,000–50,000개 |1.6GHz |4GB |70GB |
+| 10,000개 미만 |1.6GHz |4 GB |70GB |
+| 10,000–50,000개 |1.6GHz |4 GB |70GB |
 | 50,000–100,000개 |1.6GHz |16GB |100GB |
 | 10만 이상의 개체에는 SQL Server의 전체 버전이 필요 합니다. | | | |
 | 100,000–300,000개 |1.6GHz |32GB |300GB |

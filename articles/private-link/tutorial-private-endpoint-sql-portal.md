@@ -1,20 +1,20 @@
 ---
-title: 자습서 - Azure Private Endpoint를 사용하여 Azure SQL 서버에 연결
-description: 이 자습서에서는 프라이빗 엔드포인트를 사용하여 Azure SQL 서버를 만드는 방법을 알아봅니다.
+title: 자습서 - Azure Private Endpoint를 사용하여 Azure SQL 서버에 연결 - 포털
+description: 이 자습서를 통해 Azure Portal을 사용하여 프라이빗 엔드포인트가 있는 Azure SQL 서버를 만드는 방법을 알아봅니다.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: d12b377d053ac546efef05d5594568c1c1dbcd0e
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: a7eca29dc9390306ac6ad4e66eec75a25c2d33ff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344762"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522161"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint"></a>자습서 - Azure Private Endpoint를 사용하여 Azure SQL 서버에 연결
+# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>자습서 - Azure Private Endpoint를 사용하여 Azure SQL 서버에 연결 - Azure Portal
 
 Azure Private 엔드포인트는 Azure에서 Private Link를 만드는 데 사용되는 기본 구성 요소입니다. 이를 사용하면 VM(가상 머신)과 같은 Azure 리소스에서 Private Link 리소스와 비공개로 통신할 수 있습니다.
 
@@ -113,7 +113,7 @@ Azure Private 엔드포인트는 Azure에서 Private Link를 만드는 데 사�
     | 암호 | 암호를 입력합니다. |
     | 암호 확인 | 암호를 다시 입력합니다. |
 
-3. **네트워킹** 탭을 선택하거나 **다음: 디스크** , **다음: 네트워킹** 을 차례로 선택합니다.
+3. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹** 을 차례로 선택합니다.
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
@@ -182,8 +182,8 @@ Azure Private 엔드포인트는 Azure에서 Private Link를 만드는 데 사�
     | 가상 네트워크 | **myVNet** 을 선택합니다. |
     | 서브넷 | **mySubnet** 을 선택합니다. |
     | **프라이빗 DNS 통합** | |
-    | 프라이빗 DNS 영역과 통합 | **예** (기본값)를 그대로 둡니다. |
-    | 프라이빗 DNS 영역 | **(새 항목) privatelink.database.windows.net** (기본값)을 그대로 둡니다. |
+    | 프라이빗 DNS 영역과 통합 | **예**(기본값)를 그대로 둡니다. |
+    | 프라이빗 DNS 영역 | **(새 항목) privatelink.database.windows.net**(기본값)을 그대로 둡니다. |
 
 12. **확인** 을 선택합니다. 
 
@@ -224,7 +224,7 @@ Azure Private 엔드포인트는 Azure에서 Private Link를 만드는 데 사�
     SQL 서버 이름에 대해 **10.1.0.5** 의 개인 IP 주소가 반환됩니다.  이 주소는 이전에 만든 가상 네트워크의 서브넷에 있습니다.
 
 
-9. [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true)를 **myVM** 에 설치합니다.
+9. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017)를 **myVM** 에 설치합니다.
 
 10. **SQL Server Management Studio** 를 엽니다.
 

@@ -1,19 +1,19 @@
 ---
 title: CloudSimple을 사용한 Azure VMware 솔루션-Veeam을 사용 하 여 사설 클라우드의 워크 로드 가상 머신 백업
 description: Veeam B&R 9.5을 사용 하 여 Azure 기반 CloudSimple 사설 클라우드에서 실행 되는 가상 머신을 백업 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cb883b70d1ae9f2894c7679633a586586922aa18
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7be606b3e23a594e67acf3f169d88353403d8577
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92419931"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899340"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Veeam B&R을 사용 하 여 CloudSimple 사설 클라우드에서 워크 로드 Vm 백업
 
@@ -240,18 +240,18 @@ Veeam 콘솔을 사용 하 여 Veeam 백업 및 복구 소프트웨어를 구성
     * 탑재 서버 위치를 백업 서버로 설정 합니다.
     * Veeam 서버에 대 한 구성 백업 위치를 원격 리포지토리로 변경 합니다.
 
-3. **홈> 구성 백업 설정을**사용 하 여 구성 백업 암호화를 사용 하도록 설정 합니다.
+3. **홈> 구성 백업 설정을** 사용 하 여 구성 백업 암호화를 사용 하도록 설정 합니다.
 
 4. VMware 환경에 대 한 프록시 서버로 Windows server VM을 추가 합니다. 프록시에 대해 ' 트래픽 규칙 '을 사용 하 여 네트워크를 통해 백업 데이터를 암호화 합니다.
 
 5. 백업 작업을 구성 합니다.
     * 백업 작업을 구성 하려면 [백업 작업 만들기](https://www.youtube.com/watch?v=YHxcUFEss4M)의 지침을 따르세요.
-    * **고급 설정 > 저장소**에서 백업 파일의 암호화를 사용 하도록 설정 합니다.
+    * **고급 설정 > 저장소** 에서 백업 파일의 암호화를 사용 하도록 설정 합니다.
 
 6. 백업 복사 작업을 구성 합니다.
 
     * 백업 복사 작업을 구성 하려면 [백업 복사 작업 만들기](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s)비디오의 지침을 따르세요.
-    * **고급 설정 > 저장소**에서 백업 파일의 암호화를 사용 하도록 설정 합니다.
+    * **고급 설정 > 저장소** 에서 백업 파일의 암호화를 사용 하도록 설정 합니다.
 
 ### <a name="cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges"></a>CloudSimple 포털: Veeam 액세스 및 에스컬레이션 권한 설정
 Veeam 백업 및 복구 서버에 대 한 공용 IP 주소를 만듭니다. 자세한 내용은 [공용 IP 주소 할당](public-ips.md)을 참조 하세요.

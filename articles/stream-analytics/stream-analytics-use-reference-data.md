@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
-ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 12/18/2020
+ms.openlocfilehash: e7f5b3ae0a4dc7faa67a361b210b1d014e1f1b93
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129731"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722133"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
@@ -111,13 +111,13 @@ SQL Database 참조 데이터를 구성하려면 먼저 **참조 데이터** 입
 
 ## <a name="size-limitation"></a>크기 제한
 
-최상의 성능을 위해 300 MB 미만의 참조 데이터 집합을 사용 하는 것이 좋습니다. 6su 이상이 포함 된 작업에서는 300 보다 큰 참조 데이터 사용이 지원 됩니다. 이 기능은 미리 보기 상태 이며 프로덕션 환경에서 사용 하지 않아야 합니다. 매우 큰 참조 데이터를 사용 하면 작업의 성능에 영향을 줄 수 있습니다. 기간 이동 집계, temporal 조인 및 temporal 분석 함수와 같은 상태 프로세싱을 포함할 정도로 쿼리의 복잡성이 증가하면 참조 데이터의 지원되는 최대 크기는 감소하게 됩니다. Azure Stream Analytics가 참조 데이터를 로드하여 복잡한 작업을 수행할 수 없는 경우 작업에 메모리가 부족하여 실패하게 됩니다. 그러한 경우 SU % 사용률 메트릭은 100%에 도달합니다.    
+최상의 성능을 위해 300 MB 미만의 참조 데이터 집합을 사용 하는 것이 좋습니다. 5 개 이상의 SUs 이상이 포함 된 작업에서 참조 데이터 집합 5gb 또는 하한값이 지원 됩니다. 매우 큰 참조 데이터를 사용 하면 작업의 종단 간 대기 시간에 영향을 줄 수 있습니다. 기간 이동 집계, temporal 조인 및 temporal 분석 함수와 같은 상태 프로세싱을 포함할 정도로 쿼리의 복잡성이 증가하면 참조 데이터의 지원되는 최대 크기는 감소하게 됩니다. Azure Stream Analytics가 참조 데이터를 로드하여 복잡한 작업을 수행할 수 없는 경우 작업에 메모리가 부족하여 실패하게 됩니다. 그러한 경우 SU % 사용률 메트릭은 100%에 도달합니다.    
 
 |**스트리밍 단위의 수**  |**권장 크기**  |
 |---------|---------|
 |1   |50 m b 미만   |
 |3   |150 m b 미만   |
-|6 이상   |300 MB 미만. 300 MB 보다 큰 참조 데이터를 사용 하면 미리 보기에서 지원 되며 작업 성능에 영향을 줄 수 있습니다.    |
+|6 이상   |5gb이 하입니다.    |
 
 참조 데이터에는 압축이 지원되지 않습니다.
 
@@ -137,6 +137,18 @@ INTO    output
 FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
+
+## <a name="iot-edge-jobs"></a>작업 IoT Edge
+
+로컬 참조 데이터만 Stream Analytics edge 작업에 대해 지원 됩니다. 작업이 IoT Edge 디바이스에 배포되면 사용자 정의 파일 경로에서 참조 데이터를 로드합니다. 디바이스에서 참조 데이터 파일을 준비합니다. Windows 컨테이너의 경우 참조 데이터 파일을 로컬 드라이브에 저장하고 로컬 드라이브를 Docker 컨테이너와 공유합니다. Linux 컨테이너의 경우 Docker 볼륨을 만들고 데이터 파일을 볼륨에 채웁니다.
+
+IoT Edge 업데이트에 대 한 참조 데이터는 배포에 의해 트리거됩니다. 트리거된 Stream Analytics 모듈은 실행 중인 작업을 중지 하지 않고 업데이트 된 데이터를 선택 합니다.
+
+참조 데이터를 업데이트하는 두 가지 방법은 다음과 같습니다.
+
+* Azure Portal에서 Stream Analytics 작업의 참조 데이터 경로를 업데이트 합니다.
+
+* IoT Edge 배포를 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

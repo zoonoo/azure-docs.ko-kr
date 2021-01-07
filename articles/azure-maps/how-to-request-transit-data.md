@@ -1,22 +1,27 @@
 ---
-title: Microsoft Azure Maps 모바일 서비스를 사용 하 여 전송 데이터 요청
-description: Azure Maps 모바일 서비스를 사용 하 여 metro 영역 Id, 전송 중지, 경로 및 경로 여정을 같은 공용 전송 데이터를 요청 하는 방법을 알아봅니다.
+title: Microsoft Azure 지도 모바일 서비스를 사용 하 여 전송 데이터 요청 (미리 보기)
+description: Azure Maps Mobility services (미리 보기)를 사용 하 여 metro 영역 Id, 전송 중지, 경로 및 경로 여정을 같은 공용 전송 데이터를 요청 하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/22/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3f6f50d0ffeb48b5f359221992cc9a51d2ebb056
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 740080d742f535f868b2ae194b24bebe5ac6ac24
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895667"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906032"
 ---
-# <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스를 사용 하 여 공용 전송 데이터 요청
+# <a name="request-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Azure Maps 모바일 서비스를 사용 하 여 공용 전송 데이터 요청 (미리 보기) 
+
+> [!IMPORTANT]
+> Azure Maps 모바일 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 
 이 문서에서는 Azure Maps [모바일 서비스](/rest/api/maps/mobility) 를 사용 하 여 공용 전송 데이터를 요청 하는 방법을 보여 줍니다. 전송 데이터에는 전송 중지, 경로 정보 및 이동 시간 예측이 포함 됩니다.
 
@@ -331,7 +336,7 @@ Azure Maps [전송 경로 가져오기 API](/rest/api/maps/mobility/gettransitro
 
 경로 요청을 만들려면 다음 단계를 완료 합니다.
 
-1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름으로 **경로 정보를 가져옵니다** .
+1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름으로 **경로 정보를 가져옵니다**.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 API 끝점에 대 한 다음 요청 URL을 입력 하 고 **보내기** 를 클릭 합니다.
 
@@ -520,13 +525,13 @@ Azure Maps [전송 경로 가져오기 API](/rest/api/maps/mobility/gettransitro
     }
     ```
 
-4. 신중 하 게 관찰 하면 응답에 여러 개의 **버스** 경로가 있습니다. 각 경로에는 고유한 일정 **ID** , 경로의 각 다리를 설명 하는 요약 및 `itineraryFare` 버스 티켓에 대 한 항목별 및 총 가격을 모두 제공 하는가 있습니다. 경로 레그는 두 중지 waypoints 간의 경로 부분입니다. 그런 다음 응답에서를 사용 하 여 가장 빠른 경로에 대 한 세부 정보를 요청 `itineraryId` 합니다.
+4. 신중 하 게 관찰 하면 응답에 여러 개의 **버스** 경로가 있습니다. 각 경로에는 고유한 일정 **ID**, 경로의 각 다리를 설명 하는 요약 및 `itineraryFare` 버스 티켓에 대 한 항목별 및 총 가격을 모두 제공 하는가 있습니다. 경로 레그는 두 중지 waypoints 간의 경로 부분입니다. 그런 다음 응답에서를 사용 하 여 가장 빠른 경로에 대 한 세부 정보를 요청 `itineraryId` 합니다.
 
 ## <a name="request-fastest-route-itinerary"></a>가장 빠른 경로 요청 일정표
 
 Azure Maps [전송 여행 서비스 가져오기](/rest/api/maps/mobility/gettransititinerarypreview) 서비스를 사용 하면 [전송 경로 가져오기 API](/rest/api/maps/mobility/gettransitroutepreview) 서비스에서 반환 된 경로의 일정 **ID** 를 사용 하 여 특정 경로에 대 한 데이터를 요청할 수 있습니다. 요청을 수행 하려면 다음 단계를 완료 합니다.
 
-1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름으로 **전송 정보를 가져옵니다** .
+1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름으로 **전송 정보를 가져옵니다**.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택 합니다. API 끝점에 대 한 다음 요청 URL을 입력 하 고 **보내기** 를 클릭 합니다.
 
@@ -796,12 +801,12 @@ Azure Maps [전송 여행 서비스 가져오기](/rest/api/maps/mobility/gettra
 
 ## <a name="next-steps"></a>다음 단계
 
-모바일 서비스를 사용 하 여 실시간 데이터를 요청 하는 방법을 알아봅니다.
+모바일 서비스 (미리 보기)를 사용 하 여 실시간 데이터를 요청 하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [실시간 데이터를 요청 하는 방법](how-to-request-real-time-data.md)
 
-Azure Maps 모바일 서비스 API 설명서 살펴보기
+Azure Maps 모바일 서비스 (미리 보기) API 설명서 살펴보기
 
 > [!div class="nextstepaction"]
 > [모바일 서비스 설명서](/rest/api/maps/mobility)

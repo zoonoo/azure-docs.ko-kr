@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: de83be26e3cb7105303528e10fb50b7ecc438472
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447832"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992049"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 데이터 암호화
 
@@ -53,7 +53,7 @@ Azure Blob Storage에 저장된 데이터에 자체 키를 사용하는 방법�
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메트릭과 메타데이터를 저장합니다. 이 인스턴스는 Azure Machine Learning으로 관리되는 Microsoft 구독과 연결되어 있습니다. Azure Cosmos DB에 저장된 모든 데이터는 Microsoft 관리형 키를 사용하여 미사용 상태에서 암호화됩니다.
+Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메타 데이터를 저장 합니다. 이 인스턴스는 Azure Machine Learning으로 관리되는 Microsoft 구독과 연결되어 있습니다. Azure Cosmos DB에 저장된 모든 데이터는 Microsoft 관리형 키를 사용하여 미사용 상태에서 암호화됩니다.
 
 자체(고객 관리형) 키를 사용하여 Azure Cosmos DB 인스턴스를 암호화하려면 작업 영역에서 사용할 전용 Cosmos DB 인스턴스를 만들면 됩니다. 실행 기록 정보와 같은 데이터를 Microsoft 구독에서 호스트되는 다중 테넌트 Cosmos DB 인스턴스 외부에 저장하려는 경우에는 이 방법을 사용하는 것이 좋습니다. 
 
@@ -129,6 +129,12 @@ Azure Storage에 저장된 각 컴퓨팅 노드의 OS 디스크는 Azure Machine
 ### <a name="azure-databricks"></a>Azure Databricks
 
 Azure Databricks는 Azure Machine Learning 파이프라인에서 사용할 수 있습니다. 기본적으로 Azure Databricks에 사용되는 DBFS(Databricks 파일 시스템)는 Microsoft 관리형 키를 사용하여 암호화됩니다. 고객 관리형 키를 사용하도록 Azure Databricks를 구성하려면 [기본(루트) DBFS에서 고객 관리형 키 구성](/azure/databricks/security/customer-managed-keys-dbfs)을 참조하세요.
+
+### <a name="microsoft-generated-data"></a>Microsoft에서 생성된 데이터
+
+자동화된 Machine Learning과 같은 서비스를 사용하는 경우 Microsoft는 여러 모델을 학습시키기 위해 전처리된 일시적 데이터를 생성할 수 있습니다. 이런 데이터는 사용자 작업 영역의 데이터 저장소에 저장되므로 액세스 제어 및 암호화를 적절하게 적용할 수 있습니다.
+
+[배포된 엔드포인트에서 기록된 진단 정보](how-to-enable-app-insights.md)를 Azure Application Insights 인스턴스로 암호화할 수도 있습니다.
 
 ## <a name="encryption-in-transit"></a>전송 중 암호화
 

@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444506"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001884"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
@@ -128,7 +128,7 @@ Blob 버전 관리를 사용 하지 않도록 설정 해도 기존 blob, 버전 
 
 ## <a name="blob-versioning-and-soft-delete"></a>Blob 버전 관리 및 일시 삭제
 
-Blob 버전 관리 및 blob 일시 삭제는 함께 작동 하 여 최적의 데이터 보호를 제공 합니다. 일시 삭제를 사용 하도록 설정 하는 경우 일시 삭제 된 blob을 보존할 Azure Storage 기간을 지정 합니다. 일시 삭제 된 blob 버전은 시스템에 남아 있으며 일시 삭제 보존 기간 내에 삭제 취소할 수 있습니다. Blob 일시 삭제에 대 한 자세한 내용은 [Azure Storage blob에 대 한 일시 삭제](storage-blob-soft-delete.md)를 참조 하세요.
+Blob 버전 관리 및 blob 일시 삭제는 함께 작동 하 여 최적의 데이터 보호를 제공 합니다. 일시 삭제를 사용 하도록 설정 하는 경우 일시 삭제 된 blob을 보존할 Azure Storage 기간을 지정 합니다. 일시 삭제 된 blob 버전은 시스템에 남아 있으며 일시 삭제 보존 기간 내에 삭제 취소할 수 있습니다. Blob 일시 삭제에 대 한 자세한 내용은 [Azure Storage blob에 대 한 일시 삭제](./soft-delete-blob-overview.md)를 참조 하세요.
 
 ### <a name="deleting-a-blob-or-version"></a>Blob 또는 버전 삭제
 
@@ -200,7 +200,7 @@ Blob 버전에 대 한 서명 된 리소스는 `bv` 입니다. 자세한 내용�
 
 | **사용 권한** | **URI 기호** | **허용되는 작업** |
 |----------------|----------------|------------------------|
-| DELETE         | x              | Blob 버전을 삭제 합니다. |
+| 삭제         | x              | Blob 버전을 삭제 합니다. |
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -293,8 +293,8 @@ Blob 일시 삭제를 사용 하는 경우 계층을 명시적으로 설정한 �
 | Blob 일시 삭제 및 버전 관리를 모두 사용 하는 경우 | 계층에 관계 없이 모든 기존 버전은 전체 콘텐츠 길이입니다. |
 | Blob 일시 삭제를 사용 하도록 설정 했지만 버전 관리를 사용 하지 않는 경우 | 계층에 관계 없이 모든 기존 일시 삭제 스냅숏이 전체 콘텐츠 길이에 있습니다. |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 - [Blob 버전 관리 설정 및 관리](versioning-enable.md)
 - [Blob의 스냅숏 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Azure Storage Blob에 대 한 일시 삭제](storage-blob-soft-delete.md)
+- [Azure Storage Blob에 대 한 일시 삭제](./soft-delete-blob-overview.md)

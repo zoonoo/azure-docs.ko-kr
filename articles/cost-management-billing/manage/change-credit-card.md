@@ -6,21 +6,21 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/15/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
-ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: fbb69a4449c32f85cc4be438645b654608aa7489
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92131142"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026559"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Azure에 대한 신용 카드 추가 또는 업데이트
 
 이 문서는 신용 카드로 Azure 온라인에 등록한 고객에게 적용됩니다.
 
-Azure Portal에서 기본 결제 방법을 새 신용 카드로 변경하고 신용 카드 세부 정보를 업데이트할 수 있습니다. 이러한 변경을 수행하려면 [계정 관리자](../understand/subscription-transfer.md#whoisaa)여야 합니다.
+Azure Portal에서 기본 결제 방법을 새 신용 카드로 변경하고 신용 카드 세부 정보를 업데이트할 수 있습니다. 이러한 변경을 수행하려면 [계정 관리자](../understand/subscription-transfer.md#whoisaa)이거나 올바른 [MCA 권한](understand-mca-roles.md)이 있어야 합니다.
 
 신용 카드를 삭제하려면 [Azure 청구 결제 방법 삭제](delete-azure-payment-method.md)를 참조하세요.
 
@@ -82,11 +82,11 @@ Azure 구독의 기본 신용 카드를 새 신용 카드 또는 Azure Portal에
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약의 신용 카드 관리
 
-다음 섹션은 Microsoft 고객 계약을 보유하고 있고 신용 카드로 Azure 온라인에 가입한 고객에게 적용됩니다. [Microsoft 고객 계약을 보유하고 있는지 확인하는 방법을 알아보세요](#check-the-type-of-your-account).
+다음 섹션은 Microsoft 고객 계약을 보유하고 있고 신용 카드로 Azure 온라인에 가입한 고객과 올바른 [MCA 권한](understand-mca-roles.md)이 있는 고객에게 적용됩니다. [Microsoft 고객 계약을 보유하고 있는지 확인하는 방법을 알아보세요](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>기본 신용 카드 변경
 
-Microsoft 고객 계약의 경우 신용 카드가 청구 프로필과 연결됩니다. 청구 프로필의 결제 방법을 변경하려면 Azure에 가입하고 청구 계정을 만든 사람이어야 합니다.
+Microsoft 고객 계약의 경우 신용 카드가 청구 프로필과 연결됩니다. 청구 프로필의 결제 방법을 변경하려면 Azure에 가입하고 청구 계정을 만든 사람이거나 올바른 [MCA 권한](understand-mca-roles.md)이 있어야 합니다.
 
 청구 프로필의 기본 결제 방법을 수표/전신 송금으로 변경하려는 경우 [청구서로 Azure 구독 비용 지불](pay-by-invoice.md)을 참조하세요.
 

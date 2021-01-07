@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369406"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999192"
 ---
 # <a name="troubleshoot-the-process-server"></a>프로세스 서버 문제 해결
 
@@ -167,8 +167,8 @@ Microsoft Azure Recovery Services 에이전트(obengine)를 제외한 모든 서
 프로세스 서버가 데이터를 Azure로 적극적으로 푸시하는지 확인합니다.
 
   1. 프로세스 서버에서 작업 관리자를 엽니다(Ctrl+Shift+Esc 누르기).
-  2. **성능** 탭 > **리소스 모니터 열기**를 선택합니다.
-  3. **리소스 모니터** 페이지에서 **네트워크** 탭을 선택합니다. **네트워크 활동이 있는 프로세스**에서 cbengine.exe가 현재 대용량 데이터를 전송하고 있는지 확인합니다.
+  2. **성능** 탭 > **리소스 모니터 열기** 를 선택합니다.
+  3. **리소스 모니터** 페이지에서 **네트워크** 탭을 선택합니다. **네트워크 활동이 있는 프로세스** 에서 cbengine.exe가 현재 대용량 데이터를 전송하고 있는지 확인합니다.
 
        ![네트워크 활동을 사용 하는 프로세스 아래의 볼륨에 대해 많은 수를 보여 주는 스크린샷](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
@@ -176,7 +176,7 @@ Microsoft Azure Recovery Services 에이전트(obengine)를 제외한 모든 서
 
 ## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>9단계: Azure Blob Storage에 대한 프로세스 서버 연결 확인
 
-1. 리소스 모니터에서 **cbengine.exe**를 선택합니다.
+1. 리소스 모니터에서 **cbengine.exe** 를 선택합니다.
 2. **TCP 연결** 아래에서 프로세스 서버에서 Azure Storage로의 연결이 있는지 확인합니다.
 
   ![cbengine.exe와 Azure Blob storage URL 간의 연결을 보여 주는 스크린샷](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
@@ -185,7 +185,7 @@ Microsoft Azure Recovery Services 에이전트(obengine)를 제외한 모든 서
 
 프로세스 서버에서 Azure Blob Storage URL로의 연결이 없으면 서비스가 실행 중인지 확인합니다.
 
-1. 제어판에서 **서비스**를 선택합니다.
+1. 제어판에서 **서비스** 를 선택합니다.
 2. 다음 서비스가 실행 중인지 확인합니다.
 
     - cxprocessserver
@@ -199,8 +199,8 @@ Microsoft Azure Recovery Services 에이전트(obengine)를 제외한 모든 서
 
 ## <a name="step-10-check-the-process-server-connection-to-azure-public-ip-address"></a>10단계: Azure 공용 IP 주소에 대한 프로세스 서버 연결 확인
 
-1. 프로세스 서버의 **%programfiles%\Microsoft Azure Recovery Services Agent\Temp**에서 최신 CBEngineCurr.errlog 파일을 엽니다.
-2. 파일에서 **443** 또는 문자열 **connection attempt failed**를 검색합니다.
+1. 프로세스 서버의 **%programfiles%\Microsoft Azure Recovery Services Agent\Temp** 에서 최신 CBEngineCurr.errlog 파일을 엽니다.
+2. 파일에서 **443** 또는 문자열 **connection attempt failed** 를 검색합니다.
 
   ![임시 폴더의 오류 로그](./media/vmware-physical-azure-troubleshoot-process-server/logdetails1.png)
 
@@ -230,12 +230,12 @@ Microsoft Azure Recovery Services 에이전트(obengine)를 제외한 모든 서
 
 ## <a name="step-12-verify-process-server-proxy-settings"></a>12단계: 프로세스 서버 프록시 설정 확인 
 
-1. 프록시 서버를 사용하는 경우 DNS 서버에서 프록시 서버 이름을 확인하는지 확인합니다. 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**에서 구성 서버를 설정할 때 제공한 값을 확인합니다.
+1. 프록시 서버를 사용하는 경우 DNS 서버에서 프록시 서버 이름을 확인하는지 확인합니다. 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings** 에서 구성 서버를 설정할 때 제공한 값을 확인합니다.
 2. Azure Site Recovery 에이전트에서 데이터를 보내는 데 동일한 설정을 사용하는지 확인합니다.
 
-    a) **Microsoft Azure Backup**을 검색합니다.
+    a) **Microsoft Azure Backup** 을 검색합니다.
 
-    b) **Microsoft Azure Backup**을 열고 **작업** > **속성 변경**을 선택합니다.
+    b) **Microsoft Azure Backup** 을 열고 **작업** > **속성 변경** 을 선택합니다.
 
     c) **프록시 구성** 탭에서 프록시 주소는 레지스트리 설정에 표시된 프록시 주소와 동일해야 합니다. 그렇지 않은 경우 동일한 주소로 변경하세요.
 

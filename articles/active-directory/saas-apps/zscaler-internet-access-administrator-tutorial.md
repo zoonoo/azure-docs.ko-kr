@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cb3417cf765cd703d72d4a2db7a649400ab2d4de
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d74057e32b6f16bdb6dae3d96ac46c5cc93571aa
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896789"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>자습서: Zscaler Internet Access Administrator와 Azure Active Directory 통합
 
@@ -134,7 +134,7 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
 
     | Name  | 원본 특성  |
     | ---------| ------------ |
-    | 역할     | user.assignedroles |
+    | 역할 | user.assignedroles |
 
     a. **새 클레임 추가** 를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
@@ -191,7 +191,7 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 

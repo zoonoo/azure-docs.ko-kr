@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 3fc7fd1f3f7615c0622b684e3da4020c7da601f5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0e2a67141970d1f5091457066db9b18a00ffecf8
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322872"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486163"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Machine Learning Studio (클래식) 작업 영역 만들기 및 공유
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:** ![ 이는이 문서가 Machine Learning Studio (클래식)에 적용 됨을 의미 하는 확인 표시입니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 이것 ![ 은 X 이므로이 문서는 Azure Machine Learning에 적용 됩니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Azure Machine Learning Studio (클래식)을 사용 하려면 Machine Learning Studio (클래식) 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
-ms.openlocfilehash: d2a2230613f9e4be3e0c9359a082843a4701b6f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49a9c6663f0505d5104f54630b6925af98ec243f
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77657914"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318078"
 ---
 # <a name="azure-monitor-service-limits"></a>Azure Monitor 서비스 제한
 
@@ -25,6 +25,14 @@ ms.locfileid: "77657914"
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
 
+## <a name="autoscale"></a>자동 크기 조정
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-autoscale.md)]
+
+
+## <a name="data-collection-rules"></a>데이터 수집 규칙
+
+[!INCLUDE [data-collection-rules](../../includes/azure-monitor-limits-data-collection-rules.md)]
 ## <a name="log-queries-and-language"></a>로그 쿼리 및 언어
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]

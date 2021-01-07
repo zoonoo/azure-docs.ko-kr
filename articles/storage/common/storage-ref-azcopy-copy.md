@@ -4,16 +4,16 @@ description: 이 문서에서는 azcopy copy 명령에 대 한 참조 정보를 
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781739"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356177"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -59,7 +59,7 @@ Windows에서는 레지스트리에서 MIME 형식이 추출 됩니다. 플래�
 azcopy copy [source] [destination] [flags]
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 OAuth 인증을 사용 하 여 단일 파일을 업로드 합니다. AzCopy에 아직 로그인 하지 않은 경우 `azcopy login` 다음 명령을 실행 하기 전에 명령을 실행 합니다.
 
@@ -107,6 +107,14 @@ SAS 토큰 및 와일드 카드 (*) 문자를 사용 하 여 파일 및 디렉�
 ```azcopy
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
+
+파일 및 디렉터리를 Azure Storage 계정에 업로드 하 고 blob에 쿼리 문자열 인코딩된 태그를 설정 합니다. 
+
+- {Key = "bla", val = "foo"} 및 {key = "bla bla 2", val = "bar"} 태그를 설정 하려면 다음 구문을 사용 합니다. `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+    
+- 키와 값은 URL로 인코딩되고 키-값 쌍은 앰퍼샌드 (' & ')로 구분 됩니다.
+
+- Blob에서 태그를 설정 하는 동안 서비스에서 권한 부여 오류를 다시 제공할 필요 없이 SAS에 추가 권한 (태그의 경우 ' ')이 있습니다.
 
 OAuth 인증을 사용 하 여 단일 파일을 다운로드 합니다. AzCopy에 아직 로그인 하지 않은 경우 `azcopy login` 다음 명령을 실행 하기 전에 명령을 실행 합니다.
 
@@ -214,9 +222,19 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
+파일 및 디렉터리를 Azure Storage 계정으로 전송 하 고 blob에서 지정 된 쿼리 문자열 인코딩된 태그를 설정 합니다. 
+
+- {Key = "bla", val = "foo"} 및 {key = "bla bla 2", val = "bar"} 태그를 설정 하려면 다음 구문을 사용 합니다. `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+        
+- 키와 값은 URL로 인코딩되고 키-값 쌍은 앰퍼샌드 (' & ')로 구분 됩니다.
+    
+- Blob에서 태그를 설정 하는 동안 서비스에서 권한 부여 오류를 다시 제공할 필요 없이 SAS에 추가 권한 (태그의 경우 ' ')이 있습니다.
+
 ## <a name="options"></a>옵션
 
 **--백업** 파일 시스템 사용 권한에 관계 없이 AzCopy가 모든 파일을 보고 읽고 모든 사용 권한을 복원 하도록 Windows ' SeBackupPrivilege to 업로드가 나 SeRestorePrivilege for 다운로드를 활성화 합니다. AzCopy를 실행 하는 계정에는이 권한이 이미 있어야 합니다. 예를 들어 관리자 권한이 있거나 그룹의 멤버 여야 `Backup Operators` 합니다. 이 플래그는 계정에 이미 있는 권한을 활성화 합니다.
+
+**--blob 태그** 문자열 blob의 태그를 설정 하 여 저장소 계정에서 데이터를 분류 합니다.
 
 **--blob 형식** 문자열은 대상에서 blob의 유형을 정의 합니다. 이는 blob을 업로드 하 고 계정 간에 복사할 때 사용 됩니다 (기본값 `Detect` ). 유효한 값은 `Detect`, `BlockBlob`, `PageBlob`및 `AppendBlob`입니다. 계정 간에 복사 하는 경우 값이 이면 `Detect` AzCopy에서 원본 blob의 유형을 사용 하 여 대상 blob의 유형을 결정 합니다. 파일을 업로드할 때는 파일이 `Detect` 파일 확장명을 기반으로 하는 VHD 또는 VHDX 파일 인지 여부를 확인 합니다. 파일이 VHD 또는 VHDX 파일 에테르 스코프 경우 AzCopy는 해당 파일을 페이지 blob으로 처리 합니다. (기본 "검색")
 
@@ -258,13 +276,15 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
 
 **--include-after** 문자열에는 지정 된 날짜/시간 이후에 수정 된 파일만 포함 됩니다. 값은 ISO8601 형식 이어야 합니다. 표준 시간대가 지정 되지 않은 경우이 값은 AzCopy를 실행 하는 컴퓨터의 로컬 표준 시간대에 있는 것으로 간주 됩니다. 예를 들어 `2020-08-19T15:04:00Z` UTC 시간 또는 `2020-08-19` 현지 표준 시간대의 자정 (00:00)에 대 한입니다. AzCopy 10.5에서와 같이이 플래그는 폴더가 아닌 파일에만 적용 되므로 또는와 함께이 플래그를 사용 하는 경우 폴더 속성이 복사 되지 않습니다 `--preserve-smb-info` `--preserve-smb-permissions` .
 
+ **--include-before** 문자열에는 지정 된 날짜/시간 이전에 수정 된 파일만 포함 됩니다. 값은 ISO8601 형식 이어야 합니다. 표준 시간대가 지정 되지 않은 경우이 값은 AzCopy를 실행 하는 컴퓨터의 로컬 표준 시간대에 있는 것으로 간주 됩니다. 예를 들어 `2020-08-19T15:04:00Z` UTC 시간 또는 `2020-08-19` 현지 표준 시간대의 자정 (00:00)에 대 한입니다. AzCopy 10.7부터이 플래그는 폴더가 아닌 파일에만 적용 되므로 또는와 함께이 플래그를 사용 하는 경우 폴더 속성이 복사 되지 않습니다 `--preserve-smb-info` `--preserve-smb-permissions` .
+
 **--include** 특성 문자열 (Windows에만 해당)은 특성 목록과 일치 하는 특성을 가진 파일을 포함 합니다. 예: A; 삭제 &
 
 **--include-path** 문자열은 복사할 때 이러한 경로만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예:)를 확인 `myFolder;myFolder/subDirName/file.pdf` 합니다.
 
 **--include-패턴** 문자열은 복사할 때 이러한 파일만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 합니다. 를 사용 하 여 파일을 구분 `;` 합니다.
 
-**--버전 목록** 문자열은 각 버전 id가 별도의 줄에 나열 되는 파일을 지정 합니다. 원본이 단일 blob을 가리켜야 하며이 플래그를 사용 하 여 파일에 지정 된 모든 버전 id가 원본 blob에만 속해야 합니다. AzCopy는 제공 된 대상 폴더에 지정 된 버전을 다운로드 합니다. 자세한 내용은 [이전 버전의 Blob 다운로드](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob)를 참조 하세요.
+**--버전 목록** 문자열은 각 버전 ID가 별도의 줄에 나열 되는 파일을 지정 합니다. 원본이 단일 blob을 가리켜야 하며이 플래그를 사용 하 여 파일에 지정 된 모든 버전 Id가 원본 blob에만 속해야 합니다. AzCopy는 제공 된 대상 폴더에 지정 된 버전을 다운로드 합니다. 자세한 내용은 [이전 버전의 Blob 다운로드](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob)를 참조 하세요.
 
 **--로그 수준** 문자열은 로그 파일에 대 한 로그의 자세한 정도, 사용 가능한 수준: 정보 (모든 요청/응답), 경고 (저속 응답), 오류 (실패 한 요청만) 및 없음 (출력 로그 없음)을 정의 합니다. (기본값 `INFO` ). 
 

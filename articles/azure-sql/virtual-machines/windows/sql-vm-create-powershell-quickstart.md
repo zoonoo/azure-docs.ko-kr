@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
@@ -13,12 +14,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fcb6d4da3d9b044cf722c6333f61a0f8d38f1956
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 350df1aede076120fd14dc46da351835c894c5b4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91598004"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356840"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Windows 가상 머신에서 SQL Server 만들기
 
@@ -150,9 +151,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="register-with-sql-vm-rp"></a>SQL VM RP에 등록 
 
-포털 통합 및 SQL VM 기능을 가져오려면 [SQL VM 리소스 공급자](sql-vm-resource-provider-register.md)에 등록해야 합니다.
+포털 통합 및 SQL VM 기능을 가져오려면 [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)에 등록해야 합니다.
 
-전체 기능을 사용하려면 전체 모드에서 리소스 공급자에 등록해야 합니다. 그러나 이렇게 하면 SQL Server 서비스가 다시 시작되므로 경량 모드로 등록한 다음, 유지 관리 기간 동안 전체로 업그레이드하는 것이 좋습니다. 
+전체 기능을 사용하려면 전체 모드에서 확장에 등록해야 합니다. 그러나 이렇게 하면 SQL Server 서비스가 다시 시작되므로 경량 모드로 등록한 다음, 유지 관리 기간 동안 전체로 업그레이드하는 것이 좋습니다. 
 
 먼저 SQL Server VM을 경량 모드로 등록합니다. 
 
@@ -171,7 +172,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 # Get the existing Compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
       
-# Register with SQL VM resource provider in full mode
+# Register with SQL IaaS Agent extension in full mode
 Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
 ```
 
@@ -185,7 +186,7 @@ Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManag
    Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. 반환된 IP 주소를 명령줄 매개 변수로서 **mstsc**에 전달하여 원격 데스크톱 세션을 새 VM에서 시작합니다.
+1. 반환된 IP 주소를 명령줄 매개 변수로서 **mstsc** 에 전달하여 원격 데스크톱 세션을 새 VM에서 시작합니다.
 
    ```
    mstsc /v:<publicIpAddress>
@@ -195,9 +196,9 @@ Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManag
 
 ## <a name="connect-to-sql-server"></a>SQL Server에 연결
 
-1. 원격 데스크톱 세션에 로그인한 다음, 시작 메뉴에서 **SQL Server Management Studio 2017**을 시작합니다.
+1. 원격 데스크톱 세션에 로그인한 다음, 시작 메뉴에서 **SQL Server Management Studio 2017** 을 시작합니다.
 
-1. **서버에 연결** 대화 상자에서 기본값을 유지합니다. 서버 이름은 VM 이름입니다. 인증은 **Windows 인증**으로 설정됩니다. **연결**을 선택합니다.
+1. **서버에 연결** 대화 상자에서 기본값을 유지합니다. 서버 이름은 VM 이름입니다. 인증은 **Windows 인증** 으로 설정됩니다. **연결** 을 선택합니다.
 
 이제 SQL Server에 로컬로 연결됩니다. 원격으로 연결하려면 Azure Portal에서 또는 수동으로 [연결을 구성](ways-to-connect-to-sql.md)해야 합니다.
 

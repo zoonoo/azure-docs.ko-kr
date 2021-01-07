@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: d3a30d13aeef2ffd8e03a5a5d7ddf8b58a336ee5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4b257196a26c72737504fc8bdb5e5a9ab8663590
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348324"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95995712"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Azure에서 IPv6 이중 스택 응용 프로그램 배포-PowerShell
 
@@ -152,7 +152,7 @@ $lb = New-AzLoadBalancer `
 -FrontendIpConfiguration $frontendIPv4,$frontendIPv6 `
 -BackendAddressPool $backendPoolv4,$backendPoolv6 `
 -LoadBalancingRule $lbrule_v4,$lbrule_v6 `
--probe $probe
+-Probe $probe
 ```
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
@@ -206,7 +206,7 @@ $rule2 = New-AzNetworkSecurityRuleConfig `
   -Direction Inbound `
   -Priority 200 `
   -SourceAddressPrefix * `
-  -SourcePortRange 80 `
+  -SourcePortRange * `
   -DestinationAddressPrefix * `
   -DestinationPortRange 80
 ```
@@ -229,14 +229,14 @@ $nsg = New-AzNetworkSecurityGroup `
 # Create dual stack subnet
 $subnet = New-AzVirtualNetworkSubnetConfig `
 -Name "dsSubnet" `
--AddressPrefix "10.0.0.0/24","ace:cab:deca:deed::/64"
+-AddressPrefix "10.0.0.0/24","fd00:db8:deca:deed::/64"
 
 # Create the virtual network
 $vnet = New-AzVirtualNetwork `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
   -Name "dsVnet" `
-  -AddressPrefix "10.0.0.0/16","ace:cab:deca::/48"  `
+  -AddressPrefix "10.0.0.0/16","fd00:db8:deca::/48"  `
   -Subnet $subnet
 ```
 

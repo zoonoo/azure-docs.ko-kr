@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4e87e99f16a89cab95f9bd07b75b80f1c13d47f1
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783796"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900657"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -61,22 +61,25 @@ Storage 탐색기를 통해 Azure 리소스에 연결 하는 데 필요한 정�
 Blob 컨테이너 또는 큐에 액세스 하려는 경우 Azure 자격 증명을 사용 하 여 해당 리소스에 연결할 수 있습니다.
 
 1. 연결 대화 상자를 엽니다.
-2. "Azure Active Directory via 리소스 추가 (Azure AD)를 선택 합니다. 다음을 클릭합니다.
-3. 연결 하려는 리소스와 연결 된 사용자 계정 및 테 넌 트를 선택 합니다. 다음을 클릭합니다.
-4. 리소스 종류를 선택 하 고 리소스에 대 한 URL을 입력 한 다음 연결에 대 한 고유한 표시 이름을 입력 합니다. 다음을 클릭합니다. 연결을 클릭합니다.
+2. "Azure Active Directory를 통해 리소스 추가 (Azure AD)"를 선택 합니다. 다음을 선택합니다.
+3. 연결 하려는 리소스와 연결 된 사용자 계정 및 테 넌 트를 선택 합니다. 다음을 선택합니다.
+4. 리소스 종류를 선택 하 고 리소스에 대 한 URL을 입력 한 다음 연결에 대 한 고유한 표시 이름을 입력 합니다. 다음, 연결을 차례로 선택 합니다.
 
 다른 리소스 종류의 경우 현재 Azure RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
 
 ### <a name="recommended-azure-built-in-roles"></a>권장 되는 Azure 기본 제공 역할
 
 Storage 탐색기를 사용 하는 데 필요한 권한을 제공할 수 있는 몇 가지 Azure 기본 제공 역할이 있습니다. 이러한 역할 중 일부는 다음과 같습니다.
-- [Owner](../../role-based-access-control/built-in-roles.md#owner): 리소스에 대 한 액세스를 포함 하 여 모든 것을 관리 합니다. **참고** :이 역할은 키 액세스를 제공 합니다.
-- [참가자](../../role-based-access-control/built-in-roles.md#contributor): 리소스에 대 한 액세스를 제외한 모든 항목을 관리 합니다. **참고** :이 역할은 키 액세스를 제공 합니다.
-- [Reader](../../role-based-access-control/built-in-roles.md#reader): 리소스를 읽고 나열 합니다.
-- [Storage 계정 참가자](../../role-based-access-control/built-in-roles.md#storage-account-contributor): 저장소 계정에 대 한 전체 관리 **참고** :이 역할은 키 액세스를 제공 합니다.
-- [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Azure Storage Blob 컨테이너 및 데이터에 대 한 모든 권한입니다.
-- [저장소 Blob 데이터 참여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): 컨테이너 및 blob Azure Storage 읽기, 쓰기 및 삭제
-- [저장소 Blob 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): 컨테이너 및 blob Azure Storage 읽고 나열 합니다.
+- [Owner](/azure/role-based-access-control/built-in-roles#owner): 리소스에 대 한 액세스를 포함 하 여 모든 것을 관리 합니다.
+- [참가자](/azure/role-based-access-control/built-in-roles#contributor): 리소스에 대 한 액세스를 제외한 모든 항목을 관리 합니다.
+- [Reader](/azure/role-based-access-control/built-in-roles#reader): 리소스를 읽고 나열 합니다.
+- [Storage 계정 참가자](/azure/role-based-access-control/built-in-roles#storage-account-contributor): 저장소 계정에 대 한 전체 관리
+- [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Azure Storage Blob 컨테이너 및 데이터에 대 한 모든 권한입니다.
+- [저장소 Blob 데이터 참여자](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): 컨테이너 및 blob Azure Storage 읽기, 쓰기 및 삭제
+- [저장소 Blob 데이터 판독기](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): 컨테이너 및 blob Azure Storage 읽고 나열 합니다.
+
+> [!NOTE]
+> 소유자, 참가자 및 저장소 계정 기여자 역할은 계정 키 액세스를 부여 합니다.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>오류: 인증서 체인의 자체 서명 된 인증서 (및 유사한 오류)
 
@@ -88,7 +91,7 @@ Storage 탐색기를 사용 하는 데 필요한 권한을 제공할 수 있는 
 Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증서가 표시 되 면 수신 된 HTTPS 메시지의 변경 여부를 더 이상 알 수 없습니다. 자체 서명 된 인증서의 복사본이 있는 경우 다음 단계에 따라 해당 인증서를 신뢰 하도록 Storage 탐색기에 지시할 수 있습니다.
 
 1. Base-64 인코딩된 x.509 (.cer) 인증서 복사본을 가져옵니다.
-2. **Edit**  >  **SSL 인증서** 편집  >  **인증서 가져오기** 로 이동한 다음 파일 선택기를 사용 하 여 .cer 파일을 찾고 선택 하 고 엽니다.
+2.   >  **SSL 인증서** 편집  >  **인증서 가져오기** 로 이동한 다음 파일 선택기를 사용 하 여 .cer 파일을 찾고 선택 하 고 엽니다.
 
 여러 인증서 (루트 및 중간)가 있는 경우에도이 문제가 발생할 수 있습니다. 이 오류를 해결 하려면 두 인증서를 모두 추가 해야 합니다.
 
@@ -100,10 +103,10 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 2. OpenSSL를 실행 합니다.
     * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl.exe** 를 두 번 클릭 합니다.
     * Mac 및 Linux: `openssl` 터미널에서를 실행 합니다.
-3. `s_client -showcerts -connect microsoft.com:443`를 실행합니다.
+3. `s_client -showcerts -connect microsoft.com:443`을 실행합니다.
 4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 모를 경우 주제와 발급자의 모든 위치를 기록해 둡니다 `("s:")` `("i:")` .
 5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해를 복사 하 여에 포함 된 모든 항목을 `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` 새 .cer 파일에 붙여넣습니다.
-6. Storage 탐색기를 열고 **Edit**  >  **SSL 인증서** 편집  >  **인증서 가져오기** 로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
+6. Storage 탐색기를 열고   >  **SSL 인증서** 편집  >  **인증서 가져오기** 로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
 
 이러한 단계를 수행 하 여 자체 서명 된 인증서를 찾을 수 없는 경우 피드백 도구를 통해 microsoft에 문의 하세요. 플래그를 사용 하 여 명령줄에서 Storage 탐색기를 열 수도 있습니다 `--ignore-certificate-errors` . 이 플래그를 사용 하 여 열면 Storage 탐색기 인증서 오류가 무시 됩니다.
 
@@ -187,46 +190,62 @@ UI를 통해 연결 된 계정 또는 저장소 리소스를 제거할 수 없�
 
 ## <a name="proxy-issues"></a>프록시 문제
 
-먼저 입력 한 다음 정보가 정확한 지 확인 합니다.
+Storage 탐색기는 프록시 서버를 통해 Azure Storage 리소스에 대 한 연결을 지원 합니다. 프록시를 통해 Azure에 연결 하는 데 문제가 발생 하는 경우 몇 가지 제안 사항이 있습니다.
 
-* 프록시 URL 및 포트 번호
-* 프록시에 필요한 경우 사용자 이름 및 암호
+> [!NOTE]
+> Storage 탐색기는 프록시 서버에 대 한 기본 인증만 지원 합니다. NTLM과 같은 다른 인증 방법은 지원 되지 않습니다.
 
 > [!NOTE]
 > Storage 탐색기에서 프록시 설정을 구성 하는 데 프록시 자동 구성 파일을 지원 하지 않습니다.
 
-### <a name="common-solutions"></a>일반적인 솔루션
+### <a name="verify-storage-explorer-proxy-settings"></a>Storage 탐색기 프록시 설정 확인
+
+**응용 프로그램 → 프록시 → 프록시 구성** 설정에 따라 프록시 구성을 가져오는 원본 Storage 탐색기 결정 됩니다.
+
+"환경 변수 사용"을 선택 하는 경우 또는 환경 변수를 설정 해야 합니다 `HTTPS_PROXY` `HTTP_PROXY` . 환경 변수는 대/소문자를 구분 하므로 올바른 변수를 설정 해야 합니다. 이러한 변수가 정의 되어 있지 않거나 잘못 된 경우 Storage 탐색기 프록시를 사용 하지 않습니다. 환경 변수를 수정한 후 Storage 탐색기를 다시 시작 합니다.
+
+"앱 프록시 설정 사용"을 선택 하는 경우 앱 내 프록시 설정이 올바른지 확인 하세요.
+
+### <a name="steps-for-diagnosing-issues"></a>문제를 진단 하는 단계
 
 여전히 문제가 발생 하는 경우 다음과 같은 문제 해결 방법을 시도해 보세요.
 
-* 프록시를 사용 하지 않고 인터넷에 연결할 수 있는 경우 프록시 설정을 사용 하지 않고 Storage 탐색기 작동 하는지 확인 합니다. 이 경우 프록시 설정에 문제가 있을 수 있습니다. 문제를 식별 하려면 관리자에 게 문의 하세요.
-* 프록시 서버를 사용 하는 다른 응용 프로그램이 예상 대로 작동 하는지 확인 합니다.
-* 사용 하려는 Azure 환경의 포털에 연결할 수 있는지 확인 합니다.
-* 서비스 엔드포인트에서 응답을 수신할 수 있는지 확인합니다. 엔드포인트 URL 중 하나를 브라우저에 입력합니다. 연결할 수 있는 경우 InvalidQueryParameterValue 또는 유사한 XML 응답을 받아야 합니다.
-* 다른 사용자가 Storage Explorer와 프록시 서버를 함께 사용하고 있는 경우 연결할 수 있는지 확인합니다. 가능 하면 프록시 서버 관리자에 게 문의 해야 할 수 있습니다.
+1. 프록시를 사용 하지 않고 인터넷에 연결할 수 있는 경우 프록시 설정을 사용 하지 않고 Storage 탐색기 작동 하는지 확인 합니다. Storage 탐색기 성공적으로 연결 되 면 프록시 서버에 문제가 있을 수 있습니다. 문제를 식별 하려면 관리자에 게 문의 하세요.
+2. 프록시 서버를 사용 하는 다른 응용 프로그램이 예상 대로 작동 하는지 확인 합니다.
+3. 사용 하려는 Azure 환경의 포털에 연결할 수 있는지 확인 합니다.
+4. 서비스 엔드포인트에서 응답을 수신할 수 있는지 확인합니다. 엔드포인트 URL 중 하나를 브라우저에 입력합니다. 연결할 수 있는 경우 `InvalidQueryParameterValue` 또는 유사한 XML 응답을 받게 됩니다.
+5. 동일한 프록시 서버에서 Storage 탐색기를 사용 하는 다른 사용자가 연결할 수 있는지 확인 합니다. 가능 하면 프록시 서버 관리자에 게 문의 해야 할 수 있습니다.
 
 ### <a name="tools-for-diagnosing-issues"></a>문제를 진단하기 위한 도구
 
-Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같이 문제를 진단할 수 있습니다.
+Fiddler와 같은 네트워킹 도구는 문제를 진단 하는 데 도움이 될 수 있습니다.
 
-* 프록시를 통해 작업해야 하는 경우 프록시를 통해 연결하도록 네트워킹 도구를 구성해야 할 수 있습니다.
-* 네트워킹 도구에서 사용하는 포트 번호를 확인합니다.
-* Storage Explorer에 로컬 호스트 URL과 네트워킹 도구의 포트 번호를 프록시 설정으로 입력합니다. 이 작업을 올바르게 수행 하는 경우 네트워킹 도구는 Storage 탐색기에서 만든 네트워크 요청을 관리 및 서비스 끝점에 기록 하기 시작 합니다. 예를 들어 `https://cawablobgrs.blob.core.windows.net/` 브라우저에서 blob 끝점에 대해를 입력 하면 다음과 유사한 응답이 수신 됩니다.
+1. 로컬 호스트에서 실행 되는 프록시 서버로 네트워킹 도구를 구성 합니다. 실제 프록시 뒤에서 작업을 계속 해야 하는 경우 프록시를 통해 연결 하도록 네트워킹 도구를 구성 해야 할 수 있습니다.
+2. 네트워킹 도구에서 사용하는 포트 번호를 확인합니다.
+3. 로컬 호스트 및 네트워킹 도구의 포트 번호 (예: "localhost: 8888")를 사용 하도록 프록시 설정을 Storage 탐색기 구성 합니다.
+ 
+올바르게 설정 된 경우 네트워킹 도구는 Storage 탐색기에서 만든 네트워크 요청을 관리 및 서비스 끝점에 기록 합니다.
+ 
+네트워킹 도구가 Storage 탐색기 트래픽을 로깅하는 것 같지 않은 경우 다른 응용 프로그램을 사용 하 여 도구를 테스트 해 보세요. 예를 들어 웹 브라우저에서 저장소 리소스 중 하나 (예:)에 대 한 끝점 URL을 입력 `https://contoso.blob.core.windows.net/` 하면 다음과 유사한 응답이 수신 됩니다.
 
   ![코드 샘플](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-  이 응답은 리소스에 액세스할 수 없는 경우에도 존재 하는 것으로 제안 합니다.
+  응답에는 액세스할 수 없는 경우에도 리소스가 있음을 알 수 있습니다.
+
+네트워킹 도구에 다른 응용 프로그램의 트래픽만 표시 되는 경우 Storage 탐색기에서 프록시 설정을 조정 해야 할 수 있습니다. 그렇지 않으면 도구 설정을 조정 해야 합니다.
 
 ### <a name="contact-proxy-server-admin"></a>프록시 서버 관리자 문의
 
 프록시 설정이 올바르면 프록시 서버 관리자에 게 다음을 문의 해야 할 수 있습니다.
 
 * 프록시가 Azure 관리 또는 리소스 끝점에 대 한 트래픽을 차단 하지 않는지 확인 합니다.
-* 프록시 서버에서 사용하는 인증 프로토콜을 확인합니다. Storage 탐색기는 현재 NTLM 프록시를 지원 하지 않습니다.
+* 프록시 서버에서 사용하는 인증 프로토콜을 확인합니다. Storage 탐색기는 기본 인증 프로토콜만 지원 합니다. Storage 탐색기는 NTLM 프록시를 지원 하지 않습니다.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>"하위 항목을 검색할 수 없음" 오류 메시지
 
-프록시를 통해 Azure에 연결 하는 경우 프록시 설정이 올바른지 확인 합니다. 구독 또는 계정의 소유자에 게 서 리소스에 대 한 액세스 권한이 부여 된 경우 해당 리소스에 대 한 읽기 또는 목록 권한이 있는지 확인 합니다.
+프록시를 통해 Azure에 연결 하는 경우 프록시 설정이 올바른지 확인 합니다.
+
+구독 또는 계정의 소유자에 게 리소스에 대 한 액세스 권한이 부여 된 경우 해당 리소스에 대 한 읽기 또는 목록 권한이 있는지 확인 합니다.
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>연결 문자열에 전체 구성 설정이 없습니다.
 

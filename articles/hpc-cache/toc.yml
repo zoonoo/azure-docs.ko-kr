@@ -8,6 +8,10 @@
   items:
     - name: 집계형 네임스페이스 계획
       href: hpc-cache-namespace.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 사전 요구 사항
@@ -38,8 +42,14 @@
       href: hpc-cache-mount.md
     - name: 캐시 관리
       href: hpc-cache-manage.md
-    - name: 옵션 설정 구성
-      href: configuration.md
+    - name: 선택적 설정 사용
+      items:
+        - name: 옵션 설정 구성
+          href: configuration.md
+        - name: 액세스 정책 사용자 지정
+          href: access-policies.md
+        - name: 디렉터리 서비스 설정
+          href: directory-services.md
 - name: 참조
   items:
     - name: Azure CLI

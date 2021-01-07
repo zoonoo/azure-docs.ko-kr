@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2e01721b4b414455b47a394087192696e1ecb025
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892737"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574159"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>자습서: 개발 환경에서 Azure Machine Learning 시작(1/4부)
 
@@ -52,7 +52,10 @@ ms.locfileid: "92892737"
 pip install azureml-sdk
 ```
 
-## <a name="create-a-directory-structure-for-code"></a>코드에 대한 디렉터리 구조 만들기
+> [!div class="nextstepaction"]
+> [SDK를 설치했습니다.](?success=install-sdk#dir) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
+
+## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>코드에 대한 디렉터리 구조 만들기
 이 자습서에서는 다음과 같은 간단한 디렉터리를 설정하는 것이 좋습니다.
 
 ```markdown
@@ -63,7 +66,11 @@ tutorial
 - `tutorial`: 프로젝트의 최상위 디렉터리
 - `.azureml`: Azure Machine Learning 구성 파일을 저장하기 위한 숨겨진 하위 디렉터리입니다.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 만들기
+
+> [!div class="nextstepaction"]
+> [디렉터리를 만들었습니다.](?success=create-dir#workspace) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=create-dir)
+
+## <a name="create-an-azure-machine-learning-workspace"></a><a name="workspace"></a>Azure Machine Learning 작업 영역 만들기
 
 작업 영역은 Azure Machine Learning에 대한 최상위 리소스이며, 다음을 수행할 수 있는 중앙 위치입니다.
 
@@ -119,7 +126,10 @@ tutorial
 >
 > Azure Machine Learning 작업 영역과 상호 작용하려면 인증도 필요합니다.
 
-## <a name="create-an-azure-machine-learning-compute-cluster"></a>Azure Machine Learning 컴퓨팅 클러스터 만들기
+> [!div class="nextstepaction"]
+> [작업 영역을 만들었습니다.](?success=create-workspace#cluster) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="create-an-azure-machine-learning-compute-cluster"></a><a name="cluster"></a> Azure Machine Learning 컴퓨팅 클러스터 만들기
 
 `02-create-compute.py`라는 Python 스크립트를 `tutorial` 최상위 디렉터리에 만듭니다. 다음 코드로 채워 0~4개의 노드 사이에서 자동으로 크기 조정되는 Azure Machine Learning 컴퓨팅 클러스터를 만듭니다.
 
@@ -140,7 +150,9 @@ try:
     print('Found existing cluster, use it.')
 except ComputeTargetException:
     compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                           idle_seconds_before_scaledown=2400)
+                                                           idle_seconds_before_scaledown=2400,
+                                                           min_nodes=0,
+                                                           max_nodes=4)
     cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
 
 cpu_cluster.wait_for_completion(show_output=True)
@@ -165,6 +177,9 @@ tutorial
 └──01-create-workspace.py
 └──02-create-compute.py
 ```
+
+> [!div class="nextstepaction"]
+> [컴퓨팅 클러스터를 만들었습니다.](?success=create-compute-cluster#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="next-steps"></a>다음 단계
 

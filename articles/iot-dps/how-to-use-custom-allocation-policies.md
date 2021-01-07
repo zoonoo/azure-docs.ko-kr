@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 48b8737fc37a183405f42b958e38c328a2ce7cb8
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 26615b82bb9dcbc1247bec9b7a06b579dfa1eb2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739592"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571643"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
@@ -25,14 +25,14 @@ ms.locfileid: "92739592"
 
 이 문서에서는 C#으로 작성된 Azure 함수를 사용하는 사용자 지정 할당 정책에 대해 설명합니다. *Contoso Toasters Division* 및 *Contoso Heat Pumps Division* 을 나타내는 두 개의 새로운 IoT Hub가 생성됩니다. 프로비저닝을 요청하는 디바이스에는 프로비저닝을 위해 허용되는 다음 접미사 중 하나가 포함된 등록 ID가 있어야 합니다.
 
-* **-contoso-tstrsd-007** : Contoso Toasters Division
-* **-contoso-hpsd-088** : Contoso Heat Pumps Division
+* **-contoso-tstrsd-007**: Contoso Toasters Division
+* **-contoso-hpsd-088**: Contoso Heat Pumps Division
 
 디바이스는 등록 ID에 있는 이러한 필수 접미사 중 하나를 기반으로 프로비전됩니다. 이러한 디바이스는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)에 포함된 프로비저닝 샘플을 사용하여 시뮬레이트됩니다.
 
 이 문서에서는 다음 단계를 수행 합니다.
 
-* Azure CLI를 사용하여 두 개의 Contoso 부서 IoT Hub( **Contoso Toasters Division** 및 **Contoso Heat Pumps Division** ) 만들기
+* Azure CLI를 사용하여 두 개의 Contoso 부서 IoT Hub(**Contoso Toasters Division** 및 **Contoso Heat Pumps Division**) 만들기
 * 사용자 지정 할당 정책에 Azure 함수를 사용하여 새 그룹 등록 만들기
 * 두 개의 디바이스 시뮬레이션을 위한 디바이스 키 만들기
 * Azure IoT C SDK에 대한 개발 환경 준비
@@ -44,11 +44,11 @@ ms.locfileid: "92739592"
 
 다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
-* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+- ['C++를 사용한 데스크톱 개발'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
 
-* 최신 버전의 [Git](https://git-scm.com/download/) 설치
+- 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>프로 비전 서비스 및 두 개의 디비전 IoT hub 만들기
 
@@ -106,15 +106,15 @@ ms.locfileid: "92739592"
 
 3. **함수 앱** 만들기 페이지의 **기본** 탭에서 새 함수 앱에 대해 다음 설정을 입력하고 **검토 + 만들기** 를 선택합니다.
 
-    **리소스 그룹** :이 문서에서 만든 모든 리소스를 함께 유지 하려면 **contoso-미국-리소스 그룹** 을 선택 합니다.
+    **리소스 그룹**:이 문서에서 만든 모든 리소스를 함께 유지 하려면 **contoso-미국-리소스 그룹** 을 선택 합니다.
 
-    **함수 앱 이름** : 고유한 함수 앱 이름을 입력합니다. 이 예제에서는 **contoso-1098-** 를 사용 합니다.
+    **함수 앱 이름**: 고유한 함수 앱 이름을 입력합니다. 이 예제에서는 **contoso-1098-** 를 사용 합니다.
 
-    **게시** : **코드** 가 선택되어 있는지 확인합니다.
+    **게시**: **코드** 가 선택되어 있는지 확인합니다.
 
-    **런타임 스택** : 드롭다운에서 **.NET Core** 를 선택합니다.
+    **런타임 스택**: 드롭다운에서 **.NET Core** 를 선택합니다.
 
-    **지역** : 리소스 그룹과 동일한 지역을 선택합니다. 이 예제에서는 **미국 서부** 를 사용합니다.
+    **지역**: 리소스 그룹과 동일한 지역을 선택합니다. 이 예제에서는 **미국 서부** 를 사용합니다.
 
     > [!NOTE]
     > 기본적으로 Application Insights를 사용하도록 설정되어 있습니다. 이 문서에서는 Application Insights가 필요하지 않지만 사용자 지정 할당을 통해 발생하는 문제를 이해하고 조사하는 데 도움이 될 수 있습니다. 원하는 경우 **모니터링** 탭을 선택한 다음, **Application Insights 사용** 에 **아니오** 를 선택하여 Application Insights를 사용하지 않도록 설정할 수 있습니다.
@@ -133,7 +133,7 @@ ms.locfileid: "92739592"
 
 7. 다음 페이지에서 **함수 만들기** 단계에 대해 웹 후크 **+ API** 타일을 선택 하 고 **만들기** 를 선택 합니다. **HttpTrigger1** 라는 함수가 만들어지고, 포털에는 **실행. csx** 코드 파일의 내용이 표시 됩니다.
 
-8. 필요한 Nuget 패키지를 참조 합니다. 초기 장치 쌍을 만들기 위해 사용자 지정 할당 함수는 호스팅 환경에 로드 되어야 하는 두 개의 Nuget 패키지에 정의 된 클래스를 사용 합니다. Azure Functions를 사용 하 여 Nuget 패키지는 *함수. 호스트* 파일을 사용 하 여 참조 됩니다. 이 단계에서는 *함수. 호스트* 파일을 저장 하 고 업로드 합니다.
+8. 필요한 NuGet 패키지를 참조 합니다. 초기 장치 쌍을 만들기 위해 사용자 지정 할당 함수는 호스팅 환경에 로드 되어야 하는 두 개의 NuGet 패키지에 정의 된 클래스를 사용 합니다. Azure Functions를 사용 하 여 NuGet 패키지는 *함수. 호스트* 파일을 사용 하 여 참조 됩니다. 이 단계에서는 *함수. 호스트* 파일을 저장 하 고 업로드 합니다.
 
     1. 다음 줄을 원하는 편집기에 복사 하 고 컴퓨터의 파일을 *함수. 호스트로* 저장 합니다.
 
@@ -306,13 +306,13 @@ ms.locfileid: "92739592"
 
 3. **등록 그룹 추가** 에서 다음 정보를 입력 하 고 **저장** 단추를 선택 합니다.
 
-    **그룹 이름** : **contoso-custom-allocated-devices** 를 입력합니다.
+    **그룹 이름**: **contoso-custom-allocated-devices** 를 입력합니다.
 
-    **증명 형식** : **대칭 키** 를 선택합니다.
+    **증명 형식**: **대칭 키** 를 선택합니다.
 
-    **키 자동 생성** : 이 확인란은 이미 선택되어 있습니다.
+    **키 자동 생성**: 이 확인란은 이미 선택되어 있습니다.
 
-    **허브에 디바이스를 할당할 방법 선택** : **사용자 지정(Azure 함수 사용)** 을 선택합니다.
+    **허브에 디바이스를 할당할 방법 선택**: **사용자 지정(Azure 함수 사용)** 을 선택합니다.
 
     ![대칭 키 증명에 대한 사용자 지정 할당 등록 그룹 추가](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -320,11 +320,11 @@ ms.locfileid: "92739592"
 
     디비전 IoT 허브 모두에 대해이 단계를 실행 합니다.
 
-    **구독** : 여러 구독이 있는 경우 부서 IoT Hub를 만든 구독을 선택합니다.
+    **구독**: 여러 구독이 있는 경우 부서 IoT Hub를 만든 구독을 선택합니다.
 
-    **IoT Hub** : 직접 만든 부서 허브 중 하나를 선택합니다.
+    **IoT Hub**: 직접 만든 부서 허브 중 하나를 선택합니다.
 
-    **액세스 정책** : **iothubowner** 를 선택합니다.
+    **액세스 정책**: **iothubowner** 를 선택합니다.
 
     ![부서 IoT Hub를 Provisioning Service와 연결합니다.](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
@@ -437,7 +437,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    `cmake`에서 C++ 컴파일러를 찾을 수 없으면 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 명령을 실행합니다.
+    `cmake`에서 C++ 컴파일러를 찾을 수 없으면 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](/dotnet/framework/tools/developer-command-prompt-for-vs)에서 명령을 실행합니다.
 
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
 
@@ -591,4 +591,4 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 ## <a name="next-steps"></a>다음 단계
 
 * 다시 프로 비전에 대 한 자세한 내용은 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md) 을 참조 하세요. 
-* 프로 비전 해제에 대 한 자세한 내용은 [이전에 autoprovisioned 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 을 참조 하세요. 
+* 프로 비전 해제에 대 한 자세한 내용은 [이전에 autoprovisioned 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 을 참조 하세요.

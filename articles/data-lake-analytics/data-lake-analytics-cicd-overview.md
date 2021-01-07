@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219329"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015267"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대해 CI/CD 파이프라인을 설정하는 방법  
 
@@ -47,7 +47,7 @@ U-SQL 프로젝트용 빌드 작업을 설정하기 전에 최신 버전의 U-SQ
 
 MSBuild는 U-SQL 프로젝트를 기본적으로 지원하지 않습니다. 이 지원을 추가하려면 필요한 언어 서비스를 추가하는 [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) NuGet 패키지에 솔루션에 대한 참조를 추가해야 합니다.
 
-NuGet 패키지 참조를 추가하려면 Visual Studio 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다. 또는 솔루션 폴더에 `packages.config`라는 파일을 추가하고 다음 콘텐츠를 추가할 수 있습니다.
+NuGet 패키지 참조를 추가하려면 Visual Studio 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리** 를 선택합니다. 또는 솔루션 폴더에 `packages.config`라는 파일을 추가하고 다음 콘텐츠를 추가할 수 있습니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -85,7 +85,7 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 - **DataRoot=\<DataRoot path>**. DataRoot는 SyntaxCheck 모드에만 필요합니다. SyntaxCheck 모드를 사용하여 스크립트를 빌드하는 경우 MSBuild는 스크립트에서 데이터베이스 개체에 대한 참조를 확인합니다. 빌드하기 전에 빌드 머신의 DataRoot 폴더에서 U-SQL 데이터베이스의 참조된 개체를 포함하는 일치하는 로컬 환경을 설정합니다. [U-SQL 데이터베이스 프로젝트를 참조](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project)하여 이러한 데이터베이스 종속성을 관리할 수도 있습니다. MSBuild는 파일이 아닌 데이터베이스 개체 참조만 확인합니다.
 
-- **EnableDeployment=true** 또는 **false**. EnableDeployment는 빌드 프로세스 동안 참조된 U-SQL 데이터베이스를 배포하도록 허용되는지를 나타냅니다. U-SQL 데이터베이스 프로젝트를 참조하고 U-SQL 스크립트에서 데이터베이스 개체를 사용하는 경우 이 매개 변수를 **true**로 설정합니다.
+- **EnableDeployment=true** 또는 **false**. EnableDeployment는 빌드 프로세스 동안 참조된 U-SQL 데이터베이스를 배포하도록 허용되는지를 나타냅니다. U-SQL 데이터베이스 프로젝트를 참조하고 U-SQL 스크립트에서 데이터베이스 개체를 사용하는 경우 이 매개 변수를 **true** 로 설정합니다.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Azure Pipelines를 통한 연속 통합
 
@@ -93,7 +93,7 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 ![U-SQL 프로젝트에 대한 MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. **Advanced**  >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급**대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
+1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. **Advanced**  >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급 **대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
 
    ![U-SQL 프로젝트에 대한 NuGet 복원 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -126,7 +126,7 @@ Azure Data Lake는 U-SQL 스크립트 및 C# UDO/UDAG/UDF에 대한 테스트 �
 
 ### <a name="submit-u-sql-jobs-through-azure-pipelines"></a>Azure Pipelines를 통해 U-SQL 작업 제출
 
-U-SQL 프로젝트의 빌드 출력은 **USQLProjectName.usqlpack**이라는 zip 파일입니다. zip 파일에는 프로젝트의 모든 U-SQL 스크립트가 포함되어 있습니다. Pipelines에서 다음 샘플 PowerShell 스크립트와 함께 [Azure PowerShell 작업](/azure/devops/pipelines/tasks/deploy/azure-powershell)을 사용하여 Azure Pipelines에서 직접 U-SQL 작업을 제출할 수 있습니다.
+U-SQL 프로젝트의 빌드 출력은 **USQLProjectName.usqlpack** 이라는 zip 파일입니다. zip 파일에는 프로젝트의 모든 U-SQL 스크립트가 포함되어 있습니다. Pipelines에서 다음 샘플 PowerShell 스크립트와 함께 [Azure PowerShell 작업](/azure/devops/pipelines/tasks/deploy/azure-powershell)을 사용하여 Azure Pipelines에서 직접 U-SQL 작업을 제출할 수 있습니다.
 
 ```powershell
 <#
@@ -307,7 +307,7 @@ Azure Data Lake Tools for Visual Studio는 U-SQL 데이터베이스 프로젝트
 
 MSBuild는 U-SQL 데이터베이스 프로젝트를 기본적으로 지원하지 않습니다. 이 기능을 추가하려면 필요한 언어 서비스를 추가하는 [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) NuGet 패키지에 솔루션에 대한 참조를 추가해야 합니다.
 
-NuGet 패키지 참조를 추가하려면 Visual Studio 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭합니다. **NuGet 패키지 관리**를 선택합니다. 그런 다음, NuGet 패키지를 검색하고 설치합니다. 또는 솔루션 폴더에 **packages.config**라는 파일을 추가하고 다음 콘텐츠를 추가할 수 있습니다.
+NuGet 패키지 참조를 추가하려면 Visual Studio 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭합니다. **NuGet 패키지 관리** 를 선택합니다. 그런 다음, NuGet 패키지를 검색하고 설치합니다. 또는 솔루션 폴더에 **packages.config** 라는 파일을 추가하고 다음 콘텐츠를 추가할 수 있습니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -332,7 +332,7 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
 
    ![U-SQL 프로젝트에 대한 CI/CD MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. **Advanced**  >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급**대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
+1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. **Advanced**  >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급 **대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
 
    ![U-SQL 프로젝트를 위한 CI/CD NuGet 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -360,7 +360,7 @@ U-SQL 데이터베이스 프로젝트에 대한 빌드 출력은 접미사 `.usq
 
 ## <a name="deploy-u-sql-database-through-azure-pipelines"></a>Azure Pipelines를 통해 U-SQL 데이터베이스 배포
 
-`PackageDeploymentTool.exe`는 U-SQL 데이터베이스 배포 패키지 **.usqldbpack**를 배포하는 데 도움이 되는 프로그래밍 및 명령줄 인터페이스를 제공합니다. SDK는 **build/runtime/PackageDeploymentTool.exe**에 있는 [U-SQL SDK NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)에 포함되어 있습니다. `PackageDeploymentTool.exe`를 사용하여 Azure Data Lake Analytics와 로컬 계정 둘 다에 U-SQL 데이터베이스를 배포할 수 있습니다.
+`PackageDeploymentTool.exe`는 U-SQL 데이터베이스 배포 패키지 **.usqldbpack** 를 배포하는 데 도움이 되는 프로그래밍 및 명령줄 인터페이스를 제공합니다. SDK는 **build/runtime/PackageDeploymentTool.exe** 에 있는 [U-SQL SDK NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)에 포함되어 있습니다. `PackageDeploymentTool.exe`를 사용하여 Azure Data Lake Analytics와 로컬 계정 둘 다에 U-SQL 데이터베이스를 배포할 수 있습니다.
 
 > [!NOTE]
 >
@@ -430,7 +430,7 @@ Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음
    copy USQLSDK\build\runtime\*.* $DBDeploymentTool
    ```
 
-2. 빌드 또는 릴리스 파이프라인에 **명령줄 작업**을 추가하고, `PackageDeploymentTool.exe`를 호출하여 스크립트를 채웁니다. `PackageDeploymentTool.exe`는 정의된 **$DBDeploymentTool** 폴더에 있습니다. 샘플 스크립트는 다음과 같습니다. 
+2. 빌드 또는 릴리스 파이프라인에 **명령줄 작업** 을 추가하고, `PackageDeploymentTool.exe`를 호출하여 스크립트를 채웁니다. `PackageDeploymentTool.exe`는 정의된 **$DBDeploymentTool** 폴더에 있습니다. 샘플 스크립트는 다음과 같습니다. 
 
    - 로컬로 U-SQL 데이터베이스를 배포합니다.
 

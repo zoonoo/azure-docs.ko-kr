@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션 배포 또는 프로 비전 실패에 대 한 지원
 description: Azure vmware 솔루션 사설 클라우드에서 정보를 가져와 Azure VMware 솔루션 배포 또는 프로 비전 실패에 대 한 서비스 요청을 파일 합니다.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 6d609774b0d3a2de7809d04e4fa0c4e3e6593590
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 10/28/2020
+ms.openlocfilehash: 27b645f4ca225fdd74bca6499b6581b3803e41a4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349123"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542408"
 ---
 # <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Azure VMware 솔루션 배포 또는 프로 비전 실패에 대 한 지원 요청 열기
 

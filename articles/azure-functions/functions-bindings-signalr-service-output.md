@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 159df4c228f74bb605c745e899d99bfff2aa511b
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323331"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763288"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Azure Functions에 대 한 SignalR 서비스 출력 바인딩
 
@@ -116,7 +116,7 @@ module.exports = async function (context, req) {
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -126,9 +126,9 @@ module.exports = async function (context, req) {
 다음은 Python 코드입니다.
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         'target': 'newMessage',
         'arguments': [ message ]
     }))
@@ -248,7 +248,7 @@ module.exports = async function (context, req) {
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -258,9 +258,9 @@ module.exports = async function (context, req) {
 다음은 Python 코드입니다.
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this user ID
         'userId': 'userId1',
         'target': 'newMessage',
@@ -383,7 +383,7 @@ module.exports = async function (context, req) {
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -393,9 +393,9 @@ module.exports = async function (context, req) {
 다음은 Python 코드입니다.
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this group
         'groupName': 'myGroup',
         'target': 'newMessage',
@@ -722,7 +722,7 @@ public SignalRGroupAction removeFromGroup(
 
 ---
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
@@ -734,7 +734,7 @@ public SignalRGroupAction removeFromGroup(
 |**direction**| 해당 없음 | `in`로 설정해야 합니다.|
 |**name**| 해당 없음 | 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**hubName**|**HubName**| 이 값은 연결 정보가 생성되는 SignalR 허브의 이름으로 설정되어야 합니다.|
-|**Id**|**Id**| 선택 사항: 액세스 키 토큰에서 설정될 사용자 식별자 클레임의 값입니다. |
+|**Id**|**UserId**| 선택 사항: 액세스 키 토큰에서 설정될 사용자 식별자 클레임의 값입니다. |
 |**connectionStringSetting**|**ConnectionStringSetting**| SignalR Service 연결 문자열("AzureSignalRConnectionString"에 대한 기본값)을 포함하는 앱 설정의 이름 |
 
 ### <a name="signalr"></a>SignalR
@@ -753,4 +753,5 @@ public SignalRGroupAction removeFromGroup(
 
 ## <a name="next-steps"></a>다음 단계
 
+- [SignalR Service의 메시지 처리 (트리거 바인딩)](./functions-bindings-signalr-service-trigger.md)
 - [서비스 끝점 URL 및 액세스 토큰 반환 (입력 바인딩)](./functions-bindings-signalr-service-input.md)

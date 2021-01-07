@@ -12,18 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 3f13d997f73e9737b8770eec7e0742d50bf1abb8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932416"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421705"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
+
+## <a name="november-2020"></a>2020년 11월
+
+* [스냅샷 되돌리기](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+
+    스냅샷 되돌리기 기능을 사용하면 볼륨을 특정 스냅샷을 만들 때의 상태로 신속하게 되돌릴 수 있습니다. 대부분의 경우 볼륨을 되돌리는 것이 스냅샷에서 활성 파일 시스템으로 개별 파일을 복원하는 것보다 훨씬 빠릅니다. 또한 스냅샷을 새 볼륨으로 복원하는 것에 비해 공간 효율성이 더 높습니다.
 
 ## <a name="september-2020"></a>2020년 9월
 

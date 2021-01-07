@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: c333b95ed762c905511ab1d4a84050d50f0e023c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 66b10efb6ca93bc6b4dd67d700daaf1f9049de68
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371327"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183433"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Azure Monitor에 사용 현황 데이터, 메트릭 및 로그 업로드
 
@@ -63,7 +63,7 @@ az provider register -n Microsoft.AzureData --wait
 다음 명령을 수행 하 여 메트릭 업로드 서비스 주체를 만듭니다.
 
 > [!NOTE]
-> 서비스 주체를 만들려면 [Azure에서 특정 권한이](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app)필요 합니다.
+> 서비스 주체를 만들려면 [Azure에서 특정 권한이](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)필요 합니다.
 
 서비스 주체를 만들려면 다음 예제를 업데이트 합니다. 를 `<ServicePrincipalName>` 서비스 사용자의 이름으로 바꾸고 명령을 실행 합니다.
 

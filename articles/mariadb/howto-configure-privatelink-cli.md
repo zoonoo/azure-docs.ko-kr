@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c7f95b2009521b054958be48e444a129b0a59ed3
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 7ba8a5ded1d83ffdf153724c5e76b27e10bccfcb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242894"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015471"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>CLI를 사용 하 여 Azure Database for MariaDB에 대 한 개인 링크 만들기 및 관리
 
@@ -21,15 +21,15 @@ ms.locfileid: "93242894"
 > [!NOTE]
 > 개인 링크 기능은 범용 또는 메모리 액세스에 최적화 된 가격 책정 계층의 Azure Database for MariaDB 서버에만 사용할 수 있습니다. 데이터베이스 서버가 이러한 가격 책정 계층 중 하나에 있는지 확인 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>필수 조건
 
-- [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-cli.md)입니다.
+- [Azure Database for MariaDB 서버가](quickstart-create-mariadb-server-database-using-azure-cli.md)필요 합니다. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-대신 Azure CLI를 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.28 이상을 사용해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -137,7 +137,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결** 이 열립니다.
 
-1. **RDP 파일 다운로드** 를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp* ) 파일을 만들고, 컴퓨터에 다운로드합니다.
+1. **RDP 파일 다운로드** 를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
 1. *downloaded.rdp* 파일을 엽니다.
 
@@ -176,7 +176,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
     | 설정 | 값 |
     | ------- | ----- |
     | 연결 이름| 원하는 연결 이름을 선택 합니다.|
-    | 호스트 이름 | *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |
+    | Hostname | *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |
     | 사용자 이름 | *username@servername* MariaDB 서버 생성 중에 제공 되는 사용자 이름을 입력 합니다. |
     | 암호 | MariaDB 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     ||

@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: f00a935815b64f7c2c06dd33130c1a950582e5c3
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e188c00840a4d043e94f94f9db565e2d4e06aaba
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743491"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031065"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
-이 자습서에서는 Java 웹 애플리케이션을 Microsoft ID 플랫폼에 통합하는 방법을 알아봅니다. 개발자의 앱은 사용자를 로그인하고, Microsoft Graph API를 호출하기 위한 액세스 토큰을 가져오고, Microsoft Graph API를 요청합니다.
+이 빠른 시작에서는 애플리케이션이 사용자를 로그인하고 Microsoft Graph API를 호출할 수 있는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 모든 Azure AD(Azure Active Directory) 조직의 사용자는 애플리케이션에 로그인할 수 있습니다.
 
-이 빠른 시작을 완료했으면 애플리케이션에서 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 또는 학교 계정뿐만 아니라 개인 Microsoft 계정(outlook.com, live.com 등)의 로그인을 수락하게 됩니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
+ 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "91743491"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
 > 1. [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs) 빠른 시작 환경으로 이동합니다.
-> 1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 포털의 빠른 시작 환경에 있는 지침에 따라 자동으로 구성된 애플리케이션 코드를 다운로드합니다.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
@@ -47,25 +47,22 @@ ms.locfileid: "91743491"
 >
 > 애플리케이션을 등록하고 앱의 등록 정보를 애플리케이션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-> 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
->
-> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-> 1. **새 등록**을 선택합니다.
-> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
->    - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `java-webapp`)을 입력합니다.
->    - **등록**을 선택합니다.
-> 1. **개요** 페이지에서 애플리케이션의 **애플리케이션(클라이언트) ID**와 **디렉터리(테넌트) ID** 값을 찾습니다. 나중에 사용할 수 있도록 이러한 값을 복사합니다.
-> 1. 메뉴에서 **인증**을 선택한 후 다음 정보를 추가합니다.
->    - **웹** 플랫폼 구성을 추가합니다.  이러한 `https://localhost:8443/msal4jsample/secure/aad` 및 `https://localhost:8443/msal4jsample/graph/me`를 **리디렉션 URI**로 추가합니다.
->    - **저장**을 선택합니다.
-> 1. 메뉴에서 **인증서 및 암호**를 선택하고 **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 클릭합니다.
->
->    - 키 설명(인스턴스 앱 비밀)을 입력합니다.
->    - **1년 후**에 키 기간을 선택합니다.
->    - **추가**를 선택하면 키 값이 표시됩니다.
->    - 나중에 사용할 수 있도록 키 값을 복사합니다. 이 키 값은 다시 표시되지 않으며 다른 어떤 방법으로도 검색할 수 없으므로, Azure Portal에 표시되는 즉시 기록해 두어야 합니다.
->
+> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. **Azure Active Directory** 를 검색하고 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+> 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `java-webapp`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+> 1. **등록** 을 선택합니다.
+> 1. **개요** 페이지에서 나중에 사용할 수 있도록 **애플리케이션(클라이언트) ID** 와 **디렉터리(테넌트) ID** 를 기록해 둡니다.
+> 1. **관리** 에서 **인증** 을 선택합니다.
+> 1. **플랫폼 추가** > **웹** 을 선택합니다.
+> 1. **리디렉션 URI** 섹션에서 `https://localhost:8443/msal4jsample/secure/aad`를 추가합니다.
+> 1. **구성** 을 선택합니다.
+> 1. **웹** 섹션에서 `https://localhost:8443/msal4jsample/graph/me`를 두 번째 **리디렉션 URI** 로 추가합니다.
+> 1. **관리** 에서 **인증서 및 비밀** 을 선택합니다. **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 선택합니다.
+> 1. 키 설명(예: 앱 비밀)을 입력하고, 기본 만료를 그대로 유지하고, **추가** 를 선택합니다.
+> 1. 나중에 사용하기 위해 **클라이언트 암호** 의 **값** 을 확인합니다.
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
 >
@@ -99,7 +96,7 @@ ms.locfileid: "91743491"
 >   ```
 >   생성된 키 저장소 파일을 "resources" 폴더에 배치합니다.
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -110,7 +107,7 @@ ms.locfileid: "91743491"
 > #### <a name="step-3-configure-the-code-sample"></a>3단계: 코드 샘플 구성
 > 1. zip 파일을 로컬 폴더에 추출합니다.
 > 1. 통합 개발 환경을 사용하는 경우 원하는 IDE에서 샘플을 엽니다(선택 사항).
-> 1. src/main/resources/ 폴더에 있는 application.properties 파일을 열고 *aad.clientId*, *aad.authority* 및 *aad.secretKey* 필드의 값을 다음과 같이 **애플리케이션 ID**, **테넌트 ID** 및 **클라이언트 암호**의 해당 값으로 바꿉니다.
+> 1. src/main/resources/ 폴더에 있는 application.properties 파일을 열고 *aad.clientId*, *aad.authority* 및 *aad.secretKey* 필드의 값을 다음과 같이 **애플리케이션 ID**, **테넌트 ID** 및 **클라이언트 암호** 의 해당 값으로 바꿉니다.
 >
 >    ```file
 >    aad.clientId=Enter_the_Application_Id_here
@@ -123,7 +120,7 @@ ms.locfileid: "91743491"
 > 위치:
 >
 > - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
-> - `Enter_the_Client_Secret_Here` - 등록한 애플리케이션의 **인증서 및 비밀**에서 만든 **클라이언트 비밀**입니다.
+> - `Enter_the_Client_Secret_Here` - 등록한 애플리케이션의 **인증서 및 비밀** 에서 만든 **클라이언트 비밀** 입니다.
 > - `Enter_the_Tenant_Info_Here` - 등록한 애플리케이션의 **디렉터리(테넌트 ) ID** 값입니다.
 > 1. Localhost와 함께 https를 사용하려면 server.ssl.key 속성을 입력합니다. 자체 서명된 인증서를 생성하려면 JRE에 포함된 keytool 유틸리티를 사용합니다.
 >
@@ -150,7 +147,7 @@ ms.locfileid: "91743491"
 
 ##### <a name="running-from-ide"></a>IDE에서 실행
 
-IDE에서 웹 애플리케이션을 실행하는 경우 실행을 클릭한 다음, 프로젝트의 홈페이지로 이동합니다. 이 샘플의 경우 표준 홈 페이지 URL이 https://localhost:8443 입니다.
+IDE에서 웹 애플리케이션을 실행하는 경우 실행을 선택한 다음, 프로젝트의 홈페이지로 이동합니다. 이 샘플의 경우 표준 홈 페이지 URL은 https://localhost:8443 입니다.
 
 1. 전면 페이지에서 **로그인** 단추를 선택하여 Azure Active Directory으로 리디렉션하고 사용자에게 자격 증명을 입력하라는 메시지를 표시합니다.
 

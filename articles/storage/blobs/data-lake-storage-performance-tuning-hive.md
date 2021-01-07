@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: fb908fe94f940073753ea8e1cde3da2b2a0c4b6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b1e5dd3c72122ade2fd4d4092bb18a7acf215f5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034773"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912946"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: Hive, HDInsight & Azure Data Lake Storage Gen2
 
@@ -22,9 +22,9 @@ ms.locfileid: "88034773"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md) 를 참조 하세요.
-* Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에서 Azure Data Lake Storage Gen2 사용을](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) 참조 하세요.
-* **HDInsight에서 Hive 실행**.  HDInsight에서 Hive 작업 실행에 대한 자세한 내용은 [HDInsight의 Hive 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)을 참조하세요.
+* **Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](../common/storage-account-create.md) 를 참조 하세요.
+* Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에서 Azure Data Lake Storage Gen2 사용을](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) 참조 하세요.
+* **HDInsight에서 Hive 실행**.  HDInsight에서 Hive 작업 실행에 대한 자세한 내용은 [HDInsight의 Hive 사용](../../hdinsight/hadoop/hdinsight-use-hive.md)을 참조하세요.
 * **Data Lake Storage Gen2에 대한 성능 튜닝 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen2 성능 조정 지침](data-lake-storage-performance-tuning-guidance.md) 을 참조 하세요.
 
 ## <a name="parameters"></a>매개 변수
@@ -51,7 +51,7 @@ ms.locfileid: "88034773"
 
 **hive.exec.reducer.bytes.per.reducer 설정** – 데이터가 압축되지 않은 경우 기본 값이 제대로 작동합니다.  압축된 데이터의 경우 리듀서의 크기를 줄여야 합니다.  
 
-**Set hive.tez.container.size** – 각 노드에서 메모리는 yarn.nodemanager.resource.memory-mb에 의해 지정되고 기본적으로 HDI 클러스터에서 제대로 설정해야 합니다.  YARN에서 적절한 메모리 설정에 대한 추가 정보는 이 [게시물](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom)을 참조하세요.
+**Set hive.tez.container.size** – 각 노드에서 메모리는 yarn.nodemanager.resource.memory-mb에 의해 지정되고 기본적으로 HDI 클러스터에서 제대로 설정해야 합니다.  YARN에서 적절한 메모리 설정에 대한 추가 정보는 이 [게시물](../../hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom.md)을 참조하세요.
 
 I/O 집약적인 워크로드의 경우 Tez 컨테이너 크기를 줄여 더 많은 병렬 처리의 이점을 얻을 수 있습니다. 이렇게 하면 사용자에게 더 많은 컨테이너가 제공되어 동시성이 증가합니다.  하지만 일부 Hive 쿼리에는 상당한 양의 메모리가 필요합니다(예: MapJoin).  태스크에 충분한 메모리가 없는 경우 런타임 중에 메모리 부족 예외가 발생합니다.  메모리 부족 예외가 발생하면 메모리를 늘려야 합니다.   
 
@@ -73,6 +73,6 @@ Data Lake Storage Gen2를 사용하여 성능을 향상시키는 핵심 요소�
 ## <a name="further-information-on-hive-tuning"></a>Hive 조정에 대한 추가 정보
 
 Hive 쿼리를 조정하는 데 도움이 되는 몇 가지 블로그는 다음과 같습니다.
-* [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Azure HDInsight에서 Apache Hive 쿼리를 최적화](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query)
+* [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
+* [Azure HDInsight에서 Apache Hive 쿼리를 최적화](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
 * [HDInsight에서 Hive 최적화에 대한 논의](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

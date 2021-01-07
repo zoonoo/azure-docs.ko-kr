@@ -3,12 +3,12 @@ title: 자습서 - 다중 컨테이너 그룹 배포 - YAML
 description: 이 자습서에서는 Azure CLI에서 YAML 파일을 사용하여 Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 8f1f13d4fa7e32b76988cdf356d5d1bb0528f824
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6f9dda7735587dfee1dde86c85375efcf057daa7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091296"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605164"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>자습서: YAML 파일을 사용하여 다중 컨테이너 그룹 배포
 
@@ -178,7 +178,6 @@ Connection: keep-alive
 [Resource Manager 템플릿](container-instances-multi-container-group.md)을 사용하여 다중 컨테이너 그룹을 지정할 수도 있습니다. 컨테이너 그룹을 사용하여 추가 Azure 서비스 리소스를 배포해야 하는 경우 시나리오에 맞게 Resource Manager 템플릿을 쉽게 조정할 수 있습니다.
 
 <!-- LINKS - External -->
-
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 069c8a8e2a595248afe45bbb90de877b3b6fc87d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc05e83ac6c7f0f7c5e9a571c1fa7397af858f44
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849347"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180101"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cisco Webex 구성
 
@@ -45,7 +45,7 @@ Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Cisco W
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Cisco W
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에서 **Cisco Webex**를 입력하고, 결과 패널에서 **Cisco Webex**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에서 **Cisco Webex** 를 입력하고, 결과 패널에서 **Cisco Webex** 를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Cisco Webex](common/search-new-app.png)
 
@@ -77,11 +77,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-cisco-webex-in-azure-ad"></a>Azure AD에서 Cisco Webex에 대한 자동 사용자 프로비저닝을 구성하려면
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Cisco Webex**를 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Cisco Webex** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Cisco Webex**를 선택합니다.
+2. 애플리케이션 목록에서 **Cisco Webex** 를 선택합니다.
 
     ![애플리케이션 목록의 Cisco Webex 링크](common/all-applications.png)
 
@@ -89,25 +89,25 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     :::image type="content" source="common/provisioning.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    :::image type="content" source="common/provisioning-automatic.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
+    :::image type="content" source="common/provisioning-automatic.png" alt-text="자동 강조 표시된 프로비저닝 모드 목록 상자의 스크린샷." border="false":::
 
-5. **관리자 자격 증명** 섹션 아래에서 Cisco Webex 계정의 **테넌트 URL** 및 **비밀 토큰**을 입력합니다.
+5. **관리자 자격 증명** 섹션 아래에서 Cisco Webex 계정의 **테넌트 URL** 및 **비밀 토큰** 을 입력합니다.
 
-    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/secrettoken1.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/secrettoken1.png" alt-text="관리자 자격 증명 섹션의 스크린샷. 테넌트 URL 및 비밀 토큰 상자가 강조 표시되지만 비어 있습니다." border="false":::
 
-6.  **테넌트 URL** 필드에 `https://api.ciscospark.com/v1/scim/[OrgId]` 형식으로 값을 입력합니다. `[OrgId]`를 얻으려면 [Cisco Webex 컨트롤 허브](https://admin.webex.com/login)에 로그인합니다. 왼쪽 아래에서 조직 이름을 클릭하고 **조직 ID**의 값을 복사합니다. 
+6.  **테넌트 URL** 필드에 `https://api.ciscospark.com/v1/scim/[OrgId]` 형식으로 값을 입력합니다. `[OrgId]`를 얻으려면 [Cisco Webex 컨트롤 허브](https://admin.webex.com/login)에 로그인합니다. 왼쪽 아래에서 조직 이름을 클릭하고 **조직 ID** 의 값을 복사합니다. 
 
-    * **비밀 토큰**의 값을 얻으려면 이 [URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fauth%252Fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose)로 이동합니다. 표시되는 webex 로그인 페이지에서 조직의 전체 Cisco Webex 관리자 계정으로 로그인합니다. 사이트에 연결할 수 없다는 오류 페이지가 표시되지만, 이는 정상적인 동작입니다.
+    * **비밀 토큰** 의 값을 얻으려면 이 [URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%2f%2flocalhost%253A3000%2fauth%2fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose)로 이동합니다. 표시되는 webex 로그인 페이지에서 조직의 전체 Cisco Webex 관리자 계정으로 로그인합니다. 사이트에 연결할 수 없다는 오류 페이지가 표시되지만, 이는 정상적인 동작입니다.
 
-        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
+        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test.png" alt-text="오류 메시지를 표시하는 웹 페이지의 스크린샷. 이 메시지에는 사이트에 연결할 수 없으며 몇 가지 문제 해결 팁이 포함되어 있습니다." border="false":::
  
     * 아래에 강조 표시된 대로 URL에서 생성된 전달자 토큰의 값을 복사합니다. 이 토큰은 365일 동안 유효합니다.
         
-        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test1.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
+        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test1.png" alt-text="긴 URL을 보여주는 스크린샷. 주소 부분은 해독할 수 없지만 강조 표시되고 전달자 토큰으로 레이블이 지정됩니다." border="false":::
 
-7. 5단계에 표시된 필드를 채우면 **연결 테스트**를 클릭하여 Azure AD에서 Clarizen에 연결할 수 있는지 확인합니다. 연결이 실패하면 Cisco Webex 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
+7. 5단계에 표시된 필드를 채우면 **연결 테스트** 를 클릭하여 Azure AD에서 Clarizen에 연결할 수 있는지 확인합니다. 연결이 실패하면 Cisco Webex 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
    
@@ -115,31 +115,31 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-9. **저장**을 클릭합니다.
+9. **저장** 을 클릭합니다.
 
-10. **매핑** 섹션에서 **Azure Active Directory 사용자를 Cisco Webex에 동기화**를 선택합니다.
+10. **매핑** 섹션에서 **Azure Active Directory 사용자를 Cisco Webex에 동기화** 를 선택합니다.
 
-    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermapping.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermapping.png" alt-text="Azure Portal의 매핑 섹션 스크린샷. 이름 아래에서 CiscoSpark에 Azure Active Directory 사용자 동기화가 강조 표시됩니다." border="false":::
 
 11. **특성 매핑** 섹션에서 Azure AD에서 Cisco Webex로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Cisco Webex의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermappingattributes.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermappingattributes.png" alt-text="Azure Active Directory 특성, 해당 CiscoSpark 특성 및 일치 상태를 보여주는 특성 매핑 섹션의 스크린샷." border="false":::
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-13. Cisco Webex에 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+13. Cisco Webex에 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-14. **설정**의 **범위** 섹션에서 원하는 값을 선택하여 Cisco Webex에 프로비전하려는 사용자 및/또는 그룹을 정의합니다.
+14. **설정** 의 **범위** 섹션에서 원하는 값을 선택하여 Cisco Webex에 프로비전하려는 사용자 및/또는 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-15. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+15. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상황을 모니터링하고, Cisco Webex의 Azure AD 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 활동 보고서에 대한 링크를 따를 수 있습니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상황을 모니터링하고, Cisco Webex의 Azure AD 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 활동 보고서에 대한 링크를 따를 수 있습니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 

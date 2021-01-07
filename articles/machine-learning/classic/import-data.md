@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 00501a1e17f8e085b817cfe3dac819ba890248f5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309842"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302777"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>다양 한 데이터 원본에서 Azure Machine Learning Studio (클래식)으로 학습 데이터 가져오기
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Machine Learning Studio (클래식)에서 사용자 고유의 데이터를 사용 하 여 예측 분석 솔루션을 개발 하 고 학습 하려면 다음의 데이터를 사용할 수 있습니다. 
@@ -54,7 +54,7 @@ Machine Learning Studio (클래식)은 사각형 또는 표 형식 데이터 (�
 * SQL 데이터베이스 테이블
 * OData 값
 * SVMLight 데이터(.svmlight)(형식 정보는 [SVMLight 정의](http://svmlight.joachims.org/) 참조)
-* 특성 관계 파일 형식(ARFF) 데이터(.arff)(형식 정보는 [ARFF 정의](https://weka.wikispaces.com/ARFF) 참조)
+* 특성 관계 파일 형식(ARFF) 데이터(.arff)(형식 정보는 [ARFF 정의](https://www.cs.waikato.ac.nz/ml/weka/arff.html) 참조)
 * Zip 파일(.zip)
 * R 개체 또는 작업 영역 파일(. RData)
 
@@ -73,12 +73,12 @@ Machine Learning Studio (클래식)은 사각형 또는 표 형식 데이터 (�
 * DateTime
 * TimeSpan
 
-스튜디오는 * **data table** _ 이라는 내부 데이터 형식을 사용 하 여 모듈 간에 데이터를 전달 합니다. [데이터 세트로 변환][convert-to-dataset] 모듈을 사용하여 명시적으로 데이터를 데이터 테이블 형식으로 변환할 수 있습니다.
+스튜디오는 ***data table** _ 이라는 내부 데이터 형식을 사용 하 여 모듈 간에 데이터를 전달 합니다. [데이터 세트로 변환][convert-to-dataset] 모듈을 사용하여 명시적으로 데이터를 데이터 테이블 형식으로 변환할 수 있습니다.
 
 데이터 테이블 이외의 형식을 허용하는 모든 모듈에서는 다음 모듈에 데이터를 전달하기 전에 데이터 테이블로 자동 변환합니다.
 
 필요한 경우 다른 변환 모듈을 사용하여 데이터 테이블 형식을 다시 CSV, TSV, ARFF 또는 SVMLight 형식으로 변환할 수 있습니다.
-모듈 팔레트의 _ *데이터 형식 변환* * 섹션에서 이러한 기능을 수행 하는 모듈을 확인 합니다.
+모듈 팔레트의 _ *데이터 형식 변환** 섹션에서 이러한 기능을 수행 하는 모듈을 확인 합니다.
 
 ## <a name="data-capacities"></a>데이터 용량
 

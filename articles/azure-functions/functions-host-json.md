@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: aaea37b100d6fadd271f48490628b38cba6cf822
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377125"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654815"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대한 host.json 참조 
 
@@ -129,7 +129,8 @@ ms.locfileid: "93377125"
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -161,6 +162,8 @@ ms.locfileid: "93377125"
 | snapshotConfiguration | 해당 없음 | [Applicationinsights](#applicationinsightssnapshotconfiguration)를 참조 하세요. |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
+
+이러한 설정에 대 한 자세한 내용은 [Application Insights 샘플링](../azure-monitor/app/sampling.md)을 참조 하세요. 
 
 |속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
@@ -216,6 +219,28 @@ ms.locfileid: "93377125"
 ## <a name="cosmosdb"></a>cosmosDb
 
 구성 설정은 [Cosmos DB 트리거 및 바인딩](functions-bindings-cosmosdb-v2-output.md#host-json)에서 찾을 수 있습니다.
+
+## <a name="customhandler"></a>customHandler
+
+사용자 지정 처리기에 대 한 구성 설정입니다. 자세한 내용은 [Azure Functions 사용자 지정 처리기](functions-custom-handlers.md#configuration)를 참조 하세요.
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|속성 | 기본값 | Description |
+| --------- | --------- | --------- |
+| defaultExecutablePath | 해당 없음 | 사용자 지정 처리기 프로세스로 시작할 실행 파일입니다. 사용자 지정 처리기를 사용 하는 경우 필수 설정 이며, 해당 값은 함수 앱 루트를 기준으로 합니다. |
+| workingDirectory | *함수 앱 루트* | 사용자 지정 처리기 프로세스를 시작할 작업 디렉터리입니다. 선택적 설정 이며 해당 값은 함수 앱 루트를 기준으로 합니다. |
+| 인수 | 해당 없음 | 사용자 지정 처리기 프로세스에 전달할 명령줄 인수의 배열입니다. |
+| enableForwardingHttpRequest | false | 설정 하는 경우 HTTP 트리거와 HTTP 출력 으로만 구성 된 모든 함수는 사용자 지정 처리기 [요청 페이로드](functions-custom-handlers.md#request-payload)대신 원래 http 요청으로 전달 됩니다. |
 
 ## <a name="durabletask"></a>durableTask
 
@@ -371,8 +396,8 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 
 |속성  |기본값 | Description |
 |---------|---------|---------| 
-|방식의|null|필수 사항입니다. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
-|maxRetryCount|null|필수 사항입니다. 함수 실행 당 허용 되는 최대 다시 시도 횟수입니다. `-1` 무기한으로 다시 시도 하는 것을 의미 합니다.|
+|방식의|null|필수 요소. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
+|maxRetryCount|null|필수 요소. 함수 실행 당 허용 되는 최대 다시 시도 횟수입니다. `-1` 무기한으로 다시 시도 하는 것을 의미 합니다.|
 |delayInterval|null|전략을 통해 재시도 사이에 사용 되는 지연입니다 `fixedDelay` .|
 |minimumInterval|null|전략을 사용 하는 경우 최소 재시도 지연 `exponentialBackoff` 입니다.|
 |maximumInterval|null|전략을 사용 하는 경우 다시 시도 하는 최대 시간 `exponentialBackoff` 입니다.| 
@@ -420,6 +445,16 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="watchfiles"></a>watchFiles
+
+응용 프로그램을 다시 시작 해야 하는 변경 내용을 모니터링 하는 하나 이상의 파일 이름으로 이루어진 배열입니다.  이렇게 하면 이러한 파일의 코드가 변경 되 면 함수에서 업데이트를 선택 합니다.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 

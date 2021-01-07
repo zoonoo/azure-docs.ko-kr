@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.custom: devx-track-java, devx-track-csharp
 ms.author: aahi
-ms.openlocfilehash: 5ac80cad20e89a7870c26960aedb58f34fa21380
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: afac19a6debb3804c99492338428669928f1118b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88934420"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371692"
 ---
 이 빠른 시작의 안내에 따라 Java 클라이언트 라이브러리를 사용하여 Bing Visual Search 서비스에서 이미지 인사이트 가져오기를 시작하세요. Bing Visual Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있는 반면, 클라이언트 라이브러리를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch)에서 확인할 수 있습니다.
 
@@ -23,7 +23,7 @@ Java용 Bing Visual Search 클라이언트 라이브러리를 사용하여 다�
 * Visual Search 요청에 전송할 이미지를 업로드합니다.
 * 이미지 인사이트 토큰 및 Visual Search 태그를 가져옵니다.
 
-[참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [아티팩트(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[참조 설명서](/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [아티팩트(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -33,7 +33,7 @@ Java용 Bing Visual Search 클라이언트 라이브러리를 사용하여 다�
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-리소스에서 키를 가져온 후 `BING_SEARCH_V7_SUBSCRIPTION_KEY`라는 키에 대해 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+리소스에서 키를 가져온 후 `BING_SEARCH_V7_SUBSCRIPTION_KEY`라는 키에 대해 [환경 변수를 만듭니다](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication).
 
 ### <a name="create-a-new-gradle-project"></a>새 Gradle 프로젝트 만들기
 
@@ -43,15 +43,15 @@ Java용 Bing Visual Search 클라이언트 라이브러리를 사용하여 다�
 mkdir myapp && cd myapp
 ```
 
-작업 디렉터리에서 `gradle init` 명령을 실행합니다. 이 명령은 *build.gradle.kts*를 포함하여 런타임에 애플리케이션을 만들고 구성하는 데 사용되는 Gradle용 필수 빌드 파일을 만듭니다.
+작업 디렉터리에서 `gradle init` 명령을 실행합니다. 이 명령은 *build.gradle.kts* 를 포함하여 런타임에 애플리케이션을 만들고 구성하는 데 사용되는 Gradle용 필수 빌드 파일을 만듭니다.
 
 ```console
 gradle init --type basic
 ```
 
-**DSL**을 선택하라는 메시지가 표시되면 **Kotlin**을 선택합니다.
+**DSL** 을 선택하라는 메시지가 표시되면 **Kotlin** 을 선택합니다.
 
-*build.gradle.kts*를 찾고, 원하는 IDE 또는 텍스트 편집기에서 엽니다. 그런 다음, 이 빌드 구성에서 복사합니다.
+*build.gradle.kts* 를 찾고, 원하는 IDE 또는 텍스트 편집기에서 엽니다. 그런 다음, 이 빌드 구성에서 복사합니다.
 
 ```kotlin
 plugins {
@@ -83,7 +83,7 @@ API에 업로드하려는 이미지에 대한 폴더를 만듭니다. 이미지�
 mkdir -p src/main/resources
 ``` 
 
-새 폴더로 이동하여 *BingVisualSearchSample.java*라는 파일을 만듭니다. 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 `import` 문을 추가합니다.
+새 폴더로 이동하여 *BingVisualSearchSample.java* 라는 파일을 만듭니다. 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 `import` 문을 추가합니다.
 
 [!code-java[Import statements](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=imports)]
 
@@ -124,10 +124,10 @@ dependencies {
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
 > [!NOTE]
-> 이 빠른 시작에서는 `BING_SEARCH_V7_SUBSCRIPTION_KEY`라는 Bing Visual Search 키에 대한 [환경 변수를 만들었다고](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) 가정합니다.
+> 이 빠른 시작에서는 `BING_SEARCH_V7_SUBSCRIPTION_KEY`라는 Bing Visual Search 키에 대한 [환경 변수를 만들었다고](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) 가정합니다.
 
 
-기본 메서드에서는 구독 키를 사용하여 [BingVisualSearchAPI](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi?view=azure-java-stable) 개체를 인스턴스화해야 합니다.
+기본 메서드에서는 구독 키를 사용하여 [BingVisualSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi?view=azure-java-stable) 개체를 인스턴스화해야 합니다.
 
 ```csharp
 BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKey);
@@ -135,13 +135,13 @@ BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKe
 
 ## <a name="send-a-visual-search-request"></a>Visual Search 요청 전송
 
-새 메서드에서 클라이언트의 [bingImages().visualSearch()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) 메서드를 사용하여 `main()` 메서드에서 만든 이미지 바이트 배열을 보냅니다. 
+새 메서드에서 클라이언트의 [bingImages().visualSearch()](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) 메서드를 사용하여 `main()` 메서드에서 만든 이미지 바이트 배열을 보냅니다. 
 
 [!code-java[visualSearch() method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=visualSearch)]
 
 ## <a name="print-the-image-insight-token-and-visual-search-tags"></a>이미지 인사이트 토큰 및 Visual Search 태그 인쇄
 
-[ImageKnowledge](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge?view=azure-java-stable) 개체가 null인지 확인합니다. 아니라면 이미지 인사이트 토큰, 태그의 수, 작업의 수 및 첫 번째 작업 유형을 인쇄합니다.
+[ImageKnowledge](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge?view=azure-java-stable) 개체가 null인지 확인합니다. 아니라면 이미지 인사이트 토큰, 태그의 수, 작업의 수 및 첫 번째 작업 유형을 인쇄합니다.
 
 [!code-java[Print token and tags](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=printVisualSearchResults)]
 

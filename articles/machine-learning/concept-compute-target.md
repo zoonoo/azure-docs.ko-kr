@@ -1,7 +1,7 @@
 ---
 title: 계산 대상 이란?
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning를 사용 하 여 모델을 학습 하거나 배포할 위치를 정의 합니다.
+description: Azure Machine Learning를 사용 하 여 모델을 학습 하거나 배포 하기 위해 계산 리소스 또는 환경을 지정 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1d3a7be429f730dd4dbd71bade1e3e51ea73c10f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322294"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188652"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 컴퓨팅 대상은 무엇인가요?
 
@@ -119,6 +119,12 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 
 
 이러한 VM 시리즈를 지 원하는 Azure Machine Learning 있지만 일부 Azure 지역에서는 사용 하지 못할 수 있습니다. VM 시리즈를 사용할 수 있는지 확인 하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)을 참조 하세요.
+
+> [!NOTE]
+> Azure Machine Learning는 Azure Compute에서 지 원하는 모든 VM 크기를 지원 하지 않습니다. 사용 가능한 VM 크기를 나열 하려면 다음 방법 중 하나를 사용 합니다.
+> * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
+> * [Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+>
 
 ### <a name="compute-isolation"></a>계산 격리
 

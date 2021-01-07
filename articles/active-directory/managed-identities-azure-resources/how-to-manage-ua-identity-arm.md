@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd49c60a23a0ad58f0907d3c1d7c38178ac08c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7a503235f3ef948939f3188828b1e01f54dd2fe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266360"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588627"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 사용자 할당 관리 ID 생성, 나열 및 삭제
 
@@ -35,7 +35,7 @@ Azure Resource Manager 템플릿을 사용하여 사용자 할당 관리 ID를 �
 - [사용자 할당 관리 ID 삭제](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
   ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
+- Azure 리소스에 대 한 관리 id에 익숙하지 않은 경우 [개요 섹션](overview.md)을 확인 하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 
 ## <a name="template-creation-and-editing"></a>템플릿 만들기 및 편집

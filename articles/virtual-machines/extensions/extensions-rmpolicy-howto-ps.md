@@ -7,18 +7,19 @@ author: axayjo
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: e4959c9dca909afde4bf6d351d79ecca1e4022a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 558b23b4a89fd161b9e97265f6e1ed82624e8254
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87069768"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955602"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure Policy를 사용하여 Windows VM의 확장 설치 제한
 
@@ -66,7 +67,7 @@ nano $home/clouddrive/rules.json
 }
 ```
 
-완료되면 **Ctrl+O**를 누른 다음 **Enter** 키를 눌러 파일을 저장합니다. **Ctrl+X**를 눌러 파일을 닫고 종료합니다.
+완료되면 **Ctrl+O** 를 누른 다음 **Enter** 키를 눌러 파일을 저장합니다. **Ctrl+X** 를 눌러 파일을 닫고 종료합니다.
 
 ## <a name="create-a-parameters-file"></a>매개 변수 파일 만들기
 
@@ -94,7 +95,7 @@ nano $home/clouddrive/parameters.json
 }
 ```
 
-완료되면 **Ctrl+O**를 누른 다음 **Enter** 키를 눌러 파일을 저장합니다. **Ctrl+X**를 눌러 파일을 닫고 종료합니다.
+완료되면 **Ctrl+O** 를 누른 다음 **Enter** 키를 눌러 파일을 저장합니다. **Ctrl+X** 를 눌러 파일을 닫고 종료합니다.
 
 ## <a name="create-the-policy"></a>정책 만들기
 
@@ -150,7 +151,7 @@ Set-AzVMAccessExtension `
    -Location EastUS 
 ```
 
-포털에서 암호 변경은 실패하고 “정책 위반으로 인해 템플릿 배포에 실패했습니다.” 반환됩니다.
+포털에서 암호 변경은 실패하고 “정책 위반으로 인해 템플릿 배포에 실패했습니다.” 메시지로 응답합니다.
 
 ## <a name="remove-the-assignment"></a>할당 제거
 

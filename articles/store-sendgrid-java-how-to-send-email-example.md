@@ -16,12 +16,12 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.custom: devx-track-java
-ms.openlocfilehash: 3957d7501634be01a978481787885ae13ad3273b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57daf9170a7f97c6c141532dafe759cde9d1c77b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225957"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519067"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Azure 배포에서 Java의 SendGrid를 사용하여 메일을 보내는 방법
 다음 예제는 Azure에 호스트된 웹 페이지에서 SendGrid를 사용하여 전자 메일을 보내는 방법을 보여 줍니다. 결과 응용 프로그램은 다음 스크린샷에 표시 된 것 처럼 사용자에 게 전자 메일 값을 입력 하 라는 메시지를 표시 합니다.
@@ -43,7 +43,7 @@ ms.locfileid: "88225957"
 또한 [Eclipse에서 Azure용 Hello World 애플리케이션 만들기](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable)(영문)에 나온 정보나 Eclipse를 사용하지 않는 경우 Azure에서 Java 애플리케이션을 호스트하는 다른 기술을 익히는 것이 좋습니다.
 
 ## <a name="create-a-web-form-for-sending-email"></a>전자 메일을 보내기 위한 웹 양식 만들기
-다음 코드는 전자 메일을 보내기 위해 웹 양식을 만들고 사용자 데이터를 검색하는 방법을 보여 줍니다. 이 내용에서 JSP 파일의 이름은 **emailform.jsp**입니다.
+다음 코드는 전자 메일을 보내기 위해 웹 양식을 만들고 사용자 데이터를 검색하는 방법을 보여 줍니다. 이 내용에서 JSP 파일의 이름은 **emailform.jsp** 입니다.
 
 ```html
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -101,7 +101,7 @@ ms.locfileid: "88225957"
 ```
 
 ## <a name="create-the-code-to-send-the-email"></a>전자 메일을 보내는 코드 만들기
-다음 코드는 emailform.jsp에서 양식을 완료하면 호출되어 전자 메일 메시지를 만들고 보냅니다. 이 내용에서 JSP 파일의 이름은 **sendemail.jsp**입니다.
+다음 코드는 emailform.jsp에서 양식을 완료하면 호출되어 전자 메일 메시지를 만들고 보냅니다. 이 내용에서 JSP 파일의 이름은 **sendemail.jsp** 입니다.
 
 ```java
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -215,11 +215,11 @@ emailform.jsp는 전자 메일을 보낼 뿐만 아니라 사용자에 대 한 �
 ![메일 보내기 결과][emailresult]
 
 ## <a name="next-steps"></a>다음 단계
-컴퓨팅 에뮬레이터에 애플리케이션을 배포하고 브라우저 내에서 emailform.jsp를 실행한 후, 양식에 값을 입력하고 **이 이메일 보내기**를 클릭한 다음, sendemail.jsp의 결과를 표시합니다.
+컴퓨팅 에뮬레이터에 애플리케이션을 배포하고 브라우저 내에서 emailform.jsp를 실행한 후, 양식에 값을 입력하고 **이 이메일 보내기** 를 클릭한 다음, sendemail.jsp의 결과를 표시합니다.
 
-이 코드는 Azure의 Java에서 SendGrid를 사용하는 방법을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다. 
+이 코드는 Azure의 Java에서 SendGrid를 사용하는 방법을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예: 
 
-* 웹 양식을 사용하는 대신 Azure Storage Blob 또는 SQL Database를 사용하여 전자 메일 주소 및 전자 메일 메시지를 저장할 수 있습니다. Java에서 Azure 스토리지 Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/)을 참조하십시오. Java에서 SQL 데이터베이스 사용에 대한 내용은 [Java에서 SQL 데이터베이스 사용](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java)을 참조하세요.
+* 웹 양식을 사용하는 대신 Azure Storage Blob 또는 SQL Database를 사용하여 전자 메일 주소 및 전자 메일 메시지를 저장할 수 있습니다. Java에서 Azure 스토리지 Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/)을 참조하십시오. Java에서 SQL 데이터베이스 사용에 대한 내용은 [Java에서 SQL 데이터베이스 사용](./azure-sql/database/connect-query-java.md)을 참조하세요.
 * Java의 SendGrid 사용에 대한 자세한 내용은 [Java의 SendGrid를 사용하여 전자 메일을 보내는 방법](store-sendgrid-java-how-to-send-email.md)을 참조하십시오.
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg

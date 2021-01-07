@@ -56,7 +56,7 @@
           href: database-encryption-at-rest.md
         - name: 서비스 태그
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: 역할 기반 액세스 제어
+        - name: Azure 역할 기반 액세스 제어
           displayName: rbac
           href: role-based-access-control.md
         - name: Azure Policy 지원
@@ -266,275 +266,292 @@
                 - name: 사용자 정의 함수
                   displayName: 'functions, udf'
                   href: sql-query-udfs.md
-                - name: 집계
+            - name: 집계 함수
+              items:
+                - name: 집계 함수
                   displayName: 'functions, aggregate, count, sum, min, minimum, max, maximum, avg, average'
-                  href: sql-query-aggregates.md
+                  href: sql-query-aggregate-functions.md
+                - name: Avg
+                  displayName: 'functions, aggregate, avg, average'
+                  href: sql-query-aggregate-avg.md
+                - name: 개수
+                  displayName: 'functions, aggregate, count'
+                  href: sql-query-aggregate-count.md
+                - name: Max
+                  displayName: 'functions, aggregate, max, maximum'
+                  href: sql-query-aggregate-max.md
+                - name: 최소값
+                  displayName: 'functions, aggregate, min, minimum'
+                  href: sql-query-aggregate-min.md
+                - name: 합계
+                  displayName: 'functions, aggregate, sum'
+                  href: sql-query-aggregate-sum.md
+            - name: 시스템 함수
+              items:
                 - name: 시스템 함수
+                  displayName: 'functions, system functions, built-in functions'
+                  href: sql-query-system-functions.md
+                - name: 배열 함수
                   items:
-                    - name: 시스템 함수
-                      displayName: 'functions, system functions, built-in functions'
-                      href: sql-query-system-functions.md
                     - name: 배열 함수
-                      items:
-                        - name: 배열 함수
-                          displayName: 'array functions, array, system functions, built-in functions'
-                          href: sql-query-array-functions.md
-                        - name: ARRAY_CONCAT
-                          displayName: 'ARRAY_CONCAT, array concat, array functions'
-                          href: sql-query-array-concat.md
-                        - name: ARRAY_CONTAINS
-                          displayName: 'ARRAY_CONTAINS, array contains, array functions'
-                          href: sql-query-array-contains.md
-                        - name: ARRAY_LENGTH
-                          displayName: 'ARRAY_LENGTH, array length, array functions'
-                          href: sql-query-array-length.md
-                        - name: ARRAY_SLICE
-                          displayName: 'ARRAY_SLICE, array slice, array functions'
-                          href: sql-query-array-slice.md
+                      displayName: 'array functions, array, system functions, built-in functions'
+                      href: sql-query-array-functions.md
+                    - name: ARRAY_CONCAT
+                      displayName: 'ARRAY_CONCAT, array concat, array functions'
+                      href: sql-query-array-concat.md
+                    - name: ARRAY_CONTAINS
+                      displayName: 'ARRAY_CONTAINS, array contains, array functions'
+                      href: sql-query-array-contains.md
+                    - name: ARRAY_LENGTH
+                      displayName: 'ARRAY_LENGTH, array length, array functions'
+                      href: sql-query-array-length.md
+                    - name: ARRAY_SLICE
+                      displayName: 'ARRAY_SLICE, array slice, array functions'
+                      href: sql-query-array-slice.md
+                - name: 날짜 및 시간 함수
+                  items:
                     - name: 날짜 및 시간 함수
-                      items:
-                        - name: 날짜 및 시간 함수
-                          displayName: 'date and time functions, date and time, datetime, system functions, built-in functions'
-                          href: sql-query-date-time-functions.md
-                        - name: DateTimeAdd
-                          displayName: 'DateTimeAdd, date time add, timestamp, date and time functions, datetime'
-                          href: sql-query-datetimeadd.md
-                        - name: DateTimeDiff
-                          displayName: 'DateTimeDiff, date time diff, date and time functions, datetime'
-                          href: sql-query-datetimediff.md
-                        - name: DateTimeFromParts
-                          displayName: 'DateTimeFromParts, date time from parts, date and time functions, datetime'
-                          href: sql-query-datetimefromparts.md
-                        - name: DateTimePart
-                          displayName: 'DateTimePart, date time part, date and time functions, datetime'
-                          href: sql-query-datetimepart.md
-                        - name: DateTimeToTicks
-                          displayName: 'DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks'
-                          href: sql-query-datetimetoticks.md
-                        - name: DateTimeToTimestamp
-                          displayName: 'DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp'
-                          href: sql-query-datetimetotimestamp.md
-                        - name: GetCurrentDateTime
-                          displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
-                          href: sql-query-getcurrentdatetime.md
-                        - name: GetCurrentTicks
-                          displayName: 'GetCurrentTicks, get current ticks, date and time functions, datetime, ticks'
-                          href: sql-query-getcurrentticks.md
-                        - name: GetCurrentTimestamp
-                          displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
-                          href: sql-query-getcurrenttimestamp.md
-                        - name: TicksToDateTime
-                          displayName: 'TicksToDateTime, ticks to date time, date and time functions, datetime, ticks'
-                          href: sql-query-tickstodatetime.md
-                        - name: TimestampToDateTime
-                          displayName: 'TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp'
-                          href: sql-query-timestamptodatetime.md
+                      displayName: 'date and time functions, date and time, datetime, system functions, built-in functions'
+                      href: sql-query-date-time-functions.md
+                    - name: DateTimeAdd
+                      displayName: 'DateTimeAdd, date time add, timestamp, date and time functions, datetime'
+                      href: sql-query-datetimeadd.md
+                    - name: DateTimeDiff
+                      displayName: 'DateTimeDiff, date time diff, date and time functions, datetime'
+                      href: sql-query-datetimediff.md
+                    - name: DateTimeFromParts
+                      displayName: 'DateTimeFromParts, date time from parts, date and time functions, datetime'
+                      href: sql-query-datetimefromparts.md
+                    - name: DateTimePart
+                      displayName: 'DateTimePart, date time part, date and time functions, datetime'
+                      href: sql-query-datetimepart.md
+                    - name: DateTimeToTicks
+                      displayName: 'DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks'
+                      href: sql-query-datetimetoticks.md
+                    - name: DateTimeToTimestamp
+                      displayName: 'DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp'
+                      href: sql-query-datetimetotimestamp.md
+                    - name: GetCurrentDateTime
+                      displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
+                      href: sql-query-getcurrentdatetime.md
+                    - name: GetCurrentTicks
+                      displayName: 'GetCurrentTicks, get current ticks, date and time functions, datetime, ticks'
+                      href: sql-query-getcurrentticks.md
+                    - name: GetCurrentTimestamp
+                      displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
+                      href: sql-query-getcurrenttimestamp.md
+                    - name: TicksToDateTime
+                      displayName: 'TicksToDateTime, ticks to date time, date and time functions, datetime, ticks'
+                      href: sql-query-tickstodatetime.md
+                    - name: TimestampToDateTime
+                      displayName: 'TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp'
+                      href: sql-query-timestamptodatetime.md
+                - name: 수학 함수
+                  items:
                     - name: 수학 함수
-                      items:
-                        - name: 수학 함수
-                          displayName: 'mathematical, mathematical functions, system functions, built-in functions'
-                          href: sql-query-mathematical-functions.md
-                        - name: ABS
-                          displayName: 'ABS, absolute value, built-in functions'
-                          href: sql-query-abs.md
-                        - name: ACOS
-                          displayName: 'ACOS, arccosine, built-in functions'
-                          href: sql-query-acos.md
-                        - name: ASIN
-                          displayName: 'ASIN, asine, built-in functions'
-                          href: sql-query-asin.md
-                        - name: ATAN
-                          displayName: 'ATAN, arctangent, built-in functions'
-                          href: sql-query-atan.md
-                        - name: ATN2
-                          displayName: 'ATN2, built-in functions'
-                          href: sql-query-atn2.md
-                        - name: CEILING
-                          displayName: 'CEILING, built-in functions'
-                          href: sql-query-ceiling.md
-                        - name: COS
-                          displayName: 'COS, cosine, built-in functions'
-                          href: sql-query-cos.md
-                        - name: COT
-                          displayName: 'COT, cotangent, built-in functions'
-                          href: sql-query-cot.md
-                        - name: DEGREES
-                          displayName: 'DEGREES, built-in functions'
-                          href: sql-query-degrees.md
-                        - name: EXP
-                          displayName: 'EXP, exponential value, built-in functions'
-                          href: sql-query-exp.md
-                        - name: FLOOR
-                          displayName: 'FLOOR, built-in functions'
-                          href: sql-query-floor.md
-                        - name: LOG
-                          displayName: 'LOG, logarithm, built-in functions'
-                          href: sql-query-log.md
-                        - name: LOG10
-                          displayName: 'LOG10, log base 10, built-in functions'
-                          href: sql-query-log10.md
-                        - name: PI
-                          displayName: 'PI, built-in functions'
-                          href: sql-query-pi.md
-                        - name: POWER
-                          displayName: 'POWER, exponent, built-in functions'
-                          href: sql-query-power.md
-                        - name: RADIANS
-                          displayName: 'RADIANS, built-in functions'
-                          href: sql-query-radians.md
-                        - name: RAND
-                          displayName: 'RAND, random, built-in functions'
-                          href: sql-query-rand.md
-                        - name: ROUND
-                          displayName: 'ROUND, built-in functions'
-                          href: sql-query-round.md
-                        - name: SIGN
-                          displayName: 'SIGN, built-in functions'
-                          href: sql-query-sign.md
-                        - name: SIN
-                          displayName: 'SIN, sine, built-in functions'
-                          href: sql-query-sin.md
-                        - name: SQRT
-                          displayName: 'SQRT, square root, built-in functions'
-                          href: sql-query-sqrt.md
-                        - name: SQUARE
-                          displayName: 'SQUARE, built-in functions'
-                          href: sql-query-square.md
-                        - name: TAN
-                          displayName: 'TAN, built-in functions'
-                          href: sql-query-tan.md
-                        - name: TRUNC
-                          displayName: 'TRUNC, truncate, built-in functions'
-                          href: sql-query-trunc.md
+                      displayName: 'mathematical, mathematical functions, system functions, built-in functions'
+                      href: sql-query-mathematical-functions.md
+                    - name: ABS
+                      displayName: 'ABS, absolute value, built-in functions'
+                      href: sql-query-abs.md
+                    - name: ACOS
+                      displayName: 'ACOS, arccosine, built-in functions'
+                      href: sql-query-acos.md
+                    - name: ASIN
+                      displayName: 'ASIN, asine, built-in functions'
+                      href: sql-query-asin.md
+                    - name: ATAN
+                      displayName: 'ATAN, arctangent, built-in functions'
+                      href: sql-query-atan.md
+                    - name: ATN2
+                      displayName: 'ATN2, built-in functions'
+                      href: sql-query-atn2.md
+                    - name: CEILING
+                      displayName: 'CEILING, built-in functions'
+                      href: sql-query-ceiling.md
+                    - name: COS
+                      displayName: 'COS, cosine, built-in functions'
+                      href: sql-query-cos.md
+                    - name: COT
+                      displayName: 'COT, cotangent, built-in functions'
+                      href: sql-query-cot.md
+                    - name: DEGREES
+                      displayName: 'DEGREES, built-in functions'
+                      href: sql-query-degrees.md
+                    - name: EXP
+                      displayName: 'EXP, exponential value, built-in functions'
+                      href: sql-query-exp.md
+                    - name: FLOOR
+                      displayName: 'FLOOR, built-in functions'
+                      href: sql-query-floor.md
+                    - name: LOG
+                      displayName: 'LOG, logarithm, built-in functions'
+                      href: sql-query-log.md
+                    - name: LOG10
+                      displayName: 'LOG10, log base 10, built-in functions'
+                      href: sql-query-log10.md
+                    - name: PI
+                      displayName: 'PI, built-in functions'
+                      href: sql-query-pi.md
+                    - name: POWER
+                      displayName: 'POWER, exponent, built-in functions'
+                      href: sql-query-power.md
+                    - name: RADIANS
+                      displayName: 'RADIANS, built-in functions'
+                      href: sql-query-radians.md
+                    - name: RAND
+                      displayName: 'RAND, random, built-in functions'
+                      href: sql-query-rand.md
+                    - name: ROUND
+                      displayName: 'ROUND, built-in functions'
+                      href: sql-query-round.md
+                    - name: SIGN
+                      displayName: 'SIGN, built-in functions'
+                      href: sql-query-sign.md
+                    - name: SIN
+                      displayName: 'SIN, sine, built-in functions'
+                      href: sql-query-sin.md
+                    - name: SQRT
+                      displayName: 'SQRT, square root, built-in functions'
+                      href: sql-query-sqrt.md
+                    - name: SQUARE
+                      displayName: 'SQUARE, built-in functions'
+                      href: sql-query-square.md
+                    - name: TAN
+                      displayName: 'TAN, built-in functions'
+                      href: sql-query-tan.md
+                    - name: TRUNC
+                      displayName: 'TRUNC, truncate, built-in functions'
+                      href: sql-query-trunc.md
+                - name: 공간 함수
+                  items:
                     - name: 공간 함수
-                      items:
-                        - name: 공간 함수
-                          displayName: 'spatial functions, spatial, system functions, built-in functions'
-                          href: sql-query-spatial-functions.md
-                        - name: ST_DISTANCE
-                          displayName: 'ST_DISTANCE, st distance, distance, built-in functions'
-                          href: sql-query-st-distance.md
-                        - name: ST_WITHIN
-                          displayName: 'ST_WITHIN, st within, within, built-in functions'
-                          href: sql-query-st-within.md
-                        - name: ST_INTERSECTS
-                          displayName: 'ST_INTERSECTS, st intersects, intersects, built-in functions'
-                          href: sql-query-st-intersects.md
-                        - name: ST_ISVALID
-                          displayName: 'ST_ISVALID, st isvalid, is valid, built-in functions'
-                          href: sql-query-st-isvalid.md
-                        - name: ST_ISVALIDDETAILED
-                          displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
-                          href: sql-query-st-isvaliddetailed.md
+                      displayName: 'spatial functions, spatial, system functions, built-in functions'
+                      href: sql-query-spatial-functions.md
+                    - name: ST_DISTANCE
+                      displayName: 'ST_DISTANCE, st distance, distance, built-in functions'
+                      href: sql-query-st-distance.md
+                    - name: ST_WITHIN
+                      displayName: 'ST_WITHIN, st within, within, built-in functions'
+                      href: sql-query-st-within.md
+                    - name: ST_INTERSECTS
+                      displayName: 'ST_INTERSECTS, st intersects, intersects, built-in functions'
+                      href: sql-query-st-intersects.md
+                    - name: ST_ISVALID
+                      displayName: 'ST_ISVALID, st isvalid, is valid, built-in functions'
+                      href: sql-query-st-isvalid.md
+                    - name: ST_ISVALIDDETAILED
+                      displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
+                      href: sql-query-st-isvaliddetailed.md
+                - name: 문자열 함수
+                  items:
                     - name: 문자열 함수
-                      items:
-                        - name: 문자열 함수
-                          displayName: 'string functions, string, system functions, built-in functions'
-                          href: sql-query-string-functions.md
-                        - name: CONCAT
-                          displayName: 'CONCAT, concatenate, built-in functions'
-                          href: sql-query-concat.md
-                        - name: CONTAINS
-                          displayName: 'CONTAINS, built-in functions'
-                          href: sql-query-contains.md
-                        - name: ENDSWITH
-                          displayName: 'ENDSWITH, built-in functions'
-                          href: sql-query-endswith.md
-                        - name: INDEX_OF
-                          displayName: 'INDEX_OF, index of, built-in functions'
-                          href: sql-query-index-of.md
-                        - name: LEFT
-                          displayName: 'LEFT, built-in functions'
-                          href: sql-query-left.md
-                        - name: LENGTH
-                          displayName: 'LENGTH, built-in functions'
-                          href: sql-query-length.md
-                        - name: LOWER
-                          displayName: 'LOWER, built-in functions'
-                          href: sql-query-lower.md
-                        - name: LTRIM
-                          displayName: 'LTRIM, left trim, built-in functions'
-                          href: sql-query-ltrim.md
-                        - name: REGEXMATCH
-                          displayName: 'REGEXMATCH, built-in functions'
-                          href: sql-query-regexmatch.md
-                        - name: REPLACE
-                          displayName: 'REPLACE, built-in functions'
-                          href: sql-query-replace.md
-                        - name: REPLICATE
-                          displayName: 'REPLICATE, built-in functions'
-                          href: sql-query-replicate.md
-                        - name: REVERSE
-                          displayName: 'REVERSE, built-in functions'
-                          href: sql-query-reverse.md
-                        - name: RIGHT
-                          displayName: 'RIGHT, built-in functions'
-                          href: sql-query-right.md
-                        - name: RTRIM
-                          displayName: 'RTRIM, right trim, built-in functions'
-                          href: sql-query-rtrim.md
-                        - name: STARTSWITH
-                          displayName: 'STARTSWITH, starts with, built-in functions'
-                          href: sql-query-startswith.md
-                        - name: STRINGEQUALS
-                          displayName: 'STRINGEQUALS, equals, case-insensitive'
-                          href: sql-query-stringequals.md
-                        - name: StringToArray
-                          displayName: 'StringToArray, string to array, built-in functions'
-                          href: sql-query-stringtoarray.md
-                        - name: StringToBoolean
-                          displayName: 'StringToBoolean, string to boolean, built-in functions'
-                          href: sql-query-stringtoboolean.md
-                        - name: StringToNull
-                          displayName: 'StringToNull, string to null, built-in functions'
-                          href: sql-query-stringtonull.md
-                        - name: StringToNumber
-                          displayName: 'StringToNumber, string to number, built-in functions'
-                          href: sql-query-stringtonumber.md
-                        - name: StringToObject
-                          displayName: 'StringToObject, string to object, built-in functions'
-                          href: sql-query-stringtoobject.md
-                        - name: SUBSTRING
-                          displayName: 'SUBSTRING, built-in functions'
-                          href: sql-query-substring.md
-                        - name: ToString
-                          displayName: 'ToString, to sting, built-in functions'
-                          href: sql-query-tostring.md
-                        - name: TRIM
-                          displayName: 'TRIM, built-in functions'
-                          href: sql-query-trim.md
-                        - name: UPPER
-                          displayName: 'UPPER, built-in functions'
-                          href: sql-query-upper.md
+                      displayName: 'string functions, string, system functions, built-in functions'
+                      href: sql-query-string-functions.md
+                    - name: CONCAT
+                      displayName: 'CONCAT, concatenate, built-in functions'
+                      href: sql-query-concat.md
+                    - name: CONTAINS
+                      displayName: 'CONTAINS, built-in functions'
+                      href: sql-query-contains.md
+                    - name: ENDSWITH
+                      displayName: 'ENDSWITH, built-in functions'
+                      href: sql-query-endswith.md
+                    - name: INDEX_OF
+                      displayName: 'INDEX_OF, index of, built-in functions'
+                      href: sql-query-index-of.md
+                    - name: LEFT
+                      displayName: 'LEFT, built-in functions'
+                      href: sql-query-left.md
+                    - name: LENGTH
+                      displayName: 'LENGTH, built-in functions'
+                      href: sql-query-length.md
+                    - name: LOWER
+                      displayName: 'LOWER, built-in functions'
+                      href: sql-query-lower.md
+                    - name: LTRIM
+                      displayName: 'LTRIM, left trim, built-in functions'
+                      href: sql-query-ltrim.md
+                    - name: REGEXMATCH
+                      displayName: 'REGEXMATCH, built-in functions'
+                      href: sql-query-regexmatch.md
+                    - name: REPLACE
+                      displayName: 'REPLACE, built-in functions'
+                      href: sql-query-replace.md
+                    - name: REPLICATE
+                      displayName: 'REPLICATE, built-in functions'
+                      href: sql-query-replicate.md
+                    - name: REVERSE
+                      displayName: 'REVERSE, built-in functions'
+                      href: sql-query-reverse.md
+                    - name: RIGHT
+                      displayName: 'RIGHT, built-in functions'
+                      href: sql-query-right.md
+                    - name: RTRIM
+                      displayName: 'RTRIM, right trim, built-in functions'
+                      href: sql-query-rtrim.md
+                    - name: STARTSWITH
+                      displayName: 'STARTSWITH, starts with, built-in functions'
+                      href: sql-query-startswith.md
+                    - name: STRINGEQUALS
+                      displayName: 'STRINGEQUALS, equals, case-insensitive'
+                      href: sql-query-stringequals.md
+                    - name: StringToArray
+                      displayName: 'StringToArray, string to array, built-in functions'
+                      href: sql-query-stringtoarray.md
+                    - name: StringToBoolean
+                      displayName: 'StringToBoolean, string to boolean, built-in functions'
+                      href: sql-query-stringtoboolean.md
+                    - name: StringToNull
+                      displayName: 'StringToNull, string to null, built-in functions'
+                      href: sql-query-stringtonull.md
+                    - name: StringToNumber
+                      displayName: 'StringToNumber, string to number, built-in functions'
+                      href: sql-query-stringtonumber.md
+                    - name: StringToObject
+                      displayName: 'StringToObject, string to object, built-in functions'
+                      href: sql-query-stringtoobject.md
+                    - name: SUBSTRING
+                      displayName: 'SUBSTRING, built-in functions'
+                      href: sql-query-substring.md
+                    - name: ToString
+                      displayName: 'ToString, to sting, built-in functions'
+                      href: sql-query-tostring.md
+                    - name: TRIM
+                      displayName: 'TRIM, built-in functions'
+                      href: sql-query-trim.md
+                    - name: UPPER
+                      displayName: 'UPPER, built-in functions'
+                      href: sql-query-upper.md
+                - name: 형식 검사 함수
+                  items:
                     - name: 형식 검사 함수
-                      items:
-                        - name: 형식 검사 함수
-                          displayName: 'type checking functions, type checking, type, system functions, built-in functions'
-                          href: sql-query-type-checking-functions.md
-                        - name: IS_ARRAY
-                          displayName: 'IS_ARRAY, is array, built-in functions'
-                          href: sql-query-is-array.md
-                        - name: IS_BOOL
-                          displayName: 'IS_BOOL, IsBool, is bool, built-in functions'
-                          href: sql-query-is-bool.md
-                        - name: IS_DEFINED
-                          displayName: 'IS_DEFINED, IsDefined, is defined, built-in functions'
-                          href: sql-query-is-defined.md
-                        - name: IS_NULL
-                          displayName: 'IS_NULL, IsNull, is null, built-in functions'
-                          href: sql-query-is-null.md
-                        - name: IS_NUMBER
-                          displayName: 'IS_NUMBER, IsNumber, is number, built-in functions'
-                          href: sql-query-is-number.md
-                        - name: IS_OBJECT
-                          displayName: 'IS_OBJECT, IsObject, is object, built-in functions'
-                          href: sql-query-is-object.md
-                        - name: IS_PRIMITIVE
-                          displayName: 'IS_PRIMITIVE, IsPrimitive, is primitive, built-in functions'
-                          href: sql-query-is-primitive.md
-                        - name: IS_STRING
-                          displayName: 'IS_STRING, IsString, is string, built-in functions'
-                          href: sql-query-is-string.md
+                      displayName: 'type checking functions, type checking, type, system functions, built-in functions'
+                      href: sql-query-type-checking-functions.md
+                    - name: IS_ARRAY
+                      displayName: 'IS_ARRAY, is array, built-in functions'
+                      href: sql-query-is-array.md
+                    - name: IS_BOOL
+                      displayName: 'IS_BOOL, IsBool, is bool, built-in functions'
+                      href: sql-query-is-bool.md
+                    - name: IS_DEFINED
+                      displayName: 'IS_DEFINED, IsDefined, is defined, built-in functions'
+                      href: sql-query-is-defined.md
+                    - name: IS_NULL
+                      displayName: 'IS_NULL, IsNull, is null, built-in functions'
+                      href: sql-query-is-null.md
+                    - name: IS_NUMBER
+                      displayName: 'IS_NUMBER, IsNumber, is number, built-in functions'
+                      href: sql-query-is-number.md
+                    - name: IS_OBJECT
+                      displayName: 'IS_OBJECT, IsObject, is object, built-in functions'
+                      href: sql-query-is-object.md
+                    - name: IS_PRIMITIVE
+                      displayName: 'IS_PRIMITIVE, IsPrimitive, is primitive, built-in functions'
+                      href: sql-query-is-primitive.md
+                    - name: IS_STRING
+                      displayName: 'IS_STRING, IsString, is string, built-in functions'
+                      href: sql-query-is-string.md
             - name: 지리 공간적 데이터
               items:
                 - name: 지리 공간적 개요
@@ -703,6 +720,8 @@
               href: migrate-java-v4-sdk.md
             - name: .NET V3 SDK로 마이그레이션
               href: migrate-dotnet-v3.md
+            - name: .NET V2 SDK로 마이그레이션
+              href: migrate-dotnet-v2.md
         - name: 문제 해결
           items:
             - name: 일반 오류
@@ -837,9 +856,9 @@
             - name: Azure Event Hubs 및 Azure Storage
               href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
             - name: Spring Boot Starter 사용
-              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
             - name: Spring Data 개발자 가이드
-              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
             - name: ODBC 드라이버
               href: odbc-driver.md
     - name: 참조
@@ -880,6 +899,8 @@
           href: /rest/api/cosmos-db/
         - name: REST(관리 평면)
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
+        - name: PowerShell
+          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
@@ -943,6 +964,8 @@
               href: oracle-migrate-cosmos-db-blitzz.md
             - name: Blitzz를 사용하여 Apache Cassandra에서 Cassandra API로 마이그레이션
               href: cassandra-migrate-cosmos-db-blitzz.md
+            - name: Databricks를 사용하여 Apache Cassandra에서 Cassandra API로 마이그레이션
+              href: cassandra-migrate-cosmos-db-databricks.md
         - name: 변경 피드
           href: cassandra-change-feed.md
         - name: 컨테이너 만들기 - Cassandra API
@@ -954,7 +977,9 @@
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-cassandra.md
         - name: Spring 데이터 저장 및 관리
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+        - name: 일반적인 문제 해결
+          href: cassandra-troubleshoot.md
         - name: Cassandra 및 Spark
           items:
             - name: 소개
@@ -977,6 +1002,8 @@
               href: cassandra-spark-aggregation-ops.md
             - name: 테이블 데이터 복사
               href: cassandra-spark-table-copy-ops.md
+        - name: Cassandra 및 Kafka
+          href: cassandra-kafka-connect.md
         - name: Resource Manager 템플릿을 사용하여 관리
           href: templates-samples-cassandra.md
           displayName: ARM
@@ -988,6 +1015,8 @@
       items:
         - name: REST 리소스 공급자
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
+        - name: PowerShell
+          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
 - name: MongoDB API
@@ -1090,7 +1119,7 @@
         - name: 쿼리 성능 문제 해결
           href: mongodb-troubleshoot-query.md
         - name: Spring 데이터 저장 및 관리
-          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: MongoDB 확장 명령
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -1107,6 +1136,8 @@
       items:
         - name: REST 리소스 공급자
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
+        - name: PowerShell
+          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
 - name: Gremlin API
@@ -1171,7 +1202,7 @@
         - name: 그래프 데이터 시각화
           href: graph-visualization.md
         - name: Spring 데이터 저장 및 관리
-          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: Resource Manager 템플릿을 사용하여 관리
           href: templates-samples-gremlin.md
           displayName: ARM
@@ -1183,6 +1214,8 @@
       items:
         - name: 응답 헤더
           href: gremlin-headers.md
+        - name: PowerShell
+          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
         - name: REST 리소스 공급자
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Resource Manager 템플릿
@@ -1267,6 +1300,8 @@
           href: table-sdk-nodejs.md
         - name: Python
           href: table-sdk-python.md
+        - name: PowerShell
+          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
         - name: Table Storage REST API
           href: /rest/api/storageservices/table-service-rest-api
 - name: 방법 가이드
@@ -1291,7 +1326,7 @@
           href: tutorial-setup-ci-cd.md
         - name: Azure Storage Explorer 사용
           href: storage-explorer.md
-        - name: Azure Cosmos 탐색기 사용
+        - name: Azure Cosmos DB Explorer 사용
           href: data-explorer.md
     - name: Azure Synapse Link를 지원하는 Analytics 및 BI
       items:
@@ -1301,7 +1336,7 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure Synapse Spark를 사용하여 쿼리
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Synapse SQL 서버리스로 쿼리
+        - name: 서버리스 SQL 풀을 사용하여 쿼리
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Synapse Link를 지원하는 Power BI 사용
           href: synapse-link-power-bi.md
@@ -1315,7 +1350,7 @@
         - name: 프라이빗 엔드포인트에서 액세스 구성
           href: how-to-configure-private-endpoints.md
         - name: Cosmos DB 계정에 비공개로 연결
-          href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../private-link/tutorial-private-endpoint-cosmosdb-portal.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json
         - name: Azure Key Vault를 사용하여 데이터 액세스
           href: access-secrets-from-keyvault.md
         - name: 데이터 작업에 대해서만 사용자 액세스 제한

@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73161788"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040794"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Azure에서 Pivotal Cloud Foundry 클러스터 만들기
 
@@ -36,13 +36,13 @@ Windows, Mac 또는 Linux를 사용하여 공개 SSH(Secure Shell) 키를 생성
 ssh-keygen -t rsa -b 2048
 ```
 
-자세한 내용은 [Azure에서 Windows를 통해 SSH 키 사용](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)을 참조하세요.
+자세한 내용은 [Azure에서 Windows를 통해 SSH 키 사용](../virtual-machines/linux/ssh-from-windows.md)을 참조하세요.
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
 > [!NOTE]
 >
-> 서비스 주체를 만들려면 소유자 계정 권한이 필요합니다. 또한 서비스 주체를 자동으로 만드는 스크립트를 작성할 수도 있습니다. 예를 들어 [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) Azure CLI를 사용할 수 있습니다.
+> 서비스 주체를 만들려면 소유자 계정 권한이 필요합니다. 또한 서비스 주체를 자동으로 만드는 스크립트를 작성할 수도 있습니다. 예를 들어 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest) Azure CLI를 사용할 수 있습니다.
 
 1. Azure 계정에 로그인합니다.
 
@@ -50,17 +50,17 @@ ssh-keygen -t rsa -b 2048
 
     ![Azure CLI 로그인](media/deploy/az-login-output.png )
  
-    "id" 값을 **구독 ID**로 복사하고, 나중에 사용할 "tenantId" 값을 복사합니다.
+    "id" 값을 **구독 ID** 로 복사하고, 나중에 사용할 "tenantId" 값을 복사합니다.
 
 2. 이 구성에 대한 기본 구독을 설정합니다.
 
     `az account set -s {id}`
 
-3. PCF용 Azure Active Directory 애플리케이션을 만듭니다. 고유한 영숫자 암호를 지정합니다. 암호를 나중에 사용할 **clientSecret**로 저장합니다.
+3. PCF용 Azure Active Directory 애플리케이션을 만듭니다. 고유한 영숫자 암호를 지정합니다. 암호를 나중에 사용할 **clientSecret** 로 저장합니다.
 
     `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
 
-    출력의 "appId" 값을 나중에 사용할 **clientID**로 복사합니다.
+    출력의 "appId" 값을 나중에 사용할 **clientID** 로 복사합니다.
 
     > [!NOTE]
     >
@@ -84,7 +84,7 @@ ssh-keygen -t rsa -b 2048
 
     `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. .json 파일을 다음 형식으로 만듭니다. 이전에 복사한 **subscription ID**, **tenantID**, **clientID** 및 **clientSecret** 값을 사용합니다. 파일을 저장합니다.
+7. .json 파일을 다음 형식으로 만듭니다. 이전에 복사한 **subscription ID** , **tenantID** , **clientID** 및 **clientSecret** 값을 사용합니다. 파일을 저장합니다.
 
     ```json
     {
@@ -98,7 +98,7 @@ ssh-keygen -t rsa -b 2048
 ## <a name="get-the-pivotal-network-token"></a>Pivotal 네트워크 토큰 가져오기
 
 1. [Pivotal 네트워크](https://network.pivotal.io) 계정에 등록하거나 로그인합니다.
-2. 페이지의 오른쪽 위 모서리에서 프로필 이름을 선택합니다. **프로필 편집**을 선택합니다.
+2. 페이지의 오른쪽 위 모서리에서 프로필 이름을 선택합니다. **프로필 편집** 을 선택합니다.
 3. 페이지 아래쪽으로 스크롤하여 **레거시 API 토큰** 값을 복사합니다. 이 값은 나중에 사용하는 **Pivotal 네트워크 토큰** 값입니다.
 
 ## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Azure에서 Cloud Foundry 클러스터 프로비전
@@ -112,7 +112,7 @@ ssh-keygen -t rsa -b 2048
 
     ![Azure 배포 상태](media/deploy/deployment.png )
 
-2. 왼쪽 탐색 영역에서 **배포** 링크를 선택하여 PCF Ops Manager에 대한 자격 증명을 가져옵니다. 다음 페이지에서 **배포 이름**을 선택합니다.
+2. 왼쪽 탐색 영역에서 **배포** 링크를 선택하여 PCF Ops Manager에 대한 자격 증명을 가져옵니다. 다음 페이지에서 **배포 이름** 을 선택합니다.
 3. 왼쪽 탐색 영역에서 **출력** 링크를 선택하여 PCF Ops Manager에 대한 URL, 사용자 이름 및 암호를 표시합니다. “OPSMAN-FQDN” 값은 URL입니다.
  
     ![Cloud Foundry 배포 출력](media/deploy/deploy-outputs.png )
@@ -123,9 +123,8 @@ ssh-keygen -t rsa -b 2048
          
     > [!NOTE]
     >
-    > "사이트가 안전하지 않습니다"라는 경고 메시지로 인해 Internet Explorer 브라우저가 실패하면 **추가 정보**를 선택하고 웹 페이지로 이동합니다. Firefox의 경우 **Advance**(다음)를 선택하고, 인증서를 추가하여 계속 진행합니다.
+    > "사이트가 안전하지 않습니다"라는 경고 메시지로 인해 Internet Explorer 브라우저가 실패하면 **추가 정보** 를 선택하고 웹 페이지로 이동합니다. Firefox의 경우 **Advance** (다음)를 선택하고, 인증서를 추가하여 계속 진행합니다.
 
 5. 배포된 Azure 인스턴스가 PCF Ops Manager에 표시됩니다. 이제 여기서 애플리케이션을 배포하고 관리할 수 있습니다.
                
     ![Pivotal에 배포된 Azure 인스턴스](media/deploy/ops-mgr.png )
- 

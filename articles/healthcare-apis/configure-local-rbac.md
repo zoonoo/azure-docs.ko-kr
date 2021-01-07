@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
-ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847009"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524201"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>FHIR에 대 한 로컬 RBAC 구성 
 
@@ -23,7 +23,7 @@ ms.locfileid: "87847009"
 
 ## <a name="add-service-principal"></a>서비스 주체 추가
 
-로컬 RBAC를 사용 하면 FHIR 서버에서 외부 Azure Active Directory 테 넌 트를 사용할 수 있습니다. RBAC 시스템에서이 테 넌 트의 그룹 멤버 자격을 확인할 수 있도록 하기 위해 FHIR 용 Azure API에는 테 넌 트의 서비스 주체가 있어야 합니다. 이 서비스 주체는 Azure API for FHIR을 배포한 구독과 연결 된 테 넌 트에 자동으로 생성 되지만 테 넌 트에 연결 된 구독이 없는 경우 테 넌 트 관리자는 다음 명령 중 하나를 사용 하 여이 서비스 주체를 만들어야 합니다.
+로컬 RBAC를 사용 하면 FHIR 서버에서 외부 Azure Active Directory 테 넌 트를 사용할 수 있습니다. 로컬 RBAC 시스템에서이 테 넌 트의 그룹 멤버 자격을 확인할 수 있도록 하기 위해 FHIR 용 Azure API에는 테 넌 트의 서비스 주체가 있어야 합니다. 이 서비스 주체는 Azure API for FHIR을 배포한 구독과 연결 된 테 넌 트에 자동으로 생성 되지만 테 넌 트에 연결 된 구독이 없는 경우 테 넌 트 관리자는 다음 명령 중 하나를 사용 하 여이 서비스 주체를 만들어야 합니다.
 
 `Az`PowerShell 모듈 사용:
 

@@ -3,15 +3,15 @@ author: Julia
 ms.author: juliako
 ms.date: 10/30/2020
 ms.topic: include
-ms.openlocfilehash: a07e4c8ae222aa2a1f6ce43fd1dabe193f8cf6e8
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: d2eff2720d4a8d7b18bb52c827c86bc883ff1dfb
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148292"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097191"
 ---
-여러 Azure AD 테 넌 트의 일부인 관리자 또는 랩 소유자 인 경우 Azure Lab Services 포털 (오른쪽 위 모서리)에서 테 넌 트 간을 탐색할 수 있습니다. 
+두 개 이상의 Azure AD 테 넌 트에 관리자 또는 랩 소유자 역할이 있는 경우 다음 스크린샷에 표시 된 것 처럼 오른쪽 위에 있는 컨트롤을 선택 하 여 Azure Lab Services 포털에서 테 넌 트 간에 전환할 수 있습니다. 
 
-![테 넌 트 선택](../media/multi-tenant-support/picker.png)
+![Azure Lab Services 포털에서 테 넌 트 간 전환에 대 한 컨트롤의 스크린샷](../media/multi-tenant-support/picker.png)
 
-테 넌 트를 선택 했으면 왼쪽 위 모서리의 Azure Active Directory (Azure AD) 테 넌 트 내에서 랩 계정을 선택 합니다.
+Azure AD 테 넌 트를 선택한 후 왼쪽 위에 있는 컨트롤을 선택 하 여 랩 계정으로 이동 합니다.

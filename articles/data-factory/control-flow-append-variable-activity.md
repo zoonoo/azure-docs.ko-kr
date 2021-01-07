@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.date: 10/09/2018
-ms.openlocfilehash: 5d74cd0fcd524f00d79eb3fbab386c602a413766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16bdd1d31440ed440faf67e939485da613e3886f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81414204"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490944"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 추가 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "81414204"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | Description | 필수
+속성 | 설명 | 필수
 -------- | ----------- | --------
 name | 파이프라인의 작업 이름 | 예
 description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | 아니요

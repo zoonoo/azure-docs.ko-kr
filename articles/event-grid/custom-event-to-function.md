@@ -4,11 +4,11 @@ description: '빠른 시작: Azure Event Grid와 Azure CLI 또는 포털을 사�
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324422"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996351"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>빠른 시작: Event Grid를 사용하여 Azure 함수로 사용자 지정 이벤트 라우팅
 
@@ -20,13 +20,13 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure F
 사용자 지정 토픽을 구독하기 전에 이벤트를 처리하는 함수를 만듭니다. 
 
 1. [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)의 지침을 사용하여 함수 앱을 만듭니다.
-2. **Event Grid 트리거**를 사용하여 함수를 만듭니다. 이 트리거를 처음 사용하는 경우 선택합니다. '설치'를 클릭하여 확장을 설치해야 할 수도 있습니다.
-    1. **함수 앱** 페이지에서 왼쪽 메뉴에 있는 **함수**를 선택하고, 템플릿에서 **Event Grid**를 검색한 다음, **Azure Event Grid 트리거**를 선택합니다. 
+2. **Event Grid 트리거** 를 사용하여 함수를 만듭니다. 이 트리거를 처음 사용하는 경우 선택합니다. '설치'를 클릭하여 확장을 설치해야 할 수도 있습니다.
+    1. **함수 앱** 페이지에서 왼쪽 메뉴에 있는 **함수** 를 선택하고, 템플릿에서 **Event Grid** 를 검색한 다음, **Azure Event Grid 트리거** 를 선택합니다. 
 
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Event Grid 트리거 선택":::
-3. **새 함수** 페이지에서 함수 이름을 입력하고, **함수 만들기**를 선택합니다.
+3. **새 함수** 페이지에서 함수 이름을 입력하고, **함수 만들기** 를 선택합니다.
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Event Grid 트리거 선택":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="새 함수 페이지":::
 4. **코드 + 테스트** 페이지를 사용하여 함수에 대한 기존 코드를 확인하고 업데이트합니다. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -36,25 +36,25 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure F
 Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트를 제공합니다. 
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **모든 서비스**를 선택하고 **Event Grid**를 검색하고 **Event Grid 항목**을 선택합니다. 
+2. 왼쪽 탐색 메뉴에서 **모든 서비스** 를 선택하고 **Event Grid** 를 검색하고 **Event Grid 항목** 을 선택합니다. 
 
     ![Event Grid 항목 선택](./media/custom-event-to-function/select-event-grid-topics.png)
-3. **Event Grid 항목** 페이지의 도구 모음에 있는 **+ 추가**를 선택합니다. 
+3. **Event Grid 항목** 페이지의 도구 모음에 있는 **+ 추가** 를 선택합니다. 
 
     ![Event Grid 항목 추가 단추](./media/custom-event-to-function/add-event-grid-topic-button.png)
 
 4. **토픽 만들기** 페이지에서 다음 단계를 수행합니다.
 
-    1. 사용자 지정 항목의 고유한 **이름**을 입력합니다. DNS 항목으로 표시되기 때문에 토픽 이름은 고유해야 합니다. 이미지에 표시된 이름은 사용하지 마십시오. 대신 고유한 이름을 만듭니다. 3~50자 사이로 a-z, A-Z, 0-9 및 “-” 값만 포함해야 합니다.
-    2. Azure **구독**을 선택합니다.
+    1. 사용자 지정 항목의 고유한 **이름** 을 입력합니다. DNS 항목으로 표시되기 때문에 토픽 이름은 고유해야 합니다. 이미지에 표시된 이름은 사용하지 마십시오. 대신 고유한 이름을 만듭니다. 3~50자 사이로 a-z, A-Z, 0-9 및 “-” 값만 포함해야 합니다.
+    2. Azure **구독** 을 선택합니다.
     3. 이전 단계에서 동일한 리소스 그룹을 선택합니다.
-    4. Event Grid 항목의 **위치**를 선택합니다.
-    5. **이벤트 스키마** 필드에 대한 기본 값 **Event Grid 스키마**를 유지합니다. 
+    4. Event Grid 항목의 **위치** 를 선택합니다.
+    5. **이벤트 스키마** 필드에 대한 기본 값 **Event Grid 스키마** 를 유지합니다. 
 
        ![토픽 만들기 페이지](./media/custom-event-to-function/create-custom-topic.png)
-    6. **만들기**를 선택합니다. 
+    6. **만들기** 를 선택합니다. 
 
-5. 사용자 지정 항목을 만든 후 성공 알림이 표시됩니다. **리소스 그룹으로 이동**을 선택합니다. 
+5. 사용자 지정 항목을 만든 후 성공 알림이 표시됩니다. **리소스 그룹으로 이동** 을 선택합니다. 
 
    ![성공 알림 확인](./media/custom-event-to-function/success-notification.png)
 
@@ -70,26 +70,26 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
 Event Grid 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이벤트를 보낼 위치를 알립니다.
 
-1. 이제 사용자 지정 항목에 대한 **Event Grid 항목** 페이지의 도구 모음에서 **+ 이벤트 구독**을 선택합니다.
+1. 이제 사용자 지정 항목에 대한 **Event Grid 항목** 페이지의 도구 모음에서 **+ 이벤트 구독** 을 선택합니다.
 
    ![이벤트 구독 추가](./media/custom-event-to-function/new-event-subscription.png)
 
 2. **이벤트 구독 만들기** 페이지에서 다음 단계를 수행합니다.
-    1. 이벤트 구독에 대한 이벤트 **이름**을 입력합니다.
-    3. **엔드포인트 유형**으로 **Azure 함수**를 선택합니다. 
-    4. **엔드포인트 선택**을 선택합니다. 
+    1. 이벤트 구독에 대한 이벤트 **이름** 을 입력합니다.
+    3. **엔드포인트 유형** 으로 **Azure 함수** 를 선택합니다. 
+    4. **엔드포인트 선택** 을 선택합니다. 
 
        ![이벤트 구독 값 입력](./media/custom-event-to-function/provide-subscription-values.png)
 
-    5. 함수 엔드포인트의 경우 함수 앱이 속한 Azure 구독 및 리소스 그룹을 선택하고, 이전에 만든 함수 앱 및 함수를 선택합니다. **선택 확인**을 선택합니다.
+    5. 함수 엔드포인트의 경우 함수 앱이 속한 Azure 구독 및 리소스 그룹을 선택하고, 이전에 만든 함수 앱 및 함수를 선택합니다. **선택 확인** 을 선택합니다.
 
        ![엔드포인트 URL 제공](./media/custom-event-to-function/provide-endpoint.png)
     6. 이 단계는 선택 사항이지만 프로덕션 시나리오에 권장됩니다. **이벤트 구독 만들기** 페이지에서 **고급 기능** 탭으로 전환하고, **일괄 처리당 최대 이벤트** 및 **기본 설정된 일괄 처리(KB)** 에 대한 값을 설정합니다. 
     
-        일괄 처리를 통해 처리량을 높일 수 있습니다. **일괄 처리당 최대 이벤트**의 경우 구독에서 일괄 처리에 포함할 최대 이벤트 수를 설정합니다. 기본 설정된 일괄 처리 크기는 일괄 처리 크기의 기본 설정된 상한(KB)을 설정하지만, 단일 이벤트가 이 임계값보다 큰 경우에는 이 크기를 초과할 수 있습니다.
+        일괄 처리를 통해 처리량을 높일 수 있습니다. **일괄 처리당 최대 이벤트** 의 경우 구독에서 일괄 처리에 포함할 최대 이벤트 수를 설정합니다. 기본 설정된 일괄 처리 크기는 일괄 처리 크기의 기본 설정된 상한(KB)을 설정하지만, 단일 이벤트가 이 임계값보다 큰 경우에는 이 크기를 초과할 수 있습니다.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Event Grid 트리거 선택":::
-    6. **이벤트 구독 만들기** 페이지에서 **만들기**를 선택합니다.
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="일괄 처리 사용":::
+    6. **이벤트 구독 만들기** 페이지에서 **만들기** 를 선택합니다.
 
 ## <a name="send-an-event-to-your-topic"></a>토픽에 이벤트 보내기
 
@@ -99,20 +99,20 @@ Event Grid 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이
 
 
 ### <a name="azure-cli"></a>Azure CLI
-1. Azure Portal에서 **Cloud Shell**을 선택합니다. Cloud Shell 창의 왼쪽 위 모서리에서 **Bash**를 선택합니다. 
+1. Azure Portal에서 **Cloud Shell** 을 선택합니다. Cloud Shell 창의 왼쪽 위 모서리에서 **Bash** 를 선택합니다. 
 
     ![Cloud Shell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
-1. 다음 명령을 실행하여 항목에 대한 **엔드포인트**를 가져옵니다. 명령을 복사하고 붙여넣은 후, 명령을 실행하기 전에 **항목 이름** 및 **리소스 그룹 이름**을 업데이트합니다. 
+1. 다음 명령을 실행하여 항목에 대한 **엔드포인트** 를 가져옵니다. 명령을 복사하고 붙여넣은 후, 명령을 실행하기 전에 **항목 이름** 및 **리소스 그룹 이름** 을 업데이트합니다. 
 
     ```azurecli
     endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
     ```
-2. 다음 명령을 실행하여 사용자 지정 항목에 대한 **키**를 가져옵니다. 명령을 복사하고 붙여넣은 후, 명령을 실행하기 전에 **항목 이름** 및 **리소스 그룹** 이름을 업데이트합니다. 
+2. 다음 명령을 실행하여 사용자 지정 항목에 대한 **키** 를 가져옵니다. 명령을 복사하고 붙여넣은 후, 명령을 실행하기 전에 **항목 이름** 및 **리소스 그룹** 이름을 업데이트합니다. 
 
     ```azurecli
     key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
     ```
-3. 이벤트 정의와 함께 다음 명령문을 복사하고 **ENTER**를 누릅니다. 
+3. 이벤트 정의와 함께 다음 명령문을 복사하고 **ENTER** 를 누릅니다. 
 
     ```json
     event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
@@ -126,14 +126,14 @@ Event Grid 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이
 ### <a name="azure-powershell"></a>Azure PowerShell
 두 번째 예제에서는 PowerShell을 사용하여 비슷한 단계를 수행합니다.
 
-1. Azure Portal에서 **Cloud Shell**을 선택하거나 `https://shell.azure.com/`으로 이동합니다. Cloud Shell 창의 왼쪽 위 모서리에서 **PowerShell**을 선택합니다. Azure CLI 섹션에서 샘플 **Cloud Shell** 창 이미지를 확인합니다.
-2. 다음 변수를 설정합니다. 각 명령을 복사하고 붙여넣은 후, 명령을 실행하기 전에 **항목 이름** 및 **리소스 그룹 이름**을 업데이트합니다.
+1. Azure Portal에서 **Cloud Shell** 을 선택하거나 `https://shell.azure.com/`으로 이동합니다. Cloud Shell 창의 왼쪽 위 모서리에서 **PowerShell** 을 선택합니다. Azure CLI 섹션에서 샘플 **Cloud Shell** 창 이미지를 확인합니다.
+2. 다음 변수를 설정합니다. 각 명령을 복사하고 붙여넣은 후, 명령을 실행하기 전에 **항목 이름** 및 **리소스 그룹 이름** 을 업데이트합니다.
 
     ```powershell
     $resourceGroupName = <resource group name>
     $topicName = <topic name>
     ```
-3. 다음 명령을 실행하여 항목에 대한 **엔드포인트** 및 **키**를 가져옵니다.
+3. 다음 명령을 실행하여 항목에 대한 **엔드포인트** 및 **키** 를 가져옵니다.
 
     ```powershell
     $endpoint = (Get-AzEventGridTopic -ResourceGroupName $resourceGroupName -Name $topicName).Endpoint
@@ -178,10 +178,10 @@ Event Grid 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이
 ## <a name="clean-up-resources"></a>리소스 정리
 이 이벤트로 작업을 계속하려는 경우 이 문서에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 이 문서에서 만든 리소스를 삭제합니다.
 
-1. 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다. 왼쪽 메뉴에 보이지 않으면, 왼쪽 메뉴에서 **모든 서비스**를 선택하고 **리소스 그룹**을 선택합니다. 
+1. 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다. 왼쪽 메뉴에 보이지 않으면, 왼쪽 메뉴에서 **모든 서비스** 를 선택하고 **리소스 그룹** 을 선택합니다. 
 2. 리소스 그룹을 선택하여 **리소스 그룹** 페이지를 시작합니다. 
-3. 도구 모음에서 **리소스 그룹 삭제**를 선택합니다. 
-4. 리소스 그룹의 이름을 입력하여 삭제를 확인하고 **삭제**를 선택합니다. 
+3. 도구 모음에서 **리소스 그룹 삭제** 를 선택합니다. 
+4. 리소스 그룹의 이름을 입력하여 삭제를 확인하고 **삭제** 를 선택합니다. 
 
     ![리소스 그룹](./media/custom-event-to-function/delete-resource-groups.png)
 

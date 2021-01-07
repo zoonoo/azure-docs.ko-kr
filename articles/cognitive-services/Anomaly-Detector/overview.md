@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 9b540f2e04ae8533a00f79d05e220d99964d9a34
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016606"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999106"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
@@ -59,7 +59,7 @@ Notebook을 실행하려면 다음 단계를 완료하세요.
 1. Notebook 중 하나를 선택합니다.
 1. 유효한 Anomaly Detector API 구독 키를 `subscription_key` 변수에 추가합니다.
 1. `endpoint` 변수를 엔드포인트로 변경합니다. 예: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. 상단 메뉴 모음에서 **셀**과 **모두 실행**을 차례로 클릭합니다.
+1. 상단 메뉴 모음에서 **셀** 과 **모두 실행** 을 차례로 클릭합니다.
 
 ## <a name="workflow"></a>워크플로
 
@@ -85,6 +85,10 @@ Microsoft에서 개발한 SR-CNN 알고리즘에 대해 자세히 알아보려�
 
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
+
+[Anomaly Detector 컨테이너를 사용](anomaly-detector-container-howto.md)하여 온-프레미스에 API 기능을 배포합니다. Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다.
 
 ## <a name="join-the-anomaly-detector-community"></a>Anomaly Detector 커뮤니티 참여
 

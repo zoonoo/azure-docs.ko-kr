@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316395"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019078"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
 
-**발언**은 앱이 해석해야 하는 사용자의 입력입니다. 여기에서 의도와 엔터티를 추출하도록 LUIS를 학습시키려면 각 의도에 대한 다양한 예제 발언을 캡처하는 것이 중요합니다. 적극적인 학습 또는 새로운 길이 발언을 계속 학습 하는 과정은 LUIS에서 제공 하는 기계 학습 인텔리전스에 필수적입니다.
+**발언** 은 앱이 해석해야 하는 사용자의 입력입니다. 여기에서 의도와 엔터티를 추출하도록 LUIS를 학습시키려면 각 의도에 대한 다양한 예제 발언을 캡처하는 것이 중요합니다. 적극적인 학습 또는 새로운 길이 발언을 계속 학습 하는 과정은 LUIS에서 제공 하는 기계 학습 인텔리전스에 필수적입니다.
 
 사용자가 입력할만한 발언을 수집합니다. 같은 의미를 갖지만 다르게 구성된 다양한 발언을 포함시킵니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "91316395"
 
 ## <a name="how-to-choose-varied-utterances"></a>다양한 발언을 선택하는 방법
 
-LUIS 모델에 [예제 발언을 추가](luis-how-to-add-example-utterances.md)하여 처음 시작할 때 다음 원칙에 유의하세요.
+LUIS 모델에 [예제 발언을 추가](./luis-how-to-add-entities.md)하여 처음 시작할 때 다음 원칙에 유의하세요.
 
 ### <a name="utterances-arent-always-well-formed"></a>발언이 항상 올바른 형식인 것은 아닙니다.
 
@@ -128,7 +128,7 @@ LUIS 포털, **관리** 섹션, **응용 프로그램 설정** 페이지 또는 
 
 모델이 학습되고, 게시되고 [엔드포인트](luis-glossary.md#endpoint) 쿼리를 수신하면 LUIS에서 제안한 [발언을 검토](luis-how-to-review-endpoint-utterances.md)합니다. LUIS는 의도 또는 엔터티에 대해 낮은 점수를 갖는 엔드포인트 발언을 선택합니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 [모범 사례](luis-concept-best-practices.md)를 검토하고 일반 제작 주기의 일환으로 적용합니다.
 
@@ -147,5 +147,4 @@ LUIS 포털, **관리** 섹션, **응용 프로그램 설정** 페이지 또는 
 
 
 ## <a name="next-steps"></a>다음 단계
-사용자 발언을 이해하도록 LUIS 앱을 학습하는 방법에 대한 내용은 [예제 발언 추가](luis-how-to-add-example-utterances.md)를 참조하세요.
-
+사용자 발언을 이해하도록 LUIS 앱을 학습하는 방법에 대한 내용은 [예제 발언 추가](./luis-how-to-add-entities.md)를 참조하세요.

@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric API Management 개요
 description: 이 문서에서는 Service Fabric 애플리케이션에 대한 게이트웨이로 Azure API Management를 사용하는 것을 소개합니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.author: vturecek
-ms.openlocfilehash: 8cbec0b4b28574bfbe46516de54f1b8a3fad7ce2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 32f47d62cc9dda7cc88421dbf616bf69ffe152fc
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091137"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575689"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 및 API Management 개요
 
@@ -77,7 +75,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 - `fabric:/app/users/<username>`
 
-  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들면 다음과 같습니다.
+  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 다음은 그 예입니다. 
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.
@@ -96,7 +94,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 - `fabric:/app/users/<username>`
 
-  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들면 다음과 같습니다.
+  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 다음은 그 예입니다. 
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.

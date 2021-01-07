@@ -9,17 +9,17 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 617599e3eb6dcca74324a7bdfd51e604904a2fa1
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742840"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897504"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>1 단계: 로그 전달자 배포
 
@@ -34,11 +34,11 @@ ms.locfileid: "92742840"
     - TCP 포트 514의 보안 솔루션에서 Syslog 메시지 수신 대기
     - TCP 포트 25226를 사용 하 여 로컬 호스트의 Log Analytics 에이전트에 대 한 CEF로 식별 되는 메시지만 전달
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 지정 된 Linux 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
 
-- Linux 컴퓨터에 **python 2.7** 이 설치 되어 있어야 합니다.<br>명령을 사용 `python -version` 하 여 확인 합니다.
+- Linux 컴퓨터에 **python 2.7** 또는 **3** 이 설치 되어 있어야 합니다.<br>명령을 사용 `python -version` 하 여 확인 합니다.
 
 - Log Analytics 에이전트를 설치 하기 전에 Linux 컴퓨터가 Azure 작업 영역에 연결 되어 있지 않아야 합니다.
 
@@ -51,11 +51,14 @@ ms.locfileid: "92742840"
 1. 1.2 아래에서 **Linux 컴퓨터에 CEF 수집기를 설치** 하 고, 다음 스크립트 실행에서 제공 된 링크를 복사 **하 여 cef 수집기를 설치 하 고 적용** 하거나 아래 텍스트에서 (자리 표시자 대신 작업 영역 ID 및 기본 키를 적용 합니다.)
 
     ```bash
-    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]
     ```
 
 1. 스크립트를 실행 하는 동안 오류 또는 경고 메시지가 표시 되지 않는지 확인 합니다.
     - 명령을 실행 하 여 *컴퓨터* 필드의 매핑에 대 한 문제를 해결 하도록 지시 하는 메시지가 표시 될 수 있습니다. 자세한 내용은 [배포 스크립트의 설명을](#mapping-command) 참조 하십시오.
+
+1. [2 단계: CEF 메시지를 전달 하도록 보안 솔루션 구성](connect-cef-solution-config.md)을 계속 진행 합니다.
+
 
 > [!NOTE]
 > **동일한 컴퓨터를 사용 하 여 일반 Syslog *및* cef 메시지 모두 전달**
@@ -67,7 +70,16 @@ ms.locfileid: "92742840"
 > 1. Azure 센티널의 Syslog 구성과 에이전트의 동기화를 사용 하지 않도록 설정 하려면 해당 컴퓨터에서 다음 명령을 실행 해야 합니다. 이렇게 하면 이전 단계에서 변경한 구성 변경을 덮어쓰지 않습니다.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
-[2 단계: CEF 메시지를 전달 하도록 보안 솔루션 구성](connect-cef-solution-config.md) 을 계속 진행 합니다.
+> [!NOTE]
+> **TimeGenerated 필드의 원본 변경**
+>
+> - 기본적으로 Log Analytics 에이전트는 스키마의 *Timegenerated* 필드를 Syslog 디먼에서 에이전트가 이벤트를 받은 시간으로 채웁니다. 따라서 원본 시스템에서 이벤트가 생성 된 시간은 Azure 센티널에 기록 되지 않습니다.
+>
+> - 그러나 스크립트를 다운로드 하 여 실행 하는 다음 명령을 실행할 수 있습니다 `TimeGenerated.py` . 이 스크립트는 에이전트에서 수신 된 시간 대신 원본 시스템에서 *Timegenerated* 필드를 이벤트의 원래 시간으로 채우도록 Log Analytics 에이전트를 구성 합니다.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
 
 ## <a name="deployment-script-explained"></a>배포 스크립트 설명
 
@@ -82,7 +94,7 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
     - Log Analytics (OMS) Linux 에이전트에 대 한 설치 스크립트를 다운로드 합니다.
 
         ```bash
-        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
+        wget -O https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
             onboard_agent.sh
         ```
 
@@ -97,7 +109,7 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
     - Log Analytics agent GitHub 리포지토리에서 구성을 다운로드 합니다.
 
         ```bash
-        wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
+        wget -O /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
             https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/
             omsagent.d/security_events.conf
         ```
@@ -148,7 +160,7 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
     - Log Analytics (OMS) Linux 에이전트에 대 한 설치 스크립트를 다운로드 합니다.
 
         ```bash
-        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
+        wget -O https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
             onboard_agent.sh
         ```
 
@@ -163,7 +175,7 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
     - Log Analytics agent GitHub 리포지토리에서 구성을 다운로드 합니다.
 
         ```bash
-        wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
+        wget -O /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
             https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/
             omsagent.d/security_events.conf
         ```
@@ -177,8 +189,7 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
         파일의 내용 `security-config-omsagent.conf` :
 
         ```bash
-        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};destination oms_destination {tcp(\"127.0.0.1\" port(25226));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 
@@ -208,9 +219,10 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
         ```bash
         sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
+---
 
 ## <a name="next-steps"></a>다음 단계
+
 이 문서에서는 CEF 어플라이언스를 Azure 센티널에 연결 하는 Log Analytics 에이전트를 배포 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats.md)을 시작합니다.
-
+- [Azure Sentinel을 사용하여 위협 검색](./tutorial-detect-threats-built-in.md)을 시작합니다.

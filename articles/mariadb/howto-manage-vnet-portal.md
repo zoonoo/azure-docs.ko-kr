@@ -1,17 +1,17 @@
 ---
 title: VNet 끝점 관리-Azure Portal-Azure Database for MariaDB
 description: Azure Portal을 사용한 Azure Database for MariaDB VNet 서비스 엔드포인트와 규칙 만들기 및 관리
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a4606755aedc9b34b257a7534d5c678bdeea7c0d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5eaa7821c61010b322d8f9032c439df28c297f3d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425931"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540878"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리
 
@@ -22,18 +22,18 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
 
 ## <a name="create-a-vnet-rule-and-enable-service-endpoints"></a>VNet 규칙을 만들고 서비스 엔드포인트를 사용하도록 설정
 
-1. MariaDB 서버 페이지의 설정 제목에서 **연결 보안**을 클릭하여 Azure Database for MariaDB의 연결 보안 창을 엽니다.
+1. MariaDB 서버 페이지의 설정 제목에서 **연결 보안** 을 클릭하여 Azure Database for MariaDB의 연결 보안 창을 엽니다.
 
-2. Azure 서비스에 대 한 액세스 허용 컨트롤이 **OFF**로 설정 되어 있는지 확인 합니다.
+2. Azure 서비스에 대 한 액세스 허용 컨트롤이 **OFF** 로 설정 되어 있는지 확인 합니다.
 
 > [!Important]
 > 설정 하는 경우 Azure MariaDB 데이터베이스 서버는 모든 서브넷의 통신을 허용 합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 끝점 기능은 Azure Database for MariaDB의 가상 네트워크 규칙 기능을 함께 사용 하 여 보안 노출 영역을 줄일 수 있습니다.
 
-3. 다음으로, **+ 기존 가상 네트워크 추가**를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기**를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 참조
+3. 다음으로, **+ 기존 가상 네트워크 추가** 를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기** 를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 참조
 
    ![Azure Portal - 보안 연결 클릭](./media/howto-manage-vnet-portal/1-connection-security.png)
 
-4. VNet 규칙 이름을 입력하고 구독, 가상 네트워크 및 서브넷 이름을 선택한 다음, **사용**을 클릭합니다. **Microsoft.SQL** 서비스 태그를 사용하여 서브넷에서 VNet 서비스 엔드포인트를 자동으로 사용하도록 설정할 수 있습니다.
+4. VNet 규칙 이름을 입력하고 구독, 가상 네트워크 및 서브넷 이름을 선택한 다음, **사용** 을 클릭합니다. **Microsoft.SQL** 서비스 태그를 사용하여 서브넷에서 VNet 서비스 엔드포인트를 자동으로 사용하도록 설정할 수 있습니다.
 
    ![Azure Portal - VNet 구성](./media/howto-manage-vnet-portal/2-configure-vnet.png)
 
@@ -48,10 +48,10 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
    VNet 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. VNet 및 Azure 서비스 리소스가 서로 다른 구독에 있는 경우 리소스가 동일한 AD(Active Directory) 테넌트에 있어야 합니다. 두 구독 모두에 **Microsoft .Sql** 리소스 공급자가 등록되어 있는지 확인합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
 
    > [!IMPORTANT]
-   > 서비스 엔드포인트를 구성하기 전에 서비스 엔드포인트 및 고려 사항에 대한 이 문서를 읽어보는 것이 매우 좋습니다. **Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. VNet 서비스 엔드포인트는 SQL Database라는 Azure 서비스를 나타내는 서비스 형식 이름 **Microsoft.Sql**을 사용합니다. 이 서비스 태그는 Azure SQL Database, Azure Database for MariaDB, PostgreSQL 및 MySQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MariaDB 및 Azure Database for MySQL 서버를 포함하는 모든 Azure Database 서비스의 서비스 엔드포인트 트래픽을 서브넷에서 구성합니다.
+   > 서비스 엔드포인트를 구성하기 전에 서비스 엔드포인트 및 고려 사항에 대한 이 문서를 읽어보는 것이 매우 좋습니다. **Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. VNet 서비스 엔드포인트는 SQL Database라는 Azure 서비스를 나타내는 서비스 형식 이름 **Microsoft.Sql** 을 사용합니다. 이 서비스 태그는 Azure SQL Database, Azure Database for MariaDB, PostgreSQL 및 MySQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MariaDB 및 Azure Database for MySQL 서버를 포함하는 모든 Azure Database 서비스의 서비스 엔드포인트 트래픽을 서브넷에서 구성합니다.
    > 
 
-5. 활성화되고 **확인**을 클릭하면 VNet 서비스 엔드포인트가 VNet 규칙에 따라 사용하도록 설정되는 것을 확인할 수 있습니다.
+5. 활성화되고 **확인** 을 클릭하면 VNet 서비스 엔드포인트가 VNet 규칙에 따라 사용하도록 설정되는 것을 확인할 수 있습니다.
 
    ![사용하도록 설정된 VNet 서비스 엔드포인트 및 만든 VNet 규칙](./media/howto-manage-vnet-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 

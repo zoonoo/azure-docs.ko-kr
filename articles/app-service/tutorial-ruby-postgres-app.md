@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f565fcef60b2cb4726b180eb67e6ac1fcaefc24b
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747138"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347849"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 앱 빌드
 
@@ -34,10 +34,11 @@ ms.locfileid: "92747138"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Git 설치](https://git-scm.com/)
-* [Ruby 2.6 설치](https://www.ruby-lang.org/en/documentation/installation/)
-* [Ruby on Rails 5.1 설치](https://guides.rubyonrails.org/v5.1/getting_started.html)
-* [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
+- [Git 설치](https://git-scm.com/)
+- [Ruby 2.6 설치](https://www.ruby-lang.org/en/documentation/installation/)
+- [Ruby on Rails 5.1 설치](https://guides.rubyonrails.org/v5.1/getting_started.html)
+- [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="prepare-local-postgres"></a>로컬 Postgres 준비
 
@@ -103,8 +104,6 @@ rails server
 ![Ruby on Rails가 Postgres에 성공적으로 연결됩니다.](./media/tutorial-ruby-postgres-app/postgres-connect-success.png)
 
 Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-postgres-in-azure"></a>Azure에서 Postgres 만들기
 
@@ -316,7 +315,7 @@ remote: Running deployment command...
 
 `http://<app-name>.azurewebsites.net`으로 이동한 후 목록에 몇 가지 작업을 추가합니다.
 
-:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="작업이라는 제목의 Ruby on Rails 앱 예제 스크린샷.":::
+:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="목록에 추가된 작업을 보여주는 작업이라는 제목의 Azure 앱 예제 스크린샷.":::
 
 축하합니다! Azure App Service에서 데이터 기반 Ruby on Rails 앱을 실행하고 있습니다.
 

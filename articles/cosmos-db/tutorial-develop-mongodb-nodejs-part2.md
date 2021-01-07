@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3af713d6e120e66a0cde5116f4556bb8caedf55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523488"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097856"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Node.js Express 앱 만들기
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 여러 파트로 구성된 이 자습서에서는 Express 및 Angular를 사용하여 Node.js로 작성된 새 앱을 만든 다음, [Cosmos DB의 API for MongoDB를 사용하여 구성된 Cosmos 계정](mongodb-introduction.md)에 연결하는 방법을 보여줍니다.
 
@@ -81,9 +82,9 @@ ms.locfileid: "86523488"
 
 ## <a name="build-the-app-using-the-express-framework"></a>Express 프레임워크를 사용하여 앱 빌드
 
-1. Visual Studio Code의 **탐색기** 창에서 **src** 폴더를 마우스 오른쪽 단추로 클릭하고 **새 폴더**를 클릭하고 새 폴더 이름을 *server*로 지정합니다.
+1. Visual Studio Code의 **탐색기** 창에서 **src** 폴더를 마우스 오른쪽 단추로 클릭하고 **새 폴더** 를 클릭하고 새 폴더 이름을 *server* 로 지정합니다.
 
-2. **탐색기** 창에서 **server** 폴더를 마우스 오른쪽 단추로 클릭하고, **새 파일**을 클릭하고, 새 파일 이름을 *index.js*로 지정합니다.
+2. **탐색기** 창에서 **server** 폴더를 마우스 오른쪽 단추로 클릭하고, **새 파일** 을 클릭하고, 새 파일 이름을 *index.js* 로 지정합니다.
 
 3. 명령 프롬프트로 다시 돌아가서 본문 파서를 설치하는 다음 명령을 사용합니다. 이렇게 하면 앱에서 API를 통해 전달되는 JSON 데이터를 구문 분석할 수 있습니다.
 
@@ -125,9 +126,9 @@ ms.locfileid: "86523488"
    app.listen(port, () => console.log(`API running on localhost:${port}`));
    ```
 
-5. Visual Studio Code의 **탐색기** 창에서 **server** 폴더를 마우스 오른쪽 단추로 클릭하고 **새 파일**을 클릭합니다. 새 파일의 이름을 *routes.js*로 지정합니다. 
+5. Visual Studio Code의 **탐색기** 창에서 **server** 폴더를 마우스 오른쪽 단추로 클릭하고 **새 파일** 을 클릭합니다. 새 파일의 이름을 *routes.js* 로 지정합니다. 
 
-6. 다음 코드를 **routes.js**에 복사합니다. 이 코드에서는 다음을 수행합니다.
+6. 다음 코드를 **routes.js** 에 복사합니다. 이 코드에서는 다음을 수행합니다.
    * Express 라우터 참조
    * Heroes 가져오기
    * 정의된 Heroes에 JSON 다시 전송

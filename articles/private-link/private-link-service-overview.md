@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27dba675f82c4d34ec793cf492c18b293a6c8c77
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87760953"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544261"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
-Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서비스에 대한 참조입니다. [Azure 표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md) 뒤에 실행 되는 서비스를 개인 링크 액세스에 사용 하도록 설정 하 여 서비스의 소비자가 자신의 vnet에서 개인용으로 액세스할 수 있습니다. 고객은 자신의 VNet 내에서 개인 끝점을 만들고이 서비스에 매핑할 수 있습니다. 이 문서에서는 서비스 공급자 쪽과 관련 된 개념을 설명 합니다. 
+Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서비스에 대한 참조입니다. [Azure 표준 Load Balancer](../load-balancer/load-balancer-overview.md) 뒤에 실행 되는 서비스를 개인 링크 액세스에 사용 하도록 설정 하 여 서비스의 소비자가 자신의 vnet에서 개인용으로 액세스할 수 있습니다. 고객은 자신의 VNet 내에서 개인 끝점을 만들고이 서비스에 매핑할 수 있습니다. 이 문서에서는 서비스 공급자 쪽과 관련 된 개념을 설명 합니다. 
 
 :::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="개인 링크 서비스 워크플로" border="true":::
 
@@ -57,7 +57,7 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 |---------|---------|
 |프로 비전 상태 (provisioningState)  |개인 링크 서비스에 대 한 현재 프로 비전 상태를 나열 하는 읽기 전용 속성입니다. 적용 가능한 프로 비전 상태는 "삭제 중;입니다. 오류가 열었습니다 업데이트 중 ". 프로 비전 상태가 "성공" 인 경우 개인 링크 서비스를 프로 비전 했습니다.        |
 |별칭 (별칭)     | 별칭은 서비스에 대 한 전역적으로 고유한 읽기 전용 문자열입니다. 서비스에 대 한 고객 데이터를 마스킹하는 동시에 서비스에 대 한 공유 하기 쉬운 이름을 만들 수 있습니다. 개인 링크 서비스를 만들 때 Azure는 고객과 공유할 수 있는 서비스에 대 한 별칭을 생성 합니다. 고객은이 별칭을 사용 하 여 서비스에 대 한 연결을 요청할 수 있습니다.          |
-|표시 유형 (표시 유형)     | 표시 유형은 개인 링크 서비스에 대 한 노출 설정을 제어 하는 속성입니다. 서비스 공급자는 RBAC (역할 기반 액세스 제어) 권한, 제한 된 구독 집합 또는 모든 Azure 구독을 사용 하 여 해당 서비스에 대 한 구독에 대 한 노출을 제한 하도록 선택할 수 있습니다.          |
+|표시 유형 (표시 유형)     | 표시 유형은 개인 링크 서비스에 대 한 노출 설정을 제어 하는 속성입니다. 서비스 공급자는 azure RBAC (역할 기반 액세스 제어) 권한, 제한 된 구독 집합 또는 모든 Azure 구독을 사용 하 여 서비스에 대 한 노출을 제한 하도록 선택할 수 있습니다.          |
 |자동 승인 (autoApproval)    |   자동 승인은 개인 링크 서비스에 대 한 자동화 된 액세스를 제어 합니다. 자동 승인 목록에 지정 된 구독은 해당 구독의 개인 끝점에서 연결이 요청 될 때 자동으로 승인 됩니다.          |
 |Load Balancer 프런트 엔드 IP 구성 (loadBalancerFrontendIpConfigurations)    |    개인 링크 서비스는 표준 Load Balancer의 프런트 엔드 IP 주소에 연결 됩니다. 서비스를 대상으로 하는 모든 트래픽은 SLB의 프런트 엔드에 도달 합니다. 응용 프로그램이 실행 되 고 있는 적절 한 백 엔드 풀로이 트래픽을 보내도록 SLB 규칙을 구성할 수 있습니다. 부하 분산 장치 프런트 엔드 IP 구성은 NAT IP 구성과 다릅니다.      |
 |NAT IP 구성 (ipConfigurations)    |    이 속성은 개인 링크 서비스에 대 한 NAT (네트워크 주소 변환) IP 구성을 참조 합니다. NAT IP는 서비스 공급자의 가상 네트워크에 있는 모든 서브넷에서 선택할 수 있습니다. 개인 링크 서비스는 개인 링크 트래픽에 대 한 대상 측 NAT를 수행 합니다. 이렇게 하면 소스 (소비자 측)와 대상 (서비스 공급자) 주소 공간 간에 IP 충돌이 발생 하지 않습니다. 대상 측 (서비스 공급자 쪽)에서, 서비스에서 받는 모든 패킷에 대해 NAT IP 주소는 서비스에서 받는 모든 패킷에 대해 원본 IP로 표시 되 고, 서비스에서 보낸 모든 패킷에 대 한 대상 IP로 표시 됩니다.       |
@@ -76,7 +76,7 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
  
 - 여러 Vnet, 구독 및/또는 Active Directory 테 넌 트에 속하는 여러 개인 끝점에서 단일 개인 링크 서비스에 액세스할 수 있습니다. 연결은 연결 워크플로를 통해 설정 됩니다. 
  
-- 다른 프런트 엔드 IP 구성을 사용 하 여 동일한 표준 Load Balancer에 여러 개인 링크 서비스를 만들 수 있습니다. 표준 Load Balancer 및 구독 당 만들 수 있는 개인 링크 서비스 수에는 제한이 있습니다. 자세한 내용은  [Azure 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)을 참조하세요.
+- 다른 프런트 엔드 IP 구성을 사용 하 여 동일한 표준 Load Balancer에 여러 개인 링크 서비스를 만들 수 있습니다. 표준 Load Balancer 및 구독 당 만들 수 있는 개인 링크 서비스 수에는 제한이 있습니다. 자세한 내용은  [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)을 참조하세요.
  
 - 개인 링크 서비스는 둘 이상의 NAT IP 구성을 연결할 수 있습니다. NAT IP 구성을 두 개 이상 선택 하면 서비스 공급자가 크기를 조정 하는 데 도움이 될 수 있습니다. 현재, 서비스 공급자는 개인 링크 서비스 당 최대 8 개의 NAT IP 주소를 할당할 수 있습니다. 각 NAT IP 주소를 사용 하 여 TCP 연결에 더 많은 포트를 할당 하 고 확장할 수 있습니다. 개인 링크 서비스에 여러 NAT IP 주소를 추가한 후에는 NAT IP 주소를 삭제할 수 없습니다. NAT IP 주소를 삭제 하는 동안 활성 연결에 영향을 주지 않도록 하기 위한 작업입니다.
 
@@ -85,17 +85,17 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 
 **별칭** 은 서비스에 대 한 전역적으로 고유한 이름입니다. 서비스에 대 한 고객 데이터를 마스킹하는 동시에 서비스에 대 한 공유 하기 쉬운 이름을 만들 수 있습니다. 개인 링크 서비스를 만들 때 Azure는 고객과 공유할 수 있는 서비스에 대 한 별칭을 생성 합니다. 고객은이 별칭을 사용 하 여 서비스에 대 한 연결을 요청할 수 있습니다.
 
-별칭은 *접두사*라는 세 부분으로 구성 됩니다. *GUID*입니다. *접미사*
+별칭은 *접두사* 라는 세 부분으로 구성 됩니다. *GUID* 입니다. *접미사*
 
 - 접두사는 서비스 이름입니다. 사용자 고유의 접두사를 선택할 수 있습니다. "별칭"을 만든 후에는 변경할 수 없으므로 접두사를 적절 하 게 선택 합니다.  
 - GUID는 플랫폼에서 제공 됩니다. 이렇게 하면 이름을 전역적으로 고유 하 게 만들 수 있습니다. 
 - Azure: privatelinkservice에서 접미사를 추가 *합니다.* 
 
-전체 별칭:  *접두사*입니다. {GUID}. *region*privatelinkservice  
+전체 별칭:  *접두사* 입니다. {GUID}. *region* privatelinkservice  
 
 ## <a name="control-service-exposure"></a>제어 서비스 노출
 
-개인 링크 서비스는 "가시성" 설정을 통해 서비스의 노출을 제어 하는 옵션을 제공 합니다. 소유 하 고 있는 다른 Vnet (RBAC 권한만 해당)에서 사용할 수 있도록 서비스를 개인으로 설정 하거나, 신뢰 하는 제한 된 구독 집합으로 노출을 제한 하거나, 모든 Azure 구독이 개인 링크 서비스에서 연결을 요청할 수 있도록 공개로 설정할 수 있습니다. 표시 유형 설정은 소비자가 서비스에 연결할 수 있는지 여부를 결정 합니다. 
+개인 링크 서비스는 "가시성" 설정을 통해 서비스의 노출을 제어 하는 옵션을 제공 합니다. 소유 하는 다른 Vnet (Azure RBAC 권한만 해당)에서 사용할 수 있도록 서비스를 개인으로 설정 하거나, 신뢰 하는 제한 된 구독 집합에 대 한 노출을 제한 하거나, 모든 Azure 구독이 개인 링크 서비스에서 연결을 요청할 수 있도록 공개로 설정할 수 있습니다. 표시 유형 설정은 소비자가 서비스에 연결할 수 있는지 여부를 결정 합니다. 
 
 ## <a name="control-service-access"></a>서비스 액세스 제어
 
@@ -113,7 +113,7 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 
 |필드 |길이 (8 진수)  |설명  |
 |---------|---------|----------|
-|Type  |1        |PP2_TYPE_AZURE (0xEE)|
+|형식  |1        |PP2_TYPE_AZURE (0xEE)|
 |길이  |2      |값의 길이|
 |값  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 바이트)-개인 끝점의 LINKID을 나타냅니다. Little endian 형식으로 인코딩됩니다.|

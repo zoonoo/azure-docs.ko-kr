@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: efb86dbcbe7619ff6727c5e7374835dc3fc7d731
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220502"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460995"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Azure Data Share의 역할 및 요구 사항 
 
@@ -43,7 +43,7 @@ SQL 기반 공유의 경우 Azure 데이터 공유 리소스와 동일한 이름
 |**SQL Database 형식**|**Data Provider SQL 사용자 권한**|**Data Consumer SQL 사용자 권한**|
 |---|---|---|
 |Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
-|Azure Synapse Analytics(이전의 SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|Azure Synapse Analytics | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
 ### <a name="data-provider"></a>데이터 공급자
@@ -58,14 +58,14 @@ Azure 데이터 공유에 데이터 집합을 추가 하려면 원본 Azure 데�
 
 1. Azure 데이터 저장소로 이동 합니다.
 1. **Access Control(IAM)** 을 선택합니다.
-1. **역할 할당 추가를**선택 합니다.
-1. *역할*아래에서 위의 역할 할당 테이블에서 역할을 선택 합니다. 예를 들어 저장소 계정에서 *저장소 Blob 데이터 판독기*를 선택 합니다.
-1. *선택*아래에서 Azure 데이터 공유 리소스의 이름을 입력 합니다.
-1. *저장*을 클릭합니다.
+1. **역할 할당 추가를** 선택 합니다.
+1. *역할* 아래에서 위의 역할 할당 테이블에서 역할을 선택 합니다. 예를 들어 저장소 계정에서 *저장소 Blob 데이터 판독기* 를 선택 합니다.
+1. *선택* 아래에서 Azure 데이터 공유 리소스의 이름을 입력 합니다.
+1. *저장* 을 클릭합니다.
 
 역할 할당에 대해 자세히 알아보려면 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)를 참조 하세요. REST Api를 사용 하 여 데이터를 공유 하는 경우 [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-rest.md)를 참조 하 여 API를 사용 하 여 역할 할당을 만들 수 있습니다. 
 
-Sql 기반 원본의 경우 Azure Active Directory 인증을 사용 하 여 SQL Database에 연결 하는 동안 Azure 데이터 공유 리소스와 동일한 이름을 가진 SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 이 사용자에 게 *db_datareader* 권한이 있어야 합니다. SQL 기반 공유의 다른 필수 구성 요소와 함께 샘플 스크립트는 [Azure SQL Database 또는 Synapse Analytics에서 공유](how-to-share-from-sql.md) 자습서에서 찾을 수 있습니다. 
+Sql 기반 원본의 경우 Azure Active Directory 인증을 사용 하 여 SQL Database에 연결 하는 동안 Azure 데이터 공유 리소스와 동일한 이름을 가진 SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 이 사용자에 게 *db_datareader* 권한이 있어야 합니다. SQL 기반 공유의 다른 필수 구성 요소와 함께 샘플 스크립트는 [Azure SQL Database의 공유 또는 Azure Synapse Analytics](how-to-share-from-sql.md) 자습서에서 찾을 수 있습니다. 
 
 ### <a name="data-consumer"></a>데이터 소비자
 데이터를 받으려면 소비자 데이터 공유 리소스의 관리 id에 대상 Azure 데이터 저장소에 대 한 액세스 권한을 부여 해야 합니다. 예를 들어 저장소 계정의 경우 데이터 공유 리소스의 관리 되는 id에 저장소 Blob 데이터 참가자 역할이 부여 됩니다. 
@@ -78,14 +78,14 @@ Sql 기반 원본의 경우 Azure Active Directory 인증을 사용 하 여 SQL 
 
 1. Azure 데이터 저장소로 이동 합니다.
 1. **Access Control(IAM)** 을 선택합니다.
-1. **역할 할당 추가를**선택 합니다.
-1. *역할*아래에서 위의 역할 할당 테이블에서 역할을 선택 합니다. 예를 들어 저장소 계정에서 *저장소 Blob 데이터 판독기*를 선택 합니다.
-1. *선택*아래에서 Azure 데이터 공유 리소스의 이름을 입력 합니다.
-1. *저장*을 클릭합니다.
+1. **역할 할당 추가를** 선택 합니다.
+1. *역할* 아래에서 위의 역할 할당 테이블에서 역할을 선택 합니다. 예를 들어 저장소 계정에서 *저장소 Blob 데이터 판독기* 를 선택 합니다.
+1. *선택* 아래에서 Azure 데이터 공유 리소스의 이름을 입력 합니다.
+1. *저장* 을 클릭합니다.
 
 역할 할당에 대해 자세히 알아보려면 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)를 참조 하세요. REST Api를 사용 하 여 데이터를 수신 하는 경우 [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-rest.md)를 참조 하 여 API를 사용 하 여 역할 할당을 만들 수 있습니다. 
 
-Sql 기반 대상의 경우 Azure Active Directory 인증을 사용 하 여 SQL Database에 연결 하는 동안 Azure 데이터 공유 리소스와 동일한 이름을 가진 SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 이 사용자는 *db_datareader, db_datawriter db_ddladmin* 권한을 부여 받아야 합니다. SQL 기반 공유의 다른 필수 구성 요소와 함께 샘플 스크립트는 [Azure SQL Database 또는 Synapse Analytics에서 공유](how-to-share-from-sql.md) 자습서에서 찾을 수 있습니다. 
+Sql 기반 대상의 경우 Azure Active Directory 인증을 사용 하 여 SQL Database에 연결 하는 동안 Azure 데이터 공유 리소스와 동일한 이름을 가진 SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 이 사용자는 *db_datareader, db_datawriter db_ddladmin* 권한을 부여 받아야 합니다. SQL 기반 공유의 다른 필수 구성 요소와 함께 샘플 스크립트는 [Azure SQL Database의 공유 또는 Azure Synapse Analytics](how-to-share-from-sql.md) 자습서에서 찾을 수 있습니다. 
 
 ## <a name="resource-provider-registration"></a>리소스 공급자 등록 
 
@@ -97,11 +97,11 @@ Sql 기반 대상의 경우 Azure Active Directory 인증을 사용 하 여 SQL 
 
 Azure 구독에 DataShare 리소스 공급자를 등록 하려면 다음 단계를 수행 합니다. 리소스 공급자를 등록 하려면 Azure 구독에 대 한 *참가자* 액세스 권한이 필요 합니다.
 
-1. Azure Portal에서 **구독**으로 이동 합니다.
+1. Azure Portal에서 **구독** 으로 이동 합니다.
 1. Azure 데이터 공유에 사용 중인 구독을 선택 합니다.
-1. **리소스 공급자**를 클릭 합니다.
+1. **리소스 공급자** 를 클릭 합니다.
 1. DataShare를 검색 합니다.
-1. **등록**을 클릭합니다.
+1. **등록** 을 클릭합니다.
  
 리소스 공급자에 대 한 자세한 내용은 [Azure 리소스 공급자 및 유형](../azure-resource-manager/management/resource-providers-and-types.md)을 참조 하세요.
 

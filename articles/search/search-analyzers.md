@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/20/2020
+ms.date: 12/18/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 544509a8c90c9273b748591509b1fa86510d71c3
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: bbda4268ca00d1c12f851517e2b35add7fba7f9b
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421739"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694294"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Azure Cognitive Search에서 텍스트 처리를 위한 분석기
 
@@ -48,10 +48,10 @@ Azure Cognitive Search 쿼리에서는 검색 가능으로 표시 된 모든 문
 | 범주 | Description |
 |----------|-------------|
 | [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본값 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 다양 한 언어 및 시나리오에 적합 합니다.|
-| 미리 정의된 분석기 | 있는 그대로 사용되는 완제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의된"이라는 수식어가 붙은 이유는 구성 또는 사용자 지정 없이 이름으로 참조하기 때문입니다. <br/><br/>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 미리 정의된 비언어 분석기는 **Asciifolding** , **키워드** , **패턴** , **단순** , **중지** , **공백** 을 포함합니다.<br/><br/>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Cognitive Search는 35 Lucene 언어 분석기 및 50 Microsoft 자연어 처리 분석기를 지원 합니다. |
+| 미리 정의된 분석기 | 있는 그대로 사용되는 완제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의된"이라는 수식어가 붙은 이유는 구성 또는 사용자 지정 없이 이름으로 참조하기 때문입니다. <br/><br/>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 미리 정의된 비언어 분석기는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백** 을 포함합니다.<br/><br/>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Cognitive Search는 35 Lucene 언어 분석기 및 50 Microsoft 자연어 처리 분석기를 지원 합니다. |
 |[사용자 지정 분석기](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | 기존 요소를 결합한 사용자 정의 구성을 말하며, 토크나이저(필수) 하나와 여러 선택적 필터(char 또는 토큰)로 구성됩니다.|
 
-**패턴** 또는 **중지** 같은 일부 미리 정의된 분석기는 제한된 구성 옵션 세트를 지원합니다. 이러한 옵션을 설정하려면 미리 정의된 분석기와 [미리 정의된 분석기 참조](index-add-custom-analyzers.md#AnalyzerTable)에 설명된 대체 옵션 중 하나로 구성되는 사용자 지정 분석기를 실질적으로 만들어야 합니다. 다른 사용자 지정 구성과 마찬가지로, Lucene 패턴 분석기와 구분할 수 있도록 구성의 이름(예: *myPatternAnalyzer* )을 입력합니다.
+**패턴** 또는 **중지** 같은 일부 미리 정의된 분석기는 제한된 구성 옵션 세트를 지원합니다. 이러한 옵션을 설정하려면 미리 정의된 분석기와 [미리 정의된 분석기 참조](index-add-custom-analyzers.md#AnalyzerTable)에 설명된 대체 옵션 중 하나로 구성되는 사용자 지정 분석기를 실질적으로 만들어야 합니다. 다른 사용자 지정 구성과 마찬가지로, Lucene 패턴 분석기와 구분할 수 있도록 구성의 이름(예: *myPatternAnalyzer*)을 입력합니다.
 
 ## <a name="how-to-specify-analyzers"></a>분석기를 지정하는 방법
 
@@ -315,55 +315,61 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 구성 없이 있는 그대로 사용 되는 모든 분석기는 필드 정의에 지정 됩니다. 인덱스의 **[분석기]** 섹션에 항목을 만들 필요는 없습니다. 
 
-이 예에서는 설명 필드에 Microsoft 영어 및 프랑스어 분석기를 할당 합니다. [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 샘플의 hotels.cs 파일에서 호텔 클래스를 사용 하 여 생성 하는 호텔 인덱스의 더 큰 정의에서 가져온 코드 조각입니다.
+언어 분석기는 있는 그대로 사용됩니다. 이를 사용 하려면 [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer)를 호출 하 고, Azure Cognitive Search에서 지원 되는 텍스트 분석기를 제공 하는 [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 유형을 지정 합니다.
 
-[LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer)를 호출 하 고, Azure Cognitive Search에서 지원 되는 텍스트 분석기를 제공 하는 [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 유형을 지정 합니다.
+사용자 지정 분석기는 필드 정의에 유사 하 게 지정 되지만이 작업을 수행 하려면 다음 섹션에서 설명 하는 것 처럼 인덱스 정의에 분석기를 지정 해야 합니다.
 
 ```csharp
     public partial class Hotel
     {
        . . . 
-
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
-        [JsonProperty("description")]
+        [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnLucene)]
         public string Description { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrLucene)]
-        [JsonProperty("description_fr")]
+        [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.FrLucene)]
+        [JsonPropertyName("Description_fr")]
         public string DescriptionFr { get; set; }
 
+        [SearchableField(AnalyzerName = "url-analyze")]
+        public string Url { get; set; }
       . . .
     }
 ```
+
 <a name="Define-a-custom-analyzer"></a>
 
 ### <a name="define-a-custom-analyzer"></a>사용자 지정 분석기 정의
 
-사용자 지정 또는 구성이 필요한 경우에는 분석기 구문을 인덱스에 추가 해야 합니다. 정의한 후에는 앞의 예제에서 설명한 대로 필드 정의에 추가할 수 있습니다.
+사용자 지정 또는 구성이 필요한 경우에는 분석기 구문을 인덱스에 추가 합니다. 정의한 후에는 앞의 예제에서 설명한 대로 필드 정의에 추가할 수 있습니다.
 
-[CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) 개체를 만듭니다. 더 많은 예제를 보려면 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs)를 참조 하세요.
+[CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) 개체를 만듭니다. 사용자 지정 분석기는 알려진 토크, 0 개 이상의 토큰 필터 및 0 개 이상의 문자 필터 이름으로 이루어진 사용자 정의 조합입니다.
+
++ [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer)
++ [CustomAnalyzer 필터](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenfilters)
++ [CustomAnalyzer 필터](/dotnet/api/microsoft.azure.search.models.customanalyzer.charfilters)
+
+다음 예제에서는 [uax_url_email 토크](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer) 및 [소문자 토큰 필터](/dotnet/api/microsoft.azure.search.models.tokenfiltername.lowercase)를 사용 하는 "url-분석" 이라는 사용자 지정 분석기를 만듭니다.
 
 ```csharp
+private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 {
-   var definition = new Index()
+   FieldBuilder fieldBuilder = new FieldBuilder();
+   var searchFields = fieldBuilder.Build(typeof(Hotel));
+
+   var analyzer = new CustomAnalyzer("url-analyze", "uax_url_email")
    {
-         Name = "hotels",
-         Fields = FieldBuilder.BuildForType<Hotel>(),
-         Analyzers = new[]
-            {
-               new CustomAnalyzer()
-               {
-                     Name = "url-analyze",
-                     Tokenizer = TokenizerName.UaxUrlEmail,
-                     TokenFilters = new[] { TokenFilterName.Lowercase }
-               }
-            },
+         TokenFilters = { TokenFilterName.Lowercase }
    };
 
-   serviceClient.Indexes.Create(definition);
+   var definition = new SearchIndex(indexName, searchFields);
+
+   definition.Analyzers.Add(analyzer);
+
+   adminClient.CreateOrUpdateIndex(definition);
+}
 ```
+
+더 많은 예제를 보려면 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -375,13 +381,13 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 + 개별 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](index-add-custom-analyzers.md)하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
  [문서 검색 REST API](/rest/api/searchservice/search-documents) 
 
  [단순 쿼리 구문](query-simple-syntax.md) 
 
- [Full Lucene 쿼리 구문](query-lucene-syntax.md) 
+ [전체 Lucene 쿼리 구문](query-lucene-syntax.md) 
  
  [검색 결과 처리](search-pagination-page-layout.md)
 

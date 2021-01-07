@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d03496634c5d30d30b23a76b5b47b1e810af288
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787587"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635401"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -79,11 +79,11 @@ Blob 또는 큐 데이터에 액세스 하려고 하면 Azure Portal는 먼저 *
 
 Azure AD 계정을 사용 하 여 Azure Portal에서 blob 또는 큐 데이터에 액세스 하려면 blob 및 큐 데이터에 액세스할 수 있는 권한이 필요 하며, Azure Portal 저장소 계정 리소스를 탐색할 수 있는 권한도 필요 합니다. Azure Storage에서 제공 하는 기본 제공 역할은 blob 및 큐 리소스에 대 한 액세스 권한을 부여 하지만 저장소 계정 리소스에 대 한 사용 권한은 부여 하지 않습니다. 이러한 이유로 포털에 대 한 액세스에는 저장소 계정 수준으로 범위가 지정 된 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할과 같은 Azure Resource Manager 역할의 할당도 필요 합니다. **읽기 권한자** 역할은 가장 제한 된 권한을 부여 하지만 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하는 다른 Azure Resource Manager 역할도 허용 됩니다. Azure AD 계정으로 Azure Portal에서 데이터 액세스에 대 한 사용 권한을 사용자에 게 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스할 수 있도록 azure 역할 할당](storage-auth-aad-rbac-portal.md)을 참조 하세요.
 
-Azure Portal는 컨테이너 또는 큐로 이동할 때 사용 중인 권한 부여 체계를 나타냅니다. 포털의 데이터 액세스에 대 한 자세한 내용은 [Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../blobs/authorize-blob-access-portal.md) 및 [Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../queues/authorize-queue-access-portal.md)을 참조 하세요.
+Azure Portal는 컨테이너 또는 큐로 이동할 때 사용 중인 권한 부여 체계를 나타냅니다. 포털의 데이터 액세스에 대 한 자세한 내용은 [Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../blobs/authorize-data-operations-portal.md) 및 [Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../queues/authorize-data-operations-portal.md)을 참조 하세요.
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>PowerShell 또는 Azure CLI에서 데이터 액세스
 
-Azure CLI 및 PowerShell은 Azure AD 자격 증명으로 로그인을 지원 합니다. 로그인 하면 해당 자격 증명으로 세션이 실행 됩니다. 자세한 내용은 [AZURE AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](../blobs/authorize-active-directory-powershell.md)를 참조 하세요.
+Azure CLI 및 PowerShell은 Azure AD 자격 증명으로 로그인을 지원 합니다. 로그인 하면 해당 자격 증명으로 세션이 실행 됩니다. 자세한 내용은 [AZURE AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](../blobs/authorize-data-operations-powershell.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

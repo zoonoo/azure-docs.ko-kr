@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a891a301d5869603a7d90d28bb9063d7d5bdb1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347508"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660579"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>사용자 고유의 Machine Learning (ML)를 Azure 센티널로 가져오기
 
@@ -32,7 +32,7 @@ ML 검색 모델은 개별 환경 및 사용자 동작 변경에 맞게 조정 �
 
 ## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>사용자 고유의 Machine Learning (BYO) 플랫폼은 무엇 인가요?
 
-ML 리소스가 있고 고유한 비즈니스 요구 사항에 맞게 사용자 지정 된 ML 모델을 빌드하려고 하는 조직의 경우 **BYO 플랫폼**을 제공 합니다. 플랫폼은 [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks) / [Apache Spark](http://spark.apache.org/) 환경 및 jupyter 노트북을 사용 하 여 ML 환경을 만듭니다. 다음 구성 요소를 제공 합니다.
+ML 리소스가 있고 고유한 비즈니스 요구 사항에 맞게 사용자 지정 된 ML 모델을 빌드하려고 하는 조직의 경우 **BYO 플랫폼** 을 제공 합니다. 플랫폼은 [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) / [Apache Spark](http://spark.apache.org/) 환경 및 jupyter 노트북을 사용 하 여 ML 환경을 만듭니다. 다음 구성 요소를 제공 합니다.
 
 - 데이터에 액세스 하 고 결과를 BYO (LA) Log Analytics로 푸시하는 데 도움이 되는 라이브러리를 포함 하는 ML 패키지는 검색, 조사 및 검색에 결과를 통합할 수 있습니다. 
 
@@ -95,7 +95,7 @@ BYO ML 패키지에는 보안을 위해 ML의 프런트 엔드에 있는 Microso
 
 ### <a name="setup-the-databricksspark-environment"></a>Databricks/Spark 환경 설정
 
-사용자 고유의 Databricks 환경을 아직 설치 하지 않은 경우 설치 해야 합니다. 지침은 [Databricks 빠른](https://docs.microsoft.com/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) 시작 문서를 참조 하세요.
+사용자 고유의 Databricks 환경을 아직 설치 하지 않은 경우 설치 해야 합니다. 지침은 [Databricks 빠른](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) 시작 문서를 참조 하세요.
 
 ### <a name="auto-export-instruction"></a>자동 내보내기 명령
 
@@ -103,7 +103,7 @@ BYO ML 패키지에는 보안을 위해 ML의 프런트 엔드에 있는 Microso
 
 이 예에서는 Azure blob storage에서 파일 공유 액세스 로그에 대 한 학습 데이터가 필요 합니다. 데이터 형식은 노트북 및 라이브러리에 설명 되어 있습니다.
 
-[AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/monitor/log-analytics)를 사용 하 여 Log Analytics에서 데이터를 자동으로 내보낼 수 있습니다. 
+[AZURE CLI (명령줄 인터페이스)](/cli/azure/monitor/log-analytics)를 사용 하 여 Log Analytics에서 데이터를 자동으로 내보낼 수 있습니다. 
 
 명령을 실행 하기 위해 Log Analytics 작업 영역, 저장소 계정 및 EventHub 리소스에서 **참가자** 역할을 할당 받아야 합니다. 
 
@@ -159,13 +159,13 @@ Azure 센티널 외부에서 blob 저장소 또는 이벤트 허브로 데이터
 
 점수가 매겨진 결과와 관련 로그 세부 정보를 보려면 Azure 센티널 포털로 다시 이동 합니다. 사용자 지정 로그 > **로그** 에 **AnomalousResourceAccessResult_CL** 테이블 또는 사용자 지정 테이블 이름에 결과가 표시 됩니다. 이러한 결과를 사용 하 여 조사 및 구하기 환경을 개선할 수 있습니다.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="기계 학습 프레임 워크":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="비정상적인 리소스 액세스 로그":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>ML 결과를 사용 하 여 사용자 지정 분석 규칙 빌드
 
 ML 결과가 사용자 지정 로그 테이블에 있는지 확인 하 고 점수가 정확도에 만족 하는 경우 결과에 따라 검색을 만들 수 있습니다. Azure 센티널 포털에서 **분석** 으로 이동 하 여 [새 검색 규칙을 만듭니다](tutorial-detect-threats-custom.md). 다음은 검색을 만드는 데 사용 되는 쿼리를 보여 주는 예제입니다.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="기계 학습 프레임 워크":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="B Y O M L 검색에 대 한 사용자 지정 분석 규칙 만들기":::
 
 ### <a name="view-and-respond-to-incidents"></a>인시던트 보기 및 대응
 ML 결과에 따라 분석 규칙을 설정 하 고 나면 쿼리에서 설정한 임계값을 초과 하는 결과가 생성 되 면 인시던트가 생성 되어 Azure 센티널의 **인시던트** 페이지에 표시 됩니다. 

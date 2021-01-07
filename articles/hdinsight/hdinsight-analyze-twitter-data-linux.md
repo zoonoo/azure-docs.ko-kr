@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533294"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95971912"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hive 및 Apache Hadoop을 사용하여 Twitter 데이터 분석
 
@@ -32,12 +32,12 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
 2. **새 앱 만들기** 를 선택 합니다.
 
-3. **Name** , **Description** , **Website** 를 입력합니다. **Website** 필드의 URL을 구성할 수 있습니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
+3. **Name**, **Description**, **Website** 를 입력합니다. **Website** 필드의 URL을 구성할 수 있습니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
 
    | 필드 | 값 |
    |--- |--- |
-   | 속성 |MyHDInsightApp |
-   | 설명 |MyHDInsightApp |
+   | Name |MyHDInsightApp |
+   | Description |MyHDInsightApp |
    | 웹 사이트 |`https://www.myhdinsightapp.com` |
 
 4. **예, 동의 함** 을 선택한 다음 **Twitter 응용 프로그램 만들기** 를 선택 합니다.
@@ -50,7 +50,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
 8. 페이지의 오른쪽 위 모서리에서 **테스트 OAuth** 를 선택 합니다.
 
-9. **consumer key** , **Consumer secret** , **Access token** 및 **Access token secret** 을 기록해 둡니다.
+9. **consumer key**, **Consumer secret**, **Access token** 및 **Access token secret** 을 기록해 둡니다.
 
 ### <a name="download-tweets"></a>트윗 다운로드
 
@@ -143,7 +143,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
     > [!TIP]  
     > 마지막 줄에서 토픽 필터를 조정하여 인기 키워드를 추적합니다. 스크립트를 실행할 때 인기 키워드를 사용하면 데이터를 더 빨리 캡처할 수 있습니다.
 
-1. **Ctrl + X** , **Y** 를 차례로 사용하여 파일을 저장합니다.
+1. **Ctrl + X**, **Y** 를 차례로 사용하여 파일을 저장합니다.
 
 1. 다음 명령을 사용하여 파일을 실행하고 트윗을 다운로드합니다.
 
@@ -283,7 +283,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
    WHERE (length(json_response) > 500);
    ```
 
-1. **Ctrl + X** , **Y** 를 차례로 누르고 파일을 저장합니다.
+1. **Ctrl + X**, **Y** 를 차례로 누르고 파일을 저장합니다.
 
 1. 다음 명령을 사용하여 파일에 포함된 HiveQL을 실행합니다.
 

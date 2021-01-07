@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: dc19b95e891235ac35c703adef50a23a9f70fbdb
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422147"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706799"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 복제본 읽기-단일 서버
 
@@ -71,6 +71,8 @@ ms.locfileid: "93422147"
 읽기 복제본 기능은 PostgreSQL의 물리적 복제(논리 복제 아님)를 사용합니다. 복제 슬롯을 사용하는 스트리밍 복제가 기본 작동 모드입니다. 필요한 경우 따라잡기 위해 로그 전달이 사용됩니다.
 
 [Azure Portal에서 읽기 복제본을 만드는 방법](howto-read-replicas-portal.md)을 알아봅니다.
+
+원본 PostgreSQL 서버가 고객이 관리 하는 키로 암호화 된 경우 추가 고려 사항은 [설명서](concepts-data-encryption-postgresql.md) 를 참조 하세요.
 
 ## <a name="connect-to-a-replica"></a>복제본에 연결
 복제본을 만들 때 주 서버의 방화벽 규칙이 나 VNet 서비스 끝점을 상속 하지 않습니다. 이러한 규칙은 복제본에 대해 별도로 설정해야 합니다.
@@ -162,11 +164,11 @@ SELECT EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 
 복제본을 만들 때 방화벽 규칙, 가상 네트워크 규칙 및 매개 변수 설정이 주 서버에서 복제본으로 상속 되지 않습니다.
 
-### <a name="scaling"></a>확장
+### <a name="scaling"></a>크기 조정
 VCores 크기 조정 또는 일반 용도와 메모리 액세스에 최적화 됨:
 * PostgreSQL를 사용 하려면 `max_connections` 보조 서버의 설정이 [주 서버의 설정 보다 크거나 같아야](https://www.postgresql.org/docs/current/hot-standby.html)합니다. 그렇지 않으면 보조 서버가 시작 되지 않습니다.
 * Azure Database for PostgreSQL에서 연결이 메모리를 점유 하므로 각 서버에 허용 되는 최대 연결이 계산 sku에 고정 됩니다. [Max_connections와 계산 sku 간의 매핑에](concepts-limits.md)대해 자세히 알아볼 수 있습니다.
-* **수직 확장** : 먼저 복제본의 계산을 확장 한 다음 주 복제본을 확장 합니다. 이 순서를 적용 하면 오류로 인해 요구 사항이 위반 되지 않습니다 `max_connections` .
+* **수직 확장**: 먼저 복제본의 계산을 확장 한 다음 주 복제본을 확장 합니다. 이 순서를 적용 하면 오류로 인해 요구 사항이 위반 되지 않습니다 `max_connections` .
 * **축소: 먼저** 기본 계산을 축소 한 다음 복제본을 축소 합니다. 주 복제본 보다 낮은 복제본의 크기를 조정 하려고 하면이 요구 사항을 위반 하기 때문에 오류가 발생 `max_connections` 합니다.
 
 저장소 크기 조정:

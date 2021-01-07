@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/28/2020
+ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34cdaa42f3a41ae04c73c570bb4fede01a786af2
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119898"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107841"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)을 사용 하 여 토큰 가져오기 및 캐시
 
@@ -101,7 +101,7 @@ MSAL은 토큰 캐시 (또는 기밀 클라이언트 응용 프로그램에 대 
 
 기밀 클라이언트 응용 프로그램 (웹 응용 프로그램, web API 또는 Windows 서비스와 같은 데몬 응용 프로그램)의 경우 다음을 수행 합니다.
 
-- [클라이언트 자격 증명 흐름](msal-authentication-flows.md#client-credentials)을 사용하여 사용자가 아니라 **애플리케이션 자체**에 대한 토큰을 획득합니다. 이 기술은 특정 사용자가 아닌 일반 사용자를 처리 하는 도구 또는 동기화에 사용할 수 있습니다.
+- [클라이언트 자격 증명 흐름](msal-authentication-flows.md#client-credentials)을 사용하여 사용자가 아니라 **애플리케이션 자체** 에 대한 토큰을 획득합니다. 이 기술은 특정 사용자가 아닌 일반 사용자를 처리 하는 도구 또는 동기화에 사용할 수 있습니다.
 - 웹 API에 대해 사용자를 대신 하 여 API를 호출 하는 [대신 흐름](msal-authentication-flows.md#on-behalf-of) 을 사용 합니다. 응용 프로그램은 사용자 어설션 (예: 또는 JWT 토큰)을 기반으로 토큰을 획득 하기 위해 클라이언트 자격 증명으로 식별 됩니다. 이 흐름은 서비스 간 호출에서 특정 사용자의 리소스에 액세스해야 하는 애플리케이션에서 사용됩니다.
 - 사용자가 권한 부여 요청 URL을 통해 로그인하면 웹앱에서 [권한 부여 코드 흐름](msal-authentication-flows.md#authorization-code)을 사용하여 토큰을 획득합니다. OpenID Connect 애플리케이션은 일반적으로 이 메커니즘을 사용합니다. 이 경우 사용자가 OpenID Connect를 사용하여 로그인한 다음, 사용자를 대신하여 웹 API에 액세스할 수 있습니다.
 
@@ -116,8 +116,14 @@ MSAL은 토큰 캐시 (또는 기밀 클라이언트 응용 프로그램에 대 
 - 토큰이 발급된 범위.
 - 사용자에 대한 고유한 ID.
 
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>고급 백그라운드 앱 및 서비스에서 사용자의 캐시 된 토큰 액세스
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-Java 용 MSAL을 사용 하는 경우 [java 용 msal의 사용자 지정 토큰 캐시 serialization](msal-java-token-cache-serialization.md)에 대해 알아봅니다.
-
-[오류 및 예외 처리](msal-handling-exceptions.md)에 대해 알아봅니다.
+MSAL에서 지 원하는 여러 플랫폼에는 해당 플랫폼 라이브러리에 대 한 설명서에 추가 토큰 캐시 관련 정보가 있습니다. 예를 들면 다음과 같습니다.
+- [MSAL.NET를 사용 하 여 토큰 캐시에서 토큰 가져오기](msal-net-acquire-token-silently.md)
+- [MSAL.js를 사용한 Single Sign-On](msal-js-sso.md)
+- [Python 용 MSAL의 사용자 지정 토큰 캐시 serialization](msal-python-token-cache-serialization.md)
+- [Java 용 MSAL의 사용자 지정 토큰 캐시 serialization](msal-java-token-cache-serialization.md)

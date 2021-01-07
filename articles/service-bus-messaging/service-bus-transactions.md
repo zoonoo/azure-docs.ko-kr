@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 10/28/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927790"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023604"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus 트랜잭션 처리의 개요
 
@@ -27,8 +27,8 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 
 트랜잭션 범위 내에서 수행할 수 있는 작업은 다음과 같습니다.
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)** : `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** : `Complete` , `CompleteAsync` , `Abandon` , `AbandonAsync` , `Deadletter` , `DeadletterAsync` , `Defer` `DeferAsync` `RenewLock` ,,, `RenewLockAsync` 
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: `Complete` , `CompleteAsync` , `Abandon` , `AbandonAsync` , `Deadletter` , `DeadletterAsync` , `Defer` `DeferAsync` `RenewLock` ,,, `RenewLockAsync` 
 
 애플리케이션이 일부 수신 루프 내에서 또는 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) 콜백과 함께 [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드를 사용하여 메시지를 획득한다고 가정하므로 수신 작업은 포함되지 않으며, 메시지 처리에 대한 트랜잭션 범위만 열립니다.
 
@@ -42,7 +42,7 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 
 ### <a name="see-it-in-code"></a>실제 코드 엿보기
 
-이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 예를 들면 다음과 같습니다.
+이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 예들 들어 다음과 같습니다.
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);

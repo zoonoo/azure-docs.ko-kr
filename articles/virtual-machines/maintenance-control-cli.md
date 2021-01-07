@@ -5,18 +5,18 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/20/2020
+ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d94cd649df9da6b36ac484d4fc1e6acef7a21bb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528179"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026168"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>유지 관리 제어 및 Azure CLI를 사용 하 여 업데이트 제어
 
-유지 관리 제어를 통해 격리 된 Vm 및 Azure 전용 호스트에 업데이트를 적용 하는 시기를 결정할 수 있습니다. 이 항목에서는 유지 관리 제어를 위한 Azure CLI 옵션을 설명 합니다. 유지 관리 제어, 제한 사항 및 기타 관리 옵션을 사용 하는 이점에 대 한 자세한 내용은 [유지 관리 제어를 사용 하 여 플랫폼 업데이트 관리](maintenance-control.md)를 참조 하세요.
+유지 관리 제어를 통해 격리 된 Vm 및 Azure 전용 호스트의 호스트 인프라에 플랫폼 업데이트를 적용 하는 시기를 결정할 수 있습니다. 이 항목에서는 유지 관리 제어를 위한 Azure CLI 옵션을 설명 합니다. 유지 관리 제어, 제한 사항 및 기타 관리 옵션을 사용 하는 이점에 대 한 자세한 내용은 [유지 관리 제어를 사용 하 여 플랫폼 업데이트 관리](maintenance-control.md)를 참조 하세요.
 
 ## <a name="create-a-maintenance-configuration"></a>유지 관리 구성을 만듭니다.
 
@@ -28,14 +28,14 @@ az group create \
    --name myMaintenanceRG
 az maintenance configuration create \
    -g myMaintenanceRG \
-   --name myConfig \
-   --maintenanceScope host\
+   --resource-name myConfig \
+   --maintenance-scope host\
    --location eastus
 ```
 
 나중에 사용 하려면 출력에서 구성 ID를 복사 합니다.
 
-를 사용 하면 `--maintenanceScope host` 호스트에 대 한 업데이트를 제어 하는 데 유지 관리 구성이 사용 됩니다.
+를 사용 하면 `--maintenance-scope host` 호스트 인프라에 대 한 업데이트를 제어 하는 데 유지 관리 구성이 사용 됩니다.
 
 이름이 같은 구성을 만들려고 하지만 다른 위치에 있는 경우 오류가 발생 합니다. 구성 이름은 리소스 그룹에서 고유 해야 합니다.
 
@@ -44,6 +44,30 @@ az maintenance configuration create \
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>예약 된 기간을 사용 하 여 유지 관리 구성 만들기
+Azure가 리소스에 대 한 업데이트를 적용 하는 경우 예약 된 기간을 선언할 수도 있습니다. 이 예제에서는 매월 네 번째 월요일에 예약 된 기간이 5 시간인 myConfig 라는 유지 관리 구성을 만듭니다. 예약 된 기간을 만든 후에는 더 이상 수동으로 업데이트를 적용할 필요가 없습니다.
+
+```azurecli-interactive
+az maintenance configuration create \
+   -g myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope host \
+   --location eastus \
+   --maintenance-window-duration "05:00" \
+   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-start-date-time "2020-12-30 08:00" \
+   --maintenance-window-time-zone "Pacific Standard Time"
+```
+
+> [!IMPORTANT]
+> 유지 관리 **기간은** *2 시간* 이상 이어야 합니다. 유지 관리 **되풀이** 는 35 일에 한 번 이상 발생 하도록 설정 되어야 합니다.
+
+유지 관리 되풀이는 매일, 매주 또는 매월로 표시 될 수 있습니다. 예는 다음과 같습니다.
+- **매일**-유지 관리-되풀이-되풀이-모든: "Day" **또는** "3days"
+- **주간**-유지 관리-되풀이-되풀이: "3weeks" **또는** "Week 토요일, 일요일"
+- **매월**-유지 관리-되풀이-되풀이: "month day23, day24" **또는** "month Last 일요일" **또는** "month 4 월요일"
+
 
 ## <a name="assign-the-configuration"></a>구성 할당
 
@@ -251,7 +275,7 @@ az maintenance applyupdate get \
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myResourceGroup \
-   --name myConfig
+   --resource-name myConfig
 ```
 
 ## <a name="next-steps"></a>다음 단계

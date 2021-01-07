@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
 ms.openlocfilehash: 330bffebb870635fd473e88a8eadb300eed40b9b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518299"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012138"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Media Indexer에서 Media Indexer 2에서 Video Indexer으로 마이그레이션
 
@@ -51,7 +51,7 @@ Azure Media Services Video Indexer Azure 미디어 분석, Azure Cognitive Searc
 
 Azure Media Services v3 API를 사용 하면 [Azure Media Services v3 분석기 사전 설정을](../latest/analyzing-video-audio-files-concept.md)통해 비디오 및 오디오 파일에서 통찰력을 추출할 수 있습니다.
 
-**AudioAnalyzerPreset**를 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 녹음/출력에 대 한 VTT 또는 TTML 파일과 JSON 파일 (추가 오디오 정보 모두 포함)이 포함 됩니다. 오디오 정보에는 키워드, 스피커 인덱싱 및 음성 감정 분석이 포함 됩니다. AudioAnalyzerPreset는 특정 언어에 대 한 언어 검색도 지원 합니다. 자세한 내용은 [변환](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)을 참조 하세요.
+**AudioAnalyzerPreset** 를 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 녹음/출력에 대 한 VTT 또는 TTML 파일과 JSON 파일 (추가 오디오 정보 모두 포함)이 포함 됩니다. 오디오 정보에는 키워드, 스피커 인덱싱 및 음성 감정 분석이 포함 됩니다. AudioAnalyzerPreset는 특정 언어에 대 한 언어 검색도 지원 합니다. 자세한 내용은 [변환](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)을 참조 하세요.
 
 ### <a name="get-started"></a>시작하기
 

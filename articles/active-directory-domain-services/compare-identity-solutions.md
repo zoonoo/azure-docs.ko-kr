@@ -2,20 +2,20 @@
 title: Azure의 Active Directory 기반 서비스 비교 | Microsoft Docs
 description: 이 개요에서는 Active Directory Domain Services, Azure Active Directory 및 Azure Active Directory Domain Services의 다양한 ID 제품을 비교합니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
-ms.author: joflore
-ms.openlocfilehash: 0576fdaa9bdcc90636c3cd2bc90ba2818f1e69e7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 479cc036ed3231d970d46eef9d89daa39a0b0876
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962669"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620191"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>자체 관리형 Active Directory Domain Services, Azure Active Directory 및 관리형 Azure Active Directory Domain Services 비교
 
@@ -42,7 +42,7 @@ ms.locfileid: "91962669"
 
 Kerberos 또는 NTLM과 같은 기존 인증 메커니즘에 액세스해야 하는 애플리케이션과 서비스가 있는 경우 클라우드에서 Active Directory Domain Services를 제공하는 두 가지 방법이 있습니다.
 
-* Azure AD DS(Azure Active Directory Domain Services)를 사용하여 만든 *관리형 도메인*입니다. Microsoft에서 필요한 리소스를 만들고 관리합니다.
+* Azure AD DS(Azure Active Directory Domain Services)를 사용하여 만든 *관리형 도메인* 입니다. Microsoft에서 필요한 리소스를 만들고 관리합니다.
 * VM(가상 머신), Windows Server 게스트 OS 및 AD DS(Active Directory Domain Services)와 같은 기존 리소스를 사용하여 만들고 구성한 *자체 관리형* 도메인입니다. 그런 다음, 이러한 리소스를 계속 관리합니다.
 
 Azure AD DS를 사용하면 Microsoft에서 핵심 서비스 구성 요소를 *관리형* 도메인 환경으로 배포하고 유지 관리합니다. VM, Windows Server OS 또는 DC(도메인 컨트롤러)와 같은 구성 요소에 대한 AD DS 인프라를 배포, 관리, 패치 및 보호하지 않습니다.
@@ -114,6 +114,9 @@ Azure AD DS 조인 디바이스를 사용하면 애플리케이션에서 Kerbero
 | 관리                      | Intune과 같은 MDM(모바일 디바이스 관리) 소프트웨어 | 그룹 정책                                                              |
 | 네트워킹                      | 인터넷을 통해 작동                             | 관리되는 도메인이 배포되는 가상 네트워크에 연결되거나 피어링되어 있어야 합니다. |
 | 유용한 경우                    | 최종 사용자 모바일 또는 데스크톱 디바이스                  | Azure에 배포된 서버 VM                                              |
+
+
+온-프레미스 AD DS 및 Azure AD가 ADFS를 사용하는 페더레이션된 인증에 대해 구성된 경우 Azure DS에서 사용할 수 있는 (현재/유효한) 암호 해시가 없습니다. 공급 인증이 구현되기 전에 만든 Azure AD 사용자 계정에는 이전 암호 해시가 있지만 이는 온-프레미스 암호의 해시와 일치하지 않을 수 있습니다. 따라서 Azure AD DS는 사용자 자격 증명의 유효성을 검사할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

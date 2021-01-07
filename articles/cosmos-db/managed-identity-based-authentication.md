@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b3bd6a71898576ac23cdd10c1eb52e1ef3a39b95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336591"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345732"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>시스템 할당 관리 id를 사용 하 여 Azure Cosmos DB 데이터에 액세스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -68,9 +68,9 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="역할 할당 추가 창을 보여 주는 스크린샷":::
 
-   * **역할** : **DocumentDB 계정 참가자** 선택
-   * 다음에 대 한 **액세스 할당** : **시스템 할당 관리 id 선택** 하위 섹션에서 **함수 앱** 을 선택 합니다.
-   * **선택** : **관리 되는 시스템 id** 를 가진 구독의 모든 함수 앱이 창에 채워집니다. 이 경우 **FishTankTemperatureService** 함수 앱을 선택 합니다. 
+   * **역할**: **DocumentDB 계정 참가자** 선택
+   * 다음에 대 한 **액세스 할당**: **시스템 할당 관리 id 선택** 하위 섹션에서 **함수 앱** 을 선택 합니다.
+   * **선택**: **관리 되는 시스템 id** 를 가진 구독의 모든 함수 앱이 창에 채워집니다. 이 경우 **FishTankTemperatureService** 함수 앱을 선택 합니다. 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="예제로 채워진 역할 할당 추가 창을 보여 주는 스크린샷":::
 
@@ -214,7 +214,7 @@ namespace Monitor
 }
 ```
 
-이제 [함수 앱을 배포할](../azure-functions/functions-create-first-function-vs-code.md)준비가 되었습니다.
+이제 [함수 앱을 배포할](../azure-functions/create-first-function-vs-code-csharp.md)준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

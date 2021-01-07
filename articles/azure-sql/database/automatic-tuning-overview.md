@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/30/2020
-ms.openlocfilehash: 180f6e8902dc881c99a74a6491eeb3012bc03d0f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675227"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500872"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 자동 조정
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,7 +69,7 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 사용할 수 있는 자
 
 ### <a name="automatic-tuning-for-sql-database"></a>SQL Database 자동 조정
 
-Azure SQL Database 자동 조정에서는 **인덱스 만들기** , **DROP INDEX** 및 **마지막으로 성공한 계획** 데이터베이스 관리자 권장 사항을 사용 하 여 데이터베이스 성능을 최적화 합니다. 자세한 내용은 Azure Portal, [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)및 [REST API](/rest/api/sql/serverautomatictuning)의 [데이터베이스 관리자 권장 사항](database-advisor-find-recommendations-portal.md)을 참조 하세요.
+Azure SQL Database 자동 조정에서는 **인덱스 만들기**, **DROP INDEX** 및 **마지막으로 성공한 계획** 데이터베이스 관리자 권장 사항을 사용 하 여 데이터베이스 성능을 최적화 합니다. 자세한 내용은 Azure Portal, [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)및 [REST API](/rest/api/sql/serverautomatictuning)의 [데이터베이스 관리자 권장 사항](database-advisor-find-recommendations-portal.md)을 참조 하세요.
 
 Azure Portal를 사용 하 여 튜닝 권장 구성을 수동으로 적용 하거나 자동 튜닝을 통해 조정 권장 구성을 자율적으로 적용할 수 있습니다. 시스템에서 조정 권장 사항이 자율적으로 적용되도록 하는 경우 좋은 점은 워크로드 성능에 긍정적인 이득이 있는지 자동으로 확인하고, 뛰어난 성능 향상이 감지되지 않는 경우에는 조정 권장 사항을 자동으로 되돌립니다. 자주 실행되지 않는 조정 권장 사항의 영향을 받는 쿼리에 대한 유효성 검사 단계는 최대 72시간이 소요될 수 있습니다.
 

@@ -3,17 +3,17 @@ title: Azure IoT Central에서 규칙 및 작업 구성 | Microsoft Docs
 description: 이 방법 문서에서는 Azure IoT Central 애플리케이션에서 원격 분석 기반 규칙 및 작업을 구성하는 방법을 보여 줍니다.
 author: vavilla
 ms.author: vavilla
-ms.date: 11/27/2019
+ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8391202e991c240b03bd79b947c1c3c6dcc9afd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 378a1dbcfbc89cdf9b24dc2490db583f1135b9a2
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362540"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796791"
 ---
 # <a name="configure-rules"></a>규칙 구성
 
@@ -37,7 +37,7 @@ IoT Central 규칙은 연결된 디바이스에서 능동적으로 모니터링�
 
 ### <a name="use-a-cloud-property-in-a-value-field"></a>값 필드에 클라우드 속성 사용
 
-디바이스 템플릿에서 조건의 **값** 필드에 있는 클라우드 속성을 참조할 수 있습니다. 클라우드 속성 및 원격 분석 값은 형식이 동일해야 합니다. 예를 들어 **온도**가 double형이라면 **값** 드롭다운에 double형의 클라우드 속성만 옵션으로 표시됩니다.
+디바이스 템플릿에서 조건의 **값** 필드에 있는 클라우드 속성을 참조할 수 있습니다. 클라우드 속성 및 원격 분석 값은 형식이 동일해야 합니다. 예를 들어 **온도** 가 double형이라면 **값** 드롭다운에 double형의 클라우드 속성만 옵션으로 표시됩니다.
 
 이벤트 유형 원격 분석 값을 선택할 경우 **값** 드롭다운에는 **Any**(모두) 옵션이 포함됩니다. **Any**(모두) 옵션은 애플리케이션이 해당 형식의 이벤트를 받을 때 (페이로드와 관계없이) 규칙이 실행됨을 의미합니다.
 

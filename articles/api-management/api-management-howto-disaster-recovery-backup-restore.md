@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 25356e7101293fc27d4107b3a618cfc481aee969
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787230"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779586"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -115,7 +115,7 @@ namespace GetTokenResourceManagerRequests
 
 다음 지침을 사용하여 `{tenant id}`, `{application id}` 및 `{redirect uri}`을 바꿉니다.
 
-1. `{tenant id}`를 사용자가 만든 Azure Active Directory 애플리케이션의 테넌트 ID로 바꿉니다. **앱 등록** 끝점을 클릭 하 여 ID에 액세스할 수 있습니다  ->  **Endpoints** .
+1. `{tenant id}`를 사용자가 만든 Azure Active Directory 애플리케이션의 테넌트 ID로 바꿉니다. **앱 등록** 끝점을 클릭 하 여 ID에 액세스할 수 있습니다  ->  **Endpoints**.
 
     ![엔드포인트][api-management-endpoint]
 
@@ -169,26 +169,6 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 백업은 완료하는 데 1분 이상 걸릴 수 있는 장기 실행 작업입니다. 요청이 성공하고 백업 프로세스가 시작된 경우 `Location` 헤더가 포함된 `202 Accepted` 응답 상태 코드를 받게 됩니다. `Location` 헤더에서 URL에 대한 'GET' 요청을 수행하면 작업 상태를 확인할 수 있습니다. 백업이 진행 중인 동안에는 '202 수락됨' 상태 코드가 계속 수신됩니다. 응답 코드가 `200 OK` 이면 백업 작업이 정상적으로 완료된 것입니다.
 
-#### <a name="constraints-when-making-backup-or-restore-request"></a>백업 또는 복원 요청을 만들 때의 제약 조건
-
--   요청 본문에 지정된 **Container** 가 **있어야 합니다** .
--   백업이 진행 중인 동안에는 SKU 업그레이드 또는 다운 그레이드, 도메인 이름 변경 등의 **서비스에서 관리를 변경 하지 않습니다** .
--   백업 복원은 생성 시점부터 **30일 동안만 보장** 됩니다.
--   백업 작업이 진행되는 동안 API, 정책 및 개발자 포털 모양 등의 서비스 구성을 **변경** 하는 경우 **해당 내용이 백업에서 제외되고 손실될 수 있습니다** .
--   [방화벽이][azure-storage-ip-firewall] 사용 하도록 설정 된 경우 제어 평면에서 Azure Storage 계정으로의 액세스를 **허용** 합니다. 고객은 저장소 계정에서 백업 또는 복원에 대 한 [Azure API Management 제어 평면 IP 주소][control-plane-ip-address] 집합을 열어야 합니다. 이는 Azure Storage에 대 한 요청이 계산 > (Azure Api Management 제어 평면)의 공용 IP에는 없는 것 이기 때문입니다. 지역 간 저장소 요청은 SNATed
-
-#### <a name="what-is-not-backed-up"></a>백업 되지 않는 항목
--   분석 보고서를 만드는 데 사용되는 **사용량 현황 데이터** 는 백업에 **포함되지 않습니다** . [Azure API Management REST API][azure api management rest api] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
--   [사용자 지정 도메인 TLS/SSL](configure-custom-domain.md) 인증서
--   고객이 업로드 한 중간 또는 루트 인증서를 포함 하는 [사용자 지정 CA 인증서](api-management-howto-ca-certificates.md)
--   [가상 네트워크](api-management-using-with-vnet.md) 통합 설정
--   [관리 id](api-management-howto-use-managed-service-identity.md) 구성.
--   [Azure Monitor 진단](api-management-howto-use-azure-monitor.md) 구성.
--   [프로토콜 및 암호](api-management-howto-manage-protocols-ciphers.md) 설정
--   [개발자 포털](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) 콘텐츠.
-
-서비스 백업을 수행하는 빈도는 복구 지점 목표에 영향을 줍니다. 영향을 최소화하려면 정기 백업을 구현함과 동시에 API Management 서비스에 대한 변경을 수행한 후 요청 시 백업도 수행하는 것이 좋습니다.
-
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>API Management 서비스 복원
 
 이전에 만든 백업에서 API Management 서비스를 복원하려면 다음 HTTP 요청을 실행합니다.
@@ -222,12 +202,34 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 > [!IMPORTANT]
 > 백업을 복원할 서비스의 **SKU** 는 복원하려는 백업된 서비스의 SKU와 **일치해야** 합니다.
 >
-> 복원 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성에 적용된 **변경 내용** 을 **덮어쓸 수 있습니다** .
+> 복원 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성에 적용된 **변경 내용** 을 **덮어쓸 수 있습니다**.
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
 > 각각 PowerShell [_AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) 및 [_AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) 명령을 사용 하 여 백업 및 복원 작업을 수행할 수도 있습니다.
+
+## <a name="constraints-when-making-backup-or-restore-request"></a>백업 또는 복원 요청을 만들 때의 제약 조건
+
+-   요청 본문에 지정된 **Container** 가 **있어야 합니다**.
+-   백업이 진행 중인 동안에는 SKU 업그레이드 또는 다운 그레이드, 도메인 이름 변경 등의 **서비스에서 관리를 변경 하지 않습니다** .
+-   백업 복원은 생성 시점부터 **30일 동안만 보장** 됩니다.
+-   백업 작업이 진행 되는 동안 서비스 구성 (예: Api, 정책, 개발자 포털 모양)에 대 한 **변경 내용은** **백업에서 제외 될 수 있으며 손실** 됩니다.
+-   Azure Storage 계정이 [방화벽][azure-storage-ip-firewall] 을 사용 하도록 설정 된 경우 고객은 저장소 계정에서 [Azure API MANAGEMENT 제어 평면 IP 주소][control-plane-ip-address] 집합을 **사용** 하 여 백업 또는 복원 작업을 수행 해야 합니다. Azure Storage 계정은 API Management 서비스가 있는 모든 Azure 지역에 있을 수 있습니다. 예를 들어 API Management 서비스가 미국 서 부에 있는 경우 Azure Storage 계정은 미국 서 부에 있을 수 있으며, 고객은 방화벽에서 제어 평면 IP 13.64.39.16 (미국 서 부의 API Management 제어 평면 IP)를 열어야 합니다. 이는 Azure Storage에 대 한 요청이 동일한 Azure 지역에 있는 계산 (Azure Api Management 제어 평면)의 공용 IP에 게 공개 되지 않기 때문입니다. 지역 간 저장소 요청은 공용 IP 주소에 대 한 것입니다.
+-   Azure Storage 계정의 Blob Service에서 [CORS (크로스-원본 자원 공유)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 를 사용 하도록 **설정 하면 안 됩니다.**
+-   백업을 복원할 서비스의 **SKU** 는 복원하려는 백업된 서비스의 SKU와 **일치해야** 합니다.
+
+## <a name="what-is-not-backed-up"></a>백업 되지 않는 항목
+-   분석 보고서를 만드는 데 사용되는 **사용량 현황 데이터** 는 백업에 **포함되지 않습니다**. [Azure API Management REST API][azure api management rest api] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
+-   [사용자 지정 도메인 TLS/SSL](configure-custom-domain.md) 인증서
+-   고객이 업로드 한 중간 또는 루트 인증서를 포함 하는 [사용자 지정 CA 인증서](api-management-howto-ca-certificates.md)
+-   [가상 네트워크](api-management-using-with-vnet.md) 통합 설정
+-   [관리 id](api-management-howto-use-managed-service-identity.md) 구성.
+-   [Azure Monitor 진단](api-management-howto-use-azure-monitor.md) 구성.
+-   [프로토콜 및 암호](api-management-howto-manage-protocols-ciphers.md) 설정
+-   [개발자 포털](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) 콘텐츠.
+
+서비스 백업을 수행하는 빈도는 복구 지점 목표에 영향을 줍니다. 영향을 최소화하려면 정기 백업을 구현함과 동시에 API Management 서비스에 대한 변경을 수행한 후 요청 시 백업도 수행하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

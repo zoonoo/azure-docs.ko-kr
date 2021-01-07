@@ -39,6 +39,8 @@
       href: restart-resize-error-troubleshooting.md
     - name: '서비스 다시 시작, 종료 또는 중지'
       href: boot-error-troubleshoot-windows.md
+    - name: Linux 가상 머신의 전체 OS 디스크 관련 문제
+      href: os-disk-full-linux.md
 - name: 예기치 않은 다시 시작
   items:
     - name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
@@ -115,6 +117,8 @@
           href: windows-boot-error-invalid-image-hash.md
         - name: Windows 중지 오류 - 잘못된 시스템 구성 정보
           href: windows-stop-error-bad-system-config-info.md
+        - name: Windows 중지 오류 - 하드웨어 오작동
+          href: windows-stop-error-hardware-malfunction.md
         - name: Windows 중지 오류 - 메모리 없음 상태
           href: troubleshoot-windows-stop-error.md
         - name: Windows 중지 오류 - 시스템 프로세스가 종료됨
@@ -258,6 +262,8 @@
       href: install-vm-agent-offline.md
     - name: Windows VM 에이전트 문제 해결
       href: windows-azure-guest-agent.md
+    - name: Linux VM 에이전트 문제 해결
+      href: linux-azure-guest-agent.md
 - name: 백업 및 복원
   items:
     - name: Azure VM의 백업 오류 문제 해결
@@ -338,7 +344,7 @@
 - name: 마이그레이션 및 이동 문제
   items:
     - name: Azure Resource Manager 마이그레이션(ASM에서 ARM으로) FAQ
-      href: ../windows/migration-classic-resource-manager-overview.md
+      href: ../migration-classic-resource-manager-overview.md
 - name: 계획된 유지 관리
   items:
     - name: 개요

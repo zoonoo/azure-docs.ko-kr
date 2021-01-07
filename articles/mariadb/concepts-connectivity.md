@@ -2,17 +2,17 @@
 title: 일시적인 연결 오류-Azure Database for MariaDB
 description: Azure Database for MariaDB에 대한 일시적 연결 오류를 처리하는 방법을 알아봅니다.
 keywords: MySQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 3e6c5c8b6c3f118f1b19c5e2b3455f1f66f7e70e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a651d87411654f1a52c4a097f115ba848ce569c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82100807"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541677"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 일시적 연결 오류 처리
 

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: dd73ac372a21a32eac0c742a7f0f525db2d1a4fe
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8b3c1992a1cff18390f9d1332103e0650af418e2
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169075"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347730"
 ---
 ## <a name="prepare-your-web-app"></a>웹앱 준비
 
-사용자 지정 보안 바인딩을 만들거나 App Service 앱에 대한 클라이언트 인증서를 사용하도록 설정하려면 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/)이 **기본** , **표준** , **프리미엄** 또는 **격리** 계층에 있어야 합니다. 이 단계에서는 웹앱이 지원되는 가격 책정 계층에 있음을 확인합니다.
+사용자 지정 TLS/SSL 바인딩을 만들거나 App Service 앱에 대한 클라이언트 인증서를 사용하도록 설정하려면 [App Service 요금제](https://azure.microsoft.com/pricing/details/app-service/)가 **기본**, **표준**, **프리미엄** 또는 **격리** 계층에 있어야 합니다. 이 단계에서는 웹앱이 지원되는 가격 책정 계층에 있음을 확인합니다.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -49,7 +49,7 @@ ms.locfileid: "92169075"
 
 ### <a name="scale-up-your-app-service-plan"></a>App Service 계획 강화
 
-유료 계층( **B1** , **B2** , **B3** , 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기** 를 클릭합니다.
+유료 계층(**B1**, **B2**, **B3**, 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기** 를 클릭합니다.
 
 **적용** 을 클릭합니다.
 

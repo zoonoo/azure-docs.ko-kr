@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc0429ae4507172e95618bc95e6a2c51034d352
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378890"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860816"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -100,11 +100,11 @@ user.department -eq "Sales"
 | companyName | 임의의 문자열 값 또는 *null* 입니다. | (user.companyName -eq "value") |
 | department |임의의 문자열 값 또는 *null* 입니다. |(user.department -eq "value") |
 | displayName |임의의 문자열 값 |(user.displayName -eq "value") |
-| employeeId |임의의 문자열 값 |(user.employeeId -eq "value")<br>(user.employeeId -ne *null* ) |
+| employeeId |임의의 문자열 값 |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |임의의 문자열 값 또는 *null* 입니다. |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |임의의 문자열 값 또는 *null* 입니다. |(user.givenName -eq "value") |
 | jobTitle |임의의 문자열 값 또는 *null* 입니다. |(user.jobTitle -eq "value") |
-| mail |임의의 문자열 값 또는 *null* (사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
+| mail |임의의 문자열 값 또는 *null*(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
 | mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
 | mobile |임의의 문자열 값 또는 *null* 입니다. |(user.mobile -eq "value") |
 | objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
@@ -341,7 +341,7 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>확장 속성 및 사용자 지정 확장 속성
 
-확장 특성 및 사용자 지정 확장 속성은 동적 멤버 자격 규칙에서 문자열 속성으로 지원됩니다. [확장 특성](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0)은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
+확장 특성 및 사용자 지정 확장 속성은 동적 멤버 자격 규칙에서 문자열 속성으로 지원됩니다. [확장 특성](/graph/api/resources/onpremisesextensionattributes)은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
 
 ```
 (user.extensionAttribute15 -eq "Marketing")

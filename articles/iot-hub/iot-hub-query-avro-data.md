@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 1eed12593168975b1dfda6e51b07b256cbd0c246
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 3cfe75edcf338f5248baf396147a5b77803fbfb3
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92145800"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655937"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 Avro 데이터 쿼리
 
@@ -56,7 +56,7 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
 
 6. Visual Studio에서 U-SQL 프로젝트를 만듭니다.
 
-   !U-SQL 프로젝트 만들기](./media/iot-hub-query-avro-data/query-avro-data-6.png)
+   ![U-SQL 프로젝트 만들기](./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
 7. 다음과 같은 스크립트의 콘텐츠를 새로 만든 파일로 붙여넣습니다. Data Lake Analytics 계정, 연결된 DLL 파일 경로 및 스토리지 계정에 대한 올바른 경로 등 3개의 강조 표시된 섹션을 수정합니다.
 
@@ -154,10 +154,10 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
         
         @cnt =
             SELECT message["message"] AS iotmessage,
-                   message["event"] AS msgevent,
-                   message["object"] AS msgobject,
-                   message["status"] AS msgstatus,
-                   message["host"] AS msghost
+                message["event"] AS msgevent,
+                message["object"] AS msgobject,
+                message["status"] AS msgstatus,
+                message["host"] AS msghost
             FROM @jsonify;
             
         OUTPUT @cnt TO @output_file USING Outputters.Text();

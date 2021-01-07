@@ -1,21 +1,21 @@
 ---
-title: FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터 표시 및 구성
+title: Azure IoT Connector for FHIR 표시 및 구성(미리 보기) 메트릭
 description: 이 문서에서는 FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터를 표시 하 고 구성 하는 방법을 설명 합니다.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 9a4e2c4dfe8a9de28688afe0dd036cecb7ce2b39
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 79a7b18986f4bed503cd5493a7d74325a13fe535
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381221"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630518"
 ---
-# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터 표시 및 구성 
+# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Azure IoT Connector for FHIR 표시 및 구성(미리 보기) 메트릭 
 
 이 문서에서는 신속한 의료 상호 운용성 리소스 (FHIR&#174;) * 메트릭에 대 한 Azure IoT 커넥터를 표시 하 고 구성 하는 방법을 알아봅니다.
 
@@ -41,6 +41,9 @@ ms.locfileid: "94381221"
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="' 커넥터 1 '에 대 한 ' 1 시간 ' 시간 구분선 그래프를 표시 하는 ' IoT Connector ' 창의 스크린샷" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## <a name="metric-types-for-azure-iot-connector-for-fhir-preview"></a>FHIR 용 Azure IoT 커넥터의 메트릭 유형 (미리 보기) 
+
+> [!TIP]
+> FHIR 용 Azure IoT 커넥터의 데이터 흐름에 대해 알아보려면 [fhir (미리 보기) 데이터 흐름에 대 한 Azure Iot 커넥터](./iot-data-flow.md) 및 오류 메시지 및 수정에 대 한 자세한 내용은 [fhir (미리 보기) 용 azure iot connector (미리 보기) 문제 해결 가이드](./iot-troubleshoot-guide.md) 를 참조 하세요.
 
 표시할 수 있는 IoT 커넥터 메트릭은 다음 표에 나와 있습니다.
 

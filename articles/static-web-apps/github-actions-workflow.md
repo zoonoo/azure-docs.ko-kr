@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 3518935991409d87917582558a34ad7c54841e23
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5e6188ca2e8e0972e86bed578144a29a96570876
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173669"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901201"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 GitHub Actions 워크플로 미리 보기
 
@@ -63,7 +63,7 @@ jobs:
         ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
         app_location: '/' # App source code path
         api_location: 'api' # Api source code path - optional
-        app_artifact_location: 'dist' # Built app content directory - optional
+        output_location: 'dist' # Built app content directory - optional
         ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
@@ -132,7 +132,7 @@ with:
     ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
     app_location: '/' # App source code path
     api_location: 'api' # Api source code path - optional
-    app_artifact_location: 'dist' # Built app content directory - optional
+    output_location: 'dist' # Built app content directory - optional
     ###### End of Repository/Build Configurations ######
 ```
 
@@ -140,7 +140,7 @@ with:
 |---|---|---|
 | `app_location` | 애플리케이션 코드의 위치입니다.<br><br>예를 들어 애플리케이션 소스 코드가 리포지토리의 루트에 있으면 `/`를 입력하거나 애플리케이션 코드가 `app`이라는 디렉터리에 있는 경우 `/app`을 입력합니다. | 예 |
 | `api_location` | Azure Functions 코드의 위치입니다.<br><br>예를 들어 앱 코드가 `api`라는 폴더에 있는 경우 `/api`를 입력합니다. 폴더에서 Azure Functions 앱이 검색되지 않는 경우 빌드에 실패하지 않으며 워크플로는 API를 원하지 않는다고 가정합니다. | 예 |
-| `app_artifact_location` | `app_location`에 상대적인 빌드 출력 디렉터리의 위치입니다.<br><br>예를 들어 애플리케이션 소스 코드를 `/app`에 배치하고, 빌드 스크립트에서 파일을 `/app/build` 폴더에 출력하는 경우 `build`를 `app_artifact_location` 값으로 설정합니다. | 예 |
+| `output_location` | `app_location`에 상대적인 빌드 출력 디렉터리의 위치입니다.<br><br>예를 들어 애플리케이션 소스 코드를 `/app`에 배치하고, 빌드 스크립트에서 파일을 `/app/build` 폴더에 출력하는 경우 `build`를 `output_location` 값으로 설정합니다. | 예 |
 
 Azure Static Web Apps에서 설정된 `repo_token`, `action` 및 `azure_static_web_apps_api_token` 값은 수동으로 변경하면 안 됩니다.
 
@@ -163,7 +163,7 @@ Azure Static Web Apps에서 설정된 `repo_token`, `action` 및 `azure_static_w
 |---------------------|-------------|
 | `routes_location` | _routes.json_ 파일이 있는 디렉터리 위치를 정의합니다. 이 위치는 리포지토리의 루트를 기준으로 합니다. |
 
- _routes.json_ 파일의 위치에 대해 명시하는 것은 프런트 엔드 프레임워크 빌드 단계에서 기본적으로 이 파일을 `app_artifact_location`으로 이동하지 않는 경우에 특히 중요합니다.
+ _routes.json_ 파일의 위치에 대해 명시하는 것은 프런트 엔드 프레임워크 빌드 단계에서 기본적으로 이 파일을 `output_location`으로 이동하지 않는 경우에 특히 중요합니다.
 
 ## <a name="environment-variables"></a>환경 변수
 
@@ -189,7 +189,7 @@ jobs:
           ###### Repository/Build Configurations
           app_location: "/"
           api_location: "api"
-          app_artifact_location: "public"
+          output_location: "public"
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0

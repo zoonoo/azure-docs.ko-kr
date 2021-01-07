@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d9349c5d1c4e6255dc0854537bb7e93e3e636ce8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: e7fc89dcc0e7938ea2958d5c804abe82e20f186d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321071"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447937"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 테이블 통계
 
@@ -72,7 +72,7 @@ SET AUTO_CREATE_STATISTICS ON
 > [!NOTE]
 > 통계 만들기는 다른 사용자 컨텍스트에서 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 에 기록 됩니다.
 
-자동 통계를 만들 때 _WA_Sys_ <16진수의 8자리 열 ID>_<16진수의 8자리 테이블 ID> 양식을 사용합니다. [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 실행 하 여 이미 생성 된 통계를 볼 수 있습니다.
+자동 통계를 만들 때 _WA_Sys_<16진수의 8자리 열 ID>_<16진수의 8자리 테이블 ID> 양식을 사용합니다. [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 실행 하 여 이미 생성 된 통계를 볼 수 있습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -101,7 +101,7 @@ Table_name은 표시할 통계가 포함 된 테이블의 이름입니다. 이 �
 
 통계를 마지막으로 업데이트 한 이후 테이블 내의 데이터가 변경 되었는지 여부를 확인할 수 있는 동적 관리 뷰는 없습니다.  다음 두 쿼리는 통계가 유효 하지 않은지 여부를 확인 하는 데 도움이 될 수 있습니다.
 
-**쿼리 1:**  통계 ( **stats_row_count** )와 실제 행 개수 ( **actual_row_count** )의 행 수 차이를 확인 합니다. 
+**쿼리 1:**  통계 (**stats_row_count**)와 실제 행 개수 (**actual_row_count**)의 행 수 차이를 확인 합니다. 
 
 ```sql
 select 
@@ -312,11 +312,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>저장된 프로시저를 사용하여 데이터베이스의 모든 열에서 통계를 만듭니다.
+### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-sql-pool"></a>저장 프로시저를 사용 하 여 SQL 풀의 모든 열에 대 한 통계 만들기
 
-전용 SQL 풀에는 SQL Server의 sp_create_stats에 해당 하는 시스템 저장 프로시저가 없습니다. 이 저장된 프로시저는 아직 통계가 없는 데이터베이스의 모든 열에 단일 열 통계 개체를 만듭니다.
+전용 SQL 풀에는 SQL Server의 sp_create_stats에 해당 하는 시스템 저장 프로시저가 없습니다. 이 저장 프로시저는 아직 통계가 없는 SQL 풀의 모든 열에 단일 열 통계 개체를 만듭니다.
 
-다음 예제는 데이터베이스 설계를 시작하는 데 도움이 됩니다. 사용자의 요구에 맞게 자유롭게 적용합니다.
+다음 예는 SQL 풀 디자인을 시작 하는 데 도움이 됩니다. 사용자의 요구에 맞게 자유롭게 적용합니다.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]

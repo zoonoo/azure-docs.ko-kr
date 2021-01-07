@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 41ed942ea8962e845b7392656639e0d6bcdccbf5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 92c2ae13b840d7a73d86365ce88584bcafc878e8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515924"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181461"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "92515924"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md)
-* 프로비저닝을 구성할 [권한](../users-groups-roles/directory-assign-admin-roles.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
+* 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
 * [추가 플랜](https://aadsyncfabric.slack.com/pricing) 이상을 사용하도록 설정된 Slack 테넌트
 * 팀 관리자 권한이 있는 Slack의 사용자 계정
 
@@ -63,40 +63,40 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Azure AD에서 Slack에 자동 사용자 계정 프로비전을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Slack**를 선택합니다.
+2. 애플리케이션 목록에서 **Slack** 를 선택합니다.
 
     ![애플리케이션 목록의 Slack 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
+    ![프로비저닝 옵션이 호출된 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
+    ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션에서 **권한 부여**를 클릭합니다. 그러면 새 브라우저 창에서 Slack 권한 부여 대화 상자가 열립니다.
+5. **관리자 자격 증명** 섹션에서 **권한 부여** 를 클릭합니다. 그러면 새 브라우저 창에서 Slack 권한 부여 대화 상자가 열립니다.
 
     ![관리자 자격 증명 권한 부여 단추를 보여 주는 스크린샷](media/slack-provisioning-tutorial/authorization.png)
 
 
-6. 새 창에서 팀 관리자 계정을 사용하여 Slack에 로그인합니다. 표시된 권한 부여 대화 상자에서 프로비전을 사용하도록 설정하려는 Slack 팀을 선택한 다음, **권한 부여**를 선택합니다. 완료되면 Azure Portal로 돌아가서 프로비전 구성을 완료합니다.
+6. 새 창에서 팀 관리자 계정을 사용하여 Slack에 로그인합니다. 표시된 권한 부여 대화 상자에서 프로비전을 사용하도록 설정하려는 Slack 팀을 선택한 다음, **권한 부여** 를 선택합니다. 완료되면 Azure Portal로 돌아가서 프로비전 구성을 완료합니다.
 
     ![권한 부여 대화 상자](./media/slack-provisioning-tutorial/slackauthorize.png)
 
-7. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Slack 앱에 연결되었는지 확인합니다. 연결에 실패하면 Slack 계정에 팀 관리자 권한이 있는지 확인하고 "권한 부여" 단계를 다시 시도합니다.
+7. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD가 Slack 앱에 연결되었는지 확인합니다. 연결에 실패하면 Slack 계정에 팀 관리자 권한이 있는지 확인하고 "권한 부여" 단계를 다시 시도합니다.
 
 8. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-9. **저장**을 선택합니다.
+9. **저장** 을 선택합니다.
 
-10. 매핑 섹션에서 **Azure Active Directory 사용자를 Slack에 동기화**를 선택합니다.
+10. 매핑 섹션에서 **Azure Active Directory 사용자를 Slack에 동기화** 를 선택합니다.
 
 11. **특성 매핑** 섹션에서 Azure AD에서 Slack로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Slack의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -132,7 +132,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |urn:scim:schemas:extension:enterprise:1.0.organization|String|
    |urn:scim:schemas:extension:enterprise:1.0.division|String|
 
-12. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 Slack에 동기화**를 선택합니다.
+12. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 Slack에 동기화** 를 선택합니다.
 
 13. **특성 매핑** 섹션에서 Azure AD에서 Slack으로 동기화할 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Slack의 그룹을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -143,19 +143,19 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 14. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-15. Slack에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+15. Slack에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-16. **설정** 섹션의 **범위**에서 원하는 값을 선택하여 Slack에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
+16. **설정** 섹션의 **범위** 에서 원하는 값을 선택하여 Slack에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-17. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+17. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
 
 ## <a name="step-5-monitor-your-deployment"></a>5단계. 배포 모니터링
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
@@ -174,7 +174,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
   
   * 허용되는 문장 부호에는 마침표, 밑줄, 하이픈, 아포스트로피, 대괄호(예: **( [ { } ] )**) 및 구분 기호(예: **, / ;**)가 포함됩니다.
   
-  * displayName 속성에는 '@' 문자를 사용할 수 없습니다. '@'가 포함되면 프로비저닝 로그에서 "AttributeValidationFailed"라는 설명이 있는 건너뛴 이벤트를 찾을 수 있습니다.
+  * displayName 속성에는 '\@' 문자를 사용할 수 없습니다. '\@'가 포함되면 프로비저닝 로그에서 "AttributeValidationFailed"라는 설명이 있는 건너뛴 이벤트를 찾을 수 있습니다.
 
   * Slack의 작업 공간/조직에서 두 설정, 즉 **Profile syncing is enabled**(프로필 동기화 사용) 및 **Users cannot change their display name**(사용자가 표시 이름을 변경할 수 없음)이 구성된 경우에만 업데이트됩니다.
 

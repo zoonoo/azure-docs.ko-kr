@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 428c24236aad9a57a9d52eb0a6ff3a7aeb9fe541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9502f3fbd50aad756e15daa4db1badda2abf9ab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442151"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660069"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
 
@@ -134,7 +134,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    ```azurecli
    az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
    ```
-3. 백 엔드 서브넷에 대한 추가 주소 공간을 만듭니다. 이 단계에서는 앞에서 만든 주소 공간과 추가하려는 추가 주소 공간을 모두 지정합니다. [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) 명령이 이전 설정을 덮어쓰기 때문입니다. 이 명령을 사용할 때 모든 주소 접두사를 지정해야 합니다.
+3. 백 엔드 서브넷에 대한 추가 주소 공간을 만듭니다. 이 단계에서는 앞에서 만든 주소 공간과 추가하려는 추가 주소 공간을 모두 지정합니다. [az network vnet update](/cli/azure/network/vnet) 명령이 이전 설정을 덮어쓰기 때문입니다. 이 명령을 사용할 때 모든 주소 접두사를 지정해야 합니다.
 
    ```azurecli
    az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -214,10 +214,10 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    ```
    "activeActive": false, 
    "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
    "enableBgp": false, 
    "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
    "gatewayDefaultSite": null, 
@@ -356,7 +356,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
    "id:"에 대한 출력을 복사합니다. 전자 메일 또는 다른 방법을 통해 VNet 게이트웨이(VNet5GW)의 ID와 이름을 구독 1 관리자에게 보냅니다.
 
-3. **[구독 1]** 이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 공유 키에 대해 고유한 값을 사용할 수 있지만 공유 키는 두 연결에 모두 일치해야 합니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다.구독 1에 연결해야 합니다.
+3. **[구독 1]** 이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 공유 키에 대해 고유한 값을 사용할 수 있지만 공유 키는 두 연결에 모두 일치해야 합니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다. 구독 1에 연결해야 합니다.
 
    ```azurecli
    az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
@@ -378,5 +378,5 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines 설명서](https://docs.microsoft.com/azure/)를 참조하세요.
+* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines 설명서](../index.yml)를 참조하세요.
 * BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.

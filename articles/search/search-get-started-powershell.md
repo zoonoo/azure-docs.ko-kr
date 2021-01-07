@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 08/17/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ad5c73fee93d935ad050cea8feca2754649a61f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 9dd9de9dcb01e9be200e07e5925d8b856432b620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058508"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94742381"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST API를 사용하여 PowerShell에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [PowerShell(REST)]()
 > * [C#](./search-get-started-dotnet.md)
-> * [Postman(REST)](search-get-started-postman.md)
+> * [REST (영문)](search-get-started-rest.md)
 > * [Python](search-get-started-python.md)
 > * [포털](search-get-started-portal.md)
 > 
@@ -38,15 +38,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 + [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
-## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
+## <a name="copy-a-key-and-url"></a>키 및 URL 복사
 
 REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-2. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+2. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-rest/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -67,7 +67,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name"
     ```
 
-3. **Invoke-RestMethod**를 실행하여 GET 요청을 서비스에 보내고 연결을 확인합니다. 서비스에서 다시 보낸 응답을 볼 수 있도록 **ConvertTo-Json**을 추가합니다.
+3. **Invoke-RestMethod** 를 실행하여 GET 요청을 서비스에 보내고 연결을 확인합니다. 서비스에서 다시 보낸 응답을 볼 수 있도록 **ConvertTo-Json** 을 추가합니다.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
@@ -88,7 +88,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 포털을 사용하지 않는 경우 데이터를 로드하려면 먼저 서비스에 인덱스가 있어야 합니다. 이 단계에서는 인덱스를 정의하고 서비스로 푸시합니다. 이 단계에는 [인덱스 만들기](/rest/api/searchservice/create-index) REST API가 사용됩니다.
 
-인덱스의 필수 요소에는 name 및 fields 컬렉션이 포함됩니다. fields 컬렉션은 *문서*의 구조를 정의합니다. 각 필드에는 사용되는 방법(예: 검색 결과에서 전체 텍스트 검색 가능, 필터링 가능 또는 조회 가능 여부)을 결정하는 이름, 형식 및 속성이 있습니다. 인덱스 내에서 `Edm.String` 형식의 필드 중 하나는 문서 ID에 대한 *key*로 지정해야 합니다.
+인덱스의 필수 요소에는 name 및 fields 컬렉션이 포함됩니다. fields 컬렉션은 *문서* 의 구조를 정의합니다. 각 필드에는 사용되는 방법(예: 검색 결과에서 전체 텍스트 검색 가능, 필터링 가능 또는 조회 가능 여부)을 결정하는 이름, 형식 및 속성이 있습니다. 인덱스 내에서 `Edm.String` 형식의 필드 중 하나는 문서 ID에 대한 *key* 로 지정해야 합니다.
 
 이 인덱스의 이름은 "hotels-quickstart"이며 아래에 표시된 필드 정의가 있습니다. 다른 연습 문서에서 사용되는 더 큰 [Hotels 인덱스](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON)의 하위 집합입니다. 이 빠른 시작에서 필드 정의를 잘라 간결하게 만들었습니다.
 
@@ -127,7 +127,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30"
     ```
 
-3. **$url**, **$headers** 및 **$body**가 포함된 명령을 실행하여 서비스에 대한 인덱스를 만듭니다. 
+3. **$url**, **$headers** 및 **$body** 가 포함된 명령을 실행하여 서비스에 대한 인덱스를 만듭니다. 
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
@@ -277,7 +277,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30"
     ```
 
-1. **$url**, **$headers** 및 **$body**가 포함된 명령을 실행하여 문서를 hotels-quickstart 인덱스에 로드합니다.
+1. **$url**, **$headers** 및 **$body** 가 포함된 명령을 실행하여 문서를 hotels-quickstart 인덱스에 로드합니다.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
@@ -324,13 +324,13 @@ $url 검색에서는 작은따옴표를 사용해야 합니다. 쿼리 문자열
 
 1. 엔드포인트를 *hotels-quickstart* docs 컬렉션으로 설정하고, 쿼리 문자열을 전달하는 **search** 매개 변수를 추가합니다. 
   
-   이 문자열은 빈 검색(search=*)을 실행하여 순위가 없는 임의 문서 목록(검색 점수 = 1.0)을 반환합니다. 기본적으로 Azure Cognitive Search는 한 번에 50개의 일치 항목을 반환합니다. 구조적으로 이 쿼리는 전체 문서 구조와 값을 반환합니다. **$count=true**를 추가하여 결과에 있는 모든 문서의 수를 가져옵니다.
+   이 문자열은 빈 검색(search=*)을 실행하여 순위가 없는 임의 문서 목록(검색 점수 = 1.0)을 반환합니다. 기본적으로 Azure Cognitive Search는 한 번에 50개의 일치 항목을 반환합니다. 구조적으로 이 쿼리는 전체 문서 구조와 값을 반환합니다. **$count=true** 를 추가하여 결과에 있는 모든 문서의 수를 가져옵니다.
 
     ```powershell
     $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$count=true'
     ```
 
-1. 다음 명령을 실행하여 **$url**을 서비스에 보냅니다.
+1. 다음 명령을 실행하여 **$url** 을 서비스에 보냅니다.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json

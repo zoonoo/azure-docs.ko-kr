@@ -1,6 +1,6 @@
 ---
-title: 워크로드 분류
-description: 분류를 사용 하 여 Azure Synapse Analytics에서 쿼리에 대 한 동시성, 중요도 및 계산 리소스를 관리 하는 방법에 대 한 지침입니다.
+title: 전용 SQL 풀의 작업 분류
+description: 분류를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀의 쿼리 동시성, 중요도 및 계산 리소스를 관리 하는 방법에 대 한 지침입니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6b66b8a9fb3b5eb7dc78c00ba084e8609877dec7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bf19e2d1674d0a0c2102280b28b5549505c1dfab
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323875"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447763"
 ---
-# <a name="azure-synapse-analytics-workload-classification"></a>Azure Synapse Analytics 워크 로드 분류
+# <a name="workload-classification-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 워크 로드 분류
 
 이 문서에서는 Azure Synapse에서 전용 SQL 풀을 사용 하 여 작업 그룹 및 들어오는 요청에 중요도를 할당 하는 작업 분류 프로세스를 설명 합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "93323875"
 
 ## <a name="classification-process"></a>분류 프로세스
 
-Azure Synapse에서 전용 SQL 풀의 분류는 현재 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용 하 여 할당 된 해당 리소스 클래스가 있는 역할에 사용자를 할당 하 여 달성 됩니다. 리소스 클래스에 대 한 로그인 이외의 요청에 대 한 특성을 제공 하는 기능은이 기능으로 제한 됩니다. 이제 [CREATE 워크 로드 분류자](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문을 사용 하 여 더 다양 한 분류 방법을 사용할 수 있습니다.  이 구문을 사용 하 여 전용 SQL 풀 사용자는 매개 변수를 통해 요청에 할당 된 시스템 리소스의 양과 중요도를 할당할 수 있습니다 `workload_group` .
+현재 전용 SQL 풀의 분류는 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용 하 여 할당 된 해당 리소스 클래스가 있는 역할에 사용자를 할당 하 여 수행 됩니다. 리소스 클래스에 대 한 로그인 이외의 요청에 대 한 특성을 제공 하는 기능은이 기능으로 제한 됩니다. 이제 [CREATE 워크 로드 분류자](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문을 사용 하 여 더 다양 한 분류 방법을 사용할 수 있습니다.  이 구문을 사용 하 여 전용 SQL 풀 사용자는 매개 변수를 통해 요청에 할당 된 시스템 리소스의 양과 중요도를 할당할 수 있습니다 `workload_group` .
 
 > [!NOTE]
 > 분류는 요청 단위로 평가 됩니다. 단일 세션의 여러 요청은 다르게 분류 될 수 있습니다.

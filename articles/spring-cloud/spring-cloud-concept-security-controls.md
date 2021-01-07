@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 102b8f4099c93637779743b9c08347266c1d044f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 25636611795a18761a1fc7135efd4abba5af5fe3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094027"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501110"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Azure Spring Cloud Service의 보안 컨트롤
 
@@ -26,7 +26,7 @@ ms.locfileid: "92094027"
 
 | 보안 컨트롤 | 예/아니요 | 메모 | 문서화 |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| 미사용 서버 쪽 암호화: Microsoft 관리형 키 | 예 | 사용자가 업로드 한 원본 및 아티팩트, 구성 서버 설정, 앱 설정 및 영구 저장소의 데이터는 Azure Storage에 저장 되며, 미사용 콘텐츠를 자동으로 암호화 합니다.<br><br>구성 서버 캐시, 업로드 된 원본에서 빌드된 런타임 이진 파일 및 응용 프로그램 수명 중에 응용 프로그램 로그는 미사용 콘텐츠를 자동으로 암호화 하는 Azure 관리 디스크에 저장 됩니다.<br><br>사용자가 업로드 한 원본에서 빌드된 컨테이너 이미지는 미사용 이미지 콘텐츠를 자동으로 암호화 하는 Azure Container Registry에 저장 됩니다. | [미사용 데이터에 대한 Azure Storage 암호화](../storage/common/storage-service-encryption.md)<br><br>[Azure Managed Disks의 서버 쪽 암호화](../virtual-machines/linux/disk-encryption.md)<br><br>[Azure Container Registry의 컨테이너 이미지 스토리지](../container-registry/container-registry-storage.md) |
+| 미사용 서버 쪽 암호화: Microsoft 관리형 키 | 예 | 사용자가 업로드 한 원본 및 아티팩트, 구성 서버 설정, 앱 설정 및 영구 저장소의 데이터는 Azure Storage에 저장 되며, 미사용 콘텐츠를 자동으로 암호화 합니다.<br><br>구성 서버 캐시, 업로드 된 원본에서 빌드된 런타임 이진 파일 및 응용 프로그램 수명 중에 응용 프로그램 로그는 미사용 콘텐츠를 자동으로 암호화 하는 Azure 관리 디스크에 저장 됩니다.<br><br>사용자가 업로드 한 원본에서 빌드된 컨테이너 이미지는 미사용 이미지 콘텐츠를 자동으로 암호화 하는 Azure Container Registry에 저장 됩니다. | [미사용 데이터에 대한 Azure Storage 암호화](../storage/common/storage-service-encryption.md)<br><br>[Azure Managed Disks의 서버 쪽 암호화](../virtual-machines/disk-encryption.md)<br><br>[Azure Container Registry의 컨테이너 이미지 스토리지](../container-registry/container-registry-storage.md) |
 | 일시적인 암호화 | 예 | 사용자 앱 공용 끝점은 기본적으로 인바운드 트래픽에 대해 HTTPS를 사용 합니다. |  |
 | API 호출 암호화 | 예 | Azure 스프링 클라우드 서비스를 구성 하기 위한 관리 호출은 HTTPS를 통한 Azure Resource Manager 호출을 통해 수행 됩니다. | [Azure Resource Manager](../azure-resource-manager/index.yml) |
 

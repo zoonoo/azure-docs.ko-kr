@@ -11,7 +11,7 @@
     - name: PIM으로 관리할 수 없는 역할
       href: pim-roles.md
     - name: 권한 있는 액세스 보호
-      href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+      href: ../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
     - name: MFA 및 PIM
       href: pim-how-to-require-mfa.md
     - name: 개요 대시보드

@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 940ea0ac471604b22c64dc008eebd8b580121cf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782742"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452430"
 ---
-# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse 분석에 대 한 데이터베이스 액세스 권한 부여
+# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse Analytics에 대한 데이터베이스 액세스 권한 부여
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 이 문서에서는 다음에 대해 알아봅니다.
 
-- 사용자가 관리 작업을 수행 하 고 이러한 데이터베이스에 저장 된 데이터에 액세스할 수 있도록 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)를 구성 하는 옵션입니다.
+- 사용자가 관리 작업을 수행 하 고 이러한 데이터베이스에 저장 된 데이터에 액세스할 수 있도록 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics를 구성 하는 옵션입니다.
 - 새 서버를 처음 만든 후의 액세스 및 권한 부여 구성
 - Master 데이터베이스 및 사용자 계정에 로그인 및 사용자 계정을 추가한 다음 이러한 계정에 관리 권한을 부여 하는 방법
 - 로그인 또는 포함 된 사용자 계정으로 사용자 데이터베이스의 사용자 계정을 추가 하는 방법입니다.
@@ -46,7 +46,7 @@ ms.locfileid: "92782742"
 
   이 인증 방법을 사용 하는 경우 사용자는 사용자 계정 이름을 전송 하 고 서비스에서 Azure Active Directory (Azure AD)에 저장 된 자격 증명 정보를 사용 하도록 요청 합니다.
 
-**로그인 및 사용자** : 데이터베이스의 사용자 계정을 master 데이터베이스에 저장 된 로그인과 연결 하거나 개별 데이터베이스에 저장 된 사용자 이름일 수 있습니다.
+**로그인 및 사용자**: 데이터베이스의 사용자 계정을 master 데이터베이스에 저장 된 로그인과 연결 하거나 개별 데이터베이스에 저장 된 사용자 이름일 수 있습니다.
 
 - **로그인** 은 master 데이터베이스에 있는 개별 계정으로, 하나 이상의 데이터베이스에 있는 사용자 계정과 연결될 수 있습니다. 로그인에는 해당 사용자 계정의 자격 증명 정보가 함께 저장됩니다.
 - **사용자 계정은** 데이터베이스의 개별 계정 이지만 로그인에 연결 되어 있을 필요는 없습니다. 로그인에 연결되지 않은 사용자 계정에는 해당 사용자 계정의 자격 증명 정보가 함께 저장됩니다.
@@ -137,7 +137,7 @@ ms.locfileid: "92782742"
 
 - **고정 데이터베이스 역할**
 
-  사용자 계정을 [고정 데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles)에 추가합니다. 고정 데이터베이스 역할은 9가지이며 각각 정의된 권한 세트가 있습니다. 가장 일반적인 고정 데이터베이스 역할은 **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** 및 **db_denydatareader** 입니다. **db_owner** 는 일반적으로 일부 사용자에게만 전체 권한을 부여하는 데 사용됩니다. 기타 고정된 데이터베이스 역할은 개발에서 단순한 데이터베이스를 신속하게 가져오는 데 유용하지만 대부분의 프로덕션 데이터베이스에는 권장되지 않습니다. 예를 들어 **db_datareader** 고정 데이터베이스 역할은 데이터베이스에 있는 모든 테이블에 대한 읽기 액세스 권한을 부여합니다. 읽기 액세스 권한은 반드시 필요한 권한 이상입니다.
+  사용자 계정을 [고정 데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles)에 추가합니다. 고정 데이터베이스 역할은 9가지이며 각각 정의된 권한 세트가 있습니다. 가장 일반적인 고정 데이터베이스 역할은 **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** 및 **db_denydatareader** 입니다. **db_owner** 는 일반적으로 일부 사용자에게만 전체 권한을 부여하는 데 사용됩니다. 기타 고정된 데이터베이스 역할은 개발에서 단순한 데이터베이스를 신속하게 가져오는 데 유용하지만 대부분의 프로덕션 데이터베이스에는 권장되지 않습니다. 예를 들어 **db_datareader** 고정 데이터베이스 역할은 데이터베이스에 있는 모든 테이블에 대한 읽기 액세스 권한을 부여합니다. 읽기 액세스 권한은 반드시 필요한 권한 이상입니다.
 
   - 고정 데이터베이스 역할에 사용자를 추가하려면:
 

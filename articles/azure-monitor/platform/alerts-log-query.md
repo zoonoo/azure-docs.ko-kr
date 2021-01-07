@@ -6,19 +6,19 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: 7f03858b2427b2a2069ebe2c9d06425e7a741e2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7c9c76816b5d1ee2eedfb7e54645e056906feef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294362"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186629"
 ---
 # <a name="optimizing-log-alert-queries"></a>로그 경고 쿼리 최적화
 이 문서에서는 최적의 성능을 얻기 위해 [로그 경고](alerts-unified-log.md) 쿼리를 작성 하 고 변환 하는 방법을 설명 합니다. 최적화 된 쿼리는 자주 실행 되는 경고의 대기 시간과 로드를 줄입니다.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>경고 로그 쿼리 작성을 시작 하는 방법
 
-경고 쿼리는 문제를 나타내는 [Log Analytics의 로그 데이터를 쿼리 하](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) 는 것부터 시작 합니다. [경고 쿼리 예제 항목](../log-query/saved-queries.md) 을 사용 하 여 검색할 수 있는 항목을 이해할 수 있습니다. 사용자가 [직접 쿼리를 작성](../log-query/get-started-portal.md)하는 작업을 시작할 수도 있습니다. 
+경고 쿼리는 문제를 나타내는 [Log Analytics의 로그 데이터를 쿼리 하](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) 는 것부터 시작 합니다. [경고 쿼리 예제 항목](../log-query/example-queries.md) 을 사용 하 여 검색할 수 있는 항목을 이해할 수 있습니다. 사용자가 [직접 쿼리를 작성](../log-query/log-analytics-tutorial.md)하는 작업을 시작할 수도 있습니다. 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>경고가 아닌 문제를 나타내는 쿼리
 
@@ -72,7 +72,7 @@ workspace('Contoso-workspace1').Perf
 ## <a name="examples"></a>예제
 다음 예에서는 및를 사용 하는 로그 쿼리를 비롯 하 여 `search` `union` 경고 규칙에 사용 하기 위해 이러한 쿼리를 수정 하는 데 사용할 수 있는 단계를 제공 합니다.
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 을 사용 하 여 성능 정보를 검색 하는 다음 쿼리를 사용 하 여 로그 경고 규칙을 만들 수 있습니다 `search` . 
 
 ``` Kusto
@@ -99,7 +99,7 @@ Perf
 | where CounterValue < 30
 ```
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 을 사용 하 여 성능 정보를 검색 하는 다음 쿼리를 사용 하 여 로그 경고 규칙을 만들 수 있습니다 `search` . 
 
 ``` Kusto

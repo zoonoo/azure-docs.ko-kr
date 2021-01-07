@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3bea474ae61ba4a0213d880934d9536d6ad71796
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 225df0dc53a0386bb53576970a1b6330351f4545
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131635"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184130"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 Azure Cache for Redis는 [Redis](https://redis.io/) 소프트웨어를 기반으로 하는 메모리 내 데이터 저장소를 제공합니다. Redis는 백 엔드 데이터 저장소에서 많이 사용하는 애플리케이션의 성능과 확장성을 개선합니다. 자주 액세스하는 데이터를 빠르게 쓰고 읽을 수 있는 서버 메모리에 보관하여 대량의 애플리케이션 요청을 처리할 수 있습니다. Redis는 최신 애플리케이션에 매우 짧은 대기 시간 및 높은 처리량의 데이터 스토리지 솔루션을 제공합니다.
@@ -35,9 +35,6 @@ Azure Cache for Redis는 일반적인 애플리케이션 아키텍처 패턴을 
 
 Azure Cache for Redis는 OSS Redis 버전 4.x를 지원하고, 미리 보기로 6.0을 지원합니다. 최신 버전을 제공하기 위해 Redis 5.0을 건너뛰기로 결정했습니다. 이전에는 Azure Cache for Redis가 단일 Redis 버전만 유지 관리했습니다. 최신 주 릴리스 업그레이드와 안정적인 이전 버전이 하나 이상 제공됩니다. 애플리케이션에 가장 적합한 [버전을 선택](cache-how-to-version.md)할 수 있습니다.
 
-> [!NOTE]
-> Redis 6.0은 현재 미리 보기로 제공되고 있습니다. 관심이 있으시면 [문의](mailto:azurecache@microsoft.com)하세요. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
 
 ## <a name="service-tiers"></a>서비스 계층
 Azure Cache for Redis는 다음 계층에서 사용할 수 있습니다.
@@ -70,16 +67,16 @@ Azure Cache for Redis는 다음 계층에서 사용할 수 있습니다.
 ### <a name="choosing-the-right-tier"></a>올바른 계층 선택
 Azure Cache for Redis 계층을 선택하는 경우 다음 사항을 고려해야 합니다.
 
-* **메모리** : 기본 및 표준 계층은 250MB - 53GB(프리미엄 계층 6GB - 1.2TB, 엔터프라이즈 계층 12GB - 14TB)를 제공합니다.  120GB보다 큰 프리미엄 계층 캐시를 만들려면 Redis OSS 클러스터링을 사용하면 됩니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
-* **네트워크 성능** : 높은 처리량이 필요한 워크로드가 있는 경우 프리미엄 또는 엔터프라이즈 계층은 기본 또는 표준에 비해 더 많은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 [Azure Cache for Redis 성능](cache-planning-faq.md#azure-cache-for-redis-performance)을 참조하세요.
-* **처리량** : 프리미엄 계층에서 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과를 수신할 수 있습니다. 자세한 내용은 다음 표를 참조하세요.
-* **고가용성** : Azure Cache for Redis는 여러 [고가용성](cache-high-availability.md) 옵션을 제공합니다. [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)에 따라 표준, 프리미엄 또는 엔터프라이즈 캐시를 사용할 수 있도록 보장합니다. SLA에서는 캐시 엔드포인트에 대한 연결만 다룹니다. SLA는 데이터 손실로부터의 보호는 다루지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
-* **데이터 지속성** : 프리미엄 계층을 사용하면 Azure Storage 계정에서 캐시 데이터를 유지할 수 있습니다. 다른 계층에서는 데이터가 메모리에만 저장됩니다. 기본 인프라 문제로 인해 데이터 손실이 발생할 수 있습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Azure Cache for Redis는 Redis 지속성에서 RDB 및 AOF(미리 보기) 옵션을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 대한 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
-* **네트워크 격리** : Azure Private Link 및 VNET(Virtual Network) 배포는 Azure Cache for Redis에 대해 향상된 보안 및 트래픽 격리를 제공합니다. VNET을 사용하면 네트워크 액세스 제어 정책을 통해 액세스를 추가로 제한할 수 있습니다. 자세한 내용은 [Azure Private Link가 있는 Azure Cache for Redis](cache-private-link.md) 및 [프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
-* **최대 클라이언트 연결 수** : 프리미엄 계층에서는 Redis에 연결할 수 있는 최대 클라이언트 수를 제공하여 더 큰 크기의 캐시에 대해 더 많은 수의 연결을 제공할 수 있습니다. 클러스터링은 클러스터형 캐시에 사용할 수 있는 연결 수를 늘리지 않습니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
-* **Redis 서버 전용 코어** : C0을 제외한 모든 캐시는 전용 VM 코어를 실행합니다.
-* **단일 스레드 처리** : Redis는 의도적으로 명령 처리에 하나의 스레드만 사용합니다. Azure Cache for Redis는 I/O 처리를 위해 추가 코어도 활용합니다. 코어 수가 많을수록 선형 크기 조정이 생성되지 않더라도 처리량 성능이 향상됩니다. 또한 일반적으로 VM 크기가 클수록 작은 크기보다 대역폭 제한이 높습니다. 이를 통해 애플리케이션에서 시간 초과를 유발하는 네트워크 포화를 방지할 수 있습니다.
-* **향상된 성능** : 프리미엄 및 엔터프라이즈 계층의 캐시는 프로세서가 더 빠른 하드웨어에 배포되어 기본 또는 표준 계층에 비해 더 나은 성능을 제공합니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다. 자세한 내용은 [Azure Cache for Redis 성능](cache-planning-faq.md#azure-cache-for-redis-performance)을 참조하세요.
+* **메모리**: 기본 및 표준 계층은 250MB - 53GB(프리미엄 계층 6GB - 1.2TB, 엔터프라이즈 계층 12GB - 14TB)를 제공합니다.  120GB보다 큰 프리미엄 계층 캐시를 만들려면 Redis OSS 클러스터링을 사용하면 됩니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
+* **네트워크 성능**: 높은 처리량이 필요한 워크로드가 있는 경우 프리미엄 또는 엔터프라이즈 계층은 기본 또는 표준에 비해 더 많은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 [Azure Cache for Redis 성능](cache-planning-faq.md#azure-cache-for-redis-performance)을 참조하세요.
+* **처리량**: 프리미엄 계층에서 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과를 수신할 수 있습니다. 자세한 내용은 다음 표를 참조하세요.
+* **고가용성**: Azure Cache for Redis는 여러 [고가용성](cache-high-availability.md) 옵션을 제공합니다. [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)에 따라 표준, 프리미엄 또는 엔터프라이즈 캐시를 사용할 수 있도록 보장합니다. SLA에서는 캐시 엔드포인트에 대한 연결만 다룹니다. SLA는 데이터 손실로부터의 보호는 다루지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
+* **데이터 지속성**: 프리미엄 계층을 사용하면 Azure Storage 계정에서 캐시 데이터를 유지할 수 있습니다. 다른 계층에서는 데이터가 메모리에만 저장됩니다. 기본 인프라 문제로 인해 데이터 손실이 발생할 수 있습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Azure Cache for Redis는 Redis 지속성에서 RDB 및 AOF(미리 보기) 옵션을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 대한 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
+* **네트워크 격리**: Azure Private Link 및 VNET(Virtual Network) 배포는 Azure Cache for Redis에 대해 향상된 보안 및 트래픽 격리를 제공합니다. VNET을 사용하면 네트워크 액세스 제어 정책을 통해 액세스를 추가로 제한할 수 있습니다. 자세한 내용은 [Azure Private Link가 있는 Azure Cache for Redis](cache-private-link.md) 및 [프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
+* **최대 클라이언트 연결 수**: 프리미엄 계층에서는 Redis에 연결할 수 있는 최대 클라이언트 수를 제공하여 더 큰 크기의 캐시에 대해 더 많은 수의 연결을 제공할 수 있습니다. 클러스터링은 클러스터형 캐시에 사용할 수 있는 연결 수를 늘리지 않습니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
+* **Redis 서버 전용 코어**: C0을 제외한 모든 캐시는 전용 VM 코어를 실행합니다.
+* **단일 스레드 처리**: Redis는 의도적으로 명령 처리에 하나의 스레드만 사용합니다. Azure Cache for Redis는 I/O 처리를 위해 추가 코어도 활용합니다. 코어 수가 많을수록 선형 크기 조정이 생성되지 않더라도 처리량 성능이 향상됩니다. 또한 일반적으로 VM 크기가 클수록 작은 크기보다 대역폭 제한이 높습니다. 이를 통해 애플리케이션에서 시간 초과를 유발하는 네트워크 포화를 방지할 수 있습니다.
+* **향상된 성능**: 프리미엄 및 엔터프라이즈 계층의 캐시는 프로세서가 더 빠른 하드웨어에 배포되어 기본 또는 표준 계층에 비해 더 나은 성능을 제공합니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다. 자세한 내용은 [Azure Cache for Redis 성능](cache-planning-faq.md#azure-cache-for-redis-performance)을 참조하세요.
 
 캐시를 만든 후 기본 계층에서 프리미엄 계층으로 확장할 수 있습니다. 더 낮은 계층으로의 축소는 지원되지 않습니다. 단계별 크기 조정 지침에 대해서는 [Azure Cache for Redis 크기를 조정하는 방법](cache-how-to-scale.md) 및 [크기 조정 작업을 자동화하는 방법](cache-how-to-scale.md#how-to-automate-a-scaling-operation)을 참조하세요.
 
@@ -88,7 +85,7 @@ Azure Cache for Redis 계층을 선택하는 경우 다음 사항을 고려해�
 엔터프라이즈 계층은 Redis Labs의 Redis 상용 버전인 Redis Enterprise를 사용합니다. 고객은 Azure Marketplace 제품을 통해 이 소프트웨어에 대한 라이선스를 취득하고 비용을 지불합니다. Azure Cache for Redis는 별도로 작업을 수행할 필요가 없도록 라이선스 획득을 용이하게 합니다. Azure Marketplace에서 구매하려면 다음과 같은 필수 구성 요소가 있어야 합니다.
 * Azure 구독에는 유효한 지불 수단이 있습니다. Azure 크레딧 또는 체험 MSDN 구독은 지원되지 않습니다.
 * 구독의 소유자 또는 기여자입니다.
-* 조직에서 [Azure Marketplace 구매](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases)를 허용합니다.
+* 조직에서 [Azure Marketplace 구매](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases)를 허용합니다.
 * 프라이빗 Marketplace를 사용하는 경우 Redis Labs Enterprise 제품을 포함해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,11 +10,11 @@ ms.author: matjazl
 author: matjazl
 ms.date: 04/02/2019
 ms.openlocfilehash: 2e13a9fc32964781dda07e5534e5cab79868ddf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846978"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995542"
 ---
 # <a name="tutorial-azure-active-directory-smart-on-fhir-proxy"></a>자습서: Azure Active Directory SMART on FHIR 프록시
 
@@ -42,7 +42,7 @@ SMART on FHIR를 사용하려면 `Audience`의 식별자 URI가 FHIR 서비스�
 
 ## <a name="enable-the-smart-on-fhir-proxy"></a>SMART on FHIR 프록시를 사용하도록 설정
 
-**SMART on FHIR 프록시**를 선택하여 Azure API for FHIR 인스턴스의 **인증** 설정에서 SMART on FHIR 프록시를 사용하도록 설정합니다.
+**SMART on FHIR 프록시** 를 선택하여 Azure API for FHIR 인스턴스의 **인증** 설정에서 SMART on FHIR 프록시를 사용하도록 설정합니다.
 
 ![SMART on FHIR 프록시를 사용하도록 설정하기 위한 선택 항목](media/tutorial-smart-on-fhir/enable-smart-on-fhir-proxy.png)
 
@@ -126,7 +126,7 @@ SMART on FHIR 앱 시작 관리자를 시작한 후에는 브라우저에서 다
 
 ![SMART on FHIR 앱 시작 관리자](media/tutorial-smart-on-fhir/smart-on-fhir-app-launcher.png)
 
-**환자**, **방문 기록** 또는 **의사** 정보를 입력하면 **시작 컨텍스트**가 업데이트되는 것을 볼 수 있습니다. Azure API for FHIR를 사용하는 경우 시작 컨텍스트는 환자, 의사 등에 대한 정보를 포함하는 JSON 문서입니다. 이 시작 컨텍스트는 base64로 인코딩되어 SMART on FHIR 앱에 `launch` 쿼리 매개 변수로 전달됩니다. SMART on FHIR 사양에 따라 이 변수는 SMART on FHIR 앱에 대해 불투명하며 ID 공급자에게 전달됩니다. 
+**환자**, **방문 기록** 또는 **의사** 정보를 입력하면 **시작 컨텍스트** 가 업데이트되는 것을 볼 수 있습니다. Azure API for FHIR를 사용하는 경우 시작 컨텍스트는 환자, 의사 등에 대한 정보를 포함하는 JSON 문서입니다. 이 시작 컨텍스트는 base64로 인코딩되어 SMART on FHIR 앱에 `launch` 쿼리 매개 변수로 전달됩니다. SMART on FHIR 사양에 따라 이 변수는 SMART on FHIR 앱에 대해 불투명하며 ID 공급자에게 전달됩니다. 
 
 SMART on FHIR 프록시는 이 정보를 사용하여 토큰 응답의 필드를 채웁니다. SMART on FHIR 앱은 이러한 필드를 사용하여 데이터를 요청할 환자 및 애플리케이션을 화면에 렌더링하는 방법을 *제어할 수 있습니다*. SMART on FHIR 프록시는 다음 필드를 지원합니다.
 
@@ -138,7 +138,7 @@ SMART on FHIR 프록시는 이 정보를 사용하여 토큰 응답의 필드를
 
 이러한 필드는 앱에 대한 지침을 제공하는 것이 그 목적이지만 보안 정보를 전달하지는 않습니다. SMART on FHIR 애플리케이션에서는 이러한 필드를 무시해도 됩니다.
 
-SMART on FHIR 앱 시작 관리자는 페이지 맨 아래에 있는 **시작 URL** 정보를 업데이트합니다. **시작**을 선택하여 샘플 앱을 시작하면 다음 샘플과 비슷한 내용이 표시됩니다.
+SMART on FHIR 앱 시작 관리자는 페이지 맨 아래에 있는 **시작 URL** 정보를 업데이트합니다. **시작** 을 선택하여 샘플 앱을 시작하면 다음 샘플과 비슷한 내용이 표시됩니다.
 
 ![SMART on FHIR 앱](media/tutorial-smart-on-fhir/smart-on-fhir-app.png)
 

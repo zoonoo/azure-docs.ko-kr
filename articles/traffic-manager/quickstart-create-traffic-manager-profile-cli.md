@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b2f25eec3a8a992e9fce0191700775968854a0c2
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 7dabf94c711972f9fe543edac0d7b95469fc2d35
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939141"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661106"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 고가용성 웹 애플리케이션에 대한 Traffic Manager 프로필 만들기
 
@@ -26,19 +26,16 @@ ms.locfileid: "91939141"
 
 여기서는 웹 애플리케이션의 두 인스턴스를 만듭니다. 각각 다른 Azure 지역에서 실행됩니다. [엔드포인트 우선 순위](traffic-manager-routing-methods.md#priority-traffic-routing-method)에 따라 Traffic Manager 프로필을 만듭니다. 프로필은 웹 애플리케이션을 실행하는 주 사이트로 사용자 트래픽을 보냅니다. Traffic Manager는 웹 애플리케이션을 지속적으로 모니터링합니다. 주 사이트를 사용할 수 없는 경우 백업 사이트에 자동 장애 조치를 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- 로컬로 설치된 Azure CLI 또는 Azure Cloud Shell
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 [az group create](https://docs.microsoft.com/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 
@@ -192,13 +189,13 @@ az network traffic-manager profile show \
 
 ```
 
-**RelativeDnsName** 값을 복사합니다. Traffic Manager 프로필의 DNS 이름은 *http://<* relativednsname *>.trafficmanager.net*입니다. 
+**RelativeDnsName** 값을 복사합니다. Traffic Manager 프로필의 DNS 이름은 *http://<* relativednsname *>.trafficmanager.net* 입니다. 
 
 ### <a name="view-traffic-manager-in-action"></a>실행 중인 Traffic Manager 보기
 1. 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름(*http://<* relativednsname *>.trafficmanager.net*)을 입력하여 웹앱의 기본 웹 사이트를 표시합니다.
 
     > [!NOTE]
-    > 이 빠른 시작 시나리오에서는 모든 요청이 기본 엔드포인트로 라우팅됩니다. **우선 순위 1**로 설정됩니다.
+    > 이 빠른 시작 시나리오에서는 모든 요청이 기본 엔드포인트로 라우팅됩니다. **우선 순위 1** 로 설정됩니다.
 2. 작동 중인 Traffic Manager 장애 조치를 보려면 [az network traffic-manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update)를 사용하여 기본 사이트를 사용하지 않도록 설정합니다.
 
    ```azurecli-interactive

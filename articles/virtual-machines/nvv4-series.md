@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 21d44044250bacc95c4dbb0dde147e87f2fed6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b7d200ef39a6b4da6af33a0a9b9314635c3db33
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652743"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586434"
 ---
 # <a name="nvv4-series"></a>NVv4 시리즈 
 
@@ -27,6 +27,7 @@ NVv4 시리즈 가상 머신은 [Amd Radeon 이러한 MI25](https://www.amd.com/
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대<br>
+가속 네트워킹: 지원 됨<br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(MBps) |

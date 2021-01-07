@@ -1,6 +1,6 @@
 ---
-title: 서버를 사용 하지 않는 SQL 풀 (미리 보기)에 대 한 모범 사례
-description: 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하기 위한 권장 사항 및 모범 사례입니다.
+title: 서버리스 SQL 풀에 대한 모범 사례
+description: 서버를 사용 하지 않는 SQL 풀을 사용 하기 위한 권장 사항 및 모범 사례입니다.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd0ba19739b75e72541ac84d6b1696ab2819dee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317433"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457904"
 ---
-# <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 (미리 보기)에 대 한 모범 사례
+# <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀에 대 한 모범 사례
 
-이 문서에서는 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하기 위한 모범 사례 모음을 찾을 수 있습니다. 서버를 사용 하지 않는 SQL 풀은 Azure Synapse Analytics의 리소스입니다.
+이 문서에서는 서버 리스 SQL 풀 사용에 대 한 모범 사례 모음을 찾을 수 있습니다. 서버를 사용 하지 않는 SQL 풀은 Azure Synapse Analytics의 리소스입니다.
 
 ## <a name="general-considerations"></a>일반적인 고려 사항
 
@@ -127,13 +127,17 @@ FROM
 
 CSV 파일을 쿼리할 때 성능 최적화 파서를 사용할 수 있습니다. 자세한 내용은 [PARSER_VERSION](develop-openrowset.md)을 참조하세요.
 
+## <a name="manually-create-statistics-for-csv-files"></a>CSV 파일에 대 한 통계 수동 작성
+
+서버를 사용 하지 않는 SQL 풀은 통계를 기반으로 최적의 쿼리 실행 계획을 생성 합니다. 필요한 경우 Parquet 파일의 열에 대해 통계가 자동으로 생성 됩니다. 이 시점에서 CSV 파일의 열에 대해서는 통계가 자동으로 생성 되지 않으므로 쿼리에서 사용 하는 열에 대해 통계를 수동으로 만들어야 합니다. 특히 DISTINCT, JOIN, WHERE, ORDER BY 및 GROUP BY에 사용 됩니다. 자세한 내용은 [서버를 사용 하지 않는 SQL 풀의 통계] (' 서버를 개발 합니다.
+
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>CETAS를 사용하여 쿼리 성능 및 조인 향상
 
 [CETAS](develop-tables-cetas.md) 는 서버 리스 SQL 풀에서 사용할 수 있는 가장 중요 한 기능 중 하나입니다. CETAS는 외부 테이블 메타데이터를 만들고 SELECT 쿼리 결과를 스토리지 계정의 파일 세트로 내보내는 병렬 작업입니다.
 
 CETAS를 사용하면 조인된 참조 테이블처럼 쿼리에서 자주 사용하는 부분을 새 파일 세트에 저장할 수 있습니다. 그러면 여러 쿼리에서 공통 조인을 반복하는 대신, 이 단일 외부 테이블에 조인할 수 있습니다.
 
-CETAS에서 Parquet 파일을 생성하면 첫 번째 쿼리가 이 외부 테이블을 대상으로 할 때 자동으로 통계가 생성되므로 성능이 향상됩니다.
+CETAS에서 Parquet 파일을 생성 하는 경우 첫 번째 쿼리가이 외부 테이블을 대상으로 하는 경우 통계가 자동으로 생성 되므로 CETAS를 사용 하 여 생성 된 테이블을 대상으로 하는 후속 쿼리의 성능이 향상 됩니다.
 
 ## <a name="azure-ad-pass-through-performance"></a>Azure AD 통과 성능
 

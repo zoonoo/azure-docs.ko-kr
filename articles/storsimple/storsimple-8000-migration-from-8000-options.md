@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 78ac7e849a3a8f1742701006638a2cb72299bad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4839f8211e678f5fc2fb3572c7eaa545fbee6c6c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055778"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961195"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>StorSimple 8000 시리즈의 데이터 마이그레이션 옵션
 
@@ -31,7 +31,7 @@ StorSimple 8000 시리즈를 사용 하는 고객은 Azure 또는 타사 옵션�
 
 이러한 새 마이그레이션 옵션을 사용 하면 고객이 조직의 파일 공유를 Azure Files에 저장할 수 있습니다. 그러면 이러한 파일 공유에서 AFS(Azure 파일 동기화)를 사용하여 온-프레미스 액세스를 위해 중앙 집중화됩니다. AFS는 Windows Server 호스트에 배포할 수 있습니다. 그러면 실제 데이터 마이그레이션이 호스트 복사본으로 수행되거나 마이그레이션 도구를 사용하여 수행됩니다.
 
-Azure File Sync로 데이터를 마이그레이션하는 방법에 대 한 자세한 내용은 [StorSimple 8100 및 8600 migration to Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)로 이동 합니다.
+Azure File Sync로 데이터를 마이그레이션하는 방법에 대 한 자세한 내용은 [StorSimple 8100 및 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md)로 이동 합니다.
 
 ### <a name="third-party-options"></a>타사 옵션
 
@@ -111,4 +111,4 @@ A. 데이터 마이그레이션을 완료하는 데 걸리는 시간은 선택�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [StorSimple 8000 시리즈에서 Azure File Sync로 데이터 마이그레이션](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)
+* [StorSimple 8000 시리즈에서 Azure File Sync로 데이터 마이그레이션](../storage/files/storage-files-migration-storsimple-8000.md)

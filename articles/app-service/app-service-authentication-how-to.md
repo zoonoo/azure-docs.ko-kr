@@ -4,12 +4,12 @@ description: 다양 한 시나리오에 대 한 App Service의 인증 및 권한
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ad83e7ad5e1ffc03bf7c62df9b28512e19a62100
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 85fd7fdba4c62f4837a419af44c83f7e46cb9e39
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739797"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601784"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -24,6 +24,7 @@ ms.locfileid: "92739797"
 * [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-microsoft.md)
 * [Twitter 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-twitter.md)
 * [Openid connect Connect 공급자를 사용 하 여 로그인 하도록 앱을 구성 하는 방법 (미리 보기)](configure-authentication-provider-openid-connect.md)
+* [Apple에서 로그인 (미리 보기)을 사용 하 여 로그인 하도록 앱을 구성 하는 방법](configure-authentication-provider-apple.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>다중 로그인 공급자 사용
 
@@ -33,7 +34,7 @@ ms.locfileid: "92739797"
 
 **요청이 인증되지 않은 경우 수행할 작업** 에서 **익명 요청 허용(작업 없음)** 을 선택합니다.
 
-로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들면 다음과 같습니다.
+로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들어:
 
 ```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -41,6 +42,7 @@ ms.locfileid: "92739797"
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
+<a href="/.auth/login/apple">Log in with Apple</a>
 ```
 
 사용자가 링크 중 하나를 클릭하면 사용자가 로그인할 수 있는 각 로그인 페이지가 열립니다.
@@ -55,7 +57,7 @@ ms.locfileid: "92739797"
 
 클라이언트 리디렉션 로그인에 애플리케이션은 사용자가 수동으로 공급자에 로그인한 다음, 유효성 검사를 위해 인증 토큰을 App Service에 제출합니다([인증 흐름](overview-authentication-authorization.md#authentication-flow) 참조). 이 유효성 검사 자체는 실제로 원하는 앱 리소스에 대한 액세스 권한을 부여하지 않지만, 유효성 검사가 성공하면 앱 리소스에 액세스하는 데 사용할 수 있는 세션 토큰이 제공됩니다. 
 
-공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예를 들면 다음과 같습니다. 
+공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예를 들어: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -66,7 +68,7 @@ Content-Type: application/json
 
 토큰 형식은 공급자에 따라 약간 다릅니다. 자세한 내용은 다음 표를 참조하세요.
 
-| 공급자 값 | 요청 본문에 필요 | 주석 |
+| 공급자 값 | 요청 본문에 필요 | 의견 |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` 속성은 선택 사항입니다. <br/>Live 서비스에서 토큰을 요청하는 경우 항상 `wl.basic` 범위를 요청합니다. |
@@ -86,7 +88,7 @@ Content-Type: application/json
 }
 ```
 
-이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예를 들면 다음과 같습니다. 
+이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예를 들어: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -107,7 +109,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 <a href="/.auth/logout">Sign out</a>
 ```
 
-기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예를 들면 다음과 같습니다.
+기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예를 들어:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -170,13 +172,13 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 
 [세션 토큰](#extend-session-token-expiration-grace-period)이 아닌 공급자의 액세스 토큰이 만료되면 사용자를 다시 인증해야 해당 토큰을 다시 사용할 수 있습니다. 애플리케이션의 `/.auth/refresh` 엔드포인트에 대한 `GET` 호출을 수행하면 토큰 만료를 방지할 수 있습니다. 이 호출 되 면 App Service는 인증 된 사용자에 대 한 [토큰 저장소](overview-authentication-authorization.md#token-store) 의 액세스 토큰을 자동으로 새로 고칩니다. 이후에 앱 코드에서 토큰을 요청하면 새로 고쳐진 토큰을 가져옵니다. 단, 토큰 새로 고침을 실행하기 위해서는 토큰 저장소에 사용자 공급자에 대한 [토큰 새로 고침](https://auth0.com/learn/refresh-tokens/)이 포함되어야 합니다. 새로 고침 토큰을 얻는 방법은 각 공급자에서 제공하는 문서에 나와 있으며, 다음 목록은 간단한 요약입니다.
 
-- **Google** : `access_type=offline` 쿼리 문자열 매개 변수를 `/.auth/login/google` API 호출에 추가합니다. Mobile Apps SDK를 사용하는 경우 `LogicAsync` 오버로드 중 하나에 매개 변수를 추가할 수 있습니다([Google 새로 고침 토큰](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) 참조).
-- **Facebook** : 새로 고침 토큰을 제공하지 않습니다. 수명이 긴 토큰은 60일 후에 만료됩니다([액세스 토큰의 Facebook 만료 및 확장](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) 참조).
-- **Twitter** : 액세스 토큰이 만료되지 않습니다( [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ) 참조).
-- **Microsoft 계정** : [Microsoft 계정 인증 설정을 구성](configure-authentication-provider-microsoft.md)할 때 `wl.offline_access` 범위를 선택합니다.
-- **Azure Active Directory** : [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
+- **Google**: `access_type=offline` 쿼리 문자열 매개 변수를 `/.auth/login/google` API 호출에 추가합니다. Mobile Apps SDK를 사용하는 경우 `LogicAsync` 오버로드 중 하나에 매개 변수를 추가할 수 있습니다([Google 새로 고침 토큰](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) 참조).
+- **Facebook**: 새로 고침 토큰을 제공하지 않습니다. 수명이 긴 토큰은 60일 후에 만료됩니다([액세스 토큰의 Facebook 만료 및 확장](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) 참조).
+- **Twitter**: 액세스 토큰이 만료되지 않습니다([Twitter OAuth FAQ](https://developer.twitter.com/en/docs/authentication/faq) 참조).
+- **Microsoft 계정**: [Microsoft 계정 인증 설정을 구성](configure-authentication-provider-microsoft.md)할 때 `wl.offline_access` 범위를 선택합니다.
+- **Azure Active Directory**: [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
     1. 페이지의 위쪽에서 **읽기/쓰기** 를 선택합니다.
-    2. 왼쪽 브라우저에서 **구독** > * * _\<subscription\_name_** > **resourcegroups** > * *_ * \<resource\_group\_name> _* > **공급자**  >  **Microsoft. 웹**  >  **사이트** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** 로 이동 합니다. 
+    2. 왼쪽 브라우저에서 **구독** > * *_\<subscription\_name_** > **resourcegroups** > * *_* \<resource\_group\_name> _* > **공급자**  >  **Microsoft. 웹**  >  **사이트** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** 로 이동 합니다. 
     3. **편집** 을 클릭합니다.
     4. 다음 속성을 수정합니다. 을 _\<app\_id>_ 액세스 하려는 서비스의 Azure Active Directory 응용 프로그램 ID로 바꿉니다.
 
@@ -221,9 +223,9 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>로그인 계정의 도메인 제한
 
-Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_ , _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure AD는 로그인 계정에 대해 원하는 수의 사용자 지정 도메인을 허용 합니다. 그러나 사용자의 브랜드 Azure AD 로그인 페이지 (예:)로 직접 사용자를 가속화 하는 것이 좋습니다 `contoso.com` . 로그인 계정의 도메인 이름을 제안 하려면 다음 단계를 수행 합니다.
+Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_, _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure AD는 로그인 계정에 대해 원하는 수의 사용자 지정 도메인을 허용 합니다. 그러나 사용자의 브랜드 Azure AD 로그인 페이지 (예:)로 직접 사용자를 가속화 하는 것이 좋습니다 `contoso.com` . 로그인 계정의 도메인 이름을 제안 하려면 다음 단계를 수행 합니다.
 
-에서 [https://resources.azure.com](https://resources.azure.com) **구독** > * * _\<subscription\_name_** > **resourcegroups** > * *_ * \<resource\_group\_name> _* > **공급자** 인  >  **Microsoft 웹**  >  **사이트** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** 로 이동 합니다. 
+에서 [https://resources.azure.com](https://resources.azure.com) **구독** > * *_\<subscription\_name_** > **resourcegroups** > * *_* \<resource\_group\_name> _* > **공급자** 인  >  **Microsoft 웹**  >  **사이트** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** 로 이동 합니다. 
 
 **편집** 을 클릭하고 다음 속성을 수정한 다음, **배치** 를 클릭합니다. 을 _\<domain\_name>_ 원하는 도메인으로 바꾸어야 합니다.
 
@@ -249,7 +251,7 @@ App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 
 
 모든 Windows 앱의 경우 *Web.config* 파일을 편집 하 여 IIS 웹 서버의 권한 부여 동작을 정의할 수 있습니다. Linux 앱은 IIS를 사용 하지 않으며 *Web.config* 를 통해 구성할 수 없습니다.
 
-1. `https://<app-name>.scm.azurewebsites.net/DebugConsole` 로 이동합니다.
+1. `https://<app-name>.scm.azurewebsites.net/DebugConsole`로 이동
 
 1. App Service 파일의 브라우저 탐색기에서 *site/wwwroot* 로 이동 합니다. *Web.config* 없는 경우 **+**  >  **새 파일** 을 선택 하 여 만듭니다. 
 
@@ -269,7 +271,7 @@ App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 
 
 ### <a name="identity-provider-level"></a>Id 공급자 수준
 
-Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들면 다음과 같습니다.
+Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들어:
 
 - [Azure App Service](configure-authentication-provider-aad.md)의 경우 Azure AD에서 직접 [엔터프라이즈 수준의 액세스를 관리할](../active-directory/manage-apps/what-is-access-management.md) 수 있습니다. 자세한 내용은 [응용 프로그램에 대 한 사용자 액세스를 제거 하는 방법](../active-directory/manage-apps/methods-for-removing-user-access.md)을 참조 하세요.
 - [Google](configure-authentication-provider-google.md)의 경우 조직에 속한 google API 프로젝트는 조직의 사용자 에게만 액세스를 허용 하도록 구성할 [수 있습니다 (](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) [Google의 **OAuth 2.0 지원 설정** 페이지](https://support.google.com/cloud/answer/6158849?hl=en)참조).
@@ -315,7 +317,6 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
         "enabled": <true|false>
     },
     "globalValidation": {
-        "requireAuthentication": <true|false>,
         "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
         "redirectToProvider": "<default provider alias>",
         "excludedPaths": [
@@ -349,13 +350,13 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
             }
         },
         "preserveUrlFragmentsForLogins": <true|false>,
-        "allowedExternalRedirectUri": [
+        "allowedExternalRedirectUrls": [
             "https://uri1.azurewebsites.net/",
             "https://uri2.azurewebsites.net/",
             "url_scheme_of_your_app://easyauth.callback"
         ],
         "cookieExpiration": {
-            "convention": "FixedTime|IdentityProviderDerived",
+            "convention": "FixedTime|IdentityDerived",
             "timeToExpiration": "<timespan>"
         },
         "nonce": {
@@ -437,13 +438,26 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
                 "consumerSecretSettingName": "APP_SETTING_CONTAINING TWITTER_CONSUMER_SECRET"
             }
         },
+        "apple": {
+            "enabled": <true|false>,
+            "registration": {
+                "clientId": "<client id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_SECRET"
+            },
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            }
+        },
         "openIdConnectProviders": {
             "<providerName>": {
                 "enabled": <true|false>,
                 "registration": {
                     "clientId": "<client id>",
                     "clientCredential": {
-                        "secretSettingName": "<name of app setting containing client secret>"
+                        "clientSecretSettingName": "<name of app setting containing client secret>"
                     },
                     "openIdConnectConfiguration": {
                         "authorizationEndpoint": "<url specifying authorization endpoint>",
@@ -455,7 +469,7 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
                 },
                 "login": {
                     "nameClaimType": "<name of claim containing name>",
-                    "scope": [
+                    "scopes": [
                         "openid",
                         "profile",
                         "email"
@@ -486,7 +500,7 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
 
 #### <a name="view-the-current-runtime-version"></a>현재 런타임 버전 보기
 
-Azure CLI를 사용 하거나 앱의 built0 버전 HTTP 끝점 중 하나를 통해 플랫폼 인증 미들웨어의 현재 버전을 볼 수 있습니다.
+Azure CLI 또는 앱의 기본 제공 버전 HTTP 끝점 중 하나를 사용 하 여 현재 버전의 플랫폼 인증 미들웨어를 볼 수 있습니다.
 
 ##### <a name="from-the-azure-cli"></a>Azure CLI에서
 

@@ -3,12 +3,12 @@ title: Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터의 모니터링을 중지 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6c21b17fd9faed7b133cd8ecad767ae7bd4aa868
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7e6ab46940ed29a98b3988c00c92d6c691d6e0f0
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216541"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695621"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 
@@ -74,7 +74,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     }
     ```
 
-2. 이 파일을 로컬 폴더에 **OptOutTemplate.json**으로 저장합니다.
+2. 이 파일을 로컬 폴더에 **OptOutTemplate.json** 으로 저장합니다.
 
 3. 다음 JSON 구문을 파일에 붙여넣습니다.
 
@@ -97,7 +97,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
     ![컨테이너 속성 페이지](media/container-insights-optout-openshift/cluster-properties-page.png)
 
-5. 이 파일을 로컬 폴더에 **OptOutParam.json**으로 저장합니다.
+5. 이 파일을 로컬 폴더에 **OptOutParam.json** 으로 저장합니다.
 
 6. 이제 이 템플릿을 배포할 수 있습니다.
 
@@ -108,7 +108,7 @@ Linux에서 Azure CLI를 사용 하 여 다음 명령을 실행 하 여 솔루�
 ```azurecli
 az login   
 az account set --subscription "Subscription Name"
-az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
+az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
 구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 결과가 포함된 다음과 비슷한 메시지가 반환됩니다.

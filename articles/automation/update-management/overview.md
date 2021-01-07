@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4b557c9772e76b6b61cdf01799ee30ba6bc11807
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360788"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928429"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -20,7 +20,7 @@ Azure Automation에서 업데이트 관리를 사용 하 여 Azure, 온-프레�
 > 업데이트 관리로 구성한 머신은 Azure Automation에서 사용자 지정 스크립트를 실행하는 데 사용할 수 없습니다. 이 머신은 Microsoft 서명 업데이트 스크립트만 실행할 수 있습니다.
 
 > [!NOTE]
-> 지금은 Arc 사용 서버에서 직접 업데이트 관리를 사용 하도록 설정할 수 없습니다. 요구 사항 및 서버에 대해를 사용 하도록 설정 하는 방법을 이해 하려면 [Automation 계정에서 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md) 을 참조 하세요.
+> 지금은 Arc 지원 서버에서 직접 업데이트 관리를 사용하도록 설정할 수 없습니다. 요구 사항과 서버를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Automation 계정에서 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md)을 참조하세요.
 
 Azure VM에서 사용 가능한 *중요* 및 *보안* 패치를 자동으로 다운로드 하 여 설치 하려면 Windows Vm에 대 한 [자동 VM 게스트 패치](../../virtual-machines/windows/automatic-vm-guest-patching.md) 를 검토 합니다.
 
@@ -76,10 +76,10 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 |---------|---------|
 |Windows Server 2019(Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016(Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 ||
 |Windows Server 2008 R2(RTM 및 SP1 Standard)| 업데이트 관리은이 운영 체제에 대 한 평가 및 패치를 지원 합니다. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) 는 Windows Server 2008 r 2에서 지원 됩니다. |
-|CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다. 분류 기반 패치를 사용하려면 `yum`에서 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환해야 합니다. CentOS의 분류 기반 패치에 대한 자세한 내용은 [Linux의 업데이트 분류](view-update-assessments.md#linux)를 참조하세요.          |
-|Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
+|CentOS 6 및 7 (x64)      | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다. 분류 기반 패치를 사용하려면 `yum`에서 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환해야 합니다. CentOS의 분류 기반 패치에 대한 자세한 내용은 [Linux의 업데이트 분류](view-update-assessments.md#linux)를 참조하세요.          |
+|Red Hat Enterprise 6 및 7 (x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
 |SUSE Linux Enterprise Server 12(x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
-|Ubuntu 14.04 LTS, 16.04 LTS 및 18.04(x86/x64)      |Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.         |
+|Ubuntu 14.04 LTS, 16.04 LTS 및 18.04 LTS (x64)      |Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.         |
 
 > [!NOTE]
 > Azure Virtual Machine Scale Sets는 업데이트 관리를 통해 관리할 수 있습니다. 업데이트 관리는 기본 이미지가 아닌 인스턴스 자체에 대해 작동합니다. 모든 VM 인스턴스가 한 번에 업데이트되지 않도록 업데이트를 증분 방식으로 예약해야 합니다. [변경 내용 추적 및 인벤토리에 비 Azure 머신 추가](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory)의 단계에 따라 가상 머신 확장 집합의 노드를 추가할 수 있습니다.
@@ -132,7 +132,7 @@ Azure Marketplace에서 사용할 수 있는 주문형 Red Hat Enterprise Linux 
 
 업데이트 관리를 사용하도록 설정하면 Log Analytics 작업 영역에 직접 연결된 모든 Windows 머신이 자동으로 Hybrid Runbook Worker로 구성되어 업데이트 관리를 지원하는 Runbook을 지원합니다.
 
-업데이트 관리에서 관리되는 각 Windows 머신은 경우 해당 Automation 계정의 Hybrid Worker 그룹 창에 시스템 Hybrid Worker 그룹으로 표시됩니다. 그룹은 `Hostname FQDN_GUID` 명명 규칙을 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 대상으로 지정하려고 시도해도 실패하게 됩니다. 그룹은 업데이트 관리를 지원하는 용도로만 사용할 수 있습니다. Hybrid Runbook Worker 구성 된 Windows 컴퓨터의 목록을 보는 방법에 대 한 자세한 내용은 [Hybrid Runbook worker 보기](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers)를 참조 하세요.
+업데이트 관리에서 관리되는 각 Windows 머신은 경우 해당 Automation 계정의 Hybrid Worker 그룹 창에 시스템 Hybrid Worker 그룹으로 표시됩니다. 그룹은 `Hostname FQDN_GUID` 명명 규칙을 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 대상으로 지정하려고 시도해도 실패하게 됩니다. 그룹은 업데이트 관리를 지원하는 용도로만 사용할 수 있습니다. Hybrid Runbook Worker 구성 된 Windows 컴퓨터의 목록을 보는 방법에 대 한 자세한 내용은 [Hybrid Runbook worker 보기](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers)를 참조 하세요.
 
 업데이트 관리와 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 경우, Automation 계정의 Hybrid Runbook Worker 그룹에 Windows 머신을 추가하여 Automation Runbook을 지원할 수 있습니다. 이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.
 
@@ -224,7 +224,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결 하는 것�
 >
 > Linux 업데이트 분류는 없으며 **다른 업데이트** 범주에 보고 됩니다. 업데이트 관리은 지원 되는 배포판, 특히 릴리스된 [OVAL](https://oval.mitre.org/) (개방형 취약성 및 평가 언어) 파일에 의해 게시 된 데이터를 사용 합니다. 인터넷 액세스는 이러한 국가별 클라우드에서 제한 되기 때문에 이러한 파일에 액세스 하 고 사용할 수 업데이트 관리.
 
-Linux의 경우 클라우드의 풍부한 데이터로 인해 평가 데이터가 표시되면서, 업데이트 관리가 클라우드에서 중요 업데이트와 보안 업데이트를 구분할 수 있습니다. 패치의 경우, 업데이트 관리는 컴퓨터에서 사용할 수 있는 분류 데이터에 의존합니다. 다른 배포판과 달리, CentOS에서는 RTM 버전에서 이 정보를 사용할 수 없습니다. CentOS 머신이 다음 명령에 대해 보안 데이터를 반환하도록 구성된 경우 업데이트 관리에서는 분류에 따라 패치를 수행할 수 있습니다.
+업데이트 관리 Linux의 경우 클라우드의 데이터 보강 때문에 평가 데이터를 표시 하는 동시에 클라우드의 중요 업데이트와 보안 업데이트를 분류 **보안** 및 **기타** 에서 구분할 수 있습니다. 패치의 경우, 업데이트 관리는 컴퓨터에서 사용할 수 있는 분류 데이터에 의존합니다. 다른 배포판과 달리, CentOS에서는 RTM 버전에서 이 정보를 사용할 수 없습니다. CentOS 머신이 다음 명령에 대해 보안 데이터를 반환하도록 구성된 경우 업데이트 관리에서는 분류에 따라 패치를 수행할 수 있습니다.
 
 ```bash
 sudo yum -q --security check-update
@@ -233,6 +233,10 @@ sudo yum -q --security check-update
 현재는 CentOS에서 네이티브 분류 데이터 가용성을 지원하는 메서드가 없습니다. 현재이 기능을 사용 하도록 설정 했을 수 있는 고객에 게는 제한 된 지원이 제공 됩니다.
 
 Red Hat Enterprise 버전 6의 업데이트를 분류하려면 yum-보안 플러그인을 설치해야 합니다. Red Hat Enterprise Linux 7에서는 플러그인이 이미 yum 자체에 포함되어 있으므로 아무것도 설치할 필요가 없습니다. 자세한 내용은 다음 Red Hat [기술 항목](https://access.redhat.com/solutions/10021)을 참조하세요.
+
+Linux 컴퓨터에서 실행 되도록 업데이트를 예약 하는 경우 예를 들어 **보안** 분류와 일치 하는 업데이트만 설치 하도록 구성 된 경우, 설치 된 업데이트는이 분류와 일치 하는 업데이트의 하위 집합일 수 있습니다. Linux 컴퓨터에 대해 보류 중인 OS 업데이트의 평가를 수행 하는 경우 업데이트 관리에서 분류를 위해 Linux 배포판 공급 업체에서 제공 하는 [Open 취약성 및 평가 언어](https://oval.mitre.org/) (OVAL) 파일이 사용 됩니다.
+
+분류 **는 보안 문제나** 취약성을 해결 하는 업데이트를 포함 하는 OVAL 파일 **을 기반으로** 하는 Linux 업데이트에 대해 수행 됩니다. 하지만 업데이트 일정을 실행 하면 해당 패키지 관리자 (예: YUM, APT 또는 ZYPPER)를 사용 하 여 Linux 컴퓨터에서 실행 됩니다. Linux 배포판 패키지 관리자는 업데이트를 분류 하는 다른 메커니즘을 사용할 수 있습니다 .이 경우 결과는 OVAL 업데이트 관리 파일에서 가져온 것과 다를 수 있습니다. 컴퓨터를 수동으로 확인 하 고 패키지 관리자의 보안 관련 업데이트를 이해 하려면 [Linux 업데이트 배포 문제 해결](../troubleshoot/update-management.md#updates-linux-installed-different)을 참조 하세요.
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Configuration Manager와 업데이트 관리 통합
 

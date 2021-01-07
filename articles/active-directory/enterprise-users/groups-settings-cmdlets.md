@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63f0c55823899be8eb4146860787aede2cd2d6b5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8ad70aff7e1673681541a1b6b37a0bd50d822fed
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377110"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954409"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
@@ -28,7 +28,7 @@ ms.locfileid: "92377110"
 > [!IMPORTANT]
 > 일부 설정에는 Azure Active Directory Premium P1 라이선스가 필요합니다. 자세한 내용은 [템플릿 설정](#template-settings) 표를 참조하세요.
 
-관리자가 아닌 사용자가 보안 그룹을 만들지 못하게 방지하려면 [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명된 대로 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`를 설정하세요.
+관리자가 아닌 사용자가 보안 그룹을 만들지 못하게 방지하려면 [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings)에 설명된 대로 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`를 설정하세요.
 
 Microsoft 365 그룹 설정은 Settings 개체 및 SettingsTemplate 개체를 사용 하 여 구성 됩니다. 처음에는 디렉터리가 기본 설정으로 구성되어 있으므로 디렉터리에 설정 개체가 표시되지 않습니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 대 한 Microsoft 365 그룹 설정을 구성 하려면 "그룹 통합" 템플릿을 사용 합니다. 단일 그룹에 대 한 Microsoft 365 그룹 설정을 구성 하려면 "그룹별" 템플릿을 사용 합니다. 이 템플릿은 Microsoft 365 그룹에 대 한 게스트 액세스를 관리 하는 데 사용 됩니다. 
 
@@ -84,10 +84,11 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    ```powershell
    $Setting = $Template.CreateDirectorySetting()
    ```  
-4. 그런 다음 사용 지침 값을 업데이트합니다.
+4. 그런 다음 설정 개체를 새 값으로 업데이트 합니다. 아래의 두 예제에서는 사용 지침 값을 변경 하 고 민감도 레이블을 사용 하도록 설정 합니다. 필요에 따라 템플릿에서 이러한 설정 또는 기타 설정을 설정 합니다.
   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["EnableMIPLabels"] = "True"
    ```  
 5. 그런 다음 설정을 적용 합니다.
   
@@ -118,7 +119,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    ```powershell
     Name                          Value
     ----                          -----
-    EnableMIPLabels               false
+    EnableMIPLabels               True
     CustomBlockedWordsList
     EnableMSStandardBlockedWords  False
     ClassificationDescriptions
@@ -319,9 +320,9 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet 구문 참조
-[Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
+[Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
 
-## <a name="additional-reading"></a>추가 자료
+## <a name="additional-reading"></a>추가 참조 항목
 
 * [Azure Active Directory 그룹을 사용 하 여 리소스에 대 한 액세스 관리](../fundamentals/active-directory-manage-groups.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)

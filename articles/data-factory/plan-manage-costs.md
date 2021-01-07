@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6271b83749c078b64c168a27f887ed7055e37d96
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638009"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678903"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Azure Data Factory의 비용 계획 및 관리
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory는 클라우드 스케일링을 위한 탄력적 서버리스 데이터 통합 서비스입니다.  즉, 최대 부하에 대해 계획해야 하는 고정 크기 컴퓨팅이 없습니다. 대신, 요청 시 작업별로 할당할 리소스의 양을 지정하여 확장성이 훨씬 더 큰 ETL 프로세스를 설계할 수 있습니다. 또한 ADF는 사용량 기반 요금제로 청구됩니다. 즉, 사용자가 사용한 만큼만 요금을 지불합니다.
 

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45b2ac73ffcb4b777572f9ad62d8aae0e8277e1c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67182243"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558542"
 ---
 > [!NOTE]
 > SharePoint RBS용 StorSimple 어댑터 구성을 변경하면, Domain Admins 그룹에 속하는 사용자 계정으로 로그온해야 합니다. 또한 중앙 관리와 같은 호스트에서 실행 되는 브라우저에서 구성 페이지에 액세스해야 합니다.
@@ -17,8 +17,8 @@ ms.locfileid: "67182243"
 > 
 
 #### <a name="to-configure-rbs"></a>RBS를 구성하려면
-1. SharePoint 중앙 관리 페이지를 열고 **시스템 설정**으로 이동합니다. 
-2. **Azure StorSimple** 섹션에서 **StorSimple 어댑터 구성**을 클릭합니다.
+1. SharePoint 중앙 관리 페이지를 열고 **시스템 설정** 으로 이동합니다. 
+2. **Azure StorSimple** 섹션에서 **StorSimple 어댑터 구성** 을 클릭합니다.
    
     ![StorSimple 어댑터 구성](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
 3. **StorSimple 어댑터 구성** 페이지에서 다음을 수행합니다.
@@ -115,5 +115,5 @@ ms.locfileid: "67182243"
    
 9. 다음 단계인 [가비지 수집 구성](#configure-garbage-collection)으로 이동합니다.
 
-[6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
-[7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
+[6]: /SharePoint/administration/migrate-content-into-or-out-of-rbs
+[7]: /previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)

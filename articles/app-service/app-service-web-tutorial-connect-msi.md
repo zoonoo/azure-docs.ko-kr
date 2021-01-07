@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 633e3a6386b9e6098e167c7fdd542d98c16fae48
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1f6757a9f78e3c400d92fd65a0795ceae7570c99
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737890"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347577"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -37,7 +37,7 @@ ms.locfileid: "92737890"
 > * Visual Studio에서 Azure AD 인증을 사용하여 SQL Database에 연결
 
 > [!NOTE]
->Azure AD 인증은 온-프레미스 Active Directory(AD DS)의 [통합 Windows 인증](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))과 _다릅니다_ . AD DS 및 Azure AD는 완전히 다른 인증 프로토콜을 사용합니다. 자세한 내용은 [Azure AD Domain Services 설명서](../active-directory-domain-services/index.yml)를 참조하세요.
+>Azure AD 인증은 온-프레미스 Active Directory(AD DS)의 [통합 Windows 인증](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))과 _다릅니다_. AD DS 및 Azure AD는 완전히 다른 인증 프로토콜을 사용합니다. 자세한 내용은 [Azure AD Domain Services 설명서](../active-directory-domain-services/index.yml)를 참조하세요.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,7 +47,9 @@ ms.locfileid: "92737890"
 
 SQL Database를 백 엔드로 사용하여 앱을 디버깅하려면 컴퓨터에서 클라이언트 연결을 허용했는지 확인합니다. 그렇지 않은 경우 [Azure Portal를 사용하여 서버 수준 IP 방화벽 규칙 관리](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)의 단계에 따라 클라이언트 IP를 추가합니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Azure CLI에 대한 환경을 준비합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="grant-database-access-to-azure-ad-user"></a>Azure AD 사용자에 데이터베이스 액세스 권한 부여
 
@@ -55,7 +57,7 @@ SQL Database를 백 엔드로 사용하여 앱을 디버깅하려면 컴퓨터�
 
 Azure AD 테넌트에 아직 사용자가 없는 경우 [Azure Active Directory를 사용하여 사용자 추가 또는 삭제](../active-directory/fundamentals/add-users-azure-active-directory.md)의 단계에 따라 하나를 만듭니다.
 
-[`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list)를 사용하여 Azure AD 사용자의 개체 ID를 찾고 *\<user-principal-name>* 를 바꿉니다. 결과는 변수에 저장됩니다.
+[`az ad user list`](/cli/azure/ad/user#az-ad-user-list)를 사용하여 Azure AD 사용자의 개체 ID를 찾고 *\<user-principal-name>* 를 바꿉니다. 결과는 변수에 저장됩니다.
 
 ```azurecli-interactive
 azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
@@ -64,7 +66,7 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > Azure AD의 모든 사용자 계정 이름 목록을 보려면 `az ad user list --query [].userPrincipalName`을 실행합니다.
 >
 
-Cloud Shell에서 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) 명령을 사용하여 이 Azure AD 사용자를 Active Directory 관리자로 추가합니다. 다음 명령에서 *\<server-name>* 을 서버 이름(`.database.windows.net` 접미사 없이)으로 바꿉니다.
+Cloud Shell에서 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) 명령을 사용하여 이 Azure AD 사용자를 Active Directory 관리자로 추가합니다. 다음 명령에서 *\<server-name>* 을 서버 이름(`.database.windows.net` 접미사 없이)으로 바꿉니다.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -87,7 +89,7 @@ Mac용 Visual Studio는 Azure AD 인증과 통합되지 않습니다. 그러나 
 
 로컬 머신에 Azure CLI를 설치했으면 다음 명령을 사용하여 Azure AD 사용자로 Azure CLI에 로그인합니다.
 
-```bash
+```azurecli
 az login --allow-no-subscriptions
 ```
 이제 백 엔드 SQL Database에서 Azure AD 인증을 사용하여 앱을 개발하고 디버그할 준비가 되었습니다.
@@ -151,8 +153,8 @@ Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 다음으로, SQL Database에 대한 액세스 토큰을 사용하여 Entity Framework 데이터베이스 컨텍스트를 제공합니다. *Data\MyDatabaseContext.cs* 에서 다음 코드를 빈 `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` 생성자의 중괄호 내에 추가합니다.
 
 ```csharp
-var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
-conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+var connection = (SqlConnection)Database.GetDbConnection();
+connection.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
 > [!NOTE]
@@ -174,7 +176,7 @@ SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio
 
 ### <a name="enable-managed-identity-on-app"></a>앱에서 관리 ID 사용
 
-Azure 앱의 관리 ID를 사용하려면 Cloud Shell에서 [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 명령을 사용합니다. 다음 명령에서 *\<app-name>* 을 바꿉니다.
+Azure 앱의 관리 ID를 사용하려면 Cloud Shell에서 [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) 명령을 사용합니다. 다음 명령에서 *\<app-name>* 을 바꿉니다.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app-name>
@@ -206,7 +208,7 @@ az webapp identity assign --resource-group myResourceGroup --name <app-name>
 
 Cloud Shell에서 SQLCMD 명령을 사용하여 SQL Database에 로그인합니다. _\<server-name>_ 를 서버 이름으로, _\<db-name>_ 을 앱에서 사용하는 데이터베이스 이름으로, _\<aad-user-name>_ 및 _\<aad-password>_ 를 Azure AD 사용자의 자격 증명으로 바꿉니다.
 
-```azurecli-interactive
+```bash
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
@@ -220,7 +222,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* 은 Azure AD의 관리 ID 이름입니다. ID가 시스템 할당된 경우 이름은 App Service 앱의 이름과 항상 동일합니다. Azure AD 그룹에 대한 사용 권한을 부여하려면 대신 그룹의 표시 이름을 사용합니다(예: *myAzureSQLDBAccessGroup* ).
+*\<identity-name>* 은 Azure AD의 관리 ID 이름입니다. ID가 시스템 할당된 경우 이름은 App Service 앱의 이름과 항상 동일합니다. Azure AD 그룹에 대한 사용 권한을 부여하려면 대신 그룹의 표시 이름을 사용합니다(예: *myAzureSQLDBAccessGroup*).
 
 `EXIT`를 입력하여 Cloud Shell 프롬프트로 돌아갑니다.
 

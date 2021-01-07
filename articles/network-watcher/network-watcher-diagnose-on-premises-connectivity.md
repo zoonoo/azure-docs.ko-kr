@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 632a1eb7b7ac53bd3d7df3f2722d6e53277c7926
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9014f24918013872ce102d094f62fd5703594ddc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738756"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961858"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 
@@ -35,7 +35,7 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 
 1. Virtual Network 게이트웨이 - Azure의 VPN Gateway
 1. 로컬 네트워크 게이트웨이 - Azure 클라우드에서 [온-프레미스(FortiGate) VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) 표현
-1. 사이트 간 연결(경로 기반) - [VPN Gateway와 온-프레미스 라우터 간의 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
+1. 사이트 간 연결(경로 기반) - [VPN Gateway와 온-프레미스 라우터 간의 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection)
 1. [FortiGate 구성](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 사이트 간 구성에 대한 자세한 단계별 지침은 [Azure Portal을 사용하여 사이트 간 연결로 VNet 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 방문하여 찾을 수 있습니다.
@@ -87,9 +87,9 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 | PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
 | UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다. | 아니요 |
 | VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니요 |
-| PlatformInActive | 플랫폼에 문제가 있습니다. | 아니요|
-| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 아니요|
-| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 단지 경고일 뿐입니다.| 아니요|
+| PlatformInActive | 플랫폼에 문제가 있습니다. | 예|
+| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 예|
+| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 단지 경고일 뿐입니다.| 예|
 | ConnectionsNotConnected | 연결이 이루어지지 않았습니다. 단지 경고일 뿐입니다.| 예|
 | GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | 예 |
 
@@ -101,9 +101,9 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니요|
 | PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
 | UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다.  | 아니요 |
-| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니요 |
-| ConnectionEntityNotFound | 연결 구성이 없습니다. | 아니요 |
-| ConnectionIsMarkedDisconnected | 연결이 "연결 끊김"으로 표시되었습니다. |아니요|
+| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 예 |
+| ConnectionEntityNotFound | 연결 구성이 없습니다. | 예 |
+| ConnectionIsMarkedDisconnected | 연결이 "연결 끊김"으로 표시되었습니다. |예|
 | ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
 | ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| 예|
 | 인증 | 미리 공유한 키가 일치하지 않습니다. | 예|

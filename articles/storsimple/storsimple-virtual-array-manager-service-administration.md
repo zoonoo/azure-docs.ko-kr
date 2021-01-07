@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: d7c7cf335336cc552adaf5d9490bc58d64b0cdc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2395e3c6f2026bc1024de38122bc20959fdcf9b7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515445"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967094"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 가상 배열 관리
 ![설정 프로세스 흐름](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -34,7 +34,7 @@ ms.locfileid: "85515445"
 * StorSimple 디바이스 관리자 서비스를 통한 StorSimple 가상 배열 관리
 
 > [!NOTE]
-> StorSimple 8000 시리즈 디바이스에 사용 가능한 관리 옵션을 보려면 [StorSimple 관리자 서비스를 사용하여 StorSimple 디바이스 관리](storsimple-manager-service-administration.md)로 이동하세요.
+> StorSimple 8000 시리즈 디바이스에 사용 가능한 관리 옵션을 보려면 [StorSimple 관리자 서비스를 사용하여 StorSimple 디바이스 관리](./storsimple-8000-manager-service-administration.md)로 이동하세요.
 > 
 > 
 
@@ -78,4 +78,3 @@ StorSimple 디바이스 관리자 서비스는 Microsoft Azure에서 실행되�
 
 ## <a name="next-steps"></a>다음 단계
 웹 UI 및 사용 방법에 대한 자세한 내용은 [StorSimple 웹 UI를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)를 참조하세요.
-

@@ -3,13 +3,13 @@ title: 전용 풀을 사용 하 여 작업 실행-태스크
 description: 레지스트리에 전용 계산 풀 (에이전트 풀)을 설정 하 여 Azure Container Registry 작업을 실행 합니다.
 ms.topic: article
 ms.date: 10/12/2020
-ms.custom: references_regions
-ms.openlocfilehash: 86c539c3b34ca0e54d65f15c4d9d01a99f9b31c6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 94956af14aad2b62e6455f443329bcd3232095c0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997372"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844917"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>전용 에이전트 풀에서 ACR 작업 실행
 
@@ -35,7 +35,7 @@ ms.locfileid: "91997372"
 - 각 레지스트리에 대해 기본 총 vCPU (코어) 할당량은 모든 표준 에이전트 풀의 경우 16이 고 격리 된 에이전트 풀의 경우 0입니다. 추가 할당에 대 한 [지원 요청][open-support-ticket] 을 엽니다.
 - 현재 에이전트 풀에서 실행 되는 작업을 취소할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 이 문서의 Azure CLI 단계를 사용 하려면 Azure CLI 버전 2.3.1 이상이 필요 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요. 또는 [Azure Cloud Shell](../cloud-shell/quickstart.md)에서 실행합니다.
 * 컨테이너 레지스트리가 아직 없는 경우 미리 보기 영역에서 [하나][create-reg-cli] (프리미엄 계층 필요)를 만듭니다.
@@ -44,7 +44,7 @@ ms.locfileid: "91997372"
 
 에이전트 풀 계층은 풀에서 인스턴스당 다음과 같은 리소스를 제공 합니다.
 
-|서비스 계층    | Type  |  CPU  |메모리(GB)  |
+|계층    | Type  |  CPU  |메모리(GB)  |
 |---------|---------|---------|---------|
 |S1     |  표준    | 2       |    3     |
 |S2     |  표준    | 4       |    8     |
@@ -93,20 +93,20 @@ az acr agentpool update \
 
 작업 에이전트 풀을 사용 하려면 다음 Azure 서비스에 액세스 해야 합니다. 기존 네트워크 보안 그룹 또는 사용자 정의 경로에 다음 방화벽 규칙을 추가 해야 합니다.
 
-| Direction | 프로토콜 | 원본         | 원본 포트 | 대상          | 대상 포트 | 사용됨    |
+| 방향 | 프로토콜 | 원본         | 원본 포트 | 대상          | 대상 포트 | 사용됨    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
-| 아웃바운드  | TCP      | VirtualNetwork | 모두         | AzureKeyVault        | 443       | Default |
-| 아웃바운드  | TCP      | VirtualNetwork | 모두         | 스토리지              | 443       | Default |
-| 아웃바운드  | TCP      | VirtualNetwork | 모두         | EventHub             | 443       | Default |
-| 아웃바운드  | TCP      | VirtualNetwork | 모두         | AzureActiveDirectory | 443       | Default |
-| 아웃바운드  | TCP      | VirtualNetwork | 모두         | AzureMonitor         | 443       | Default |
+| 아웃바운드  | TCP      | VirtualNetwork | 모두         | AzureKeyVault        | 443       | 기본값 |
+| 아웃바운드  | TCP      | VirtualNetwork | 모두         | 스토리지              | 443       | 기본값 |
+| 아웃바운드  | TCP      | VirtualNetwork | 모두         | EventHub             | 443       | 기본값 |
+| 아웃바운드  | TCP      | VirtualNetwork | 모두         | AzureActiveDirectory | 443       | 기본값 |
+| 아웃바운드  | TCP      | VirtualNetwork | 모두         | AzureMonitor         | 443       | 기본값 |
 
 > [!NOTE]
 > 작업에 공용 인터넷의 추가 리소스가 필요한 경우 해당 규칙을 추가 합니다. 예를 들어 Docker 허브에서 기본 이미지를 가져오는 docker 빌드 작업을 실행 하거나 NuGet 패키지를 복원 하는 추가 규칙이 필요 합니다.
 
 ### <a name="create-pool-in-vnet"></a>VNet에서 풀 만들기
 
-다음 예제에서는 네트워크 *mysubnet*의 *mysubnet* 서브넷에 에이전트 풀을 만듭니다.
+다음 예제에서는 네트워크 *mysubnet* 의 *mysubnet* 서브넷에 에이전트 풀을 만듭니다.
 
 ```azurecli
 # Get the subnet ID

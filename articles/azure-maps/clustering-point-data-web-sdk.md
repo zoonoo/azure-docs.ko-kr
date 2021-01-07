@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9ecde4cb0c8a3bfe3dd8fb2edb59423838e0751c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e80465cf8d43918e6ed6da8ebb3b96f3f197e887
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889870"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679953"
 ---
 # <a name="clustering-point-data"></a>요소 데이터 클러스터링
 
 맵에서 많은 데이터 요소를 시각화하면 데이터 요소가 서로 겹칠 수 있습니다. 겹치는 경우 맵을 읽을 수 없게 되고 사용하기 어려울 수 있습니다. 지점 데이터 클러스터링은 서로 가까이 있는 지점 데이터를 결합하여 맵에 단일 클러스터형 데이터 요소로 표시하는 프로세스입니다. 사용자가 맵을 확대하면 클러스터는 개별 데이터 요소로 분리됩니다. 많은 수의 데이터 요소로 작업할 때 클러스터링 프로세스를 사용하여 사용자 환경을 개선합니다.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## <a name="enabling-clustering-on-a-data-source"></a>데이터 원본에서 클러스터링 사용
 
@@ -92,7 +92,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 클러스터형 데이터 요소를 포함하는 계층에서 마우스 이벤트가 발생하면 클러스터형 데이터 요소는 이벤트를 GeoJSON 요소 기능 개체로 반환합니다. 이 요소 기능에는 다음과 같은 속성이 있습니다.
 
-| 속성 이름             | Type    | 설명   |
+| 속성 이름             | Type    | Description   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | 기능이 클러스터를 표시하는지 여부를 나타냅니다. |
 | `cluster_id`              | 문자열  | DataSource `getClusterExpansionZoom`, `getClusterChildren` 및 `getClusterLeaves` 메서드에 사용할 수 있는 클러스터의 고유 ID입니다. |

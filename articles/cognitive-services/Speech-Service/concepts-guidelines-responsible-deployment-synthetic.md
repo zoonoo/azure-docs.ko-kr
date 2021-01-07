@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d80ffb575c6aa15695279584b58288cbc16be43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73836775"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024979"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>가상 음성 기술의 책임이 있는 배포에 대 한 지침
 다음은 가상 음성 기술 사용에 대 한 Microsoft의 일반적인 디자인 지침입니다. 이러한 내용은 Microsoft가 speech 인재, 소비자를 사용 하는 것 뿐만 아니라 speech 들를 사용 하는 개인 뿐만 아니라 가상 음성의 책임 개발을 안내 하기 위해 개발 되었습니다.
@@ -39,7 +39,7 @@ ms.locfileid: "73836775"
 음성 행위자와 같은 음성 인재 작업할 때 가상 음성을 만들려면 아래 지침이 적용 됩니다.
 
 ### <a name="obtain-meaningful-consent-from-voice-talent"></a>음성 인재에서 의미 있는 동의 얻기
-음성 인재 음성 글꼴 (사용 방법 및 위치)을 제어 하 고 사용할 때마다 보정 될 것으로 간주 합니다. 따라서 시스템 소유자는 음성 인재에서 명시적으로 작성 된 권한을 얻고 사용 사례, 사용 기간, 보상 등에 대해 명확한 계약 사양을 사용 해야 합니다. 일부 음성 인재는 악성 기술의 잠재적 악성 사용을 모르고 시스템 소유자가 기술의 기능에 대해 교육을 받아야 합니다. 음성 인재 및 동의에 대 한 자세한 내용은 [Voice 인재에 대 한 공개](https://aka.ms/disclosure-voice-talent)정보를 참조 하세요.
+음성 인재 음성 글꼴 (사용 방법 및 위치)을 제어 하 고 사용할 때마다 보정 될 것으로 간주 합니다. 따라서 시스템 소유자는 음성 인재에서 명시적으로 작성 된 권한을 얻고 사용 사례, 사용 기간, 보상 등에 대해 명확한 계약 사양을 사용 해야 합니다. 일부 음성 인재는 악성 기술의 잠재적 악성 사용을 모르고 시스템 소유자가 기술의 기능에 대해 교육을 받아야 합니다. 음성 인재 및 동의에 대 한 자세한 내용은 [Voice 인재에 대 한 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)정보를 참조 하세요.
 
 
 ## <a name="considerations-for-those-with-speech-disorders"></a>Speech 들를 사용 하는 경우의 고려 사항
@@ -57,13 +57,13 @@ Speech 들가 있는 개인은 에이징 (예: puberty에 도달 하는 경우)�
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [음성 인재 공개](https://aka.ms/disclosure-voice-talent)
+* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [제어 개요](concepts-gating-overview.md)
 * [공개 방법](concepts-disclosure-guidelines.md)
 * [공개 디자인 패턴](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 인재 공개](https://aka.ms/disclosure-voice-talent)
+* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [공개 방법](concepts-disclosure-guidelines.md)
 * [공개 디자인 패턴](concepts-disclosure-patterns.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 05241715663ac2cbb90e16f345398f863541e6ed
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: efcfb2fd431dd9626ddcf918127964672b0e5ce0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972206"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500481"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Azure에서 원격 데스크톱을 설치 및 구성하여 Linux VM에 연결
 Azure의 Linux VM(가상 머신)은 SSH(보안 셸) 연결을 사용하여 명령줄에서 일반적으로 관리됩니다. Linux를 처음 사용하거나 빠른 문제 해결 시나리오의 경우 원격 데스크톱을 사용하는 편이 더 쉬울 수 있습니다. 이 문서에서는 Resource Manager 배포 모델을 사용하여 Linux VM에 대해 데스크톱 환경([xfce](https://www.xfce.org)) 및 원격 데스크톱([xrdp](http://xrdp.org))을 설치하고 구성하는 방법에 대해 자세히 설명합니다.
@@ -36,7 +36,7 @@ Azure의 Linux VM은 대부분 데스크톱 환경을 기본적으로 설치할 
 
 다음 예제에서는 Ubuntu 18.04 LTS VM에 경량 [xfce4](https://www.xfce.org/) 데스크톱 환경을 설치합니다. 다른 배포에 대한 명령은 약간씩 다릅니다. 예를 들어 `yum`을 사용하여 Red Hat Enterprise Linux에 설치하고 적절한 `selinux` 규칙을 구성하거나 `zypper`를 사용하여 SUSE에 설치합니다.
 
-먼저 VM에 SSH를 사용합니다. 다음 예제에서는 사용자 이름 *azureuser*를 사용하여 *myvm.westus.cloudapp.azure.com*이라는 VM에 연결합니다. 고유한 값을 사용합니다.
+먼저 VM에 SSH를 사용합니다. 다음 예제에서는 사용자 이름 *azureuser* 를 사용하여 *myvm.westus.cloudapp.azure.com* 이라는 VM에 연결합니다. 고유한 값을 사용합니다.
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -73,7 +73,7 @@ sudo service xrdp restart
 
 
 ## <a name="set-a-local-user-account-password"></a>로컬 사용자 계정 암호 설정
-VM을 만들 때 사용자 계정의 암호를 만든 경우 이 단계를 건너뜁니다. SSH 키 인증을 사용하고 로컬 계정 암호를 설정하지 않은 경우 xrdp를 사용하여 VM에 로그인하기 전에 암호를 지정합니다. xrdp는 인증을 위해 SSH 키를 수락할 수 없습니다. 다음 예제에서는 사용자 계정 *azureuser*의 암호를 지정합니다.
+VM을 만들 때 사용자 계정의 암호를 만든 경우 이 단계를 건너뜁니다. SSH 키 인증을 사용하고 로컬 계정 암호를 설정하지 않은 경우 xrdp를 사용하여 VM에 로그인하기 전에 암호를 지정합니다. xrdp는 인증을 위해 SSH 키를 수락할 수 없습니다. 다음 예제에서는 사용자 계정 *azureuser* 의 암호를 지정합니다.
 
 ```bash
 sudo passwd azureuser
@@ -84,7 +84,7 @@ sudo passwd azureuser
 
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>원격 데스크톱 트래픽의 네트워크 보안 그룹 규칙 만들기
-Linux VM에 도달하는 원격 데스크톱 트래픽을 허용하려면 포트 3389에 대한 TCP가 VM에 도달하도록 네트워크 보안 그룹 규칙을 만들어야 합니다. 네트워크 보안 그룹 규칙에 대한 자세한 내용은 [네트워크 보안 그룹이란?](../../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)을 참조하세요. [Azure Portal을 사용하여 네트워크 보안 그룹 규칙을 만들](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 수도 있습니다.
+Linux VM에 도달하는 원격 데스크톱 트래픽을 허용하려면 포트 3389에 대한 TCP가 VM에 도달하도록 네트워크 보안 그룹 규칙을 만들어야 합니다. 네트워크 보안 그룹 규칙에 대한 자세한 내용은 [네트워크 보안 그룹이란?](../../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. [Azure Portal을 사용하여 네트워크 보안 그룹 규칙을 만들](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 수도 있습니다.
 
 다음 예제에서는 *3389* 포트에서 [az vm open-port](/cli/azure/vm#az-vm-open-port)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. VM에 대한 SSH 세션이 아닌 Azure CLI에서 다음 네트워크 보안 그룹 규칙을 엽니다.
 
@@ -125,7 +125,7 @@ tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 sudo service xrdp restart
 ```
 
-서비스가 응답하지 않는 이유는 Ubuntu VM의 */var/log*에 있는 로그를 검토합니다. 또한 원격 데스크톱 연결을 시도하는 동안 syslog를 모니터링하여 모든 오류를 볼 수 있습니다.
+서비스가 응답하지 않는 이유는 Ubuntu VM의 */var/log* 에 있는 로그를 검토합니다. 또한 원격 데스크톱 연결을 시도하는 동안 syslog를 모니터링하여 모든 오류를 볼 수 있습니다.
 
 ```bash
 tail -f /var/log/syslog

@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b36a71899be43f40ec16c76b5e53c8c3e7fb3552
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ea92ad2e9c81b568e11ff97d7b6a88eeb4f188e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124529"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346573"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 
@@ -28,7 +28,7 @@ Azure PowerShell 모듈은 PowerShell cmdlet 또는 스크립트를 사용하여
 
 * 이 빠른 시작에서는 Azure PowerShell 모듈이 필요합니다. 로컬 컴퓨터에 설치된 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
-* 일부 IoT Hub 작업은 Azure PowerShell에서 지원되지 않으므로 Azure CLI 버전 2.0.70 이상 및 Azure CLI용 IoT 확장을 사용하여 완료해야 합니다. [Azure CLI를 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)하고 `az extension add --name azure-iot`를 사용하여 IoT 확장을 설치합니다.
+* 일부 IoT Hub 작업은 Azure PowerShell에서 지원되지 않으므로 Azure CLI 버전 2.0.70 이상 및 Azure CLI용 IoT 확장을 사용하여 완료해야 합니다. [Azure CLI를 설치](/cli/azure/install-azure-cli)하고 `az extension add --name azure-iot`를 사용하여 IoT 확장을 설치합니다.
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -68,9 +68,9 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 다음 Azure CLI 코드 블록은 여러 명령을 수행하여 작업에 필요한 입력 데이터를 준비합니다. 코드를 이해하려면 섹션을 검토합니다.
 
-1. PowerShell 창에서 [az login](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 명령을 실행하여 Azure 계정에 로그인합니다.
+1. PowerShell 창에서 [az login](/cli/azure/authenticate-azure-cli) 명령을 실행하여 Azure 계정에 로그인합니다.
 
-    성공적으로 로그인한 경우 Azure CLI는 구독 목록을 반환합니다. 이 빠른 시작에 사용 중인 구독을 복사하고 [az account set](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) 명령을 실행하여 해당 구독을 선택합니다. PowerShell을 사용하여 이전 섹션에서 선택한 것과 동일한 구독을 선택합니다. `<your subscription name>`을 구독의 이름으로 바꾸어야 합니다.
+    성공적으로 로그인한 경우 Azure CLI는 구독 목록을 반환합니다. 이 빠른 시작에 사용 중인 구독을 복사하고 [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) 명령을 실행하여 해당 구독을 선택합니다. PowerShell을 사용하여 이전 섹션에서 선택한 것과 동일한 구독을 선택합니다. `<your subscription name>`을 구독의 이름으로 바꾸어야 합니다.
 
     ```azurecli
     az login
@@ -84,7 +84,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    IoT Hub가 만들어지면 [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest) 명령을 사용하여 IoT Hub 연결 문자열을 가져옵니다. 전체 연결 문자열을 복사하여 IoT Hub를 Stream Analytics 작업에 대한 입력으로 추가할 때를 위해 저장해 둡니다.
+    IoT Hub가 만들어지면 [az iot hub show-connection-string](/cli/azure/iot/hub) 명령을 사용하여 IoT Hub 연결 문자열을 가져옵니다. 전체 연결 문자열을 복사하여 IoT Hub를 Stream Analytics 작업에 대한 입력으로 추가할 때를 위해 저장해 둡니다.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"

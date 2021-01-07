@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294716"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608591"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
 이 문서에서는 Centos 6.6 호스트 서버에서 다중 경로 IO(MPIO)를 구성하는 데 필요한 단계를 설명합니다. 호스트 서버는 iSCSI 초기자를 통해 고가용성용 Microsoft Azure StorSimple 디바이스에 연결됩니다. StorSimple 볼륨에 대한 다중 경로 디바이스 및 특정 설치의 자동 검색을 자세히 설명합니다.
@@ -21,6 +21,9 @@ ms.locfileid: "89294716"
 
 > [!NOTE]
 > StorSimple Cloud Appliance에 이 절차를 사용할 수 없습니다. 자세한 내용은 클라우드 어플라이언스에 호스트 서버를 구성하는 방법을 참조하세요.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *블랙 리스트* 에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 
 ## <a name="about-multipathing"></a>다중 경로에 대해
@@ -101,10 +104,10 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
         collisions:0 txqueuelen:0
         RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
     ```
-1. CentOS 서버에 *iSCSI-initiator-utils* 를 설치합니다. 다음 단계를 수행하여 *iSCSI-initiator-utils*를 설치합니다.
+1. CentOS 서버에 *iSCSI-initiator-utils* 를 설치합니다. 다음 단계를 수행하여 *iSCSI-initiator-utils* 를 설치합니다.
    
    1. CentOS 호스트에 `root` 로 로그온합니다.
-   1. *iSCSI-initiator-utils*를 설치합니다. 형식:
+   1. *iSCSI-initiator-utils* 를 설치합니다. 형식:
       
        `yum install iscsi-initiator-utils`
    1. *iSCSI-Initiator-utils* 를 성공적으로 설치한 후에 iSCSI 서비스를 시작합니다. 형식:
@@ -127,7 +130,7 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
         ```
       
        위의 예제에서 iSCSI 환경이 실행 수준 2, 3, 4 및 5에서 부팅 시간에 실행된 것을 확인할 수 있습니다.
-1. *device-mapper-multipath*를 설치합니다. 형식:
+1. *device-mapper-multipath* 를 설치합니다. 형식:
    
     `yum install device-mapper-multipath`
    
@@ -139,7 +142,7 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
 * iSCSI에 사용 가능한 두 개의 최소 인터페이스입니다. 두 인터페이스가 StorSimple 디바이스에서 iSCSI를 사용할 수 있는지를 확인하려면 StorSimple 디바이스에 대한 Azure 클래식 포털에서 다음 단계를 수행합니다.
   
   1. StorSimple 디바이스에 대한 클래식 포털에 로그인합니다.
-  1. StorSimple Manager 서비스를 선택하고 **디바이스**를 클릭하고, 특정 StorSimple 디바이스를 선택합니다. **구성** 을 클릭하고 네트워크 인터페이스 설정을 검사합니다. 두 가지 iSCSI를 사용하는 네트워크 인터페이스가 있는 스크린샷은 아래와 같습니다. 여기서 데이터 2와 데이터 3은 모두 iSCSI에 10GbE 인터페이스를 사용할 수 있습니다.
+  1. StorSimple Manager 서비스를 선택하고 **디바이스** 를 클릭하고, 특정 StorSimple 디바이스를 선택합니다. **구성** 을 클릭하고 네트워크 인터페이스 설정을 검사합니다. 두 가지 iSCSI를 사용하는 네트워크 인터페이스가 있는 스크린샷은 아래와 같습니다. 여기서 데이터 2와 데이터 3은 모두 iSCSI에 10GbE 인터페이스를 사용할 수 있습니다.
      
       ![MPIO StorsSimple 데이터 2 구성](./media/storsimple-configure-mpio-on-linux/IC761347.png)
      
@@ -147,7 +150,7 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
      
       **구성** 페이지에서
      
-     1. 네트워크 인터페이스가 둘 모두  iSCSI를 사용할 수 있는지 확인합니다. **iSCSI를 사용 가능한** 필드를 **예**로 설정해야 합니다.
+     1. 네트워크 인터페이스가 둘 모두  iSCSI를 사용할 수 있는지 확인합니다. **iSCSI를 사용 가능한** 필드를 **예** 로 설정해야 합니다.
      1. 네트워크 인터페이스의 속도가 동일한지 확인합니다. 둘 모두 1GbE 또는 10GbE여야 합니다.
      1. iSCSI를 사용 가능한 인터페이스의 IPv4 주소를 확인하고 나중에 사용하기 위해 호스트에 저장합니다.
 * CentOS 서버에서 StorSimple 디바이스의 iSCSI 인터페이스를 연결할 수 있어야 합니다.
@@ -423,7 +426,7 @@ dm-3 devnode blacklisted, unmonitored
 자세한 내용은 [다중 경로 문제 해결](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)을 참조 하세요.
 
 ## <a name="list-of-useful-commands"></a>유용한 명령 목록
-| 유형 | 명령 | 설명 |
+| 형식 | 명령 | 설명 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |iSCSI 서비스 시작 |
 | &nbsp; |`service iscsid stop` |iSCSI 서비스 중지 |

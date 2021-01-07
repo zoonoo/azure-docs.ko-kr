@@ -1,6 +1,6 @@
 ---
-title: 서버리스 SQL 풀에서 OPENROWSET를 사용하는 방법(미리 보기)
-description: 이 문서에서는 서버리스 SQL 풀(미리 보기)의 OPENROWSET 구문을 설명하고 인수를 사용하는 방법을 설명합니다.
+title: 서버리스 SQL 풀에서 OPENROWSET를 사용하는 방법
+description: 이 문서에서는 서버리스 SQL 풀의 OPENROWSET 구문을 설명하고 인수를 사용하는 방법을 설명합니다.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341334"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446688"
 ---
-# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 OPENROWSET를 사용하는 방법
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
-`OPENROWSET(BULK...)` 함수를 사용하여 Azure Storage의 파일에 액세스할 수 있습니다. `OPENROWSET` 함수는 원격 데이터 소스의 콘텐츠(예: 파일)를 읽고 이 콘텐츠를 일련의 행으로 반환합니다. 서버리스 SQL 풀(미리 보기) 리소스 내에서 OPENROWSET 함수를 호출하고 BULK 옵션을 지정하여 OPENROWSET 대량 행 집합 공급자에 액세스합니다.  
+`OPENROWSET(BULK...)` 함수를 사용하여 Azure Storage의 파일에 액세스할 수 있습니다. `OPENROWSET` 함수는 원격 데이터 소스의 콘텐츠(예: 파일)를 읽고 이 콘텐츠를 일련의 행으로 반환합니다. 서버리스 SQL 풀 리소스 내에서 OPENROWSET 함수를 호출하고 BULK 옵션을 지정하여 OPENROWSET 대량 행 집합 공급자에 액세스합니다.  
 
 `OPENROWSET` 함수는 쿼리의 `FROM` 절에서 테이블 이름 `OPENROWSET`인 것처럼 참조될 수 있습니다. 이 함수는 파일의 데이터를 읽어서 행 세트로 반환할 수 있는 기본 제공 BULK 공급자를 통해 대량 작업을 지원합니다.
 
@@ -84,7 +84,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -147,7 +147,7 @@ unstructured_data_path를 폴더로 지정하면 서버리스 SQL 풀 쿼리가 
 
 WITH 절을 사용하여 파일에서 읽을 열을 지정할 수 있습니다.
 
-- CSV 데이터 파일의 경우 모든 열을 읽으려면 열 이름과 해당 데이터 형식을 입력합니다. 열의 하위 세트를 원하는 경우 서수를 사용하여 원본 데이터 파일에서 서수를 기준으로 열을 선택합니다. 열은 서수 지정을 기준으로 바인딩됩니다. 
+- CSV 데이터 파일의 경우 모든 열을 읽으려면 열 이름과 해당 데이터 형식을 입력합니다. 열의 하위 세트를 원하는 경우 서수를 사용하여 원본 데이터 파일에서 서수를 기준으로 열을 선택합니다. 열은 서수 지정을 기준으로 바인딩됩니다. HEADER_ROW = TRUE를 사용하는 경우 열 바인딩은 서수 위치 대신 열 이름으로 수행됩니다.
     > [!TIP]
     > CSV 파일에서도 WITH 절을 생략할 수 있습니다. 데이터 형식은 파일 콘텐츠에서 자동으로 유추됩니다. HEADER_ROW 인수를 사용하여 헤더 행에서 열 이름을 읽을 때 헤더 행의 존재 여부를 지정할 수 있습니다. 자세한 내용은 [자동 스키마 검색](#automatic-schema-discovery)을 참조하세요.
     
@@ -156,7 +156,7 @@ WITH 절을 사용하여 파일에서 읽을 열을 지정할 수 있습니다.
     > Parquet 파일의 열 이름은 대/소문자를 구분합니다. Parquet 파일에서 열 이름 대/소문자 구분과 다른 대/소문자의 열 이름을 지정하면 해당 열에 대해 NULL 값이 반환됩니다.
 
 
-column_name은 출력 열의 이름입니다. 이 이름을 입력하면 이 이름이 원본 파일의 열 이름을 재정의합니다.
+column_name은 출력 열의 이름입니다. 제공되는 경우 이 이름은 원본 파일의 열 이름과 JSON 경로에 제공된 열 이름(있는 경우)을 재정의합니다. json_path가 제공되지 않으면 '$.column_name'으로 자동 추가됩니다. 동작에 대한 json_path 인수를 확인합니다.
 
 column_type은 출력 열의 데이터 형식입니다. 여기서 암시적 데이터 형식 변환이 수행됩니다.
 
@@ -170,6 +170,11 @@ WITH (
     --[population] bigint
 )
 ```
+
+json_path = 열 또는 중첩 속성에 대한 [JSON 경로 식](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15). 기본 [경로 모드](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE)는 lax입니다.
+
+> [!NOTE]
+> strict 모드에서는 제공된 경로가 존재하지 않으면 쿼리가 실패하고 오류가 발생합니다. lax 모드에서는 쿼리가 성공하고 JSON 경로 식이 NULL로 계산됩니다.
 
 **\<bulk_options>**
 
@@ -220,10 +225,13 @@ CSV 파서 버전 2.0 세부 정보:
 - 최대 행 크기 제한은 8MB입니다.
 - 다음 옵션은 지원되지 않습니다. DATA_COMPRESSION.
 - 따옴표로 묶인 빈 문자열("")은 빈 문자열로 해석됩니다.
+- DATE 데이터 형식에 지원되는 형식: YYYY-MM-DD
+- TIME 데이터 형식에 지원되는 형식: HH:MM:SS[.fractional seconds]
+- DATETIME2 데이터 형식에 지원되는 형식: YYYY-MM-DD HH:MM:SS[.fractional seconds]
 
 HEADER_ROW = { TRUE | FALSE }
 
-CSV 파일에 헤더 행이 포함되는지 여부를 지정합니다. 기본값은 FALSE입니다. PARSER_VERSION='2.0'에서 지원됩니다. TRUE이면 FIRSTROW 인수에 따라 첫 번째 행에서 열 이름을 읽습니다.
+CSV 파일에 헤더 행이 포함되는지 여부를 지정합니다. 기본값은 FALSE입니다. PARSER_VERSION='2.0'에서 지원됩니다. TRUE이면 FIRSTROW 인수에 따라 첫 번째 행에서 열 이름을 읽습니다. WITH를 사용하여 TRUE와 스키마를 지정한 경우 열 이름 바인딩은 서수 위치가 아닌 열 이름으로 수행됩니다.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 
@@ -261,12 +269,12 @@ Parquet 파일에는 모든 열에 대한 형식 설명이 포함되어 있습�
 | BINARY |UTF8 |varchar \*(UTF8 데이터 정렬) |
 | BINARY |STRING |varchar \*(UTF8 데이터 정렬) |
 | BINARY |ENUM|varchar \*(UTF8 데이터 정렬) |
-| BINARY |UUID |uniqueidentifier |
+| FIXED_LEN_BYTE_ARRAY |UUID |uniqueidentifier |
 | BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar(max) \*(UTF8 데이터 정렬) |
-| BINARY |BSON |varbinary(max) |
+| BINARY |JSON |varchar(8000) \*(UTF8 데이터 정렬) |
+| BINARY |BSON | 지원되지 않음 |
 | FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVAL |varchar(max), 표준화된 형식으로 직렬화됨 |
+| BYTE_ARRAY |INTERVAL | 지원되지 않음 |
 | INT32 |INT(8, true) |smallint |
 | INT32 |INT(16, true) |smallint |
 | INT32 |INT(32, true) |int |
@@ -275,14 +283,14 @@ Parquet 파일에는 모든 열에 대한 형식 설명이 포함되어 있습�
 | INT32 |INT(32, false) |bigint |
 | INT32 |DATE |date |
 | INT32 |DECIMAL |decimal |
-| INT32 |TIME(MILLIS )|time |
+| INT32 |TIME(MILLIS)|time |
 | INT64 |INT(64, true) |bigint |
 | INT64 |INT(64, false) |decimal(20,0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TIME(MICROS / NANOS) |time |
-|INT64 |TIMESTAMP(MILLIS / MICROS / NANOS) |datetime2 |
-|[복합 형식](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |명단 등록 |varchar(max), JSON으로 직렬화됨 |
-|[복합 형식](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), JSON으로 직렬화됨 |
+| INT64 |TIME(MICROS) |시간 - TIME(NANOS)은 지원되지 않습니다. |
+|INT64 |TIMESTAMP(MILLIS / MICROS) |datetime2 - TIMESTAMP(NANOS)는 지원되지 않습니다. |
+|[복합 형식](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |명단 등록 |varchar(8000), JSON으로 직렬화됨 |
+|[복합 형식](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(8000), JSON으로 직렬화됨 |
 
 ## <a name="examples"></a>예
 
@@ -359,6 +367,32 @@ WITH (
     [stateName] VARCHAR (50),
     [population] bigint
 ) AS [r]
+```
+
+### <a name="specify-columns-using-json-paths"></a>JSON 경로를 사용하여 열 지정
+
+다음 예제에서는 WITH 절에서 [JSON 경로 식](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15)을 사용하는 방법을 보여주고 strict 및 lax 경로 모드의 차이점을 보여줍니다. 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
 ```
 
 ## <a name="next-steps"></a>다음 단계

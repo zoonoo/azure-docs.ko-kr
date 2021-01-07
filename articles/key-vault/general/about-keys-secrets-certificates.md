@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296840"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327086"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Azure Key Vault 키, 비밀 및 인증서 개요
 
@@ -74,6 +75,7 @@ Key Vault에 저장된 개체는 개체의 새 인스턴스가 만들어질 때�
 
 Key Vault의 개체는 버전을 지정하거나 현재 버전의 개체에서 작업할 버전을 생략하여 해결할 수 있습니다. 예를 들어 이름이 `MasterKey`인 키가 지정되는 경우 버전을 지정하지 않고 작업을 수행하면 시스템에서 사용 가능한 최신 버전을 사용할 수 있습니다. 버전별 식별자를 사용하여 작업을 수행하면 시스템에서 해당 특정 버전의 개체를 사용하게 됩니다.  
 
+### <a name="vault-name-and-object-name"></a>자격 증명 모음 이름 및 개체 이름
 개체는 URL을 사용하여 Key Vault 내에서 고유하게 식별됩니다. 지리적 위치에 관계 없이, 시스템의 두 개체가 동일한 URL을 가질 수 없습니다. 개체의 전체 URL을 개체 식별자라고 합니다. URL은 Key Vault를 식별하는 접두사, 개체 형식, 사용자가 입력한 개체 이름 및 개체 버전으로 구성됩니다. 개체 이름은 대/소문자를 구분하지 않으며 변경할 수 없습니다. 개체 버전이 포함되지 않은 식별자를 기본 식별자라고 합니다.  
 
 자세한 내용은 [인증, 요청 및 응답](authentication-requests-and-responses.md)을 참조하세요.

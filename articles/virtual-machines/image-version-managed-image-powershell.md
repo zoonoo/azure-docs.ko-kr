@@ -1,6 +1,6 @@
 ---
-title: 공유 이미지 갤러리에 관리 되는 이미지 마이그레이션
-description: Azure PowerShell를 사용 하 여 공유 이미지 갤러리의 이미지 버전으로 관리 되는 이미지를 마이그레이션하는 방법에 대해 알아봅니다.
+title: 공유 이미지 갤러리에 관리 되는 이미지 복제
+description: Azure PowerShell를 사용 하 여 공유 이미지 갤러리의 이미지 버전에 관리 되는 이미지를 복제 하는 방법에 대해 알아봅니다.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c1b40cc8d52ffe5655401f7698790cdc05898331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225547"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349925"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>관리 되는 이미지에서 공유 이미지 갤러리 이미지로 마이그레이션
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>공유 이미지 갤러리 이미지에 관리 되는 이미지 복제
 
-공유 이미지 갤러리로 마이그레이션할 기존 관리 이미지가 있는 경우 관리 되는 이미지에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 관리 이미지를 삭제할 수 있습니다. [Azure CLI](image-version-managed-image-cli.md)를 사용 하 여 관리 되는 이미지에서 공유 이미지 갤러리로 마이그레이션할 수도 있습니다.
+복제 하 고 공유 이미지 갤러리로 이동 하려는 기존 관리 이미지가 있는 경우 관리 되는 이미지에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 관리 이미지를 삭제할 수 있습니다. [Azure CLI](image-version-managed-image-cli.md)를 사용 하 여 관리 되는 이미지에서 공유 이미지 갤러리로 마이그레이션할 수도 있습니다.
 
 이미지 갤러리의 이미지에는 다음 예제에서 만들 두 가지 구성 요소가 있습니다.
 - 이미지 **정의** 는 이미지 및 사용에 대 한 요구 사항에 대 한 정보를 전달 합니다. 여기에는 이미지가 Windows 또는 Linux 인지, 특수 하거나 일반화 되었는지, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함 됩니다. 이미지의 형식 정의입니다. 
@@ -56,7 +56,7 @@ $gallery = Get-AzGallery `
 
 이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./windows/shared-image-galleries.md#image-definitions)를 참조하세요.
 
-[New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 일반화 된 Windows OS를 위한 것입니다. Linux OS를 사용 하 여 이미지에 대 한 정의를 만들려면를 사용 `-OsType Linux` 합니다. 
+[New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 이미지 정의 이름은 *Myimagedefinition* 이며 일반화 된 Windows OS를 위한 것입니다. Linux OS를 사용 하 여 이미지에 대 한 정의를 만들려면를 사용 `-OsType Linux` 합니다. 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -73,7 +73,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="get-the-managed-image"></a>관리되는 이미지 가져오기
 
-[Get-AzImage](/powershell/module/az.compute/get-azimage)를 사용하여 리소스 그룹에서 사용할 수 있는 이미지 목록을 볼 수 있습니다. 이미지 이름과 해당 이미지가 어떤 리소스 그룹에 들어 있는지 알 수 있으면 `Get-AzImage`를 다시 사용하여 이미지 개체를 가져오고 나중에 사용할 수 있게 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *myImage*라는 이미지를 가져온 후 변수 *$managedImage*에 할당합니다. 
+[Get-AzImage](/powershell/module/az.compute/get-azimage)를 사용하여 리소스 그룹에서 사용할 수 있는 이미지 목록을 볼 수 있습니다. 이미지 이름과 해당 이미지가 어떤 리소스 그룹에 들어 있는지 알 수 있으면 `Get-AzImage`를 다시 사용하여 이미지 개체를 가져오고 나중에 사용할 수 있게 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *myImage* 라는 이미지를 가져온 후 변수 *$managedImage* 에 할당합니다. 
 
 ```azurepowershell-interactive
 $managedImage = Get-AzImage `
@@ -88,7 +88,7 @@ $managedImage = Get-AzImage `
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
-이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다. 
+이 예제에서 이미지 버전은 *1.0.0* 이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다. 
 
 
 ```azurepowershell-interactive
@@ -102,7 +102,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $imageDefinition.ResourceGroupName `
    -Location $imageDefinition.Location `
    -TargetRegion $targetRegions  `
-   -Source $managedImage.Id.ToString() `
+   -SourceImageId $managedImage.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-31' `
    -asJob 
 ```
@@ -115,7 +115,7 @@ $job.State
 
 
 > [!NOTE]
-> 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다. 
+> 동일한 관리형 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다. 
 >
 > `-StorageAccountType Premium_LRS`이미지 버전을 만들 때를 추가 하 여, 또는 [영역 중복 저장소](../storage/common/storage-redundancy.md) 를 추가 하 여 Premium storage에 이미지를 저장할 수도 있습니다 `-StorageAccountType Standard_ZRS` .
 >
