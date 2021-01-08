@@ -14,7 +14,7 @@
   items:
     - name: 데이터베이스 배포
       items:
-        - name: Github Actions
+        - name: GitHub 작업
           href: how-to-deploy-github-action.md
     - name: 마이그레이션
       items:
@@ -640,6 +640,8 @@
           href: howto-hyperscale-create-users.md
         - name: 분선 데이터
           items:
+            - name: 테이블 크기 확인
+              href: howto-hyperscale-table-size.md
             - name: 테이블 분산 및 수정
               href: howto-hyperscale-modify-distributed-tables.md
         - name: 고가용성
@@ -657,6 +659,8 @@
             - name: 연결 오류 문제 해결
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
               displayName: 'connection errors, hyperscale'
+            - name: 유용한 진단 쿼리
+              href: howto-hyperscale-useful-diagnostic-queries.md
 - name: 참조
   items:
     - name: Azure CLI

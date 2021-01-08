@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 85080c018749f9aab716eff0a4527363da987007
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 53e6d6e67a90cd1f39aed7f9cd7c2368282b2d1f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620480"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916595"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -118,7 +118,7 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 + __Azure Virtual Network__. 자세한 내용은 [Virtual Network 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조하세요.
 + __Azure Pipelines__. 자세한 내용은 [기계 학습 모델의 학습 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)를 참조하세요.
 + __Git 리포지토리 로그__. 자세한 내용은 [Git 통합](concept-train-model-git-integration.md)을 참조하세요.
-+ __MLFlow__. 자세한 내용은 [MLflow를 사용하여 메트릭을 추적하고 모델 배포](how-to-use-mlflow.md)를 참조하세요. 
++ __MLFlow__. 자세한 내용은 [MLflow를 사용하여 메트릭 추적](how-to-use-mlflow.md) 및 [웹 서비스로 Mlflow 모델 배포](how-to-deploy-mlflow-models.md)를 참조하세요. 
 + __Kubeflow__. 자세한 내용은 [엔드투엔드 워크플로 파이프라인 빌드](https://www.kubeflow.org/docs/azure/)를 참조하세요.
 
 ### <a name="secure-communications"></a>통신 보안

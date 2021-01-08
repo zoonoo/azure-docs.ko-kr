@@ -45,22 +45,18 @@
       href: basic-concepts.md
     - name: 보안
       items:
+        - name: 보안 개요
+          href: security-overview.md
+        - name: Key vault에 대한 액세스 보안
+          href: secure-your-key-vault.md
         - name: Key Vault 인증 기본 사항
           href: authentication-fundamentals.md
-        - name: Azure Key Vault 보안
-          href: overview-security.md
-        - name: Key Vault 사용에 대한 모범 사례 - Azure Key Vault
-          href: best-practices.md
-        - name: Azure Key Vault 보안 권역
+        - name: 보안 권역 및 지리적 경계
           href: overview-security-worlds.md
         - name: 네트워크 보안
           href: network-security.md
-        - name: 키 자격 증명 모음에 대한 액세스 보안 - Azure Key Vault
-          href: secure-your-key-vault.md
         - name: Key Vault에 대한 Azure 보안 기준
           href: security-baseline.md
-        - name: Azure Key Vault에 대한 보안 추천 사항
-          href: security-recommendations.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
@@ -82,7 +78,7 @@
       href: overview-throttling.md
     - name: Azure Key Vault 가용성 및 중복성
       href: disaster-recovery-guidance.md
-    - name: Azure Key Vault의 가상 네트워크 서비스 엔드포인트 - Azure Key Vault
+    - name: Azure Key Vault의 가상 네트워크 서비스 엔드포인트
       href: overview-vnet-service-endpoints.md
 - name: 방법 가이드
   items:
@@ -154,9 +150,9 @@
       href: whats-new.md
     - name: 클라이언트 라이브러리
       href: client-libraries.md
-    - name: REST API 오류 코드 - Azure Key Vault
+    - name: REST API 오류 코드
       href: rest-error-codes.md
-    - name: 일반적인 오류 코드 - Azure Key Vault
+    - name: 일반적인 오류 코드
       href: common-error-codes.md
     - name: 공통 매개 변수 및 헤더
       href: common-parameters-and-headers.md
@@ -174,7 +170,7 @@
       href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/key-vault-index?view=azure-python
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions

@@ -123,6 +123,8 @@
           href: troubleshoot-cross-region-replication.md
         - name: 이중 프로토콜 볼륨 문제 해결
           href: troubleshoot-dual-protocol-volumes.md
+        - name: NFSv4.1 Kerberos 볼륨 문제 해결
+          href: troubleshoot-nfsv41-kerberos-volumes.md
         - name: 스냅샷 정책 문제 해결
           href: troubleshoot-snapshot-policies.md
         - name: 리소스 공급자 오류 문제 해결

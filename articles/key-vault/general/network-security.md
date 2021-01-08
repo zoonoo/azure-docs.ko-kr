@@ -10,16 +10,18 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3639237a0dc34c521fd3fa52631fdb19c26ec284
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015556"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936348"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault 방화벽 및 가상 네트워크 구성
 
 이 문서에서는 Azure Key Vault 방화벽을 구성하는 방법에 대한 지침을 제공합니다. 이 문서에서는 Key Vault 방화벽에 대한 여러 가지 구성을 자세히 설명하고, 다른 애플리케이션 및 Azure 서비스와 함께 작동하도록 Azure Key Vault를 구성하는 방법에 대한 단계별 지침을 제공합니다.
+
+자세한 내용은 [Azure Key Vault의 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md)를 참조하세요.
 
 ## <a name="firewall-settings"></a>방화벽 설정
 
@@ -167,10 +169,10 @@ PowerShell을 사용하여 Key Vault 방화벽 및 가상 네트워크를 구성
 
 ## <a name="references"></a>참조
 * ARM 템플릿 참조: [Azure Key Vault ARM 템플릿 참조](/azure/templates/Microsoft.KeyVault/vaults)
-* Azure CLI 명령: [az keyvault network-rule](/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Azure CLI 명령: [az keyvault network-rule](/cli/azure/keyvault/network-rule)
 * Azure PowerShell cmdlet: [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Key Vault의 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md)
-* [Key Vault 보안 설정](secure-your-key-vault.md)
+* [Azure Key Vault 보안 개요](security-overview.md)

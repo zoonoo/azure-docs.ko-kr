@@ -137,6 +137,8 @@
           href: batch-automatic-scaling.md
         - name: 컴퓨팅 노드에 대한 VM 크기 선택
           href: batch-pool-vm-sizes.md
+        - name: 클라우드 서비스에서 가상 머신 풀로 이동
+          href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: 컴퓨팅 노드에 대한 액세스 구성
           href: pool-endpoint-configuration.md
         - name: Shared Image Gallery를 사용하여 풀 만들기

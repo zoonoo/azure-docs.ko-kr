@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16fff00f04c4cd57ad46759cceb50134e58d5e01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009163"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933101"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -195,7 +195,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 1. **조건부 액세스** 를 클릭합니다.
 1. **새 정책** 을 클릭합니다.
-1. 이제 F5 앱을 CA 정책의 리소스로 표시하고 다단계 인증, 디바이스 기반 액세스 제어 또는 ID 보호 정책을 포함한 모든 조건부 액세스를 적용할 수 있습니다.
+1. 이제 F5 앱이 조건부 액세스 정책의 리소스로 표시되며 다단계 인증, 디바이스 기반 액세스 제어 또는 ID 보호 정책을 포함한 모든 조건부 액세스를 적용할 수 있습니다.
 
 ## <a name="configure-f5-sso"></a>F5 SSO 구성
 

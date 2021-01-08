@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 11/04/2019
-  ms.openlocfilehash: 186841ae1bad51fbeee42c97a68f4ab19803f6d4
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 97d1d284d7bb5a032dd450e832ddfb7e028d60b3
+  ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87076964"
+  ms.lasthandoff: 01/07/2021
+  ms.locfileid: "97964493"
 landingContent:
 - title: Azure Blockchain Service 정보
   linkLists:
@@ -33,6 +33,12 @@ landingContent:
       url: develop.md
 - title: 시작하기
   linkLists:
+  - linkListType: learn
+    links:
+    - text: Microsoft Learn 블록체인 경로 따르기
+      url: /learn/paths/ethereum-blockchain-development
+    - text: 초보자의 블록체인 시리즈 시청
+      url: https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain
   - linkListType: deploy
     links:
     - text: 블록체인 멤버 만들기 - 포털

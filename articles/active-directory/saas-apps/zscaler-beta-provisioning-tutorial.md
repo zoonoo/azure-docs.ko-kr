@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 59784b6e618e875a6eedc947ce75afdf3bd1df74
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 0d4945ee97a46c78aac3c4ac508c5f89f5942296
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327409"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937164"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Zscaler Beta 구성
 
@@ -80,6 +80,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 > [!TIP]
 > [Zscaler Beta Single Sign-On 자습서](zscaler-beta-tutorial.md)에서 제공하는 지침에 따라 SAML 기반 Single Sign-On을 Zscaler Beta에 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
+
+> [!NOTE]
+> 사용자 및 그룹을 프로비저닝하거나 프로비저닝 해제할 때 그룹 멤버 자격이 적절히 업데이트되도록 프로비저닝을 정기적으로 다시 시작하는 것이 좋습니다. 다시 시작하면 서비스에서 모든 그룹을 다시 평가하고 멤버 자격을 업데이트합니다.  
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Azure AD에서 Zscaler Beta에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 

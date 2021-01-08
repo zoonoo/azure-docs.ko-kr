@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 07b511182950095c356887d72ffde75ac098674d
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 82eaa597796bf3772faa90a9dbc4151da935c46a
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94904755"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027726"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>PowerShell을 사용 하 여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 
@@ -265,7 +265,7 @@ Azure PowerShell 또는 Azure 포털을 사용하여 준비된 가상 머신에 
 가상 컴퓨터 마이그레이션을 완료 한 후에는 저장소 계정을 마이그레이션하기 전에 다음 필수 구성 요소 검사를 수행 하세요.
 
 > [!NOTE]
-> 저장소 계정에 연결 된 디스크 또는 VM 데이터가 없으면 "저장소 계정 유효성 검사 및 마이그레이션 시작" 섹션으로 직접 건너뛸 수 있습니다.
+> 저장소 계정에 연결 된 디스크 또는 VM 데이터가 없으면 "저장소 계정 유효성 검사 및 마이그레이션 시작" 섹션으로 직접 건너뛸 수 있습니다. 또한 클래식 디스크, VM 이미지 또는 OS 이미지를 삭제 해도 저장소 계정의 원본 VHD 파일은 제거 되지 않습니다. 그러나 마이그레이션 후 ARM 디스크 또는 이미지를 만들기 위해 다시 사용할 수 있도록 해당 VHD 파일의 임대를 중단 합니다.
 
 * 필수 구성 요소 확인 Vm을 마이그레이션하거나 저장소 계정에 디스크 리소스가 있는 경우:
     * 디스크가 저장소 계정에 저장 되어 있는 가상 컴퓨터를 마이그레이션합니다.

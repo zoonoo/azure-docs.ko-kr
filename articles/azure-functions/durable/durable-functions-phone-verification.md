@@ -4,12 +4,12 @@ description: Azure Functions의 지속성 함수 확장에서 인간 상호 작�
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335756"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028306"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -21,11 +21,11 @@ ms.locfileid: "80335756"
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
-전화 확인은 애플리케이션의 최종 사용자가 스패머가 아니고 자신이 언급되는 당사자인지 확인하는 데 사용됩니다. 다단계 인증은 해커로부터 사용자 계정을 보호하기 위한 일반적인 사용 사례입니다. 사용자 고유의 전화 확인을 구현하는 챌린지에는 사람과의 **상태 저장 상호 작용**이 필요하다는 것입니다. 일반적으로 최종 사용자에게는 일부 코드(예: 4자리 숫자)가 제공되며 **적절한 시간 내에** 응답해야 합니다.
+전화 확인은 애플리케이션의 최종 사용자가 스패머가 아니고 자신이 언급되는 당사자인지 확인하는 데 사용됩니다. 다단계 인증은 해커로부터 사용자 계정을 보호하기 위한 일반적인 사용 사례입니다. 사용자 고유의 전화 확인을 구현하는 챌린지에는 사람과의 **상태 저장 상호 작용** 이 필요하다는 것입니다. 일반적으로 최종 사용자에게는 일부 코드(예: 4자리 숫자)가 제공되며 **적절한 시간 내에** 응답해야 합니다.
 
 일반적인 Azure Functions는 다른 플랫폼의 다른 많은 클라우드 엔드포인트와 마찬가지로 상태 비저장이므로, 이러한 유형의 상호 작용에는 데이터베이스 또는 일부 다른 영구 저장소에서 외부적으로 상태를 관리하는 작업이 명시적으로 포함됩니다. 또한 상호 작용은 함께 조정될 수 있는 여러 함수로 분할되어야 합니다. 예를 들어 코드를 결정하고, 어딘가에 유지하고, 사용자의 전화로 보내는 함수가 하나 이상 필요합니다. 또한 사용자로부터 응답을 받기 위해 다른 함수가 하나 이상 필요하며, 코드 유효성 검사를 수행하기 위해 어떤 방식으로든 원래 함수 호출에 다시 매핑해야 합니다. 시간 제한은 보안을 유지하는 중요한 요소이기도 하지만, 매우 복잡 해질 수 있습니다.
 
-지속성 함수를 사용하면 이 시나리오의 복잡성이 크게 줄어듭니다. 이 샘플에서 볼 수 있듯이 오케스트레이터 함수는 외부 데이터 저장소를 포함하지 않고 상태 저장 상호 작용을 쉽게 관리할 수 있습니다. 오케스트레이터 함수는 *지속적*이므로 이러한 대화형 흐름도 매우 안정적입니다.
+지속성 함수를 사용하면 이 시나리오의 복잡성이 크게 줄어듭니다. 이 샘플에서 볼 수 있듯이 오케스트레이터 함수는 외부 데이터 저장소를 포함하지 않고 상태 저장 상호 작용을 쉽게 관리할 수 있습니다. 오케스트레이터 함수는 *지속적* 이므로 이러한 대화형 흐름도 매우 안정적입니다.
 
 ## <a name="configuring-twilio-integration"></a>Twilio 통합 구성
 
@@ -45,11 +45,11 @@ ms.locfileid: "80335756"
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이 `CurrentUtcDateTime` 속성은 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며, orchestrator 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은에 대해 반복 되는 `winner` 모든 호출에서 동일한 결과를 갖도록 하는 데 중요 합니다 `Task.WhenAny` .
+> 처음에는 명확 하지 않을 수 있지만이 orchestrator는 [결정적 오케스트레이션 제약 조건을](durable-functions-code-constraints.md)위반 하지 않습니다. 이 `CurrentUtcDateTime` 속성은 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며, orchestrator 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은에 대해 반복 되는 `winner` 모든 호출에서 동일한 결과를 갖도록 하는 데 중요 합니다 `Task.WhenAny` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-**E4_SmsPhoneVerification** 함수는 오케스트레이터 함수에 표준 *function.json*을 사용합니다.
+**E4_SmsPhoneVerification** 함수는 오케스트레이터 함수에 표준 *function.json* 을 사용합니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/function.json)]
 
@@ -58,14 +58,27 @@ ms.locfileid: "80335756"
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이 `currentUtcDateTime` 속성은 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며, orchestrator 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은에 대해 반복 되는 `winner` 모든 호출에서 동일한 결과를 갖도록 하는 데 중요 합니다 `context.df.Task.any` .
+> 처음에는 명확 하지 않을 수 있지만이 orchestrator는 [결정적 오케스트레이션 제약 조건을](durable-functions-code-constraints.md)위반 하지 않습니다. 이 `currentUtcDateTime` 속성은 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며, orchestrator 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은에 대해 반복 되는 `winner` 모든 호출에서 동일한 결과를 갖도록 하는 데 중요 합니다 `context.df.Task.any` .
+
+# <a name="python"></a>[Python](#tab/python)
+
+**E4_SmsPhoneVerification** 함수는 오케스트레이터 함수에 표준 *function.json* 을 사용합니다.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/function.json)]
+
+다음은 이 함수를 구현하는 코드입니다.
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/\_\_init\_\_.py)]
+
+> [!NOTE]
+> 처음에는 명확 하지 않을 수 있지만이 orchestrator는 [결정적 오케스트레이션 제약 조건을](durable-functions-code-constraints.md)위반 하지 않습니다. 이 `currentUtcDateTime` 속성은 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며, orchestrator 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은에 대해 반복 되는 `winner` 모든 호출에서 동일한 결과를 갖도록 하는 데 중요 합니다 `context.df.Task.any` .
 
 ---
 
 시작되면 이 오케스트레이터 함수에서 다음을 수행합니다.
 
 1. SMS 알림을 *보낼* 전화 번호를 가져옵니다.
-2. **E4_SendSmsChallenge**를 호출하여 사용자에게 SMS 메시지를 보내고 예상되는 4자리 챌린지 코드를 다시 반환합니다.
+2. **E4_SendSmsChallenge** 를 호출하여 사용자에게 SMS 메시지를 보내고 예상되는 4자리 챌린지 코드를 다시 반환합니다.
 3. 현재 시간에서 90초를 트리거하는 지속성 타이머를 만듭니다.
 4. 타이머와 병행하여 사용자로부터 **SmsChallengeResponse** 이벤트를 기다립니다.
 
@@ -87,13 +100,23 @@ ms.locfileid: "80335756"
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*function.json*은 다음과 같이 정의됩니다.
+*function.json* 은 다음과 같이 정의됩니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/function.json)]
 
 네 자리 챌린지 코드를 생성 하 고 SMS 메시지를 전송 하는 코드는 다음과 같습니다.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+
+*function.json* 은 다음과 같이 정의됩니다.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
+
+네 자리 챌린지 코드를 생성 하 고 SMS 메시지를 전송 하는 코드는 다음과 같습니다.
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
 
 ---
 

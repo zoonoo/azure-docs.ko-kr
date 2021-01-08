@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 7938920459654bd59620ad0992f3a13db85ff4fb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7600d8aa2f78e06ea4046273635fdbba18042010
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019019"
+ms.locfileid: "98028865"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -284,7 +284,7 @@ function async_sample() {
 
 ## <a name="how-to-write-triggers"></a><a id="triggers"></a>트리거를 작성하는 방법
 
-Azure Cosmos DB에서는 사전 트리거와 사후 트리거를 지원합니다. 사전 트리거는 데이터베이스 항목을 수정 하기 전에 실행 되며 사후 트리거는 데이터베이스 항목을 수정한 후 실행 됩니다. 트리거가 자동으로 시작 되지 않습니다. 이러한 작업을 실행 하려는 각 데이터베이스 작업에 대해 지정 해야 합니다.
+Azure Cosmos DB에서는 사전 트리거와 사후 트리거를 지원합니다. 사전 트리거는 데이터베이스 항목을 수정하기 전에 실행되고, 사후 트리거는 데이터베이스 항목을 수정한 후에 실행됩니다. 트리거는 자동으로 실행 되지 않으며, 실행 하려는 각 데이터베이스 작업에 대해 지정 되어야 합니다. 트리거를 정의한 후 Azure Cosmos DB Sdk를 사용 하 여 [사전 트리거를 등록 하 고 호출](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 해야 합니다.
 
 ### <a name="pre-triggers"></a><a id="pre-triggers"></a>사전 트리거
 

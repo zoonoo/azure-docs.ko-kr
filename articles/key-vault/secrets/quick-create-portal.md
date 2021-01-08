@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3d7e6357fd8f1091509cbf27875c028d3af310cb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 904c00c26171854a32234d7b6ba5cac81ac43e5c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445916"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936671"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -86,4 +86,4 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 - [App Service 웹앱에서 Key Vault 사용](../general/tutorial-net-create-vault-azure-web-app.md) 참조
 - [VM에 배포된 애플리케이션과 함께 Key Vault 사용](../general/tutorial-net-virtual-machine.md) 참조
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
-- [Azure Key Vault 모범 사례](../general/best-practices.md) 검토
+- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.

@@ -3,23 +3,23 @@ title: Azure 단추에 배포
 description: GitHub 리포지토리에서 Azure Resource Manager 템플릿을 배포 하려면 단추를 사용 합니다.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 65891cace1cb17614abbfe091e1592d6f13feff4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185728"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028746"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포
 
-이 문서에서는 **Azure에 배포** 단추를 사용 하 여 GitHub 리포지토리에서 템플릿을 배포 하는 방법을 설명 합니다. GitHub 리포지토리의 README.md 파일에 직접 단추를 추가할 수 있습니다. 또는 리포지토리를 참조 하는 웹 페이지에 단추를 추가할 수 있습니다.
+이 문서에서는 **Azure에 배포** 단추를 사용 하 여 GitHub 리포지토리에서 템플릿을 배포 하는 방법을 설명 합니다. GitHub 리포지토리의 _README.md_ 파일에 직접 단추를 추가할 수 있습니다. 또는 리포지토리를 참조 하는 웹 페이지에 단추를 추가할 수 있습니다.
 
-배포 범위는 템플릿 스키마에 의해 결정 됩니다. 자세한 내용은 다음을 참조하세요.
+배포 범위는 템플릿 스키마에 의해 결정 됩니다. 자세한 내용은 다음을 참조하십시오.
 
-* [리소스 그룹](deploy-to-resource-group.md)
-* [등에](deploy-to-subscription.md)
-* [관리 그룹](deploy-to-management-group.md)
-* [테 넌 트](deploy-to-tenant.md)
+- [리소스 그룹](deploy-to-resource-group.md)
+- [등에](deploy-to-subscription.md)
+- [관리 그룹](deploy-to-management-group.md)
+- [테 넌 트](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>공통 이미지 사용
 
@@ -78,7 +78,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 일반적으로 공용 리포지토리에서 템플릿을 호스팅합니다. 개인 리포지토리를 사용 하는 경우 템플릿의 원시 콘텐츠를 액세스 하는 토큰을 포함 해야 합니다. GitHub에 의해 생성 된 토큰은 짧은 시간 동안만 유효 합니다. 링크를 자주 업데이트 해야 합니다.
 
-GitHub 리포지토리 대신 [Azure Repos에서 Git](/azure/devops/repos/git/) 를 사용 하는 경우 Azure에 배포 단추를 계속 사용할 수 있습니다. 리포지토리가 공용 인지 확인 합니다. [항목 작업](/rest/api/azure/devops/git/items/get) 을 사용 하 여 템플릿을 가져옵니다. 요청은 다음 형식 이어야 합니다.
+GitHub 리포지토리 대신 [Azure Repos에서 Git](/azure/devops/repos/git/) 를 사용 하는 경우 **Azure에 배포** 단추를 계속 사용할 수 있습니다. 리포지토리가 공용 인지 확인 합니다. [항목 작업](/rest/api/azure/devops/git/items/get) 을 사용 하 여 템플릿을 가져옵니다. 요청은 다음 형식 이어야 합니다.
 
 ```http
 https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
@@ -90,7 +90,7 @@ https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/
 
 마지막으로 링크와 이미지를 함께 배치 합니다.
 
-GitHub 리포지토리 또는 웹 페이지의 README.md 파일에서 Markdown를 사용 하 여 단추를 추가 하려면 다음을 사용 합니다.
+GitHub 리포지토리 또는 웹 페이지의 _README.md_ 파일에서 Markdown를 사용 하 여 단추를 추가 하려면 다음을 사용 합니다.
 
 ```markdown
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
@@ -122,4 +122,4 @@ Azure 리포지토리를 사용 하는 Git의 경우 단추는 다음과 같은 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 템플릿에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+- 템플릿에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.

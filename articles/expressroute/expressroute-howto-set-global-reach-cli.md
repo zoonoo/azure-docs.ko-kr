@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/12/2018
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 16a86982813b667ed5c761da27c8e9e5a43ab6cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27f16ac7d7d799c5467b11fd93352dc5fdef666c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322498"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028066"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 Global Reach 구성
 
@@ -48,17 +48,17 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>구성에 대한 ExpressRoute 회로 식별
 
-지원 되는 국가/지역에 있고 서로 다른 피어 링 위치에서 만들어진 경우 두 개의 Express 경로 회로 간에 Express 경로 Global Reach를 사용 하도록 설정할 수 있습니다. 구독에 두 회로가 모두 있는 경우 이 문서의 뒷부분에서 설명한 대로 구성을 실행할 회로를 선택할 수 있습니다. 두 회로가 서로 다른 Azure 구독에 있는 경우 한 Azure 구독에서 권한을 부여하고, 다른 Azure 구독에서 구성 명령을 실행할 때 권한 부여 키를 전달해야 합니다.
+두 개의 Express 경로 회로 간에 Express 경로 Global Reach를 사용 하도록 설정할 수 있습니다. 회로는 지원 되는 국가/지역에 있어야 하며 서로 다른 피어 링 위치에서 만들어졌습니다. 구독에서 두 회로를 모두 소유 하는 경우에는 회로 중 하나를 선택 하 여 구성을 실행할 수 있습니다. 그러나 두 회로가 다른 Azure 구독에 있는 경우 회로 중 하나에서 인증 키를 만들어야 합니다. 첫 번째 회로에서 생성 된 권한 부여 키를 사용 하 여 두 번째 회로에서 Global Reach를 사용 하도록 설정할 수 있습니다.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>온-프레미스 네트워크 간 연결 사용
 
 연결을 사용하도록 설정하는 명령을 실행하는 경우 매개 변수 값에 대한 다음 요구 사항에 유의하세요.
 
-* *peer-circuit*은 전체 리소스 ID여야 합니다. 예를 들면 다음과 같습니다.
+* *peer-circuit* 은 전체 리소스 ID여야 합니다. 예를 들면 다음과 같습니다.
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 
-* *주소-접두사* 는 "/29" IPv4 서브넷 이어야 합니다 (예: "10.0.0.0/29"). 두 ExpressRoute 회로 간의 연결을 설정하는 데 이 서브넷의 IP 주소가 사용됩니다. 이 서브넷의 주소는 Azure 가상 네트워크 또는 온-프레미스 네트워크에서 사용하지 않아야 합니다.
+* *주소-접두사* 는 "/29" IPv4 서브넷 이어야 합니다 (예: "10.0.0.0/29"). 두 ExpressRoute 회로 간의 연결을 설정하는 데 이 서브넷의 IP 주소가 사용됩니다. Azure 가상 네트워크 또는 온-프레미스 네트워크에서이 서브넷의 주소를 사용할 수 없습니다.
 
 다음 CLI 명령을 실행하여 두 ExpressRoute 회로를 연결합니다.
 
@@ -94,7 +94,7 @@ CLI 출력은 다음과 같습니다.
 
 ## <a name="enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions"></a>다른 Azure 구독에서 ExpressRoute 회로 간의 연결 사용
 
-두 회로가 동일한 Azure 구독에 있지 않으면 권한 부여가 필요합니다. 다음 구성에서는 회로 2의 구독에서 권한 부여를 생성하고 권한 부여 키를 회로 1에 전달합니다.
+두 회로가 동일한 Azure 구독에 있지 않으면 권한 부여가 필요합니다. 다음 구성에서는 회로 2의 구독에서 권한 부여를 생성 합니다. 그런 다음 인증 키를 회로 1에 전달 합니다.
 
 1. 권한 부여 키를 생성합니다.
 
@@ -135,7 +135,7 @@ CLI 출력은 다음과 같습니다.
 az network express-route show -n <CircuitName> -g <ResourceGroupName>
 ```
 
-CLI 출력에서 *CircuitConnectionStatus*가 표시됩니다. 두 회로 간의 연결이 설정되었는지("연결됨"), 아니면 설정되지 않았는지("연결 끊김") 여부를 알려줍니다. 
+CLI 출력에서 *CircuitConnectionStatus* 가 표시됩니다. 두 회로 간의 연결이 설정되었는지("연결됨"), 아니면 설정되지 않았는지("연결 끊김") 여부를 알려줍니다. 
 
 ## <a name="disable-connectivity-between-your-on-premises-networks"></a>온-프레미스 네트워크 간 연결을 사용 안 함
 

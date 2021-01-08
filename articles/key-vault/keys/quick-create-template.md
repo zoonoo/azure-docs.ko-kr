@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 73c52963df65dc4037f087a93108ccfacb3fb5d4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 566ddae3893a5499ddefe0ccd1ade8caff4567c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461555"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934988"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Key Vault 및 키 만들기(미리 보기)
 
@@ -217,4 +217,4 @@ Write-Host "Press [ENTER] to continue..."
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대해 자세히 알아보기
-- [Azure Key Vault 모범 사례](../general/best-practices.md) 검토
+- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.

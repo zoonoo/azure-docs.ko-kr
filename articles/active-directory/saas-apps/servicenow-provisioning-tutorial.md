@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 71f4cfa9e7b69e51bafa5364f857f8ab689f2ad0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897297"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955470"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ServiceNow 구성
 
@@ -112,7 +112,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-13. ServiceNow에 대한 Azure AD 프로비저닝 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비저닝 상태** 를 **켜기** 로 변경합니다.
+13. ServiceNow에 대한 Azure AD 프로비저닝 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
@@ -152,6 +152,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    ![SOAP 요청 권한 부여](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
 
    문제가 해결되면 ServiceNow 지원에 문의하여 문제 해결에 도움이 되도록 SOAP 디버깅을 켜도록 요청합니다. 
+
+* **IP 범위** 
+
+   Azure AD 프로비저닝 서비스는 현재 특정 IP 범위에서 작동합니다. 따라서 필요한 경우 다른 IP 범위를 제한하고 이러한 특정 IP 범위를 애플리케이션의 허용 목록에 추가하여 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽 흐름을 허용할 수 있습니다. [IP 범위](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges)의 설명서를 참조하세요.
+
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)

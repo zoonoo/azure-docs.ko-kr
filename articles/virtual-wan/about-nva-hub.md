@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
-ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 365ed60e73be9bb2098022fa767f4ae54b93c37c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313776"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028083"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Azure 가상 WAN 허브 (미리 보기)의 네트워크 가상 어플라이언스 정보
 
 Azure 가상 WAN은 네트워킹 파트너와 협력 하 여 고객의 고객 프레미스 장비 (CPE)를 가상 허브의 Azure VPN gateway에 쉽게 연결할 수 있도록 하는 자동화를 구축 했습니다. Azure는 고객이 타사 네트워크 가상 어플라이언스 (NVA)를 가상 허브에 직접 배포할 수 있도록 하는 선택 네트워킹 파트너와 협력 하 고 있습니다. 이렇게 하면 전용 종단 간 SD WAN 기능을 활용할 수 있도록 분기 CPE를 가상 허브의 동일한 브랜드 NVA에 연결할 수 있습니다.
 
-Barracuda Networks는 [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan) 제품을 사용 하 여 가상 WAN 허브에 직접 배포할 수 있는 nva 제품을 제공 하는 최초의 파트너입니다. Azure에서 더 많은 파트너와 협력 하 여 다른 제품을 확인 해야 합니다.
+Barracuda Networks 및 Cisco 시스템은 가상 WAN 허브에 직접 배포할 수 있는 Nva를 제공 하는 최초의 파트너입니다.  각 제품 설명서는 다중 클라우드의 [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan) 및 [Cisco Cloud onramp](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) 를 참조 하세요. Azure에서 더 많은 파트너와 협력 하 여 다른 제품을 확인 해야 합니다.
 
 > [!NOTE]
 > 가상 WAN 허브에 배포할 수 있는 NVA 제안은 가상 WAN 허브에 배포할 수 있습니다. Azure의 임의의 가상 네트워크에 배포할 수 없습니다.
@@ -50,7 +50,7 @@ NVA 파트너는 어플라이언스 배포, 구성 라이선스 및 관리 요�
 * **Customer 리소스 그룹** -관리 되는 응용 프로그램에 대 한 응용 프로그램 자리 표시자를 포함 합니다. 파트너는이를 사용 하 여 여기에서 선택 하는 모든 고객 속성을 노출할 수 있습니다.
 * **관리 되는 리소스 그룹** -이 리소스 그룹의 리소스를 직접 구성 하거나 변경할 수 없습니다 .이는 관리 되는 응용 프로그램의 게시자가 제어 하기 때문입니다. 이 리소스 그룹은 **Networkvirtualappliances** 리소스를 포함 합니다.
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="프로세스 개요":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="관리 되는 응용 프로그램 리소스 그룹":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>NVA 인프라 단위
 
@@ -60,7 +60,7 @@ NVA 파트너는 어플라이언스 배포, 구성 라이선스 및 관리 요�
 * Azure는 지정 된 NVA 가상 허브 배포에 대해 1-80 NVA 인프라 단위를 지원 합니다.
 * 각 파트너는 지원 되는 모든 NVA 인프라 단위 구성의 하위 집합인 다른 NVA 인프라 단위 번들을 제공할 수 있습니다.
 
-VPN 배율 단위와 유사 하 게 *1 NVA Infrastructure Unit = 500 Mbps*를 선택 하는 경우 중복성에 대 한 두 개의 인스턴스가 생성 되며 각각은 최대 500 Mbps의 처리량이 있습니다. 예를 들어, 각각 10Mbps를 수행하는 5개의 분기가 있는 경우 헤드 끝에서 50Mbps로 집계되어야 합니다. 허브에 대 한 분기 수를 지 원하는 데 필요한 용량을 평가한 후 NVA의 집계 용량 계획을 수행 해야 합니다.
+VPN 배율 단위와 유사 하 게 *1 NVA Infrastructure Unit = 500 Mbps* 를 선택 하는 경우 중복성에 대 한 두 개의 인스턴스가 생성 되며 각각은 최대 500 Mbps의 처리량이 있습니다. 예를 들어, 각각 10Mbps를 수행하는 5개의 분기가 있는 경우 헤드 끝에서 50Mbps로 집계되어야 합니다. 허브에 대 한 분기 수를 지 원하는 데 필요한 용량을 평가한 후 NVA의 집계 용량 계획을 수행 해야 합니다.
 
 ## <a name="network-virtual-appliance-configuration-process"></a><a name="configuration"></a>네트워크 가상 어플라이언스 구성 프로세스
 
@@ -93,11 +93,11 @@ Azure VPN Gateway 구성과 달리 **사이트** 리소스, **사이트 간 연�
 
 ### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>Azure Marketplace에서 가상 WAN 허브로 NVA를 배포할 수 있나요?
 
-아니요. 이번에는 [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) 만 가상 WAN 허브에 배포할 수 있습니다.
+이번에는 [Barracuda CloudGen wan](https://aka.ms/BarracudaMarketPlaceOffer) 및 [Cisco Cloud vwan 응용](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) 프로그램만 가상 WAN 허브에 배포할 수 있습니다.
 
 ### <a name="what-is-the-cost-of-the-nva"></a>NVA의 비용은 얼마 인가요?
 
-Barracuda에서 Barracuda CloudGen WAN NVA에 대 한 라이선스를 구입 해야 합니다. 라이선스에 대 한 자세한 내용은 [Barracuda의 CloudGen WAN 페이지](https://www.barracuda.com/products/cloudgenwan)를 참조 하세요. 또한 사용 하는 NVA 인프라 단위와 사용 하는 기타 리소스에 대 한 Microsoft의 요금이 부과 됩니다. 자세한 내용은 [가격 책정 개념](pricing-concepts.md)을 참조 하세요.
+Nva 공급 업체에서 NVA에 대 한 라이선스를 구입 해야 합니다.  Barracuda CloudGen WAN NVA from Barracuda 라이선스는 [Barracuda의 CloudGen wan 페이지](https://www.barracuda.com/products/cloudgenwan)를 참조 하세요. Cisco는 현재 Cisco에서 직접 확보 해야 하는 BYOL (사용자 라이선스 필요) 라이선스 모델만 제공 합니다. 또한 사용 하는 NVA 인프라 단위와 사용 하는 기타 리소스에 대 한 Microsoft의 요금이 부과 됩니다. 자세한 내용은 [가격 책정 개념](pricing-concepts.md)을 참조 하세요.
 
 ### <a name="can-i-deploy-an-nva-to-a-basic-hub"></a>NVA를 기본 허브에 배포할 수 있나요?
 
@@ -109,7 +109,7 @@ Barracuda에서 Barracuda CloudGen WAN NVA에 대 한 라이선스를 구입 해
 
 ### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>허브에서 Barracuda CloudGen WAN NVA에 지점의 모든 CPE 장치를 연결할 수 있나요?
 
-아니요. Barracuda CloudGen WAN은 Barracuda CPE 장치와만 호환 됩니다. CloudGen WAN 요구 사항에 대해 자세히 알아보려면 [Barracuda의 CloudGen wan 페이지](https://www.barracuda.com/products/cloudgenwan)를 참조 하세요.
+아니요. Barracuda CloudGen WAN은 Barracuda CPE 장치와만 호환 됩니다. CloudGen WAN 요구 사항에 대해 자세히 알아보려면 [Barracuda의 CloudGen wan 페이지](https://www.barracuda.com/products/cloudgenwan)를 참조 하세요. Cisco의 경우 호환 된 여러 SD WAN CPE 장치가 있습니다. 호환 CPEs의 [다중 클라우드 설명서에 대 한 Cisco Cloud OnRamp를](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) 참조 하세요.
 
 ### <a name="what-routing-scenarios-are-supported-with-nva-in-the-hub"></a>허브에서 NVA로 지원 되는 라우팅 시나리오는 무엇입니까?
 

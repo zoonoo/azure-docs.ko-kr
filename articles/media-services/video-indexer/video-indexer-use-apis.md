@@ -8,29 +8,31 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cdba4ce36322f9c3fb0f898cb7eb1d1185ed1dc6
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636948"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028221"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>자습서: Video Indexer API 사용
 
 Video Indexer는 Microsoft에서 제공하는 다양한 오디오 및 비디오 AI(인공 지능) 기술을 하나의 통합 서비스로 통합하여 더 쉽게 개발할 수 있도록 합니다. 이 API는 개발자가 클라우드 플랫폼의 규모, 글로벌 범위, 가용성 및 안정성에 대해 걱정하지 않고 미디어 AI 기술 사용에 집중할 수 있도록 설계되었습니다. 이 API를 사용하여 파일을 업로드하고, 자세한 비디오 인사이트를 얻고, 포함 가능한 인사이트 및 플레이어 위젯의 URL을 가져오는 등의 작업을 수행할 수 있습니다.
 
-Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱된 시간 (분)에 대 한 비용을 지불 합니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조 하세요.
+Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱된 시간(분)에 대한 비용을 지불하는 경우 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
 
 이 문서에서는 개발자가 [Video Indexer API](https://api-portal.videoindexer.ai/)를 활용하는 방법을 보여 줍니다.
 
 ## <a name="subscribe-to-the-api"></a>API 구독
 
 1. [Video Indexer 개발자 포털](https://api-portal.videoindexer.ai/)에 로그인합니다.
+
+    [로그인 정보](release-notes.md#october-2020)에 대 한 릴리스 정보를 검토 합니다.
     
-    ![Video Indexer 개발자 포털에 로그인](./media/video-indexer-use-apis/video-indexer-api01.png)
+     ![Video Indexer 개발자 포털에 로그인](./media/video-indexer-use-apis/sign-in.png)
 
    > [!Important]
    > * Video Indexer에 가입할 때 사용한 것과 동일한 공급자를 사용해야 합니다.
@@ -40,14 +42,14 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
     [제품](https://api-portal.videoindexer.ai/products) 탭을 선택합니다. 그런 다음, [권한 부여]를 선택하고 가입합니다.
     
-    ![Video Indexer 개발자 포털의 제품 탭](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Video Indexer 개발자 포털의 제품 탭](./media/video-indexer-use-apis/authorization.png)
 
     > [!NOTE]
     > 새 사용자는 자동으로 권한 부여에 가입됩니다.
     
     가입한 후에는 **제품**  ->  **권한 부여** 에서 구독을 찾을 수 있습니다. 구독 페이지에서 기본 및 보조 키를 찾을 수 있습니다. 키는 보호해야 하고, 서버 코드에서만 사용할 수 있습니다. 클라이언트 쪽(.js, .html 등)에서 사용할 수 없습니다.
 
-    ![Video Indexer 개발자 포털의 구독 및 키](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Video Indexer 개발자 포털의 구독 및 키](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > Video Indexer 사용자는 단일 구독 키를 사용하여 여러 Video Indexer 계정에 연결할 수 있습니다. 그런 다음, 이러한 Video Indexer 계정을 다른 Media Services 계정에 연결할 수 있습니다.

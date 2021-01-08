@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d0641129d641043f10cdb94d9e7f634fb35fbbef
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 41b627259d84539c868f95eb3cf33db5dbdab52c
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033003"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862394"
 ---
 # <a name="introduction-to-azure-functions"></a>Azure Functions 소개
 
-Azure Functions는 더 적은 코드를 쓰고, 인프라를 적게 유지하고, 비용을 절감할 수 있도록 하는 서버리스 솔루션입니다. 서버 배포 및 유지 관리에 대해 걱정하는 대신 클라우드 인프라는 애플리케이션을 계속 실행하는 데 필요한 모든 최신 서버를 제공합니다.
+Azure Functions는 더 적은 코드를 쓰고, 인프라를 적게 유지하고, 비용을 절감할 수 있도록 하는 서버리스 솔루션입니다. 애플리케이션을 계속 실행하는 데 필요한 모든 최신 리소스를 클라우드 인프라에서 제공하므로 서버 배포 및 유지 관리에 대해 걱정할 필요가 없습니다.
 
 가장 중요한 코드 조각에 초점을 맞춘 Azure Functions가 나머지를 처리합니다.<br /><br />
 

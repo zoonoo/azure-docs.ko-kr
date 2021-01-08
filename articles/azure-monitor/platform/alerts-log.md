@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: a8dbadd3af9dc21ced54af151e4de705f854e011
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 950482a96604165a8f1ff20cab9e3eafe1224c90
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696060"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98029001"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -33,7 +33,7 @@ ms.locfileid: "97696060"
 
 경고에 대 한 쿼리 작성을 시작 하는 단계는 다음과 같습니다.
 
-1. 경고를 원하는 리소스로 이동 합니다.
+1. 경고를 원하는 리소스로 이동 합니다. 가능 하면 구독 또는 리소스 그룹 범위를 선택 하 여 여러 리소스에 대 한 경고 규칙을 설정 하는 것이 좋습니다. 여러 리소스에 대해 경고를 하면 비용과 여러 경고 규칙을 관리 해야 하는 필요성이 줄어듭니다.
 1. **모니터** 에서 **로그** 를 선택 합니다.
 1. 문제를 나타낼 수 있는 로그 데이터를 쿼리합니다. [경고 쿼리 예제 항목](../log-query/example-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../log-query/log-analytics-tutorial.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다. 또한 [최적화된 경고 쿼리를 만드는 방법에 대해 알아봅니다](alerts-log-query.md).
 1. ' + 새 경고 규칙 ' 단추를 눌러 경고 생성 흐름을 시작 합니다.
@@ -155,7 +155,7 @@ ms.locfileid: "97696060"
     1. 필요한 경우 [차원으로 경고 분할](alerts-unified-log.md#split-by-alert-dimensions)을 선택 합니다. 
        - **리소스 ID 열** 이 검색 된 경우 자동으로 선택 되 고, 발생 한 경고의 컨텍스트를 레코드의 리소스로 변경 합니다. 
        - **리소스 ID 열** 을 선택 취소 하 여 구독 또는 리소스 그룹에 대 한 경고를 발생 시킬 수 있습니다. 선택 취소는 쿼리 결과가 상호 리소스를 기반으로 하는 경우에 유용 합니다. 예를 들어 리소스 그룹의 가상 머신의 80%가 높은 CPU 사용량이 발생 하는지 확인 하는 쿼리가 있습니다.
-       - 차원 테이블을 사용 하 여 숫자 또는 텍스트 열 유형에 대해 최대 6 개의 추가 splittings을 선택할 수도 있습니다.
+       - 차원 테이블을 사용 하 여 숫자 또는 텍스트 열 유형에 대해 최대 6 개 이상의 splittings를 선택할 수도 있습니다.
        - 경고는 고유 조합에 따라 분할에 따라 개별적으로 발생 하며 경고 페이로드에는이 정보가 포함 됩니다.
     
         ![집계 매개 변수 및 분할 선택](media/alerts-log/select-aggregation-parameters-and-splitting.png)

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/05/2021
+ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: fd3e4a4442f7da89ffee1557e7d908db805931ed
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014875"
+ms.locfileid: "98028474"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -76,7 +76,7 @@ ms.locfileid: "98014875"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | Name                            | 설명                                | 메모 |
+| JWT 클레임     | 속성                            | 설명                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -87,12 +87,14 @@ ms.locfileid: "98014875"
 | `given_name`  | 이름                      | 사용자 개체에 설정된 대로 사용자의 이름 또는 "성"을 제공합니다.<br>"given_name": "Frank"                   | MSA 및 Azure AD에서 지원됩니다.  `profile` 범위가 필요합니다. |
 | `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대 한 지 속성 식별자가 아니라 사용자 정보를 고유 하 게 식별 하는 데 사용할 수 없습니다 (예: 데이터베이스 키). 대신 사용자 개체 ID ( `oid` )를 데이터베이스 키로 사용 합니다. [대체 로그인 ID](../authentication/howto-authentication-use-email-signin.md) 를 사용 하 여 로그인 하는 사용자는 UPN (사용자 계정 이름)으로 표시 되어서는 안 됩니다. 대신 `preferred_username` 사용자에 게 로그인 상태를 표시 하는 데 다음 클레임을 사용 합니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. `profile` 범위가 필요합니다.|
 
+## <a name="v10-specific-optional-claims-set"></a>v1.0 별 선택적 클레임 집합
+
+V2 토큰 형식의 향상 된 기능 중 일부는 보안 및 안정성 향상을 위해 v1 토큰 형식을 사용 하는 앱에서 사용할 수 있습니다. V2 끝점에서 요청 된 ID 토큰과 v2 토큰 형식을 사용 하는 Api에 대 한 액세스 토큰에는 적용 되지 않습니다. 이는 SAML 토큰이 아닌 JWTs에만 적용 됩니다. 
 
 **표 4: v1.0 전용 선택적 클레임**
 
-V2 토큰 형식의 향상 된 기능 중 일부는 보안 및 안정성 향상을 위해 v1 토큰 형식을 사용 하는 앱에서 사용할 수 있습니다. V2 끝점에서 요청 된 ID 토큰과 v2 토큰 형식을 사용 하는 Api에 대 한 액세스 토큰에는 적용 되지 않습니다. 
 
-| JWT 클레임     | Name                            | 설명 | 메모 |
+| JWT 클레임     | 속성                            | 설명 | 참고 |
 |---------------|---------------------------------|-------------|-------|
 |`aud`          | 사용자 | 항상 JWTs에 있지만, v1 액세스 토큰에서는 후행 슬래시를 사용 하거나 사용 하지 않고 리소스의 클라이언트 ID를 사용 하 여 다양 한 방법으로 내보낼 수 있습니다. 토큰 유효성 검사를 수행 하는 경우이 임의 대상으로 코딩 하기 어려울 수 있습니다.  [이 클레임에 대 한 추가 속성](#additional-properties-of-optional-claims) 을 사용 하 여 항상 v1 액세스 토큰에서 리소스의 클라이언트 ID로 설정 되도록 합니다. | v1 JWT 액세스 토큰만|
 |`preferred_username` | 기본 사용자 이름        | V1 토큰 내에서 기본 설정 된 사용자 이름 클레임을 제공 합니다. 이렇게 하면 앱이 사용자 이름 힌트를 제공 하 고 토큰 형식에 관계 없이 사용자가 읽을 수 있는 표시 이름을 볼 수 있습니다.  예를 들어 또는를 사용 하는 대신이 선택적인 클레임을 사용 하는 것이 좋습니다. `upn` `unique_name` | v1 ID 토큰 및 액세스 토큰 |
@@ -199,7 +201,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name          | 유형                       | Description                                           |
+| 속성          | Type                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -212,7 +214,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 6: OptionalClaim 형식 속성**
 
-| Name                   | 유형                    | Description                                                                                                                                                                                                                                                                                                   |
+| 속성                   | Type                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |
@@ -245,7 +247,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 **UI를 통해 그룹 선택적 클레임 구성:**
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** 을 선택합니다.
@@ -258,7 +260,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 **애플리케이션 매니페스트를 통해 그룹 선택적 클레임 구성:**
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 선택합니다.
@@ -389,7 +391,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 **UI 구성:**
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
 
 1. **Azure Active Directory** 를 검색하고 선택합니다.
@@ -412,7 +414,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 **매니페스트 구성:**
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 찾아서 선택합니다.

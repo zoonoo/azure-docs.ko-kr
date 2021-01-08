@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
-ms.openlocfilehash: c8c479050b434904de57397e5e7d73594090e031
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c6856a0cb70123f1a3570b611c81660a592fdc1b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336134"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027778"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
 Azure Cosmos DB 변경 피드는 발생 하는 순서 대로 컨테이너의 변경 내용에 대 한 영구 레코드입니다. Azure Cosmos DB의 변경 피드 지원은 모든 변경 사항에 대해 Azure Cosmos 컨테이너를 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 지속형 변경 내용은 비동기식으로 비동기적으로 처리 될 수 있으며 병렬 처리를 위해 한 명 이상의 소비자에 게 출력을 배포할 수 있습니다.
 
@@ -28,10 +28,10 @@ Azure Cosmos DB 변경 피드는 발생 하는 순서 대로 컨테이너의 변
 
 | **클라이언트 드라이버** | **SQL API** | **Azure Cosmos DB의 API for Cassandra** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | 예 | 예 | 예 | yes | 예 |
-|Java|예|예|예|yes|예|
-|Python|예|예|예|yes|예|
-|Node/JS|예|예|예|yes|예|
+| .NET | 예 | 예 | 예 | 예 | 예 |
+|Java|예|예|예|예|예|
+|Python|예|예|예|예|예|
+|Node/JS|예|예|예|예|예|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 

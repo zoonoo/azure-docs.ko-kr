@@ -4,22 +4,22 @@ description: Azure Functions의 지속성 함수 확장을 사용하여 상태 �
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70c50098ece516312e1e92984185624c276301b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77562125"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028423"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
-모니터링 패턴은 워크플로의 유연한 되풀이**(예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 모니터링을 구현하는 샘플에 대해 설명합니다.
+모니터링 패턴은 워크플로의 유연한 되풀이(예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 모니터링을 구현하는 샘플에 대해 설명합니다.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
-이 샘플은 특정 위치의 현재 기상 조건을 모니터링하고 하늘이 맑으면 SMS로 사용자에게 알려줍니다. 타이머로 트리거되는 일반 함수를 사용하여 날씨를 확인하고 알림을 보낼 수 있습니다. 단, 이러한 방식의 한 가지 문제점은 **수명 관리**입니다. 알림을 하나만 보내야 하는 경우에는 맑은 날씨가 감지된 후 모니터를 비활성화해야 합니다. 모니터링 패턴은 다른 이점과 함께 자체 실행을 종료 할 수 있습니다.
+이 샘플은 특정 위치의 현재 기상 조건을 모니터링하고 하늘이 맑으면 SMS로 사용자에게 알려줍니다. 타이머로 트리거되는 일반 함수를 사용하여 날씨를 확인하고 알림을 보낼 수 있습니다. 단, 이러한 방식의 한 가지 문제점은 **수명 관리** 입니다. 알림을 하나만 보내야 하는 경우에는 맑은 날씨가 감지된 후 모니터를 비활성화해야 합니다. 모니터링 패턴은 다른 이점과 함께 자체 실행을 종료 할 수 있습니다.
 
 * 모니터는 간격을 두고 실행되며 일정에 따라 실행되는 것이 아닙니다. 타이머 트리거는 1시간마다 실행(*run*)되고 모니터는 작업 사이에 한 시간을 대기합니다(*wait*). 모니터의 작업은 지정되지 않는 한 겹치지 않습니다. 이는 장기 실행되는 작업에 중요합니다.
 * 모니터에 동적 간격을 설정할 수 있으며, 대기 시간은 조건에 따라 변경될 수 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "77562125"
 
 가장 먼저 필요한 것은 Weather Underground 계정입니다. 에서 무료로 만들 수 있습니다 [https://www.wunderground.com/signup](https://www.wunderground.com/signup) . 계정이 있으면 API 키를 확보해야 합니다. 이 작업을 수행 하려면를 방문 하 [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1) 고 키 설정을 선택 합니다. Stratus Developer 계획은 무료이며 이 샘플을 실행하기에 충분합니다.
 
-API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
+API 키가 확보되면 함수 앱에 다음 **앱 설정** 을 추가합니다.
 
 | 앱 설정 이름 | 값 설명 |
 | - | - |
@@ -64,7 +64,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-**E3_Monitor** 함수는 오케스트레이터 함수에 표준 *function.json*을 사용합니다.
+**E3_Monitor** 함수는 오케스트레이터 함수에 표준 *function.json* 을 사용합니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/function.json)]
 
@@ -72,19 +72,21 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
+# <a name="python"></a>[Python](#tab/python)
+Python의 모니터링 패턴에 대 한 다른 자습서가 있습니다. [여기](durable-functions-monitor-python.md)에서 확인 하세요.
+
 ---
 
 이 오케스트레이터 함수는 다음 작업을 수행합니다.
 
-1. 모니터링할 위치** 와 SMS 알림을 보낼 전화 번호** 로 구성된 **MonitorRequest**를 가져옵니다.
+1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 **MonitorRequest** 를 가져옵니다.
 2. 모니터의 만료 시간을 결정합니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
-3. **E3_GetIsClear**를 호출하여 요청 받은 위치에 하늘이 맑은지 확인합니다.
-4. 날씨가 맑으면 **E3_SendGoodWeatherAlert**를 호출하여 요청 받은 전화 번호로 SMS 알림을 보냅니다.
+3. **E3_GetIsClear** 를 호출하여 요청 받은 위치에 하늘이 맑은지 확인합니다.
+4. 날씨가 맑으면 **E3_SendGoodWeatherAlert** 를 호출하여 요청 받은 전화 번호로 SMS 알림을 보냅니다.
 5. 다음 폴링 간격에서 오케스트레이션을 다시 시작하도록 지속성 타이머를 만듭니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
 6. 현재 UTC 시간이 모니터의 만료 시간을 경과 하거나 SMS 경고가 전송 될 때까지 계속 실행 됩니다.
 
-여러 orchestrator 인스턴스는 오 케 스트레이 터 함수를 여러 번 호출 하 여 동시에 실행할 수 있습니다. 모니터링할 위치와 SMS 알림을 보낼 전화 번호를 지정할 수 있습니다.
-
+여러 orchestrator 인스턴스는 오 케 스트레이 터 함수를 여러 번 호출 하 여 동시에 실행할 수 있습니다. 모니터링할 위치와 SMS 알림을 보낼 전화 번호를 지정할 수 있습니다. 마지막으로 타이머를 대기 하는 동안 오 케 스트레이 터 함수가 실행 되 고 *있지* 않으므로 요금이 청구 되지 않습니다.
 ### <a name="e3_getisclear-activity-function"></a>E3_GetIsClear activity 함수
 
 다른 샘플과 마찬가지로 도우미 작업 함수는 `activityTrigger` 트리거 바인딩을 사용하는 일반 함수입니다. **E3_GetIsClear** 함수는 Weather Underground API를 사용하여 현재 기상 조건을 가져와서 하늘이 맑은지를 판단합니다.
@@ -95,13 +97,16 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*function.json*은 다음과 같이 정의됩니다.
+*function.json* 은 다음과 같이 정의됩니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/function.json)]
 
 그리고 구현은 다음과 같습니다.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+Python의 모니터링 패턴에 대 한 다른 자습서가 있습니다. [여기](durable-functions-monitor-python.md)에서 확인 하세요.
 
 ---
 
@@ -118,13 +123,16 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*function.json*은 간단합니다.
+*function.json* 은 간단합니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/function.json)]
 
 SMS 메시지를 보내는 코드는 다음과 같습니다.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+Python의 모니터링 패턴에 대 한 다른 자습서가 있습니다. [여기](durable-functions-monitor-python.md)에서 확인 하세요.
 
 ---
 
@@ -169,7 +177,7 @@ Azure Functions 포털의 함수 로그를 검토하여 오케스트레이션의
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-오케스트레이션은 시간 제한에 도달하거나 맑은 하늘이 감지되면 [종료](durable-functions-instance-management.md)됩니다. 또 다른 함수 내의 `TerminateAsync`(.NET) 또는 `terminate`(JavaScript)를 사용하거나 위의 202 응답에서 참조된 **terminatePostUri** HTTP POST 웹후크를 호출하여 `{text}`를 종료 이유로 대체할 수도 있습니다.
+시간 제한에 도달 하거나 clear skies가 감지 되 면 오케스트레이션이 완료 됩니다. `terminate`다른 함수 내에서 API를 사용 하거나 위의 202 응답에서 참조 되는 **TERMINATEPOSTURI** HTTP POST webhook를 호출할 수도 있습니다. 웹 후크를 사용 하려면를 `{text}` 초기 종료의 원인으로 바꿉니다. HTTP POST URL은 대략적으로 다음과 같이 표시 됩니다.
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

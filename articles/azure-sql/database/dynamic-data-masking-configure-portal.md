@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 3f8c296860fc36772a85039e27c86a72614c2a50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e551925bbd1426256a81ac2ca3f245af7697245b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791055"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028015"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Azure Portal에서 SQL Database 동적 데이터 마스킹 시작
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92791055"
 이 문서에서는 Azure Portal을 사용하여 [동적 데이터 마스킹](dynamic-data-masking-overview.md)을 구현하는 방법을 보여 줍니다. [Azure SQL Database cmdlet](/powershell/module/az.sql/) 또는 [REST API](/rest/api/sql/)를 사용하여 동적 데이터 마스킹을 구현할 수도 있습니다.
 
 > [!NOTE]
-> 이 기능은 Azure Synapse (PowerShell 또는 REST API 사용) 또는 SQL Managed Instance에 대 한 포털을 사용 하 여 설정할 수 없습니다. 자세한 내용은 [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)을 참조하세요.
+> SQL Managed Instance 포털을 사용 하 여이 기능을 설정할 수 없습니다 (PowerShell 또는 REST API 사용). 자세한 내용은 [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)을 참조하세요.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Azure Portal을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
 
@@ -42,7 +42,7 @@ ms.locfileid: "92791055"
 
     ![마스킹 규칙 구성 추가 페이지를 보여 주는 스크린샷](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
-6. **스키마** , **테이블** 및 **열** 을 선택하여 마스킹하도록 지정되는 필드를 정의합니다.
+6. **스키마**, **테이블** 및 **열** 을 선택하여 마스킹하도록 지정되는 필드를 정의합니다.
 7. 중요 한 데이터 마스킹 범주 목록에서 **마스킹 하는 방법을 선택** 합니다.
 
     ![마스킹 방법 선택 섹션에서 중요 한 데이터 마스킹 범주를 보여 주는 스크린샷](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)

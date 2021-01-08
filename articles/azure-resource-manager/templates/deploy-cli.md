@@ -3,12 +3,12 @@ title: Azure CLI 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a2caea70a51a737bfa433a089c03b43f252b5d6e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676194"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028151"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포
 
@@ -18,7 +18,7 @@ Azure CLI 버전 2.2.0에서 배포 명령이 변경 되었습니다. 이 문서
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Azure CLI가 설치되어 있지 않으면 Cloud Shell을 사용할 수 있습니다. 자세한 내용은 [Cloud Shell에서 ARM 템플릿 배포](deploy-cloud-shell.md)를 참조 하세요.
+Azure CLI 설치 되어 있지 않은 경우 Azure Cloud Shell를 사용할 수 있습니다. 자세한 내용은 [Azure Cloud Shell에서 ARM 템플릿 배포](deploy-cloud-shell.md)를 참조 하세요.
 
 ## <a name="deployment-scope"></a>배포 범위
 
@@ -169,7 +169,7 @@ az deployment group create \
 
 ### <a name="inline-parameters"></a>인라인 매개 변수입니다.
 
-인라인 매개 변수를 전달하려면 `parameters`에 값을 제공합니다. 예를 들어 Bash 셸에서 문자열 및 배열을 템플릿에 전달하려면 다음을 사용합니다.
+인라인 매개 변수를 전달하려면 `parameters`에 값을 제공합니다. 예를 들어 Bash 셸에서 문자열과 배열을 템플릿에 전달 하려면 다음을 사용 합니다.
 
 ```azurecli-interactive
 az deployment group create \
@@ -191,7 +191,7 @@ az deployment group create \
 
 파일에서 매개 변수 값을 가져오면 구성 값을 제공해야 하는 경우에 유용합니다. 예를 들어, [Linux 가상 머신에 대한 Cloud-Init 값](../../virtual-machines/linux/using-cloud-init.md)을 제공할 수 있습니다.
 
-arrayContent.json 형식은 다음과 같습니다.
+형식 _에 대 한arrayContent.js_ 는 다음과 같습니다.
 
 ```json
 [
@@ -228,7 +228,7 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 
 매개 변수 파일에 대한 자세한 내용은 [Resource Manager 매개 변수 파일 만들기](parameter-files.md)를 참조하세요.
 
-로컬 매개 변수 파일을 전달하려면 `@`을 사용하여 storage.parameters.json이라는 로컬 파일을 지정합니다.
+로컬 매개 변수 파일을 전달 하려면 `@` 를 사용 하 여 _storage.parameters.js에_ 명명 된 로컬 파일을 지정 합니다.
 
 ```azurecli-interactive
 az deployment group create \

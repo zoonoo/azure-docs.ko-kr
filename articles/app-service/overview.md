@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007096"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936212"
 ---
 # <a name="app-service-overview"></a>App Service 개요
 
@@ -45,6 +45,12 @@ App Service는 지원되는 애플리케이션 스택에 대해 기본적으로 
 ### <a name="built-in-languages-and-frameworks"></a>기본 제공 언어 및 프레임워크
 
 Linux의 App Service는 다양한 언어별 기본 제공 이미지를 지원합니다. 코드를 배포하기만 하면 됩니다. 지원되는 언어는 다음과 같습니다. Node.js, Java(JRE 8 & JRE 11), PHP, Python, .NET Core 및 Ruby. [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes)를 실행하여 최신 언어 및 지원되는 버전을 확인합니다. 애플리케이션에 필요한 런타임이 기본 제공 이미지에서 지원되지 않는 경우 사용자 지정 컨테이너를 사용하여 배포할 수 있습니다.
+
+오래된 런타임은 포털의 Web Apps 만들기 및 구성 블레이드에서 정기적으로 제거됩니다. 이러한 런타임은 유지 관리 조직에서 사용을 중단하거나 심각한 취약성이 발견될 경우 포털에서 숨겨집니다. 고객에게 가장 도움이 되는 최신 런타임으로 고객을 안내할 수 있도록 이러한 옵션은 숨겨져 있습니다. 
+
+오래된 런타임이 포털에서 숨겨지더라도 해당 버전을 사용하는 모든 기존 사이트는 계속 실행됩니다. Azure 구독 소유자는 런타임이 App Service 플랫폼에서 완전히 제거되기 전에 이메일 알림을 받게 됩니다.
+
+포털에서 더 이상 표시되지 않는 오래된 런타임 버전을 사용하여 또 다른 웹앱을 만들어야 하는 경우 언어 구성 가이드에서 사이트의 런타임 버전을 받는 방법에 대한 지침을 참조하세요. Azure CLI를 사용하여 동일한 런타임으로 또 다른 사이트를 만들 수 있습니다. 또는 포털의 웹앱 블레이드에서 **템플릿 내보내기** 단추를 사용하여 사이트의 ARM 템플릿을 내보낼 수 있습니다. 이 템플릿을 다시 사용하여 런타임과 구성이 동일한 새 사이트를 배포할 수 있습니다.
 
 ### <a name="limitations"></a>제한 사항
 

@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: f43cb80a148f5dadb409f506f237cb1210a2000a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575982"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934002"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>빠른 시작: 테넌트 설정
 
@@ -55,7 +55,7 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 > [!TIP]
 > 테넌트 ID를 찾아야 하는 경우 다음을 수행할 수 있습니다.
 > * 사용자의 계정 이름을 가리켜 디렉터리/테넌트 ID를 가져오거나
-> * Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID**를 선택합니다.
+> * Azure Portal에서 **Azure Active Directory > 속성 > 테넌트 ID** 를 검색하여 선택합니다.
 
 계정과 연결된 기존 테넌트가 없으면, 계정 이름 아래에 GUID가 표시되며 다음 섹션의 단계를 따를 때까지 앱 등록과 같은 작업을 수행할 수 없습니다.
 

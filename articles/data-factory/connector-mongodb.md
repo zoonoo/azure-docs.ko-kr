@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 09/28/2020
-ms.openlocfilehash: bb9768c2a4d3be9ac0e06844c5ac0835707cf455
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.date: 01/08/2021
+ms.openlocfilehash: 71096334f46531bba26f0ead66169340107627cf
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945875"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028695"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사
 
@@ -28,21 +28,25 @@ ms.locfileid: "91945875"
 >[!IMPORTANT]
 >ADF는 더 나은 네이티브 MongoDB 지원을 제공하는 이 새 버전의 MongoDB 커넥터를 릴리스합니다. 이전 버전과 호환성에 대해 있는 그대로 지원되는 솔루션에서 이전 버전의 MongoDB 커넥터를 사용하는 경우 [MongoDB 커넥터(레거시)](connector-mongodb-legacy.md) 문서를 참조하세요.
 
+
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-특히 이 MongoDB 커넥터는 **버전 3.4까지** 지원합니다.
+특히이 MongoDB 커넥터는 **최대 4.2 버전을** 지원 합니다.
+
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 
 ## <a name="getting-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 MongoDB 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
@@ -102,6 +106,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
+
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
 작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 MongoDB 원본에서 지원하는 속성의 목록을 제공합니다.
@@ -118,10 +123,10 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 | cursorMethods.sort | 쿼리가 일치하는 문서를 반환하는 순서를 지정합니다. [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort)를 참조하세요. | 아니요 |
 | cursorMethods.limit | 서버에서 반환하는 문서의 최대 수를 지정합니다. [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit)를 참조하세요.  | 아니요 |
 | cursorMethods.skip | MongoDB가 결과를 반환하기 시작하는 위치에서 건너뛸 문서 수를 지정합니다. [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip)을 참조하세요. | 아니요 |
-| batchSize | MongoDB 인스턴스의 응답을 각각 일괄 처리로 반환할 문서 수를 지정합니다. 대부분의 경우 일괄 처리 크기를 수정해도 사용자 또는 애플리케이션에 영향이 없습니다. Cosmos DB는 각 일괄 처리가 문서 크기의 batchSize 수의 합인 40MB를 초과할 수 없도록 제한하므로 문서 크기가 대규모인 경우 이 값을 줄입니다. | 아니요<br/>기본값은 **100**입니다. |
+| batchSize | MongoDB 인스턴스의 응답을 각각 일괄 처리로 반환할 문서 수를 지정합니다. 대부분의 경우 일괄 처리 크기를 수정해도 사용자 또는 애플리케이션에 영향이 없습니다. Cosmos DB는 각 일괄 처리의 크기는 40 바이트를 초과할 수 없습니다 .이 크기는 batchSize 문서 크기의 합계 이므로 문서 크기가 크면이 값을 낮춥니다. | 아니요<br/>기본값은 **100** 입니다. |
 
 >[!TIP]
->ADF는 **Strict 모드**로 BSON 문서를 사용하는 것을 지원합니다. 필터 쿼리가 Shell 모드가 아닌 Strict 모드에 있는지 확인합니다. 자세한 설명은 [MongoDB 설명서](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html)를 참조하세요.
+>ADF는 **Strict 모드** 로 BSON 문서를 사용하는 것을 지원합니다. 필터 쿼리가 Shell 모드가 아닌 Strict 모드에 있는지 확인합니다. 자세한 설명은 [MongoDB 설명서](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html)를 참조하세요.
 
 **예:**
 
@@ -161,13 +166,16 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 ]
 ```
 
+
 ## <a name="export-json-documents-as-is"></a>JSON 문서를 있는 그대로 내보내기
 
-이 MongoDB 커넥터를 사용하면 JSON 문서를 있는 그대로 MongoDB 컬렉션에서 다양한 파일 기반 저장소로 또는 Azure Cosmos DB로 내보낼 수 있습니다. 이러한 스키마 독립적 복사를 완수하려면 데이터 세트 및 복사 작업의 스키마 매핑에서 "구조"(*스키마*라고도 함) 섹션을 건너뛰세요.
+이 MongoDB 커넥터를 사용하면 JSON 문서를 있는 그대로 MongoDB 컬렉션에서 다양한 파일 기반 저장소로 또는 Azure Cosmos DB로 내보낼 수 있습니다. 이러한 스키마 독립적 복사를 완수하려면 데이터 세트 및 복사 작업의 스키마 매핑에서 "구조"(*스키마* 라고도 함) 섹션을 건너뛰세요.
+
 
 ## <a name="schema-mapping"></a>스키마 매핑
 
 데이터를 MongoDB에서 테이블 형식 싱크로 복사하려면 [스키마 매핑](copy-activity-schema-and-type-mapping.md#schema-mapping)을 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

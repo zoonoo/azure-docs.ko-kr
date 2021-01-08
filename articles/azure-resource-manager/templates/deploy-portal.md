@@ -3,12 +3,12 @@ title: Azure Portal를 사용 하 여 리소스 배포
 description: Azure Portal 및 Azure 리소스 관리를 사용 하 여 구독의 리소스 그룹에 리소스를 배포 합니다.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: b87ac48bbaec7f94d5e75939cf5ec17df0ff2d2f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d8467bb4e51fc4e6ba89a84f1260a8d2743758d2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668772"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028678"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal
 
@@ -35,9 +35,9 @@ Azure Portal를 사용 하 여 Azure 리소스를 배포 하는 작업은 일반
 
 1. 다음 속성 값을 선택 하거나 입력 합니다.
 
-    - **구독** : Azure 구독을 선택합니다.
-    - **리소스 그룹** : 리소스 그룹에 이름을 지정 합니다.
-    - **지역** : Azure 위치를 지정 합니다. 이 위치는 리소스 그룹에서 리소스에 대 한 메타 데이터를 저장 하는 위치입니다. 규정 준수 때문에 메타데이터를 저장할 위치를 지정하려고 합니다. 일반적으로 대부분의 리소스를 저장할 위치를 지정 하는 것이 좋습니다. 동일한 위치를 사용하여 템플릿을 간소화할 수 있습니다.
+    - **구독**: Azure 구독을 선택합니다.
+    - **리소스 그룹**: 리소스 그룹에 이름을 지정 합니다.
+    - **지역**: Azure 위치를 지정 합니다. 이 위치는 리소스 그룹에서 리소스에 대 한 메타 데이터를 저장 하는 위치입니다. 규정 준수 때문에 메타데이터를 저장할 위치를 지정하려고 합니다. 일반적으로 대부분의 리소스를 저장할 위치를 지정 하는 것이 좋습니다. 동일한 위치를 사용하여 템플릿을 간소화할 수 있습니다.
 
    ![그룹값 설정](./media/deploy-portal/set-group-properties.png)
 
@@ -87,9 +87,9 @@ Azure Portal를 사용 하 여 Azure 리소스를 배포 하는 작업은 일반
 1. **만들기** 를 선택합니다.
 1. 템플릿을 만들기 위한 몇 가지 옵션이 표시 됩니다.
 
-    - **편집기에서 사용자 고유의 템플릿을 빌드합니다** . 포털 템플릿 편집기에서 사용자 고유의 템플릿을 만듭니다.
-    - **일반 템플릿** : 일반 솔루션에서 선택 합니다.
-    - **GitHub 빠른 시작 템플릿 로드** : 빠른 시작 [템플릿](https://azure.microsoft.com/resources/templates/)에서 선택 합니다.
+    - **편집기에서 사용자 고유의 템플릿을 빌드합니다**. 포털 템플릿 편집기에서 사용자 고유의 템플릿을 만듭니다.
+    - **일반 템플릿**: 일반 솔루션에서 선택 합니다.
+    - **GitHub 빠른 시작 템플릿 로드**: 빠른 시작 [템플릿](https://azure.microsoft.com/resources/templates/)에서 선택 합니다.
 
    ![옵션 보기](./media/deploy-portal/see-options.png)
 
@@ -97,16 +97,16 @@ Azure Portal를 사용 하 여 Azure 리소스를 배포 하는 작업은 일반
 
 1. **GitHub 빠른 시작 템플릿 로드** 에서 **101-저장소-계정 만들기** 를 입력 하거나 선택 합니다.
 
-    다음과 같은 두 가지 옵션이 있습니다.
+    다음 두 가지 옵션을 사용할 수 있습니다.
 
-    - **템플릿 선택** : 템플릿 배포
-    - **템플릿 편집** : 빠른 시작 템플릿을 배포 하기 전에 편집 합니다.
+    - **템플릿 선택**: 템플릿 배포
+    - **템플릿 편집**: 빠른 시작 템플릿을 배포 하기 전에 편집 합니다.
 
-1. **템플릿 편집** 을 선택 하 여 포털 템플릿 편집기를 탐색 합니다. 템플릿이 편집기에 로드 됩니다. **Storageaccounttype** 및 **location** 이라는 두 가지 매개 변수가 있습니다.
+1. **템플릿 편집** 을 선택 하 여 포털 템플릿 편집기를 탐색 합니다. 템플릿이 편집기에 로드 됩니다. 및의 두 가지 매개 변수가 `storageAccountType` 있습니다 `location` .
 
    ![템플릿 만들기](./media/deploy-portal/show-json.png)
 
-1. 템플릿에 사소한 변경을 수행 합니다. 예를 들어 **Storageaccountname** 변수를로 업데이트 합니다.
+1. 템플릿에 사소한 변경을 수행 합니다. 예를 들어 변수를 `storageAccountName` 로 업데이트 합니다.
 
     ```json
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
@@ -115,12 +115,12 @@ Azure Portal를 사용 하 여 Azure 리소스를 배포 하는 작업은 일반
 1. **저장** 을 선택합니다. 이제 포털 템플릿 배포 인터페이스가 표시 됩니다. 템플릿에 정의 된 두 개의 매개 변수를 확인 합니다.
 1. 속성 값을 입력 하거나 선택 합니다.
 
-    - **구독** : Azure 구독을 선택합니다.
-    - **리소스 그룹** : **새로 만들기** 를 선택 하 고 이름을 지정 합니다.
-    - **위치** : Azure 위치를 선택 합니다.
-    - **저장소 계정 유형** : 기본값을 사용 합니다.
-    - **Location** : 기본값을 사용 합니다.
-    - **위에 명시 된 사용 약관에 동의 함** : (select)
+    - **구독**: Azure 구독을 선택합니다.
+    - **리소스 그룹**: **새로 만들기** 를 선택 하 고 이름을 지정 합니다.
+    - **위치**: Azure 위치를 선택 합니다.
+    - **저장소 계정 유형**: 기본값을 사용 합니다.
+    - **Location**: 기본값을 사용 합니다.
+    - **위에 명시 된 사용 약관에 동의 함**: (select)
 
 1. **구매** 를 선택합니다.
 

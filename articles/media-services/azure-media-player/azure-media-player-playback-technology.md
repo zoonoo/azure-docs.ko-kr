@@ -7,12 +7,12 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b9772f89f78f21cfb0f2f9baa7c6b9915fbacf37
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24a38fde3d1b6bbe1efef9241458da846c186112
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91275696"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916340"
 ---
 # <a name="playback-technology-tech"></a>재생 기술("기술") #
 
@@ -44,8 +44,8 @@ Azure Media Services에서 콘텐츠를 스트림하는 데 추천되는 기술 
 
 | 브라우저        | OS                                                       | 필요한 기술(지우기)  | 필요한 기술(AES)  | 필요한 기술(DRM)          |
 |----------------|----------------------------------------------------------|------------------------|----------------------|------------------------------|
-| EdgeIE 11      | Windows 10, Windows 8.1, Windows Phone 101               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS(PlayReady)     |
-| IE 11IE 9-101  | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | silverlightSS(PlayReady)    |
+| EdgeIE 11      | Windows 10, Windows 8.1, Windows Phone 10<sup>1</sup>               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS(PlayReady)     |
+| IE 11          | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | silverlightSS(PlayReady)    |
 | IE 11          | Windows Phone 8.1                                        | azureHtml5JS           | azureHtml5JS         | 지원되지 않음                |
 | Microsoft Edge           | Xbox One<sup>1</sup>(2015년 11월 업데이트)                   | azureHtml5JS           | azureHtml5JS         | 지원되지 않음                |
 | Chrome 37 이상     | Windows 10, Windows 8.1, macOS X Yosemite<sup>1</sup>   | azureHtml5JS           | azureHtml5JS         | azureHtml5JS(Widevine)      |
@@ -58,7 +58,7 @@ Azure Media Services에서 콘텐츠를 스트림하는 데 추천되는 기술 
 | Chrome 37 이상     | Android 4.4.4 이상<sup>2</sup>                               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS(Widevine)      |
 | Chrome 37 이상     | Android 4.02                                             | html5                  | html5(토큰 없음)<sup>3</sup>    | 지원되지 않음                |
 | Firefox 42 이상    | Android 5.0 이상<sup>2</sup>                                 | azureHtml5JS           | azureHtml5JS         | 지원되지 않음                |
-| IE 8           | Windows                                                  | 지원되지 않음          | 지원되지 않음        | 지원되지 않음                |
+| IE 8, IE 9, IE 10  | Windows                                                  | 지원되지 않음          | 지원되지 않음        | 지원되지 않음                |
 
 <sup>1</sup> 지원되지 않거나 테스트되지 않은 구성입니다. 완료를 위한 참조로 나열됩니다.
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763577"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931724"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -697,7 +697,7 @@ Durable Functions 확장은 내부적으로 코드에서 워크플로를 작성�
 
 ## <a name="billing"></a>결제
 
-Durable Functions 요금은 Azure Functions와 동일하게 청구됩니다. 자세한 내용은 [Azure Functions 가격 책정](https://azure.microsoft.com/pricing/details/functions/)을 참조하세요. Azure Functions [소비 계획](../functions-scale.md#consumption-plan)에서 오케스트레이터 함수를 실행할 때 알고 있어야 할 몇 가지 청구 동작이 있습니다. 이러한 동작에 대한 자세한 내용은 [Durable Functions 청구](durable-functions-billing.md) 문서를 참조하세요.
+Durable Functions 요금은 Azure Functions와 동일하게 청구됩니다. 자세한 내용은 [Azure Functions 가격 책정](https://azure.microsoft.com/pricing/details/functions/)을 참조하세요. Azure Functions [소비 계획](../consumption-plan.md)에서 오케스트레이터 함수를 실행할 때 알고 있어야 할 몇 가지 청구 동작이 있습니다. 이러한 동작에 대한 자세한 내용은 [Durable Functions 청구](durable-functions-billing.md) 문서를 참조하세요.
 
 ## <a name="jump-right-in"></a>지금 바로 시작
 

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 01/06/2021
 ms.author: juliako
-ms.openlocfilehash: 81e52d4a6827492931179055d040b541d51228eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 3552d55d995608dd0d471c84cd5e9f9988ebe2c0
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916663"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028644"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -44,12 +44,15 @@ Video Indexer은 Cognitive Services 사용자 지정 비전과의 통합을 통�
 
 ### <a name="planned-video-indexer-website-authenticatication-changes"></a>계획 된 Video Indexer 웹 사이트 authenticatication 변경 내용
 
-2021 1 월 1 일부 터는 더 이상 Facebook 또는 LinkedIn을 사용 하 여 [Video Indexer](https://www.videoindexer.ai/) 웹 사이트 (평가판 제공)에 등록 하 고 로그인 할 수 없습니다.
+2021 년 3 월 1 일부 터는 더 이상 Facebook 또는 LinkedIn을 사용 하 여 [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에 등록 하 고 로그인 할 수 없습니다.
 
 Azure AD, Microsoft, Google 등의 공급자 중 하나를 사용 하 여 등록 하 고 로그인 할 수 있습니다.
 
 > [!NOTE]
-> LinkedIn 및 Facebook에 연결 된 계정이 삭제 되 고 콘텐츠에 더 이상 액세스할 수 없기 때문에 2021의 1 월 1 일 이전에 콘텐츠를 내보내는 것이 좋습니다.
+> LinkedIn 및 Facebook에 연결 된 Video Indexer 계정은 2021 년 3 월 1 일 이후에는 액세스할 수 없습니다. 
+> 
+> 사용자가 소유 하 고 있는 Azure AD, Microsoft 또는 Google 전자 메일을 Video Indexer 계정에 [초대](invite-users.md) 하 여 여전히 액세스할 수 있도록 해야 합니다.<br/>
+> 또는 유료 계정을 만들고 데이터를 마이그레이션할 수 있습니다.
 
 ## <a name="august-2020"></a>2020년 8월
 

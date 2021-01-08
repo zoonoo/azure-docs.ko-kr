@@ -2,13 +2,13 @@
 title: Python 앱(최신)에서 캡처한 Azure Event Hubs 데이터 읽기
 description: 이 문서에서는 이벤트 허브로 전송된 데이터를 캡처하고 Azure 스토리지 계정에서 캡처한 이벤트 데이터를 읽는 Python 코드를 작성하는 방법을 보여줍니다.
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: f513b35e300141f16ee4c4880bc54aaf37945d65
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.date: 01/04/2021
+ms.openlocfilehash: acc2ce04add5fd837e9edc789e9616a9f04fb4b9
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109915"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883200"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub"></a>Azure Storage에서 Event Hubs 데이터를 캡처하고 Python(azure-eventhub)을 사용하여 읽기
 
@@ -27,7 +27,11 @@ ms.locfileid: "97109915"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- PIP가 설치 및 업데이트된 Python 2.7 및 3.5 이상.  
+- PIP와 다음 패키지가 설치된 Python 이 문서의 코드는 다음 버전에서 테스트되었습니다. 
+    - Python 3.7
+    - azure-eventhub 5.2.0
+    - azure-storage-blob 12.6.0
+    - avro-python3 1.10.1
 - Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).  
 - 활성 Event Hubs 네임스페이스 및 이벤트 허브.
 [Event Hubs 네임스페이스를 만들고 이 네임스페이스에 이벤트 허브를 만듭니다](event-hubs-create.md). Event Hubs 네임스페이스의 이름, 이벤트 허브의 이름, 네임스페이스의 기본 액세스 키를 기록해 둡니다. 액세스 키를 얻는 방법은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)를 참조하세요. 기본 키 이름은 *RootManageSharedAccessKey* 입니다. 이 빠른 시작에서는 기본 키만 필요합니다. 연결 문자열은 필요 없습니다.  
@@ -155,6 +159,13 @@ ms.locfileid: "97109915"
    pip install azure-eventhub
    pip install avro-python3
    ```
+
+    > [!NOTE]
+    > 이 문서의 코드는 다음 버전에서 테스트되었습니다. 
+    > - Python 3.7
+    > - azure-eventhub 5.2.0
+    > - azure-storage-blob 12.6.0
+    > - avro-python3 1.10.1
 2. 디렉터리를 *sender.py* 및 *capturereader.py* 를 저장한 디렉터리로 변경하고, 다음 명령을 실행합니다.
    
    ```

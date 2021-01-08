@@ -4,16 +4,16 @@ description: Azure Functions의 지속성 함수 확장에서 팬아웃/팬인 �
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d61600801286126ea6ffb9a97bc5655b6f233816
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91128033696af6a56488db7991987f1e384b719e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77562193"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027652"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
 
-*팬아웃/팬인*은 여러 함수를 동시에 실행한 다음 결과에 대해 일부 집계를 수행하는 패턴을 나타냅니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 팬인/팬아웃 시나리오를 구현하는 샘플에 대해 설명합니다. 샘플은 앱의 사이트 콘텐츠 전부 또는 일부를 Azure Storage에 백업하는 지속성 함수입니다.
+*팬아웃/팬인* 은 여러 함수를 동시에 실행한 다음 결과에 대해 일부 집계를 수행하는 패턴을 나타냅니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 팬인/팬아웃 시나리오를 구현하는 샘플에 대해 설명합니다. 샘플은 앱의 사이트 콘텐츠 전부 또는 일부를 Azure Storage에 백업하는 지속성 함수입니다.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -21,9 +21,9 @@ ms.locfileid: "77562193"
 
 이 샘플에서 함수는 지정한 디렉터리 아래의 모든 파일을 Blob Storage에 재귀적으로 업로드합니다. 또한 업로드된 총 바이트 수를 계산합니다.
 
-모든 작업을 처리하는 단일 함수를 작성할 수 있습니다. 실행 시의 주요 문제는 **확장성**입니다. 단일 함수 실행은 단일 가상 컴퓨터 에서만 실행할 수 있으므로 처리량은 해당 단일 VM의 처리량으로 제한 됩니다. 또 하나의 문제는 **안정성**입니다. 중간에 오류가 발생 하거나 전체 프로세스가 5 분 이상 소요 되 면 백업이 부분적으로 완료 된 상태로 실패할 수 있습니다. 그러면 다시 시작해야 합니다.
+모든 작업을 처리하는 단일 함수를 작성할 수 있습니다. 실행 시의 주요 문제는 **확장성** 입니다. 단일 함수 실행은 단일 가상 컴퓨터 에서만 실행할 수 있으므로 처리량은 해당 단일 VM의 처리량으로 제한 됩니다. 또 하나의 문제는 **안정성** 입니다. 중간에 오류가 발생 하거나 전체 프로세스가 5 분 이상 소요 되 면 백업이 부분적으로 완료 된 상태로 실패할 수 있습니다. 그러면 다시 시작해야 합니다.
 
-더 강력한 방법은 다음 두 가지 일반 함수를 작성하는 것입니다. 하나는 파일을 열거하고 큐에 파일 이름을 추가하며, 다른 하나는 파일을 큐에서 읽고 Blob Storage에 업로드합니다. 이 방법은 처리량과 안정성 측면에서 더 효과적 이지만 큐를 프로 비전 하 고 관리 해야 합니다. 더 중요한 것은 업로드된 총 바이트 수의 보고와 같이 더 많은 작업을 수행하려는 경우 **상태 관리** 및 **조정**과 관련하여 상당한 복잡성이 도입된다는 것입니다.
+더 강력한 방법은 다음 두 가지 일반 함수를 작성하는 것입니다. 하나는 파일을 열거하고 큐에 파일 이름을 추가하며, 다른 하나는 파일을 큐에서 읽고 Blob Storage에 업로드합니다. 이 방법은 처리량과 안정성 측면에서 더 효과적 이지만 큐를 프로 비전 하 고 관리 해야 합니다. 더 중요한 것은 업로드된 총 바이트 수의 보고와 같이 더 많은 작업을 수행하려는 경우 **상태 관리** 및 **조정** 과 관련하여 상당한 복잡성이 도입된다는 것입니다.
 
 지속성 함수 방법은 언급된 모든 이점을 매우 낮은 오버헤드로 제공합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "77562193"
 
 이 문서에서는 샘플 앱의 다음 함수에 대해 설명합니다.
 
-* `E2_BackupSiteContent`:를 [orchestrator function](durable-functions-bindings.md#orchestration-trigger) 호출 하 `E2_GetFileList` 여 백업할 파일 목록을 가져온 다음를 호출 하 여 `E2_CopyFileToBlob` 각 파일을 백업 합니다.
+* `E2_BackupSiteContent`:를 [](durable-functions-bindings.md#orchestration-trigger) 호출 하 `E2_GetFileList` 여 백업할 파일 목록을 가져온 다음를 호출 하 여 `E2_CopyFileToBlob` 각 파일을 백업 합니다.
 * `E2_GetFileList`: 디렉터리에 있는 파일의 목록을 반환 하는 [작업 함수](durable-functions-bindings.md#activity-trigger) 입니다.
 * `E2_CopyFileToBlob`: 단일 파일을 Azure Blob Storage 백업 하는 작업 함수입니다.
 
@@ -72,6 +72,23 @@ ms.locfileid: "77562193"
 
 에서 생성 된 후 `context.df.Task.all` 에는 모든 함수 호출이 완료 되 고 값을 다시 반환 했습니다. `E2_CopyFileToBlob`을 호출할 때마다 업로드된 바이트 수가 반환되므로 총 바이트 수를 계산하는 것은 이러한 반환 값을 모두 추가하는 문제입니다.
 
+# <a name="python"></a>[Python](#tab/python)
+
+함수는 orchestrator 함수에 대해 표준 *function.js* 를 사용 합니다.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/function.json)]
+
+다음은 오케스트레이터 함수를 구현하는 코드입니다.
+
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/\_\_init\_\_.py)]
+
+`yield context.task_all(tasks);` 줄에 유의하세요. 함수에 대 한 개별 호출을 모두 `E2_CopyFileToBlob` 생성 *하지 않았으므로* 병렬로 실행할 수 있습니다. 이 작업 배열을 `context.task_all`에 전달하면 *모든 복사 작업이 완료될 때까지* 완료되지 않는 작업을 다시 가져옵니다. Python을 사용 하는 [`asyncio.gather`](https://docs.python.org/3/library/asyncio-task.html#asyncio.gather) 데 익숙한 경우이는 새로운 사용자가 아닙니다. 차이점은 이러한 작업이 여러 가상 컴퓨터에서 동시에 실행 될 수 있으며 Durable Functions 확장은 종단 간 실행이 프로세스 재활용에 탄력적으로 수행 되도록 하는 것입니다.
+
+> [!NOTE]
+> 작업은 기본적으로 Python awaitables과 유사 하지만 오 케 스트레이 터 함수는 `yield` `context.task_all` 및 api를 사용 하 여 작업 병렬 처리를 관리 해야 합니다 `context.task_any` .
+
+에서 생성 된 후 `context.task_all` 에는 모든 함수 호출이 완료 되 고 값을 다시 반환 했습니다. 에 대 한 각 호출은 `E2_CopyFileToBlob` 업로드 된 바이트 수를 반환 하므로 모든 반환 값을 함께 추가 하 여 총 바이트 수를 계산할 수 있습니다.
+
 ---
 
 ### <a name="helper-activity-functions"></a>도우미 작업 함수
@@ -86,7 +103,7 @@ ms.locfileid: "77562193"
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-파일 * 에* 대 한function.js는 `E2_GetFileList` 다음과 같습니다.
+파일 *에* 대 한function.js는 `E2_GetFileList` 다음과 같습니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/function.json)]
 
@@ -95,6 +112,16 @@ ms.locfileid: "77562193"
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
 함수는 `readdirp` 모듈 (버전 2.x)을 사용 하 여 디렉터리 구조를 재귀적으로 읽습니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+파일 *에* 대 한function.js는 `E2_GetFileList` 다음과 같습니다.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_GetFileList/function.json)]
+
+그리고 구현은 다음과 같습니다.
+
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_GetFileList/\_\_init\_\_.py)]
 
 ---
 
@@ -122,6 +149,16 @@ JavaScript 구현은 [AZURE STORAGE SDK For Node](https://github.com/Azure/azure
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
+# <a name="python"></a>[Python](#tab/python)
+
+`E2_CopyFileToBlob`에 대한 *function.json* 파일도 마찬가지로 다음과 같이 간단합니다.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/function.json)]
+
+Python 구현은 [python 용 AZURE STORAGE SDK](https://github.com/Azure/azure-storage-python) 를 사용 하 여 Azure Blob Storage에 파일을 업로드 합니다.
+
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/\_\_init\_\_.py)]
+
 ---
 
 이 구현은 디스크에서 파일을 로드하고 "backups" 컨테이너에서 동일한 이름의 Blob에 콘텐츠를 비동기적으로 스트림합니다. 반환 값은 스토리지에 복사된 바이트 수이며 오케스트레이터 함수에서 집계 합계를 계산하는 데 사용됩니다.
@@ -131,7 +168,7 @@ JavaScript 구현은 [AZURE STORAGE SDK For Node](https://github.com/Azure/azure
 
 ## <a name="run-the-sample"></a>샘플 실행
 
-다음 HTTP POST 요청을 전송하여 오케스트레이션을 시작할 수 있습니다.
+다음 HTTP POST 요청을 전송 하 여 Windows에서 오케스트레이션을 시작할 수 있습니다.
 
 ```
 POST http://{host}/orchestrators/E2_BackupSiteContent
@@ -139,6 +176,16 @@ Content-Type: application/json
 Content-Length: 20
 
 "D:\\home\\LogFiles"
+```
+
+또는 Linux 함수 앱 (현재 Python은 App Service 용 Linux 에서만 실행 됨)에서 다음과 같이 오케스트레이션을 시작할 수 있습니다.
+
+```
+POST http://{host}/orchestrators/E2_BackupSiteContent
+Content-Type: application/json
+Content-Length: 20
+
+"/home/site/wwwroot"
 ```
 
 > [!NOTE]

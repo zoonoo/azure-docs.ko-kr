@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: 721af069a76497576b92c4203a93656d19c283aa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fc28a1f808eeb2977b1dcca5046ed29933b8aa8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217731"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028797"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Video Indexer 질문과 대답
 
@@ -183,7 +183,7 @@ Video Indexer API를 사용하여 인덱싱, 메타데이터 추출, 자산 관�
 
 Video Indexer API는 권한 부여 API 및 작업 API를 포함합니다. 권한 부여 API는 액세스 토큰을 제공하는 호출을 포함합니다. 작업 API에 대한 각 호출은 호출의 권한 부여 범위와 일치하는 액세스 토큰과 연결되어야 합니다.
 
-보안상의 이유로 Video Indexer API를 사용하는 데 액세스 토큰이 필요합니다. 이렇게 하면 사용자 또는 사용자의 계정에 대한 액세스 권한이 있는 사용자에서 오는 모든 호출을 확인합니다. 
+보안상의 이유로 Video Indexer API를 사용하는 데 액세스 토큰이 필요합니다. 이렇게 하면 사용자 또는 사용자의 계정에 대한 액세스 권한이 있는 사용자에서 오는 모든 호출을 확인합니다. 
 
 ### <a name="what-is-the-difference-between-account-access-token-user-access-token-and-video-access-token"></a>계정 액세스 토큰, 사용자 액세스 토큰, 비디오 액세스 토큰 사이의 차이점은 무엇인가요?
 
@@ -197,7 +197,7 @@ Video Indexer API는 권한 부여 API 및 작업 API를 포함합니다. 권한
 
 ### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Video Indexer 개발자 포털에 대한 로그인 옵션은 무엇인가요?
 
-Azure AD, Microsoft 계정, Google 계정 또는 Facebook 계정으로 로그인할 수 있습니다. 
+[로그인 정보](release-notes.md#october-2020)에 대 한 릴리스 정보를 참조 하세요.
 
 ID 공급자를 사용하여 이메일 계정을 등록한 후에는 해당 이메일 계정을 다른 ID 공급자에 사용할 수 없습니다.
 

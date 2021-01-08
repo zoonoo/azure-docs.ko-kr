@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8223b1273c2a487e15e3c10d7c6852a119e4cdc
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87033567"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028253"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
-함수 체이닝은 특정 순서로 일련의 함수를 실행하는 패턴을 나타냅니다. 종종 한 함수의 출력을 다른 함수의 입력에 적용해야 합니다. 이 문서에서는 Durable Functions 빠른 시작([C#](durable-functions-create-first-csharp.md) 또는 [JavaScript](quickstart-js-vscode.md))를 완료할 때 생성되는 체이닝 시퀀스에 대해 설명합니다. Durable Functions에 대한 자세한 내용은 [Durable Functions 개요](durable-functions-overview.md)를 참조하세요.
+함수 체이닝은 특정 순서로 일련의 함수를 실행하는 패턴을 나타냅니다. 종종 한 함수의 출력을 다른 함수의 입력에 적용해야 합니다. 이 문서에서는 Durable Functions 빠른 시작 ([c #](durable-functions-create-first-csharp.md),  [JavaScript](quickstart-js-vscode.md)또는 [Python](quickstart-python-vscode.md))을 완료할 때 만드는 연결 순서를 설명 합니다. Durable Functions에 대한 자세한 내용은 [Durable Functions 개요](durable-functions-overview.md)를 참조하세요.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -24,7 +24,7 @@ ms.locfileid: "87033567"
 
 * `E1_HelloSequence`: 시퀀스에서 여러 번 호출 하는 오 케 스트레이 터 [함수](durable-functions-bindings.md#orchestration-trigger) `E1_SayHello` 입니다. `E1_SayHello` 호출의 출력을 저장하고 결과를 기록합니다.
 * `E1_SayHello`: 문자열 앞에 "Hello"를 사용 하는 [작업 함수](durable-functions-bindings.md#activity-trigger) 입니다.
-* `HttpStart`: Orchestrator의 인스턴스를 시작 하는 HTTP 트리거 함수입니다.
+* `HttpStart`: Orchestrator의 인스턴스를 시작 하는 HTTP 트리거 [내구성이 있는 클라이언트](durable-functions-bindings.md#orchestration-client) 함수입니다.
 
 ### <a name="e1_hellosequence-orchestrator-function"></a>E1_HelloSequence orchestrator 함수
 
@@ -39,7 +39,7 @@ ms.locfileid: "87033567"
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 > [!NOTE]
-> JavaScript Durable Functions는 함수 2.0 런타임에만 사용할 수 있습니다.
+> JavaScript Durable Functions는 함수 3.0 런타임에만 사용할 수 있습니다.
 
 #### <a name="functionjson"></a>function.json
 
@@ -54,17 +54,47 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 #### <a name="indexjs"></a>index.js
 
-함수는 다음과 같습니다.
+Orchestrator 함수는 다음과 같습니다.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-모든 JavaScript 오케스트레이션 함수는 [ `durable-functions` 모듈](https://www.npmjs.com/package/durable-functions)을 포함 해야 합니다. JavaScript에 Durable Functions를 쓸 수 있도록 하는 라이브러리입니다. 오케스트레이션 함수 및 다른 JavaScript 함수 사이에는 다음과 같은 세 가지 중요한 차이점이 있습니다.
+모든 JavaScript 오케스트레이션 함수는 [ `durable-functions` 모듈](https://www.npmjs.com/package/durable-functions)을 포함 해야 합니다. JavaScript에 Durable Functions를 쓸 수 있도록 하는 라이브러리입니다. 오 케 스트레이 터 함수와 다른 JavaScript 함수 간에는 다음과 같은 세 가지 중요 한 차이점이 있습니다.
 
-1. 함수는 [생성기 함수입니다.](/scripting/javascript/advanced/iterators-and-generators-javascript)
+1. Orchestrator 함수는 [생성기 함수](/scripting/javascript/advanced/iterators-and-generators-javascript)입니다.
 2. 함수가 `durable-functions` 모듈의 `orchestrator` 호출에 래핑됩니다(여기서는 `df`).
 3. 동기 함수여야 합니다. '오케스트레이터' 메서드가 'context.done' 호출을 처리하므로 함수는 단순히 '반환'만 하면 됩니다.
 
 개체에는 `context` `df` 다른 *작업* 함수를 호출 하 고 해당 메서드를 사용 하 여 입력 매개 변수를 전달할 수 있는 지 속성 오케스트레이션 컨텍스트 개체가 포함 되어 있습니다 `callActivity` . 코드는 다른 매개 변수 값을 사용하여 `E1_SayHello`를 순차적으로 3번 호출하고, `yield`를 사용하여 비동기 작업 함수 호출이 반환될 때까지 실행을 대기해야 함을 나타냅니다. 각 호출의 반환 값은 함수 끝에 반환 되는 배열에 추가 됩니다 `outputs` .
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Python Durable Functions는 함수 3.0 런타임에만 사용할 수 있습니다.
+
+
+#### <a name="functionjson"></a>function.json
+
+Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오케스트레이터 함수에 대한 *function.json* 파일의 내용이 여기에 있습니다. 대부분의 오케스트레이터 *function.json* 파일은 거의 이와 비슷합니다.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/function.json)]
+
+중요한 것은 `orchestrationTrigger` 바인딩 형식입니다. 오케스트레이터 함수는 모두 이 트리거 형식을 사용해야 합니다.
+
+> [!WARNING]
+> 오케스트레이터 함수의 "I/O 없음" 규칙을 준수하려면 `orchestrationTrigger` 트리거 바인딩을 사용할 때 입력 또는 출력 바인딩을 사용하지 마세요.  다른 입력 또는 출력 바인딩이 필요하면 오케스트레이터에서 호출하는 `activityTrigger` 함수의 컨텍스트에서 대신 사용해야 합니다. 자세한 내용은 [orchestrator 함수 코드 제약 조건](durable-functions-code-constraints.md) 문서를 참조 하세요.
+
+#### <a name="__init__py"></a>\_\_init\_\_.py
+
+Orchestrator 함수는 다음과 같습니다.
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
+
+모든 Python 오케스트레이션 함수는 [ `durable-functions` 패키지](https://pypi.org/project/azure-functions-durable)를 포함 해야 합니다. Python에서 Durable Functions를 작성할 수 있도록 하는 라이브러리입니다. 오 케 스트레이 터 함수와 다른 Python 함수 간에는 다음과 같은 두 가지 중요 한 차이점이 있습니다.
+
+1. Orchestrator 함수는 [생성기 함수](https://wiki.python.org/moin/Generators)입니다.
+2. 파일의 끝에를 지정 하 여 오 케 스트레이 터 함수를 orchestrator로 _등록 해야 합니다_ `main = df.Orchestrator.create(<orchestrator function name>)` . 이를 통해 파일에 선언 된 다른 도우미 함수와 구별할 수 있습니다.
+
+`context`개체를 사용 하면 메서드를 사용 하 여 다른 *작업* 함수를 호출 하 고 입력 매개 변수를 전달할 수 있습니다 `call_activity` . 코드는 다른 매개 변수 값을 사용하여 `E1_SayHello`를 순차적으로 3번 호출하고, `yield`를 사용하여 비동기 작업 함수 호출이 반환될 때까지 실행을 대기해야 함을 나타냅니다. 각 호출의 반환 값은 함수 끝에서 반환 됩니다.
 
 ---
 
@@ -91,7 +121,7 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/function.json)]
 
 > [!NOTE]
-> 오케스트레이션 함수에서 호출하는 함수는 모두 `activityTrigger` 바인딩을 사용해야 합니다.
+> 오케스트레이션 함수에 의해 호출 되는 모든 작업 함수는 바인딩을 사용 해야 합니다 `activityTrigger` .
 
 `E1_SayHello`의 구현은 비교적 간단한 문자열 형식 지정 작업입니다.
 
@@ -99,7 +129,26 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-JavaScript 오케스트레이션 함수와 달리, 작업 함수는 특별한 설정이 필요 없습니다. 오케스트레이터 함수에 의해 전달되는 입력은 `activityTrigger` 바인딩 이름(이 경우 `context.bindings.name`) 아래의 `context.bindings` 개체에 있습니다. 바인딩 이름은 내보낸 함수의 매개 변수로 설정되고 직접 액세스될 수 있습니다. 샘플 코드는 이 작업을 수행합니다.
+오케스트레이션 함수와 달리 작업 함수에는 특별 한 설정이 필요 하지 않습니다. 오케스트레이터 함수에 의해 전달되는 입력은 `activityTrigger` 바인딩 이름(이 경우 `context.bindings.name`) 아래의 `context.bindings` 개체에 있습니다. 바인딩 이름은 내보낸 함수의 매개 변수로 설정되고 직접 액세스될 수 있습니다. 샘플 코드는 이 작업을 수행합니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="e1_sayhellofunctionjson"></a>E1_SayHello/function.js
+
+`E1_SayHello` 작업 함수에 대한 *function.json* 파일은 `orchestrationTrigger` 바인딩 형식 대신 `activityTrigger` 바인딩 형식을 사용한다는 점을 제외하고는 `E1_HelloSequence`의 것과 비슷합니다.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/function.json)]
+
+> [!NOTE]
+> 오케스트레이션 함수에 의해 호출 되는 모든 작업 함수는 바인딩을 사용 해야 합니다 `activityTrigger` .
+
+`E1_SayHello`의 구현은 비교적 간단한 문자열 형식 지정 작업입니다.
+
+#### <a name="e1_sayhello__init__py"></a>E1_SayHello/ \_ \_ \_ \_ py
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/\_\_init\_\_.py)]
+
+Orchestrator 함수와 달리 작업 함수에는 특별 한 설정이 필요 하지 않습니다. Orchestrator 함수를 통해 전달 되는 입력은 함수에 대 한 매개 변수로 직접 액세스할 수 있습니다.
 
 ---
 
@@ -126,6 +175,20 @@ Orchestrator와 상호 작용 하려면 함수에 입력 바인딩이 포함 되
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
 `df.getClient`를 사용 하 여 `DurableOrchestrationClient` 개체를 가져옵니다. 클라이언트를 사용 하 여 오케스트레이션을 시작 합니다. 또한 새 오케스트레이션의 상태를 확인 하는 Url을 포함 하는 HTTP 응답을 반환 하는 데 도움이 될 수 있습니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="httpstartfunctionjson"></a>HttpStart/function.json
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/function.json)]
+
+Orchestrator와 상호 작용 하려면 함수에 입력 바인딩이 포함 되어야 합니다 `durableClient` .
+
+#### <a name="httpstart__init__py"></a>HttpStart/ \_ \_ \_ \_ py
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/\_\_init\_\_.py)]
+
+생성자를 사용 `DurableOrchestrationClient` 하 여 Durable Functions 클라이언트를 가져옵니다. 클라이언트를 사용 하 여 오케스트레이션을 시작 합니다. 또한 새 오케스트레이션의 상태를 확인 하는 Url을 포함 하는 HTTP 응답을 반환 하는 데 도움이 될 수 있습니다.
 
 ---
 
@@ -169,7 +232,7 @@ Content-Type: application/json; charset=utf-8
 {"runtimeStatus":"Completed","input":null,"output":["Hello Tokyo!","Hello Seattle!","Hello London!"],"createdTime":"2017-06-29T05:24:57Z","lastUpdatedTime":"2017-06-29T05:24:59Z"}
 ```
 
-여기서 볼 수 있듯이 인스턴스의 `runtimeStatus`는 *완료됨*이고 `output`에는 JSON 직렬화된 오케스트레이터 함수 실행 결과가 포함됩니다.
+여기서 볼 수 있듯이 인스턴스의 `runtimeStatus`는 *완료됨* 이고 `output`에는 JSON 직렬화된 오케스트레이터 함수 실행 결과가 포함됩니다.
 
 > [!NOTE]
 > `queueTrigger`, `eventHubTrigger` 또는 `timerTrigger`와 같은 다른 트리거 형식에 대해 비슷한 시작 논리를 구현할 수 있습니다.

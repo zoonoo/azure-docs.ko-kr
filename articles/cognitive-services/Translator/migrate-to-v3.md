@@ -10,19 +10,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: f22213bf192b12e046bab12346e5d5d83fb36b96
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: baaf907d2fafe23805e6b49582ecc7592ee05e0b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364278"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028236"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Translator V2에서 V3로 마이그레이션
 
 > [!NOTE]
-> V2는 2018 년 4 월 30 일부 터 더 이상 사용 되지 않습니다. V3에 독점적으로 제공 되는 새로운 기능을 활용 하려면 응용 프로그램을 V3로 마이그레이션 하세요.
-> 
-> Microsoft Translator 허브는 2019 년 5 월 17 일에 사용 중지 됩니다. [중요 한 마이그레이션 정보 및 날짜를 확인](https://www.microsoft.com/translator/business/hub/)합니다.  
+> V2는 2018 년 4 월 30 일부 터 더 이상 사용 되지 않습니다. V3에 독점적으로 제공 되는 새로운 기능을 활용 하려면 응용 프로그램을 V3로 마이그레이션 하세요. V2는 2021 년 5 월 24 일에 사용 중지 됩니다. 
 
 Microsoft Translator 팀은 변환기의 V3 (버전 3)을 릴리스 했습니다. 이 릴리스에는 새로운 기능, 사용되지 않는 메서드 및 Microsoft Translator Service 간에 데이터를 보내고 받는 새 형식이 포함되어 있습니다. 이 문서에서는 V3을 사용할 애플리케이션을 변경하는 정보를 제공합니다. 
 
@@ -118,8 +116,8 @@ V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍
 
 | 버전 | 엔드포인트 | GDPR 프로세서 규정 준수 | Translator Hub 사용 | Custom Translator(미리 보기) 사용 |
 | :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
-|Translator 버전 2|    api.microsofttranslator.com|    예    |yes    |예|
-|Translator 버전 3|    api.cognitive.microsofttranslator.com|    yes|    예|    yes|
+|Translator 버전 2|    api.microsofttranslator.com|    아니요    |예    |아니요|
+|Translator 버전 3|    api.cognitive.microsofttranslator.com|    예|    아니요|    예|
 
 **Translator 버전 3**
 * 일반적으로 사용할 수 있으며 완전히 지원됩니다.

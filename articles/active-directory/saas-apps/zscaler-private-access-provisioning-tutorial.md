@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: da3ad4f70e0cc41fe95327eb74093c1471c877bd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 14708ddcc5c0e06ee58f5e9db5945c4e9f1a1d08
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351574"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937147"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 ZPA(Zscaler Private Access) 구성
 
@@ -117,6 +117,9 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 ZPA
 > [ZPA(Zscaler Private Access) Single Sign-On 자습서](./zscalerprivateaccess-tutorial.md)에서 제공하는 지침에 따라 SAML 기반 Single Sign-On을 ZPA(Zscaler Private Access)에 사용하도록 선택할 수도 있습니다. Single Sign-On은 자동 사용자 프로비저닝과 별개로 구성할 수 있지만, 이러한 두 기능은 서로 보완적입니다.
 
 > [!NOTE]
+> 사용자 및 그룹을 프로비저닝하거나 프로비저닝 해제할 때 그룹 멤버 자격이 적절히 업데이트되도록 프로비저닝을 정기적으로 다시 시작하는 것이 좋습니다. 다시 시작하면 서비스에서 모든 그룹을 다시 평가하고 멤버 자격을 업데이트합니다.  
+
+> [!NOTE]
 > Zscaler Private Access의 SCIM 엔드포인트에 대한 자세한 내용은 [여기](https://www.zscaler.com/partners/microsoft)를 참조하세요.
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Azure AD에서 ZPA(Zscaler Private Access)에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
@@ -165,7 +168,7 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 ZPA
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-13. Azure AD 프로비저닝 서비스를 ZPA(Zscaler Private Access)에 사용하도록 설정하려면 **설정** 섹션에서 **프로비저닝 상태** 를 **켜기** 로 변경합니다.
+13. Azure AD 프로비저닝 서비스를 ZPA(Zscaler Private Access)에 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 

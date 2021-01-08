@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3cea28fa278bb699a7fb5aaa0c79bf1e71f59ac1
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: e3570a716eccf131cf19192454bfbc1008a6306e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940500"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935039"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Key Vault에서 키 설정 및 검색
 
@@ -44,9 +44,9 @@ New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 이 빠른 시작 전체에서 Key Vault의 이름으로 "Contoso KeyVault2"를 사용하되, 고유한 이름을 사용해야 합니다.
 
-- **자격 증명 모음 이름**은 Contoso-Vault2입니다.
-- **리소스 그룹 이름**은 ContosoResourceGroup입니다.
-- **위치**는 미국 동부입니다.
+- **자격 증명 모음 이름** 은 Contoso-Vault2입니다.
+- **리소스 그룹 이름** 은 ContosoResourceGroup입니다.
+- **위치** 는 미국 동부입니다.
 
 ```azurepowershell-interactive
 New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
@@ -54,7 +54,7 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 
 이 cmdlet의 출력에는 새로 만든 Key Vault의 속성이 표시됩니다. 아래에 나열된 두 개의 속성을 기록합니다.
 
-* **자격 증명 모음 이름**: 이 예제에서는 **Contoso-Vault2**입니다. 다른 키 자격 증명 모음 cmdlet에 대해 이 이름을 사용합니다.
+* **자격 증명 모음 이름**: 이 예제에서는 **Contoso-Vault2** 입니다. 다른 키 자격 증명 모음 cmdlet에 대해 이 이름을 사용합니다.
 * **자격 증명 모음 URI**: 이 예제에서는 https://Contoso-Vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 자격 증명 모음을 만든 후 사용자의 Azure 계정은 이 새 자격 증명 모음에 대해 모든 작업을 수행할 수 있는 유일한 계정입니다.
@@ -63,7 +63,7 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 
 자격 증명 모음에 키를 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 키는 애플리케이션에서 사용할 수 있습니다. 
 
-아래 명령을 입력하여 호출된**ExampleKey**를 만듭니다.
+아래 명령을 입력하여 호출된 **ExampleKey** 를 만듭니다.
 
 ```azurepowershell-interactive
 Add-AzKeyVaultKey -VaultName 'Contoso-Vault2' -Name 'ExampleKey' -Destination 'Software'
@@ -94,4 +94,4 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)에 대한 참조를 참조하세요.
-- [Azure Key Vault 모범 사례](../general/best-practices.md) 검토
+- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.

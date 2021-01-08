@@ -141,8 +141,16 @@
     - name: 런타임 버전 비교
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
-    - name: 프리미엄 플랜
-      href: functions-premium-plan.md
+    - name: 호스팅 및 규모
+      items:
+        - name: 소비 계획
+          href: consumption-plan.md
+        - name: 프리미엄 플랜
+          href: functions-premium-plan.md
+        - name: 전용 계획
+          href: dedicated-plan.md
+        - name: 이벤트 기반 크기 조정
+          href: event-driven-scaling.md
     - name: 배포
       href: functions-deployment-technologies.md
     - name: 이벤트 및 메시징
@@ -261,6 +269,8 @@
                   href: create-function-app-linux-app-service-plan.md
                 - name: Linux 사용 계획
                   href: create-first-function-cli-python.md
+                - name: 프리미엄 플랜
+                  href: create-premium-plan-function-app-portal.md
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB 트리거

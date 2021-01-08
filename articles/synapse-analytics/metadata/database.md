@@ -10,18 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93602e522338166abac98c3e4a198e1aff392d21
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451812"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934971"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Azure Synapse Analytics 공유 데이터베이스
 
-Azure Synapse Analytics를 사용하면 여러 컴퓨팅 작업 영역 엔진이 서버리스 Spark Apache 풀과 서버리스 SQL 풀 엔진 간에 데이터베이스와 테이블을 공유할 수 있습니다.
+Azure Synapse Analytics를 사용하면 여러 컴퓨팅 작업 영역 엔진이 데이터베이스와 테이블을 공유할 수 있습니다. 현재 Apache Spark 풀에 생성된 데이터베이스와 Parquet 테이블은 서버리스 SQL 풀 엔진과 자동으로 공유됩니다.
 
-Spark 작업을 사용하여 만든 데이터베이스는 서버리스 SQL 풀 엔진을 포함하여 작업 영역에 있는 모든 현재 및 미래의 Spark 풀에 동일한 이름으로 표시됩니다.
+Spark 작업을 사용하여 만든 데이터베이스는 서버리스 SQL 풀 엔진을 포함하여 작업 영역에 있는 모든 현재 및 미래의 Spark 풀에 동일한 이름으로 표시됩니다. 서버리스 SQL 풀을 사용하여 이 복제된 데이터베이스에 직접 사용자 지정 개체(외부 테이블, 보기, 프로시저)를 추가할 수 없습니다.
 
 `default`라는 Spark 기본 데이터베이스는 서버리스 SQL 풀 컨텍스트에서 `default`라는 데이터베이스로도 표시됩니다.
 

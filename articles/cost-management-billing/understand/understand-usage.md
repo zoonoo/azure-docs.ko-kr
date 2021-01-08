@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/04/2021
 ms.author: banders
-ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 07e3cfdce238d5fc4e2737a49dde6fd624de8506
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149361"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882503"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일의 사용 약관 이해
 
@@ -69,7 +69,7 @@ InvoiceSectionId<sup>1</sup> | EA, MCA | EA 부서 또는 MCA 청구서 섹션�
 InvoiceSectionName | EA, MCA | EA 부서 또는 MCA 청구서 섹션의 이름입니다.
 IsAzureCreditEligible | 모두 | Azure 크레딧 사용 시 요금이 청구될 수 있는지 여부를 나타냅니다(값: True, False).
 위치 | MCA | 리소스가 실행되고 있는 데이터 센터 위치입니다.
-MeterCategory | 모두 | 측정기에 대한 분류 범주의 이름입니다. 예를 들어 *클라우드 서비스* 및 *네트워킹*입니다.
+MeterCategory | 모두 | 측정기에 대한 분류 범주의 이름입니다. 예를 들어 *클라우드 서비스* 및 *네트워킹* 입니다.
 MeterId<sup>1</sup> | 모두 | 미터의 고유 식별자입니다.
 MeterName | 모두 | 미터의 이름입니다.
 MeterRegion | 모두 | 위치에 따라 가격이 책정되는 서비스의 데이터 센터 위치 이름입니다. Location을 참조하세요.
@@ -90,11 +90,11 @@ PublisherType | 모두 | 게시자 유형(값: **Azure**, **AWS**, **Marketplace
 수량 | 모두 | 구매 또는 소비된 단위 수입니다.
 ReservationId | EA, MCA | 구매한 예약 인스턴스의 고유 식별자입니다.
 ReservationName | EA, MCA | 구매한 예약 인스턴스의 이름입니다.
-ResourceGroup | 모두 | 리소스가 속하는 [리소스 그룹](../../azure-resource-manager/management/overview.md)의 이름입니다. 모든 요금이 리소스 그룹에 배포된 리소스에서 발생하는 것은 아닙니다. 리소스 그룹이 없는 요금은 null/empty, **기타** 또는 **적용되지 않음**으로 표시됩니다.
+ResourceGroup | 모두 | 리소스가 속하는 [리소스 그룹](../../azure-resource-manager/management/overview.md)의 이름입니다. 모든 요금이 리소스 그룹에 배포된 리소스에서 발생하는 것은 아닙니다. 리소스 그룹이 없는 요금은 null/empty, **기타** 또는 **적용되지 않음** 으로 표시됩니다.
 ResourceId<sup>1</sup> | 모두 | [Azure Resource Manager](/rest/api/resources/resources) 리소스의 고유 식별자입니다.
 ResourceLocation | 모두 | 리소스가 실행되고 있는 데이터 센터 위치입니다. Location을 참조하세요.
-ResourceName | EA, PAYG | 리소스의 이름입니다. 모든 요금이 배포된 리소스에서 발생하는 것은 아닙니다. 리소스 유형이 없는 요금은 null/empty, **기타** 또는 **적용되지 않음**으로 표시됩니다.
-ResourceType | MCA | 리소스 인스턴스의 유형입니다. 모든 요금이 배포된 리소스에서 발생하는 것은 아닙니다. 리소스 유형이 없는 요금은 null/empty, **기타** 또는 **적용되지 않음**으로 표시됩니다.
+ResourceName | EA, PAYG | 리소스의 이름입니다. 모든 요금이 배포된 리소스에서 발생하는 것은 아닙니다. 리소스 유형이 없는 요금은 null/empty, **기타** 또는 **적용되지 않음** 으로 표시됩니다.
+ResourceType | MCA | 리소스 인스턴스의 유형입니다. 모든 요금이 배포된 리소스에서 발생하는 것은 아닙니다. 리소스 유형이 없는 요금은 null/empty, **기타** 또는 **적용되지 않음** 으로 표시됩니다.
 ServiceFamily | MCA | 서비스가 속한 서비스 제품군입니다.
 ServiceInfo1 | 모두 | 서비스 특정 메타데이터입니다.
 ServiceInfo2 | 모두 | 선택적 서비스 특정 메타데이터를 포함하는 레거시 필드입니다.
@@ -126,10 +126,24 @@ UsageDate | Date
 UsageEnd | Date
 UsageStart | Date
 
-
 ## <a name="ensure-charges-are-correct"></a>요금이 올바른지 확인
 
 세부 사용량 및 요금에 대해 자세히 알아보려면 [종량제](review-individual-bill.md) 또는 [Microsoft 고객 계약](review-customer-agreement-bill.md) 청구서를 이해하는 방법에 대해 읽어보세요.
+
+## <a name="unexpected-usage-or-charges"></a>예기치 않은 사용량 또는 요금
+
+알 수 없는 사용량 또는 요금이 있는 경우 다음과 같은 몇 가지 방법으로 그 이유를 파악할 수 있습니다.
+
+- 리소스 요금이 청구된 검토
+- [비용 분석]에서 청구된 요금 검토
+- 리소스 담당자를 찾아서 문의
+- 감사 로그 분석
+- 리소스의 부모 범위에 대한 사용자 권한 분석
+- 요금을 확인하는 데 도움이 되도록 [Azure 지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458) 작성
+
+자세한 내용은 [예기치 요금 분석](analyze-unexpected-charges.md)을 참조하세요.
+
+Azure는 대부분의 사용자 동작을 기록하지 않습니다. 대신 Microsoft에서 리소스 사용량을 기록하여 요금 청구에 사용합니다. 로깅을 사용하지 않도록 설정한 경우 과거에 사용량이 급증한 것을 발견하더라도 Microsoft에서 정확한 원인을 파악할 수 없습니다. 사용량이 증가하면 자세한 내용을 확인하고 싶은 서비스에 로깅을 사용하도록 설정하면 적절한 기술 팀이 문제를 지원할 수 있습니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

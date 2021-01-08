@@ -4,12 +4,12 @@ description: Azure 명령줄 인터페이스를 사용 하 여 새 또는 기존
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b791d3f37809c2eca53f5a3cd34f7c44dd11ce40
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746896"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028882"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -20,7 +20,7 @@ ms.locfileid: "92746896"
 네트워킹 시나리오 및 제한 사항에 대해서는 [가상 네트워크 시나리오 및 Azure Container Instances에 대 한 리소스](container-instances-virtual-network-concepts.md)를 참조 하세요.
 
 > [!IMPORTANT]
-> 가상 네트워크에 대 한 컨테이너 그룹 배포는 Azure Container Instances을 사용할 수 있는 대부분의 지역에서 일반적으로 Linux 컨테이너에 사용할 수 있습니다. 자세한 내용은 [지역 및 리소스 가용성](container-instances-virtual-network-concepts.md#where-to-deploy)을 참조 하세요. 
+> 가상 네트워크에 대 한 컨테이너 그룹 배포는 Azure Container Instances을 사용할 수 있는 대부분의 지역에서 일반적으로 Linux 컨테이너에 사용할 수 있습니다. 자세한 내용은 [지역 및 리소스 가용성][container-regions]을 참조 하세요. 
 
 이 문서의 예는 Bash 셸에 대해 서식 지정 됩니다. PowerShell이나 명령 프롬프트 등의 다른 셸을 사용하려는 경우 해당 셸에 따라 줄 연속 문자를 조정하세요.
 
@@ -204,7 +204,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 스크립트를 실행하기 전에 `RES_GROUP` 변수를 삭제해야 하는 가상 네트워크 및 서브넷이 포함된 리소스 그룹의 이름으로 설정합니다. 이전에 제안 된 이름을 사용 하지 않은 경우 가상 네트워크의 이름을 업데이트 합니다 `aci-vnet` . 스크립트는 Bash 셸에 대해 서식이 지정됩니다. PowerShell이나 명령 프롬프트 등의 다른 셸을 사용하려는 경우 해당 셸에 따라 변수 할당과 접근자를 조정해야 합니다.
 
 > [!WARNING]
-> 이 스크립트는 리소스, 즉 가상 네트워크 및 해당 네트워크에 포함된 모든 서브넷을 삭제합니다. 그러므로 이 스크립트를 실행하기 전에 가상 네트워크에 포함된 서브넷을 비롯하여 가상 네트워크의 *모든* 리소스가 더 이상 필요하지 않은지 확인하세요. 삭제된 **리소스는 복구할 수 없습니다** .
+> 이 스크립트는 리소스, 즉 가상 네트워크 및 해당 네트워크에 포함된 모든 서브넷을 삭제합니다. 그러므로 이 스크립트를 실행하기 전에 가상 네트워크에 포함된 서브넷을 비롯하여 가상 네트워크의 *모든* 리소스가 더 이상 필요하지 않은지 확인하세요. 삭제된 **리소스는 복구할 수 없습니다**.
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
@@ -238,3 +238,4 @@ Resource Manager 템플릿을 사용하여 새 가상 네트워크, 서브넷, �
 [az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
 [az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[container-regions]: container-instances-region-availability.md
