@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 12c0acd5211a6fbcfd1e2861a3109b57fc67dbcf
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 54306b8bd8718a0a69f5b04ceaab15dff46d21a8
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97930570"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978801"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "97930570"
 | Azure Resource Manager를 사용하는 구독당 지역별 ExpressRoute 회로 |10 |
 | ExpressRoute 표준을 사용하는 Azure 개인 피어링에 보급되는 최대 경로 수 |4,000 |
 | ExpressRoute 프리미엄 추가 기능을 사용하는 Azure 개인 피어링에 보급되는 최대 경로 수 |10000 |
-| ExpressRoute 연결을 위한 VNet 주소 공간의 Azure 개인 피어링에서 보급되는 최대 경로 수 |200 |
+| ExpressRoute 연결을 위한 VNet 주소 공간의 Azure 개인 피어링에서 보급되는 최대 경로 수 |1000 |
 | ExpressRoute 표준을 사용하는 Microsoft 피어링에 보급되는 최대 경로 수 |200 |
 | ExpressRoute 프리미엄 추가 기능을 사용하는 Microsoft 피어링에 보급되는 최대 경로 수 |200 |
 | 동일한 피어링 위치의 동일한 가상 네트워크에 연결된 ExpressRoute 회로의 최대 수 |4 |

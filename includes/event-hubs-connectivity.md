@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/19/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dac82692c76d9d36b1f25d7b93b5c3a2e2400672
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ebb9dbce020086a716872c86221b97b4b7a6653
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002797"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978775"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
 Azure Event Hubs에서 다음 프로토콜을 사용 하 여 이벤트를 보내고 받을 수 있습니다.
@@ -72,7 +72,7 @@ Azure를 사용 하는 경우 회사 방화벽이 나 프록시에서 특정 IP 
     > [!NOTE]
     > 명령에서 반환 된 IP 주소는 `nslookup` 고정 ip 주소가 아닙니다. 그러나 기본 배포가 삭제 되거나 다른 클러스터로 이동 될 때까지 일정 하 게 유지 됩니다.
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>네임 스페이스에 메시지를 보내거나 받는 클라이언트 IP를 어디에서 찾을 수 있나요?
+### <a name="what-client-ips-are-sending-events-to-or-receiving-events-from-my-namespace"></a>네임 스페이스에서 이벤트를 보내거나 받는 클라이언트 Ip는 무엇 인가요?
 먼저 네임 스페이스에서 [IP 필터링](../articles/event-hubs/event-hubs-ip-filtering.md) 을 사용 하도록 설정 합니다. 
 
 그런 다음 [진단 로그 사용](../articles/event-hubs/event-hubs-diagnostic-logs.md#enable-diagnostic-logs)의 지침에 따라 [가상 네트워크 연결 이벤트 Event Hubs](../articles/event-hubs/event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) 에 대 한 진단 로그를 사용 하도록 설정 합니다. 연결이 거부 된 IP 주소가 표시 됩니다.
@@ -92,3 +92,6 @@ Azure를 사용 하는 경우 회사 방화벽이 나 프록시에서 특정 IP 
 
 > [!IMPORTANT]
 > 가상 네트워크 로그는 네임 스페이스에서 **특정 ip 주소** (ip 필터 규칙)의 액세스를 허용 하는 경우에만 생성 됩니다. 이러한 기능을 사용 하 여 네임 스페이스에 대 한 액세스를 제한 하지 않고, Event Hubs 네임 스페이스에 연결 하는 클라이언트의 IP 주소를 추적 하기 위해 가상 네트워크 로그를 가져오려는 경우 다음 해결 방법을 사용할 수 있습니다. IP 필터링을 사용 하도록 설정 하 고 주소 지정 가능한 총 IPv4 범위 (1.0.0.0/1-255.0.0.0/1)를 추가 합니다. Event Hubs은 IPv6 주소 범위를 지원 하지 않습니다. 
+
+> [!NOTE]
+> 현재 개별 메시지 또는 이벤트의 원본 IP를 확인할 수 없습니다. 
