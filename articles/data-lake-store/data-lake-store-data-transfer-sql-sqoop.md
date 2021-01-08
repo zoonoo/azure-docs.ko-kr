@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
 ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 01/08/2021
 ms.locfileid: "92109190"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Sqoop를 사용 하 여 Data Lake Storage Gen1와 Azure SQL Database 간에 데이터 복사
@@ -24,7 +24,7 @@ Apache Sqoop를 사용하여 Azure SQL Database와 Azure Data Lake Storage Gen1 
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html)는 Data Lake Storage Gen1과 같은 빅 데이터 리포지토리와 관계형 데이터베이스 간에 데이터를 전송하도록 설계된 도구입니다. 이 도구를 사용하여 Azure SQL Database와 같은 RDBMS(관계형 데이터베이스 관리 시스템)에서 Data Lake Storage Gen1로 데이터를 가져올 수 있습니다. 그런 다음 빅 데이터 작업을 사용 하 여 데이터를 변환 하 고 분석 한 다음 데이터를 RDBMS로 다시 내보낼 수 있습니다. 이 문서에서는 가져오기/내보내기를 위한 관계형 데이터베이스로 Azure SQL Database의 데이터베이스를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음이 있어야 합니다.
 
@@ -67,7 +67,7 @@ Apache Sqoop를 사용하여 Azure SQL Database와 Azure Data Lake Storage Gen1 
     GO
     ```
 
-1. 다음 명령을 실행 하 여 **Table1**에 몇 가지 샘플 데이터를 추가 합니다. **Table2** 를 빈 상태로 둡니다. 나중에 **Table1** 에서 Data Lake Storage Gen1로 데이터를 가져옵니다. 그런 다음 Data Lake Storage Gen1에서 **Table2**로 데이터를 내보냅니다.
+1. 다음 명령을 실행 하 여 **Table1** 에 몇 가지 샘플 데이터를 추가 합니다. **Table2** 를 빈 상태로 둡니다. 나중에 **Table1** 에서 Data Lake Storage Gen1로 데이터를 가져옵니다. 그런 다음 Data Lake Storage Gen1에서 **Table2** 로 데이터를 내보냅니다.
 
     ```tsql
     INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson');
@@ -91,7 +91,7 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
 
 1. Sqoop 패키지를 사용할 수 있는 디렉터리로 이동합니다. 일반적으로이 위치는 `/usr/hdp/<version>/sqoop/bin` 입니다.
 
-1. **Table1**에서 Data Lake Storage Gen1 계정으로 데이터를 가져옵니다. 다음 구문을 사용합니다.
+1. **Table1** 에서 Data Lake Storage Gen1 계정으로 데이터를 가져옵니다. 다음 구문을 사용합니다.
 
     ```console
     sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
@@ -99,7 +99,7 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
 
    **Sql-database-서버 이름** 자리 표시자는 데이터베이스가 실행 되 고 있는 서버의 이름을 나타냅니다. **sql-database-name** 자리 표시자는 실제 데이터베이스 이름을 나타냅니다.
 
-   예를 들면
+   예를 들면 다음과 같습니다.
 
     ```console
     sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
@@ -121,17 +121,17 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
     -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
     ```
 
-   각 **part-m-*** 파일은 **Table1** 원본 테이블의 행에 해당합니다. 확인할 part-m-* 파일의 내용을 볼 수 있습니다.
+   각 **부분-m-** _ 파일은 원본 테이블 _ Table1 * *의 행에 해당 *합니다. 확인할 파트-m-파일의 내용을 볼 수* 있습니다.
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Data Lake Storage Gen1에서 Azure SQL Database로 데이터 내보내기
 
-1. Data Lake Storage Gen1 계정에서 Azure SQL Database의 빈 테이블 **Table2**로 데이터를 내보냅니다. 다음 구문을 사용합니다.
+1. Data Lake Storage Gen1 계정에서 Azure SQL Database의 빈 테이블 **Table2** 로 데이터를 내보냅니다. 다음 구문을 사용합니다.
 
     ```console
     sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
     ```
 
-   예를 들면
+   예를 들면 다음과 같습니다.
 
     ```console
     sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","

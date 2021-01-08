@@ -3,16 +3,16 @@ title: SQL Server, Azure SQL Database 또는 Azure SQL에 연결 Managed Instanc
 description: Azure Logic Apps를 사용하여 온-프레미스 또는 클라우드에서 SQL 데이터베이스에 대한 작업 자동화
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 01/07/2021
 tags: connectors
-ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 75c657236b6e06a7e0f6c717d746bcc8c034d423
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130938"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013450"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL database에 대 한 워크플로 자동화
 
@@ -91,8 +91,8 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
    | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **서버 이름** | 예 | SQL server의 주소입니다 (예:). `Fabrikam-Azure-SQL.database.windows.net` |
-   | **데이터베이스 이름** | Yes | SQL 데이터베이스의 이름입니다 (예:). `Fabrikam-Azure-SQL-DB` |
-   | **테이블 이름** | Yes | 사용 하려는 테이블 (예:) `SalesLT.Customer` |
+   | **데이터베이스 이름** | 예 | SQL 데이터베이스의 이름입니다 (예:). `Fabrikam-Azure-SQL-DB` |
+   | **테이블 이름** | 예 | 사용 하려는 테이블 (예:) `SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -137,12 +137,12 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **SQL server 이름** | Yes | SQL server의 주소입니다 (예:). `Fabrikam-Azure-SQL.database.windows.net` |
-   | **SQL 데이터베이스 이름** | Yes | SQL Server 데이터베이스의 이름입니다 (예:). `Fabrikam-Azure-SQL-DB` |
+   | **SQL server 이름** | 예 | SQL server의 주소입니다 (예:). `Fabrikam-Azure-SQL.database.windows.net` |
+   | **SQL 데이터베이스 이름** | 예 | SQL Server 데이터베이스의 이름입니다 (예:). `Fabrikam-Azure-SQL-DB` |
    | **사용자 이름** | 예 | SQL server 및 데이터베이스의 사용자 이름 |
    | **암호** | 예 | SQL server 및 데이터베이스의 암호 |
    | **구독** |  예, Windows 인증의 경우 | Azure에서 이전에 만든 데이터 게이트웨이 리소스에 대 한 Azure 구독 |
-   | **연결 게이트웨이** | 예, Windows 인증의 경우 | Azure에서 이전에 만든 데이터 게이트웨이 리소스의 이름 <p><p>**팁** : 게이트웨이가 목록에 표시 되지 않으면 게이트웨이를 올바르게 [설정](../logic-apps/logic-apps-gateway-connection.md)했는지 확인 합니다. |
+   | **연결 게이트웨이** | 예, Windows 인증의 경우 | Azure에서 이전에 만든 데이터 게이트웨이 리소스의 이름 <p><p>**팁**: 게이트웨이가 목록에 표시 되지 않으면 게이트웨이를 올바르게 [설정](../logic-apps/logic-apps-gateway-connection.md)했는지 확인 합니다. |
    |||
 
    > [!TIP]
@@ -178,12 +178,18 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 1. 이 트리거에 사용할 수 있는 다른 속성을 추가 하려면 **새 매개 변수 추가** 목록을 엽니다.
 
    이 트리거는 선택한 테이블에서 한 개의 행만 반환 하 고 다른 행은 반환 하지 않습니다. 다른 작업을 수행 하려면 논리 앱 워크플로에서 원하는 다음 작업을 수행 하는 [다른](../connectors/apis-list.md) 작업 또는 [SQL connector 작업](#add-sql-action) 을 추가 하 여 계속 합니다.
-   
+
    예를 들어 이 행의 데이터를 보려면 반환된 행의 필드를 포함하는 파일을 만드는 다른 작업을 추가하고 메일 알림을 보낼 수 있습니다. 이 커넥터에 대해 사용할 수 있는 다른 작업에 대해 알아보려면 [커넥터의 참조 페이지](/connectors/sql/)를 참조하세요.
 
 1. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
    이 단계에서는 논리 앱을 자동으로 사용 하도록 설정 하 고 Azure에 게시 하지만, 논리 앱에서 현재 사용 하는 유일한 동작은 지정 된 간격 및 빈도에 따라 데이터베이스를 확인 하는 것입니다.
+
+<a name="trigger-recurrence-shift-drift"></a>
+
+### <a name="trigger-recurrence-shift-and-drift"></a>트리거 반복 교대 및 드리프트
+
+SQL 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 트리거는 [되풀이 트리거와](../connectors/connectors-native-recurrence.md)같이 기본적으로 Azure Logic Apps에서 실행 되는 기본 제공 트리거와 다릅니다. 되풀이 연결 기반 트리거에서 되풀이 일정은 실행을 제어 하는 유일한 드라이버는 아니며 표준 시간대는 초기 시작 시간만 결정 합니다. 후속 실행은 되풀이 일정, 마지막 트리거 실행 *및* 예기치 않은 동작을 발생 시킬 수 있는 다른 요소 (예: dst (일광 절약 시간)가 시작 되 고 끝날 때 지정 된 일정을 유지 하지 않을 수 있음)에 따라 달라 집니다. DST가 적용 될 때 되풀이 시간이 이동 하지 않도록 하려면 논리 앱이 예상 시간에 계속 실행 되도록 되풀이를 수동으로 조정 합니다. 그렇지 않으면 dst가 시작 될 때 시작 시간이 1 시간 뒤로 이동 하 고, DST가 종료 되 면 1 시간 뒤로 이동 합니다. 자세한 내용은 [연결 기반 트리거의 되풀이](../connectors/apis-list.md#recurrence-connection-based)를 참조 하세요.
 
 <a name="add-sql-action"></a>
 
@@ -259,13 +265,17 @@ SQL Server 커넥터를 사용 하 여 저장 프로시저를 호출 하는 경�
 
 ## <a name="troubleshoot-problems"></a>문제 해결
 
-* 일반적으로 연결 문제가 발생할 수 있으므로 이러한 종류의 문제를 해결 하려면 [SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)을 검토 하십시오. 몇 가지 예제는 다음과 같습니다.
+<a name="connection-problems"></a>
 
-  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+### <a name="connection-problems"></a>연결 문제
 
-  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+일반적으로 연결 문제가 발생할 수 있으므로 이러한 종류의 문제를 해결 하려면 [SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)을 검토 하십시오. 다음은 몇 가지 예입니다.
 
-  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+
+* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+
+* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 11/11/2020
 ms.author: sngun
-ms.openlocfilehash: a149f0b331a77462aa53b948fedf25dd1331969e
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 036338e90a3e7b466924d419400c0dcc692dec5f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "94683627"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630754"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB Gremlin 그래프 지원 및 TinkerPop 기능과의 호환성
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -195,31 +195,31 @@ _ **람다 식 및 함수** 는 현재 지원되지 않습니다. 여기에는 `
 
 **중간 순회 `.V()` 단계를 사용하는 Gremlin 쿼리의 인덱스 사용률**: 현재는 순회의 첫 번째 `.V()` 호출만 인덱스를 사용하여 연결된 필터 또는 조건자를 확인합니다. 후속 호출에서는 인덱스를 참조하지 않으므로 쿼리의 대기 시간과 비용이 늘어날 수 있습니다.
     
-    Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
+기본 인덱싱을 사용하는 경우 `.V()` 단계로 시작하는 일반적인 읽기 Gremlin 쿼리는 연결된 필터링 단계에서 `.has()` 또는 `.where()` 같은 매개 변수를 사용하여 쿼리의 비용과 성능을 최적화합니다. 예를 들면 다음과 같습니다.
 
-    ```java
-    g.V().has('category', 'A')
-    ```
+```java
+g.V().has('category', 'A')
+```
 
-    However, when more than one `.V()` step is included in the Gremlin query, the resolution of the data for the query might not be optimal. Take the following query as an example:
+그러나 Gremlin 쿼리에 `.V()` 단계가 여러 개 포함된 경우에는 쿼리에서 확인한 데이터가 최적의 데이터가 아닐 수 있습니다. 다음 쿼리를 예로 들 수 있습니다.
 
-    ```java
-    g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
-    ```
+```java
+g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
+```
 
-    This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
+이 쿼리는 `category`라는 속성을 기반으로 꼭짓점 그룹 2개를 반환합니다. 여기서 첫 번째 호출 `g.V().has('category', 'A')`는 인덱스를 사용하여 해당 속성 값을 기반으로 꼭짓점을 확인합니다.
 
-    A workaround for this query is to use subtraversal steps such as `.map()` and `union()`. This is exemplified below:
+이 쿼리에 대한 해결 방법은 `.map()` 및 `union()` 같은 하위 순회 단계를 사용하는 것입니다. 아래는 그 예제입니다.
 
-    ```java
-    // Query workaround using .map()
-    g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
+```java
+// Query workaround using .map()
+g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
 
-    // Query workaround using .union()
-    g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
-    ```
+// Query workaround using .union()
+g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
+```
 
-    You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
+[Gremlin `executionProfile()` 단계](graph-execution-profile.md)를 사용하여 쿼리의 성능을 검토할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

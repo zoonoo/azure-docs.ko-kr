@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: justinha
-ms.openlocfilehash: 1fcd46870a4f85d1b88d22d77de5c201404c3a09
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 694ed5304e838057141b7df043565d58188fc870
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619371"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013042"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>클래식 가상 네트워크 모델에서 리소스 관리자으로 Azure Active Directory Domain Services 마이그레이션
 
@@ -87,7 +87,7 @@ Azure Active Directory Domain Services (Azure AD DS)는 현재 클래식 가상 
 1. 클래식 가상 네트워크와 새 리소스 관리자 가상 네트워크 간의 가상 네트워크 피어 링을 설정 합니다.
 1. 나중에 필요에 따라 클래식 가상 네트워크에서 [추가 리소스를 마이그레이션합니다][migrate-iaas] .
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 관리 되는 도메인을 준비 하 고 마이그레이션할 때 인증 및 관리 서비스의 가용성에 대 한 몇 가지 고려 사항이 있습니다. 관리 되는 도메인은 마이그레이션하는 동안 일정 시간 동안 사용할 수 없습니다. Azure AD DS을 사용 하는 응용 프로그램 및 서비스는 마이그레이션 중 가동 중지 시간을 경험 합니다.
 
@@ -155,8 +155,8 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 |---------|--------------------|-----------------|-----------|-------------------|
 | [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure portal | 15분 | 가동 중지 시간 없음 | 해당 없음 |
 | [2 단계-마이그레이션에 대 한 관리 되는 도메인 준비](#prepare-the-managed-domain-for-migration) | PowerShell | 15 ~ 30 분 (평균) | 이 명령이 완료 된 후 Azure AD DS의 가동 중지 시간이 시작 됩니다. | 롤백 및 복원 사용 가능. |
-| [3 단계-관리 되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 1 ~ 3 시간 (평균) | 이 명령이 완료 되 면 하나의 도메인 컨트롤러를 사용할 수 있으며 가동 중지 시간이 종료 됩니다. | 오류가 발생 하면 롤백 (셀프 서비스) 및 복원을 모두 사용할 수 있습니다. |
-| [4 단계-복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1 시간 이상 | 두 도메인 컨트롤러를 모두 사용할 수 있으며 정상적으로 작동 해야 합니다. | 해당 없음. 첫 번째 VM이 성공적으로 마이그레이션되면 롤백 또는 복원에 대 한 옵션이 없습니다. |
+| [3 단계-관리 되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 1 ~ 3 시간 (평균) | 이 명령이 완료 되 면 하나의 도메인 컨트롤러를 사용할 수 있습니다. | 오류가 발생 하면 롤백 (셀프 서비스) 및 복원을 모두 사용할 수 있습니다. |
+| [4 단계-복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1 시간 이상 | 두 도메인 컨트롤러 모두 사용할 수 있으며 정상적으로 작동 해야 합니다. 가동 중지 시간이 종료 됩니다. | 해당 없음. 첫 번째 VM이 성공적으로 마이그레이션되면 롤백 또는 복원에 대 한 옵션이 없습니다. |
 | [5 단계-선택적 구성 단계](#optional-post-migration-configuration-steps) | Azure Portal 및 Vm | 해당 없음 | 가동 중지 시간 없음 | 해당 없음 |
 
 > [!IMPORTANT]
@@ -262,16 +262,14 @@ PowerShell 스크립트를 닫는 경우에도 마이그레이션 프로세스�
 
 ## <a name="test-and-verify-connectivity-after-the-migration"></a>마이그레이션 후 연결 테스트 및 확인
 
-두 번째 도메인 컨트롤러를 성공적으로 배포 하 고 관리 되는 도메인에서 사용할 수 있는 데 약간의 시간이 걸릴 수 있습니다.
+두 번째 도메인 컨트롤러를 성공적으로 배포 하 고 관리 되는 도메인에서 사용할 수 있는 데 약간의 시간이 걸릴 수 있습니다. 두 번째 도메인 컨트롤러는 마이그레이션 cmdlet이 완료 된 후 1-2 시간 후에 사용할 수 있어야 합니다. 리소스 관리자 배포 모델을 사용 하면 관리 되는 도메인에 대 한 네트워크 리소스가 Azure Portal 또는 Azure PowerShell에 표시 됩니다. 두 번째 도메인 컨트롤러를 사용할 수 있는지 확인 하려면 Azure Portal에서 관리 되는 도메인에 대 한 **속성** 페이지를 확인 합니다. 두 개의 IP 주소가 표시 되 면 두 번째 도메인 컨트롤러가 준비 된 것입니다.
 
-리소스 관리자 배포 모델을 사용 하면 관리 되는 도메인에 대 한 네트워크 리소스가 Azure Portal 또는 Azure PowerShell에 표시 됩니다. 이러한 네트워크 리소스에 대해 자세히 알아보려면 [Azure AD DS에서 사용 하는 네트워크 리소스][network-resources]를 참조 하세요.
-
-하나 이상의 도메인 컨트롤러를 사용할 수 있는 경우 Vm과 네트워크 연결에 대 한 다음 구성 단계를 완료 합니다.
+두 번째 도메인 컨트롤러를 사용할 수 있게 되 면 Vm의 네트워크 연결에 대 한 다음 구성 단계를 완료 합니다.
 
 * **DNS 서버 설정 업데이트** 리소스 관리자 가상 네트워크에서 다른 리소스를 확인 하 고 관리 되는 도메인을 사용할 수 있도록 하려면 새 도메인 컨트롤러의 IP 주소로 DNS 설정을 업데이트 합니다. Azure Portal에서 자동으로 이러한 설정을 구성할 수 있습니다.
 
     리소스 관리자 가상 네트워크를 구성 하는 방법에 대 한 자세한 내용은 [Azure virtual network에 대 한 DNS 설정 업데이트][update-dns]를 참조 하세요.
-* **도메인에 가입 된 Vm 다시 시작** -Azure AD DS 도메인 컨트롤러에 대 한 DNS 서버 IP 주소가 변경 되 면 도메인에 가입 된 vm을 다시 시작 하 여 새 dns 서버 설정을 사용 합니다. 응용 프로그램 또는 Vm에서 수동으로 DNS 설정을 구성한 경우 Azure Portal에 표시 된 도메인 컨트롤러의 새 DNS 서버 IP 주소를 사용 하 여 수동으로 업데이트 합니다.
+* **도메인에 가입 된 Vm 다시 시작 (선택 사항)** Azure AD DS 도메인 컨트롤러에 대 한 DNS 서버 IP 주소가 변경 되 면 도메인에 가입 된 Vm을 다시 시작 하 여 새 DNS 서버 설정을 사용할 수 있습니다. 응용 프로그램 또는 Vm에서 수동으로 DNS 설정을 구성한 경우 Azure Portal에 표시 된 도메인 컨트롤러의 새 DNS 서버 IP 주소를 사용 하 여 수동으로 업데이트 합니다. 도메인에 가입 된 Vm을 다시 부팅 하면 새로 고쳐지지 않는 IP 주소에 의해 발생 하는 연결 문제가 방지 됩니다.
 
 이제 가상 네트워크 연결 및 이름 확인을 테스트 합니다. 리소스 관리자 가상 네트워크에 연결 된 VM 또는 피어 링 VM에서 다음 네트워크 통신 테스트를 시도 합니다.
 
@@ -280,7 +278,7 @@ PowerShell 스크립트를 닫는 경우에도 마이그레이션 프로세스�
 1. 관리 되는 도메인의 이름 확인을 확인 합니다 (예:). `nslookup aaddscontoso.com`
     * DNS 설정이 올바른지 확인 하 고 확인 하려면 자체 관리 되는 도메인의 DNS 이름을 지정 합니다.
 
-두 번째 도메인 컨트롤러는 마이그레이션 cmdlet이 완료 된 후 1-2 시간 후에 사용할 수 있어야 합니다. 두 번째 도메인 컨트롤러를 사용할 수 있는지 확인 하려면 Azure Portal에서 관리 되는 도메인에 대 한 **속성** 페이지를 확인 합니다. 두 개의 IP 주소가 표시 되 면 두 번째 도메인 컨트롤러가 준비 된 것입니다.
+다른 네트워크 리소스에 대해 자세히 알아보려면 [Azure AD DS에서 사용 하는 네트워크 리소스][network-resources]를 참조 하세요.
 
 ## <a name="optional-post-migration-configuration-steps"></a>선택적 마이그레이션 후 구성 단계
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 6e5f2a519564716d426c50bb9cc8dd245774321e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 838a5255c013b530aa3bfdb857a2ba34b7dbeeed
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966499"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98010968"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Azure CLI에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
@@ -38,7 +38,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 - [**패킷 캡처 삭제**](#delete-a-packet-capture)
 - [**패킷 캡처 다운로드**](#download-a-packet-capture)
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서에서는 사용자에게 다음 리소스가 있는 것으로 가정합니다.
 

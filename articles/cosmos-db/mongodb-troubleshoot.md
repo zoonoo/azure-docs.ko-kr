@@ -7,34 +7,42 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: chrande
-ms.openlocfilehash: 9d76c3d9943300f88a146e82b862624d491cf546
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: faf50899e5897a8f06cf0e24166abd303d24b491
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017817"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011395"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API의 일반적인 문제 해결
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-다음 문서에서는 MongoDB 용 Azure Cosmos DB API를 사용 하는 데이터베이스에 대 한 일반적인 오류 및 해결 방법을 설명 합니다.
+다음 문서에서는 MongoDB 용 Azure Cosmos DB API를 사용 하는 배포에 대 한 일반적인 오류 및 해결 방법을 설명 합니다.
 
 >[!Note]
-> Azure Cosmos DB MongoDB 엔진을 호스팅하지 않습니다. MongoDB [유선 프로토콜 버전 3.6](mongodb-feature-support-36.md) 및 [유선 프로토콜 버전 3.2](mongodb-feature-support.md)에 대 한 레거시 지원의 구현을 제공 하므로 이러한 오류 중 일부는 Azure Cosmos DB의 MongoDB API 에서만 찾을 수 있습니다. 
+> Azure Cosmos DB MongoDB 엔진을 호스팅하지 않습니다. MongoDB 유선 프로토콜의 구현을 제공 합니다. 따라서 이러한 오류 중 일부는 Azure Cosmos DB의 MongoDB API 에서만 찾을 수 있습니다. 
 
 ## <a name="common-errors-and-solutions"></a>일반 오류 및 해결 방법
 
-| 오류               | 코드  | Description  | 해결 방법  |
-|---------------------|-------|--------------|-----------|
-| ExceededTimeLimit   | 50 | 요청이 실행 시간 제한인 60초를 초과했습니다. | 이 오류의 원인은 여러 가지가 있을 수 있습니다. 원인 중 하나는 현재 할당된 요청 단위 용량이 요청을 완료하기에 충분하지 않은 경우입니다. 이는 해당 컬렉션 또는 데이터베이스의 요청 단위를 늘려서 해결할 수 있습니다. 다른 경우에는 대규모 요청을 더 작은 요청으로 분할 하 여이 오류를 해결할 수 있습니다. |
-| TooManyRequests     | 16500 | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 작업을 다시 시도하는 것이 좋습니다. |
-| ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. 예: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
-| 지정된 order-by 항목에 해당하는 인덱스 경로가 제외되거나 order-by 쿼리에 제공할 수 있는 해당 복합 인덱스가 없습니다. | 2 | 쿼리에서 인덱싱되지 않은 필드에 대한 정렬을 요청합니다. | 시도 중인 정렬 쿼리에 대해 일치 하는 인덱스 (또는 복합 인덱스)를 만듭니다. |
-| MongoDB 유선 버전 문제 | - | 이전 버전의 MongoDB 드라이버는 연결 문자열에서 Azure Cosmos 계정의 이름을 검색할 수 없습니다. | MongoDB에 대 한 Cosmos DB API 연결 문자열의 끝에 *appName = @**accountName** @* 을 추가 합니다. 여기서 ***accountname*** 은 Cosmos DB 계정 이름입니다. |
+| 코드       | 오류                | Description  | 해결 방법  |
+|------------|----------------------|--------------|-----------|
+| 2 | 지정 된 order by 항목에 해당 하는 인덱스 경로가 제외 되거나 order by 쿼리에 해당 인덱스를 제공할 수 있는 해당 복합 인덱스가 없습니다. | 쿼리에서 인덱싱되지 않은 필드에 대한 정렬을 요청합니다. | 시도 중인 정렬 쿼리에 대해 일치 하는 인덱스 (또는 복합 인덱스)를 만듭니다. |
+| 13 | 권한 없음 | 요청에 완료할 수 있는 권한이 없습니다. | 데이터베이스 및 컬렉션에 대 한 적절 한 권한을 설정 했는지 확인 합니다.  |
+| 16 | InvalidLength | 지정 된 요청에 잘못 된 길이가 있습니다. | 설명 () 함수를 사용 하는 경우에는 하나의 작업만 제공 해야 합니다. |
+| 26 | NamespaceNotFound | 쿼리에서 참조 되는 데이터베이스 또는 컬렉션을 찾을 수 없습니다. | 데이터베이스/컬렉션 이름이 쿼리의 이름과 정확 하 게 일치 하는지 확인 합니다.|
+| 50 | ExceededTimeLimit | 요청이 실행 시간 제한인 60초를 초과했습니다. |  이 오류의 원인은 여러 가지가 있을 수 있습니다. 원인 중 하나는 현재 할당 된 요청 단위 용량이 부족 하 여 요청을 완료할 수 없는 경우입니다. 이는 해당 컬렉션 또는 데이터베이스의 요청 단위를 늘려서 해결할 수 있습니다. 다른 경우에는 대규모 요청을 더 작은 요청으로 분할 하 여이 오류를 해결할 수 있습니다.|
+| 61 | ShardKeyNotFound | 요청의 문서에 컬렉션의 분할 키 (Azure Cosmos DB 파티션 키)가 포함 되어 있지 않습니다. | 컬렉션의 분할 키가 요청에 사용 되 고 있는지 확인 합니다.|
+| 66 | ImmutableField | 요청에서 변경할 수 없는 필드를 변경 하려고 합니다. | "id" 필드는 변경할 수 없습니다. 요청에서 해당 필드의 업데이트를 시도 하지 않는지 확인 합니다. |
+| 67 | CannotCreateIndex | 인덱스를 만드는 요청을 완료할 수 없습니다. | 컨테이너에서 최대 500 개의 단일 필드 인덱스를 만들 수 있습니다. 복합 인덱스에는 최대 8 개의 필드를 포함할 수 있습니다. 복합 인덱스는 버전 3.6 이상에서 지원 됩니다. |
+| 115 | CommandNotSupported | 시도한 요청은 지원 되지 않습니다. | 오류에 추가 세부 정보를 제공 해야 합니다. 배포에이 기능이 중요 한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 지원 티켓을 만들어 알려주세요. |
+| 11000 | DuplicateKey | 삽입 중인 문서의 분할 키 (Azure Cosmos DB 파티션 키)가 이미 컬렉션에 있거나 고유 인덱스 필드 제약 조건을 위반 했습니다. | Update () 함수를 사용 하 여 기존 문서를 업데이트할 수 있습니다. Unique index 필드 제약 조건을 위반 하는 경우에는 분할/파티션에 아직 존재 하지 않는 필드 값으로 문서를 삽입 하거나 업데이트 합니다. |
+| 16500 | TooManyRequests  | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 작업을 다시 시도하는 것이 좋습니다. SSR (서버 쪽 다시 시도)를 사용 하도록 설정 하면 Azure Cosmos DB이 오류로 인해 실패 한 요청을 자동으로 다시 시도 합니다. |
+| 16501 | ExceededMemoryLimit | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. 예: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
+| 40324 | 인식할 수 없는 파이프라인 단계 이름입니다. | 집계 파이프라인 요청에서 스테이지 이름이 인식 되지 않았습니다. | 요청에서 모든 집계 파이프라인 이름이 유효한 지 확인 합니다. |
+| - | MongoDB 유선 버전 문제 | 이전 버전의 MongoDB 드라이버는 연결 문자열에서 Azure Cosmos 계정의 이름을 검색할 수 없습니다. | MongoDB에 대 한 Cosmos DB API 연결 문자열의 끝에 *appName = @**accountName** @* 을 추가 합니다. 여기서 ***accountname*** 은 Cosmos DB 계정 이름입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Cosmos DB의 API for MongoDB와 함께 [Studio 3T를 사용](mongodb-mongochef.md)하는 방법을 알아봅니다.
 - Azure Cosmos DB의 API for MongoDB와 함께 [Robo 3T를 사용](mongodb-robomongo.md)하는 방법을 알아봅니다.
 - Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](mongodb-samples.md)을 살펴봅니다.
-

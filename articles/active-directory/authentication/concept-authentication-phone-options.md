@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d3a00491bc0628244a5a7907f0dee03a5f8d3c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fdff7e62753e75a14d6711b77dd451603353dae5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744196"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012838"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 전화 옵션의 인증 방법
 
@@ -58,6 +58,8 @@ Azure AD에 관한 전화 인증에 문제가 있는 경우 다음 문제 해결
 
 * "인증 통화에 대 한 제한에 도달 했습니다." 또는 "로그인 하는 동안 텍스트 확인 코드에 대 한 제한에 도달 했습니다" 라는 오류 메시지가 표시 됩니다.
    * Microsoft는 짧은 시간 동안 동일한 사용자가 수행 하는 반복적인 인증 시도를 제한할 수 있습니다. 이러한 제한 사항은 Microsoft Authenticator 또는 확인 코드에는 적용 되지 않습니다. 이러한 제한에 도달 하면 인증 앱, 확인 코드를 사용 하거나 몇 분 후에 다시 로그인 해 볼 수 있습니다.
+* "로그인 하는 동안 계정을 확인 하는 데 문제가 있습니다." 오류 메시지
+   * Microsoft는 실패 한 음성 또는 SMS 인증 시도의 수가 많기 때문에 동일한 사용자, 전화 번호 또는 조직에서 수행 하는 음성 또는 SMS 인증 시도를 제한 하거나 차단할 수 있습니다. 이 오류가 발생 하는 경우 인증자 앱 또는 확인 코드와 같은 다른 방법을 시도 하거나 관리자에 게 문의 하 여 지원을 받을 수 있습니다.
 * 단일 디바이스에서 차단된 발신자 ID입니다.
    * 디바이스에 구성된 모든 차단된 숫자를 검토합니다.
 * 전화번호 또는 국가/지역 코드가 잘못되었거나 개인 전화번호와 회사 전화번호 간에 혼란이 있습니다.

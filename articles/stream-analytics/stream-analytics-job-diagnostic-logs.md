@@ -3,17 +3,16 @@ title: 리소스 로그를 사용 하 여 Azure Stream Analytics 문제 해결
 description: 이 문서에서는 Azure Stream Analytics에서 리소스 로그를 분석 하는 방법을 설명 합니다.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: b29e0f99cb4549370be49dc5a1b11d367e30d8c0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029144"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011121"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>리소스 로그를 사용하여 Azure Stream Analytics 문제 해결
 
@@ -95,7 +94,7 @@ Azure Stream Analytics는 두 가지 범주의 리소스 로그를 캡처합니�
 
 모든 로그는 JSON 형식으로 저장됩니다. 각 항목에는 다음과 같은 일반적인 문자열 필드가 있습니다.
 
-Name | Description
+Name | 설명
 ------- | -------
 time | 로그의 타임스탬프(UTC)입니다.
 resourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -134,7 +133,7 @@ Name | Description
 
 일반 이벤트는 다른 모든 항목을 처리합니다.
 
-Name | Description
+Name | 설명
 -------- | --------
 오류 | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
 메시지| 로그 메시지

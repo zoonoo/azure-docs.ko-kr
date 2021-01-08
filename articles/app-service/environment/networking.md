@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 61059c3e0f9737df6ace338f4252a338ea1f200c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663844"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013494"
 ---
 # <a name="app-service-environment-networking"></a>App Service Environment 네트워킹
 
@@ -34,7 +34,11 @@ ASE에는 만들 때 다음 주소가 있습니다.
 | Windows 아웃 바운드 주소 | 이 ASE의 Windows 앱은 인터넷에 대 한 아웃 바운드 호출을 수행할 때 기본적으로이 주소를 사용 합니다. |
 | Linux 아웃 바운드 주소 | 이 ASE의 Linux 앱은 인터넷에 대 한 아웃 바운드 호출을 수행할 때 기본적으로이 주소를 사용 합니다. |
 
-ASE에서 사용 하는 개인 끝점을 삭제 하면 ASE의 앱에 연결할 수 없습니다. ASE와 연결 된 Azure DNS 개인 영역을 삭제 하지 마세요.  
+ASEv3는 ASE 포털의 **IP 주소** 부분에 있는 ase에서 사용 하는 주소에 대 한 세부 정보를 포함 합니다.
+
+![ASE 주소 UI](./media/networking/networking-ip-addresses.png)
+
+ASE에서 사용 하는 개인 끝점을 삭제 하면 ASE의 앱에 연결할 수 없습니다.  
 
 ASE는 아웃 바운드 서브넷의 주소를 사용 하 여 ASE에서 사용 하는 인프라를 지원 합니다. ASE에서 App Service 계획의 크기를 조정할 때 더 많은 주소를 사용 합니다. ASE의 앱은 아웃 바운드 서브넷에 전용 주소를 포함 하지 않습니다. 앱에서 아웃 바운드 서브넷의 앱에 사용 되는 주소는 시간이 지남에 따라 변경 됩니다.
 
@@ -48,7 +52,7 @@ Asev2)와 달리 ASEv3에서는 NSGs (네트워크 보안 그룹) 및 UDRs (Rout
 
 ## <a name="dns"></a>DNS
 
-ASE의 앱은 VNet이 구성 된 DNS를 사용 합니다. 일부 앱에서 다른 DNS 서버를 사용 하려는 경우 앱 설정 WEBSITE_DNS_SERVER 및 WEBSITE_DNS_ALT_SERVER를 사용 하 여 앱 단위로 수동으로 설정할 수 있습니다. 앱 설정 WEBSITE_DNS_ALT_SERVER는 보조 DNS 서버를 구성 합니다. 보조 DNS 서버는 주 DNS 서버에서 응답이 없는 경우에만 사용 됩니다. 
+ASE의 앱은 VNet이 구성 된 DNS를 사용 합니다. [App Service Environment 사용](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) 의 지침에 따라 ASE를 가리키도록 DNS 서버를 구성 합니다. 일부 앱에서 VNet이 구성 된 것과 다른 DNS 서버를 사용 하도록 하려면 앱 설정 WEBSITE_DNS_SERVER 및 WEBSITE_DNS_ALT_SERVER를 사용 하 여 앱 별로 앱을 수동으로 설정할 수 있습니다. 앱 설정 WEBSITE_DNS_ALT_SERVER는 보조 DNS 서버를 구성 합니다. 보조 DNS 서버는 주 DNS 서버에서 응답이 없는 경우에만 사용 됩니다. 
 
 ## <a name="preview-limitation"></a>미리 보기 제한 사항
 

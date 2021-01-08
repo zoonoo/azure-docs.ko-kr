@@ -5,25 +5,25 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 01/07/2021
 ms.author: duau
-ms.openlocfilehash: 4b57dec32a3a008cadf68c19ea52353a23fb2cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0a39d65bf0f1bc5221cd5e46493c489f7630f8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397497"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012668"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>NAT 설정 및 관리를 위한 라우터 구성 샘플
 
-이 페이지는 ExpressRoute를 사용하여 작업할 때 Cisco ASA 및 Juniper SRX 시리즈 라우터에 NAT 구성 샘플을 제공합니다. 이러한 샘플은 참조용이므로 그대로 사용해서는 안 됩니다. 사용 중인 네트워크에 적절하게 구성하려면 공급업체와 작업하면 됩니다.
+이 문서에서는 Express 경로를 사용 하 여 작업할 때 Cisco GLOBAL.ASA 및 곱 향나무 SRX 시리즈 라우터 용 NAT 구성 샘플을 제공 합니다. 이러한 라우터 구성은 참조용 으로만 사용 되며 그대로 사용 하면 안 됩니다. 네트워크에 대 한 적절 한 구성을 제공 하려면 공급 업체와 함께 작업 해야 합니다.
 
 > [!IMPORTANT]
 > 이 페이지에 있는 샘플은 참조용입니다. 공급업체의 영업/기술 팀 및 네트워킹 팀과 함께 작업하면서 필요에 맞게 적절히 구성해야 합니다. Microsoft는 이 페이지에 나열된 구성과 관련된 문제를 지원하지 않습니다. 지원 문제는 디바이스 공급업체에 문의해야 합니다.
 > 
 > 
 
-* 아래의 라우터 구성 샘플은 Azure 공용 및 Microsoft 피어링에 적용됩니다. Azure 프라이빗 피어링의 경우 NAT를 구성하면 안 됩니다. 자세한 내용은 [ExpressRoute 피어링](expressroute-circuit-peerings.md) 및 [ExpressRoute NAT 요구 사항](expressroute-nat.md)을 검토하세요.
+* 아래의 라우터 구성 샘플은 Azure 공용 및 Microsoft 피어링에 적용됩니다. Azure 개인 피어 링에 대 한 NAT를 구성 하지 않습니다. 자세한 내용은 [ExpressRoute 피어링](expressroute-circuit-peerings.md) 및 [ExpressRoute NAT 요구 사항](expressroute-nat.md)을 검토하세요.
 
 * 인터넷 및 ExpressRoute에 대한 연결은 별도의 NAT IP 풀을 사용해야 합니다. 인터넷 및 ExpressRoute에서 동일한 NAT IP 풀을 사용하면 비대칭 라우팅 및 연결 손실이 발생합니다.
 
@@ -361,5 +361,5 @@ nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT dest
 ```
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md) 를 참조하세요.
+자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 

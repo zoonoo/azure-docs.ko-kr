@@ -1,27 +1,27 @@
 ---
 title: Azure Cosmos DB에 대 한 SQL 조인 쿼리
 description: Azure Cosmos DB에서 여러 테이블을 조인 하 여 데이터를 쿼리 하는 방법에 대해 알아봅니다.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.author: mjbrown
-ms.openlocfilehash: c3fad0c7eed2b42a9ac340a091f17b90e22b000a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 01/07/2021
+ms.author: tisande
+ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333837"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011398"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB의 조인
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 관계형 데이터베이스에서 테이블 간의 조인은 정규화 된 스키마를 디자인 하는 논리적 필연적인 결과로입니다. 반면에 SQL API는 *자체 조인과* 논리적으로 동일한 스키마 없는 항목의 비 정규화 된 데이터 모델을 사용 합니다.
 
-내부 조인은 조인에 참여하는 집합의 완전한 교차곱을 만듭니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다.
+조인 하면 조인에 참여 하는 집합의 완전 한 교차곱이 생성 됩니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다.
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
 이 언어는 구문을 지원 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` 합니다. 이 쿼리는 값이 있는 튜플 집합을 반환 `N` 합니다. 각 튜플은 해당 집합에 모든 컨테이너 별칭을 반복하여 생성된 값을 포함합니다. 
 
@@ -253,6 +253,8 @@ JOIN 절의 실제 유틸리티는 프로젝트에 어려움이 있는 셰이프
       }
     ]
 ```
+
+쿼리에 조인 및 필터가 있는 경우 쿼리 일부를 [하위 쿼리로](sql-query-subquery.md#optimize-join-expressions) 다시 작성 하 여 성능을 향상 시킬 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

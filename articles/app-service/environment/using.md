@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3679bf9d55ddccefddb4bf3b2a96ec1b427315af
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663660"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013535"
 ---
 # <a name="using-an-app-service-environment"></a>App Service Environment 사용
 
@@ -78,13 +78,20 @@ SCM URL은 Kudu 콘솔에 액세스 하거나 웹 배포를 사용 하 여 앱�
 
 ### <a name="dns-configuration"></a>DNS 구성 
 
-ASE는 인바운드 트래픽에 대해 개인 끝점을 사용 하며 Azure DNS 개인 영역을 사용 하 여 자동으로 구성 됩니다. 자체 DNS 서버를 사용 하려면 다음 레코드를 추가 해야 합니다.
+ASE는 인바운드 트래픽에 대해 전용 끝점을 사용 합니다. Azure DNS 개인 영역을 사용 하 여 자동으로 구성 되지 않습니다. 자체 DNS 서버를 사용 하려면 다음 레코드를 추가 해야 합니다.
 
 1. &lt;ASE 이름&gt;.appserviceenvironment.net 영역 만들기
 1. ASE 개인 끝점에서 사용 하는 인바운드 IP 주소를 가리키는 해당 영역에 A 레코드를 만듭니다.
 1. ASE 개인 끝점에서 사용 하는 인바운드 IP 주소를 가리키는 해당 영역에 A 레코드를 만듭니다.
 1. &lt;ASE 이름&gt;.appserviceenvironment.net에 scm이라는 영역 만들기
 1. ASE 개인 끝점에서 사용 하는 IP 주소를 가리키는 scm 영역에 A 레코드를 만듭니다.
+
+Azure DNS 프라이빗 영역에서 DNS를 구성하려면 다음을 수행합니다.
+
+1. <ASE name>.appserviceenvironment.net이라는 Azure DNS 프라이빗 영역 만들기
+1. 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
+1. 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
+1. 해당 영역에 *.scm으로 ILB IP 주소를 가리키는 A 레코드 만들기
 
 ASE 기본 도메인 접미사에 대 한 DNS 설정은 앱이 해당 이름 으로만 액세스할 수 있도록 제한 하지 않습니다. ASE에서 앱에 대 한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. 그런 다음 *contoso.net* 이라는 영역을 만들려는 경우이를 수행 하 고 인바운드 IP 주소를 가리킬 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해서는 작동하지만 scm 사이트의 경우에는 작동하지 않습니다. Scm 사이트는 *&lt; appname &gt; . scm &lt; 에서만 사용할 수 있습니다. asename &gt; . appserviceenvironment.net*. 
 
@@ -125,7 +132,7 @@ ASE를 Azure Monitor와 통합 하 여 ASE에 대 한 로그를 Azure Storage, A
 ASE에서 로깅을 사용 하도록 설정 하려면:
 
 1. 포털에서 **진단 설정** 으로 이동 합니다.
-1. **진단 설정 추가** 를 선택 합니다.
+1. **진단 설정 추가** 를 선택합니다.
 1. 로그 통합에 대 한 이름을 제공 합니다.
 1. 원하는 로그 대상을 선택 하 고 구성 합니다.
 1. **Appservice환경 Platformlogs** 를 선택 합니다.

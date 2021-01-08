@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 30d646ff7d4f97289ff238211418ac57cd8167a4
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7ca294d3d7764737d4e2be55aae25bc8ff08a8d1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107688"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011529"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
 
@@ -41,10 +41,10 @@ ms.locfileid: "97107688"
 > 사용할 포털은 응용 프로그램이 Microsoft Azure 공용 클라우드 또는 국가 또는 소 버린 클라우드에서 실행 되는지에 따라 달라 집니다. 자세한 내용은 [국가별 클라우드](./authentication-national-cloud.md#app-registration-endpoints)를 참조 하세요.
 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다. 
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
-1. **관리** 에서 **앱 등록**  >  **새 등록** 을 선택 합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -76,7 +76,7 @@ ms.locfileid: "97107688"
     1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `java-webapp`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다. 
     1. **모든 조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)에서 계정을** 선택 합니다.
     1. **등록** 을 선택 하 여 응용 프로그램을 등록 합니다.
-1. **관리** 아래에서 **인증**  >  **플랫폼 추가** 를 선택 합니다.
+1. **관리** 에서 **인증** > **플랫폼 추가** 를 선택합니다.
 1. **웹** 을 선택합니다.
 1. **리디렉션 URI** 에 대해 동일한 호스트 및 포트 번호를 입력 하 고 그 뒤 `/msal4jsample/secure/aad` 에 로그인 페이지를 입력 합니다. 
 1. **구성** 을 선택합니다.
