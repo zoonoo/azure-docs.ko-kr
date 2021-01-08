@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 895b8441f340d085932cade513c9f8929491b374
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b7980bfc58ed696a74d3da259e23fb7e428621a9
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904264"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028916"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -41,7 +41,7 @@ Azure Key Vault에 대한 일반적인 내용은 [Key Vault란?](overview.md)을
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[참조](/cli/azure/keyvault)<br>[빠른 시작](quick-create-cli.md)|[참조](/powershell/module/az.keyvault)<br>[빠른 시작](quick-create-powershell.md)|[참조](/rest/api/keyvault/)|[참조](/azure/templates/microsoft.keyvault/vaults)|[참조](/dotnet/api/microsoft.azure.management.keyvault)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[참조](/java/api/com.microsoft.azure.management.keyvault)|[참조](/javascript/api/@azure/arm-keyvault)|
+|[참조](/cli/azure/keyvault)<br>[빠른 시작](quick-create-cli.md)|[참조](/powershell/module/az.keyvault)<br>[빠른 시작](quick-create-powershell.md)|[참조](/rest/api/keyvault/)|[참조](/azure/templates/microsoft.keyvault/vaults)|[참조](/dotnet/api/microsoft.azure.management.keyvault)<br>[빠른 시작](https://docs.microsoft.com/azure/key-vault/general/vault-create-template)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[참조](/java/api/com.microsoft.azure.management.keyvault)|[참조](/javascript/api/@azure/arm-keyvault)|
 
 설치 패키지 및 소스 코드는 [클라이언트 라이브러리](client-libraries.md) 를 참조 하세요.
 
@@ -68,9 +68,13 @@ Azure에 배포 된 응용 프로그램에 관리 되는 id를 사용 하는 것
 Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ### <a name="azure-identity-client-libraries"></a>Azure Id 클라이언트 라이브러리
+
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Id SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Id SDK Python](/python/api/overview/azure/identity-readme)|[Azure Id SDK Java](/java/api/overview/azure/identity-readme)|[Azure Id SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
+
+>[!Note]
+> 현재 곧 .NET SDK 버전 3 Key Vault에 대해 권장 된 [앱 인증 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication) 입니다. [Azure에 대 한 Appauthentication을 수행 하세요. Id 마이그레이션 지침](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration) 을 KEY VAULT .Net SDK 버전 4로 마이그레이션해야 합니다.
 
 응용 프로그램에서 Key Vault을 인증 하는 방법에 대 한 자습서는 다음을 참조 하세요.
 - [.NET의 VM에서 호스팅된 응용 프로그램의 Key Vault에 대 한 인증](./tutorial-net-virtual-machine.md)
@@ -86,14 +90,14 @@ Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참�
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[참조](/cli/azure/keyvault/key)<br>[빠른 시작](../keys/quick-create-cli.md)|[참조](/powershell/module/az.keyvault/)<br>[빠른 시작](../keys/quick-create-powershell.md)|[참조](/rest/api/keyvault/#key-operations)|해당 없음|[참조](/dotnet/api/azure.security.keyvault.keys)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[빠른 시작](../keys/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[참조](/javascript/api/@azure/keyvault-keys/)|
+|[참조](/cli/azure/keyvault/key)<br>[빠른 시작](../keys/quick-create-cli.md)|[참조](/powershell/module/az.keyvault/)<br>[빠른 시작](../keys/quick-create-powershell.md)|[참조](/rest/api/keyvault/#key-operations)|[참조](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[빠른 시작](../keys/quick-create-template.md)|[참조](/dotnet/api/azure.security.keyvault.keys)<br>[빠른 시작](../keys/quick-create-net.md)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[빠른 시작](../keys/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[빠른 시작](../keys/quick-create-java.md)|[참조](/javascript/api/@azure/keyvault-keys/)<br>[빠른 시작](../keys/quick-create-node.md)|
 
 **인증서 Api 및 Sdk**
 
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[참조](/cli/azure/keyvault/certificate)<br>[빠른 시작](../certificates/quick-create-cli.md)|[참조](/powershell/module/az.keyvault)<br>[빠른 시작](../certificates/quick-create-powershell.md)|[참조](/rest/api/keyvault/#certificate-operations)|해당 없음|[참조](/dotnet/api/azure.security.keyvault.certificates)|[참조](/python/api/overview/azure/keyvault-certificates-readme)<br>[빠른 시작](../certificates/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[참조](/javascript/api/@azure/keyvault-certificates/)|
+|[참조](/cli/azure/keyvault/certificate)<br>[빠른 시작](../certificates/quick-create-cli.md)|[참조](/powershell/module/az.keyvault)<br>[빠른 시작](../certificates/quick-create-powershell.md)|[참조](/rest/api/keyvault/#certificate-operations)|해당 없음|[참조](/dotnet/api/azure.security.keyvault.certificates)<br>[빠른 시작](../certificates/quick-create-net.md)|[참조](/python/api/overview/azure/keyvault-certificates-readme)<br>[빠른 시작](../certificates/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)<br>[빠른 시작](../certificates/quick-create-java.md)|[참조](/javascript/api/@azure/keyvault-certificates/)<br>[빠른 시작](../certificates/quick-create-node.md)|
 
 **비밀 Api 및 Sdk**
 

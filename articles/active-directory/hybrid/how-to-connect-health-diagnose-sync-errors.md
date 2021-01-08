@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20f1e152d67e653b10b8378b7d667106c48dc116
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 5942d208fa3859d0a4a80de5f072f2e798fe040f
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016935"
+ms.locfileid: "98028933"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>중복된 특성 동기화 오류 진단 및 수정
 
@@ -68,7 +68,7 @@ Azure Portal의 단계에 따라 동기화 오류 세부 정보 범위를 좁히
 Azure Portal에서 몇 가지 단계를 수행하여 수정 가능한 시나리오를 식별합니다.  
 1.  **상태 진단** 열을 확인합니다. 상태를 보면 Azure Active Directory에서 직접 동기화 오류를 수정할 수 있는지 알 수 있습니다. 즉, 오류 사례 범위를 좁히고 오류를 해결할 수 있는 문제 해결 흐름이 있습니다.
 
-| Status | 무엇을 의미하나요? |
+| 상태 | 무엇을 의미하나요? |
 | ------------------ | -----------------|
 | 시작 안함 | 이 진단 프로세스를 방문하지 않았습니다. 진단 결과에 따라 포털에서 바로 동기화 오류를 해결하는 방법이 있습니다. |
 | 수동 수정 필요 | 이 오류는 포털에서 사용할 수 있는 수정 기준에 맞지 않습니다. 충돌하는 개체 형식이 사용자가 아니거나, 이미 진단 단계를 진행했지만 포털에서 사용할 수 있는 해결 방법이 없습니다. 후자에 속하는 경우 온-프레미스 쪽에서의 수정은 여전히 솔루션 중 하나입니다. [온-프레미스 수정에 대해 자세히 알아보세요](https://support.microsoft.com/help/2647098). | 
@@ -137,6 +137,9 @@ Azure Portal에서 몇 가지 단계를 수행하여 수정 가능한 시나리�
 
 **원본 앵커에서 테넌트의 클라우드 기반 사용자로 업데이트하는 것은 지원되지 않습니다.**  
 Azure AD의 클라우드 기반 사용자에게는 원본 앵커가 없어야 합니다. 이 경우에 원본 앵커의 업데이트는 지원되지 않습니다. 온-프레미스에서 수동 수정이 필요합니다. 
+
+**수정 프로세스에서 값을 업데이트 하지 못했습니다.**
+[Azure AD Connect에서 Userwriteback 등의](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback) 특정 설정은 지원 되지 않습니다. 설정에서을 사용 하지 않도록 설정 하세요. 
 
 ## <a name="faq"></a>FAQ
 **Q.** **수정 적용** 실행이 실패하면 어떻게 되나요?  

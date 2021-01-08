@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d083bc0b7726a284dcfd03e49d47c2a342db023c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ed909cf3feb17930b045dee1031ed5a6209b63d2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461806"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98029018"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Microsoft Azure Cosmos DB용 Synapse Link란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -117,13 +117,15 @@ Synapse Link는 다음과 같은 경우에 권장됩니다.
 
 ## <a name="limitations"></a>제한 사항
 
-* 현재 Azure Cosmos DB용 Azure Synapse Link는 SQL API 및 Azure Cosmos DB API for MongoDB에 대해 지원됩니다. Gremlin API 및 Table API에 대해 지원되지 않습니다. Cassandra API에 대 한 지원은 비공개 미리 보기입니다. 자세한 내용은 [Azure Synapse Link 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.  
+* Azure Cosmos DB에 대 한 Azure Synapse 링크는 SQL API 및 MongoDB 용 Azure Cosmos DB API에 대해 지원 됩니다. Gremlin API, Cassandra API 및 Table API에 대해서는 지원 되지 않습니다. 
 
-* 현재 분석 저장소는 새 컨테이너에 대해서만 사용할 수 있습니다. 기존 컨테이너에 분석 저장소를 사용 하려면 [Azure Cosmos DB 마이그레이션 도구](cosmosdb-migrationchoices.md)를 사용 하 여 기존 컨테이너에서 새 컨테이너로 데이터를 마이그레이션합니다. 신규 및 기존 Azure Cosmos DB 계정에서 Synapse 링크를 사용 하도록 설정할 수 있습니다.
+* 분석 저장소는 새 컨테이너에 대해서만 사용할 수 있습니다. 기존 컨테이너에 분석 저장소를 사용 하려면 [Azure Cosmos DB 마이그레이션 도구](cosmosdb-migrationchoices.md)를 사용 하 여 기존 컨테이너에서 새 컨테이너로 데이터를 마이그레이션합니다. 신규 및 기존 Azure Cosmos DB 계정에서 Synapse 링크를 사용 하도록 설정할 수 있습니다.
 
 * 분석 저장소가 설정 된 컨테이너의 경우 지금은 분석 저장소에서 데이터의 자동 백업 및 복원이 지원 되지 않습니다. 데이터베이스 계정에서 Synapse 링크를 사용 하도록 설정 하면 Azure Cosmos DB는 항상으로 예약 된 백업 간격으로 컨테이너의 트랜잭션 저장소 (만)에 대 한 데이터 백업을 자동으로 [수행](./online-backup-and-restore.md) 합니다. 분석 저장소가 설정 된 컨테이너가 새 계정으로 복원 되 면 컨테이너는 트랜잭션 저장소로만 복원 되 고 분석 저장소는 사용 하도록 설정 되지 않습니다. 
 
 * Synapse SQL 프로비저닝을 사용한 Microsoft Azure Cosmos DB 분석 저장소 액세스는 현재 제공되지 않습니다.
+
+* Azure Synapse Analytics에서 관리 되는 개인 끝점을 사용 하는 Azure Cosmso DB 분석 저장소에 대 한 네트워크 격리는 현재 지원 되지 않습니다.
 
 ## <a name="pricing"></a>가격 책정
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/07/2020
+ms.date: 01/07/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 0d80b8f41e11f2fffa86dc7597fdf44dd27825fc
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558932"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028899"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory의 질문과 대답 Id 보호
 
@@ -35,7 +35,7 @@ Id 보호에서 **사용자 위험 해제** 는 id 보호에서 사용자의 위
 
 Azure AD ID 보호 고객 인 경우 [위험한 사용자](howto-identity-protection-investigate-risk.md#risky-users) 보기로 이동 하 고 위험 사용자를 클릭 합니다. 아래쪽의 서랍에 ' 위험 기록 ' 탭에는 사용자 위험 변경에 대 한 모든 이벤트가 표시 됩니다. 사용자에 대 한 모든 위험한 로그인을 보려면 ' 사용자의 위험한 로그인 '을 클릭 합니다. 이 사용자에 대 한 모든 위험 검색을 보려면 ' 사용자의 위험 검색 '을 클릭 합니다.
 
-## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>내 로그인이 차단 되었지만 Id 보호에서 위험 검색을 생성 하지 못한 이유는 무엇 인가요?
+### <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>내 로그인이 차단 되었지만 Id 보호에서 위험 검색을 생성 하지 못한 이유는 무엇 인가요?
 여러 가지 이유로 로그인을 차단할 수 있습니다. 인증 요청에서 올바른 자격 증명을 사용 하는 경우 Id 보호는 위험 검색만 생성 한다는 점에 유의 해야 합니다. 사용자가 잘못 된 자격 증명을 사용 하는 경우 잘못 된 행위자가 올바른 자격 증명을 사용 하지 않는 한 자격 증명 손상의 위험이 없으므로 Id 보호에 의해 플래그가 지정 되지 않습니다. Id 보호 검색을 생성 하지 않는 사용자가 서명에서 차단할 수 있는 몇 가지 이유는 다음과 같습니다.
 * Ip 주소에서 악성 작업으로 인해 **ip가 차단 될 수 있습니다** . IP 차단 메시지는 자격 증명이 올바른지 여부를 구분 하지 않습니다. IP가 차단 되 고 올바른 자격 증명을 사용 하지 않는 경우 Id 보호 검색을 생성 하지 않습니다.
 * **[스마트 잠금은](../authentication/howto-password-smart-lockout.md)** 실패 한 여러 번 시도 후 계정이 로그인 하지 못하도록 차단할 수 있습니다.
@@ -96,3 +96,7 @@ IP 지리적 위치 매핑은 업계 전체에서 사용되는 챌린지입니�
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>로그인과 관련한 검색 결과에는 위험 수준이 낮음/중간으로 표시되는데 로그인의 "로그인 위험(집계)" 점수는 높음인 이유는 무엇인가요?
 
 로그인에 대해 여러 위험이 검색되었거나 로그인의 기타 기능이 사용되면 집계 위험 점수가 높아질 수 있습니다. 반면 로그인과 관련하여 검색된 위험의 점수가 높음이라도 로그인 위험(집계) 점수는 중간일 수 있습니다.
+
+### <a name="what-is-the-difference-between-the-activity-from-anonymous-ip-address-and-anonymous-ip-address-detections"></a>"익명 IP 주소에서 작업" 및 "익명 IP 주소" 검색의 차이점은 무엇 인가요?
+
+"익명 IP 주소" 검색의 원본은 Azure AD ID 보호 반면 "익명 IP 주소에서의 작업" 검색은 MCAS (Microsoft Cloud App Security)에서 통합 됩니다. 이름이 매우 비슷하며 이러한 신호에 겹치는 부분이 있을 수 있으며, 이러한 신호에는 서로 다른 백 엔드 검색이 있습니다.
