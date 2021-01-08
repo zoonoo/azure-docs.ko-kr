@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics를 사용하여 IoT 솔루션 빌드
 description: 요금 창구 시나리오의 Stream Analytics IoT 솔루션 시작하기 자습서
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ddec53b18cd6f374a5665298b43b46122bcfa143
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130802"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016153"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -28,7 +27,7 @@ ms.locfileid: "93130802"
 * 안심하고 Stream Analytics를 사용하여 고객에 대한 스트리밍 솔루션 개발
 * 모니터링 및 로깅 경험을 사용하여 문제 해결
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 솔루션을 완료하려면 다음 필수 구성 요소가 필요합니다.
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 

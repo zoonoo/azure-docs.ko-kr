@@ -1,17 +1,17 @@
 ---
 title: 관리 되는 id를 사용 하 여 Azure SQL Database 또는 Azure Synapse Analytics에 액세스-Azure Stream Analytics
 description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure SQL Database 또는 Azure Synapse Analytics 출력에 Azure Stream Analytics 작업을 인증 하는 방법을 설명 합니다.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: ee617b50d85f611e130ec5533239c8924efecc6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 244f8a446e33102e018881b3ec8f32ba9d8cbcc6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352187"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014148"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>관리 되는 id를 사용 하 여 Azure Stream Analytics 작업에서 Azure SQL Database 또는 Azure Synapse Analytics에 액세스 (미리 보기)
 
@@ -73,7 +73,7 @@ Azure Stream Analytics Azure SQL Database 및 Azure Synapse Analytics 출력 싱
 
    ![Active Directory 관리자 추가](./media/sql-db-output-managed-identity/add-admin.png)
 
-   Active Directory 관리 페이지에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시 된 사용자 또는 그룹은 Azure Active Directory 관리자로 지원 되지 않으므로 선택할 수 없습니다.  **Azure Active Directory Features and Limitations**    [SQL Database 또는 Azure Synapse 인증에 대 한 Azure Active Directory 인증 사용](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations)의 Azure Active Directory 기능 및 제한 사항 섹션에서 지원 되는 관리자 목록을 참조 하세요. Azure RBAC (역할 기반 액세스 제어)는 포털에만 적용 되 고 SQL Server로 전파 되지 않습니다. 또한 선택한 사용자 또는 그룹은 다음 섹션에서 **포함된 데이터베이스 사용자** 를 만들 수 있는 사용자입니다.
+   Active Directory 관리 페이지에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시 된 사용자 또는 그룹은 Azure Active Directory 관리자로 지원 되지 않으므로 선택할 수 없습니다.  ****    [SQL Database 또는 Azure Synapse 인증에 대 한 Azure Active Directory 인증 사용](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations)의 Azure Active Directory 기능 및 제한 사항 섹션에서 지원 되는 관리자 목록을 참조 하세요. Azure RBAC (역할 기반 액세스 제어)는 포털에만 적용 되 고 SQL Server로 전파 되지 않습니다. 또한 선택한 사용자 또는 그룹은 다음 섹션에서 **포함된 데이터베이스 사용자** 를 만들 수 있는 사용자입니다.
 
 1. **Active Directory 관리자** 페이지에서 **저장** 을 선택합니다. 관리자를 변경하는 프로세스는 몇 분 정도 걸립니다.
 

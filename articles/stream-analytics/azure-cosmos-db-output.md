@@ -1,18 +1,17 @@
 ---
 title: Azure Stream Analytics에서 출력 Azure Cosmos DB
 description: 이 문서에서는 Azure Stream Analytics Azure Cosmos DB에 데이터를 출력 하는 방법을 설명 합니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9382ac8dc71d1ccb3a85dc0a7a027c8e99296cc6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491735"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016580"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Azure Cosmos DB
 
@@ -34,7 +33,7 @@ Stream Analytics의 Azure Cosmos DB 출력은 현재 Azure 중국 21Vianet 및 A
 | 계정 ID | Azure Cosmos DB 계정의 이름 또는 엔드포인트 URI입니다. |
 | 계정 키 | Azure Cosmos DB 계정에 대한 공유 액세스 키입니다. |
 | 데이터베이스 | Azure Cosmos DB 데이터베이스 이름입니다. |
-| 컨테이너 이름 | 사용할 컨테이너 이름이며, Cosmos DB에 있어야 합니다. 예제:  <br /><ul><li> _MyContainer_ : "MyContainer"라는 컨테이너가 있어야 합니다.</li>|
+| 컨테이너 이름 | 사용할 컨테이너 이름이며, Cosmos DB에 있어야 합니다. 예제:  <br /><ul><li> _MyContainer_: "MyContainer"라는 컨테이너가 있어야 합니다.</li>|
 | 문서 ID |(선택 사항) 삽입 또는 업데이트 작업의 기반이 되는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.
 
 ## <a name="partitioning"></a>분할

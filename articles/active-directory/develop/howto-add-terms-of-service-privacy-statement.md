@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46919a97364aeff29e2b458c619315571dba7710
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89535775"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013671"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 약관 및 개인 정보 취급 방침 구성
 
@@ -58,7 +58,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Azure Portal 사용
 Azure Portal에서 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인 하 고 올바른 AzureAD 테 넌 트 (B2C 아님)를 선택 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 하 고 올바른 AzureAD 테 넌 트 (B2C 아님)를 선택 합니다.
 2. **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
 3. **브랜딩** 창을 엽니다.
 4. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.

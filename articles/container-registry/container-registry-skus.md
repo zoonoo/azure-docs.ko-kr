@@ -1,14 +1,14 @@
 ---
 title: 레지스트리 서비스 계층 및 기능
-description: Azure Container Registry의 기본, 표준 및 프리미엄 서비스 계층(SKU)에 있는 기능 및 제한 사항을 알아봅니다.
+description: Azure Container Registry의 기본, 표준 및 프리미엄 서비스 계층 ()의 기능 및 제한 (할당량)에 대해 알아봅니다.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: e2a5ad52775e9000aa0beb0a926d809da1c5a0e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b55fc16dcd6dcb544ed4597ce4bdc6ba17b52646
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048477"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015670"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure Container Registry 서비스 계층
 
@@ -30,7 +30,9 @@ Azure Container Registry는 다중 서비스 계층(SKU라고도 함)에서 사�
 
 ## <a name="changing-tiers"></a>계층 변경
 
-Azure CLI를 사용하거나 Azure Portal에서 레지스트리의 서비스 계층을 변경할 수 있습니다. 전환하는 계층에 필요한 최대 스토리지 용량이 있는 한 계층 간에 자유롭게 이동할 수 있습니다. 
+Azure CLI를 사용하거나 Azure Portal에서 레지스트리의 서비스 계층을 변경할 수 있습니다. 전환 하는 계층에 필요한 최대 저장소 용량이 있으면 계층 간에 자유롭게 이동할 수 있습니다. 
+
+서비스 계층 간에 이동할 때 레지스트리 작업에 영향을 주지 않거나 레지스트리 작업에 영향을 주지 않습니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -42,7 +44,7 @@ az acr update --name myregistry --sku Premium
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal의 컨테이너 레지스트리 **개요**에서 **업데이트**를 선택한 다음, SKU 드롭다운에서 새로운 **SKU**를 선택합니다.
+Azure Portal의 컨테이너 레지스트리 **개요** 에서 **업데이트** 를 선택한 다음, SKU 드롭다운에서 새로운 **SKU** 를 선택합니다.
 
 ![Azure Portal에서 컨테이너 레지스트리 SKU 업데이트][update-registry-sku]
 

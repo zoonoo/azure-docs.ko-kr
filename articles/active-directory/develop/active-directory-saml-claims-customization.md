@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9c316362e2cd3fca9290e5f8070879567d9b7ea5
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 9fb5e229882532fed076f2e0d800f32acfcdbf4c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963505"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013790"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -81,7 +81,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 
 또한 Azure AD에서 정의한 모든 클레임에 상수(정적) 값을 할당할 수도 있습니다. 상수 값을 할당하려면 다음 단계를 수행하세요.
 
-1. [Azure Portal](https://portal.azure.com/)의 **사용자 특성 및 클레임** 섹션에서 **편집** 아이콘을 클릭하여 클레임을 편집합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>의 **사용자 특성 & 클레임** 섹션에서 **편집** 아이콘을 클릭 하 여 클레임을 편집 합니다.
 
 1. 수정하려는 필수 클레임을 클릭합니다.
 

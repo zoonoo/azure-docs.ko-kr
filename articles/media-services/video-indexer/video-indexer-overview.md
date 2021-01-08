@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b5a228c12cfc874673dda854de6d4dcc25f28c1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052140"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014538"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Azure Media Services Video Indexer란?
 
@@ -76,7 +76,7 @@ Video Indexer의 인사이트는 다음과 같은 다양한 시나리오에 적�
 
 * **오디오 전사**: 음성을 12개 언어의 텍스트로 변환하고 확장을 허용합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 아랍어, 러시아어, 포르투갈어, 힌디어 및 한국어입니다.
 * **자동 언어 감지**: 기준 음성 언어를 자동으로 식별합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 러시아어 및 포르투갈어입니다. 언어를 확실하게 식별할 수 없는 경우 Video Indexer는 음성 언어를 영어로 가정합니다. 자세한 내용은 [언어 식별 모델](language-identification-model.md)을 참조하세요.
-* **다국어 음성 식별 및 전사**(미리 보기): 오디오의 여러 세그먼트에서 음성 언어를 자동으로 식별합니다. 미디어 파일의 각 세그먼트를 전사되도록 전송한 다음 전사를 다시 하나의 통합된 전사로 결합합니다. 자세한 내용은 [자동으로 다국어 콘텐츠 식별 및 전사](multi-language-identification-transcription.md)를 참조하세요.
+* **다국어 음성 식별 및** 기록: 오디오의 다른 세그먼트에서 음성 언어를 자동으로 식별 합니다. 미디어 파일의 각 세그먼트를 전사되도록 전송한 다음 전사를 다시 하나의 통합된 전사로 결합합니다. 자세한 내용은 [자동으로 다국어 콘텐츠 식별 및 전사](multi-language-identification-transcription.md)를 참조하세요.
 * **선택 자막**: VTT, TTML, SRT의 세 가지 형식으로 선택 자막을 만듭니다.
 * **두 채널 처리**: 개별 대본을 자동 검색하고 단일 타임라인으로 병합합니다.
 * **노이즈 감소**: 전화 통신 오디오 또는 노이즈가 많은 녹음을 지웁니다(Skype 필터 기준).

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75839893d0048841440f2c790df7d23ad825d962
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 8acc547552cecaebb60888bb7b9777f6279b9b7c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093471"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015762"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>내부 사용자를 B2B 공동 작업에 초대
 
@@ -44,8 +44,7 @@ Azure AD B2B 공동 작업을 사용 하기 전에 조직에서 내부 자격 �
 
 PowerShell 또는 초대 API를 사용 하 여 내부 사용자에 게 B2B 초대를 보낼 수 있습니다. 초대에 사용할 전자 메일 주소가 내부 사용자 개체의 외부 전자 메일 주소로 설정 되었는지 확인 합니다.
 
-- 클라우드 전용 사용자의 경우 초대에 대 한 사용자의 OtherMails 속성에서 전자 메일 주소를 사용 합니다.
-- 온-프레미스 동기화 된 사용자의 경우에는 초대에 대해 User. Mail 속성의 값을 사용 해야 합니다.
+- 초대에 대 한 사용자 전자 메일 주소를 사용 해야 합니다.
 - 사용자의 메일 속성에 있는 도메인은 로그인 하는 데 사용 하 고 있는 계정과 일치 해야 합니다. 그렇지 않으면 팀과 같은 일부 서비스에서 사용자를 인증할 수 없습니다.
 
 기본적으로 초대는 사용자에 게 초대를 알리는 전자 메일을 전송 하지만,이 전자 메일을 표시 하지 않고 사용자 고유의 전자 메일을 보낼 수 있습니다.

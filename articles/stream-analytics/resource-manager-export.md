@@ -2,17 +2,17 @@
 title: Azure Stream Analytics 작업 Azure Resource Manager 템플릿 내보내기
 description: 이 문서에서는 Azure Stream Analytics 작업에 대 한 Azure Resource Manager 템플릿을 내보내는 방법을 설명 합니다.
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 2afebe61c4b2998692c823e66d8fc73584ec1dc2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aa17d83dcc14675db5ff6aa4597314baffbffdbb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125651"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015422"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Azure Stream Analytics 작업 Azure Resource Manager 템플릿 내보내기
 
@@ -58,7 +58,7 @@ Visual Studio Code를 사용 하 여 Stream Analytics 작업을 관리 하는 �
 
 이전 섹션에서 생성 한 Azure Resource Manager 템플릿을 사용 하 여 Azure Stream Analytics 작업을 배포할 준비가 되었습니다.
 
-PowerShell 창에서 다음 명령을 실행 합니다. 실제 리소스 그룹 이름으로 *ResourceGroupName* , reaplce *파일* 및 템플릿 *parameterfile* 을 하 고 작업 작업 영역의 **배포 폴더** 에 있는 파일에 대 한 전체 파일 *JobTemplate.js* 경로를 사용 하 여 *JobTemplate.parameters.js* 해야 합니다.
+PowerShell 창에서 다음 명령을 실행 합니다. 실제 리소스 그룹 이름으로 *ResourceGroupName*, reaplce *파일* 및 템플릿 *parameterfile* 을 하 고 작업 작업 영역의 **배포 폴더** 에 있는 파일에 대 한 전체 파일 *JobTemplate.js* 경로를 사용 하 여 *JobTemplate.parameters.js* 해야 합니다.
 
 Azure PowerShell 구성 되지 않은 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)의 단계를 따르세요.
 

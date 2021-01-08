@@ -1,25 +1,24 @@
 ---
 title: Azure Stream Analytics의 검사점 및 재생 복구 개념
 description: 이 문서에서는 Azure Stream Analytics의 검사점 및 재생 작업 복구 개념에 대해 설명합니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df31f8538bb9eabeca37fe4c52c4443fd447e415
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84020611"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015321"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 검사점 및 재생 개념
 이 문서에서는 Azure Stream Analytics의 내부 검사점 및 재생 개념과 이러한 개념이 작업 복구에 미치는 영향에 대해 설명합니다. Stream Analytics 작업이 실행될 때마다 상태 정보가 내부적으로 유지 관리됩니다. 이러한 상태 정보는 정기적으로 검사점에 저장됩니다. 일부 시나리오에서는 작업 실패 또는 업그레이드가 발생하는 경우 검사점 정보가 작업을 복구하는 데 사용됩니다. 다른 상황에서는 검사점을 복구에 사용할 수 없으며 재생이 필요합니다.
 
-## <a name="stateful-query-logicin-temporal-elements"></a>temporal 요소의 상태 저장 쿼리 논리
-Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 작업이 실행될 때 이러한 각 연산자는 상태 정보를 유지합니다.이러한 쿼리 요소의 최대 시간 범위는 7일입니다. 
+## <a name="stateful-query-logic-in-temporal-elements"></a>temporal 요소의 상태 저장 쿼리 논리
+Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 작업이 실행될 때 이러한 각 연산자는 상태 정보를 유지합니다. 이러한 쿼리 요소의 최대 시간 범위는 7일입니다. 
 
 temporal 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 나타납니다.
 1. 시간 범위 이동 집계(텀블링, 호핑 및 슬라이딩 시간 범위의 GROUP BY)
@@ -54,7 +53,7 @@ Microsoft는 경우에 따라 Azure 서비스에서 Stream Analytics 작업을 �
 
 1. 충분한 데이터가 포함된 입력 Event Hub를 로드하여 예상 이벤트 속도로 쿼리의 가장 큰 시간 범위를 처리합니다. 이벤트의 타임스탬프는 라이브 입력 피드인 것처럼 해당 기간 동안 벽 시계 시간에 가까워야 합니다. 예를 들어 쿼리에 3일 시간 범위가 있는 경우 이벤트를 3일 동안 Event Hub로 보내고 계속 이벤트를 보냅니다. 
 
-2. **지금**을 시작 시간으로 사용하여 작업을 시작합니다. 
+2. **지금** 을 시작 시간으로 사용하여 작업을 시작합니다. 
 
 3. 시작 시간과 첫 번째 출력이 생성되는 시점 사이의 시간을 측정합니다. 시간은 서비스 업그레이드 중에 작업이 지연되는 시간을 대략적으로 나타냅니다.
 

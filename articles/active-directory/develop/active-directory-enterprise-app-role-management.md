@@ -12,18 +12,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: e88a721d500ea1c17c768e9f28835248711bd361
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 10b61dd4b6cc3a99b8eecf86cb5ba7e718d64743
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584445"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015116"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
 
 Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나는 응답 토큰에서 역할 클레임에 대한 클레임 유형을 지정할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 디렉터리가 설치된 Azure AD 구독
 - SSO(Single Sign-On)를 사용하도록 설정된 구독 애플리케이션에 SSO를 구성해야 함
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 ## <a name="create-roles-for-an-application"></a>애플리케이션에 대한 역할 만들기
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory** 아이콘을 선택합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>의 왼쪽 창에서 **Azure Active Directory** 아이콘을 선택 합니다.
 
     ![Azure Active Directory 아이콘][1]
 

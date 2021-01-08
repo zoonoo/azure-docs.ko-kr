@@ -1,19 +1,18 @@
 ---
 title: Azure Machine Learning Studio와 Azure Stream Analytics 통합 (클래식)
 description: 이 문서에서는 사용자 정의 함수를 사용 하 여 Azure Machine Learning Studio (클래식)을 통합 하는 간단한 Azure Stream Analytics 작업을 신속 하 게 설정 하는 방법을 설명 합니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9b08b59090d9dd23405f8a0ba86ce608e3a64902
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d7d74887b4b4e205645a45fa7e07768a1af73940
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011390"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015303"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Azure Stream Analytics 및 Azure Machine Learning Studio를 사용 하 여 감정 분석 (클래식)
 
@@ -35,7 +34,7 @@ ms.locfileid: "96011390"
 
 시작하기 전에 다음이 필요합니다.
 
-* 활성화된 Azure 구독.
+* 활성 Azure 구독
 
 * 일부 Twitter 데이터가 포함 된 CSV 파일입니다. [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv)에서 샘플 파일을 다운로드 하거나 파일을 직접 만들 수 있습니다. 실제 시나리오에서는 Twitter 데이터 스트림에서 직접 데이터를 가져옵니다.
 
@@ -133,7 +132,7 @@ ms.locfileid: "96011390"
 
 작업은 입력을 가져오는 동일한 Blob Storage에 결과를 보냅니다.
 
-1. Stream Analytics 작업으로 이동합니다. **작업 토폴로지** 아래에서 **출력** 옵션을 선택 합니다. **Add**  >  **Blob 저장소** 추가를 선택 합니다.
+1. Stream Analytics 작업으로 이동합니다. **작업 토폴로지** 아래에서 **출력** 옵션을 선택 합니다.   >  **Blob 저장소** 추가를 선택 합니다.
 
 2. 다음 값으로 **Blob Storage** 폼을 채웁니다.
 

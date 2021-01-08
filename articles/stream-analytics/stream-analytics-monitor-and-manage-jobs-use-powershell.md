@@ -3,16 +3,15 @@ title: PowerShell을 사용하여 Azure Stream Analytics 작업 모니터링 및
 description: 이 아티클에서는 Azure PowerShell 및 cmdlet을 사용하여 Azure Stream Analytics 작업을 모니터링하고 관리하는 방법에 대해 설명합니다.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 4d41e8231f5bd186408ea511c0f096a6a5f26c83
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6b404516c513dea0888974ffb4fa3d8d43db6c44
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123645"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015185"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet을 사용하여 Stream Analytics 작업 모니터링 및 관리
 기본 Stream Analytics 작업을 실행하는 Azure PowerShell cmdlet 및 PowerShell 스크립팅을 사용하여 Stream Analytics 리소스를 모니터링 및 관리하는 방법을 알아봅니다.

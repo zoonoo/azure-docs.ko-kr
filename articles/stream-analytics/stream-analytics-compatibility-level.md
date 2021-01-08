@@ -1,17 +1,17 @@
 ---
 title: Azure Stream Analytics 호환성 수준
 description: Azure Stream Analytics 작업의 호환성 수준을 설정하는 방법과 최신 호환성 수준의 주요 변경 내용을 알아봅니다.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8105988cd2036f44d214befad3365cf9ee96ee0d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348936"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015983"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -53,7 +53,7 @@ Azure Portal에서 작업의 호환성 수준을 업데이트 하려면 다음�
 
 ###  <a name="amqp-messaging-protocol"></a>AMQP 메시징 프로토콜
 
-**1.2 level** : Azure Stream Analytics는 [Amqp (Advanced Message queuing protocol)](../service-bus-messaging/service-bus-amqp-overview.md) 메시징 프로토콜을 사용 하 여 Service Bus 큐 및 토픽에 기록 합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 애플리케이션을 빌드할 수 있습니다.
+**1.2 level**: Azure Stream Analytics는 [Amqp (Advanced Message queuing protocol)](../service-bus-messaging/service-bus-amqp-overview.md) 메시징 프로토콜을 사용 하 여 Service Bus 큐 및 토픽에 기록 합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 애플리케이션을 빌드할 수 있습니다.
 
 ### <a name="geospatial-functions"></a>지리 공간적 함수
 
@@ -125,7 +125,7 @@ Upsert 동작은 *insert 또는 replace* 입니다.
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. 예: `{ "SensorId":"1", "Temperature":64}`
+**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>필드 이름의 대/소문자 구분 유지
 

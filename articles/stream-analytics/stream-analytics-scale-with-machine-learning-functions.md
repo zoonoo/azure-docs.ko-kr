@@ -3,16 +3,15 @@ title: Azure Stream Analytics에서 Machine Learning Studio (클래식) 함수 �
 description: 이 문서에서는 분할 및 스트림 단위를 구성 하 여 Machine Learning Studio (클래식) 함수를 사용 하는 Stream Analytics 작업의 크기를 조정 하는 방법을 설명 합니다.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b9768bacf8d29b37f479ea080afddd494b506262
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018820"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013943"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Azure Machine Learning Studio(클래식) 함수를 사용하여 Stream Analytics 작업의 크기 조정
 

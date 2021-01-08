@@ -2,16 +2,16 @@
 title: Visual Studio Code에서 Azure Stream Analytics 작업 살펴보기
 description: 이 문서에서는 Azure Stream Analytics 작업을 로컬 프로젝트로 내보내고 작업을 나열 하 고 작업 엔터티를 보는 방법을 보여 줍니다.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: how-to
-ms.openlocfilehash: 4b4ddd7db4891c642ec2002bbe992314fe67a20f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1c0650820a419275ade6095344033b6d81a568
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891982"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013875"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Visual Studio Code를 사용 하 여 Azure Stream Analytics 탐색 (미리 보기)
 
@@ -32,7 +32,7 @@ Visual Studio Code 확장에 대 한 Azure Stream Analytics는 개발자에 게 
 Visual Studio에서 작업 보기를 사용하여 Azure Stream Analytics 작업과 상호 작용할 수 있습니다.
 
 
-1. Visual Studio Code 활동 표시줄에서 **Azure** 아이콘을 클릭 한 다음 **Stream Analytics 노드**를 확장 합니다. 사용자의 작업은 구독 아래에 표시 되어야 합니다.
+1. Visual Studio Code 활동 표시줄에서 **Azure** 아이콘을 클릭 한 다음 **Stream Analytics 노드** 를 확장 합니다. 사용자의 작업은 구독 아래에 표시 되어야 합니다.
 
    ![Stream Analytics 탐색기 열기](./media/vscode-explore-jobs/open-explorer.png)
 

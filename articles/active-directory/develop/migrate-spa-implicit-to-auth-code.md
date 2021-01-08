@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 05258e201c65138e53e861f0631eb33e08c9c199
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 391febcf8852147aedf5ef61d2442b2f50b4c9ae
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673591"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014742"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>암시적 허용에서 권한 부여 코드 흐름으로 JavaScript 단일 페이지 앱 마이그레이션
 
-Microsoft Authentication Library for JavaScript(MSAL.js) v2.0은 Microsoft ID 플랫폼의 단일 페이지 애플리케이션에 PKCE 및 CORS를 사용하는 권한 부여 코드 흐름 지원을 제공합니다. 암시적 허용을 사용하는 MSAL.js 1.x 애플리케이션을 MSAL.js 2.0 이상(" *2.x* ")과 권한 부여 코드 흐름으로 마이그레이션하려면 아래 섹션의 단계를 따르세요.
+Microsoft Authentication Library for JavaScript(MSAL.js) v2.0은 Microsoft ID 플랫폼의 단일 페이지 애플리케이션에 PKCE 및 CORS를 사용하는 권한 부여 코드 흐름 지원을 제공합니다. 암시적 허용을 사용하는 MSAL.js 1.x 애플리케이션을 MSAL.js 2.0 이상("*2.x*")과 권한 부여 코드 흐름으로 마이그레이션하려면 아래 섹션의 단계를 따르세요.
 
-MSAL.js 1.x에서 개선된 MSAL.js 2.x는 암시적 허용 흐름 대신 브라우저의 권한 부여 코드 흐름을 지원합니다. MSAL.js 2.x는 암시적 흐름을 지원하지 **않습니다** .
+MSAL.js 1.x에서 개선된 MSAL.js 2.x는 암시적 허용 흐름 대신 브라우저의 권한 부여 코드 흐름을 지원합니다. MSAL.js 2.x는 암시적 흐름을 지원하지 **않습니다**.
 
 ## <a name="migration-steps"></a>마이그레이션 단계
 
@@ -41,18 +41,18 @@ MSAL.js 1.x에서 개선된 MSAL.js 2.x는 암시적 허용 흐름 대신 브라
 
 현재 **웹** 플랫폼 리디렉션 URI를 사용하여 구성된 앱 등록에 대해 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 **Azure Active Directory** 테넌트를 선택합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> 에 로그인 하 고 **Azure Active Directory** 테 넌 트를 선택 합니다.
 1. **앱 등록** 에서 애플리케이션, **인증** 을 차례로 선택합니다.
 1. **웹** 플랫폼 타일의 **리디렉션 URI** 에서 URI를 마이그레이션해야 함을 나타내는 경고 배너를 선택합니다.
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Azure Portal의 웹앱 타일에 대한 암시적 흐름 경고 배너":::
 1. MSAL.js 2.x를 사용할 애플리케이션의 리디렉션 *URI만* 선택한 후 **구성** 을 선택합니다.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Azure Portal의 웹앱 타일에 대한 암시적 흐름 경고 배너":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Azure Portal의 SPA 창에서 리디렉션 URI 창 선택":::
 
 이러한 리디렉션 URI는 이제 **단일 페이지 애플리케이션** 플랫폼 타일에 표시되며, 이는 권한 부여 코드 흐름에 CORS가 지원되고 이러한 URI에 PKCE가 설정되어 있음을 보여 줍니다.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Azure Portal의 웹앱 타일에 대한 암시적 흐름 경고 배너":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Azure Portal에서 앱 등록의 단일 페이지 애플리케이션 타일":::
 
 기존 등록에서 리디렉션 URI를 업데이트하는 대신 [새 앱 등록을 만들 수도 있습니다](scenario-spa-app-registration.md).
 
@@ -86,7 +86,7 @@ MSAL 2.x를 애플리케이션에 추가하는 전체 연습을 보려면 [자�
 
 앱 등록에서 암시적 허용 설정을 선택 취소하면 등록 및 해당 클라이언트 ID를 사용하는 모든 애플리케이션에 암시적 흐름이 사용하지 않도록 설정됩니다.
 
-모든 애플리케이션을 MSAL.js 2.x 및 [PublicClientApplication][msal-js-publicclientapplication]으로 업데이트하기 전에 암시적 허용 흐름을 해제하지 **마세요** .
+모든 애플리케이션을 MSAL.js 2.x 및 [PublicClientApplication][msal-js-publicclientapplication]으로 업데이트하기 전에 암시적 허용 흐름을 해제하지 **마세요**.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cd51210a64223fab5d2d48a91bd3d0a6521a9627
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8d52f8c59e83a4aae8724100770965f756a439fb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341317"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015694"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱싱 정책](index-policy.md)에 따라 인덱싱됩니다. 새로 만든 컨테이너에 대한 기본 인덱싱 정책은 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용합니다. 이 정책은 사용자 지정 인덱싱 정책으로 재정의할 수 있습니다.
+Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의 된 [인덱싱 정책](index-policy.md) 에 따라 인덱싱됩니다. 새로 만든 컨테이너에 대한 기본 인덱싱 정책은 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용합니다. 이 정책은 사용자 지정 인덱싱 정책으로 재정의할 수 있습니다.
 
 > [!NOTE]
 > 이 문서에서 설명 하는 인덱싱 정책 업데이트 방법은 Azure Cosmos DB의 SQL (Core) API에만 적용 됩니다. [Azure Cosmos DB Cassandra API에서 MongoDB 및 보조 인덱싱을](cassandra-secondary-index.md) [위한 Azure Cosmos DB의 API](mongodb-indexing.md) 인덱싱에 대해 알아봅니다.
@@ -27,7 +27,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
 
 다음은 [JSON 형식](index-policy.md#include-exclude-paths)으로 표시 되는 인덱싱 정책에 대 한 몇 가지 예입니다 .이는 Azure Portal에 노출 되는 방법입니다. Azure CLI 또는 임의의 SDK를 통해 같은 매개 변수를 설정할 수 있습니다.
 
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>일부 속성 경로를 선택적으로 제외하는 옵트아웃 정책
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a><a id="range-index"></a>일부 속성 경로를 선택적으로 제외하는 옵트아웃 정책
 
 ```json
     {
@@ -146,7 +146,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
 > [!NOTE]
 > 일반적으로 **옵트아웃 (opt out)** 인덱싱 정책을 사용 하 여 데이터 모델에 추가할 수 있는 새 속성을 사전에 Azure Cosmos DB 수 있도록 하는 것이 좋습니다.
 
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>특정 속성 경로에 대해서만 공간 인덱스 사용
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a><a id="spatial-index"></a>특정 속성 경로에 대해서만 공간 인덱스 사용
 
 ```json
 {
@@ -176,7 +176,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
 }
 ```
 
-## <a name="composite-indexing-policy-examples"></a>복합 인덱싱 정책 예제
+## <a name="composite-indexing-policy-examples"></a><a id="composite-index"></a>복합 인덱싱 정책 예제
 
 개별 속성에 대한 경로를 포함 또는 제외하는 것 외에, 복합 인덱스를 지정할 수도 있습니다. 여러 속성에 대해 `ORDER BY` 절이 있는 쿼리를 수행하려면 해당 속성에 [복합 인덱스](index-policy.md#composite-indexes)가 필요합니다. 또한 복합 인덱스는 필터와 필터 및 ORDER BY 절이 모두 포함 된 쿼리에 대 한 성능상의 이점을 제공 합니다.
 

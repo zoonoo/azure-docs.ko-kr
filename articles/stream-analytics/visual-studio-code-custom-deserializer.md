@@ -3,16 +3,15 @@ title: Visual Studio Code를 사용 하 여 Azure Stream Analytics 클라우드 
 description: 이 자습서에서는 Visual Studio Code를 사용 하 여 Azure Stream Analytics 클라우드 작업에 대 한 사용자 지정 .NET 역직렬 변환기를 만드는 방법을 보여 줍니다.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/22/2020
-ms.openlocfilehash: 0f041910d1b02cc6d1fd48bfd773711c3361c0f5
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 1813fb222bca74f355fec52252ce3d77fef06e5d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822478"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013926"
 ---
 # <a name="create-custom-net-deserializers-for-azure-stream-analytics-in-visual-studio-code"></a>Visual Studio Code에서 Azure Stream Analytics에 대 한 사용자 지정 .NET deserializers 만들기
 
@@ -22,7 +21,7 @@ Azure Stream Analytics에는 JSON, CSV 및 Avro [의 세 가지 데이터 형식
 
 Visual Studio Code를 사용 하 여 Azure Stream Analytics 클라우드 작업에 대 한 사용자 지정 .NET 역직렬 변환기를 만들고 테스트 하 고 디버그할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 * [.Net CORE SDK](https://dotnet.microsoft.com/download) 를 설치 하 고 Visual Studio Code를 다시 시작 합니다.
 

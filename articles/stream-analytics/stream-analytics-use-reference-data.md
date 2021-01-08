@@ -3,16 +3,15 @@ title: Azure Stream Analytics에서 조회에 대한 참조 데이터 사용
 description: 이 문서에서는 Azure Stream Analytics 작업의 쿼리 디자인에서 조회 또는 상관 관계 데이터에 대한 참조 데이터를 사용하는 방법을 설명합니다.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: e7f5b3ae0a4dc7faa67a361b210b1d014e1f1b93
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: d4053cd02dd11922a402971c7f3934a8b818eaa4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722133"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015906"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 

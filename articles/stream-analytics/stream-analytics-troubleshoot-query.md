@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics 쿼리 문제 해결
 description: 이 문서에서는 Azure Stream Analytics 작업에서 쿼리 문제를 해결하는 기술에 대해 설명합니다.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: ef03560cff704255d2779a747d124e0b39a1c657
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0dc36b817d5b5cdf731edecd64e1879c153d866a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491310"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015133"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics 쿼리 문제 해결
 

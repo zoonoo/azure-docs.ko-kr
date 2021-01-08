@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bae8f0955ef45e21d38797789bdea4f62bf5ea28
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b2ac90334ade52d68c775d9db5a84545774f3844
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614934"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013705"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>방법: 응용 프로그램에 앱 역할을 추가 하 고 토큰에서 수신
 
@@ -49,7 +49,7 @@ Azure Portal를 사용 하 여 앱 역할을 선언 하는 방법에는 두 가�
 
 Azure Portal의 사용자 인터페이스를 사용 하 여 앱 역할을 만들려면 다음을 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 앱 역할을 추가 하려는 앱 등록을 포함 하는 Azure Active Directory 테 넌 트를 선택 합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 에서 **앱 등록** 를 선택 하 고 응용 프로그램 역할을 정의 하려는 응용 프로그램을 선택 합니다.
@@ -60,7 +60,7 @@ Azure Portal의 사용자 인터페이스를 사용 하 여 앱 역할을 만들
 
     :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-create-context-pane.png" alt-text="앱 등록의 앱 역할 Azure Portal에 컨텍스트 창 만들기":::
 
-    | 필드 | Description | 예제 |
+    | 필드 | 설명 | 예제 |
     |-------|-------------|---------|
     | **표시 이름** | 관리자 승인 및 앱 할당 환경에 표시 되는 앱 역할의 표시 이름입니다. 이 값에는 공백이 포함 될 수 있습니다. | `Survey Writer` |
     | **허용 되는 멤버 유형** | 이 앱 역할을 사용자, 응용 프로그램 또는 둘 다에 할당할 수 있는지 여부를 지정 합니다.<br/><br/>에서 사용할 수 있는 경우 `applications` 앱 역할은 api 권한 > 앱 등록의 **관리** 섹션에서 응용 프로그램 권한으로 표시 **> Api > 사용 권한을 추가 > api > 응용 프로그램 사용 권한을 선택할** 수 있습니다. | `Users/Groups` |
@@ -74,7 +74,7 @@ Azure Portal의 사용자 인터페이스를 사용 하 여 앱 역할을 만들
 
 매니페스트를 직접 편집 하 여 역할을 추가 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 앱 역할을 추가 하려는 앱 등록을 포함 하는 Azure Active Directory 테 넌 트를 선택 합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 에서 **앱 등록** 를 선택 하 고 응용 프로그램 역할을 정의 하려는 응용 프로그램을 선택 합니다.
@@ -136,7 +136,7 @@ Azure Portal의 사용자 인터페이스를 사용 하 여 앱 역할을 만들
 
 Azure Portal를 사용 하 여 사용자 및 그룹을 역할에 할당 하려면 다음을 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
 1. **Azure Active Directory** 의 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 1. **모든 애플리케이션** 을 선택하여 모든 애플리케이션 목록을 봅니다. 응용 프로그램이 목록에 표시 되지 않으면 **모든 응용 프로그램** 목록의 맨 위에 있는 필터를 사용 하 여 목록을 제한 하거나 목록을 아래로 스크롤하여 응용 프로그램을 찾습니다.
 1. 역할에 사용자 또는 보안 그룹을 할당할 애플리케이션을 선택합니다.
@@ -158,7 +158,7 @@ Azure Portal를 사용 하 여 사용자 및 그룹을 역할에 할당 하려�
 
 Azure Portal를 사용 하 여 응용 프로그램에 앱 역할을 할당 하려면 다음을 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
 1. **Azure Active Directory** 의 왼쪽 탐색 메뉴에서 **앱 등록** 를 선택 합니다.
 1. **모든 애플리케이션** 을 선택하여 모든 애플리케이션 목록을 봅니다. 응용 프로그램이 목록에 표시 되지 않으면 **모든 응용 프로그램** 목록의 맨 위에 있는 필터를 사용 하 여 목록을 제한 하거나 목록을 아래로 스크롤하여 응용 프로그램을 찾습니다.
 1. 앱 역할을 할당 하려는 응용 프로그램을 선택 합니다.

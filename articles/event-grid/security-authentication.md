@@ -2,13 +2,13 @@
 title: 이벤트 처리기에 대 한 이벤트 배달 인증 (Azure Event Grid)
 description: 이 문서에서는 Azure Event Grid에서 이벤트 처리기에 대 한 배달을 인증 하는 다양 한 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: abe16c9598c8c10caa832150aafac997dd7f1624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 8360aa49e3d83879499af79448ff9f85082f47ac
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87460646"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015541"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>이벤트 처리기에 대 한 이벤트 배달 인증 (Azure Event Grid)
 이 문서에서는 이벤트 처리기에 대 한 이벤트 전달 인증에 대 한 정보를 제공 합니다. 또한 Azure Active Directory (Azure AD) 또는 공유 암호를 사용 하 여 Event Grid에서 이벤트를 수신 하는 데 사용 되는 webhook 끝점의 보안을 설정 하는 방법을 보여 줍니다.
@@ -16,7 +16,7 @@ ms.locfileid: "87460646"
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>이벤트 배달에 시스템 할당 id 사용
 토픽 또는 도메인에 대해 시스템 할당 관리 id를 사용 하도록 설정 하 고이 id를 사용 하 여 Service Bus 큐 및 토픽, event hubs, 저장소 계정 등의 지원 되는 대상으로 이벤트를 전달할 수 있습니다.
 
-단계는 다음과 같습니다. 
+수행하는 단계는 다음과 같습니다. 
 
 1. 시스템이 할당 한 id를 사용 하 여 토픽 또는 도메인을 만들거나, id를 사용 하도록 기존 토픽 또는 도메인을 업데이트 합니다. 
 1. 대상의 적절 한 역할 Service Bus (예: Service Bus 큐)에 id를 추가 합니다.
@@ -41,6 +41,9 @@ Azure AD를 사용하여 Event Grid에서 이벤트를 수신하는 데 사용�
 
 > [!IMPORTANT]
 Azure Event Grid는 **HTTPS** 웹후크 엔드포인트만 지원합니다. 
+
+## <a name="endpoint-validation-with-cloudevents-v10"></a>CloudEvents v1.0을 사용한 엔드포인트 유효성 검사
+Event Grid에 대해 잘 알고 있는 경우 남용 방지를 위한 끝점 유효성 검사 핸드셰이크를 알고 있을 수 있습니다. CloudEvents v 1.0은 **HTTP OPTIONS** 메서드를 사용 하 여 자체 [남용 방지 기능](webhook-event-delivery.md) 을 구현 합니다. 자세한 내용은 [이벤트 배달을 위한 HTTP 1.1 웹 후크-버전 1.0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection)를 참조 하세요. 출력에 CloudEvents 스키마를 사용 하는 경우 Event Grid Event Grid 유효성 검사 이벤트 메커니즘 대신 CloudEvents v1.0 남용 방지 기능을 사용 합니다. 자세한 내용은 [Event Grid에서 CloudEvents v 1.0 스키마 사용](cloudevents-schema.md)을 참조 하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

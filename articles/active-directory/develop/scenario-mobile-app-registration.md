@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: cdd32185d1ffddb4c6bc3d62b91690f68dec17ca
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614900"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014725"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>웹 Api를 호출 하는 모바일 앱 등록
 
@@ -83,7 +83,7 @@ B2C 인증 및 정책을 통과 하는 소셜 id를 사용 하 여 사용자를 
 
 그러나 응용 프로그램을 공용 클라이언트 응용 프로그램으로 식별 해야 합니다. 이를 수행하려면:
 
-1. [Azure Portal](https://portal.azure.com)에서 **앱 등록** 의 앱을 선택한 다음 **인증** 을 선택 합니다.
+1. <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Azure Portal</a>에서 **앱 등록** 의 앱을 선택한 다음 **인증** 을 선택 합니다.
 1. **고급 설정** 에서  >  **공용 클라이언트 흐름 허용** 에서  >  **다음과 같은 모바일 및 데스크톱 흐름을 사용 하도록 설정 합니다.** 에서 **예** 를 선택 합니다.
 
    :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Azure Portal의 인증 창에서 공용 클라이언트 설정 사용":::

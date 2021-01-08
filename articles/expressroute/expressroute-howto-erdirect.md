@@ -5,18 +5,27 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: a450c4057b4639206fd1db4b7f44d27c69441f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 964af92006aad7b5ce8bdf25a332cbcf9c7ef144
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569855"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014521"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Express 경로 다이렉트를 구성 하는 방법
 
 Express 경로 다이렉트는 전 세계에 분산 된 피어 링 위치를 통해 Microsoft의 글로벌 네트워크에 직접 연결 하는 기능을 제공 합니다. 자세한 내용은 [ExpressRoute Direct 정보](expressroute-erdirect-about.md)를 참조하세요.
+
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
+
+Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해야 합니다. 등록하려면 다음 세부 사항을 포함하여 구독 ID로 <ExpressRouteDirect@microsoft.com>에 이메일을 전송합니다.
+
+* **ExpressRoute Direct** 를 사용하여 수행하려는 시나리오
+* 위치 기본 설정 - 모든 위치의 전체 목록은 [파트너 및 피어링 위치](expressroute-locations-providers.md) 참조
+* 구현을 위한 타임라인
+* 기타 궁금한 점이 있는 경우
 
 ## <a name="create-the-resource"></a><a name="resources"></a>리소스 만들기
 

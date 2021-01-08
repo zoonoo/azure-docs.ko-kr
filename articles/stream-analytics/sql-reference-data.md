@@ -1,18 +1,17 @@
 ---
 title: Azure Stream Analytics 작업에서 SQL Database 참조 데이터 사용
 description: 이 문서에서는 Azure Portal 및 Visual Studio에서 Azure Stream Analytics 작업에 대한 참조 데이터 입력으로 SQL Database를 사용하는 방법을 설명합니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 7e2826221bd9d15472467c4dd8676d3d0538e0d6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e7d16de8a7a5c6f5353d64e25580b19845ce96c1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326576"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016408"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용
 

@@ -10,14 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
-ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 657ccafa0e7b7f640122fd6b397b3fa2a7c5f0fc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72968732"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015558"
 ---
-# <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>자동으로 다국어 콘텐츠 식별 및 높여줄 (미리 보기)
+# <a name="automatically-identify-and-transcribe-multi-language-content"></a>자동으로 다국어 콘텐츠 식별 및 전사
 
 Video Indexer은 다중 언어 콘텐츠에서 자동 언어 식별 및 기록을 지원 합니다. 이 프로세스는 오디오의 여러 세그먼트에서 음성 언어를 자동으로 식별 하 여 미디어 파일의 각 세그먼트를 transcribed으로 보내고 기록을 다시 하나의 통합 된 기록으로 결합 합니다. 
 
