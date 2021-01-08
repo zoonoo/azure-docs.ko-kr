@@ -3,7 +3,7 @@ title: Azure AD Connect Health - 경고 카탈로그 | Microsoft Docs
 description: 이 문서에서는 Azure AD Connect Health의 모든 경고에 대한 카탈로그를 보여 줍니다.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 03/15/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afca8d8fe13042e369b6aa58e527e1c976f143dd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8637c691f946c02176c441cfcf5ad5abbea10396
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411578"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016884"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Azure Active Directory Connect Health 경고 카탈로그 
 
@@ -87,7 +87,7 @@ Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD 
 | 도메인 컨트롤러에서 로컬 SYSVOL 공유에 연결할 수 없습니다. | Sysvol에는 도메인의 DC 내에서 배포할 그룹 정책 개체 및 스크립트의 중요한 요소가 포함되어 있습니다. DC는 자체를 DC로 보급하지 않으며, 그룹 정책이 적용되지 않습니다. | <a href="https://support.microsoft.com/kb/2958414">누락된 SYSVOL 및 Netlogon 공유 문제를 해결하는 방법</a> 참조 | 
 | 도메인 컨트롤러 시간이 동기화되지 않았습니다. | 이 도메인 컨트롤러의 시간이 정상적인 시간차 범위를 벗어났습니다. 이로 인해 Kerberos 인증이 실패합니다. | <li>Windows 시간 서비스를 다시 시작합니다. <br>이렇게 하려면 영향을 받는 도메인 컨트롤러에서 <i>net stop w32time</i>, </br> 다음으로 <br><i>net start w32time</i>을</br> 실행합니다.</li><li>시간을 다시 동기화합니다. <br>이렇게 하려면 영향을 받는 도메인 컨트롤러에서 <i>w32tm \/resync</i>를</br> 실행합니다. | 
 | 도메인 컨트롤러를 보급하고 있지 않습니다. | 이 도메인 컨트롤러는 수행할 수 있는 역할을 제대로 보급하고 있지 않습니다. 복제 또는 DNS 구성 오류가 있거나, 중요한 서비스가 실행되지 않거나, 서버가 완전히 초기화되지는 않았기 때문일 수 있습니다.  이로 인해 도메인 컨트롤러, 도메인 멤버 및 기타 디바이스에서 이 도메인 컨트롤러를 찾을 수 없습니다. 또한 다른 도메인 컨트롤러가 이 도메인 컨트롤러에서 복제하지 못할 수도 있습니다. | '복제가 중단되었습니다'와 같은 다른 관련 경고에 대한 경고 목록을 검사합니다. 도메인 컨트롤러 시간이 동기화 되지 않았습니다. Netlogon 서비스가 실행 되 고 있지 않습니다. DFSR 및/또는 NTFRS 서비스가 실행되고 있지 않습니다. 관련 DNS 문제를 확인하고 해결합니다. 이렇게 하려면 영향을 받는 도메인 컨트롤러에 로그온합니다. [시스템 이벤트 로그]를 엽니다. 5774, 5775 또는 5781 이벤트가 있는 경우 <a href="/previous-versions/windows/it-pro/windows-2000-server/bb727055(v=technet.10)#ECAA">도메인 컨트롤러 로케이터의 DNS 레코드 등록 오류 문제 해결</a>을 참조하세요. Windows 시간 서비스 관련 문제를 확인하고 해결합니다. 이렇게 하려면 Windows 시간 서비스가 영향을 받는 도메인 컨트롤러에서 '<b>net start w32time</b>'을 실행하고 있는지 확인합니다. Windows 시간 서비스를 다시 시작합니다. 영향을 받는 도메인 컨트롤러에서 '<b>net stop w32time</b>', 다음으로 '<b>net start w32time</b>'을 실행합니다. | 
-| GPSVC 서비스가 실행되고 있지 않습니다. | 서비스가 중지되거나 사용하지 않도록 설정된 경우, 관리자가 구성한 설정이 적용되지 않으며 그룹 정책을 통해 애플리케이션 및 구성 요소를 관리할 수 없습니다. 서비스를 사용하지 않을 경우 그룹 정책 구성 요소에 종속된 모든 구성 요소나 애플리케이션이 작동하지 않을 수 있습니다.  | Run <br>영향을 받는 도메인 컨트롤러에서 <i>net start gpsvc</i>를</br> 실행합니다. | 
+| GPSVC 서비스가 실행되고 있지 않습니다. | 서비스가 중지되거나 사용하지 않도록 설정된 경우, 관리자가 구성한 설정이 적용되지 않으며 그룹 정책을 통해 애플리케이션 및 구성 요소를 관리할 수 없습니다. 서비스를 사용하지 않을 경우 그룹 정책 구성 요소에 종속된 모든 구성 요소나 애플리케이션이 작동하지 않을 수 있습니다.  | 실행 <br>영향을 받는 도메인 컨트롤러에서 <i>net start gpsvc</i>를</br> 실행합니다. | 
 | DFSR 및/또는 NTFRS 서비스가 실행되고 있지 않습니다. | DFSR 및 NTFRS 서비스가 둘 다 중지되면 도메인 컨트롤러에서 SYSVOL 데이터를 복제할 수 없습니다. SYSVOL 데이터는 불일치 상태가 됩니다. | <li>DFSR을 사용하는 경우<ol type="1" > 영향을 받는 도메인 컨트롤러에서 '<b>net start dfsr</b>'을 실행합니다. </li><li>NTFRS를 사용하는 경우<ol type="1" >영향을 받는 도메인 컨트롤러에서 '<b>net start ntfrs</b>'를 실행합니다. </li>| 
 | Netlogon 서비스가 실행되고 있지 않습니다. | 이 DC에서 도메인 컨트롤러의 로그온 요청, 등록, 인증 및 찾기를 사용할 수 없습니다. | 영향을 받는 도메인 컨트롤러에서 '<b>net start netlogon</b>'을 실행합니다. | 
 | W32Time 서비스가 실행되고 있지 않습니다. | Windows 시간 서비스가 중지되면 날짜 및 시간 동기화를 사용할 수 없습니다. 이 서비스를 사용하지 않으면 이 서비스에 명시적으로 종속된 모든 서비스를 시작할 수 없습니다. | 영향을 받는 도메인 컨트롤러에서 '<b>net start win32Time</b>'을 실행합니다. | 

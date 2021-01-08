@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 4c93aea5a37fb286b49dabfb97522bf40c8f5429
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 08899018d03209dab09f61d4dd74feceee03b246
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333174"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019020"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API에 대 한 질문과 대답
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -29,12 +29,7 @@ Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 적용됩니�
 
 ## <a name="error-codes-while-using-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 동안 오류 코드?
 
-Azure Cosmos DB의 API for MongoDB는 일반적인 MongoDB 오류 코드 외에도 자체적인 특정 오류 코드를 갖고 있습니다.
-
-| Error               | 코드  | Description  | 해결 방법  |
-|---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | 사용 된 총 요청 단위 수가 컨테이너에 대 한 프로 비전 된 요청 단위 요금 보다 더 많이 제한 되어 있습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 다시 시도하는 것이 좋습니다. |
-| ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. <br><br> 예: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
+일반적인 MongoDB 오류 코드와 함께 MongoDB 용 Azure Cosmos DB API에는 고유한 특정 오류 코드가 있습니다. 이러한 [정보는 문제 해결 가이드](mongodb-troubleshoot.md)에서 찾을 수 있습니다.
 
 ## <a name="supported-drivers"></a>지원되는 드라이버
 

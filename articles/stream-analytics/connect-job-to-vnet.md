@@ -1,19 +1,18 @@
 ---
 title: Azure Virtual Network (VNET)에서 리소스에 Stream Analytics 작업 연결
 description: 이 문서에서는 VNET에 있는 리소스와 Azure Stream Analytics 작업을 연결 하는 방법을 설명 합니다.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: f140384ee2c78b38982c99dab5912bc451584a42
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 99563760bf37c4046e7dd81e779fedbe415380bc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898150"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019485"
 ---
 # <a name="connect-stream-analytics-jobs-to-resources-in-an-azure-virtual-network-vnet"></a>Azure Virtual Network (VNet)에서 리소스에 Stream Analytics 작업 연결
 

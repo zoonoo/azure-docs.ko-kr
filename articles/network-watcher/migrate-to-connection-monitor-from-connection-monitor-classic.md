@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: a97f3bf3a479d956747755a421d7946f7aafd4f1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3c094bf5397d15e24c3b1a58369a74438c99017e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494242"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018414"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>연결 모니터에서 연결 모니터로 마이그레이션 (클래식)
 
@@ -34,7 +34,7 @@ ms.locfileid: "96494242"
    * **경고**: 새 메트릭에 자동으로 마이그레이션됩니다.
    * **대시보드 및 통합**: 메트릭 집합을 수동으로 편집 해야 합니다. 
     
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용자 지정 작업 영역을 사용 하는 경우 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용 하도록 설정 해야 합니다. 
 

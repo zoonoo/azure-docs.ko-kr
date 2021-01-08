@@ -4,28 +4,20 @@ description: SSH 및 Azure Logic Apps를 사용하여 SFTP 서버에 대한 파�
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 01/07/2021
 tags: connectors
-ms.openlocfilehash: 31714eee2e79481bbc8afb47718ed38e178d5b82
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324244"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016765"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
 [SSH(Secure Shell)](https://www.ssh.com/ssh/protocol/) 프로토콜을 사용하여 [SFTP(보안 파일 전송 프로토콜)](https://www.ssh.com/ssh/sftp/) 서버에서 파일을 모니터링, 만들기, 전송 및 수신하는 작업을 자동화하려면 Azure Logic Apps 및 SFTP-SSH 커넥터를 사용하여 통합 워크플로를 빌드하고 자동화할 수 있습니다. SFTP는 신뢰할 수 있는 데이터 스트림을 통해 파일 액세스, 파일 전송 및 파일 관리를 제공하는 네트워크 프로토콜입니다.
-
-> [!NOTE]
-> SFTP-SSH 커넥터는 현재 이러한 SFTP 서버를 지원 하지 않습니다.
-> 
-> * IBM DataPower
-> * MessageWay
-> * OpenText Secure MFT
-> * OpenText GXS
 
 다음은 자동화할 수 있는 몇 가지 예제 작업입니다.
 
@@ -41,6 +33,13 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
 ## <a name="limits"></a>제한
 
+* SFTP-SSH 커넥터는 현재 이러한 SFTP 서버를 지원 하지 않습니다.
+
+  * IBM DataPower
+  * MessageWay
+  * OpenText Secure MFT
+  * OpenText GXS
+
 * SFTP-SSH 커넥터는 개인 키 인증 또는 암호 인증 중 하나만 지원 합니다.
 
 * SFTP- [청크](../logic-apps/logic-apps-handle-large-messages.md) 를 지 원하는 ssh 작업은 최대 1gb의 파일을 처리할 수 있지만 청크를 지원 하지 않는 파일은 최대 50 MB까지 처리할 수 있습니다. 기본 청크 크기는 250MB 이지만이 크기는 네트워크 대기 시간, 서버 응답 시간 등의 요소에 따라 5mb에서 시작 하 여 최대 50까지 점진적으로 증가 하 여 변경할 수 있습니다.
@@ -48,13 +47,13 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
   > [!NOTE]
   > [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블이 지정 된 버전에서 대신 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 사용 하도록 청크를 요구 합니다.
 
-  대신 사용할 [상수 청크 크기를 지정할](#change-chunk-size) 때이 적응형 동작을 재정의할 수 있습니다. 이 크기는 5mb에서 50 MB 까지입니다. 예를 들어 45 MB 파일 및 해당 파일 크기를 대기 시간 없이 지원할 수 있는 네트워크가 있다고 가정 합니다. 적응 청크는 호출 하는 것이 아니라 여러 번 호출 됩니다. 호출 수를 줄이기 위해 50 MB 청크 크기를 설정 해 볼 수 있습니다. 다른 시나리오에서는 논리 앱의 시간이 초과 되는 경우 (예: 15MB 청크를 사용 하는 경우) 크기를 5mb로 줄일 수 있습니다.
+  대신 사용할 [상수 청크 크기를 지정할](#change-chunk-size) 때이 적응형 동작을 재정의할 수 있습니다. 이 크기는 5mb에서 50 MB 까지입니다. 예를 들어 대기 시간 없이 해당 파일 크기를 지원할 수 있는 45-MB 파일 및 네트워크가 있다고 가정 합니다. 적응 청크는 호출 하는 것이 아니라 여러 번 호출 됩니다. 호출 수를 줄이려면 50의 청크 크기를 설정 해 볼 수 있습니다. 다른 시나리오에서는 논리 앱의 시간이 초과 되는 경우 (예: 15MB 청크를 사용 하는 경우) 크기를 5mb로 줄일 수 있습니다.
 
   청크 크기는 연결과 관련이 있습니다. 즉, 청크를 지 원하는 작업과 청크를 지원 하지 않는 작업에 대해 동일한 연결을 사용할 수 있습니다. 이 경우 청크를 지원 하지 않는 작업의 청크 크기는 5mb에서 50 MB 사이입니다. 다음 표에서는 청크를 지 원하는 SFTP-SSH 작업을 보여 줍니다.
 
   | 작업 | 청크 지원 | 청크 크기 지원 재정의 |
   |--------|------------------|-----------------------------|
-  | **파일 복사** | 아니요 | 적용할 수 없음 |
+  | **파일 복사** | 아니요 | 해당 없음 |
   | **파일 만들기** | 예 | 예 |
   | **폴더 만들기** | 해당 없음 | 해당 없음 |
   | **파일 삭제** | 해당 없음 | 해당 없음 |
@@ -65,7 +64,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
   | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
   | **폴더의 파일 나열** | 해당 없음 | 해당 없음 |
   | **파일 이름 바꾸기** | 해당 없음 | 해당 없음 |
-  | **파일 업데이트** | 아니요 | 적용할 수 없음 |
+  | **파일 업데이트** | 아니요 | 해당 없음 |
   ||||
 
 * SFTP-SSH 트리거는 메시지 청크를 지원 하지 않습니다. 파일 콘텐츠를 요청 하는 경우 트리거는 15MB 미만의 파일만 선택 합니다. 64MB 보다 큰 파일을 가져오려면 대신 다음 패턴을 따릅니다.
@@ -88,7 +87,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
 * *최대 1시간 동안* SFTP 서버에 대한 연결을 캐시합니다. 그러면 서버에 대한 연결에서 시도 수가 감소하며 성능이 개선됩니다. 이 캐싱 동작에 대한 기간을 설정하려면 SFTP 서버의 SSH 구성에서 [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) 속성을 편집합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -98,13 +97,13 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
   >
   > SFTP-SSH 커넥터는 이러한 프라이빗 키 형식, 알고리즘 및 지문 *만* 을 지원합니다.
   >
-  > * **개인 키 형식** : OpenSSH 및 Ssh.com 형식의 RSA (Rivest rivest-shamir-adleman rivest-shamir-adleman) 및 DSA (디지털 서명 알고리즘) 키입니다. 개인 키가 PuTTY (ppk) 파일 형식인 경우 먼저 [키를 OpenSSH (pem) 파일 형식으로 변환](#convert-to-openssh)합니다.
+  > * **개인 키 형식**: OpenSSH 및 Ssh.com 형식의 RSA (Rivest rivest-shamir-adleman rivest-shamir-adleman) 및 DSA (디지털 서명 알고리즘) 키입니다. 개인 키가 PuTTY (ppk) 파일 형식인 경우 먼저 [키를 OpenSSH (pem) 파일 형식으로 변환](#convert-to-openssh)합니다.
   >
-  > * **암호화 알고리즘** : DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC 및 AES-256-CBC
+  > * **암호화 알고리즘**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC 및 AES-256-CBC
   >
-  > * **지문** : MD5
+  > * **지문**: MD5
   >
-  > 논리 앱에 원하는 SFTP-SSH 트리거 또는 작업을 추가한 후에는 SFTP 서버에 대 한 연결 정보를 제공 해야 합니다. 이 연결에 대 한 SSH 개인 키를 제공 하는 경우 * *_키를 수동으로 입력 하거나 편집 하지 마세요_*.이로 인해 연결이 실패할 수 있습니다. 대신 SSH 개인 키 파일에서 _*_키를 복사_*_ 하 고 해당 키를 연결 정보에 _*_붙여넣어야_*_ 합니다. 
+  > 논리 앱에 원하는 SFTP-SSH 트리거 또는 작업을 추가한 후에는 SFTP 서버에 대 한 연결 정보를 제공 해야 합니다. 이 연결에 대 한 SSH 개인 키를 제공 하는 경우 **_키를 수동으로 입력 하거나 편집 하지 마세요_*.이로 인해 연결이 실패할 수 있습니다. 대신 SSH 개인 키 파일에서 _*_키를 복사_*_ 하 고 해당 키를 연결 정보에 _*_붙여넣어야_*_ 합니다. 
   > 자세한 내용은이 문서 뒷부분의 [SSH를 사용 하 여 SFTP에 연결](#connect) 섹션을 참조 하세요.
 
 _ [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
@@ -113,7 +112,11 @@ _ [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-a
 
 ## <a name="how-sftp-ssh-triggers-work"></a>SFTP-SSH 트리거 작동 방법
 
-SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경 된 파일을 찾는 방식으로 작동 합니다. 일부 도구를 통해 파일을 변경하는 경우 타임스탬프를 유지할 수 있습니다. 이러한 경우 트리거가 작동할 수 있도록 이 기능을 사용하지 않도록 설정해야 합니다. 아래에는 몇 가지 일반적인 설정이 나와 있습니다.
+<a name="polling-behavior"></a>
+
+### <a name="polling-behavior"></a>폴링 동작
+
+SFTP-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경 된 파일을 찾습니다. 일부 도구를 통해 파일을 변경하는 경우 타임스탬프를 유지할 수 있습니다. 이러한 경우 트리거가 작동할 수 있도록 이 기능을 사용하지 않도록 설정해야 합니다. 아래에는 몇 가지 일반적인 설정이 나와 있습니다.
 
 | SFTP 클라이언트 | 작업 |
 |-------------|--------|
@@ -123,6 +126,12 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
 트리거는 새 파일을 찾으면 해당 파일이 완전한 상태이며 부분적으로 작성된 것이 아닌지 확인합니다. 예를 들어 트리거가 파일 서버를 확인할 때 파일을 변경하는 중일 수 있습니다. 부분적으로 작성된 파일이 반환되지 않도록 하기 위해 트리거는 최근 변경된 내용이 있는 파일의 타임스탬프를 기록하되 해당 파일을 즉시 반환하지는 않으며, 서버를 다시 폴링할 때만 해당 파일을 반환합니다. 이 동작으로 인해 트리거 폴링 간격의 최대 2배까지 지연이 발생하는 경우도 있습니다.
 
+<a name="trigger-recurrence-shift-drift"></a>
+
+### <a name="trigger-recurrence-shift-and-drift"></a>트리거 반복 교대 및 드리프트
+
+SFTP-SSH 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 트리거는 [되풀이 트리거와](../connectors/connectors-native-recurrence.md)같이 기본적으로 Azure Logic Apps에서 실행 되는 기본 제공 트리거와 다릅니다. 되풀이 연결 기반 트리거에서 되풀이 일정은 실행을 제어 하는 유일한 드라이버는 아니며 표준 시간대는 초기 시작 시간만 결정 합니다. 후속 실행은 되풀이 일정, 마지막 트리거 실행 *및* 예기치 않은 동작을 발생 시킬 수 있는 다른 요소 (예: dst (일광 절약 시간)가 시작 되 고 끝날 때 지정 된 일정을 유지 하지 않을 수 있음)에 따라 달라 집니다. DST가 적용 될 때 되풀이 시간이 이동 하지 않도록 하려면 논리 앱이 예상 시간에 계속 실행 되도록 되풀이를 수동으로 조정 합니다. 그렇지 않으면 dst가 시작 될 때 시작 시간이 1 시간 뒤로 이동 하 고, DST가 종료 되 면 1 시간 뒤로 이동 합니다. 자세한 내용은 [연결 기반 트리거의 되풀이](../connectors/apis-list.md#recurrence-connection-based)를 참조 하세요.
+
 <a name="convert-to-openssh"></a>
 
 ## <a name="convert-putty-based-key-to-openssh"></a>PuTTY 기반 키를 OpenSSH로 변환
@@ -131,7 +140,7 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
 ### <a name="unix-based-os"></a>Unix 기반 OS
 
-1. PuTTY 도구가 시스템에 아직 설치 되어 있지 않은 경우에는 다음과 같은 작업을 수행 합니다.
+1. PuTTY 도구가 시스템에 설치 되어 있지 않은 경우에는 다음을 수행 합니다.
 
    `sudo apt-get install -y putty`
 
@@ -139,7 +148,7 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -197,11 +206,11 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
    1. 메모장의 **편집** 메뉴에서 **모두 선택** 을 선택 합니다.
 
-   1. 복사 **편집**  >  **Copy** 을 선택 합니다.
+   1. 복사 **편집**  >  을 선택 합니다.
 
    1. 추가한 SFTP-SSH 트리거 또는 작업에서 **SSH 프라이빗 키** 속성으로 복사한 *전체* 키를 붙여넣습니다. 이는 여러 줄을 지원합니다.  *키를 *_붙여넣어야_* 합니다. _*_키를 수동으로 입력 하거나 편집 하지 마십시오_*_.
 
-1. 연결 세부 정보를 입력 했으면 _ * 만들기 * *를 선택 합니다.
+1. 연결 세부 정보 입력을 마친 후 _ * 만들기 * *를 선택 합니다.
 
 1. 이제 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
 
@@ -211,7 +220,7 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
 청크를 사용 하는 기본 적응 동작을 재정의 하려면 5 MB에서 50 MB까지 상수 청크 크기를 지정할 수 있습니다.
 
-1. 작업의 오른쪽 위 모서리에서 줄임표 단추 ( **...** )를 선택한 다음 **설정** 을 선택 합니다.
+1. 작업의 오른쪽 위 모서리에서 줄임표 단추 (**...**)를 선택한 다음 **설정** 을 선택 합니다.
 
    ![SFTP-SSH 설정 열기](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
@@ -219,9 +228,9 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
    ![대신 사용할 청크 크기 지정](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
-1. 완료되면 **완료** 를 선택합니다.
+1. 완료 되 면 **완료** 를 선택 합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 <a name="file-added-modified"></a>
 
@@ -229,7 +238,7 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
 이 트리거는 SFTP 서버에서 파일이 추가되거나 변경되는 경우 논리 앱 워크플로를 시작합니다. 예를 들어 콘텐츠가 지정된 조건을 충족하는지 여부에 따라 파일의 콘텐츠를 확인하고 콘텐츠를 가져오는 조건을 추가할 수 있습니다. 그런 다음, 파일의 콘텐츠를 가져오고 해당 콘텐츠를 SFTP 서버의 폴더에 넣는 작업을 추가할 수 있습니다.
 
-**엔터프라이즈 예제** : 이 트리거를 사용하여 고객의 주문을 나타내는 새 파일에 대한 SFTP 폴더를 모니터링할 수 있습니다. 그런 다음, **파일 콘텐츠 가져오기** 와 같은 SFTP 작업을 사용할 수 있으므로 추가로 처리할 주문의 콘텐츠를 가져오고 주문 데이터베이스에 해당 주문을 저장합니다.
+**엔터프라이즈 예제**: 이 트리거를 사용하여 고객의 주문을 나타내는 새 파일에 대한 SFTP 폴더를 모니터링할 수 있습니다. 그런 다음, **파일 콘텐츠 가져오기** 와 같은 SFTP 작업을 사용할 수 있으므로 추가로 처리할 주문의 콘텐츠를 가져오고 주문 데이터베이스에 해당 주문을 저장합니다.
 
 <a name="get-content"></a>
 
@@ -239,21 +248,9 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
 <a name="troubleshooting-errors"></a>
 
-## <a name="troubleshoot-errors"></a>오류 문제 해결
+## <a name="troubleshoot-problems"></a>문제 해결
 
 이 섹션에서는 일반적인 오류 또는 문제에 대해 가능한 해결 방법을 설명 합니다.
-
-<a name="file-does-not-exist"></a>
-
-### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 오류: "존재 하지 않는 파일이 나 폴더에 대 한 참조를 만들었습니다."
-
-이 오류는 논리 앱이 SFTP **파일 만들기** 작업을 통해 sftp 서버에 새 파일을 만들 때 발생할 수 있지만 새로 만든 파일은 Logic Apps 서비스에서 파일의 메타 데이터를 가져올 수 있게 되기 전에 즉시 이동 합니다. 논리 앱에서 **파일 만들기** 작업을 실행 하면 Logic Apps 서비스가 자동으로 SFTP 서버를 호출 하 여 파일의 메타 데이터를 가져옵니다. 그러나 파일이 이동 된 경우에는 오류 메시지가 표시 되도록 Logic Apps 서비스에서 더 이상 파일을 찾을 수 없습니다 `404` .
-
-파일 이동을 방지 하거나 지연할 수 없는 경우 다음 단계를 수행 하 여 파일을 만든 후 파일의 메타 데이터 읽기를 건너뛸 수 있습니다.
-
-1. **파일 만들기** 작업에서 **새 매개 변수 추가** 목록을 열고 **모든 파일 메타 데이터 가져오기** 속성을 선택 하 고 값을 **아니요** 로 설정 합니다.
-
-1. 나중에이 파일 메타 데이터가 필요한 경우 **파일 메타 데이터 가져오기** 작업을 사용할 수 있습니다.
 
 <a name="connection-attempt-failed"></a>
 
@@ -272,6 +269,18 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 * 연결 설정 비용을 줄이려면 SFTP 서버에 대 한 SSH 구성에서 [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) 속성을 약 1 시간으로 늘립니다.
 
 * SFTP 서버 로그를 검토 하 여 논리 앱의 요청이 SFTP 서버에 도달 했는지 확인 합니다. 연결 문제에 대 한 자세한 정보를 얻기 위해 방화벽 및 SFTP 서버에서 네트워크 추적을 실행할 수도 있습니다.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 오류: "존재 하지 않는 파일이 나 폴더에 대 한 참조를 만들었습니다."
+
+이 오류는 논리 앱이 SFTP **파일 만들기** 작업을 통해 sftp 서버에 새 파일을 만들 때 발생할 수 있습니다. 그러나 Logic Apps 서비스에서 파일의 메타 데이터를 가져올 수 있게 하려면 새로 만든 파일을 즉시 이동 합니다. 논리 앱에서 **파일 만들기** 작업을 실행 하면 Logic Apps 서비스가 자동으로 SFTP 서버를 호출 하 여 파일의 메타 데이터를 가져옵니다. 그러나 논리 앱에서 파일을 이동 하는 경우에는 오류 메시지가 표시 되도록 Logic Apps 서비스에서 더 이상 파일을 찾을 수 없습니다 `404` .
+
+파일 이동을 방지 하거나 지연할 수 없는 경우 다음 단계를 수행 하 여 파일을 만든 후 파일의 메타 데이터 읽기를 건너뛸 수 있습니다.
+
+1. **파일 만들기** 작업에서 **새 매개 변수 추가** 목록을 열고 **모든 파일 메타 데이터 가져오기** 속성을 선택 하 고 값을 **아니요** 로 설정 합니다.
+
+1. 나중에이 파일 메타 데이터가 필요한 경우 **파일 메타 데이터 가져오기** 작업을 사용할 수 있습니다.
 
 ## <a name="connector-reference"></a>커넥터 참조
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 015b8e400e9d386fff8f35756a77139e61bbaff1
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 765a2728c5de49787a64fff723625e53e100e450
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809295"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017785"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>트래픽 분석에서 스키마 및 데이터 집계
 
@@ -96,7 +96,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 
 다음은 스키마의 필드 및 표시 되는 내용입니다.
 
-| 필드 | 형식 | 주석 |
+| 필드 | 서식 | 의견 |
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | 트래픽 분석 데이터에 대 한 테이블
 | SubType_s | FlowLog | 흐름 로그의 하위 형식입니다. "FlowLog"만 사용 하 고 SubType_s의 다른 값은 제품의 내부 작동에 사용 됩니다. |

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 936501674fcf1d428de936174575440edad71de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea24716dba5e4e824a4fa986602007035be8e365
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738518"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018380"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>REST API를 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "84738518"
 
 네트워크 보안 그룹 흐름 로그는 네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다. 이러한 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARMClient는 chocolatey의 [ARMClient On chocolatey](https://chocolatey.org/packages/ARMClient) 에 있습니다.
 
@@ -118,7 +118,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 
 ## <a name="disable-network-security-group-flow-logs"></a>네트워크 보안 그룹 흐름 로그를 사용하지 않도록 설정
 
-다음 예제를 사용하여 흐름 로그를 사용하지 않도록 설정합니다. 호출은 흐름 로그를 사용하도록 설정하는 것과 같습니다(단, 활성화된 속성에 대해 **false**가 설정된 경우 제외).
+다음 예제를 사용하여 흐름 로그를 사용하지 않도록 설정합니다. 호출은 흐름 로그를 사용하도록 설정하는 것과 같습니다(단, 활성화된 속성에 대해 **false** 가 설정된 경우 제외).
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"

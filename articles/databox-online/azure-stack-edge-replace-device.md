@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: ec16a2b42b818e96399b8fdbad4a0951f84ef825
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 501136c6f5015dc8c68a1aba004432900675b11c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893896"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017972"
 ---
 # <a name="replace-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치 교체
 
@@ -33,7 +33,7 @@ ms.locfileid: "90893896"
 
 기존 장치에 하드웨어 오류가 있는 경우 지원 티켓을 엽니다. Microsoft 지원에서 이 인스턴스에 FRU(Field Replacement Unit)를 사용할 수 없거나 디바이스에 하드웨어 업그레이드가 필요하다고 판단합니다. 두 경우 모두 Microsoft 지원에서 대체 디바이스를 주문합니다.
 
-1. Microsoft 지원에서 지원 티켓을 열어 디바이스 반환 의사를 밝힙니다. **Azure Stack Edge Pro 하드웨어**로 문제 유형을 선택 합니다.
+1. Microsoft 지원에서 지원 티켓을 열어 디바이스 반환 의사를 밝힙니다. **Azure Stack Edge Pro 하드웨어** 로 문제 유형을 선택 합니다.
 
     ![지원 티켓 열기](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
@@ -43,11 +43,14 @@ ms.locfileid: "90893896"
 
 ## <a name="create-a-resource-for-replacement-device"></a>대체 장치에 대 한 리소스 만들기
 
+> [!NOTE]
+> 교체 장치를 활성화 하는 데 사용할 새 리소스를 만듭니다. 기존 리소스에 대해 대체 장치를 활성화 하는 것은 지원 되지 않습니다.
+
 리소스를 만들려면 다음 단계를 수행 합니다.
 
 1. [새 리소스 만들기](azure-stack-edge-deploy-prep.md#create-a-new-resource) 의 단계에 따라 교체 장치에 대 한 리소스를 만듭니다. 
 
-2. **Azure Stack Edge Pro 장치**에 대 한 확인란을 선택 해야 합니다. 
+2. **Azure Stack Edge Pro 장치** 에 대 한 확인란을 선택 해야 합니다. 
 
     ![대체 장치에 대 한 리소스](media/azure-stack-edge-replace-device/replace-resource-1.png)  
 

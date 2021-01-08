@@ -3,17 +3,16 @@ title: Azure Stream Analytics에서 사용자 정의 함수 디버깅
 description: 이 문서에서는 Azure Stream Analytics에서 사용자 정의 함수를 디버그 하는 방법을 설명 합니다.
 author: jenssuessmeyer
 ms.author: jenss
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 567def7abaff3cd8d70eb56f0aa117d1eeb52a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f5a24e4d351d7c133251900a80c70094b84cc4e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300431"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019434"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Azure Stream Analytics에서 사용자 정의 함수 디버깅 
 
@@ -49,7 +48,7 @@ Stream Analytics에서 JavaScript 함수에 대 한 디버깅이 지원 되지 �
 
 다음 예제에서는 [Visual Studio Code](quick-create-visual-studio-code.md)의 통합 런타임 환경에서 몇 가지 제한 사항을 사용 하 여 JavaScript udf를 디버그 하는 방법을 보여 줍니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 Azure Stream Analytics 프로젝트에 다음과 같은 항목이 있어야 합니다.
 
@@ -66,7 +65,7 @@ Stream Analytics에서 JavaScript 함수에 대 한 디버깅이 지원 되지 �
 > [!div class="mx-imgBorder"]
 > ![쿼리 파일 Stream Analytics 테스트](./media/debug-user-defined-functions/asaql-file.png)
 
-테스트 파일을 호스팅할 테스트 **에 추가** 폴더를 만듭니다 .이는 JavaScript 함수로 테스트를 실행 하기 위해 호출 됩니다. 이 예제에서 폴더 이름은 *fxcharCount* 이 고 테스트 이름은 *Test_UDF.js*입니다. 
+테스트 파일을 호스팅할 테스트 **에 추가** 폴더를 만듭니다 .이는 JavaScript 함수로 테스트를 실행 하기 위해 호출 됩니다. 이 예제에서 폴더 이름은 *fxcharCount* 이 고 테스트 이름은 *Test_UDF.js* 입니다. 
 
 아래 이미지는 함수 파일을 로드 하 고 함수를 실행 하는 테스트 파일의 코드를 보여 줍니다. 이 예제는 간단 하지만 추가 테스트를 통해 추가 테스트 데이터 파일을 로드 하 고 루프를 실행 하 여 출력을 가져올 수 있습니다. 함수 호출의 notation은 파일이 참조 되 고 런타임에 로드 되지 않으므로 디버그할 수 있으므로 일반적인 호출과는 약간 다릅니다. 
 
@@ -86,7 +85,7 @@ exports.data = methods;
   
 ## <a name="install-debug-support"></a>디버그 지원 설치
 
-디버그 하려면 **node.js**를 [다운로드](https://nodejs.org/en/download/) 하 고 설치 해야 합니다. 사용 중인 플랫폼에 따라 올바른 버전을 설치 합니다. node.js 런타임을 설치한 후 Visual Studio Code를 다시 시작 하 여 변경 내용을 구현 합니다. 
+디버그 하려면 **node.js** 를 [다운로드](https://nodejs.org/en/download/) 하 고 설치 해야 합니다. 사용 중인 플랫폼에 따라 올바른 버전을 설치 합니다. node.js 런타임을 설치한 후 Visual Studio Code를 다시 시작 하 여 변경 내용을 구현 합니다. 
 
 **실행 및 디버그** 를 선택 하거나 **ctrl + SHIFT + D** 를 눌러 디버깅을 시작 합니다. **node.js** 를 런타임으로 선택할 수 있는 콤보 상자가 표시 됩니다. node.js 설치 되어 있는 경우에는 기본적으로 사용 됩니다. F11 키를 사용 하 여 필요한 경우 코드를 단계별로 실행 하 고 위성 파일을 실행할 수 있습니다. 
 

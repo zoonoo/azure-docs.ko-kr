@@ -1,18 +1,17 @@
 ---
 title: Azure에서 실시간 및 스트림 처리 솔루션 선택
 description: Azure에서 응용 프로그램을 빌드하는 데 적합 한 실시간 분석 및 스트리밍 처리 기술을 선택 하는 방법에 대해 알아봅니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: a204aacc0061091e0a273581e766bb669d191f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c10a91971357001723adcb783253c9867cf6d87
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903713"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019060"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Azure에서 실시간 분석 및 스트리밍 처리 기술 선택
 
@@ -52,7 +51,7 @@ Azure Stream Analytics은 Microsoft의 소유 기술 이며 Azure 에서만 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Portal를 사용 하 여 Stream Analytics 작업을 만듭니다.](stream-analytics-quick-create-portal.md)
-* [Azure PowerShell를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
-* [Visual Studio를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [Visual Studio Code를 사용 하 여 Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)
+* [Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
+* [Azure PowerShell을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
+* [Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
+* [Visual Studio Code를 사용하여 Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)

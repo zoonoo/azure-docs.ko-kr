@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 01/07/2021
 ms.author: tisande
-ms.openlocfilehash: f65d179baa2c0a08e2c1dca1716c9691797fc242
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f959e4e230c1d9f89ad5141713b6a17a8cbb17a2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106313"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018924"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Azure Cosmos DB에서 배열 및 개체 작업
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,9 +54,27 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
+결과는 다음과 같습니다.
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="iteration"></a><a id="Iteration"></a>반복기
 
-SQL API는 JSON 배열에 대 한 반복을 지원 하며, FROM 소스에 있는 [in 키워드](sql-query-keywords.md#in) 를 통해 새 구문을 추가 합니다. 다음 예제에서는
+SQL API는 FROM 원본의 [in 키워드](sql-query-keywords.md#in) 를 사용 하 여 JSON 배열에 대 한 반복을 지원 합니다. 다음 예제에서는
 
 ```sql
 SELECT *
@@ -156,6 +174,9 @@ FROM child IN Families.children
   }
 ]
 ```
+
+> [!NOTE]
+> 반복에 IN 키워드를 사용 하는 경우 배열 외부의 속성을 필터링 하거나 프로젝션 할 수 없습니다. 대신 [조인을](sql-query-join.md)사용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

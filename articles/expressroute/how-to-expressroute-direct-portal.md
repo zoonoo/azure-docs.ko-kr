@@ -5,23 +5,30 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: 56638f14565f76b0a2fc252b81dba3dae9e53dd8
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: acbd5c3aa88c2c8c14407ebda0c42d228aa6c9e3
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289440"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018941"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Express 경로 직접 만들기
 
 이 문서에서는 Azure Portal를 사용 하 여 Express 경로 직접을 만드는 방법을 보여 줍니다.
 Express 경로 직접 사용을 통해 전 세계에 분산 된 피어 링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결할 수 있습니다. 자세한 내용은 [ExpressRoute Direct 정보](expressroute-erdirect-about.md)를 참조하세요.
 
-## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작하기 전 주의 사항
 
-**Microsoft. 네트워크** 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다.
+Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해야 합니다. 등록하려면 다음 세부 사항을 포함하여 구독 ID로 <ExpressRouteDirect@microsoft.com>에 이메일을 전송합니다.
+
+* **ExpressRoute Direct** 를 사용하여 수행하려는 시나리오
+* 위치 기본 설정 - 모든 위치의 전체 목록은 [파트너 및 피어링 위치](expressroute-locations-providers.md) 참조
+* 구현을 위한 타임라인
+* 기타 궁금한 점이 있는 경우
+
+등록 한 후에는 **Microsoft 네트워크** 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다.
 
 1. [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md)에 설명 된 대로 구독 설정에 액세스 합니다.
 1. 구독에서 **리소스 공급자** 에 대해 **Microsoft 네트워크** 공급자가 **등록** 된 상태를 표시 하는지 확인 합니다. 등록 된 공급자 목록에 Microsoft 네트워크 리소스 공급자가 없는 경우 추가 합니다.
@@ -40,18 +47,18 @@ Express 경로 직접 사용을 통해 전 세계에 분산 된 피어 링 위�
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/basics.png" alt-text="기본 페이지":::
 
-    * **구독** : 새 Express 경로 다이렉트를 만드는 데 사용할 Azure 구독입니다. ExpressRoute Direct 리소스와 ExpressRoute 회로가 동일한 구독에 있어야 합니다.
-    * **리소스 그룹** : 새 Express 경로 직접 리소스가 생성 되는 Azure 리소스 그룹입니다. 기존 리소스 그룹이 없는 경우 새 리소스 그룹을 만들 수 있습니다.
-    * **지역** : 리소스가 만들어질 Azure 공용 지역입니다.
-    * **이름** : 새 Express 경로 직접 리소스의 이름입니다.
+    * **구독**: 새 Express 경로 다이렉트를 만드는 데 사용할 Azure 구독입니다. ExpressRoute Direct 리소스와 ExpressRoute 회로가 동일한 구독에 있어야 합니다.
+    * **리소스 그룹**: 새 Express 경로 직접 리소스가 생성 되는 Azure 리소스 그룹입니다. 기존 리소스 그룹이 없는 경우 새 리소스 그룹을 만들 수 있습니다.
+    * **지역**: 리소스가 만들어질 Azure 공용 지역입니다.
+    * **이름**: 새 Express 경로 직접 리소스의 이름입니다.
 
 1. 그런 다음 **구성** 페이지의 필드를 완료 합니다.
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="' 구성 ' 탭이 선택 된 ' Express 경로 직접 만들기 ' 페이지가 표시 된 스크린샷":::
 
-    * **피어 링 위치** : Express 경로 직접 리소스에 연결 하는 피어 링 위치입니다. 피어 링 위치에 대 한 자세한 내용은 [express 경로 위치](expressroute-locations-providers.md)를 검토 하십시오.
-   * **대역폭** : 예약 하려는 포트 쌍 대역폭입니다. Express 경로 다이렉트는 10gb 및 100 Gb 대역폭 옵션을 모두 지원 합니다. 지정 된 피어 링 위치에서 원하는 대역폭을 사용할 수 없는 경우 [Azure Portal에서 지원 요청을 엽니다](https://aka.ms/azsupt).
-   * **캡슐화** : Express 경로 Direct는 QinQ 및 Dot1Q 캡슐화를 모두 지원 합니다.
+    * **피어 링 위치**: Express 경로 직접 리소스에 연결 하는 피어 링 위치입니다. 피어 링 위치에 대 한 자세한 내용은 [express 경로 위치](expressroute-locations-providers.md)를 검토 하십시오.
+   * **대역폭**: 예약 하려는 포트 쌍 대역폭입니다. Express 경로 다이렉트는 10gb 및 100 Gb 대역폭 옵션을 모두 지원 합니다. 지정 된 피어 링 위치에서 원하는 대역폭을 사용할 수 없는 경우 [Azure Portal에서 지원 요청을 엽니다](https://aka.ms/azsupt).
+   * **캡슐화**: Express 경로 Direct는 QinQ 및 Dot1Q 캡슐화를 모두 지원 합니다.
      * QinQ를 선택한 경우 ExpressRoute Direct 리소스 전체에서 고유하게 식별되는 S-Tag가 각 ExpressRoute 회로에 동적으로 할당됩니다.
      *  회로의 각 C-Tag는 회로에서 고유해야 하지만 ExpressRoute Direct 전체에서 고유할 필요는 없습니다.
      * Dot1Q 캡슐화가 선택된 경우 전체 ExpressRoute Direct 리소스에서 C-Tag(VLAN)의 고유성을 관리해야 합니다.

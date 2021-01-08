@@ -3,16 +3,15 @@ title: Visual Studio에서 Azure Stream Analytics 작업 보기
 description: Visual Studio를 사용 하 여 Azure Stream Analytics 작업을 보고, 시작 하 고, 연결을 테스트 하 고, 결과를 확인 하 고, 작업을 내보내는 방법을 알아봅니다.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: 43b145f5a37ea4209947e54cb276e16ff55c1da1
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 4b568fa8d9e2fb8bd00acb27b0dc3f7c45c09c57
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682810"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019128"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Visual Studio를 사용하여 Azure Stream Analytics 작업 보기
 

@@ -4,16 +4,15 @@ description: 이 문서에서는 Azure Stream Analytics CI/CD 도구를 사용 �
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: aa75a553ffc131f4827aa045849f1317d894ddc5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9e79e0a2c030e2ebfcd5ddfd49e7c05afdb0dc3c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123153"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019553"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>CI/CD 도구를 사용 하 여 Azure Stream Analytics 작업의 빌드, 테스트 및 배포 자동화
 

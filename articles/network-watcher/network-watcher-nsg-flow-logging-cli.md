@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: c62fbe1621e396ab938327d5159ed8ca8fb84fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46d12db413fdf01995bc84ae018065e877afb15e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88756863"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017819"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -51,7 +51,7 @@ az network watcher flow-log create --resource-group resourceGroupName --enabled 
 
 지정한 스토리지 계정은 Microsoft 서비스 또는 특정 가상 네트워크에 대한 네트워크 액세스를 제한하도록 구성된 네트워크 규칙을 가질 수 없습니다. 스토리지 계정은 동일하거나 흐름 로그를 활성화하는 NSG와 다른 Azure 구독에 있을 수 있습니다. 서로 다른 구독을 사용하는 경우 동일한 Azure Active Directory 테넌트에 연결되어야 합니다. 각 구독에 대해 사용하는 계정에 [필요한 권한](required-rbac-permissions.md)이 있어야 합니다. 
 
-스토리지 계정이 네트워크 보안 그룹과 다른 리소스 그룹 또는 구독에 있으면 이름이 아닌 스토리지 계정의 전체 ID를 지정합니다. 예를 들어 스토리지 계정이 *RG-Storage*라는 리소스 그룹에 있으면 이전 명령에서 *storageAccountName*을 지정하기 보다는 */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*을 지정합니다.
+스토리지 계정이 네트워크 보안 그룹과 다른 리소스 그룹 또는 구독에 있으면 이름이 아닌 스토리지 계정의 전체 ID를 지정합니다. 예를 들어 스토리지 계정이 *RG-Storage* 라는 리소스 그룹에 있으면 이전 명령에서 *storageAccountName* 을 지정하기 보다는 */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName* 을 지정합니다.
 
 ## <a name="disable-network-security-group-flow-logs"></a>네트워크 보안 그룹 흐름 로그 사용 중지
 

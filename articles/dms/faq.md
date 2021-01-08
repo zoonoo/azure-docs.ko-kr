@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: bf6e61ef3dfb1c50166cf17168b4deeb21e958d7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 200753c6458698d515b02252933e4fdf6d88df55
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962912"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019094"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대 한 FAQ
 
@@ -50,6 +50,9 @@ Azure Database Migration Service은 데이터베이스 마이그레이션이 대
 
 **대답. Azure Database Migration Service는 Azure Migrate 제공과 어떻게 비교 되나요?**
 Azure Migrate 온-프레미스 가상 머신을 Azure IaaS로 마이그레이션하는 데 도움이 됩니다. 이 서비스는 마이그레이션 적합성 및 성능 기반 크기 조정을 평가하며, Azure에서 온-프레미스 가성 머신을 실행할 때 드는 비용을 예측합니다. Azure Migrate는 온-프레미스 VM 기반 워크로드를 Azure IaaS VM으로 리프트 앤 시프트 마이그레이션하는 데 유용합니다. 그러나 Azure Database Migration Service와 달리 Azure Migrate는 Azure SQL Database 또는 Azure SQL Managed Instance와 같은 Azure PaaS 관계형 데이터베이스 플랫폼에 대 한 특수화 된 database Migration Service 제품이 아닙니다.
+
+**대답. 고객 데이터를 저장 Database Migration Service 합니까?**
+아니요. Database Migration Service는 고객 데이터를 저장 하지 않습니다.
 
 ## <a name="setup"></a>설치 프로그램
 
@@ -88,7 +91,7 @@ SQL Server 오류 로그를 쿼리하여 SQL Server가 수신 대기하는 포�
 **대답. Microsoft Azure Virtual Network 어떻게 할까요? 설정 하 시겠습니까?**
 가상 네트워크를 설정 하는 과정을 안내 하는 여러 Microsoft 자습서는 있지만 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)문서에 공식 설명서가 나와 있습니다.
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 
 **대답. Azure Database Migration Service를 사용 하 여 데이터베이스 마이그레이션을 수행 하는 데 필요한 단계에 대 한 요약은 무엇입니까?**
 일반적이고 간단한 데이터베이스 마이그레이션 단계:

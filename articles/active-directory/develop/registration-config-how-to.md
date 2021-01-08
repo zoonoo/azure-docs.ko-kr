@@ -12,20 +12,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: ryanwi
-ms.openlocfilehash: dc37ce474ad3226f5dbf7e6efd687ddf55f7da03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c348bd7a1738742744976c46396f62a3317dc17
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82926683"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017087"
 ---
 # <a name="how-to-discover-endpoints"></a>끝점을 검색 하는 방법
 
 [Azure Portal](https://portal.azure.com)에서 애플리케이션의 인증 엔드포인트를 찾을 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory**를 선택합니다.
-1. **관리**에서 **앱 등록**를 선택 하 고 최상위 메뉴에서 **끝점** 을 선택 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
+1. **Azure Active Directory** 를 선택합니다.
+1. **관리** 에서 **앱 등록** 를 선택 하 고 최상위 메뉴에서 **끝점** 을 선택 합니다.
 
     **끝점** 페이지가 표시 되 고 테 넌 트의 인증 끝점이 표시 됩니다.
     

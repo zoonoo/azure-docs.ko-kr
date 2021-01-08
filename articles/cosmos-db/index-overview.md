@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB의 인덱싱
-description: 인덱싱이 Azure Cosmos DB에서 작동하는 방식과, Range, Spatial, 지원되는 복합 인덱스 등, 다양한 유형의 인덱스에 대해 알아봅니다.
+description: Azure Cosmos DB에서 인덱싱이 작동 하는 방식을 이해 하 고 범위, 공간, 복합 인덱스와 같은 다양 한 유형의 인덱스를 지원 합니다.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b7349a08b93810dcc3befd6058302d6c4573ab8d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339759"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019332"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -64,13 +64,13 @@ Azure Cosmos DB가 항목을 트리로 변환하는 이유는 트리 내 경로�
 
 항목을 기록할 때 Azure Cosmos DB는 각 속성의 경로와 해당하는 값을 효과적으로 인덱싱합니다.
 
-## <a name="index-kinds"></a>인덱스 종류
+## <a name="types-of-indexes"></a><a id="index-types"></a>인덱스 유형
 
-Azure Cosmos DB는 현재 3가지 인덱스 종류를 지원합니다.
+현재 Azure Cosmos DB에서는 세 가지 유형의 인덱스를 지원 합니다. 인덱싱 정책을 정의할 때 이러한 인덱스 유형을 구성할 수 있습니다.
 
 ### <a name="range-index"></a>범위 인덱스
 
-**범위** 인덱스는 순서가 있는 트리형 구조를 기반으로 합니다. 범위 인덱스의 용도는 다음과 같습니다.
+**범위** 인덱스는 순서가 있는 트리형 구조를 기반으로 합니다. 범위 인덱스 형식은 다음에 사용 됩니다.
 
 - 등호 쿼리:
 
@@ -122,11 +122,11 @@ Azure Cosmos DB는 현재 3가지 인덱스 종류를 지원합니다.
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
    ```
 
-범위 인덱스는 스칼라 값(문자열 또는 숫자)에 사용할 수 있습니다.
+범위 인덱스는 스칼라 값(문자열 또는 숫자)에 사용할 수 있습니다. 새로 만든 컨테이너에 대한 기본 인덱싱 정책은 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용합니다. 범위 인덱스를 구성 하는 방법에 대 한 자세한 내용은 [범위 인덱싱 정책 예](how-to-manage-indexing-policy.md#range-index) 를 참조 하세요.
 
 ### <a name="spatial-index"></a>공간 인덱스
 
-**공간** 인덱스는 점, 선, 다각형 및 다중 다각형 등의 지리 공간적 개체에 대한 효율적 쿼리를 구현합니다. 이러한 쿼리는 T_DISTANCE, ST_WITHIN, ST_INTERSECTS 키워드를 사용합니다. 공간 인덱스 종류를 사용하는 몇 가지 예는 다음과 같습니다.
+**공간** 인덱스는 점, 선, 다각형 및 다중 다각형 등의 지리 공간적 개체에 대한 효율적 쿼리를 구현합니다. 이러한 쿼리는 T_DISTANCE, ST_WITHIN, ST_INTERSECTS 키워드를 사용합니다. 다음은 공간 인덱스 유형을 사용 하는 몇 가지 예입니다.
 
 - 지리 공간적 거리 쿼리:
 
@@ -146,11 +146,11 @@ Azure Cosmos DB는 현재 3가지 인덱스 종류를 지원합니다.
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-공간 인덱스는 올바른 형식의 [GeoJSON](./sql-query-geospatial-intro.md) 개체에 사용할 수 있습니다. 현재 점, 선 문자열, 다각형 및 다중 다각형이 지원됩니다.
+공간 인덱스는 올바른 형식의 [GeoJSON](./sql-query-geospatial-intro.md) 개체에 사용할 수 있습니다. 현재 점, 선 문자열, 다각형 및 다중 다각형이 지원됩니다. 이 인덱스 유형을 사용 하려면 `"kind": "Range"` 인덱싱 정책을 구성할 때 속성을 사용 하 여를 설정 합니다. 공간 인덱스를 구성 하는 방법을 알아보려면 [공간 인덱싱 정책 예](how-to-manage-indexing-policy.md#spatial-index) 를 참조 하세요.
 
 ### <a name="composite-indexes"></a>복합 인덱스
 
-**복합** 인덱스는 여러 필드에 대해 작업을 수행할 때 효율성을 높입니다. 복합 인덱스의 용도는 다음과 같습니다.
+**복합** 인덱스는 여러 필드에 대해 작업을 수행할 때 효율성을 높입니다. 복합 인덱스 형식은 다음에 사용 됩니다.
 
 - 여러 속성에 대한 `ORDER BY` 쿼리:
 
@@ -170,11 +170,13 @@ Azure Cosmos DB는 현재 3가지 인덱스 종류를 지원합니다.
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-한 필터 조건자가 인덱스 종류 중 하나를 사용한다면 쿼리 엔진이 나머지를 검사하기 전에 이 항목을 먼저 평가합니다. `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")` 같은 SQL 쿼리가 있는 경우를 예로 들어 보겠습니다.
+하나의 필터 조건자가 인덱스 형식 중 하나를 사용 하는 한 쿼리 엔진은 나머지를 검색 하기 전에이를 먼저 평가 합니다. `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")` 같은 SQL 쿼리가 있는 경우를 예로 들어 보겠습니다.
 
 * 위의 쿼리는 인덱스를 사용하여 firstName = "Andrew"인 항목에 대해 먼저 필터링합니다. 그런 다음, 모든 firstName = "Andrew" 항목을 후속 파이프라인을 통해 전달하여 CONTAINS 필터 조건자를 평가합니다.
 
 * 인덱스를 사용하지 않는 함수(예: CONTAINS)를 사용할 때 인덱스를 사용하는 다른 필터 조건자를 추가하여 쿼리 속도를 높이고 전체 컨테이너 검사를 방지할 수 있습니다. 필터 절의 순서는 중요하지 않습니다. 쿼리 엔진이 더 선택적인 조건자를 파악하고 그에 따라 쿼리를 실행합니다.
+
+복합 인덱스를 구성 하는 방법에 대 한 자세한 내용은 [복합 인덱싱 정책 예](how-to-manage-indexing-policy.md#composite-index) 를 참조 하세요.
 
 ## <a name="querying-with-indexes"></a>인덱스를 사용한 쿼리
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/11/2017
+ms.topic: reference
+ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: b9786f9d9da363f15bd2f59390d5dddf86bc1bf9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: aedcecf528f07d9d7f89c1d5659d8fcd2cb36df2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658853"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016731"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Azure Active Directory에서 앱에 사용자를 할당 하는 방법 이해
 이 문서에서는 테넌트의 애플리케이션에 사용자가 할당되는 방법을 이해하는 데 도움을 줍니다.
@@ -42,4 +42,4 @@ ms.locfileid: "94658853"
 ## <a name="next-steps"></a>다음 단계
 * [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
 * [애플리케이션 관리란?](what-is-application-management.md)
-* [Single Sign-On이란?](what-is-single-sign-on.md)
+* [Single Sign-On 이란?](what-is-single-sign-on.md)

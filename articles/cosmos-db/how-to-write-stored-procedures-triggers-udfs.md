@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 18cedad34a6ca7d9a0ba18cd01c082f2878380a8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7938920459654bd59620ad0992f3a13db85ff4fb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339821"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019019"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB에서는 사용자가 **저장 프로시저** , **트리거** 및 **UDF(사용자 정의 함수)** 를 작성할 수 있는 언어 통합 트랜잭션 방식으로 JavaScript를 실행하도록 제공합니다. Azure Cosmos DB에서 SQL API를 사용하는 경우 JavaScript 언어로 저장 프로시저, 트리거 및 UDF를 정의할 수 있습니다. JavaScript로 논리를 작하고 데이터베이스 엔진 내에서 실행할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure Cosmos DB의 JavaScript 언어 통합 쿼리 API](javascript-query-api.md) 및 [Cosmos DB SQL API 클라이언트 SDK](sql-api-dotnet-samples.md)를 사용하여 트리거, 저장 프로시저 및 UDF를 만들고 실행할 수 있습니다. 
+Azure Cosmos DB에서는 사용자가 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)** 를 작성할 수 있는 언어 통합 트랜잭션 방식으로 JavaScript를 실행하도록 제공합니다. Azure Cosmos DB에서 SQL API를 사용하는 경우 JavaScript 언어로 저장 프로시저, 트리거 및 UDF를 정의할 수 있습니다. JavaScript로 논리를 작하고 데이터베이스 엔진 내에서 실행할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure Cosmos DB의 JavaScript 언어 통합 쿼리 API](javascript-query-api.md) 및 [Cosmos DB SQL API 클라이언트 SDK](sql-api-dotnet-samples.md)를 사용하여 트리거, 저장 프로시저 및 UDF를 만들고 실행할 수 있습니다. 
 
 저장 프로시저, 트리거 및 사용자 정의 함수를 호출하려면 등록해야 합니다. 자세한 내용은 [Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수로 작업하는 방법](how-to-use-stored-procedures-triggers-udfs.md)을 참조하세요.
 
@@ -284,7 +284,7 @@ function async_sample() {
 
 ## <a name="how-to-write-triggers"></a><a id="triggers"></a>트리거를 작성하는 방법
 
-Azure Cosmos DB에서는 사전 트리거와 사후 트리거를 지원합니다. 사전 트리거는 데이터베이스 항목을 수정하기 전에 실행되고, 사후 트리거는 데이터베이스 항목을 수정한 후에 실행됩니다.
+Azure Cosmos DB에서는 사전 트리거와 사후 트리거를 지원합니다. 사전 트리거는 데이터베이스 항목을 수정 하기 전에 실행 되며 사후 트리거는 데이터베이스 항목을 수정한 후 실행 됩니다. 트리거가 자동으로 시작 되지 않습니다. 이러한 작업을 실행 하려는 각 데이터베이스 작업에 대해 지정 해야 합니다.
 
 ### <a name="pre-triggers"></a><a id="pre-triggers"></a>사전 트리거
 

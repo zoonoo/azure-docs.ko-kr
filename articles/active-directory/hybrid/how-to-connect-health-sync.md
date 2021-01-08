@@ -3,7 +3,7 @@ title: 동기화된 Azure AD Connect Health 사용 | Microsoft Docs
 description: Azure AD Connect 동기화를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: daveba
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efb332cf8d5e34a435010a39a12b38f87cff5875
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e803614a02e76d179579a2258abd563b5c58e63a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313368"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016986"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 Azure AD Connect 동기화 모니터링
 다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health Active Directory Domain Services 모니터링에 대 한 자세한 내용은 [AD DS에서 Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조 하세요.
@@ -101,8 +101,8 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 다음 데이터를 각 오류에 대한 자세한 보기에 사용할 수 있음
 
 * 강조 표시된 충돌하는 특성
-* 관련된 *AD 개체*에 대한 식별자
-* 관련된 *Azure AD 개체*에 대한 식별자
+* 관련된 *AD 개체* 에 대한 식별자
+* 관련된 *Azure AD 개체* 에 대한 식별자
 * 오류 설명 및 해결 방법
 
 ![동기화 오류 보고서 세부 정보](./media/how-to-connect-health-sync/duplicateAttributeSyncError.png)

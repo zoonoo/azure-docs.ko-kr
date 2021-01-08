@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c45445415f3eaa7cb0f9069dd5f64b57c19e5836
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b24ea79737c9e1f64abb7f62807352dbd9573695
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437153"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018074"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Azure Cosmos DB로 데이터를 마이그레이션하기 위한 기존 도구에
 
 사용자 지정 도구는 대량 실행자 라이브러리를 사용 하 고 여러 클라이언트에서 확장 하 고 수집 프로세스 중에 오류를 추적할 수 있도록 지원 합니다. 이 도구를 사용 하려면 서로 다른 마이그레이션 작업 자가 각 파일을 선택 하 여 Azure Cosmos DB으로 수집할 수 있도록 Azure Data Lake Storage (ADLS)에서 원본 데이터를 개별 파일로 분할 해야 합니다. 사용자 지정 도구는 ADLS의 개별 원본 파일 각각에 대 한 마이그레이션 진행률에 대 한 메타 데이터를 저장 하 고 이와 관련 된 모든 오류를 추적 하는 별도의 컬렉션을 사용 합니다.  
 
-다음 이미지는이 사용자 지정 도구를 사용 하는 마이그레이션 프로세스를 설명 합니다. 이 도구는 가상 머신 집합에서 실행 되 고 있으며 각 가상 머신은 Azure Cosmos DB의 추적 컬렉션을 쿼리하여 원본 데이터 파티션 중 하나에 대 한 임대를 획득 합니다. 이 작업이 완료 되 면 도구에서 원본 데이터 파티션을 읽고 대량 실행자 라이브러리를 사용 하 여 Azure Cosmos DB에 수집. 그런 다음, 데이터 수집의 진행률과 발생 한 오류를 기록 하도록 추적 컬렉션이 업데이트 됩니다. 데이터 파티션이 처리 된 후이 도구는 사용 가능한 다음 원본 파티션에 대 한 쿼리를 시도 합니다. 모든 데이터가 마이그레이션될 때까지 계속 해 서 다음 원본 파티션을 처리 합니다. 이 도구에 대 한 소스 코드는 [여기](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion)에서 사용할 수 있습니다.  
+다음 이미지는이 사용자 지정 도구를 사용 하는 마이그레이션 프로세스를 설명 합니다. 이 도구는 가상 머신 집합에서 실행 되 고 있으며 각 가상 머신은 Azure Cosmos DB의 추적 컬렉션을 쿼리하여 원본 데이터 파티션 중 하나에 대 한 임대를 획득 합니다. 이 작업이 완료 되 면 도구에서 원본 데이터 파티션을 읽고 대량 실행자 라이브러리를 사용 하 여 Azure Cosmos DB에 수집. 그런 다음, 데이터 수집의 진행률과 발생 한 오류를 기록 하도록 추적 컬렉션이 업데이트 됩니다. 데이터 파티션이 처리 된 후이 도구는 사용 가능한 다음 원본 파티션에 대 한 쿼리를 시도 합니다. 모든 데이터가 마이그레이션될 때까지 계속 해 서 다음 원본 파티션을 처리 합니다. 도구에 대 한 소스 코드는 [Azure Cosmos DB 대량](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion) 수집 리포지토리에서 사용할 수 있습니다.  
 
  
 :::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="마이그레이션 도구 설치" border="false":::

@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics에서 .NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기
 description: 이 문서에서는 Azure Stream Analytics 클라우드 및 에지 작업에 대한 사용자 지정 .NET 역직렬 변환기를 정의하는 인터페이스 및 직렬화 형식에 대해 설명합니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4adf0b8a7c12abed9689b9ac0cc9c5d5c8c3f980
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 140a836882ad3abe048047120e4fe1ebc0a3067c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488437"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018159"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>.NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기
 

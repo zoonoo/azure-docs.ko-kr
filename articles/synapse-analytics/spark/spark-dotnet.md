@@ -1,20 +1,20 @@
 ---
 title: Apache Spark에 .NET 사용
 description: .NET 및 Apache Spark를 사용하여 Azure Synapse Analytics Notebook에서 일괄 처리, 실시간 스트리밍, 기계 학습 및 임시 쿼리 작성을 수행하는 방법에 대해 알아봅니다.
-author: mamccrea
+author: luisquintanilla
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 05/01/2020
-ms.author: mamccrea
+ms.author: luquinta
 ms.reviewer: jrasnick
-ms.openlocfilehash: 753c7ff48960711cbedbf6b5d8644a26502dd413
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 895d766cc1e70e6a001904770d6f3ef12b6945cd
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023745"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018664"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 Apache Spark에 .NET 사용
 

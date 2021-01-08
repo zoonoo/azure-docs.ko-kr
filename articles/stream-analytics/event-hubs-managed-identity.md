@@ -1,17 +1,17 @@
 ---
 title: 관리 되는 id를 사용 하 여 Azure Stream Analytics 작업에서 이벤트 허브에 액세스 (미리 보기)
 description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure Event Hubs 입력 및 출력에 대 한 Azure Stream Analytics 작업을 인증 하는 방법을 설명 합니다.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/04/2021
-ms.openlocfilehash: ca27df7188c5edd1da94fc41707f6c25eb4034bf
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 4dc718f21f2ef3beabc31821bd60b571ac07be05
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895141"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018754"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>관리 되는 id를 사용 하 여 Azure Stream Analytics 작업에서 이벤트 허브에 액세스 (미리 보기)
 

@@ -3,17 +3,16 @@ title: Azure Stream Analytics 작업에 대한 모니터링 경고 설정
 description: 이 아티클에서는 Azure Portal을 사용하여 Azure Stream Analytics 작업에 대한 모니터링 및 경고를 설정하는 방법을 설명합니다.
 author: jseb225
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
-ms.openlocfilehash: 8d591bb9c4b2ef8100946082f19115b99b30dde1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7884f8baa24180fcb94f77a45c3457ba62d3f351
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027495"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018142"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 대한 경고 설정
 

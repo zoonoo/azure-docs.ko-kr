@@ -5,12 +5,12 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: e37a14b2634395d7f31565d6d5a6f6ec96a4a2f1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 5c9612547fcfed8e583f5b2fbcfe0bddd5dc412c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954529"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019111"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
@@ -61,13 +61,13 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
     ![Azure Portal에서 함수 URL 복사](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `&name=<your_name>` 쿼리 문자열 값을 이 URL의 마지막에 추가하고 Enter 키를 눌러 요청을 실행합니다. 
+1. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `?name=<your_name>` 쿼리 문자열 값을 이 URL의 마지막에 추가하고 Enter 키를 눌러 요청을 실행합니다. 
 
     다음 예에서는 브라우저의 응답을 보여 줍니다.
 
     ![브라우저에 함수 응답.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    요청 URL에는 기본적으로 HTTP를 통해 함수에 액세스하는 데 필요한 키가 포함됩니다.
+    요청 URL에 [액세스 키](functions-bindings-http-webhook-trigger.md#authorization-keys) ()가 포함 된 경우 `?code=...` 함수를 만들 때 **익명** 액세스 수준 대신 **함수** 를 선택 합니다. 이 경우 대신을 추가 해야 `&name=<your_name>` 합니다.
 
 1. 함수가 실행되면 추적 정보가 로그에 기록됩니다. 추적 출력을 보려면 포털의 **코드 + 테스트** 페이지로 돌아가서 페이지 하단에 있는 **로그** 화살표를 확장합니다.
 

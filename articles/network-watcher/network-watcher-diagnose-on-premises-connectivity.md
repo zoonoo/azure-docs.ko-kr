@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 9014f24918013872ce102d094f62fd5703594ddc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a5db1ac9c70429d4b6a0b690de1b29c3656b3cc8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961858"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016714"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 
@@ -87,9 +87,9 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 | PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
 | UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다. | 아니요 |
 | VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니요 |
-| PlatformInActive | 플랫폼에 문제가 있습니다. | 예|
-| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 예|
-| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 단지 경고일 뿐입니다.| 예|
+| PlatformInActive | 플랫폼에 문제가 있습니다. | 아니요|
+| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 아니요|
+| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 단지 경고일 뿐입니다.| 아니요|
 | ConnectionsNotConnected | 연결이 이루어지지 않았습니다. 단지 경고일 뿐입니다.| 예|
 | GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | 예 |
 
@@ -101,9 +101,9 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니요|
 | PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
 | UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다.  | 아니요 |
-| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 예 |
-| ConnectionEntityNotFound | 연결 구성이 없습니다. | 예 |
-| ConnectionIsMarkedDisconnected | 연결이 "연결 끊김"으로 표시되었습니다. |예|
+| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니요 |
+| ConnectionEntityNotFound | 연결 구성이 없습니다. | 아니요 |
+| ConnectionIsMarkedDisconnected | 연결이 "연결 끊김"으로 표시되었습니다. |아니요|
 | ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
 | ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| 예|
 | 인증 | 미리 공유한 키가 일치하지 않습니다. | 예|

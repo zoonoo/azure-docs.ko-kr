@@ -8,12 +8,12 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: 962f6bcf7747a82749e7ccab95de34f7834a8372
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: f6cba0118a98ea50e8020b91b9c2064299ca4ccf
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814213"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019162"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준과 파트너
 이 문서에서는 Azure DDoS Protection 표준에서 사용 하도록 설정 된 파트너 기회에 대해 설명 합니다. 이 문서는 제품 관리자 및 비즈니스 개발 역할이 투자 경로를 이해 하 고 파트너 가치 제안을 이해 하는 데 도움을 주기 위해 작성 되었습니다.
@@ -94,4 +94,3 @@ Azure DDoS Protection 표준 파트너 기회는 Azure Portal, Api 및 CLI/PS를
 기존 파트너 통합 보기:
 
 - [Barracuda WAF-서비스로](https://www.barracuda.com/waf-as-a-service)
-- [Radware의 Azure Cloud WAF](https://www.radware.com/resources/microsoft-azure/)

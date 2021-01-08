@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 6540b5f93bebfe39253a88dc495a3613568f8926
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: e5fa4bde316f4b1677f78c65e913a6303a9f4735
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839734"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019145"
 ---
 # <a name="about-high-availability"></a>고가용성 정보
 
@@ -52,7 +52,7 @@ ms.locfileid: "97839734"
 
 3. 온-프레미스 관리 콘솔 보조 어플라이언스를 설치 합니다. 자세한 내용은 [IoT 설치용 Defender 정보](how-to-install-software.md)를 참조 하세요.
 
-4. [여기](/create-the-primary-and-secondary-pair.md)에 설명 된 대로 기본 및 보조 온-프레미스 관리 콘솔 어플라이언스를 페어링 합니다. 기본 온-프레미스 관리 콘솔은 설치를 수행 하기 위해 두 개 이상의 센서를 관리 해야 합니다.
+4. [여기](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console)에 설명 된 대로 기본 및 보조 온-프레미스 관리 콘솔 어플라이언스를 페어링 합니다. 기본 온-프레미스 관리 콘솔은 설치를 수행 하기 위해 두 개 이상의 센서를 관리 해야 합니다.
 
 ## <a name="high-availability-requirements"></a>고가용성 요구 사항
 
@@ -74,7 +74,7 @@ ms.locfileid: "97839734"
 
 조직 보안 정책을 사용 하 여 기본 및 보조 온-프레미스 관리 콘솔에서 다음 서비스에 액세스할 수 있는지 확인 해야 합니다. 이러한 서비스를 통해 센서와 보조 온-프레미스 관리 콘솔 간에 연결할 수 있습니다.
 
-|포트|서비스|Description|
+|포트|서비스|설명|
 |----|-------|-----------|
 |**443 또는 TCP**|HTTPS|온-프레미스 관리 콘솔 웹 콘솔에 대 한 액세스 권한을 부여 합니다.|
 |**22 또는 TCP**|SSH|기본 및 보조 온-프레미스 관리 콘솔 어플라이언스 간에 데이터를 동기화 합니다.|

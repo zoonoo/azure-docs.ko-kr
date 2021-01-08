@@ -1,18 +1,18 @@
 ---
 title: 자습서 - Azure Stream Analytics를 사용하여 사기 전화 데이터를 분석하고 Power BI 대시보드에 결과 시각화
 description: 이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 스트림의 사기성 호출을 분석하는 방법에 대한 엔드투엔드 데모를 제공합니다.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
-ms.openlocfilehash: b8744d86300287403ca390d93c70b25215bcac4f
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 1e26159c07ca551a78ee2f83a0ca64779c60f7b4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822134"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018873"
 ---
 # <a name="tutorial-analyze-fraudulent-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>자습서: Stream Analytics를 사용하여 사기 전화 데이터를 분석하고 Power BI 대시보드에 결과 시각화
 

@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 7fa13a328a55b0e9eaa546e70bf0711f4f011cf1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 10fb55cc133d5d6b39ca2809474ff20dfe500708
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173433"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017802"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Xamarin 응용 프로그램에서 Microsoft Authenticator 또는 Intune 회사 포털 사용
 
@@ -183,7 +183,7 @@ public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
 
 **리디렉션 URI를 생성 하려면:**
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
 1. **Azure Active Directory**  >  **앱 등록** 를 선택 하 여 등록 된 앱 >
 1. **인증** 선택  >  **플랫폼**  >  **iOS/macos** 추가
 1. 번들 ID를 입력 하 고 **구성** 을 선택 합니다.
@@ -239,7 +239,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 MSAL은 Url을 사용 하 여 broker를 호출한 다음 앱으로 돌아갑니다. 이러한 라운드트립을 완료 하려면 [Azure Portal](https://portal.azure.com)을 사용 하 여 앱에 대 한 **리디렉션 URI** 를 등록 해야 합니다.
 
-응용 프로그램에 대 한 리디렉션 URI의 형식은 APK에 서명 하는 데 사용 되는 인증서에 따라 다릅니다. 예를 들어:
+응용 프로그램에 대 한 리디렉션 URI의 형식은 APK에 서명 하는 데 사용 되는 인증서에 따라 다릅니다. 예를 들면 다음과 같습니다.
 
 ```
 msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=

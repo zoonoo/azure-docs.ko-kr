@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903023"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019179"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -135,7 +135,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 ## <a name="composite-indexes"></a>복합 인덱스
 
-두 개 이상의 속성이 있는 절이 있는 쿼리에는 `ORDER BY` 복합 인덱스가 필요 합니다. 복합 인덱스를 정의 하 여 여러 개의 같음 및 범위 쿼리의 성능을 향상 시킬 수도 있습니다. 기본적으로 복합 인덱스는 정의 되지 않으므로 필요에 따라 [복합 인덱스를 추가](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) 해야 합니다.
+두 개 이상의 속성이 있는 절이 있는 쿼리에는 `ORDER BY` 복합 인덱스가 필요 합니다. 복합 인덱스를 정의 하 여 여러 개의 같음 및 범위 쿼리의 성능을 향상 시킬 수도 있습니다. 기본적으로 복합 인덱스는 정의 되지 않으므로 필요에 따라 [복합 인덱스를 추가](how-to-manage-indexing-policy.md#composite-index) 해야 합니다.
 
 포함 되거나 제외 된 경로와 달리 와일드 카드를 사용 하 여 경로를 만들 수 없습니다 `/*` . 모든 복합 경로에는 `/?` 지정할 필요가 없는 경로 끝에 암시적이 있습니다. 복합 경로에는 스칼라 값이 포함 되 고이 값은 복합 인덱스에 포함 됩니다.
 
@@ -160,7 +160,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 복합 인덱스가 속성 이름, age 및 _ts에 정의 된 다음 예를 살펴보세요.
 
-| **복합 인덱스**     | **예제 `ORDER BY` 쿼리**      | **복합 인덱스에서 지원 되나요?** |
+| **복합 인덱스**     | **예제 `ORDER BY` 쿼리**      | **복합 인덱스에서 지원되나요?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.name ASC, c.age asc``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.age ASC, c.name asc```   | ```No```             |
@@ -205,7 +205,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age > 18
 
 복합 인덱스가 속성 이름, 나이 및 타임 스탬프에 정의 되어 있는 다음 예제를 고려 합니다.
 
-| **복합 인덱스**     | **예제 쿼리**      | **복합 인덱스에서 지원 되나요?** |
+| **복합 인덱스**     | **예제 쿼리**      | **복합 인덱스에서 지원되나요?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
@@ -256,7 +256,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 * 여러 속성을 포함 하는 쿼리에 대해서도 복합 인덱스를 만들 때의 모든 고려 사항은 `ORDER BY` 계속 적용 됩니다.
 
 
-| **복합 인덱스**                      | **예제 `ORDER BY` 쿼리**                                  | **복합 인덱스에서 지원 되나요?** |
+| **복합 인덱스**                      | **예제 `ORDER BY` 쿼리**                                  | **복합 인덱스에서 지원되나요?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
