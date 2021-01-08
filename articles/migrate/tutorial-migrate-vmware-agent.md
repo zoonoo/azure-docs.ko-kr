@@ -7,16 +7,16 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 0c3b86fc823e4b563dc747a5604fcb2e04995fed
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 480051680ea98b82627a9a2b3ea004d9472f7124
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752654"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797097"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
-이 문서에서는 에이전트 기반 마이그레이션을 통한 [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) 도구를 사용하여 온-프레미스 VMware VM을 Azure로 마이그레이션하는 방법에 대해 설명합니다.  에이전트 기반 마이그레이션을 사용하여 VMware VM을 마이그레이션할 수도 있습니다. 메서드를 [비교](server-migrate-overview.md#compare-migration-methods)합니다.
+이 문서에서는 에이전트 기반 마이그레이션을 통한 [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) 도구를 사용하여 온-프레미스 VMware VM을 Azure로 마이그레이션하는 방법에 대해 설명합니다.  에이전트 없는 마이그레이션을 사용하여 VMware VM을 마이그레이션할 수도 있습니다. 메서드를 [비교](server-migrate-overview.md#compare-migration-methods)합니다.
 
 
  이 자습서에서는 다음 작업 방법을 알아봅니다.

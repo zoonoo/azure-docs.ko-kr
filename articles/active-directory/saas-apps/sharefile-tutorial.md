@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/04/2020
+ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: e0cabcbaaf8e84ac1bdfd13c0ef4ab14f326fcf7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d7cafdcbbf44f3f501d54c13d1b4549c446ed8c8
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182290"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723969"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>자습서: Citrix ShareFile과 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ Citrix ShareFile의 Azure AD 통합을 구성하려면 갤러리의 Citrix Share
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Citrix ShareFile** 을 입력합니다.
 1. 결과 패널에서 **Citrix ShareFile** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Azure AD SSO 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-citrix-sharefile"></a>Citrix ShareFile에 대한 Azure AD SSO 구성 및 테스트
 
 이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 Citrix ShareFile에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Citrix ShareFile의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -60,10 +60,10 @@ Citrix ShareFile에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
     
-    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 2. **[Citrix ShareFile SSO 구성](#configure-citrix-sharefile-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    * **[Citrix ShareFile 테스트 사용자 만들기](#create-citrix-sharefile-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Citrix ShareFile에 만듭니다.
+    1. **[Citrix ShareFile 테스트 사용자 만들기](#create-citrix-sharefile-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Citrix ShareFile에 만듭니다.
 3. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -131,7 +131,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-citrix-sharefile-sso"></a>Citrix ShareFile SSO 구성
 
-1. 다른 웹 브라우저 창에서 **Citrix ShareFile** 회사 사이트에 관리자로 로그인합니다.
+1. **Citrix ShareFile** 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Citrix ShareFile 설정** 을 클릭하면 Citrix ShareFile 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Citrix ShareFile에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+3. Citrix ShareFile을 수동으로 설정하려면 다른 웹 브라우저 창에서 관리자 권한으로 Citrix ShareFile 회사 사이트에 로그인합니다.
 
 1. **대시보드** 에서 **설정** 을 클릭하고 **관리자 설정** 을 선택합니다.
 
@@ -184,13 +192,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="test-sso"></a>SSO 테스트 
 
-이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Citrix ShareFile 로그온 URL로 리디렉션됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Citrix ShareFile 로그온 URL로 리디렉션됩니다.
 
-2. Citrix ShareFile 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* Citrix ShareFile 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Citrix ShareFile 타일을 클릭하면 Citrix ShareFile 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Citrix ShareFile 타일을 클릭하면 Citrix ShareFile 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

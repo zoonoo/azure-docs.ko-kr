@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: d969b1639dbb39b920c985964abe1239f068d740
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 81d2804d99896200ea6f68592ea168112e172c20
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185346"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762615"
 ---
 **빌드** 를 선택합니다. 열리는 창에서 Xcode 프로젝트를 내보낼 폴더를 선택합니다.
 
@@ -30,9 +30,9 @@ open ./Unity-iPhone.xcodeproj
 
 루트 **Unity-iPhone** 노드를 선택하여 프로젝트 설정을 살펴본 다음, **일반** 탭을 선택합니다.
 
-**서명** 아래에서 **서명 자동 관리** 를 사용하는지 확인합니다. 그렇지 않은 경우, 표시되는 창에서 **자동 사용** 을 선택하여 이 옵션을 사용하도록 설정한 다음, 빌드 설정을 재설정합니다.
+**배포 정보** 에서 배포 대상이 **iOS 11.0** 으로 설정되어 있는지 확인합니다.
 
-**배포 정보** 에서 **배포 대상** 이 **11.0** 으로 설정되어 있는지 확인합니다.
+**서명 및 기능** 탭을 선택하고 **서명 자동 관리** 가 활성화되어 있는지 확인합니다. 그렇지 않은 경우, 표시되는 창에서 **자동 사용** 을 선택하여 이 옵션을 사용하도록 설정한 다음, 빌드 설정을 재설정합니다.
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>iOS 디바이스에 앱 배포
 

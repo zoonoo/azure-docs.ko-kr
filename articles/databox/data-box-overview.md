@@ -7,23 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: dd71b03f55cc1522727f6c496c1bdbe0f42cb828
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336698"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678617"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
 Microsoft Azure Data Box 클라우드 솔루션을 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 주고 받을 수 있습니다. 사용자에게 전용 Data Box 스토리지 디바이스를 배송하여 안전한 데이터 전송을 더욱 빠르게 실현시켜 드립니다. 각 스토리지 디바이스는 사용 가능한 최대 스토리지 용량이 80TB이며, 지역 이동 통신 사업자를 통해 사용자의 데이터 센터에 수송됩니다. 디바이스는 운송 중에 데이터를 안전하게 보호하기 위해 견고하게 포장됩니다.
 
-Azure Portal을 통해 Data Box 디바이스를 주문하여 Azure에서 데이터를 가져오거나 내보낼 수 있습니다. 디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정할 수 있습니다. 데이터를 가져오거나 내보낼지 여부에 따라 서버에서 디바이스로 데이터를 복사하거나 그 반대로 데이터를 복사하여 디바이스를 Azure에 다시 제공합니다. 데이터를 Azure로 가져오는 경우 Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 엔드투엔드 추적됩니다.
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
+Azure Portal을 통해 Data Box 디바이스를 주문하여 Azure에서 데이터를 가져오거나 내보낼 수 있습니다. 디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정할 수 있습니다. 데이터를 가져오거나 내보낼지 여부에 따라 서버에서 디바이스로 데이터를 복사하거나 디바이스에서 서버로 데이터를 복사하고 디바이스를 Azure에 다시 제공합니다. 데이터를 Azure로 가져오는 경우 Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 엔드투엔드 추적됩니다.
 
 ## <a name="use-cases"></a>사용 사례
 
@@ -43,7 +40,7 @@ Data Box를 사용하여 데이터를 Azure로 가져올 수 있는 다양한 �
 
 Data Box를 사용하여 데이터를 Azure에서 내보낼 수 있는 다양한 시나리오는 다음과 같습니다.
 
-- **재해 복구** - Azure의 데이터 복사본이 온-프레미스 네트워크로 복원되는 경우 이는 일반적으로 대량의 Azure 데이터를 Data Box로 내보내는 재해 복구 시나리오의 경우에 수행됩니다. 그러면 Microsoft는 이 Data Box를 제공하고 데이터는 단기간 내에 온-프레미스에서 복원됩니다. 
+- **재해 복구** - Azure의 데이터 복사본이 온-프레미스 네트워크로 복원되는 경우 일반적인 재해 복구 시나리오에서는 대량의 Azure 데이터를 Data Box로 내보냅니다. 그러면 Microsoft는 이 Data Box를 제공하고 데이터는 짧은 시간 내에 온-프레미스에서 복원됩니다.
 
 - **보안 요구 사항** - 정부 또는 보안 요구 사항으로 인해 Azure에서 데이터를 내보낼 수 있어야 하는 경우 예를 들어 Azure Storage는 미국 비밀 및 상위 비밀 클라우드에서 사용할 수 있으며 Data Box를 사용하여 Azure에서 데이터를 내보낼 수 있습니다. 
 
@@ -54,14 +51,14 @@ Data Box를 사용하여 데이터를 Azure에서 내보낼 수 있는 다양한
 
 Data Box는 네트워크에 거의 영향을 주지 않으면서 대량의 데이터를 Azure로 이동할 수 있도록 설계되었습니다. 이 솔루션에는 다음과 같은 이점이 있습니다.
 
-- **속도** - Data Box는 1Gbps 또는 10Gbps 네트워크 인터페이스를 사용하여 80TB의 데이터를 Azure 내외부로 이동합니다.
+- **속도** - Data Box는 1Gbps 또는 10Gbps 네트워크 인터페이스를 사용하여 최대 80TB의 데이터를 Azure 내외부로 이동합니다.
 
 - **보안** - Data Box에는 디바이스, 데이터 및 서비스에 대한 보안 보호 기능이 기본적으로 제공됩니다.
   - 디바이스는 나사 변조 방지 및 변조 방지 스티커로 보호되어 견고하게 포장됩니다. 
   - 디바이스의 데이터는 항상 AES 256비트 암호화로 보호됩니다.
   - 디바이스는 Azure Portal에 제공된 암호로만 잠금 해제할 수 있습니다.
   - 서비스는 Azure 보안 기능으로 보호됩니다.
-  - 가져오기 순서를 위해 데이터가 Azure에 업로드되면 디바이스의 디스크는 NIST 800-88r1 표준에 따라 완전히 초기화됩니다. 내보내기 순서의 경우 디바이스가 Azure 데이터 센터에 도달하면 디스크가 지워집니다.
+  - 가져오기 순서의 데이터가 Azure에 업로드되면 디바이스의 디스크는 NIST 800-88r1 표준에 따라 완전히 초기화됩니다. 내보내기 순서의 경우 디바이스가 Azure 데이터 센터에 도달하면 디스크가 지워집니다.
     
     자세한 내용은 [Azure Data Box 보안 및 데이터 보호](data-box-security.md)를 참조하세요.
 
@@ -75,9 +72,9 @@ Data Box 디바이스에는 이 릴리스의 다음과 같은 기능이 있습�
 | 차원                                              | 디바이스 - 너비: 309.0mm 높이: 430.4mm 깊이: 502.0mm |            
 | 랙 공간                                              | 장치 쪽 랙에 배치되는 경우 7U(랙에 설치할 수 없음)|
 | 필요한 케이블                                         | 전원 케이블 1개(포함) <br> RJ45 케이블 2개 <br> SFP+ Twinax 구리 케이블 2개|
-| 스토리지 용량                                        | 100TB 디바이스 - RAID 5 보호 후 사용 가능한 용량 80TB|
+| 스토리지 용량                                        | 100TB 디바이스는 RAID 5 보호 후 80TB 또는 사용 가능한 용량을 가집니다.|
 | 전력 소요량                                            | 전원 공급 장치는 정격 700W입니다. <br> 일반적으로 장치는 375W를 소비합니다.|
-| 네트워크 인터페이스                                      | 1 GbE 인터페이스 2개 - MGMT, DATA 3. <br> MGMT - 관리용, 사용자 구성 불가능, 초기 설치에 사용됨 <br> DATA3 - 데이터용, 구성 가능, 기본적으로 동적임 <br> MGMT 및 DATA 3은 10GbE로 사용할 수도 있음 <br> 10GbE 인터페이스 2개 - DATA 1, DATA 2 <br> 모두 데이터용으로, 동적(기본값) 또는 정적으로 구성할 수 있음 |
+| 네트워크 인터페이스                                      | 1GbE 인터페이스 2개 - MGMT, DATA 3. <br> MGMT - 관리용, 사용자 구성 불가능, 초기 설치에 사용됨 <br> DATA3 - 데이터용, 구성 가능, 기본적으로 동적임 <br> MGMT 및 DATA 3은 10GbE로 사용할 수도 있음 <br> 10GbE 인터페이스 2개 - DATA 1, DATA 2 <br> 모두 데이터용으로, 동적(기본값) 또는 정적으로 구성할 수 있음 |
 | 데이터 전송                                      | 가져오기 및 내보내기가 모두 지원됩니다.  |
 | 데이터 전송 미디어                                     | RJ45, SFP+ 구리 10GbE 이더넷  |
 | 보안                                                | 조작 방지 사용자 지정 나사를 사용한 견고한 디바이스 포장 <br> 디바이스의 하단에 변조 방지 스티커 부착|
@@ -138,11 +135,11 @@ Data Box는 다음과 같은 구성 요소를 포함합니다.
 
 ## <a name="region-availability"></a>지역 가용성
 
-Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가/지역 및 데이터를 전송하는 대상 Azure 스토리지 계정에 따라 데이터를 전송할 수 있습니다. 
+Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가 또는 지역, 데이터를 전송하는 대상 Azure 스토리지 계정에 따라 데이터를 전송할 수 있습니다.
 
 ### <a name="for-import"></a>가져오기의 경우
 
-- **서비스 가용성** - 가져오기 또는 내보내기 순서에 Data Box를 사용하는 경우 지역 가용성에 대한 정보를 가져오려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요. Data Box의 내보내기 기능은 현재 미리 보기로 제공됩니다. 
+- **서비스 가용성** - 가져오기 또는 내보내기 순서에 Data Box를 사용하는 경우 지역 가용성에 대한 정보를 가져오려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요.
 
     가져오기 순서의 경우 Data Box는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](../azure-government/documentation-government-welcome.md)을 참조하세요. 
 

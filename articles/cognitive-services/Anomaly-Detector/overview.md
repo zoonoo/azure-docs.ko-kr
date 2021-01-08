@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8698a17db8be6a3d5b26d764ef86702320ebfa4
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999106"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705084"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
@@ -97,6 +97,6 @@ Microsoft에서 개발한 SR-CNN 알고리즘에 대해 자세히 알아보려�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Anomaly Detector REST API를 사용하여 시계열 데이터에서 변칙 검색](quickstarts/detect-data-anomalies-csharp.md)
+* [빠른 시작: Anomaly Detector를 사용하여 시계열 데이터에서 변칙 검색](quickstarts/client-libraries.md)
 * Anomaly Detector API [온라인 데모](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)
 * Anomaly Detector [REST API 참조](https://aka.ms/anomaly-detector-rest-api-ref)

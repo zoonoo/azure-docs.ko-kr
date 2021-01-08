@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575978"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796111"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>자습서: 디자이너를 사용하여 자동차 가격 예측
 
@@ -272,7 +272,7 @@ Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning �
     > [!NOTE]
     > 실험 그룹은 유사한 파이프라인을 함께 실행합니다. 파이프라인을 여러 번 실행하는 경우 연속 실행에 대해 동일한 실험을 선택할 수 있습니다.
 
-    1. **새 실험 이름** 에 대한 설명이 포함된 이름을 입력합니다.
+    1. **새 실험 이름** 에 **Tutorial-CarPrices** 를 입력합니다.
 
     1. **제출** 을 선택합니다.
     

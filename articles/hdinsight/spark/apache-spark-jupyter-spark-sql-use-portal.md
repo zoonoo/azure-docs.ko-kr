@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
-ms.openlocfilehash: c22136e58ddf35ca28ab2251b3476ce2a80dbc4a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6554d112e494a129fa2cc811c2acf1959ff79f8b
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539278"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822270"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기
 
@@ -52,7 +52,7 @@ Azure Portal을 사용하여 Azure Storage Blob을 클러스터 스토리지로 
     |지역   | 드롭다운 목록에서 클러스터를 만들 지역을 선택합니다. |
     |클러스터 유형| [클러스터 유형 선택]을 선택하여 목록을 엽니다. 목록에서 **Spark** 를 선택합니다.|
     |클러스터 버전|클러스터 유형을 선택하면 이 필드가 기본 버전으로 자동으로 채워집니다.|
-    |클러스터 로그인 사용자 이름| 클러스터 로그인 사용자 이름을 입력합니다.  기본 이름은 **admin** 입니다. 이 계정을 사용하여 빠른 시작의 뒷부분에 나오는 Jupyter 노트북에 로그인합니다. |
+    |클러스터 로그인 사용자 이름| 클러스터 로그인 사용자 이름을 입력합니다.  기본 이름은 **admin** 입니다. 이 계정을 사용하여 빠른 시작의 뒷부분에 나오는 Jupyter Notebook에 로그인합니다. |
     |클러스터 로그인 암호| 클러스터 로그인 암호를 입력합니다. |
     |SSH(보안 셸) 사용자 이름| SSH 사용자 이름을 입력합니다. 이 빠른 시작에 사용되는 SSH 사용자 이름은 **sshuser** 입니다. 기본적으로 이 계정에는 *클러스터 로그인 사용자 이름* 계정과 동일한 암호를 공유합니다. |
 
@@ -106,7 +106,7 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
     SHOW TABLES
     ```
 
-    Jupyter Notebook을 HDInsight 클러스터와 함께 사용하는 경우 Spark SQL을 사용하여 Hive 쿼리를 실행하는 데 사용할 수 있는 미리 설정된 `sqlContext`를 얻게 됩니다. `%%sql`은 Jupyter Notebook에 미리 설정된 `sqlContext`를 사용하여 Hive 쿼리를 실행하도록 지시합니다. 쿼리는 기본적으로 모든 HDInsight 클러스터와 함께 제공되는 Hive 테이블( **hivesampletable** )에서 상위 10개의 행을 검색합니다. 결과를 얻는데 약 30초가 걸립니다. 출력은 다음과 같이 표시됩니다.
+    Jupyter Notebook을 HDInsight 클러스터와 함께 사용하는 경우 Spark SQL을 사용하여 Hive 쿼리를 실행하는 데 사용할 수 있는 미리 설정된 `sqlContext`를 얻게 됩니다. `%%sql`은 Jupyter Notebook에 미리 설정된 `sqlContext`를 사용하여 Hive 쿼리를 실행하도록 지시합니다. 쿼리는 기본적으로 모든 HDInsight 클러스터와 함께 제공되는 Hive 테이블(**hivesampletable**)에서 상위 10개의 행을 검색합니다. 결과를 얻는데 약 30초가 걸립니다. 출력은 다음과 같이 표시됩니다.
 
     ![이 빠른 시작에서 만든 Notebook의 Jupyter 창이 스크린샷에 표시됩니다.](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "HDInsight의 Hive 쿼리")
 

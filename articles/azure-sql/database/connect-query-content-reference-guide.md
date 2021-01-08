@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: e25469e23358ade32e050bed0818338dc290e71f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7dccce597dcfbcedd5083befafa79b8ba6f3adac
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451390"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693485"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database와 Azure SQL Managed Instance 연결 및 쿼리 문서
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,6 +42,29 @@ ms.locfileid: "96451390"
 |[Ruby](connect-query-ruby.md)|이 빠른 시작에서는 Ruby를 사용하여 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.|
 |[R](connect-query-r.md)|이 빠른 시작에서는 Azure SQL Database Machine Learning Services에서 R을 사용하여 Azure SQL Database의 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여줍니다.|
 |||
+
+## <a name="get-server-connection-information"></a>서버 연결 정보 가져오기
+
+Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차를 수행하려면 정규화된 서버 이름이나 호스트 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
+2. **SQL Databases** 또는 **SQL Managed Instances** 페이지로 이동합니다.
+
+3. **개요** 페이지에서 Azure SQL Database의 데이터베이스에 대한 **서버 이름** 옆에 있는 정규화된 서버 이름 또는 Azure VM의 Azure SQL Managed Instance 또는 SQL Server에 대한 **호스트** 옆에 있는 정규화된 서버 이름(또는 IP 주소)을 검토합니다. 서버 이름이나 호스트 이름을 복사하려면 마우스로 해당 이름 위를 가리키고 **복사** 아이콘을 선택합니다.
+
+> [!NOTE]
+> Azure VM의 SQL Server에 대한 연결 정보는 [SQL Server 인스턴스에 연결](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server)을 참조하세요.
+
+## <a name="get-adonet-connection-information-optional---sql-database-only"></a>ADO.NET 연결 정보 가져오기(선택 사항 - SQL Database 전용)
+
+1. Azure Portal의 데이터베이스 블레이드로 이동하고 **설정** 아래에서 **연결 문자열** 을 선택합니다.
+
+2. **ADO.NET** 연결 문자열 전체를 검토합니다.
+
+    ![ADO.NET 연결 문자열](./media/connect-query-dotnet-core/adonet-connection-string2.png)
+
+3. 사용하려는 경우 **ADO.NET** 연결 문자열을 복사합니다.
 
 ## <a name="tls-considerations-for-database-connectivity"></a>데이터베이스 연결에 대한 TLS 고려 사항
 

@@ -5,27 +5,27 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ba314963058389e171601407ff00411049eecd45
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88750195"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845419"
 ---
 # <a name="durable-orchestrations"></a>지속성 오케스트레이션
 
-Durable Functions은 [Azure Functions](../functions-overview.md)의 확장입니다. *오케스트레이터 함수*를 사용하여 함수 앱 내에서 다른 지속성 함수의 실행을 오케스트레이션할 수 있습니다. 오케스트레이터 함수에는 다음과 같은 특징이 있습니다.
+Durable Functions은 [Azure Functions](../functions-overview.md)의 확장입니다. *오케스트레이터 함수* 를 사용하여 함수 앱 내에서 다른 지속성 함수의 실행을 오케스트레이션할 수 있습니다. 오케스트레이터 함수에는 다음과 같은 특징이 있습니다.
 
 * 오케스트레이터 함수는 절차적 코드를 사용하여 함수 워크플로를 정의합니다. 선언적 스키마 또는 디자이너가 필요하지 않습니다.
 * 오케스트레이터 함수는 다른 지속성 함수를 동기적 및 비동기적으로 호출할 수 있습니다. 호출된 함수의 출력은 로컬 변수에 안전하게 저장할 수 있습니다.
 * 오케스트레이터 함수는 지속적이고 신뢰할 수 있습니다. 함수에서 "대기" 또는 "생성"할 때 실행 진행률 검사점이 자동으로 설정됩니다. 프로세스가 재활용되거나 VM이 다시 부팅되더라도 로컬 상태가 손실되지 않습니다.
-* 오케스트레이터 함수는 장기 실행될 수 있습니다. *오케스트레이션 인스턴스*의 총 수명은 초, 일, 월 또는 무한대일 수 있습니다.
+* 오케스트레이터 함수는 장기 실행될 수 있습니다. *오케스트레이션 인스턴스* 의 총 수명은 초, 일, 월 또는 무한대일 수 있습니다.
 
 이 문서에서는 오케스트레이터 함수에 대한 개요 및 이를 통해 다양한 앱 개발 문제를 해결하는 데 도움이 되는 방법을 제공합니다. Durable Functions 앱에서 사용할 수 있는 함수 형식에 익숙하지 않으면 먼저 [Durable Functions 형식](durable-functions-types-features-overview.md) 문서를 참조하세요.
 
 ## <a name="orchestration-identity"></a>오케스트레이션 ID
 
-오케스트레이션의 각 *인스턴스*에는 인스턴스 식별자(*인스턴스 ID*라고도 함)가 있습니다. 기본적으로 각 인스턴스 ID는 자동으로 생성된 GUID입니다. 그러나 인스턴스 ID는 사용자가 생성한 문자열 값일 수도 있습니다. 각 오케스트레이션 인스턴스 ID는 [작업 허브](durable-functions-task-hubs.md) 내에서 고유해야 합니다.
+오케스트레이션의 각 *인스턴스* 에는 인스턴스 식별자(*인스턴스 ID* 라고도 함)가 있습니다. 기본적으로 각 인스턴스 ID는 자동으로 생성된 GUID입니다. 그러나 인스턴스 ID는 사용자가 생성한 문자열 값일 수도 있습니다. 각 오케스트레이션 인스턴스 ID는 [작업 허브](durable-functions-task-hubs.md) 내에서 고유해야 합니다.
 
 인스턴스 ID에 대한 몇 가지 규칙은 다음과 같습니다.
 
@@ -48,7 +48,7 @@ Durable Functions는 이벤트 소싱을 투명하게 사용합니다. 오케스
 오케스트레이션 함수에서 더 많은 작업을 수행하는 경우(예: 응답 메시지를 받거나 지속성 타이머가 만료되는 경우), 오케스트레이터는 전체 함수를 처음부터 다시 시작하고 다시 실행하여 로컬 상태를 다시 작성합니다. 재생 중에 코드에서 함수를 호출하거나 다른 비동기 작업을 수행하려고 하는 경우, 지속성 작업 프레임워크는 현재 오케스트레이션의 실행 기록을 참조합니다. [활동 함수](durable-functions-types-features-overview.md#activity-functions)가 이미 실행되어 결과를 생성한 경우, 해당 함수의 결과를 재생하고 오케스트레이터 코드가 계속 실행됩니다. 함수 코드가 완료되거나 새 비동기 작업이 예약될 때까지 재생이 계속됩니다.
 
 > [!NOTE]
-> 재생 패턴이 정확하고 안정적으로 작동하려면 오케스트레이터 함수 코드가 *결정적*이어야 합니다. 오케스트레이터 함수의 코드 제한 사항에 대한 자세한 내용은 [오케스트레이터 함수 코드 제약 조건](durable-functions-code-constraints.md) 항목을 참조하세요.
+> 재생 패턴이 정확하고 안정적으로 작동하려면 오케스트레이터 함수 코드가 *결정적* 이어야 합니다. 오케스트레이터 함수의 코드 제한 사항에 대한 자세한 내용은 [오케스트레이터 함수 코드 제약 조건](durable-functions-code-constraints.md) 항목을 참조하세요.
 
 > [!NOTE]
 > 오케스트레이터 함수에서 로그 메시지를 내보내는 경우 재생 동작으로 인해 중복된 로그 메시지를 내보낼 수 있습니다. 이 동작이 발생하는 이유와 해결하는 방법에 대한 자세한 내용은 [로깅](durable-functions-diagnostics.md#app-logging) 항목을 참조하세요.
@@ -107,7 +107,7 @@ main = df.Orchestrator.create(orchestrator_function)
 ```
 ---
 
-각 `await`(C#) 또는 `yield`(JavaScript/Python) 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 일부 지속성 스토리지 백 엔드(일반적으로 Azure Table 스토리지)에 설정합니다. 이 상태를 *오케스트레이션 기록*이라고 합니다.
+각 `await`(C#) 또는 `yield`(JavaScript/Python) 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 일부 지속성 스토리지 백 엔드(일반적으로 Azure Table 스토리지)에 설정합니다. 이 상태를 *오케스트레이션 기록* 이라고 합니다.
 
 ### <a name="history-table"></a>기록 테이블
 
@@ -179,7 +179,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ### <a name="durable-timers"></a>지속형 타이머
 
-오케스트레이션에서는 *지속성 타이머*를 예약하여 지연을 구현하거나 비동기 작업에 대한 시간 제한 처리를 설정할 수 있습니다. 지속성 타이머는 `Thread.Sleep` 및 `Task.Delay`(C#) 또는 `setTimeout()` 및 `setInterval()`(JavaScript) 또는 `time.sleep()`(Python) 대신 오케스트레이터 함수에서 사용합니다.
+오케스트레이션에서는 *지속성 타이머* 를 예약하여 지연을 구현하거나 비동기 작업에 대한 시간 제한 처리를 설정할 수 있습니다. 지속성 타이머는 `Thread.Sleep` 및 `Task.Delay`(C#) 또는 `setTimeout()` 및 `setInterval()`(JavaScript) 또는 `time.sleep()`(Python) 대신 오케스트레이터 함수에서 사용합니다.
 
 자세한 내용 및 예제는 [지속성 타이머](durable-functions-timers.md) 문서를 참조하세요.
 
@@ -202,7 +202,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>임계 섹션(Durable Functions 2.x, 현재 .NET에만 해당)
 
-오케스트레이션 인스턴스는 단일 스레드이므로 오케스트레이션 *내*의 경합 상태에 대해 걱정할 필요가 없습니다. 그러나 오케스트레이션에서 외부 시스템과 상호 작용할 때 경합 상태가 발생할 수 있습니다. 오케스트레이터 함수는 외부 시스템과 상호 작용할 때 경합 상태를 완화하기 위해 .NET의 `LockAsync` 메서드를 사용하여 *임계 영역*을 정의할 수 있습니다.
+오케스트레이션 인스턴스는 단일 스레드이므로 오케스트레이션 *내* 의 경합 상태에 대해 걱정할 필요가 없습니다. 그러나 오케스트레이션에서 외부 시스템과 상호 작용할 때 경합 상태가 발생할 수 있습니다. 오케스트레이터 함수는 외부 시스템과 상호 작용할 때 경합 상태를 완화하기 위해 .NET의 `LockAsync` 메서드를 사용하여 *임계 영역* 을 정의할 수 있습니다.
 
 다음 샘플 코드에서는 임계 영역을 정의하는 오케스트레이터 함수를 보여 줍니다. `LockAsync` 메서드를 사용하여 임계 영역에 들어갑니다. 이 메서드를 사용하려면 잠금 상태를 지속적으로 관리하는 [지속성 엔터티](durable-functions-entities.md)에 하나 이상의 참조를 전달해야 합니다. 이 오케스트레이션의 단일 인스턴스만 임계 영역의 코드를 한 번에 실행할 수 있습니다.
 
@@ -293,7 +293,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-.NET에서는 [ValueTuples](/dotnet/csharp/tuples) 개체를 사용할 수도 있습니다. 다음 샘플은 [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples)로 추가된 [ValueTuples](/dotnet/csharp/tuples)의 새로운 기능을 사용하는 것입니다.
+.NET에서는 [ValueTuple](/dotnet/csharp/tuples) 개체를 사용할 수도 있습니다. 다음 샘플은 [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples)로 추가된 [ValueTuple](/dotnet/csharp/tuples)의 새로운 기능을 사용하고 있습니다.
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]

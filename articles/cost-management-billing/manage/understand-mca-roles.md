@@ -5,14 +5,14 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/17/2020
 ms.author: banders
-ms.openlocfilehash: f0ace05d6a4df65282bd56cca8e7895b0dc24edf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 511c0ecdef45a882bcc3a427d5ec602b3ebabc66
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686550"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673834"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Azure의 Microsoft 고객 계약 관리자 역할 이해
 
@@ -32,7 +32,7 @@ Microsoft 고객 계약의 청구 계정을 관리하려면 다음 섹션에서 
 |청구 프로필 소유자|청구 프로필에 대한 모든 항목 관리|
 |청구 프로필 기여자|사용 권한을 제외한 청구 프로필의 모든 항목 관리|
 |청구 프로필 읽기 권한자|청구 프로필의 모든 항목에 대한 읽기 전용 보기|
-|청구서 관리자|청구 프로필에 대한 청구서를 살펴보고 결제|
+|청구서 관리자|청구 프로필의 청구서 보기|
 |청구서 섹션 소유자|청구서 섹션의 모든 항목 관리|
 |청구서 섹션 기여자|사용 권한을 제외한 청구서 섹션의 모든 항목 관리|
 |청구서 섹션 읽기 권한자|청구서 섹션의 모든 항목에 대한 읽기 전용 보기|
@@ -179,7 +179,7 @@ Microsoft 고객 계약의 청구 계정을 관리하려면 다음 섹션에서 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**를 검색합니다.
+2. **Cost Management + 청구** 를 검색합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/understand-mca-roles/billing-search-cost-management-billing.png)
 
@@ -189,7 +189,7 @@ Microsoft 고객 계약의 청구 계정을 관리하려면 다음 섹션에서 
 
    ![청구 계정의 관리자 목록을 보여주는 스크린샷](./media/understand-mca-roles/billing-list-admins.png)
 
-5. 사용자에게 액세스 권한을 부여하려면 페이지 맨 위에서 **추가**를 선택합니다. [역할] 드롭다운 목록에서 역할을 선택합니다. 액세스 권한을 부여하려는 사용자의 이메일 주소를 입력합니다. **저장**을 선택하여 역할을 할당합니다.
+5. 사용자에게 액세스 권한을 부여하려면 페이지 맨 위에서 **추가** 를 선택합니다. [역할] 드롭다운 목록에서 역할을 선택합니다. 액세스 권한을 부여하려는 사용자의 이메일 주소를 입력합니다. **저장** 을 선택하여 역할을 할당합니다.
 
    ![청구 계정에 관리자를 추가하는 방법을 보여주는 스크린샷](./media/understand-mca-roles/billing-add-admin.png)
 

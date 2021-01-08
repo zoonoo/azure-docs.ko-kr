@@ -3,12 +3,12 @@ title: Azure Arc 개요
 description: Azure Arc란 무엇이며 고객이 다른 Azure 서비스 및 기능을 사용하여 하이브리드 리소스의 관리 및 거버넌스를 활성화하는 데 어떤 도움이 되는지 알아봅니다.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8f39dff16037b5f52a050b7d07193b0ad7cab93d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714144"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672689"
 ---
 # <a name="azure-arc-overview"></a>Azure Arc 개요
 
@@ -50,7 +50,7 @@ Azure Arc의 핵심 기능은 다음과 같습니다.
 
 ### <a name="arc-enabled-servers"></a>Arc 지원 서버
 
-Azure Arc 컨트롤 플레인 기능은 추가 비용 없이 제공됩니다.다음 내용이 포함됩니다.
+Azure Arc 컨트롤 플레인 기능은 추가 비용 없이 제공됩니다. 다음 내용이 포함됩니다.
 
 * Azure 관리 그룹 및 태그 태그를 통한 리소스 구성.
 
@@ -79,3 +79,5 @@ Azure Security Center 또는 Azure Monitor와 같이 Arc 지원 서버에서 사
 * Arc 지원 Kubernetes에 대한 자세한 내용은 다음 [개요](./kubernetes/overview.md)를 참조하세요.
 
 * Arc 지원 데이터 서비스에 대한 자세한 내용은 다음 [개요](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/)를 참조하세요.
+
+* [Jumpstart 개념 증명](https://azurearcjumpstart.io/azure_arc_jumpstart/)에서 Arc 지원 서비스를 경험하세요.

@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 6bc6776df889c5c8ccc6acfe5764549ccf7354a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320203"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739708"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>자습서: Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
 
@@ -91,7 +91,7 @@ https://github.com/azure-devops/fabrikam-node
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-javascript 앱 또는 Node.js 앱을 설치하려면 앱을 배포하는 Nginx 웹 서버가 포함된 Linux VM이 필요합니다.
+JavaScript 앱 또는 Node.js 앱을 설치하려면 앱을 배포하는 Nginx 웹 서버가 포함된 Linux VM이 필요합니다.
 Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예제](./quick-create-cli.md)의 단계를 사용하여 만듭니다.
 
 * * * 
@@ -102,9 +102,9 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 
 "**파이프라인**" 섹션 내의 "**환경**" 허브에서 환경을 만들 수 있습니다.
 1.  Azure DevOps 조직에 로그인하고, 프로젝트로 이동합니다.
-2.  프로젝트에서 **파이프라인** 페이지로 이동합니다. 그런 다음, **환경**을 선택하고, **환경 만들기**를 클릭합니다. 환경에 대한 **이름**(필수) 및 **설명**을 지정합니다.
-3.  환경에 추가할 **리소스**로 **Virtual Machines**를 선택하고, **다음**을 클릭합니다.
-4.  운영 체제(Windows/Linux)를 선택하고, **PS 등록 스크립트를 복사**합니다. 
+2.  프로젝트에서 **파이프라인** 페이지로 이동합니다. 그런 다음, **환경** 을 선택하고, **환경 만들기** 를 클릭합니다. 환경에 대한 **이름**(필수) 및 **설명** 을 지정합니다.
+3.  환경에 추가할 **리소스** 로 **Virtual Machines** 를 선택하고, **다음** 을 클릭합니다.
+4.  운영 체제(Windows/Linux)를 선택하고, **PS 등록 스크립트를 복사** 합니다. 
 5.  이제 관리자 PowerShell 명령 프롬프트에서 복사한 스크립트를 이 환경에 등록할 각 대상 VM에서 실행합니다.
     > [!NOTE]
     > - 로그인한 사용자의 개인 액세스 토큰은 스크립트에 미리 삽입되어 당일에 만료되므로 복사한 스크립트는 사용할 수 없게 됩니다.
@@ -118,7 +118,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. 태그를 대화형 PS 등록 스크립트의 일부로 VM에 추가할 수 있습니다. 또는 리소스 보기에서 각 VM 리소스의 끝에 있는 줄임표를 클릭하여 리소스 보기에서 동일한 태그를 추가/제거할 수도 있습니다.
+9. 태그를 대화형 PowerShell 등록 스크립트의 일부로 VM에 추가할 수 있습니다. 또는 리소스 보기에서 각 VM 리소스의 끝에 있는 줄임표를 클릭하여 리소스 보기에서 동일한 태그를 추가/제거할 수도 있습니다.
 
    할당한 태그를 사용하면 배포 작업에서 환경을 사용할 때 특정 가상 머신으로 배포하도록 제한할 수 있습니다. 태그는 각각 256자로 제한되지만, 사용할 수 있는 태그의 수는 제한되지 않습니다.
 
@@ -134,7 +134,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 
 1. 프로젝트에서 **파이프라인** 페이지로 이동합니다. 그런 다음, 작업을 선택하여 새 파이프라인을 만듭니다.
 
-1. 먼저 소스 코드의 위치로 **GitHub**를 선택하여 마법사의 단계를 진행합니다.
+1. 먼저 소스 코드의 위치로 **GitHub** 를 선택하여 마법사의 단계를 진행합니다.
 
 1. 로그인할 GitHub로 리디렉션될 수 있습니다. 그렇다면 GitHub 자격 증명을 입력합니다.
 
@@ -202,7 +202,7 @@ jobs:
 
 - 파이프라인을 살펴보고 수행하는 작업을 확인합니다. 모든 기본 입력이 코드에 적합한지 확인합니다.
 
-- **저장 후 실행**을 선택하고, **마스터 분기에 직접 커밋**을 선택한 다음, **저장 후 실행**을 다시 선택합니다.
+- **저장 후 실행** 을 선택하고 **기본 분기에 직접 커밋** 을 선택한 다음, **저장 후 실행** 을 다시 선택합니다.
 
 - 새 실행이 시작됩니다. 실행이 완료될 때까지 기다립니다.
 
@@ -221,7 +221,7 @@ jobs:
        resourceType: VirtualMachine
        tags: web
    ```
-2. 환경에서 각 가상 머신에 대해 정의한 **tags**를 지정하여 배포를 받는 환경에서 특정 가상 머신 세트를 선택할 수 있습니다.
+2. 환경에서 각 가상 머신에 대해 정의한 **tags** 를 지정하여 배포를 받는 환경에서 특정 가상 머신 세트를 선택할 수 있습니다.
 [여기](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job)에는 배포 작업에 대한 전체 YAML 스키마가 있습니다.
 
 3. 배포 전략으로 `runOnce` 또는 `rolling`을 지정할 수 있습니다. 

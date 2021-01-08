@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: d53863ccf71970cca3900707c844a2e5add050fa
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6768f46f39920c975e7eccef72563fc0bb7e5180
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356514"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808592"
 ---
 > [!IMPORTANT]
 > 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다.
@@ -58,7 +58,7 @@ gradle init --type basic
 
 프로젝트의 *build.gradle.kts* 파일에서 필요한 플러그 인 및 설정과 함께 클라이언트 라이브러리를 `implementation` 문으로 포함합니다.
 
-#### <a name="version-30"></a>[버전 3.0](#tab/ga)
+#### <a name="version-20"></a>[버전 2.0](#tab/ga)
 ```kotlin
 plugins {
     java
@@ -74,6 +74,10 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
 }
 ```
+
+> [!NOTE]
+> Form Recognizer 3.0.0 SDK는 API 버전 2.0을 반영합니다.
+
 #### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
 ```kotlin
 plugins {
@@ -90,6 +94,10 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
 }
 ```
+
+> [!NOTE]
+> Form Recognizer 3.1.0 SDK는 API 버전 2.1 미리 보기를 반영합니다.
+
 ---
 
 ### <a name="create-a-java-file"></a>Java 파일 만들기
@@ -120,15 +128,17 @@ mkdir -p src/main/java
 
 애플리케이션의 **main** 메서드에서 이 빠른 시작에서 사용되는 메서드에 대한 호출을 추가합니다. 나중에 이를 정의합니다. 또한 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다.
 
-* 사용자 지정 모델 학습 데이터에 대한 SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 마우스 오른쪽 단추로 컨테이너를 클릭하고, **공유 액세스 서명 가져오기** 를 선택합니다. **읽기** 권한과 **목록 사용** 권한이 선택되어 있는지 확인하고 **만들기** 를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+  
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL 검색":::
 * 테스트할 양식의 URL을 가져오려면 위의 단계를 따라 Blob Storage에 있는 개별 문서의 SAS URL을 가져오면 됩니다. 또는 다른 위치에 있는 문서의 URL을 가져옵니다.
 * 위의 방법을 사용하여 영수증 이미지의 URL도 가져올 수 있습니다.
 
-#### <a name="version-30"></a>[버전 3.0](#tab/ga)
+#### <a name="version-20"></a>[버전 2.0](#tab/ga)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
-#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
+#### <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/preview)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
@@ -165,14 +175,14 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 여기에 나와 있는 코드 조각에서는 Java용 Form Recognizer 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
-#### <a name="version-30"></a>[버전 3.0](#tab/ga)
+#### <a name="version-20"></a>[버전 2.0](#tab/ga)
 * [클라이언트 인증](#authenticate-the-client)
 * [양식 콘텐츠 인식](#recognize-form-content)
 * [영수증 확인](#recognize-receipts)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
-#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
+#### <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/preview)
 * [클라이언트 인증](#authenticate-the-client)
 * [양식 콘텐츠 인식](#recognize-form-content)
 * [영수증 확인](#recognize-receipts)
@@ -259,11 +269,14 @@ Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
 
-#### <a name="version-30"></a>[버전 3.0](#tab/ga)
-
-#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
-
 ## <a name="recognize-business-cards"></a>명함 인식
+
+#### <a name="version-20"></a>[버전 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
+
+#### <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/preview)
 
 이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 인식 및 추출하는 방법을 보여줍니다.
 
@@ -278,7 +291,16 @@ URL에서 명함을 인식하려면 `beginRecognizeBusinessCardsFromUrl` 메서�
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
+---
+
 ## <a name="recognize-invoices"></a>송장 인식
+
+#### <a name="version-20"></a>[버전 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
+
+#### <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/preview)
 
 이 섹션에서는 사전 학습된 모델을 사용하여 판매 송장의 공통 필드를 인식 및 추출하는 방법을 보여줍니다.
 

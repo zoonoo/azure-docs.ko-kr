@@ -2,16 +2,16 @@
 title: 자습서 - 템플릿 만들기 및 배포
 description: 첫 번째 ARM 템플릿(Azure Resource Manager 템플릿)을 만듭니다. 이 자습서에서는 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 09/28/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 191eacbc9cc66ccfb9b378cb5e8a90b4e0fb20e6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 001a20c38a82d053ae22a2614a32f0be9d8aabce
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107026"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656991"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>자습서: 첫 번째 ARM 템플릿 만들기 및 배포
 
@@ -19,7 +19,7 @@ ms.locfileid: "97107026"
 
 이 자습서는 시리즈의 첫 번째 자습서입니다. 시리즈를 진행하면서 ARM 템플릿의 모든 핵심 부분을 살펴볼 때까지 시작 템플릿을 단계별로 수정합니다. 이러한 요소는 훨씬 더 복잡한 템플릿의 구성 요소입니다. 시리즈가 끝날 때쯤에는 자신만의 고유한 템플릿을 만들고, 이 템플릿을 사용하여 배포를 자동화할 준비가 됩니다.
 
-템플릿을 사용하면 얻을 수 있는 이점과 템플릿을 사용하여 배포를 자동화해야 하는 이유에 대해 알아보려면 [ARM 템플릿](overview.md)을 참조하세요.
+템플릿을 사용하면 얻을 수 있는 이점과 템플릿을 사용하여 배포를 자동화해야 하는 이유에 대해 알아보려면 [ARM 템플릿](overview.md)을 참조하세요. Microsoft Learn의 단계별 모듈 세트를 통한 ARM 템플릿에 대한 자세한 내용은 [ARM 템플릿을 사용하여 Azure에서 리소스 배포 및 관리](/learn/paths/deploy-manage-resource-manager-templates/)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

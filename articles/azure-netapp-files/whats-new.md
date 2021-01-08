@@ -12,18 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/05/2020
+ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 3f13d997f73e9737b8770eec7e0742d50bf1abb8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421705"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631162"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
+
+## <a name="december-2020"></a>2020년 12월
+
+* [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)(공개 미리 보기)    
+
+    AzAcSnap(Azure Application Consistent Snapshot Tool)은 Linux 환경(예: SUSE 및 RHEL)에서 타사 데이터베이스(SAP HANA)에 대한 데이터 보호를 간소화하는 데 사용할 수 있는 명령줄 도구입니다.   
+
+    AzAcSnap은 Azure NetApp Files 및 Azure 대규모 인스턴스의 볼륨 스냅샷 및 복제 기능을 활용합니다. 다음과 같은 이점을 제공합니다.
+
+    * 애플리케이션 일치 데이터 보호 
+    * 데이터베이스 카탈로그 관리 
+    * *임시* 볼륨 보호 
+    * 스토리지 볼륨 복제 
+    * 재해 복구 지원 
 
 ## <a name="november-2020"></a>2020년 11월
 

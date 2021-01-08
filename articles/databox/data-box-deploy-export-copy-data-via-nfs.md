@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: bd8e6d4175c57bd31c3fd83bf6f9669d2b65ffb2
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 64bb5e94c4b18626d1f85d7e61252aae74202eb9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91660849"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680624"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-nfs-preview"></a>자습서: NFS를 통해 Azure Data Box에서 데이터 복사(미리 보기)
+# <a name="tutorial-copy-data-from-azure-data-box-via-nfs"></a>자습서: NFS를 통해 Azure Data Box에서 데이터 복사
 
 이 자습서에서는 Data Box의 로컬 웹 UI에서 NFS를 통해 온-프레미스 데이터 서버로 연결하고 데이터를 복사하는 방법을 설명합니다. Data Box의 데이터를 Azure Storage 계정에서 내보냅니다.
 
@@ -27,8 +27,6 @@ ms.locfileid: "91660849"
 > * Data Box에 연결
 > * Data Box에서 데이터 복사
 
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
@@ -36,7 +34,7 @@ ms.locfileid: "91660849"
 1. Azure Data Box에 대한 주문을 배치했습니다.
     - 가져오기 순서는 [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 완료했습니다.
     - 내보내기 순서는 [자습서: Azure Data Box 주문](data-box-deploy-export-ordered.md)을 완료했습니다.
-2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다.
+2. Data Box를 받았고 포털의 주문 상태가 **배달됨** 입니다.
 3. Data Box에서 데이터를 복사할 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
    * [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
    * 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용해도 되지만, 이 경우 복사 속도가 떨어집니다.
@@ -49,11 +47,11 @@ Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클
 
 1. 공유에 액세스할 수 있도록 허용된 클라이언트의 IP 주소를 입력합니다.
 
-    1.  로컬 웹 UI에서 **연결 및 복사** 페이지로 이동합니다. **NFS 설정** 아래에서 **NFS 클라이언트 액세스**를 클릭합니다. 
+    1.  로컬 웹 UI에서 **연결 및 복사** 페이지로 이동합니다. **NFS 설정** 아래에서 **NFS 클라이언트 액세스** 를 클릭합니다. 
 
         ![NFS 클라이언트 액세스 열기](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
 
-    1. NFS 클라이언트를 추가하려면 클라이언트의 IP 주소를 제공하고 **추가**를 클릭합니다. Data Box는 한 번에 최대 5개의 NFS 클라이언트를 연결할 수 있습니다. 작업이 완료되면 **확인**을 클릭합니다.
+    1. NFS 클라이언트를 추가하려면 클라이언트의 IP 주소를 제공하고 **추가** 를 클릭합니다. Data Box는 한 번에 최대 5개의 NFS 클라이언트를 연결할 수 있습니다. 작업이 완료되면 **확인** 을 클릭합니다.
 
          ![NFS 클라이언트 추가](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
 
@@ -79,11 +77,11 @@ Data Box 공유에 연결된 후에는 데이터를 복사합니다.
 
 [!INCLUDE [data-box-export-review-logs](../../includes/data-box-export-review-logs.md)]
 
- 이제 데이터 복사를 시작할 수 있습니다. Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 유틸리티를 사용합니다. Linux에서 사용할 수 있는 대안 중 일부는 [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 또는 [Ultracopier](https://ultracopier.first-world.info/)입니다.  
+ 이제 데이터 복사를 시작할 수 있습니다. Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 유틸리티를 사용합니다. Linux에서 사용할 수 있는 대안 중 일부는 [`rsync`](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 또는 [Ultracopier](https://ultracopier.first-world.info/)입니다.  
 
 `cp` 명령은 디렉터리를 복사하는 최고의 옵션 중 하나입니다. 사용 방법에 대한 자세한 내용은 [cp 기본 페이지](http://man7.org/linux/man-pages/man1/cp.1.html)를 참조하세요.
 
-다중 스레드 복사에 rsync 옵션을 사용하는 경우 다음 지침을 따르세요.
+다중 스레드 복사에 `rsync` 옵션을 사용하는 경우 다음 지침을 따르세요.
 
 * Linux 클라이언트에서 사용하는 파일 시스템에 따라 **CIFS 유틸리티** 또는 **NFS 유틸리티** 패키지를 설치합니다.
 
@@ -91,7 +89,7 @@ Data Box 공유에 연결된 후에는 데이터를 복사합니다.
 
     `sudo apt-get install nfs-utils`
 
-* **Rsync** 및 **Parallel**을 설치합니다(Linux 배포판 버전에 따라 다름).
+* `rsync` 및 **Parallel** 을 설치합니다(Linux 배포판 버전에 따라 다름).
 
     `sudo apt-get install rsync`
    
@@ -120,7 +118,7 @@ Data Box 공유에 연결된 후에는 데이터를 복사합니다.
 > [!IMPORTANT]
 > Linux 파일 형식인 기호 링크, 문자 파일, 블록 파일, 소켓 및 파이프는 지원되지 않습니다. 이러한 파일 형식을 사용하면 **배송 준비** 단계 동안 오류가 발생합니다.
 
-복사가 완료되면 **대시보드**로 이동하여 디바이스에서 사용 중인 공간과 여유 공간을 확인합니다.
+복사가 완료되면 **대시보드** 로 이동하여 디바이스에서 사용 중인 공간과 여유 공간을 확인합니다.
 
 이제 Data Box를 Microsoft로 보낼 수 있습니다.
 

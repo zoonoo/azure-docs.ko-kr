@@ -8,12 +8,12 @@ ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 56505c95e65911cafbaaa403cd09332695439d97
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149001"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825674"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure App Configuration 저장소 만들기
 
@@ -46,10 +46,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
-- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores): App Configuration 저장소를 만듭니다.
-- Microsoft.AppConfiguration/configurationStores/keyValues: 키-값을 App Configuration 저장소 내에 만듭니다.
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): App Configuration 저장소를 만듭니다.
+- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues): 키-값을 App Configuration 저장소 내에 만듭니다.
 
-> [!NOTE]
+> [!TIP]
 > `keyValues` 리소스의 이름은 키와 레이블의 조합입니다. 키와 레이블은 `$` 구분 기호로 조인됩니다. 레이블은 선택 사항입니다. 위의 예제에서 이름이 `myKey`인 `keyValues` 리소스는 레이블이 없는 키-값을 만듭니다.
 >
 > URL 인코딩이라고도 하는 퍼센트 인코딩을 사용하면 ARM 템플릿 리소스 이름에 허용되지 않는 문자를 키 또는 레이블에 포함할 수 있습니다. `%`도 허용되는 문자가 아니므로 `~`가 대신 사용됩니다. 이름을 올바르게 인코딩하려면 다음 단계를 수행합니다.
@@ -59,6 +59,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > 3. `%`을 `~`로 바꿉니다.
 >
 > 예를 들어 키 이름이 `AppName:DbEndpoint`이고 레이블 이름이 `Test`인 키-값 쌍을 만들려면 리소스 이름이 `AppName~3ADbEndpoint$Test`여야 합니다.
+
+> [!NOTE]
+> 앱 구성을 사용하면 가상 네트워크에서 [프라이빗 링크](concept-private-endpoint.md)를 통해 키-값 데이터에 액세스할 수 있습니다. 기본적으로 이 기능을 사용하도록 설정하면 공용 네트워크를 통한 앱 구성 데이터에 대한 모든 요청이 거부됩니다. ARM 템플릿은 가상 네트워크 외부에서 실행되므로 ARM 템플릿에서의 데이터 액세스는 허용되지 않습니다. 프라이빗 링크를 사용할 때 ARM 템플릿에서 데이터 액세스를 허용하려면 다음 Azure CLI 명령을 사용하여 공용 네트워크 액세스를 사용하도록 설정하면 됩니다. 이 시나리오에서는 공용 네트워크 액세스를 활성화하는 보안 관련 사항을 고려해야 합니다.
+>
+> ```azurecli-interactive
+> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> ```
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 

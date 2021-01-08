@@ -3,19 +3,19 @@ title: 지속성 함수 개요 - Azure
 description: Azure Functions의 지속성 함수 확장을 소개합니다.
 author: cgillum
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669258"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763577"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
-*Durable Functions*는 서버리스 컴퓨팅 환경에서 상태 저장 함수를 작성할 수 있는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장을 통해 Azure Functions 프로그래밍 모델에서 [*오케스트레이터 함수*](durable-functions-orchestrations.md)를 작성하여 상태 저장 워크플로를 정의하고, [*엔터티 함수*](durable-functions-entities.md)를 작성하여 상태 저장 엔터티를 정의할 수 있습니다. 확장은 내부적으로 상태, 검사점 및 다시 시작을 관리하므로 비즈니스 논리에 집중할 수 있습니다.
+*Durable Functions* 는 서버리스 컴퓨팅 환경에서 상태 저장 함수를 작성할 수 있는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장을 통해 Azure Functions 프로그래밍 모델에서 [*오케스트레이터 함수*](durable-functions-orchestrations.md)를 작성하여 상태 저장 워크플로를 정의하고, [*엔터티 함수*](durable-functions-entities.md)를 작성하여 상태 저장 엔터티를 정의할 수 있습니다. 확장은 내부적으로 상태, 검사점 및 다시 시작을 관리하므로 비즈니스 논리에 집중할 수 있습니다.
 
 ## <a name="supported-languages"></a><a name="language-support"></a>지원되는 언어
 
@@ -23,9 +23,11 @@ Durable Functions는 현재 다음 언어를 지원합니다.
 
 * **C#**: [미리 컴파일된 클래스 라이브러리](../functions-dotnet-class-library.md) 및 [C# 스크립트](../functions-reference-csharp.md) 모두
 * **JavaScript**: Azure Functions 런타임 버전 2.x에서만 지원됩니다. Durable Functions 확장 버전 1.7.0 이상이 필요합니다. 
-* **Python**: Durable Functions 확장 버전 1.8.5 이상이 필요합니다. Durable Functions에 대한 지원은 현재 공개 미리 보기로 제공됩니다.
+* **Python**: Durable Functions 확장 버전 2.3.1 이상이 필요합니다. Durable Functions에 대한 지원은 현재 공개 미리 보기로 제공됩니다.
 * **F#**: 미리 컴파일된 클래스 라이브러리 및 F# 스크립트. F# 스크립트는 Azure Functions 런타임 버전 1.x에서만 지원됩니다.
 * **PowerShell**: Durable Functions에 대한 지원은 현재 공개 미리 보기로 제공됩니다. Azure Functions 런타임 및 PowerShell 7 버전 3.x에서만 지원됩니다. Durable Functions 확장 버전 2.2.2 또는 이후 버전이 필요합니다. 현재 지원되는 패턴은 다음과 같습니다. [함수 체이닝](#chaining), [팬아웃/팬인](#fan-in-out), [비동기 HTTP API](#async-http).
+
+최신 기능 및 업데이트에 액세스하려면 최신 버전의 Durable Functions 확장 및 언어별 Durable Functions 라이브러리를 사용하는 것이 좋습니다. [Durable Functions 버전](durable-functions-versions.md)에 대해 자세히 알아보세요.
 
 Durable Functions는 모든 [Azure Functions 언어](../supported-languages.md)를 지원하는 것을 목표로 합니다. 추가 언어를 지원하기 위한 최신 작업 상태는 [Durable Functions 문제 목록](https://github.com/Azure/azure-functions-durable-extension/issues)를 참조하세요.
 
@@ -52,7 +54,7 @@ Durable Functions에 대한 기본 사용 사례는 서버리스 애플리케이
 
 이 예제에서 `F1`, `F2`, `F3` 및 `F4` 값은 동일한 함수 앱에 있는 다른 함수의 이름입니다. 일반적인 명령적 코딩 구문을 사용하여 제어 흐름을 구현할 수 있습니다. 코드는 위에서 아래로 실행됩니다. 코드에는 조건부 및 루프와 같은 기존 언어 제어 흐름 의미 체계가 포함될 수 있습니다. `try`/`catch`/`finally` 블록에는 오류 처리 논리가 포함될 수 있습니다.
 
-# <a name="c"></a>C.[
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Chaining")]
@@ -145,7 +147,7 @@ Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
 
 Durable Functions 확장에서는 비교적 간단한 코드를 사용하여 이 패턴을 처리합니다.
 
-# <a name="c"></a>C.[
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FanOutFanIn")]
@@ -261,7 +263,7 @@ Invoke-ActivityFunction -FunctionName 'F3' -Input $Total
 
 ![HTTP API 패턴의 다이어그램](./media/durable-functions-concepts/async-http-api.png)
 
-Durable Functions는 이 패턴에 대한 **기본 제공 지원**을 제공하여 장기 실행 함수의 실행과 상호 작용하기 위해 작성해야 하는 코드를 간소화하거나 제거합니다. 예를 들어 Durable Functions 빠른 시작 샘플([C#](durable-functions-create-first-csharp.md) 및 [JavaScript](quickstart-js-vscode.md))에서는 새 오케스트레이터 함수 인스턴스를 시작하는 데 사용할 수 있는 간단한 REST 명령을 보여 줍니다. 인스턴스가 시작되면 확장에서 오케스트레이터 함수 상태를 쿼리하는 웹후크 HTTP API를 공개합니다. 
+Durable Functions는 이 패턴에 대한 **기본 제공 지원** 을 제공하여 장기 실행 함수의 실행과 상호 작용하기 위해 작성해야 하는 코드를 간소화하거나 제거합니다. 예를 들어 Durable Functions 빠른 시작 샘플([C#](durable-functions-create-first-csharp.md) 및 [JavaScript](quickstart-js-vscode.md))에서는 새 오케스트레이터 함수 인스턴스를 시작하는 데 사용할 수 있는 간단한 REST 명령을 보여 줍니다. 인스턴스가 시작되면 확장에서 오케스트레이터 함수 상태를 쿼리하는 웹후크 HTTP API를 공개합니다. 
 
 다음 예제에서는 오케스트레이터를 시작하고 해당 상태를 쿼리하는 REST 명령을 보여 줍니다. 명확히 하기 위해 예제에서 일부 프로토콜 세부 정보가 생략되었습니다.
 
@@ -306,7 +308,7 @@ Durable Functions 확장은 장기 실행 오케스트레이션을 관리하는 
 
 다음 코드에서는 기본 모니터를 구현합니다.
 
-# <a name="c"></a>C.[
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("MonitorJobStatus")]
@@ -415,7 +417,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 다음 예제에서는 사용자 개입 패턴을 보여 주는 승인 프로세스를 만듭니다.
 
-# <a name="c"></a>C.[
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ApprovalWorkflow")]
@@ -511,7 +513,7 @@ curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{ins
 
 동일한 함수 앱의 다른 함수에서 지속성 오케스트레이션 클라이언트를 사용하여 이벤트를 발생시킬 수도 있습니다.
 
-# <a name="c"></a>C.[
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
@@ -556,7 +558,7 @@ async def main(client: str):
 
 ### <a name="pattern-6-aggregator-stateful-entities"></a><a name="aggregator"></a>패턴 #6: 집계(상태 저장 엔터티)
 
-여섯 번째 패턴은 일정 기간 동안의 이벤트 데이터를 주소 지정 가능한 단일 *엔터티*로 집계하는 것입니다. 이 패턴에서 집계되는 데이터는 여러 원본에서 제공되거나, 일괄 처리로 전달되거나, 장기간에 걸쳐 분산될 수 있습니다. 집계는 도착한 이벤트 데이터에 대한 작업을 수행해야 할 수 있으며, 외부 클라이언트는 집계된 데이터를 쿼리해야 할 수도 있습니다.
+여섯 번째 패턴은 일정 기간 동안의 이벤트 데이터를 주소 지정 가능한 단일 *엔터티* 로 집계하는 것입니다. 이 패턴에서 집계되는 데이터는 여러 원본에서 제공되거나, 일괄 처리로 전달되거나, 장기간에 걸쳐 분산될 수 있습니다. 집계는 도착한 이벤트 데이터에 대한 작업을 수행해야 할 수 있으며, 외부 클라이언트는 집계된 데이터를 쿼리해야 할 수도 있습니다.
 
 ![집계 다이어그램](./media/durable-functions-concepts/aggregator.png)
 
@@ -564,7 +566,7 @@ async def main(client: str):
 
 [지속성 엔터티](durable-functions-entities.md)를 사용하여 이 패턴을 단일 함수로 쉽게 구현할 수 있습니다.
 
-# <a name="c"></a>C.[
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Counter")]
@@ -641,7 +643,7 @@ module.exports = df.entity(function(context) {
 
 클라이언트는 [엔터티 클라이언트 바인딩](durable-functions-bindings.md#entity-client)을 사용하여 엔터티 함수에 대한 *작업*("신호 보내기"라고도 함)을 큐에 넣을 수 있습니다.
 
-# <a name="c"></a>C.[
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9d1d22d57464266239aea96f427020351eb749d5
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96580519"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740660"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비저닝
 
@@ -57,8 +57,8 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
   * 코어 4개 이상
   * RAM 8GB 이상
   * 네트워크 인터페이스 하나
-  * 250GB OS 디스크
-  * 데이터용 2TB 가상 디스크
+  * 250GB OS 디스크.
+  * 데이터용 2TB 가상 디스크.
 
 ### <a name="for-the-network-in-the-datacenter"></a>데이터 센터에서 네트워크의 경우
 
@@ -78,8 +78,8 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
   * 최소 4개의 가상 프로세서
   * RAM 8GB 이상
   * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나.
-  * 250GB OS 디스크
-  * 시스템 데이터용 가상 디스크 2TB
+  * 250GB OS 디스크.
+  * 시스템 데이터용 2TB 가상 디스크.
 
 ## <a name="bitlocker-considerations"></a>BitLocker 고려 사항
 
@@ -92,10 +92,11 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 하이퍼바이저에서 디바이스를 프로비전하려면 다음 단계를 수행합니다.
 
 1. Windows Server 호스트에서 로컬 드라이브에 가상 디바이스 이미지를 복사합니다. Azure Portal을 통해 이 VHDX 이미지를 다운로드합니다. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
+
 2. **서버 관리자** 를 엽니다. 오른쪽 위 모서리에서 **도구** 를 클릭하고 **Hyper-V 관리자** 를 선택합니다.
 
-    ![서버 관리자에서 Hyper-V 관리자 선택](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
-  
+    ![서버 관리자에서 Hyper-V 관리자 선택](./media/data-box-gateway-deploy-provision-hyperv/image1.png)
+
 3. **Hyper-V 관리자** 의 범위 창에서 시스템 노드를 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 연 다음 **새로 만들기** > **Virtual Machine** 을 클릭합니다.
 
    ![Hyper-V 관리자에서 새 가상 머신 만들기](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
@@ -124,7 +125,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 12. **설정** 페이지의 왼쪽 창에서 **프로세서** 를 클릭합니다. 오른쪽 창에서 **가상 프로세서 수** 를 4(또는 그 이상)로 설정합니다. **적용** 을 클릭합니다.
 
     ![설정 페이지에서 가상 프로세서 수 설정](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
-13. 최소 요구 사항을 충족하려면 가상 데이터 디스크를 2TB 추가해야 합니다. **설정** 페이지에서:
+13. 최소 요구 사항을 충족하려면 2TB 가상 데이터 디스크도 추가해야 합니다. **설정** 페이지에서:
 
     1. 왼쪽 창의 **SCSI 컨트롤러** 를 선택합니다.
     2. 오른쪽 창의 **하드 드라이브** 를 선택하고 **추가** 를 클릭합니다.
@@ -138,12 +139,12 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 17. **디스크 유형 선택** 페이지에서 가상 하드 디스크 유형을 **동적 확장**(권장)으로 설정합니다. **고정 크기** 디스크는 작동은 되지만 오래 기다려야 할 수 있습니다. **차이점 보관용** 옵션은 사용하지 않는 것이 좋습니다. **다음** 을 클릭합니다.
 
     ![디스크 유형 선택 페이지](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
-18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **다음** 을 클릭합니다.
+18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 제공합니다. **다음** 을 클릭합니다.
 
     ![이름 및 위치 지정 페이지](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
 19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **2TB**(또는 그 이상)로 지정합니다.
 
-    2TB가 최소 요구 사항이지만 언제든지 더 큰 디스크를 프로비전할 수 있습니다. 프로비전한 후에는 디스크를 축소할 수 없습니다. 디스크를 축소하려고 하면 디바이스의 모든 로컬 데이터가 손실됩니다. 데이터 디스크 확장은 지원되지 않습니다. **다음** 을 클릭합니다.
+    2TB가 최소 요구 사항이지만 언제든지 더 큰 디스크를 프로비전할 수 있습니다. 프로비저닝된 후에는 디스크를 축소할 수 없습니다. 디스크를 축소하려고 하면 디바이스의 모든 로컬 데이터가 손실됩니다. 데이터 디스크 확장은 지원되지 않습니다. **다음** 을 클릭합니다.
 
     ![디스크 구성 페이지](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. **요약** 페이지에서 가상 데이터 디스크의 세부 정보를 검토한 후 만족스러우면 **마침** 을 클릭하여 디스크를 만듭니다. 마법사가 닫히고 가상 하드 디스크가 컴퓨터에 추가됩니다.
@@ -152,6 +153,11 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 21. **설정** 페이지로 돌아갑니다. **확인** 을 클릭하여 **설정** 페이지를 닫고 Hyper-V 관리자 창으로 돌아갑니다.
 
     ![설정 페이지](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
+
+이제 가상 머신이 완전히 구성되었습니다.
+
+> [!NOTE]
+> 구성된 VHD를 복사하여 새 Data Box Gateway를 프로비저닝할 수 없습니다. 각각의 새 Data Box Gateway 가상 디바이스는 Azure Portal에서 다운로드한 Hyper-V용 가상 디바이스 이미지에서 프로비저닝해야 합니다.
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>가상 디바이스 시작 및 IP 가져오기
 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 12/28/2020
 ms.author: kenwith
-ms.openlocfilehash: 677c9c0123c174fdf2cf8e94f9c8110656d21306
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e2b8bd47f7d124562a38413d36b849d1f7efacee
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649401"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802765"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트에서 애플리케이션 삭제
 
@@ -53,6 +53,6 @@ Azure AD 테넌트에서 애플리케이션을 삭제하려면 다음을 수행�
 
 ## <a name="next-steps"></a>다음 단계
 
-빠른 시작 시리즈를 완료했습니다. 다음 단계로 앱 관리 모범 사례를 읽어 보세요.
+빠른 시작 시리즈를 완료했습니다. 다음으로, SSO(Single Sign-on)에 대해 알아보려면 [SSO란?](what-is-single-sign-on.md)을 참조하세요. 또는 앱 관리 모범 사례를 읽어보세요.
 > [!div class="nextstepaction"]
 > [애플리케이션 관리 모범 사례](application-management-fundamentals.md)

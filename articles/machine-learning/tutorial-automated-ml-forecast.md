@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 31e9ff3fd07a7d305c88d28629f3252db5d857c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921857"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695437"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 
@@ -100,7 +100,7 @@ ms.locfileid: "96921857"
 
     1. **다음** 을 선택합니다.
 
-## <a name="configure-experiment-run"></a>실험 실행 구성
+## <a name="configure-run"></a>실행 구성
 
 데이터를 로드하고 구성한 후에는 원격 컴퓨팅 대상을 설정하고 예측하려는 데이터의 열을 선택합니다.
 
@@ -111,14 +111,22 @@ ms.locfileid: "96921857"
 
     1. **새 컴퓨팅 만들기** 를 선택하고 컴퓨팅 대상을 구성합니다. 자동화된 ML은 Azure Machine Learning 컴퓨팅만 지원합니다. 
 
-        필드 | Description | 자습서에서 사용하는 값
-        ----|---|---
-        컴퓨팅 이름 |컴퓨팅 컨텍스트를 식별하는 고유한 이름입니다.|bike-compute
-        가상 &nbsp;머신&nbsp; 유형|컴퓨팅에 사용할 가상 머신 유형을 선택합니다.|CPU(중앙 처리 장치)
-        Virtual&nbsp;machine&nbsp;size| 컴퓨팅에 사용할 가상 머신 크기를 선택합니다.|Standard_DS12_V2
-        최소 / 최대 노드| 데이터를 프로파일링하려면 하나 이상의 노드를 지정해야 합니다.|최소 노드: 1<br>최대 노드: 6
-        규모 축소 전 유휴 시간(초) | 클러스터가 최소 노드 수까지 자동으로 축소되기 전의 유휴 시간입니다.|120(기본값)
-        고급 설정 | 실험에 사용할 가상 네트워크를 구성하고 권한을 부여하는 설정입니다.| None
+        1. **Virtual Machine** 양식을 채워서 컴퓨팅을 설정합니다.
+
+            필드 | Description | 자습서에서 사용하는 값
+            ----|---|---
+            가상 &nbsp;머신&nbsp; 우선 순위 |실험의 우선 순위를 선택합니다.| 전용
+            가상 &nbsp;머신&nbsp; 유형| 컴퓨팅에 사용할 가상 머신 유형을 선택합니다.|CPU(중앙 처리 장치)
+            Virtual&nbsp;machine&nbsp;size| 컴퓨팅에 사용할 가상 머신 크기를 선택합니다. 데이터 및 실험 유형에 따라 권장 크기 목록이 제공됩니다. |Standard_DS12_V2
+        
+        1. **다음** 을 선택하여 **설정 구성 양식** 을 채웁니다.
+        
+             필드 | Description | 자습서에서 사용하는 값
+            ----|---|---
+            컴퓨팅 이름 |  컴퓨팅 컨텍스트를 식별하는 고유한 이름입니다. | bike-compute
+            최소 / 최대 노드| 데이터를 프로파일링하려면 하나 이상의 노드를 지정해야 합니다.|최소 노드: 1<br>최대 노드: 6
+            규모 축소 전 유휴 시간(초) | 클러스터가 최소 노드 수까지 자동으로 축소되기 전의 유휴 시간입니다.|120(기본값)
+            고급 설정 | 실험에 사용할 가상 네트워크를 구성하고 권한을 부여하는 설정입니다.| None 
   
         1. **만들기** 를 선택하여 컴퓨팅 대상을 가져옵니다. 
 
@@ -154,11 +162,11 @@ ms.locfileid: "96921857"
 
 ## <a name="run-experiment"></a>실험 실행
 
-실험을 실행하려면 **마침** 을 선택합니다. **실행 세부 정보** 화면이 열리고 위쪽의 실행 번호 옆에 **실행 상태** 가 표시됩니다. 이 상태는 실험이 진행되면서 업데이트됩니다.
+실험을 실행하려면 **마침** 을 선택합니다. **실행 세부 정보** 화면이 열리고 위쪽의 실행 번호 옆에 **실행 상태** 가 표시됩니다. 이 상태는 실험이 진행되면서 업데이트됩니다. 실험 상태를 알려주는 알림이 스튜디오의 오른쪽 위 모서리에도 표시됩니다.
 
 >[!IMPORTANT]
 > 실험 실행을 준비하기 위한 준비는 **10-15분** 이 걸립니다.
-> 실행이 시작되면 **각 반복에 대해 2-3분 더** 소요됩니다.  <br> <br>
+> 실행이 시작되면 **각 반복에 대해 2-3분 더** 소요됩니다.<br> <br>
 > 이 프로세스는 시간이 오래 걸리므로 프로덕션 환경에서는 시간이 더 걸릴 수 있습니다. 기다리는 동안 **모델** 탭에서 테스트가 완료된 알고리즘을 살펴보는 것이 좋습니다. 
 
 ##  <a name="explore-models"></a>모델 살펴보기
@@ -169,7 +177,7 @@ ms.locfileid: "96921857"
 
 다음 예제에서는 **세부 정보** 및 **메트릭** 탭으로 이동하여 선택한 모델의 속성, 메트릭 및 성능 차트를 확인합니다. 
 
-![실행 세부 정보](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![실행 세부 정보](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## <a name="deploy-the-model"></a>모델 배포
 
@@ -232,7 +240,7 @@ Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하면 �
 새로 배포된 웹 서비스의 사용을 용이하게 하는 Power BI 지원 스키마를 만드는 방법에 대한 단계별 설명은 이 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [웹 서비스 사용](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [웹 서비스 사용](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + [자동화된 기계 학습](concept-automated-ml.md)에 대한 자세한 정보
 + 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md) 문서를 참조하세요.

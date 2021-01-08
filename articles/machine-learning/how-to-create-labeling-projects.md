@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5abb222a6211e2f3f92c002a49987ac54edc78e2
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: cd35cea28e23e88ba97bb7a27dc252d6bebd65e4
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346659"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739657"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
@@ -256,6 +256,17 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 COCO 파일은 *export/coco* 내의 폴더에 있는 Azure Machine Learning 작업 영역의 기본 Blob 저장소에 만들어집니다. Machine Learning의 **데이터 세트** 섹션 아래에서 내보낸 Azure Machine Learning 데이터 세트에 액세스할 수 있습니다. 데이터 세트 세부 정보 페이지에는 Python에서 레이블에 액세스할 수 있는 샘플 코드도 있습니다.
 
 ![내보낸 데이터 세트](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+## <a name="troubleshooting"></a>문제 해결
+
+이러한 문제가 발생하면 다음 팁을 사용하세요.
+
+|문제  |해결 방법  |
+|---------|---------|
+|Blob 데이터 저장소에 생성된 데이터 세트만 사용할 수 있습니다.     |  이는 현재 릴리스의 알려진 제한 사항입니다.       |
+|생성 후 프로젝트는 오랜 시간 동안 "초기화 중"을 표시합니다.     | 페이지를 수동으로 새로 고칩니다. 초기화는 초당 약 20개의 데이터 지점에서 진행되어야 합니다. 자동 새로 고침의 부족은 알려진 문제입니다.         |
+|이미지를 검토할 때 새로 레이블이 지정된 이미지는 표시되지 않습니다.     |   레이블이 지정된 모든 이미지를 로드하려면 **첫 번째** 단추를 선택합니다. **첫 번째** 단추를 클릭하면 목록의 맨 앞으로 돌아가지만 레이블이 지정된 모든 데이터가 로드됩니다.      |
+|개체 검색에 대한 레이블을 지정하는 동안 Esc 키를 누르면 왼쪽 위 모서리에 크기가 0인 레이블이 생성됩니다. 이 상태의 레이블 제출은 실패합니다.     |   레이블 옆에 있는 십자 표시를 클릭하여 레이블을 삭제합니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 

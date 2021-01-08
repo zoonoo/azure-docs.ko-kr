@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505225"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673056"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>방법: 감정 분석 및 오피니언 마이닝
 
@@ -24,8 +24,6 @@ Text Analytics API의 감정 분석 기능은 긍정 및 부정 감정을 검색
 API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용도로만 콘텐츠를 전송해야 합니다.
 
 ## <a name="sentiment-analysis-versions-and-features"></a>감정 분석 버전 및 기능
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 | 기능                                   | 감정 분석 v3 | 감정 분석 v3.1(미리 보기) |
 |-------------------------------------------|-----------------------|-----------------------------------|
@@ -47,7 +45,7 @@ API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용
 | 문서에 `negative` 문장과 `positive` 문장이 각각 하나 이상 있습니다.    | `mixed`                 |
 | 문서의 모든 문장이 `neutral`입니다.                                                  | `neutral`               |
 
-신뢰도 점수의 범위는 1에서 0까지입니다. 점수가 1에 가까울수록 레이블 분류에 대한 높은 신뢰도를 의미하며, 점수가 낮을수록 낮은 신뢰도를 의미합니다. 각 문서 또는 각 문장에 대해 레이블(긍정, 부정 및 중립)과 관련된 예측 점수는 최대 1까지 추가됩니다.
+신뢰도 점수의 범위는 1에서 0까지입니다. 점수가 1에 가까울수록 레이블 분류에 대한 높은 신뢰도를 의미하며, 점수가 낮을수록 낮은 신뢰도를 의미합니다. 각 문서 또는 각 문장에 대해 레이블(긍정, 부정 및 중립)과 관련된 예측 점수는 최대 1까지 추가됩니다. 자세한 내용은 [Text Analytics 투명도 정보](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context)를 참조하세요. 
 
 ## <a name="opinion-mining"></a>오피니언 마이닝
 

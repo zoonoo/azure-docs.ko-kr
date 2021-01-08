@@ -12,20 +12,27 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/30/2020
 ms.author: memildin
-ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d3ed064547b1202aa562fffdfde85a28cbe8514e
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187173"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809550"
 ---
-# <a name="quickstart-setting-up-azure-security-center"></a>빠른 시작: Azure Security Center 설정
+# <a name="quickstart-set-up-azure-security-center"></a>빠른 시작: Azure Security Center 설정
 
 Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 위협 방지 기능을 제공합니다. 체험 기능은 Azure 리소스에 대한 제한된 보안만 제공하지만 Azure Defender를 사용하도록 설정하면 이러한 기능이 온-프레미스 및 기타 클라우드로 확장됩니다. Azure Defender를 사용하면 보안 취약성을 찾아서 수정하고, 액세스 및 애플리케이션 제어를 적용하여 악성 활동을 차단하고, 분석 및 인텔리전스를 사용하여 위협을 검색하고, 공격을 받을 때 신속하게 대응할 수 있습니다. 무료로 Azure Defender를 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
-이 문서에서는 보안 강화를 위해 Azure Defender로 업그레이드하고 머신에 Log Analytics 에이전트를 설치하여 보안 취약성과 위협을 모니터링합니다.
+이 빠른 시작에서는 보안 강화를 위해 Azure Defender를 사용하도록 설정하고 머신에 Log Analytics 에이전트를 설치하여 보안 취약성과 위협을 모니터링하는 방법을 안내합니다.
+
+다음 단계를 수행합니다.
+
+> [!div class="checklist"]
+> * Azure 구독에서 Security Center 활성화
+> * Azure 구독에서 Azure Defender 사용
+> * 자동 데이터 수집 사용
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.

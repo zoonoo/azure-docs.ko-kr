@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d8a7bb620b7fcc9c878986d3575e22bb6f0f77bc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207532"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724137"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>자습서: Azure Remote Rendering 및 모델 스토리지 보안
 
@@ -53,10 +53,10 @@ var loadModelParams = new LoadModelParams(storageAccountPath, blobContainerName,
 var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
 ```
 
-연결된 BLOB 스토리지 계정의 사용자 지정 모델을 로드하도록 **RemoteRenderingCoordinator**를 수정하겠습니다.
+연결된 BLOB 스토리지 계정의 사용자 지정 모델을 로드하도록 **RemoteRenderingCoordinator** 를 수정하겠습니다.
 
 1. 아직 [방법: 스토리지 계정 연결](../../../how-tos/create-an-account.md#link-storage-accounts)을 완료하지 않았다면 지금 완료하여 Blob Storage 인스턴스에 액세스하기 위한 ARR 인스턴스 권한을 부여합니다.
-1. 현재 **LoadModel** 메서드 바로 아래에서 수정된 다음 **LoadModel** 메서드를 **RemoteRenderingCoordinator**에 추가합니다.
+1. 현재 **LoadModel** 메서드 바로 아래에서 수정된 다음 **LoadModel** 메서드를 **RemoteRenderingCoordinator** 에 추가합니다.
 
     ```csharp
     /// <summary>
@@ -113,7 +113,7 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
 
     추가 입력 `storageAccountName` 및 `blobContainerName`도 인수에 추가되었습니다. 첫 번째 자습서에서 만든 첫 번째 **LoadTestModel** 메서드와 비슷한 다른 메서드에서 이 새 **LoadModel** 메서드를 호출할 것입니다.
 
-1. **LoadTestModel** 바로 뒤에서 다음 메서드를 **RemoteRenderingCoordinator**에 추가합니다.
+1. **LoadTestModel** 바로 뒤에서 다음 메서드를 **RemoteRenderingCoordinator** 에 추가합니다.
 
     ```csharp
     private bool loadingLinkedCustomModel = false;
@@ -167,15 +167,15 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
 
 1. **RemoteRenderingCoordinator** 구성 요소에 값을 추가합니다. [모델 변환을 위한 빠른 시작](../../../quickstarts/convert-model.md)을 완료하면 값이 다음과 같습니다.
 
-    * **스토리지 계정 이름**: 스토리지 계정에 대해 선택하는 전역적으로 고유한 스토리지 계정 이름입니다. 이 빠른 시작에서는 *arrtutorialstorage*였으며, 이 값은 달라집니다.
+    * **스토리지 계정 이름**: 스토리지 계정에 대해 선택하는 전역적으로 고유한 스토리지 계정 이름입니다. 이 빠른 시작에서는 *arrtutorialstorage* 였으며, 이 값은 달라집니다.
     * **Blob 컨테이너 이름**: arroutput. Blob Storage 컨테이너입니다.
     * **모델 경로**: *arrconfig.json* 파일에 정의된 "outputFolderPath" 및 "outputAssetFileName"의 조합입니다. 이 빠른 시작에서는 "outputFolderPath":"converted/robot", "outputAssetFileName": "robot.arrAsset"였습니다. 모델 경로 값 "converted/robot/robot.arrAsset"이 되며, 이 값은 달라집니다.
 
     >[!TIP]
     > "-UseContainerSas" 인수 [없이 **Conversion.ps1**](../../../quickstarts/convert-model.md#run-the-conversion) 스크립트를 실행하면 이 스크립트는 SAS 토큰 대신 위의 모든 값을 출력합니다. ![연결된 모델](./media/converted-output.png)
-1. 한동안 GameObject **TestModel**을 제거 또는 비활성화하여 사용자 지정 모델을 로드하는 데 필요한 공간을 확보합니다.
+1. 한동안 GameObject **TestModel** 을 제거 또는 비활성화하여 사용자 지정 모델을 로드하는 데 필요한 공간을 확보합니다.
 1. 장면을 재생하고 원격 세션에 연결합니다.
-1. **RemoteRenderingCoordinator**를 마우스 오른쪽 단추로 클릭하고 **연결된 사용자 지정 모델 로드**를 선택합니다.
+1. **RemoteRenderingCoordinator** 를 마우스 오른쪽 단추로 클릭하고 **연결된 사용자 지정 모델 로드** 를 선택합니다.
     ![연결된 모델 로드](./media/load-linked-model.png)
 
 로컬 애플리케이션에서 SAS 토큰을 제거하여 애플리케이션의 보안을 강화하는 단계를 수행했습니다.
@@ -190,7 +190,7 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
 
 AAD 인증을 사용하면 보다 제어된 방식으로 ARR을 사용하는 개인 또는 그룹을 확인할 수 있습니다. ARR은 계정 키를 사용하는 대신 [액세스 토큰](../../../../active-directory/develop/access-tokens.md)을 허용하는 기능을 기본적으로 제공합니다. 액세스 토큰은 요청된 특정 리소스의 특정 부분만 잠금 해제하는 시간이 제한된 사용자 관련 키로 생각하시면 됩니다.
 
-**RemoteRenderingCoordinator** 스크립트에는 원격 세션 관리를 구성하는 데 사용되는 **AzureFrontendAccountInfo** 개체를 반환하는 메서드가 포함된 **ARRCredentialGetter**라는 대리자가 있습니다. **ARRCredentialGetter**에 다른 메서드를 할당하여 Azure 로그인 흐름을 사용하도록 허용하고, Azure 액세스 토큰을 포함하는 **AzureFrontendAccountInfo** 개체를 생성할 수 있습니다. 이 액세스 토큰은 로그인하는 사용자에게 적용됩니다.
+**RemoteRenderingCoordinator** 스크립트에는 원격 세션 관리를 구성하는 데 사용되는 **AzureFrontendAccountInfo** 개체를 반환하는 메서드가 포함된 **ARRCredentialGetter** 라는 대리자가 있습니다. **ARRCredentialGetter** 에 다른 메서드를 할당하여 Azure 로그인 흐름을 사용하도록 허용하고, Azure 액세스 토큰을 포함하는 **AzureFrontendAccountInfo** 개체를 생성할 수 있습니다. 이 액세스 토큰은 로그인하는 사용자에게 적용됩니다.
 
 1. [방법: 인증 구성 - 배포된 애플리케이션에 대한 인증](../../../how-tos/authentication.md#authentication-for-deployed-applications)을 따르세요. 특히, Azure Spatial Anchors 설명서 [Azure AD 사용자 인증](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication)에 나열된 지침을 따릅니다. 여기에는 새 Azure Active Directory 애플리케이션을 등록하고 ARR 인스턴스에 대한 액세스를 구성하는 작업이 포함됩니다.
 1. 새 AAD 애플리케이션을 구성한 후에는 AAD 애플리케이션이 다음 이미지와 비슷한지 확인합니다.
@@ -208,7 +208,7 @@ AAD 인증을 사용하면 보다 제어된 방식으로 ARR을 사용하는 개
 
 Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 연결하는 방법을 수정해야 합니다. 이를 위해 새 **AzureFrontendAccountInfo** 개체를 반환하는 **BaseARRAuthentication** 인스턴스를 구현합니다. 여기서는 Azure 액세스 토큰을 사용하여 계정 정보를 구성합니다.
 
-1. **AADAuthentication**이라는 새 스크립트를 만들고 해당 코드를 다음으로 바꿉니다.
+1. **AADAuthentication** 이라는 새 스크립트를 만들고 해당 코드를 다음으로 바꿉니다.
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -255,6 +255,14 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
             get => azureRemoteRenderingAccountID.Trim();
             set => azureRemoteRenderingAccountID = value;
         }
+    
+        [SerializeField]
+        private string azureRemoteRenderingAccountAuthenticationDomain;
+        public string AzureRemoteRenderingAccountAuthenticationDomain
+        {
+            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
+            set => azureRemoteRenderingAccountAuthenticationDomain = value;
+        }
 
         public override event Action<string> AuthenticationInstructions;
 
@@ -262,7 +270,7 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
-        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
 
         public void OnEnable()
         {
@@ -279,7 +287,7 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new AzureFrontendAccountInfo(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -359,7 +367,7 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
 >[!NOTE]
 > 이 코드는 아직 완전하지 않으며 상업용 애플리케이션에 사용할 수 없습니다. 예를 들어 적어도 로그아웃 기능을 추가하는 것이 좋습니다. 이 작업은 클라이언트 애플리케이션에서 제공하는 `Task RemoveAsync(IAccount account)` 메서드를 사용하여 수행할 수 있습니다. 이 코드는 자습서에만 사용할 수 있도록 작성되었으며, 실제 구현은 애플리케이션에 따라 달라집니다.
 
-이 코드는 먼저 **AquireTokenSilent**를 사용하여 토큰을 자동으로 가져오려고 시도합니다. 사용자가 이전에 이 애플리케이션을 인증했다면 이 작업이 성공합니다. 실패하면 사용자 개입이 더 많은 전략으로 넘어갑니다.
+이 코드는 먼저 **AquireTokenSilent** 를 사용하여 토큰을 자동으로 가져오려고 시도합니다. 사용자가 이전에 이 애플리케이션을 인증했다면 이 작업이 성공합니다. 실패하면 사용자 개입이 더 많은 전략으로 넘어갑니다.
 
 이 코드에서는 [디바이스 코드 흐름](../../../../active-directory/develop/v2-oauth2-device-code.md)을 사용하여 액세스 토큰을 가져옵니다. 이 흐름을 사용하면 사용자가 컴퓨터 또는 모바일 디바이스에서 자신의 Azure 계정에 로그인하여 결과 토큰을 HoloLens 애플리케이션으로 다시 보낼 수 있습니다.
 
@@ -369,7 +377,7 @@ ARR 관점에서 이 클래스의 가장 중요한 부분은 다음 줄입니다
 return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-여기서는 계정 도메인, 계정 ID 및 액세스 토큰을 사용하여 새 **AzureFrontendAccountInfo** 개체를 만듭니다. 이전에 구성된 역할 기반 권한에 따라 사용자에게 권한이 부여되는 한, ARR 서비스에서 원격 렌더링 세션을 쿼리, 생성 및 조인할 때 이 토큰이 사용됩니다.
+여기서는 계정 도메인, 계정 ID, 계정 인증 도메인 및 액세스 토큰을 사용하여 새 **AzureFrontendAccountInfo** 개체를 만듭니다. 이전에 구성된 역할 기반 권한에 따라 사용자에게 권한이 부여되는 한, ARR 서비스에서 원격 렌더링 세션을 쿼리, 생성 및 조인할 때 이 토큰이 사용됩니다.
 
 이렇게 변경한 후, 애플리케이션의 현재 상태와 Azure 리소스에 대한 액세스는 다음과 같습니다.
 
@@ -387,25 +395,26 @@ Unity 편집기에서 AAD 인증이 활성화되면 애플리케이션을 시작
 
 1. 클라이언트 ID 및 테넌트 ID의 값을 입력합니다. 두 값은 앱 등록의 개요 페이지에서 찾을 수 있습니다.
 
-    * **계정 도메인**은 **RemoteRenderingCoordinator**의 계정 도메인에서 사용하던 것과 동일한 도메인입니다.
-    * **Active Directory 애플리케이션 클라이언트 ID**는 AAD 앱 등록에서 찾을 수 있는 *애플리케이션(클라이언트) ID*입니다(아래 이미지 참조).
-    * **Azure 테넌트 ID**는 AAD 앱 등록에서 찾을 수 있는 *디렉터리(테넌트) ID*입니다(아래 이미지 참조).
-    * **Azure Remote Rendering 계정 ID**는 **RemoteRenderingCoordinator**에 사용했던 것과 동일한 **계정 ID**입니다.
+    * **계정 도메인** 은 **RemoteRenderingCoordinator** 의 계정 도메인에서 사용하던 것과 동일한 도메인입니다.
+    * **Active Directory 애플리케이션 클라이언트 ID** 는 AAD 앱 등록에서 찾을 수 있는 *애플리케이션(클라이언트) ID* 입니다(아래 이미지 참조).
+    * **Azure 테넌트 ID** 는 AAD 앱 등록에서 찾을 수 있는 *디렉터리(테넌트) ID* 입니다(아래 이미지 참조).
+    * **Azure Remote Rendering 계정 ID** 는 **RemoteRenderingCoordinator** 에 사용했던 것과 동일한 **계정 ID** 입니다.
+    * **계정 인증 도메인** 은 **RemoteRenderingCoordinator** 에서 사용했던 것과 동일한 **계정 인증 도메인** 입니다.
 
     ![애플리케이션(클라이언트) ID 및 디렉터리(테넌트) ID를 강조 표시하는 스크린샷.](./media/app-overview-data.png)
 
 1. Unity 편집기에서 재생을 누르고 세션 실행에 동의합니다.
     **AADAuthentication** 구성 요소에는 보기 컨트롤러가 있으므로, 세션 권한 부여 모달 패널 뒤에 프롬프트를 표시하도록 자동으로 연결됩니다.
-1. **AppMenu**의 오른쪽 패널에 있는 지침을 따르세요.
+1. **AppMenu** 의 오른쪽 패널에 있는 지침을 따르세요.
     다음과 유사한 내용이 표시되어야 합니다. ![AppMenu 오른쪽에 표시되는 명령 패널을 보여주는 그림.](./media/device-flow-instructions.png)
     보조 디바이스(또는 동일한 디바이스의 브라우저)에서 제공된 코드를 입력하고 자격 증명을 사용하여 로그인하면 요청 애플리케이션(여기서는 Unity 편집기)에 액세스 토큰이 반환됩니다.
 1. 이 시점 이후로 애플리케이션의 모든 것이 정상적으로 진행됩니다. 스테이지가 예상대로 진행되지 않으면 Unity 콘솔에서 오류를 확인합니다.
 
 ## <a name="build-to-device"></a>디바이스에 빌드
 
-MSAL을 사용하여 디바이스에 애플리케이션을 빌드하는 경우 프로젝트의 **자산** 폴더에 파일을 포함해야 합니다. 이렇게 하면 컴파일러가 **자습서 자산**에 포함된 *Microsoft.Identity.Client.dll*을 사용하여 애플리케이션을 올바르게 빌드하는 데 도움이 됩니다.
+MSAL을 사용하여 디바이스에 애플리케이션을 빌드하는 경우 프로젝트의 **자산** 폴더에 파일을 포함해야 합니다. 이렇게 하면 컴파일러가 **자습서 자산** 에 포함된 *Microsoft.Identity.Client.dll* 을 사용하여 애플리케이션을 올바르게 빌드하는 데 도움이 됩니다.
 
-1. **Assets** 폴더에 **link.xml**이라는 새 파일을 추가합니다.
+1. **Assets** 폴더에 **link.xml** 이라는 새 파일을 추가합니다.
 1. 파일에 다음을 추가합니다.
 
     ```xml

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: e9a2259f1e15a94ad1f2a9eabf7d3a2f3ed419f1
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 16f903e34c64214d54fc01fa621f561f1786de08
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387805"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755993"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Azure Defender for SQL 소개
 
@@ -53,7 +53,9 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 
 - [취약성 평가](../azure-sql/database/sql-vulnerability-assessment.md) - 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정하는 검사 서비스입니다. 평가 검사는 SQL 머신의 보안 상태에 대한 개요와 보안 결과에 대한 세부 정보를 제공합니다.
 
-- [지능형 위협 방지](../azure-sql/database/threat-detection-overview.md) - SQL 서버에서 SQL 삽입, 무차별 암호 대입 공격 및 권한 남용 같은 위협을 지속적으로 모니터링하는 검색 서비스입니다. 이 서비스는 Azure Security Center에서 의심스러운 활동에 대한 세부 정보, 위협을 완화하는 방법에 대한 지침, Azure Sentinel에서 조사를 계속하는 옵션이 포함된 작업 지향 보안 경고를 제공합니다.
+- [지능형 위협 방지](../azure-sql/database/threat-detection-overview.md) - SQL 서버에서 SQL 삽입, 무차별 암호 대입 공격 및 권한 남용 같은 위협을 지속적으로 모니터링하는 검색 서비스입니다. 이 서비스는 Azure Security Center에서 의심스러운 활동에 대한 세부 정보, 위협을 완화하는 방법에 대한 지침, Azure Sentinel에서 조사를 계속하는 옵션이 포함된 작업 지향 보안 경고를 제공합니다. 
+    > [!TIP]
+    > [경고 참조 페이지](alerts-reference.md#alerts-sql-db-and-warehouse)에서 SQL 서버에 대한 보안 경고 목록을 확인하세요.
 
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-sql-provide"></a>Azure Defender for SQL은 어떤 종류의 경고를 제공하나요?
@@ -74,8 +76,3 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 
 > [!div class="nextstepaction"]
 > [Azure Defender를 사용하여 SQL Server의 취약성 검사](defender-for-sql-usage.md)
-
-관련 자료는 다음 문서를 참조하세요. 
-
-- [SQL 데이터베이스 서버용 Azure Defender를 사용하도록 설정하는 방법](../azure-sql/database/azure-defender-for-sql.md)
-- [SQL Server에 대한 보안 경고 목록](alerts-reference.md#alerts-sql-db-and-warehouse)

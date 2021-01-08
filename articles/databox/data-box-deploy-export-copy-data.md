@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ecc6e1e1a543f3190e9f73512ca0b9ae45cc3fe9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 495b4427fb7e456c60a489b9ce3d19c2a44bd918
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335216"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680895"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>자습서: SMB를 통해 Azure Data Box에서 데이터 복사(미리 보기)
+# <a name="tutorial-copy-data-from-azure-data-box-via-smb"></a>자습서: SMB를 통해 Azure Data Box에서 데이터 복사
 
 이 자습서에서는 로컬 웹 UI를 사용하여 Data Box에서 온-프레미스 데이터 서버로 데이터를 연결하고 복사하는 방법을 설명합니다. Data Box 디바이스에는 Azure Storage 계정에서 내보낸 데이터가 포함되어 있습니다.
 
@@ -27,8 +27,6 @@ ms.locfileid: "94335216"
 > * 필수 구성 요소
 > * Data Box에 연결
 > * Data Box에서 데이터 복사
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

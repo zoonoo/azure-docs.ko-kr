@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 자동화된 데이터 처리, 문서 처리, 자동화된 데이터 입력, 양식 처리
-ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353683"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845524"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -108,23 +108,21 @@ Form Recognizer에는 고유한 양식 유형의 자동화된 데이터 처리�
 
 [샘플 Form Recognizer 도구](https://fott.azurewebsites.net/)를 사용하거나 빠른 시작에 따라 양식에서 데이터 추출을 시작합니다. 기술을 학습할 때 체험판 서비스를 이용하는 것이 좋습니다. 체험판 페이지는 한 달에 500페이지로 제한됩니다.
 
-* [클라이언트 라이브러리 빠른 시작](./quickstarts/client-library.md)(모든 언어, 여러 시나리오)
+* [클라이언트 라이브러리 / REST API 빠른 시작](./quickstarts/client-library.md)(모든 언어, 여러 시나리오)
 * 웹 UI 빠른 시작
   * [레이블을 사용하여 학습 - 샘플 레이블 지정 도구](quickstarts/label-tool.md)
-* REST 빠른 시작
+* REST 샘플(GitHub)
  * 문서에서 텍스트, 선택 표시 및 표 구조 추출
-    * [레이아웃 데이터 추출 - Python](quickstarts/python-layout.md)
+    * [레이아웃 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
   * 사용자 지정 모델 학습 및 양식 데이터 추출
-    * [레이블 없이 학습 - cURL](quickstarts/curl-train-extract.md)
-    * [레이블 없이 학습 - Python](quickstarts/python-train-extract.md)
-    * [레이블을 사용하여 학습 - Python](quickstarts/python-labeled-data.md)
+    * [레이블 없이 학습 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+    * [레이블을 사용하여 학습 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
   * 송장에서 데이터 추출
-    * [송장 데이터 추출 - Python](quickstarts/python-invoices.md)
+    * [송장 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
   * 판매 영수증에서 데이터 추출
-    * [영수증 데이터 추출 - cURL](quickstarts/curl-receipts.md)
-    * [영수증 데이터 추출 - Python](quickstarts/python-receipts.md)
+    * [영수증 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
   * 비즈니스 카드에서 데이터 추출
-    * [명함 데이터 추출 - Python](quickstarts/python-business-cards.md)
+    * [명함 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### <a name="review-the-rest-apis"></a>REST API 검토
 
@@ -162,4 +160,4 @@ Form Recognizer에는 고유한 양식 유형의 자동화된 데이터 처리�
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자가 선택한 언어로 Form Recognizer를 사용하여 양식 처리 앱 작성을 시작하려면 [클라이언트 라이브러리 빠른 시작](quickstarts/client-library.md)을 완료하세요.
+사용자가 선택한 언어로 Form Recognizer를 사용하여 양식 처리 앱 작성을 시작하려면 [빠른 시작](quickstarts/client-library.md)을 완료하세요.

@@ -10,22 +10,27 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 6bb1aafd942046faa77072d99af043ebd43b4a8a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2504efcbd79ab0e43f958b86564709b6ac6295a6
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589970"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733059"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure 웹앱에 연결
 
 [Azure Key Vault](./overview.md)는 보안이 강화된 자격 증명 및 기타 비밀을 저장하는 방법을 제공합니다. 그러나 코드는 Key Vault에 인증하여 이러한 항목을 검색해야 합니다. [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공하여 이 문제를 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 표시할 필요가 없습니다.
 
-이 자습서에서는 관리 ID를 사용하여 Azure 키 자격 증명 모음을 통해 Azure 웹앱을 인증합니다. [.NET용 Azure Key Vault 비밀 클라이언트 라이브러리](/dotnet/api/overview/azure/key-vault) 및 [Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용합니다. 선택한 개발 언어, Azure PowerShell 및/또는 Azure Portal을 사용하는 경우에도 동일한 기본 원칙이 적용됩니다.
+이 자습서에서는 Azure 웹 애플리케이션을 만들고 [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)에 배포합니다. 관리 ID를 사용하여 [.NET용 Azure Key Vault 비밀 클라이언트 라이브러리](/dotnet/api/overview/azure/key-vault) 및 [Azure CLI](/cli/azure/get-started-with-azure-cli)를 통해 Azure Key Vault로 Azure 웹앱을 인증합니다. 선택한 개발 언어, Azure PowerShell 및/또는 Azure Portal을 사용하는 경우에도 동일한 기본 원칙이 적용됩니다.
+
+이 자습서에서 제공하는 Azure App Service 웹 애플리케이션 및 배포에 대한 자세한 내용은 다음을 참조하세요.
+- [App Service 개요](https://docs.microsoft.com/azure/app-service/overview)
+- [Azure App Service에서 ASP.NET Core 웹앱 만들기](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
+- [Azure App Service에 로컬 Git 배포](https://docs.microsoft.com/azure/app-service/deploy-local-git)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 빠른 시작을 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure 구독 [체험 계정을 만듭니다.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [.NET Core 3.1 SDK(이상)](https://dotnet.microsoft.com/download/dotnet-core/3.1)
@@ -33,6 +38,8 @@ ms.locfileid: "97589970"
 * [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault.](./overview.md) 키 자격 증명 모음은 [Azure Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md) 또는 [Azure PowerShell](quick-create-powershell.md)을 사용하여 만들 수 있습니다.
 * Key Vault [비밀](../secrets/about-secrets.md). 비밀은 [Azure Portal](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md) 또는 [Azure CLI](../secrets/quick-create-cli.md)를 사용하여 만들 수 있습니다.
+
+Azure App Service에 배포된 웹 애플리케이션이 이미 있는 경우 [키 자격 증명 모음에 대한 웹앱 액세스 구성](#create-and-assign-a-managed-identity) 및 [웹 애플리케이션 코드 수정](#modify-the-app-to-access-your-key-vault) 섹션으로 건너뛸 수 있습니다.
 
 ## <a name="create-a-net-core-app"></a>.NET Core 앱 만들기
 이 단계에서는 로컬 .NET Core 프로젝트를 설정합니다.
@@ -59,6 +66,8 @@ dotnet run
 웹 브라우저에서 `http://localhost:5000`에 있는 앱으로 이동합니다.
 
 페이지에 표시된 샘플 앱의 "Hello World!" 메시지가 표시됩니다.
+
+Azure용 웹 애플리케이션을 만드는 방법에 대한 자세한 내용은 [Azure App Service에서 ASP.NET Core 웹앱 만들기](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)를 참조하세요.
 
 ## <a name="deploy-the-app-to-azure"></a>Azure에 앱 배포
 
@@ -218,6 +227,8 @@ http://<your-webapp-name>.azurewebsites.net
 ```
 
 이전에 `http://localhost:5000`을 방문했을 때 확인한 "Hello World!" 메시지가 표시됩니다.
+
+Git을 사용한 웹 애플리케이션 배포에 대한 자세한 내용은 [Azure App Service에 로컬 Git 배포](https://docs.microsoft.com/azure/app-service/deploy-local-git)를 참조하세요.
  
 ## <a name="configure-the-web-app-to-connect-to-key-vault"></a>웹앱을 구성하여 Key Vault에 연결
 

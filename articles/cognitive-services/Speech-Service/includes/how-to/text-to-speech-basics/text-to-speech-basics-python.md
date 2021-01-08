@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: adc40f8c949c50570533a19d46f4b5dafa79325c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a306cca2d10052d36ae04950deb87fa56d0fd5e1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94424760"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97731925"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -67,7 +67,7 @@ from azure.cognitiveservices.speech.audio import AudioOutputConfig
 speech_config = SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
 ```
 
-## <a name="synthesize-speech-to-a-file"></a>파일로 음성 합성
+## <a name="synthesize-speech-to-a-file"></a>음성을 파일로 합성
 
 다음으로, 텍스트 음성 변환을 실행하고 스피커, 파일 또는 기타 출력 스트림으로 출력하는 [`SpeechSynthesizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?preserve-view=true&view=azure-python) 개체를 만듭니다. [`SpeechSynthesizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?preserve-view=true&view=azure-python)는 이전 단계에서 만든 [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-python) 개체와 출력 결과를 처리하는 방법을 지정하는 [`AudioOutputConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audiooutputconfig?preserve-view=true&view=azure-python) 개체를 매개 변수로 수락합니다.
 
@@ -128,6 +128,9 @@ stream = AudioDataStream(result)
 오디오 형식을 변경하려면 `SpeechConfig` 개체에서 `set_speech_synthesis_output_format()` 함수를 사용합니다. 이 함수에는 출력 형식을 선택하는 데 사용하는 [`SpeechSynthesisOutputFormat`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat?preserve-view=true&view=azure-python) 형식의 `enum`이 필요합니다. 사용 가능한 [오디오 형식 목록](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat?preserve-view=true&view=azure-python)은 참조 문서를 참조하세요.
 
 요구 사항에 따라 다양한 파일 형식에 대한 다양한 옵션이 있습니다. 정의에 따라 `Raw24Khz16BitMonoPcm`과 같은 원시 형식에는 오디오 헤더가 포함되지 않습니다. 다운스트림 구현에서 원시 비트 스트림을 디코딩할 수 있음을 것을 알고 있거나 비트 수준, 샘플 속도, 채널 수 등에 따라 헤더를 수동으로 작성하려는 경우에만 원시 형식을 사용합니다.
+
+> [!NOTE]
+> **en-US-AriaRUS** 및 **en-US-GuyRUS** 음성은 `Riff24Khz16BitMonoPcm` 샘플 속도로 인코딩된 샘플에서 생성됩니다.
 
 다음 예제에서는 `SpeechConfig` 개체에서 `SpeechSynthesisOutputFormat`을 설정하여 고화질 RIFF 형식인 `Riff24Khz16BitMonoPcm`을 지정합니다. 이전 섹션의 예제와 마찬가지로 [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream?preserve-view=true&view=azure-python)을 사용하여 결과의 메모리 내 스트림을 가져온 다음, 파일에 씁니다.
 
@@ -192,7 +195,7 @@ stream.save_to_wav_file("path/to/write/file.wav")
 인공신경망 음성으로 전환하려면 `name`을 [인공신경망 음성 옵션](../../../language-support.md#neural-voices) 중 하나로 변경합니다. 그런 다음, `mstts`에 대한 XML 네임스페이스를 추가하고, `<mstts:express-as>` 태그에서 텍스트를 래핑합니다. `style` 매개 변수를 사용하여 말하기 스타일을 사용자 지정합니다. 다음 예제에서는 `cheerful`을 사용하지만, 말하기 스타일의 차이를 확인하려면 `customerservice` 또는 `chat`으로 설정해 보세요.
 
 > [!IMPORTANT]
-> 인공신경망 음성은 *미국 동부* , *동남아시아* , *서유럽* 지역에서 만든 **음성 리소스에 대해서만** 지원됩니다.
+> 인공신경망 음성은 *미국 동부*, *동남아시아*, *서유럽* 지역에서 만든 **음성 리소스에 대해서만** 지원됩니다.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">

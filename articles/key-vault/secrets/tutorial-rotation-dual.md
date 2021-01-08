@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 72541b8d8f8d8865c680c36f7f84cd91a4ce8ba2
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c2496959f851b55f8cc66c0e793b641cdafb003a
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903329"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808337"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -39,14 +39,15 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/a
 
 ## <a name="prerequisites"></a>사전 요구 사항
 * Azure 구독 [체험 계정을 만듭니다.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Azure [Cloud Shell](https://shell.azure.com/). 이 자습서에서는 PowerShell 환경에서 포털 Cloud Shell을 사용합니다.
 * Azure Key Vault.
 * Azure 스토리지 계정 2개
 
 기존 키 자격 증명 모음 및 기존 스토리지 계정이 없는 경우 이 배포 링크를 사용하면 됩니다.
 
-[![[Azure에 배포]라는 레이블이 지정된 링크](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+[![[Azure에 배포]라는 레이블이 지정된 링크](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. **리소스 그룹** 에서 **새로 만들기** 를 선택합니다. 그룹 이름을 **akvrotation** 으로 지정한 다음, **확인** 을 선택합니다.
+1. **리소스 그룹** 에서 **새로 만들기** 를 선택합니다. 그룹 이름을 **vaultrotation** 으로 지정한 다음, **확인** 을 선택합니다.
 1. **검토 + 만들기** 를 선택합니다.
 1. **만들기** 를 선택합니다.
 
@@ -55,7 +56,7 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/a
 이제 키 자격 증명 모음과 스토리지 계정 2개가 있습니다. Azure CLI에서 다음 명령을 실행하여 이 설정을 확인할 수 있습니다.
 
 ```azurecli
-az resource list -o table -g akvrotation
+az resource list -o table -g vaultrotation
 ```
 
 다음 출력과 비슷한 결과가 표시됩니다.
@@ -63,9 +64,9 @@ az resource list -o table -g akvrotation
 ```console
 Name                     ResourceGroup         Location    Type                               Status
 -----------------------  --------------------  ----------  ---------------------------------  --------
-akvrotation-kv         akvrotation      eastus      Microsoft.KeyVault/vaults
-akvrotationstorage     akvrotation      eastus      Microsoft.Storage/storageAccounts
-akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAccounts
+vaultrotation-kv         vaultrotation      westus      Microsoft.KeyVault/vaults
+vaultrotationstorage     vaultrotation      westus      Microsoft.Storage/storageAccounts
+vaultrotationstorage2    vaultrotation      westus      Microsoft.Storage/storageAccounts
 ```
 
 ## <a name="create-and-deploy-the-key-rotation-function"></a>키 순환 함수 만들기 및 배포
@@ -82,70 +83,79 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 
 1. Azure 템플릿 배포 링크를 선택합니다. 
 
-   [![Azure 템플릿 배포 링크](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
+   [![Azure 템플릿 배포 링크](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FFunction%2Fazuredeploy.json)
 
-1. **리소스 그룹** 목록에서 **akvrotation** 을 선택합니다.
+1. **리소스 그룹** 목록에서 **vaultrotation** 을 선택합니다.
 1. **스토리지 계정 RG** 상자에 스토리지 계정이 있는 리소스 그룹의 이름을 입력합니다. 키 순환 함수를 배포할 리소스 그룹과 동일한 리소스 그룹에 스토리지 계정이 이미 있는 경우 기본값 **[resourceGroup().name]** 을 유지합니다.
-1. **스토리지 계정 이름** 상자에 순환할 액세스 키가 포함된 스토리지 계정의 이름을 입력합니다.
+1. **스토리지 계정 이름** 상자에 순환할 액세스 키가 포함된 스토리지 계정의 이름을 입력합니다. [필수 구성 요소](#prerequisites)에서 만든 스토리지 계정을 사용하는 경우 기본값 **[concat(resourceGroup().name, 'storage')]** 를 유지합니다.
 1. **Key Vault RG** 상자에 키 자격 증명 모음이 있는 리소스 그룹의 이름을 입력합니다. 키 순환 함수를 배포할 리소스 그룹과 동일한 리소스 그룹에 키 자격 증명 모음이 이미 있는 경우 기본값 **[resourceGroup().name]** 을 유지합니다.
-1. **Key Vault 이름** 상자에 키 자격 증명 모음의 이름을 입력합니다.
+1. **Key Vault 이름** 상자에 키 자격 증명 모음의 이름을 입력합니다. [필수 구성 요소](#prerequisites)에서 만든 키 자격 증명 모음을 사용하는 경우 기본값 **[concat(resourceGroup().name, '-kv')]** 를 유지합니다.
+1. **App Service 계획 유형** 상자에서 호스팅 계획을 선택합니다. **프리미엄 요금제** 는 키 자격 증명 모음이 방화벽 뒤에 있는 경우에만 필요합니다.
 1. **함수 앱 이름** 상자에 함수 앱의 이름을 입력합니다.
 1. **비밀 이름** 상자에 액세스 키를 저장할 비밀의 이름을 입력합니다.
-1. **리포지토리 URL** 상자에 함수 코드의 GitHub 위치( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** )를 입력합니다.
+1. **리포지토리 URL** 상자에 함수 코드의 GitHub 위치를 입력합니다. 이 자습서에서는 **https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell.git** 를 사용할 수 있습니다.
 1. **검토 + 만들기** 를 선택합니다.
 1. **만들기** 를 선택합니다.
 
-   ![첫 번째 스토리지 계정을 만드는 방법을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-2.png)
+   ![함수를 만들고 배포하는 방법을 보여주는 스크린샷.](../media/secrets/rotation-dual/dual-rotation-2.png)
 
-위의 단계를 마치면 스토리지 계정, 서버 팜, 함수 앱 및 Application Insights가 생깁니다. 배포가 완료되면 다음 페이지가 표시됩니다. ![배포 완료 페이지를 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-3.png)
+위의 단계를 마치면 스토리지 계정, 서버 팜, 함수 앱 및 Application Insights가 생깁니다. 배포가 완료되면 다음 페이지가 표시됩니다.
+
+   ![배포 완료 페이지를 보여주는 스크린샷.](../media/secrets/rotation-dual/dual-rotation-3.png)
 > [!NOTE]
 > 오류가 발생하는 경우 **재배포** 를 선택하여 구성 요소 배포를 완료할 수 있습니다.
 
 
-순환 함수의 배포 템플릿과 코드는 [GitHub](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)에서 찾을 수 있습니다.
+순환 함수의 배포 템플릿과 코드는 [Azure 샘플](https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell)에서 찾을 수 있습니다.
 
 ## <a name="add-the-storage-account-access-keys-to-key-vault"></a>Key Vault에 스토리지 계정 액세스 키 추가
 
-먼저 사용자에게 **비밀 관리** 권한을 부여하도록 액세스 정책을 설정합니다.
+먼저 사용자 주체에게 **비밀 관리** 권한을 부여하도록 액세스 정책을 설정합니다.
 
 ```azurecli
-az keyvault set-policy --upn <email-address-of-user> --name akvrotation-kv --secret-permissions set delete get list
+az keyvault set-policy --upn <email-address-of-user> --name vaultrotation-kv --secret-permissions set delete get list
 ```
 
 이제 스토리지 계정 액세스 키를 값으로 사용하여 새 비밀을 만들 수 있습니다. 또한 순환 함수가 스토리지 계정에서 키를 다시 생성하려면 스토리지 계정 리소스 ID, 비밀 유효 기간, 비밀에 추가할 키 ID가 필요합니다.
 
 스토리지 계정 리소스 ID를 확인합니다. 이 값은 `id` 속성에서 찾을 수 있습니다.
+
 ```azurecli
-az storage account show -n akvrotationstorage
+az storage account show -n vaultrotationstorage
 ```
 
 key 값을 가져올 수 있도록 다음과 같이 스토리지 계정 액세스 키를 나열합니다.
 
 ```azurecli
-az storage account keys list -n akvrotationstorage 
+az storage account keys list -n vaultrotationstorage 
 ```
 
-`key1Value` 및 `storageAccountResourceId`에 대해 검색된 값을 사용하여 다음 명령을 실행합니다.
+만료 날짜를 내일로 설정하고, 유효 기간을 60일로 설정하고, 스토리지 계정 리소스 ID를 사용하여 키 자격 증명 모음에 비밀을 추가합니다. `key1Value` 및 `storageAccountResourceId`에 대해 검색된 값을 사용하여 다음 명령을 실행합니다.
 
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
-az keyvault secret set --name storageKey --vault-name akvrotation-kv --value <key1Value> --tags "CredentialId=key1" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
+$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <key1Value> --tags "CredentialId=key1" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
 
-만료 날짜가 짧은 비밀을 만들면 `SecretNearExpiry` 이벤트가 몇 분 내에 게시됩니다. 이 이벤트는 비밀을 순환하는 함수를 트리거합니다.
+위의 비밀은 몇 분 내에 `SecretNearExpiry` 이벤트를 트리거합니다. 이 이벤트는 만료가 60일로 설정된 비밀을 순환하는 함수를 트리거합니다. 이 구성에서 'SecretNearExpiry' 이벤트는 30일(만료 30일 전)마다 트리거되고, 순환 함수는 key1과 key2 사이에서 교대로 순환됩니다.
 
 스토리지 계정 키와 Key Vault 비밀을 검색하고 비교하여 액세스 키가 다시 생성되었는지 확인할 수 있습니다.
 
 다음 명령을 사용하여 비밀 정보를 가져옵니다.
 ```azurecli
-az keyvault secret show --vault-name akvrotation-kv --name storageKey
+az keyvault secret show --vault-name vaultrotation-kv --name storageKey
 ```
-`keyName`을 대체하도록 `CredentialId`가 업데이트되고 `value`가 다시 생성됩니다. ![첫 번째 스토리지 계정에 대한 a z keyvault secret show 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-4.png)
+
+`keyName`을 대체하도록 `CredentialId`가 업데이트되고 `value`가 다시 생성됩니다.
+
+![첫 번째 스토리지 계정에 대한 a z keyvault secret show 명령의 출력을 보여주는 스크린샷.](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 다음과 같이 액세스 키를 검색하여 값을 비교합니다.
 ```azurecli
-az storage account keys list -n akvrotationstorage 
+az storage account keys list -n vaultrotationstorage 
 ```
+키의 `value`는 키 자격 증명 모음의 비밀과 동일합니다.
+
 ![첫 번째 스토리지 계정에 대한 a z storage account keys list 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-5.png)
 
 ## <a name="add-storage-accounts-for-rotation"></a>순환할 스토리지 계정 추가
@@ -158,10 +168,12 @@ az storage account keys list -n akvrotationstorage
 
 1. Azure 템플릿 배포 링크를 선택합니다. 
 
-   [![Azure 템플릿 배포 링크](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscriptions%2Fazuredeploy.json)
+   [![Azure 템플릿 배포 링크](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FAdd-Event-Subscriptions%2Fazuredeploy.json)
 
-1. **리소스 그룹** 목록에서 **akvrotation** 을 선택합니다.
+1. **리소스 그룹** 목록에서 **vaultrotation** 을 선택합니다.
+1. **스토리지 계정 RG** 상자에 스토리지 계정이 있는 리소스 그룹의 이름을 입력합니다. 키 순환 함수를 배포할 리소스 그룹과 동일한 리소스 그룹에 스토리지 계정이 이미 있는 경우 기본값 **[resourceGroup().name]** 을 유지합니다.
 1. **스토리지 계정 이름** 상자에 순환할 액세스 키가 포함된 스토리지 계정의 이름을 입력합니다.
+1. **Key Vault RG** 상자에 키 자격 증명 모음이 있는 리소스 그룹의 이름을 입력합니다. 키 순환 함수를 배포할 리소스 그룹과 동일한 리소스 그룹에 키 자격 증명 모음이 이미 있는 경우 기본값 **[resourceGroup().name]** 을 유지합니다.
 1. **Key Vault 이름** 상자에 키 자격 증명 모음의 이름을 입력합니다.
 1. **함수 앱 이름** 상자에 함수 앱의 이름을 입력합니다.
 1. **비밀 이름** 상자에 액세스 키를 저장할 비밀의 이름을 입력합니다.
@@ -174,40 +186,48 @@ az storage account keys list -n akvrotationstorage
 
 스토리지 계정 리소스 ID를 확인합니다. 이 값은 `id` 속성에서 찾을 수 있습니다.
 ```azurecli
-az storage account show -n akvrotationstorage2
+az storage account show -n vaultrotationstorage2
 ```
 
 key2 값을 가져올 수 있도록 다음과 같이 스토리지 계정 액세스 키를 나열합니다.
 
 ```azurecli
-az storage account keys list -n akvrotationstorage2 
+az storage account keys list -n vaultrotationstorage2 
 ```
 
-`key2Value` 및 `storageAccountResourceId`에 대해 검색된 값을 사용하여 다음 명령을 실행합니다.
+만료 날짜를 내일로 설정하고, 유효 기간을 60일로 설정하고, 스토리지 계정 리소스 ID를 사용하여 키 자격 증명 모음에 비밀을 추가합니다. `key2Value` 및 `storageAccountResourceId`에 대해 검색된 값을 사용하여 다음 명령을 실행합니다.
 
 ```azurecli
-tomorrowDate=`date -d tomorrow -Iseconds -u | awk -F'+' '{print $1"Z"}'`
-az keyvault secret set --name storageKey2 --vault-name akvrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
+$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
 
 다음 명령을 사용하여 비밀 정보를 가져옵니다.
 ```azurecli
-az keyvault secret show --vault-name akvrotation-kv --name storageKey2
+az keyvault secret show --vault-name vaultrotation-kv --name storageKey2
 ```
-`keyName`을 대체하도록 `CredentialId`가 업데이트되고 `value`가 다시 생성됩니다. ![두 번째 스토리지 계정에 대한 a z keyvault secret show 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-8.png)
+
+`keyName`을 대체하도록 `CredentialId`가 업데이트되고 `value`가 다시 생성됩니다.
+
+![두 번째 스토리지 계정에 대한 a z keyvault secret show 명령의 출력을 보여주는 스크린샷.](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 다음과 같이 액세스 키를 검색하여 값을 비교합니다.
 ```azurecli
-az storage account keys list -n akvrotationstorage 
+az storage account keys list -n vaultrotationstorage 
 ```
+
+키의 `value`는 키 자격 증명 모음의 비밀과 동일합니다.
+
 ![두 번째 스토리지 계정에 대한 a z storage account keys list 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-9.png)
 
-## <a name="key-vault-dual-credential-rotation-functions"></a>Key Vault 이중 자격 증명 순환 함수
+## <a name="key-vault-rotation-functions-for-two-sets-of-credentials"></a>두 자격 증명 세트에 대한 Key Vault 회전 함수
 
 - [스토리지 계정](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Redis cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
 ## <a name="next-steps"></a>다음 단계
+
+- 자습서: [한 개의 자격 증명 세트에 대한 비밀 회전](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation)
 - 개요: [Azure Event Grid를 사용하여 Key Vault 모니터링](../general/event-grid-overview.md)
 - 방법: [Azure Portal에서 첫 번째 함수 만들기](../../azure-functions/functions-create-first-azure-function.md)
 - 방법: [Key Vault 비밀 변경 시 이메일 받기](../general/event-grid-logicapps.md)

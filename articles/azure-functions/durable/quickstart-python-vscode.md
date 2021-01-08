@@ -3,14 +3,14 @@ title: Python을 사용하여 Azure에서 첫 번째 지속성 함수 만들기
 description: Visual Studio Code를 사용하여 Python에서 Azure 지속성 함수를 만들고 게시합니다.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 04/04/2020
+ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 5d624027259212d804ced26a6daaffb853984a98
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0cc321563de645aeb1d204b67b0ab72053d79c7e
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012632"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763560"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Python에서 첫 번째 지속성 함수 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "96012632"
 
 이 섹션에서는 Visual Studio Code를 사용하여 로컬 Azure Functions 프로젝트를 만듭니다. 
 
-1. Visual Studio Code에서 F1 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Create New Project...`을 검색하여 선택합니다.
+1. Visual Studio Code에서 F1(또는 <kbd>Ctrl/Cmd+Shift+P</kbd>)을 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Create New Project...`을 검색하여 선택합니다.
 
     ![함수 만들기](media/quickstart-python-vscode/functions-create-project.png)
 
@@ -60,18 +60,33 @@ ms.locfileid: "96012632"
 
 requirements.txt 파일도 루트 폴더에 생성됩니다. 함수 앱을 실행하는 데 필요한 Python 패키지를 지정합니다.
 
+## <a name="update-azure-functions-extension-bundles-version"></a>Azure Functions 확장 번들 버전 업데이트
+
+Python Azure Functions에는 [Azure Functions 확장 번들](../functions-bindings-register.md#access-extensions-in-non-net-languages)의 버전 2.x가 필요합니다. 확장 번들은 *host.json* 에 구성됩니다.
+
+1. 프로젝트에서 *host.json* 을 엽니다. 확장 번들 `version`을 `[2.*, 3.0.0)`으로 업데이트합니다. 2\.0보다 크거나 같고 3.0보다 작은 버전 범위를 지정합니다.
+
+    ```json
+    "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+    }
+    ```
+
+1. 업데이트된 확장 번들 버전이 반영되기 전에 VS Code를 다시 로드해야 합니다. 명령 팔레트에서 *개발자: 창 다시 로드* 명령을 검색하여 실행합니다.
+
 ## <a name="install-azure-functions-durable-from-pypi"></a>PyPI에서 azure-functions-durable 설치
 
 프로젝트를 만들 때 Azure Functions VS Code 확장은 선택한 Python 버전으로 가상 환경을 자동으로 만듭니다. 터미널에서 가상 환경을 활성화하고 Azure Functions 및 Durable Functions에 필요한 일부 종속성을 설치합니다.
 
-1. 편집기에서 `requirements.txt`를 열고 해당 콘텐츠를 다음으로 변경합니다.
+1. 편집기에서 *requirements.txt* 를 열고 해당 콘텐츠를 다음으로 변경합니다.
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b6
+    azure-functions-durable>=1.0.0b12
     ```
 
-1. 현재 폴더(`` Ctrl-Shift-` ``)에서 편집기의 통합 터미널을 엽니다.
+1. 현재 폴더(<kbd>Ctrl+Shift+`</kbd>)에서 편집기의 통합 터미널을 엽니다.
 
 1. 통합 터미널에서 현재 폴더의 가상 환경을 활성화합니다.
 
@@ -203,7 +218,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
     }
     ```
 
-1. 디버깅을 중지하려면 VS Code에서 **Shift + F5** 를 누릅니다.
+1. 디버깅을 중지하려면 VS Code에서 <kbd>Shift+F5</kbd>를 누릅니다.
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
 

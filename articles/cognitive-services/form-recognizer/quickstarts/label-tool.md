@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 문서 처리
-ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96009333"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845541"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -106,7 +106,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
    이 명령을 사용하면 웹 브라우저를 통해 샘플 레이블 지정 도구를 사용할 수 있습니다. [https://editor.swagger.io](`http://localhost:3000`) 로 이동합니다.
 
 > [!NOTE]
-> Form Recognizer REST API를 사용하여 레이블을 문서에 지정하고 모델을 학습시킬 수도 있습니다. REST API를 사용하여 학습시키고 분석하려면 [REST API 및 Python을 사용하여 레이블로 학습](./python-labeled-data.md)을 참조하세요.
+> Form Recognizer REST API를 사용하여 레이블을 문서에 지정하고 모델을 학습시킬 수도 있습니다. REST API를 사용하여 학습시키고 분석하려면 [REST API 및 Python을 사용하여 레이블로 학습](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)을 참조하세요.
 
 ## <a name="set-up-input-data"></a>입력 데이터 설정
 
@@ -137,7 +137,9 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 * **표시 이름** - 연결 표시 이름
 * **설명** - 프로젝트 설명
-* **SAS URL** - Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 컨테이너를 마우스 오른쪽 단추로 클릭하고, **공유 액세스 서명 가져오기** 를 선택합니다. 서비스를 사용한 후 만료 시간을 특정 시간으로 설정합니다. **읽기**, **쓰기**, **삭제** 및 **목록** 권한이 선택되어 있는지 확인하고 **만들기** 를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
+* **SAS URL** - Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
+   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS URL 검색":::
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
 
@@ -223,7 +225,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 ### <a name="specify-tag-value-types"></a>태그 값 형식 지정
 
-필요에 따라 각 태그의 예상 데이터 형식을 설정할 수 있습니다. 태그 오른쪽에 있는 바로 가기 메뉴를 열고 메뉴에서 형식을 선택합니다. 이 기능을 사용하면 검색 알고리즘에서 텍스트 검색 정확도를 향상시키는 특정 가정을 수행할 수 있습니다. 또한 검색된 값이 최종 JSON 출력에서 표준화된 형식으로 반환되도록 합니다. 
+필요에 따라 각 태그의 예상 데이터 형식을 설정할 수 있습니다. 태그 오른쪽에 있는 바로 가기 메뉴를 열고 메뉴에서 형식을 선택합니다. 이 기능을 사용하면 검색 알고리즘에서 텍스트 검색 정확도를 향상시키는 특정 가정을 수행할 수 있습니다. 또한 검색된 값이 최종 JSON 출력에서 표준화된 형식으로 반환되도록 합니다. 값 형식 정보는 레이블 파일과 동일한 경로에 있는 *fields.json* 파일에 저장됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![샘플 레이블 도구를 사용한 값 형식 선택](../media/whats-new/formre-value-type.png)
@@ -266,7 +268,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 왼쪽 창에서 학습 아이콘을 클릭하여 학습 페이지를 엽니다. 그런 다음, **학습** 단추를 클릭하여 모델 학습을 시작합니다. 학습 프로세스가 완료되면 다음 정보가 표시됩니다.
 
-* **모델 ID** - 만들어지고 학습된 모델의 ID입니다. 각 학습 호출은 고유한 ID를 사용하여 새 모델을 만듭니다. [REST API](./curl-train-extract.md) 또는 [클라이언트 라이브러리](./client-library.md)를 통해 예측 호출을 수행하려면 이 문자열이 필요하므로 안전한 위치에 복사합니다.
+* **모델 ID** - 만들어지고 학습된 모델의 ID입니다. 각 학습 호출은 고유한 ID를 사용하여 새 모델을 만듭니다. [REST API](./client-library.md?pivots=programming-language-rest-api) 또는 [클라이언트 라이브러리](./client-library.md)를 통해 예측 호출을 수행하려면 이 문자열이 필요하므로 안전한 위치에 복사합니다.
 * **평균 정확도** - 모델의 평균 정확도입니다. 추가 양식에 레이블을 지정하고 다시 학습하여 새 모델을 만들면 모델 정확도를 향상시킬 수 있습니다. 먼저 5개의 양식에 레이블을 지정하고, 필요에 따라 더 많은 양식을 추가하는 것이 좋습니다.
 * 태그 목록 및 태그당 예상 정확도
 
@@ -276,7 +278,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 학습이 완료되면 **평균 정확도** 값을 검사합니다. 낮은 경우 더 많은 입력 문서를 추가하고 위의 단계를 반복해야 합니다. 이미 레이블이 지정된 문서는 프로젝트 인덱스에서 유지됩니다.
 
 > [!TIP]
-> 학습 프로세스는 REST API 호출을 사용하여 실행할 수도 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Python을 사용하여 레이블로 학습](./python-labeled-data.md)을 참조하세요.
+> 학습 프로세스는 REST API 호출을 사용하여 실행할 수도 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Python을 사용하여 레이블로 학습](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)을 참조하세요.
 
 ## <a name="compose-trained-models"></a>학습된 모델 작성
 
@@ -299,7 +301,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 왼쪽에 있는 예측(전구) 아이콘을 클릭하여 모델을 테스트합니다. 학습 프로세스에서 사용하지 않은 양식 문서를 업로드합니다. 그런 다음, 오른쪽의 **예측** 단추를 클릭하여 양식에 대한 키/값 예측을 가져옵니다. 이 도구는 태그를 경계 상자에 적용하고, 각 태그의 신뢰도를 보고합니다.
 
 > [!TIP]
-> 분석 API는 REST 호출을 사용하여 실행할 수도 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Python을 사용하여 레이블로 학습](./python-labeled-data.md)을 참조하세요.
+> 분석 API는 REST 호출을 사용하여 실행할 수도 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Python을 사용하여 레이블로 학습](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)을 참조하세요.
 
 ## <a name="improve-results"></a>결과 향상
 
@@ -326,7 +328,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 수동으로 레이블이 지정된 데이터로 모델을 학습하는 방법을 알아보았습니다. 고유한 유틸리티를 빌드하여 학습 데이터에 레이블을 지정하려면 레이블이 지정된 데이터 학습을 처리하는 REST API를 사용하세요.
 
 > [!div class="nextstepaction"]
-> [Python을 사용하여 레이블로 학습](./python-labeled-data.md)
+> [Python을 사용하여 레이블로 학습](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [Form Recognizer란?](../overview.md)
-* [Form Recognizer 클라이언트 라이브러리 빠른 시작](client-library.md)
+* [Form Recognizer 빠른 시작](client-library.md)

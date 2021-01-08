@@ -2,13 +2,13 @@
 title: 온-프레미스 환경에 Azure VMware Solution 연결
 description: 온-프레미스 환경에 Azure VMware Solution을 연결하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: 2a0cb641df00f3e580e87e38aff382d8e8101fc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/28/2020
+ms.openlocfilehash: 753835b0206d8bbabe42b057fa40a2d6c4c8c414
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578911"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809686"
 ---
 # <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>온-프레미스 환경에 Azure VMware Solution 연결
 
@@ -26,18 +26,14 @@ ms.locfileid: "91578911"
 
 ExpressRoute Global Reach를 사용하여 Azure VMware Solution 프라이빗 클라우드에 온-프레미스 연결을 설정하려면 [온-프레미스 환경을 프라이빗 클라우드로 피어링](tutorial-expressroute-global-reach-private-cloud.md) 자습서를 따르세요.
 
-
-
 ## <a name="verify-on-premises-network-connectivity"></a>온-프레미스 네트워크 연결 확인
 
-이제 ExpressRoute에서 NSX 네트워크 세그먼트와 Azure VMware Solution 관리 세그먼트를 연결하는 **온-프레미스 에지 라우터**에 표시됩니다.
+이제 ExpressRoute에서 NSX 네트워크 세그먼트와 Azure VMware Solution 관리 세그먼트를 연결하는 **온-프레미스 에지 라우터** 에 표시됩니다.
 
->[!NOTE]
+>[!IMPORTANT]
 >모든 사용자는 다른 환경을 가지며, 일부는 이러한 경로를 온-프레미스 네트워크에 다시 전파하도록 허용해야 합니다.  
 
-일부 환경에서는 ExpressRoute 회로를 보호하는 방화벽이 있습니다.  방화벽 및 경로 잘라내기가 발생하지 않는 경우 온-프레미스 환경에서 NSX-T 세그먼트에서 Azure VMware Solution vCenter 서버 또는 [VM](deploy-azure-vmware-solution.md#add-a-vm-on-the-nsx-t-network-segment)을 ping할 수 있습니다.
-
-또한 NSX-T 세그먼트의 VM에서 온-프레미스 환경의 리소스에 연결할 수 있습니다.
+일부 환경에서는 ExpressRoute 회로를 보호하는 방화벽이 있습니다.  방화벽이 없고 경로 잘라내기가 발생하지 않는 경우 온-프레미스 환경에서 Azure VMware Solution vCenter 서버 또는 [NSX-T 세그먼트의 VM](deploy-azure-vmware-solution.md#add-a-vm-on-the-nsx-t-network-segment)을 ping합니다. 또한 NSX-T 세그먼트의 VM에서 온-프레미스 환경의 리소스에 연결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

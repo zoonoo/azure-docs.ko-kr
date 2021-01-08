@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 52f0bcbb332b5d5e47440accff9d9895dcef7056
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 830e0a8733d3f5a49cede09b331dc0298ee1ce4d
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449373"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734727"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro 설치
 
@@ -159,14 +159,14 @@ ms.locfileid: "96449373"
 
 케이블을 라우팅한 다음, 디바이스를 케이블로 연결합니다. 다음 절차에서는 전원 및 네트워크를 위해 Azure Stack Edge Pro 디바이스에 케이블을 연결하는 방법에 대해 설명합니다.
 
-디바이스 케이블 연결을 시작하기 전에 다음이 필요합니다.
+디바이스 케이블 연결을 시작하기 전에 다음 항목이 필요합니다.
 
 - 포장을 풀고 랙에 탑재된 Azure Stac Edge Pro 물리적 디바이스.
 - 전원 케이블 2개
 - 관리 인터페이스에 연결하는 하나 이상의 1-GbE RJ-45 네트워크 케이블 디바이스에는 두 개의 1-GbE 네트워크 인터페이스가 있습니다. 하나는 관리용이고 하나는 데이터용입니다.
 - 구성할 각 데이터 네트워크 인터페이스에 대한 25-GbE SFP+ 동 케이블 1개 하나 이상의 데이터 네트워크 인터페이스 - PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 인터넷에 연결해야 합니다(Azure에 연결).  
 - 2개 전원 분배 장치에 대한 액세스(권장)
-- 데이터용 인터넷에 1-GbE 네트워크 인터페이스를 연결하는 1-GbE 네트워크 스위치 하나 이상 연결된 스위치가 1-GbE 이상이 아닌 경우 로컬 웹 UI에 액세스할 수 없습니다. 데이터에 25/10GbE 인터페이스를 사용하는 경우 25-GbE 또는 10-GbE 스위치가 필요합니다. 
+- 데이터용 인터넷에 1-GbE 네트워크 인터페이스를 연결하는 1-GbE 네트워크 스위치 하나 이상 연결된 스위치가 1GbE 이상이 아닌 경우 로컬 웹 UI에 액세스할 수 없습니다. 데이터에 25/10GbE 인터페이스를 사용하는 경우 25GbE 또는 10GbE 스위치가 필요합니다.
 
 > [!NOTE]
 > - 단 하나의 데이터 네트워크 인터페이스를 연결하는 경우 PORT 3, PORT 4, PORT 5 또는 PORT 6과 같은 25/10-GbE 네트워크 인터페이스를 사용하여 데이터를 Azure에 보내는 것이 좋습니다. 
@@ -186,14 +186,14 @@ Azure Stack Edge Pro 디바이스에서 다음을 수행합니다.
     - 10-Gbps 인터페이스로도 사용할 수 있는 25-Gbps 인터페이스 4개
     - BMC(베이스보드 관리 컨트롤러)
 
-- 백플레인에는 6개 포트에 해당하는 네트워크 카드가 두 개 있습니다.
+- 백플레인에는 6개 포트에 해당하는 2개의 네트워크 카드가 있습니다.
 
-    - **사용자 지정 Microsoft Qlogic Cavium 25G NDC 어댑터** - 포트 1~포트 4
+    - **사용자 지정 Microsoft `Qlogic` Cavium 25G NDC 어댑터** - 포트 1~포트 4.
     - **Mellanox 이중 포트 25G ConnectX-4 채널 네트워크 어댑터** - 포트 5 및 포트 6
 
 이러한 네트워크 카드에 대해 지원되는 케이블, 스위치 및 트랜시버의 전체 목록은 다음으로 이동합니다.
 
-- [Qlogic Cavium 25G NDC 어댑터 상호 운용성 매트릭스](https://www.marvell.com/documents/xalflardzafh32cfvi0z/)
+- [`Qlogic` Cavium 25G NDC 어댑터 상호 운용성 매트릭스](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Mellanox 이중 포트 25G ConnectX-4 채널 네트워크 어댑터 호환 제품](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products)  
 
  
@@ -201,15 +201,15 @@ Azure Stack Edge Pro 디바이스에서 다음을 수행합니다.
 
 1. 디바이스의 백플레인에서 다양한 포트를 식별합니다. 디바이스에 있는 GPU의 수에 따라 팩터리에서 다음 디바이스 중 하나를 수신했을 수 있습니다.
 
-    - 2개의 PCI(Peripheral Component Interconnect) 슬롯과 GPU 하나를 사용하는 디바이스
+    - 두 개의 PCI(Peripheral Component Interconnect) 슬롯과 하나의 GPU가 있는 디바이스
 
         ![케이블로 연결된 디바이스의 백플레인](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    - 3개의 PCI 슬롯과 하나의 GPU가 있는 디바이스
+    - 세 개의 PCI 슬롯과 하나의 GPU가 있는 디바이스
 
         ![케이블이 연결되는 디바이스의 후면 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
-    - 3개의 PCI 슬롯과 2개의 GPU가 있는 디바이스
+    - 세 개의 PCI 슬롯과 두 개의 GPU가 있는 디바이스
 
         ![케이블이 연결되는 디바이스의 후면 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 

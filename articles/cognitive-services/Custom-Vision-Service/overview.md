@@ -12,12 +12,12 @@ ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 이미지 인식, 이미지 식별자, 이미지 인식 앱, custom vision
-ms.openlocfilehash: 7274fed961c4bbac8841e1c741f54031614cea5c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 12877f2d43f9b8f864871e5a5ab050aa0eeb61e2
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562993"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814604"
 ---
 # <a name="what-is-custom-vision"></a>Custom Vision이란?
 
@@ -51,4 +51,4 @@ Custom Vision Service는 네이티브 SDK 세트로는 물론 [Custom Vision 웹
 
 ## <a name="next-steps"></a>다음 단계
 
-[분류자 빌드](getting-started-build-a-classifier.md) 가이드에 따라 웹 포털에서 Custom Vision 사용을 시작하거나 [클라이언트 라이브러리 빠른 시작](quickstarts/image-classification.md)을 완료하여 코드에서 기본 시나리오를 구현합니다.
+[분류자 빌드](getting-started-build-a-classifier.md) 가이드에 따라 웹 포털에서 Custom Vision 사용을 시작하거나 [빠른 시작](quickstarts/image-classification.md)을 완료하여 코드에서 기본 시나리오를 구현합니다.

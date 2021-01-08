@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565911"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740507"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -25,6 +25,11 @@ ms.locfileid: "94565911"
 > - 스튜디오에서 [자산 및 리소스를 관리](#manage-assets-and-resources)하는 방법.
 > - [Azure Machine Learning 스튜디오와 ML Studio(클래식)](#ml-studio-classic-vs-azure-machine-learning-studio) 간의 차이점.
 
+운영 체제와 호환되는 가장 최신 브라우저를 사용하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.
+  * Microsoft Edge(새로운 Microsoft Edge, 최신 버전. Microsoft Edge 레거시 아님)
+  * Safari(최신 버전, Mac만 해당)
+  * Chrome(최신 버전)
+  * Firefox(최신 버전)
 
 ## <a name="author-machine-learning-projects"></a>기계 학습 프로젝트 작성
 
@@ -33,6 +38,8 @@ ms.locfileid: "94565911"
 + **Notebooks**
 
   스튜디오에 직접 통합된 관리되는 [Jupyter Notebook 서버](how-to-run-jupyter-notebooks.md)에서 직접 코드를 작성하고 실행합니다. 
+
+:::image type="content" source="media/overview-what-is-azure-ml-studio/notebooks.gif" alt-text="스크린샷: Notebook에서 코드 작성 및 실행":::
 
 + **Azure Machine Learning 디자이너**
 
@@ -94,6 +101,9 @@ ms.locfileid: "94565911"
 | 데이터 드리프트 검색 | 지원되지 않음 | [지원됨](how-to-monitor-datasets.md) |
 | 데이터 레이블 지정 프로젝트 | 지원되지 않음 | [지원됨](how-to-create-labeling-projects.md) |
 
+## <a name="troubleshooting"></a>문제 해결
+
+* **스튜디오에서 누락된 사용자 인터페이스 항목** Azure 역할 기반 액세스 제어를 사용하여 Azure Machine Learning으로 수행할 수 있는 작업을 제한할 수 있습니다. 이러한 제한으로 인해 사용자 인터페이스 항목이 Azure Machine Learning 스튜디오에 나타나지 않을 수 있습니다. 예를 들어 컴퓨팅 인스턴스를 만들 수 없는 역할이 할당된 경우 컴퓨팅 인스턴스를 만드는 옵션은 스튜디오에 표시되지 않습니다. 자세한 내용은 [사용자 및 역할 관리](how-to-assign-roles.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

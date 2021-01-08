@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f788c9e78790e6872870869e2bc153e1b1451e51
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 64e648cf6ae3c763d3e9ab1a6970f48c84331bad
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566540"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845622"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -52,8 +52,6 @@ ms.locfileid: "94566540"
 * Azure Digital Twins API를 호출하는 콘솔 인터페이스
 * *SampleClientApp* - 샘플 Azure Digital Twins 솔루션
 * *SampleFunctionsApp* - IoT Hub 및 Azure Digital Twins 이벤트에서 원격 분석의 결과로 Azure Digital Twins 그래프를 업데이트하는 Azure Functions 앱
-
-샘플 프로젝트에는 대화형 권한 부여 구성 요소도 포함되어 있습니다. 프로젝트를 시작할 때마다 Azure 계정으로 로그인하라는 메시지가 표시된 브라우저 창이 열립니다.
 
 ### <a name="instantiate-the-pre-created-twin-graph"></a>미리 만든 트윈 그래프 인스턴스화
 
@@ -134,7 +132,7 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아�
 
 *Functions 인스턴스* 페이지에서 구독을 선택합니다. 그러면 구독의 *리소스 그룹* 으로 상자가 채워집니다.
 
-인스턴스의 리소스 그룹을 선택하고 *+ 새 Azure 함수 만들기...* 를 누릅니다.
+인스턴스의 리소스 그룹을 선택하고 *+* 를 눌러 새 Azure 함수를 만듭니다.
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Visual Studio에서 Azure 함수 게시: Functions 인스턴스(함수 앱 전)":::
 

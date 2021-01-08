@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 62a1f43fb73f0eda77ebb8f62f64c95ff4ad37a1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574159"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734201"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>자습서: 개발 환경에서 Azure Machine Learning 시작(1/4부)
 
@@ -65,6 +65,9 @@ tutorial
 
 - `tutorial`: 프로젝트의 최상위 디렉터리
 - `.azureml`: Azure Machine Learning 구성 파일을 저장하기 위한 숨겨진 하위 디렉터리입니다.
+
+> [!TIP]
+> Mac을 사용하는 경우 Finder 창에서 **명령 + Shift +** 를 사용합니다. 점으로 시작하는 디렉터리를 보고 만들 수 있는 기능을 설정/해제합니다.  또는 명령 터미널을 사용하여 디렉터리를 만듭니다.
 
 
 > [!div class="nextstepaction"]

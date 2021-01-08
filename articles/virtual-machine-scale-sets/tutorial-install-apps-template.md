@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 2d748f787b40bb26e9faebb028d71c6c3e30ee55
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d5eba5486e7d26e62379e0112cd4b95322e6dae1
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516563"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705237"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>자습서: Azure 템플릿을 사용하여 가상 머신 확장 집합에 애플리케이션 설치
 확장 집합의 VM(가상 머신) 인스턴스에서 애플리케이션을 실행하려면 먼저 애플리케이션 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 애플리케이션 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 애플리케이션 설치를 자동화하거나 이미 확장 집합에서 실행되는 애플리케이션을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -76,10 +76,10 @@ Azure 템플릿을 사용하여 가상 머신 확장 집합을 정의하는 경�
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az group deployment create](/cli/azure/group/deployment)를 사용하여 가상 머신 확장 집합을 만듭니다. 메시지가 표시되면 각 VM 인스턴스에 대한 자격 증명으로 사용되는 고유한 사용자 이름과 암호를 제공합니다.
+이제 [az deployment group create](/cli/azure/deployment/group)를 사용하여 가상 머신 확장 집합을 만듭니다. 메시지가 표시되면 각 VM 인스턴스에 대한 자격 증명으로 사용되는 고유한 사용자 이름과 암호를 제공합니다.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy.json
 ```
@@ -134,10 +134,10 @@ az network public-ip show \
 }
 ```
 
-[az group deployment create](/cli/azure/group/deployment)를 사용하여 사용자 지정 스크립트 확장 구성을 확장 집합의 VM 인스턴스에 다시 적용합니다. 이 *azuredeployv2.json* 템플릿은 업데이트된 애플리케이션 버전을 적용하는 데 사용됩니다. 실제로 이전 섹션에서 설명한 대로 업데이트된 설치 스크립트를 참조하도록 기존 *azuredeploy.json* 템플릿을 편집합니다. 메시지가 표시되면 확장 집합을 처음 만들 때 사용한 것과 동일한 사용자 이름 및 암호 자격 증명을 입력합니다.
+[az deployment group create](/cli/azure/deployment/group)를 사용하여 사용자 지정 스크립트 확장 구성을 확장 집합의 VM 인스턴스에 다시 적용합니다. 이 *azuredeployv2.json* 템플릿은 업데이트된 애플리케이션 버전을 적용하는 데 사용됩니다. 실제로 이전 섹션에서 설명한 대로 업데이트된 설치 스크립트를 참조하도록 기존 *azuredeploy.json* 템플릿을 편집합니다. 메시지가 표시되면 확장 집합을 처음 만들 때 사용한 것과 동일한 사용자 이름 및 암호 자격 증명을 입력합니다.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy_v2.json
 ```

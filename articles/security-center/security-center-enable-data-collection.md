@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490060"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813618"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Azure Security Center에서 에이전트 및 확장 자동 프로비저닝
 
@@ -30,6 +30,17 @@ Security Center는 Azure VM(가상 머신), 가상 머신 확장 집합, IaaS �
 > Security Center가 성장함에 따라 모니터링할 수 있는 리소스 종류도 증가했습니다. 확장의 수도 증가했습니다. 자동 프로비저닝은 Azure Policy 기능을 활용하여 추가 리소스 종류를 지원하도록 확장되었습니다.
 
 :::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Security Center의 자동 프로비저닝 설정 페이지":::
+
+
+## <a name="availability"></a>가용성
+
+| 양상                  | 세부 정보                                                                                                                                                                                                                      |
+|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 릴리스 상태:          | **기능**: 자동 프로비저닝은 GA(일반 공급)입니다.<br>**에이전트 및 확장**: Azure VM용 Log Analytics 에이전트는 GA이고, Microsoft 종속성 에이전트는 미리 보기로 제공되며, Kubernetes용 정책 추가 기능은 GA입니다.                |
+| 가격 책정:                | Free                                                                                                                                                                                                                         |
+| 지원되는 대상: | ![예](./media/icons/yes-icon.png) Azure 머신<br>![아니요](./media/icons/no-icon.png) Azure Arc 머신<br>![아니요](./media/icons/no-icon.png) Kubernetes 노드<br>![예](./media/icons/no-icon.png) Virtual Machine Scale Sets |
+| 클라우드:                 | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 미국 정부, 중국 정부, 기타 정부                                                                                                      |
+|                         |                                                                                                                                                                                                                              |
 
 
 ## <a name="why-use-auto-provisioning"></a>자동 프로비저닝을 사용하는 이유

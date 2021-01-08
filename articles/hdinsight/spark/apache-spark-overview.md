@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 176b89c9fc80b198a8a639afdd14185ab0008aed
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e75661b54ce9a74013938d11ca7f13d9c3698c76
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029443"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822049"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark란
 
@@ -32,7 +32,7 @@ HDInsight에서 Spark 클러스터는 완벽하게 관리되는 Spark 서비스�
 | 기능 | Description |
 | --- | --- |
 | 쉽게 만들기 |Azure Portal, Azure PowerShell 또는 HDInsight .NET SDK를 사용하여 몇 분 만에 HDInsight에서 새 Spark 클러스터를 만들 수 있습니다. [HDInsight에서 Apache Spark 클러스터 시작](apache-spark-jupyter-spark-sql-use-portal.md)을 참조하세요. |
-| 사용 편의성 |HDInsight의 Spark 클러스터에는 Jupyter 및 Apache Zeppelin 노트북이 포함되어 있습니다. 이러한 노트북을 대화형 데이터 처리 및 시각화에 사용할 수 있습니다. [Apache Spark에서 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md) 및 [Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행](apache-spark-load-data-run-query.md)을 참조하세요.|
+| 사용 편의성 |HDInsight의 Spark 클러스터에는 Jupyter Notebooks 및 Apache Zeppelin Notebooks가 포함되어 있습니다. 이러한 노트북을 대화형 데이터 처리 및 시각화에 사용할 수 있습니다. [Apache Spark에서 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md) 및 [Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행](apache-spark-load-data-run-query.md)을 참조하세요.|
 | REST API |HDInsight의 Spark 클러스터에는 원격으로 작업을 제출하고 모니터링하는 REST API 기반 Spark 작업 서버인 [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)가 포함되어 있습니다. [Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출](apache-spark-livy-rest-interface.md)을 참조하세요.|
 | Azure Storage 지원 | HDInsight의 Spark 클러스터는 Azure Data Lake Storage Gen1/Gen2를 기본 스토리지 또는 추가 스토리지로 모두 사용할 수 있습니다. Data Lake Storage Gen1에 대한 자세한 내용은 [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md)을 참조하세요. Data Lake Storage Gen2에 대한 자세한 내용은 [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)를 참조하세요.|
 | Azure 서비스와의 통합 |HDInsight에서 Spark 클러스터는 Azure Event Hubs에 대한 커넥터와 함께 제공됩니다. Event Hubs를 사용하여 스트리밍 애플리케이션을 빌드할 수 있습니다. 여기에는 Spark의 일부로 이미 제공되는 Apache Kafka가 포함됩니다. |

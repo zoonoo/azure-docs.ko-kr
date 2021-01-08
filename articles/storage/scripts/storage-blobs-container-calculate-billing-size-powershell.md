@@ -7,18 +7,21 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/07/2017
+ms.date: 12/29/2020
 ms.author: fryu
-ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: dfc338844e310102447e2498ee9cce8f28a79b9f
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96010897"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809567"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Blob 컨테이너의 총 청구 크기 계산
 
 이 스크립트는 청구 비용을 예측하기 위해 Azure Blob Storage에 있는 컨테이너의 크기를 계산합니다. 이 스크립트는 컨테이너의 blob 크기를 합산합니다.
+
+> [!IMPORTANT]
+> 이 문서에 제공된 샘플 스크립트는 Blob 스냅샷의 청구 크기를 정확하게 계산하지 못할 수 있습니다.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -31,7 +34,7 @@ ms.locfileid: "96010897"
 
 Blob 컨테이너의 전체 크기에는 컨테이너 자체의 크기와 컨테이너 아래 모든 Blob의 크기가 포함됩니다.
 
-다음 섹션은 Blob 컨테이너 및 Blob에 대한 스토리지 용량을 계산하는 방법을 설명합니다.  다음 섹션에서 Len(X)는 문자열의 문자 수를 의미합니다.
+다음 섹션은 Blob 컨테이너 및 Blob에 대한 스토리지 용량을 계산하는 방법을 설명합니다. 다음 섹션에서 Len(X)는 문자열의 문자 수를 의미합니다.
 
 ### <a name="blob-containers"></a>Blob 컨테이너
 
@@ -44,6 +47,7 @@ For-Each Signed Identifier[512 bytes]
 ```
 
 다음은 분석 정보입니다.
+
 * 각 컨테이너의 48바이트 오버헤드에는 마지막으로 수정한 시간, 권한, 공용 설정 및 일부 시스템 메타데이터가 포함됩니다.
 
 * 컨테이너 이름은 유니코드로 저장되므로 문자 수에 2를 곱합니다.

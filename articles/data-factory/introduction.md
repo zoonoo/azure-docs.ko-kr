@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: d8b6a852ff0aeb287b12d63bfa689a38a56d418f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 00ae812536e73f432b9bddb93fc1b4a958b379f5
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485059"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97812871"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
 
@@ -56,8 +56,7 @@ Data Factory가 있으면 향후 분석에 사용할 수 있도록 데이터 파
 직접 변환을 코딩하는 것을 선호하는 경우 ADF는 컴퓨팅 서비스(예: HDInsight Hadoop, Spark, Data Lake Analytics 및 Machine Learning)에서 변환을 실행하기 위한 외부 활동을 지원합니다.
 
 ### <a name="cicd-and-publish"></a>CI/CD 및 게시
-Data Factory는 Azure DevOps 및 GitHub를 사용하여 데이터 파이프라인의 CI/CD를 완벽하게 지원합니다. 이를 통해 완성된 제품을 게시하기 전에 ETL 프로세스를 증분 방식으로 개발하고 제공할 수 있습니다. 원시 데이터를 비즈니스에 사용 가능한 형식으로 구체화했으므로 데이터를 Azure Data Warehouse, Azure SQL Database, Azure CosmosDB 또는 비즈니스 사용자가 자신의 비즈니스 인텔리전스 도구로/에서 가리킬 수 있는 분석 엔진에 로드합니다.
-
+Azure DevOps 및 GitHub를 사용하여 [Data Factory가 데이터 파이프라인의 CI/CD를 완벽하게 지원](continuous-integration-deployment.md)합니다. 이를 통해 완성된 제품을 게시하기 전에 ETL 프로세스를 증분 방식으로 개발하고 제공할 수 있습니다. 원시 데이터를 비즈니스에 사용 가능한 형식으로 구체화했으므로 데이터를 Azure Data Warehouse, Azure SQL Database, Azure CosmosDB 또는 비즈니스 사용자가 자신의 비즈니스 인텔리전스 도구로/에서 가리킬 수 있는 분석 엔진에 로드합니다.
 ### <a name="monitor"></a>모니터
 데이터 통합 파이프라인을 성공적으로 만들고 배포하여 구체화된 데이터에서 비즈니스 가치를 제공한 후에는 성공 및 실패 비율에 맞게 일정 계획된 작업과 파이프라인을 모니터링합니다. Azure Data Factory는 Azure Monitor, API, PowerShell, Azure Monitor 로그 및 Azure Portal의 상태 패널을 통한 파이프라인 모니터링을 기본 제공합니다.
 

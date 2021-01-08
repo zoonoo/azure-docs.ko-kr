@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 767617833789c71bfc2ecfc2d518166f8bcee6c6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 181f645540a267d65b15a0345a61752a8a5f78fa
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109524"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704737"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>자습서: 서버 평가를 사용하여 GCP(Google Cloud Platform) 인스턴스 검색
 
@@ -225,11 +225,16 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 ### <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
 1. 포털에서 복사한 **Azure Migrate 프로젝트 키** 를 붙여넣습니다. 키가 없는 경우 **서버 평가 > 검색 > 기존 어플라이언스 관리** 로 차례로 이동하여 키 생성 시 제공한 어플라이언스 이름을 선택하고, 해당 키를 복사합니다.
-1. **로그인** 을 클릭합니다. 그러면 새 브라우저 탭에서 Azure 로그인 프롬프트가 열립니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
-1. 새 탭에서 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
+1. Azure로 인증하려면 디바이스 코드가 필요합니다. **로그인** 을 클릭하면 아래와 같이 디바이스 코드가 포함된 모달이 열립니다.
+
+    ![디바이스 코드를 보여주는 모달](./media/tutorial-discover-vmware/device-code.png)
+
+1. **코드 복사 및 로그인** 을 클릭하여 디바이스 코드를 복사하고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
+1. 새 탭에서 디바이스 코드를 붙여넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
    
    PIN을 사용한 로그인은 지원되지 않습니다.
-3. 성공적으로 로그인하면 웹앱으로 돌아갑니다. 
+3. 로그인 탭을 실수로 로그인하지 않고 닫은 경우에는 어플라이언스 구성 관리자의 브라우저 탭을 새로 고쳐 로그인 단추를 다시 사용하도록 설정해야 합니다.
+1. 성공적으로 로그인한 후 어플라이언스 구성 관리자를 사용하여 이전 탭으로 돌아갑니다.
 4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한](#prepare-an-azure-user-account)이 있는 경우 어플라이언스 등록이 시작됩니다.
 5. 어플라이언스가 성공적으로 등록되면 **세부 정보 보기** 를 클릭하여 등록 세부 정보를 확인할 수 있습니다.
 
@@ -246,6 +251,10 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
     - Azure Migrate는 RSA, DSA, ECDSA 및 ed25519 알고리즘을 사용하여 ssh-keygen 명령에 의해 생성된 SSH 프라이빗 키를 지원합니다.
     - 현재 Azure Migrate는 암호 기반 SSH 키를 지원하지 않습니다. 암호 없이 SSH 키를 사용하세요.
     - 현재 Azure Migrate는 PuTTY에서 생성된 SSH 프라이빗 키 파일을 지원하지 않습니다.
+    - Azure Migrate는 아래와 같이 SSH 프라이빗 키 파일의 OpenSSH 형식을 지원합니다.
+    
+    ![SSH 프라이빗 키 지원 형식](./media/tutorial-discover-physical/key-format.png)
+
 
 2. 여러 자격 증명을 한 번에 추가하려면 **추가** 를 클릭하여 더 많은 자격 증명을 저장하고 추가합니다. 
 3. **2단계: 물리적 또는 가상 서버 세부 정보 제공** 에서 **검색 원본 추가** 를 클릭하여 서버 **IP 주소/FQDN** 을 지정하고 서버에 연결할 자격 증명의 식별 이름을 지정합니다.

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/16/2020
-ms.openlocfilehash: bc93c3643e329879e5118d1cfb61a356442df808
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 7d93002af866aa653972182a13ea37d37e912ce8
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618427"
+ms.locfileid: "97630312"
 ---
 # <a name="tutorial-shard-data-on-worker-nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL – 하이퍼스케일(Citus)의 작업자 노드에서 데이터 분할
 
@@ -171,7 +171,7 @@ limit 5;
 
 분산 열(`email`)의 속성으로 인해 `users` 예제의 행이 균등하게 분산되었습니다.
 
-1. 이메일 주소 수가 분할 수보다 크거나 같았습니다.
+1. 이메일 주소 수가 분할 수보다 크거나 같습니다.
 2. 이메일 주소당 행 수가 비슷했습니다(이 경우 이메일을 키로 선언했으므로 정확히 주소당 하나의 행이 있음).
 
 두 속성 중 하나가 실패하는 테이블 및 분산 열을 선택하면 작업자의 데이터 크기가 균일하지 않게 됩니다. 즉, *데이터 기울이기* 가 발생합니다.

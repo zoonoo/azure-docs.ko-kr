@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/29/2020
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: a960bb3590138ca5efa5146988240db1707a3cf0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c26224f388c09ec758373c877004f5485bb420df
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182124"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725085"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-terraform-cloud"></a>자습서: Terraform Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -76,7 +76,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     **식별자** 텍스트 상자에 `https://app.terraform.io/sso/saml/samlconf-<ID>/metadata` 패턴을 사용하여 URL을 입력합니다.
 
@@ -116,7 +116,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-terraform-cloud-sso"></a>Terraform Cloud SSO 구성
 
-1. 다른 웹 브라우저 창에서 관리자 권한으로 Terraform Cloud 웹 사이트에 로그인합니다.
+1. Terraform Cloud 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Terraform Cloud 설정** 을 클릭하면 Terraform Cloud 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Terraform Cloud에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-5단계를 자동으로 수행합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+3. Terraform Cloud를 수동으로 설정하려면 다른 웹 브라우저 창에서 관리자 권한으로 Terraform Cloud 회사 사이트에 로그인합니다.
 
 2. **설정 > SSO > 설정 편집** 으로 이동합니다.
 

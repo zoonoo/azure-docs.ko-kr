@@ -3,12 +3,12 @@ title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
 ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 8a32e32afb544588bb033cc64ede5ecbe6e2bac2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 96fd29b5e3d24bc3e678461a95005e004a8a3a80
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097391"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803955"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -20,7 +20,7 @@ Azure Policy에 대한 일반적인 사용 사례에는 리소스 일관성, 규
 
 ## <a name="overview"></a>개요
 
-Azure Policy는 해당 리소스의 속성을 비즈니스 규칙과 비교하여 Azure의 리소스를 평가합니다. [JSON 형식](./concepts/definition-structure.md)에서 설명하는 이러한 비즈니스 규칙을 [정책 정의](#policy-definition)라고 합니다. 관리를 간소화하기 위해 여러 비즈니스 규칙을 그룹화하여 [정책 이니셔티브](#initiative-definition)( _policySet_ 라고도 함)를 구성할 수 있습니다. 비즈니스 규칙이 구성되면 정책 정의 또는 이니셔티브가 Azure에서 지원하는 리소스의 범위(예: [관리 그룹](../management-groups/overview.md), 구독, [ 리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups) 또는 개별 리소스)에 [할당](#assignments)됩니다. 할당은 해당 할당의 [Resource Manager 범위](../../azure-resource-manager/management/overview.md#understand-scope) 내에 있는 모든 리소스에 적용됩니다. 필요한 경우 하위 범위를 제외할 수 있습니다. 자세한 내용은 [Azure Policy의 범위](./concepts/scope.md)를 참조하세요.
+Azure Policy는 해당 리소스의 속성을 비즈니스 규칙과 비교하여 Azure의 리소스를 평가합니다. [JSON 형식](./concepts/definition-structure.md)에서 설명하는 이러한 비즈니스 규칙을 [정책 정의](#policy-definition)라고 합니다. 관리를 간소화하기 위해 여러 비즈니스 규칙을 그룹화하여 [정책 이니셔티브](#initiative-definition)(_policySet_ 라고도 함)를 구성할 수 있습니다. 비즈니스 규칙이 구성되면 정책 정의 또는 이니셔티브가 Azure에서 지원하는 리소스의 범위(예: [관리 그룹](../management-groups/overview.md), 구독, [ 리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups) 또는 개별 리소스)에 [할당](#assignments)됩니다. 할당은 해당 할당의 [Resource Manager 범위](../../azure-resource-manager/management/overview.md#understand-scope) 내에 있는 모든 리소스에 적용됩니다. 필요한 경우 하위 범위를 제외할 수 있습니다. 자세한 내용은 [Azure Policy의 범위](./concepts/scope.md)를 참조하세요.
 
 Azure Policy는 [JSON 형식](./concepts/definition-structure.md)을 사용하여 평가에서 리소스의 규정 준수 여부를 확인하는 데 사용하는 논리를 구성합니다. 정의에는 메타데이터와 정책 규칙이 포함됩니다. 정의된 규칙은 함수, 매개 변수, 논리 연산자, 조건 및 속성 [별칭](./concepts/definition-structure.md#aliases)을 사용하여 원하는 시나리오와 정확하게 일치시킬 수 있습니다. 정책 규칙은 할당 범위에서 평가되는 리소스를 결정합니다.
 
@@ -37,7 +37,7 @@ Azure Policy는 [JSON 형식](./concepts/definition-structure.md)을 사용하�
 
 ### <a name="control-the-response-to-an-evaluation"></a>평가에 대한 응답 제어
 
-비준수 리소스를 처리하는 비즈니스 규칙은 조직마다 크게 다릅니다. 조직에서 비준수 리소스에 대응하는 플랫폼을 원하는 방법에 대한 예는 다음과 같습니다.
+비준수 리소스를 처리하는 비즈니스 규칙은 조직마다 크게 다릅니다. 조직에서 비규격 리소스에 대응하는 플랫폼을 원하는 방법에 대한 예는 다음과 같습니다.
 
 - 리소스 변경 거부
 - 리소스에 대한 변경 내용 기록
@@ -61,7 +61,7 @@ Azure Policy의 다음 개요는 Build 2018에서부터 시작됩니다. 슬라�
 
 ### <a name="azure-policy-and-azure-rbac"></a>Azure Policy 및 Azure RBAC
 
-Azure Policy 및 Azure RBAC(Azure 역할 기반 액세스 제어) 간에는 몇 가지 주요 차이점이 있습니다. Azure Policy는 Resource Manager에 표시되는 리소스의 속성 및 일부 리소스 공급자의 속성을 검사하여 상태를 평가합니다. Azure Policy는 작업( _동작_ 이라고도 함)을 제한하지 않습니다. Azure Policy를 사용하면 변경한 사용자 또는 변경 권한이 있는 사용자에 대한 걱정 없이 리소스 상태에서 비즈니스 규칙을 준수하는지 확인할 수 있습니다.
+Azure Policy 및 Azure RBAC(Azure 역할 기반 액세스 제어) 간에는 몇 가지 주요 차이점이 있습니다. Azure Policy는 Resource Manager에 표시되는 리소스의 속성 및 일부 리소스 공급자의 속성을 검사하여 상태를 평가합니다. Azure Policy는 작업(_동작_ 이라고도 함)을 제한하지 않습니다. Azure Policy를 사용하면 변경한 사용자 또는 변경 권한이 있는 사용자에 대한 걱정 없이 리소스 상태에서 비즈니스 규칙을 준수하는지 확인할 수 있습니다.
 
 Azure RBAC는 다양한 범위에서 사용자 [작업](../../role-based-access-control/resource-provider-operations.md)을 관리하는 데 중점을 둡니다. 작업을 제어해야 하는 경우 Azure RBAC가 사용하는 데 적합한 도구입니다. 개인에게 작업을 수행할 수 있는 액세스 권한이 있더라도 결과가 비준수 리소스이면 Azure Policy에서 만들기 또는 업데이트를 계속 차단합니다.
 
@@ -109,12 +109,12 @@ Azure Policy에서 정책을 만들고 구현하는 과정은 정책 정의 만�
 
 Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 정책이 있습니다. 예를 들면 다음과 같습니다.
 
-- **허용되는 스토리지 계정 SKU** (거부): 배포 중인 스토리지 계정이 SKU 크기 세트 내에 있는지 여부를 확인합니다. 정의된 SKU 크기 세트를 준수하지 않는 모든 스토리지 계정을 거부하게 됩니다.
-- **허용되는 리소스 종류** (거부): 배포할 수 있는 리소스 유형을 정의합니다. 이 정의된 목록에 속하지 않는 모든 리소스를 거부하게 됩니다.
-- **허용되는 위치** (거부): 새 리소스를 사용할 수 있는 위치를 제한합니다. 해당 효과는 지역 규정 준수 요구 사항을 적용하는 데 사용됩니다.
-- **허용되는 가상 머신 SKU** (거부): 배포할 수 있는 가상 머신 SKU 세트를 지정합니다.
-- **리소스에 태그 추가** (수정): 배포 요청에 의해 지정되지 않은 경우 필수 태그 및 해당 기본값을 적용합니다.
-- **허용되지 않는 리소스 종류** (거부): 리소스 종류 목록이 배포되지 않도록 합니다.
+- **허용되는 스토리지 계정 SKU**(거부): 배포 중인 스토리지 계정이 SKU 크기 세트 내에 있는지 여부를 확인합니다. 정의된 SKU 크기 세트를 준수하지 않는 모든 스토리지 계정을 거부하게 됩니다.
+- **허용되는 리소스 종류**(거부): 배포할 수 있는 리소스 유형을 정의합니다. 이 정의된 목록에 속하지 않는 모든 리소스를 거부하게 됩니다.
+- **허용되는 위치**(거부): 새 리소스를 사용할 수 있는 위치를 제한합니다. 해당 효과는 지역 규정 준수 요구 사항을 적용하는 데 사용됩니다.
+- **허용되는 가상 머신 SKU**(거부): 배포할 수 있는 가상 머신 SKU 세트를 지정합니다.
+- **리소스에 태그 추가**(수정): 배포 요청에 의해 지정되지 않은 경우 필수 태그 및 해당 기본값을 적용합니다.
+- **허용되지 않는 리소스 종류**(거부): 리소스 종류 목록이 배포되지 않도록 합니다.
 
 이러한 정책 정의(기본 제공 및 사용자 지정 정의)를 구현하려면 할당해야 합니다. Azure Portal, PowerShell 또는 Azure CLI를 통해 이러한 정책을 할당할 수 있습니다.
 
@@ -153,7 +153,7 @@ Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 
 이 시나리오에서는 **initiativeC** 에 대한 이니셔티브 매개 변수를 정의할 때 세 가지 옵션이 있습니다.
 
 - 이 이니셔티브 내의 정책 정의 매개 변수 사용: 이 예제에서는 _allowedLocations_ 및 _allowedSingleLocation_ 이 **initiativeC** 에 대한 이니셔티브 매개 변수가 됩니다.
-- 이 이니셔티브 정의 내에서 정책 정의의 매개 변수에 값 제공: 이 예에서는 위치 목록을 **policyA** 의 매개 변수( **allowedLocations** ) 및 **policyB** 의 매개 변수( **allowedSingleLocation** )에 제공할 수 있습니다. 이 이니셔티브를 할당할 때 값을 제공할 수도 있습니다.
+- 이 이니셔티브 정의 내에서 정책 정의의 매개 변수에 값 제공: 이 예에서는 위치 목록을 **policyA** 의 매개 변수(**allowedLocations**) 및 **policyB** 의 매개 변수(**allowedSingleLocation**)에 제공할 수 있습니다. 이 이니셔티브를 할당할 때 값을 제공할 수도 있습니다.
 - 이 이니셔티브를 할당할 때 _값_ 옵션 목록 제공. 이 이니셔티브를 할당할 때 이니셔티브 내 정책 정의에서 상속된 매개 변수는 이 제공된 목록의 값만 가질 수 있습니다.
 
 이니셔티브 정의에 값 옵션을 만드는 경우 이니셔티브 할당 중에 목록에 속하지 않는 다른 값을 입력할 수 없습니다.

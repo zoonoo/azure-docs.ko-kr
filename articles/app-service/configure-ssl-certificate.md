@@ -6,18 +6,21 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: dff98a5c54d2fee350e2b35dc00148c19ea233b8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 15a77835e3e618c17b9839aa5a010cd4d29cebe1
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956503"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653115"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
 [Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 문서에서는 프라이빗 인증서 또는 공용 인증서를 만들거나, 업로드하거나, App Service로 가져오는 방법을 보여줍니다. 
 
 인증서가 App Service 앱 또는 [함수 앱](../azure-functions/index.yml)에 추가되면 [인증서로 사용자 지정 DNS 이름을 보호](configure-ssl-bindings.md)하거나 [애플리케이션 코드에서 인증서를 사용](configure-ssl-certificate-in-code.md)할 수 있습니다.
+
+> [!NOTE]
+> 앱에 업로드된 인증서는 앱의 리소스 그룹 및 지역 조합에 바인딩된 배포 단위(내부적으로 *웹 공간* 이라고 함)에 저장됩니다. 이렇게 하면 동일한 리소스 그룹 및 지역 조합에 있는 다른 앱에서 인증서에 액세스할 수 있습니다. 
 
 다음 표에는 App Service에서 인증서를 추가할 수 있는 옵션이 나열되어 있습니다.
 
@@ -118,7 +121,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 | 설정 | Description |
 |-|-|
-| 속성 | App Service Certificate에 대한 식별 이름입니다. |
+| Name | App Service Certificate에 대한 식별 이름입니다. |
 | Naked 도메인 호스트 이름 | 여기서 루트 도메인을 지정합니다. 발급된 인증서는 루트 도메인과 `www` 하위 도메인을 *모두* 보호합니다. 발급된 인증서의 일반 이름 필드에는 루트 도메인이 포함되고, 주체 대체 이름 필드에는 `www` 도메인이 포함됩니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`).|
 | Subscription | 인증서를 포함할 구독입니다. |
 | Resource group | 인증서를 포함할 리소스 그룹입니다. 예를 들어, 새로운 리소스 그룹을 사용하거나 App Service 앱과 동일한 리소스 그룹을 선택할 수 있습니다. |
@@ -143,7 +146,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 | 설정 | Description |
 |-|-|
-| 속성 | 영숫자와 대시로 구성된 고유한 이름입니다. |
+| Name | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | Resource group | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
 | 위치 | App Service 앱과 동일한 위치를 선택합니다. |
 | 가격 책정 계층 | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |

@@ -8,15 +8,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/14/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ec7b951581efd0a25b44d298b1f1bfb997167d88
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589103"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683501"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>자습서: 배포 스크립트를 사용하여 자체 서명된 인증서 만들기
 
@@ -34,13 +34,15 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
 > * 실패한 스크립트 디버그
 > * 리소스 정리
 
+배포 스크립트를 다루는 Microsoft Learn 모듈은 [배포 스크립트를 사용하여 ARM 템플릿 확장](/learn/modules/extend-resource-manager-template-deployment-scripts/)을 참조하세요.
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
 * **Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/)** . [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](./quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
-* **구독 수준에서 기여자 역할이 있는 사용자가 할당한 관리 ID**. 이 ID는 배포 스크립트를 실행하는 데 사용됩니다. ID를 만들려면 [사용자가 할당한 관리 ID](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 참조하세요. 이 ID는 템플릿을 배포할 때 필요합니다. ID의 형식은 다음과 같습니다.
+* **사용자가 할당한 관리 ID**. 이 ID는 스크립트에서 Azure 관련 작업을 수행하는 데 사용됩니다. ID를 만들려면 [사용자가 할당한 관리 ID](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 참조하세요. 이 ID는 템플릿을 배포할 때 필요합니다. ID의 형식은 다음과 같습니다.
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -253,7 +255,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
 
     `deploymentScripts` 리소스는 키 자격 증명 모음 리소스 및 역할 할당 리소스에 따라 달라집니다. 다음과 같은 속성이 있습니다.
 
-    * `identity`: 배포 스크립트는 사용자가 할당한 관리 ID를 사용하여 스크립트를 실행합니다.
+    * `identity`: 배포 스크립트는 사용자가 할당한 관리 ID를 사용하여 스크립트에서 작업을 수행합니다.
     * `kind`: 스크립트 유형을 지정합니다. 현재 PowerShell 스크립트만 지원됩니다.
     * `forceUpdateTag`: 스크립트 원본이 변경되지 않은 경우에도 배포 스크립트를 실행할지 여부를 결정합니다. 현재 타임스탬프 또는 GUID일 수 있습니다. 자세한 내용은 [스크립트를 두 번 이상 실행](./deployment-script-template.md#run-script-more-than-once)을 참조하세요.
     * `azPowerShellVersion`: 사용할 Azure PowerShell 모듈 버전을 지정합니다. 배포 스크립트는 현재 2.7.0, 2.8.0 및 3.0.0 버전을 지원합니다.

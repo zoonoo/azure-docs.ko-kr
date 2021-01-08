@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: c9866ac2c14e4deb29326ffdd1a93a7d8eae1ea3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 477856bd5772cdc0a9ec00d81adf9c50847afdd0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484807"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631952"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>자습서: Azure Private 엔드포인트를 사용하여 Azure Cosmos 계정에 연결
 
@@ -208,13 +208,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 5. **확인** 을 선택합니다.
 
-10. CosmosDB 계정의 **설정** 섹션에서 **키** 를 선택합니다.
+6. CosmosDB 계정의 **설정** 섹션에서 **키** 를 선택합니다.
 
-11. **myResourceGroup** 을 선택합니다.
-
-12. 이전 단계에서 만든 스토리지 계정을 선택합니다.
-
-14. **기본 연결 문자열** 에서 복사를 선택합니다.
+7. **기본 연결 문자열** 에서 복사를 선택합니다.
 
 ## <a name="test-connectivity-to-private-endpoint"></a>프라이빗 엔드포인트에 연결 테스트
 
@@ -234,7 +230,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 7. 연결한 후 서버에서 Windows PowerShell을 엽니다.
 
-8. `nslookup <storage-account-name>.documents.azure.com`를 입력합니다. **\<storage-account-name>** 을 이전 단계에서 만든 스토리지 계정의 이름으로 바꿉니다. 
+8. `nslookup <cosmosdb-account-name>.documents.azure.com`를 입력합니다. **\<cosmosdb-account-name>** 를 이전 단계에서 만든 Cosmos DB 계정의 이름으로 바꿉니다. 
 
     ```powershell
     Server:  UnKnown

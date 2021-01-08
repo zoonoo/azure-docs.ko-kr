@@ -17,12 +17,12 @@ ms.date: 12/15/2020
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6aedf41fbf1ed0d70467a2efe97431fdecaa4fa
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e85de1edd94a0430a4b28b332d9e43b967afba76
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585918"
+ms.locfileid: "97608921"
 ---
 # <a name="what-is-sign-in-diagnostic-in-azure-ad"></a>Azure AD의 로그인 진단이란?
 
@@ -47,7 +47,7 @@ Azure AD에서 로그인 시도에 대한 응답은 테넌트에 액세스하는
 
 - 발생한 상황 및 문제를 해결하는 방법에 대한 추천 사항을 표시합니다. 
 
-Azure AD의 로그인 진단은 로그인 오류를 자체 진단할 수 있도록 설계되었습니다. 진단 프로세스를 완료하려면 다음을 수행해야 합니다.
+Azure AD용 로그인 진단은 로그인 오류를 자체 진단할 수 있도록 설계되었습니다. 진단 프로세스를 완료하려면 다음을 수행해야 합니다.
 
 ![로그인 진단 프로세스](./media/overview-sign-in-diagnostics/process.png)
  

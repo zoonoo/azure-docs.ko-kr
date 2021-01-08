@@ -4,12 +4,12 @@ description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure �
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f3b3ebce3dd34637a787895e7724736adfc186fb
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032255"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858521"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
@@ -33,7 +33,7 @@ Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 �
 
 * **리소스** - Azure를 통해 사용할 수 있는 관리 가능한 항목입니다. 리소스의 예로는 가상 머신, 스토리지 계정, 웹앱, 데이터베이스 및 가상 네트워크가 있습니다. 리소스 그룹, 구독, 관리 그룹 및 태그도 리소스의 예입니다.
 * **리소스 그룹** - Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹은 그룹으로 관리하려는 리소스만 포함합니다. 조직에 가장 적합한 요소에 따라 리소스 그룹에 속하는 리소스를 결정합니다. [리소스 그룹](#resource-groups)을 참조하세요.
-* **리소스 공급자** - Azure 리소스를 제공하는 서비스입니다. 예를 들어 일반적인 리소스 공급자는 가상 머신 리소스를 제공하는 Microsoft.Compute입니다. Microsoft.Storage는 또 다른 일반적인 리소스 공급자입니다. [리소스 공급자 및 형식](resource-providers-and-types.md)을 참조하세요.
+* **리소스 공급자** - Azure 리소스를 제공하는 서비스입니다. 예를 들어 일반적인 리소스 공급자는 가상 머신 리소스를 제공하는 `Microsoft.Compute`입니다. `Microsoft.Storage`는 또 다른 일반적인 리소스 공급자입니다. [리소스 공급자 및 형식](resource-providers-and-types.md)을 참조하세요.
 * **Resource Manager 템플릿** - 리소스 그룹, 관리 그룹 또는 테넌트에 배포할 하나 이상의 리소스를 정의하는 JSON(JavaScript Object Notation) 파일입니다. 템플릿은 리소스를 일관되고 반복적으로 배포하는 데 사용할 수 있습니다. [템플릿 배포 개요](../templates/overview.md)를 참조하세요.
 * **선언적 구문** - 항목을 만드는 프로그래밍 명령의 시퀀스를 작성하지 않고도 "만들려는 대상은 다음과 같습니다"라고 선언하는 구문입니다. Resource Manager 템플릿은 선언적 구문의 예입니다. 파일에서 Azure에 배포하는 인프라에 대한 속성을 정의합니다.  [템플릿 배포 개요](../templates/overview.md)를 참조하세요.
 
@@ -99,11 +99,11 @@ Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Manager의 복원력
 
-Azure Resource Manager 서비스는 복원력 및 지속적인 가용성을 위해 설계되었습니다. REST API의 Resource Manager 및 제어 평면 작업(management.azure.com에 전송된 요청)은 다음과 같습니다.
+Azure Resource Manager 서비스는 복원력 및 지속적인 가용성을 위해 설계되었습니다. REST API의 Resource Manager 및 제어 평면 작업(`management.azure.com`에 전송된 요청)은 다음과 같습니다.
 
 * 지역별로 분산됩니다 일부 서비스는 지역적입니다.
 
-* 여러 가용성 영역이 있는 위치에서 가용성 영역(지역도 포함)으로 분산됩니다.
+* 여러 가용성 영역이 있는 위치에서 가용성 영역(및 지역)으로 분산됩니다.
 
 * 단일 논리 데이터 센터에 종속되지 않습니다.
 

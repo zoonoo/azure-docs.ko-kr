@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: 21ccbc83c80e1b659dd240973a609d624f270835
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cb7a441a6d86cd64847300d1e597cf6f86067282
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028515"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740949"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>빠른 시작: Azure SQL Database 단일 데이터베이스 만들기
 
@@ -141,7 +141,7 @@ az sql server firewall-rule create \
 ```
 
 
-## <a name="create-a-single-database"></a>단일 데이터베이스 만들기
+## <a name="create-a-single-database-with-azure-cli"></a>Azure CLI를 사용하여 단일 데이터베이스 만들기
 
 [az sql db create](/cli/azure/sql/db) 명령을 사용하여 데이터베이스를 만듭니다. 다음 코드가 생성됨
 
@@ -230,7 +230,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 ```
 
 
-## <a name="create-a-single-database"></a>단일 데이터베이스 만들기
+## <a name="create-a-single-database-with-powershell"></a>PowerShell을 사용하여 단일 데이터베이스 만들기
 
 [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet을 사용하여 단일 데이터베이스를 만듭니다.
 

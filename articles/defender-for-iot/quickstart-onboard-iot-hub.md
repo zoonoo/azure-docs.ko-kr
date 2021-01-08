@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 786fcd1a0c6d7df2c38a086a830a63f7179d7d40
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e3768ef233c60f1687bc804778c3dabf32666e1d
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352510"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835162"
 ---
 # <a name="quickstart-onboard-azure-defender-for-iot-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 Azure Defender for IoT 서비스 등록
 
@@ -33,7 +33,7 @@ ms.locfileid: "96352510"
   - Defender for IoT는 기본적으로 **보안 경고** 및 **추천 사항** 이라는 두 가지 유형의 정보를 Log Analytics 작업 영역에 저장합니다.
   - 추가 정보 유형인 **원시 이벤트** 의 스토리지를 추가하도록 선택할 수 있습니다. **원시 이벤트** 를 Log Analytics에 저장하면 추가 스토리지 비용이 발생합니다.
 - IoT Hub(표준 계층)
-- [서비스 필수 구성 요소](service-prerequisites.md) 모두 충족
+- 모든 [시스템 필수 구성 요소](quickstart-system-prerequisites.md)를 충족합니다.
 
 ## <a name="enable-defender-for-iot-on-your-iot-hub"></a>IoT Hub에서 Defender for IoT를 사용하도록 설정
 

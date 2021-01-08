@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3329d092e27e7d8885daa87650734cd8e84202c9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: cf74b563352ccd0f62e583bccccd72078cbb2046
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313665"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>자습서: Accredible과 Azure Active Directory 통합
 
@@ -53,7 +53,7 @@ Accredible과 Azure AD 통합을 구성하려면 갤러리의 Accredible을 관�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Accredible과 Azure AD 통합을 구성하려면 갤러리의 Accredible을 관�
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Accredible**을 입력하고 결과 패널에서 **Accredible**을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Accredible** 을 입력하고 결과 패널에서 **Accredible** 을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Accredible](common/search-new-app.png)
+    ![결과 목록의 Accredible](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Accredible에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 Accredible에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Accredible의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Accredible에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -85,7 +85,7 @@ Accredible에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 Accredible에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Accredible** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Accredible** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -113,7 +113,7 @@ Accredible에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     > [!NOTE]
     > [회신 URL] 값은 실제 값이 아닙니다. 사용자 역할에 따라 해당하는 ID 값을 사용합니다. 각 고객에게는 ID에 따라 고유한 회신 URL이 있습니다. 이러한 값을 얻으려면 [Accredible 지원 팀](mailto:support@accredible.com) 에 문의하세요.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -129,17 +129,17 @@ Accredible에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 ### <a name="configure-accredible-single-sign-on"></a>Accredible Single Sign-On 구성
 
-**Accredible** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Accredible 지원 팀](mailto:support@accredible.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Accredible** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Accredible 지원 팀](mailto:support@accredible.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -147,36 +147,36 @@ Accredible에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
-  
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
+
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Accredible에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택하고 **모든 애플리케이션**을 선택한 다음, **Accredible**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택하고 **모든 애플리케이션** 을 선택한 다음, **Accredible** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Accredible**을 선택합니다.
+2. 애플리케이션 목록에서 **Accredible** 을 선택합니다.
 
     ![애플리케이션 목록의 Accredible 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -184,7 +184,7 @@ Accredible에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 ### <a name="create-accredible-test-user"></a>Accredible 테스트 사용자 만들기
 
-이 섹션에서는 Accredible에서 Britta Simon이라는 사용자를 만듭니다. 사용자의 이메일 ID를  [Accredible 지원 팀](mailto:support@accredible.com)에 보내야 합니다. 그런 다음, 지원 팀은 이메일을 확인하고 Accredible 플랫폼에서 사용자를 추가할 수 있도록 초대 메일을 보내줍니다.
+이 섹션에서는 Accredible에서 Britta Simon이라는 사용자를 만듭니다. 사용자의 이메일 ID를 [Accredible 지원 팀](mailto:support@accredible.com)에 보내야 하며, 그러면 지원 팀은 이메일을 확인하고 Accredible 플랫폼에서 사용자를 추가할 수 있도록 초대 메일을 보내줍니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

@@ -9,19 +9,19 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 12b49bf81328cc405337b682241aef2cd965c3de
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9762ca79f73b3333045d1c11376ab315aac2d55e
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356548"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808660"
 ---
 > [!IMPORTANT]
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요. 
 
 [참조 설명서](/python/api/azure-ai-formrecognizer) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [패키지(PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
@@ -36,17 +36,23 @@ ms.locfileid: "96356548"
 
 Python을 설치한 후 다음을 사용하여 최신 버전의 Form Recognizer 클라이언트 라이브러리를 설치할 수 있습니다.
 
-#### <a name="version-30"></a>[버전 3.0](#tab/ga)
+#### <a name="version-20"></a>[버전 2.0](#tab/ga)
 
 ```console
 pip install azure-ai-formrecognizer
 ```
 
-#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
+> [!NOTE]
+> 최신 Form Recognizer는 API 버전 2.0을 반영합니다.
+
+#### <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/preview)
 
 ```console
 pip install azure-ai-formrecognizer --pre
 ```
+
+> [!NOTE]
+> Form Recognizer 미리 보기 SDK는 API 버전 2.1 미리 보기를 반영합니다.
 
 ---
 
@@ -91,7 +97,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 여기에 나와 있는 코드 조각에서는 Python용 Form Recognizer 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
-#### <a name="version-30"></a>[버전 3.0](#tab/ga)
+#### <a name="version-20"></a>[버전 2.0](#tab/ga)
 
 * [클라이언트 인증](#authenticate-the-client)
 * [양식 콘텐츠 인식](#recognize-form-content)
@@ -100,7 +106,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
 
-#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
+#### <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/preview)
 
 * [클라이언트 인증](#authenticate-the-client)
 * [양식 콘텐츠 인식](#recognize-form-content)
@@ -123,7 +129,9 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 ## <a name="get-assets-for-testing"></a>테스트용 자산 가져오기
 
 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다.
-* 사용자 지정 모델 학습 데이터에 대한 SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 마우스 오른쪽 단추로 컨테이너를 클릭하고, **공유 액세스 서명 가져오기** 를 선택합니다. **읽기** 권한과 **목록 사용** 권한이 선택되어 있는지 확인하고 **만들기** 를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+  
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL 검색":::
 * 아래 샘플에 포함된 샘플 및 영수증 이미지([GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)에서도 사용 가능)를 사용하거나 위의 단계를 사용하여 Blob 스토리지에 있는 개별 문서의 SAS URL을 가져올 수 있습니다. 
 
 > [!NOTE]
@@ -194,11 +202,15 @@ Tax: 104.4 has confidence 0.713
 Total: 1203.39 has confidence 0.774
 ```
 
-#### <a name="version-30"></a>[버전 3.0](#tab/ga)
-
-#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/preview)
 
 ## <a name="recognize-business-cards"></a>명함 인식
+
+#### <a name="version-20"></a>[버전 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
+
+#### <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/preview)
 
 이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 인식 및 추출하는 방법을 보여줍니다. URL에서 명함을 인식하려면 `begin_recognize_business_cards_from_url` 메서드를 사용합니다. 
 
@@ -207,7 +219,16 @@ Total: 1203.39 has confidence 0.774
 > [!TIP]
 > 또한 로컬 명함 이미지를 인식할 수도 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) 메서드(예: `begin_recognize_business_cards`)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
 
+---
+
 ## <a name="recognize-invoices"></a>송장 인식
+
+#### <a name="version-20"></a>[버전 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
+
+#### <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/preview)
 
 이 섹션에서는 사전 학습된 모델을 사용하여 판매 송장의 공통 필드를 인식 및 추출하는 방법을 보여줍니다. URL에서 송장을 인식하려면 `begin_recognize_invoices_from_url` 메서드를 사용합니다. 
 

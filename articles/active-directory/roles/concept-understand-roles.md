@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 968ca6fa293e7bcc01bae6f48164c48c19b8267b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: db3eaef240e1f76e4c61a454e104336806666a7c
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501678"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803904"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Azure Active Directory의 역할 이해
 
@@ -44,7 +44,7 @@ Teams, SharePoint 및 관리형 데스크톱과 같은 다른 서비스에는 �
 
 ## <a name="why-some-azure-ad-roles-are-for-other-services"></a>일부 Azure AD 역할이 다른 서비스에 대한 것인 이유
 
-Microsoft 365에는 시간에 따라 독립적으로 개발된 여러 가지 역할 기반 액세스 제어 시스템이 있으며, 각각 고유한 서비스 포털이 있습니다. Azure AD 포털의 Microsoft 365에서 ID를 편리하게 관리할 수 있도록 하기 위해 일부 서비스 관련 기본 제공 역할을 추가했습니다. 각 역할은 Microsoft 365 서비스에 대한 관리 액세스 권한을 부여합니다. 이러한 추가의 예제로 Azure AD의 Exchange 관리자 역할이 있습니다. 이 역할은 Exchange 역할 기반 액세스 제어 시스템에서 [조직 관리 역할 그룹](/exchange/organization-management-exchange-2013-help)과 동일하며, Exchange의 모든 측면을 관리할 수 있습니다. 마찬가지로 Intune 관리자 역할, 팀 관리자, SharePoint 관리자 등을 추가했습니다. 서버 특정 역할은 다음 섹션에서 Azure AD 기본 제공 역할의 한 범주입니다.
+Microsoft 365에는 시간에 따라 독립적으로 개발된 여러 가지 역할 기반 액세스 제어 시스템이 있으며, 각각 고유한 서비스 포털이 있습니다. Azure AD 포털의 Microsoft 365에서 ID를 편리하게 관리할 수 있도록 하기 위해 일부 서비스 관련 기본 제공 역할을 추가했습니다. 각 역할은 Microsoft 365 서비스에 대한 관리 액세스 권한을 부여합니다. 이러한 추가의 예제로 Azure AD의 Exchange 관리자 역할이 있습니다. 이 역할은 Exchange 역할 기반 액세스 제어 시스템에서 [조직 관리 역할 그룹](/exchange/organization-management-exchange-2013-help)과 동일하며, Exchange의 모든 측면을 관리할 수 있습니다. 마찬가지로 Intune 관리자 역할, 팀 관리자, SharePoint 관리자 등을 추가했습니다. 서버스 관련 역할은 다음 섹션에서 Azure AD 기본 제공 역할의 한 범주입니다.
 
 ## <a name="categories-of-azure-ad-roles"></a>Azure AD 역할의 범주
 

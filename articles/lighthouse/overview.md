@@ -1,20 +1,20 @@
 ---
 title: Azure Lighthouse란?
 description: Azure Lighthouse에서 서비스 공급자는 더 높은 자동화 및 효율성으로 고객을 위한 관리형 서비스를 제공할 수 있습니다.
-ms.date: 12/10/2020
+ms.date: 12/16/2020
 ms.topic: overview
-ms.openlocfilehash: bef6107878f36e02a896b3c38b8913ebb50169a7
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: b9215f42e3ad3b7517d14fdaee710a31680ce453
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356364"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617156"
 ---
 # <a name="what-is-azure-lighthouse"></a>Azure Lighthouse란?
 
 Azure Lighthouse는 교차 및 다중 테넌트 관리를 지원하여 리소스 및 테넌트 간에 더 높은 자동화, 확장성 및 향상된 거버넌스를 허용합니다.
 
-Azure Lighthouse를 통해 서비스 공급자는 Azure 플랫폼에 기본 제공되는 포괄적이고 강력한 관리 도구를 사용하여 관리형 서비스를 제공할 수 있습니다. 고객은 테넌트에 액세스할 수 있는 사용자, 액세스할 수 있는 리소스 및 수행할 수 있는 작업에 대한 제어를 유지합니다. 이 제품은 여러 테넌트 간에 리소스를 관리하는 [엔터프라이즈 IT 조직](concepts/enterprise.md)에서도 활용할 수 있습니다.
+Azure Lighthouse를 통해 서비스 공급자는 Azure 플랫폼에 기본 제공되는 포괄적이고 강력한 관리 도구를 사용하여 관리형 서비스를 제공할 수 있습니다. 고객은 테넌트에 액세스할 수 있는 사용자, 액세스할 수 있는 리소스 및 수행할 수 있는 작업을 제어할 수 있습니다. 이 제품은 여러 테넌트 간에 리소스를 관리하는 [엔터프라이즈 IT 조직](concepts/enterprise.md)에서도 활용할 수 있습니다.
 
 ![Azure Lighthouse의 개요 다이어그램](media/azure-lighthouse-overview.jpg)
 

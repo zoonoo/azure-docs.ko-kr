@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/22/2020
+ms.date: 12/16/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 54ac683dcc2b124c4a6410b2e8449fa7e969ce8c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6d41c186a5d239ad7228c37902f5691085e43dbf
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464910"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631247"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>자습서: Azure Stack Edge Mini R 배포 준비
 
@@ -40,7 +40,7 @@ Azure Stack Edge Mini R을 배포하려면 다음 자습서를 지정된 순서�
 |  | |
 |**배포 자습서** |이러한 자습서는 프로덕션 환경에서 Azure Stack Edge Mini R 디바이스를 배포하는 데 필요합니다. |
 |**[1. 디바이스에 대한 Azure Portal 준비](azure-stack-edge-mini-r-deploy-prep.md)** |물리적 디바이스를 설치하기 전에 Azure Stack Edge 리소스를 만들고 구성합니다. |
-|**[2. 디바이스 설치](azure-stack-edge-mini-r-deploy-install.md)**|물리적 디바이스의 포장을 풀고 렉 및 케이블을 연결합니다.  |
+|**[2. 디바이스 설치](azure-stack-edge-mini-r-deploy-install.md)**|물리적 디바이스를 검사하고 케이블을 연결합니다.  |
 |**[3. 디바이스에 연결](azure-stack-edge-mini-r-deploy-connect.md)** |디바이스가 설치되면 디바이스 로컬 웹 UI에 연결합니다.  |
 |**[4. 네트워크 설정 구성](azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md)** |디바이스에 대한 컴퓨팅 네트워크 및 웹 프록시 설정을 포함하여 네트워크를 구성합니다.   |
 |**[5. 디바이스 설정 구성](azure-stack-edge-mini-r-deploy-set-up-device-update-time.md)** |디바이스 이름과 DNS 도메인을 할당하고, 업데이트 서버 및 디바이스 시간을 구성합니다. |

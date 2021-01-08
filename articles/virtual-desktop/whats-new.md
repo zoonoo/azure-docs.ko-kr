@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533964"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617360"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -49,7 +49,7 @@ Windows Virtual Desktop cmdlet 2.0.1을 출시했습니다. 이 업데이트에�
 
 ### <a name="azure-advisor-updates"></a>Azure Advisor 업데이트
 
-이제 Azure Advisor는 Windows Virtual Desktop의 근접 지침에 대한 새로운 권장 사항을 제공합니다. [Azure 웹 사이트](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/)에서 자세히 알아보세요.
+이제 Azure Advisor는 Windows Virtual Desktop의 근접 지침에 대한 새로운 권장 사항과 깊이 우선 부하가 분산된 호스트 풀의 성능을 최적화하기 위한 새로운 권장 사항을 제공합니다. [Azure 웹 사이트](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/)에서 자세히 알아보세요.
 
 ## <a name="october-2020"></a>2020년 10월
 

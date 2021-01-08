@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 859f1c4a1ed1b3d9139307c52f44a14e3089e31f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 66b5694823096f0747ea099b631a53198a819816
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945512"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835043"
 ---
 # <a name="quickstart-investigate-security-recommendations"></a>빠른 시작: 보안 권장 사항 조사
 
@@ -33,11 +33,11 @@ Defender for IoT에서 권장 사항을 적시에 분석하고 완화하는 것�
 
 IoT Hub 권장 사항 목록에는 IoT Hub에 대해 집계된 모든 보안 권장 사항이 표시됩니다.
 
-1.  Azure Portal에서 새 권장 사항을 조사하려는  **IoT Hub** 를 엽니다.
+1.  Azure Portal에서 새 권장 사항을 조사하려는 **IoT Hub** 를 엽니다.
 
-1.   **보안**  메뉴에서  **권장 사항**을 선택합니다. IoT Hub에 대한 모든 보안 권장 사항이 표시되고  **새** 플래그가 포함된 권장 사항이 지난 24시간 동안의 권장 사항을 표시합니다. 
+1.  **보안** 메뉴에서 **권장 사항** 을 선택합니다. IoT Hub에 대한 모든 보안 권장 사항이 표시되고 **새로 만들기** 플래그가 포함된 권장 사항이 지난 24시간 동안의 권장 사항을 표시합니다. 
 
-    [ ![IoT용 ASC로 보안 권장 사항 조사](media/quickstart/investigate-security-recommendations-inline.png)](media/quickstart/investigate-security-recommendations-expanded.png#lightbox)
+    :::image type="content" source="media/quickstart/investigate-security-recommendations-expanded.png#lightbox" alt-text="ASC for IoT를 사용하여 보안 권장 사항 조사](media/quickstart/investigate-security-recommendations-inline.png)":::
 
 
 1.  목록에서 권장 사항을 선택하고 열어 권장 사항 세부 정보를 열고 경고 세부 정보로 드릴다운합니다.
@@ -46,21 +46,21 @@ IoT Hub 권장 사항 목록에는 IoT Hub에 대해 집계된 모든 보안 권
 
 각 집계된 권장 사항을 열어 권장 사항을 트리거한 각 디바이스에 대한 자세한 권장 사항 설명, 수정 단계, 디바이스 ID를 표시합니다. 또한 Log Analytics를 사용하여 권장 사항 심각도 및 직접 조사 액세스를 표시합니다.
 
-1.   **IoT Hub** \> **보안** \> **권장 사항** 목록에서 보안 권장 사항을 선택하여 엽니다.
+1.  **IoT Hub** \> **보안** \> **권장 사항** 목록에서 보안 권장 사항을 선택하여 엽니다.
 
-1.  집계 기간에 이 권장 사항을 발행한 모든 디바이스의 권장 사항 **설명**,  **심각도**,  **디바이스 세부 정보** 를 검토합니다. 
+1.  집계 기간에 이 권장 사항을 발행한 모든 디바이스의 권장 사항 **설명**, **심각도**, **디바이스 세부 정보** 를 검토합니다. 
 
-1.  권장 사항 세부 정보를 검토한 후  **수동 수정 단계**  지침을 사용하여 권장 사항을 발생시킨 문제를 수정 및 해결합니다. 
+1.  권장 사항 세부 정보를 검토한 후 **수동 수정 단계** 지침을 사용하여 권장 사항을 발생시킨 문제를 수정 및 해결합니다. 
 
-    [ ![IoT용 ASC로 보안 권장 사항 수정](media/quickstart/remediate-security-recommendations-inline.png)](media/quickstart/remediate-security-recommendations-expanded.png#lightbox)
+    [:::image type="content" source="media/quickstart/remediate-security-recommendations-expanded.png#lightbox" alt-text="ASC for IoT를 사용하여 보안 권장 사항 수정](media/quickstart/remediate-security-recommendations-inline.png)":::
 
 
 1.  드릴다운 페이지에서 원하는 디바이스를 선택하여 특정 디바이스에 대한 권장 사항 세부 정보를 살펴봅니다.
 
-    [ ![IoT용 ASC를 사용하여 디바이스에 대한 특정 보안 권장 사항 조사](media/quickstart/explore-security-recommendation-detail-inline.png)](media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox)
+    [:::image type="content" source="media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox" alt-text="ASC for IoT를 사용하여 디바이스에 대한 특정 보안 권장 사항 조사](media/quickstart/explore-security-recommendation-detail-inline.png)":::
 
 
-1.  추가 조사가 필요한 경우 링크를 사용하여  **Log Analytics의 권장 사항을 조사** 합니다. 
+1.  추가 조사가 필요한 경우 링크를 사용하여 **Log Analytics의 권장 사항을 조사** 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

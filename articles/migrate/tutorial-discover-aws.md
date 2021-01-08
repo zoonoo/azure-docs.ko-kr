@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: ce86da7697341e769ada120dc7a941319b64fc18
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 935aa8297e8b244bfd05483f07aad3eadb485f1b
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109541"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797080"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>자습서: 서버 평가를 사용하여 AWS 인스턴스 검색
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 --- | ---
 **어플라이언스** | Azure Migrate 어플라이언스를 실행할 EC2 VM이 필요합니다. 머신에는 다음이 있어야 합니다.<br/><br/> - Windows Server 2016이 설치되었습니다. Windows Server 2019를 사용하는 컴퓨터에서 어플라이언스를 실행하는 것은 지원되지 않습니다.<br/><br/> - 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치.<br/><br/> - 직접 또는 프록시를 통해 인터넷에 액세스할 수 있는 고정 또는 동적 IP 주소.
 **Windows 인스턴스** | 어플라이언스가 구성 및 성능 메타데이터를 가져올 수 있도록 WinRM 포트 5985(HTTP)에서 인바운드 연결을 허용합니다.
-**Linux 인스턴스** | 포트 22(TCP)에서 인바운드 연결을 허용합니다.
+**Linux 인스턴스** | 포트 22(TCP)에서 인바운드 연결을 허용합니다.<br/><br/> 인스턴스는 `bash`를 기본 셸로 사용해야 합니다. 그렇지 않으면 검색에 실패합니다.
 
 ## <a name="prepare-an-azure-user-account"></a>Azure 사용자 계정 준비
 
@@ -222,11 +222,16 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 ### <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
 1. 포털에서 복사한 **Azure Migrate 프로젝트 키** 를 붙여넣습니다. 키가 없는 경우 **서버 평가 > 검색 > 기존 어플라이언스 관리** 로 차례로 이동하여 키 생성 시 제공한 어플라이언스 이름을 선택하고, 해당 키를 복사합니다.
-1. **로그인** 을 클릭합니다. 그러면 새 브라우저 탭에서 Azure 로그인 프롬프트가 열립니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
-1. 새 탭에서 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
+1. Azure로 인증하려면 디바이스 코드가 필요합니다. **로그인** 을 클릭하면 아래와 같이 디바이스 코드가 포함된 모달이 열립니다.
+
+    ![디바이스 코드를 보여주는 모달](./media/tutorial-discover-vmware/device-code.png)
+
+1. **코드 복사 및 로그인** 을 클릭하여 디바이스 코드를 복사하고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
+1. 새 탭에서 디바이스 코드를 붙여넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
    
    PIN을 사용한 로그인은 지원되지 않습니다.
-3. 성공적으로 로그인하면 웹앱으로 돌아갑니다. 
+3. 로그인 탭을 실수로 로그인하지 않고 닫은 경우에는 어플라이언스 구성 관리자의 브라우저 탭을 새로 고쳐 로그인 단추를 다시 사용하도록 설정해야 합니다.
+1. 성공적으로 로그인한 후 어플라이언스 구성 관리자를 사용하여 이전 탭으로 돌아갑니다.
 4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한](./tutorial-discover-physical.md)이 있는 경우 어플라이언스 등록이 시작됩니다.
 1. 어플라이언스가 성공적으로 등록되면 **세부 정보 보기** 를 클릭하여 등록 세부 정보를 확인할 수 있습니다.
 
@@ -243,6 +248,10 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
     - Azure Migrate는 RSA, DSA, ECDSA 및 ed25519 알고리즘을 사용하여 ssh-keygen 명령에 의해 생성된 SSH 프라이빗 키를 지원합니다.
     - 현재 Azure Migrate는 암호 기반 SSH 키를 지원하지 않습니다. 암호 없이 SSH 키를 사용하세요.
     - 현재 Azure Migrate는 PuTTY에서 생성된 SSH 프라이빗 키 파일을 지원하지 않습니다.
+    - Azure Migrate는 아래와 같이 SSH 프라이빗 키 파일의 OpenSSH 형식을 지원합니다.
+    
+    ![SSH 프라이빗 키 지원 형식](./media/tutorial-discover-physical/key-format.png)
+
 
 1. 여러 자격 증명을 한 번에 추가하려면 **더 추가** 를 클릭하여 더 많은 자격 증명을 저장하고 추가합니다. 물리적 서버 검색에 여러 자격 증명이 지원됩니다.
 1. **2단계: 물리적 또는 가상 서버 세부 정보 제공** 에서 **검색 원본 추가** 를 클릭하여 서버 **IP 주소/FQDN** 을 지정하고 서버에 연결할 자격 증명의 식별 이름을 지정합니다.

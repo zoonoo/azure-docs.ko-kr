@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 8aa7401a2ee7a0d87736e6b18fc814f983e2afa0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9af0349326cf82ed9d050c367b6ed784c9ea9ce9
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82184200"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821131"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용
 
@@ -154,9 +154,9 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
     ![사용자 지정된 템플릿의 스크린샷](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
-3. **사용 약관**을 읽은 다음, **위에 명시된 사용 약관에 동의함**을 선택합니다.
+3. **사용 약관** 을 읽은 다음, **위에 명시된 사용 약관에 동의함** 을 선택합니다.
 
-4. **구매**를 선택합니다.
+4. **구매** 를 선택합니다.
 
 > [!NOTE]  
 > 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
@@ -180,11 +180,11 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/jupyter`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 클러스터 로그인(관리자) 이름과 암호를 입력합니다.
 
-1. **새로 만들기 > Spark**를 차례로 선택하여 Notebook을 만듭니다.
+1. **새로 만들기 > Spark** 를 차례로 선택하여 Notebook을 만듭니다.
 
 1. Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이터가 일괄 처리로 제공되고 실행기가 데이터 일괄 처리에서 실행됩니다. 실행기가 일괄 처리를 처리하는 데 걸리는 시간보다 유휴 시간 제한이 적은 경우 실행기는 지속적으로 추가 및 제거됩니다. 실행기 유휴 시간 제한이 일괄 처리 지속 시간 보다 크면 실행기는 제거되지 않습니다. 따라서 **스트리밍 애플리케이션을 실행할 때 spark.dynamicAllocation.enabled를 false로 설정하여 동적 할당을 비활성화하는 것이 좋습니다.**
 
-    Notebook 셀에 다음 정보를 입력하여 Notebook에서 사용하는 패키지를 로드합니다. **Ctrl + Enter**를 사용하여 명령을 실행합니다.
+    Notebook 셀에 다음 정보를 입력하여 Notebook에서 사용하는 패키지를 로드합니다. **Ctrl + Enter** 를 사용하여 명령을 실행합니다.
 
     ```configuration
     %%configure -f
@@ -320,7 +320,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
 Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
-1. [Azure Portal](https://portal.azure.com/)에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 연 다음, __리소스 그룹__을 선택하여 리소스 그룹 목록을 표시합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 연 다음, __리소스 그룹__ 을 선택하여 리소스 그룹 목록을 표시합니다.
 2. 삭제할 리소스 그룹을 찾은 다음 목록 오른쪽에 있는 __자세히__ 단추(...)를 마우스 오른쪽 단추로 클릭합니다.
 3. __리소스 그룹 삭제__ 를 선택한 다음 확인합니다.
 

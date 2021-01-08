@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 6ac76b3d3cc8fb27734730275836fba0dbfb08fe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 14203021846e97a53f59c3bc24a1586774613dec
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700310"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704336"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
-Azure Portal에서 Azure Load Balancer를 시작하여 내부 부하 분산 장치와 2개의 가상 머신을 만듭니다.
+Azure Portal을 사용하여 Azure Load Balancer를 시작하여 내부 부하 분산 장치와 세 개의 가상 머신을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -40,6 +40,8 @@ Azure Portal에서 Azure Load Balancer를 시작하여 내부 부하 분산 장�
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="빠른 시작을 위해 만든 표준 부하 분산 장치 리소스." border="false":::
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
 
@@ -208,12 +210,12 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 이 섹션에서는 다음을 수행합니다.
 
-* 부하 분산 장치의 백 엔드 풀에 사용할 2개의 가상 머신을 만듭니다.
+* 부하 분산 장치의 백 엔드 풀에 대해 세 개의 가상 머신을 만듭니다.
 * 가상 머신에 IIS를 설치하여 부하 분산 장치를 테스트합니다.
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-이 섹션에서는 두 개의 VM(**myVM1** 및 **myVM2**)을 만듭니다.
+이 섹션에서는 세 개의 VM(**myVM1**, **myVM2** 및 **myVM3**)을 만듭니다.
 
 이러한 VM은 이전에 만든 부하 분산 장치의 백 엔드 풀에 추가됩니다.
 
@@ -262,19 +264,21 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
   
 6. 설정을 검토한 다음, **만들기** 를 선택합니다.
 
-7. 1~8단계에 따라 다음 값 및 **myVM1** 과 동일한 그 외의 모든 설정을 사용하여 추가 VM을 하나 만듭니다.
+7. 1~8단계에 따라 다음 값 및 **myVM1** 과 동일한 다른 모든 설정을 사용하여 두 개의 추가 VM을 만듭니다.
 
-    | 설정 | VM 2|
-    | ------- | ----- |
-    | Name |  **myVM2** |
-    | 가용성 영역 | **2** |
-    | 네트워크 보안 그룹 | 기존 **myNSG** 를 선택합니다.|
+    | 설정 | VM 2 | VM 3 |
+    | ------- | ----- | ---- |
+    | Name |  **myVM2** | **myVM3** |
+    | 가용성 영역 | **2** | **3** |
+    | 네트워크 보안 그룹 | 기존 **myNSG** 를 선택합니다.| 기존 **myNSG** 를 선택합니다. |
 
 
 # <a name="basic-sku"></a>[**기본 SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="빠른 시작에서 만든 기본 부하 분산 장치 리소스." border="false":::
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
 
@@ -401,7 +405,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | **myHealthProbe** 를 입력합니다. |
+    | Name | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 경로 | **/** 를 입력합니다. |
@@ -445,13 +449,13 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 이 섹션에서는 다음을 수행합니다.
 
-* 부하 분산 장치의 백 엔드 풀에 사용할 2개의 가상 머신을 만듭니다.
+* 부하 분산 장치의 백 엔드 풀에 대해 세 개의 가상 머신을 만듭니다.
 * 가상 머신에 대한 가용성 집합을 만듭니다.
 * 가상 머신에 IIS를 설치하여 부하 분산 장치를 테스트합니다.
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-이 섹션에서는 두 개의 VM(**myVM1** 및 **myVM2**)을 만듭니다.
+이 섹션에서는 세 개의 VM(**myVM1**, **myVM2**, **myVM3**)을 만듭니다.
 
 두 VM은 **myAvailabilitySet** 라는 가용성 집합에 추가됩니다.
 
@@ -498,13 +502,13 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
   
 6. 설정을 검토한 다음, **만들기** 를 선택합니다.
 
-7. 1~8단계에 따라 다음 값 및 **myVM1** 과 동일한 그 외의 모든 설정을 사용하여 추가 VM을 하나 만듭니다.
+7. 1~8단계에 따라 다음 값 및 **myVM1** 과 동일한 다른 모든 설정을 사용하여 두 개의 추가 VM을 만듭니다.
 
-    | 설정 | VM 2 |
-    | ------- | ----- |
-    | Name |  **myVM2** |
-    | 가용성 집합| **myAvailabilitySet** 을 선택합니다. |
-    | 네트워크 보안 그룹 | 기존 **myNSG** 를 선택합니다.|
+    | 설정 | VM 2 | VM 3 |
+    | ------- | ----- | ---- |
+    | Name |  **myVM2** | **myVM3** |
+    | 가용성 집합 | **myAvailabilitySet** 을 선택합니다. | **myAvailabilitySet** 을 선택합니다. |
+    | 네트워크 보안 그룹 | 기존 **myNSG** 를 선택합니다. | 기존 **myNSG** 를 선택합니다. |
 
 ### <a name="add-virtual-machines-to-the-backend-pool"></a>백 엔드 풀에 가상 머신 추가
 
@@ -518,7 +522,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 4. **가상 머신** 섹션에서 **+ 추가** 를 선택합니다.
 
-5. **myVM1** 및 **myVM2** 옆에 있는 확인란을 선택합니다.
+5. **myVM1**, **myVM2** 및 **myVM3** 옆에 있는 확인란을 선택합니다.
 
 6. **추가** 를 선택합니다.
 
@@ -598,7 +602,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
    ```
 8. **myVM1** 이 포함된 Bastion 세션을 닫습니다.
 
-9. 1~6단계를 반복하여 **myVM2** 에 IIS 및 업데이트된 iisstart.htm 파일을 설치합니다.
+9. 1~6단계를 반복하여 **myVM2** 및 **myVM3** 에 IIS 및 업데이트된 iisstart.htm 파일을 설치합니다.
 
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
@@ -630,7 +634,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 이 빠른 시작에서 관련 정보는 다음과 같습니다.
 
 * Azure 표준 또는 기본 내부 부하 분산 장치를 만들었습니다.
-* 2개의 VM을 부하 분산 장치에 연결했습니다.
+* 세 개의 VM을 부하 분산 장치에 연결했습니다.
 * 부하 분산 장치 트래픽 규칙, 상태 프로브를 구성한 다음, 부하 분산 장치를 테스트했습니다. 
 
 Azure Load Balancer에 대해 자세히 알아보려면 계속 진행하세요.

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/24/2020
+ms.date: 12/17/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 01f61eac31c388cd0bf8a857beb7a10944187c6b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1814555f738f37523c5b23ae729bf20bff62e1f9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027903"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679525"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Azure Cognitive Search란?
 
@@ -25,8 +25,8 @@ Cognitive Search 서비스를 만들 때 다음을 수행합니다.
 + 인덱싱 및 쿼리 실행을 수행하는 검색 엔진
 + 사용자가 만들고 관리하는 검색 인덱스의 영구적 스토리지
 + 간단한 쿼리에서 복잡한 쿼리를 작성하기 위한 쿼리 언어
-+ AI 중심 분석, 이미지, 원시 텍스트, 애플리케이션 파일 중에서 검색 가능한 콘텐츠 만들기
-+ 검색 인덱서를 통해 Azure 데이터와 통합, 데이터 가져오기 및 새로 고침 자동화
++ [AI 기반 강화](cognitive-search-concept-intro.md), 이미지, 원시 텍스트, 애플리케이션 파일 중에서 검색 가능한 콘텐츠 만들기
++ 데이터, 기계 학습/AI 및 보안을 위해 다른 Azure 서비스와 통합
 
 구조적으로 검색 서비스는 인덱싱되지 않은 데이터를 포함하는 외부 데이터 저장소와 검색 인덱스에 쿼리 요청을 보내고 응답을 처리하는 클라이언트 앱 사이에 배치됩니다.
 
@@ -89,11 +89,11 @@ Azure Cognitive Search가 적합한 애플리케이션 시나리오는 다음과
 주요 장점은 다음과 같습니다.
 
 + 인덱싱 계층에서의 Azure 데이터 통합(크롤러)
-+ 중앙 관리를 위한 Azure Portal
-+ Azure 규모, 안정성 및 세계 수준의 가용성
-+ 더 쉽게 검색할 수 있도록 AI에서 원시 데이터를 처리하여 이미지의 텍스트를 포함시키거나 비정형 콘텐츠에서 패턴을 찾을 수 있습니다.
++ 외부 인터넷 보안 요구 사항을 지원하기 위한 Azure Private Link 통합
++ AI 처리와 통합하여 검색할 수 없는 콘텐츠 형식을 텍스트로 검색할 수 있도록 합니다.
 + 56개 언어로 안정적인 전체 텍스트 검색을 수행하기 위한 분석기를 사용한 언어 및 사용자 지정 분석
-+ [검색 중심 앱에 공통적인 핵심 기능](search-features-list.md): 점수 매기기, 패싯, 제안, 동의어, 지리적 검색 기능 등
++ [중요한 기능](search-features-list.md): 풍부한 쿼리 언어, 관련성 튜닝, 패싯, 자동 완성, 동의어, 지역 검색 및 결과 컴포지션.
++ Azure 규모, 안정성 및 세계 수준의 가용성
 
 Azure Cognitive Search에서 가장 광범위한 기능을 활용할 수 있는 고객에게는 온라인 카탈로그, 기간 업무 프로그램 및 문서 검색 애플리케이션이 포함됩니다.
 

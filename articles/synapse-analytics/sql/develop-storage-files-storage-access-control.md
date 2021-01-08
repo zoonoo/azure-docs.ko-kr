@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: edb1d419900147b586ba1ff257d4307b237be537
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400678"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746731"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
@@ -89,9 +89,67 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 \* SAS 토큰 및 Azure AD ID를 사용하여 방화벽으로 보호되지 않는 스토리지에 액세스할 수 있습니다.
 
-> [!IMPORTANT]
-> 방화벽으로 보호되는 스토리지에 액세스하는 경우 관리 ID만 사용할 수 있습니다. 해당 인스턴스의 [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 [신뢰할 수 있는 Microsoft 서비스 허용... 설정](../../storage/common/storage-network-security.md#trusted-microsoft-services) 및 명시적으로 [Azure 역할 할당](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)이 필요합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다.
->
+
+### <a name="querying-firewall-protected-storage"></a>방화벽으로 보호된 스토리지 쿼리
+
+방화벽으로 보호되는 스토리지에 액세스하는 경우 **사용자 ID** 또는 **관리 ID** 를 사용할 수 있습니다.
+
+#### <a name="user-identity"></a>사용자 ID
+
+사용자 ID를 통해 방화벽으로 보호된 스토리지에 액세스하려면 PowerShell 모듈 Az. Storage를 사용할 수 있습니다.
+#### <a name="configuration-via-powershell"></a>PowerShell을 통한 구성
+
+이러한 단계에 따라 스토리지 계정 방화벽을 구성하고 Synapse 작업 영역에 대한 예외를 추가합니다.
+
+1. PowerShell 열기 또는 [PowerShell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true )
+2. 업데이트된 Az를 설치합니다. 스토리지 모듈: 
+    ```powershell
+    Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    ```
+    > [!IMPORTANT]
+    > 3\.0.1 이상 버전을 사용해야 합니다. 다음 명령을 실행하여 Az. Storage 버전을 확인할 수 있습니다.  
+    > ```powershell 
+    > Get-Module -ListAvailable -Name  Az.Storage | select Version
+    > ```
+    > 
+
+3. Azure 테넌트에 연결: 
+    ```powershell
+    Connect-AzAccount
+    ```
+4. PowerShell에서 변수 정의: 
+    - 리소스 그룹 이름 - Synapse 작업 영역 개요의 Azure Portal에서 찾을 수 있습니다.
+    - 계정 이름 - 방화벽 규칙에 의해 보호되는 스토리지 계정의 이름입니다.
+    - 테넌트 ID - 테넌트 정보에 있는 Azure Active Directory의 Azure Portal에서 찾을 수 있습니다.
+    - 리소스 ID - Synapse 작업 영역 개요의 Azure Portal에서 찾을 수 있습니다.
+
+    ```powershell
+        $resourceGroupName = "<resource group name>"
+        $accountName = "<storage account name>"
+        $tenantId = "<tenant id>"
+        $resourceId = "<Synapse workspace resource id>"
+    ```
+    > [!IMPORTANT]
+    > 리소스 ID가 이 템플릿과 일치하는지 확인합니다.
+    >
+    > **resourcegroups** 를 소문자로 작성하는 것이 중요합니다.
+    > 리소스 ID의 한 예: 
+    > ```
+    > /subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Synapse/workspaces/{name-of-workspace}
+    > ```
+    > 
+5. 스토리지 네트워크 규칙 추가: 
+    ```powershell
+        Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+    ```
+6. 규칙이 스토리지 계정에 적용되었는지 확인: 
+    ```powershell
+        $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+        $rule.ResourceAccessRules
+    ```
+
+#### <a name="managed-identity"></a>관리 ID
+해당 인스턴스의 [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 [신뢰할 수 있는 Microsoft 서비스 허용... 설정](../../storage/common/storage-network-security.md#trusted-microsoft-services) 및 명시적으로 [Azure 역할 할당](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)이 필요합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다.
 
 ## <a name="credentials"></a>자격 증명
 

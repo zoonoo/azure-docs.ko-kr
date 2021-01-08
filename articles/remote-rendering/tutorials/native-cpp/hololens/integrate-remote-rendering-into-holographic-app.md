@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: 56e889778e3b598dc4ded5f64eef20101c542b6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 44c80703466f91ccdfa33934efa0a05e699fd5de
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207515"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724394"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>자습서: Hololens Holographic 앱에 Remote Rendering 통합
 
@@ -30,7 +30,7 @@ ms.locfileid: "92207515"
 
 이 자습서에는 다음이 필요합니다.
 
-* 계정 정보(계정 ID, 계정 키, 구독 ID). Azure 계정이 없는 경우 [계정을 만듭니다](../../../how-tos/create-an-account.md).
+* 계정 정보(계정 ID, 계정 키, 계정 도메인, 구독 ID). Azure 계정이 없는 경우 [계정을 만듭니다](../../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0[(다운로드)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * 최신 버전의 Visual Studio 2019[(다운로드)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * [혼합 현실용 Visual Studio 도구](/windows/mixed-reality/install-the-tools). 특히, 다음 *워크로드* 설치는 필수입니다.
@@ -169,7 +169,8 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         RR::AzureFrontendAccountInfo init;
         init.AccountId = "00000000-0000-0000-0000-000000000000";
         init.AccountKey = "<account key>";
-        init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to your region>
+        init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+        init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
         m_modelURI = "builtin://Engine";
         m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
 
@@ -220,7 +221,7 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
 
 코드는 나머지 상태 머신 코드와 함께 다음 단락에서 구현되는 멤버 함수 `SetNewSession` 및 `SetNewState`를 호출합니다.
 
-자격 증명은 샘플에서 하드 코딩되며 [계정 ID, 계정 키](../../../how-tos/create-an-account.md#retrieve-the-account-information) 및 [도메인](../../../reference/regions.md)을 제 위치에 입력해야 합니다.
+자격 증명은 샘플에서 하드 코딩되며 [계정 ID, 계정 키, 계정 도메인](../../../how-tos/create-an-account.md#retrieve-the-account-information) 및 [원격 렌더링 도메인](../../../reference/regions.md)을 제 위치에 입력해야 합니다.
 
 소멸자 본문의 끝에서 초기화 취소를 대칭적이고 역순으로 수행합니다.
 
