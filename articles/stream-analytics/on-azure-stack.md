@@ -2,18 +2,17 @@
 title: Azure Stack에서 Azure Stream Analytics 실행 (미리 보기)
 description: Azure Stream Analytics edge 작업을 만들고 IoT Edge 런타임을 통해 Azure Stack 허브에 배포 합니다.
 ms.service: stream-analytics
-author: raan
+author: an-emma
 ms.author: raan
-ms.reviewer: mamccrea
 ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 21cf432576829b575d70a94227f28df373a4d899
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3463b3eae96c0a65206023ed0f21efe44294d4eb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126161"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020131"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Azure Stack에서 Azure Stream Analytics 실행 (미리 보기)
 
@@ -96,7 +95,7 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
    > [!div class="mx-imgBorder"]
    > [![작업 저장소 계정 설정 ](media/on-azure-stack/storage-account-settings.png)](media/on-azure-stack/storage-account-settings.png#lightbox)
 3. **작업 토폴로지** 아래에서 **입력** 을 선택 하 고 **스트림 입력을 추가 합니다.**
-4. 드롭다운 목록에서 **IoT Hub** , **Event Hub** 또는 **Edge Hub** 를 선택 합니다. 
+4. 드롭다운 목록에서 **IoT Hub**, **Event Hub** 또는 **Edge Hub** 를 선택 합니다. 
 5. 입력이 이벤트 허브 이거나 Azure Stack Hub 구독의 IoT Hub 경우 아래와 같이 정보를 수동으로 입력 하세요.
 
    #### <a name="event-hub"></a>이벤트 허브
@@ -104,7 +103,7 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
    | 필드 | 값 |
    | --- | --- |
    | 입력 별칭 | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다. |
-   | Service Bus 네임스페이스 | 네임 스페이스는 메시징 엔터티 집합에 대 한 컨테이너입니다. 새 이벤트 허브를 만들 때 네임스페이스도 만듭니다. (예: *sb:// <Event Hub Name> . eventhub.shanghai.azurestack.corp.microsoft.com* ) |
+   | Service Bus 네임스페이스 | 네임 스페이스는 메시징 엔터티 집합에 대 한 컨테이너입니다. 새 이벤트 허브를 만들 때 네임스페이스도 만듭니다. (예: *sb:// <Event Hub Name> . eventhub.shanghai.azurestack.corp.microsoft.com*) |
    | 이벤트 허브 이름 | 입력으로 사용할 이벤트 허브의 이름입니다. |
    | 이벤트 허브 정책 이름 | 이벤트 허브에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 허브 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
    | 이벤트 허브 정책 키 | 이벤트 허브에 대 한 액세스 권한을 부여 하는 데 사용 되는 공유 액세스 키입니다. 이벤트 허브 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. 이벤트 허브 설정에서 찾을 수 있습니다. |
@@ -119,7 +118,7 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
    | 필드 | 값 |
    | --- | --- |
    | 입력 별칭 | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다. |
-   | IoT Hub | 입력으로 사용할 IoT Hub의 이름입니다. (예: *<IoT Hub Name> . shanghai.azurestack.corp.microsoft.com* ) |
+   | IoT Hub | 입력으로 사용할 IoT Hub의 이름입니다. (예:*<IoT Hub Name> . shanghai.azurestack.corp.microsoft.com*) |
    | 공유 액세스 정책 이름 | IoT Hub에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
    | 공유 액세스 정책 키 | IoT Hub에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. IoT Hub 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
    | 소비자 그룹 (선택 사항) | 각 Stream Analytics 작업마다 서로 다른 소비자 그룹을 사용하는 것이 좋습니다. 소비자 그룹은 IoT Hub에서 데이터를 수집하는 데 사용됩니다. Stream Analytics에서는 달리 지정하지 않는 한 $Default 소비자 그룹을 사용합니다. |
@@ -138,7 +137,7 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
    | 필드 | 값 |
    | --- | --- |
    | 출력 별칭 | 쿼리에서 쿼리 출력을 이 이벤트 허브로 보내는 데 사용되는 식별 이름입니다. |
-   | Service Bus 네임스페이스 | 메시징 엔터티 세트에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 service bus 네임 스페이스도 만들었습니다. (예: *sb:// <Event Hub Name> . eventhub.shanghai.azurestack.corp.microsoft.com* ) |
+   | Service Bus 네임스페이스 | 메시징 엔터티 세트에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 service bus 네임 스페이스도 만들었습니다. (예: *sb:// <Event Hub Name> . eventhub.shanghai.azurestack.corp.microsoft.com*) |
    | 이벤트 허브 이름 | 이벤트 허브 출력의 이름입니다. |
    | 이벤트 허브 정책 이름 | 이벤트 허브의 구성 탭에서 만들 수 있는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
    | 이벤트 허브 정책 키 | 이벤트 허브 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. |
@@ -151,7 +150,7 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
    | 필드 | 값 |
    | --- | --- |
    | 출력 별칭 | 쿼리 출력을 이 Blob Storage로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
-   | 스토리지 계정 | 출력을 전송 하는 저장소 계정의 이름입니다. (예: *<Storage Account Name> . blob.shanghai.azurestack.corp.microsoft.com* ) |
+   | 스토리지 계정 | 출력을 전송 하는 저장소 계정의 이름입니다. (예: *<Storage Account Name> . blob.shanghai.azurestack.corp.microsoft.com*) |
    | Storage 계정 키 | 스토리지 계정과 연결된 비밀 키입니다. Blob Storage 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
 
 > [!NOTE]

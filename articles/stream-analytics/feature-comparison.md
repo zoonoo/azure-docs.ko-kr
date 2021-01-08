@@ -1,17 +1,17 @@
 ---
 title: Azure Stream Analytics 기능 비교
 description: 이 문서에서는 Azure Portal, Visual Studio 및 Visual Studio Code에서 Azure Stream Analytics 클라우드 및 IoT Edge 작업에 대해 지원 되는 기능을 비교 합니다.
-author: mamccrea
-ms.author: mamccrea
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 2fbaaac0095622f14d5bc0033b7787bec8ec2fa2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018290"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020539"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Azure Stream Analytics 기능 비교
 
@@ -42,7 +42,7 @@ Azure Stream Analytics를 사용 하 여 클라우드 및 IoT Edge [Azure Portal
 |리소스 로그     |예         |아니요         |아니요         |
 |사용자 지정 메시지 속성     |예         |예         |아니요       |
 |C # 사용자 지정 코드 함수 및 역직렬 변환기|읽기 전용 모드|예|아니요|
-|JavaScript UDF 및 UDA     |예         |예         |Windows만         |
+|JavaScript UDF 및 UDA     |예         |예         |Windows만 해당         |
 |Machine Learning Service     |예        |예         |아니요         |
 |Azure Machine Learning Studio (클래식)|예. 하지만 쿼리를 테스트할 수 없습니다.        |예 |아니요         |
 |호환성 수준     |1.0</br>1.1</br>1.2 (기본값)         |1.0</br>1.1</br>1.2 (기본값)           |1.0</br>1.1</br>1.2 (기본값)           |

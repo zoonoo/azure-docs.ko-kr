@@ -3,16 +3,15 @@ title: Visual Studio에서 로컬로 테스트 Azure Stream Analytics 쿼리
 description: 이 문서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 쿼리를 로컬로 테스트하는 방법을 설명합니다.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: a921e51a3c63828602e7e21bfc96f507649236a5
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: b856826761f355e896cae48aa4a6fb62f5947e0b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682835"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019927"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 

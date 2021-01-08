@@ -1,17 +1,17 @@
 ---
 title: Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙
 description: 이 문서에서는 Azure Stream Analytics를 사용하여 Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙이 있는 경고 솔루션을 얻는 방법을 설명합니다.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/30/2018
-ms.openlocfilehash: 215835bf7f1e6676adba6541da70dcb86fc3500c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f9d132084f0254486be533daea6b54239f4e450
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039044"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019978"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙 처리
 이 문서에서는 Azure Stream Analytics를 사용하여 Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙을 사용하는 경고 솔루션을 얻는 방법을 설명합니다.
@@ -34,10 +34,10 @@ Stream Analytics 작업에 대한 참조 데이터 입력을 사용하여 경고
 
 쿼리에서 각 deviceId 및 deviceId 아래의 각 metricName에 대해 GROUP BY로 0~5 차원을 구성할 수 있습니다. 해당하는 필터 값이 있는 이벤트만 그룹화됩니다. 일단 그룹화되면 Min, Max, Avg의 기간 이동 집계가 60초 연속 기간에 대해 계산됩니다. 그런 후 집계된 값에 대한 필터가 참조에 구성된 임계값에 따라 계산되어 경고 출력 이벤트를 생성합니다.
 
-예를 들어, **rules**라는 참조 데이터 입력과, **metrics**라는 스트리밍 데이터 입력이 있는 Stream Analytics 작업이 있다고 가정합니다. 
+예를 들어, **rules** 라는 참조 데이터 입력과, **metrics** 라는 스트리밍 데이터 입력이 있는 Stream Analytics 작업이 있다고 가정합니다. 
 
 ## <a name="reference-data"></a>참조 데이터
-이 예제에서 참조 데이터는 임계값 기반 규칙이 표시되는 방법을 보여줍니다. JSON 파일은 참조 데이터를 포함하고 Azure Blob Storage에 저장되며, 해당 Blob Storage **rules**라는 참조 데이터 입력으로 사용됩니다. 스트리밍 작업을 중지하거나 시작하지 않고도, 시간이 지남에 따라 이 JSON 파일을 덮어쓰고 규칙 구성을 바꿀 수 있습니다.
+이 예제에서 참조 데이터는 임계값 기반 규칙이 표시되는 방법을 보여줍니다. JSON 파일은 참조 데이터를 포함하고 Azure Blob Storage에 저장되며, 해당 Blob Storage **rules** 라는 참조 데이터 입력으로 사용됩니다. 스트리밍 작업을 중지하거나 시작하지 않고도, 시간이 지남에 따라 이 JSON 파일을 덮어쓰고 규칙 구성을 바꿀 수 있습니다.
 
 - 예제 규칙은 CPU가 `90`% 값을 초과할 때(평균보다 크거나 같음) 조정 가능한 경고를 나타내는 데 사용됩니다. `value` 필드는 필요에 따라 구성할 수 있습니다.
 - 규칙에는 나중에 `AVGGREATEROREQUAL`의 쿼리 구문에서 동적으로 해석되는 **연산자** 필드가 있습니다. 
@@ -71,7 +71,7 @@ Stream Analytics 작업에 대한 참조 데이터 입력을 사용하여 경고
 ```
 
 ## <a name="example-streaming-query"></a>스트리밍 쿼리 예제
-이 예제 Stream Analytics 쿼리는 위 예제의 **rules** 참조 데이터를 **metrics**라는 데이터의 입력 스트림에 조인합니다.
+이 예제 Stream Analytics 쿼리는 위 예제의 **rules** 참조 데이터를 **metrics** 라는 데이터의 입력 스트림에 조인합니다.
 
 ```sql
 WITH transformedInput AS

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d04f2d1717e1d95f8bcafb8f72f2b0a2f83a248
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 6da053bb04e5ee3f2b2b307c382f2695663669e5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976829"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020658"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -87,6 +87,14 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 >* 그룹 멤버 자격을 관리할 수 있는 보안 그룹 및 Microsoft 365 그룹 소유자입니다. 해당 그룹은 중요한 프라이빗 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
 >* Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
 >* 중요한 프라이빗 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자.
+
+### <a name="attack-payload-author"></a>[공격 페이로드 작성자](#attack-payload-author-permissions)
+
+이 역할의 사용자는 공격 페이로드를 만들 수 있지만 실제로 시작 하거나 예약할 수는 없습니다. 그러면 테 넌 트의 모든 관리자가이를 사용 하 여 시뮬레이션을 만들 수 있습니다.
+
+### <a name="attack-simulation-administrator"></a>[공격 시뮬레이션 관리자](#attack-simulation-administrator-permissions)
+
+이 역할의 사용자는 공격 시뮬레이션 생성, 시뮬레이션 시작/예약, 시뮬레이션 결과 검토의 모든 측면을 만들고 관리할 수 있습니다. 이 역할의 멤버에 게는 테 넌 트의 모든 시뮬레이션에 대 한이 액세스 권한이 있습니다.
 
 ### <a name="azure-devops-administrator"></a>[Azure DevOps 관리자](#azure-devops-administrator-permissions)
 
@@ -489,6 +497,10 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 
 이 역할의 사용자는 Microsoft Teams 및 비즈니스용 Skype 관리 센터와 해당하는 PowerShell 모듈을 통해 Microsoft Teams 워크로드의 모든 측면을 관리할 수 있습니다. 여기에는 다른 영역 중 전화 통신, 메시징, 회의 및 팀 자체와 관련된 모든 관리 도구가 포함됩니다. 이 역할은 모든 Microsoft 365 그룹을 생성 및 관리 하 고, 지원 티켓을 관리 하 고, 서비스 상태를 모니터링 하는 기능을 추가로 부여 합니다.
 
+### <a name="usage-summary-reports-reader"></a>[사용 요약 보고서 판독기](#usage-summary-reports-reader-permissions)
+
+이 역할을 가진 사용자는 사용 및 생산성 점수를 얻기 위해 Microsoft 365 관리 센터에서 테 넌 트 수준 집계 데이터 및 관련 정보에 액세스할 수 있지만 사용자 수준 정보 또는 정보에는 액세스할 수 없습니다. 두 보고서에 대 한 Microsoft 365 관리 센터에서 테 넌 트 수준 집계 된 데이터와 사용자 수준 세부 정보를 구분 합니다. 이 역할은 고객과 법률 팀에서 요청 된 개별 사용자 식별 가능 데이터에 대 한 추가 보호 계층을 제공 합니다. 
+
 ### <a name="user-administrator"></a>[사용자 관리자](#user-administrator-permissions)
 
 이 역할을 가진 사용자는 사용자를 만들고 몇 가지 제한 사항이 있는 사용자의 모든 측면을 관리할 수 있습니다 (표 참조). 암호 만료 정책을 업데이트할 수 있습니다. 또한 이 역할의 사용자는 모든 그룹을 만들고 관리할 수 있습니다. 이 역할은 사용자 보기를 만들고 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링하는 기능도 포함합니다. 사용자 관리자는 대부분의 관리자 역할에 속한 사용자의 일부 사용자 속성을 관리할 권한이 없습니다. 이 역할의 사용자는 MFA를 관리할 권한이 없습니다. 다음 표에는 이 제한이 적용되지 않는 예외적인 역할이 나열되어 있습니다.
@@ -591,6 +603,25 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 | microsoft.directory/users/password/update | Microsoft 365 조직의 모든 사용자에 대 한 암호를 업데이트 합니다. 자세한 내용은 온라인 설명서를 참조하세요. |
+
+### <a name="attack-payload-author-permissions"></a>공격 페이로드 작성자 권한
+
+관리자가 나중에 배포할 수 있는 공격 페이로드를 만들 수 있습니다.
+
+| **actions** | **설명** |
+| --- | --- |
+| protectionCenter/attackSimulator/office365/allProperties/Allproperties | 공격 시뮬레이터에서 공격 페이로드를 만들고 관리 합니다. |
+| protectionCenter/attackSimulator/office365/allProperties/read | 공격 시뮬레이션, 응답 및 관련 교육에 대 한 보고서를 읽습니다. |
+
+### <a name="attack-simulation-administrator-permissions"></a>공격 시뮬레이션 관리자 권한
+
+공격 시뮬레이션 캠페인의 모든 측면을 만들고 관리할 수 있습니다.
+
+| **actions** | **설명** |
+| --- | --- |
+| protectionCenter/attackSimulator/office365/allProperties/Allproperties | 공격 시뮬레이터에서 공격 페이로드를 만들고 관리 합니다. |
+| protectionCenter/attackSimulator/office365/allProperties/read | 공격 시뮬레이션, 응답 및 관련 교육에 대 한 보고서를 읽습니다. |
+| office365. protectionCenter/attackSimulator/시뮬레이션/allProperties/Allproperties | 공격 시뮬레이터에서 공격 시뮬레이션 템플릿을 만들고 관리 합니다. |
 
 ### <a name="azure-devops-administrator-permissions"></a>Azure DevOps 개발자 권한
 
@@ -1876,6 +1907,14 @@ Microsoft Teams 서비스를 관리할 수 있습니다.
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft 팀/allEntities/Allentities/Allentities | 팀의 모든 리소스를 관리 합니다. |
 
+### <a name="usage-summary-reports-reader-permissions"></a>사용 요약 보고서 읽기 권한자 권한
+M365 사용 분석 및 생산성 점수에서 테 넌 트 수준 집계만 볼 수 있습니다.
+
+| **actions** | **설명** |
+| --- | --- |
+| office365/allEntities/표준/읽기 | 테 넌 트 수준 집계 Office 365 사용 보고서를 읽습니다. |
+| microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다.|
+
 ### <a name="user-administrator-permissions"></a>사용자 관리자 권한
 제한된 관리자의 암호 재설정을 비롯하여 사용자 및 그룹의 모든 측면을 관리할 수 있습니다.
 
@@ -1922,6 +1961,8 @@ Graph displayName | Azure Portal 표시 이름 | directoryRoleTemplateId
 애플리케이션 관리자 | 애플리케이션 관리자 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 애플리케이션 개발자 | 애플리케이션 개발자 | CF1C38E5-3621-4004-A7CB-879624DCED7C
 인증 관리자 | 인증 관리자 | c4e39bd9-1100-46d3-8c65-fb160da0071f
+공격 페이로드 작성자 | 공격 페이로드 작성자 | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
+공격 시뮬레이션 관리자 | 공격 시뮬레이션 관리자 | c430b396-e693-46cc-96f3-db01bf8bb62a
 Azure DevOps 관리자 | Azure DevOps 관리자 | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection 관리자 | Azure Information Protection 관리자 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C IEF 키 세트 관리자 | B2C IEF 키 세트 관리자 | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1985,6 +2026,7 @@ Teams 통신 지원 엔지니어 | Teams 통신 지원 엔지니어 | f70938a0-f
 Teams 통신 지원 전문가 | Teams 통신 지원 전문가 | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams 디바이스 관리자 | Teams 디바이스 관리자 | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Teams 서비스 관리자 | Teams 서비스 관리자 | 69091246-20e8-4a56-aa4d-066075b2a7a8
+사용 요약 보고서 판독기 | 사용 요약 보고서 판독기 | 75934031-6c7e-415a-99d7-48dbd49e875e
 사용자 | 사용하면 안되므로 표시되지 않습니다. | a0b1b346-4d3e-4e8b-98f8-753987be4970
 사용자 계정 관리자 | 사용자 관리자 | fe930be7-5e62-47db-91af-98c3a49a38b1
 작업 공간 디바이스 연결 | 사용되지 않음 | c34f683f-4d5a-4403-affd-6615e00e3a7f

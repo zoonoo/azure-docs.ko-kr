@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: aefa97065cc1e6f227e4fe5720383b04c026cbeb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e93a9b7ba2c7f801761d33ccacfa3ecdb3c48503
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494208"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019791"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Network Watcher로 연결 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "96494208"
 
 연결 문제 해결을 사용하여 가상 머신에서 지정된 엔드포인트로 직접 TCP 연결을 설정하는 방법을 알아봅니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서에서는 사용자에게 다음 리소스가 있는 것으로 가정합니다.
 

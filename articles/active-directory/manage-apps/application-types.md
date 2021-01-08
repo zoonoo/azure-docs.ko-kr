@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/11/2017
+ms.topic: reference
+ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: 49dd8b65db771a182138f13218adda2f0e7f7396
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 18e29ce8bf744cabb31c5634c9b0ca547bca5acc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858232"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020675"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Id 관리를 위해 Azure AD 테 넌 트를 사용 하 여 앱 보기
 [응용 프로그램 관리에 대 한 빠른 시작 시리즈](view-applications-portal.md) 는 기본 사항을 안내 합니다. 여기서는 id 관리를 위해 Azure AD 테 넌 트를 사용 하 여 모든 앱을 보는 방법을 알아봅니다. 이 문서는 다이브 앱의 유형을 약간 자세히 설명 합니다.

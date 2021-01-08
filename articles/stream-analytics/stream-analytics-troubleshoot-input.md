@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics의 입력 문제 해결
 description: 이 문서에서는 Azure Stream Analytics 작업에서 입력 연결의 문제를 해결하는 기술에 대해 설명합니다.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2d7171c9ec1e60447fb3342caa72098fb2eb9337
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123288"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019910"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
 

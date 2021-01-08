@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
-ms.openlocfilehash: b733e90b69be4e2bd458be5486564747ed4cca78
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 448b3d93ed58e4cfc73da576f0c5871600400ac6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018874"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019842"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>GitHub Actions를 사용하여 LUIS 앱 개발에 DevOps 적용
 
@@ -29,7 +29,7 @@ LUIS에 대 한 DevOps 및 소프트웨어 엔지니어링 모범 사례를 구�
 * **템플릿 리포지토리를 복제** 합니다. 사용자 고유의 GitHub 리포지토리에 템플릿을 복사 합니다.
 * **LUIS 리소스 구성** -Azure에서 연속 통합 워크플로에 사용 되는 [LUIS 작성 및 예측 리소스](./luis-how-to-azure-subscription.md) 를 만듭니다.
 * **Ci/cd 워크플로 구성** -CI/cd 워크플로에 대 한 매개 변수를 구성 하 고 [GitHub 비밀](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)에 저장 합니다.
-* **["Dev inner loop"](https://mitchdenny.com/the-inner-loop/) 를 단계별로 안내 합니다** . 개발자는 개발 분기에서 작업 하는 동안 샘플 LUIS 앱을 업데이트 하 고, 업데이트를 테스트 한 후 변경 내용을 제안 하 고 검토 승인을 검색 하기 위해 끌어오기 요청을 발생 시킵니다.
+* **["Dev inner loop"](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow) 를 단계별로 안내 합니다** . 개발자는 개발 분기에서 작업 하는 동안 샘플 LUIS 앱을 업데이트 하 고, 업데이트를 테스트 한 후 변경 내용을 제안 하 고 검토 승인을 검색 하기 위해 끌어오기 요청을 발생 시킵니다.
 * **CI/CD 워크플로 실행** -GitHub 작업을 사용 하 여 [LUIS 앱을 빌드 및 테스트 하는 연속 통합 워크플로를](luis-concept-devops-automation.md) 실행 합니다.
 * **자동화 된 테스트 수행** - [LUIS 앱에 대 한 자동화 된 일괄 처리 테스트](luis-concept-devops-testing.md) 를 수행 하 여 앱의 품질을 평가 합니다.
 * **LUIS app** -LUIS 앱을 게시 하는 [지속적인 업데이트 (CD) 작업](luis-concept-devops-automation.md#continuous-delivery-cd) 을 배포 합니다.

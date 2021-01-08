@@ -1,18 +1,17 @@
 ---
 title: Azure Stream Analytics의 시간 처리 이해
 description: 최적 시작 시간을 선택하고, 지연 이벤트 및 조기 이벤트를 처리하는 방법과 Azure Stream Analytics의 시간 처리 메트릭에 대해 알아봅니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: c8f40808834c64ad74673f1c5f0c19892607fdcc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f9dbdb3907b376df8de988730c6c48ed01bfccd0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127476"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019944"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Azure Stream Analytics의 시간 처리 이해
 
@@ -22,11 +21,11 @@ ms.locfileid: "93127476"
 
 논의의 틀을 더 효율적으로 구성하기 위해 몇 가지 배경 개념을 정의하겠습니다.
 
-- **이벤트 시간** : 원래 이벤트가 발생한 시간입니다. 예를 들어 고속 도로에서 움직이는 자동차가 요금소 창구에 접근한 시간이 있습니다.
+- **이벤트 시간**: 원래 이벤트가 발생한 시간입니다. 예를 들어 고속 도로에서 움직이는 자동차가 요금소 창구에 접근한 시간이 있습니다.
 
-- **처리 시간** : 이벤트가 처리 시스템에 도달하여 관찰되는 시간입니다. 예를 들어 요금소 창구 센서에서 자동차를 확인하고 컴퓨터 시스템에서 데이터를 처리하는 데 몇 분이 걸리는 경우가 있습니다.
+- **처리 시간**: 이벤트가 처리 시스템에 도달하여 관찰되는 시간입니다. 예를 들어 요금소 창구 센서에서 자동차를 확인하고 컴퓨터 시스템에서 데이터를 처리하는 데 몇 분이 걸리는 경우가 있습니다.
 
-- **워터마크** : 스트리밍 프로세서에 들어오는 포인트 이벤트까지 나타내는 이벤트 시간 표식입니다. 워터마크를 사용하면 시스템에서 이벤트 수집에 대한 명확한 진행률을 표시할 수 있습니다. 스트림의 특성에 따라 들어오는 이벤트 데이터가 중지되지 않으므로 워터마크는 스트림의 특정 시점까지의 진행률을 나타냅니다.
+- **워터마크**: 스트리밍 프로세서에 들어오는 포인트 이벤트까지 나타내는 이벤트 시간 표식입니다. 워터마크를 사용하면 시스템에서 이벤트 수집에 대한 명확한 진행률을 표시할 수 있습니다. 스트림의 특성에 따라 들어오는 이벤트 데이터가 중지되지 않으므로 워터마크는 스트림의 특정 시점까지의 진행률을 나타냅니다.
 
    워터마크는 중요한 개념입니다. 워터마크를 사용하면 Stream Analytics에서 시스템이 취소할 필요가 없는 완전하고, 정확하며, 반복 가능한 결과를 생성할 수 있는 시기를 결정할 수 있습니다. 처리는 예측 가능하고 반복 가능한 방식으로 수행할 수 있습니다. 예를 들어 일부 오류 처리 조건에 대해 다시 계산해야 하는 경우 워터마크는 안전한 시작 지점과 종료 지점입니다.
 

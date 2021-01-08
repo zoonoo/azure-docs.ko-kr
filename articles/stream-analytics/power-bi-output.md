@@ -1,18 +1,17 @@
 ---
 title: Azure Stream Analytics에서 출력 Power BI
 description: 이 문서에서는 Azure Stream Analytics Power BI에 데이터를 출력 하는 방법을 설명 합니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: cc48d26c217f52dfa52ac6cd3d7f18a806c93927
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740983"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020063"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Power BI
 

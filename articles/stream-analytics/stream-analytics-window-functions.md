@@ -3,16 +3,15 @@ title: Azure Stream Analytics 창 함수 소개
 description: 이 문서에서는 Azure Stream Analytics 작업에 사용되는 네 개의 창 함수(연속, 도약, 슬라이딩, 세션)를 설명합니다.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 4765c0c43cfd9760eb5b4392604bfaeedc69c388
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: feea44741fbc2c81d781f0bba12b280abdb9f68a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511443"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020251"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics 창 함수 소개
 

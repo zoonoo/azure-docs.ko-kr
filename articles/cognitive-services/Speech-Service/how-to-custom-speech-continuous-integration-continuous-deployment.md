@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d37fca06a3d2eafa0af9e31c3a30ac66be5404f0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591619"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020607"
 ---
 # <a name="cicd-for-custom-speech"></a>Custom Speech용 CI/CD
 
@@ -83,7 +83,7 @@ Custom Speech에 대해 이미 구현 된 DevOps 솔루션의 경우 [음성 dev
 [Speech DevOps 템플릿 리포지토리](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) 는 다음에 대 한 인프라 및 세부 지침을 제공 합니다.
 
 - 템플릿 리포지토리를 GitHub 계정에 복사한 다음, GitHub 작업 CI/CD 워크플로에 대 한 Azure 리소스 및 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) 를 만듭니다.
-- "[Dev inner loop](https://mitchdenny.com/the-inner-loop/)"를 살펴봅니다. 기능 분기에서 학습 및 테스트 데이터를 업데이트 하 고, 임시 개발 모델을 사용 하 여 변경 내용을 테스트 하 고, 변경 내용을 제안 하 고 검토 하는 끌어오기 요청을 발생 시킵니다.
+- "[Dev inner loop](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)"를 살펴봅니다. 기능 분기에서 학습 및 테스트 데이터를 업데이트 하 고, 임시 개발 모델을 사용 하 여 변경 내용을 테스트 하 고, 변경 내용을 제안 하 고 검토 하는 끌어오기 요청을 발생 시킵니다.
 - *주* 에 대 한 끌어오기 요청에서 학습 데이터를 업데이트 하는 경우 GITHUB 작업 CI 워크플로를 사용 하 여 모델을 학습 합니다.
 - 자동화 된 정확도 테스트를 수행 하 여 모델의 WER ( [오류 요금](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) )를 설정 합니다. Azure Blob에 테스트 결과를 저장 합니다.
 - WER이 개선 되 면 CD 워크플로를 실행 하 여 끝점을 만듭니다.

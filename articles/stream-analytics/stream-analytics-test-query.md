@@ -1,19 +1,18 @@
 ---
 title: 샘플 데이터를 사용하여 Azure Stream Analytics 작업 테스트
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Stream Analytics 작업을 테스트하고, 입력을 샘플링하고, 샘플 데이터를 업로드하는 방법을 설명합니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: eff9103f476e6074ab46198ff8cc78588675569f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490970"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020046"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>포털에서 Azure Stream Analytics 작업 테스트
 
@@ -35,7 +34,7 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
     
    b. 선택기를 사용 하 여 **테이블** 또는 **원시** 형식으로 데이터를 볼 수 있습니다.
     
-   다. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
+   c. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
 
    다음 표는 **테이블 형식의** 데이터에 대 한 예입니다.
 

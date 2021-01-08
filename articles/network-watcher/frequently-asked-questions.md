@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2019
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 959062d493d9eb47204be2488f216b70804b3605
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e7585880b98f62f819ff344c82846c2cfb1fd620
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965768"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019825"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Azure Network Watcher에 대 한 FAQ (질문과 대답)
 [Azure Network Watcher](./network-watcher-monitoring-overview.md) 서비스는 azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구 모음을 제공 합니다. 이 문서에서는 서비스에 대 한 일반적인 질문에 답변 합니다.

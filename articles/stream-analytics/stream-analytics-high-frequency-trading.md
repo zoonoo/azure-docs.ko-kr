@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics를 사용 하는 높은 빈도 거래
 description: Azure Stream Analytics 작업에서 선형 회귀 모델 학습 및 평가를 수행하는 방법입니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e5d346a6f412b5764400a42e2bebbafec610009b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f8f7744e07abb56d825ce44d5bb30190e7e87c4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89015427"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020420"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Stream Analytics에서 자주 발생하는 거래 시뮬레이션
 SQL 언어와 JavaScript UDF(사용자 정의 함수) 및 UDA(사용자 정의 집계)를 Azure Stream Analytics에 결합하면 사용자가 고급 분석을 수행할 수 있습니다. 고급 분석에는 온라인 기계 학습 교육 및 점수 매기기와 상태 저장 프로세스 시뮬레이션이 포함될 수 있습니다. 이 문서는 자주 발생하는 거래 시나리오에서 연속 학습 및 평가를 수행하는 Azure Stream Analytics 작업에서 선형 회귀를 수행하는 방법을 설명합니다.
@@ -61,7 +60,7 @@ socket.On(Socket.EVENT_CONNECT, () =>
 ```
 
 >[!NOTE]
->이벤트의 타임스탬프는 epoch 시간으로 **lastUpdated**입니다.
+>이벤트의 타임스탬프는 epoch 시간으로 **lastUpdated** 입니다.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>자주 발생하는 거래에 대한 예측 모델
 데모의 목적을 위해 Darryl [Shen에서 설명](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html)하는 선형 모델을 사용 합니다.
@@ -74,7 +73,7 @@ VOI(Volume Order Imbalance)는 현재 입찰/요청 가격과 볼륨 및 마지�
 
 이제 Azure Stream Analytics 작업에서 학습 및 예측 작업을 설명하겠습니다.
 
-먼저 입력이 정리됩니다. Epoch 시간은 **DATEADD**를 통해 날짜/시간으로 변환됩니다. 쿼리에 실패하지 않고 데이터 형식을 강제 변환하는 데 **TRY_CAST**를 사용합니다. 필드의 조작 또는 비교와 관련하여 예상치 않은 동작이 발생하지 않도록 입력 필드를 예상된 데이터 형식으로 캐스팅하는 것이 좋습니다.
+먼저 입력이 정리됩니다. Epoch 시간은 **DATEADD** 를 통해 날짜/시간으로 변환됩니다. 쿼리에 실패하지 않고 데이터 형식을 강제 변환하는 데 **TRY_CAST** 를 사용합니다. 필드의 조작 또는 비교와 관련하여 예상치 않은 동작이 발생하지 않도록 입력 필드를 예상된 데이터 형식으로 캐스팅하는 것이 좋습니다.
 
 ```SQL
 WITH
@@ -148,7 +147,7 @@ currentPriceAndVOI AS (
 ),
 ```
 
-이제 **LAG**를 다시 사용하여 2개의 연속적인 VOI 값 뒤에 10개의 연속적인 중간 가격 값을 포함하는 시퀀스를 만듭니다.
+이제 **LAG** 를 다시 사용하여 2개의 연속적인 VOI 값 뒤에 10개의 연속적인 중간 가격 값을 포함하는 시퀀스를 만듭니다.
 
 ```SQL
 shiftedPriceAndShiftedVOI AS (
@@ -243,7 +242,7 @@ model AS (
 ),
 ```
 
-현재 이벤트의 점수를 매기기 위해 이전 날짜의 모델을 사용하도록 모델과 견적을 조인하려고 합니다. 하지만 **JOIN**을 사용하는 대신, 모델 이벤트와 견적 이벤트를 **UNION**합니다. 그런 다음 하나의 일치 항목 얻을 수 있도록 **LAG**을 사용하여 이벤트를 이전 날짜의 모델과 쌍으로 연결합니다. 주말이기 때문에 3일을 거슬러 올라가야 합니다. 간단하게 **JOIN**을 사용하는 경우 모든 견적 이벤트의 세 가지 모델을 가져옵니다.
+현재 이벤트의 점수를 매기기 위해 이전 날짜의 모델을 사용하도록 모델과 견적을 조인하려고 합니다. 하지만 **JOIN** 을 사용하는 대신, 모델 이벤트와 견적 이벤트를 **UNION** 합니다. 그런 다음 하나의 일치 항목 얻을 수 있도록 **LAG** 을 사용하여 이벤트를 이전 날짜의 모델과 쌍으로 연결합니다. 주말이기 때문에 3일을 거슬러 올라가야 합니다. 간단하게 **JOIN** 을 사용하는 경우 모든 견적 이벤트의 세 가지 모델을 가져옵니다.
 
 ```SQL
 shiftedVOI AS (

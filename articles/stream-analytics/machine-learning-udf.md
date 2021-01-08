@@ -1,19 +1,18 @@
 ---
 title: Azure Machine Learning과 Azure Stream Analytics 통합
 description: 이 문서에서는 Azure Stream Analytics 작업을 Azure Machine Learning 모델과 통합하는 방법을 설명합니다.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 01c85311c9ea49be3543edee405cdd66a0659797
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: c35d5d2f63f4a7abe80a0ff19e5994013355c386
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733008"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020522"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Azure Machine Learning과 Azure Stream Analytics 통합(미리 보기)
 

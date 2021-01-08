@@ -1,18 +1,17 @@
 ---
 title: Azure Stream Analytics 지리 공간적 함수 소개
 description: 이 문서에서는 Azure Stream Analytics 작업에 사용되는 지리 공간적 함수를 설명합니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 44e445f6d1dce8193109d6b5ad1742210458e74c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8d01f43dd6e404bb8f8ae0898625ae1ea9d09fd6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130411"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020437"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Stream Analytics 지리 공간적 함수 소개
 
@@ -26,7 +25,7 @@ Azure Stream Analytics의 지리 공간적 함수를 사용하여 지리 공간�
 * 지오-펜싱
 * 셀 사이트 간 전화 추적
 
-Stream Analytics 쿼리 언어는 7개의 기본 제공 지리 공간적 함수인 **CreateLineString** , **CreatePoint** , **CreatePolygon** , **ST_DISTANCE** , **ST_OVERLAPS** , **ST_INTERSECTS** , **ST_WITHIN** 을 제공합니다.
+Stream Analytics 쿼리 언어는 7개의 기본 제공 지리 공간적 함수인 **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**, **ST_WITHIN** 을 제공합니다.
 
 ## <a name="createlinestring"></a>CreateLineString
 

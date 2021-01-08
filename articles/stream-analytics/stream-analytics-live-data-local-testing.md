@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics for Visual Studio를 사용하여 라이브 데이터 테스트
 description: 라이브 스트리밍 데이터를 사용하여 Azure Stream Analytics 작업을 로컬로 테스트하는 방법을 알아봅니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0788d8b4f659364fcedc690185c9159a24434125
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 99e9ce85bb1e59b5016e836ff16d03cb3326ec8c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123917"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020369"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Azure Stream Analytics Tools for Visual Studio를 사용하여 로컬로 라이브 데이터 테스트(미리 보기)
 

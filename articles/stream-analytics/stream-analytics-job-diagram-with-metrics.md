@@ -3,16 +3,15 @@ title: Azure Stream Analytics의 데이터 기반 디버깅
 description: 이 문서에서는 Azure Portal의 작업 다이어그램과 메트릭을 사용하여 Azure Stream Analytics 작업의 문제를 해결하는 방법에 대해 설명합니다.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: e4ee868125ee30d40ef0d9ca5a42881ad003e9a8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6d20454515088ccca87665d9b3b27c0d82c3cdf9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123985"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020403"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>작업 다이어그램을 사용하여 데이터 기반 디버그
 

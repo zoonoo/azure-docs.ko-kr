@@ -2,18 +2,18 @@
 title: Azure Stream Analytics를 사용하여 실시간 Twitter 감정 분석
 description: 이 아티클에서는 실시간 Twitter 감정 분석에 대해 Stream Analytics를 사용하는 방법을 설명합니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다.
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 0941e3d5141b5b8841f5d37e3db0d0b1b1474547
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3b321e318621c5687a2e3e5f0649985210a2d16c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019823"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019876"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 04/20/2018
+ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 362157f023f7ed4d2da81962acd32e2da968193e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6569a99ec851da478151665921e7689e1c3488f1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738790"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020216"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>가상 머신 네트워크 라우팅 문제 진단 - Azure PowerShell
 
@@ -40,7 +40,7 @@ PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -63,7 +63,7 @@ Network Watcher와의 네트워크 통신을 테스트하려면 먼저 테스트
 
 ## <a name="enable-network-watcher"></a>네트워크 감시자 사용
 
-미국 동부 지역에서 활성화된 네트워크 감시자가 이미 있는 경우 [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)를 사용하여 네트워크 감시자를 검색합니다. 다음 예에서는 *NetworkWatcherRG* 리소스 그룹에 있는 *NetworkWatcher_eastus*라는 기존 네트워크 감시자를 검색합니다.
+미국 동부 지역에서 활성화된 네트워크 감시자가 이미 있는 경우 [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)를 사용하여 네트워크 감시자를 검색합니다. 다음 예에서는 *NetworkWatcherRG* 리소스 그룹에 있는 *NetworkWatcher_eastus* 라는 기존 네트워크 감시자를 검색합니다.
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzNetworkWatcher `
@@ -94,7 +94,7 @@ Get-AzNetworkWatcherNextHop `
   -DestinationIPAddress 13.107.21.200
 ```
 
-몇 초 후에 결과는 **NextHopType**이 **인터넷**이며, **RouteTableId**가 **시스템 경로**임을 알려줍니다. 이 출력 결과를 통해 대상에 대한 유효한 경로가 있음을 알 수 있습니다.
+몇 초 후에 결과는 **NextHopType** 이 **인터넷** 이며, **RouteTableId** 가 **시스템 경로** 임을 알려줍니다. 이 출력 결과를 통해 대상에 대한 유효한 경로가 있음을 알 수 있습니다.
 
 VM에서 172.31.0.100으로 아웃바운드 통신을 테스트합니다.
 
@@ -106,7 +106,7 @@ Get-AzNetworkWatcherNextHop `
   -DestinationIPAddress 172.31.0.100
 ```
 
-반환 된 출력에는 **NextHopType**가 없고 **RouteTableId** 도 **시스템 경로** **임을 알리는** 메시지가 표시 됩니다. 이 결과를 사용하면 대상에 대한 유효한 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
+반환 된 출력에는 **NextHopType** 가 없고 **RouteTableId** 도 **시스템 경로** **임을 알리는** 메시지가 표시 됩니다. 이 결과를 사용하면 대상에 대한 유효한 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
 
 ## <a name="view-details-of-a-route"></a>경로의 세부 정보 보기
 
@@ -131,7 +131,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
      Active Default {172.16.0.0/12}         None        {}              
 ```
 
-이전 출력에서 볼 수 있듯이 **AddressPrefix**가 **0.0.0.0/0**인 경로는 **인터넷**의 다음 홉을 사용하여 다른 경로의 주소 접두사 내의 주소로 향하지 않는 모든 트래픽을 라우팅합니다. 또한 출력에서 볼 수 있듯이 172.31.0.100 주소를 포함하는 172.16.0.0/12 접두사에 대한 기본 경로가 있더라도 **nextHopType**은 **없음**입니다. Azure에서는 172.16.0.0/12에 대한 기본 경로를 만들지만 필요가 있을 때까지 다음 홉 형식을 지정하지 않습니다. 예를 들어, 가상 네트워크의 주소 공간에 172.16.0.0/12 주소 범위를 추가한 경우, Azure는 경로의 **nextHopType**을 **가상 네트워크**로 변경합니다. 그런 다음, 검사에서는 **가상 네트워크**를 **nextHopType**으로 표시합니다.
+이전 출력에서 볼 수 있듯이 **AddressPrefix** 가 **0.0.0.0/0** 인 경로는 **인터넷** 의 다음 홉을 사용하여 다른 경로의 주소 접두사 내의 주소로 향하지 않는 모든 트래픽을 라우팅합니다. 또한 출력에서 볼 수 있듯이 172.31.0.100 주소를 포함하는 172.16.0.0/12 접두사에 대한 기본 경로가 있더라도 **nextHopType** 은 **없음** 입니다. Azure에서는 172.16.0.0/12에 대한 기본 경로를 만들지만 필요가 있을 때까지 다음 홉 형식을 지정하지 않습니다. 예를 들어, 가상 네트워크의 주소 공간에 172.16.0.0/12 주소 범위를 추가한 경우, Azure는 경로의 **nextHopType** 을 **가상 네트워크** 로 변경합니다. 그런 다음, 검사에서는 **가상 네트워크** 를 **nextHopType** 으로 표시합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

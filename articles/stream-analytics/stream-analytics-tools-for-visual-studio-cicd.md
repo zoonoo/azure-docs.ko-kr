@@ -3,16 +3,15 @@ title: Azure Stream Analytics CI/CD NuGet 패키지 사용
 description: 이 문서에서는 Azure Stream Analytics CI/CD NuGet 패키지를 사용 하 여 지속적인 통합 및 배포 프로세스를 설정 하는 방법을 설명 합니다.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fe1aaed58d6069cd583f8607f7bd6332f97674e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019857"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019893"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Azure Stream Analytics CI/CD NuGet 패키지를 사용 하 여 통합 및 개발 
 이 문서에서는 Azure Stream Analytics CI/CD NuGet 패키지를 사용 하 여 지속적인 통합 및 배포 프로세스를 설정 하는 방법을 설명 합니다.
@@ -83,7 +82,7 @@ localrun -Project [ProjectFullPath]
 ```powershell
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
 ```
-예제:
+예:
 ```powershell
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```

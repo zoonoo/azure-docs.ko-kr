@@ -3,23 +3,22 @@ title: Visual Studio에서 Edge 작업 Azure Stream Analytics
 description: 이 문서에서는 Visual Studio 용 Stream Analytics 도구를 사용 하 여 IoT Edge 작업에서 Stream Analytics를 작성 하 고, 디버그 하 고, 만드는 방법을 설명 합니다.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55ff983169e15c74bf343993b66088932a538c36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 09151ea0fe3d419401d576149f6655b8cdc09f8e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127521"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019961"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발
 
 이 자습서에서는 Visual Studio 용 Stream Analytics 도구를 사용 하는 방법에 대해 알아봅니다. Stream Analytics Edge 작업을 작성 하 고, 디버그 하 고, 만드는 방법에 대해 알아봅니다. 작업을 만들고 테스트한 후에는 Azure Portal로 이동하여 디바이스에 배포할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -71,7 +70,7 @@ Stream Analytics IoT Edge 환경에 배포 된 Stream Analytics 작업은 대부
 
 포털에서 Stream Analytics Edge 작업을 만들 때 지원 되는 연산자를 사용 하지 않는 경우 컴파일러에서 자동으로 경고를 표시 합니다.
 
-Visual Studio의 쿼리 편집기( **script.asaql 파일** )에서 다음 변환 쿼리를 정의합니다.
+Visual Studio의 쿼리 편집기(**script.asaql 파일**)에서 다음 변환 쿼리를 정의합니다.
 
 ```sql
 SELECT * INTO EdgeOutput
@@ -103,7 +102,7 @@ FROM EdgeInput
 
 2. Azure에 작업을 제출하려면 쿼리 편집기로 이동하고, **Azure에 제출** 을 선택합니다.  
 
-3. 팝업 창이 열립니다. 기존 Stream Analytics Edge 작업을 업데이트 하거나 새 작업을 만들도록 선택 합니다. 기존 작업을 업데이트 하면 모든 작업 구성이 대체 되 고,이 시나리오에서는 새 작업을 게시 합니다. **새 Azure Stream Analytics 작업 만들기** 를 선택하고, **MyASAEdgeJob** 과 같은 작업 이름을 입력하고, 필요한 **구독** , **리소스 그룹** 및 **위치** 를 선택하고, **제출** 을 선택합니다.
+3. 팝업 창이 열립니다. 기존 Stream Analytics Edge 작업을 업데이트 하거나 새 작업을 만들도록 선택 합니다. 기존 작업을 업데이트 하면 모든 작업 구성이 대체 되 고,이 시나리오에서는 새 작업을 게시 합니다. **새 Azure Stream Analytics 작업 만들기** 를 선택하고, **MyASAEdgeJob** 과 같은 작업 이름을 입력하고, 필요한 **구독**, **리소스 그룹** 및 **위치** 를 선택하고, **제출** 을 선택합니다.
 
    ![Visual Studio에서 Azure에 Stream Analytics 작업 제출](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png)
  

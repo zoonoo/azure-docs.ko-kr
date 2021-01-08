@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 52a43874060748479beebc994bf0a9b663cde9dc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95238397"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020182"
 ---
 # <a name="create-an-app-service-environment"></a>App Service Environment 만들기
 
@@ -20,10 +20,9 @@ ms.locfileid: "95238397"
 > 이 문서는 App Service Environment v3 (미리 보기)에 대 한 것입니다.
 > 
 
-[ASE (App Service Environment)][Intro] 는 Azure Virtual Network (VNet)에 삽입 하는 App Service의 단일 테 넌 트 배포입니다.  ASEv3는 Vnet의 개인 주소에 앱 노출을 지원 합니다. 미리 보기 중에 ASEv3가 생성 되 면 세 개의 리소스가 구독에 추가 됩니다.
+[ASE (App Service Environment)][Intro] 는 Azure Virtual Network (VNet)에 삽입 하는 App Service의 단일 테 넌 트 배포입니다.  ASEv3는 Vnet의 개인 주소에 앱 노출을 지원 합니다. 미리 보기 중에 ASEv3 생성 되 면 이러한 리소스는 구독에 추가 됩니다.
 
 - App Service 환경
-- Azure DNS 개인 영역
 - 프라이빗 엔드포인트
 
 ASE를 배포 하려면 두 개의 서브넷을 사용 해야 합니다.  하나의 서브넷은 개인 끝점을 보유 합니다.  이 서브넷은 Vm과 같은 다른 작업에 사용할 수 있습니다.  다른 서브넷은 ASE에서 수행 되는 아웃 바운드 호출에 사용 됩니다.  ASE 이외의 항목에는이 서브넷을 사용할 수 없습니다. 
@@ -34,7 +33,7 @@ ASE를 만든 후에는 변경할 수 없습니다.
 
 - 위치
 - 구독
-- Resource group
+- 리소스 그룹
 - 사용 되는 Azure Virtual Network (VNet)
 - 사용 되는 서브넷
 - 서브넷 크기

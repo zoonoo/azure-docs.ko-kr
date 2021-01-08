@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1a7bd36a6e3f3cc5b785745fc51f0aede3b47b74
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 2029ec2d0b0f27d7078f381880cf7ca177d24ca0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803309"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020207"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집
 
@@ -36,6 +36,9 @@ ms.locfileid: "97803309"
 얼굴 편집은 동일한 개인이 다른 각도에서도 흐리게 표시될 수 있도록 동영상의 모든 프레임에서 얼굴을 감지하고 앞뒤 시간의 얼굴 개체를 추적합니다. 자동 편집 프로세스는 복잡하여 항상 원하는 결과가 100% 생성되지는 않습니다. 따라서 미디어 분석은 최종 결과를 수정하기 위한 몇 가지 방법을 제공합니다.
 
 완전 자동 모드 외에, ID 목록을 통해 검색한 얼굴을 선택/선택 취소할 수 있는 2단계 워크플로가 있습니다. 또한 MP는 프레임별 임의 조정을 위해 JSON 형식의 메타데이터 파일을 사용합니다. 이 워크플로는 **분석** 및 **편집** 모드로 분할됩니다. 두 모드를 하나의 작업에서 두 작업을 실행하는 단일 단계로 결합할 수 있습니다. 이러한 모드를 **결합된** 모드라고 합니다.
+
+   > [!NOTE]
+   > 얼굴 탐지기 미디어 프로세서는 6 월 2020 [Azure Media Services 레거시 구성 요소](./legacy-components.md)를 기준으로 사용 되지 않습니다. Azure Media Services v3 API를 사용 하는 것이 좋습니다.
 
 ### <a name="combined-mode"></a>결합된 모드
 
