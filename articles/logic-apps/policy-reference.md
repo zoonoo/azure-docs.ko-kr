@@ -1,16 +1,16 @@
 ---
 title: Azure Logic Apps에 대한 기본 제공 정책 정의
 description: Azure Logic Apps에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: reference
 ms.suite: integration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 2e641285afba589404ec4c50b722e31efc7d853d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: b168b1015c17b29db6e8d3b10fb2c907c6067b08
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985188"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050047"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-logic-apps"></a>Azure Logic Apps에 대한 Azure Policy 기본 제공 정의
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9119af718131808bce0440934d482a53e39b8ef7
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 29c05544b4291eb57215bb733eb3791ad3196b6c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964578"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049799"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -93,62 +93,25 @@ SDK를 사용 하려면 NuGet 패키지 **DigitalTwins** 를 프로젝트에 포
 
 서비스에 대해 인증:
 
-```csharp
-// Authenticate against the service and create a client
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credential = new DefaultAzureCredential();
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_basic":::
 
 [!INCLUDE [Azure Digital Twins: local credentials note](../../includes/digital-twins-local-credentials-note.md)] 
 
-모델 업로드 및 모델 나열:
+모델 업로드:
 
-```csharp
-// Upload a model
-var typeList = new List<string>();
-string dtdl = File.ReadAllText("SampleModel.json");
-typeList.Add(dtdl);
-try {
-    await client.CreateModelsAsync(typeList);
-} catch (RequestFailedException rex) {
-    Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
-}
-// Read a list of models back from the service
-AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
-await foreach (DigitalTwinsModelData md in modelDataList)
-{
-    Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
-Wins를 만들고 쿼리 합니다.
+모델 나열:
 
-```csharp
-// Initialize twin metadata
-BasicDigitalTwin twinData = new BasicDigitalTwin();
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
 
-twinData.Id = $"firstTwin";
-twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-twinData.Contents.Add("data", "Hello World!");
-try {
-    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("firstTwin", twinData);
-} catch(RequestFailedException rex) {
-    Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
-}
- 
-// Run a query    
-AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
-await foreach (string twin in result)
-{
-    // Use JSON deserialization to pretty-print
-    object jsonObj = JsonSerializer.Deserialize<object>(twin);
-    string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
-    Console.WriteLine(prettyTwin);
-    // Or use BasicDigitalTwin for convenient property access
-    BasicDigitalTwin btwin = JsonSerializer.Deserialize<BasicDigitalTwin>(twin);
-}
-```
+Twins 만들기:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
+
+쿼리 쌍을 쿼리하고 결과를 반복 합니다.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="FullQuerySample":::
 
 자습서:이 샘플 앱 코드의 연습을 보려면 [*클라이언트 앱 코딩*](tutorial-code.md) 을 참조 하세요. 
 
@@ -168,103 +131,41 @@ Serialization 도우미는 기본 정보에 대 한 액세스를 위해 쌍 데�
 
 또는와 같이 선택한 JSON 라이브러리를 사용 하 여 항상 쌍 데이터를 deserialize 할 수 있습니다 `System.Test.Json` `Newtonsoft.Json` . 쌍에 대 한 기본 액세스의 경우 도우미 클래스를 사용 하면 좀 더 편리 하 게 만들 수 있습니다.
 
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-```
-
 `BasicDigitalTwin`도우미 클래스는를 통해 쌍에 정의 된 속성에 대 한 액세스도 제공 `Dictionary<string, object>` 합니다. 쌍의 속성을 나열 하려면 다음을 사용할 수 있습니다.
 
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
 
 ##### <a name="create-a-digital-twin"></a>디지털 쌍 만들기
 
 클래스를 사용 하 여 쌍 `BasicDigitalTwin` 인스턴스를 만들기 위한 데이터를 준비할 수 있습니다.
 
-```csharp
-BasicDigitalTwin twin = new BasicDigitalTwin();
-twin.Metadata = new DigitalTwinMetadata();
-twin.Metadata.ModelId = "dtmi:example:Room;1";
-// Initialize properties
-Dictionary<string, object> props = new Dictionary<string, object>();
-props.Add("Temperature", 25.0);
-twin.Contents = props;
-
-client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
 
 위의 코드는 다음 "수동" 변형과 동일 합니다.
 
-```csharp
-Dictionary<string, object> meta = new Dictionary<string, object>()
-{
-    { "$model", "dtmi:example:Room;1"}
-};
-Dictionary<string, object> twin = new Dictionary<string, object>()
-{
-    { "$metadata", meta },
-    { "Temperature", 25.0 }
-};
-client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
 ##### <a name="deserialize-a-relationship"></a>관계 Deserialize
 
 언제 든 지 관계 데이터를 선택한 형식으로 deserialize 할 수 있습니다. 관계에 대 한 기본 액세스를 위해 형식을 사용 `BasicRelationship` 합니다.
 
-```csharp
-BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
-Console.WriteLine($"Relationship Name: {rel.Name}");
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
 
 `BasicRelationship`도우미 클래스는를 통해 관계에 정의 된 속성에 대 한 액세스도 제공 `IDictionary<string, object>` 합니다. 속성을 나열 하려면 다음을 사용할 수 있습니다.
 
-```csharp
-BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
-Console.WriteLine($"Relationship Name: {rel.Name}");
-foreach (string prop in rel.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
 
 ##### <a name="create-a-relationship"></a>관계 만들기
 
 클래스를 사용 하 여 쌍으로 `BasicRelationship` 된 쌍 인스턴스에서 관계를 만들기 위해 데이터를 준비할 수도 있습니다.
 
-```csharp
-BasicRelationship rel = new BasicRelationship();
-rel.TargetId = "myTargetTwin";
-rel.Name = "contains"; // a relationship with this name must be defined in the model
-// Initialize properties
-Dictionary<string, object> props = new Dictionary<string, object>();
-props.Add("active", true);
-rel.Properties = props;
-client.CreateOrReplaceRelationshipAsync("mySourceTwin", "rel001", rel);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ##### <a name="create-a-patch-for-twin-update"></a>쌍 업데이트에 대 한 패치 만들기
 
 쌍 및 관계에 대 한 Update 호출은 [JSON 패치](http://jsonpatch.com/) 구조를 사용 합니다. JSON 패치 작업 목록을 만들려면 아래와 같이를 사용할 수 있습니다 `JsonPatchDocument` .
 
-```csharp
-var updateTwinData = new JsonPatchDocument();
-updateTwinData.AppendAddOp("/Temperature", 25.0);
-updateTwinData.AppendAddOp("/myComponent/Property", "Hello");
-// Un-set a property
-updateTwinData.AppendRemoveOp("/Humidity");
-
-client.UpdateDigitalTwin("myTwin", updateTwinData);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
 ## <a name="general-apisdk-usage-notes"></a>일반 API/SDK 사용 메모
 
@@ -280,9 +181,9 @@ client.UpdateDigitalTwin("myTwin", updateTwinData);
 * 모든 서비스 함수는 동기 및 비동기 버전에 존재 합니다.
 * 모든 서비스 함수는 400 이상의 반환 상태에 대 한 예외를 throw 합니다. 호출 `try` 을 섹션으로 래핑하고 최소한의 catch를 수행 해야 `RequestFailedExceptions` 합니다. 이러한 형식의 예외에 대 한 자세한 내용은 [여기](/dotnet/api/azure.requestfailedexception?preserve-view=true&view=azure-dotnet)를 참조 하세요.
 * 대부분의 서비스 메서드는 `Response<T>` 또는 ( `Task<Response<T>>` 비동기 호출의 경우)를 반환 `T` 합니다. 여기서은 서비스 호출에 대 한 반환 개체의 클래스입니다. [`Response`](/dotnet/api/azure.response-1?preserve-view=true&view=azure-dotnet)클래스는 서비스 반환을 캡슐화 하 고 해당 필드에 반환 값을 제공 합니다 `Value` .  
-* 페이징 결과를 포함 하는 서비스 메서드 `Pageable<T>` `AsyncPageable<T>` 는 또는 결과로 반환 됩니다. 클래스에 대 한 자세한 내용은 `Pageable<T>` [여기](/dotnet/api/azure.pageable-1?preserve-view=true&view=azure-dotnet-preview)를 참조 하십시오 .에 대 한 자세한 내용은 `AsyncPageable<T>` [여기](/dotnet/api/azure.asyncpageable-1?preserve-view=true&view=azure-dotnet-preview)를 참조 하세요.
+* 페이징 결과를 포함 하는 서비스 메서드 `Pageable<T>` `AsyncPageable<T>` 는 또는 결과로 반환 됩니다. 클래스에 대 한 자세한 내용은 `Pageable<T>` [여기](/dotnet/api/azure.pageable-1?preserve-view=true&view=azure-dotnet)를 참조 하십시오 .에 대 한 자세한 내용은 `AsyncPageable<T>` [여기](/dotnet/api/azure.asyncpageable-1?preserve-view=true&view=azure-dotnet)를 참조 하세요.
 * 루프를 사용 하 여 페이징 결과를 반복할 수 있습니다 `await foreach` . 이 프로세스에 대 한 자세한 내용은 [여기](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8)를 참조 하세요.
-* 기본 SDK는 `Azure.Core` 입니다. SDK 인프라 및 유형에 대 한 참조는 [Azure 네임 스페이스 설명서](/dotnet/api/azure?preserve-view=true&view=azure-dotnet-preview) 를 참조 하세요.
+* 기본 SDK는 `Azure.Core` 입니다. SDK 인프라 및 유형에 대 한 참조는 [Azure 네임 스페이스 설명서](/dotnet/api/azure?preserve-view=true&view=azure-dotnet) 를 참조 하세요.
 
 서비스 메서드는 가능한 경우 항상 강력한 형식의 개체를 반환 합니다. 그러나 Azure Digital Twins는 런타임에 사용자가 구성한 모델을 기반으로 하기 때문에 (서비스에 업로드 된 DTDL 모델을 통해) 많은 서비스 Api가 쌍 데이터를 JSON 형식으로 사용 하 고 반환 합니다.
 

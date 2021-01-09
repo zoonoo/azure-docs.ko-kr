@@ -3,12 +3,12 @@ title: Azure Portal를 사용 하 여 Azure Event Grid 파트너로 등록
 description: Azure Portal를 사용 하 여 Azure Event Grid 파트너를 등록 합니다.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 8344fcd822bfcdc67e2c27b200d97fa70dfefdf2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 44dece4d46a6d702d48fa49983818986fcd59f7b
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349389"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050955"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Event Grid 파트너로 등록
 이 문서에서는 이벤트 게시자 또는 파트너 라고도 하는 타사 SaaS 공급자를 사용 하 여 서비스에서 이벤트를 게시 하 고 최종 사용자가 이러한 이벤트를 사용 하는 방법을 등록 Event Grid 하는 방법을 설명 합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "96349389"
 ## <a name="communicate-your-interest-in-becoming-a-partner"></a>파트너에 대 한 관심을 전달 합니다.
 [이 양식을](https://aka.ms/gridpartnerform) 작성 하 고 Event Grid 팀에 문의 하세요 [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com) . 파트너 이벤트의 사용 사례, 가상 사용자, 온 보 딩 프로세스, 기능, 가격 및 기타에 대 한 자세한 정보를 제공 하는 대화가 제공 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 나머지 단계를 완료 하려면 다음을 수행 해야 합니다.
 
 - Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
@@ -82,7 +82,7 @@ ms.locfileid: "96349389"
     :::image type="content" source="./media/onboard-partner/add-partner-namespace-link.png" alt-text="파트너 네임 스페이스-링크 추가":::
 1. **파트너 네임 스페이스-기본 사항 만들기** 페이지에서 다음 정보를 지정 합니다.
     1. **프로젝트 세부 정보** 섹션에서 다음 단계를 수행 합니다. 
-        1. Azure **구독** 을 선택 합니다.
+        1. Azure **구독** 을 선택합니다.
         1. 기존 **리소스 그룹** 을 선택 하거나 리소스 그룹을 만듭니다. 
     1. **네임 스페이스 세부 정보** 섹션에서 다음 단계를 수행 합니다.
         1. 네임스페이스의 **이름** 을 입력합니다. 
@@ -112,7 +112,6 @@ ms.locfileid: "96349389"
     1. **채널 정보** 섹션에서 다음 단계를 수행 합니다.
         1. **이벤트 채널 이름** 에 이벤트 채널의 이름을 입력 합니다. 
         1. **원본을** 입력 합니다. 원본에 적합 한 값을 이해 하려면 [클라우드 이벤트 1.0 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md#source-1) 을 참조 하세요. 또한 [이 클라우드 이벤트 스키마 예제](cloud-event-schema.md#sample-event-using-cloudevents-schema)를 참조 하세요.
-        1. 원본 (이란?)을 입력 합니다.
     1. **대상 세부 정보** 섹션에서이 이벤트 채널에 대해 생성 될 대상 파트너 토픽의 세부 정보를 입력 합니다. 
         1. 파트너 토픽을 만들 **구독의 ID** 를 입력 합니다. 
         1. 파트너 토픽 리소스를 만들 **리소스 그룹의 이름을** 입력 합니다. 

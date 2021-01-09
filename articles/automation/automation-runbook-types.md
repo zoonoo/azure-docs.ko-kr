@@ -3,14 +3,14 @@ title: Azure Automation Runbook 형식
 description: 이 문서에서는 Azure Automation에서 사용할 수 있는 Runbook의 유형 및 사용할 형식을 결정하기 위한 고려 사항을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1a0c12297f19d30bf13ffbe594e0433c83914a8e
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: c1398d25b6d2540abea0012acd69555e5e53e25c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733963"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050972"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -117,7 +117,6 @@ Python runbook은 Python 2 및 Python 3에서 컴파일합니다. Python 3 runbo
 * 타사 라이브러리를 사용하려면 Automation 계정으로 [패키지를 가져와야](python-packages.md) 합니다.
 * PowerShell/PowerShell 워크플로에서 **시작-automationrunbook** cmdlet을 사용 하 여   Python 3 runbook (미리 보기)을 시작 하는 작업은 작동 하지 않습니다. 이 제한 사항을 해결 하기 위해 Az. Automation 모듈 또는 AzureRm의 **start-azurermautomationrunbook** Cmdlet에서 **AzAutomationRunbook** cmdlet을 사용할 수 있습니다.  
 * Python 3 runbook (미리 보기) 및 패키지는 PowerShell에서 작동 하지 않습니다.
-* 웹후크를 사용하여 Python Runbook을 시작하는 것은 지원되지 않습니다.
 * Azure Automation는 **sys.debug** 를 지원 하지 않습니다.
 
 ### <a name="known-issues"></a>알려진 문제
