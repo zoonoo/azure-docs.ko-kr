@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 1d2ba6dbbcc2b8674718912f00b1d1ec58e1c4c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5ad01e31cb9af18fa018d99424b25dee338981d7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936093"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034512"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -1083,7 +1083,7 @@ Authorization: OAuth realm="Photos",
 
 1. 논리 앱이 관리 ID를 사용할 수 있으려면 그 전에 [Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증](../logic-apps/create-managed-service-identity.md)의 단계를 따르세요. 이 단계는 논리 앱에서 관리 ID를 사용하도록 설정하고 대상 Azure 리소스에 대한 해당 ID의 액세스 권한을 설정합니다.
 
-1. Azure 함수가 관리 ID를 사용할 수 있으려면 먼저 [Azure functions에 대한 인증이 가능하도록 설정](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions)합니다.
+1. Azure 함수가 관리 ID를 사용할 수 있으려면 먼저 [Azure functions에 대한 인증이 가능하도록 설정](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions)합니다.
 
 1. 관리 ID를 사용하려는 트리거 또는 작업에서 다음 속성 값을 지정합니다.
 

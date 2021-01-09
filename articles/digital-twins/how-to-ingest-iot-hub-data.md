@@ -7,40 +7,40 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d2606f793c7ab2e3ac29b1eb869e60a2c8e634ad
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: ff7c50d08962fec55584e8c4b3259fb8fda1fd97
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145925"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035294"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins에 IoT Hub 원격 분석 수집
 
 Azure Digital Twins는 IoT 장치 및 기타 원본의 데이터를 기반으로 합니다. Azure Digital Twins에서 사용할 장치 데이터의 공통 소스는 [IoT Hub](../iot-hub/about-iot-hub.md)됩니다.
 
-Azure digital 쌍로 데이터를 수집 하는 프로세스는 [azure function](../azure-functions/functions-overview.md)과 같은 외부 계산 리소스를 설정 하 여 데이터를 수신 하 고, [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 속성을 설정 하거나, 그에 따라 [디지털](concepts-twins-graph.md) 쌍에서 원격 분석 이벤트를 발생 시킵니다. 
+Azure Digital Twins로 데이터를 수집 하는 프로세스는 [Azure Functions](../azure-functions/functions-overview.md)를 사용 하 여 만든 함수와 같은 외부 계산 리소스를 설정 하는 것입니다. 함수는 데이터를 수신 하 고 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 그에 따라 [디지털](concepts-twins-graph.md) 쌍에서 속성을 설정 하거나 원격 분석 이벤트를 발생 시킵니다. 
 
-이 방법 문서에서는 IoT Hub에서 원격 분석을 수집할 수 있는 Azure 함수를 작성 하는 프로세스를 안내 합니다.
+이 방법 문서에서는 IoT Hub에서 원격 분석을 수집 하는 함수를 작성 하는 프로세스를 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 예를 계속 하기 전에 다음 리소스를 필수 조건으로 설정 해야 합니다.
-* **IoT hub** . 지침은 [이 IoT Hub 빠른](../iot-hub/quickstart-send-telemetry-cli.md)시작의 *IoT Hub 만들기* 섹션을 참조 하세요.
-* 디지털 쌍 인스턴스를 호출 하기 위한 올바른 권한이 있는 **Azure 함수** 입니다. 자세한 내용은 [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md)을 참조 하세요. 
+* **IoT hub**. 지침은 [이 IoT Hub 빠른](../iot-hub/quickstart-send-telemetry-cli.md)시작의 *IoT Hub 만들기* 섹션을 참조 하세요.
+* 디지털 쌍 인스턴스를 호출 하기 위한 올바른 권한이 있는 **함수** 입니다. 자세한 내용은 [*방법: 데이터 처리를 위해 Azure에서 함수 설정을*](how-to-create-azure-function.md)참조 하세요. 
 * 장치 원격 분석을 수신 하는 **Azure Digital Twins 인스턴스입니다** . 자세한 내용은 [*방법: Azure Digital Twins 인스턴스 및 인증 설정*](./how-to-set-up-instance-portal.md)을 참조 하세요.
 
 ### <a name="example-telemetry-scenario"></a>원격 분석 시나리오 예제
 
-이 방법에서는 Azure function을 사용 하 여 IoT Hub에서 Azure Digital Twins로 메시지를 보내는 방법을 간략하게 설명 합니다. 메시지를 보내는 데 사용할 수 있는 여러 가지 구성 및 일치 전략이 있지만이 문서의 예제에는 다음과 같은 부분이 포함 되어 있습니다.
+이 방법에서는 Azure의 기능을 사용 하 여 IoT Hub에서 Azure Digital Twins로 메시지를 보내는 방법을 간략하게 설명 합니다. 메시지를 보내는 데 사용할 수 있는 여러 가지 구성 및 일치 전략이 있지만이 문서의 예제에는 다음과 같은 부분이 포함 되어 있습니다.
 * 알려진 장치 ID를 사용 하는 IoT Hub의 온도계 장치
 * 일치 하는 ID를 사용 하 여 장치를 나타내는 디지털 쌍
 
 > [!NOTE]
 > 이 예에서는 장치 ID와 해당 하는 디지털 쌍 ID 사이에 간단한 ID 일치를 사용 하지만, 장치에서 해당 쌍 (예: 매핑 테이블)으로 보다 정교한 매핑을 제공할 수 있습니다.
 
-자동 온도 조절기 장치에서 온도 원격 분석 이벤트를 보낼 때마다 Azure 함수는 원격 분석을 처리 하 고 디지털 쌍의 *온도* 속성은 업데이트 해야 합니다. 이 시나리오는 아래 다이어그램에 설명 되어 있습니다.
+자동 온도 조절기 장치에서 온도 원격 분석 이벤트를 보낼 때마다 함수는 원격 분석을 처리 하 고 디지털 쌍의 *온도* 속성은 업데이트 해야 합니다. 이 시나리오는 아래 다이어그램에 설명 되어 있습니다.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 azure 함수에 IoT Hub를 통해 온도 원격 분석을 전송 합니다. 그러면 azure 함수는 Azure Digital Twins의 쌍에서 온도 속성을 업데이트 합니다." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 IoT Hub를 통해 온도 원격 분석을 azure의 함수로 전송 합니다. 그러면 azure에서 해당 쌍의 온도 속성을 업데이트 합니다." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>모델 및 쌍 추가
 
@@ -93,9 +93,9 @@ az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id t
 }
 ```
 
-## <a name="create-an-azure-function"></a>Azure Function 만들기
+## <a name="create-a-function"></a>함수 만들기
 
-이 섹션에서는 동일한 Visual Studio 시작 단계와 [*방법: 데이터 처리를 위한 azure 함수 설정*](how-to-create-azure-function.md)의 azure function 기초를 사용 합니다. 이 기초는 인증을 처리 하 고 서비스 클라이언트를 만들어 데이터를 처리 하 고 Azure Digital Twins Api를 응답으로 호출할 수 있도록 준비 했습니다. 
+이 섹션에서는 [*방법: 데이터 처리를 위한 함수를 설정*](how-to-create-azure-function.md)하는 것과 동일한 Visual Studio 시작 단계 및 함수 구조를 사용 합니다. 이 기초는 인증을 처리 하 고 서비스 클라이언트를 만들어 데이터를 처리 하 고 Azure Digital Twins Api를 응답으로 호출할 수 있도록 준비 했습니다. 
 
 다음 단계에서는 IoT Hub에서 IoT 원격 분석 이벤트를 처리 하기 위해 특정 코드를 추가 합니다.  
 
@@ -123,11 +123,11 @@ await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
 ...
 ```
 
-### <a name="update-your-azure-function-code"></a>Azure 함수 코드 업데이트
+### <a name="update-your-function-code"></a>함수 코드 업데이트
 
-이전 샘플의 코드를 이해 했으므로 이제 Visual Studio의 [*전제 조건*](#prerequisites) 섹션에서 Azure 함수를 엽니다. Azure 함수가 없는 경우에는 필수 구성 요소의 링크를 방문 하 여 지금 만듭니다.
+이전 샘플의 코드를 이해 했으므로 Visual Studio의 [*전제 조건*](#prerequisites) 섹션에서 함수를 엽니다. (Azure에서 만들어진 함수가 없는 경우 지금 만들려면 선행 조건에 있는 링크를 참조 하세요.)
 
-Azure 함수 코드를이 샘플 코드로 바꿉니다.
+함수 코드를이 샘플 코드로 바꿉니다.
 
 ```csharp
 using System;
@@ -189,7 +189,7 @@ namespace IotHubtoTwins
     }
 }
 ```
-함수 코드를 저장 하 고 Azure에 함수 앱을 게시 합니다. 이 작업은 [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md)의 [*함수 앱 섹션 게시*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) 를 참조 하 여 수행할 수 있습니다.
+함수 코드를 저장 하 고 Azure에 함수 앱을 게시 합니다. 방법을 알아보려면 [*Azure에서 함수를 설정 하 여 데이터를 처리 하는 방법*](how-to-create-azure-function.md)에서 [*함수 앱 게시*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) 를 참조 하세요.
 
 성공적으로 게시 되 면 다음과 같이 Visual Studio 명령 창에 출력이 표시 됩니다.
 
@@ -205,14 +205,14 @@ namespace IotHubtoTwins
 ```
 [Azure Portal](https://portal.azure.com/)에서 게시 프로세스의 상태를 확인할 수도 있습니다. _리소스 그룹_ 을 검색 하 고 _활동 로그_ 로 이동 하 여 목록에서 _웹 앱 게시 프로필 가져오기_ 를 찾아 상태가 성공 인지 확인 합니다.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 azure 함수에 IoT Hub를 통해 온도 원격 분석을 전송 합니다. 그러면 azure 함수는 Azure Digital Twins의 쌍에서 온도 속성을 업데이트 합니다.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="게시 프로세스의 상태를 보여 주는 Azure Portal의 스크린샷":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>함수를 IoT Hub에 연결
 
 허브 데이터의 이벤트 대상을 설정 합니다.
-[Azure Portal](https://portal.azure.com/)에서 [*전제 조건*](#prerequisites) 섹션에서 만든 IoT Hub 인스턴스로 이동 합니다. **이벤트** 아래에서 Azure function에 대 한 구독을 만듭니다.
+[Azure Portal](https://portal.azure.com/)에서 [*전제 조건*](#prerequisites) 섹션에서 만든 IoT Hub 인스턴스로 이동 합니다. **이벤트** 아래에서 함수에 대 한 구독을 만듭니다.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 azure 함수에 IoT Hub를 통해 온도 원격 분석을 전송 합니다. 그러면 azure 함수는 Azure Digital Twins의 쌍에서 온도 속성을 업데이트 합니다.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="이벤트 구독을 추가 하는 것을 보여 주는 Azure Portal의 스크린샷":::
 
 **이벤트 구독 만들기** 페이지에서 다음과 같이 필드를 채웁니다.
   1. **이름** 아래에서 원하는 구독 이름을로 선택 합니다.
@@ -221,18 +221,18 @@ namespace IotHubtoTwins
   4. **끝점 유형** 에서 _Azure 함수_ 를 선택 합니다.
   5. 끝점 **에서 끝점** 을 만들려면 끝점 링크를 _선택_ 합니다 .를 선택 합니다.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 azure 함수에 IoT Hub를 통해 온도 원격 분석을 전송 합니다. 그러면 azure 함수는 Azure Digital Twins의 쌍에서 온도 속성을 업데이트 합니다.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="이벤트 구독 정보를 만드는 Azure Portal의 스크린샷":::
 
 열리는 _Azure 함수 선택_ 페이지에서 아래 세부 정보를 확인 합니다.
- 1. **구독** : ‘Azure 구독’
- 2. **리소스 그룹** : 리소스 그룹
- 3. **함수 앱** : 함수 앱 이름
- 4. **슬롯** : _프로덕션_
- 5. **함수** : 드롭다운에서 Azure 함수를 선택 합니다.
+ 1. **구독**: ‘Azure 구독’
+ 2. **리소스 그룹**: 리소스 그룹
+ 3. **함수 앱**: 함수 앱 이름
+ 4. **슬롯**: _프로덕션_
+ 5. **함수**: 드롭다운에서 함수를 선택 합니다.
 
 _선택 확인_ 단추를 선택 하 여 세부 정보를 저장 합니다.            
       
-:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 azure 함수에 IoT Hub를 통해 온도 원격 분석을 전송 합니다. 그러면 azure 함수는 Azure Digital Twins의 쌍에서 온도 속성을 업데이트 합니다.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="함수를 선택 하는 Azure Portal의 스크린샷":::
 
 _만들기_ 단추를 선택 하 여 이벤트 구독을 만듭니다.
 

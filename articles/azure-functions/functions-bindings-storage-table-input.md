@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 20dc6cde9cce6a9d57047940a38adb5cf004ae6a
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 4fc2426189384856d2d2e95887cdabd2f9e9ebea
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347679"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033781"
 ---
 # <a name="azure-table-storage-input-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Table storage 입력 바인딩
 
@@ -296,97 +296,6 @@ public class Person : TableEntity
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)에서 테이블 입력 바인딩을 보여줍니다. 함수는 큐 트리거를 사용하여 단일 테이블 행을 읽습니다. 
-
-*function.json* 파일은 `partitionKey` 및 `rowKey`를 지정합니다. `rowKey` 값 "{queueTrigger}"는 큐 메시지 문자열에서 나온 행 키를 의미합니다.
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "personEntity",
-      "type": "table",
-      "tableName": "Person",
-      "partitionKey": "Test",
-      "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-[구성](#configuration) 섹션에서는 이러한 속성을 설명합니다.
-
-JavaScript 코드는 다음과 같습니다.
-
-```javascript
-module.exports = function (context, myQueueItem) {
-    context.log('Node.js queue trigger function processed work item', myQueueItem);
-    context.log('Person entity name: ' + context.bindings.personEntity.Name);
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-단일 테이블 행 
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "name": "messageJSON",
-      "type": "table",
-      "tableName": "messages",
-      "partitionKey": "message",
-      "rowKey": "{id}",
-      "connection": "AzureWebJobsStorage",
-      "direction": "in"
-    },
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ],
-      "route": "messages/{id}"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ],
-  "disabled": false
-}
-```
-
-```python
-import json
-
-import azure.functions as func
-
-def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
-
-    message = json.loads(messageJSON)
-    return func.HttpResponse(f"Table row: {messageJSON}")
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 다음 예에서는 테이블 저장소의 지정 된 파티션에 있는 person 개체의 목록을 반환 하는 HTTP 트리거 함수를 보여 줍니다. 이 예에서는 http 경로에서 파티션 키를 추출 하 고 tableName과 연결을 함수 설정에서 추출 합니다. 
@@ -456,6 +365,143 @@ public Person[] get(
 }
 ```
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)에서 테이블 입력 바인딩을 보여줍니다. 함수는 큐 트리거를 사용하여 단일 테이블 행을 읽습니다. 
+
+*function.json* 파일은 `partitionKey` 및 `rowKey`를 지정합니다. `rowKey` 값 "{queueTrigger}"는 큐 메시지 문자열에서 나온 행 키를 의미합니다.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[구성](#configuration) 섹션에서는 이러한 속성을 설명합니다.
+
+JavaScript 코드는 다음과 같습니다.
+
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+    context.log('Person entity name: ' + context.bindings.personEntity.Name);
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+다음 함수는 큐 트리거를 사용 하 여 단일 테이블 행을 함수에 대 한 입력으로 읽습니다.
+
+이 예제에서 바인딩 구성은 테이블의 명시적 값을 지정 `partitionKey` 하 고에 전달 하는 식을 사용 합니다 `rowKey` . `rowKey`식은 `{queueTrigger}` 행 키가 큐 메시지 문자열에서 오는 것을 나타냅니다.
+
+_function.js_ 의 바인딩 구성:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "MyQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "PersonEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+_run.ps1_ 의 PowerShell 코드:
+
+```powershell
+param($MyQueueItem, $PersonEntity, $TriggerMetadata)
+Write-Host "PowerShell queue trigger function processed work item: $MyQueueItem"
+Write-Host "Person entity name: $($PersonEntity.Name)"
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+다음 함수는 큐 트리거를 사용 하 여 단일 테이블 행을 함수에 대 한 입력으로 읽습니다.
+
+이 예제에서 바인딩 구성은 테이블의 명시적 값을 지정 하 고에 `partitionKey` 전달 하는 식을 사용 합니다 `rowKey` . `rowKey`식은 `{id}` 행 키가 큐 메시지 문자열에서 오는 것을 나타냅니다.
+
+파일 _에function.js_ 의 바인딩 구성:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "messageJSON",
+      "type": "table",
+      "tableName": "messages",
+      "partitionKey": "message",
+      "rowKey": "{id}",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    },
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "messages/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ],
+  "disabled": false
+}
+```
+
+*\_ \_ \_ \_ Py* 파일의 Python 코드:
+
+```python
+import json
+
+import azure.functions as func
+
+def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
+
+    message = json.loads(messageJSON)
+    return func.HttpResponse(f"Table row: {messageJSON}")
+```
+
 ---
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
@@ -522,17 +568,21 @@ public Person[] get(
 
 C# 스크립트에서는 특성을 지원하지 않습니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Table Storage에서 제공되는 매개 변수에 대한 `@TableInput` 주석을 사용합니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원하지 않습니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+특성은 PowerShell에서 지원 되지 않습니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python에서는 특성을 지원하지 않습니다.
-
-# <a name="java"></a>[Java](#tab/java)
-
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Table Storage에서 제공되는 매개 변수에 대한 `@TableInput` 주석을 사용합니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
 
 ---
 
@@ -582,17 +632,21 @@ Python에서는 특성을 지원하지 않습니다.
   > [!NOTE]
   > `IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 [CloudTable paramName 메서드 매개 변수를 사용](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)합니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+[Tableinput](/java/api/com.microsoft.azure.functions.annotation.tableinput) 특성은 함수를 트리거한 테이블 행에 대 한 액세스를 제공 합니다.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 `filter` 및 `take` 속성을 설정합니다. `partitionKey` 또는 `rowKey`를 설정하지 않습니다. `context.bindings.<BINDING_NAME>`을 사용하여 입력 테이블 엔터티(또는 여러 엔터티)에 액세스합니다. 역직렬화된 개체는 `RowKey` 및 `PartitionKey` 속성을 가집니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+데이터는function.js파일의 키에 지정 된 대로 입력 매개 변수에 전달 됩니다 `name` .  및를 지정 하면 `partitionKey` `rowKey` 특정 레코드를 필터링 할 수 있습니다. 자세한 내용은 [PowerShell 예제](#example) 를 참조 하세요.
+
 # <a name="python"></a>[Python](#tab/python)
 
 테이블 데이터는 JSON 문자열로 함수에 전달 됩니다. 입력 예제와 같이를 호출 하 여 메시지를 역직렬화 `json.loads` 합니다 [](#example).
-
-# <a name="java"></a>[Java](#tab/java)
-
-[Tableinput](/java/api/com.microsoft.azure.functions.annotation.tableinput) 특성은 함수를 트리거한 테이블 행에 대 한 액세스를 제공 합니다.
 
 ---
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 327ab63a048e08328cd5b1334b0a697a61ced6c8
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 85600bbee15dadcce7315300ffde481cbfc2e255
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346336"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034716"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환
 
@@ -433,6 +433,9 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
     }
 ]
 ```
+
+> [!NOTE]
+> 컨테이너는 `$logs` 저장소 계정에 대해 스토리지 분석를 사용 하도록 설정할 때 자동으로 만들어지므로 DATA FACTORY UI를 통해 컨테이너 목록 작업을 수행할 때 표시 되지 않습니다. 컨테이너에서 파일을 사용 하려면 파일 경로를 Data Factory에 직접 제공 해야 합니다 `$logs` .
 
 ### <a name="blob-storage-as-a-sink-type"></a>Blob Storage를 싱크 형식으로
 

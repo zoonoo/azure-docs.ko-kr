@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 967d2da61ffdfa9d1723bcab589deb2277d4041e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68b9b31cdfb55e8150b05e3efd35389320905cdc
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825608"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034274"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>전용 호스트에 배포
 
@@ -18,7 +18,10 @@ ms.locfileid: "91825608"
 
 전용 sku는 물리적 서버 관점에서 작업을 격리 해야 하는 컨테이너 작업에 적합 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
+
+> [!NOTE]
+> 일부 현재 제한으로 인해 모든 제한 증가 요청이 승인 되도록 보장 되는 것은 아닙니다.
 
 * 전용 sku를 사용 하는 모든 구독에 대 한 기본 제한은 0입니다. 프로덕션 컨테이너 배포에이 sku를 사용 하려는 경우 [Azure 지원 요청][azure-support] 를 만들어 제한을 늘립니다.
 

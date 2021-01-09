@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: b15849fb8fbfed5d55b9c224f51634047b7c75b2
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 222f6ebacb6139ca26a6f1cdd0f896270c9b2fc2
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914487"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034298"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -1143,7 +1143,7 @@ bool(<value>)
 
 다음 예에서는에 대해 지원 되는 다양 한 유형의 입력을 보여 줍니다 `bool()` .
 
-| 입력 값 | 형식 | 반환 값 |
+| 입력 값 | Type | 반환 값 |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | 정수 | `true` |
 | `bool(0)` | 정수    | `false` |
@@ -1701,7 +1701,7 @@ div(<dividend>, <divisor>)
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | 정수 또는 부동 소수점 수 | 첫 번째 숫자를 두 번째 숫자로 나눈 결과입니다. 피제수 또는 제 수가 Float 형식인 경우 결과에는 Float 형식이 있습니다. <p><p>**참고**: float 결과를 정수로 변환 하려면 논리 앱에서 [Azure 함수를 만들고 호출](../logic-apps/logic-apps-azure-functions.md) 해 보세요. |
+| <*quotient-result*> | 정수 또는 부동 소수점 수 | 첫 번째 숫자를 두 번째 숫자로 나눈 결과입니다. 피제수 또는 제 수가 Float 형식인 경우 결과에는 Float 형식이 있습니다. <p><p>**참고**: float 결과를 정수로 변환 하려면 논리 앱의 [Azure에서 함수를 만들고 호출](../logic-apps/logic-apps-azure-functions.md) 해 보세요. |
 ||||
 
 *예제 1*
@@ -3921,7 +3921,7 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | 예 | String | 해당 문자를 원하는 문자열 |
 | <*startIndex*> | 예 | 정수 | 시작 위치 또는 인덱스 값으로 사용하려는 0 이상의 양수 |
-| <*length*> | No | 정수 | 하위 문자열에 원하는 문자의 양수 |
+| <*length*> | 아니요 | 정수 | 하위 문자열에 원하는 문자의 양수 |
 |||||
 
 > [!NOTE]

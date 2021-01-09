@@ -2,20 +2,19 @@
 title: 800 개수 제한이 없는 리소스
 description: 리소스 그룹에 800 개 이상의 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열 합니다.
 ms.topic: conceptual
-ms.date: 10/28/2020
-ms.openlocfilehash: c2d5797a7ec354f41d510ec6e884968bf9dbdbcd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 01/08/2021
+ms.openlocfilehash: 6a63fd7e41c03b542f4a43b483243702c5be5f14
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672367"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034937"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 800 인스턴스로 제한 되지 않는 리소스
 
 기본적으로 각 리소스 그룹에 리소스 종류의 최대 800 개의 인스턴스를 배포할 수 있습니다. 그러나 일부 리소스 종류는 800 인스턴스 제한에서 제외 됩니다. 이 문서에서는 리소스 그룹에 800 개 이상의 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열 합니다. 다른 모든 리소스 유형은 800 인스턴스로 제한 됩니다.
 
 일부 리소스 종류의 경우 지원 서비스에 문의 하 여 800 인스턴스 제한을 제거 해야 합니다. 이러한 리소스 종류는이 문서에 나와 있습니다.
-
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -105,6 +104,11 @@ ms.locfileid: "97672367"
 * software
 * softwareUpdateProfile
 * 업데이트
+
+## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+
+* 컴퓨터-최대 5000 인스턴스 지원
+* 확장-VM 확장 인스턴스를 무제한으로 지원 합니다.
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 

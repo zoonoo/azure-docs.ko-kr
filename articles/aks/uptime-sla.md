@@ -3,14 +3,14 @@ title: Uptime SLA가 포함된 AKS(Azure Kubernetes Service)
 description: AKS(Azure Kubernetes Service) API Server에 대한 선택적 작동 시간 SLA 제품에 대해 알아봅니다.
 services: container-service
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 95728ca14b96adf7396ca13888107477d953b2a9
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607342"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033339"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
@@ -26,7 +26,7 @@ ms.locfileid: "97607342"
 ## <a name="region-availability"></a>지역 가용성
 
 * 작동 시간 SLA는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 지역 및 Azure Government 지역에서 사용할 수 있습니다.
-* 가동 시간 SLA는 AKS이 지원 되는 모든 지역에서 [개인 AKS 클러스터][private-clusters] 에 대해 사용할 수 있습니다.
+* 가동 시간 SLA는 AKS이 지원 되는 모든 공용 지역의 [개인 AKS 클러스터][private-clusters] 에 사용할 수 있습니다.
 
 ## <a name="sla-terms-and-conditions"></a>SLA 사용 약관
 

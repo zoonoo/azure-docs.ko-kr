@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: c2b440413599ce07112231af17daa0bc14817b76
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832780"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033356"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치에 보안 모듈 배포
 
@@ -32,7 +32,7 @@ ms.locfileid: "97832780"
 
 다음 단계를 사용 하 여 IoT Edge에 대 한 IoT 용 Defender 보안 모듈을 배포 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 1. IoT Hub에서 장치가 [IoT Edge 장치로 등록](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device)되어 있는지 확인 합니다.
 
@@ -51,13 +51,13 @@ ms.locfileid: "97832780"
 
 1. Azure Portal에서 **Marketplace** 를 엽니다.
 
-1. **사물 인터넷** 를 선택 하 고 **Defender for IoT** 를 검색 하 여 선택 합니다.
+1. **사물 인터넷** 을 선택한 다음, **IoT에 대 한 Azure Security Center** 를 검색 하 고 선택 합니다.
 
    :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="IoT 용 Defender 선택":::
 
-1. **만들기** 를 클릭 하 여 배포를 구성 합니다.
+1. **만들기** 를 선택 하 여 배포를 구성 합니다.
 
-1. IoT Hub의 Azure **구독** 을 선택한 다음 **IoT Hub** 를 선택 합니다.<br>**장치에 배포** 를 선택 하 여 단일 장치를 대상으로 하거나, **대규모로 배포** 를 선택 하 여 여러 장치를 대상으로 하 고, **만들기** 를 클릭 합니다. 대규모로 배포 하는 방법에 대 한 자세한 내용은 [배포 방법](../iot-edge/how-to-deploy-at-scale.md)을 참조 하세요.
+1. IoT Hub의 Azure **구독** 을 선택한 다음 **IoT Hub** 를 선택 합니다.<br>**장치에 배포** 를 선택 하 여 단일 장치를 대상으로 하거나, **대규모로 배포** 를 선택 하 여 여러 장치를 대상으로 하 고, **만들기** 를 선택 합니다. 대규모로 배포 하는 방법에 대 한 자세한 내용은 [배포 방법](../iot-edge/how-to-deploy-at-scale.md)을 참조 하세요.
 
     >[!Note]
     >**대규모로 배포** 를 선택한 경우 다음 지침의 **모듈 추가** 탭으로 계속 하기 전에 장치 이름 및 세부 정보를 추가 합니다.
@@ -68,7 +68,7 @@ ms.locfileid: "97832780"
 
 1. **AzureSecurityCenterforIoT** 모듈을 선택 합니다.
 1. **모듈 설정** 탭에서 **이름을** **azureiotsecurity** 로 변경 합니다.
-1. **환경 변수** 탭에서 필요한 경우 변수를 추가 합니다 (예: 디버그 수준).
+1. **환경 변수** 탭에서 필요한 경우 변수를 추가 합니다. 예를 들어 *디버그 수준을* 추가 하 고 "치명적", "오류", "경고", "정보" 등의 값 중 하나로 설정할 수 있습니다.
 1. **컨테이너 만들기 옵션** 탭에서 다음 구성을 추가 합니다.
 
     ``` json
@@ -112,8 +112,12 @@ ms.locfileid: "97832780"
 #### <a name="step-2-runtime-settings"></a>2 단계: 런타임 설정
 
 1. **런타임 설정** 을 선택 합니다.
-1. **Edge Hub** 에서 **이미지** 를 **mcr.microsoft.com/azureiotedge-hub:1.0.8.3** 로 변경 합니다.
-1. **만들기 옵션** 은 다음 구성으로 설정 되어 있는지 확인 합니다.
+2. **Edge Hub** 에서 **이미지** 를 **mcr.microsoft.com/azureiotedge-hub:1.0.8.3** 로 변경 합니다.
+
+    >[!Note]
+    > 현재 1.0.8.3 이상 버전이 지원 됩니다.
+
+3. **만들기 옵션** 은 다음 구성으로 설정 되어 있는지 확인 합니다.
 
     ``` json
     {
@@ -139,9 +143,9 @@ ms.locfileid: "97832780"
     }
     ```
 
-1. **저장** 을 선택합니다.
+4. **저장** 을 선택합니다.
 
-1. **다음** 을 선택합니다.
+5. **다음** 을 선택합니다.
 
 #### <a name="step-3-specify-routes"></a>3 단계: 경로 지정
 

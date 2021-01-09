@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 0018b7bafa8ff2ecd328a150df752082c85484e2
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: bc80a4f5c6c2919f0cb3faa15958fb75eed70270
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608513"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035226"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
-[GitHub 작업](https://github.com/features/actions) 을 사용 하 여 Azure 함수 앱에 코드를 자동으로 빌드 및 배포 하는 워크플로를 정의 합니다. 
+[GitHub 작업](https://github.com/features/actions) 을 사용 하 여 Azure Functions에서 함수 앱에 코드를 자동으로 빌드하고 배포 하는 워크플로를 정의 합니다. 
 
 GitHub 작업에서 [워크플로](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) 는 github 리포지토리에서 정의 하는 자동화 된 프로세스입니다. 이 프로세스는 github에서 함수 앱 프로젝트를 빌드하고 배포 하는 방법을 GitHub에 알려 줍니다. 
 
@@ -29,7 +29,7 @@ Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 
 | **빌드** | 환경을 설정 합니다.<br/>함수 앱을 빌드합니다.|
 | **배포** | 함수 앱을 배포 합니다.|
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
@@ -187,6 +187,7 @@ Python은 작업을 사용 `actions/setup-python` 합니다.
 ---
 
 ## <a name="deploy-the-function-app"></a>함수 앱 배포
+
 `Azure/functions-action`함수 앱에 코드를 배포 하려면 작업을 사용 합니다. 이 작업에는 다음과 같은 세 가지 매개 변수가 있습니다.
 
 |매개 변수 |설명  |
@@ -202,7 +203,7 @@ Python은 작업을 사용 `actions/setup-python` 합니다.
 게시 프로필을 사용 하는 .NET Linux 워크플로를 설정 합니다.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Linux environment
+name: Deploy DotNet project to function app with a Linux environment
 
 on:
   [push]
@@ -241,7 +242,7 @@ jobs:
 게시 프로필을 사용 하는 .NET Windows 워크플로를 설정 합니다.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Windows environment
+name: Deploy DotNet project to function app with a Windows environment
 
 on:
   [push]
@@ -283,7 +284,7 @@ jobs:
 게시 프로필을 사용 하는 Java Linux 워크플로를 설정 합니다.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -325,7 +326,7 @@ jobs:
 게시 프로필을 사용 하는 Java Windows 워크플로를 설정 합니다.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -369,7 +370,7 @@ jobs:
 게시 프로필을 사용 하는 Node.JS Linux 워크플로를 설정 합니다.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -411,7 +412,7 @@ jobs:
 게시 프로필을 사용 하는 Node.JS Windows 워크플로를 설정 합니다.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -455,7 +456,7 @@ jobs:
 게시 프로필을 사용 하는 Python Linux 워크플로를 설정 합니다.
 
 ```yaml
-name: Deploy Python project to Azure Function App
+name: Deploy Python project to function app
 
 on:
   [push]

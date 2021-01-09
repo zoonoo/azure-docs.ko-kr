@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c746666d58e21c2705a2ef1d6a17d0d1196f7590
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 1577d63822bdb21eff7fcbb3e1343243a3004409
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504477"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033645"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
@@ -61,7 +61,7 @@ REST API v 3.0에는 다음과 같은 기능이 포함 되어 있습니다.
 응용 프로그램에 대 한 긴 오디오 보내기가 요구 사항은 [음성 SDK](speech-sdk.md) 또는 [음성 텍스트 REST API v 3.0](#speech-to-text-rest-api-v30)을 사용 하는 것이 좋습니다.
 
 > [!TIP]
-> FairFax (정부 클라우드) 끝점에 대 한 Azure 정부 [설명서](../../azure-government/compare-azure-government-global-azure.md) 를 참조 하세요.
+> Azure Government 및 Azure 중국 끝점은 [이 문서](sovereign-clouds.md) 를 참조 하세요.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -84,7 +84,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
-| 매개 변수 | Description | 필수/선택 |
+| 매개 변수 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원 되는 언어](language-support.md#speech-to-text)를 참조 하세요. | 필수 |
 | `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. 자세한 응답에는 표시 텍스트의 네 가지 표현이 포함 되어 있습니다. 기본 설정은 `simple`입니다. | 선택 사항 |
@@ -121,7 +121,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 다음 표에서는 발음 평가를 위한 필수 및 선택적 매개 변수를 보여 줍니다.
 
-| 매개 변수 | Description | 필수 여부 |
+| 매개 변수 | 설명 | 필수 여부 |
 |-----------|-------------|---------------------|
 | ReferenceText | 발음이 계산 될 텍스트입니다. | 필수 |
 | GradingSystem | 점수 보정의 시점 시스템입니다. `FivePoint`시스템은 0-5 부동 소수점 점수를 제공 하 고 `HundredMark` 0-100 부동 소수점 점수를 제공 합니다. 기본값: `FivePoint`. | 선택 사항 |
@@ -226,7 +226,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 결과는 JSON으로 제공됩니다. `simple` 형식에는 이러한 최상위 수준 필드가 포함됩니다.
 
-| 매개 변수 | Description  |
+| 매개 변수 | 설명  |
 |-----------|--------------|
 |`RecognitionStatus`|상태(예: 인식 성공에 `Success`)입니다. 다음 표를 참조하세요.|
 |`DisplayText`|대/소문자, 문장 부호, 역 텍스트 정규화 (음성 텍스트를 "200"의 경우 200, "의사 smith"의 경우 "Dr. Smith"의 경우) 및 불경 마스킹을 통해 인식 되는 텍스트입니다. 성공 시만 표시합니다.|
@@ -235,7 +235,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 필드에는 다음 값이 포함될 수 있습니다.
 
-| 상태 | Description |
+| 상태 | 설명 |
 |--------|-------------|
 | `Success` | 성공적으로 인식했고 `DisplayText` 필드가 있습니다. |
 | `NoMatch` | 오디오 스트림에서 음성이 감지되었지만 대상 언어의 단어가 일치하지 않습니다. 일반적으로 인식 언어는 사용자가 말하는 것과 다른 언어를 의미합니다. |
@@ -251,7 +251,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 목록의 개체는 `NBest` 다음을 포함할 수 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | `Confidence` | 0.0(신뢰도 없음)에서 1.0(완전 신뢰도)까지 항목의 신뢰도 점수입니다. |
 | `Lexical` | 인식된 텍스트의 어휘 형태, 즉 인식된 실제 단위입니다. |
@@ -337,7 +337,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="next-steps"></a>다음 단계
 
-- [무료 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
+- [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
 - [음향 모델 사용자 지정](./how-to-custom-speech-train-model.md)
 - [언어 모델 사용자 지정](./how-to-custom-speech-train-model.md)
 - [Batch 기록에 대해 알아보기](batch-transcription.md)

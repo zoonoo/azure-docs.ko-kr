@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: ec857db64529a27db7412c61f8f09c66f8a76363
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 4af29df27a109a9e1e26a720c190ab9d119fc4d1
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92098226"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033798"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Table storage 출력 바인딩
 
@@ -101,112 +101,6 @@ public class Person
 
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 함수](functions-reference-node.md)에서 테이블 출력 바인딩을 보여줍니다. 함수는 여러 테이블 엔터티를 씁니다.
-
-*function.json* 파일은 다음과 같습니다.
-
-```json
-{
-  "bindings": [
-    {
-      "name": "input",
-      "type": "manualTrigger",
-      "direction": "in"
-    },
-    {
-      "tableName": "Person",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "tableBinding",
-      "type": "table",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-[구성](#configuration) 섹션에서는 이러한 속성을 설명합니다.
-
-JavaScript 코드는 다음과 같습니다.
-
-```javascript
-module.exports = function (context) {
-
-    context.bindings.tableBinding = [];
-
-    for (var i = 1; i < 10; i++) {
-        context.bindings.tableBinding.push({
-            PartitionKey: "Test",
-            RowKey: i.toString(),
-            Name: "Name " + i
-        });
-    }
-
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-다음 예에서는 Table storage 출력 바인딩을 사용 하는 방법을 보여 줍니다. `table`바인딩은,, 및에 값을 할당 하 여 *function.js* 에서 구성 됩니다 `name` `tableName` `partitionKey` `connection` .
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "name": "message",
-      "type": "table",
-      "tableName": "messages",
-      "partitionKey": "message",
-      "connection": "AzureWebJobsStorage",
-      "direction": "out"
-    },
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-}
-```
-
-다음 함수는 값에 대 한 고유 UUI를 생성 `rowKey` 하 고 테이블 저장소에 메시지를 유지 합니다.
-
-```python
-import logging
-import uuid
-import json
-
-import azure.functions as func
-
-def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
-
-    rowKey = str(uuid.uuid4())
-
-    data = {
-        "Name": "Output binding message",
-        "PartitionKey": "message",
-        "RowKey": rowKey
-    }
-
-    message.set(json.dumps(data))
-
-    return func.HttpResponse(f"Message created with the rowKey: {rowKey}")
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 다음 예제에서는 단일 테이블 행을 쓰기 위해 HTTP 트리거를 사용 하는 Java 함수를 보여 줍니다.
@@ -284,6 +178,152 @@ public class AddPersons {
 }
 ```
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 함수](functions-reference-node.md)에서 테이블 출력 바인딩을 보여줍니다. 함수는 여러 테이블 엔터티를 씁니다.
+
+*function.json* 파일은 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[구성](#configuration) 섹션에서는 이러한 속성을 설명합니다.
+
+JavaScript 코드는 다음과 같습니다.
+
+```javascript
+module.exports = function (context) {
+
+    context.bindings.tableBinding = [];
+
+    for (var i = 1; i < 10; i++) {
+        context.bindings.tableBinding.push({
+            PartitionKey: "Test",
+            RowKey: i.toString(),
+            Name: "Name " + i
+        });
+    }
+
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+다음 예에서는 함수에서 여러 엔터티를 테이블에 쓰는 방법을 보여 줍니다.
+
+_function.js_ 의 바인딩 구성:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputData",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "TableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+_run.ps1_ 의 PowerShell 코드:
+
+```powershell
+param($InputData, $TriggerMetadata)
+  
+foreach ($i in 1..10) {
+    Push-OutputBinding -Name TableBinding -Value @{
+        PartitionKey = 'Test'
+        RowKey = "$i"
+        Name = "Name $i"
+    }
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+다음 예에서는 Table storage 출력 바인딩을 사용 하는 방법을 보여 줍니다. `table`바인딩은,, 및에 값을 할당 하 여 *function.js* 에서 구성 됩니다 `name` `tableName` `partitionKey` `connection` .
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "message",
+      "type": "table",
+      "tableName": "messages",
+      "partitionKey": "message",
+      "connection": "AzureWebJobsStorage",
+      "direction": "out"
+    },
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+다음 함수는 값에 대 한 고유 UUI를 생성 `rowKey` 하 고 테이블 저장소에 메시지를 유지 합니다.
+
+```python
+import logging
+import uuid
+import json
+
+import azure.functions as func
+
+def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
+
+    rowKey = str(uuid.uuid4())
+
+    data = {
+        "Name": "Output binding message",
+        "PartitionKey": "message",
+        "RowKey": rowKey
+    }
+
+    message.set(json.dumps(data))
+
+    return func.HttpResponse(f"Message created with the rowKey: {rowKey}")
+```
+
 ---
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
@@ -326,19 +366,23 @@ public static MyPoco TableOutput(
 
 C# 스크립트에서는 특성을 지원하지 않습니다.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-JavaScript에서는 특성을 지원하지 않습니다.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Python에서는 특성을 지원하지 않습니다.
-
 # <a name="java"></a>[Java](#tab/java)
 
 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 매개 변수에 대 한 [tableoutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) 주석을 사용 하 여 테이블 저장소에 값을 씁니다.
 
 자세한 내용은 [예제](#example)를 참조 하세요.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript에서는 특성을 지원하지 않습니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+특성은 PowerShell에서 지원 되지 않습니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Python에서는 특성을 지원하지 않습니다.
 
 ---
 
@@ -368,21 +412,9 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-메서드 매개 변수를 사용 하거나에 및 속성을 포함 하 여 출력 테이블 엔터티에 액세스 `ICollector<T> paramName` `IAsyncCollector<T> paramName` `T` `PartitionKey` `RowKey` 합니다. 이러한 속성에는를 구현 하거나 상속 하는 경우가 많습니다 `ITableEntity` `TableEntity` . `paramName`값은 `name` *function.js*의 속성에 지정 됩니다.
+메서드 매개 변수를 사용 하거나에 및 속성을 포함 하 여 출력 테이블 엔터티에 액세스 `ICollector<T> paramName` `IAsyncCollector<T> paramName` `T` `PartitionKey` `RowKey` 합니다. 이러한 속성에는를 구현 하거나 상속 하는 경우가 많습니다 `ITableEntity` `TableEntity` . `paramName`값은 `name` *function.js* 의 속성에 지정 됩니다.
 
 또는 `CloudTable` AZURE STORAGE SDK를 사용 하 여 메서드 매개 변수를 사용 하 여 테이블에 쓸 수 있습니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
-
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-`context.bindings.<name>`을 사용하여 출력 이벤트에 액세스합니다. 여기서 `<name>`은 *function.json*의 `name` 속성에 지정된 값입니다.
-
-# <a name="python"></a>[Python](#tab/python)
-
-함수에서 테이블 저장소 행 메시지를 출력 하는 두 가지 옵션은 다음과 같습니다.
-
-- **반환 값**: *function.json*의 `name` 속성을 `$return`으로 설정합니다. 이 구성을 사용 하면 함수의 반환 값이 테이블 저장소 행으로 유지 됩니다.
-
-- **명령형**: [출력](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) 형식으로 선언된 매개 변수의 [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) 메서드에 값을 전달합니다. `set`에 전달되는 값은 Event Hub 메시지로 유지됩니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -391,6 +423,22 @@ Python에서는 특성을 지원하지 않습니다.
 - **반환 값**: 함수 자체에 주석을 적용 하면 함수의 반환 값이 테이블 저장소 행으로 유지 됩니다.
 
 - **명령적**: 메시지 값을 명시적으로 설정 하려면 [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) 및 속성을 포함 하는 형식의 특정 매개 변수에 주석을 적용 합니다 `T` `PartitionKey` `RowKey` . 이러한 속성에는를 구현 하거나 상속 하는 경우가 많습니다 `ITableEntity` `TableEntity` .
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+`context.bindings.<name>`을 사용하여 출력 이벤트에 액세스합니다. 여기서 `<name>`은 *function.json* 의 `name` 속성에 지정된 값입니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+테이블 데이터에 쓰려면 cmdlet을 사용 하 `Push-OutputBinding` `-Name TableBinding` 고 매개 변수 및 `-Value` 매개 변수를 행 데이터와 동일 하 게 설정 합니다. 자세한 내용은 [PowerShell 예제](#example) 를 참조 하세요.
+
+# <a name="python"></a>[Python](#tab/python)
+
+함수에서 테이블 저장소 행 메시지를 출력 하는 두 가지 옵션은 다음과 같습니다.
+
+- **반환 값**: *function.json* 의 `name` 속성을 `$return`으로 설정합니다. 이 구성을 사용 하면 함수의 반환 값이 테이블 저장소 행으로 유지 됩니다.
+
+- **명령형**: [출력](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) 형식으로 선언된 매개 변수의 [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) 메서드에 값을 전달합니다. `set`에 전달되는 값은 Event Hub 메시지로 유지됩니다.
 
 ---
 

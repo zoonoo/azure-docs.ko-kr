@@ -3,12 +3,12 @@ title: 가상 네트워크를 사용 하는 시나리오
 description: Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 시나리오, 리소스 및 제한 사항입니다.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882435"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033832"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>가상 네트워크 시나리오 및 리소스
 
@@ -33,6 +33,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 * **Azure Load Balancer** -네트워크 컨테이너 그룹의 컨테이너 인스턴스 앞에 Azure Load Balancer를 배치 하는 것은 지원 되지 않습니다.
 * **글로벌 가상 네트워크 피어 링** -글로벌 피어 링 (Azure 지역에서 가상 네트워크 연결)은 지원 되지 않습니다.
 * **공용 ip 또는 DNS 레이블** -가상 네트워크에 배포 된 컨테이너 그룹은 현재 공용 ip 주소 또는 정규화 된 도메인 이름으로 컨테이너를 인터넷에 직접 노출 하는 것을 지원 하지 않습니다.
+* **VIRTUAL NETWORK nat** -가상 네트워크에 배포 된 컨테이너 그룹은 현재 아웃 바운드 인터넷 연결에 nat 게이트웨이 리소스를 사용 하 여 지원 하지 않습니다.
 
 ## <a name="other-limitations"></a>기타 제한 사항
 

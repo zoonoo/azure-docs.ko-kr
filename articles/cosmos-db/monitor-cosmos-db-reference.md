@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 75df985377e6ed1764985f8d0b6b44323f249b8a
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 04103de47e82764f7ec4effa84a9b2b7b90b9363
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632012"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034631"
 ---
 # <a name="monitoring-azure-cosmos-db-data-reference"></a>모니터링 Azure Cosmos DB 데이터 참조
 
@@ -81,7 +81,7 @@ Azure Cosmos DB에 해당 하는 모든 메트릭은 **표준 메트릭에 Cosmo
 | --- | --- | --- |
 | **time** | **TimeGenerated** | 작업이 발생한 날짜 및 시간(UTC)입니다. |
 | **resourceId** | **리소스** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
-| **category** | **범주** | Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **queryruntimestatistics**, **파티션**, 파티션, **파티션**, **ControlPlaneRequests** 는 사용 가능한 로그 형식입니다. |
+| **category** | **범주** | Azure Cosmos DB **DataPlaneRequests**, **MongoRequests**, **queryruntimestatistics**, **파티션**, 파티션, **파티션**, **ControlPlaneRequests**, **CassandraRequests**, **GremlinRequests** 는 사용할 수 있는 로그 형식입니다. |
 | **operationName** | **OperationName** | 작업의 이름입니다. 작업 이름은  `Create` ,, `Update` `Read` , `ReadFeed` ,, `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` ,,,, `Upsert` ,, 또는 일 수 있습니다.   |
 | **properties** | 해당 없음 | 이 필드의 내용은 다음 행에 설명되어 있습니다. |
 | **activityId** | **activityId_g** | 기록된 작업의 고유 GUID입니다. |

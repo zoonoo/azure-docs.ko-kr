@@ -1,14 +1,14 @@
 ---
 title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
-ms.date: 12/21/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 86d524665b70725108324b1d88521a4c3cb8ff05
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723272"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033968"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -68,6 +68,8 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 ### <a name="azure-subscription-and-service-limits"></a>Azure 구독 및 서비스 한도
 
 Azure Arc 사용 서버를 사용 하 여 컴퓨터를 구성 하기 전에 Azure Resource Manager [구독 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) 및 [리소스 그룹 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) 을 검토 하 여 연결할 컴퓨터 수를 계획 합니다.
+
+Azure Arc 사용 서버는 리소스 그룹에서 최대 5000 개의 컴퓨터 인스턴스를 지원 합니다.
 
 ### <a name="transport-layer-security-12-protocol"></a>전송 계층 보안 1.2 프로토콜
 
@@ -153,7 +155,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 > [!IMPORTANT]
 > 연결 된 컴퓨터 에이전트는 Azure Windows 가상 컴퓨터에 설치할 수 없습니다. 을 (를) 시도 하면 설치에서이를 감지 하 고 롤백합니다.
 
-| 방법 | Description |
+| 메서드 | Description |
 |--------|-------------|
 | 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
 | 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|
@@ -173,7 +175,7 @@ Windows 용 연결 된 컴퓨터 에이전트를 설치한 후 다음과 같은 
 
 * 설치 중에 생성되는 설치 폴더는 다음과 같습니다.
 
-    |폴더 |Description |
+    |폴더 |설명 |
     |-------|------------|
     |%ProgramFiles%\AzureConnectedMachineAgent |에이전트 지원 파일이 포함되어 있는 기본 설치 경로입니다.|
     |%ProgramData%\AzureConnectedMachineAgent |에이전트 구성 파일이 포함되어 있습니다.|

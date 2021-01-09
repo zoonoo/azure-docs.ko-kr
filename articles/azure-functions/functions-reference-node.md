@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bf6ebd01a18a0ebf0ab5dd7d7ac3aa34256b4696
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0b32efe3738dedbe8178889b3e9008964d485b00
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936807"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034920"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -20,7 +20,7 @@ Express.js, Node.js 또는 JavaScript developer로 Azure Functions를 처음 접
 
 | 시작 | 개념| 단계별 학습 |
 | -- | -- | -- | 
-| <ul><li>[ Visual Studio Code를 사용 하Node.js 함수](./create-first-function-vs-code-node.md)</li><li>[ 터미널/명령 프롬프트를 사용 하Node.js 함수](./create-first-function-cli-java.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[TypeScript 함수](#typescript)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[서버를 사용 하지 않는 Api에 Node.js 및 Express Api 리팩터링](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[ Visual Studio Code를 사용 하Node.js 함수](./create-first-function-vs-code-node.md)</li><li>[ 터미널/명령 프롬프트를 사용 하Node.js 함수](./create-first-function-cli-node.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[TypeScript 함수](#typescript)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[서버를 사용 하지 않는 Api에 Node.js 및 Express Api 리팩터링](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>JavaScript 함수 기본 사항
 
@@ -551,7 +551,7 @@ module.exports = function(context) {
 
 
 ### <a name="using-kudu"></a>Kudu 사용
-1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
+1. [https://editor.swagger.io](`https://<function_app_name>.scm.azurewebsites.net`) 로 이동합니다.
 
 2. **디버그 콘솔**  >  **CMD** 를 클릭 합니다.
 

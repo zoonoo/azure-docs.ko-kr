@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 707c69efddeda364f0c62e9719ae1a6073dfe9ad
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 993cd614f150866817e8d71dbd9dca9be606465f
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935736"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035158"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azure Functions에 대 한 Azure 보안 기준
 
@@ -56,16 +56,16 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: 중요한 웹 애플리케이션 보호
 
-**지침**: 프로덕션 환경에서 Azure 함수 끝점을 완벽 하 게 보호 하려면 다음 함수 앱 수준 보안 옵션 중 하나를 구현 하는 것을 고려해 야 합니다.
+**지침**: 프로덕션 환경에서 Azure Functions 끝점을 완벽 하 게 보호 하려면 다음 함수 앱 수준 보안 옵션 중 하나를 구현 하는 것을 고려해 야 합니다.
 - 함수 앱에 대 한 App Service 인증/권한 부여를 설정 합니다.
 - Azure API Management (APIM)를 사용 하 여 요청을 인증 하거나
 - Azure App Service Environment에 함수 앱을 배포 합니다.
 
-또한 프로덕션 Azure Functions에 대해 원격 디버깅을 사용 하지 않도록 설정 했는지 확인 합니다. 또한 CORS (크로스-원본 자원 공유)는 모든 도메인에서 Azure 함수 앱에 액세스할 수 있도록 허용 해서는 안 됩니다. 필요한 도메인만 Azure 함수 앱과 상호 작용 하도록 허용 합니다.
+또한 프로덕션 Azure Functions에 대해 원격 디버깅을 사용 하지 않도록 설정 했는지 확인 합니다. 또한 CORS (크로스-원본 자원 공유)는 모든 도메인에서 Azure의 함수 앱에 액세스 하도록 허용 해서는 안 됩니다. 필요한 도메인만 함수 앱과 상호 작용 하도록 허용 합니다.
 
 들어오는 트래픽의 추가 검사를 위해 네트워킹 구성의 일부로 WAF (웹 응용 프로그램 방화벽)를 배포 하는 것이 좋습니다. WAF에 대해 진단 설정을 사용 하도록 설정 하 고 로그를 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역에 수집 합니다. 
 
-- [프로덕션 환경에서 Azure 함수 끝점을 보호 하는 방법](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
+- [프로덕션 환경에서 Azure Functions 끝점을 보호 하는 방법](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
 - [Azure WAF를 배포 하는 방법](../web-application-firewall/ag/create-waf-policy-ag.md)
 
@@ -76,7 +76,7 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: 알려진 악성 IP 주소와의 통신 거부
 
 **지침**: DDoS 공격 으로부터 보호 하기 위해 함수 앱과 연결 된 가상 네트워크에서 DDoS Protection Standard를 사용 하도록 설정 합니다. Azure Security Center에 통합된 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 공용 IP 주소와의 통신을 거부합니다.
-또한 들어오는 모든 요청을 인증 하 고 악성 트래픽을 필터링 하기 위해 Azure 웹 응용 프로그램 방화벽과 같은 프런트 엔드 게이트웨이를 구성 합니다. Azure 웹 응용 프로그램 방화벽은 인바운드 웹 트래픽을 검사 하 여 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 DDoS 공격을 차단 하 여 Azure 함수 앱의 보안을 유지할 수 있습니다. WAF를 도입 하려면 개인 끝점 (미리 보기)을 App Service Environment 또는 사용 해야 합니다. 프로덕션 워크 로드와 함께 사용 하기 전에 개인 끝점이 더 이상 (미리 보기)에 있지 않은지 확인 합니다.
+또한 들어오는 모든 요청을 인증 하 고 악성 트래픽을 필터링 하기 위해 Azure 웹 응용 프로그램 방화벽과 같은 프런트 엔드 게이트웨이를 구성 합니다. Azure 웹 응용 프로그램 방화벽은 인바운드 웹 트래픽을 검사 하 여 SQL 주입, 사이트 간 스크립팅, 맬웨어 업로드 및 DDoS 공격을 차단 하 여 함수 앱을 보호할 수 있습니다. WAF를 도입 하려면 개인 끝점 (미리 보기)을 App Service Environment 또는 사용 해야 합니다. 프로덕션 워크 로드와 함께 사용 하기 전에 개인 끝점이 더 이상 (미리 보기)에 있지 않은지 확인 합니다.
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
@@ -175,9 +175,9 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 디바이스에 대한 표준 보안 구성 유지 관리
 
 **지침**: Azure Functions와 관련 된 네트워크 설정에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft 웹" 및 "Microsoft. 네트워크" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 Azure Functions의 네트워크 구성을 감사 하거나 적용 합니다. 다음과 같이 Azure Functions에 대 한 기본 제공 정책 정의를 사용할 수도 있습니다.
-- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.
-- 함수 앱에 HTTPS를 통해서만 액세스 가능
-- 함수 앱에서 최신 TLS 버전을 사용해야 합니다.
+- CORS에서 모든 리소스가 함수 앱에 액세스 하도록 허용 해서는 안 됩니다.
+- HTTPS를 통해서만 함수 앱에 액세스할 수 있어야 합니다.
+- 함수 앱에서 최신 TLS 버전을 사용 해야 합니다.
 
 또한 Azure 청사진을 사용 하 여 Azure Resource Manager 템플릿, azure RBAC (역할 기반 액세스 제어) 및 단일 청사진 정의의 정책과 같은 주요 환경 아티팩트를 패키지 하 여 대규모 Azure 배포를 간소화할 수 있습니다. 청사진을 새 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어와 관리를 세부적으로 조정할 수 있습니다.
 
@@ -233,7 +233,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 또한 Azure Functions는 기능을 모니터링 하기 위한 Azure 애플리케이션 Insights와의 기본 제공 통합 기능을 제공 합니다. Application Insights는 로그, 성능 및 오류 데이터를 수집 합니다. 성능 이상을 자동으로 감지하며, 문제를 진단하고 함수가 어떻게 사용되는지 이해할 수 있는 강력한 분석 도구를 포함하고 있습니다.
 
-Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅을 사용 하는 경우 진단 설정 "FunctionAppLogs"을 사용 하도록 설정 하 고 로그를 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 보냅니다. 
+함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅을 사용 하는 경우 진단 설정 "FunctionAppLogs"을 사용 하도록 설정 하 고 로그를 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 보냅니다. 
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다. 
 
@@ -253,7 +253,7 @@ Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅�
 
 **지침**: 제어 평면 감사 로깅의 경우 Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 Log Analytics 작업 영역, azure 이벤트 허브 또는 보관을 위해 azure storage 계정으로 로그를 보냅니다. Azure 활동 로그 데이터를 사용하면 Azure 리소스의 컨트롤 플레인 수준에서 수행되는 모든 쓰기 작업(PUT, POST, DELETE)에 대한 "무엇을, 누가, 언제"를 판단할 수 있습니다.
 
-Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅을 사용 하는 경우 진단 설정 "FunctionAppLogs"을 사용 하도록 설정 하 고 로그를 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 보냅니다. 
+함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅을 사용 하는 경우 진단 설정 "FunctionAppLogs"을 사용 하도록 설정 하 고 로그를 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 보냅니다. 
 
 - [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
@@ -273,7 +273,7 @@ Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅�
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 구성
 
-**지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure Functions 앱과 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
+**지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 함수 앱과 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
 - [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -283,11 +283,11 @@ Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅�
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 
-**지침**: Azure 활동 로그 진단 설정 및 Azure Functions 앱에 대 한 진단 설정을 사용 하도록 설정 하 고 Log Analytics 작업 영역으로 로그를 보냅니다. Log Analytics에서 쿼리를 수행하여 용어를 검색하고, 추세를 파악하며, 패턴을 분석하고, 수집된 데이터를 기반으로 하여 다양한 인사이트를 제공합니다.
+**지침**: Azure 활동 로그 진단 설정 및 함수 앱에 대 한 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 수행하여 용어를 검색하고, 추세를 파악하며, 패턴을 분석하고, 수집된 데이터를 기반으로 하여 다양한 인사이트를 제공합니다.
 
-Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 하 여 로그, 성능 및 오류 데이터를 수집 합니다. Azure Portal 내 Application Insights에서 수집한 원격 분석 데이터를 볼 수 있습니다.
+함수 앱에 대 한 Application Insights를 사용 하도록 설정 하 여 로그, 성능 및 오류 데이터를 수집 합니다. Azure Portal 내 Application Insights에서 수집한 원격 분석 데이터를 볼 수 있습니다.
 
-Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅을 사용 하는 경우 진단 설정 "FunctionAppLogs"을 사용 하도록 설정 하 고 로그를 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 보냅니다. 
+함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅을 사용 하는 경우 진단 설정 "FunctionAppLogs"을 사용 하도록 설정 하 고 로그를 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 보냅니다. 
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다. 
 
@@ -305,9 +305,9 @@ Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅�
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: 비정상 활동에 대한 경고 사용
 
-**지침**: Azure 활동 로그 진단 설정 및 Azure Functions 앱에 대 한 진단 설정을 사용 하도록 설정 하 고 Log Analytics 작업 영역으로 로그를 보냅니다. Log Analytics에서 쿼리를 수행하여 용어를 검색하고, 추세를 파악하며, 패턴을 분석하고, 수집된 데이터를 기반으로 하여 다양한 인사이트를 제공합니다. Log Analytics 작업 영역 쿼리를 기반으로 하여 경고를 만들 수 있습니다.
+**지침**: Azure 활동 로그 진단 설정 및 함수 앱에 대 한 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 수행하여 용어를 검색하고, 추세를 파악하며, 패턴을 분석하고, 수집된 데이터를 기반으로 하여 다양한 인사이트를 제공합니다. Log Analytics 작업 영역 쿼리를 기반으로 하여 경고를 만들 수 있습니다.
 
-Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 하 여 로그, 성능 및 오류 데이터를 수집 합니다. Application Insights에 의해 수집 된 원격 분석 데이터를 보고 Azure Portal 내에서 경고를 만들 수 있습니다.
+함수 앱에 대 한 Application Insights를 사용 하도록 설정 하 여 로그, 성능 및 오류 데이터를 수집 합니다. Application Insights에 의해 수집 된 원격 분석 데이터를 보고 Azure Portal 내에서 경고를 만들 수 있습니다.
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다. 
 
@@ -327,7 +327,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: 맬웨어 방지 로깅 중앙 집중화
 
-**지침**: 해당 사항 없음 Azure Functions 앱은 맬웨어 방지 관련 로그를 처리 하거나 생성 하지 않습니다.
+**지침**: 해당 사항 없음 함수 앱은 맬웨어 방지 관련 로그를 처리 하거나 생성 하지 않습니다.
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -335,7 +335,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 ### <a name="29-enable-dns-query-logging"></a>2.9: DNS 쿼리 로깅 사용
 
-**지침**: 해당 사항 없음 Azure Functions 앱은 사용자가 액세스할 수 있는 DNS 관련 로그를 처리 하거나 생성 하지 않습니다.
+**지침**: 해당 사항 없음 함수 앱은 사용자가 액세스할 수 있는 DNS 관련 로그를 처리 하거나 생성 하지 않습니다.
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -399,7 +399,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Azure Active Directory에서 SSO(Single Sign-On) 사용
 
-**지침**: 가능한 경우 함수 앱에 대 한 데이터 액세스를 위해 개별 독립 실행형 자격 증명을 구성 하는 대신 Azure Active Directory SSO를 사용 합니다. Azure Security Center Id 및 액세스 관리 권장 사항을 사용 합니다. App Service 인증/권한 부여 기능을 사용 하 여 Azure Functions 앱에 대 한 Single Sign-On를 구현 합니다.
+**지침**: 가능한 경우 함수 앱에 대 한 데이터 액세스를 위해 개별 독립 실행형 자격 증명을 구성 하는 대신 Azure Active Directory SSO를 사용 합니다. Azure Security Center Id 및 액세스 관리 권장 사항을 사용 합니다. App Service 인증/권한 부여 기능을 사용 하 여 함수 앱에 대 한 Single Sign-On를 구현 합니다.
 
 - [Azure Functions의 인증 및 권한 부여 이해](../app-service/overview-authentication-authorization.md#identity-providers)
 
@@ -459,9 +459,9 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침**: Azure Functions 앱에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
+**지침**: 함수 앱에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-- [Azure AD 로그인을 사용 하도록 Azure Functions 앱을 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
+- [Azure AD 로그인을 사용 하도록 함수 앱을 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
 
 - [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -483,13 +483,13 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: 비활성화된 계정에 대한 액세스 시도 모니터링
 
-**지침**: Azure 함수 앱에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
+**지침**: 함수 앱에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
 Azure AD 로그인 활동, 감사 및 위험 이벤트 로그 원본에 액세스할 수 있으며,이를 통해 Azure 센티널 또는 타사 SIEM과 통합할 수 있습니다.
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 내에서 원하는 로그 경고를 구성할 수 있습니다.
 
-- [Azure AD 로그인을 사용 하도록 Azure Functions 앱을 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
+- [Azure AD 로그인을 사용 하도록 함수 앱을 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
 
 - [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -501,7 +501,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: 계정 로그인 동작 편차에 대한 경고
 
-**지침**: Azure Functions 앱에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. 제어 평면 (Azure Portal)의 계정 로그인 동작 편차에 대해 AD (Azure Active Directory) Id 보호 및 위험 검색 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
+**지침**: 함수 앱에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. 제어 평면 (Azure Portal)의 계정 로그인 동작 편차에 대해 AD (Azure Active Directory) Id 보호 및 위험 검색 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
 - [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -539,9 +539,9 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
-**지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. Azure 함수 앱은 VNet (가상 네트워크)/서브넷으로 구분 하 고 적절 하 게 태그를 지정 해야 합니다.
+**지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. 함수 앱은 VNet (가상 네트워크)/서브넷으로 구분 하 고 적절 하 게 태그를 지정 해야 합니다.
 
-또한 개인 끝점을 사용 하 여 네트워크 격리를 수행할 수 있습니다. Azure 개인 끝점은 Azure 개인 링크로 구동 되는 서비스 (예: Azure Functions app HTTPs 끝점)에 안전 하 게 연결 되는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 프라이빗 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 전용 끝점은 프리미엄 계획에서 실행 되는 함수 앱에 대 한 (미리 보기)입니다. 프로덕션 워크 로드와 함께 사용 하기 전에 개인 끝점이 더 이상 (미리 보기)에 있지 않은지 확인 합니다.
+또한 개인 끝점을 사용 하 여 네트워크 격리를 수행할 수 있습니다. Azure 개인 끝점은 Azure 개인 링크로 구동 되는 서비스 (예: 함수 앱 HTTPs 끝점)에 안전 하 고 안전 하 게 연결 되는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 프라이빗 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 전용 끝점은 프리미엄 계획에서 실행 되는 함수 앱에 대 한 (미리 보기)입니다. 프로덕션 워크 로드와 함께 사용 하기 전에 개인 끝점이 더 이상 (미리 보기)에 있지 않은지 확인 합니다.
 
 - [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
@@ -575,7 +575,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: 전송 중인 모든 중요한 정보 암호화
 
-**지침**: Azure 함수 앱에 대 한 Azure Portal의 "플랫폼 기능: 네트워킹: SSL"에서 "HTTPs만" 설정을 사용 하도록 설정 하 고 최소 TLS 버전을 1.2으로 설정 합니다.
+**지침**: 함수 앱에 대 한 Azure Portal의 "플랫폼 기능: 네트워킹: SSL"에서 "HTTPs만" 설정을 사용 하도록 설정 하 고 최소 TLS 버전을 1.2으로 설정 합니다.
 
 **Azure Security Center 모니터링**: 예
 
@@ -595,7 +595,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 azure 함수 제어 평면 (Azure Portal)에 대 한 액세스를 제어 합니다. 
+**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 함수 앱 제어 평면 (Azure Portal)에 대 한 액세스를 제어 합니다. 
 
 - [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
@@ -629,7 +629,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: 중요한 Azure 리소스에 대한 변경 내용 기록 및 경고
 
-**지침**: azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 Azure 함수 앱 뿐만 아니라 기타 중요 한 리소스 또는 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
+**지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 함수 앱 및 기타 중요 하거나 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
 - [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -643,9 +643,9 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
-**지침**: DevSecOps를 채택 하 여 Azure Functions 응용 프로그램의 보안을 유지 하 고 수명 주기 동안 최대한 안전 하 게 유지 합니다. DevSecOps는 조직의 보안 팀과 해당 기능을 DevOps 사례에 통합 하 여 팀의 모든 사용자가 보안을 책임 지 게 합니다.
+**지침**: DevSecOps 사례를 채택 하 여 함수 앱의 보안을 유지 하 고 수명 주기 동안 최대한 안전 하 게 유지 합니다. DevSecOps는 조직의 보안 팀과 해당 기능을 DevOps 사례에 통합 하 여 팀의 모든 사용자가 보안을 책임 지 게 합니다.
 
-또한 Azure 함수 앱을 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 따릅니다.
+또한 함수 앱을 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 따릅니다.
 
 - [CI/CD 파이프라인에 지속적인 보안 유효성 검사를 추가 하는 방법](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
@@ -821,9 +821,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: 위험 수준이 높은 애플리케이션을 물리적 또는 논리적으로 분리
 
-**지침**: 중요 하거나 높은 위험 수준의 Azure 함수 앱의 경우 격리를 제공 하는 별도의 구독 및/또는 관리 그룹을 구현 합니다.
+**지침**: 중요 하거나 높은 위험 함수 앱의 경우 격리를 제공 하는 별도의 구독 및/또는 관리 그룹을 구현 합니다.
 
-높은 위험 수준의 Azure 함수 앱을 자체 Virtual Network (VNet)에 배포 합니다. Azure Functions의 경계 보안은 Vnet를 통해 달성 됩니다. App Service Environment (ASE)에서 실행 되는 함수는 Vnet와 통합 될 수 있습니다. 사용 사례에 가장 적합 한 아키텍처를 선택 합니다.
+높은 위험 수준 함수 앱을 자체 Virtual Network (VNet)에 배포 합니다. 함수 앱에 대 한 경계 보안은 Vnet를 통해 달성 됩니다. App Service Environment (ASE)에서 실행 되는 함수는 Vnet와 통합 될 수 있습니다. 사용 사례에 가장 적합 한 아키텍처를 선택 합니다.
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
@@ -849,10 +849,10 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
-**지침**: Azure Policy을 사용 하 여 Azure 함수 앱에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft 웹" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Azure Functions 앱의 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다. 다음과 같은 기본 제공 정책 정의를 사용할 수도 있습니다.
+**지침**: Azure Policy을 사용 하 여 함수 앱에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft 웹" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 함수 앱의 구성을 감사 하거나 적용 합니다. 다음과 같은 기본 제공 정책 정의를 사용할 수도 있습니다.
 - 함수 앱에서 관리 ID를 사용해야 합니다.
-- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.
-- 함수 앱에 HTTPS를 통해서만 액세스 가능
+- 함수 앱에 대해 원격 디버깅을 해제 해야 합니다.
+- HTTPS를 통해서만 함수 앱에 액세스할 수 있어야 합니다.
 
 - [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -972,7 +972,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: 안전하게 자동으로 ID 관리
 
-**지침**: 관리 되는 id를 사용 하 여 azure AD에서 자동으로 관리 되는 Id를 azure 함수 앱에 제공 합니다. 관리 ID를 사용하면 코드에 자격 증명 없이 Key Vault를 포함하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있습니다.
+**지침**: 관리 되는 id를 사용 하 여 Azure AD에서 자동으로 관리 되는 id로 함수 앱을 제공 합니다. 관리 ID를 사용하면 코드에 자격 증명 없이 Key Vault를 포함하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있습니다.
 
 - [App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](../app-service/overview-managed-identity.md)
 

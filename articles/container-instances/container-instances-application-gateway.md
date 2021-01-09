@@ -3,12 +3,12 @@ title: 컨테이너 그룹에 대 한 고정 IP 주소
 description: 가상 네트워크에서 컨테이너 그룹을 만들고 Azure application gateway를 사용 하 여 컨테이너 화 된 웹 앱에 정적 프런트 엔드 IP 주소를 노출 합니다.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0131780fdb04a71837d5ae9bf5498bf2bd499f8a
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260790"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035056"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>컨테이너 그룹에 대 한 고정 IP 주소 노출
 
@@ -47,7 +47,7 @@ az network vnet create \
   --subnet-prefix 10.0.1.0/24
 ```
 
-[Az network vnet subnet create][az-network-vnet-subnet-create] 명령을 사용 하 여 백 엔드 컨테이너 그룹에 대 한 서브넷을 만듭니다. 여기서는 *Myacisubnet*이라고 합니다.
+[Az network vnet subnet create][az-network-vnet-subnet-create] 명령을 사용 하 여 백 엔드 컨테이너 그룹에 대 한 서브넷을 만듭니다. 여기서는 *Myacisubnet* 이라고 합니다.
 
 ```azurecli
 az network vnet subnet create \
@@ -100,6 +100,9 @@ ACI_IP=$(az container show \
   --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv)
 ```
+
+> [!IMPORTANT]
+> 컨테이너 그룹을 중지, 시작 또는 다시 시작 하면 컨테이너 그룹의 개인 IP가 변경 될 수 있습니다. 이런 경우 응용 프로그램 게이트웨이 구성을 업데이트 해야 합니다.
 
 ## <a name="create-application-gateway"></a>애플리케이션 게이트웨이 만들기
 

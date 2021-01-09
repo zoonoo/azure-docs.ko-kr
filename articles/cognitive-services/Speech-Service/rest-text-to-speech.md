@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: bfdea5f2e2bd20a35ee948e99b3be9bf55038b13
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 9bee5fa6b76aad9305947ebe460f37c399340038
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760659"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033456"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -35,7 +35,7 @@ ms.locfileid: "97760659"
 * Text-to-Speech REST API에는 인증 헤더가 필요합니다. 즉, 서비스에 액세스하기 위해 토큰 교환을 완료해야 합니다. 자세한 내용은 [인증](#authentication)을 참조하세요.
 
 > [!TIP]
-> FairFax (정부 클라우드) 끝점에 대 한 [Azure 정부 설명서](/azure/azure-government/compare-azure-government-global-azure) 를 참조 하세요.
+> Azure Government 및 Azure 중국 끝점은 [이 문서](sovereign-clouds.md) 를 참조 하세요.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -76,7 +76,10 @@ ms.locfileid: "97760659"
 
 | 헤더 | 설명 | 필수/선택 |
 |--------|-------------|---------------------|
-| `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
+| `Ocp-Apim-Subscription-Key` | Speech Service 구독 키입니다. | 이 헤더 또는 `Authorization`가 필요합니다. |
+| `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`가 필요합니다. |
+
+
 
 ### <a name="request-body"></a>요청 본문
 
@@ -90,7 +93,7 @@ ms.locfileid: "97760659"
 GET /cognitiveservices/voices/list HTTP/1.1
 
 Host: westus.tts.speech.microsoft.com
-Authorization: Bearer [Base64 access_token]
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 ```
 
 ### <a name="sample-response"></a>샘플 응답

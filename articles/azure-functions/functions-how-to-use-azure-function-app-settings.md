@@ -1,16 +1,16 @@
 ---
-title: Azure에서 함수 앱 설정 구성
-description: Azure 함수 앱 설정을 구성하는 방법에 알아봅니다.
+title: Azure Functions에서 함수 앱 설정 구성
+description: Azure Functions에서 함수 앱 설정을 구성 하는 방법에 대해 알아봅니다.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 746a97ecd9b0bdd676e70cca38edc75905e3e4bd
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2526fd60d6e07ecf43864945f2b05858b41ca567
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936943"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035209"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -79,7 +79,7 @@ Azure Portal에서 함수 앱에 사용 되는 계획의 유형을 결정 하거
 
 | 플랜 유형 | 포털 | Azure CLI/PowerShell |
 | --- | --- | --- |
-| [Consumption](consumption-plan.md) | **Consumption** | `Dynamic` |
+| [소비](consumption-plan.md) | **소비** | `Dynamic` |
 | [Premium](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
 | [전용 (App Service)](dedicated-plan.md) | 다양 | 다양 |
 
@@ -145,7 +145,7 @@ App Service 편집기는 JSON 구성 파일과 코드 파일을 둘 다 수정�
 
 로컬 컴퓨터에서 함수를 개발 하는 것이 좋습니다. 로컬로 개발 하 고 Azure에 게시 하는 경우 프로젝트 파일은 포털에서 읽기 전용입니다. 자세히 알아보려면 [로컬에서 코드 및 테스트 Azure Functions](functions-develop-local.md)를 참조 하세요.
 
-### <a name="console"></a><a name="console"></a>콘솔
+### <a name="console"></a><a name="console"></a>Console
 
 ![함수 앱 콘솔](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
@@ -186,7 +186,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 
 명령을 사용 [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) 하 여 현재 허용 된 원본을 나열 합니다.
 
-### <a name="authentication"></a><a name="auth"></a>인증은
+### <a name="authentication"></a><a name="auth"></a>인증
 
 ![함수 앱에 대한 인증 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

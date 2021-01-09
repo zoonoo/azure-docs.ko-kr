@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 5bbd02f9e15a4ee29e244b2a0307accd151ba487
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696027"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033951"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Azure Stack Edge Pro 및 Azure Data Box Gateway에 대 한 지원 티켓을 엽니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "97696027"
     * 오류가 발생한 하드웨어 파트의 FRU(Field Replacement Unit)가 전송됩니다. 현재 전원 공급 장치 및 반도체 드라이브는 지원 되는 유일한 Fru입니다.
     * FRU만 다음 영업일 내에 교체되며, 다른 파트의 경우 모두 FSR(Full System Replacement)이 제공되어야 합니다.
 
-3. 4:30 pm 현지 시간 (월요일부터 금요일까지) 전에 지원 티켓이 발생 하는 경우 온사이트 기술자는 FRU 교체를 수행할 수 있도록 다음 영업일의 위치에 발송 됩니다. 전체 시스템 교체는 일반적으로 공장에서 배송 되며 교통 및 세관 지연의 영향을 받을 수 있기 때문에 훨씬 더 오랜 시간이 소요 됩니다.
+3. 1 PM 현지 시간 (월요일 ~ 금요일)에 따라 FRU 교체가 필요한 경우 온사이트 기술자는 FRU 교체를 수행할 수 있도록 다음 영업일을 위치에 발송 합니다. 전체 시스템 교체는 일반적으로 공장에서 배송 되며 교통 및 세관 지연의 영향을 받을 수 있기 때문에 훨씬 더 오랜 시간이 소요 됩니다.
 
 ## <a name="manage-a-support-request"></a>지원 요청 관리
 

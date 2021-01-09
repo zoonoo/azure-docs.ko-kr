@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 10/30/2020
-ms.openlocfilehash: 53e62d790514bd3fb5bef93788fa78944db28c2c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7f053b1984a2d838deb14bacd10cdc071e19d8a1
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127742"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035141"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database에서 트랜잭션 측면에서 일관 된 데이터베이스 복사본 복사
 
@@ -134,6 +134,46 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 ### <a name="copy-to-a-different-subscription"></a>다른 구독으로 복사
 
 T-sql을 사용 하 여 다른 구독에 있는 서버에 데이터베이스를 복사 하려면 [다른 서버에 SQL Database 복사](#copy-to-a-different-server) 섹션의 단계를 사용할 수 있습니다. 원본 데이터베이스의 데이터베이스 소유자와 이름 및 암호가 같은 로그인을 사용 해야 합니다. 또한 로그인은 `dbmanager` 원본 및 대상 서버 둘 다에서 역할 또는 서버 관리자의 구성원 이어야 합니다.
+
+```sql
+Step# 1
+Create login and user in the master database of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx'
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+
+Step# 2
+Create the user in the source database and grant dbowner permission to the database.
+
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+exec sp_addrolemember 'db_owner','loginname'
+GO
+
+Step# 3
+Capture the SID of the user “loginname” from master database
+
+SELECT [sid] FROM sysusers WHERE [name] = 'loginname'
+
+Step# 4
+Connect to Destination server.
+Create login and user in the master database, same as of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx', SID = [SID of loginname login on source server]
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+exec sp_addrolemember 'dbmanager','loginname'
+GO
+
+Step# 5
+Execute the copy of database script from the destination server using the credentials created
+
+CREATE DATABASE new_database_name
+AS COPY OF source_server_name.source_database_name
+```
 
 > [!NOTE]
 > [Azure Portal](https://portal.azure.com)PowerShell 및 Azure CLI는 다른 구독에 대 한 데이터베이스 복사를 지원 하지 않습니다.
