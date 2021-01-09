@@ -2,14 +2,14 @@
 title: 컨테이너 라이브 데이터 (미리 보기)에 대 한 Azure Monitor 설정 | Microsoft Docs
 description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 kubectl를 사용 하지 않고 컨테이너 로그 (stdout/stderr) 및 이벤트에 대 한 실시간 보기를 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830788"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050785"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
@@ -29,8 +29,6 @@ AKS (Azure Kubernetes Service) 클러스터의 컨테이너에 대 한 Azure Mon
 - Kubernetes Kubernetes RBAC (역할 기반 액세스 제어) 사용 AKS 클러스터
 - Azure Active Directory integrated AKS cluster.
 
->[!NOTE]
->[개인 클러스터](https://azure.microsoft.com/updates/aks-private-cluster/) 로 설정 된 AKS 클러스터는이 기능에서 지원 되지 않습니다. 이 기능은 브라우저에서 프록시 서버를 통해 Kubernetes API에 직접 액세스 하는 데 의존 합니다. 이 프록시의 Kubernetes API를 차단 하도록 네트워킹 보안을 사용 하도록 설정 하면이 트래픽이 차단 됩니다.
 
 ## <a name="authentication-model"></a>인증 모델
 

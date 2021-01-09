@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 9ee804f7bed01ca0c7f365a04e6108afd9598157
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40f4845ecc21d05ca5e8394dccba080f8a1f8936
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87066395"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049714"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Azure Logic Apps에서 하나 이상의 통합 서비스 환경에 대해 단일 IP 주소를 설정 합니다.
 
@@ -31,7 +31,7 @@ Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-
 
    ![아웃 바운드 트래픽 전송 규칙을 사용 하 여 경로 테이블을 선택 합니다.](./media/connect-virtual-network-vnet-set-up-single-ip-address/select-route-table-for-virtual-network.png)
 
-1. [새 경로를 추가](../virtual-network/manage-route-table.md#create-a-route)하려면 경로 테이블 메뉴에서 **경로**  >  **추가**를 선택 합니다.
+1. [새 경로를 추가](../virtual-network/manage-route-table.md#create-a-route)하려면 경로 테이블 메뉴에서 **경로**  >  **추가** 를 선택 합니다.
 
    ![아웃 바운드 트래픽에 대 한 경로 추가](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-route-to-route-table.png)
 
@@ -41,7 +41,7 @@ Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-
 
    * 방화벽 인스턴스의 개인 IP 주소를 다음 홉 주소로 이동 합니다.
 
-     이 IP 주소를 찾으려면 방화벽 메뉴에서 **개요**를 선택 하 고 **개인 IP 주소**아래의 주소를 찾습니다. 예를 들면 다음과 같습니다.
+     이 IP 주소를 찾으려면 방화벽 메뉴에서 **개요** 를 선택 하 고 **개인 IP 주소** 아래의 주소를 찾습니다. 예를 들면 다음과 같습니다.
 
      ![방화벽 개인 IP 주소 찾기](./media/connect-virtual-network-vnet-set-up-single-ip-address/find-firewall-private-ip-address.png)
 
@@ -61,7 +61,7 @@ Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-
 
 ## <a name="set-up-network-rule"></a>네트워크 규칙 설정
 
-1. Azure Portal에서 방화벽을 찾아 선택 합니다. 방화벽 메뉴의 **설정**에서 **규칙**을 선택 합니다. 규칙 창에서 **네트워크 규칙 컬렉션**  >  **네트워크 규칙 컬렉션 추가**를 선택 합니다.
+1. Azure Portal에서 방화벽을 찾아 선택 합니다. 방화벽 메뉴의 **설정** 에서 **규칙** 을 선택 합니다. 규칙 창에서 **네트워크 규칙 컬렉션**  >  **네트워크 규칙 컬렉션 추가** 를 선택 합니다.
 
    ![방화벽에 네트워크 규칙 컬렉션 추가](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-network-rule-collection.png)
 
@@ -76,8 +76,8 @@ Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-
    | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **이름** | <*네트워크 규칙 컬렉션-이름*> | 네트워크 규칙 컬렉션의 이름입니다. |
-   | **우선 순위** | <*우선 순위-수준*> | 규칙 컬렉션을 실행 하는 데 사용할 우선 순위의 순서입니다. 자세한 내용은 [몇 가지 Azure 방화벽 개념은 무엇](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)인가요?를 참조 하세요. |
-   | **동작** | **허용** | 이 규칙에 대해 수행할 동작 유형입니다. |
+   | **우선 순위** | <*우선 순위-수준*> | 규칙 컬렉션을 실행 하는 데 사용할 우선 순위의 순서입니다. 자세한 내용은 [몇 가지 Azure 방화벽 개념은 무엇](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts)인가요?를 참조 하세요. |
+   | **작업** | **허용** | 이 규칙에 대해 수행할 동작 유형입니다. |
    |||
 
    **네트워크 규칙 속성**
@@ -85,7 +85,7 @@ Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-
    | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **이름** | <*네트워크 규칙-이름*> | 네트워크 규칙의 이름 |
-   | **프로토콜** | <*연결-프로토콜*> | 사용할 연결 프로토콜입니다. 예를 들어 NSG 규칙을 사용 하는 경우 **tcp 뿐만 아니라** **tcp** 와 **UDP**를 모두 선택 합니다. |
+   | **프로토콜** | <*연결-프로토콜*> | 사용할 연결 프로토콜입니다. 예를 들어 NSG 규칙을 사용 하는 경우 **tcp 뿐만 아니라** **tcp** 와 **UDP** 를 모두 선택 합니다. |
    | **원본 주소** | <*ISE-서브넷 주소*> | ISE를 실행 하는 서브넷 IP 주소와 논리 앱의 트래픽이 발생 하는 위치 |
    | **대상 주소** | <*대상-IP 주소*> | 아웃 바운드 트래픽을 이동할 대상 시스템의 IP 주소입니다. 이 예제에서이 IP 주소는 SFTP 서버에 대 한 것입니다. |
    | **대상 포트** | <*대상-포트*> | 대상 시스템에서 인바운드 통신에 사용 하는 모든 포트 |
@@ -95,7 +95,7 @@ Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-
 
    * [네트워크 규칙 구성](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
    * [Azure Firewall 규칙 처리 논리](../firewall/rule-processing.md#network-rules-and-applications-rules)
-   * [Azure Firewall FAQ](../firewall/firewall-faq.md)
+   * [Azure Firewall FAQ](../firewall/firewall-faq.yml)
    * [Azure PowerShell: AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
    * [Azure CLI: az network firewall network-rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
 

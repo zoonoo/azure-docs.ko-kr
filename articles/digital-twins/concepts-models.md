@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dfea6d531dfb87a5344c5d8e53570b6e1ae8e598
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955330"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049323"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Azure Digital Twins의 쌍 모델 이해
 
@@ -88,57 +88,11 @@ DTDL 모델은 Azure Digital Twins와 호환 되려면 이러한 요구 사항�
  
 행성은 위성 **moons** 상호 작용 하 고 **craters** 를 포함할 수도 있습니다. 아래 예제에서 `Planet` 모델은 두 개의 외부 모델 (및)을 참조 하 여 이러한 다른 엔터티에 대 한 연결을 나타냅니다 `Moon` `Crater` . 이러한 모델은 아래 예제 코드에도 정의 되어 있지만 매우 간단 하 게 유지 되므로 기본 예제에서 저하 되지 않습니다 `Planet` .
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:Planet;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Planet",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "name",
-        "schema": "string"
-      },
-      {
-        "@type": "Property",
-        "name": "mass",
-        "schema": "double"
-      },
-      {
-        "@type": "Telemetry",
-        "name": "Temperature",
-        "schema": "double"
-      },
-      {
-        "@type": "Relationship",
-        "name": "satellites",
-        "target": "dtmi:com:contoso:Moon;1"
-      },
-      {
-        "@type": "Component",
-        "name": "deepestCrater",
-        "schema": "dtmi:com:contoso:Crater;1"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Crater;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  },
-  {
-    "@id": "dtmi:com:contoso:Moon;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
 
 모델의 필드는 다음과 같습니다.
 
-| 필드 | Description |
+| 필드 | 설명 |
 | --- | --- |
 | `@id` | 모델에 대 한 식별자입니다. 형식 이어야 합니다 `dtmi:<domain>:<unique model identifier>;<model version number>` . |
 | `@type` | 설명 하는 정보의 종류를 식별 합니다. 인터페이스의 경우 형식은 *interface* 입니다. |
@@ -166,63 +120,13 @@ Dtdl 당 *속성* 및 *원격 분석* 특성의 스키마는 표준 기본 유�
 
 다음 예에서는 이전 DTDL 예의 *행성* 모델을 더 큰 *CelestialBody* 모델의 하위 형식으로 다시 imagines 합니다. "Parent" 모델은 먼저 정의 된 다음 필드를 사용 하 여 "자식" 모델이 작성 합니다 `extends` .
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:CelestialBody;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Celestial body",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "name",
-        "schema": "string"
-      },
-      {
-        "@type": "Property",
-        "name": "mass",
-        "schema": "double"
-      },
-      {
-        "@type": "Telemetry",
-        "name": "temperature",
-        "schema": "double"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Planet;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Planet",
-    "extends": "dtmi:com:contoso:CelestialBody;1",
-    "contents": [
-      {
-        "@type": "Relationship",
-        "name": "satellites",
-        "target": "dtmi:com:contoso:Moon;1"
-      },
-      {
-        "@type": "Component",
-        "name": "deepestCrater",
-        "schema": "dtmi:com:contoso:Crater;1"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Crater;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
 
 이 예제에서 *CelestialBody* 은 이름, 질량 및 온도 *에 대 한 온도를 제공* 합니다. 섹션은 인터페이스 `extends` 이름 이거나 인터페이스 이름 배열입니다 (원하는 경우 확장 인터페이스가 여러 부모 모델에서 상속할 수 있도록 허용).
 
 상속이 적용 되 면 확장 인터페이스는 전체 상속 체인의 모든 속성을 노출 합니다.
 
-확장 인터페이스는 부모 인터페이스의 정의를 변경할 수 없습니다. 여기에만 추가할 수 있습니다. 또한 기능이 동일 하 게 정의 된 경우에도 부모 인터페이스에 이미 정의 된 기능을 다시 정의할 수 없습니다. 예를 들어 부모 인터페이스가 속성 질량을 정의 하는 경우 `double` 확장 인터페이스는 이기도 한 경우에도 *질량* 선언을 포함할 수 없습니다 *mass* `double` .
+확장 인터페이스는 부모 인터페이스의 정의를 변경할 수 없습니다. 여기에만 추가할 수 있습니다. 또한 기능이 동일 하 게 정의 된 경우에도 부모 인터페이스에 이미 정의 된 기능을 다시 정의할 수 없습니다. 예를 들어 부모 인터페이스가 속성 질량을 정의 하는 경우 `double` 확장 인터페이스는 이기도 한 경우에도 *질량* 선언을 포함할 수 없습니다  `double` .
 
 ## <a name="best-practices-for-designing-models"></a>모델 디자인에 대 한 모범 사례
 

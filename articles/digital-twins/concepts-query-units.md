@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 33c572719d76a2add39aec37329679113fcddb76
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 86f2abb8bfb95d5b9e72936ca3e9464747c00b1c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146333"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049306"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Azure Digital Twins의 쿼리 단위 
 
@@ -35,34 +35,7 @@ Azure Digital Twins [sdk](how-to-use-apis-sdks.md) 를 사용 하면 페이징�
 
 다음 코드 조각에서는 쿼리 API를 호출할 때 발생 하는 쿼리 요금을 추출 하는 방법을 보여 줍니다. 먼저 응답 페이지를 반복 하 여 쿼리 요금 헤더에 액세스 한 다음 각 페이지 내의 디지털 쌍 결과를 반복 합니다. 
 
-```csharp
-AsyncPageable<string> asyncPageableResponseWithCharge = client.QueryAsync("SELECT * FROM digitaltwins");
-int pageNum = 0;
-
-// The "await" keyword here is required, as a call is made when fetching a new page.
-
-await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
-{
-    Console.WriteLine($"Page {++pageNum} results:");
-
-    // Extract the query-charge header from the page
-
-    if (QueryChargeHelper.TryGetQueryCharge(page, out float queryCharge))
-    {
-        Console.WriteLine($"Query charge was: {queryCharge}");
-    }
-
-    // Iterate over the twin instances.
-
-    // The "await" keyword is not required here, as the paged response is local.
-
-    foreach (string response in page.Values)
-    {
-        BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(response);
-        Console.WriteLine($"Found digital twin '{twin.Id}'");
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/getQueryCharges.cs":::
 
 ## <a name="next-steps"></a>다음 단계
 

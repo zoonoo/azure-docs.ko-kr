@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1517c066fe20d478094f57d85d6e27f355a93601
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091806"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049816"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>서비스 요청이 실패 했습니다. 상태: 403 (사용할 수 없음)
 
@@ -44,7 +44,7 @@ ms.locfileid: "93091806"
 이 역할은와 다릅니다.
 * 미리 보기 중에이 역할의 이전 이름입니다. *Azure Digital Twins 소유자 (미리 보기)* (역할은 동일 하지만 이름이 변경 됨)
 * 전체 Azure 구독에 대 한 *소유자* 역할입니다. *Azure Digital Twins 데이터 소유자* 는 Azure Digital twins 내에서 역할 이며이 개별 Azure 디지털 쌍 인스턴스로 범위가 지정 됩니다.
-* Azure Digital Twins의 *소유자* 역할. 이러한 두 가지 Azure Digital Twins 관리 역할은 *Azure Digital Twins 데이터 소유자* 는 미리 보기 중 관리에 사용 해야 하는 역할입니다.
+* Azure Digital Twins의 *소유자* 역할. 이는 두 가지 서로 다른 Azure 디지털 쌍 관리 역할이 며, *Azure Digital Twins 데이터 소유자* 는 관리에 사용 해야 하는 역할입니다.
 
 #### <a name="check-current-setup"></a>현재 설치 확인
 
@@ -80,11 +80,11 @@ Azure AD 앱 등록을 사용 하 여 클라이언트 앱을 인증 하는 경�
 
 먼저, 등록에 Azure Digital Twins 권한 설정이 올바르게 설정 되었는지 확인 합니다. 이렇게 하려면 메뉴 모음에서 *매니페스트* 를 선택 하 여 앱 등록의 매니페스트 코드를 확인 합니다. 코드 창의 아래쪽으로 스크롤하고 아래에서 이러한 필드를 찾습니다 `requiredResourceAccess` . 값은 아래 스크린샷에 있는 값과 일치 해야 합니다.
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Azure Portal 앱 등록 페이지":::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Azure AD 앱 등록에 대 한 매니페스트의 포털 보기":::
 
 그런 다음 메뉴 모음에서 *API 권한* 을 선택 하 여이 앱 등록에 Azure Digital twins에 대 한 읽기/쓰기 권한이 포함 되어 있는지 확인 합니다. 다음과 같은 항목이 표시 됩니다.
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Azure Portal 앱 등록 페이지":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Azure AD 앱 등록에 대 한 API 권한의 포털 보기 (Azure Digital Twins의 ' 읽기/쓰기 액세스 ' 표시)":::
 
 #### <a name="fix-issues"></a>문제 해결
 

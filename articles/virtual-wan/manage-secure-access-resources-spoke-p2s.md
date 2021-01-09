@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 12/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: b0937bbd72460b1d46ce0394af1933e858424966
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c2efd9ac137c226c1d3a77e2cb6ebe17d75cb496
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360325"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051533"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>사용자 VPN 클라이언트용 스포크 Vnet의 리소스에 대 한 보안 액세스 관리
 
@@ -147,4 +147,4 @@ Azure 방화벽의 동작을 지시 하는 규칙을 만듭니다. 허브를 보
 ## <a name="next-steps"></a>다음 단계
 
 * 가상 WAN에 대한 자세한 내용은 [가상 WAN FAQ](virtual-wan-faq.md)를 참조하세요.
-* Azure 방화벽에 대 한 자세한 내용은 [Azure 방화벽 FAQ](../firewall/firewall-faq.md)를 참조 하세요.
+* Azure 방화벽에 대 한 자세한 내용은 [Azure 방화벽 FAQ](../firewall/firewall-faq.yml)를 참조 하세요.

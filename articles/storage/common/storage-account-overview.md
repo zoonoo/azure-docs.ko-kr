@@ -1,20 +1,20 @@
 ---
 title: Storage 계정 개요
 titleSuffix: Azure Storage
-description: Azure Storage의 저장소 계정 개요를 참조 하세요. 계정 이름, 성능 계층, 액세스 계층, 중복성, 암호화, 끝점 등을 검토 합니다.
+description: Azure Storage의 다양 한 저장소 계정 유형에 대해 알아봅니다. 계정 이름, 성능 계층, 액세스 계층, 중복성, 암호화, 끝점 등을 검토 합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 01/08/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c9c4cd643e2e4b89f9a7d8f44a6569d0dde2b37
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 5cf43310c68c8446b9465a39d85f84c8273a68d8
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357384"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051227"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -24,7 +24,40 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 ## <a name="types-of-storage-accounts"></a>스토리지 계정 유형
 
-[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
+Azure Storage는 여러 유형의 스토리지 계정을 제공합니다. 각각의 유형은 서로 다른 기능을 지원하며 고유의 가격 책정 모델이 있습니다. 스토리지 계정을 만들기 전에 애플리케이션에 적합한 계정 유형을 결정하는 데 이러한 차이점을 고려합니다. 스토리지 계정 유형은 다음과 같습니다.
+
+- **범용 v2 계정**: Blob, 파일, 큐 및 테이블에 대한 기본 스토리지 계정 유형입니다. 대부분의 시나리오에 대해 Azure Storage를 사용하는 것이 좋습니다.
+- **범용 v1 계정**: Blob, 파일, 큐 및 테이블에 대한 레거시 계정 유형입니다. 가능한 경우 범용 v2 계정을 대신 사용합니다.
+- **BlockBlobStorage 계정**: 블록 Blob 및 추가 Blob에 대한 프리미엄 성능 특성을 갖춘 스토리지 계정입니다. 트랜잭션 속도가 높은 시나리오 또는 더 작은 개체를 사용하거나 지속적으로 짧은 스토리지 대기 시간이 필요한 시나리오에 추천됩니다.
+- **FileStorage 계정**: 프리미엄 성능 특성을 갖춘 파일 전용 스토리지 계정입니다. 엔터프라이즈 또는 고성능 규모의 애플리케이션에 추천됩니다.
+- **BlobStorage 계정**: 레거시 Blob 전용 스토리지 계정입니다. 가능한 경우 범용 v2 계정을 대신 사용합니다.
+
+다음 표에서는 저장소 계정 유형, 지원 되는 서비스 및 각 계정 유형에 대해 지원 되는 배포 모델에 대해 설명 합니다.
+
+| 스토리지 계정 유형 | 지원되는 서비스 | 중복성 옵션 | 배포 모델<sup>1</sup> |
+|--|--|--|--|
+| 범용 V2 | Blob, File, Queue, Table, Disk 및 Data Lake Gen2<sup>2</sup> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<sup>3</sup> | 리소스 관리자 |
+| 범용 V1 | Blob, 파일, 큐, 테이블 및 디스크 | LRS, GRS, RA-GRS | Resource Manager, 클래식 |
+| BlockBlobStorage | Blob(블록 Blob 및 추가 Blob만) | LRS, ZRS<sup>3</sup> | 리소스 관리자 |
+| FileStorage | 파일에만 해당 | LRS, ZRS<sup>3</sup> | 리소스 관리자 |
+| BlobStorage | Blob(블록 Blob 및 추가 Blob만) | LRS, GRS, RA-GRS | 리소스 관리자 |
+
+<sup>1</sup>Azure Resource Manager 배포 모델을 사용하는 것이 좋습니다. 클래식 배포 모델을 사용하는 스토리지 계정도 일부 위치에서는 계속 만들 수 있고 기존 클래식 계정도 계속 지원됩니다. 자세한 내용은 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../../azure-resource-manager/management/deployment-models.md)를 참조하세요.
+
+<sup>2</sup> Azure Data Lake Storage Gen2은 Azure Blob Storage를 기반으로 하는 빅 데이터 분석 전용 기능 집합입니다. Data Lake Storage Gen2는 계층 구조 네임스페이스를 사용하도록 설정된 범용 V2 스토리지 계정에서만 지원됩니다. Data Lake Storage Gen2에 대한 자세한 내용은 [Azure Data Lake Storage Gen2 소개](../blobs/data-lake-storage-introduction.md)를 참조하세요.
+
+<sup>3</sup> ZRS (영역 중복 저장소) 및 지리적 영역 중복 저장소 (GZRS/RA-GZRS)는 특정 지역의 표준 범용 V2, BlockBlobStorage 및 FileStorage 계정에만 사용할 수 있습니다. Azure Storage 중복 옵션에 대한 자세한 내용은 [Azure Storage 중복](storage-redundancy.md)을 참조하세요.
+
+### <a name="storage-account-redundancy"></a>저장소 계정 중복성
+
+스토리지 계정의 중복 옵션으로는 다음과 같은 것이 있습니다.
+
+- **LRS (로컬 중복 저장소)**: 간단 하 고 저렴 한 중복성 전략입니다. 데이터는 주 지역의 단일 물리적 위치 내에서 동기적으로 세 번 복사됩니다.
+- **ZRS (영역 중복 저장소)**: 고가용성이 필요한 시나리오에 대 한 중복성 데이터는 주 지역에 있는 3개의 Azure 가용성 영역에서 동기적으로 복사됩니다.
+- **GRS (지역 중복 저장소)**: 지역 가동 중단 으로부터 보호 하는 지역 간 중복성 데이터는 주 지역에서 동기적으로 세 번 복사된 다음, 보조 지역에 비동기적으로 복사됩니다. 보조 지역에 대한 읽기 액세스의 경우 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용합니다.
+- **GZRS (지역 중복 저장소)**: 고가용성 및 최대 내구성이 모두 필요한 시나리오에 대 한 중복성입니다. 데이터는 주 지역의 3개의 Azure 가용성 영역에서 동기적으로 복사된 다음, 보조 지역에 비동기적으로 복사됩니다. 보조 지역에 대한 읽기 액세스의 경우 RA-GZRS(읽기 액세스 지역 영역 중복 스토리지)를 사용합니다.
+
+Azure Storage의 중복 옵션에 대한 자세한 내용은 [Azure Storage 중복성](storage-redundancy.md)을 참조하세요.
 
 ### <a name="general-purpose-v2-accounts"></a>범용 v2 계정
 
@@ -32,7 +65,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 - Blob(모든 유형: 블록, 추가, 페이지)
 - Data Lake Gen2
-- Files
+- 파일
 - 디스크
 - 큐
 - 테이블
@@ -49,7 +82,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 범용 v1 저장소 계정은 모든 Azure Storage 서비스에 대 한 액세스를 제공 하지만 최신 기능 또는 gb 당 최소 가격 책정을 포함 하지 않을 수 있습니다. 범용 v1 스토리지 계정은 다음 Azure Storage 서비스를 지원합니다.
 
 - Blob(모든 유형)
-- Files
+- 파일
 - 디스크
 - 큐
 - 테이블
@@ -83,7 +116,17 @@ FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 전용 특성을
 
 ## <a name="performance-tiers"></a>성능 계층
 
-만든 저장소 계정 유형에 따라 표준 및 프리미엄 성능 계층 중에서 선택할 수 있습니다.
+만든 저장소 계정 유형에 따라 표준 및 프리미엄 성능 계층 중에서 선택할 수 있습니다. 다음 표에는 저장소 계정 유형에 사용할 수 있는 성능 계층이 요약 되어 있습니다.
+
+| 스토리지 계정 유형 | 지원되는 성능 계층 |
+|--|--|
+| 범용 V2 | 표준, 프리미엄<sup>1</sup> |
+| 범용 V1 | 표준, 프리미엄<sup>1</sup> |
+| BlockBlobStorage | 프리미엄 |
+| FileStorage | 프리미엄 |
+| BlobStorage | 표준 |
+
+<sup>1</sup> 범용 v2 및 범용 v1 계정에 대 한 프리미엄 성능은 디스크 및 페이지 blob에만 사용할 수 있습니다. 블록 또는 추가 Blob에 대한 프리미엄 성능은 BlockBlobStorage 계정에서만 사용할 수 있습니다. 파일에 대한 프리미엄 성능은 FileStorage 계정에서만 사용할 수 있습니다.
 
 ### <a name="general-purpose-storage-accounts"></a>범용 스토리지 계정
 
@@ -112,12 +155,20 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 데이터의 사용 패턴이 변경 되 면 언제 든 지 이러한 액세스 계층 간을 전환할 수 있습니다. 액세스 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조 하세요.
 
+다음 표에서는 각 유형의 저장소 계정에서 blob에 사용할 수 있는 액세스 계층을 보여 줍니다.
+
+| 스토리지 계정 유형 | 지원되는 액세스 계층 |
+|--|--|
+| 범용 V2 | 핫, 쿨, 보관<sup>1</sup> |
+| 범용 V1 | 해당 없음 |
+| BlockBlobStorage | 해당 없음 |
+| FileStorage | 해당 없음 |
+| BlobStorage | 핫, 쿨, 보관<sup>1</sup> |
+
+<sup>1</sup> 보관 저장소 및 blob 수준 계층화는 블록 blob만 지원 합니다. 보관 계층은 스토리지 계정 수준이 아니라 개별 Blob 수준에서만 사용할 수 있습니다. 자세한 내용은 [Azure Blob Storage에 대 한 액세스 계층-핫, 쿨 및 보관](../blobs/storage-blob-storage-tiers.md)을 참조 하세요.
+
 > [!IMPORTANT]
-> 기존 스토리지 계정 또는 Blob에 대한 액세스 계층을 변경하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [스토리지 계정 청구 섹션](#storage-account-billing)을 참조하세요.
-
-## <a name="redundancy"></a>중복
-
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+> 기존 스토리지 계정 또는 Blob에 대한 액세스 계층을 변경하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 계정 청구](#storage-account-billing)를 참조 하세요.
 
 ## <a name="encryption"></a>암호화
 
@@ -127,13 +178,15 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 스토리지 계정은 데이터에 대해 Azure에서 고유의 네임스페이스를 제공합니다. Azure Storage 계정에 저장한 모든 개체는 고유 계정 이름을 포함하는 주소를 갖습니다. 계정 이름과 Azure Storage 서비스 엔드포인트의 조합이 스토리지 계정의 엔드포인트가 됩니다.
 
-예를 들어 범용 스토리지 계정의 이름이 *mystorageaccount* 일 경우 이 스토리지 계정의 기본 엔드포인트는 다음과 같습니다.
+다음 표에서는 각 Azure Storage 서비스에 대 한 끝점을 나열 합니다.
 
-- Blob 저장소: `https://*mystorageaccount*.blob.core.windows.net`
-- 테이블 저장소: `https://*mystorageaccount*.table.core.windows.net`
-- 큐 저장소: `https://*mystorageaccount*.queue.core.windows.net`
-- Azure Files: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` ( [빅 데이터에 대해 특별히 최적화 된 abfs 드라이버](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2)를 사용 합니다.)
+| 스토리지 서비스 | 엔드포인트 |
+|--|--|
+| Blob Storage | `https://<storage-account>.blob.core.windows.net` |
+| Azure Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
+| Azure 파일 | `https://<storage-account>.file.core.windows.net` |
+| Queue Storage | `https://<storage-account>.queue.core.windows.net` |
+| Table Storage | `https://<storage-account>.table.core.windows.net` |
 
 > [!NOTE]
 > 블록 blob 및 blob 저장소 계정은 Blob service 끝점만 노출 합니다.
@@ -184,7 +237,17 @@ Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참
 
 ## <a name="storage-account-billing"></a>Storage 계정 사용 비용
 
-[!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+저장소 계정 사용량을 기준으로 청구서를 Azure Storage 합니다. 스토리지 계정의 모든 개체는 그룹으로 합산 청구됩니다. 스토리지 비용은 다음 요인에 따라 계산됩니다.
+
+- **지역** 이란 계정이 기초하는 지리적 위치를 의미합니다.
+- **계정 유형** 은 사용 중인 스토리지 계정 유형을 나타냅니다.
+- **액세스 계층** 은 범용 v2 또는 Blob 스토리지 계정에 지정한 데이터 사용 패턴을 나타냅니다.
+- **용량은** 데이터를 저장 하는 데 사용 하는 저장소 계정 수의 양을 나타냅니다.
+- **복제** 에 따라 한 번에 유지 관리되는 데이터의 복사본 수 및 위치가 결정됩니다.
+- **트랜잭션** 은 Azure Storage에 대한 모든 읽기 및 쓰기 작업을 나타냅니다.
+- **데이터 송신** 은 Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 스토리지 계정의 데이터에 동일한 지역에서 실행되지 않는 애플리케이션이 액세스하는 경우 데이터 송신 요금이 부과됩니다. 리소스 그룹을 기반으로 동일한 지역의 데이터 및 서비스를 그룹화하여 송신 요금을 제한하는 방법에 대한 자세한 내용은 [Azure 리소스 그룹이란?](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group)을 참조하세요.
+
+[Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지는 계정 유형, 스토리지 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure Storage 가격 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) 를 사용하여 비용을 예측할 수 있습니다.
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 

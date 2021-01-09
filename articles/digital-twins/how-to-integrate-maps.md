@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496038"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051584"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Azure Digital Twins를 사용 하 여 Azure Maps 실내 맵 업데이트
 
@@ -29,9 +29,9 @@ ms.locfileid: "92496038"
 
 * Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)을 참조 하세요.
     * 추가 끝점 및 경로를 사용 하 여이 쌍을 확장 합니다. 또한이 자습서의 함수 앱에 다른 함수를 추가 합니다. 
-* Azure Maps [*자습서: Azure Maps Creator를 사용 하 여 실내 지도를 만들어*](../azure-maps/tutorial-creator-indoor-maps.md) *기능 stateset*을 사용 하 여 Azure Maps 실내 지도를 만듭니다.
+* Azure Maps [*자습서: Azure Maps Creator를 사용 하 여 실내 지도를 만들어*](../azure-maps/tutorial-creator-indoor-maps.md) *기능 stateset* 을 사용 하 여 Azure Maps 실내 지도를 만듭니다.
     * [기능 statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) 는 방 또는 장비와 같은 데이터 집합 기능에 할당 된 동적 속성 (상태)의 컬렉션입니다. 위의 Azure Maps 자습서에서 stateset 기능은 지도에 표시 되는 대화방 상태를 저장 합니다.
-    * 기능 *stateset ID* 및 AZURE MAPS *구독 id*가 필요 합니다.
+    * 기능 *stateset ID* 및 AZURE MAPS *구독 id* 가 필요 합니다.
 
 ### <a name="topology"></a>토폴로지
 
@@ -62,7 +62,7 @@ Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 
 3. 엔드포인트 업데이트 이벤트를 끝점으로 보내기 위해 Azure Digital Twins에서 경로를 만듭니다.
 
     >[!NOTE]
-    >Cloud Shell에는 `az dt route`, `az dt model`, `az dt twin` 명령 그룹에 영향을 주는 **알려진 문제**가 있습니다.
+    >Cloud Shell에는 `az dt route`, `az dt model`, `az dt twin` 명령 그룹에 영향을 주는 **알려진 문제** 가 있습니다.
     >
     >이 문제를 해결하려면 명령을 실행하기 전에 Cloud Shell에서 `az login`을 실행하거나 Cloud Shell 대신 [로컬 CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)를 사용합니다. 이에 대한 자세한 내용은 [*문제 해결: Azure Digital Twins의 알려진 문제*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell)를 참조하세요.
 
@@ -78,60 +78,7 @@ Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 
 
 함수 코드를 다음 코드로 바꿉니다. 이 파일은 공간 쌍에 대 한 업데이트만 필터링 하 고 업데이트 된 온도를 읽고 해당 정보를 Azure Maps으로 보냅니다.
 
-```C#
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Threading.Tasks;
-using System.Net.Http;
-
-namespace SampleFunctionsApp
-{
-    public static class ProcessDTUpdatetoMaps
-    {   //Read maps credentials from application settings on function startup
-        private static string statesetID = Environment.GetEnvironmentVariable("statesetID");
-        private static string subscriptionKey = Environment.GetEnvironmentVariable("subscription-key");
-        private static HttpClient httpClient = new HttpClient();
-
-        [FunctionName("ProcessDTUpdatetoMaps")]
-        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            JObject message = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-            log.LogInformation("Reading event from twinID:" + eventGridEvent.Subject.ToString() + ": " +
-                eventGridEvent.EventType.ToString() + ": " + message["data"]);
-
-            //Parse updates to "space" twins
-            if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in your map. 
-                //Replace this line with your logic for retrieving featureID. 
-                string featureID = "UNIT103";
-
-                //Iterate through the properties that have changed
-                foreach (var operation in message["data"]["patch"])
-                {
-                    if (operation["op"].ToString() == "replace" && operation["path"].ToString() == "/Temperature")
-                    {   //Update the maps feature stateset
-                        var postcontent = new JObject(new JProperty("States", new JArray(
-                            new JObject(new JProperty("keyName", "temperature"),
-                                 new JProperty("value", operation["value"].ToString()),
-                                 new JProperty("eventTimestamp", DateTime.Now.ToString("s"))))));
-
-                        var response = await httpClient.PostAsync(
-                            $"https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetID}&featureID={featureID}&subscription-key={subscriptionKey}",
-                            new StringContent(postcontent.ToString()));
-
-                        log.LogInformation(await response.Content.ReadAsStringAsync());
-                    }
-                }
-            }
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateMaps.cs":::
 
 함수 앱에서 두 환경 변수를 설정 해야 합니다. 하나는 [Azure Maps 기본 구독 키](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account)이 고 하나는 [AZURE MAPS stateset ID](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset)입니다.
 
@@ -152,7 +99,7 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 
 두 샘플 모두 호환 범위에서 온도를 전송 하므로 30 초 마다 맵에 room 121 업데이트의 색이 표시 되어야 합니다.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="종단 간 시나리오에서 실내 지도 통합 피스를 강조 표시 하는 Azure 서비스의 뷰입니다.":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="방 121 컬러 주황을 보여 주는 사무실 지도":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Azure Digital Twins에 maps 정보 저장
 

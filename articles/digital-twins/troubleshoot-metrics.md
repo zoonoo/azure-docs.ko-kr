@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4b72bb8bac8f9949c83d0bbc85a0995f790c437d
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 9b092c3c7382c984e8555125820c7c34d91f5e87
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347900"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048932"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure Digital Twins 문제 해결: 메트릭
 
@@ -57,8 +57,8 @@ Azure Digital Twins는 인스턴스 상태와 연결 된 리소스의 상태에 
 
 | 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
-| TwinCount | 쌍 개수 (미리 보기) | 개수 | 합계 | Azure Digital 쌍 인스턴스의 총 쌍 수입니다. 이 메트릭을 사용 하 여 인스턴스당 허용 되는 최대 수에 대 한 [서비스 제한](reference-service-limits.md#functional-limits) 에 근접 하 고 있는지 여부를 확인 합니다. |  없음 |
-| ModelCount | 모델 수 (미리 보기) | 개수 | 합계 | Azure Digital Twins 인스턴스의 총 모델 수입니다. 이 메트릭을 사용 하 여 인스턴스당 허용 되는 최대 모델 수에 대 한 [서비스 제한](reference-service-limits.md#functional-limits) 에 근접 하 고 있는지 여부를 확인 합니다. | 없음 |
+| TwinCount | 쌍 개수 (미리 보기) | 개수 | 합계 | Azure Digital 쌍 인스턴스의 총 쌍 수입니다. 이 메트릭을 사용 하 여 인스턴스당 허용 되는 최대 수에 대 한 [서비스 제한](reference-service-limits.md#functional-limits) 에 근접 하 고 있는지 여부를 확인 합니다. |  None |
+| ModelCount | 모델 수 (미리 보기) | 개수 | 합계 | Azure Digital Twins 인스턴스의 총 모델 수입니다. 이 메트릭을 사용 하 여 인스턴스당 허용 되는 최대 모델 수에 대 한 [서비스 제한](reference-service-limits.md#functional-limits) 에 근접 하 고 있는지 여부를 확인 합니다. | None |
 
 #### <a name="api-request-metrics"></a>API 요청 메트릭
 
@@ -76,9 +76,9 @@ API 요청으로 수행 해야 하는 메트릭:
 
 | 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | 청구 API 작업 | 개수 | 합계 | Azure Digital Twins 서비스에 대해 수행 된 모든 API 요청 수에 대 한 청구 메트릭입니다. | 측정기 Id |
-| BillingMessagesProcessed | 처리 된 청구 메시지 | 개수 | 합계 | Azure Digital Twins에서 외부 끝점으로 전송 된 메시지 수에 대 한 청구 메트릭입니다.<br><br>요금 청구를 위해 단일 메시지로 간주 되려면 페이로드가 1kb 보다 크지 않아야 합니다. 이 보다 큰 페이로드는 1kb 씩 추가 메시지로 계산 됩니다. 즉, 1에서 2kb 사이의 메시지는 2 개 메시지로 계산 되 고, 2와 3kb 사이의 메시지는 3 개의 메시지로 계산 됩니다.<br>이 제한은 응답에도 적용 되므로 응답 본문에서 1.5 k b를 반환 하는 호출은 2 개의 작업으로 청구 됩니다. | 측정기 Id |
-| BillingQueryUnits | 청구 쿼리 단위 | 개수 | 합계 | 쿼리 실행에 사용 되는 서비스 리소스 사용의 내부적으로 계산 된 측정값 인 쿼리 단위의 수입니다. 쿼리 단위를 측정 하는 데 사용할 수 있는 도우미 API 인 [QueryChargeHelper 클래스](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) 도 있습니다. | 측정기 Id |
+| BillingApiOperations | 청구 API 작업 | 개수 | 합계 | Azure Digital Twins 서비스에 대해 수행 된 모든 API 요청 수에 대 한 청구 메트릭입니다. | Meter ID |
+| BillingMessagesProcessed | 처리 된 청구 메시지 | 개수 | 합계 | Azure Digital Twins에서 외부 끝점으로 전송 된 메시지 수에 대 한 청구 메트릭입니다.<br><br>요금 청구를 위해 단일 메시지로 간주 되려면 페이로드가 1kb 보다 크지 않아야 합니다. 이 보다 큰 페이로드는 1kb 씩 추가 메시지로 계산 됩니다. 즉, 1에서 2kb 사이의 메시지는 2 개 메시지로 계산 되 고, 2와 3kb 사이의 메시지는 3 개의 메시지로 계산 됩니다.<br>이 제한은 응답에도 적용 되므로 응답 본문에서 1.5 k b를 반환 하는 호출은 2 개의 작업으로 청구 됩니다. | Meter ID |
+| BillingQueryUnits | 청구 쿼리 단위 | 개수 | 합계 | 쿼리 실행에 사용 되는 서비스 리소스 사용의 내부적으로 계산 된 측정값 인 쿼리 단위의 수입니다. 쿼리 단위를 측정 하는 데 사용할 수 있는 도우미 API 인 [QueryChargeHelper 클래스](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet) 도 있습니다. | Meter ID |
 
 Azure 디지털 쌍이 청구 되는 방식에 대 한 자세한 내용은 [*Azure Digital twins 가격 책정*](https://azure.microsoft.com/pricing/details/digital-twins/)을 참조 하세요.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e2531d511193586ef4605cc3732968b6db28d9f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927320"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050564"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Windows용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -21,6 +21,40 @@ ms.locfileid: "87927320"
 * 프리미어 지원 혜택을 받는 고객은 [프리미어](https://premier.microsoft.com/)를 사용하여 지원 요청을 열 수 있습니다.
 * Azure 지원 계약을 맺은 고객은 [Azure Portal](https://manage.windowsazure.com/?getsupport=true)에서 지원 요청을 열 수 있습니다.
 * Log Analytics 피드백 페이지를 방문 하 여 전송 된 아이디어와 버그를 검토 [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) 하거나 새 파일을 작성 합니다. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Log Analytics 문제 해결 도구
+
+Log Analytics 에이전트의 Windows 문제 해결 도구는 Log Analytics 에이전트의 문제를 찾아 진단 하는 데 도움이 되도록 설계 된 PowerShell 스크립트 모음입니다. 설치 시 에이전트에 자동으로 포함 됩니다. 이 도구를 실행 하는 것은 문제를 진단 하기 위한 첫 번째 단계 여야 합니다.
+
+### <a name="how-to-use"></a>사용 방법
+1. Log Analytics 에이전트가 설치 된 컴퓨터에서 관리자 권한으로 PowerShell 프롬프트를 엽니다.
+1. 도구가 있는 디렉터리로 이동 합니다.
+   * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
+1. 다음 명령을 사용 하 여 주 스크립트를 실행 합니다.
+   * `.\GetAgentInfo.ps1`
+1. 문제 해결 시나리오를 선택 합니다.
+1. 콘솔의 지침을 따르세요. (참고: 추적 로그 단계에서 로그 수집을 중지 하려면 수동으로 작업 해야 합니다. 문제의 재현 가능성에 따라 기간을 기다린 후 ' '를 눌러 로그 수집을 중지 하 고 다음 단계를 진행 합니다.
+
+   결과 파일의 위치는 완료 시 기록 되 고 새 탐색기 창은 강조 표시 됩니다.
+
+### <a name="installation"></a>설치
+문제 해결 도구는 Log Analytics Agent build 10.20.18053.0 및 그 이후 설치 될 때 자동으로 포함 됩니다.
+
+### <a name="scenarios-covered"></a>포함되는 시나리오
+다음은 문제 해결 도구에서 확인 한 시나리오의 목록입니다.
+
+- 에이전트에서 데이터를 보고 하지 않거나 하트 비트 데이터가 누락 되었습니다.
+- 에이전트 확장 배포 실패
+- 에이전트 충돌
+- 높은 CPU/메모리를 소비 하는 에이전트
+- 설치/제거 오류
+- 사용자 지정 로그 문제
+- OMS 게이트웨이 문제
+- 성능 카운터 문제
+- 모든 로그 수집
+
+>[!NOTE]
+>문제가 발생 하는 경우 문제 해결 도구를 실행 하세요. 티켓을 열 때 초기에 로그를 만들면 지원 팀에서 문제를 더 빨리 해결할 수 있습니다.
 
 ## <a name="important-troubleshooting-sources"></a>중요 한 문제 해결 원본
 
@@ -55,11 +89,11 @@ Azure Government에 필요한 방화벽 정보는 [Azure Government 관리](../.
 
     컴퓨터가 서비스와 성공적으로 통신 하는 경우 쿼리는 결과를 반환 해야 합니다. 쿼리에서 결과를 반환 하지 않은 경우 먼저 에이전트가 올바른 작업 영역에 보고 하도록 구성 되어 있는지 확인 합니다. 올바르게 구성 된 경우 3 단계로 이동 하 고 Windows 이벤트 로그를 검색 하 여 에이전트에서 Azure Monitor와의 통신을 방해할 수 있는 문제를 기록 하는지 확인 합니다.
 
-- 연결 문제를 확인 하는 또 다른 방법은 **Testcloudconnectivity** 도구를 실행 하는 것입니다. 이 도구는 기본적으로 에이전트와 함께 *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*폴더에 설치 됩니다. 관리자 권한 명령 프롬프트에서 폴더로 이동 하 여 도구를 실행 합니다. 이 도구는 결과가 반환 되 고 테스트가 실패 한 위치를 강조 표시 합니다 (예: 차단 된 특정 포트/URL과 관련 된 경우). 
+- 연결 문제를 확인 하는 또 다른 방법은 **Testcloudconnectivity** 도구를 실행 하는 것입니다. 이 도구는 기본적으로 에이전트와 함께 *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent* 폴더에 설치 됩니다. 관리자 권한 명령 프롬프트에서 폴더로 이동 하 여 도구를 실행 합니다. 이 도구는 결과가 반환 되 고 테스트가 실패 한 위치를 강조 표시 합니다 (예: 차단 된 특정 포트/URL과 관련 된 경우). 
 
     ![TestCloudConnection 도구 실행 결과](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- 이벤트 **소스**상태 관리 서비스 모듈, health service 및 서비스 커넥터에 의해 *Operations Manager* 이벤트 로그를 필터링 하  -  *Health Service Modules*고 **이벤트 수준** *경고* 및 *오류* 를 기준으로 필터링 하 여 다음 표의 이벤트를 기록 했는지 확인 합니다. *HealthService* *Service Connector* 가능한 경우 각 이벤트에 대해 포함 된 해결 단계를 검토 합니다.
+- 이벤트 **소스** 상태 관리 서비스 모듈, health service 및 서비스 커넥터에 의해 *Operations Manager* 이벤트 로그를 필터링 하  -  고 **이벤트 수준** *경고* 및 *오류* 를 기준으로 필터링 하 여 다음 표의 이벤트를 기록 했는지 확인 합니다.   가능한 경우 각 이벤트에 대해 포함 된 해결 단계를 검토 합니다.
 
     |이벤트 ID |원본 |설명 |해결 방법 |
     |---------|-------|------------|-----------|
@@ -93,7 +127,7 @@ Heartbeat
 쿼리에서 결과를 반환 하는 경우 특정 데이터 형식이 수집 되지 않고 서비스로 전달 되는지 확인 해야 합니다. 이 문제는 에이전트가 서비스에서 업데이트 된 구성을 받지 못하거나 에이전트가 정상적으로 작동 하지 않는 다른 증상이 원인일 수 있습니다. 추가로 문제를 해결 하려면 다음 단계를 수행 합니다.
 
 1. 컴퓨터에서 관리자 권한 명령 프롬프트를 열고를 입력 하 여 에이전트 서비스를 다시 시작 `net stop healthservice && net start healthservice` 합니다.
-2. *Operations Manager* 이벤트 로그를 열고 이벤트 **원본** *health service*에서 **이벤트 id** *7023, 7024, 7025, 7028* 및 *1210* 를 검색 합니다.  이러한 이벤트는 에이전트가 Azure Monitor에서 구성을 성공적으로 수신 하 고 컴퓨터를 적극적으로 모니터링 하 고 있음을 표시 합니다. 이벤트 ID 1210에 대 한 이벤트 설명도 에이전트의 모니터링 범위에 포함 된 모든 솔루션과 정보를 마지막 줄에 지정 합니다.  
+2. *Operations Manager* 이벤트 로그를 열고 이벤트 **원본** *health service* 에서 **이벤트 id** *7023, 7024, 7025, 7028* 및 *1210* 를 검색 합니다.  이러한 이벤트는 에이전트가 Azure Monitor에서 구성을 성공적으로 수신 하 고 컴퓨터를 적극적으로 모니터링 하 고 있음을 표시 합니다. 이벤트 ID 1210에 대 한 이벤트 설명도 에이전트의 모니터링 범위에 포함 된 모든 솔루션과 정보를 마지막 줄에 지정 합니다.  
 
     ![이벤트 ID 1210 설명](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
 

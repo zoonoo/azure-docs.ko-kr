@@ -3,21 +3,21 @@ title: PowerShell 갤러리에서 Azure Automation Runbook 및 모듈 사용
 description: 이 문서에서는 PowerShell 갤러리에서 Microsoft 및 커뮤니티에서 만든 Runbook과 모듈을 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 26dfedf1961cf39645c3bcf3ce5fa2db6c14119e
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 590220782a7f43e785cc7885e68eefa99afb7d1d
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682771"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049119"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>PowerShell 갤러리에서 Runbook 및 모듈 사용
 
 Azure Automation에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 빌드한 시나리오에 액세스할 수 있습니다. Azure Automation GitHub 조직의 PowerShell 갤러리 및 [Python runbook](#use-python-runbooks) 에서 PowerShell runbook 및 [모듈](#modules-in-powershell-gallery) 을 가져올 수 있습니다. [자신이 개발한 시나리오를 공유](#add-a-powershell-runbook-to-the-gallery)하여 커뮤니티에 기여할 수도 있습니다.
 
 > [!NOTE]
-> TechNet 스크립트 센터를 사용 중지 하 고 있습니다. Runbook 갤러리의 스크립트 센터에 있는 모든 runbook은 [Automation GitHub 조직](https://github.com/azureautomation)으로 이동 되었습니다.
+> TechNet 스크립트 센터를 사용 중지 하 고 있습니다. Runbook 갤러리에 있는 스크립트 센터의 모든 runbook은 [Automation GitHub 조직](https://github.com/azureautomation) 으로 이동 되었습니다. 자세한 내용은 [여기](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337)를 참조 하세요.
 
 ## <a name="runbooks-in-powershell-gallery"></a>PowerShell 갤러리의 Runbook
 

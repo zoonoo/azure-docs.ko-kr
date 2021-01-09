@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 805bc2aecda37599234c81dd928868d8c14aea4e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 242ff1d7c16ca952b19f44fb139f8fae7562524a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97091992"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048320"
 ---
 # <a name="train-machine-learning-models"></a>기계 학습 모델 학습
 Azure Synapse Analytics에서 Apache Spark는 빅 데이터를 사용 하 여 기계 학습을 가능 하 게 하 고, 대량의 구조화 되 고 구조화 되지 않은 데이터 및 빠른 이동 데이터에서 중요 한 통찰력을 얻을 수 있는 기능을 제공 합니다. Azure Synapse Analytics에서 Azure Spark를 사용 하 여 기계 학습 모델을 학습 하는 경우 Apache Spark MLlib, Azure Machine Learning 및 기타 다양 한 오픈 소스 라이브러리가 있습니다. 
@@ -58,6 +58,6 @@ Azure Synapse Analytics 내에서 자동화 된 ML을 사용 하는 경우 다�
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Synapse Analytics의 Apache Spark 풀 내에서 기계 학습 모델을 학습 하는 다양 한 옵션에 대 한 개요를 제공 합니다. 아래 자습서에 따라 모델 학습에 대해 자세히 알아볼 수 있습니다.
 
-- Azure Machine Learning 및 Azure Synapse Analytics를 사용 하 여 자동화 된 ML 실험 실행: [자동화 된 Ml 자습서](./spark/../apache-spark-autoscale.md) 
-- SparkML 실험 실행: [Apache SparkML 자습서](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- Azure Machine Learning 및 Azure Synapse Analytics를 사용 하 여 자동화 된 ML 실험 실행: [자동화 된 Ml 자습서](../spark/apache-spark-azure-machine-learning-tutorial.md) 
+- SparkML 실험 실행: [Apache SparkML 자습서](../spark/apache-spark-machine-learning-mllib-notebook.md)
 - 기본 라이브러리 보기: [Azure Synapse Analytics 런타임](../spark/apache-spark-version-support.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: dc6412a85beba67551e7683c8127a65730f9218f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4c703fc1ddac4af2e3cf8716764a21da7e870b19
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535470"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048677"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>방화벽을 사용하여 Azure HDInsight 클러스터에 대한 아웃바운드 네트워크 트래픽 구성
 
@@ -105,7 +105,7 @@ HDInsight 클러스터를 올바르게 구성하기 위한 네트워크 규칙�
 
     | 속성 | 프로토콜 | 원본 주소 | 서비스 태그 | 대상 포트 | 메모 |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_5 | TCP | * | SQL | 1433 | HDInsight에서 제공 하는 기본 sql server를 사용 하는 경우 sql 트래픽을 기록 하 고 감사 하는 데 사용할 수 있는 SQL에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다. HDInsight 서브넷에서 SQL Server에 대한 서비스 엔드포인트를 구성하지 않은 경우 방화벽이 무시됩니다. Ambari, Oozie, 레인저 및 Hive metastroes에 사용자 지정 SQL server를 사용 하는 경우 고유한 사용자 지정 SQL server에 대 한 트래픽만 허용 하면 됩니다.|
+    | Rule_5 | TCP | * | SQL | 1433 | HDInsight에서 제공 하는 기본 sql server를 사용 하는 경우 sql 트래픽을 기록 하 고 감사 하는 데 사용할 수 있는 SQL에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다. HDInsight 서브넷에서 SQL Server에 대한 서비스 엔드포인트를 구성하지 않은 경우 방화벽이 무시됩니다. Ambari, Oozie, 레인저 및 Hive metastore에 사용자 지정 SQL server를 사용 하는 경우 고유한 사용자 지정 SQL server에 대 한 트래픽만 허용 하면 됩니다.|
     | Rule_6 | TCP | * | Azure Monitor | * | (선택 사항) 자동 크기 조정 기능을 사용하려는 고객은 이 규칙을 추가해야 합니다. |
     
    ![제목: 애플리케이션 규칙 컬렉션 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
@@ -170,7 +170,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Azure Firewall을 Azure Monitor 로그와 통합하면 애플리케이션을 처음 작동할 때 유용합니다. 특히 모든 애플리케이션 종속성을 인식하지는 못할 경우에 유용합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 
-Azure Firewall 및 요청 증가의 크기 제한에 대한 자세한 내용은 [이](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) 문서 또는 [FAQ](../firewall/firewall-faq.md)를 참조하세요.
+Azure Firewall 및 요청 증가의 크기 제한에 대한 자세한 내용은 [이](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) 문서 또는 [FAQ](../firewall/firewall-faq.yml)를 참조하세요.
 
 ## <a name="access-to-the-cluster"></a>클러스터에 대한 액세스
 

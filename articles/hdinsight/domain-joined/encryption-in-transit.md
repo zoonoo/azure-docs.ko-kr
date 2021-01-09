@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: ba1542d1bb10933edb34b697f1c81cc5e3e7f1c9
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 88a7a0240a4711bebad0ea9007caf6590436e371
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705373"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049782"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Azure HDInsight에 대 한 전송에서 IPSec 암호화
 
@@ -24,7 +24,7 @@ Azure HDInsight는 엔터프라이즈 데이터를 보호 하기 위한 다양 �
 
 미사용 암호화는 HDInsight 클러스터의 일부인 Azure Vm의 디스크 암호화 뿐만 아니라 Azure storage 계정에서 서버 쪽 암호화를 통해 적용 됩니다.
 
-HDInsight에서 전송 중인 데이터의 암호화는 클러스터 게이트웨이와 클러스터 노드 간에 [IPSec (인터넷 프로토콜 보안)](https://wikipedia.org/wiki/IPsec) 에 액세스 하기 위한 [TLS (전송 계층 보안](../transport-layer-security.md) )를 통해 수행 됩니다. IPSec은 모든 헤드 노드, 작업자 노드,에 지 노드 및 아웃 들 노드 사이에서 선택적으로 사용할 수 있습니다. Windows 기반 Vm 및 클러스터의 다른 linux 기반 노드인 게이트웨이 또는 [id 브로커](./identity-broker.md) 노드 간의 트래픽에 대해서는 사용할 수 없습니다.
+HDInsight에서 전송 중인 데이터의 암호화는 클러스터 게이트웨이와 클러스터 노드 간에 [IPSec (인터넷 프로토콜 보안)](https://wikipedia.org/wiki/IPsec) 에 액세스 하기 위한 [TLS (전송 계층 보안](../transport-layer-security.md) )를 통해 수행 됩니다. IPSec은 모든 헤드 노드, 작업자 노드,에 지 노드, 사육 아웃 노드 뿐만 아니라 게이트웨이 및 [id 브로커](./identity-broker.md) 노드 사이에서 선택적으로 사용할 수 있습니다.
 
 ## <a name="enable-encryption-in-transit"></a>전송 중 암호화 사용
 
