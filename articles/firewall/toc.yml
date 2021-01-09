@@ -105,12 +105,12 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST (영문)
       href: /rest/api/firewall
-    - name: Azure Resource Manager
+    - name: Azure 리소스 관리자
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:
     - name: FAQ
-      href: firewall-faq.md
+      href: firewall-faq.yml
     - name: 작성자 템플릿
       href: ../azure-resource-manager/templates/template-syntax.md
     - name: Azure 로드맵
