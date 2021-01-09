@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 90a425fe64424c946a02f3c113889b62b58fbeb4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: aa6429e27faf92f047c580986d5b434c9a418730
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032323"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044376"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -44,7 +44,7 @@ ms.locfileid: "97032323"
 * **구독**: 사용 중인 Azure 구독
   - **리소스 그룹**: 인스턴스를 배포할 리소스 그룹입니다. 기존 리소스 그룹이 아직 없는 경우 *새로* 만들기 링크를 선택 하 고 새 리소스 그룹의 이름을 입력 하 여 여기에서 하나를 만들 수 있습니다.
 * **Location**: 배포를 위한 Azure Digital twins 지원 지역입니다. 지역별 지원에 대 한 자세한 내용은 [*지역별 사용 가능한 azure 제품 (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조 하세요.
-* **리소스 이름**: Azure Digital twins 인스턴스의 이름입니다. 새 인스턴스의 이름은 구독에 대 한 지역 내에서 고유 해야 합니다. 즉, 사용자가 선택한 이름을 이미 사용 하 고 있는 지역에 다른 Azure 디지털 Twins 인스턴스가 있는 경우 다른 이름을 선택 하 라는 메시지가 표시 됩니다.
+* **리소스 이름**: Azure Digital twins 인스턴스의 이름입니다. 구독에 이미 지정 된 이름을 사용 하 고 있는 지역에 다른 Azure 디지털 Twins 인스턴스가 있는 경우 다른 이름을 선택 하 라는 메시지가 표시 됩니다.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="설명 된 값을 입력 하 여 Azure Digital Twins 리소스 만들기":::
 

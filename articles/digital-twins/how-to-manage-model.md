@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a8b2fdf99b33df3322748b7e073cc4ab18957c84
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534758"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045243"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "94534758"
 
 관리 작업에는 모델 업로드, 유효성 검사, 검색 및 삭제가 포함 됩니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -36,35 +36,7 @@ Azure 디지털 쌍에 대 한 모델은 DTDL로 작성 되 고 *.* i n i 파일
 
 솔루션에 대 한 첫 번째 단계는 병원의 측면을 나타내는 모델을 만드는 것입니다. 이 시나리오의 환자 공간은 다음과 같이 설명할 수 있습니다.
 
-```json
-{
-  "@id": "dtmi:com:contoso:PatientRoom;1",
-  "@type": "Interface",
-  "@context": "dtmi:dtdl:context;2",
-  "displayName": "Patient Room",
-  "contents": [
-    {
-      "@type": "Property",
-      "name": "visitorCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "handWashCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "handWashPercentage",
-      "schema": "double"
-    },
-    {
-      "@type": "Relationship",
-      "name": "hasDevices"
-    }
-  ]
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/PatientRoom.json":::
 
 > [!NOTE]
 > 모델을 정의 하 고 저장 하는 json 파일에 대 한 샘플 본문으로, 클라이언트 프로젝트의 일부로 업로드 됩니다. 반면에 REST API 호출은 위에 있는 것과 같은 모델 정의의 배열을 사용 `IEnumerable<string>` 합니다 .이는 .NET SDK의에 매핑됩니다. 따라서 REST API에서이 모델을 직접 사용 하려면 대괄호로 묶습니다.
@@ -86,48 +58,16 @@ Azure 디지털 쌍에 대 한 모델은 DTDL로 작성 되 고 *.* i n i 파일
 
 모델을 업로드할 준비가 되 면 다음 코드 조각을 사용할 수 있습니다.
 
-```csharp
-// 'client' is an instance of DigitalTwinsClient
-// Read model file into string (not part of SDK)
-StreamReader r = new StreamReader("MyModelFile.json");
-string dtdl = r.ReadToEnd(); r.Close();
-string[] dtdls = new string[] { dtdl };
-client.CreateModels(dtdls);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
 `CreateModels`메서드가 하나의 단일 트랜잭션에서 여러 파일을 허용 하는지 확인 합니다. 다음은이를 보여 주는 샘플입니다.
 
-```csharp
-var dtdlFiles = Directory.EnumerateFiles(sourceDirectory, "*.json");
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
-List<string> dtdlStrings = new List<string>();
-foreach (string fileName in dtdlFiles)
-{
-    // Read model file into string (not part of SDK)
-    StreamReader r = new StreamReader(fileName);
-    string dtdl = r.ReadToEnd(); r.Close();
-    dtdlStrings.Add(dtdl);
-}
-client.CreateModels(dtdlStrings);
-```
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들면 다음과 같습니다.
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 다음은 그 예입니다. 
+:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:Planet",
-    "@type": "Interface",
-    //...
-  },
-  {
-    "@id": "dtmi:com:contoso:Moon",
-    "@type": "Interface",
-    //...
-  }
-]
-```
- 
 업로드할 때 서비스에서 모델 파일의 유효성을 검사 합니다.
 
 ## <a name="retrieve-models"></a>모델 검색
@@ -141,18 +81,7 @@ Azure Digital Twins 인스턴스에 저장 된 모델을 나열 하 고 검색�
 
 다음은 몇 가지 예제 호출입니다.
 
-```csharp
-// 'client' is a valid DigitalTwinsClient object
-
-// Get a single model, metadata and data
-DigitalTwinsModelData md1 = client.GetModel(id);
-
-// Get a list of the metadata of all available models
-Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
-
-// Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
 
 API를 호출 하 여 모든 반환 개체를 검색 합니다 `DigitalTwinsModelData` . `DigitalTwinsModelData` 이름, DTMI 및 모델 생성 날짜와 같이 Azure Digital Twins 인스턴스에 저장 된 모델에 대 한 메타 데이터를 포함 합니다. `DigitalTwinsModelData`또한 개체는 모델 자체를 선택적으로 포함 합니다. 매개 변수에 따라 검색 호출을 사용 하 여 메타 데이터만 검색할 수 있습니다 (예를 들어 사용 가능한 도구의 UI 목록을 표시 하려는 시나리오 또는 전체 모델).
 
@@ -208,12 +137,7 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `DigitalTwinsMode
 
 모델을 서비스 해제 하는 코드는 다음과 같습니다.
 
-```csharp
-// 'client' is a valid DigitalTwinsClient  
-client.DecommissionModel(dtmiOfPlanetInterface);
-// Write some code that deletes or transitions digital twins
-//...
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DecommissionModel":::
 
 모델의 서비스 해제 상태는 `ModelData` 모델 검색 api에서 반환 하는 레코드에 포함 됩니다.
 
@@ -244,10 +168,8 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 6. 모델 삭제 
 
 모델을 삭제 하려면 다음 호출을 사용 합니다.
-```csharp
-// 'client' is a valid DigitalTwinsClient
-await client.DeleteModelAsync(IDToDelete);
-```
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
 
 #### <a name="after-deletion-twins-without-models"></a>삭제 후: 모델 없이 Twins
 

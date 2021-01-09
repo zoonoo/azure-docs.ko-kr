@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 389842901a4c508015d527c0fd8fd87af57dcd9b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 22cc9bf1bdfdb8a3026bb09f44e007ab3438325a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967927"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046824"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Windows용 Log Analytics 가상 머신 확장
 
@@ -37,6 +37,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 | Windows 에이전트 번들 버전 Log Analytics | Log Analytics Windows VM 확장 버전 | 출시 날짜 | 릴리스 정보 |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18053| 1.0.18053.0 | 2020년 10월   | <ul><li>새 에이전트 문제 해결사</li><li>에이전트에서 Azure 서비스에 대 한 인증서 변경을 처리 하는 방법에 대 한 업데이트</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | 2020년 8월   | <ul><li>Azure Arc에서 문제를 해결 합니다.</li></ul> |
 | 10.20.18038 | 1.0.18038 | 2020년 4월   | <ul><li>Azure Monitor 개인 링크 범위를 사용 하 여 개인 링크를 통해 연결할 수 있습니다.</li><li>작업 영역에 예기치 않게 수집 되는 실수를 방지 하기 위해 수집 제한을 추가 합니다.</li><li>추가 Azure Government 클라우드 및 지역에 대 한 지원을 추가 합니다.</li><li>HealthService.exe 충돌 하는 버그를 해결 합니다.</li></ul> |
 | 10.20.18029 | 1.0.18029 | 2020년 3월   | <ul><li>SHA-2 코드 서명 지원을 추가 합니다.</li><li>VM 확장 설치 및 관리 개선</li><li>서버 통합을 위해 Azure Arc의 버그를 해결 합니다.</li><li>고객 지원에 대 한 기본 제공 문제 해결 도구를 추가 합니다.</li><li>추가 Azure Government 영역에 대 한 지원을 추가 합니다.</li> |
@@ -88,7 +89,7 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
 ```
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 |
+| Name | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |

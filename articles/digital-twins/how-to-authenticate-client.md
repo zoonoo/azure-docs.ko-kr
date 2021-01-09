@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bf7b829d70af27850affe619d47ed4a4f5ec1bea
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 2502fdd14acae206b8440fe602639aa49be55f4e
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279910"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045923"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
@@ -22,7 +22,7 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰�
 
 이 문서에서는 클라이언트 라이브러리를 사용 하 여 자격 증명을 가져오는 방법을 설명 합니다 `Azure.Identity` . 이 문서에서는 [.net (c #) sdk](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)에 대해 작성 하는 것과 같은 c #의 코드 예제를 보여 주지만, 사용 중인 sdk에 관계 없이 버전을 사용할 수 있습니다. `Azure.Identity` Azure digital twins에 사용할 수 있는 sdk에 대 한 자세한 내용은 [*방법: azure 디지털 쌍 api 및 sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있는지 확인할 수 있습니다. 설치 후에 클라이언트 앱 코드를 작성할 준비가 되었습니다.
 
@@ -53,10 +53,7 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰�
 
 또한 다음 using 문을 프로젝트 코드에 추가 해야 합니다.
 
-```csharp
-using Azure.Identity;
-using Azure.DigitalTwins.Core;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="Azure_Digital_Twins_dependencies":::
 
 그런 다음의 메서드 중 하나를 사용 하 여 자격 증명을 가져오는 코드를 추가 `Azure.Identity` 합니다.
 
@@ -68,23 +65,7 @@ using Azure.DigitalTwins.Core;
 
 프로젝트에을 추가 하는 코드 샘플은 `DefaultAzureCredential` 다음과 같습니다.
 
-```csharp
-// The URL of your instance, starting with the protocol (https://)
-private static string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-URL>";
-
-//...
-
-DigitalTwinsClient client;
-try
-{
-    var credential = new DefaultAzureCredential();
-    client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-} catch(Exception e)
-{
-    Console.WriteLine($"Authentication or client creation error: {e.Message}");
-    Environment.Exit(0);
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_full":::
 
 #### <a name="set-up-local-azure-credentials"></a>로컬 Azure 자격 증명 설정
 
@@ -100,45 +81,20 @@ try
 
 Azure 함수에서 다음과 같이 관리 되는 id 자격 증명을 사용할 수 있습니다.
 
-```csharp
-ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
-DigitalTwinsClientOptions opts = 
-    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="ManagedIdentityCredential":::
 
 ### <a name="interactivebrowsercredential-method"></a>InteractiveBrowserCredential 메서드
 
 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) 메서드는 대화형 응용 프로그램을 위한 것 이며 인증을 위해 웹 브라우저를 엽니다. 대화형 인증을 요구 하는 경우 대신이를 사용할 수 있습니다 `DefaultAzureCredential` .
 
 대화형 브라우저 자격 증명을 사용 하려면 Azure Digital Twins Api에 대 한 사용 권한이 있는 **앱 등록이** 필요 합니다. 이 앱 등록을 설정 하는 방법에 대 한 단계 [*는 방법: 앱 등록 만들기*](how-to-create-app-registration.md)를 참조 하세요. 앱 등록을 설정한 후에는 다음이 필요 합니다.
-* 앱 등록의 *응용 프로그램 (클라이언트) ID* ( [찾을 지침](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* 앱 등록의 *디렉터리 (테 넌 트) ID* ( [찾을 지침](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* 앱 등록의 *응용 프로그램 (클라이언트) ID* ([찾을 지침](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* 앱 등록의 *디렉터리 (테 넌 트) ID* ([찾을 지침](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * Azure Digital Twins 인스턴스의 URL ([찾을 지침](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 
 다음은를 사용 하 여 인증 된 SDK 클라이언트를 만드는 코드의 예제입니다 `InteractiveBrowserCredential` .
 
-```csharp
-// Your client / app registration ID
-private static string clientId = "<your-client-ID>"; 
-// Your tenant / directory ID
-private static string tenantId = "<your-tenant-ID>";
-// The URL of your instance, starting with the protocol (https://)
-private static string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-URL>";
-
-//...
-
-DigitalTwinsClient client;
-try
-{
-    var credential = new InteractiveBrowserCredential(tenantId, clientId);
-    client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-} catch(Exception e)
-{
-    Console.WriteLine($"Authentication or client creation error: {e.Message}");
-    Environment.Exit(0);
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="InteractiveBrowserCredential":::
 
 >[!NOTE]
 > 위와 같이 클라이언트 ID, 테 넌 트 ID 및 인스턴스 URL을 코드에 직접 저장할 수 있지만, 코드에서 구성 파일 또는 환경 변수 로부터 이러한 값을 가져오는 것이 좋습니다.

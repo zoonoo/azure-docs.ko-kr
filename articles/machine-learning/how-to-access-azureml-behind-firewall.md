@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0fa3492555b2870ae7b95abec08bbd3280cdc985
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 8ffbe5debaa980385a2c6dc0078de5f1cc2e9bde
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705067"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045515"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
@@ -27,7 +27,7 @@ ms.locfileid: "97705067"
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
-Azure 방화벽을 사용 하는 경우에는 __DNAT (대상 네트워크 주소 변환)__ 를 사용 하 여 인바운드 트래픽에 대 한 NAT 규칙을 만듭니다. 아웃 바운드 트래픽의 경우 __네트워크__ 및/또는 __응용 프로그램__ 규칙을 만듭니다. 이러한 규칙 컬렉션은 [몇 가지 Azure 방화벽 개념](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)에 대해 자세히 설명 합니다.
+Azure 방화벽을 사용 하는 경우에는 __DNAT (대상 네트워크 주소 변환)__ 를 사용 하 여 인바운드 트래픽에 대 한 NAT 규칙을 만듭니다. 아웃 바운드 트래픽의 경우 __네트워크__ 및/또는 __응용 프로그램__ 규칙을 만듭니다. 이러한 규칙 컬렉션은 [몇 가지 Azure 방화벽 개념](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts)에 대해 자세히 설명 합니다.
 
 ### <a name="inbound-configuration"></a>인바운드 구성
 

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: d54994a7c64718835e70381f92abed83ef693018
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938514"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045396"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Azure Public Load Balancer 업그레이드
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](./skus.md#skus)를 참조 하세요.
@@ -120,10 +120,6 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>또한 Azure PowerShell 스크립트는 기본 Load Balancer에서 새로 만든 표준 Load Balancer으로 트래픽을 전환 하나요?
 
 예. Azure PowerShell 스크립트는 공용 IP 주소를 업그레이드할 뿐만 아니라, 구성을 Basic에서 표준 Load Balancer로 복사 하 고, 새로 만든 표준 공용 Load Balancer 뒤에도 VM을 마이그레이션합니다. 
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용 하는 경우 몇 가지 문제가 발생 했습니다. 도움을 받으려면 어떻게 해야 하나요?
-  
-에 전자 메일을 보내거나 slbupgradesupport@microsoft.com Azure 지원으로 지원 사례를 열거나 둘 다 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c2620b52c426871b0ec85e3db237be2d373d42f1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a1a55bdf21b74116450ca32f66d891f1aa206d3
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458704"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045413"
 ---
 # <a name="add-tags-to-digital-twins"></a>디지털 쌍에 태그 추가 
 
@@ -32,23 +32,7 @@ ms.locfileid: "96458704"
 
 다음은 마커 태그를 속성으로 구현 하는 쌍 모델에서 발췌 한 것입니다.
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "boolean"
-    }
-  }
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="2-16":::
 
 ### <a name="add-marker-tags-to-digital-twins"></a>Digital 쌍에 표식 태그 추가
 
@@ -56,11 +40,7 @@ ms.locfileid: "96458704"
 
 다음은 세 쌍의 표식을 채우는 예제입니다 `tags` .
 
-```csharp
-entity-01: "tags": { "red": true, "round": true } 
-entity-02: "tags": { "blue": true, "round": true } 
-entity-03: "tags": { "red": true, "large": true } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
 ### <a name="query-with-marker-tags"></a>표식 태그가 있는 쿼리
 
@@ -68,15 +48,11 @@ entity-03: "tags": { "red": true, "large": true }
 
 "Red"로 태그가 지정 된 모든 쌍을 가져오는 쿼리는 다음과 같습니다. 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 더 복잡 한 쿼리에 대 한 태그를 결합할 수도 있습니다. 다음은 빨간색이 아닌 라운드 된 모든 쌍을 가져오는 쿼리입니다. 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.round) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
 
 ## <a name="value-tags"></a>값 태그 
 
@@ -88,23 +64,7 @@ SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.ro
 
 다음은 값 태그를 속성으로 구현 하는 쌍 모델에서 발췌 한 것입니다.
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "string"
-    }
-  }
-} 
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="17-31":::
 
 ### <a name="add-value-tags-to-digital-twins"></a>Digital 쌍에 값 태그 추가
 
@@ -112,11 +72,7 @@ SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.ro
 
 다음은 `tags` 3 개의 twins에 대 한 값을 채우는 예입니다.
 
-```csharp
-entity-01: "tags": { "red": "", "size": "large" } 
-entity-02: "tags": { "purple": "", "size": "small" } 
-entity-03: "tags": { "red": "", "size": "small" } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
 
 `red` `purple` 이 예제에서는 및가 표식 태그로 사용 됩니다.
 
@@ -124,17 +80,13 @@ entity-03: "tags": { "red": "", "size": "small" }
 
 표식 태그와 마찬가지로 값 태그를 사용 하 여 쿼리에서 쌍를 필터링 할 수 있습니다. 값 태그와 표식 태그를 함께 사용할 수도 있습니다.
 
-위의 예제에서 `red` 는 표식 태그로 사용 됩니다. "Red"로 태그가 지정 된 모든 쌍을 가져오는 쿼리는 다음과 같습니다. 
+위의 예제에서 `red` 는 표식 태그로 사용 됩니다. 이는 "red"로 태그가 지정 된 모든 쌍을 가져오는 쿼리입니다. 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 다음은 작은 (값 태그) 인 모든 엔터티를 가져오는 쿼리 이며 빨간색은 아닙니다. 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND tags.size = 'small' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
 
 ## <a name="next-steps"></a>다음 단계
 

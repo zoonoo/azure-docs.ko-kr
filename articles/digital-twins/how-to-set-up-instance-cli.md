@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 8e82f8974b53224b3e471d1628a1ca5819ce2955
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494970"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044478"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Azure Digital Twins 인스턴스 및 인증 (CLI) 설정
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-이 문서에서는 인스턴스를 만들고 인증을 설정 하는 등 **새 Azure Digital Twins 인스턴스를 설정**하는 단계에 대해 설명 합니다. 이 문서를 완료 한 후에는에 대 한 프로그래밍을 시작할 준비가 된 Azure Digital Twins 인스턴스를 사용할 수 있습니다.
+이 문서에서는 인스턴스를 만들고 인증을 설정 하는 등 **새 Azure Digital Twins 인스턴스를 설정** 하는 단계에 대해 설명 합니다. 이 문서를 완료 한 후에는에 대 한 프로그래밍을 시작할 준비가 된 Azure Digital Twins 인스턴스를 사용할 수 있습니다.
 
 이 문서의 버전에서는 CLI를 사용 하 여 이러한 단계를 하나씩 수동으로 진행 합니다.
 * Azure Portal를 사용 하 여 이러한 단계를 수동으로 진행 하려면이 문서의 포털 버전 [*(방법: 인스턴스 및 인증 설정 (포털))*](how-to-set-up-instance-portal.md)을 참조 하세요.
@@ -35,12 +35,12 @@ ms.locfileid: "92494970"
 ## <a name="create-the-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 만들기
 
 이 섹션에서는 Cloud Shell 명령을 사용 하 여 **Azure Digital Twins의 새 인스턴스를 만듭니다** . 다음을 제공 해야 합니다.
-* 배포할 리소스 그룹입니다. 기존 리소스 그룹이 아직 없는 경우 다음 명령을 사용 하 여 지금 만들 수 있습니다.
+* 인스턴스가 배포 될 리소스 그룹입니다. 기존 리소스 그룹이 아직 없는 경우 다음 명령을 사용 하 여 지금 만들 수 있습니다.
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * 배포에 대 한 지역입니다. Azure Digital Twins를 지 원하는 지역을 확인 하려면 [*지역별 제공 되는 azure 제품*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 방문 하세요.
-* 인스턴스의 이름입니다. 새 인스턴스의 이름은 구독에 대 한 지역 내에서 고유 해야 합니다. 즉, 사용자가 선택한 이름을 이미 사용 하 고 있는 지역에 다른 Azure 디지털 Twins 인스턴스가 있는 경우 다른 이름을 선택 하 라는 메시지가 표시 됩니다.
+* 인스턴스의 이름입니다. 구독에 이미 지정 된 이름을 사용 하 고 있는 지역에 다른 Azure 디지털 Twins 인스턴스가 있는 경우 다른 이름을 선택 하 라는 메시지가 표시 됩니다.
 
 다음 명령에서 이러한 값을 사용 하 여 인스턴스를 만듭니다.
 
@@ -54,7 +54,7 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-res
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="리소스 그룹 및 Azure Digital Twins 인스턴스를 성공적으로 만든 명령 창":::
 
-출력에서 Azure Digital Twins 인스턴스의 *호스트*이름, *이름*및 *resourceGroup* 을 확인 합니다. 이러한 모든 중요 한 값은 Azure Digital Twins 인스턴스 작업을 계속 하 여 인증 및 관련 Azure 리소스를 설정 하는 데 필요할 수 있습니다. 다른 사용자가 인스턴스에 대 한 프로그래밍을 수행 하는 경우 이러한 값을 공유 해야 합니다.
+출력에서 Azure Digital Twins 인스턴스의 **호스트** 이름, **이름** 및 **resourceGroup** 을 확인 합니다. 이러한 모든 중요 한 값은 Azure Digital Twins 인스턴스 작업을 계속 하 여 인증 및 관련 Azure 리소스를 설정 하는 데 필요할 수 있습니다. 다른 사용자가 인스턴스에 대 한 프로그래밍을 수행 하는 경우 이러한 값을 공유 해야 합니다.
 
 > [!TIP]
 > 을 실행 하 여 언제 든 지 인스턴스의 모든 속성과 함께 이러한 속성을 볼 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -74,13 +74,13 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 이 명령의 결과는 생성 된 역할 할당에 대 한 출력 된 정보입니다.
 
 > [!NOTE]
-> 이 명령을 실행할 때 CLI **가 graph 데이터베이스에서 사용자 또는 서비스 주체를 찾을 수**없다는 오류를 반환 하는 경우:
+> 이 명령을 실행할 때 CLI **가 graph 데이터베이스에서 사용자 또는 서비스 주체를 찾을 수** 없다는 오류를 반환 하는 경우:
 >
 > 대신 사용자의 *개체 ID* 를 사용 하 여 역할을 할당 합니다. 이는 [MSAs (개인 Microsoft 계정)](https://account.microsoft.com/account)의 사용자에 게 발생할 수 있습니다. 
 >
-> 사용자 [Azure Active Directory의 Azure Portal 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 를 사용 하 여 사용자 계정을 선택 하 고 세부 정보를 엽니다. 사용자의 *ObjectID*를 복사 합니다.
+> 사용자 [Azure Active Directory의 Azure Portal 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 를 사용 하 여 사용자 계정을 선택 하 고 세부 정보를 엽니다. 사용자의 *ObjectID* 를 복사 합니다.
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="리소스 그룹 및 Azure Digital Twins 인스턴스를 성공적으로 만든 명령 창" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="' 개체 ID ' 필드에서 GUID를 강조 표시 하 Azure Portal의 사용자 페이지 보기" lightbox="media/includes/user-id.png":::
 >
 > 그런 다음 위의 매개 변수에 대 한 사용자의 *개체 ID* 를 사용 하 여 역할 할당 목록 명령을 반복 합니다 `assignee` .
 

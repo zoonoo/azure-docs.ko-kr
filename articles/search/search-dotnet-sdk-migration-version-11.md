@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/07/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 260df85f3e380e40d153fc17ce77bd56ca068982
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c5f070f59df69bb186041af450e6ca922469d960
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532825"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043747"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Azure Cognitive Search .NET SDK 버전 11로 업그레이드
 
@@ -30,8 +30,7 @@ ms.locfileid: "96532825"
 + 2 대신 세 개의 클라이언트: `SearchClient` , `SearchIndexClient` , `SearchIndexerClient`
 + 일부 작업을 단순화 하는 다양 한 Api 및 작은 구조적 차이로 인 한 명명의 차이점
 
-> [!NOTE]
-> .NET SDK 버전 11의 변경 내용에 대 한 자세한 내용은 [**변경 로그**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) 를 검토 하세요.
+이 문서 외에도 .NET SDK 버전 11의 변경 내용에 대 한 [변경 로그](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) 를 검토할 수 있습니다.
 
 ## <a name="package-and-library-consolidation"></a>패키지 및 라이브러리 통합
 
@@ -75,7 +74,7 @@ ms.locfileid: "96532825"
 | [필드](/dotnet/api/microsoft.azure.search.models.field) | [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) |
 | [DataType](/dotnet/api/microsoft.azure.search.models.datatype) | [SearchFieldDataType](/dotnet/api/azure.search.documents.indexes.models.searchfielddatatype) |
 | [ItemError](/dotnet/api/microsoft.azure.search.models.itemerror) | [SearchIndexerError](/dotnet/api/azure.search.documents.indexes.models.searchindexererror) |
-| [분석기](/dotnet/api/microsoft.azure.search.models.analyzer) | [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) (도 `AnalyzerName` `LexicalAnalyzerName` ) |
+| [분석기나](/dotnet/api/microsoft.azure.search.models.analyzer) | [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) (도 `AnalyzerName` `LexicalAnalyzerName` ) |
 | [AnalyzeRequest](/dotnet/api/microsoft.azure.search.models.analyzerequest) | [AnalyzeTextOptions](/dotnet/api/azure.search.documents.indexes.models.analyzetextoptions) |
 | [StandardAnalyzer](/dotnet/api/microsoft.azure.search.models.standardanalyzer) | [LuceneStandardAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lucenestandardanalyzer) |
 | [StandardTokenizer](/dotnet/api/microsoft.azure.search.models.standardtokenizer) | [LuceneStandardTokenizer](/dotnet/api/azure.search.documents.indexes.models.lucenestandardtokenizer) (도 `StandardTokenizerV2` `LuceneStandardTokenizerV2` ) |
@@ -109,6 +108,41 @@ ms.locfileid: "96532825"
 | [DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) | [SearchResult](/dotnet/api/azure.search.documents.models.searchresult-1) 또는 [searchresults](/dotnet/api/azure.search.documents.models.searchresults-1)는 결과가 단일 문서 인지 또는 여러 인지에 따라 달라 집니다. |
 | [DocumentSuggestResult](/dotnet/api/microsoft.azure.search.models.documentsuggestresult-1) | [SuggestResults](/dotnet/api/azure.search.documents.models.suggestresults-1) |
 | [SearchParameters](/dotnet/api/microsoft.azure.search.models.searchparameters) |  [Searchoptions 플래그가](/dotnet/api/azure.search.documents.searchoptions)  |
+
+### <a name="json-serialization"></a>JSON serialization
+
+기본적으로 Azure SDK는 JSON serialization에 대 한 [System.Text.Js](/dotnet/api/system.text.json) 를 사용 합니다 .이 api의 기능을 사용 하 여 이전에는 네이티브 [SerializePropertyNamesAsCamelCaseAttribute](/dotnet/api/microsoft.azure.search.models.serializepropertynamesascamelcaseattribute) 클래스를 통해 구현 된 텍스트 변환 (새 라이브러리에는 해당 하지 않음)을 처리 합니다.
+
+속성 이름을 camelCase로 serialize 하기 위해 [JsonPropertyNameAttribute](/dotnet/api/system.text.json.serialization.jsonpropertynameattribute) ( [이 예제](https://github.com/Azure/azure-sdk-for-net/tree/d263f23aa3a28ff4fc4366b8dee144d4c0c3ab10/sdk/search/Azure.Search.Documents#use-c-types-for-search-results)와 유사)를 사용할 수 있습니다.
+
+또는 [JsonSerializerOptions](/dotnet/api/system.text.json.jsonserializeroptions)에 제공 된 [JsonNamingPolicy](/dotnet/api/system.text.json.jsonnamingpolicy) 를 설정할 수 있습니다. [Microsoft. camelCase 추가 정보](https://github.com/Azure/azure-sdk-for-net/blob/259df3985d9710507e2454e1591811f8b3a7ad5d/sdk/core/Microsoft.Azure.Core.Spatial/README.md#deserializing-documents) 에서 가져온 System.Text.Js다음 코드 예제에서는 모든 속성을 사용 하지 않고를 사용 하는 방법을 보여 줍니다.
+
+```csharp
+// Get the Azure Cognitive Search endpoint and read-only API key.
+Uri endpoint = new Uri(Environment.GetEnvironmentVariable("SEARCH_ENDPOINT"));
+AzureKeyCredential credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("SEARCH_API_KEY"));
+
+// Create serializer options with our converter to deserialize geographic points.
+JsonSerializerOptions serializerOptions = new JsonSerializerOptions
+{
+    Converters =
+    {
+        new MicrosoftSpatialGeoJsonConverter()
+    },
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+};
+
+SearchClientOptions clientOptions = new SearchClientOptions
+{
+    Serializer = new JsonObjectSerializer(serializerOptions)
+};
+
+SearchClient client = new SearchClient(endpoint, "mountains", credential, clientOptions);
+Response<SearchResults<Mountain>> results = client.Search<Mountain>("Rainier");
+```
+
+For JSON serialization에 Newtonsoft.Js를 사용 하는 경우 유사한 특성을 사용 하거나 [JsonSerializerSettings](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm)의 속성을 사용 하 여 전역 명명 정책을 전달할 수 있습니다. 위의 예제에 해당 하는 예제는 추가 정보에 있는 Newtonsoft.Js[문서 역직렬화 예](https://github.com/Azure/azure-sdk-for-net/blob/259df3985d9710507e2454e1591811f8b3a7ad5d/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md) 를 참조 하세요.
+
 
 <a name="WhatsNew"></a>
 
@@ -202,7 +236,7 @@ Azure Cognitive Search 클라이언트 라이브러리의 각 버전은 해당 �
 
 <a name="ListOfChanges"></a>
 
-## <a name="breaking-changes-in-version-11"></a>버전 11의 주요 변경 내용
+## <a name="breaking-changes"></a>주요 변경 내용
 
 라이브러리 및 Api에 대 한 변경 사항이 있는 경우 버전 11로 업그레이드 하는 것은 간단 하지 않으며 코드는 더 이상 이전 버전 10과 호환 되지 않는다는 점에서 주요 변경 사항을 구성 합니다. 차이점을 철저 하 게 검토 하려면의 [변경 로그](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) 를 참조 하세요 `Azure.Search.Documents` .
 

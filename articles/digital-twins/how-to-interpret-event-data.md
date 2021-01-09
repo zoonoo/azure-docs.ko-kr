@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a0f2b971eae5d37e8fb0771e213075289af6c519
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461025"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045260"
 ---
 # <a name="understand-event-data"></a>이벤트 데이터 이해
 
-Azure Digital Twins의 여러 이벤트는 **알림을**생성 하며,이를 통해 다양 한 작업이 수행 될 때 솔루션 백 엔드가 인식 될 수 있습니다. 그런 다음이 정보를 사용 하 여 조치를 취할 수 있는 Azure Digital Twins의 내부 및 외부의 여러 위치로 [라우팅됩니다](concepts-route-events.md) .
+Azure Digital Twins의 여러 이벤트는 **알림을** 생성 하며,이를 통해 다양 한 작업이 수행 될 때 솔루션 백 엔드가 인식 될 수 있습니다. 그런 다음이 정보를 사용 하 여 조치를 취할 수 있는 Azure Digital Twins의 내부 및 외부의 여러 위치로 [라우팅됩니다](concepts-route-events.md) .
 
 생성할 수 있는 여러 가지 유형의 알림이 있으며 알림 메시지는 생성 된 이벤트 유형에 따라 달라질 수 있습니다. 이 문서에서는 다양 한 유형의 메시지에 대 한 세부 정보와 표시 되는 모양을 제공 합니다.
 
@@ -93,7 +93,7 @@ Azure Digital Twins에서 Event Grid에 내보내는 알림은 Event Grid 토픽
 
 ### <a name="digital-twin-life-cycle-notifications"></a>디지털 쌍 수명 주기 알림
 
-모든 [digital 쌍](concepts-twins-graph.md) 는 [Azure digital 쌍에 IoT Hub 장치](how-to-ingest-iot-hub-data.md) 를 나타내는지 여부에 관계 없이 알림을 내보냅니다. 이것은 디지털 쌍 자체에 대 한 **수명 주기 알림과**관련 된 것입니다.
+모든 [digital 쌍](concepts-twins-graph.md) 는 [Azure digital 쌍에 IoT Hub 장치](how-to-ingest-iot-hub-data.md) 를 나타내는지 여부에 관계 없이 알림을 내보냅니다. 이것은 디지털 쌍 자체에 대 한 **수명 주기 알림과** 관련 된 것입니다.
 
 수명 주기 알림은 다음과 같은 경우에 트리거됩니다.
 * 디지털 쌍이 만들어집니다.
@@ -116,7 +116,7 @@ Azure Digital Twins에서 Event Grid에 내보내는 알림은 Event Grid 토픽
 
 #### <a name="body-details"></a>본문 정보
 
-본문은 영향을 받는 디지털 쌍 이며 JSON 형식으로 표시 됩니다. 이에 대 한 스키마는 *디지털 Twins 리소스 7.1*입니다.
+본문은 영향을 받는 디지털 쌍 이며 JSON 형식으로 표시 됩니다. 이에 대 한 스키마는 *디지털 Twins 리소스 7.1* 입니다.
 
 생성 이벤트의 경우 페이로드는 리소스가 만들어진 후의 쌍 상태를 반영 하므로 호출과 마찬가지로 모든 시스템 생성 요소를 포함 해야 합니다 `GET` .
 
@@ -262,20 +262,7 @@ Create 또는 delete 관계 알림의 예는 다음과 같습니다.
 
 예를 들어 다음 패치를 사용 하 여 디지털 쌍이 업데이트 되었다고 가정 합니다.
 
-```json
-[
-    {
-        "op": "replace",
-        "value": 40,
-        "path": "/Temperature"
-    },
-    {
-        "op": "add",
-        "value": 30,
-        "path": "/comp1/prop1"
-    }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
 
 디지털 쌍을 업데이트 하는 Azure Digital Twins와 같이 서비스에서 동기적으로 실행 하는 경우 해당 알림이 다음과 같이 나타납니다.
 

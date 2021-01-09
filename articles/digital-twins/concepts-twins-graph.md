@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a1fc5be93e2b9729838aa9fb3a777936003c5f45
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d9a6eb572b1ab870fdb848f8b0989f88e6dbc3c0
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356406"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045957"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
@@ -47,7 +47,7 @@ Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 �
 
 쌍을 만들 때 쌍의 속성을 초기화 하거나 나중에 설정할 수 있습니다. 초기화 된 속성이 있는 쌍을 만들려면 필요한 초기화 값을 제공 하는 JSON 문서를 만듭니다.
 
-[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
 사전을 사용 하는 대신, 라는 도우미 클래스를 사용 `BasicDigitalTwin` 하 여 "쌍" 개체에 속성 필드를 더 직접 저장할 수도 있습니다. 도우미 클래스 및 사용 예제에 대 한 자세한 내용은 *방법: 디지털* 쌍 관리 [*섹션을*](how-to-manage-twin.md#create-a-digital-twin) 참조 하세요.
 
@@ -58,25 +58,7 @@ Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 �
 
 다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *GroundFloor* 라는 *바닥* 형식의 디지털 쌍과 *Cafe* 라는 *방* 형식의 디지털 쌍 간에 관계를 만드는 클라이언트 코드의 몇 가지 예입니다.
 
-```csharp
-// Create Twins, using functions similar to the previous sample
-await CreateRoom("Cafe", 70, 66);
-await CreateFloor("GroundFloor", averageTemperature=70);
-// Create relationships
-var relationship = new BasicRelationship
-{
-    TargetId = "Cafe",
-    Name = "contains"
-};
-try
-{
-    string relId = $"GroundFloor-contains-Cafe";
-    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
-} catch(ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_3":::
 
 ## <a name="json-representations-of-graph-elements"></a>그래프 요소의 JSON 표현
 
@@ -90,7 +72,7 @@ JSON 개체로 표시 되는 경우 디지털 쌍은 다음 필드를 표시 합
 | --- | --- |
 | `$dtId` | 디지털 쌍의 ID를 나타내는 사용자 제공 문자열입니다. |
 | `$etag` | 웹 서버에서 할당 한 표준 HTTP 필드 |
-| `$conformance` | 이 디지털 쌍의 규칙 상태를 포함 하는 열거형입니다 ( *준수* , 일치 *하지 않음* , *알 수 없음* ). |
+| `$conformance` | 이 디지털 쌍의 규칙 상태를 포함 하는 열거형입니다 (*준수*, 일치 *하지 않음*, *알 수 없음*). |
 | `{propertyName}` | JSON ( `string` , number 형식 또는 object)의 속성 값입니다. |
 | `$relationships` | 관계 컬렉션에 대 한 경로 URL입니다. 디지털 쌍에 나가는 관계 가장자리가 없으면이 필드가 없습니다. |
 | `$metadata.$model` | 필드 이 디지털 쌍의 특징을 나타내는 모델 인터페이스의 ID입니다. |

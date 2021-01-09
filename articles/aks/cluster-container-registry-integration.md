@@ -4,19 +4,22 @@ description: ACR (Kubernetes Service) Azure Container Registry를 사용 하 여
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 02/25/2020
-ms.openlocfilehash: 4338f4ce1fe60a3a9002be93feab134dd2601720
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/08/2021
+ms.openlocfilehash: 4157195260e5c685faaddeaca87db81d199ffb23
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87406506"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043849"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
 AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 작업은 ACR에 필요한 권한을 부여 하 여 CLI 및 포털 환경의 일부로 구현 됩니다. 이 문서에서는 이러한 두 Azure 서비스 간의 인증을 구성 하는 예제를 제공 합니다. 
 
 Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS를 설정할 수 있습니다. 이 통합은 AKS 클러스터에 연결 된 서비스 주체에 AcrPull 역할을 할당 합니다.
+
+> [!NOTE]
+> 이 문서에서는 AKS와 ACR 간의 자동 인증을 설명 합니다. 개인 외부 레지스트리에서 이미지를 풀 해야 하는 경우 [이미지 끌어오기 암호][Image Pull Secret]를 사용 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -100,7 +103,7 @@ az acr import  -n <acr-name> --source docker.io/library/nginx:latest --image ngi
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-다음을 포함 하는 nginx 라는 파일을 만듭니다 **.** 레지스트리의 리소스 이름을 **acr 이름**으로 대체 합니다. 예: *myContainerRegistry*.
+다음을 포함 하는 nginx 라는 파일을 만듭니다 **.** 레지스트리의 리소스 이름을 **acr 이름** 으로 대체 합니다. 예: *myContainerRegistry*.
 
 ```yaml
 apiVersion: apps/v1
@@ -152,3 +155,4 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 
 <!-- LINKS - external -->
 [AKS AKS CLI]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[Image Pull secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
