@@ -6,18 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/08/2021
-ms.openlocfilehash: d39bc35d1edcbcfef4c7774259112ec5144efa15
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 0c75f9938b3bc4fa8a2e650f77a3708e91180fea
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044359"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059224"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>서버를 사용 하지 않는 Azure Cosmos DB (미리 보기)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
-
-> [!IMPORTANT]
-> 서버를 사용 하지 않는 Azure Cosmos DB 현재 미리 보기 상태입니다. 이 미리 보기 버전은 Service Level Agreement(서비스 수준 약정) 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 서버를 사용 하지 않는 Azure Cosmos DB 데이터베이스 작업에서 사용한 요청 단위 및 데이터에서 사용 하는 저장소에 대해서만 요금이 부과 되는 소비 기반 방식으로 Azure Cosmos 계정을 사용할 수 있습니다. 서버를 사용 하지 않는 컨테이너는 최소 요금을 청구 하지 않고 용량을 계획 하지 않아도 되는 초당 수천 개의 요청을 처리할 수 있습니다.
 

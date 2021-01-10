@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: dc5efd6ad478710ba839634a49f041211756af71
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 732054ae2cd8f93d17694e9ea1bdd85680e9c314
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397674"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98058653"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>Application Gateway 프런트 엔드 IP 주소 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "93397674"
 * 개인 IP 주소 및 공용 IP 주소
 * 공용 IP 주소만
 
-자세한 내용은 [Application Gateway에 대 한 질문과 대답](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address)을 참조 하세요.
+자세한 내용은 [Application Gateway에 대 한 질문과 대답](application-gateway-faq.yml#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address)을 참조 하세요.
 
 
 공용 IP 주소는 인터넷에 노출 되지 않은 내부 끝점에 필요 하지 않습니다. 이를 ilb ( *내부 부하 분산 장치* ) 끝점 또는 개인 프런트 엔드 IP 라고 합니다. 응용 프로그램 게이트웨이 ILB는 인터넷에 노출 되지 않는 내부 lob (기간 업무) 응용 프로그램에 유용 합니다. 또한 인터넷에 노출 되지 않지만 라운드 로빈 부하 분산, 세션 유지, TLS 종료를 필요로 하는 보안 경계 내에 있는 다중 계층 응용 프로그램의 서비스 및 계층에도 유용 합니다.

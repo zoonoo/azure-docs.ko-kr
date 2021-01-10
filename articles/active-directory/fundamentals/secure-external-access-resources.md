@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 리소스에 대 한 외부 액세스 보안
+title: Azure Active Directory에서 외부 공동 작업 보안
 description: 내부 리소스에 대 한 외부 액세스 보안에 대 한 설계자 및 IT 관리자 가이드
 services: active-directory
 author: BarbaraSelden
@@ -13,14 +13,14 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39300c887245a99dce2913661f6492c85a1e6722
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7f09d2050617cbda539eee9fcda1ecfb204a015a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744089"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059282"
 ---
-# <a name="securing-external-access-to-resources"></a>리소스에 대 한 외부 액세스 보안
+# <a name="securing-external-collaboration-in-azure-active-directory-and-microsoft-365"></a>Azure Active Directory 및 Microsoft 365에서 외부 공동 작업 보안
 
 외부 파트너와의 보안 공동 작업은 올바른 외부 파트너에 게 올바른 기간 동안 내부 리소스에 대 한 적절 한 액세스 권한이 있는지 확인 합니다. 전체적인 거 버 넌 스 방식을 통해 보안 위험을 줄이고, 규정 준수 목표를 충족 하 고, 액세스 권한이 있는 사용자를 확인할 수 있습니다.
 
@@ -43,7 +43,7 @@ Microsoft는 외부 액세스 보안을 위한 포괄적인 도구 모음을 제
 리소스에 대 한 외부 액세스 보안에 대 한 다음 문서를 참조 하세요. 이러한 작업은 나열 된 순서 대로 수행 하는 것이 좋습니다.
 
 
-1. [외부 액세스를 위해 원하는 보안 상태 결정](1-secure-access-posture.md)
+1. [외부 액세스를 위한 보안 상태 결정](1-secure-access-posture.md)
 
 2. [현재 상태 검색](2-secure-access-current-state.md)
 

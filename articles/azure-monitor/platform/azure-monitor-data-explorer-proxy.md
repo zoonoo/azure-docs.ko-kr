@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor를 사용 하 여 리소스 간 쿼리 Azure 데이터 탐색기
 description: Azure Monitor를 사용 하 여 Azure Monitor에서 Azure 데이터 탐색기, Log Analytics 작업 영역 및 클래식 Application Insights 응용 프로그램 간에 제품 간 쿼리를 수행할 수 있습니다.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: cb586d15e762f88620fe0c91152af41b3f607d74
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674432"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060455"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 리소스 간 쿼리 Azure 데이터 탐색기
 Azure Monitor는 Azure 데이터 탐색기, [Application Insights](/azure/azure-monitor/app/app-insights-overview)및 [Log Analytics](/azure/azure-monitor/platform/data-platform-logs)간의 서비스 간 쿼리를 지원 합니다. 그런 다음 Log Analytics/Application Insights 도구를 사용 하 여 Azure 데이터 탐색기 클러스터를 쿼리하고 서비스 간 쿼리에서이를 참조할 수 있습니다. 이 문서에서는 서비스 간 쿼리를 만드는 방법을 보여 줍니다.
@@ -22,7 +22,7 @@ Azure Monitor는 Azure 데이터 탐색기, [Application Insights](/azure/azure-
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="사용자, Azure Monitor, 프록시 및 Azure 데이터 탐색기 간의 쿼리 흐름을 보여 주는 다이어그램입니다.":::
 
 >[!NOTE]
-> 서비스 간 쿼리 Azure Monitor 비공개 미리 보기 상태입니다. Allowlisting 필요 합니다. 의문 사항이 있으면 [서비스 팀](mailto:ADXProxy@microsoft.com) 에 문의 하세요.
+> Azure Monitor 서비스 간 쿼리는 공개 미리 보기로 제공 됩니다. 의문 사항이 있으면 [서비스 팀](mailto:ADXProxy@microsoft.com) 에 문의 하세요.
 
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Log Analytics 또는 Application Insights 리소스 및 Azure 데이터 탐색기 간 쿼리
 

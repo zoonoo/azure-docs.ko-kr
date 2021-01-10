@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: 31cf89cb66dfbc404d65f8fc09b96c03e1be2f8f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d49f048df7a624dc490acf7cb4c8e5f33aa5f1c6
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401322"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060234"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>IoT Edge의 Live Video Analytics 문제 해결
 
@@ -65,6 +65,8 @@ IoT Edge 모듈에서 라이브 비디오 분석이 IoT Edge 장치에 올바르
     * 406 - IoT Edge 디바이스가 오프라인 상태이거나 상태 보고서를 전송하지 않습니다.
     * 500 - IoT Edge 런타임에서 오류가 발생했습니다.
 
+    > [!TIP]
+    > 사용자 환경에서 Azure IoT Edge 모듈을 실행 하는 데 문제가 발생 하는 경우 **[Azure IoT Edge 표준 진단 단계](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** 를 문제 해결 및 진단에 대 한 지침으로 사용 합니다.
 ### <a name="post-deployment-direct-method-error-code"></a>배포 후: 직접 메서드 오류 코드
 1. 상태가 표시 되는 경우 `501 code` 직접 메서드 이름이 정확한 지 확인 합니다. 메서드 이름과 요청 페이로드가 정확한 경우 성공 코드 = 200과 함께 결과를 가져와야 합니다. 
 1. 요청 페이로드가 정확 하지 않은 경우 `400 code` 직접 메서드 호출을 통해 문제를 진단 하는 데 도움이 되는 오류 코드와 메시지를 나타내는 상태 및 응답 페이로드를 가져옵니다.
@@ -93,6 +95,8 @@ IoT Edge 모듈에서 라이브 비디오 분석이 IoT Edge 장치에 올바르
 * [Live Video Analytics 또는 기타 사용자 지정 IoT Edge 모듈이 404 오류가 발생 하 여 Edge 허브로 메시지를 보내지 못합니다](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
 * [IoT Edge 모듈이 성공적으로 배포 된 후 장치에서 사라집니다](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
+    > [!TIP]
+    > 사용자 환경에서 Azure IoT Edge 모듈을 실행 하는 데 문제가 발생 하는 경우 **[Azure IoT Edge 표준 진단 단계](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** 를 문제 해결 및 진단에 대 한 지침으로 사용 합니다.
 ### <a name="live-video-analytics-working-with-external-modules"></a>라이브 비디오 분석 외부 모듈 사용
 
 미디어 그래프 확장 프로세서를 통한 라이브 비디오 분석에서는 HTTP 또는 gRPC 프로토콜을 사용 하 여 다른 IoT Edge 모듈에서 데이터를 보내고 받도록 미디어 그래프를 확장할 수 있습니다. 특정 한 [예로](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension),이 미디어 그래프는 비디오 프레임을 yolo v3과 같은 외부 유추 모듈에 이미지로 보내고 HTTP 프로토콜을 사용 하 여 JSON 기반 분석 결과를 받을 수 있습니다. 이러한 토폴로지에서 이벤트의 대상은 대부분 IoT hub입니다. 허브에 대 한 유추 이벤트가 표시 되지 않는 경우 다음을 확인 합니다.

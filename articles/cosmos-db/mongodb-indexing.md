@@ -1,22 +1,22 @@
 ---
-title: MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
+title: Azure Cosmos DB의 API for MongoDB에서 인덱싱 관리
 description: 이 문서에서는 MongoDB 용 Azure Cosmos DB API를 사용 하 여 Azure Cosmos DB 인덱싱 기능의 개요를 제공 합니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/08/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369293"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060091"
 ---
-# <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
+# <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 인덱싱 관리
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB의 MongoDB API는 Azure Cosmos DB의 핵심 인덱스 관리 기능을 활용 합니다. 이 문서에서는 Azure Cosmos DB의 MongoDB API를 사용 하 여 인덱스를 추가 하는 방법을 중점적으로 설명 합니다. 모든 Api에서 관련 된 [Azure Cosmos DB의 인덱싱 개요](index-overview.md) 를 읽을 수도 있습니다.
@@ -29,6 +29,16 @@ MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API `_id` 는 필드를 자
 
 쿼리에 정렬을 적용 하려면 정렬 작업에 사용 되는 필드에 대 한 인덱스를 만들어야 합니다.
 
+### <a name="editing-indexing-policy"></a>인덱싱 정책 편집
+
+Azure Portal 내 데이터 탐색기에서 인덱싱 정책을 편집 하는 것이 좋습니다.
+. 데이터 탐색기의 인덱싱 정책 편집기에서 단일 필드 및 와일드 카드 인덱스를 추가할 수 있습니다.
+
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="인덱싱 정책 편집기":::
+
+> [!NOTE]
+> 데이터 탐색기에서 인덱싱 정책 편집기를 사용 하 여 복합 인덱스를 만들 수 없습니다.
+
 ## <a name="index-types"></a>인덱스 형식
 
 ### <a name="single-field"></a>단일 필드
@@ -36,6 +46,10 @@ MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API `_id` 는 필드를 자
 단일 필드에 인덱스를 만들 수 있습니다. 단일 필드 인덱스의 정렬 순서는 중요 하지 않습니다. 다음 명령은 필드에 인덱스를 만듭니다 `name` .
 
 `db.coll.createIndex({name:1})`
+
+Azure Portal에서 동일한 단일 필드 인덱스를 만들 수 있습니다 `name` .
+
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="인덱싱 정책 편집기에서 이름 인덱스 추가":::
 
 사용 가능한 경우 하나의 쿼리에서 여러 개의 단일 필드 인덱스를 사용 합니다. 컨테이너 당 최대 500 개의 단일 필드 인덱스를 만들 수 있습니다.
 
@@ -135,6 +149,10 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
+Azure Portal에서 데이터 탐색기를 사용 하 여 와일드 카드 인덱스를 만들 수도 있습니다.
+
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="인덱싱 정책 편집기에서 와일드 카드 인덱스 추가":::
+
 > [!NOTE]
 > 개발을 시작 하는 경우 모든 필드에서 와일드 카드 인덱스를 사용 하 여 시작 하는 **것이 좋습니다** . 이를 통해 개발을 간소화 하 고 쿼리를 보다 쉽게 최적화할 수 있습니다.
 
@@ -150,7 +168,7 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
 
 **MongoDB와 달리** MONGODB의 API Azure Cosmos DB에서 다음에 대 한 와일드 카드 인덱스를 사용할 **수 없습니다** .
 
-- 여러 특정 필드를 포함 하는 와일드 카드 인덱스 만들기
+- 여러 특정 필드를 포함하는 와일드카드 인덱스 만들기
 
 `db.coll.createIndex(
     { "$**" : 1 },
@@ -162,7 +180,7 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
     }
 )`
 
-- 여러 특정 필드를 제외 하는 와일드 카드 인덱스 만들기
+- 여러 특정 필드를 제외하는 와일드카드 인덱스 만들기
 
 `db.coll.createIndex(
     { "$**" : 1 },
@@ -174,7 +192,7 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
     }
 )`
 
-또는 와일드 카드 인덱스를 여러 개 만들 수 있습니다.
+또는 여러 와일드카드 인덱스를 만들 수 있습니다.
 
 ## <a name="index-properties"></a>인덱스 속성
 

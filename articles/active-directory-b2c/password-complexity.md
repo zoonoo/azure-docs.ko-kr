@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 11a45adfda306b2ab843725b6aaa28a5e6c026a6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: f9748d0d278375029fc9875f5b36674d19ad871a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614254"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98058976"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호에 복잡성 요구 사항 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "97614254"
 
 Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용자가 제공하는 암호에 복잡성 요구 사항을 변경하도록 지원합니다. 기본적으로 Azure AD B2C는 **강력한** 암호를 사용합니다. 또한 Azure AD B2C는 고객이 사용할 수는 암호의 복잡성을 제어하는 구성 옵션을 지원합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -56,7 +56,7 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
 
 ### <a name="comparison-chart"></a>비교 차트
 
-| 복잡성 | Description |
+| 복잡성 | 설명 |
 | --- | --- |
 | 단순 | 암호는 적어도 8~64자입니다. |
 | 강력 | 암호는 적어도 8~64자입니다. 소문자, 대문자, 숫자 또는 기호와 같은 4개 항목 중 3가지가 필요합니다. |
@@ -76,7 +76,7 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
 암호의 길이 요구 사항을 제어할 수 있습니다.
 
 - **최소 길이** 는 적어도 4여야 합니다.
-- **최대 길이** 는 최소 길이 이상이어야 하며 최대 64자까지 가능합니다.
+- **최대 길이** 는 최소 길이 보다 크거나 같고 최대 256 자까지 가능 합니다.
 
 ### <a name="character-classes"></a>문자 클래스
 

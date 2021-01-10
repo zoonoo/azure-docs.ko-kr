@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 6b48b156ca8d4c64d26d96d7bed525f251832554
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: fcee4fd12b63a0f558927269d926bac9af864488
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046059"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059758"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 Acl (액세스 제어 목록)을 재귀적으로 설정
 
@@ -184,7 +184,7 @@ AD (Azure Active Directory)를 사용 하거나 계정 키를 사용 하 여 연
 이 방법을 사용 하면 시스템에서 Azure RBAC 또는 ACL 사용 권한을 확인 하지 않습니다. 계정 키를 사용 하 여 저장소 계정 컨텍스트를 가져옵니다.
 
 ```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
+$ctx = New-AzStorageContext -StorageAccountName "<storage-account-name>" -StorageAccountKey "<storage-account-key>"
 ```
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)

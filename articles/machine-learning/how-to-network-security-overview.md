@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: dd24c4f20fa3a56d25ef142947268b2d2b75474a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029603"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060013"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,7 +28,7 @@ ms.locfileid: "97029603"
 
 **1. VNet 개요**  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
 + [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)
@@ -152,7 +152,8 @@ ms.locfileid: "97029603"
 VNet 내부에서 전체 studio 기능을 사용 하도록 설정 하려면 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio)을 참조 하세요. 스튜디오는 서비스 끝점이 나 개인 끝점을 사용 하 여 저장소 계정을 지원 합니다.
 
 ### <a name="limitations"></a>제한 사항
-- [ML 지원 데이터 레이블](how-to-create-labeling-projects.md#use-ml-assisted-labeling) 지정은 가상 네트워크 뒤에 보안 되는 기본 저장소 계정을 지원 하지 않습니다. ML 지원 데이터 레이블 지정을 위해 기본이 아닌 저장소 계정을 사용 해야 합니다. 기본이 아닌 저장소 계정은 가상 네트워크 뒤에 보안을 설정할 수 있습니다. 
+
+[ML 지원 데이터 레이블](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) 지정은 가상 네트워크 뒤에 보안 된 기본 저장소 계정을 지원 하지 않습니다. ML 지원 데이터 레이블 지정을 위해 기본이 아닌 저장소 계정을 사용 해야 합니다. 기본이 아닌 저장소 계정은 가상 네트워크 뒤에 보안을 설정할 수 있습니다. 
 
 ## <a name="configure-firewall-settings"></a>방화벽 설정 구성하기
 

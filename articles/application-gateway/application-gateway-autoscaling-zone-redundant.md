@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826632"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059724"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -21,7 +21,7 @@ Application Gateway는 Standard_v2 SKU에서 사용할 수 있습니다. WAF (�
 
 새 v2 SKU에는 다음과 같은 향상된 기능이 포함되어 있습니다.
 
-- 자동 크기 **조정: 크기**자동 조정 SKU에서 Application Gateway 또는 waf 배포는 트래픽 부하 패턴을 변경 하는 방식으로 확장 하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 진정한 탄력성을 제공합니다. Standard_v2 및 WAF_v2 SKU에서 Application Gateway는 고정 용량(자동 크기 조정이 해제됨) 및 자동 크기 조정이 설정된 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 애플리케이션 트래픽이 자주 변하는 애플리케이션에 유용합니다.
+- 자동 크기 **조정: 크기** 자동 조정 SKU에서 Application Gateway 또는 waf 배포는 트래픽 부하 패턴을 변경 하는 방식으로 확장 하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 진정한 탄력성을 제공합니다. Standard_v2 및 WAF_v2 SKU에서 Application Gateway는 고정 용량(자동 크기 조정이 해제됨) 및 자동 크기 조정이 설정된 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 애플리케이션 트래픽이 자주 변하는 애플리케이션에 유용합니다.
 - **영역 중복**: Application Gateway 또는 WAF 배포 하나가 여러 가용성 영역을 포함할 수 있으므로 Traffic Manager를 사용하여 각 영역에 별도의 Application Gateway 인스턴스를 프로비저닝할 필요가 없습니다. Application Gateway 인스턴스가 배포되는 단일 영역 또는 여러 영역을 선택할 수 있기 때문에 영역 장애 복원력이 보장됩니다. 애플리케이션에 대한 백 엔드 풀을 가용성 영역 전반에 유사하게 배포할 수 있습니다.
 
   영역 중복성은 Azure 영역을 사용할 수 있는 경우에만 지원됩니다. 다른 지역에서는 다른 모든 기능이 지원됩니다. 자세한 내용은 [Azure의 지역 및 가용성 영역](../availability-zones/az-overview.md)을 참조하세요.
@@ -101,7 +101,7 @@ Azure Application Gateway는 고가용성이 유지되는 방식으로 배포됩
 |인증 인증서|지원되지 않습니다.<br>자세한 내용은 [Application Gateway의 엔드투엔드 TLS 개요](ssl-overview.md#end-to-end-tls-with-the-v2-sku)를 참조하세요.|
 |동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원되지 않음|
 |Application Gateway 서브넷의 UDR(사용자 정의 경로)|지원됨(특정 시나리오). 미리 보기 상태.<br> 지원되는 시나리오에 대한 자세한 내용은 [Application Gateway 구성 개요](configuration-infrastructure.md#supported-user-defined-routes)를 참조하세요.|
-|인바운드 포트 범위에 대한 NSG| - 65200 ~ 65535(Standard_v2 SKU)<br>- 65503 ~ 65534(Standard SKU)<br>자세한 내용은 [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)을 참조하세요.|
+|인바운드 포트 범위에 대한 NSG| - 65200 ~ 65535(Standard_v2 SKU)<br>- 65503 ~ 65534(Standard SKU)<br>자세한 내용은 [FAQ](application-gateway-faq.yml#are-network-security-groups-supported-on-the-application-gateway-subnet)을 참조하세요.|
 |Azure 진단의 성능 로그|지원되지 않습니다.<br>Azure 메트릭을 사용해야 합니다.|
 |결제|청구는 2019년 7월 1일에 시작하도록 예약됩니다.|
 |FIPS 모드|현재는 지원되지 않습니다.|

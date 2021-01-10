@@ -3,12 +3,12 @@ title: Azure Service Bus 인증 및 권한 부여 | Microsoft Docs
 description: SAS(공유 액세스 서명) 인증을 사용하여 Service Bus에 대해 앱을 인증합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a71cef6aad973f3c39ef61a8dbab313ebfca44ef
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7b287b209fbcd5bc2782505095aeae4390107803
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517283"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060217"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus 인증 및 권한 부여
 Azure AD (azure Activity Directory) 및 SAS (공유 액세스 서명) 라는 두 가지 방법으로 Azure Service Bus 리소스에 대 한 액세스를 인증 하 고 권한을 부여할 수 있습니다. 이 문서에서는 이러한 두 가지 유형의 보안 메커니즘을 사용 하는 방법에 대해 자세히 설명 합니다. 
@@ -37,7 +37,7 @@ SAS를 사용하려면 네임스페이스, 큐 또는 토픽에서 [SharedAccess
 * *KeyName*: 규칙을 식별합니다.
 * *PrimaryKey*: SAS 토큰을 서명/확인하는 데 사용되는 암호화 키입니다.
 * *SecondaryKey*: SAS 토큰을 서명/확인하는 데 사용되는 암호화 키입니다.
-* *Rights*: **수신**, **보내기** 또는 **관리**의 컬렉션을 나타냅니다.
+* *Rights*: **수신**, **보내기** 또는 **관리** 의 컬렉션을 나타냅니다.
 
 네임 스페이스 수준에서 구성된 권한 부여 규칙은 해당 키를 사용하여 서명된 토큰으로 클라이언트에 대한 네임 스페이스의 모든 엔터티에 액세스를 부여할 수 있습니다. 이러한 권한 부여 규칙을 Service Bus 네임스페이스, 큐 또는 항목에서 최대 12개까지 구성할 수 있습니다. 기본적으로 모든 권한이 있는 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 은 처음으로 프로비전될 때 모든 네임스페이스에 대해 구성됩니다.
 

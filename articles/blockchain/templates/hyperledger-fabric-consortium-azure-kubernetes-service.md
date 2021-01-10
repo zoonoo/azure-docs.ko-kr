@@ -1,15 +1,15 @@
 ---
 title: Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 배포
 description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트워크를 배포 하 고 구성 하는 방법
-ms.date: 08/06/2020
+ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab5b9fadfbb0f1c9c1cdf25ee319c7775a593ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651560"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060319"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 배포
 
@@ -66,7 +66,7 @@ Azure에서 하이퍼 원장 패브릭 네트워크를 빌드하려면 피어 �
 
 하이퍼 원장 패브릭 네트워크 구성 요소의 배포를 시작 하려면 [Azure Portal](https://portal.azure.com)으로 이동 합니다.
 
-1. **리소스**  >  **블록 체인**만들기를 선택한 다음 **Azure Kubernetes Service (미리 보기)에서 hyperledger 패브릭을**검색 합니다.
+1. **리소스**  >  **블록 체인** 만들기를 선택한 다음 **Azure Kubernetes Service (미리 보기)에서 hyperledger 패브릭을** 검색 합니다.
 
 2. **기본 사항** 탭에서 프로젝트 세부 정보를 입력 합니다.
 
@@ -83,7 +83,7 @@ Azure에서 하이퍼 원장 패브릭 네트워크를 빌드하려면 피어 �
 
 5. 다음 세부 정보를 입력합니다.
     - **조직 이름**: 다양 한 데이터 평면 작업에 필요한 Hyperledger 패브릭 조직의 이름을 입력 합니다. 조직 이름은 배포 마다 고유 해야 합니다.
-    - **패브릭 네트워크 구성 요소**: 설정 하려는 blockchain 네트워크 구성 요소를 기준으로 **정렬 서비스** 또는 **피어 노드**를 선택 합니다.
+    - **패브릭 네트워크 구성 요소**: 설정 하려는 blockchain 네트워크 구성 요소를 기준으로 **정렬 서비스** 또는 **피어 노드** 를 선택 합니다.
     - **노드 수**: 다음은 두 가지 유형의 노드입니다.
         - **주문 서비스**: 네트워크에 내결함성을 제공할 노드 수를 선택 합니다. 지원 되는 주문 노드 수는 3, 5, 7입니다.
         - **피어 노드**: 요구 사항에 따라 1 ~ 10 개의 노드를 선택할 수 있습니다.
@@ -106,14 +106,14 @@ Azure에서 하이퍼 원장 패브릭 네트워크를 빌드하려면 피어 �
     - **Dns 접두사**: AKS 클러스터에 대 한 Dns (Domain name System) 이름 접두사를 입력 합니다. 클러스터를 만든 후 컨테이너를 관리할 때 DNS를 사용 하 여 Kubernetes API에 연결 합니다.
     - **노드 크기**: Kubernetes 노드의 크기에 대해 Azure에서 사용할 수 있는 VM sku (재고 유지 단위) 목록에서 선택할 수 있습니다. 성능을 최적화 하려면 Standard DS3 v2를 권장 합니다.
     - **노드 수**: 클러스터에 배포할 Kubernetes 노드 수를 입력 합니다. 이 노드 수를 **패브릭 설정** 탭에 지정 된 Hyperledger 패브릭 노드 수와 동일 하 게 유지 하는 것이 좋습니다.
-    - **서비스 사용자 클라이언트 id**: 기존 서비스 주체의 클라이언트 id를 입력 하거나 새 서비스 주체의 클라이언트 id를 만듭니다. AKS 인증에는 서비스 주체가 필요 합니다. [서비스 주체를 만드는 단계](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal)를 참조 하세요.
+    - **서비스 사용자 클라이언트 id**: 기존 서비스 주체의 클라이언트 id를 입력 하거나 새 서비스 주체의 클라이언트 id를 만듭니다. AKS 인증에는 서비스 주체가 필요 합니다. [서비스 주체를 만드는 단계](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal)를 참조 하세요.
     - **서비스 사용자 클라이언트 암호**: 서비스 사용자의 클라이언트 ID에 제공 된 서비스 주체의 클라이언트 암호를 입력 합니다.
     - **클라이언트 암호 확인**: 서비스 사용자에 대 한 클라이언트 암호를 확인 합니다.
     - **컨테이너 모니터링 사용**: AKS 모니터링을 사용 하도록 선택 하 여 AKS 로그를 지정 된 Log Analytics 작업 영역에 푸시할 수 있습니다.
     - **Log Analytics 작업 영역**: 모니터링을 사용 하는 경우 Log Analytics 작업 영역이 생성 된 기본 작업 영역으로 채워집니다.
 
 8. **검토 및 만들기** 탭을 선택 합니다. 이 단계에서는 사용자가 제공한 값에 대 한 유효성 검사를 트리거합니다.
-9. 유효성 검사를 통과 한 후 **만들기**를 선택 합니다.
+9. 유효성 검사를 통과 한 후 **만들기** 를 선택 합니다.
 
     배포에는 일반적으로 10 ~ 12 분이 소요 됩니다. 시간은 지정 된 AKS 노드의 크기와 수에 따라 달라질 수 있습니다.
 10. 성공적으로 배포 된 후에는 오른쪽 위 모퉁이에 있는 Azure 알림을 통해 알림을 받습니다.
@@ -359,7 +359,7 @@ CHANNEL_NAME=<channelName>
 ```
 
 `<collectionConfigJSONFilePath>`파트는 개인 데이터 chaincode의 인스턴스화에 대해 정의 된 컬렉션을 포함 하는 JSON 파일에 대 한 경로입니다. 다음 경로에서 *azhlfTool* 디렉터리에 상대적인 샘플 컬렉션의 구성 JSON 파일을 찾을 수 있습니다 `./samples/chaincode/src/private_marbles/collections_config.json` .
-`<transientArgs>`유효한 JSON을 문자열 형식으로 전달 합니다. 특수 문자를 이스케이프 합니다. `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+`<transientArgs>`유효한 JSON을 문자열 형식으로 전달 합니다. 특수 문자를 이스케이프 합니다. 예: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > 채널의 한 피어 조직에서 명령을 한 번 실행 합니다. 트랜잭션이 가져오므로에 성공적으로 전송 된 후 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 그런 다음 Chaincode은 채널에 있는 모든 피어 조직의 모든 피어 노드에서 인스턴스화됩니다.  
@@ -393,23 +393,35 @@ CHANNEL_NAME=<channelName>
 
 ## <a name="troubleshoot"></a>문제 해결
 
-다음 명령을 실행 하 여 템플릿 배포의 버전을 찾습니다.
+### <a name="find-deployed-version"></a>배포 된 버전 찾기
 
-템플릿이 배포 된 리소스 그룹에 따라 환경 변수를 설정 합니다.
-
-```bash
-
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
-AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
-AKS_CLUSTER_NAME=<AKSClusterName>
-```
-다음 명령을 실행 하 여 템플릿 버전을 인쇄 합니다.
+다음 명령을 실행 하 여 템플릿 배포의 버전을 찾습니다. 템플릿이 배포 된 리소스 그룹에 따라 환경 변수를 설정 합니다.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+```
 
+### <a name="patch-previous-version"></a>이전 버전 패치
+
+V 3.0.0 아래의 템플릿 버전 배포에 대해 chaincode를 실행 하는 데 문제가 있는 경우 아래 단계에 따라 수정 하 여 피어 노드를 패치 합니다.
+
+피어 배포 스크립트를 다운로드 합니다.
+
+```bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
+```
+
+피어에 대 한 매개 변수를 대체 하는 다음 명령을 사용 하 여 스크립트를 실행 합니다.
+
+```bash
+source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
+```
+
+모든 피어 노드가 패치 될 때까지 기다립니다. 다음 명령을 사용 하 여 셸의 다른 인스턴스에서 항상 피어 노드의 상태를 확인할 수 있습니다.
+
+```bash
+kubectl get pods -n hlf
 ```
 
 ## <a name="support-and-feedback"></a>지원 및 피드백

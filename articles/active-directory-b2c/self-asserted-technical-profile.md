@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 14195ad4638c724cf0c8dd46945a0da79ec0e4ec
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509703"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059061"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -59,7 +59,7 @@ ms.locfileid: "97509703"
 
 **DisplayClaims** 의 클레임 순서는 Azure AD B2C 화면에서 클레임을 렌더링 하는 순서를 지정 합니다. 사용자가 특정 클레임에 대 한 값을 제공 하도록 강제 하려면 **DisplayClaim** 요소의 **필수** 특성을로 설정 `true` 합니다.
 
-**DisplayClaims** Collection의 **ClaimType** 요소는 **userinputtype** 요소를 Azure AD B2C에서 지 원하는 사용자 입력 형식으로 설정 해야 합니다. 예를 들어 `TextBox` 또는 `DropdownSingleSelect`입니다.
+**DisplayClaims** Collection의 **ClaimType** 요소는 **userinputtype** 요소를 Azure AD B2C에서 지 원하는 사용자 입력 형식으로 설정 해야 합니다. 예를 들어 `TextBox` 또는 `DropdownSingleSelect`로 이름을 지정할 수 있습니다.
 
 ### <a name="add-a-reference-to-a-displaycontrol"></a>DisplayControl에 참조 추가
 
@@ -199,19 +199,19 @@ PersistedClaims 요소는 사용 되지 않습니다. 자체 어설션된 기술
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| operatingMode <sup>1</sup>| 예 | 로그인 페이지의 경우 이 속성은 입력 유효성 검사, 오류 메시지 등 username 필드의 동작을 제어합니다. 필요한 값은 `Username` 또는 `Email`입니다.  |
-| AllowGenerationOfClaimsWithNullValues| 예| Null 값이 포함 된 클레임을 생성 하도록 허용 합니다. 예를 들어 사용자가 확인란을 선택 하지 않은 경우입니다.|
+| operatingMode <sup>1</sup>| 아니요 | 로그인 페이지의 경우 이 속성은 입력 유효성 검사, 오류 메시지 등 username 필드의 동작을 제어합니다. 필요한 값은 `Username` 또는 `Email`입니다.  |
+| AllowGenerationOfClaimsWithNullValues| 아니요| Null 값이 포함 된 클레임을 생성 하도록 허용 합니다. 예를 들어 사용자가 확인란을 선택 하지 않은 경우입니다.|
 | ContentDefinitionReferenceId | 예 | 이 기술 프로필과 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. |
-| EnforceEmailVerification | 예 | 등록 또는 프로필 편집의 경우 전자 메일 확인을 적용합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| setting.retryLimit | 예 | 사용자가 유효성 검사 기술 프로필에 대해 확인 된 데이터를 제공 하기 위해 시도할 수 있는 횟수를 제어 합니다. 사용자가 이미 있는 계정으로 등록을 계속 시도할 수 있는 제한 횟수를 예로 들 수 있습니다.
-| SignUpTarget <sup>1</sup>| 예 | 등록 대상 교환 식별자입니다. 사용자가 등록 단추를 클릭하면 Azure AD B2C는 지정된 교환 식별자를 실행합니다. |
-| setting.showCancelButton | 예 | 취소 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| setting.showContinueButton | 예 | 계속 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| 설정. showSignupLink <sup>2</sup>| 예 | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| forgotPasswordLinkLocation <sup>2</sup>| 예| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.|
-| enableRememberMe <sup>2</sup>| 예| [로그인 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) 확인란을 표시 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. |
-| inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 예| 사용자가 입력을 중지할 때까지 기다린 후 값의 유효성을 검사 하 여 사용자 환경을 개선 합니다. 기본값은 2000 밀리초입니다. |
-| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
+| EnforceEmailVerification | 아니요 | 등록 또는 프로필 편집의 경우 전자 메일 확인을 적용합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| setting.retryLimit | 아니요 | 사용자가 유효성 검사 기술 프로필에 대해 확인 된 데이터를 제공 하기 위해 시도할 수 있는 횟수를 제어 합니다. 사용자가 이미 있는 계정으로 등록을 계속 시도할 수 있는 제한 횟수를 예로 들 수 있습니다.
+| SignUpTarget <sup>1</sup>| 아니요 | 등록 대상 교환 식별자입니다. 사용자가 등록 단추를 클릭하면 Azure AD B2C는 지정된 교환 식별자를 실행합니다. |
+| setting.showCancelButton | 아니요 | 취소 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| setting.showContinueButton | 아니요 | 계속 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| 설정. showSignupLink <sup>2</sup>| 아니요 | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| forgotPasswordLinkLocation <sup>2</sup>| 아니요| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterLabel` (기본값) 레이블이 없는 경우 레이블 바로 뒤 또는 암호 입력 필드 뒤에 링크를 표시 하거나,  `AfterInput` 암호 입력 필드 뒤에 링크를 표시 `AfterButtons` 하거나, 단추 뒤에 폼의 아래쪽에 링크를 표시 하거나, `None` 암호 찾기 링크를 제거 합니다.|
+| enableRememberMe <sup>2</sup>| 아니요| [로그인 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) 확인란을 표시 합니다. 가능한 값은 `true` , 또는 `false` (기본값)입니다. |
+| inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 아니요| 사용자가 입력을 중지할 때까지 기다린 후 값의 유효성을 검사 하 여 사용자 환경을 개선 합니다. 기본값은 2000 밀리초입니다. |
+| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
 
 참고:
 1. , 또는의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다 `unifiedssp` `unifiedssd` .

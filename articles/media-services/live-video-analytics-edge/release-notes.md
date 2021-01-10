@@ -3,12 +3,12 @@ title: IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석-Azure
 description: 이 항목에서는 IoT Edge 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대 한 라이브 비디오 분석의 릴리스 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 7761fee8f23b5be259f9a5c278f761fa4ce92fbf
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400848"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059979"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석
 
@@ -33,7 +33,7 @@ ms.locfileid: "97400848"
 * 두 개 이상의 HTTP 확장 프로세서를 사용 하 고 그래프 토폴로지에서 gRPC 확장 프로세서를 사용 하기 위한 지원이 추가 되었습니다.
 * 싱크 노드에 대 한 디스크 공간 관리에 대 한 지원이 추가 되었습니다.
 * `MediaGraphGrpcExtension` 이제 노드는 단일 gRPC 서버 내에서 여러 AI 모델을 사용 하기 위한 [Extensionconfiguration](grpc-extension-protocol.md) 속성을 지원 합니다.
-* [프로메테우스 형식의](https://prometheus.io/docs/practices/naming/) 라이브 비디오 분석 모듈 메트릭 수집에 대 한 지원이 추가 됨 
+* [프로메테우스 형식의](https://prometheus.io/docs/practices/naming/)라이브 비디오 분석 모듈 메트릭을 수집 하는 지원이 추가 되었습니다. [Azure Monitor에서 메트릭 및 보기를 수집](monitoring-logging.md#azure-monitor-collection-via-telegraf) 하는 방법에 대해 자세히 알아보세요. 
 * 프레임 요금 필터 프로세서가 **사용 되지** 않습니다.  
     * 이제 그래프 확장 프로세서 노드 자체에서 프레임 주기 관리를 사용할 수 있습니다.
 

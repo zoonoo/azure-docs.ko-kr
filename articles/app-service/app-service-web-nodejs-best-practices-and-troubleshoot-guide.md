@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 370b84f451e22c20c798018951a7a801e0bba826
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763947"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060163"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
@@ -245,9 +245,8 @@ node.exe가 임의로 종료된 이유 몇 가지는 다음과 같습니다.
 애플리케이션 시작 시간이 긴 일반적인 원인은 node\_modules에 많은 수의 노드가 있기 때문입니다. 애플리케이션은 시작할 때 이러한 파일의 대부분을 로드하려고 합니다. 기본적으로 파일은 Azure App Service의 네트워크 공유에 저장되므로 많은 파일을 로드하면 시간이 소요될 수 있습니다.
 이 프로세스 속도를 높이는 몇 가지 솔루션은 다음과 같습니다.
 
-1. npm3을 사용하여 플랫 종속성 구조가 있고 중복 종속성이 없는지 확인하고 모듈을 설치합니다.
-2. node\_modules의 지연 로드를 시도하고 애플리케이션 시작 시 모든 모듈을 로드하지 않도록 합니다. 모듈을 지연 로드하려면 모듈 코드의 첫 번째 실행 전에 함수 내에서 모듈이 실제로 필요할 때 요청에 대한 호출(‘모듈’)을 수행해야 합니다.
-3. Azure App Service는 로컬 캐시라는 기능을 제공합니다. 이 기능은 네트워크 공유에서 VM의 로컬 디스크로 콘텐츠를 복사합니다. 파일이 로컬 파일이므로 node\_modules의 로드 시간이 훨씬 더 빠릅니다.
+1. node\_modules의 지연 로드를 시도하고 애플리케이션 시작 시 모든 모듈을 로드하지 않도록 합니다. 모듈을 지연 로드하려면 모듈 코드의 첫 번째 실행 전에 함수 내에서 모듈이 실제로 필요할 때 요청에 대한 호출(‘모듈’)을 수행해야 합니다.
+2. Azure App Service는 로컬 캐시라는 기능을 제공합니다. 이 기능은 네트워크 공유에서 VM의 로컬 디스크로 콘텐츠를 복사합니다. 파일이 로컬 파일이므로 node\_modules의 로드 시간이 훨씬 더 빠릅니다.
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http 상태 및 하위 상태
 

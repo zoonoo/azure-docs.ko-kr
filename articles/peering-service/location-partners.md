@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/06/2020
 ms.author: derekol
-ms.openlocfilehash: c2c16e6b5be4e187a776f75454ecf9377da911e3
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: da6c53675378fcf9d395debe750bb97738763a09
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763182"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059520"
 ---
 # <a name="peering-service-partners"></a>피어 링 서비스 파트너
 
@@ -44,6 +44,8 @@ Microsoft는 Isp (인터넷 서비스 공급자), IXPs (internet exchange 공급
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |아시아 |
 | [NAP 아프리카](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |아프리카|
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |유럽|
+| [CMC 네트워크](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |아프리카|
+| [MainOne](https://www.mainone.net/connectivity-services/microsoft-azure-peering-service/) |아프리카|
 
 > [!NOTE]
 >피어 링 서비스 파트너 프로그램을 등록 하는 방법에 대 한 자세한 내용은을 (를) 확인 peeringservice@microsoft.com 하세요.

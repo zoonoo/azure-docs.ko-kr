@@ -16,12 +16,12 @@ ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6299f9ad660252ae39903401672d493b1c1ad52c
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 8f08c25749bbd21e3624dee898d9a8c97fd74164
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347492"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059384"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 연결 된 조직 추가
 
@@ -135,8 +135,6 @@ Azure AD 디렉터리 또는 도메인의 사용자가 인증 하는 방법은 �
 1. 왼쪽 창에서 **연결 된 조직** 을 선택 하 고 연결 된 조직을 선택 하 여 엽니다.
 
 1. 연결 된 조직의 개요 창에서 **삭제** 를 선택 하 여 삭제 합니다.
-
-    현재 연결 된 사용자가 없는 경우에만 연결 된 조직을 삭제할 수 있습니다.
 
     ![연결 된 조직 삭제 단추](./media/entitlement-management-organization/organization-delete.png)
 

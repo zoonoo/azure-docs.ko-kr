@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585193"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98058670"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -74,7 +74,7 @@ Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/
 ## <a name="guidelines-for-using-custom-page-content"></a>사용자 지정 페이지 콘텐츠 사용에 대 한 지침
 
 - HTML 파일에 미디어, CSS 및 JavaScript 파일과 같은 외부 리소스를 포함 하는 경우 절대 URL을 사용 합니다.
-- [페이지 레이아웃 버전](page-layout.md) 1.2.0 이상을 사용 하 여 `data-preload="true"` HTML 태그에 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다. `data-preload=true`에서는 페이지가 사용자에 게 표시 되기 전에 생성 됩니다. 이 특성을 사용 하면 스타일이 지정 되지 않은 HTML이 사용자에 게 표시 되지 않고 CSS 파일을 미리 로드 하 여 페이지를 "깜박임" 할 수 없습니다. 다음 HTML 코드 조각에서는 태그를 사용 하는 방법을 보여 줍니다 `data-preload` .
+- [페이지 레이아웃 버전](page-layout.md) 1.2.0 이상을 사용 하 여 `data-preload="true"` HTML 태그에 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다. `data-preload="true"`에서는 페이지가 사용자에 게 표시 되기 전에 생성 됩니다. 이 특성을 사용 하면 스타일이 지정 되지 않은 HTML이 사용자에 게 표시 되지 않고 CSS 파일을 미리 로드 하 여 페이지를 "깜박임" 할 수 없습니다. 다음 HTML 코드 조각에서는 태그를 사용 하는 방법을 보여 줍니다 `data-preload` .
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
@@ -116,7 +116,7 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 1. 웹앱에 대한 CORS(원본 간 리소스 공유) 설정
 1. 사용자 지정 정책 콘텐츠 URI에 대 한 정책을 가리킵니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -374,7 +374,7 @@ git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
 
 1. 로컬 컴퓨터에서 리포지토리를 복제 합니다. 템플릿 폴더 또는를 `/ocean_blue` 선택 `/slate_gray` 합니다.
 1. `/assets`이전 섹션에 설명 된 대로 템플릿 폴더 및 폴더 아래의 모든 파일을 Blob 저장소에 업로드 합니다.
-1. 그런 다음 `\*.html` 또는의 루트에 있는 각 파일 `/ocean_blue` 을 열고 `/slate_gray` 상대 url의 모든 인스턴스를 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 url로 바꿉니다. 예:
+1. 그런 다음 `\*.html` 또는의 루트에 있는 각 파일 `/ocean_blue` 을 열고 `/slate_gray` 상대 url의 모든 인스턴스를 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 url로 바꿉니다. 예를 들면 다음과 같습니다.
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
