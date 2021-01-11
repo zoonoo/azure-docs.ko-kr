@@ -109,7 +109,7 @@
     - name: 가격 책정 이해
       href: understanding-pricing.md
     - name: FAQ
-      href: application-gateway-faq.md
+      href: application-gateway-faq.yml
 - name: 방법 가이드
   items:
     - name: 단일 사이트 호스트

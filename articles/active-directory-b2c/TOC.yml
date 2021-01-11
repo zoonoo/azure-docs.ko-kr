@@ -443,7 +443,7 @@
     - name: 청구 모델
       href: billing.md
     - name: 코드 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
+      href: /samples/browse/?terms=b2c
     - name: 쿠키 정의
       href: cookie-definitions.md
       displayName: 'cookies, SameSite'
