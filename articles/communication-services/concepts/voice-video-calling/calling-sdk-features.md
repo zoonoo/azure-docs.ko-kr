@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c801a276f3a116f00b34d750ca8bfec7e56d377b
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: e0fff67d6998e55854d4dc3c8db261bc4499f0be
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680737"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936059"
 ---
 # <a name="calling-client-library-overview"></a>통화 클라이언트 라이브러리 개요
 
@@ -58,7 +58,7 @@ ms.locfileid: "97680737"
 |                   | 그룹 호출에서 PSTN 참가자로 전화 걸기                                                                    | ✔️   | ✔️            | ✔️   
 | 일반           | 오디오 테스트 서비스를 사용하여 마이크, 스피커 및 카메라 테스트(8:echo123을 호출하여 사용 가능)                   |  ✔️  | ✔️            | ✔️   
 
-## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>OS 및 브라우저별 Javascript 호출 클라이언트 라이브러리 지원
+## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>OS 및 브라우저별 JavaScript 호출 클라이언트 라이브러리 지원
 
 다음 표에서는 현재 사용할 수 있는 지원되는 브라우저 및 버전의 세트를 나타냅니다.
 
@@ -96,8 +96,8 @@ Communication Services 통화 클라이언트 라이브러리는 다음과 같�
 
 |           |웹 | Android/iOS|
 |-----------|----|------------|
-|# 동시에 보낼 수 있는 나가는 스트림 수 |비디오 1개 + 화면 공유 1개 | 비디오 1개 + 화면 공유 1개|
-|# 동시에 렌더링할 수 있는 들어오는 스트림 수 |비디오 1개 + 화면 공유 1개| 비디오 6개 + 화면 공유 1개 |
+|**# 동시에 보낼 수 있는 나가는 스트림 수** |비디오 1개 + 화면 공유 1개 | 비디오 1개 + 화면 공유 1개|
+|**# 동시에 렌더링할 수 있는 들어오는 스트림 수** |비디오 1개 + 화면 공유 1개| 비디오 6개 + 화면 공유 1개 |
 
 
 ## <a name="next-steps"></a>다음 단계

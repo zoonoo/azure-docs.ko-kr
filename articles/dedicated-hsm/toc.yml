@@ -14,6 +14,8 @@
   items:
     - name: Azure PowerShell을 사용하여 Azure Dedicated HSM 만들기
       href: quickstart-create-hsm-powershell.md
+    - name: Azure CLI를 사용하여 Azure Dedicated HSM 만들기
+      href: quickstart-hsm-azure-cli.md
 - name: 개념
   items:
     - name: 고가용성

@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 6265a7cde8e276570409238cadfd5ebc777b4527
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 71782661fd960cae3248005a8b90944eff9bef45
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97532158"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024234"
 ---
 | 리소스 | 무료 | 공유됨 | Basic | Standard | Premium(v1-v3) | 격리 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -31,6 +31,7 @@ ms.locfileid: "97532158"
 | 사용자 지정 도메인 [SSL 지원](../articles/app-service/configure-ssl-certificate.md) |지원되지 않음, \*.azurewebsites.net에 대한 와일드카드 인증서는 기본적으로 사용 가능|지원되지 않음, \*.azurewebsites.net에 대한 와일드카드 인증서는 기본적으로 사용 가능|무제한 SNI SSL 연결 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 | 무제한 SNI SSL 및 1개의 IP SSL 연결 포함|
 | 하이브리드 연결 | | | 플랜당 5개 | 플랜당 25개 | 앱당 200개 | 앱당 200개 |
 | [가상 네트워크 통합](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
+| [프라이빗 엔드포인트](../articles/app-service/networking/private-endpoint.md) | | |   |   |  앱당 100  |    |
 | 통합 부하 분산 장치 | |X |X |X |X |X<sup>10</sup> |
 | [액세스 제한](../articles/app-service/networking-features.md#access-restrictions) | 앱당 512개 규칙 | 앱당 512개 규칙 | 앱당 512개 규칙 | 앱당 512개 규칙 | 앱당 512개 규칙 | 앱당 512개 규칙 |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |

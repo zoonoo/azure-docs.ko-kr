@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 01/05/2021
 ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d8698a17db8be6a3d5b26d764ef86702320ebfa4
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705084"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901371"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
@@ -83,8 +83,17 @@ Anomaly Detector API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고
 
 Microsoft에서 개발한 SR-CNN 알고리즘에 대해 자세히 알아보려면 [Microsoft의 시계열 Anomaly Detection Service](https://arxiv.org/abs/1906.03821)(KDD 2019에서 수락)를 참조하세요.
 
-
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="service-availability-and-redundancy"></a>서비스 가용성 및 중복성
+
+### <a name="is-the-anomaly-detector-service-zone-resilient"></a>Anomaly Detector 서비스는 영역 복원력이 있나요?
+
+예. Anomaly Detector 서비스는 기본적으로 영역 복원력이 있습니다.
+
+### <a name="how-do-i-configure-the-anomaly-detector-service-to-be-zone-resilient"></a>영역 복원력을 갖도록 Anomaly Detector 서비스를 구성하려면 어떻게 해야 하나요?
+
+영역 복원력을 사용하도록 설정하기 위한 고객 구성은 필요 없습니다. Anomaly Detector 리소스의 영역 복원력은 기본적으로 제공되며 서비스 자체에서 관리합니다.
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
 

@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - Java용 Azure Key Vault 인증서 클라이언트 라이브러리
-description: Java용 Azure Key Vault 인증서 클라이언트 라이브러리에 대한 빠른 시작을 제공합니다.
+title: Azure Key Vault 인증서 클라이언트 라이브러리 빠른 시작 - Java
+description: 이 빠른 시작의 단계를 사용하여 Java용 Azure Key Vault 인증서 클라이언트 라이브러리에 대해 알아보세요.
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.openlocfilehash: 1890c2a3d4043d43dd890f06942dbe704e3f7689
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 99b8c63060cebeffea0f3473e03b5f49a415230b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733493"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936042"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-java"></a>빠른 시작: Java용 Azure Key Vault 인증서 클라이언트 라이브러리
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>빠른 시작: Java용 Azure Key Vault 인증서 클라이언트 라이브러리(인증서)
 Java용 Azure Key Vault 인증서 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
 
 추가 리소스:
@@ -126,7 +126,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS 또는 Linux
@@ -159,7 +159,7 @@ import com.azure.security.keyvault.certificates.models.KeyVaultCertificateWithPo
 ### <a name="authenticate-and-create-a-client"></a>클라이언트 인증 및 만들기
 이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 권장되는 방법인 Key Vault에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
 
-아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 ['DefaultAzureCredential()'](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) 클래스를 사용합니다. 자세한 내용은 [기본 Azure 자격 증명 인증](https://docs.microsoft.com/java/api/overview/azure/identity-readme)을 참조하세요.
+아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제에서는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 ['DefaultAzureCredential()'](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) 클래스를 사용합니다. 자세한 내용은 [기본 Azure 자격 증명 인증](https://docs.microsoft.com/java/api/overview/azure/identity-readme)을 참조하세요.
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");

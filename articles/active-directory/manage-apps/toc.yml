@@ -37,16 +37,12 @@
     - name: 애플리케이션 프록시에 대한 Azure PowerShell 샘플
       href: application-proxy-powershell-samples.md
 - name: 개념
-  expanded: false
+  expanded: true
   items:
     - name: 앱 관리 모범 사례
       href: application-management-fundamentals.md
     - name: 앱 관리 공통 시나리오
       href: common-scenarios.md
-    - name: 테넌트에서 앱 보기
-      href: application-types.md
-    - name: 앱에 사용자 할당
-      href: ways-users-get-assigned-to-applications.md
     - name: 클라우드 앱 통합 계획
       items:
         - name: 앱 통합 시작
@@ -286,6 +282,10 @@
       href: application-proxy-faq.md
     - name: 애플리케이션 프록시 버전 내역
       href: application-proxy-release-version-history.md
+    - name: 앱이 엔터프라이즈 애플리케이션에 표시되는 이유
+      href: application-types.md
+    - name: 사용자가 앱에 할당되는 이유
+      href: ways-users-get-assigned-to-applications.md
 - name: 리소스
   items:
     - name: 개발자를 위한 지원 및 도움말 옵션

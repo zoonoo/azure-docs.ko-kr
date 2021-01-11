@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 7e71058e1899cf83e712025b534e51a1be1f6bdb
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e6b4175f4f47c9dd378bec84da2575c079a2079f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591789"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory 통합(레거시 자습서)
 
@@ -89,11 +89,11 @@ AWS(Amazon Web Services)에서 Azure AD의 **사용자 이름** 값을 **Usernam
 
 AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 단계를 수행합니다.
 
-1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[AWS(Amazon Web Services) Single Sign-On 구성](#configure-amazon-web-services-aws-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[AWS(Amazon Web Services) SSO 구성](#configure-amazon-web-services-aws-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+3. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 AWS(Amazon Web Services) 애플리케이션에서 Single Sign-On을 구성합니다.
 
@@ -107,7 +107,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
+3. **SAML로 Single Sign-On 설정** 페이지에서 **연필** 모양 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -143,11 +143,14 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     g. **저장** 을 클릭합니다.
 
+    >[!NOTE]
+    >Azure AD의 역할에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)를 참조하세요.
+
 7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 **페더레이션 메타데이터 XML** 을 컴퓨터에 다운로드하고 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
-### <a name="configure-amazon-web-services-aws-single-sign-on"></a>AWS(Amazon Web Services) Single Sign-On 구성
+### <a name="configure-amazon-web-services-aws-sso"></a>Amazon Web Services(AWS) SSO 구성
 
 1. 다른 브라우저 창에서 AWS(Amazon Web Services) 회사 사이트에 관리자로 로그인합니다.
 
@@ -231,7 +234,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![AWS 창에서 계정 ID가 표시되는 위치를 보여주는 스크린샷](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-1. 이제 [Azure Portal](https://portal.azure.com/)에 로그인하고, **그룹** 으로 이동합니다.
+1. 이제 Azure Portal에 로그인하고, **그룹** 으로 이동합니다.
 
 1. 이전에 만든 IAM 역할과 동일한 이름을 사용하는 새 그룹을 만들고, 이러한 새 그룹의 **개체 ID** 를 적어 둡니다.
 
@@ -347,11 +350,11 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     > [!Note]
     > 새 역할을 확인하려면 Azure Portal에서 세션을 새로 고쳐야 합니다.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트
+### <a name="test-sso"></a>SSO 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 [내 앱]을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 AWS(Amazon Web Services) 타일을 클릭하면 역할 선택 옵션이 없는 AWS(Amazon Web Services) 애플리케이션 페이지가 나타납니다.
+[내 앱]에서 AWS(Amazon Web Services) 타일을 클릭하면 역할을 선택할 수 있는 옵션이 없는 AWS(Amazon Web Services) 애플리케이션 페이지가 표시됩니다.
 
 ![Single Sign-On 테스트 1](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
@@ -359,7 +362,7 @@ SAML 응답에서도 클레임으로 전달된 역할을 확인할 수 있습니
 
 ![Single Sign-On 테스트 2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,13 +4,13 @@ description: 이 문서는 Azure Cognitive Services Language Understanding API�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 06/15/2020
-ms.openlocfilehash: 52f8aad0a429d3378d46265fab719b1cb9f07fd0
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.date: 01/05/2021
+ms.openlocfilehash: 4591bc26c848032d1c0f8b96720c4ec66b9b064d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813193"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916357"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
@@ -20,7 +20,8 @@ ms.locfileid: "97813193"
 
 ### <a name="december-2020"></a>2020년 12월
 
-* 모든 LUIS 사용자는 [LUIS 작성자 리소스로 마이그레이션](luis-migration-authoring.md)해야 합니다.
+* 모든 LUIS 사용자는 [LUIS 작성자 리소스로 마이그레이션](luis-migration-authoring.md)해야 함
+* REST API를 사용하여 일괄 처리 테스트를 제출하고, 의도 및 엔터티의 정확도 결과를 가져올 수 있게 해주는 새 [평가 엔드포인트](luis-how-to-batch-test.md#batch-testing-using-the-rest-api). v3.0-preview LUIS 엔드포인트부터 사용 가능합니다.
 
 ### <a name="june-2020"></a>2020년 6월
 

@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/28/2020
+ms.date: 1/5/2021
 ms.author: kenwith
-ms.openlocfilehash: e2b8bd47f7d124562a38413d36b849d1f7efacee
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: a3468b6f74519018f73f6bf32df74bd6cbb458f6
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802765"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916697"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트에서 애플리케이션 삭제
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트에 추가된 애플리케이션을 삭제합니다.
+
+SSO 및 Azure에 대한 자세한 정보는 [SSO(Single Sign-On)란?](what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

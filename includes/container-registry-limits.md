@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3fe1b966b56142fd312850ac5d77839b7d9db434
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e451171859efc49753131b145642aec4864db45d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97706229"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015671"
 ---
 | 리소스 | Basic | Standard | Premium |
 |---|---|---|---|
@@ -22,8 +22,8 @@ ms.locfileid: "97706229"
 | 최대 이미지 레이어 크기(GiB) | 200 | 200 | 200 |
 | 분당 ReadOps<sup>2, 3</sup> | 1,000 | 3,000 | 10000 |
 | 분당 WriteOps<sup>2, 4</sup> | 100 | 500 | 2,000 |
-| 다운로드 대역폭 Mbps<sup>2</sup> | 30 | 60 | 100 |
-| 업로드 대역폭 Mbps<sup>2</sup> | 10 | 20 | 50 |
+| 다운로드 대역폭<sup>2</sup>(Mbps) | 30 | 60 | 100 |
+| 업로드 대역폭<sup>2</sup>(Mbps) | 10 | 20 | 50 |
 | Webhook | 2 | 10 | 500 |
 | 지역에서 복제 | 해당 없음 | 해당 없음 | [지원됨][geo-replication] |
 | 가용성 영역 | 해당 없음 | 해당 없음 | [미리 보기][zones] |
@@ -38,7 +38,7 @@ ms.locfileid: "97706229"
 | &bull; 범위 맵당 리포지토리 | 해당 없음 | 해당 없음 | 500 |
 
 
-<sup>1</sup> 각 계층의 일별 요금에 포함된 스토리지입니다. 추가 스토리지의 경우 스토리지 한도까지 GiB당 추가 일일 요금이 청구됩니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조하세요.
+<sup>1</sup> 각 계층의 일별 요금에 포함된 스토리지입니다. 추가 스토리지는 GiB당 일일 추가 요금으로 레지스트리 스토리지 제한까지 사용할 수 있습니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조하세요.
 
 <sup>2</sup>*ReadOps*, *WriteOps* 및 *Bandwidth* 는 최소 추정치입니다. Azure Container Registry는 필요한 사용량에 따라 성능을 개선하려고 합니다.
 
