@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 01/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 539ea6f80604eabdbbe56a3280cf5ddb367c0439
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: f30b1f0f14bba54b8b4fcd7c5190f3c533f199a6
+ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97966786"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98061755"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>소 버린 클라우드의 음성 서비스
 
@@ -36,9 +36,10 @@ ms.locfileid: "97966786"
     - 사용자 지정 음성 (AM (음향 모델) 및 LM (언어 모델) 적응)
       - [Speech Studio](https://speech.azure.us/)
   - 텍스트 음성 변환
+    - 표준 음성
+    - 신경망
   - 음성 변환기
 - **지원되지 않는 기능:**
-  - 신경망
   - Custom Voice
 - **지원 되는 언어:**
   - [여기](language-support.md) 에서 지원 되는 언어 목록을 참조 하세요.
@@ -105,20 +106,13 @@ spx recognize --host "usGovHost" --file myaudio.wav
     - 사용자 지정 음성 (AM (음향 모델) 및 LM (언어 모델) 적응)
       - [Speech Studio](https://speech.azure.cn/)
   - 텍스트 음성 변환
+    - 표준 음성
+    - 신경망
   - 음성 변환기
 - **지원되지 않는 기능:**
-  - 신경망
   - Custom Voice
 - **지원 되는 언어:**
-  - 아랍어 (ar-*)
-  - 중국어 (zh-cn-*)
-  - 영어(en-*)
-  - 프랑스어 (fr-fr-*)
-  - 독일어 (de-*)
-  - 힌디어 (hi)
-  - 한국어(ko-KR)
-  - 러시아어(ru-RU)
-  - 스페인어 (es-*)
+  - [여기](language-support.md) 에서 지원 되는 언어 목록을 참조 하세요.
 
 ### <a name="endpoint-information"></a>엔드포인트 정보
 
