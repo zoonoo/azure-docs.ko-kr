@@ -54,7 +54,7 @@
           href: enable-dynamic-configuration-java-spring-app.md
     - name: 기능 플래그 사용
       items:
-        - name: .NET Core
+        - name: ASP.NET Core
           href: use-feature-flags-dotnet-core.md
         - name: Spring Boot
           href: use-feature-flags-spring-boot.md
@@ -110,7 +110,7 @@
           href: concept-disaster-recovery.md
 - name: 방법 가이드
   items:
-    - name: 사용자 비율에 따라 기능 사용
+    - name: 조건부 기능 플래그 사용
       href: howto-feature-filters-aspnet-core.md
     - name: 지정된 사용자/그룹에 대해 기능 사용
       href: howto-targetingfilter-aspnet-core.md

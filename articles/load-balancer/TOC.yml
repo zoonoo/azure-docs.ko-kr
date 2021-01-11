@@ -146,11 +146,15 @@
       items:
         - name: Azure Load Balancer 문제 해결
           href: load-balancer-troubleshoot.md
-        - name: 일반 배포 오류 문제 해결
+        - name: 상태 프로브 상태
+          href: load-balancer-troubleshoot-health-probe-status.md
+        - name: 백 엔드 풀(VM) 트래픽
+          href: load-balancer-troubleshoot-backend-traffic.md
+        - name: 일반적인 배포 오류
           href: load-balancer-common-deployment-errors.md
-        - name: 일반적인 아웃바운드 연결 문제 해결
+        - name: 일반적인 아웃바운드 연결 문제
           href: troubleshoot-outbound-connection.md
-        - name: 리소스 상태 및 인바운드 가용성 문제 해결
+        - name: 리소스 상태 및 인바운드 가용성 문제
           href: troubleshoot-rhc.md
 - name: 참조
   items:
