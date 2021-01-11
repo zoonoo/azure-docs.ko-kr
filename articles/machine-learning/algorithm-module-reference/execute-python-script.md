@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 12/02/2020
-ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.date: 01/02/2021
+ms.openlocfilehash: 7b5bc77375d684340116a21b7f95cf576d99dad2
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679195"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065357"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -60,7 +60,7 @@ if spec is None:
 > [!WARNING]
 > Excute Python 스크립트 모듈은 Java, PyODBC 등의 명령을 사용 하 여 추가 네이티브 라이브러리에 종속 된 패키지를 설치 하는 것을 지원 하지 않습니다. 이 모듈은 Python이 사전 설치 되어 있고 비관리자 권한이 있는 간단한 환경에서 실행 되기 때문입니다.  
 
-## <a name="access-to-registered-datasets"></a>등록 된 데이터 집합에 대 한 액세스
+## <a name="access-to-current-workspace-and-registered-datasets"></a>현재 작업 영역 및 등록 된 데이터 집합에 대 한 액세스
 
 다음 샘플 코드를 참조 하 여 작업 영역에서 등록 된 [데이터 집합](../how-to-create-register-datasets.md) 에 액세스할 수 있습니다.
 
@@ -71,8 +71,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     print(f'Input pandas.DataFrame #1: {dataframe1}')
     from azureml.core import Run
     run = Run.get_context(allow_offline=True)
+    #access to current workspace
     ws = run.experiment.workspace
 
+    #access to registered dataset of current workspace
     from azureml.core import Dataset
     dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
     dataframe1 = dataset.to_pandas_dataframe()
@@ -219,7 +221,9 @@ Python 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는
 
 6. 파이프라인을 제출합니다.
 
-    모든 데이터와 코드는 가상 컴퓨터에 로드 되 고 지정 된 Python 환경을 사용 하 여 실행 됩니다.
+    모듈이 완료 되 면 예상 대로 출력을 확인 합니다.
+
+    모듈이 실패 한 경우 몇 가지 문제를 해결 해야 합니다. 모듈을 선택 하 고 오른쪽 창에서 **출력 + 로그** 를 엽니다. **70_driver_log.txt** 를 열고 **azureml_main** 를 검색 하면 오류가 발생 한 줄을 찾을 수 있습니다. 예를 들어 azureml_main "파일"/tmp/tmp01_ID/user_script. py "는 python 스크립트의 17 줄에서 오류가 발생 했음을 나타냅니다.
 
 ## <a name="results"></a>결과
 

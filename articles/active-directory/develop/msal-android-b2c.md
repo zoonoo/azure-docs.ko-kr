@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 1c4f47fd771cfb92b3896963c96b39d9eb7d97b8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ad43d380bde1bae0e389fa58e3d916c2c3250be7
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344881"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064935"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>B2C와 함께 Android 용 MSAL 사용
 
-MSAL(Microsoft 인증 라이브러리)을 사용하면 애플리케이션 개발자가 [Azure AD B2C(Azure Active Directory B2C)](../../active-directory-b2c/index.yml)를 사용하여 소셜 및 로컬 ID로 사용자를 인증할 수 있습니다. Azure AD B2C는 ID 관리 서비스입니다. 이를 통해 고객이 응용 프로그램을 사용 하 여 등록, 로그인 및 프로필을 관리 하는 방법을 사용자 지정 하 고 제어할 수 있습니다.
+MSAL (Microsoft 인증 라이브러리)을 사용 하면 응용 프로그램 개발자가 [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml)를 사용 하 여 소셜 및 로컬 id를 사용 하 여 사용자를 인증할 수 있습니다. Azure AD B2C는 ID 관리 서비스입니다. 이를 통해 고객이 응용 프로그램을 사용 하 여 등록, 로그인 및 프로필을 관리 하는 방법을 사용자 지정 하 고 제어할 수 있습니다.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>알려진 인증 기관 및 리디렉션 URI 구성
 
@@ -139,7 +139,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>정책 지정
 
-B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `fromAuthority` `acquireToken` 또는 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다 `acquireTokenSilent` .  예:
+B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `fromAuthority` `acquireToken` 또는 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다 `acquireTokenSilent` .  예를 들어:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()

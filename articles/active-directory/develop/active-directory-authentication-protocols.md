@@ -12,12 +12,13 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 41ea41b4d7c181dad9246653a68c329387ac5381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: ffd9b415d3b2a8e1aa716caa0e8289c6ae127b71
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80884684"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065085"
 ---
 # <a name="microsoft-identity-platform-authentication-protocols"></a>Microsoft id 플랫폼 인증 프로토콜
 
@@ -33,7 +34,7 @@ Microsoft id 플랫폼은 가장 널리 사용 되는 여러 가지 인증 및 �
 * [On-Behalf-Of 흐름을 사용한 서비스 간 호출](v2-oauth2-on-behalf-of-flow.md) - 서비스 간 호출을 위해 OAuth 2.0 On-Behalf-Of 흐름을 사용하는 방법을 알아봅니다.
 * [SAML 프로토콜 참조](active-directory-saml-protocol-reference.md) -Microsoft id 플랫폼의 단일 Sign-On 및 SINGLE sign-on SAML 프로필에 대해 알아봅니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Microsoft ID 플랫폼 개요](v2-overview.md)
 * [Active Directory 코드 샘플](sample-v2-code.md)

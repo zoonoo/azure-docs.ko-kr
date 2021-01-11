@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 47c3c091e767cac63bb814469397ef1a0aeca3a4
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516505"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063793"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft ID 플랫폼 모범 사례 및 권장 사항
 
@@ -30,7 +30,7 @@ ms.locfileid: "97516505"
 > [!TIP]
 > Azure Portal의 *통합 길잡이* 를 통해 이러한 모범 사례와 권장 사항을 대부분 적용할 수 있습니다. Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 중 하나를 선택한 다음 **Integration assistant** 메뉴 항목을 선택 하 여 길잡이를 시작 합니다.
 
-## <a name="basics"></a>기본
+## <a name="basics"></a>기본 사항
 
 ![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) [Microsoft Platform 정책을](/legal/microsoft-identity-platform/terms-of-use)읽고 이해 합니다. 응용 프로그램이 사용자 및 플랫폼을 보호 하도록 설계 된 용어를 준수 하는지 확인 합니다.
 

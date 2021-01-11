@@ -7,25 +7,22 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: b84f1efd77ca757fd2ceaa8bb5605e3fc78297d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q3
+ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032374"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065391"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기
 
 > [!Note]
-> 이 문서에서는 IoT Central의 데이터 내보내기 기능에 대해 설명 합니다.
->
-> - 레거시 데이터 내보내기 기능에 대 한 자세한 내용은 [데이터 내보내기 (레거시)를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기](./howto-export-data-legacy.md)를 참조 하세요.
-> - 데이터 내보내기 및 레거시 데이터 내보내기 기능 간의 차이점에 대 한 자세한 내용은 아래의 [비교 표](#comparison-of-legacy-data-export-and-data-export) 를 참조 하세요.
+> 이 문서에서는 IoT Central의 데이터 내보내기 기능에 대해 설명 합니다. 레거시 데이터 내보내기 기능에 대 한 자세한 내용은 [데이터 내보내기 (레거시)를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기](./howto-export-data-legacy.md)를 참조 하세요.
 
 이 문서에서는 Azure IoT Central의 새로운 데이터 내보내기 기능을 사용 하는 방법을 설명 합니다. 이 기능을 사용 하 여 IoT Central 응용 프로그램에서 필터링 및 보강 IoT 데이터를 지속적으로 내보낼 수 있습니다. 데이터 내보내기는 웜 경로 통찰력, 분석 및 저장소에 대 한 클라우드 솔루션의 다른 부분에 거의 실시간으로 변경 내용을 푸시합니다.
 
-예를 들어, 다음을 수행할 수 있습니다.
+예를 들어 다음을 수행할 수 있습니다.
 
 - JSON 형식의 원격 분석 데이터 및 속성 변경을 거의 실시간으로 계속 내보냅니다.
 - 데이터 스트림을 필터링 하 여 사용자 지정 조건과 일치 하는 데이터를 내보냅니다.
@@ -35,7 +32,7 @@ ms.locfileid: "97032374"
 > [!Tip]
 > 데이터 내보내기를 켜면 해당 순간부터의 데이터만 가져옵니다. 현재 데이터 내보내기가 해제 된 시간에 대 한 데이터를 검색할 수 없습니다. 기록 데이터를 더 보존 하려면 초기에 데이터 내보내기를 켭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 데이터 내보내기 기능을 사용 하려면 [V3 응용 프로그램이](howto-get-app-info.md)있어야 하며 [데이터 내보내기](howto-manage-users-roles.md) 권한이 있어야 합니다.
 
@@ -97,10 +94,10 @@ ms.locfileid: "97032374"
 
     |성능 계층|계정 유형|
     |-|-|
-    |표준|범용 V2|
-    |표준|범용 V1|
-    |표준|Blob Storage|
-    |프리미엄|블록 Blob 저장소|
+    |Standard|범용 V2|
+    |Standard|범용 V1|
+    |Standard|Blob Storage|
+    |Premium|블록 Blob 저장소|
 
 1. 저장소 계정에서 컨테이너를 만들려면 저장소 계정으로 이동 합니다. **Blob 서비스** 에서 **Blob 찾아보기** 를 선택합니다. 맨 위에서 **+ 컨테이너** 를 선택하여 새 컨테이너를 만듭니다.
 

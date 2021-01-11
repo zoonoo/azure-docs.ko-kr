@@ -11,18 +11,19 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 465adbb71abaa45160399ecba2ebfb692a8307c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 62f4f629e44d317d36e182adb48f8f00b9f1c2b3
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120680"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063062"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>응용 프로그램에 대 한 Single Sign-On를 구성 하는 방법
 
 앱에서 페더레이션된 SSO(Single Sign-On) 사용은 OpenID Connect, SAML 2.0 또는 WS-Fed에 대해 Azure AD를 통해 페더레이션할 때 자동으로 설정됩니다. Azure AD에 기존 세션이 이미 있음에도 불구하고 최종 사용자가 로그인해야 하는 경우 앱이 잘못 구성되었을 수 있습니다.
 
-* ADAL/MSAL을 사용하는 경우 **PromptBehavior**를 **항상**이 아니라 **자동**으로 설정했는지 확인하세요.
+* ADAL/MSAL을 사용하는 경우 **PromptBehavior** 를 **항상** 이 아니라 **자동** 으로 설정했는지 확인하세요.
 
 * 모바일 앱을 빌드하는 경우 조정되었거나 조정되지 않은 SSO를 사용하려면 추가 구성이 필요할 수 있습니다.
 

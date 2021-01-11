@@ -13,16 +13,16 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 140385a26dbfd754438d632ce327c3c4a3ea1b61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bccc39144186b23cc7f9fedf02e5b9d84ea2ee4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166181"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063555"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET를 사용 하 여 구성 옵션을 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
 
-이 문서에서는 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하 여 [기밀 클라이언트 응용 프로그램](msal-client-applications.md) 을 인스턴스화하는 방법을 설명 합니다.  응용 프로그램은 설정 파일에 정의 된 구성 옵션을 사용 하 여 인스턴스화됩니다.
+이 문서에서는 MSAL.NET (Microsoft Authentication Library for .NET)를 사용 하 여 [기밀 클라이언트 응용 프로그램](msal-client-applications.md) 을 인스턴스화하는 방법을 설명 합니다.  응용 프로그램은 설정 파일에 정의 된 구성 옵션을 사용 하 여 인스턴스화됩니다.
 
 응용 프로그램을 초기화 하려면 먼저 앱이 Microsoft id 플랫폼과 통합 될 수 있도록 해당 응용 프로그램을 [등록](quickstart-register-app.md) 해야 합니다. 등록 후에는 다음 정보가 필요할 수 있습니다 (Azure Portal 참조).
 
@@ -35,7 +35,7 @@ ms.locfileid: "88166181"
 ## <a name="configure-the-application-from-the-config-file"></a>구성 파일에서 응용 프로그램 구성
 MSAL.NET에 있는 옵션의 속성 이름은 ASP.NET Core의 속성 이름과 일치 `AzureADOptions` 하므로 glue 코드를 작성할 필요가 없습니다.
 
-ASP.NET Core 응용 프로그램 구성은 파일 * 의appsettings.js* 에 설명 되어 있습니다.
+ASP.NET Core 응용 프로그램 구성은 파일 *의appsettings.js* 에 설명 되어 있습니다.
 
 ```json
 {

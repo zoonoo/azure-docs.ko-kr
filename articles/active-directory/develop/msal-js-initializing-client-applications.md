@@ -13,12 +13,12 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 6b5093c5a1a45aed3493fabd7a362b0579998171
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e12beafc81cbc41ea070fbdda1d68990f6f3fcda
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343589"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063691"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL.js를 사용 하 여 클라이언트 응용 프로그램 초기화
 
@@ -28,7 +28,7 @@ ms.locfileid: "96343589"
 
 클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [MSAL의 공용 및 기밀 클라이언트 앱](msal-client-applications.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 응용 프로그램을 초기화 하기 전에 먼저 Azure Portal에 [등록](scenario-spa-app-registration.md)하 여 응용 프로그램과 Microsoft id 플랫폼 간의 트러스트 관계를 설정 해야 합니다.
 

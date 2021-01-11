@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 853ab82ab40cc7ebee1c74feaf6aad87adf39ece
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f60e21f98092df65ef01e68fe9c2e64833a24855
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443112"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063215"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 모바일 애플리케이션
 
@@ -34,16 +34,16 @@ ms.locfileid: "94443112"
 
 ## <a name="overview"></a>개요
 
-모바일 앱에는 개인화 된 원활한 사용자 환경이 필요 합니다.  Microsoft id 플랫폼을 사용 하면 모바일 개발자가 iOS 및 Android 사용자에 대 한 환경을 만들 수 있습니다. 응용 프로그램은 Azure AD (Azure Active Directory) 사용자, 개인 Microsoft 계정 사용자 및 Azure AD B2C 사용자에 게 로그인 할 수 있습니다. 대신 웹 API를 호출 하는 토큰을 가져올 수도 있습니다. 이러한 흐름을 구현 하기 위해 MSAL (Microsoft 인증 라이브러리)을 사용 합니다. MSAL은 업계 표준 [oauth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 구현 합니다.
+모바일 앱에는 개인화 된 원활한 사용자 환경이 필요 합니다.  Microsoft id 플랫폼을 사용 하면 모바일 개발자가 iOS 및 Android 사용자에 대 한 환경을 만들 수 있습니다. 응용 프로그램은 Azure AD (Azure Active Directory) 사용자, 개인 Microsoft 계정 사용자 및 Azure AD B2C 사용자에 게 로그인 할 수 있습니다. 대신 웹 API를 호출 하는 토큰을 가져올 수도 있습니다. 이러한 흐름을 구현 하려면 MSAL (Microsoft 인증 라이브러리)을 사용 합니다. MSAL은 업계 표준 [oauth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 구현 합니다.
 
 ![디먼 앱](./media/scenarios/mobile-app.svg)
 
 모바일 앱에 대 한 고려 사항:
 
-- **사용자 환경** : 로그인을 요청 하기 전에 사용자가 앱의 값을 볼 수 있도록 허용 합니다. 필요한 권한만 요청 합니다.
-- **모든 사용자 구성 지원** : 많은 모바일 비즈니스 사용자가 조건부 액세스 정책 및 장치 준수 정책을 준수 해야 합니다. 이러한 주요 시나리오를 지원 해야 합니다.
-- **SSO (Single Sign-On) 구현** : msal 및 Microsoft identity platform을 사용 하 여 장치의 브라우저 또는 Microsoft Authenticator를 통해 Single Sign-On를 사용 하도록 설정 하 고 Android에서 Intune 회사 포털 수 있습니다.
-- **공유 장치 모드 구현** : 병원, 제조, 소매, 재무 등의 공유 장치 시나리오에서 사용할 수 있는 응용 프로그램을 사용 하도록 설정 합니다. [공유 장치 모드 지원에 대해 자세히](msal-shared-devices.md)알아보세요.
+- **사용자 환경**: 로그인을 요청 하기 전에 사용자가 앱의 값을 볼 수 있도록 허용 합니다. 필요한 권한만 요청 합니다.
+- **모든 사용자 구성 지원**: 많은 모바일 비즈니스 사용자가 조건부 액세스 정책 및 장치 준수 정책을 준수 해야 합니다. 이러한 주요 시나리오를 지원 해야 합니다.
+- **SSO (Single Sign-On) 구현**: msal 및 Microsoft identity platform을 사용 하 여 장치의 브라우저 또는 Microsoft Authenticator를 통해 Single Sign-On를 사용 하도록 설정 하 고 Android에서 Intune 회사 포털 수 있습니다.
+- **공유 장치 모드 구현**: 병원, 제조, 소매, 재무 등의 공유 장치 시나리오에서 사용할 수 있는 응용 프로그램을 사용 하도록 설정 합니다. [공유 장치 모드 지원에 대해 자세히](msal-shared-devices.md)알아보세요.
 
 ## <a name="specifics"></a>특수 적용 사항
 

@@ -1,7 +1,7 @@
 ---
 title: MSAL에 대 한 자세한 정보 Microsoft
 titleSuffix: Microsoft identity platform
-description: MSAL (Microsoft 인증 라이브러리)을 사용 하면 응용 프로그램 개발자가 보안 웹 Api를 호출 하기 위해 토큰을 획득할 수 있습니다. 이러한 웹 Api는 Microsoft Graph, 다른 Microsoft Api, 타사 웹 Api 또는 고유한 web API 일 수 있습니다. MSAL은 다수의 애플리케이션 아키텍처와 플랫폼을 지원합니다.
+description: 응용 프로그램 개발자는 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 보안 웹 Api를 호출 하기 위해 토큰을 획득할 수 있습니다. 이러한 웹 Api는 Microsoft Graph, 다른 Microsoft Api, 타사 웹 Api 또는 고유한 web API 일 수 있습니다. MSAL은 다수의 애플리케이션 아키텍처와 플랫폼을 지원합니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8fbcacf4e3c26f117be4ab5b64b35f670435e6b6
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2b6266f308fce75f136aa4a2482c5b1be6eedb8e
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092752"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063368"
 ---
-# <a name="overview-of-microsoft-authentication-library-msal"></a>MSAL(Microsoft 인증 라이브러리) 개요
-MSAL (microsoft 인증 라이브러리)을 통해 개발자는 사용자를 인증 하 고 보안 웹 Api에 액세스 하기 위해 Microsoft id 플랫폼 끝점에서 [토큰](developer-glossary.md#security-token) 을 획득할 수 있습니다. 이 기능을 사용 하 여 Microsoft Graph, 다른 Microsoft Api, 타사 웹 Api 또는 고유한 web API에 대 한 보안 액세스를 제공할 수 있습니다. MSAL은 .NET, JavaScript, Java, Python, Android 및 iOS를 비롯 한 다양 한 응용 프로그램 아키텍처 및 플랫폼을 지원 합니다.
+# <a name="overview-of-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리) 개요
+개발자는 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 사용자를 인증 하 고 보안 된 web Api에 액세스 하기 위해 Microsoft id 플랫폼 끝점에서 [토큰](developer-glossary.md#security-token) 을 획득할 수 있습니다. 이 기능을 사용 하 여 Microsoft Graph, 다른 Microsoft Api, 타사 웹 Api 또는 고유한 web API에 대 한 보안 액세스를 제공할 수 있습니다. MSAL은 .NET, JavaScript, Java, Python, Android 및 iOS를 비롯 한 다양 한 응용 프로그램 아키텍처 및 플랫폼을 지원 합니다.
 
 MSAL을 통해 여러 플랫폼에 대해 일관된 API를 사용하여 토큰을 얻을 수 있는 방법은 여러 가지입니다. MSAL을 사용하면 다음과 같은 이점이 있습니다.
 

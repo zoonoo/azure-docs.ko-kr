@@ -1,7 +1,7 @@
 ---
 title: Azure AD B2C에서 MSAL.js 사용
 titleSuffix: Microsoft identity platform
-description: JavaScript 용 Microsoft Authentication Library (MSAL.js)를 사용 하면 응용 프로그램에서 Azure AD B2C를 사용 하 여 보안 웹 Api를 호출 하는 토큰을 가져올 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다.
+description: JavaScript 용 Microsoft 인증 라이브러리 (MSAL.js)를 사용 하면 응용 프로그램에서 Azure AD B2C를 사용 하 여 보안 웹 Api를 호출 하는 토큰을 가져올 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: ef1c0003978251dd2637915e56dc396e85f4438f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 53294a30b38bed7ab7516443277cac24e4fef4c1
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107875"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063725"
 ---
-# <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>JavaScript 용 Microsoft 인증 라이브러리를 사용 하 여 Azure AD B2C 작업
+# <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>JavaScript 용 Microsoft 인증 라이브러리를 사용 하 여 Azure AD B2C 작업
 
-Javascript 개발자는 [MSAL.js (Microsoft Authentication Library For javascript)](https://github.com/AzureAD/microsoft-authentication-library-for-js) 를 사용 하 여 [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C)를 통해 소셜 및 로컬 id로 사용자를 인증할 수 있습니다.
+Javascript 개발자는 [javascript (MSAL.js) 용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js) 를 사용 하 여 [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C)를 통해 소셜 및 로컬 id를 사용 하 여 사용자를 인증할 수 있습니다.
 
 Id 관리 서비스로 Azure AD B2C를 사용 하 여 고객이 응용 프로그램을 사용 하는 경우 자신의 프로필에 등록 하 고 로그인 하 고 관리 하는 방법을 사용자 지정 하 고 제어할 수 있습니다. 또한 Azure AD B2C를 사용 하면 인증 프로세스 중에 응용 프로그램에 표시 되는 UI를 브랜드 및 사용자 지정할 수 있습니다.
 
@@ -32,7 +32,7 @@ Id 관리 서비스로 Azure AD B2C를 사용 하 여 고객이 응용 프로그
 - SPA (단일 페이지 응용 프로그램)에서의 로그인을 지원 하 고 보호 *된* 웹 API를 호출 합니다.
 - 암호 재설정 지원 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 아직 없는 경우 [Azure AD B2C 테 넌 트](../../active-directory-b2c/tutorial-create-tenant.md)를 만듭니다.
 

@@ -13,12 +13,13 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 0574eb0b8ab0b5d4de671ad44a45a85e434393f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: b165cd4abd55026e10aa43eb20faa85b887de194
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115580"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065046"
 ---
 # <a name="app-registration-reference"></a>앱 등록 참조
 
@@ -42,7 +43,7 @@ ms.locfileid: "88115580"
 
 각 앱에는 지정된 시점에 유효한 두 개의 애플리케이션 비밀이 포함될 수 있습니다. 두 개의 비밀을 유지하여 애플리케이션의 전체 환경에서 정기적으로 키 롤오버를 수행할 수 있습니다. 애플리케이션 전체를 새 비밀로 마이그레이션하면 이전 비밀을 삭제하고 새 비밀을 프로비전할 수 있습니다.
 
-현재 앱 등록 포털에는 두 가지 유형의 애플리케이션 비밀만 허용됩니다. **새 암호 생성**을 선택하면 애플리케이션에 사용할 수 있는 공유 비밀이 각 데이터 저장소에 생성되어 저장됩니다. **새 키 쌍 생성** 을 선택 하면 Microsoft id 플랫폼에 대 한 클라이언트 인증에 다운로드 하 여 사용할 수 있는 새 공개/개인 키 쌍이 생성 됩니다. **퍼블릭 키 업로드**를 선택하면 자신의 퍼블릭/프라이빗 키 쌍을 사용할 수 있습니다.
+현재 앱 등록 포털에는 두 가지 유형의 애플리케이션 비밀만 허용됩니다. **새 암호 생성** 을 선택하면 애플리케이션에 사용할 수 있는 공유 비밀이 각 데이터 저장소에 생성되어 저장됩니다. **새 키 쌍 생성** 을 선택 하면 Microsoft id 플랫폼에 대 한 클라이언트 인증에 다운로드 하 여 사용할 수 있는 새 공개/개인 키 쌍이 생성 됩니다. **퍼블릭 키 업로드** 를 선택하면 자신의 퍼블릭/프라이빗 키 쌍을 사용할 수 있습니다.
 공개 키가 포함된 인증서를 업로드해야 합니다.
 
 ## <a name="profile"></a>프로필

@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: b1bfefb3b72c151e7a61068b3c0ad9f3e2bc4a6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8935cb3208aadc2822af1f57067877f9cedcb931
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120629"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064371"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에 대한 개발자 지침
 
@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 ### <a name="app-types-impacted"></a>영향을 받는 앱 형식
 
-대부분의 경우, 조건부 액세스는 앱의 동작을 변경하지 않으며 개발자의 변경이 필요하지 않습니다. 앱에서 서비스에 대한 토큰을 간접적으로 또는 자동으로 요청하는 특정한 경우에만 앱에서 조건부 액세스 "챌린지"를 처리하기 위해 코드를 변경해야 합니다. 이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다.
+대부분의 경우, 조건부 액세스는 앱의 동작을 변경하지 않으며 개발자의 변경이 필요하지 않습니다.  앱에서 서비스에 대한 토큰을 간접적으로 또는 자동으로 요청하는 특정한 경우에만 앱에서 조건부 액세스 "챌린지"를 처리하기 위해 코드를 변경해야 합니다.  이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다.
 
 특히 다음 시나리오에는 조건부 액세스 "챌린지"를 처리하기 위한 코드가 필요합니다.
 
@@ -182,6 +182,6 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 * 기능에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스](../conditional-access/overview.md)를 참조하세요.
 * 더 많은 Azure AD 샘플 코드를 보려면 [샘플](sample-v2-code.md)을 참조하세요.
-* MSAL SDK에 대한 자세한 내용을 보고 참조 설명서에 액세스하려면 [Microsoft 인증 라이브러리 개요](msal-overview.md)를 참조하세요.
+* MSAL SDK의 및 참조 설명서에 대 한 자세한 내용은 [Microsoft 인증 라이브러리 개요](msal-overview.md)를 참조 하세요.
 * 다중 테넌트 시나리오에 대한 자세한 내용은 [다중 테넌트 패턴을 사용하여 사용자를 로그인하는 방법](howto-convert-app-to-be-multi-tenant.md)을 참조하세요.
 * [조건부 액세스 및 IoT 앱에 대한 액세스 보안](/azure/architecture/example-scenario/iot-aad/iot-aad)에 대해 자세히 알아보세요.

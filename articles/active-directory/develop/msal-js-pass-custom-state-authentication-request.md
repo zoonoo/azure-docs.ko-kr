@@ -13,16 +13,16 @@ ms.date: 01/16/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 840c371e63aacf8ef410cbf84cc9f68137dd77df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c1fad96ea6e3b75b3afdfd4a4d3baac43308541
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85477586"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063674"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>MSAL.js를 사용 하 여 인증 요청에서 사용자 지정 상태 전달
 
-OAuth 2.0에 의해 정의 된 *상태* 매개 변수는 인증 요청에 포함 되며 교차 사이트 요청 위조 공격을 방지 하기 위해 토큰 응답에도 반환 됩니다. 기본적으로 JavaScript 용 Microsoft Authentication Library (MSAL.js)는 인증 요청에서 임의로 생성 된 고유한 *상태* 매개 변수 값을 전달 합니다.
+OAuth 2.0에 의해 정의 된 *상태* 매개 변수는 인증 요청에 포함 되며 교차 사이트 요청 위조 공격을 방지 하기 위해 토큰 응답에도 반환 됩니다. 기본적으로 JavaScript 용 Microsoft 인증 라이브러리 (MSAL.js)는 인증 요청에서 임의로 생성 된 고유한 *상태* 매개 변수 값을 전달 합니다.
 
 State 매개 변수를 사용 하 여 리디렉션 전에 앱의 상태 정보를 인코딩할 수도 있습니다. 앱에서 사용자의 상태를이 매개 변수에 대 한 입력으로 전달할 수 있습니다 (예: 설정 된 페이지 또는 보기). MSAL.js 라이브러리를 사용 하면 개체에서 사용자 지정 상태를 상태 매개 변수로 전달할 수 있습니다 `Request` .
 
@@ -51,7 +51,7 @@ export type AuthenticationParameters = {
 > 캐시를 건너뛰는 것은 현재 캐시 된 데이터에 최신 정보가 없다는 것을 알고 있는 경우에만 사용 해야 합니다.
 > 업데이트 된 역할이 있는 새 토큰을 가져와야 하는 사용자에 게 역할을 추가 하는 관리 도구입니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```javascript
 let loginRequest = {

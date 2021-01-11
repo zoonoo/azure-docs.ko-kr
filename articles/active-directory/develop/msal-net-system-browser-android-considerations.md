@@ -13,12 +13,12 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 8f755b42249a88a2d37117003d561f79aea6b170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4230a194fb18587a209c100a39b0924e6170502d
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165994"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063470"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>MSAL.NET 사용에 대 한 Xamarin Android 시스템 브라우저 고려 사항
 
@@ -65,11 +65,11 @@ MSAL.NET 2.4.0 Preview부터 MSAL.NET는 Chrome 이외의 브라우저를 지원
 ## <a name="known-issues"></a>알려진 문제
 
 사용자가 장치에서 브라우저를 사용 하도록 설정 하지 않은 경우 MSAL.NET는 예외를 throw `AndroidActivityNotFound` 합니다.  
-  - **완화**방법: 장치에서 브라우저를 사용 하도록 설정 하도록 사용자에 게 요청 합니다. 사용자 지정 탭을 지 원하는 브라우저를 권장 합니다.
+  - **완화** 방법: 장치에서 브라우저를 사용 하도록 설정 하도록 사용자에 게 요청 합니다. 사용자 지정 탭을 지 원하는 브라우저를 권장 합니다.
 
 인증이 실패 하는 경우 (예: DuckDuckGo를 사용 하 여 인증을 시작 하는 경우) MSAL.NET가를 반환 `AuthenticationCanceled MsalClientException` 합니다. 
   - **근본 문제**: 장치에서 사용자 지정 탭을 지 원하는 브라우저를 사용할 수 없습니다. 인증을 완료할 수 없는 브라우저를 사용 하 여 인증을 시작 했습니다. 
-  - **완화**방법: 장치에서 브라우저를 사용 하도록 설정 하도록 사용자에 게 요청 합니다. 사용자 지정 탭을 지 원하는 브라우저를 권장 합니다.
+  - **완화** 방법: 장치에서 브라우저를 사용 하도록 설정 하도록 사용자에 게 요청 합니다. 사용자 지정 탭을 지 원하는 브라우저를 권장 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용 및 코드 예제를 보려면 [Xamarin Android의 시스템 브라우저와 Xamarin Android에서 포함 된 웹 브라우저와](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) [포함 된 시스템 웹 UI](msal-net-web-browsers.md#embedded-vs-system-web-ui)중에서 선택을 참조 하세요.  

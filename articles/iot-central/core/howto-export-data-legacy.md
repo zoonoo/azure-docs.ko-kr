@@ -7,19 +7,19 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 9e5f4fd14f56f0a2dff45dd2650ea552b07fecd7
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d4c099d29a843b4c354ffb218887dc7ffab51771
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987357"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065442"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>데이터 내보내기를 사용 하 여 IoT 데이터를 클라우드 대상으로 내보내기 (레거시)
 
 > [!Note]
 > 이 문서에서는 IoT Central의 레거시 데이터 내보내기 기능에 대해 설명 합니다.
 >
-> - 새로운 데이터 미리 보기 기능에 대 한 자세한 내용은 [데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기](./howto-export-data.md)를 참조 하세요.
+> - 최신 데이터 내보내기 기능에 대 한 자세한 내용은 [데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기](./howto-export-data.md)를 참조 하세요.
 > - 데이터 내보내기 미리 보기 및 레거시 데이터 내보내기 기능 간의 차이점에 대 한 자세한 내용은 [비교 표](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export)를 참조 하세요.
 
 이 문서에서는 Azure IoT Central에서 데이터 내보내기 기능을 사용 하는 방법을 설명 합니다. 이 기능을 사용 하면 **azure Event Hubs**, **Azure Service Bus** 또는 **azure Blob storage** 인스턴스로 데이터를 지속적으로 내보낼 수 있습니다. 데이터 내보내기는 JSON 형식을 사용 하며 원격 분석, 장치 정보 및 장치 템플릿 정보를 포함할 수 있습니다. 내보낸 데이터 사용:
@@ -30,7 +30,7 @@ ms.locfileid: "94987357"
 > [!Note]
 > 데이터 내보내기를 켜면 해당 순간부터의 데이터만 가져옵니다. 현재 데이터 내보내기가 해제 된 시간에 대 한 데이터를 검색할 수 없습니다. 기록 데이터를 더 보존 하려면 초기에 데이터 내보내기를 켭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 준비 사항
 
 IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 권한이 있어야 합니다.
 

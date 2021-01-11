@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173467"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064971"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>개발 하는 mobile apps의 Single Sign-On 및 앱 보호 정책 지원
 
@@ -36,7 +36,7 @@ SSO (Single sign-on)는 Microsoft id 플랫폼 및 Azure Active Directory의 핵
 
 앱이 Single Sign-On를 활용할 수 있도록 하려면 다음을 권장 합니다.
 
-### <a name="use-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리) 사용
+### <a name="use-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리) 사용
 
 응용 프로그램에서 Single Sign-On을 구현 하는 가장 좋은 방법은 [MSAL (Microsoft 인증 라이브러리)](msal-overview.md)을 사용 하는 것입니다. MSAL을 사용 하면 최소한의 코드 및 API 호출을 사용 하 여 앱에 인증을 추가 하 고 [microsoft id 플랫폼](./index.yml)의 전체 기능을 활용할 수 있으며 microsoft에서 보안 인증 솔루션의 유지 관리를 처리할 수 있습니다. 기본적으로 MSAL은 응용 프로그램에 대 한 SSO 지원을 추가 합니다. 또한 앱 보호 정책을 구현 하려는 경우 MSAL을 사용 하는 것이 요구 사항입니다.
 

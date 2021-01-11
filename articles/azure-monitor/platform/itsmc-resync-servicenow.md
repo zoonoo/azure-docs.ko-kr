@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 01e492072bd75af9f80656b71d2cc1c473d64263
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: cea4503c4e3b9dd58cc475aaec355a2bb2e0bd29
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803802"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065188"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>ITSM 커넥터의 문제 해결
 
@@ -23,13 +23,38 @@ ITSM은 ServiceNow와 같은 외부 티켓 시스템으로 경고를 보내는 �
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>인시던트 및 변경 요청 데이터 시각화 및 분석
 
-연결을 설정할 때의 구성에 따라 ITSMC는 최대 120 일의 인시던트 및 변경 요청 데이터를 동기화 할 수 있습니다. 이 데이터에 대 한 로그 레코드 스키마는이 문서의 [추가 정보 섹션](./itsmc-overview.md) 에 제공 됩니다.
+연결을 설정할 때의 구성에 따라 ITSMC는 최대 120 일의 인시던트 및 변경 요청 데이터를 동기화 할 수 있습니다. 이 데이터에 대 한 로그 레코드 스키마는이 문서의 [추가 정보 섹션](./itsmc-synced-data.md) 에 제공 됩니다.
 
 ITSMC 대시보드를 사용 하 여 인시던트 및 변경 요청 데이터를 시각화할 수 있습니다.
 
 ![ITSMC 대시보드를 보여 주는 스크린샷](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 또한 대시보드는 연결 문제를 분석 하기 위한 시작 지점으로 사용할 수 있는 커넥터 상태에 대 한 정보를 제공 합니다.
+
+### <a name="error-investigation-using-the-dashboard"></a>대시보드를 사용 하 여 오류 조사
+
+대시보드에서 오류를 보려면 다음 단계를 수행 해야 합니다.
+
+1. **모든 리소스** 에서 **servicedesk (*작업 영역 이름*)** 를 찾습니다.
+
+   ![Azure Portal의 최근 리소스를 보여 주는 스크린샷](media/itsmc-definition/create-new-connection-from-resource.png)
+
+2. 왼쪽 창의 **작업 영역 데이터 원본** 에서 **itsm 연결** 을 선택 합니다.
+
+   ![ITSM 연결 메뉴 항목을 보여 주는 스크린샷](media/itsmc-overview/add-new-itsm-connection.png)
+
+3. 왼쪽 상자 **IT 서비스 관리 커넥터** **요약** 아래에서 **요약 보기** 를 선택 합니다.
+
+    ![보기 요약을 보여 주는 스크린샷](media/itsmc-resync-servicenow/dashboard-view-summary.png)
+
+4. 왼쪽 상자의 **요약** 아래에서 그래프를 클릭 **IT 서비스 관리 커넥터** 합니다.
+
+    ![그래프 클릭을 보여 주는 스크린샷](media/itsmc-resync-servicenow/dashboard-graph-click.png)
+
+5. 이 대시보드를 사용 하 여 커넥터의 상태와 오류를 검토할 수 있습니다.
+    ![커넥터 상태를 보여 주는 스크린샷](media/itsmc-resync-servicenow/connector-dashboard.png)
+
+### <a name="service-map"></a>서비스 맵
 
 서비스 맵에서 영향을 받는 컴퓨터에 대해 동기화 된 인시던트를 시각화할 수도 있습니다.
 

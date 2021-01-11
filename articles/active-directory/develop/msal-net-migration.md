@@ -1,7 +1,7 @@
 ---
 title: MSAL.NET로 마이그레이션
 titleSuffix: Microsoft identity platform
-description: MSAL.NET(.NET용 Microsoft 인증 라이브러리)과 ADAL.NET(.NET용 Azure AD 인증 라이브러리)의 차이점과 MSAL.NET으로 마이그레이션하는 방법을 알아봅니다.
+description: MSAL.NET (Microsoft Authentication Library for .NET) 및 ADAL.NET (Azure AD 인증 Library for .NET)와 MSAL.NET로 마이그레이션하는 방법 간의 차이점에 대해 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 21f29135cc3b94e5b8c2dfc99b0f7be26b37d123
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c6049bf55e379a2629e8cd4ef1427f91fc31d2cd
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995202"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063606"
 ---
 # <a name="migrating-applications-to-msalnet"></a>애플리케이션을 MSAL.NET으로 마이그레이션
 
-MSAL.NET(.NET용 Microsoft 인증 라이브러리) 및 ADAL.NET(.NET용 Azure AD 인증 라이브러리)은 모두 Azure AD 엔터티를 인증하고 Azure AD에서 토큰을 요청하는 데 사용됩니다. 지금까지 대부분의 개발자는 ADAL(Azure AD 인증 라이브러리)을 사용하는 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하기 위해 개발자 플랫폼(v1.0)에서 Azure AD를 사용했습니다. MSAL 사용:
+MSAL.NET (Microsoft Authentication Library for .NET) 및 ADAL.NET (Azure AD 인증 Library for .NET)는 모두 azure ad 엔터티를 인증 하 고 Azure AD에서 토큰을 요청 하는 데 사용 됩니다. 지금까지 대부분의 개발자는 ADAL(Azure AD 인증 라이브러리)을 사용하는 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하기 위해 개발자 플랫폼(v1.0)에서 Azure AD를 사용했습니다. MSAL 사용:
 
 - Microsoft id 플랫폼 끝점을 사용 하 여 광범위 한 Microsoft id 집합 (Azure AD id 및 Microsoft 계정, Azure AD B2C을 통해 소셜 및 로컬 계정)을 인증할 수 있습니다.
 - 사용자는 최상의 single sign-on 환경을 이용할 수 있습니다.

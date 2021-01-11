@@ -1,7 +1,7 @@
 ---
 title: 토큰 캐시 serialization (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
-description: MSAL.NET(.NET용 Microsoft 인증 라이브러리)을 사용하여 토큰 캐시를 직렬화 및 사용자 지정 직렬화하는 방법을 알아봅니다.
+description: Microsoft Authentication Library for .NET (MSAL.NET)을 사용 하 여 토큰 캐시의 serialization 및 고객 serialization에 대해 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 4a0d5af8faafac8b733bd2daa9655e663da6fe71
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 7e80123f21efded92ab6d59d550965ca72427b1c
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873526"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064660"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>MSAL.NET에서 토큰 캐시 직렬화
-[획득한 토큰](msal-acquire-cache-tokens.md)은 MSAL(Microsoft 인증 라이브러리)을 사용하여 캐시됩니다.  애플리케이션 코드는 캐시에서 토큰을 가져오려고 시도한 후 다른 방법으로 토큰을 획득해야 합니다.  이 문서에서는 MSAL.NET에서 제공하는 토큰 캐시의 기본 및 사용자 지정 직렬화에 대해 설명합니다.
+토큰을 [획득](msal-acquire-cache-tokens.md)한 후에는 Msal (Microsoft 인증 라이브러리)에서 토큰을 캐시 합니다.  애플리케이션 코드는 캐시에서 토큰을 가져오려고 시도한 후 다른 방법으로 토큰을 획득해야 합니다.  이 문서에서는 MSAL.NET에서 제공하는 토큰 캐시의 기본 및 사용자 지정 직렬화에 대해 설명합니다.
 
 이 문서는 MSAL.NET 3.x용으로 작성되었습니다. MSAL.NET 2.x에 관심이 있는 분들은 [MSAL.NET 2.x에서 토큰 캐시 직렬화](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Token-cache-serialization-2x)를 참조하세요.
 
@@ -331,7 +331,7 @@ services.AddDistributedSqlServerCache(options =>
 
 다음 샘플은 토큰 캐시 직렬화를 보여줍니다.
 
-| 예제 | 플랫폼 | 설명|
+| 샘플 | 플랫폼 | 설명|
 | ------ | -------- | ----------- |
 |[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | 데스크톱(WPF) | Microsoft Graph API를 호출하는 Windows 데스크톱 .NET(WPF) 애플리케이션 ![다이어그램은 토큰을 대화형으로 획득 하 고 Microsoft Graph 하 여 Azure A D로 이동 하는 데스크톱 앱 W P F TodoListClient의 토폴로지를 보여 줍니다.](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | 데스크톱(콘솔) | MSAL.NET를 사용 하 여 Azure AD v1.0 응용 프로그램 (ADAL.NET 사용)을 Microsoft id 플랫폼 응용 프로그램으로 마이그레이션하는 방법을 보여 주는 Visual Studio 솔루션 집합입니다. 특히 [토큰 캐시 마이그레이션](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md) 을 참조 하세요.|

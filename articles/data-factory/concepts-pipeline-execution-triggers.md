@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: c72538de8aba60ce7ed880561b55773c22737f97
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e46b08e31725765d700bf41649d997d7b20e5f95
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498628"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065493"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 
@@ -241,7 +241,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | **endTime** | 트리거의 종료 날짜 및 시간입니다. 트리거는 지정된 종료 날짜 및 시간 이후에 실행되지 않습니다. 속성에 대한 값은 이전에 있을 수 없습니다. <!-- This property is optional. --> |
 | **표준** | 표준 시간대입니다. 지원 되는 표준 시간대 목록은 [일정에 따라 파이프라인을 실행 하는 트리거 만들기](how-to-create-schedule-trigger.md#time-zone-option)를 참조 하세요. |
 | **방법** | 트리거에 대한 되풀이 규칙을 지정하는 recurrence 개체입니다. recurrence 개체는 **frequency**, **interval**, **endTime**, **count** 및 **schedule** 요소를 지원합니다. recurrence 개체가 정의된 경우 **frequency** 요소는 필수입니다. 되풀이 개체의 다른 요소는 선택적입니다. |
-| **frequency** | 트리거가 되풀이되는 빈도 단위입니다. 지원되는 값은 "minute", "hour", "day", "week" 및 "month"입니다. |
+| **주기와** | 트리거가 되풀이되는 빈도 단위입니다. 지원되는 값은 "minute", "hour", "day", "week" 및 "month"입니다. |
 | **간격은** | **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. **frequency** 값은 트리거가 실행되는 빈도를 결정합니다. 예를 들어 **interval** 이 3이고 **frequency** 가 "week"인 경우 트리거가 매 3주마다 다시 발생합니다. |
 | **일정과** | 트리거에 대한 되풀이 일정입니다. 지정된 **frequency** 값을 가진 트리거는 되풀이 일정을 기반으로 되풀이를 변경합니다. **schedule** 속성에는 분, 시간, 요일, 날짜, 주차를 기반으로 하는 되풀이에 대한 수정 내용이 포함됩니다. |
 
@@ -285,7 +285,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | --- | --- | --- | --- | --- | --- |
 | **startTime** | 문자열 | 예 | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **방법** | 개체 | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **간격은** | 숫자 | No | 1 | 1~1000 | `"interval":10` |
+| **간격은** | number | No | 1 | 1~1000 | `"interval":10` |
 | **endTime** | 문자열 | 예 | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **일정과** | 개체 | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
@@ -377,11 +377,11 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 | 항목 | 연속 창 트리거 | 일정 트리거 |
 | --- | --- | --- |
-| **백필 시나리오** | 지원됨. 이전의 창에 대해 파이프라인 실행을 예약할 수 있습니다. | 지원 안 됨 파이프라인 실행은 현재 시간 및 미래 시간의 기간에서만 실행될 수 있습니다. |
+| **백필 시나리오** | 지원됨. 이전의 창에 대해 파이프라인 실행을 예약할 수 있습니다. | 지원되지 않습니다. 파이프라인 실행은 현재 시간 및 미래 시간의 기간에서만 실행될 수 있습니다. |
 | **신뢰성** | 100% 신뢰성 파이프라인 실행은 간격 없이 지정된 시작 날짜에서 모든 창에 대해 예약될 수 있습니다. | 낮은 신뢰성 |
-| **다시 시도 기능** | 지원됨. 실패한 파이프라인 실행에는 0의 기본 다시 시도 정책 또는 트리거 정의에서 사용자가 지정한 정책이 있습니다. 동시성/서버/제한 제한 (즉, 상태 코드 400: 사용자 오류, 429: 너무 많은 요청 및 500: 내부 서버 오류)으로 인해 파이프라인이 실행 되지 않으면 자동으로 다시 시도 합니다. | 지원 안 됨 |
-| **동시성** | 지원됨. 사용자는 트리거에 대한 동시성 제한을 명시적으로 설정할 수 있습니다. 동시에 트리거되는 1~50개의 파이프라인 실행을 허용합니다. | 지원 안 됨 |
-| **시스템 변수** | @trigger() ScheduledTime 및 @trigger (). startTime과 함께 **Windowstart** 및 **windowstart** 시스템 변수를 사용할 수도 있습니다. 사용자는 트리거 정의에서 트리거 시스템 변수로 `triggerOutputs().windowStartTime` 및 `triggerOutputs().windowEndTime`에 액세스할 수 있습니다. 값은 각각 창 시작 시간 및 창 종료 시간으로 사용됩니다. 예를 들어 매 시간 실행되는 연속 창 트리거의 경우 창 오전 1시~오전 2시에 대해 정의는 `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` 및 `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`입니다. | 는 default @trigger (). scheduledTime 및 @trigger () startTime 변수만 지원 합니다. |
+| **다시 시도 기능** | 지원됨. 실패한 파이프라인 실행에는 0의 기본 다시 시도 정책 또는 트리거 정의에서 사용자가 지정한 정책이 있습니다. 동시성/서버/제한 제한 (즉, 상태 코드 400: 사용자 오류, 429: 너무 많은 요청 및 500: 내부 서버 오류)으로 인해 파이프라인이 실행 되지 않으면 자동으로 다시 시도 합니다. | 지원되지 않습니다. |
+| **동시성** | 지원됨. 사용자는 트리거에 대한 동시성 제한을 명시적으로 설정할 수 있습니다. 동시에 트리거되는 1~50개의 파이프라인 실행을 허용합니다. | 지원되지 않습니다. |
+| **시스템 변수** | @trigger() ScheduledTime 및 @trigger (). startTime과 함께 **Windowstart** 및 **windowstart** 시스템 변수를 사용할 수도 있습니다. 사용자는 트리거 정의에서 트리거 시스템 변수로 `trigger().outputs.windowStartTime` 및 `trigger().outputs.windowEndTime`에 액세스할 수 있습니다. 값은 각각 창 시작 시간 및 창 종료 시간으로 사용됩니다. 예를 들어 매 시간 실행되는 연속 창 트리거의 경우 창 오전 1시~오전 2시에 대해 정의는 `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` 및 `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`입니다. | 는 default @trigger (). scheduledTime 및 @trigger () startTime 변수만 지원 합니다. |
 | **파이프라인-트리거 관계** | 일대일 관계를 지원합니다. 하나의 파이프라인만 트리거될 수 있습니다. | 다대다 관계를 지원합니다. 다중 트리거는 단일 파이프라인을 시작할 수 있습니다. 단일 트리거는 여러 파이프라인을 시작할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계

@@ -13,16 +13,16 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6894d84f489d3719f1106ba4de79cb85fa45c5ed
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120901"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064953"
 ---
-# <a name="differences-between-msal-js-and-adal-js"></a>MSAL JS와 ADAL JS의 차이점
+# <a name="differences-between-msaljs-and-adaljs"></a>MSAL.js와 ADAL.js의 차이점
 
-MSAL.js(JavaScript용 Microsoft 인증 라이브러리) 및 ADAL.js(JavaScript용 Azure AD 인증 라이브러리)는 모두 Azure AD 엔터티를 인증하고 Azure AD에서 토큰을 요청하는 데 사용됩니다. 지금까지 대부분의 개발자는 ADAL을 사용하는 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하는 데 개발자용 Azure AD(v1.0)를 사용해 왔습니다. 이제 MSAL.js를 사용하면 Microsoft ID 플랫폼(v2.0)을 통해 광범위한 Microsoft ID 세트(Azure AD ID, Microsoft 계정 및 Azure AD B2C를 통한 소셜/로컬 계정)를 인증할 수 있습니다.
+JavaScript 용 Microsoft 인증 라이브러리 (MSAL.js)와 JavaScript 용 Azure AD 인증 라이브러리 (ADAL.js)는 모두 azure ad 엔터티를 인증 하 고 Azure AD에서 토큰을 요청 하는 데 사용 됩니다. 지금까지 대부분의 개발자는 ADAL을 사용하는 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하는 데 개발자용 Azure AD(v1.0)를 사용해 왔습니다. 이제 MSAL.js를 사용하면 Microsoft ID 플랫폼(v2.0)을 통해 광범위한 Microsoft ID 세트(Azure AD ID, Microsoft 계정 및 Azure AD B2C를 통한 소셜/로컬 계정)를 인증할 수 있습니다.
 
 이 문서에서는 MSAL.js(JavaScript용 Microsoft 인증 라이브러리)와 ADAL.js(JavaScript용 Azure AD 인증 라이브러리) 중에서 선택하는 방법을 설명하고, 두 라이브러리를 비교합니다.
 
@@ -73,7 +73,7 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
 
 * 증분 동의에 대한 동적 범위
 
-    v1.0을 사용하여 애플리케이션을 빌드하는 경우 로그인할 때 사용자가 동의하도록 애플리케이션에서 요구하는 권한의 전체 세트(정적 범위)를 등록해야 했습니다. v2.0에서는 범위 매개 변수를 사용하여 원하는 시간에 권한을 요청할 수 있습니다. 이를 동적 범위라고 합니다. 이를 통해 사용자는 범위에 대한 증분 동의를 제공할 수 있습니다. 따라서 처음에는 사용자가 애플리케이션에 로그인하도록 하고 어떤 종류의 액세스도 필요하지 않은 경우 그렇게 할 수 있습니다. 나중에 사용자의 일정을 읽을 수 있는 기능이 필요한 경우 acquireToken 메서드에서 일정 범위를 요청하고 사용자의 동의를 받을 수 있습니다. 예를 들면 다음과 같습니다.
+    v1.0을 사용하여 애플리케이션을 빌드하는 경우 로그인할 때 사용자가 동의하도록 애플리케이션에서 요구하는 권한의 전체 세트(정적 범위)를 등록해야 했습니다. v2.0에서는 범위 매개 변수를 사용하여 원하는 시간에 권한을 요청할 수 있습니다. 이를 동적 범위라고 합니다. 이를 통해 사용자는 범위에 대한 증분 동의를 제공할 수 있습니다. 따라서 처음에는 사용자가 애플리케이션에 로그인하도록 하고 어떤 종류의 액세스도 필요하지 않은 경우 그렇게 할 수 있습니다. 나중에 사용자의 일정을 읽을 수 있는 기능이 필요한 경우 acquireToken 메서드에서 일정 범위를 요청하고 사용자의 동의를 받을 수 있습니다. 예를 들어:
 
     ```javascript
     var request = {

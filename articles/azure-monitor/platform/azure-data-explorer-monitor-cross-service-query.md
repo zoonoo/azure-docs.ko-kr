@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor와 Azure 데이터 탐색기 간의 크로스 서비스 쿼리 (미리 보기)
 description: Azure Log Analytics 도구를 통해 Azure 데이터 탐색기 데이터를 쿼리하여 모든 데이터를 한 곳에서 조인 하 고 분석 합니다.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 0af9111223bb16f1c5843223e7fe1661ce99c623
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 5aadd9d96f538f92e1b9e0100b2c1055ee0b0633
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749249"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065272"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>크로스 서비스 쿼리-Azure Monitor 및 Azure 데이터 탐색기 (미리 보기)
 [Azure 데이터 탐색기](https://docs.microsoft.com/azure/data-explorer/), [Application Insights](/azure/azure-monitor/app/app-insights-overview)및 [Log Analytics](/azure/azure-monitor/platform/data-platform-logs)간에 서비스 간 쿼리를 만듭니다.

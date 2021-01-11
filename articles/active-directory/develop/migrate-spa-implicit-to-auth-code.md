@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 391febcf8852147aedf5ef61d2442b2f50b4c9ae
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 2c03e6940d392e3e2c03bf6508de41a7a19aef3b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014742"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063776"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>암시적 허용에서 권한 부여 코드 흐름으로 JavaScript 단일 페이지 앱 마이그레이션
 
-Microsoft Authentication Library for JavaScript(MSAL.js) v2.0은 Microsoft ID 플랫폼의 단일 페이지 애플리케이션에 PKCE 및 CORS를 사용하는 권한 부여 코드 흐름 지원을 제공합니다. 암시적 허용을 사용하는 MSAL.js 1.x 애플리케이션을 MSAL.js 2.0 이상("*2.x*")과 권한 부여 코드 흐름으로 마이그레이션하려면 아래 섹션의 단계를 따르세요.
+JavaScript (MSAL.js) v 2.0 용 Microsoft 인증 라이브러리는 Microsoft id 플랫폼의 단일 페이지 응용 프로그램에 대 한 PKCE 및 CORS를 사용 하는 권한 부여 코드 흐름을 지원 합니다. 암시적 허용을 사용하는 MSAL.js 1.x 애플리케이션을 MSAL.js 2.0 이상("*2.x*")과 권한 부여 코드 흐름으로 마이그레이션하려면 아래 섹션의 단계를 따르세요.
 
 MSAL.js 1.x에서 개선된 MSAL.js 2.x는 암시적 허용 흐름 대신 브라우저의 권한 부여 코드 흐름을 지원합니다. MSAL.js 2.x는 암시적 흐름을 지원하지 **않습니다**.
 

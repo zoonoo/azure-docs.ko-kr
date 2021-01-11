@@ -8,15 +8,15 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/25/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: designer
-ms.openlocfilehash: 29d83f4acddfce6294457f87519d62e35f52bf15
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: b940f5c9bd14bcec404827daaef666da802d969b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709421"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065255"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Azure Machine Learning designer 파이프라인에서 로깅 사용
 
@@ -27,7 +27,7 @@ SDK 제작 환경을 사용 하 여 메트릭을 로깅하는 방법에 대 한 
 
 ## <a name="enable-logging-with-execute-python-script"></a>Python 스크립트 실행을 사용 하 여 로깅 사용
 
-__Python 스크립트 실행__ 모듈을 사용 하 여 디자이너 파이프라인에서 로깅을 사용 하도록 설정 합니다. 이 워크플로를 사용 하 여 모든 값을 기록할 수는 있지만 __모델 평가__ 모듈의 메트릭을 기록 하 여 실행에서 모델 성능을 추적 하는 것이 특히 유용 합니다.
+[Python 스크립트 실행](./algorithm-module-reference/execute-python-script.md) 모듈을 사용 하 여 디자이너 파이프라인에서 로깅을 사용 하도록 설정 합니다. 이 워크플로를 사용 하 여 모든 값을 기록할 수는 있지만 __모델 평가__ 모듈의 메트릭을 기록 하 여 실행에서 모델 성능을 추적 하는 것이 특히 유용 합니다.
 
 다음 예에서는 모델 평가 및 Python 스크립트 실행 모듈을 사용 하 여 학습 된 두 모델의 평균 제곱 오차를 기록 하는 방법을 보여 줍니다.
 
@@ -53,7 +53,7 @@ __Python 스크립트 실행__ 모듈을 사용 하 여 디자이너 파이프�
         
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
         parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
-        # Log right output port result of Evaluate Model.
+        # Log right output port result of Evaluate Model. The following line should be deleted if you only connect one Score Module to the` left port of Evaluate Model module.
         parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
 
         return dataframe1,
@@ -81,3 +81,4 @@ Python SDK를 사용 하 여 값을 기록 하는 방법에 대 한 자세한 �
 
 * 디자이너 파이프라인 문제를 해결 하는 방법에 대해 알아봅니다. [ML 파이프라인 문제 해결 디버그 &](how-to-debug-pipelines.md#azure-machine-learning-designer)를 참조 하세요.
 * Python SDK를 사용 하 여 SDK 제작 환경에서 메트릭을 기록 하는 방법에 대해 알아봅니다. [AZURE ML 학습 실행에서 로깅 사용](how-to-track-experiments.md)을 참조 하세요.
+* 디자이너에서 [Python 스크립트 실행](./algorithm-module-reference/execute-python-script.md) 을 사용 하는 방법에 대해 알아봅니다.

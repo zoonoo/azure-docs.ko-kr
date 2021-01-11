@@ -13,12 +13,12 @@ ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef29f6fe3403809d01fcea382474c514319b7c0
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81534315"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063759"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>공용 클라이언트 및 기밀 클라이언트 응용 프로그램
 MSAL (Microsoft 인증 라이브러리)은 두 가지 유형의 클라이언트, 즉 공용 클라이언트와 기밀 클라이언트를 정의 합니다. 두 클라이언트 유형은 권한 부여 서버와 안전 하 게 인증 하 고 클라이언트 자격 증명의 기밀성을 유지 하는 기능으로 구분 됩니다. 반면, ADAL (Azure AD 인증 라이브러리)은 Azure AD에 대 한 연결 인 *인증 컨텍스트* 를 사용 합니다.
@@ -43,7 +43,7 @@ MSAL (Microsoft 인증 라이브러리)은 두 가지 유형의 클라이언트,
 - 두 앱 유형 모두 사용자 계정을 관리 하 고 사용자 토큰 캐시에서 계정을 가져오거나, 해당 id에서 계정을 가져오거나, 계정을 제거할 수 있습니다.
 - 공용 클라이언트 앱에는 토큰을 획득 하는 네 가지 방법 (4 개의 인증 흐름)이 있습니다. 기밀 클라이언트 앱에는 토큰을 획득 하는 세 가지 방법, 즉 id 공급자 권한 부여 끝점의 URL을 계산 하는 한 가지 방법이 있습니다. 자세한 내용은 [토큰 가져오기](msal-acquire-cache-tokens.md)를 참조 하세요.
 
-ADAL을 사용한 경우 ADAL의 인증 컨텍스트와 달리 MSAL에서 클라이언트 ID ( *응용 프로그램 id* 또는 *앱 id*라고도 함)는 응용 프로그램을 생성할 때 한 번만 전달 되는 것을 알 수 있습니다. 앱에서 토큰을 획득 하는 경우 다시 전달할 필요가 없습니다. 이는 공용 및 비밀 클라이언트 앱 모두에 적용 됩니다. 기밀 클라이언트 앱의 생성자도 클라이언트 자격 증명으로 전달 됩니다 .이는 id 공급자와 공유 하는 암호입니다.
+ADAL을 사용한 경우 ADAL의 인증 컨텍스트와 달리 MSAL에서 클라이언트 ID ( *응용 프로그램 id* 또는 *앱 id* 라고도 함)는 응용 프로그램을 생성할 때 한 번만 전달 되는 것을 알 수 있습니다. 앱에서 토큰을 획득 하는 경우 다시 전달할 필요가 없습니다. 이는 공용 및 비밀 클라이언트 앱 모두에 적용 됩니다. 기밀 클라이언트 앱의 생성자도 클라이언트 자격 증명으로 전달 됩니다 .이는 id 공급자와 공유 하는 암호입니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 정보:

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 9d2fba48762e11a92f6f3925c969b01aebbe3630
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347594"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065323"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대 한 백 엔드 상태 및 진단 로그
 
@@ -222,7 +222,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |serverRouted| Application gateway에서 요청을 라우팅하는 백 엔드 서버입니다.|
 |serverStatus| 백 엔드 서버의 HTTP 상태 코드입니다.|
 |serverResponseLatency| 백 엔드 서버의 응답 대기 시간입니다.|
-|호스트| 요청의 호스트 헤더에 나열 된 주소입니다. 다시 작성 하는 경우이 필드에는 업데이트 된 호스트 이름이 포함 됩니다.|
+|호스트| 요청의 호스트 헤더에 나열 된 주소입니다. 헤더 다시 쓰기를 사용 하 여 다시 작성 하는 경우이 필드에 업데이트 된 호스트 이름이 포함 됩니다.|
 |originalRequestUriWithArgs| 이 필드에는 원래 요청 URL이 포함 됩니다. |
 |requestUri| 이 필드에는의 재작성 작업 후 URL이 포함 Application Gateway |
 |originalHost| 이 필드는 원래 요청 호스트 이름을 포함 합니다.
@@ -306,7 +306,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |ruleSetVersion     | 사용된 규칙 집합 버전이며, 사용 가능한 값은 2.2.9 및 3.0입니다.     |
 |ruleId     | 트리거 이벤트의 규칙 ID        |
 |message     | 사용자에게 친숙한 트리거 이벤트에 대한 메시지이며, 자세한 내용은 세부 정보 섹션에서 제공됩니다.        |
-|action     |  요청에서 수행되는 동작이며, 사용 가능한 값은 일치 하 고 차단 됩니다.      |
+|작업     |  요청에서 수행되는 동작이며, 사용 가능한 값은 일치 하 고 차단 됩니다.      |
 |site     | 로그를 생성한 사이트이며, 현재 규칙이 전역이므로 Global만 나열됩니다.|
 |자세히     | 트리거 이벤트의 세부 정보        |
 |details.message     | 규칙에 대한 설명        |

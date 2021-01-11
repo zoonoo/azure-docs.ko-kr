@@ -1,7 +1,7 @@
 ---
 title: Xamarin Android 코드 구성 및 문제 해결 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
-description: Microsoft Authentication Library for .NET (MSAL.NET)과 함께 Xamarin Android를 사용할 때 고려해 야 할 사항에 대해 알아봅니다.
+description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용할 때 고려해 야 할 사항에 대해 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 08/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 320d48535c4792a4d610888c6a7030568ccf16bc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 34f2b146dda6e739f977c4894b5ec333c79d74d4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995185"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063436"
 ---
 # <a name="configuration-requirements-and-troubleshooting-tips-for-xamarin-android-with-msalnet"></a>MSAL.NET를 사용 하는 Xamarin Android의 구성 요구 사항 및 문제 해결 팁
 
-Microsoft Authentication Library for .NET (MSAL.NET)과 함께 Xamarin Android를 사용 하는 경우 코드에서 몇 가지 구성 변경을 수행 해야 합니다. 다음 섹션에서는 가장 일반적인 몇 가지 문제를 방지 하기 위해 필요한 수정 사항에 대해 설명 하 고 [문제 해결](#troubleshooting) 섹션을 설명 합니다.
+MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용 하는 경우 코드에서 몇 가지 구성 변경이 필요 합니다. 다음 섹션에서는 가장 일반적인 몇 가지 문제를 방지 하기 위해 필요한 수정 사항에 대해 설명 하 고 [문제 해결](#troubleshooting) 섹션을 설명 합니다.
 
 ## <a name="set-the-parent-activity"></a>부모 작업 설정
 
@@ -160,7 +160,7 @@ var authResult = AcquireTokenInteractive(scopes)
 
 자세한 내용은 [Microsoft id 플랫폼을 사용 하는 Xamarin mobile 응용 프로그램](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations)샘플을 참조 하세요. 다음 표에서는 추가 정보 파일의 관련 정보를 요약 하 여 보여 줍니다.
 
-| 샘플 | 플랫폼 | Description |
+| 샘플 | 플랫폼 | 설명 |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin.ios, Android, UWP | MSAL을 사용 하 여 Azure AD 2.0 끝점을 통해 Microsoft 개인 계정 및 Azure AD를 인증 하는 방법을 보여 주는 간단한 Xamarin Forms 앱입니다. 또한 앱은 Microsoft Graph 액세스 하 고 결과 토큰을 표시 하는 방법을 보여 줍니다. <br>![인증 흐름 다이어그램](media/msal-net-xamarin-android-considerations/topology.png) |
 

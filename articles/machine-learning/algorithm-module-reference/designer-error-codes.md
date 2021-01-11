@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: b917e3fc93c59de85c5236c18e31d7bbc9d891f0
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753912"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065476"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>디자이너에 대 한 예외 및 오류 코드
 
@@ -1532,3 +1532,8 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 |라이브러리 예외입니다.|
 |라이브러리 예외: {exception}.|
 |알 수 없는 라이브러리 예외: {exception}. {customer_support_guidance}.|
+
+
+## <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
+
+**Python 스크립트 실행 모듈** **70_driver_logs** 의 **azureml_main에서** 검색 하 고 발생 한 오류를 찾을 수 있습니다. 예를 들어 azureml_main "파일"/tmp/tmp01_ID/user_script. py "는 python 스크립트의 17 줄에서 오류가 발생 했음을 나타냅니다.

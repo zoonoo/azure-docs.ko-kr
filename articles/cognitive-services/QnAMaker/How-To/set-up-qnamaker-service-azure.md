@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 83917214705546b21553e997ccab11a7511f77fd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5af4eb931015e386e35470f2b36341e15f76150f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353309"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065408"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -128,12 +128,18 @@ QnAMaker 런타임은 Azure Portal에서 [QnAMaker 서비스를 만들](./set-up
 App Service [일반 설정을](../../../app-service/configure-common.md#configure-general-settings)구성 하는 방법에 대해 자세히 알아보세요.
 
 ### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>QnA Maker를 호스트 App Service Environment 구성 App Service
-App Service Environment를 사용 하 여 App Service QnA Maker를 호스트할 수 있습니다. 내부 App Service Environment 경우 다음 단계를 수행 해야 합니다.
-1. App service 및 Azure search 서비스를 만듭니다.
-2. App service를 노출 하 고 다음과 같은 QnA Maker 가용성을 허용 합니다.
-    * 공개적으로 사용 가능-기본값
-    * DNS 서비스 태그: `CognitiveServicesManagement`
-3. QnA Maker 끝점을 App Service Environment로 설정 해야 하는 Azure Resource Manager를 사용 하 여 QnA Maker 인식 서비스 인스턴스 (Cognitiveservices account/accounts)를 만듭니다.
+ASE (App Service Environment)를 사용 하 여 QnA Maker App Service를 호스트할 수 있습니다. 다음 단계를 따르세요.
+
+1. App Service Environment 만들고 "external"으로 표시 합니다. 지침은 [자습서](https://docs.microsoft.com/azure/app-service/environment/create-external-ase) 를 따르세요.
+2.  App Service Environment 내에서 App service를 만듭니다.
+    * App service에 대 한 구성을 확인 하 고 응용 프로그램 설정으로 ' PrimaryEndpointKey '를 추가 합니다. ' PrimaryEndpointKey '의 값을 " \<app-name\> -primaryendpointkey"로 설정 해야 합니다. 앱 이름은 App service URL에 정의 됩니다. 예를 들어 App service URL이 "mywebsite.myase.p.azurewebsite.net" 인 경우 응용 프로그램 이름은 "mywebsite"입니다. 이 경우 ' PrimaryEndpointKey '의 값을 "mywebsite-PrimaryEndpointKey"로 설정 해야 합니다.
+    * Azure search 서비스를 만듭니다.
+    * Azure Search 및 앱 설정이 적절히 구성 되어 있는지 확인 합니다. 
+      이 [자습서](https://docs.microsoft.com/azure/cognitiveservices/qnamaker/reference-app-service#app-service)를 수행 하세요.
+3.  App Service Environment 연결 된 네트워크 보안 그룹을 업데이트 합니다.
+    * 요구 사항에 따라 미리 만든 인바운드 보안 규칙을 업데이트 합니다.
+    * 소스를 ' Service Tag '로, 소스 서비스 태그를 ' CognitiveServicesManagement '로 사용 하 여 새 인바운드 보안 규칙을 추가 합니다.
+4.  QnA Maker 끝점을 위에서 만든 App Service 끝점 (https://mywebsite.myase.p.azurewebsite.net)으로 설정 해야 하는 Azure Resource Manager를 사용 하 여 QnA Maker 인식 서비스 인스턴스 (Cognitiveservices account/accounts)를 만듭니다.
 
 ### <a name="network-isolation-for-app-service"></a>App Service에 대 한 네트워크 격리
 
@@ -254,15 +260,15 @@ QnA Maker 관리 (미리 보기) 리소스를 만든 Azure Portal에서 작성 �
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
-많은 기술 자료를 사용할 계획인 경우 Azure Cognitive Search 서비스 가격 책정 계층을 업그레이드 하세요.
+많은 기술 자료를 포함할 계획인 경우 Azure Cognitive Search 서비스 가격 책정 계층을 업그레이드하세요.
 
-현재 Azure search SKU의 전체 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다. 이를 수행하려면 다음 단계를 따르십시오.
+현재 Azure search SKU의 전체 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. Azure Portal에서 새 Azure search 리소스를 만들고 원하는 SKU를 선택 합니다.
 
     ![QnA Maker Azure Search 리소스](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
 
-1. 원래 Azure Search 리소스의 인덱스를 새 리소스로 복원합니다. [백업 복원 샘플 코드](https://github.com/pchoudhari/QnAMakerBackupRestore)를 참조 하세요.
+1. 원래 Azure Search 리소스의 인덱스를 새 리소스로 복원합니다. [백업 복원 샘플 코드](https://github.com/pchoudhari/QnAMakerBackupRestore)를 참조하세요.
 
 1. 데이터가 복원 된 후에는 새 Azure search 리소스로 이동 하 고, **키** 를 선택 하 고, **이름** 및 **관리자 키** 를 적어둡니다.
 
@@ -272,11 +278,11 @@ QnA Maker 관리 (미리 보기) 리소스를 만든 Azure Portal에서 작성 �
 
     ![QnA Maker App Service 인스턴스](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource-list-appservice.png)
 
-1. **응용 프로그램 설정** 을 선택 하 고 3 단계에서 **azuresearchname** 및 **azuresearchadminkey** 필드의 설정을 수정 합니다.
+1. **애플리케이션 설정** 을 선택하고 3단계의 **AzureSearchName** 및 **AzureSearchAdminKey** 필드의 설정을 수정합니다.
 
     ![QnA Maker App Service 설정](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-settings.png)
 
-1. App Service 인스턴스를 다시 시작 합니다.
+1. App Service 인스턴스를 다시 시작합니다.
 
     ![QnA Maker App Service 인스턴스 다시 시작](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
@@ -343,15 +349,15 @@ QnA maker 리소스를 사용 하지 않는 경우 모든 리소스를 제거 �
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
-많은 기술 자료를 사용할 계획인 경우 Azure Cognitive Search 서비스 가격 책정 계층을 업그레이드 하세요.
+많은 기술 자료를 포함할 계획인 경우 Azure Cognitive Search 서비스 가격 책정 계층을 업그레이드하세요.
 
-현재 Azure search SKU의 전체 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다. 이를 수행하려면 다음 단계를 따르십시오.
+현재 Azure search SKU의 전체 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. Azure Portal에서 새 Azure search 리소스를 만들고 원하는 SKU를 선택 합니다.
 
     ![QnA Maker Azure Search 리소스](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
 
-1. 원래 Azure Search 리소스의 인덱스를 새 리소스로 복원합니다. [백업 복원 샘플 코드](https://github.com/pchoudhari/QnAMakerBackupRestore)를 참조 하세요.
+1. 원래 Azure Search 리소스의 인덱스를 새 리소스로 복원합니다. [백업 복원 샘플 코드](https://github.com/pchoudhari/QnAMakerBackupRestore)를 참조하세요.
 
 1. 새 Azure search 리소스를 QnA Maker 관리 (미리 보기) 서비스에 연결 하려면 아래 항목을 참조 하세요.
 

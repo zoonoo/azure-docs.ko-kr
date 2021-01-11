@@ -13,16 +13,16 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 633166f3bb46212991920d6720737f8268b3f401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 428405fc200751d2581ad9ca6e8ec97382594c09
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87026857"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064847"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Internet Explorer 브라우저 (MSAL.js)의 알려진 문제
 
-Javascript 용 Microsoft Authentication Library (MSAL.js)가 Internet Explorer에서 실행 될 수 있도록 [JAVASCRIPT ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) 생성 됩니다. 그러나 알아야 할 몇 가지 사항이 있습니다.
+Internet Explorer에서 실행할 수 있도록 javascript [ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) 용 Microsoft Authentication Library for javascript (MSAL.js)가 생성 됩니다. 그러나 알아야 할 몇 가지 사항이 있습니다.
 
 ## <a name="run-an-app-in-internet-explorer"></a>Internet Explorer에서 앱 실행
 Internet Explorer에서 실행할 수 있는 응용 프로그램에서 MSAL.js를 사용 하려는 경우 MSAL.js 스크립트를 참조 하기 전에 약속 safehtml에 대 한 참조를 추가 해야 합니다.
@@ -47,11 +47,11 @@ Internet Explorer에서 실행 되는 응용 프로그램을 로컬로 실행 �
 
     1. Internet Explorer **도구** (기어 아이콘)를 클릭 합니다.
     1. **인터넷 옵션** 을 선택한 다음 **보안** 탭을 선택 합니다.
-    1. **인터넷** 영역을 클릭 하 고 보호 모드 사용을 선택 취소 합니다 **(internet Explorer를 다시 시작 해야 함)**. Internet Explorer에서 컴퓨터가 더 이상 보호 되지 않는다는 경고를 표시 합니다. **확인**을 클릭합니다.
+    1. **인터넷** 영역을 클릭 하 고 보호 모드 사용을 선택 취소 합니다 **(internet Explorer를 다시 시작 해야 함)**. Internet Explorer에서 컴퓨터가 더 이상 보호 되지 않는다는 경고를 표시 합니다. **확인** 을 클릭합니다.
     1. Internet Explorer를 다시 시작 합니다.
     1. 응용 프로그램을 실행 하 고 디버깅 합니다.
 
-완료 되 면 Internet Explorer 보안 설정을 복원 합니다.  **설정**  ->  **인터넷 옵션**  ->  **보안**  ->  **모든 영역을 기본 수준으로 다시 설정을**선택 합니다.
+완료 되 면 Internet Explorer 보안 설정을 복원 합니다.  **설정**  ->  **인터넷 옵션**  ->  **보안**  ->  **모든 영역을 기본 수준으로 다시 설정을** 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Internet Explorer에서 MSAL.js를 사용 하는 경우 알려진 문제](msal-js-use-ie-browser.md)에 대해 자세히 알아보세요.
