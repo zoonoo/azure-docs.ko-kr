@@ -3,12 +3,12 @@ title: Azure Service Bus에 대 한 문제 해결 가이드 | Microsoft Docs
 description: Azure Service Bus를 사용할 때 나타날 수 있는 몇 가지 문제에 대 한 문제 해결 팁 및 권장 사항에 대해 알아봅니다.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: aab7fa53b4af309c68cd91fdb1d25c5771f89828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c31d252d75a2ba75528cd12d3a94bad5bd9f677
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261127"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126872"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure Service Bus에 대 한 문제 해결 가이드
 이 문서에서는 Azure Service Bus를 사용할 때 표시 될 수 있는 몇 가지 문제에 대 한 문제 해결 팁과 권장 사항을 제공 합니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "91261127"
     
     오류 메시지의 예는 다음과 같습니다.
 
-    ```json
+    ```xml
     <Error>
         <Code>400</Code>
         <Detail>

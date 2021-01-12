@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a5764a9f230540d58edf71e8c00781e86589aa9a
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: ec4917aa378f746eb2caac6a7b4ce99d1c44db90
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070170"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127654"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
@@ -26,7 +26,7 @@ ms.locfileid: "98070170"
 
 **스크립트 실행 구성** 내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
@@ -175,6 +175,19 @@ run.wait_for_completion(show_output=True)
 
 ## <a name="troubleshooting"></a>문제 해결
 
+* **실행 실패 `jwt.exceptions.DecodeError`**: 정확한 오류 메시지: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` . 
+    
+    최신 버전의 azureml-코어로 업그레이드 하는 것이 `pip install -U azureml-core` 좋습니다.
+    
+    로컬 실행에 대해이 문제가 발생 하는 경우 실행을 시작 하는 환경에 설치 된 PyJWT의 버전을 확인 합니다. 지원 되는 버전의 PyJWT는 < 2.0.0입니다. 버전이 >= 2.0.0 인 경우 환경에서 PyJWT를 제거 합니다. PyJWT의 버전을 확인 하 고, 다음과 같이 올바른 버전을 제거 하 고 설치할 수 있습니다.
+    1. 명령 셸을 시작 하 고 azureml-core가 설치 된 conda 환경을 활성화 합니다.
+    2. 을 입력 `pip freeze` 하 고 검색 `PyJWT` 하는 경우 나열 된 버전 < 2.0.0 여야 합니다.
+    3. 표시 된 버전이 지원 되는 버전이 아닌 경우 `pip uninstall PyJWT` 명령 셸에서 y를 입력 하 여 확인 합니다.
+    4. `pip install 'PyJWT<2.0.0'`를 사용하여 설치
+    
+    사용자가 만든 환경을 실행 하 여 제출 하는 경우 해당 환경에서 최신 버전의 azureml-코어를 사용 하는 것이 좋습니다. 버전 >= 1.18.0 PyJWT < 2.0.0의 azureml가 이미 고정 되어 있습니다. 제출 하는 환경에서 azureml 1.18.0 < 버전을 사용 해야 하는 경우 pip 종속성에서 PyJWT < 2.0.0를 지정 해야 합니다.
+
+
  * **Moduleerrors (이름이 지정 된 모듈 없음)**: Azure ML에서 실험을 제출 하는 동안 moduleerrors를 실행 하는 경우 학습 스크립트는 패키지를 설치 하는 것으로 예상 하지만 추가 되지 않습니다. 패키지 이름을 제공 하 고 나면 Azure ML은 학습 실행에 사용 되는 환경에 패키지를 설치 합니다.
 
     추정를 사용 하 여 실험을 제출 하는 경우 `pip_packages` `conda_packages` 패키지를 설치 하려는 원본에 기반 하 여 평가기에서 또는 매개 변수를 통해 패키지 이름을 지정할 수 있습니다. 를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 `conda_dependencies_file` 하거나 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다 `pip_requirements_file` . 평가기에서 사용 하는 기본 이미지를 재정의 하려는 고유한 Azure ML Environment 개체가 있는 경우 `environment` 평가기 생성자의 매개 변수를 통해 해당 환경을 지정할 수 있습니다.
@@ -204,18 +217,6 @@ run.wait_for_completion(show_output=True)
     ```
 
     내부적으로 Azure ML은 동일한 메트릭 이름을 가진 블록을 연속된 목록에 연결합니다.
-
-* **실행 실패 `jwt.exceptions.DecodeError`**: 정확한 오류 메시지: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` . 
-    
-    최신 버전의 azureml-코어로 업그레이드 하는 것이 `pip install -U azureml-core` 좋습니다.
-    
-    로컬 실행에 대해이 문제가 발생 하는 경우 실행을 시작 하는 환경에 설치 된 PyJWT의 버전을 확인 합니다. 지원 되는 버전의 PyJWT는 < 2.0.0입니다. 버전이 >= 2.0.0 인 경우 환경에서 PyJWT를 제거 합니다. PyJWT의 버전을 확인 하 고, 다음과 같이 올바른 버전을 제거 하 고 설치할 수 있습니다.
-    1. 명령 셸을 시작 하 고 azureml-core가 설치 된 conda 환경을 활성화 합니다.
-    2. 을 입력 `pip freeze` 하 고 검색 `PyJWT` 하는 경우 나열 된 버전 < 2.0.0 여야 합니다.
-    3. 표시 된 버전이 지원 되는 버전이 아닌 경우 `pip uninstall PyJWT` 명령 셸에서 y를 입력 하 여 확인 합니다.
-    4. `pip install 'PyJWT<2.0.0'`를 사용하여 설치
-    
-    사용자가 만든 환경을 실행 하 여 제출 하는 경우 해당 환경에서 최신 버전의 azureml-코어를 사용 하는 것이 좋습니다. 버전 >= 1.18.0 PyJWT < 2.0.0의 azureml가 이미 고정 되어 있습니다. 제출 하는 환경에서 azureml 1.18.0 < 버전을 사용 해야 하는 경우 pip 종속성에서 PyJWT < 2.0.0를 지정 해야 합니다.
 
 * **계산 대상을 시작 하** 는 데 시간이 오래 걸립니다. 계산 대상의 DOCKER 이미지가 ACR (Azure Container Registry)에서 로드 됩니다. 기본적으로 Azure Machine Learning는 *기본 서비스 계층을 사용* 하는 ACR을 만듭니다. 작업 영역에 대 한 ACR을 표준 또는 프리미엄 계층으로 변경 하면 이미지를 빌드하고 로드 하는 데 걸리는 시간을 줄일 수 있습니다. 자세한 내용은 [Azure Container Registry 서비스 계층](../container-registry/container-registry-skus.md)을 참조하세요.
 

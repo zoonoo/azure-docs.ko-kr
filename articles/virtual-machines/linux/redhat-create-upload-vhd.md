@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 065b4348675fcd48088fd26db0e0293eb2d7a387
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 751d447c164c602b9b1524d4945d61556bf71932
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896467"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127297"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
 이 문서에서는 Azure용 RHEL(Red Hat Enterprise Linux) 가상 머신을 준비하는 방법을 알아봅니다. 이 문서에 설명되어 있는 RHEL의 버전은 6.7+ 및 7.1+입니다. 이 문서에서 다룰 준비에 대한 하이퍼바이저는 Hyper-V, KVM(커널 기반 가상 머신) 및 VMware입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)을 참조하세요. RHEL 이미지 빌드를 자동화 하는 방법은 [Azure 이미지 작성기](./image-builder-overview.md)를 참조 하세요.
@@ -22,7 +22,7 @@ ms.locfileid: "97896467"
 
 이 섹션에서는 Hyper-v 관리자를 사용 하 여 [RHEL 6](#rhel-6-using-hyper-v-manager) 또는 [RHEL 7](#rhel-7-using-hyper-v-manager) 가상 머신을 준비 하는 방법을 보여 줍니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 이 섹션은 RedHat 웹 사이트에서 ISO 파일을 확보했으며 VHD(가상 하드 디스크)에 RHEL 이미지를 이미 설치한 것으로 가정합니다. Hyper-V 관리자를 사용하여 운영 체제 이미지를 설치하는 방법에 대한 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하세요.
 
 **RHEL 설치 참고 사항**
@@ -200,11 +200,14 @@ ms.locfileid: "97896467"
 
 1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정하려면 텍스트 편집기에서 `/etc/default/grub`를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
 
+    
     ```config-grub
-    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+    GRUB_CMDLINE_LINUX="rootdelay=300 console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
+    GRUB_TERMINAL_OUTPUT="serial console"
+    GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1
     ```
    
-   이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 이 구성은 NIC에 대한 새 RHEL 7 명명 규칙도 해제합니다. 그 밖에 다음 매개 변수를 제거하는 것이 좋습니다.
+    이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송 되 고 직렬 콘솔과의 상호 작용을 가능 하 게 하 여 Azure 지원에서 문제를 디버깅 하는 데 도움이 될 수도 있습니다. 이 구성은 NIC에 대한 새 RHEL 7 명명 규칙도 해제합니다.
 
     ```config
     rhgb quiet crashkernel=auto
@@ -217,6 +220,8 @@ ms.locfileid: "97896467"
     ```console
     # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
+    > [!NOTE]
+    > UEFI를 사용 하는 VM을 업로드 하는 경우 grub를 업데이트 하는 명령은 `grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg` 입니다.
 
 1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 이것이 일반적으로 기본값입니다. 다음 줄을 포함하도록 `/etc/ssh/sshd_config` 을 수정합니다.
 
@@ -230,31 +235,40 @@ ms.locfileid: "97896467"
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
+1. 다음 명령을 실행 하 여 Azure Linux 에이전트, 클라우드 초기화 및 기타 필요한 유틸리티를 설치 합니다.
 
     ```console
-    # sudo yum install WALinuxAgent
+    # sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
 
     # sudo systemctl enable waagent.service
+    # sudo systemctl enable cloud-init.service
     ```
 
-1. 프로 비전을 처리 하기 위해 클라우드 초기화를 설치 합니다.
+1. 프로 비전을 처리 하도록 클라우드 초기화 구성:
+
+    1. 클라우드 초기화에 대해 waagent 구성:
 
     ```console
-    yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
-
-    # Configure waagent for cloud-init
-    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
-    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+    sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-init/g' /etc/waagent.conf
     sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+    ```
+    > [!NOTE]
+    > 특정 가상 컴퓨터를 마이그레이션하는 경우 일반화 된 이미지를 만들지 않으려면 `Provisioning.Agent=disabled` 구성에서을 설정 `/etc/waagent.conf` 합니다.
+    
+    1. 탑재 구성:
 
+    ```console
     echo "Adding mounts and disk_setup to init stage"
     sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
     sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
     sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
     sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
+    ```
+    
+    1. Azure 데이터 원본 구성:
 
+    ```console
     echo "Allow only Azure datasource, disable fetching network setting via IMDS"
     cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
     datasource_list: [ Azure ]
@@ -262,13 +276,206 @@ ms.locfileid: "97896467"
     Azure:
         apply_network_config: False
     EOF
+    ```
 
+    1. 구성 된 경우 기존 스왑를 제거 합니다.
+
+    ```console
     if [[ -f /mnt/resource/swapfile ]]; then
-    echo Removing swapfile - RHEL uses a swapfile by default
+    echo "Removing swapfile" #RHEL uses a swapfile by defaul
     swapoff /mnt/resource/swapfile
     rm /mnt/resource/swapfile -f
     fi
+    ```
+    1. 클라우드 초기화 로깅 구성:
+    ```console
+    echo "Add console log file"
+    cat >> /etc/cloud/cloud.cfg.d/05_logging.cfg <<EOF
 
+    # This tells cloud-init to redirect its stdout and stderr to
+    # 'tee -a /var/log/cloud-init-output.log' so the user can see output
+    # there without needing to look on the console.
+    output: {all: '| tee -a /var/log/cloud-init-output.log'}
+    EOF
+
+    ```
+
+1. 스왑 구성은 운영 체제 디스크에 스왑 공간을 만들지 않습니다.
+
+    이전에는 azure Linux 에이전트를 사용 하 여 Azure에서 가상 머신을 프로 비전 한 후 가상 머신에 연결 된 로컬 리소스 디스크를 사용 하 여 스왑 공간을 자동으로 구성 했습니다. 그러나이는 이제 클라우드 init에서 처리 됩니다. Linux 에이전트를 사용 하 여 리소스 디스크에서 스왑 파일을 만드는 형식을 지정 하지 않고 다음 매개 변수를 적절 하 게 수정 **해야 합니다** `/etc/waagent.conf` .
+
+    ```console
+    ResourceDisk.Format=n
+    ResourceDisk.EnableSwap=n
+    ```
+
+    탑재, 형식 지정 및 바꾸기를 원하는 경우 다음 중 하나를 수행할 수 있습니다.
+    * VM을 만들 때마다 클라우드 init 구성으로이를 전달 합니다.
+    * VM을 만들 때마다이를 수행 하는 이미지에 클라우드 init 지시어 구운를 사용 합니다.
+
+        ```console
+        cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
+        #cloud-config
+        # Generated by Azure cloud image build
+        disk_setup:
+          ephemeral0:
+            table_type: mbr
+            layout: [66, [33, 82]]
+            overwrite: True
+        fs_setup:
+          - device: ephemeral0.1
+            filesystem: ext4
+          - device: ephemeral0.2
+            filesystem: swap
+        mounts:
+          - ["ephemeral0.1", "/mnt"]
+          - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+        EOF
+        ```
+1. 구독에 대한 등록을 해제하려면 다음 명령을 실행합니다.
+
+    ```console
+    # sudo subscription-manager unregister
+    ```
+
+1. 프로비전 해제
+
+    다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+
+    > [!CAUTION]
+    > 특정 가상 컴퓨터를 마이그레이션하는 경우 일반화 된 이미지를 만들지 않으려면 프로 비전 해제 단계를 건너뜁니다. 이 명령을 실행 하면 `waagent -force -deprovision` 원본 컴퓨터를 사용할 수 없게 되 고,이 단계는 일반화 된 이미지를 만들기 위한 목적 으로만 사용 됩니다.
+    ```console
+    # sudo waagent -force -deprovision
+
+    # export HISTSIZE=0
+
+    # logout
+    ```
+    
+
+1.   >  Hyper-v 관리자에서 작업 **종료** 를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+
+### <a name="rhel-8-using-hyper-v-manager"></a>Hyper-v 관리자를 사용 하는 RHEL 8
+
+1. Hyper-V 관리자에서 가상 머신을 선택합니다.
+
+1. **연결** 을 클릭하여 가상 머신의 콘솔 창을 엽니다.
+
+1. 다음 명령을 실행 하 여 부팅 시 네트워크 관리자 서비스가 시작 되는지 확인 합니다.
+
+    ```console
+    # sudo systemctl enable NetworkManager.service
+    ```
+
+1. 부팅 시 자동으로 시작 되 고 DHCP를 사용 하도록 네트워크 인터페이스를 구성 합니다.
+
+    ```console
+    # nmcli con mod eth0 connection.autoconnect yes ipv4.method auto
+    ```
+
+
+1. RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
+
+    ```console
+    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```
+
+1. Grub 구성의 커널 부팅 줄을 수정 하 여 Azure에 대 한 추가 커널 매개 변수를 포함 하 고 직렬 콘솔을 사용 하도록 설정 합니다. 
+
+    1. 현재 GRUB 매개 변수를 제거 합니다.
+    ```console
+    # grub2-editenv - unset kernelopts
+    ```
+
+    1. `/etc/default/grub`텍스트 편집기에서를 편집 하 고 다음 매개 변수를 추가 합니다.
+
+    ```config-grub
+    GRUB_CMDLINE_LINUX="rootdelay=300 console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
+    GRUB_TERMINAL_OUTPUT="serial console"
+    GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
+    ```
+   
+   이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송 되 고 직렬 콘솔과의 상호 작용을 가능 하 게 하 여 Azure 지원에서 문제를 디버깅 하는 데 도움이 될 수도 있습니다. 이 구성은 NIC에 대한 새 RHEL 7 명명 규칙도 해제합니다.
+   
+   1. 또한 다음 매개 변수를 제거 하는 것이 좋습니다.
+
+    ```config
+    rhgb quiet crashkernel=auto
+    ```
+   
+    모든 로그를 직렬 포트로 보내려는 클라우드 환경에서는 그래픽 및 자동 부팅 기능이 효율적이지 않습니다. 원할 경우 `crashkernel` 옵션은 구성된 상태로 둘 수 있습니다. 이 매개 변수는 가상 머신의 사용 가능한 메모리 양을 128MB 이상 줄입니다. 이 방식은 좀 더 작은 가상 머신 크기에서는 문제가 될 수도 있습니다.
+
+1. `/etc/default/grub`편집을 완료한 후에 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
+
+    ```console
+    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
+    UEFI를 사용 하는 VM의 경우 다음 명령을 실행 합니다.
+
+    ```console
+    # sudo grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+    ```
+
+1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 이것이 일반적으로 기본값입니다. 다음 줄을 포함하도록 `/etc/ssh/sshd_config` 을 수정합니다.
+
+    ```config
+    ClientAliveInterval 180
+    ```
+
+1. 다음 명령을 실행 하 여 Azure Linux 에이전트, 클라우드 초기화 및 기타 필요한 유틸리티를 설치 합니다.
+
+    ```console
+    # sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
+
+    # sudo systemctl enable waagent.service
+    # sudo systemctl enable cloud-init.service
+    ```
+
+1. 프로 비전을 처리 하도록 클라우드 초기화 구성:
+
+    1. 클라우드 초기화에 대해 waagent 구성:
+
+    ```console
+    sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-init/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+    ```
+    > [!NOTE]
+    > 특정 가상 컴퓨터를 마이그레이션하는 경우 일반화 된 이미지를 만들지 않으려면 `Provisioning.Agent=disabled` 구성에서을 설정 `/etc/waagent.conf` 합니다.
+    
+    1. 탑재 구성:
+
+    ```console
+    echo "Adding mounts and disk_setup to init stage"
+    sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
+    sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
+    sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
+    sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
+    ```
+    
+    1. Azure 데이터 원본 구성:
+
+    ```console
+    echo "Allow only Azure datasource, disable fetching network setting via IMDS"
+    cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
+    datasource_list: [ Azure ]
+    datasource:
+    Azure:
+        apply_network_config: False
+    EOF
+    ```
+
+    1. 구성 된 경우 기존 스왑를 제거 합니다.
+
+    ```console
+    if [[ -f /mnt/resource/swapfile ]]; then
+    echo "Removing swapfile" #RHEL uses a swapfile by defaul
+    swapoff /mnt/resource/swapfile
+    rm /mnt/resource/swapfile -f
+    fi
+    ```
+    1. 클라우드 초기화 로깅 구성:
+    ```console
     echo "Add console log file"
     cat >> /etc/cloud/cloud.cfg.d/05_logging.cfg <<EOF
 
@@ -323,14 +530,15 @@ ms.locfileid: "97896467"
     다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
     ```console
-    # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
-    # skip the deprovision step
     # sudo waagent -force -deprovision
 
     # export HISTSIZE=0
 
     # logout
     ```
+    > [!CAUTION]
+    > 특정 가상 컴퓨터를 마이그레이션하는 경우 일반화 된 이미지를 만들지 않으려면 프로 비전 해제 단계를 건너뜁니다. 이 명령을 실행 하면 `waagent -force -deprovision` 원본 컴퓨터를 사용할 수 없게 되 고,이 단계는 일반화 된 이미지를 만들기 위한 목적 으로만 사용 됩니다.
+
 
 1.   >  Hyper-v 관리자에서 작업 **종료** 를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
@@ -731,7 +939,7 @@ ms.locfileid: "97896467"
 
 이 섹션에서는 VMware에서 [RHEL 6](#rhel-6-using-vmware) 또는 [RHEL 7](#rhel-6-using-vmware)  배포판을 준비 하는 방법을 보여 줍니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 이 섹션은 VMWare에 RHEL 가상 머신이 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 자세한 방법은 [VMWare 게스트 운영 체제 설치 가이드](https://partnerweb.vmware.com/GOSIG/home.html)를 참조하세요.
 
 * Linux 운영 체제를 설치하는 경우 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결을 위해 운영 체제 디스크를 다른 가상 머신에 연결해야 하는 경우, 복제된 가상 머신과 LVM 이름이 충돌하는 것을 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 RAID를 사용할 수 있습니다.
@@ -1226,7 +1434,7 @@ ms.locfileid: "97896467"
 
     b.  설치 ISO를 DVD 드라이브에 연결합니다.
 
-    c.  CD에서 부팅하도록 BIOS를 설정합니다.
+    다.  CD에서 부팅하도록 BIOS를 설정합니다.
 
 1. 가상 머신을 시작합니다. 설치 가이드가 나타나면 **Tab** 키를 눌러서 부팅 옵션을 구성합니다.
 

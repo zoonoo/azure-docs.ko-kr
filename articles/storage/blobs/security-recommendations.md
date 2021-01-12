@@ -7,21 +7,21 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 01/12/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 5be3652d7fca62a0740888ad458f8564f555169e
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 1593c47b7a6cf3b861f3e1af148b7a5fbfae9a19
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518909"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127382"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Blob Storage에 대한 보안 권장 사항
 
-이 문서에는 Blob 저장소에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현하면 공유 책임 모델에 설명된 대로 보안 의무를 충족하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 책임을 충족하기 위해 수행하는 작업에 대한 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf)을 참조하세요.
+이 문서에는 Blob 저장소에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현하면 공유 책임 모델에 설명된 대로 보안 의무를 충족하는 데 도움이 됩니다. Microsoft에서 서비스 공급자의 책임을 달성 하는 방법에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf)을 참조 하세요.
 
-이 문서에 포함된 일부 권장 사항은 Azure Security Center에서 자동으로 모니터링할 수 있습니다. Azure Security Center는 Azure에서 리소스를 보호하는 첫 번째 방어선입니다. Azure Security Center에 대 한 자세한 내용은 [Azure Security Center 무엇입니까?](../../security-center/security-center-introduction.md)를 참조 하세요.
+이 문서에 포함된 일부 권장 사항은 Azure Security Center에서 자동으로 모니터링할 수 있습니다. Azure Security Center는 Azure에서 리소스를 보호하는 첫 번째 방어선입니다. Azure Security Center에 대 한 자세한 내용은 [Azure Security Center 항목](../../security-center/security-center-introduction.md) 을 참조 하세요.
 
 Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음 이를 해결하는 방법에 대한 권장 사항을 제공합니다. Azure Security Center 권장 사항에 대한 자세한 내용은 [Azure Security Center의 보안 권장 사항](../../security-center/security-center-recommendations.md)을 참조하세요.
 
@@ -31,9 +31,11 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 |-|----|--|
 | Azure Resource Manager 배포 모델 사용 | Azure RBAC (역할 기반 액세스 제어) 및 감사, 리소스 관리자 기반 배포 및 거 버 넌 스, 관리 되는 id 액세스, 암호에 대 한 Azure Key Vault 액세스, Azure AD 기반 인증 및 Azure Storage 데이터 및 리소스에 대 한 액세스 권한 부여를 비롯 하 여 중요 한 보안 향상을 위해 Azure Resource Manager 배포 모델을 사용 하 여 새 저장소 계정을 만듭니다. 가능 하면 클래식 배포 모델을 사용 하는 기존 저장소 계정을 Azure Resource Manager를 사용 하 여 마이그레이션합니다. Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조 하세요. | - |
 | 모든 저장소 계정에 대해 Azure Defender를 사용 하도록 설정 | Azure Storage 용 Azure Defender는 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 상황에서 발생 하며, 의심 스러운 활동의 세부 정보와 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 전자 메일을 통해 구독 관리자에 게 전송 되는 경우에 Azure Security Center 트리거됩니다. 자세한 내용은 [Azure Storage에 대 한 Azure Defender 구성](../common/azure-defender-storage-configure.md)을 참조 하세요. | [예](../../security-center/security-center-sql-service-recommendations.md) |
-| Blob 데이터에 대 한 일시 삭제 설정 | 일시 삭제를 통해 blob 데이터를 삭제 한 후 복구할 수 있습니다. 일시 삭제에 대 한 자세한 내용은 [Azure Storage blob에 대 한 일시 삭제](./soft-delete-blob-overview.md)를 참조 하세요. | - |
-| 실수로 삭제 되지 않도록 저장소 계정 잠금 | 구독, 리소스 그룹 또는 리소스를 잠가 조직의 다른 사용자가 실수로 삭제 하거나 수정 하지 못하도록 할 수 있습니다. 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
+| Blob에 대 한 일시 삭제 설정 | 일시 삭제를 통해 blob 데이터를 삭제 한 후 복구할 수 있습니다. 일시 삭제에 대 한 자세한 내용은 [Azure Storage blob에 대 한 일시 삭제](./soft-delete-blob-overview.md)를 참조 하세요. | - |
+| 컨테이너에 대해 일시 삭제 설정 | ???. | - |
+| 실수로 인 한 계정 삭제를 방지 하기 위해 저장소 계정 잠금 | 구독, 리소스 그룹 또는 저장소 계정과 같은 Azure Resource Manager 리소스를 잠가 조직의 다른 사용자가 실수로 삭제 하거나 수정 하지 못하도록 할 수 있습니다. 저장소 계정을 잠그면 해당 계정의 데이터가 삭제 되는 것을 방지할 수 없습니다. 계정 자체는 삭제 되지 않습니다. 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
 | 변경할 수 없는 blob에 비즈니스에 중요 한 데이터 저장 | Hyper-v에 blob 데이터를 저장 하는 법적 보류 및 시간 기반 보존 정책을 구성 합니다 (한 번 쓰기, 읽기 다) 상태. Blob 저장 된 immutably를 읽을 수는 있지만 보존 간격이 지속 되는 동안에는 수정 하거나 삭제할 수 없습니다. 자세한 내용은 변경할 수 없는 [저장소로 비즈니스에 중요 한 blob 데이터 저장](storage-blob-immutable-storage.md)을 참조 하세요. | - |
+| 저장소 계정에 대 한 보안 전송 (HTTPS) 필요 | ??? | - |
 | SAS (공유 액세스 서명) 토큰을 HTTPS 연결로만 제한 | 클라이언트에서 SAS 토큰을 사용 하 여 blob 데이터에 액세스 하는 경우 도청의 위험을 최소화 하는 데 도움이 되는 HTTPS가 필요 합니다. 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조 하세요. | - |
 
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리

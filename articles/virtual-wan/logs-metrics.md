@@ -8,18 +8,24 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566370"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127892"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure 가상 WAN 로그 및 메트릭
 
-Azure Monitor를 사용 하 여 Azure 가상 WAN을 모니터링할 수 있습니다. 가상 WAN은 여러 네트워킹, 보안 및 라우팅 기능을 결합 하 여 단일 운영 인터페이스를 제공 하는 네트워킹 서비스입니다. 가상 WAN VPN 게이트웨이, Express 경로 게이트웨이 및 Azure 방화벽에는 Azure Monitor를 통해 사용할 수 있는 로깅 및 메트릭이 있습니다. Azure 방화벽 정보는 [Azure 방화벽 로그 및 메트릭](../firewall/logs-and-metrics.md)을 참조 하세요.
+Azure Monitor를 사용 하 여 Azure 가상 WAN을 모니터링할 수 있습니다. 가상 WAN은 여러 네트워킹, 보안 및 라우팅 기능을 결합 하 여 단일 운영 인터페이스를 제공 하는 네트워킹 서비스입니다. 가상 WAN VPN 게이트웨이, Express 경로 게이트웨이 및 Azure 방화벽에는 Azure Monitor를 통해 사용할 수 있는 로깅 및 메트릭이 있습니다.
 
 이 문서에서는 포털을 통해 사용할 수 있는 메트릭 및 진단에 대해 설명 합니다. 메트릭은 간단한 실시간 시나리오를 지원 하 여 경고 및 빠른 문제 검색에 유용 하 게 사용할 수 있습니다.
+
+## <a name="monitoring-secured-hub-azure-firewall"></a>보안 허브 모니터링 (Azure 방화벽) 
+
+Azure 방화벽 로그를 사용 하 여 보안 허브를 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다.
+
+Azure 방화벽을 사용 하 여 가상 허브를 보호 하도록 선택한 경우 [Azure 방화벽 로그 및 메트릭](../firewall/logs-and-metrics.md)에서 관련 로그 및 메트릭을 사용할 수 있습니다.
 
 ## <a name="metrics"></a>메트릭
 
@@ -119,7 +125,7 @@ Azure Express 경로 게이트웨이에서는 다음 메트릭을 사용할 수 
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>활동 로그
 
-**활동 로그** 항목은 기본적으로 수집 되며 Azure Portal에서 볼 수 있습니다. Azure 활동 로그 (이전의 *작업 로그* 및 *감사 로그* )를 사용 하 여 azure 구독에 제출 된 모든 작업을 볼 수 있습니다.
+**활동 로그** 항목은 기본적으로 수집 되며 Azure Portal에서 볼 수 있습니다. Azure 활동 로그 (이전의 *작업 로그* 및 *감사 로그*)를 사용 하 여 azure 구독에 제출 된 모든 작업을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bb90c5776e67c1ba8fecdbf394a8098e96ca0652
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96022380"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127484"
 ---
 # <a name="soft-delete-for-blobs"></a>Blob에 대한 일시 삭제
 
@@ -79,13 +79,13 @@ Blob **배치**, **블록 목록 배치** 또는 **blob 복사** 를 사용 하 
 > [!NOTE]  
 > 일시 삭제된 Blob이 덮어쓰여지는 경우 쓰기 작업 전에 Blob 상태의 일시 삭제된 스냅샷이 자동으로 생성됩니다. 새 Blob은 덮어쓰여진 Blob의 계층을 상속합니다.
 
-일시 삭제는 컨테이너 또는 계정이 삭제되고, Blob 메타데이터 및 Blob 속성이 덮어쓰여지는 경우에 데이터를 저장하지 않습니다. 잘못된 삭제로부터 스토리지 계정을 보호하기 위해 Azure Resource Manager를 사용하여 잠금을 구성할 수 있습니다. 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠금](../../azure-resource-manager/management/lock-resources.md)Azure Resource Manager 문서를 참조 하세요.
+일시 삭제는 컨테이너 또는 계정이 삭제 되는 경우 나 blob 메타 데이터 및 blob 속성을 덮어쓰는 경우에는 데이터를 저장 하지 않습니다. 저장소 계정이 삭제 되지 않도록 보호 하기 위해 Azure Resource Manager를 사용 하 여 잠금을 구성할 수 있습니다. 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠금](../../azure-resource-manager/management/lock-resources.md)Azure Resource Manager 문서를 참조 하세요.
 
 다음 표는 일시 삭제가 설정된 경우 예상되는 동작을 자세히 설명합니다.
 
-| REST API 작업 | 리소스 종류 | Description | 동작 변경 |
+| REST API 작업 | 리소스 유형 | 설명 | 동작 변경 |
 |--------------------|---------------|-------------|--------------------|
-| [Delete](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경되지 않았습니다. 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
+| [삭제](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경되지 않았습니다. 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
 | [컨테이너 삭제](/rest/api/storageservices/delete-container) | 컨테이너 | 포함하는 모든 Blob을 포함하여 컨테이너를 삭제합니다. | 변경되지 않았습니다. 삭제된 컨테이너의 Blob은 복구할 수 없습니다. |
 | [Blob 배치](/rest/api/storageservices/put-blob) | 블록, 추가 및 페이지 blob | 새 Blob을 만들거나 컨테이너 내 기존 Blob 교체 | 기존 Blob을 교체하는 데 사용되는 경우, 호출 전에 Blob의 상태 스냅샷이 자동으로 생성됩니다. 이는 동일한 유형의 blob (블록, 추가 또는 페이지)로 대체 되는 경우에만 이전에 일시 삭제 된 blob에도 적용 됩니다. 다른 형식의 Blob으로 교체되는 경우 기존의 모든 일시 삭제된 데이터는 영구적으로 만료됩니다. |
 | [Blob 삭제](/rest/api/storageservices/delete-blob) | 블록, 추가 및 페이지 blob | 삭제를 위한 Blob 또는 Blob 스냅샷을 표시합니다. 가비지 수집 중 Blob 또는 스냅샷은 나중에 삭제됩니다. | Blob 스냅샷을 삭제하는 데 사용되는 경우 해당 스냅샷은 일시 삭제됨으로 표시됩니다. Blob을 삭제하는 데 사용되는 경우 해당 스냅숏은 일시 삭제됨으로 표시됩니다. |
@@ -171,7 +171,7 @@ Copy a snapshot over the base blob:
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>일시 삭제가 설정된 상태로 전체 계정 또는 컨테이너를 삭제하는 경우 연결된 모든 Blob 저장되나요?
 
-아니요, 전체 계정 또는 컨테이너를 삭제하면 연결된 모든 Blob은 영구적으로 삭제됩니다. 저장소 계정이 실수로 삭제 되지 않도록 보호 하는 방법에 대 한 자세한 내용은 [리소스를 잠가 예기치 않은 변경 방지](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
+아니요, 전체 계정 또는 컨테이너를 삭제하면 연결된 모든 Blob은 영구적으로 삭제됩니다. 저장소 계정이 실수로 삭제 되지 않도록 보호 하는 방법에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>삭제된 데이터에 대한 용량 메트릭을 볼 수 있나요?
 

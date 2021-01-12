@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: e839b8a22da50ce172043f57a4467219a1771175
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 27f14834e45dd32bdf3a26d22d38ab250aa1bcbe
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584204"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127739"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -25,6 +25,7 @@ ms.locfileid: "97584204"
 
 - Data Factory 서비스는 사용자의 변경 사항을 위한 JSON 엔터티를 저장하는 리포지토리를 포함하지 않습니다. 변경 내용을 저장하는 유일한 방법은 **모두 게시** 단추를 사용하는 것이며 모든 변경 내용은 데이터 팩터리 서비스에 직접 게시됩니다.
 - Data Factory 서비스는 협업 및 버전 제어에 최적화되어 있지 않습니다.
+- Data Factory 자체를 배포 하는 데 필요한 Azure Resource Manager 템플릿이 포함 되어 있지 않습니다.
 
 작성 환경을 개선하기 위해 Azure Data Factory를 사용하면 Azure Repos 또는 GitHub를 사용하여 Git 리포지토리를 구성할 수 있습니다. Git는 변경 내용 추적과 협업 환경을 개선할 수 있는 버전 제어 시스템입니다. 이 문서에서는 모범 사례 및 문제 해결 가이드를 강조 표시 하 여 git 리포지토리를 구성 하 고 사용 하는 방법을 간략하게 설명 합니다.
 

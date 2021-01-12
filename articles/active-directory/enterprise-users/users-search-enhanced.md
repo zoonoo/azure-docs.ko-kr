@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 01/11/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296679135063e2c7e1b7f0e3ffd193c8f18c3acf
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576267"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127841"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Azure Active Directory의 사용자 관리 향상 된 기능 (미리 보기)
 
@@ -60,6 +60,9 @@ ms.locfileid: "96576267"
 - 이름: 사용자의 표시 이름입니다.
 - 사용자 계정 이름: 사용자의 UPN (사용자 계정 이름)입니다.
 - 사용자 유형: Member, guest, none.
+- 만든 시간: 사용자를 만든 날짜와 시간입니다.
+- 작업 제목: 사용자의 직함입니다.
+- 부서: 사용자가 근무 하는 부서입니다.
 - 동기화 된 디렉터리: 사용자가 온-프레미스 디렉터리에서 동기화 되는지 여부를 나타냅니다.
 - Id 발급자: 사용자 계정에 로그인 하는 데 사용 되는 id의 발급자입니다.
 - 개체 ID: 사용자의 개체 ID입니다.
@@ -76,7 +79,8 @@ ms.locfileid: "96576267"
 **삭제 된 사용자** 페이지에는 **모든 사용자** 페이지에서 사용할 수 있는 모든 열과 다음과 같은 몇 가지 추가 열이 포함 됩니다.
 
 - 삭제 날짜: 사용자가 조직에서 처음 삭제 된 날짜 (사용자가 복원 가능한)입니다.
-- 영구 삭제 날짜: 조직에서 사용자를 영구적으로 삭제 하는 프로세스가 자동으로 시작 되는 날짜입니다. 
+- 영구 삭제 날짜: 조직에서 사용자를 영구적으로 삭제 하는 프로세스가 자동으로 시작 되는 날짜입니다.
+- 원래 사용자 계정 이름: 개체 ID가 삭제 된 UPN에 대 한 접두사로 추가 되기 전의 사용자의 원래 UPN입니다.
 
 > [!NOTE]
 > 삭제 날짜는 UTC (협정 세계시)로 표시 됩니다.
@@ -105,6 +109,10 @@ ms.locfileid: "96576267"
 - 사용자 유형: 구성원, 게스트, 없음
 - 디렉터리 동기화 상태: 예, 아니요
 - 만들기 유형: 초대, 전자 메일 확인 됨, 로컬 계정
+- 만든 시간: 지난 7, 14, 30, 90, 360 또는 >360 일 전
+- 작업 제목: 직함을 입력 합니다.
+- 부서: 부서 이름을 입력 합니다.
+- 그룹: 그룹 검색
 - 초대 상태 – 수락 보류 중, 수락 됨
 - 도메인 이름: 도메인 이름을 입력 합니다.
 - 회사 이름: 회사 이름을 입력 합니다.
@@ -117,6 +125,9 @@ ms.locfileid: "96576267"
 - 사용자 유형: 구성원, 게스트, 없음
 - 디렉터리 동기화 상태: 예, 아니요
 - 만들기 유형: 초대, 전자 메일 확인 됨, 로컬 계정
+- 만든 시간: 지난 7, 14, 30, 90, 360 또는 > 360 일 전
+- 작업 제목: 직함을 입력 합니다.
+- 부서: 부서 이름을 입력 합니다.
 - 초대 상태: 보류 중인 승인, 수락 됨
 - 삭제 날짜: 지난 7, 14 또는 30 일
 - 도메인 이름: 도메인 이름을 입력 합니다.

@@ -3,12 +3,12 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 7fc348ae7b3edb79e75aa1acd08941fec447da6f
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780351"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127637"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -146,7 +146,7 @@ AKS 에이전트 노드는 표준 Azure virtual machines로 청구 되므로 AKS
 
 현재 구독 간의 클러스터 이동은 지원되지 않습니다.
 
-## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>AKS 클러스터를 현재 Azure 구독에서 다른 구독으로 이동할 수 있나요? 
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>AKS 클러스터를 현재 Azure 구독에서 다른 구독으로 이동할 수 있나요?
 
 Azure 구독 간에 AKS 클러스터 및 연결 된 리소스를 이동 하는 것은 지원 되지 않습니다.
 
@@ -154,7 +154,7 @@ Azure 구독 간에 AKS 클러스터 및 연결 된 리소스를 이동 하는 �
 
 AKS 클러스터 및 연결 된 리소스가 이동 하거나 이름을 바꾸는 것은 지원 되지 않습니다.
 
-## <a name="why-is-my-cluster-delete-taking-so-long"></a>클러스터 삭제가 오래 걸리는 이유는 무엇인가요? 
+## <a name="why-is-my-cluster-delete-taking-so-long"></a>클러스터 삭제가 오래 걸리는 이유는 무엇인가요?
 
 사용자 요청 시 대부분의 클러스터가 삭제됩니다. 일부 경우, 특히 고객이 자신의 리소스 그룹을 가져오거나 RG 간 태스크를 수행할 때 삭제에 추가 시간이 발생하거나 삭제가 실패할 수 있습니다. 삭제에 문제가 있는 경우 RG에 대 한 잠금이 없는지 다시 한 번 확인 합니다. rg 외부의 모든 리소스는 RG와의 연결이 끊어집니다.
 
@@ -166,7 +166,7 @@ AKS 클러스터 및 연결 된 리소스가 이동 하거나 이름을 바꾸�
 
 아니요, 업그레이드 하기 전에 실패 한 상태의 노드를 삭제/제거 하거나 클러스터에서 제거 합니다.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>클러스터 삭제를 실행했지만 오류가 표시됩니다. `[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>클러스터 삭제를 실행했지만 오류가 표시됩니다. `[Errno 11001] getaddrinfo failed`
 
 가장 일반적으로 이 문제는 하나 이상의 NSG(네트워크 보안 그룹)가 여전히 사용 중이고 클러스터와 연결된 경우에 발생합니다.  제거 하 고 삭제를 다시 시도 합니다.
 
@@ -174,7 +174,7 @@ AKS 클러스터 및 연결 된 리소스가 이동 하거나 이름을 바꾸�
 
 서비스 사용자가 만료 되지 않았는지 확인 합니다.  [AKS 서비스 주체](./kubernetes-service-principal.md) 및 [AKS 업데이트 자격 증명](./update-credentials.md)을 참조 하세요.
 
-## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>클러스터가 작동 했지만, 갑자기 LoadBalancers 조정기를 프로 비전 할 수 없거나, Pvc를 탑재 하지 못했습니다. 
+## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>클러스터가 작동 했지만, 갑자기 LoadBalancers 조정기를 프로 비전 할 수 없거나, Pvc를 탑재 하지 못했습니다.
 
 서비스 사용자가 만료 되지 않았는지 확인 합니다.  [AKS 서비스 주체](./kubernetes-service-principal.md) 및 [AKS 업데이트 자격 증명](./update-credentials.md)을 참조 하세요.
 
@@ -254,6 +254,25 @@ root@k8s-agentpool1-20465682-1:/#
 - 브리지 모드의 코너 사례 중 하나는 사용자 지정 DNS 서버 목록에서 사용자가 VNET 또는 NIC에 추가 하는 Azure CNI 업데이트를 유지할 수 없다는 것입니다. 이로 인해 CNI는 DNS 서버 목록의 첫 번째 인스턴스만 선택 합니다. Eth0 속성을 변경 하지 않는 경우 투명 모드에서 CNI로 해결 되었습니다. 자세한 내용은 [여기](https://github.com/Azure/azure-container-networking/issues/713)를 참조 하세요.
 - ARP 시간 제한이 초과 되 면 udp 트래픽 및 UDP의 장애 완화를 위한 향상 된 처리 기능을 제공 합니다. 브리지 모드에서는 브리지가 VM Pod 간 통신에서 대상 pod의 MAC 주소를 인식 하지 못하는 경우에는 기본적으로 모든 포트에 대 한 패킷의 폭풍이 발생 합니다. 경로에 L2 장치가 없으므로 투명 모드로 해결 됩니다. 자세한 내용은 [여기](https://github.com/Azure/azure-container-networking/issues/704)를 참조 하세요.
 - 투명 모드는 브리지 모드와 비교할 때 처리량 및 대기 시간 측면에서 VM Pod 간 통신에 더 잘 수행 됩니다.
+
+## <a name="how-to-avoid-permission-ownership-setting-slow-issues-when-the-volume-has-a-lot-of-files"></a>볼륨에 많은 파일이 있는 경우 권한 소유권을 방지 하는 방법에 문제가 발생 하는 경우
+
+일반적으로 pod가 루트가 아닌 사용자 (필요한 경우)로 실행 되는 경우 pod의 보안 컨텍스트 내에서를 지정 하 여 `fsGroup` pod에서 볼륨을 읽고 쓸 수 있도록 해야 합니다. 이 요구 사항은 [여기](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)에 자세히 설명 되어 있습니다.
+
+그러나 설정이 적용 되는 한 가지 부작용 `fsGroup` 은 볼륨이 탑재 될 때마다 Kubernetes가 재귀적으로 사용 되어야 하 `chown()` 고 `chmod()` 볼륨 내의 모든 파일 및 디렉터리에 대해 아래와 같은 몇 가지 예외를 표시 한다는 것입니다. 이는 볼륨의 그룹 소유권이 이미 요청 된와 일치 하는 경우에도 발생 `fsGroup` 하며, 많은 작은 파일이 포함 된 큰 볼륨의 경우에는 pod 시작에 오랜 시간이 소요 될 수 있습니다. 이 시나리오는 v 1.20 이전에 알려진 문제 이며, 해결 방법은 Pod 실행 루트를 설정 하는 것입니다.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-demo
+spec:
+  securityContext:
+    runAsUser: 0
+    fsGroup: 0
+```
+
+Kubernetes v 1.20에서 문제를 해결 했습니다. 자세한 내용은 [Kubernetes 1.20: 볼륨 권한 변경의 세부적인 제어](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) 를 참조 하세요.
 
 
 <!-- LINKS - internal -->

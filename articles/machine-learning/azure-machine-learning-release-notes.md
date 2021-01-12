@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 0ecf47ecdc66c0005f0d793d91a67af102fb1c76
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107908"
+ms.locfileid: "98127620"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -27,8 +27,6 @@ ms.locfileid: "98107908"
 + **버그 수정 및 향상 된 기능**
   + **azure-cli-ml**
     + OptimizationConfig에 framework_version 추가 됩니다. 모델을 프레임 워크 다중에 등록할 때 사용 됩니다.
-  + **azureml-automl-runtime**
-    + 이 업데이트에서는 AutoML SDK의 도구 상자를 예측 하기 위해 holt cda (winters 지 수 다듬기를 추가 했습니다. 시계열에 따라 가장 적합 한 모델이 [AICc (수정 된 Akaike의 정보 기준)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) 에 의해 선택 되 고 반환 됩니다.
   + **azureml-서 리브-최적화**
     + OptimizationConfig에 framework_version 추가 됩니다. 모델을 프레임 워크 다중에 등록할 때 사용 됩니다.
   + **azureml-pipeline-steps**

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22ee57592af838a236d75fa7f56a0c8e1ed89403
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f776482c684004c8d661f69d8158ba9597c923b2
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046546"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127039"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Azure Time Series Insights와 Azure Digital Twins 통합
 
@@ -84,13 +84,13 @@ Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to
 
 이동 하기 전에이 문서의 뒷부분에서 다른 이벤트 허브를 만들 때 사용 하는 것 처럼 *Event Hubs 네임 스페이스* 및 *리소스 그룹* 을 기록해 둡니다.
 
-## <a name="create-an-azure-function"></a>Azure Function 만들기 
+## <a name="create-a-function-in-azure"></a>Azure에서 함수 만들기
 
-다음으로 함수 앱 내에서 Event Hubs 트리거 함수를 만듭니다. 종단 간 자습서에서 만든 함수 앱 ([*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)) 또는 자체를 사용할 수 있습니다. 
+다음으로 Azure Functions를 사용 하 여 함수 앱 내에 Event Hubs 트리거 함수를 만듭니다. 종단 간 자습서에서 만든 함수 앱 ([*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)) 또는 자체를 사용할 수 있습니다. 
 
 이 함수는 이러한 쌍 업데이트 이벤트를 원래 폼에서 json 패치 문서로 변환 하 여 업데이트 되 고 쌍의 추가 된 값만 포함 하는 JSON 개체로 변환 합니다.
 
-Azure 함수에서 Event Hubs를 사용 하는 방법에 대 한 자세한 내용은 [*Azure Functions에 대 한 azure Event Hubs 트리거*](../azure-functions/functions-bindings-event-hubs-trigger.md)를 참조 하세요.
+Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세한 내용은 [*Azure Functions에 대 한 Azure Event Hubs 트리거*](../azure-functions/functions-bindings-event-hubs-trigger.md)를 참조 하세요.
 
 게시 된 함수 앱 내에서 함수 코드를 다음 코드로 바꿉니다.
 

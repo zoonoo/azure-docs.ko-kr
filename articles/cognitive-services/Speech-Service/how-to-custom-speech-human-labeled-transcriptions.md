@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 4516bbddd3fda593021288a440e1b354d4d7f1e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340240"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126889"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 작성 방법
 
 단어를 삭제 하거나 잘못 대체 했을 때 발생 하는 문제, 특히 인식 정확도를 향상 시키려는 경우 오디오 데이터와 함께 사람이 레이블 지정 된 기능을 사용 하는 것이 좋습니다. 사람이 누구 인가요? 이는 간단 하 고 오디오 파일의 단어 단위로 단어 단위로 말합니다.
 
-인식 기능을 향상 시키기 위해 많은 기록 데이터 샘플이 필요 하며, 10 ~ 1000 시간의 기록 데이터를 제공 하는 것이 좋습니다. 이 페이지에서는 고품질의 고급 기능을 만들 수 있도록 설계 된 지침을 검토 합니다. 이 가이드는 미국 영어, 중국어 (북경어) 및 독일어 섹션을 사용 하 여 로캘로 구분 됩니다.
+인식 기능을 향상 시키기 위해 많은 기록 데이터 샘플이 필요 하며, 10 ~ 20 시간 간의 기록 데이터를 제공 하는 것이 좋습니다. 이 페이지에서는 고품질의 고급 기능을 만들 수 있도록 설계 된 지침을 검토 합니다. 이 가이드는 미국 영어, 중국어 (북경어) 및 독일어 섹션을 사용 하 여 로캘로 구분 됩니다.
+
+> [!NOTE]
+> 모든 기본 모델이 오디오 파일의 사용자 지정을 지원 하지는 않습니다. 기본 모델이 지원 하지 않는 경우 학습은 관련 텍스트가 사용 되는 것과 동일한 방식으로 문자열을 사용 합니다.
 
 ## <a name="us-english-en-us"></a>미국 영어(en-US)
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c231ac95841043e5576f064e683dd86d9695b108
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: d6e52da7fce39a259107fe60a21fb5ead7b18709
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353190"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127824"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안 된 SharePoint 데이터 원본 추가
 
@@ -20,7 +20,7 @@ ms.locfileid: "96353190"
 
 QnA Maker 기술 자료 관리자가 Active Directory 관리자가 아닌 경우에는 Active Directory manager와 통신 하 여이 프로세스를 완료 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 클라우드 기반 SharePoint QnA Maker는 사용 권한에 대해 Microsoft Graph를 사용 합니다. SharePoint가 온-프레미스에 있는 경우 Microsoft Graph에서 권한을 확인할 수 없기 때문에 SharePoint에서 추출할 수 없습니다.
 * URL 형식-QnA Maker 공유를 위해 생성 되 고 형식이 인 SharePoint url만 지원 합니다. `https://\*.sharepoint.com`
@@ -127,12 +127,16 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 
 
+
+## <a name="add-sharepoint-data-source-with-apis"></a>Api를 사용 하 여 SharePoint 데이터 원본 추가
+
+Azure blob storage를 사용 하 여 API를 통해 최신 SharePoint 콘텐츠를 추가 하는 방법은 다음과 같습니다. 
+1.  SharePoint 파일을 로컬로 다운로드 합니다. API를 호출 하는 사용자에 게는 SharePoint에 대 한 액세스 권한이 있어야 합니다. 
+1.  Azure blob stoarge에 업로드 합니다. 이렇게 하면 [SAS 토큰을 사용 하](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works) 여 보안 공유 액세스를 만듭니다. 
+1. SAS 토큰을 사용 하 여 생성 된 blob URL을 QnA Maker API 전달 합니다. 질문에 대 한 대답을 파일에서 추출 하려면 URL의 끝에 접미사 파일 형식을 ' &ext = pdf ' 또는 ' &ext = doc '로 추가 하 여 QnA Maker API 전달 해야>  
+
+
 <!--
-
-## Add SharePoint data source with APIs
-
-You need to get the SharePoint file's URI before adding it to QnA Maker.
-
 ## Get SharePoint File URI
 
 Use the following steps to transform the SharePoint URL into a sharing token.

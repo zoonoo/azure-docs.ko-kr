@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 34d8881eb072c4c723bf68b7c6ccfd24ab19cd3c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116282"
+ms.locfileid: "98126855"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -71,7 +71,7 @@ Defender for Endpoint를 Security Center와 통합 하 여 다음과 같은 추�
 
 Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에는 Microsoft Defender for Endpoint 테 넌 트가 자동으로 만들어집니다. Defender에서 끝점에 의해 수집 된 데이터는 프로 비전 중에 식별 된 테 넌 트의 지리적 위치에 저장 됩니다. 고객 데이터-pseudonymized 양식-미국의 중앙 저장소 및 처리 시스템에 저장 될 수도 있습니다. 
 
-위치를 구성한 후에는 변경할 수 없습니다. 데이터를 다른 위치로 이동 해야 하는 경우 Microsoft 지원에 문의 하 여 테 넌 트를 다시 설정 합니다.
+위치를 구성한 후에는 변경할 수 없습니다. 끝점에 대 한 Microsoft Defender 라이선스가 있고 데이터를 다른 위치로 이동 해야 하는 경우 Microsoft 지원에 문의 하 여 테 넌 트를 다시 설정 합니다.
 
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Microsoft Defender에서 끝점 통합 사용

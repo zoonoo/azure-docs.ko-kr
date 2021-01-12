@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/29/2020
-ms.openlocfilehash: 816cdddc1f3d0a9bc9ebc3f277bc223a688cba31
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b3d1ad2d327da60874d2d07ba697b8f5ab815189
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98067369"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127093"
 ---
 # <a name="azure-monitor-troubleshooting-logs-preview"></a>로그 문제 해결 Azure Monitor (미리 보기)
 Azure Monitor를 사용 하 여 신속 하 고/또는 정기적으로 문제를 조사 하거나, 코드 또는 구성 문제를 해결 하거나, 특정 정보에 대해 많은 양의 데이터를 검색 하는 데 사용 되는 지원 사례를 해결 하세요.
@@ -48,7 +48,7 @@ Response:
         },
         "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}",
         "name": "{tableName}"
-      }
+}
 ```
 ## <a name="check-if-the-troubleshooting-logs-feature-is-enabled-for-a-given-table"></a>지정 된 테이블에 대 한 문제 해결 로그 기능이 사용 하도록 설정 되었는지 확인 합니다.
 지정 된 테이블에 대 한 문제 해결 로그를 사용할 수 있는지 확인 하려면 다음 API 호출을 사용할 수 있습니다.
@@ -65,6 +65,7 @@ Response:
         },
         "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.operationalinsights/workspaces/{workspaceName}/tables/{tableName}",
         "name": " {tableName}"
+                }
 
 ```
 ## <a name="check-if-the-troubleshooting-logs-feature-is-enabled-for-all-of-the-tables-in-a-workspace"></a>작업 영역의 모든 테이블에 대 한 문제 해결 로그 기능이 활성화 되어 있는지 확인 합니다.
@@ -83,7 +84,7 @@ Response:
           },
           "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.operationalinsights/workspaces/{workspaceName}/tables/table1",
           "name": "table1"
-        },
+ },
         {
           "properties": {
             "retentionInDays": 7,
@@ -119,7 +120,7 @@ Response:
         },
         "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}",
         "name": "{tableName}"
-      }
+}
 ```
 >[!TIP]
 >* 모든 REST API 도구를 사용 하 여 명령을 실행할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/rest/api/azure/)

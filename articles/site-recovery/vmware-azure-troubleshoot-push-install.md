@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62c8240a4d2e50aa3b584f322baf7d2ee217c6d3
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816186"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127875"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>모바일 서비스 푸시 설치 문제 해결
 
@@ -50,8 +50,8 @@ Windows의 경우 (**오류 95107**) 사용자 계정에 로컬 계정이 나 �
 
 Linux (**오류 95108**)의 경우 모바일 서비스 에이전트를 성공적으로 설치 하려면 **루트** 계정을 선택 해야 합니다. 또한, SSH 파일 전송 프로토콜 (SFTP) 서비스가 실행 중 이어야 합니다. _Sshd_config_ 파일에서 SFTP 하위 시스템 및 암호 인증을 사용 하려면 다음을 수행 합니다.
 
-1. **루트로**로그인 합니다.
-1. _/Etc/ssh/sshd_config 파일_로 이동 하 여로 시작 하는 줄을 찾습니다 `PasswordAuthentication` .
+1. **루트로** 로그인 합니다.
+1. _/Etc/ssh/sshd_config 파일_ 로 이동 하 여로 시작 하는 줄을 찾습니다 `PasswordAuthentication` .
 1. 줄의 주석 처리를 제거 하 고 값을로 변경 `yes` 합니다.
 1. 로 시작 하는 줄을 찾은 `Subsystem` 다음 줄의 주석 처리를 제거 합니다.
 1. `sshd` 서비스를 다시 시작합니다.
@@ -106,7 +106,22 @@ Linux (**오류 95108**)의 경우 모바일 서비스 에이전트를 성공적
 
 오류를 해결하려면:
 
+* 사용자 계정에 원본 컴퓨터에 대 한 관리자 액세스 권한이 있는지 확인 하 고 로컬 계정 또는 도메인 계정을 사용 합니다. 도메인 계정을 사용 하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용 하지 않도록 설정 해야 합니다.
+  * 원격 사용자 액세스 제어를 사용 하지 않도록 설정 하는 레지스트리 키를 수동으로 추가 하려면:
+    * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+    * 새를 추가 합니다 `DWORD` . `LocalAccountTokenFilterPolicy`
+    * 값을로 설정 합니다. `1`
+  * 레지스트리 키를 추가 하려면 명령 프롬프트에서 다음 명령을 실행 합니다.
+
+    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+
 * 구성 서버에서 원본 컴퓨터를 ping 할 수 있는지 확인 합니다. 복제를 사용 하도록 설정 하는 동안 스케일 아웃 프로세스 서버를 선택한 경우 프로세스 서버에서 원본 컴퓨터를 ping 할 수 있는지 확인 합니다.
+
+* 가상 머신에서 파일 및 프린터 공유 서비스를 사용할 수 있는지 확인 하세요. [여기](vmware-azure-troubleshoot-push-install.md#file-and-printer-sharing-services-check-errorid-95105--95106)에서 단계를 확인 하세요.
+
+* 가상 머신에서 WMI 서비스를 사용 하도록 설정 했는지 확인 하세요. [여기](vmware-azure-troubleshoot-push-install.md#windows-management-instrumentation-wmi-configuration-check-error-code-95103)에서 단계를 확인 하세요.
+
+* 프로세스 서버에서 가상 컴퓨터의 네트워크 공유 폴더에 액세스할 수 있는지 확인 합니다. [여기](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523)에서 단계를 확인 하세요.
 
 * 다음 명령에 표시 된 것 처럼 원본 서버 컴퓨터 명령줄에서를 사용 `Telnet` 하 여 HTTPS 포트 135에서 구성 서버 또는 스케일 아웃 프로세스 서버를 ping 합니다. 이 명령은 네트워크 연결 문제나 방화벽 포트 차단 문제가 있는지 확인 합니다.
 
@@ -117,7 +132,7 @@ Linux (**오류 95108**)의 경우 모바일 서비스 에이전트를 성공적
   * SSH(Secure Shell)를 사용할 수 있고 22 포트에서 실행 중인지 확인합니다.
   * SFTP 서비스가 실행되어야 합니다. _Sshd_config_ 파일에서 SFTP 하위 시스템 및 암호 인증을 사용 하려면 다음을 수행 합니다.
 
-    1. **루트로**로그인 합니다.
+    1. **루트로** 로그인 합니다.
     1. _/Etc/ssh/sshd_config_ 파일로 이동 하 여로 시작 하는 줄을 찾습니다 `PasswordAuthentication` .
     1. 줄의 주석 처리를 제거 하 고 값을로 변경 `yes` 합니다.
     1. 로 시작 하는 줄을 찾은 `Subsystem` 다음 줄의 주석 처리를 제거 합니다.
@@ -156,21 +171,21 @@ Linux (**오류 95108**)의 경우 모바일 서비스 에이전트를 성공적
 
 연결 확인 후 가상 머신에서 파일 및 프린터 공유 서비스를 사용할 수 있는지 확인 합니다. 이러한 설정은 모바일 에이전트를 원본 컴퓨터에 복사 하는 데 필요 합니다.
 
-**Windows 2008 R2 및 이전 버전**의 경우:
+**Windows 2008 R2 및 이전 버전** 의 경우:
 
 * Windows 방화벽을 통해 파일 및 인쇄 공유가 가능하도록 설정하려면,
-  1. **제어판**  >  **시스템 및 보안**  >  **Windows 방화벽**을 엽니다. 왼쪽 창에서 콘솔 트리의 **고급 설정**  >  **인바운드 규칙** 을 선택 합니다.
+  1. **제어판**  >  **시스템 및 보안**  >  **Windows 방화벽** 을 엽니다. 왼쪽 창에서 콘솔 트리의 **고급 설정**  >  **인바운드 규칙** 을 선택 합니다.
   1. 파일 및 프린터 공유(NB-Session-In) 및 파일 및 프린터 공유(SMB-In) 규칙을 찾습니다.
-  1. 각 규칙을 마우스 오른쪽 단추로 클릭한 다음, **규칙 사용**을 클릭합니다.
+  1. 각 규칙을 마우스 오른쪽 단추로 클릭한 다음, **규칙 사용** 을 클릭합니다.
 
 * 그룹 정책에서 파일 공유를 사용 하도록 설정 하려면:
-  1. **시작**으로 이동 하 여를 입력 `gpmc.msc` 하 고 검색 합니다.
-  1. 탐색 창에서 **로컬 컴퓨터 정책**  >  **사용자 구성**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **네트워크 공유**에서 다음 폴더를 엽니다.
-  1. 세부 정보 창에서 **사용자 프로필 내의 파일 공유 안 함**을 두 번 클릭합니다.
+  1. **시작** 으로 이동 하 여를 입력 `gpmc.msc` 하 고 검색 합니다.
+  1. 탐색 창에서 **로컬 컴퓨터 정책**  >  **사용자 구성**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **네트워크 공유** 에서 다음 폴더를 엽니다.
+  1. 세부 정보 창에서 **사용자 프로필 내의 파일 공유 안 함** 을 두 번 클릭합니다.
 
-     그룹 정책 설정을 사용 하지 않도록 설정 하 고 사용자의 파일 공유 기능을 사용 하도록 설정 하려면 **사용 안 함**을 선택 합니다.
+     그룹 정책 설정을 사용 하지 않도록 설정 하 고 사용자의 파일 공유 기능을 사용 하도록 설정 하려면 **사용 안 함** 을 선택 합니다.
 
-  1. **확인**을 선택하여 변경 내용을 저장합니다.
+  1. **확인** 을 선택하여 변경 내용을 저장합니다.
 
   자세히 알아보려면 [그룹 정책에서 파일 공유 사용 또는 사용 안 함](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))을 참조 하세요.
 
@@ -182,7 +197,7 @@ Linux (**오류 95108**)의 경우 모바일 서비스 에이전트를 성공적
 
 WMI를 사용 하도록 설정 하려면
 
-1. **제어판**보안으로 이동 하 여  >  **Security** **Windows 방화벽**을 선택 합니다.
+1. **제어판** 보안으로 이동 하 여  >   **Windows 방화벽** 을 선택 합니다.
 1. **설정 변경** 을 선택한 다음 **예외** 탭을 선택 합니다.
 1. **예외** 창에서 wmi (WMI(Windows Management Instrumentation)) 확인란을 선택 하 여 방화벽을 통해 wmi 트래픽을 사용 하도록 설정 합니다.
 
@@ -224,15 +239,15 @@ Azure Site Recovery에서 지 원하는 운영 체제 및 커널 버전의 목�
 
 ### <a name="possible-cause"></a>가능한 원인
 
-_/Boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_또는 _/etc/default/grub_(전체 통합 부팅 로더) 구성 파일에는 **ROOT** 매개 변수 값이 포함 될 수 있으며 UUID (범용 고유 식별자) 대신 실제 장치 이름으로 **다시 시작** 됩니다. VM을 다시 부팅 하는 동안 장치 이름이 변경 될 수 있으므로 UUID 접근 방식을 Site Recovery 합니다. 예를 들어 장애 조치 (failover) 시 VM이 동일한 이름으로 온라인 상태가 되지 않을 수 있으며이로 인해 문제가 발생 합니다.
+_/Boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_ 또는 _/etc/default/grub_(전체 통합 부팅 로더) 구성 파일에는 **ROOT** 매개 변수 값이 포함 될 수 있으며 UUID (범용 고유 식별자) 대신 실제 장치 이름으로 **다시 시작** 됩니다. VM을 다시 부팅 하는 동안 장치 이름이 변경 될 수 있으므로 UUID 접근 방식을 Site Recovery 합니다. 예를 들어 장애 조치 (failover) 시 VM이 동일한 이름으로 온라인 상태가 되지 않을 수 있으며이로 인해 문제가 발생 합니다.
 
 예를 들면 다음과 같습니다.
 
-- 다음 줄은 GRUB 파일 _/boot/grub2/grub.cfg_에서 가져온 것입니다.
+- 다음 줄은 GRUB 파일 _/boot/grub2/grub.cfg_ 에서 가져온 것입니다.
 
   `linux /boot/vmlinuz-3.12.49-11-default root=/dev/sda2  ${extra_cmdline} resume=/dev/sda1 splash=silent quiet showopts`
 
-- 다음 줄은 GRUB 파일 _/boot/grub/menu.lst_에서 가져온 것입니다.
+- 다음 줄은 GRUB 파일 _/boot/grub/menu.lst_ 에서 가져온 것입니다.
 
   `kernel /boot/vmlinuz-3.0.101-63-default root=/dev/sda2 resume=/dev/sda1 splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
@@ -254,7 +269,7 @@ _/Boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_또는 _/etc
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. 이제와 같은 형식의 UUID로 장치 이름을 바꿉니다 `root=UUID=\<UUID>` . 예를 들어 _/boot/grub2/grub.cfg_, _/boot/grub2/grub.cfg_또는 _/etc/default/grub_ 파일에 언급 된 root 및 RESUME 매개 변수에 대해 장치 이름을 UUID로 바꾸면 파일의 줄이 다음 줄 처럼 보입니다.
+1. 이제와 같은 형식의 UUID로 장치 이름을 바꿉니다 `root=UUID=\<UUID>` . 예를 들어 _/boot/grub2/grub.cfg_, _/boot/grub2/grub.cfg_ 또는 _/etc/default/grub_ 파일에 언급 된 root 및 RESUME 매개 변수에 대해 장치 이름을 UUID로 바꾸면 파일의 줄이 다음 줄 처럼 보입니다.
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
@@ -265,7 +280,7 @@ _/Boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_또는 _/etc
 Site Recovery 모바일 서비스에는 많은 구성 요소가 있으며, 이러한 구성 요소 중 하나를 필터 드라이버 라고 합니다. 필터 드라이버는 시스템을 다시 부팅 하는 동안 시스템 메모리에 로드 됩니다. 필터 드라이버 픽스는 시스템을 다시 부팅할 때 새 필터 드라이버가 로드 된 경우에만 인식 될 수 있습니다.
 
 > [!IMPORTANT]
-> 이는 경고 이며 기존 복제는 새 에이전트 업데이트 후에도 작동 합니다. 새 필터 드라이버의 이점을 얻기 위해 언제 든 지 다시 부팅 하도록 선택할 수 있지만, 다시 부팅 하지 않으면 이전 필터 드라이버는 계속 작동 합니다. 따라서 다시 부팅 하지 않고 업데이트 한 후에는 필터 드라이버를 제외 하 **고 모바일 서비스의 다른 향상 된 기능 및 수정 사항이 실현**됩니다. 권장 사항 이지만 업그레이드 후에는 다시 부팅 하지 않아도 됩니다. 다시 부팅 해야 하는 경우에 대 한 자세한 내용은 Azure Site Recovery의 서비스 업데이트에서 [모바일 서비스 업그레이드 후 다시 부팅](service-updates-how-to.md#reboot-after-mobility-service-upgrade) 섹션을 설정 합니다.
+> 이는 경고 이며 기존 복제는 새 에이전트 업데이트 후에도 작동 합니다. 새 필터 드라이버의 이점을 얻기 위해 언제 든 지 다시 부팅 하도록 선택할 수 있지만, 다시 부팅 하지 않으면 이전 필터 드라이버는 계속 작동 합니다. 따라서 다시 부팅 하지 않고 업데이트 한 후에는 필터 드라이버를 제외 하 **고 모바일 서비스의 다른 향상 된 기능 및 수정 사항이 실현** 됩니다. 권장 사항 이지만 업그레이드 후에는 다시 부팅 하지 않아도 됩니다. 다시 부팅 해야 하는 경우에 대 한 자세한 내용은 Azure Site Recovery의 서비스 업데이트에서 [모바일 서비스 업그레이드 후 다시 부팅](service-updates-how-to.md#reboot-after-mobility-service-upgrade) 섹션을 설정 합니다.
 
 > [!TIP]
 >유지 관리 기간 동안 업그레이드를 예약 하는 방법에 대 한 모범 사례는 Azure Site Recovery의 서비스 업데이트에서 [최신 운영 체제/커널 지원](service-updates-how-to.md#support-for-latest-operating-systemskernels) 을 참조 하세요.
@@ -286,7 +301,7 @@ Site Recovery 모바일 서비스에는 많은 구성 요소가 있으며, 이�
 
 ## <a name="vss-installation-failures"></a>VSS 설치 오류
 
-VSS (볼륨 섀도 복사본 서비스) 설치는 모바일 에이전트 설치의 일부입니다. 이 서비스는 응용 프로그램 일치 복구 지점이 생성 되는 프로세스에서 사용 됩니다. VSS 설치 중 오류는 여러 이유로 인해 발생할 수 있습니다. 정확한 오류를 식별 하려면 _C:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log_를 참조 하세요. 다음 섹션에서는 일반적인 오류 및 해결 단계 중 일부를 강조 표시 합니다.
+VSS (볼륨 섀도 복사본 서비스) 설치는 모바일 에이전트 설치의 일부입니다. 이 서비스는 응용 프로그램 일치 복구 지점이 생성 되는 프로세스에서 사용 됩니다. VSS 설치 중 오류는 여러 이유로 인해 발생할 수 있습니다. 정확한 오류를 식별 하려면 _C:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log_ 를 참조 하세요. 다음 섹션에서는 일반적인 오류 및 해결 단계 중 일부를 강조 표시 합니다.
 
 ### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>VSS 오류 -2147023170 [0x800706BE] - 종료 코드 511
 
@@ -333,7 +348,7 @@ VSS (볼륨 섀도 복사본 서비스) 설치는 모바일 에이전트 설치�
 
 ### <a name="examine-the-installation-logs"></a>설치 로그를 검사 합니다.
 
-1. _C:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log_에 있는 설치 로그를 엽니다.
+1. _C:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log_ 에 있는 설치 로그를 엽니다.
 2. 다음 오류가 발생 하면이 문제를 나타냅니다.
 
     ```Output
@@ -359,7 +374,7 @@ DCOM 문제가 해결 되 면 명령 프롬프트에서 다음 명령을 사용 
 
 Azure Site Recovery VSS 공급자 설치를 우회 하 고 Azure Site Recovery VSS 공급자 사후 설치를 수동으로 설치 하려면 다음을 수행 합니다.
 
-1. 모바일 서비스를 설치합니다. 설치 **후 구성**단계에서 설치가 실패 합니다.
+1. 모바일 서비스를 설치합니다. 설치 **후 구성** 단계에서 설치가 실패 합니다.
 1. VSS 설치를 무시 하려면:
    1. 다음 위치에 있는 Azure Site Recovery Mobility Service 설치 디렉터리를 엽니다.
 
@@ -374,7 +389,7 @@ Azure Site Recovery VSS 공급자 설치를 우회 하 고 Azure Site Recovery V
       ```
 
 1. 모바일 에이전트를 수동으로 설치 합니다.
-1. 설치가 성공 하 고 다음 단계로 이동 하면 추가 된 줄을 **구성**하 고 제거 합니다.
+1. 설치가 성공 하 고 다음 단계로 이동 하면 추가 된 줄을 **구성** 하 고 제거 합니다.
 1. VSS 공급자를 설치 하려면 관리자 권한으로 명령 프롬프트를 열고 다음 명령을 실행 합니다.
 
    `"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`

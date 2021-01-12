@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 07562167131d1839bc0827c74fae09c683302c08
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6c1f323828eb48b61b38370bc2fe56d4c93bf036
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118611"
+ms.locfileid: "98127212"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -126,10 +126,10 @@ Authorization: Bearer <token>
 ## <a name="create-cluster"></a>클러스터 만들기
 
 > [!NOTE]
-> 클러스터는 사용자 시나리오에 따라 사용할 수 있는 두 가지 [관리 되는 id 유형인](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)시스템 할당 및 사용자 할당을 지원 합니다. 시스템 할당 관리 id는 id를로 설정 하는 경우 클러스터를 만드는 것 보다 간단 하 고 자동으로 생성 됩니다 `type` `SystemAssigned` .이 id는 나중에 Key Vault에 대 한 액세스 권한을 부여 하는 데 사용할 수 있습니다. 만들 때 고객 관리 키 구성을 포함 하는 클러스터를 만들어야 하는 경우에는 미리 정의 된 키 및 사용자 할당 id가 Key Vault에 미리 부여 된 다음 id `type` `UserAssigned` `UserAssignedIdentities` 의 리소스 id와 키 세부 정보를 사용 하 여 id가 인 클러스터를 만들어야 합니다 `keyVaultProperties` .
+> 클러스터는 두 가지 [관리 되는 id 유형](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)(시스템 할당 및 사용자 할당)을 지원 하며 각각 시나리오에 따라 달라질 수 있습니다. 시스템 할당 관리 id는 더 간단 하며, id `type` 가 "*systemassigned* 됨"으로 설정 된 경우 클러스터를 만들 때 자동으로 생성 됩니다 .이 id는 나중에 Key Vault에 대 한 클러스터 액세스 권한을 부여 하는 데 사용할 수 있습니다. 클러스터를 만들 때 고객 관리 키가 정의 된 상태에서 클러스터를 만들려면 미리 정의 된 키 및 사용자 할당 id가 Key Vault에 미리 부여 되어 있어야 하 고 `type` , id의 리소스 ID와 `UserAssignedIdentities` `keyVaultProperties` 키 세부 정보를 사용 하 여 id가 "userassigned 됨" 인 클러스터를 만들어야 합니다.
 
 > [!IMPORTANT]
-> 현재 Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id를 사용 하 여 고객 관리 키를 정의할 수 없습니다. 시스템 할당 관리 id에는이 제한이 적용 되지 않습니다.
+> 현재 Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id를 사용 하 여 고객 관리 키를 정의할 수 없으며,이 경우 시스템 할당 관리 id를 사용할 수 있습니다.
 
 [전용 클러스터 문서](../log-query/logs-dedicated-clusters.md#creating-a-cluster)에 설명 된 절차를 따릅니다. 
 
@@ -416,7 +416,7 @@ Customer-Managed 키는 전용 클러스터에서 제공 되며 이러한 작업
 
   - 사용자 할당 관리 id를 사용 하 여 클러스터를 설정 하는 경우를로 설정 하면 `UserAssignedIdentities` `None` 클러스터가 일시 중단 되 고 데이터에 대 한 액세스를 방지할 수 있지만 지원 요청을 열지 않으면 해지를 되돌리고 클러스터를 활성화할 수 없습니다. 이러한 제한은 시스템 할당 관리 id에 적용 되지 않습니다.
 
-  - 현재 Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id를 사용 하 여 고객 관리 키를 정의할 수 없습니다. 시스템 할당 관리 id에는이 제한이 적용 되지 않습니다.
+  - 현재 Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id를 사용 하 여 고객 관리 키를 정의할 수 없으며,이 경우 시스템 할당 관리 id를 사용할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

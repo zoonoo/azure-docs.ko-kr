@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 컴퓨터 백업 솔루션을 사�
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 95104f231e7b4d4d2135ac3c5dde27512d465775
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1f4d27563cf292632c6b14c82e36542b86c5d356
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746989"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127722"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원
 
@@ -46,7 +46,7 @@ az account set -s {subscriptionID}
 
 ### <a name="configure-backup-with-azure-cli"></a>Azure CLI를 사용 하 여 백업 구성
 
-보호 구성 작업 중에 포함 제외 매개 변수 **를 사용** 하 여 디스크 목록 설정을 지정 하 여  /  **exclusion** 백업에 포함 하거나 제외할 디스크의 LUN 번호를 제공 해야 합니다.
+보호 구성 작업 중에 포함 제외 매개 변수 **를 사용** 하 여 디스크 목록 설정을 지정 하 여  /   백업에 포함 하거나 제외할 디스크의 LUN 번호를 제공 해야 합니다.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -189,14 +189,25 @@ az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-
 
 Azure PowerShell 버전 3.7.0 이상을 사용 하 고 있는지 확인 합니다.
 
+보호 구성 작업 중에 포함/제외 매개 변수를 사용 하 여 디스크 목록 설정을 지정 하 여 백업에 포함 하거나 제외할 디스크의 LUN 번호를 제공 해야 합니다.
+
 ### <a name="enable-backup-with-powershell"></a>PowerShell을 사용 하 여 백업 사용
 
+예를 들면 다음과 같습니다.
+
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList[Strings] -VaultId $targetVault.ID
+$disks = ("0","1")
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Get-AzRecoveryServicesBackupProtectionPolicy
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList[Strings] -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList $disks -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList $disks -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-configure-backup-with-powershell"></a>PowerShell을 사용 하 여 백업을 구성 하는 동안 OS 디스크만 백업
