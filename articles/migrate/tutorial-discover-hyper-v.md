@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7b4a1b2e1d737dad0054cbdf08443436ac2c181
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 90532a88e145507b09de9d36f704bc5c88899e95
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705560"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861908"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>자습서: 서버 평가를 사용하여 Hyper-V VM 검색
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **요구 사항** | **세부 정보**
 --- | ---
 **Hyper-V 호스트** | VM이 있는 Hyper-V 호스트는 독립 실행형이거나 클러스터에 있을 수 있습니다.<br/><br/> 호스트에서 Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2가 실행되고 있어야 합니다.<br/><br/> 어플라이언스가 CIM(Common Information Model) 세션을 사용하여 VM 메타데이터 및 성능 데이터를 가져오기 위해 연결할 수 있도록 WinRM 포트 5985(HTTP)에서 인바운드 연결을 허용하는지 확인합니다.
-**어플라이언스 배포** | Hyper-v에는 어플라이언스에 VM을 할당하는 리소스가 필요합니다.<br/><br/> - Windows Server 2016<br/><br/> \- RAM 16GB<br/><br/> - 8개의 vCPU<br/><br/> - 약 80GB의 디스크 스토리지.<br/><br/> - 외부 가상 스위치.<br/><br/> - 직접 또는 프록시를 통해 VM에 대한 인터넷 액세스.
+**어플라이언스 배포** | Hyper-V 호스트에는 어플라이언스에 VM을 할당하는 리소스가 필요합니다.<br/><br/> - Windows Server 2016<br/><br/> \- RAM 16GB<br/><br/> - 8개의 vCPU<br/><br/> - 약 80GB의 디스크 스토리지.<br/><br/> - 외부 가상 스위치.<br/><br/> - 직접 또는 프록시를 통해 VM에 대한 인터넷 액세스.
 **VM** | VM은 모든 Windows 또는 Linux 운영 체제를 실행할 수 있습니다. 
 
 시작하기 전에 어플라이언스가 검색 중에 수집하는 [데이터를 검토](migrate-appliance.md#collected-data---hyper-v)할 수 있습니다.

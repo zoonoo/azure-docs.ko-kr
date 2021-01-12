@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: cf638e1de116532136b9e78df1933048c8305b7b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 907bf06c009738eb098532ac5ff53e13dbd16826
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005466"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98047716"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[\[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32133ab0-ee4b-4b44-98d6-042180979d50) |VM 이미지(OS)가 정의된 목록에 없고 에이전트가 설치되어 있지 않은 경우 VM을 비준수로 보고합니다. OS 이미지 목록은 향후 지원이 업데이트되면 업데이트됩니다. |auditIfNotExists |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogAnalytics_OSImage_Audit.json) |
 |[활동 로그는 1년 이상 보존되어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb02aacc0-b073-424e-8298-42b22829ee0a) |이 정책은 보존이 365일 또는 계속(보존 기간이 0으로 설정)으로 설정되지 않은 경우 활동 로그를 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLogRetention_365orGreater.json) |
@@ -65,3 +65,4 @@ ms.locfileid: "96005466"
 |[활동 로그가 있는 컨테이너를 포함하는 스토리지 계정은 BYOK로 암호화해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |이 정책은 활동 로그가 있는 컨테이너를 포함하는 스토리지 계정이 BYOK로 암호화되었는지 감사합니다. 이 정책은 스토리지 계정이 기본적으로 활동 로그와 같은 구독에 있는 경우에만 작동합니다. Azure Storage 저장 데이터 암호화에 대한 자세한 내용은 [https://aka.ms/azurestoragebyok](https://aka.ms/azurestoragebyok)를 참조하세요.  |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 |[Virtual Machine Scale Sets에 Log Analytics 에이전트를 설치해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fefbde977-ba53-4479-b8e9-10b957924fbf) |이 정책은 모든 Windows/Linux Virtual Machine Scale Sets를 감사하여 Log Analytics 에이전트가 설치되어 있지 않은지 확인합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VMSS_LogAnalyticsAgent_AuditIfNotExists.json) |
 |[가상 머신에 Log Analytics 에이전트를 설치해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa70ca396-0a34-413a-88e1-b956c1e683be) |이 정책은 모든 Windows/Linux 가상 머신을 감사하여 Log Analytics 에이전트가 설치되어 있지 않은지 확인합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VirtualMachines_LogAnalyticsAgent_AuditIfNotExists.json) |
+|[통합 문서는 사용자가 제어하는 스토리지 계정에 저장해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6fc8115b-2008-441f-8c61-9b722c1e537f) |BYOS(Bring Your Own Storage)를 사용하면 통합 문서는 사용자가 제어하는 스토리지 계정에 업로드됩니다. 즉, 미사용 데이터 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 제어할 수 있습니다. 그러나 해당 스토리지 계정과 관련된 비용은 사용자가 부담합니다. 자세한 내용은 [https://aka.ms/workbooksByos](https://aka.ms/workbooksByos)를 방문하세요. |거부, 감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Workbooks_BYOSEnabled_Audit.json) |

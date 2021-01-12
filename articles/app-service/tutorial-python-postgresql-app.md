@@ -3,7 +3,7 @@ title: '자습서: Postgres를 사용하는 Python Django 앱 배포'
 description: PostgreSQL 데이터베이스를 사용하는 Python 웹앱을 만들어 Azure에 배포합니다. 이 자습서에서는 Django 프레임워크를 사용하고 Linux의 Azure App Service에서 앱을 호스팅합니다.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: b106b403022f3407a3838b7f65222baf41cbfff5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: ffde74a0567661d6b9f77e45a80bfd585e5c7212
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852968"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898592"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Django 웹앱 배포
 
@@ -236,14 +236,11 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
 1. SSH 세션에서 다음 명령을 실행합니다(**Ctrl**+**Shift**+**V** 를 사용하여 명령을 붙여넣을 수 있음).
 
     ```bash
-    # Change to the folder where the app code is deployed
-    cd site/wwwroot
+    # Change to the app folder
+    cd $APP_PATH
     
-    # Activate default virtual environment in App Service container
+    # Activate the venv (requirements.txt is installed automatically)
     source /antenv/bin/activate
-
-    # Install packages
-    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -251,6 +248,8 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
+
+    데이터베이스 연결과 관련된 오류가 발생하면 이전 섹션에서 만든 애플리케이션 설정 값을 확인합니다.
 
 1. `createsuperuser` 명령은 슈퍼 사용자 자격 증명을 요구하는 메시지를 표시합니다. 이 자습서에서는 기본 사용자 이름으로 `root`를 사용하고, **Enter** 키를 눌러 이메일 주소를 비워 두고, 암호로 `Pollsdb1`을 입력합니다.
 
@@ -260,13 +259,13 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
     
 ### <a name="44-create-a-poll-question-in-the-app"></a>4.4 앱에서 설문 조사 질문 만들기
 
-1. 브라우저에서 URL `http://<app-name>.azurewebsites.net`을 엽니다. 데이터베이스에 아직 특정 설문 조사가 없으므로 앱에서 "설문 조사를 사용할 수 없습니다."라는 메시지가 표시됩니다.
+1. 브라우저에서 URL `http://<app-name>.azurewebsites.net`을 엽니다. 데이터베이스에 아직 특정 설문 조사가 없으므로 앱에서 "설문 조사 앱" 및 "설문 조사를 사용할 수 없습니다."라는 메시지가 표시됩니다.
 
     "애플리케이션 오류"가 표시되면 이전 단계인 [데이터베이스를 연결하도록 환경 변수 구성](#42-configure-environment-variables-to-connect-the-database)에서 필요한 설정을 만들지 않았거나 해당 값에 오류가 포함되어 있을 수 있습니다. `az webapp config appsettings list` 명령을 실행하여 설정을 확인합니다. 또한 [진단 로그를 확인](#6-stream-diagnostic-logs)하여 앱을 시작하는 동안 특정 오류를 확인할 수 있습니다. 예를 들어 설정을 만들지 않은 경우 로그에 `KeyError: 'DBNAME'` 오류가 표시됩니다.
 
     오류를 수정하도록 설정이 업데이트되면 앱이 다시 시작할 때까지 1분 정도 기다린 다음, 브라우저를 새로 고칩니다.
 
-1. [https://www.microsoft.com]\(`http://<app-name>.azurewebsites.net/admin`) 로 이동합니다. 이전 섹션의 슈퍼 사용자 자격 증명(`root` 및 `Pollsdb1`)을 사용하여 로그인합니다. **설문 조사** 아래에서 **질문** 옆에 있는 **추가** 를 선택하고, 몇 가지 선택 항목이 있는 설문 조사 질문을 만듭니다.
+1. [https://www.microsoft.com]\(`http://<app-name>.azurewebsites.net/admin`) 로 이동합니다. 이전 섹션의 Django 슈퍼 사용자 자격 증명(`root` 및 `Pollsdb1`)을 사용하여 로그인합니다. **설문 조사** 아래에서 **질문** 옆에 있는 **추가** 를 선택하고, 몇 가지 선택 항목이 있는 설문 조사 질문을 만듭니다.
 
 1. `http://<app-name>.azurewebsites.net`으로 다시 이동하여 이제 질문이 사용자에게 표시되는지 확인합니다. 데이터베이스에 일부 데이터를 생성하려는 질문에 대답합니다.
 
@@ -292,7 +291,7 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
 python3 -m venv venv
 source venv/bin/activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -310,7 +309,7 @@ py -3 -m venv venv
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
 venv\scripts\activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -327,7 +326,7 @@ python manage.py runserver
 py -3 -m venv venv
 venv\scripts\activate
 
-:: Install packages
+:: Install dependencies
 pip install -r requirements.txt
 :: Run Django migrations
 python manage.py migrate
@@ -397,11 +396,8 @@ az webapp up
 `https://<app-name>.scm.azurewebsites.net/webssh/host`로 이동하여 브라우저에서 SSH 세션을 다시 엽니다. 그런 다음, 다음 명령을 실행합니다.
 
 ```
-cd site/wwwroot
-
-# Activate default virtual environment in App Service container
+cd $APP_PATH
 source /antenv/bin/activate
-# Run database migrations
 python manage.py migrate
 ```
 

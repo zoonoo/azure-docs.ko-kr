@@ -8,18 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce854c8f2d1d317c3660aaab9c0a6569aae0bb36
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169140"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895974"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>자습서: Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API 호출
 
-이 자습서에서는 Microsoft ID 플랫폼을 사용하고, Azure AD(Azure Active Directory)에 앱을 등록하여 사용자를 로그인하고, Microsoft Graph에서 데이터를 가져오는 Blazor WebAssembly 앱을 빌드합니다.
-
-[Blazor Server에 대한 자습서](tutorial-blazor-server.md)도 있습니다. 
+이 자습서에서는 Microsoft ID 플랫폼을 사용하고, Azure AD(Azure Active Directory)에 앱을 등록하여 사용자를 로그인하고, Microsoft Graph에서 데이터를 가져오는 Blazor WebAssembly 앱을 빌드합니다. 
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -27,6 +25,10 @@ ms.locfileid: "96169140"
 >
 > * Microsoft ID 플랫폼을 사용하여 [인증 및 권한 부여](authentication-vs-authorization.md)에 Azure AD(Azure Active Directory)를 사용하도록 구성된 새 Blazor WebAssembly 앱 만들기
 > * 보호된 웹 API(여기서는 [Microsoft Graph](/graph/overview))에서 데이터 검색
+
+이 자습서에서는 .NET Core 3.1을 사용합니다. .NET 문서에는 ASP.NET Core 5.0을 사용하여 [Blazor WebAssembly 앱을 보호하는 방법](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api)에 대한 지침이 포함되어 있습니다. 
+
+[Blazor Server에 대한 자습서](tutorial-blazor-server.md)도 있습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -74,9 +76,11 @@ dotnet run --framework netstandard2.1
 
 Microsoft ID 플랫폼을 사용하여 Azure AD에 로그인을 사용하도록 설정하는 이 템플릿의 구성 요소에 대한 내용은 [이 토픽의 ASP.NET 문서](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package)에 설명되어 있습니다.
 
-## <a name="retrieving-data-from-microsoft-graph"></a>Microsoft Graph에서 데이터 검색
+## <a name="retrieving-data-from-a-protected-api-microsoft-graph"></a>보호된 웹 API에서 데이터 검색(Microsoft Graph)
 
-[Microsoft Graph](/graph/overview)는 테넌트에 속한 사용자의 Microsoft 365 데이터에 액세스할 수 있는 다양한 API를 제공합니다. Microsoft Graph는 Microsoft ID 플랫폼에서 발급한 토큰을 직접 지원하므로, Microsoft ID 플랫폼을 앱에 대한 ID 공급자로 사용하면 이 정보에 손쉽게 액세스할 수 있습니다. 이 섹션에서 코드를 추가하면 로그인한 사용자의 이메일이 애플리케이션의 "데이터 페치" 페이지에 표시됩니다.
+[Microsoft Graph](/graph/overview)에는 사용자에게 Microsoft 365 데이터에 대한 액세스를 제공하는 API가 포함되어 있으며, Microsoft ID 플랫폼에서 발급된 토큰을 지원하여 예제로 사용하기에 좋은 보호된 API를 제공합니다. 이 섹션에서는 Microsoft Graph를 호출하고 애플리케이션의 "데이터 가져오기" 페이지에 사용자의 이메일을 표시하는 코드를 추가합니다.
+
+이 섹션은 명명된 클라이언트를 사용하여 보호된 API를 호출하는 일반적인 방법을 사용하여 작성되었습니다. 호출하려는 다른 보호된 API에도 동일한 메서드를 사용할 수 있습니다. 그러나 애플리케이션에서 Microsoft Graph를 호출하려는 경우에는 Graph SDK를 사용하여 상용구를 줄일 수 있습니다. .NET 문서에는 [Graph SDK를 사용하는 방법](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0)에 대한 지침이 포함되어 있습니다.
 
 시작하기 전에 필요한 권한을 변경하고 현재 토큰은 작동하지 않으므로 앱에서 로그아웃합니다. 아직 로그아웃하지 않은 경우 다음 코드를 업데이트하기 전에 앱을 다시 실행하고 **로그아웃** 을 선택합니다.
 

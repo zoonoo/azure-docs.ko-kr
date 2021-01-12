@@ -2,20 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: ec1bb2b21e1ac4d24f4643ae85a790b3bc2a147a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 07cd57849e2140d8e47467c07b8df2464ab1df0d
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001028"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98047601"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Azure Machine Learning 작업 영역은 CMK(고객 관리형 키)를 사용하여 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fba769a63-b8cc-4b2d-abf6-ac33c7204be8) |CMK(고객 관리형 키)를 사용하여 암호화를 사용하도록 설정되지 않은 Azure Machine Learning 작업 영역을 평가합니다. 고객 관리형 키는 작업 영역에 대한 추가 보안 계층을 추가합니다. 자세한 내용은 [https://aka.ms/azureml-workspaces-cmk](https://aka.ms/azureml-workspaces-cmk)를 방문하세요. |감사, 거부, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_CMKEnabled_Audit.json) |
-|[Azure Machine Learning 작업 영역은 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab) |하나 이상의 승인된 프라이빗 엔드포인트 연결이 없는 Azure Machine Learning 작업 영역을 평가합니다. 가상 네트워크의 클라이언트는 프라이빗 링크를 통해 프라이빗 엔드포인트 연결이 있는 리소스에 안전하게 액세스할 수 있습니다. 자세한 내용은 [https://aka.ms/azureml-workspaces-privatelink](https://aka.ms/azureml-workspaces-privatelink)를 방문하세요. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateLinkEnabled_Audit.json) |
+|[Azure Machine Learning 작업 영역은 CMK(고객 관리형 키)를 사용하여 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fba769a63-b8cc-4b2d-abf6-ac33c7204be8) |CMK(고객 관리형 키)를 사용하여 Azure Machine Learning 작업 영역 데이터의 미사용 데이터 암호화를 관리합니다. 기본적으로 고객 데이터는 서비스 관리형 키로 암호화되지만, CMK는 일반적으로 규정 준수 기준을 충족하는 데 필요합니다. CMK를 사용하면 사용자가 만들고 소유한 Azure Key Vault 키로 데이터를 암호화할 수 있습니다. 순환 및 관리를 포함하여 키의 수명 주기를 고객이 모두 제어하고 책임져야 합니다. [https://aka.ms/azureml-workspaces-cmk](https://aka.ms/azureml-workspaces-cmk)에서 CMK 암호화에 대해 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_CMKEnabled_Audit.json) |
+|[Azure Machine Learning 작업 영역은 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab) |Azure Private Link를 통해 원본 또는 대상의 공용 IP 주소가 없어도 Azure 서비스에 가상 네트워크를 연결할 수 있습니다. 프라이빗 링크 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 전체 서비스가 아닌 Azure Machine Learning 작업 영역에 프라이빗 엔드포인트를 매핑하면 데이터 유출 위험으로부터 보호받을 수 있습니다. [https://aka.ms/azureml-workspaces-privatelink](https://aka.ms/azureml-workspaces-privatelink)에서 자세히 알아보세요. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateLinkEnabled_Audit.json) |
 |[지정된 Azure Machine Learning 컴퓨팅에 대해 허용된 모듈 작성자 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53c70b02-63dd-11ea-bc55-0242ac130003) |이 정책은 지정된 Azure Machine Learning 컴퓨팅에서 허용되는 모듈 작성자를 제공하고 작업 영역에서 할당할 수 있습니다. 자세한 내용은 [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc)를 방문하세요. |enforceSetting, 사용 안 함 |[1.0.1 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedModuleAuthors_EnforceSetting.json) |
 |[지정된 Azure Machine Learning 컴퓨팅에 대해 허용된 Python 패키지 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77eeea86-7e81-4a7d-9067-de844d096752) | 이 정책은 지정된 Azure Machine Learning 컴퓨팅에서 허용되는 Python 패키지를 제공하고 작업 영역에서 할당할 수 있습니다. 자세한 내용은 [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc)를 방문하세요. |enforceSetting, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedPythonPackageChannels_EnforceSetting.json) |
 |[지정된 Azure Machine Learning 컴퓨팅에 대해 허용된 레지스트리 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5853517a-63de-11ea-bc55-0242ac130003) |이 정책은 지정된 Azure Machine Learning 컴퓨팅에서 허용되고 작업 영역에서 할당할 수 있는 레지스트리를 제공하는 데 도움이 됩니다. 자세한 내용은 [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc)를 방문하세요. |enforceSetting, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedACRs_EnforceSetting.json) |

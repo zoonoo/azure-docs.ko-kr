@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 12/11/2020
 ms.author: jeedes
-ms.openlocfilehash: 688c496239becad7d1462f41afee9c6f88af9f95
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a282e1be019c697ad15d86df56ad191043ab4ae9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676680"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935848"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>자습서: SAP NetWeaver와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -36,7 +36,7 @@ ms.locfileid: "92676680"
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-* SAP NetWeaver는 **SAML** ( **SP 시작 SSO** ) 및 **OAuth** 를 모두 지원합니다. 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. 
+* SAP NetWeaver는 **SAML**(**SP 시작 SSO**) 및 **OAuth** 를 모두 지원합니다. 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. 
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -124,7 +124,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     ![여러 SAP NetWeaver ABAP 엔진](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
-1. **서비스 공급자 메타데이터 생성** : SAML 2.0 사용자 인터페이스에서 **로컬 공급자** 및 **신뢰할 수 있는 공급자** 설정 구성을 완료한 후 다음 단계는 서비스 공급자의 메타데이터 파일을 생성하는 것입니다(모든 설정, 인증 컨텍스트 및 SAP의 다른 구성 포함). 이 파일이 생성되면 Azure AD에서 업로드해야 합니다.
+1. **서비스 공급자 메타데이터 생성**: SAML 2.0 사용자 인터페이스에서 **로컬 공급자** 및 **신뢰할 수 있는 공급자** 설정 구성을 완료한 후 다음 단계는 서비스 공급자의 메타데이터 파일을 생성하는 것입니다(모든 설정, 인증 컨텍스트 및 SAP의 다른 구성 포함). 이 파일이 생성되면 Azure AD에서 업로드해야 합니다.
 
     ![서비스 공급자 메타데이터 생성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
@@ -189,7 +189,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
     1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -225,7 +225,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Single Sign-On 3 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
-5. 다음 화면에서 별칭 이름을 입력합니다. 예를 들어 aadsts를 입력하고 **Next** (다음)를 눌러 계속합니다.
+5. 다음 화면에서 별칭 이름을 입력합니다. 예를 들어 aadsts를 입력하고 **Next**(다음)를 눌러 계속합니다.
 
     ![Single Sign-On 4 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
 
@@ -249,7 +249,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Single Sign-On 9 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
 
-11. 탭 **신뢰할 수 있는 공급자** > **ID 페더레이션** (화면 맨 아래에서)으로 이동합니다. **편집** 을 클릭합니다.
+11. 탭 **신뢰할 수 있는 공급자** > **ID 페더레이션**(화면 맨 아래에서)으로 이동합니다. **편집** 을 클릭합니다.
 
     ![Single Sign-On 10 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
 
@@ -257,11 +257,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Single Sign-On 11 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
-13. 팝업 창의 **Supported NameID formats** (지원되는 NameID 형식)에서 **Unspecified** (지정되지 않음)를 선택하고 [확인]을 클릭합니다.
+13. 팝업 창의 **Supported NameID formats**(지원되는 NameID 형식)에서 **Unspecified**(지정되지 않음)를 선택하고 [확인]을 클릭합니다.
 
     ![Single Sign-On 12 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
-14. **사용자 ID 원본** 및 **사용자 ID 매핑 모드** 값은 SAP 사용자와 Azure AD 클레임 간의 링크를 결정합니다.  
+1. **사용자 ID 원본** 값을 **어설션 특성** 으로, **사용자 ID 매핑 모드** 값을 **이메일** 로, **어설션 특성 이름** 을 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`으로 지정합니다.
+
+    ![Single Sign-on 구성 ](./media/sapnetweaver-tutorial/nameid-format.png)
+
+14. **사용자 ID 원본** 및 **사용자 ID 매핑 모드** 값은 SAP 사용자와 Azure AD 클레임 간의 링크를 결정합니다.
 
     #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>시나리오: Azure AD 사용자 매핑으로 SAP 사용자
 
@@ -320,7 +324,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. SAP에서 문서화된 프로세스는 [NetWeaver Gateway Service 사용 및 OAuth 2.0 범위 만들기](https://wiki.scn.sap.com/wiki/display/Security/NetWeaver+Gateway+Service+Enabling+and+OAuth+2.0+Scope+Creation) 위치에서 제공됩니다.
 
-2. SPRO로 이동하여 **Activate and Maintain services** (서비스 활성화 및 유지 관리)를 찾습니다.
+2. SPRO로 이동하여 **Activate and Maintain services**(서비스 활성화 및 유지 관리)를 찾습니다.
 
     ![서비스 활성화 및 유지 관리](./media/sapnetweaver-tutorial/oauth01.png)
 
@@ -350,7 +354,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="register-the-new-oauth-20-client-id-with-the-creation-wizard"></a>만들기 마법사를 사용하여 새 OAuth 2.0 클라이언트 ID 등록
 
-1. 새 **OAuth 2.0 클라이언트** 를 등록하려면 **SOAUTH2** 트랜잭션을 시작합니다. 트랜잭션에는 이미 등록된 OAuth 2.0 클라이언트에 대한 개요가 표시됩니다. 이 예에서 **Create** (만들기)를 선택하여 CLIENT1이라는 이름으로 지정된 새 OAuth 클라이언트에 대한 마법사를 시작합니다.
+1. 새 **OAuth 2.0 클라이언트** 를 등록하려면 **SOAUTH2** 트랜잭션을 시작합니다. 트랜잭션에는 이미 등록된 OAuth 2.0 클라이언트에 대한 개요가 표시됩니다. 이 예에서 **Create**(만들기)를 선택하여 CLIENT1이라는 이름으로 지정된 새 OAuth 클라이언트에 대한 마법사를 시작합니다.
 
 2. T-Code: **SOAUTH2** 로 이동하여 설명을 제공하고, **Next** 를 클릭합니다.
 
@@ -366,13 +370,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![SAML2 IdP – Azure AD 3](./media/sapnetweaver-tutorial/oauth08.png)
 
-4. 이전에 만든 `DAAG_MNGGRP_001` 범위를 추가하려면 범위 할당 아래에서 **Add** (추가)를 클릭합니다.
+4. 이전에 만든 `DAAG_MNGGRP_001` 범위를 추가하려면 범위 할당 아래에서 **Add**(추가)를 클릭합니다.
 
     ![Scope](./media/sapnetweaver-tutorial/oauth09.png)
 
     ![범위 할당](./media/sapnetweaver-tutorial/oauth10.png)
 
-5. **마침** (Finish)을 클릭합니다.
+5. **마침**(Finish)을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a9d8c42432d619ab120afd0bd5734f6fa269b514
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458099"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050241"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기
 
@@ -51,27 +51,15 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 *솔루
 1. **속성을 편집** 합니다. `Humidity` 속성의 이름을 *HumidityLevel* 로 변경합니다. 원하는 경우 다른 이름을 사용할 수 있습니다. *HumidityLevel* 이 아닌 다른 이름을 사용하는 경우 해당 이름을 기억하여 자습서 전체에서 *HumidityLevel* 대신 사용합니다.
 1. **속성을 추가** 합니다. 줄 15에서 끝나는 `HumidityLevel` 속성 아래에 다음 코드를 붙여 넣어 `RoomName` 속성을 room에 추가합니다.
 
-    ```json
-    ,
-    {
-      "@type": "Property",
-      "name": "RoomName",
-      "schema": "string"
-    }
-    ```
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="16-20":::
+
 1. **관계를 추가** 합니다. 방금 추가한 `RoomName` 속성 아래에 다음 코드를 붙여 넣어 이러한 유형의 트윈이 다른 트윈과 *포함* 관계를 형성하는 기능을 추가합니다.
 
-    ```json
-    ,
-    {
-      "@type": "Relationship",
-      "name": "contains"
-    }
-    ```
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="21-24":::
 
-완료 시 업데이트된 모델은 다음과 같습니다.
+완료 시 업데이트된 모델은 이와 일치해야 합니다.
 
-:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="업데이트된 버전 번호, HumidityLevel 및 RoomName 속성, 포함 관계로 편집된 Room.json" border="false":::
+:::code language="json" source="~/digital-twins-docs-samples/models/Room.json":::
 
 계속 진행하기 전에 파일을 저장합니다.
 

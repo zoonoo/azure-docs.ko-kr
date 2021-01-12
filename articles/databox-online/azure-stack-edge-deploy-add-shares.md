@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 64fe65019a66013323b1c6d27055051badb47cee
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: afedbe739e955499f94d00a8ced940e7a4e9c27c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350316"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898684"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro를 사용하여 데이터 전송
 
@@ -42,7 +42,7 @@ Azure Stack Edge Pro에 공유를 추가하기 전에 다음 사항을 확인합
 
 공유를 만들려면 다음 절차를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스를 선택한 다음, **개요** 로 이동합니다. 디바이스는 온라인 상태여야 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스를 선택한 다음, **개요** 로 이동합니다. 디바이스는 온라인 상태여야 합니다. **클라우드 스토리지 게이트웨이** 를 선택합니다.
 
    ![디바이스 온라인 상태](./media/azure-stack-edge-deploy-add-shares/device-online-1.png)
 

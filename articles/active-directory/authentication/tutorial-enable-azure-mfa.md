@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32228e90e3cfc064cd5be9cd0655f321ab3e2809
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741153"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881313"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>자습서: Azure AD Multi-Factor Authentication을 사용하여 사용자 로그인 이벤트 보호
 
 MFA(Multi-Factor Authentication)는 로그인 이벤트 중에 사용자에게 추가 형태의 식별을 요구하는 메시지를 표시하는 프로세스입니다. 이 프롬프트는 휴대폰에서 코드를 입력하거나 지문 검사를 제공하는 것일 수 있습니다. 두 번째 인증 형식이 필요한 경우 이 추가 요소는 공격자가 쉽게 얻거나 복제할 수 있는 것이 아니므로 보안이 향상됩니다.
 
-Azure AD Multi-Factor Authentication 및 조건부 액세스 정책은 특정 로그인 이벤트 중에 사용자에게 MFA를 사용하도록 설정할 수 있는 유연성을 제공합니다.
+Azure AD Multi-Factor Authentication 및 조건부 액세스 정책은 특정 로그인 이벤트 중에 사용자에게 MFA를 사용하도록 설정할 수 있는 유연성을 제공합니다. 다음은 [테넌트에서 다단계 인증을 구성하고 적용하는 방법에 대한 비디오](https://www.youtube.com/watch?v=qNndxl7gqVM)(**권장**)입니다.
 
 > [!IMPORTANT]
 > 이 자습서에서는 관리자에게 Azure AD Multi-Factor Authentication을 사용하도록 설정하는 방법을 보여줍니다.

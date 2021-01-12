@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 45c959bc3cb71a965f254867798ae32d86ba1e70
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cd3ff3fce80e66d7cd61636b4416cb2fc28f5e77
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612724"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97956493"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -19,6 +19,7 @@ ms.locfileid: "97612724"
 | 시리즈당 VM(Dv2 및 F 등), [구독](https://azure.microsoft.com/pricing/)당 코어 |지역당 20<sup>1</sup> 한도를 늘리려면 고객 지원팀에 문의하세요. |
 | 구독당 [가용성 집합](../articles/virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |지역당 2,500 |
 | 가용성 집합당 가상 머신 | 200 |
+| [리소스 그룹](../articles/azure-resource-manager/management/overview.md#resource-groups)별 [근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups-portal) | 800 | 
 | 가용성 집합당 인증서 | 199<sup>2</sup> |
 | 구독당 인증서 |무제한<sup>3</sup> |
 

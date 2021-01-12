@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: e451171859efc49753131b145642aec4864db45d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015671"
+ms.locfileid: "98052812"
 ---
 | 리소스 | Basic | Standard | Premium |
 |---|---|---|---|
@@ -38,7 +38,7 @@ ms.locfileid: "98015671"
 | &bull; 범위 맵당 리포지토리 | 해당 없음 | 해당 없음 | 500 |
 
 
-<sup>1</sup> 각 계층의 일별 요금에 포함된 스토리지입니다. 추가 스토리지는 GiB당 일일 추가 요금으로 레지스트리 스토리지 제한까지 사용할 수 있습니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조하세요.
+<sup>1</sup> 각 계층의 일별 요금에 포함된 스토리지입니다. 추가 스토리지는 GiB당 일일 추가 요금으로 레지스트리 스토리지 제한까지 사용할 수 있습니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조하세요. 레지스트리 스토리지 제한을 초과하는 스토리지가 필요한 경우 Azure 지원에 문의하세요.
 
 <sup>2</sup>*ReadOps*, *WriteOps* 및 *Bandwidth* 는 최소 추정치입니다. Azure Container Registry는 필요한 사용량에 따라 성능을 개선하려고 합니다.
 

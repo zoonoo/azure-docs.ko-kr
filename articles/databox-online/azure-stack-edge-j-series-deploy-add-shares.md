@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/22/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 845eef6e119823af789c9a263bfb750845d55bc0
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 919ec1c3c2b71b7d9aecb90d434aa919c7188d38
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740915"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897629"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>자습서: Azure Stack Edge Pro GPU와 공유를 통해 데이터 전송
 
@@ -43,7 +43,7 @@ Azure Stack Edge Pro에 공유를 추가하기 전에 다음 사항을 확인합
 
 공유를 만들려면 다음 절차를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스를 선택한 다음, **개요** 로 이동합니다. 디바이스는 온라인 상태여야 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스를 선택한 다음, **개요** 로 이동합니다. 디바이스는 온라인 상태여야 합니다. **클라우드 스토리지 게이트웨이** 를 선택합니다.
 
    ![디바이스 온라인 상태](./media/azure-stack-edge-j-series-deploy-add-shares/device-online-1.png)
 
@@ -51,7 +51,7 @@ Azure Stack Edge Pro에 공유를 추가하기 전에 다음 사항을 확인합
 
    ![공유 추가](./media/azure-stack-edge-j-series-deploy-add-shares/select-add-share-1.png)
 
-3. **공유 추가** 창에서 다음 절차를 수행합니다.
+3. **공유 추가** 창에서 다음 단계를 수행합니다.
 
     a. **이름** 상자에서 공유에 대한 고유한 이름을 제공합니다.  
     공유 이름에는 문자, 숫자 및 하이픈만 있을 수 있습니다. 3-63자여야 하고 문자 또는 숫자로 시작해야 합니다. 하이픈 앞에는 문자 또는 숫자가 나와야 합니다.

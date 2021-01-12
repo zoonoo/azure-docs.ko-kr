@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5dcb86ff4af2a68ecf0bb361e6da4f788ea32b62
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451249"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881296"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>자습서: Azure Monitor에서 메트릭 차트 만들기
 메트릭 탐색기는 메트릭 값으로 차트를 만들고, 추세를 시각적으로 상호 연결하고, 메트릭 값의 급증 및 급락을 조사할 수 있는 Azure Portal의 Azure Monitor 기능입니다. 메트릭 탐색기를 사용하여 Azure 리소스의 상태 및 사용률을 조사하거나 사용자 지정 메트릭에서 차트를 그릴 수 있습니다. 
@@ -40,7 +40,7 @@ Azure Monitor 메뉴 또는 Azure Portal의 리소스 메뉴에서 메트릭 탐
 
 1. **Azure Monitor** 메뉴 또는 리소스 메뉴의 **모니터링** 섹션에서 **메트릭** 를 선택합니다.
 
-1. 메트릭을 보려는 리소스인 **범위** 를 선택합니다. 리소스의 메뉴에서 메트릭 탐색기를 연 경우 범위가 이미 채워져 있습니다.
+1. 메트릭을 보려는 리소스인 **범위** 를 선택합니다. 리소스의 메뉴에서 메트릭 탐색기를 연 경우 범위가 이미 채워져 있습니다. 리소스 범위 선택기의 다양한 기능에 대해 자세히 알아보려면 [이 문서](../platform/metrics-charts.md#resource-scope-picker)를 방문하세요.
 
     ![범위 선택](media/tutorial-metrics-explorer/scope-picker.png)
 

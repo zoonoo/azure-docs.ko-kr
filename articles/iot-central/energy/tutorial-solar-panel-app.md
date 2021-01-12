@@ -1,5 +1,5 @@
 ---
-title: '자습서: IoT Central을 사용하여 태양 전지판 모니터링 앱 만들기'
+title: '자습서: Azure IoT Central을 사용하여 태양광 패널 모니터링 앱 만들기'
 description: '자습서: Azure IoT Central 애플리케이션 템플릿을 사용하여 태양광 패널 애플리케이션을 만드는 방법에 대해 알아봅니다.'
 author: op-ravi
 ms.author: omravi
@@ -8,104 +8,102 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d006bae8290c1f6ea564f9985727f4d6ff70bb04
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 9ea1db982a6944bd12b458624545b3888881508f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516748"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881922"
 ---
-# <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>자습서: 태양광 패널 모니터링 앱 템플릿 만들기 및 연습 
+# <a name="tutorial-create-and-explore-the-solar-panel-monitoring-app-template"></a>자습서: 태양광 패널 모니터링 앱 템플릿 만들기 및 살펴보기 
 
-이 자습서에서는 태양광 패널 모니터링 애플리케이션을 만드는 과정을 안내하며, 여기에는 시뮬레이션된 데이터를 사용하는 샘플 디바이스 모델이 포함됩니다. 이 자습서에서는 다음에 대해 알아봅니다.
+이 자습서에서는 태양광 패널 모니터링 애플리케이션을 만드는 과정을 안내하며, 여기에는 시뮬레이션된 데이터를 사용하는 샘플 디바이스 모델이 포함됩니다. 이 자습서에서 다음에 대해 알아보겠습니다.
 
 
 > [!div class="checklist"]
 > * 무료로 태양광 패널 앱 만들기
-> * 애플리케이션 연습
+> * 애플리케이션 살펴보기
 > * 리소스 정리
 
 
 구독이 없는 경우 [평가판 계정을 만듭니다](https://azure.microsoft.com/free).
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* None
-* Azure 구독을 권장하지만, 꼭 사용할 필요는 없습니다.
+
+이 자습서의 작업을 완료하기 위한 필수 구성 요소는 없습니다. Azure 구독을 권장하지만, 필수는 아닙니다.
 
 
-## <a name="create-a-solar-panel-monitoring-app"></a>태양 전지판 모니터링 앱 만들기 
+## <a name="create-a-solar-panel-monitoring-app"></a>태양광 패널 모니터링 앱 만들기 
 
 이 애플리케이션은 다음과 같은 세 가지 간단한 단계로 만들 수 있습니다.
 
-1. [Azure IoT Central 홈페이지](https://apps.azureiotcentral.com)를 열고 **빌드** 를 클릭하여 새 애플리케이션을 만듭니다. 
+1. [Azure IoT Central](https://apps.azureiotcentral.com)로 이동합니다. 새 애플리케이션을 만들려면 **빌드** 를 선택합니다. 
 
-1. **에너지** 탭을 선택하고 **태양광 패널 모니터링** 애플리케이션 타일 아래에서 **앱 만들기** 를 클릭합니다. 
+1. **에너지** 탭을 선택합니다. **태양광 패널 모니터링** 에서 **앱 만들기** 를 선택합니다. 
 
     > [!div class="mx-imgBorder"]
-    > ![앱 빌드](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
+    > ![Azure IoT Central 빌드 옵션의 스크린샷.](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
-1. **앱 만들기** 에서 **새 애플리케이션** 양식이 열립니다. 아래 그림처럼 요청된 정보를 입력합니다.
-    * **애플리케이션 이름**: IoT Central 애플리케이션의 이름을 선택합니다. 
-    * **URL**: IoT Central URL을 선택하면 플랫폼에서 해당 URL의 고유성을 확인합니다.
-    * **7일 평가판**: Azure 구독이 이미 있는 경우 기본 설정을 사용하는 것이 좋습니다. Azure 구독이 없는 경우 평가판으로 시작하세요.
+1. **새 애플리케이션** 대화 상자에서 요청된 정보를 입력한 다음, **만들기** 를 선택합니다.
+    * **애플리케이션 이름**: Azure IoT Central 애플리케이션의 이름을 선택합니다. 
+    * **URL**: Azure IoT Central URL을 선택합니다. 플랫폼은 고유성을 확인합니다.
+    * **요금제**: Azure 구독이 이미 있는 경우 기본 설정을 사용하는 것이 좋습니다. Azure 구독이 없는 경우 평가판으로 시작하세요.
     * **청구 정보**: 애플리케이션 자체는 무료입니다. 앱의 리소스를 프로비저닝하려면 디렉터리, Azure 구독 및 영역 세부 정보가 필요합니다.
-    * 페이지 맨 아래에서 **만들기** 단추를 클릭하면 1분 내에 앱이 생성됩니다.
-        ![새 애플리케이션 양식](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![새 애플리케이션의 스크린샷.](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
         
-        ![새 애플리케이션 양식 청구 정보](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
+        ![청구 정보의 스크린샷.](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>애플리케이션 및 시뮬레이션된 데이터 확인
 
-새로 생성된 태양광 패널 앱은 여러분의 앱이며 언제든지 수정할 수 있습니다. 앱을 수정하기 전에 앱이 배포되었고 예상대로 작동하는지 확인합니다.
+언제든지 새 태양광 패널 앱을 수정할 수 있습니다. 지금은 앱을 수정하기 전에 앱이 배포되었고 예상대로 작동하는지 확인합니다.
 
-앱 만들기 및 데이터 시뮬레이션을 확인하려면 **대시보드** 로 이동합니다. 데이터가 포함된 타일이 보이면 앱 배포에 성공한 것입니다. 데이터 시뮬레이션에서 데이터를 생성할 때까지 몇 분 정도 걸릴 수 있으므로 1-2분 정도 기다립니다. 
+앱 만들기 및 데이터 시뮬레이션을 확인하려면 **대시보드** 로 이동합니다. 데이터가 포함된 타일이 보이면 앱 배포에 성공한 것입니다. 데이터 시뮬레이션이 데이터를 생성하는 데 몇 분 정도 걸릴 수 있습니다. 
 
 ## <a name="application-walk-through"></a>애플리케이션 연습
-앱 템플릿을 성공적으로 배포한 후에는 앱과 함께 샘플 스마트 미터 디바이스, 디바이스 모델 및 대시보드가 제공됩니다.
+앱 템플릿을 성공적으로 배포한 후에는 좀 더 자세히 살펴볼 수 있습니다. 샘플 스마트 미터 디바이스, 디바이스 모델 및 대시보드와 함께 제공됩니다.
 
-Adatum은 태양광 패널을 모니터링 및 관리하는 가상의 에너지 회사입니다. 태양광 패널 모니터링 대시보드에는 태양광 패널 속성, 데이터 및 샘플 명령이 표시됩니다. 운영자와 지원 팀은 지원 인시던트가 발생하기 전에 다음 작업을 선제적으로 수행할 수 있습니다.
-* 맵의 최신 패널 정보 및 설치된 위치 검토
-* 패널 상태 및 연결 상태를 사전에 확인
-* 에너지 생성 및 온도 추세를 검토하여 비정상적인 패턴 파악
-* 계획 및 요금 청구 목적에 사용할 수 있도록 총 에너지 생성량 추적
-* 패널 활성화 및 펌웨어 버전 업데이트와 같은 명령 및 제어 작업. 템플릿의 명령 단추는 가능한 기능을 보여주지만 실제 명령을 보내지는 않습니다.
+Adatum은 태양광 패널을 모니터링 및 관리하는 가상의 에너지 회사입니다. 태양광 패널 모니터링 대시보드에는 태양광 패널 속성, 데이터 및 샘플 명령이 표시됩니다. 이 대시보드를 사용하면 문제가 발생하여 추가 지원이 필요하기 전에 사용자와 사용자의 지원 팀이 다음 활동을 사전에 수행할 수 있습니다.
+* 지도에서 최신 패널 정보 및 설치된 위치를 검토합니다.
+* 패널 상태 및 연결 상태를 확인합니다.
+* 에너지 생성 및 온도 추세를 검토하여 비정상적인 패턴을 파악합니다.
+* 계획 및 청구를 위해 총 에너지 생성을 추적합니다.
+* 패널을 활성화하고 필요한 경우 펌웨어 버전을 업데이트합니다. 템플릿의 명령 단추는 가능한 기능을 보여주지만 실제 명령을 보내지는 않습니다.
 
 > [!div class="mx-imgBorder"]
-> ![태양광 패널 모니터링 대시보드](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
+> ![태양광 패널 모니터링 템플릿 대시보드의 스크린샷.](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
 ### <a name="devices"></a>디바이스
-앱과 함께 샘플 태양광 패널 디바이스가 제공됩니다. **디바이스** 탭을 클릭하여 디바이스 세부 정보를 볼 수 있습니다.
+앱과 함께 샘플 태양광 패널 디바이스가 제공됩니다. 디바이스 세부 정보를 보려면 **디바이스** 를 선택합니다.
 
 > [!div class="mx-imgBorder"]
-> ![태양광 패널 디바이스](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
+> ![태양광 패널 모니터링 템플릿 디바이스의 스크린샷.](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
 
-
-디바이스 세부 정보를 보려면 샘플 디바이스 **SP0123456789** 링크를 클릭합니다. **속성 업데이트** 페이지에서 디바이스의 쓰기 가능 속성을 업데이트하고, 업데이트된 값을 대시보드에 시각화할 수 있습니다. 
+샘플 디바이스 **SP0123456789** 를 선택합니다. **속성 업데이트** 탭에서 디바이스의 쓰기 가능 속성을 업데이트할 수 있고, 업데이트된 값을 대시보드에 표시할 수 있습니다. 
 
 > [!div class="mx-imgBorder"]
-> ![태양광 패널 속성](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
+> ![태양광 패널 모니터링 템플릿 업데이트 탭의 스크린샷.](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
 
 
 ### <a name="device-template"></a>디바이스 템플릿
-**디바이스 템플릿** 탭을 클릭하여 태양광 패널 디바이스 모델을 봅니다. 모델에는 데이터, 속성, 명령 및 보기에 대해 미리 정의된 인터페이스가 있습니다.
+태양광 패널 디바이스 모델을 보려면 **디바이스 템플릿** 탭을 선택합니다. 모델에는 데이터, 속성, 명령 및 보기에 대해 미리 정의된 인터페이스가 있습니다.
 
 > [!div class="mx-imgBorder"]
-> ![태양광 패널 디바이스 템플릿](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
+> ![태양광 패널 모니터링 템플릿 디바이스 템플릿의 스크린샷.](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 이 애플리케이션이 더 이상 필요 없는 경우 다음 단계에 따라 애플리케이션을 삭제합니다.
 
-1. 왼쪽 창에서 [관리] 탭을 엽니다.
-1. [애플리케이션 설정]을 선택하고 페이지 아래쪽에서 [삭제] 단추를 클릭합니다. 
+1. 왼쪽 창에서 **관리** 를 선택합니다.
+1. **애플리케이션 설정** > **설정** 을 선택합니다. 
 
     > [!div class="mx-imgBorder"]
-    > ![애플리케이션 삭제](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
+    > ![태양광 패널 모니터링 템플릿 관리의 스크린샷.](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 태양광 패널 앱 아키텍처에 대한 자세한 내용은 다음을 참조하세요. 
+ 
 > [!div class="nextstepaction"]
-> [개념 문서](./concept-iot-central-solar-panel-app.md)
-* [태양광 패널 앱](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)을 참조하여 무료로 태양광 패널 애플리케이션 템플릿을 만들어보세요.
-* [IoT Central 개요](../index.yml)를 참조하여 IoT Central에 대해 자세히 알아보세요.
+> [Azure IoT Central - 태양광 패널 앱 아키텍처](./concept-iot-central-solar-panel-app.md)
+* [무료로 태양광 패널 애플리케이션 템플릿 만들기](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
+* [Azure IoT Central 개요](../index.yml)

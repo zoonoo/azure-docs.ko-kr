@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 41c0bd23bbd2d69506a979c5a36ac40f73258f2c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ab03e0bdf7761e45a134ec90685955403fbc433b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605516"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060387"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 
@@ -237,7 +237,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     ![대상 데이터베이스에 매핑](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
    > [!NOTE] 
-   > 이 단계에서 여러 데이터베이스를 선택할 수 있지만, Azure Database Migration Service의 각 인스턴스는 동시 마이그레이션을 위해 최대 4개의 데이터베이스를 지원합니다. 또한 구독에서 지역당 두 개의 Azure Database Migration Service 인스턴스로 제한됩니다. 예를 들어 마이그레이션할 40개의 데이터베이스가 있는 경우 그 중 8개만 동시에 마이그레이션할 수 있으며, 두 개의 Azure Database Migration Service 인스턴스를 만든 경우에만 마이그레이션할 수 있습니다.
+   > 이 단계에서 여러 데이터베이스를 선택할 수 있지만, Azure Database Migration Service의 각 인스턴스는 동시 마이그레이션을 위해 최대 4개의 데이터베이스를 지원합니다. 또한 지역별 구독당 10개의 Azure Database Migration Service 인스턴스로 제한됩니다. 예를 들어 마이그레이션할 80개의 데이터베이스가 있는 경우, 그 중 40개를 같은 지역으로 동시에 마이그레이션할 수 있지만, 이는 10개의 Azure Database Migration Service 인스턴스를 만든 경우에만 가능합니다.
 
 3. **저장** 을 선택하고, **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정한 다음, 요약을 검토하여 원본 및 대상 세부 정보가 이전에 지정한 내용과 일치하는지 확인합니다.
 

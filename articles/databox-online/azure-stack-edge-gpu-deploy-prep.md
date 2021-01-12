@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cdfd012d5015e156439a1afa89e818bf82b64dc6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e8b58069dc41d5272c67edcb1f05ebd9f1bc5ad4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449330"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935610"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>자습서: Azure Stack Edge Pro device with GPU 배포 준비 
 
-Azure Stack Edge Pro device with GPU를 완전히 배포하는 데 필요한 배포 자습서 시리즈 중 첫 번째 자습서입니다. 이 자습서에서는 Azure Stack Edge 리소스를 배포하기 위해 Azure Portal을 준비하는 방법에 대해 설명합니다.
+이 자습서는 GPU가 있는 Azure Stack Edge Pro를 완전히 배포하는 데 필요한 배포 자습서 시리즈 중 첫 번째 자습서입니다. 이 자습서에서는 Azure Stack Edge 리소스를 배포하기 위해 Azure Portal을 준비하는 방법에 대해 설명합니다.
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 포털 준비에는 10분 미만이 소요됩니다.
 
@@ -36,7 +36,7 @@ Azure Stack Edge Pro를 배포하려면 먼저 환경을 준비해야 합니다.
 | --- | --- |
 | **준비** |이러한 단계는 예정된 배포 준비 과정에서 완료해야 합니다. |
 | **[배포 구성 검사 목록](#deployment-configuration-checklist)** |이 검사 목록을 사용하여 배포 이전 및 배포하는 동안 정보를 수집하고 기록합니다. |
-| **[배포 사전 요구 사항](#prerequisites)** |배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
+| **[배포 사전 요구 사항](#prerequisites)** |이러한 필수 구성 요소는 배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
 |  | |
 |**배포 자습서** |이러한 자습서는 프로덕션 환경에서 Azure Stack Edge Pro 디바이스를 배포하는 데 필요합니다. |
 |**[1. Azure Stack Edge Pro 배포를 위한 Azure Portal 준비](azure-stack-edge-gpu-deploy-prep.md)** |Azure Stack Box Edge 물리적 디바이스를 설치하기 전에 Azure Stack Edge 리소스를 만들고 구성합니다. |
@@ -46,7 +46,7 @@ Azure Stack Edge Pro를 배포하려면 먼저 환경을 준비해야 합니다.
 |**[5. Azure Stack Edge Pro에 대한 디바이스 설정 구성](azure-stack-edge-gpu-deploy-set-up-device-update-time.md)** |디바이스 이름과 DNS 도메인을 할당하고, 업데이트 서버 및 디바이스 시간을 구성합니다. |
 |**[6. Azure Stack Edge Pro에 대한 보안 설정 구성](azure-stack-edge-gpu-deploy-configure-certificates.md)** |디바이스에 대한 인증서를 구성합니다. 디바이스에서 생성한 인증서를 사용하거나 사용자 고유의 인증서를 가져옵니다.   |
 |**[7. Azure Stack Edge Pro 활성화](azure-stack-edge-gpu-deploy-activate.md)** |서비스의 활성화 키를 사용하여 디바이스를 활성화합니다. 디바이스에서 SMB 또는 NFS 공유를 설정하거나 REST를 통해 연결할 준비가 되었습니다. |
-|**[8. 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)** |디바이스에서 컴퓨팅 역할을 구성합니다. 그러면 Kubernetes 클러스터도 만들어집니다. |
+|**[8. 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)** |디바이스에서 컴퓨팅 역할을 구성합니다. Kubernetes 클러스터도 만들어집니다. |
 |**[9A. Edge 공유를 사용하여 데이터 전송](azure-stack-edge-j-series-deploy-add-shares.md)** |공유를 추가하고 SMB 또는 NFS를 통해 공유에 연결합니다. |
 |**[9B. Edge 스토리지 계정을 사용하여 데이터 전송](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |스토리지 계정을 추가하고, REST API를 통해 Blob 스토리지에 연결합니다. |
 
@@ -66,7 +66,7 @@ Azure Stack Edge Pro를 배포하려면 먼저 환경을 준비해야 합니다.
 
 시작하기 전에 다음 사항을 확인합니다.
 
-- Azure Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다. 종량제 구독은 지원되지 않습니다. 보유한 Azure 구독의 유형을 식별하려면 [Azure 제품이란?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)을 참조하세요.
+- Data Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다. 종량제 구독은 지원되지 않습니다. 보유한 Azure 구독의 유형을 식별하려면 [Azure 제품이란?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)을 참조하세요.
 - Azure Stack Edge Pro/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
 
     - Azure Stack Edge / Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상)로서 권한이 있어야 합니다. 
@@ -125,21 +125,21 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
     
     |설정  |값  |
     |---------|---------|
-    |Subscription    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
+    |Subscription    |이전에 선택한 내용에 따라 구독이 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
     |Resource group  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.     |
 
 7. 다음 **인스턴스 세부 정보** 를 입력하거나 선택합니다.
 
     |설정  |값  |
     |---------|---------|
-    |속성   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
+    |속성   | 리소스를 식별하기 위한 이름.<br>이름은 문자, 숫자 및 하이픈을 포함하는 2~50자입니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
     |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
 
     ![리소스 만들기 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
 8. 완료되면 **다음: 배송 주소** 를 선택합니다.
 
-    - 디바이스가 이미 있는 경우 **I have a Azure Stack Edge Pro device**(Azure Stack Edge Pro 디바이스가 있습니다) 콤보 상자를 선택합니다.
+    - 디바이스가 이미 있는 경우 **이미 디바이스가 있습니다** 의 콤보 상자를 선택합니다.
 
         ![리소스 만들기 6](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
@@ -176,19 +176,17 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
 Azure Stack Edge 리소스가 가동되면 활성화 키를 가져와야 합니다. 이 키는 Azure Stack Edge Pro 디바이스를 활성화하고 리소스와 연결하는 데 사용됩니다. 이제 Azure Portal에서 이 키를 얻을 수 있습니다.
 
-1. 만든 리소스의 이름을 선택합니다. **개요** 를 선택한 다음, **디바이스 설정** 을 선택합니다.
+1. 사용자가 만든 리소스를 선택하고 **개요** 를 선택합니다.
 
-    ![디바이스 설정 선택](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
+2. 오른쪽 창에서 Azure Key Vault 이름을 입력하거나 기본 이름을 적용합니다. 키 자격 증명 모음 이름은 3~24자여야 합니다.
 
-2. **활성화** 타일에서 Azure Key Vault 이름을 입력하거나 기본 이름을 적용합니다. 키 자격 증명 모음 이름은 3~24자여야 합니다. 
+   디바이스에서 활성화된 각 Azure Stack Edge 리소스에 대한 키 자격 증명 모음이 만들어집니다. 키 자격 증명 모음을 사용하여 비밀을 저장하고 액세스할 수 있습니다. 예를 들어 서비스의 CIK(채널 무결성 키)는 키 자격 증명 모음에 저장됩니다. 
 
-    디바이스에서 활성화된 각 Azure Stack Edge 리소스에 대한 키 자격 증명 모음이 만들어집니다. 키 자격 증명 모음을 사용하여 비밀을 저장하고 액세스할 수 있습니다. 예를 들어 서비스의 CIK(채널 무결성 키)는 키 자격 증명 모음에 저장됩니다. 
+   키 자격 증명 모음 이름을 지정했으면 **키 생성** 을 선택하여 활성화 키를 만듭니다. 
 
-    키 자격 증명 모음 이름을 지정했으면 **키 생성** 을 선택하여 활성화 키를 만듭니다. 
+   ![활성화 키 가져오기](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
 
-    ![활성화 키 가져오기](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
-
-    키 자격 증명 모음 및 활성화 키가 생성될 때까지 몇 분 정도 기다립니다. 복사 아이콘을 선택하여 키를 복사하고 나중에 사용할 수 있도록 저장합니다.
+   키 자격 증명 모음 및 활성화 키가 생성되는 동안 몇 분 정도 기다립니다. 복사 아이콘을 선택하여 키를 복사하고 나중에 사용할 수 있도록 저장합니다.<!--Verify that the new screen has a copy icon.-->
 
 
 > [!IMPORTANT]

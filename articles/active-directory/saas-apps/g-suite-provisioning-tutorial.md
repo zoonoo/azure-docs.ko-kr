@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4851dfb4a96ab2ca19ba6ea67139772f9c091a69
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: c3f61c3fe688a0b7533902fb0caa19b67f883482
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763650"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901592"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -24,13 +24,6 @@ ms.locfileid: "97763650"
 
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
-
-> [!NOTE]
-> G Suite 커넥터는 최근 2019년 10월에 업데이트되었습니다. G Suite 커넥터에 대한 변경 내용은 다음과 같습니다.
->
-> * 추가 G Suite 사용자 및 그룹 특성에 대한 지원이 추가되었습니다.
-> * [여기](https://developers.google.com/admin-sdk/directory)에 정의된 것과 일치하도록 G Suite 대상 특성 이름이 업데이트되었습니다.
-> * 기본 특성 매핑이 업데이트되었습니다.
 
 > [!NOTE]
 > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *허용 목록* 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
@@ -63,15 +56,15 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 G S
 
 1. 관리자 계정으로 [G Suite 관리 콘솔](https://admin.google.com/)에 로그인하고, **Security(보안)** 를 선택합니다. 링크가 보이지 않으면 화면 아래쪽에 있는 **기타 컨트롤** 메뉴에 숨겨져 있을 수 있습니다.
 
-    ![G Suite Security](./media/google-apps-provisioning-tutorial/gapps-security.png)
+    ![G Suite Security](./media/g-suite-provisioning-tutorial/gapps-security.png)
 
 2. **보안** 페이지에서 **API 참조** 를 선택합니다.
 
-    ![G Suite API](./media/google-apps-provisioning-tutorial/gapps-api.png)
+    ![G Suite API](./media/g-suite-provisioning-tutorial/gapps-api.png)
 
 3. **API 액세스 사용** 을 선택합니다.
 
-    ![G Suite API 사용](./media/google-apps-provisioning-tutorial/gapps-api-enabled.png)
+    ![G Suite API 사용](./media/g-suite-provisioning-tutorial/gapps-api-enabled.png)
 
     > [!IMPORTANT]
    > G Suite에 프로비저닝하려는 모든 사용자에 대해 Azure AD의 해당 사용자 이름은 사용자 지정 도메인에 **연결되어야** 합니다. 예를 들면 bob@contoso.onmicrosoft.com과 같은 사용자 이름은 G Suite에서 허용되지 않습니다. 반면에 bob@contoso.com은 허용됩니다. [여기](../fundamentals/add-custom-domain.md)의 지침에 따라 기존 사용자의 도메인을 변경할 수 있습니다.
@@ -80,15 +73,15 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 G S
 
     a. [G Suite 관리 콘솔](https://admin.google.com/)에서 **Domains(도메인)** 를 선택합니다.
 
-    ![G Suite Domains](./media/google-apps-provisioning-tutorial/gapps-domains.png)
+    ![G Suite Domains](./media/g-suite-provisioning-tutorial/gapps-domains.png)
 
     b. **Add a domain or a domain alias(도메인 또는 도메인 별칭 추가)** 를 선택합니다.
 
-    ![G Suite 도메인 추가](./media/google-apps-provisioning-tutorial/gapps-add-domain.png)
+    ![G Suite 도메인 추가](./media/g-suite-provisioning-tutorial/gapps-add-domain.png)
 
     c. **다른 도메인 추가** 를 선택하고 추가하려는 도메인 이름을 입력합니다.
 
-    ![G Suite 다른 도메인 추가](./media/google-apps-provisioning-tutorial/gapps-add-another.png)
+    ![G Suite 다른 도메인 추가](./media/g-suite-provisioning-tutorial/gapps-add-another.png)
 
     d. **Continue and verify domain ownership(계속해서 도메인 소유권 확인)** 을 선택합니다. 그런 다음 도메인 이름을 소유하고 있는지 확인하는 단계를 따릅니다. Google에서 도메인을 확인하는 방법에 대한 포괄적인 지침은 [사이트 소유권 확인](https://support.google.com/webmasters/answer/35179)을 참조하세요.
 
@@ -96,11 +89,11 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 G S
 
 5. 다음으로, G Suite에서 사용자 프로비저닝을 관리하는 데 사용하려는 관리자 계정을 결정합니다. **Admin Roles(관리자 역할)** 로 이동합니다.
 
-    ![G Suite 관리자](./media/google-apps-provisioning-tutorial/gapps-admin.png)
+    ![G Suite 관리자](./media/g-suite-provisioning-tutorial/gapps-admin.png)
 
 6. 해당 계정의 **Admin role(관리자 역할)** 에서 해당 역할에 대한 **Privileges(권한)** 를 편집합니다. 이 계정을 프로비전에 사용할 수 있도록 모든 **관리자 API 권한** 이 사용하도록 설정되어 있는지 확인합니다.
 
-    ![G Suite 관리자 권한](./media/google-apps-provisioning-tutorial/gapps-admin-privileges.png)
+    ![G Suite 관리자 권한](./media/g-suite-provisioning-tutorial/gapps-admin-privileges.png)
 
 ## <a name="step-3-add-g-suite-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 G Suite 추가
 
@@ -126,9 +119,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다. 사용자가 portal.azure.com에 로그인해야 하며, aad.portal.azure.com은 사용할 수 없습니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](./media/google-apps-provisioning-tutorial/enterprise-applications.png)
+    ![엔터프라이즈 애플리케이션 블레이드](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 
-    ![모든 애플리케이션 블레이드](./media/google-apps-provisioning-tutorial/all-applications.png)
+    ![모든 애플리케이션 블레이드](./media/g-suite-provisioning-tutorial/all-applications.png)
 
 2. 애플리케이션 목록에서 **G Suite** 를 선택합니다.
 
@@ -138,7 +131,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비저닝 옵션이 호출된 관리 옵션의 스크린샷](common/provisioning.png)
 
-      ![시작 블레이드](./media/google-apps-provisioning-tutorial/get-started.png)
+      ![시작 블레이드](./media/g-suite-provisioning-tutorial/get-started.png)
 
 4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
@@ -146,11 +139,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 5. **관리자 자격 증명** 섹션 아래에서 **권한 부여** 를 클릭합니다. 새 브라우저 창에서 Google 권한 부여 대화 상자로 리디렉션됩니다.
 
-      ![G Suite 권한 부여](./media/google-apps-provisioning-tutorial/authorize-1.png)
+      ![G Suite 권한 부여](./media/g-suite-provisioning-tutorial/authorize-1.png)
 
 6. G Suite 테넌트를 변경할 수 있는 Azure AD 권한을 부여할지 확인합니다. **수락** 을 선택합니다.
 
-     ![G Suite 테넌트 권한 부여](./media/google-apps-provisioning-tutorial/gapps-auth.png)
+     ![G Suite 테넌트 권한 부여](./media/g-suite-provisioning-tutorial/gapps-auth.png)
 
 7. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD에서 G Suite에 연결할 수 있는지 확인합니다. 연결이 실패하면 G Suite 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다. 그런 다음 **권한 부여** 단계를 다시 시도합니다.
 
@@ -276,7 +269,13 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 1. [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 2. [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
-3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.
+3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.  
+
+## <a name="change-log"></a>로그 변경
+
+* 2020년 10월 17일 - 추가 G Suite 사용자 및 그룹 특성에 대한 지원이 추가되었습니다.
+* 2020년 10월 17일 - [여기](https://developers.google.com/admin-sdk/directory)에 정의된 것과 일치하도록 G Suite 대상 특성 이름이 업데이트되었습니다.
+* 2020년 10월 17일 - 기본 특성 매핑이 업데이트되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

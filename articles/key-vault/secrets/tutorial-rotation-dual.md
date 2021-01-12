@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: c2496959f851b55f8cc66c0e793b641cdafb003a
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 39081bc7bec7cfd76ccfc9107d5c2286affb7df0
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808337"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913773"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -222,8 +222,15 @@ az storage account keys list -n vaultrotationstorage
 
 ## <a name="key-vault-rotation-functions-for-two-sets-of-credentials"></a>두 자격 증명 세트에 대한 Key Vault 회전 함수
 
-- [스토리지 계정](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
-- [Redis cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
+두 가지 자격 증명 세트와 바로 사용할 수 있는 몇 가지 함수에 대한 회전 함수 템플릿:
+
+- [프로젝트 템플릿](https://serverlesslibrary.net/sample/bc72c6c3-bd8f-4b08-89fb-c5720c1f997f)
+- [Redis Cache](https://serverlesslibrary.net/sample/0d42ac45-3db2-4383-86d7-3b92d09bc978)
+- [Storage 계정](https://serverlesslibrary.net/sample/0e4e6618-a96e-4026-9e3a-74b8412213a4)
+- [Cosmos DB](https://serverlesslibrary.net/sample/bcfaee79-4ced-4a5c-969b-0cc3997f47cc)
+
+> [!NOTE]
+> 위의 회전 함수는 Microsoft가 아닌 커뮤니티 구성원이 만듭니다. Community Azure Functions는 Microsoft 지원 프로그램 또는 서비스에서 지원되지 않으며, 어떠한 종류의 보증도 없이 있는 그대로 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

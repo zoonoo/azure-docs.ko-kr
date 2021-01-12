@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6d41c186a5d239ad7228c37902f5691085e43dbf
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4535368b7d8d044469a4b0effee914176aca78e4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631247"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935410"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>자습서: Azure Stack Edge Mini R 배포 준비
 
-이 문서는 Azure Stack Edge Mini R 디바이스를 완전히 배포하는 데 필요한 배포 자습서 시리즈 중 첫 번째 자습서입니다. 이 자습서에서는 Azure Stack Edge 리소스를 배포하기 위해 Azure Portal을 준비하는 방법에 대해 설명합니다.
+이 자습서는 Azure Stack Edge Mini R 디바이스를 완전히 배포하는 데 필요한 배포 자습서 시리즈 중 첫 번째 자습서입니다. 이 자습서에서는 Azure Stack Edge 리소스를 배포하기 위해 Azure Portal을 준비하는 방법에 대해 설명합니다.
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 포털 준비에는 10분 미만이 소요됩니다.
 
@@ -36,7 +36,7 @@ Azure Stack Edge Mini R을 배포하려면 다음 자습서를 지정된 순서�
 | --- | --- |
 | **준비** |이러한 단계는 예정된 배포 준비 과정에서 완료해야 합니다. |
 | **[배포 구성 검사 목록](#deployment-configuration-checklist)** |이 검사 목록을 사용하여 배포 이전 및 배포하는 동안 정보를 수집하고 기록합니다. |
-| **[배포 사전 요구 사항](#prerequisites)** |배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
+| **[배포 사전 요구 사항](#prerequisites)** |이러한 필수 구성 요소는 배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
 |  | |
 |**배포 자습서** |이러한 자습서는 프로덕션 환경에서 Azure Stack Edge Mini R 디바이스를 배포하는 데 필요합니다. |
 |**[1. 디바이스에 대한 Azure Portal 준비](azure-stack-edge-mini-r-deploy-prep.md)** |물리적 디바이스를 설치하기 전에 Azure Stack Edge 리소스를 만들고 구성합니다. |
@@ -46,7 +46,7 @@ Azure Stack Edge Mini R을 배포하려면 다음 자습서를 지정된 순서�
 |**[5. 디바이스 설정 구성](azure-stack-edge-mini-r-deploy-set-up-device-update-time.md)** |디바이스 이름과 DNS 도메인을 할당하고, 업데이트 서버 및 디바이스 시간을 구성합니다. |
 |**[6. 보안 설정 구성](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md)** |사용자 고유의 인증서를 사용하여 인증서를 구성하고, VPN을 설정하고, 디바이스에 대한 미사용 암호화를 구성합니다.   |
 |**[7. 디바이스 활성화](azure-stack-edge-mini-r-deploy-activate.md)** |서비스의 활성화 키를 사용하여 디바이스를 활성화합니다. 디바이스에서 SMB 또는 NFS 공유를 설정하거나 REST를 통해 연결할 준비가 되었습니다. |
-|**[8. 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)** |디바이스에서 컴퓨팅 역할을 구성합니다. 그러면 Kubernetes 클러스터도 만들어집니다. |
+|**[8. 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)** |디바이스에서 컴퓨팅 역할을 구성합니다. Kubernetes 클러스터도 만들어집니다. |
 
 이제 Azure Portal 설치를 시작할 수 있습니다.
 
@@ -101,43 +101,43 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
     [![리소스 만들기 2](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png#lightbox)
 
 
-6. **기본 사항** 탭에서 다음 **프로젝트 세부 정보** 를 입력하거나 선택합니다.
+5. **기본 사항** 탭에서 다음 **프로젝트 세부 정보** 를 입력하거나 선택합니다.
     
     |설정  |값  |
     |---------|---------|
-    |Subscription    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
+    |Subscription    |이전에 선택한 내용에 따라 구독이 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
     |Resource group  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.     |
 
 
-7. 다음 **인스턴스 세부 정보** 를 입력하거나 선택합니다.
+6. 다음 **인스턴스 세부 정보** 를 입력하거나 선택합니다.
 
     |설정  |값  |
     |---------|---------|
-    |속성   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
+    |속성   | 리소스를 식별하기 위한 이름.<br>이름은 문자, 숫자 및 하이픈을 포함하여 2~50자입니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
     |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
 
     ![리소스 만들기 4](media/azure-stack-edge-mini-r-deploy-prep/create-resource-4.png)
 
 
-8. 완료되면 **다음: 배송 주소** 를 선택합니다.
+7. 완료되면 **다음: 배송 주소** 를 선택합니다.
 
-    - 디바이스가 이미 있는 경우 **Azure Stack Edge Pro R 디바이스가 있습니다.** 콤보 상자를 선택합니다.
+    - 디바이스가 이미 있는 경우 **이미 디바이스가 있습니다** 의 콤보 상자를 선택합니다.
 
-        ![리소스 만들기 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
+     ![리소스 만들기 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - 이 디바이스가 지금 주문하는 새 디바이스인 경우 연락처 이름, 회사, 디바이스를 배송할 주소, 연락처 정보를 입력합니다.
+    - 이 디바이스가 주문하는 새 디바이스인 경우 연락처 이름, 회사, 디바이스를 배송할 주소, 연락처 정보를 입력합니다.
 
-        ![리소스 만들기 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
+     ![리소스 만들기 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
-9. 완료되면 **다음: 태그** 를 선택합니다. 필요에 따라 리소스를 범주화하고 청구를 통합하는 태그를 입력합니다. 완료되면 **다음: 리뷰 + 만들기** 를 클릭합니다.
+8. 완료되면 **다음: 태그** 를 선택합니다. 필요에 따라 리소스를 범주화하고 청구를 통합하는 태그를 입력합니다. 완료되면 **다음: 리뷰 + 만들기** 를 클릭합니다.
 
-10. **검토 + 만들기** 탭에서 **가격 책정 세부 정보**, **사용 약관** 및 리소스 세부 정보를 살펴봅니다. **I have reviewed the privacy terms**(개인정보처리방침을 검토했습니다) 콤보 상자를 선택합니다.
+9. **검토 + 만들기** 탭에서 **가격 책정 세부 정보**, **사용 약관** 및 리소스 세부 정보를 살펴봅니다. **I have reviewed the privacy terms**(개인정보처리방침을 검토했습니다) 콤보 상자를 선택합니다.
 
-    ![리소스 만들기 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png) 
+    ![리소스 만들기 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png)
 
-    또한 리소스를 만드는 동안 클라우드 서비스에 인증할 때 MSI(관리되는 서비스 ID)를 사용할 수 있다는 알림이 표시됩니다. 이 ID는 리소스가 존재하는 동안 존재합니다.
+    또한 리소스 생성 중에 클라우드 서비스에 인증할 수 있는 MSI(관리되는 서비스 ID)가 활성화된다는 알림이 표시됩니다. 이 ID는 리소스가 존재하는 동안 존재합니다.
 
-8. **만들기** 를 선택합니다.
+10. **만들기** 를 선택합니다.
 
     리소스 생성에는 몇 분 정도가 소요됩니다. Azure Stack Edge 디바이스가 Azure의 리소스 공급자와 통신할 수 있도록 MSI도 만들어집니다.
     
@@ -153,19 +153,19 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
 Azure Stack Edge 리소스가 가동되면 활성화 키를 가져와야 합니다. 이 키는 Azure Stack Edge Mini R 디바이스를 활성화하고 리소스와 연결하는 데 사용됩니다. 이제 Azure Portal에서 이 키를 얻을 수 있습니다.
 
-1. 만든 리소스의 이름을 선택합니다. **개요** 를 선택한 다음, **디바이스 설정** 을 선택합니다.
+1. 사용자가 만든 리소스를 선택하고 **개요** 를 선택합니다.
 
-    ![디바이스 설정 선택](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
+   ![디바이스 설정 선택](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
 
 2. **활성화** 타일에서 Azure Key Vault 이름을 입력하거나 기본 이름을 적용합니다. 키 자격 증명 모음 이름은 3~24자여야 합니다. 
 
-    디바이스에서 활성화된 각 Azure Stack Edge 리소스에 대한 키 자격 증명 모음이 만들어집니다. 키 자격 증명 모음을 사용하여 비밀을 저장하고 액세스할 수 있습니다. 예를 들어 서비스의 CIK(채널 무결성 키)는 키 자격 증명 모음에 저장됩니다. 
+    디바이스에서 활성화된 각 Azure Stack Edge 리소스에 대한 키 자격 증명 모음이 만들어집니다. 키 자격 증명 모음을 사용하여 비밀을 저장하고 액세스할 수 있습니다. 예를 들어 서비스의 CIK(채널 무결성 키)는 키 자격 증명 모음에 저장됩니다.
 
-    키 자격 증명 모음 이름을 지정했으면 **키 생성** 을 선택하여 활성화 키를 만듭니다. 
+    키 자격 증명 모음 이름을 지정했으면 **활성화 키 생성** 을 선택하여 활성화 키를 만듭니다.
 
     [![활성화 키 가져오기](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
 
-    키 자격 증명 모음 및 활성화 키가 생성될 때까지 몇 분 정도 기다립니다. 복사 아이콘을 선택하여 키를 복사하고 나중에 사용할 수 있도록 저장합니다.
+    키 자격 증명 모음 및 활성화 키가 생성되는 동안 몇 분 정도 기다립니다. 복사 아이콘을 선택하여 키를 복사하고 나중에 사용할 수 있도록 저장합니다.
 
 > [!IMPORTANT]
 > - 활성화 키는 생성되고 3일 후에 만료됩니다.

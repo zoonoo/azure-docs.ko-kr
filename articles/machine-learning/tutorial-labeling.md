@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 238801171d19191bcac505f0c95395320f96d75c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347509"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882469"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트 만들기 
 
@@ -104,7 +104,8 @@ Azure Machine Learning 데이터 저장소는 구독 ID 및 토큰 권한 부여
 1. 다음 입력을 **데이터 저장소에서 데이터 세트 만들기** 양식에 사용합니다.
 
     1. **기본 정보** 양식에서 이름을 추가합니다. 여기서는 **images-for-tutorial** 을 사용합니다.  원하는 경우 설명을 추가합니다.  그런 후 **다음** 을 선택합니다.
-    1. **데이터 저장소 선택** 양식에서 드롭다운을 사용하여 **이전에 만든 데이터 저장소**(예: **tutorial_images(Azure Blob Storage)** )를 선택합니다.
+    1. **데이터 저장소 선택** 양식에서 **이전에 만든 데이터 저장소** 를 선택한 다음, 데이터 저장소 이름을 클릭하고 **데이터 저장소 선택** 을 선택합니다.
+    1. 다음 페이지에서 현재 선택한 데이터 저장소가 올바른지 확인합니다. 그렇지 않은 경우 **이전에 만든 데이터 저장소** 를 선택하고 이전 단계를 반복합니다.
     1. 다음으로, 여전히 **데이터 저장소 선택** 양식에서 **찾아보기** 를 선택한 다음, **MultiClass - DogsCats** 를 선택합니다.  **저장** 을 선택하여 **/MultiClass - DogsCats** 를 경로로 사용합니다.
     1. **다음** 을 선택하여 세부 정보를 확인한 다음, **만들기** 를 선택하여 데이터 세트를 만듭니다.
     1. 목록에서 데이터 세트 이름(예: **images-for-tutorial**) 옆에 있는 원을 선택합니다.

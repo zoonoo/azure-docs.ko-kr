@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9e5d12bcea1bd7a587568c30b49c8c4ee95f8362
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319009"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937385"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>자습서: Akamai와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -53,7 +53,7 @@ Akamai EAA는 Open ID Connect, SAML, WS-Fed 등의 최신 인증 프로토콜을
 
 #### <a name="integration-scenario-1"></a>통합 시나리오 1
 
-Akamai EAA는 Azure AD에서 단일 애플리케이션으로 구성됩니다. 관리자는 애플리케이션에서 CA 정책을 구성할 수 있으며, 조건이 충족되면 사용자는 Akamai EAA 포털에 대한 액세스 권한을 얻을 수 있습니다.
+Akamai EAA는 Azure AD에서 단일 애플리케이션으로 구성됩니다. 관리자는 애플리케이션에서 조건부 액세스 정책을 구성할 수 있으며, 조건이 충족되면 사용자는 Akamai EAA 포털에 대한 액세스 권한을 얻을 수 있습니다.
 
 **장점**:
 
@@ -63,13 +63,13 @@ Akamai EAA는 Azure AD에서 단일 애플리케이션으로 구성됩니다. �
 
 * 사용자에게 제공되는 애플리케이션 포털이 최종적으로 2개입니다.
 
-* 공통 CA 정책 하나가 모든 애플리케이션에 적용됩니다.
+* 공통 조건부 액세스 정책 하나가 모든 애플리케이션에 적용됩니다.
 
 ![통합 시나리오 1](./media/header-akamai-tutorial/scenario1.png)
 
 #### <a name="integration-scenario-2"></a>통합 시나리오 2
 
-Akamai EAA 애플리케이션은 Azure AD 포털에서 개별적으로 설정합니다. 관리자는 애플리케이션에서 개별 CA 정책을 구성할 수 있으며, 조건이 충족되면 사용자를 특정 애플리케이션으로 직접 리디렉션할 수 있습니다.
+Akamai EAA 애플리케이션은 Azure AD 포털에서 개별적으로 설정합니다. 관리자는 애플리케이션에서 개별 조건부 액세스 정책을 구성할 수 있으며, 조건이 충족되면 사용자를 특정 애플리케이션으로 직접 리디렉션할 수 있습니다.
 
 **장점**:
 
@@ -99,7 +99,7 @@ Akamai EAA 애플리케이션은 Azure AD 포털에서 개별적으로 설정합
 
 #### <a name="important"></a>중요
 
-아래에 나열된 모든 설정은 **통합 시나리오 1** 및 **시나리오 2**에 동일하게 적용됩니다. **통합 시나리오 2**의 경우 Akamai EAA에서 개별 IDP를 설정했으며, 애플리케이션 URL을 가리키도록 URL 속성을 수정해야 합니다.
+아래에 나열된 모든 설정은 **통합 시나리오 1** 및 **시나리오 2** 에 동일하게 적용됩니다. **통합 시나리오 2** 의 경우 Akamai EAA에서 개별 IDP를 설정했으며, 애플리케이션 URL을 가리키도록 URL 속성을 수정해야 합니다.
 
 ![Akamai 엔터프라이즈 애플리케이션 액세스의 AZURESSO-SP에 대한 General(일반) 탭의 스크린샷 인증 구성 URL 필드가 강조 표시됩니다.](./media/header-akamai-tutorial/important.png)
 
@@ -109,14 +109,14 @@ Akamai가 Azure AD에 통합되도록 구성하려면 갤러리의 Akamai를 관
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에서 **Akamai**를 입력합니다.
-1. 결과 패널에서 **Akamai**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에서 **Akamai** 를 입력합니다.
+1. 결과 패널에서 **Akamai** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-akamai"></a>Akamai에 대한 Azure AD Single Sign-On 구성 및 테스트
 
-**B. Simon**이라는 테스트 사용자를 사용하여 Akamai에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Akamai의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B. Simon** 이라는 테스트 사용자를 사용하여 Akamai에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Akamai의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Akamai에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
@@ -136,9 +136,9 @@ Akamai에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요�
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Akamai** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Akamai** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -151,7 +151,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Akamai 클라이언트 지원 팀](https://www.akamai.com/us/en/contact-us/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -163,29 +163,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Akamai에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **Akamai**를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **Akamai** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
@@ -196,11 +196,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 **AKAMAI EAA IDP 구성**
 
 1. **Akamai 엔터프라이즈 애플리케이션 액세스** 콘솔에 로그인합니다.
-1. **Akamai EAA 콘솔**에서 **ID** > **ID 공급자**를 선택하고 **ID 공급자 추가**를 클릭합니다.
+1. **Akamai EAA 콘솔** 에서 **ID** > **ID 공급자** 를 선택하고 **ID 공급자 추가** 를 클릭합니다.
 
     ![Akamai EAA 콘솔 ID 공급자 창의 스크린샷 ID 메뉴에서 ID 공급자를 선택하고 ID 공급자 추가를 선택합니다.](./media/header-akamai-tutorial/configure01.png)
 
-1. **새 ID 공급자 만들기**에서 다음 단계를 수행합니다.
+1. **새 ID 공급자 만들기** 에서 다음 단계를 수행합니다.
 
     ![Akamai EAA 콘솔의 Create New Identity Providers(새 ID 공급자 만들기) 대화 상자의 스크린샷](./media/header-akamai-tutorial/configure02.png)
 
@@ -269,7 +269,7 @@ Akamai 헤더 기반 인증
 
     ![Access Apps(앱 액세스) 섹션에 나열된 CustomHTTP(사용자 지정 HTTP)를 보여주는 Akamai EAA 콘솔 Add Applications(애플리케이션 추가) 마법사의 스크린샷](./media/header-akamai-tutorial/configure05.png)
 
-2. **애플리케이션 이름** 및 **설명**을 입력합니다.
+2. **애플리케이션 이름** 및 **설명** 을 입력합니다.
 
     ![애플리케이션 이름 및 설명에 대한 설정을 보여주는 Custom HTTP App(사용자 지정 HTTP 앱) 대화 상자의 스크린샷](./media/header-akamai-tutorial/configure06.png)
 
@@ -327,11 +327,11 @@ Akamai 헤더 기반 인증
 
 #### <a name="remote-desktop"></a>원격 데스크톱
 
-1. ADD Applications(애플리케이션 추가) 마법사에서 **RDP**를 선택합니다.
+1. ADD Applications(애플리케이션 추가) 마법사에서 **RDP** 를 선택합니다.
 
     ![Access Apps(앱 액세스) 섹션의 앱 중에 나열된 RDP를 보여주는 Akamai EAA 콘솔 Add Applications(애플리케이션 추가) 마법사의 스크린샷](./media/header-akamai-tutorial/configure16.png)
 
-1. **애플리케이션 이름** 및 **설명**을 입력합니다.
+1. **애플리케이션 이름** 및 **설명** 을 입력합니다.
 
     ![애플리케이션 이름 및 설명에 대한 설정을 보여주는 RDP App(RDP 앱) 대화 상자 스크린샷](./media/header-akamai-tutorial/configure17.png)
 
@@ -381,11 +381,11 @@ Akamai 헤더 기반 인증
 
 #### <a name="ssh"></a>SSH
 
-1. [애플리케이션 추가]로 이동하여 **SSH**를 선택합니다.
+1. [애플리케이션 추가]로 이동하여 **SSH** 를 선택합니다.
 
     ![Access Apps(앱 액세스) 섹션의 앱 중에 나열된 SSH를 보여주는 Akamai EAA 콘솔 Add Applications(애플리케이션 추가) 마법사의 스크린샷](./media/header-akamai-tutorial/configure25.png)
 
-1. **애플리케이션 이름** 및 **설명**을 입력합니다.
+1. **애플리케이션 이름** 및 **설명** 을 입력합니다.
 
     ![애플리케이션 이름 및 설명에 대한 설정을 보여주는 SSH App(SSH 앱) 대화 상자의 스크린샷](./media/header-akamai-tutorial/configure26.png)
 
@@ -476,7 +476,7 @@ ID 공급자 할당
 
 #### <a name="adding-directory"></a>디렉터리 추가
 
-1. 드롭다운에서 **AD**를 선택합니다.
+1. 드롭다운에서 **AD** 를 선택합니다.
 
     ![Directory Type(디렉터리 유형) 드롭다운에 AD가 선택된 Create New Directory(새 디렉터리 만들기) 대화 상자를 보여주는 Akamai EAA 콘솔 Directories(디렉터리) 창의 스크린샷](./media/header-akamai-tutorial/configure33.png)
 
@@ -496,7 +496,7 @@ ID 공급자 할당
 
     ![Akamai EAA 콘솔 GROUPS ON SUPERDEMOLIVE DIRECTORY 창의 스크린샷 사용자 1명이 그룹 아래에 있는 EAAGroup](./media/header-akamai-tutorial/eaagroup.png)
 
-1. **ID** > **ID 공급자**를 클릭하고 **디렉터리** 탭을 클릭한 다음, **디렉터리 할당**을 클릭합니다.
+1. **ID** > **ID 공급자** 를 클릭하고 **디렉터리** 탭을 클릭한 다음, **디렉터리 할당** 을 클릭합니다.
 
     ![Currently assigned directories(현재 할당된 디렉터리) 목록의 superdemo.live를 보여주는 Azure AD SSO의 Akamai EAA 콘솔 Directories(디렉터리) 탭의 스크린샷](./media/header-akamai-tutorial/assigndirectory.png)
 
@@ -504,12 +504,12 @@ ID 공급자 할당
 
 #### <a name="step-1-create-an-account"></a>1단계: 계정 만들기 
 
-1. 이 예제에서는 **EAADelegation**이라는 계정을 사용합니다. 이 연습은 **Active Directory 사용자 및 컴퓨터** 스내핀을 사용하여 수행할 수 있습니다.
+1. 이 예제에서는 **EAADelegation** 이라는 계정을 사용합니다. 이 연습은 **Active Directory 사용자 및 컴퓨터** 스내핀을 사용하여 수행할 수 있습니다.
 
     ![Azure AD SSO의 Akamai EAA 콘솔 Directories(디렉터리) 탭의 스크린샷 superdemo.live 디렉터리는 Currently assigned directories(현재 할당된 디렉터리) 아래에 나열됩니다.](./media/header-akamai-tutorial/assigndirectory.png)
 
     > [!NOTE]
-    > 사용자 이름은 **ID 가로채기 이름**을 기반으로 하는 특정 형식이어야 합니다. 그림 1을 보면 **corpapps.login.go.akamai-access.com**입니다.
+    > 사용자 이름은 **ID 가로채기 이름** 을 기반으로 하는 특정 형식이어야 합니다. 그림 1을 보면 **corpapps.login.go.akamai-access.com** 입니다.
 
 1. 사용자 로그온 이름은 `HTTP/corpapps.login.go.akamai-access.com`입니다.
 
@@ -555,11 +555,11 @@ ID 공급자 할당
 
 #### <a name="step-5-import-keytab-in-the-akamai-eaa-console"></a>5단계: AKAMAI EAA 콘솔에서 Keytab 가져오기
 
-1. **시스템** > **Keytabs**를 클릭합니다.
+1. **시스템** > **Keytabs** 를 클릭합니다.
 
     ![시스템 메뉴에서 선택된 Keytab을 보여주는 Akamai EAA 콘솔의 스크린샷](./media/header-akamai-tutorial/keytabs.png)
 
-1. [Keytab 형식]에서 **Kerberos 위임**을 선택합니다.
+1. [Keytab 형식]에서 **Kerberos 위임** 을 선택합니다.
 
     ![Keytab 설정을 보여주는 Akamai EAA 콘솔 EAAKEYTAB 화면의 스크린샷 Keytab Type(Keytab 형식)은 Kerberos 위임으로 설정됩니다.](./media/header-akamai-tutorial/keytabdelegation.png)
 

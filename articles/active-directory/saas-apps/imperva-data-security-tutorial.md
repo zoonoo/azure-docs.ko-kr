@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ea08f8ec98ff8ddd4a9f15f12a0224db440b7b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 710164fa3712058d64e5d23006b986eb3dc3eaba
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675695"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882758"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-imperva-data-security"></a>자습서: Imperva Data Security와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -37,7 +37,7 @@ ms.locfileid: "97675695"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Imperva Data Security는 **IDP** 시작 SSO를 지원합니다.
+* Imperva Data Security는 **SP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-imperva-data-security-from-the-gallery"></a>갤러리에서 Imperva Data Security 추가
 
@@ -76,9 +76,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지에서 다음 필드에 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://<IMPERVA_DNS_NAME>:8443` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에 `application-name` 패턴을 사용하여 식별자를 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://<IMPERVA_DNS_NAME>:8443` 패턴을 사용하여 URL을 입력합니다.
+    
+    다. **로그온 URL** 텍스트 상자에서 `https://<IMPERVA_DNS_NAME>:8443` 패턴을 사용하는 URL을 입력합니다.
+    
+    d. **로그아웃 URL** 텍스트 상자에 `https://<IMPERVA_DNS_NAME>:8443` 패턴을 사용하여 URL을 입력합니다.    
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 해당 값을 얻으려면 [Imperva Data Security 클라이언트 지원 팀](mailto:support@jsonar.imperva.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 92fdef48556a3306ee5e3f10e07ff609a8fc4be4
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 12983f43e5f778cdf46c2ea3e0177d43838e5b47
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656226"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051601"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB Emulator - 릴리스 정보 및 다운로드 정보
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,10 @@ ms.locfileid: "97656226"
 |**시작**|[Azure Cosmos DB Emulator를 사용하여 로컬로 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="21110-5-january-2021"></a>2.11.10(2021년 1월 5일)
+
+ - 이 릴리스는 로컬 데이터 탐색기 콘텐츠를 최신 Azure Portal 버전으로 업데이트하고 에뮬레이터 사용자가 공용 에뮬레이터의 인증서를 .PEM 파일로 직접 내보낼 수 있는 새로운 공용 옵션인 "/ExportPemCert"를 추가합니다.
 
 ### <a name="2119-3-december-2020"></a>2.11.9(2020년 12월 3일)
 

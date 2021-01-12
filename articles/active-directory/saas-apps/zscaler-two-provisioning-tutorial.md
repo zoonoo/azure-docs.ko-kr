@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fcbe2101f85678414d4496977d9a0a1d41a71ea5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1c63639321966cbb73f5c47524f408d17ba46c3a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517500"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936566"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>자습서: Zscaler Two에 대한 자동 사용자 프로비저닝 구성
 
@@ -74,6 +74,9 @@ Azure AD 사용자는 먼저 선택한 앱에 대한 액세스 권한을 할당�
 
 > [!TIP]
 > Zscaler Two에서 SAML 기반 Single Sign-On을 사용하도록 설정하려고 할 수도 있습니다. 이 경우 [Zscaler Two Single Sign-On 자습서](zscaler-two-tutorial.md)의 지침을 따르세요. Single Sign-On은 자동 사용자 프로비저닝과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
+
+> [!NOTE]
+> 사용자 및 그룹을 프로비저닝하거나 프로비저닝 해제할 때 그룹 멤버 자격이 적절히 업데이트되도록 프로비저닝을 정기적으로 다시 시작하는 것이 좋습니다. 다시 시작하면 서비스에서 모든 그룹을 다시 평가하고 멤버 자격을 업데이트합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, **엔터프라이즈 애플리케이션** > **모든 애플리케이션** > **Zscaler Two** 를 차례로 선택합니다.
 
