@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da053bb04e5ee3f2b2b307c382f2695663669e5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 568584b849b2c5977d4bbb6216697dce3c498cfd
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020658"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107925"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -770,6 +770,7 @@ Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을
 | microsoft.directory/directoryRoles/allProperties/allTasks | Azure Active Directory에서 directoryRoles를 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
 | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Azure Active Directory에서 directoryRoleTemplates를 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
 | microsoft.directory/domains/allProperties/allTasks | Azure Active Directory에서 도메인을 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
+| microsoft. directory/entitlementManagement/allProperties/Allproperties | Azure AD 자격 관리에서 리소스를 만들고 삭제 하 고, 모든 속성을 읽고 업데이트 합니다. |
 | microsoft.directory/groups/allProperties/allTasks | Azure Active Directory에서 그룹을 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
 | microsoft. directory/groupsAssignableToRoles/allProperties/update | Azure Active Directory에서 isAssignableToRole 속성을 true로 설정한 그룹을 업데이트 합니다. |
 | microsoft. directory/groupsAssignableToRoles/create | Azure Active Directory에서 isAssignableToRole 속성을 true로 설정 하 여 그룹을 만듭니다. |
@@ -831,6 +832,7 @@ Azure AD 및 Microsoft 365에서 준수 구성 및 보고서를 읽고 관리할
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | 디렉터리 수준 서비스에 대 한 Azure 지원 티켓을 만들고 관리 합니다. |
+| microsoft. directory/entitlementManagement/allProperties/read | Azure AD 자격 관리에서 모든 속성을 읽습니다. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Office 365 준수 관리자의 모든 측면을 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
@@ -1133,6 +1135,7 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.directory/directoryRoles/eligibleMembers/read    | Azure Active Directory에서 directoryRoles.eligibleMembers 속성을 읽습니다. |
 | microsoft.directory/directoryRoles/members/read    | Azure Active Directory에서 directoryRoles.members 속성을 읽습니다. |
 | microsoft.directory/domains/basic/read    | Azure Active Directory에서 도메인의 기본 속성을 읽습니다. |
+| microsoft. directory/entitlementManagement/allProperties/read | Azure AD 자격 관리에서 모든 속성을 읽습니다. |
 | microsoft.directory/groups/appRoleAssignments/read    | Azure Active Directory에서 Groups.AppRoleAssignments 속성을 읽습니다. |
 | microsoft.directory/groups/basic/read    | Azure Active Directory에서 그룹의 기본 속성을 읽습니다. |
 | microsoft.directory/groups/hiddenMembers/read    | Azure Active Directory에서 groups.hiddenMembers 속성을 읽습니다. |
@@ -1231,7 +1234,7 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 
 ### <a name="hybrid-identity-administrator-permissions"></a>하이브리드 ID 관리자 권한
 
-클라우드 프로비저닝 및 인증 서비스를 사용, 배포, 구성, 관리, 모니터링하고 문제를 해결합니다. 
+Azure AD 클라우드 프로 비전 및 페더레이션 설정에서 AD를 관리할 수 있습니다. 
 
 | **actions** | **설명** |
 | --- | --- |
@@ -1249,8 +1252,10 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.directory/applicationTemplates/instantiate | 애플리케이션 템플릿에서 갤러리 애플리케이션을 인스턴스화합니다. |
 | microsoft.directory/auditLogs/allProperties/read | Azure Active Directory에서 auditLogs에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
 | microsoft.directory/cloudProvisioning/allProperties/allTasks | Azure AD 클라우드 프로비저닝 서비스의 모든 속성을 읽고 구성합니다. |
-| microsoft.directory/federatedAuthentication/allProperties/allTasks | Azure AD에서 ADFS(Active Directory Federated Services) 또는 타사 페더레이션 공급자의 모든 것을 관리합니다. |
+| microsoft. directory/domains/allProperties/read | 도메인의 모든 속성을 읽습니다. |
+| microsoft. 디렉터리/도메인/페더레이션/업데이트 | 도메인의 페더레이션 속성을 업데이트 합니다. |
 | microsoft.directory/organization/dirSync/update | Azure Active Directory에서 organization.dirSync 속성을 업데이트합니다. |
+| microsoft.directory/provisioningLogs/allProperties/read | 프로 비전 로그의 모든 속성을 읽습니다. |
 | microsoft.directory/servicePrincipals/audience/update | Azure Active Directory에서 servicePrincipals.audience 속성을 업데이트합니다. |
 | microsoft.directory/servicePrincipals/authentication/update | Azure Active Directory에서 servicePrincipals.authentication 속성을 업데이트합니다. |
 | microsoft.directory/servicePrincipals/basic/update | Azure Active Directory에서 servicePrincipals의 기본 속성을 업데이트합니다. |
@@ -1708,9 +1713,10 @@ Microsoft Search 설정의 모든 것을 만들고 관리할 수 있습니다.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | 디렉터리 수준 서비스에 대 한 Azure 지원 티켓을 만들고 관리 합니다. |
-| microsoft. directory/bitlockerKeys/키/읽기 | Azure Active Directory에서 bitlocker 키 개체 및 속성 (복구 키 포함)을 읽습니다. |
 | microsoft.directory/applications/policies/update | Azure Active Directory에서 applications.policies 속성을 업데이트합니다. |
 | microsoft.directory/auditLogs/allProperties/read | Azure Active Directory에서 auditLogs에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
+| microsoft. directory/bitlockerKeys/키/읽기 | Azure Active Directory에서 bitlocker 키 개체 및 속성 (복구 키 포함)을 읽습니다. |
+| microsoft. directory/entitlementManagement/allProperties/read | Azure AD 자격 관리에서 모든 속성을 읽습니다. |
 | microsoft. directory/identityProtection/allProperties/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
 | microsoft. directory/identityProtection/allProperties/update | microsoft.aad.identityProtection에서 모든 리소스를 업데이트합니다. |
 | microsoft.directory/policies/basic/update | Azure Active Directory에서 정책의 기본 속성을 업데이트합니다. |
@@ -1761,6 +1767,7 @@ Azure AD 및 Microsoft 365의 보안 정보 및 보고서를 읽을 수 있습�
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Azure Active Directory에서 auditLogs에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
 | microsoft. directory/bitlockerKeys/키/읽기 | Azure Active Directory에서 bitlocker 키 개체 및 속성 (복구 키 포함)을 읽습니다. |
+| microsoft. directory/entitlementManagement/allProperties/read | Azure AD 자격 관리에서 모든 속성을 읽습니다. |
 | microsoft.directory/policies/conditionalAccess/basic/read | Azure Active Directory에서 policies.conditionalAccess 속성을 읽습니다. |
 | microsoft.directory/signInReports/allProperties/read | Azure Active Directory에서 signInReports에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
 | microsoft.aad.identityProtection/allEntities/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
@@ -1926,6 +1933,7 @@ M365 사용 분석 및 생산성 점수에서 테 넌 트 수준 집계만 볼 �
 | microsoft.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 읽습니다. |
 | microsoft.directory/contacts/create | Azure Active Directory에서 연락처를 만듭니다. |
 | microsoft.directory/contacts/delete | Azure Active Directory에서 연락처를 삭제합니다. |
+| microsoft. directory/entitlementManagement/allProperties/Allproperties | Azure AD 자격 관리에서 리소스를 만들고 삭제 하 고, 모든 속성을 읽고 업데이트 합니다. |
 | microsoft.directory/groups/appRoleAssignments/update | Azure Active Directory에서 groups.appRoleAssignments 속성을 업데이트합니다. |
 | microsoft.directory/groups/basic/update | Azure Active Directory에서 그룹의 기본 속성을 업데이트합니다. |
 | microsoft.directory/groups/create | Azure Active Directory에서 그룹을 만듭니다. |

@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e1031df9f305015048de7f708123a51875776e1b
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 2ee4e313366bafdd2f6e3bd0e104abd9f11b7776
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760591"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108673"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -110,7 +110,7 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```powershell
 $creds = Get-Credential
@@ -136,7 +136,7 @@ sudo chown -R 11000:11000 <blob-dir>
 sudo chmod -R 700 <blob-dir>
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```terminal
 sudo chown -R 11000:11000 /srv/containerdata
@@ -195,7 +195,7 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Azure Storage 탐색기를 사용 하 여 로컬 저장소에 연결
 
-[Azure Storage 탐색기](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) 를 사용 하 여 로컬 저장소 계정에 연결할 수 있습니다.
+[Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 를 사용 하 여 로컬 저장소 계정에 연결할 수 있습니다.
 
 1. Azure Storage Explorer 다운로드 및 설치
 

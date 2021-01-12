@@ -3,22 +3,75 @@ title: 응용 프로그램에서 관리 id 사용
 description: Azure Service Fabric 응용 프로그램 코드에서 관리 되는 id를 사용 하 여 Azure 서비스에 액세스 하는 방법입니다.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c89f7bd064e643b978253f2e083c449d904d2cad
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253646"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108520"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법
 
 Service Fabric 응용 프로그램은 관리 되는 id를 활용 하 여 Azure Active Directory 기반 인증을 지 원하는 다른 Azure 리소스에 액세스할 수 있습니다. 응용 프로그램은 시스템 할당 또는 사용자 할당 일 수 있는 id를 나타내는 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token) 을 가져올 수 있으며,이 토큰을 ' 전달자 ' 토큰으로 사용 하 여 다른 서비스 ( [보호 된 리소스 서버](../active-directory/develop/developer-glossary.md#resource-server)라고도 함)에 인증할 수 있습니다. 토큰은 Service Fabric 응용 프로그램에 할당 된 id를 나타내며, 해당 id를 공유 하는 Azure 리소스 (SF 응용 프로그램 포함)에만 발급 됩니다. 관리 되는 id에 대 한 자세한 설명 및 시스템 할당 id와 사용자 할당 id를 구분 하는 방법은 [관리 id 개요](../active-directory/managed-identities-azure-resources/overview.md) 설명서를 참조 하세요. 이 문서 전체에서 관리 되는 id 사용 Service Fabric 응용 프로그램을 [클라이언트 응용 프로그램](../active-directory/develop/developer-glossary.md#client-application) 으로 참조 합니다.
+
+Reliable Services 및 컨테이너에서 시스템 할당 및 사용자 할당 [Service Fabric 응용 프로그램 관리 id](https://github.com/Azure-Samples/service-fabric-managed-identity) 를 사용 하는 방법을 보여 주는 도우미 샘플 응용 프로그램을 참조 하십시오.
 
 > [!IMPORTANT]
 > 관리 id는 리소스를 포함 하는 구독과 연결 된 해당 Azure AD 테 넌 트의 Azure 리소스와 서비스 주체 간의 연결을 나타냅니다. 따라서 Service Fabric 컨텍스트에서 관리 id는 Azure 리소스로 배포 된 응용 프로그램에 대해서만 지원 됩니다. 
 
 > [!IMPORTANT]
 > Service Fabric 응용 프로그램의 관리 되는 id를 사용 하기 전에 클라이언트 응용 프로그램에 보호 된 리소스에 대 한 액세스 권한을 부여 해야 합니다. [AZURE AD 인증을 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) 목록을 참조 하 여 지원 여부를 확인 한 다음 특정 단계에 대 한 특정 단계에 대 한 자세한 내용을 확인 하 여 관심 있는 리소스에 대 한 id 액세스 권한을 부여 하세요. 
+ 
+
+## <a name="leverage-a-managed-identity-using-azureidentity"></a>Azure. Identity를 사용 하 여 관리 되는 id 활용
+
+Azure Id SDK는 이제 Service Fabric를 지원 합니다. Azure. Identity를 사용 하면 토큰 가져오기, 토큰 캐싱 및 서버 인증을 처리 하기 때문에 Service Fabric app 관리 id를 사용 하는 코드를 보다 쉽게 작성할 수 있습니다. 대부분의 Azure 리소스에 액세스 하는 동안 토큰의 개념은 숨겨집니다.
+
+이러한 언어에 대 한 Service Fabric 지원은 다음 버전에서 제공 됩니다. 
+- [버전 1.3.0의 c #](https://www.nuget.org/packages/Azure.Identity) [C # 샘플](https://github.com/Azure-Samples/service-fabric-managed-identity)을 참조 하세요.
+- [1.5.0 버전의 Python](https://pypi.org/project/azure-identity/) [Python 샘플](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md)을 참조 하세요.
+- [1.2.0 버전의 Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
+
+자격 증명을 초기화 하 고 자격 증명을 사용 하 여 Azure Key Vault에서 비밀을 가져오는 c # 샘플:
+
+```csharp
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+namespace MyMIService
+{
+    internal sealed class MyMIService : StatelessService
+    {
+        protected override async Task RunAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // Load the service fabric application managed identity assigned to the service
+                ManagedIdentityCredential creds = new ManagedIdentityCredential();
+
+                // Create a client to keyvault using that identity
+                SecretClient client = new SecretClient(new Uri("https://mykv.vault.azure.net/"), creds);
+
+                // Fetch a secret
+                KeyVaultSecret secret = (await client.GetSecretAsync("mysecret", cancellationToken: cancellationToken)).Value;
+            }
+            catch (CredentialUnavailableException e)
+            {
+                // Handle errors with loading the Managed Identity
+            }
+            catch (RequestFailedException)
+            {
+                // Handle errors with fetching the secret
+            }
+            catch (Exception e)
+            {
+                // Handle generic errors
+            }
+        }
+    }
+}
+
+```
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>REST API를 사용 하 여 액세스 토큰 가져오기
 관리 id에 대해 사용 하도록 설정 된 클러스터에서 Service Fabric 런타임은 응용 프로그램이 액세스 토큰을 가져오는 데 사용할 수 있는 localhost 끝점을 노출 합니다. 끝점은 클러스터의 모든 노드에서 사용할 수 있으며 해당 노드의 모든 엔터티에 액세스할 수 있습니다. 권한 있는 호출자는이 끝점을 호출 하 고 인증 코드를 제공 하 여 액세스 토큰을 가져올 수 있습니다. 코드는 각각의 개별 서비스 코드 패키지 활성화에 대해 Service Fabric 런타임에 의해 생성 되며 해당 서비스 코드 패키지를 호스팅하는 프로세스의 수명에 바인딩됩니다.
@@ -377,3 +430,4 @@ Azure AD를 지 원하는 리소스 목록 및 해당 리소스 Id에 대해 [AZ
 * [시스템 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [사용자 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Azure Service Fabric 응용 프로그램에 다른 Azure 리소스에 대 한 액세스 권한 부여](./how-to-grant-access-other-resources.md)
+* [Service Fabric 관리 Id를 사용 하 여 샘플 응용 프로그램 탐색](https://github.com/Azure-Samples/service-fabric-managed-identity)

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: c8be18049e6ae74a198f5885a46b70df581e0cd7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7496a7a40df49fa1b9f8410526cb9ec00c10478b
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187462"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108775"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>스트리밍 수집 처리량 제한
 
@@ -34,7 +34,7 @@ Azure Time Series Insights Gen2 스트리밍 데이터 수신 제한 사항은 �
 
 > [!TIP]
 >
-> * 요청에서 최대 8mbps의 수집 속도를 지원할 수 있습니다.
+> * 요청에서 최대 2 MBps의 속도를 수집 수 있는 환경 지원을 제공할 수 있습니다.
 > * Azure Portal를 통해 지원 티켓을 제출 하 여 더 높은 처리량이 필요한 경우 문의해 주세요.
 
 * **예제 1:**
@@ -47,10 +47,10 @@ Azure Time Series Insights Gen2 스트리밍 데이터 수신 제한 사항은 �
 
 * **예 2:**
 
-    Contoso 제 분석에는 1 초 마다 이벤트를 내보내는 4만 장치가 있습니다. Azure Time Series Insights Gen2 이벤트 원본으로 파티션 수가 2 인 이벤트 허브를 사용 하 고 있습니다. 이벤트의 크기는 200바이트입니다.
+    Contoso 제 분석에는 1 초 마다 이벤트를 내보내는 1만 장치가 있습니다. Azure Time Series Insights Gen2 이벤트 원본으로 파티션 수가 2 인 이벤트 허브를 사용 하 고 있습니다. 이벤트의 크기는 200바이트입니다.
 
-  * 환경 수집 율은 **4만 장치 * 200 바이트/이벤트 * 1 이벤트/초 = 8 MBps** 입니다.
-    * 분산 된 파티션이 있다고 가정 하면 파티션 전송률이 4 MBps가 됩니다.
+  * 환경 수집 율은 **1만 장치 * 200 바이트/이벤트 * 1 이벤트/초 = 2 MBps** 입니다.
+    * 분산 된 파티션이 있다고 가정 하면 파티션 전송률이 1 MBps가 됩니다.
     * Contoso Fleet Analytics의 수집 속도는 환경 및 파티션 제한을 초과합니다. Azure Portal를 통해 Azure Time Series Insights Gen2 요청을 제출 하 여 환경에 대 한 수집 률을 높이고 제한 내에 추가 파티션이 있는 이벤트 허브를 만들 수 있습니다.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>허브 파티션 및 파티션당 제한

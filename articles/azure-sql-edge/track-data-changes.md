@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 86e84c60aec99246f58b5dc9d67584b23a3969f3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dddaad3e171c757b353deb81ffcb77cfbe706340
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394930"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108265"
 ---
 # <a name="track-data-changes-in-azure-sql-edge"></a>Azure SQL Edge에서 데이터 변경 내용 추적
 
@@ -35,6 +35,9 @@ Azure SQL Edge는 데이터베이스의 데이터 변경 내용을 추적 하는
 이 기능을 관리 하 고 모니터링 하려면 [변경 데이터 캡처 관리 및 모니터링](/sql/relational-databases/track-changes/administer-and-monitor-change-data-capture-sql-server)을 참조 하세요.
 
 변경 된 데이터를 쿼리하고 작업 하는 방법을 이해 하려면 [변경 데이터 작업](/sql/relational-databases/track-changes/work-with-change-data-sql-server)을 참조 하세요.
+
+> [!NOTE]
+> CLR에 종속 된 변경 데이터 캡처 함수는 Azure SQL Edge에서 지원 되지 않습니다.
 
 ## <a name="change-tracking"></a>변경 내용 추적
 

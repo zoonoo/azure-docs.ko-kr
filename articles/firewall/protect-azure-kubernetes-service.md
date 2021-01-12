@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 01/11/2021
 ms.author: victorh
-ms.openlocfilehash: 43755b312a64c429b38a07c8c4fad8c85b08342a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51af9ff4972f5edef02426a6e81e8582123c9a7a
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89437856"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107857"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Azure Firewall을 사용하여 AKS(Azure Kubernetes Service) 배포 보호
 
@@ -24,7 +24,7 @@ Kubernetes는 사용 가능한 계산 리소스 및 각 컨테이너의 리소�
 
 이 문서의 지침에 따라 azure 방화벽을 사용 하 여 Azure Kubernetes 클러스터에 대 한 추가 보호를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 응용 프로그램을 실행 하는 배포 된 Azure Kubernetes 클러스터.
 
@@ -37,7 +37,7 @@ Azure 방화벽은 구성을 간소화 하는 AKS FQDN 태그를 제공 합니�
 
 - Azure 방화벽을 사용 하 여 아웃 바운드 트래픽을 제한 하 고 UDR (사용자 정의 경로)을 만들어 모든 아웃 바운드 트래픽을 전달 하는 경우 방화벽에서 적절 한 DNAT 규칙을 만들어 인바운드 트래픽을 올바르게 허용 해야 합니다. 
 
-   UDR과 함께 Azure 방화벽을 사용 하면 비대칭 라우팅으로 인해 인바운드 설정이 중단 됩니다. AKS 서브넷에 방화벽의 개인 IP 주소로 이동 하는 기본 경로가 있지만 공용 부하 분산 장치를 사용 하는 경우이 문제가 발생 합니다. 예를 들어 *LoadBalancer*형식의 인바운드 또는 Kubernetes 서비스입니다.
+   UDR과 함께 Azure 방화벽을 사용 하면 비대칭 라우팅으로 인해 인바운드 설정이 중단 됩니다. AKS 서브넷에 방화벽의 개인 IP 주소로 이동 하는 기본 경로가 있지만 공용 부하 분산 장치를 사용 하는 경우이 문제가 발생 합니다. 예를 들어 *LoadBalancer* 형식의 인바운드 또는 Kubernetes 서비스입니다.
 
    이 경우 들어오는 부하 분산 장치 트래픽은 해당 공용 IP 주소를 통해 수신되지만 반환 경로는 방화벽의 개인 IP 주소를 거칩니다. 방화벽은 상태를 저장하고 방화벽이 설정된 세션을 인식하지 못하므로 반환 패킷을 삭제합니다. Azure Firewall을 수신 또는 서비스 부하 분산 장치와 통합하는 방법을 알아보려면 [Azure Firewall을 Azure 표준 Load Balancer와 통합](integrate-lb.md)을 참조하세요.
 - 응용 프로그램 규칙 컬렉션을 만들고 *AzureKubernetesService* FQDN 태그를 사용 하도록 설정 하는 규칙을 추가 합니다. 원본 IP 주소 범위는 호스트 풀 가상 네트워크이 고, 프로토콜은 https이 고, 대상은 AzureKubernetesService입니다.
@@ -47,7 +47,7 @@ Azure 방화벽은 구성을 간소화 하는 AKS FQDN 태그를 제공 합니�
    - API 서버와 통신 해야 하는 앱이 있는 경우 TCP [*IPAddrOfYourAPIServer*]: 443가 필요 합니다. 이 변경 내용은 클러스터를 만든 후에 설정할 수 있습니다.
    - 터널 전면 pod가 API 서버의 터널 끝과 통신할 수 있도록 TCP 포트 9000 및 UDP 포트 1194
 
-      보다 구체적인 정보를 보려면 **. <location> * 다음 표의 azmk8s.io 및 addresses:
+      보다 구체적인 정보는 다음 표에 나와 있는 주소를 참조 하세요.
 
    | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
    |----------------------------------------------------------------------------------|----------|---------|------|

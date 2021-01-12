@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d482f21955b76e6b90523afe3b4933378c91d36e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575825"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107364"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
 
@@ -32,8 +32,7 @@ Azure ad 조인을 사용 하 여 Azure AD에 Windows 장치를 연결 하는 �
 - Azure AD 디바이스 관리자 역할 
 - Azure AD 조인을 수행하는 사용자   
 
-Azure AD 역할을 로컬 관리자 그룹에 추가하면 디바이스에서 아무것도 수정하지 않고 언제든지 Azure AD에서 디바이스를 관리할 수 있는 사용자를 업데이트할 수 있습니다. 현재 그룹을 관리자 역할에 할당할 수 없습니다.
-또한 Azure AD는 PoLP(최소 권한의 원칙)를 지원하기 위해 로컬 관리자 그룹에 Azure AD 디바이스 관리자 역할을 추가합니다. 글로벌 관리자 외에도 사용자가 *오직* 디바이스를 관리하기 위한 디바이스 관리자 역할을 할당받도록 설정할 수 있습니다. 
+Azure AD 역할을 로컬 관리자 그룹에 추가하면 디바이스에서 아무것도 수정하지 않고 언제든지 Azure AD에서 디바이스를 관리할 수 있는 사용자를 업데이트할 수 있습니다. 또한 Azure AD는 PoLP(최소 권한의 원칙)를 지원하기 위해 로컬 관리자 그룹에 Azure AD 디바이스 관리자 역할을 추가합니다. 글로벌 관리자 외에도 사용자가 *오직* 디바이스를 관리하기 위한 디바이스 관리자 역할을 할당받도록 설정할 수 있습니다. 
 
 ## <a name="manage-the-global-administrators-role"></a>글로벌 관리자 역할 관리
 

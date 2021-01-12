@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f873608d07785e6b99bd8e0fcdadf64a8899d490
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655071"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108418"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Azure Active Directory에 응용 프로그램을 추가 하거나 제거 하는 일반적인 문제 해결
 이 문서는 Azure Active Directory에 앱을 추가 하거나 제거할 때 직면 하는 일반적인 문제를 이해 하는 데 도움이 됩니다.
@@ -43,7 +43,7 @@ ms.locfileid: "94655071"
 
 - Microsoft 응용 프로그램의 경우 사용자의 역할에 관계 없이 UI에서 해당 응용 프로그램을 삭제할 수 없습니다.
 
-- 관리 id에 해당 하는 servicePrincipals의 경우입니다. 관리 id 서비스 주체는 Enterprise apps 블레이드에서 삭제할 수 없습니다. Azure 리소스로 이동 하 여 관리 해야 합니다. [관리 id](../managed-identities-azure-resources/overview.md) 에 대 한 lear 추가 정보
+- 관리 id에 해당 하는 servicePrincipals의 경우입니다. 관리 id 서비스 주체는 Enterprise apps 블레이드에서 삭제할 수 없습니다. Azure 리소스로 이동 하 여 관리 해야 합니다. [관리 id](../managed-identities-azure-resources/overview.md) 에 대 한 자세한 정보
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>포털 알림의 세부 정보를 확인하는 방법
 다음 단계를 수행하여 포털 알림의 세부 정보를 확인할 수 있습니다.

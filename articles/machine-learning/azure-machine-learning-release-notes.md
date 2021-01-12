@@ -9,16 +9,36 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 1cc6c8cd49a2388ad66a276f4a1667b4c3ee3826
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 0ecf47ecdc66c0005f0d793d91a67af102fb1c76
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070323"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107908"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 참조 페이지를 참조 하세요.
+
+
+ ## <a name="2021-01-11"></a>2021-01-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1200"></a>Azure Machine Learning SDK for Python v 1.20.0
++ **버그 수정 및 향상 된 기능**
+  + **azure-cli-ml**
+    + OptimizationConfig에 framework_version 추가 됩니다. 모델을 프레임 워크 다중에 등록할 때 사용 됩니다.
+  + **azureml-automl-runtime**
+    + 이 업데이트에서는 AutoML SDK의 도구 상자를 예측 하기 위해 holt cda (winters 지 수 다듬기를 추가 했습니다. 시계열에 따라 가장 적합 한 모델이 [AICc (수정 된 Akaike의 정보 기준)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) 에 의해 선택 되 고 반환 됩니다.
+  + **azureml-서 리브-최적화**
+    + OptimizationConfig에 framework_version 추가 됩니다. 모델을 프레임 워크 다중에 등록할 때 사용 됩니다.
+  + **azureml-pipeline-steps**
+    + 명령을 처리 하는 데 사용할 CommandStep을 소개 합니다. 명령에는 실행 파일, 셸 명령, 스크립트 등이 포함 될 수 있습니다.
+  + **azureml-core**
+    + 이제 작업 영역 만들기는 사용자 할당 id를 지원 합니다. SDK/CLI에서 uai 지원 추가
+    + 로컬 배포에서 score.py의 변경 내용을 선택 하기 위해 서비스 다시 로드 ()에 대 한 문제가 해결 되었습니다.
+    + `run.get_details()` 에는이 실행에 대 한 작성자 이름을 표시 하는 "submittedBy" 라는 추가 필드가 있습니다.
+    + 모델을 편집 했습니다. 메서드를 등록 하 여 실행에서 모델을 직접 등록 하는 방법을 설명 합니다.
+   
 
 ## <a name="2020-12-31"></a>2020-12-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Azure Machine Learning Studio 노트북 환경 (12 월 업데이트)
@@ -31,6 +51,7 @@ ms.locfileid: "98070323"
   + 페이지 로드 시간 향상
   + 성능 향상 
   + 향상 된 속도 및 커널 안정성
+
   
 ## <a name="2020-12-07"></a>2020-12-07
 

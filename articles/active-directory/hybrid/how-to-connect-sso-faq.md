@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a3e2dd1ac58c89060fc3e09e97617cb2a68d8ac
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094576"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107874"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
 
@@ -85,6 +85,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 
    > [!NOTE]
    >아래 단계를 수행 하려면 도메인 관리자와 전역 관리자 자격 증명이 모두 필요 합니다.
+   >도메인 관리자가 아닌 사용자에 게 도메인 관리자의 권한이 할당 된 경우 다음을 호출 해야 합니다. `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
 
    **1단계. Seamless SSO가 활성화된 AD 포리스트 목록 가져오기**
 
@@ -105,9 +106,6 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    >사용되는 도메인 관리자 계정은 보호된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패합니다.
 
    2. `Update-AzureADSSOForest -OnPremCredentials $creds`을 호출합니다. 이 명령은 이 특정 AD 포리스트에서 `AZUREADSSO` 컴퓨터 계정에 대한 Kerberos 암호 해독 키를 업데이트하고 Azure AD에서 키를 업데이트 합니다.
-   
-   >[!NOTE]
-   >도메인 관리자가 아닌 사용자에 게 도메인 관리자의 권한이 할당 된 경우 다음을 호출 해야 합니다. `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. 기능을 설정한 각 AD 포리스트에 대해 위의 단계를 반복합니다.
    

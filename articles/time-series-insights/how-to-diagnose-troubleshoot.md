@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: eca2009ee0470dec9c9ce60d8754f8f7a71619d3
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: d9dd07e3a35d83ff6bd9c7c493768d1197667c39
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740541"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108792"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 진단 및 문제 해결
 
@@ -71,7 +71,7 @@ Time Series Insights 환경에 액세스할 수 있는 권한이 없는 경우�
 - 이 문제는 사용자 환경이 제한적이기 때문에 발생할 수 있습니다.
 
     > [!NOTE]
-    > 지금은 Time Series Insights에서 최대 6Mbps의 수집 속도를 지원합니다.
+    > 이번에는 Time Series Insights 최대 수집 속도 1 Mbps를 지원 합니다.
 
 ## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>문제: 데이터가 표시 되었지만 지금은 수집을 중지 했습니다.
 

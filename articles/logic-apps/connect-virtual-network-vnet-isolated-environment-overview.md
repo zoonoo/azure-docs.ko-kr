@@ -3,19 +3,19 @@ title: Azure 가상 네트워크에 액세스
 description: ISEs (integration service environment)가 Azure 가상 네트워크에 액세스 하는 방법에 대 한 개요 (Vnet)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/11/2021
+ms.openlocfilehash: 7bb9c8552f673587891fde12e25d4fb899726c22
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996324"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108571"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
-경우에 따라 논리 앱은 가상 머신 (Vm), 다른 시스템 또는 서비스와 같은 보안 리소스에 대 한 액세스 권한이 있어야 하며, [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)내부 또는 연결 됩니다. 이 액세스를 설정 하기 위해 [ISE ( *integration service environment* )를 만들](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)수 있습니다. ISE는 전용 리소스를 사용 하 고 "전역" 다중 테 넌 트 Logic Apps 서비스와 별도로 실행 되는 Logic Apps 서비스의 인스턴스입니다.
+경우에 따라 논리 앱은 가상 머신 (Vm), 다른 시스템 또는 서비스와 같은 보안 리소스에 대 한 액세스 권한이 있어야 하며, [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)내부 또는 연결 됩니다. 이 액세스를 설정 하기 위해 [ISE ( *integration service environment* )를 만들](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)수 있습니다. ISE는 전용 리소스를 사용 하 고 "전역" 다중 테 넌 트 Logic Apps 서비스와 별도로 실행 되는 Logic Apps 서비스의 인스턴스입니다. ISE의 데이터 [는 해당 ise를 만들고 배포 하는 동일한 지역](https://azure.microsoft.com/global-infrastructure/data-residency/)에 유지 됩니다.
 
 예를 들어 일부 Azure virtual network는 azure [개인 링크](../private-link/private-link-overview.md)를 통해 설정할 수 있는 개인 끝점을 사용 하 여 azure에서 호스트 되는 Azure Storage, Azure Cosmos DB, Azure SQL Database, 파트너 서비스 또는 고객 서비스와 같은 azure PaaS 서비스에 대 한 액세스를 제공 합니다. 논리 앱에서 개인 끝점을 사용 하는 가상 네트워크에 액세스 해야 하는 경우에는 ISE 내에서 해당 논리 앱을 만들고, 배포 하 고, 실행 해야 합니다.
 

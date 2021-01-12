@@ -3,12 +3,12 @@ title: Azure Functions에서 지원되는 언어
 description: 지원 되는 언어 (GA) 및 미리 보기 상태인 언어와 함수 개발을 다른 언어로 확장 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83994904"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108554"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions에서 지원되는 언어
 
@@ -27,9 +27,9 @@ ms.locfileid: "83994904"
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-## <a name="custom-handlers-preview"></a>사용자 지정 처리기 (미리 보기) 
+## <a name="custom-handlers"></a>사용자 지정 처리기
 
-사용자 지정 처리기는 Azure Functions 호스트에서 이벤트를 수신 하는 간단한 웹 서버입니다. HTTP 기본 형식을 지 원하는 모든 언어는 사용자 지정 처리기를 구현할 수 있습니다. 즉, 사용자 지정 처리기를 사용 하 여 공식적으로 지원 되지 않는 언어로 함수를 만들 수 있습니다. 자세히 알아보려면 [Azure Functions 사용자 지정 처리기 (미리 보기)](functions-custom-handlers.md)를 참조 하세요.
+사용자 지정 처리기는 Azure Functions 호스트에서 이벤트를 수신 하는 간단한 웹 서버입니다. HTTP 기본 형식을 지 원하는 모든 언어는 사용자 지정 처리기를 구현할 수 있습니다. 즉, 사용자 지정 처리기를 사용 하 여 공식적으로 지원 되지 않는 언어로 함수를 만들 수 있습니다. 자세히 알아보려면 [Azure Functions 사용자 지정 처리기](functions-custom-handlers.md)를 참조 하세요.
 
 ## <a name="language-extensibility"></a>언어 확장성
 

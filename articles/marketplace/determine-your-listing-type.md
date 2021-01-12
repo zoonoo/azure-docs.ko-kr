@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
-ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/18/2020
+ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302863"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107398"
 ---
 # <a name="introduction-to-listing-options"></a>목록 옵션 소개
 
@@ -26,21 +26,23 @@ ms.locfileid: "96302863"
 
 다음 표에서는 각 제품 유형에 사용할 수 있는 목록 옵션을 보여 줍니다.
 
-| 제품 유형 | 무료 평가판 | 시험 사용 | 연락처 | 지금 다운로드 (불가능) |
+| 제품 유형 | 무료 평가판 | 시험 사용 | 연락처 | 지금 받기 `*` |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Azure 애플리케이션 (관리 되는 앱) |   | &#10004; |   | &#10004; |
-| Azure 애플리케이션 (솔루션 템플릿) |  |  |  |  |
+| Azure 애플리케이션 (솔루션 템플릿) |  |  |  | &#10004; |
 | 컨설팅 서비스 |  |  | &#10004; |  |
-| Azure 컨테이너 |  |  |  |  |
-| Dynamics 365 비즈니스 중부 | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 고객 Engagement & PowerApps | &#10004; | &#10004; | &#10004; |  |
-| 운영을 위한 Dynamics 365 | &#10004; | &#10004; | &#10004; |  |
-| IoT Edge 모듈 |  |  |  |  |
-| 관리 서비스 |  |  |  |  |
-| Power BI App |  |  |  |  |
+| Azure 컨테이너 |  |  |  | &#10004; |
+| Dynamics 365 비즈니스 중부 | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 고객 Engagement & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| 운영을 위한 Dynamics 365 | &#10004; | &#10004; | &#10004; | &#10004; |
+| IoT Edge 모듈 |  |  |  | &#10004; |
+| 관리 서비스 |  |  |  | &#10004; |
+| Power BI App |  |  |  | &#10004; |
 | Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
 | SaaS(Software as a Service) | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
+
+`*` 지금 다운로드 하 여 나열 옵션에는 지금 가져오기 (무료), BYOL (사용자 라이선스 필요), 구독 및 사용량 기반 가격 책정이 포함 됩니다. 자세한 내용은 [지금 가져오기](#get-it-now)를 참조 하세요.
 
 ### <a name="free-trial"></a>무료 평가판
 

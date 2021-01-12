@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6232b315abf8840d6fd77d02e3e928c0004746a0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ab3cb403a8757f424a141206f99f9c29bf3e0b49
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029331"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108151"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -103,9 +103,9 @@ Id에 대 한 권한을 부여 하거나 SAS 토큰을 얻은 후에는 데이�
 
 예제 명령을 찾으려면 다음 문서 중 하나를 참조 하세요.
 
-| 서비스 | 아티클 |
+| 서비스 | 기사 |
 |--------|-----------|
-|Azure Blob Storage |[Azure Blob 저장소에 파일 업로드](storage-use-azcopy-blobs-upload.md)<br><br>[Azure Blob storage에서 blob 다운로드](storage-use-azcopy-blobs-download.md)<br><br>[Azure storage 계정 간에 blob 복사](storage-use-azcopy-blobs-download.md)<br><br>[Azure Blob storage와 동기화](storage-use-azcopy-blobs-download.md)|
+|Azure Blob 스토리지 |[Azure Blob 저장소에 파일 업로드](storage-use-azcopy-blobs-upload.md)<br><br>[Azure Blob storage에서 blob 다운로드](storage-use-azcopy-blobs-download.md)<br><br>[Azure storage 계정 간에 blob 복사](storage-use-azcopy-blobs-copy.md)<br><br>[Azure Blob storage와 동기화](storage-use-azcopy-blobs-synchronize.md)|
 |Azure 파일 |[AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)|
 |Amazon S3|[AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)|
 |Azure Stack 저장소|[AzCopy 및 Azure Stack 저장소를 사용 하 여 데이터 전송](/azure-stack/user/azure-stack-storage-transfer#azcopy)|

@@ -1,14 +1,14 @@
 ---
-title: 자주 묻는 질문
+title: 질문과 대답
 description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
 ms.date: 1/4/2020
-ms.openlocfilehash: d0228739a6ee4eac20d2fa04e47cf86b6fddb84e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 1420fba40492e1a5f45f4ad5e58da2caa29ae7e7
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881228"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107959"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -29,6 +29,10 @@ ms.locfileid: "97881228"
 #### <a name="can-workloads-running-in-an-azure-vmware-solution-instance-consume-or-integrate-with-azure-services"></a>Azure VMware 솔루션 인스턴스에서 실행 되는 워크 로드는 Azure 서비스를 사용 하거나 통합할 수 있나요?
 
 모든 Azure 서비스는 Azure VMware 솔루션 고객에 게 제공 됩니다. 서비스의 성능 및 가용성 제한은 서비스마다 다르게 접근해야 합니다.
+
+#### <a name="what-guest-operating-systems-are-compatible-with-azure-vmware-solution"></a>Azure VMware 솔루션과 호환 되는 게스트 운영 체제는 무엇 인가요?
+
+[VMware 호환성 가이드](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16)를 사용 하 여 vsphere의 게스트 운영 체제 호환성에 대 한 정보를 찾을 수 있습니다.  Azure VMware 솔루션에서 실행 되는 vSphere 버전을 확인 하려면 [vmware 소프트웨어 버전](concepts-private-clouds-clusters.md#vmware-software-versions)을 참조 하세요.
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>현재 프라이빗 클라우드 리소스를 관리하는 데 사용하는 것과 동일한 도구를 사용하나요?
 

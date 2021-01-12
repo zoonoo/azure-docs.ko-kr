@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917905"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108061"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -70,7 +70,7 @@ SQL Database 데이터베이스를 만들 때 백업 저장소 중복성을 구�
 
 다음 예제를 사용 하 여 백업 구성 및 복원 작업을 시도할 수 있습니다.
 
-| 작업(Operation) | Azure portal | Azure PowerShell |
+| 작업 | Azure portal | Azure PowerShell |
 |---|---|---|
 | **백업 보존 변경** | [SQL 데이터베이스](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL 데이터베이스](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **장기 백업 보존 변경** | [SQL 데이터베이스](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Managed Instance-해당 없음  | [SQL 데이터베이스](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)  |
@@ -122,7 +122,7 @@ VCore 데이터베이스의 경우 각 백업 유형 (전체, 차등 및 로그)
 
 ## <a name="backup-retention"></a>백업 보존
 
-모든 새로 복원 및 복사 된 데이터베이스, Azure SQL Database 및 Azure SQL Managed Instance는 최근 7 일 내에 기본적으로 PITR을 허용 하기 위해 충분 한 백업을 유지 합니다. Hyperscale 데이터베이스를 제외 하 고 1-35 일 범위의 각 활성 데이터베이스에 대해 [백업 보존 기간을 변경할](#change-the-pitr-backup-retention-period) 수 있습니다. [백업 저장소](#backup-storage-consumption)사용에 설명 된 대로 PITR를 사용 하도록 설정 된 백업이 보존 기간 보다 오래 되었을 수 있습니다. Azure SQL Managed Instance에만 해당 하는 경우 데이터베이스가 0-35 일 범위에서 삭제 되 면 PITR 백업 보존 률을 설정할 수 있습니다. 
+모든 새로 복원 및 복사 된 데이터베이스, Azure SQL Database 및 Azure SQL Managed Instance는 최근 7 일 내에 기본적으로 PITR을 허용 하기 위해 충분 한 백업을 유지 합니다. Hyperscale 및 기본 계층 데이터베이스를 제외 하 고 1-35 일 범위의 각 활성 데이터베이스에 대해 [백업 보존 기간을 변경할](#change-the-pitr-backup-retention-period) 수 있습니다. [백업 저장소](#backup-storage-consumption)사용에 설명 된 대로 PITR를 사용 하도록 설정 된 백업이 보존 기간 보다 오래 되었을 수 있습니다. Azure SQL Managed Instance에만 해당 하는 경우 데이터베이스가 0-35 일 범위에서 삭제 되 면 PITR 백업 보존 률을 설정할 수 있습니다. 
 
 데이터베이스를 삭제 하는 경우 시스템은 해당 보존 기간을 사용 하 여 온라인 데이터베이스에 대해 수행 하는 것과 동일한 방식으로 백업을 유지 합니다. 삭제 된 데이터베이스에 대 한 백업 보존 기간을 변경할 수 없습니다.
 

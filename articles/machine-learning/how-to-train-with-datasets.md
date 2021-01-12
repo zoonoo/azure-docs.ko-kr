@@ -12,21 +12,23 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8b95c5a45992c895713e0be056856172b14b830d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740677"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108593"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 
 
-이 문서에서는 학습 실험에서 [Azure Machine Learning 데이터 집합](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) 을 사용 하는 방법에 대해 알아봅니다.  연결 문자열 또는 데이터 경로에 대 한 걱정 없이 로컬 또는 원격 계산 대상에서 데이터 집합을 사용할 수 있습니다.
+이 문서에서는 [Azure Machine Learning 데이터 집합](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) 을 사용 하 여 기계 학습 모델을 학습 하는 방법에 대해 알아봅니다.  연결 문자열 또는 데이터 경로에 대 한 걱정 없이 로컬 또는 원격 계산 대상에서 데이터 집합을 사용할 수 있습니다. 
 
 Azure Machine Learning 데이터 집합은 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) 및 [Azure Machine Learning 파이프라인과](how-to-create-your-first-pipeline.md)같은 Azure Machine Learning 학습 기능과 원활한 통합을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+데이터를 모델 학습에 사용할 수 있도록 준비 하지 않았지만 데이터 탐색을 위해 데이터를 전자 필기장에 로드 하려는 경우 데이터 [집합에서 데이터를 탐색](how-to-create-register-datasets.md#explore-data)하는 방법을 참조 하세요. 
+
+## <a name="prerequisites"></a>전제 조건
 
 데이터 집합을 만들고 학습 하려면 다음이 필요 합니다.
 
@@ -34,7 +36,7 @@ Azure Machine Learning 데이터 집합은 [ScriptRunConfig](/python/api/azureml
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
-* [설치 된 Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)-azureml 데이터 집합 패키지를 포함 합니다.
+* 패키지를 포함 하는 [Python 용 AZURE MACHINE LEARNING SDK 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0) `azureml-datasets` .
 
 > [!Note]
 > 일부 데이터 집합 클래스에는 [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
@@ -65,7 +67,7 @@ TabularDataset 개체는 TabularDataset의 데이터를 pandas 또는 Spark 데�
 > [!Note]
 > 원래 데이터 원본에 NaN, 빈 문자열 또는 빈 값이 포함 된 경우를 사용 하면 `to_pandas_dataframe()` 해당 값이 *Null* 값으로 대체 됩니다.
 
-메모리 내 pandas 데이터 프레임에서 준비 된 데이터를 새 데이터 집합으로 로드 해야 하는 경우 데이터를 parquet와 같은 로컬 파일에 기록 하 고 해당 파일에서 새 데이터 집합을 만듭니다. 또한 로컬 파일 또는 datastores의 경로에서 데이터 집합을 만들 수 있습니다. [데이터 집합을 만드는 방법](how-to-create-register-datasets.md)에 대해 자세히 알아보세요.
+메모리 내 pandas 데이터 프레임에서 준비 된 데이터를 새 데이터 집합으로 로드 해야 하는 경우 데이터를 parquet와 같은 로컬 파일에 기록 하 고 해당 파일에서 새 데이터 집합을 만듭니다. [데이터 집합을 만드는 방법](how-to-create-register-datasets.md)에 대해 자세히 알아보세요.
 
 ```Python
 %%writefile $script_folder/train_titanic.py
