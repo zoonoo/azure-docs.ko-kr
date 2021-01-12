@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: 2d759a8ed58d5b323f9894a5127c222ce1f75c52
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: ee9267637c5e3250bfcd543ca46c39d513725819
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97345979"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072227"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -104,7 +103,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 
-## <a name="feature-engineering"></a>기능 엔지니어링
+## <a name="feature-engineering"></a>특징 엔지니어링
 
 기능 엔지니어링은 데이터에 대 한 도메인 정보를 사용 하 여 ML 알고리즘의 기능을 개선 하는 데 도움이 되는 기능을 만드는 프로세스입니다. Azure Machine Learning 확장 및 표준화 기술이 기능 엔지니어링을 용이 하 게 하는 데 적용 됩니다. 이러한 기술 및 기능 엔지니어링을 통칭 하 여 기능화 라고 합니다.
 

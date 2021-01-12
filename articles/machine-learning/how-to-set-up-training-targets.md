@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a3427be85314f06b5408c4450e0415768122879f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: a5764a9f230540d58edf71e8c00781e86589aa9a
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913008"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070170"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
@@ -26,7 +26,7 @@ ms.locfileid: "97913008"
 
 **스크립트 실행 구성** 내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
@@ -216,6 +216,8 @@ run.wait_for_completion(show_output=True)
     4. `pip install 'PyJWT<2.0.0'`를 사용하여 설치
     
     사용자가 만든 환경을 실행 하 여 제출 하는 경우 해당 환경에서 최신 버전의 azureml-코어를 사용 하는 것이 좋습니다. 버전 >= 1.18.0 PyJWT < 2.0.0의 azureml가 이미 고정 되어 있습니다. 제출 하는 환경에서 azureml 1.18.0 < 버전을 사용 해야 하는 경우 pip 종속성에서 PyJWT < 2.0.0를 지정 해야 합니다.
+
+* **계산 대상을 시작 하** 는 데 시간이 오래 걸립니다. 계산 대상의 DOCKER 이미지가 ACR (Azure Container Registry)에서 로드 됩니다. 기본적으로 Azure Machine Learning는 *기본 서비스 계층을 사용* 하는 ACR을 만듭니다. 작업 영역에 대 한 ACR을 표준 또는 프리미엄 계층으로 변경 하면 이미지를 빌드하고 로드 하는 데 걸리는 시간을 줄일 수 있습니다. 자세한 내용은 [Azure Container Registry 서비스 계층](../container-registry/container-registry-skus.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

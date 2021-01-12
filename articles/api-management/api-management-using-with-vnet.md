@@ -7,18 +7,17 @@ author: vladvino
 manager: erikre
 editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e36f7c6085908630d5e7aa2593fe4d57202d6ee7
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: d0d5434de747b48464df1c07f8c7b6a7e785c858
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107654"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070966"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -147,6 +146,9 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
   > dns 영역이 **.nsatc.net** 인 위 클러스터에서 **.microsoftmetrics.com** 으로의 변경은 대부분이 DNS 변경입니다. 클러스터의 IP 주소는 변경되지 않습니다.
 
 + **국가별 서비스 태그**: 스토리지, SQL 및 Event Hubs 서비스 태그에 대한 아웃바운드 연결을 허용하는 NSG 규칙은 API Management 인스턴스를 포함하는 지역에 해당하는 태그의 지역별 버전을 사용할 수 있습니다(예: 미국 서부 지역에 있는 API Management 인스턴스의 경우 Storage.WestUS). 다중 지역 배포에서 각 지역의 NSG는 해당 지역 및 주 지역에 대한 서비스 태그로의 트래픽을 허용해야 합니다.
+
+    > [!IMPORTANT]
+    > 가상 네트워크의 API Management 인스턴스에 대 한 [개발자 포털](api-management-howto-developer-portal.md) 게시를 사용 하도록 설정 하려면 미국 서 부 지역에서 blob 저장소에 대 한 아웃 바운드 연결도 허용 해야 합니다. 예를 들어 NSG 규칙에서 **WestUS** 서비스 태그를 사용 합니다. 현재 미국 서 부 지역의 blob 저장소에 대 한 연결은 현재 모든 API Management 인스턴스에 대 한 개발자 포털을 게시 하는 데 필요 합니다.
 
 + **SMTP 릴레이**: 호스트 `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` 및 `ies.global.microsoft.com`에서 확인되는 SMTP 릴레이에 대한 아웃바운드 네트워크 연결입니다.
 

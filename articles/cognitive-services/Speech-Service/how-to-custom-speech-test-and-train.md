@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: d24565522a75427be04cacfdc20347056a515847
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709302"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070765"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -50,7 +50,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 | [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | 예 | 1-20 시간 (오디오) |
 | [관련 텍스트](#related-text-data-for-training) | 아니요 | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
 
-새 모델을 학습 하는 경우 [관련 텍스트로](#related-text-data-for-training)시작 합니다. 이 데이터는 이미 특수 한 사용 약관의 인식을 향상 시킵니다.
+새 모델을 학습 하는 경우 [관련 텍스트로](#related-text-data-for-training)시작 합니다. 이 데이터는 이미 특수 한 사용 약관의 인식을 향상 시킵니다. 텍스트를 사용한 교육은 오디오 학습 보다 훨씬 빠릅니다 (몇 분 및 며칠).
 
 파일은 형식에 따라 데이터 집합으로 그룹화 되 고 .zip 파일로 업로드 되어야 합니다. 각 데이터 집합은 단일 데이터 형식만 포함할 수 있습니다.
 
@@ -121,7 +121,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 단어 삭제 또는 대체와 같은 문제를 해결 하기 위해 많은 양의 데이터가 필요 하므로 인식 기능을 향상 시킬 수 있습니다. 일반적으로 약 10 ~ 20 시간의 오디오에 대해 word를 통해 word를 제공 하는 것이 좋습니다. 모든 WAV 파일에 대한 전사는 단일 일반 텍스트 파일에 포함되어야 합니다. 전사 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 전사가 와야 합니다. 파일 이름과 전사는 탭(\t)으로 구분 해야 합니다.
 
-  예를 들면 다음과 같습니다.
+  예를 들어:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -138,7 +138,9 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 > [!div class="mx-imgBorder"]
 > ![음성 포털에서 오디오를 선택 합니다.](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-음성 서비스 구독에 대해 권장 되는 지역 목록은 [Azure 계정 설정](custom-speech-overview.md#set-up-your-azure-account) 을 참조 하세요. 이러한 지역 중 하나에서 음성 구독을 설정 하면 모델을 학습 하는 데 걸리는 시간이 줄어듭니다.
+음성 서비스 구독에 대해 권장 되는 지역 목록은 [Azure 계정 설정](custom-speech-overview.md#set-up-your-azure-account) 을 참조 하세요. 이러한 지역 중 하나에서 음성 구독을 설정 하면 모델을 학습 하는 데 걸리는 시간이 줄어듭니다. 이러한 지역에서 교육은 하루에 약 10 시간의 오디오를 하루에 한 시간에 한 번만 다른 지역에서 처리할 수 있습니다. 모델 학습을 일주일 내에 완료할 수 없는 경우에는 모델이 실패로 표시 됩니다.
+
+모든 기본 모델에서 오디오 데이터로의 학습을 지 원하는 것은 아닙니다. 기본 모델에서이를 지원 하지 않는 경우 서비스는 오디오를 무시 하 고, 바로 텍스트를 사용 하 여 학습 합니다. 이 경우 학습은 관련 텍스트의 학습 과정과 동일 합니다.
 
 ## <a name="related-text-data-for-training"></a>학습에 대 한 관련 텍스트 데이터
 
@@ -150,6 +152,8 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 | 발음 | 특수 하지 않은 용어, 머리글자어 또는 기타 단어 (정의 되지 않은 발음)의 발음을 개선 합니다. |
 
 문장은 단일 텍스트 파일 또는 여러 텍스트 파일로 제공 될 수 있습니다. 정확도를 높이기 위해 예상 되는 음성 길이 발언 더 가까운 텍스트 데이터를 사용 합니다. 발음는 단일 텍스트 파일로 제공 되어야 합니다. 모든 항목을 단일 zip 파일로 패키지 하 고 <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech 포털 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 업로드할 수 있습니다.
+
+관련 텍스트로의 교육은 일반적으로 몇 분 이내에 완료 됩니다.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>문장 파일을 만들기 위한 지침
 
@@ -190,7 +194,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 사용자 지정 된 발음은 영어 ( `en-US` ) 및 독일어 ()로 제공 됩니다 `de-DE` . 다음 표에서는 언어에 따라 지원 되는 문자를 보여 줍니다.
 
-| 언어 | 로캘 | 문자 |
+| 언어 | Locale | 문자 |
 |----------|--------|------------|
 | 영어 | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | 독일어 | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |

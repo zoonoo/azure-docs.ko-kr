@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 10fa47a8f613218b1331259040be77df867ade95
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 9a8dba99435e1616b1c49d5209b30c3c523876db
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854845"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071343"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -121,13 +121,19 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Security Center의 끝점 통합 Microsoft Defender에 대 한 FAQ
 
-### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Microsoft Defender for Endpoint에 대 한 라이선스 요구 사항은 무엇 인가요?
+- [Microsoft Defender for Endpoint에 대 한 라이선스 요구 사항은 무엇 인가요?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
+- [끝점에 대 한 Microsoft Defender 라이선스가 이미 있는 경우 Azure Defender에 대 한 할인을 받을 수 있나요?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [타사 EDR 도구에서 전환할 어떻게 할까요? 있나요?](#how-do-i-switch-from-a-third-party-edr-tool)
 
+### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Microsoft Defender for Endpoint에 대 한 라이선스 요구 사항은 무엇 인가요?
 Defender for Endpoint는 **서버에 대 한 Azure defender** 를 사용 하 여 추가 비용 없이 포함 됩니다. 또는 50 대의 컴퓨터에 대해 개별적으로 구매할 수 있습니다.
 
+### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>끝점에 대 한 Microsoft Defender 라이선스가 이미 있는 경우 Azure Defender에 대 한 할인을 받을 수 있나요?
+끝점에 대해 Microsoft Defender에 대 한 라이선스가 이미 있는 경우 Azure Defender 라이선스의 해당 부분에 대해 비용을 지불할 필요가 없습니다.
+
+할인을 확인 하려면 Security Center 지원 팀에 문의 하 고 관련 작업 영역 ID, 지역 및 라이선스 정보를 제공 합니다.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>타사 EDR 도구에서 전환할 어떻게 할까요? 있나요?
-
 Microsoft 끝점 이외의 솔루션에서 전환 하는 방법에 대 한 전체 지침은 Microsoft Defender for Endpoint 설명서에서 제공 됩니다. [마이그레이션 개요](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
   
 

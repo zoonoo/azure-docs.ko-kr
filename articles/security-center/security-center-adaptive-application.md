@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 473353c3f61d1096beb11c521c08ac723d54b780
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346522"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071608"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -157,11 +157,6 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
     이 창에는 그룹의 이름 (수정할 수 있음), OS 유형, 위치 및 기타 관련 정보를 표시 합니다.
 
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="적응 응용 프로그램 컨트롤의 그룹 설정 페이지" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
-
-    > [!IMPORTANT]
-    > 파일 형식 보호 모드 설정의 **적용** 옵션은 **모든** 시나리오에서 회색으로 표시 됩니다. 지금은 적용 옵션을 사용할 수 없습니다. 
-    >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="파일 보호에 대 한 적용 모드는 영구적으로 회색으로 표시 됩니다. 적용 옵션을 사용할 수 없습니다.":::
 
 1. 필요에 따라 그룹의 이름 또는 파일 형식 보호 모드를 수정 합니다.
 

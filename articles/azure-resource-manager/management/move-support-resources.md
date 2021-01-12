@@ -2,13 +2,13 @@
 title: 리소스 종류별 이동 작업 지원
 description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 72cc2bd1b391acd2065cc4b775c50af94510a840
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.date: 01/11/2021
+ms.openlocfilehash: fe8f6705fdce1a692dd8a969cfc4b3b21d2d2a11
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795904"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072108"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
@@ -205,15 +205,15 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | domainservices | 아니오 | 아니오 |
+> | domainservices | 예 | 예 |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | diagnosticsettings | 아니오 | 아니오 |
-> | diagnosticsettingscategories | 아니오 | 아니오 |
+> | diagnosticsettings | 예 | 예 |
+> | diagnosticsettingscategories | 예 | 예 |
 > | privatelinkforazuread | 예 | 예 |
 > | tenants | 예 | 예 |
 
@@ -222,33 +222,33 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | supportproviders | 아니오 | 아니오 |
+> | supportproviders | 예 | 예 |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | aadsupportcases | 아니오 | 아니오 |
-> | addsservices | 아니오 | 아니오 |
-> | agents | 아니오 | 아니오 |
-> | anonymousapiusers | 아니오 | 아니오 |
-> | 구성 | 아니오 | 아니오 |
-> | 로그 | 아니오 | 아니오 |
-> | reports | 아니오 | 아니오 |
-> | servicehealthmetrics | 아니오 | 아니오 |
-> | services | 아니오 | 아니오 |
+> | aadsupportcases | 예 | 예 |
+> | addsservices | 예 | 예 |
+> | agents | 예 | 예 |
+> | anonymousapiusers | 예 | 예 |
+> | 구성 | 예 | 예 |
+> | 로그 | 예 | 예 |
+> | reports | 예 | 예 |
+> | servicehealthmetrics | 예 | 예 |
+> | services | 예 | 예 |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 구성 | 아니오 | 아니오 |
-> | generaterecommendations | 아니오 | 아니오 |
-> | metadata | 아니오 | 아니오 |
-> | 동영상 추천 기능 | 아니오 | 아니오 |
-> | suppressions | 아니오 | 아니오 |
+> | 구성 | 예 | 예 |
+> | generaterecommendations | 예 | 예 |
+> | metadata | 예 | 예 |
+> | 동영상 추천 기능 | 예 | 예 |
+> | suppressions | 예 | 예 |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -256,13 +256,13 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | actionrules | 예 | 예 |
-> | 경고 | 아니오 | 아니오 |
-> | alertslist | 아니오 | 아니오 |
-> | alertsmetadata | 아니오 | 아니오 |
-> | alertssummary | 아니오 | 아니오 |
-> | alertssummarylist | 아니오 | 아니오 |
+> | 경고 | 예 | 예 |
+> | alertslist | 예 | 예 |
+> | alertsmetadata | 예 | 예 |
+> | alertssummary | 예 | 예 |
+> | alertssummarylist | 예 | 예 |
 > | smartdetectoralertrules | 예 | 예 |
-> | smartgroups | 아니오 | 아니오 |
+> | smartgroups | 예 | 예 |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -279,7 +279,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | reportfeedback | 아니오 | 아니오 |
+> | reportfeedback | 예 | 예 |
 > | 서비스 | 예 | 예 |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
@@ -288,7 +288,7 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | configurationstores | 예 | 예 |
-> | configurationstores / eventgridfilters | 아니오 | 아니오 |
+> | configurationstores / eventgridfilters | 예 | 예 |
 
 ## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
 
@@ -305,9 +305,9 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | apiapps | 아니오 | 아니오 |
-> | appidentities | 아니오 | 아니오 |
-> | gateways | 아니오 | 아니요 |
+> | apiapps | 예 | 예 |
+> | appidentities | 예 | 예 |
+> | gateways | 예 | 아니요 |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -321,21 +321,21 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | classicadministrators | 아니오 | 아니오 |
-> | dataaliases | 아니오 | 아니오 |
-> | denyassignments | 아니오 | 아니오 |
-> | elevateaccess | 아니오 | 아니오 |
-> | findorphanroleassignments | 아니오 | 아니오 |
-> | locks | 아니오 | 아니오 |
-> | 권한 | 아니오 | 아니오 |
-> | policyassignments | 아니오 | 아니오 |
-> | policydefinitions | 아니오 | 아니오 |
-> | policysetdefinitions | 아니오 | 아니오 |
-> | privatelinkassociations | 아니오 | 아니오 |
-> | resourcemanagementprivatelinks | 아니요 | 아니오 |
-> | roleassignments | 아니오 | 아니오 |
-> | roleassignmentsusagemetrics | 아니오 | 아니오 |
-> | roledefinitions | 아니오 | 아니오 |
+> | classicadministrators | 예 | 예 |
+> | dataaliases | 예 | 예 |
+> | denyassignments | 예 | 예 |
+> | elevateaccess | 예 | 예 |
+> | findorphanroleassignments | 예 | 예 |
+> | locks | 예 | 예 |
+> | 권한 | 예 | 예 |
+> | policyassignments | 예 | 예 |
+> | policydefinitions | 예 | 예 |
+> | policysetdefinitions | 예 | 예 |
+> | privatelinkassociations | 예 | 예 |
+> | resourcemanagementprivatelinks | 아니요 | 예 |
+> | roleassignments | 예 | 예 |
+> | roleassignmentsusagemetrics | 예 | 예 |
+> | roledefinitions | 예 | 예 |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -364,19 +364,19 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | b2cdirectories | 예 | 예 |
-> | b2ctenants | 아니오 | 아니오 |
+> | b2ctenants | 예 | 예 |
 
 ## <a name="microsoftazuredata"></a>Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | datacontrollers | 아니오 | 아니오 |
-> | hybriddatamanagers | 아니오 | 아니오 |
-> | postgresinstances | 아니오 | 아니오 |
-> | sqlinstances | 아니오 | 아니오 |
-> | sqlmanagedinstances | 아니오 | 아니오 |
-> | sqlserverinstances | 아니오 | 아니오 |
+> | datacontrollers | 예 | 예 |
+> | hybriddatamanagers | 예 | 예 |
+> | postgresinstances | 예 | 예 |
+> | sqlinstances | 예 | 예 |
+> | sqlmanagedinstances | 예 | 예 |
+> | sqlserverinstances | 예 | 예 |
 > | sqlserverregistrations | 예 | 예 |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
@@ -384,7 +384,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | cloudmanifestfiles | 아니오 | 아니오 |
+> | cloudmanifestfiles | 예 | 예 |
 > | registrations | 예 | 예 |
 
 ## <a name="microsoftazurestackhci"></a>Microsoft.AzureStackHCI
@@ -392,7 +392,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | 아니오 | 아니오 |
+> | clusters | 예 | 예 |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -406,54 +406,54 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | billingaccounts | 아니오 | 아니오 |
-> | billingperiods | 아니오 | 아니오 |
-> | billingpermissions | 아니오 | 아니오 |
-> | billingproperty | 아니오 | 아니오 |
-> | billingroleassignments | 아니오 | 아니오 |
-> | billingroledefinitions | 아니오 | 아니오 |
-> | departments | 아니오 | 아니오 |
-> | enrollmentaccounts | 아니오 | 아니오 |
-> | invoices | 아니오 | 아니오 |
-> | transfers | 아니오 | 아니오 |
+> | billingaccounts | 예 | 예 |
+> | billingperiods | 예 | 예 |
+> | billingpermissions | 예 | 예 |
+> | billingproperty | 예 | 예 |
+> | billingroleassignments | 예 | 예 |
+> | billingroledefinitions | 예 | 예 |
+> | departments | 예 | 예 |
+> | enrollmentaccounts | 예 | 예 |
+> | invoices | 예 | 예 |
+> | transfers | 예 | 예 |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | mapapis | 아니오 | 아니오 |
+> | mapapis | 예 | 예 |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | biztalk | 아니오 | 아니오 |
+> | biztalk | 예 | 예 |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | blockchainmembers | 아니오 | 아니오 |
-> | cordamembers | 아니오 | 아니오 |
-> | watchers | 아니오 | 아니오 |
+> | blockchainmembers | 예 | 예 |
+> | cordamembers | 예 | 예 |
+> | watchers | 예 | 예 |
 
 ## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | tokenservices | 아니오 | 아니오 |
+> | tokenservices | 예 | 예 |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | blueprintassignments | 아니오 | 아니오 |
-> | blueprints | 아니오 | 아니오 |
+> | blueprintassignments | 예 | 예 |
+> | blueprints | 예 | 예 |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -471,33 +471,33 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | redis | 예 | 예 |
-> | redisenterprise | 아니오 | 아니오 |
+> | redisenterprise | 예 | 예 |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | appliedreservations | 아니오 | 아니오 |
-> | calculateexchange | 아니오 | 아니오 |
-> | calculateprice | 아니오 | 아니오 |
-> | calculatepurchaseprice | 아니오 | 아니오 |
-> | catalogs | 아니오 | 아니오 |
-> | commercialreservationorders | 아니오 | 아니오 |
-> | 교환 | 아니오 | 아니오 |
-> | reservationorders | 아니오 | 아니오 |
-> | reservations | 아니오 | 아니오 |
-> | 리소스 | 아니오 | 아니오 |
-> | validatereservationorder | 아니오 | 아니오 |
+> | appliedreservations | 예 | 예 |
+> | calculateexchange | 예 | 예 |
+> | calculateprice | 예 | 예 |
+> | calculatepurchaseprice | 예 | 예 |
+> | catalogs | 예 | 예 |
+> | commercialreservationorders | 예 | 예 |
+> | 교환 | 예 | 예 |
+> | reservationorders | 예 | 예 |
+> | reservations | 예 | 예 |
+> | 리소스 | 예 | 예 |
+> | validatereservationorder | 예 | 예 |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | cdnwebapplicationfirewallmanagedrulesets | 아니오 | 아니오 |
+> | cdnwebapplicationfirewallmanagedrulesets | 예 | 예 |
 > | cdnwebapplicationfirewallpolicies | 예 | 예 |
-> | edgenodes | 아니오 | 아니오 |
+> | edgenodes | 예 | 예 |
 > | 프로필 | 예 | 예 |
 > | profiles / endpoints | 예 | 예 |
 
@@ -519,11 +519,11 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | capabilities | 아니오 | 아니오 |
-> | domainnames | 예 | 아니오 |
-> | quotas | 아니오 | 아니오 |
-> | resourcetypes | 아니오 | 아니오 |
-> | validatesubscriptionmoveavailability | 아니오 | 아니오 |
+> | capabilities | 예 | 예 |
+> | domainnames | 예 | 예 |
+> | quotas | 예 | 예 |
+> | resourcetypes | 예 | 예 |
+> | validatesubscriptionmoveavailability | 예 | 예 |
 > | virtualmachines | 예 | 예 |
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
@@ -534,7 +534,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | classicinfrastructureresources | 아니오 | 아니오 |
+> | classicinfrastructureresources | 예 | 예 |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
@@ -544,14 +544,14 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | capabilities | 아니오 | 아니오 |
-> | expressroutecrossconnections | 아니오 | 아니오 |
-> | expressroutecrossconnections / peerings | 아니오 | 아니오 |
-> | gatewaysupporteddevices | 아니오 | 아니오 |
-> | networksecuritygroups | 아니오 | 아니오 |
-> | quotas | 아니오 | 아니오 |
-> | reservedips | 아니오 | 아니오 |
-> | virtualnetworks | 아니오 | 아니오 |
+> | capabilities | 예 | 예 |
+> | expressroutecrossconnections | 예 | 예 |
+> | expressroutecrossconnections / peerings | 예 | 예 |
+> | gatewaysupporteddevices | 예 | 예 |
+> | networksecuritygroups | 예 | 예 |
+> | quotas | 예 | 예 |
+> | reservedips | 예 | 예 |
+> | virtualnetworks | 예 | 예 |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
@@ -561,14 +561,14 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | disks | 아니오 | 아니오 |
-> | images | 아니오 | 아니오 |
-> | osimages | 아니오 | 아니오 |
-> | osplatformimages | 아니오 | 아니오 |
-> | publicimages | 아니오 | 아니오 |
-> | quotas | 아니오 | 아니오 |
-> | storageaccounts | 예 | 아니오 |
-> | vmimages | 아니오 | 아니오 |
+> | disks | 예 | 예 |
+> | images | 예 | 예 |
+> | osimages | 예 | 예 |
+> | osplatformimages | 예 | 예 |
+> | publicimages | 예 | 예 |
+> | quotas | 예 | 예 |
+> | storageaccounts | 예 | 예 |
+> | vmimages | 예 | 예 |
 
 ## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
 
@@ -578,7 +578,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 작업 | 아니오 | 아니오 |
+> | 작업 | 예 | 예 |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -592,8 +592,8 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | ratecard | 아니오 | 아니오 |
-> | usageaggregates | 아니오 | 아니오 |
+> | ratecard | 예 | 예 |
+> | usageaggregates | 예 | 예 |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -604,23 +604,23 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availabilitysets | 예 | 예 |
-> | diskaccesses | 아니오 | 아니오 |
-> | diskencryptionsets | 아니오 | 아니오 |
+> | diskaccesses | 예 | 예 |
+> | diskencryptionsets | 예 | 예 |
 > | disks | 예 | 예 |
-> | galleries | 아니오 | 아니오 |
-> | galleries / images | 아니오 | 아니오 |
-> | galleries / images / versions | 아니오 | 아니오 |
-> | hostgroups | 아니오 | 아니오 |
-> | hostgroups / hosts | 아니오 | 아니오 |
+> | galleries | 예 | 예 |
+> | galleries / images | 예 | 예 |
+> | galleries / images / versions | 예 | 예 |
+> | hostgroups | 예 | 예 |
+> | hostgroups / hosts | 예 | 예 |
 > | images | 예 | 예 |
 > | proximityplacementgroups | 예 | 예 |
-> | restorepointcollections | 아니오 | 아니오 |
-> | restorepointcollections / restorepoints | 아니오 | 아니오 |
-> | sharedvmextensions | 아니오 | 아니오 |
-> | sharedvmimages | 아니오 | 아니오 |
-> | sharedvmimages / versions | 아니오 | 아니오 |
+> | restorepointcollections | 예 | 예 |
+> | restorepointcollections / restorepoints | 예 | 예 |
+> | sharedvmextensions | 예 | 예 |
+> | sharedvmimages | 예 | 예 |
+> | sharedvmimages / versions | 예 | 예 |
 > | 스냅샷 | 예 | 예 |
-> | sshpublickeys | 아니오 | 아니오 |
+> | sshpublickeys | 예 | 예 |
 > | virtualmachines | 예 | 예 |
 > | virtualmachines / extensions | 예 | 예 |
 > | virtualmachinescalesets | 예 | 예 |
@@ -630,35 +630,35 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | aggregatedcost | 아니오 | 아니오 |
-> | balances | 아니오 | 아니오 |
-> | budgets | 아니오 | 아니오 |
-> | charges | 아니오 | 아니오 |
-> | costtags | 아니오 | 아니오 |
-> | credits | 아니오 | 아니오 |
-> | events | 아니오 | 아니오 |
-> | forecasts | 아니오 | 아니오 |
-> | lots | 아니오 | 아니오 |
-> | marketplaces | 아니오 | 아니오 |
-> | pricesheets | 아니오 | 아니오 |
-> | products | 아니오 | 아니오 |
-> | reservationdetails | 아니오 | 아니오 |
-> | reservationrecommendationdetails | 아니오 | 아니오 |
-> | reservationrecommendations | 아니오 | 아니오 |
-> | reservationsummaries | 아니오 | 아니오 |
-> | reservationtransactions | 아니오 | 아니오 |
-> | tags | 아니오 | 아니오 |
-> | tenants | 아니오 | 아니오 |
-> | terms | 아니오 | 아니오 |
-> | usagedetails | 아니오 | 아니오 |
+> | aggregatedcost | 예 | 예 |
+> | balances | 예 | 예 |
+> | budgets | 예 | 예 |
+> | charges | 예 | 예 |
+> | costtags | 예 | 예 |
+> | credits | 예 | 예 |
+> | events | 예 | 예 |
+> | forecasts | 예 | 예 |
+> | lots | 예 | 예 |
+> | marketplaces | 예 | 예 |
+> | pricesheets | 예 | 예 |
+> | products | 예 | 예 |
+> | reservationdetails | 예 | 예 |
+> | reservationrecommendationdetails | 예 | 예 |
+> | reservationrecommendations | 예 | 예 |
+> | reservationsummaries | 예 | 예 |
+> | reservationtransactions | 예 | 예 |
+> | tags | 예 | 예 |
+> | tenants | 예 | 예 |
+> | terms | 예 | 예 |
+> | usagedetails | 예 | 예 |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | containergroups | 아니오 | 아니오 |
-> | serviceassociationlinks | 아니오 | 아니오 |
+> | containergroups | 예 | 예 |
+> | serviceassociationlinks | 예 | 예 |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -677,68 +677,68 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | containerservices | 아니오 | 아니오 |
-> | managedclusters | 아니오 | 아니오 |
-> | openshiftmanagedclusters | 아니오 | 아니오 |
+> | containerservices | 예 | 예 |
+> | managedclusters | 예 | 예 |
+> | openshiftmanagedclusters | 예 | 예 |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 애플리케이션 | 아니오 | 아니오 |
+> | 애플리케이션 | 예 | 예 |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 계정 | 아니오 | 아니오 |
+> | 계정 | 예 | 예 |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 경고 | 아니오 | 아니오 |
-> | billingaccounts | 아니오 | 아니오 |
-> | budgets | 아니오 | 아니오 |
-> | cloudconnectors | 아니오 | 아니오 |
+> | 경고 | 예 | 예 |
+> | billingaccounts | 예 | 예 |
+> | budgets | 예 | 예 |
+> | cloudconnectors | 예 | 예 |
 > | 커넥터 | 예 | 예 |
-> | departments | 아니오 | 아니오 |
-> | dimensions | 아니오 | 아니오 |
-> | enrollmentaccounts | 아니오 | 아니오 |
-> | exports | 아니오 | 아니오 |
-> | externalbillingaccounts | 아니오 | 아니오 |
-> | 아니오측 | 아니오 | 아니오 |
-> | Query | 아니오 | 아니오 |
-> | register | 아니오 | 아니오 |
-> | reportconfigs | 아니오 | 아니오 |
-> | reports | 아니오 | 아니오 |
-> | 설정 | 아니오 | 아니오 |
-> | showbackrules | 아니오 | 아니오 |
-> | 뷰 | 아니오 | 아니오 |
+> | departments | 예 | 예 |
+> | dimensions | 예 | 예 |
+> | enrollmentaccounts | 예 | 예 |
+> | exports | 예 | 예 |
+> | externalbillingaccounts | 예 | 예 |
+> | 예측 | 예 | 예 |
+> | Query | 예 | 예 |
+> | register | 예 | 예 |
+> | reportconfigs | 예 | 예 |
+> | reports | 예 | 예 |
+> | 설정 | 예 | 예 |
+> | showbackrules | 예 | 예 |
+> | 뷰 | 예 | 예 |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | hubs | 아니오 | 아니오 |
+> | hubs | 예 | 예 |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | requests | 아니오 | 아니오 |
+> | requests | 예 | 예 |
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | associations | 아니오 | 아니오 |
+> | associations | 예 | 예 |
 > | resourceproviders | 예 | 예 |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
@@ -746,14 +746,14 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | jobs | 아니오 | 아니오 |
+> | jobs | 예 | 예 |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | availableskus | 아니오 | 아니오 |
+> | availableskus | 예 | 예 |
 > | databoxedgedevices | 예 | 예 |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
@@ -761,7 +761,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | workspaces | 아니오 | 아니오 |
+> | workspaces | 예 | 예 |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
@@ -769,22 +769,22 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | catalogs | 예 | 예 |
-> | datacatalogs | 아니오 | 아니오 |
+> | datacatalogs | 예 | 예 |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | connectionmanagers | 아니오 | 아니오 |
+> | connectionmanagers | 예 | 예 |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 패키지 | 아니오 | 아니오 |
-> | 플랜 | 아니오 | 아니오 |
+> | 패키지 | 예 | 예 |
+> | 플랜 | 예 | 예 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -799,7 +799,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | datalakeaccounts | 아니오 | 아니오 |
+> | datalakeaccounts | 예 | 예 |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
@@ -820,16 +820,16 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | services | 아니오 | 아니오 |
-> | services / projects | 아니오 | 아니오 |
-> | slots | 아니오 | 아니오 |
+> | services | 예 | 예 |
+> | services / projects | 예 | 예 |
+> | slots | 예 | 예 |
 
 ## <a name="microsoftdataprotection"></a>Microsoft.DataProtection
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | backupvaults | 아니오 | 아니오 |
+> | backupvaults | 예 | 예 |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
@@ -859,7 +859,7 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | flexibleServers | 예 | 예 |
-> | servergroups | 아니오 | 아니오 |
+> | servergroups | 예 | 예 |
 > | servers | 예 | 예 |
 > | serversv2 | 예 | 예 |
 > | singleservers | 예 | 예 |
@@ -890,8 +890,8 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | elasticpools | 아니오 | 아니오 |
-> | elasticpools / iothubtenants | 아니오 | 아니오 |
+> | elasticpools | 예 | 예 |
+> | elasticpools / iothubtenants | 예 | 예 |
 > | iothubs | 예 | 예 |
 > | provisioningservices | 예 | 예 |
 
@@ -914,11 +914,11 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | labcenters | 아니오 | 아니오 |
-> | labs | 예 | 아니오 |
+> | labcenters | 예 | 예 |
+> | labs | 예 | 예 |
 > | labs / environments | 예 | 예 |
 > | labs / servicerunners | 예 | 예 |
-> | labs / virtualmachines | 예 | 아니오 |
+> | labs / virtualmachines | 예 | 예 |
 > | schedules | 예 | 예 |
 
 ## <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
@@ -926,14 +926,14 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | digitaltwinsinstances | 아니오 | 아니오 |
+> | digitaltwinsinstances | 예 | 예 |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | databaseaccountnames | 아니오 | 아니오 |
+> | databaseaccountnames | 예 | 예 |
 > | databaseaccounts | 예 | 예 |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
@@ -942,9 +942,9 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domains | 예 | 예 |
-> | generatessorequest | 아니오 | 아니오 |
-> | topleveldomains | 아니오 | 아니오 |
-> | validatedomainregistrationinformation | 아니오 | 아니오 |
+> | generatessorequest | 예 | 예 |
+> | topleveldomains | 예 | 예 |
+> | validatedomainregistrationinformation | 예 | 예 |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
@@ -960,13 +960,13 @@ ms.locfileid: "97795904"
 > | ------------- | ----------- | ---------- |
 > | domains | 예 | 예 |
 > | eventsubscriptions | 아니요 - 독립적으로 이동할 수는 없지만, 구독된 리소스와 함께 자동으로 이동할 수 있습니다. | 아니요 - 독립적으로 이동할 수는 없지만, 구독된 리소스와 함께 자동으로 이동할 수 있습니다. |
-> | extensiontopics | 아니오 | 아니오 |
+> | extensiontopics | 예 | 예 |
 > | partnernamespaces | 예 | 예 |
-> | partnerregistrations | 아니오 | 아니오 |
+> | partnerregistrations | 예 | 예 |
 > | partnertopics | 예 | 예 |
 > | systemtopics | 예 | 예 |
 > | topics | 예 | 예 |
-> | topictypes | 아니오 | 아니오 |
+> | topictypes | 예 | 예 |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
@@ -975,14 +975,14 @@ ms.locfileid: "97795904"
 > | ------------- | ----------- | ---------- |
 > | clusters | 예 | 예 |
 > | 네임스페이스 | 예 | 예 |
-> | sku | 아니오 | 아니오 |
+> | sku | 예 | 예 |
 
 ## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | experimentworkspaces | 아니오 | 아니오 |
+> | experimentworkspaces | 예 | 예 |
 
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon
 
@@ -996,44 +996,44 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | featureproviders | 아니오 | 아니오 |
-> | 기능 | 아니오 | 아니오 |
-> | providers | 아니오 | 아니오 |
-> | subscriptionfeatureregistrations | 아니오 | 아니오 |
+> | featureproviders | 예 | 예 |
+> | 기능 | 예 | 예 |
+> | providers | 예 | 예 |
+> | subscriptionfeatureregistrations | 예 | 예 |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 계정 | 아니오 | 아니오 |
+> | 계정 | 예 | 예 |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | automanagedaccounts | 아니오 | 아니오 |
-> | automanagedvmconfigurationprofiles | 아니오 | 아니오 |
-> | guestconfigurationassignments | 아니오 | 아니오 |
-> | software | 아니오 | 아니오 |
-> | softwareupdateprofile | 아니오 | 아니오 |
-> | softwareupdates | 아니오 | 아니오 |
+> | automanagedaccounts | 예 | 예 |
+> | automanagedvmconfigurationprofiles | 예 | 예 |
+> | guestconfigurationassignments | 예 | 예 |
+> | software | 예 | 예 |
+> | softwareupdateprofile | 예 | 예 |
+> | softwareupdates | 예 | 예 |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | hanainstances | 아니오 | 아니오 |
-> | sapmonitors | 아니요 | 아니오 |
+> | hanainstances | 예 | 예 |
+> | sapmonitors | 아니요 | 예 |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | dedicatedhsms | 아니오 | 아니오 |
+> | dedicatedhsms | 예 | 예 |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
@@ -1074,16 +1074,16 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | devices | 아니오 | 아니오 |
-> | vnfs | 아니오 | 아니오 |
+> | devices | 예 | 예 |
+> | vnfs | 예 | 예 |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | components | 아니오 | 아니오 |
-> | networkscopes | 아니오 | 아니오 |
+> | components | 예 | 예 |
+> | networkscopes | 예 | 예 |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
@@ -1101,38 +1101,38 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | actiongroups | 예 | 예 |
-> | activitylogalerts | 아니오 | 아니오 |
+> | activitylogalerts | 예 | 예 |
 > | alertrules | 예 | 예 |
 > | autoscalesettings | 예 | 예 |
-> | baseline | 아니오 | 아니오 |
+> | baseline | 예 | 예 |
 > | components | 예 | 예 |
-> | datacollectionrules | 아니오 | 아니오 |
-> | diagnosticsettings | 아니오 | 아니오 |
-> | diagnosticsettingscategories | 아니오 | 아니오 |
-> | eventcategories | 아니오 | 아니오 |
-> | eventtypes | 아니오 | 아니오 |
-> | extendeddiagnosticsettings | 아니오 | 아니오 |
-> | guestdiagnosticsettings | 아니오 | 아니오 |
-> | listmigrationdate | 아니오 | 아니오 |
-> | logdefinitions | 아니오 | 아니오 |
-> | logprofiles | 아니오 | 아니오 |
-> | 로그 | 아니오 | 아니오 |
-> | metricalerts | 아니오 | 아니오 |
-> | metricbaselines | 아니오 | 아니오 |
-> | metricbatch | 아니오 | 아니오 |
-> | metricdefinitions | 아니오 | 아니오 |
-> | metricnamespaces | 아니오 | 아니오 |
-> | 메트릭 | 아니오 | 아니오 |
-> | migratealertrules | 아니오 | 아니오 |
-> | migratetonewpricingmodel | 아니오 | 아니오 |
-> | myworkbooks | 아니오 | 아니오 |
-> | notificationgroups | 아니오 | 아니오 |
-> | privatelinkscopes | 아니오 | 아니오 |
-> | rollbacktolegacypricingmodel | 아니오 | 아니오 |
+> | datacollectionrules | 예 | 예 |
+> | diagnosticsettings | 예 | 예 |
+> | diagnosticsettingscategories | 예 | 예 |
+> | eventcategories | 예 | 예 |
+> | eventtypes | 예 | 예 |
+> | extendeddiagnosticsettings | 예 | 예 |
+> | guestdiagnosticsettings | 예 | 예 |
+> | listmigrationdate | 예 | 예 |
+> | logdefinitions | 예 | 예 |
+> | logprofiles | 예 | 예 |
+> | 로그 | 예 | 예 |
+> | metricalerts | 예 | 예 |
+> | metricbaselines | 예 | 예 |
+> | metricbatch | 예 | 예 |
+> | metricdefinitions | 예 | 예 |
+> | metricnamespaces | 예 | 예 |
+> | 메트릭 | 예 | 예 |
+> | migratealertrules | 예 | 예 |
+> | migratetonewpricingmodel | 예 | 예 |
+> | myworkbooks | 예 | 예 |
+> | notificationgroups | 예 | 예 |
+> | privatelinkscopes | 예 | 예 |
+> | rollbacktolegacypricingmodel | 예 | 예 |
 > | scheduledqueryrules | 예 | 예 |
-> | 토폴로지 | 아니오 | 아니오 |
-> | 트랜잭션 | 아니오 | 아니오 |
-> | vminsightsonboardingstatuses | 아니오 | 아니오 |
+> | 토폴로지 | 예 | 예 |
+> | 트랜잭션 | 예 | 예 |
+> | vminsightsonboardingstatuses | 예 | 예 |
 > | webtests | 예 | 예 |
 > | 웹 테스트/gettestresultfile | 아니요 | 아니요 |
 > | workbooks | 예 | 예 |
@@ -1143,7 +1143,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | apptemplates | 아니오 | 아니오 |
+> | apptemplates | 예 | 예 |
 > | iotapps | 예 | 예 |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
@@ -1161,9 +1161,9 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | deletedvaults | 아니오 | 아니오 |
-> | hsmpools | 아니오 | 아니요 |
-> | managedhsms | 아니오 | 아니오 |
+> | deletedvaults | 예 | 예 |
+> | hsmpools | 예 | 아니요 |
+> | managedhsms | 예 | 예 |
 > | vaults | 예 | 예 |
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
@@ -1172,14 +1172,14 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | connectedclusters | 예 | 예 |
-> | registeredsubscriptions | 아니오 | 아니오 |
+> | registeredsubscriptions | 예 | 예 |
 
 ## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguration
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | sourcecontrolconfigurations | 아니오 | 아니오 |
+> | sourcecontrolconfigurations | 예 | 예 |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -1193,33 +1193,33 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | labaccounts | 아니오 | 아니오 |
-> | users | 아니오 | 아니오 |
+> | labaccounts | 예 | 예 |
+> | users | 예 | 예 |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 계정 | 아니오 | 아니오 |
+> | 계정 | 예 | 예 |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 계정 | 아니오 | 아니오 |
+> | 계정 | 예 | 예 |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | hostingenvironments | 아니오 | 아니오 |
+> | hostingenvironments | 예 | 예 |
 > | integrationaccounts | 예 | 예 |
-> | integrationserviceenvironments | 예 | 아니오 |
-> | integrationserviceenvironments / managedapis | 예 | 아니오 |
-> | isolatedenvironments | 아니오 | 아니오 |
+> | integrationserviceenvironments | 예 | 예 |
+> | integrationserviceenvironments / managedapis | 예 | 예 |
+> | isolatedenvironments | 예 | 예 |
 > | workflows | 예 | 예 |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
@@ -1227,8 +1227,8 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | commitmentplans | 아니오 | 아니오 |
-> | webservices | 예 | 아니오 |
+> | commitmentplans | 예 | 예 |
+> | webservices | 예 | 예 |
 > | workspaces | 예 | 예 |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
@@ -1236,77 +1236,77 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | operationalizationclusters | 아니오 | 아니오 |
+> | operationalizationclusters | 예 | 예 |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 계정 | 아니오 | 아니오 |
-> | teamaccounts | 아니오 | 아니오 |
+> | 계정 | 예 | 예 |
+> | teamaccounts | 예 | 예 |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 계정 | 아니오 | 아니오 |
+> | 계정 | 예 | 예 |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | workspaces | 아니오 | 아니오 |
+> | workspaces | 예 | 예 |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | configurationassignments | 아니오 | 아니오 |
+> | configurationassignments | 예 | 예 |
 > | maintenanceconfigurations | 예 | 예 |
-> | updates | 아니오 | 아니오 |
+> | updates | 예 | 예 |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | ID | 아니오 | 아니오 |
-> | userassignedidentities | 아니오 | 아니오 |
+> | ID | 예 | 예 |
+> | userassignedidentities | 예 | 예 |
 
 ## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | managednetworks | 아니오 | 아니오 |
-> | managednetworks / managednetworkgroups | 아니오 | 아니오 |
-> | managednetworks / managednetworkpeeringpolicies | 아니오 | 아니오 |
-> | 알림 | 아니오 | 아니오 |
+> | managednetworks | 예 | 예 |
+> | managednetworks / managednetworkgroups | 예 | 예 |
+> | managednetworks / managednetworkpeeringpolicies | 예 | 예 |
+> | 알림 | 예 | 예 |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | marketplaceregistrationdefinitions | 아니오 | 아니오 |
-> | registrationassignments | 아니오 | 아니오 |
-> | registrationdefinitions | 아니오 | 아니오 |
+> | marketplaceregistrationdefinitions | 예 | 예 |
+> | registrationassignments | 예 | 예 |
+> | registrationdefinitions | 예 | 예 |
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | getentities | 아니오 | 아니오 |
-> | managementgroups | 아니오 | 아니오 |
-> | managementgroups / settings | 아니오 | 아니오 |
-> | 리소스 | 아니오 | 아니오 |
-> | starttenantbackfill | 아니오 | 아니오 |
-> | tenantbackfillstatus | 아니오 | 아니오 |
+> | getentities | 예 | 예 |
+> | managementgroups | 예 | 예 |
+> | managementgroups / settings | 예 | 예 |
+> | 리소스 | 예 | 예 |
+> | starttenantbackfill | 예 | 예 |
+> | tenantbackfillstatus | 예 | 예 |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
@@ -1321,29 +1321,29 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | offers | 아니오 | 아니오 |
-> | offertypes | 아니오 | 아니오 |
-> | privategalleryitems | 아니오 | 아니오 |
-> | privatestoreclient | 아니오 | 아니오 |
-> | privatestores | 아니오 | 아니오 |
-> | products | 아니오 | 아니오 |
-> | publishers | 아니오 | 아니오 |
-> | register | 아니오 | 아니오 |
+> | offers | 예 | 예 |
+> | offertypes | 예 | 예 |
+> | privategalleryitems | 예 | 예 |
+> | privatestoreclient | 예 | 예 |
+> | privatestores | 예 | 예 |
+> | products | 예 | 예 |
+> | publishers | 예 | 예 |
+> | register | 예 | 예 |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | classicdevservices | 아니오 | 아니오 |
+> | classicdevservices | 예 | 예 |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | agreements | 아니오 | 아니오 |
-> | offertypes | 아니오 | 아니오 |
+> | agreements | 예 | 예 |
+> | offertypes | 예 | 예 |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
@@ -1359,25 +1359,25 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | appclusters | 아니오 | 아니오 |
+> | appclusters | 예 | 예 |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | assessmentprojects | 아니오 | 아니오 |
-> | migrateprojects | 아니오 | 아니오 |
-> | movecollections | 아니오 | 아니오 |
-> | projects | 아니오 | 아니오 |
+> | assessmentprojects | 예 | 예 |
+> | migrateprojects | 예 | 예 |
+> | movecollections | 예 | 예 |
+> | projects | 예 | 예 |
 
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | holographicsbroadcastaccounts | 아니오 | 아니오 |
-> | objectunderstandingaccounts | 아니오 | 아니오 |
+> | holographicsbroadcastaccounts | 예 | 예 |
+> | objectunderstandingaccounts | 예 | 예 |
 > | remoterenderingaccounts | 예 | 예 |
 > | spatialanchorsaccounts | 예 | 예 |
 
@@ -1386,9 +1386,9 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | netappaccounts | 아니오 | 아니오 |
-> | netappaccounts / capacitypools | 아니오 | 아니오 |
-> | netappaccounts / capacitypools / volumes | 아니오 | 아니오 |
+> | netappaccounts | 예 | 예 |
+> | netappaccounts / capacitypools | 예 | 예 |
+> | netappaccounts / capacitypools / volumes | 예 | 예 |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -1398,61 +1398,61 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | applicationgateways | 아니오 | 아니오 |
-> | applicationgatewaywebapplicationfirewallpolicies | 아니오 | 아니오 |
+> | applicationgateways | 예 | 예 |
+> | applicationgatewaywebapplicationfirewallpolicies | 예 | 예 |
 > | applicationsecuritygroups | 예 | 예 |
-> | azurefirewalls | 아니오 | 아니오 |
-> | bastionhosts | 아니오 | 아니오 |
-> | bgpservicecommunities | 아니오 | 아니오 |
+> | azurefirewalls | 예 | 예 |
+> | bastionhosts | 예 | 예 |
+> | bgpservicecommunities | 예 | 예 |
 > | connections | 예 | 예 |
 > | ddoscustompolicies | 예 | 예 |
-> | ddosprotectionplans | 아니오 | 아니오 |
+> | ddosprotectionplans | 예 | 예 |
 > | dnszones | 예 | 예 |
-> | expressroutecircuits | 아니오 | 아니오 |
-> | expressroutegateways | 아니오 | 아니오 |
-> | expressrouteserviceproviders | 아니오 | 아니오 |
+> | expressroutecircuits | 예 | 예 |
+> | expressroutegateways | 예 | 예 |
+> | expressrouteserviceproviders | 예 | 예 |
 > | firewallpolicies | 예 | 예 |
-> | frontdoors | 아니오 | 아니요 |
+> | frontdoors | 예 | 아니요 |
 > | ipallocations | 예 | 예 |
 > | ipgroups | 예 | 예 |
-> | loadbalancers | 예 - 기본 SKU<br> 아니오-표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
+> | loadbalancers | 예 - 기본 SKU<br> 예-표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
 > | localnetworkgateways | 예 | 예 |
-> | natgateways | 아니오 | 아니오 |
-> | networkexperimentprofiles | 아니오 | 아니오 |
+> | natgateways | 예 | 예 |
+> | networkexperimentprofiles | 예 | 예 |
 > | networkintentpolicies | 예 | 예 |
 > | networkinterfaces | 예 | 예 |
-> | networkprofiles | 아니오 | 아니오 |
+> | networkprofiles | 예 | 예 |
 > | networksecuritygroups | 예 | 예 |
-> | networkwatchers | 아니오 | 아니오 |
-> | networkwatchers / connectionmonitors | 예 | 아니오 |
-> | networkwatchers / flowlogs | 예 | 아니오 |
-> | networkwatchers / pingmeshes | 예 | 아니오 |
-> | p2svpngateways | 아니오 | 아니오 |
+> | networkwatchers | 예 | 예 |
+> | networkwatchers / connectionmonitors | 예 | 예 |
+> | networkwatchers / flowlogs | 예 | 예 |
+> | networkwatchers / pingmeshes | 예 | 예 |
+> | p2svpngateways | 예 | 예 |
 > | privatednszones | 예 | 예 |
 > | privatednszones / virtualnetworklinks | 예 | 예 |
-> | privatednszonesinternal | 아니오 | 아니오 |
-> | privateendpointredirectmaps | 아니오 | 아니오 |
+> | privatednszonesinternal | 예 | 예 |
+> | privateendpointredirectmaps | 예 | 예 |
 > | privateendpoints | 아니요 | 아니요 |
-> | privatelinkservices | 아니오 | 아니오 |
+> | privatelinkservices | 예 | 예 |
 > | publicipaddresses | 예 - 기본 SKU<br>예-표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
 > | publicipprefixes | 예 | 예 |
-> | routefilters | 아니오 | 아니오 |
+> | routefilters | 예 | 예 |
 > | routetables | 예 | 예 |
 > | securitypartnerproviders | 예 | 예 |
 > | serviceendpointpolicies | 예 | 예 |
-> | trafficmanagergeographichierarchies | 아니오 | 아니오 |
+> | trafficmanagergeographichierarchies | 예 | 예 |
 > | trafficmanagerprofiles | 예 | 예 |
-> | trafficmanagerprofiles / heatmaps | 아니오 | 아니오 |
-> | trafficmanagerusermetricskeys | 아니오 | 아니오 |
-> | virtualhubs | 아니오 | 아니오 |
+> | trafficmanagerprofiles / heatmaps | 예 | 예 |
+> | trafficmanagerusermetricskeys | 예 | 예 |
+> | virtualhubs | 예 | 예 |
 > | virtualnetworkgateways | 예 | 예 |
 > | virtualnetworks | 예 | 예 |
-> | virtualnetworktaps | 아니오 | 아니오 |
+> | virtualnetworktaps | 예 | 예 |
 > | virtualrouters | 예 | 예 |
-> | virtualwans | 아니오 | 아니오 |
-> | vpngateways(Virtual WAN) | 아니오 | 아니오 |
-> | vpnserverconfigurations | 아니오 | 아니오 |
-> | vpnsites(Virtual WAN) | 아니오 | 아니요 |
+> | virtualwans | 예 | 예 |
+> | vpngateways(Virtual WAN) | 예 | 예 |
+> | vpnserverconfigurations | 예 | 예 |
+> | vpnsites(Virtual WAN) | 예 | 아니요 |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
@@ -1474,10 +1474,10 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | hypervsites | 아니오 | 아니요 |
-> | importsites | 아니요 | 아니오 |
+> | hypervsites | 예 | 아니요 |
+> | importsites | 아니요 | 예 |
 > | serversites | 아니요 | 아니요 |
-> | vmwaresites | 아니오 | 아니오 |
+> | vmwaresites | 예 | 예 |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
@@ -1489,10 +1489,10 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | 아니오 | 아니오 |
-> | deletedworkspaces | 아니오 | 아니오 |
-> | linktargets | 아니오 | 아니오 |
-> | storageinsightconfigs | 아니오 | 아니오 |
+> | clusters | 예 | 예 |
+> | deletedworkspaces | 예 | 예 |
+> | linktargets | 예 | 예 |
+> | storageinsightconfigs | 예 | 예 |
 > | workspaces | 예 | 예 |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
@@ -1500,7 +1500,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | managementassociations | 아니오 | 아니오 |
+> | managementassociations | 예 | 예 |
 > | managementconfigurations | 예 | 예 |
 > | solutions | 예 | 예 |
 > | 뷰 | 예 | 예 |
@@ -1510,33 +1510,33 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | legacypeerings | 아니오 | 아니오 |
-> | peerasns | 아니오 | 아니오 |
-> | peeringlocations | 아니오 | 아니오 |
-> | peerings | 아니오 | 아니오 |
-> | peeringservicecountries | 아니오 | 아니오 |
-> | peeringservicelocations | 아니오 | 아니오 |
-> | peeringserviceproviders | 아니오 | 아니오 |
-> | peeringservices | 아니오 | 아니오 |
+> | legacypeerings | 예 | 예 |
+> | peerasns | 예 | 예 |
+> | peeringlocations | 예 | 예 |
+> | peerings | 예 | 예 |
+> | peeringservicecountries | 예 | 예 |
+> | peeringservicelocations | 예 | 예 |
+> | peeringserviceproviders | 예 | 예 |
+> | peeringservices | 예 | 예 |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | policyevents | 아니오 | 아니오 |
-> | policystates | 아니오 | 아니오 |
-> | policytrackedresources | 아니오 | 아니오 |
-> | remediations | 아니오 | 아니오 |
+> | policyevents | 예 | 예 |
+> | policystates | 예 | 예 |
+> | policytrackedresources | 예 | 예 |
+> | remediations | 예 | 예 |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | consoles | 아니오 | 아니오 |
+> | consoles | 예 | 예 |
 > | dashboards | 예 | 예 |
-> | usersettings | 아니오 | 아니오 |
+> | usersettings | 예 | 예 |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
@@ -1557,23 +1557,23 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 계정 | 아니오 | 아니오 |
+> | 계정 | 예 | 예 |
 
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | availableaccounts | 아니오 | 아니오 |
-> | providerregistrations | 아니오 | 아니오 |
-> | rollouts | 아니오 | 아니오 |
+> | availableaccounts | 예 | 예 |
+> | providerregistrations | 예 | 예 |
+> | rollouts | 예 | 예 |
 
 ## <a name="microsoftquantum"></a>Microsoft.Quantum
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | workspaces | 아니오 | 아니오 |
+> | workspaces | 예 | 예 |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
@@ -1583,7 +1583,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | replicationeligibilityresults | 아니오 | 아니오 |
+> | replicationeligibilityresults | 예 | 예 |
 > | vaults | 예 | 예 |
 
 ## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatOpenShift
@@ -1591,7 +1591,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | openshiftclusters | 아니오 | 아니오 |
+> | openshiftclusters | 예 | 예 |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
@@ -1606,48 +1606,48 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 쿼리 | 예 | 예 |
-> | resourcechangedetails | 아니오 | 아니오 |
-> | resourcechanges | 아니오 | 아니오 |
-> | 리소스 | 아니오 | 아니오 |
-> | resourceshistory | 아니오 | 아니오 |
-> | subscriptionsstatus | 아니오 | 아니오 |
+> | resourcechangedetails | 예 | 예 |
+> | resourcechanges | 예 | 예 |
+> | 리소스 | 예 | 예 |
+> | resourceshistory | 예 | 예 |
+> | subscriptionsstatus | 예 | 예 |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | childresources | 아니오 | 아니오 |
-> | emergingissues | 아니오 | 아니오 |
-> | events | 아니오 | 아니오 |
-> | metadata | 아니오 | 아니오 |
-> | 알림 | 아니오 | 아니오 |
+> | childresources | 예 | 예 |
+> | emergingissues | 예 | 예 |
+> | events | 예 | 예 |
+> | metadata | 예 | 예 |
+> | 알림 | 예 | 예 |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 배포 | 아니오 | 아니오 |
-> | deploymentscripts | 아니오 | 아니오 |
-> | deploymentscripts / logs | 아니오 | 아니오 |
-> | 링크 | 아니오 | 아니오 |
-> | providers | 아니오 | 아니오 |
-> | resourcegroups | 아니오 | 아니오 |
-> | 리소스 | 아니오 | 아니오 |
-> | 구독 | 아니오 | 아니오 |
-> | tags | 아니오 | 아니오 |
-> | templatespecs | 아니오 | 아니오 |
-> | templatespecs / versions | 아니오 | 아니오 |
-> | tenants | 아니오 | 아니오 |
+> | 배포 | 예 | 예 |
+> | deploymentscripts | 예 | 예 |
+> | deploymentscripts / logs | 예 | 예 |
+> | 링크 | 예 | 예 |
+> | providers | 예 | 예 |
+> | resourcegroups | 예 | 예 |
+> | 리소스 | 예 | 예 |
+> | 구독 | 예 | 예 |
+> | tags | 예 | 예 |
+> | templatespecs | 예 | 예 |
+> | templatespecs / versions | 예 | 예 |
+> | tenants | 예 | 예 |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 애플리케이션 | 예 | 아니오 |
-> | saasresources | 아니오 | 아니오 |
+> | 애플리케이션 | 예 | 예 |
+> | saasresources | 예 | 예 |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1657,7 +1657,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | resourcehealthmetadata | 아니오 | 아니오 |
+> | resourcehealthmetadata | 예 | 예 |
 > | searchservices | 예 | 예 |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
@@ -1665,78 +1665,78 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | adaptivenetworkhardenings | 아니오 | 아니오 |
-> | advancedthreatprotectionsettings | 아니오 | 아니오 |
-> | 경고 | 아니오 | 아니오 |
-> | allowedconnections | 아니오 | 아니오 |
-> | applicationwhitelistings | 아니오 | 아니오 |
-> | assessmentmetadata | 아니오 | 아니오 |
-> | assessments | 아니오 | 아니오 |
-> | autodismissalertsrules | 아니오 | 아니오 |
+> | adaptivenetworkhardenings | 예 | 예 |
+> | advancedthreatprotectionsettings | 예 | 예 |
+> | 경고 | 예 | 예 |
+> | allowedconnections | 예 | 예 |
+> | applicationwhitelistings | 예 | 예 |
+> | assessmentmetadata | 예 | 예 |
+> | assessments | 예 | 예 |
+> | autodismissalertsrules | 예 | 예 |
 > | automations | 예 | 예 |
-> | autoprovisioningsettings | 아니오 | 아니오 |
-> | complianceresults | 아니오 | 아니오 |
-> | compliances | 아니오 | 아니오 |
-> | datacollectionagents | 아니오 | 아니오 |
-> | devicesecuritygroups | 아니오 | 아니오 |
-> | discoveredsecuritysolutions | 아니오 | 아니오 |
-> | externalsecuritysolutions | 아니오 | 아니오 |
-> | informationprotectionpolicies | 아니오 | 아니오 |
+> | autoprovisioningsettings | 예 | 예 |
+> | complianceresults | 예 | 예 |
+> | compliances | 예 | 예 |
+> | datacollectionagents | 예 | 예 |
+> | devicesecuritygroups | 예 | 예 |
+> | discoveredsecuritysolutions | 예 | 예 |
+> | externalsecuritysolutions | 예 | 예 |
+> | informationprotectionpolicies | 예 | 예 |
 > | iotsecuritysolutions | 예 | 예 |
-> | iotsecuritysolutions / analyticsmodels | 아니오 | 아니오 |
-> | iotsecuritysolutions / analyticsmodels / aggregatedalerts | 아니오 | 아니오 |
-> | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | 아니오 | 아니오 |
-> | jitnetworkaccesspolicies | 아니오 | 아니오 |
-> | 정책 | 아니오 | 아니오 |
-> | pricings | 아니오 | 아니오 |
-> | regulatorycompliancestandards | 아니오 | 아니오 |
-> | regulatorycompliancestandards / regulatorycompliancecontrols | 아니오 | 아니오 |
-> | regulatorycompliancestandards / regulatorycompliancecontrols / regulatorycomplianceassessments | 아니오 | 아니오 |
-> | securitycontacts | 아니오 | 아니오 |
-> | securitysolutions | 아니오 | 아니오 |
-> | securitysolutionsreferencedata | 아니오 | 아니오 |
-> | securitystatuses | 아니오 | 아니오 |
-> | securitystatusessummaries | 아니오 | 아니오 |
-> | servervulnerabilityassessments | 아니오 | 아니오 |
-> | 설정 | 아니오 | 아니오 |
-> | subassessments | 아니오 | 아니오 |
-> | tasks | 아니오 | 아니오 |
-> | topologies | 아니오 | 아니오 |
-> | workspacesettings | 아니오 | 아니오 |
+> | iotsecuritysolutions / analyticsmodels | 예 | 예 |
+> | iotsecuritysolutions / analyticsmodels / aggregatedalerts | 예 | 예 |
+> | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | 예 | 예 |
+> | jitnetworkaccesspolicies | 예 | 예 |
+> | 정책 | 예 | 예 |
+> | pricings | 예 | 예 |
+> | regulatorycompliancestandards | 예 | 예 |
+> | regulatorycompliancestandards / regulatorycompliancecontrols | 예 | 예 |
+> | regulatorycompliancestandards / regulatorycompliancecontrols / regulatorycomplianceassessments | 예 | 예 |
+> | securitycontacts | 예 | 예 |
+> | securitysolutions | 예 | 예 |
+> | securitysolutionsreferencedata | 예 | 예 |
+> | securitystatuses | 예 | 예 |
+> | securitystatusessummaries | 예 | 예 |
+> | servervulnerabilityassessments | 예 | 예 |
+> | 설정 | 예 | 예 |
+> | subassessments | 예 | 예 |
+> | tasks | 예 | 예 |
+> | topologies | 예 | 예 |
+> | workspacesettings | 예 | 예 |
 
 ## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | aggregations | 아니오 | 아니오 |
-> | alertrules | 아니오 | 아니오 |
-> | alertruletemplates | 아니오 | 아니오 |
-> | automationrules | 아니오 | 아니오 |
-> | bookmarks | 아니오 | 아니오 |
-> | cases | 아니오 | 아니오 |
-> | dataconnectors | 아니오 | 아니오 |
-> | 엔터티 | 아니오 | 아니오 |
-> | entityqueries | 아니오 | 아니오 |
-> | incidents | 아니오 | 아니오 |
-> | officeconsents | 아니오 | 아니오 |
-> | 설정 | 아니오 | 아니오 |
-> | threatintelligence | 아니오 | 아니오 |
+> | aggregations | 예 | 예 |
+> | alertrules | 예 | 예 |
+> | alertruletemplates | 예 | 예 |
+> | automationrules | 예 | 예 |
+> | bookmarks | 예 | 예 |
+> | cases | 예 | 예 |
+> | dataconnectors | 예 | 예 |
+> | 엔터티 | 예 | 예 |
+> | entityqueries | 예 | 예 |
+> | incidents | 예 | 예 |
+> | officeconsents | 예 | 예 |
+> | 설정 | 예 | 예 |
+> | threatintelligence | 예 | 예 |
 
 ## <a name="microsoftserialconsole"></a>Microsoft.SerialConsole
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | consoleservices | 아니오 | 아니오 |
+> | consoleservices | 예 | 예 |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | gateways | 아니오 | 아니오 |
-> | nodes | 아니오 | 아니오 |
+> | gateways | 예 | 예 |
+> | nodes | 예 | 예 |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
@@ -1744,23 +1744,23 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 네임스페이스 | 예 | 예 |
-> | premiummessagingregions | 아니오 | 아니오 |
-> | sku | 아니오 | 아니오 |
+> | premiummessagingregions | 예 | 예 |
+> | sku | 예 | 예 |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 애플리케이션 | 아니오 | 아니오 |
+> | 애플리케이션 | 예 | 예 |
 > | clusters | 예 | 예 |
-> | containergroups | 아니오 | 아니오 |
-> | containergroupsets | 아니오 | 아니오 |
-> | edgeclusters | 아니오 | 아니오 |
-> | managedclusters | 아니오 | 아니오 |
-> | networks | 아니오 | 아니오 |
-> | secretstores | 아니오 | 아니오 |
-> | volumes | 아니오 | 아니오 |
+> | containergroups | 예 | 예 |
+> | containergroupsets | 예 | 예 |
+> | edgeclusters | 예 | 예 |
+> | managedclusters | 예 | 예 |
+> | networks | 예 | 예 |
+> | secretstores | 예 | 예 |
+> | volumes | 예 | 예 |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
@@ -1768,7 +1768,7 @@ ms.locfileid: "97795904"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | 애플리케이션 | 예 | 예 |
-> | containergroups | 아니오 | 아니오 |
+> | containergroups | 예 | 예 |
 > | gateways | 예 | 예 |
 > | networks | 예 | 예 |
 > | secrets | 예 | 예 |
@@ -1779,7 +1779,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | rollouts | 아니오 | 아니오 |
+> | rollouts | 예 | 예 |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
@@ -1793,16 +1793,16 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | hybridusebenefits | 아니오 | 아니오 |
+> | hybridusebenefits | 예 | 예 |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | applicationdefinitions | 아니오 | 아니오 |
-> | 애플리케이션 | 아니오 | 아니오 |
-> | jitrequests | 아니오 | 아니오 |
+> | applicationdefinitions | 예 | 예 |
+> | 애플리케이션 | 예 | 예 |
+> | jitrequests | 예 | 예 |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
@@ -1812,9 +1812,9 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | instancepools | 아니오 | 아니오 |
+> | instancepools | 예 | 예 |
 > | 위치 | 예 | 예 |
-> | managedinstances | 아니오 | 아니오 |
+> | managedinstances | 예 | 예 |
 > | servers | 예 | 예 |
 > | servers / databases | 예 | 예 |
 > | servers / databases / backuplongtermretentionpolicies | 예 | 예 |
@@ -1843,7 +1843,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | caches | 아니오 | 아니오 |
+> | caches | 예 | 예 |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
@@ -1857,21 +1857,21 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | storagesyncservices | 아니오 | 아니오 |
+> | storagesyncservices | 예 | 예 |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | storagesyncservices | 아니오 | 아니오 |
+> | storagesyncservices | 예 | 예 |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | managers | 아니오 | 아니오 |
+> | managers | 예 | 예 |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
@@ -1881,7 +1881,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | 아니오 | 아니오 |
+> | clusters | 예 | 예 |
 > | streamingjobs | 예 | 예 |
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
@@ -1889,23 +1889,23 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | environments | 아니오 | 아니오 |
-> | 인스턴스 | 아니오 | 아니오 |
+> | environments | 예 | 예 |
+> | 인스턴스 | 예 | 예 |
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 구독 | 아니오 | 아니오 |
+> | 구독 | 예 | 예 |
 
 ## <a name="microsoftsupport"></a>microsoft.support
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | services | 아니오 | 아니오 |
-> | supporttickets | 아니오 | 아니오 |
+> | services | 예 | 예 |
+> | supporttickets | 예 | 예 |
 
 ## <a name="microsoftsynapse"></a>Microsoft.Synapse
 
@@ -1937,7 +1937,7 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | imagetemplates | 아니오 | 아니오 |
+> | imagetemplates | 예 | 예 |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
@@ -1947,47 +1947,47 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | account | 아니오 | 아니오 |
-> | account / extension | 아니오 | 아니오 |
-> | account / project | 아니오 | 아니요 |
+> | account | 예 | 예 |
+> | account / extension | 예 | 예 |
+> | account / project | 예 | 아니요 |
 
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | arczones | 아니오 | 아니오 |
-> | resourcepools | 아니오 | 아니오 |
-> | vcenters | 아니오 | 아니오 |
-> | virtualmachines | 아니오 | 아니오 |
-> | virtualmachinetemplates | 아니오 | 아니오 |
-> | virtualnetworks | 아니오 | 아니오 |
+> | arczones | 예 | 예 |
+> | resourcepools | 예 | 예 |
+> | vcenters | 예 | 예 |
+> | virtualmachines | 예 | 예 |
+> | virtualmachinetemplates | 예 | 예 |
+> | virtualnetworks | 예 | 예 |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | dedicatedcloudnodes | 아니오 | 아니오 |
-> | dedicatedcloudservices | 아니오 | 아니오 |
-> | virtualmachines | 아니오 | 아니오 |
+> | dedicatedcloudnodes | 예 | 예 |
+> | dedicatedcloudservices | 예 | 예 |
+> | virtualmachines | 예 | 예 |
 
 ## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | devices | 아니오 | 아니오 |
-> | vnfs | 아니오 | 아니오 |
+> | devices | 예 | 예 |
+> | vnfs | 예 | 예 |
 
 ## <a name="microsoftvsonline"></a>Microsoft.VSOnline
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 계정 | 아니오 | 아니오 |
-> | 플랜 | 아니오 | 아니오 |
-> | registeredsubscriptions | 아니오 | 아니오 |
+> | 계정 | 예 | 예 |
+> | 플랜 | 예 | 예 |
+> | registeredsubscriptions | 예 | 예 |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
@@ -1997,60 +1997,60 @@ ms.locfileid: "97795904"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | availablestacks | 아니오 | 아니오 |
-> | billingmeters | 아니오 | 아니오 |
-> | certificates | 아니오 | 예 |
+> | availablestacks | 예 | 예 |
+> | billingmeters | 예 | 예 |
+> | certificates | 예 | 예 |
 > | connectiongateways | 예 | 예 |
 > | connections | 예 | 예 |
 > | customapis | 예 | 예 |
-> | deletedsites | 아니오 | 아니오 |
-> | deploymentlocations | 아니오 | 아니오 |
-> | georegions | 아니오 | 아니오 |
-> | hostingenvironments | 아니오 | 아니오 |
+> | deletedsites | 예 | 예 |
+> | deploymentlocations | 예 | 예 |
+> | georegions | 예 | 예 |
+> | hostingenvironments | 예 | 예 |
 > | kubeenvironments | 예 | 예 |
-> | publishingusers | 아니오 | 아니오 |
-> | 동영상 추천 기능 | 아니오 | 아니오 |
-> | resourcehealthmetadata | 아니오 | 아니오 |
-> | runtimes | 아니오 | 아니오 |
+> | publishingusers | 예 | 예 |
+> | 동영상 추천 기능 | 예 | 예 |
+> | resourcehealthmetadata | 예 | 예 |
+> | runtimes | 예 | 예 |
 > | serverfarms | 예 | 예 |
-> | serverfarms / eventgridfilters | 아니오 | 아니오 |
+> | serverfarms / eventgridfilters | 예 | 예 |
 > | sites | 예 | 예 |
 > | sites / premieraddons | 예 | 예 |
 > | sites / slots | 예 | 예 |
-> | sourcecontrols | 아니오 | 아니오 |
-> | staticsites | 아니오 | 아니요 |
+> | sourcecontrols | 예 | 예 |
+> | staticsites | 예 | 아니요 |
 
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | multipleactivationkeys | 아니오 | 아니오 |
+> | multipleactivationkeys | 예 | 예 |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | deviceservices | 아니오 | 아니오 |
+> | deviceservices | 예 | 예 |
 
 ## <a name="microsoftworkloadbuilder"></a>WorkloadBuilder
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 작업 | 아니오 | 아니오 |
+> | 작업 | 예 | 예 |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | components | 아니오 | 아니오 |
-> | componentssummary | 아니오 | 아니오 |
-> | monitorinstances | 아니오 | 아니오 |
-> | monitorinstancessummary | 아니오 | 아니오 |
-> | monitors | 아니오 | 아니오 |
+> | components | 예 | 예 |
+> | componentssummary | 예 | 예 |
+> | monitorinstances | 예 | 예 |
+> | monitorinstancessummary | 예 | 예 |
+> | monitors | 예 | 예 |
 
 ## <a name="third-party-services"></a>타사 서비스
 

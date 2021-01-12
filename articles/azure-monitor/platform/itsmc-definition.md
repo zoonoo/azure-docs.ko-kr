@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: eacdf0cf80414c44aaccf6925e466b914c66da03
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: a7e39bb8ed742007a13a222771b430372d50e889
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065306"
+ms.locfileid: "98071700"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ITSM 도구에 Azure 연결
 
@@ -132,10 +132,10 @@ ITSM 연결을 만든 후에는 Azure 경고를 기반으로 ITSM 도구에서 �
     >[!NOTE]
     >
     > * 이 섹션에서는 로그 검색 경고와 관련 된 내용만 설명 합니다.
-    > * 메트릭 경고 및 활동 로그 경고는 경고 당 하나의 작업 항목을 항상 만듭니다.
+    > * 다른 모든 경고 유형의 경우 경고 당 하나의 작업 항목이 생성 됩니다.
 
-    * 작업 항목 드롭다운에서 "인시던트" 또는 "경고"를 선택 하는 경우:
-        * **"각 구성 항목에 대 한 개별 작업 항목 만들기"** 확인란을 선택 하면 모든 경고의 모든 구성 항목에서 새 작업 항목이 생성 됩니다. ITSM 시스템의 구성 항목 마다 작업 항목이 둘 이상 있을 수 있습니다.
+    * "작업 항목" 드롭다운 "인시던트" 또는 "경고": ![ ITSM 인시던트 창을 보여 주는 스크린샷에서 선택 합니다.](media/itsmc-overview/itsm-action-configuration.png)
+        * **"각 구성 항목에 대 한 개별 작업 항목 만들기"** 확인란을 선택 하면 모든 경고의 모든 구성 항목에서 새 작업 항목이 생성 됩니다. 영향을 받는 동일한 구성 항목에 대 한 여러 경고의 결과로 각 구성 항목에 대해 둘 이상의 작업 항목이 있을 것입니다.
 
              예를 들어:
              1) 3 개 구성 항목을 포함 하는 경고 1: A, B, C-는 3 개의 작업 항목을 만듭니다.
@@ -148,15 +148,13 @@ ITSM 연결을 만든 후에는 Azure 경고를 기반으로 ITSM 도구에서 �
 
         예를 들어:
          1) 3 개의 구성 항목을 포함 하는 경고 1: A, B, C-1 개의 작업 항목을 만듭니다.
-         2) 1 단계와 동일한 경고 규칙에 대 한 경고 2 (구성 항목 1 개 포함): D-1 단계의 작업 항목으로 병합 됩니다.
+         2) 1 단계 구성 항목과 동일한 경고 규칙에 대 한 경고 2: D-D가 단계 a에서 만든 작업 항목의 영향을 받는 구성 항목 목록에 연결 됩니다.
          3) 1 개 구성 항목을 포함 하는 다른 경고 규칙에 대 한 경고 3: E-작업 항목 1 개를 만듭니다.
 
-       ![ITSM 인시던트 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration.png)
+    * "작업 항목" 드롭다운 "이벤트"에서 선택 하면 ![ ITSM 이벤트 창이 표시 됩니다.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-    * 작업 항목 드롭다운에서 "Event"를 선택 하는 경우:
         * **"각 로그 항목에 대 한 개별 작업 항목 만들기 (구성 항목 필드는 채워지지 않음)를 선택 합니다. 많은 수의 작업 항목이 생성 될 수 있습니다. "** 라디오 단추 선택에서 로그 검색 경고 쿼리의 검색 결과에 각 행 마다 작업 항목이 생성 됩니다. 작업 항목의 페이로드에 설명 속성에는 검색 결과의 행이 포함 됩니다.
         * 라디오 단추 선택에서 **"각 구성 항목에 대 한 개별 작업 항목 만들기"** 를 선택 하는 경우 모든 경고의 모든 구성 항목이 새 작업 항목을 만듭니다. ITSM 시스템의 구성 항목 마다 작업 항목이 둘 이상 있을 수 있습니다. 이는 인시던트/경고 섹션의 확인란을 선택 하는 것과 같습니다.
-    ![ITSM 이벤트 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. **확인** 을 선택합니다.
 

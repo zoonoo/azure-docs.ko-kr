@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 075f113975e5f340493fe33584d8072190be77c8
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 130fcaacedc8aaea7790f6aa9ca7463b4e378e02
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896484"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070714"
 ---
 # <a name="select-a-vmware-migration-option"></a>VMware 마이그레이션 옵션 선택
 
@@ -32,7 +32,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 **어플라이언스 배포** | [Azure Migrate 어플라이언스](migrate-appliance.md) 는 온-프레미스에 배포 됩니다. | [Azure Migrate 복제 어플라이언스](migrate-replication-appliance.md) 는 온-프레미스에 배포 됩니다.
 **Site Recovery 호환성** | 형식이. | Site Recovery를 사용 하 여 컴퓨터에 대 한 복제를 설정한 경우 Azure Migrate 서버 마이그레이션에 복제할 수 없습니다.
 **대상 디스크** | 관리 디스크 | 관리 디스크
-**디스크 제한** | OS 디스크: 2tb<br/><br/> 데이터 디스크: 32 TB<br/><br/> 최대 디스크: 60 | OS 디스크: 2tb<br/><br/> 데이터 디스크: 8TB<br/><br/> 최대 디스크: 63
+**디스크 제한** | OS 디스크: 2tb<br/><br/> 데이터 디스크: 32 TB<br/><br/> 최대 디스크: 60 | OS 디스크: 2tb<br/><br/> 데이터 디스크: 32 TB<br/><br/> 최대 디스크: 63
 **통과 디스크** | 지원되지 않음 | 지원 여부
 **UEFI 부팅** | 지원됨. | 지원됨.
 

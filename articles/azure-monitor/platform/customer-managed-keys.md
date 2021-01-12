@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/18/2020
-ms.openlocfilehash: 6037b372f73bcf3554120e305f4b3031b26e97d4
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.date: 01/10/2021
+ms.openlocfilehash: 66a3276863b05cb2fe0dd80a2195f7fd2af1443c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831655"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071938"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -36,7 +36,7 @@ Log Analytics 전용 클러스터는 1000 m b/일에 시작 되는 용량 예약
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Azure Monitor에서 Customer-Managed 키가 작동 하는 방식
 
-Azure Monitor는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 대 한 액세스 권한을 부여 합니다. Log Analytics 클러스터의 id는 클러스터 수준에서 지원 되며 여러 작업 영역에서 Customer-Managed 키를 허용 합니다. 새 Log Analytics *클러스터* 리소스는 Key Vault 및 Log Analytics 작업 영역 간에 중간 id 연결로 수행 됩니다. Log Analytics 클러스터 스토리지는 *클러스터* 리소스와 연결된 관리 ID를 사용하여 Azure Active Directory를 통해 Azure Key Vault에 인증합니다. 
+Azure Monitor는 관리 id를 사용 하 여 Azure Key Vault에 대 한 액세스 권한을 부여 합니다. 클러스터 수준에서 Log Analytics 클러스터의 id가 지원 됩니다. 여러 작업 영역에서 키 보호를 Customer-Managed 수 있도록 새 Log Analytics *클러스터* 리소스는 Key Vault와 Log Analytics 작업 영역 간에 중간 id 연결로 수행 됩니다. 클러스터의 저장소는 클러스터 리소스와 연결 된 관리 되는 id를 사용 하 여 \' Azure Active Directory를 통해 Azure Key Vault에 인증 합니다.  
 
 고객이 관리 하는 키 구성 후 전용 클러스터에 연결 된 작업 영역에 대 한 새 수집 데이터는 키로 암호화 됩니다. 언제 든 지 클러스터에서 작업 영역의 연결을 해제할 수 있습니다. 새 데이터는 수집 저장소 및 Microsoft 키를 사용 Log Analytics 하 여 암호화 되는를 가져오며, 새 데이터와 이전 데이터를 원활 하 게 쿼리할 수 있습니다.
 
@@ -125,6 +125,11 @@ Authorization: Bearer <token>
 
 ## <a name="create-cluster"></a>클러스터 만들기
 
+> [! 정보] 클러스터는 두 개의 [관리 되는 id 형식을](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)지원 합니다. Id 유형을 입력 하면 클러스터와 함께 시스템 할당 관리 id가 생성 `SystemAssigned` 되며, 나중에이를 사용 하 여 Key Vault에 대 한 액세스 권한을 부여할 수 있습니다. 만들 때 고객 관리 키를 사용 하도록 구성 된 클러스터를 만들려면 Key Vault에 부여 된 사용자 할당 관리 id를 사용 하 여 클러스터를 만들고, id 유형을 사용 하 여 클러스터를 업데이트 하 `UserAssigned` 고,의 id 리소스 id를 제공 하 `UserAssignedIdentities` 고,에서 주요 세부 정보를 제공 `keyVaultProperties` 합니다.
+
+> [!IMPORTANT]
+> 현재 Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id를 사용 하 여 고객 관리 키를 정의할 수 없습니다. 시스템 할당 관리 id에는이 제한이 적용 되지 않습니다.
+
 [전용 클러스터 문서](../log-query/logs-dedicated-clusters.md#creating-a-cluster)에 설명 된 절차를 따릅니다. 
 
 ## <a name="grant-key-vault-permissions"></a>Key Vault 권한 부여
@@ -132,7 +137,7 @@ Authorization: Bearer <token>
 클러스터에 대 한 사용 권한을 부여 하는 Key Vault에 대 한 액세스 정책을 만듭니다. 이러한 권한은 언더레이 Azure Monitor 저장소에서 사용 됩니다. Azure Portal에서 Key Vault을 열고 *"액세스 정책"* 을 클릭 한 다음 " *+ 액세스 정책 추가"* 를 클릭 하 여 다음 설정으로 정책을 만듭니다.
 
 - 키 사용 권한: *' Get '*, *' Wrap 키 '* 및 *' 래핑 해제 키 '* 를 선택 합니다.
-- 보안 주체 선택: 클러스터 이름 또는 보안 주체 id를 입력 합니다.
+- 보안 주체 선택: 클러스터에 사용 되는 id 형식 (시스템 또는 사용자 할당 관리 id)에 따라 시스템 할당 관리 id 또는 사용자 할당 관리 id 이름에 대 한 클러스터 이름 또는 클러스터 보안 주체 ID를 입력 합니다.
 
 ![Key Vault 권한 부여](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
@@ -237,11 +242,15 @@ Content-type: application/json
 
 ## <a name="key-revocation"></a>키 해지
 
-키를 사용 하지 않도록 설정 하거나 Key Vault에서 클러스터의 액세스 정책을 삭제 하 여 데이터에 대 한 액세스 권한을 해지할 수 있습니다. Log Analytics 클러스터 스토리지는 키 권한의 변경 내용을 항상 1시간 이내에 적용합니다. 이로 인해 스토리지가 사용할 수 없게 됩니다. 클러스터와 연결 된 작업 영역에 대 한 모든 새 데이터 수집는 삭제 되 고 복구할 수 없으며, 데이터에 액세스할 수 없고 이러한 작업 영역에 대 한 쿼리가 실패 합니다. 이전에 수집 데이터는 클러스터와 작업 영역을 삭제 하지 않는 한 저장소에 남아 있습니다. 액세스할 수 없는 데이터는 데이터 보존 정책에 따라 제어되며 보존 기간에 도달하면 삭제됩니다. 
+키를 사용 하지 않도록 설정 하거나 Key Vault에서 클러스터의 액세스 정책을 삭제 하 여 데이터에 대 한 액세스 권한을 해지할 수 있습니다. 
 
-또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이는 키 해지 작업에서 삭제되며 액세스할 수 없게 됩니다.
+> [!IMPORTANT]
+> - 사용자 할당 관리 id를 사용 하 여 클러스터를 설정 하는 경우를로 설정 하면 `UserAssignedIdentities` `None` 클러스터가 일시 중단 되 고 데이터에 대 한 액세스를 방지할 수 있지만 지원 요청을 열지 않으면 해지를 되돌리고 클러스터를 활성화할 수 없습니다. 시스템 할당 관리 id에는이 제한이 적용 되지 않습니다.
+> - 권장 되는 키 해지 작업은 Key Vault에서 키를 사용 하지 않도록 설정 하는 것입니다.
 
-스토리지는 Key Vault를 주기적으로 폴링하여 암호화 키를 래핑 해제하려고 시도하며, 액세스한 후에는 30분 이내에 데이터 수집 및 쿼리가 다시 시작됩니다.
+클러스터 저장소는 한 시간 이내에 항상 키 사용 권한에 대 한 변경 내용을 적용 하 고 저장소는 사용할 수 없게 됩니다. 클러스터와 연결 된 작업 영역에 대 한 모든 새 데이터 수집는 삭제 되 고 복구할 수 없게 되며, 데이터에 액세스할 수 없게 되 고 이러한 작업 영역에 대 한 쿼리가 실패 합니다. 이전에 수집 데이터는 클러스터와 작업 영역을 삭제 하지 않는 한 저장소에 남아 있습니다. 액세스할 수 없는 데이터는 데이터 보존 정책에 따라 제어되며 보존 기간에 도달하면 삭제됩니다. 또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이는 키 해지 작업에서 삭제되며 액세스할 수 없게 됩니다.
+
+클러스터 저장소는 암호화 키 래핑 해제를 시도 하 고, 데이터 수집 및 쿼리를 30 분 내에 다시 시작 하기 위해 주기적으로 Key Vault를 폴링합니다.
 
 ## <a name="key-rotation"></a>키 회전
 
@@ -404,6 +413,37 @@ Customer-Managed 키는 전용 클러스터에서 제공 되며 이러한 작업
   - 클러스터를 만들고 "<영역 이름> 클러스터에 대 한 이중 암호화를 지원 하지 않습니다." 라는 오류 메시지가 표시 되 면 이중 암호화 없이 클러스터를 만들 수 있습니다. `"properties": {"isDoubleEncryptionEnabled": false}`REST 요청 본문에 속성을 추가 합니다.
   - 클러스터를 만든 후에는 이중 암호화 설정을 변경할 수 없습니다.
 
+  - 사용자 할당 관리 id를 사용 하 여 클러스터를 설정 하는 경우를로 설정 하면 `UserAssignedIdentities` `None` 클러스터가 일시 중단 되 고 데이터에 대 한 액세스를 방지할 수 있지만 지원 요청을 열지 않으면 해지를 되돌리고 클러스터를 활성화할 수 없습니다. 이러한 제한은 시스템 할당 관리 id에 적용 되지 않습니다.
+
+  - 현재 Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id를 사용 하 여 고객 관리 키를 정의할 수 없습니다. 시스템 할당 관리 id에는이 제한이 적용 되지 않습니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+- Key Vault 가용성과 관련된 동작
+  - 정상 작업에서 - 스토리지에서 AEK를 짧은 시간 동안 캐시하고, Key Vault로 돌아가서 래핑을 주기적으로 해제합니다.
+    
+  - 일시적인 연결 오류 - 스토리지에서 키를 짧은 시간 동안 캐시에서 유지할 수 있도록 하여 일시적인 오류(시간 제한, 연결 실패, DNS 문제)를 처리하고, 이로 인한 사소한 가용성 문제도 해결합니다. 쿼리 및 수집 기능은 중단 없이 계속됩니다.
+    
+  - 라이브 사이트 - 약 30분 동안 사용할 수 없으면 스토리지 계정을 사용할 수 없게 됩니다. 쿼리 기능을 사용할 수 없으며, 수집된 데이터는 데이터 손실을 방지하기 위해 Microsoft 키를 사용하여 몇 시간 동안 캐시됩니다. Key Vault에 대 한 액세스가 복원 되 면 쿼리를 사용할 수 있게 되며 임시 캐시 된 데이터는 데이터 저장소에 수집 되 고 Customer-Managed 키로 암호화 됩니다.
+
+  - Key Vault 액세스 속도 - 래핑 및 래핑 해제 작업을 위해 Azure Monitor 스토리지에서 Key Vault에 액세스하는 빈도는 6-60초입니다.
+
+- 클러스터를 만들고 KeyVaultProperties를 즉시 지정 하는 경우 시스템 id가 클러스터에 할당 될 때까지 액세스 정책을 정의할 수 없으므로 작업이 실패할 수 있습니다.
+
+- KeyVaultProperties를 사용 하 여 기존 클러스터를 업데이트 하 고 ' Get ' 키 액세스 정책이 Key Vault에 없는 경우 작업이 실패 합니다.
+
+- 클러스터를 만들 때 충돌 오류가 발생 하는 경우-지난 14 일 동안 클러스터를 삭제 했 고 일시 삭제 기간에 있는 것이 원인일 수 있습니다. 클러스터 이름은 일시 삭제 기간 동안 예약 된 상태로 유지 되며 해당 이름을 사용 하 여 새 클러스터를 만들 수 없습니다. 이 이름은 클러스터가 영구적으로 삭제 될 때 일시 삭제 기간이 지나면 릴리스됩니다.
+
+- 작업이 진행 되는 동안 클러스터를 업데이트 하면 작업이 실패 합니다.
+
+- 클러스터를 배포 하지 못한 경우 Azure Key Vault, 클러스터 및 연결 된 Log Analytics 작업 영역이 같은 지역에 있는지 확인 합니다. 서로 다른 구독에 있을 수 있습니다.
+
+- Key Vault에서 키 버전을 업데이트 하 고 클러스터의 새 키 식별자 정보를 업데이트 하지 않으면 Log Analytics 클러스터는 이전 키를 계속 사용 하 고 데이터에 액세스할 수 없게 됩니다. 데이터 수집 및 데이터 쿼리 기능을 다시 시작 하기 위해 클러스터의 새 키 식별자 세부 정보를 업데이트 합니다.
+
+- 일부 작업은 길고 완료 하는 데 시간이 걸릴 수 있습니다 (클러스터 만들기, 클러스터 키 업데이트 및 클러스터 삭제). 다음 두 가지 방법으로 작업 상태를 확인할 수 있습니다.
+  1. REST를 사용 하는 경우 응답에서 Azure-AsyncOperation URL 값을 복사 하 고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 따릅니다.
+  2. 클러스터 또는 작업 영역에 GET 요청을 보내고 응답을 관찰 합니다. 예를 들어 연결 되지 않은 작업 영역에는 *기능* 아래에 *clusterresourceid* 가 없습니다.
+
 - 오류 메시지
   
   **클러스터 만들기**
@@ -441,34 +481,6 @@ Customer-Managed 키는 전용 클러스터에서 제공 되며 이러한 작업
   **작업 영역 연결 해제**
   -  404--작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 존재 하지 않거나 삭제 되었습니다.
   -  409--프로세스의 작업 영역 연결 또는 연결 해제 작업입니다.
-
-## <a name="troubleshooting"></a>문제 해결
-
-- Key Vault 가용성과 관련된 동작
-  - 정상 작업에서 - 스토리지에서 AEK를 짧은 시간 동안 캐시하고, Key Vault로 돌아가서 래핑을 주기적으로 해제합니다.
-    
-  - 일시적인 연결 오류 - 스토리지에서 키를 짧은 시간 동안 캐시에서 유지할 수 있도록 하여 일시적인 오류(시간 제한, 연결 실패, DNS 문제)를 처리하고, 이로 인한 사소한 가용성 문제도 해결합니다. 쿼리 및 수집 기능은 중단 없이 계속됩니다.
-    
-  - 라이브 사이트 - 약 30분 동안 사용할 수 없으면 스토리지 계정을 사용할 수 없게 됩니다. 쿼리 기능을 사용할 수 없으며, 수집된 데이터는 데이터 손실을 방지하기 위해 Microsoft 키를 사용하여 몇 시간 동안 캐시됩니다. Key Vault에 대 한 액세스가 복원 되 면 쿼리를 사용할 수 있게 되며 임시 캐시 된 데이터는 데이터 저장소에 수집 되 고 Customer-Managed 키로 암호화 됩니다.
-
-  - Key Vault 액세스 속도 - 래핑 및 래핑 해제 작업을 위해 Azure Monitor 스토리지에서 Key Vault에 액세스하는 빈도는 6-60초입니다.
-
-- 클러스터를 만들고 KeyVaultProperties를 즉시 지정 하는 경우 시스템 id가 클러스터에 할당 될 때까지 액세스 정책을 정의할 수 없으므로 작업이 실패할 수 있습니다.
-
-- KeyVaultProperties를 사용 하 여 기존 클러스터를 업데이트 하 고 ' Get ' 키 액세스 정책이 Key Vault에 없는 경우 작업이 실패 합니다.
-
-- 클러스터를 만들 때 충돌 오류가 발생 하는 경우-지난 14 일 동안 클러스터를 삭제 했 고 일시 삭제 기간에 있는 것이 원인일 수 있습니다. 클러스터 이름은 일시 삭제 기간 동안 예약 된 상태로 유지 되며 해당 이름을 사용 하 여 새 클러스터를 만들 수 없습니다. 이 이름은 클러스터가 영구적으로 삭제 될 때 일시 삭제 기간이 지나면 릴리스됩니다.
-
-- 작업이 진행 되는 동안 클러스터를 업데이트 하면 작업이 실패 합니다.
-
-- 클러스터를 배포 하지 못한 경우 Azure Key Vault, 클러스터 및 연결 된 Log Analytics 작업 영역이 같은 지역에 있는지 확인 합니다. 서로 다른 구독에 있을 수 있습니다.
-
-- Key Vault에서 키 버전을 업데이트 하 고 클러스터의 새 키 식별자 정보를 업데이트 하지 않으면 Log Analytics 클러스터는 이전 키를 계속 사용 하 고 데이터에 액세스할 수 없게 됩니다. 데이터 수집 및 데이터 쿼리 기능을 다시 시작 하기 위해 클러스터의 새 키 식별자 세부 정보를 업데이트 합니다.
-
-- 일부 작업은 길고 완료 하는 데 시간이 걸릴 수 있습니다 (클러스터 만들기, 클러스터 키 업데이트 및 클러스터 삭제). 다음 두 가지 방법으로 작업 상태를 확인할 수 있습니다.
-  1. REST를 사용 하는 경우 응답에서 Azure-AsyncOperation URL 값을 복사 하 고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 따릅니다.
-  2. 클러스터 또는 작업 영역에 GET 요청을 보내고 응답을 관찰 합니다. 예를 들어 연결 되지 않은 작업 영역에는 *기능* 아래에 *clusterresourceid* 가 없습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 - [Log Analytics 전용 클러스터 청구](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) 에 대해 알아보기

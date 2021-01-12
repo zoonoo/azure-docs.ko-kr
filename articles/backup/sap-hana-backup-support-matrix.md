@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup를 사용 하 여 Azure Vm에서 S
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: cb7f31986b9ebd91c631d2b896600039c93084de
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 7f287206c40e4556db2ee4b38bb46ef8e5352102
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607095"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072193"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Azure VM의 SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
 
@@ -27,7 +27,7 @@ Azure Backup은 Azure에 SAP HANA 데이터베이스 백업을 지원합니다. 
 | **OS 버전**            | SLES 12 SP2, SP3, SP4 및 SP5; SLES 15 with SP0, SP1, SP2 <br><br>  2020년 8월 1일부터 RHEL(7.4, 7.6, 7.7 및 8.1)에 대한 SAP HANA 백업이 일반 공급됩니다.                |                                             |
 | **HANA 버전**          | HANA 1.x의 SDC, HANA 2.x의 MDC <= SPS04 Rev 48, SPS05 (암호화 사용 시나리오의 유효성을 검사 하지 않음)      |                                                            |
 | **HANA 배포**       | 단일 Azure VM의 SAP HANA - 스케일 업만 해당 <br><br> 고가용성 배포의 경우 서로 다른 두 컴퓨터의 두 노드는 별도의 데이터 체인이 있는 개별 노드로 처리됩니다.               | 스케일 아웃 <br><br> 고가용성 배포에서는 백업이 보조 노드로 자동 장애 조치(failover)되지 않습니다. 백업 구성은 각 노드에 대해 개별적으로 수행해야 합니다.                                           |
-| **HANA 인스턴스**         | 단일 Azure VM의 단일 SAP HANA 인스턴스 – 스케일 업만 해당 | 단일 VM의 여러 SAP HANA 인스턴스                  |
+| **HANA 인스턴스**         | 단일 Azure VM의 단일 SAP HANA 인스턴스 – 스케일 업만 해당 | 단일 VM의 여러 SAP HANA 인스턴스 이러한 여러 인스턴스 중 하나만 한 번에 보호할 수 있습니다.                  |
 | **HANA 데이터베이스 형식**    | 1\.x의 SDC(Single Database Container), 2.x의 MDC(Multi-Database Container) | HANA 1.x의 MDC                                              |
 | **HANA 데이터베이스 크기**     | Size <= 2tb의 HANA 데이터베이스 (HANA 시스템의 메모리 크기가 아님)               |                                                              |
 | **백업 유형**           | 전체, 차등, 증분 (미리 보기) 및 로그 백업                          |  스냅샷                                       |

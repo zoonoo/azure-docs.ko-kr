@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4592742b99d7c3e915c31ca5a202355d32e76d68
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356126"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070867"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>ISV 파트너 Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Microsoft는 MFA 및 암호 없는 인증을 위해 다음 Isv와 파트너를 �
 | ![네비스 로고 스크린샷](./media/partner-gallery/nevis-logo.png) | [네비스](./partner-nevis.md) 는 암호 없는 인증을 가능 하 게 하며, 강력한 고객 인증을 위해 네비스 Access 앱을 통해 모바일 중심의 완전 한 최종 사용자 환경을 제공 하 고 PSD2 트랜잭션 요구 사항을 준수 합니다. |
 | ![Trusona 로고의 스크린샷](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) 통합을 사용 하면 안전 하 게 로그인 하 고 암호 없는 인증, MFA 및 디지털 라이선스 검색을 사용할 수 있습니다. |
 | ![Twilio 로고의 스크린샷](./media/partner-gallery/twilio-logo.png) | [Twilio Verify 앱](./partner-twilio.md) 은 여러 솔루션을 제공 하 여 SMS OTP (일회성 암호), 시간 기반 일회용 암호 (totp) 및 푸시 알림을 통해 MFA를 사용 하도록 설정 하 고, PSD2에 대 한 SCA 요구 사항을 준수 합니다. |
-| ![TypingDNA 로고의 스크린샷](./media/partner-gallery/typingdna-logo.png) | [Typingdna](./partner-twilio.md) 는 사용자의 입력 패턴을 분석 하 여 강력한 고객 인증을 가능 하 게 합니다. 이를 통해 기업은 자동 MFA를 사용 하도록 설정 하 고 PSD2에 대 한 SCA 요구 사항을 준수할 수 있습니다. |
+| ![TypingDNA 로고의 스크린샷](./media/partner-gallery/typingdna-logo.png) | [Typingdna](./partner-typingdna.md) 는 사용자의 입력 패턴을 분석 하 여 강력한 고객 인증을 가능 하 게 합니다. 이를 통해 기업은 자동 MFA를 사용 하도록 설정 하 고 PSD2에 대 한 SCA 요구 사항을 준수할 수 있습니다. |
 | ![Whoiam 로고의 스크린샷](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) 는 조직이 음성, SMS 및 전자 메일을 기준으로 사용자를 확인할 수 있도록 하는 BRIMS (브랜드 Identity Management System) 응용 프로그램입니다. |
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어 

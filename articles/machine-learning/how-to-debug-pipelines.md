@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 9baf305ab72354c150cb06e594ed8909f2fa1dda
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: d55a9ff4dc2a639fca67d19d9323b9397aa0f409
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739317"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070374"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Machine learning 파이프라인 문제 해결
 
@@ -33,6 +33,7 @@ ms.locfileid: "97739317"
 | 파이프라인이 단계를 다시 사용 하지 않음 | 단계 다시 사용은 기본적으로 사용 되지만 파이프라인 단계에서 사용 하지 않도록 설정 하지 않았는지 확인 합니다. 다시 사용 하지 않도록 설정 된 경우 `allow_reuse` 단계의 매개 변수는로 설정 됩니다 `False` . |
 | 파이프라인이 불필요 하 게 다시 실행 되 고 있습니다. | 기본 데이터 또는 스크립트가 변경 될 때만 단계가 다시 실행 되도록 하려면 각 단계에 대 한 소스 코드 디렉터리를 분리 합니다. 여러 단계에 동일한 원본 디렉터리를 사용 하는 경우 불필요 한 다시 실행이 발생할 수 있습니다. `source_directory`파이프라인 단계 개체에서 매개 변수를 사용 하 여 해당 단계에 대 한 격리 된 디렉터리를 가리키고 여러 단계에 대해 동일한 경로를 사용 하지 않는지 확인 `source_directory` 합니다. |
 | 학습 epoch 또는 기타 루핑 동작을 초과 하는 단계 속도 저하 | 로깅을 비롯 한 파일 쓰기를에서로 전환 해 `as_mount()` 보세요 `as_upload()` . **탑재** 모드는 원격 가상화 된 파일 시스템을 사용 하 고 추가 될 때마다 전체 파일을 업로드 합니다. |
+| 계산 대상을 시작 하는 데 시간이 오래 걸립니다. | Compute 대상에 대 한 Docker 이미지는 Azure Container Registry (ACR)에서 로드 됩니다. 기본적으로 Azure Machine Learning는 *기본 서비스 계층을 사용* 하는 ACR을 만듭니다. 작업 영역에 대 한 ACR을 표준 또는 프리미엄 계층으로 변경 하면 이미지를 빌드하고 로드 하는 데 걸리는 시간을 줄일 수 있습니다. 자세한 내용은 [Azure Container Registry 서비스 계층](../container-registry/container-registry-skus.md)을 참조하세요. |
 
 ### <a name="authentication-errors"></a>인증 오류
 

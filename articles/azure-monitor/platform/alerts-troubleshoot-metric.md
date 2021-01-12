@@ -4,14 +4,14 @@ description: Azure Monitor 메트릭 경고 및 가능한 해결 방법에 대 �
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/03/2021
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857344"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070733"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -91,9 +91,9 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 [메트릭의 특정 차원 값](./alerts-metric-overview.md#using-dimensions)에 대 한 경고를 표시 하지만 이러한 값을 찾을 수 없는 경우 다음을 참고 하세요.
 
 1. **차원 값** 목록에 차원 값이 표시되는 데 몇 분 정도 걸릴 수 있습니다.
-1. 표시되는 차원 값은 지난 3일 동안 수집된 메트릭 데이터를 기반으로 합니다.
-1. 차원 값을 아직 내보내지 않은 경우 ' + ' 기호를 클릭 하 여 사용자 지정 값을 추가 합니다.
-1. 이후의 값을 포함 하 여 차원의 가능한 모든 값에 대해 경고 하려면 ' Select * ' 확인란을 선택 합니다.
+1. 표시 된 차원 값은 마지막 날에 수집 된 메트릭 데이터를 기반으로 합니다.
+1. 차원 값이 아직 내보내지 않았거나 표시 되지 않는 경우 ' 사용자 지정 값 추가 ' 옵션을 사용 하 여 사용자 지정 차원 값을 추가할 수 있습니다.
+1. 이후의 값을 포함 하 여 차원의 가능한 모든 값에 대해 경고 하려면 ' 현재 및 미래 값 모두 선택 ' 옵션을 선택 합니다.
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>삭제 된 리소스에 대 한 메트릭 경고 규칙이 계속 정의 되어 있습니다. 
 
@@ -252,7 +252,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 - 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
 - "현재 및 미래 값 모두 선택" (Select) 옵션을 사용할 수 없습니다 \* .
 - 서로 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 해당 하는 모든 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건).
-예를 들면 다음과 같습니다.
+예를 들어:
     - 저장소 계정에 정의 된 메트릭 경고 규칙을 고려 하 고 두 가지 조건을 모니터링 합니다.
         * 총 **트랜잭션** > 5
         * 평균 **SuccessE2ELatency** > 250 밀리초

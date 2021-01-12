@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 25848d313fc01fc41ef8874707bd10b2fa9912d3
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: a6f75a80fd73844c975b332db8a0e8919cde9f0d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033515"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072176"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -136,7 +136,9 @@ ms.locfileid: "98033515"
 
 **Q: 오디오 데이터를 사용 하 여 사용자 지정 모델을 학습 하는 데 얼마나 걸립니까?**
 
-**A**: 오디오 데이터를 사용 하 여 모델을 학습 하는 과정은 시간이 오래 걸릴 수 있습니다. 데이터 양에 따라 사용자 지정 모델을 만드는 데 며칠이 걸릴 수 있습니다. 1 주 이내에 완료할 수 없는 경우 서비스는 학습 작업을 중단 하 고 모델을 실패 한 것으로 보고할 수 있습니다. 더 빠른 결과를 위해 전용 하드웨어를 학습에 사용할 수 있는 [지역](custom-speech-overview.md#set-up-your-azure-account) 중 하나를 사용 합니다. [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)를 사용 하 여 완전히 학습 된 모델을 다른 지역에 복사할 수 있습니다. 텍스트를 사용한 교육은 훨씬 빠르며 일반적으로 몇 분 안에 완료 됩니다.
+**A**: 오디오 데이터를 사용 하 여 모델을 학습 하는 과정은 시간이 오래 걸릴 수 있습니다. 데이터 양에 따라 사용자 지정 모델을 만드는 데 며칠이 걸릴 수 있습니다. 1 주 이내에 완료할 수 없는 경우 서비스는 학습 작업을 중단 하 고 모델을 실패 한 것으로 보고할 수 있습니다.
+
+더 빠른 결과를 위해 전용 하드웨어를 학습에 사용할 수 있는 [지역](custom-speech-overview.md#set-up-your-azure-account) 중 하나를 사용 합니다. 일반적으로 서비스는 이러한 하드웨어를 사용 하 여 지역에서 하루에 약 10 시간의 오디오 데이터를 처리 합니다. 다른 지역의 하루에 약 1 시간 분량의 오디오 데이터를 처리할 수 있습니다. [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)를 사용 하 여 완전히 학습 된 모델을 다른 지역에 복사할 수 있습니다. 텍스트를 사용한 교육은 훨씬 빠르며 일반적으로 몇 분 안에 완료 됩니다.
 
 일부 기본 모델은 오디오 데이터를 사용 하 여 사용자 지정할 수 없습니다. 이를 위해 서비스는 학습을 위해 기록의 텍스트를 사용 하 고 오디오 데이터는 무시 합니다. 그러면 교육이 훨씬 빠르게 완료 되 고 결과는 텍스트와 함께 학습 하는 것과 같습니다.
 

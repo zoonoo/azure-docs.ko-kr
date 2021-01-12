@@ -3,22 +3,20 @@ title: Azure Automation Hybrid Runbook Worker 개요
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 공급자의 머신에서 Runbook을 실행하는 데 사용할 수 있는 Hybrid Runbook Worker에 대한 개요를 제공합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7feac3ccb94cd8b4b0fab509477d4dbf772df2ae
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: a23d30047a13b1d176b086a9923e140e7f8d3e45
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505531"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072142"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
 Azure Automation의 Runbook은 Azure 클라우드 플랫폼에서 실행되므로 다른 클라우드 또는 온-프레미스 환경의 리소스에 액세스하지 못할 수도 없습니다. Azure Automation의 Hybrid Runbook Worker 기능을 사용 하 여 역할을 호스트 하는 컴퓨터 및 환경의 리소스에 대해 runbook을 직접 실행 하 여 해당 로컬 리소스를 관리할 수 있습니다. Runbook은 Azure Automation에서 저장 되 고 관리 된 다음 하나 이상의 할당 된 컴퓨터에 배달 됩니다.
 
-이 기능은 다음 이미지에 나와 있습니다.
-
-![Hybrid Runbook Worker 개요](media/automation-hybrid-runbook-worker/automation.png)
+## <a name="runbook-worker-types"></a>Runbook Worker 유형
 
 Runbook Worker에는 시스템 및 사용자의 두 가지 유형이 있습니다. 다음 표에서는 이러한 차이점을 설명 합니다.
 
@@ -29,18 +27,19 @@ Runbook Worker에는 시스템 및 사용자의 두 가지 유형이 있습니�
 
 Hybrid Runbook Worker은 Windows 또는 Linux 운영 체제에서 실행할 수 있으며이 역할은 Azure Monitor [Log Analytics 작업 영역](../azure-monitor/platform/design-logs-deployment.md)에 대 한 [Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md) 보고를 사용 합니다. 작업 영역에서는 지원 되는 운영 체제에 대 한 컴퓨터를 모니터링 하는 것 뿐만 아니라 Hybrid Runbook Worker을 설치 하는 데 필요한 구성 요소를 다운로드할 수 있습니다.
 
-Azure Automation [업데이트 관리](./update-management/overview.md) 를 사용 하도록 설정 하면 Log Analytics 작업 영역에 연결 된 모든 컴퓨터가 자동으로 시스템 Hybrid Runbook Worker 구성 됩니다.
+Azure Automation [업데이트 관리](./update-management/overview.md) 를 사용 하도록 설정 하면 Log Analytics 작업 영역에 연결 된 모든 컴퓨터가 자동으로 시스템 Hybrid Runbook Worker 구성 됩니다. 이를 사용자 Windows Hybrid Runbook Worker 구성 하려면 [windows Hybrid Runbook Worker 배포](automation-windows-hrw-install.md) 및 linux에 대 한 자세한 내용은 [linux Hybrid Runbook Worker 배포](automation-linux-hrw-install.md)를 참조 하세요.
 
-각 사용자 Hybrid Runbook Worker는 작업자를 설치할 때 지정 하는 Hybrid Runbook Worker 그룹의 구성원입니다. 그룹에는 단일 작업자를 포함할 수 있지만, 고가용성을 위해 그룹에 여러 작업자를 포함할 수 있습니다. 각 컴퓨터는 하나의 Automation 계정에 보고 한 Hybrid Runbook Worker를 호스트할 수 있습니다. 하이브리드 작업자는 여러 Automation 계정에 등록할 수 없습니다. 이는 hybrid worker가 단일 Automation 계정의 작업만 수신할 수 있기 때문입니다. 업데이트 관리에서 관리 하는 시스템 Hybrid Runbook worker를 호스트 하는 컴퓨터의 경우 Hybrid Runbook Worker 그룹에 추가할 수 있습니다. 하지만 업데이트 관리와 Hybrid Runbook Worker 그룹 구성원 자격에 대해 동일한 Automation 계정을 사용 해야 합니다.
+## <a name="how-does-it-work"></a>작동 원리
+
+![Hybrid Runbook Worker 개요](media/automation-hybrid-runbook-worker/automation.png)
+
+각 사용자 Hybrid Runbook Worker는 작업자를 설치할 때 지정 하는 Hybrid Runbook Worker 그룹의 구성원입니다. 그룹에는 단일 작업자를 포함할 수 있지만, 고가용성을 위해 그룹에 여러 작업자를 포함할 수 있습니다. 각 컴퓨터는 하나의 Automation 계정에 보고 한 Hybrid Runbook Worker를 호스트할 수 있습니다. 하이브리드 작업자는 여러 Automation 계정에 등록할 수 없습니다. Hybrid worker는 단일 Automation 계정의 작업만 수신할 수 있습니다. 업데이트 관리에서 관리 하는 시스템 Hybrid Runbook worker를 호스트 하는 컴퓨터의 경우 Hybrid Runbook Worker 그룹에 추가할 수 있습니다. 하지만 업데이트 관리와 Hybrid Runbook Worker 그룹 구성원 자격에 대해 동일한 Automation 계정을 사용 해야 합니다.
 
 사용자 Hybrid Runbook Worker에서 runbook을 시작 하는 경우 실행 되는 그룹을 지정 합니다. 그룹의 각 작업자는 Azure Automation을 폴링하여 사용할 수 있는 작업이 있는지 확인합니다. 작업을 사용할 수 있는 경우 작업을 가져올 수 있는 첫 번째 작업자가 해당 작업을 수행합니다. 작업 큐의 처리 시간은 하이브리드 작업자 하드웨어 프로필 및 로드에 따라 달라집니다. 특정 작업자를 지정할 수 없습니다. Hybrid worker는 폴링 메커니즘 (30 초 마다)에서 작동 하 고 첫 번째 제공의 순서를 따릅니다. 작업이 푸시되는 시기에 따라 자동화 서비스에서 작업을 선택 하는 모든 하이브리드 작업자를 ping 합니다. 단일 hybrid worker는 일반적으로 ping 당 4 개의 작업 (즉, 30 초 마다)을 선택할 수 있습니다. 푸시 작업의 속도가 30 초를 초과 하는 경우에는 Hybrid Runbook Worker 그룹의 다른 hybrid worker가 작업을 선택할 가능성이 높습니다.
 
+Hybrid Runbook Worker에는 디스크 공간, 메모리 또는 네트워크 소켓에 대 한 많은 [Azure 샌드박스](automation-runbook-execution.md#runbook-execution-environment) 리소스 [제한이](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) 없습니다. Hybrid worker에 대 한 한도는 작업자의 자체 리소스와만 관련 되며, Azure 샌드박스에 있는 공평 하 게 [공유](automation-runbook-execution.md#fair-share) 시간 제한에 의해 제한 되지 않습니다.
+
 Hybrid Runbook Worker에서 runbook의 배포를 제어 하 고 작업을 트리거하는 시기 또는 방법을 제어 하려면 Automation 계정 내의 서로 다른 Hybrid Runbook Worker 그룹에 대해 Hybrid worker를 등록할 수 있습니다. 실행 정렬을 지원 하기 위해 특정 그룹에 대해 작업을 대상으로 지정 합니다.
-
-디스크 공간, 메모리 또는 네트워크 소켓에 대한 샌드박스 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)이 많지 않기 때문에 [Azure 샌드박스](automation-runbook-execution.md#runbook-execution-environment) 대신 Hybrid Runbook Worker를 사용하세요. 하이브리드 작업자에 대한 제한은 작업자의 자체 리소스하고만 관련이 있습니다.
-
-> [!NOTE]
-> Hybrid Runbook Worker에는 Azure 샌드박스에 대한 [공평 분배](automation-runbook-execution.md#fair-share) 시간 제한이 적용되지 않습니다.
 
 ## <a name="hybrid-runbook-worker-installation"></a>Hybrid Runbook Worker 설치
 
@@ -99,7 +98,7 @@ Azure Automation Hybrid Runbook Worker를 Azure Government에서 사용 하 여 
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 업데이트 관리 주소
 
-Hybrid Runbook Worker에 필요한 표준 주소 및 포트 외에도 업데이트 관리 [네트워크 계획](./update-management/overview.md#ports) 섹션에 설명 된 추가 네트워크 구성 요구 사항이 있습니다.
+Hybrid Runbook Worker에 필요한 표준 주소 및 포트 외에도 업데이트 관리 [네트워크 계획](./update-management/overview.md#ports) 섹션에서 설명 하는 다른 네트워크 구성 요구 사항이 있습니다.
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 Azure Automation State Configuration
 
@@ -107,7 +106,7 @@ Hybrid Runbook Worker에 필요한 표준 주소 및 포트 외에도 업데이�
 
 ## <a name="runbook-worker-limits"></a>Runbook Worker 제한
 
-Automation 계정 당 Hybrid Worker 그룹의 최대 수는 4000이 고 system & 사용자 하이브리드 작업자에 모두 적용 됩니다. 관리할 컴퓨터가 4000 대 이상인 경우 추가 Automation 계정을 만드는 것이 좋습니다.
+Automation 계정 당 Hybrid Worker 그룹의 최대 수는 4000이 고 system & 사용자 하이브리드 작업자에 모두 적용 됩니다. 관리할 컴퓨터가 4000 대 이상인 경우 다른 Automation 계정을 만드는 것이 좋습니다.
 
 ## <a name="runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 Runbook
 

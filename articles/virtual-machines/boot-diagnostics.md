@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500753"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071734"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure 부팅 진단
 
@@ -21,10 +21,14 @@ ms.locfileid: "96500753"
 ## <a name="boot-diagnostics-storage-account"></a>부트 진단 저장소 계정
 Azure Portal에서 VM을 만들 때 부트 진단은 기본적으로 사용 하도록 설정 됩니다. 권장 되는 부팅 진단 환경은 Azure VM을 만들 때 상당한 성능 향상을 제공 하므로 관리 되는 저장소 계정을 사용 하는 것입니다. 이는 Azure 관리 저장소 계정이 사용 되므로 부팅 진단 데이터를 저장 하는 새 사용자 저장소 계정을 만드는 데 걸리는 시간이 제거 되기 때문입니다.
 
-대체 부팅 진단 환경은 사용자 관리 저장소 계정을 사용 하는 것입니다. 사용자는 새 저장소 계정을 만들거나 기존 저장소 계정을 사용할 수 있습니다. 
-
 > [!IMPORTANT]
 > 로그와 스냅숏 이미지를 구성 하는 부팅 진단 데이터 blob은 관리 저장소 계정에 저장 됩니다. 고객은 디스크의 프로 비전 된 크기가 아닌 blob에서 사용 된 Gid에 대해서만 요금이 부과 됩니다. 스냅숏 미터는 관리 되는 저장소 계정의 요금 청구에 사용 됩니다. 관리 되는 계정은 표준 LRS 또는 표준 ZRS에 만들어지므로, 고객은 진단 데이터 blob의 크기에 대해서만 매월 $0.05/GB로 요금이 청구 됩니다. 이 가격에 대 한 자세한 내용은 [Managed disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요. 고객은 VM 리소스 URI에 연결 되는이 요금을 볼 수 있습니다. 
+
+대체 부팅 진단 환경은 사용자 관리 저장소 계정을 사용 하는 것입니다. 사용자는 새 저장소 계정을 만들거나 기존 저장소 계정을 사용할 수 있습니다.
+> [!NOTE]
+> 부팅 진단과 연결 된 사용자 관리 저장소 계정에는 저장소 계정이 필요 하며 연결 된 가상 머신은 동일한 구독에 상주 합니다. 
+
+
 
 ## <a name="boot-diagnostics-view"></a>부트 진단 보기
 가상 컴퓨터 블레이드에 있는 부팅 진단 옵션은 Azure Portal의 *지원 및 문제 해결* 섹션 아래에 있습니다. 부트 진단을 선택 하면 스크린샷 및 일련 로그 정보가 표시 됩니다. 직렬 로그는 커널 메시징을 포함 하 고 스크린샷은 Vm의 현재 상태에 대 한 스냅숏입니다. VM에서 Windows 또는 Linux를 실행 하 고 있는지 여부에 따라 예상 되는 스크린샷은 어떻게 나타나는지 결정 합니다. Windows의 경우 사용자에 게 데스크톱 배경 및 Linux가 표시 됩니다. 사용자에 게 로그인 프롬프트가 표시 됩니다.

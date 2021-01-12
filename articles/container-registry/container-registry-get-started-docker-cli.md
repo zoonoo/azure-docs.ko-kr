@@ -3,13 +3,13 @@ title: '& 풀 Docker 이미지 푸시'
 description: Docker CLI를 사용하여 Azure의 프라이빗 컨테이너 레지스트리로 Docker 이미지 밀어넣기 및 끌어오기
 ms.topic: article
 ms.date: 01/23/2019
-ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 067b5749332c2c41b86d22e7de60083d5f61a442
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: seodec18, H1Hack27Feb2017
+ms.openlocfilehash: d04a5fcbc4d6294a216ddfc9a8e6ea1ef98825a3
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020061"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071632"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 프라이빗 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
 
@@ -17,7 +17,7 @@ Azure container registry는 [Docker 허브](https://hub.docker.com/) 에서 공�
 
 다음 단계에서는 공개 Docker Hub 레지스트리에서 공식 [Nginx 이미지](https://store.docker.com/images/nginx)를 다운로드하고 프라이빗 Azure 컨테이너 레지스트리용으로 태그를 지정하고, 레지스트리에 푸시한 다음, 레지스트리에서 풀합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 준비 사항
 
 * **Azure container registry** -azure 구독에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
 * **Docker CLI** - 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 Docker를 쉽게 구성할 수 있는 패키지를 제공합니다.
@@ -37,6 +37,8 @@ docker login myregistry.azurecr.io
 ```
 
 두 명령 모두 완료되면 `Login Succeeded`를 반환합니다.
+> [!NOTE]
+>* 더 빠르고 편리한 로그인을 위해 Docker 확장를 사용 하 여 Visual Studio Code를 사용 하는 것이 좋습니다.
 
 > [!TIP]
 > `docker login`을 사용하고 레지스트리에 푸시하기 위해 이미지에 태그할 때는 항상 정규화된 레지스트리 이름(전체 소문자)를 지정합니다. 이 문서의 예제에서 정규화된 이름은 *myregistry.azurecr.io* 입니다.

@@ -4,14 +4,14 @@ description: 여러 시계열에 대 한 단일 경고 규칙을 사용 하 여 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 66987a28acc8a2c9ae71d89ff5760fa508e32963
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 47a2fb9240f6826ed862f7a857264c09b79de9bc
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566506"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071088"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>단일 메트릭 경고 규칙에서 여러 시간 계열 모니터링
 
@@ -21,7 +21,7 @@ ms.locfileid: "94566506"
 
 메트릭 시계열은 일정 기간 동안 캡처된 일련의 측정값 (또는 "메트릭 값")입니다. 
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 - 가상 컴퓨터의 CPU 사용률
 - 저장소 계정에 대 한 수신 바이트 (수신)
@@ -43,7 +43,7 @@ ms.locfileid: "94566506"
 
 
 이 경고 규칙의 경우 단일 메트릭 시계열이 모니터링 됩니다.
--   *리소스* = ' myVM1 ' > 70% 인 CPU 백분율
+-   *리소스*= ' myVM1 ' > 70% 인 CPU 백분율
 
 ![단일 시계열에 대 한 경고 규칙](media/alerts-metric-multiple-time-series-single-rule/simple-alert-rule.png)
 
@@ -65,8 +65,8 @@ ms.locfileid: "94566506"
 -   임계값: *70*
 
 이 경고 규칙의 경우 두 가지 메트릭 시계열이 개별적으로 모니터링 됩니다.
--   *리소스* = ' myVM1 ' > 70% 인 CPU 백분율
--   *리소스* = ' myVM2 ' > 70% 인 CPU 백분율
+-   *리소스*= ' myVM1 ' > 70% 인 CPU 백분율
+-   *리소스*= ' myVM2 ' > 70% 인 CPU 백분율
 
 ![다중 리소스 경고 규칙](media/alerts-metric-multiple-time-series-single-rule/multi-resource-alert-rule.png)
  
@@ -87,7 +87,7 @@ ms.locfileid: "94566506"
 
 단일 메트릭 경고 규칙은 경고 규칙에 따라 최대 5 개의 조건을 모니터링할 수도 있습니다. 
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 - 대상 리소스: *myVM1*
 - Condition1
@@ -101,8 +101,8 @@ ms.locfileid: "94566506"
 
 이 경고 규칙의 경우 두 가지 메트릭 시계열이 모니터링 됩니다.
 
-- *리소스* = ' myVM1 ' > 70% 인 CPU 백분율
-- *리소스* = ' myVM1 ' > 20Mb 인 총 네트워크
+- *리소스*= ' myVM1 ' > 70% 인 CPU 백분율
+- *리소스*= ' myVM1 ' > 20Mb 인 총 네트워크
 
 ![다중 조건 경고 규칙](media/alerts-metric-multiple-time-series-single-rule/multi-condition-alert-rule.png)
  
@@ -129,9 +129,9 @@ ms.locfileid: "94566506"
 
 이 경고 규칙의 경우 세 가지 메트릭 시계열이 모니터링 되 고 있습니다.
 
-- *리소스* = ' myStorage1 ' 및 *API 이름* = ' getblob ' > 70 인 트랜잭션
-- *리소스* = ' myStorage1 ' 및 *API 이름* = ' deleteblob ' > 70 인 트랜잭션
-- *리소스* = ' myStorage1 ' 및 *API 이름* = ' putpage ' 인 트랜잭션 > 70
+- *리소스*= ' myStorage1 ' 및 *API 이름*= ' getblob ' > 70 인 트랜잭션
+- *리소스*= ' myStorage1 ' 및 *API 이름*= ' deleteblob ' > 70 인 트랜잭션
+- *리소스*= ' myStorage1 ' 및 *API 이름*= ' putpage ' 인 트랜잭션 > 70
 
 ![한 차원의 값을 포함 하는 다중 차원 경고 규칙](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-1.png)
 
@@ -149,12 +149,12 @@ ms.locfileid: "94566506"
 
 이 경고 규칙의 경우 6 개의 메트릭 시계열은 별도로 모니터링 됩니다.
 
-- *리소스* = ' myStorage1 ' 및 *API 이름* = ' Getblob ' 및 *Authentication* = ' SAS ' > 70 인 트랜잭션
-- *리소스* = ' myStorage1 ' 및 *API 이름* = ' Getblob ' 및 *Authentication* = ' AccountKey ' 인 트랜잭션 > 70
-- *리소스* = ' myStorage1 ' 및 *API 이름* = ' Deleteblob ' 및 *Authentication* = ' SAS ' > 70 인 트랜잭션
-- *리소스* = ' myStorage1 ' 및 *API 이름* = ' Deleteblob ' 및 *Authentication* = ' AccountKey ' 인 트랜잭션 > 70
-- *리소스* = ' myStorage1 ' 및 *API 이름* = ' Putpage ' 및 *Authentication* = ' SAS ' > 70 인 트랜잭션
-- *리소스* = ' myStorage1 ' 및 *API 이름* = ' Putpage ' 및 *Authentication* = ' AccountKey ' 인 트랜잭션 > 70
+- *리소스*= ' myStorage1 ' 및 *API 이름*= ' Getblob ' 및 *Authentication*= ' SAS ' > 70 인 트랜잭션
+- *리소스*= ' myStorage1 ' 및 *API 이름*= ' Getblob ' 및 *Authentication*= ' AccountKey ' 인 트랜잭션 > 70
+- *리소스*= ' myStorage1 ' 및 *API 이름*= ' Deleteblob ' 및 *Authentication*= ' SAS ' > 70 인 트랜잭션
+- *리소스*= ' myStorage1 ' 및 *API 이름*= ' Deleteblob ' 및 *Authentication*= ' AccountKey ' 인 트랜잭션 > 70
+- *리소스*= ' myStorage1 ' 및 *API 이름*= ' Putpage ' 및 *Authentication*= ' SAS ' > 70 인 트랜잭션
+- *리소스*= ' myStorage1 ' 및 *API 이름*= ' Putpage ' 및 *Authentication*= ' AccountKey ' 인 트랜잭션 > 70
 
 ![여러 차원의 값을 포함 하는 다중 차원 경고 규칙](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-2.png)
  
@@ -162,7 +162,7 @@ ms.locfileid: "94566506"
 
 1.  **현재 및 이후 차원 모두 선택** – 미래 값을 포함 하 여 차원의 모든 가능한 값을 모니터링 하도록 선택할 수 있습니다. 이러한 경고 규칙은 차원 값이 추가 되거나 제거 될 때마다 경고 규칙을 수정 하지 않고도 차원의 모든 값을 모니터링 하도록 자동으로 크기가 조정 됩니다.
 2.  차원 **제외** – 차원 값에 대해 ' ≠ ' (제외) 연산자를 선택 하는 것은 미래 값을 포함 하 여 해당 차원의 다른 모든 값을 선택 하는 것과 같습니다.
-3.  **새 차원 및 사용자 지정 차원** – Azure Portal에 표시 되는 차원 값은 지난 3 일간 수집 된 메트릭 데이터를 기반으로 합니다. 찾고자 하는 차원 값을 아직 내보내지 않은 경우 사용자 지정 차원 값을 추가할 수 있습니다.
+3.  **새 차원 및 사용자 지정 차원** – Azure Portal에 표시 되는 차원 값은 마지막 날에 수집 된 메트릭 데이터를 기반으로 합니다. 찾고자 하는 차원 값을 아직 내보내지 않은 경우 사용자 지정 차원 값을 추가할 수 있습니다.
 4. **접두사를 사용 하 여 차원 일치** -' 시작 ' 연산자를 선택 하 고 사용자 지정 접두사를 입력 하 여 특정 패턴으로 시작 하는 모든 차원 값을 모니터링 하도록 선택할 수 있습니다.
 
 ![고급 다중 차원 기능](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)

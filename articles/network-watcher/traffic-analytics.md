@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 8b1eedc47d2a89b9552c22b3ae770f655f926945
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 6cd1965ab51e7a7bbcc65836383000f0773b9b82
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898779"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070944"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -269,7 +269,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
 - 차단된 트래픽 통계
     - 호스트가 상당한 양의 무해 트래픽을 차단하는 이유 이 동작을 수행하려면 더 많은 조사와 구성의 최적화가 필요합니다.
 - 허용된/차단된 악성 트래픽 통계
-  - 호스트가 악성 트래픽을 수신하는 이유 및 악성 원본의 흐름이 허용되는 이유 이 동작을 수행하려면 더 많은 조사와 구성의 최적화가 필요합니다.
+  - 악의적인 트래픽을 수신 하는 호스트와 악성 소스에서 흐름이 허용 되는 이유는 무엇 인가요? 이 동작을 수행하려면 더 많은 조사와 구성의 최적화가 필요합니다.
 
     다음 그림과 같이 **호스트** 아래에서 **모두 보기** 를 선택합니다.
 

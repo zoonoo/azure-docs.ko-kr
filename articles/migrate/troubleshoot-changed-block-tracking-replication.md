@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753538"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071377"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>에이전트 없는 VMware VM 마이그레이션의 복제 문제 해결
 
@@ -297,6 +297,24 @@ VCenter Server management agent의 작동이 중지 되는 경우이 문제가 �
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>오류 메시지: 내부 오류가 발생 했습니다. [메모리 할당에 실패 했습니다. 메모리가 부족 합니다.]
 
 이는 NFC 호스트 버퍼의 메모리가 부족 한 경우에 발생 합니다. 이 문제를 해결 하려면 VM (compute vMotion)을 사용 가능한 리소스가 있는 다른 호스트로 이동 해야 합니다.
+
+## <a name="replication-cycle-failed"></a>복제 주기 실패
+
+**오류 ID:** 181008
+
+**오류 메시지:** VM: ' VMName '. 오류: 스냅숏 Id가 ' SnapshotID ' 인 스냅숏 복제에 대 한 disksnapshots 없습니다.
+
+**가능한 원인:**
+
+가능한 원인은 다음과 같습니다.
+1. 저장소 VMotion 인해 포함 된 디스크 중 하나 이상에 대 한 경로가 변경 되었습니다.
+2. 하나 이상의 포함 된 디스크가 더 이상 VM에 연결 되어 있지 않습니다.
+      
+**권장 사항:**
+
+다음 권장 사항이 제공 됩니다.
+1. 저장소 vMotion를 사용 하 여 포함 된 디스크를 원래 경로로 복원한 후 저장소 vMotion를 사용 하지 않도록 설정 합니다.
+2. 저장소 VMotion를 사용 하지 않도록 설정 하 고, 사용 하도록 설정 하면 가상 머신에서 복제를 중지 하 고, 가상 머신을 다시 복제 합니다. 문제가 지속되면 고객 지원 팀에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
