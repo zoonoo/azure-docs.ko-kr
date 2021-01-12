@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3d5663177bb087e936a49dd7289659b684d85860
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701136"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116197"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기본 검색 인덱스 만들기
 
@@ -70,7 +70,7 @@ Azure Cognitive Search에서 *검색 인덱스* 는 전체 텍스트 및 필터�
 개발 하는 동안 자주 다시 작성 하는 계획을 세워야 합니다. 물리적 구조는 서비스에서 만들어지므로 기존 필드 정의를 대부분 수정 하려면 [인덱스를 삭제 하 고 다시 만드는](search-howto-reindex.md) 것이 필요 합니다. 보다 빠르게 다시 작성할 수 있도록 데이터 하위 집합을 사용하는 방안을 고려해 볼 수 있습니다. 
 
 > [!Tip]
-> 인덱스 디자인 및 데이터 가져오기 작업을 동시에 수행 하는 데는 포털 방법이 아닌 코드를 사용 하는 것이 좋습니다. 다른 방법으로, [Postman 및 Visual Studio Code](search-get-started-rest.md) 같은 도구는 개발 프로젝트가 아직 초기 단계에 있는 경우 개념 증명 테스트에 유용 합니다. 요청 본문에서 인덱스 정의를 증분식으로 변경한 다음, 서비스에 요청을 보내서 업데이트된 스키마를 사용하여 인덱스를 다시 만들 수 있습니다.
+> 인덱스 디자인 및 데이터 가져오기 작업을 동시에 수행 하는 데는 포털 방법이 아닌 코드를 사용 하는 것이 좋습니다. 다른 방법으로, [Postman](search-get-started-rest.md) 또는 [Visual Studio Code](search-get-started-vs-code.md) 와 같은 도구는 개발 프로젝트가 아직 초기 단계에 있는 경우 개념 증명 테스트에 유용 합니다. 요청 본문에서 인덱스 정의를 증분식으로 변경한 다음, 서비스에 요청을 보내서 업데이트된 스키마를 사용하여 인덱스를 다시 만들 수 있습니다.
 
 ## <a name="index-schema"></a>인덱스 스키마
 
@@ -169,7 +169,7 @@ Azure Cognitive Search에서 *검색 인덱스* 는 전체 텍스트 및 필터�
 
 ### <a name="data-types"></a>데이터 형식
 
-| 유형 | Description |
+| Type | Description |
 |------|-------------|
 | Edm.String |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 텍스트입니다(단어 분리, 형태소 분석 등). |
 | Collection(Edm.String) |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 문자열 목록입니다. 컬렉션에 있는 항목 수에 이론적인 상한은 없지만 페이로드 크기의 16MB 상한이 컬렉션에 적용됩니다. |
@@ -190,7 +190,7 @@ Azure Cognitive Search에서 *검색 인덱스* 는 전체 텍스트 및 필터�
 
 문자열 필드는 "검색 가능" 및 "검색 가능"으로 표시 되는 경우가 많습니다. 검색 결과의 범위를 좁히는 데 사용 되는 필드에는 "정렬 가능한", "필터링 가능" 및 "패싯 가능"가 포함 됩니다.
 
-|attribute|Description|  
+|attribute|설명|  
 |---------------|-----------------|  
 |가능한 |전체 텍스트 검색 가능하며, 인덱싱 중에 단어 분리 등의 어휘 분석이 적용됩니다. 검색 가능 필드를 “sunny day” 등의 값으로 설정하면 내부적으로 해당 필드가 개별 토큰 “sunny”와 “day”로 분할됩니다. 자세한 내용은 [전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)을 참조하세요.|  
 |가능 |$filter 쿼리에서 참조됩니다. 형식이 `Edm.String` 또는 `Collection(Edm.String)`인 필터링 가능 필드의 경우 단어 분리가 수행되지 않으므로 정확하게 일치하는 항목만 비교합니다. 예를 들어 이러한 필드 f를 “sunny day”로 설정하면 `$filter=f eq 'sunny'`에서는 일치하는 항목이 발견되지 않지만 `$filter=f eq 'sunny day'`에서는 일치하는 항목이 발견됩니다. |  

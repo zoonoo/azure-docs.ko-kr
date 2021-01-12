@@ -13,14 +13,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 01/11/2021
 ms.author: radeltch
-ms.openlocfilehash: 3b33351f840cb590d0adea42f9404917b2f30ca8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8fa51bec1918b8dce99c80a61da0160c9650d5e4
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484263"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116095"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램에 대해 Azure NetApp Files을 사용 하는 Red Hat Enterprise Linux에서 SAP NetWeaver에 대 한 Azure Virtual Machines 고가용성
 
@@ -742,6 +742,8 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
    # Probe Port of ERS
    sudo firewall-cmd --zone=public --add-port=62101/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=62101/tcp
+   sudo firewall-cmd --zone=public --add-port=3201/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=3201/tcp
    sudo firewall-cmd --zone=public --add-port=3301/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=3301/tcp
    sudo firewall-cmd --zone=public --add-port=50113/tcp --permanent
@@ -1090,7 +1092,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
    루트 권한으로 다음 명령을 실행하여 메시지 서버 프로세스를 확인한 후 종료합니다.
 
    ```
-   [root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
+   [root@anftstsapcl1 ~]# pgrep -f ms.sapQAS | xargs kill -9
    ```
 
    메시지 서버를 한 번만 종료하면 `sapstart`에 의해 다시 시작됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
@@ -1137,7 +1139,10 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
    ASCS 인스턴스를 실행 중인 노드에서 루트 권한으로 다음 명령을 실행하여 큐에 넣기 서버를 종료합니다.
 
    ```
-   [root@anftstsapcl2 ~]# pgrep en.sapQAS | xargs kill -9
+   #If using ENSA1
+   [root@anftstsapcl2 ~]# pgrep -f en.sapQAS | xargs kill -9
+   #If using ENSA2
+   [root@anftstsapcl2 ~]# pgrep -f enq.sapQAS | xargs kill -9
    ```
 
    ASCS 인스턴스는 즉시 다른 노드로 장애 조치(Failover)되어야 합니다. 또한 ASCS 인스턴스가 시작된 후 ERS 인스턴스도 장애 조치(Failover)되어야 합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
@@ -1184,7 +1189,10 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
    ERS 인스턴스를 실행 중인 노드에서 루트 권한으로 다음 명령을 실행하여 큐에 넣기 복제 서버 프로세스를 종료합니다.
 
    ```
-   [root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
+   #If using ENSA1
+   [root@anftstsapcl2 ~]# pgrep -f er.sapQAS | xargs kill -9
+   #If using ENSA2
+   [root@anftstsapcl2 ~]# pgrep -f enqr.sapQAS | xargs kill -9
    ```
 
    이 명령을 한 번만 실행하는 경우 `sapstart`가 프로세스를 다시 시작합니다. 충분히 자주 실행하면 `sapstart`가 해당 프로세스를 다시 시작하지 않으며 리소스는 중지된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.

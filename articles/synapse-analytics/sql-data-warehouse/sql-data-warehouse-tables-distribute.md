@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3b61df954e913671eafff4b739e0f53a4d420c28
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449713"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117302"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 분산 테이블을 디자인 하기 위한 지침
 
@@ -68,7 +68,7 @@ ms.locfileid: "96449713"
 - 조인이 쿼리의 다른 조인보다 덜 중요한 경우
 - 테이블이 임시 준비 테이블인 경우
 
-[뉴욕 택시 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) 자습서에 라운드 로빈 준비 테이블로 데이터를 로드하는 예제가 제공됩니다.
+[뉴욕 택시 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md#load-the-data-into-your-data-warehouse) 자습서에 라운드 로빈 준비 테이블로 데이터를 로드하는 예제가 제공됩니다.
 
 ## <a name="choosing-a-distribution-column"></a>배포 열 선택
 

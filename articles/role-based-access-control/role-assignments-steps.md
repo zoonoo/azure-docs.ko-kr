@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 565b84603a14452dd2ec49f8cf61da128503bc03
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964255"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117251"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>역할 할당을 추가하는 단계
 
@@ -31,7 +31,7 @@ ms.locfileid: "97964255"
 - 서비스 주체 - 애플리케이션 또는 서비스에서 특정 Azure 리소스에 액세스하기 위해 사용하는 보안 ID. 애플리케이션의 *사용자 ID*(사용자 이름과 암호 또는 인증서)로 생각하시면 됩니다.
 - 관리 ID - Azure에서 자동으로 관리되는 Azure Active Directory의 ID입니다. 일반적으로 Azure 서비스에 인증하기 위한 자격 증명을 관리하는 클라우드 애플리케이션을 개발하는 경우 [ID 관리](../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
 
-## <a name="step-2-find-the-appropriate-role"></a>2 단계: 적절 한 역할 찾기
+## <a name="step-2-select-the-appropriate-role"></a>2 단계: 적절 한 역할 선택
 
 사용 권한은 *역할 정의* 에 함께 그룹화 됩니다. 일반적으로 단지 *역할* 이라고 합니다. 여러 기본 제공 역할 목록에서 선택할 수 있습니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다.
 

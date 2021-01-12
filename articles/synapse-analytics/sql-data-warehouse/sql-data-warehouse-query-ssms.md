@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 950cb4c40a534f252ec8b0daa5a57eb87c098450
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b213954dde6ca4eaa0a69ddf0e40398fc09b9063
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450464"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115772"
 ---
 # <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>SSMS (SQL Server Management Studio)를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 연결
 
 > [!div class="op_single_selector"]
 >
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
@@ -30,7 +30,7 @@ ms.locfileid: "96450464"
 
 SSMS (SQL Server Management Studio)를 사용 하 여 전용 SQL 풀에 연결 하 고 쿼리 합니다 (이전의 SQL DW).
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -79,4 +79,4 @@ SSMS (SQL Server Management Studio)를 사용 하 여 전용 SQL 풀에 연결 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 연결 및 쿼리할 수 있으므로 [Power BI로 데이터 시각화](sql-data-warehouse-get-started-visualize-with-power-bi.md)를 시도해 보세요. Azure Active Directory 인증을 위한 환경을 구성 하려면 [전용 SQL 풀에 인증](sql-data-warehouse-authentication.md)을 참조 하세요.
+이제 연결 및 쿼리할 수 있으므로 [Power BI로 데이터 시각화](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)를 시도해 보세요. Azure Active Directory 인증을 위한 환경을 구성 하려면 [전용 SQL 풀에 인증](sql-data-warehouse-authentication.md)을 참조 하세요.

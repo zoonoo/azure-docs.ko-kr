@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 5a666d265550de6e24d791db6daa954d50ddde38
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: cefbdce88d49598998e8f985821088778eee3ae8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094185"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117659"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -32,9 +32,9 @@ Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](concep
 
 Data Factory가 몇몇 지역에서만 지원되더라도 데이터 이동 서비스는 [전역적으로 지원](concepts-integration-runtime.md#integration-runtime-location)되며 데이터 준수, 효율성 및 네트워크 송신 비용 감소를 보장합니다. 
 
-Integration Runtime를 포함 하는 Azure Data Factory는 인증서를 사용 하 여 암호화 된 클라우드 데이터 저장소에 대 한 연결 된 서비스 자격 증명을 제외한 모든 데이터를 저장 하지 않습니다. Data Factory를 사용하면 데이터 기반 워크플로를 만들어서 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 [컴퓨팅 서비스](compute-linked-services.md)를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 SDK 및 Azure Monitor를 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
+Azure Integration Runtime 및 자체 호스팅 Integration Runtime를 포함 하는 Azure Data Factory는 인증서를 사용 하 여 암호화 된 클라우드 데이터 저장소에 대 한 연결 된 서비스 자격 증명을 제외한 모든 임시 데이터, 캐시 데이터 또는 로그를 저장 하지 않습니다. Data Factory를 사용하면 데이터 기반 워크플로를 만들어서 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 [컴퓨팅 서비스](compute-linked-services.md)를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 SDK 및 Azure Monitor를 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
 
-Data Factory는 다음에 대해 인증을 받았습니다.
+Data Factory는 다음에 대해 인증을 받았습니다. 
 
 | **[CSA STAR 인증](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
@@ -173,7 +173,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 다음 표에서는 Windows 방화벽에 대한 인바운드 포트 요구 사항을 제공합니다.
 
-| 인바운드 포트 | Description                              |
+| 인바운드 포트 | 설명                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 애플리케이션에서 필요합니다. |
 

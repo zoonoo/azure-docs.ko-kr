@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33eb5977ecb373a0dba87c26cacea247f541be8f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3778b6046c750bb131be1e51bf1afdc7b0df7184
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452736"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116792"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL을 사용 하 여 테이블 디자인
 
@@ -37,11 +37,11 @@ ms.locfileid: "96452736"
 | [데이터 형식](#data-types)                                    | 예                | 예                     |
 | [분산 테이블](#distributed-tables)                    | 예                | 아니요                      |
 | [해시 분산 테이블](#hash-distributed-tables)          | 예                | 아니요                      |
-| [복제 된 테이블](#replicated-tables)                      | 예                | 아니요                      |
+| [복제된 테이블](#replicated-tables)                      | 예                | 아니요                      |
 | [라운드 로빈 테이블](#round-robin-tables)                    | 예                | 아니요                      |
 | [테이블에 대한 일반적인 분산 방법](#common-distribution-methods-for-tables) | 예                | 아니요                      |
 | [파티션](#partitions)                                    | 예                | 예                     |
-| [columnstore 인덱스](#columnstore-indexes)                  | 예                | 아니요                      |
+| [Columnstore 인덱스](#columnstore-indexes)                  | 예                | 아니요                      |
 | [통계](#statistics)                                    | 예                | 예                     |
 | [기본 키 및 고유 키](#primary-key-and-unique-key)    | 예                | 아니요                      |
 | [테이블을 만드는 명령](#commands-for-creating-tables) | 예                | 아니요                      |
@@ -73,9 +73,9 @@ CREATE SCHEMA wwi;
 
 전용 SQL 풀에 테이블의 조직을 표시 하려면 팩트, dim 및 int를 테이블 이름의 접두사로 사용할 수 있습니다. 다음 표에서는 WideWorldImportersDW에 대 한 일부 스키마 및 테이블 이름을 보여 줍니다.  
 
-| WideWorldImportersDW 테이블  | 테이블 유형입니다. | 전용 SQL 풀 |
+| WideWorldImportersDW 테이블  | 테이블 유형 | 전용 SQL 풀 |
 |:-----|:-----|:------|:-----|
-| 구/군/시 | 차원 | wwi.DimCity |
+| City | 차원 | wwi.DimCity |
 | 주문 | 팩트 | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>테이블 지속성
@@ -102,7 +102,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 [외부 테이블](develop-tables-external-tables.md) 은 Azure Storage blob 또는 Azure Data Lake Storage에 있는 데이터를 가리킵니다.
 
-[CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문을 사용 하 여 외부 테이블에서 전용 SQL 풀로 데이터를 가져옵니다. 로드 자습서는 [PolyBase를 사용 하 여 Azure blob storage에서 데이터 로드를](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)참조 하세요.
+[CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문을 사용 하 여 외부 테이블에서 전용 SQL 풀로 데이터를 가져옵니다. 로드 자습서는 [PolyBase를 사용 하 여 Azure blob storage에서 데이터 로드를](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)참조 하세요.
 
 서버를 사용 하지 않는 SQL 풀의 경우 [CETAS](develop-tables-cetas.md) 를 사용 하 여 쿼리 결과를 Azure Storage의 외부 테이블에 저장할 수 있습니다.
 

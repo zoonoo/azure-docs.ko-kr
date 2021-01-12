@@ -13,14 +13,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 01/11/2021
 ms.author: radeltch
-ms.openlocfilehash: b944ed37fe8df5fd4964342d8c0f52a040612ee4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 746cd6cbbb79cd1f35c9d703fe182abbd988d36f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486405"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117965"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>SAP 응용 프로그램에 대 한 Red Hat Enterprise Linux Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드
 
@@ -195,7 +195,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-### <a name="prerequisites"></a>전제 조건 
+### <a name="prerequisites"></a>사전 요구 사항 
 
 > [!IMPORTANT]
 > 클러스터에 추가 SAP 시스템을 배포 하기 위한 지침을 수행 하기 전에 첫 번째 시스템 배포 중에만 필요한 단계를 설명 하는 지침에 따라 클러스터의 첫 번째 SAP 시스템을 배포 합니다.  
@@ -566,6 +566,8 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     # NW2 - ERS
     sudo firewall-cmd --zone=public --add-port=62112/tcp --permanent
     sudo firewall-cmd --zone=public --add-port=62112/tcp
+    sudo firewall-cmd --zone=public --add-port=3212/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=3212/tcp
     sudo firewall-cmd --zone=public --add-port=3312/tcp --permanent
     sudo firewall-cmd --zone=public --add-port=3312/tcp
     sudo firewall-cmd --zone=public --add-port=51213/tcp --permanent
@@ -594,6 +596,8 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     # NW3 - ERS
     sudo firewall-cmd --zone=public --add-port=62122/tcp --permanent
     sudo firewall-cmd --zone=public --add-port=62122/tcp
+    sudo firewall-cmd --zone=public --add-port=3222/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=3222/tcp
     sudo firewall-cmd --zone=public --add-port=3322/tcp --permanent
     sudo firewall-cmd --zone=public --add-port=3322/tcp
     sudo firewall-cmd --zone=public --add-port=52213/tcp --permanent

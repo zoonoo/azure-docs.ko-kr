@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: a3c44d667b6baaf16e109dfb88c22c16a1ea2ce1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1fc6c7086917f2bcd6e4991d2dac37ea24cbfa83
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697206"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116384"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 
@@ -108,7 +108,7 @@ REST API를 사용 하면 Cognitive Search Azure의 모든 인덱서에 공통 �
 
 세 개체를 모두 만드는 방법을 보여 주는이 섹션의 끝부분에 있는 [REST 예제 코드](#rest-example) 를 검토할 수 있습니다. 이 섹션에는 [json 구문 분석 모드](#parsing-modes), [단일 blob](#parsing-single-blobs), [json 배열](#parsing-arrays)및 중첩 된 [배열](#nested-json-arrays)에 대 한 세부 정보도 포함 되어 있습니다.
 
-코드 기반 JSON 인덱싱의 경우 [Postman 또는 Visual Studio Code](search-get-started-rest.md) 와 REST API를 사용 하 여 이러한 개체를 만듭니다.
+코드 기반 JSON 인덱싱의 경우 [Postman](search-get-started-rest.md) 또는 [Visual Studio Code](search-get-started-vs-code.md) 와 REST API를 사용 하 여 이러한 개체를 만듭니다.
 
 + [index](/rest/api/searchservice/create-index)
 + [데이터 원본](/rest/api/searchservice/create-data-source)
@@ -291,7 +291,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 JSON blob은 여러 폼을 가정할 수 있습니다. Json 인덱서의 **parsingMode** 매개 변수는 Azure Cognitive Search 인덱스에서 json blob 콘텐츠를 구문 분석 하 고 구성 하는 방법을 결정 합니다.
 
-| parsingMode | Description |
+| parsingMode | 설명 |
 |-------------|-------------|
 | `json`  | 각 blob을 단일 문서로 인덱싱합니다. 이것이 기본값입니다. |
 | `jsonArray` | Blob이 JSON 배열로 구성 된 경우이 모드를 선택 하 고, 배열의 각 요소가 Azure Cognitive Search의 개별 문서가 되도록 해야 합니다. |

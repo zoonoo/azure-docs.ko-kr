@@ -7,19 +7,17 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 5aadd9d96f538f92e1b9e0100b2c1055ee0b0633
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e60f77495cdb822a0c50be936c2b0d3ac31348f3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065272"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116712"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>크로스 서비스 쿼리-Azure Monitor 및 Azure 데이터 탐색기 (미리 보기)
 [Azure 데이터 탐색기](https://docs.microsoft.com/azure/data-explorer/), [Application Insights](/azure/azure-monitor/app/app-insights-overview)및 [Log Analytics](/azure/azure-monitor/platform/data-platform-logs)간에 서비스 간 쿼리를 만듭니다.
 ## <a name="azure-monitor-and-azure-data-explorer-cross-service-querying"></a>Azure Monitor 및 Azure 데이터 탐색기 서비스 간 쿼리
 이러한 환경을 통해 [azure 데이터 탐색기와 Azure Monitor 간에 크로스 서비스 쿼리를 만들고](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) [Azure Monitor와 azure 데이터 탐색기 간에 크로스 서비스 쿼리를 만들](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy)수 있습니다.
-
-:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Azure 데이터 탐색기 프록시 흐름입니다.":::
 
 예: (Log Analytics에서 Azure 데이터 탐색기 쿼리):
 ```kusto

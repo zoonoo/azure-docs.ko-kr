@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43200985820779c56983f09b81a86989261c36f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 13756be041f88883d84f9558308c7fe5c9be2d0e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935005"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116010"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -223,14 +223,6 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 정책을 잘못 구성하면 조직이 Azure Portal에서 잠길 수 있습니다. 조직에서 둘 이상의 [응급 액세스 계정](../roles/security-emergency-access.md)을 만들어 실수로 인한 관리자 잠금의 영향을 완화합니다.
 
 * 정책 관리 전용 사용자 계정을 만들고 모든 정책에서 제외합니다.
-
-* 하이브리드 환경에 대한 비상 시나리오는 다음과 같습니다.
-
-  * 온-프레미스 보안 그룹을 만들어 Azure AD와 동기화합니다. 전용 정책 관리 계정이 보안 그룹에 포함됩니다. 
-
-   * 이 보안 그룹을 예외로 모든 조건부 액세스 정책을 구성 합니다.
-
-   * 서비스 중단이 발생 하면 다른 관리자를 온-프레미스 그룹에 적절히 추가 하 고 강제로 동기화 합니다. 이렇게 하면 조건부 액세스 정책에 대 한 예외에 애니메이션 효과가 적용 됩니다.
 
 ### <a name="set-up-report-only-mode"></a>보고서 전용 모드 설정
 
@@ -493,4 +485,4 @@ MFA 액세스를 요구하는 일반적인 사용 사례:
 
 [ID 보호에 대해 자세히 알아보기](../identity-protection/overview-identity-protection.md)
 
-[Microsoft Graph API를 사용 하 여 조건부 액세스 정책 관리](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Microsoft Graph API를 사용 하 여 조건부 액세스 정책 관리](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)

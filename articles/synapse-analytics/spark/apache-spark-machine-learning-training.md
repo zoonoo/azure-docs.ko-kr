@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 242ff1d7c16ca952b19f44fb139f8fae7562524a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 56b9a98eb72b375aacfeb7cb147997028d3d9ba7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048320"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116809"
 ---
 # <a name="train-machine-learning-models"></a>기계 학습 모델 학습
 Azure Synapse Analytics에서 Apache Spark는 빅 데이터를 사용 하 여 기계 학습을 가능 하 게 하 고, 대량의 구조화 되 고 구조화 되지 않은 데이터 및 빠른 이동 데이터에서 중요 한 통찰력을 얻을 수 있는 기능을 제공 합니다. Azure Synapse Analytics에서 Azure Spark를 사용 하 여 기계 학습 모델을 학습 하는 경우 Apache Spark MLlib, Azure Machine Learning 및 기타 다양 한 오픈 소스 라이브러리가 있습니다. 
@@ -53,7 +53,7 @@ Azure Synapse Analytics 내에서 자동화 된 ML을 사용 하는 경우 다�
 > 이 [자습서](./spark/../apache-spark-azure-machine-learning-tutorial.md)를 수행 하 여 Azure Machine Learning 자동화 된 ML 실험을 만드는 방법에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="azure-cognitive-services"></a>Azure Cognitive Services
-[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/what-are-cognitive-services) 는 감정적 감정의 텍스트 분석 또는 개체나 얼굴을 인식 하기 위해 이미지 분석과 같은 일반적인 문제를 해결 하는 기계 학습 기능을 제공 합니다. 이 서비스를 사용하기 위해 특별한 기계 학습 또는 데이터 과학 지식이 필요하지 않습니다. 인식 서비스는 machine learning 솔루션 (데이터, 알고리즘 및 학습 된 모델)의 구성 요소 중 일부 또는 전부를 제공 합니다. 이러한 서비스는 기계 학습 또는 데이터 과학을 사용 하지 않고도 데이터에 대 한 일반적인 지식이 필요 합니다. Azure Synapse Analytics 내에서 이러한 미리 학습 된 Cognitive Services를 자동으로 활용할 수 있습니다.
+[Azure Cognitive Services](../../cognitive-services/what-are-cognitive-services.md) 는 감정적 감정의 텍스트 분석 또는 개체나 얼굴을 인식 하기 위해 이미지 분석과 같은 일반적인 문제를 해결 하는 기계 학습 기능을 제공 합니다. 이 서비스를 사용하기 위해 특별한 기계 학습 또는 데이터 과학 지식이 필요하지 않습니다. 인식 서비스는 machine learning 솔루션 (데이터, 알고리즘 및 학습 된 모델)의 구성 요소 중 일부 또는 전부를 제공 합니다. 이러한 서비스는 기계 학습 또는 데이터 과학을 사용 하지 않고도 데이터에 대 한 일반적인 지식이 필요 합니다. Azure Synapse Analytics 내에서 이러한 미리 학습 된 Cognitive Services를 자동으로 활용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Synapse Analytics의 Apache Spark 풀 내에서 기계 학습 모델을 학습 하는 다양 한 옵션에 대 한 개요를 제공 합니다. 아래 자습서에 따라 모델 학습에 대해 자세히 알아볼 수 있습니다.

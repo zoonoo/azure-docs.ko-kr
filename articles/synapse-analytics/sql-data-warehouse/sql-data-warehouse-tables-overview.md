@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ec62724b7aedbad4111a4882dd89f86d116b2a96
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2a8cfbe75925ddc49f6fa3205fafdd1c2203b472
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448063"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115636"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 테이블 디자인
 
@@ -44,9 +44,9 @@ CREATE SCHEMA wwi;
 
 전용 SQL 풀에 테이블의 조직을 표시 하려면 팩트, dim 및 int를 테이블 이름의 접두사로 사용할 수 있습니다. 다음 표는 WideWorldImportersDW의 일부 스키마 및 테이블 이름을 보여 줍니다.  
 
-| WideWorldImportersDW 테이블  | 테이블 유형입니다. | 전용 SQL 풀 |
+| WideWorldImportersDW 테이블  | 테이블 유형 | 전용 SQL 풀 |
 |:-----|:-----|:------|:-----|
-| 구/군/시 | 차원 | wwi.DimCity |
+| City | 차원 | wwi.DimCity |
 | 주문 | 팩트 | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>테이블 지속성
@@ -71,7 +71,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 외부 테이블은 Azure Storage Blob 또는 Azure Data Lake Store에 있는 데이터를 가리킵니다. CREATE TABLE SELECT 문과 함께 사용 하는 경우 외부 테이블에서 데이터를 선택 하면 전용 SQL 풀로 데이터를 가져옵니다.
 
-따라서 외부 테이블은 데이터를 로드 하는 데 유용 합니다. 로드 자습서는 [PolyBase를 사용 하 여 Azure blob storage에서 데이터 로드를](load-data-from-azure-blob-storage-using-polybase.md)참조 하세요.
+따라서 외부 테이블은 데이터를 로드 하는 데 유용 합니다. 로드 자습서는 [PolyBase를 사용 하 여 Azure blob storage에서 데이터 로드를](./load-data-from-azure-blob-storage-using-copy.md)참조 하세요.
 
 ## <a name="data-types"></a>데이터 형식
 

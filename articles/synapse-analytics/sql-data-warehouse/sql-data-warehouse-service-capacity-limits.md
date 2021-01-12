@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e3daf89b80daf47049150b05ca392eede360bd3e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d778844fee8cad9359532ffa23e177bf7b13c4b8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673419"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117693"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀의 용량 제한
 
@@ -24,7 +24,7 @@ Azure Synapse Analytics에서 전용 SQL 풀의 다양 한 구성 요소에 대�
 
 ## <a name="workload-management"></a>워크로드 관리
 
-| 범주 | Description | 최대 |
+| 범주 | 설명 | 최대 |
 |:--- |:--- |:--- |
 | [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |단일 전용 SQL 풀의 최대 DWU  | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 54,000이 있으며 최대 DW6000c가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고](sql-data-warehouse-get-started-create-support-ticket.md) *할당량* 을 요청 형식으로 선택 하 여 할당량을 늘릴 수 있습니다.  DTU 요구를 계산 하려면 7.5를 필요한 총 DWU로 곱하거나 9를 필요한 총 cDWU로 곱합니다. 예를 들면 다음과 같습니다.<br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW7500c x 9 = 67500 Dtu.<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
@@ -36,14 +36,14 @@ Azure Synapse Analytics에서 전용 SQL 풀의 다양 한 구성 요소에 대�
 
 ## <a name="database-objects"></a>데이터베이스 개체
 
-| 범주 | Description | 최대 |
+| 범주 | 설명 | 최대 |
 |:--- |:--- |:--- |
 | 데이터베이스 |최대 크기 | Gen1: 디스크에서 압축된 240TB 이 공간은 tempdb 또는 로그 공간과 독립적이므로 영구 테이블에만 사용됩니다.  클러스터형 columnstore의 압축에 따른 예상 크기 증가 비율은 5배입니다.  즉, 모든 테이블이 클러스터형 columnstore(기본 테이블 유형)일 때 이러한 압축을 통해 데이터베이스를 약 1PB로 확장할 수 있습니다. <br/><br/> Gen2: columnstore 테이블에 대 한 무제한 저장소입니다.  데이터베이스의 rowstore 부분은 여전히 디스크에서 240 TB 압축으로 제한 됩니다. |
 | 테이블 |최대 크기 |Columnstore 테이블의 크기가 무제한입니다. <br>디스크에 압축 된 rowstore 테이블의 60 TB |
 | 테이블 |데이터베이스당 테이블 수 | 100,000 |
 | 테이블 |테이블당 열 수 |1024열 |
 | 테이블 |열 당 바이트 |열 [데이터 형식](sql-data-warehouse-tables-data-types.md)에 따라 다릅니다. char 데이터 형식의 경우 8,000자, nvarchar의 경우 4,000자, MAX 데이터 형식의 경우 2GB로 제한됩니다. |
-| 테이블 |행 당 바이트, 정의된 크기 |8,060바이트<br/><br/>행당 바이트 수는 페이지 압축이 설정된 SQL Server에 대한 방법과 동일하게 계산됩니다. SQL Server 처럼 행 오버플로 저장소는 **가변 길이 열** 을 행 외부로 푸시할 수 있도록 지원 됩니다. 가변 길이 행을 행 외부로 밀어 넣으면 주 레코드에는 24바이트 루트만 저장됩니다. 자세한 내용은 8kb를 초과 하는 [행 오버플로 데이터](https://msdn.microsoft.com/library/ms186981.aspx)를 참조 하세요. |
+| 테이블 |행 당 바이트, 정의된 크기 |8,060바이트<br/><br/>행당 바이트 수는 페이지 압축이 설정된 SQL Server에 대한 방법과 동일하게 계산됩니다. SQL Server 처럼 행 오버플로 저장소는 **가변 길이 열** 을 행 외부로 푸시할 수 있도록 지원 됩니다. 가변 길이 행을 행 외부로 밀어 넣으면 주 레코드에는 24바이트 루트만 저장됩니다. 자세한 내용은 8kb를 초과 하는 [행 오버플로 데이터](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105))를 참조 하세요. |
 | 테이블 |테이블 당 파티션 |15,000<br/><br/>높은 성능을 위해서는 계속해서 비즈니스 요구사항을 지원하면서 파티션 수를 줄이는 것이 좋습니다. 파티션 수가 늘어나면 DDL(데이터 정의 언어) 및 DML(데이터 조작 언어) 작업에 대한 오버헤드가 증가하고 성능이 저하됩니다. |
 | 테이블 |파티션 경계 값 당 문자. |4000 |
 | 인덱스 |테이블 당 비클러스터형 인덱스. |50<br/><br/>rowstore 테이블에만 적용됩니다. |
@@ -54,19 +54,19 @@ Azure Synapse Analytics에서 전용 SQL 풀의 다양 한 구성 요소에 대�
 | 통계 |통계 개체 당 열. |32 |
 | 통계 |테이블 당 열에 만든 통계. |30,000 |
 | 저장 프로시저 |최대 수준의 중첩. |8 |
-| View |뷰당 열 수 |1,024 |
+| 보기 |뷰당 열 수 |1,024 |
 ||||
 
 ## <a name="loads"></a>부하
 
-| 범주 | Description | 최대 |
+| 범주 | 설명 | 최대 |
 |:--- |:--- |:--- |
 | Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1mb 보다 작은 행을 로드 합니다. CCI (클러스터형 Columnstore 인덱스)를 사용 하 여 LOB 데이터 형식을 테이블로 로드 하는 것은 지원 되지 않습니다.<br/> |
 |Polybase 로드|총 파일 수|1,000,000<br/><br/>Polybase 로드는 1M 보다 많은 파일을 초과할 수 없습니다. 다음 오류가 발생할 수 있습니다. **분할 횟수가 100만의 상한을 초과 하므로 작업이 실패 했습니다**.|
 
 ## <a name="queries"></a>쿼리
 
-| 범주 | Description | 최대 |
+| 범주 | 설명 | 최대 |
 |:--- |:--- |:--- |
 | 쿼리 |사용자 테이블에서 쿼리된 쿼리입니다. |1000 |
 | 쿼리 |시스템 뷰에서 동시 쿼리입니다. |100 |

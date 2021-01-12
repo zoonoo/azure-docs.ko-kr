@@ -3,12 +3,12 @@ title: 보안 개요
 description: Azure Arc 사용 서버에 대 한 보안 정보입니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: be79be3030af76425b54fd683784d0e216ac2cf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa8653b783e7eb3e211b7514831604dd5642cfbe
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329043"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117030"
 ---
 # <a name="azure-arc-for-servers-security-overview"></a>서버용 Azure Arc 보안 개요
 
@@ -16,7 +16,7 @@ ms.locfileid: "91329043"
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-각 Azure Arc 사용 서버에는 Azure 구독 내 리소스 그룹의 일부로 관리 되는 id가 있습니다 .이 id는 온-프레미스 또는 다른 클라우드 환경에서 실행 되는 서버를 나타냅니다. 표준 [Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md)에서이 리소스에 대 한 액세스를 제어 합니다. Azure Portal의 [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) 페이지에서 Azure Arc 사용 서버에 대 한 액세스 권한이 있는 사용자를 확인할 수 있습니다.
+각 Azure Arc 사용 서버에는 Azure 구독 내 리소스 그룹의 일부로 관리 되는 id가 있습니다 .이 id는 온-프레미스 또는 다른 클라우드 환경에서 실행 되는 서버를 나타냅니다. 표준 [Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md)에서이 리소스에 대 한 액세스를 제어 합니다. Azure Portal의 [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) 페이지에서 Azure Arc 사용 서버에 대 한 액세스 권한이 있는 사용자를 확인할 수 있습니다.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Azure Arc 사용 서버 액세스 제어" border="false" lightbox="./media/security-overview/access-control-page.png":::
 

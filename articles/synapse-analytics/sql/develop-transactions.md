@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c4fe512ff6db24498148ffa724c3144a2f61823f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ceb242dcd05105b533e365e91afd9601cc550392
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451711"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116731"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 트랜잭션 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "96451711"
 
 전용 SQL 풀은 ACID 트랜잭션을 구현 합니다. 트랜잭션 지원의 격리 수준은 기본적으로 READ UNCOMMITTED로 설정되어 있습니다.  master 데이터베이스에 연결된 경우 사용자 데이터베이스의 READ_COMMITTED_SNAPSHOT 데이터베이스 옵션을 ON으로 설정하여 이 기본값을 READ COMMITTED SNAPSHOT ISOLATION으로 변경할 수 있습니다.  
 
-활성화되면 이 데이터베이스의 모든 트랜잭션이 READ COMMITTED SNAPSHOT ISOLATION으로 실행되고 세션 수준의 READ UNCOMMITTED 설정은 적용되지 않습니다. 자세한 내용은 [ALTER DATABASE SET 옵션(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
+활성화되면 이 데이터베이스의 모든 트랜잭션이 READ COMMITTED SNAPSHOT ISOLATION으로 실행되고 세션 수준의 READ UNCOMMITTED 설정은 적용되지 않습니다. 자세한 내용은 [ALTER DATABASE SET 옵션(Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?preserve-view=true&view=azure-sqldw-latest)을 참조하세요.
 
 ## <a name="transaction-size"></a>트랜잭션 크기
 단일 데이터 수정 트랜잭션은 크기가 제한됩니다. 이러한 제한은 배포 기준으로 적용됩니다. 따라서 한도를 배포 수로 곱하여 총 할당을 계산할 수 있습니다. 

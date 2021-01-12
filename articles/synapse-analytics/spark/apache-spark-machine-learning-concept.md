@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 11/13/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: ca55186a53b228aa97cc82d33a09aa3ffe455eee
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0485f697b9360b0f2dfe94fdf07629978b5127c1
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092009"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116928"
 ---
 # <a name="machine-learning-with-apache-spark"></a>Apache Spark를 사용한 기계 학습
 
@@ -32,7 +32,7 @@ Azure Synapse Analytics에서 Apache Spark를 사용 하는 경우 Synapse 노�
 
 [Azure Synapse 노트북을 사용 하 여 데이터를 시각화](../spark/apache-spark-data-visualization.md)하는 방법에 대 한 문서를 참조 하 여 데이터 시각화 및 데이터 분석 옵션에 대해 자세히 알아보세요.
 
-## <a name="feature-engineering"></a>기능 엔지니어링
+## <a name="feature-engineering"></a>특징 엔지니어링
 기본적으로 Synapse 런타임에는 기능 엔지니어링에 일반적으로 사용 되는 라이브러리 집합이 포함 되어 있습니다. 대량 데이터 집합의 경우 기능 엔지니어링에 Spark SQL, MLlib 및 Koalas를 사용할 수 있습니다. 작은 데이터 집합의 경우 Numpy, Pandas 및 Scikit와 같은 타사 라이브러리도 이러한 시나리오에 유용한 메서드를 제공 합니다.
 
 ## <a name="train-models"></a>모델 학습
@@ -44,7 +44,7 @@ Azure Synapse Analytics에서 Azure Spark를 사용 하 여 기계 학습 모델
 Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산에 사용된 반복 알고리즘에 적합합니다. ```spark.ml``` 는 사용자가 기계 학습 파이프라인을 만들고 조정 하는 데 도움이 되는 통일 된 고급 Api 집합을 제공 합니다. 에 대해 자세히 알아보려면 ```spark.ml``` [Apache Spark ML 프로그래밍 가이드](https://spark.apache.org/docs/1.2.2/ml-guide.html)를 참조 하세요.
 
 ### <a name="azure-machine-learning-automated-ml"></a>Azure Machine Learning 자동화 된 ML
-자동화 된 ML (자동화 된 기계 학습) [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) 기계 학습 모델을 개발 하는 프로세스를 자동화 하는 데 도움이 됩니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. Azure Machine Learning 자동화 된 ML SDK를 실행 하는 구성 요소는 Synapse 런타임으로 직접 빌드됩니다.
+자동화 된 ML (자동화 된 기계 학습) [Azure Machine Learning](../../machine-learning/concept-automated-ml.md) 기계 학습 모델을 개발 하는 프로세스를 자동화 하는 데 도움이 됩니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. Azure Machine Learning 자동화 된 ML SDK를 실행 하는 구성 요소는 Synapse 런타임으로 직접 빌드됩니다.
 
 ### <a name="open-source-libraries"></a>오픈 소스 라이브러리
 Azure Synapse Analytics의 모든 Apache Spark 풀에는 미리 로드 되 고 인기 있는 기계 학습 라이브러리 집합이 제공 됩니다.  기본적으로 포함 된 관련 기계 학습 라이브러리 중 일부는 다음과 같습니다.
@@ -56,13 +56,13 @@ Azure Synapse Analytics의 모든 Apache Spark 풀에는 미리 로드 되 고 �
 - [PyTorch](https://pytorch.org/)  &  [Tensorflow](https://www.tensorflow.org/) 은 강력한 Python 심층 학습 라이브러리입니다. Azure Synapse Analytics의 Apache Spark 풀 내에서 이러한 라이브러리를 사용 하 여 풀의 실행자 수를 0으로 설정 하 여 단일 컴퓨터 모델을 빌드할 수 있습니다. 이 구성에서 Apache Spark 작동 하지 않더라도 단일 컴퓨터 모델을 만드는 간단 하 고 비용 효율적인 방법입니다.
 
 ## <a name="track-model-development"></a>모델 개발 추적
-[Mlflow](https://www.mlflow.org/) 는 machine learning 실험의 수명 주기를 관리 하기 위한 오픈 소스 라이브러리입니다. MLFlow 추적은 학습 실행 메트릭과 모델 아티팩트를 기록 하 고 추적 하는 MLflow의 구성 요소입니다. Azure Synapse Analytics 및 Azure Machine Learning를 통해 MLFlow 추적을 사용 하는 방법에 대 한 자세한 내용은 [MLFlow를 사용 하는 방법](https://docs.microsoft.com/azure/machine-learning/how-to-use-mlflow)에 대 한이 자습서를 참조 하세요.
+[Mlflow](https://www.mlflow.org/) 는 machine learning 실험의 수명 주기를 관리 하기 위한 오픈 소스 라이브러리입니다. MLFlow 추적은 학습 실행 메트릭과 모델 아티팩트를 기록 하 고 추적 하는 MLflow의 구성 요소입니다. Azure Synapse Analytics 및 Azure Machine Learning를 통해 MLFlow 추적을 사용 하는 방법에 대 한 자세한 내용은 [MLFlow를 사용 하는 방법](../../machine-learning/how-to-use-mlflow.md)에 대 한이 자습서를 참조 하세요.
 
 ## <a name="model-scoring"></a>모델 점수 매기기
 모델 점수 매기기 또는 추론는 모델을 사용 하 여 예측을 수행 하는 단계입니다. SparkML 또는 MLLib를 사용 하는 모델 점수 매기기의 경우 기본 Spark 메서드를 활용 하 여 Spark 데이터 프레임에서 직접 추론을 수행할 수 있습니다. 다른 오픈 소스 라이브러리 및 모델 유형의 경우에는 Spark UDF를 만들어 대규모 데이터 집합에 대 한 유추를 확장할 수도 있습니다. 작은 데이터 집합의 경우 라이브러리에서 제공 하는 네이티브 모델 유추 메서드를 사용할 수도 있습니다.
 
 ## <a name="register-and-serve-models"></a>모델 등록 및 제공
-모델을 등록 하면 작업 영역에서 모델에 대 한 메타 데이터를 저장 하 고, 버전을 추적 하 고, 추적할 수 있습니다. 모델 학습을 완료 하면 모델을 [Azure Machine Learning 모델 레지스트리에](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment#register-package-and-deploy-models-from-anywhere)등록할 수 있습니다. 등록 한 후에는 ONNX 모델을 사용 하 여 전용 SQL 풀에 저장 된 [데이터를 보강](../machine-learning/tutorial-sql-pool-model-scoring-wizard.md) 할 수도 있습니다.
+모델을 등록 하면 작업 영역에서 모델에 대 한 메타 데이터를 저장 하 고, 버전을 추적 하 고, 추적할 수 있습니다. 모델 학습을 완료 하면 모델을 [Azure Machine Learning 모델 레지스트리에](../../machine-learning/concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere)등록할 수 있습니다. 등록 한 후에는 ONNX 모델을 사용 하 여 전용 SQL 풀에 저장 된 [데이터를 보강](../machine-learning/tutorial-sql-pool-model-scoring-wizard.md) 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Synapse Analytics에서 기계 학습을 시작 하려면 다음 자습서를 확인 하세요.
@@ -71,4 +71,3 @@ Azure Synapse Analytics에서 기계 학습을 시작 하려면 다음 자습서
 - [자동화 된 ML을 사용 하 여 기계 학습 모델 학습](../spark/apache-spark-azure-machine-learning-tutorial.md)
 
 - [Apache Spark MLlib를 사용 하 여 기계 학습 모델 학습](../spark/apache-spark-machine-learning-mllib-notebook.md)
-  

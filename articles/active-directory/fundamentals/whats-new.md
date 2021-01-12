@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c0fa7a6e676e1b888bc13e0fa4cb42e93b2e71
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 412a987e0a93f7b69250450b8367a37bd3682925
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802850"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115704"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -107,8 +107,6 @@ Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여
 자동화된 사용자 계정 프로비저닝을 사용하여 조직의 보안을 강화하는 방법에 대한 자세한 내용은 [Azure AD를 사용하여 SaaS 애플리케이션에 대한 사용자 프로비저닝 자동화](../app-provisioning/user-provisioning.md)를 참조하세요.
  
 ---
- 
-[1233182](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1233182&triage=true&fullScreen=false&_a=edit)
 
 ### <a name="new-federated-apps-available-in-azure-ad-application-gallery---december-2020"></a>Azure AD 응용 프로그램 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱-12 월 2020
 
@@ -123,6 +121,29 @@ Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여
 여기에서 모든 응용 프로그램의 설명서를 찾을 수도 있습니다. https://aka.ms/AppsTutorial
 
 Azure AD 앱 갤러리에 응용 프로그램을 나열 하려면 여기에서 세부 정보를 참조 하세요. https://aka.ms/AzureADAppRequest
+
+---
+
+### <a name="navigate-to-teams-directly-from-my-access-portal"></a>내 액세스 포털에서 직접 팀으로 이동
+
+**유형:** 변경된 기능  
+**서비스 범주:** 사용자 액세스 관리 **제품 기능:** 자격 관리
+
+이제 내 액세스 포털에서 팀을 직접 시작할 수 있습니다. 이렇게 하려면 [내 액세스](https://myaccess.microsoft.com/)에 로그인 하 고 **액세스 패키지** 로 이동한 다음 **활성** 탭으로 이동 하 여 이미 액세스할 수 있는 모든 액세스 패키지를 확인 합니다. 액세스 패키지를 확장 하 고 팀을 마우스로 가리키면 **열기** 단추를 클릭 하 여 실행할 수 있습니다. 
+
+내 액세스 포털을 사용 하는 방법에 대 한 자세한 내용을 보려면 [AZURE AD 자격 관리에서 액세스 패키지](../governance/entitlement-management-request-access.md#sign-in-to-the-my-access-portal)에 대 한 액세스 요청으로 이동 하세요.
+
+---
+
+### <a name="public-preview---second-level-manager-can-be-set-as-alternate-approver"></a>공개 미리 보기-두 번째 수준 관리자를 대체 승인자로 설정할 수 있습니다.
+
+**유형:** 변경된 기능  
+**서비스 범주:** 사용자 액세스 관리  
+**제품 기능:** 자격 관리
+
+이제 권한 관리의 승인 프로세스에서 추가 옵션을 사용할 수 있습니다. 첫 번째 승인자에 대 한 승인자로 관리자를 선택 하는 경우 대체 승인자 인 다른 두 번째 수준 관리자를 선택 하 여 대체 승인자 필드에서 선택할 수 있습니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다.
+
+자세한 내용은 [AZURE AD 자격 관리에서 액세스 패키지에 대 한 승인 설정 변경](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)을 참조 하세요.
 
 --- 
 
@@ -502,7 +523,7 @@ Id 보호의 위험 기반 조건부 액세스 및 위험 검색 기능을 이�
  
 2020 년 10 월에 앱 갤러리에 페더레이션 지원과 함께 다음 27 개의 새 응용 프로그램을 추가 했습니다.
 
-[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee-생산성 슈퍼 앱](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [genesys Azure에 대 한 클라우드 통합](https://apps.mypurecloud.com/msteams-integration/), [영역 기술 포털](https://portail.zonetechnologie.com/signin), [Beautiful.ai](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access Broker](https://console.datawiza.com/), [zokri](https://app.zokri.com/), [checkproof](../saas-apps/checkproof-tutorial.md), [Ecochallenge.org](https://events.ecochallenge.org/users/login), [atspoke](http://atspoke.com/login), [약속 미리 알림](https://app.appointmentreminder.co.nz/account/login), [Cloud. 시장](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [Greetly](https://app.greetly.com/), [OrgVitality SSO} (.. /saas-apps/orgvitality-sso-tutorial.md), [웹 Cargo Air](../saas-apps/web-cargo-air-tutorial.md), [루프 흐름 CRM](../saas-apps/loop-flow-crm-tutorial.md), [starmind](../saas-apps/starmind-tutorial.md), [워크](https://hrm.workstem.com/login), [소매 Zipline](../saas-apps/retail-zipline-tutorial.md), [hoxhunt](../saas-apps/hoxhunt-tutorial.md), [mevisio](../saas-apps/mevisio-tutorial.md), [Samsara](../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [Pulse Secure 가상 Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
+[](../saas-apps/sentry-tutorial.md) [Bumblebee-생산성 슈퍼 앱](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture Cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [genesys는 Azure](https://apps.mypurecloud.com/msteams-integration/), [영역 기술 포털](https://portail.zonetechnologie.com/signin), [Beautiful.ai](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access Broker](https://console.datawiza.com/), [zokri](https://app.zokri.com/), [checkproof](../saas-apps/checkproof-tutorial.md), [Ecochallenge.org](https://events.ecochallenge.org/users/login), [Atspoke](http://atspoke.com/login), [약속 미리 알림](https://app.appointmentreminder.co.nz/account/login), [클라우드. 시장](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [Greetly](https://app.greetly.com/), [OrgVitality SSO](../saas-apps/orgvitality-sso-tutorial.md), [웹 Cargo Air](../saas-apps/web-cargo-air-tutorial.md), [루프 흐름 CRM](../saas-apps/loop-flow-crm-tutorial.md), [starmind](../saas-apps/starmind-tutorial.md), [워크](https://hrm.workstem.com/login), [소매 Zipline](../saas-apps/retail-zipline-tutorial.md), [hoxhunt](../saas-apps/hoxhunt-tutorial.md), [mevisio](../saas-apps/mevisio-tutorial.md), [Samsara](../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [펄스 보안 가상 Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
 
 여기에서 모든 응용 프로그램의 설명서를 찾을 수도 있습니다. https://aka.ms/AppsTutorial
 
@@ -601,7 +622,7 @@ Azure AD Connect 클라우드 프로 비전 공개 미리 보기 새로 고침 �
 
 - Azure Portal를 통한 특성 매핑 환경
 
-    IT 관리자는이 기능을 통해 현재 제공 되는 다양 한 매핑 유형을 사용 하 여 AD의 사용자, 그룹 또는 연락처 특성을 Azure AD에 매핑할 수 있습니다. 특성 매핑은 Active Directory에서 Azure Active Directory로 전달 되는 특성의 값을 표준화 하는 데 사용 되는 기능입니다. AD에서 Azure AD로 특성 값을 직접 매핑할지 또는 식을 사용 하 여 사용자를 프로 비전 할 때 특성 값을 변환할 수 있는지 여부를 결정할 수 있습니다. [자세히 알아보기](../cloud-provisioning/how-to-attribute-mapping.md)
+    IT 관리자는이 기능을 통해 현재 제공 되는 다양 한 매핑 유형을 사용 하 여 AD의 사용자, 그룹 또는 연락처 특성을 Azure AD에 매핑할 수 있습니다. 특성 매핑은 Active Directory에서 Azure Active Directory로 전달 되는 특성의 값을 표준화 하는 데 사용 되는 기능입니다. AD에서 Azure AD로 특성 값을 직접 매핑할지 또는 식을 사용 하 여 사용자를 프로 비전 할 때 특성 값을 변환할 수 있는지 여부를 결정할 수 있습니다. [자세한 정보](../cloud-provisioning/how-to-attribute-mapping.md)
 
 - 주문형 프로 비전 또는 테스트 사용자 환경
 
