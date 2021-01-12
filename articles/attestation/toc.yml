@@ -15,6 +15,8 @@
   items:
     - name: 증명 정책 작성
       href: author-sign-policy.md
+    - name: 프라이빗 엔드포인트 만들기 - PowerShell
+      href: private-endpoint-powershell.md
     - name: SGX 증명 코드 샘플
       href: /samples/browse/?expanded=azure&terms=attestation
 - name: 예
@@ -37,7 +39,7 @@
       href: workflow.md
     - name: 감사 로그 보기
       href: audit-logs.md
-- name: 참조 항목
+- name: 참조
   items:
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation'

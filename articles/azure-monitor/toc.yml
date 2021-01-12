@@ -226,6 +226,8 @@
               href: platform/service-providers.md
             - name: Dedicated 클러스터
               href: log-query/logs-dedicated-clusters.md
+            - name: 문제 해결 로그
+              href: platform/azure-monitor-troubleshooting-logs.md
         - name: Log Analytics
           items:
             - name: 개요

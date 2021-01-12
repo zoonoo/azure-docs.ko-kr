@@ -25,7 +25,7 @@
   items:
     - name: 보안
       items:
-        - name: 리소스에 대한 외부 액세스 보호
+        - name: 보안 외부 협업
           items:
             - name: 외부 액세스 개요 보호
               href: secure-external-access-resources.md
@@ -47,6 +47,8 @@
               href: 8-secure-access-sensitivity-labels.md
             - name: '9 Teams, SharePoint 및 OneDrive에 대한 보안 액세스'
               href: 9-secure-access-teams-sharepoint.md
+        - name: 온-프레미스 공격으로부터 Microsoft 365 보호
+          href: protect-m365-from-on-premises-attacks.md
         - name: MFA 사용
           href: concept-fundamentals-mfa-get-started.md
         - name: 보안 기본값
