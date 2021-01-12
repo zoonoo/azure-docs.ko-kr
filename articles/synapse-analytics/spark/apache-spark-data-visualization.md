@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
-ms.openlocfilehash: 73b18d15ad054f1c485d6f61cdefe54993148bc4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f11693b34048b11c02668e086561b9a6521a5213
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450540"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121528"
 ---
 # <a name="visualize-data"></a>데이터 시각화
 Azure Synapse는 데이터 웨어하우스 및 빅 데이터 분석 시스템에서 정보에 대 한 시간을 가속화 하는 통합 분석 서비스입니다. 데이터 시각화는 데이터에 대 한 통찰력을 얻을 수 있는 핵심 구성 요소입니다. 이를 통해 큰 데이터를 더 쉽게 이해할 수 있습니다. 또한 데이터 그룹의 패턴, 추세 및 이상 값을 더 쉽게 검색할 수 있습니다. 
@@ -37,7 +37,7 @@ Azure Synapse 노트북을 사용 하는 경우 차트 옵션을 사용 하 여 
    | 구성 | 설명 |
    |--|--| 
    | 차트 종류 | ```display```함수는 가로 막대형 차트, 산 점도, 선 그래프 등을 비롯 한 다양 한 차트 종류를 지원 합니다. |
-   | Key | X 축의 값 범위를 지정 합니다.|
+   | 키 | X 축의 값 범위를 지정 합니다.|
    | 값 | Y 축 값의 범위를 지정 합니다. |
    | 계열 그룹 | 집계에 대 한 그룹을 결정 하는 데 사용 됩니다. | 
    | 집계 | 시각화에서 데이터를 집계 하는 방법| 
@@ -227,7 +227,7 @@ plt.show()
 ## <a name="connect-to-power-bi-using-apache-spark--sql-on-demand"></a>주문형 SQL & Apache Spark를 사용 하 여 Power BI에 연결
 Azure Synapse Analytics는 데이터 엔지니어가 분석 솔루션을 빌드할 수 있도록 하 Power BI와 긴밀 하 게 통합 됩니다.
 
-Azure Synapse Analytics를 사용 하면 다른 작업 영역 계산 엔진이 Spark 풀과 서버 리스 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다. [공유 메타 데이터 모델](https://docs.microsoft.com/azure/synapse-analytics/metadata/overview)을 사용 하 여 SQL 주문형으로 Apache Spark 테이블을 쿼리할 수 있습니다. 완료 되 면 SQL 주문형 끝점을 Power BI에 연결 하 여 동기화 된 Spark 테이블을 쉽게 쿼리할 수 있습니다.
+Azure Synapse Analytics를 사용 하면 다른 작업 영역 계산 엔진이 Spark 풀과 서버 리스 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다. [공유 메타 데이터 모델](../metadata/overview.md)을 사용 하 여 SQL 주문형으로 Apache Spark 테이블을 쿼리할 수 있습니다. 완료 되 면 SQL 주문형 끝점을 Power BI에 연결 하 여 동기화 된 Spark 테이블을 쉽게 쿼리할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

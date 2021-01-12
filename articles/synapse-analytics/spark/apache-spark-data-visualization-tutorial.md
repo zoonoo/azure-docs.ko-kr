@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8768b8f8c7bf70b184971abc6ce27e2193823dea
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458764"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121552"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Apache Spark를 사용 하 여 데이터 분석
 
@@ -25,7 +25,7 @@ ms.locfileid: "96458764"
 - [Apache Spark 풀 만들기 자습서](../articles/../quickstart-create-apache-spark-pool-studio.md) 에 따라 Apache Spark 풀을 만듭니다. 
 
 ## <a name="download-and-prepare-the-data"></a>데이터 다운로드 및 준비
-1. PySpark 커널을 사용하여 Notebook을 만듭니다. 지침은 [노트북 만들기](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook)를 참조 하세요. 
+1. PySpark 커널을 사용하여 Notebook을 만듭니다. 지침은 [노트북 만들기](../quickstart-apache-spark-notebook.md#create-a-notebook)를 참조 하세요. 
    
 > [!Note]
 > 
@@ -92,7 +92,7 @@ GROUP BY day_of_month
 ORDER BY day_of_month ASC
 ```
 
-2. 쿼리가 실행을 완료 하면 **차트 뷰로** 전환 하 여 결과를 시각화할 수 있습니다. 이 예에서는 필드를 키로 지정 **line chart** 하 ```day_of_month``` 고을 **key** ```avgTipAmount``` **값** 으로 지정 하 여 꺾은선형 차트를 만듭니다. 항목을 선택한 후에 **적용** 을 클릭 하 여 차트를 새로 고칩니다. 
+2. 쿼리가 실행을 완료 하면 **차트 뷰로** 전환 하 여 결과를 시각화할 수 있습니다. 이 예에서는 필드를 키로 지정  하 ```day_of_month``` 고을  ```avgTipAmount``` **값** 으로 지정 하 여 꺾은선형 차트를 만듭니다. 항목을 선택한 후에 **적용** 을 클릭 하 여 차트를 새로 고칩니다. 
    
 ## <a name="visualize-data"></a>데이터 시각화
 기본 제공 노트북 차트 옵션 외에도 인기 있는 오픈 소스 라이브러리를 사용 하 여 고유한 시각화를 만들 수 있습니다. 다음 예에서는 일반적으로 사용 되는 Seaborn 및 Matplotlib를 사용 하 여 데이터를 시각화 합니다. 
@@ -180,5 +180,5 @@ plt.show()
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Apache Spark 공식 설명서](https://spark.apache.org/docs/latest/)

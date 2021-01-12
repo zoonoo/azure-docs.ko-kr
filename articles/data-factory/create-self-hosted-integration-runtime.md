@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: nabhishek
-ms.author: abnarain
-manager: anandsub
+author: lrtoyou1223
+ms.author: lle
+manager: shwang
 ms.custom: seo-lt-2019
-ms.date: 11/25/2020
-ms.openlocfilehash: 04efb7bcae11ef6cf377d821b49f9b07d41d347f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.date: 12/25/2020
+ms.openlocfilehash: 76d53458154a7e66589c16f955373975bb04b25b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932594"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121639"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -30,13 +30,61 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+
+## <a name="considerations-for-using-a-self-hosted-ir"></a>자체 호스팅 IR 사용을 위한 고려 사항
+
+- 단일 자체 호스팅 통합 런타임을 사용 하 여 여러 온-프레미스 데이터 원본에 사용할 수 있습니다. 동일한 Azure Active Directory (Azure AD) 테 넌 트 내에서 다른 데이터 팩터리에 공유할 수도 있습니다. 자세한 내용은 [자체 호스팅 통합 런타임 공유](./create-shared-self-hosted-integration-runtime-powershell.md)를 참조하세요.
+- 단일 컴퓨터에 자체 호스팅 통합 런타임의 인스턴스를 하나만 설치할 수 있습니다. 온-프레미스 데이터 원본에 액세스 해야 하는 두 개의 데이터 팩터리가 있는 경우 자체 호스팅 ir [공유 기능](./create-shared-self-hosted-integration-runtime-powershell.md) 을 사용 하 여 자체 호스팅 ir을 공유 하거나 각 데이터 팩터리에 대해 하나씩, 두 개의 온-프레미스 컴퓨터에 자체 호스팅 ir을 설치 합니다.  
+- 자체 호스팅 통합 런타임은 데이터 원본과 동일한 컴퓨터에 있을 필요가 없습니다. 그러나 자체 호스팅 통합 런타임이 데이터 원본에 가까이 있으면 자체 호스팅 통합 런타임이 데이터 원본에 연결 하는 데 걸리는 시간을 줄일 수 있습니다. 온-프레미스 데이터 원본을 호스팅하는 컴퓨터와 다른 컴퓨터에 자체 호스팅 통합 런타임을 설치 하는 것이 좋습니다. 자체 호스팅 통합 런타임 및 데이터 원본이 서로 다른 컴퓨터에 있는 경우 자체 호스팅 통합 런타임은 리소스의 데이터 원본과 경쟁 하지 않습니다.
+- 서로 다른 컴퓨터의 여러 자체 호스팅 통합 런타임이 동일한 온-프레미스 데이터 원본에 연결할 수 있습니다. 예를 들어 두 개의 데이터 팩터리를 제공 하는 자체 호스팅 통합 런타임이 두 개인 경우 두 데이터 팩터리에 동일한 온-프레미스 데이터 원본을 등록할 수 있습니다.
+- 자체 호스팅 통합 런타임을 사용 하 여 Azure 가상 네트워크 내에서 데이터 통합을 지원 합니다.
+- Azure ExpressRoute를 사용하더라도 데이터 원본은 방화벽으로 보호되는 온-프레미스 데이터 원본으로 취급해야 합니다. 자체 호스팅 integration runtime을 사용 하 여 서비스를 데이터 원본에 연결 합니다.
+- 데이터 저장소가 Azure IaaS (Infrastructure as a Service) 가상 머신의 클라우드에 있는 경우에도 자체 호스팅 통합 런타임을 사용 합니다.
+- FIPS 규격 암호화를 사용 하는 Windows 서버에 설치한 자체 호스팅 통합 런타임에서 태스크가 실패할 수 있습니다. 이 문제를 해결 하려면 Azure Key Vault에 자격 증명/비밀 값 저장 또는 서버에서 FIPS 규격 암호화 사용 안 함 이라는 두 가지 옵션이 있습니다. FIPS 호환 암호화를 사용 하지 않도록 설정 하려면 다음 레지스트리 하위 키의 값을 1 (사용)에서 0 (사용 안 함)으로 변경 `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` 합니다. [자체 호스팅 통합 런타임을 SSIS 통합 런타임에 대 한 프록시로](./self-hosted-integration-runtime-proxy-ssis.md)사용 하는 경우 FIPS 호환 암호화를 사용 하도록 설정할 수 있으며 온-프레미스에서 Azure Blob Storage 준비 영역으로 데이터를 이동할 때 사용 됩니다.
+
+
+## <a name="command-flow-and-data-flow"></a>명령 흐름 및 데이터 흐름
+
+온-프레미스와 클라우드 간에 데이터를 이동 하는 경우 활동은 자체 호스팅 통합 런타임을 사용 하 여 온-프레미스 데이터 원본과 클라우드 간에 데이터를 전송 합니다.
+
+다음은 자체 호스팅 IR을 사용 하 여 복사 하는 데이터 흐름 단계를 간략하게 요약 한 것입니다.
+
+![데이터 흐름에 대 한 개략적인 개요](media/create-self-hosted-integration-runtime/high-level-overview.png)
+
+1. 데이터 개발자는 PowerShell cmdlet을 사용 하 여 Azure data factory 내에서 자체 호스팅 통합 런타임을 만듭니다. 현재 Azure Portal이 기능을 지원 하지 않습니다.
+2. 데이터 개발자가 온-프레미스 데이터 저장소에 대 한 연결 된 서비스를 만듭니다. 개발자는 서비스에서 데이터 저장소에 연결 하는 데 사용 해야 하는 자체 호스팅 통합 런타임 인스턴스를 지정 하 여이를 수행 합니다.
+3. 자체 호스팅 통합 런타임 노드가 Windows DPAPI(데이터 보호 응용 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 고가용성을 위해 여러 노드가 설정된 경우 자격 증명이 다른 노드 간에 동기화됩니다. 각 노드는 DPAPI를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 자격 증명 동기화는 데이터 개발자에게는 표시되지 않으며, 자체 호스팅 IR에서 처리됩니다.
+4. Azure Data Factory은 자체 호스팅 통합 런타임과 통신 하 여 작업을 예약 하 고 관리 합니다. 통신은 공유 [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) 연결을 사용 하는 컨트롤 채널을 통해 전달 됩니다. 활동 작업을 실행 해야 하는 경우 Data Factory는 자격 증명 정보와 함께 요청을 큐에 대기 시킵니다. 이는 자격 증명이 자체 호스팅 통합 런타임에 아직 저장 되지 않은 경우에 발생 합니다. 자체 호스팅 통합 런타임은 큐를 폴링한 후 작업을 시작 합니다.
+5. 자체 호스팅 통합 런타임은 온-프레미스 저장소와 클라우드 저장소 간에 데이터를 복사 합니다. 복사 방향은 데이터 파이프라인에서 복사 작업을 구성 하는 방법에 따라 달라 집니다. 이 단계에서 자체 호스팅 통합 런타임은 보안 HTTPS 채널을 통해 Azure Blob 저장소와 같은 클라우드 기반 저장소 서비스와 직접 통신 합니다.
+
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+- 지원 되는 Windows 버전은 다음과 같습니다.
+  + Windows 8.1
+  + Windows 10
+  + Windows Server 2012
+  + Windows Server 2012 R2
+  + Windows Server 2016
+  + Windows Server 2019
+   
+도메인 컨트롤러에 자체 호스팅 통합 런타임 설치가 지원 되지 않습니다.
+- 자체 호스팅 통합 런타임을 사용 하려면 .NET Framework 4.7.2 이상 64 비트 운영 체제가 필요 합니다. 자세한 내용은 [.NET Framework 시스템 요구 사항](/dotnet/framework/get-started/system-requirements) 을 참조 하세요.
+- 자체 호스팅 통합 런타임 컴퓨터에 권장 되는 최소 구성은 4 개 코어, 8gb RAM 및 80 GB의 사용 가능한 하드 드라이브 공간을 포함 하는 2 GHz 프로세서입니다. 시스템 요구 사항에 대 한 자세한 내용은 [다운로드](https://www.microsoft.com/download/details.aspx?id=39717)를 참조 하세요.
+- 호스트 컴퓨터가 최대 절전 모드인 경우 자체 호스팅 통합 런타임이 데이터 요청에 응답 하지 않습니다. 따라서 자체 호스팅 통합 런타임을 설치하기 전에 컴퓨터에서 전원 관리 옵션을 적절하게 구성하세요. 컴퓨터가 최대 절전 모드로 구성 된 경우 자체 호스팅 통합 런타임 설치 관리자에서 메시지를 표시 합니다.
+- 자체 호스팅 통합 런타임을 성공적으로 설치 및 구성 하려면 컴퓨터의 관리자 여야 합니다.
+- 복사 작업 실행은 특정 빈도로 발생 합니다. 컴퓨터의 프로세서 및 RAM 사용량은 최대 및 유휴 시간과 동일한 패턴을 따릅니다. 리소스 사용량은 이동 하는 데이터의 양에 따라 크게 달라 집니다. 여러 복사 작업이 진행 중인 경우 사용량이 많은 시간 동안 리소스 사용량이 증가하는 것을 볼 수 있습니다.
+- Parquet, ORC 또는 Avro 형식의 데이터를 추출 하는 동안 태스크가 실패할 수 있습니다. Parquet에 대 한 자세한 내용은 [Azure Data Factory Parquet 형식](./format-parquet.md#using-self-hosted-integration-runtime)을 참조 하세요. 파일 생성은 자체 호스팅 통합 컴퓨터에서 실행 됩니다. 정상적으로 작동 하려면 파일을 만들려면 다음 필수 구성 요소가 필요 합니다.
+    - [Visual C++ 2010 재배포 가능 패키지](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) 패키지 (x64)
+    - Jre (Java Runtime) 버전 8 (예: [OpenJDK 도입](https://adoptopenjdk.net/)) `JAVA_HOME`환경 변수가 설정 되어 있는지 확인 합니다.
+
 ## <a name="setting-up-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 설정
 
 자체 호스팅 통합 런타임을 만들고 설정 하려면 다음 절차를 따르십시오.
 
 ### <a name="create-a-self-hosted-ir-via-azure-powershell"></a>Azure PowerShell를 통해 자체 호스팅 IR 만들기
 
-1. 이 작업에 Azure PowerShell를 사용할 수 있습니다. 다음은 예제입니다.
+1. 이 작업에 Azure PowerShell를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -107,7 +155,7 @@ dmgcmd ACTION args...
 
 응용 프로그램의 작업 및 인수에 대 한 자세한 내용은 다음과 같습니다. 
 
-|ACTION|args|Description|
+|ACTION|args|설명|
 |------|----|-----------|
 |수락<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|지정 된 인증 키와 노드 이름을 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다.|
 |서<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|현재 노드에서 원격 액세스를 사용 하도록 설정 하 여 고가용성 클러스터를 설정 합니다. 또는 Azure Data Factory를 거치지 않고 자체 호스팅 IR에 대해 직접 자격 증명을 설정할 수 있습니다. 후자는 동일한 네트워크에 있는 원격 컴퓨터에서 **AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용 하 여 수행 합니다.|
@@ -126,84 +174,49 @@ dmgcmd ACTION args...
 |s<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|새 계정으로 실행 되도록 DIAHostService를 설정 합니다. 시스템 계정 및 가상 계정에는 빈 암호 ""를 사용 합니다.|
 
 
-## <a name="command-flow-and-data-flow"></a>명령 흐름 및 데이터 흐름
-
-온-프레미스와 클라우드 간에 데이터를 이동 하는 경우 활동은 자체 호스팅 통합 런타임을 사용 하 여 온-프레미스 데이터 원본과 클라우드 간에 데이터를 전송 합니다.
-
-다음은 자체 호스팅 IR을 사용 하 여 복사 하는 데이터 흐름 단계를 간략하게 요약 한 것입니다.
-
-![데이터 흐름에 대 한 개략적인 개요](media/create-self-hosted-integration-runtime/high-level-overview.png)
-
-1. 데이터 개발자는 PowerShell cmdlet을 사용 하 여 Azure data factory 내에서 자체 호스팅 통합 런타임을 만듭니다. 현재 Azure Portal이 기능을 지원 하지 않습니다.
-1. 데이터 개발자가 온-프레미스 데이터 저장소에 대 한 연결 된 서비스를 만듭니다. 개발자는 서비스에서 데이터 저장소에 연결 하는 데 사용 해야 하는 자체 호스팅 통합 런타임 인스턴스를 지정 하 여이를 수행 합니다.
-1. 자체 호스팅 통합 런타임 노드가 Windows DPAPI(데이터 보호 응용 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 고가용성을 위해 여러 노드가 설정된 경우 자격 증명이 다른 노드 간에 동기화됩니다. 각 노드는 DPAPI를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 자격 증명 동기화는 데이터 개발자에게는 표시되지 않으며, 자체 호스팅 IR에서 처리됩니다.
-1. Azure Data Factory은 자체 호스팅 통합 런타임과 통신 하 여 작업을 예약 하 고 관리 합니다. 통신은 공유 [Azure Service Bus 릴레이](../azure-relay/relay-what-is-it.md#wcf-relay) 연결을 사용 하는 컨트롤 채널을 통해 전달 됩니다. 활동 작업을 실행 해야 하는 경우 Data Factory는 자격 증명 정보와 함께 요청을 큐에 대기 시킵니다. 이는 자격 증명이 자체 호스팅 통합 런타임에 아직 저장 되지 않은 경우에 발생 합니다. 자체 호스팅 통합 런타임은 큐를 폴링한 후 작업을 시작 합니다.
-1. 자체 호스팅 통합 런타임은 온-프레미스 저장소와 클라우드 저장소 간에 데이터를 복사 합니다. 복사 방향은 데이터 파이프라인에서 복사 작업을 구성 하는 방법에 따라 달라 집니다. 이 단계에서 자체 호스팅 통합 런타임은 보안 HTTPS 채널을 통해 Azure Blob 저장소와 같은 클라우드 기반 저장소 서비스와 직접 통신 합니다.
-
-## <a name="considerations-for-using-a-self-hosted-ir"></a>자체 호스팅 IR 사용을 위한 고려 사항
-
-- 단일 자체 호스팅 통합 런타임을 사용 하 여 여러 온-프레미스 데이터 원본에 사용할 수 있습니다. 동일한 Azure Active Directory (Azure AD) 테 넌 트 내에서 다른 데이터 팩터리에 공유할 수도 있습니다. 자세한 내용은 [자체 호스팅 통합 런타임 공유](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory)를 참조하세요.
-- 단일 컴퓨터에 자체 호스팅 통합 런타임의 인스턴스를 하나만 설치할 수 있습니다. 온-프레미스 데이터 원본에 액세스 해야 하는 두 개의 데이터 팩터리가 있는 경우 자체 호스팅 ir [공유 기능](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) 을 사용 하 여 자체 호스팅 ir을 공유 하거나 각 데이터 팩터리에 대해 하나씩, 두 개의 온-프레미스 컴퓨터에 자체 호스팅 ir을 설치 합니다.  
-- 자체 호스팅 통합 런타임은 데이터 원본과 동일한 컴퓨터에 있을 필요가 없습니다. 그러나 자체 호스팅 통합 런타임이 데이터 원본에 가까이 있으면 자체 호스팅 통합 런타임이 데이터 원본에 연결 하는 데 걸리는 시간을 줄일 수 있습니다. 온-프레미스 데이터 원본을 호스팅하는 컴퓨터와 다른 컴퓨터에 자체 호스팅 통합 런타임을 설치 하는 것이 좋습니다. 자체 호스팅 통합 런타임 및 데이터 원본이 서로 다른 컴퓨터에 있는 경우 자체 호스팅 통합 런타임은 리소스의 데이터 원본과 경쟁 하지 않습니다.
-- 서로 다른 컴퓨터의 여러 자체 호스팅 통합 런타임이 동일한 온-프레미스 데이터 원본에 연결할 수 있습니다. 예를 들어 두 개의 데이터 팩터리를 제공 하는 자체 호스팅 통합 런타임이 두 개인 경우 두 데이터 팩터리에 동일한 온-프레미스 데이터 원본을 등록할 수 있습니다.
-- 자체 호스팅 통합 런타임을 사용 하 여 Azure 가상 네트워크 내에서 데이터 통합을 지원 합니다.
-- Azure ExpressRoute를 사용하더라도 데이터 원본은 방화벽으로 보호되는 온-프레미스 데이터 원본으로 취급해야 합니다. 자체 호스팅 integration runtime을 사용 하 여 서비스를 데이터 원본에 연결 합니다.
-- 데이터 저장소가 Azure IaaS (Infrastructure as a Service) 가상 머신의 클라우드에 있는 경우에도 자체 호스팅 통합 런타임을 사용 합니다.
-- FIPS 규격 암호화를 사용 하는 Windows 서버에 설치한 자체 호스팅 통합 런타임에서 태스크가 실패할 수 있습니다. 이 문제를 해결 하려면 Azure Key Vault에 자격 증명/비밀 값 저장 또는 서버에서 FIPS 규격 암호화 사용 안 함 이라는 두 가지 옵션이 있습니다. FIPS 호환 암호화를 사용 하지 않도록 설정 하려면 다음 레지스트리 하위 키의 값을 1 (사용)에서 0 (사용 안 함)으로 변경 `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` 합니다. [자체 호스팅 통합 런타임을 SSIS 통합 런타임에 대 한 프록시로](./self-hosted-integration-runtime-proxy-ssis.md)사용 하는 경우 FIPS 호환 암호화를 사용 하도록 설정할 수 있으며 온-프레미스에서 Azure Blob Storage 준비 영역으로 데이터를 이동할 때 사용 됩니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-- 지원 되는 Windows 버전은 다음과 같습니다.
-  + Windows 7 서비스 팩 1
-  + Windows 8.1
-  + Windows 10
-  + Windows Server 2008 R2 SP1
-  + Windows Server 2012
-  + Windows Server 2012 R2
-  + Windows Server 2016
-  + Windows Server 2019
-   
-   도메인 컨트롤러에 자체 호스팅 통합 런타임 설치가 지원 되지 않습니다.
-- .NET Framework 4.6.1 이상이 필요합니다. Windows 7 컴퓨터에 자체 호스팅 통합 런타임을 설치하는 경우 .NET Framework 4.6.1 이상을 설치합니다. 자세한 내용은 [.NET Framework 시스템 요구 사항](/dotnet/framework/get-started/system-requirements)을 참조하세요.
-- 자체 호스팅 통합 런타임 컴퓨터에 권장 되는 최소 구성은 4 개 코어, 8gb RAM 및 80 GB의 사용 가능한 하드 드라이브 공간을 포함 하는 2 GHz 프로세서입니다.
-- 호스트 컴퓨터가 최대 절전 모드인 경우 자체 호스팅 통합 런타임이 데이터 요청에 응답 하지 않습니다. 따라서 자체 호스팅 통합 런타임을 설치하기 전에 컴퓨터에서 전원 관리 옵션을 적절하게 구성하세요. 컴퓨터가 최대 절전 모드로 구성 된 경우 자체 호스팅 통합 런타임 설치 관리자에서 메시지를 표시 합니다.
-- 자체 호스팅 통합 런타임을 성공적으로 설치 및 구성 하려면 컴퓨터의 관리자 여야 합니다.
-- 복사 작업 실행은 특정 빈도로 발생 합니다. 컴퓨터의 프로세서 및 RAM 사용량은 최대 및 유휴 시간과 동일한 패턴을 따릅니다. 리소스 사용량은 이동 하는 데이터의 양에 따라 크게 달라 집니다. 여러 복사 작업이 진행 중인 경우 사용량이 많은 시간 동안 리소스 사용량이 증가하는 것을 볼 수 있습니다.
-- Parquet, ORC 또는 Avro 형식의 데이터를 추출 하는 동안 태스크가 실패할 수 있습니다. Parquet에 대 한 자세한 내용은 [Azure Data Factory Parquet 형식](./format-parquet.md#using-self-hosted-integration-runtime)을 참조 하세요. 파일 생성은 자체 호스팅 통합 컴퓨터에서 실행 됩니다. 정상적으로 작동 하려면 파일을 만들려면 다음 필수 구성 요소가 필요 합니다.
-    - [Visual C++ 2010 재배포 가능 패키지](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) 패키지 (x64)
-    - Jre (Java Runtime) 버전 8 (예: [OpenJDK 도입](https://adoptopenjdk.net/)) `JAVA_HOME`환경 변수가 설정 되어 있는지 확인 합니다.
-
-## <a name="installation-best-practices"></a>설치 모범 사례
-
-[Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 관리 되는 id 설치 패키지를 다운로드 하 여 자체 호스팅 통합 런타임을 설치할 수 있습니다. 단계별 지침은 [온-프레미스와 클라우드 간에 데이터 이동](tutorial-hybrid-copy-powershell.md) 문서를 참조 하세요.
-
-- 컴퓨터가 최대 절전 모드로 전환 되지 않도록 자체 호스팅 통합 런타임에 대 한 호스트 컴퓨터에서 전원 계획을 구성 합니다. 호스트 컴퓨터가 최대 절전 모드로 설정되면 자체 호스팅 통합 런타임도 오프라인 상태가 됩니다.
-- 자체 호스팅 통합 런타임과 연결 된 자격 증명을 정기적으로 백업 합니다.
-- 자체 호스팅 IR 설정 작업을 자동화 하려면 [PowerShell을 통해 기존 자체 호스트 Ir 설정](#setting-up-a-self-hosted-integration-runtime)을 참조 하세요.  
-
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Microsoft 다운로드 센터에서 자체 호스팅 IR 설치 및 등록
 
 1. [Microsoft 통합 런타임 다운로드 페이지](https://www.microsoft.com/download/details.aspx?id=39717)로 이동합니다.
-1. **다운로드** 를 선택 하 고, 64 비트 버전을 선택 하 고, **다음** 을 선택 합니다. 32 비트 버전이 지원 되지 않습니다.
-1. 관리 되는 Id 파일을 직접 실행 하거나 하드 드라이브에 저장 하 고 실행 합니다.
-1. **시작** 창에서 언어를 선택 하 고 **다음** 을 선택 합니다.
-1. Microsoft 소프트웨어 사용 조건에 동의하고 **다음** 을 선택합니다.
-1. 자체 호스팅 통합 런타임을 설치할 **폴더** 를 선택하고 **다음** 을 선택합니다.
-1. **설치 준비 완료** 페이지에서 **설치** 를 선택 합니다.
-1. **마침** 을 선택 하 여 설치를 완료 합니다.
-1. PowerShell을 사용 하 여 인증 키를 가져옵니다. 인증 키 검색을 위한 PowerShell 예제는 다음과 같습니다.
+2. **다운로드** 를 선택 하 고, 64 비트 버전을 선택 하 고, **다음** 을 선택 합니다. 32 비트 버전이 지원 되지 않습니다.
+3. 관리 되는 Id 파일을 직접 실행 하거나 하드 드라이브에 저장 하 고 실행 합니다.
+4. **시작** 창에서 언어를 선택 하 고 **다음** 을 선택 합니다.
+5. Microsoft 소프트웨어 사용 조건에 동의하고 **다음** 을 선택합니다.
+6. 자체 호스팅 통합 런타임을 설치할 **폴더** 를 선택하고 **다음** 을 선택합니다.
+7. **설치 준비 완료** 페이지에서 **설치** 를 선택 합니다.
+8. **마침** 을 선택 하 여 설치를 완료 합니다.
+9. PowerShell을 사용 하 여 인증 키를 가져옵니다. 인증 키 검색을 위한 PowerShell 예제는 다음과 같습니다.
 
     ```powershell
     Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 
-1. 컴퓨터에서 실행 되는 Microsoft Integration Runtime Configuration Manager의 **Integration Runtime(자체 호스팅) 등록** 창에서 다음 단계를 수행 합니다.
+10. 컴퓨터에서 실행 되는 Microsoft Integration Runtime Configuration Manager의 **Integration Runtime(자체 호스팅) 등록** 창에서 다음 단계를 수행 합니다.
 
     1. 텍스트 영역에 인증 키를 붙여넣습니다.
 
-    1. 필요에 따라 **인증 키 표시** 를 선택하여 키 텍스트를 확인합니다.
+    2. 필요에 따라 **인증 키 표시** 를 선택하여 키 텍스트를 확인합니다.
 
-    1. **등록** 을 선택합니다.
+    3. **등록** 을 선택합니다.
+
+## <a name="service-account-for-self-hosted-integration-runtime"></a>자체 호스팅 integration runtime 서비스 계정
+자체 호스팅 integration runtime의 기본 로그온 서비스 계정은 **NT SERVICE\DIAHostService** 입니다. 서비스 **-> Integration Runtime 서비스-> 속성-> 로그온** 에서 볼 수 있습니다.
+
+![자체 호스팅 integration runtime 서비스 계정](media/create-self-hosted-integration-runtime/shir-service-account.png)
+
+계정에 서비스로 로그온 권한이 있는지 확인 합니다. 그렇지 않으면 자체 호스팅 통합 런타임을 성공적으로 시작할 수 없습니다. **로컬 보안 정책-> 보안 설정-> 로컬 정책-> 사용자 권한 할당-서비스로 로그온 >에 대 한** 권한을 확인할 수 있습니다.
+
+![서비스 계정 권한](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+
+![서비스 계정 권한](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+
+
+## <a name="notification-area-icons-and-notifications"></a>알림 영역 아이콘 및 알림
+
+알림 영역에서 아이콘이 나 메시지 위로 커서를 이동 하는 경우 자체 호스팅 통합 런타임의 상태에 대 한 세부 정보를 볼 수 있습니다.
+
+![알림 영역의 알림](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
+
+
 
 ## <a name="high-availability-and-scalability"></a>고가용성 및 확장성
 
@@ -253,90 +266,6 @@ Integration runtime 노드 간의 통신을 보호 하는 데 사용 하는 TLS/
 >
 > 자체 호스팅 IR에서 다른 데이터 저장소로 전송 되는 데이터 이동은이 인증서의 설정 여부에 관계 없이 항상 암호화 된 채널 내에서 발생 합니다.
 
-## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
-
-데이터 팩터리에 이미 설치한 기존의 자체 호스팅 통합 런타임 인프라를 재사용할 수 있습니다. 이렇게 다시 사용 하면 기존 공유 자체 호스팅 IR을 참조 하 여 다른 데이터 팩터리에 연결 된 자체 호스팅 통합 런타임을 만들 수 있습니다.
-
-이 기능에 대 한 소개와 데모를 보려면 다음 12 분 분량의 비디오를 시청 하세요.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
-
-### <a name="terminology"></a>용어
-
-- **공유 ir**: 실제 인프라에서 실행 되는 원래의 자체 호스팅 IR입니다.  
-- **연결 된 ir**: 다른 공유 ir을 참조 하는 ir입니다. 연결 된 IR은 논리 IR 이며 다른 공유 자체 호스팅 IR 인프라를 사용 합니다.
-
-### <a name="methods-to-share-a-self-hosted-integration-runtime"></a>자체 호스팅 integration runtime을 공유 하는 방법
-
-자체 호스팅 통합 런타임을 여러 데이터 팩터리와 공유 하려면 [공유 자체 호스팅 통합 런타임 만들기](create-shared-self-hosted-integration-runtime-powershell.md) 에 대 한 자세한 내용을 참조 하세요.
-
-### <a name="monitoring"></a>모니터링
-
-#### <a name="shared-ir"></a>공유 IR
-
-![공유 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
-
-![공유 통합 런타임 모니터링](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
-
-#### <a name="linked-ir"></a>연결 된 IR
-
-![연결 된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
-
-![연결 된 통합 런타임 모니터링](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
-
-### <a name="known-limitations-of-self-hosted-ir-sharing"></a>자체 호스팅 IR 공유에 대해 알려진 제한 사항
-
-* 연결 된 IR이 생성 되는 데이터 팩터리에 [는 관리 id](../active-directory/managed-identities-azure-resources/overview.md)가 있어야 합니다. 기본적으로 Azure Portal 또는 PowerShell cmdlet에서 만든 데이터 팩터리에는 암시적으로 생성 된 관리 Id가 있습니다. 그러나 Azure Resource Manager 템플릿이나 SDK를 통해 데이터 팩터리를 만드는 경우 **Identity** 속성을 명시적으로 설정 해야 합니다. 이 설정을 사용 하면 리소스 관리자에서 관리 Id를 포함 하는 데이터 팩터리를 만듭니다.
-
-* 이 기능을 지 원하는 Data Factory .NET SDK는 1.1.0 이상 버전 이어야 합니다.
-
-* 권한을 부여 하려면 공유 IR이 존재 하는 데이터 팩터리에 소유자 역할 또는 상속 된 소유자 역할이 필요 합니다.
-
-* 공유 기능은 동일한 Azure AD 테 넌 트 내의 데이터 팩터리에 대해서만 작동 합니다.
-
-* Azure AD [게스트 사용자](../active-directory/governance/manage-guest-access-with-access-reviews.md)의 경우 검색 키워드를 사용 하 여 모든 데이터 팩터리를 나열 하는 UI의 검색 기능이 [작동 하지 않습니다](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). 그러나 게스트 사용자가 데이터 팩터리의 소유자 인 경우 검색 기능 없이 IR을 공유할 수 있습니다. IR을 공유 해야 하는 데이터 팩터리의 관리 되는 Id의 경우 **할당 권한** 상자에 관리 되는 id를 입력 하 고 Data Factory UI에서 **추가** 를 선택 합니다.
-
-  > [!NOTE]
-  > 이 기능은 Data Factory v 2 에서만 사용할 수 있습니다.
-
-## <a name="notification-area-icons-and-notifications"></a>알림 영역 아이콘 및 알림
-
-알림 영역에서 아이콘이 나 메시지 위로 커서를 이동 하는 경우 자체 호스팅 통합 런타임의 상태에 대 한 세부 정보를 볼 수 있습니다.
-
-![알림 영역의 알림](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
-
-## <a name="ports-and-firewalls"></a>포트 및 방화벽
-
-다음 두 가지 방화벽을 고려해 야 합니다.
-
-- 조직의 중앙 라우터에서 실행 되는 *회사 방화벽*
-- 자체 호스팅 통합 런타임이 설치 된 로컬 컴퓨터에서 디먼으로 구성 된 *Windows 방화벽*
-
-![방화벽](media/create-self-hosted-integration-runtime/firewall.png)
-
-회사 방화벽 수준에서는 다음 도메인 및 아웃바운드 포트를 구성해야 합니다.
-
-[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
-
-
-Windows 방화벽 수준 또는 컴퓨터 수준에서는 이러한 아웃 바운드 포트를 일반적으로 사용할 수 있습니다. 그렇지 않으면 자체 호스팅 통합 런타임 컴퓨터에서 도메인 및 포트를 구성할 수 있습니다.
-
-> [!NOTE]
-> 원본 및 싱크에 따라 회사 방화벽 또는 Windows 방화벽에서 추가 도메인 및 아웃 바운드 포트를 허용 해야 할 수도 있습니다.
->
-> Azure SQL Database 및 Azure Data Lake와 같은 일부 클라우드 데이터베이스의 경우 방화벽 구성에서 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 허용 해야 할 수 있습니다.
-
-### <a name="copy-data-from-a-source-to-a-sink"></a>원본에서 싱크로 데이터 복사
-
-회사 방화벽, 자체 호스팅 통합 런타임 컴퓨터의 Windows 방화벽 및 데이터 저장소 자체에 방화벽 규칙을 적절 하 게 사용 하도록 설정 해야 합니다. 이러한 규칙을 사용 하면 자체 호스팅 통합 런타임이 원본 및 싱크에 성공적으로 연결 될 수 있습니다. 복사 작업과 관련된 각 데이터 저장소에 대해 규칙을 사용하도록 설정합니다.
-
-예를 들어 온-프레미스 데이터 저장소에서 SQL Database 싱크 또는 Azure Synapse Analytics 싱크로 복사 하려면 다음 단계를 수행 합니다.
-
-1. Windows 방화벽 및 회사 방화벽 둘 다에 대해 포트 1433에서 아웃 바운드 TCP 통신을 허용 합니다.
-1. SQL Database의 방화벽 설정을 구성 하 여 허용 된 IP 주소 목록에 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 추가 합니다.
-
-> [!NOTE]
-> 방화벽에서 아웃 바운드 포트 1433을 허용 하지 않는 경우 자체 호스팅 통합 런타임에서 SQL 데이터베이스에 직접 액세스할 수 없습니다. 이 경우 [스테이징 된 복사본](copy-activity-performance.md) 을 사용 하 여 SQL Database 및 Azure Synapse 분석을 수행할 수 있습니다. 이 시나리오에서는 데이터 이동에 HTTPS (포트 443)만 필요 합니다.
 
 ## <a name="proxy-server-considerations"></a>프록시 서버 고려 사항
 
@@ -437,6 +366,66 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
 
 자체 호스팅 통합 런타임 컴퓨터에서 포트 8060을 열지 않도록 선택 하는 경우 자격 증명 설정 응용 프로그램 이외의 메커니즘을 사용 하 여 데이터 저장소 자격 증명을 구성 합니다. 예를 들어 **AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet을 사용할 수 있습니다.
+
+
+## <a name="ports-and-firewalls"></a>포트 및 방화벽
+
+다음 두 가지 방화벽을 고려해 야 합니다.
+
+- 조직의 중앙 라우터에서 실행 되는 *회사 방화벽*
+- 자체 호스팅 통합 런타임이 설치 된 로컬 컴퓨터에서 디먼으로 구성 된 *Windows 방화벽*
+
+![방화벽](media/create-self-hosted-integration-runtime/firewall.png)
+
+회사 방화벽 수준에서는 다음 도메인 및 아웃바운드 포트를 구성해야 합니다.
+
+[!INCLUDE [domain-and-outbound-port-requirements](./includes/domain-and-outbound-port-requirements-internal.md)]
+
+
+Windows 방화벽 수준 또는 컴퓨터 수준에서는 이러한 아웃 바운드 포트를 일반적으로 사용할 수 있습니다. 그렇지 않으면 자체 호스팅 통합 런타임 컴퓨터에서 도메인 및 포트를 구성할 수 있습니다.
+
+> [!NOTE]
+> 현재 Azure Relay 서비스 태그를 지원 하지 않으므로 통신을 Azure Relay 하려면 NSG 규칙에서 **Azurecloud** 또는 **Internet** 서비스 태그를 사용 해야 합니다.
+> Azure Data Factory 통신의 경우 NSG 규칙 설정에서 서비스 태그 **DataFactoryManagement** 를 사용할 수 있습니다.
+
+원본 및 싱크에 따라 회사 방화벽 또는 Windows 방화벽에서 추가 도메인 및 아웃 바운드 포트를 허용 해야 할 수도 있습니다.
+
+[!INCLUDE [domain-and-outbound-port-requirements](./includes/domain-and-outbound-port-requirements-external.md)]
+
+Azure SQL Database 및 Azure Data Lake와 같은 일부 클라우드 데이터베이스의 경우 방화벽 구성에서 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 허용 해야 할 수 있습니다.
+
+### <a name="get-url-of-azure-relay"></a>Azure Relay의 URL 가져오기
+방화벽의 허용 목록에 배치 해야 하는 필수 도메인 및 포트 중 하나는 통신을 Azure Relay 하는 것입니다. 자체 호스팅 integration runtime은 연결 테스트, 폴더 목록 및 테이블 목록 찾아보기, 스키마 가져오기 및 데이터 미리 보기와 같은 대화형 제작에 사용 됩니다. **Servicebus.windows.net** 를 허용 하지 않고 더 구체적인 url을 포함 하려는 경우 ADF 포털에서 자체 호스팅 통합 런타임에 필요한 모든 fqdn을 가져올 수 있습니다.
+1. ADF 포털로 이동 하 여 자체 호스팅 integration runtime을 선택 합니다.
+2. 편집 페이지에서 **노드** 를 선택 합니다.
+3. 모든 Fqdn을 가져오려면 **서비스 Url 보기** 를 클릭 합니다.
+
+![Azure Relay Url](media/create-self-hosted-integration-runtime/Azure-relay-url.png)
+
+4. 이 Fqdn은 방화벽 규칙 허용 목록에 추가할 수 있습니다.
+
+### <a name="copy-data-from-a-source-to-a-sink"></a>원본에서 싱크로 데이터 복사
+
+회사 방화벽, 자체 호스팅 통합 런타임 컴퓨터의 Windows 방화벽 및 데이터 저장소 자체에 방화벽 규칙을 적절 하 게 사용 하도록 설정 해야 합니다. 이러한 규칙을 사용 하면 자체 호스팅 통합 런타임이 원본 및 싱크에 성공적으로 연결 될 수 있습니다. 복사 작업과 관련된 각 데이터 저장소에 대해 규칙을 사용하도록 설정합니다.
+
+예를 들어 온-프레미스 데이터 저장소에서 SQL Database 싱크 또는 Azure Synapse Analytics 싱크로 복사 하려면 다음 단계를 수행 합니다.
+
+1. Windows 방화벽 및 회사 방화벽 둘 다에 대해 포트 1433에서 아웃 바운드 TCP 통신을 허용 합니다.
+2. SQL Database의 방화벽 설정을 구성 하 여 허용 된 IP 주소 목록에 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 추가 합니다.
+
+> [!NOTE]
+> 방화벽에서 아웃 바운드 포트 1433을 허용 하지 않는 경우 자체 호스팅 통합 런타임에서 SQL 데이터베이스에 직접 액세스할 수 없습니다. 이 경우 [스테이징 된 복사본](copy-activity-performance.md) 을 사용 하 여 SQL Database 및 Azure Synapse 분석을 수행할 수 있습니다. 이 시나리오에서는 데이터 이동에 HTTPS (포트 443)만 필요 합니다.
+
+
+## <a name="installation-best-practices"></a>설치 모범 사례
+
+[Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 관리 되는 id 설치 패키지를 다운로드 하 여 자체 호스팅 통합 런타임을 설치할 수 있습니다. 단계별 지침은 [온-프레미스와 클라우드 간에 데이터 이동](tutorial-hybrid-copy-powershell.md) 문서를 참조 하세요.
+
+- 컴퓨터가 최대 절전 모드로 전환 되지 않도록 자체 호스팅 통합 런타임에 대 한 호스트 컴퓨터에서 전원 계획을 구성 합니다. 호스트 컴퓨터가 최대 절전 모드로 설정되면 자체 호스팅 통합 런타임도 오프라인 상태가 됩니다.
+- 자체 호스팅 통합 런타임과 연결 된 자격 증명을 정기적으로 백업 합니다.
+- 자체 호스팅 IR 설정 작업을 자동화 하려면 [PowerShell을 통해 기존 자체 호스트 Ir 설정](#setting-up-a-self-hosted-integration-runtime)을 참조 하세요.  
+
+
 
 ## <a name="next-steps"></a>다음 단계
 
