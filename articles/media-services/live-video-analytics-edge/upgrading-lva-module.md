@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: 9621f0a933c6102309286505f2c551c5256c5506
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: aa8657550c6475afd9f893acf8985c50cec0f199
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901558"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119461"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>IoT Edge에서 Live Video Analytics를 1.0에서 2.0으로 업그레이드
 
@@ -21,7 +21,7 @@ ms.locfileid: "97901558"
 > [!div class="mx-tdCol4BreakAll"]
 > |제목|라이브 비디오 분석 1.0|라이브 비디오 분석 2.0|설명|
 > |-------------|----------|---------|---------|
-> |컨테이너 이미지|mcr.microsoft.com/media/live-video-analytics:1.0.0|mcr.microsoft.com/media/live-video-analytics:2.0.0|Azure IoT Edge에서 라이브 비디오 분석을 위해 Microsoft에서 게시 한 docker 이미지|
+> |컨테이너 이미지|mcr.microsoft.com/media/live-video-analytics:1|mcr.microsoft.com/media/live-video-analytics:2|Azure IoT Edge에서 라이브 비디오 분석을 위해 Microsoft에서 게시 한 docker 이미지|
 > |**MediaGraph 노드** |    |   |   |
 > |원본|:::image type="icon" source="./././media/upgrading-lva/check.png"::: RTSP 원본 </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub 메시지 원본 |:::image type="icon" source="./././media/upgrading-lva/check.png"::: RTSP 원본 </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub 메시지 원본 | 미디어 수집 및 메시지의 원본 역할을 하는 MediaGraph 노드입니다.|
 > |프로세서|:::image type="icon" source="./././media/upgrading-lva/check.png"::: 동작 감지 프로세서 </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: 프레임 속도로 필터 프로세서 </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Http 확장 프로세서 </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Grpc 확장 프로세서 </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: 신호 게이트 프로세서 |:::image type="icon" source="./././media/upgrading-lva/check.png"::: 동작 감지 프로세서 </br>:::image type="icon" source="./././media/upgrading-lva/remove.png":::**프레임 속도로 필터 프로세서**</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Http 확장 프로세서 </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Grpc 확장 프로세서 </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: 신호 게이트 프로세서 | AI 유추 서버에 보내기 전에 미디어를 포맷 하는 데 사용할 수 있는 MediaGraph 노드입니다.|
@@ -60,7 +60,7 @@ IoT Edge 모듈에서 라이브 비디오 분석의 이름을 수정 하지 않�
 * `MediaGraphHttpExtension`및 `MediaGraphGrpcExtension` 프로세서에서 다음 변경 내용을 확인 합니다.  
     * **이미지 속성**
         * `MediaGraphImageFormatEncoded`은 더 이상 지원되지 않습니다. 
-        * 대신 **`MediaGraphImageFormatBmp`** 또는 또는를 **`MediaGraphImageFormatJpeg`** 사용 **`MediaGraphImageFormatPng`** 합니다. 예를 들면 다음과 같습니다.
+        * 대신 **`MediaGraphImageFormatBmp`** 또는 또는를 **`MediaGraphImageFormatJpeg`** 사용 **`MediaGraphImageFormatPng`** 합니다. 예제:
         ```
         "image": {
                 "scale": 

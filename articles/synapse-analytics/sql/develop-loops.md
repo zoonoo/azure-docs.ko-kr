@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 99ee41de7ffd66191ff712a5ffbda65f3233196f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0d83e1305a851bf6bafb6c4c79f5caf73f8e44b6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324441"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120889"
 ---
 # <a name="use-t-sql-loops-with-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL과 함께 T-sql 루프 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "93324441"
 
 ## <a name="purpose-of-while-loops"></a>WHILE 루프의 목적
 
-Synapse SQL은 문 블록을 반복 실행 하기 위한 [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15&preserve-view=true) 루프를 지원 합니다. 이 WHILE 루프는 지정한 조건이 true이거나 코드가 BREAK 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다. 
+Synapse SQL은 문 블록을 반복 실행 하기 위한 [while](/sql/t-sql/language-elements/while-transact-sql?preserve-view=true&view=sql-server-ver15) 루프를 지원 합니다. 이 WHILE 루프는 지정한 조건이 true이거나 코드가 BREAK 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다. 
 
 Synapse SQL의 루프는 SQL 코드에 정의 된 커서를 대체 하는 데 유용 합니다. 다행히 SQL 코드로 작성된 거의 모든 커서는 빠른 정방향 읽기 전용 변형만 존재합니다. 따라서 루프는 커서를 대체 하는 좋은 방법입니다.
 

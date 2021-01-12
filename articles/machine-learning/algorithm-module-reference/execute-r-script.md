@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
-ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679106"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119022"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
@@ -49,10 +49,12 @@ azureml_main <- function(dataframe1, dataframe2){
 추가 R 패키지를 설치 하려면 메서드를 사용 `install.packages()` 합니다. 패키지는 각 R 스크립트 실행 모듈에 대해 설치 됩니다. 다른 R 스크립트 실행 모듈에서 공유 되지 않습니다.
 
 > [!NOTE]
+> 스크립트 번들에서 R 패키지를 설치 하는 것은 권장 **되지 않습니다** . 스크립트 편집기에서 직접 패키지를 설치 하는 것이 좋습니다.
 > 패키지를 설치할 때 CRAN 리포지토리를 지정 합니다 (예:) `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
 
 > [!WARNING]
 > Excute R 스크립트 모듈은 `qdap` c + +를 필요로 하는 JAVA 및 패키지를 필요로 하는 패키지와 같이 네이티브 컴파일이 필요한 패키지를 설치 하는 것을 지원 하지 않습니다 `drc` . 이 모듈은 비관리자 권한이 있는 사전 설치 된 환경에서 실행 되기 때문입니다.
+> 디자이너 모듈이 Ubuntu에서 실행 되므로 Windows에 대해 미리 작성 된 패키지를 설치 하지 않습니다. Windows에서 패키지가 미리 작성 되었는지 확인 하려면 [cran](https://cran.r-project.org/) 로 이동 하 여 패키지를 검색 하 고, OS에 따라 이진 파일 하나를 다운로드 하 고, **설명** 파일의 **빌드:** 파트를 선택 합니다. 예를 들면 다음과 같습니다. :::image type="content" source="media/module/r-package-description.png" alt-text="R 패키지 설명" lightbox="media/module/r-package-page.png":::
 
 이 샘플은 동물원을 설치 하는 방법을 보여 줍니다.
 ```R

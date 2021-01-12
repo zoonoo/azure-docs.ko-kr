@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31014d336b5122251cf8be4a166520064776fce3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024030"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118169"
 ---
 # <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>전용 SQL 풀로 데이터를 로드 하는 모범 사례 Azure Synapse Analytics
 
@@ -145,5 +145,5 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 ## <a name="next-steps"></a>다음 단계
 
 - PolyBase에 대해 자세히 알아보고 ELT (추출, 로드 및 변환) 프로세스를 디자인 하는 방법에 대 한 자세한 내용은 [Azure Synapse Analytics 용 ELT 디자인](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조 하세요.
-- 로드 자습서의 경우 [PolyBase를 사용 하 여 azure blob storage에서 Azure Synapse Analytics로 데이터를 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)합니다.
+- 로드 자습서의 경우 [PolyBase를 사용 하 여 azure blob storage에서 Azure Synapse Analytics로 데이터를 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)합니다.
 - 데이터 로드를 모니터링하려면 [DMV를 사용하여 워크로드 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.

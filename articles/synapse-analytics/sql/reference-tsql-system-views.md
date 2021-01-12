@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4e4e6a1607fa42f4be07451f9aa0d8ff923d85d6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fc90ad8104cff7ead501470a883b56b67a86cf7c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317325"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121263"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Synapse SQL에서 지원 되는 시스템 뷰
 
@@ -252,6 +252,5 @@ SQL 풀 및 분석 플랫폼 시스템의 PDW (병렬 데이터 웨어하우스)
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 참조 정보는 [SYNAPSE sql의 t-sql 문](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements)및 [Synapse sql의 t-sql 언어 요소](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)를 참조 하세요.
+자세한 참조 정보는 [SYNAPSE sql의 t-sql 문](../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md)및 [Synapse sql의 t-sql 언어 요소](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md)를 참조 하세요.
 
- 

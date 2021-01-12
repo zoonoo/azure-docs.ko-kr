@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 45e1ae5b8a1084334b7596f62c272e16294c4c14
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462561"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118764"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 및 JSON 파일의 중첩 형식 쿼리
 
@@ -24,7 +24,7 @@ ms.locfileid: "96462561"
 - 계층적 [json 파일](query-json-files.md)은 단일 열로 복잡 한 json 문서를 읽을 수 있습니다.
 - 모든 문서에 복잡 한 중첩 된 속성이 포함 될 수 있는 컬렉션 (현재는 제어 된 공개 미리 보기 상태)을 Azure Cosmos DB 합니다.
 
-서버를 사용 하지 않는 SQL 풀은 모든 중첩 형식을 JSON 개체 및 배열로 서식 지정 합니다. 따라서 [json 함수를 사용 하 여 복잡 한 개체를 추출 하거나 수정](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) 하거나 [OPENJSON 함수를 사용 하 여 json 데이터를 구문 분석할](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server)수 있습니다. 
+서버를 사용 하지 않는 SQL 풀은 모든 중첩 형식을 JSON 개체 및 배열로 서식 지정 합니다. 따라서 [json 함수를 사용 하 여 복잡 한 개체를 추출 하거나 수정](/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) 하거나 [OPENJSON 함수를 사용 하 여 json 데이터를 구문 분석할](/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server)수 있습니다. 
 
 다음은 중첩 된 개체를 포함 하는 [Covid-19 Open Research 데이터 집합](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) JSON 파일에서 스칼라 및 개체 값을 추출 하는 쿼리의 예입니다. 
 
@@ -47,7 +47,7 @@ FROM
 > [!IMPORTANT]
 > 이 예에서는 COVID-19 Open Research 데이터 집합의 파일을 사용 합니다. [여기에서 데이터의 라이선스 및 구조를 참조](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/)하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 첫 번째 단계는 데이터 원본이 생성 될 데이터베이스를 만드는 것입니다. 그런 다음 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) 를 실행 하 여 개체를 초기화 합니다. 설치 스크립트는 데이터 원본, 데이터베이스 범위 자격 증명 및 샘플에서 사용 되는 외부 파일 형식을 만듭니다.
 
@@ -121,7 +121,7 @@ FROM
 | --- | --- | --- | --- |
 | Epidemiolo에 대 한 보충 정보 ... | Julien   | -그림 S1: Phylogeny ... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
-대부분의 경우에 복잡 한 JSON 개체를 포함 하는 단일 열을 반환 하는 JSON 파일과 달리 Parquet 파일에는 여러 개의 복합 열이 있을 수 있습니다. 각 열에서 함수를 사용 하 여 중첩 열의 속성을 읽을 수 있습니다 `JSON_VALUE` . `OPENROWSET` 절에서 중첩 된 속성의 경로를 직접 지정할 수 있습니다 `WITH` . 경로를 열 이름으로 설정 하거나 열 유형 뒤에 [JSON 경로 식을](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) 추가할 수 있습니다.
+대부분의 경우에 복잡 한 JSON 개체를 포함 하는 단일 열을 반환 하는 JSON 파일과 달리 Parquet 파일에는 여러 개의 복합 열이 있을 수 있습니다. 각 열에서 함수를 사용 하 여 중첩 열의 속성을 읽을 수 있습니다 `JSON_VALUE` . `OPENROWSET` 절에서 중첩 된 속성의 경로를 직접 지정할 수 있습니다 `WITH` . 경로를 열 이름으로 설정 하거나 열 유형 뒤에 [JSON 경로 식을](/sql/relational-databases/json/json-path-expressions-sql-server) 추가할 수 있습니다.
 
 다음 쿼리는 structExample 파일을 읽고 중첩 열의 요소를 표시 하는 방법을 보여 줍니다. 중첩 된 값을 참조 하는 방법에는 두 가지가 있습니다.
 - 유형 지정 뒤에 중첩 된 값 경로 식을 지정 합니다.

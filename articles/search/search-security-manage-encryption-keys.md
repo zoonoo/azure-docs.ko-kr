@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 6b1079797f1a753fa8362d6e920f3394087d7e9f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530887"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119291"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 암호화를 위해 고객이 관리 하는 키 구성
 
@@ -41,7 +41,7 @@ Azure Cognitive Search [는 서비스 관리 키](../security/fundamentals/encry
 
 다른 지역 또는 8 월 1 일 이전에 만든 서비스를 사용 하는 경우 관리 키 암호화는 서비스에서 사용 하는 임시 디스크를 제외 하 고 데이터 디스크로만 제한 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 시나리오에서 사용 되는 도구 및 서비스는 다음과 같습니다.
 
@@ -52,7 +52,7 @@ Azure Cognitive Search [는 서비스 관리 키](../security/fundamentals/encry
 암호화 된 개체를 만들 수 있는 검색 응용 프로그램이 있어야 합니다. 이 코드에는 주요 자격 증명 모음 키를 참조 하 고 등록 정보를 Active Directory 합니다. 이 코드는 작업 중인 앱 또는 [c # 코드 샘플 DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)같은 프로토타입 코드 일 수 있습니다.
 
 > [!TIP]
-> [Postman 또는 Visual Studio Code](search-get-started-rest.md)또는 [Azure PowerShell](./search-get-started-powershell.md)를 사용 하 여 암호화 키 매개 변수를 포함 하는 인덱스 및 동의어 맵을 만드는 REST api를 호출할 수 있습니다. 현재는 인덱스 또는 동의어 맵에 키를 추가할 수 있는 포털이 지원 되지 않습니다.
+> [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md)또는 [Azure PowerShell](./search-get-started-powershell.md)를 사용 하 여 암호화 키 매개 변수를 포함 하는 인덱스 및 동의어 맵을 만드는 REST api를 호출할 수 있습니다. 현재는 인덱스 또는 동의어 맵에 키를 추가할 수 있는 포털이 지원 되지 않습니다.
 
 ## <a name="1---enable-key-recovery"></a>1-키 복구 사용
 

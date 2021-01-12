@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095103"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121348"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link Preview에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-`OPENROWSET`성능에 영향을 줄 수 있으므로 명시적으로 정의 하지 않은 스키마를 사용 하지 마세요. 열에 사용할 수 있는 최소 크기를 사용 해야 합니다 (예: 기본 VARCHAR (8000) 대신 VARCHAR (100)). Utf-8 [변환 문제](/azure/synapse-analytics/troubleshoot/reading-utf8-text)를 방지 하려면 utf-8 데이터 정렬을 기본 데이터베이스 데이터 정렬로 사용 하거나 명시적 열 데이터 정렬로 설정 해야 합니다. `Latin1_General_100_BIN2_UTF8`데이터 정렬은 yu에서 일부 문자열 열을 사용 하 여 데이터를 필터링 할 때 최상의 성능을 제공 합니다.
+`OPENROWSET`성능에 영향을 줄 수 있으므로 명시적으로 정의 하지 않은 스키마를 사용 하지 마세요. 열에 사용할 수 있는 최소 크기를 사용 해야 합니다 (예: 기본 VARCHAR (8000) 대신 VARCHAR (100)). Utf-8 [변환 문제](../troubleshoot/reading-utf8-text.md)를 방지 하려면 utf-8 데이터 정렬을 기본 데이터베이스 데이터 정렬로 사용 하거나 명시적 열 데이터 정렬로 설정 해야 합니다. `Latin1_General_100_BIN2_UTF8`데이터 정렬은 yu에서 일부 문자열 열을 사용 하 여 데이터를 필터링 할 때 최상의 성능을 제공 합니다.
 
 ## <a name="query-nested-objects-and-arrays"></a>중첩 된 개체 및 배열 쿼리
 
@@ -268,8 +268,8 @@ WITH (  paper_id    varchar(8000),
 Azure Synapse 링크 및 서버를 사용 하지 않는 [SQL 풀의 중첩 된 구조](query-parquet-nested-types.md)에서 [복합 데이터 형식을](../how-to-analyze-complex-schema.md) 분석 하는 방법에 대해 자세히 알아보세요.
 
 > [!IMPORTANT]
-> 대신 텍스트에서 예기치 않은 문자가 표시 되는 경우 `MÃƒÂ©lade` `Mélade` 데이터베이스 데이터 정렬은 [utf-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) 데이터 정렬로 설정 되지 않습니다.
-> 과 같은 SQL 문을 사용 하 여 [데이터베이스의 데이터 정렬을](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) utf-8 데이터 정렬로 변경 `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` 합니다.
+> 대신 텍스트에서 예기치 않은 문자가 표시 되는 경우 `MÃƒÂ©lade` `Mélade` 데이터베이스 데이터 정렬은 [utf-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) 데이터 정렬로 설정 되지 않습니다.
+> 과 같은 SQL 문을 사용 하 여 [데이터베이스의 데이터 정렬을](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) utf-8 데이터 정렬로 변경 `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` 합니다.
 
 ## <a name="flatten-nested-arrays"></a>중첩 된 배열 평면화
 
@@ -325,7 +325,7 @@ Epidemi에 대 한 보충 정보 ... | `[{"first":"Nicolas","last":"4#","suffix"
 | Epidemi에 대 한 보충 정보 ... |   `[{"first":"Olivier","last":"Flores","suffix":"","affiliation":{"laboratory":"UMR C53 CIRAD, …` | Olivier | Flores |`{"laboratory":"UMR C53 CIRAD, …` |     
 
 > [!IMPORTANT]
-> 대신 텍스트에서 예기치 않은 문자가 표시 되는 경우 `MÃƒÂ©lade` `Mélade` 데이터베이스 데이터 정렬은 [utf-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) 데이터 정렬로 설정 되지 않습니다. 과 같은 SQL 문을 사용 하 여 [데이터베이스의 데이터 정렬을](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) utf-8 데이터 정렬로 변경 `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` 합니다.
+> 대신 텍스트에서 예기치 않은 문자가 표시 되는 경우 `MÃƒÂ©lade` `Mélade` 데이터베이스 데이터 정렬은 [utf-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) 데이터 정렬로 설정 되지 않습니다. 과 같은 SQL 문을 사용 하 여 [데이터베이스의 데이터 정렬을](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) utf-8 데이터 정렬로 변경 `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` 합니다.
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>SQL 형식 매핑 Azure Cosmos DB
 
@@ -422,7 +422,7 @@ GROUP BY geo_id
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 
-| 오류 | 근본 원인 |
+| Error | 근본 원인 |
 | --- | --- |
 | 구문 오류:<br/> -근처의 구문이 잘못 되었습니다. `Openrowset`<br/> - `...` 은 (는) 인식할 수 없는 `BULK OPENROWSET` 공급자 옵션입니다.<br/> -근처의 구문이 잘못 되었습니다. `...` | 가능한 근본 원인은 다음과 같습니다.<br/> -첫 번째 매개 변수로 CosmosDB를 사용 하지 않습니다.<br/> -세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용 합니다.<br/> -세 번째 매개 변수 (컨테이너 이름)를 지정 하지 않습니다. |
 | CosmosDB 연결 문자열에 오류가 있습니다. | -계정, 데이터베이스 또는 키가 지정 되지 않았습니다. <br/> -인식 되지 않는 연결 문자열에는 몇 가지 옵션이 있습니다.<br/> -세미콜론 ( `;` )은 연결 문자열의 끝에 배치 됩니다. |

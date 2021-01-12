@@ -10,12 +10,12 @@ author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: de45e338b0b863dc2364af399a6991f56658b0e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6042b5be48144ce6730a9bf4f342d7735a262643
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212278"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118067"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>할당량 증가 요청 및 Azure Synapse Analytics에 대한 지원 받기
 
@@ -25,12 +25,12 @@ ms.locfileid: "85212278"
 
 다음 단계를 사용하여 Azure Synapse Analytics에 대한 Azure Portal에서 새 지원 요청을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원** 을 선택합니다.
 
    ![도움말 + 지원 링크](./media/sql-data-warehouse-get-started-create-support-ticket/help-plus-support.png)
 
 
-1. **도움말 + 지원**에서 **새 지원 요청**을 선택합니다.
+1. **도움말 + 지원** 에서 **새 지원 요청** 을 선택합니다.
 
     ![새 지원 요청 만들기](./media/sql-data-warehouse-get-started-create-support-ticket/new-support-request.png)
 
@@ -38,18 +38,18 @@ ms.locfileid: "85212278"
 
    * **청구, 할당량 및 구독 관리** 지원은 모든 지원 수준에서 제공됩니다.
    * **고장 수리** 지원은 [개발자](https://azure.microsoft.com/support/plans/developer/), [표준](https://azure.microsoft.com/support/plans/standard/), [전문가 지원](https://azure.microsoft.com/support/plans/prodirect/) 또는 [프리미어](https://azure.microsoft.com/support/plans/premier/) 지원을 통해 제공됩니다. 고장 수리 문제는 고객이 Azure를 사용하는 동안 고객에게 발생한 문제 중 Microsoft로 인해 문제가 발생했다는 합리적인 이유가 존재하는 문제를 의미합니다.
-   * **개발자 멘토링** 및 **자문 서비스**는 [전문가 지원](https://azure.microsoft.com/support/plans/prodirect/) 및 [프리미어](https://azure.microsoft.com/support/plans/premier/) 지원 수준에서 제공됩니다.
+   * **개발자 멘토링** 및 **자문 서비스** 는 [전문가 지원](https://azure.microsoft.com/support/plans/prodirect/) 및 [프리미어](https://azure.microsoft.com/support/plans/premier/) 지원 수준에서 제공됩니다.
 
    프리미어 지원 계획이 있는 경우 [Microsoft 프리미어 온라인 포털](https://premier.microsoft.com/)에서 Azure Synapse Analytics 문제를 보고할 수도 있습니다. 범위, 응답 시간, 가격 책정 등을 포함한 다양한 지원 계획에 대한 자세한 정보는 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/)을 참조하세요.  Azure 지원에 대한 질문과 대답은 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
-1. **문제 유형**에서 적절한 문제 유형을 선택합니다. 고장 수리 문제의 경우 **기술**을 선택합니다. 할당량 증가 요청의 경우 **서비스 및 구독 제한(할당량)** 을 선택합니다.
+1. **문제 유형** 에서 적절한 문제 유형을 선택합니다. 고장 수리 문제의 경우 **기술** 을 선택합니다. 할당량 증가 요청의 경우 **서비스 및 구독 제한(할당량)** 을 선택합니다.
 
    ![문제 유형 선택](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-issue-type.png)  
 
    > [!NOTE]
-   > 이 문서의 나머지 부분에서는 할당량 증가 요청을 집중적으로 살펴봅니다. 하지만 여기에서 문제 해결 지원 요청에 대해 **기술**을 선택할 수도 있습니다. **기술**을 선택하는 경우 요약을 입력한 다음, **문제 유형 선택**을 선택하여 문제 유형을 식별하라는 메시지가 표시됩니다. 문제를 해결하는 데 도움이 되는 솔루션을 볼 수 있습니다. 제공된 해결 방법으로 문제가 해결되지 않으면 **다음: 세부 정보**를 선택하고 양식을 완료하여 지원 티켓을 제출합니다.
+   > 이 문서의 나머지 부분에서는 할당량 증가 요청을 집중적으로 살펴봅니다. 하지만 여기에서 문제 해결 지원 요청에 대해 **기술** 을 선택할 수도 있습니다. **기술** 을 선택하는 경우 요약을 입력한 다음, **문제 유형 선택** 을 선택하여 문제 유형을 식별하라는 메시지가 표시됩니다. 문제를 해결하는 데 도움이 되는 솔루션을 볼 수 있습니다. 제공된 해결 방법으로 문제가 해결되지 않으면 **다음: 세부 정보** 를 선택하고 양식을 완료하여 지원 티켓을 제출합니다.
 
-1. 할당량 증가 요청의 경우 **할당량 유형**에 대해 **Azure Synapse Analytics**를 선택합니다. 그런 다음, **Next: 솔루션 >>** 을 선택합니다.
+1. 할당량 증가 요청의 경우 **할당량 유형** 에 대해 **Azure Synapse Analytics** 를 선택합니다. 그런 다음, **Next: 솔루션 >>** 을 선택합니다.
 
    ![할당량 유형 선택](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-type.png)
 
@@ -71,7 +71,7 @@ ms.locfileid: "85212278"
 
 1. 새 할당량을 **요청 할당량** 섹션에 입력 합니다.
 
-1. **저장 및 계속**을 선택합니다.
+1. **저장 및 계속** 을 선택합니다.
 
    ![DWU 할당량 세부 정보](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-dwus.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "85212278"
 
 
 
-1. **저장 및 계속**을 선택합니다.
+1. **저장 및 계속** 을 선택합니다.
 
 일부 제품 유형은 모든 지역에서 사용할 수 없습니다. 다음 오류가 표시될 수 있습니다.
 
@@ -106,9 +106,9 @@ ms.locfileid: "85212278"
 
 1. **Dwu required** 섹션에서 dwu 성능 요구 사항을 표시 합니다.
 
-1. **비즈니스 요구 사항에 대 한 설명을**입력 합니다. 
+1. **비즈니스 요구 사항에 대 한 설명을** 입력 합니다. 
 
-1. **저장 및 계속**을 선택합니다.
+1. **저장 및 계속** 을 선택합니다.
 
 ![지역 액세스](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-region.png)
 
@@ -121,7 +121,7 @@ ms.locfileid: "85212278"
 
 ## <a name="submit-your-request"></a>요청 제출
 
-마지막 단계는 SQL Database 지원 요청에 대한 나머지 세부 정보를 입력하는 것입니다. 그런 후 다음을 선택 합니다. **검토 +>>만들기 **를 선택 합니다.
+마지막 단계는 SQL Database 지원 요청에 대한 나머지 세부 정보를 입력하는 것입니다. 그런 후 다음을 선택 합니다. **검토 +>>만들기** 를 선택 합니다.
 
 ![만들기 세부 정보 검토](./media/sql-data-warehouse-get-started-create-support-ticket/review-create-details.png)
 
@@ -137,5 +137,4 @@ ms.locfileid: "85212278"
 
 ## <a name="other-resources"></a>기타 리소스
 
-[Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) 에서 또는 [azure Synapse analytics에 대 한 질문 페이지를&](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)통해 azure Synapse analytics 커뮤니티에 연결할 수도 있습니다.
-
+[Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) 에서 또는 [azure Synapse analytics에 대 한 질문 페이지를&](/answers/topics/azure-synapse-analytics.html)통해 azure Synapse analytics 커뮤니티에 연결할 수도 있습니다.

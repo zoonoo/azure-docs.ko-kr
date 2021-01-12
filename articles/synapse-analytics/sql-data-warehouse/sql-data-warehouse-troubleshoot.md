@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c69df88828a179cf1dce7bd35ac19c518b07903d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 8db1825e7abfaaeca4650cbd03dd05eec4777c21
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530717"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121280"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW) 문제 해결
 
@@ -85,6 +85,6 @@ ms.locfileid: "96530717"
 * [기능 요청](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [지원 티켓 만들기](sql-data-warehouse-get-started-create-support-ticket.md)
-* [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+* [Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html)
 * [Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw)
 * [Twitter](https://twitter.com/hashtag/SQLDW)

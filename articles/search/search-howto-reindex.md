@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: ae8fd7f405beb20d516835ccb80b86e769fd0393
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 47e9b80bb25b7ff14695cc67682265fe338ff76f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697087"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119104"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱스를 다시 작성 하는 방법
 
@@ -37,7 +37,7 @@ ms.locfileid: "94697087"
 
 다음 조건 중 하나라도 충족 되 면 인덱스를 삭제 하 고 다시 만듭니다. 
 
-| 조건 | Description |
+| 조건 | 설명 |
 |-----------|-------------|
 | 필드 정의 변경 | 필드 이름, 데이터 형식 또는 특정 [인덱싱 특성](/rest/api/searchservice/create-index)(검색 가능, 필터링 가능, 정렬 가능, 패싯 가능)을 수정하려면 전체적으로 다시 작성해야 합니다. |
 | 필드에 분석기 할당 | [분석기](search-analyzers.md)는 인덱스에 정의된 후 필드에 할당됩니다. 언제든지 새 분석기 정의를 인덱스에 추가할 수 있지만, 분석기 *할당* 은 필드를 만들 때만 가능합니다. **분석기** 와 **indexAnalyzer** 둘 다 그렇습니다. **searchAnalyzer** 속성은 예외입니다(이 속성을 기존 필드에 할당 가능). |
@@ -91,7 +91,7 @@ ms.locfileid: "94697087"
 
 첫 번째 문서를 로드하는 즉시 인덱스 쿼리를 시작할 수 있습니다. 문서 ID를 알고 있는 경우 [문서 조회 REST API](/rest/api/searchservice/lookup-document)가 특정 문서를 반환합니다. 보다 광범위한 테스트를 위해서는 인덱스가 완전히 로드될 때까지 기다린 다음, 쿼리를 사용하여 보려는 컨텍스트를 확인합니다.
 
-[검색 탐색기](search-explorer.md) 또는 [postman 또는 Visual Studio Code](search-get-started-rest.md) 와 같은 웹 테스트 도구를 사용 하 여 업데이트 된 콘텐츠를 확인할 수 있습니다.
+[검색 탐색기](search-explorer.md) 또는 [postman](search-get-started-rest.md) 또는 [Visual Studio Code](search-get-started-vs-code.md) 와 같은 웹 테스트 도구를 사용 하 여 업데이트 된 콘텐츠를 확인할 수 있습니다.
 
 필드를 추가 하거나 이름을 바꾼 경우 [$select](search-query-odata-select.md) 를 사용 하 여 해당 필드를 반환 합니다. `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 11/18/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 861b963922d64926266b42a23f85e9dc30fda7a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1031656eaa5125d07ae078773379270b26625e7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95903987"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121382"
 ---
 # <a name="compatibility-issues-with-third-party-applications-and-azure-synapse-analytics"></a>타사 응용 프로그램 및 Azure Synapse Analytics와의 호환성 문제
 
@@ -30,7 +30,7 @@ Azure Synapse 전용 SQL 풀 버전 10.0.11038.0에서 시작 하 여 저장 프
 
 이는 ODBC 및 JDBC 드라이버에서 자동으로 호출 되는 새 시스템 저장 프로시저의 도입으로 인해 발생 하는 Azure Synapse 전용 SQL 풀의 문제입니다. 이러한 시스템 저장 프로시저 중 하나를 실행 하면 열려 있는 트랜잭션이 중단 될 수 있습니다. 이 문제는 클라이언트 응용 프로그램 논리에 따라 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 Azure Synapse 전용 SQL 풀에 연결 된 Tableau를 사용 하는 경우이 특정 문제를 보고 하는 고객은 SQL 연결에서 FMTONLY를 예로 설정 해야 합니다. Tableau Desktop 및 Tableau Server의 경우 tableau가이 매개 변수를 드라이버로 전달 하는지 확인 하려면 Tableau 데이터 원본 사용자 지정 (TDC) 파일을 사용 해야 합니다.  
 
 > [!NOTE] 
@@ -55,5 +55,5 @@ TDC 파일 사용에 대 한 자세한 내용은 Tableau 지원에 문의 하세
 
 ## <a name="see-also"></a>참조
 
-* [Azure Synapse Analytics의 전용 SQL 풀에 대 한 t-sql 언어 요소입니다.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-* [Azure Synapse Analytics에서 전용 SQL 풀에 대해 지원 되는 t-sql 문입니다.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)
+* [Azure Synapse Analytics의 전용 SQL 풀에 대 한 t-sql 언어 요소입니다.](./sql-data-warehouse-reference-tsql-language-elements.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+* [Azure Synapse Analytics에서 전용 SQL 풀에 대해 지원 되는 t-sql 문입니다.](./sql-data-warehouse-reference-tsql-statements.md)

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9802e6553d553aae4f13194dc9951d1a17af6f66
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b17e47463ef3fe9a2cc959364825451468266f0e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462880"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120022"
 ---
 # <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW)에 대 한 모범 사례
 
@@ -74,7 +74,7 @@ PolyBase는 시스템의 분산 된 특성을 활용 하도록 설계 되었으�
 > [!NOTE]
 > gzip 텍스트 파일을 사용할 때 처리량을 최대화하려면 파일을 60개 이상의 파일로 나누어 로드의 병렬 처리를 최대화합니다.  총 처리량을 더 빠르게 하기 위해 데이터를 동시에 로드하는 것이 좋습니다.
 
-또한 [데이터 로드](design-elt-data-loading.md), [PolyBase 사용을 위한 가이드](guidance-for-loading-data.md), [전용 SQL 풀 로드 패턴 및 전략](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Azure Data Factory를 사용 하 여 데이터 로드]( ../../data-factory/load-azure-sql-data-warehouse.md), [Azure Data Factory 데이터 이동](../../data-factory/transform-data-using-machine-learning.md), [외부 파일 형식 만들기](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)및 [ctas (create table as select)](sql-data-warehouse-develop-ctas.md)를 참조 하세요.
+또한 [데이터 로드](design-elt-data-loading.md), [PolyBase 사용을 위한 가이드](guidance-for-loading-data.md), [전용 SQL 풀 로드 패턴 및 전략](/archive/blogs/sqlcat/), [Azure Data Factory를 사용 하 여 데이터 로드]( ../../data-factory/load-azure-sql-data-warehouse.md), [Azure Data Factory 데이터 이동](../../data-factory/transform-data-using-machine-learning.md), [외부 파일 형식 만들기](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)및 [ctas (create table as select)](sql-data-warehouse-develop-ctas.md)를 참조 하세요.
 
 ## <a name="load-then-query-external-tables"></a>외부 테이블 로드 후 쿼리
 
@@ -97,7 +97,7 @@ PolyBase는 시스템의 분산 된 특성을 활용 하도록 설계 되었으�
 
 성능을 향상시킬 수 있도록 배포 열을 선택하는 방법과 CREATE TABLE 문의 WITH 절에서 분산된 테이블을 정의하는 방법은 아래 링크를 참조하세요.
 
-또한 [테이블 개요](sql-data-warehouse-tables-overview.md), [테이블 배포](sql-data-warehouse-tables-distribute.md), [테이블 배포 선택](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)도 참조하세요.
+또한 [테이블 개요](sql-data-warehouse-tables-overview.md), [테이블 배포](sql-data-warehouse-tables-distribute.md), [테이블 배포 선택](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)도 참조하세요.
 
 ## <a name="do-not-over-partition"></a>과도한 분할 피하기
 
@@ -180,7 +180,7 @@ Columnstore 테이블은 일반적으로 테이블당 100만 개 이상의 행�
 
 또한 일반적인 문제 및 해결 방법에 대해서는 [문제 해결](sql-data-warehouse-troubleshoot.md) 문서를 참조하세요.
 
-이 문서에서 원하는 내용을 찾지 못한 경우 이 페이지의 왼쪽에 있는 "문서 검색"을 사용하여 모든 Azure Synapse 문서를 검색해보세요.  [Azure Synapse에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)는 다른 사용자와 Azure Synapse 제품 그룹에 질문을 게시할 수 있는 곳입니다. Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  
+이 문서에서 원하는 내용을 찾지 못한 경우 이 페이지의 왼쪽에 있는 "문서 검색"을 사용하여 모든 Azure Synapse 문서를 검색해보세요.  [Azure Synapse에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html)는 다른 사용자와 Azure Synapse 제품 그룹에 질문을 게시할 수 있는 곳입니다. Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  
 
 스택 오버플로에 질문하는 것을 선호하는 경우 [Azure Synapse Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw)도 제공합니다.
 

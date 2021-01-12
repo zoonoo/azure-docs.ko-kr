@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a5e514602668c96d63562e45fb114cf9770a54a9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1fd7649cac6b636873ca529fe9780429d86697c6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321500"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120906"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Synapse SQL 개발 모범 사례
 
@@ -53,7 +53,7 @@ ms.locfileid: "93321500"
 
 성능을 향상시킬 수 있도록 배포 열을 선택하는 방법과 CREATE TABLES 문의 WITH 절에서 분산된 테이블을 정의하는 방법은 아래 링크를 참조하세요.
 
-[테이블 개요](develop-tables-overview.md), [테이블 배포](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [테이블 배포 선택](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)도 참조하세요.
+[테이블 개요](develop-tables-overview.md), [테이블 배포](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [테이블 배포 선택](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)도 참조하세요.
 
 ### <a name="do-not-over-partition"></a>과도한 분할 피하기
 데이터를 분할하면 파티션 전환 또는 파티션 제거로 스캔 최적화를 통해 데이터를 효율적으로 유지 관리할 수 있지만 과도하게 분할할 경우 쿼리 속도가 느려질 수 있습니다.  경우에 따라 SQL Server에서 잘 작동할 수 있는 높은 세분성 분할 전략이 전용 SQL 풀에서 제대로 작동 하지 않을 수 있습니다.  
@@ -167,7 +167,6 @@ CETAS에서 Parquet 파일을 생성 하면 첫 번째 쿼리가이 외부 테�
 
 ### <a name="next-steps"></a>다음 단계
 
-이 문서에서 제공 하지 않는 정보가 필요한 경우이 페이지의 왼쪽에 있는 **Doc 검색** 함수를 사용 하 여 모든 SQL 풀 문서를 검색 합니다.  [Microsoft Q&Azure Synapse analytics에 대 한 질문 페이지](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) 는 다른 사용자와 Azure Synapse analytics 제품 그룹에 대 한 질문을 할 수 있는 장소입니다. Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  
+이 문서에서 제공 하지 않는 정보가 필요한 경우이 페이지의 왼쪽에 있는 **Doc 검색** 함수를 사용 하 여 모든 SQL 풀 문서를 검색 합니다.  [Microsoft Q&Azure Synapse analytics에 대 한 질문 페이지](/answers/topics/azure-synapse-analytics.html) 는 다른 사용자와 Azure Synapse analytics 제품 그룹에 대 한 질문을 할 수 있는 장소입니다. Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  
 
 Stack Overflow에 대 한 질문을 하는 것을 선호 하는 경우 [Azure Synapse Analytics Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw)도 있습니다.
- 

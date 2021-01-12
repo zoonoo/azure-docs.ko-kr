@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: be7c6ec9dbc577143e6c7219580f42c876f536bc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 563edae0292062e1ed7f216c69aeeb84ef0fa7a8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499971"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119478"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 사용하여 Cosmos DB 데이터를 인덱싱하는 방법 
 
@@ -137,7 +137,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-요청에 대 한 입력을 조합 합니다.
 
-각 요청에 대해 Azure Cognitive Search (POST 헤더)에 대 한 서비스 이름 및 관리자 키와 blob storage의 저장소 계정 이름 및 키를 제공 해야 합니다. [Postman 또는 Visual Studio Code](search-get-started-rest.md) 를 사용 하 여 Azure COGNITIVE SEARCH에 HTTP 요청을 보낼 수 있습니다.
+각 요청에 대해 Azure Cognitive Search (POST 헤더)에 대 한 서비스 이름 및 관리자 키와 blob storage의 저장소 계정 이름 및 키를 제공 해야 합니다. [Postman](search-get-started-rest.md) 또는 [Visual Studio Code](search-get-started-vs-code.md) 를 사용 하 여 Azure Cognitive Search에 HTTP 요청을 보낼 수 있습니다.
 
 다음 4 개 값을 메모장에 복사 하 여 요청에 붙여 넣을 수 있습니다.
 
@@ -391,7 +391,7 @@ SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @High
 
 ## <a name="next-steps"></a><a name="NextSteps"></a>다음 단계
 
-축하합니다! 인덱서를 사용 하 여 Azure Cognitive Search와 Azure Cosmos DB를 통합 하는 방법을 알아보았습니다.
+지금까지 인덱서를 사용 하 여 Azure Cognitive Search와 Azure Cosmos DB를 통합 하는 방법을 알아보았습니다.
 
 * Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 서비스 페이지](https://azure.microsoft.com/services/cosmos-db/)를 참조하세요.
 * Azure Cognitive Search에 대 한 자세한 내용은 [Search 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조 하세요.

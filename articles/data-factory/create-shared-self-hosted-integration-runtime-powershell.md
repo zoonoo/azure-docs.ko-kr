@@ -11,18 +11,31 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 8734247a913bdf6a44a9156f6f87705b618f7228
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3f0cf3de4c2cffca6540fcd727872372103ac98f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632892"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118254"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 가이드에서는 Azure Data Factory에서 공유되는 자체 호스팅 Integration Runtime을 만드는 방법을 보여 줍니다. 그런 다음, 다른 데이터 팩터리에서 자체 호스팅 통합 런타임 공유를 사용할 수 있습니다.
+
+## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
+
+데이터 팩터리에 이미 설치한 기존의 자체 호스팅 통합 런타임 인프라를 재사용할 수 있습니다. 이렇게 다시 사용 하면 기존 공유 자체 호스팅 IR을 참조 하 여 다른 데이터 팩터리에 연결 된 자체 호스팅 통합 런타임을 만들 수 있습니다.
+
+이 기능에 대 한 소개와 데모를 보려면 다음 12 분 분량의 비디오를 시청 하세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+
+### <a name="terminology"></a>용어
+
+- **공유 ir**: 실제 인프라에서 실행 되는 원래의 자체 호스팅 IR입니다.  
+- **연결 된 ir**: 다른 공유 ir을 참조 하는 ir입니다. 연결 된 IR은 논리 IR 이며 다른 공유 자체 호스팅 IR 인프라를 사용 합니다.
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 공유되는 자체 호스팅 IR 만들기
 
@@ -55,9 +68,9 @@ Azure PowerShell을 사용하여 공유되는 자체 호스팅 IR을 만들려�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure 구독** . Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 
+- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 
 
-- **Azure PowerShell** . [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](/powershell/azure/install-az-ps)의 지침을 따르세요. PowerShell을 사용하여 다른 데이터 팩터리와 공유할 수 있는 자체 호스팅 통합 런타임을 만드는 스크립트를 실행합니다. 
+- **Azure PowerShell**. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](/powershell/azure/install-az-ps)의 지침을 따르세요. PowerShell을 사용하여 다른 데이터 팩터리와 공유할 수 있는 자체 호스팅 통합 런타임을 만드는 스크립트를 실행합니다. 
 
 > [!NOTE]  
 > Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)에서 관심 있는 지역을 선택합니다.
@@ -213,6 +226,37 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
+
+### <a name="monitoring"></a>모니터링
+
+#### <a name="shared-ir"></a>공유 IR
+
+![공유 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+
+![공유 통합 런타임 모니터링](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+
+#### <a name="linked-ir"></a>연결 된 IR
+
+![연결 된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+
+![연결 된 통합 런타임 모니터링](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+
+
+### <a name="known-limitations-of-self-hosted-ir-sharing"></a>자체 호스팅 IR 공유에 대해 알려진 제한 사항
+
+* 연결 된 IR이 생성 되는 데이터 팩터리에 [는 관리 id](../active-directory/managed-identities-azure-resources/overview.md)가 있어야 합니다. 기본적으로 Azure Portal 또는 PowerShell cmdlet에서 만든 데이터 팩터리에는 암시적으로 생성 된 관리 Id가 있습니다. 그러나 Azure Resource Manager 템플릿이나 SDK를 통해 데이터 팩터리를 만드는 경우 **Identity** 속성을 명시적으로 설정 해야 합니다. 이 설정을 사용 하면 리소스 관리자에서 관리 Id를 포함 하는 데이터 팩터리를 만듭니다.
+
+* 이 기능을 지 원하는 Data Factory .NET SDK는 1.1.0 이상 버전 이어야 합니다.
+
+* 권한을 부여 하려면 공유 IR이 존재 하는 데이터 팩터리에 소유자 역할 또는 상속 된 소유자 역할이 필요 합니다.
+
+* 공유 기능은 동일한 Azure AD 테 넌 트 내의 데이터 팩터리에 대해서만 작동 합니다.
+
+* Azure AD [게스트 사용자](../active-directory/governance/manage-guest-access-with-access-reviews.md)의 경우 검색 키워드를 사용 하 여 모든 데이터 팩터리를 나열 하는 UI의 검색 기능이 작동 하지 않습니다. 그러나 게스트 사용자가 데이터 팩터리의 소유자 인 경우 검색 기능 없이 IR을 공유할 수 있습니다. IR을 공유 해야 하는 데이터 팩터리의 관리 되는 Id의 경우 **할당 권한** 상자에 관리 되는 id를 입력 하 고 Data Factory UI에서 **추가** 를 선택 합니다.
+
+  > [!NOTE]
+  > 이 기능은 Data Factory v 2 에서만 사용할 수 있습니다.
+
 
 ### <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 64ba24eb0eab581310122908fc05d1d671ac1d40
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 1a988dba52b36b1d27407316200bfa6897de7cf5
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531576"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120158"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 데이터 로드 전략
 
@@ -42,7 +42,7 @@ ELT를 구현하는 기본 단계는 다음과 같습니다.
 5. 데이터를 변환합니다.
 6. 프로덕션 테이블에 데이터를 삽입합니다.
 
-로드 자습서는 [Azure blob storage에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조 하세요.
+로드 자습서는 [Azure blob storage에서 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md)를 참조 하세요.
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. 텍스트 파일에 원본 데이터 추출
 
@@ -123,7 +123,7 @@ Parquet 파일을 로드할 때 다음 SQL 데이터 형식 매핑을 사용 합
 >- Parquet와 SQL 간에 형식이 일치 하지 않거나 Parquet 데이터 형식이 지원 되지 않는 경우 다음과 같은 오류가 발생할 수 있습니다. **"HdfsBridge:: recordReaderFillBuffer-레코드 판독기 버퍼를 채우는 동안 예기치 않은 오류 발생: ClassCastException: ..."**
 >- 0-127 범위 밖의 값을 Parquet 및 ORC 파일 형식에 대 한 tinyint 열로 로드 하는 것은 지원 되지 않습니다.
 
-외부 개체를 만드는 예제는 [외부 테이블 만들기](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool)를 참조 하세요.
+외부 개체를 만드는 예제는 [외부 테이블 만들기](../sql/develop-tables-external-tables.md?tabs=sql-pool)를 참조 하세요.
 
 ### <a name="format-text-files"></a>텍스트 파일 형식 지정
 
@@ -142,11 +142,11 @@ PolyBase를 사용하는 경우 정의된 외부 개체는 텍스트 파일의 �
 
 데이터를 로드 하려면 다음 로드 옵션 중 하나를 사용할 수 있습니다.
 
-- [COPY 문은](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) 데이터를 원활 하 고 유연 하 게 로드할 수 있도록 권장 되는 로드 유틸리티입니다. 이 문에는 PolyBase에서 제공 하지 않는 많은 추가 로드 기능이 있습니다. 
-- [T-sql을 사용 하는 PolyBase](load-data-from-azure-blob-storage-using-polybase.md) 를 사용 하려면 외부 데이터 개체를 정의 해야 합니다.
+- [COPY 문은](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) 데이터를 원활 하 고 유연 하 게 로드할 수 있도록 권장 되는 로드 유틸리티입니다. 이 문에는 PolyBase에서 제공 하지 않는 많은 추가 로드 기능이 있습니다. 
+- [T-sql을 사용 하는 PolyBase](./load-data-from-azure-blob-storage-using-copy.md) 를 사용 하려면 외부 데이터 개체를 정의 해야 합니다.
 - [ADF(Azure Data Factory)를 이용한 PolyBase 및 COPY 문](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)은 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다.
 - [SSIS를 사용 하는 PolyBase](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 는 원본 데이터가 SQL Server 때 잘 작동 합니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다.
-- [PolyBase와 Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)는 PolyBase를 사용하여 테이블에서 Databricks 데이터 프레임으로 데이터를 전송하거나 Databricks 데이터 프레임에서 테이블로 데이터를 씁니다.
+- [PolyBase와 Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json)는 PolyBase를 사용하여 테이블에서 Databricks 데이터 프레임으로 데이터를 전송하거나 Databricks 데이터 프레임에서 테이블로 데이터를 씁니다.
 
 ### <a name="other-loading-options"></a>기타 로드 옵션
 

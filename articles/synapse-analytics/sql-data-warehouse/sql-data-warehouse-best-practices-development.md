@@ -11,12 +11,12 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f8db19b209ddefebd4a297f18fb9b178fcf40f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8826dff6d347f78625272a5620a1f168b8804db
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457909"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120039"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Synapse SQL 풀 개발 모범 사례
 
@@ -55,7 +55,7 @@ ms.locfileid: "89457909"
 
 분산된 테이블을 로드할 때 로드가 느려지므로 들어오는 데이터가 배포 키로 정렬되지 않도록 합니다.  다음 문서에서는 배포 열을 선택하여 성능을 개선하는 방법과 CREATE TABLES 문의 WITH 절에서 분산된 테이블을 정의하는 방법에 대해 자세히 설명합니다.
 
-[테이블 개요](sql-data-warehouse-tables-overview.md), [테이블 배포](sql-data-warehouse-tables-distribute.md), [테이블 배포 선택](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](sql-data-warehouse-tables-overview.md) 및 [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)도 참조하세요.
+[테이블 개요](sql-data-warehouse-tables-overview.md), [테이블 배포](sql-data-warehouse-tables-distribute.md), [테이블 배포 선택](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](sql-data-warehouse-tables-overview.md) 및 [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)도 참조하세요.
 
 ## <a name="do-not-over-partition"></a>과도한 분할 피하기
 
@@ -120,7 +120,7 @@ columnstore 테이블은 일반적으로 테이블당 100만 개가 넘는 행�
 
 이 문서에서 원하는 내용을 찾지 못하면 이 페이지의 왼쪽에 있는 "문서 검색"을 사용하여 모든 Azure Synapse 문서를 검색해보세요.  
 
-[Azure Synapse에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)는 다른 사용자와 Azure Synapse 제품 그룹에 질문을 게시할 수 있는 곳입니다.  Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  
+[Azure Synapse에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html)는 다른 사용자와 Azure Synapse 제품 그룹에 질문을 게시할 수 있는 곳입니다.  Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  
 
 Stack Overflow에 대 한 질문을 하는 것을 선호 하는 경우 [Azure Synapse Analytics Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw)도 있습니다.
 

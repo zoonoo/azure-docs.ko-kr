@@ -8,16 +8,16 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7972f34bf0d2b93828899903e013c2e35bc997c0
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 2d9f3bfe6a273bfb0f3d314d1a4664806bd45ae2
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523529"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118815"
 ---
 # <a name="what-is-synapse-role-based-access-control-rbac"></a>Synapse 역할 기반 access control (RBAC) 이란?
 
-Synapse RBAC는 Synapse 작업 영역 및 해당 콘텐츠에 대 한 [AZURE RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 의 기능을 확장 합니다. 
+Synapse RBAC는 Synapse 작업 영역 및 해당 콘텐츠에 대 한 [AZURE RBAC](../../role-based-access-control/overview.md) 의 기능을 확장 합니다. 
 
 Azure RBAC는 Synapse 작업 영역 및 해당 SQL 풀, Apache Spark 풀 및 통합 런타임을 만들고, 업데이트 하거나, 삭제할 수 있는 사람을 관리 하는 데 사용 됩니다.
 

@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 60a995f78b9b696197d9bd45e04becb19e4129f0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c91310d9d1e67dd77098ee13a87190ee6d411607
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653064"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120107"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 데이터를 로드 하는 모범 사례
 
@@ -47,7 +47,7 @@ ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으�
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-전용 SQL 풀에 연결 하 고 사용자를 만듭니다. 다음 코드에서는 mySampleDataWarehouse 라는 데이터베이스에 연결 되어 있다고 가정 합니다. 로더 라는 사용자를 만드는 방법을 보여 주고 [COPY 문을](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)사용 하 여 테이블을 만들고 로드 하는 사용자 권한을 부여 합니다. 그런 다음 사용자를 최대 리소스를 사용 하는 DataLoads 작업 그룹으로 분류 합니다. 
+전용 SQL 풀에 연결 하 고 사용자를 만듭니다. 다음 코드에서는 mySampleDataWarehouse 라는 데이터베이스에 연결 되어 있다고 가정 합니다. 로더 라는 사용자를 만드는 방법을 보여 주고 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)사용 하 여 테이블을 만들고 로드 하는 사용자 권한을 부여 합니다. 그런 다음 사용자를 최대 리소스를 사용 하는 DataLoads 작업 그룹으로 분류 합니다. 
 
 ```sql
    -- Connect to the dedicated SQL pool
@@ -179,5 +179,5 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 ## <a name="next-steps"></a>다음 단계
 
 - ELT (추출, 로드 및 변환) 프로세스를 설계할 때 복사 문이나 PolyBase에 대해 자세히 알아보려면 [Azure Synapse Analytics 용 ELT 디자인](design-elt-data-loading.md)을 참조 하세요.
-- 로드 자습서의 경우 [COPY 문을 사용 하 여 Azure blob storage에서 SYNAPSE SQL로 데이터를 로드](load-data-from-azure-blob-storage-using-polybase.md)합니다.
+- 로드 자습서의 경우 [COPY 문을 사용 하 여 Azure blob storage에서 SYNAPSE SQL로 데이터를 로드](./load-data-from-azure-blob-storage-using-copy.md)합니다.
 - 데이터 로드를 모니터링하려면 [DMV를 사용하여 워크로드 모니터링](sql-data-warehouse-manage-monitor.md)을 참조하세요.

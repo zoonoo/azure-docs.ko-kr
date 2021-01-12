@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 4d9a5900990ea41788ced5f25690619fbde68d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87bc2338ecc48f1115a406c276ef221cb185a4c5
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854990"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118628"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Azure HDInsight에서 관리 되는 id
 
@@ -55,6 +55,7 @@ HDInsight는 이러한 시나리오에 사용 하는 관리 되는 id에 대 한
  * ESP 클러스터에서 AAD-DS LDAPS 인증서를 변경 하면 LDAPS 인증서가 자동으로 업데이트 되지 않으므로 LDAP 동기화 및 scale ups가 실패 합니다.
  * ADLS Gen2에 대 한 MSI 액세스를 시작 하지 못했습니다.
  * CMK 시나리오에서는 암호화 키를 회전할 수 없습니다.
+
 그런 다음 클러스터에서 사용 되는 모든 관리 되는 id에 위의 시나리오에 필요한 역할 및 권한을 할당 해야 합니다. 예를 들어 ADLS Gen2 및 ESP 클러스터에 대해 서로 다른 관리 되는 id를 사용 하는 경우 이러한 문제를 방지 하기 위해 둘 다 "저장소 blob 데이터 소유자" 및 "HDInsight Domain Services 참여자" 역할을 할당 해야 합니다.
 
 ## <a name="faq"></a>FAQ

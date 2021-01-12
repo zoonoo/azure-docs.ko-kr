@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: bfb822481e00e84fa17bd4b1fcb58c1d4b89a124
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7bb0b9b4645be7e548fe116d9e9a2c92fae7dc96
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450861"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120957"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Studio 노트북 만들기, 개발 및 유지 관리
 
@@ -35,11 +35,11 @@ Synapse 팀은 새로운 노트북 구성 요소를 Synapse Studio로 가져와�
 
 |기능|클래식 노트북|노트북 미리 보기|
 |--|--|--|
-|% 실행| 지원되지 않음 | &#9745;|
-|% 기록| 지원되지 않음 |&#9745;
-|% 로드| 지원되지 않음 |&#9745;|
-|%% html| 지원되지 않음 |&#9745;|
-|끌어서 놓고 셀 이동| 지원되지 않음 |&#9745;|
+|% 실행| 지원 안 함 | &#9745;|
+|% 기록| 지원 안 함 |&#9745;
+|% 로드| 지원 안 함 |&#9745;|
+|%% html| 지원 안 함 |&#9745;|
+|끌어서 놓고 셀 이동| 지원 안 함 |&#9745;|
 |영구 디스플레이 () 출력|&#9745;| 사용할 수 없음 |
 |모두 취소| &#9745;| 사용할 수 없음|
 |위의 모든 셀 실행|&#9745;| 사용할 수 없음 |
@@ -298,7 +298,7 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 
 # <a name="classical-notebook"></a>[클래식 노트북](#tab/classical)
 
-지원 안 됨
+지원되지 않습니다.
 
 # <a name="preview-notebook"></a>[노트북 미리 보기](#tab/preview)
 
@@ -553,4 +553,4 @@ Jupyter 노트북과 마찬가지로 Azure Synapse Studio Notebook에는 모달 
 - [Azure Synapse Analytics의 Apache Spark란?](apache-spark-overview.md)
 - [Azure Synapse Analytics를 사용하여 Apache Spark에 .NET 사용](spark-dotnet.md)
 - [Apache Spark용 .NET 설명서](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)

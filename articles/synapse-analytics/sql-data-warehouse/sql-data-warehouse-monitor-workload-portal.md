@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: f780d5404d99435a61c4e3f9e90b1acbd9539af9
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025955"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118441"
 ---
 # <a name="monitor-workload---azure-portal"></a>워크 로드 모니터링-Azure Portal
 
@@ -24,7 +24,7 @@ ms.locfileid: "93025955"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- SQL 풀: SQL 풀에 대 한 로그를 수집 합니다. 프로 비전 된 SQL 풀이 없는 경우 [sql 풀 만들기](load-data-from-azure-blob-storage-using-polybase.md)의 지침을 참조 하세요.
+- SQL 풀: SQL 풀에 대 한 로그를 수집 합니다. 프로 비전 된 SQL 풀이 없는 경우 [sql 풀 만들기](./load-data-from-azure-blob-storage-using-copy.md)의 지침을 참조 하세요.
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
@@ -63,7 +63,7 @@ Azure Storage, Stream Analytics 또는 Log Analytics 로그를 내보낼 수 있
 - 로그 경고 만들기
 - 대시보드에 쿼리 결과 고정
 
-로그 쿼리 기능에 대 한 자세한 내용은 다음 [설명서](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조 하세요.
+로그 쿼리 기능에 대 한 자세한 내용은 다음 [설명서](/azure/data-explorer/kusto/query/?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json)를 참조 하세요.
 
 ![Log Analytics 작업 영역 편집기](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 

@@ -11,18 +11,18 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c55f8483ba54ecf9778693b364603d642ddb3deb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2b81ddedbcb254a840e85d41cf9d69c78b149bbd
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452330"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121399"
 ---
 # <a name="connect-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 연결
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -31,7 +31,7 @@ ms.locfileid: "96452330"
 
 Visual Studio를 사용 하 여 몇 분만에 Azure Synapse 내에서 전용 SQL 풀 (이전의 SQL DW)을 쿼리 합니다. 이 메서드는 Visual Studio 2019에서 SSDT(SQL Server Data Tools) 확장을 사용합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * 기존 전용 SQL 풀 (이전의 SQL DW) 하나를 만들려면 [전용 sql 풀 만들기 (이전의 SQL DW)](create-data-warehouse-portal.md)를 참조 하세요.
@@ -40,7 +40,7 @@ Visual Studio를 사용 하 여 몇 분만에 Azure Synapse 내에서 전용 SQL
 
 ## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. 전용 SQL 풀에 연결 (이전의 SQL DW)
 1. Visual Studio 2019를 엽니다.
-2. **보기** SQL Server 개체 탐색기를 선택 하 여 SQL Server 개체 탐색기을 엽니다  >  **SQL Server Object Explorer**.
+2. **보기** SQL Server 개체 탐색기를 선택 하 여 SQL Server 개체 탐색기을 엽니다  >  .
    
     ![SQL Server 개체 탐색기](./media/sql-data-warehouse-query-visual-studio/open-ssdt.png)
 3. **SQL Server 추가** 아이콘을 클릭합니다.
@@ -78,6 +78,6 @@ Visual Studio를 사용 하 여 몇 분만에 Azure Synapse 내에서 전용 SQL
     ![쿼리 결과](./media/sql-data-warehouse-query-visual-studio/query-results.png)
 
 ## <a name="next-steps"></a>다음 단계
-이제 연결 및 쿼리할 수 있으므로 [Power BI로 데이터 시각화](sql-data-warehouse-get-started-visualize-with-power-bi.md)를 시도해 보세요.
+이제 연결 및 쿼리할 수 있으므로 [Power BI로 데이터 시각화](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)를 시도해 보세요.
 
 Azure Active Directory 인증을 위한 환경을 구성 하려면 [전용 sql 풀에 인증 (이전의 SQL DW)](sql-data-warehouse-authentication.md)을 참조 하세요.

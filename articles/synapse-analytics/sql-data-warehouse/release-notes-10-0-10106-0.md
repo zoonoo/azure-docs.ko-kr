@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 0cad8fcdf58f4827f28b40550ae93e607e0c0858
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: b2d4f653f2bd86d30b2a0f7828a6e09c64c62e82
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369007"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121212"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW) 릴리스 정보
 
@@ -44,22 +44,22 @@ ms.locfileid: "97369007"
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-|**열에 대 한 저장 프로시저 sp_rename (미리 보기)**|[Ctas](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) 를 사용 하지 않고 열 이름을 바꾸는 것은 간단 합니다. 이제 Azure Synapse SQL은 시스템 저장 프로시저 sp_rename (미리 보기)에 대 한 지원을 추가 하 여 사용자 테이블에 배포 되지 않은 열의 이름을 변경 합니다. 이 기능은 현재 미리 보기 상태 이며 GA의 도구에서 지원 됩니다. 자세한 내용은 [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest)를 참조 하세요.|
-|**T-sql Predict의 추가 매개 변수**|이 새 릴리스에서는 기존 T-sql PREDICT 문에 대해 ' RUNTIME ' 이라는 필수 추가 매개 변수를 추가 했습니다. 기존 스크립트를 업데이트 하는 방법에 대해서는 [T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)의 예제를 참조 하세요.|
+|**열에 대 한 저장 프로시저 sp_rename (미리 보기)**|[Ctas](./sql-data-warehouse-develop-ctas.md) 를 사용 하지 않고 열 이름을 바꾸는 것은 간단 합니다. 이제 Azure Synapse SQL은 시스템 저장 프로시저 sp_rename (미리 보기)에 대 한 지원을 추가 하 여 사용자 테이블에 배포 되지 않은 열의 이름을 변경 합니다. 이 기능은 현재 미리 보기 상태 이며 GA의 도구에서 지원 됩니다. 자세한 내용은 [sp_rename](/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest)를 참조 하세요.|
+|**T-sql Predict의 추가 매개 변수**|이 새 릴리스에서는 기존 T-sql PREDICT 문에 대해 ' RUNTIME ' 이라는 필수 추가 매개 변수를 추가 했습니다. 기존 스크립트를 업데이트 하는 방법에 대해서는 [T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)의 예제를 참조 하세요.|
 
 ## <a name="oct-2020"></a>10 월 2020
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-|**T-sql 인라인 Table-Valued 함수 (미리 보기)**|이제이 릴리스에서는 Transact-sql을 사용 하 여 인라인 테이블 반환 함수를 만들고 테이블에서와 같이 결과를 쿼리할 수 있습니다. 이 기능은 현재 미리 보기 상태 이며 GA의 도구에서 지원 됩니다. 자세한 내용은 [CREATE FUNCTION (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest)을 참조 하세요.|
-|**MERGE 명령 (미리 보기)**|이제 원본 테이블과의 조인 결과에서 대상 테이블에 대 한 삽입, 업데이트 또는 삭제 작업을 실행할 수 있습니다. 예를 들어 원본 테이블과의 차이점에 따라 대상 테이블에서 행을 삽입, 업데이트 및 삭제하여 두 테이블을 동기화할 수 있습니다.  자세한 내용은 [병합](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) 을 확인 하세요.|
+|**T-sql 인라인 Table-Valued 함수 (미리 보기)**|이제이 릴리스에서는 Transact-sql을 사용 하 여 인라인 테이블 반환 함수를 만들고 테이블에서와 같이 결과를 쿼리할 수 있습니다. 이 기능은 현재 미리 보기 상태 이며 GA의 도구에서 지원 됩니다. 자세한 내용은 [CREATE FUNCTION (Azure Synapse Analytics)](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest)을 참조 하세요.|
+|**MERGE 명령 (미리 보기)**|이제 원본 테이블과의 조인 결과에서 대상 테이블에 대 한 삽입, 업데이트 또는 삭제 작업을 실행할 수 있습니다. 예를 들어 원본 테이블과의 차이점에 따라 대상 테이블에서 행을 삽입, 업데이트 및 삭제하여 두 테이블을 동기화할 수 있습니다.  자세한 내용은 [병합](/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) 을 확인 하세요.|
 
 ## <a name="aug-2020"></a>8 월 2020
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-|**워크 로드 관리 – 포털 환경**|사용자는 Azure Portal를 통해 워크로드 관리 설정을 구성하고 관리할 수 있습니다. 중요하게도 [워크로드 그룹](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) 및 [워크로드 분류자](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal)를 구성하는 기능도 사용할 수 있습니다.|
-|**향상 된 테이블 매핑 카탈로그 뷰**|새 카탈로그 뷰 [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) 영구 사용자 테이블의 **object_ids** 를 실제 테이블 이름에 매핑합니다.|
+|**워크 로드 관리 – 포털 환경**|사용자는 Azure Portal를 통해 워크로드 관리 설정을 구성하고 관리할 수 있습니다. 중요하게도 [워크로드 그룹](./quickstart-configure-workload-isolation-portal.md) 및 [워크로드 분류자](./quickstart-create-a-workload-classifier-portal.md)를 구성하는 기능도 사용할 수 있습니다.|
+|**향상 된 테이블 매핑 카탈로그 뷰**|새 카탈로그 뷰 [sys.pdw_permanent_table_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) 영구 사용자 테이블의 **object_ids** 를 실제 테이블 이름에 매핑합니다.|
 
 ## <a name="july-2020"></a>2020년 7월
 
@@ -68,22 +68,22 @@ ms.locfileid: "97369007"
 |**열 수준 암호화 (공개 미리 보기)**|Transact-sql을 사용 하 여 데이터 열에 대칭 암호화를 적용 하 여 Azure Synapse Analytics의 중요 한 정보를 보호 합니다. 열 수준 암호화에는 인증서, 암호, 대칭 키 또는 비대칭 키로 보호 되는 대칭 키를 사용 하 여 데이터를 암호화 하는 데 사용할 수 있는 기본 제공 함수가 있습니다. 자세한 내용은 [데이터 열 암호화](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest)를 참조 하세요.|
 |**GA (호환성 수준 지원)**|이 릴리스에서는 이제 사용자가 데이터베이스의 호환성 수준을 설정하여 특정 버전의 Synapse SQL 엔진에 대한 Transact-SQL 언어 및 쿼리 처리 동작을 얻을 수 있습니다. 자세한 내용은 [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.|
 |**행 수준 보안**|이 릴리스에는 RLS를 적용 한 행에 대 한 업데이트 및 삭제 작업에 대 한 개선 사항이 포함 되어 있습니다. 이 릴리스에서는 내장 함수가 DML 대상 테이블의 열을 참조 하지 않는 경우 ' is_rolemember ' 같은 내장 함수를 사용 하 여 업데이트 및 삭제 작업이 성공 합니다. 이러한 향상 전에는 기본 DML 작업의 제한으로 인해 이러한 작업이 실패 했습니다.|
-|**GA (DBCC SHRINKDATABASE)**|이제 지정 된 데이터베이스에 있는 데이터 및 로그 파일의 크기를 축소할 수 있습니다. 자세한 내용은 [설명서](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15)를 참조 하세요.|
+|**GA (DBCC SHRINKDATABASE)**|이제 지정 된 데이터베이스에 있는 데이터 및 로그 파일의 크기를 축소할 수 있습니다. 자세한 내용은 [설명서](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15)를 참조 하세요.|
 
 ## <a name="may-2020"></a>2020년 5월
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-|**워크로드 격리(GA)**|[워크로드 격리](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation)가 이제 일반 공급됩니다.  [워크로드 그룹](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)을 통해 리소스를 예약하고 포함할 수 있습니다.  런어웨이 쿼리를 취소하도록 쿼리 제한 시간을 구성하는 기능을 사용할 수도 있습니다.|
-|**워크로드 관리 포털 환경(미리 보기)**| 사용자는 Azure Portal를 통해 워크로드 관리 설정을 구성하고 관리할 수 있습니다.  중요하게도 [워크로드 그룹](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) 및 [워크로드 분류자](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal)를 구성하는 기능도 사용할 수 있습니다.|
-|**Alter workload group**|[ALTER WORKLOAD GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-workload-group-transact-sql?view=azure-sqldw-latest) 명령을 사용하는 기능을 이제 사용할 수 있습니다.  alter를 사용하여 기존 [워크로드 그룹](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation)의 구성을 변경할 수 있습니다.|
-|**COPY 명령을 사용 하 여 Parquet 파일에 대 한 자동 스키마 검색 (미리 보기)**|[COPY 명령](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)은 이제 Parquet 파일을 로드할 때 자동 스키마 검색을 지원합니다. 이 명령은 Parquet 파일 스키마를 자동으로 검색하고 로드 전에 테이블을 만듭니다. 이 기능을 사용 하도록 설정 하려면 다음 전자 메일 배포 목록에 문의 sqldwcopypreview@service.microsoft.com 하세요.. |
-|**COPY 명령을 사용 하 여 복잡 한 Parquet 데이터 형식 로드 (미리 보기)**|[COPY 명령](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)은 이제 복합 Parquet 형식 로드를 지원합니다. 지도 및 목록과 같은 복합 형식을 문자열 열로 로드할 수 있습니다.  이 기능을 사용 하도록 설정 하려면 다음 전자 메일 배포 목록에 문의 sqldwcopypreview@service.microsoft.com 하세요.. |
-|**COPY 명령을 사용하여 Parquet 파일의 자동 압축 검색**|[COPY 명령](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)은 이제 Parquet 파일의 압축 방법에 대한 자동 검색을 지원합니다. 이 기능을 사용 하도록 설정 하려면 다음 전자 메일 배포 목록에 문의 sqldwcopypreview@service.microsoft.com 하세요..|
-|**추가 로드 권장 사항**|이제 [로드 권장 사항](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations)을 Synapse SQL에 대해 사용할 수 있습니다. 최대 처리량을 위해 파일을 분할 하거나, 전용 SQL 풀 (이전의 SQL DW)과 함께 저장소 계정을 배치 하거나, SQLBulkCopy API 또는 BCP와 같은 유틸리티 로드를 사용 하는 경우 일괄 처리 크기를 늘려야 하는 경우 사전 알림을 받습니다.|
-|**T-SQL 업데이트 가능 배포 열(GA)**|이제 사용자가 배포 열에 저장된 데이터를 업데이트할 수 있습니다. 자세한 내용은 [전용 sql 풀 (이전의 SQL DW)에서 분산 테이블 디자인에 대 한 지침](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute) 을 확인 하세요.|
-|**조인에서 T-SQL Update/Delete...(GA)**|이제 다른 테이블과의 조인 결과에 따라 Update 및 Delete를 사용할 수 있습니다. 자세한 내용은 [Update](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest) 및 [Delete](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest) 설명서를 참조하세요.|
-|**T-SQL PREDICT(미리 보기)**|이제 데이터 웨어하우스 내에서 기계 학습 모델을 예측하여 크고 복잡한 데이터를 이동하지 않아도 될 수 있습니다. T-SQL PREDICT 함수는 개방형 모델 프레임워크를 사용하고 데이터 및 기계 학습 모델을 입력으로 사용하여 예측을 생성합니다. 자세한 내용은 [설명서](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)를 참조하세요.|
+|**워크로드 격리(GA)**|[워크로드 격리](./sql-data-warehouse-workload-isolation.md)가 이제 일반 공급됩니다.  [워크로드 그룹](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)을 통해 리소스를 예약하고 포함할 수 있습니다.  런어웨이 쿼리를 취소하도록 쿼리 제한 시간을 구성하는 기능을 사용할 수도 있습니다.|
+|**워크로드 관리 포털 환경(미리 보기)**| 사용자는 Azure Portal를 통해 워크로드 관리 설정을 구성하고 관리할 수 있습니다.  중요하게도 [워크로드 그룹](./quickstart-create-a-workload-classifier-portal.md) 및 [워크로드 분류자](./quickstart-create-a-workload-classifier-portal.md)를 구성하는 기능도 사용할 수 있습니다.|
+|**Alter workload group**|[ALTER WORKLOAD GROUP](/sql/t-sql/statements/alter-workload-group-transact-sql?view=azure-sqldw-latest) 명령을 사용하는 기능을 이제 사용할 수 있습니다.  alter를 사용하여 기존 [워크로드 그룹](./sql-data-warehouse-workload-isolation.md)의 구성을 변경할 수 있습니다.|
+|**COPY 명령을 사용 하 여 Parquet 파일에 대 한 자동 스키마 검색 (미리 보기)**|[COPY 명령](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)은 이제 Parquet 파일을 로드할 때 자동 스키마 검색을 지원합니다. 이 명령은 Parquet 파일 스키마를 자동으로 검색하고 로드 전에 테이블을 만듭니다. 이 기능을 사용 하도록 설정 하려면 다음 전자 메일 배포 목록에 문의 sqldwcopypreview@service.microsoft.com 하세요.. |
+|**COPY 명령을 사용 하 여 복잡 한 Parquet 데이터 형식 로드 (미리 보기)**|[COPY 명령](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)은 이제 복합 Parquet 형식 로드를 지원합니다. 지도 및 목록과 같은 복합 형식을 문자열 열로 로드할 수 있습니다.  이 기능을 사용 하도록 설정 하려면 다음 전자 메일 배포 목록에 문의 sqldwcopypreview@service.microsoft.com 하세요.. |
+|**COPY 명령을 사용하여 Parquet 파일의 자동 압축 검색**|[COPY 명령](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)은 이제 Parquet 파일의 압축 방법에 대한 자동 검색을 지원합니다. 이 기능을 사용 하도록 설정 하려면 다음 전자 메일 배포 목록에 문의 sqldwcopypreview@service.microsoft.com 하세요..|
+|**추가 로드 권장 사항**|이제 [로드 권장 사항](./sql-data-warehouse-concept-recommendations.md)을 Synapse SQL에 대해 사용할 수 있습니다. 최대 처리량을 위해 파일을 분할 하거나, 전용 SQL 풀 (이전의 SQL DW)과 함께 저장소 계정을 배치 하거나, SQLBulkCopy API 또는 BCP와 같은 유틸리티 로드를 사용 하는 경우 일괄 처리 크기를 늘려야 하는 경우 사전 알림을 받습니다.|
+|**T-SQL 업데이트 가능 배포 열(GA)**|이제 사용자가 배포 열에 저장된 데이터를 업데이트할 수 있습니다. 자세한 내용은 [전용 sql 풀 (이전의 SQL DW)에서 분산 테이블 디자인에 대 한 지침](./sql-data-warehouse-tables-distribute.md) 을 확인 하세요.|
+|**조인에서 T-SQL Update/Delete...(GA)**|이제 다른 테이블과의 조인 결과에 따라 Update 및 Delete를 사용할 수 있습니다. 자세한 내용은 [Update](/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest) 및 [Delete](/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest) 설명서를 참조하세요.|
+|**T-SQL PREDICT(미리 보기)**|이제 데이터 웨어하우스 내에서 기계 학습 모델을 예측하여 크고 복잡한 데이터를 이동하지 않아도 될 수 있습니다. T-SQL PREDICT 함수는 개방형 모델 프레임워크를 사용하고 데이터 및 기계 학습 모델을 입력으로 사용하여 예측을 생성합니다. 자세한 내용은 [설명서](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)를 참조하세요.|
 
 ## <a name="april-2020"></a>2020년 4월
 
@@ -94,13 +94,13 @@ ms.locfileid: "97369007"
 
 | 도구 개선 사항                                         | 세부 정보                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16.6 Preview 5](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#--visual-studio-2019-version-166-preview-5-) - SSDT(SQL Server Data Tools)** | 이 릴리스에는 SSDT에 대한 다음과 같은 개선 사항이 포함되어 있습니다. </br> </br> - 데이터 검색 및 분류<br/> - COPY 문 <br/> - Unique 제약 조건이 있는 테이블<br/> - 순서가 지정된 클러스터형 columnstore 인덱스가 있는 테이블<br/> <br/>이 릴리스에서는 SSDT가 다음과 같이 수정되었습니다. </br></br>  - 배포 열 데이터 형식을 변경하는 경우 SSDT에서 생성하는 업데이트 스크립트는 테이블을 삭제하고 다시 만드는 대신 CTAS 및 RENAME 작업을 수행합니다. </br> |
+| **[Visual Studio 16.6 Preview 5](/visualstudio/releases/2019/release-notes-preview#--visual-studio-2019-version-166-preview-5-) - SSDT(SQL Server Data Tools)** | 이 릴리스에는 SSDT에 대한 다음과 같은 개선 사항이 포함되어 있습니다. </br> </br> - 데이터 검색 및 분류<br/> - COPY 문 <br/> - Unique 제약 조건이 있는 테이블<br/> - 순서가 지정된 클러스터형 columnstore 인덱스가 있는 테이블<br/> <br/>이 릴리스에서는 SSDT가 다음과 같이 수정되었습니다. </br></br>  - 배포 열 데이터 형식을 변경하는 경우 SSDT에서 생성하는 업데이트 스크립트는 테이블을 삭제하고 다시 만드는 대신 CTAS 및 RENAME 작업을 수행합니다. </br> |
 
 ## <a name="march-2020"></a>2020년 3월
 
 | 도구 개선 사항                                         | 세부 정보                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16.6 Preview 2](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#whats-new-in-visual-studio-2019) SSDT(SQL Server Data Tools)** | 이 릴리스에는 SSDT에 대한 다음과 같은 개선 사항 및 수정 사항이 포함되어 있습니다. </br> </br> - MV(구체화된 뷰)에 의해 참조되는 테이블을 변경하면 MV에 대해 지원되지 않는 뷰 변경 문이 생성되는 문제가 해결되었습니다.<br/><br/> - 데이터베이스 또는 프로젝트에 행 수준 보안 개체가 있을 때 스키마 비교 작업이 실패하지 않도록 하도록 변경이 구현되었습니다. 행 수준 보안 개체는 현재 SSDT에 대해 지원되지 않습니다.  <br/><br/> - 데이터베이스에 있는 많은 수의 개체를 나열할 때 시간 제한이 발생하지 않도록 SQL Server 개체 탐색기 시간 제한 임계값이 증가했습니다.<br/><br/> - 개체 탐색기를 채울 때 불안정성을 줄이고 성능을 향상시키기 위해 SQL Server 개체 탐색기에서 데이터베이스 개체 목록을 검색하는 방법을 최적화했습니다. |
+| **[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview#whats-new-in-visual-studio-2019) SSDT(SQL Server Data Tools)** | 이 릴리스에는 SSDT에 대한 다음과 같은 개선 사항 및 수정 사항이 포함되어 있습니다. </br> </br> - MV(구체화된 뷰)에 의해 참조되는 테이블을 변경하면 MV에 대해 지원되지 않는 뷰 변경 문이 생성되는 문제가 해결되었습니다.<br/><br/> - 데이터베이스 또는 프로젝트에 행 수준 보안 개체가 있을 때 스키마 비교 작업이 실패하지 않도록 하도록 변경이 구현되었습니다. 행 수준 보안 개체는 현재 SSDT에 대해 지원되지 않습니다.  <br/><br/> - 데이터베이스에 있는 많은 수의 개체를 나열할 때 시간 제한이 발생하지 않도록 SQL Server 개체 탐색기 시간 제한 임계값이 증가했습니다.<br/><br/> - 개체 탐색기를 채울 때 불안정성을 줄이고 성능을 향상시키기 위해 SQL Server 개체 탐색기에서 데이터베이스 개체 목록을 검색하는 방법을 최적화했습니다. |
 
 ## <a name="january-2020"></a>2020년 1월
 
@@ -226,7 +226,7 @@ ms.locfileid: "97369007"
 ## <a name="more-information"></a>자세한 정보
 
 - [블로그 - Azure Synapse Analytics](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [고객 자문 팀 블로그](https://docs.microsoft.com/archive/blogs/sqlcat/)
+- [고객 자문 팀 블로그](/archive/blogs/sqlcat/)
 - [고객 성공 사례](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

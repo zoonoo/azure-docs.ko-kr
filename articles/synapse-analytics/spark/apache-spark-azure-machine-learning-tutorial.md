@@ -9,18 +9,18 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: e547d047e8d736acbd1cdda5ffe3a78dbe8259f7
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 2594e25bff3ca949b329f8b66f4427eb1f6950b0
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901056"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118713"
 ---
 # <a name="tutorial-train-a-model-in-python-with-automated-machine-learning"></a>자습서: 자동화된 Machine Learning을 사용하여 Python에서 모델 학습
 
 Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관리 및 추적할 수 있는 클라우드 기반 환경입니다. 
 
-이 자습서에서는 Azure Machine Learning의 [자동화된 Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml)을 사용하여 택시 요금 가격을 예측하는 회귀 모델을 만듭니다. 이 프로세스는 학습 데이터 및 구성 설정을 수락하고 다양한 방법, 모델 및 하이퍼 매개 변수 설정을 조합하여 자동으로 반복함으로써 최상의 모델에 도달합니다.
+이 자습서에서는 Azure Machine Learning의 [자동화된 Machine Learning](../../machine-learning/concept-automated-ml.md)을 사용하여 택시 요금 가격을 예측하는 회귀 모델을 만듭니다. 이 프로세스는 학습 데이터 및 구성 설정을 수락하고 다양한 방법, 모델 및 하이퍼 매개 변수 설정을 조합하여 자동으로 반복함으로써 최상의 모델에 도달합니다.
 
 이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 - Apache Spark 및 Azure Open Datasets를 사용하여 데이터를 다운로드합니다.
@@ -31,7 +31,7 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 - [서버리스 Apache Spark 풀 만들기 빠른 시작](../quickstart-create-apache-spark-pool-studio.md)에 따라 서버리스 Apache Spark 풀을 만듭니다.
-- 기존 Azure Machine Learning 작업 영역이 없는 경우 [Azure Machine Learning 작업 영역 설정 자습서](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup)를 완료합니다. 
+- 기존 Azure Machine Learning 작업 영역이 없는 경우 [Azure Machine Learning 작업 영역 설정 자습서](../../machine-learning/tutorial-1st-experiment-sdk-setup.md)를 완료합니다. 
 
 ## <a name="understand-regression-models"></a>회귀 모델 이해
 
@@ -48,7 +48,7 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
 
 방법은 다음과 같습니다.
 
-1. PySpark 커널을 사용하여 Notebook을 만듭니다. 자세한 지침은 [Notebook 만들기](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook)를 참조하세요.
+1. PySpark 커널을 사용하여 Notebook을 만듭니다. 자세한 지침은 [Notebook 만들기](../quickstart-apache-spark-notebook.md#create-a-notebook)를 참조하세요.
    
     > [!Note]
     > PySpark 커널로 인해 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 컨텍스트가 자동으로 만들어집니다.
@@ -144,7 +144,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>데이터 프레임을 Azure Machine Learning 데이터 세트로 변환
-원격 실험을 제출하려면 데이터 세트를 Azure Machine Learning ```TabularDatset```로 변환합니다. [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true)는 제공된 파일을 구문 분석하여 데이터를 테이블 형식으로 나타냅니다.
+원격 실험을 제출하려면 데이터 세트를 Azure Machine Learning ```TabularDatset```로 변환합니다. [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py)는 제공된 파일을 구문 분석하여 데이터를 테이블 형식으로 나타냅니다.
 
 다음 코드는 기존 작업 영역과 기본 Azure Machine Learning 기본 데이터 저장소를 가져옵니다. 그런 다음, 데이터 저장소 및 파일 위치를 경로 매개 변수에 전달하여 새 ```TabularDataset```를 만듭니다. 
 
@@ -170,7 +170,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 다음 섹션에서는 자동화된 Machine Learning 실험을 제출하는 과정을 안내합니다.
 
 ### <a name="define-training-settings"></a>학습 설정 정의
-1. 실험을 제출하려면 학습에 대한 실험 매개 변수와 모델 설정을 정의해야 합니다. 전체 설정 목록은 [Python에서 자동화된 Machine Learning 실험 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train)을 참조하세요.
+1. 실험을 제출하려면 학습에 대한 실험 매개 변수와 모델 설정을 정의해야 합니다. 전체 설정 목록은 [Python에서 자동화된 Machine Learning 실험 구성](../../machine-learning/how-to-configure-auto-train.md)을 참조하세요.
 
    ```python
    import logging
@@ -338,5 +338,5 @@ NYCGreenTaxiModel 1
 ![Azure Machine Learning 작업 영역의 스크린샷](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [자습서: Apache Spark MLlib 및 Azure Synapse Analytics를 사용하여 기계 학습 앱 빌드](./apache-spark-machine-learning-mllib-notebook.md)

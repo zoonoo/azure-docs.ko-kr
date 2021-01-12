@@ -12,12 +12,12 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 512775369bd7787c6228c6d452be0e236ddf5cc2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0ce07ff3ca5fbcc9776792129d3bfb4ef54efe7d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456336"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120124"
 ---
 # <a name="upgrade-your-dedicated-sql-pool-formerly-sql-dw-to-gen2"></a>전용 SQL 풀 (이전의 SQL DW)을 Gen2로 업그레이드
 
@@ -133,4 +133,4 @@ Microsoft는 전용 SQL 풀 (이전의 SQL DW)을 실행 하는 데 드는 초�
 - [현재 위치 업그레이드 및 복원 지점에서 업그레이드](upgrade-to-latest-generation.md)
 - [사용자 정의 복원 지점 만들기](sql-data-warehouse-restore-points.md)
 - [Gen2로 복원하는 방법 알아보기](sql-data-warehouse-restore-active-paused-dw.md)
-- [Azure Synapse Analytics 지원 요청 열기](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Azure Synapse Analytics 지원 요청 열기](./sql-data-warehouse-get-started-create-support-ticket.md)

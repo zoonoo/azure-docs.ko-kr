@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a57abd080bdbbaefbe07258a2b241c093dc8c441
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 58e14ab04084871dfd5de400cac0c38401855d0c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308748"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120260"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대 한 PolyBase 데이터 로드 전략 디자인
 
@@ -38,9 +38,9 @@ ELT (추출, 로드 및 변환)는 데이터를 원본 시스템에서 추출 �
 5. 데이터를 변환합니다.
 6. 프로덕션 테이블에 데이터를 삽입합니다.
 
-로드 자습서는 [PolyBase를 사용 하 여 azure blob storage에서 Azure Synapse Analytics로 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조 하세요.
+로드 자습서는 [PolyBase를 사용 하 여 azure blob storage에서 Azure Synapse Analytics로 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)를 참조 하세요.
 
-자세한 정보는 [로드 패턴 블로그](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)를 참조하세요.
+자세한 정보는 [로드 패턴 블로그](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)를 참조하세요.
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. 텍스트 파일에 원본 데이터 추출
 
@@ -118,10 +118,10 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../../storage/
 
 PolyBase를 사용하여 데이터를 로드하려는 경우 다음 로드 옵션 중 하나를 사용할 수 있습니다.
 
-- [T-SQL을 이용한 PolyBase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json): Azure Blob Storage 또는 Azure Data Lake Store에 데이터가 있을 경우 효과적입니다. 로드 프로세스를 가장 잘 제어할 수 있지만, 외부 데이터 개체를 정의해야 합니다. 다른 방법에서는 원본 테이블을 대상 테이블에 매핑할 때 배후에서 이러한 개체를 정의합니다.  T-SQL 로드를 조정하려면 Azure Data Factory, SSIS 또는 Azure 함수를 사용할 수 있습니다.
+- [T-SQL을 이용한 PolyBase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json): Azure Blob Storage 또는 Azure Data Lake Store에 데이터가 있을 경우 효과적입니다. 로드 프로세스를 가장 잘 제어할 수 있지만, 외부 데이터 개체를 정의해야 합니다. 다른 방법에서는 원본 테이블을 대상 테이블에 매핑할 때 배후에서 이러한 개체를 정의합니다.  T-SQL 로드를 조정하려면 Azure Data Factory, SSIS 또는 Azure 함수를 사용할 수 있습니다.
 - [SSIS를 사용 하는 PolyBase](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 는 원본 데이터가 SQL Server 때 잘 작동 합니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다.
 - [ADF(Azure Data Factory)를 이용한 PolyBase](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json): 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다.
-- [Azure Databricks polybase](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 는 Azure Synapse analytics 테이블에서 Databricks 데이터 프레임로 데이터를 전송 하 고 polybase를 사용 하 여 Databricks 데이터 프레임에서 Azure Synapse analytics 테이블로 데이터를 씁니다.
+- [Azure Databricks polybase](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 는 Azure Synapse analytics 테이블에서 Databricks 데이터 프레임로 데이터를 전송 하 고 polybase를 사용 하 여 Databricks 데이터 프레임에서 Azure Synapse analytics 테이블로 데이터를 씁니다.
 
 ### <a name="non-polybase-loading-options"></a>PolyBase 외 로드 옵션
 

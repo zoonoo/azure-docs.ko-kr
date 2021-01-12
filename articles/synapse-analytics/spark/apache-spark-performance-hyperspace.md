@@ -10,12 +10,12 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 6795828f4fd3a77a7bc6d8de208848d5f4ee3bee
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3aedef8452ad3e972f78958fc0765639692d76d6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501042"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121059"
 ---
 # <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>하이퍼스페이스: Apache Spark에 대 한 인덱싱 하위 시스템
 
@@ -32,7 +32,7 @@ ms.locfileid: "96501042"
 
 이 문서는 [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [c #](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)및 [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)에 대 한 노트북 양식 에서도 사용할 수 있습니다.
 
-## <a name="setup"></a>설치
+## <a name="setup"></a>설치 프로그램
 
 먼저 새 Spark 세션을 시작 합니다. 이 문서는 하이퍼스페이스가 제공할 수 있는 기능을 보여 주기 위한 자습서 이므로 작은 데이터 집합에서 수행 하는 작업을 강조 하는 데 사용할 수 있는 구성 변경 작업을 수행 합니다. 
 
@@ -2230,4 +2230,4 @@ productIndex2:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspa
 ## <a name="next-steps"></a>다음 단계
 
 * [프로젝트 하이퍼스페이스](https://microsoft.github.io/hyperspace/)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Azure Synapse Analytics](../index.yml)

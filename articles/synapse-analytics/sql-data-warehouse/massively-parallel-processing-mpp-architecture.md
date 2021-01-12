@@ -10,19 +10,19 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 45c7f89f773095a102429c07f7441223de3c2dec
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c537d3109f770c1ce77be6495bdacd24270dad5f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448257"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119597"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW) 아키텍처
 
 Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 분석 서비스입니다. 이를 통해 사용자의 용어로 데이터를 자유롭게 쿼리할 수 있습니다.
 
 > [!NOTE]
->[Azure Synapse Analytics 설명서](../overview-what-is.md)를 탐색 합니다.
+>[Azure Synapse Analytics 설명서](../overview-what-is.md)를 살펴보세요.
 >
 
 
@@ -107,13 +107,13 @@ DMS(데이터 이동 서비스)는 컴퓨팅 노드 간의 데이터 이동을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Synapse에 대 한 자세한 내용을 배웠으므로 이제 [전용 sql 풀 (이전의 SQL DW)](create-data-warehouse-portal.md) 을 빠르게 만들고 [샘플 데이터를 로드](load-data-from-azure-blob-storage-using-polybase.md)하는 방법을 알아보세요. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 을 유용하게 사용할 수 있습니다. 또는 다음과 같은 기타 Azure Synapse 리소스를 살펴봅니다.  
+Azure Synapse에 대 한 자세한 내용을 배웠으므로 이제 [전용 sql 풀 (이전의 SQL DW)](create-data-warehouse-portal.md) 을 빠르게 만들고 [샘플 데이터를 로드](./load-data-from-azure-blob-storage-using-copy.md)하는 방법을 알아보세요. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 을 유용하게 사용할 수 있습니다. 또는 다음과 같은 기타 Azure Synapse 리소스를 살펴봅니다.  
 
 - [고객 성공 사례](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [블로그](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [기능 요청](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [지원 티켓 만들기](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- [Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html)
 - [Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

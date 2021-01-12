@@ -3,12 +3,12 @@ title: IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석-Azure
 description: 이 항목에서는 IoT Edge 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대 한 라이브 비디오 분석의 릴리스 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7761fee8f23b5be259f9a5c278f761fa4ce92fbf
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059979"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121246"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석
 
@@ -20,6 +20,23 @@ ms.locfileid: "98059979"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+<hr width=100%>
+
+## <a name="january-12-2021"></a>2021 년 1 월 12 일
+
+이 릴리스 태그는 모듈의 1 월 2021 새로 고침에 대 한 것입니다.
+
+```
+mcr.microsoft.com/media/live-video-analytics:2.0.1
+```
+
+> [!NOTE]
+> 퀵 스타트 및 자습서에서 배포 매니페스트는 2 (라이브-비디오-분석: 2) 태그를 사용 합니다. 따라서 이러한 매니페스트를 다시 배포 하면 edge > 장치에서 모듈을 업데이트 해야 합니다.
+### <a name="bug-fixes"></a>버그 수정 
+
+* `ActivationSignalOffset` `MinimumActivationTime` `MaximumActivationTime` 신호 게이트 프로세서의 필드 및가 필수 속성으로 잘못 설정 되었습니다. 이제 **선택적** 속성입니다.
+* 특정 지역에 배포 될 때 IoT Edge 모듈의 라이브 비디오 분석이 중단 되도록 하는 사용 버그를 수정 했습니다.
 
 <hr width=100%>
 

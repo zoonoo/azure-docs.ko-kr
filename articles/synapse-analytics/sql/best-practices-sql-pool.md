@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 03a536e16a6ba12611ed704b404c1bd411f0c4c8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 242e5d042aa14e3b7bd92ebb37ae1be61b1b2c8f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322703"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120974"
 ---
 # <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 모범 사례
 
@@ -61,7 +61,7 @@ Gzip 텍스트 파일을 사용할 때 처리량을 최대화하려면 파일을
 
 - [데이터 로드](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [PolyBase 사용 지침](data-loading-best-practices.md)
-- [Azure SQL 풀 로드 패턴 및 전략](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
+- [Azure SQL 풀 로드 패턴 및 전략](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
 - [Azure Data Factory를 사용하여 데이터 로드](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Data Factory를 사용하여 데이터 이동](../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
@@ -88,7 +88,7 @@ Polybase는 쿼리에 가장 적합한 선택이 아닙니다. 전용 SQL 풀의
 
 - [테이블 개요](develop-tables-overview.md)
 - [테이블 분산](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [테이블 배포 선택](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/)
+- [테이블 배포 선택](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service)
 - [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
@@ -193,7 +193,7 @@ SQL 풀에는 쿼리 실행을 모니터링하는 데 사용할 수 있는 여�
 
 [문제 해결](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서에서 일반적인 문제 및 해결 방법을 확인하세요.
 
-이 문서에서 제공하지 않는 정보가 필요한 경우 [Azure Synapse에 대한 Microsoft Q&A 페이지](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)에서 다른 사용자와 SQL 풀 제품 그룹에게 궁금한 내용을 질문할 수 있습니다.  
+이 문서에서 제공하지 않는 정보가 필요한 경우 [Azure Synapse에 대한 Microsoft Q&A 페이지](/answers/topics/azure-synapse-analytics.html)에서 다른 사용자와 SQL 풀 제품 그룹에게 궁금한 내용을 질문할 수 있습니다.  
 
 Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  Stack Overflow에서 질문하기를 원하는 경우 [Azure SQL 풀 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw)을 사용하면 됩니다.
 

@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 01/06/2021
 ms.author: juliako
-ms.openlocfilehash: 3552d55d995608dd0d471c84cd5e9f9988ebe2c0
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028644"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120090"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -44,7 +44,7 @@ Video Indexer은 Cognitive Services 사용자 지정 비전과의 통합을 통�
 
 ### <a name="planned-video-indexer-website-authenticatication-changes"></a>계획 된 Video Indexer 웹 사이트 authenticatication 변경 내용
 
-2021 년 3 월 1 일부 터는 더 이상 Facebook 또는 LinkedIn을 사용 하 여 [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에 등록 하 고 로그인 할 수 없습니다.
+2021 년 3 월 1 일부 터는 더 이상 Facebook 또는 LinkedIn을 사용 하 여 [Video Indexer 웹 사이트](https://www.videoindexer.ai/) [개발자 포털](video-indexer-use-apis.md) 에 등록 하 고 로그인 할 수 없습니다.
 
 Azure AD, Microsoft, Google 등의 공급자 중 하나를 사용 하 여 등록 하 고 로그인 할 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 6a38b61ee03aa4853526586ca60542bd3641b66f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd582c1175d6bff0aa18ee77dde8b7734b6acf25
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249402"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121025"
 ---
 # <a name="what-is-delta-lake"></a>Delta Lake란?
 
@@ -44,4 +44,4 @@ Azure Synapse에 포함 된 현재 버전의 델타 Lake에는 Scala, PySpark �
 ## <a name="next-steps"></a>다음 단계
 
 - [Apache Spark용 .NET 설명서](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)

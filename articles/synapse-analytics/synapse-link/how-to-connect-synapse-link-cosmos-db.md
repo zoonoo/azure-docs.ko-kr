@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e4bcc13a2eaddbf394d8468b29eeff475119e2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5316f74ee38f597592ae4582aef31837f0f05fda
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459020"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119835"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 연결
 
@@ -24,8 +24,8 @@ ms.locfileid: "96459020"
 
 Azure Cosmos DB 데이터베이스를 작업 영역에 연결하기 전에 다음 항목이 필요합니다.
 
-* 기존 Azure Cosmos DB 데이터베이스 또는 [빠른 시작: Azure Cosmos DB 계정 만들기](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)의 단계를 따라 새 계정을 만듭니다.
-* 기존 Azure Synapse 작업 영역 또는 [빠른 시작: Synapse 작업 영역 만들기](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)의 단계를 따라 새 작업 영역을 만듭니다.
+* 기존 Azure Cosmos DB 데이터베이스 또는 [빠른 시작: Azure Cosmos DB 계정 만들기](../../cosmos-db/how-to-manage-database-account.md)의 단계를 따라 새 계정을 만듭니다.
+* 기존 Azure Synapse 작업 영역 또는 [빠른 시작: Synapse 작업 영역 만들기](../quickstart-create-workspace.md)의 단계를 따라 새 작업 영역을 만듭니다.
 
 > [!IMPORTANT]
 > Azure Cosmos DB용 Azure Synapse Link는 현재 관리형 가상 네트워크가 활성화되지 않은 작업 영역에서 지원됩니다.

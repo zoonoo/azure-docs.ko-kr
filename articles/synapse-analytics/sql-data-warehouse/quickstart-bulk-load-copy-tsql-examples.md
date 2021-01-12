@@ -9,16 +9,16 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: de446209104c113b10346645f79b461239c3efab
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 25c692ea9a2dce4723472f6812ac46d82b2b318d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901280"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120991"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Synapse SQL을 사용하여 안전하게 데이터 로드
 
-이 문서에서는 [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)의 보안 인증 메커니즘을 설명하고 예시를 보여줍니다. COPY 문은 Synapse SQL에서 데이터를 대량 로드하기 위한 가장 유연하고 안전한 방법입니다.
+이 문서에서는 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)의 보안 인증 메커니즘을 설명하고 예시를 보여줍니다. COPY 문은 Synapse SQL에서 데이터를 대량 로드하기 위한 가장 유연하고 안전한 방법입니다.
 ## <a name="supported-authentication-mechanisms"></a>지원되는 인증 메커니즘
 
 다음 표에서는 각 파일 유형 및 스토리지 계정에 대해 지원되는 인증 방법을 설명합니다. 원본 스토리지 위치 및 오류 파일 위치에 적용됩니다.
@@ -136,7 +136,7 @@ WITH (
 
     ![로드할 수 있는 Azure RBAC 권한 부여](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. 다음 [문서](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server)에 따라 Azure AD 인증을 구성합니다. 
+2. 다음 [문서](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell)에 따라 Azure AD 인증을 구성합니다. 
 
 3. Active Directory를 사용하여 SQL 풀에 연결합니다. 이제 자격 증명을 지정하지 않고 COPY 문을 실행할 수 있습니다.
 
@@ -152,11 +152,11 @@ WITH (
 ## <a name="e-service-principal-authentication"></a>E. 서비스 주체 인증
 #### <a name="steps"></a>단계
 
-1. [Azure Active Directory 애플리케이션 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
-2. [애플리케이션 ID 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
-3. [인증 키 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
-4. [V1 OAuth 2.0 토큰 엔드포인트 가져오기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. 스토리지 계정에서 [Azure AD 애플리케이션에 읽기, 쓰기 및 실행 권한 할당](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder)
+1. [Azure Active Directory 애플리케이션 만들기](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+2. [애플리케이션 ID 가져오기](../..//active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
+3. [인증 키 가져오기](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+4. [V1 OAuth 2.0 토큰 엔드포인트 가져오기](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
+5. 스토리지 계정에서 [Azure AD 애플리케이션에 읽기, 쓰기 및 실행 권한 할당](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder)
 6. 이제 COPY 문을 실행할 수 있습니다.
 
     ```sql
@@ -176,5 +176,5 @@ WITH (
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 구문은 [COPY 문 문서](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)를 확인하세요.
-- 모범 사례를 로드하려면 [데이터 로드 개요](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading#what-is-elt) 문서를 확인하세요.
+- 자세한 구문은 [COPY 문 문서](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)를 확인하세요.
+- 모범 사례를 로드하려면 [데이터 로드 개요](./design-elt-data-loading.md#what-is-elt) 문서를 확인하세요.

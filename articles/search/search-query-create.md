@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: db36a77d93735b151ad893b7e25ba86f104e7b90
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 9bee391ddb0fa6c270c6d833fb7e81d5f4880497
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510467"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118645"
 ---
 # <a name="create-a-query-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "97510467"
 | 방법 | 설명 |
 |-------------|-------------|
 | 포털| [검색 탐색기 (포털)](search-explorer.md) 는 기본 검색 서비스의 인덱스에 대해 쿼리를 실행 하는 Azure Portal의 쿼리 인터페이스입니다. 포털은 [문서 검색](/rest/api/searchservice/search-documents) 작업에 대 한 백그라운드에서의 REST API 호출을 수행 하지만 자동 완성, 제안 또는 문서 조회는 호출할 수 없습니다.<br/><br/> 미리 보기를 포함 하 여 인덱스 및 REST API 버전을 선택할 수 있습니다. 쿼리 문자열은 단순 또는 전체 구문을 사용할 수 있으며 모든 쿼리 매개 변수 (filter, select, searchFields 등)를 지원 합니다. 포털에서 인덱스를 열 때 필드 특성에 쉽게 액세스할 수 있도록 나란히 있는 탭의 인덱스 JSON 정의와 함께 검색 탐색기를 사용할 수 있습니다. 쿼리를 테스트 하는 동안 검색 가능, 정렬 가능, 필터링 가능 및 패싯 가능 필드를 확인 합니다. <br/>초기 조사, 테스트 및 유효성 검사에 권장 됩니다. [자세한 정보](search-explorer.md) |
-| 웹 테스트 도구| [Postman 또는 Visual Studio Code](search-get-started-rest.md) 은 [검색 문서](/rest/api/searchservice/search-documents) 요청을 작성 하는 데 사용할 수 있는 강력 하 고 다른 요청은 REST에 있습니다. REST Api는 Azure Cognitive Search에서 가능한 모든 프로그래밍 작업을 지원 하며, Postman 또는 Visual Studio Code와 같은 도구를 사용 하는 경우 코드에 투자 하기 전에 기능의 작동 방식을 이해할 수 있도록 대화형으로 요청을 실행할 수 있습니다. Azure Portal에서 참가자 또는 관리 권한이 없는 경우 웹 테스트 도구를 선택 하는 것이 좋습니다. 검색 URL 및 쿼리 API 키를 사용 하는 경우 도구를 사용 하 여 기존 인덱스에 대해 쿼리를 실행할 수 있습니다. |
+| 웹 테스트 도구| [Postman](search-get-started-rest.md) 또는 [Visual Studio Code](search-get-started-vs-code.md) 은 [검색 문서](/rest/api/searchservice/search-documents) 요청을 작성 하는 데 사용할 수 있는 강력 하 고 다른 요청은 REST에 있습니다. REST Api는 Azure Cognitive Search에서 가능한 모든 프로그래밍 작업을 지원 하며, Postman 또는 Visual Studio Code와 같은 도구를 사용 하는 경우 코드에 투자 하기 전에 기능의 작동 방식을 이해할 수 있도록 대화형으로 요청을 실행할 수 있습니다. Azure Portal에서 참가자 또는 관리 권한이 없는 경우 웹 테스트 도구를 선택 하는 것이 좋습니다. 검색 URL 및 쿼리 API 키를 사용 하는 경우 도구를 사용 하 여 기존 인덱스에 대해 쿼리를 실행할 수 있습니다. |
 | Azure SDK | 코드를 작성할 준비가 되 면 .NET, Python, JavaScript 또는 Java 용 Azure Sdk에서 Azure.Search.Document 클라이언트 라이브러리를 사용할 수 있습니다. 각 SDK는 자체 릴리스 일정에 있지만 모든 SDK에서 인덱스를 만들고 쿼리할 수 있습니다. <br/><br/>[Searchclient (.net)](/dotnet/api/azure.search.documents.searchclient) 를 사용 하 여 c #에서 검색 인덱스를 쿼리할 수 있습니다.  [자세한 정보](search-howto-dotnet-sdk.md)<br/><br/>[Searchclient (python)](/dotnet/api/azure.search.documents.searchclient) 를 사용 하 여 python에서 검색 인덱스를 쿼리할 수 있습니다. [자세한 정보](search-get-started-python.md)<br/><br/>[Searchclient (javascript)](/dotnet/api/azure.search.documents.searchclient) 를 사용 하 여 javascript에서 검색 인덱스를 쿼리할 수 있습니다. [자세한 정보](search-get-started-javascript.md) |
 
 ## <a name="set-up-a-search-client"></a>검색 클라이언트 설정

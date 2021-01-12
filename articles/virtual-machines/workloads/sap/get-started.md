@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/05/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f74e6435af9084b0c8f222c33dc922fe678bc4c7
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e3a4c367bbe0770495a63c00ca33861ac815460f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914522"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121008"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -83,6 +83,7 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>로그 변경
 
+- 01/11/2021: [sap 용 RHEL의 Azure vm에 대 한 ha](./high-availability-guide-rhel.md)의 사소한 변경 내용, [RHEL의](./high-availability-guide-rhel-netapp-files.md) Azure vm에 있는 azure vm의 azure vm에 대 한 Ha 및 [RHEL의 azure vm에](./high-availability-guide-rhel-multi-sid.md) 있는 azure vm의 HA에 대 한 ha 가이드 RHEL8 및 RHEL7 모두에 대해 작동 하는 명령을 조정 하 고 ENSA1 및 ENSA2
 - 01/05/2021: SLES의 ANF를 사용 하 여 [Azure vm의 대기 노드를 사용 하는 SAP HANA 확장](./sap-hana-scale-out-standby-netapp-files-suse.md) 의 변경 내용 및 [RHEL의 anf를 사용 하는 azure vm의 대기 노드로 확장 SAP HANA](./sap-hana-scale-out-standby-netapp-files-rhel.md)SAP 호스트 에이전트가 로컬 포트 범위를 관리할 수 있도록 권장 구성을 수정 합니다.  
 - 01/04/2021: HLI에서 지 원하는 새 Azure 지역을 [azure (Large Instances)의 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 에 추가 합니다.
 - 12/29/2020: [Azure 가용성 영역을 사용 하 여 SAP 워크 로드 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) 에서 특정 Azure 지역에 대 한 아키텍처 권장 사항을 추가 합니다.

@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 14d15f54befba162b071b40e06e589f980708fd3
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 74ddaaf7a2d279439c0cd27ba0840f02f297877b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740490"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119563"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Interpretability 패키지를 사용 하 여 Python의 ML 모델 & 예측 (미리 보기)을 설명 합니다.
 
@@ -340,7 +340,7 @@ X, Y 및 색 축을 따라 다른 필터를 선택 하 여 데이터 집합 통�
 
 설명 탭의 네 번째 탭에서는 개별 요소 및 개별 기능 importances를 자세히 살펴볼 수 있습니다. 주 산 점도의 개별 데이터 요소를 클릭 하거나 오른쪽의 패널 마법사에서 특정 데이터 요소를 선택 하 여 모든 데이터 요소에 대 한 개별 기능 중요도 그림을 로드할 수 있습니다.
 
-|그림|Description|
+|그림|설명|
 |----|-----------|
 |개별 기능 중요도|개별 예측의 최상위 중요 기능을 보여 줍니다. 특정 데이터 요소에 대 한 기본 모델의 로컬 동작을 보여 줍니다.|
 |What-If 분석|선택한 실제 데이터 요소의 기능 값에 대 한 변경 내용을 허용 하 고 새 기능 값을 사용 하 여 가상 데이터 포인트를 생성 하 여 예측 값에 대 한 변경 결과를 관찰 합니다.|
@@ -491,7 +491,7 @@ Azure Machine Learning 실행 기록에 생성 된 설명 업로드) [원격 int
 
          # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
 
-         azureml_pip_packages = ['azureml-defaults', 'azureml-contrib-interpret', 'azureml-core', 'azureml-telemetry', 'azureml-interpret']
+         azureml_pip_packages = ['azureml-defaults', 'azureml-core', 'azureml-telemetry', 'azureml-interpret']
  
 
          # specify CondaDependencies obj
