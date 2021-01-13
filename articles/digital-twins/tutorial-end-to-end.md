@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 64e648cf6ae3c763d3e9ab1a6970f48c84331bad
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 09ce611b5bca6c04d55da95a82a8fcd7ae348db3
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845622"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049219"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -89,10 +89,7 @@ Query
 >
 > 인스턴스의 모든 디지털 쌍을 가져오는 전체 쿼리 본문은 다음과 같습니다.
 > 
-> ```sql
-> SELECT *
-> FROM DIGITALTWINS
-> ``` 
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
 
 그런 다음, 프로젝트 실행을 중지할 수 있습니다. 자습서 전체에서 솔루션을 계속 사용하므로 Visual Studio에서 솔루션을 열어 둡니다.
 

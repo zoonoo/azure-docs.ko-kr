@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: b26b0d9086f464556cbca2c70773374c3cccbd52
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915864"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134418"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>자동화 된 기계 학습의 데이터 기능화
 
@@ -28,7 +28,7 @@ Azure Machine Learning의 데이터 기능화 설정 및 [자동화 된 ML 실�
 
 *기능 엔지니어링* 은 데이터에 대 한 도메인 정보를 사용 하 여 기계 학습 (ML) 알고리즘을 통해 더 나은 학습을 돕는 기능을 만드는 프로세스입니다. Azure Machine Learning에서 데이터 크기 조정 및 정규화 기술이 기능 엔지니어링을 용이 하 게 하기 위해 적용 됩니다. 이러한 기술과이 기능 엔지니어링은 자동화 된 기계 학습 또는 *Automl*, 실험에서 *기능화* 이라고 통칭 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 AutoML 실험을 구성 하는 방법을 이미 알고 있다고 가정 합니다. 구성에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
@@ -89,7 +89,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 데이터 guardrails 세 가지 상태 중 하나를 표시 합니다.
 
-|주| 설명 |
+|시스템 상태| 설명 |
 |----|---- |
 |**통과**| 데이터 문제가 검색 되지 않았으므로 사용자에 게 아무런 조치도 필요 하지 않습니다. |
 |**완료**| 변경 내용이 데이터에 적용되었습니다. 변경 내용이 예상 된 결과와 일치 하는지 확인 하기 위해 AutoML에서 수행한 정정 작업을 검토 하는 것이 좋습니다. |
@@ -122,6 +122,9 @@ Featurizations를 사용자 지정 하려면 `"featurization": FeaturizationConf
 |**변환기 매개 변수 업데이트** |지정 된 변환기에 대 한 매개 변수를 업데이트 합니다. 현재는 *(평균* , 가장 자주, 중앙값) 및 *HashOneHotEncoder* 을 지원 합니다.|
 |**삭제 열** |기능화에서 삭제할 열을 지정 합니다.|
 |**블록 변환기**| 기능화 프로세스에 사용할 블록 변환기를 지정 합니다.|
+
+>[!NOTE]
+> **열 삭제** 기능은 SDK 버전 1.19에서 사용 되지 않습니다. 자동 ML 실험에서 사용 하기 전에 데이터를 정리 하는 과정에서 데이터 집합의 열을 삭제 합니다. 
 
 `FeaturizationConfig`API 호출을 사용 하 여 개체를 만듭니다.
 

@@ -9,29 +9,29 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 308b2a9cb00f44f0e330d4fef5592d8855ee3394
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 00c1c8ddab9214bf7698c21b05c24afa36ec20d9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553170"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147347"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>상태 범주, 엔터티 및 특성에 대 한 Text Analytics
 
 [상태에 대 한 Text Analytics](../../how-tos/text-analytics-for-health.md) 는 다음 범주의 의료 개념을 검색 합니다.  이 컨테이너 미리 보기에서는 영어 텍스트만 지원 되며 각 컨테이너 이미지에는 단일 모델 버전만 제공 됩니다.
 
 
-| 범주  | Description  |
+| 범주  | 설명  |
 |---------|---------|
-| 표의 | 본문 및 anatomic 시스템, 사이트, 위치 또는 지역에 대 한 정보를 캡처하는 개념입니다. |
- | 통계 | 성별 및 연령에 대 한 정보를 캡처하는 개념입니다. |
- | 자세히 | 진단 절차 및 테스트에 대 한 정보를 캡처하는 개념입니다. |
- | GENOMICS | 유전자 및 변형에 대 한 정보를 캡처하는 개념입니다. |
- | 보건 | 관리 이벤트, 의료 환경 및 의료 professions에 대 한 정보를 캡처하는 개념입니다. |
- | 의료 조건 | 진단, 증상 또는 기호에 대 한 정보를 캡처하는 개념입니다. |
- | 조제 | 조제 이름, 클래스, dosage 및 관리 경로를 포함 하 여 조제에 대 한 정보를 캡처하는 개념입니다. |
- | 소셜 | 가족 관계와 같은 medically 관련 소셜 측면에 대 한 정보를 캡처하는 개념입니다. |
- | 처리 | therapeutic 프로시저에 대 한 정보를 캡처하는 개념입니다. |
+| [표의](#anatomy) | 본문 및 anatomic 시스템, 사이트, 위치 또는 지역에 대 한 정보를 캡처하는 개념입니다. |
+ | [통계](#demographics) | 성별 및 연령에 대 한 정보를 캡처하는 개념입니다. |
+ | [자세히](#examinations) | 진단 절차 및 테스트에 대 한 정보를 캡처하는 개념입니다. |
+ | [GENOMICS](#genomics) | 유전자 및 변형에 대 한 정보를 캡처하는 개념입니다. |
+ | [보건](#healthcare) | 관리 이벤트, 의료 환경 및 의료 professions에 대 한 정보를 캡처하는 개념입니다. |
+ | [의료 조건](#medical-condition) | 진단, 증상 또는 기호에 대 한 정보를 캡처하는 개념입니다. |
+ | [조제](#medication) | 조제 이름, 클래스, dosage 및 관리 경로를 포함 하 여 조제에 대 한 정보를 캡처하는 개념입니다. |
+ | [소셜](#social) | 가족 관계와 같은 medically 관련 소셜 측면에 대 한 정보를 캡처하는 개념입니다. |
+ | [처리](#treatment) | therapeutic 프로시저에 대 한 정보를 캡처하는 개념입니다. |
   
 각 범주에는 두 가지 개념 그룹이 포함 될 수 있습니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "94553170"
 
 ### <a name="entities"></a>엔터티
 
-**EXAMINATION_NAME** – 진단 프로시저 및 테스트. 예를 들어 MRI, ECG, 하이브 test, hemoglobin, platelets count, scale systems (예: *Bristol stool scale* )가 있습니다.
+**EXAMINATION_NAME** – 진단 프로시저 및 테스트. 예를 들어 MRI, ECG, 하이브 test, hemoglobin, platelets count, scale systems (예: *Bristol stool scale*)가 있습니다.
 
 :::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="시험 엔터티의 예입니다.":::
 
@@ -267,7 +267,15 @@ ms.locfileid: "94553170"
 +   **FREQUENCY_OF_MEDICATION**
 +   **ROUTE_OF_MEDICATION**
 +   **TIME_OF_MEDICATION**
-  
+
+## <a name="social"></a>소셜
+
+### <a name="entities"></a>엔터티
+
+**FAMILY_RELATION** – 주체의 가족 친척에 대해 언급 합니다. 예를 들면 아버지, 딸, 형제, 부모입니다.
+
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="스크린샷 처리 시간 특성의 또 다른 예를 보여 줍니다.":::
+
 ## <a name="treatment"></a>처리 방법
 
 ### <a name="entities"></a>엔터티
@@ -294,17 +302,8 @@ ms.locfileid: "94553170"
 
 :::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="스크린샷 처리 시간 특성의 예를 보여 줍니다.":::
 
-
 ### <a name="supported-relations"></a>지원 되는 관계
 
 + **DIRECTION_OF_TREATMENT**
 +   **TIME_OF_TREATMENT**
 +   **FREQUENCY_OF_TREATMENT**
-
-## <a name="social"></a>소셜
-
-### <a name="entities"></a>엔터티
-
-**FAMILY_RELATION** – 주체의 가족 친척에 대해 언급 합니다. 예를 들면 아버지, 딸, 형제, 부모입니다.
-
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="스크린샷 처리 시간 특성의 또 다른 예를 보여 줍니다.":::
