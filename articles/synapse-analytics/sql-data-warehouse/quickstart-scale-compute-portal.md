@@ -11,12 +11,12 @@ ms.date: 04/28/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b8a39220bda788cf6dac0be5151c2cdf5385e342
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 26a8a865a787a9c9b17031f94456272c93380704
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91570266"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117047"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀에 대한 컴퓨팅 크기 조정
 
@@ -30,20 +30,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이미 있는 SQL 풀의 크기를 조정하거나 [빠른 시작: 만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 SQL 풀을 만듭니다. 이 빠른 시작은 **mySampleDataWarehouse** 크기를 조정합니다.
+이미 있는 SQL 풀의 크기를 조정하거나 [빠른 시작: 만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse** 라는 SQL 풀을 만듭니다. 이 빠른 시작은 **mySampleDataWarehouse** 크기를 조정합니다.
 
 >[!IMPORTANT] 
 >SQL 풀이 확장하려면 온라인 상태여야 합니다. 
 
 ## <a name="scale-compute"></a>컴퓨팅 크기 조정
 
-SQL 풀 컴퓨팅 리소스는 데이터 웨어하우스 단위를 늘리거나 줄여서 확장할 수 있습니다. [빠른 시작: 만들기 및 연결 - 포털](create-data-warehouse-portal.md)에서 **mySampleDataWarehouse**를 만들고 400DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse**에 대해 DWU를 조정합니다.
+SQL 풀 컴퓨팅 리소스는 데이터 웨어하우스 단위를 늘리거나 줄여서 확장할 수 있습니다. [빠른 시작: 만들기 및 연결 - 포털](create-data-warehouse-portal.md)에서 **mySampleDataWarehouse** 를 만들고 400DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse** 에 대해 DWU를 조정합니다.
 
 데이터 웨어하우스 단위를 변경하려면
 
 1. Azure Portal의 왼쪽 페이지에서 **Azure Synapse Analytics(이전의 SQL DW)** 를 클릭합니다.
-2. **Azure Synapse Analytics(이전의 SQL DW)** 페이지에서 **mySampleDataWarehouse**를 선택합니다. SQL 풀이 열립니다.
-3. **크기 조정**을 클릭합니다.
+2. **Azure Synapse Analytics(이전의 SQL DW)** 페이지에서 **mySampleDataWarehouse** 를 선택합니다. SQL 풀이 열립니다.
+3. **크기 조정** 을 클릭합니다.
 
     ![크기 조정을 클릭합니다.](./media/quickstart-scale-compute-portal/click-scale.png)
 
@@ -52,4 +52,4 @@ SQL 풀 컴퓨팅 리소스는 데이터 웨어하우스 단위를 늘리거나 
     ![슬라이더를 이동합니다](./media/quickstart-scale-compute-portal/scale-dwu.png)
 
 ## <a name="next-steps"></a>다음 단계
-SQL 풀에 대해 자세히 알아보려면 [SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md) 자습서를 계속 진행하세요. 
+SQL 풀에 대해 자세히 알아보려면 [SQL 풀에 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md) 자습서를 계속 진행하세요.

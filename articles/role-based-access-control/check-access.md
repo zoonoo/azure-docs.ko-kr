@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 7cf4020ad38224b25ea8bb7dc7f0fdea7dd6f3b1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5e4f3314ba580dddbd995855bc0f0512b7597107
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034006"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115741"
 ---
 # <a name="quickstart-check-access-for-a-user-to-azure-resources"></a>빠른 시작: Azure 리소스에 대한 사용자 액세스 확인
 
@@ -37,7 +37,7 @@ ms.locfileid: "97034006"
 
     다음은 예제 리소스 그룹을 보여줍니다.
 
-    ![리소스 그룹 개요](./media/check-access/rg-overview.png)
+    ![리소스 그룹 개요](./media/shared/rg-overview.png)
 
 ## <a name="step-2-check-access-for-a-user"></a>2단계: 사용자에 대한 액세스 확인
 
@@ -47,7 +47,7 @@ ms.locfileid: "97034006"
 
     다음은 리소스 그룹에 대한 액세스 제어(IAM) 페이지의 예를 보여줍니다.
 
-    ![리소스 그룹 액세스 제어 - 액세스 권한 확인 탭](./media/check-access/rg-access-control.png)
+    ![리소스 그룹 액세스 제어 - 액세스 권한 확인 탭](./media/shared/rg-access-control.png)
 
 1. **액세스 확인** 탭의 **찾기** 목록에서 액세스를 확인할 사용자, 그룹, 서비스 주체 또는 관리 ID를 선택합니다.
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7e7dce7ec4b8d4d55e734487595bb330e97ab18b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446688"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120447"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -171,7 +171,7 @@ WITH (
 )
 ```
 
-json_path = 열 또는 중첩 속성에 대한 [JSON 경로 식](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15). 기본 [경로 모드](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE)는 lax입니다.
+json_path = 열 또는 중첩 속성에 대한 [JSON 경로 식](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15). 기본 [경로 모드](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE)는 lax입니다.
 
 > [!NOTE]
 > strict 모드에서는 제공된 경로가 존재하지 않으면 쿼리가 실패하고 오류가 발생합니다. lax 모드에서는 쿼리가 성공하고 JSON 경로 식이 NULL로 계산됩니다.
@@ -371,7 +371,7 @@ WITH (
 
 ### <a name="specify-columns-using-json-paths"></a>JSON 경로를 사용하여 열 지정
 
-다음 예제에서는 WITH 절에서 [JSON 경로 식](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15)을 사용하는 방법을 보여주고 strict 및 lax 경로 모드의 차이점을 보여줍니다. 
+다음 예제에서는 WITH 절에서 [JSON 경로 식](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15)을 사용하는 방법을 보여주고 strict 및 lax 경로 모드의 차이점을 보여줍니다. 
 
 ```sql
 SELECT 

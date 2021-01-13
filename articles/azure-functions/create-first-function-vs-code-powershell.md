@@ -3,12 +3,12 @@ title: Visual Studio Code를 사용하여 PowerShell 함수 만들기 - Azure Fu
 description: PowerShell 함수를 만든 다음, Visual Studio Code의 Azure Functions 확장을 사용하여 Azure Functions의 서버리스 호스팅에 로컬 프로젝트를 게시하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 5d85c0362daa9dc3b42ed0cc1329329ffa598bee
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ad129d8faec5725a6e76f14577e6a0e9deae8d86
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637050"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968010"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 PowerShell 함수 만들기
 
@@ -26,8 +26,7 @@ ms.locfileid: "94637050"
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ npm용 Windows에 필요한 [Node.js](https://nodejs.org/)입니다. [활성 LTS 및 유지 관리 LTS 버전](https://nodejs.org/about/releases/)만 해당합니다. `node --version` 명령을 사용하여 버전을 확인합니다.
-    macOS 및 Linux의 로컬 개발에는 필요하지 않습니다.
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 버전 3.x.
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 

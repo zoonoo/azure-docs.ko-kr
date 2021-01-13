@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 580dfe779ff0f550524781076d3e27805ffd6689
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ff7b07cb1a4f480907bb51e741a05deeaae8e66b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451669"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116486"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Azure Data Studio를 사용하여 Synapse SQL에 연결
 
@@ -95,4 +95,4 @@ Synapse SQL에 연결하는 다른 방법을 살펴봅니다.
 - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [sqlcmd](get-started-connect-sqlcmd.md)
 
-자세한 내용은 [Azure Data Studio를 통해 Azure Synapse Analytics의 전용 SQL 풀을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-dw)를 참조하세요. 
+자세한 내용은 [Azure Data Studio를 통해 Azure Synapse Analytics의 전용 SQL 풀을 사용하여 데이터 연결 및 쿼리](/sql/azure-data-studio/quickstart-sql-dw)를 참조하세요.

@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ff2d9708642c347a829de290d45849d8629807f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f0c762d0f12f11cb4eef23b55fccb5b7c2a274d3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462354"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118220"
 ---
 # <a name="connect-to-synapse-sql"></a>Synapse SQL에 연결
 Azure Synapse Analytics의 Synapse SQL 기능에 연결합니다.
@@ -51,7 +51,7 @@ Azure Synapse Analytics의 Synapse SQL 기능에 연결합니다.
 ![전체 서버 이름 서버리스 SQL 풀](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>지원되는 드라이버 및 연결 문자열
-Synapse SQL은 [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) 및 [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx)를 지원합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 선택합니다. Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시** 를 선택합니다. 또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
+Synapse SQL은 [ADO.NET](/dotnet/framework/data/adonet/), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?f=255&MSPPError=-2147217396) 및 [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)를 지원합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 선택합니다. Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시** 를 선택합니다. 또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
 
 > [!NOTE]
 > 사용 불가능한 짧은 시간 동안 연결이 효력을 유지하려면 연결 제한 시간을 300초로 설정하는 것이 좋습니다.

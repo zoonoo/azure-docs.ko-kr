@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 4e9e6c9179c7fbf405cf8fc661a209da3c9d3b61
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cc0d908f479fe5bdf14abb2ace0e6c046fd6d7d5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031269"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011952"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -36,7 +36,7 @@ Microsoft ID 플랫폼에서 IAM(ID 및 액세스 관리)을 수행하도록 하
 
 다음 단계에 따라 앱 등록을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.

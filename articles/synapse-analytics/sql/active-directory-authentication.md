@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: b8b0ac002cb52acdc043e4e8ca4fa91daae4e665
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 962e0e734abd73f5a66f9b9ee6067155dd839e5d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457985"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118288"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Synapse SQL에서 인증에 Azure Active Directory 인증 사용
 
@@ -129,8 +129,7 @@ Azure AD 서버 보안 주체(로그인)에 대해 지원되는 인증 방법은
 
 ## <a name="next-steps"></a>다음 단계
 
-- Synapse SQL의 액세스 및 제어에 대한 개요는 [Synapse SQL 액세스 제어](../sql/access-control.md)를 참조하세요.
+- Synapse SQL의 액세스 및 제어에 대한 개요는 [Synapse SQL 액세스 제어](../security/synapse-workspace-access-control-overview.md)를 참조하세요.
 - 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 - 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
- 

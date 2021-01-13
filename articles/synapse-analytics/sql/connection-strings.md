@@ -10,16 +10,16 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6859d0582997ee861713090ccb4c22ed58ec4ca7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5ce411f3a2f3be162f9af16422d20b3e8b536fee
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462337"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120923"
 ---
 # <a name="connection-strings-for-synapse-sql"></a>Synapse SQL에 대한 연결 문자열
 
-[ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) 및 [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx)와 같은 여러 가지 다양한 애플리케이션 프로토콜을 사용하여 Synapse SQL에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다. 
+[ADO.NET](/dotnet/framework/data/adonet/), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?f=255&MSPPError=-2147217396) 및 [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)와 같은 여러 가지 다양한 애플리케이션 프로토콜을 사용하여 Synapse SQL에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다. 
 
 또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  Azure Portal을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동하여 *Essentials* 에서 *데이터베이스 연결 문자열 표시* 를 선택합니다.
 

@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 78a0982081b8e34461fb2910cc7ce21be622cb6a
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 4da99200079557ab9d1674635c0df26c9e62d488
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922778"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120277"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW) 만들기 및 쿼리
 
@@ -153,7 +153,7 @@ Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나�
 
 ## <a name="run-some-queries"></a>일부 쿼리 실행
 
-[제한된 리소스 클래스](resource-classes-for-workload-management.md)를 사용하므로 서버 관리자로 기록되는 동안에는 많은 쿼리를 실행하지 않는 것이 좋습니다. 대신 [자습서에 설명된](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data) 대로 [워크로드 격리](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql)를 구성합니다.
+[제한된 리소스 클래스](resource-classes-for-workload-management.md)를 사용하므로 서버 관리자로 기록되는 동안에는 많은 쿼리를 실행하지 않는 것이 좋습니다. 대신 [자습서에 설명된](./load-data-wideworldimportersdw.md#create-a-user-for-loading-data) 대로 [워크로드 격리](./quickstart-configure-workload-isolation-tsql.md)를 구성합니다.
 
 Azure Synapse Analytics는 T-SQL을 쿼리 언어로 사용합니다. 쿼리 창을 열고 T-SQL 쿼리 몇 개를 실행하려면 다음 단계를 수행합니다.
 

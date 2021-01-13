@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: b605c2c9f3c7468d0fe1f2cccd8c3602c556714b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501076"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116367"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Azure Synapse Analytics 관리형 가상 네트워크
 
@@ -41,7 +41,7 @@ Azure Synapse 작업 영역을 만들 때 작업 영역을 Microsoft Azure Virtu
 
 ## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-virtual-network"></a>관리형 작업 영역 Virtual Network가 연결된 Azure Synapse 작업 영역 만들기
 
-아직 등록하지 않은 경우 네트워크 리소스 공급자를 등록합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. [등록](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)할 때 리소스 공급자 목록에서 *Microsoft.Network* 를 선택합니다.
+아직 등록하지 않은 경우 네트워크 리소스 공급자를 등록합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. [등록](../../azure-resource-manager/management/resource-providers-and-types.md)할 때 리소스 공급자 목록에서 *Microsoft.Network* 를 선택합니다.
 
 관리형 작업 영역 Virtual Network가 연결된 Azure Synapse 작업 영역을 만들려면 Azure Portal에서 **네트워킹** 탭을 선택하고 **관리형 가상 네트워크 사용** 확인란을 선택합니다.
 

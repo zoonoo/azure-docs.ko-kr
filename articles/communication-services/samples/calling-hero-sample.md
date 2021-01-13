@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c872c2a2799eee3ae9e39653b0046b70ca5d7e8b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 44f23e4f5b3f65fb4f3c69b2ddc55af8c983aa23
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887538"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043730"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>그룹 통화 주인공 샘플 시작
 
@@ -72,7 +72,7 @@ Azure Communication Services **그룹 통화 주인공 샘플** 은 Communicatio
 
 통화 URL을 사용하여 여러 브라우저 세션을 열고 다중 사용자 통화를 시뮬레이션하여 샘플을 로컬로 테스트할 수 있습니다.
 
-## <a name="before-running-the-sample-for-the-first-time"></a>처음으로 샘플을 실행하기 전에
+### <a name="before-running-the-sample-for-the-first-time"></a>처음으로 샘플을 실행하기 전에
 
 1. PowerShell, Windows 터미널, 명령 프롬프트 또는 그에 상응하는 인스턴스를 열고 샘플을 복제할 디렉터리로 이동합니다.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`

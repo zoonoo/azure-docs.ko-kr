@@ -3,21 +3,21 @@ title: '빠른 시작: MSAL 노드를 사용하여 노드 웹앱에 인증 추�
 titleSuffix: Microsoft identity platform
 description: 이 빠른 시작에서는 Node.js 웹앱 및 Node.js용 MSAL(Microsoft 인증 라이브러리)을 사용하여 인증을 구현하는 방법을 알아봅니다.
 services: active-directory
-author: amikuma
-manager: saeeda
+author: mmacy
+manager: celested
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/22/2020
-ms.author: amikuma
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: e860a33ba44743dcc5a96d7656f22fd952a1d0b8
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 7fc76259f30f96d95c63b7e9369ec5e9647d923e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762570"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107449"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 사용자를 로그인하고 노드 웹앱에서 액세스 토큰을 가져옵니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "96762570"
 >
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 >
-> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.

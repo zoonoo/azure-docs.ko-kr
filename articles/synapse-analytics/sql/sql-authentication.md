@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1217cf74ab36a8fe865e47009616b1ccb240df67
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462402"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119886"
 ---
 # <a name="sql-authentication"></a>SQL 인증
 
@@ -111,7 +111,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) 절차를 사용하여 `master`의 **dbmanager** 데이터베이스 역할에 새 사용자를 추가합니다(프로비저닝된 SQL에서는 [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 문이 지원되지 않음). 샘플 문:
+4. [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) 절차를 사용하여 `master`의 **dbmanager** 데이터베이스 역할에 새 사용자를 추가합니다(프로비저닝된 SQL에서는 [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 문이 지원되지 않음). 샘플 문:
 
    ```sql
    EXEC sp_addrolemember 'dbmanager', 'Mary'; 
@@ -133,7 +133,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 ## <a name="non-administrator-users"></a>비관리자 사용자
 
-일반적으로 비관리자 계정은 master 데이터베이스에 액세스할 필요가 없습니다. [CREATE USER(Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 데이터베이스 수준에서 포함된 데이터베이스 사용자를 만듭니다. 
+일반적으로 비관리자 계정은 master 데이터베이스에 액세스할 필요가 없습니다. [CREATE USER(Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) 문을 사용하여 데이터베이스 수준에서 포함된 데이터베이스 사용자를 만듭니다. 
 
 사용자는 Azure Active Directory 인증 포함된 데이터베이스 사용자(Azure AD 인증에 대한 환경을 구성한 경우)이거나, SQL Server 인증 포함된 데이터베이스 사용자 또는 SQL Server 인증 로그인 기반 SQL Server 인증 사용자(이전 단계에서 만든)일 수 있습니다.  
 
@@ -191,7 +191,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 예를 들어 **db_datareader** 고정된 데이터베이스 역할은 데이터베이스에 있는 모든 테이블에 대한 읽기 액세스 권한을 부여하며 일반적으로 그 이상이 필요합니다. 
 
-[CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) 문을 사용하여 고유의 사용자 정의된 데이터베이스 역할을 만들고 각 역할에 비즈니스 요구에 필요한 최소한의 권한을 신중하게 부여하는 것이 좋습니다. 사용자가 여러 역할의 멤버인 경우 모두에 대한 권한을 집계합니다.
+[CREATE ROLE](/sql/t-sql/statements/create-role-transact-sql) 문을 사용하여 고유의 사용자 정의된 데이터베이스 역할을 만들고 각 역할에 비즈니스 요구에 필요한 최소한의 권한을 신중하게 부여하는 것이 좋습니다. 사용자가 여러 역할의 멤버인 경우 모두에 대한 권한을 집계합니다.
 
 ## <a name="permissions"></a>사용 권한
 
@@ -199,7 +199,7 @@ SQL Database에는 개별적으로 부여하거나 거부할 수 있는 100개�
 
 중첩된 특성과 사용 권한 수로 인해 데이터베이스를 제대로 보호할 적절한 사용 권한 시스템을 설계하는 데 신중을 기할 수 있습니다. 
 
-[사용 권한(데이터베이스 엔진)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)에서 사용 권한 목록부터 시작하여 사용 권한의 [포스터 크기 그래픽](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png)을 검토하세요.
+[사용 권한(데이터베이스 엔진)](/sql/relational-databases/security/permissions-database-engine)에서 사용 권한 목록부터 시작하여 사용 권한의 [포스터 크기 그래픽](/sql/relational-databases/security/media/database-engine-permissions.png)을 검토하세요.
 
 ### <a name="considerations-and-restrictions"></a>고려 사항 및 제한 사항
 
@@ -236,5 +236,4 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [포함된 데이터베이스 사용자 - 이식 가능한 데이터베이스 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
- 
+자세한 내용은 [포함된 데이터베이스 사용자 - 이식 가능한 데이터베이스 만들기](/sql/relational-databases/security/contained-database-users-making-your-database-portable)를 참조하세요.

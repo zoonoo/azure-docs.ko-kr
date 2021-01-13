@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 658069f8c8007be2c1b424d8ccff687b986ac237
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 11c479c6cc8f330a2b3b1edd25bad39321d6ed1c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030946"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017547"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가
 
@@ -47,7 +47,7 @@ ms.locfileid: "97030946"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.

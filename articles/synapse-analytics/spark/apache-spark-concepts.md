@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8df7a2ecd2a6732a011267eb0efe00e8eaf2bef4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 51b2e8cd968c4c14777d196d90686b13158aef42
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458758"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120311"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Azure Synapse Analytics의 Apache Spark 핵심 개념
 
@@ -80,7 +80,7 @@ Try reducing the numbers of vcores requested or increasing your vcore quota. Cli
 - 서비스 유형으로 "Azure Synapse Analytics"를 선택합니다.
 - 할당량 정보 창에서 작업 영역당 Apache Spark(vCore)를 선택합니다.
 
-[Azure Portal을 통해 용량 증가 요청](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+[Azure Portal을 통해 용량 증가 요청](../../azure-portal/supportability/per-vm-quota-requests.md#request-a-standard-quota-increase-from-help--support)
 
 ### <a name="spark-pool-level"></a>Spark 풀 수준
 
@@ -95,5 +95,5 @@ However, the pool is consuming yy vcores out of available zz vcores.Try ending t
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Apache Spark 설명서](https://spark.apache.org/docs/2.4.5/)

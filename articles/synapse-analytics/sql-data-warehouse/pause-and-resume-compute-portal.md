@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 567d5ae8b9d480003486362a7aa0ef69f9740d52
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109700"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120294"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>빠른 시작: Azure Portal을 통해 전용 SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
 
@@ -98,5 +98,4 @@ Azure Portal을 사용하여 전용 SQL 풀 컴퓨팅 리소스를 일시 중지
 
 ## <a name="next-steps"></a>다음 단계
 
-전용 SQL 풀에 대한 컴퓨팅을 일시 중지하고 다시 시작했습니다. [전용 SQL 풀에 데이터를 로드](load-data-from-azure-blob-storage-using-polybase.md)하는 방법에 대해 자세히 알아보려면 다음 문서를 계속 진행하세요. 컴퓨팅 기능 관리에 대한 자세한 내용은 [컴퓨팅 관리 개요](sql-data-warehouse-manage-compute-overview.md) 문서를 참조하세요. 
-
+전용 SQL 풀에 대한 컴퓨팅을 일시 중지하고 다시 시작했습니다. [전용 SQL 풀에 데이터를 로드](./load-data-from-azure-blob-storage-using-copy.md)하는 방법에 대해 자세히 알아보려면 다음 문서를 계속 진행하세요. 컴퓨팅 기능 관리에 대한 자세한 내용은 [컴퓨팅 관리 개요](sql-data-warehouse-manage-compute-overview.md) 문서를 참조하세요.

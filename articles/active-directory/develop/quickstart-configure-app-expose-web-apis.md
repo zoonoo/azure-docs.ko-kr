@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 4ebae7e97f9128bb9302e9076e71dd3164f0c29e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: bf8b705aff8ac608d0eb3626026797f1d106414b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030963"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017755"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성
 
@@ -45,7 +45,7 @@ ms.locfileid: "97030963"
 
 먼저 다음 단계에 따라 `Employees.Read.All`이라는 예제 범위를 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독**  필터 :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false":::를 사용하여 클라이언트 앱의 등록이 포함된 테넌트를 선택합니다.
 1. **Azure Active Directory** > **앱 등록** 을 차례로 선택한 다음, API의 앱 등록을 선택합니다.
 1. **API 표시** > **범위 추가** 를 선택합니다.

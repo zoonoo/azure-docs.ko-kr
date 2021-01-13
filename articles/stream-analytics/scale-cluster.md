@@ -3,17 +3,16 @@ title: Azure Stream Analytics 클러스터 크기 조정
 description: Azure Stream Analytics 클러스터의 크기를 확장 및 축소하는 방법을 알아봅니다.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 0763e56de6c72a36d39b17d153db6fc4d7dd821a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e469e9bfd13bf8d89084b66e954cb51b27c2ebc2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90946085"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020029"
 ---
 # <a name="resize-an-azure-stream-analytics-cluster"></a>Azure Stream Analytics 클러스터 크기 조정
 
@@ -25,7 +24,7 @@ Stream Analytics 클러스터의 용량은 SU(스트리밍 단위)로 측정됩�
 
 1. Azure Portal에서 Stream Analytics 클러스터를 찾아 선택합니다.
 
-1. **개요** 섹션에서 **크기 조정**를 선택합니다. 클러스터에 할당된 SU의 수를 확인할 수 있습니다. 선택기를 사용하여 필요에 따라 SU를 늘리거나 줄일 수 있습니다.
+1. **개요** 섹션에서 **크기 조정** 를 선택합니다. 클러스터에 할당된 SU의 수를 확인할 수 있습니다. 선택기를 사용하여 필요에 따라 SU를 늘리거나 줄일 수 있습니다.
 
    ![클러스터 크기 조정](./media/scale-cluster/scale-cluster.png)
 

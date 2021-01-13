@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: edb1d419900147b586ba1ff257d4307b237be537
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746731"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120413"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
@@ -63,7 +63,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 ### <a name="anonymous-access"></a>[익명 액세스](#tab/public-access)
 
-[익명 액세스를 허용](/azure/storage/blobs/storage-manage-access-to-resources)하는 Azure 스토리지 계정에 있는 공개적으로 사용 가능한 파일에 액세스할 수 있습니다.
+[익명 액세스를 허용](../../storage/blobs/anonymous-read-access-configure.md)하는 Azure 스토리지 계정에 있는 공개적으로 사용 가능한 파일에 액세스할 수 있습니다.
 
 ---
 
@@ -101,7 +101,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 이러한 단계에 따라 스토리지 계정 방화벽을 구성하고 Synapse 작업 영역에 대한 예외를 추가합니다.
 
-1. PowerShell 열기 또는 [PowerShell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true )
+1. PowerShell 열기 또는 [PowerShell 설치](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
 2. 업데이트된 Az를 설치합니다. 스토리지 모듈: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease

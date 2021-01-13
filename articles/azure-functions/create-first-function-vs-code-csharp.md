@@ -4,12 +4,12 @@ description: C# 함수를 만든 다음, Visual Studio Code의 Azure Functions �
 ms.topic: quickstart
 ms.date: 11/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 444dff214a70a47ced127a3ca2533c20ea2a779a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 791416a54fa75091facf1f7bc2aadf6fccf54b05
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424836"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968622"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 C# 함수 만들기
 
@@ -27,8 +27,7 @@ ms.locfileid: "93424836"
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ npm용 Windows에 필요한 [Node.js](https://nodejs.org/)입니다. [활성 LTS 및 유지 관리 LTS 버전](https://nodejs.org/about/releases/)만 해당합니다. `node --version` 명령을 사용하여 버전을 확인합니다.
-    macOS 및 Linux의 로컬 개발에는 필요하지 않습니다.
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 버전 3.x.
 
 + [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나인 [Visual Studio Code](https://code.visualstudio.com/).
 

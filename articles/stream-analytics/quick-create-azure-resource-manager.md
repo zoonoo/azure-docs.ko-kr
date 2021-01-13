@@ -3,19 +3,18 @@ title: 빠른 시작 - Azure Resource Manager 템플릿을 사용하여 Azure St
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Stream Analytics 작업을 만드는 방법을 보여줍니다.
 services: stream-analytics
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: jasonh
+author: sidramadoss
+ms.author: sidram
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 26ae0f5add40125b5e9c1ce9451583040322314b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2e8e7890adcb6b91d79bbf4e119488e365410d3c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88641894"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020080"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Stream Analytics 작업 만들기
 
@@ -59,11 +58,11 @@ ms.locfileid: "88641894"
    |---------|---------|
    |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
    |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요. |
-   |**지역**     | **미국 동부**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.        |
+   |**지역**     | **미국 동부** 를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.        |
    |**Stream Analytics 작업 이름**     | Stream Analytics 작업의 이름을 입력합니다.      |
    |**스트리밍 단위의 수**     |  필요한 스트리밍 단위 수를 선택합니다. 자세한 내용은 [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md)을 참조하세요.       |
 
-3. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다.
+3. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택합니다.
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 

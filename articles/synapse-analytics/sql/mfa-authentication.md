@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: fb8aad52eeaef2366afe28aa71059b7f8f780501
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 511d5841652b1f7b6487a42341ec392cb86d2b3a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843301"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120379"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Synapse SQL에서 다단계 AAD 인증 사용(MFA용 SSMS 지원)
 
@@ -71,7 +71,7 @@ SSMS 18.x 이상을 실행하는 경우 18.x 이상이 자동으로 인식하므
    ![mfa-tenant-ssms](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD 기업 간 지원   
-Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사용자([Azure B2B 협업이란?](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 참조)는 현재 Azure AD에서 만들어진 그룹의 구성원에 속하며 지정된 데이터베이스에서 Transact-SQL `CREATE USER` 문을 통해 수동으로 매핑된 Synapse SQL에만 연결할 수 있습니다. 
+Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사용자([Azure B2B 협업이란?](../../active-directory/external-identities/what-is-b2b.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 참조)는 현재 Azure AD에서 만들어진 그룹의 구성원에 속하며 지정된 데이터베이스에서 Transact-SQL `CREATE USER` 문을 통해 수동으로 매핑된 Synapse SQL에만 연결할 수 있습니다. 
 
 예를 들어 `steve@gmail.com`이 Azure AD `contosotest`(Azure Ad 도메인 `contosotest.onmicrosoft.com`)에 초대된 경우 Azure AD 그룹(예: `usergroup`)이 `steve@gmail.com` 구성원을 포함하는 Azure AD에 만들어져야 합니다. 그런 다음, Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 문을 실행하여 Azure AD SQL 관리자 또는 Azure AD DBO로 특정 데이터베이스(즉, MyDatabase)에 대해 이 그룹을 만들어야 합니다. 
 
@@ -92,5 +92,4 @@ Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사
 - 유니버설 인증을 위한 ADAL(Active Directory Authentication Library) 버전이 제공되는 최신 릴리스인 ADAL.dll 3.13.9로 업데이트되었습니다. [Active Directory 인증 라이브러리 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)을 참조하세요.  
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [SQL Server Management Studio를 사용하여 Synapse SQL에 연결](get-started-ssms.md) 문서를 참조하세요. 
-
+자세한 내용은 [SQL Server Management Studio를 사용하여 Synapse SQL에 연결](get-started-ssms.md) 문서를 참조하세요.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 95a0dbd61e44e9c5b1f2854f8b3215aa4ef9403c
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 349caa9a4fa34d87e0a4d99089a1063be66307f4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97438341"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017564"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>빠른 시작: 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph를 호출하는 ASP.NET Core 웹앱
 
@@ -47,7 +47,7 @@ ms.locfileid: "97438341"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.

@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
-ms.openlocfilehash: 4e82c8402584f694cb32bb37ae3e6eae9366eaf7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 200fdd126e2ed95804f81c1dd36804ecc6c61d85
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341436"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019689"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: PHP를 사용하여 Azure Database for PostgreSQL에서 데이터 연결 및 쿼리 - 단일 서버
 
@@ -47,7 +47,7 @@ ms.locfileid: "93341436"
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver** ).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
 3. 서버 이름을 클릭합니다.
 4. 서버의 **개요** 패널에 있는 **서버 이름** 과 **서버 관리자 로그인 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  :::image type="content" source="./media/connect-php/1-connection-string.png" alt-text="Azure Database for PostgreSQL 서버 이름":::
@@ -87,7 +87,7 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
     // Insert some data into table.
     $name = '\'banana\'';
     $quantity = 150;
-    $query = "INSERT INTO inventory (name, quantity) VALUES ($1, $2);";
+    $query = "INSERT INTO inventory (name, quantity) VALUES ($name, $quantity);";
     pg_query($connection, $query) 
         or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 

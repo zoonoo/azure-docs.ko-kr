@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f398f80e4e283f971e0d947d0dda131e12fe88a7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446580"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120396"
 ---
 # <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 외부 스토리지에 액세스
 
@@ -116,7 +116,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 테이블 읽기 권한이 있는 사용자는 Azure Storage 폴더 및 파일 세트 위에 생성된 EXTERNAL TABLE을 사용하여 외부 파일에 액세스할 수 있습니다.
 
-[외부 테이블을 만드는 권한](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true)(예: CREATE TABLE 및 ALTER ANY CREDENTIAL 또는 REFERENCES DATABASE SCOPED CREDENTIAL)이 있는 사용자는 다음 스크립트를 사용하여 Azure Storage 데이터 원본 위에 테이블을 만들 수 있습니다.
+[외부 테이블을 만드는 권한](/sql/t-sql/statements/create-external-table-transact-sql?preserve-view=true&view=sql-server-ver15#permissions)(예: CREATE TABLE 및 ALTER ANY CREDENTIAL 또는 REFERENCES DATABASE SCOPED CREDENTIAL)이 있는 사용자는 다음 스크립트를 사용하여 Azure Storage 데이터 원본 위에 테이블을 만들 수 있습니다.
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]

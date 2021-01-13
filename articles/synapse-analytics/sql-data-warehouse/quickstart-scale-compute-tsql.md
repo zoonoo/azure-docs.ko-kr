@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 37033e3c5f388d1a55a122899114914e661565f6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f3eaa6383b174e06ff6ce9b1b08c4eba9108d770
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460222"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115517"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅 능력 확장
 
@@ -153,4 +153,4 @@ AND
 이제 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅 능력을 확장하는 방법을 알아보았습니다. Azure Synapse Analytics에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[전용 SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
+>[전용 SQL 풀에 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md)

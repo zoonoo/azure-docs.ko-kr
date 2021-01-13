@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 72d9aefcdda5d224b256c6e969b7a75259a97005
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c34ea5e2c622b7b203c56c6de2b611d6eca1d35c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95750776"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017513"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>빠른 시작: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -35,7 +35,7 @@ ms.locfileid: "95750776"
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>옵션 1(기본): 앱을 등록하고 자동으로 구성한 다음, 코드 샘플을 다운로드합니다.
 >
-> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 > 1. 계정에서 두 개 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위에 있는 계정을 선택한 다음, 사용할 Azure AD(Azure Active Directory) 테넌트로 포털 세션을 설정합니다.
 > 1. Azure Portal에서 새 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) 창을 엽니다.
 > 1. 애플리케이션 이름을 입력한 다음, **등록** 을 선택합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "95750776"
 >
 > #### <a name="step-1-register-the-application"></a>1단계: 애플리케이션 등록
 >
-> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 > 1. 계정에서 두 개 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위에서 계정을 선택한 다음, 사용할 Azure AD 테넌트로 포털 세션을 설정합니다.
 > 1. 지침에 따라 Azure Portal에서 [단일 페이지 애플리케이션을 등록](./scenario-spa-app-registration.md)합니다.
 > 1. 앱 등록의 **인증** 창에서 새 플랫폼을 추가하고 리디렉션 URI(`http://localhost:4200/`)를 등록합니다.

@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 0ce94b62d67048896cdf7355043ec2dde7f2df79
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 18fba46e4e8de14d9b3ec43455ba2abcc4218dc1
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456593"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120192"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW) 만들기
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 전용 SQL 풀(이전의 SQL DW)을 만들고, 방화벽 규칙을 만들고, 전용 SQL 풀에 연결했습니다. 자세히 알아보려면 [전용 SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md) 문서를 계속 진행하세요.
+지금까지 전용 SQL 풀(이전의 SQL DW)을 만들고, 방화벽 규칙을 만들고, 전용 SQL 풀에 연결했습니다. 자세히 알아보려면 [전용 SQL 풀에 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md) 문서를 계속 진행하세요.

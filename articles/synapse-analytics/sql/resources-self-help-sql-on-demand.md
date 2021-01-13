@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4c3b5095da4e55dc8f881a610f80f1150422e739
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457188"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119920"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -25,7 +25,7 @@ ms.locfileid: "96457188"
 Synapse Studio가 서버리스 SQL 풀에 대한 연결을 설정할 수 없는 경우 서버리스 SQL 풀이 회색으로 표시되거나 "오프라인" 상태로 표시됩니다. 일반적으로 이 문제는 다음 중 하나에 해당할 때 발생합니다.
 
 1) 네트워크에서 Azure Synapse 백 엔드와의 통신을 차단합니다. 대부분 1443 포트가 차단됩니다. 서버리스 SQL 풀을 작동시키려면 이 포트의 차단을 해제합니다. 다른 문제로 인해 서버리스 SQL 풀도 작동하지 않을 수 있습니다. [자세한 내용은 전체 문제 해결 가이드를 참조하세요](../troubleshoot/troubleshoot-synapse-studio.md).
-2) 서버리스 SQL 풀에 로그인할 수 있는 권한이 없습니다. 액세스 권한을 얻으려면 Azure Synapse 작업 영역 관리자 중 한 명이 사용자를 작업 영역 관리자 또는 SQL 관리자 역할에 추가해야 합니다. [자세한 내용은 액세스 제어에 대한 전체 가이드를 참조하세요](access-control.md).
+2) 서버리스 SQL 풀에 로그인할 수 있는 권한이 없습니다. 액세스 권한을 얻으려면 Azure Synapse 작업 영역 관리자 중 한 명이 사용자를 작업 영역 관리자 또는 SQL 관리자 역할에 추가해야 합니다. [자세한 내용은 액세스 제어에 대한 전체 가이드를 참조하세요](../security/synapse-workspace-access-control-overview.md).
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>파일을 열 수 없어 쿼리가 실패
 

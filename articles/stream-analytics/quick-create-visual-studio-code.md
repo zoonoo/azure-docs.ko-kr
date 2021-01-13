@@ -2,17 +2,17 @@
 title: 빠른 시작 - Visual Studio Code에서 Azure Stream Analytics 작업 만들기
 description: 이 빠른 시작에서는 Visual Studio Code를 사용하여 Stream Analytics 작업을 만들고, 입력 및 출력을 구성하고, 쿼리를 정의하여 시작하는 방법을 보여 줍니다.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: f53ff85dd118774b86a0ec25c89f912798a6418d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125855"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014614"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기(미리 보기)
 
@@ -118,11 +118,11 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
    ![새 프로젝트 만들기](./media/quick-create-visual-studio-code/create-new-project.png)
 
-2. 프로젝트 이름(예: **myASAproj** )을 입력하고, 프로젝트의 폴더를 선택합니다.
+2. 프로젝트 이름(예: **myASAproj**)을 입력하고, 프로젝트의 폴더를 선택합니다.
 
     ![프로젝트 이름 만들기](./media/quick-create-visual-studio-code/create-project-name.png)
 
-3. 새 프로젝트가 작업 영역에 추가됩니다. Stream Analytics 프로젝트는 **Inputs** , **Outputs** 및 **Functions** 의 3개 폴더로 구성됩니다. 또한 쿼리 스크립트 **(*.asaql)** , **JobConfig.json** 파일 및 **asaproj.json** 구성 파일이 있습니다.
+3. 새 프로젝트가 작업 영역에 추가됩니다. Stream Analytics 프로젝트는 **Inputs**, **Outputs** 및 **Functions** 의 3개 폴더로 구성됩니다. 또한 쿼리 스크립트 **(*.asaql)** , **JobConfig.json** 파일 및 **asaproj.json** 구성 파일이 있습니다.
 
     **asaproj.json** 구성 파일에는 Azure에 Stream Analytics 작업을 제출하는 데 필요한 입력, 출력 및 작업 구성 파일 정보가 포함되어 있습니다.
 
