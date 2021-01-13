@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 7c5cac0b52fb0a224595ca7e328b551fd48d6661
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 375f0a26006f1176174b335073709e45911d9921
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614237"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165810"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
@@ -233,6 +233,35 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 {
   "instrumentation": {
     "micrometer": {
+      "enabled": false
+    }
+  }
+}
+```
+
+## <a name="suppressing-specific-auto-collected-telemetry"></a>특정 자동 수집 원격 분석 표시 안 함
+
+3.0.1 버전부터 다음 구성 옵션을 사용 하 여 특정 자동 수집 원격 분석을 억제할 수 있습니다.
+
+```json
+{
+  "instrumentation": {
+    "cassandra": {
+      "enabled": false
+    },
+    "jdbc": {
+      "enabled": false
+    },
+    "kafka": {
+      "enabled": false
+    },
+    "micrometer": {
+      "enabled": false
+    },
+    "mongo": {
+      "enabled": false
+    },
+    "redis": {
       "enabled": false
     }
   }

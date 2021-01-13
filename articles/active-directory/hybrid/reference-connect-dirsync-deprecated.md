@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 915b56e9a9340920e99f4d3d4de6da4c39233eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 713ec3a4020434fa73aad2e04676129cf43853be
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014806"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165844"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Windows Azure Active Directory Sync 및 Azure Active Directory Sync 업그레이드
-Azure AD Connect은 온-프레미스 디렉터리를 Azure AD 및 Microsoft 365에 연결 하는 가장 좋은 방법입니다. 이제 이러한 도구가 사용되지 않으며 2017년 4월 13일부터 더 이상 지원되지 않으므로 Microsoft Azure Active Directory 동기화(DirSync) 또는 Azure AD Sync에서 Azure AD Connect로 지금 업그레이드하는 것이 좋습니다.
+Azure AD Connect은 온-프레미스 디렉터리를 Azure AD 및 Microsoft 365에 연결 하는 가장 좋은 방법입니다. 이러한 도구는 이제 더 이상 사용 되지 않으며 2017 년 4 월 13 일부 터 더 이상 지원 되지 않으므로 Windows Azure Active Directory 동기화 (DirSync) 또는 Azure AD Sync (AADSync)에서 Azure AD Connect로 업그레이드 하는 것이 좋습니다.
 
 사용 중단되는 이 두 가지 ID 동기화 도구는 단일 포리스트 고객(DirSync)과 다중 포리스트 및 기타 고급 고객(Azure AD Sync)을 위해 제공되었습니다. 이러한 이전 도구는 모든 시나리오에 사용할 수 있는 단일 솔루션(Azure AD Connect)으로 대체되었습니다. 이 도구는 새로운 기능, 향상된 기능 및 새로운 시나리오에 대한 지원을 제공합니다. 온-프레미스 id 데이터를 Azure AD 및 Microsoft 365로 계속 동기화 하려면 Azure AD Connect로 업그레이드 하는 것이 좋습니다. Microsoft는 이러한 이전 버전의 2017년 12월 31일 이후 작동을 보장하지 않습니다.
 
@@ -35,7 +35,7 @@ DirSync의 마지막 버전은 2014년 7월에 릴리스되었으며 Azure AD Sy
 Azure AD Connect은 DirSync 및 Azure AD Sync에 대 한 후속 작업입니다. 이러한 두 가지 시나리오를 모두 지원 합니다. 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에서 확인할 수 있습니다.
 
 ## <a name="deprecation-schedule"></a>사용 중단 일정
-| Date | 주석 |
+| 날짜 | 의견 |
 | --- | --- |
 | 2016년 4월 13일 |Microsoft Azure Active Directory 동기화("DirSync") 및 Azure Active Directory 동기화("Azure AD Sync")가 사용 중단될 예정입니다. |
 | 2017년 4월 13일 |지원이 종료됩니다. 이제 고객은 Azure AD Connect로 업그레이드해야만 지원 사례를 개설할 수 없습니다. |
@@ -66,7 +66,7 @@ DirSync/Azure AD Sync는 2017년 4월 13일까지 계속 작동할 예정입니�
  현재 사용 중인 모든 DirSync 릴리스의 업그레이드를 지원합니다. 
 
 **Q: FIM/MIM용 Azure AD 커넥터는 어떻게 됩니까?**  
-FIM/MIM용 Azure AD 커넥터는 사용 중단되는 것으로 발표되지 **않았습니다**. 현재 **기능 동결**상태입니다. 즉, 새 기능이 추가되지 않으며 버그 수정이 제공되지 않습니다. 고객은 Azure AD Connect로 전환할 계획을 수립하고, 이 커넥터를 사용하여 새 배포를 시작하지 않는 것이 좋습니다. 이 커넥터는 향후에 사용 중단될 예정입니다.
+FIM/MIM용 Azure AD 커넥터는 사용 중단되는 것으로 발표되지 **않았습니다**. 현재 **기능 동결** 상태입니다. 즉, 새 기능이 추가되지 않으며 버그 수정이 제공되지 않습니다. 고객은 Azure AD Connect로 전환할 계획을 수립하고, 이 커넥터를 사용하여 새 배포를 시작하지 않는 것이 좋습니다. 이 커넥터는 향후에 사용 중단될 예정입니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)

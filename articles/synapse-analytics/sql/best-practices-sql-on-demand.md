@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93ac8cd3e462c244840a5ed569d685a9d67fa6c2
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457904"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165878"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀에 대 한 모범 사례
 
@@ -25,9 +25,9 @@ ms.locfileid: "96457904"
 
 서버를 사용 하지 않는 SQL 풀을 사용 하면 Azure storage 계정에서 파일을 쿼리할 수 있습니다. SQL 주문형은 로컬 스토리지 또는 수집 기능이 없습니다. 따라서 쿼리가 대상으로 하는 모든 파일은 서버를 사용 하지 않는 SQL 풀의 외부에 있습니다. 스토리지에서 파일 읽기와 관련된 모든 작업이 쿼리 성능에 영향을 줄 수 있습니다.
 
-## <a name="colocate-your-azure-storage-account-and-serverless-sql-pool"></a>Azure storage 계정 및 서버 리스 SQL 풀 공동 배치
+## <a name="colocate-your-storage-and-serverless-sql-pool"></a>저장소 및 서버를 사용 하지 않는 SQL 풀 공동 배치
 
-대기 시간을 최소화 하려면 Azure storage 계정 및 서버를 사용 하지 않는 SQL 풀 끝점을 배치 합니다. 작업 영역을 만드는 동안 프로비저닝된 스토리지 계정과 엔드포인트는 같은 지역에 있습니다.
+대기 시간을 최소화 하려면 Azure storage 계정 또는 CosmosDB 분석 저장소 및 서버를 사용 하지 않는 SQL 풀 끝점을 배치 합니다. 작업 영역을 만드는 동안 프로비저닝된 스토리지 계정과 엔드포인트는 같은 지역에 있습니다.
 
 최적의 성능을 위해 서버 리스 SQL 풀을 사용 하 여 다른 저장소 계정에 액세스 하는 경우 동일한 지역에 있는지 확인 합니다. 서로 다른 지역에 있으면 원격 지역과 엔드포인트의 지역 간에 데이터의 네트워크 전송에 걸리는 대기 시간이 증가합니다.
 
@@ -44,9 +44,9 @@ ms.locfileid: "96457904"
 
 가능하다면 성능 향상을 위한 파일을 준비해도 됩니다.
 
-- CSV 및 JSON을 Parquet으로 변환합니다. Parquet은 칼럼 형식입니다. 또한 압축되므로 동일한 데이터를 포함하는 CSV 또는 JSON 파일보다 파일 크기가 작습니다. 서버를 사용 하지 않는 SQL 풀은이를 읽기 위해 덜 시간이 소요 되 고 저장소 요청이 줄어듭니다.
+- Large CSV 및 JSON을 Parquet로 변환 합니다. Parquet은 칼럼 형식입니다. 또한 압축되므로 동일한 데이터를 포함하는 CSV 또는 JSON 파일보다 파일 크기가 작습니다. Parquet 파일을 읽는 경우 서버를 사용 하지 않는 SQL 풀에서 쿼리에 필요 하지 않은 열 및 행을 건너뛸 수 있습니다. 서버를 사용 하지 않는 SQL 풀은이를 읽기 위해 덜 시간이 소요 되 고 저장소 요청이 줄어듭니다.
 - 쿼리 대상이 대형 파일 하나인 경우 여러 개의 작은 파일로 분할하는 것이 유리합니다.
-- 되도록이면 CSV 파일 크기를 10GB 미만으로 유지하세요.
+- CSV 파일 크기를 100 m b에서 10gb로 유지 해 보세요.
 - 단일 OPENROWSET 경로 또는 외부 테이블 LOCATION에 대해 크기가 동일한 파일을 지정하는 것이 좋습니다.
 - 파티션을 다른 폴더 또는 파일 이름에 저장하여 데이터를 분할합니다. [ 및 filepath 함수를 사용하여 특정 파티션을 대상으로 지정](#use-filename-and-filepath-functions-to-target-specific-partitions)을 참조하세요.
 

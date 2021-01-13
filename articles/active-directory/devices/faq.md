@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd438a09b929274808984322981f6d21da0bf68f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860952"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165147"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -142,6 +142,12 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 >* Azure AD Connect의 동기화 범위에서 장치를 제거 하 고 다시 추가 하는 경우
 >
 >두 경우 모두 이러한 장치에서 장치를 수동으로 다시 등록 해야 합니다. 장치를 이전에 등록 했는지 여부를 확인 하려면 [dsregcmd.exe 명령을 사용 하 여 장치 문제를 해결할](troubleshoot-device-dsregcmd.md)수 있습니다.
+
+---
+
+### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>Q: Windows 10 장치의 동일한 사용자 세션에서 3 개 이상의 Azure AD 사용자 계정을 추가할 수 없습니다. 이유는 무엇입니까?
+
+**A**: Azure Ad는 Windows 10 1803 릴리스에서 여러 azure ad 계정에 대 한 지원을 추가 했습니다. 그러나 Windows 10은 장치의 Azure AD 계정 수를 3으로 제한 하 여 토큰 요청의 크기를 제한 하 고 신뢰할 수 있는 SSO (single sign on)를 사용 하도록 설정 합니다. 3 개의 계정이 추가 되 면 사용자에 게 후속 계정에 대 한 오류가 표시 됩니다. 오류 화면에 표시 되는 추가 문제 정보는 다음과 같은 메시지를 제공 합니다. "계정 추가 작업 차단에 도달 했습니다." 라는 이유를 나타냅니다. 
 
 ---
 ## <a name="azure-ad-join-faq"></a>Azure AD 조인 FAQ

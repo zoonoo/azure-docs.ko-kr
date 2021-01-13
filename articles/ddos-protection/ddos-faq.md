@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: c09f8c5ae4a742e6caa489ee29043f500617bb24
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 4196515463611f51dddb79438b1d4e827f1b32c2
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746491"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165402"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Azure DDoS Protection 표준 질문과 대답
 
@@ -27,6 +27,11 @@ ms.locfileid: "96746491"
 
 ## <a name="what-is-azure-ddos-protection-standard-service"></a>Azure DDoS Protection Standard 서비스는 무엇 인가요?
 응용 프로그램 설계 모범 사례와 결합 된 Azure DDoS Protection 표준은 DDoS 공격 으로부터 보호 하는 향상 된 DDoS 완화 기능을 제공 합니다. 가상 네트워크의 특정 Azure 리소스를 보호 하도록 자동으로 조정 됩니다. 보호는 새 가상 네트워크 또는 기존 가상 네트워크에서 간단하게 설정할 수 있으며 애플리케이션 또는 리소스를 변경할 필요가 없습니다. 로깅, 경고 및 원격 분석을 포함하여 기본 서비스에 비해 여러 가지 장점이 있습니다. 자세한 내용은 [Azure DDoS Protection 표준 개요](ddos-protection-overview.md) 를 참조 하세요. 
+
+## <a name="how-does-pricing-work"></a>가격은 어떻게 책정됩니까?
+DDoS 보호 계획에는 최대 100 개의 공용 IP 주소를 포함 하는 월 $2944의 고정 된 월별 요금이 적용 됩니다. 추가 리소스에 대 한 보호는 월별 리소스 당 $30을 추가로 청구 합니다. 
+
+테 넌 트에서 단일 DDoS 보호 계획을 여러 구독에서 사용할 수 있으므로 둘 이상의 DDoS 보호 계획을 만들 필요가 없습니다.
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>서비스 계층 (계층 7)의 보호는 어떻습니까?
 고객은 네트워크 계층 (Azure DDoS Protection 표준에서 제공 되는 레이어 3 및 4) 및 응용 프로그램 계층 (WAF에서 제공 하는 계층 7)에서 보호를 위해 WAF (웹 응용 프로그램 방화벽)와 함께 Azure DDoS Protection 서비스를 사용할 수 있습니다. WAF 제품은 Azure [APPLICATION GATEWAY WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 뿐만 아니라 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall)에서 사용할 수 있는 타사 웹 응용 프로그램 방화벽 제품을 포함 합니다.

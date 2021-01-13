@@ -3,12 +3,12 @@ title: Azure Lab Services 시작
 description: 이 문서에서는 Azure Lab Services를 시작 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: d260ace7d7819c3ca2db96d6c4984bf834e170da
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602668"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165045"
 ---
 # <a name="get-started-with-lab-services"></a>Lab Services 시작 
 
@@ -109,56 +109,7 @@ Azure Lab Services의 랩에 대 한 대시보드는 VM 정보, 할당 되 고 �
 
 ## <a name="manage-users-in-a-lab"></a>랩에서 사용자 관리
 
-교사는 학생 사용자를 랩에 추가 하 고 해당 시간 할당량을 모니터링할 수 있습니다. 
-
-### <a name="add-users-by-email-address"></a>전자 메일 주소로 사용자 추가
-
-1. [Azure Lab services 웹 사이트](https://labs.azure.com/) 에서 창의 왼쪽에 있는 **사용자** 를 클릭 합니다.
-1. 창 위쪽에서 **사용자 추가** 를 클릭 하 고 **전자 메일 주소로 추가** 를 선택 합니다. 
-1. 오른쪽에 표시 되는 **사용자 추가** 창에서 학생의 전자 메일 주소를 별도의 줄에 입력 하거나 한 줄에 세미콜론으로 구분 하 여 입력 합니다.
-1. **Save** 을 클릭합니다.
-1. 이제 사용자 목록이 전자 메일, 상태, 초대 및 할당량 시간으로 업데이트 됩니다.
-
-    랩을 위해 학생을 등록 한 후에는 이름이 Azure Active Directory의 성과 이름으로 업데이트 됩니다.
-
-    > [!NOTE]
-    > 사용자에 대 한 액세스 제한 옵션 설정/해제가 설정 된 상태를 유지 합니다. 즉, 사용자가 등록 한 등록 링크를 사용 하 여 나열 된 사용자만 랩에서 등록할 수 있습니다.
-
-### <a name="add-users-using-a-spreadsheet"></a>스프레드시트를 사용 하 여 사용자 추가 
-
-전자 메일 주소를 포함 하는 CSV 파일을 업로드 하 여 사용자를 추가할 수도 있습니다.
-
-1. Microsoft Excel에서 학생의 메일 주소를 한 열에 나열 하는 CSV 파일을 만듭니다.
-1. [Azure Lab Services 웹 사이트](https://labs.azure.com/)의 **사용자** 페이지 맨 위에서 **사용자 추가** 단추를 클릭 합니다.
-1. **CSV 업로드** 를 선택 합니다.
-1. 학생의 전자 메일 주소가 포함 된 CSV 파일을 선택 하 고 **열기** 를 클릭 합니다.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-users-spreadsheet.png" alt-text="스프레드시트를 사용 하 여 사용자 추가":::
-1. 이제 창의 오른쪽 창에 메일이 표시 됩니다. **Save** 을 클릭합니다.
-
-    :::image type="content" source="./media/get-started-manage-labs/register-users.png" alt-text="사용자 등록":::
-
-### <a name="register-users"></a>사용자 등록
-
-사용자가 랩에 추가 된 후에는 Vm에 액세스 하기 위해 등록 해야 합니다. 포털에서 사용자를 초대 하 여이 작업을 수행할 수 있습니다. 그러면 랩에 대 한 등록 링크가 포함 된 전자 메일을 보냅니다. 또는 등록 링크를 복사 하 여 전자 메일 또는 다른 형태의 학생에 게 붙여 넣습니다.
-
-1. **사용자** 페이지의 목록에서 학생 또는 여러 학생을 선택 합니다.
-
-    선택한 학생에 대 한 행의 목록에서 봉투 (envelope) 아이콘을 선택 하거나 화면 위쪽에서 **초대** 를 클릭 합니다.
-
-    :::image type="content" source="./media/get-started-manage-labs/send-invitation.png" alt-text="초대 보내기":::
-    
-    전자 메일로 **초대 보내기** 창에서 학생에 대 한 선택적 메시지 (예: 사용자 이름 및 암호)를 입력 한 다음 **보내기** 를 클릭 합니다. 
-    
-    :::image type="content" source="./media/get-started-manage-labs/send-invitation-mail.png" alt-text="메일로 초대 보내기":::
-
-    또는 동일한 **사용자** 페이지에서 화면 위쪽에 있는 **등록 링크** 단추를 클릭할 수 있습니다. 
-
-    :::image type="content" source="./media/get-started-manage-labs/registration-link.png" alt-text="사용자 등록 링크":::
-    
-    텍스트 필드에서 등록 링크를 복사 하 여 전자 메일 또는 선호 하는 보안 메시징 도구에 붙여넣습니다.  
-    
-    :::image type="content" source="./media/get-started-manage-labs/user-registration.png" alt-text="사용자 등록 보내기":::
+교사는 학생 사용자를 랩에 추가 하 고 해당 시간 할당량을 모니터링할 수 있습니다. 전자 메일 주소로 사용자를 추가 하거나 스프레드시트 목록을 사용 하 여 사용자를 추가 하거나 사용자를 등록 하는 방법에 대 한 자세한 내용은 [랩 사용자 추가 및 관리](how-to-configure-student-usage.md)를 참조 하세요.
 
 사용자를 초대 하거나 링크를 공유한 후에는 **상태** 열의 **사용자** 페이지에서 성공적으로 등록 된 사용자를 모니터링할 수 있습니다. 
 

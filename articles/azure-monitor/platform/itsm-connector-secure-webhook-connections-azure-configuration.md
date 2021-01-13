@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 5eb58c48acc7974a4379cf1993a73228c99f5e6d
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 03a16bfbcb3a8d46a6cb4faa03aa6b6e96cf3db3
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857577"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165963"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>보안 내보내기를 사용 하 여 ITSM 도구를 연결 하도록 Azure 구성
 
@@ -39,9 +39,9 @@ Azure AD에 응용 프로그램을 등록 하려면 다음 단계를 따르세�
 
 ## <a name="define-service-principal"></a>서비스 사용자 정의
 
-작업 그룹 서비스에는 지금 서비스로 인증 하기 위해 AAD 응용 프로그램에서 인증 토큰을 가져올 수 있는 권한이 필요 합니다. 이러한 권한을 부여 하려면 테 넌 트에서 작업 그룹 서비스에 대 한 서비스 주체를 만들어야 합니다.
-이를 위해이 [PowerShell 명령을](./action-groups.md#secure-webhook-powershell-script) 사용할 수 있습니다. (테 넌 트 관리자 권한이 필요 함).
-선택적 단계로, 만들어진 응용 프로그램의 매니페스트에 응용 프로그램 역할을 정의할 수 있습니다 .이를 통해 특정 역할의 특정 응용 프로그램만 메시지를 보낼 수 있도록 추가 제한, 액세스를 허용할 수 있습니다. 그런 다음 작업 그룹 서비스 주체에이 역할을 할당 해야 합니다. \
+작업 그룹 서비스는 자사 응용 프로그램 이므로 이제 서비스를 인증 하기 위해 AAD 응용 프로그램에서 인증 토큰을 획득할 수 있는 권한이 있습니다.
+선택적 단계로, 만들어진 응용 프로그램의 매니페스트에 응용 프로그램 역할을 정의할 수 있습니다 .이를 통해 특정 역할의 특정 응용 프로그램만 메시지를 보낼 수 있도록 추가 제한, 액세스를 허용할 수 있습니다. 그런 다음이 역할을 작업 그룹 서비스 주체에 할당 해야 합니다 (테 넌 트 관리자 권한이 필요 함).
+
 이 단계는 동일한 [PowerShell 명령을](./action-groups.md#secure-webhook-powershell-script)통해 수행할 수 있습니다.
 
 ## <a name="create-a-secure-webhook-action-group"></a>보안 Webhook 작업 그룹 만들기

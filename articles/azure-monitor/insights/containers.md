@@ -3,15 +3,15 @@ title: Azure Monitor의 컨테이너 모니터링 솔루션 Microsoft Docs
 description: Azure Monitor의 컨테이너 모니터링 솔루션을 사용 하 여 단일 위치에서 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다.
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/06/2020
-ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 483113fc508800eb126ee39f146c1fa34e5dba5e
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145687"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165708"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor의 컨테이너 모니터링 솔루션
 
@@ -51,7 +51,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | 서비스<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Red Hat Open<br>Shift 키 | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(독립 실행형) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux 서버<br>(독립 실행형) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 

@@ -3,12 +3,12 @@ title: Azure Monitor의 메트릭 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Monitoring을 사용하여 Azure Event Hubs를 모니터링하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5b055c02783c40d844d1c6306bbb71cb23d602f2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 74830775a4f31e6f8e486b4d6cc434335b4ee723
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118798"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165895"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Event Hubs 메트릭
 
@@ -20,7 +20,7 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스하거나 Azure Monitor API(REST 및 .NET) 및 Log Analytics 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor에서 수집된 데이터 모니터링](../azure-monitor/platform/data-platform.md)을 참조하세요.
 
-메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. Azure Monitor의 [진단 설정](../azure-monitor/platform/diagnostic-settings.md)에서 이렇게 구성합니다.
+메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간 동안 데이터를 유지 해야 하는 경우 Azure Storage 계정에 메트릭 데이터를 보관할 수 있습니다. 이 설정은 Azure Monitor의 [진단 설정](../azure-monitor/platform/diagnostic-settings.md) 에서 구성할 수 있습니다.
 
 
 ## <a name="access-metrics-in-the-portal"></a>포털에서 메트릭에 액세스
@@ -29,7 +29,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ![성공 메트릭 보기][1]
 
-네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음, **Metrics** 을 클릭합니다. Event Hub 범위로 필터링된 메트릭을 표시하려면 Event Hub를 선택한 다음 **메트릭** 을 클릭합니다.
+네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임 스페이스를 선택한 다음 **메트릭** 을 선택 합니다. 이벤트 허브 범위에 대해 필터링 된 메트릭을 표시 하려면 이벤트 허브를 선택한 다음 **메트릭** 을 선택 합니다.
 
 다음 예제와 같이 차원을 지원하는 메트릭의 경우 원하는 차원 값을 사용하여 필터링해야 합니다.
 
@@ -37,7 +37,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ## <a name="billing"></a>결제
 
-Azure Monitor에서 메트릭 사용은 현재 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 또한 고급 분석을 위해 Azure Monitor 로그에 메트릭 데이터를 스트리밍하는 경우 Azure에 의해 요금이 청구 됩니다.
+Azure Monitor에서 메트릭 사용은 현재 무료입니다. 그러나 메트릭 데이터를 수집 하는 다른 솔루션을 사용 하는 경우 이러한 솔루션을 통해 요금이 청구 될 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 또한 고급 분석을 위해 Azure Monitor 로그에 메트릭 데이터를 스트리밍하는 경우 Azure에 의해 요금이 청구 됩니다.
 
 다음 메트릭은 서비스의 상태에 대한 개요를 제공합니다. 
 
@@ -48,6 +48,9 @@ Azure Monitor에서 메트릭 사용은 현재 무료입니다. 그러나 메트
 
 ## <a name="azure-event-hubs-metrics"></a>Azure Event Hubs 메트릭
 서비스에서 지 원하는 메트릭 목록은 [Azure Event Hubs](../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces) 를 참조 하세요.
+
+> [!NOTE]
+> 사용자 오류가 발생 하면 Azure Event Hubs는 **사용자 오류** 메트릭을 업데이트 하지만 다른 진단 정보는 기록 하지 않습니다. 따라서 응용 프로그램에서 사용자 오류에 대 한 세부 정보를 캡처해야 합니다. 또는 메시지가 application insights로 전송 되거나 수신 될 때 생성 되는 원격 분석을 변환할 수도 있습니다. 예를 들어 [Application Insights로 추적](../service-bus-messaging/service-bus-end-to-end-tracing.md#tracking-with-azure-application-insights)을 참조 하세요.
 
 ## <a name="azure-monitor-integration-with-siem-tools"></a>SIEM 도구와 Azure Monitor 통합
 Azure Monitor를 사용 하 여 모니터링 데이터 (활동 로그, 진단 로그 등)를 이벤트 허브로 라우팅하는 방법으로 SIEM (보안 정보 및 이벤트 관리) 도구와 쉽게 통합할 수 있습니다. 자세한 내용은 다음 문서/블로그 게시물을 참조 하세요.

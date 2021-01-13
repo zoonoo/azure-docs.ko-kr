@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
-ms.openlocfilehash: 9ee7440b10bc348d3ba87a4779208791a7b0e9ac
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5a30846a6e2aaf85ded2e55641aa5fba9507a29
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512031"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165776"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database 및 Azure SQL Managed Instance 서비스 계층
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ Azure SQL Database에는 추가 서비스 계층이 있습니다.
 | **컴퓨팅 크기**| SQL Database | vCore 1~80개 | 1 ~ 80 vCores | vCore 1~80개 |
 | | SQL Managed Instance | 4, 8, 16, 24, 32, 40, 64, 80 vCores | 해당 없음 | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | | SQL Managed Instance 풀 | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | 해당 없음 | 해당 없음 |
-| **저장소 유형** | 모두 | 프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
+| **스토리지 유형** | 모두 | 프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
 | **데이터베이스 크기** | SQL Database | 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | SQL Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
 | **스토리지 크기** | SQL Database | 5GB~4TB | 최대 100TB | 5GB~4TB |
@@ -78,6 +78,7 @@ Azure SQL Database에는 추가 서비스 계층이 있습니다.
   - 프리미엄 또는 중요 비즈니스용 서비스 계층의 저장소에 대해 250-GB 증가값으로 크기를 늘리거나 줄입니다.
 - 범용 서비스 계층에서는 연결 된 `tempdb` SSD를 사용 하며,이 저장소 비용은 vCore 가격에 포함 됩니다.
 - 중요 비즈니스용 서비스 계층에서는 `tempdb` 연결 된 SSD와 MDF 및 LDF 파일을 공유 하며, `tempdb` 저장소 비용은 vcore 가격에 포함 됩니다.
+- DTU 프리미엄 서비스 계층에서는 `tempdb` 연결 된 SSD와 MDF 및 LDF 파일을 공유 합니다.
 - SQL Managed Instance의 저장소 크기는 32 GB의 배수로 지정 해야 합니다.
 
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: sngun
-ms.openlocfilehash: 82f29fa89373c64e424d5f42035d7edb1bbca18c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: bfc17af99a435c7c17f308f913346045aa22b18d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044648"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165555"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Azure에서 진단 설정을 사용 하 여 Azure Cosmos DB 데이터 모니터링
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,26 +35,54 @@ Azure의 진단 설정은 리소스 로그를 수집 하는 데 사용 됩니다
 
  * **DataPlaneRequests**: AZURE COSMOS DB의 SQL, Graph, MongoDB, Cassandra 및 Table API 계정을 포함 하는 모든 api에 백 엔드 요청을 기록 하려면이 옵션을 선택 합니다. 주의 해야 할 주요 속성은 `Requestcharge` , `statusCode` , `clientIPaddress` , `partitionID` , `resourceTokenPermissionId` 및 `resourceTokenPermissionMode` 입니다.
 
-    ```json
+   ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372", "resourceTokenPermissionId": "perm-prescriber-app","resourceTokenPermissionMode": "all", "resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
-    ```
+   ```
+   
+   다음 쿼리를 사용 하 여 데이터 평면 요청에 해당 하는 로그를 가져옵니다.
+  
+   ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+   ```
 
 * **MongoRequests**: 프런트 엔드에서 사용자가 시작한 요청을 MONGODB의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 다른 API 계정에 사용할 수 없습니다. 주의 해야 할 주요 속성은 `Requestcharge` , `opCode` 입니다. 진단 로그에서 MongoRequests를 사용 하도록 설정 하는 경우 DataPlaneRequests를 해제 해야 합니다. API에 대 한 모든 요청에 대해 하나의 로그가 표시 됩니다.
 
     ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
+  
+  다음 쿼리를 사용 하 여 MongoDB 요청에 해당 하는 로그를 가져옵니다.
+  
+  ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="MongoRequests"
+  ```
 
 * **CassandraRequests**: 프런트 엔드에서 사용자가 시작한 요청을 CASSANDRA의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 다른 API 계정에 사용할 수 없습니다. 주의할 핵심 속성은 `operationName` , `requestCharge` , `piiCommandText` 입니다. 진단 로그에서 CassandraRequests를 사용 하도록 설정 하는 경우 DataPlaneRequests를 해제 해야 합니다. API에 대 한 모든 요청에 대해 하나의 로그가 표시 됩니다.
 
    ```json
    { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
    ```
+   
+  다음 쿼리를 사용 하 여 Cassandra 요청에 해당 하는 로그를 가져옵니다.
+  
+  ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="CassandraRequests"
+  ```
 
 * **GremlinRequests**: 프런트 엔드에서 사용자가 시작한 요청을 GREMLIN의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 다른 API 계정에 사용할 수 없습니다. 주의할 핵심 속성은 `operationName` 및 `requestCharge` 입니다. 진단 로그에서 GremlinRequests를 사용 하도록 설정 하는 경우 DataPlaneRequests를 해제 해야 합니다. API에 대 한 모든 요청에 대해 하나의 로그가 표시 됩니다.
 
   ```json
   { "time": "2021-01-06T19:36:58.2554534Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "GremlinRequests", "operationName": "eval", "properties": {"activityId": "b16bd876-0e5c-4448-90d1-7f3134c6b5ff", "errorCode": "200", "duration": "9.6036", "requestCharge": "9.059999999999999", "databaseName": "GraphDemoDatabase", "collectionName": "GraphDemoContainer", "authorizationTokenType": "PrimaryMasterKey", "address": "98.225.2.189", "estimatedDelayFromRateLimitingInMilliseconds": "0", "retriedDueToRateLimiting": "False", "region": "Australia East", "requestLength": "266", "responseLength": "364", "userAgent": "<empty>"}}
+  ```
+  
+  다음 쿼리를 사용 하 여 Gremlin 요청에 해당 하는 로그를 가져옵니다.
+  
+  ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="GremlinRequests"
   ```
 
 * **Queryruntimestatistics**: 실행 된 쿼리 텍스트를 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 SQL API 계정에만 사용할 수 있습니다.

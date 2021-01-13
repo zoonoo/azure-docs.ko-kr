@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8086bd2a193ac52e76bf8da245063163ab2ea2f9
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a2d4cec57eb6ac23c191e504c305c2c6d11268ac
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591058"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165005"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -25,7 +25,7 @@ ms.locfileid: "97591058"
 
 ## <a name="what-is-an-application-proxy-connector"></a>애플리케이션 프록시 커넥터란?
 
-커넥터는 온-프레미스에서 애플리케이션 프록시 서비스로의 아웃바운드 연결을 용이하게 하는 경량 에이전트입니다. 커넥터는 백 엔드 애플리케이션에 대한 액세스 권한이 있는 Windows Server에 설치해야 합니다. 커넥터를 커넥터 그룹으로 나누고, 각 그룹이 특정 애플리케이션에 대한 트래픽을 처리하게 만들 수 있습니다.
+커넥터는 온-프레미스에서 애플리케이션 프록시 서비스로의 아웃바운드 연결을 용이하게 하는 경량 에이전트입니다. 커넥터는 백 엔드 애플리케이션에 대한 액세스 권한이 있는 Windows Server에 설치해야 합니다. 커넥터를 커넥터 그룹으로 나누고, 각 그룹이 특정 애플리케이션에 대한 트래픽을 처리하게 만들 수 있습니다. 응용 프로그램 프록시에 대 한 자세한 정보 응용 프로그램 프록시 아키텍처의 다이어그램 표현은 [Azure AD 응용 프로그램 프록시를 사용 하 여 원격 사용자를 위한 온-프레미스 앱 게시를](what-is-application-proxy.md#application-proxy-connectors) 참조 하세요.
 
 ## <a name="requirements-and-deployment"></a>요구 사항 및 배포
 

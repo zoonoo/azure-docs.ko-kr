@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/5/2021
-ms.openlocfilehash: 90f8b74168f1b02647f14645aa4dc7a3dff8c2ba
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4858f650aca1b704ac79482e0158fd83fc0264b8
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937671"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165244"
 ---
 # <a name="useful-diagnostic-queries"></a>유용한 진단 쿼리
 
@@ -278,6 +278,31 @@ $cmd$);
 │ 10.0.0.20 │ 0.89           │
 └───────────┴────────────────┘
 ```
+
+## <a name="cache-hit-rate"></a>캐시 적중률
+
+대부분의 응용 프로그램은 일반적으로 한 번에 작은 비율의 전체 데이터에 액세스 합니다. PostgreSQL는 디스크에서 읽기 속도가 느려지는 것을 방지 하기 위해 자주 액세스 하는 데이터를 메모리에 유지 합니다. [Pg_statio_user_tables](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STATIO-ALL-TABLES-VIEW) 보기에서 통계를 볼 수 있습니다.
+
+중요 한 측정은 메모리 캐시와 워크 로드의 디스크에서 제공 되는 데이터의 비율입니다.
+
+``` postgresql
+SELECT
+  sum(heap_blks_read) AS heap_read,
+  sum(heap_blks_hit)  AS heap_hit,
+  sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) AS ratio
+FROM
+  pg_statio_user_tables;
+```
+
+예제 출력:
+
+```
+ heap_read | heap_hit |         ratio
+-----------+----------+------------------------
+         1 |      132 | 0.99248120300751879699
+```
+
+99% 보다 훨씬 낮은 비율을 사용 하는 경우에는 데이터베이스에 사용할 수 있는 캐시의 증가를 고려해 야 할 가능성이 높습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a77083c721328a8df9facd2f4b320b863aa03c68
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6b9077fec13dd177ec4e07e7fbd7818ded2fd0a1
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352408"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164943"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>기술 자료에서 활성 학습 제안 질문 수락
 
@@ -26,7 +26,7 @@ ms.locfileid: "96352408"
 
 ## <a name="view-suggested-questions"></a>제안 된 질문 보기
 
-1. 제안 된 질문을 보려면 기술 자료 **편집** 페이지에서 **보기 옵션** 을 선택한 다음 **활성 학습 제안 표시** 를 선택 합니다.
+1. 제안 된 질문을 보려면 기술 자료 **편집** 페이지에서 **보기 옵션** 을 선택한 다음 **활성 학습 제안 표시** 를 선택 합니다. 질문 및 답변 쌍에 대 한 제안이 없는 경우이 옵션을 사용할 수 없습니다.  
 
     [![포털의 편집 섹션에서 활성 학습의 새로운 질문을 확인 하기 위해 제안 표시를 선택 합니다.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|Name|형식|목적|
+|HTTP 요청 속성|이름|형식|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. 로 나열 됩니다 `host` .|
@@ -145,7 +145,7 @@ JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
 |`feedbackRecords`|array|사용자 의견 목록입니다.|
 |`userId`|문자열|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. 선택 사항입니다.|
 |`userQuestion`|문자열|사용자 쿼리의 정확한 텍스트입니다. 필수 요소.|
-|`qnaID`|숫자|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
+|`qnaID`|number|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
 
 예제 JSON 본문은 다음과 같습니다.
 
@@ -337,7 +337,7 @@ async callTrain(stepContext){
 
 
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 활성 학습 사용 시의 모범 사례는 [모범 사례](../Concepts/best-practices.md#active-learning)를 참조하세요.
 

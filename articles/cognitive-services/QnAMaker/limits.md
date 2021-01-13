@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708943"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164875"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -39,7 +39,7 @@ ms.locfileid: "97708943"
 
 ### <a name="maximum-file-size"></a>최대 파일 크기
 
-|형식|최대 파일 크기 (MB)|
+|서식|최대 파일 크기 (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -99,6 +99,7 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 * 답변 당 추천 된 최대 질문 수: 300
 * 최대 URL 수: 10
 * 최대 파일 수: 10
+* 호출 당 허용 되는 최대 QnAs 수: 1000
 
 ## <a name="update-knowledge-base-call-limits"></a>기술 자료 호출 제한 업데이트
 이는 각 업데이트 작업(‘저장 및 학습’ 클릭 또는 UpdateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.
@@ -106,6 +107,7 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 * 추가 되거나 삭제 된 추천 질문의 최대 수: 300
 * 추가 또는 삭제된 최대 메타데이터 필드 수: 10
 * 새로 고칠 수 있는 최대 URL 수: 5
+* 호출 당 허용 되는 최대 QnAs 수: 1000
 
 ## <a name="next-steps"></a>다음 단계
 

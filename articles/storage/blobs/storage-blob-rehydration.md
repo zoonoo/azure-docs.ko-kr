@@ -4,17 +4,17 @@ description: Blob 데이터에 액세스할 수 있도록 보관 저장소에서
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/08/2020
+ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545946"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165674"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>보관 계층의 Blob 데이터 리하이드레이션
 
@@ -29,9 +29,13 @@ Blob이 보관 액세스 계층에 있는 동안에는 오프라인으로 간주
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+## <a name="monitor-rehydration-progress"></a>리하이드레이션 진행률 모니터링
+
+리하이드레이션 하는 동안 blob 속성 가져오기 작업을 사용 하 여 **보관 상태** 특성을 확인 하 고 계층 변경이 완료 되 면 확인 합니다. 상태는 대상 계층에 따라 "rehydrate-pending-to-hot" 또는 "rehydrate-pending-to-cool"을 읽습니다. 완료되면 보관 상태 속성이 제거되고 **액세스 계층** Blob 속성은 새로운 핫 또는 쿨 계층을 반영합니다.
+
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>보관된 Blob을 온라인 계층으로 복사
 
-보관 Blob을 리하이드레이션하지 않으려면 [Blob 복사](/rest/api/storageservices/copy-blob) 작업 수행을 선택할 수 있습니다. 원본 Blob은 보관 계층에 수정되지 않은 상태로 유지되고 온라인 핫 또는 쿨 계층에서 작업할 새 Blob이 생성됩니다. Blob 복사 작업에서 선택적 *x-ms-rehydrate-priority* 속성을 표준 또는 높음으로 설정하여 만든 Blob 복사본의 우선 순위를 지정할 수도 있습니다.
+보관 Blob을 리하이드레이션하지 않으려면 [Blob 복사](/rest/api/storageservices/copy-blob) 작업 수행을 선택할 수 있습니다. 원본 Blob은 보관 계층에 수정되지 않은 상태로 유지되고 온라인 핫 또는 쿨 계층에서 작업할 새 Blob이 생성됩니다. **Blob 복사** 작업에서 선택적 리하이드레이션 속성을 표준 또는 높음으로 설정 하 여 Blob 복사본을 만들 *우선 순위를* 지정할 수도 있습니다.
 
 스토리지에서 Blob을 복사하는 작업은 선택된 리하이드레이션 우선 순위에 따라 완료하는 데 몇 시간 정도 걸릴 수 있습니다. 백그라운드에서 **Blob 복사** 작업은 보관 원본 Blob을 읽어서 선택한 대상 계층에 새 온라인 Blob을 만듭니다. Blob을 나열할 때 새 Blob이 표시될 수 있지만 원본 보관 Blob에서 읽기를 완료하고 새 온라인 대상 Blob에 데이터를 쓸 때까지 데이터를 사용할 수 없습니다. 새 Blob은 독립된 복사본이며 이에 대한 수정 또는 삭제는 원본 보관 Blob에 영향을 주지 않습니다.
 

@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: ba4e6b8b5e9db494ab4c0c372c2086087a2d58cb
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133177"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165793"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>원격 분석 프로세서 (미리 보기)-Java 용 Azure Monitor Application Insights
 
@@ -23,58 +23,48 @@ Application Insights 용 Java 3.0 에이전트는 데이터를 내보내기 전�
 다음은 원격 분석 프로세서의 몇 가지 사용 사례입니다.
  * 중요 한 데이터 마스킹
  * 조건부로 사용자 지정 차원 추가
- * 집계 및 표시에 사용 되는 원격 분석 이름을 업데이트 합니다.
- * 수집 비용을 제어 하는 범위 특성 삭제 또는 필터링
+ * 집계에 사용 되 고 Azure Portal에 표시 되는 이름을 업데이트 합니다.
+ * 수집 비용을 제어 하기 위해 span 특성 삭제
 
 ## <a name="terminology"></a>용어
 
-원격 분석 프로세서로 이동 하기 전에 추적 및 범위 정의를 이해 하는 것이 중요 합니다.
+원격 분석 프로세서로 이동 하기 전에 용어 범위에서 참조 하는 항목을 이해 하는 것이 중요 합니다.
 
-### <a name="traces"></a>추적
+범위는 다음 세 가지 항목에 대 한 일반적인 용어입니다.
 
-추적은 `trace` 응용 프로그램을 구성 하는 서비스에서 처리 하는 것 처럼 단일 요청의 진행 상태를 추적 합니다. 사용자 또는 응용 프로그램에서 요청을 시작할 수 있습니다. 의 각 작업 단위를 `trace` 라고 하며 `span` ,는 `trace` 범위의 트리입니다. 는 `trace` 단일 루트 범위와 임의 개수의 자식 범위로 구성 됩니다.
+* 들어오는 요청
+* 나가는 종속성 (예: 다른 서비스에 대 한 원격 호출)
+* In-process 종속성 (예: 서비스의 하위 구성 요소에 의해 수행 되는 작업)
 
-### <a name="span"></a>거칠
+원격 분석 프로세서의 경우 범위의 중요 한 구성 요소는 다음과 같습니다.
 
-범위는 시스템을 통해 흐를 때 요청과 관련 된 개별 서비스 또는 구성 요소에 의해 수행 되는 작업을 나타내는 개체입니다. 에는 `span` `span context` 각 범위가 포함 되는 고유한 요청을 나타내는 guid (globally unique identifier) 집합인이 포함 되어 있습니다. 
+* 이름
+* 특성
 
-확장 캡슐화:
+범위 이름은 Azure Portal의 요청 및 종속성에 사용 되는 기본 표시입니다.
 
-* 범위 이름
-* `SpanContext`범위를 고유 하 게 식별 하는 변경할 수 없는입니다.
-* `Span`, 또는 null 형식의 부모 범위 `SpanContext`
-* `SpanKind`
-* 시작 타임 스탬프
-* 종료 타임 스탬프
-* [`Attributes`](#attributes)
-* 타임 스탬프 이벤트 목록
-* `Status`
+Span 특성은 지정 된 요청 또는 종속성의 표준 및 사용자 지정 속성을 모두 나타냅니다.
 
-일반적으로 범위의 수명 주기는 다음과 유사 합니다.
+## <a name="telemetry-processor-types"></a>원격 분석 프로세서 유형
 
-* 서비스에서 요청을 수신 합니다. 범위 컨텍스트는 요청 헤더 (있는 경우)에서 추출 됩니다.
-* 새 범위는 추출 된 span 컨텍스트의 자식으로 생성 됩니다. 이 항목이 없으면 새 루트 범위가 만들어집니다.
-* 서비스에서 요청을 처리 합니다. 요청을 처리 하는 컴퓨터의 호스트 이름 또는 고객 식별자와 같은 요청 컨텍스트를 이해 하는 데 유용한 추가 특성 및 이벤트가 범위에 추가 됩니다.
-* 서비스의 하위 구성 요소에 의해 수행 되는 작업을 나타내는 새로운 범위를 만들 수 있습니다.
-* 서비스가 다른 서비스에 대 한 원격 호출을 수행 하면 현재 범위 컨텍스트가 직렬화 되 고 헤더 또는 메시지 봉투에 범위 컨텍스트를 삽입 하 여 다음 서비스에 전달 됩니다.
-* 서비스에서 수행 하는 작업이 성공적으로 완료 되었습니다. 범위 상태가 적절 하 게 설정 되 고 범위는 완료로 표시 됩니다.
+현재 두 가지 유형의 원격 분석 프로세서가 있습니다.
 
-### <a name="attributes"></a>특성
+#### <a name="attribute-processor"></a>특성 프로세서
 
-`Attributes` 는에 캡슐화 된 0 개 이상의 키-값 쌍 목록입니다 `span` . 특성에는 다음과 같은 속성이 있어야 합니다.
+특성 프로세서에는 특성을 삽입, 업데이트, 삭제 또는 해시 하는 기능이 있습니다.
+정규식을 통해 기존 특성에서 하나 이상의 새 특성을 추출할 수도 있습니다.
 
-Null이 아니고 비어 있지 않은 문자열 이어야 하는 특성 키입니다.
-특성 값으로, 다음 중 하나입니다.
-* 기본 형식은 문자열, 부울, 배정밀도 부동 소수점 (IEEE 754-1985) 또는 부호 있는 64 비트 정수입니다.
-* 기본 형식 값의 배열입니다. 배열에는 유형이 같아야 합니다. 즉, 다른 유형의 값을 포함 하면 안 됩니다. 기본적으로 배열 값을 지원 하지 않는 프로토콜의 경우 이러한 값은 JSON 문자열로 표시 되어야 합니다.
+#### <a name="span-processor"></a>범위 프로세서
 
-## <a name="supported-processors"></a>지원 되는 프로세서:
- * 특성 프로세서
- * 범위 프로세서
+범위 프로세서에는 원격 분석 이름을 업데이트할 수 있는 기능이 있습니다.
+또한 범위 이름에서 하나 이상의 새 특성을 추출 (정규식을 통해) 할 수 있습니다.
 
-## <a name="to-get-started"></a>시작하려면
+> [!NOTE]
+> 현재 원격 분석 프로세서는 문자열 형식의 특성만 처리 하 고 부울 또는 숫자 형식의 특성은 처리 하지 않습니다.
 
-이라는 구성 파일을 만들고와 `applicationinsights.json` 동일한 디렉터리에 `applicationinsights-agent-***.jar` 다음 템플릿을 사용 하 여 저장 합니다.
+## <a name="getting-started"></a>시작
+
+이라는 구성 파일을 만들고와 `applicationinsights.json` 동일한 디렉터리에 `applicationinsights-agent-*.jar` 다음 템플릿을 사용 하 여 저장 합니다.
 
 ```json
 {
@@ -98,9 +88,14 @@ Null이 아니고 비어 있지 않은 문자열 이어야 하는 특성 키입�
 }
 ```
 
-## <a name="includeexclude-spans"></a>포함/제외 범위
+## <a name="includeexclude-criteria"></a>포함/제외 조건
 
-특성 프로세서와 범위 프로세서는 일치 시킬 범위의 속성 집합을 제공 하는 옵션을 노출 하 여, 원격 분석 프로세서에서 범위를 포함할지 또는 제외할지를 결정 합니다. 이 옵션을 구성 하려면 `include` 및/또는 `exclude` 하나 이상의 `matchType` 및 또는 중 하나가 `spanNames` `attributes` 필요 합니다. 포함/제외 구성은 지정 된 조건을 두 개 이상 포함할 수 있습니다. 일치가 발생 하려면 지정 된 모든 조건이 true로 평가 되어야 합니다. 
+특성 프로세서와 범위 프로세서는 모두 선택적 `include` 및 `exclude` 조건을 지원 합니다.
+프로세서는 해당 조건 (제공 된 경우)과 일치 하는 범위에만 적용 되 `include` _고_ 해당 `exclude` 조건 (제공 된 경우)과 일치 하지 않습니다.
+
+이 옵션을 구성 하려면 `include` 및/또는 `exclude` 하나 이상의 `matchType` 및 또는 중 하나가 `spanNames` `attributes` 필요 합니다.
+포함/제외 구성은 지정 된 조건을 두 개 이상 포함할 수 있습니다.
+일치가 발생 하려면 지정 된 모든 조건이 true로 평가 되어야 합니다. 
 
 **필수 필드**: 
 * `matchType` 및 배열의 항목을 해석 하는 방법을 제어 `spanNames` `attributes` 합니다. 가능한 값은 `regexp` 또는 `strict`입니다. 
@@ -150,7 +145,7 @@ Null이 아니고 비어 있지 않은 문자열 이어야 하는 특성 키입�
 ```
 더 이해 하려면 [원격 분석 프로세서 예제](./java-standalone-telemetry-processors-examples.md) 설명서를 확인 하세요.
 
-## <a name="attribute-processor"></a>특성 프로세서 
+## <a name="attribute-processor"></a>특성 프로세서
 
 특성 프로세서는 범위의 특성을 수정 합니다. 필요에 따라 범위를 포함/제외 하는 기능을 지원 합니다. 구성 파일에 지정 된 순서 대로 수행 되는 작업 목록을 사용 합니다. 지원 되는 작업은 다음과 같습니다.
 
@@ -167,7 +162,7 @@ Null이 아니고 비어 있지 않은 문자열 이어야 하는 특성 키입�
         "key": "attribute1",
         "value": "value1",
         "action": "insert"
-      },
+      }
     ]
   }
 ]
@@ -190,7 +185,7 @@ Null이 아니고 비어 있지 않은 문자열 이어야 하는 특성 키입�
         "key": "attribute1",
         "value": "newValue",
         "action": "update"
-      },
+      }
     ]
   }
 ]
@@ -213,7 +208,7 @@ Null이 아니고 비어 있지 않은 문자열 이어야 하는 특성 키입�
       {
         "key": "attribute1",
         "action": "delete"
-      },
+      }
     ]
   }
 ]
@@ -234,7 +229,7 @@ Null이 아니고 비어 있지 않은 문자열 이어야 하는 특성 키입�
       {
         "key": "attribute1",
         "action": "hash"
-      },
+      }
     ]
   }
 ]
@@ -259,7 +254,7 @@ Null이 아니고 비어 있지 않은 문자열 이어야 하는 특성 키입�
         "key": "attribute1",
         "pattern": "<regular pattern with named matchers>",
         "action": "extract"
-      },
+      }
     ]
   }
 ]
@@ -271,7 +266,7 @@ Null이 아니고 비어 있지 않은 문자열 이어야 하는 특성 키입�
 
 더 이해 하려면 [원격 분석 프로세서 예제](./java-standalone-telemetry-processors-examples.md) 설명서를 확인 하세요.
 
-## <a name="span-processors"></a>프로세서 범위
+## <a name="span-processor"></a>범위 프로세서
 
 범위 프로세서는 범위 이름 또는 범위 이름을 기반으로 범위의 특성을 수정 합니다. 필요에 따라 범위를 포함/제외 하는 기능을 지원 합니다.
 

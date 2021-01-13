@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b89fcf32ed033f359b4db601e36cc69bb899944d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340416"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165827"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Azure Cosmos DB Python Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -123,6 +123,8 @@ Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
 출력 통계를 사용하여 항목을 업로드하는 데 사용되는 유효 RU/s를 계산할 수 있습니다. 예를 들어 38초를 초과하여 25000 RUs를 사용하는 경우 유효 RU/s는 25000RUs/38초 = 658RU/s입니다.
+
+파일 (예: CSV 또는 JSON 파일)을 로컬 노트북 작업 영역에 저장할 수 있습니다. 파일을 저장 하려면 노트북에 셀을 추가 하는 것이 좋습니다. 이러한 파일은 노트북 환경의 통합 터미널에서 볼 수 있습니다. "Ls" 명령을 사용 하 여 저장 된 파일을 볼 수 있습니다. 그러나 작업 영역을 다시 설정 하면 이러한 파일이 제거 됩니다. 따라서 로컬 작업 영역 대신 GitHub 또는 저장소 계정과 같은 영구 저장소를 사용 하는 것이 가장 좋습니다.
 
 ## <a name="run-another-notebook-in-current-notebook"></a>현재 Notebook에서 다른 Notebook 실행 
 ``%%run`` 매직 명령을 사용하여 현재 Notebook의 작업 영역에서 다른 Notebook을 실행할 수 있습니다. 다음 구문을 사용합니다.
