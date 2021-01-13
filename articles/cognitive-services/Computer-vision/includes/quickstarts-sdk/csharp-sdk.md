@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cf887c8f539016bf7b45e206b3a9f6cf04a4c52
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1826edb31c442fb10b8053433ec01ee5abad0eb2
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560851"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109516"
 ---
 <a name="HOLTop"></a>
 
@@ -48,10 +48,10 @@ Visual Studio를 사용하여 새 .NET Core 애플리케이션을 만듭니다.
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `computer-vision-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *ComputerVisionQuickstart.cs*.
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `computer-vision-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *Program.cs* 라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
 
 ```console
-dotnet new console -n (product-name)-quickstart
+dotnet new console -n computer-vision-quickstart
 ```
 
 새로 만든 앱 폴더로 디렉터리를 변경합니다. 다음을 통해 애플리케이션을 빌드할 수 있습니다.

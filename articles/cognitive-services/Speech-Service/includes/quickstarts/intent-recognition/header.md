@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
-ms.openlocfilehash: 8d70d282ffb1a39f9ffb3eb6addf694ac9d0d060
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4725a1a9cf2cb74655a37ac27a0a86f10d7f4bb9
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81422277"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052729"
 ---
 이 빠른 시작에서는 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) 및 LUIS(Language Understanding) 서비스를 사용하여 마이크에서 캡처한 오디오 데이터의 의도를 인식합니다. 특히 Speech SDK를 사용하여 음성을 캡처하고 LUIS에서 미리 빌드된 도메인을 사용하여 광원 설정 및 해제와 같은 홈 자동화의 의도를 식별할 수 있습니다. 
 
@@ -22,3 +22,4 @@ ms.locfileid: "81422277"
 > * 위의 `SpeechConfig` 개체를 사용하여 `IntentRecognizer` 개체를 만듭니다.
 > * `IntentRecognizer` 개체를 사용하여 단일 발화에 대한 인식 프로세스를 시작합니다.
 > * 반환된 `IntentRecognitionResult`를 검사합니다.
+

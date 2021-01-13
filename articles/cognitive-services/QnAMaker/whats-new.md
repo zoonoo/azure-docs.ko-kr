@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 2c159e25195c5f144187268b4355c1078695e809
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c3dc2f91fcd09807a7eaaaaa638e78ba3717faec
+ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345528"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98061772"
 ---
 # <a name="whats-new-in-qna-maker"></a>QnA Maker의 새로운 기능
 
@@ -26,6 +26,8 @@ QnA Maker의 새로운 기능에 대해 알아봅니다.
 ### <a name="november-2020"></a>2020년 11월
 
 * QnA Maker의 새 버전이 무료 공개 미리 보기로 출시되었습니다. 자세한 내용은 [여기](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575)를 읽어보세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-QnA-managed-Now-in-Public-Preview/player]
 * 단순화된 리소스 만들기
 * 엔드투엔드 지역 지원
 * 심층 학습 순위 모델

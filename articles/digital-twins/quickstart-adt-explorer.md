@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187303"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050530"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>빠른 시작 - ADT Explorer를 사용하여 Azure Digital Twins 샘플 시나리오 살펴보기
 
@@ -251,9 +251,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 
 대답을 확인하려면 **쿼리 탐색기** 상자에서 다음 쿼리를 실행합니다.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 이전의 트윈 속성을 살펴보면 Room0의 온도가 70이고 Room1의 온도가 80입니다. 따라서 Room1만 결과에 표시됩니다.
     
@@ -284,9 +282,7 @@ ADT 탐색기를 사용하여 그래프에 표시된 쌍의 속성을 편집할 
 
 그래프가 Room0의 온도 업데이트를 성공적으로 등록했는지 확인하려면 이전 쿼리를 다시 실행하여 환경에서 온도가 75를 초과하는 모든 트윈을 가져옵니다.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 이제 Room0의 온도가 70에서 76으로 변경되었으므로 두 쌍이 모두 결과에 표시됩니다.
 
