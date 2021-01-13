@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.openlocfilehash: cfb83c4ec9972fda3813d414583bc73edeef3229
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.date: 01/12/2021
+ms.openlocfilehash: ff83e559919a836208faae4eae4a5f992534b6cb
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285971"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134163"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Azure HDInsight의 Apache Ambari 사용
 
@@ -65,6 +65,15 @@ HDInsight는 Ambari 서버의 데이터베이스 역할을 하는 SQL Database�
 문제를 해결 하기 위해 서비스를 다시 시작 하려고 하지 않는 한 ambari 또는 ambari 서비스를 수동으로 시작/중지 하지 마십시오. 강제로 장애 조치 (failover)를 수행 하려면 활성 헤드 노드를 다시 부팅 하면 됩니다.
 
 모든 클러스터 노드에서 구성 파일을 수동으로 수정 하지 마십시오. Ambari UI에서 작업을 수행 하도록 합니다.
+
+## <a name="property-values-in-esp-clusters"></a>ESP 클러스터의 속성 값
+
+HDInsight 4.0 Enterprise Security Package 클러스터에서 `|` 쉼표 대신 파이프를 변수 구분 기호로 사용 합니다. 아래에 예가 나와 있습니다.
+
+```
+Property Key: hive.security.authorization.sqlstd.confwhitelist.append
+Property Value: environment|env|dl_data_dt
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 08/17/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: c29ee87ab177357f4289134bb39353c764a0d75b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ee3d7d1cf285573db894d64549cf79babb517d95
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535302"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131290"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
@@ -41,7 +41,7 @@ Azure 클라우드는 각각 다른 용도로 여러 다른 파이프라인을 �
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
 | 모델 오케스트레이션 (기계 학습) | 데이터 과학자 | Azure Machine Learning 파이프라인 | Kubeflow 파이프라인 | 데이터 > 모델 | 배포, 캐싱, 코드 우선, 다시 사용 | 
 | 데이터 오케스트레이션 (데이터 준비) | 데이터 엔지니어 | [Azure Data Factory 파이프라인](../data-factory/concepts-pipelines-activities.md) | Apache Airflow | 데이터 > 데이터 | 강력 하 게 형식화 된 이동, 데이터 중심 활동 |
-| 코드 & 앱 오케스트레이션 (CI/CD) | 앱 개발자/Ops | [Azure DevOps 파이프라인](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | 코드 + 모델-> App/Service | 가장 강력 하 고 유연한 활동 지원, 승인 큐, 제어를 사용 하는 단계 | 
+| 코드 & 앱 오케스트레이션 (CI/CD) | 앱 개발자/Ops | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | 코드 + 모델-> App/Service | 가장 강력 하 고 유연한 활동 지원, 승인 큐, 제어를 사용 하는 단계 | 
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Azure ML 파이프라인에서 수행할 수 있는 작업은 무엇 인가요?
 
@@ -107,15 +107,18 @@ experiment = Experiment(ws, 'MyExperiment')
 input_data = Dataset.File.from_files(
     DataPath(datastore, '20newsgroups/20news.pkl'))
 
-output_data = PipelineData("output_data", datastore=blob_store)
-
+dataprep_step = PythonScriptStep(
+    name="prep_data",
+    script_name="dataprep.py",
+    compute_target=cluster,
+    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
+    )
+output_data = OutputFileDatasetConfig()
 input_named = input_data.as_named_input('input')
 
 steps = [ PythonScriptStep(
     script_name="train.py",
     arguments=["--input", input_named.as_download(), "--output", output_data],
-    inputs=[input_data],
-    outputs=[output_data],
     compute_target=compute_target,
     source_directory="myfolder"
 ) ]
@@ -126,7 +129,9 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-코드 조각은 일반적인 Azure Machine Learning 개체, a, a, a `Workspace` `Datastore` [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)및으로 시작 `Experiment` 합니다. 그런 다음 코드는 및을 보유할 개체를 `input_data` 만듭니다 `output_data` . 배열은 `steps` `PythonScriptStep` 데이터 개체를 사용 하 고에서 실행 되는 단일 요소를 보유 합니다 `compute_target` . 그런 다음 코드는 `Pipeline` 작업 영역 및 단계 배열을 전달 하 여 개체 자체를 인스턴스화합니다. 에 대 한 호출은 `experiment.submit(pipeline)` AZURE ML 파이프라인 실행을 시작 합니다. 에 대 한 호출은 `wait_for_completion()` 파이프라인이 완료 될 때까지 차단 됩니다. 
+코드 조각은 일반적인 Azure Machine Learning 개체, a, a, a `Workspace` `Datastore` [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)및으로 시작 `Experiment` 합니다. 그런 다음 코드는 및을 보유할 개체를 `input_data` 만듭니다 `output_data` . 는 `input_data` [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) 의 인스턴스이고은 `output_data`  [outputfiledatasetconfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true)의 인스턴스입니다. `OutputFileDatasetConfig`기본 동작은 경로 아래의 데이터 저장소에 출력을 복사 하는 것입니다 `workspaceblobstore` `/dataset/{run-id}/{output-name}` `run-id` . 여기서는 실행 ID이 고는 `output-name` 개발자가 지정 하지 않은 경우 자동으로 생성 된 값입니다.
+
+배열은 `steps` `PythonScriptStep` 데이터 개체를 사용 하 고에서 실행 되는 단일 요소를 보유 합니다 `compute_target` . 그런 다음 코드는 `Pipeline` 작업 영역 및 단계 배열을 전달 하 여 개체 자체를 인스턴스화합니다. 에 대 한 호출은 `experiment.submit(pipeline)` AZURE ML 파이프라인 실행을 시작 합니다. 에 대 한 호출은 `wait_for_completion()` 파이프라인이 완료 될 때까지 차단 됩니다. 
 
 파이프라인을 데이터에 연결 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning의 데이터 액세스](concept-data.md) 및 [ML 파이프라인 단계 간 데이터 이동 (Python)](how-to-move-data-in-out-of-pipelines.md)문서를 참조 하세요. 
 
@@ -142,7 +147,7 @@ pipeline_run.wait_for_completion()
 
 기계 학습 워크플로에 파이프라인을 사용 하는 경우의 주요 이점은 다음과 같습니다.
 
-|주요 장점|Description|
+|주요 장점|설명|
 |:-------:|-----------|
 |**무인&nbsp;실행**|안정적이 고 무인 방식으로 병렬로 실행 하거나 순서 대로 실행 하는 단계를 예약 합니다. 데이터 준비 및 모델링은 마지막 일 또는 몇 주, 그리고 파이프라인을 사용 하 여 프로세스가 실행 되는 동안 다른 작업에 집중할 수 있습니다. |
 |**다른 유형의 계산**|다른 유형의 확장 가능한 계산 리소스 및 저장소 위치에서 안정적으로 조정 된 여러 파이프라인을 사용 합니다. HDInsight, GPU 데이터 과학 Vm 및 Databricks 같은 다양 한 계산 대상에서 개별 파이프라인 단계를 실행 하 여 사용 가능한 계산 리소스를 효율적으로 사용 합니다.|

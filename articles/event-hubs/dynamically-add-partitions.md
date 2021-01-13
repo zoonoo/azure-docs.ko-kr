@@ -3,12 +3,12 @@ title: Azure Event Hubs에서 이벤트 허브에 동적으로 파티션 추가
 description: 이 문서에서는 Azure Event Hubs에서 이벤트 허브에 파티션을 동적으로 추가하는 방법을 보여줍니다.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ebe4491338c24a331812041f4d3e6d37b934117
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002542"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132174"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Azure Event Hubs에서 이벤트 허브(Apache Kafka 토픽)에 동적으로 파티션 추가
 Event Hubs는 각 소비자만이 특정 하위 집합, 파티션 또는 메시지 스트림을 읽는 파티션된 소비자 패턴을 통해 메시지 스트리밍을 제공합니다. 이 패턴은 이벤트 처리를 위한 가로 눈금을 사용하며 큐 및 항목에 사용할 수 없는 기타 스트림 중심 기능을 제공합니다. 파티션은 Event Hub에서 보유하는 순서가 지정된 이벤트 시퀀스입니다. 최신 이벤트가 도착하면 이 시퀀스의 끝에 추가됩니다. 파티션에 대한 자세한 내용은 [파티션](event-hubs-scalability.md#partitions)을 참조하세요.
@@ -19,7 +19,7 @@ Event Hubs는 각 소비자만이 특정 하위 집합, 파티션 또는 메시�
 > 파티션의 동적 추가는 **전용** Azure Event Hubs 클러스터에서만 가능합니다.
 
 > [!NOTE]
-> Apache Kafka 클라이언트의 경우 **이벤트 허브**가 **Kafka 토픽**에 매핑됩니다. Azure Event Hubs와 Apache Kafka 간의 추가 매핑은 [Kafka 및 Azure Event Hubs 개념 매핑](event-hubs-for-kafka-ecosystem-overview.md#kafka-and-event-hub-conceptual-mapping)을 참조하세요.
+> Apache Kafka 클라이언트의 경우 **이벤트 허브** 가 **Kafka 토픽** 에 매핑됩니다. Azure Event Hubs와 Apache Kafka 간의 추가 매핑은 [Kafka 및 Azure Event Hubs 개념 매핑](event-hubs-for-kafka-ecosystem-overview.md#kafka-and-event-hub-conceptual-mapping)을 참조하세요.
 
 
 ## <a name="update-the-partition-count"></a>파티션 수 업데이트
@@ -71,7 +71,7 @@ Azure Event Hubs는 세 가지 발신자 옵션을 제공합니다.
 
 - **파티션 발신자** – 이 시나리오에서 클라이언트는 파티션에 이벤트를 직접 보냅니다. 파티션은 식별 가능하고 이벤트를 파티션에 직접 보낼 수 있지만 이 패턴은 권장하지 않습니다. 파티션을 추가해도 이 시나리오에는 영향이 없습니다. 새로 추가된 파티션을 검색할 수 있도록 애플리케이션을 다시 시작하는 것이 좋습니다. 
 - **파티션 키 발신자** – 이 시나리오에서는 클라이언트가 키와 함께 이벤트를 보내서 해당 키에 속하는 모든 이벤트가 동일한 파티션에 있도록 합니다. 이 경우 서비스는 키를 해시하고 해당 파티션으로 라우팅합니다. 파티션 수 업데이트는 해싱 변경으로 인해 순서가 잘못 된 문제를 발생 시킬 수 있습니다. 따라서 순서가 중요한 경우에는 파티션 수를 늘리기 전에 애플리케이션에서 기존 파티션의 모든 이벤트를 사용하는지 확인합니다.
-- **라운드 로빈 발신자(기본값)** – 이 시나리오에서는 Azure Event Hubs 서비스가 파티션 간에 이벤트를 라운드 로빈합니다. Azure Event Hubs 서비스는 파티션 수 변경 내용을 인식하고 파티션 수를 변경한 후 몇 초 내에 새 파티션으로 보냅니다.
+- **라운드 로빈 발신자 (기본값)** -이 시나리오에서 Event Hubs 서비스는 파티션 간에 이벤트를 만들고 부하 분산 알고리즘을 사용 합니다. Azure Event Hubs 서비스는 파티션 수 변경 내용을 인식하고 파티션 수를 변경한 후 몇 초 내에 새 파티션으로 보냅니다.
 
 ### <a name="receiverconsumer-clients"></a>수신자/소비자 클라이언트
 Azure Event Hubs는 직접 수신자와 [이벤트 프로세서 호스트(이전 SDK)](event-hubs-event-processor-host.md) 또는 [이벤트 프로세서(새 SDK)](event-processor-balance-partition-load.md)라는 편리한 소비자 라이브러리를 제공합니다.
@@ -99,7 +99,7 @@ Apache Kafka 프로토콜과 함께 Azure Event Hubs를 사용하는 Kafka 클�
     > [!IMPORTANT]
     > 기존 데이터가 순서를 유지하지만 파티션 추가로 인해 파티션 수가 변경되면 해시된 메시지에 대해 파티션 해싱이 중단됩니다.
 - 다음과 같은 경우에 기존 토픽 또는 이벤트 허브 인스턴스에 파티션을 추가하는 것이 좋습니다.
-    - 라운드 로빈(기본) 방법으로 이벤트를 보내는 경우
+    - 이벤트를 보내는 기본 메서드를 사용 하는 경우
      - Kafka 기본 분할 전략, 예 – 고정 할당 또는 전략
 
 

@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 01/12/2021
 ms.author: hrasheed
-ms.openlocfilehash: d6dd67e9e0cd9dcd4afb8f1ae2cc32ccf30617fd
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 87d8074772863d0ca1cbf98220e5ca9b027fb085
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704948"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134299"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>사용자 지정 Ambari DB를 사용 하 여 HDInsight 클러스터 설정
 
@@ -64,6 +64,20 @@ az deployment group create --name HDInsightAmbariDBDeployment \
     --template-file azuredeploy.json \
     --parameters azuredeploy.parameters.json
 ```
+
+## <a name="database-sizing"></a>데이터베이스 크기 조정
+
+다음 표에서는 HDInsight 클러스터의 크기에 따라 선택할 수 있는 Azure SQL DB 계층에 대 한 지침을 제공 합니다.
+
+| 작업자 노드 수 | 필수 DB 계층 |
+|---|---|
+| <= 4 | S0 |
+| >4 && <= 8 | S1 |
+| >8 && <= 16 | S2 |
+| >16 && <= 32 | S3 |
+| >32 && <= 64 | S4 |
+| >64 && <= 128 | P2 |
+| >128 | 지원에 문의 |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,12 +4,12 @@ description: Azure Monitor에 대 한 Java 에이전트 문제를 해결 하는 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 14644f76b7de53b2b6ee3f04131daaf59267a5ff
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 54bf2440dff20fc757f37e3f31a53c57ebd59120
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507645"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133194"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>문제 해결 가이드: Java 용 Azure Monitor Application Insights
 
@@ -20,6 +20,10 @@ ms.locfileid: "97507645"
 기본적으로 Application Insights 용 Java 3.0 에이전트는 `applicationinsights.log` 파일을 보관 하는 동일한 디렉터리에 라는 로그 파일을 생성 합니다 `applicationinsights-agent-3.0.0.jar` .
 
 이 로그 파일은 발생 했을 수 있는 문제에 대 한 힌트를 확인 하는 첫 번째 장소입니다.
+
+## <a name="jvm-fails-to-start"></a>JVM 시작 실패
+
+JVM을 시작 하지 못한 경우 "zip 파일을 여는 동안 오류가 발생 했습니다." 오류가 발생 하는 경우 파일을 전송 하는 동안 손상 되었을 수 있으므로 에이전트 JAR 파일을 다시 다운로드 해 보세요.
 
 ## <a name="upgrade-from-the-application-insights-java-2x-sdk"></a>Java 2.x SDK Application Insights에서 업그레이드
 

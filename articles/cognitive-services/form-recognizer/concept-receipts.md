@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845467"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131454"
 ---
-# <a name="receipt-concepts"></a>수신 개념
+# <a name="form-recognizer-prebuilt-receipt-model"></a>양식 인식기 미리 빌드된 수신 모델
 
-Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 영수증을 분석할 수 있습니다. 수신 API는 판매 영수증에서 판매 영수증의 핵심 정보를 추출 합니다 (예: 상인 이름, 거래 날짜, 트랜잭션 합계, 품목 등). 
+Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판매 영수증에서 정보를 분석 하 고 추출할 수 있습니다. 또한 강력한 [OCR (광학 인식)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) 기능을 확인 하 고 심층 학습 모델을 이해 하 여 영어의 영수증에서 핵심 정보를 추출 합니다. 수신 API는 판매 영수증에서 판매 영수증의 핵심 정보를 추출 합니다 (예: 상인 이름, 거래 날짜, 트랜잭션 합계, 품목 등). 
 
 ## <a name="understanding-receipts"></a>수신 확인 이해 
 
@@ -27,32 +27,39 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 이러한 수신 확인에서 데이터를 자동으로 추출 하는 것은 복잡할 수 있습니다. 수신 확인은 crumpled 하 고 읽기, 인쇄 또는 필기 하기 어려울 수 있으며, 확인의 스마트폰 이미지는 품질이 낮을 수 있습니다. 또한 수신 템플릿 및 필드는 시장, 지역 및 판매자에 따라 크게 다를 수 있습니다. 데이터 추출 및 필드 검색 모두에서 이러한 문제는 고유한 문제를 처리 하는 것입니다.  
 
-수신 API는 OCR (광학 문자 인식) 및 미리 작성 된 수신 모델을 사용 하 여 이러한 수신 처리 시나리오를 지원 하 고, 전송 업체 이름, 팁, 합계, 품목 등의 수신 데이터에서 데이터를 추출 합니다. 이 API를 사용 하 여 모델을 학습 하지 않아도 됩니다. 확인을 분석 수신 API로 보내고 데이터를 추출 합니다.
+수신 API는 OCR (광학 문자 인식) 및 미리 작성 된 수신 모델을 사용 하 여 이러한 수신 처리 시나리오를 지원 하 고, 전송 업체 이름, 팁, 합계, 품목 등의 수신 데이터에서 데이터를 추출 합니다. 이 API를 사용 하면 모델을 학습 하지 않아도 되며, 확인 이미지를 분석 수신 API로 보내고 데이터가 추출 됩니다.
 
-![샘플 영수증](./media/contoso-receipt-small.png)
+![샘플 영수증](./media/receipts-example.jpg)
 
-## <a name="what-does-the-receipt-api-do"></a>수신 API는 무엇을 하나요? 
 
-미리 작성 된 수신 API는 &mdash; 식당, 소매점 또는 식료품 스토어에서 일반적으로 받게 되는 수신의 유형에 대 한 판매 영수증의 콘텐츠를 추출 합니다.
+## <a name="what-does-the-receipt-service-do"></a>수신 서비스에서 수행 하는 작업은 무엇 인가요? 
+
+미리 작성 된 수신 확인 서비스는 &mdash; 식당, 소매점 또는 식료품 스토어에서 일반적으로 받게 되는 수신의 유형으로 판매 영수증의 콘텐츠를 추출 합니다.
 
 ### <a name="fields-extracted"></a>추출 된 필드
 
-* 판매자 이름 
-* 판매자 주소 
-* 판매자 전화 번호 
-* 트랜잭션 날짜 
-* 트랜잭션 시간 
-* 소계 
-* 세금 
-* 합계 
-* 팁 
-* 줄 항목 추출 (예: 항목 수량, 항목 가격, 항목 이름)
+|Name| Type | 설명 | 텍스트 | 값 (표준화 된 출력) |
+|:-----|:----|:----|:----| :----|
+| ReceiptType | 문자열 | 판매 확인 유형 | 항목별 |  |
+| MerchantName | 문자열 | 영수증을 발급 하는 판매자의 이름 | Contoso |  |
+| MerchantPhoneNumber | phoneNumber | 나열 된 전화 판매 수 | 987-654-3210 | + 19876543210 |
+| MerchantAddress | 문자열 | 판매 된 판매 주소 | 123 Main St Redmond WA 98052 |  |
+| TransactionDate | date | 영수증이 발급 된 날짜 | June 06, 2019 | 2019-06-26  |
+| TransactionTime | time | 수신이 발행 된 시간 | 오후 4:49 | 16:49:00  |
+| 합계 | number | 전체 트랜잭션 수신 총 트랜잭션 | $14.34 | 14.34 |
+| 소계 | number | 수령의 부분합 (보통 세금이 적용 되기 전) | $12.34 | 12.34 |
+| 세금 | number | 수령 on 수령, 자주 판매 세금 또는 동급 | $2.00 | 2.00 |
+| 팁 | number | 구매자에 의해 포함 된 팁 | $1.00 | 1.00 |
+| 항목 | 개체의 배열 | 추출 된 품목 (이름, 수량, 단가 및 총 가격) | |
+| 이름 | string | 항목 이름 | Surface Pro 6 | |
+| 수량 | number | 각 항목의 수량 | 1 | |
+| 가격 | number | 각 항목 단위의 개별 가격 | $999.00 | 999.00 |
+| 총 가격 | number | 품목의 총 가격 | $999.00 | 999.00 |
 
 ### <a name="additional-features"></a>추가 기능
 
 또한 수신 API는 다음 정보를 반환 합니다.
 
-* 수신 유형 (예: 항목별, 신용 카드 등)
 * 필드 신뢰 수준 (각 필드는 연결 된 신뢰도 값을 반환)
 * OCR 원시 텍스트 (전체 수신에 대 한 OCR 추출 된 텍스트 출력)
 * 각 값, 줄 및 단어에 대 한 경계 상자

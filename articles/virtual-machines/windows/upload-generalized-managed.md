@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 94db8ce46fc240a6c48c0919b6d2c2cd148522ac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6e3333ac780cfca02a6ce4f28d2b0e312016f713
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976053"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131511"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
 
@@ -38,13 +38,15 @@ ms.locfileid: "91976053"
 > 
 
 1. Windows 가상 머신에 로그인
-2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 %windir%\system32\sysprep으로 변경한 다음, `sysprep.exe`를 실행합니다.
-3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
-4. **종료 옵션**에서 **종료**를 선택합니다.
-5. **확인**을 선택합니다.
+1. 관리자로 명령 프롬프트 창을 엽니다. 
+1. Panther 디렉터리 (C:\Windows\Panther)를 삭제 합니다.
+1. 디렉터리를 %windir%\system32\sysprep으로 변경한 다음, `sysprep.exe`를 실행합니다.
+1. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력** 을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
+1. **종료 옵션** 에서 **종료** 를 선택합니다.
+1. **확인** 을 선택합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Sysprep이 완료되면 가상 머신을 종료합니다. VM을 다시 시작하지 않습니다.
+1. Sysprep이 완료되면 가상 머신을 종료합니다. VM을 다시 시작하지 않습니다.
 
 
 ## <a name="upload-the-vhd"></a>VHD 업로드 
@@ -93,7 +95,7 @@ $image = New-AzImage `
 
 ## <a name="create-the-vm"></a>VM 만들기
 
-이미지가 생겼으니, 이 이미지에서 하나 이상의 새 VM을 만들 수 있습니다. 이 예제에서는 *myResourceGroup*에 *myImage*에서 *myVM*이라는 VM을 만듭니다.
+이미지가 생겼으니, 이 이미지에서 하나 이상의 새 VM을 만들 수 있습니다. 이 예제에서는 *myResourceGroup* 에 *myImage* 에서 *myVM* 이라는 VM을 만듭니다.
 
 
 ```powershell

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab4ae6980af9556f973ece93634b614d01c615e9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183756"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132667"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API Management Azure 보안 기준
 
@@ -381,7 +381,7 @@ Azure AD(Active Directory)에는 명시적으로 할당되고 쿼리할 수 있�
 
 * [PowerShell을 사용하여 Azure AD에서 디렉터리 역할 정의를 가져오는 방법](/powershell/module/az.resources/get-azroledefinition)
 
-* [Azure Security Center의 ID 및 액세스 추천 사항 이해](../security-center/recommendations-reference.md#recs-identity)
+* [Azure Security Center의 ID 및 액세스 추천 사항 이해](../security-center/recommendations-reference.md#recs-identityandaccess)
 
 **Azure Security Center 모니터링**: 예
 

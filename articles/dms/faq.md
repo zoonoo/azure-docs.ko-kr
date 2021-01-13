@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 200753c6458698d515b02252933e4fdf6d88df55
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 460380d9435528dcd8cbb3f877c8034fdc34f50c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019094"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134151"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대 한 FAQ
 
@@ -91,7 +91,7 @@ SQL Server 오류 로그를 쿼리하여 SQL Server가 수신 대기하는 포�
 **대답. Microsoft Azure Virtual Network 어떻게 할까요? 설정 하 시겠습니까?**
 가상 네트워크를 설정 하는 과정을 안내 하는 여러 Microsoft 자습서는 있지만 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)문서에 공식 설명서가 나와 있습니다.
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 
 **대답. Azure Database Migration Service를 사용 하 여 데이터베이스 마이그레이션을 수행 하는 데 필요한 단계에 대 한 요약은 무엇입니까?**
 일반적이고 간단한 데이터베이스 마이그레이션 단계:
@@ -109,7 +109,7 @@ SQL Server 오류 로그를 쿼리하여 SQL Server가 수신 대기하는 포�
 ## <a name="troubleshooting-and-optimization"></a>문제 해결 및 최적화
 
 **대답. DMS로 마이그레이션 프로젝트를 설정 하 고 있으며 원본 데이터베이스에 연결 하는 데 어려움이 있습니다. 제가 뭘 해야 하나요?**
-마이그레이션 작업을 수행 하는 동안 원본 데이터베이스 시스템에 연결 하는 데 문제가 있는 경우 DMS 인스턴스를 설정 하는 가상 네트워크에 가상 컴퓨터를 만듭니다. 가상 컴퓨터에서 UDL 파일을 사용 하 여 SQL Server에 대 한 연결을 테스트 하거나 MongoDB 연결을 테스트 하기 위해 Robo 3T를 다운로드 하는 등의 연결 테스트를 실행할 수 있어야 합니다. 연결 테스트가 성공 하면 원본 데이터베이스에 연결 하는 데 문제가 없어야 합니다. 연결 테스트에 성공 하지 못한 경우 네트워크 관리자에 게 문의 하십시오.
+마이그레이션 작업을 수행 하는 동안 원본 데이터베이스 시스템에 연결 하는 데 문제가 있는 경우 DMS 인스턴스를 설정 하는 가상 네트워크의 동일한 서브넷에 가상 컴퓨터를 만듭니다. 가상 컴퓨터에서 UDL 파일을 사용 하 여 SQL Server에 대 한 연결을 테스트 하거나 MongoDB 연결을 테스트 하기 위해 Robo 3T를 다운로드 하는 등의 연결 테스트를 실행할 수 있어야 합니다. 연결 테스트가 성공 하면 원본 데이터베이스에 연결 하는 데 문제가 없어야 합니다. 연결 테스트에 성공 하지 못한 경우 네트워크 관리자에 게 문의 하십시오.
 
 **대답. 내 Azure Database Migration Service를 사용할 수 없거나 중지 된 이유는 무엇 인가요?**
 사용자가 명시적으로 Azure Database Migration Service (DMS)를 중지 하거나 서비스가 24 시간 동안 비활성 상태 이면 서비스는 중지 됨 또는 자동 일시 중지 됨 상태가 됩니다. 각각의 경우에서 서비스는 사용할 수 없으며 중지된 상태에 있게 됩니다.  활성 마이그레이션을 다시 시작하려면 서비스를 다시 시작합니다.

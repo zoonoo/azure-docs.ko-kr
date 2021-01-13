@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: ambapat
-ms.openlocfilehash: b483ffc480f9ad750f8d9901d6bec382db2378c2
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 675c4f04ece322000ae0ebb44d6291c455db9397
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368922"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133279"
 ---
 # <a name="key-types-algorithms-and-operations"></a>키 유형, 알고리즘 및 작업
 
@@ -26,7 +26,7 @@ Key Vault는 자격 증명 모음 및 관리 되는 Hsm 이라는 두 가지 리
 | --- | --- | --- |
 |EC-P256, EC-P256K, EC-P384, EC-521|해당 없음|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
-|AES 128비트, 256비트| AES-KW<br>AES-GCM<br>AES-CBC| 해당 없음| 
+|AES 128비트, 256비트 <br/>(관리 되는 HSM에만 해당)| AES-KW<br>AES-GCM<br>AES-CBC| 해당 없음| 
 |||
 
 ##  <a name="ec-algorithms"></a>EC 알고리즘
@@ -65,7 +65,7 @@ Key Vault는 자격 증명 모음 및 관리 되는 Hsm 이라는 두 가지 리
 -   **RS512** - SHA-512를 사용하는 RSASSA-PKCS-v1_5입니다. 애플리케이션에서 제공하는 다이제스트 값은 SHA-512를 사용하여 계산되어야 하며, 길이는 64바이트여야 합니다.  
 -   **RSNULL** - 특정 TLS 시나리오를 사용하려면 특수 사용 사례인 [RFC2437](https://tools.ietf.org/html/rfc2437)을 참조하세요.  
 
-##  <a name="symmetric-key-algorithms"></a>대칭 키 알고리즘
+##  <a name="symmetric-key-algorithms-managed-hsm-only"></a>대칭 키 알고리즘 (관리 되는 HSM에만 해당)
 - **AES-KW** - AES 키 래핑([RFC3394](https://tools.ietf.org/html/rfc3394))
 - **Aes-GCM** -Galois의 aes 암호화가 카운터 모드 ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800))
 - **Aes-** 암호화 블록 체인 모드의 aes 암호화 ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))

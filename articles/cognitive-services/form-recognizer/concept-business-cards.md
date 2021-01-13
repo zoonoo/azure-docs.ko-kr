@@ -10,39 +10,43 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845612"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131131"
 ---
-# <a name="business-card-concepts"></a>명함 개념
+# <a name="form-recognizer-prebuilt-business-cards-model"></a>양식 인식기 미리 작성 한 비즈니스 카드 모델 
 
-Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 비즈니스 카드에서 연락처 정보를 분석 하 고 추출할 수 있습니다. 비즈니스 카드 API는 강력한 OCR (광학 문자 인식) 기능을 비즈니스 카드 이해 모델과 결합 하 여 영어로 된 비즈니스 카드에서 핵심 정보를 추출 합니다. 개인 연락처 정보, 회사 이름, 직위 등을 추출 합니다. 미리 작성 된 비즈니스 카드 API는 인식기 v 2.1 preview에서 공개적으로 사용할 수 있습니다. 
+Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용 하 여 비즈니스 카드에서 연락처 정보를 분석 하 고 추출할 수 있습니다. 또한 강력한 OCR (광학 문자 인식) 기능을 비즈니스 카드 이해 모델과 결합 하 여 영어로 된 비즈니스 카드의 주요 정보를 추출 합니다. 개인 연락처 정보, 회사 이름, 직위 등을 추출 합니다. 미리 작성 된 비즈니스 카드 API는 인식기 v 2.1 preview에서 공개적으로 사용할 수 있습니다. 
 
-## <a name="what-does-the-business-card-api-do"></a>비즈니스 카드 API는 무엇을 하나요?
+## <a name="what-does-the-business-card-service-do"></a>비즈니스 카드 서비스는 무엇을 하나요?
 
-비즈니스 카드 API는 비즈니스 카드에서 키 필드를 추출 하 여 구성 된 JSON 응답으로 반환 합니다.
+미리 작성 된 비즈니스 카드 API는 비즈니스 카드에서 키 필드를 추출 하 여 구성 된 JSON 응답으로 반환 합니다.
 
-![FOTT + JSON 출력의 Contoso 항목별로 이미지](./media/business-card-english.jpg)
+![FOTT + JSON 출력의 Contoso 항목별로 이미지](./media/business-card-example.jpg)
+
+
 
 ### <a name="fields-extracted"></a>추출 된 필드:
 
-* 연락처 이름 
-  * 이름
-  * 성
-* 회사 이름 
-* Departments 
-* 직위 
-* 전자 메일 
-* Websites 
-* 주소 
-* 전화 번호 
-  * 휴대폰 
-  * 없으며 
-  * 직장 전화 
-  * 기타 전화 
+|Name| Type | 설명 | 텍스트 | 
+|:-----|:----|:----|:----|
+| ContactNames | 개체의 배열 | 비즈니스 카드에서 추출 된 연락처 이름 | [{"FirstName": "John", "LastName": "Doe"}] |
+| FirstName | 문자열 | 연락처의 첫 번째 (지정 된) 이름 | "John" | 
+| LastName | 문자열 | 연락처의 마지막 (패밀리) 이름 |   "Doe" | 
+| CompanyNames | 문자열 배열 | 비즈니스 카드에서 추출 된 회사 이름 | ["Contoso"] | 
+| Departments | 문자열 배열 | 부서 또는 연락처 조직 | ["R&D"] | 
+| JobTitles | 문자열 배열 | 연락처의 나열 된 작업 제목 | ["소프트웨어 엔지니어"] | 
+| 전자 메일 | 문자열 배열 | 비즈니스 카드에서 추출 된 연락처 전자 메일 | ["johndoe@contoso.com"] | 
+| Websites | 문자열 배열 | 비즈니스 카드에서 추출 된 웹 사이트 | ["https://www.contoso.com"] | 
+| 주소 | 문자열 배열 | 비즈니스 카드에서 추출 된 주소 | ["123 주 주소, Redmond, WA 98052"] | 
+| MobilePhones | 전화 번호 배열 | 명함에서 추출한 휴대폰 번호 | ["+ 19876543210"] |
+| 없으며 | 전화 번호 배열 | 명함에서 추출 된 팩스 번호 | ["+ 19876543211"] |
+| 근무 전화 | 전화 번호 배열 | 회사 카드에서 추출한 회사 전화 번호 | ["+ 19876543231"] |
+| OtherPhones    | 전화 번호 배열 | 명함에서 추출 된 기타 전화 번호 | ["+ 19876543233"] |
+
 
 비즈니스 카드 API는 비즈니스 카드에서 인식 된 모든 텍스트를 반환할 수도 있습니다. 이 OCR 출력은 JSON 응답에 포함 됩니다.  
 

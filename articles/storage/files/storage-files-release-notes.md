@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 739e59ea8e5737abbc6f0f0799129be5f59fb9b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674500"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131477"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -236,14 +236,14 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 ### <a name="improvements-and-issues-that-are-fixed"></a>개선 사항 및 해결된 문제
 
 - 셀프 서비스 복원 지원
-    - 사용자는 이제 이전 버전 기능을 사용하여 파일을 복원할 수 있습니다. V9 릴리스 전에는 클라우드 계층화를 사용하도록 설정한 볼륨에서 이전 버전 기능이 지원되지 않았습니다. 클라우드 계층화를 사용하는 엔드포인트가 있는 경우 각 볼륨에 대해 이 기능을 별도로 사용하도록 설정해야 합니다. 자세한 내용은 다음을 참조하세요.  
+    - 사용자는 이제 볼륨에서 셀프 서비스 복원 기능이 사용 하도록 설정 된 후에 생성 된 VSS 스냅숏의 이전 버전 기능을 사용 하 여 계층화 된 파일 (디스크의 파일)을 복원할 수도 있습니다. V9 릴리스 전에는 계층화 된 파일에 대해 이전 버전 기능이 지원 되지 않았습니다. 클라우드 계층화를 사용하는 엔드포인트가 있는 경우 각 볼륨에 대해 이 기능을 별도로 사용하도록 설정해야 합니다. 자세한 내용은 다음을 참조하세요.  
 [이전 버전 및 VSS(볼륨 섀도 복사본 서비스)를 통한 셀프 서비스 복원](./storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - 더 큰 파일 공유 크기 지원 
     - Azure 파일 동기화는 이제 단일 동기화 네임스페이스에서 최대 64TiB 및 1억개 파일을 지원합니다.  
  
 - Server 2019에서 데이터 중복 제거 지원 
-    - Windows Server 2019에서 클라우드 계층화를 사용하면 이제 데이터 중복 제거가 지원됩니다. 클라우드 계층화를 사용하는 볼륨에서 데이터 중복 제거를 지원하려면 Windows 업데이트 [KB4520062](https://support.microsoft.com/help/4520062)를 설치해야 합니다. 
+    - 이제 Windows Server 2016 및 Windows Server 2019에서 볼륨에 있는 하나 이상의 서버 끝점에서 클라우드 계층화를 사용 하거나 사용 하지 않도록 설정 했는지 여부에 관계 없이 데이터 중복 제거가 지원 됩니다. 서버 2019의 클라우드 계층화를 사용 하는 볼륨에서 데이터 중복 제거를 지원 하려면 Windows update [KB4520062](https://support.microsoft.com/help/4520062) 를 설치 해야 합니다. 
  
 - 계층화할 파일에 대한 최소 파일 크기 개선 
     - 계층화할 파일에 대한 최소 파일 크기는 이제 파일 시스템 클러스터 크기(이중 파일 시스템 클러스터 크기)를 기반으로 합니다. 예를 들어 기본적으로 NTFS 파일 시스템 클러스터 크기는 4KB이며, 파일 계층에 대한 결과 최소 파일 크기는 8KB입니다. 

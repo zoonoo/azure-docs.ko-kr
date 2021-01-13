@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/04/2020
-ms.openlocfilehash: 2d6d18cc73c02d3139074555fdd22a40c797ce40
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 01/12/2021
+ms.openlocfilehash: 429f0b2ffe486279a1c429fc7a153e6528642f54
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825146"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131664"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대한 가상 네트워크 계획
 
@@ -51,7 +51,8 @@ Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 이 섹션의 단계를 사용하여 새 HDInsight를 기존 Azure Virtual Network에 추가하는 방법을 알아봅니다.
 
 > [!NOTE]  
-> 기존 HDInsight 클러스터를 가상 네트워크에 추가할 수 없습니다.
+> - 기존 HDInsight 클러스터를 가상 네트워크에 추가할 수 없습니다.
+> - 생성 되는 VNET과 클러스터는 동일한 구독에 있어야 합니다.
 
 1. 가상 네트워크에 클래식 또는 리소스 관리자 배포 모델을 사용하나요?
 

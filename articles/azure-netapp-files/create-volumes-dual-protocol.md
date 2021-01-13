@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/05/2020
+ms.date: 01/12/2020
 ms.author: b-juche
-ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: c914ab007f482e4d2b560b1cb461e27d4f4442ec
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915000"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133160"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
@@ -39,7 +39,6 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로�
 * DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에 AD 호스트 컴퓨터의 포인터 (PTR) 레코드를 추가 합니다. 그렇지 않으면 이중 프로토콜 볼륨 만들기가 실패 합니다.
 * NFS 클라이언트가 최신 상태이며 운영 체제에 대한 최신 업데이트를 실행 중인지 확인합니다.
 * Ad (Active Directory) LDAP 서버가 AD에서 실행 중인지 확인 합니다. AD 컴퓨터에서 [Active Directory LDS(Lightweight Directory Services) (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) 역할을 설치 하 고 구성 하 여이 작업을 수행할 수 있습니다.
-* Ad [CS (Active Directory 인증서 서비스](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) ) 역할을 사용 하 여 ad에 대 한 CA (인증 기관)를 만들어 자체 서명 된 루트 CA 인증서를 생성 하 고 내보내야 합니다.   
 * 이중 프로토콜 볼륨은 현재 Azure Active Directory Domain Services (AADDS)를 지원 하지 않습니다.  
 * 이중 프로토콜 볼륨에서 사용 하는 NFS 버전은 NFSv3입니다. 따라서 다음과 같은 고려 사항이 적용 됩니다.
     * 이중 프로토콜은 NFS 클라이언트의 Windows ACL 확장 특성을 지원 하지 않습니다 `set/get` .
@@ -105,9 +104,6 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로�
 3. **프로토콜** 을 클릭한 후, 다음 작업을 완료합니다.  
     * 볼륨에 대 한 프로토콜 유형으로 **이중 프로토콜 (NFSv3 및 SMB)** 을 선택 합니다.   
 
-    * 드롭다운 목록에서 **Active Directory** 연결을 선택 합니다.  
-    사용 하는 Active Directory에는 서버 루트 CA 인증서가 있어야 합니다. 
-
     * 볼륨에 대 한 **볼륨 경로** 를 지정 합니다.   
     이 볼륨 경로는 공유 볼륨의 이름입니다. 이름은 알파벳 문자로 시작 해야 하 고 각 구독 및 각 지역 내에서 고유 해야 합니다.  
 
@@ -122,32 +118,6 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로�
     만든 볼륨이 볼륨 페이지에 표시됩니다. 
  
     볼륨은 해당 용량 풀에서 구독, 리소스 그룹, 위치 특성을 상속합니다. 볼륨 배포 상태를 모니터링하려면 알림 탭을 사용할 수 있습니다.
-
-## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Active Directory 인증 기관 공용 루트 인증서 업로드  
-
-1.  [인증 기관 설치](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) 를 따라 추가 인증 기관을 설치 및 구성 합니다. 
-
-2.  Mmc 스냅인을 사용 하 여 [인증서 보기](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) 를 따라 mmc 스냅인 및 인증서 관리자 도구를 사용 합니다.  
-    인증서 관리자 스냅인을 사용 하 여 로컬 장치에 대 한 루트 또는 발급 인증서를 찾습니다. 다음 설정 중 하나에서 인증서 관리 스냅인 명령을 실행 해야 합니다.  
-    * 도메인에 가입 하 고 루트 인증서가 설치 된 Windows 기반 클라이언트 
-    * 루트 인증서를 포함 하는 도메인의 다른 컴퓨터  
-
-3. 루트 CA 인증서를 내보냅니다.  
-    다음 예와 같이 개인 또는 신뢰할 수 있는 루트 인증 기관 디렉터리에서 루트 CA 인증서를 내보낼 수 있습니다.   
-    ![개인 인증서를 표시 하는 스크린샷](../media/azure-netapp-files/personal-certificates.png)   
-    ![신뢰할 수 있는 루트 인증 기관을 보여 주는 스크린샷](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
-
-    인증서를 Base-64로 인코딩된 x.509 ()로 내보내야 합니다. CER) 형식: 
-
-    ![인증서 내보내기 마법사](../media/azure-netapp-files/certificate-export-wizard.png)
-
-4. 이중 프로토콜 볼륨의 NetApp 계정으로 이동 하 고, **연결 Active Directory** 을 클릭 하 고, **조인 Active Directory** 창을 사용 하 여 루트 CA 인증서를 업로드 합니다.  
-
-    ![서버 루트 CA 인증서](../media/azure-netapp-files/server-root-ca-certificate.png)
-
-    DNS에서 인증 기관 이름을 확인할 수 있는지 확인 합니다. 이 이름은 인증서의 "발급 대상" 또는 "발급자" 필드입니다.  
-
-    ![인증서 정보](../media/azure-netapp-files/certificate-information.png)
 
 ## <a name="manage-ldap-posix-attributes"></a>LDAP POSIX 특성 관리
 

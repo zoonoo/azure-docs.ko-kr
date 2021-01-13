@@ -4,14 +4,14 @@ description: Sdk, REST Api, CLI는 프로그래밍 언어로 LUIS (Language Unde
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/19/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8641235fb754080303a9a463d0964e5655234ff2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0e8da4d490ef5c9afb2ac363b62f0f1a4fe66f5e
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024554"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133313"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Language Understanding에 대 한 SDK, REST 및 CLI 개발자 리소스 (LUIS)
 
@@ -47,7 +47,7 @@ Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 �
 
 작성 및 예측 끝점 API는 REST Api에서 사용할 수 있습니다.
 
-|형식|버전|
+|Type|버전|
 |--|--|
 |작성|[[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |예측|[[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
@@ -69,7 +69,7 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 
 다음 표에서는 앞의 표에서 중괄호 `{}`로 표시된 매개 변수에 대해 설명합니다.
 
-|매개 변수|목적|
+|매개 변수|용도|
 |--|--|
 |`your-resource-name`|Azure 리소스 이름|
 |`q` 또는 `query`|채팅 봇과 같은 클라이언트 애플리케이션에서 보낸 발언 텍스트|
@@ -88,11 +88,11 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 
 |언어 |참조 설명서|패키지|빠른 시작|
 |--|--|--|--|
-|C#|[작성](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[예측](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[작성](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[쿼리 예측](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
+|C#|[만들](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[예측](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[만들](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[쿼리 예측](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
 |Go|[작성 및 예측](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
 |Java|[작성 및 예측](/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven 작성](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven 예측](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[작성](/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[예측](/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 작성](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[작성](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
-|Python|[작성 및 예측](azure-sdk-quickstart.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[작성](azure-sdk-quickstart.md?pivots=programming-language-python)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-python)|
+|JavaScript|[만들](/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[예측](/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 작성](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[만들](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
+|Python|[작성 및 예측](azure-sdk-quickstart.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[만들](azure-sdk-quickstart.md?pivots=programming-language-python)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-python)|
 
 
 ### <a name="containers"></a>컨테이너
@@ -119,14 +119,10 @@ Language Understanding은 JSON 형식, `.LU` ([ludown](https://github.com/micros
 Bot framework는 다양 한 언어의 [SDK](https://github.com/Microsoft/botframework) 로 제공 되며 [Azure Bot Service](https://dev.botframework.com/)를 사용 하는 서비스로 제공 됩니다.
 
 Bot framework는 다음을 비롯 하 여 Language Understanding에 도움이 되는 [여러 가지 도구](https://github.com/microsoft/botbuilder-tools) 를 제공 합니다.
-
-* [Ludown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) -빌드 LUIS 언어 markdown 파일을 사용 하 여 모델 이해
-* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) -LUIS.ai 응용 프로그램 만들기 및 관리
-* [디스패치](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)-부모 및 자식 앱 관리
-* [Luisgen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) -LUIS 의도 및 엔터티에 대 한 c #/Typescript 클래스 지원 자동 생성
 * [Bot framework 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator/releases) -봇 개발자가 BOT framework SDK를 사용 하 여 빌드한 봇을 테스트 하 고 디버그할 수 있도록 하는 데스크톱 응용 프로그램입니다.
 * [Bot Framework 작성기](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) -개발자와 멀티 disciplinary 팀이 Microsoft bot framework로 봇 및 대화형 환경을 빌드하는 통합 개발 도구입니다.
 * [Bot Framework 샘플](https://github.com/microsoft/botbuilder-samples) -#C, JavaScript, TypeScript 및 Python
+
 ## <a name="next-steps"></a>다음 단계
 
 * 일반적인 [HTTP 오류 코드](luis-reference-response-codes.md) 에 대 한 자세한 정보

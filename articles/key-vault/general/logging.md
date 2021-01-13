@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d900659f3ca8a8688c1b1d3a66cd888f37521fc6
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5fcb3226eebf39ab18fb3bb24f0521a0523748d4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883387"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134180"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
@@ -182,6 +182,7 @@ Key Vault에 대한 개요는 [Azure Key Vault란?](overview.md)을 참조하세
 | **CertificatePendingDelete** |보류 중인 인증서 삭제 |
 | **CertificateNearExpiryEventGridNotification** |인증서가 곧 만료되는 이벤트가 게시됨 |
 | **CertificateExpiredEventGridNotification** |인증서가 만료된 이벤트가 게시됨 |
+
 ---
 
 ## <a name="use-azure-monitor-logs"></a>Azure Monitor 로그 사용

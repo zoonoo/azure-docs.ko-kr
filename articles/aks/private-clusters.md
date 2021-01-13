@@ -4,12 +4,12 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 696ba785abb317a29de38160440dc06487ff5bca
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 87966a9bd2f83916998a724fc6c1c26a91609665
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673888"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133398"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -68,17 +68,21 @@ az aks create \
 
 ### <a name="configure-private-dns-zone"></a>사설 DNS 영역 구성
 
---Private-dns 영역 인수가 생략 된 경우 기본값은 "system"입니다. AKS는 노드 리소스 그룹에 사설 DNS 영역을 만듭니다. "None" 매개 변수를 전달 하면 AKS는 사설 DNS 영역을 만들지 않음을 의미 합니다.  이를 통해 자체 DNS 서버를 가져오고 개인 FQDN에 대 한 DNS 확인을 구성 합니다.  DNS 확인을 구성 하지 않으면 DNS는 에이전트 노드 내 에서만 확인할 수 있으며 배포 후에 클러스터 문제가 발생 합니다.
+다음 매개 변수를 활용 하 여 사설 DNS 영역을 구성할 수 있습니다.
+
+1. "System"이 기본값입니다. --Private-dns 영역 인수를 생략 하면 AKS는 노드 리소스 그룹에 사설 DNS 영역을 만듭니다.
+2. "None"은 AKS가 사설 DNS 영역을 만들지 않음을 의미 합니다.  이렇게 하려면 자체 DNS 서버를 가져오고 개인 FQDN에 대 한 DNS 확인을 구성 해야 합니다.  DNS 확인을 구성 하지 않으면 DNS는 에이전트 노드 내 에서만 확인할 수 있으며 배포 후에 클러스터 문제가 발생 합니다.
+3. "사용자 지정 개인 dns 영역 이름"은 azure global cloud에 대해이 형식 이어야 `privatelink.<region>.azmk8s.io` 합니다. 사용자가 할당 한 id 또는 서비스 주체에는 적어도 `private dns zone contributor` 사용자 지정 개인 dns 영역에 대 한 역할을 부여 해야 합니다.
 
 ## <a name="no-private-dns-zone-prerequisites"></a>사설 DNS 영역 필수 구성 요소 없음
-PrivateDNSZone 없음
-* Azure CLI 버전 0.4.67 이상
+
+* Azure CLI 버전 0.4.71 이상
 * Api 버전 2020-11-01 이상
 
 ## <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>사설 DNS 영역으로 개인 AKS 클러스터 만들기
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system|custom private dns zone]
 ```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>프라이빗 클러스터에 연결하기 위한 옵션
 

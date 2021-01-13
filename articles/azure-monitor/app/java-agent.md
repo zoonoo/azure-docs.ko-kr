@@ -6,12 +6,12 @@ ms.date: 01/10/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 299e9010b74c8363cacd1c20044d183dc1def6a6
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 50c5a8a0c1e7c5d554e19ffcbc9a78bc0a385a5c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601291"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131732"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
 
@@ -37,7 +37,7 @@ ms.locfileid: "96601291"
 Java 에이전트를 사용하려면 사용자의 서버에 설치합니다. [Application Insights Java SDK][java]를 사용하여 웹앱을 계측해야 합니다. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Java용 Application Insights 에이전트 설치
-1. Java 서버를 실행 중인 컴퓨터에서 [에이전트를 다운로드](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)합니다. Application Insights Java SDK 코어 및 웹 패키지와 동일한 버전의 Java Agent 다운로드를 확인하세요.
+1. Java 서버를 실행 하는 컴퓨터에서 2.x [에이전트를 다운로드](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/2.6.2)합니다. 사용 하는 2.x Java 에이전트 버전이 사용 하는 2.x Application Insights Java SDK의 버전과 일치 하는지 확인 하세요.
 2. 응용 프로그램 서버 시작 스크립트를 편집 하 고 다음 JVM 인수를 추가 합니다.
    
     `-javaagent:<full path to the agent JAR file>`
@@ -89,12 +89,9 @@ Azure 앱 서비스에 대해 다음을 수행 합니다.
 * 설정 &gt; 애플리케이션 설정 선택
 * 앱 설정 아래에서 새로운 키 값 쌍을 추가합니다.
 
-키: `JAVA_OPTS` 값: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+키: `JAVA_OPTS` 값: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.6.2.jar`
 
-최신 버전의 Java 에이전트는 [여기](https://github.com/Microsoft/ApplicationInsights-Java/releases
-)에서 릴리스를 확인 하세요. 
-
-에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구**  >  **고급 도구** 디버그 콘솔로 이동 하 여  >  **Debug Console** 사이트 디렉터리의 콘텐츠를 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
+에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구**  >  **고급 도구** 디버그 콘솔로 이동 하 여  >   사이트 디렉터리의 콘텐츠를 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
 
 * 설정을 저장하고 앱을 다시 시작합니다. 이러한 단계는 Windows에서 실행 되는 App Services에만 적용 됩니다.
 
@@ -127,7 +124,7 @@ Application Insights 리소스에서 집계 된 원격 종속성과 메서드 �
 
 [종속성 문제 진단 - 자세한 내용](./asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
+## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
 * 데이터가 없나요? [방화벽 예외 설정](./ip-addresses.md)
 * [Java 문제 해결](java-troubleshoot.md)
 

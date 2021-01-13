@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 47cc67b408ff7fa50a244fffa8d41e640df0ecf3
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796434"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132085"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -33,7 +33,7 @@ ms.locfileid: "97796434"
 
 기존 시계열 메서드와 달리 자동화 된 ML에서 과거 시계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어 판매를 예측 하는 경우 과거 추세, 환율 및 가격의 상호 작용은 판매 결과를 모두 공동으로 구동 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에는 다음이 필요 합니다. 
 
@@ -224,6 +224,9 @@ automl_config = AutoMLConfig(task='forecasting',
 |**삭제 열** |기능화에서 삭제할 열을 지정 합니다.|
 
 SDK를 사용 하 여 featurizations를 사용자 지정 하려면 `"featurization": FeaturizationConfig` 개체에를 지정 `AutoMLConfig` 합니다. [사용자 지정 featurizations](how-to-configure-auto-features.md#customize-featurization)에 대해 자세히 알아보세요.
+
+>[!NOTE]
+> **열 삭제** 기능은 SDK 버전 1.19에서 사용 되지 않습니다. 자동 ML 실험에서 사용 하기 전에 데이터를 정리 하는 과정에서 데이터 집합의 열을 삭제 합니다. 
 
 ```python
 featurization_config = FeaturizationConfig()

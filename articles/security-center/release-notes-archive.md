@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/07/2020
 ms.author: memildin
-ms.openlocfilehash: 7325ba1a8a90fec90182f9780c1fb18d29d3c0f1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 835950cc68ca22ea3958d614d669d7a105fefe62
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955266"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132922"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -110,7 +110,7 @@ Security Center의 컨테이너 보안에 대해 다음 문서에서 자세히 �
 - [레지스트리를 검사하고 Docker 호스트를 강화하는 방법](container-security.md)
 - [Azure Kubernetes Service 클러스터에 대한 위협 방지 기능의 보안 경고](alerts-reference.md#alerts-akscluster)
 - [Azure Kubernetes Service 호스트에 대한 위협 방지 기능의 보안 경고](alerts-reference.md#alerts-containerhost)
-- [컨테이너에 대한 보안 추천 사항](recommendations-reference.md#recs-containers)
+- [컨테이너에 대한 보안 추천 사항](recommendations-reference.md#recs-compute)
 
 
 
@@ -124,7 +124,7 @@ Security Center의 컨테이너 보안에 대해 다음 문서에서 자세히 �
 
     * 와일드카드를 경로 끝에 사용하여 이 폴더 및 하위 폴더에 있는 모든 실행 파일 허용
 
-    * 경로 중간에 와일드 카드를 사용 하 여 변경 된 폴더 이름 (예: 알려진 실행 파일이 있는 개인 사용자 폴더, 자동으로 생성 된 폴더 이름 등)이 있는 알려진 실행 파일 이름을 사용할 수 있습니다.
+    * 와일드카드를 경로 중간에 사용하여 변경된 폴더 이름(예: 알려진 실행 파일이 있는 개인 사용자 폴더, 자동으로 생성된 폴더 이름 등)으로 알려진 실행 파일 이름을 사용할 수 있도록 설정.
 
 
 [적응형 애플리케이션 제어에 대해 자세히 알아봅니다](security-center-adaptive-application.md).
@@ -195,7 +195,7 @@ SQL 컴퓨터에 대한 Azure Security Center의 고급 데이터 보안 기능�
 
 또한 추천 사항에는 배포 프로세스 속도를 높이는 데 도움이 되는 빠른 수정 기능도 포함됩니다. 
 
-이러한 두 가지 새 추천 사항에 대해 [컴퓨팅 및 앱 추천 사항](recommendations-reference.md#recs-computeapp) 표에서 자세히 알아보세요.
+이러한 두 가지 새 추천 사항에 대해 [컴퓨팅 및 앱 추천 사항](recommendations-reference.md#recs-compute) 표에서 자세히 알아보세요.
 
 Azure Security Center에서 에이전트를 사용하는 방법에 대해 [Log Analytics 에이전트는 무엇인가요?](faq-data-collection-agents.md#what-is-the-log-analytics-agent)에서 자세히 알아보세요.
 
@@ -232,7 +232,7 @@ Azure Security Center에서 에이전트를 사용하는 방법에 대해 [Log A
 
 **네트워크 보안 그룹을 사용하여 인터넷 연결 가상 머신을 보호해야 함** 이라는 기존 추천 사항은 VM을 대상으로 하는 인터넷 연결 VM과 인터넷에 연결되지 않은 VM을 구분하지 않았습니다. 두 경우 모두에서 VM이 네트워크 보안 그룹에 할당되지 않은 경우 높은 심각도 추천 사항이 생성되었습니다. 이 새 추천 사항은 인터넷에 연결되지 않은 머신을 분리하여 가양성을 줄이고 불필요한 높은 심각도 경고를 방지합니다.
 
-[네트워크 추천 사항](recommendations-reference.md#recs-network) 표에서 자세히 알아보세요.
+[네트워크 추천 사항](recommendations-reference.md#recs-networking) 표에서 자세히 알아보세요.
 
 
 
@@ -432,7 +432,7 @@ ID 및 액세스 권장 사항의 예는 다음과 같습니다.
 
 무료 가격 책정 계층에 대한 구독이 있는 경우 해당 보안 점수는 ID 및 액세스 보안에 대해 평가하지 않았기 때문에 이 변경의 영향을 받습니다.
 
-[ID 및 액세스 권장 사항](recommendations-reference.md#recs-identity)에 대해 자세히 알아보세요.
+[ID 및 액세스 권장 사항](recommendations-reference.md#recs-identityandaccess)에 대해 자세히 알아보세요.
 
 [ID 및 액세스 모니터링](security-center-identity-access.md)에 대해 자세히 알아보세요.
 
@@ -737,7 +737,7 @@ Security Center는 이제 Azure Lighthouse의 일부로 교차 테넌트 관리 
 
 ASC(Azure Security Center)에서 새로운 네트워킹 권장 사항을 출시하고 기존 권장 사항을 개선했습니다. 이제 Security Center를 사용하면 리소스에 대해 훨씬 더 강력한 네트워킹 보호를 보장합니다. 
 
-[네트워크 권장 사항에 대해 자세히 알아봅니다](recommendations-reference.md#recs-network).
+[네트워크 권장 사항에 대해 자세히 알아봅니다](recommendations-reference.md#recs-networking).
 
 
 ## <a name="june-2019"></a>2019년 6월

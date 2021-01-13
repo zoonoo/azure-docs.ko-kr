@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 11/23/2020
+ms.date: 01/12/2021
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 7c41474143fbb7782ccf7b5c89b0b34802e5ef0a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c492ec930cea000e45f7b6f09cc5e9c7a6a0db22
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119699"
+ms.locfileid: "98134503"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>자습서: Azure Synapse Analytics SQL 풀에 데이터 로드
 
@@ -37,7 +37,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 다운로드하여 설치합니다.
 
-이 자습서에서는 다음 [자습서](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)에서 SQL 전용 풀을 이미 만들었다고 가정 합니다.
+이 자습서에서는 다음 [자습서](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)에서 SQL 전용 풀을 이미 만들었다고 가정 합니다. 
+
+> [!NOTE]
+> 이 자습서에는 DW1000c 이상을 사용 하는 것이 좋습니다. 
 
 ## <a name="create-a-user-for-loading-data"></a>데이터를 로드하기 위한 사용자 만들기
 

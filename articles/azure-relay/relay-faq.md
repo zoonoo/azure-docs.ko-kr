@@ -3,12 +3,12 @@ title: Azure Relay FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Relay 서비스에 대 한 몇 가지 자주 묻는 질문에 대 한 답변을 제공 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299289"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131851"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -50,7 +50,6 @@ ms.locfileid: "89299289"
     *   해당 월 동안 B 연결을 통해 6GB의 데이터를 보냈습니다.
     *   총 청구 금액은 $10.50입니다. A 연결에 대해 $5 + B 연결에 대해 $5 + 연결 B의 6기가바이트에 대해 $0.50입니다.
 
-예제에서 사용되는 가격은 하이브리드 연결 미리 보기 기간 동안에만 적용됩니다. 가격은 하이브리드 연결의 일반 공급 변경 사항에 따라 다릅니다.
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Relay의 경우 시간은 어떻게 계산되나요?
 

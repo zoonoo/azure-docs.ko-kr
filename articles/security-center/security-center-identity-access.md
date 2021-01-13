@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: b36f52fd97a9f7ff294f14ec394ff9a9f607b5b0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3c0dd2b4e7e48eeb76d82c26eb52b89b61e9f668
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187156"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134112"
 ---
 # <a name="monitor-identity-and-access"></a>ID 및 액세스 모니터링
 
@@ -44,7 +44,7 @@ Security Center의 **권장** 사항 페이지에서 다음 두 가지 컨트롤
 - 사용 되지 않는 계정은 구독에서 제거 해야 합니다. 사용 되지 않는 계정은 더 이상 필요 하지 않으며 Azure Active Directory에의 한 로그인에서 차단 된 계정입니다.
 
 > [!TIP]
-> 이러한 권장 사항과 이러한 권장 사항에 대 한 자세한 내용은 [id 및 액세스 권장 사항](recommendations-reference.md#recs-identity)을 참조 하세요.
+> 이러한 권장 사항과 이러한 권장 사항에 대 한 자세한 내용은 [id 및 액세스 권장 사항](recommendations-reference.md#recs-identityandaccess)을 참조 하세요.
 
 ### <a name="limitations"></a>제한 사항
 

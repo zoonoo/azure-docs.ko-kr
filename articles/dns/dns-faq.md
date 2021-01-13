@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 6/15/2019
+ms.date: 01/11/2021
 ms.author: rohink
-ms.openlocfilehash: 2f7e4eadc25028db4668db8d245803c7ddba8688
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c468b1216670ce7e6b5d252a7f7fee807199d20c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968250"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131494"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -194,6 +194,10 @@ Azure DNS는 Azure Resource Manager를 사용하여 관리됩니다. Azure DNS�
 IDN(국제 도메인 이름)은 [punycode](https://en.wikipedia.org/wiki/Punycode)를 사용하여 각 DNS 이름을 인코딩합니다. DNS 쿼리는 이러한 punycode로 인코딩된 이름을 사용하여 수행됩니다.
 
 Azure DNS에서 IDN을 구성하려면 영역 이름 또는 레코드 집합 이름을 punycode로 변환합니다. Azure DNS는 현재 punycode로의 또는 punycode로부터의 기본 제공 변환을 지원하지 않습니다.
+
+### <a name="does-azure-dns-private-zones-store-any-customer-content"></a>개인 영역에서 고객 콘텐츠를 저장 Azure DNS 합니까?
+
+아니요, Azure DNS 개인 영역은 고객 콘텐츠를 저장 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

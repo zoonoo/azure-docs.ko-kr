@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 5770aa072666f89a574da9d1f2584ab33b612330
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: abf9900e9749a1b21d927e0315076b38848bea10
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862168"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132650"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -25,25 +25,57 @@ ms.locfileid: "97862168"
 ## <a name="unsupported-versions"></a>지원 되지 않는 버전
 
 ### <a name="upgrade-alert-for-versions-between-57-and-below-6363"></a>5.7에서 6.3.63 사이의 버전에 대 한 업그레이드 경고
+보안 및 가용성을 개선 하기 위해 Azure 인프라는 Service Fabric 고객에 게 영향을 줄 수 있는 변경 작업을 수행 합니다. **지원 되지 않는 버전의 모든 Service Fabric 클러스터가 5.7에서 6.3으로 영향을 받습니다.** 변경을 해결 하려면 모든 지역에서 지원 되는 모든 Service Fabric 버전에 대해 이미 사용할 수 있는 Service Fabric 런타임 업데이트가 필요 합니다.
 
-***지원 되지 않는 버전에 있는 모든 Service Fabric 클러스터 (5.7 ~ 6.3.63)입니다.* 2021 * * * 년 1 월 7 일에 Azure에서 롤아웃 되는 보안 주요 변경의 영향을 받습니다.
- 
- 심각 하지 않은 클러스터를 포함 하 여 심각한 서비스 중단을 방지 하려면 가능한 한 빨리 클러스터를 보안 문제에 대 한 픽스를 포함 하는 Service Fabric 런타임의 지원 되는 버전 중 하나로 업그레이드 해야 합니다. 이에 대 한 지침을 통해 영향을 받는 고객에 게 연락 했습니다. 지원 계획이 있고 기술 도움말이 필요한 경우 지원 요청을 열고 지원 티켓에이 컨텍스트를 언급 하 여 [Azure 지원 채널](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) 을 통해 문의 하세요. 
- 
-  #### <a name="supported-service-fabric-runtime-versions-including-the-fix-for-the-security-breaking-change"></a>보안 주요 변경에 대 한 픽스를 포함 하 여 지원 되는 Service Fabric 런타임 버전 
-   보안 주요 변경의 영향을 받는 이전 버전의 지원 되지 않는 버전에서 실행 되는 Service Fabric 클러스터를 아래 지원 되는 버전 중 하나로 업그레이드 합니다.
+지원 계획이 있고 기술 지원이 필요한 경우 서비스 중단을 방지 하기 위해 **1 월 19 일** 에 지원 되는 최신 버전으로 업그레이드 하는 작업을 요청 하 고 권장 합니다. 2021 azure Service Fabric에 대 한 지원 요청을 열고 지원 티켓에이 컨텍스트를 언급 하 여 azure 지원 채널을 통해 문의 하세요.
 
+#### <a name="impact-if-not-upgraded-to-supported-versions"></a>지원 되는 버전으로 업그레이드 되지 않은 경우의 영향
+
+**5.7 ~ 6.3.63 \* 의 지원 되지 않는 버전에서 실행 되는 Azure Service Fabric 클러스터** 2021 1 월 19 일에 지원 되는 버전 중 하나로 업그레이드 하지 않은 경우에는 사용할 수 없으며 사용할 수 없습니다.
+
+#### <a name="required-action"></a>필요한 작업
+가동 중지 시간 또는이 변경과 관련 된 기능의 손실을 방지 하려면 아래에 나열 된 지원 되는 Service Fabric 버전으로 업그레이드 하세요. 사용자 환경에서 문제를 방지 하려면 클러스터가 이러한 버전 이상을 실행 하 고 있는지 확인 하세요.
+
+  ###### <a name="supported-service-fabric-runtime-versions"></a>지원 되는 Service Fabric 런타임 버전
+   지원 되지 않는 버전의 Service Fabric에 대해 아래에 있지 않은 경우 클러스터에서 가동 중지 시간을 방지 하는 데 필요한 변경 내용이 이미 포함 되어 있는 이러한 버전 중 하나로 업그레이드 하세요.  
+  
   | OS | 클러스터의 현재 Service Fabric 런타임 | CU/Patch 릴리스  | 
   | --- | --- |--- | 
   | Windows | 7.0. * | 7.0.478.9590 |
   | Windows | 7.1. * | 7.1.503.9590 |
   | Windows | 7.2. * | 7.2.445.9590 |
   | Ubuntu 16 | 7.0. * | 7.0.472.1  |
-  | Ubuntu 16 | 7.1. * | 7.1.455.1  |
-  | Ubuntu 1804 | 7.1. * | 7.1.455.1804 |
-  | Ubuntu 16 | 7.2. * | 7.2.447.1 |
-  | Ubuntu 1804 | 7.2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16.04 | 7.1. * | 7.1.455.1  |
+  | Linux Ubuntu 18.04 | 7.1. * | 7.1.455.1804 |
+  | Linux Ubuntu 16.04 | 7.2. * | 7.2.447.1 |
+  | Linux Ubuntu 18.04 | 7.2. * | 7.2.447.1804 |
  
+### <a name="upgrade-alert-for-versions-greater-than-63"></a>6.3 보다 큰 버전에 대 한 업그레이드 경고 
+보안 및 가용성을 개선 하기 위해 Azure 인프라는 Service Fabric 고객에 게 영향을 줄 수 있는 변경 작업을 수행 합니다. **[컨테이너에 대해 개방형 네트워킹 기능](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)을 사용 하는 모든 Service Fabric 클러스터는 6.3 보다 큰 지원 되지 않는 버전에서 실행 되 고 7.0 이상에서는 지원 되지 않는 지원 되는 버전이 7.0 이상에 영향을 받습니다**. 변경을 해결 하려면 모든 지역에서 지원 되는 모든 Service Fabric 버전에 대해 이미 사용할 수 있는 Service Fabric 런타임 업데이트가 필요 합니다.
+
+ #### <a name="impact-if-not-upgraded-to-supported-versions"></a>지원 되는 버전으로 업그레이드 되지 않은 경우의 영향
+  컨테이너에 대해 **컨테이너에 [대해 개방형 네트워킹 기능](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) 을 사용** 하는 Azure Service Fabric 클러스터는 변경 내용이 포함 되지 않은 6.3 이상 버전에서 실행 되며 **, 2021 1 월 19** 일에 아래 지원 되는 버전 중 하나로 업그레이드 되지 않은 경우 기능 또는 서비스 중단이 발생할 수 있습니다.
+ 
+  - **네트워킹 기능을 사용 하지 않는 6.3 보다 큰 Service Fabric를 실행 하는 클러스터의** 경우 클러스터는 계속 남아 있지만 컨테이너 클러스터에 대 한 네트워킹 열기 기능을 사용 하면 작업을 중단 시킬 수 있습니다.
+
+ - **6.3 보다 큰 Service Fabric 버전을 실행 하 고 [컨테이너에 대 한 개방형 네트워킹 기능](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) 을 사용** 하는 클러스터의 경우 클러스터는 계속 작동 하지만 작동이 중단 되어 작업에 대 한 서비스가 중단 될 수 있습니다.
+  
+#### <a name="required-action"></a>필요한 작업
+가동 중지 시간 또는이 변경과 관련 된 기능의 손실을 방지 하려면 아래에 나열 된 지원 되는 Service Fabric 버전으로 업그레이드 하세요. 사용자 환경에서 문제를 방지 하려면 클러스터가 이러한 버전 이상을 실행 하 고 있는지 확인 하세요. 
+ 
+ ###### <a name="supported-service-fabric-runtime-versions"></a>지원 되는 Service Fabric 런타임 버전
+ 지원 되지 않는 버전의 Service Fabric에 대해 아래에 있지 않은 경우 기능 손실을 방지 하기 위해 필요한 변경 내용이 이미 포함 되어 있는 이러한 버전 중 하나로 업그레이드 하세요.  
+ 
+  | OS | 클러스터의 현재 Service Fabric 런타임 | CU/Patch 릴리스  | 
+  | --- | --- |--- | 
+  | Windows | 7.0. * | 7.0.478.9590 |
+  | Windows | 7.1. * | 7.1.503.9590 |
+  | Windows | 7.2. * | 7.2.445.9590 |
+  | Linux Ubuntu 16.04 | 7.0. * | 7.0.472.1  |
+  | Linux Ubuntu 16.04 | 7.1. * | 7.1.455.1  |
+  | Linux Ubuntu 18.04 | 7.1. * | 7.1.455.1804 |
+  | Linux Ubuntu 16.04 | 7.2. * | 7.2.447.1 |
+  | Linux Ubuntu 18.04 | 7.2. * | 7.2.447.1804 |
 
 ## <a name="supported-versions"></a>지원되는 버전
 다음 표에서는 Service Fabric 버전 및 지원 종료 날짜를 나열 합니다.

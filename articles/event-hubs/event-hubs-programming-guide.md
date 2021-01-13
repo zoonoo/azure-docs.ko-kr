@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure .NET SDK를 사용하여 Azure Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4f95abe3668bb400d84e354c3bca9eac289c5795
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 46bd0c3c1488d6dd7afbae5e88e0b83f56654bb8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108690"
+ms.locfileid: "98131239"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Azure Event Hubs에 대 한 .NET 프로그래밍 가이드 (레거시 EventHubs 패키지)
 이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](./event-hubs-about.md)를 참조하세요.
@@ -57,7 +57,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="event-serialization"></a>이벤트 직렬화
 
-[EventData][] 클래스에는 이벤트 데이터 페이로드를 나타내는 다양한 매개 변수, 바이트 또는 바이트 배열을 사용하는 [2개의 오버로드된 생성자](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)가 있습니다. [EventData][]와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()** 를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다. 예를 들어:
+[EventData][] 클래스에는 이벤트 데이터 페이로드를 나타내는 다양한 매개 변수, 바이트 또는 바이트 배열을 사용하는 [2개의 오버로드된 생성자](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)가 있습니다. [EventData][]와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()** 를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -77,7 +77,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 ### <a name="availability-considerations"></a>가용성 고려 사항
 
-파티션 키 사용은 선택 사항이며 사용 여부를 신중하게 고려해야 합니다. 이벤트를 게시할 때 파티션 키를 지정하지 않으면 라운드 로빈 할당이 사용됩니다. 대부분의 경우에서 이벤트 순서 지정이 중요한 경우 파티션 키를 사용 하는 것이 좋습니다. 파티션 키를 사용할 경우 이러한 파티션은 단일 노드에서 가용성이 필요하며 시간이 지나면 중단이 발생할 수 있습니다(예: 컴퓨팅 노드를 재부팅하고 패치할 경우). 따라서 파티션 ID를 설정하고 해당 파티션을 어떠한 이유로 사용할 수 없게 되면 해당 파티션의 데이터에 액세스하지 못하게 됩니다. 고가용성이 가장 중요한 경우에는 파티션 키를 지정하지 마십시오. 이러한 경우 이벤트는 이전에 설명한 라운드 로빈 모델을 사용하는 파티션으로 보내집니다. 이 시나리오에서는 가용성(파티션 ID 없음)과 일관성(파티션 ID에 이벤트 고정) 간에 명시적인 선택을 합니다.
+파티션 키 사용은 선택 사항이며 사용 여부를 신중하게 고려해야 합니다. 이벤트를 게시할 때 파티션 키를 지정 하지 않으면 파티션 간에 부하를 분산 Event Hubs. 대부분의 경우에서 이벤트 순서 지정이 중요한 경우 파티션 키를 사용 하는 것이 좋습니다. 파티션 키를 사용할 경우 이러한 파티션은 단일 노드에서 가용성이 필요하며 시간이 지나면 중단이 발생할 수 있습니다(예: 컴퓨팅 노드를 재부팅하고 패치할 경우). 따라서 파티션 ID를 설정하고 해당 파티션을 어떠한 이유로 사용할 수 없게 되면 해당 파티션의 데이터에 액세스하지 못하게 됩니다. 고가용성이 가장 중요 한 경우에는 파티션 키를 지정 하지 마십시오. 이 경우 내부 부하 분산 알고리즘을 사용 하 여 이벤트를 파티션으로 보냅니다. 이 시나리오에서는 가용성(파티션 ID 없음)과 일관성(파티션 ID에 이벤트 고정) 간에 명시적인 선택을 합니다.
 
 이벤트 처리에서 지연을 처리하는 것도 고려해야 할 사항입니다. 경우에 따라, 잠재적으로 추가 다운스트림 처리 지연을 일으킬 수 있으므로 처리를 계속 진행하도록 하는 것보다 데이터를 삭제한 다음 다시 시도하는 것 나을 수 있습니다. 예를 들어 주식 시세 표시기 사용 시 완벽한 최신 데이터를 기다리는 것이 좋지만, 실시간 채팅 또는 VOIP 시나리오에서는 완벽하지는 않아도 데이터를 빨리 보유하는 것이 낫습니다.
 
@@ -109,7 +109,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-이벤트 처리를 시작 하려면 이벤트 허브에 대 한 적절 한 매개 변수를 제공 하 여 [EventProcessorHost][]를 인스턴스화합니다. 예를 들어:
+이벤트 처리를 시작 하려면 이벤트 허브에 대 한 적절 한 매개 변수를 제공 하 여 [EventProcessorHost][]를 인스턴스화합니다. 예를 들면 다음과 같습니다.
 
 > [!NOTE]
 > EventProcessorHost 및 관련 클래스는 **EventHubs** 패키지에 제공 됩니다. [이 문서의](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) 지침에 따라 또는 [패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창에서 다음 명령을 실행 하 여 Visual Studio 프로젝트에 패키지를 추가 `Install-Package Microsoft.Azure.EventHubs.Processor` 합니다.

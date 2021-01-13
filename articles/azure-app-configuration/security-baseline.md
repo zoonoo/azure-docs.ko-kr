@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 79a99ad37c526103fc3068562d62ed40defc983b
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 24dc41493ff48aeba362137347c44cbf0fd20c7a
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532383"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134214"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Azure 앱 구성에 대 한 Azure 보안 기준
 
@@ -78,7 +78,7 @@ Azure 앱 구성은 웹 응용 프로그램을 실행 하기 위한 것이 아�
 
 - [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](../ddos-protection/manage-ddos-protection.md)
 
-- [Azure Security Center 권장 사항](../security-center/recommendations-reference.md#recs-network)
+- [Azure Security Center 권장 사항](../security-center/recommendations-reference.md#recs-networking)
 
 **Azure Security Center 모니터링**: 해당 없음
 

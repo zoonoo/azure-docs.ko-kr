@@ -3,12 +3,12 @@ title: Azure Relay에 대한 보안 컨트롤
 description: 이 문서에서는 Azure Relay를 평가하기 위한 기본 제공 보안 컨트롤의 검사 목록을 제공합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 64abee031bb20e2bdb10bf1cc3cd77e135713550
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d55026bfb6e3d6fe955a540b7596a85707398d6
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85316624"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133347"
 ---
 # <a name="security-controls-for-azure-relay"></a>Azure Relay에 대한 보안 컨트롤
 
@@ -20,7 +20,7 @@ ms.locfileid: "85316624"
 
 | 보안 컨트롤 | 예/아니요 | 메모 | 문서화 |
 |---|---|--|--|
-| 서비스 엔드포인트 지원| 예 |  |   |
+| 개인 끝점 지원| 예 |  |   |
 | 네트워크 격리 및 방화벽 지원| 예 |  |   |
 | 강제 터널링 지원| 해당 없음 | 릴레이가 TLS 터널입니다.  |   |
 

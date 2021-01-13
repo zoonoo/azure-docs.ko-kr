@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 28d0d7b14c18a1d98be1872b1555930b2e1650c3
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 366a9a63e4577a9b8470faec68f8d4a25114dd48
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342453"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133704"
 ---
 # <a name="protect-your-network-resources"></a>네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
 
-네트워킹에 대 한 권장 사항의 전체 목록은 [네트워킹 권장 사항](recommendations-reference.md#recs-network)을 참조 하세요.
+네트워킹에 대 한 권장 사항의 전체 목록은 [네트워킹 권장 사항](recommendations-reference.md#recs-networking)을 참조 하세요.
 
 이 문서에서는 네트워크 보안 관점에서 Azure 리소스에 적용되는 권장 사항을 설명합니다. 네트워킹 권장 사항은 차세대 방화벽, 네트워크 보안 그룹, JIT VM 액세스, 과도 하 게 허용 되는 인바운드 트래픽 규칙 등을 중심으로 합니다. 네트워킹 권장 사항 및 수정 작업 목록은 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 
@@ -46,11 +46,11 @@ Security Center **네트워킹** 기능에는 다음이 포함 됩니다.
 
 네트워크 맵을 열려면:
 
-1. Security Center의 메뉴에서 Azure Defender 대시보드를 열고 **네트워크 맵**을 선택 합니다.
+1. Security Center의 메뉴에서 Azure Defender 대시보드를 열고 **네트워크 맵** 을 선택 합니다.
 
-    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Asset inventory network 리소스 유형" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Azure Defender 대시보드에서 네트워크 맵 열기" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
-1. **계층** 메뉴를 선택 하 여 **토폴로지**를 선택 합니다.
+1. **계층** 메뉴를 선택 하 여 **토폴로지** 를 선택 합니다.
  
 토폴로지 맵의 기본 보기에 다음이 표시됩니다.
 
@@ -85,7 +85,7 @@ Security Center **네트워킹** 기능에는 다음이 포함 됩니다.
    - **권장 사항**: 해당 리소스에서 활성화된 권장 사항을 기준으로 표시되는 리소스를 선택할 수 있습니다. 예를 들어, Security Center에서 네트워크 보안 그룹 사용을 권장하는 리소스만 볼 수 있습니다.
    - **네트워크 영역**: 기본적으로 맵은 인터넷 연결 리소스만 표시하므로 내부 VM도 선택할 수 있습니다.
  
-2. 언제든지 왼쪽 위 모서리에 있는 **재설정**을 클릭하면 맵을 기본 상태로 돌릴 수 있습니다.
+2. 언제든지 왼쪽 위 모서리에 있는 **재설정** 을 클릭하면 맵을 기본 상태로 돌릴 수 있습니다.
 
 리소스로 드릴다운하려면:
 
@@ -109,7 +109,7 @@ Security Center **네트워킹** 기능에는 다음이 포함 됩니다.
 리소스로 드릴다운하려면:
 
 1. 맵에서 특정 리소스를 선택하면 오른쪽 창이 열리고 리소스에 대한 일반 정보, 연결된 보안 솔루션(있는 경우) 및 리소스와 관련된 권장 사항을 제공합니다. 선택한 리소스의 각 형식에 대해 동일한 동작 형식입니다. 
-2. 리소스에서 가능한 아웃바운드 및 인바운드 트래픽의 목록을 보려면 **트래픽**을 클릭합니다. 이 목록은 리소스와 통신할 수 있는 사용자 및 프로토콜과 포트를 통해 리소스가 통신할 수 있는 대상의 포괄적인 목록입니다. 예를 들어 VM을 선택 하면 통신할 수 있는 모든 Vm이 표시 되 고, 서브넷을 선택 하면 통신할 수 있는 모든 서브넷이 표시 됩니다.
+2. 리소스에서 가능한 아웃바운드 및 인바운드 트래픽의 목록을 보려면 **트래픽** 을 클릭합니다. 이 목록은 리소스와 통신할 수 있는 사용자 및 프로토콜과 포트를 통해 리소스가 통신할 수 있는 대상의 포괄적인 목록입니다. 예를 들어 VM을 선택 하면 통신할 수 있는 모든 Vm이 표시 되 고, 서브넷을 선택 하면 통신할 수 있는 모든 서브넷이 표시 됩니다.
 
 **이 데이터는 크로스오버 및 상호 작용을 이해하기 위해 여러 규칙을 분석하는 고급 Machine Learning 알고리즘과 함께 네트워크 보안 그룹의 분석을 기반으로 합니다.** 
 

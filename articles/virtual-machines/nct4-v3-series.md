@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 6463e54fb7f0a2cc03ffa043c00048c1131899ce
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 41ab057bdbf31667e45a73b2c5ded4993e716a66
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913433"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131562"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3 시리즈 
 
@@ -26,7 +26,7 @@ NCasT4_v3 시리즈 가상 머신은 [Nvidia Tesla T4](https://www.nvidia.com/en
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
-[VM 생성 지원](generation-2.md): 1 세대<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 가속 네트워킹: 지원 됨<br>
 Nvidia NVLink Interconnect: 지원 되지 않음<br>
 <br>

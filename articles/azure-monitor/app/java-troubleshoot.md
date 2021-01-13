@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607901"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133245"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Java SDK에 대 한 Application Insights 문제 해결 및 Q 및 A
 
@@ -23,7 +23,7 @@ ms.locfileid: "97607901"
 ## <a name="build-errors"></a>빌드 오류
 **Eclipse 또는 Intellij Idea에서 Maven 또는 Gradle을 통해 Application Insights SDK를 추가할 때 빌드 또는 체크섬 유효성 검사 오류가 표시됩니다.**
 
-* 종속성 `<version>` 요소가 와일드카드 문자가 포함된 패턴을 사용하는 경우(예: (Maven) `<version>[2.0,)</version>` 또는 (Gradle) `version:'2.0.+'`) `2.0.1`과 같이 특정 버전을 대신 지정해 보세요. 최신 버전은 [릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java/releases) 를 참조하세요.
+* 종속성 `<version>` 요소가 와일드카드 문자가 포함된 패턴을 사용하는 경우(예: (Maven) `<version>[2.0,)</version>` 또는 (Gradle) `version:'2.+'`) `2.6.2`과 같이 특정 버전을 대신 지정해 보세요.
 
 ## <a name="no-data"></a>데이터 없음
 **Application Insights를 추가하고 내 앱을 실행했는데 포털에 데이터가 표시되지 않습니다.**
@@ -36,7 +36,7 @@ ms.locfileid: "97607901"
 * [](#debug-data-from-the-sdk) `<SDKLogger />` 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml 파일의 루트 노드 아래에 요소를 추가 하 여 로깅을 설정 하 고 의심 스러운 로그의 AI: INFO/WARN/ERROR 앞에 있는 항목을 확인 합니다. 
 * 콘솔의 출력 메시지에서 “구성 파일을 찾았습니다”라는 문을 찾아 ApplicationInsights.xml 파일이 Java SDK에 의해 성공적으로 로드되었음을 확인합니다.
 * 구성 파일이 없으면 출력 메시지를 확인하여 구성 파일이 검색되고 있는 위치를 확인하고, ApplicationInsights.xml이 그러한 검색 위치 중 한 위치에 있는지 확인합니다. 일반적으로 구성 파일을 Application Insights SDK JAR 주위에 배치할 수 있습니다. 예: Tomcat에서는 WEB-INF/classes 폴더를 의미합니다. 개발 중에 웹 프로젝트의 리소스 폴더에 ApplicationInsights.xml을 배치할 수 있습니다.
-* SDK의 알려진 문제에 대해서는 [GitHub 문제 페이지](https://github.com/Microsoft/ApplicationInsights-Java/issues)를 참조하세요.
+* SDK의 알려진 문제에 대해서는 [GitHub 문제 페이지](https://github.com/microsoft/ApplicationInsights-Java/issues)를 참조하세요.
 * 버전 충돌 문제를 방지하려면 동일한 버전의 Application Insights 코어, 웹, 에이전트 및 로깅 어펜더를 사용합니다.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>데이터를 보는 데 중지되었습니다.
@@ -193,8 +193,8 @@ Application Insights는 `org.apache.http`를 사용합니다. 이 모듈은 Appl
 * [진단 로그 캡처][javalogs]
 
 ## <a name="get-help"></a>도움말 보기
-* [스택 오버플로](https://stackoverflow.com/questions/tagged/ms-application-insights)
-* [GitHub에서 문제 제출](https://github.com/Microsoft/ApplicationInsights-Java/issues)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
+* [GitHub에서 문제 제출](https://github.com/microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

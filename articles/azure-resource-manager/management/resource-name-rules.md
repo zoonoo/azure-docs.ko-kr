@@ -3,12 +3,12 @@ title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 12/29/2020
-ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 59babd9298fdca96b450b2dc67832c86c043c49c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814383"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132752"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -83,7 +83,7 @@ ms.locfileid: "97814383"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | locks | 할당 범위 | 1-90 | 영숫자, 마침표, 밑줄, 하이픈, 괄호<br><br>마침표로 끝날 수 없습니다. |
-> | policyAssignments | 할당 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
+> | policyAssignments | 할당 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위에서 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
 > | policyDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
 > | policySetDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위에서 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다.  |
 

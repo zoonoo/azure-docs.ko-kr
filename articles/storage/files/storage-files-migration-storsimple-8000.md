@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 08ed07adbfe0fc4b22d8a3d0afcfc9ab1312dba4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723981"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134350"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
 
@@ -133,11 +133,11 @@ StorSimple은 볼륨 수준에서 차등 백업을 제공 합니다. Azure 파�
 
 여러 Azure storage 계정을 배포 해야 할 수도 있습니다. 각 항목에는이 문서의 이전 섹션에서 완료 한 배포 계획에 따라 적은 수의 Azure 파일 공유가 포함 됩니다. Azure Portal로 이동 하 여 [계획 된 저장소 계정을 배포](../common/storage-account-create.md#create-a-storage-account)합니다. 새 저장소 계정에 대해 다음과 같은 기본 설정을 준수 하는 것이 좋습니다.
 
-#### <a name="subscription"></a>구독
+#### <a name="subscription"></a>Subscription
 
 StorSimple 배포에 사용한 것과 동일한 구독 또는 다른 구독을 사용할 수 있습니다. 유일한 제한 사항은 구독이 StorSimple 구독과 동일한 Azure Active Directory 테 넌 트에 있어야 한다는 것입니다. 마이그레이션을 시작 하기 전에 StorSimple 구독을 올바른 테 넌 트로 이동 하는 것이 좋습니다. 전체 구독만 이동할 수 있습니다. 개별 StorSimple 리소스는 다른 테 넌 트 또는 구독으로 이동할 수 없습니다.
 
-#### <a name="resource-group"></a>리소스 그룹
+#### <a name="resource-group"></a>Resource group
 
 리소스 그룹은 리소스 구성과 관리 관리 권한을 지원 합니다. [Azure에서 리소스 그룹](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)에 대해 자세히 알아보세요.
 
@@ -441,6 +441,9 @@ Windows Server 인스턴스에서 이벤트 뷰어를 사용 하 여 네임 스�
 1. 일부 파일은 잘못 된 문자로 인해 데이터 변환 작업에 의해 남아 있을 수 있습니다. 이 경우 Azure File Sync 사용 가능한 Windows Server 인스턴스로 복사 합니다. 나중에이를 조정 하 여 동기화 할 수 있습니다. 특정 공유에 대해 Azure File Sync를 사용 하지 않는 경우 StorSimple 볼륨에서 잘못 된 문자가 포함 된 파일의 이름을 바꾸는 것이 좋습니다. 그런 다음 Azure 파일 공유에 대해 직접 RoboCopy를 실행 합니다.
 
 > [!WARNING]
+> Windows Server 2019에서는 robocopy의/MIR 함수를 사용 하는 경우 대상 서버에서 Azure File Sync 하 여 계층화 된 파일을 원본에서 다시 복사 하 고 Azure에 다시 업로드 하 게 하는 문제가 발생 합니다. 2019이 아닌 Windows 서버에서 Robocopy를 사용 해야 합니다. Windows Server 2016를 선택 하는 것이 좋습니다. Windows 업데이트를 통해 문제를 해결 해야 하는이 정보를 업데이트 합니다.
+
+> [!WARNING]
 > 서버에 Azure 파일 공유에 대 한 네임 스페이스가 완전히 다운로드 되기 전에는 RoboCopy를 시작 하면 *안* 됩니다. 자세한 내용은 [네임 스페이스가 서버에 완전히 다운로드 된 시기 결정](#determine-when-your-namespace-has-fully-synced-to-your-server)을 참조 하세요.
 
  마이그레이션 작업을 마지막으로 실행 한 후 변경 된 파일 및 이전에 이러한 작업을 통해 이동 하지 않은 파일을 복사 하려고 합니다. 마이그레이션이 완료 된 후 서버에서 나중에 이동 하지 않은 이유에 대 한 문제를 해결할 수 있습니다. 자세한 내용은 [Azure File Sync 문제 해결](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)을 참조 하세요.
@@ -448,7 +451,7 @@ Windows Server 인스턴스에서 이벤트 뷰어를 사용 하 여 네임 스�
 RoboCopy에는 여러 매개 변수가 있습니다. 다음 예제에서는 완성 된 명령과 이러한 매개 변수를 선택 하는 이유 목록을 보여 줍니다.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /IT /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 배경:
@@ -499,6 +502,14 @@ Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <Source
    :::column-end:::
    :::column span="1":::
       RoboCopy가 원본 (StorSimple 어플라이언스)와 대상 (Windows Server 디렉터리) 간의 델타만 고려 하도록 허용 합니다.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /IT
+   :::column-end:::
+   :::column span="1":::
+      특정 미러 시나리오에서 충실도가 유지 되도록 합니다.</br>예: 두 Robocopy 사이에서 파일은 ACL 변경 및 특성 업데이트를 실행 합니다. 예를 들어 *숨김으로* 표시 되어 있습니다. /IT를 사용 하지 않으면 Robocopy에서 ACL 변경을 방지할 수 있으므로 대상 위치로 전송 되지 않습니다.
    :::column-end:::
 :::row-end:::
 :::row:::

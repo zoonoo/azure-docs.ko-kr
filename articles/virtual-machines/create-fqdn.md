@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/03/2020
+ms.date: 1/12/2020
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08d5e20bf0755a71e70a0e446cf96d33bb42ad59
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aadf4000da4ab88a3c3b4dee37d2179eb49d39d7
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351911"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132067"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Linux VM용 Azure Portal에서 정규화된 도메인 이름 만들기
 
@@ -24,16 +24,14 @@ ms.locfileid: "93351911"
 이 문서에서는 사용자가 VM을 이미 만들었다고 가정합니다. 필요한 경우 포털에서 [Linux](./linux/quick-create-portal.md) 또는 [Windows](./windows/quick-create-portal.md) VM을 만들 수 있습니다. VM이 실행되면 다음 단계를 따릅니다.
 
 
-1. 포털에서 VM을 선택합니다. **DNS 이름** 에서 **구성** 을 선택 합니다.
-2. DNS 이름을 입력 하 고 페이지 위쪽에서 **저장** 을 선택 합니다.
-3. VM 개요 블레이드로 돌아가려면 오른쪽 위에 있는 **X** 를 선택 하 여 **구성** 블레이드를 닫습니다. 
-4. 이제 *DNS 이름이* 올바르게 표시 되는지 확인 합니다.
-   
-
-
+1. 포털에서 VM을 선택합니다. 
+1. 왼쪽 메뉴에서 **구성** 을 선택 합니다.
+1. **DNS 이름 레이블** 아래에서 사용할 접두사를 입력 합니다.
+1. 페이지 위쪽에서 **저장** 을 선택합니다.
+1. 왼쪽 메뉴에서 **개요** 를 선택 하 여 VM 개요 블레이드로 돌아갑니다. 
+1. *DNS 이름이* 올바르게 표시 되는지 확인 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이제 VM에 공용 IP 및 DNS 이름이 있으므로 nginx, MongoDB 및 Docker와 같은 일반적인 응용 프로그램 프레임 워크 또는 서비스를 배포할 수 있습니다.
 
-또한 Azure 배포 구축에 대한 팁을 보려면 [Resource Manager 사용](../azure-resource-manager/management/overview.md)에 대해 자세히 읽어볼 수도 있습니다.
+[Azure DNS 영역](../dns/dns-getstarted-portal.md)을 사용 하 여 DNS를 관리할 수도 있습니다.
 

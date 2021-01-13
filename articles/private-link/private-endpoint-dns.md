@@ -5,14 +5,14 @@ services: private-link
 author: mblanco77
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 01/12/2021
 ms.author: allensu
-ms.openlocfilehash: 1c296b157fbac1e4c8d3fefb2b8cc09ff2ccc7a8
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 859768345c2b88e38e09d897391ac8a3501fd901
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620599"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134078"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 프라이빗 엔드포인트 DNS 구성
 
@@ -68,7 +68,7 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Backup(Microsoft.RecoveryServices/vaults) / 자격 증명 모음 | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
 | Azure Event Hubs (Microsoft EventHub/네임 스페이스)/네임 스페이스 | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus(Microsoft.ServiceBus/namespaces) / 네임스페이스 | privatelink.servicebus.windows.net | servicebus.windows.net |
-| Azure IoT Hub (Microsoft Devices/IotHubs)/iotHub | privatelink.azure-devices.net | azure-devices.net |
+| Azure IoT Hub (Microsoft Devices/IotHubs)/iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
 | Azure Relay(Microsoft.Relay/namespaces) / 네임스페이스 | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Event Grid(Microsoft.EventGrid/topics) / 토픽 | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Azure Event Grid(Microsoft.EventGrid/domains) / 도메인 | privatelink.eventgrid.azure.net | eventgrid.azure.net |
@@ -83,6 +83,7 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Data Factory (DataFactory/factory)/포털 |  privatelink.azure.com  |  azure.com  |
 | Redis 용 Azure 캐시 (Redis/)/redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 
+<sup>1</sup> IoT Hub의 기본 제공 Event Hub 호환 끝점과 함께 사용 합니다. 자세히 알아보려면 [IoT Hub의 기본 제공 끝점에 대 한 개인 링크 지원](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint) 을 참조 하세요.
  
 ## <a name="dns-configuration-scenarios"></a>DNS 구성 시나리오
 

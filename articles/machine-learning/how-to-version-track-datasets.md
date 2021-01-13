@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8c9beaca0fb3ee7881559ffcc955f171bc2ddd7b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 7eb8010853ba370f4502b6bc155c6a098e64965b
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886450"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133449"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
 
@@ -27,7 +27,7 @@ ms.locfileid: "94886450"
 * 새 데이터를 다시 학습에 사용할 수 있는 경우
 * 다른 데이터 준비 또는 기능 엔지니어링 방법을 적용 하는 경우
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 다음이 필요합니다.
 
@@ -166,9 +166,7 @@ Azure Machine Learning는 전체 실험에서 데이터를 입력 및 출력 데
 데이터를 **출력 데이터 집합** 으로 추적 하는 시나리오는 다음과 같습니다.  
 
 * `OutputFileDatasetConfig` `outputs` `arguments` 실험 실행을 제출할 때 또는 매개 변수를 통해 개체를 전달 합니다. `OutputFileDatasetConfig` 개체를 사용 하 여 파이프라인 단계 간에 데이터를 유지할 수도 있습니다. [ML 파이프라인 간 데이터 이동 단계를](how-to-move-data-in-out-of-pipelines.md) 참조 하세요.
-    > [!TIP]
-    > [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) 는 언제 든 지 변경 될 수 있는 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) 미리 보기 기능을 포함 하는 공개 미리 보기 클래스입니다.
-
+  
 * 스크립트에 데이터 집합을 등록 합니다. 이 시나리오의 경우 작업 영역에 등록할 때 데이터 집합에 할당 되는 이름이 표시 됩니다. 다음 예제에서 `training_ds` 는 표시 되는 이름입니다.
 
     ```Python

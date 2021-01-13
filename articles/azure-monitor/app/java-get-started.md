@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6bdad71f0b36995abdeb3b1edb87cbef32df8b67
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 115e1ec347cdcd80904b47a0c8798206360d0dad
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919433"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131783"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
@@ -23,7 +23,7 @@ ms.locfileid: "96919433"
 
 Application Insights는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * 작동 하는 Java 응용 프로그램입니다.
@@ -56,7 +56,7 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
         <artifactId>applicationinsights-web-auto</artifactId>
         <!-- or applicationinsights-web for manual web filter registration -->
         <!-- or applicationinsights-core for bare API -->
-        <version>2.5.0</version>
+        <version>2.6.2</version>
       </dependency>
     </dependencies>
 ```
@@ -69,15 +69,11 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 
 ```gradle
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.5.0'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.6.2'
       // or applicationinsights-web for manual web filter registration
       // or applicationinsights-core for bare API
     }
 ```
-
-# <a name="other-types"></a>[기타 형식](#tab/other)
-
-[최신 버전](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)을 다운로드하고 필요한 파일을 프로젝트에 복사하여 이전 버전을 교체합니다.
 
 ---
 
@@ -88,10 +84,7 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
   * `applicationinsights-core` 응용 프로그램이 서브렛 기반이 아닌 경우와 같이, 기본 API만 제공 합니다.
   
 * *SDK를 최신 버전으로 업데이트하려면 어떻게 해야 하나요?*
-  * Gradle 또는 Maven를 사용 하는 경우 ...
-    * 빌드 파일을 업데이트 하 여 최신 버전을 지정 합니다.
-  * 종속성을 수동으로 관리 하는 경우 ...
-    * 최신 버전의 [Java용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)를 다운로드하여 이전 버전을 대체합니다. 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
+  * 2020 년 11 월, Java 응용 프로그램 모니터링에 대 한 Azure Monitor Application Insights Java 3.0 agent를 사용 하 여 자동 계측을 권장 합니다. 시작 하는 방법에 대 한 자세한 내용은 [Application Insights Java 3.0 agent](./java-in-process-agent.md)를 참조 하세요.
 
 ## <a name="add-an-applicationinsightsxml-file"></a>*ApplicationInsights.xml* 파일 추가
 프로젝트의 resources 폴더에 *ApplicationInsights.xml* 를 추가 하거나 프로젝트의 배포 클래스 경로에 추가 되었는지 확인 합니다. 다음 XML을 복사합니다.
@@ -168,10 +161,6 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 차트를 클릭하면 더 자세한 집계된 메트릭을 볼 수 있습니다.
 
 ![차트를 사용 하 여 Application Insights 오류 창](./media/java-get-started/006-barcharts.png)
-
-<!--
-[TODO update image with 2.5.0 operation naming provided by agent]
--->
 
 ### <a name="instance-data"></a>인스턴스 데이터
 특정 요청 유형을 클릭하여 개별 인스턴스를 확인합니다.
@@ -295,7 +284,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [가용성 웹 테스트를 설정 하는 방법에 대해 자세히 알아보세요.][availability]
 
-## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
+## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>다음 단계

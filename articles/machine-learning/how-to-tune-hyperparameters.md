@@ -1,7 +1,7 @@
 ---
-title: 모델에 대한 하이퍼 매개 변수 튜닝
+title: 모델을 튜닝 하는 하이퍼 매개 변수
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning를 사용 하 여 심층 학습 및 기계 학습 모델에 대 한 하이퍼 매개 변수를 효율적으로 조정 합니다.
+description: Azure Machine Learning를 사용 하 여 심층 학습 및 기계 학습 모델에 대 한 하이퍼 매개 변수 튜닝을 자동화 합니다.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a1a0b89dee5a6d57e6f317c5f6c8b61ffeda3c33
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029076"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133864"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델에 대한 하이퍼 매개 변수 튜닝
+# <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델을 튜닝 하는 하이퍼 매개 변수
 
 
 Azure Machine Learning [하이퍼 매개 변수 패키지](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py)를 사용 하 여 효율적인 하이퍼 매개 변수 튜닝을 자동화 합니다. [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)를 사용 하 여 하이퍼 매개 변수를 조정 하는 데 필요한 단계를 완료 하는 방법을 알아봅니다.
@@ -31,11 +31,11 @@ Azure Machine Learning [하이퍼 매개 변수 패키지](/python/api/azureml-t
 1. 교육 실행 시각화
 1. 모델에 가장 적합 한 구성 선택
 
-## <a name="what-are-hyperparameters"></a>하이퍼 매개 변수란?
+## <a name="what-is-hyperparameter-tuning"></a>하이퍼 매개 변수 튜닝 이란?
 
 하이퍼 **매개 변수** 는 모델 학습 프로세스를 제어할 수 있는 조정 가능한 매개 변수입니다. 예를 들어 신경망을 사용 하 여 숨겨진 계층 수와 각 계층의 노드 수를 결정 합니다. 모델 성능은 하이퍼 매개 변수에 따라 크게 달라 집니다.
 
- 하이퍼 **매개 변수 튜닝** 은 최상의 성능을 생성 하는 하이퍼 매개 변수의 구성을 찾는 프로세스입니다. 프로세스는 일반적으로 계산 비용이 많이 들고 수동입니다.
+ 하이퍼 매개 변수 **최적화** 라고도 하는 하이퍼 매개 변수 **조정은** 최상의 성능을 생성 하는 하이퍼 매개 변수의 구성을 찾는 프로세스입니다. 프로세스는 일반적으로 계산 비용이 많이 들고 수동입니다.
 
 Azure Machine Learning를 사용 하 여 하이퍼 매개 변수 튜닝을 자동화 하 고 병렬로 실험을 실행 하 여 하이퍼 매개 변수를 효율적으로 최적화할 수 있습니다
 
@@ -46,7 +46,7 @@ Azure Machine Learning를 사용 하 여 하이퍼 매개 변수 튜닝을 자�
 
 하이퍼 매개 변수는 불연속 또는 연속 일 수 있으며 [매개 변수 식](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?preserve-view=true&view=azure-ml-py)에서 설명 하는 값의 분포를 가집니다.
 
-### <a name="discrete-hyperparameters"></a>개별 하이퍼 매개 변수 
+### <a name="discrete-hyperparameters"></a>개별 하이퍼 매개 변수
 
 개별 하이퍼 매개 변수는 불연속 값 중 `choice`로 지정됩니다. `choice`는 다음이 될 수 있습니다.
 
@@ -296,7 +296,7 @@ max_concurrent_runs=4
 
 이 코드는 최대 20 개의 총 실행을 사용 하 여 한 번에 4 개의 구성을 실행 하도록 하이퍼 매개 변수 튜닝 실험을 구성 합니다.
 
-## <a name="configure-experiment"></a>실험 구성
+## <a name="configure-hyperparameter-tuning-experiment"></a>하이퍼 매개 변수 튜닝 실험 구성
 
 하이퍼 [매개 변수 튜닝](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?preserve-view=true&view=azure-ml-py) 실험을 구성 하려면 다음을 제공 합니다.
 * 정의 된 하이퍼 매개 변수 검색 공간
@@ -323,7 +323,7 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_concurrent_runs=4)
 ```
 
-## <a name="submit-experiment"></a>실험 제출
+## <a name="submit-hyperparameter-tuning-experiment"></a>하이퍼 매개 변수 튜닝 실험 제출
 
 하이퍼 매개 변수 튜닝 구성을 정의한 후 실험을 [제출 합니다](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-).
 
@@ -333,7 +333,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hd_config)
 ```
 
-## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>하이퍼 매개 변수 튜닝 실험 준비 (선택 사항)
+## <a name="warm-start-hyperparameter-tuning-optional"></a>웜 시작 하이퍼 매개 변수 튜닝 (선택 사항)
 
 모델에 가장 적합 한 하이퍼 매개 변수 값을 찾으려면 반복적인 프로세스가 될 수 있습니다. 이전의 5 개 실행의 정보를 다시 사용 하 여 하이퍼 매개 변수 튜닝을 가속화할 수 있습니다.
 
@@ -380,7 +380,7 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_concurrent_runs=4)
 ```
 
-## <a name="visualize-experiment"></a>실험 시각화
+## <a name="visualize-hyperparameter-tuning-runs"></a>하이퍼 매개 변수 튜닝 실행 시각화
 
 [노트북 위젯을](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) 사용 하 여 학습 실행의 진행률을 시각화할 수 있습니다. 다음 코드 조각은 Jupyter Notebook에서 모든 하이퍼 매개 변수 조정 실행을 시각화합니다.
 
@@ -391,15 +391,15 @@ RunDetails(hyperdrive_run).show()
 
 이 코드는 각 하이퍼 매개 변수 구성의 학습 실행에 대한 세부 정보가 있는 표를 표시합니다.
 
-![하이퍼 매개 변수 튜닝 테이블](./media/how-to-tune-hyperparameters/HyperparameterTuningTable.png)
+![하이퍼 매개 변수 튜닝 테이블](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
 
 학습 진행률에 따라 각 실행의 성능을 시각화할 수도 있습니다. 
 
-![하이퍼 매개 변수 튜닝 플롯](./media/how-to-tune-hyperparameters/HyperparameterTuningPlot.png)
+![하이퍼 매개 변수 튜닝 플롯](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
 
 병렬 좌표 플롯을 사용 하 여 개별 하이퍼 매개 변수의 성능과 값 간의 상관 관계를 시각적으로 식별할 수 있습니다. 
 
-[![하이퍼 매개 변수 튜닝 병렬 좌표](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
+[![하이퍼 매개 변수 튜닝 병렬 좌표](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
 Azure 웹 포털에서 하이퍼 매개 변수 튜닝 실행을 모두 시각화할 수도 있습니다. 포털에서 실험을 보는 방법에 대 한 자세한 내용은 [실험을 추적 하는 방법](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal)을 참조 하세요.
 
@@ -420,6 +420,7 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>샘플 노트북
+
 이 폴더의 학습-hyperparameter-* 노트북을 참조 하세요.
 * [how-to-use-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
 

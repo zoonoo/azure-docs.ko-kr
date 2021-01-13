@@ -1,14 +1,14 @@
 ---
 title: 대규모로 위임 된 리소스 모니터링
 description: 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 Azure Monitor 로그를 효과적으로 사용 하는 방법을 알아봅니다.
-ms.date: 12/14/2020
+ms.date: 01/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 6c1cbde696ccf9131797a05db33553b8505216a4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 797a6159d310f85c35c7eb550f05ff152526b3e8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509277"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131154"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>대규모로 위임 된 리소스 모니터링
 
@@ -24,6 +24,9 @@ ms.locfileid: "97509277"
 데이터를 수집 하려면 Log Analytics 작업 영역을 만들어야 합니다. 이러한 Log Analytics 작업 영역은 Azure Monitor에 의해 수집 되는 데이터에 대 한 고유한 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다.
 
 이러한 작업 영역을 고객 테 넌 트에 직접 만드는 것이 좋습니다. 이러한 방식으로 데이터가 자신의 테 넌 트로 내보내지지 않고 테 넌 트에 유지 됩니다. 또한 Log Analytics에서 지 원하는 모든 리소스 또는 서비스를 중앙에서 모니터링할 수 있으므로 모니터링 하는 데이터 형식에 대 한 유연성을 높일 수 있습니다.
+
+> [!TIP]
+> Log Analytics 작업 영역에서 데이터에 액세스 하는 데 사용 되는 모든 automation 계정은 작업 영역과 동일한 테 넌 트에 만들어야 합니다.
 
 [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)를 사용 하거나 [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)를 사용 하거나 [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)를 사용 하 여 Log Analytics 작업 영역을 만들 수 있습니다.
 

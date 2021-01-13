@@ -7,12 +7,12 @@ ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: dd05a4880bdf077f63dc58575828e6180e415260
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 52872175eb799785674c331ad4d687ff8ef427a4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122355"
+ms.locfileid: "98134282"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Azure IoT Central 솔루션에서 명령을 사용 하는 방법
 
@@ -219,10 +219,8 @@ const commandHandler = async (request, response) => {
 
 이 섹션에서는 장치에서 오프 라인 명령을 처리 하는 방법을 보여 줍니다. 장치가 온라인 상태인 경우 수신 되는 즉시 오프 라인 명령을 처리할 수 있습니다. 장치가 오프 라인 상태인 경우 다음에 IoT Central 연결할 때 오프 라인 명령을 처리 합니다. 장치는 오프 라인 명령에 대 한 응답으로 반환 값을 보낼 수 없습니다.
 
-다음 코드 조각에서는 장치에서 오프 라인 명령을 구현할 수 있는 방법을 보여 줍니다.
-
 > [!NOTE]
-> 이 문서에서는 편의를 위해 Node.js를 사용 합니다. 다른 언어 예제는 [Azure IoT Central 응용 프로그램에 클라이언트 응용 프로그램 만들기 및 연결](tutorial-connect-device.md) 자습서를 참조 하세요.
+> 이 문서에서는 편의를 위해 Node.js를 사용 합니다.
 
 다음 스크린샷은 **Generatediagnostics** 라는 오프 라인 명령을 보여 줍니다. 요청 매개 변수는 **StartTime** 이라는 Datetime 속성과 **Bank** 라는 정수 열거형 속성을 사용 하는 개체입니다.
 

@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
-ms.openlocfilehash: 0b7d200ef39a6b4da6af33a0a9b9314635c3db33
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 01/12/2020
+ms.author: vikancha
+ms.openlocfilehash: 67780c725466707f347e9009a77099786cc64939
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586434"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133296"
 ---
 # <a name="nvv4-series"></a>NVv4 시리즈 
 
@@ -26,7 +26,7 @@ NVv4 시리즈 가상 머신은 [Amd Radeon 이러한 MI25](https://www.amd.com/
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
-[VM 생성 지원](generation-2.md): 1 세대<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 가속 네트워킹: 지원 됨<br>
 <br>
 

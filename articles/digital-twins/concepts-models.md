@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: dfea6d531dfb87a5344c5d8e53570b6e1ae8e598
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049323"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131392"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Azure Digital Twins의 쌍 모델 이해
 
@@ -140,7 +140,7 @@ Dtdl 당 *속성* 및 *원격 분석* 특성의 스키마는 표준 기본 유�
 
 업계 표준을 기반으로 하는 모델을 사용 하거나 RDF 또는 OWL와 같은 표준 ontology 표현을 사용 하면 Azure Digital Twins 모델을 디자인할 때 다양 한 시작 지점을 제공 합니다. 산업 모델을 사용 하면 표준화 및 정보 공유에도 도움이 됩니다.
 
-Azure Digital Twins에서 사용 하려면 모델이 JSON-LD 기반 [**디지털 Twins 정의 언어 (DTDL)**](concepts-models.md)로 표시 되어야 합니다. 따라서이 문서에서는 DTDL에서 업계 표준 모델을 표시 하는 방법에 대해 설명 하 고, Azure Digital Twins에서 사용할 수 있도록 기존 업계 개념을 DTDL 의미 체계와 통합 합니다. 그런 다음 DTDL 모델은 Azure Digital Twins 내에서 모델에 대 한 진위의 원본으로 사용 됩니다.
+Azure Digital Twins에서 사용 하려면 모델이 JSON-LD 기반 [**디지털 Twins 정의 언어 (DTDL)**](concepts-models.md)로 표시 되어야 합니다. 따라서 업계 표준 모델을 사용 하려면 먼저이를 DTDL로 변환 하 여 Azure Digital Twins에서 사용할 수 있도록 해야 합니다. 그런 다음 DTDL 모델은 Azure Digital Twins 내에서 모델에 대 한 진위의 원본으로 사용 됩니다.
 
 사용자의 상황에 따라 다음과 같은 두 가지 주요 경로를 사용 하 여 DTDL과 함께 산업 표준 모델을 통합할 수 있습니다.
 * 모델을 아직 만들지 않은 경우 업계와 관련 된 언어를 포함 하는 **기존 스타터 DTDL 온톨로지** 을 기반으로 모델을 디자인할 수 있습니다.
