@@ -56,6 +56,8 @@
               href: connect-azure-active-directory.md
             - name: Office 365(이제 Teams 포함!)
               href: connect-office-365.md
+            - name: Dynamics 365(신규!)
+              href: connect-dynamics-365.md
             - name: Cloud App Security
               href: connect-cloud-app-security.md
             - name: Azure 동작 로그
@@ -72,16 +74,18 @@
               href: connect-azure-atp.md
             - name: Microsoft Defender for Office 365(이전의 Office 365 ATP)
               href: connect-office-365-advanced-threat-protection.md
-            - name: Azure DDoS Protection
-              href: connect-azure-ddos-protection.md
-            - name: Azure Firewall
-              href: connect-azure-firewall.md
             - name: ASC의 Azure Defender 경고
               href: connect-azure-security-center.md
             - name: IoT용 Azure Defender(이전에는 ASC)
               href: connect-asc-iot.md
+            - name: Azure DDoS Protection
+              href: connect-azure-ddos-protection.md
+            - name: Azure Firewall
+              href: connect-azure-firewall.md
             - name: Azure WAF(웹 애플리케이션 방화벽)
               href: connect-azure-waf.md
+            - name: Azure SQL 데이터베이스 로그
+              href: connect-azure-sql-logs.md
             - name: 도메인 이름 서버
               href: connect-dns.md
             - name: Windows 방화벽

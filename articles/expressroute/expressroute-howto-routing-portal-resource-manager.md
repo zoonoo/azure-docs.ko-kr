@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 01/07/2021
+ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: 3e106bc313d6189b2fae8cf6a4dd7ce862294b8f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f780c8c2f932b612ee42e13906f72983b324eefd
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019281"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108537"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -136,7 +136,7 @@ ExpressRoute 회로에 대해 개인 피어링 및 Microsoft 피어링을 구성
 
 2. 회로에 Azure 프라이빗 피어링을 구성합니다. 다음 단계를 계속하기 전에 다음 항목이 있는지 확인합니다.
 
-   * 사용자가 소유하고 RIR / IRR에 등록된 /30 서브넷의 쌍입니다. 한 서브넷은 기본 링크에 사용되고 다른 서브넷은 보조 링크에 사용됩니다. Microsoft에서 사용 가능한 두 번째 IP를 라우터에 사용하므로, 이러한 각 서브넷에서는 사용 가능한 첫 번째 IP 주소를 라우터에 할당하겠습니다. 이 서브넷 쌍에 대한 세 가지 옵션이 있습니다.
+   * 사용자가 소유한 /30개 서브넷 쌍입니다. 한 서브넷은 기본 링크에 사용되고 다른 서브넷은 보조 링크에 사용됩니다. Microsoft에서 사용 가능한 두 번째 IP를 라우터에 사용하므로, 이러한 각 서브넷에서는 사용 가능한 첫 번째 IP 주소를 라우터에 할당하겠습니다.
    * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다. 기본 링크와 보조 링크 모두에 동일한 VLAN ID를 사용해야 합니다.
    * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에는 65515에서 65520까지의 숫자를 제외한 프라이빗 AS 숫자를 사용할 수 있습니다.
    * 개인 피어링을 구성할 때 BGP를 통해 온-프레미스 Edge 라우터에서 Azure로의 경로를 보급해야 합니다.
