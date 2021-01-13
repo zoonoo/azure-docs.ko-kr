@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: 7f4d820b33f36c295c294000d33a0ca5177fc4d1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a1ef441943ec3c29770e0964b3c1132f86239b42
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028073"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127416"
 ---
 # <a name="what-is-azure-hdinsight"></a>Azure HDInsight란?
 
@@ -53,7 +53,7 @@ ETL(추출, 변환 및 로드)은 구조화되지 않았거나 구조화된 데�
 
 ### <a name="data-warehousing"></a>데이터 웨어하우징
 
-어떤 형식의 구조화되거나 구조화되지 않은 데이터에 대해 페타바이트 규모의 대화형 쿼리를 수행하는 데 HDInsight를 사용할 수 있습니다. 모델을 BI 도구에 연결하여 작성할 수도 있습니다. 자세한 내용은 [이 고객 스토리를 참고하세요](https://customers.microsoft.com/story/milliman).
+어떤 형식의 구조화되거나 구조화되지 않은 데이터에 대해 페타바이트 규모의 대화형 쿼리를 수행하는 데 HDInsight를 사용할 수 있습니다. 모델을 BI 도구에 연결하여 작성할 수도 있습니다.
 
 HDInsight 아키텍처: 데이터 웨어하우징
 

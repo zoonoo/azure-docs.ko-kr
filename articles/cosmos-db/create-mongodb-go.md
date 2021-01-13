@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 3f6ff0f81c1979297ed0144eca336cb252c2e787
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 60e7f0abbde8dbb4cb7d87e3c5aa8bbe9f8dad6a
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574363"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165623"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Go 애플리케이션을 Azure Cosmos DB의 API for MongoDB에 연결
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -278,7 +278,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 Azure Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를 표시합니다. 
 
 > [!NOTE]
-> 이 예서는 Azure CLI 출력 형식으로 JSON을 사용합니다(기본값). 다른 출력 형식을 사용하려면 [Azure CLI 명령에 대한 출력 형식](/cli/azure/format-output-azure-cli)을 참조하세요.
+> 이 예서는 Azure CLI 출력 형식으로 JSON을 사용합니다(기본값). 다른 출력 형식을 사용하려면 [Azure CLI 명령에 대한 출력 형식](/cli/azure/format-output-azure-cli)을 참조하세요. 
 
 ```json
 {
@@ -332,7 +332,7 @@ Azure CLI는 다음 예와 유사한 정보를 출력합니다.
 ### <a name="export-the-connection-string-mongodb-database-and-collection-names-as-environment-variables"></a>연결 문자열, MongoDB 데이터베이스 및 컬렉션 이름을 환경 변수로 내보냅니다. 
 
 ```bash
-export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PASSWORD>@<COSMOSDB_ACCOUNT_NAME>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@<COSMOSDB_ACCOUNT_NAME>@"
+export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PASSWORD>@<COSMOSDB_ACCOUNT_NAME>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@<COSMOSDB_ACCOUNT_NAME>@"
 ```
 
 > [!NOTE] 

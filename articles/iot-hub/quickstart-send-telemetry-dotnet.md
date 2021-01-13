@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: e4c87d8579b06cdfb37c1635a25db5ce67aa3545
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: b515274ef4bcf494c071ddb487590ff9cdccf4c0
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094797"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121488"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>빠른 시작: 디바이스에서 IoT 허브로 원격 분석을 보내고 서비스 애플리케이션(.NET)으로 읽습니다.
 
@@ -78,7 +78,7 @@ IoT Hub는 스토리지 또는 처리를 위해 IoT 디바이스에서 클라우
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
     ```
 
     다음과 같은 디바이스 연결 문자열을 기록해 둡니다.

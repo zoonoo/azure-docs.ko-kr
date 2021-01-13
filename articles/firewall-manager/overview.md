@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 01/12/2021
 ms.author: victorh
-ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95489697"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132446"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Azure Firewall Manager란?
 
@@ -86,7 +86,6 @@ Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 |프라이빗 트래픽 필터링이 활성화된 분기 간 트래픽|프라이빗 트래픽 필터링이 활성화된 경우 분기 간 트래픽이 지원되지 않습니다. |조사 중입니다.<br><br>분기 간 연결이 중요한 경우 프라이빗 트래픽을 보호하지 마세요.|
 |동일한 가상 WAN을 공유하는 모든 보안 Virtual Hubs는 동일한 리소스 그룹에 있어야 합니다.|이 동작은 현재 Virtual WAN Hubs에 맞춰 조정됩니다.|여러 Virtual WAN을 만들어 다른 리소스 그룹에서 보안 Virtual Hubs를 만들 수 있도록 합니다.|
 |대량 IP 주소 추가 실패|여러 공용 IP 주소를 추가하면 보안 허브 방화벽이 실패한 상태가 됩니다.|더 작은 공용 IP 주소 증분을 추가합니다. 예를 들어 한 번에 10개를 추가합니다.|
-|사용자 지정 DNS(미리 보기)가 구성된 보안 허브에서 애플리케이션 규칙이 실패합니다.|사용자 지정 DNS(미리 보기)는 강제 터널링이 설정된 보안 허브 배포 및 Hub 가상 네트워크 배포에서 작동하지 않습니다.|조사 중에 수정합니다.|
 |DDoS Protection 표준은 보안 가상 허브에서 지원되지 않습니다.|DDoS Protection 표준은 vWAN과 통합되지 않습니다.|조사|
 |활동 로그가 완전히 지원되지 않습니다.|방화벽 정책은 현재 활동 로그를 지원하지 않습니다.|조사|
 |SNAT 개인 IP 주소 범위 구성|Azure Firewall 정책이 구성된 경우 [개인 IP 범위 설정](../firewall/snat-private-range.md)은 무시됩니다. 기본 Azure Firewall이 작동하며 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/html/rfc1918)에 따라 개인 IP 주소 범위에 있는 경우 SNAT 네트워크 규칙이 적용되지 않습니다.|조사|

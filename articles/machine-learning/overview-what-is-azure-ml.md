@@ -5,16 +5,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-author: j-martens
-ms.author: jmartens
+ms.author: larryfr
+author: BlackMist
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 53e6d6e67a90cd1f39aed7f9cd7c2368282b2d1f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 9b4cb3117464bfd32e17df4a1dbfdf7efd4ecbe6
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916595"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127773"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -47,7 +47,7 @@ Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비�
 
 + <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R용 SDK</a>를 사용하여 고유한 코드를 작성하는 R 스크립트 또는 Notebook이나 디자이너에서 사용하는 R 모듈
 
-+ + [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기반으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
++ [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기반으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
 
 + [Visual Studio Code 사용자를 위한 기계 학습 확장](tutorial-setup-vscode-extension.md)
 
