@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 22b3ea9eb0e4c3379438b6c3fb58ccfb13b4ed32
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 5a032f45027cc4bffc7f2bc46c6ea1a69a1b83e4
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064796"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178622"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -34,7 +34,7 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 
@@ -70,19 +70,21 @@ MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 �
 
 ### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 
-1. [Azure Portal](https://portal.azure.us/)에 로그인합니다.
+1. <a href="https://portal.azure.us/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 
    다른 국가별 클라우드의 Azure Portal 끝점을 찾으려면 [앱 등록 끝점](authentication-national-cloud.md#app-registration-endpoints)을 참조 하세요.
 
-1. 계정이 둘 이상의 테 넌 트에 대 한 액세스를 제공 하는 경우 오른쪽 위 모서리에서 사용자의 계정을 선택 하 고 포털 세션을 원하는 Azure AD 테 넌 트로 설정 합니다.
-1. 개발자를 위한 Microsoft id 플랫폼의 [앱 등록](https://aka.ms/ra/ff) 페이지로 이동 합니다.
-1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
 1. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정** 을 선택합니다.
 1. **리디렉션 URI** 섹션에서 **웹** 플랫폼을 선택 하 고 웹 서버에 따라 응용 프로그램의 URL로 값을 설정 합니다. Visual Studio 및 노드에서 리디렉션 URL을 설정 하 고 가져오는 방법에 대 한 지침은 다음 섹션을 참조 하세요.
 1. **등록** 을 선택합니다.
-1. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
-1. 이 자습서에서는 [암시적 부여 흐름](v2-oauth2-implicit-grant-flow.md)을 사용 하도록 설정 해야 합니다. 등록된 애플리케이션의 왼쪽 창에서 **인증** 을 선택합니다.
-1. **고급 설정** 의 **암시적 허용** 에서 **ID 토큰** 및 **액세스 토큰** 확인란을 선택합니다. ID 토큰 및 액세스 토큰은이 앱이 사용자에 게 로그인 하 고 API를 호출 해야 하기 때문에 필요 합니다.
+1. **개요** 페이지에서 나중에 사용할 **응용 프로그램 (클라이언트) ID** 값을 적어 둡니다.
+    이 자습서에서는 [암시적 부여 흐름](v2-oauth2-implicit-grant-flow.md)을 사용 하도록 설정 해야 합니다. 
+1. **관리** 에서 **인증** 을 선택합니다.
+1. **암시적 권한 부여** 에서 **ID 토큰** 및 **액세스 토큰** 을 선택 합니다. ID 토큰 및 액세스 토큰은이 앱이 사용자에 게 로그인 하 고 API를 호출 해야 하기 때문에 필요 합니다.
 1. **저장** 을 선택합니다.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>2 단계: 웹 서버 또는 프로젝트 설정

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: f5d6d6255b48192a5943159599531fac18ebeb26
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: f3d1918eafe8d61d9c5a7db3f29b83b5412914c0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796995"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179562"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -126,13 +126,13 @@ ms.locfileid: "97796995"
 |[보안 경고에 대한 이메일 알림](security-center-provide-security-contact-details.md)|✔|✔|
 |[자산 인벤토리](asset-inventory.md)|✔|✔|
 |[App Service용 Azure Defender](defender-for-app-service-introduction.md)|-|-|
-|[스토리지용 Azure Defender](defender-for-storage-introduction.md)|✔(2)|-|
+|[스토리지용 Azure Defender](defender-for-storage-introduction.md)|✔|-|
 |[Azure Defender for SQL](defender-for-sql-introduction.md)|✔|✔(2)|
 |[Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)|-|-|
 |[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
-|[Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)|✔(2)|✔|
-|[컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)|✔(2)|-|
+|[Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)|✔|✔|
+|[컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)|✔(2)|✔(2)|
 |||
 
 (1) *서버용 Azure Defender** 필요

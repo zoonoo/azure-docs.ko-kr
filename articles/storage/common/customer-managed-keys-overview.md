@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483286"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179034"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Azure Storage 암호화를 위한 고객 관리 키
 
@@ -78,7 +78,7 @@ Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 
 
     키 버전을 명시적으로 지정 하는 경우 새 버전을 만들 때 새 키 버전 URI를 사용 하도록 저장소 계정을 수동으로 업데이트 해야 합니다. 새 버전의 키를 사용 하도록 저장소 계정을 업데이트 하는 방법에 대 한 자세한 내용은 [Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 암호화 구성](customer-managed-keys-configure-key-vault.md) 또는 [관리 되는 HSM Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 암호화 구성 (미리 보기)](customer-managed-keys-configure-key-vault-hsm.md)을 참조 하세요.
 
-고객 관리 키의 키 버전을 업데이트 해도 저장소 계정의 데이터에 대 한 다시 암호화는 트리거되지 않습니다. 사용자에 게 필요한 추가 작업은 없습니다.
+키 버전을 업데이트 하면 루트 암호화 키의 보호는 변경 되지만 Azure Storage 계정의 데이터는 다시 암호화 되지 않습니다. 사용자에 게 필요한 추가 작업은 없습니다.
 
 > [!NOTE]
 > 키를 회전 하려면 준수 정책에 따라 키 자격 증명 모음 또는 관리 되는 HSM에 새 버전의 키를 만듭니다. 키를 수동으로 회전 하거나 일정에 따라 회전 하는 함수를 만들 수 있습니다.
@@ -87,7 +87,7 @@ Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 
 
 언제 든 지 고객 관리 키에 대 한 저장소 계정의 액세스 권한을 해지할 수 있습니다. 고객 관리 키에 대 한 액세스가 취소 되거나 키가 사용 되지 않도록 설정 되거나 삭제 된 후에 클라이언트는 blob 또는 해당 메타 데이터에서 읽거나 쓰는 작업을 호출할 수 없습니다. 모든 사용자에 대해 다음 작업을 호출 하려고 하면 실패 하 고 오류 코드 403 (사용할 수 없음)이 발생 합니다.
 
-- [List Blobs](/rest/api/storageservices/list-blobs) `include=metadata` 요청 URI에서 매개 변수를 사용 하 여 호출 하는 경우 blob을 나열 합니다.
+- [](/rest/api/storageservices/list-blobs) `include=metadata` 요청 URI에서 매개 변수를 사용 하 여 호출 하는 경우 blob을 나열 합니다.
 - [Blob 가져오기](/rest/api/storageservices/get-blob)
 - [Blob 속성 가져오기](/rest/api/storageservices/get-blob-properties)
 - [Blob 메타데이터 가져오기](/rest/api/storageservices/get-blob-metadata)

@@ -6,13 +6,13 @@ ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
-ms.author: xujing
-ms.openlocfilehash: 101f2cfe57624502764d145351a6343cfdd2a334
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.author: mimckitt
+ms.openlocfilehash: 9f45b0a9454176f53413940d3c310e0499b43d3c
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572867"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180118"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
 Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machines를 실행할 수 있습니다. 자세한 내용은 [Windows 10용 다중 테넌트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)을 참조하세요.

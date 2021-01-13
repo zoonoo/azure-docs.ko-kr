@@ -1,19 +1,19 @@
 ---
 title: Azure Maps와 통합
 titleSuffix: Azure Digital Twins
-description: 쌍으로 된 실내 지도를 Azure Maps 업데이트 하는 데 쌍을 사용 하는 Azure 함수를 만드는 방법 (쌍 그래프 및 Azure Digital Twins 알림 사용)을 참조 하세요.
+description: Azure Functions를 사용 하 여 쌍으로 된 Azure Maps 실내 지도를 업데이트 하는 데 쌍을 사용할 수 있는 함수를 만드는 방법을 참조 하세요.
 author: alexkarcher-msft
 ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e582415d9a83dc506b77d506f3e0803002129a07
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051584"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180050"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Azure Digital Twins를 사용 하 여 Azure Maps 실내 맵 업데이트
 
@@ -22,10 +22,10 @@ ms.locfileid: "98051584"
 이 방법에는 다음이 포함 됩니다.
 
 1. [Azure Functions](../azure-functions/functions-overview.md)의 함수에 쌍 업데이트 이벤트를 보내도록 Azure Digital twins 인스턴스를 구성 합니다.
-2. Azure Maps 실내 지도 기능 stateset을 업데이트 하는 Azure 함수를 만듭니다.
+2. Azure Maps 실내 지도 기능 stateset을 업데이트 하는 함수를 만듭니다.
 3. Azure Digital Twins 그래프에서 지도 ID와 기능 stateset ID를 저장 하는 방법입니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)을 참조 하세요.
     * 추가 끝점 및 경로를 사용 하 여이 쌍을 확장 합니다. 또한이 자습서의 함수 앱에 다른 함수를 추가 합니다. 
@@ -41,7 +41,7 @@ ms.locfileid: "98051584"
 
 ## <a name="create-a-function-to-update-a-map-when-twins-update"></a>쌍 업데이트 시 맵을 업데이트 하는 함수 만들기
 
-먼저 모든 쌍 업데이트 이벤트를 event grid 토픽으로 전달 하기 위해 Azure Digital Twins에서 경로를 만듭니다. 그런 다음 Azure function을 사용 하 여 이러한 업데이트 메시지를 읽고 Azure Maps의 stateset 기능을 업데이트 합니다. 
+먼저 모든 쌍 업데이트 이벤트를 event grid 토픽으로 전달 하기 위해 Azure Digital Twins에서 경로를 만듭니다. 그런 다음 함수를 사용 하 여 이러한 업데이트 메시지를 읽고 Azure Maps에서 기능 stateset을 업데이트 합니다. 
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>경로 만들기 및 쌍 업데이트 알림을 위한 필터
 
@@ -70,7 +70,7 @@ Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-## <a name="create-an-azure-function-to-update-maps"></a>맵을 업데이트 하는 Azure function 만들기
+## <a name="create-a-function-to-update-maps"></a>맵을 업데이트 하는 함수 만들기
 
 종단 간 자습서에서 함수 앱 내에 Event Grid 트리거 함수를 만들려고 합니다 ([*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)). 이 함수는 이러한 알림의 압축을 풀고 Azure Maps 기능으로 업데이트를 전송 하 여 한 방에 대 한 온도를 업데이트 합니다. 
 

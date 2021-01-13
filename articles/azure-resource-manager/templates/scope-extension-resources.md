@@ -2,21 +2,24 @@
 title: 확장 리소스 형식에 대 한 범위
 description: 확장 리소스 유형을 배포할 때 scope 속성을 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: bd468d31454c38bd314269243702d7df4f279a5e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 01/13/2021
+ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681584"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179982"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>ARM 템플릿에서 확장 리소스의 범위 설정
 
-확장 리소스는 다른 리소스를 수정 하는 리소스입니다. 예를 들어 리소스에 역할을 할당 하 여 액세스를 제한할 수 있습니다. 역할 할당은 확장 리소스 형식입니다.
+확장 리소스는 다른 리소스를 수정 하는 리소스입니다. 예를 들어 리소스에 역할을 할당할 수 있습니다. 역할 할당은 확장 리소스 형식입니다.
 
 확장 리소스 형식에 대 한 전체 목록은 [다른 리소스의 기능을 확장 하는 리소스 종류](../management/extension-resource-types.md)를 참조 하세요.
 
 이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 배포할 때 확장 리소스 형식에 대 한 범위를 설정 하는 방법을 보여 줍니다. 리소스에 적용할 때 확장 리소스에 사용할 수 있는 scope 속성을 설명 합니다.
+
+> [!NOTE]
+> 범위 속성은 확장 리소스 형식에만 사용할 수 있습니다. 확장 형식이 아닌 리소스 종류에 대해 다른 범위를 지정 하려면 중첩 또는 연결 된 배포를 사용 합니다. 자세한 내용은 [리소스 그룹 배포](deploy-to-resource-group.md), [구독 배포](deploy-to-subscription.md), [관리 그룹 배포](deploy-to-management-group.md)및 [테 넌 트 배포](deploy-to-tenant.md)를 참조 하세요.
 
 ## <a name="apply-at-deployment-scope"></a>배포 범위에서 적용
 

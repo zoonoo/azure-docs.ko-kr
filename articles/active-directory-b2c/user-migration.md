@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: fea8d93121fcb5622f86257febcc7d834b444098
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509617"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178809"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>사용자를 Azure AD B2C으로 마이그레이션
 
@@ -97,7 +97,7 @@ ms.locfileid: "97509617"
 
 ### <a name="password-policy"></a>암호 정책
 
-마이그레이션하는 계정이 Azure AD B2C에 의해 적용 되는 [강력한 암호](../active-directory/authentication/concept-sspr-policy.md) 강도 보다 약한 암호 강도의 경우 강력한 암호 요구 사항을 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [암호 정책 속성](manage-user-accounts-graph-api.md#password-policy-property)을 참조 하세요.
+마이그레이션하는 계정이 Azure AD B2C에 의해 적용 되는 [강력한 암호](../active-directory/authentication/concept-sspr-policy.md) 강도 보다 약한 암호 강도의 경우 강력한 암호 요구 사항을 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [암호 정책 속성](user-profile-attributes.md#password-policy-attribute)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

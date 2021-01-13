@@ -13,21 +13,21 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07303a0b0b3007ade9adb90af7397855a5014cc0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056084"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179425"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>2단계 인증을 위한 앱 암호 관리
 
->[!Important]
->관리자가 사용자의 앱 암호 사용을 허용하지 않을 수 있습니다. **앱 암호**가 옵션으로 표시되지 않으면 조직에서 사용할 수 없는 것입니다.
+> [!Important]
+>관리자가 사용자의 앱 암호 사용을 허용하지 않을 수 있습니다. **앱 암호** 가 옵션으로 표시되지 않으면 조직에서 사용할 수 없는 것입니다.
 
 앱 암호를 사용하는 경우 다음 사항을 고려해야 합니다.
 
-- 앱 암호는 자동으로 생성되며, 앱당 한 번 만들어 입력해야 합니다.
+- 앱 암호는 자동으로 생성 되며 앱 당 한 번 생성 되 고 입력 되어야 합니다.
 
 - 사용자당 40개의 암호로 제한되어 있습니다. 해당 제한을 초과한 후 암호를 만들려고 하면 새 암호를 만들기 전에 기존 암호를 삭제할 것인지를 묻는 메시지가 표시됩니다.
 
@@ -52,31 +52,31 @@ ms.locfileid: "90056084"
 
 회사 또는 학교 계정에 대한 **추가 보안 인증** 페이지에서 앱 암호를 만들고 삭제할 수 있습니다.
 
-1. [추가 보안 인증 페이지](https://account.activedirectory.windowsazure.com/Proofup.aspx)에 로그인한 다음 **앱 암호**를 선택합니다.
+1. [추가 보안 인증 페이지](https://account.activedirectory.windowsazure.com/Proofup.aspx)에 로그인한 다음 **앱 암호** 를 선택합니다.
 
     ![앱 암호 탭이 강조 표시된 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
 
-2. **만들기**를 선택하여 앱 암호가 필요한 앱의 이름을 입력하고 **다음**을 선택합니다.
+2. **만들기** 를 선택하여 앱 암호가 필요한 앱의 이름을 입력하고 **다음** 을 선택합니다.
 
     ![암호가 필요한 앱의 이름이 있는 앱 암호 만들기 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
 
-3. **앱 암호 페이지**에서 암호를 복사한 다음 **닫기**를 선택합니다.
+3. **앱 암호 페이지** 에서 암호를 복사한 다음 **닫기** 를 선택합니다.
 
     ![지정한 앱에 대한 암호가 있는 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-4. **앱 암호** 페이지에서 앱이 나열되는지 확인합니다.
+4. **앱 암호** 페이지에서 앱이 나열 되는지 확인 합니다.
 
-     ![목록에 새 앱이 표시된 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![목록에 새 앱이 표시된 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
 5. 앱 암호를 만든 앱(예: Outlook 2010)을 열고 암호 입력 요청 시 앱 암호를 붙여넣습니다. 이 작업은 앱당 한 번만 수행하면 됩니다.
 
 ### <a name="to-delete-an-app-password-using-the-app-passwords-page"></a>앱 암호 페이지를 사용하여 앱 암호를 삭제하려면
 
-1. **앱 암호** 페이지에서 삭제할 앱 암호 옆에 있는 **삭제**를 선택합니다.
+1. **앱 암호** 페이지에서 삭제 하려는 앱 암호 옆에 있는 **삭제** 를 선택 합니다.
 
-   ![앱 암호 삭제](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![앱 암호 페이지에서 앱 암호를 삭제 하는 것을 보여 주는 스크린샷](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
-2. **예**를 선택하여 암호를 삭제할 것인지 확인한 다음, **닫기**를 선택합니다.
+2. **예** 를 선택하여 암호를 삭제할 것인지 확인한 다음, **닫기** 를 선택합니다.
 
     앱 암호가 성공적으로 삭제되었습니다.
 
@@ -86,35 +86,35 @@ ms.locfileid: "90056084"
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Office 365 포털을 사용하여 앱 암호를 삭제하려면
 
-1. 회사 또는 학교 계정에 로그인 하 고 [내 계정 페이지로](https://portal.office.com)이동한 다음 **보안 & 개인 정보**를 선택 하 고 **추가 보안 확인**을 확장 합니다.
+1. 회사 또는 학교 계정에 로그인 하 고 [내 계정 페이지로](https://myaccount.microsoft.com)이동한 다음 **보안 정보** 를 선택 합니다.
 
-    ![확장된 추가 보안 확인 영역을 보여 주는 Office 포털](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
+    ![보안 정보 탭을 표시 하는 Office 포털](media/multi-factor-authentication-end-user-app-passwords/mfa-security-info.png)
 
-2. **앱 암호 만들기 및 관리**라는 텍스트를 선택하여 **앱 암호** 페이지를 엽니다.
+2. **방법 추가** 를 선택 하 고 드롭다운 목록에서 **앱 암호** 를 선택한 다음 **추가** 를 클릭 합니다.
 
-    ![앱 암호 탭이 강조 표시된 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
+    ![Add a method drowpdown list를 사용 하는 보안 정보 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-add-method.png)
 
-3. **만들기**를 선택하여 앱 암호가 필요한 앱의 이름을 입력하고 **다음**을 선택합니다.
+3. 앱 암호의 이름을 입력 하 고 **다음** 을 선택 합니다.
 
-    ![암호가 필요한 앱의 이름이 있는 앱 암호 만들기 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
+    ![앱 암호의 이름을 사용 하 여 앱 암호 만들기 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-enter-app-password-name.png)
 
-4. **앱 암호 페이지**에서 암호를 복사한 다음 **닫기**를 선택합니다.
+4. **앱 암호** 페이지에서 암호를 복사 하 고 **완료** 를 선택 합니다.
 
-    ![지정한 앱에 대한 암호가 있는 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
+    ![만든 새 앱 암호를 사용 하는 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-copy-app-password.png)
 
-5. **앱 암호** 페이지에서 앱이 나열되는지 확인합니다.
+5. **보안 정보** 페이지에서 앱 암호가 나열 되는지 확인 합니다.
 
-     ![목록에 새 앱이 표시된 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![새 앱 암호가 목록에 표시 된 보안 정보 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-verify-app-password.png)  
 
-6. 앱 암호를 만든 앱(예: Outlook 2010)을 열고 암호 입력 요청 시 앱 암호를 붙여넣습니다. 이 작업은 앱당 한 번만 수행하면 됩니다.
+6. 앱 암호를 만든 앱 (예: Outlook 2016)을 열고 요청 시 앱 암호를 붙여넣습니다. 이 작업은 앱당 한 번만 수행하면 됩니다.
 
-### <a name="to-delete-app-passwords-using-the-app-passwords-page"></a>앱 암호 페이지를 사용하여 앱 암호를 삭제하려면
+### <a name="to-delete-app-passwords-using-the-security-info-page"></a>보안 정보 페이지를 사용 하 여 앱 암호를 삭제 하려면
 
-1. **앱 암호** 페이지에서 삭제할 앱 암호 옆에 있는 **삭제**를 선택합니다.
+1. **보안 정보** 페이지에서 삭제 하려는 앱 암호 옆에 있는 **삭제** 를 선택 합니다.
 
-   ![앱 암호 삭제](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![보안 정보 페이지에서 앱 암호를 삭제 하는 것을 보여 주는 스크린샷](media/multi-factor-authentication-end-user-app-passwords/mfa-delete-app-password.png)
 
-2. 확인 상자에서 **예**를 선택하고 **닫기**를 선택합니다.
+2. 확인 상자에서 **확인을** 선택 합니다.
 
     앱 암호가 성공적으로 삭제되었습니다.
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 01/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6abc3316e18fc70a2969bc220fd75e10e10f0e6e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ff3cd858de86d21637f4a7a9ab9d9a83c7022f5a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507781"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178877"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리
 
@@ -43,85 +43,6 @@ Microsoft Graph를 사용 하면 Microsoft Graph API에서 만들기, 읽기, �
 - [사용자 업데이트](/graph/api/user-update)
 - [사용자 삭제](/graph/api/user-delete)
 
-## <a name="user-properties"></a>사용자 속성
-
-### <a name="display-name-property"></a>표시 이름 속성
-
-는 `displayName` 사용자에 대 한 Azure Portal 사용자 관리에 표시 되는 이름이 며, 액세스 토큰 Azure AD B2C 응용 프로그램으로 돌아갑니다. 이 속성은 필수입니다.
-
-### <a name="identities-property"></a>Id 속성
-
-소비자, 파트너 또는 시민 일 수 있는 고객 계정은 다음과 같은 id 형식에 연결할 수 있습니다.
-
-- **로컬** id-사용자 이름 및 암호는 Azure AD B2C 디렉터리에 로컬로 저장 됩니다. 이러한 ID는 "로컬 계정"으로 참조하는 경우가 많습니다.
-- **페더레이션된** id- *소셜* 계정 또는 *엔터프라이즈* 계정이 라고도 하며, 사용자의 ID는 Facebook, Microsoft, ADFS 또는 Salesforce와 같은 페더레이션된 id 공급자를 통해 관리 됩니다.
-
-고객 계정을 가진 사용자는 여러 id를 사용 하 여 로그인 할 수 있습니다. 예: 사용자 이름, 전자 메일, 직원 ID, 정부 ID 및 기타. 단일 계정에는 동일한 암호를 사용 하 여 로컬 및 소셜의 id가 여러 개 있을 수 있습니다.
-
-Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [objectIdentity][graph-objectIdentity]형식의 user 특성에 저장 됩니다. `identities`컬렉션은 사용자 계정에 로그인 하는 데 사용 되는 id 집합을 나타냅니다. 이 컬렉션을 통해 사용자는 연결 된 id를 사용 하 여 사용자 계정에 로그인 할 수 있습니다.
-
-| 속성   | 유형 |설명|
-|:---------------|:--------|:----------|
-|signInType|문자열| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 계정:,,,,  `emailAddress` `emailAddress1` 또는 원하는 `emailAddress2` `emailAddress3`  `userName` 다른 모든 형식 소셜 계정은로 설정 되어야 합니다  `federated` .|
-|발급자|문자열|Id의 발급자를 지정 합니다. 로컬 계정 (여기서 **signInType** 가이 아닌 경우)의 경우 `federated` 이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름입니다 (예:) `contoso.onmicrosoft.com` . 소셜 id (여기서 **signInType** 는)의 경우  `federated` 값은 발급자의 이름입니다 (예:). `facebook.com`|
-|issuerAssignedId|문자열|발급자에 의해 사용자에 게 할당 된 고유 식별자를 지정 합니다. **발급자** 와 **issuerAssignedId** 의 조합은 테 넌 트 내에서 고유 해야 합니다. 로컬 계정의 경우 **signInType** 가 또는로 설정 되 `emailAddress` 면 `userName` 사용자의 로그인 이름을 나타냅니다.<br>**SignInType** 가로 설정 된 경우: <ul><li>`emailAddress` (또는 like로 `emailAddress` 시작 `emailAddress1` ) **issuerAssignedId** 는 유효한 전자 메일 주소 여야 합니다.</li><li>`userName`(또는 다른 값) **issuerAssignedId** 는 [전자 메일 주소의 유효한 로컬 부분](https://tools.ietf.org/html/rfc3696#section-3) 이어야 합니다.</li><li>`federated`, **issuerAssignedId** 는 페더레이션된 계정 고유 식별자를 나타냅니다.</li></ul>|
-
-로그인 이름이 있는 로컬 계정 id, 로그인으로 전자 메일 주소, 소셜 id를 사용 하는 다음 **id** 속성 
-
- ```json
- "identities": [
-     {
-       "signInType": "userName",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "johnsmith"
-     },
-     {
-       "signInType": "emailAddress",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "jsmith@yahoo.com"
-     },
-     {
-       "signInType": "federated",
-       "issuer": "facebook.com",
-       "issuerAssignedId": "5eecb0cd"
-     }
-   ]
- ```
-
-페더레이션 id의 경우 id 공급자에 따라 **issuerAssignedId** 는 응용 프로그램 또는 개발 계정 별로 지정 된 사용자에 대 한 고유한 값입니다. 이전에 소셜 공급자나 동일한 개발 계정 내의 다른 응용 프로그램에서 할당 한 것과 동일한 응용 프로그램 ID를 사용 하 여 Azure AD B2C 정책을 구성 합니다.
-
-### <a name="password-profile-property"></a>암호 프로필 속성
-
-로컬 id의 경우 **Passwordprofile** 속성이 필요 하며 사용자의 암호를 포함 합니다. `forceChangePasswordNextSignIn`속성은로 설정 해야 합니다 `false` .
-
-페더레이션된 (소셜) id의 경우 **Passwordprofile** 속성이 필요 하지 않습니다.
-
-```json
-"passwordProfile" : {
-    "password": "password-value",
-    "forceChangePasswordNextSignIn": false
-  }
-```
-
-### <a name="password-policy-property"></a>암호 정책 속성
-
-로컬 계정에 대 한 Azure AD B2C 암호 정책은 Azure Active Directory [강력한 암호 수준](../active-directory/authentication/concept-sspr-policy.md) 정책을 기반으로 합니다. Azure AD B2C 등록 또는 로그인 및 암호 재설정 정책에는 강력한 암호 강도가 필요 하며 암호는 만료 되지 않습니다.
-
-사용자 마이그레이션 시나리오에서 마이그레이션하려는 계정이 Azure AD B2C에 의해 적용 되는 [강력한 암호](../active-directory/authentication/concept-sspr-policy.md) 강도 보다 약한 암호 강도의 경우 강력한 암호 요구 사항을 사용 하지 않도록 설정할 수 있습니다. 기본 암호 정책을 변경하려면 `passwordPolicies` 속성을 `DisableStrongPassword`로 설정합니다. 예를 들어 다음과 같이 사용자 만들기 요청을 수정할 수 있습니다.
-
-```json
-"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
-```
-
-### <a name="extension-properties"></a>확장 속성
-
-모든 고객 지향 응용 프로그램에는 수집할 정보에 대 한 고유한 요구 사항이 있습니다. Azure AD B2C 테 넌 트에는 지정 된 이름, 성, 도시 및 우편 번호와 같은 속성에 저장 되는 기본 제공 정보 집합이 제공 됩니다. Azure AD B2C를 사용 하 여 각 고객 계정에 저장 된 속성 집합을 확장할 수 있습니다. 사용자 지정 특성을 정의 하는 방법에 대 한 자세한 내용은 [사용자 지정 특성](user-flow-custom-attributes.md)을 참조 하세요.
-
-Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_attributename` . 여기서는 응용 프로그램의 응용 프로그램 `ApplicationClientID` **(클라이언트) ID** 입니다 `b2c-extensions-app` (   >  Azure Portal의 **모든 응용** 프로그램 앱 등록에 있음). 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예:
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-```
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>코드 샘플: 프로그래밍 방식으로 사용자 계정을 관리 하는 방법
 
@@ -135,7 +56,7 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 코드 샘플을 가져온 후 사용자 환경에 맞게 구성한 다음 프로젝트를 빌드합니다.
 
 1. [Visual Studio](https://visualstudio.microsoft.com) 또는 [Visual Studio Code](https://code.visualstudio.com)에서 프로젝트를 엽니다.
-1. `src/appsettings.json`를 엽니다.
+1. `src/appsettings.json` 엽니다.
 1. 섹션에서 `appSettings` 을 `your-b2c-tenant` 테 넌 트의 이름으로 바꾸고,을 `Application (client) ID` `Client secret` 관리 응용 프로그램 등록 값으로 바꿉니다 (이 문서의 [관리 응용 프로그램 등록](#register-a-management-application) 섹션 참조).
 1. 리포지토리의 로컬 클론 내에서 콘솔 창을 열고 `src` 디렉터리로 전환한 다음 프로젝트를 빌드합니다.
     ```console

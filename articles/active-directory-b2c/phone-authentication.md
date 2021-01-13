@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8d41f8959d0a1ec0d6e48cf2fa4711a8ef8d8ae5
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953579"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178945"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Azure AD B2C에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
 
@@ -39,7 +39,7 @@ SMS 문자 메시지를 사용 하 여 사용자에 게 일회용 암호를 보�
 >
 > *&lt;삽입: 개인 정보 취급 방침에 대 한 링크&gt;*<br/>*&lt;삽입: 서비스 약관에 대 한 링크&gt;*
 
-사용자 고유의 동의 정보를 추가 하려면 다음 샘플을 사용자 지정 하 고 디스플레이 컨트롤 (전화 등록 & 로그인 시작 팩의 Phone-Email-Base.xml 파일)과 함께 자체 어설션된 페이지에서 사용 하는 ContentDefinition에 LocalizedResources에 포함 합니다.
+사용자 고유의 동의 정보를 추가 하려면 다음 샘플을 사용자 지정 하 고 디스플레이 컨트롤 ( [전화 등록 및 로그인 시작 팩][starter-pack-phone]의 *Phone_Email_Base.xml* 파일)과 함께 자체 어설션된 페이지에서 사용 하는 Contentdefinition에 대해 LocalizedResources에 포함 합니다.
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        
@@ -88,7 +88,7 @@ SMS 문자 메시지를 사용 하 여 사용자에 게 일회용 암호를 보�
 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 OTP를 설정 하기 전에 다음 리소스를 준비 해야 합니다.
 

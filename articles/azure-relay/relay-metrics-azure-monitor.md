@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Monitor를 사용 하 여 Azure Relay 상
 services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5fcc0f820983da388d808cadf8ce64a555e8ef0a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f39019dc092740c166798a7f85d5bdba686adbf4
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000184"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179965"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Azure Monitor Azure Relay 메트릭 
 Azure Relay 메트릭은 Azure 구독에서 리소스의 상태를 제공합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준뿐만 아니라 엔터티 수준에서 Relay 리소스의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Azure Relay의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. Azure 지원에 문의할 필요 없이 메트릭을 통해 근본 원인 문제를 해결할 수도 있습니다.
@@ -31,7 +31,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 !["모니터-메트릭 (미리 보기)" 이라는 페이지에는 지난 30 일 동안의 메모리 사용에 대 한 꺾은선형 그래프가 표시 됩니다.][1]
 
-네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭 **을 클릭합니다. 
+네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음, **Metrics** 을 클릭합니다. 
 
 차원을 지원하는 메트릭의 경우 원하는 차원 값을 사용하여 필터링해야 합니다.
 

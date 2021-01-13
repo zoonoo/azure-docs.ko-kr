@@ -2,13 +2,13 @@
 title: 리소스 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스를 배포 하는 방법을 설명 합니다. 둘 이상의 리소스 그룹을 대상으로 하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 8fe503cc95d71772c07427438b17e2ff0d4620a7
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807716"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178894"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 리소스 그룹 배포
 
@@ -85,7 +85,8 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 * 동일한 구독 또는 다른 구독에 있는 다른 리소스 그룹
 * 테 넌 트의 모든 구독
 * 리소스 그룹에 대 한 테 넌 트
-* 리소스에 [확장 리소스](scope-extension-resources.md) 를 적용할 수 있습니다.
+
+[확장 리소스](scope-extension-resources.md) 의 범위는 배포 대상과 다른 대상으로 지정할 수 있습니다.
 
 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
 

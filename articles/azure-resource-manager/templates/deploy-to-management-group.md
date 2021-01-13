@@ -2,13 +2,13 @@
 title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 79cdb35de40501dfc0794155dcf807cced94bfa7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: f847e481670d7f9afd4b40cfb8fcbec65d1e28c8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95798600"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178928"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 관리 그룹 배포
 
@@ -123,7 +123,8 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 * 관리 그룹의 구독
 * 관리 그룹의 리소스 그룹
 * 리소스 그룹에 대 한 테 넌 트
-* 리소스에 [확장 리소스](scope-extension-resources.md) 를 적용할 수 있습니다.
+
+[확장 리소스](scope-extension-resources.md) 의 범위는 배포 대상과 다른 대상으로 지정할 수 있습니다.
 
 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
 

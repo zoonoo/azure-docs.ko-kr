@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 60ae6eb3142f8898f760027d37881ded8261f571
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 3c0b466a7db688ed3e24441f652f6a1ef1a88ee1
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108095"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180084"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -155,7 +155,7 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 | 지정 된 연도에 대 한 개체의 내구성 비율 | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
 | 읽기 요청에 대 한 가용성 | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | GRS의 경우 최소 99.9%(쿨 액세스 계층에 대해 99%)<br /><br />RA-GRS의 경우 최소 99.99%(쿨 액세스 계층에 대해 99.9%) | GZRS의 경우 최소 99.9%(쿨 액세스 계층에 대해 99%)<br /><br />RA-GZRS의 경우 최소 99.99%(쿨 액세스 계층에 대해 99.9%) |
 | 쓰기 요청에 대 한 가용성 | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) |
-| 별도 노드에서 유지 관리되는 데이터 복사본 수입니다.                             | 3   | 3   | 6   | 6      |
+| 별도 노드에 여러 개의 데이터 사본이 유지됩니다. | 단일 지역 내에서 3 개의 복사본 | 단일 지역 내에서 별도의 가용성 영역에 있는 세 개의 복사본 | 주 지역에 3 개, 보조 지역에 3 개를 포함 하 여 총 6 개 복사본 | 주 지역의 개별 가용성 영역에서 3 개, 보조 지역에 있는 세 개의 로컬 중복 복사본을 포함 하 여 총 6 개 복사본 |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>중단 시나리오별 내구성 및 가용성
 

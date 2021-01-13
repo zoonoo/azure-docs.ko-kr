@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
-ms.openlocfilehash: e5a0069e02c5285a950d23abc0ec4bee6e9e467b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 361751107212d556aaee6886902d2798c014ff39
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968386"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180186"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -27,7 +27,7 @@ ms.locfileid: "94968386"
 
 Azure Disk Encryption은 BitLocker를 활용하여 Windows를 실행하는 Azure 가상 머신에서 전체 디스크 암호화를 제공합니다.  이 솔루션은 Azure Key Vault와 통합되어 키 자격 증명 모음 구독의 디스크 암호화 키와 비밀을 관리합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 필수 조건에 대 한 전체 목록은 [Windows vm에 대 한 Azure Disk Encryption](../windows/disk-encryption-overview.md), 특히 다음 섹션을 참조 하십시오.
 
@@ -140,7 +140,7 @@ V 2.2 스키마는 모든 새 Vm에 권장 되며 Azure Active Directory 속성�
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.Security | 문자열 |
@@ -149,7 +149,7 @@ V 2.2 스키마는 모든 새 Vm에 권장 되며 Azure Active Directory 속성�
 | (1.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (1.1 스키마) AADClientSecret | password | 문자열 |
 | (1.1 스키마) AADClientCertificate | thumbprint | 문자열 |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | 문자열 | 
+| EncryptionOperation | EnableEncryption | 문자열 | 
 | (옵션-기본 RSA-OAEP) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
 | KeyVaultURL | url | 문자열 |
 | KeyVaultResourceId | url | 문자열 |

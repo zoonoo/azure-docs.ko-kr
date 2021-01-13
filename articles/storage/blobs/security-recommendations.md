@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e3cfede444b65ee6990afd006d3b174d65f9cfad
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132480"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179166"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Blob Storage에 대한 보안 권장 사항
 
@@ -35,7 +35,7 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 | 컨테이너에 대해 일시 삭제 설정 | 컨테이너에 대해 일시 삭제를 사용 하면 컨테이너를 삭제 한 후 복구할 수 있습니다. 컨테이너의 일시 삭제에 대 한 자세한 내용은 [컨테이너의 일시 삭제 (미리 보기)](./soft-delete-container-overview.md)를 참조 하세요. | - |
 | 실수로 인 한 계정 삭제를 방지 하기 위해 저장소 계정 잠금 | 구독, 리소스 그룹 또는 저장소 계정과 같은 Azure Resource Manager 리소스를 잠가 조직의 다른 사용자가 실수로 삭제 하거나 수정 하지 못하도록 할 수 있습니다. 저장소 계정을 잠그면 해당 계정의 데이터가 삭제 되는 것을 방지할 수 없습니다. 계정 자체는 삭제 되지 않습니다. 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
 | 변경할 수 없는 blob에 비즈니스에 중요 한 데이터 저장 | Hyper-v에 blob 데이터를 저장 하는 법적 보류 및 시간 기반 보존 정책을 구성 합니다 (한 번 쓰기, 읽기 다) 상태. Blob 저장 된 immutably를 읽을 수는 있지만 보존 간격이 지속 되는 동안에는 수정 하거나 삭제할 수 없습니다. 자세한 내용은 변경할 수 없는 [저장소로 비즈니스에 중요 한 blob 데이터 저장](storage-blob-immutable-storage.md)을 참조 하세요. | - |
-| 저장소 계정에 대 한 보안 전송 (HTTPS) 필요 | ??? | - |
+| 저장소 계정에 대 한 보안 전송 (HTTPS) 필요 | 저장소 계정에 대 한 보안 전송이 필요한 경우 저장소 계정에 대 한 모든 요청은 HTTPS를 통해 이루어져야 합니다. HTTP를 통해 수행 된 모든 요청은 거부 됩니다. 모든 저장소 계정에 대해 항상 보안 전송이 필요한 것이 좋습니다. 자세한 내용은 보안 [연결을 보장 하려면 보안 전송 필요](../common/storage-require-secure-transfer.md)를 참조 하세요. | - |
 | SAS (공유 액세스 서명) 토큰을 HTTPS 연결로만 제한 | 클라이언트에서 SAS 토큰을 사용 하 여 blob 데이터에 액세스 하는 경우 도청의 위험을 최소화 하는 데 도움이 되는 HTTPS가 필요 합니다. 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조 하세요. | - |
 
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리

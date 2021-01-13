@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549092"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178979"
 ---
 # <a name="object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제
 
@@ -89,6 +89,16 @@ ms.locfileid: "96549092"
 하나 이상의 필터를 복제 규칙의 일부로 지정하여 접두사를 기준으로 블록 Blob을 필터링할 수도 있습니다. 접두사를 지정하면 원본 컨테이너에서 해당 접두사와 일치하는 Blob만 대상 컨테이너에 복사됩니다.
 
 원본 및 대상 컨테이너가 모두 있어야 규칙에서 지정할 수 있습니다. 복제 정책을 만든 후에 대상 컨테이너는 읽기 전용이 됩니다. 대상 컨테이너에 대한 쓰기 시도가 실패하고 오류 코드 409(충돌)가 발생합니다. 그러나 대상 컨테이너의 blob에 대 한 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출 하 여 보관 계층으로 이동할 수 있습니다. 보관 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md#archive-access-tier)을 참조 하세요.
+
+## <a name="replication-status"></a>복제 상태
+
+원본 계정에서 blob에 대 한 복제 상태를 확인할 수 있습니다. 자세한 내용은 [blob의 복제 상태 확인](object-replication-configure.md#check-the-replication-status-of-a-blob)을 참조 하세요.
+
+원본 계정의 blob에 대 한 복제 상태가 실패를 나타내는 경우 다음과 같은 가능한 원인을 조사 하십시오.
+
+- 대상 계정에 개체 복제 정책이 구성 되어 있는지 확인 합니다.
+- 대상 컨테이너가 여전히 존재 하는지 확인 합니다.
+- 원본 blob이 쓰기 작업의 일부로 고객이 제공한 키로 암호화 된 경우에는 개체 복제가 실패 합니다. 고객 제공 키에 대 한 자세한 내용은 [Blob 저장소에 대 한 요청에 암호화 키 제공](encryption-customer-provided-keys.md)을 참조 하세요.
 
 ## <a name="billing"></a>결제
 

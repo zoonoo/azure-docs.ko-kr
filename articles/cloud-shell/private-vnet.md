@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a820fb4ec5d6c2053b1104b68dbda0ae70f624c0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89468541"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179200"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Cloud Shell 배포
-> [!NOTE]
-> 이 기능은 공개 미리 보기로 제공 됩니다.
 
 일반 Cloud Shell 세션은 리소스와 별도로 Microsoft 네트워크의 컨테이너에서 실행 됩니다. 즉, 컨테이너 내에서 실행 되는 명령은 특정 가상 네트워크 에서만 액세스할 수 있는 리소스에 액세스할 수 없습니다. 예를 들어 SSH를 사용 하 여 Cloud Shell에서 개인 IP 주소만 있는 가상 머신에 연결 하거나, kubectl를 사용 하 여 액세스를 잠근 Kubernetes 클러스터에 연결할 수 없습니다. 
 
@@ -64,7 +62,7 @@ Cloud Shell에 사용 되는 Azure Relay 인스턴스는 컨테이너 리소스�
 ## <a name="virtual-network-deployment-limitations"></a>가상 네트워크 배포 제한 사항
 * 추가 네트워킹 리소스가 관련 되어 있으므로 가상 네트워크에서 Cloud Shell를 시작 하는 것은 일반적으로 표준 Cloud Shell 세션 보다 느립니다.
 
-* 미리 보기 중에는 가상 네트워크의 Cloud Shell에 대해 더 작은 지역이 지원 됩니다. 현재 WestUS 및 WestCentralUS로 제한 됩니다.
+* 중앙 인도와는 Cloud Shell 모든 지역이 현재 지원 됩니다. 
 
 * [Azure Relay](../azure-relay/relay-what-is-it.md) 무료 서비스가 아닙니다. [가격](https://azure.microsoft.com/pricing/details/service-bus/)을 확인 하세요. Cloud Shell 시나리오에서는 Cloud Shell를 사용 하는 동안 각 관리자에 대해 하나의 하이브리드 연결이 사용 됩니다. Cloud Shell 세션이 완료 된 후 연결이 자동으로 종료 됩니다.
 
@@ -88,7 +86,7 @@ ResourceTypes                             RegistrationState
 ### <a name="create-a-resource-group-and-virtual-network"></a>리소스 그룹 및 가상 네트워크 만들기
 연결 하려는 VNET이 이미 있는 경우이 섹션을 건너뜁니다.
 
-Azure Portal 또는 Azure CLI, Azure PowerShell 등을 사용 하 여 새 리소스 그룹에 리소스 그룹 및 가상 네트워크를 만들고 **리소스 그룹 및 가상 네트워크는 동일한 지역에**있어야 합니다.
+Azure Portal 또는 Azure CLI, Azure PowerShell 등을 사용 하 여 새 리소스 그룹에 리소스 그룹 및 가상 네트워크를 만들고 **리소스 그룹 및 가상 네트워크는 동일한 지역에** 있어야 합니다.
 
 > [!NOTE]
 > 공개 미리 보기 상태에서 리소스 그룹과 가상 네트워크는 WestCentralUS 또는 WestUS 중 하나에 있어야 합니다.

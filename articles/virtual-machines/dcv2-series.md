@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 1809194ce551fc828389cc31f5c7d6f28a2cddd6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1cbd4c92ec4c124cfd384f45a4cd6f47fdc60be6
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972376"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180169"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
 
@@ -25,7 +25,7 @@ DCsv2 시리즈는 퍼블릭 클라우드에서 처리되는 동안 데이터 �
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
-[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[VM 생성 지원](generation-2.md): 2 세대<br>
 
 *Standard_DC8_v2 제외
 

@@ -3,31 +3,33 @@ title: 앱 게시-LUIS
 titleSuffix: Azure Cognitive Services
 description: 활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 애플리케이션에 적용하세요.
 services: cognitive-services
+author: aahill
 manager: nitinme
+ms.author: aahi
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/12/2021
+ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541478"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180033"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
 
 활성 LUIS 앱 빌드, 학습 및 테스트를 마치면 클라이언트 응용 프로그램에서 끝점에 게시 하 여 사용할 수 있도록 설정 합니다.
 
 ## <a name="publishing"></a>게시
-1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스** 를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
-1. 엔드포인트에 게시하려면 맨 위 오른쪽 패널에서 **게시**를 선택하세요.
+1. 엔드포인트에 게시하려면 맨 위 오른쪽 패널에서 **게시** 를 선택하세요.
 
     ![오른쪽 위에 있는 게시 단추 탐색 모음](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
-1. 게시 된 예측 끝점에 대 한 설정을 선택 하 고 **게시**를 선택 합니다.
+1. 게시 된 예측 끝점에 대 한 설정을 선택 하 고 **게시** 를 선택 합니다.
 
     ![게시 설정을 선택 하 고 게시 단추를 선택 합니다.](./media/luis-how-to-publish-app/publish-pop-up.png)
 
@@ -42,9 +44,9 @@ ms.locfileid: "91541478"
 
 ### <a name="publishing-regions"></a>게시 지역
 
-앱은 **Manage**  ->  **[Azure 리소스](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** 관리 페이지에서 LUIS 포털에 추가 된 LUIS 예측 끝점 리소스와 연결 된 모든 지역에 게시 됩니다.
+앱은   ->  **[Azure 리소스](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** 관리 페이지에서 LUIS 포털에 추가 된 LUIS 예측 끝점 리소스와 연결 된 모든 지역에 게시 됩니다.
 
-예를 들어 [www.luis.ai](https://www.luis.ai)에서 만든 앱의 경우, **westus** 및 **에서는 EASTUS**의 두 지역에서 luis 리소스를 만들고 앱에 리소스로 추가 하는 경우 앱이 두 지역에 모두 게시 됩니다. LUIS 지역에 대한 자세한 내용은 [지역](luis-reference-regions.md)을 참조하세요.
+예를 들어 [www.luis.ai](https://www.luis.ai)에서 만든 앱의 경우, **westus** 및 **에서는 EASTUS** 의 두 지역에서 luis 리소스를 만들고 앱에 리소스로 추가 하는 경우 앱이 두 지역에 모두 게시 됩니다. LUIS 지역에 대한 자세한 내용은 [지역](luis-reference-regions.md)을 참조하세요.
 
 > [!TIP]
 > 작성 지역이 3 개 있습니다. 게시 하려는 지역에서 제작 해야 합니다. 모든 지역에 게시 해야 하는 경우 3 개 제작 지역 모두에서 제작 프로세스 및 결과 학습 된 모델을 관리 해야 합니다.
@@ -55,7 +57,7 @@ ms.locfileid: "91541478"
 슬롯을 선택 하 고 다음에 대 한 게시 설정을 구성 합니다.
 
 * 정서 분석
-* [맞춤법 수정](luis-tutorial-bing-spellcheck.md) -v2 예측 끝점만
+* [맞춤법 수정](luis-tutorial-bing-spellcheck.md)
 * 음성 초기화
 
 게시 한 후에는 **관리** 섹션의 **게시 설정** 페이지에서 이러한 설정을 검토할 수 있습니다. 모든 게시를 사용 하 여 설정을 변경할 수 있습니다. 게시를 취소 하면 게시 중에 적용 한 변경 내용도 취소 됩니다.
@@ -80,7 +82,32 @@ Text Analytics 키를 제공할 필요는 없으며, 이 서비스에 대한 비
 
 ## <a name="spelling-correction"></a>맞춤법 교정
 
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+이제 V3 예측 API는 Bing Spellcheck API를 지원 합니다. 요청 헤더에 Bing 검색 리소스에 대 한 키를 포함 하 여 응용 프로그램에 맞춤법 검사를 추가할 수 있습니다. 기존 Bing 리소스를 이미 소유 하 고 있는 경우이 리소스를 사용 하거나 새 Bing 리소스를 [만들어](https://portal.azure.com/#create/Microsoft.BingSearch) 이 기능을 사용할 수 있습니다. 
+
+|헤더 키|헤더 값|
+|--|--|
+|`mkt-bing-spell-check-key`|키 및 리소스의 **끝점** 블레이드에서 찾은 키|
+
+철자가 잘못 된 쿼리에 대 한 예측 출력 예제:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
 
 LUIS 사용자 utterance 예측 이전에 맞춤법을 수정 했습니다. 응답에서 맞춤법을 포함 하 여 원래 utterance의 변경 내용을 볼 수 있습니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 3ee9e165ce9c24968b072d19367e0285f5438259
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 5ce5f5cea5d689720455dd8d60f6fff4692a9d3d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938803"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179302"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -44,7 +44,7 @@ VNet을 다음에 사용합니다.
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>VNet 간 또는 VNet과 온-프레미스 데이터 센터 간에 WAN 최적화를 수행할 수 있습니까?
 예. Azure Marketplace를 통해 여러 공급업체에서 [WAN 최적화 네트워크 가상 어플라이언스](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization)를 배포할 수 있습니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>VNet을 만들려면 어떤 도구를 사용합니까?
 다음 도구를 사용하여 VNet을 만들거나 구성할 수 있습니다.
@@ -392,6 +392,9 @@ Azure 서비스 계정 삭제는 독립 작업 이며, 서비스 끝점이 네�
 
 ### <a name="does-the-service-endpoint-route-always-take-precedence"></a>서비스 끝점 경로가 항상 우선적으로 적용 되나요?
 서비스 끝점은 BGP 경로 보다 우선적으로 적용 되는 시스템 경로를 추가 하 고 서비스 끝점 트래픽에 대 한 최적의 라우팅을 제공 합니다. 서비스 엔드포인트는 가상 네트워크의 서비스 트래픽을 직접 Microsoft Azure 백본 네트워크의 서비스로 항상 이동합니다. Azure에서 경로를 선택 하는 방법에 대 한 자세한 내용은 [Azure 가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)을 참조 하세요.
+
+### <a name="do-service-endpoints-work-with-icmp"></a>서비스 끝점이 ICMP에서 작동 하나요?
+아니요, 서비스 끝점이 사용 하도록 설정 된 서브넷에서 소스인 ICMP 트래픽은 원하는 끝점에 대 한 서비스 터널 경로를 사용 하지 않습니다. 서비스 끝점은 TCP 트래픽만 처리 합니다. 즉, 서비스 끝점을 통해 끝점에 대 한 대기 시간 또는 연결을 테스트 하려는 경우 ping 및 tracert와 같은 도구는 서브넷 내의 리소스가 수행할 실제 경로를 표시 하지 않습니다.
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>서브넷의 NSG는 서비스 엔드포인트에서 어떻게 작동하나요?
 Azure 서비스에 연결하려면 NSG에서 아웃바운드 연결을 허용해야 합니다. NSG가 모든 인터넷 아웃바운드 트래픽에 대해 열려 있는 경우 서비스 엔드포인트 트래픽이 작동합니다. 서비스 태그만 사용하여 아웃바운드 트래픽을 서비스 IP로 제한할 수도 있습니다.  

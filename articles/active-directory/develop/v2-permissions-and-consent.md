@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 14b6d6ecc6523199102fd3ef9370fe901c4ff51d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d3edadd4878dbd6e06648f7fb67a0c3e111665d1
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355701"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178129"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -166,10 +166,11 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>응용 프로그램에 대해 정적으로 요청 된 사용 권한 목록을 구성 하려면
 
-1. [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 응용 프로그램으로 이동 하거나 앱을 [만듭니다](quickstart-register-app.md) (아직 없는 경우).
-2. **Api 권한** 섹션을 찾고 api 권한 내에서 사용 권한 추가를 클릭 합니다.
-3. 사용 가능한 Api 목록에서 **Microsoft Graph** 을 선택 하 고 앱에 필요한 사용 권한을 추가 합니다.
-3. 앱 등록을 **저장** 합니다.
+1. <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure Portal-앱 등록 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 빠른 시작 환경에서 응용 프로그램으로 이동 합니다.
+1. 응용 프로그램을 선택 하거나 [앱을 만듭니다](quickstart-register-app.md) (아직 없는 경우).
+1. 응용 프로그램의 **개요** 페이지에서 **관리** 아래에 있는 **API 권한**  >  **추가 권한 추가** 를 선택 합니다.
+1. 사용 가능한 Api 목록에서 **Microsoft Graph** 을 선택 하 고 앱에 필요한 사용 권한을 추가 합니다.
+1. **권한 추가** 를 선택 합니다.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>권장: 사용자를 앱에 로그인 합니다.
 
@@ -193,7 +194,7 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| 매개 변수        | 조건        | 설명                                                                                |
+| 매개 변수        | 조건        | Description                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 는 GUID 또는 친숙 한 이름 형식으로 제공 하거나 예에 표시 된 대로 조직에서 일반적으로 참조할 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
@@ -212,7 +213,7 @@ https://graph.microsoft.com/mail.send
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `tenant` | 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다. |
 | `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |

@@ -6,15 +6,15 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 09/11/2020
+ms.date: 01/11/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 544b22e3395cacf0cc2e7a21e4b86325a8f4d236
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: d8727bd747ef6d035cabbccf2ad42b80937a06a8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605261"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180203"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 배포하는 GitHub Actions 워크플로 설정
 
@@ -90,10 +90,10 @@ Azure 구독 및 GitHub 계정.
     name: CI
 
     on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
+        push:
+            branches: [ master ]
+        pull_request:
+            branches: [ master ]
     ```
 
 1. 워크플로 이름을 `Blob storage website CI`로 바꾸고, 체크 아웃 및 로그인 작업을 추가합니다. 이러한 작업은 사이트 코드를 체크 아웃하고 이전에 만든 `AZURE_CREDENTIALS` GitHub 비밀을 사용하여 Azure에서 인증합니다. 
@@ -102,10 +102,10 @@ Azure 구독 및 GitHub 계정.
     name: Blob storage website CI
 
     on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
+        push:
+            branches: [ master ]
+        pull_request:
+            branches: [ master ]
 
     jobs:
       build:
@@ -114,21 +114,21 @@ Azure 구독 및 GitHub 계정.
         - uses: actions/checkout@v2
         - uses: azure/login@v1
           with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+              creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
 1. Azure CLI 작업을 사용 하 여 blob 저장소에 코드를 업로드 하 고 CDN 끝점을 제거 합니다. 의 `az storage blob upload-batch` 경우 자리 표시자를 사용자의 저장소 계정 이름으로 바꿉니다. 스크립트가 컨테이너에 업로드 됩니다 `$web` . 의 경우 `az cdn endpoint purge` 자리 표시자를 cdn 프로필 이름, cdn 끝점 이름 및 리소스 그룹으로 바꿉니다.
 
     ```yaml
         - name: Upload to blob storage
-        uses: azure/CLI@v1
-        with:
+          uses: azure/CLI@v1
+          with:
             azcliversion: 2.0.72
             inlineScript: |
                 az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
         - name: Purge CDN endpoint
-        uses: azure/CLI@v1
-        with:
+          uses: azure/CLI@v1
+          with:
             azcliversion: 2.0.72
             inlineScript: |
             az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
@@ -137,36 +137,37 @@ Azure 구독 및 GitHub 계정.
 1. Azure에서 로그아웃하는 작업을 추가하여 워크플로를 완성합니다. 완성된 워크플로는 다음과 같습니다. 파일이 리포지토리의 `.github/workflows` 폴더에 표시됩니다.
 
     ```yaml
-   name: Blob storage website CI
+    name: Blob storage website CI
 
     on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
+        push:
+            branches: [ master ]
+        pull_request:
+            branches: [ master ]
 
     jobs:
-    build:
+      build:
         runs-on: ubuntu-latest
-        steps:
+        steps:            
         - uses: actions/checkout@v2
-        - name: Azure Login
-        uses: azure/login@v1
-        with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}    
-        - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
+        - uses: azure/login@v1
+          with:
+              creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+        - name: Upload to blob storage
+          uses: azure/CLI@v1
+          with:
             azcliversion: 2.0.72
             inlineScript: |
                 az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
-        - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
+        - name: Purge CDN endpoint
+          uses: azure/CLI@v1
+          with:
             azcliversion: 2.0.72
             inlineScript: |
             az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
-            # Azure logout 
+      
+      # Azure logout 
         - name: logout
           run: |
                 az logout
