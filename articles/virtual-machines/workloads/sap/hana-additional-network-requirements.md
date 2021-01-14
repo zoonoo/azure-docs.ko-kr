@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44e9712466734c0e42fd2bea05c5110cbff6924b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 308d30118349e020d3b407243f106d9ad8368118
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964799"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198988"
 ---
 # <a name="additional-network-requirements-for-large-instances"></a>대규모 인스턴스의 추가 네트워크 요구 사항
 
@@ -31,7 +31,7 @@ IP 주소 또는 서브넷을 추가할 때 Azure Portal, PowerShell 또는 Azur
 
 새 집계 범위를 생성하는 대신 새 IP 주소 범위를 가상 네트워크 주소 공간에 새 범위로 추가합니다. 이 변경 사항을 Microsoft에 제출합니다. 이렇게 하면 해당 새 IP 주소 범위에서 클라이언트의 HANA 대규모 인스턴스 단위로 연결할 수 있습니다. Azure 지원 요청을 열고 새 가상 네트워크 주소 공간이 추가되도록 할 수 있습니다. 확인을 받은 후에 다음 단계를 수행합니다.
 
-Azure Portal에서 추가 서브넷을 만들려면 [Azure Portal을 사용하여 가상 네트워크 만들기](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)를 참조하세요. PowerShell에서 서브넷을 하나 만들려면 [PowerShell을 사용하여 가상 네트워크 만들기](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)를 참조하세요.
+Azure Portal에서 추가 서브넷을 만들려면 [Azure Portal을 사용하여 가상 네트워크 만들기](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network)를 참조하세요. PowerShell에서 서브넷을 하나 만들려면 [PowerShell을 사용하여 가상 네트워크 만들기](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network)를 참조하세요.
 
 ## <a name="add-virtual-networks"></a>가상 네트워크 추가
 
@@ -51,11 +51,11 @@ Microsoft Service Management의 SAP HANA에 문의하세요. 추가 ExpressRoute
 
 가상 네트워크 서브넷을 제거하려면 Azure Portal, PowerShell 또는 Azure CLI를 사용할 수 있습니다. Azure Virtual Network IP 주소 범위 또는 주소 공간이 집계 범위인 경우 Microsoft의 후속 조치가 없습니다. 그러나 가상 네트워크는 삭제 된 서브넷을 포함 하는 BGP 경로 주소 공간을 계속 전파 하 고 있습니다. Azure 가상 네트워크 주소 범위 또는 주소 공간을 삭제 된 서브넷에 할당 한 여러 IP 주소 범위로 정의 했을 수 있습니다. 이러한 할당된 IP 주소 범위를 가상 네트워크 주소 공간에서 삭제해야 합니다. 그런 다음, Microsoft Service Management의 SAP HANA에 Azure(대규모 인스턴스)의 SAP HANA가 통신하도록 허용되는 범위에서 해당 주소 공간을 삭제할 것을 알립니다.
 
-자세한 내용은 [서브넷 삭제](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet)를 참조하세요.
+자세한 내용은 [서브넷 삭제](../../../virtual-network/virtual-network-manage-subnet.md#delete-a-subnet)를 참조하세요.
 
 ## <a name="delete-a-virtual-network"></a>가상 네트워크 삭제
 
-자세한 내용은 [가상 네트워크 삭제](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network)를 참조하세요.
+자세한 내용은 [가상 네트워크 삭제](../../../virtual-network/manage-virtual-network.md#delete-a-virtual-network)를 참조하세요.
 
 Microsoft Service Management의 SAP HANA는 Azure(대규모 인스턴스) ExpressRoute 회로의 SAP HANA에 대한 기존 권한을 제거합니다. 또한, HANA 대규모 인스턴스와의 통신을 위해 Azure Virtual Network IP 주소 범위 또는 주소 공간도 제거합니다.
 

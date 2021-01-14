@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1430b32c0e74be7a0e50fa4c5c183018b2b55e0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 81d44dae0fed45d4a4df76973c7e233fd71baff1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006305"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198971"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -129,7 +129,7 @@ Azure의 SAP HANA(대규모 인스턴스)에서는 Azure에서 수행되는 시�
 Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대규모 인스턴스에 연결할 때 다음 문서에 설명된 권장 사항을 따랐다고 가정합니다.
 
 - [Azure의 SAP HANA (Large Instance) 개요 및 아키텍처](./hana-overview-architecture.md)
-- [Azure에서 SAP HANA (대량 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure에서 SAP HANA (대량 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md)
 
 단일 단위의 네트워킹에 대해 알아야 할 몇 가지 세부 정보가 있습니다. 모든 HANA 대규모 인스턴스 단위에는 2개 또는 3개의 NIC 포트에 할당된 2개 또는 3개의 IP 주소가 포함되어 있습니다. HANA 확장 구성 및 HANA 시스템 복제 시나리오에는 3개의 IP 주소가 사용됩니다. 단위의 NIC에 할당된 IP 주소 중 하나가 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](./hana-overview-architecture.md)에 설명된 서버 IP 풀을 벗어납니다.
 
@@ -139,7 +139,7 @@ Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대
 
 Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권장 지침을 통해 Azure에서 SAP HANA에 의해 구성 됩니다 `service management` . 이 지침은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
 
-각기 다른 HANA 대규모 인스턴스 SKU가 포함된 다양한 볼륨의 대략적인 크기는 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 문서화되어 있습니다.
+각기 다른 HANA 대규모 인스턴스 SKU가 포함된 다양한 볼륨의 대략적인 크기는 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](hana-overview-architecture.md)에 문서화되어 있습니다.
 
 스토리지 볼륨에 대한 명명 규칙은 아래 테이블에 나열되어 있습니다.
 
@@ -161,7 +161,7 @@ HANA usr/sap는 동일한 볼륨을 공유합니다. 탑재 지점의 명명법�
 
 HANA 대규모 인스턴스 단위를 살펴보면 단위에서 HANA/data의 디스크 볼륨이 상당히 크고 HANA/log/backup 볼륨이 있다는 것을 발견합니다. HANA/data를 크게 만든 이유는 고객에게 제공되는 스토리지 스냅샷이 동일한 디스크 볼륨을 사용하기 때문입니다. 스토리지 스냅샷을 더 많이 수행할수록 할당된 스토리지 볼륨에서 더 많은 공간이 스냅샷에 사용됩니다. 
 
-HANA/log/backup 볼륨은 데이터베이스 백업용 볼륨으로 지원되지 않습니다. HANA 트랜잭션 로그 백업용 백업 볼륨으로 사용되도록 크기가 설정되었습니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
+HANA/log/backup 볼륨은 데이터베이스 백업용 볼륨으로 지원되지 않습니다. HANA 트랜잭션 로그 백업용 백업 볼륨으로 사용되도록 크기가 설정되었습니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)를 참조하세요. 
 
 제공된 스토리지 외에도 1TB 단위로 추가 스토리지 용량을 구입할 수 있습니다. 이 추가 스토리지는 HANA 대규모 인스턴스에 새 볼륨으로 추가할 수 있습니다.
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 8667fc3c5224b1f75a9beeb95b6e1261c768c14d
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 512b949fceda850e968a6f97b3788ae3a602f56d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347917"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199260"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -97,9 +97,19 @@ Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListBlobsWithSasAsync":::
 
+## <a name="get-a-user-delegation-sas-for-a-directory"></a>디렉터리에 대 한 사용자 위임 SAS 가져오기
+
+다음 코드 예제에서는 계층적 네임 스페이스를 사용 하는 경우 디렉터리에 대 한 사용자 위임 SAS를 생성 하는 방법을 보여 줍니다.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
+
+다음 예제에서는 시뮬레이트된 클라이언트 응용 프로그램에서 이전 예제에서 만든 사용자 위임 SAS를 테스트 합니다. SAS가 유효한 경우 클라이언트 응용 프로그램은이 디렉터리의 파일 경로를 나열할 수 있습니다. SAS가 유효 하지 않은 경우 (예: 만료 된 경우) Azure Storage 오류 코드 403 (사용할 수 없음)을 반환 합니다.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListFilePathsWithDirectorySasAsync":::
+
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)
 - [사용자 위임 키 가져오기 작업](/rest/api/storageservices/get-user-delegation-key)

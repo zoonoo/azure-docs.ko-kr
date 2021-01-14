@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: 38f231e63ad4974a23a1201aad4d290685860b50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d68ac7aa9927e62011c58b17139d7232ce4a10c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292162"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200756"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>가상 네트워크 인터페이스 카드 만들기 및 Azure에서 VM 이름 확인을 위해 내부 DNS 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "87292162"
 요구 사항은 다음과 같습니다.
 
 * [Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
-* [SSH 공용 및 프라이빗 키 파일](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [SSH 공용 및 프라이빗 키 파일](mac-create-ssh-keys.md)
 
 ## <a name="quick-commands"></a>빠른 명령
 태스크를 빠르게 완료해야 하는 경우 다음 섹션에서 필요한 명령에 대해 자세히 알아보세요. 각 단계에 대 한 자세한 내용 및 컨텍스트는 [여기에서 시작](#detailed-walkthrough)하 여 문서의 나머지 부분에서 찾을 수 있습니다. 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
@@ -71,7 +71,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-the-virtual-network"></a>가상 네트워크 만들기
 
-다음 단계는 VM을 시작할 가상 네트워크를 빌드하는 것입니다. 가상 네트워크는 이 연습을 위한 서브넷을 포함합니다. Azure Virtual Network에 대한 자세한 내용은 [가상 네트워크 만들기](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)를 참조하세요. 
+다음 단계는 VM을 시작할 가상 네트워크를 빌드하는 것입니다. 가상 네트워크는 이 연습을 위한 서브넷을 포함합니다. Azure Virtual Network에 대한 자세한 내용은 [가상 네트워크 만들기](../../virtual-network/manage-virtual-network.md#create-a-virtual-network)를 참조하세요. 
 
 [az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 `myVnet`이라는 가상 네트워크와 `mySubnet`이라는 서브넷을 만듭니다.
 
@@ -85,7 +85,7 @@ az network vnet create \
 ```
 
 ## <a name="create-the-network-security-group"></a>네트워크 보안 그룹 만들기
-Azure 네트워크 보안 그룹은 네트워크 계층에서 방화벽과 동일합니다. 네트워크 보안 그룹에 대한 자세한 내용은 [Azure CLI에서 NSG를 만드는 방법](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 
+Azure 네트워크 보안 그룹은 네트워크 계층에서 방화벽과 동일합니다. 네트워크 보안 그룹에 대한 자세한 내용은 [Azure CLI에서 NSG를 만드는 방법](../../virtual-network/tutorial-filter-network-traffic-cli.md)을 참조하세요. 
 
 [az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹을 만듭니다.
 
@@ -157,5 +157,5 @@ az vm create \
 기존 리소스를 호출하기 위해 CLI 플래그를 사용하여 Azure에서 기존 네트워크 내에 VM을 배포하도록 지시합니다. 다시 말해, VNet 및 서브넷이 배포되면 Azure 지역 내에서 정적 또는 영구적으로 리소스로 유지할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [템플릿을 사용 하 여 Azure에서 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](create-cli-complete.md)
+* [템플릿을 사용 하 여 Azure에서 Linux VM 만들기](create-ssh-secured-vm-from-template.md)

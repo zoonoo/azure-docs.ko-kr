@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f94147a09a6d9da75a0d04630822f1e6f738700a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328108"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200943"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>미리 보기: PowerShell을 사용 하 여 Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "91328108"
 > [!CAUTION]
 > Azure Image Builder는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공됩니다. 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -342,4 +342,4 @@ Remove-AzResourceGroup -Name $imageResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
+이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md)를 참조 하세요.

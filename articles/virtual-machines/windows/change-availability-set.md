@@ -6,12 +6,12 @@ author: cynthn
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 8c0694bd1dc2fefed644dc91a0d649dd1a480428
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 54f59a052132826897cfbc8dda59bc73fb6ad8d9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654543"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200569"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>VM에 대한 가용성 집합 변경
 다음 단계에서는 Azure PowerShell을 사용하여 VM의 가용성 집합을 변경하는 방법을 설명합니다. VM은 생성될 때만 가용성 집합에 추가될 수 있습니다. 가용성 집합을 변경하려면 가상 머신을 삭제한 다음, 다시 만들어야 합니다. 
@@ -106,4 +106,4 @@ ms.locfileid: "97654543"
 
 ## <a name="next-steps"></a>다음 단계
 
-[데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 더 추가하여 VM에 스토리지를 좀 더 추가합니다.
+[데이터 디스크](attach-managed-disk-portal.md)를 더 추가하여 VM에 스토리지를 좀 더 추가합니다.

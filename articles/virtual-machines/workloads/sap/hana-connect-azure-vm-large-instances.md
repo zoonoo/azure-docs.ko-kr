@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8f69f94c53227dc86fbbf9e9936a2fc3c97ec55
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: af248b4ee3ccd079d41317fdb1db3de82ad0f835
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967876"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199039"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Azure VM을 HANA 큰 인스턴스에 연결
 
@@ -41,7 +41,7 @@ Azure virtual network 쪽을 자세히 살펴보면 다음이 필요 합니다.
 >[!Note]
 >HANA 대규모 인스턴스에 대한 Azure Virtual Network는 Azure Resource Manager 배포 모델을 사용하여 만들어야 합니다. 일반적으로 클래식 배포 모델로 알려진 이전 Azure 배포 모델은 HANA 대규모 인스턴스 솔루션에 지원되지 않습니다.
 
-Azure Portal, PowerShell, Azure 템플릿 또는 Azure CLI를 사용하여 가상 네트워크를 만들 수 있습니다. 자세한 내용은 [Azure Portal를 사용 하 여 가상 네트워크 만들기](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)를 참조 하세요. 다음 예제에서는 Azure Portal을 사용하여 만든 가상 네트워크를 살펴봅니다.
+Azure Portal, PowerShell, Azure 템플릿 또는 Azure CLI를 사용하여 가상 네트워크를 만들 수 있습니다. 자세한 내용은 [Azure Portal를 사용 하 여 가상 네트워크 만들기](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network)를 참조 하세요. 다음 예제에서는 Azure Portal을 사용하여 만든 가상 네트워크를 살펴봅니다.
 
 이 설명서의 **주소 공간** 을 참조 하는 경우 Azure 가상 네트워크에서 사용할 수 있는 주소 공간을 참조 하세요. 이 주소 공간은 가상 네트워크에서 BGP 경로 전파에 사용할 주소 범위이기도 합니다. 이 **주소 공간은** 여기에서 볼 수 있습니다.
 

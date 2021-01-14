@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 80bcac36271d86334e11cb3cd161cd96777e6fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f242de3bfa6a2bc95dc46b4ca5c10222b755a2f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832453"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200926"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Windows VM에서 원격 데스크톱 서비스 또는 해당 관리자 암호 다시 설정
 Windows VM(가상 머신)에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정하거나 원격 데스크톱 서비스 구성을 다시 설정할 수 있습니다(Windows 도메인 컨트롤러에서는 지원되지 않음). 암호를 다시 설정하려면 Azure Portal이나 Azure PowerShell의 VM 액세스 확장을 사용합니다. VM에 로그인한 후 해당 로컬 관리자의 암호를 다시 설정합니다.  
@@ -33,13 +33,13 @@ PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성
 
 ## <a name="reset-by-using-the-azure-portal"></a>Azure Portal을 사용하여 다시 설정
 
-먼저 [Azure Portal](https://portal.azure.com)에 로그인하고 왼쪽 메뉴에서 **가상 머신**을 클릭합니다. 
+먼저 [Azure Portal](https://portal.azure.com)에 로그인하고 왼쪽 메뉴에서 **가상 머신** 을 클릭합니다. 
 
 ### <a name="reset-the-local-administrator-account-password"></a>**로컬 관리자 계정 암호를 다시 설정**
 
-1. Windows VM을 선택한 다음, **지원 + 문제 해결** 아래에서 **암호 다시 설정**을 선택합니다. **암호 다시 설정** 창이 표시됩니다.
+1. Windows VM을 선택한 다음, **지원 + 문제 해결** 아래에서 **암호 다시 설정** 을 선택합니다. **암호 다시 설정** 창이 표시됩니다.
 
-2. **암호 다시 설정**을 선택하고 사용자 이름 및 암호를 입력한 다음, **업데이트**를 선택합니다. 
+2. **암호 다시 설정** 을 선택하고 사용자 이름 및 암호를 입력한 다음, **업데이트** 를 선택합니다. 
 
 3. VM에 연결을 다시 시도하세요.
 
@@ -47,9 +47,9 @@ PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성
 
 이 프로세스는 VM에서 원격 데스크톱 서비스를 사용 하도록 설정 하 고 기본 RDP 포트 3389에 대 한 방화벽 규칙을 만듭니다.
 
-1. Windows VM을 선택한 다음, **지원 + 문제 해결** 아래에서 **암호 다시 설정**을 선택합니다. **암호 다시 설정** 창이 표시됩니다. 
+1. Windows VM을 선택한 다음, **지원 + 문제 해결** 아래에서 **암호 다시 설정** 을 선택합니다. **암호 다시 설정** 창이 표시됩니다. 
 
-2. **구성만 다시 설정**, **업데이트**를 차례로 선택합니다. 
+2. **구성만 다시 설정**, **업데이트** 를 차례로 선택합니다. 
 
 3. VM에 연결을 다시 시도하세요.
 
@@ -86,14 +86,14 @@ PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성
     > [!TIP]
     > 언제든지 VM은 단일 VM 액세스 에이전트를 하나만 사용할 수 있습니다. VM 액세스 에이전트 속성을 설정하려면 `-ForceRerun` 옵션을 사용합니다. `-ForceRerun`을 사용하는 경우 이전 명령에서 사용한 동일한 이름을 VM 액세스 에이전트에 사용해야 합니다.
 
-1. 여전히 가상 머신에 원격으로 연결할 수 없으면 [Windows 기반 Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. Windows 도메인 컨트롤러에 대한 연결이 끊어지면 도메인 컨트롤러 백업에서 복원해야 합니다.
+1. 여전히 가상 머신에 원격으로 연결할 수 없으면 [Windows 기반 Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)을 참조하세요. Windows 도메인 컨트롤러에 대한 연결이 끊어지면 도메인 컨트롤러 백업에서 복원해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure VM 액세스 확장이 응답하지 않고 암호를 다시 설정할 수 없는 경우 [오프라인으로 로컬 Windows 암호를 다시 설정](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수 있습니다. 이는 좀 더 고급스러운 방법이며, 문제가 있는 VM의 가상 하드 디스크를 다른 VM에 연결해야 합니다. 먼저 이 문서에 설명된 단계를 수행하고, 이 단계로 해결되지 않으면 오프라인 암호 다시 설정 방법을 시도합니다.
+- Azure VM 액세스 확장이 응답하지 않고 암호를 다시 설정할 수 없는 경우 [오프라인으로 로컬 Windows 암호를 다시 설정](reset-local-password-without-agent.md)할 수 있습니다. 이는 좀 더 고급스러운 방법이며, 문제가 있는 VM의 가상 하드 디스크를 다른 VM에 연결해야 합니다. 먼저 이 문서에 설명된 단계를 수행하고, 이 단계로 해결되지 않으면 오프라인 암호 다시 설정 방법을 시도합니다.
 
-- [AZURE VM 확장 및 기능에 대해 알아봅니다](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [AZURE VM 확장 및 기능에 대해 알아봅니다](../extensions/features-windows.md).
 
 - [RDP 또는 SSH를 사용 하 여 Azure 가상 머신에 연결](/previous-versions/azure/dn535788(v=azure.100))합니다.
 
-- [Windows 기반 Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Windows 기반 Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)

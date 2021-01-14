@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074305"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200722"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>Windows 업데이트를 적용 하는 동안 "C01A001D" 오류가 발생 하 여 VM이 응답 하지 않습니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "87074305"
 
 디스크가 아직 1Tb가 아니면 크기를 조정 해야 합니다. 디스크가 1tb 이면 디스크 정리 및 드라이브 조각 모음을 수행 합니다.
 
-1. 디스크가 꽉 찼는지 확인합니다. 디스크가 1tb 미만이 면 [PowerShell을 사용 하 여 최대 1tb까지 확장](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)합니다.
+1. 디스크가 꽉 찼는지 확인합니다. 디스크가 1tb 미만이 면 [PowerShell을 사용 하 여 최대 1tb까지 확장](../windows/expand-os-disk.md)합니다.
 2. 디스크가 1tb 이면 디스크 정리를 수행 합니다.
     - [손상 된 VM에서 데이터 디스크를 분리](../windows/detach-disk.md)합니다.
     - [작동 하는 VM에 데이터 디스크를 연결](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm)합니다.

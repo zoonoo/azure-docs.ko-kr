@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/13/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b84256188cf5df3ddf389f763e669a2b2ca00852
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e2f0d62ae6882229cee3ee32e3b362f2b6593da7
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183339"
+ms.locfileid: "98199238"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -52,9 +52,11 @@ driveletter:\에 액세스할 수 없습니다.
 <a id="server-registration-missing-subscriptions"></a>**서버 등록에 모든 Azure 구독이 나열되지 않음**  
 ServerRegistration.exe를 사용하여 서버를 등록하는 경우 Azure 구독 드롭다운을 클릭하면 구독이 누락됩니다.
 
-이 문제는 현재 ServerRegistration.exe에서 다중 테넌트 환경을 지원하지 않기 때문에 발생합니다. 향후 Azure 파일 동기화 에이전트 업데이트에서 이 문제를 수정할 예정입니다.
+이 문제는 ServerRegistration.exe가 처음 5 개의 Azure AD 테 넌 트 에서만 구독을 검색 하기 때문에 발생 합니다. 
 
-이 문제를 해결하려면 다음 PowerShell 명령을 사용하여 서버를 등록합니다.
+서버에 대 한 서버 등록 테 넌 트 제한을 늘리려면 5 보다 큰 값으로 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync에서 ServerRegistrationTenantLimit 라는 DWORD 값을 만듭니다.
+
+다음 PowerShell 명령을 사용 하 여 서버를 등록 하면이 문제를 해결할 수도 있습니다.
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"

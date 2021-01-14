@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 36be61fd65db7ea02a3baec4b519a13231c420ec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d183edbe82d59b9d0c1ebe075dd2639137d5081c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514444"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200875"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Virtual Network에 대 한 Azure 보안 기준
 
@@ -306,7 +306,7 @@ Microsoft 서비스 및 Azure Resource Manager에 대 한 Azure AD Privileged Id
 
 **지침**: MFA (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure 네트워크 리소스에 로그인 하 고 액세스 하도록 구성 된 PAW (권한 Multi-Factor Authentication 있는 액세스 워크스테이션)를 사용 합니다.
 
-- [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations) 
+- [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -344,7 +344,7 @@ Security Center 위험 검색 경고를 Azure Monitor에 수집 하 고 작업 �
 
 **지침**: 서비스에 대 한 중앙 인증 및 권한 부여 시스템으로 Azure Active Directory (Azure AD)를 사용 합니다. Azure AD는 미사용 데이터 및 전송 중인 데이터에 대해 강력한 암호화를 사용 하 여 데이터를 보호 하 고 사용자 자격 증명을 salts, 해시 및 안전 하 게 저장 합니다.  
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -812,9 +812,9 @@ Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 �
 
 **지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

@@ -1,18 +1,18 @@
 ---
-title: Azure Blob Storage 데이터에 대 한 민감도 레이블 보고
-description: 이 방법 가이드에서는 Azure Blob Storage 데이터에 대 한 부서의 범위 민감도 레이블 보고를 보고 사용 하는 방법을 설명 합니다.
+title: 부서의 범위 Insights를 사용 하 여 Azure 부서의 범위에서 데이터에 대 한 민감도 레이블 보고
+description: 이 방법 가이드에서는 데이터에 대 한 부서의 범위 민감도 레이블 보고를 보고 사용 하는 방법을 설명 합니다.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746185"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199379"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 민감도 레이블 정보
 
@@ -27,7 +27,12 @@ ms.locfileid: "96746185"
 > - 데이터에 대 한 민감도 레이블 지정 정보 보기
 > - 데이터에 대 한 더 많은 민감도 레이블 지정 정보를 드릴 다운 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> 부서의 범위에서 검사 하는 [Power BI 자산](register-scan-power-bi-tenant.md) 에 있는 민감도 레이블은 현재 민감도 레이블 지정 정보 보고서에 표시 되지 않습니다. 
+>
+> Power BI 자산의 민감도 레이블을 보려면 [부서의 범위 Data Catalog](how-to-search-catalog.md)에서 자산을 확인 하세요.
+> 
+## <a name="prerequisites"></a>필수 조건
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
@@ -37,6 +42,8 @@ ms.locfileid: "96746185"
 
 - 각 데이터 원본의 테스트 데이터에 대 한 검색 설정 및 완료
 
+- [데이터 판독기 또는 데이터 큐레이터 역할이](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles)있는 계정을 사용 하 여 부서의 범위에 로그인 했습니다.
+
 자세한 내용은 [Azure 부서의 범위에서 데이터 원본 관리 (미리 보기)](manage-data-sources.md) 및 [azure 부서의 범위에서 데이터에 자동으로 레이블](create-sensitivity-label.md)표시를 참조 하세요.
 
 ## <a name="use-purview-sensitivity-labeling-insights"></a>부서의 범위 민감도 레이블 지정 정보 사용
@@ -45,9 +52,11 @@ ms.locfileid: "96746185"
 
 민감도 레이블을 사용 하면 조직에서 중요 한 특정 데이터의 상태를 확인할 수 있습니다. 예를 들어 조직 내에서 특정 프로젝트 이름에 대 한 기밀을 유지 하는 반면 동일한 용어는 다른 조직에 대 한 기밀은 아닙니다. 
 
-분류는 직접 일치 하는 반면 (주민 등록 번호는 **주민 등록 번호** 를 포함 함), 민감도 레이블은 하나 이상의 분류와 시나리오가 함께 발견 될 때 적용 됩니다. 
+분류는 **주민 등록** 번호를 분류 하는 주민 등록 번호와 같이 직접 일치 합니다. 
 
-부서의 범위는 Microsoft 365 같이 중요 한 정보 형식이 라고도 하는 동일한 분류를 사용 합니다. 이렇게 하면 Azure 부서의 범위 자산에서 기존 민감도 레이블을 확장할 수 있습니다.
+이와 달리 민감도 레이블은 하나 이상의 분류 및 조건을 함께 발견할 경우 적용 됩니다. 이 컨텍스트에서 [조건은](/microsoft-365/compliance/apply-sensitivity-label-automatically) **다른 분류에 근접** 한 경우와 같이 비구조적 데이터에 대해 정의할 수 있는 모든 매개 변수를 **나타냅니다.** 
+
+부서의 범위는 Microsoft 365 같이 [중요 한 정보 형식이](/microsoft-365/compliance/sensitive-information-type-entity-definitions)라고도 하는 동일한 분류를 사용 합니다. 이렇게 하면 Azure 부서의 범위 자산에서 기존 민감도 레이블을 확장할 수 있습니다.
 
 > [!NOTE]
 > 원본 유형을 검사 한 후에는 새 자산을 반영 하는 두 시간으로 **민감도 레이블** 지정 정보를 제공 합니다.
@@ -69,7 +78,7 @@ ms.locfileid: "96746185"
 
    주요 **민감도 레이블 정보** 페이지에는 다음과 같은 영역이 표시 됩니다.
 
-   |영역  |설명  |
+   |영역  |Description  |
    |---------|---------|
    |**민감도 레이블이 있는 원본 개요**     |다음을 제공 하는 타일을 표시 합니다. <br>-데이터에서 발견 된 구독 수입니다. <br>-데이터에 적용 된 고유 민감도 레이블 수 <br>-민감도 레이블이 적용 된 원본 수 <br>-민감도 레이블이 적용 된 파일 및 테이블의 수|
    |**레이블이 지정 된 데이터를 포함 하는 상위 원본 (지난 30 일)**     | 민감도 레이블이 적용 된 원본 수의 지난 30 일 동안의 추세를 보여 줍니다.       |
@@ -94,7 +103,7 @@ ms.locfileid: "96746185"
 
 자세한 내용을 보려면 다음 중 하나를 수행 합니다.
 
-|옵션  |설명  |
+|옵션  |Description  |
 |---------|---------|
 |**데이터 필터링**     |  레이블 이름, 구독 이름 또는 원본 유형을 포함 하 여 표시 되는 데이터를 필터링 하려면 표 위의 필터를 사용 합니다. <br><br>정확한 레이블 이름을 잘 모르는 경우 **키워드로 필터링** 상자에 이름의 일부 또는 전체를 입력할 수 있습니다.       |
 |**표 정렬** |해당 열을 기준으로 표를 정렬 하려면 열 머리글을 선택 합니다. | 

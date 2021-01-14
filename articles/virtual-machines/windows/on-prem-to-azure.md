@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32cbfbcc8feeff66101ab5e2c95f476a4a4215e9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 55f7c68df1e339f0f9eda809bbb0acbb2e9131b5
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973906"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200892"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS(Amazon Web Services) 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
 
@@ -26,7 +26,7 @@ AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업
 - **특수한 VHD** - 사용자 계정, 애플리케이션 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 
 
 > [!IMPORTANT]
-> Azure에 VHD를 업로드 하기 전에 [azure에 업로드할 WINDOWS vhd 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 수행 해야 합니다.
+> Azure에 VHD를 업로드 하기 전에 [azure에 업로드할 WINDOWS vhd 또는 VHDX 준비](prepare-for-upload-vhd-image.md) 를 수행 해야 합니다.
 >
 >
 
@@ -64,20 +64,20 @@ Premium Storage와 작동하는 가상 머신의 성능 특징을 검토하고 �
 
 VM에서 사용할 수 있는 프리미엄 관리 디스크에는 7가지 형식이 있으며 각 형식에는 특정 IOP 및 처리량 한도가 있습니다. 용량, 성능, 확장성 및 최대 로드 측면에서 애플리케이션의 필요에 따라 VM에 대한 프리미엄 디스크 유형을 선택할 때 이 제한을 고려해야 합니다.
 
-| 프리미엄 디스크 유형  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+| 프리미엄 디스크 유형  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| 디스크 크기           | 32GB| 64GB| 128GB| 256GB|512 GB | 1,024GB(1TB)    | 2,048GB(2TB)    | 4,095GB(4TB)    | 
-| 디스크당 IOPS       | 120   | 240   | 500   | 1100  |2300              | 5,000              | 7,500              | 7,500              | 
-| 디스크당 처리량 | 초당 25MB  | 초당 50MB  | 초당 100MB | 초당 125MB |초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB |
+| 디스크 크기           | 32GB| 64GB| 128GB| 256GB|512 GB | 1,024GB(1TB)    | 2,048GB(2TB)    | 4,095GB(4TB)    | 
+| 디스크당 IOPS       | 120   | 240   | 500   | 1100  |2300              | 5,000              | 7,500              | 7,500              | 
+| 디스크당 처리량 | 초당 25MB  | 초당 50MB  | 초당 100MB | 초당 125MB |초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB |
 
 **표준 Managed Disks**
 
 VM에서 사용할 수 있는 표준 관리 디스크에는 7가지 형식이 있습니다. 각각은 용량이 다르지만 동일한 IOPS 및 처리량이 제한됩니다. 애플리케이션의 용량 요구 사항에 따라 표준 Managed Disks의 종류를 선택합니다.
 
-| 표준 디스크 유형  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+| 표준 디스크 유형  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| 디스크 크기           | 30GB            | 64GB            | 128GB           | 256GB           |512 GB           | 1,024GB(1TB)   | 2,048GB(2TB)    | 4,095GB(4TB)   | 
-| 디스크당 IOPS       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| 디스크 크기           | 30GB            | 64GB            | 128GB           | 256GB           |512 GB           | 1,024GB(1TB)   | 2,048GB(2TB)    | 4,095GB(4TB)   | 
+| 디스크당 IOPS       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | 디스크당 처리량 | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second |60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 
 
 ### <a name="disk-caching-policy"></a>디스크 캐싱 정책 
@@ -93,4 +93,4 @@ VM에서 사용할 수 있는 표준 관리 디스크에는 7가지 형식이 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure에 VHD를 업로드 하기 전에 [azure에 업로드할 WINDOWS vhd 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 수행 해야 합니다.
+- Azure에 VHD를 업로드 하기 전에 [azure에 업로드할 WINDOWS vhd 또는 VHDX 준비](prepare-for-upload-vhd-image.md) 를 수행 해야 합니다.

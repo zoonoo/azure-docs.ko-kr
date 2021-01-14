@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e07e9035dc55f77a2e76b4f4ee306deab829980a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1626ee074d51048dbf45c629f261a550822d746c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182753"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200841"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
@@ -402,7 +402,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: 프로덕션 환경에서 Azure Automation 계정 리소스에 로그인 하 고 구성 하도록 구성 된 multi-factor authentication과 함께 paw를 사용 합니다.
 
-* [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -556,7 +556,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 * [Azure를 사용 하 여 전송 중인 암호화 이해](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Azure Automation TLS 1.2 적용](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
+* [Azure Automation TLS 1.2 적용](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1280,11 +1280,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
-**지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft 관리형 클라우드 인프라, 서비스 및 애플리케이션에 대한 Microsoft의 전략과 Red Teaming 및 라이브 사이트 침투 테스트의 실행을 사용합니다.
+**지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft의 전략과 Microsoft에서 관리하는 클라우드 인프라, 서비스, 애플리케이션에 대한 레드 팀 실행 및 실시간 사이트 침투 테스트를 사용합니다.
 
 * [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

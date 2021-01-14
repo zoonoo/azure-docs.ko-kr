@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: e3a48fa9f84a047a08e73bbaa239563dca541541
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 71e0f2e87fc71deef0bdc4dd48425cdc9dd99dc8
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978368"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200773"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Azure CLI를 사용 하 여 스폿 Vm 배포
 
@@ -28,7 +28,7 @@ Azure CLI를 사용 하 여 VM을 만드는 프로세스는 [빠른 시작 문�
 
 ## <a name="install-azure-cli"></a>Azure CLI 설치
 
-스폿 Vm을 만들려면 Azure CLI 버전 2.0.74 이상을 실행 해야 합니다. 버전을 찾으려면 **az --version**을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+스폿 Vm을 만들려면 Azure CLI 버전 2.0.74 이상을 실행 해야 합니다. 버전을 찾으려면 **az --version** 을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
 
@@ -85,4 +85,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 [Azure 소매 가격 API](/rest/api/cost-management/retail-prices/azure-retail-prices) 를 사용 하 여 현재 가격 정보를 쿼리하여 스폿 가격 책정에 대 한 정보를 파악 하세요. 및에는 `meterName` `skuName` 둘 다 포함 됩니다 `Spot` .
 
-오류가 발생 하는 경우 [오류 코드](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조 하세요.
+오류가 발생 하는 경우 [오류 코드](../error-codes-spot.md)를 참조 하세요.

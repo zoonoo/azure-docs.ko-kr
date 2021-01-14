@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 038d19270fbdb672d397eb2bd56bd27e17ea7af9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f407f9ee2ea0ca73b29e4fde9d542c005f78a929
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929092"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200450"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure 앱 구성 모범 사례
 
@@ -41,7 +41,7 @@ ms.locfileid: "96929092"
 
 앱 구성은이를 사용 하 여 저장 된 모든 키를 독립적인 엔터티로 처리 합니다. 앱 구성은 키 간의 관계를 유추 하거나 해당 계층 구조를 기반으로 키 값을 상속 하지 않습니다. 그러나 응용 프로그램 코드에서 적절 한 구성 스태킹와 결합 된 레이블을 사용 하 여 여러 키 집합을 집계할 수 있습니다.
 
-예를 살펴보겠습니다. **Asset1** 라는 설정이 있는 경우 해당 값은 개발 환경에 따라 달라질 수 있습니다. 빈 레이블과 "Development" 라는 레이블이 있는 "Asset1" 라는 키를 만듭니다. 첫 번째 레이블에서 **Asset1** 의 기본값을 입력 하 고, 후자에 "Development"에 대 한 특정 값을 입력 합니다.
+예제를 살펴보겠습니다. **Asset1** 라는 설정이 있는 경우 해당 값은 개발 환경에 따라 달라질 수 있습니다. 빈 레이블과 "Development" 라는 레이블이 있는 "Asset1" 라는 키를 만듭니다. 첫 번째 레이블에서 **Asset1** 의 기본값을 입력 하 고, 후자에 "Development"에 대 한 특정 값을 입력 합니다.
 
 코드에서 먼저 레이블 없이 키 값을 검색 한 다음 "개발" 레이블을 사용 하 여 동일한 키 값 집합을 두 번 검색 합니다. 값을 두 번째로 검색할 때 키의 이전 값을 덮어씁니다. .NET Core 구성 시스템을 사용 하면 여러 구성 데이터 집합을 서로 "스택" 할 수 있습니다. 하나 이상의 집합에 키가 있는 경우 해당 키를 포함 하는 마지막 집합이 사용 됩니다. .NET Core와 같은 최신 프로그래밍 프레임 워크를 사용 하면 네이티브 구성 공급자를 사용 하 여 앱 구성에 액세스 하는 경우이 스택 기능을 무료로 이용할 수 있습니다. 다음 코드 조각에서는 .NET Core 응용 프로그램에서 스태킹를 구현할 수 있는 방법을 보여 줍니다.
 
@@ -89,6 +89,10 @@ configBuilder.AddAzureAppConfiguration(options => {
 ## <a name="multi-region-deployment-in-app-configuration"></a>앱 구성에서 다중 지역 배포
 
 앱 구성은 지역 서비스입니다. 지역별 구성이 서로 다른 응용 프로그램의 경우 이러한 구성을 한 인스턴스에 저장 하면 단일 실패 지점이 발생할 수 있습니다. 여러 지역에 지역 당 하나의 앱 구성 인스턴스를 배포 하는 것이 더 나은 옵션 일 수 있습니다. 지역 재해 복구, 성능 및 보안 siloing에 도움이 될 수 있습니다. 또한 지역별로를 구성 하면 대기 시간이 향상 되 고, 제한이 인스턴스당 제한 되므로 분리 된 제한 할당량을 사용 합니다. 재해 복구 완화를 적용 하려면 [여러 구성 저장소](./concept-disaster-recovery.md)를 사용할 수 있습니다. 
+
+## <a name="client-applications-in-app-configuration"></a>앱 구성의 클라이언트 응용 프로그램 
+
+앱 구성에 대 한 과도 한 요청은 제한 또는 초과분 요금이 발생할 수 있습니다. 응용 프로그램은 현재 제공 되는 캐싱과 새로 고침 기능을 활용 하 여 전송 하는 요청 수를 최적화 합니다. 이 프로세스는 구성 저장소에 대 한 직접 연결을 방지 하 여 대용량 클라이언트 응용 프로그램에서 미러링할 수 있습니다. 대신, 클라이언트 응용 프로그램은 사용자 지정 서비스에 연결 하 고이 서비스는 구성 저장소와 통신 합니다. 이 프록시 솔루션은 클라이언트 응용 프로그램이 구성 저장소의 제한 제한에 접근 하지 않도록 보장할 수 있습니다. 제한에 대 한 자세한 내용은 [FAQ](https://docs.microsoft.com/azure/azure-app-configuration/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration)를 참조 하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 

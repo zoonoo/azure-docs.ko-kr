@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 36af60082c575dfb19e71710fbdd8e3bf181bf96
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3d6a981db93cd84f0dbe5ab229ba1e90ee0bd1e7
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896227"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200739"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Azure용 SLES 또는 openSUSE 가상 머신 준비
 
@@ -23,7 +23,7 @@ ms.locfileid: "97896227"
 ## <a name="sles--opensuse-installation-notes"></a>SLES/openSUSE 설치 참고 사항
 * Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes) 을 참조하세요.
 * VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD** 만 지원됩니다.  Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
-* Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
+* Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) 또는 [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid)를 사용할 수 있습니다.
 * OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다.  여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 * Azure의 모든 VHD는 가상 크기가 1MB 단위로 조정되어야 합니다. 원시 디스크에서 VHD로 변환할 때 변환하기 전에 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다. 자세한 내용은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
@@ -161,7 +161,7 @@ ms.locfileid: "97896227"
 2. **연결** 을 클릭하여 가상 머신 창을 엽니다.
 3. 셸에서 '`zypper lr`' 명령을 실행합니다. 이 명령에서 다음과 유사한 출력이 반환되는 경우 리포지토리가 예상대로 구성된 것입니다. 이 경우 아무 것도 조정할 필요가 없습니다(버전 번호는 다를 수 있음).
 
-   | # | Alias                 | 이름                  | 사용 | 새로 고침
+   | # | Alias                 | Name                  | 사용 | 새로 고침
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | 클라우드: Tools_13.1      | 클라우드: Tools_13.1      | 예     | 예
    | 2 | openSUSE_13 openSUSE_13.1_OSS     | openSUSE_13 openSUSE_13.1_OSS     | 예     | 예

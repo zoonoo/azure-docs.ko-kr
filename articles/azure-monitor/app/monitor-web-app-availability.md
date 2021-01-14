@@ -4,12 +4,12 @@ description: Application Insights에서 웹 테스트를 설정합니다. 웹 �
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 82b433407906c09d38a46c842334153525fb3c17
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1b51c70dcebbfad5417a8478f4a956fb5d0608b1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007928"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198665"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>모든 웹 사이트의 가용성 모니터링
 
@@ -26,6 +26,9 @@ ms.locfileid: "97007928"
 * [사용자 지정 추적 가용성 테스트](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): 가용성 테스트를 실행 하는 사용자 지정 응용 프로그램을 만들려는 경우 `TrackAvailability()` 메서드를 사용 하 여 Application Insights에 결과를 보낼 수 있습니다.
 
 **Application Insights 리소스 당 최대 100 개의 가용성 테스트를 만들 수 있습니다.**
+
+> [!IMPORTANT]
+> [URL ping 테스트](#create-a-url-ping-test) 및 [다단계 웹 테스트](availability-multistep.md) 는 모두 공용 인터넷 DNS 인프라를 사용 하 여 테스트 된 끝점의 도메인 이름을 확인 합니다. 즉, 사설 DNS를 사용 하는 경우 공용 도메인 이름 서버 에서도 테스트의 모든 도메인 이름을 확인할 수 있는지 확인 해야 합니다. 그렇지 않으면 [사용자 지정 추적 가용성 테스트](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet) 를 대신 사용할 수 있습니다.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 

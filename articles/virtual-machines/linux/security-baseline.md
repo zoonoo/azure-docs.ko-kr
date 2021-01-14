@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d8893daaf73a15cdc0baf8eeb339e794f6f1da64
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f0ae4ac4cf50eb6e54d41ff25e1cc671e76819ee
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913450"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200807"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linux Virtual Machines에 대 한 Azure 보안 기준
 
@@ -398,7 +398,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 **지침**: MFA가 구성된 PAW(Privileged Access Workstation)를 사용하여 Azure 리소스에 로그인하고 구성합니다.
 
-* [권한 있는 액세스 워크스테이션에 대해 알아보기](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [권한 있는 액세스 워크스테이션에 대해 알아보기](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Azure에서 MFA를 사용하도록 설정하는 방법](../../active-directory/authentication/howto-mfa-getstarted.md)
 

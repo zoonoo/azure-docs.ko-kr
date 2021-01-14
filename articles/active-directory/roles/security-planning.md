@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c981bde4e0699c4da33ada7e287b16e54b899a58
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861989"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198920"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -255,7 +255,7 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 * 가장 공격
 * 자격 증명 도난 공격(예: 키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)
 
-권한 있는 액세스 워크스테이션을 배포하면 관리자가 강화되지 않은 데스크톱 환경에서 관리자 자격 증명을 입력하는 위험을 줄일 수 있습니다. 자세한 내용은 [액세스 권한 있는 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)을 참조하세요.
+권한 있는 액세스 워크스테이션을 배포하면 관리자가 강화되지 않은 데스크톱 환경에서 관리자 자격 증명을 입력하는 위험을 줄일 수 있습니다. 자세한 내용은 [액세스 권한 있는 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)을 참조하세요.
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>인시던트 처리에 대한 NIST 권장 사항 검토
 
