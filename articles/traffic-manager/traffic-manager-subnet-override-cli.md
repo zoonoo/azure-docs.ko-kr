@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 984cdfb3e60717f7632ea1fdcd05a4681dd6a1fd
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 7a448afb85a35674921ce74a25eaf2a97430dc61
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517940"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201419"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Azure CLI를 사용 하 여 서브넷 재정의 Traffic Manager
 
@@ -36,10 +36,10 @@ Traffic Manager 서브넷 재정의를 만들려면 Azure CLI를 사용 하 여 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>서브넷 재정의를 사용 하 여 Traffic Manager 끝점을 업데이트 합니다.
-[Az network traffic manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update)를 사용 하 여 끝점을 업데이트 하려면 Azure CLI를 사용 합니다.
+[Az network traffic manager endpoint update](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update)를 사용 하 여 끝점을 업데이트 하려면 Azure CLI를 사용 합니다.
 
 ```azurecli-interactive
 ### Add a range of IPs ###
@@ -59,7 +59,7 @@ az network traffic-manager endpoint update \
     --type AzureEndpoints
 ```
 
-**--Remove** 옵션을 사용 하 여 [az network traffic manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) 를 실행 하 여 IP 주소 범위를 제거할 수 있습니다.
+**--Remove** 옵션을 사용 하 여 [az network traffic manager endpoint update](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) 를 실행 하 여 IP 주소 범위를 제거할 수 있습니다.
 
 ```azurecli-interactive
 az network traffic-manager endpoint update \
@@ -74,4 +74,4 @@ az network traffic-manager endpoint update \
 
 Traffic Manager [트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 대해 자세히 알아봅니다.
 
-[서브넷 트래픽 라우팅 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method) 에 대 한 자세한 정보
+[서브넷 트래픽 라우팅 방법](./traffic-manager-routing-methods.md#subnet-traffic-routing-method) 에 대 한 자세한 정보

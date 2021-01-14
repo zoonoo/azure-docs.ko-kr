@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: bea618b34809544308caba46a0ffbdecee91d69f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 199810f835924ccbb51948169244622a19c5e8ed
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541813"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201436"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>리디렉션을 사용하여 Azure Database for MySQL에 연결
 
@@ -21,6 +21,9 @@ ms.locfileid: "94541813"
 [Azure Portal](https://portal.azure.com)에 로그인합니다. 엔진 버전 5.6, 5.7 또는 8.0을 사용하여 Azure Database for MySQL 서버를 만듭니다. 
 
 자세한 내용은 [Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) 또는 [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)를 사용 하 여 Azure Database for MySQL 서버를 만드는 방법을 참조 하세요.
+
+> [!IMPORTANT]
+> 현재는 [Azure Database for MySQL에 대 한 개인 링크](concepts-data-access-security-private-link.md)를 사용 하 여 리디렉션을 지원 하지 않습니다.
 
 ## <a name="enable-redirection"></a>리디렉션 사용
 

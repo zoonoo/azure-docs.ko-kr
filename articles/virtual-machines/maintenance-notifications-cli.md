@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: c449bce76cc9cb7e5f8b9659c11b443e186c65ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bd5c8ae7b4f2ba2d057f61712ce799814e19050
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306976"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202150"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Azure CLI를 사용 하 여 계획 된 유지 관리 알림 처리
 
 **이 문서는 Linux 및 Windows를 실행 하는 가상 컴퓨터에 적용 됩니다.**
 
-CLI를 사용 하 여 Vm이 [유지 관리](maintenance-notifications.md)되도록 예약 된 시기를 확인할 수 있습니다. 계획 된 유지 관리 정보는 [az vm get instance-view](/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view)에서 사용할 수 있습니다.
+CLI를 사용 하 여 Vm이 [유지 관리](maintenance-notifications.md)되도록 예약 된 시기를 확인할 수 있습니다. 계획 된 유지 관리 정보는 [az vm get instance-view](/cli/azure/vm#az-vm-get-instance-view)에서 사용할 수 있습니다.
  
 유지 관리 정보는 계획된 유지 관리가 있는 경우에만 반환됩니다. 
 
@@ -59,13 +59,13 @@ az vm perform-maintenance -g myResourceGroup -n myVM
 azure config mode asm
 ```
 
-*myVM*이라는 VM에 대한 유지 관리 상태를 가져오려면 다음을 입력합니다.
+*myVM* 이라는 VM에 대한 유지 관리 상태를 가져오려면 다음을 입력합니다.
 
 ```
 azure vm show myVM 
 ``` 
 
-*myService* 서비스 및 *myDeployment* 배포에서 *myVM*이라는 클래식 VM에 대한 유지 관리를 시작하려면 다음을 입력합니다.
+*myService* 서비스 및 *myDeployment* 배포에서 *myVM* 이라는 클래식 VM에 대한 유지 관리를 시작하려면 다음을 입력합니다.
 
 ```
 azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM

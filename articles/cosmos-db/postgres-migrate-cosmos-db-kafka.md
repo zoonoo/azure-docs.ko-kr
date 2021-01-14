@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/05/2021
 ms.author: abhishgu
 ms.reviewer: abhishgu
-ms.openlocfilehash: 24714b185b0f666770b306a7e80a97a3f8f868a3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 0038219ee8c1721ff5ab2be76231d33d2bd9064d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052629"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203068"
 ---
 # <a name="migrate-data-from-postgresql-to-azure-cosmos-db-cassandra-api-account-using-apache-kafka"></a>Apache Kafka를 사용 하 여 PostgreSQL에서 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -39,7 +39,7 @@ PostgreSQL 테이블의 데이터는 Kafka Connect **원본** 커넥터용 [Debe
 > [!NOTE]
 > DataStax Apache Kafka 커넥터의 특정 기능을 사용 하면 데이터를 여러 테이블에 푸시할 수 있습니다. 이 예제에서 커넥터는 다른 쿼리 요구 사항을 지원할 수 있는 두 개의 Cassandra 테이블에 변경 데이터 레코드를 유지 하는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * [Azure Cosmos DB Cassandra API 계정 프로비전](create-cassandra-dotnet.md#create-a-database-account)
 * [유효성 검사에 cqlsh 또는 hosted shell 사용](cassandra-support.md#hosted-cql-shell-preview)
@@ -107,7 +107,7 @@ bin/kafka-server-start.sh config/server.properties
 
 ### <a name="setup-connectors"></a>커넥터 설정
 
-Debezium PostgreSQL 및 DataStax Apache Kafka 커넥터를 설치 합니다. Debezium PostgreSQL connector 플러그 인 아카이브를 다운로드 합니다. 예를 들어 커넥터의 버전 1.3.0 (작성 시점에 최신)를 다운로드 하려면 [이 링크](https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.3.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz)를 사용 합니다. [이 링크](https://downloads.datastax.com/#akc)에서 DataStax Apache Kafka 커넥터를 다운로드 합니다.
+Debezium PostgreSQL 및 DataStax Apache Kafka 커넥터를 설치 합니다. Debezium PostgreSQL connector 플러그 인 아카이브를 다운로드 합니다. 예를 들어 커넥터의 버전 1.3.0 (작성 시점에 최신)를 다운로드 하려면 [이 링크](https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.3.0.Final/debezium-connector-postgres-1.3.0.Final-plugin.tar.gz)를 사용 합니다. [이 링크](https://downloads.datastax.com/#akc)에서 DataStax Apache Kafka 커넥터를 다운로드 합니다.
 
 커넥터 보관 파일의 압축을 풀고 JAR 파일을 [Kafka Connect 플러그인](https://kafka.apache.org/documentation/#connectconfigs)에 복사 합니다. 경로.
 

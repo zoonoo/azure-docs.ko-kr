@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f56118750fc980c249c88b796728f4ecb2641a88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c054a9e2dd829dbfb34a3873f06332e504b832
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86510959"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201198"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>SCP를 사용하여 Linux VM 간에 파일 이동
 
 이 문서에서는 보안 복사본(SCP)를 사용하여 워크스테이션에서 Azure Linux VM으로 또는 Azure Linux VM에서 워크스테이션으로 파일을 이동하는 방법을 보여 줍니다. 워크스테이션과 Linux VM 간에 신속하고 안전하게 파일을 이동하는 것은 Azure 인프라 관리의 중요한 부분입니다. 
 
-이 문서의 경우 [SSH 공개 및 프라이빗 키 파일](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Azure에 Linux VM이 배포되어 있어야 합니다. 또한 로컬 컴퓨터에 SCP 클라이언트가 필요합니다. SSH 위에 구축되었고 대부분의 Linux 및 Mac 컴퓨터 기본 Bash 셸과 일부 Windows 셸에 포함되어 있습니다.
+이 문서의 경우 [SSH 공개 및 프라이빗 키 파일](mac-create-ssh-keys.md)을 사용하여 Azure에 Linux VM이 배포되어 있어야 합니다. 또한 로컬 컴퓨터에 SCP 클라이언트가 필요합니다. SSH 위에 구축되었고 대부분의 Linux 및 Mac 컴퓨터 기본 Bash 셸과 일부 Windows 셸에 포함되어 있습니다.
 
 ## <a name="quick-commands"></a>빠른 명령
 
@@ -43,13 +43,13 @@ scp azureuser@azurehost:directory/file targetfile
 
 SCP는 전송 계층에 대해 SSH를 사용합니다. SSH는 대상 호스트에서 인증을 처리하고 SSH와 함께 기본적으로 제공되는 암호화된 터널에서 파일을 이동합니다. SSH 인증에는 사용자 이름 및 암호를 사용할 수 있습니다. 그러나 SSH 공개 및 프라이빗 키 인증이 보안 모범 사례로 권장됩니다. SSH에서 연결을 인증하면 SCP는 파일 복사를 시작합니다. 적절히 구성된 `~/.ssh/config`와 SSH 공개 및 프라이빗 키를 사용하면 서버 이름(또는 IP 주소)만 사용해서 SCP 연결을 설정할 수 있습니다. SSH 키가 하나만 있는 경우 SCP는 `~/.ssh/` 디렉터리에서 이 키를 찾은 후 VM에 로그인하는 데 기본적으로 사용합니다.
 
-`~/.ssh/config`와 SSH 공개 및 프라이빗 키 구성에 대한 자세한 내용은 [SSH 키 만들기](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+`~/.ssh/config`와 SSH 공개 및 프라이빗 키 구성에 대한 자세한 내용은 [SSH 키 만들기](mac-create-ssh-keys.md)를 참조하세요.
 
 ## <a name="scp-a-file-to-a-linux-vm"></a>파일을 Linux VM으로 SCP
 
 첫 번째 예제에서는 Azure 구성 파일을 Automation 배포에 사용되는 Linux VM까지 복사합니다. 이 파일에는 비밀이 포함된 Azure API 자격 증명이 있으므로 보안이 중요합니다. SSH에서 제공하는 암호화된 터널은 파일의 콘텐츠를 보호합니다.
 
-다음 명령에서는 로컬 *.azure/config* 파일을 FQDN *myserver.eastus.cloudapp.azure.com*을 사용하여 Azure VM에 복사합니다. Azure VM의 관리자 사용자 이름은 *azureuser*입니다. 파일은 */home/azureuser/* 디렉터리로 대상이 지정됩니다. 이 명령에서 고유한 값을 대체합니다.
+다음 명령에서는 로컬 *.azure/config* 파일을 FQDN *myserver.eastus.cloudapp.azure.com* 을 사용하여 Azure VM에 복사합니다. Azure VM의 관리자 사용자 이름은 *azureuser* 입니다. 파일은 */home/azureuser/* 디렉터리로 대상이 지정됩니다. 이 명령에서 고유한 값을 대체합니다.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config

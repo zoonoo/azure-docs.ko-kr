@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 5ba5c6799db6a32bce64a730f4888f59080300dd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 14c8584699ddc981fc24cc29b78c187288c6fb57
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657178"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203391"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -21,7 +21,7 @@ B 시리즈 Vm은 웹 서버, 개념 증명, 소규모 데이터베이스 및 �
 
 B 시리즈는 다음과 같은 VM 크기를 제공 합니다.
 
-[ACU (Azure Compute Unit)](./acu.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): 다름 *<br>
+[ACU (Azure Compute Unit)](./acu.md): 다름 *<br>
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
@@ -30,7 +30,7 @@ B 시리즈는 다음과 같은 VM 크기를 제공 합니다.
 <br>
 * B 시리즈 Vm은 안정적으로 변화 하므로 ACU 숫자는 워크 로드 및 코어 사용량에 따라 다릅니다.
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | VM의 CPU 기준 성능 | VM의 CPU 최대 성능 | 초기 크레딧 | 크레딧 적립/시간 | 최대 적립 크레딧 | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | VM의 CPU 기준 성능 | VM의 CPU 최대 성능 | 초기 크레딧 | 크레딧 적립/시간 | 최대 적립 크레딧 | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Standard_B1ls<sup>1</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
 | Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 2  |

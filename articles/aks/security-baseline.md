@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 29bcf2fdd3e20b28b1f2cb014137cfba37ccaf2e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 4cf623ed960fd2efe6fdf506751858796008cef4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931812"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202031"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 azure 보안 기준
 
@@ -445,7 +445,7 @@ MFA (Azure AD Multi-Factor Authentication)를 사용 하도록 설정 하 고 Se
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
 
 **지침**: PAW (권한 있는 액세스 워크스테이션) (MFA (Multi-Factor Authentication))를 사용 하 여 지정 된 AKS (Azure Kubernetes Service) 클러스터 및 관련 리소스에 로그인 하도록 구성 합니다.
-- [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d64552520db28b3fe38cc354a30ee5470ee091
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 97893dece068dfdde85159f734095401288231d2
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060739"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201351"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>온-프레미스 공격 으로부터 Microsoft 365 보호
 
@@ -131,7 +131,7 @@ Azure AD에서 관리자와 같은 권한 있는 역할을 가진 사용자는 �
 
    *  디렉터리의 검색 그룹 및 기타 속성에 대 한 게스트 액세스를 제한 합니다. 외부 공동 작업 설정을 사용 하 여 구성원이 아닌 그룹을 읽는 게스트 기능을 제한할 수 있습니다. 
 
-    *   Azure Portal에 대 한 액세스를 차단 합니다. 거의 필요한 예외를 만들 수 있습니다.  모든 게스트 및 외부 사용자를 포함 하는 조건부 액세스 정책을 만든 다음 [액세스를 차단 하는 정책을 구현](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management.md)합니다. 
+    *   Azure Portal에 대 한 액세스를 차단 합니다. 거의 필요한 예외를 만들 수 있습니다.  모든 게스트 및 외부 사용자를 포함 하는 조건부 액세스 정책을 만든 다음 [액세스를 차단 하는 정책을 구현](/azure/role-based-access-control/conditional-access-azure-management)합니다. 
 
 * **연결 되지 않은 포리스트:** [AZURE AD 클라우드 프로 비전](../cloud-provisioning/what-is-cloud-provisioning.md)을 사용 합니다. 이렇게 하면 연결이 끊어진 포리스트에 연결 하 여 포리스트 간 연결 또는 트러스트를 설정할 필요가 없으므로 온-프레미스 위반의 영향을 넓힐 수 있습니다. * 
  

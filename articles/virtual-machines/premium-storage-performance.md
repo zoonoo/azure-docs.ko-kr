@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: acdddcd95883d13393838a47281fb888ac2f9274
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 26ef07269c9451c2e9d05d42e2247fbfcdae4844
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500396"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201963"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -230,7 +230,7 @@ VM당 및 디스크당 최대 IOPS 제한은 서로 다르고 독립적입니다
 
 *Linux 배포판*  
 
-Azure Premium Storage를 사용하여 Windows 및 Linux를 실행하는 VM에 대해 동일한 성능 수준을 얻습니다. Linux 배포판의 여러 버전을 지원하고 [여기](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 전체 목록을 볼 수 있습니다. 다양한 배포판은 다양한 유형의 작업에 더 적합합니다. 작업이 실행 중인 배포판에 따라 다른 수준의 성능을 확인할 수 있습니다. 애플리케이션을 사용하여 Linux 배포판을 테스트하고 가장 잘 작동하는 것을 선택합니다.
+Azure Premium Storage를 사용하여 Windows 및 Linux를 실행하는 VM에 대해 동일한 성능 수준을 얻습니다. Linux 배포판의 여러 버전을 지원하고 [여기](linux/endorsed-distros.md)에서 전체 목록을 볼 수 있습니다. 다양한 배포판은 다양한 유형의 작업에 더 적합합니다. 작업이 실행 중인 배포판에 따라 다른 수준의 성능을 확인할 수 있습니다. 애플리케이션을 사용하여 Linux 배포판을 테스트하고 가장 잘 작동하는 것을 선택합니다.
 
 Premium Storage를 사용하여 Linux를 실행할 때 높은 성능을 보장하기 위해 필요한 드라이버에 대한 최신 업데이트를 확인합니다.
 

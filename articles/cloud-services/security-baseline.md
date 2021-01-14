@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 100871ab2188aa638c4c9f2b058021706c7741bb
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e6a42a39e55e379865332fce8a9aed8dfe78f57b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531907"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201334"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Azure Cloud Services에 대 한 azure 보안 기준
 
@@ -80,7 +80,7 @@ Microsoft Azure Cloud Services (클래식)은 (는) Azure Resource Manager 가�
 
 **지침**: Azure 클라우드는 DDoS (분산 된 서비스 거부) 공격에 대해 플랫폼 서비스를 보호 하기 위해 다중 계층 네트워크 보안을 구현 합니다. Azure DDoS Protection는 Azure 클라우드의 연속 모니터링 프로세스의 일부 이며 침투 테스트를 통해 지속적으로 향상 됩니다. 이 DDoS Protection는 외부의 공격 뿐만 아니라 다른 Azure 테 넌 트의 공격에도 견딜 수 있도록 설계 되었습니다. 
 
-Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차단 하거나 거부 하는 몇 가지 방법이 있습니다. 이러한 항목은 다음과 같습니다. 
+Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차단 하거나 거부 하는 몇 가지 방법이 있습니다. 해당 경고는 다음과 같습니다. 
 
 -  특정 IP 주소를 선택적으로 차단 하는 시작 작업 만들기
 -  IIS web.config 파일을 수정 하 여 Azure 웹 역할에 지정 된 IP 주소 집합에 대 한 액세스 제한
@@ -345,7 +345,7 @@ Get-AzRoleAssignment-IncludeClassicAdministrators
 
 **지침**: 높은 권한이 필요한 관리 작업에 대해 Azure에서 관리 하는 안전한 워크스테이션 (권한 있는 액세스 워크스테이션이 라고도 함)을 사용 하는 것이 좋습니다.
 
-- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](../active-directory/devices/concept-azure-managed-workstation.md)
+- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Azure AD MFA를 사용 하도록 설정 하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 

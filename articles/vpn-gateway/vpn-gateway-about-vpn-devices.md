@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: fdb7b1964bf4b8e2dbf6afd541e4415c0345347c
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4c6bd62e96d85305036626a8672c39ff1b9f6b26
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631468"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201096"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보
 
@@ -42,10 +42,10 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | Arista | CloudEOS 라우터 | vEOS 4.24.0 FX | (테스트 되지 않음) | [구성 가이드](https://www.arista.com/en/cg-veos-router/veos-router-cloudeos-ipsec-connectivity-to-azure-virtual-network-gateway) |
 | Barracuda Networks, Inc. |Barracuda CloudGen Firewall |정책 기반: 5.4.3<br>경로 기반: 6.2.0 |[구성 가이드](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462887/how-to-configure-an-ikev1-ipsec-site-to-site-vpn-to-the-static-microsoft-azure-vpn-gateway/) |[구성 가이드](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462889/how-to-configure-bgp-over-ikev2-ipsec-site-to-site-vpn-to-an-azure-vpn-gateway/) |
 | Check Point |Security Gateway |R80.10 |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| 시스코              |ASA       |8.3<br>8.4+(IKEv2*) |지원됨 |[구성 가이드 *](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
-| 시스코 |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |지원됨 |지원됨 |
+| 시스코              |ASA       |8.3<br>8.4+(IKEv2*) |지원 여부 |[구성 가이드 *](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
+| 시스코 |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |지원 여부 |지원 여부 |
 | 시스코 | CSR | 경로 기반: IOS-XE 16.10 | (테스트 되지 않음) | [구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |지원됨 |지원됨 |
+| 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |지원 여부 |지원 여부 |
 | 시스코 |Meraki (MX) | MX v 15.12 |호환되지 않음 | [구성 가이드](https://documentation.meraki.com/MX/Site-to-site_VPN/Configuring_Site_to_Site_VPN_tunnels_to_Azure_VPN_Gateway) |
 | 시스코 | vEdge (Viptela OS) | 18.4.0 (활성/수동 모드)<br><br>19.2 (활성/활성 모드) | 호환되지 않음 |  [수동 구성 (활성/수동)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[클라우드 Onramp 구성 (활성/활성)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 이상 |[구성 가이드](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |호환되지 않음 |
@@ -53,21 +53,21 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | Fortinet |FortiGate |FortiOS 5.6 | (테스트 되지 않음) |[구성 가이드](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
 | Hillstone Networks | 다음-Gen 방화벽 (NGFW) | 5.5 r7  | (테스트 되지 않음) | [구성 가이드](https://www.hillstonenet.com/wp-content/uploads/How-to-setup-Site-to-Site-VPN-between-Microsoft-Azure-and-an-on-premise-Hillstone-Networks-Security-Gateway.pdf) |
 | IIJ(Internet Initiative Japan) |SEIL 시리즈 |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[구성 가이드](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |호환되지 않음 |
-| Juniper |SRX |정책 기반: JunOS 10.2<br>경로 기반: JunOS 11.4 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |J 시리즈 |정책 기반: JunOS 10.4r9<br>경로 기반: JunOS 11.4 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |ISG |ScreenOS 6.3 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |SSG |ScreenOS 6.2 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |MX |JunOS 12.x|지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| Microsoft |라우팅 및 원격 액세스 서비스 |Windows Server 2012 |호환되지 않음 |지원됨 |
-| 개방형 시스템 AG |핵심 업무 제어 보안 게이트웨이 |해당 없음 |[구성 가이드](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |호환되지 않음 |
-| Palo Alto Networks |PAN-OS를 실행하는 모든 디바이스 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |지원됨 |[구성 가이드](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
+| Juniper |SRX |정책 기반: JunOS 10.2<br>경로 기반: JunOS 11.4 |지원 여부 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |J 시리즈 |정책 기반: JunOS 10.4r9<br>경로 기반: JunOS 11.4 |지원 여부 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |ISG |ScreenOS 6.3 |지원 여부 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |SSG |ScreenOS 6.2 |지원 여부 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |MX |JunOS 12.x|지원 여부 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Microsoft |라우팅 및 원격 액세스 서비스 |Windows Server 2012 |호환되지 않음 |지원 여부 |
+| 개방형 시스템 AG |핵심 업무 제어 보안 게이트웨이 |N/A |[구성 가이드](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |호환되지 않음 |
+| Palo Alto Networks |PAN-OS를 실행하는 모든 디바이스 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |지원 여부 |[구성 가이드](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | Sentrium (개발자) | VyOS | VyOS 1.2.2 | (테스트 되지 않음) | [구성 가이드 ](https://docs.vyos.io/en/latest/configexamples/azure-vpn-bgp.html)|
 | ShareTech | 차세대 UTM(NU 시리즈) | 9.0.1.3 | 호환되지 않음 | [구성 가이드](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ 시리즈, NSA 시리즈<br>SuperMassive 시리즈<br>E-클래스 NSA 시리즈 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |호환되지 않음 |[구성 가이드](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG 차세대 방화벽 | XG v17 | (테스트 되지 않음) | [구성 가이드](https://community.sophos.com/kb/127546)<br><br>[구성 가이드 - 다중 SA](https://community.sophos.com/kb/en-us/133154) |
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM 1.1.5/VpnPlusServer-1.2.0 | (테스트 되지 않음) | [구성 가이드](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS v1.10 | (테스트 되지 않음) | [IKEv2/IPsec을 통한 BGP](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[IKEv2/IPsec을 통한 VTI](https://help.ubnt.com/hc/en-us/articles/115012305347) |
-| Ultra | 3E-636L3 | 5.2.0 빌드-13  | (테스트 되지 않음) | [구성 가이드](https://ultra-3eti.com/wp-content/uploads/2020/07/Azure-VPN-636L3-Site-to-Site-Test-Notes.pdf) |
+| Ultra | 3E-636L3 | 5.2.0 빌드-13  | (테스트 되지 않음) | 구성 가이드 |
 | WatchGuard |모두 |Fireware XTM<br> 정책 기반: v11.11.x<br>경로 기반: v11.12.x |[구성 가이드](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[구성 가이드](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 | Zyxel |ZyWALL USG 시리즈<br>ZyWALL ATP 시리즈<br>ZyWALL VPN 시리즈 | ZLD v 4.32 + | (테스트 되지 않음) | [IKEv2/IPsec을 통한 VTI](https://businessforum.zyxel.com/discussion/2648/)<br><br>[IKEv2/IPsec을 통한 BGP](https://businessforum.zyxel.com/discussion/2650/)|
 
@@ -142,8 +142,8 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | 암호화 및 해싱 알고리즘 |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA 제품](#RouteBasedOffers) |
 | SA 수명(시간)            |3,600초  |27,000초                               |
 | SA 수명(바이트)           |102,400,000 KB |102,400,000 KB                               |
-| PFS(Perfect Forward Secrecy) |예             |[RouteBased QM SA 제품](#RouteBasedOffers) |
-| 작동하지 않는 피어 검색(DPD)     |지원되지 않음  |지원됨                                    |
+| PFS(Perfect Forward Secrecy) |No             |[RouteBased QM SA 제품](#RouteBasedOffers) |
+| 작동하지 않는 피어 검색(DPD)     |지원되지 않음  |지원 여부                                    |
 
 
 ### <a name="routebased-vpn-ipsec-security-association-ike-quick-mode-sa-offers"></a><a name ="RouteBasedOffers"></a>RouteBased VPN IPsec 보안 연결(IKE 빠른 모드 SA) 제품

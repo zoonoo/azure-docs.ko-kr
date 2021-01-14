@@ -11,20 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2020
+ms.date: 1/13/2021
 ms.author: shhazam
-ms.openlocfilehash: 3b5a586b5db4fb15a32090e601bac5610ece1427
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: f3239434a7ba737bc9323bc4f383afd794800db1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832577"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201481"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>IoT 용 Azure Defender 아키텍처
 
-이 문서에서는 IoT 용 Defender 솔루션의 기능적 시스템 아키텍처에 대해 설명 합니다.
+이 문서에서는 IoT 용 Defender 솔루션의 기능적 시스템 아키텍처에 대해 설명 합니다. IoT 용 Azure Defender는 환경 요구 사항, 조직에 대 한 에이전트 없는 솔루션 및 장치 빌더를 위한 에이전트 기반 솔루션에 적합 한 두 가지 기능 집합을 제공 합니다.
 
-## <a name="defender-for-iot-components"></a>IoT 용 Defender 구성 요소
+## <a name="agentless-solution-for-organizations"></a>조직을 위한 에이전트 없는 솔루션
+### <a name="defender-for-iot-components"></a>IoT 용 Defender 구성 요소
 
 IoT 용 Defender는 Azure 클라우드와 온-프레미스 구성 요소에 모두 연결 됩니다. 이 솔루션은 여러 원격 위치가 포함 된 크고 지리적으로 분산 된 환경에서 확장성을 위해 설계 되었습니다. 이 솔루션을 통해 국가, 지역, 사업부 또는 영역별로 다중 계층 분산 아키텍처를 사용할 수 있습니다. 
 
@@ -79,12 +80,12 @@ IoT 센서에 대 한 Defender는 범위 포트 또는 네트워크 탭에 연�
 - 온-프레미스 관리 콘솔
 - Azure Portal
 
-#### <a name="sensor-console"></a>센서 콘솔
+### <a name="sensor-console"></a>센서 콘솔
 센서 검색은 네트워크 맵, 자산 인벤토리 및 광범위 한 보고서 (예: 위험 평가 보고서, 데이터 마이닝 쿼리 및 공격 벡터)에서 보고 조사 하 고 분석할 수 있는 센서 콘솔에 표시 됩니다. 콘솔을 사용 하 여 센서 엔진에서 검색 한 위협, 파트너 시스템에 정보 전달, 사용자 관리 등을 보고 처리할 수도 있습니다.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="IoT 센서 콘솔용 Defender":::
 
-#### <a name="on-premises-management-console"></a>온-프레미스 관리 콘솔
+### <a name="on-premises-management-console"></a>온-프레미스 관리 콘솔
 온-프레미스 관리 콘솔을 사용 하면 SOC (security operations center) 운영자가 여러 센서에서 집계 된 경고를 단일 대시보드로 관리 및 분석 하 고 네트워크 상태를 전체적으로 볼 수 있습니다.
 
 이 아키텍처는 SOC 수준에서 네트워크에 대 한 종합적인 통합 보기, 최적화 된 경고 처리 및 운영 네트워크 보안 제어를 제공 하 여 의사 결정 및 위험 관리가 이상으로 유지 되도록 합니다.
@@ -103,20 +104,23 @@ SOC 워크플로 및 실행 서적에 긴밀 하 게 통합 되어 있어 완화
 
    :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="모든 경고 및 정보를 관리 합니다.":::
 
-#### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 
 Azure의 IoT 용 Defender 포털은 다음을 도와 주는 데 사용 됩니다.
 
 - 솔루션 어플라이언스 구매
+
 - 소프트웨어 설치 및 업데이트
 - Azure에 센서 등록
 - 위협 인텔리전스 패키지 업데이트
 
-## <a name="embedded-security-agent-built-in-mode"></a>포함 된 보안 에이전트: 기본 제공 모드
+## <a name="agent-based-solution-for-device-builders"></a>디바이스 빌더를 위한 에이전트 기반 솔루션
+
+### <a name="embedded-security-agent-built-in-mode"></a>포함 된 보안 에이전트: 기본 제공 모드
 
 **기본 제공** 모드에서 Iot 용 Defender는 iot Hub에서 **보안** 옵션을 설정 하도록 선택할 때 사용 하도록 설정 됩니다. 실시간 모니터링, 권장 사항 및 경고를 제공 하는 기본 제공 모드는 단일 단계 장치 가시성 및 보안 불일치를 제공 합니다. 빌드 모드에서는 모든 장치에 에이전트를 설치할 필요가 없으며, 기록 된 활동에 대 한 고급 분석을 사용 하 여 현장 장치 및 IoT hub를 분석 하 고 보호 합니다.
 
-## <a name="embedded-security-agent-enhanced-mode"></a>포함 된 보안 에이전트: 고급 모드
+### <a name="embedded-security-agent-enhanced-mode"></a>포함 된 보안 에이전트: 고급 모드
 
 **고급** 모드에서 iot Hub의 **보안** 옵션을 설정 하 고 장치에 iot 장치 에이전트를 설치 하 고 나면 에이전트는 장치에서 원시 보안 이벤트를 수집, 집계 및 분석 합니다. 원시 보안 이벤트에는 IP 연결, 프로세스 만들기, 사용자 로그인 및 기타 보안 관련 정보가 포함 될 수 있습니다. IoT 용 Defender 장치 에이전트는 또한 높은 네트워크 처리량을 방지 하기 위해 이벤트 집계를 처리 합니다. 에이전트는 항상 사용자 지정이 가능 하므로, 가장 빠른 SLA에서 중요 한 정보만 보내거나 광범위 한 보안 정보 및 컨텍스트를 더 큰 세그먼트로 집계 하 여 더 높은 서비스 비용을 방지 하는 등의 특정 작업에 사용할 수 있습니다.
 
@@ -130,7 +134,9 @@ IoT 용 Defender는 분석 파이프라인을 사용 하 여 모든 정보 스�
 
 Defender for IoT 권장 사항 및 경고 (분석 파이프라인 출력)는 각 고객의 Log Analytics 작업 영역에 기록 됩니다. 경고 및 권장 사항 뿐만 아니라 작업 영역에 원시 이벤트를 포함 하면 검색 된 의심 스러운 활동의 정확한 세부 정보를 사용 하 여 심층 조사 및 쿼리를 수행할 수 있습니다.
 
-## <a name="see-also"></a>참조
+:::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="마이크로 에이전트 아키텍처입니다.":::
+
+## <a name="see-also"></a>추가 정보
 
 [IoT 용 Defender FAQ](resources-frequently-asked-questions.md)
 

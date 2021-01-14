@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 63d5e4bcc57a734fc5ea455da7c2db940a4b8ec3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbdccc2efb72626d1974f4cd81be9d2ef4c522d4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654687"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201589"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 디스크 자체에서 문제 해결 단계를 수행해야 할 수 있습니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 다음, 원래 VM을 복구하기 위해 Azure PowerShell을 사용하는 방법을 자세히 설명합니다. 
@@ -40,7 +40,7 @@ Azure에서 Windows 가상 머신(VM)에 부팅 또는 디스크 오류가 발�
 6. 복구 VM에서 디스크를 탑재 해제하고 분리합니다.
 7. 영향을 받는 VM용 OS 디스크를 변경합니다.
 
-VM 복구 명령을 사용 하 여 1, 2, 3, 4, 6, 7 단계를 자동화할 수 있습니다. 자세한 설명서 및 지침은 [Azure 가상 컴퓨터 복구 명령을 사용 하 여 WINDOWS VM 복구](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
+VM 복구 명령을 사용 하 여 1, 2, 3, 4, 6, 7 단계를 자동화할 수 있습니다. 자세한 설명서 및 지침은 [Azure 가상 컴퓨터 복구 명령을 사용 하 여 WINDOWS VM 복구](repair-windows-vm-using-azure-virtual-machine-repair-commands.md)를 참조 하세요.
 
 먼저 [최신 Azure PowerShell](/powershell/azure/)을 설치하고 구독에 로그인했는지 확인합니다.
 
@@ -178,7 +178,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
     Get-Disk
     ```
 
-    다음 출력 예에서는 디스크 **2**에 연결된 디스크를 보여줍니다. (`Get-Volume`을 사용하여 드라이브 문자를 볼 수도 있습니다.)
+    다음 출력 예에서는 디스크 **2** 에 연결된 디스크를 보여줍니다. (`Get-Volume`을 사용하여 드라이브 문자를 볼 수도 있습니다.)
 
     ```powershell
     Number   Friendly Name   Serial Number   HealthStatus   OperationalStatus   Total Size   Partition
@@ -256,6 +256,6 @@ Update-AzVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
 ## <a name="next-steps"></a>다음 단계
-VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. VM에서 실행 중인 애플리케이션에 액세스하는 데 문제가 있는 경우 [Windows VM에서 애플리케이션 연결 문제 해결](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](troubleshoot-rdp-connection.md)을 참조하세요. VM에서 실행 중인 애플리케이션에 액세스하는 데 문제가 있는 경우 [Windows VM에서 애플리케이션 연결 문제 해결](troubleshoot-app-connection.md)을 참조하세요.
 
 Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.

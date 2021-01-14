@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 34a84ed333172ea0931c529d2dbeee1b774ae8c5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7a7831a26d55e5c85b814efc6de78238678820ec
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016389"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203272"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리
 
@@ -232,6 +232,6 @@ SSH 키를 사용하는 서버에 처음 로그인하면 명령은 해당 키 �
 
 다음으로 새 SSH 공개 키를 사용하여 Azure Linux VM을 만듭니다. 기본 로그인 방법(암호)을 사용하여 만든 VM보다 SSH 공개 키를 로그인으로 사용하여 만든 Azure VM의 보안성이 더 우수합니다.
 
-* [Azure Portal을 사용하여 Linux 가상 머신 만들기](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure CLI를 사용하여 Linux 가상 머신 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure 템플릿을 사용하여 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure Portal을 사용하여 Linux 가상 머신 만들기](quick-create-portal.md)
+* [Azure CLI를 사용하여 Linux 가상 머신 만들기](quick-create-cli.md)
+* [Azure 템플릿을 사용하여 Linux VM 만들기](create-ssh-secured-vm-from-template.md)

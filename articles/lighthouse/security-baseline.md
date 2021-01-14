@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a6a1b41dd4ede055ba81c069c2164bb36da99876
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 93d444d781edbcfe4ab171460668aeb328070bff
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602311"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201640"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Azure Lighthouse에 대 한 azure 보안 기준
 
@@ -206,7 +206,7 @@ Azure Lighthouse를 사용 하는 서비스 공급자는 azure AD 로그를 azur
 
 **지침**: 안전하고 격리된 워크스테이션은 관리자, 개발자 및 중요 서비스 운영자와 같은 중요한 역할의 보안에 매우 중요합니다. 요구 사항에 따라 프로덕션 환경에서 Azure Lighthouse를 사용 하 여 관리 작업을 수행 하는 데 매우 안전한 사용자 워크스테이션 및/또는 Azure 방호를 사용할 수 있습니다. Azure Active Directory, Microsoft Defender ATP(Advanced Threat Protection) 및/또는 Microsoft Intune을 사용하여 관리 작업을 위한 관리형 보안 사용자 워크스테이션을 배포할 수 있습니다. 보안 된 워크스테이션을 중앙에서 관리 하 여 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한 된 논리 및 네트워크 액세스를 비롯 한 보안 구성을 적용할 수 있습니다. 
 
-- [권한 있는 액세스 워크스테이션 이해](../active-directory/devices/concept-azure-managed-workstation.md)
+- [권한 있는 액세스 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [권한 있는 액세스 워크스테이션 배포](../active-directory/devices/howto-azure-managed-workstation.md)
 

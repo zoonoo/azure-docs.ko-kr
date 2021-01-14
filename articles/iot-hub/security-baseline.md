@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 891366060cddaf2a046de36fa9300432977ec903
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 862e8f07e321975ec5b673cfe5c86de85c9d160b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457738"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202303"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Azure IoT Hub에 대 한 Azure 보안 기준
 
@@ -328,7 +328,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: 높은 권한이 필요한 관리 작업에 대해 Azure에서 관리 하는 안전한 워크스테이션 (권한 있는 액세스 워크스테이션 또는 PAW 라고도 함)을 사용 합니다.
 
-- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](../active-directory/devices/concept-azure-managed-workstation.md)
+- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Azure AD MFA를 사용 하도록 설정 하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 

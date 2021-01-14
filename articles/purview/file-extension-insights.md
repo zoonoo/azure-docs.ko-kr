@@ -1,18 +1,18 @@
 ---
-title: 부서의 범위 Insights를 사용 하 여 데이터에 대 한 파일 확장명 보고
-description: 이 방법 가이드에서는 데이터에 대 한 부서의 범위 Insights 파일 확장명 보고를 보고 사용 하는 방법을 설명 합니다.
+title: 부서의 범위 Insights를 사용 하 여 Azure 부서의 범위에서 데이터에 대 한 파일 확장명 보고
+description: 이 방법 가이드에서는 데이터에 대 한 부서의 범위 파일 확장 보고를 보고 사용 하는 방법을 설명 합니다.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746287"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202626"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 파일 확장명 정보 
 
@@ -26,13 +26,16 @@ ms.locfileid: "96746287"
 > - 데이터에 대 한 파일 확장명 정보 보기
 > - 데이터에 대 한 자세한 파일 확장명 세부 정보를 드릴 다운 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 조건 
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
 - Azure 리소스를 설정 하 고 테스트 데이터를 사용 하 여 관련 계정 채우기
 
 - 각 데이터 원본의 테스트 데이터에 대 한 검색 설정 및 완료
+
+- [데이터 판독기 또는 데이터 큐레이터 역할이](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles)있는 계정을 사용 하 여 부서의 범위에 로그인 했습니다.
+
 
 자세한 내용은 [Azure 부서의 범위에서 데이터 원본 관리 (미리 보기)](manage-data-sources.md)를 참조 하세요.
 
@@ -82,7 +85,7 @@ ms.locfileid: "96746287"
 
 표 위의 필터를 사용 하 여 표시 되는 데이터를 필터링 합니다.
 
-|옵션  |설명  |
+|옵션  |Description  |
 |---------|---------|
 |**키워드로 필터링**     |    **키워드로 필터링** 상자에 텍스트를 입력 하 여 파일 형식을 이름별로 필터링 하는 방법을 확인 합니다. 예를 들어 Pdf만 보려면을 입력 `PDF` 합니다.     |
 |**Time**        | 데이터를 만들었을 때의 특정 시간 범위를 기준으로 필터링 하려면 선택 합니다. <br>**기본값:** 30 일  |

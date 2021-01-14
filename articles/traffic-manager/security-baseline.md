@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5d5ecf95289bf7860363b7e97d834372ee6c2268
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 13515f2428b1fc95c31b04c984dd77dd316a4315
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185260"
+ms.locfileid: "98202201"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Azure Traffic Manager에 대 한 azure 보안 기준
 
@@ -170,7 +170,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: 높은 권한이 필요한 관리 작업에 대해 Azure에서 관리 하는 안전한 워크스테이션 (권한 있는 액세스 워크스테이션 또는 PAW 라고도 함)을 사용 합니다.
 
-- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](/security/compass/concept-azure-managed-workstation)
+- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 

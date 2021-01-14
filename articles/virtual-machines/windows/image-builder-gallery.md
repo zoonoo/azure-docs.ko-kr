@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 96603d27f53161c72c9e81bb7b84fdc6ab5d1ca2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6699db280c4d82867d5559255eab08fd6b55b65a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320067"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201521"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들어 공유 이미지 갤러리에 배포 
 
@@ -20,7 +20,7 @@ ms.locfileid: "91320067"
 
 이미지를 구성하는 데 .json 템플릿을 사용합니다. 사용 중인 .json 파일은 [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json)에 있습니다. 이 문서는 로컬 PowerShell 세션을 사용하여 작성되었으므로 템플릿의 로컬 버전을 다운로드하여 편집합니다.
 
-공유 이미지 갤러리에 이미지를 배포하기 위해 이 템플릿에서는 [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage)를 템플릿의 `distribute` 섹션 값으로 사용합니다.
+공유 이미지 갤러리에 이미지를 배포하기 위해 이 템플릿에서는 [sharedImage](../linux/image-builder-json.md#distribute-sharedimage)를 템플릿의 `distribute` 섹션 값으로 사용합니다.
 
 Azure Image Builder는 sysprep를 자동으로 실행하여 이미지를 일반화합니다. 이 명령은 필요한 경우 [재정의](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully)할 수 있는 일반 sysprep 명령입니다. 
 
@@ -299,7 +299,7 @@ dir c:\
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이제 이미지 버전을 다시 사용자 지정하여 동일한 이미지의 새 버전을 만들려면**이 단계를 건너뛰고** [Azure Image Builder를 사용하여 다른 이미지 버전 만들기](image-builder-gallery-update-image-version.md)를 계속 진행합니다.
+이제 이미지 버전을 다시 사용자 지정하여 동일한 이미지의 새 버전을 만들려면 **이 단계를 건너뛰고** [Azure Image Builder를 사용하여 다른 이미지 버전 만들기](image-builder-gallery-update-image-version.md)를 계속 진행합니다.
 
 
 그러면 생성된 이미지와 다른 모든 리소스 파일이 삭제됩니다. 리소스를 삭제하기 전에 이 배포를 완료했는지 확인합니다.

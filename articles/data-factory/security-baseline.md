@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4e82b4adbfde7623de9497c94e56a9ae303131ad
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461287"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202779"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 보안 기준
 
@@ -331,7 +331,7 @@ Azure Data Factory에 대 한 진단 설정을 구성 하 고 Log Analytics 작�
 
 Azure AD는 사용자 액세스를 관리할 수 있는 권장 되는 방법 이지만, Azure VM (가상 머신)에서 Integration Runtime를 실행 하는 경우 VM에도 로컬 계정이 있을 수 있습니다. 로컬 및 도메인 계정은 일반적으로 최소한의 공간을 사용 하 여 검토 하 고 관리 해야 합니다. 또한 Just-in-time 기능에 대해 권한 있는 Id 관리자를 검토 하 여 관리 권한의 가용성을 줄이도록 권고 합니다.
 
-* [Azure Data Factory에 대한 역할 및 권한](./concepts-roles-permissions.md)
+* [Azure Data Factory용 역할 및 권한](./concepts-roles-permissions.md)
 
 * [권한 있는 Id 관리자에 대 한 정보](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
@@ -370,7 +370,7 @@ Azure 가상 머신에서 Integration Runtime를 실행 하는 경우 azure Virt
 
 * [권한 있는 Id 관리자에 대 한 정보](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Azure Data Factory에 대한 역할 및 권한](./concepts-roles-permissions.md)
+* [Azure Data Factory용 역할 및 권한](./concepts-roles-permissions.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -408,7 +408,7 @@ Azure 가상 머신에서 Integration Runtime를 실행 하는 경우 azure Virt
 
 **지침**: Azure 리소스에 로그인하여 구성하도록 구성된 MFA(Multi-Factor Authentication)를 통해 PAW(Privileged Access Workstation)를 사용합니다.
 
-* [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -608,7 +608,7 @@ Azure SQL Database와 같은 Data Factory 데이터 원본의 경우 Azure RBAC�
 
 * [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
-* [Azure Data Factory에 대한 역할 및 권한](./concepts-roles-permissions.md)
+* [Azure Data Factory용 역할 및 권한](./concepts-roles-permissions.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -900,7 +900,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)
 
-* [Azure Virtual Network 이란?](../virtual-network/virtual-networks-overview.md)
+* [Azure Virtual Network란?](../virtual-network/virtual-networks-overview.md)
 
 * [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md)
 
@@ -994,7 +994,7 @@ Data Factory 참여자 역할을 사용 하 여 데이터 팩터리를 만들고
 
 * [Azure RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-* [Azure Data Factory에 대한 역할 및 권한](./concepts-roles-permissions.md)
+* [Azure Data Factory용 역할 및 권한](./concepts-roles-permissions.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

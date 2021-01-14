@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 788c52490a97bb5d5aee0656bbdd09731d767d85
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8dd49125dc54403328fe53ae1aa0112ab2005501
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842603"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201130"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Azure 공용 IP에 대 한 azure 보안 기준
 
@@ -150,7 +150,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 및 Azure
 
 **지침**: MFA (azure AD Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성 합니다.
 
-- [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -186,7 +186,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 및 Azure
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -283,7 +283,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure Policy을 사용 하 여 구독에 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다.
 
-Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리하고 검색 합니다. 환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
+Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 검색합니다. 환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -462,11 +462,11 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
-**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다. 
+**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft의 전략과 Microsoft에서 관리하는 클라우드 인프라, 서비스, 애플리케이션에 대한 레드 팀 실행 및 실시간 사이트 침투 테스트를 사용합니다. 
 
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

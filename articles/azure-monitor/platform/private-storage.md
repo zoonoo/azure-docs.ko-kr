@@ -1,19 +1,19 @@
 ---
-title: Azure Monitor Log Analytics에서 고객이 관리 하는 저장소 계정 사용
+title: Azure Monitor Log Analytics에서 고객 관리형 스토리지 계정 사용
 description: Log Analytics 시나리오에 고유한 저장소 계정 사용
 ms.subservice: logs
 ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: bb5c6439f2e0b919e422c7a72f98468f0efc01f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 706392d95e371fe303bb9f2c18f59e4a224d83c0
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901317"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201062"
 ---
-# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics에서 고객이 관리 하는 저장소 계정 사용
+# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics에서 고객 관리형 스토리지 계정 사용
 
 Log Analytics은 다양 한 시나리오에서 Azure Storage에 의존 합니다. 이 사용은 일반적으로 자동으로 관리 됩니다. 그러나 경우에 따라 고객 관리 저장소 계정이 라고도 하는 고유한 저장소 계정을 제공 하 고 관리 해야 하는 경우도 있습니다. 이 문서에서는 WAD/꼬마 로그, 개인 링크 및 CMK (고객 관리 키) 암호화를 위해 고객이 관리 하는 저장소를 사용 하는 방법을 설명 합니다. 
 
@@ -23,7 +23,7 @@ Log Analytics은 다양 한 시나리오에서 Azure Storage에 의존 합니다
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>수집 Azure 진단 확장 로그 (WAD/꼬마)
 Azure 진단 확장 에이전트 (Windows 및 Linux 에이전트에 대 한 WAD이 라고도 하는)는 다양 한 운영 체제 로그를 수집 하 여 고객 관리 저장소 계정에 저장 합니다. 그런 다음 이러한 로그를 Log Analytics으로 수집 하 여 검토 하 고 분석할 수 있습니다.
 ### <a name="how-to-collect-azure-diagnostics-extension-logs-from-your-storage-account"></a>저장소 계정에서 Azure 진단 확장 로그를 수집 하는 방법
-[Azure Portal를](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) 사용 하거나 [storage Insights API](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate)를 호출 하 여 저장소 계정을 Log Analytics 작업 영역에 저장소 데이터 원본으로 연결 합니다.
+[Azure Portal를](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) 사용 하거나 [storage Insights API](/rest/api/loganalytics/storage%20insights/createorupdate)를 호출 하 여 저장소 계정을 Log Analytics 작업 영역에 저장소 데이터 원본으로 연결 합니다.
 
 지원되는 데이터 형식은
 * syslog

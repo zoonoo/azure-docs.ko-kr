@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: a7117d30eb1774753f21e82ad5f812a7309d8386
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 15714405c683889c0f783359011a0f0f5f9f3f43
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483099"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201793"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
-[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Python을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법을 알아봅니다.
+[Azure VM(Virtual Machine)](overview.md)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Python을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Visual Studio 프로젝트 만들기
@@ -342,7 +342,7 @@ compute_client = ComputeManagementClient(
     ```
 
     > [!NOTE]
-    > 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 머신을 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 머신 탐색 및 선택](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+    > 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 머신을 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 머신 탐색 및 선택](../linux/cli-ps-findimage.md)을 참조하세요.
     > 
     > 
 
@@ -492,7 +492,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="add-a-data-disk-to-the-vm"></a>VM에 데이터 디스크 추가
 
-가상 머신에도 VHD로 저장되는 [데이터 디스크](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)가 하나 이상 있을 수 있습니다.
+가상 머신에도 VHD로 저장되는 [데이터 디스크](../managed-disks-overview.md)가 하나 이상 있을 수 있습니다.
 
 1. 가상 머신에 데이터 디스크를 추가하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다. 
 

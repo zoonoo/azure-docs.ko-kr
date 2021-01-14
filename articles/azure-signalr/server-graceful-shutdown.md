@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 11/12/2020
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: 06aa91ff414e5575f7b1a743d2cc17765437ef72
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: d9dd7ce9cf321628598a7bb866c5d1b1a6fb0e1e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797509"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201674"
 ---
 # <a name="server-graceful-shutdown"></a>서버 정상 종료
 Microsoft Azure SignalR Service는 서버를 정상적으로 종료 하는 두 가지 모드를 제공 합니다. 
@@ -43,7 +43,7 @@ Microsoft Azure SignalR Service는 서버를 정상적으로 종료 하는 두 �
 
     종료 메시지를 모든 클라이언트에 브로드캐스트하는 등의 방법으로 디자인 한 다음 클라이언트에서 자체를 닫거나 다시 연결할 시기를 결정 하도록 해야 할 수 있습니다.
 
-    ' 종료 ' 메시지를 브로드캐스팅 하 여 클라이언트 종료 후크가 종료 되는 샘플 사용 [에 대 한 자세한 내용은 샘플을](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample) 참조 하세요.
+    ' 종료 ' 메시지를 브로드캐스팅 하 여 클라이언트 종료 후크가 종료 되는 샘플 사용 [에 대 한 자세한 내용은 샘플을](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample) 참조 하세요.
 
     **모드가 MigrateClients로 설정 됩니다.**
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/13/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 263c038cf5003d950cf500ccc13cf562ac71db0c
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8843bc803cdad07d8b66f9aeb87688c816158200
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185007"
+ms.locfileid: "98202280"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
@@ -65,7 +65,7 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 
 아래 표에는 목록, 평가판 및 컨설팅 제품에 대 한 자격 요구 사항이 요약 되어 있습니다.
 
-![출시 혜택](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![출시 혜택](./media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)
 
 이러한 모든 혜택에 대한 자세한 설명은 [Marketplace Rewards 프로그램 데크](https://aka.ms/marketplacerewards)에서 확인할 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 40d3ff736194c4634b949af52ee7b09db20dd06d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 84ec5ecbfdc2aab2445d050cc51d2b56acb7f3fd
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026134"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202558"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>이미지 버전에서 관리 디스크 만들기
 
@@ -33,7 +33,7 @@ az sig image-version list \
    -o table
 ```
 
-변수를 `source` 이미지 버전의 ID로 설정한 다음 [az disk create](/cli/azure/disk?view=azure-cli-latest#az_disk_create) 를 사용 하 여 관리 디스크를 만듭니다. 
+변수를 `source` 이미지 버전의 ID로 설정한 다음 [az disk create](/cli/azure/disk#az_disk_create) 를 사용 하 여 관리 디스크를 만듭니다. 
 
 이 예제에서는 이미지 버전의 OS 디스크를 내보내 *Myresourcegroup* 이라는 리소스 그룹에 있는 *myManagedOSDisk* 라는 관리 되는 디스크를 *eastus* 지역에 만듭니다. 
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 82482b260233994672e603c16fe8cf919c92337f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535081"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201028"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>쿼리 저장소를 사용하여 Azure Database for MySQL 성능 모니터링
 
@@ -69,7 +69,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 ## <a name="finding-wait-queries"></a>대기 쿼리 찾기
 
 > [!NOTE]
-> 대기 통계는 최고 워크로드 동안 사용하도록 설정하거나 중요한 워크로드에 대해 무기한으로 켜두면 안 됩니다. <br>높은 CPU 사용률 또는 더 낮은 vCores로 구성된 서버에서 실행되는 워크로드의 경우 대기 통계를 사용하도록 설정할 때는 주의해야 합니다. 무기한으로 켜두면 안 됩니다. 
+> 대기 통계는 최고 워크로드 동안 사용하도록 설정하거나 중요한 워크로드에 대해 무기한으로 켜두면 안 됩니다. <br>높은 CPU 사용률 또는 더 낮은 vCores로 구성된 서버에서 실행되는 워크로드의 경우 대기 통계를 사용하도록 설정할 때는 주의해야 합니다. 무기한으로 켜두면 안 됩니다.
 
 대기 이벤트 유형은 유사성을 기준으로 서로 다른 대기 이벤트를 버킷으로 결합합니다. 쿼리 저장소는 대기 이벤트 유형, 특정 대기 이벤트 이름 및 해당하는 쿼리를 제공합니다. 이 대기 정보를 쿼리 런타임 통계와 상호 연관시킬 수 있다는 것은 쿼리 성능 특성에 영향을 미치는 내용을 더 잘 이해할 수 있음을 의미합니다.
 
@@ -79,7 +79,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 |---|---|
 |최고 잠금 대기 | 영향을 받는 쿼리에 대한 쿼리 텍스트를 확인하고 대상 엔터티를 식별합니다. 쿼리 저장소에서 자주 실행되거나 오래 실행되는 동일한 엔터티를 수정하는 다른 쿼리를 확인합니다. 이러한 쿼리를 식별한 후 애플리케이션 논리를 변경하여 동시성을 개선하거나 덜 제한적인 격리 수준을 사용하는 것이 좋습니다. |
 |높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. 해당 쿼리가 IO 대기가 많은 쿼리와 일치하는 경우 검사 대신 검색을 수행하기 위해 기본 엔터티에 인덱스를 도입하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버에 대한 **성능 권장 사항** 을 확인하여 쿼리를 최적화하는 이 서버에 대한 인덱스 권장 사항이 있는지 확인합니다. |
-|높은 메모리 대기 | 쿼리 저장소에서 메모리 사용량이 많은 상위 쿼리를 찾습니다. 이러한 쿼리는 영향을 받는 쿼리의 추가 진행을 지연시킬 수 있습니다. 포털에서 서버에 대한 **성능 권장 사항** 을 확인하여 이러한 쿼리를 최적화하는 인덱스 권장 사항이 있는지 확인합니다.|
+|높은 메모리 대기 | 쿼리 저장소에서 메모리 사용량이 많은 상위 쿼리를 찾습니다. 이러한 쿼리는 영향을 받는 쿼리의 추가 진행을 지연시킬 수 있습니다. 포털에서 서버에 대한 **성능 권장 사항** 을 확인하여 이러한 쿼리를 최적화하는 인덱스 권장 사항이 있는지 확인합니다. |
 
 ## <a name="configuration-options"></a>구성 옵션
 
@@ -108,7 +108,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## <a name="views-and-functions"></a>보기 및 함수
 
-다음 보기 및 함수를 사용하여 쿼리 저장소를 보고 관리합니다. [일부 권한 공용 역할](howto-create-users.md#to-create-additional-admin-users-in-azure-database-for-mysql)의 사용자는 이러한 보기를 사용하여 쿼리 저장소의 데이터를 볼 수 있습니다. 이러한 보기는 **mysql** 데이터베이스에서만 사용할 수 있습니다.
+다음 보기 및 함수를 사용하여 쿼리 저장소를 보고 관리합니다. [일부 권한 공용 역할](howto-create-users.md#to-create-more-admin-users-in-azure-database-for-mysql)의 사용자는 이러한 보기를 사용하여 쿼리 저장소의 데이터를 볼 수 있습니다. 이러한 보기는 **mysql** 데이터베이스에서만 사용할 수 있습니다.
 
 쿼리는 리터럴 및 상수를 제거한 후 구조를 확인하여 정규화됩니다. 리터럴 값을 제외하고 두 쿼리가 동일한 경우에는 동일한 해시를 포함합니다.
 

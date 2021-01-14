@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.openlocfilehash: 7515e0a39d1cf0da74d2a23457443e96716b4275
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ad463672660582f28e0fd758a2293ad4112a981
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335955"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201878"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>미리 보기: Windows에서 Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전 만들기
 
@@ -107,7 +107,7 @@ imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, '
 
 
 ## <a name="modify-helloimage-example"></a>HelloImage 예제 수정
-에서 json 파일을 열어 사용 하려는 예제는 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)와 함께 [helloImageTemplateforSIGfromSIG.js에서](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) 검토할 수 있습니다. 
+에서 json 파일을 열어 사용 하려는 예제는 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md)와 함께 [helloImageTemplateforSIGfromSIG.js에서](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) 검토할 수 있습니다. 
 
 
 . Json 예제를 다운로드 하 고 변수로 구성 합니다. 
@@ -177,4 +177,4 @@ dir c:\
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
+이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md)를 참조 하세요.

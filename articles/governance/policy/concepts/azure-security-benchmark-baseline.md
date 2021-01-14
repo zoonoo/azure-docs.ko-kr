@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8b18da5e41e235b560918ad26117a0162078862c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540985"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201453"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Azure 보안 벤치 마크에 대 한 Azure Policy 보안 기준
 
@@ -20,7 +20,7 @@ ms.locfileid: "91540985"
 
 기본 제공 이니셔티브를 통해 Azure 보안 벤치 마크 컨트롤을 기본 제공 정책 정의로 매핑하면 [규정 준수: Azure 보안 벤치 마크](../samples/azure-security-benchmark.md)를 참조 하세요.
 
-Azure Policy는 _책임_대신 _소유권_ 이라는 용어를 사용 합니다. _소유권_에 대 한 자세한 내용은 클라우드에서 [정책 정의](./definition-structure.md#type) 및 [공유 책임](../../../security/fundamentals/shared-responsibility.md)Azure Policy을 참조 하세요.
+Azure Policy는 _책임_ 대신 _소유권_ 이라는 용어를 사용 합니다. _소유권_ 에 대 한 자세한 내용은 클라우드에서 [정책 정의](./definition-structure.md#type) 및 [공유 책임](../../../security/fundamentals/shared-responsibility.md)Azure Policy을 참조 하세요.
 
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
@@ -59,7 +59,7 @@ Azure Policy는 _책임_대신 _소유권_ 이라는 용어를 사용 합니다.
 
 **지침**: MFA가 구성된 PAW(Privileged Access Workstation)를 사용하여 Azure 리소스에 로그인하고 구성합니다.
 
-* [권한 있는 액세스 워크스테이션에 대해 알아보기](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [권한 있는 액세스 워크스테이션에 대해 알아보기](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Azure에서 MFA를 사용하도록 설정하는 방법](../../../active-directory/authentication/howto-mfa-getstarted.md)
 

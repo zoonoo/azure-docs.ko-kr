@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0a0756c0beeb752e69703119a300bf4cc85f621b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c1e61e9434d96148fbce840f4bad7f6a3b2ecb6b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485181"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202728"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Stream Analytics에 대 한 Azure 보안 기준
 
@@ -292,7 +292,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 **지침**: MFA (multi-factor authentication)가 구성 된 paw (권한 있는 액세스 워크스테이션)를 사용 하 여 Stream Analytics 리소스에 로그인 하 고 구성 합니다.
 
-* [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 

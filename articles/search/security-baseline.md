@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 07ef3da9f67de92c3526b83222c1c8088660d7c7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f393c5df23b9552f598e05d25aaf09e529324abe
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499869"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201997"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 azure 보안 기준
 
@@ -340,7 +340,7 @@ Cognitive Search 역할은 서비스 수준 관리 작업을 지 원하는 사�
 
 **지침**: PAW (권한 Multi-Factor Authentication 있는 액세스 워크스테이션)를 사용 하 여 Azure 리소스에 로그인 하 고 액세스 하도록 구성 된 MFA (권한 있는 액세스 워크스테이션)를 사용 합니다.
 
-- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](../active-directory/devices/concept-azure-managed-workstation.md)
+- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
  
 
 - [Azure AD MFA를 사용 하도록 설정 하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)

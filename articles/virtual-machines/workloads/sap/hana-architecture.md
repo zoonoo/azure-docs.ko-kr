@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a23a177945316bca89aa5cbcc46f840213dbe832
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cd81139c15e6bba65fe9b9a53a2e8e950ebd754b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964816"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201759"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 아키텍처
 
@@ -43,7 +43,7 @@ SAP HANA on Azure(대규모 인스턴스)의 전체 아키텍처는 SAP TDI 인�
    Azure에서 실행하도록 지원되는 SAP NetWeaver 애플리케이션 및 데이터베이스의 경우 [SAP Support Note #1928533 – Azure의 SAP 애플리케이션: 지원되는 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533)을 참조하세요. Azure에 SAP 솔루션을 배포하는 방법에 대한 설명서는 다음을 참조하세요.
 
   -  [Windows 가상 머신에서 SAP 사용](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
-  -  [Azure 가상 머신에서 SAP 솔루션 사용](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Azure 가상 머신에서 SAP 솔루션 사용](get-started.md)
 
 - **왼쪽:** Azure 대규모 인스턴스 스탬프의 SAP HANA TDI 인증 하드웨어를 보여 줍니다. HANA Large Instance 장치는 온-프레미스에서 Azure로 연결 하는 것과 동일한 기술을 사용 하 여 Azure 구독의 가상 네트워크에 연결 됩니다. 2019 년 5 월부터,에서 Express 경로 게이트웨이를 사용 하지 않고도 HANA Large Instance 단위와 Azure Vm 간에 통신할 수 있도록 최적화가 도입 되었습니다. 이 아키텍처 (빨간색 선)는 Express 경로 빠른 경로 라는이 최적화를 표시 합니다. 
 

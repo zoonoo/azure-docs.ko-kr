@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a92802f0b121a332afccf7f6c12e876b3263bd82
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3ffd5dc1caef6bd2a77ca7902a117ad2446c0265
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343946"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202320"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Express 경로에 대 한 Azure 보안 기준
 
@@ -301,7 +301,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: MFA (azure AD Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성 합니다.
 
-* [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 

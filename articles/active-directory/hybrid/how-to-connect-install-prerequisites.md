@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edace0298514d1fc3cfd3afcff73fa0d29e18f0c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 73376994e01ed89891726a8f6e1b727f89dab2fb
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858776"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201725"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -83,7 +83,7 @@ IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역�
 - [권한 있는 액세스 보안](/windows-server/identity/securing-privileged-access/securing-privileged-access)에 제공 된 지침을 따릅니다. 
 - AADConnect 서버에서 NTLM 인증 사용을 거부 합니다. 이 작업을 수행 하는 몇 가지 방법은 다음과 같습니다. [AADConnect 서버에서 ntlm을 제한](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) 하 고 [도메인에서 ntlm을 제한](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain) 합니다.
 - 모든 컴퓨터에 고유한 로컬 관리자 암호가 있는지 확인 합니다. 자세한 내용은 [LAPS (로컬 관리자 암호 솔루션)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) 에서 각 워크스테이션에 고유한 임의의 암호를 구성 하 고 ACL로 보호 되 Active Directory에 저장할 수 있습니다. 권한 있는 적격 사용자만이 이러한 로컬 관리자 계정 암호를 읽거나 재설정을 요청할 수 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=46899)에서 워크스테이션 및 서버에 사용할 LAPS를 가져올 수 있습니다. LAPS 및 Paw (권한 있는 액세스 워크스테이션)를 사용 하 여 환경을 운영 하는 방법에 대 한 추가 지침은 [클린 소스 원칙을 기반으로 하는 운영 표준](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle)에서 찾을 수 있습니다. 
-- 조직의 정보 시스템에 대 한 권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations) 을 구현 합니다. 
+- 조직의 정보 시스템에 대 한 권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 을 구현 합니다. 
 - 이러한 [추가 지침](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) 에 따라 Active Directory 환경의 공격 노출 영역을 줄입니다.
 
 
@@ -215,8 +215,8 @@ Azure AD Connect는 Azure AD Connect가 설치 된 서버에서 다음 구성 �
 
 | Active Directory의 개체 수 | CPU | 메모리 | 하드 드라이브 크기 |
 | --- | --- | --- | --- |
-| 10,000개 미만 |1.6GHz |4 GB |70GB |
-| 10,000–50,000개 |1.6GHz |4 GB |70GB |
+| 10,000개 미만 |1.6GHz |4GB |70GB |
+| 10,000–50,000개 |1.6GHz |4GB |70GB |
 | 50,000–100,000개 |1.6GHz |16GB |100GB |
 | 10만 이상의 개체에는 SQL Server의 전체 버전이 필요 합니다. | | | |
 | 100,000–300,000개 |1.6GHz |32GB |300GB |

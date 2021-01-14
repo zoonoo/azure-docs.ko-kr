@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f6c990b3ce5edaab4d2ce6600c0291272058e092
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 7721100d902948364c9e4b1373f1fa805c680a50
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369296"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202218"
 ---
 # <a name="security-control-v2-privileged-access"></a>보안 제어 V2: 권한 있는 액세스
 
@@ -157,7 +157,7 @@ Azure AD 자격 관리 기능을 사용 하 여 액세스 권한 부여, 검토,
 
 안전 하 고 격리 된 워크스테이션은 관리자, 개발자 및 중요 서비스 운영자와 같은 중요 한 역할의 보안에 매우 중요 합니다. 관리 작업에는 매우 안전한 사용자 워크스테이션 및/또는 Azure 방호를 사용 합니다. Azure Active Directory, Microsoft Defender ATP(Advanced Threat Protection) 및/또는 Microsoft Intune을 사용하여 관리 작업을 위한 관리형 보안 사용자 워크스테이션을 배포할 수 있습니다. 보안 된 워크스테이션을 중앙에서 관리 하 여 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한 된 논리 및 네트워크 액세스를 비롯 한 보안 구성을 적용할 수 있습니다. 
 
-- [권한 있는 액세스 워크스테이션 이해](../../active-directory/devices/concept-azure-managed-workstation.md)
+- [권한 있는 액세스 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [권한 있는 액세스 워크스테이션 배포](../../active-directory/devices/howto-azure-managed-workstation.md)
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 44d23710db169fa27aaba8928d421918bef93fec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ca3c99aed8160161c125a89da3cb176c6e745f6
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825136"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202065"
 ---
 # <a name="deploy-spot-vms-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 스폿 Vm 배포
 
@@ -94,4 +94,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 [Azure 소매 가격 API](/rest/api/cost-management/retail-prices/azure-retail-prices) 를 사용 하 여 현재 가격 정보를 쿼리하여 스폿 가격 책정에 대 한 정보를 파악 하세요. 및에는 `meterName` `skuName` 둘 다 포함 됩니다 `Spot` .
 
-오류가 발생 하는 경우 [오류 코드](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조 하세요.
+오류가 발생 하는 경우 [오류 코드](../error-codes-spot.md)를 참조 하세요.

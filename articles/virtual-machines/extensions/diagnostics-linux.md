@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: ffbafb76fd2c6dd06a88bfd79746557889039cd6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2e831b3c091b18a5c739275e4c932094ce088ba4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956027"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202609"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -636,7 +636,7 @@ WriteBytesPerSecond | 초당 쓴 바이트 수
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-이 명령은 Azure CLI의 Azure 리소스 관리 모드를 사용 하 고 있다고 가정 합니다. 클래식 배포 모델(ASM) VM에 대한 LAD를 구성하려면 "asm" 모드(`azure config mode asm`)로 전환하고 명령에서 리소스 그룹 이름을 생략합니다. 자세한 내용은 [플랫폼 간 CLI 설명서](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)를 참조하세요.
+이 명령은 Azure CLI의 Azure 리소스 관리 모드를 사용 하 고 있다고 가정 합니다. 클래식 배포 모델(ASM) VM에 대한 LAD를 구성하려면 "asm" 모드(`azure config mode asm`)로 전환하고 명령에서 리소스 그룹 이름을 생략합니다. 자세한 내용은 [플랫폼 간 CLI 설명서](/cli/azure/authenticate-azure-cli)를 참조하세요.
 
 ### <a name="powershell"></a>PowerShell
 

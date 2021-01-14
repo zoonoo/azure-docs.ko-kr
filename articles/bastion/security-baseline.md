@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7849027c704c8b8d7d36a33cd58c84566ce96da3
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 36542bc87163e2be800a8f6a4db31307ae7dedbb
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530955"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202524"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Azure 방호의 azure 보안 기준
 
@@ -215,7 +215,7 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 **지침**: 안전하고 격리된 워크스테이션은 관리자, 개발자 및 중요 서비스 운영자와 같은 중요한 역할의 보안에 매우 중요합니다. 요구 사항에 따라 프로덕션 환경에서 Azure 방호 리소스를 사용 하 여 관리 관리 작업을 수행 하는 데 매우 안전한 사용자 워크스테이션을 사용할 수 있습니다. Azure Active Directory, Microsoft Defender ATP(Advanced Threat Protection) 및/또는 Microsoft Intune을 사용하여 관리 작업을 위한 관리형 보안 사용자 워크스테이션을 배포할 수 있습니다. 보안 된 워크스테이션을 중앙에서 관리 하 여 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한 된 논리 및 네트워크 액세스를 비롯 한 보안 구성을 적용할 수 있습니다. 
 
-- [권한 있는 액세스 워크스테이션 이해](../active-directory/devices/concept-azure-managed-workstation.md)
+- [권한 있는 액세스 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [권한 있는 액세스 워크스테이션 배포](../active-directory/devices/howto-azure-managed-workstation.md)
 

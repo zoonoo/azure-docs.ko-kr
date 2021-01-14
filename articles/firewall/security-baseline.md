@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 764b10d1af2a037c4d5285ae42669ea2345779e0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4fccb0b2e382e56e83fbbe54c0f0afa50a5c9590
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660511"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202473"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Azure 방화벽에 대 한 azure 보안 기준
 
@@ -276,7 +276,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: MFA (multi-factor authentication)가 구성 된 paw (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure 방화벽 및 관련 리소스에 로그인 하 고 구성 합니다. 
 
-- [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations) 
+- [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -310,7 +310,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다. 
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -430,7 +430,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: azure 방화벽 및 관련 리소스를 사용 하 여 모든 azure 리소스에서 미사용 암호화를 사용 합니다. Azure에서 암호화 키를 관리 하도록 허용 하는 것이 좋지만 일부 인스턴스에서는 사용자 고유의 키를 관리할 수 있는 옵션이 있습니다. 
 
-- [Azure에서 미사용 암호화 이해](../security/fundamentals/encryption-atrest.md)
+- [Azure의 저장 데이터 암호화 이해](../security/fundamentals/encryption-atrest.md)
 
 - [고객 관리 암호화 키를 구성 하는 방법](../storage/common/customer-managed-keys-configure-key-vault.md)
 
@@ -762,7 +762,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

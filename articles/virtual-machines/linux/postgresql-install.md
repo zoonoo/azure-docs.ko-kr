@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: fdde7613627c9fec0694f3985f78cf10e52f59c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4052a9c8614a17c3b5cdd871ad78be8cc3258c5a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397099"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202592"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure에서 PostgreSQL 설치 및 구성
 PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이스입니다. 전체 ACID 규정 준수, 신뢰할 수 있는 트랜잭션 처리 및 다중 버전 동시성 제어와 같은 엔터프라이즈 기능이 포함됩니다. 또한 ANSI SQL 및 SQL/MED(Oracle, MySQL, MongoDB 등에 대한 외부 데이터 래퍼 포함)와 같은 표준을 지원합니다. 12개 이상의 프로시저 언어, GIN 및 GiST 인덱스, 공간 데이터 지원 및 JSON에 대한 여러 NoSQL 같은 기능 또는 키 값 기반 애플리케이션에 대한 지원을 통해 확장성을 높일 수 있습니다.
@@ -24,13 +24,13 @@ PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이�
 
 ## <a name="install-postgresql"></a>PostgreSQL 설치
 > [!NOTE]
-> 이 자습서를 완료하려면 Linux를 실행하는 Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+> 이 자습서를 완료하려면 Linux를 실행하는 Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](quick-create-cli.md)를 참조하세요.
 > 
 > 
 
 이 경우 PostgreSQL 포트로 포트 1999를 사용하세요.  
 
-PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하여 Linux VM에 연결하기 위해 PuTTY를 사용하는 방법을 배웁니다.
+PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하여 Linux VM에 연결하기 위해 PuTTY를 사용하는 방법을 배웁니다.
 
 1. 다음 명령을 실행하여 루트(관리자)로 전환합니다.
 
@@ -177,7 +177,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 # cp linux /etc/init.d/postgresql
 ```
 
-/Etc/init.d/postgresql 파일에서 두 변수를 수정합니다. 접두사가 PostgreSQL의 설치 경로인 **/opt/pgsql**로 설정됩니다. PGDATA가 PostgreSQL의 데이터 스토리지 경로인 **/opt/pgsql_data**로 설정됩니다.
+/Etc/init.d/postgresql 파일에서 두 변수를 수정합니다. 접두사가 PostgreSQL의 설치 경로인 **/opt/pgsql** 로 설정됩니다. PGDATA가 PostgreSQL의 데이터 스토리지 경로인 **/opt/pgsql_data** 로 설정됩니다.
 
 ```config
 # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
@@ -205,7 +205,7 @@ PostgreSQL의 엔드포인트가 켜져 있는지 확인합니다.
 # netstat -tunlp|grep 1999
 ```
 
-다음 출력이 표시됩니다.
+다음과 같은 출력이 표시됩니다.
 
 ![PostgreSQL의 끝점을 보여 주는 스크린샷](./media/postgresql-install/no3.png)
 
@@ -280,7 +280,7 @@ INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad',
 select * from potluck;
 ```
 
-결과는 다음과 같습니다.
+출력은 다음과 같습니다.
 
 ![테이블을 표시 하기 위한 명령의 출력을 보여 주는 스크린샷](./media/postgresql-install/no7.png)
 
@@ -291,7 +291,7 @@ select * from potluck;
 delete from potluck where name=’John’;
 ```
 
-"John" 행에 있는 모든 정보를 삭제합니다. 결과는 다음과 같습니다.
+"John" 행에 있는 모든 정보를 삭제합니다. 출력은 다음과 같습니다.
 
 ![이미지](./media/postgresql-install/no8.png)
 

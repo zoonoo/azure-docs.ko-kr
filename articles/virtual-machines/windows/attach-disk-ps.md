@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: baeeeae54829fad7378df597965eec5ba2039d20
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d2f283aa8b049602d25cf8969bc2327ebcfafe08
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972818"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202881"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>PowerShell을 사용하여 Windows VM에 데이터 디스크 연결
 
@@ -20,10 +20,10 @@ ms.locfileid: "91972818"
 
 먼저 다음 팁을 검토합니다.
 
-* 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
+* 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](../sizes.md)를 참조 하세요.
 * 프리미엄 SSD를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신과 같은 [Premium Storage 지원 VM 유형](../sizes-memory.md)이 필요합니다.
 
-이 문서에서는 최신 버전으로 지속적으로 업데이트 되는 [Azure Cloud Shell](../../cloud-shell/overview.md)내에서 PowerShell을 사용 합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
+이 문서에서는 최신 버전으로 지속적으로 업데이트 되는 [Azure Cloud Shell](../../cloud-shell/overview.md)내에서 PowerShell을 사용 합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요** 를 선택합니다.
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>가상 머신에 빈 데이터 디스크 추가
 
@@ -49,7 +49,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>가용성 영역에서 Managed Disks 사용
 
-가용성 영역에서 디스크를 만들려면 `-Zone` 매개 변수와 함께 [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig)를 사용합니다. 다음 예제에서는 영역 *1*에서 디스크를 만듭니다.
+가용성 영역에서 디스크를 만들려면 `-Zone` 매개 변수와 함께 [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig)를 사용합니다. 다음 예제에서는 영역 *1* 에서 디스크를 만듭니다.
 
 ```powershell
 $rgName = 'myResourceGroup'

@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 228814db76ea14fa8b74c0c5d634e5afd6d54ac6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2726ba3b337dc785de58b06fb5e8372058f71879
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483048"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202099"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -282,7 +282,7 @@ Resource Manager는 배포되는 다른 리소스에 종속되지 않는 모든 
 
 ## <a name="disks-and-images"></a>디스크 및 이미지
    
-Azure에서 vhd 파일은 [디스크 또는 이미지](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 나타낼 수 있습니다. vhd 파일에서 운영 체제가 특정 VM이 되도록 특수화된 경우 디스크를 나타냅니다. vhd 파일에서 운영 체제가 여러 VM을 만드는 데 사용되도록 일반화된 경우 이미지를 나타냅니다.   
+Azure에서 vhd 파일은 [디스크 또는 이미지](../managed-disks-overview.md)를 나타낼 수 있습니다. vhd 파일에서 운영 체제가 특정 VM이 되도록 특수화된 경우 디스크를 나타냅니다. vhd 파일에서 운영 체제가 여러 VM을 만드는 데 사용되도록 일반화된 경우 이미지를 나타냅니다.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>플랫폼 이미지에서 새 가상 머신 및 새 디스크 만들기
 
@@ -453,5 +453,5 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 - [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 고유의 템플릿을 만듭니다.
 - [Resource Manager 템플릿을 사용하여 Windows 가상 머신 만들기](ps-template.md)를 사용하여 자신이 만든 템플릿을 배포합니다.
-- [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 만든 VM을 관리하는 방법을 알아봅니다.
+- [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md)를 검토하여 만든 VM을 관리하는 방법을 알아봅니다.
 - 템플릿에서 리소스 종류의 JSON 구문 및 속성은 [Azure Resource Manager 템플릿 참조](/azure/templates/)에서 확인하세요.

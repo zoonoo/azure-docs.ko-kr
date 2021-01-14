@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7d116010d5e6fea5e1ba8a66431b874194506283
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ad47ac7d51de6ab497d7061961c14b5324fab931
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843454"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202456"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Key Vault에 대한 Azure 보안 기준
 
@@ -399,7 +399,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **지침**: MFA (Azure AD Multi-Factor Authentication)로 구성 된 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 Key Vault 사용 리소스에 로그인 하 고 구성 합니다. 
 
-권한 있는 액세스 워크스테이션: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
+권한 있는 액세스 워크스테이션: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/ 
 
 클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -1261,7 +1261,7 @@ https://docs.microsoft.com/azure/security-center/continuous-export
 
   
 
-경고를 Azure Sentinel로 스트림하는 방법:  
+경고를 Azure 센티널로 스트리밍하는 방법: 
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6cf106f6d7aef4324eeeaf232a28cdd91a8a774b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c2595d75acfacf3d501b6efb83b383d9a56215a6
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843131"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203289"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준
 
@@ -285,7 +285,7 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 **지침**: MFA (Azure AD Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 고객 Lockbox 요청에 로그인 하 고 구성 합니다.
 
-* [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../../active-directory/authentication/howto-mfa-getstarted.md)
 

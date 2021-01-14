@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: cynthn
-ms.openlocfilehash: f3c1e305024eb255a85aa470105d99edd3c26982
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cae75c88b4803912565e010f744a7757a3b98f04
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201310"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201555"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "92201310"
 
 PowerShell을 사용하여 데이터 디스크를 *작동 중* 제거(hot remove)할 수 있지만, VM에서 해당 디스크를 분리할 때 해당 디스크가 전혀 사용되고 있지 않아야 합니다.
 
-이 예제에서는 **myResourceGroup** 리소스 그룹의 VM **myVM**에서 **myDisk**라는 디스크를 제거합니다. 먼저 [Remove-AzVMDataDisk](/powershell/module/az.compute/remove-azvmdatadisk) cmdlet을 사용하여 디스크를 제거합니다. 그런 다음, [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet으로 가상 머신의 상태를 업데이트하여 데이터 디스크 제거 프로세스를 완료합니다.
+이 예제에서는 **myResourceGroup** 리소스 그룹의 VM **myVM** 에서 **myDisk** 라는 디스크를 제거합니다. 먼저 [Remove-AzVMDataDisk](/powershell/module/az.compute/remove-azvmdatadisk) cmdlet을 사용하여 디스크를 제거합니다. 그런 다음, [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet으로 가상 머신의 상태를 업데이트하여 데이터 디스크 제거 프로세스를 완료합니다.
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzVM `
@@ -50,14 +50,14 @@ Update-AzVM `
 
 데이터 디스크를 *작동 중* 제거(hot remove)할 수 있지만, VM에서 해당 디스크를 분리할 때 해당 디스크가 전혀 사용되고 있지 않아야 합니다.
 
-1. 왼쪽 메뉴에서 **Virtual Machines**을 선택합니다.
+1. 왼쪽 메뉴에서 **Virtual Machines** 을 선택합니다.
 1. 분리할 데이터 디스크가 있는 가상 머신을 선택합니다.
-1. **설정** 아래에서 **디스크**를 선택합니다.
+1. **설정** 아래에서 **디스크** 를 선택합니다.
 1. **디스크** 창에서 분리할 데이터 디스크의 오른쪽 끝에 있는 **X** 삭제 단추를 클릭 합니다.
-1. 페이지 맨 위에 있는 **저장**을 선택하여 변경 내용을 저장합니다.
+1. 페이지 맨 위에 있는 **저장** 을 선택하여 변경 내용을 저장합니다.
 
 디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](attach-managed-disk-portal.md)

@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: f92f286fc9d9438331617cb567272a331834af42
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7f9ac0ab9eacb90bde70c85ea06bc19a18aa0c05
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735385"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201147"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Azure CLI 및 Managed Disks를 사용하여 Linux VM의 복사본 만들기
 
 이 문서에서는 Azure CLI를 사용 하 여 Linux를 실행 하는 Azure VM (가상 머신)의 복사본을 만드는 방법을 보여 줍니다. 대규모 VM 이미지를 복사 하 고 만들고 저장 하 고 공유 하려면 [공유 이미지 갤러리](../shared-images-cli.md)를 참조 하세요.
 
-[VHD에서 VM을 업로드하고 만들](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)수도 있습니다.
+[VHD에서 VM을 업로드하고 만들](upload-vhd.md)수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 -   [Azure CLI](/cli/azure/install-az-cli2)를 설치합니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9dda02e483f3437237837a9b3b8bdcbcf84fcd1d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 16320e3f667c413778e166bfaacf81347226f4b1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489601"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202745"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Service Bus에 대 한 Azure 보안 기준
 
@@ -299,7 +299,7 @@ Service Bus에 대 한 데이터 평면 액세스는 관리 되는 Id, 앱 등�
 
 **지침**: MFA (권한 있는 액세스 워크스테이션)를 사용 하 여 PAW (권한 Multi-Factor Authentication 있는 액세스 워크스테이션)를 사용 하 여 Service Bus 사용 리소스에 로그인 하 고 구성 합니다.
 
-- [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 

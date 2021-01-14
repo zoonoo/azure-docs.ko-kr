@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 751d447c164c602b9b1524d4945d61556bf71932
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d5caacc7ebbb39a5d6d4fa3d4e9757e8e83420f9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127297"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202694"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
 이 문서에서는 Azure용 RHEL(Red Hat Enterprise Linux) 가상 머신을 준비하는 방법을 알아봅니다. 이 문서에 설명되어 있는 RHEL의 버전은 6.7+ 및 7.1+입니다. 이 문서에서 다룰 준비에 대한 하이퍼바이저는 Hyper-V, KVM(커널 기반 가상 머신) 및 VMware입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)을 참조하세요. RHEL 이미지 빌드를 자동화 하는 방법은 [Azure 이미지 작성기](./image-builder-overview.md)를 참조 하세요.
@@ -22,7 +22,7 @@ ms.locfileid: "98127297"
 
 이 섹션에서는 Hyper-v 관리자를 사용 하 여 [RHEL 6](#rhel-6-using-hyper-v-manager) 또는 [RHEL 7](#rhel-7-using-hyper-v-manager) 가상 머신을 준비 하는 방법을 보여 줍니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 이 섹션은 RedHat 웹 사이트에서 ISO 파일을 확보했으며 VHD(가상 하드 디스크)에 RHEL 이미지를 이미 설치한 것으로 가정합니다. Hyper-V 관리자를 사용하여 운영 체제 이미지를 설치하는 방법에 대한 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하세요.
 
 **RHEL 설치 참고 사항**
@@ -30,7 +30,7 @@ ms.locfileid: "98127297"
 * Azure는 VHDX 형식을 지원하지 않습니다. Azure는 고정 VHD만 지원합니다. Hyper-V 관리자를 사용하여 디스크를 VHD 형식으로 변환하거나, convert-vhd cmdlet을 사용할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본 동적 할다 옵션과 달리 **고정 크기** 를 선택합니다.
 * Azure는 Gen1 (BIOS boot) & Gen2 (UEFI 부팅) 가상 머신을 지원 합니다.
 * VHD에 허용되는 최대 크기는 1,023GB입니다.
-* LVM(논리 볼륨 관리자)이 지원되며 Azure 가상 머신의 OS 디스크 또는 데이터 디스크에 사용할 수 있습니다. 그러나 일반적으로 OS 디스크에서 LVM이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결을 위해 운영 체제 디스크를 다른 동일한 가상 머신에 연결해야 하는 경우, 복제된 가상 머신과 LVM 이름이 충돌하는 것을 방지합니다. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 및 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 설명서도 살펴보세요.
+* LVM(논리 볼륨 관리자)이 지원되며 Azure 가상 머신의 OS 디스크 또는 데이터 디스크에 사용할 수 있습니다. 그러나 일반적으로 OS 디스크에서 LVM이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결을 위해 운영 체제 디스크를 다른 동일한 가상 머신에 연결해야 하는 경우, 복제된 가상 머신과 LVM 이름이 충돌하는 것을 방지합니다. [LVM](configure-lvm.md) 및 [RAID](configure-raid.md) 설명서도 살펴보세요.
 * **UDF (범용 디스크 형식) 파일 시스템을 탑재 하기 위한 커널 지원이 필요** 합니다. Azure에서 처음 부팅 시 게스트에 연결된 UDF 형식 미디어는 프로비저닝 구성을 Linux 가상 머신에 전달합니다. Azure Linux 에이전트는 UDF 파일 시스템을 탑재 하 여 구성을 읽고 가상 머신을 프로 비전 할 수 있어야 합니다 .이 경우에는 프로 비전이 실패 합니다.
 * 운영 체제 디스크에서는 스왑 파티션을 구성하지 마세요. 여기에 대한 자세한 내용은 다음 단계에서 확인할 수 있습니다.
 
@@ -939,7 +939,7 @@ ms.locfileid: "98127297"
 
 이 섹션에서는 VMware에서 [RHEL 6](#rhel-6-using-vmware) 또는 [RHEL 7](#rhel-6-using-vmware)  배포판을 준비 하는 방법을 보여 줍니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 이 섹션은 VMWare에 RHEL 가상 머신이 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 자세한 방법은 [VMWare 게스트 운영 체제 설치 가이드](https://partnerweb.vmware.com/GOSIG/home.html)를 참조하세요.
 
 * Linux 운영 체제를 설치하는 경우 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결을 위해 운영 체제 디스크를 다른 가상 머신에 연결해야 하는 경우, 복제된 가상 머신과 LVM 이름이 충돌하는 것을 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 RAID를 사용할 수 있습니다.

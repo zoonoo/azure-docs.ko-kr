@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 14e19732423da3842b2f2748a46219691fe222b9
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 0de08c166aba7609210892a32836bee9b07d5394
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803156"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203051"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Azure Stack Edge에 대 한 Azure 보안 기준
 
@@ -234,7 +234,7 @@ Azure Stack Edge Pro 장치는 데이터를 로컬로 처리 한 다음 Azure에
 
 보안 워크스테이션을 중앙에서 관리하여 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한된 논리적 액세스 및 네트워크 액세스를 비롯한 보안 구성을 적용할 수 있습니다.
 
-- [권한 있는 액세스 워크스테이션 이해](/azure/active-directory/devices/concept-azure-managed-workstation) 
+- [권한 있는 액세스 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [권한 있는 액세스 워크스테이션 배포](/azure/active-directory/devices/howto-azure-managed-workstation)
 

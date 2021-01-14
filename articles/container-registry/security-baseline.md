@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3fcbc386c60611493912fdfb17226490549cdc53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52cc67b1160ae8c9a0120a0a10d0131b167d5776
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89396814"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202677"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Azure Container Registry에 대 한 Azure 보안 기준
 
@@ -366,7 +366,7 @@ Azure Security Center 내에서 id 및 액세스를 모니터링 하는 방법: 
 
 **지침**: MFA가 구성된 PAW(Privileged Access Workstation)를 사용하여 Azure 리소스에 로그인하고 구성합니다.
 
-권한 있는 액세스 워크스테이션에 대해 알아봅니다.  https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+권한 있는 액세스 워크스테이션에 대해 알아봅니다.  https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 Azure에서 MFA를 사용하도록 설정하는 방법: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 

@@ -8,12 +8,12 @@ ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 41f70a476e5cc562207614c4e04658d5f0fc6d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96586be8be466acf09121518fb71ea1b8ba9d983
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87499520"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203204"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Linux 가상 머신에서 데이터 디스크를 분리하는 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "87499520"
 
 CLI 또는 포털을 사용하여 디스크를 분리하려면 먼저 디스크를 탑재 해제하고 fstab 파일에서 해당 참조를 제거해야 합니다.
 
-VM에 연결합니다. 이 예제에서 VM의 공용 IP 주소는 *10.0.1.4*이고 사용자 이름은 *azureuser*입니다. 
+VM에 연결합니다. 이 예제에서 VM의 공용 IP 주소는 *10.0.1.4* 이고 사용자 이름은 *azureuser* 입니다. 
 
 ```bash
 ssh azureuser@10.0.1.4
@@ -51,7 +51,7 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-여기서 *sdc*는 분리할 디스크입니다. 또한 디스크의 UUID를 알아야 합니다.
+여기서 *sdc* 는 분리할 디스크입니다. 또한 디스크의 UUID를 알아야 합니다.
 
 ```bash
 sudo -i blkid
@@ -92,7 +92,7 @@ sudo umount /dev/sdc1 /datadrive
 
 ## <a name="detach-a-data-disk-using-azure-cli"></a>Azure CLI를 사용하여 데이터 디스크 분리 
 
-이 예제에서는 *myResourceGroup*의 VM *myVM*에서 *myDataDisk* 디스크를 분리합니다.
+이 예제에서는 *myResourceGroup* 의 VM *myVM* 에서 *myDataDisk* 디스크를 분리합니다.
 
 ```azurecli
 az vm disk detach \
@@ -106,16 +106,16 @@ az vm disk detach \
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>포털을 사용하여 데이터 디스크 분리
 
-1. 왼쪽 메뉴에서 **Virtual Machines**을 선택합니다.
-1. 가상 컴퓨터 블레이드에서 **디스크**를 선택합니다.
-1. **디스크** 블레이드 상단에서 **편집**을 선택합니다.
+1. 왼쪽 메뉴에서 **Virtual Machines** 을 선택합니다.
+1. 가상 컴퓨터 블레이드에서 **디스크** 를 선택합니다.
+1. **디스크** 블레이드 상단에서 **편집** 을 선택합니다.
 1. **디스크** 블레이드에서 분리할 데이터 디스크의 맨 오른쪽에 있는 ![분리 단추 이미지](./media/detach-disk/detach.png) 분리 단추를 클릭합니다.
-1. 디스크를 제거한 후에 블레이드 상단에서 **저장**을 클릭합니다.
+1. 디스크를 제거한 후에 블레이드 상단에서 **저장** 을 클릭합니다.
 
 디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
 
 
 
 ## <a name="next-steps"></a>다음 단계
-데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수 있습니다.
+데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](add-disk.md)할 수 있습니다.
 

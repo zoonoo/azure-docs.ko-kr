@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: e1666b7e74ceefd7e7e4fe6e499667b09efa0ac7
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 1e3934a8ff91d764a5148b3d490b44f30983a284
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963796"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202133"
 ---
 # <a name="use-spot-vms-in-azure"></a>Azure에서 스폿 Vm 사용
 
@@ -121,4 +121,4 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 
 또한 [별색 VM 인스턴스를 사용 하 여 확장 집합](../virtual-machine-scale-sets/use-spot.md)을 배포할 수 있습니다.
 
-오류가 발생 하는 경우 [오류 코드](./error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조 하세요.
+오류가 발생 하는 경우 [오류 코드](./error-codes-spot.md)를 참조 하세요.

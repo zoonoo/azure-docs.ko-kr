@@ -7,16 +7,16 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca9f9ad0fb724884e865469ba118af4c7e6cea2f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320016"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202847"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>미리 보기: Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
 
-이 문서에서는 Azure VM 이미지 작성기를 사용 하 여 사용자 지정 된 Windows 이미지를 만드는 방법을 보여 줍니다. 이 문서의 예제에서는 [이미지를 사용자 지정 하기 위해](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) 사용자 지정을 사용 합니다.
+이 문서에서는 Azure VM 이미지 작성기를 사용 하 여 사용자 지정 된 Windows 이미지를 만드는 방법을 보여 줍니다. 이 문서의 예제에서는 [이미지를 사용자 지정 하기 위해](../linux/image-builder-json.md#properties-customize) 사용자 지정을 사용 합니다.
 - PowerShell (ScriptUri)- [powershell 스크립트](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1)를 다운로드 하 여 실행 합니다.
 - Windows 다시 시작-VM을 다시 시작 합니다.
 - PowerShell (인라인)-특정 명령을 실행 합니다. 이 예제에서는를 사용 하 여 VM에 디렉터리를 만듭니다 `mkdir c:\\buildActions` .
@@ -271,4 +271,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
+이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md)를 참조 하세요.

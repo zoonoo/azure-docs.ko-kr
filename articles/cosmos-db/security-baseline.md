@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 961dae4cd35c7529a5661d1ddc7d0d1f6e4db634
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 67eece36444f06fed5fc81cd23b9ea284b43ec7c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029118"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202354"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB에 대 한 Azure 보안 기준
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -361,7 +361,7 @@ Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법: h
 
 **지침**: PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure 리소스에 로그인 하 고 구성 하 Multi-Factor Authentication 구성 합니다.
 
-Privileged Access Workstation에 대한 자세한 정보: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Privileged Access Workstation에 대한 자세한 정보: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 Azure에서 MFA를 사용하도록 설정하는 방법: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 

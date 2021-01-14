@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 236390529ddaf84416448138d7b5bdf31caf681b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: fa133e7c62b7970a1c48c7fd86c877bcf699e034
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827498"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201606"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>부팅 진단을 사용하여 Azure의 가상 머신 문제를 해결하는 방법
 
@@ -94,4 +94,4 @@ Azure Resource Manager 템플릿에서 배포하는 경우 가상 머신 리소�
 
 ### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>Azure CLI를 사용하여 부트 진단 사용
 
-Azure CLI를 사용하여 기존 Azure Virtual Machine에서 부트 진단을 사용하도록 설정할 수 있습니다. 자세한 내용은 [az vm boot-diagnostics](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest)를 참조하세요.
+Azure CLI를 사용하여 기존 Azure Virtual Machine에서 부트 진단을 사용하도록 설정할 수 있습니다. 자세한 내용은 [az vm boot-diagnostics](/cli/azure/vm/boot-diagnostics)를 참조하세요.

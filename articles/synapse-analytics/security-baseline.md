@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 972788e04e12553e7c05f30cc246c6fb562031a4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 65985e05be1061bb69eb160cf5be559cb271d5cd
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461371"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202932"
 ---
 # <a name="azure-security-baseline-for-azure-synapse-analytics"></a>Azure Synapse Analytics에 대 한 azure 보안 기준
 
@@ -393,7 +393,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure 리소스에 로그인 하 고 구성 하도록 구성 된 MFA (Multi-Factor Authentication)를 사용 합니다.
 
-* [Privileged Access Workstation에 대한 자세한 정보](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
@@ -611,7 +611,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: 중요한 저장 정보 암호화
 
-**지침**: tde (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협 으로부터 AZURE Synapse SQL을 보호 하는 데 도움이 됩니다. 데이터베이스, 연결된 백업 및 미사용 로그 파일 트랜잭션에 애플리케이션을 변경하지 않고 실시간으로 암호화 및 암호 해독을 수행합니다. Azure에서 TDE의 기본 설정은 DEK가 기본 제공 서버 인증서로 보호 되는 것입니다. 또는 TDE에 대 한 고객 관리 TDE (BYOK (Bring Your Own Key) 지원)를 사용할 수 있습니다. 이 시나리오에서 DEK를 암호화 하는 TDE 보호기는 고객이 관리 하는 비대칭 키로, 고객이 소유 하 고 관리 하는 Azure Key Vault (Azure의 클라우드 기반 외부 키 관리 시스템)에 저장 되 고 키 자격 증명 모음을 벗어날 수 없습니다.
+**지침**: tde (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협 으로부터 AZURE Synapse SQL을 보호 하는 데 도움이 됩니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. Azure에서 TDE의 기본 설정은 DEK가 기본 제공 서버 인증서로 보호 되는 것입니다. 또는 TDE에 대 한 고객 관리 TDE (BYOK (Bring Your Own Key) 지원)를 사용할 수 있습니다. 이 시나리오에서 DEK를 암호화 하는 TDE 보호기는 고객이 관리 하는 비대칭 키로, 고객이 소유 하 고 관리 하는 Azure Key Vault (Azure의 클라우드 기반 외부 키 관리 시스템)에 저장 되 고 키 자격 증명 모음을 벗어날 수 없습니다.
 
 * [서비스 관리 투명 한 데이터 암호화 이해](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)
 

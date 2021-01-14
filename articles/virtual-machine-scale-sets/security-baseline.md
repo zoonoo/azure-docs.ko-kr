@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5c00d08fcaeed8eba5b9732c9196b9abddc32b36
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 68dc7c36159523bcc46e93a4784e9d038037a919
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500719"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201215"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets에 대 한 Azure 보안 기준
 
@@ -412,7 +412,7 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: MFA가 구성된 PAW(Privileged Access Workstation)를 사용하여 Azure 리소스에 로그인하고 구성합니다.
 
-* [권한 있는 액세스 워크스테이션에 대해 알아보기](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [권한 있는 액세스 워크스테이션에 대해 알아보기](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: bfd3b2351a280f423ba0ef0b15318449554b5e3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3db1c3cdfc87cedc0ba24fadc0271a8af44a279
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595932"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201912"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Azure Virtual Machine 복구 명령을 사용하여 Linux VM 복구
 
@@ -53,13 +53,13 @@ VM 문제를 해결하려면 다음 단계를 수행합니다.
 
    Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 사전 설치되어 계정에서 사용하도록 구성된 공용 Azure 도구가 포함됩니다.
 
-   Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택합니다. 또한 [https://shell.azure.com](https://shell.azure.com)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 열 수도 있습니다.
+   Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택합니다. 또한 [https://shell.azure.com](https://shell.azure.com)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 열 수도 있습니다.
 
-   **복사**를 선택하여 코드 블록을 복사한 다음 Cloud Shell에 해당 코드를 붙여넣고, **Enter**를 선택하여 실행합니다.
+   **복사** 를 선택하여 코드 블록을 복사한 다음 Cloud Shell에 해당 코드를 붙여넣고, **Enter** 를 선택하여 실행합니다.
 
    CLI를 로컬에서 설치하여 사용하려면, 빠른 시작에 Azure CLI 버전 2.0.30 이상이 필요합니다. ``az --version``을 실행하여 버전을 찾습니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
    
-   현재 Azure Portal에 로그인 하는 것과 다른 계정을 사용 하 여 Cloud Shell에 로그인 해야 하는 경우 ``az login`` [az login reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true)를 사용할 수 있습니다.  계정과 연결 된 구독 간에 전환 하려면 ``az account set --subscription`` [az account set reference](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true)를 사용할 수 있습니다.
+   현재 Azure Portal에 로그인 하는 것과 다른 계정을 사용 하 여 Cloud Shell에 로그인 해야 하는 경우 ``az login`` [az login reference](/cli/azure/reference-index#az-login&preserve-view=true)를 사용할 수 있습니다.  계정과 연결 된 구독 간에 전환 하려면 ``az account set --subscription`` [az account set reference](/cli/azure/account#az-account-set&preserve-view=true)를 사용할 수 있습니다.
 
 2. `az vm repair` 명령을 처음 사용하는 경우 vm-repair CLI 확장을 추가합니다.
 

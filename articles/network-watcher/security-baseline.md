@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8213523e3035841f42c4a56b777444fd616b29d6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 598f925d939694ea47605b0e8ea2e63872db7811
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948530"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201249"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Network Watcher에 대 한 Azure 보안 기준
 
@@ -293,7 +293,7 @@ Network Watcher를 사용하도록 설정해야 합니다.
 
 **지침**: MFA (azure AD Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성 합니다.
 
-* [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -329,7 +329,7 @@ Network Watcher를 사용하도록 설정해야 합니다.
 
 **지침**: azure 센티널 인스턴스에 대 한 중앙 인증 및 권한 부여 시스템으로 Azure Active Directory (azure AD)를 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -589,7 +589,7 @@ Network Watcher 기능을 사용 하려면를 사용 하 여 Azure에 로그인 
 
 **지침**: Azure Policy을 사용 하 여 구독에 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다.
 
-Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리하고 검색 합니다. 환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
+Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 검색합니다. 환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 

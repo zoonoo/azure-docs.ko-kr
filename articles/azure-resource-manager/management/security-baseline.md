@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d841d3b922a5edd0257934566207187ae031c1b5
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: b4f0c64abf150165e3239e78e8cf9b824b34eed6
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532179"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202371"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Azure Resource Manager에 대 한 Azure 보안 기준
 
@@ -145,7 +145,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: 높은 권한이 필요한 관리 작업에 대해 Azure에서 관리 하는 안전한 워크스테이션 (권한 있는 액세스 워크스테이션 또는 PAW 라고도 함)을 사용 합니다.
 
-- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](../../active-directory/devices/concept-azure-managed-workstation.md)
+- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Azure AD MFA를 사용 하도록 설정 하는 방법](../../active-directory/authentication/howto-mfa-getstarted.md)
 

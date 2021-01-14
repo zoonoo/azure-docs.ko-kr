@@ -7,18 +7,18 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: e986348c063626bd6a0b5a834854bad09d73c952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a0bf27d44746ff9cf688df179ad3b602353907
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88814198"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201164"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Linux 기반 VM 디스크의 확장성 및 성능 목표
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-자세한 내용은 [Linux VM 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+자세한 내용은 [Linux VM 크기](../sizes.md)를 참조하세요.
 
 ## <a name="managed-virtual-machine-disks"></a>관리되는 가상 머신 디스크
 
@@ -31,6 +31,6 @@ ms.locfileid: "88814198"
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md)

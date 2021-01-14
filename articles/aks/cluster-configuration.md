@@ -3,15 +3,15 @@ title: AKS(Azure Kubernetes Service)의 클러스터 구성
 description: AKS(Azure Kubernetes Service)에서 클러스터를 구성하는 방법 알아보기
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 01/13/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: ab9e2a5483f0699ad7bfca991539025adff34b11
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: eacca50e00dfe8625d86362c444544e2fd5d5511
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606915"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201113"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -21,10 +21,52 @@ AKS 클러스터를 만드는 과정에서 필요에 따라 클러스터 구성�
 
 이제 AKS는 1.18.8 보다 높은 kubernetes 버전의 클러스터에 대 한 일반 공급으로 Ubuntu 18.04을 노드 OS (운영 체제)로 지원 합니다. 1.18 아래 버전의 경우 AKS Ubuntu 16.04는 여전히 기본 기본 이미지입니다. Kubernetes v 1.18 이후부터 기본 기본은 AKS Ubuntu 18.04입니다.
 
-> [!IMPORTANT]
-> Kubernetes v 1.18에 생성 되는 노드 풀은 노드 이미지에 대 한 기본값 보다 높습니다 `AKS Ubuntu 18.04` . 1.18 미만의 지원 되는 Kubernetes 버전의 노드 풀은 노드 `AKS Ubuntu 16.04` 이미지로 수신 하지만 `AKS Ubuntu 18.04` 노드 풀 Kubernetes 버전이 v 1.18 이상으로 업데이트 되 면 업데이트 됩니다.
-> 
-> 1.18 이상에서 클러스터를 사용 하기 전에 AKS Ubuntu 18.04 노드 풀에서 워크 로드를 테스트 하는 것이 좋습니다. [Ubuntu 18.04 노드 풀을 테스트](#use-aks-ubuntu-1804-existing-clusters-preview)하는 방법을 참조 하세요.
+### <a name="use-aks-ubuntu-1804-generally-available-on-new-clusters"></a>새 클러스터에서 일반적으로 사용할 수 있는 AKS Ubuntu 18.04 사용
+
+Kubernetes v 1.18에 생성 되는 클러스터는 노드 이미지에 대 한 기본값 보다 높습니다 `AKS Ubuntu 18.04` . 1.18 보다 작은 지원 되는 Kubernetes 버전의 노드 풀은 여전히 `AKS Ubuntu 16.04` 노드 이미지로 수신 되지만 `AKS Ubuntu 18.04` 클러스터 또는 노드 풀 Kubernetes 버전이 v 1.18 이상으로 업데이트 되 면로 업데이트 됩니다.
+
+1.18 이상에서 클러스터를 사용 하기 전에 AKS Ubuntu 18.04 노드 풀에서 워크 로드를 테스트 하는 것이 좋습니다. [Ubuntu 18.04 노드 풀을 테스트](#test-aks-ubuntu-1804-generally-available-on-existing-clusters)하는 방법을 참조 하세요.
+
+노드 이미지를 사용 하 여 클러스터를 만들려면 `AKS Ubuntu 18.04` 아래와 같이 kubernetes v 1.18 이상을 실행 하는 클러스터를 만듭니다.
+
+```azurecli
+az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="use-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>기존 클러스터에서 일반적으로 사용할 수 있는 AKS Ubuntu 18.04 사용
+
+Kubernetes v 1.18에 생성 되는 클러스터는 노드 이미지에 대 한 기본값 보다 높습니다 `AKS Ubuntu 18.04` . 1.18 보다 작은 지원 되는 Kubernetes 버전의 노드 풀은 여전히 `AKS Ubuntu 16.04` 노드 이미지로 수신 되지만 `AKS Ubuntu 18.04` 클러스터 또는 노드 풀 Kubernetes 버전이 v 1.18 이상으로 업데이트 되 면로 업데이트 됩니다.
+
+1.18 이상에서 클러스터를 사용 하기 전에 AKS Ubuntu 18.04 노드 풀에서 워크 로드를 테스트 하는 것이 좋습니다. [Ubuntu 18.04 노드 풀을 테스트](#test-aks-ubuntu-1804-generally-available-on-existing-clusters)하는 방법을 참조 하세요.
+
+클러스터 또는 노드 풀이 노드 이미지에 대해 준비 된 경우 `AKS Ubuntu 18.04` 아래와 같이 v 1.18 이상으로 업그레이드할 수 있습니다.
+
+```azurecli
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+하나의 노드 풀만 업그레이드 하려는 경우:
+
+```azurecli
+az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="test-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>테스트 AKS Ubuntu 18.04 일반적으로 기존 클러스터에서 사용할 수 있음
+
+Kubernetes v 1.18에 생성 되는 노드 풀은 노드 이미지에 대 한 기본값 보다 높습니다 `AKS Ubuntu 18.04` . 1.18 보다 작은 지원 되는 Kubernetes 버전의 노드 풀은 여전히 `AKS Ubuntu 16.04` 노드 이미지로 수신 되지만 `AKS Ubuntu 18.04` 노드 풀 Kubernetes 버전이 v 1.18 이상으로 업데이트 되 면로 업데이트 됩니다.
+
+프로덕션 노드 풀을 업그레이드 하기 전에 AKS Ubuntu 18.04 노드 풀에서 워크 로드를 테스트 하는 것이 좋습니다.
+
+노드 이미지를 사용 하 여 노드 풀을 만들려면 `AKS Ubuntu 18.04` kubernetes v 1.18 이상을 실행 하는 노드 풀을 만듭니다. 클러스터 제어 평면은 적어도 v 1.18 이상 이어야 하지만 다른 노드 풀은 이전 kubernetes 버전에 남아 있을 수 있습니다.
+아래에서는 먼저 제어 평면을 업그레이드 한 다음 새 노드 이미지 OS 버전을 받는 v 1.18를 사용 하 여 새 노드 풀을 만듭니다.
+
+```azurecli
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
+
+az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>새 클러스터에서 AKS Ubuntu 18.04 사용 (미리 보기)
 
 다음 섹션에서는 OS 구성 미리 보기를 사용 하 여 kubernetes 버전 1.18 이상을 아직 사용 하지 않거나이 기능을 일반 공급 하기 전에 만든 클러스터에서 AKS Ubuntu 18.04를 사용 하 고 테스트 하는 방법을 설명 합니다.
 
@@ -57,8 +99,6 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/U
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
-
-### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>새 클러스터에서 AKS Ubuntu 18.04 사용 (미리 보기)
 
 클러스터를 만들 때 Ubuntu 18.04를 사용하도록 클러스터를 구성합니다. `--aks-custom-headers` 플래그를 사용하여 Ubuntu 18.04를 기본 OS로 설정합니다.
 

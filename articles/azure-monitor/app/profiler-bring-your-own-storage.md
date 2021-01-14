@@ -4,21 +4,21 @@ description: Profiler &에 대 한 BYOS 구성 (사용자 고유의 저장소 �
 ms.topic: conceptual
 author: renatosalas
 ms.author: regutier
-ms.date: 04/14/2020
+ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117388"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202541"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Application Insights Profiler 및 스냅숏 디버거에 대 한 사용자 고유의 저장소 (BYOS)를 구성 합니다.
 
 ## <a name="what-is-bring-your-own-storage-byos-and-why-might-i-need-it"></a>사용자 고유의 저장소 (BYOS)를 가져오는 것은 무엇 이며 필요한 이유는 무엇 인가요? 
 Application Insights Profiler 또는 스냅숏 디버거를 사용 하는 경우 응용 프로그램에서 생성 된 아티팩트는 공용 인터넷을 통해 Azure storage 계정에 업로드 됩니다. 이러한 계정은 Microsoft에서 처리 및 분석을 위해 지불 하 고 제어 합니다. Microsoft는 이러한 아티팩트에 대 한 미사용 암호화 및 수명 관리 정책을 제어 합니다.
 
-사용자 고유의 저장소를 사용 하 여 이러한 아티팩트는 사용자가 제어 하는 저장소 계정에 업로드 됩니다. 즉, rest 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 제어 합니다. 그러나 해당 저장소 계정과 관련 된 비용을 담당 하 게 됩니다.
+사용자 고유의 저장소를 사용 하 여 이러한 아티팩트는 사용자가 제어 하는 저장소 계정에 업로드 됩니다. 즉, rest 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 제어 합니다. 그러나 해당 스토리지 계정과 관련된 비용은 사용자가 부담합니다.
 
 > [!NOTE]
 > 개인 링크를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 개인 링크에 대 한 자세한 내용은 [설명서를 참조 하십시오.](../platform/private-link-security.md)
@@ -30,7 +30,7 @@ Application Insights Profiler 또는 스냅숏 디버거를 사용 하는 경우
 1. Application Insights Profiler 또는 스냅숏 디버거 서비스는 들어오는 blob를 분석 하 고 분석 결과 및 로그 파일을 blob 저장소에 다시 씁니다. 사용 가능한 계산 용량에 따라 업로드 후 언제 든 지이 프로세스가 발생할 수 있습니다.
 1. 프로파일러 추적 또는 스냅숏 디버거 분석을 볼 때이 서비스는 blob 저장소에서 분석 결과를 인출 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 * Application Insights 리소스와 동일한 위치에 저장소 계정을 만들어야 합니다. 예: Application Insights 리소스가 미국 서 부 2에 있는 경우 저장소 계정은 미국 서 부에도 있어야 합니다. 
 * Access Control (IAM) UI를 통해 저장소 계정의 AAD 응용 프로그램 "진단 서비스의 신뢰할 수 있는 저장소 액세스"에 "저장소 Blob 데이터 참가자" 역할을 부여 합니다.
 * 개인 링크를 사용 하도록 설정한 경우 Virtual Network에서 신뢰할 수 있는 Microsoft 서비스에 대 한 연결을 허용 하도록 추가 설정을 구성 합니다. 
@@ -53,11 +53,11 @@ BYOS 저장소 계정은 Application Insights 리소스에 연결 됩니다. App
 1. 검색 & "진단 서비스의 신뢰할 수 있는 저장소 액세스" 앱을 선택 합니다. 
 1. 변경 내용 저장
 
-_ ![ 그림 1.0](media/profiler-bring-your-own-storage/figure-10.png)_ 
+_![ 그림 1.0](media/profiler-bring-your-own-storage/figure-10.png)_ 
  _그림 1.0_ 
 
 역할을 추가한 후 아래 그림 1.1과 같이 "역할 할당" 섹션 아래에 표시 됩니다. 
-_ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_ 
+_![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _그림 1.1_ 
 
 또한 개인 링크를 사용 하는 경우 Virtual Network에서 신뢰할 수 있는 Microsoft 서비스에 대 한 연결을 허용 하는 추가 구성이 하나 필요 합니다. [저장소 네트워크 보안 설명서](../../storage/common/storage-network-security.md#trusted-microsoft-services)를 참조 하세요.
@@ -91,7 +91,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 
     패턴
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 
@@ -198,7 +198,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 
 1. PowerShell 콘솔에서 메시지가 표시 되 면 다음 매개 변수를 제공 합니다.
     
-    |           매개 변수           |                                설명                               |
+    |           매개 변수           |                                Description                               |
     |-------------------------------|--------------------------------------------------------------------------|
     | application_insights_name     | BYOS를 사용 하도록 설정 하는 Application Insights 리소스의 이름입니다.            |
     | storage_account_name          | BYOS로 사용할 저장소 계정 리소스의 이름입니다. |
@@ -226,7 +226,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     DeploymentDebugLogLevel :
     ```
 
-1. Azure Portal를 통해 관심 있는 작업에서 코드 수준 진단 (프로파일러/디버거)을 사용 하도록 설정 합니다. (App Service > Application Insights) _ ![ 그림 2.0](media/profiler-bring-your-own-storage/figure-20.png)_ 
+1. Azure Portal를 통해 관심 있는 작업에서 코드 수준 진단 (프로파일러/디버거)을 사용 하도록 설정 합니다. (App Service > Application Insights) _![ 그림 2.0](media/profiler-bring-your-own-storage/figure-20.png)_ 
  _그림 2.0_
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -276,7 +276,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 
 일반적인 스냅숏 디버거 문제 해결에 대해서는 [스냅숏 디버거 문제 해결 설명서](snapshot-debugger-troubleshoot.md)를 참조 하세요. 
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 * 프로파일러 또는 스냅숏을 사용 하도록 설정 하 고 BYOS를 사용 하도록 설정한 경우 내 데이터는 내 저장소 계정으로 마이그레이션 되나요?
     _아니요, 그렇지 않습니다._
 

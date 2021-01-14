@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a2cbd2dd4dd32be137e461985e9f10fd07ed8a60
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ee4c364012b32ff8ee938dec2a7446853c32ba0b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325641"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203085"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -186,7 +186,7 @@ ms.locfileid: "96325641"
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 
-**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 해당 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
+**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 이러한 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
 
 Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Recovery Services 자격 증명 모음에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공
 
@@ -202,7 +202,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 L
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: 비정상 활동에 대한 경고 사용
 
-**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 해당 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
+**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 이러한 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
 
 경고는 사용자가 관련 작업을 수행할 수 있도록 사용자에 게 알림을 제공 하는 경우 주로 발생 합니다. 백업 경고 섹션에는 Azure Backup 서비스에 의해 생성 된 경고가 표시 됩니다. 이러한 경고는 서비스에 의해 정의 되며 사용자 지정 경고를 만들 수 없습니다.
 
@@ -312,7 +312,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 **지침**: Azure AD MULTI-FACTOR AUTHENTICATION (MFA)로 구성 된 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure Backup 사용 가능 리소스에 로그인 하 고 구성 합니다.
 
-- [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 

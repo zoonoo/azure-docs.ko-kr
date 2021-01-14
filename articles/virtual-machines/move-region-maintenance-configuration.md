@@ -7,24 +7,24 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 4cff7eb4a69005f2e74747b6e58447f100c69b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91a6adecc9cf0db56fa4c433f388b05aa1bdef6a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86501605"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202915"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>유지 관리 제어 구성을 다른 지역으로 이동
 
 이 문서를 따라 유지 관리 제어 구성을 다른 Azure 지역으로 이동할 수 있습니다. 여러 가지 이유로 구성을 이동 하는 것이 좋습니다. 예를 들어, 새 지역을 활용 하 여 특정 지역에서 사용할 수 있는 기능 또는 서비스를 배포 하 고 내부 정책 및 거 버 넌 스 요구 사항을 충족 하거나 용량 계획에 대 한 응답으로 배포할 수 있습니다.
 
-사용자 지정 유지 관리 구성을 사용 하 여 유지 관리 제어를 통해 플랫폼 업데이트가 [Windows](./maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) 및 [Linux](./maintenance-control-cli.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) Vm 및 Azure 전용 호스트에 적용 되는 방식을 제어할 수 있습니다. 여러 지역에서 유지 관리 제어를 이동 하기 위한 몇 가지 시나리오는 다음과 같습니다.
+사용자 지정 유지 관리 구성을 사용 하 여 [유지 관리 제어](maintenance-control.md)를 통해 Vm 및 Azure 전용 호스트에 플랫폼 업데이트를 적용 하는 방법을 제어할 수 있습니다. 여러 지역에서 유지 관리 제어를 이동 하기 위한 몇 가지 시나리오는 다음과 같습니다.
 
 - 유지 관리 제어 구성을 이동 하지만 구성과 관련 된 리소스는 이동 하지 않으려면이 문서의 지침을 따르세요.
 - 유지 관리 구성과 관련 된 리소스를 이동 하지만 구성 자체는 이동 하지 않으려면 [다음 지침](move-region-maintenance-configuration-resources.md)을 따르세요.
 - 유지 관리 구성과 연결 된 리소스를 모두 이동 하려면 먼저이 문서의 지침을 따르세요. 그런 다음, 다음 [지침](move-region-maintenance-configuration-resources.md)을 따릅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 유지 관리 제어 구성 이동을 시작 하기 전에 다음을 수행 합니다.
 
@@ -38,14 +38,14 @@ ms.locfileid: "86501605"
 
 ## <a name="prepare-and-move"></a>준비 및 이동 
 
-1. 각 구독에서 모든 유지 관리 구성을 검색 합니다. CLI [az maintenance configuration list](/cli/azure/ext/maintenance/maintenance/configuration?view=azure-cli-latest#ext-maintenance-az-maintenance-configuration-list) 명령을 실행 하 여이 작업을 수행 하 고 $subId를 구독 ID로 바꿉니다.
+1. 각 구독에서 모든 유지 관리 구성을 검색 합니다. CLI [az maintenance configuration list](/cli/azure/ext/maintenance/maintenance/configuration#ext-maintenance-az-maintenance-configuration-list) 명령을 실행 하 여이 작업을 수행 하 고 $subId를 구독 ID로 바꿉니다.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table
     ```
 2. 구독 내에서 구성 레코드의 반환 된 테이블 목록을 검토 합니다. 예를 들면 다음과 같습니다. 목록에는 특정 환경에 대 한 값이 포함 됩니다.
 
-    **이름** | **위치** | **리소스 그룹**
+    **Name** | **위치** | **리소스 그룹**
     --- | --- | ---
     유지 관리 건너뛰기 | eastus2 | 구성-리소스 그룹
     IgniteDemoConfig | eastus2 | 구성-리소스 그룹
