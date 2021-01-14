@@ -32,7 +32,7 @@ BYOL 가상 머신 배포 옵션을 통해 사용할 Fortinet의 FortiGate 라�
 
 이 문서를 작성할 당시 Fortinet FortiGate Azure VM은 SAML 인증에 필요한 펌웨어 버전과 함께 제공되지 않았습니다. Fortinet에서 최신 버전을 가져와야 합니다.
 
-1. https://support.fortinet.com/에 로그인합니다.
+1. https://support.fortinet.com/ 에 로그인합니다.
 2. **다운로드** > **펌웨어 이미지** 로 이동합니다.
 3. **릴리스 정보** 의 오른쪽에서 **다운로드** 를 선택합니다.
 4. **v6.00** > **6.4** > **6.4.2** 를 차례로 선택합니다.
