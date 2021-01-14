@@ -1,7 +1,7 @@
 ---
-title: 자동화 된 기계 학습 실험에서 교차 유효성 검사 및 데이터 분할 구성
+title: 자동화 된 기계 학습에서 데이터 분할 및 교차 유효성 검사
 titleSuffix: Azure Machine Learning
-description: 자동화 된 machine learning 실험을 위해 교차 유효성 검사 및 데이터 집합 분할을 구성 하는 방법 알아보기
+description: 자동화 된 기계 학습 실험에 대 한 데이터 집합 분할 및 교차 유효성 검사를 구성 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,27 +11,27 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: c29c8ab31507c0ec904a7534e50ef6523e1aab96
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2e26bfa484d573c0158e518b31087fb10bdcdfb9
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360108"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185685"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화된 Machine Learning에서 데이터 분할 및 교차 유효성 검사 구성
 
-이 문서에서는 자동화 된 machine learning, AutoML, 실험에 대해 학습/유효성 검사 데이터 분할 및 교차 유효성 검사를 구성 하는 다양 한 옵션에 대해 알아봅니다.
+이 문서에서는 자동화 된 기계 학습, 자동화 된 ML, 실험에 대해 학습/유효성 검사 데이터 분할 및 교차 유효성 검사를 구성 하는 다양 한 옵션에 대해 알아봅니다.
 
-Azure Machine Learning에서 AutoML을 사용 하 여 여러 ML 모델을 작성 하는 경우 각 자식 실행은 정확도 또는 지 수 가중치와 같은 해당 모델의 품질 메트릭을 계산 하 여 관련 모델의 유효성을 검사 해야 합니다. 이러한 메트릭은 각 모델과의 예측을 유효성 검사 데이터의 과거 관찰 으로부터 실제 레이블과 비교 하 여 계산 합니다. 
+Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델을 작성 하는 경우 각 자식 실행은 정확도 또는 보조 c 가중치와 같은 해당 모델의 품질 메트릭을 계산 하 여 관련 모델의 유효성을 검사 해야 합니다. 이러한 메트릭은 각 모델과의 예측을 유효성 검사 데이터의 과거 관찰 으로부터 실제 레이블과 비교 하 여 계산 합니다. 
 
-AutoML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다음 섹션에서는 [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)를 사용 하 여 유효성 검사 설정을 추가로 사용자 지정할 수 있는 방법을 설명 합니다. 
+자동 ML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다음 섹션에서는 [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)를 사용 하 여 유효성 검사 설정을 추가로 사용자 지정할 수 있는 방법을 설명 합니다. 
 
 코드 또는 코드가 없는 환경의 경우 [Azure Machine Learning studio에서 자동화 된 기계 학습 실험 만들기](how-to-use-automated-ml-for-ml-models.md)를 참조 하세요. 
 
 > [!NOTE]
 > 스튜디오는 현재 학습/유효성 검사 데이터 분할 및 교차 유효성 검사 옵션을 지원 하지만 유효성 검사 집합에 대 한 개별 데이터 파일을 지정 하는 것은 지원 하지 않습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다.
 
@@ -39,13 +39,13 @@ AutoML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다�
 
 * Azure Machine Learning SDK를 사용 하 여 자동화 된 machine learning 실험을 설정 하는 것에 대해 잘 알고 있어야 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 확인할 수 있습니다.
 
-* 교차 유효성 검사 및 학습/유효성 검사 데이터를 이해 하는 것은 ML 개념으로 분할 됩니다. 개략적인 설명의 경우
+* 기계 학습 개념으로 학습/유효성 검사 데이터 분할 및 교차 유효성 검사를 이해 합니다. 개략적인 설명의 경우
 
     * [Machine Learning의 학습, 유효성 검사 및 테스트 집합 정보](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
-    * [교차 유효성 검사 이해](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
+    * [기계 학습의 교차 유효성 검사 이해](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
 
-## <a name="default--data-splits-and-cross-validation"></a>기본 데이터 분할 및 교차 유효성 검사
+## <a name="default-data-splits-and-cross-validation"></a>기본 데이터 분할 및 교차 유효성 검사
 
 [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 개체를 사용 하 여 실험 및 학습 설정을 정의 합니다. 다음 코드 조각에서는 또는에 대 한 매개 변수가 `n_cross_validation` `validation_ data` 포함 **되지** 않은 필수 매개 변수만 정의 합니다.
 
@@ -117,7 +117,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 다음 코드에서는 교차 유효성 검사에 대 한 5 개의 접기가 정의 됩니다. 따라서 5 개의 서로 다른 학습, 각각 4/5 데이터를 사용 하는 각 학습 및 각각 다른 홀드 아웃을 사용 하는 데이터의 1/5을 사용 하 여 각 유효성 검사가 수행 됩니다.
 
-따라서 메트릭은 5 개의 유효성 검사 메트릭의 평균을 사용 하 여 계산 됩니다.
+따라서 메트릭은 5 가지 유효성 검사 메트릭의 평균을 사용 하 여 계산 됩니다.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"

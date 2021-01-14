@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: d2f35ae7a6110acb2ca89bdaeb487eddabf84923
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616249"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185821"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -60,7 +60,7 @@ ms.locfileid: "94616249"
 
 이 단계에서는 각 엔터티 (사용자, 게시물 등)에 대 한 세부 정보를 고려 하지 않았습니다. 이 단계는 일반적으로 관계형 저장소에 대해 디자인할 때 첫 번째 단계 중 하나는 테이블, 열, 외래 키 등을 기준으로 엔터티가 어떻게 변환 되는지 파악 해야 하기 때문에 세울. 쓰기 시 스키마를 적용 하지 않는 문서 데이터베이스의 경우에는 훨씬 더 중요 하지 않습니다.
 
-액세스 패턴을 처음부터 파악하는 것이 중요한 주된 이유는 이 요청 목록이 테스트 도구 모음이 되기 때문입니다. 데이터 모델을 반복할 때마다 각 요청을 검토하고 성능과 확장성을 확인합니다.
+액세스 패턴을 처음부터 파악하는 것이 중요한 주된 이유는 이 요청 목록이 테스트 도구 모음이 되기 때문입니다. 데이터 모델을 반복할 때마다 각 요청을 검토하고 성능과 확장성을 확인합니다. 각 모델에서 사용 되는 요청 단위를 계산 하 고 최적화 합니다. 이러한 모든 모델은 기본 인덱싱 정책을 사용 하 고 특정 속성을 인덱싱하여 재정의할 수 있으며,이를 통해 사용 및 대기 시간을 추가로 향상 시킬 수 있습니다.
 
 ## <a name="v1-a-first-version"></a>V1: 첫 번째 버전
 
@@ -295,7 +295,7 @@ ms.locfileid: "94616249"
 
 달성하고자 하는 것은 댓글이나 좋아요를 추가할 때마다 해당 게시물에서 `commentCount` 또는 `likeCount`도 증분시키는 것입니다. `posts` 컨테이너가 `postId`로 분할되므로 새 항목(댓글 또는 좋아요)과 해당 게시물은 동일한 논리 파티션에 배치됩니다. 따라서 [저장 프로시저](stored-procedures-triggers-udfs.md)를 사용하여 해당 작업을 수행할 수 있습니다.
 
-이제 댓글( **[C3]** )을 만들 때 `posts` 컨테이너에 새 항목을 추가하는 대신 해당 컨테이너에 대해 다음과 같은 저장 프로시저를 호출합니다.
+이제 댓글(**[C3]**)을 만들 때 `posts` 컨테이너에 새 항목을 추가하는 대신 해당 컨테이너에 대해 다음과 같은 저장 프로시저를 호출합니다.
 
 ```javascript
 function createComment(postId, comment) {
@@ -452,7 +452,7 @@ function updateUsernames(userId, username) {
 }
 ```
 
-다음 사항에 유의하세요.
+다음 사항에 유의합니다.
 
 - 사용자와 게시물을 구분하기 위해 `type` 필드를 사용자 항목에 도입했습니다.
 - `userId` 필드도 사용자 항목에 추가되었습니다. 이 필드는 `id` 필드와 중복되지만, 이제 `users` 컨테이너가 `userId`(앞서와 같이 `id`가 아님)로 분할되므로 필요합니다.

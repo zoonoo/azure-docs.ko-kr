@@ -3,12 +3,12 @@ title: Azure 관리 되는 id를 사용 하 여 DevTest Labs에서 환경 만들
 description: Azure에서 관리 되는 id를 사용 하 여 Azure DevTest Labs 랩에서 환경을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e5bac4210afee6db1c7617dac1cd6d2ff9149439
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f3e4b4d7030eb26c25b291e03caaa430d1979c4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718982"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185787"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Azure 관리 되는 id를 사용 하 여 랩 환경 배포 
 
@@ -19,7 +19,7 @@ ms.locfileid: "88718982"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- [Azure Portal를 사용 하 여 사용자 할당 관리 id에 대 한 역할을 생성, 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)합니다. 
+- [Azure Portal를 사용 하 여 사용자 할당 관리 id에 대 한 역할을 만들거나 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)합니다. 
     
     관리 id가 랩과 동일한 지역 및 구독에서 생성 되었는지 확인 합니다. 관리 id는 동일한 리소스 그룹에 있을 필요가 없습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "88718982"
 이 섹션에서는 랩 소유자로 Azure Portal를 사용 하 여 랩에 사용자 관리 id를 추가 합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **DevTest Labs**를 검색 합니다.
+1. **DevTest Labs** 를 검색 합니다.
 1. 랩 목록에서 원하는 랩을 선택 합니다.
 1. **구성 및 정책**  ->  **id (미리 보기)** 를 선택 합니다. 
 1. 사용자 할당 id를 추가 하려면 **사용자 할당 됨** 탭을 선택 합니다.
@@ -42,7 +42,7 @@ ms.locfileid: "88718982"
 
 랩에 추가 된 id에는 환경에서 액세스 해야 하는 외부 리소스에 대 한 권한이 있는 한 환경을 배포 하는 동안 랩 소유자는 특별 한 작업을 수행할 필요가 없습니다. 
 
-랩에 할당 된 사용자 관리 id를 변경 하려면 먼저 랩에 연결 된 id를 제거 하 고 랩에 다른 id를 추가 합니다. 랩에 연결 된 id를 제거 **하려면 ...를 선택 합니다. (줄임표)** 를 클릭 하 고 **제거**를 클릭 합니다. 
+랩에 할당 된 사용자 관리 id를 변경 하려면 먼저 랩에 연결 된 id를 제거 하 고 랩에 다른 id를 추가 합니다. 랩에 연결 된 id를 제거 **하려면 ...를 선택 합니다. (줄임표)** 를 클릭 하 고 **제거** 를 클릭 합니다. 
 
 ## <a name="use-api"></a>API 사용
 

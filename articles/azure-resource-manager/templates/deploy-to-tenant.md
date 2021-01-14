@@ -3,12 +3,12 @@ title: 테넌트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: a397678488921744f076d93235304c8d217d961f
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 0b3ddc63e49b272c93349ada91e9a1599ea4be4f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178962"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186212"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 테 넌 트 배포
 
@@ -185,6 +185,8 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 다음 템플릿은 관리 그룹을 만듭니다.
 
 :::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
+
+계정에 테 넌 트에 배포할 수 있는 권한이 없는 경우에도 다른 범위에 배포 하 여 관리 그룹을 만들 수 있습니다. 자세한 내용은 [관리 그룹](deploy-to-management-group.md#management-group)을 참조 하세요.
 
 ## <a name="assign-role"></a>역할 할당
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: f75907dc1fa079cebb3b80874090c658fd7b8174
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 80a6824edb92d8337481f592cbbf5eb23255b383
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302832"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185532"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Azure Data Box Azure Key Vault에서 고객이 관리 하는 키 사용
 
@@ -57,7 +57,7 @@ Azure Portal의 기존 Data Box 주문에 대해 고객이 관리 하는 키를 
 
       ![검토 및 만들기 Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-      주요 자격 증명 모음에 대 한 정보를 검토 하 고 **만들기** 를 선택 합니다. 키 자격 증명 모음 만들기가 완료 될 때까지 몇 분 정도 기다립니다.
+      키 자격 증명 모음에 대한 정보를 검토하고, **만들기** 를 선택합니다. 키 자격 증명 모음 만들기가 완료될 때까지 몇 분 정도 기다립니다.
 
        ![설정을 사용 하 여 Azure Key Vault 만들기](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
@@ -65,11 +65,11 @@ Azure Portal의 기존 Data Box 주문에 대해 고객이 관리 하는 키를 
 
     ![Azure Key Vault에서 키 선택](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-   새 키를 만들려면 **새로 만들기** 를 선택 합니다. RSA 키를 사용 해야 합니다. 크기는 2048 이상일 수 있습니다.
+   새 키를 만들려면 **새로 만들기** 를 선택합니다. RSA 키를 사용해야 합니다. 크기는 2048 이상일 수 있습니다.
 
     ![Azure Key Vault에서 새 키 만들기](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-    새 키의 이름을 입력 하 고 다른 기본값을 적용 한 다음 **만들기** 를 선택 합니다. 키 자격 증명 모음에 키가 생성 되었다는 알림이 표시 됩니다.
+    새 키에 대한 이름을 입력하고, 다른 기본값을 적용한 다음, **만들기** 를 선택합니다. 키 자격 증명 모음에 키가 생성 되었다는 알림이 표시 됩니다.
 
     ![새 키 이름](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
@@ -81,7 +81,7 @@ Azure Portal의 기존 Data Box 주문에 대해 고객이 관리 하는 키를 
 
     ![새 키 버전을 만들기 위한 대화 상자 열기](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
 
-    새 키 버전에 대 한 설정을 선택 하 고 **만들기** 를 선택 합니다.
+    새 키 버전에 대한 설정을 선택하고,**만들기** 를 선택합니다.
 
     ![새로운 키 버전 만들기](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-b.png)
 
@@ -91,11 +91,11 @@ Azure Portal의 기존 Data Box 주문에 대해 고객이 관리 하는 키를 
 
     **암호화 유형** 설정에는 선택한 키 자격 증명 모음 및 키가 표시 됩니다.
 
-    ![고객 관리 키에 대 한 키 및 키 자격 증명 모음](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+    ![고객 관리형 키에 대한 키 및 키 자격 증명 모음](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
 7. 이 리소스에 대 한 고객 관리 키를 관리 하는 데 사용할 id 유형을 선택 합니다. 주문 생성 중에 생성 된 **시스템 할당** id를 사용 하거나 사용자 할당 id를 선택할 수 있습니다.
 
-    사용자 할당 id는 리소스에 대 한 액세스를 관리 하는 데 사용할 수 있는 독립적인 리소스입니다. 자세한 내용은 [관리 되는 id 유형](/azure/active-directory/managed-identities-azure-resources/overview)을 참조 하세요.
+    사용자 할당 id는 리소스에 대 한 액세스를 관리 하는 데 사용할 수 있는 독립적인 리소스입니다. 자세한 내용은 [관리 ID 유형](/azure/active-directory/managed-identities-azure-resources/overview)을 참조하세요.
 
     ![Id 유형 선택](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
 
@@ -107,7 +107,7 @@ Azure Portal의 기존 Data Box 주문에 대해 고객이 관리 하는 키를 
 
     선택한 사용자 id가 **암호화 유형** 설정에 표시 됩니다.
 
-    ![암호화 유형 설정에 표시 되는 선택 된 사용자 id](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
+    ![암호화 유형 설정에 표시된 선택한 사용자 ID](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
 
  9. **저장** 을 선택 하 여 업데이트 된 **암호화 유형** 설정을 저장 합니다.
 

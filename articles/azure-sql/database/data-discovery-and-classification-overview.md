@@ -13,17 +13,17 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132055"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185362"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-데이터 검색 & 분류는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 기본 제공 됩니다. 데이터베이스에서 중요한 데이터의 검색, 분류, 레이블 지정 및 보고를 위한 고급 기능을 제공합니다.
+데이터 검색 & 분류는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 기본 제공 됩니다. 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 지정 및 보고 하는 기본 기능을 제공 합니다.
 
 가장 중요 한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함 될 수 있습니다. 이 데이터를 검색 하 고 분류 하면 조직의 정보 보호 방식에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라 역할을 할 수 있습니다.
 
@@ -36,11 +36,11 @@ ms.locfileid: "98132055"
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>데이터 검색 & 분류 란?
 
-데이터 검색 & 분류에는 Azure의 일련의 고급 서비스 및 새로운 기능이 도입 되었습니다. 데이터베이스 뿐만 아니라 데이터를 보호 하는 것을 목표로 하는 SQL Database, SQL Managed Instance 및 Azure Synapse에 대 한 새로운 정보 보호 패러다임을 형성 합니다. 패러다임에는 다음이 포함 됩니다.
+데이터 검색 & 분류에는 Azure의 일련의 기본 서비스 및 새로운 기능이 도입 되었습니다. 데이터베이스 뿐만 아니라 데이터를 보호 하는 것을 목표로 하는 SQL Database, SQL Managed Instance 및 Azure Synapse에 대 한 새로운 정보 보호 패러다임을 형성 합니다. 패러다임에는 다음이 포함 됩니다.
 
 - **검색 및 권장 사항:** 분류 엔진은 데이터베이스를 검색 하 고 잠재적으로 중요 한 데이터가 포함 된 열을 식별 합니다. 그런 다음 Azure Portal를 통해 권장 분류를 쉽게 검토 하 고 적용할 수 있는 방법을 제공 합니다.
 
-- **레이블 지정:** SQL Server 데이터베이스 엔진에 추가 된 새 메타 데이터 특성을 사용 하 여 민감도 분류 레이블을 열에 영구적으로 적용할 수 있습니다. 그런 다음이 메타 데이터를 고급, 민감도 기반 감사 및 보호 시나리오에 사용할 수 있습니다.
+- **레이블 지정:** SQL Server 데이터베이스 엔진에 추가 된 새 메타 데이터 특성을 사용 하 여 민감도 분류 레이블을 열에 영구적으로 적용할 수 있습니다. 그런 다음이 메타 데이터를 민감도 기반 감사 및 보호 시나리오에 사용할 수 있습니다.
 
 - **쿼리 결과-민감도를 설정 합니다.** 쿼리 결과 집합의 민감도는 감사를 위해 실시간으로 계산 됩니다.
 

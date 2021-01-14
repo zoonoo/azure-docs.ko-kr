@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
-ms.openlocfilehash: fc6e8bcda17f9d788a430ed763bd9f8702eaf250
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3d5a888bf132725ff64c2a128b77f0257f435585
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003551"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184257"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>엔드포인트 추가, 사용 안 함, 사용 또는 삭제
 
@@ -45,7 +45,7 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 7.  두 엔드포인트 추가가 완료되면 **온라인** 인 모니터링 상태와 함께 **Traffic Manager 프로필** 블레이드에 표시됩니다.
 
 > [!NOTE]
-> *장애 조치* 트래픽 라우팅 방법을 사용하여 프로필에서 엔드포인트를 추가하거나 제거한 후에는 장애 조치 우선 순위 목록을 원하는 방식으로 정렬할 수 없습니다. 대신 구성 페이지에서 장애 조치 우선 순위 목록의 순서를 조정할 수 있습니다. 자세한 내용은 [장애 조치(Failover) 트래픽 라우팅 구성](traffic-manager-configure-failover-routing-method.md)을 참조하세요.
+> *장애 조치* 트래픽 라우팅 방법을 사용하여 프로필에서 엔드포인트를 추가하거나 제거한 후에는 장애 조치 우선 순위 목록을 원하는 방식으로 정렬할 수 없습니다. 대신 구성 페이지에서 장애 조치 우선 순위 목록의 순서를 조정할 수 있습니다. 자세한 내용은 [장애 조치(Failover) 트래픽 라우팅 구성](./traffic-manager-configure-priority-routing-method.md)을 참조하세요.
 
 ## <a name="to-disable-an-endpoint"></a>엔드포인트를 사용하지 않도록 설정하려면
 
@@ -77,8 +77,7 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Traffic Manager 프로필 관리](traffic-manager-manage-profiles.md)
-* [라우팅 방법 구성](traffic-manager-configure-routing-method.md)
+* [라우팅 방법 구성](./traffic-manager-configure-priority-routing-method.md)
 * [Traffic Manager 성능 저하 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 * [Traffic Manager 성능 고려 사항](traffic-manager-performance-considerations.md)
-* [Traffic Manager 작업(REST API 참조)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
-
+* [Traffic Manager 작업(REST API 참조)](/previous-versions/azure/reference/hh758255(v=azure.100))

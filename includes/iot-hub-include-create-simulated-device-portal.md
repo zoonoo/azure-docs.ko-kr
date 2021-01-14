@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/26/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 8d8f8021925ac9c9e427dd6571ecaa1a30c85497
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91b6f1ed06fbf1f5575650f96f4622b3df9ca083
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67182825"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98187434"
 ---
 <!-- This is the instructions for creating a simulated device you can use for testing routing.-->
 
@@ -21,11 +21,11 @@ ms.locfileid: "67182825"
 
 1. [Azure Portal](https://portal.azure.com)을 열고 사용자의 Azure 계정에 로그인합니다.
 
-2. **리소스 그룹**을 선택한 후 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다.
+2. **리소스 그룹** 을 선택한 후 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources** 를 사용합니다.
 
-3. 리소스 목록에서 IoT 허브를 선택합니다. 이 자습서에서는 **ContosoTestHub**를 사용합니다. 허브 창에서 **IoT 디바이스**를 선택합니다.
+3. 리소스 목록에서 IoT 허브를 선택합니다. 이 자습서에서는 **ContosoTestHub** 를 사용합니다. 허브 창에서 **IoT 디바이스** 를 선택합니다.
 
-4. **+추가**를 선택합니다. 추가 디바이스 창에서 디바이스 ID를 입력합니다. 이 자습서에서는 **Contoso-Test-Device**를 사용합니다. 키를 비워 두고 **키 자동 생성**을 선택합니다. **IoT Hub에 디바이스 연결**이 사용하도록 설정되어 있는지 확인합니다. **저장**을 선택합니다.
+4. **+새로 만들기** 를 선택합니다. 추가 디바이스 창에서 디바이스 ID를 입력합니다. 이 자습서에서는 **Contoso-Test-Device** 를 사용합니다. 키를 비워 두고 **키 자동 생성** 을 선택합니다. **IoT Hub에 디바이스 연결** 이 사용하도록 설정되어 있는지 확인합니다. **저장** 을 선택합니다.
 
    ![디바이스 추가 화면](./media/iot-hub-include-create-simulated-device-portal/add-device.png)
 

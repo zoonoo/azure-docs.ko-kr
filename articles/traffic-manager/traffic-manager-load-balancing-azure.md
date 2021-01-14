@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
-ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eaf50f3bdacaf5680bc5ecb1379faff20133b5ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021693"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184376"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 
@@ -92,11 +92,11 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 4. Application Gateway에 대한 가상 네트워크, 서브넷, 프런트 엔드 IP 및 수신기 구성을 정의합니다. 이 시나리오에서 프런트 엔드 IP 주소는 **공용** 이며 따라서 나중에 Traffic Manager 프로필에 엔드포인트로 추가할 수 있습니다.
 5. 다음 옵션 중 하나를 사용하여 수신기를 구성합니다.
     * HTTP를 사용하면 구성할 항목이 없습니다. **확인** 을 클릭합니다.
-    * HTTPS를 사용하는 경우 추가 구성이 필요합니다. 9단계에서 시작하는 [Application Gateway 만들기](../application-gateway/application-gateway-create-gateway-portal.md)를 참조하세요. 구성 작업을 완료한 경우 **확인** 을 클릭합니다.
+    * HTTPS를 사용하는 경우 추가 구성이 필요합니다. 9단계에서 시작하는 [Application Gateway 만들기](../application-gateway/quick-create-portal.md)를 참조하세요. 구성 작업을 완료한 경우 **확인** 을 클릭합니다.
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Application Gateway에 대한 URL 라우팅 구성
 
-백 엔드 풀을 선택하는 경우 경로 기반 규칙을 사용하여 구성된 Application Gateway는 라운드 로빈 배포 외에도 요청 URL의 경로 패턴을 사용합니다. 이 시나리오에서는 "/images/\*"를 포함하는 모든 URL을 이미지 서버 풀로 보내도록 패스 기반 규칙을 추가합니다. Application Gateway에 대해 URL 경로 기반 라우팅을 구성하는 방법에 대한 자세한 내용은 [Application Gateway에 대한 경로 기반 규칙 만들기](../application-gateway/application-gateway-create-url-route-portal.md)를 참조하세요.
+백 엔드 풀을 선택하는 경우 경로 기반 규칙을 사용하여 구성된 Application Gateway는 라운드 로빈 배포 외에도 요청 URL의 경로 패턴을 사용합니다. 이 시나리오에서는 "/images/\*"를 포함하는 모든 URL을 이미지 서버 풀로 보내도록 패스 기반 규칙을 추가합니다. Application Gateway에 대해 URL 경로 기반 라우팅을 구성하는 방법에 대한 자세한 내용은 [Application Gateway에 대한 경로 기반 규칙 만들기](../application-gateway/create-url-route-portal.md)를 참조하세요.
 
 ![Application Gateway 웹 계층 다이어그램](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -156,7 +156,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 고가용성 데이터베이스 클러스터에서 SQL Server Always On을 사용하는 경우 단계별 지침은 [하나 이상의 Always On 가용성 그룹 수신기 구성](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md)을 참조하세요.
 
-내부 부하 분산 장치 구성에 대한 자세한 내용은 [Azure Portal에서 내부 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)를 참조하세요.
+내부 부하 분산 장치 구성에 대한 자세한 내용은 [Azure Portal에서 내부 부하 분산 장치 만들기](../load-balancer/quickstart-load-balancer-standard-internal-portal.md)를 참조하세요.
 
 1. Azure Portal의 왼쪽 창에서 **리소스 만들기**  >  **네트워킹**  >  **부하 분산 장치** 를 클릭 합니다.
 2. 부하 분산 장치의 이름을 선택합니다.
@@ -210,5 +210,5 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Traffic Manager 개요](traffic-manager-overview.md)
-* [Application Gateway 개요](../application-gateway/application-gateway-introduction.md)
+* [Application Gateway 개요](../application-gateway/overview.md)
 * [Azure Load Balancer개요](../load-balancer/load-balancer-overview.md)

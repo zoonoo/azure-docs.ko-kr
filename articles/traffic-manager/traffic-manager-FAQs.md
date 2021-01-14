@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 86758c355566fb67ebd8a606068e2044e0b8bd64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400180"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184580"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -96,7 +96,7 @@ Traffic Manager에서 제공하는 메트릭 중 하나로 프로필에서 응�
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>지리적 라우팅에 대해 Traffic Manager에서 지원되는 지역은 어디입니까?
 
-Traffic Manager에서 사용되는 국가/지역 계층 구조는 [여기](traffic-manager-geographic-regions.md)에서 확인할 수 있습니다. 이 페이지는 변경 내용으로 최신 상태를 유지하지만, [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 사용하여 동일한 정보를 프로그래밍 방식으로 검색할 수도 있습니다. 
+Traffic Manager에서 사용되는 국가/지역 계층 구조는 [여기](traffic-manager-geographic-regions.md)에서 확인할 수 있습니다. 이 페이지는 변경 내용으로 최신 상태를 유지하지만, [Azure Traffic Manager REST API](/rest/api/trafficmanager/)를 사용하여 동일한 정보를 프로그래밍 방식으로 검색할 수도 있습니다. 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Traffic Manager는 어떻게 사용자가 쿼리하는 위치를 결정합니까?
 
@@ -116,11 +116,11 @@ Traffic Manager는 쿼리의 원본 IP를 찾고(대개 사용자 대신 쿼리�
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>지리적 라우팅을 수행하도록 구성되어 있지 않은 프로필의 엔드포인트에 지리적 지역을 할당할 수 있습니까?
 
-예. 프로필의 라우팅 방법이 지리적이 아닌 경우 [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 사용하여 지리적 지역을 해당 프로필의 엔드포인트에 할당할 수 있습니다. 비지리적 라우팅 형식 프로필의 경우 이 구성은 무시됩니다. 이러한 프로필을 나중에 지리적 라우팅 형식으로 변경하면 Traffic Manager에서 그러한 매핑을 사용할 수 있습니다.
+예. 프로필의 라우팅 방법이 지리적이 아닌 경우 [Azure Traffic Manager REST API](/rest/api/trafficmanager/)를 사용하여 지리적 지역을 해당 프로필의 엔드포인트에 할당할 수 있습니다. 비지리적 라우팅 형식 프로필의 경우 이 구성은 무시됩니다. 이러한 프로필을 나중에 지리적 라우팅 형식으로 변경하면 Traffic Manager에서 그러한 매핑을 사용할 수 있습니다.
 
 ### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>기존 프로필의 라우팅 방법을 지리적으로 변경하려고 시도하면 오류가 발생하는 이유는 무엇인가요?
 
-지리적 라우팅을 사용하는 프로필의 모든 엔드포인트에는 매핑되어 있는 지역이 하나 이상 있어야 합니다. 기존 프로필을 지리적 라우팅 형식으로 변환하려면 라우팅 형식을 지리적으로 변경하기 전에 먼저 [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 사용하여 지리적 위치를 모든 해당 엔드포인트에 연결해야 합니다. 포털을 사용하는 경우 먼저 엔드포인트를 삭제하고, 프로필의 라우팅 방법을 지리적으로 변경한 다음 지리적 지역 매핑과 함께 엔드포인트를 추가합니다.
+지리적 라우팅을 사용하는 프로필의 모든 엔드포인트에는 매핑되어 있는 지역이 하나 이상 있어야 합니다. 기존 프로필을 지리적 라우팅 형식으로 변환하려면 라우팅 형식을 지리적으로 변경하기 전에 먼저 [Azure Traffic Manager REST API](/rest/api/trafficmanager/)를 사용하여 지리적 위치를 모든 해당 엔드포인트에 연결해야 합니다. 포털을 사용하는 경우 먼저 엔드포인트를 삭제하고, 프로필의 라우팅 방법을 지리적으로 변경한 다음 지리적 지역 매핑과 함께 엔드포인트를 추가합니다.
 
 ### <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>고객에게 지리적 라우팅이 활성화된 프로필의 엔드포인트보다 중첩 프로필을 만드는 것을 권장하는 이유는 무엇입니까?
 
@@ -306,7 +306,7 @@ Traffic Manager 프로필의 Azure 지역 외부에서 호스팅되는 외부 �
 
 Azure Web Apps의 경우 여러 구독에서 엔드포인트를 사용하는 것은 가능하지 않습니다. Azure Web Apps은 Web Apps와 함께 사용되는 모든 사용자 지정 도메인 이름을 단일 구독 내에서만 사용할 것을 요구합니다. 여러 구독에서 동일한 도메인 이름을 가지고 Web Apps를 사용하는 것은 불가능합니다.
 
-다른 엔드포인트 유형의 경우 Traffic Manager를 둘 이상의 구독에서 엔드포인트와 함께 사용할 수 있습니다. Traffic Manager 프로필을 구성하는 사용자에게 엔드포인트에 대한 읽기 권한이 있는 한, Resource Manager에서 모든 구독의 엔드포인트를 Traffic Manager에 추가할 수 있습니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 이러한 권한을 부여할 수 있습니다. [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create)를 사용 하 여 다른 구독의 끝점을 추가할 수 있습니다.
+다른 엔드포인트 유형의 경우 Traffic Manager를 둘 이상의 구독에서 엔드포인트와 함께 사용할 수 있습니다. Traffic Manager 프로필을 구성하는 사용자에게 엔드포인트에 대한 읽기 권한이 있는 한, Resource Manager에서 모든 구독의 엔드포인트를 Traffic Manager에 추가할 수 있습니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 이러한 권한을 부여할 수 있습니다. [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) 또는 [Azure CLI](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create)를 사용 하 여 다른 구독의 끝점을 추가할 수 있습니다.
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>클라우드 서비스 '스테이징' 슬롯으로 Traffic Manager를 사용할 수 있습니까?
 
@@ -341,17 +341,17 @@ Traffic Manager는 Azure에서 가용성 높은 애플리케이션을 전달하�
 
 Traffic Manager는 단일 전역 서비스입니다. 지역에 영향을 받지 않습니다. 리소스 그룹의 위치 선택은 해당 리소스 그룹에 배포된 Traffic Manager 프로필에 어떤 영향도 주지 않습니다.
 
-Azure Resource Manager에서는 모든 리소스 그룹에서 '위치'를 지정해야 하며 이를 통해 해당 리소스 그룹에 배포된 리소스의 기본 위치가 결정됩니다. Traffic Manager 프로필을 만들면 리소스 그룹에 만들어집니다. 모든 Traffic Manager 프로필은 위치로 **전역**을 사용하고 리소스 그룹 기본값을 재정의합니다.
+Azure Resource Manager에서는 모든 리소스 그룹에서 '위치'를 지정해야 하며 이를 통해 해당 리소스 그룹에 배포된 리소스의 기본 위치가 결정됩니다. Traffic Manager 프로필을 만들면 리소스 그룹에 만들어집니다. 모든 Traffic Manager 프로필은 위치로 **전역** 을 사용하고 리소스 그룹 기본값을 재정의합니다.
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>각 엔드포인트의 현재 상태를 확인하려면 어떻게 해야 하나요?
 
-각 엔드포인트의 현재 상태 모니터링 상태 및 전체 프로필은 Azure 포털에 표시됩니다. 이 정보는 Traffic Manager [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.trafficmanager) 및 [크로스 플랫폼 Azure CLI](../cli-install-nodejs.md)를 통해서도 사용할 수 있습니다.
+각 엔드포인트의 현재 상태 모니터링 상태 및 전체 프로필은 Azure 포털에 표시됩니다. 이 정보는 Traffic Manager [REST API](/rest/api/trafficmanager/), [PowerShell cmdlets](/powershell/module/az.trafficmanager) 및 [크로스 플랫폼 Azure CLI](/cli/azure/install-classic-cli)를 통해서도 사용할 수 있습니다.
 
-Azure Monitor를 사용하여 엔드포인트의 상태를 추적하고 이에 대한 시각적 표현을 볼 수도 있습니다. Azure Monitor에 대한 자세한 내용은 [Azure Monitoring 설명서](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)를 참조하세요.
+Azure Monitor를 사용하여 엔드포인트의 상태를 추적하고 이에 대한 시각적 표현을 볼 수도 있습니다. Azure Monitor에 대한 자세한 내용은 [Azure Monitoring 설명서](../azure-monitor/platform/data-platform.md)를 참조하세요.
 
 ### <a name="can-i-monitor-https-endpoints"></a>HTTPS 엔드포인트를 모니터링할 수 있나요?
 
-예. Traffic Manager는 HTTPS를 통한 검색을 지원합니다. 모니터링 구성에서 프로토콜로 **HTTPS**를 구성합니다.
+예. Traffic Manager는 HTTPS를 통한 검색을 지원합니다. 모니터링 구성에서 프로토콜로 **HTTPS** 를 구성합니다.
 
 Traffic Manager는 다음을 포함하는 인증서 유효성 검사를 제공할 수 없습니다.
 
@@ -458,7 +458,7 @@ Traffic Manager를 사용하면 시작하는 HTTP(S) 상태 검사에서 사용�
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>내 엔드포인트 중 하나가 중단된 경우 알림을 받으려면 어떻게 해야 할까요?
 
-Traffic Manager에서 제공하는 메트릭 중 하나로 프로필의 엔드포인트 상태가 있습니다. 이 상태는 프로필 내의 모든 엔드포인트에 대한 집계(예: 엔드포인트의 75%가 정상) 또는 엔드포인트 수준별 집계로 확인할 수 있습니다. Traffic Manager 메트릭은 Azure Monitor를 통해 공개되며, 엔드포인트 상태가 변경되면 알림을 받을 수 있도록 [경고 기능](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)을 사용할 수 있습니다. 자세한 내용은 [Traffic Manager 메트릭 및 경고](traffic-manager-metrics-alerts.md)를 참조하세요.  
+Traffic Manager에서 제공하는 메트릭 중 하나로 프로필의 엔드포인트 상태가 있습니다. 이 상태는 프로필 내의 모든 엔드포인트에 대한 집계(예: 엔드포인트의 75%가 정상) 또는 엔드포인트 수준별 집계로 확인할 수 있습니다. Traffic Manager 메트릭은 Azure Monitor를 통해 공개되며, 엔드포인트 상태가 변경되면 알림을 받을 수 있도록 [경고 기능](../azure-monitor/platform/alerts-metric.md)을 사용할 수 있습니다. 자세한 내용은 [Traffic Manager 메트릭 및 경고](traffic-manager-metrics-alerts.md)를 참조하세요.  
 
 ## <a name="traffic-manager-nested-profiles"></a>Traffic Manager 중첩 프로필
 

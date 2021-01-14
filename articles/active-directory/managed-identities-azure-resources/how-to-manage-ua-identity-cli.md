@@ -16,14 +16,14 @@ ms.date: 04/17/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: edb326c889a76eedd82c8918c705bdb5bbe5d195
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 68f305156645d69049519cd383f06b28ab9b5e03
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893611"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184878"
 ---
-# <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Azure CLI를 사용하여 사용자 할당 관리 ID 생성, 나열 또는 삭제
+# <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Azure CLI를 사용 하 여 사용자 할당 관리 id 만들기, 나열 또는 삭제
 
 
 Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id를 사용 하 여 Azure 서비스를 제공 합니다. 이 ID를 사용하면 코드에 자격 증명을 포함할 필요 없이 Azure AD 인증을 지원하는 서비스에 인증할 수 있습니다. 
@@ -32,9 +32,9 @@ Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id�
 
 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 리소스에 대 한 관리 id에 익숙하지 [않은 경우 azure 리소스에 대 한 관리 되는 Id 란?](overview.md)을 참조 하세요. 시스템 할당 및 사용자 할당 관리 id 형식에 대 한 자세한 내용은 [관리 되는 id 유형](overview.md#managed-identity-types)을 참조 하세요.
+- Azure 리소스에 대한 관리 ID에 익숙하지 않은 경우 [Azure 리소스에 대한 관리 ID란?](overview.md)을 참조하세요. 시스템 할당 및 사용자 할당 관리 ID 형식에 대한 자세한 내용은 [관리 ID 형식](overview.md#managed-identity-types)을 참조하세요.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: duau
-ms.openlocfilehash: 692c63849bc9e92ded43db3bf22ce14384f2b68d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e55c2115edef684f38aa53172596beffd101ef59
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401285"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184393"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 엔드포인트
 
@@ -25,8 +25,8 @@ Microsoft Azure Traffic Manager를 사용하면 다른 데이터 센터에서 �
 Traffic Manager에서 지원되는 엔드포인트에는 세 가지 종류가 있습니다.
 
 * **Azure 엔드포인트** 는 Azure에서 호스팅되는 서비스에 사용됩니다.
-* **외부 엔드포인트**는 IPv4/IPv6 주소나 FQDNs 또는 Azure 외부에서 호스팅되는 서비스(온-프레미스 또는 다른 호스팅 공급자의 서비스일 수 있음)에 사용됩니다.
-* **중첩 엔드포인트**는 더 크고 복잡한 배포에 대한 요구 사항을 지원하는 더 유연한 트래픽 라우팅 체계를 만들도록 Traffic Manager 프로필을 결합하는 데 사용됩니다.
+* **외부 엔드포인트** 는 IPv4/IPv6 주소나 FQDNs 또는 Azure 외부에서 호스팅되는 서비스(온-프레미스 또는 다른 호스팅 공급자의 서비스일 수 있음)에 사용됩니다.
+* **중첩 엔드포인트** 는 더 크고 복잡한 배포에 대한 요구 사항을 지원하는 더 유연한 트래픽 라우팅 체계를 만들도록 Traffic Manager 프로필을 결합하는 데 사용됩니다.
 
 여러 가지 형식의 엔드포인트를 단일 Traffic Manager 프로필로 결합하는 방법에는 제한 사항이 없습니다. 각 프로필은 모든 엔드포인트 유형의 혼합을 포함할 수 있습니다.
 
@@ -90,17 +90,17 @@ Traffic Manager 포털, PowerShell, CLI 또는 REST API를 통해 엔드포인�
 
 프로필의 모든 엔드포인트가 비활성화되거나 프로필 자체가 비활성화된 경우 Traffic Manager은 'NXDOMAIN' 응답을 새 DNS 쿼리에 보냅니다.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
-* [여러 구독에서 엔드포인트로 Traffic Manager를 사용할 수 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+* [여러 구독에서 엔드포인트로 Traffic Manager를 사용할 수 있습니까?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 
-* [클라우드 서비스 '스테이징' 슬롯으로 Traffic Manager를 사용할 수 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+* [클라우드 서비스 '스테이징' 슬롯으로 Traffic Manager를 사용할 수 있습니까?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-cloud-service-staging-slots)
 
-* [Traffic Manager는 IPv6 엔드포인트를 지원하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+* [Traffic Manager는 IPv6 엔드포인트를 지원하나요?](./traffic-manager-faqs.md#does-traffic-manager-support-ipv6-endpoints)
 
-* [동일한 지역에서 둘 이상의 Web App에 Traffic Manager를 사용할 수 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+* [동일한 지역에서 둘 이상의 Web App에 Traffic Manager를 사용할 수 있습니까?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [Traffic Manager 프로필의 Azure 엔드포인트를 다른 리소스 그룹으로 이동하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
+* [Traffic Manager 프로필의 Azure 엔드포인트를 다른 리소스 그룹으로 이동하려면 어떻게 해야 하나요?](./traffic-manager-faqs.md#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## <a name="next-steps"></a>다음 단계
 

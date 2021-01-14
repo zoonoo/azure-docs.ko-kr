@@ -1,26 +1,26 @@
 ---
-title: 모델을 배포 하는 방법 및 위치
+title: Machine learning 모델을 배포 하는 방법
 titleSuffix: Azure Machine Learning
-description: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge 및 FPGA를 포함 하 여 Azure Machine Learning 모델을 배포 하는 방법 및 위치를 알아봅니다.
+description: 기계 학습 모델을 배포 하는 방법 및 위치를 알아봅니다. Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge 및 FPGA에 배포 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 195f1c527185fbd55450b6151f26525074db75f7
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: e9c691485eb0ec1a0b3c0564f9a8f9a5d2aa255d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070425"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185804"
 ---
-# <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
+# <a name="deploy-machine-learning-models-to-azure"></a>Azure에 machine learning 모델 배포
 
-Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거나 장치를 Azure IoT Edge 하는 방법에 대해 알아봅니다.
+Azure 클라우드에서 기계 학습 또는 심층 학습 모델을 웹 서비스로 배포 하는 방법에 대해 알아봅니다. Azure IoT Edge 장치에 배포할 수도 있습니다.
 
 워크플로는 모델을 배포하는 위치와 관계없이 유사합니다.
 
@@ -31,7 +31,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 1. 컴퓨팅 대상에 모델을 배포합니다.
 1. 결과 웹 서비스를 테스트 합니다.
 
-배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
+Machine learning 배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -197,7 +197,7 @@ Azure Machine Learning 외부에서 학습 한 모델을 사용 하는 방법에
 }
 ```
 
-이는 배포 시 디렉터리의 파일을 사용 하 여 들어오는 요청을 처리 하도록 지정 합니다 `score.py` `./working_dir` .
+이는 machine learning 배포에서 디렉터리의 파일을 사용 하 여 들어오는 요청을 처리 하도록 지정 합니다 `score.py` `./working_dir` .
 
 유추 구성에 대 한 자세한 내용은 [이 문서를 참조](./reference-azure-machine-learning-cli.md#inference-configuration-schema) 하세요. 
 
@@ -269,7 +269,7 @@ from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservic
 
 ---
 
-## <a name="deploy-your-model"></a>모델 배포
+## <a name="deploy-your-machine-learning-model"></a>Machine learning 모델 배포
 
 이제 모델을 배포할 준비가 되었습니다. 
 
@@ -314,7 +314,7 @@ print(service.state)
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | 설명 | 최종 상태?
+| 웹 서비스 상태 | Description | 최종 상태?
 | ----- | ----- | ----- |
 | 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
 | Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |

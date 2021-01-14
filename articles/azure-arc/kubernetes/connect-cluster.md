@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Azure Arc를 사용하여 Azure Arc가 지원되는 Kubernetes 클러스터 연결
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 8155ed709045626dee44fb499304ff5244a61b54
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 131ec014c9ac016a682bc4928f74910a3405a5da
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060251"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186008"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Azure Arc가 지원되는 Kubernetes 클러스터 연결(미리 보기)
 
@@ -35,19 +35,19 @@ ms.locfileid: "98060251"
   
   Kubernetes 클러스터를 Azure에 연결하는 데 도움이 되는 `connectedk8s` 확장을 설치합니다.
   
-  ```console
+  ```azurecli
   az extension add --name connectedk8s
   ```
   
   `k8sconfiguration` 확장 설치
   
-  ```console
+  ```azurecli
   az extension add --name k8sconfiguration
   ```
   
   이러한 확장을 나중에 업데이트 하려면 다음 명령을 실행 합니다.
   
-  ```console
+  ```azurecli
   az extension update --name connectedk8s
   az extension update --name k8sconfiguration
   ```

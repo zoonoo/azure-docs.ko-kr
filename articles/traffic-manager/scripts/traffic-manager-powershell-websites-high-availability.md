@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: duau
-ms.openlocfilehash: a8547a681d3b2b1cfb01750c4898b45f10d18d57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114041a6ad0b311a1e01a692b9e6c36b0a8fb900
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400217"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185379"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Azure PowerShell을 사용하여 애플리케이션 고가용성을 위해 트래픽 라우팅
 
@@ -60,6 +60,6 @@ Remove-AzResourceGroup -Name myResourceGroup2
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 
 추가 네트워킹 PowerShell 스크립트 샘플은 [Azure 네트워킹 개요 설명서](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json)에서 찾을 수 있습니다.

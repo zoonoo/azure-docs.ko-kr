@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 74bd7bc159f7f5974452adf6b2f51148d869b4ed
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3b49177eb592906e3bf84d359699b354f8c87c6e
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589239"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185668"
 ---
 # <a name="deployment-best-practices"></a>배포 모범 사례
 
@@ -113,7 +113,7 @@ jobs:
 
 위에 나열 된 단계는 CircleCI 또는 Travis CI와 같은 다른 자동화 유틸리티에 적용 됩니다. 그러나 마지막 단계에서 새 이미지 태그로 배포 슬롯을 업데이트 하려면 Azure CLI를 사용 해야 합니다. 자동화 스크립트에서 Azure CLI를 사용 하려면 다음 명령을 사용 하 여 서비스 사용자를 생성 합니다.
 
-```shell
+```azurecli
 az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
    --sdk-auth

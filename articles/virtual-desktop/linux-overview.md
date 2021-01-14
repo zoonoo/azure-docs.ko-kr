@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ae279c117172f116641c7c908b9fc53f26ceaa90
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 502a89c5a2c0384e34ee35346332a4dd6adc38aa
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802306"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185430"
 ---
 # <a name="linux-support"></a>Linux 지원
 
@@ -23,6 +23,7 @@ Linux 씬 클라이언트 파트너에서 제공 하는 [웹 클라이언트](co
 
 |파트너|파트너 설명서|파트너 지원|
 |:------|:--------------------|:--------------|
+|![Dell 로고](./media/partners/dell.png)|[Dell 클라이언트 설명서](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Dell 지원](https://www.dell.com/support)|
 |![IGEL 로고](./media/partners/igel.png)|[IGEL 클라이언트 설명서](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL 지원](https://www.igel.com/support/)|
 |![NComputing 로고](./media/partners/ncomputing.png)|[NComputing 클라이언트 설명서](https://www.ncomputing.com/microsoft)|[NComputing 지원](https://www.ncomputing.com/support/support-options)|
 |![Stratodesk 로고](./media/partners/stratodesk.png)|[Stratodesk 클라이언트 설명서](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk 지원](https://www.stratodesk.com/support/)|

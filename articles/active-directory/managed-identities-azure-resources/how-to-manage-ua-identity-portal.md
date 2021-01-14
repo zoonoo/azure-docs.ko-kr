@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad91c916a6134f2507e74df6e87478421a00f43
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd4cccdfc3a2cf8dd3827776028a7738ae769673
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003007"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184833"
 ---
-# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당
+# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Azure Portal를 사용 하 여 사용자 할당 관리 id에 역할을 만들거나 나열, 삭제 또는 할당 합니다.
 
 Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id를 사용 하 여 Azure 서비스를 제공 합니다. 이 ID를 사용하면 코드에 자격 증명을 포함할 필요 없이 Azure AD 인증을 지원하는 서비스에 인증할 수 있습니다. 
 

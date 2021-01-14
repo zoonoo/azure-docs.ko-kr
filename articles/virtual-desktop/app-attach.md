@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f625b7dd68d4b5a5e1af68aeb53dac453ff8cbfd
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400831"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185770"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>MSIX 앱 연결을 위한 PowerShell 스크립트 만들기 (미리 보기)
 
@@ -39,6 +39,17 @@ MSIX 앱 연결 패키지에서 ap를 호스트 하는 호스트 풀의 모든 �
 6. **모든 인증서를 다음 저장소에 저장** 을 선택한 다음, **찾아보기** 를 선택합니다.
 7. 인증서 저장소 선택 창이 나타나면 **신뢰할 수 있는 사용자** 를 선택한 후 **확인** 을 선택합니다.
 8. **다음** 을 선택 하 고 **마침** 을 선택 합니다.
+
+## <a name="enable-microsoft-hyper-v"></a>Microsoft Hyper-V 사용
+
+명령을 준비 하는 데 필요 하 고 디 스테이지를 사용 해야 하기 때문에 Microsoft Hyper-V를 사용 하도록 설정 해야 합니다 `Mount-VHD` `Dismount-VHD` .
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+>[!NOTE]
+>이렇게 변경하면 가상 머신을 다시 시작해야 합니다.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>MSIX app attach용 PowerShell 스크립트 준비
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: duau
-ms.openlocfilehash: 83300a5c518a3acf853968164031a80e1c882187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d4b4ba6830fd573a545eb6308fe15a4781873c4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401240"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184325"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>지리적 트래픽 라우팅 메소드에 대해 Azure Traffic Manager에서 사용하는 국가/지역 계층 구조
 
-이 문서에서는 Azure Traffic Manager의 **지리적** 트래픽 라우팅 메서드에서 사용하는 국가 및 지역을 나열합니다. [Azure Traffic Manager의 REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 호출하여 이 정보를 프로그래밍 방식으로 가져올 수도 있습니다. 
+이 문서에서는 Azure Traffic Manager의 **지리적** 트래픽 라우팅 메서드에서 사용하는 국가 및 지역을 나열합니다. [Azure Traffic Manager의 REST API](/rest/api/trafficmanager/)를 호출하여 이 정보를 프로그래밍 방식으로 가져올 수도 있습니다. 
 
 - WORLD(전 세계)
 

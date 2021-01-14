@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304300"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185481"
 ---
 # <a name="camera-placement-guide"></a>카메라 배치 가이드
 
@@ -52,7 +52,7 @@ ms.locfileid: "91304300"
 
 ## <a name="camera-height"></a>카메라 높이
 
-일반적으로 카메라는 접지에서 12-14 피트를 탑재 해야 합니다. 이 범위 내에서 카메라 탑재를 계획할 때 카메라 보기에 영향을 줄 수 있는 장애물 (예: 보류 중, 불 광원, 내어쓰기 signage 및 표시)을 고려 하 여 필요에 따라 높이를 조정 합니다.
+일반적으로 카메라는 접지에서 12-14 피트를 탑재 해야 합니다. 얼굴 마스크 검색의 경우, 카메라를 8-12 피트로 탑재 하는 것이 좋습니다. 이 범위 내에서 카메라 탑재를 계획할 때 카메라 보기에 영향을 줄 수 있는 장애물 (예: 보류 중, 불 광원, 내어쓰기 signage 및 표시)을 고려 하 여 필요에 따라 높이를 조정 합니다.
 
 ## <a name="camera-to-focal-point-distance"></a>카메라-중심 지점 거리
 
@@ -68,7 +68,7 @@ _카메라-초점면 거리_ 는 접지 지점 (또는 카메라 이미지의 �
 
 ![위에서의 중심 지점 거리를 측정 하는 방법](./media/spatial-analysis/camera-focal-point-above.png)
 
-아래 표를 사용 하 여 특정 장착 높이를 기준으로 초점 점에서 카메라 거리를 확인 합니다. 이러한 거리는 최적의 배치를 위한 것입니다. 일부 최대값이는 높이를 제한할 수 있으므로이 표는 12 '-14 ' 권장 사항 아래에 있는 지침을 제공 합니다.
+아래 표를 사용 하 여 특정 장착 높이를 기준으로 초점 점에서 카메라 거리를 확인 합니다. 이러한 거리는 최적의 배치를 위한 것입니다. 일부 최대값이는 높이를 제한할 수 있으므로이 표는 12 '-14 ' 권장 사항 아래에 있는 지침을 제공 합니다. 얼굴 마스크 검색의 경우 권장 되는 카메라-중심 거리 (min/max)는 9 ' ~ 12 ' 사이의 카메라 높이에 대해 4 '-10 '입니다.
 
 | 카메라 높이 | 카메라-초점 거리 (최소/최대) |  
 | ------------- | ---------------------------------------- |  
@@ -91,7 +91,7 @@ _카메라-초점면 거리_ 는 접지 지점 (또는 카메라 이미지의 �
 
 ### <a name="line-configuration"></a>줄 구성
 
-다음 표에서는 **cognitiveservices account spatialanalysis-personcrossingline** 작업에 대해 구성 된 카메라에 대 한 권장 사항을 보여 줍니다. 
+다음 표에서는 **cognitiveservices account spatialanalysis-personcrossingline** 작업에 대해 구성 된 카메라에 대 한 권장 사항을 보여 줍니다. 얼굴 마스크 검색의 경우 +/-30도는 카메라 높이를 위한 최적의 카메라 탑재 각도 (8 ' ~ 12 ')입니다.
 
 | 카메라 높이 | 카메라-중심 지점 거리 | 최적의 카메라 탑재 각도 (최소/최대) |  
 | ------------- | ------------------------------ | ------------------------------------------ |  

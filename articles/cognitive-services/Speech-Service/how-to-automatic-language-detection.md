@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1d294bb4b3cae314e964407e5e75fcddf4fa5d92
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e62333f241cf24620773314fb7aa4846af651eaf
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970999"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185872"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>음성 텍스트에 대 한 자동 언어 검색
 
@@ -254,11 +254,11 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_synthesis_sample.py#L434) 를 참조 하세요.
+* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L458) 를 참조 하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L494) 를 참조 하세요.
+* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L525) 를 참조 하세요.
 ::: zone-end
 
 * [Speech SDK 참조 설명서](speech-sdk.md)

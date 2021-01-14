@@ -6,14 +6,14 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d8ed429003a9da7ae93fb93f4218cd66767dcd7b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 34bcef24d5e7fbda53984f14a2307859c9210262
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562279"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185957"
 ---
-# <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Azure Portal를 사용 하 여 MSIX 앱 연결 설정
+# <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Azure Portal을 사용하여 MSIX 앱 연결 설정
 
 > [!IMPORTANT]
 > MSIX 앱 연결은 현재 공개 미리 보기로 제공 됩니다.
@@ -54,19 +54,10 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v
 
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
 
-rem Disable Windows Update:
-
-sc config wuauserv start=disabled
-```
-
-자동 업데이트를 사용 하지 않도록 설정한 후에는 명령을 사용 하 여 다시 사용 하도록 설정 해야 `Mount-VHD` 합니다.
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
 >[!NOTE]
->이렇게 변경하면 가상 머신을 다시 시작해야 합니다.
+>Hyper-v를 사용 하도록 설정한 후 가상 컴퓨터를 다시 시작 하는 것이 좋습니다.
 
 ## <a name="configure-the-msix-app-attach-management-interface"></a>MSIX 앱 연결 관리 인터페이스 구성
 

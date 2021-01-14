@@ -1,16 +1,16 @@
 ---
-title: 자주 묻는 질문
+title: 질문과 대답
 description: Azure Container Instances 서비스와 관련 된 faq (질문과 대답)
 author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516973"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186195"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances에 대 한 질문과 대답
 
@@ -53,7 +53,11 @@ Azure Container Instances에서 배포 가능한 컨테이너 이미지의 최�
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>컨테이너에서 사용 해야 하는 .NET 또는 .NET Core 이미지 계층은 무엇 인가요? 
 
-요구 사항에 맞는 가장 작은 이미지를 사용 합니다. Linux의 경우 .NET Core 2.1의 릴리스 이후 지원 된 *런타임 알파인* .net Core 이미지를 사용할 수 있습니다. Windows의 경우 전체 .NET Framework를 사용 하는 경우 Windows Server Core 이미지 (  *4.7.2-windowsservercore-ltsc2016*와 같은 런타임 전용 이미지)를 사용 해야 합니다. 런타임 전용 이미지는 작지만 .NET SDK를 필요로 하는 워크 로드를 지원 하지 않습니다.
+요구 사항에 맞는 가장 작은 이미지를 사용 합니다. Linux의 경우 .NET Core 2.1의 릴리스 이후 지원 된 *런타임 알파인* .net Core 이미지를 사용할 수 있습니다. Windows의 경우 전체 .NET Framework를 사용 하는 경우 Windows Server Core 이미지 (  *4.7.2-windowsservercore-ltsc2016* 와 같은 런타임 전용 이미지)를 사용 해야 합니다. 런타임 전용 이미지는 작지만 .NET SDK를 필요로 하는 워크 로드를 지원 하지 않습니다.
+
+### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>ACI와 호환 되는 컨테이너 레지스트리 유형은 무엇 인가요?
+
+ACI는 ACR 및 다른 타사 컨테이너 레지스트리 (예: DockerHub)에서 이미지를 끌어올 수 있도록 지원 합니다. 또한 ACI는 OCR과 호환 되 고 인터넷에 공개적으로 노출 되는 끝점을 포함 하는 경우 온-프레미스 레지스트리에서 이미지를 끌어올 수 있도록 지원 합니다.
 
 ## <a name="availability-and-quotas"></a>가용성 및 할당량
 

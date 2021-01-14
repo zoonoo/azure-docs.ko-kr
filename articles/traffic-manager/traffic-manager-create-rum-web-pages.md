@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
-ms.openlocfilehash: 8606e89a40e9cfd2c0f55df2c65532928c0d11f8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2bb104fd9cfc3c4ffddb82e4cf442e94c4650550
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972592"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184561"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>웹 페이지를 사용하여 Azure Traffic Manager의 실제 사용자 측정을 보내는 방법
 
@@ -68,5 +68,4 @@ RUM 키를 가져온 후에 다음 단계는 복사한 JavaScript를 최종 사�
 - [실제 사용자 측정](traffic-manager-rum-overview.md)에 대한 자세한 정보
 - [Traffic Manager 작동 방식](traffic-manager-overview.md)
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
-- [Traffic Manager 프로필을 만드는](traffic-manager-create-profile.md)
-
+- [Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md)

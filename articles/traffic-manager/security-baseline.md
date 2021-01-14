@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d4523319c04703c04a293471124329512e31a265
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5d5ecf95289bf7860363b7e97d834372ee6c2268
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964680"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185260"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Azure Traffic Manager에 대 한 azure 보안 기준
 
@@ -76,7 +76,7 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 쿼리 시작](../azure-monitor/log-query/get-started-portal.md)
+- [Log Analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
@@ -116,9 +116,9 @@ Traffic Manager 프로필을 구성하는 사용자에게 엔드포인트에 대
 
 - [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -136,7 +136,7 @@ Traffic Manager 프로필을 구성하는 사용자에게 엔드포인트에 대
 
 Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하 여 Just-in-time 액세스를 사용 하도록 설정할 수도 있습니다. 
 
-- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
 
 - [Azure Policy를 사용하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -170,7 +170,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: 높은 권한이 필요한 관리 작업에 대해 Azure에서 관리 하는 안전한 워크스테이션 (권한 있는 액세스 워크스테이션 또는 PAW 라고도 함)을 사용 합니다.
 
-- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](../active-directory/devices/concept-azure-managed-workstation.md)
+- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](/security/compass/concept-azure-managed-workstation)
 
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -184,9 +184,9 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 또한 Azure AD 위험 감지를 사용 하 여 위험한 사용자 동작에 대 한 경고 및 보고서를 볼 수 있습니다.
 
-- [Privileged Identity Management 배포 하는 방법](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Privileged Identity Management 배포 하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Azure AD 위험 검색 이해](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험 검색 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -206,7 +206,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -216,9 +216,9 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure AD는 부실 계정을 검색하는 데 유용한 로그를 제공합니다. 또한 Azure AD id 및 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리 합니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다. 
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
-- [Azure AD id 및 액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
+- [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -230,7 +230,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -240,7 +240,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure AD ID 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -258,7 +258,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -276,9 +276,9 @@ Azure Traffic Manager에는 사용자에 게 할당할 수 있는 "Traffic Manag
 
 - [Traffic Manager 참가자 역할](../role-based-access-control/built-in-roles.md#traffic-manager-contributor)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -306,7 +306,7 @@ Azure Traffic Manager에는 사용자에 게 할당할 수 있는 "Traffic Manag
 
 - [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 보는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 보는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -318,7 +318,7 @@ Azure Traffic Manager에는 사용자에 게 할당할 수 있는 "Traffic Manag
 
 **지침**: 정책 이름, 설명 및 범주를 사용 하 여 분류에 따라 자산을 논리적으로 구성 합니다.
 
-- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태깅 결정 가이드를 참조 하세요.](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태깅 결정 가이드를 참조 하세요.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -335,11 +335,11 @@ Azure Traffic Manager에는 사용자에 게 할당할 수 있는 "Traffic Manag
 
 또한 사용자 지정 Azure Policy 정의를 만들어 보다 세분화 된 리소스 설정을 제한할 수 있습니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -357,7 +357,7 @@ Azure Traffic Manager에는 사용자에 게 할당할 수 있는 "Traffic Manag
 
 **지침**: Azure Policy을 사용 하 여 구독에 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다.
 
-Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리하고 검색 합니다.  환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
+Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 검색합니다.  환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -378,7 +378,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -402,7 +402,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: Azure Policy를 사용 하 여 Azure Traffic Manager에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Recovery Services 자격 증명 모음 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -426,9 +426,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure devops 또는 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -494,7 +494,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 예
 
@@ -514,7 +514,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-- [Azure Security Center 보안 연락처를 설정 하는 방법](../security-center/security-center-provide-security-contact-details.md)
+- [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -548,11 +548,11 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
-**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
+**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft의 전략과 Microsoft에서 관리하는 클라우드 인프라, 서비스, 애플리케이션에 대한 레드 팀 실행 및 실시간 사이트 침투 테스트를 사용합니다.
 
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -560,5 +560,5 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

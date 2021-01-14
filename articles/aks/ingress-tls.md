@@ -5,12 +5,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 자동 TLS 인증
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 88e2bdc1b516e55fb630b2fd31ff6a2977d57bfe
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 3cf7b069d6f010a4461b22c5326589ad3ec31204
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607911"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186263"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -67,7 +67,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
 
 공용 IP 주소를 얻으려면 `kubectl get service` 명령을 사용합니다. 서비스에 IP 주소가 할당될 때까지 몇 분 정도 걸립니다.
 
-```
+```console
 $ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 
 NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
@@ -91,7 +91,7 @@ az network dns record-set a add-record \
 > [!NOTE]
 > 필요에 따라 사용자 지정 도메인 대신 수신 컨트롤러 IP 주소에 대 한 FQDN을 구성할 수 있습니다. 이 샘플은 Bash 셸에 대 한 것입니다.
 > 
-> ```azurecli-interactive
+> ```bash
 > # Public IP address of your ingress controller
 > IP="MY_EXTERNAL_IP"
 > 
@@ -337,7 +337,7 @@ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 인증서가 성공적으로 만들어졌는지 확인 하려면 명령을 사용 하 `kubectl get certificate --namespace ingress-basic` 고 *준비* 됨이 *True* 인지 확인 합니다 .이는 몇 분 정도 걸릴 수 있습니다.
 
-```
+```console
 $ kubectl get certificate --namespace ingress-basic
 
 NAME         READY   SECRET       AGE
@@ -370,7 +370,7 @@ kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 
 명령을 사용 하 여 투구 릴리스를 나열 `helm list` 합니다. 다음 예제 출력에 표시 된 것 처럼 *nginx* 및 *cert manager* 라는 차트를 찾습니다.
 
-```
+```console
 $ helm list --namespace ingress-basic
 
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
@@ -380,7 +380,7 @@ nginx                   ingress-basic   1               2020-01-15 10:09:45.9826
 
 명령을 사용 하 여 릴리스를 제거 합니다 `helm uninstall` . 다음 예제에서는 NGINX 수신 및 인증서 관리자 배포를 제거 합니다.
 
-```
+```console
 $ helm uninstall cert-manager nginx --namespace ingress-basic
 
 release "cert-manager" uninstalled
@@ -423,7 +423,7 @@ kubectl delete namespace ingress-basic
 - [고정 공용 IP를 사용하여 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt를 사용하는 수신 컨트롤러 만들기][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az-network-dns-record-set-a-add-record
 [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../dns/dns-getstarted-cli.md
 [helm]: https://helm.sh/

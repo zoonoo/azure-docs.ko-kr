@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2418a8813e7b9de603b7e7cdc11fc756d73ac2a4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350758"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185906"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 Acl (액세스 제어 목록)
 
@@ -32,7 +32,7 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 
 파일 및 디렉터리 수준 권한을 설정 하려면 다음 문서 중 하나를 참조 하세요.
 
-| 환경 | 아티클 |
+| 환경 | 기사 |
 |--------|-----------|
 |Azure Storage Explorer |[Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 ACL 관리](data-lake-storage-explorer.md#managing-access)|
 |.NET |[.NET을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
@@ -60,7 +60,7 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 
 ## <a name="levels-of-permission"></a>권한 수준
 
-컨테이너 개체에 대 한 사용 권한은 **읽기**, **쓰기** 및 **실행** 이며 다음 표에 나와 있는 것 처럼 파일 및 디렉터리에서 사용할 수 있습니다.
+컨테이너의 디렉터리 및 파일에 대 한 사용 권한은 **읽기**, **쓰기** 및 **실행** 이며 다음 표와 같이 파일 및 디렉터리에 사용할 수 있습니다.
 
 |            |    파일     |   디렉터리 |
 |------------|-------------|----------|
@@ -69,7 +69,7 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 | **실행(X)** | Data Lake Storage Gen2의 컨텍스트에서는 의미가 없습니다. | 디렉터리의 자식 항목을 트래버스하는 데 필요합니다. |
 
 > [!NOTE]
-> Acl만 사용 하 여 권한을 부여 하는 경우 (Azure RBAC 없음) 보안 주체에 게 파일에 대 한 읽기 또는 쓰기 액세스 권한을 부여 하려면 컨테이너에 대 한 보안 주체 실행 권한과 파일을 받는 폴더 계층의 각 폴더에 대 한 보안 주체 **실행** 권한을 부여 해야 합니다.
+> Acl만 사용 하 여 권한을 부여 하는 경우 (Azure RBAC 없음) 보안 주체에 게 파일에 대 한 읽기 또는 쓰기 액세스 권한을 부여 하려면 컨테이너의 루트 폴더와 파일을 받는 폴더 계층 구조의 각 폴더에 보안 주체 **실행** 권한을 부여 해야 합니다.
 
 ### <a name="short-forms-for-permissions"></a>사용 권한에 대한 짧은 형식
 
@@ -95,7 +95,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 > [!IMPORTANT]
 > 이 표에서는 Azure 역할 할당 없이 acl **만** 사용 한다고 가정 합니다. Azure RBAC와 Acl을 결합 하는 비슷한 표를 보려면 [사용 권한 테이블: AZURE rbac 및 ACL 결합](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)을 참조 하세요.
 
-|    연산             |    /    | Oregon/ | Portland/ | Data.txt     |
+|    작업             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -200,7 +200,7 @@ def access_check( user, desired_perms, path ) :
 
 새 Data Lake Storage Gen2 컨테이너의 경우 루트 디렉터리 ("/")의 액세스 ACL에 대 한 마스크는 기본적으로 디렉터리의 경우 **750** 이 고 파일의 경우 **640** 입니다. 다음 표에서는 이러한 권한 수준의 기호화 된 표기법을 보여 줍니다.
 
-|엔터티|디렉터리|파일|
+|엔터티|디렉터리|Files|
 |--|--|--|
 |소유 사용자|`rwx`|`r-w`|
 |소유 그룹|`r-x`|`r--`|
@@ -344,6 +344,6 @@ Azure Storage REST API에는 [Set CONTAINER ACL](/rest/api/storageservices/set-c
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux에서 액세스 제어 목록을 사용 하는 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)

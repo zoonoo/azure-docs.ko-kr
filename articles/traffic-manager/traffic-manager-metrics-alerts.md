@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: duau
-ms.openlocfilehash: 997e2e97161e6db7cdca04c1b79f5149a2e4c409
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd3588c207fe8828744a665539830d81805bd7b3
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003534"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184274"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager의 메트릭 및 경고
 
@@ -58,10 +58,10 @@ Traffic Manager는 고객이 Traffic Manager의 사용량과 프로필의 엔드
 
 *그림 4: 엔드포인트 상태 메트릭에 대한 분할 보기*
 
-이러한 메트릭은 [Azure Monitor 서비스](../azure-monitor/platform/metrics-supported.md)의 포털, [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor) 및 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)을 통하거나 Traffic Manager의 포털 환경에 있는 메트릭 섹션을 통해 사용할 수 있습니다.
+이러한 메트릭은 [Azure Monitor 서비스](../azure-monitor/platform/metrics-supported.md)의 포털, [REST API](/rest/api/monitor/), [Azure CLI](/cli/azure/monitor) 및 [Azure PowerShell](/powershell/module/az.applicationinsights)을 통하거나 Traffic Manager의 포털 환경에 있는 메트릭 섹션을 통해 사용할 수 있습니다.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Traffic Manager 메트릭에 대한 경고
-Azure Monitor는 Traffic Manager의 메트릭 처리 및 표시 외에도 고객이 이러한 메트릭과 연결된 경고를 구성하고 받을 수 있도록 합니다. 경고가 발생하기 위해 이러한 메트릭에서 충족해야 하는 조건, 이러한 조건을 모니터링해야 하는 빈도 및 사용자에게 경고를 보내는 방법을 선택할 수 있습니다. 자세한 내용은 [Azure Monitor 경고 설명서](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)를 참조하세요.
+Azure Monitor는 Traffic Manager의 메트릭 처리 및 표시 외에도 고객이 이러한 메트릭과 연결된 경고를 구성하고 받을 수 있도록 합니다. 경고가 발생하기 위해 이러한 메트릭에서 충족해야 하는 조건, 이러한 조건을 모니터링해야 하는 빈도 및 사용자에게 경고를 보내는 방법을 선택할 수 있습니다. 자세한 내용은 [Azure Monitor 경고 설명서](../azure-monitor/platform/alerts-metric.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Monitor 서비스](../azure-monitor/platform/metrics-supported.md)에 대해 자세히 알아봅니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: fa83c51469636eb269aa5dc3192ff7e65b53ce89
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912702"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186144"
 ---
 # <a name="what-is-routing-preference-preview"></a>라우팅 기본 설정이란(미리 보기)?
 
@@ -74,7 +74,7 @@ Azure 라우팅 기본 설정을 사용하면 Azure와 인터넷 간의 트래�
 
 ## <a name="limitations"></a>제한 사항
 
-* 라우팅 기본 설정은 공용 IP 주소의 표준 SKU와만 호환됩니다. 공용 IP 주소의 기본 SKU는 지원되지 않습니다.
+* 라우팅 기본 설정은 공용 IP 주소의 영역 중복 표준 SKU와만 호환 됩니다. 공용 IP 주소의 기본 SKU는 지원되지 않습니다.
 * 현재 라우팅 기본 설정은 IPv4 공용 IP 주소만 지원합니다. IPv6 공용 IP 주소는 지원되지 않습니다.
 * 여러 NIC를 사용하는 가상 머신은 라우팅 기본 설정 유형을 하나만 가질 수 있습니다.
 

@@ -2,13 +2,13 @@
 title: Event Grid 원본으로 Azure IoT Hub
 description: 이 아티클에서는 Azure IoT Hub 이벤트에 대한 속성 및 스키마를 제공합니다. 사용 가능한 이벤트 유형, 예제 이벤트 및 이벤트 속성을 나열 합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.openlocfilehash: 7e1c480bd2a662a2ee3418b35dc9c3b50d412a60
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113652"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185838"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Event Grid 원본으로 Azure IoT Hub
 이 아티클에서는 Azure IoT Hub 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 
@@ -26,8 +26,6 @@ Azure IoT Hub는 다음과 같은 이벤트 유형을 내보냅니다.
 | Microsoft.Devices.DeviceConnected | IoT Hub에 디바이스가 연결되는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDisconnected | IoT Hub와 디바이스의 연결이 해제되는 경우 게시합니다. | 
 | Microsoft.Devices.DeviceTelemetry | 원격 분석 메시지를 IoT hub로 보낼 때 게시 됩니다. |
-
-장치 원격 분석 이벤트를 제외한 모든 장치 이벤트는 일반적으로 Event Grid에서 지 원하는 모든 지역에서 사용할 수 있습니다. 장치 원격 분석 이벤트는 공개 미리 보기 상태 이며 미국 동부, 미국 서 부, 유럽 서부, [Azure Government](../azure-government/documentation-government-welcome.md), [azure 중국 21Vianet](/azure/china/china-welcome)및 [azure 독일](https://azure.microsoft.com/global-infrastructure/germany/)을 제외한 모든 지역에서 사용할 수 있습니다.
 
 ### <a name="example-event"></a>예제 이벤트
 
@@ -162,10 +160,10 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 
 **Device Connected** 및 **Device Disconnected** IoT Hub 이벤트의 경우 데이터 개체에 다음 속성이 포함됩니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | moduleId | 문자열 | 모듈의 고유 식별자입니다. 이 필드는 모듈 디바이스에 대해서만 출력됩니다. 이 대/소문자 구분 문자열은 최대 128자까지 가능하며, ASCII 7 비트 영숫자 문자 + 다음 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`을 지원합니다. |
-| deviceConnectionStateEventInfo | object | 디바이스 연결 상태 이벤트 정보
+| deviceConnectionStateEventInfo | 개체 | 디바이스 연결 상태 이벤트 정보
 | sequenceNumber | 문자열 | 연결된 디바이스 또는 디바이스 분리 이벤트의 순서를 나타내는 데 도움이 되는 숫자입니다. 최신 이벤트는 이전 이벤트보다 시퀀스 번호가 높습니다. 이 숫자는 1을 초과하여 변경될 수 있지만 엄격하게 증가합니다. [시퀀스 번호 사용 방법](../iot-hub/iot-hub-how-to-order-connection-state-events.md)을 참조하세요. |
 
 **장치 원격 분석** IoT Hub 이벤트의 경우 데이터 개체는 [IoT Hub 메시지 형식](../iot-hub/iot-hub-devguide-messages-construct.md) 에 장치-클라우드 메시지를 포함 하 고 다음과 같은 속성을 포함 합니다.
@@ -178,9 +176,9 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 
 **디바이스가 생성됨** 및 **디바이스가 삭제됨** IoT Hub 이벤트의 경우 데이터 개체에 다음 속성이 포함됩니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
-| 쌍 | object | 응용 프로그램 장치 메타 데이터의 클라우드 표현인 장치 쌍에 대 한 정보입니다. | 
+| 쌍 | 개체 | 응용 프로그램 장치 메타 데이터의 클라우드 표현인 장치 쌍에 대 한 정보입니다. | 
 | deviceID | 문자열 | 디바이스 쌍의 고유 식별자입니다. | 
 | etag | 문자열 | 디바이스 쌍에 대한 업데이트의 일관성을 확인하는 유효성 검사기입니다. 각 etag은 디바이스 쌍마다 고유합니다. |  
 | deviceEtag| 문자열 | 디바이스 레지스트리에 대한 업데이트의 일관성을 확인하는 유효성 검사기입니다. 각 deviceEtag는 디바이스 레지스트리마다 고유해야 합니다. |
@@ -188,18 +186,18 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 | statusUpdateTime | 문자열 | 마지막 디바이스 쌍 상태 업데이트의 ISO8601 타임 스탬프입니다. |
 | connectionState | 문자열 | 디바이스의 연결 여부를 나타냅니다. | 
 | lastActivityTime | 문자열 | 마지막 활동의 ISO8601 타임스탬프입니다. | 
-| cloudToDeviceMessageCount | 정수 | 이 디바이스에 전송된 클라우드-디바이스 메시지 횟수입니다. | 
+| cloudToDeviceMessageCount | integer | 이 디바이스에 전송된 클라우드-디바이스 메시지 횟수입니다. | 
 | authenticationType | 문자열 | 이 디바이스에 사용되는 인증 유형은 `SAS`, `SelfSigned` 또는 `CertificateAuthority`입니다. |
 | x509Thumbprint | 문자열 | 지문은 x509 인증서에 대한 고유값으로, 인증서 저장소에서 특정 인증서를 찾는 데 주로 사용됩니다. 지문은 SHA1 알고리즘을 사용하여 동적으로 생성되며, 인증서에 실제로 존재하지는 않습니다. | 
 | primaryThumbprint | 문자열 | x509 인증서에 대한 주된 지문입니다. |
 | secondaryThumbprint | 문자열 | x509 인증서에 대한 보조 지문입니다. | 
-| 버전 | 정수 | 디바이스 쌍이 업데이트될 때마다 하나씩 증가하는 정수입니다. |
-| 원하는 | object | 애플리케이션 백 엔드에서만 작성할 수 있고 디바이스에서 읽을 수 있는 속성의 일부입니다. | 
-| 보고된 | object | 디바이스에서만 작성할 수 있고 애플리케이션 백 엔드에서 읽을 수 있는 속성의 일부입니다. |
+| 버전 | integer | 디바이스 쌍이 업데이트될 때마다 하나씩 증가하는 정수입니다. |
+| 원하는 | 개체 | 애플리케이션 백 엔드에서만 작성할 수 있고 디바이스에서 읽을 수 있는 속성의 일부입니다. | 
+| 보고된 | 개체 | 디바이스에서만 작성할 수 있고 애플리케이션 백 엔드에서 읽을 수 있는 속성의 일부입니다. |
 | lastUpdated | 문자열 | 마지막 디바이스 쌍 속성 업데이트의 ISO8601 타임 스탬프입니다. | 
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
-|제목  |설명  |
+|제목  |Description  |
 |---------|---------|
 | [Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기](publish-iot-hub-events-to-logic-apps.md) | 논리 앱은 사용자의 IoT Hub에 디바이스가 추가될 때마다 알림 이메일을 보냅니다. |
 | [작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응](../iot-hub/iot-hub-event-grid.md) | Event Grid와 IoT Hub 통합의 개요입니다. |

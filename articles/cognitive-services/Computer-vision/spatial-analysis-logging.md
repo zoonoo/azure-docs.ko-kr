@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014580"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186025"
 ---
 # <a name="telemetry-and-troubleshooting"></a>원격 분석 및 문제 해결
 
@@ -68,7 +68,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-[Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 다른 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)의 배포 매니페스트에서 *telegraf* 모듈을 찾아 다음 값을 이전 단계의 서비스 사용자 정보로 바꾸고 다시 배포 합니다.
+[GPU를 사용 하](https://go.microsoft.com/fwlink/?linkid=2152189)는 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179), [데스크톱 컴퓨터](https://go.microsoft.com/fwlink/?linkid=2152270)또는 Azure VM의 배포 매니페스트에서 *telegraf* 모듈을 찾은 후 다음 값을 이전 단계의 서비스 사용자 정보로 바꾸고 다시 배포 합니다.
 
 ```json
 
@@ -129,7 +129,7 @@ Telegraf 모듈이 배포 되 면 Azure Monitor 서비스를 통해 또는 Azure
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>진단 컨테이너를 사용 하 여 로그 파일 수집
 
-공간 분석에서는 런타임 문제를 진단 하거나 지원 티켓에 포함 하는 데 사용할 수 있는 Docker 디버깅 로그가 생성 됩니다. 공간 분석 진단 모듈은 Microsoft Container Registry에서 다운로드할 수 있습니다. [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 다른 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)에 대 한 매니페스트 배포 파일에서 *진단* 모듈을 찾습니다.
+공간 분석에서는 런타임 문제를 진단 하거나 지원 티켓에 포함 하는 데 사용할 수 있는 Docker 디버깅 로그가 생성 됩니다. 공간 분석 진단 모듈은 Microsoft Container Registry에서 다운로드할 수 있습니다. GPU를 사용 하는 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179), [데스크톱 컴퓨터](https://go.microsoft.com/fwlink/?linkid=2152270)또는 [Azure VM](https://go.microsoft.com/fwlink/?linkid=2152189) 에 대 한 매니페스트 배포 파일에서 *진단* 모듈을 찾습니다.
 
 "Env" 섹션에서 다음 구성을 추가 합니다.
 
@@ -188,13 +188,13 @@ Azure Blob Storage와 같은 원격 끝점에 업로드 된 로그를 최적화 
 > `diagnostics`모듈은 로깅 콘텐츠에 영향을 주지 않으며 기존 로그를 수집, 필터링 및 업로드 하는 데에만 도움이 됩니다.
 > 이 모듈을 사용 하려면 Docker API 버전 1.40 이상이 있어야 합니다.
 
-[Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 다른 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 의 샘플 배포 매니페스트 파일에는 `diagnostics` 로그를 수집 하 고 업로드 하는 라는 모듈이 포함 되어 있습니다. 이 모듈은 기본적으로 사용 하지 않도록 설정 되어 있으며, 로그에 액세스 해야 할 때 IoT Edge 모듈 구성을 통해 사용 하도록 설정 해야 합니다. 
+GPU를 사용 하는 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179), [데스크톱 컴퓨터](https://go.microsoft.com/fwlink/?linkid=2152270)또는 [Azure VM](https://go.microsoft.com/fwlink/?linkid=2152189) 에 대 한 샘플 배포 매니페스트 파일에는 `diagnostics` 로그를 수집 하 고 업로드 하는 라는 모듈이 포함 되어 있습니다. 이 모듈은 기본적으로 사용 하지 않도록 설정 되어 있으며, 로그에 액세스 해야 할 때 IoT Edge 모듈 구성을 통해 사용 하도록 설정 해야 합니다. 
 
 `diagnostics`컬렉션은 주문형 이며 IoT Edge 직접 메서드를 통해 제어 되며 Azure Blob Storage에 로그를 보낼 수 있습니다.
 
 ### <a name="configure-diagnostics-upload-targets"></a>진단 업로드 대상 구성
 
-IoT Edge 포털에서 장치를 선택 하 고 **진단** 모듈을 선택 합니다. [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 다른 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)에 대 한 샘플 배포 매니페스트 파일에서 진단에 대 한 **환경 변수** 섹션을 찾아서 이라는 정보를 찾은 `env` 후 다음 정보를 추가 합니다.
+IoT Edge 포털에서 장치를 선택 하 고 **진단** 모듈을 선택 합니다. GPU를 사용 하는 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179), [데스크톱 컴퓨터](https://go.microsoft.com/fwlink/?linkid=2152270)또는 [Azure VM](https://go.microsoft.com/fwlink/?linkid=2152189) 에 대 한 샘플 배포 매니페스트 파일에서 진단에 대 한 **환경 변수** 섹션을 찾고 `env` 다음 정보를 추가 합니다.
 
 **Azure Blob Storage 업로드 구성**
 
@@ -239,7 +239,7 @@ IoT Edge 포털에서 장치를 선택 하 고 **진단** 모듈을 선택 합�
 | ContainerId | 로그를 인출 하기 위한 대상 컨테이너입니다.| `null`컨테이너 ID가 없는 경우입니다. API는 Id를 사용 하 여 사용 가능한 모든 컨테이너 정보를 반환 합니다.|
 | DoPost | 업로드 작업을 수행 합니다. 로 설정 되 면 `false` 요청 된 작업을 수행 하 고 업로드를 수행 하지 않고 업로드 크기를 반환 합니다. 로 설정 되 면 `true` 선택한 로그의 비동기 업로드가 시작 됩니다. | `false`, 업로드 하지 않습니다.|
 | 제한 | 일괄 처리당 업로드할 로그의 줄 수를 표시 합니다. | `1000`이 매개 변수를 사용 하 여 post 속도를 조정 합니다. |
-| 필터 | 업로드할 로그를 필터링 합니다. | `null`에서는 공간 분석 로그 구조를 기반으로 하는 키 값 쌍으로 필터를 지정할 수 있습니다 `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| 필터 | 업로드할 로그를 필터링 합니다. | `null`에서는 공간 분석 로그 구조를 기반으로 하는 키 값 쌍으로 필터를 지정할 수 있습니다 `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . 예: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 다음 표에서는 쿼리 응답의 특성을 나열 합니다.
 
@@ -331,7 +331,7 @@ Fetch log의 줄, 시간 및 크기를 확인 합니다. 해당 설정이에 대
 1. 관리자 권한으로 Windows PowerShell 세션을 실행 합니다. 
     1. Windows 원격 관리 서비스가 클라이언트에서 실행 되 고 있는지 확인 합니다. 명령 프롬프트에서 `winrm quickconfig`를 입력합니다.
 
-2. 장치 IP 주소에 대 한 변수를 할당 합니다. `$ip = "<device-ip-address>"`)을 입력합니다.
+2. 장치 IP 주소에 대 한 변수를 할당 합니다. 예들 들어 `$ip = "<device-ip-address>"`입니다.
 
 3. 다음 명령을 사용 하 여 장치의 IP 주소를 클라이언트의 신뢰할 수 있는 호스트 목록에 추가 합니다. 
 

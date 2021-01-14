@@ -4,15 +4,15 @@ description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 01/13/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: ad86ebe1ca397004745e75dd279ea0a7cfe8348e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 263c038cf5003d950cf500ccc13cf562ac71db0c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746570"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185007"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
@@ -104,16 +104,16 @@ Rewards 혜택 외에도, Microsoft AppSource에 게시된 Dynamics 제품을 �
 
 Microsoft는 다음과 같은 게시자에 대한 Marketplace Rewards 혜택을 철회 및 종료할 수 있는 권리를 보유합니다.
 
-* Marketplace 목록을 사용 하 여 잘못 된 활동을 참여 시킵니다.
-* 사기성 또는 사기성으로 알려진 구매를 수신 합니다.
-* 는 상업적 marketplace에서 나열 되지 않습니다.
-* 제품을 사용 하 여 저작권 또는 상표 법률을 위반 하는 마케팅 또는 기타 콘텐츠를 표시 합니다.
-* 자체 내부 작업 또는 Bitcoin 마이닝에 대 한 Azure 후원 자금 사용을 포함 하 여 [azure 후원 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)의 정책을 위반 합니다.
+- Marketplace 목록을 사용 하 여 잘못 된 활동을 참여 시킵니다.
+- 사기성 또는 사기성으로 알려진 구매를 수신 합니다.
+- 는 상업적 marketplace에서 나열 되지 않습니다.
+- 제품을 사용 하 여 저작권 또는 상표 법률을 위반 하는 마케팅 또는 기타 콘텐츠를 표시 합니다.
+- 자체 내부 작업 또는 Bitcoin 마이닝에 대 한 Azure 후원 자금 사용을 포함 하 여 [azure 후원 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)의 정책을 위반 합니다.
 
 Microsoft는 다음과 같은 경우 Marketplace 보상을 철회 하 고 종료할 수 있는 권리를 보유 합니다.
 
-* 구매한 고객이 실수로 구매를 취소 하려고 했습니다.
-* 파트너의 제품을 사용 하기 전에 고객이 취소 합니다.
+- 구매한 고객이 실수로 구매를 취소 하려고 했습니다.
+- 파트너의 제품을 사용 하기 전에 고객이 취소 합니다.
 
 ### <a name="offer-availability"></a>제품 가용성
 

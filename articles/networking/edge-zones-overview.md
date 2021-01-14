@@ -2,17 +2,17 @@
 title: Azure Edge 영역 미리 보기 정보
 description: Microsoft의 edge 컴퓨팅 제품에 대해 알아봅니다. Azure Edge 영역.
 services: vnf-manager
-author: ganesr
+author: cherylmc
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 07/07/2020
-ms.author: ganesr
-ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.author: cherylmc
+ms.openlocfilehash: 04555303d5128db6c183d27a0c5fcb69063fdc28
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329579"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185413"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Azure Edge 영역 미리 보기 정보
 
@@ -38,7 +38,7 @@ Azure Edge 영역에는 다음 세 가지 유형이 있습니다.
 
 ![Azure Edge Zone](./media/edge-zones-overview/edge-zones.png "Azure Edge Zone")
 
-Azure Edge 영역은 azure 지역에서 멀리 떨어진 모집단 센터에 배치 되는 Azure의 작은 공간 확장입니다. Azure Edge 영역은 최종 사용자에 게 가까운 대기 시간 및 처리량 집약적 응용 프로그램을 실행할 수 있도록 하는 Vm, 컨테이너 및 선택한 Azure 서비스 집합을 지원 합니다. Azure Edge 영역은 Microsoft 글로벌 네트워크의 일부입니다. 사용자에 게 가까운 가장자리 영역에서 실행 되는 응용 프로그램 간에 안전 하 고 안정적인 고대역폭 연결을 제공 합니다. Azure 지역 내에서 실행 되는 Azure 서비스의 전체 집합을 제공 합니다. Azure Edge 영역은 Microsoft에서 소유 하 고 운영 합니다. 동일한 Azure 도구 집합과 동일한 포털을 사용 하 여 서비스를 관리 하 고 Edge 영역에 배포할 수 있습니다.
+Azure Edge 영역은 azure 지역에서 멀리 떨어진 모집단 센터에 배치 되는 Azure의 작은 공간 확장입니다. Azure Edge 영역은 최종 사용자에 게 가까운 대기 시간 및 처리량 집약적 응용 프로그램을 실행할 수 있도록 하는 Vm, 컨테이너 및 선택한 Azure 서비스 집합을 지원 합니다. Azure Edge 영역은 Microsoft 글로벌 네트워크의 일부입니다. 사용자에 게 가까운 가장자리 영역에서 실행 되는 응용 프로그램 간에 안전 하 고 안정적인 고대역폭 연결을 제공 합니다. Azure Edge 영역은 Microsoft에서 소유 하 고 운영 합니다. 동일한 Azure 도구 집합과 동일한 포털을 사용 하 여 서비스를 관리 하 고 Edge 영역에 배포할 수 있습니다.
 
 일반적인 사용 사례는 다음과 같습니다.
 
@@ -61,7 +61,7 @@ Azure Edge 영역은 다음 metro 영역에서 제공 됩니다.
 
 통신 사업자를 사용 하는 azure Edge 영역은 Azure의 작은 공간 확장으로, 모집단 센터에서 모바일 운영자의 데이터 센터에 배치 됩니다. 통신 회사 인프라를 사용 하는 Azure Edge 영역은 모바일 운영자의 5G 네트워크에서 한 홉 떨어진 위치에 배치 됩니다. 이 배치는 모바일 장치에서 응용 프로그램에 10 밀리초 미만의 대기 시간을 제공 합니다.
 
-캐리어가 있는 Azure Edge 영역은 모바일 운영자의 데이터 센터에 배포 되 고 Microsoft 글로벌 네트워크에 연결 됩니다. 사용자에 게 근접 하 게 실행 되는 응용 프로그램 간에 안전 하 고 안정적인 고대역폭 연결을 제공 합니다. Azure 지역 내에서 실행 되는 Azure 서비스의 전체 집합을 제공 합니다. 개발자는 동일한 익숙한 도구 집합을 사용 하 여 서비스를 빌드하고에 지 영역에 배포할 수 있습니다.
+캐리어가 있는 Azure Edge 영역은 모바일 운영자의 데이터 센터에 배포 되 고 Microsoft 글로벌 네트워크에 연결 됩니다. 사용자에 게 근접 하 게 실행 되는 응용 프로그램 간에 안전 하 고 안정적인 고대역폭 연결을 제공 합니다. 개발자는 동일한 익숙한 도구 집합을 사용 하 여 서비스를 빌드하고에 지 영역에 배포할 수 있습니다.
 
 일반적인 사용 사례는 다음과 같습니다.
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: duau
 ms.custom: devx-track-js
-ms.openlocfilehash: c49672ad38ac8cf80214d03870b5876d741e76ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f9e8cdd3eb5c9f441444683fb5efaccc880b2757
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994879"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184614"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Traffic Manager에 보내는 방법
 
@@ -52,7 +52,7 @@ Azure Portal을 사용하여 RUM Key를 얻으려면 다음 절차를 수행합�
 
 ## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>2단계: Mobile Center SDK의 RUM 패키지로 앱 계측
 
-Visual Studio Mobile Center를 처음 사용하는 경우 해당 [웹 사이트](https://mobile.azure.com)를 방문하세요. SDK 통합에 대한 자세한 내용은 [Android SDK 시작](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android)을 참조하세요.
+Visual Studio Mobile Center를 처음 사용하는 경우 해당 [웹 사이트](https://mobile.azure.com)를 방문하세요. SDK 통합에 대한 자세한 내용은 [Android SDK 시작](/mobile-center/sdk/getting-started/Android)을 참조하세요.
 
 실제 사용자 측정을 사용하려면 다음 절차를 완료합니다.
 
@@ -98,8 +98,7 @@ Visual Studio Mobile Center를 처음 사용하는 경우 해당 [웹 사이트]
 ## <a name="next-steps"></a>다음 단계
 - [실제 사용자 측정](traffic-manager-rum-overview.md)에 대한 자세한 정보
 - [Traffic Manager 작동 방식](traffic-manager-overview.md)
-- [Mobile Center](https://docs.microsoft.com/mobile-center/)에 대해 자세히 알아봅니다.
+- [Mobile Center](/mobile-center/)에 대해 자세히 알아봅니다.
 - Mobile Center [등록](https://mobile.azure.com)
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
-- [Traffic Manager 프로필을 만드는](traffic-manager-create-profile.md)
-
+- [Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md)

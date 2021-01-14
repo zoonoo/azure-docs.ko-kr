@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: 'Azure Arc 지원 온보딩 서비스 주체 만들기 '
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eb38dbc04d964c0ab4869e801099ee9420d6ac2
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050076"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184699"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Azure Arc 지원 온보딩 서비스 주체 만들기(미리 보기)
 
@@ -54,7 +54,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 | 리소스  | `scope` 인수| 영향 |
 | ------------- | ------------- | ------------- |
 | Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | 서비스 주체는 지정된 구독의 기존 리소스 그룹에 있는 모든 클러스터를 등록할 수 있습니다. |
-| 리소스 그룹 | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | 서비스 주체는 리소스 그룹 `myGroup`의 클러스터__만__ 등록할 수 있습니다. |
+| 리소스 그룹 | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | 서비스 주체는 리소스 그룹 `myGroup`의 클러스터 __만__ 등록할 수 있습니다. |
 
 ```console
 az role assignment create \
@@ -82,7 +82,7 @@ az role assignment create \
 
 새로 만든 서비스 주체를 참조합니다.
 
-```console
+```azurecli
 az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTenantID
 az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 ```
