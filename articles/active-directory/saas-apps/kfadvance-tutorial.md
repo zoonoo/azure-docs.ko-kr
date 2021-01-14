@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 43e6495c0231d5b14d27eabc3b9b82ba791d7108
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 241e5abf8377bd2e2207d140e291b18592651ea6
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364486"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179591"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kfadvance"></a>자습서: KFAdvance와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -76,13 +76,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://api.kfadvance-<ENVIRONMENT>.com/<PARTNER_ID>` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://api.kfadvance.com/<PARTNER_ID>` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://api.kfadvance-<ENVIRONMENT>.com/vn/account/partnerssocallback?partnerKey=<PARTNER_ID>` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://api.kfadvance-<ENVIRONMENT>.com/v1/account/partnerssocallback?partnerKey=<PARTNER_ID>` 패턴을 사용하여 URL을 입력합니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-    **로그인 URL** 텍스트 상자에서 `https://api.kfadvance-<ENVIRONMENT>.com/vn/account/partnerssologin?partnerKey=<PARTNER_ID>` 패턴을 사용하여 URL을 입력합니다.
+    **로그인 URL** 텍스트 상자에서 `https://api.kfadvance.com/v1/account/partnerssologin?partnerKey=<PARTNER_ID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 가져오려면 [KFAdvance 클라이언트 지원 팀](mailto:support@kornferry.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

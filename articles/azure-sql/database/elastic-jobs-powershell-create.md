@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 27cd35eba7320022ea9b137a7b8bb079a1226751
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427294"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131936"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -123,19 +123,11 @@ $db2 = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $targ
 $db2
 ```
 
-## <a name="use-elastic-jobs"></a>탄력적 작업 사용
-
-탄력적 작업을 사용하려면 다음 명령을 실행하여 Azure 구독에서 해당 기능을 등록합니다. 탄력적 작업 에이전트를 프로비저닝하려는 구독에 대해 이 명령을 한 번씩 실행합니다. 작업 대상인 데이터베이스만 포함하는 구독은 등록할 필요가 없습니다.
-
-```powershell
-Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
-```
-
 ### <a name="create-the-elastic-job-agent"></a>탄력적 작업 에이전트 만들기
 
 탄력적 작업 에이전트는 작업을 생성하고 실행하고 관리하기 위한 Azure 리소스입니다. 에이전트는 일정에 따라 또는 일회성 작업으로 작업을 실행합니다.
 
-*resourceGroupName* , *serverName* 및  *databaseName* 매개 변수가 모두 기존 리소스를 가리켜야 하므로 **New-AzSqlElasticJobAgent** cmdlet에는 Azure SQL Database의 데이터베이스가 이미 있어야 합니다.
+*resourceGroupName*, *serverName* 및  *databaseName* 매개 변수가 모두 기존 리소스를 가리켜야 하므로 **New-AzSqlElasticJobAgent** cmdlet에는 Azure SQL Database의 데이터베이스가 이미 있어야 합니다.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -221,7 +213,7 @@ $serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerNa
 
 ### <a name="create-a-job-and-steps"></a>작업 및 단계 만들기
 
-이 예제에서는 작업 하나와 작업을 실행할 두 개의 작업 단계를 정의합니다. 첫 번째 작업 단계( *step1* )는 대상 그룹 *ServerGroup* 의 모든 데이터베이스에서 새로운 테이블( *Step1Table* )을 만듭니다. 이전에 정의된 대상 그룹이 해당 항목을 제외하도록 지정되었기 때문에 두 번째 작업 단계( *step2* )는 *TargetDb2* 의 모든 데이터베이스에서 새로운 테이블( *Step2Table* )을 만듭니다.
+이 예제에서는 작업 하나와 작업을 실행할 두 개의 작업 단계를 정의합니다. 첫 번째 작업 단계(*step1*)는 대상 그룹 *ServerGroup* 의 모든 데이터베이스에서 새로운 테이블(*Step1Table*)을 만듭니다. 이전에 정의된 대상 그룹이 해당 항목을 제외하도록 지정되었기 때문에 두 번째 작업 단계(*step2*)는 *TargetDb2* 의 모든 데이터베이스에서 새로운 테이블(*Step2Table*)을 만듭니다.
 
 ```powershell
 Write-Output "Creating a new job..."

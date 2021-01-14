@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d80b8f41e11f2fffa86dc7597fdf44dd27825fc
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: c169847c96d10d1c9fb47b210bc85a15e0690e32
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028899"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183118"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory의 질문과 대답 Id 보호
 
@@ -29,9 +29,9 @@ Id 보호에서 **사용자 위험 해제** 는 id 보호에서 사용자의 위
 사용자 위험 해제 흐름에서 대기 시간이 발생 하는 현재 알려진 문제가 있습니다. “사용자 위험 정책”이 있는 경우 “사용자 위험 해제”를 클릭하면 몇 분 이내에 해제된 사용자에게 정책 적용이 중지됩니다. 그러나 해제된 사용자의 “위험 상태”를 새로 고치는 UX에서 알려진 지연이 있습니다. 해결 방법으로, 브라우저 수준에서 페이지를 새로 고쳐 최신 사용자 “위험 상태”를 확인합니다.
 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="why-is-a-user-is-at-risk"></a>사용자가 위험에 노출 되는 이유는 무엇 인가요?
+### <a name="why-is-a-user-at-risk"></a>사용자가 위험에 노출 되는 이유는 무엇 인가요?
 
 Azure AD ID 보호 고객 인 경우 [위험한 사용자](howto-identity-protection-investigate-risk.md#risky-users) 보기로 이동 하 고 위험 사용자를 클릭 합니다. 아래쪽의 서랍에 ' 위험 기록 ' 탭에는 사용자 위험 변경에 대 한 모든 이벤트가 표시 됩니다. 사용자에 대 한 모든 위험한 로그인을 보려면 ' 사용자의 위험한 로그인 '을 클릭 합니다. 이 사용자에 대 한 모든 위험 검색을 보려면 ' 사용자의 위험 검색 '을 클릭 합니다.
 

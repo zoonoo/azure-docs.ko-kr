@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: duau
-ms.openlocfilehash: 93a8076f12b8f006d600cbd32ce39169f4b47c67
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e0e2acfb0ec0068dcd08ae660e397f65e039a665
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014332"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183747"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>회사 인터넷 도메인이 Azure Traffic Manager 도메인을 가리키도록 설정
 
@@ -33,5 +33,5 @@ Traffic Manager 프로필을 만들 때에는 Azure에서 해당 프로필에 DN
 ## <a name="next-steps"></a>다음 단계
 
 * [Traffic Manager 라우팅 방법](traffic-manager-routing-methods.md)
-* [Traffic Manager - 프로필 사용 안 함, 사용 또는 삭제](disable-enable-or-delete-a-profile.md)
-* [Traffic Manager - 엔드포인트 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
+* [Traffic Manager - 프로필 사용 안 함, 사용 또는 삭제](./traffic-manager-manage-profiles.md)
+* [Traffic Manager - 엔드포인트 사용 안 함 또는 사용](./traffic-manager-manage-endpoints.md)

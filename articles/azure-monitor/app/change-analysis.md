@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 0cdb82bbf38244bc91ed54ffb7d7d734cefe9dd2
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881512"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183322"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -194,6 +194,27 @@ foreach ($webapp in $webapp_list)
 ### <a name="azure-lighthouse-subscription-is-not-supported"></a>Azure Lighthouse 구독은 지원 되지 않습니다.
 
 - Azure lighthouse 구독 메시지를 사용 하 여 **Microsoft ChangeAnalysis 리소스 공급자를 쿼리하지 못했습니다** . *변경 내용은 구독의 홈 테 넌 트에서만 제공* 됩니다. 현재는 홈 테 넌 트에 없는 사용자를 위해 Azure Lighthouse 구독을 통해 변경 분석 리소스 공급자를 등록 하는 제한 사항이 있습니다. 이 제한은 가까운 장래에 해결 될 예정입니다. 이 문제가 차단 문제인 경우 서비스 주체를 만들고 액세스를 허용 하도록 역할을 명시적으로 할당 하는 해결 방법이 있습니다.  자세한 내용은에 문의 하세요 changeanalysishelp@microsoft.com .
+
+### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>변경 내용을 가져오는 동안 오류가 발생 했습니다. 변경 내용을 보려면이 페이지를 새로 고치거 나 나중에 다시 방문해 주세요.
+
+변경 내용을 로드할 수 없는 경우 응용 프로그램 변경 분석 서비스에서 제공 하는 일반 오류 메시지입니다. 몇 가지 알려진 원인은 다음과 같습니다.
+- 클라이언트 장치에서 인터넷 연결 오류가 발생 했습니다.
+- 몇 분 후에 페이지 새로 고침을 일시적으로 사용할 수 없게 되는 변경 분석 서비스는 일반적으로이 문제를 해결 합니다. 오류가 계속 발생 하면 다음으로 문의 하세요. changeanalysishelp@micorosoft.com
+
+### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>일부 변경 내용을 볼 수 있는 권한이 없습니다. Azure 구독 관리자에 게 문의
+
+현재 사용자에 게 변경 내용을 볼 수 있는 권한이 없다는 것을 설명 하는 일반 무단 오류 메시지입니다. Azure 리소스 그래프 및 Azure Resource Manager에서 반환 된 인프라 변경 내용을 보려면 리소스에 대해 최소한의 판독기 액세스가 필요 합니다. 웹 앱 게스트 파일 변경 및 구성 변경의 경우 참가자 역할이 최소한 필요 합니다.
+
+### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Microsoft. ChangeAnalysis 리소스 공급자를 등록 하지 못했습니다.
+ 
+**Microsoft. ChangeAnalysis 리소스 공급자를 등록할 수 있는 권한이 없습니다. Azure 구독 관리자에 게 문의 하세요.** 이 오류 메시지는 현재 구독의 역할에 **Microsoft. 지원/등록/동작** 범위가 연결 되어 있지 않음을 의미 합니다. 이는 구독의 소유자가 아니고 동료를 통해 공유 액세스 권한을 받은 경우에 발생할 수 있습니다. 즉, 리소스 그룹에 대 한 액세스를 봅니다. 이 문제를 해결 하려면 구독의 소유자에 게 문의 하 여 **Microsoft. ChangeAnalysis** 리소스 공급자를 등록 합니다. 이 작업은 구독을 통해 Azure Portal에서 수행할 수 있습니다. **| 리소스 공급자** 를 검색 하 고 ```Microsoft.ChangeAnalysis``` UI를 검색 하 고 등록 하거나 Azure PowerShell 또는 Azure CLI를 통해 등록 합니다.
+
+PowerShell을 통해 리소스 공급자를 등록 합니다. 
+
+```PowerShell
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+```
 
 ## <a name="next-steps"></a>다음 단계
 

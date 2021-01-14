@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 71eda40abd38b4885b8e88085e338667b608902f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 281d0587ca4c041c7149e49aad6227f6dc0b7fbf
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655139"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050870"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>자습서: Azure Portal에서 Azure Firewall DNAT를 사용하여 인바운드 인터넷 트래픽 필터링
 
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
      방화벽은 이 서브넷에 있고 해당 서브넷 이름은 AzureFirewallSubnet이 **되어야** 합니다.
      > [!NOTE]
-     > AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
+     > AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size)를 참조하세요.
 
 10. **주소 범위** 에 **10.0.1.0/26** 을 입력합니다.
 11. 다른 기본 설정을 사용한 다음, **만들기** 를 선택합니다.

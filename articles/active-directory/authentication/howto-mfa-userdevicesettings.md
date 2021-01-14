@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a96f01d38fb41f64336d0a2b1d2aa33a96ca9f1a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fc0be7e50c5cce511fafd7d8b407626bd57659bd
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742751"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183135"
 ---
 # <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication에 대 한 사용자 인증 방법 관리
 
@@ -45,7 +45,7 @@ Azure Portal 또는 Microsoft Graph를 통해 사용자에 대 한 인증 방법
 Azure Portal를 통해 사용자에 대 한 인증 방법을 추가 하려면:  
 
 1. **Azure Portal** 에 로그인합니다. 
-1. 사용자 **Azure Active Directory**  >  **Users**  >  **모든 사용자** 로 이동 합니다. 
+1. 사용자 **Azure Active Directory**  >    >  **모든 사용자** 로 이동 합니다. 
 1. 인증 방법을 추가 하려는 사용자를 선택 하 고 **인증 방법** 을 선택 합니다.  
 1. 창 맨 위에서 **+ 인증 방법 추가** 를 선택 합니다.
    1. 방법 (전화 번호 또는 전자 메일)을 선택 합니다. 전자 메일을 암호 재설정에 사용할 수 있지만 인증은 사용할 수 없습니다. 전화 번호를 추가할 때 전화 유형을 선택 하 고 올바른 형식의 전화 번호 (예: + 1 4255551234)를 입력 합니다.
@@ -73,7 +73,7 @@ Get-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com
 특정 사용자에 대 한 휴대폰 인증 방법을 만듭니다.
 
 ```powershell
-New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType “mobile” -phoneNumber "+1 7748933135"
+New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType "mobile" -phoneNumber "+1 7748933135"
 ```
 
 사용자에 대 한 특정 전화 메서드 제거

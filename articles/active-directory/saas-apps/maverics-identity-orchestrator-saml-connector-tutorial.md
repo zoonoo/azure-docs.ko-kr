@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: a4bfe2b87f3f2242189a78d9a31a89d82720fd37
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 31392c1fa3d14d6f1e01a8b302575e9b592e42cd
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862074"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183152"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>자습서: Maverics Identity Orchestrator SAML Connector와 Azure AD Single Sign-On 통합
 
@@ -167,27 +167,27 @@ Azure Key Vault는 Azure Portal 또는 Azure CLI를 사용하여 설정할 수 �
 
 1. [Azure CLI](/cli/azure/install-azure-cli)를 열고 다음 명령을 입력합니다.
 
-    ```shell
+    ```azurecli
     az login
     ```
 
 1. 다음 명령을 실행하여 새 키 자격 증명 모음을 만듭니다.
-    ```shell
+    ```azurecli
     az keyvault create --name "[VAULT_NAME]" --resource-group "[RESOURCE_GROUP]" --location "[REGION]"
     ```
 
 1. 다음 명령을 실행하여 키 자격 증명 모음에 비밀을 추가합니다.
-    ```shell
+    ```azurecli
     az keyvault secret set --vault-name "[VAULT_NAME]" --name "[SECRET_NAME]" --value "[SECRET_VALUE]"
     ```
 
 1. 다음 명령을 실행하여 Azure AD에 애플리케이션을 등록합니다.
-    ```shell
+    ```azurecli
     az ad sp create-for-rbac -n "MavericsKeyVault" --skip-assignment > azure-credentials.json
     ```
 
 1. 다음 명령을 실행하여 비밀을 사용하도록 애플리케이션에 권한을 부여합니다.
-    ```shell
+    ```azurecli
     az keyvault set-policy --name "[VAULT_NAME]" --spn [APPID] --secret-permissions list get
     #APPID can be found in the azure-credentials.json
     generated in the previous step
@@ -239,7 +239,7 @@ Maverics Identity Orchestrator Azure AD Connector는 OpenID Connect 및 SAML Con
 
 1. [OpenSSL 도구](https://www.openssl.org/source/)를 사용하여 Mavericks Identity Orchestrator 세션 정보를 보호하는 데 사용되는 JWT(JSON Web Token) 서명 키를 생성합니다.
 
-    ```shell 
+    ```console 
     openssl rand 64 | base64
     ```
 1. 응답을 `jwtSigningKey` config 속성 `jwtSigningKey: TBHPvTtu6NUqU84H3Q45grcv9WDJLHgTioqRhB8QGiVzghKlu1mHgP1QHVTAZZjzLlTBmQwgsSoWxGHRcT4Bcw==`에 복사합니다.

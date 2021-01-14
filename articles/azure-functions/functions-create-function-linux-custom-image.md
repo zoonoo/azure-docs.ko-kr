@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: fb85920b04e3cd457dc36d1ba1fd0f18dcd7abb6
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1c7a9fd83131ea6282d2ef4860b744fa348153ed
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937062"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070920"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -356,7 +356,7 @@ Docker Hub는 이미지를 호스팅하고 이미지 및 컨테이너 서비스�
 
 - 리소스 그룹 - 관련 리소스에 대한 논리 컨테이너입니다.
 - Azure Storage 계정 - 프로젝트에 대한 상태 및 기타 정보를 유지 관리합니다.
-- Azure 함수 앱 - 함수 코드를 실행할 수 있는 환경을 제공합니다. 함수 앱은 로컬 함수 프로젝트에 매핑되며, 함수를 논리적 단위로 그룹화하여 리소스를 더 쉽게 관리, 배포 및 공유할 수 있습니다.
+- 함수 앱 - 함수 코드를 실행할 수 있는 환경을 제공합니다. 함수 앱은 로컬 함수 프로젝트에 매핑되며, 함수를 논리적 단위로 그룹화하여 리소스를 더 쉽게 관리, 배포 및 공유할 수 있습니다.
 
 이러한 항목은 Azure CLI 명령을 사용하여 만듭니다. 각 명령은 완료 시 JSON 출력을 제공합니다.
 

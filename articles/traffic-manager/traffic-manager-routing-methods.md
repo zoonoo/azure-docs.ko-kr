@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
-ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb49f3c2acc31cba7b245995cf3bcb579113e4c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401659"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183816"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager 라우팅 방법
 
@@ -24,11 +24,11 @@ Azure Traffic Manager는 다양한 서비스 엔드포인트에 네트워크 트
 Traffic Manager에서 다음과 같은 트래픽 라우팅 방법을 사용할 수 있습니다.
 
 * **[우선 순위](#priority-traffic-routing-method):** 모든 트래픽에 대해 기본 서비스 끝점을 사용 하려는 경우 **우선 순위** 를 선택 하 고 기본 또는 백업 끝점을 사용할 수 없는 경우 백업을 제공 합니다.
-* **[가중](#weighted):** 여러 엔드포인트에 균일하게 또는 정의한 가중치에 따라 트래픽을 분산하려면 **가중**을 선택합니다.
+* **[가중](#weighted):** 여러 엔드포인트에 균일하게 또는 정의한 가중치에 따라 트래픽을 분산하려면 **가중** 을 선택합니다.
 * **[성능](#performance):** 끝점이 서로 다른 지리적 위치에 있고 최종 사용자가 가장 낮은 네트워크 대기 시간을 기준으로 "가장 가까운" 끝점을 사용 하 게 하려는 경우 **성능을** 선택 합니다.
-* **[지리적](#geographic):** 사용자가 해당 DNS 쿼리가 시작된 지리적 위치를 기준으로 특정 엔드포인트(Azure, 외부 또는 중첩)로 리디렉션되게 하려면 **지리적**을 선택합니다. 이렇게 하면 Traffic Manager 고객이 사용자의 지리적 위치를 파악하고 그에 따라 라우팅되는 중요한 시나리오를 사용할 수 있습니다. 데이터 독립성 지시 사항, 콘텐츠 및 사용자 환경의 지역화를 준수하고 다른 지역의 트래픽을 측정하는 작업을 예로 들 수 있습니다.
-* **[다중값](#multivalue):** 엔드포인트로 IPv4/IPv6 주소만 사용할 수 있는 Traffic Manager 프로필의 경우 **다중값**을 선택합니다. 이 프로필에 대해 쿼리가 수신되면 정상 상태의 모든 엔드포인트가 반환됩니다.
-* **[서브넷](#subnet):** 최종 사용자 IP 주소 범위 집합을 Traffic Manager 프로필 내의 특정 엔드포인트로 매핑하려면 **서브넷** 트래픽 라우팅 방법을 선택합니다. 요청이 수신되면 해당 요청의 원본 IP 주소에 대해 매핑될 엔드포인트가 반환됩니다. 
+* **[지리적](#geographic):** 사용자가 해당 DNS 쿼리가 시작된 지리적 위치를 기준으로 특정 엔드포인트(Azure, 외부 또는 중첩)로 리디렉션되게 하려면 **지리적** 을 선택합니다. 이렇게 하면 Traffic Manager 고객이 사용자의 지리적 위치를 파악하고 그에 따라 라우팅되는 중요한 시나리오를 사용할 수 있습니다. 데이터 독립성 지시 사항, 콘텐츠 및 사용자 환경의 지역화를 준수하고 다른 지역의 트래픽을 측정하는 작업을 예로 들 수 있습니다.
+* **[다중값](#multivalue):** 엔드포인트로 IPv4/IPv6 주소만 사용할 수 있는 Traffic Manager 프로필의 경우 **다중값** 을 선택합니다. 이 프로필에 대해 쿼리가 수신되면 정상 상태의 모든 엔드포인트가 반환됩니다.
+* **[서브넷](#subnet):** 최종 사용자 IP 주소 범위 집합을 Traffic Manager 프로필 내의 특정 엔드포인트로 매핑하려면 **서브넷** 트래픽 라우팅 방법을 선택합니다. 요청이 수신되면 해당 요청의 원본 IP 주소에 대해 매핑될 엔드포인트가 반환됩니다. 
 
 
 모든 Traffic Manager 프로필에는 엔드포인트 상태 및 자동 엔드포인트 장애 조치(Failover)의 모니터링이 포함됩니다. 자세한 내용은 [Traffic Manager 엔드포인트 모니터링](traffic-manager-monitoring.md)을 참조하세요. 단일 Traffic Manager 프로필은 1가지 트래픽 라우팅 방법만 사용할 수 있습니다. 언제든지 프로필에 대해 다른 트래픽 라우팅 방법을 선택할 수 있습니다. 1분 안에 변경 내용이 적용되며 가동 중지는 발생하지 않습니다. 중첩 Traffic Manager 프로필을 사용하여 트래픽 라우팅 방법을 결합할 수 있습니다. 중첩을 통해 크고 복잡한 애플리케이션의 요구 사항을 충족할 수 있는 정교하고 유연한 트래픽 라우팅 구성이 가능합니다. 자세한 내용은 [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md)을 참조하세요.
@@ -123,38 +123,38 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 
 [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)에 설명된 대로 Traffic Manager는 클라이언트에서 직접 DNS 쿼리를 수신하지 않습니다. 대신, DNS 쿼리는 클라이언트를 사용하도록 구성한 재귀 DNS 서비스에서 제공됩니다. 따라서 지역을 결정하는 데 사용되는 IP 주소는 클라이언트의 IP 주소가 아니라 재귀 DNS 서비스의 IP 주소입니다. 실제로 이 IP 주소는 클라이언트에 유용한 프록시입니다.
 
-### <a name="faqs"></a>FAQ(질문과 대답)
+### <a name="faqs"></a>FAQ
 
-* [지리적 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
+* [지리적 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까?](./traffic-manager-faqs.md#what-are-some-use-cases-where-geographic-routing-is-useful)
 
-* [성능 라우팅 방법 또는 지리적 라우팅 방법을 사용해야 하는지를 결정하려면 어떻게 할까요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
+* [성능 라우팅 방법 또는 지리적 라우팅 방법을 사용해야 하는지를 결정하려면 어떻게 할까요?](./traffic-manager-faqs.md#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
 
-* [지리적 라우팅에 대해 Traffic Manager에서 지원되는 지역은 어디입니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
+* [지리적 라우팅에 대해 Traffic Manager에서 지원되는 지역은 어디입니까?](./traffic-manager-faqs.md#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
 
-* [Traffic Manager는 어떻게 사용자가 쿼리하는 위치를 결정합니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
+* [Traffic Manager는 어떻게 사용자가 쿼리하는 위치를 결정합니까?](./traffic-manager-faqs.md#how-does-traffic-manager-determine-where-a-user-is-querying-from)
 
-* [Traffic Manager가 모든 경우에 사용자의 정확한 지리적 위치를 올바르게 결정한다고 보장할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
+* [Traffic Manager가 모든 경우에 사용자의 정확한 지리적 위치를 올바르게 결정한다고 보장할 수 있나요?](./traffic-manager-faqs.md#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
 
-* [엔드포인트를 지리적 라우팅에 대해 구성된 것과 물리적으로 동일한 지역에 배치해야 합니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+* [엔드포인트를 지리적 라우팅에 대해 구성된 것과 물리적으로 동일한 지역에 배치해야 합니까?](./traffic-manager-faqs.md#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
 
-* [지리적 라우팅을 수행하도록 구성되어 있지 않은 프로필의 엔드포인트에 지리적 지역을 할당할 수 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+* [지리적 라우팅을 수행하도록 구성되어 있지 않은 프로필의 엔드포인트에 지리적 지역을 할당할 수 있습니까?](./traffic-manager-faqs.md#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
 
-* [기존 프로필의 라우팅 방법을 지리적으로 변경하려고 시도하면 오류가 발생하는 이유는 무엇인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
+* [기존 프로필의 라우팅 방법을 지리적으로 변경하려고 시도하면 오류가 발생하는 이유는 무엇인가요?](./traffic-manager-faqs.md#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
 
-* [고객에게 지리적 라우팅이 활성화된 프로필의 엔드포인트보다 중첩 프로필을 만드는 것을 권장하는 이유는 무엇입니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
+* [고객에게 지리적 라우팅이 활성화된 프로필의 엔드포인트보다 중첩 프로필을 만드는 것을 권장하는 이유는 무엇입니까?](./traffic-manager-faqs.md#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
 
-* [이 라우팅 형식을 지원하는 API 버전에 제한이 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
+* [이 라우팅 형식을 지원하는 API 버전에 제한이 있습니까?](./traffic-manager-faqs.md#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>다중값 트래픽 라우팅 방법
 **다중값** 트래픽 라우팅 방법을 사용하면 단일 DNS 쿼리 응답에 정상 상태의 여러 엔드포인트를 가져올 수 있습니다. 이렇게 하면 반환 된 끝점이 응답 하지 않을 경우 호출자가 다른 끝점을 사용 하 여 클라이언트 쪽 재시도를 수행할 수 있습니다. 이 패턴은 서비스의 가용성을 향상시키고 새 DNS 쿼리와 관련된 대기 시간을 줄여 정상 상태의 엔드포인트를 얻을 수 있습니다. 다중값 라우팅 방법은 ‘외부’ 유형의 모든 엔드포인트가 IPv4 또는 IPv6 주소로 지정된 경우에만 작동합니다. 쿼리가 이 프로필에 대해 수신되면 정상 상태의 모든 엔드포인트가 반환되고, 구성 가능한 최대 반환 수 제한이 적용됩니다.
 
-### <a name="faqs"></a>FAQ(질문과 대답)
+### <a name="faqs"></a>FAQ
 
-* [다중값 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+* [다중값 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까?](./traffic-manager-faqs.md#what-are-some-use-cases-where-multivalue-routing-is-useful)
 
-* [다중값 라우팅이 사용될 때 얼마나 많은 엔드포인트가 반환되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+* [다중값 라우팅이 사용될 때 얼마나 많은 엔드포인트가 반환되나요?](./traffic-manager-faqs.md#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
 
-* [다중값 라우팅이 사용될 때 동일한 엔드포인트 집합을 얻을 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+* [다중값 라우팅이 사용될 때 동일한 엔드포인트 집합을 얻을 수 있나요?](./traffic-manager-faqs.md#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
 
 ## <a name="subnet-traffic-routing-method"></a><a name = "subnet"></a>서브넷 트래픽 라우팅 방법
 **서브넷** 트래픽 라우팅 방법을 사용하면 최종 사용자 IP 주소 범위 집합을 프로필의 특정 엔드포인트에 매핑할 수 있습니다. 그런 다음, Traffic Manager가 해당 프로필의 DNS 쿼리를 수신하면 해당 요청의 원본 IP 주소(대부분의 경우 호출자가 사용하는 DNS 확인자의 나가는 IP 주소)를 조사하고, 매핑되는 엔드포인트를 확인하고, 해당 엔드포인트를 쿼리 응답에 반환합니다. 
@@ -164,23 +164,19 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 
 특정 IP 공간에서 연결하는 사용자에게 다른 환경을 제공하기 위해 서브넷 라우팅을 사용할 수 있습니다. 예를 들어 서브넷 라우팅을 사용하면 고객은 회사 사무실의 모든 요청이 앱 내부용 버전을 테스트할 수 있는 다른 엔드포인트로 라우팅되도록 할 수 있습니다. 또 다른 시나리오는 특정 ISP에서 연결하는 사용자에게 다른 환경을 제공하려는 경우입니다(예: 지정된 ISP의 사용자 차단).
 
-### <a name="faqs"></a>FAQ(질문과 대답)
+### <a name="faqs"></a>FAQ
 
-* [서브넷 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+* [서브넷 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까?](./traffic-manager-faqs.md#what-are-some-use-cases-where-subnet-routing-is-useful)
 
-* [Traffic Manager는 최종 사용자의 IP 주소를 어떻게 알 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+* [Traffic Manager는 최종 사용자의 IP 주소를 어떻게 알 수 있나요?](./traffic-manager-faqs.md#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
 
-* [서브넷 라우팅을 사용하는 경우 IP 주소를 어떻게 지정할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+* [서브넷 라우팅을 사용하는 경우 IP 주소를 어떻게 지정할 수 있나요?](./traffic-manager-faqs.md#how-can-i-specify-ip-addresses-when-using-subnet-routing)
 
-* [서브넷 라우팅을 사용하는 경우 대체(fallback) 엔드포인트를 어떻게 지정할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+* [서브넷 라우팅을 사용하는 경우 대체(fallback) 엔드포인트를 어떻게 지정할 수 있나요?](./traffic-manager-faqs.md#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
 
-* [서브넷 라우팅 형식 프로필에서 엔드포인트가 비활성화된 경우에는 어떻게 되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+* [서브넷 라우팅 형식 프로필에서 엔드포인트가 비활성화된 경우에는 어떻게 되나요?](./traffic-manager-faqs.md#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
 
 
 ## <a name="next-steps"></a>다음 단계
 
 [Traffic Manager 끝점 모니터링](traffic-manager-monitoring.md) 을 사용 하 여 고가용성 응용 프로그램을 개발 하는 방법을 알아봅니다.
-
-
-
-

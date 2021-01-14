@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: e822a2be200f701d65ab2080804d252f99589680
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: ac86dfba02b54730773a1d243981e85d563517e7
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680791"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183833"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>자습서: Azure Data Box 내보내기 순서 만들기
 
@@ -28,7 +28,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 > * 내보내기 순서 추적
 > * 내보내기 순서를 취소 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 장치를 주문 하기 전에 Data Box 서비스 및 장치에 대 한 다음 구성 필수 구성 요소를 완료 합니다.
 
@@ -181,7 +181,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 
     사용자가 할당한 관리 ID는 여러 리소스를 관리하는 데 사용할 수 있는 독립 실행형 Azure 리소스입니다. 자세한 내용은 [관리 ID 유형](/azure/active-directory/managed-identities-azure-resources/overview)을 참조하세요.  
 
-    새 관리 ID를 만들어야 하는 경우 [Azure Portal을 사용하여 사용자가 할당한 관리 ID에 역할 만들기, 나열, 삭제 또는 할당](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)의 지침을 따릅니다.
+    관리 id를 새로 만들어야 하는 경우에는 [Azure Portal를 사용 하 여 사용자 할당 관리 id에 대 한 역할 만들기, 나열, 삭제 또는 할당](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)의 지침을 따르세요.
     
     ![사용자 ID 선택](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 

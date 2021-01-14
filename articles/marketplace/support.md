@@ -6,19 +6,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 09/18/2020
-ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 01/14/2020
+ms.openlocfilehash: 8979a94ee63ef50c0a3abacd5ab3515226200131
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488896"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183441"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업적 marketplace 프로그램 지원
 
 Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니다. 적절 한 적절 한 응답을 보장 하려면 올바른 지원 팀을 찾아야 합니다. 다음은 쿼리를 적절한 팀으로 라우팅하는 데 도움이 되는 시나리오입니다.
 
 - 게시자이 고 고객의 질문이 있는 경우 고객에 게 [Azure Portal](https://portal.azure.com/)지원 링크를 사용 하 여 지원을 요청 하도록 요청 하세요.
+- Azure에서 실행 되는 응용 프로그램에 대 한 보안 문제를 검색 한 게시자 인 경우 [보안 이벤트 지원 티켓을 기록 하는 방법](/azure/security/fundamentals/event-support-ticket)을 참조 하세요. 판매자는 Azure Marketplace 소프트웨어 및 서비스 제품 관련 보안 인시던트 및 취약성을 비롯하여 의심스러운 보안 이벤트를 최대한 빨리 보고해야 합니다.
 - 게시자이 고 앱 이나 서비스와 관련 된 질문이 있는 경우 다음 지원 옵션을 검토 하세요.
 
 ## <a name="support-options-for-publishers"></a>게시자에 대 한 지원 옵션

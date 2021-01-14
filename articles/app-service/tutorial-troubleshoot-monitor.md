@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 049adac5521efd68ae8aa77af2d1007f9dfe0c0e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: af2711a3d219bb472334ad61bad0b87f6c691dab
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586995"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183203"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>자습서: Azure Monitor를 사용하여 App Service 앱 문제 해결
 
@@ -171,11 +171,11 @@ where ResultDescription  contains "error"
 
 `ResultDescription` 열에 다음 오류가 표시됩니다.
 
-<pre>
+```output
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
 (tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
-</pre>
+```
 
 ### <a name="join-appservicehttplogs-and-appserviceconsolelogs"></a>AppServiceHTTPLogs 및 AppServiceConsoleLogs 조인
 
@@ -201,11 +201,11 @@ myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, Resul
 
 `ResultDescription` 열에 웹 서버 오류와 동시에 다음 오류가 표시됩니다.
 
-<pre>
+```output
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
 (tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
-</pre>
+```
 
 메시지 상태 메모리가 `process.php`의 20번 줄에서 모두 소모되었습니다. 이제 HTTP 500 오류 중에 애플리케이션에서 오류를 생성했음을 확인했습니다. 문제를 식별하는 코드를 살펴보겠습니다.
 

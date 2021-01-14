@@ -1,16 +1,16 @@
 ---
 title: AKS(Azure Kubernetes Service)에 대한 Azure Policy 규정 준수 컨트롤
 description: AKS(Azure Kubernetes Service)에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: b3c25c80c9ed4ce8c3184a562eafa5550aeb6d8d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 398702d0110b9430d55a0c90f751e8cf14eb33f7
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989758"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049470"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 Azure Policy 규정 준수 컨트롤
 

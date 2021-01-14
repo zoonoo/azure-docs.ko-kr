@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 39f39b6f53944510b5f3692bb8b3fdd472004454
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451045"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121229"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 통해 IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "96451045"
 - [IntelliJ IDEA Community 버전](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Azure 도구 키트 플러그 인 3.27.0-2019.2 – [IntelliJ 플러그 인 리포지토리](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)에서 설치
 - [JDK(버전 1.8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- Scala 플러그 인 – [IntelliJ 플러그 인 리포지토리에서 설치](/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea)
+- Scala 플러그 인 – [IntelliJ 플러그 인 리포지토리에서 설치](../../hdinsight/spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea)
 - 다음 사전 요구 사항은 Windows 사용자에게만 적용됩니다.
 
   Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없기 때문에 발생합니다.

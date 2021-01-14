@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 01bd3b1e945ee7c9ac16af7048536c0a9e2d731a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 502533b69058eacd4ad18a3b29a33fbc4a3715a5
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401591"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183781"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Azure Powershell을 사용 하 여 서브넷 재정의 Traffic Manager
 
@@ -43,7 +43,7 @@ Traffic Manager 서브넷 재정의를 만들려면 Azure PowerShell를 사용 �
 
 1. **Traffic Manager 끝점을 검색 합니다.**
 
-    서브넷 재정의를 사용 하도록 설정 하려면 재정의를 추가할 끝점을 검색 하 고 [AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0)를 사용 하 여 변수에 저장 합니다.
+    서브넷 재정의를 사용 하도록 설정 하려면 재정의를 추가할 끝점을 검색 하 고 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0)를 사용 하 여 변수에 저장 합니다.
 
     Name, ProfileName 및 ResourceGroupName를 변경 하는 끝점의 값으로 바꿉니다.
 
@@ -54,7 +54,7 @@ Traffic Manager 서브넷 재정의를 만들려면 Azure PowerShell를 사용 �
     ```
 2. **IP 주소 범위를 끝점에 추가 합니다.**
     
-    IP 주소 범위를 끝점에 추가 하려면 [AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) 를 사용 하 여 범위를 추가 합니다.
+    IP 주소 범위를 끝점에 추가 하려면 [AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) 를 사용 하 여 범위를 추가 합니다.
 
     ```powershell
 
@@ -68,18 +68,18 @@ Traffic Manager 서브넷 재정의를 만들려면 Azure PowerShell를 사용 �
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    범위가 추가 되 면 [AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) 를 사용 하 여 끝점을 업데이트 합니다.
+    범위가 추가 되 면 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) 를 사용 하 여 끝점을 업데이트 합니다.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-IP 주소 범위 제거는 [AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0)을 사용 하 여 완료할 수 있습니다.
+IP 주소 범위 제거는 [AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0)을 사용 하 여 완료할 수 있습니다.
 
 1.  **Traffic Manager 끝점을 검색 합니다.**
 
-    서브넷 재정의를 사용 하도록 설정 하려면 재정의를 추가할 끝점을 검색 하 고 [AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0)를 사용 하 여 변수에 저장 합니다.
+    서브넷 재정의를 사용 하도록 설정 하려면 재정의를 추가할 끝점을 검색 하 고 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0)를 사용 하 여 변수에 저장 합니다.
 
     Name, ProfileName 및 ResourceGroupName를 변경 하는 끝점의 값으로 바꿉니다.
 
@@ -102,7 +102,7 @@ IP 주소 범위 제거는 [AzTrafficManagerIpAddressRange](https://docs.microso
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     범위가 제거 되 면 [AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) 를 사용 하 여 끝점을 업데이트 합니다.
+     범위가 제거 되 면 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) 를 사용 하 여 끝점을 업데이트 합니다.
 
     ```powershell
 
@@ -113,4 +113,4 @@ IP 주소 범위 제거는 [AzTrafficManagerIpAddressRange](https://docs.microso
 ## <a name="next-steps"></a>다음 단계
 Traffic Manager [트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 대해 자세히 알아봅니다.
 
-[서브넷 트래픽 라우팅 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method) 에 대 한 자세한 정보
+[서브넷 트래픽 라우팅 방법](./traffic-manager-routing-methods.md#subnet-traffic-routing-method) 에 대 한 자세한 정보

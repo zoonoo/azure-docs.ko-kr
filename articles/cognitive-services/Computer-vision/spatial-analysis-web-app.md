@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 9b9390b498f28fc8f9029f1c11805b970aaca73d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: de011fb0f827ea90efe33e237bbf1c5100dc76a7
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014563"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183475"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>방법: 웹 응용 프로그램을 계산 하는 사용자 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "95014563"
 * 웹 응용 프로그램에서 IoT Hub 연결 구성
 * 웹 응용 프로그램 배포 및 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure IoT Edge 배포 구성 및 [Azure IoT Hub](../../iot-hub/index.yml) 에 대 한 기본적인 이해
@@ -63,12 +63,12 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>호스트 컴퓨터의 Azure IoT Edge에 컨테이너 배포
 
-Azure CLI를 사용 하 여 공간 분석 컨테이너를 호스트 컴퓨터에 IoT 모듈로 배포 합니다. 배포 프로세스에는 배포에 필요한 컨테이너, 변수 및 구성을 설명 하는 배포 매니페스트 파일이 필요 합니다. *공간 분석* 컨테이너에 대 한 기본 배포 구성을 포함 하는 GitHub에서 [Azure Stack](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 지 특정 배포 매니페스트 뿐만 아니라 [edge 별 배포 매니페스트 Azure Stack](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) 샘플을 찾을 수 있습니다. 
+Azure CLI를 사용 하 여 공간 분석 컨테이너를 호스트 컴퓨터에 IoT 모듈로 배포 합니다. 배포 프로세스에는 배포에 필요한 컨테이너, 변수 및 구성을 설명 하는 배포 매니페스트 파일이 필요 합니다. *공간 분석* 컨테이너에 대 한 기본 배포 구성을 포함 하 여 GITHUB에서 GPU 별 배포 매니페스트, [Azure Stack에 지에 지 특정](https://go.microsoft.com/fwlink/?linkid=2152189)배포 매니페스트 및 [Azure VM](https://go.microsoft.com/fwlink/?linkid=2152189) 에 대 한 샘플 [Azure Stack](https://go.microsoft.com/fwlink/?linkid=2142179)를 찾을 수 있습니다. 
 
 또는 Visual Studio Code 용 Azure IoT 확장을 사용 하 여 IoT hub를 사용 하 여 작업을 수행할 수 있습니다. [Visual Studio Code에서 Azure IoT Edge 모듈 배포](../../iot-edge/how-to-deploy-modules-vscode.md) 로 이동 하 여 자세한 내용을 알아보세요.
 
 > [!NOTE] 
-> *Telegraf* 및 *공간 분석-진단* 컨테이너는 선택 사항입니다. 파일 *의DeploymentManifest.js* 에서 제거 하도록 결정할 수 있습니다. 자세한 내용은 [원격 분석 및 문제 해결](./spatial-analysis-logging.md) 문서를 참조 하세요. Github의 파일에서 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 다른 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 대 한 두 개의 샘플 *DeploymentManifest.js* 를 찾을 수 있습니다.
+> *Telegraf* 및 *공간 분석-진단* 컨테이너는 선택 사항입니다. 파일 *의DeploymentManifest.js* 에서 제거 하도록 결정할 수 있습니다. 자세한 내용은 [원격 분석 및 문제 해결](./spatial-analysis-logging.md) 문서를 참조 하세요. GitHub의 파일, [Azure Stack에 지 장치](https://go.microsoft.com/fwlink/?linkid=2142179), [데스크톱 컴퓨터](https://go.microsoft.com/fwlink/?linkid=2152189)또는 [GPU를 사용 하는 Azure VM](https://go.microsoft.com/fwlink/?linkid=2152189) 에 대 한 세 가지 샘플 *DeploymentManifest.js* 를 찾을 수 있습니다.
 
 ### <a name="set-environment-variables"></a>환경 변수 설정
 
@@ -185,16 +185,16 @@ docker push [desired local image name]
 * `EventHubConsumerGroup` – Azure IoT Hub에서 소비자 그룹의 문자열 이름을 사용 하 여 IoT Hub에 새 소비자 그룹을 만들거나 기본 그룹을 사용할 수 있습니다. 
 * `IotHubConnectionString` -Azure IoT Hub에 대 한 연결 문자열입니다 .이 문자열을 Azure IoT Hub 리소스 ![ 구성 매개 변수의 키 섹션에서 검색할 수 있습니다.](./media/spatial-analysis/solution-app-config-page.png)
 
-이러한 두 설정이 추가 되 면 **저장** 을 클릭 합니다. 왼쪽 탐색 메뉴에서 **인증/권한 부여** 를 클릭 하 고 원하는 인증 수준으로 업데이트 합니다. Azure AD (Azure Active Directory) express를 권장 합니다. 
+이러한 두 설정이 추가 되 면 **저장** 을 클릭 합니다. 왼쪽 탐색 메뉴에서 **인증/권한 부여** 를 클릭 하 고 원하는 인증 수준으로 업데이트 합니다. Azure Active Directory (Azure AD) express를 권장 합니다. 
 
-### <a name="test-the-app"></a>앱을 테스트합니다.
+### <a name="test-the-app"></a>앱 테스트
 
 Azure 웹 앱으로 이동 하 여 배포가 성공 했으며 웹 앱이 실행 중인지 확인 합니다. 구성 된 url로 이동 `<yourapp>.azurewebsites.net` 하 여 실행 중인 앱을 확인 합니다.
 
 ![배포 테스트](./media/spatial-analysis/solution-app-output.png)
 
 ## <a name="get-the-personcount-source-code"></a>PersonCount 소스 코드 가져오기
-이 응용 프로그램에 대 한 소스 코드를 보거나 수정 하려면 [Github에서](https://github.com/Azure-Samples/cognitive-services-spatial-analysis)찾을 수 있습니다.
+이 응용 프로그램에 대 한 소스 코드를 보거나 수정 하려면 [GitHub에서](https://github.com/Azure-Samples/cognitive-services-spatial-analysis)찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

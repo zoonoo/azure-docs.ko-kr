@@ -3,12 +3,12 @@ title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: f847e481670d7f9afd4b40cfb8fcbec65d1e28c8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178928"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184019"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 관리 그룹 배포
 
@@ -44,6 +44,8 @@ Azure RBAC (역할 기반 액세스 제어)의 경우 다음을 사용 합니다
 리소스를 관리 하려면 다음을 사용 합니다.
 
 * [태그](/azure/templates/microsoft.resources/tags)
+
+관리 그룹은 테 넌 트 수준 리소스입니다. 그러나 새 관리 그룹의 범위를 테 넌 트로 설정 하 여 관리 그룹 배포에서 관리 그룹을 만들 수 있습니다. [관리 그룹](#management-group)을 참조 하세요.
 
 ## <a name="schema"></a>스키마
 
@@ -168,9 +170,55 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
-또는 `/` 관리 그룹과 같은 일부 리소스 형식에 대해 범위를로 설정할 수 있습니다.
+또는 `/` 관리 그룹과 같은 일부 리소스 형식에 대해 범위를로 설정할 수 있습니다. 새 관리 그룹을 만드는 방법에 대해서는 다음 섹션에서 설명 합니다.
+
+## <a name="management-group"></a>관리 그룹
+
+관리 그룹 배포에서 관리 그룹을 만들려면 `/` 관리 그룹에 대 한 범위를로 설정 해야 합니다.
+
+다음 예에서는 루트 관리 그룹에 새 관리 그룹을 만듭니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
+
+다음 예에서는 부모로 지정 된 관리 그룹에 새 관리 그룹을 만듭니다. 범위가로 설정 된 것을 확인할 수 `/` 있습니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string",
+            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+        },
+        "parentMG": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('mgName')]",
+            "type": "Microsoft.Management/managementGroups",
+            "apiVersion": "2020-05-01",
+            "scope": "/",
+            "location": "eastus",
+            "properties": {
+                "details": {
+                    "parent": {
+                        "id": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('parentMG'))]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "output": {
+            "type": "string",
+            "value": "[parameters('mgName')]"
+        }
+    }
+}
+```
 
 ## <a name="azure-policy"></a>Azure Policy
 

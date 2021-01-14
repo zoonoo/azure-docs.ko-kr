@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/23/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c093dcff46676dc5f8a25974c3c38c74ae7666b7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a4c7612188043be070ead92c88838b567b22787d
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546690"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131273"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스 
 
@@ -33,9 +33,6 @@ ms.locfileid: "92546690"
 > * 스토리지 계정에 Blob 컨테이너 만들기
 > * Azure Storage 컨테이너에 대한 Linux VM의 관리 ID 액세스 권한 부여
 > * 액세스 토큰 가져오기 및 액세스 토큰을 사용하여 Azure Storage 호출
-
-> [!NOTE]
-> Azure Storage에 대한 Azure Active Directory 인증은 공개 미리 보기 상태입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -100,7 +97,7 @@ Azure Storage는 기본적으로 Azure AD 인증을 지원하므로 관리 ID를
 
 다음 단계를 완료하려면 앞에서 작성한 VM에서 작업해야 하며 연결을 위한 SSH 클라이언트가 필요합니다. Windows를 사용 중인 경우 [Linux용 Windows 하위 시스템](/windows/wsl/about)에서 SSH 클라이언트를 사용할 수 있습니다. SSH 클라이언트의 키 구성에 대한 도움이 필요하면 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](~/articles/virtual-machines/linux/ssh-from-windows.md) 또는 [Azure에서 Linux VM용 SSH 공개 및 프라이빗 키 쌍을 만들고 사용하는 방법](~/articles/virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
 
-1. Azure Portal에서 **Virtual Machines** , Linux 가상 머신으로 이동한 후 **개요** 페이지에서 **연결** 을 클릭합니다. VM에 연결하기 위한 문자열을 복사합니다.
+1. Azure Portal에서 **Virtual Machines**, Linux 가상 머신으로 이동한 후 **개요** 페이지에서 **연결** 을 클릭합니다. VM에 연결하기 위한 문자열을 복사합니다.
 2. 선택한 SSH 클라이언트를 사용하여 VM에 **연결** 합니다. 
 3. 터미널 창에서 CURL을 사용하여 로컬 관리 ID 엔드포인트에 대한 요청을 만들어서 Azure Storage에 대한 액세스 토큰을 가져옵니다.
     

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 78e934a90b8d4e8feccf18a5cada3ec4920e1642
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 86e27c190b269763d8dd2f562a207b3f2020da29
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734456"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051074"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -84,7 +84,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이제 VNet을 만듭니다.
 
 > [!NOTE]
-> AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
+> AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size)를 참조하세요.
 
 1. Azure Portal 홈 페이지에서 **리소스 만들기** 를 선택합니다.
 2. **네트워킹** 아래에서 **가상 네트워크** 를 선택합니다.
@@ -150,7 +150,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    |설정  |값  |
    |---------|---------|
-   |Subscription     |\<your subscription\>|
+   |구독     |\<your subscription\>|
    |Resource group     |**FW-Hybrid-Test** |
    |Name     |**AzFW01**|
    |Azure 지역     |**미국 동부**|

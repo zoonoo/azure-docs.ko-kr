@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658590"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051516"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 VNet은 세 개의 서브넷을 포함할 것입니다.
 
 > [!NOTE]
-> AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
+> AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size)를 참조하세요.
 
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 1. **네트워킹** > **가상 네트워크** 를 선택합니다.
@@ -134,7 +134,7 @@ VNet에 방화벽을 배포합니다.
 
    |설정  |값  |
    |---------|---------|
-   |Subscription     |\<your subscription\>|
+   |구독     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
    |위치     |전에 사용한 동일한 위치 선택|

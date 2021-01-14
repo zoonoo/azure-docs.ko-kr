@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 53fb256d3a0fba1cc10cafb239ff7f7bb21ac4eb
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450902"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121076"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>자습서: Apache Spark 및 Azure Synapse Analytics를 사용하여 Power BI 보고서 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "96450902"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 - 기본 스토리지로 구성된 ADLS Gen2 스토리지 계정이 있는 [Azure Synapse Analytics 작업 영역](../quickstart-create-workspace.md) 
-- 데이터를 시각화하는 Power BI 작업 영역 및 Power BI Desktop. 자세한 내용은 [Power BI 작업 영역 만들기](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces) 및 [Power BI Desktop 설치](https://powerbi.microsoft.com/downloads/)를 참조하세요.
+- 데이터를 시각화하는 Power BI 작업 영역 및 Power BI Desktop. 자세한 내용은 [Power BI 작업 영역 만들기](/power-bi/service-create-the-new-workspaces) 및 [Power BI Desktop 설치](https://powerbi.microsoft.com/downloads/)를 참조하세요.
 - Azure Synapse Analytics 및 Power BI 작업 영역을 연결하는 연결된 서비스. 자세한 내용은 [Power BI 작업 영역에 연결](../quickstart-power-bi.md)을 참조하세요.
 - Synapse Analytics 작업 영역의 서버리스 Apache Spark 풀. 자세한 내용은 [서버리스 Apache Spark 풀 만들기](../quickstart-create-apache-spark-pool-studio.md)를 참조하세요.
   
@@ -89,7 +89,7 @@ Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이
 다음으로, 서버리스 SQL 풀을 Power BI 작업 영역에 연결합니다. 작업 영역이 연결되면 Azure Synapse Analytics 및 Power BI 데스크톱 모두에서 Power BI 보고서를 직접 만들 수 있습니다.
 
 >[!Note]
-> 시작하기 전에 [Power BI 작업 영역](../quickstart-power-bi.md)에 연결된 서비스를 설정하고 [Power BI 데스크톱](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces)을 다운로드해야 합니다.  
+> 시작하기 전에 [Power BI 작업 영역](../quickstart-power-bi.md)에 연결된 서비스를 설정하고 [Power BI 데스크톱](/power-bi/service-create-the-new-workspaces)을 다운로드해야 합니다.  
 
 서버리스 SQL 풀을 Power BI 작업 영역에 연결하려면 다음을 수행합니다.
 
