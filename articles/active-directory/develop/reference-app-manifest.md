@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d855e124c84dee8554073d05fa04fe078b92ddaa
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011546"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208892"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -115,17 +115,6 @@ Azure Portal을 통해 또는 프로그래밍 방식으로 [REST API](/graph/api
     "allowPublicClient": false,
 ```
 
-### <a name="availabletoothertenants-attribute"></a>availableToOtherTenants 특성
-
-| 키 | 값 형식 |
-| :--- | :--- |
-| availableToOtherTenants | 부울 |
-
-애플리케이션을 다른 테넌트와 공유하는 경우 true로 설정하고, 그렇지 않으면 false로 설정합니다.
-
-> [!NOTE]
-> 이 특성은 **앱 등록(레거시)** 환경에서만 사용할 수 있습니다. [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 `signInAudience`로 대체되었습니다.
-
 ### <a name="appid-attribute"></a>appId 특성
 
 | 키 | 값 형식 |
@@ -165,17 +154,6 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
     ],
 ```
 
-### <a name="displayname-attribute"></a>displayName 특성
-
-| 키 | 값 형식 |
-| :--- | :--- |
-| displayName | String |
-
-앱의 표시 이름입니다.
-
-> [!NOTE]
-> 이 특성은 **앱 등록(레거시)** 환경에서만 사용할 수 있습니다. [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 `name`로 대체되었습니다.
-
 ### <a name="errorurl-attribute"></a>errorUrl 특성
 
 | 키 | 값 형식 |
@@ -203,33 +181,6 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
     "groupMembershipClaims": "SecurityGroup",
 ```
 
-### <a name="homepage-attribute"></a>homepage 특성
-
-| 키 | 값 형식 |
-| :--- | :--- |
-| homepage |String |
-
-애플리케이션 홈페이지의 URL입니다.
-
-> [!NOTE]
-> 이 특성은 **앱 등록(레거시)** 환경에서만 사용할 수 있습니다. [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 `signInUrl`로 대체되었습니다.
-
-### <a name="objectid-attribute"></a>objectId 특성
-
-| 키 | 값 형식 |
-| :--- | :--- |
-|objectId | String |
-
-디렉터리의 앱에 대한 고유 식별자입니다.
-
-이 특성은 **앱 등록(레거시)** 환경에서만 사용할 수 있습니다. [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 `id`로 대체되었습니다.
-
-예제:
-
-```json
-    "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
-
 ### <a name="optionalclaims-attribute"></a>optionalClaims 특성
 
 | 키 | 값 형식 |
@@ -245,7 +196,6 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 ```json
     "optionalClaims": null,
 ```
-
 
 
 ### <a name="identifieruris-attribute"></a>identifierUris 특성
@@ -489,16 +439,6 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
     ],
 ```
 
-### <a name="publicclient-attribute"></a>publicClient 특성
-
-| 키 | 값 형식 |
-| :--- | :--- |
-| publicClient | 부울|
-
-이 애플리케이션이 퍼블릭 클라이언트(예: 모바일 디바이스에서 실행되는 설치된 애플리케이션)인지 여부를 지정합니다.
-
-이 속성은 **앱 등록(레거시)** 환경에서만 사용할 수 있습니다. [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 `allowPublicClient`로 대체되었습니다.
-
 ### <a name="publisherdomain-attribute"></a>publisherDomain 특성
 
 | 키 | 값 형식 |
@@ -511,17 +451,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ```json
     "publisherDomain": "https://www.contoso.com",
-````
-
-### <a name="replyurls-attribute"></a>replyUrls 특성
-
-| 키 | 값 형식 |
-| :--- | :--- |
-| replyUrls | 문자열 배열 |
-
-이 다중값 속성은 Azure AD가 토큰을 반환할 때 대상으로 허용하는 등록된 redirect_uri 값 목록을 포함합니다.
-
-이 속성은 **앱 등록(레거시)** 환경에서만 사용할 수 있습니다. [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 `replyUrlsWithType`로 대체되었습니다.
+```
 
 ### <a name="replyurlswithtype-attribute"></a>replyUrlsWithType 특성
 

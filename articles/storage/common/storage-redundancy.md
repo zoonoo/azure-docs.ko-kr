@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3c0b466a7db688ed3e24441f652f6a1ef1a88ee1
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 5a09a2083c1258a3120f8696aa39a0252dbfcf2d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180084"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209697"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -97,11 +97,19 @@ GRS(지역 중복 저장소)는 LRS를 사용하여 기본 지역의 단일 물�
 
 쓰기 작업은 먼저 기본 위치에 커밋되고 LRS를 사용하여 복제됩니다. 그런 다음, 업데이트는 보조 지역에 비동기적으로 복제됩니다. 데이터가 보조 위치에 기록되는 경우 LRS를 사용하여 해당 위치 내에도 복제됩니다.
 
+다음 다이어그램에서는 GRS 또는 GRS를 사용 하 여 데이터를 복제 하는 방법을 보여 줍니다.
+
+:::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="GRS 또는 GRS를 사용 하 여 데이터를 복제 하는 방법을 보여 주는 다이어그램":::
+
 ### <a name="geo-zone-redundant-storage"></a>지역 영역 중복 스토리지
 
 GZRS(지역 영역 중복 저장소)는 가용성 영역 전체의 중복성으로 제공되는 고가용성과 지역에서 복제를 통해 제공되는 지역 중단 방지를 결합합니다. GZRS 저장소 계정의 데이터는 기본 지역의 [Azure 가용성 영역](../../availability-zones/az-overview.md)에 복사되며 지역 재해로부터 보호하기 위해 보조 지리적 지역에도 복제됩니다. Microsoft는 재해 복구를 위해 최대 일관성, 내구성과 가용성, 뛰어난 성능 및 복원력이 필요한 응용 프로그램에 GZRS를 사용하는 것을 권장합니다.
 
 GZRS 저장소 계정을 사용하면 가용성 영역을 사용할 수 없거나 복구할 수 없는 경우 데이터를 계속해서 읽고 쓸 수 있습니다. 또한 전체 지역 중단 또는 기본 지역을 복구할 수 없는 재해가 발생하는 경우에도 데이터가 지속됩니다. GZRS는 지정된 1년 동안 개체에 99.99999999999999%(16개의 9) 이상의 내구성을 제공하도록 디자인되었습니다.
+
+다음 다이어그램에서는 GZRS 또는 GZRS를 사용 하 여 데이터를 복제 하는 방법을 보여 줍니다.
+
+:::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="GZRS 또는 GZRS를 사용 하 여 데이터를 복제 하는 방법을 보여 주는 다이어그램":::
 
 범용 v2 저장소 계정만 GZRS 및 RA-GZRS를 지원합니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. GZRS 및 RA-GZRS는 블록 Blob, 페이지 Blob(VHD 디스크 제외), 파일, 테이블 및 큐를 지원합니다.
 

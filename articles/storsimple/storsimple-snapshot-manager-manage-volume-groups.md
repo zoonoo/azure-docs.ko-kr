@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df2d74701e21c3773d96564f1b06d80ddb9fce9d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022958"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209222"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>StorSimple 스냅샷 관리자를 사용하여 볼륨 그룹 만들기 및 관리
 ## <a name="overview"></a>개요
@@ -48,7 +48,7 @@ ms.locfileid: "96022958"
 ## <a name="view-volume-groups"></a>볼륨 그룹 보기
 **볼륨 그룹** 노드를 클릭하면 선택한 열에 따라 **결과** 창에 각 볼륨 그룹에 대해 다음 정보가 표시됩니다. **결과** 창의 열은 구성할 수 있습니다. **볼륨** 노드를 마우스 오른쪽 단추로 클릭하고 **보기** 를 선택한 다음 **열 추가/제거** 를 선택합니다.
 
-| 결과 열 | Description |
+| 결과 열 | 설명 |
 |:--- |:--- |
 | Name |**이름** 열에는 볼륨 그룹의 이름이 포함됩니다. |
 | 애플리케이션 |**응용 프로그램** 열에는 현재 Windows 호스트에 설치되어 실행되는 VSS 기록기 수가 표시됩니다. |
@@ -107,7 +107,7 @@ ms.locfileid: "96022958"
 #### <a name="to-edit-a-volume-group"></a>볼륨 그룹을 편집하려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
 2. **범위** 창에서 **볼륨 그룹** 노드를 확장하고 볼륨 그룹 이름을 마우스 오른쪽 단추로 클릭한 다음 **편집** 을 클릭합니다.
-3. 볼륨 그룹 만들기 대화 상자가 나타납니다. **이름**, **응용 프로그램** 및 **볼륨** 항목을 변경할 수 있습니다.
+3. **볼륨 그룹 만들기** 대화 상자가 나타납니다. **이름**, **응용 프로그램** 및 **볼륨** 항목을 변경할 수 있습니다.
 4. **확인** 을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="delete-a-volume-group"></a>볼륨 그룹 삭제

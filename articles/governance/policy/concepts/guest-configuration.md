@@ -1,14 +1,14 @@
 ---
 title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy 게스트 구성 클라이언트를 사용 하 여 가상 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
-ms.date: 10/14/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5ec43516c60d2fe5d923a7b87cddbea0ad640453
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071836"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210123"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -101,11 +101,11 @@ Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **
 
 ## <a name="managed-identity-requirements"></a>관리 ID 요구 사항
 
-[가상 머신에서 게스트 구성 정책을 사용 하도록 설정 하기 위한 필수 구성 요소 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) 이니셔티브의 정책 정의는 시스템 할당 관리 id (있는 경우)를 사용 하도록 설정 합니다. 이니셔티브에는 id 만들기를 관리 하는 두 가지 정책 정의가 있습니다. 정책 정의의 IF 조건은 Azure에서 컴퓨터 리소스의 현재 상태에 따라 올바른 동작을 보장 합니다.
+_가상 머신에서 게스트 구성 정책을 사용 하도록 설정 하기 위한 필수 구성 요소 배포_ 이니셔티브의 정책 정의는 시스템 할당 관리 id (있는 경우)를 사용 하도록 설정 합니다. 이니셔티브에는 id 만들기를 관리 하는 두 가지 정책 정의가 있습니다. 정책 정의의 IF 조건은 Azure에서 컴퓨터 리소스의 현재 상태에 따라 올바른 동작을 보장 합니다.
 
-컴퓨터에 현재 관리 되는 id가 없는 경우에는 유효한 정책: [ \[ 미리 보기 \] : id가 없는 가상 컴퓨터에 대 한 게스트 구성 할당을 사용 하도록 시스템 할당 관리 id 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+컴퓨터에 현재 관리 되는 id가 없는 경우에는 유효한 정책: [시스템 할당 관리 id를 추가 하 여 id가 없는 가상 컴퓨터에 대 한 게스트 구성 할당을 사용 하도록 설정](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e) 합니다.
 
-컴퓨터에 현재 사용자 할당 시스템 id가 있는 경우 유효한 정책은 다음과 같습니다. [ \[ 미리 보기 \] : 사용자 할당 id를 사용 하 여 가상 컴퓨터에 대 한 게스트 구성 할당을 사용 하도록 설정 하는 시스템 할당 관리 id를 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) 합니다.
+컴퓨터에 현재 사용자 할당 시스템 id가 있는 경우에는 유효한 정책: [시스템 할당 관리 id를 추가 하 여 사용자 할당 id를 사용 하는 vm에서 게스트 구성 할당을 사용 하도록 설정](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) 합니다.
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 
@@ -120,7 +120,7 @@ Azure Policy 게스트 구성 리소스 공급자 **complianceStatus** 속성을
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>업계 기준에 따라 운영 체제 설정 감사
 
-Azure Policy의 한 이니셔티브는 "기준"에 따라 운영 체제 설정을 감사하는 기능을 제공합니다. 정의, _\[미리 보기\]: Azure 보안 기준 설정과 일치하지 않는 Windows VM 감사에는_ Active Directory 그룹 정책 기준으로 하는 규칙 세트가 포함되어 있습니다.
+Azure Policy의 한 이니셔티브는 "기준"에 따라 운영 체제 설정을 감사 합니다. 정의, _\[ 미리 보기 \] : Windows 컴퓨터에는 Azure 보안 기준에 대 한 요구 사항을 충족 해야_ Active Directory 그룹 정책를 기반으로 하는 규칙 집합이 포함 됩니다.
 
 대부분의 설정은 매개 변수로 사용할 수 있습니다. 매개 변수를 사용하여 감사할 항목을 사용자 지정할 수 있습니다.
 정책을 요구 사항에 맞게 정렬하거나 업계 규정 표준 같은 타사 정보에 정책을 매핑합니다.

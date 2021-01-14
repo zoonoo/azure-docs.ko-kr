@@ -2,16 +2,16 @@
 title: 통합 문서 기반 정보 Azure Monitor 문제 해결
 description: Azure Key Vault, Azure CosmosDB, Azure Storage, Azure Cache for Redis 등의 서비스에 대 한 통합 문서 기반 정보를 Azure Monitor에 대 한 문제 해결 지침을 제공 합니다.
 services: azure-monitor
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: lagayhar
+author: lgayhardt
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 90743a213092aacfa10139c12f47bc11faf0d86d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2765e9dcf3b0e7bf28191e6ecbb069f26c42f5
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498715"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208525"
 ---
 # <a name="troubleshooting-workbook-based-insights"></a>통합 문서 기반 정보 문제 해결
 
@@ -53,7 +53,7 @@ ms.locfileid: "86498715"
 
 ## <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>내 대시보드에서 통합 문서 단계의 시간 범위/시간 범위를 변경 어떻게 할까요?
 
-기본적으로 대시보드 타일의 시간 범위는 24시간으로 설정되며 이 값을 변경하려면 오른쪽 위에 있는 줄임표를 클릭하여 **타일 데이터 사용자 지정**을 선택하고 "제목 수준에서 대시보드 시간 설정 재정의" 확인란을 선택한 다음 드롭다운 메뉴를 사용하여 시간 범위를 선택합니다.  
+기본적으로 대시보드 타일의 시간 범위는 24시간으로 설정되며 이 값을 변경하려면 오른쪽 위에 있는 줄임표를 클릭하여 **타일 데이터 사용자 지정** 을 선택하고 "제목 수준에서 대시보드 시간 설정 재정의" 확인란을 선택한 다음 드롭다운 메뉴를 사용하여 시간 범위를 선택합니다.  
 
 ![타일의 오른쪽 모서리에 있는 줄임표를 선택하고 이 데이터 사용자 지정을 선택합니다.](./media/storage-insights-overview/fqa-data-settings.png)
 

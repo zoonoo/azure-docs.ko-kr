@@ -4,15 +4,15 @@ description: 이 가이드에서는 일반적으로 사용 되는 수평선 메�
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/7/2020
+ms.date: 1/5/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 6d2e3fccd6a61fe129050faa29cb7bb77674ccfe
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 39770fe7aa7b11cae03304fda8901e81e0f1877a
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976908"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208417"
 ---
 # <a name="horizon-api"></a>수평 API 
 
@@ -20,17 +20,19 @@ ms.locfileid: "97976908"
 
 ### <a name="getting-more-information"></a>추가 정보 보기
 
-CyberX 플랫폼을 사용 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
+IoT 플랫폼용 및 수평 사용에 대 한 자세한 내용은 다음 정보를 참조 하세요.
 
-- 수평 ODE (Open Development Environment) SDK의 경우 CyberX 담당자에 게 문의 하세요.
+- 수평 ODE (Open Development Environment) SDK의 경우 Defender에 IoT 담당자에 게 문의 하세요.
 - 지원 및 문제 해결 정보는에 문의 하세요 <support@cyberx-labs.com> .
-- CyberX 콘솔에서 Cyberx 사용자 가이드에 액세스 하려면를 선택 하 :::image type="icon" source="media/references-horizon-api/profile-icon.png"::: 고 **사용자 가이드 다운로드** 를 선택 합니다.
+
+- IoT 용 Defender 콘솔에서 iot 용 Defender 사용자 가이드에 액세스 하려면를 선택 하 :::image type="icon" source="media/references-horizon-api/profile.png"::: 고 **사용자 가이드 다운로드** 를 선택 합니다.
+
 
 ## `horizon::protocol::BaseParser`
 
 모든 플러그 인에 대 한 추상입니다. 이는 다음과 같은 두 가지 방법으로 구성 됩니다.
 
-- 위에 정의 된 플러그 인 필터를 처리 합니다. 이 방법을 통해 파서와 통신 하는 방법을 알 수 있습니다.
+- 위에 정의 된 플러그 인 필터를 처리 합니다. 이 방법에서는 파서와 통신 하는 방법을 알 수 있습니다.
 - 실제 데이터를 처리 하기 위한입니다.
 
 ## `std::shared_ptr<horizon::protocol::BaseParser> create_parser()`
@@ -69,12 +71,12 @@ Main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 ### <a name="parameters"></a>매개 변수
 
-- 데이터를 저장 하 고 SDK와 관련 된 개체 (예: ILayer, 필드 등)를 만드는 SDK 컨트롤 단위입니다.
+- 데이터를 저장 하 고 ILayer 및 필드와 같은 SDK 관련 개체를 만드는 것을 담당 하는 SDK 컨트롤 단위입니다.
 - 원시 패킷의 데이터를 읽기 위한 도우미입니다. config.js에서 정의한 바이트 순서를 사용 하 여 이미 설정 되어 있습니다.
 
 ### <a name="return-value"></a>반환 값 
 
-처리 결과입니다. 성공/형식이 잘못 된 일 수 있습니다.
+처리 결과입니다. *성공*, *잘못* 된 또는 *온전성* 중 하나일 수 있습니다.
 
 ## `horizon::protocol::SanityFailureResult: public horizon::protocol::ParserResult`
 
@@ -90,7 +92,7 @@ Main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 ## `horizon::protocol::MalformedResult: public horizon::protocol::ParserResult`
 
-잘못 된 결과를 반환 했습니다. 이미 패킷을 프로토콜로 인식 했지만 일부 유효성 검사가 잘못 되었습니다 (예약 된 비트는 켜져 있고 일부 필드는 누락 됨).
+잘못 된 결과입니다. 이미 패킷을 프로토콜로 인식 했지만 일부 유효성 검사가 잘못 되었거나 (예약 비트가 켜져 있거나 일부 필드가 누락 됨)
 
 ## `horizon::protocol::MalformedResult::MalformedResult(uint64_t)`
 
@@ -102,7 +104,7 @@ Main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 ## `horizon::protocol::SuccessResult: public horizon::protocol::ParserResult`
 
-성공적인 처리를 위해 메시지를 표시 합니다. 성공 하면 패킷이 수락 됩니다. 데이터가 microsoft에 속하고 모든 데이터를 추출 했습니다.
+성공적인 처리를 위해 메시지를 표시 합니다. 성공적으로 완료 되 면 패킷이 수락 되 고 데이터가 microsoft에 속하고 모든 데이터가 추출 됩니다.
 
 ## `horizon::protocol::SuccessResult()`
 
@@ -110,24 +112,24 @@ Main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 ## `horizon::protocol::SuccessResult(horizon::protocol::ParserResultDirection)`
 
-생성자
+생성자입니다.
 
 ### <a name="parameters"></a>매개 변수 
 
-- 패킷의 방향 (식별 된 경우)입니다. 값은 요청, 응답 일 수 있습니다.
+- 패킷의 방향 (식별 된 경우)입니다. 값은 *요청* 또는 *응답이* 될 수 있습니다.
 
 ## `horizon::protocol::SuccessResult(horizon::protocol::ParserResultDirection, const std::vector<uint64_t> &)`
 
-생성자
+생성자입니다.
 
 ### <a name="parameters"></a>매개 변수
 
-- 패킷 방향 (식별 된 경우 요청, 응답 가능)
+- 패킷 방향 (확인 된 경우)은 *요청*, *응답* 일 수 있습니다.
 - 경고. 이러한 이벤트는 실패 하지 않지만, 마감일에는 알림이 표시 됩니다.
 
 ## `horizon::protocol::SuccessResult(const std::vector<uint64_t> &)`
 
-생성자
+생성자입니다.
 
 ### <a name="parameters"></a>매개 변수 
 
@@ -139,7 +141,7 @@ Main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 ### <a name="parameters"></a>매개 변수 
 
-- 변환할 문자열
+- 변환할 문자열입니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -155,7 +157,7 @@ Main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 ## `horizon::protocol::management::IFieldManagement &horizon::protocol::management::IProcessingUtils::getFieldsManager()`
 
-ILayer에서 다른 개체에 대 한 필드를 만드는 역할을 하는 필드 관리 개체를 가져옵니다.
+ILayer의 경우와 같이 다른 개체에 대해 필드를 만드는 일을 담당 하는 필드 관리 개체를 가져옵니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -167,8 +169,8 @@ ILayer에서 다른 개체에 대 한 필드를 만드는 역할을 하는 필�
 
 ### <a name="parameters"></a>매개 변수 
 
-- 이전에 만든 계층
-- HORIZON_FIELD 매크로에 의해 생성 된 HorizonID
+- 이전에 만든 계층입니다.
+- **HORIZON_FIELD** 매크로에 의해 생성 된 HorizonID입니다.
 - 저장 하려는 원시 값입니다.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, std::string)`
@@ -177,8 +179,8 @@ ILayer에서 다른 개체에 대 한 필드를 만드는 역할을 하는 필�
 
 ### <a name="parameters"></a>매개 변수  
 
-- 이전에 만든 계층
-- HORIZON_FIELD 매크로에 의해 생성 된 HorizonID
+- 이전에 만든 계층입니다.
+- **HORIZON_FIELD** 매크로에 의해 생성 된 HorizonID입니다.
 - 저장 하려는 원시 값입니다.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, std::vector<char> &)`
@@ -187,8 +189,8 @@ ILayer에서 다른 개체에 대 한 필드를 만드는 역할을 하는 필�
 
 ### <a name="parameters"></a>매개 변수
 
-- 이전에 만든 계층
-- HORIZON_FIELD 매크로에 의해 생성 된 HorizonID
+- 이전에 만든 계층입니다.
+- **HORIZON_FIELD** 매크로에 의해 생성 된 HorizonID입니다.
 - 저장 하려는 원시 값입니다.
 
 ## `horizon::protocol::IFieldValueArray &horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, horizon::protocol::FieldValueType)`
@@ -197,8 +199,8 @@ ILayer에서 다른 개체에 대 한 필드를 만드는 역할을 하는 필�
 
 ### <a name="parameters"></a>매개 변수
 
-- 이전에 만든 계층
-- HORIZON_FIELD 매크로에 의해 생성 된 HorizonID
+- 이전에 만든 계층입니다.
+- **HORIZON_FIELD** 매크로에 의해 생성 된 HorizonID입니다.
 - 배열 내에 저장 될 값의 형식입니다.
 
 ### <a name="return-value"></a>반환 값
@@ -207,11 +209,11 @@ ILayer에서 다른 개체에 대 한 필드를 만드는 역할을 하는 필�
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, uint64_t)`
 
-이전에 만든 배열에 새 정수 값을 추가 합니다.
+앞에서 만든 배열에 새 정수 값을 추가 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-- 이전에 만든 배열
+- 앞에서 만든 배열입니다.
 - 배열에 저장할 원시 값입니다.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, std::string)`
@@ -220,7 +222,7 @@ ILayer에서 다른 개체에 대 한 필드를 만드는 역할을 하는 필�
 
 ### <a name="parameters"></a>매개 변수
 
-- 이전에 만든 배열
+- 앞에서 만든 배열입니다.
 - 배열에 저장할 원시 값입니다.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, std::vector<char> &)`
@@ -229,7 +231,7 @@ ILayer에서 다른 개체에 대 한 필드를 만드는 역할을 하는 필�
 
 ### <a name="parameters"></a>매개 변수
 
-- 이전에 만든 배열
+- 앞에서 만든 배열입니다.
 - 배열에 저장할 원시 값입니다.
 
 ## `bool horizon::general::IDataBuffer::validateRemainingSize(size_t)`
@@ -238,11 +240,11 @@ ILayer에서 다른 개체에 대 한 필드를 만드는 역할을 하는 필�
 
 ### <a name="parameters"></a>매개 변수
 
-바이트 수가 있어야 합니다. 
+존재 해야 하는 바이트 수입니다.
 
 ### <a name="return-value"></a>반환 값
 
-버퍼에 X 바이트가 이상 포함 되어 있으면 True입니다. 그렇지 않으면 false입니다.
+버퍼에 X 바이트가 이상 포함 되어 있으면 True입니다. 그렇지 않으면 `False`입니다.
 
 ## `uint8_t horizon::general::IDataBuffer::readUInt8()`
 
@@ -282,7 +284,7 @@ ILayer에서 다른 개체에 대 한 필드를 만드는 역할을 하는 필�
 
 ### <a name="parameters"></a>매개 변수 
 
-- 데이터를 복사할 메모리 영역
+- 데이터를 복사할 대상 메모리 영역입니다.
 - 메모리 영역의 크기입니다 .이 매개 변수는 복사 될 바이트 수를 정의 하기도 합니다.
 
 ## `std::string_view horizon::general::IDataBuffer::readString(size_t)`

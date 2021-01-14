@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2c632de3d602fe2d3e5bfa74f78e90f48412067
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444064"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208916"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱 구성
 
@@ -148,9 +148,9 @@ UWP에서는 회사 네트워크를 사용할 수 있습니다. 다음 섹션에
 
 Android 및 iOS에서 broker를 사용 하도록 설정 합니다.
 
-- **Sso (Single sign-on)** : Azure Active Directory (Azure AD)에 등록 된 장치에 대해 sso를 사용할 수 있습니다. SSO를 사용 하는 경우 사용자는 각 응용 프로그램에 로그인 할 필요가 없습니다.
-- **장치 식별** :이 설정은 Azure AD 장치와 관련 된 조건부 액세스 정책을 사용 하도록 설정 합니다. 인증 프로세스는 장치가 작업 공간에 조인 될 때 생성 된 장치 인증서를 사용 합니다.
-- **응용 프로그램 id 확인** : 응용 프로그램에서 broker를 호출할 때 해당 리디렉션 URL을 전달 합니다. 그런 다음 broker에서 확인 합니다.
+- **Sso (Single sign-on)**: Azure Active Directory (Azure AD)에 등록 된 장치에 대해 sso를 사용할 수 있습니다. SSO를 사용 하는 경우 사용자는 각 응용 프로그램에 로그인 할 필요가 없습니다.
+- **장치 식별**:이 설정은 Azure AD 장치와 관련 된 조건부 액세스 정책을 사용 하도록 설정 합니다. 인증 프로세스는 장치가 작업 공간에 조인 될 때 생성 된 장치 인증서를 사용 합니다.
+- **응용 프로그램 id 확인**: 응용 프로그램에서 broker를 호출할 때 해당 리디렉션 URL을 전달 합니다. 그런 다음 broker에서 확인 합니다.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Xamarin에서 broker 사용
 
@@ -249,8 +249,8 @@ MSAL.NET는 Url을 사용 하 여 broker를 호출한 다음 broker 응답을 �
 
    여기에서 `BundleId` 장치를 고유 하 게 식별 합니다. 예를 들어 `BundleId` 가 인 경우 `yourcompany.xforms` URL 체계는 `msauth.com.yourcompany.xforms` 입니다.
 
-   > [!NOTE]
-   > 이 URL 체계는 broker의 응답을 받을 때 앱을 고유 하 게 식별 하는 리디렉션 URI의 일부가 됩니다.
+  
+      이 URL 체계는 broker의 응답을 받을 때 앱을 고유 하 게 식별 하는 리디렉션 URI의 일부가 됩니다.
 
    ```XML
     <key>CFBundleURLTypes</key>
@@ -310,10 +310,9 @@ IOS 및 macOS 용 MSAL이 broker를 호출할 때 broker는 메서드를 사용 
     }
 ```
 
-> [!NOTE]
-> `UISceneDelegate`IOS 13 이상에서을 사용한 경우 대신의에 MSAL 콜백을 추가 `scene:openURLContexts:` `UISceneDelegate` 합니다. MSAL은 `handleMSALResponse:sourceApplication:` 각 URL에 대해 한 번만 호출 해야 합니다.
->
-> 자세한 내용은 [Apple 설명서](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)를 참조 하세요.
+`UISceneDelegate`IOS 13 이상에서을 사용한 경우 대신의에 MSAL 콜백을 추가 `scene:openURLContexts:` `UISceneDelegate` 합니다. MSAL은 `handleMSALResponse:sourceApplication:` 각 URL에 대해 한 번만 호출 해야 합니다.
+
+자세한 내용은 [Apple 설명서](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)를 참조 하세요.
 
 #### <a name="step-2-register-a-url-scheme"></a>2 단계: URL 구성표 등록
 
@@ -329,8 +328,7 @@ IOS 및 macOS 용 MSAL은 Url을 사용 하 여 broker를 호출한 다음 broke
 
    여기에서 `BundleId` 장치를 고유 하 게 식별 합니다. 예를 들어 `BundleId` 가 인 경우 `yourcompany.xforms` URL 체계는 `msauth.com.yourcompany.xforms` 입니다.
 
-   > [!NOTE]
-   > 이 URL 체계는 broker의 응답을 받을 때 앱을 고유 하 게 식별 하는 리디렉션 URI의 일부가 됩니다. 형식의 리디렉션 URI `msauth.(BundleId)://auth` 가 [Azure Portal](https://portal.azure.com)의 응용 프로그램에 대해 등록 되어 있는지 확인 합니다.
+    이 URL 체계는 broker의 응답을 받을 때 앱을 고유 하 게 식별 하는 리디렉션 URI의 일부가 됩니다. 형식의 리디렉션 URI `msauth.(BundleId)://auth` 가 [Azure Portal](https://portal.azure.com)의 응용 프로그램에 대해 등록 되어 있는지 확인 합니다.
 
    ```XML
    <key>CFBundleURLTypes</key>

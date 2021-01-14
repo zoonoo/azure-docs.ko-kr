@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de16c947c59f5a0111b9325dbefe7daf1268fb40
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 006aaf7ca5066c552f9c0b797549d7e90ac9beb7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649163"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208695"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
 이 가이드에서는 Azure Active Directory (AD)에 대 한 LoB (기간 업무) 응용 프로그램 개발에 대 한 개요를 제공 합니다. 대상 사용자는 전역 관리자 Active Directory/Microsoft 365 합니다.
@@ -70,7 +70,7 @@ Azure AD Premium 또는 Enterprise Mobility Suite(EMS) 구독자인 경우 그�
 
 신뢰할 수 있는 애플리케이션의 경우 조직을 대신하여 애플리케이션에 동의하여 사용자 환경을 간소화할 수 있습니다.
 
-Azure에서 동의 및 동의 환경에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](../develop/quickstart-register-app.md)을 참조하세요.
+Azure의 사용자 동의 및 동의 환경에 대 한 자세한 내용은 [AZURE AD 응용 프로그램 승인 환경 이해](../develop/application-consent-experience.md)를 참조 하세요.
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure AD 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션에 대한 보안 원격 액세스 사용](application-proxy.md)

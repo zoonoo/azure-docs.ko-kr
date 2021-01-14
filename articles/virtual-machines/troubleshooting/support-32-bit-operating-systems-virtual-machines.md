@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 1b801bac28b131ff43c47024649bfe0986f768c7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 81b7efdd6bca0471719c11d130be95405f4d54e1
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202898"
+ms.locfileid: "98210191"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Azure 가상 머신에서 32비트 운영 체제 지원
 
 이제 Microsoft Azure를 사용 하 여 사용자가 32 비트 Windows 운영 체제를 Azure에 제공할 수 있습니다. 특수화 된 Vhd만 지원 되며 일반화 된 이미지는 Azure에서 작동 하지 않습니다. 이러한 운영 체제 중 일부는 이미 수명 지원 계약의 끝에 도달 했으므로 Microsoft는 추가 지원을 제공 하지 않을 수 있습니다. Microsoft Azure VM (가상 컴퓨터)에서 실행 되는 Linux 기반 또는 BSD (Berkeley Software 배포판) 기반 운영 체제에 대해서도 지원이 제공 되지 않습니다.
 
 > [!NOTE]
-> Azure 플랫폼에는 VM에서 1GB의 메모리만 사용할 수 있는 32 비트 운영 체제를 실행 하는 vm에 적용 되는 메모리 주소 공간 제한이 있으며, VM에 대 한 나머지 메모리는 게스트 VM 내에서 예약 된 것으로 표시 됩니다. 이것은 알려진 문제 이며 현재 수정에 대해 에타가 없습니다. 64 비트 OS 버전으로 전환 하는 것이 좋습니다.
+> Azure 플랫폼에는 VM에 1GB의 메모리만 사용할 수 있는 32 비트 운영 체제를 실행 하는 vm에 적용 되는 메모리 주소 공간 제한이 있습니다 (*특히 Win7 또는 Win10와 같은 클라이언트 sku*). vm에 대 한 나머지 메모리는 게스트 vm 내에서 예약 된 것으로 표시 됩니다. 이것은 알려진 문제 이며 현재 수정에 대해 에타가 없습니다. 64 비트 OS 버전으로 전환 하는 것이 좋습니다.
 > 
 
 ## <a name="more-information"></a>추가 정보

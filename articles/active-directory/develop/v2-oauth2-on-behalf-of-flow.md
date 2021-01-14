@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958663"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208851"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름
 
@@ -27,8 +27,8 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름은 애플리케이션이 서비스/웹 API를
 
 이 문서에서는 애플리케이션에서 프로토콜에 대해 직접 프로그래밍을 수행하는 방법을 설명합니다.  가능하면 [토큰을 획득하고 보안 Web API를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신, 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하는 것이 좋습니다.  [MSAL을 사용하는 샘플 앱](sample-v2-code.md)도 살펴봅니다.
 
-> [!NOTE]
-> 2018년 5월을 기준으로 일부 암시적 흐름 파생 `id_token`은 OBO 흐름에 사용할 수 없습니다. SPA(단일 페이지 앱)는 OBO 흐름을 수행하려면, 대신 중간 계층 기밀 클라이언트에 **액세스** 토큰을 전달해야 합니다. OBO 호출을 수행할 수 있는 클라이언트에 대한 자세한 내용은 [제한 사항](#client-limitations)을 참조하세요.
+
+2018년 5월을 기준으로 일부 암시적 흐름 파생 `id_token`은 OBO 흐름에 사용할 수 없습니다. SPA(단일 페이지 앱)는 OBO 흐름을 수행하려면, 대신 중간 계층 기밀 클라이언트에 **액세스** 토큰을 전달해야 합니다. OBO 호출을 수행할 수 있는 클라이언트에 대한 자세한 내용은 [제한 사항](#client-limitations)을 참조하세요.
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
 
@@ -42,10 +42,9 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름은 애플리케이션이 서비스/웹 API를
 1. API A는 Microsoft ID 플랫폼 토큰 발급 엔드포인트에 인증하고 API B에 액세스하기 위한 토큰을 요청합니다.
 1. Microsoft ID 플랫폼 토큰 발급 엔드포인트는 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B에 대한 액세스 토큰(토큰 B)을 API A에 발급합니다.
 1. API A에 의해 토큰 B가 API B에 대한 요청의 권한 부여 헤더에 설정됩니다.
-1. 보안 리소스의 데이터는 API B에 의해 API A로 반환되고, 여기에서 클라이언트로 반환됩니다.
+1. 보안 리소스의 데이터는 api B에서 API A로 반환 된 후 클라이언트에 반환 됩니다.
 
-> [!NOTE]
-> 이 시나리오에서는 중간 계층 서비스에서 다운스트림 API에 액세스하기 위해 사용자 동의를 얻기 위한 사용자 상호 작용이 없습니다. 따라서 다운스트림 API에 대한 액세스를 부여할 수 있는 옵션이 인증 과정에서 동의 단계 중 일부로 미리 제공됩니다. 앱에 대해 이를 설정하는 방법을 알아보려면 [중간 계층 애플리케이션에 대한 동의 얻기](#gaining-consent-for-the-middle-tier-application)를 참조하세요.
+이 시나리오에서는 중간 계층 서비스에서 사용자가 다운스트림 API에 액세스 하는 데 대 한 동의를 얻기 위한 사용자 조작이 없습니다. 따라서 다운스트림 API에 대한 액세스를 부여할 수 있는 옵션이 인증 과정에서 동의 단계 중 일부로 미리 제공됩니다. 앱에 대해 이를 설정하는 방법을 알아보려면 [중간 계층 애플리케이션에 대한 동의 얻기](#gaining-consent-for-the-middle-tier-application)를 참조하세요.
 
 ## <a name="middle-tier-access-token-request"></a>중간 계층 액세스 토큰 요청
 
@@ -152,10 +151,9 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 }
 ```
 
-> [!NOTE]
-> 위의 액세스 토큰은 Microsoft Graph에 대 한 v 1.0 형식 토큰입니다. 토큰 형식이 액세스 되는 **리소스** 를 기반으로 하 고 요청 하는 데 사용 되는 끝점과 관련이 없기 때문입니다. Microsoft Graph는 v1.0 토큰을 허용하도록 설정되어 있으므로 클라이언트가 Microsoft Graph에 대한 토큰을 요청할 때 Microsoft ID 플랫폼이 v1.0 액세스 토큰을 생성합니다. 다른 앱은 v2.0 형식 토큰, v 1.0 형식 토큰 또는 독점적 이거나 암호화 된 토큰 형식을 원합니다.  V1.0 및 v2.0 끝점 모두 토큰 형식을 내보낼 수 있습니다. 이렇게 하면 클라이언트가 토큰을 요청한 방법이 나 위치에 관계 없이 리소스에서 항상 올바른 토큰 형식을 가져올 수 있습니다. 
->
-> 애플리케이션에만 액세스 토큰이 표시되어야 합니다. 클라이언트는 이를 검사하지 **않아야 합니다**. 코드의 다른 앱에 대 한 액세스 토큰을 검사 하면 앱에서 토큰의 형식을 변경 하거나 해당 앱의 암호화를 시작할 때 앱이 예기치 않게 중단 됩니다. 
+위의 액세스 토큰은 Microsoft Graph에 대 한 v 1.0 형식 토큰입니다. 토큰 형식이 액세스 되는 **리소스** 를 기반으로 하 고 요청 하는 데 사용 되는 끝점과 관련이 없기 때문입니다. Microsoft Graph는 v1.0 토큰을 허용하도록 설정되어 있으므로 클라이언트가 Microsoft Graph에 대한 토큰을 요청할 때 Microsoft ID 플랫폼이 v1.0 액세스 토큰을 생성합니다. 다른 앱은 v2.0 형식 토큰, v 1.0 형식 토큰 또는 독점적 이거나 암호화 된 토큰 형식을 원합니다.  V1.0 및 v2.0 끝점 모두 토큰 형식을 내보낼 수 있습니다. 이렇게 하면 클라이언트가 토큰을 요청한 방법이 나 위치에 관계 없이 리소스에서 항상 올바른 토큰 형식을 가져올 수 있습니다. 
+
+애플리케이션에만 액세스 토큰이 표시되어야 합니다. 클라이언트는 이를 검사하지 **않아야 합니다**. 코드의 다른 앱에 대 한 액세스 토큰을 검사 하면 앱에서 토큰의 형식을 변경 하거나 해당 앱의 암호화를 시작할 때 앱이 예기치 않게 중단 됩니다. 
 
 ### <a name="error-response-example"></a>오류 응답 예제
 
@@ -189,8 +187,7 @@ Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 
 일부 OAuth 기반 웹 서비스는 비대화형 흐름에서 SAML 어설션을 수락하는 다른 웹 서비스 API에 액세스해야 합니다. Azure Active Directory는 SAML 기반 웹 서비스를 사용하는 On-Behalf-Of 흐름에 대응하여 SAML 어설션을 대상 리소스로 제공할 수 있습니다.
 
->[!NOTE]
->이 어설션은 OAuth2 기반 애플리케이션이 SAML 토큰을 사용하는 웹 서비스 API 엔드포인트에 액세스할 수 있는 OAuth 2.0 On-Behalf-Of 흐름에 대한 비표준 확장입니다.
+이 어설션은 OAuth2 기반 애플리케이션이 SAML 토큰을 사용하는 웹 서비스 API 엔드포인트에 액세스할 수 있는 OAuth 2.0 On-Behalf-Of 흐름에 대한 비표준 확장입니다.
 
 > [!TIP]
 > 프런트 엔드 웹 애플리케이션에서 SAML로 보호되는 웹 서비스를 호출하는 경우 간단히 API를 호출하고 사용자 기존 세션을 사용하여 일반적인 대화형 인증 흐름을 시작할 수 있습니다. 서비스 간 호출이 사용자 컨텍스트를 제공하기 위해 SAML 토큰을 요구할 경우에만 OBO 흐름을 사용해야 합니다.

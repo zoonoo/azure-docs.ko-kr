@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: ba7081c877f3c3adae6e678280592c9445a95d1b
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 990c396c859477c83e0ef421659a299920ee0c35
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858810"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209137"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Linux 가상 머신에 Azure 하이브리드 혜택 적용 되는 방법
 
@@ -47,6 +47,9 @@ RHEL에 대 한 Azure 하이브리드 혜택는 다음 조건을 모두 충족 �
 
 - Azure에서 사용할 수 있는 활성 또는 사용 하지 않는 RHEL 구독 보유
 - [Red Hat 클라우드 액세스](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 프로그램을 사용 하 여 Azure에서 사용 하기 위해 이러한 구독을 하나 이상 사용 하도록 설정 했습니다.
+
+> [!IMPORTANT]
+> [클라우드 액세스](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 프로그램에서 올바른 구독을 사용 하도록 설정 했는지 확인 합니다.
 
 Red Hat의 혜택 사용을 시작 하려면 다음을 수행 합니다.
 

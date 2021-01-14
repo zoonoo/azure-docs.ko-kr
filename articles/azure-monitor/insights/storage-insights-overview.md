@@ -3,15 +3,15 @@ title: Storage용 Azure Monitor를 사용하여 Azure Storage 서비스 모니�
 description: 이 문서에서는 스토리지 관리자가 Azure Storage 계정의 성능 및 사용 문제를 신속하게 이해하도록 도와주는 Storage용 Azure Monitor 기능에 대해 설명합니다.
 ms.subservice: ''
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 2538bc91be59ff12b39ee3f5f629e4c016480a97
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 47799898251923b327954c764dcccb8157ba5119
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296338"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208644"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Storage용 Azure Monitor를 사용하여 스토리지 서비스 모니터링
 

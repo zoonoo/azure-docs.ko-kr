@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: d3edadd4878dbd6e06648f7fb67a0c3e111665d1
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: da432ee3877af4de931ee6d55860b647090d8e3d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178129"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208780"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -31,8 +31,7 @@ Microsoft ID 플랫폼은 [OAuth 2.0](active-directory-v2-protocols.md) 권한 �
 * Microsoft 365 메일 API: `https://outlook.office.com`
 * Azure Key Vault: `https://vault.azure.net`
 
-> [!NOTE]
-> Microsoft 365 메일 API 등을 사용 하는 대신 Microsoft Graph를 사용 하는 것이 좋습니다.
+Microsoft 365 메일 API 등을 사용 하는 대신 Microsoft Graph를 사용 하는 것이 좋습니다.
 
 Microsoft ID 플랫폼과 통합된 타사 리소스의 경우도 마찬가지입니다. 이러한 리소스는 해당 리소스의 기능을 더 작은 청크로 나누는 데 사용할 수 있는 사용 권한 집합을 정의할 수도 있습니다. 예를 들어 [Microsoft Graph](https://graph.microsoft.com)는 특히 다음 작업을 수행할 수 있는 사용 권한을 정의했습니다.
 
@@ -115,8 +114,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 사용자가 자격 증명을 입력 하면 Microsoft id 플랫폼 끝점이 *사용자 동의* 와 일치 하는 레코드를 확인 합니다. 사용자가 이전에 요청 된 사용 권한으로 동의한 전체 조직을 대신 하 여 관리자에 게 이러한 사용 권한을 부여 하지 않은 경우 Microsoft identity platform 끝점은 사용자에 게 요청 된 사용 권한을 부여 하 라는 메시지를 표시 합니다.
 
-> [!NOTE]
->이제, `offline_access`("액세스 권한을 부여한 데이터에 대한 액세스 권한 유지") 및 `user.read`("로그인 및 프로필 읽기") 권한이 애플리케이션에 대한 초기 동의에 자동으로 포함됩니다.  이러한 권한은 일반적으로 적절한 앱 기능에 필요합니다. `offline_access`는 기본 및 웹앱에 중요한 새로 고침 토큰에 대한 앱 액세스 권한을 제공하지만, `user.read`는 `sub` 클레임에 대한 액세스 권한을 제공하여 클라이언트나 앱이 시간이 지나도 사용자를 올바르고 식별하고 기본적인 사용자 정보에 액세스할 수 있도록 합니다.
+이제, `offline_access`("액세스 권한을 부여한 데이터에 대한 액세스 권한 유지") 및 `user.read`("로그인 및 프로필 읽기") 권한이 애플리케이션에 대한 초기 동의에 자동으로 포함됩니다.  이러한 권한은 일반적으로 적절한 앱 기능에 필요합니다. `offline_access`는 기본 및 웹앱에 중요한 새로 고침 토큰에 대한 앱 액세스 권한을 제공하지만, `user.read`는 `sub` 클레임에 대한 액세스 권한을 제공하여 클라이언트나 앱이 시간이 지나도 사용자를 올바르고 식별하고 기본적인 사용자 정보에 액세스할 수 있도록 합니다.
 
 ![회사 계정 동의를 보여 주는 예제 스크린샷](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -148,8 +146,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 
 ## <a name="using-the-admin-consent-endpoint"></a>관리 동의 엔드포인트 사용
 
-> [!NOTE]
-> 관리자 동의 끝점을 사용 하 여 관리자 동의를 부여한 후 관리자 동의를 완료 했으며 사용자가 추가 작업을 추가로 수행할 필요가 없습니다. 관리자 동의를 부여한 후 사용자는 일반적인 인증 흐름을 통해 액세스 토큰을 가져올 수 있으며, 그 결과 액세스 토큰에는 동의한 사용 권한이 포함 됩니다.
+관리자 동의 끝점을 사용 하 여 관리자 동의를 부여한 후에는 관리자 동의를 부여 하는 작업이 완료 되 고 사용자가 추가 작업을 추가로 수행할 필요가 없습니다. 관리자 동의를 부여한 후 사용자는 일반적인 인증 흐름을 통해 액세스 토큰을 가져올 수 있으며, 그 결과 액세스 토큰에는 동의한 사용 권한이 포함 됩니다.
 
 회사 관리자가 애플리케이션을 사용하고 권한 부여 엔드포인트로 이동되면 Microsoft ID 플랫폼은 사용자의 역할을 검색하고 사용자가 요청한 사용 권한의 전체 테넌트를 대신하여 동의할 것인지 물어봅니다. 그러나 관리자가 전체 테넌트를 대신하여 권한을 부여하도록 사전에 요청하려는 경우에 사용할 수 있는 전용 관리자 동의 엔드포인트도 있습니다. 이 끝점을 사용 하는 것도 응용 프로그램 권한을 요청 하는 데 필요 합니다 (권한 부여 끝점을 사용 하 여 요청할 수 없음).
 
@@ -194,7 +191,7 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| 매개 변수        | 조건        | Description                                                                                |
+| 매개 변수        | 조건        | 설명                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 는 GUID 또는 친숙 한 이름 형식으로 제공 하거나 예에 표시 된 대로 조직에서 일반적으로 참조할 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
@@ -213,7 +210,7 @@ https://graph.microsoft.com/mail.send
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `tenant` | 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다. |
 | `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
@@ -263,8 +260,7 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 가져오는 방법에 대 한 �
 
 /.Default 범위는 모든 OAuth 2.0 흐름에서 사용할 수 있지만, v2 관리자 동의 끝점을 사용 하 여 응용 프로그램 사용 권한을 요청 하는 경우에는 물론 [흐름](v2-oauth2-on-behalf-of-flow.md) 및 [클라이언트 자격 증명 흐름](v2-oauth2-client-creds-grant-flow.md)에서 필요 합니다.
 
-> [!NOTE]
-> 클라이언트 `/.default` 는 단일 요청에서 정적 () 및 동적 동의를 결합할 수 없습니다. 따라서 `scope=https://graph.microsoft.com/.default+mail.read`에서는 이러한 범위 형식의 조합으로 인해 오류가 발생합니다.
+클라이언트 `/.default` 는 단일 요청에서 정적 () 및 동적 동의를 결합할 수 없습니다. 따라서 `scope=https://graph.microsoft.com/.default+mail.read`에서는 이러한 범위 형식의 조합으로 인해 오류가 발생합니다.
 
 ### <a name="default-and-consent"></a>/.default 및 동의
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5e33a7adc7b529df8c7c821cbfdcb0ad5709803b
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2bd994f14863715274e137bce2dd6873eeec1135
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839966"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208763"
 ---
 # <a name="defender-for-iot-installation"></a>IoT 설치용 Defender
 
@@ -230,9 +230,9 @@ Dell BIOS를 구성 하려면:
 
 4. 어플라이언스의 자격 증명은 다음과 같습니다.
 
-   - 사용자 이름: **cyberx**
+   - 사용자 이름: **XXX**
 
-   - 암호: **xhxvhttju, @4338**
+   - 암호: **XXX**
 
      서버 프로필 가져오기 작업이 시작 되었습니다.
 
@@ -245,7 +245,7 @@ Dell BIOS를 구성 하려면:
 
    :::image type="content" source="media/tutorial-install-components/configuration-screen.png" alt-text="서버 프로필의 구성을 보여 주는 스크린샷":::
 
-   | 매개 변수 | Configuration |
+   | 매개 변수 | 구성 |
    |--|--|
    | 위치 유형 | **로컬** 을 선택 합니다. |
    | 파일 경로 | **파일 선택** 을 선택 하 고 구성 XML 파일을 추가 합니다. |
@@ -274,7 +274,7 @@ BIOS에 액세스 한 후 **장치 설정** 으로 이동 합니다.
 
    - 기기가 IoT 어플라이언스 용 Defender가 아닌 경우 브라우저를 열고 이전에 구성한 IP 주소로 이동 합니다. Dell 기본 관리자 권한으로 로그인 합니다. Username 및 **calvin** 에 대 한 **root** 를 사용 하 여 암호를 입력 합니다.
 
-   - 기기가 IoT 어플라이언스 용 Defender 인 경우 사용자 이름 및 **@4338 xhxvhttju** 에 대해 **cyberx** 를 사용 하 여 암호에 로그인 합니다.
+   - 기기가 IoT 어플라이언스 용 Defender 인 경우에는 **xxx** 를 사용 하 여 로그인 하 고 암호에 **xxx** 를 사용 하 여 로그인 합니다.
 
 2. BIOS에 액세스 한 후 **장치 설정** 으로 이동 합니다.
 
@@ -338,7 +338,7 @@ BIOS에 액세스 한 후 **장치 설정** 으로 이동 합니다.
 
    :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="어플라이언스 프로필을 보여 주는 스크린샷":::   
 
-   | 매개 변수 | Configuration |
+   | 매개 변수 | 구성 |
    |--|--|
    | **하드웨어 프로필** | **사내** |
    | **관리 인터페이스** | **eno1** |
@@ -478,7 +478,7 @@ HPE BIOS를 구성 하려면:
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="설치 마법사를 보여 주는 스크린샷":::
 
-    | 매개 변수 | Configuration |
+    | 매개 변수 | 구성 |
     | ----------| ------------- |
     | **하드웨어 프로필** | SMB 배포용 **Enterprise** 또는 **Office** 를 선택 합니다. |
     | **관리 인터페이스** | **eno2** |
@@ -562,7 +562,7 @@ HPE 프로라이언트 DL20 설치에 대 한 이전 섹션을 참조 하세요.
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="설치 마법사를 보여 주는 스크린샷":::
 
-    | 매개 변수 | Configuration |
+    | 매개 변수 | 구성 |
     | ----------| ------------- |
     | **하드웨어 프로필** | **회사** 를 선택 합니다. |
     | **관리 인터페이스** | **eno2** |
@@ -580,13 +580,13 @@ HPE 프로라이언트 DL20 설치에 대 한 이전 섹션을 참조 하세요.
 다음 아키텍처에서 IoT 용 Defender 센서에 대 한 가상 머신을 배포할 수 있습니다.
 
 
-| Architecture | 사양 | 사용 | 주석 |
+| 아키텍처 | 사양 | 사용량 | 의견 |
 |---|---|---|---|
 | **엔터프라이즈** | CPU: 8<br/>메모리: 32G RAM<br/>HDD: 1800 G B | 프로덕션 환경 | 기본 및 가장 일반적인 |
 | **중소기업** | CPU: 4 <br/>메모리: 8G RAM<br/>HDD: 500 G B | 테스트 또는 소규모 프로덕션 환경 | -  |
 | **Office** | CPU: 4<br/>메모리: 8G RAM<br/>HDD: 100 G B | 소규모 테스트 환경 | -  |
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 온-프레미스 관리 콘솔은 VMware 및 Hyper-v 배포 옵션을 모두 지원 합니다. 설치를 시작 하기 전에 다음 항목이 있는지 확인 합니다.
 
@@ -686,7 +686,7 @@ HPE 프로라이언트 DL20 설치에 대 한 이전 섹션을 참조 하세요.
 
 4. 어플라이언스 프로필 및 네트워크 속성을 정의 합니다.
 
-    | 매개 변수 | Configuration |
+    | 매개 변수 | 구성 |
     | ----------| ------------- |
     | **하드웨어 프로필** | &lt;필수 아키텍처&gt; |
     | **관리 인터페이스** | **ens192** |
@@ -711,13 +711,13 @@ HPE 프로라이언트 DL20 설치에 대 한 이전 섹션을 참조 하세요.
 
 온-프레미스 관리 콘솔 VM은 다음 아키텍처를 지원 합니다.
 
-| Architecture | 사양 | 사용 | 
+| 아키텍처 | 사양 | 사용량 | 
 |--|--|--|
 | Enterprise <br/>(기본 및 가장 일반적) | CPU: 8 <br/>메모리: 32G RAM<br/> HDD: 1.8 TB | 대량 프로덕션 환경 | 
 | Enterprise | CPU: 4 <br/> 메모리: 8G RAM<br/> HDD: 500 G B | 대량 프로덕션 환경 |
 | Enterprise | CPU: 4 <br/>메모리: 8G RAM <br/> HDD: 100 G B | 소규모 테스트 환경 | 
    
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 온-프레미스 관리 콘솔은 VMware 및 Hyper-v 배포 옵션을 모두 지원 합니다. 설치를 시작 하기 전에 다음을 확인 합니다.
 
@@ -881,7 +881,7 @@ GUI 또는 CLI를 사용 하 여 유효성 검사를 수행 합니다. 사용자
 
 - **가장 긴 키**: 광범위 한 메모리 사용을 유발할 수 있는 가장 긴 키를 표시 합니다.
 
-#### <a name="system"></a>시스템
+#### <a name="system"></a>System
 
 - **핵심 로그**: 전체 시스템 로그를 내보내지 않고 최근 로그 행을 볼 수 있도록 핵심 로그의 마지막 500 행을 제공 합니다.
 

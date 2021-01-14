@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/19/2020
-ms.openlocfilehash: 56c3475ae6a03600723e7a12b3f3809f003ce7c4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 1/13/2021
+ms.openlocfilehash: 4b5020b6cf7ac2f7aec586d7e6499285c1447b68
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922264"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209766"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -87,7 +87,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 Hyperscale 데이터베이스에는 다음과 같은 다양 한 유형의 구성 요소가 포함 됩니다.
 
-### <a name="compute"></a>컴퓨팅
+### <a name="compute"></a>Compute
 
 계산 노드는 관계형 엔진의 위치입니다. 여기에는 언어, 쿼리 및 트랜잭션 처리가 발생 합니다. 하이퍼스케일 데이터베이스와의 모든 사용자 상호 작용은 이러한 컴퓨팅 노드를 통해 발생합니다. 컴퓨팅 노드에는 데이터 페이지를 가져오는 데 필요한 네트워크 왕복 횟수를 최소화하기 위해 SSD 기반 캐시[이전 다이어그램에 나오는 RBPEX(Resilient Buffer Pool Extension)]가 있습니다. 모든 읽기/쓰기 워크로드 및 트랜잭션이 처리되는 기본 컴퓨팅 노드가 1개 있습니다. 장애 조치(Failover)를 위해 핫 대기 노드의 역할을 할 뿐만 아니라 읽기 워크로드를 오프로드하기 위한 읽기 전용 컴퓨팅 노드(이 기능이 필요한 경우)의 역할을 하는 하나 이상의 보조 컴퓨팅 노드도 있습니다.
 
@@ -168,16 +168,15 @@ Azure SQL Database의 Hyperscale 데이터베이스를 현재 호스트 되는 �
 2. 자동 백업에서 Azure SQL Database의 데이터베이스 복원에 대 한 페이지의 [지역 복원](./recovery-using-backups.md#geo-restore) 항목의 지침을 따르세요.
 
 > [!NOTE]
-> 원본 및 대상이 별도의 지역에 있기 때문에 데이터베이스는 원본 데이터베이스와 함께 스냅숏 저장소를 원본 데이터베이스와 공유할 수 없습니다 .이는 비-지역 복원에서 매우 신속 하 게 완료 됩니다. 하이퍼 규모의 데이터베이스에 대 한 지역 복원의 경우 대상이 지역에서 복제 된 저장소의 쌍을 이루는 지역에 있는 경우에도 데이터 크기 조정 작업이 수행 됩니다.  즉, 지역 복원 작업을 수행 하는 경우 복원 되는 데이터베이스의 크기에 비례하여 시간이 소요 됩니다.  대상이 쌍을 이루는 지역에 있는 경우 복사본은 지역 내에 있으며,이는 지역 간 복사 보다 훨씬 빠르지만 여전히 데이터의 크기를 조정 하는 작업입니다.
+> 원본 및 대상이 별도의 지역에 있기 때문에 데이터베이스는 데이터베이스 크기에 관계 없이 빠르게 완료 되는 비-지역 복원의 원본 데이터베이스와 스냅숏 저장소를 공유할 수 없습니다. 하이퍼 규모의 데이터베이스에 대 한 지역 복원의 경우 대상이 지역에서 복제 된 저장소의 쌍을 이루는 지역에 있는 경우에도 데이터 크기 조정 작업이 수행 됩니다. 따라서 지역 복원은 복원 되는 데이터베이스의 크기에 비례하여 시간이 소요 됩니다. 대상이 쌍을 이루는 지역에 있는 경우 데이터 전송은 지역 내에 있습니다 .이는 지역 간 데이터 전송 보다 훨씬 빠르지만 데이터의 크기는 여전히 작업입니다.
 
 ## <a name="available-regions"></a><a name=regions></a>사용 가능한 지역
 
-Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지만 아래에 나열 된 다음 지역에서 기본적으로 사용 하도록 설정 됩니다.
-지원 되는 것으로 표시 되지 않은 지역에 하이퍼 확장 데이터베이스를 만들려는 경우 Azure Portal를 통해 온 보 딩 요청을 보낼 수 있습니다. 지침에 대 한 자세한 내용은 [Azure SQL Database에 대 한 요청 할당량 늘리기](quota-increase-request.md) 를 참조 하세요. 요청을 제출 하는 경우 다음 지침을 따르십시오.
+Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지만 아래에 나열 된 다음 지역에서 기본적으로 사용 하도록 설정 되어 있습니다. Hyperscale이 기본적으로 사용 되지 않는 지역에서 하이퍼 확장 데이터베이스를 만들려는 경우 Azure Portal를 통해 온 보 딩 요청을 보낼 수 있습니다. 지침에 대 한 자세한 내용은 [Azure SQL Database에 대 한 요청 할당량 늘리기](quota-increase-request.md) 를 참조 하세요. 요청을 제출 하는 경우 다음 지침을 따르십시오.
 
 - [지역 액세스](quota-increase-request.md#region) SQL Database 할당량 유형을 사용 합니다.
-- 텍스트 세부 정보에서 읽기 가능한 복제본을 포함 하 여 계산 SKU/총 코어를 추가 합니다.
-- 또한 예상 TB를 지정 합니다.
+- 설명에서 읽기 가능한 복제본을 포함 하 여 계산 SKU/총 코어를 추가 하 고, 하이퍼 확장 용량을 요청 하 고 있음을 표시 합니다.
+- 또한 시간에 따라 모든 데이터베이스의 전체 크기에 대 한 프로젝션을 TB 단위로 지정 합니다.
 
 사용 하도록 설정 된 영역:
 - 오스트레일리아 동부
@@ -220,15 +219,15 @@ Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지
 
 이는 GA를 기준으로 하는 Hyperscale 서비스 계층에 대 한 현재 제한 사항입니다.  가능한 한 많은 제한 사항을 제거 하기 위해 적극적으로 노력 하 고 있습니다.
 
-| 문제 | Description |
+| 문제 | 설명 |
 | :---- | :--------- |
 | 서버에 대 한 백업 관리 창에는 Hyperscale 데이터베이스가 표시 되지 않습니다. 이러한 필터는 뷰에서 필터링 됩니다.  | Hyperscale에는 백업을 관리 하는 별도의 방법이 있으므로 Long-Term 보존 및 지정 시간 백업 보존 설정이 적용 되지 않습니다. 따라서 Hyperscale 데이터베이스는 백업 관리 창에 표시 되지 않습니다.<br><br>다른 Azure SQL Database 서비스 계층에서 Hyperscale으로 마이그레이션된 데이터베이스의 경우 마이그레이션 전 백업은 원본 데이터베이스의 [백업 보존](automated-backups-overview.md#backup-retention) 기간 동안 유지 됩니다. 이러한 백업은 마이그레이션 전 시점으로 원본 데이터베이스를 [복원](recovery-using-backups.md#programmatic-recovery-using-automated-backups) 하는 데 사용할 수 있습니다.|
-| 지정 시간 복원 | Hyperscale이 아닌 데이터베이스를 하이퍼 규모의 데이터베이스로 복원할 수 없으며 Hyperscale 데이터베이스를 비 Hyperscale 데이터베이스로 복원할 수 없습니다. 서비스 계층을 변경 하 여 Hyperscale으로 마이그레이션된 비 Hyperscale 데이터베이스의 경우 마이그레이션 전 지정 시간으로 복원 하 고 데이터베이스의 백업 보존 기간 내에서 [프로그래밍 방식으로](recovery-using-backups.md#programmatic-recovery-using-automated-backups)데이터베이스를 실행 합니다. 복원 된 데이터베이스는 Hyperscale이 아닙니다. |
-| 데이터베이스에 1TB 보다 큰 데이터 파일이 하나 이상 있으면 마이그레이션이 실패 합니다. | 경우에 따라이 문제를 해결 하려면 많은 파일을 1TB 미만으로 축소 해야 할 수 있습니다. 마이그레이션 프로세스 중에 사용 되는 데이터베이스를 마이그레이션하는 경우 1tb 보다 큰 파일이 없는지 확인 합니다. 다음 쿼리를 사용 하 여 데이터베이스 파일의 크기를 확인 합니다. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
+| 지정 시간 복원 | Hyperscale이 아닌 데이터베이스를 하이퍼 규모의 데이터베이스로 복원할 수 없으며 Hyperscale 데이터베이스를 비 Hyperscale 데이터베이스로 복원할 수 없습니다. 서비스 계층을 변경 하 여 Hyperscale으로 마이그레이션된 비 Hyperscale 데이터베이스의 경우 마이그레이션 전 지정 시간으로 복원 하 고 데이터베이스의 백업 보존 기간 내에 [프로그래밍 방식으로](recovery-using-backups.md#programmatic-recovery-using-automated-backups)지원 합니다. 복원 된 데이터베이스는 Hyperscale이 아닙니다. |
+| Azure SQL Database 서비스 계층을 Hyperscale으로 변경 하는 경우 데이터베이스에 1tb 보다 큰 데이터 파일이 있으면 작업이 실패 합니다. | 경우에 따라 서비스 계층을 Hyperscale으로 변경 하려고 시도 하기 전에 대용량 파일을 1TB 미만으로 [축소](file-space-manage.md#shrinking-data-files) 하 여이 문제를 해결할 수 있습니다. 다음 쿼리를 사용 하 여 데이터베이스 파일의 현재 크기를 확인 합니다. `SELECT file_id, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | SQL Managed Instance | Azure SQL Managed Instance는 현재 Hyperscale 데이터베이스에서 지원 되지 않습니다. |
 | 탄력적 풀 |  탄력적 풀은 현재 Hyperscale에서 지원 되지 않습니다.|
-| 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스를 Hyperscale으로 마이그레이션한 후에는 비-Hyperscale 서비스 계층으로 직접 마이그레이션할 수 없습니다. 현재는 데이터베이스를 Hyperscale에서 비-Hyperscale 마이그레이션하는 유일한 방법은 bacpac 파일이 나 기타 데이터 이동 기술 (대량 복사, Azure Data Factory, Azure Databricks, SSIS 등)을 사용 하 여 내보내거나 가져오는 것입니다. [AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) 또는 [AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport)를 사용 하 여 PowerShell에서, Azure CLI에서 [az sql db export](/cli/azure/sql/db#az-sql-db-export) 및 [az sql db import](/cli/azure/sql/db#az-sql-db-import)를 사용 하 여 Azure Portal에서 Bacpac 내보내기/가져오기 및 [REST API](/rest/api/sql/databases%20-%20import%20export) 지원 되지 않습니다. 더 작은 Hyperscale 데이터베이스 (최대 200 GB)의 Bacpac 가져오기/내보내기는 SSMS 및 [SqlPackage](/sql/tools/sqlpackage) 버전 18.4 이상을 사용 하 여 지원 됩니다. 대형 데이터베이스의 경우에는 bacpac 내보내기/가져오기 시간이 오래 걸릴 수 있으며 여러 가지 이유로 실패할 수 있습니다.|
-| In-Memory OLTP 개체가 포함 된 데이터베이스 마이그레이션 | Hyperscale은 메모리 최적화 테이블 형식, 테이블 변수 및 고유 하 게 컴파일된 모듈을 포함 하 여 In-Memory OLTP 개체의 하위 집합을 지원 합니다. 그러나 마이그레이션되는 데이터베이스에 In-Memory OLTP 개체의 모든 종류가 있는 경우 Premium 및 중요 비즈니스용 서비스 계층에서 Hyperscale으로의 마이그레이션은 지원 되지 않습니다. 이러한 데이터베이스를 Hyperscale으로 마이그레이션하려면 모든 In-Memory OLTP 개체와 해당 종속성을 삭제 해야 합니다. 데이터베이스를 마이그레이션한 후에는 이러한 개체를 다시 만들 수 있습니다. 내구성 있고 내구성이 없는 메모리 최적화 테이블은 현재 Hyperscale에서 지원 되지 않으므로 디스크 테이블로 다시 만들어야 합니다.|
+| 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스를 Hyperscale으로 마이그레이션한 후에는 비-Hyperscale 서비스 계층으로 직접 마이그레이션할 수 없습니다. 현재는 데이터베이스를 Hyperscale에서 비-Hyperscale 마이그레이션하는 유일한 방법은 bacpac 파일이 나 기타 데이터 이동 기술 (대량 복사, Azure Data Factory, Azure Databricks, SSIS 등)을 사용 하 여 내보내거나 가져오는 것입니다. Azure CLI에서 [AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) 또는 [AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport)를 사용 하 여 PowerShell에서의 Bacpac 내보내기/Azure Portal 가져오기는 [az sql db export](/cli/azure/sql/db#az-sql-db-export) 및 [az sql db import](/cli/azure/sql/db#az-sql-db-import) [REST API](/rest/api/sql/databases%20-%20import%20export) 를 사용 하 여에서 지원 되지 않습니다. 더 작은 Hyperscale 데이터베이스 (최대 200 GB)의 Bacpac 가져오기/내보내기는 SSMS 및 [SqlPackage](/sql/tools/sqlpackage) 버전 18.4 이상을 사용 하 여 지원 됩니다. 대형 데이터베이스의 경우에는 bacpac 내보내기/가져오기 시간이 오래 걸릴 수 있으며 여러 가지 이유로 실패할 수 있습니다.|
+| In-Memory OLTP 개체가 포함 된 데이터베이스 마이그레이션 | Hyperscale은 메모리 최적화 테이블 형식, 테이블 변수 및 고유 하 게 컴파일된 모듈을 포함 하 여 In-Memory OLTP 개체의 하위 집합을 지원 합니다. 그러나 마이그레이션되는 데이터베이스에 In-Memory OLTP 개체의 모든 종류가 있는 경우 Premium 및 중요 비즈니스용 서비스 계층에서 Hyperscale으로의 마이그레이션은 지원 되지 않습니다. 이러한 데이터베이스를 Hyperscale으로 마이그레이션하려면 모든 In-Memory OLTP 개체와 해당 종속성을 삭제 해야 합니다. 데이터베이스를 마이그레이션한 후에는 이러한 개체를 다시 만들 수 있습니다. 내구성이 있는 메모리 최적화 테이블은 현재 Hyperscale에서 지원 되지 않으므로 디스크 테이블로 변경 해야 합니다.|
 | 지역 복제  | Azure SQL Database Hyperscale에 대해 지역에서 복제를 구성할 수 없습니다. |
 | 데이터베이스 복사 | Hyperscale의 데이터베이스 복사는 현재 공개 미리 보기로 제공 됩니다. |
 | Intelligent Database 기능 | "강제 계획" 옵션을 제외 하 고 다른 모든 자동 조정 옵션은 Hyperscale에서 아직 지원 되지 않습니다. 옵션은 사용 하도록 설정 된 것 처럼 보일 수 있지만 권장 사항이 나 작업은 적용 되지 않습니다. |

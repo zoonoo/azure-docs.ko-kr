@@ -4,15 +4,15 @@ description: 활성화 파일 관리, 백업 수행 및 독립 실행형 센서 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/22/2020
+ms.date: 01/10/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: daaca1d7c6cf43f69241e6a23f8bdfaf4015ba23
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: b61bef89d53da280961b818425d11a6f81bbf5ea
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976948"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210242"
 ---
 # <a name="manage-individual-sensors"></a>개별 센서 관리
 
@@ -397,7 +397,7 @@ CLI를 사용 하 여 센서 콘솔에서 백업을 복원할 수 있습니다.
 
 다음 절차에서는 센서 콘솔을 사용 하 여 독립 실행형 센서를 업데이트 하는 방법을 설명 합니다. 업데이트 프로세스는 30 분 정도 걸립니다.
 
-1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
 2. IoT 용 Defender로 이동 합니다.
 
@@ -455,7 +455,7 @@ CLI를 사용 하 여 센서 콘솔에서 백업을 복원할 수 있습니다.
 
 3. **일반** 섹션에서 **시스템 속성** 을 선택 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 [위협 인텔리전스 연구 및 패키지](how-to-work-with-threat-intelligence-packages.md)
 

@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 12/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f1623ef4dde59e816e3afe5a5f5894c49469580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0190e295c2ab206242ab8a44a09ffb42746d75bd
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767858"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209556"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box 시스템 요구 사항
 
-이 문서에서는 Microsoft Azure Data Box 및 Data Box에 연결 하는 클라이언트에 대 한 중요 한 시스템 요구 사항을 설명 합니다. Data Box를 배포 하기 전에 정보를 신중 하 게 검토 하 고 배포 및 작업 중에 필요에 따라이 정보를 참조 하는 것이 좋습니다.
+이 문서에서는 Microsoft Azure Data Box 및 Data Box에 연결 하는 클라이언트에 대 한 중요 한 시스템 요구 사항을 설명 합니다. Data Box를 배포 하기 전에 정보를 신중 하 게 검토 하 고 배포 및 작업 중에 필요할 때이 정보를 참조 하는 것이 좋습니다.
 
 시스템 요구 사항에는 다음 내용이 포함됩니다.
 
-* **소프트웨어 요구 사항:** Data Box에 연결 하는 호스트의 경우는 지원 되는 운영 체제, 파일 전송 프로토콜, 저장소 계정, 저장소 형식 및 로컬 웹 UI에 대 한 브라우저를 설명 합니다.
-* **네트워킹 요구 사항:** Data Box의 경우 Data Box의 최적 작업을 위한 네트워크 연결 및 포트 요구 사항을 설명 합니다.
+* **소프트웨어 요구 사항:** Data Box에 연결 하는 호스트의 경우에는에서 지원 되는 운영 체제, 파일 전송 프로토콜, 저장소 계정, 저장소 유형 및 로컬 웹 UI에 대 한 브라우저를 설명 합니다.
+* **네트워킹 요구 사항:** Data Box의 경우 네트워크 연결 및 Data Box 포트에 대 한 요구 사항을 설명 합니다.
 
 
 ## <a name="software-requirements"></a>소프트웨어 요구 사항
@@ -55,11 +55,11 @@ ms.locfileid: "91767858"
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 
-데이터 센터에는 고속 네트워크가 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10gbe 연결을 사용할 수 없는 경우 데이터를 복사 하는 데 1-GbE 데이터 링크를 사용할 수 있지만 복사 속도가 영향을 받습니다.
+데이터 센터에는 고속 네트워크가 있어야 합니다. 1 10-GbE 이상의 연결을 제공 하는 것이 좋습니다. 10gbe 연결을 사용할 수 없는 경우에는 1gbe 데이터 링크를 사용 하 여 데이터를 복사할 수 있지만 복사 속도가 영향을 받습니다.
 
 ### <a name="port-requirements"></a>포트 요구 사항
 
-다음 표에는 SMB 또는 NFS 트래픽을 허용 하기 위해 방화벽에서 열어야 하는 포트가 나와 있습니다. 이 표에서 (*인바운드* *)는 들어오는* 클라이언트에서 장치에 대 한 액세스를 요청 하는 방향을 나타냅니다. *Out* (또는 *아웃 바운드*)은 배포 이외에 인터넷으로의 아웃 바운드와 같이 Data Box 장치가 외부에서 데이터를 전송 하는 방향을 나타냅니다.
+다음 표에는 SMB 또는 NFS 트래픽을 허용 하기 위해 방화벽에서 열어야 하는 포트가 나와 있습니다. 이 표에서 (*인바운드* *)는 들어오는* 클라이언트에서 장치에 대 한 액세스를 요청 하는 방향을 나타냅니다. *Out* (또는 *아웃 바운드*)은 배포 이외에 Data Box 장치가 외부로 데이터를 전송 하는 방향을 가리킵니다. 예를 들어 데이터는 인터넷으로 아웃 바운드 될 수 있습니다.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

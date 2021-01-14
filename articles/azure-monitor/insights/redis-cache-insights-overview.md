@@ -2,15 +2,15 @@
 title: Redis 용 Azure 캐시에 대 한 Azure Monitor | Microsoft Docs
 description: 이 문서에서는 캐시 소유자가 성능 및 사용 문제를 신속하게 이해하도록 도와주는 Azure Cache for Redis용 Azure Monitor에 대해 설명합니다.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: e7b8a8e131cf7e0aae051f42043abf0640c927e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35f575410caa7a8a8ffbda35bdfa876418db8945
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887016"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210378"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Redis 용 Azure Cache Azure Monitor 살펴보기
 
@@ -46,15 +46,15 @@ Redis 리소스에 대 한 모든 Azure Cache의 경우 Redis 용 Azure Cache에
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **모니터**를 검색하고 **모니터**를 선택합니다.
+1. **모니터** 를 검색하고 **모니터** 를 선택합니다.
 
     !["모니터"라는 단어가 포함된 검색 상자와 속도계 기호가 있는 "모니터"를 표시하는 서비스 검색 결과](./media/cosmosdb-insights-overview/search-monitor.png)
 
-1. **Redis 용 Azure Cache를**선택 합니다. 이 옵션이 표시되지 않는 경우 **더 보기** > **Azure Cache for Redis**를 선택합니다.
+1. **Redis 용 Azure Cache를** 선택 합니다. 이 옵션이 표시되지 않는 경우 **더 보기** > **Azure Cache for Redis** 를 선택합니다.
 
 ### <a name="overview"></a>개요
 
-**개요**의 표에는 대화형 Azure Cache for Redis 메트릭이 표시됩니다. 다음 드롭다운 목록에서 선택하는 옵션을 기준으로 결과를 필터링할 수 있습니다.
+**개요** 의 표에는 대화형 Azure Cache for Redis 메트릭이 표시됩니다. 다음 드롭다운 목록에서 선택하는 옵션을 기준으로 결과를 필터링할 수 있습니다.
 
 - **구독**: Azure Cache for Redis 리소스가 있는 구독만 나열됩니다.  
 
@@ -81,7 +81,7 @@ Azure Cache for Redis 리소스 중 하나의 옆에 있는 드롭다운 목록 
 
 ### <a name="operations"></a>작업
 
-페이지 맨 위에서 **작업**을 선택하면 통합 문서 템플릿의 **작업** 표가 열립니다. 다음 열이 표시됩니다.
+페이지 맨 위에서 **작업** 을 선택하면 통합 문서 템플릿의 **작업** 표가 열립니다. 다음 열이 표시됩니다.
 
 - **총 작업**
 - **총 작업 타임라인**
@@ -93,7 +93,7 @@ Azure Cache for Redis 리소스 중 하나의 옆에 있는 드롭다운 목록 
 
 ### <a name="usage"></a>사용
 
-페이지 맨 위에서 **사용량**을 선택하면 통합 문서 템플릿의 **사용량** 표가 열립니다. 다음 열이 표시됩니다.
+페이지 맨 위에서 **사용량** 을 선택하면 통합 문서 템플릿의 **사용량** 표가 열립니다. 다음 열이 표시됩니다.
 
 - **캐시 읽기**
 - **캐시 읽기 타임라인**
@@ -105,7 +105,7 @@ Azure Cache for Redis 리소스 중 하나의 옆에 있는 드롭다운 목록 
 
 ### <a name="failures"></a>오류
 
-페이지 맨 위에서 **실패**를 선택하면 통합 문서 템플릿의 **실패** 표가 열립니다. 다음 열이 표시됩니다.
+페이지 맨 위에서 **실패** 를 선택하면 통합 문서 템플릿의 **실패** 표가 열립니다. 다음 열이 표시됩니다.
 
 - **총 오류**
 - **장애 조치(Failover)/오류**
@@ -144,7 +144,7 @@ Azure Redis Cache에 대한 **개요** 통합 문서에는 다음에 액세스�
 
 ![CPU 성능, 사용된 메모리, 연결된 클라이언트, 오류, 만료된 키 및 제거된 키에 대한 정보를 표시하는 개요 대시보드 스크린샷](./media/redis-cache-insights-overview/resource-overview.png)
 
-**성능** 또는 **작업**에 대한 다른 탭을 선택하면 해당 통합 문서가 열립니다.
+**성능** 또는 **작업** 에 대한 다른 탭을 선택하면 해당 통합 문서가 열립니다.
 
 ### <a name="resource-level-performance"></a>리소스 수준 성능
 
@@ -170,11 +170,11 @@ Azure Redis Cache에 대한 **개요** 통합 문서에는 다음에 액세스�
 
 ## <a name="customize-azure-monitor-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 Azure Monitor 사용자 지정
 
-이 환경은 Azure Monitor 통합 문서 템플릿을 기준으로 구축되었으므로 **사용자 지정** > **편집** > **저장**을 선택하여 수정된 버전의 복사본을 사용자 지정 통합 문서에 복사할 수 있습니다.
+이 환경은 Azure Monitor 통합 문서 템플릿을 기준으로 구축되었으므로 **사용자 지정** > **편집** > **저장** 을 선택하여 수정된 버전의 복사본을 사용자 지정 통합 문서에 복사할 수 있습니다.
 
 ![사용자 지정이 강조 표시된 명령 모음](./media/cosmosdb-insights-overview/customize.png)
 
-통합 문서는 **내 보고서** 섹션 또는 **공유 보고서** 섹션의 리소스 그룹 내에 저장됩니다. **내 보고서**는 해당 사용자만 사용할 수 있습니다. **공유 보고서**은 리소스 그룹에 액세스할 수 있는 모든 사용자가 사용할 수 있습니다.
+통합 문서는 **내 보고서** 섹션 또는 **공유 보고서** 섹션의 리소스 그룹 내에 저장됩니다. **내 보고서** 는 해당 사용자만 사용할 수 있습니다. **공유 보고서** 은 리소스 그룹에 액세스할 수 있는 모든 사용자가 사용할 수 있습니다.
 
 사용자 지정 통합 문서를 저장한 후에는 통합 문서 갤러리로 이동하여 엽니다.
 

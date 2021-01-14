@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013535"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209732"
 ---
 # <a name="using-an-app-service-environment"></a>App Service Environment 사용
 
@@ -51,7 +51,7 @@ ASE에서 앱을 만들려면
     > Linux 앱 및 Windows 앱은 동일한 App Service 계획에 있을 수 없지만 동일한 App Service Environment에 있을 수 있습니다.
     >
 
-1. * * 다음: 모니터링 * * 앱에서 앱 정보를 사용 하도록 설정 하려는 경우 만들기 흐름 중에 여기에서 수행할 수 있습니다. 
+1. **다음: 모니터링** 을 선택 합니다. 앱에서 앱 Insights를 사용 하도록 설정 하려는 경우 만들기 흐름 중에 여기에서 수행할 수 있습니다. 
 
 1.  **다음: 태그** 를 선택 합니다. 태그를 앱에 추가 합니다.  
 
@@ -108,7 +108,7 @@ ASE를 사용 하 여 게시 끝점은 개인 끝점에서 사용 하는 인바�
 
 추가 변경 없이, 게시 끝점은 인터넷에 액세스할 수 없기 때문에 GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템은 ILB ASE와 작동 하지 않습니다. ILB ASE가 포함 된 가상 네트워크에 자체 호스트 된 릴리스 에이전트를 설치 하 여 Azure DevOps에서 ILB ASE에 게시를 사용 하도록 설정할 수 있습니다. 
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ASE에는 ASE의 모든 앱에 대해 1TB의 저장소가 있습니다. 격리 가격 SKU의 App Service 요금제는 250 GB로 제한 됩니다. ASE에서 250 GB의 저장소는 1TB 제한까지 App Service 계획 마다 추가 됩니다. 4 개 보다 많은 App Service 요금제를 사용할 수 있지만 1TB 제한을 초과 하는 저장소는 더 이상 추가 되지 않습니다.
 

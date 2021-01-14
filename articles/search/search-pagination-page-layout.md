@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: 182ec758a8764a959b39296163e63e800cf5108c
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008488"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209834"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 결과를 사용 하는 방법
 
@@ -103,7 +103,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 ### <a name="how-to-get-consistent-ordering"></a>일관 된 순서를 가져오는 방법
 
-일관 된 순서가 응용 프로그램 요구 사항인 경우 **`$orderby`** 필드에 대해 [] 식 (syntax.md)을 명시적으로 정의할 수 있습니다. 로 인덱싱되는 필드만 **`sortable`** 결과를 정렬 하는 데 사용할 수 있습니다. 에 일반적으로 사용 되는 필드에는 **`$orderby`** **`orderby`** 필드 이름 및 지리 공간적 값에 대 한 호출을 포함 하는 매개 [**`geo.distance()`**](query-odata-filter-orderby-syntax.md) 변수의 값을 지정 하는 경우 등급, 날짜 및 위치 필드가 포함 됩니다.
+일관 된 순서가 응용 프로그램 요구 사항인 경우 필드에 [ **`$orderby`** 식을](query-odata-filter-orderby-syntax.md) 명시적으로 정의할 수 있습니다. 로 인덱싱되는 필드만 **`sortable`** 결과를 정렬 하는 데 사용할 수 있습니다. 에 일반적으로 사용 되는 필드에는 **`$orderby`** **`orderby`** 필드 이름 및 지리 공간적 값에 대 한 호출을 포함 하는 매개 [**`geo.distance()`**](query-odata-filter-orderby-syntax.md) 변수의 값을 지정 하는 경우 등급, 날짜 및 위치 필드가 포함 됩니다.
 
 일관성을 승격 하는 또 다른 방법은 [사용자 지정 점수 매기기 프로필](index-add-scoring-profiles.md)을 사용 하는 것입니다. 점수 매기기 프로필을 사용 하면 검색 결과의 항목 순위를 보다 세밀 하 게 제어할 수 있으며 특정 필드에서 찾은 일치 항목을 높일 수 있습니다. 추가 점수 매기기 논리는 각 문서에 대 한 검색 점수가 떨어져 있기 때문에 복제본 간의 사소한 차이를 무시 하는 데 도움이 될 수 있습니다. 이 방법에 대 한 [순위 알고리즘](index-ranking-similarity.md) 을 사용 하는 것이 좋습니다.
 
