@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 이미지 인식, 이미지 인식 앱, custom vision
-ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912987"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132582"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>빠른 시작: Custom Vision 웹 사이트를 사용하여 개체 탐지기 빌드
 
@@ -107,6 +107,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="probability-threshold"></a>확률 임계값
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
+
+### <a name="overlap-threshold"></a>겹침 임계값
+
+**중첩 임계값** 슬라이더는 개체 예측이 교육에서 "올바른" 것으로 간주되어야 하는 정도를 처리합니다. 예측 개체 경계 상자와 실제 사용자가 입력한 경계 상자 사이에 허용되는 최소 중첩을 설정합니다. 경계 상자가 이 정도와 겹치지 않으면 예측이 올바른 것으로 간주되지 않습니다.
 
 ## <a name="manage-training-iterations"></a>학습 반복 관리
 

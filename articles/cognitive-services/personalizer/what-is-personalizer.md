@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, 기계 학습
-ms.openlocfilehash: 28aae130d062eaf57a66a9b90a6602c3874f1494
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 33c1770c5c8722a55d8f1df4aff9b1637d903977
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094151"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028780"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
-Azure Personalizer는 애플리케이션에서 사용자를 표시하는 데 가장 적합한 콘텐츠 항목을 선택할 수 있도록 도움을 주는 클라우드 기반 서비스입니다. Personalizer 서비스를 사용하여 구매자에게 제안할 제품을 결정하거나 보급 알림의 최적 위치를 파악할 수 있습니다. 사용자에게 콘텐츠가 표시되면 시스템에서 실시간 사용자 동작을 모니터링하고 Personalizer 서비스에 보상 점수를 다시 보고합니다. 이를 통해 기계 학습 모델을 지속적으로 개선하고 수신되는 컨텍스트 정보를 기반으로 가장 적합한 콘텐츠 항목을 선택하는 Personalizer의 기능이 보장됩니다.
+Azure Personalizer는 애플리케이션에서 사용자를 표시하는 데 가장 적합한 콘텐츠 항목을 선택할 수 있도록 도움을 주는 클라우드 기반 서비스입니다. Personalizer 서비스를 사용하여 구매자에게 제안할 제품을 결정하거나 보급 알림의 최적 위치를 파악할 수 있습니다. 콘텐츠가 사용자에게 표시되면 애플리케이션이 사용자의 반응을 모니터링하고 보상 점수를 Personalizer 서비스에 다시 보고합니다. 이를 통해 기계 학습 모델을 지속적으로 개선하고 수신되는 컨텍스트 정보를 기반으로 가장 적합한 콘텐츠 항목을 선택하는 Personalizer의 기능이 보장됩니다.
 
 > [!TIP]
 > 콘텐츠는 텍스트, 이미지, URL, 이메일 또는 기타 항목을 선택하고 사용자에게 표시하려는 정보의 모든 단위입니다.
@@ -65,7 +65,7 @@ Personalizer의 **보상** [API](https://westus2.dev.cognitive.microsoft.com/doc
 
 콘텐츠가 다음과 같은 경우 Personalizer를 사용합니다.
 
-* 선택할 수 있는 항목 세트가 제한되어 있습니다(최대 50개 항목). 더 큰 목록이 있는 경우 [추천 엔진을 사용](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution)하여 목록을 50개 항목으로 줄입니다.
+* 각 개인화 이벤트에서 선택할 수 있는 제한된 작업 또는 항목 집합(최대 50개)이 있습니다. 더 큰 목록이 있는 경우 [추천 엔진을 사용](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution)하여 Personalizer 서비스에서 Rank를 호출할 때마다 목록을 50개 항목으로 줄입니다.
 * 순위를 지정하려는 콘텐츠를 설명하는 정보(_기능이 포함된 작업_ 및  _컨텍스트 기능_)가 있습니다.
 * Personalizer가 효과적일 수 있도록 최소 1k/일의 콘텐츠 관련 이벤트가 있습니다. Personalizer가 필요한 최소 트래픽을 받지 못하는 경우 서비스에서 가장 적합한 단일 콘텐츠 항목을 결정하는 데 시간이 더 오래 걸립니다.
 

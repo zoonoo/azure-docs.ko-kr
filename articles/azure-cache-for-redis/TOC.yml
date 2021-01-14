@@ -29,6 +29,8 @@
           href: cache-nodejs-get-started.md
         - name: Python 앱
           href: cache-python-get-started.md
+        - name: Go 앱
+          href: cache-go-get-started.md
 - name: 자습서
   items:
     - name: ASP.NET

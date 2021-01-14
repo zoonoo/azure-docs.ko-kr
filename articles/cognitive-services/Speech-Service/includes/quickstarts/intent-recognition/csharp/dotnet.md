@@ -7,12 +7,12 @@ ms.topic: include
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c242bbb803e359664eb2fb63262f0c540723f9c6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c14dfadfb7e8724c196b125e9b93c439fac249c3
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425327"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109511"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -73,6 +73,13 @@ Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. �
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
 
 이 예제에서는 `AddIntent()` 함수를 사용하여 개별적으로 의도를 추가합니다. 모델에서 모든 의도를 추가하려면 `AddAllIntents(model)`을(를) 사용하고 모델을 전달합니다. 
+
+> [!NOTE]
+> Speech SDK는 LUIS v2.0 엔드포인트만 지원합니다.
+> v2.0 URL 패턴을 사용하려면 예제 쿼리 필드에 있는 v3.0 엔드포인트 URL을 수동으로 수정해야 합니다.
+> LUIS v2.0 엔드포인트는 항상 다음 두 패턴 중 하나를 따릅니다.
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
 ## <a name="recognize-an-intent"></a>의도 인식
 

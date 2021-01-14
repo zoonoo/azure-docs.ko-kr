@@ -37,6 +37,8 @@
       href: azure-netapp-files-cost-model.md
     - name: Azure NetApp Files 네트워크 계획 지침
       href: azure-netapp-files-network-topologies.md
+    - name: Azure NetApp Files 스냅샷 작동 방식
+      href: snapshots-introduction.md
     - name: 수동 QoS 용량 풀
       href: manual-qos-capacity-pool-introduction.md
     - name: 지역 간 복제

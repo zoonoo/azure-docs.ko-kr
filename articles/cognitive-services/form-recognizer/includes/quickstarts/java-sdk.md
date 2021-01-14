@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 6768f46f39920c975e7eccef72563fc0bb7e5180
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 93552d203508fb893bd2e85d27a3a991fc539472
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808592"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132330"
 ---
 > [!IMPORTANT]
 > 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다.
@@ -156,8 +156,8 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 `FormRecognizerClient`는 다음에 대한 작업을 제공합니다.
 
 - 사용자 지정 양식을 인식하도록 학습된 사용자 지정 모델을 사용하여 양식 필드 및 콘텐츠를 인식합니다.  이러한 값은 `RecognizedForm` 개체의 컬렉션에서 반환됩니다. 예제 [사용자 지정 양식 분석](#analyze-forms-with-a-custom-model)을 참조하세요.
-- 모델을 학습하지 않고도 테이블, 줄 및 단어를 비롯한 양식 콘텐츠를 인식합니다.  양식 콘텐츠는 `FormPage` 개체의 컬렉션에서 반환됩니다. 예제 [양식 콘텐츠 인식](#recognize-form-content)을 참조하세요.
-- Form Recognizer 서비스에서 미리 학습된 영수증 모델을 사용하여 미국 영수증에서 공통 필드를 인식합니다.  이러한 필드 및 메타데이터는 `RecognizedForm` 개체의 컬렉션에서 반환됩니다. 예제 [영수증 인식](#recognize-receipts)을 참조하세요.
+- 모델을 학습하지 않고도 테이블, 줄 및 단어를 비롯한 양식 콘텐츠를 인식합니다.  양식 콘텐츠는 `FormPage` 개체의 컬렉션에서 반환됩니다. 예제 [레이아웃 분석](#analyze-layout)을 참조하세요.
+- Form Recognizer 서비스에서 미리 학습된 영수증 모델을 사용하여 미국 영수증에서 공통 필드를 인식합니다.  이러한 필드 및 메타데이터는 `RecognizedForm` 개체의 컬렉션에서 반환됩니다. 예제 [영수증 분석](#analyze-receipts)을 참조하세요.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -177,17 +177,17 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 #### <a name="version-20"></a>[버전 2.0](#tab/ga)
 * [클라이언트 인증](#authenticate-the-client)
-* [양식 콘텐츠 인식](#recognize-form-content)
-* [영수증 확인](#recognize-receipts)
+* [레이아웃 분석](#analyze-layout)
+* [영수증 분석](#analyze-receipts)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
 #### <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/preview)
 * [클라이언트 인증](#authenticate-the-client)
-* [양식 콘텐츠 인식](#recognize-form-content)
-* [영수증 확인](#recognize-receipts)
-* [명함 인식](#recognize-business-cards)
-* [송장 인식](#recognize-invoices)
+* [레이아웃 분석](#analyze-layout)
+* [영수증 분석](#analyze-receipts)
+* [명함 분석](#analyze-business-cards)
+* [송장 분석](#analyze-invoices)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
@@ -200,7 +200,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_auth)]
 
-## <a name="recognize-form-content"></a>양식 콘텐츠 인식
+## <a name="analyze-layout"></a>레이아웃 분석
 
 Form Recognizer를 사용하면 모델을 학습시킬 필요 없이 문서의 표, 줄 및 단어를 인식할 수 있습니다.
 
@@ -233,7 +233,7 @@ Cell has text $89,024.34.
 Cell has text ET.
 ```
 
-## <a name="recognize-receipts"></a>영수증 확인
+## <a name="analyze-receipts"></a>영수증 분석
 
 이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 인식 및 추출하는 방법을 보여 줍니다.
 
@@ -269,7 +269,7 @@ Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
 
-## <a name="recognize-business-cards"></a>명함 인식
+## <a name="analyze-business-cards"></a>명함 분석
 
 #### <a name="version-20"></a>[버전 2.0](#tab/ga)
 
@@ -293,7 +293,7 @@ URL에서 명함을 인식하려면 `beginRecognizeBusinessCardsFromUrl` 메서�
 
 ---
 
-## <a name="recognize-invoices"></a>송장 인식
+## <a name="analyze-invoices"></a>송장 분석
 
 #### <a name="version-20"></a>[버전 2.0](#tab/ga)
 

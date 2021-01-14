@@ -85,8 +85,14 @@
       items:
         - name: 디바이스 템플릿 설정
           href: howto-set-up-template.md
+        - name: 디바이스를 IoT로 이동하는 방법
+          href: how-to-move-device-to-iot.md
         - name: 속성을 사용하는 방법
           href: howto-use-properties.md
+        - name: 명령을 사용하는 방법
+          href: howto-use-commands.md
+        - name: 위치 데이터를 사용하는 방법
+          href: howto-use-location-data.md
         - name: Azure Sphere DevKit 준비 및 연결
           href: howto-connect-sphere.md
         - name: RuuviTag 디바이스 준비 및 연결

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 9762ca79f73b3333045d1c11376ab315aac2d55e
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: fb9d74da6030c430cce4a2a3c4c5e4299183ca15
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808660"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132308"
 ---
 > [!IMPORTANT]
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요. 
@@ -100,8 +100,8 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 #### <a name="version-20"></a>[버전 2.0](#tab/ga)
 
 * [클라이언트 인증](#authenticate-the-client)
-* [양식 콘텐츠 인식](#recognize-form-content)
-* [영수증 확인](#recognize-receipts)
+* [레이아웃 분석](#analyze-layout)
+* [영수증 분석](#analyze-receipts)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
@@ -109,10 +109,10 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 #### <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/preview)
 
 * [클라이언트 인증](#authenticate-the-client)
-* [양식 콘텐츠 인식](#recognize-form-content)
-* [영수증 확인](#recognize-receipts)
-* [명함 인식](#recognize-business-cards)
-* [송장 인식](#recognize-invoices)
+* [레이아웃 분석](#analyze-layout)
+* [영수증 분석](#analyze-receipts)
+* [명함 분석](#analyze-business-cards)
+* [송장 분석](#analyze-invoices)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
@@ -137,7 +137,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 > [!NOTE]
 > 이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](/python/api/azure-ai-formrecognizer) 및 [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 관련 메서드를 참조하세요.
 
-## <a name="recognize-form-content"></a>양식 콘텐츠 인식
+## <a name="analyze-layout"></a>레이아웃 분석
 
 Form Recognizer를 사용하면 모델을 학습시킬 필요 없이 문서의 표, 줄 및 단어를 인식할 수 있습니다.
 
@@ -171,7 +171,7 @@ Confidence score: 1.0
 
 ```
 
-## <a name="recognize-receipts"></a>영수증 확인
+## <a name="analyze-receipts"></a>영수증 분석
 
 이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 인식 및 추출하는 방법을 보여 줍니다. URL을 통해 영수증을 확인하려면 `begin_recognize_receipts_from_url` 메서드를 사용합니다. 
 
@@ -203,7 +203,7 @@ Total: 1203.39 has confidence 0.774
 ```
 
 
-## <a name="recognize-business-cards"></a>명함 인식
+## <a name="analyze-business-cards"></a>명함 분석
 
 #### <a name="version-20"></a>[버전 2.0](#tab/ga)
 
@@ -221,7 +221,7 @@ Total: 1203.39 has confidence 0.774
 
 ---
 
-## <a name="recognize-invoices"></a>송장 인식
+## <a name="analyze-invoices"></a>송장 분석
 
 #### <a name="version-20"></a>[버전 2.0](#tab/ga)
 

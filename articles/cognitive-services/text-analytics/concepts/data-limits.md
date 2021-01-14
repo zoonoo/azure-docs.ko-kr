@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: c60adb09da05ba945bcf6ccb55e71c395f064211
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2adca03a820d02731bca252dee99c76debc85e2e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965105"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028134"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Text Analytics API에 대한 데이터 및 속도 제한
 <a name="data-limits"></a>
@@ -35,7 +35,15 @@ ms.locfileid: "94965105"
 | 단일 문서의 최대 크기(`/analyze` 엔드포인트)  | [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements)에 의해 측정된 125K자. Text Analytics for health에 적용되지 않습니다. |
 | 전체 요청의 최대 크기 | 1MB Text Analytics for health에도 적용됩니다. |
 
-단일 요청으로 보낼 수 있는 최대 문서 수는 사용 중인 API 버전 및 기능에 따라 달라집니다. 문서가 최대 크기(125K자)를 초과하는 경우 `/analyze` 엔드포인트는 전체 요청을 거부합니다.
+
+문서가 문자 제한을 초과하면 API는 사용 중인 엔드포인트에 따라 다르게 작동합니다.
+
+* `/analyze` 엔드포인트:
+  * API는 전체 요청을 거부하고 그 안의 문서가 최대 크기를 초과하는 경우 `400 bad request` 오류를 반환합니다.
+* 다른 모든 엔드포인트:  
+  * API는 최대 크기를 초과하는 문서를 처리하지 않으며 잘못된 문서 오류를 반환합니다. API 요청에 여러 문서가 있는 경우 문자 제한 내에 있으면 API가 문서를 계속 처리합니다.
+
+단일 요청으로 보낼 수 있는 최대 문서 수는 사용 중인 API 버전 및 기능에 따라 달라지며, 아래 표에 설명되어 있습니다.
 
 #### <a name="version-3"></a>[버전 3](#tab/version-3)
 

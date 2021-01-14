@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 자동화된 데이터 처리, 문서 처리, 자동화된 데이터 입력, 양식 처리
-ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845524"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044767"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -42,11 +42,11 @@ Form Recognizer 서비스를 사용해보려면 다음과 같은 온라인 샘�
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [미리 빌드된 모델 사용해보기](https://fott.azurewebsites.net/)
+> [Form Recognizer 사용해보기](https://fott.azurewebsites.net/)
 
 # <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
 > [!div class="nextstepaction"]
-> [미리 빌드된 모델 사용해보기](https://fott-preview.azurewebsites.net/)
+> [Form Recognizer 사용해보기](https://fott-preview.azurewebsites.net/)
 
 ---
 
@@ -152,7 +152,18 @@ Form Recognizer에는 고유한 양식 유형의 자동화된 데이터 처리�
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
 
-[Form Recognizer 컨테이너(미리 보기)를 사용](form-recognizer-container-howto.md)하여 온-프레미스에 API 기능을 배포합니다. 이 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다.
+[Form Recognizer 컨테이너(미리 보기)를 사용](form-recognizer-container-howto.md)하여 온-프레미스에 API 기능을 배포합니다. 이 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다. 
+
+## <a name="service-availability-and-redundancy"></a>서비스 가용성 및 중복성
+
+### <a name="is-form-recognizer-service-zone-resilient"></a>Form Recognizer 서비스가 영역 복원력이 있습니까?
+
+예. Form Recognizer 서비스는 기본적으로 영역 복원력이 있습니다.
+
+### <a name="how-do-i-configure-the-form-recognizer-service-to-be-zone-resilient"></a>영역 복원력을 갖도록 Form Recognizer 서비스를 구성하려면 어떻게 해야 하나요?
+
+영역 복원력을 사용하도록 설정하기 위한 고객 구성은 필요 없습니다. Form Recognizer 리소스의 영역 복원력은 기본적으로 제공되며 서비스 자체에서 관리합니다.
+
 
 ## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
 

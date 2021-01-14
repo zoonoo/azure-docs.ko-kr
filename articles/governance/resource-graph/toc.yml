@@ -38,6 +38,9 @@
     - name: 공유 쿼리 만들기 - Azure CLI
       displayName: 'extension, docker, queries'
       href: ./shared-query-azure-cli.md
+    - name: 공유 쿼리 만들기 - Azure PowerShell
+      displayName: 'powershell, queries, Az.ResourceGraph'
+      href: ./shared-query-azure-powershell.md
     - name: 공유 쿼리 배포 - ARM 템플릿
       displayName: 'resource manager, queries'
       href: ./shared-query-template.md
