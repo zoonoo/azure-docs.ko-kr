@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c3e2245ae47504e058921c532ed40a220e95423d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533862"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197577"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Site Recovery에 대 한 Azure 보안 기준
 
@@ -222,7 +222,7 @@ Log Analytics 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식�
 
 **지침**: 관리 작업을 위한 azure 다단계 인증을 사용 하 여 PAW (권한 있는 액세스 워크스테이션) 라고도 하는 안전한 azure 관리 워크스테이션을 사용 하 고 Site Recovery 리소스에 대해 권한 있는 작업을 수행 합니다.
 
-- [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 

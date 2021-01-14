@@ -3,12 +3,12 @@ title: 고객 관리 키를 사용 하 여 백업 데이터 암호화
 description: Azure Backup를 사용 하 여 고객 관리 키 (CMK)를 사용 하 여 백업 데이터를 암호화 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cc6ad2f67b84bcd62bcc18566a4ac5d159ea32c4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895990"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197771"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 백업 데이터 암호화
 
@@ -78,7 +78,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
     ![액세스 정책 추가](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. **키 권한** 에서 **가져오기** , **나열** , **키 래핑** 및 **키 래핑** 작업을 선택 합니다. 허용 되는 키에 대 한 동작을 지정 합니다.
+1. **키 권한** 에서 **가져오기**, **나열**, **키 래핑** 및 **키 래핑** 작업을 선택 합니다. 허용 되는 키에 대 한 동작을 지정 합니다.
 
     ![키 사용 권한 할당](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
@@ -154,22 +154,30 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
     1. 이 Recovery Services 자격 증명 모음에서 데이터를 암호화 하는 데 사용할 **키 URI** 를 입력 합니다. 또한이 키를 포함 하는 Azure Key Vault이 있는 구독을 지정 해야 합니다. 이 키 URI는 Azure Key Vault의 해당 키에서 가져올 수 있습니다. 키 URI가 올바르게 복사 되었는지 확인 합니다. 키 식별자와 함께 제공 되는 **클립보드로 복사** 단추를 사용 하는 것이 좋습니다.
 
+        >[!NOTE]
+        >키 URI를 사용 하 여 암호화 키를 지정 하는 경우 키가 자동으로 회전 되지 않습니다. 따라서 필요한 경우 새 키를 지정 하 여 키 업데이트를 수동으로 수행 해야 합니다.
+
         ![키 URI 입력](./media/encryption-at-rest-with-cmk/key-uri.png)
 
     1. 키 선택 창의 Key Vault에서 키를 찾아 선택 합니다.
+
+        >[!NOTE]
+        >키 선택 창을 사용 하 여 암호화 키를 지정 하는 경우 키의 새 버전을 사용할 때마다 키가 자동으로 회전 됩니다.
 
         ![키 자격 증명 모음에서 키 선택](./media/encryption-at-rest-with-cmk/key-vault.png)
 
 1. **저장** 을 선택합니다.
 
-1. **암호화 키 업데이트 진행률 추적:** Recovery Services 자격 증명 모음의 **활동 로그** 를 사용 하 여 키 할당의 진행률을 추적할 수 있습니다. 상태는 곧 **성공** 으로 변경 됩니다. 이제 자격 증명 모음에서 지정 된 키를 사용 하 여 모든 데이터를 KEK로 암호화 합니다.
+1. **암호화 키 업데이트의 진행률 및 상태 추적**: 왼쪽 탐색 모음의 **Backup 작업** 보기를 사용 하 여 암호화 키 할당의 진행률과 상태를 추적할 수 있습니다. 곧 상태가 **완료 됨** 으로 변경 됩니다. 이제 자격 증명 모음에서 지정 된 키를 사용 하 여 모든 데이터를 KEK로 암호화 합니다.
 
-    ![활동 로그를 사용 하 여 진행률 추적](./media/encryption-at-rest-with-cmk/activity-log.png)
+    ![상태 완료 됨](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
-    ![상태 성공](./media/encryption-at-rest-with-cmk/status-succeeded.png)
+    암호화 키 업데이트도 자격 증명 모음의 활동 로그에 기록 됩니다.
+
+    ![활동 로그](./media/encryption-at-rest-with-cmk/activity-log.png)
 
 >[!NOTE]
-> 이 프로세스는 암호화 키를 업데이트/변경 하려는 경우에도 동일 하 게 유지 됩니다. 현재 사용 중인 것과 다른 Key Vault에서 키를 업데이트 하 고 사용 하려는 경우 다음을 확인 합니다.
+> 이 프로세스는 암호화 키를 업데이트 하거나 변경 하려는 경우에도 동일 하 게 유지 됩니다. 현재 사용 중인 것과 다른 Key Vault에서 키를 업데이트 하 고 사용 하려는 경우 다음을 확인 합니다.
 >
 > - Key Vault은 Recovery Services 자격 증명 모음과 동일한 지역에 있습니다.
 >

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 53324709e2d3dd11160ee0b7837d86d9e9594571
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 77fccf8b2480232debb88136394013941af796c8
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763930"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197271"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Azure 전면 도어에 대 한 azure 보안 기준
 
@@ -86,7 +86,7 @@ Active Directory 도메인 컨트롤러, 보안 도구 및 시스템 관리 도�
 
 관리 작업에 대해 Azure 방호에서 매우 안전한 사용자 워크스테이션을 사용 합니다. Azure Active Directory (Azure AD), Microsoft Defender ATP (Advanced Threat Protection) 및 Microsoft Intune를 선택 하 여 관리 작업을 위한 안전 하 고 관리 되는 사용자 워크스테이션을 배포 합니다. 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한 된 논리적 및 네트워크 액세스를 포함 하 여 보안 구성을 적용 하려면 보안 워크스테이션을 중앙에서 관리 해야 합니다.
 
-- [권한 있는 액세스 워크스테이션 이해](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [권한 있는 액세스 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [권한 있는 액세스 워크스테이션 배포](../active-directory/devices/howto-azure-managed-workstation.md)
 

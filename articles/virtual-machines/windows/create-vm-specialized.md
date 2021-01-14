@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 577b8527d95a6410deca8002cddfaae31be1fc97
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455099"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197492"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -54,7 +54,7 @@ Hyper-V와 같은 온-프레미스 가상화 도구를 사용하여 만든 특�
 ### <a name="prepare-the-vm"></a>VM 준비
 VHD를 그대로 사용하여 새 VM을 만듭니다. 
   
-  * [Azure에 업로드할 Windows VHD를 준비합니다](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sysprep을 사용하여 VM을 일반화하지 **마십시오**.
+  * [Azure에 업로드할 Windows VHD를 준비합니다](prepare-for-upload-vhd-image.md). Sysprep을 사용하여 VM을 일반화하지 **마십시오**.
   * VM에 설치된 에이전트 및 모든 게스트 가상화 도구를 제거합니다(예: VMware 도구).
   * VM이 DHCP를 통해 IP 주소 및 DNS 설정을 가져오도록 구성되었는지 확인합니다. 이렇게 하면 서버를 시작할 때 가상 네트워크 내의 IP 주소를 가져옵니다. 
 
@@ -193,7 +193,7 @@ $nsg = New-AzNetworkSecurityGroup `
     
 ```
 
-엔드포인트 및 NSG 규칙에 대한 자세한 내용은 [PowerShell을 사용하여 Azure에서 VM으로 포트 열기](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+엔드포인트 및 NSG 규칙에 대한 자세한 내용은 [PowerShell을 사용하여 Azure에서 VM으로 포트 열기](nsg-quickstart-powershell.md)를 참조하세요.
 
 ### <a name="create-a-public-ip-address-and-nic"></a>공용 IP 주소 및 NIC 만들기
 가상 네트워크에서 가상 머신과 통신하도록 설정하려면 [공용 IP 주소](../../virtual-network/public-ip-addresses.md) 및 네트워크 인터페이스가 필요합니다.

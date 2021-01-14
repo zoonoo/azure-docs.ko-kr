@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092689"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196591"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 자동으로 레이블
 
@@ -33,8 +33,9 @@ ms.locfileid: "97092689"
 부서의 범위는 Microsoft 365 같이 중요 한 정보 형식이 라고도 하는 동일한 분류를 사용 합니다.  밉 민감도 레이블은 Microsoft 365 보안 및 규정 준수 센터 (SCC)에서 생성 됩니다. 이렇게 하면 Azure 부서의 범위 자산에서 기존 민감도 레이블을 확장할 수 있습니다.
 
 > [!NOTE]
-> 분류는 직접 일치 하는 반면 (주민 등록 번호는 **주민 등록 번호** 를 포함 함), 민감도 레이블은 하나 이상의 분류와 시나리오가 함께 발견 될 때 적용 됩니다. 
-> 
+> 분류는 **주민 등록** 번호를 분류 하는 주민 등록 번호와 같이 직접 일치 합니다. 
+>
+> 이와 달리 민감도 레이블은 하나 이상의 분류 및 조건을 함께 발견할 경우 적용 됩니다. 이 컨텍스트에서 [조건은](/microsoft-365/compliance/apply-sensitivity-label-automatically) **다른 분류에 근접** 한 경우와 같이 비구조적 데이터에 대해 정의할 수 있는 모든 매개 변수를 **나타냅니다.** 
 
 Azure 부서의 범위의 민감도 레이블을 사용 하 여 파일 및 데이터베이스 열에 레이블을 자동으로 적용할 수 있습니다.
 
@@ -92,16 +93,11 @@ Azure 부서의 범위의 Azure 자산에 밉 민감도 레이블을 적용 하�
 >
 > 이러한 이유로 레이블 및 사용자 지정 중요 정보 유형은 기본적으로 Azure 부서의 범위에 공유 되지 않으며 Azure 부서의 범위에서 사용 하는 데 동의 해야 합니다.
 
-> [!IMPORTANT]
-> Microsoft는 사용자의 동의를 통해 레이블 이름과 사용자 지정 중요 한 정보 형식 이름을 *모두* Azure 부서의 범위 및 AZURE SECURITY CENTER (ASC)에 공유할 수 있습니다. Microsoft는 Azure 부서의 범위의 레이블 정보를 사용 하 여 ASC로 권장 사항 및 경고를 보강 합니다. 
->
-> Microsoft 365 준수 센터의 동의는이 데이터를 두 서비스와 공유 하는 데 적용 됩니다. 현재 Azure 부서의 범위와 레이블 지정 정보를 공유 하도록 선택할 수 없습니다.
-
 **민감도 레이블을 부서의 범위로 확장 하려면 다음을 수행 합니다.**
 
 Microsoft 365에서 **Information Protection** 페이지로 이동 합니다. **Azure에서 자산에 대 한 레이블 확장 부서의 범위** 에서 **켜기** 단추를 선택한 다음 표시 되는 확인 대화 상자에서 **예** 를 선택 합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="민감도 레이블을 부서의 범위로 확장 하려면 * * 켜기 * *를 선택 합니다." lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
@@ -159,7 +155,7 @@ Azure 부서의 범위에서 자산에 대 한 레이블 지정을 확장 한 �
 
 **Office 앱에 대 한 자동** 레이블 지정 페이지에서 **office 앱에 대 한 자동 레이블** 지정을 사용 하도록 설정 하 고 데이터에 레이블을 자동으로 적용 하려는 조건을 정의 합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Microsoft 365 보안 및 규정 준수 센터의 파일에 대 한 autolabeling 규칙을 정의 합니다." lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
@@ -175,7 +171,7 @@ Azure 부서의 범위에서 자산에 대 한 레이블 지정을 확장 한 �
 
 1. **중요 한 정보 유형 확인** 을 선택 하 여 레이블에 적용할 중요 한 정보 유형을 선택 합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
         
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Microsoft 365 보안 및 규정 준수 센터에서 SQL 열에 대 한 autolabeling 규칙 정의" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
@@ -189,7 +185,7 @@ Azure 부서의 범위의 다양 한 자산에 대 한 검색을 설정 하는 �
 |---------|---------|
 |**Azure Blob Storage**     |[Azure Blob Storage 등록 및 검색](register-scan-azure-blob-storage-source.md)         |
 |**Azure Data Lake Storage**     |[Azure Data Lake Storage Gen1 등록 및 검색](register-scan-adls-gen1.md) </br>[Azure Data Lake Storage Gen2 등록 및 검색](register-scan-adls-gen2.md)         |
-|**Azure SQL Databases**|[Azure SQL Database 등록 및 검색](register-scan-azure-sql-database.md) </br>[Azure SQL Database Managed Instance 등록 및 검색](register-scan-azure-sql-database-managed-instance.md)|
+|**Azure SQL Databases**|[Azure SQL Database 등록 및 검사](register-scan-azure-sql-database.md) </br>[Azure SQL Database Managed Instance 등록 및 검사](register-scan-azure-sql-database-managed-instance.md)|
 | | |
 
 ## <a name="view-labels-on-assets"></a>자산에 대 한 레이블 보기
@@ -198,11 +194,11 @@ Microsoft 365에서 레이블에 대 한 autolabeling 규칙을 정의 하 고 A
 
 **Azure 부서의 범위 카탈로그에서 자산에 적용 되는 레이블을 보려면 다음을 수행 합니다.**
 
-Azure 부서의 범위 카탈로그에서 **레이블** 필터링 옵션을 사용 하 여 특정 레이블만 있는 파일만 표시 합니다. 예를 들어: 
+Azure 부서의 범위 카탈로그에서 **레이블** 필터링 옵션을 사용 하 여 특정 레이블만 있는 파일만 표시 합니다. 예를 들면 다음과 같습니다. 
 
 :::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="레이블 별 자산 검색" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="Azure Blob Storage 파일의 민감도 레이블 보기" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 

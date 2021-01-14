@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 43447454b82b74c10b1d53c41c7883b0b9bef242
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499257"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196506"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Azure 이미지 작성기 서비스 DevOps 작업
 
@@ -26,7 +26,7 @@ ms.locfileid: "96499257"
 
 * [' 불안정 ' AIB 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary)으로,이를 통해 최신 업데이트 및 기능을 사용 하 여 고객을 ' 안정적인 ' 작업으로 승격 하기 전에 테스트할 수 있습니다. 보고 된 문제가 없고 원격 분석에서 약 1 주일 후에 문제를 표시 하지 않으면 작업 코드를 ' 안정 '로 승격 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * [Visual Studio Marketplace에서 안정적인 DevOps 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)을 설치 합니다.
 * VSTS DevOps 계정이 있어야 하 고 빌드 파이프라인이 생성 되어 있어야 합니다.
@@ -154,7 +154,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
-* Linux 기반 Linux 시스템 빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 많은 Linux OSs에서 다시 부팅 하면/tmp 디렉터리 콘텐츠가 삭제 됩니다. 아티팩트가 이미지에 존재 하도록 하려면 다른 디렉터리를 만들고이를 복사 해야 합니다.  다음은 그 예입니다. 
+* Linux 기반 Linux 시스템 빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 많은 Linux OSs에서 다시 부팅 하면/tmp 디렉터리 콘텐츠가 삭제 됩니다. 아티팩트가 이미지에 존재 하도록 하려면 다른 디렉터리를 만들고이를 복사 해야 합니다.  예를 들면 다음과 같습니다.
 
     ```bash
     sudo mkdir /lib/buildArtifacts
@@ -176,7 +176,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
 > 이미지 작성기는 빌드 아티팩트를 자동으로 제거 하지 않으며 항상 빌드 아티팩트를 제거 하는 코드를 포함 하는 것이 좋습니다.
 > 
 
-* Windows 이미지 작성기는 디렉터리에 파일을 배포 `c:\buildArtifacts` 합니다. 디렉터리가 지속형 디렉터리를 제거 해야 합니다. 실행 하는 스크립트에서이를 제거할 수 있습니다. 다음은 그 예입니다. 
+* Windows 이미지 작성기는 디렉터리에 파일을 배포 `c:\buildArtifacts` 합니다. 디렉터리가 지속형 디렉터리를 제거 해야 합니다. 실행 하는 스크립트에서이를 제거할 수 있습니다. 예를 들면 다음과 같습니다.
 
     ```PowerShell
     # Clean up buildArtifacts directory
@@ -186,7 +186,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
     Remove-Item -Path "C:\buildArtifacts" -Force 
     ```
     
-* Linux-빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 대부분의 Linux OSs에서 다시 부팅 하면 `/tmp` 디렉터리 내용이 삭제 됩니다. 콘텐츠를 제거 하는 코드를 사용 하 고 OS를 사용 하 여 콘텐츠를 제거 하는 것이 좋습니다. 다음은 그 예입니다. 
+* Linux-빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 대부분의 Linux OSs에서 다시 부팅 하면 `/tmp` 디렉터리 내용이 삭제 됩니다. 콘텐츠를 제거 하는 코드를 사용 하 고 OS를 사용 하 여 콘텐츠를 제거 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
     ```bash
     sudo rm -R "/tmp/AppsAndImageBuilderLinux"
@@ -194,7 +194,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
     
 #### <a name="total-length-of-image-build"></a>이미지 빌드의 총 길이
 
-DevOps 파이프라인 작업에서 전체 길이를 변경할 수 없습니다. 240 분의 기본값을 사용 합니다. [BuildTimeoutInMinutes](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes)를 증가 시키려면 릴리스 파이프라인에서 AZ CLI 작업을 사용할 수 있습니다. 템플릿을 복사 하 고 제출 하도록 태스크를 구성 합니다. 예제는이 [솔루션](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)을 참조 하거나 Az PowerShell을 사용 합니다.
+DevOps 파이프라인 작업에서 전체 길이를 변경할 수 없습니다. 240 분의 기본값을 사용 합니다. [BuildTimeoutInMinutes](./image-builder-json.md#properties-buildtimeoutinminutes)를 증가 시키려면 릴리스 파이프라인에서 AZ CLI 작업을 사용할 수 있습니다. 템플릿을 복사 하 고 제출 하도록 태스크를 구성 합니다. 예제는이 [솔루션](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)을 참조 하거나 Az PowerShell을 사용 합니다.
 
 
 #### <a name="storage-account"></a>스토리지 계정
@@ -233,7 +233,7 @@ DevOps 파이프라인 작업에서 전체 길이를 변경할 수 없습니다.
 
 #### <a name="vhd"></a>VHD
 
-이에 대 한 값을 전달할 수 없습니다. 이미지 작성기는 VHD 컨테이너의 임시 이미지 작성기 리소스 그룹인로 VHD를 내보냅니다 `IT_<DestinationResourceGroup>_<TemplateName>` . *vhds* 릴리스 빌드를 시작 하면 이미지 작성기가 로그를 내보냅니다. 완료 되 면 VHD URL이 생성 됩니다.
+이에 대 한 값을 전달할 수 없습니다. 이미지 작성기는 VHD 컨테이너의 임시 이미지 작성기 리소스 그룹인로 VHD를 내보냅니다 `IT_<DestinationResourceGroup>_<TemplateName>` .  릴리스 빌드를 시작 하면 이미지 작성기가 로그를 내보냅니다. 완료 되 면 VHD URL이 생성 됩니다.
 
 ### <a name="optional-settings"></a>선택적 설정
 
@@ -312,7 +312,7 @@ starting run template...
 
 빌드 오류가 발생 하는 경우 DevOps 작업은 준비 리소스 그룹을 삭제 하지 않습니다. 빌드 사용자 지정 로그가 포함 된 준비 리소스 그룹에 액세스할 수 있습니다.
 
-VM 이미지 작성기 태스크에 대 한 DevOps 로그에 오류가 표시 되 고 사용자 지정. 로그 위치를 확인 합니다. 다음은 그 예입니다. 
+VM 이미지 작성기 태스크에 대 한 DevOps 로그에 오류가 표시 되 고 사용자 지정. 로그 위치를 확인 합니다. 예를 들면 다음과 같습니다.
 
 :::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="오류를 표시 하는 DevOps 태스크의 예입니다.":::
 

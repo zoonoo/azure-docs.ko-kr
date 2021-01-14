@@ -1,18 +1,18 @@
 ---
-title: 부서의 범위 Insights (미리 보기)를 사용 하 여 데이터에 대 한 분류 보고
-description: 이 방법 가이드에서는 데이터에 대 한 부서의 범위 Insights 분류 보고를 보고 사용 하는 방법을 설명 합니다.
+title: 부서의 범위 Insights를 사용 하 여 Azure 부서의 범위에서 데이터에 대 한 분류 보고
+description: 이 방법 가이드에서는 데이터에 대 한 부서의 범위 분류 보고를 보고 사용 하는 방법을 설명 합니다.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: bb3c7cc3f51eae90c5b712d224407e639b232fbc
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938888"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196540"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 분류 통찰력
 
@@ -27,13 +27,15 @@ ms.locfileid: "96938888"
 > - 데이터에 대 한 분류 정보 보기
 > - 드릴 다운 하 여 데이터에 대 한 자세한 분류 정보
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
 - Azure 리소스를 설정 하 고 테스트 데이터를 사용 하 여 관련 계정 채우기
 
-- 각 데이터 원본의 테스트 데이터에 대 한 검색 설정 및 완료 
+- 각 데이터 원본의 테스트 데이터에 대 한 검색 설정 및 완료
+
+- [데이터 판독기 또는 데이터 큐레이터 역할이](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles)있는 계정을 사용 하 여 부서의 범위에 로그인 했습니다.
 
 자세한 내용은 [Azure 부서의 범위에서 데이터 원본 관리 (미리 보기)](manage-data-sources.md)를 참조 하세요.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e7be42b2a6e9f2cdc1aa0258f218fea9fd963093
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c27ef1af3e439b22f00f9247b5270118bbe9ca89
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532037"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197713"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Batch에 대 한 Azure 보안 기준
 
@@ -312,7 +312,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure Batch 리소스에 로그인 하 고 구성 하도록 구성 된 다단계 인증을 사용 하는 paw (권한 있는 액세스 워크스테이션)를 사용 합니다.
 
-- [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Azure에서 다단계 인증을 사용 하도록 설정 하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 

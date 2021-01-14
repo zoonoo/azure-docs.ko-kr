@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: bc796b4d9708c18f4d0612e6f3ebde9b2485d2f7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 70855f7956e42d815e0b8135ccfe6e374853d8aa
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093143"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197526"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 OS 디스크를 복구 VM에 연결하는 방식으로 Linux VM 문제 해결
 Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목으로 인해 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Linux VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure CLI를 사용하는 방법을 자세히 설명합니다. 
@@ -36,7 +36,7 @@ Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우
 
 이러한 문제 해결 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
 
-VM 복구 명령을 사용 하 여 1, 2, 3, 4, 6, 7 단계를 자동화할 수 있습니다. 자세한 설명서 및 지침은 [Azure 가상 컴퓨터 복구 명령을 사용 하 여 LINUX VM 복구](repair-linux-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조 하세요.
+VM 복구 명령을 사용 하 여 1, 2, 3, 4, 6, 7 단계를 자동화할 수 있습니다. 자세한 설명서 및 지침은 [Azure 가상 컴퓨터 복구 명령을 사용 하 여 LINUX VM 복구](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)를 참조 하세요.
 
 > [!Important]
 > 이 문서의 스크립트는 [관리 디스크](../managed-disks-overview.md)를 사용하는 VM에만 적용됩니다. 

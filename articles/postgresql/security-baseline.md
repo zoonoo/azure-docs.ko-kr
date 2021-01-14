@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 830f58ea11ba84dd2aee81c0352b3ede4aa4929c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8aecee0946c8418016be542e65b117894c68c591
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498254"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197611"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 용 Azure 보안 기준-단일 서버
 
@@ -366,7 +366,7 @@ Azure Database for PostgreSQL 리소스 자체를 만들 때는 Azure에서 강�
 
 **지침**: Azure 리소스에 로그인하여 구성하도록 구성된 MFA(Multi-Factor Authentication)를 통해 PAW(Privileged Access Workstation)를 사용합니다.
 
-- [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -574,7 +574,7 @@ Microsoft는 Azure Database for PostgreSQL에 대한 기본 인프라를 관리�
 
 CMK(고객 관리형 키)를 Azure Database for PostgreSQL 단일 서버에 사용하는 데이터 암호화를 사용하면 저장 데이터 보호에 대한 고유한 키(BYOK)를 가져올 수 있습니다. 현재 이 기능을 사용하려면 액세스를 요청해야 합니다. 이렇게 하려면 다음에 문의하세요.
 
-AskAzureDBforPostgreSQL@service.microsoft.com.
+AskAzureDBforPostgreSQL@service.microsoft.com입니다.
 
 - [Azure Database for PostgreSQL에 대 한 미사용 암호화 이해](concepts-security.md)
 

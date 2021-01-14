@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 29e72f8358591614489be2731d16e89428ef388b
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301362"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195724"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대 한 Azure 보안 기준
 
@@ -90,7 +90,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems"></a>1.6: 네트워크 기반 침입 감지/침입 방지 시스템 배포
 
-**지침**: Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 보안 경고는 Azure Security Center와 통합 되며, 의심 스러운 활동 및 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 구독 관리자에 게 전자 메일을 통해 전송 됩니다. 
+**지침**: Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 보안 경고는 Azure Security Center와 통합되며, 의심스러운 활동에 대한 세부 정보 및 위협을 조사하고 수정하는 방법에 대한 권장 사항을 포함하여 구독 관리자에게 메일로도 전송됩니다. 
 
 - [Azure Storage에 대 한 advanced threat protection 구성](./azure-defender-storage-configure.md)
 
@@ -220,7 +220,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: Azure Storage 로그를 검토 하려면 Log Analytics 제품을 통한 쿼리와 같은 일반적인 옵션과 로그 파일을 직접 볼 수 있는 고유한 옵션을 사용할 수 있습니다. Azure Storage에서 로그는에 직접 액세스 해야 하는 blob에 저장 됩니다 `http://accountname.blob.core.windows.net/$logs` . 로깅 폴더는 기본적으로 숨겨져 있으므로 직접 탐색 해야 합니다. 목록 명령에 표시 되지 않습니다.) 
 
-또한 Azure Storage 계정에 대해 Advanced Threat Protection을 사용 하도록 설정 합니다. Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 보안 경고는 Azure Security Center와 통합 되며, 의심 스러운 활동 및 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 구독 관리자에 게 전자 메일을 통해 전송 됩니다. 
+또한 Azure Storage 계정에 대해 Advanced Threat Protection을 사용 하도록 설정 합니다. Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 보안 경고는 Azure Security Center와 통합되며, 의심스러운 활동에 대한 세부 정보 및 위협을 조사하고 수정하는 방법에 대한 권장 사항을 포함하여 구독 관리자에게 메일로도 전송됩니다. 
 
 - [데이터 기록 및 검토](./storage-analytics-logging.md#how-logs-are-stored)
 
@@ -346,7 +346,7 @@ Microsoft 서비스 및 Azure ARM에 대해 Azure AD Privileged Identity Managem
 
 **지침**: MFA가 구성 된 paw (권한 있는 액세스 워크스테이션)를 사용 하 여 저장소 계정 리소스에 로그인 하 고 구성 합니다. 
 
-- [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -1107,7 +1107,7 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

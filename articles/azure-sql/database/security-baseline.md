@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f9930f42e7d76820674405a98ef53489b91f31f5
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 12c7fd1d8ee36b562cd651f50fd0565825441883
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985691"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197390"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database에 대 한 Azure 보안 기준
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -383,7 +383,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **지침**: Azure Active Directory (Azure AD) MULTI-FACTOR AUTHENTICATION (MFA)를 사용 하도록 설정 하 고 Azure Security Center Id 및 액세스 관리 권장 사항을 따릅니다.
 
-Azure에서 MFA를 사용하도록 설정하는 방법: 
+Azure에서 MFA를 사용 하도록 설정 하는 방법:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -401,9 +401,9 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 Privileged Access Workstation에 대한 자세한 정보: 
 
-https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
-Azure에서 MFA를 사용하도록 설정하는 방법: 
+Azure에서 MFA를 사용 하도록 설정 하는 방법:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -565,7 +565,7 @@ Azure SQL Database 인스턴스에서 데이터 반출을 방지 하도록 개�
 
 https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview
 
-Azure의 고객 데이터 보호 이해: 
+Azure의 고객 데이터 보호 이해:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -617,7 +617,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-control-access
 
 **지침**: Microsoft는 Azure SQL Database에 대 한 기본 인프라를 관리 하 고, 고객 데이터 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
-Azure의 고객 데이터 보호 이해: 
+Azure의 고객 데이터 보호 이해:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -627,7 +627,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: 중요한 저장 정보 암호화
 
-**지침**: tde (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협 으로부터 Azure SQL Database, azure SQL Managed Instance 및 Azure data Warehouse를 보호 하는 데 도움이 됩니다. 데이터베이스, 연결된 백업 및 미사용 로그 파일 트랜잭션에 애플리케이션을 변경하지 않고 실시간으로 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 SQL Database 및 SQL Managed Instance에서 새로 배포 된 모든 데이터베이스에 대해 사용 하도록 설정 됩니다. Microsoft 또는 고객은 TDE 암호화 키를 관리할 수 있습니다.
+**지침**: tde (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협 으로부터 Azure SQL Database, azure SQL Managed Instance 및 Azure data Warehouse를 보호 하는 데 도움이 됩니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 SQL Database 및 SQL Managed Instance에서 새로 배포 된 모든 데이터베이스에 대해 사용 하도록 설정 됩니다. Microsoft 또는 고객은 TDE 암호화 키를 관리할 수 있습니다.
 
 투명 한 데이터 암호화를 관리 하 고 사용자 고유의 암호화 키를 사용 하는 방법:
 
@@ -875,7 +875,7 @@ Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세�
 
 **지침**: Azure SQL Database에 대 한 Azure Policy 또는 Azure Security Center 권장 사항을 사용 하 여 모든 Azure 리소스에 대 한 보안 구성을 유지 합니다.
 
-Azure Policy를 구성하고 관리하는 방법: 
+Azure Policy를 구성 하 고 관리 하는 방법:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -1155,7 +1155,7 @@ https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **지침**: Microsoft 보안 대응 센터 (MSRC)가 불법적인 또는 권한이 없는 당사자가 데이터에 액세스 한 것을 발견 한 경우 microsoft에서 사용자에 게 연락 하는 데 사용 됩니다.
 
-Azure Security Center 보안 연락처를 설정하는 방법: 
+Azure Security Center 보안 담당자를 설정 하는 방법:
 
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
@@ -1171,7 +1171,7 @@ https://docs.microsoft.com/azure/security-center/security-center-provide-securit
 
 https://docs.microsoft.com/azure/security-center/continuous-export
 
-경고를 Azure Sentinel로 스트림하는 방법: 
+경고를 Azure 센티널로 스트리밍하는 방법:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 

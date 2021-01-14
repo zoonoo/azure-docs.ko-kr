@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 0cdb82bbf38244bc91ed54ffb7d7d734cefe9dd2
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183322"
+ms.locfileid: "98195877"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -206,8 +206,10 @@ foreach ($webapp in $webapp_list)
 현재 사용자에 게 변경 내용을 볼 수 있는 권한이 없다는 것을 설명 하는 일반 무단 오류 메시지입니다. Azure 리소스 그래프 및 Azure Resource Manager에서 반환 된 인프라 변경 내용을 보려면 리소스에 대해 최소한의 판독기 액세스가 필요 합니다. 웹 앱 게스트 파일 변경 및 구성 변경의 경우 참가자 역할이 최소한 필요 합니다.
 
 ### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Microsoft. ChangeAnalysis 리소스 공급자를 등록 하지 못했습니다.
+이 메시지는 UI가 리소스 공급자를 등록 하 라는 요청을 보낸 후 즉시 실패 한 것을 의미 하며, 권한 문제와는 관련이 없습니다. 일시적인 인터넷 연결 문제일 가능성이 있습니다. 페이지를 새로 고치고 인터넷 연결을 확인 하세요. 오류가 계속 발생 하면 다음으로 문의 하세요. changeanalysishelp@microsoft.com
  
-**Microsoft. ChangeAnalysis 리소스 공급자를 등록할 수 있는 권한이 없습니다. Azure 구독 관리자에 게 문의 하세요.** 이 오류 메시지는 현재 구독의 역할에 **Microsoft. 지원/등록/동작** 범위가 연결 되어 있지 않음을 의미 합니다. 이는 구독의 소유자가 아니고 동료를 통해 공유 액세스 권한을 받은 경우에 발생할 수 있습니다. 즉, 리소스 그룹에 대 한 액세스를 봅니다. 이 문제를 해결 하려면 구독의 소유자에 게 문의 하 여 **Microsoft. ChangeAnalysis** 리소스 공급자를 등록 합니다. 이 작업은 구독을 통해 Azure Portal에서 수행할 수 있습니다. **| 리소스 공급자** 를 검색 하 고 ```Microsoft.ChangeAnalysis``` UI를 검색 하 고 등록 하거나 Azure PowerShell 또는 Azure CLI를 통해 등록 합니다.
+### <a name="you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider-contact-your-azure-subscription-administrator"></a>Microsoft. ChangeAnalysis 리소스 공급자를 등록할 수 있는 권한이 없습니다. Azure 구독 관리자에 게 문의 하세요.
+이 오류 메시지는 현재 구독의 역할에 **Microsoft. 지원/등록/동작** 범위가 연결 되어 있지 않음을 의미 합니다. 이는 구독의 소유자가 아니고 동료를 통해 공유 액세스 권한을 받은 경우에 발생할 수 있습니다. 즉, 리소스 그룹에 대 한 액세스를 봅니다. 이 문제를 해결 하려면 구독의 소유자에 게 문의 하 여 **Microsoft. ChangeAnalysis** 리소스 공급자를 등록 합니다. 이 작업은 구독을 통해 Azure Portal에서 수행할 수 있습니다. **| 리소스 공급자** 를 검색 하 고 ```Microsoft.ChangeAnalysis``` UI를 검색 하 고 등록 하거나 Azure PowerShell 또는 Azure CLI를 통해 등록 합니다.
 
 PowerShell을 통해 리소스 공급자를 등록 합니다. 
 

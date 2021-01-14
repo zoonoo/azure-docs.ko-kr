@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5ec3500c124d3e4f8cb1b46445c28c6a64c93526
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97880990"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195452"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure(대규모 인스턴스)란?
 
@@ -52,11 +52,11 @@ SAP HANA on Azure(대규모 인스턴스)는 Azure의 고유한 솔루션입니�
 
 HANA 대규모 인스턴스 지침의 다른 문서는 다음 영역을 다룹니다.
 
-- [Azure의 SAP HANA (Large Instances) 개요 및 아키텍처](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure에서 SAP HANA (대량 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA on Azure(대규모 인스턴스) 설치 및 구성](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure에서 SAP HANA (큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure에서 SAP HANA (규모가 많은 인스턴스) 문제 해결 및 모니터링](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure의 SAP HANA (Large Instances) 개요 및 아키텍처](hana-overview-architecture.md)
+- [Azure에서 SAP HANA (대량 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md)
+- [SAP HANA on Azure(대규모 인스턴스) 설치 및 구성](hana-installation.md)
+- [Azure에서 SAP HANA (큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)
+- [Azure에서 SAP HANA (규모가 많은 인스턴스) 문제 해결 및 모니터링](troubleshooting-monitoring.md)
 - [STONITH를 사용하여 SUSE에서 고가용성 설정](./ha-setup-with-stonith.md)
 - [수정 버전 3 스탬프의 유형 II Sku에 대 한 OS 백업 및 복원](./os-backup-type-ii-skus.md)
 - [Azure 예약을 사용하여 SAP HANA(대규모 인스턴스) 비용 절감](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: dfa0efaa49fbca0b927bfd32511348f3ded7e6c7
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 96c68850cfd8b03f7d1457eb0f1ca9ce5880c926
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302804"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198002"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 
@@ -88,7 +88,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 방법 배우기:
 
 - [Azure CLI를 사용하여 Linux VM 만들기 및 사용자 지정 스크립트 확장 사용](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json)
-- [Azure PowerShell을 사용하여 Windows VM 만들기 및 사용자 지정 스크립트 확장 사용](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+- [Azure PowerShell을 사용하여 Windows VM 만들기 및 사용자 지정 스크립트 확장 사용](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md)
 
 
 ## <a name="packer"></a>Packer
@@ -138,7 +138,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
-[Azure Resource Manager](../azure-resource-manager/templates/overview.md) 은 Azure에 대 한 배포 및 관리 서비스입니다. Azure 구독에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성합니다.
+[Azure Resource Manager](../azure-resource-manager/templates/overview.md)는 Azure용 배포 및 관리 서비스입니다. Azure 구독에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성합니다.
 
 방법 배우기:
 

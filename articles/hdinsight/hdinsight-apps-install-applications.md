@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3c1c7ac8fe8b7adf287bcde30a054df5ebaa63d7
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 2b6ea68d069b90293ab35024bebf3fbdc8acb592
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337443"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197679"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -37,7 +37,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 |[Azure HDInsight용 Starburst Presto](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1579800938563.starburst-presto?tab=Overview) |Hadoop은 |Presto는 빠르고 확장 가능한 분산 SQL 쿼리 엔진입니다. 스토리지 및 컴퓨팅을 분리하기 위해 설계된 Presto는 Azure Data Lake Storage, Azure Blob Storage, SQL 및 NoSQL 데이터베이스와 기타 데이터 원본의 데이터를 쿼리하는 데 이상적입니다. |
 |[HDInsight Cloud용 StreamSets Data Collector](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop, HBase, Spark, Kafka |StreamSets Data Collector는 데이터를 실시간으로 스트림하는 간단하고 강력한 엔진입니다. Data Collector를 사용하여 데이터 스트림에서 데이터를 라우팅하고 처리합니다. 30일 평가판 라이선스가 함께 제공됩니다. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark, HBase |HDInsight용 Trifacta Wrangler Enterprise는 모든 규모의 데이터에 대해 엔터프라이즈 전체 데이터 랭글링를 지원합니다. Azure에서 Trifacta를 실행하는 비용은 Trifacta 구독 비용과 가상 머신에 대한 Azure 인프라 비용의 조합입니다. |
-|[Unifi 데이터 플랫폼](https://unifisoftware.com/platform/) |Hadoop, HBase, Storm, Spark |Unifi 데이터 플랫폼은 원활하게 통합되는 셀프 서비스 데이터 도구 제품군으로, 비즈니스 사용자가 데이터 과제를 해결하여 수익을 높이고 비용 또는 운영 복잡성을 줄일 수 있도록 설계되었습니다. |
+|[Unifi 데이터 플랫폼](https://www.crunchbase.com/organization/unifi-software) |Hadoop, HBase, Storm, Spark |Unifi 데이터 플랫폼은 원활하게 통합되는 셀프 서비스 데이터 도구 제품군으로, 비즈니스 사용자가 데이터 과제를 해결하여 수익을 높이고 비용 또는 운영 복잡성을 줄일 수 있도록 설계되었습니다. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |HDInsight Spark 클러스터용 Unravel Data 앱입니다. |
 |[Waterline AI 기반 데이터 카탈로그](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Waterline은 자동으로 데이터에 비즈니스 용어를 태그로 지정하는 AI를 사용하여 데이터를 범주화, 정리 및 관리합니다. Waterline의 비즈니스에 익숙한 카탈로그는 셀프 서비스 분석, 규정 준수 및 거버넌스, IT 관리 이니셔티브에 중요한 성공 구성 요소입니다. |
 
