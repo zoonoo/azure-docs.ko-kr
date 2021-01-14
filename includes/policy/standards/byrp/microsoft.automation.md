@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 12/01/2020
+ms.date: 01/08/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: c2385d07ccb81041bd340a8bec0412a8f14cef56
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 69e9240a107856f620235191cda8660cc0164e55
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96477529"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048279"
 ---
 ## <a name="azure-security-benchmark"></a>Azure 보안 벤치마크
 
@@ -22,5 +22,3 @@ ms.locfileid: "96477529"
 |---|---|---|---|---|
 |데이터 보호 |4.8 |중요한 저장 정보 암호화 |[Automation 계정 변수를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 
-> [!NOTE]
-> Automation 계정 변수를 만들 때 Azure Automation에서 암호화 및 스토리지를 보안 자산으로 지정할 수 있습니다. 변수를 만든 후에는 변수를 다시 만들지 않고는 암호화 상태를 변경할 수 없습니다. 아직 암호화되지 않은 중요한 데이터를 저장하는 Automation 계정 변수가 있는 경우 이를 삭제하고 암호화된 변수로 다시 만들어야 합니다. Azure Security Center 권장 사항은 [Automation 계정 변수를 암호화해야 함](../../../../articles/security-center/recommendations-reference.md#recs-computeapp)에 설명된 대로 모든 Azure Automation 변수를 암호화하는 것입니다. 이 보안 권장 사항에서 제외하려는 암호화되지 않은 변수가 있는 경우 [권장 사항 및 보안 점수에서 리소스 제외](../../../../articles/security-center/exempt-resource.md)를 참조하여 예외 규칙을 만듭니다.

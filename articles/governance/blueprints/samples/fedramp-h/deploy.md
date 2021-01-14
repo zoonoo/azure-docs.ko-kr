@@ -1,14 +1,14 @@
 ---
 title: FedRAMP High 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 FedRAMP High 청사진 샘플에 대한 단계를 배포합니다.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5d08eb932748ca01fd5780266248bde4025a3d2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 065f1343066f5d0ac9b0846de790124e907a5e24
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669313"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034869"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>FedRAMP High 청사진 샘플 배포
 
@@ -33,8 +33,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 샘플의 _기본 사항_ 을 입력합니다.
 
-   - **청사진 이름** : FedRAMP High 청사진 샘플 사본의 이름을 지정합니다.
-   - **정의 위치** : 줄임표를 사용하고 샘플 사본을 저장할 관리 그룹을 선택합니다.
+   - **청사진 이름**: FedRAMP High 청사진 샘플 사본의 이름을 지정합니다.
+   - **정의 위치**: 줄임표를 사용하고 샘플 사본을 저장할 관리 그룹을 선택합니다.
 
 1. 페이지 위쪽의 _아티팩트_ 탭 또는 페이지 아래쪽의 **다음: 아티팩트** 를 선택합니다.
 
@@ -64,11 +64,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    - 기본 사항
 
-     - **구독** : 청사진 샘플 사본을 저장한 관리 그룹에 있는 하나 이상의 구독을 선택합니다. 둘 이상의 구독을 선택하면 입력한 매개 변수를 사용하여 각 구독의 할당이 생성됩니다.
-     - **할당 이름** : 청사진의 이름에 따라 이 이름이 미리 채워집니다.
+     - **구독**: 청사진 샘플 사본을 저장한 관리 그룹에 있는 하나 이상의 구독을 선택합니다. 둘 이상의 구독을 선택하면 입력한 매개 변수를 사용하여 각 구독의 할당이 생성됩니다.
+     - **할당 이름**: 청사진의 이름에 따라 이 이름이 미리 채워집니다.
        필요에 따라 변경하거나 그대로 둡니다.
-     - **위치** : 관리 ID를 만들 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
-     - **청사진 정의 버전** : 청사진 샘플 사본의 **게시됨** 버전을 선택합니다.
+     - **위치**: 관리 ID를 만들 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+     - **청사진 정의 버전**: 청사진 샘플 사본의 **게시됨** 버전을 선택합니다.
 
    - 할당 잠금
 

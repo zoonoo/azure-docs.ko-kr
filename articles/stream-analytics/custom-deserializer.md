@@ -1,18 +1,17 @@
 ---
 title: 자습서 - Azure Stream Analytics 클라우드 작업을 위한 사용자 지정 .NET 역직렬 변환기
 description: 이 자습서에서는 Visual Studio를 사용하여 Azure Stream Analytics 클라우드 작업을 위한 사용자 지정 .NET 역직렬 변환기를 만드는 방법을 보여줍니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/17/2020
-ms.openlocfilehash: 2353d15707fe215bfcab7912f2a9c598c4af7e49
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 6db65d85b5d5d72e7b4764949abcffed004cae85
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822015"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018210"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>자습서: Azure Stream Analytics를 위한 사용자 지정 .NET 역직렬 변환기
 

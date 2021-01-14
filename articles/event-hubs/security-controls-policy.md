@@ -1,18 +1,18 @@
 ---
 title: Azure Event Hubs에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Event Hubs에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: event-hubs
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: c5b3d0569ef0babbf50f11ddc90423d5f536405b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1314b77d556631fe24b283ef7f38bbe747d6cbc9
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988500"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048092"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-hubs"></a>Azure Event Hubs에 대한 Azure Policy 규정 준수 컨트롤
 

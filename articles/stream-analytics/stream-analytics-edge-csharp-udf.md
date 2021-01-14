@@ -1,19 +1,18 @@
 ---
 title: 자습서 - Visual Studio에서 Azure Stream Analytics 작업에 대한 C# 사용자 정의 함수 작성(미리 보기)
 description: 이 자습서에서는 Visual Studio에서 Stream Analytics 작업용으로 C# 사용자 정의 함수를 작성하는 방법을 보여줍니다.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d53f13cb740b3feb39dc64ce012ff320afbb1db5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 851229e441aa2fbdf7b6eec05390c0ce2b149da2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130496"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020471"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>자습서: Azure Stream Analytics 작업용 C# 사용자 정의 함수 작성(미리 보기)
 
@@ -46,7 +45,7 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
 
 3. 왼쪽의 템플릿 목록에서 **Stream Analytics** 를 선택한 다음, **Azure Stream Analytics Edge 애플리케이션** 또는 **Azure Stream Analytics 애플리케이션** 을 선택합니다.
 
-4.  프로젝트 **이름** , **위치** 및 **솔루션 이름** 을 입력하고, **확인** 을 선택합니다.
+4.  프로젝트 **이름**, **위치** 및 **솔루션 이름** 을 입력하고, **확인** 을 선택합니다.
 
     ![Visual Studio에서 Azure Stream Analytics Edge 프로젝트 만들기](./media/stream-analytics-edge-csharp-udf/stream-analytics-create-edge-app.png)
 
