@@ -11,12 +11,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 76d53458154a7e66589c16f955373975bb04b25b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: fd56ef74a7641a01eae2354f149f45e84ff56833
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121639"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217450"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -58,7 +58,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 5. 자체 호스팅 통합 런타임은 온-프레미스 저장소와 클라우드 저장소 간에 데이터를 복사 합니다. 복사 방향은 데이터 파이프라인에서 복사 작업을 구성 하는 방법에 따라 달라 집니다. 이 단계에서 자체 호스팅 통합 런타임은 보안 HTTPS 채널을 통해 Azure Blob 저장소와 같은 클라우드 기반 저장소 서비스와 직접 통신 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 지원 되는 Windows 버전은 다음과 같습니다.
   + Windows 8.1
@@ -157,21 +157,21 @@ dmgcmd ACTION args...
 
 |ACTION|args|설명|
 |------|----|-----------|
-|수락<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|지정 된 인증 키와 노드 이름을 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다.|
-|서<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|현재 노드에서 원격 액세스를 사용 하도록 설정 하 여 고가용성 클러스터를 설정 합니다. 또는 Azure Data Factory를 거치지 않고 자체 호스팅 IR에 대해 직접 자격 증명을 설정할 수 있습니다. 후자는 동일한 네트워크에 있는 원격 컴퓨터에서 **AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용 하 여 수행 합니다.|
-|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|노드가 컨테이너에서 실행 될 때 현재 노드에 대 한 원격 액세스를 사용 하도록 설정 합니다.|
-|기다리는<br/>-DisableRemoteAccess||현재 노드에 대 한 원격 액세스를 사용 하지 않도록 설정 합니다. 다중 노드 설정에는 원격 액세스가 필요 합니다. **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet은 원격 액세스가 사용 하지 않도록 설정 된 경우에도 계속 작동 합니다. 이 동작은 cmdlet이 자체 호스팅 IR 노드와 동일한 컴퓨터에서 실행 되는 경우에만 적용 됩니다.|
-|시계의<br/>-키|"`<AuthenticationKey>`"|이전 인증 키를 덮어쓰거나 업데이트 합니다. 이 작업에 주의 하세요. 이전 자체 호스팅 IR 노드는 키가 새 통합 런타임 인 경우 오프 라인으로 전환할 수 있습니다.|
-|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|현재 노드에 대 한 백업 파일을 생성 합니다. 백업 파일에는 노드 키와 데이터 저장소 자격 증명이 포함 됩니다.|
-|-ibf,<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|백업 파일에서 노드를 복원 합니다.|
-|&<br/>-Restart||자체 호스팅 integration runtime 호스트 서비스를 다시 시작 합니다.|
-|삭제<br/>-시작||자체 호스팅 integration runtime 호스트 서비스를 시작 합니다.|
-|트<br/>-Stop||자체 호스팅 integration runtime 호스트 서비스를 중지 합니다.|
-|su<br/>-StartUpgradeService||자체 호스팅 integration runtime 업그레이드 서비스를 시작 합니다.|
-|tu<br/>-StopUpgradeService||자체 호스팅 integration runtime 업그레이드 서비스를 중지 합니다.|
-|-tonau,<br/>-비영구 자동 업데이트||자체 호스팅 integration runtime 자동 업데이트를 설정 합니다.|
-|-toffau,<br/>-TurnOffAutoUpdate||자체 호스팅 integration runtime 자동 업데이트를 해제 합니다.|
-|s<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|새 계정으로 실행 되도록 DIAHostService를 설정 합니다. 시스템 계정 및 가상 계정에는 빈 암호 ""를 사용 합니다.|
+|`-rn`,<br/>`-RegisterNewNode`|"`<AuthenticationKey>`" ["`<NodeName>`"]|지정 된 인증 키와 노드 이름을 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다.|
+|`-era`,<br/>`-EnableRemoteAccess`|"`<port>`" ["`<thumbprint>`"]|현재 노드에서 원격 액세스를 사용 하도록 설정 하 여 고가용성 클러스터를 설정 합니다. 또는 Azure Data Factory를 거치지 않고 자체 호스팅 IR에 대해 직접 자격 증명을 설정할 수 있습니다. 후자는 동일한 네트워크에 있는 원격 컴퓨터에서 **AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용 하 여 수행 합니다.|
+|`-erac`,<br/>`-EnableRemoteAccessInContainer`|"`<port>`" ["`<thumbprint>`"]|노드가 컨테이너에서 실행 될 때 현재 노드에 대 한 원격 액세스를 사용 하도록 설정 합니다.|
+|`-dra`,<br/>`-DisableRemoteAccess`||현재 노드에 대 한 원격 액세스를 사용 하지 않도록 설정 합니다. 다중 노드 설정에는 원격 액세스가 필요 합니다. **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet은 원격 액세스가 사용 하지 않도록 설정 된 경우에도 계속 작동 합니다. 이 동작은 cmdlet이 자체 호스팅 IR 노드와 동일한 컴퓨터에서 실행 되는 경우에만 적용 됩니다.|
+|`-k`,<br/>`-Key`|"`<AuthenticationKey>`"|이전 인증 키를 덮어쓰거나 업데이트 합니다. 이 작업에 주의 하세요. 이전 자체 호스팅 IR 노드는 키가 새 통합 런타임 인 경우 오프 라인으로 전환할 수 있습니다.|
+|`-gbf`,<br/>`-GenerateBackupFile`|"`<filePath>`" "`<password>`"|현재 노드에 대 한 백업 파일을 생성 합니다. 백업 파일에는 노드 키와 데이터 저장소 자격 증명이 포함 됩니다.|
+|`-ibf`,<br/>`-ImportBackupFile`|"`<filePath>`" "`<password>`"|백업 파일에서 노드를 복원 합니다.|
+|`-r`,<br/>`-Restart`||자체 호스팅 integration runtime 호스트 서비스를 다시 시작 합니다.|
+|`-s`,<br/>`-Start`||자체 호스팅 integration runtime 호스트 서비스를 시작 합니다.|
+|`-t`,<br/>`-Stop`||자체 호스팅 integration runtime 호스트 서비스를 중지 합니다.|
+|`-sus`,<br/>`-StartUpgradeService`||자체 호스팅 integration runtime 업그레이드 서비스를 시작 합니다.|
+|`-tus`,<br/>`-StopUpgradeService`||자체 호스팅 integration runtime 업그레이드 서비스를 중지 합니다.|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||자체 호스팅 integration runtime 자동 업데이트를 설정 합니다.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||자체 호스팅 integration runtime 자동 업데이트를 해제 합니다.|
+|`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|새 계정으로 실행 되도록 DIAHostService를 설정 합니다. 시스템 계정 및 가상 계정에는 빈 암호 ""를 사용 합니다.|
 
 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Microsoft 다운로드 센터에서 자체 호스팅 IR 설치 및 등록
@@ -205,9 +205,9 @@ dmgcmd ACTION args...
 
 계정에 서비스로 로그온 권한이 있는지 확인 합니다. 그렇지 않으면 자체 호스팅 통합 런타임을 성공적으로 시작할 수 없습니다. **로컬 보안 정책-> 보안 설정-> 로컬 정책-> 사용자 권한 할당-서비스로 로그온 >에 대 한** 권한을 확인할 수 있습니다.
 
-![서비스 계정 권한](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+![로컬 보안 정책-사용자 권한 할당의 스크린샷](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
 
-![서비스 계정 권한](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+![서비스로 로그온 사용자 권한 할당 스크린샷](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
 
 
 ## <a name="notification-area-icons-and-notifications"></a>알림 영역 아이콘 및 알림

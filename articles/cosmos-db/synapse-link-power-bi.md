@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: be2657d9606f260fcea06d2535be87fc6976577c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 8a3142199502b912f20ebe05c625aa40be9fab11
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915677"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218674"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Power BI 및 서버를 사용 하지 않는 Synapse SQL 풀 (미리 보기)을 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "97915677"
 
 ## <a name="create-a-database-and-views"></a>데이터베이스 및 뷰 만들기
 
-Synapse 작업 영역에서 **개발** 탭으로 이동 하 여 **+** 아이콘을 선택 하 고 **SQL 스크립트** 를 선택 합니다.
+Master 또는 기본 데이터베이스에서 뷰를 만드는 것은 권장 되지 않거나 지원 되지 않습니다. 따라서 데이터베이스를 만들어이 단계를 시작 해야 합니다. Synapse 작업 영역에서 **개발** 탭으로 이동 하 여 **+** 아이콘을 선택 하 고 **SQL 스크립트** 를 선택 합니다.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
 

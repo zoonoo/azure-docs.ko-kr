@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: 5cd050c88fbc954a211c3a75cdabcb557ae998c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d86d4248b449ad3961a7798fd36a320eb6a74009
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073922"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217076"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -26,7 +26,7 @@ ms.locfileid: "87073922"
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-이 문서에서는 PowerShell을 사용하여 Azure Resource Manager 배포 모델을 통해 VM(가상 컴퓨터)을 만드는 방법을 설명합니다. 클래식 배포 모델을 통해 생성된 리소스에 여러 IP 주소를 할당할 수 없습니다. Azure 배포 모델에 대해 자세히 알아보려면 [배포 모델 이해](../resource-manager-deployment-model.md) 문서를 참조하세요.
+이 문서에서는 PowerShell을 사용하여 Azure Resource Manager 배포 모델을 통해 VM(가상 컴퓨터)을 만드는 방법을 설명합니다. 클래식 배포 모델을 통해 생성된 리소스에 여러 IP 주소를 할당할 수 없습니다. Azure 배포 모델에 대해 자세히 알아보려면 [배포 모델 이해](../azure-resource-manager/management/deployment-models.md) 문서를 참조하세요.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
@@ -36,7 +36,7 @@ ms.locfileid: "87073922"
 
 1. PowerShell 명령 프롬프트를 열고 단일 PowerShell 세션 내에서 이 섹션의 나머지 단계를 완료합니다. Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/) 문서의 단계를 완료합니다.
 2. `Connect-AzAccount` 명령을 사용하여 계정에 로그인합니다.
-3. *myResourceGroup* 및 *westus*를 선택한 이름과 위치로 바꿉니다. 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+3. *myResourceGroup* 및 *westus* 를 선택한 이름과 위치로 바꿉니다. 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
    ```powershell
    $RgName   = "MyResourceGroup"
@@ -92,9 +92,9 @@ ms.locfileid: "87073922"
     -SecurityRules $NSGRule
     ```
 
-6. NIC에 대한 기본 IP 구성을 정의합니다. 이전에 정의된 값을 사용하지 않는 경우 10.0.0.4를 만든 서브넷의 올바른 주소로 변경합니다. 고정 IP 주소를 할당하기 전에 먼저 해당 주소를 이미 사용하고 있지 않은지 확인하는 것이 좋습니다. `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet` 명령을 입력합니다. 주소를 사용할 수 있는 경우 출력은 *True*를 반환합니다. 사용할 수 없는 경우 출력은 *False* 와 사용할 수 있는 주소 목록을 반환 합니다. 
+6. NIC에 대한 기본 IP 구성을 정의합니다. 이전에 정의된 값을 사용하지 않는 경우 10.0.0.4를 만든 서브넷의 올바른 주소로 변경합니다. 고정 IP 주소를 할당하기 전에 먼저 해당 주소를 이미 사용하고 있지 않은지 확인하는 것이 좋습니다. `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet` 명령을 입력합니다. 주소를 사용할 수 있는 경우 출력은 *True* 를 반환합니다. 사용할 수 없는 경우 출력은 *False* 와 사용할 수 있는 주소 목록을 반환 합니다. 
 
-    다음 명령에서을 ** \<replace-with-your-unique-name> 사용할 고유한 DNS 이름으로 바꿉니다.** 이름은 Azure 지역 내의 모든 공용 IP 주소에서 고유해야 합니다. 선택적 매개 변수입니다. 공용 IP 주소를 사용하여 VM에 연결하려는 경우에만 제거할 수 있습니다.
+    다음 명령에서을 **\<replace-with-your-unique-name> 사용할 고유한 DNS 이름으로 바꿉니다.** 이름은 Azure 지역 내의 모든 공용 IP 주소에서 고유해야 합니다. 선택적 매개 변수입니다. 공용 IP 주소를 사용하여 VM에 연결하려는 경우에만 제거할 수 있습니다.
 
     ```powershell
     
@@ -116,7 +116,7 @@ ms.locfileid: "87073922"
     -Primary
     ```
 
-    NIC에 여러 IP 구성을 할당하는 경우 하나의 구성이 *기본*으로 할당되어야 합니다.
+    NIC에 여러 IP 구성을 할당하는 경우 하나의 구성이 *기본* 으로 할당되어야 합니다.
 
     > [!NOTE]
     > 공용 IP 주소에는 명목 요금이 부과됩니다. IP 주소 가격에 대한 자세한 내용은 [IP 주소 가격](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요. 구독 내에서 사용할 수 있는 공용 IP 주소의 수는 제한되어 있습니다. 이러한 한에 대한 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
@@ -217,7 +217,7 @@ ms.locfileid: "87073922"
    $MyNIC = Get-AzNetworkInterface -Name $NicName -ResourceGroupName $RgName
    ```
 
-4. 다음 명령에서 *MyVNet* 및 *MySubnet*을 NIC가 연결된 VNet 및 서브넷의 이름으로 변경합니다. NIC가 연결된 VNet 및 서브넷 개체를 검색하는 명령을 입력합니다.
+4. 다음 명령에서 *MyVNet* 및 *MySubnet* 을 NIC가 연결된 VNet 및 서브넷의 이름으로 변경합니다. NIC가 연결된 VNet 및 서브넷 개체를 검색하는 명령을 입력합니다.
 
    ```powershell
    $MyVNet = Get-AzVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
@@ -236,13 +236,13 @@ ms.locfileid: "87073922"
    "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet/subnets/MySubnet"
    ```
 
-    이 출력의 경우 *MyVnet*은 VNet, *MySubnet*은 NIC가 연결된 서브넷입니다.
+    이 출력의 경우 *MyVnet* 은 VNet, *MySubnet* 은 NIC가 연결된 서브넷입니다.
 
 5. 요구 사항에 따라 다음 섹션 중 하나의 단계를 완료합니다.
 
    **개인 IP 주소 추가**
 
-   NIC에 개인 IP 주소를 추가하려면 IP 구성을 만들어야 합니다. 다음 명령은 10.0.0.7의 고정 IP 주소로 구성을 만듭니다. 고정 IP 주소를 지정하는 경우 서브넷에 사용되지 않는 주소이어야 합니다. `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` 명령을 입력하여 먼저 주소를 사용할 수 있는지 테스트 하는 것이 좋습니다. IP 주소를 사용할 수 있는 경우 출력은 *True*를 반환합니다. IP 주소를 사용할 수 없는 경우 출력은 *False*와 사용할 수 있는 주소 목록을 반환합니다.
+   NIC에 개인 IP 주소를 추가하려면 IP 구성을 만들어야 합니다. 다음 명령은 10.0.0.7의 고정 IP 주소로 구성을 만듭니다. 고정 IP 주소를 지정하는 경우 서브넷에 사용되지 않는 주소이어야 합니다. `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` 명령을 입력하여 먼저 주소를 사용할 수 있는지 테스트 하는 것이 좋습니다. IP 주소를 사용할 수 있는 경우 출력은 *True* 를 반환합니다. IP 주소를 사용할 수 없는 경우 출력은 *False* 와 사용할 수 있는 주소 목록을 반환합니다.
 
    ```powershell
    Add-AzNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
@@ -302,7 +302,7 @@ ms.locfileid: "87073922"
    IpConfig-3 10.0.0.6                                                                     False
    ```
 
-   *IpConfig-3*에 대한 **PublicIpAddress** 열이 비어 있기 때문에 현재 공용 IP 주소 리소스가 여기에 연결되어 있지 않습니다. IpConfig-3에 기존 공용 IP 주소 리소스를 추가하거나 다음 명령을 입력하여 새로 만들 수 있습니다.
+   *IpConfig-3* 에 대한 **PublicIpAddress** 열이 비어 있기 때문에 현재 공용 IP 주소 리소스가 여기에 연결되어 있지 않습니다. IpConfig-3에 기존 공용 IP 주소 리소스를 추가하거나 다음 명령을 입력하여 새로 만들 수 있습니다.
 
    ```powershell
    $MyPublicIp3 = New-AzPublicIpAddress `
@@ -311,7 +311,7 @@ ms.locfileid: "87073922"
    -Location $Location -AllocationMethod Static
    ```
 
-   다음 명령을 입력 하 여 공용 IP 주소 리소스를 *IpConfig-3*이라는 기존 ip 구성에 연결 합니다.
+   다음 명령을 입력 하 여 공용 IP 주소 리소스를 *IpConfig-3* 이라는 기존 ip 구성에 연결 합니다.
 
    ```powershell
    Set-AzNetworkInterfaceIpConfig `

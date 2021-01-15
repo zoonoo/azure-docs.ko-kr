@@ -8,16 +8,16 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c88371eb450d5b0e2e8b821cdec0e87190e291f8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572289"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218198"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Synapse Studio에서 Synapse RBAC 역할 할당을 관리 하는 방법
 
-Synapse RBAC는 역할을 사용 하 여 사용자, 그룹 및 기타 보안 주체에 게 사용 권한을 할당 하 여 Synapse 리소스 및 코드 아티팩트의 액세스 및 사용을 가능 하 게 합니다.  [자세히 알아보기](./synapse-workspace-synapse-rbac.md)
+Synapse RBAC는 역할을 사용 하 여 사용자, 그룹 및 기타 보안 주체에 게 사용 권한을 할당 하 여 Synapse 리소스 및 코드 아티팩트의 액세스 및 사용을 가능 하 게 합니다.  [자세한 정보](./synapse-workspace-synapse-rbac.md)
 
 이 문서에서는 Synapse RBAC 역할 할당을 추가 하 고 삭제 하는 방법을 보여 줍니다.
 
@@ -65,7 +65,7 @@ Synapse RBAC는 역할을 사용 하 여 사용자, 그룹 및 기타 보안 주
 
 ![작업 영역 항목 역할 할당 추가-항목 유형 선택](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
-범위로 사용할 특정 **항목** 을 선택 하 고 드롭다운에서 할당할 **역할** 을 선택 합니다.  드롭다운 목록에는 선택한 항목 유형에 유효한 역할만 나열 됩니다. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2148306).  
+범위로 사용할 특정 **항목** 을 선택 하 고 드롭다운에서 할당할 **역할** 을 선택 합니다.  드롭다운 목록에는 선택한 항목 유형에 유효한 역할만 나열 됩니다. [자세히 알아보기](./synapse-workspace-synapse-rbac.md).  
 
 ![작업 영역 항목 역할 할당 추가-역할 선택](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
@@ -81,4 +81,4 @@ Synapse RBAC 액세스를 취소 하려면 적절 한 역할 할당을 제거 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[일반적인 작업을 수행 하는 데 필요한 Synapse RBAC 역할 이해](./synapse-workspace-understand-what-role-you-need.md) 
+[일반적인 작업을 수행 하는 데 필요한 Synapse RBAC 역할 이해](./synapse-workspace-understand-what-role-you-need.md)

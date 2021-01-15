@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b974af343907c98ebd7a318bc60a0e553a07a233
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335697"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219354"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure에서 가상 네트워크를 삭제하지 못함
 
@@ -64,15 +64,15 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 ### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>가상 네트워크에 Azure container instances가 계속 있는지 확인
 
 1. Azure Portal에서 리소스 그룹의 **개요** 페이지로 이동 합니다.
-1. 리소스 그룹의 리소스 목록에 대 한 헤더에서 **숨겨진 유형 표시** 를 선택 합니다. 네트워크 프로필 유형은 기본적으로 Azure Portal에서 숨겨집니다.
+1. 리소스 그룹의 리소스 목록에 대한 헤더에서 **숨겨진 형식 표시** 를 선택합니다. 네트워크 프로필 유형은 기본적으로 Azure Portal에서 숨겨집니다.
 1. 컨테이너 그룹과 관련 된 네트워크 프로필을 선택 합니다.
 1. **삭제** 를 선택합니다.
 
    ![숨겨진 네트워크 프로필 목록의 스크린샷](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
 
-1. 서브넷 또는 가상 네트워크를 다시 삭제 하십시오.
+1. 서브넷 또는 가상 네트워크를 다시 삭제합니다.
 
-이러한 단계를 수행 해도 문제가 해결 되지 않으면 다음 [Azure CLI 명령을](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) 사용 하 여 리소스를 정리 합니다. 
+이러한 단계를 수행 해도 문제가 해결 되지 않으면 다음 [Azure CLI 명령을](../container-instances/container-instances-vnet.md#clean-up-resources) 사용 하 여 리소스를 정리 합니다. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>가상 네트워크에서 Azure Active Directory Domain Service가 사용하도록 설정되어 있는지 확인
 

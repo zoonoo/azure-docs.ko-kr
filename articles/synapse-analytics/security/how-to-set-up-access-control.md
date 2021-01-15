@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 62c30356017b5ea5d93351e6f22b8b7b0c22718c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7dbbe3afb2a5eb19b5c4893bd73eddbf11e788d4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109269"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218079"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Synapse 작업 영역에 대 한 액세스 제어를 설정 하는 방법 
 
@@ -73,8 +73,8 @@ Synapse 작업 영역을 보호 하려면 다음 항목을 구성 하는 패턴�
 기본 설정의 경우에는 이러한 다섯 가지 그룹으로 충분 합니다. 나중에 보안 그룹을 추가 하 여 보다 전문화 된 액세스 권한이 필요한 사용자를 처리 하거나 사용자에 게 특정 리소스에만 액세스 권한을 부여할 수 있습니다.
 
 > [!NOTE]
->- [이 문서](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)에서 보안 그룹을 만드는 방법을 알아보세요.
->- [이 문서](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal)에서 다른 보안 그룹에서 보안 그룹을 추가하는 방법을 알아보세요.
+>- [이 문서](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)에서 보안 그룹을 만드는 방법을 알아보세요.
+>- [이 문서](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md)에서 다른 보안 그룹에서 보안 그룹을 추가하는 방법을 알아보세요.
 
 >[!Tip]
 >개별 Synapse 사용자는 Azure Portal에서 Azure Active Directory를 사용 하 여 그룹 멤버 자격을 확인 하 고 해당 그룹 멤버 자격을 통해 부여 된 역할을 확인할 수 있습니다.
@@ -271,8 +271,8 @@ DROP USER [<workspacename>];
 
 작업 영역을 보호 하는 마지막 단계로 다음을 사용 하 여 네트워크 액세스를 보호 해야 합니다.
 - [작업 영역 방화벽](./synapse-workspace-ip-firewall.md)
-- [관리형 가상 네트워크](./synapse-workspace-managed-vnet.md) 
-- [프라이빗 엔드포인트](./synapse-workspace-managed-private-endpoints.md)
+- [관리 되는 가상 네트워크](./synapse-workspace-managed-vnet.md) 
+- [전용 끝점](./synapse-workspace-managed-private-endpoints.md)
 - [Private Link](../../azure-sql/database/private-endpoint-overview.md)
 
 ## <a name="step-10-completion"></a>10 단계: 완료

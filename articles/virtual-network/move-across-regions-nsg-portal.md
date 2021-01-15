@@ -6,21 +6,21 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: a22dc6dc0c4fc199d3f262b18aeeae5090a06dce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11b0260eb6c1f5edfb246dcf97a43bdd874bf337
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689319"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217280"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure NSG (네트워크 보안 그룹)를 다른 지역으로 이동
 
 한 지역에서 다른 지역으로 기존 NSGs를 이동 하려는 다양 한 시나리오가 있습니다. 예를 들어 테스트를 위한 동일한 구성 및 보안 규칙을 사용 하 여 NSG를 만들 수 있습니다. 재해 복구 계획의 일환으로 NSG를 다른 지역으로 이동할 수도 있습니다.
 
-Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습니다. 그러나 Azure Resource Manager 템플릿을 사용 하 여 NSG의 기존 구성 및 보안 규칙을 내보낼 수 있습니다.  그런 다음 NSG를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여 다른 지역의 리소스를 준비할 수 있습니다.  Resource Manager 및 템플릿에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)를 참조하세요.
+Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습니다. 그러나 Azure Resource Manager 템플릿을 사용 하 여 NSG의 기존 구성 및 보안 규칙을 내보낼 수 있습니다.  그런 다음 NSG를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여 다른 지역의 리소스를 준비할 수 있습니다.  Resource Manager 및 템플릿에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)를 참조하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 네트워크 보안 그룹이 이동 하려는 Azure 지역에 있는지 확인 합니다.
 
@@ -32,7 +32,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
 
 - Azure 구독을 사용 하 여 사용 되는 대상 지역에서 NSGs를 만들 수 있는지 확인 합니다. 필요한 할당량을 사용하려면 지원 팀에 문의하세요.
 
-- 구독에이 프로세스에 대 한 NSGs 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)을 참조하세요.
+- 구독에이 프로세스에 대 한 NSGs 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)을 참조하세요.
 
 
 ## <a name="prepare-and-move"></a>준비 및 이동
@@ -41,12 +41,12 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>템플릿을 내보내고 포털에서 배포
 
-1. [Azure Portal](https://portal.azure.com)  >  **리소스 그룹**에 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com)  >  **리소스 그룹** 에 로그인 합니다.
 2. 원본 NSG를 포함 하는 리소스 그룹을 찾아 클릭 합니다.
-3. > **설정**  >  **템플릿 내보내기**를 선택 합니다.
+3. > **설정**  >  **템플릿 내보내기** 를 선택 합니다.
 4. **템플릿 내보내기** 블레이드에서 **배포** 를 선택 합니다.
 5. **템플릿**  >  **매개 변수 편집** 을 클릭 하 여 온라인 편집기에서 파일 **에parameters.js** 를 엽니다.
-6. NSG 이름의 매개 변수를 편집 하려면 **매개 변수**에서 **value** 속성을 변경 합니다.
+6. NSG 이름의 매개 변수를 편집 하려면 **매개 변수** 에서 **value** 속성을 변경 합니다.
 
     ```json
             {
@@ -84,7 +84,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
 
     ```
 
-11. 지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국 중부**  =  **centralus**지역 이름입니다.
+11. 지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국 중부**  =  **centralus** 지역 이름입니다.
 
 12. 또한 선택하는 경우 템플릿의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적입니다.
 
@@ -124,7 +124,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
             }
         ```
 
-      대상 NSG에서 규칙의 추가 또는 제거를 완료 하려면 아래 예제 형식으로 파일 ** 에 대 한template.js** 의 끝에 있는 사용자 지정 규칙 유형도 편집 해야 합니다.
+      대상 NSG에서 규칙의 추가 또는 제거를 완료 하려면 아래 예제 형식으로 파일 **에 대 한template.js** 의 끝에 있는 사용자 지정 규칙 유형도 편집 해야 합니다.
 
       ```json
            {
@@ -161,7 +161,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
 
 17. 위의 매개 변수 편집기에서 입력 한 이름과 이름이 일치 하는 **설정** 아래를 확인 합니다.
 
-18. 사용 **약관**아래 상자를 선택 합니다.
+18. 사용 **약관** 아래 상자를 선택 합니다.
 
 19. **구매** 단추를 클릭 하 여 대상 네트워크 보안 그룹을 배포 합니다.
 
@@ -178,5 +178,5 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
 이 자습서에서는 Azure 네트워크 보안 그룹을 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 
-- [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [다른 지역으로 Azure VM 이동](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [다른 지역으로 Azure VM 이동](../site-recovery/azure-to-azure-tutorial-migrate.md)

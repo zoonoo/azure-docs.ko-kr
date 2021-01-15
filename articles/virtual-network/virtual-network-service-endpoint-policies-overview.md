@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739300"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216651"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Azure Storage에 대한 가상 네트워크 서비스 엔드포인트 정책
 
@@ -32,7 +32,7 @@ VNet (Virtual Network) 서비스 끝점 정책을 사용 하면 서비스 끝점
 
 - __Azure Storage Virtual Network 트래픽에 대 한 보안 향상__
 
-  [네트워크 보안 그룹에 대 한 Azure 서비스 태그](https://aka.ms/servicetags) 를 사용 하면 가상 네트워크 아웃 바운드 트래픽을 특정 Azure Storage 지역으로 제한할 수 있습니다. 그러나 이렇게 하면 선택한 Azure Storage 지역 내의 모든 계정에 대 한 트래픽이 허용 됩니다.
+  [네트워크 보안 그룹에 대 한 Azure 서비스 태그](./network-security-groups-overview.md) 를 사용 하면 가상 네트워크 아웃 바운드 트래픽을 특정 Azure Storage 지역으로 제한할 수 있습니다. 그러나 이렇게 하면 선택한 Azure Storage 지역 내의 모든 계정에 대 한 트래픽이 허용 됩니다.
   
   끝점 정책을 사용 하면 가상 네트워크 아웃 바운드 액세스가 허용 된 Azure Storage 계정을 지정 하 고 다른 모든 저장소 계정에 대 한 액세스를 제한할 수 있습니다. 이를 통해 가상 네트워크에서 데이터를 보호 하는 데 훨씬 더 세부적인 보안 제어 기능을 제공 합니다.
 
@@ -58,7 +58,7 @@ VNet (Virtual Network) 서비스 끝점 정책을 사용 하면 서비스 끝점
 ]
 ```
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 -   특정 Azure Storage 계정에 대 한 가상 네트워크 트래픽을 제한 하도록 끝점 정책을 구성할 수 있습니다.
 -   엔드포인트 정책은 가상 네트워크의 서브넷에 구성됩니다. 정책을 적용 하려면 서브넷에서 Azure Storage에 대 한 서비스 끝점을 사용 하도록 설정 해야 합니다.

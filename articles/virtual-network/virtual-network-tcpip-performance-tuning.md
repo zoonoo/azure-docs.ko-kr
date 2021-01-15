@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1f6abbf68d4f648aeee6c025800f24140c9459e9
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017613"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219320"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 TCP/IP 성능 튜닝
 
@@ -89,7 +89,7 @@ FragmentSmack는 Linux 커널이 조각화 된 IPv4 및 IPv6 패킷의 리어셈
 
 #### <a name="large-send-offload"></a>대량 송신 오프 로드
 
-LSO (Large send offload)는 이더넷 어댑터에 대 한 패킷의 조각화를 오프 로드 하 여 네트워크 성능을 향상 시킬 수 있습니다. LSO를 사용 하도록 설정 하면 TCP/IP 스택은 대량 TCP 패킷을 만들고이를 전달 하기 전에이를 이더넷 어댑터에 전송 합니다. LSO의 혜택은 CPU에서 MTU를 준수 하는 크기로 패킷을 분할 하 고 해당 처리를 하드웨어에서 수행 되는 이더넷 인터페이스로 오프 로드 하는 것입니다. LSO의 이점에 대해 자세히 알아보려면 [large send Offload 지원](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso)을 참조 하세요.
+LSO (Large send offload)는 이더넷 어댑터에 대 한 패킷의 조각화를 오프 로드 하 여 네트워크 성능을 향상 시킬 수 있습니다. LSO를 사용 하도록 설정 하면 TCP/IP 스택은 대량 TCP 패킷을 만들고이를 전달 하기 전에이를 이더넷 어댑터에 전송 합니다. LSO의 혜택은 CPU에서 MTU를 준수 하는 크기로 패킷을 분할 하 고 해당 처리를 하드웨어에서 수행 되는 이더넷 인터페이스로 오프 로드 하는 것입니다. LSO의 이점에 대해 자세히 알아보려면 [large send Offload 지원](/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso)을 참조 하세요.
 
 LSO를 사용 하는 경우 Azure 고객은 패킷 캡처를 수행할 때 많은 프레임 크기를 볼 수 있습니다. 이러한 많은 프레임 크기를 사용 하면 일부 고객이 조각화가 발생 하거나 그렇지 않을 때 많은 MTU를 사용 하 고 있다고 생각할 수 있습니다. LSO를 사용 하 여 이더넷 어댑터는 더 큰 TCP 패킷을 만들기 위해 더 큰 MSS (최대 세그먼트 크기)를 TCP/IP 스택에 보급할 수 있습니다. 이렇게 분할 되지 않은 전체 프레임은 이더넷 어댑터로 전달 되며 VM에서 수행 된 패킷 캡처에 표시 됩니다. 그러나 패킷은 이더넷 어댑터의 MTU에 따라 이더넷 어댑터에 의해 더 작은 여러 프레임으로 분할 됩니다.
 
@@ -117,7 +117,7 @@ PMTUD 프로세스는 비효율적 이며 네트워크 성능에 영향을 줍�
 
 캡슐화를 수행 하는 Vm (예: IPsec Vpn)을 사용 하는 경우 패킷 크기 및 MTU와 관련 된 몇 가지 추가 고려 사항이 있습니다. Vpn은 패킷에 더 많은 헤더를 추가 합니다. 그러면 패킷 크기가 늘어나고 더 작은 MSS가 필요 합니다.
 
-Azure의 경우 TCP MSS 고정을 1350 바이트 및 터널 인터페이스 MTU를 1400으로 설정 하는 것이 좋습니다. 자세한 내용은 [VPN 장치 및 IPSec/IKE 매개 변수 페이지](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)를 참조 하세요.
+Azure의 경우 TCP MSS 고정을 1350 바이트 및 터널 인터페이스 MTU를 1400으로 설정 하는 것이 좋습니다. 자세한 내용은 [VPN 장치 및 IPSec/IKE 매개 변수 페이지](../vpn-gateway/vpn-gateway-about-vpn-devices.md)를 참조 하세요.
 
 ### <a name="latency-round-trip-time-and-tcp-window-scaling"></a>대기 시간, 왕복 시간 및 TCP 창 배율
 
@@ -210,7 +210,7 @@ Get-NetTCPConnection
 Get-NetTCPSetting
 ```
 
-PowerShell 명령을 사용 하 여 Windows에서 초기 TCP 창 크기와 TCP 크기 조정 인수를 설정할 수 있습니다 `Set-NetTCPSetting` . 자세한 내용은  [NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)를 참조 하세요.
+PowerShell 명령을 사용 하 여 Windows에서 초기 TCP 창 크기와 TCP 크기 조정 인수를 설정할 수 있습니다 `Set-NetTCPSetting` . 자세한 내용은  [NetTCPSetting](/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)를 참조 하세요.
 
 ```powershell
 Set-NetTCPSetting
@@ -253,13 +253,13 @@ Set-NetTCPSetting
 
 - **Cpu 사용률 감소**: 호스트에서 가상 스위치를 건너뛰면 네트워크 트래픽을 처리 하기 위한 cpu 사용률을 줄일 수 있습니다.
 
-가속 네트워킹을 사용 하려면 해당 하는 각 VM에서 명시적으로 사용 하도록 설정 해야 합니다. 지침은 [가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 를 참조 하세요.
+가속 네트워킹을 사용 하려면 해당 하는 각 VM에서 명시적으로 사용 하도록 설정 해야 합니다. 지침은 [가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기](./create-vm-accelerated-networking-cli.md) 를 참조 하세요.
 
 #### <a name="receive-side-scaling"></a>수신측 배율
 
-RSS (수신측 배율)는 다중 프로세서 시스템의 여러 Cpu에서 수신 처리를 분산 하 여 네트워크 트래픽 수신을 보다 효율적으로 분산 하는 네트워크 드라이버 기술입니다. 간단히 말해 RSS를 사용 하면 시스템에서 사용 가능한 모든 Cpu를 사용 하는 것이 아니라 사용 가능한 모든 Cpu를 사용 하므로 더 많은 트래픽을 처리할 수 있습니다. RSS에 대 한 자세한 기술 설명은 [수신측 배율 소개](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling)를 참조 하세요.
+RSS (수신측 배율)는 다중 프로세서 시스템의 여러 Cpu에서 수신 처리를 분산 하 여 네트워크 트래픽 수신을 보다 효율적으로 분산 하는 네트워크 드라이버 기술입니다. 간단히 말해 RSS를 사용 하면 시스템에서 사용 가능한 모든 Cpu를 사용 하는 것이 아니라 사용 가능한 모든 Cpu를 사용 하므로 더 많은 트래픽을 처리할 수 있습니다. RSS에 대 한 자세한 기술 설명은 [수신측 배율 소개](/windows-hardware/drivers/network/introduction-to-receive-side-scaling)를 참조 하세요.
 
-VM에서 가속화 된 네트워킹을 사용 하는 경우 최상의 성능을 얻으려면 RSS를 사용 하도록 설정 해야 합니다. 또한 RSS는 가속화 된 네트워킹을 사용 하지 않는 Vm에 대 한 혜택을 제공할 수 있습니다. RSS를 사용 하도록 설정 했는지 여부를 확인 하는 방법과이를 사용 하도록 설정 하는 방법에 대 한 개요는 [Azure 가상 컴퓨터의 네트워크 처리량 최적화](https://aka.ms/FastVM)를 참조 하세요.
+VM에서 가속화 된 네트워킹을 사용 하는 경우 최상의 성능을 얻으려면 RSS를 사용 하도록 설정 해야 합니다. 또한 RSS는 가속화 된 네트워킹을 사용 하지 않는 Vm에 대 한 혜택을 제공할 수 있습니다. RSS를 사용 하도록 설정 했는지 여부를 확인 하는 방법과이를 사용 하도록 설정 하는 방법에 대 한 개요는 [Azure 가상 컴퓨터의 네트워크 처리량 최적화](./virtual-network-optimize-network-bandwidth.md)를 참조 하세요.
 
 ### <a name="tcp-time_wait-and-time_wait-assassination"></a>TCP TIME_WAIT 및 TIME_WAIT assassination
 
@@ -271,7 +271,7 @@ TCP TIME_WAIT는 네트워크 및 응용 프로그램 성능에 영향을 주는
 
 TIME_WAIT assassination를 사용 하 여 이러한 크기 조정 제한을 해결할 수 있습니다. TIME_WAIT assassination를 사용 하면 새 연결의 IP 패킷에 있는 시퀀스 번호가 이전 연결에서 마지막 패킷의 시퀀스 번호를 초과 하는 경우와 같은 특정 상황에서 소켓을 다시 사용할 수 있습니다. 이 경우 운영 체제는 새 연결을 설정할 수 있도록 허용 하 고 (새 SYN/ACK를 수락 함), TIME_WAIT 상태 였던 이전 연결을 강제로 닫습니다. 이 기능은 Azure의 Windows Vm에서 지원 됩니다. 다른 Vm의 지원에 대 한 자세한 내용은 OS 공급 업체에 문의 하세요.
 
-TCP TIME_WAIT 설정 및 원본 포트 범위를 구성 하는 방법에 대 한 자세한 내용은 [네트워크 성능을 향상 시키기 위해 수정할 수 있는 설정](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance)을 참조 하세요.
+TCP TIME_WAIT 설정 및 원본 포트 범위를 구성 하는 방법에 대 한 자세한 내용은 [네트워크 성능을 향상 시키기 위해 수정할 수 있는 설정](/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance)을 참조 하세요.
 
 ## <a name="virtual-network-factors-that-can-affect-performance"></a>성능에 영향을 줄 수 있는 가상 네트워크 요소
 
@@ -287,7 +287,7 @@ Azure는 다양 한 성능 기능을 포함 하는 다양 한 VM 크기와 유�
 
 Azure virtual machines에는 하나 이상의 네트워크 인터페이스가 연결 되어 있습니다. 여기에는 여러 가지가 있을 수 있습니다. 가상 컴퓨터에 할당 된 대역폭은 컴퓨터에 연결 된 모든 네트워크 인터페이스에서 모든 아웃 바운드 트래픽의 합계입니다. 즉, 컴퓨터에 연결 된 네트워크 인터페이스 수에 관계 없이 가상 컴퓨터 별로 대역폭이 할당 됩니다.
 
-예상 되는 아웃 바운드 처리량과 각 VM 크기에서 지 원하는 네트워크 인터페이스 수는 [Azure의 Windows 가상 머신에 대 한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)에 자세히 설명 되어 있습니다. 최대 처리량을 확인 하려면 **일반적인 용도** 와 같은 유형을 선택한 다음 결과 페이지 (예: "Dv2 시리즈")에서 크기 시리즈에 대 한 섹션을 찾습니다. 각 계열에 대해 마지막 열에는 "최대 Nic/예상 네트워크 대역폭 (Mbps)" 이라는 네트워킹 사양을 제공 하는 테이블이 있습니다.
+예상 되는 아웃 바운드 처리량과 각 VM 크기에서 지 원하는 네트워크 인터페이스 수는 [Azure의 Windows 가상 머신에 대 한 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 자세히 설명 되어 있습니다. 최대 처리량을 확인 하려면 **일반적인 용도** 와 같은 유형을 선택한 다음 결과 페이지 (예: "Dv2 시리즈")에서 크기 시리즈에 대 한 섹션을 찾습니다. 각 계열에 대해 마지막 열에는 "최대 Nic/예상 네트워크 대역폭 (Mbps)" 이라는 네트워킹 사양을 제공 하는 테이블이 있습니다.
 
 처리량 제한은 가상 컴퓨터에 적용됩니다. 처리량은 다음 요인의 영향을 받지 않습니다.
 
@@ -299,7 +299,7 @@ Azure virtual machines에는 하나 이상의 네트워크 인터페이스가 �
 
 - **프로토콜**: 모든 프로토콜을 통한 모든 아웃바운드 트래픽이 제한에 대해 계산됩니다.
 
-자세한 내용은 [가상 컴퓨터 네트워크 대역폭](https://aka.ms/AzureBandwidth)을 참조 하세요.
+자세한 내용은 [가상 컴퓨터 네트워크 대역폭](./virtual-machine-network-throughput.md)을 참조 하세요.
 
 ### <a name="internet-performance-considerations"></a>인터넷 성능 고려 사항
 
@@ -333,7 +333,7 @@ Azure의 배포는 공용 인터넷 및/또는 공용 IP 공간에서 Azure 외�
 
 모든 아웃 바운드 연결에 대해 Azure Load Balancer는 일정 시간 동안이 매핑을 유지 해야 합니다. Azure의 다중 테 넌 트 특성을 사용 하면 모든 VM의 모든 아웃 바운드 흐름에 대해이 매핑을 유지 관리 하는 것은 리소스를 많이 사용 합니다 따라서 Azure Virtual Network의 구성에 따라 설정 되는 제한이 있습니다. 또는 더 정확 하 게 말해 Azure VM은 지정 된 시간에 특정 수의 아웃 바운드 연결만 만들 수 있습니다. 이러한 제한에 도달 하면 VM에서 더 많은 아웃 바운드 연결을 만들 수 없습니다.
 
-그러나이 동작은 구성 가능 합니다. SNAT 및 SNAT 포트 소모에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)를 참조 하세요.
+그러나이 동작은 구성 가능 합니다. SNAT 및 SNAT 포트 소모에 대 한 자세한 내용은 [이 문서](../load-balancer/load-balancer-outbound-connections.md)를 참조 하세요.
 
 ## <a name="measure-network-performance-on-azure"></a>Azure에서 네트워크 성능 측정
 
@@ -341,13 +341,13 @@ Azure의 배포는 공용 인터넷 및/또는 공용 IP 공간에서 Azure 외�
 
 ### <a name="measure-round-trip-time-and-packet-loss"></a>라운드트립 시간 및 패킷 손실 측정
 
-TCP 성능은 RTT 및 패킷 손실에 크게 의존 합니다. Windows 및 Linux에서 사용할 수 있는 PING 유틸리티는 RTT 및 패킷 손실을 측정 하는 가장 쉬운 방법을 제공 합니다. PING의 출력에는 원본 및 대상 간의 최소/최대/평균 대기 시간이 표시 됩니다. 또한 패킷 손실이 표시 됩니다. PING은 기본적으로 ICMP 프로토콜을 사용 합니다. PsPing을 사용 하 여 TCP RTT를 테스트할 수 있습니다. 자세한 내용은 [Psping](https://docs.microsoft.com/sysinternals/downloads/psping)을 참조 하세요.
+TCP 성능은 RTT 및 패킷 손실에 크게 의존 합니다. Windows 및 Linux에서 사용할 수 있는 PING 유틸리티는 RTT 및 패킷 손실을 측정 하는 가장 쉬운 방법을 제공 합니다. PING의 출력에는 원본 및 대상 간의 최소/최대/평균 대기 시간이 표시 됩니다. 또한 패킷 손실이 표시 됩니다. PING은 기본적으로 ICMP 프로토콜을 사용 합니다. PsPing을 사용 하 여 TCP RTT를 테스트할 수 있습니다. 자세한 내용은 [Psping](/sysinternals/downloads/psping)을 참조 하세요.
 
 ### <a name="measure-actual-throughput-of-a-tcp-connection"></a>TCP 연결의 실제 처리량 측정
 
 NTttcp는 Linux 또는 Windows VM의 TCP 성능을 테스트 하기 위한 도구입니다. 다양 한 TCP 설정을 변경한 다음 NTttcp를 사용 하 여 혜택을 테스트할 수 있습니다. 이러한 응용 프로그램은 Azure AD Graph API를 사용할 수 있습니다. 자세한 내용은 다음 리소스를 참조하세요.
 
-- [대역폭/처리량 테스트 (NTttcp)](https://aka.ms/TestNetworkThroughput)
+- [대역폭/처리량 테스트 (NTttcp)](./virtual-network-bandwidth-testing.md)
 
 - [NTttcp 유틸리티](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769)
 
@@ -357,9 +357,9 @@ IPerf 라는 도구를 사용 하 여 다양 한 VM 유형, 가속화 된 네트
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [Express 경로 네트워크 성능 문제 해결](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
+- [Express 경로 네트워크 성능 문제 해결](../expressroute/expressroute-troubleshooting-network-performance.md)
 
-- [가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
+- [가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법](../vpn-gateway/vpn-gateway-validate-throughput-to-vnet.md)
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>비효율적인 TCP 동작 검색
 
@@ -371,4 +371,4 @@ IPerf 라는 도구를 사용 하 여 다양 한 VM 유형, 가속화 된 네트
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure Vm에 대 한 TCP/IP 성능 조정에 대해 알아보았습니다. 이제 [가상 네트워크를 계획](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 하는 데 필요한 기타 고려 사항 또는 [가상 네트워크 연결 및 구성에 대해 자세히 알아볼](https://docs.microsoft.com/azure/virtual-network/)수 있습니다.
+이제 Azure Vm에 대 한 TCP/IP 성능 조정에 대해 알아보았습니다. 이제 [가상 네트워크를 계획](./virtual-network-vnet-plan-design-arm.md) 하는 데 필요한 기타 고려 사항 또는 [가상 네트워크 연결 및 구성에 대해 자세히 알아볼](./index.yml)수 있습니다.

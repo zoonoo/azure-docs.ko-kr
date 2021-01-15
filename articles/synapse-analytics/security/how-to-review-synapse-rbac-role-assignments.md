@@ -8,16 +8,16 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9ebbe54dd41cd7d7b83ef12f465326db3ef2b9ab
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: ee3b2c69d7782dca10b16a3b1726b75bfd99326e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572187"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218128"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Synapse RBAC 역할 할당을 검토 하는 방법
 
-Synapse RBAC 역할은 사용자, 그룹 및 기타 보안 주체에 게 사용 권한을 할당 하 여 Synapse 리소스에 대 한 액세스 및 사용을 가능 하 게 하는 데 사용 됩니다.  [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2148306)
+Synapse RBAC 역할은 사용자, 그룹 및 기타 보안 주체에 게 사용 권한을 할당 하 여 Synapse 리소스에 대 한 액세스 및 사용을 가능 하 게 하는 데 사용 됩니다.  [자세한 정보](./synapse-workspace-synapse-rbac.md)
 
 이 문서에서는 작업 영역에 대 한 현재 역할 할당을 검토 하는 방법을 설명 합니다.
 

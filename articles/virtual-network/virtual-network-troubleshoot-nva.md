@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 3a8982b5626e3c19dbd49a3d2e20542d44b1a1da
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368590"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219286"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
 
@@ -87,15 +87,15 @@ PowerShell 사용
 
 **트래픽을 NVA로 라우팅할 수 있는지 확인**
 
-1. [Azure Portal](https://portal.azure.com)에서 **Network Watcher**를 열고 **다음 홉**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Network Watcher** 를 열고 **다음 홉** 을 선택합니다.
 2. NVA로 트래픽을 리디렉션하도록 구성된 VM 및 다음 홉을 볼 대상 IP 주소를 지정합니다. 
-3. NVA가 **다음 홉**으로 나열되지 않는 경우 Azure 경로 테이블을 확인하고 업데이트합니다.
+3. NVA가 **다음 홉** 으로 나열되지 않는 경우 Azure 경로 테이블을 확인하고 업데이트합니다.
 
 **트래픽이 NVA에 도달할 수 있는지 확인**
 
-1. [Azure Portal](https://portal.azure.com)에서 **Network Watcher**를 열고 **IP 흐름 확인**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **Network Watcher** 를 열고 **IP 흐름 확인** 을 선택합니다. 
 2. NVA의 VM 및 IP 주소를 지정한 다음, 트래픽이 NSG(네트워크 보안 그룹)에 의해 차단되는지 확인합니다.
-3. 트래픽을 차단하는 NSG 규칙이 있는 경우 **효과적인 보안** 규칙에서 NSG를 찾은 다음, 트래픽이 통과할 수 있도록 NSG를 업데이트합니다. 그런 다음, **IP 흐름 확인**을 다시 실행하고 **연결 문제 해결**을 사용하여 VM에서 내부 또는 외부 IP 주소로의 TCP 통신을 테스트합니다.
+3. 트래픽을 차단하는 NSG 규칙이 있는 경우 **효과적인 보안** 규칙에서 NSG를 찾은 다음, 트래픽이 통과할 수 있도록 NSG를 업데이트합니다. 그런 다음, **IP 흐름 확인** 을 다시 실행하고 **연결 문제 해결** 을 사용하여 VM에서 내부 또는 외부 IP 주소로의 TCP 통신을 테스트합니다.
 
 **NVA와 VM이 예상 트래픽을 수신 대기하는지 확인**
 
@@ -127,7 +127,7 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
 ## <a name="advanced-network-administrator-troubleshooting"></a>고급 네트워크 관리자 문제 해결
 
 ### <a name="capture-network-trace"></a>네트워크 추적 캡처
-**[PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)** 또는 **Nmap**을 실행하는 동안 원본 VM, NVA 및 대상 VM에서 동시 네트워크 추적을 캡처한 다음, 추적을 중지합니다.
+**[PsPing](/sysinternals/downloads/psping)** 또는 **Nmap** 을 실행하는 동안 원본 VM, NVA 및 대상 VM에서 동시 네트워크 추적을 캡처한 다음, 추적을 중지합니다.
 
 1. 동시 네트워크 추적을 캡처하려면 다음 명령을 실행합니다.
 
@@ -139,8 +139,8 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
 
    sudo tcpdump-s0-i eth0-X-w vmtrace. 캡
 
-2. 원본 VM에서 대상 VM으로 **PsPing** 또는 **Nmap**을 사용합니다(예: `PsPing 10.0.0.4:80` 또는 `Nmap -p 80 10.0.0.4`).
-3. [네트워크 모니터](https://download.cnet.com/s/network-monitor) 또는 tcpdump를 사용하여 대상 VM에서 네트워크 추적을 엽니다. `IPv4.address==10.0.0.4 (Windows netmon)` 또는 `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4`처럼(Linux인 경우) **PsPing** 또는 **Nmap**을 실행한 원본 VM의 IP에 대한 디스플레이 필터를 적용합니다.
+2. 원본 VM에서 대상 VM으로 **PsPing** 또는 **Nmap** 을 사용합니다(예: `PsPing 10.0.0.4:80` 또는 `Nmap -p 80 10.0.0.4`).
+3. [네트워크 모니터](https://download.cnet.com/s/network-monitor) 또는 tcpdump를 사용하여 대상 VM에서 네트워크 추적을 엽니다. `IPv4.address==10.0.0.4 (Windows netmon)` 또는 `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4`처럼(Linux인 경우) **PsPing** 또는 **Nmap** 을 실행한 원본 VM의 IP에 대한 디스플레이 필터를 적용합니다.
 
 ### <a name="analyze-traces"></a>추적 분석
 

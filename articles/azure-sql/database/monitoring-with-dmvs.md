@@ -11,18 +11,18 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 04/19/2020
-ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: b87d0a2446eb2b65c20ae0bef408320686cb5165
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493645"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219133"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Microsoft Azure SQL Database 및 Azure SQL Managed Instance 성능 모니터링
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Microsoft Azure SQL Database 및 Azure SQL Managed Instance 동적 관리 뷰의 하위 집합을 사용 하 여 성능 문제를 진단할 수 있습니다 .이는 차단 된 쿼리, 장기 실행 쿼리, 리소스 병목 현상, 잘못 된 쿼리 계획 등으로 인해 발생할 수 있습니다. 이 항목에서는 동적 관리 뷰를 사용하여 일반적인 성능 문제를 감지하는 방법을 설명합니다.
+Microsoft Azure SQL Database 및 Azure SQL Managed Instance 동적 관리 뷰의 하위 집합을 사용 하 여 성능 문제를 진단할 수 있습니다 .이는 차단 된 쿼리, 장기 실행 쿼리, 리소스 병목 현상, 잘못 된 쿼리 계획 등으로 인해 발생할 수 있습니다. 이 문서에서는 동적 관리 뷰를 사용 하 여 일반적인 성능 문제를 감지 하는 방법에 대 한 정보를 제공 합니다.
 
 Microsoft Azure SQL Database 및 Azure SQL Managed Instance는 세 가지 범주의 동적 관리 뷰를 부분적으로 지원 합니다.
 
@@ -254,12 +254,12 @@ GO
 
 IO 성능 문제를 식별할 때 `tempdb` 문제와 관련된 상위 대기 유형은 `PAGELATCH_*`입니다(`PAGEIOLATCH_*` 아님). 그러나 `PAGELATCH_*` 대기는 항상 `tempdb` 경합이 있다는 의미가 아닙니다.  이 대기는 동일한 데이터 페이지를 대상으로 하는 동시 요청으로 인해 사용자 개체 데이터 페이지 경합이 있다는 의미일 수도 있습니다. 경합을 추가로 확인 하려면 `tempdb` [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 를 사용 하 여 wait_resource 값이로 시작 하는지 확인 `2:x:y` 합니다. 여기서 2는 `tempdb` 데이터베이스 id이 고, `x` 는 파일 id 이며, `y` 는 페이지 id입니다.  
 
-tempdb 경합의 경우 `tempdb`를 사용하는 애플리케이션 코드를 줄이거나 다시 작성하는 것이 일반적인 방법입니다.  일반적인 `tempdb` 사용량 영역에는 다음이 포함됩니다.
+Tempdb 경합의 경우 일반적인 방법은를 사용 하는 응용 프로그램 코드를 줄이거나 다시 작성 하는 것입니다 `tempdb` .  일반적인 `tempdb` 사용량 영역에는 다음이 포함됩니다.
 
 - 임시 테이블
 - 테이블 변수
 - 테이블 반환 매개 변수
-- 버전 저장소 사용량(특히 장기 실행 트랜잭션과 연결된)
+- 버전 저장소 사용 (장기 실행 트랜잭션과 연결)
 - 정렬, 해시 조인 및 스풀을 사용하는 쿼리 계획이 있는 쿼리
 
 ### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>테이블 변수 및 임시 테이블을 사용하는 상위 쿼리
@@ -563,14 +563,14 @@ SELECT resource_name, AVG(avg_cpu_percent) AS Average_Compute_Utilization
 FROM sys.server_resource_stats
 WHERE start_time BETWEEN @s AND @e  
 GROUP BY resource_name  
-HAVING AVG(avg_cpu_percent) >= 80
+HAVING AVG(avg_cpu_percent) >= 80;
 ```
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
 **Master** 데이터베이스의 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 뷰에는 특정 서비스 계층 및 계산 크기에서 데이터베이스의 성능을 모니터링 하는 데 도움이 되는 추가 정보가 있습니다. 데이터는 5분마다 수집되어 약 14일 동안 보관됩니다. 이 보기는 데이터베이스에서 리소스를 사용 하는 방법에 대 한 장기 기록 분석에 유용 합니다.
 
-다음 그래프는 한 주 동안 시간당 P2 컴퓨팅 크기의 프리미엄 데이터베이스에 사용된 CPU 리소스 사용량을 보여줍니다. 이 그래프는 월요일부터 5근무일과 애플리케이션 사용량이 훨씬 적은 주말까지 표시되어 있습니다.
+다음 그래프는 한 주 동안 시간당 P2 컴퓨팅 크기의 프리미엄 데이터베이스에 사용된 CPU 리소스 사용량을 보여줍니다. 이 그래프는 월요일부터 시작 하 여 5 근무일을 표시 한 후 응용 프로그램에서 거의 발생 하지 않은 주말을 보여 줍니다.
 
 ![데이터베이스 리소스 사용](./media/monitoring-with-dmvs/sql_db_resource_utilization.png)
 
@@ -589,7 +589,7 @@ HAVING AVG(avg_cpu_percent) >= 80
 SELECT TOP 10 *
 FROM sys.resource_stats
 WHERE database_name = 'resource1'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ![sys.resource_stats 카탈로그 뷰](./media/monitoring-with-dmvs/sys_resource_stats.png)
@@ -624,7 +624,7 @@ ORDER BY start_time DESC
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. 각 리소스 메트릭의 평균값 및 최댓값에 대한 이 정보를 사용하여 워크로드가 선택한 컴퓨팅 크기에 얼마나 적합한지 평가할 수 있습니다. 일반적으로 **sys.resource_stats** 의 평균값은 대상 크기에 맞게 사용하기에 적합한 기준선을 제공합니다. 기본 측정 기준이 되어야 합니다. 예를 들어 S2 컴퓨팅 크기와 함께 표준 서비스 계층을 사용할 수 있습니다. CPU 및 IO 읽기와 쓰기에 대한 평균 사용 비율은 40% 미만, 평균 작업자 수는 50 미만, 평균 세션 수는 200 미만입니다. 워크로드가 S1 컴퓨팅 크기에 적합할 수 있습니다. 데이터베이스가 작업자 및 세션 한도 이내에서 적합한지 여부를 쉽게 확인할 수 있습니다. 데이터베이스가 CPU, 읽기, 쓰기 기준의 낮은 컴퓨팅 크기에 적합한지 확인하려면 낮은 컴퓨팅 크기의 DTU 수를 현재 컴퓨팅 크기의 DTU 수로 나눈 다음, 그 결과에 100을 곱합니다.
+3. 각 리소스 메트릭의 평균값 및 최댓값에 대한 이 정보를 사용하여 워크로드가 선택한 컴퓨팅 크기에 얼마나 적합한지 평가할 수 있습니다. 일반적으로 **sys.resource_stats** 의 평균값은 대상 크기에 맞게 사용하기에 적합한 기준선을 제공합니다. 기본 측정 기준이 되어야 합니다. 예를 들어 S2 컴퓨팅 크기와 함께 표준 서비스 계층을 사용할 수 있습니다. CPU 및 IO 읽기와 쓰기에 대한 평균 사용 비율은 40% 미만, 평균 작업자 수는 50 미만, 평균 세션 수는 200 미만입니다. 워크로드가 S1 컴퓨팅 크기에 적합할 수 있습니다. 데이터베이스가 작업자 및 세션 한도 이내에서 적합한지 여부를 쉽게 확인할 수 있습니다. 데이터베이스가 CPU, 읽기 및 쓰기와 관련 하 여 더 낮은 계산 크기에 적합 한지 확인 하려면 낮은 계산 크기의 DTU 수를 현재 계산 크기의 DTU 수로 나눈 다음 결과를 100에 곱합니다.
 
     `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
@@ -699,7 +699,7 @@ AND D.name = 'MyDatabase';
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
-FROM sys.dm_exec_connections
+FROM sys.dm_exec_connections;
 ```
 
 SQL Server 작업을 분석 하는 경우 쿼리를 수정 하 여 특정 데이터베이스에 초점을 맞춰야 합니다. 이 쿼리를 사용 하면 Azure로 이동 하려는 경우 데이터베이스에 대 한 가능한 세션 요구 사항을 확인할 수 있습니다.
@@ -709,7 +709,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections C
 INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
 INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-WHERE D.name = 'MyDatabase'
+WHERE D.name = 'MyDatabase';
 ```
 
 역시 이러한 쿼리도 지정 시간 수를 반환합니다. 시간이 지남에 따라 여러 샘플을 수집 하는 경우 세션 사용을 잘 이해 하 게 됩니다.
@@ -743,7 +743,7 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>차단된 쿼리 모니터링
 
-느린 속도로 또는 장시간 실행하는 쿼리는 과도한 리소스 소비에 기여하고 차단된 쿼리에 따른 결과일 수 있습니다. 차단의 원인으로 부실한 애플리케이션 디자인, 잘못된 쿼리 계획, 유용한 인덱스 부족 등이 있습니다. Sys.dm_tran_locks 뷰를 사용 하 여 데이터베이스의 현재 잠금 작업에 대 한 정보를 가져올 수 있습니다. 예제 코드는 [sys.dm_tran_locks (transact-sql)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql)를 참조 하세요.
+느린 속도로 또는 장시간 실행하는 쿼리는 과도한 리소스 소비에 기여하고 차단된 쿼리에 따른 결과일 수 있습니다. 차단의 원인으로 부실한 애플리케이션 디자인, 잘못된 쿼리 계획, 유용한 인덱스 부족 등이 있습니다. Sys.dm_tran_locks 뷰를 사용 하 여 데이터베이스의 현재 잠금 작업에 대 한 정보를 가져올 수 있습니다. 예제 코드는 [sys.dm_tran_locks (transact-sql)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql)를 참조 하세요. 차단 문제 해결에 대 한 자세한 내용은 [AZURE SQL 차단 문제 이해 및 해결](understand-resolve-blocking.md)을 참조 하세요.
 
 ### <a name="monitoring-query-plans"></a>쿼리 계획 모니터링
 
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 [Azure SQL Database 및 Azure SQL Managed Instance 소개](sql-database-paas-overview.md)

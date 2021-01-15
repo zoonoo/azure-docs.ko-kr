@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296688"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218368"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>제한 된 네트워크에서 작업 영역 리소스에 연결
 
@@ -40,7 +40,7 @@ ms.locfileid: "96296688"
 
 다른 세 가지 규칙을 만드는 경우 **대상 서비스 태그** 의 값을 목록에서 **AzureFrontDoor**, **AzureActiveDirectory** 또는 **azuremonitor** 로 바꿉니다.
 
-자세한 내용은 [서비스 태그 개요](/azure/virtual-network/service-tags-overview)를 참조 하세요.
+자세한 내용은 [서비스 태그 개요](../../virtual-network/service-tags-overview.md)를 참조 하세요.
 
 ## <a name="step-2-create-private-link-hubs"></a>2 단계: 개인 링크 허브 만들기
 

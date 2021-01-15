@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: 6ea17f04538e3444b1baddaa8862add2cfbbaa9c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: 4d0f5404a64eae99ced0dd797954ba042b50060f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493426"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217229"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Azure SQL Database에서 검색 가능한 쿼리 성능 병목 상태 유형
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -90,7 +90,7 @@ PSP 문제를 해결 하는 방법에 대 한 자세한 내용은 다음 블로�
 ```sql
 SELECT *
 FROM t1 JOIN t2 ON t1.c1 = t2.c1
-WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F';
 ```
 
 이 예제에서는를 `t1.c1` 사용 `@p1` 하지만는 `t2.c2` 계속 리터럴로 GUID를 사용 합니다. 이 경우의 값을 변경 하면 `c2` 쿼리가 다른 쿼리로 처리 되 고 새 컴파일이 수행 됩니다. 이 예제에서 컴파일을 줄이려면 GUID도 매개 변수화 합니다.
@@ -115,7 +115,7 @@ WHERE
   rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
   AND query_parameterization_type_desc IN ('User', 'None')
 GROUP BY q.query_hash
-ORDER BY count (distinct p.query_id) DESC
+ORDER BY count (distinct p.query_id) DESC;
 ```
 
 ### <a name="factors-that-affect-query-plan-changes"></a>쿼리 계획 변경에 영향을 주는 요소
@@ -130,7 +130,7 @@ ORDER BY count (distinct p.query_id) DESC
 
 - 인스턴스 다시 시작
 - 데이터베이스 범위 구성 변경
-- 메모리 압력
+- 메모리 부족
 - 캐시 지우기에 대 한 명시적 요청
 
 RECOMPILE 힌트를 사용 하는 경우에는 계획이 캐시 되지 않습니다.
@@ -187,7 +187,7 @@ Intelligent Insights를 사용 하 여 [작업 부하를 늘리고](database/int
 
 - **차단**:
 
-  한 쿼리는 데이터베이스의 개체에 대 한 잠금을 유지할 수 있지만 다른 쿼리는 동일한 개체에 액세스 하려고 합니다. [Dmv](database/monitoring-with-dmvs.md#monitoring-blocked-queries) 또는 [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking)를 사용 하 여 차단 쿼리를 식별할 수 있습니다.
+  한 쿼리는 데이터베이스의 개체에 대 한 잠금을 유지할 수 있지만 다른 쿼리는 동일한 개체에 액세스 하려고 합니다. [Dmv](database/monitoring-with-dmvs.md#monitoring-blocked-queries) 또는 [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking)를 사용 하 여 차단 쿼리를 식별할 수 있습니다. 자세한 내용은 [AZURE SQL 차단 문제 이해 및 해결](database/understand-resolve-blocking.md)을 참조 하세요.
 - **IO 문제**
 
   쿼리가 데이터 또는 로그 파일에 페이지가 기록 될 때까지 대기 하 고 있을 수 있습니다. 이 경우 `INSTANCE_LOG_RATE_GOVERNOR` `WRITE_LOG` DMV에서, 또는 wait 통계를 확인 합니다 `PAGEIOLATCH_*` . Dmv를 사용 하 여 [IO 성능 문제 파악](database/monitoring-with-dmvs.md#identify-io-performance-issues)을 참조 하세요.

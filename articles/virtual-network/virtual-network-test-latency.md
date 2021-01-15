@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687806"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219261"
 ---
 # <a name="test-vm-network-latency"></a>VM 네트워크 대기 시간 테스트
 
@@ -55,7 +55,7 @@ Ping과 같은 다른 일반적인 연결 도구는 대기 시간을 측정할 �
 VM 구성을 만들 때 다음 권장 사항을 염두에 두어야 합니다.
 - 최신 버전의 Windows 또는 Linux를 사용 합니다.
 - 최상의 결과를 위해 가속 네트워킹을 사용 하도록 설정 합니다.
-- [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 사용 하 여 vm을 배포 합니다.
+- [Azure 근접 배치 그룹](../virtual-machines/co-location.md)을 사용 하 여 vm을 배포 합니다.
 - 일반적으로 더 큰 Vm은 더 작은 Vm 보다 성능이 우수 합니다.
 
 ### <a name="tips-for-analysis"></a>분석 팁
@@ -73,11 +73,11 @@ VM 구성을 만들 때 다음 권장 사항을 염두에 두어야 합니다.
 
 [최신 버전의 latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)을 다운로드 합니다.
 
-*C:\tools*와 같이 별도의 폴더에 latte.exe을 배치 하는 것이 좋습니다.
+*C:\tools* 와 같이 별도의 폴더에 latte.exe을 배치 하는 것이 좋습니다.
 
 ### <a name="allow-latteexe-through-windows-defender-firewall"></a>Windows Defender 방화벽을 통한 latte.exe 허용
 
-*수신기*에서 Windows Defender 방화벽에 대 한 허용 규칙을 만들어 latte.exe 트래픽이 도착할 수 있도록 허용 합니다. 특정 TCP 포트 인바운드를 허용 하는 대신 이름으로 전체 latte.exe 프로그램을 허용 하는 것이 가장 쉽습니다.
+*수신기* 에서 Windows Defender 방화벽에 대 한 허용 규칙을 만들어 latte.exe 트래픽이 도착할 수 있도록 허용 합니다. 특정 TCP 포트 인바운드를 허용 하는 대신 이름으로 전체 latte.exe 프로그램을 허용 하는 것이 가장 쉽습니다.
 
 다음 명령을 실행 하 여 Windows Defender 방화벽을 통해 latte.exe 수 있습니다.
 
@@ -91,7 +91,7 @@ netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protoc
 
 ### <a name="run-latency-tests"></a>대기 시간 테스트 실행
 
-* *받는 사람*에서 latte.exe를 시작 합니다 (PowerShell이 아닌 CMD 창에서 실행).
+* *받는 사람* 에서 latte.exe를 시작 합니다 (PowerShell이 아닌 CMD 창에서 실행).
 
     ```cmd
     latte -a <Receiver IP address>:<port> -i <iterations>
@@ -105,13 +105,13 @@ netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protoc
 
     `latte -a 10.0.0.4:5005 -i 65100`
 
-* *보낸 사람*에서 latte.exe를 시작 합니다 (PowerShell이 아닌 CMD 창에서 실행).
+* *보낸 사람* 에서 latte.exe를 시작 합니다 (PowerShell이 아닌 CMD 창에서 실행).
 
     ```cmd
     latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    결과 명령은 &nbsp; *-c* *client*를 추가 하는 것을 제외 하 고는 *받는 사람*에서와 동일 합니다.
+    결과 명령은 &nbsp; *-c* 를 추가 하는 것을 제외 하 고는 *받는 사람* 에서와 동일 합니다.
 
     `latte -c -a 10.0.0.4:5005 -i 65100`
 
@@ -123,7 +123,7 @@ Linux를 실행 하는 Vm을 테스트 하려면 [SockPerf](https://github.com/m
 
 ### <a name="install-sockperf-on-the-vms"></a>Vm에 SockPerf 설치
 
-*발신자* 와 *수신자*모두 Linux vm에서 다음 명령을 실행 하 여 Vm에 대 한 SockPerf를 준비 합니다. 주요 배포판에 대해 명령이 제공 됩니다.
+*발신자* 와 *수신자* 모두 Linux vm에서 다음 명령을 실행 하 여 Vm에 대 한 SockPerf를 준비 합니다. 주요 배포판에 대해 명령이 제공 됩니다.
 
 #### <a name="for-red-hat-enterprise-linux-rhelcentos"></a>For Red Hat Enterprise Linux (RHEL)/CentOS
 
@@ -176,7 +176,7 @@ sudo make install
 
 SockPerf 설치가 완료 되 면 Vm은 대기 시간 테스트를 실행할 준비가 된 것입니다. 
 
-먼저 *수신자*에 대해 SockPerf를 시작 합니다.
+먼저 *수신자* 에 대해 SockPerf를 시작 합니다.
 
 사용 가능한 포트 번호는 모두 충분 합니다. 이 예제에서는 포트 12345을 사용 합니다.
 
@@ -200,7 +200,7 @@ sockperf ping-pong -i 10.0.0.4 --tcp -m 350 -t 101 -p 12345  --full-rtt
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 사용 하 여 대기 시간을 개선 합니다.
+* [Azure 근접 배치 그룹](../virtual-machines/co-location.md)을 사용 하 여 대기 시간을 개선 합니다.
 * 시나리오를 위해 [vm에 대 한 네트워킹을 최적화](../virtual-network/virtual-network-optimize-network-bandwidth.md) 하는 방법을 알아봅니다.
 * [가상 컴퓨터에 대역폭을 할당 하는 방법을](../virtual-network/virtual-machine-network-throughput.md)참조 하세요.
 * 자세한 내용은 [Azure VIRTUAL NETWORK FAQ](../virtual-network/virtual-networks-faq.md)를 참조 하세요.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2f1fe7c25327e8ecab9b450cab167391d8949b0a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008167"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219745"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Azure Synapse Studio의 소스 제어
 
@@ -61,7 +61,7 @@ Git 리포지토리에 연결 하는 경우 먼저 리포지토리 유형을 Azu
 
 구성 창에는 다음과 같은 Azure DevOps git 설정이 표시 됩니다.
 
-| Setting | Description | 값 |
+| 설정 | 설명 | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -77,7 +77,7 @@ Git 리포지토리에 연결 하는 경우 먼저 리포지토리 유형을 Azu
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>다른 Azure Active Directory 테넌트 사용
 
-Azure Repos Git 리포지토리는 다른 Azure Active Directory 테넌트에 있을 수 없습니다. 다른 Azure AD 테넌트를 지정하려면 사용하고 있는 Azure 구독에 대한 관리자 권한이 있어야 합니다. 자세한 내용은 [구독 관리자 변경](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator) 을 참조 하세요.
+Azure Repos Git 리포지토리는 다른 Azure Active Directory 테넌트에 있을 수 없습니다. 다른 Azure AD 테넌트를 지정하려면 사용하고 있는 Azure 구독에 대한 관리자 권한이 있어야 합니다. 자세한 내용은 [구독 관리자 변경](../../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator) 을 참조 하세요.
 
 > [!IMPORTANT]
 > 다른 Azure Active Directory에 연결 하려면 로그인 한 사용자가 Active Directory의 일부 여야 합니다. 
@@ -86,7 +86,7 @@ Azure Repos Git 리포지토리는 다른 Azure Active Directory 테넌트에 �
 
 Git 통합에 개인 Microsoft 계정을 사용하려면 개인 Azure 리포지토리를 조직의 Active Directory에 연결하면 됩니다.
 
-1. 개인 Microsoft 계정을 조직의 Active Directory에 게스트로 추가합니다. 자세한 내용은 [Azure Portal에서 Azure Active Directory B2B 협업 사용자 추가](https://docs.microsoft.com/azure/active-directory/external-identities/add-users-administrator)를 참조하세요.
+1. 개인 Microsoft 계정을 조직의 Active Directory에 게스트로 추가합니다. 자세한 내용은 [Azure Portal에서 Azure Active Directory B2B 협업 사용자 추가](../../active-directory/external-identities/add-users-administrator.md)를 참조하세요.
 
 2. 개인 Microsoft 계정을 사용하여 Azure Portal에 로그인합니다. 그런 다음, 조직의 Active Directory로 전환합니다.
 

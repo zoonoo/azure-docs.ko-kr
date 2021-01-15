@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: a9db2bcc0b44dfb6146517de8a139f34cd8584af
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: bb9235f4d1190bf7f71ddc007f09c9666c353234
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654458"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216804"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Azure Virtual Machine에 대한 네트워크 처리량 최적화
 
@@ -152,7 +152,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 [다운로드 페이지](https://www.microsoft.com/download/details.aspx?id=55106)를 확인하여 Hyper-V용 Linux Integration Services 버전 4.2에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [근접 배치 그룹](../virtual-machines/windows/co-location.md) 의 짧은 대기 시간을 위해 서로 가까운 vm 배포
+* [근접 배치 그룹](../virtual-machines/co-location.md) 의 짧은 대기 시간을 위해 서로 가까운 vm 배포
 * 시나리오에 대한 [Azure VM 대역폭/처리량 테스트](virtual-network-bandwidth-testing.md)를 통해 최적화된 결과를 확인합니다.
 * [가상 컴퓨터에 대역폭을 할당](virtual-machine-network-throughput.md) 하는 방법에 대해 알아봅니다.
 * [Azure Virtual Network FAQ(질문과 대답)](virtual-networks-faq.md)에 대해 자세히 알아보기

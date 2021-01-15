@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 2526fd60d6e07ecf43864945f2b05858b41ca567
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 70aecc2613fbe21d34e36f9487d7ba383e140bc8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035209"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217365"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -19,11 +19,6 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 함수 앱의 개별 함수는 함께 배포 되며 함께 확장 됩니다. 동일한 함수 앱의 모든 함수는 함수 앱이 확장 될 때 인스턴스당 리소스를 공유 합니다. 
 
 연결 문자열, 환경 변수 및 기타 응용 프로그램 설정은 각 함수 앱에 대해 개별적으로 정의 됩니다. 함수 앱 간에 공유 해야 하는 모든 데이터는 지속형 저장소에 외부적으로 저장 해야 합니다.
-
-이 문서에서는 함수 앱을 구성 하 고 관리 하는 방법을 설명 합니다. 
-
-> [!TIP]  
-> [Azure CLI]를 사용 하 여 많은 구성 옵션을 관리할 수도 있습니다. 
 
 ## <a name="get-started-in-the-azure-portal"></a>Azure Portal에서 시작
 
@@ -37,15 +32,17 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>응용 프로그램 설정 작업
 
-**응용 프로그램 설정** 탭은 함수 앱에서 사용 하는 설정을 유지 합니다. 이러한 설정은 암호화 되어 저장 되므로 **값 표시** 를 선택 하 여 포털에서 값을 확인 해야 합니다. Azure CLI를 사용 하 여 응용 프로그램 설정에 액세스할 수도 있습니다.
+[Azure Portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) 에서 응용 프로그램 설정을 관리 하 고 [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) 및 [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings)를 사용할 수 있습니다. [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) 및 [Visual Studio](functions-develop-vs.md#function-app-settings)에서 응용 프로그램 설정을 관리할 수도 있습니다. 
 
-### <a name="portal"></a>포털
+이러한 설정은 암호화 되어 저장 됩니다. 자세히 알아보려면 [응용 프로그램 설정 보안](security-concepts.md#application-settings)을 참조 하세요.
 
-포털에서 설정을 추가 하려면 **새 응용 프로그램 설정** 을 선택 하 고 새 키-값 쌍을 추가 합니다.
+# <a name="portal"></a>[포털](#tab/portal)
+
+**응용 프로그램 설정** 탭은 함수 앱에서 사용 하는 설정을 유지 합니다. 포털에서 값 **표시** 를 선택 하 여 값을 확인 해야 합니다. 포털에서 설정을 추가 하려면 **새 응용 프로그램 설정** 을 선택 하 고 새 키-값 쌍을 추가 합니다.
 
 ![Azure Portal의 함수 앱 설정입니다.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-### <a name="azure-cli"></a>Azure CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list)이 명령은 다음 예제와 같이 기존 응용 프로그램 설정을 반환 합니다.
 
@@ -62,6 +59,22 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+[`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting)Cmdlet은 다음 예제와 같이 기존 응용 프로그램 설정을 반환 합니다. 
+
+```azurepowershell-interactive
+Get-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+```
+
+[`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting)명령은 응용 프로그램 설정을 추가 하거나 업데이트 합니다. 다음 예에서는 라는 키와 값을 사용 하 여 설정을 만듭니다 `CUSTOM_FUNCTION_APP_SETTING` `12345` .
+
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"CUSTOM_FUNCTION_APP_SETTING" = "12345"}
+```
+
+---
 
 ### <a name="use-application-settings"></a>응용 프로그램 설정 사용
 
@@ -145,7 +158,7 @@ App Service 편집기는 JSON 구성 파일과 코드 파일을 둘 다 수정�
 
 로컬 컴퓨터에서 함수를 개발 하는 것이 좋습니다. 로컬로 개발 하 고 Azure에 게시 하는 경우 프로젝트 파일은 포털에서 읽기 전용입니다. 자세히 알아보려면 [로컬에서 코드 및 테스트 Azure Functions](functions-develop-local.md)를 참조 하세요.
 
-### <a name="console"></a><a name="console"></a>Console
+### <a name="console"></a><a name="console"></a>콘솔
 
 ![함수 앱 콘솔](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 

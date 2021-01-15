@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: edd1549ddabef0ae1ba37150ad75a371ac6e6d85
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 55d1b7171201c962278d7c526528b36848c19449
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365519"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217892"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 
@@ -24,7 +24,7 @@ Personalizer는 **현재 컨텍스트** 에 관한 정보인 **기능** 을 사�
 예를 들어 다음 사항에 관한 **기능** 이 있을 수 있습니다.
 
 * _사용자 가상 사용자_ (예:) `Sports_Shopper` 이 ID는 개별 사용자 ID가 되어서는 안 됩니다. 
-* _콘텐츠_ (예: 동영상이 `Documentary`, `Movie` 또는 `TV Series` 중 어느 유형인지, 또는 소매 항목이 점포에서 구입할 수 있는지 여부)
+* _콘텐츠_(예: 동영상이 `Documentary`, `Movie` 또는 `TV Series` 중 어느 유형인지, 또는 소매 항목이 점포에서 구입할 수 있는지 여부)
 * _현재_ 기간(예: 요일)
 
 Personalizer는 작업 및 컨텍스트에 대해 전송할 수 있는 기능을 규정, 제한 또는 수정 하지 않습니다.
@@ -37,12 +37,12 @@ Personalizer는 작업 및 컨텍스트에 대해 전송할 수 있는 기능을
 
 ## <a name="supported-feature-types"></a>지원되는 기능 형식
 
-Personalizer는 문자열, 숫자 및 부울 형식의 기능을 지원합니다.
+Personalizer는 문자열, 숫자 및 부울 형식의 기능을 지원합니다. 응용 프로그램은 대부분의 경우 몇 가지 예외를 제외 하 고 대부분 문자열 기능을 사용 합니다.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Personalizer의 기능 유형 선택이 Machine Learning에 미치는 영향
 
-* **문자열** : 문자열 형식의 경우 키와 값의 모든 조합은 Personalizer machine learning 모델에 새 가중치를 만듭니다. 
-* **숫자** : 숫자가 개인 설정 결과에 비례적으로 영향을 미치는 경우 숫자 값을 사용 해야 합니다. 이는 시나리오에 따라 달라 집니다. 예를 들어, 소매 환경을 개인 설정 하는 경우 NumberOfPetsOwned는 2 또는 3 애완 동물을 가진 사람이 개인 설정 결과에 2 개 또는 백업은 하루을 두 번 포함 하는 것이 좋습니다. 숫자 단위를 기반으로 하지만 의미는 선형이 아닌 (예: 나이, 온도 또는 사람 높이) 기능을 사용 하 여 가장 적합 한 기능으로, 일반적으로 범위를 사용 하 여 기능 품질을 향상 시킬 수 있습니다. 예를 들어 Age는 "Age": "0-5", "Age": "6-10" 등으로 인코딩할 수 있습니다.
+* **문자열**: 문자열 형식의 경우 키와 값의 모든 조합은 One-Hot 기능으로 처리 됩니다 (예: 장르: "ScienceFiction" 및 장르: "다큐멘터리"는 machine learning 모델에 대 한 두 개의 새로운 입력 기능을 만듭니다.
+* **숫자**: 숫자 값을 사용 하 여 개인 설정 결과에 비례적으로 영향을 미치는 크기를 지정 해야 합니다. 이는 시나리오에 따라 달라 집니다. 예를 들어, 소매 환경을 개인 설정 하는 경우 NumberOfPetsOwned는 2 또는 3 애완 동물을 가진 사람이 개인 설정 결과에 2 개 또는 백업은 하루을 두 번 포함 하는 것이 좋습니다. 숫자 단위를 기반으로 하는 기능 (예: Age, 온도 또는 사람 높이)은 문자열로 가장 잘 인코딩됩니다. 예를 들어 DayOfMonth는 "1", "2" ... "31"을 포함 하는 문자열입니다. 많은 범주가 있는 경우 일반적으로 범위를 사용 하 여 기능 품질을 향상 시킬 수 있습니다. 예를 들어 Age는 "Age": "0-5", "Age": "6-10" 등으로 인코딩할 수 있습니다.
 * "False" 값으로 전송 된 **부울** 값은 전혀 전송 되지 않은 것 처럼 작동 합니다.
 
 존재하지 않는 기능은 요청에서 생략해야 합니다. Null 값은 모델을 학습할 때 기능이 존재하고 값이 "null"인 것으로 처리되므로 Null 값을 포함하는 기능은 보내지 않아야 합니다.
@@ -80,12 +80,14 @@ JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": [47.6, -122.1]
+                "latlong": ["47.6", "-122.1"]
             }
         },
         {
-            "state": {
-                "timeOfDay": "noon",
+            "environment": {
+                "dayOfMonth": "28",
+                "monthOfYear": "8",
+                "timeOfDay": "13:00",
                 "weather": "sunny"
             }
         },
@@ -93,6 +95,13 @@ JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 
             "device": {
                 "mobile":true,
                 "Windows":true
+            }
+        },
+        {
+            "userActivity" : {
+                "itemsInCart": 3,
+                "cartValue": 250,
+                "appliedCoupon": true
             }
         }
     ]
@@ -112,6 +121,8 @@ JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 
 좋은 기능 세트는 Personalizer에서 가장 높은 보상을 달성할 작업을 예측하는 방법을 학습하는 데 도움이 됩니다. 
 
 다음 권장 사항을 따르는 Personalizer 순위 API에 기능을 보내는 것을 검토합니다.
+
+* 크기가 아닌 기능에는 범주 및 문자열 형식을 사용 합니다. 
 
 * 맞춤화를 달성하기에 충분한 기능이 있습니다. 콘텐츠가 달성해야 하는 목표가 더 정밀할수록 더 많은 기능이 필요합니다.
 
@@ -153,7 +164,7 @@ AI 서비스를 사용하여 항목을 미리 처리하면 맞춤화에 유용�
 다음과 같은 여러 가지 다른 [Azure Cognitive Services](https://www.microsoft.com/cognitive-services)를 사용할 수 있습니다.
 
 * [엔터티 연결](../text-analytics/index.yml)
-* [Text Analytics](../text-analytics/overview.md)
+* [텍스트 분석](../text-analytics/overview.md)
 * [감정](../face/overview.md)
 * [Computer Vision](../computer-vision/overview.md)
 
@@ -177,9 +188,9 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 순위 API에 보내는 작업은 맞춤화하려는 목적에 따라 달라집니다.
 
-몇 가지 예제는 다음과 같습니다.
+다음은 몇 가지 예입니다.
 
-|용도|작업|
+|목적|작업|
 |--|--|
 |새 웹 사이트에서 강조 표시되는 문서를 맞춤화합니다.|각 작업은 잠재적인 뉴스 기사입니다.|
 |웹 사이트의 광고 위치를 최적화합니다.|각 작업은 광고용 레이아웃을 만들기 위한 레이아웃 또는 규칙입니다(예: 맨 위, 오른쪽, 작은 이미지, 큰 이미지).|

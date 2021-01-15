@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43e4027c9d88b209ed0606e045dd5b4d47d3ff6e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a35cdebe5ff4db562b19dc4ceed069a831af4305
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088519"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220000"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 복잡 한 데이터 형식 분석
 
@@ -28,7 +28,7 @@ ms.locfileid: "92088519"
 
 ## <a name="what-are-arrays-and-nested-structures"></a>배열 및 중첩 구조체 란?
 
-다음 개체는 [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)에서 제공 됩니다. 이 개체에는 중첩 된 구조체와 중첩 된 구조체를 포함 하는 배열이 있습니다.
+다음 개체는 [Application Insights](../azure-monitor/app/app-insights-overview.md)에서 제공 됩니다. 이 개체에는 중첩 된 구조체와 중첩 된 구조체를 포함 하는 배열이 있습니다.
 
 ```json
 {
@@ -221,4 +221,4 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 ## <a name="next-steps"></a>다음 단계
 
 * [Spark를 사용 하 여 Azure Cosmos DB에 대 한 Synapse 링크를 쿼리 하는 방법 알아보기](./synapse-link/how-to-query-analytical-store-spark.md)
-* [Parquet 중첩 형식 쿼리](./sql/query-parquet-nested-types.md) 
+* [Parquet 중첩 형식 쿼리](./sql/query-parquet-nested-types.md)

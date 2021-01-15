@@ -9,13 +9,13 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 01/14/2020
-ms.openlocfilehash: bcf11ef9b64a02383aad5175c19c5db58c3c39cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/14/2021
+ms.openlocfilehash: 7c797c7e002f40a28e4be674c125c6ea5d60a13f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791344"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219065"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 연결 문제 및 기타 오류 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Azure 인프라에 는 SQL Database 서비스에 과도한 워크로드 부하�
 | 오류 코드 | 심각도 | 설명 |
 | ---:| ---:|:--- |
 | 4060 |16 |로그인에서 요청된 데이터베이스 "%.&#x2a;ls"을(를) 열 수 없습니다. 로그인이 실패했습니다. 자세한 내용은 [오류 4000 ~ 4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999) 를 참조 하세요.|
-| 40197 |17 |서비스에서 요청을 처리하는 오류가 발생했습니다. 나중에 다시 시도하세요. 오류 코드 %d.<br/><br/>소프트웨어 또는 하드웨어 업그레이드, 하드웨어 오류 또는 기타 장애 조치 문제로 인해 서비스가 종료되는 경우 이 오류가 발생합니다. 오류 40197 메시지 내에 포함된 오류 코드(%d)는 발생한 오류 또는 장애 조치의 종류에 대한 추가 정보를 제공합니다. 오류 40197 메시지 내에 포함된 오류 코드의 일부 예제는 40020, 40143, 40166 및 40540입니다.<br/><br/>다시 연결 하면 데이터베이스의 정상 복사본으로 자동 연결 됩니다. 애플리케이션은 오류 40197을 포착하고 문제 해결을 위해 메시지 내에 포함된 오류 코드(%d)를 로그하고 리소스가 사용 가능하고 연결이 다시 설정될 때까지 SQL Database에 다시 접속을 시도해야 합니다. 자세한 내용은 [일시적인 오류](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults)를 참조 하세요.|
+| 40197 |17 |서비스에서 요청을 처리하는 오류가 발생했습니다. 다시 시도하세요. 오류 코드 %d.<br/><br/>소프트웨어 또는 하드웨어 업그레이드, 하드웨어 오류 또는 기타 장애 조치 문제로 인해 서비스가 종료되는 경우 이 오류가 발생합니다. 오류 40197 메시지 내에 포함된 오류 코드(%d)는 발생한 오류 또는 장애 조치의 종류에 대한 추가 정보를 제공합니다. 오류 40197 메시지 내에 포함된 오류 코드의 일부 예제는 40020, 40143, 40166 및 40540입니다.<br/><br/>다시 연결 하면 데이터베이스의 정상 복사본으로 자동 연결 됩니다. 애플리케이션은 오류 40197을 포착하고 문제 해결을 위해 메시지 내에 포함된 오류 코드(%d)를 로그하고 리소스가 사용 가능하고 연결이 다시 설정될 때까지 SQL Database에 다시 접속을 시도해야 합니다. 자세한 내용은 [일시적인 오류](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults)를 참조 하세요.|
 | 40501 |20 |서비스가 현재 사용 중입니다. 10초 후 요청을 다시 시도하십시오. 인시던트 ID: %ls. 코드: %d. 자세한 내용은 다음을 참조하세요. <br/>&bull;&nbsp; [논리 SQL server 리소스 제한](resource-limits-logical-server.md)<br/>&bull;&nbsp; [단일 데이터베이스에 대 한 DTU 기반 제한](service-tiers-dtu.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [단일 데이터베이스에 대 한 vcore 기반 제한](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Azure SQL Managed Instance 리소스 제한](../managed-instance/resource-limits.md)입니다.|
 | 40613 |17 |서버의 데이터베이스 '%.&#x2a;ls' '%.&#x2a;ls'을(를) 사용할 수 없습니다. 나중에 연결을 다시 시도하십시오. 문제가 지속되면 고객 지원 서비스에 문의하고 세션 추적 ID '%.&#x2a;ls'을(를) 제공하십시오.<br/><br/> 이 오류는 데이터베이스에 기존 DAC (관리자 전용 연결)가 이미 설정 된 경우에 발생할 수 있습니다. 자세한 내용은 [일시적인 오류](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults)를 참조 하세요.|
 | 49918 |16 |요청을 처리할 수 없습니다. 요청을 처리할 리소스가 부족합니다.<br/><br/>서비스가 현재 사용 중입니다. 요청을 나중에 다시 시도하세요. 자세한 내용은 다음을 참조하세요. <br/>&bull;&nbsp; [논리 SQL server 리소스 제한](resource-limits-logical-server.md)<br/>&bull;&nbsp; [단일 데이터베이스에 대 한 DTU 기반 제한](service-tiers-dtu.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [단일 데이터베이스에 대 한 vcore 기반 제한](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Azure SQL Managed Instance 리소스 제한](../managed-instance/resource-limits.md)입니다. |
@@ -124,7 +124,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = ‘<password, sysname, Change_Password>’
+   WITH PASSWORD = '<password, sysname, Change_Password>'
    GO
    ```
 
@@ -141,7 +141,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
    GO
    -- Add user to the database owner role
 
-   EXEC sp_addrolemember N’db_owner’, N’<user_name, sysname, user_name>’
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
    GO
    ```
 
@@ -183,22 +183,20 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 - 장기 실행 쿼리가 있는지 여부를 확인 합니다.
 
   > [!NOTE]
-  > 이는 문제를 해결 하지 못할 수 있는 전적 방법입니다.
+  > 이는 문제를 해결 하지 못할 수 있는 전적 방법입니다. 쿼리 차단 문제 해결에 대 한 자세한 내용은 [AZURE SQL 차단 문제 이해 및 해결](understand-resolve-blocking.md)을 참조 하세요.
 
 1. 다음 SQL 쿼리를 실행 하 여 [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 보기를 확인 하 고 차단 요청을 확인 합니다.
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. 헤드 차단기에 대 한 **입력 버퍼** 를 확인 합니다.
 3. 헤드 차단기 쿼리를 조정 합니다.
 
-   심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)를 참조 하세요.
+   심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)를 참조 하세요. 
 
 블로킹 및 장기 실행 쿼리를 처리 하는 것에도 불구 하 고 데이터베이스가 지속적으로 제한에 도달한 경우 더 많은 리소스 [버전이](https://azure.microsoft.com/pricing/details/sql-database/)있는 버전으로 업그레이드 하는 것이 좋습니다.
-
-동적 관리 뷰에 대 한 자세한 내용은 [시스템 동적 관리 뷰](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)를 참조 하세요.
 
 데이터베이스 제한에 대 한 자세한 내용은  [서버에 대 한 리소스 제한 SQL Database](./resource-limits-logical-server.md)을 참조 하세요.
 
@@ -234,7 +232,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
-   ORDER BY [Table Size (MB)] DESC
+   ORDER BY [Table Size (MB)] DESC;
    ```
 
 2. 현재 크기가 버전에 대해 지원 되는 최대 크기를 초과 하지 않는 경우 ALTER DATABASE를 사용 하 여 MAXSIZE 설정을 늘릴 수 있습니다.
@@ -253,7 +251,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 1. Sys.dm_exec_requests 뷰를 확인 하 여 total_elapsed_time 열에 대해 값이 높은 열려 있는 세션을 확인 합니다. 다음 SQL 스크립트를 실행 하 여이 확인을 수행 합니다.
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. 장기 실행 쿼리에 대 한 입력 버퍼를 확인 합니다.
@@ -315,12 +313,12 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |탄력적 풀이 스토리지 용량 한도에 도달했습니다. 탄력적 풀의 스토리지 사용량은 (%d)MB를 초과할 수 없습니다. 탄력적 풀이 스토리지 용량 한도에 도달했을 때 데이터베이스에 데이터를 기록하려고 했습니다. 리소스 제한에 대 한 자세한 내용은 다음을 참조 하세요. <br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)입니다. <br/> |가능하다면 탄력적 풀의 DTU를 늘리거나 탄력적 풀에 스토리지를 추가하여 스토리지 용량 한도를 늘리거나, 탄력적 풀에 있는 개별 데이터베이스에서 사용하는 스토리지를 줄이거나, 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. 탄력적 풀 크기 조정에 대해서는 [탄력적 풀 리소스 크기 조정](elastic-pool-scale.md)을 참조 하세요.|
 | 10929 | 16 |%s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 리소스 제한에 대 한 자세한 내용은 다음을 참조 하세요. <br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)입니다. <br/> 그렇지 않은 경우 나중에 다시 시도하세요. 데이터베이스당 DTU/vCore 최솟값, 데이터베이스당 DTU/vCore 최댓값. 탄력적 풀에 있는 전체 데이터베이스의 동시 작업자(요청) 수 합계가 풀 한도를 초과하려고 했습니다. |가능하다면 탄력적 풀의 DTU 또는 vCore를 늘려 작업자 한도를 늘리거나 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
-| 40844 | 16 |서버 '%ls'에 있는 데이터베이스 '%ls'은(는) 탄력적 풀에 포함된 '%ls' 버전 데이터베이스이며, 연속 복사 관계를 가질 수 없습니다.  |해당 없음 |
+| 40844 | 16 |서버 '%ls'에 있는 데이터베이스 '%ls'은(는) 탄력적 풀에 포함된 '%ls' 버전 데이터베이스이며, 연속 복사 관계를 가질 수 없습니다.  |N/A |
 | 40857 | 16 |서버: '%ls'에서 탄력적 풀을 찾을 수 없음, 탄력적 풀 이름: '%ls'. 지정한 탄력적 풀이 지정한 서버에 존재하지 않습니다. | 유효한 탄력적 풀 이름을 입력하세요. |
 | 40858 | 16 |탄력적 풀 '%ls'이(가) 서버 '%ls'에 이미 있습니다. 지정한 탄력적 풀이 지정한 서버에 이미 있습니다. | 새 탄력적 풀 이름을 입력하세요. |
 | 40859 | 16 |탄력적 풀이 서비스 계층 '%ls'을(를) 지원하지 않습니다. 지정한 서비스 계층은 탄력적 풀 프로비저닝에 대해 지원되지 않습니다. |기본 서비스 계층을 사용하려면 오류를 수정하거나 서비스 계층을 빈 상태로 두세요. |
 | 40860 | 16 |탄력적 풀 '%ls' 및 서비스 목표'%ls'의 조합은 유효하지 않습니다. 리소스 종류가 'ElasticPool'로 지정된 경우에만 탄력적 풀과 서비스 계층을 함께 지정할 수 있습니다. |탄력적 풀과 서비스 계층의 올바른 조합을 지정하세요. |
-| 40861 | 16 |데이터베이스 버전 '%. *ls'이(가) '%.* ls'인 탄력적 풀 서비스 계층과 다를 수 없습니다. 데이터베이스 버전이 탄력적 풀 서비스 계층과 다릅니다. |탄력적 풀 서비스 계층과 다른 데이터베이스 버전을 지정하지 마세요.  데이터베이스 버전은 지정할 필요가 없습니다. |
+| 40861 | 16 |데이터베이스 버전 '%.*ls'이(가) '%.* ls'인 탄력적 풀 서비스 계층과 다를 수 없습니다. 데이터베이스 버전이 탄력적 풀 서비스 계층과 다릅니다. |탄력적 풀 서비스 계층과 다른 데이터베이스 버전을 지정하지 마세요.  데이터베이스 버전은 지정할 필요가 없습니다. |
 | 40862 | 16 |탄력적 풀 서비스 목표를 지정한 경우 탄력적 풀 이름을 지정해야 합니다. 탄력적 풀 서비스 목표가 탄력적 풀을 고유하게 식별하지 못합니다. |탄력적 풀 서비스 목표를 사용하는 경우 탄력적 풀 이름을 지정하세요. |
 | 40864 | 16 |탄력적 풀의 DTU는 서비스 계층 '%.*ls'에 대해 최소 (%d) DTU 이상이어야 합니다. 탄력적 풀의 DTU를 최소 한도 아래로 설정하려고 했습니다. |탄력적 풀의 DTU를 최소 한도 이상으로 다시 설정하세요. |
 | 40865 | 16 |탄력적 풀의 DTU는 서비스 계층 '%.*ls'에 대해 (%d) DTU를 초과할 수 없습니다. 탄력적 풀의 DTU를 최대 한도 위로 설정하려고 했습니다. |탄력적 풀의 DTU를 최대 한도 미만으로 다시 설정하세요. |

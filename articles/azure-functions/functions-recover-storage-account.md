@@ -3,12 +3,12 @@ title: '오류 문제 해결: Azure Functions 런타임에 연결할 수 없음'
 description: 잘못된 스토리지 계정 문제를 해결하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 9f6592b6d5ef88127a9dfca1e868564be0aa4ed5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579014"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217297"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>오류 해결: "Azure Functions 런타임에 연결할 수 없습니다."
 
@@ -16,15 +16,15 @@ ms.locfileid: "94579014"
 
 > "오류: Azure Functions 런타임에 연결할 수 없습니다. 저장소 구성에 대 한 자세한 내용을 보려면 여기를 클릭 하십시오. "
 
-Azure Functions 런타임를 시작할 수 없는 경우이 문제가 발생 합니다. 문제의 가장 일반적인 이유는 함수 앱이 해당 저장소 계정에 대 한 액세스를 손실 하는 것입니다. 자세한 내용은 [Storage 계정 요구 사항](./functions-create-function-app-portal.md#storage-account-requirements)을 참조 하세요.
+이 문제는 함수 런타임을 시작할 수 없을 때 발생 합니다. 가장 일반적인 이유는 함수 앱이 저장소 계정에 대 한 액세스 권한을 상실 하는 것입니다. 자세한 내용은 [Storage 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조 하세요.
 
-이 문서의 나머지 부분에서는 각 사례를 식별 하 고 해결 하는 방법을 비롯 하 여이 오류의 다음 원인을 해결 하는 데 도움이 됩니다.
+이 문서의 나머지 부분에서는 각 사례를 식별 하 고 해결 하는 방법을 비롯 하 여이 오류의 특정 원인을 해결 하는 데 도움이 됩니다.
 
 ## <a name="storage-account-was-deleted"></a>저장소 계정이 삭제 됨
 
 모든 함수 앱은 스토리지 계정이 있어야 작동합니다. 해당 계정이 삭제 되 면 함수가 작동 하지 않습니다.
 
-응용 프로그램 설정에서 저장소 계정 이름을 조회 하 여 시작 합니다. `AzureWebJobsStorage`또는 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 에 연결 문자열에서 래핑된 저장소 계정의 이름이 포함 되어 있습니다. 자세한 내용은 [Azure Functions에 대 한 앱 설정 참조](./functions-app-settings.md#azurewebjobsstorage)를 참조 하세요.
+응용 프로그램 설정에서 저장소 계정 이름을 조회 하 여 시작 합니다. `AzureWebJobsStorage`또는 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 에는 연결 문자열의 일부로 저장소 계정의 이름이 포함 됩니다. 자세한 내용은 [Azure Functions에 대 한 앱 설정 참조](./functions-app-settings.md#azurewebjobsstorage)를 참조 하세요.
 
 Azure Portal에서 저장소 계정을 검색 하 여 여전히 존재 하는지 확인 합니다. 저장소 계정을 삭제 한 경우 저장소 계정을 다시 만들고 저장소 연결 문자열을 대체 합니다. 함수 코드가 손실 되어 다시 배포 해야 합니다.
 
@@ -44,7 +44,7 @@ Azure Portal에서 저장소 계정을 검색 하 여 여전히 존재 하는지
 
 ### <a name="guidance"></a>지침
 
-* 이러한 설정에 대해 "슬롯 설정"을 선택 하지 마세요. 배포 슬롯을 교환 하는 경우 함수 앱이 중단 됩니다.
+* 이러한 설정에 대 한 **슬롯 설정을** 확인 하지 않습니다. 배포 슬롯을 교환 하는 경우 함수 앱이 중단 됩니다.
 * 이러한 설정은 자동 배포의 일부로 수정 하지 마십시오.
 * 이러한 설정은 생성 시에 제공되어야 하며 유효한 상태여야 합니다. 이러한 설정을 포함 하지 않는 자동화 된 배포는 나중에 설정이 추가 된 경우에도 실행 되지 않는 함수 앱을 생성 합니다.
 
@@ -56,7 +56,7 @@ Azure Portal에서 저장소 계정을 검색 하 여 여전히 존재 하는지
 
 함수 앱은 저장소 계정에 액세스할 수 있어야 합니다. 저장소 계정에 대 한 함수 앱의 액세스를 차단 하는 일반적인 문제는 다음과 같습니다.
 
-* 함수 앱은 저장소 계정에 대 한 트래픽을 허용 하는 올바른 네트워크 규칙 없이 App Service Environment에 배포 됩니다.
+* 함수 앱은 저장소 계정에 대 한 트래픽을 허용 하는 올바른 네트워크 규칙 없이 ASE (App Service Environment)에 배포 됩니다.
 
 * 저장소 계정 방화벽이 사용 하도록 설정 되어 있고 기능에서 들어오고 나가는 트래픽을 허용 하도록 구성 되어 있지 않습니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
@@ -72,7 +72,7 @@ Azure Portal에서 저장소 계정을 검색 하 여 여전히 존재 하는지
 
 ## <a name="app-is-behind-a-firewall"></a>앱이 방화벽 뒤에 있습니다.
 
-다음 이유 중 하나로 인해 함수 런타임에 접근할 수 없습니다.
+다음 이유 중 하나로 인해 함수 앱에 연결할 수 없습니다.
 
 * 함수 앱은 [내부적으로 부하 분산 된 App Service Environment](../app-service/environment/create-ilb-ase.md) 에서 호스팅되며 인바운드 인터넷 트래픽을 차단 하도록 구성 됩니다.
 
@@ -80,8 +80,8 @@ Azure Portal에서 저장소 계정을 검색 하 여 여전히 존재 하는지
 
 Azure Portal는 실행 중인 앱을 직접 호출 하 여 함수 목록을 가져오고 Kudu 끝점에 대 한 HTTP 호출을 수행 합니다. 플랫폼 수준 설정은 **플랫폼 기능** 탭에서 계속 사용할 수 있습니다.
 
-App Service Environment 구성을 확인 하려면:
-1. App Service Environment 있는 서브넷의 NSG (네트워크 보안 그룹)로 이동 합니다.
+ASE 구성을 확인 하려면:
+1. ASE가 있는 서브넷의 NSG (네트워크 보안 그룹)로 이동 합니다.
 1. 인바운드 규칙의 유효성을 검사 하 여 응용 프로그램에 액세스 하는 컴퓨터의 공용 IP에서 들어오는 트래픽을 허용 합니다. 
    
 앱을 실행 하는 가상 네트워크에 연결 된 컴퓨터 또는 가상 네트워크에서 실행 되는 가상 컴퓨터에서 포털을 사용할 수도 있습니다. 

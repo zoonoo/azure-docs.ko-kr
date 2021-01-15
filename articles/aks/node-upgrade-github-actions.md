@@ -5,12 +5,12 @@ description: GitHub 작업을 사용 하 여 AKS 노드를 업데이트 하는 �
 services: container-service
 ms.topic: article
 ms.date: 11/27/2020
-ms.openlocfilehash: 504c99a7305a5010f8dbe56a30b53d6fc3a13c5b
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 6876cf1e5044246492e249d8a61060cbeac46f96
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607843"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217960"
 ---
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>GitHub 작업을 사용 하 여 자동으로 AKS (Azure Kubernetes Service) 노드에 보안 업데이트 적용
 
@@ -157,7 +157,7 @@ Azure CLI 명령을 실행 하는 단계를 만듭니다.
           - name: Upgrade node images
             uses: Azure/cli@v1.0.0
             with:
-              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only
+              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only --yes
     ```
 
     > [!TIP]

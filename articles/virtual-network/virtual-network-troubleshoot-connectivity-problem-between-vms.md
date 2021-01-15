@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: eb94b67b026ed108f31f6cd802010577665ec0d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87286090"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219201"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Azure VM 간의 연결 문제 해결
 
@@ -49,7 +49,7 @@ Azure VM(Virtual Machines) 간에 연결 문제가 발생할 수 있습니다. �
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>1단계: NIC가 잘못 구성되었는지 확인
 
-[Microsoft Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법](../virtual-machines/windows/reset-network-interface.md)의 단계를 따릅니다. 
+[Microsoft Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법](../virtual-machines/troubleshooting/reset-network-interface.md)의 단계를 따릅니다. 
 
 네트워크 인터페이스(NIC)를 수정한 후에도 문제가 발생하는 경우 다음 단계를 따릅니다.
 
@@ -62,8 +62,8 @@ Azure VM(Virtual Machines) 간에 연결 문제가 발생할 수 있습니다. �
 
 **단일 NIC VM** 
 
-- [Windows VM 다시 배포](../virtual-machines/windows/redeploy-to-new-node.md)
-- [Linux VM 다시 배포](../virtual-machines/linux/redeploy-to-new-node.md)
+- [Windows VM 다시 배포](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
+- [Linux VM 다시 배포](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>2단계: 네트워크 트래픽이 NSG에 의해 차단되는지 또는 UDR에 의해 차단되는지 확인
 
@@ -103,7 +103,7 @@ ACL(액세스 제어 목록)은 가상 머신 엔드포인트의 트래픽을 �
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>7단계: 클래식 VM에 대해 엔드포인트가 생성되는지 여부 확인
 
-클래식 배포 모델을 사용하여 Azure에서 만든 모든 VM은 프라이빗 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 머신과 자동으로 통신할 수 있습니다. 그러나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 엔드포인트가 필요합니다. 자세한 내용은 [엔드포인트를 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md)을 참조하세요.
+클래식 배포 모델을 사용하여 Azure에서 만든 모든 VM은 프라이빗 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 머신과 자동으로 통신할 수 있습니다. 그러나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 엔드포인트가 필요합니다. 자세한 내용은 [엔드포인트를 설정하는 방법](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints)을 참조하세요.
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>8단계: VM 네트워크 공유에 연결해보기
 

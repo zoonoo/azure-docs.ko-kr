@@ -8,25 +8,25 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
-ms.date: 12/10/2020
+ms.date: 01/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e3bf77406df302c4ba83cb7a8f1a30fba9f6339e
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 962054943a68aa61ac681de97eeebc10fe3f2b0a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795940"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216634"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 PyTorch 모델 학습
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 엔터프라이즈 규모에서 [PyTorch](https://pytorch.org/) 교육 스크립트를 실행 하는 방법에 대해 알아봅니다.
 
-이 문서의 예제 스크립트는 PyTorch의 전송 학습 [자습서](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)에 따라 DNN (심층 학습 신경망)를 빌드하기 위해 닭 및 터키 이미지를 분류 하는 데 사용 됩니다. 이전 학습은 한 가지 문제를 해결 하기 위해 얻은 정보를 다른 문제에 적용 하는 기술입니다. 이렇게 하면 학습 프로세스를 처음부터 학습 하는 것 보다 적은 데이터, 시간 및 계산 리소스를 요구 하는 방식으로 바로 바로 학습 합니다.
+이 문서의 예제 스크립트는 PyTorch의 전송 학습 [자습서](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)에 따라 DNN (심층 학습 신경망)를 빌드하기 위해 닭 및 터키 이미지를 분류 하는 데 사용 됩니다. 이전 학습은 한 가지 문제를 해결 하기 위해 얻은 정보를 다른 문제에 적용 하는 기술입니다. 이렇게 하면 학습 프로세스를 처음부터 학습 하는 것 보다 적은 데이터, 시간 및 계산 리소스를 요구 하는 방식으로 바로 바로 학습 합니다. 전송 학습에 대해 자세히 알아보려면 [심층 학습 vs machine learning](./concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) 문서를 참조 하세요.
 
 처음부터 심층 학습 PyTorch 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 93feaef01b234eeb7ac363c18d8e9d8f52b009de
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004945"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216532"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -33,14 +33,14 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 - **[Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft .sql*): 모든 azure 지역에서 일반 공급 됩니다.
 - **[Azure Database for PostgreSQL server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft .sql*): 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 일반적으로 사용할 수 있습니다.
 - **[Azure Database for MySQL server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft .sql*): 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 일반적으로 사용할 수 있습니다.
-- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft .sql*): 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 일반적으로 사용할 수 있습니다.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*microsoft.azurecosmosdb*): 모든 Azure 지역에서 일반 공급 됩니다.
+- **[Azure Database for MariaDB](../mariadb/concepts-data-access-security-vnet.md)** (*Microsoft .sql*): 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 일반적으로 사용할 수 있습니다.
+- **[Azure Cosmos DB](../cosmos-db/how-to-configure-vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*microsoft.azurecosmosdb*): 모든 Azure 지역에서 일반 공급 됩니다.
 - **[Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)** (*Microsoft. keyvault*): 모든 Azure 지역에서 일반 공급 됩니다.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*ServiceBus*): 모든 Azure 지역에서 일반 공급 됩니다.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft EventHub*): 모든 azure 지역에서 일반 공급 됩니다.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*AzureActiveDirectory*): ADLS Gen1를 사용할 수 있는 모든 Azure 지역에서 일반 공급 됩니다.
-- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft 웹*): App Service를 사용할 수 있는 모든 Azure 지역에서 일반 공급 됩니다.
-- **[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)** (*Cognitiveservices account*): 인식 서비스를 사용할 수 있는 모든 azure 지역에서 일반 공급 됩니다.
+- **[Azure App Service](../app-service/app-service-ip-restrictions.md)** (*Microsoft 웹*): App Service를 사용할 수 있는 모든 Azure 지역에서 일반 공급 됩니다.
+- **[Azure Cognitive Services](../cognitive-services/cognitive-services-virtual-networks.md?tabs=portal)** (*Cognitiveservices account*): 인식 서비스를 사용할 수 있는 모든 azure 지역에서 일반 공급 됩니다.
 
 **공개 미리 보기**
 
@@ -98,7 +98,7 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 
 - 서비스 엔드포인트의 NSG(네트워크 보안 그룹):
   - 기본적으로 NSGs는 아웃 바운드 인터넷 트래픽을 허용 하 고 VNet에서 Azure 서비스로의 트래픽만 허용 합니다. 이 트래픽은 계속 해 서 서비스 끝점을 그대로 사용 합니다. 
-  - 모든 아웃 바운드 인터넷 트래픽을 거부 하 고 특정 Azure 서비스에 대 한 트래픽만 허용 하려면 NSGs의 [서비스 태그](security-overview.md#service-tags) 를 사용 하면 됩니다. NSG 규칙에서 지원 되는 Azure 서비스를 대상으로 지정할 수 있으며, Azure는 각 태그의 IP 주소에 대 한 유지 관리도 제공 합니다. 자세한 내용은 [NSG의 Azure 서비스 태그](security-overview.md#service-tags)를 참조하세요. 
+  - 모든 아웃 바운드 인터넷 트래픽을 거부 하 고 특정 Azure 서비스에 대 한 트래픽만 허용 하려면 NSGs의 [서비스 태그](./network-security-groups-overview.md#service-tags) 를 사용 하면 됩니다. NSG 규칙에서 지원 되는 Azure 서비스를 대상으로 지정할 수 있으며, Azure는 각 태그의 IP 주소에 대 한 유지 관리도 제공 합니다. 자세한 내용은 [NSG의 Azure 서비스 태그](./network-security-groups-overview.md#service-tags)를 참조하세요. 
 
 ### <a name="scenarios"></a>시나리오
 
@@ -138,18 +138,18 @@ Azure Storage 계정과 같은 특정 Azure 서비스는 리소스를 보호 하
 
 ## <a name="vnet-service-endpoint-policies"></a>VNet 서비스 끝점 정책 
 
-VNet 서비스 끝점 정책을 통해 Azure 서비스에 대 한 가상 네트워크 트래픽을 필터링 할 수 있습니다. 이 필터는 서비스 끝점에 대 한 특정 Azure 서비스 리소스만 허용 합니다. 서비스 엔드포인트 정책은 Azure 서비스의 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. 자세한 내용은 [Virtual Network 서비스 끝점 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)을 참조 하세요.
+VNet 서비스 끝점 정책을 통해 Azure 서비스에 대 한 가상 네트워크 트래픽을 필터링 할 수 있습니다. 이 필터는 서비스 끝점에 대 한 특정 Azure 서비스 리소스만 허용 합니다. 서비스 엔드포인트 정책은 Azure 서비스의 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. 자세한 내용은 [Virtual Network 서비스 끝점 정책](./virtual-network-service-endpoint-policies-overview.md)을 참조 하세요.
 
 ## <a name="faqs"></a>FAQ
 
-Faq는 [Virtual Network 서비스 끝점 faq](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)를 참조 하세요.
+Faq는 [Virtual Network 서비스 끝점 faq](./virtual-networks-faq.md#virtual-network-service-endpoints)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [가상 네트워크 서비스 엔드포인트 구성](tutorial-restrict-network-access-to-resources.md)
+- [가상 네트워크 서비스 끝점 구성](tutorial-restrict-network-access-to-resources.md)
 - [가상 네트워크에 대 한 Azure Storage 계정 보안](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [가상 네트워크에 대 한 Azure SQL Database 보안](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [가상 네트워크에 대 한 Azure Synapse 분석 보안](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)
-- [Virtual Network 서비스 엔드포인트 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Virtual Network 서비스 엔드포인트 정책](./virtual-network-service-endpoint-policies-overview.md)
 - [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

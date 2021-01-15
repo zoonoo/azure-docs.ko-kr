@@ -8,20 +8,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 699a7321646167b0a9fb20a77a40999ec33b14f0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9782cce4165487b612c0295dc893d120ed043225
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461334"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218266"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Private Link를 사용하여 Azure Synapse 작업 영역에 연결
 
-이 문서에서는 Azure Synapse 작업 영역에 대 한 개인 끝점을 만드는 방법을 설명 합니다. 자세히 알아보려면 [프라이빗 링크 및 프라이빗 엔드포인트](https://docs.microsoft.com/azure/private-link/)를 참조하세요.
+이 문서에서는 Azure Synapse 작업 영역에 대 한 개인 끝점을 만드는 방법을 설명 합니다. 자세히 알아보려면 [프라이빗 링크 및 프라이빗 엔드포인트](../../private-link/index.yml)를 참조하세요.
 
 ## <a name="step-1-register-network-resource-provider"></a>1단계: 네트워크 리소스 공급자 등록
 
-아직 수행 하지 않은 경우 네트워크 리소스 공급자를 등록 합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. [등록](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)할 때 리소스 공급자 목록에서 *Microsoft.Network* 를 선택합니다. 네트워크 리소스 공급자가 이미 등록되어 있는 경우 2단계를 진행합니다.
+아직 수행 하지 않은 경우 네트워크 리소스 공급자를 등록 합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. [등록](../../azure-resource-manager/management/resource-providers-and-types.md)할 때 리소스 공급자 목록에서 *Microsoft.Network* 를 선택합니다. 네트워크 리소스 공급자가 이미 등록되어 있는 경우 2단계를 진행합니다.
 
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>2단계: Azure Portal에서 Azure Synapse 작업 영역 열기
 

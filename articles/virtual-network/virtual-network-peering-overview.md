@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004979"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216753"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -48,7 +48,7 @@ Azure는 다음 피어 링 유형을 지원 합니다.
 피어링된 가상 네트워크에 있는 가상 머신 간의 트래픽은 게이트웨이나 공용 인터넷을 통해서가 아니라 Microsoft 백본 인프라를 통해 직접 라우팅됩니다.
 
 두 가상 네트워크에서 네트워크 보안 그룹을 적용 하 여 다른 가상 네트워크 또는 서브넷에 대 한 액세스를 차단할 수 있습니다.
-가상 네트워크 피어 링을 구성할 때 가상 네트워크 간의 네트워크 보안 그룹 규칙을 열거나 닫습니다. 피어 링 가상 네트워크 간의 전체 연결을 여는 경우 특정 액세스를 차단 하거나 거부 하는 네트워크 보안 그룹을 적용할 수 있습니다. 기본 옵션은 전체 연결입니다. 네트워크 보안 그룹에 대 한 자세한 내용은 [보안 그룹](security-overview.md)을 참조 하세요.
+가상 네트워크 피어 링을 구성할 때 가상 네트워크 간의 네트워크 보안 그룹 규칙을 열거나 닫습니다. 피어 링 가상 네트워크 간의 전체 연결을 여는 경우 특정 액세스를 차단 하거나 거부 하는 네트워크 보안 그룹을 적용할 수 있습니다. 기본 옵션은 전체 연결입니다. 네트워크 보안 그룹에 대 한 자세한 내용은 [보안 그룹](./network-security-groups-overview.md)을 참조 하세요.
 
 ## <a name="service-chaining"></a>서비스 체이닝
 

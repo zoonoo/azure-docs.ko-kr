@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb3c7dd7b3d7e8e42e230eedcd0d1b43af104327
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: af6afa2b0285fe741241183ed99712a132953a30
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452522"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220119"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>개인 링크를 사용 하 여 연결 된 서비스 보호
 
@@ -23,7 +23,7 @@ ms.locfileid: "96452522"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정**: Azure Data Lake Gen2를 *원본* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../../storage/blobs/data-lake-storage-quickstart-create-account.md)에서 만들기 단계를 참조하세요. 저장소 계정에 액세스 하기 위한 Synapse Studio IP 필터링이 있는지 확인 하 고, **선택한 네트워크** 만 저장소 계정에 액세스할 수 있도록 허용 합니다. 블레이드 **방화벽 및 가상 네트워크** 아래의 설정은 아래 그림과 같이 표시 됩니다.
+* **Azure Storage 계정**: Azure Data Lake Gen2를 *원본* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)에서 만들기 단계를 참조하세요. 저장소 계정에 액세스 하기 위한 Synapse Studio IP 필터링이 있는지 확인 하 고, **선택한 네트워크** 만 저장소 계정에 액세스할 수 있도록 허용 합니다. 블레이드 **방화벽 및 가상 네트워크** 아래의 설정은 아래 그림과 같이 표시 됩니다.
 
 ![보안 저장소 계정](./media/secure-storage-account.png)
 

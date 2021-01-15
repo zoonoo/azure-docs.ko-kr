@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0405db2b68abefbfdc424def9e35e363e45043cd
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 5861e79054bed0d9d75258dfa9cb39b198f0f93d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180135"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216447"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
 Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 검색 가능한 데이터 및 메타 데이터를 추출 하 고 원본 데이터와 인덱스 간의 필드-필드 매핑을 사용 하 여 검색 인덱스를 채우는 크롤러입니다. 이 접근 방식은 인덱스에 데이터를 추가 하는 코드를 작성 하지 않고도 서비스에서 데이터를 가져오기 때문에 ' 끌어오기 모델 '이 라고도 합니다.
 
-인덱서는 azure SQL, Azure Cosmos DB, Azure Table Storage 및 Blob Storage에 대 한 개별 인덱서를 사용 하는 Azure 전용입니다. 인덱서를 구성할 때 인덱스 (대상) 뿐만 아니라 데이터 원본 (원본)을 지정 합니다. Blob storage 인덱서와 같은 여러 데이터 원본에는 해당 내용 유형과 관련 된 추가 속성이 있습니다.
+인덱서는 azure [SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md), [azure Table Storage](search-howto-indexing-azure-tables.md) 및 [Blob Storage](search-howto-indexing-azure-blob-storage.md)에 대 한 개별 인덱서를 사용 하는 azure 전용입니다. 인덱서를 구성할 때 인덱스 (대상) 뿐만 아니라 데이터 원본 (원본)을 지정 합니다. Blob 저장소와 같은 여러 원본에는 해당 콘텐츠 형식에 특정 한 추가 구성 속성이 있습니다.
 
 요청 시 또는 5 분 간격으로 자주 실행 되는 반복 되는 데이터 새로 고침 일정에서 인덱서를 실행할 수 있습니다. 업데이트를 자주 수행 하려면 Azure Cognitive Search와 외부 데이터 원본의 데이터를 동시에 업데이트 하는 푸시 모델이 필요 합니다.
 
@@ -31,8 +31,8 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 | 시나리오 |전략 |
 |----------|---------|
 | 단일 소스 | 이 패턴은 가장 간단한 방법입니다. 하나의 데이터 원본이 검색 인덱스에 대 한 유일한 콘텐츠 공급자입니다. 원본에서 검색 인덱스의 문서 키로 사용할 고유 값을 포함 하는 하나의 필드를 식별 합니다. 고유 값은 식별자로 사용 됩니다. 다른 모든 원본 필드는 암시적으로 또는 명시적으로 인덱스의 해당 필드에 매핑됩니다. </br></br>중요 한 요점은은 문서 키의 값이 원본 데이터에서 발생 한다는 것입니다. 검색 서비스는 키 값을 생성 하지 않습니다. 후속 실행에서 새 키가 있는 들어오는 문서는 추가 되지만, 기존 키가 있는 들어오는 문서는 인덱스 필드가 null 인지 아니면 채워져 있는지에 따라 병합 되거나 덮어쓰여집니다. |
-| 여러 소스| 인덱스는 여러 소스의 콘텐츠를 수락할 수 있습니다. 여기서 각 실행은 다른 소스에서 새 콘텐츠를 가져옵니다. </br></br>한 가지 결과는 각 인덱서가 실행 된 후 각 소스에서 전체 문서가 완전히 생성 된 후 문서를 얻는 인덱스 일 수 있습니다. 이 시나리오의 과제는 들어오는 모든 데이터에 대해 작동 하는 인덱스 스키마와 검색 인덱스에 있는 문서 키를 디자인 하는 것입니다. 예를 들어 문서를 고유 하 게 식별 하는 값이 blob 컨테이너 및 SQL 테이블의 기본 키에서 metadata_storage_path 되는 경우 콘텐츠 원본에 관계 없이 공통 된 형식으로 키 값을 제공 하도록 하나 또는 두 가지 소스를 수정 해야 한다고 생각할 수 있습니다. 이 시나리오에서는 단일 인덱스로 끌어올 수 있도록 데이터를 homogenize 하기 위해 일정 수준의 사전 처리를 수행 해야 합니다.</br></br>다른 결과는 첫 번째 실행에서 부분적으로 채워지는 검색 문서이 고 다른 소스에서 값을 가져오기 위해 후속 실행에 의해 추가로 채워질 수 있습니다. 이 패턴의 과제는 각 인덱싱 실행이 동일한 문서를 대상으로 하는지 확인 하는 것입니다. 필드를 기존 문서에 병합 하려면 문서 키와 일치 해야 합니다. 이 시나리오에 대 한 데모를 보려면 [자습서: 여러 데이터 소스의 인덱스](tutorial-multiple-data-sources.md)를 참조 하십시오. |
-| 콘텐츠 변환 | Cognitive Search는 이미지 분석과 자연어 처리를 추가 하 여 검색 가능한 새 콘텐츠와 구조를 만드는 선택적 [AI 보강](cognitive-search-concept-intro.md) 동작을 지원 합니다. AI 보강는 인덱서에 연결 된 [기술](cognitive-search-working-with-skillsets.md)에 의해 정의 됩니다. AI 보강을 수행 하기 위해 인덱서에 인덱스와 데이터 원본이 필요 하지만이 시나리오에서는 기술 처리를 인덱서 실행에 추가 합니다. |
+| 여러 소스| 인덱스는 여러 소스의 콘텐츠를 수락할 수 있습니다. 여기서 각 실행은 다른 소스에서 새 콘텐츠를 가져옵니다. </br></br>한 가지 결과는 각 인덱서가 실행 된 후 각 소스에서 전체 문서가 완전히 생성 된 후 문서를 얻는 인덱스 일 수 있습니다. 예를 들어 문서 1-100는 Blob storage에서, 문서 101-200는 Azure SQL에서 비롯 됩니다. 이 시나리오의 과제는 들어오는 모든 데이터에 대해 작동 하는 인덱스 스키마와 검색 인덱스에 있는 문서 키 구조를 디자인 하는 것입니다. 기본적으로 문서를 고유 하 게 식별 하는 값은 blob 컨테이너 및 SQL 테이블의 기본 키에 metadata_storage_path 됩니다. 콘텐츠 원본에 관계 없이 공통 형식으로 키 값을 제공 하도록 하나 또는 두 가지 소스를 수정 해야 한다고 가정할 수 있습니다. 이 시나리오에서는 단일 인덱스로 끌어올 수 있도록 데이터를 homogenize 하기 위해 일정 수준의 사전 처리를 수행 해야 합니다.</br></br>다른 결과는 첫 번째 실행에서 부분적으로 채워지는 검색 문서이 고 다른 소스에서 값을 가져오기 위해 후속 실행에 의해 추가로 채워질 수 있습니다. 예를 들어, 1-10 필드는 Blob storage, 11-20, Azure SQL 등에서 가져온 것입니다. 이 패턴의 과제는 각 인덱싱 실행이 동일한 문서를 대상으로 하는지 확인 하는 것입니다. 필드를 기존 문서에 병합 하려면 문서 키와 일치 해야 합니다. 이 시나리오에 대 한 데모를 보려면 [자습서: 여러 데이터 소스의 인덱스](tutorial-multiple-data-sources.md)를 참조 하십시오. |
+| 콘텐츠 변환 | Cognitive Search는 이미지 분석과 자연어 처리를 추가 하 여 검색 가능한 새 콘텐츠와 구조를 만드는 선택적 [AI 보강](cognitive-search-concept-intro.md) 동작을 지원 합니다. AI 보강은 연결 된 [기술](cognitive-search-working-with-skillsets.md)를 통해 인덱서 기반입니다. AI 보강을 수행 하기 위해 인덱서에 인덱스와 데이터 원본이 필요 하지만이 시나리오에서는 기술 처리를 인덱서 실행에 추가 합니다. |
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>인덱서를 만들고 관리하는 접근 방식
 
@@ -92,9 +92,9 @@ SDK를 사용 하는 경우 [Searchindexerclient](/dotnet/api/azure.search.docum
 
 ### <a name="stage-4-output-field-mappings"></a>4 단계: 출력 필드 매핑
 
-기술의 출력은 사실 보강 문서 라고 하는 정보의 트리입니다. 출력 필드 매핑을 사용 하 여 인덱스의 필드에 매핑할이 트리의 파트를 선택할 수 있습니다. [출력 필드 매핑을 정의](cognitive-search-output-field-mapping.md)하는 방법에 대해 알아봅니다.
+기술를 포함 하는 경우에는 출력 필드 매핑을 포함 해야 할 가능성이 높습니다. 기술의 출력은 사실 보강 문서 라고 하는 정보의 트리입니다. 출력 필드 매핑을 사용 하 여 인덱스의 필드에 매핑할이 트리의 파트를 선택할 수 있습니다. [출력 필드 매핑을 정의](cognitive-search-output-field-mapping.md)하는 방법에 대해 알아봅니다.
 
-축 자 값을 원본에서 대상 필드에 연결 하는 필드 매핑과 마찬가지로 출력 필드 매핑은 보강 문서의 변환 된 값을 인덱스의 대상 필드에 연결 하는 방법을 인덱서에 알려 줍니다. 선택적인 것으로 간주 되는 필드 매핑과 달리, 인덱스에 상주해 야 하는 변형 된 콘텐츠에 대해서는 항상 출력 필드 매핑을 정의 해야 합니다.
+필드 매핑은 데이터 원본의 축 자 값을 대상 필드에 연결 하는 반면 출력 필드 매핑은 보강 문서의 변환 된 값을 인덱스의 대상 필드에 연결 하는 방법을 인덱서에 알려 줍니다. 선택적인 것으로 간주 되는 필드 매핑과 달리, 인덱스에 상주해 야 하는 변형 된 콘텐츠에 대해서는 항상 출력 필드 매핑을 정의 해야 합니다.
 
 다음 이미지는 문서 크랙, 필드 매핑, 기술 실행 및 출력 필드 매핑과 같은 인덱서 단계의 샘플 인덱서 [디버그 세션](cognitive-search-debug-session.md) 표현을 보여 줍니다.
 

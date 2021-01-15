@@ -3,17 +3,17 @@ title: Azure Relay에 대한 네트워크 보안
 description: 이 문서에서는 Azure Relay에서 IP 방화벽 규칙 및 개인 끝점을 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 608224f42fac8cd2d8ff06ab84989b1f675d418c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134469"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217246"
 ---
 # <a name="network-security-for-azure-relay"></a>Azure Relay에 대한 네트워크 보안 
 이 문서에서는 Azure Relay에서 다음 보안 기능을 사용하는 방법을 설명합니다. 
 
-- IP 방화벽 규칙(미리 보기)
+- IP 방화벽 규칙
 - 프라이빗 엔드포인트 
 
 > [!NOTE]
@@ -28,9 +28,6 @@ ms.locfileid: "98134469"
 IP 방화벽 규칙은 릴레이 네임스페이스 수준에 적용됩니다. 따라서 해당 규칙은 지원되는 모든 프로토콜을 사용하는 클라이언트의 모든 연결에 적용됩니다. 릴레이 네임스페이스에서 허용된 IP 규칙과 일치하지 않는 IP 주소의 모든 연결 시도는 권한이 없는 것으로 거부됩니다. 응답은 IP 규칙을 언급하지 않습니다. IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번째 규칙이 수락 또는 거부 작업을 결정합니다.
 
 자세한 내용은 [릴레이 네임스페이스에 대한 IP 방화벽을 구성하는 방법](ip-firewall-virtual-networks.md)을 참조하세요.
-
-> [!NOTE]
-> 이 기능은 현재 **미리 보기** 로 제공됩니다. 
 
 ## <a name="private-endpoints"></a>프라이빗 엔드포인트
 

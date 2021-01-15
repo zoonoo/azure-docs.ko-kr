@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536a9641b68ccd2510a7891b46483a322fb6ecb7
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900929"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219949"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -139,7 +139,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 - 9 메일-전자 메일 & 달력
 
 > [!NOTE]
-> Microsoft Kaizala, 비즈니스용 Microsoft Skype 및 Microsoft Visio는 **앱 보호 정책 부여 필요** 를 지원 하지 않습니다. 이러한 앱이 작동 해야 하는 경우 **승인 된 앱** 을 독점적으로 부여 필요를 사용 하세요. 이러한 세 응용 프로그램에서는 두 가지 권한 사이에 또는 절을 사용할 수 없습니다.
+> Microsoft 팀, Microsoft Kaizala, microsoft Skype for Business 및 Microsoft Visio는 **앱 보호 정책 부여 필요** 를 지원 하지 않습니다. 이러한 앱이 작동 해야 하는 경우 **승인 된 앱** 을 독점적으로 부여 필요를 사용 하세요. 이러한 세 응용 프로그램에서는 두 가지 권한 사이에 또는 절을 사용할 수 없습니다.
 
 **주의**
 

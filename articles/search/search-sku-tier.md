@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 062bd41b0803cbb08f74fbcbcebb89bbddeb0d45
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4c58968cb6a38a10433915ec8fa00336ccad301e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559806"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216413"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -88,21 +88,19 @@ Azure Cognitive Search을 기반으로 하는 솔루션은 다음과 같은 방�
 
 ### <a name="bandwidth-charges"></a>대역폭 요금
 
-Azure 데이터 원본이 Azure Cognitive Search의 다른 지역에 있는 경우 [인덱서](search-indexer-overview.md) 를 사용 하면 청구에 영향을 줄 수 있습니다. 이 시나리오에서는 Azure 데이터 원본에서 Azure Cognitive Search로 아웃 바운드 데이터를 이동 하는 데 드는 비용입니다. 
+Azure 데이터 원본이 Azure Cognitive Search의 다른 지역에 있는 경우 [인덱서](search-indexer-overview.md) 를 사용 하면 청구에 영향을 줄 수 있습니다. 이 시나리오에서는 Azure 데이터 원본에서 Azure Cognitive Search로 아웃 바운드 데이터를 이동 하는 비용이 발생할 수 있습니다. 자세한 내용은 해당 하는 Azure 데이터 플랫폼의 가격 책정 페이지를 참조 하세요.
 
 데이터와 동일한 지역에서 Azure Cognitive Search 서비스를 만드는 경우 데이터 송신 요금을 완전히 제거할 수 있습니다. [대역폭 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/)의 일부 정보는 다음과 같습니다.
 
-+ Microsoft는 Azure의 모든 서비스에 대 한 인바운드 데이터를 청구 하지 않습니다.
-+ Azure Cognitive Search에서 아웃 바운드 데이터 요금은 청구 되지 않습니다. 예를 들어, search 서비스가 미국 서 부에 있고 Azure 웹 앱이 미국 동부에 있는 경우 Microsoft는 미국 서 부에서 발생 하는 쿼리 응답 페이로드를 청구 하지 않습니다.
-+ 다중 서비스 솔루션에서는 모든 서비스가 동일한 지역에 있는 경우 네트워크를 통과 하는 데이터에 대 한 요금이 부과 되지 않습니다.
++ 인바운드 데이터: Microsoft는 Azure의 모든 서비스에 대 한 인바운드 데이터를 청구 하지 않습니다. 
 
-서비스가 서로 다른 지역에 있는 경우 아웃 바운드 데이터에 대 한 요금이 적용 됩니다. 이러한 요금은 실제로 Azure Cognitive Search 청구서에 포함 되지 않습니다. 데이터 또는 AI 보강 인덱서를 사용 하 여 서로 다른 지역에서 데이터를 끌어오는 경우 전체 청구서에 반영 된 비용이 표시 되기 때문에 여기에 설명 되어 있습니다.
++ 아웃 바운드 데이터: 아웃 바운드 데이터는 쿼리 결과를 나타냅니다. Cognitive Search는 아웃 바운드 데이터에 대해 요금이 부과 되지 않지만, 서비스가 서로 다른 지역에 있는 경우 Azure의 아웃 바운드 요금은 가능 합니다. 이러한 요금은 실제로 Azure Cognitive Search 청구서에 포함 되지 않습니다. 다른 지역 또는 비 Azure 앱에 결과를 전송 하는 경우 전체 청구서에 반영 된 비용을 볼 수 있기 때문에 여기에 설명 되어 있습니다.
 
 ### <a name="ai-enrichment-with-cognitive-services"></a>Cognitive Services AI 보강
 
 [AI 보강](cognitive-search-concept-intro.md)의 경우 azure Cognitive Search와 동일한 지역에 종 량 제 처리를 위한 S0 가격 책정 계층에서 [청구 가능한 azure Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)하도록 계획 해야 합니다. 연결 Cognitive Services와 관련 된 고정 비용은 없습니다. 필요한 처리에 대해서만 비용을 지불 하면 됩니다.
 
-| 연산 | 청구 영향 |
+| 작업 | 청구 영향 |
 |-----------|----------------|
 | 문서 크랙, 텍스트 추출 | 무료 |
 | 문서 크랙, 이미지 추출 | 문서에서 추출 된 이미지의 수에 따라 요금이 청구 됩니다. [인덱서 구성](/rest/api/searchservice/create-indexer#indexer-parameters)에서 **imageaction** 은 이미지 추출을 트리거하는 매개 변수입니다. **Imageaction** 이 "none" (기본값)으로 설정 된 경우 이미지 추출에 대 한 요금이 청구 되지 않습니다. 이미지 추출 율은 Azure Cognitive Search에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에 설명 되어 있습니다.|
