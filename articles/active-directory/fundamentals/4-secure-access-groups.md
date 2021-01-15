@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e28714e2557027a3f8f5504f7052973a77720b6
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: f83e5584f8f9c6823e1259cb5e6034d8b13ae3a6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744259"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222380"
 ---
 # <a name="securing-external-access-with-groups"></a>그룹을 사용 하 여 외부 액세스 보안 
 
@@ -104,7 +104,7 @@ Azure ad 포털 또는 M365 관리 포털에서 Azure AD 보안 그룹 및 Micro
 | - | - | - |
 | 그룹에 포함 될 수 있는 항목| 사용자<br>그룹<br>서비스 원칙<br>디바이스| 사용자만 |
 | 그룹이 만들어지는 위치| Azure AD 포털<br>M365 포털 (메일을 사용 하도록 설정 된 경우)<br>PowerShell<br>Microsoft Graph<br>최종 사용자 포털| M365 포털<br>Azure AD 포털<br>PowerShell<br>Microsoft Graph<br>Microsoft 365 응용 프로그램 |
-| 기본적으로 생성 되는 사람은 누구 인가요?| 관리자 <br>최종 사용자| 관리자<br>최종 사용자 |
+| 기본적으로 생성 되는 사람은 누구 인가요?| Administrators <br>최종 사용자| Administrators<br>최종 사용자 |
 | 기본적으로 추가할 수 있는 사용자는 누구 인가요?| 내부 사용자 (멤버)| 모든 조직의 테 넌 트 구성원 및 게스트 |
 | 액세스 권한을 부여 하는 대상| 할당 된 리소스만| 모든 그룹 관련 리소스:<br>(그룹 사서함, 사이트, 팀, 채팅 및 기타 포함 된 M365 리소스)<br>그룹이 추가 되는 기타 모든 리소스 |
 | 와 함께 사용할 수 있습니다.| 조건부 액세스<br>자격 관리<br>그룹 라이선스| 조건부 액세스<br>자격 관리<br>민감도 레이블 |

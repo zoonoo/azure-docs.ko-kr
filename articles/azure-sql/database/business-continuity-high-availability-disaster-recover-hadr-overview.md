@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7bd991bd709bb4be69325afe967d7e5600a9e1a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678040"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222567"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ Azure SQL Database 및 SQL Managed Instance의 **비즈니스 연속성** 은 �
 - 삭제 된 [데이터베이스는](recovery-using-backups.md#deleted-database-restore) **서버가 삭제 되지 않은** 경우 삭제 된 시점으로 복원할 수 있습니다.
 - [장기 백업 보존](long-term-retention-overview.md)을 사용하면 백업을 최대 10년 동안 유지할 수 있습니다. 이는 SQL Managed Instance에 대해 제한 된 공개 미리 보기 상태입니다.
 - [활성 지역 복제](active-geo-replication-overview.md) 를 사용 하면 데이터 센터 가동 중단 또는 응용 프로그램 업그레이드 시 읽기 가능한 복제본을 만들고 모든 복제본으로 수동으로 장애 조치 (failover) 할 수 있습니다.
-- [자동 장애 조치 (failover) 그룹](auto-failover-group-overview.md#terminology-and-capabilities) 을 사용 하면 데이터 센터 중단이 발생할 경우 응용 프로그램이 자동으로 복구 됩니다.
+- [자동 장애 조치 (failover) 그룹](auto-failover-group-overview.md#terminology-and-capabilities) 을 사용 하면 데이터 센터 중단이 발생 한 경우 응용 프로그램이 자동으로 복구 됩니다.
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>동일한 Azure 지역 내에서 데이터베이스 복구
 

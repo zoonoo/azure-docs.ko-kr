@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 3e2905019244279129528c177a76291cb7d75e11
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: d6e8c4f4b6646254aeea12cf587f47047e661e3f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825770"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222873"
 ---
 # <a name="upgrade-public-ip-addresses"></a>공용 IP 주소 업그레이드
 
@@ -33,15 +33,15 @@ Azure 공용 IP 주소는 SKU (기본 또는 표준)를 사용 하 여 생성 �
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>기본에서 표준 SKU로 공용 IP 주소 업그레이드
 
-공용 IP를 업그레이드 하려면 리소스와 연결 되지 않아야 합니다. 공용 IP의 연결을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.
+공용 IP를 업그레이드 하려면 리소스와 연결 되지 않아야 합니다. 공용 IP의 연결을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.
 
 >[!IMPORTANT]
->기본에서 표준 SKU로 업그레이드 된 공용 Ip에는 계속 사용할 수 있는 [가용성 영역이](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones)없습니다.  즉, 영역 중복 이거나이가 제공 된 지역에서 미리 지정 된 영역에 연결 된 Azure 리소스에 연결할 수 없습니다.
+>기본에서 표준 SKU로 업그레이드 된 공용 Ip에는 계속 사용할 수 있는 [가용성 영역이](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)없습니다.  즉, 영역 중복 이거나이가 제공 된 지역에서 미리 지정 된 영역에 연결 된 Azure 리소스에 연결할 수 없습니다.
 
 ---
 # <a name="basic-to-standard---powershell"></a>[**기본에서 표준으로-PowerShell**](#tab/option-upgrade-powershell)
 
-다음 예제에서는 **Myresourcegroup** 에서 기본 공용 Ip **mybasicpublicip** 를 사용 하 여 [이 페이지](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-basic) 에 제공 된 예제를 사용 하 여 기본 SKU 공용 ip를 이전에 만든 것으로 가정 합니다.
+다음 예제에서는 **Myresourcegroup** 에서 기본 공용 Ip **mybasicpublicip** 를 사용 하 여 [이 페이지](./create-public-ip-powershell.md?tabs=option-create-public-ip-basic) 에 제공 된 예제를 사용 하 여 기본 SKU 공용 ip를 이전에 만든 것으로 가정 합니다.
 
 IP를 업그레이드 하려면 PowerShell을 사용 하 여 아래 명령을 실행 하기만 하면 됩니다.  참고 IP 주소가 이미 정적으로 할당 된 경우에는 해당 섹션을 건너뛸 수 있습니다.
 
@@ -63,7 +63,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pubIP
 
 # <a name="basic-to-standard---cli"></a>[**기본에서 표준 CLI로**](#tab/option-upgrade-cli)
 
-다음 예제에서는 **Myresourcegroup** 에서 기본 공용 Ip **mybasicpublicip** 를 사용 하 여 [이 페이지](https://docs.microsoft.com/azure/virtual-network/create-public-ip-cli?tabs=option-create-public-ip-basic) 에 제공 된 예제를 사용 하 여 기본 SKU 공용 ip를 이전에 만든 것으로 가정 합니다.
+다음 예제에서는 **Myresourcegroup** 에서 기본 공용 Ip **mybasicpublicip** 를 사용 하 여 [이 페이지](./create-public-ip-cli.md?tabs=option-create-public-ip-basic) 에 제공 된 예제를 사용 하 여 기본 SKU 공용 ip를 이전에 만든 것으로 가정 합니다.
 
 IP를 업그레이드 하려면 Azure CLI를 사용 하 여 아래 명령을 실행 하면 됩니다.  참고 IP 주소가 이미 정적으로 할당 된 경우에는 해당 섹션을 건너뛸 수 있습니다.
 
@@ -95,7 +95,7 @@ Azure Resource Manager의 새로운 기능을 활용 하기 위해 클래식 모
 
 # <a name="reserved-to-basic---powershell"></a>[**기본으로 예약 됨-PowerShell**](#tab/option-migrate-powershell)
 
-다음 예에서는 **Myreservedip** 에서 클래식 Azure 예약된 IP **myreservedip** 를 이전에 만든 것으로 가정 합니다. 마이그레이션에 대 한 다른 필수 구성 요소는 Azure Resource Manager 구독이 마이그레이션을 위해 등록 되었는지 확인 하는 것입니다. 이에 대해서는 [이 페이지](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps)의 3 단계와 4 단계에 대해 자세히 설명 합니다.
+다음 예에서는 **Myreservedip** 에서 클래식 Azure 예약된 IP **myreservedip** 를 이전에 만든 것으로 가정 합니다. 마이그레이션에 대 한 다른 필수 구성 요소는 Azure Resource Manager 구독이 마이그레이션을 위해 등록 되었는지 확인 하는 것입니다. 이에 대해서는 [이 페이지](../virtual-machines/migration-classic-resource-manager-ps.md)의 3 단계와 4 단계에 대해 자세히 설명 합니다.
 
 예약된 IP 마이그레이션하기 위해 PowerShell을 사용 하 여 아래 명령을 실행 합니다.  참고 IP 주소가 서비스와 연결 되지 않은 경우 (아래에 **myService** 라는 서비스가 있음) 해당 단계를 건너뛸 수 있습니다.
 
@@ -119,7 +119,7 @@ Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약�
 
 # <a name="reserved-to-basic---cli"></a>[**기본-CLI로 예약 됨**](#tab/option-migrate-cli)
 
-다음 예에서는 **Myreservedip** 에서 클래식 Azure 예약된 IP **myreservedip** 를 이전에 만든 것으로 가정 합니다. 마이그레이션에 대 한 다른 필수 구성 요소는 Azure Resource Manager 구독이 마이그레이션을 위해 등록 되었는지 확인 하는 것입니다. 이에 대해서는 [이 페이지](https://docs.microsoft.com/azure/virtual-machines/linux/migration-classic-resource-manager-cli)의 3 단계와 4 단계에 대해 자세히 설명 합니다.
+다음 예에서는 **Myreservedip** 에서 클래식 Azure 예약된 IP **myreservedip** 를 이전에 만든 것으로 가정 합니다. 마이그레이션에 대 한 다른 필수 구성 요소는 Azure Resource Manager 구독이 마이그레이션을 위해 등록 되었는지 확인 하는 것입니다. 이에 대해서는 [이 페이지](../virtual-machines/migration-classic-resource-manager-cli.md)의 3 단계와 4 단계에 대해 자세히 설명 합니다.
 
 예약된 IP 마이그레이션하려면 Azure CLI를 사용 하 여 아래 명령을 실행 합니다.  IP 주소가 서비스와 연결 되지 않은 경우 (아래에 **myService** 및 배포 **mydeployment** 라는 서비스가 있음) 해당 단계를 건너뛸 수 있습니다.
 
@@ -145,12 +145,12 @@ Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약�
 
 ## <a name="limitations"></a>제한 사항
 
-* 기본 공용 IP를 업그레이드 하기 위해 Azure 리소스에 연결할 수 없습니다.  공용 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.  마찬가지로 예약된 IP 마이그레이션하기 위해 클라우드 서비스에 연결할 수 없습니다.  예약 된 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) 를 참조 하세요.  
-* 기본에서 표준 SKU로 업그레이드 된 공용 Ip는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) 을 계속 갖지 않으므로 영역 중복 또는 영역 인 Azure 리소스에 연결할 수 없습니다.  참고이는 가용성 영역을 제공 하는 지역에만 적용 됩니다.
+* 기본 공용 IP를 업그레이드 하기 위해 Azure 리소스에 연결할 수 없습니다.  공용 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.  마찬가지로 예약된 IP 마이그레이션하기 위해 클라우드 서비스에 연결할 수 없습니다.  예약 된 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](./remove-public-ip-address-vm.md) 를 참조 하세요.  
+* 기본에서 표준 SKU로 업그레이드 된 공용 Ip는 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) 을 계속 갖지 않으므로 영역 중복 또는 영역 인 Azure 리소스에 연결할 수 없습니다.  참고이는 가용성 영역을 제공 하는 지역에만 적용 됩니다.
 * 표준에서 기본으로 다운 그레이드할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure의 [공용](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) ip 주소에 대해 자세히 알아보세요. 여기에는 SKU 유형 간의 차이와 [공용 ip 주소 설정이](virtual-network-public-ip-address.md#create-a-public-ip-address)포함 됩니다.
-- [Azure 공용 부하 분산 장치를 Basic에서 Standard로 업그레이드](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard)하는 방법을 알아봅니다.
-- [클래식 Azure 예약 된 ip](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) 를 이해 하 고 [클래식 리소스를 Azure Resource Manager로 마이그레이션해야](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview)합니다.
+- Azure의 [공용](./public-ip-addresses.md#public-ip-addresses) ip 주소에 대해 자세히 알아보세요. 여기에는 SKU 유형 간의 차이와 [공용 ip 주소 설정이](virtual-network-public-ip-address.md#create-a-public-ip-address)포함 됩니다.
+- [Azure 공용 부하 분산 장치를 Basic에서 Standard로 업그레이드](../load-balancer/upgrade-basic-standard.md)하는 방법을 알아봅니다.
+- [클래식 Azure 예약 된 ip](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) 를 이해 하 고 [클래식 리소스를 Azure Resource Manager로 마이그레이션해야](../virtual-machines/migration-classic-resource-manager-overview.md)합니다.

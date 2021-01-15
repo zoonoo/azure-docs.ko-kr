@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: de8d63fb5181e324738e082cbb36a40ee59e36b0
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 04f50396ea9ced4b4377f264b4952efa7a75d170
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96005251"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223502"
 ---
 # <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Azure virtual network에서 IPv4 응용 프로그램에 IPv6 추가-Azure CLI
 
@@ -30,7 +30,7 @@ ms.locfileid: "96005251"
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-ipv6-addresses"></a>IPv6 주소 만들기
 
@@ -48,7 +48,7 @@ az network public-ip create \
 
 ## <a name="configure-ipv6-load-balancer-frontend"></a>IPv6 부하 분산 장치 프런트 엔드 구성
 
-다음과 같이 [az network lb 프런트 엔드-IP create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) 를 사용 하 여 새 IPv6 IP 주소를 사용 하 여 부하 분산 장치를 구성 합니다.
+다음과 같이 [az network lb 프런트 엔드-IP create](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) 를 사용 하 여 새 IPv6 IP 주소를 사용 하 여 부하 분산 장치를 구성 합니다.
 
 ```azurecli-interactive
 az network lb frontend-ip create \
@@ -60,7 +60,7 @@ az network lb frontend-ip create \
 
 ## <a name="configure-ipv6-load-balancer-backend-pool"></a>IPv6 부하 분산 장치 백 엔드 풀 구성
 
-다음과 같이 [az network lb address pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) 를 사용 하 여 IPv6 주소를 사용 하 여 nic에 대 한 백 엔드 풀을 만듭니다.
+다음과 같이 [az network lb address pool create](/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) 를 사용 하 여 IPv6 주소를 사용 하 여 nic에 대 한 백 엔드 풀을 만듭니다.
 
 ```azurecli-interactive
 az network lb address-pool create \
@@ -71,7 +71,7 @@ az network lb address-pool create \
 
 ## <a name="configure-ipv6-load-balancer-rules"></a>IPv6 부하 분산 장치 규칙 구성
 
-[Az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create)를 사용 하 여 IPv6 부하 분산 장치 규칙을 만듭니다.
+[Az network lb rule create](/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create)를 사용 하 여 IPv6 부하 분산 장치 규칙을 만듭니다.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ az network vnet subnet update \
 
 ## <a name="add-ipv6-configuration-to-nics"></a>Nic에 IPv6 구성 추가
 
-다음과 같이 [az network nic ip config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) 를 사용 하 여 IPv6 주소를 사용 하 여 VM nic를 구성 합니다.
+다음과 같이 [az network nic ip config create](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) 를 사용 하 여 IPv6 주소를 사용 하 여 VM nic를 구성 합니다.
 
 ```azurecli-interactive
 az network nic ip-config create \

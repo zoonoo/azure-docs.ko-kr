@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70410e58acb30c7694e6fe4a6dcaff57bee98607
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836108"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223434"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Azure Virtual Network NAT 연결 문제 해결
 
@@ -68,10 +68,10 @@ _**해결 방법:**_ 적절한 패턴 및 모범 사례 사용
 기본 애플리케이션의 다른 안티패턴 때문에 SNAT 고갈이 더 심해질 수 있습니다. 다음 추가 패턴 및 모범 사례를 검토하여 서비스의 규모와 안정성을 개선하세요.
 
 - SNAT 포트 인벤토리를 해제하기 위해 기본 유휴 시간 제한(4분)을 포함하여 [TCP 유휴 시간 제한](nat-gateway-resource.md#timers)을 감소시켜 값을 낮출 수 있는 영향을 살펴봅니다.
-- [비동기 폴링 패턴](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)을 장기 실행 작업에 사용하여 다른 작업에 대한 연결 리소스를 확보하는 것이 좋습니다.
+- [비동기 폴링 패턴](/azure/architecture/patterns/async-request-reply)을 장기 실행 작업에 사용하여 다른 작업에 대한 연결 리소스를 확보하는 것이 좋습니다.
 - 중간 시스템의 시간이 초과되지 않도록 방지하기 위해 수명이 긴 흐름(예: 다시 사용되는 TCP 연결)에서 TCP keepalive 또는 애플리케이션 계층 keepalive를 사용해야 합니다. 유휴 시간 제한을 늘리는 것은 최후의 수단이며 근본 원인을 해결하지 못할 수 있습니다. 시간 제한이 길면 시간 제한이 만료될 때 오류 시간이 짧아지고 시간 지연과 불필요한 오류가 발생할 수 있습니다.
-- 일시적 실패 또는 오류 복구 중에 공격적인 다시 시도/버스트를 방지하기 위해 정상적인 [다시 시도 패턴](https://docs.microsoft.com/azure/architecture/patterns/retry)을 사용해야 합니다.
-모든 HTTP 작업에 대한 새 TCP 연결("원자성 연결"이라고도 함)을 만드는 것은 안티패턴입니다.  원자성 연결은 애플리케이션의 크기가 효율적으로 조정되지 않고 리소스가 낭비되지 않도록 합니다.  항상 여러 작업을 동일한 연결로 파이프라인합니다.  애플리케이션은 트랜잭션 속도 및 리소스 비용에서 이점을 활용할 수 있습니다.  애플리케이션에서 전송 계층 암호화(예: TLS)를 사용하는 경우 새 연결 처리와 관련된 상당한 비용이 발생합니다.  추가 모범 사례 패턴은 [Azure 클라우드 디자인 패턴](https://docs.microsoft.com/azure/architecture/patterns/)을 검토하세요.
+- 일시적 실패 또는 오류 복구 중에 공격적인 다시 시도/버스트를 방지하기 위해 정상적인 [다시 시도 패턴](/azure/architecture/patterns/retry)을 사용해야 합니다.
+모든 HTTP 작업에 대한 새 TCP 연결("원자성 연결"이라고도 함)을 만드는 것은 안티패턴입니다.  원자성 연결은 애플리케이션의 크기가 효율적으로 조정되지 않고 리소스가 낭비되지 않도록 합니다.  항상 여러 작업을 동일한 연결로 파이프라인합니다.  애플리케이션은 트랜잭션 속도 및 리소스 비용에서 이점을 활용할 수 있습니다.  애플리케이션에서 전송 계층 암호화(예: TLS)를 사용하는 경우 새 연결 처리와 관련된 상당한 비용이 발생합니다.  추가 모범 사례 패턴은 [Azure 클라우드 디자인 패턴](/azure/architecture/patterns/)을 검토하세요.
 
 #### <a name="additional-possible-mitigations"></a>가능한 추가 완화 조치
 
@@ -96,7 +96,7 @@ _**해결 방법:**_ 대신 TCP 연결 테스트(예: "TCP ping") 및 UDP별 애
 | 운영 체제 | 제네릭 TCP 연결 테스트 | TCP 애플리케이션 계층 테스트 | UDP |
 |---|---|---|---|
 | Linux | nc(제네릭 연결 테스트) | curl(TCP 애플리케이션 계층 테스트) | 애플리케이션별 |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | 애플리케이션별 |
+| Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | 애플리케이션별 |
 
 ### <a name="connectivity-failures"></a>연결 실패
 
@@ -113,7 +113,7 @@ _**해결 방법:**_ 대신 TCP 연결 테스트(예: "TCP ping") 및 UDP별 애
 | 운영 체제 | 제네릭 TCP 연결 테스트 | TCP 애플리케이션 계층 테스트 | UDP |
 |---|---|---|---|
 | Linux | nc(제네릭 연결 테스트) | curl(TCP 애플리케이션 계층 테스트) | 애플리케이션별 |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | 애플리케이션별 |
+| Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | 애플리케이션별 |
 
 #### <a name="configuration"></a>구성
 
@@ -190,7 +190,7 @@ NAT 게이트웨이, 사용할 IP 주소 및 NAT 게이트웨이 리소스를 �
 
 _**해결 방법:**_
 
-[Virtual Network NAT](nat-overview.md)는 구성된 서브넷에 대한 아웃바운드 연결을 대체합니다. 기본 SNAT 또는 부하 분산 장치 아웃바운드 SNAT에서 NAT 게이트웨이를 사용하도록 전환하는 경우 NAT 게이트웨이 리소스와 연결된 IP 주소를 사용하여 새 연결이 즉시 시작됩니다.  그러나 NAT 게이트웨이 리소스로 전환하는 동안 가상 머신에 설정된 연결이 있는 경우 연결이 설정되었을 때 할당된 이전 SNAT IP 주소를 사용하여 연결이 계속됩니다.  OS 또는 브라우저가 연결 풀에서 연결을 캐싱하기 때문에 이미 존재하는 연결을 다시 사용하는 대신 새 연결을 설정하고 있는지 확인합니다.  예를 들어 PowerShell에서 _curl_을 사용하는 경우 새 연결을 적용하려면 _-DisableKeepalive_ 매개 변수를 지정해야 합니다.  브라우저를 사용하는 경우에는 연결이 풀링될 수도 있습니다.
+[Virtual Network NAT](nat-overview.md)는 구성된 서브넷에 대한 아웃바운드 연결을 대체합니다. 기본 SNAT 또는 부하 분산 장치 아웃바운드 SNAT에서 NAT 게이트웨이를 사용하도록 전환하는 경우 NAT 게이트웨이 리소스와 연결된 IP 주소를 사용하여 새 연결이 즉시 시작됩니다.  그러나 NAT 게이트웨이 리소스로 전환하는 동안 가상 머신에 설정된 연결이 있는 경우 연결이 설정되었을 때 할당된 이전 SNAT IP 주소를 사용하여 연결이 계속됩니다.  OS 또는 브라우저가 연결 풀에서 연결을 캐싱하기 때문에 이미 존재하는 연결을 다시 사용하는 대신 새 연결을 설정하고 있는지 확인합니다.  예를 들어 PowerShell에서 _curl_ 을 사용하는 경우 새 연결을 적용하려면 _-DisableKeepalive_ 매개 변수를 지정해야 합니다.  브라우저를 사용하는 경우에는 연결이 풀링될 수도 있습니다.
 
 NAT 게이트웨이 리소스에 대한 서브넷을 구성하는 가상 머신을 다시 부팅할 필요는 없습니다.  그러나 가상 머신이 다시 부팅되면 연결 상태가 플러시됩니다.  연결 상태가 플러시된 경우 모든 연결은 NAT 게이트웨이 리소스의 IP 주소를 사용하여 시작됩니다.  그러나 이는 가상 머신이 다시 부팅될 때의 부작용이므로, 다시 부팅이 필수라는 뜻은 아닙니다.
 
@@ -202,4 +202,3 @@ NAT 게이트웨이 리소스에 대한 서브넷을 구성하는 가상 머신�
 * [NAT 게이트웨이 리소스](nat-gateway-resource.md)에 대한 자세한 정보
 * [NAT 게이트웨이 리소스에 대한 메트릭 및 경고](nat-metrics.md)에 대해 알아봅니다.
 * [UserVoice에서 Virtual Network NAT에 대해 다음에 빌드할 항목을 알려줍니다](https://aka.ms/natuservoice).
-

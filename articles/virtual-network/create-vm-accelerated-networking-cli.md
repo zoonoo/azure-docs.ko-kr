@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: bccbfed96dd6cd87bdfe986baf4b52817a160ac0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5b91d6e58f4ae93bbf020f202991f878e7773114
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533364"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222958"
 ---
-# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI를 사용 하는 가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기
+# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI을 사용하여 가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
 이 자습서에서는 가속 네트워킹을 사용하는 Linux VM(가상 머신)을 만드는 방법에 대해 알아봅니다. 가속 네트워킹을 사용하여 Windows VM을 만들려면 [가속 네트워킹을 사용하여 Windows VM 만들기](create-vm-accelerated-networking-powershell.md)를 참조하세요. 가속화된 네트워킹을 사용하면 VM에 대한 단일 루트 I/O 가상화(SR-IOV)를 구현할 수 있어 네트워킹 성능이 크게 향상됩니다. 이 고성능 경로는 데이터 경로에서 호스트를 우회함으로써 대기 시간, 지터 및 CPU 사용률을 줄이므로 지원되는 VM 유형에서 가장 까다로운 네트워크 워크로드에 사용합니다. 다음 그림에서는 가속 네트워킹을 사용할 때와 사용하지 않을 때 두 개의 VM 간의 통신을 보여줍니다.
 
 ![비교](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-가속화된 네트워킹을 사용하지 않는 경우 VM에서 들어오고 나가는 모든 네트워킹 트래픽이 호스트와 가상 스위치를 통과해야 합니다. 가상 스위치는 네트워크 보안 그룹, 액세스 제어 목록, 격리 및 네트워크 트래픽에 대한 다른 네트워크 가상화 서비스 등, 모든 정책 적용을 제공합니다. 가상 스위치에 대한 자세한 내용은 [Hyper-V 네트워크 가상화 및 가상 스위치](https://technet.microsoft.com/library/jj945275.aspx) 문서를 참조하세요.
+가속화된 네트워킹을 사용하지 않는 경우 VM에서 들어오고 나가는 모든 네트워킹 트래픽이 호스트와 가상 스위치를 통과해야 합니다. 가상 스위치는 네트워크 보안 그룹, 액세스 제어 목록, 격리 및 네트워크 트래픽에 대한 다른 네트워크 가상화 서비스 등, 모든 정책 적용을 제공합니다. 가상 스위치에 대한 자세한 내용은 [Hyper-V 네트워크 가상화 및 가상 스위치](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134230(v=ws.11)) 문서를 참조하세요.
 
 가속화된 네트워킹을 사용하는 경우 네트워크 트래픽이 가상 머신의 NIC(네트워크 인터페이스)에 도착한 다음 VM으로 전달됩니다. 이제 가상 스위치가 적용되는 모든 네트워크 정책은 오프로드되어 하드웨어에 적용됩니다. 하드웨어에서 정책을 적용하면 NIC는 호스트에 적용된 모든 정책을 유지하면서 VM에 직접 네트워크 트래픽을 전달할 수 있으므로 호스트 및 가상 스위치를 우회할 수 있습니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "95533364"
 
 하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원 되는 시리즈는 D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
 
-VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ### <a name="custom-images"></a>사용자 지정 이미지
 사용자 지정 이미지를 사용 하 고 이미지가 가속화 된 네트워킹을 지 원하는 경우 Azure에서 Mellanox Connectx-3-3 및 Connectx-3-4 Lx Nic와 함께 작동 하는 데 필요한 드라이버가 있는지 확인 하세요.
@@ -173,7 +173,7 @@ az vm create \
     --nics myNic
 ```
 
-모든 VM 크기 및 특성 목록은 [Linux VM 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+모든 VM 크기 및 특성 목록은 [Linux VM 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 VM을 만들면 다음 예제 출력과 유사한 출력이 반환됩니다. **publicIpAddress** 를 기록해 둡니다. 이 주소는 이후 단계에서 VM에 액세스하는 데 사용됩니다.
 
@@ -310,5 +310,4 @@ az vmss start \
 
 * VM을 중지/할당 취소하거나, 가용성 집합/VMSS인 경우 집합/VMSS에 포함된 모든 VM을 중지/할당 취소합니다.
 * VM 또는 가용성 집합/VMSS인 경우, 집합/VMSS에 포함된 모든 VM의 NIC에서 가속 네트워킹을 사용하지 않도록 설정해야 합니다.
-* 가속화된 네트워킹이 사용되지 않으면 VM/가용성 집합/VMSS를 가속화된 네트워킹이 지원되지 않는 새 크기로 이동하고 다시 시작할 수 있습니다.  
-
+* 가속화된 네트워킹이 사용되지 않으면 VM/가용성 집합/VMSS를 가속화된 네트워킹이 지원되지 않는 새 크기로 이동하고 다시 시작할 수 있습니다.

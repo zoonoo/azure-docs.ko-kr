@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 06/12/2020
-ms.openlocfilehash: c42db1445c939069f334d04ea26d54cdb843c336
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: 3b57172daeffd1766da456e56cb5e445427a4858
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488836"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220391"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Intelligent Insights에서 Azure SQL Database 및 Azure SQL Managed Instance 성능 문제 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -92,7 +92,7 @@ Azure SQL Database의 리소스는 일반적으로 [DTU](service-tiers-dtu.md) �
 
 워크로드를 데이터베이스에 더 균등하게 분산하는 것이 좋습니다. 인덱스를 추가하여 성능에 영향을 미치는 쿼리를 최적화해 보십시오. 여러 데이터베이스에 워크로드를 분산할 수도 있습니다. 이러한 해결 방법이 가능 하지 않은 경우 데이터베이스 구독의 가격 책정 계층을 높여 사용 가능한 리소스의 양을 늘려 보세요.
 
-## <a name="memory-pressure"></a>메모리 압력
+## <a name="memory-pressure"></a>메모리 부족
 
 ### <a name="what-is-happening"></a>설명
 
@@ -128,7 +128,9 @@ SQL 엔진에서 실행한 트랜잭션이 사용할 수 없도록 잠긴 리소
 
 이 문제를 완화하는 가장 간단하고 안전한 방법은 트랜잭션을 짧게 유지하고 비용이 가장 많이 드는 쿼리의 잠금 범위를 좁히는 것입니다. 큰 작업 배치를 작은 작업으로 분할할 수 있습니다. 쿼리를 최대한 효율적으로 만들어 쿼리 잠금 범위를 좁히는 것이 좋습니다. 교착 상태가 발생할 가능성이 높아지고 전체 데이터베이스 성능에 부정적인 영향을 줄 수 있으므로 대량 스캔을 줄이십시오. 잠금을 유발하는 쿼리가 식별된 경우 새 인덱스를 만들거나 기존 인덱스에 열을 추가하여 테이블 스캔을 방지할 수 있습니다.
 
-자세한 제안 사항은 [SQL Server 잠금 에스컬레이션으로 인해 발생하는 차단 문제를 해결하는 방법](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)을 참조하세요.
+추가 제안 사항은 다음을 참조 하세요.
+- [Azure SQL 차단 문제 이해 및 해결](understand-resolve-blocking.md)
+- [SQL Server의 잠금 에스컬레이션으로 인해 발생 하는 차단 문제를 해결 하는 방법](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)
 
 ## <a name="increased-maxdop"></a>MAXDOP 증가
 

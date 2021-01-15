@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dd5197f99f7187e21eb466bfa213f68a7638e24d
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 54001cde76bd89305eb77544c6e6858defda6096
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045345"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222550"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
@@ -22,7 +22,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 
 이 문서에서는 관계와 그래프를 전체적으로 관리 하는 방법을 집중적으로 설명 합니다. 개별 디지털 쌍으로 작업 하려면 [*방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -157,7 +157,7 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 > [!TIP]
 > 쌍 그래프는 twins 간의 관계를 만드는 개념입니다. 쌍 그래프의 시각적 표시를 보려는 경우이 문서의 [*시각화*](how-to-manage-graph.md#visualization) 섹션을 참조 하세요. 
 
-### <a name="create-a-twin-graph-from-a-csv-file"></a>CSV 파일에서 쌍 그래프 만들기
+## <a name="create-graph-from-a-csv-file"></a>CSV 파일에서 그래프 만들기
 
 실제로 사용 하는 경우에는 다른 데이터베이스에 저장 된 데이터 또는 스프레드시트나 CSV 파일에서 쌍 계층 구조가 생성 되는 경우가 많습니다. 이 섹션에서는 CSV 파일에서 데이터를 읽고 그 밖의 쌍을 만드는 방법을 보여 줍니다.
 

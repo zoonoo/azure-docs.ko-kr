@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a4d034aefe59a661bfb0694feba36a669aa274ac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 43b2c8271090d2254bcb4834c3b566c3601a104b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007276"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223247"
 ---
 # <a name="create-a-nat-gateway-using-azure-cli"></a>Azure CLI를 사용하여 NAT 게이트웨이 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "96007276"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 다음 예제에서는 **myResourceGroupNAT** 라는 리소스 그룹을 **eastus2** 위치에 만듭니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "96007276"
 
 ### <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-공용 인터넷에 액세스 하려면 NAT 게이트웨이에 대 한 공용 IP 주소가 하나 이상 필요 합니다. [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)를 사용하여 **myPublicIP** 라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.
+공용 인터넷에 액세스 하려면 NAT 게이트웨이에 대 한 공용 IP 주소가 하나 이상 필요 합니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 **myPublicIP** 라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -59,7 +59,7 @@ ms.locfileid: "96007276"
 
 ### <a name="create-a-public-ip-prefix"></a>공용 IP 접두사 만들기
 
-하나 이상의 공용 IP 주소 리소스, 공용 IP 접두사 또는 둘 모두는 NAT 게이트웨이에서 사용할 수 있습니다. 공용 IP 접두사 리소스를 이 시나리오에 추가하여 보여 줍니다.   [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)를 사용하여 **myPublicIPprefix** 라는 공용 IP 접두사를 **myResourceGroupNAT** 에 만듭니다.
+하나 이상의 공용 IP 주소 리소스, 공용 IP 접두사 또는 둘 모두는 NAT 게이트웨이에서 사용할 수 있습니다. 공용 IP 접두사 리소스를 이 시나리오에 추가하여 보여 줍니다.   [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)를 사용하여 **myPublicIPprefix** 라는 공용 IP 접두사를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -74,7 +74,7 @@ ms.locfileid: "96007276"
   - NAT 게이트웨이 리소스에서 변환하는 아웃바운드 흐름에 사용할 공용 IP 풀 및 공용 IP 접두사입니다.
   - 유휴 시간 제한을 4분(기본값)에서 10분으로 변경합니다.
 
-[az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest)를 사용하여 **myNATgateway** 라는 글로벌 Azure NAT 게이트웨이를 만듭니다. 이 명령은 **myPublicIP** 공용 IP 주소와 **myPublicIPprefix** 공용 IP 접두사를 모두 사용합니다. 유휴 시간 제한을 **10** 분으로 변경합니다.
+[az network nat gateway create](/cli/azure/network/nat?view=azure-cli-latest)를 사용하여 **myNATgateway** 라는 글로벌 Azure NAT 게이트웨이를 만듭니다. 이 명령은 **myPublicIP** 공용 IP 주소와 **myPublicIPprefix** 공용 IP 접두사를 모두 사용합니다. 유휴 시간 제한을 **10** 분으로 변경합니다.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -91,7 +91,7 @@ ms.locfileid: "96007276"
 
 VM을 배포하기 전에 NAT 게이트웨이를 사용하려면 먼저 가상 네트워크를 만들어야 합니다.
 
-[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)를 사용하여 **mySubnet** 이라는 서브넷이 있는 **myVnet** 가상 네트워크를 **myResourceGroupNAT** 에 만듭니다.  가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 **mySubnet** 이라는 서브넷이 있는 **myVnet** 가상 네트워크를 **myResourceGroupNAT** 에 만듭니다.  가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.
 
 ```azurecli-interactive
   az network vnet create \
@@ -105,7 +105,7 @@ VM을 배포하기 전에 NAT 게이트웨이를 사용하려면 먼저 가상 �
 
 ### <a name="configure-nat-service-for-source-subnet"></a>원본 서브넷에 대한 NAT 서비스 구성
 
-[az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet)를 사용하여 특정 **myNATgateway** NAT 게이트웨이 리소스를 사용하도록 **myVnet** 가상 네트워크의 **mySubnet** 원본 서브넷을 구성합니다.  이 명령은 지정된 서브넷에서 NAT 서비스를 활성화합니다.
+[az network vnet subnet update](/cli/azure/network/vnet/subnet)를 사용하여 특정 **myNATgateway** NAT 게이트웨이 리소스를 사용하도록 **myVnet** 가상 네트워크의 **mySubnet** 원본 서브넷을 구성합니다.  이 명령은 지정된 서브넷에서 NAT 서비스를 활성화합니다.
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -123,7 +123,7 @@ VM을 배포하기 전에 NAT 게이트웨이를 사용하려면 먼저 가상 �
 
 ### <a name="create-public-ip-for-source-vm"></a>원본 VM에 대한 공용 IP 만들기
 
-VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)를 사용하여 **myPublicIPVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.
+VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 **myPublicIPVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -134,7 +134,7 @@ VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [az network publ
 
 ### <a name="create-an-nsg-for-vm"></a>VM에 대한 NSG 만들기
 
-표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh 액세스에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다. [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 **myNSG** 라는 NSG 리소스를 **myResourceGroupNAT** 에 만듭니다.
+표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh 액세스에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다. [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 **myNSG** 라는 NSG 리소스를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
   az network nsg create \
@@ -144,7 +144,7 @@ VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [az network publ
 
 ### <a name="expose-ssh-endpoint-on-source-vm"></a>원본 VM에서 SSH 엔드포인트 공개
 
-NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **ssh** 라는 NSG 규칙을 **myResourceGroupNAT** 의 **myNSG** 라는 NSG에 만듭니다.
+NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **ssh** 라는 NSG 규칙을 **myResourceGroupNAT** 의 **myNSG** 라는 NSG에 만듭니다.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -235,4 +235,3 @@ Azure Monitor에서 메트릭을 검토하여 NAT 서비스의 작동 상태를 
 - [Azure PowerShell을 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-powershell.md)를 배포하기 위한 빠른 시작.
 - [Azure Portal을 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-portal.md)를 배포하기 위한 빠른 시작.
 > [!div class="nextstepaction"]
-

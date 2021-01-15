@@ -4,12 +4,12 @@ description: 클러스터 자동 크기 조정기를 사용하여 AKS(Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e644a931152c83a5232c8233d519f7807ab708af
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542644"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223145"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -130,14 +130,15 @@ az aks update \
 | scale-down-unneeded-time         | 불필요한 노드를 스케일 다운하기 전까지 경과 시간                  | 10분    |
 | scale-down-unready-time          | 준비되지 않은 노드를 스케일 다운하기 전까지 경과 시간         | 20분    |
 | scale-down-utilization-threshold | 요청된 리소스의 합계를 용량으로 나눈 노드 사용률 수준으로, 이 수준 미만의 노드는 스케일 다운 대상으로 고려할 수 있음 | 0.5 |
-| max-graceful-termination-sec     | 노드를 스케일 다운하려고 할 때 클러스터 자동 크기 조정기가 Pod 종료를 위해 대기하는 최대 시간(초) | 600초   |
+| max-graceful-termination-sec     | 클러스터 autoscaler가 노드 규모를 축소 하려고 할 때 pod 종료를 대기 하는 최대 시간 (초)입니다. | 600초   |
 | balance-similar-node-groups      | 비슷한 노드 풀을 검색 하 고 두 노드 간의 노드 수를 분산 합니다.                 | false         |
-| 기호                         | 수직 확장에 사용할 노드 풀 [확장기](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) 의 유형입니다. 가능한 값: `most-pods` , `random` , `least-waste` | random | 
+| 기호                         | 수직 확장에 사용할 노드 풀 [확장기](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) 의 유형입니다. 가능한 값: `most-pods` , `random` , `least-waste` , `priority` | random | 
 | skip-노드-로컬 저장소    | True 클러스터 autoscaler가 로컬 저장소가 있는 pod를 사용 하 여 노드를 삭제 하지 않는 경우 (예: EmptyDir 또는 HostPath) | true |
 | skip-노드-시스템-pod      | True 클러스터 autoscaler가 kube에서 pod를 사용 하 여 노드를 삭제 하지 않는 경우 (DaemonSet 또는 미러 pod 제외) | true | 
-| 최대-비어 있음-대량 삭제            | 동시에 삭제할 수 있는 빈 노드의 최대 수입니다.                      | 10 개 노드      |
-| 새-pod-축소-지연           | Kubernetes 스케줄러가 모든 pod를 예약 하기 전에 CA가 작동 하지 않도록 하는 버스트/일괄 처리 규모와 같은 시나리오의 경우, 특정 기간 전에는 예약 되지 않은 pod를 무시 하도록 CA에 지시할 수 있습니다. "                                                                                                                | 10초    |
-| 최대-전체-준비 되지 않음-백분율     | 클러스터에서 준비 되지 않은 노드의 최대 백분율입니다. 이 비율을 초과 하면 CA가 작업을 중단 합니다. | 45% | 
+| 최대-비어 있음-대량 삭제            | 동시에 삭제할 수 있는 빈 노드의 최대 수                       | 10 개 노드      |
+| 새-pod-축소-지연           | Kubernetes 스케줄러가 모든 pod를 예약 하기 전에 CA를 사용 하지 않으려는 버스트/일괄 처리 규모와 같은 시나리오의 경우, 특정 기간 전에는 예약 되지 않은 pod를 무시 하도록 CA에 지시할 수 있습니다.                                                                                                                | 0초    |
+| 최대-전체-준비 되지 않음-백분율     | 클러스터에서 준비 되지 않은 노드의 최대 백분율입니다. 이 비율을 초과 하면 CA가 작업을 중단 합니다. | 45% |
+| 최대 노드 프로 비전 시간          | Autoscaler가 노드가 프로 비전 될 때까지 대기 하는 최대 시간입니다.                           | 15분    |   
 | 확인-전체-준비 되지 않음-개수           | 최대 합계-준비 되지 않음 비율에 관계 없이 허용 된 준비 되지 않은 노드 수            | 3 개 노드       |
 
 > [!IMPORTANT]

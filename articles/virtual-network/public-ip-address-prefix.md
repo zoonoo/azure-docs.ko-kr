@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
-ms.openlocfilehash: 53dd6d2dda762b3cbf53f4aaec6cd3692a9656e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d98107075c215c0a00bc2035325a6ad8bf5bfc5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432576"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222431"
 ---
 # <a name="public-ip-address-prefix"></a>공용 IP 주소 접두사
 
 공용 IP 주소 접두사는 Azure에서 예약 된 IP 주소 범위입니다. Azure는 사용자가 지정 하는 수에 따라 구독에 연속적인 주소 범위를 제공 합니다. 
 
-공용 주소에 대해 잘 모르는 경우 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
+공용 주소에 대해 잘 모르는 경우 [공용 IP 주소](./public-ip-addresses.md#public-ip-addresses)를 참조하세요.
 
 공용 IP 주소는 각 Azure 지역의 주소 풀에서 할당됩니다. Azure에서 각 지역에 사용하는 범위 목록을 [다운로드](https://www.microsoft.com/download/details.aspx?id=56519)할 수 있습니다. 예를 들어 40.121.0.0/16은 Azure에서 미국 동부 지역에 사용되는 100개가 넘는 범위 중 하나입니다. 범위에는 사용 가능한 주소(40.121.0.1 - 40.121.255.254)가 포함됩니다.
 
@@ -68,9 +68,9 @@ Azure에서 IP 주소를 할당할 때까지 정확한 IP를 알 수 없습니�
 ## <a name="constraints"></a>제약 조건
 
 - 접두사에 대한 IP 주소를 지정할 수 없습니다. Azure는 사용자가 지정 하는 크기에 따라 접두사에 대 한 IP 주소를 제공 합니다.
-- 기본적으로 최대 16 개의 IP 주소 또는/28의 접두사를 만들 수 있습니다. 자세한 내용은 [네트워크 제한 증가 요청](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) 및 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 을 참조 하세요.
+- 기본적으로 최대 16 개의 IP 주소 또는/28의 접두사를 만들 수 있습니다. 자세한 내용은 [네트워크 제한 증가 요청](../azure-portal/supportability/networking-quota-requests.md) 및 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 을 참조 하세요.
 - 접두사를 만든 후에는 범위를 변경할 수 없습니다.
-- 표준 SKU로 만든 고정 공용 IP 주소만 접두사의 범위에서 할당할 수 있습니다. 공용 IP 주소 SKU에 대해 자세히 알아보려면 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
+- 표준 SKU로 만든 고정 공용 IP 주소만 접두사의 범위에서 할당할 수 있습니다. 공용 IP 주소 SKU에 대해 자세히 알아보려면 [공용 IP 주소](./public-ip-addresses.md#public-ip-addresses)를 참조하세요.
 - 범위에서 가져온 주소는 Azure Resource Manager 리소스에만 할당할 수 있습니다. 클래식 배포 모델에서 리소스에 주소를 할당할 수 없습니다.
 - 접두사로 생성 된 모든 공용 IP 주소는 접두사와 동일한 Azure 지역 및 구독에 있어야 합니다. 동일한 지역 및 구독의 리소스에 주소를 할당 해야 합니다.
 - 접두사 내에 있는 주소가 리소스에 연결된 공용 IP 주소 리소스에 할당되어 있으면 접두사를 삭제할 수 없습니다. 먼저 접두사의 IP 주소가 할당되어 있는 모든 공용 IP 주소 리소스를 분리합니다.

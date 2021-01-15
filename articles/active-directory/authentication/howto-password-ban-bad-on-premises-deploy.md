@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deb1f74902fe28d53a5180e4f341547f339a83ac
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741987"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220289"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 계획 및 배포
 
@@ -99,7 +99,7 @@ Azure AD 암호 보호 DC 에이전트 소프트웨어의 설계는 고가용성
 
 Azure AD 암호 보호 DC 에이전트에는 다음 요구 사항이 적용 됩니다.
 
-* Azure AD 암호 보호 DC 에이전트 소프트웨어가 설치 되는 모든 컴퓨터는 Windows Server 2012 이상을 실행 해야 합니다.
+* Azure AD 암호 보호 DC 에이전트 소프트웨어가 설치 되는 모든 컴퓨터는 windows Server Core 버전을 포함 하 여 Windows Server 2012 이상을 실행 해야 합니다.
     * Active Directory 도메인 이나 포리스트는 Windows Server 2012 DFL (도메인 기능 수준) 또는 FFL (포리스트 기능 수준)에 있을 필요가 없습니다. [디자인 원칙](concept-password-ban-bad-on-premises.md#design-principles)에 설명 된 대로 DC 에이전트 또는 프록시 소프트웨어를 실행 하는 데 필요한 최소 dfl 또는 ffl은 없습니다.
 * Azure AD 암호 보호 DC 에이전트를 실행 하는 모든 컴퓨터에는 .NET 4.5이 설치 되어 있어야 합니다.
 * Azure AD 암호 보호 DC 에이전트 서비스를 실행 하는 모든 Active Directory 도메인은 sysvol 복제를 위해 DFSR (분산 파일 시스템 복제)를 사용 해야 합니다.
@@ -116,7 +116,7 @@ Azure AD 암호 보호 DC 에이전트에는 다음 요구 사항이 적용 됩�
 
 Azure AD 암호 보호 프록시 서비스에는 다음과 같은 요구 사항이 적용 됩니다.
 
-* Azure AD 암호 보호 프록시 서비스가 설치 되는 모든 컴퓨터는 Windows Server 2012 R2 이상을 실행 해야 합니다.
+* Azure AD 암호 보호 프록시 서비스가 설치 되는 모든 컴퓨터는 windows Server Core 버전을 포함 하 여 Windows Server 2012 R2 이상을 실행 해야 합니다.
 
     > [!NOTE]
     > Azure ad 암호 보호 프록시 서비스 배포는 도메인 컨트롤러에서 아웃 바운드 직접 인터넷 연결을 사용할 수 있는 경우에도 Azure AD 암호 보호를 배포 하기 위한 필수 요구 사항입니다.

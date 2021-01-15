@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 36e5bb33b7d555c3b457b63f94d9032ff390e6cb
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b7c683edd15ab05e9efc239ffe07759078754607
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342317"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222652"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Azure Kubernetes 네트워크 정책 개요
 
@@ -38,7 +38,7 @@ Azure NPM 구현은 컨테이너에 VNet 통합을 제공 하는 Azure CNI와 �
 Azure NPM는 다음과 같은 방법으로 pod에 대 한 마이크로 조각화를 제공 하는 데 사용할 수 있습니다.
 
 ### <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
-NPM은 기본적으로 AKS에서 사용할 수 있으며 클러스터를 만들 때 사용할 수 있습니다. [Azure Kubernetes Service (AKS)에서 네트워크 정책을 사용 하 여 pod 간의 보안 트래픽](https://docs.microsoft.com/azure/aks/use-network-policies)에서 자세히 알아보세요.
+NPM은 기본적으로 AKS에서 사용할 수 있으며 클러스터를 만들 때 사용할 수 있습니다. [Azure Kubernetes Service (AKS)에서 네트워크 정책을 사용 하 여 pod 간의 보안 트래픽](../aks/use-network-policies.md)에서 자세히 알아보세요.
 
 ### <a name="aks-engine"></a>AKS-엔진
 AKS 엔진은 Azure에서 Kubernetes 클러스터 배포를 위한 Azure Resource Manager 템플릿을 생성하는 도구입니다. 클러스터 구성은 템플릿 생성 시 도구로 전달되는 JSON 파일에서 지정됩니다. 지원되는 클러스터 설정 및 해당 설명의 전체 목록을 자세히 알아보려면 Microsoft Azure Container Service Engine - 클러스터 정의를 참조하세요.
@@ -130,7 +130,7 @@ Azure NPM에는 구성을 모니터링 하 고 더 잘 이해할 수 있는 정�
 메트릭은 컨테이너 또는 프로메테우스를 통해 Azure Monitor 스크랩 수 있습니다.
 
 ### <a name="setup-for-azure-monitor"></a>Azure Monitor 설치
-첫 번째 단계는 Kubernetes 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정 하는 것입니다. 단계는 [컨테이너에 대 한 Azure Monitor 개요](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)에서 찾을 수 있습니다. 컨테이너에 대해 Azure Monitor 했으면 [컨테이너 ConfigMap에 대 한 Azure Monitor](https://aka.ms/container-azm-ms-agentconfig) 를 구성 하 여 NPM 통합 및 프로메테우스 NPM 메트릭의 수집을 사용 하도록 설정 합니다. 컨테이너에 대 한 Azure monitor ConfigMap에는 ```integrations``` NPM 메트릭을 수집 하기 위한 설정이 포함 된 섹션이 있습니다. 이러한 설정은 ConfigMap에서 기본적으로 사용 되지 않습니다. 기본 설정을 사용 하도록 설정 하면 ```collect_basic_metrics = true``` 에서 기본 NPM 메트릭을 수집 합니다. 고급 설정을 사용 하도록 설정 ```collect_advanced_metrics = true``` 하면 기본 메트릭과 더불어 고급 메트릭이 수집 됩니다. 
+첫 번째 단계는 Kubernetes 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정 하는 것입니다. 단계는 [컨테이너에 대 한 Azure Monitor 개요](../azure-monitor/insights/container-insights-overview.md)에서 찾을 수 있습니다. 컨테이너에 대해 Azure Monitor 했으면 [컨테이너 ConfigMap에 대 한 Azure Monitor](https://aka.ms/container-azm-ms-agentconfig) 를 구성 하 여 NPM 통합 및 프로메테우스 NPM 메트릭의 수집을 사용 하도록 설정 합니다. 컨테이너에 대 한 Azure monitor ConfigMap에는 ```integrations``` NPM 메트릭을 수집 하기 위한 설정이 포함 된 섹션이 있습니다. 이러한 설정은 ConfigMap에서 기본적으로 사용 되지 않습니다. 기본 설정을 사용 하도록 설정 하면 ```collect_basic_metrics = true``` 에서 기본 NPM 메트릭을 수집 합니다. 고급 설정을 사용 하도록 설정 ```collect_advanced_metrics = true``` 하면 기본 메트릭과 더불어 고급 메트릭이 수집 됩니다. 
 
 ConfigMap을 편집한 후에는 로컬에 저장 하 고 다음과 같이 ConfigMap을 클러스터에 적용 합니다.
 
@@ -143,7 +143,7 @@ integrations: |-
 ```
 고급 메트릭은 선택 사항이 며이를 설정 하면 기본 메트릭 수집이 자동으로 설정 됩니다. 현재 고급 메트릭에는 `npm_ipset_counts`
 
-[구성 맵의 컨테이너 컬렉션 설정에 대 한 Azure monitor](https://aka.ms/azmon-containers-agent-collection-settings-doc) 에 대 한 자세한 정보
+[구성 맵의 컨테이너 컬렉션 설정에 대 한 Azure monitor](../azure-monitor/insights/container-insights-agent-config.md) 에 대 한 자세한 정보
 
 ### <a name="visualization-options-for-azure-monitor"></a>Azure Monitor에 대 한 시각화 옵션
 NPM 메트릭 수집을 사용 하도록 설정 하면 컨테이너 정보를 사용 하거나 Grafana을 사용 하 여 Azure Portal에서 메트릭을 볼 수 있습니다.
@@ -154,7 +154,7 @@ Azure Portal을 엽니다. 클러스터의 정보에서 "통합 문서"로 이�
 통합 문서 (아래 그림)를 보는 것 외에도 Insights 섹션 아래의 "로그"에서 프로메테우스 메트릭을 직접 쿼리할 수 있습니다. 예를 들어이 쿼리는 수집 되는 모든 메트릭을 반환 합니다.
 | TimeGenerated > 전 (5h) | 이름에 "npm_"가 포함 된 경우
 
-메트릭에 대 한 Log Analytics를 직접 쿼리할 수도 있습니다. [Log Analytics 쿼리 시작](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 하기에 대 한 자세한 정보 
+메트릭에 대 한 Log Analytics를 직접 쿼리할 수도 있습니다. [Log Analytics 쿼리 시작](../azure-monitor/insights/container-insights-log-search.md) 하기에 대 한 자세한 정보 
 
 #### <a name="viewing-in-grafana-dashboard"></a>Grafana 대시보드에서 보기
 [여기](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource)에 설명 된 대로 Grafana 서버를 설정 하 고 Log Analytics 데이터 원본을 구성 합니다. 그런 다음 [Log Analytics 백 엔드가 있는 Grafana 대시보드](https://grafana.com/grafana/dashboards/10956) 를 Grafana Labs로 가져옵니다.
@@ -266,4 +266,3 @@ helm install prometheus stable/prometheus -n monitoring \
 -  [컨테이너 네트워크](container-networking-overview.md)에 대해 알아봅니다.
 - Kubernetes 클러스터 또는 Docker 컨테이너에 대 한 플러그 인을 [배포](deploy-container-networking.md) 합니다.
 
-    

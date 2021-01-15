@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: de4e32d79cf4dfb3a5f54544c65544297a2c0232
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 516f858c8f95ec3f7cfd8ffc1592358716986519
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993570"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223298"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 NAT 게이트웨이 만들기
 
@@ -35,7 +35,7 @@ Azure Cloud Shell을 사용하여 이 자습서를 완료하거나 명령을 로
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=latest)을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=latest)을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 다음 예제에서는 **myResourceGroupNAT** 라는 리소스 그룹을 **eastus2** 위치에 만듭니다.
 
@@ -59,7 +59,7 @@ NAT 게이트웨이에 대한 공용 IP 옵션은 다음과 같습니다.
 
 ### <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-인터넷에 액세스 하려면 NAT 게이트웨이에 대 한 공용 IP 주소가 하나 이상 필요 합니다. [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest)를 사용하여 **myPublicIP** 라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$publicIP** 변수에 저장됩니다.
+인터넷에 액세스 하려면 NAT 게이트웨이에 대 한 공용 IP 주소가 하나 이상 필요 합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=latest)를 사용하여 **myPublicIP** 라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$publicIP** 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'
@@ -73,7 +73,7 @@ New-AzPublicIpAddress -Name $pbnm -ResourceGroupName $rsg -AllocationMethod Stat
 
 ### <a name="create-a-public-ip-prefix"></a>공용 IP 접두사 만들기
 
-[New-AzPublicIpPrefix](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipprefix?view=latest)를 사용하여 **myPublicIPprefix** 라는 공용 IP 접두사를 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIPPrefix** 라는 변수에 저장됩니다.
+[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix?view=latest)를 사용하여 **myPublicIPprefix** 라는 공용 IP 접두사를 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIPPrefix** 라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'
@@ -90,7 +90,7 @@ New-AzPublicIpPrefix -Name $pxnm -ResourceGroupName $rsg -Location $loc -PrefixL
   - NAT 게이트웨이 리소스에서 변환하는 아웃바운드 흐름에 사용할 공용 IP 풀 및 공용 IP 접두사입니다.
   - 유휴 시간 제한을 4분(기본값)에서 10분으로 변경합니다.
 
-[New-AzNatGateway](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)를 사용하여 글로벌 Azure NAT 게이트웨이를 만듭니다. 이 명령의 결과는 **myPublicIP** 공용 IP 주소와 **myPublicIPprefix** 공용 IP 접두사를 사용하는 **myNATgateway** 라는 게이트웨이 리소스를 만듭니다. 유휴 시간 제한은 10분으로 설정됩니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$natGateway** 라는 변수에 저장됩니다.
+[New-AzNatGateway](/powershell/module/az.network/new-aznatgateway)를 사용하여 글로벌 Azure NAT 게이트웨이를 만듭니다. 이 명령의 결과는 **myPublicIP** 공용 IP 주소와 **myPublicIPprefix** 공용 IP 접두사를 사용하는 **myNATgateway** 라는 게이트웨이 리소스를 만듭니다. 유휴 시간 제한은 10분으로 설정됩니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$natGateway** 라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'
@@ -108,7 +108,7 @@ New-AzNatGateway -Name $gnm -ResourceGroupName $rsg -PublicIpAddress $publicIP -
 
 가상 네트워크를 만들고 서브넷을 게이트웨이에 연결합니다.
 
-[New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest)를 사용하여 **myResourceGroup** 에서 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest)를 사용하여 **mySubnet** 이라는 서브넷이 있는 **myVnet** 이라는 가상 네트워크를 만듭니다. 가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$subnet** 및 **$vnet** 변수에 저장됩니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork?view=latest)를 사용하여 **myResourceGroup** 에서 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest)를 사용하여 **mySubnet** 이라는 서브넷이 있는 **myVnet** 이라는 가상 네트워크를 만듭니다. 가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$subnet** 및 **$vnet** 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $sbnm = 'mySubnet'
@@ -133,7 +133,7 @@ New-AzVirtualNetwork -Name $vnnm -ResourceGroupName $rsg -Location $loc -Address
 
 ### <a name="create-public-ip-for-source-vm"></a>원본 VM에 대한 공용 IP 만들기
 
-VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest)를 사용하여 **myPublicIPVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIpVM** 이라는 변수에 저장됩니다.
+VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=latest)를 사용하여 **myPublicIPVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIpVM** 이라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'
@@ -147,7 +147,7 @@ New-AzPublicIpAddress -Name $ipnm -ResourceGroupName $rsg -AllocationMethod Stat
 
 ### <a name="create-an-nsg-and-expose-ssh-endpoint-for-vm"></a>NSG 만들기 및 VM에 대한 SSH 엔드포인트 공개
 
-표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다. [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest)을 사용하여 **myNSG** 라는 NSG 리소스를 만듭니다. [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest)를 사용하여 **ssh** 라는 SSH 액세스에 대한 NSG 규칙을 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$nsg** 라는 변수에 저장됩니다.
+표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다. [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup?view=latest)을 사용하여 **myNSG** 라는 NSG 리소스를 만듭니다. [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest)를 사용하여 **ssh** 라는 SSH 액세스에 대한 NSG 규칙을 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$nsg** 라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $rnm = 'ssh'
@@ -170,7 +170,7 @@ New-AzNetworkSecurityGroup -ResourceGroupName $rsg -Name $rnm -Location $loc -Se
 
 ### <a name="create-nic-for-vm"></a>VM에 대한 NIC 만들기
 
-[New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0)를 사용하여 **myNic** 라는 네트워크 인터페이스를 만듭니다. 이 명령은 공용 IP 주소와 네트워크 보안 그룹을 연결합니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$nic** 라는 변수에 저장됩니다.
+[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0)를 사용하여 **myNic** 라는 네트워크 인터페이스를 만듭니다. 이 명령은 공용 IP 주소와 네트워크 보안 그룹을 연결합니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$nic** 라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'
@@ -192,9 +192,9 @@ ssh-keygen을 사용하여 SSH 키 쌍을 만듭니다.
 ```azurepowershell-interactive
 ssh-keygen -t rsa -b 2048
 ```
-PuTTy 사용을 포함하여 SSH 키 쌍을 만드는 방법에 대한 자세한 내용은 [Windows에 SSH 키를 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)을 참조하세요.
+PuTTy 사용을 포함하여 SSH 키 쌍을 만드는 방법에 대한 자세한 내용은 [Windows에 SSH 키를 사용하는 방법](../virtual-machines/linux/ssh-from-windows.md)을 참조하세요.
 
-Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 키 쌍이 컨테이너 이미지에 저장됩니다. 이 [스토리지 계정이 자동으로 만들어집니다](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). 키를 검색하기 전에는 스토리지 계정 또는 파일 공유를 삭제하지 않습니다.
+Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 키 쌍이 컨테이너 이미지에 저장됩니다. 이 [스토리지 계정이 자동으로 만들어집니다](../cloud-shell/persisting-shell-storage.md). 키를 검색하기 전에는 스토리지 계정 또는 파일 공유를 삭제하지 않습니다.
 
 #### <a name="create-vm-configuration"></a>VM 구성 만들기
 
@@ -249,7 +249,7 @@ VM에서 배포가 준비될 때까지 기다린 후 나머지 단계를 계속 
 
 ## <a name="discover-the-ip-address-of-the-vm"></a>VM의 IP 주소 검색
 
-먼저 만든 VM의 IP 주소를 검색해야 합니다. VM의 공용 IP 주소를 가져오려면 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest)를 사용합니다. 
+먼저 만든 VM의 IP 주소를 검색해야 합니다. VM의 공용 IP 주소를 가져오려면 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress?view=latest)를 사용합니다. 
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'
@@ -273,7 +273,7 @@ ssh azureuser@<ip-address-destination>
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) 명령을 사용하여 리소스 그룹 및 포함된 모든 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) 명령을 사용하여 리소스 그룹 및 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupNAT
@@ -292,5 +292,3 @@ Azure Monitor에서 메트릭을 검토하여 NAT 서비스의 작동 상태를 
 - [Azure PowerShell을 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-powershell.md)를 배포하기 위한 빠른 시작.
 - [Azure Portal을 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-portal.md)를 배포하기 위한 빠른 시작.
 > [!div class="nextstepaction"]
-
-

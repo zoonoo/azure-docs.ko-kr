@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff656887081681a804285e9a96352feef15fc675
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7557985b23991f1a53d45f6f2d2283500c0d73f3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744221"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222414"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>조직에서 외부 공동 작업의 현재 상태를 검색 합니다. 
 
@@ -46,9 +46,9 @@ ms.locfileid: "97744221"
 
 ### <a name="use-allow-or-deny-lists"></a>허용 또는 거부 목록 사용
 
-현재 공동 작업과 공동 작업을 차단한 사용자를 검색 하는 또 다른 방법은 [허용 또는 거부 목록](../external-identities/allow-deny-list.md)에 조직을 추가 했는지 확인 하는 것입니다.
+조직에서 특정 조직 에서만 공동 작업을 허용할지 여부를 고려 합니다. 또는 조직에서 특정 조직과의 공동 작업을 차단 하려는 경우를 고려 합니다.  테 넌 트 수준에는 소스 (예: 팀, SharePoint 및 Azure Portal)에 관계 없이 전체 B2B 초대 및 횟수가을 제어 하는 데 사용할 수 있는 [허용 또는 거부 목록이](../external-identities/allow-deny-list.md)있습니다.
+권한 관리를 사용 하는 경우 아래와 같이 연결 된 특정 조직 설정을 사용 하 여 파트너의 하위 집합에 대 한 액세스 패키지 범위를 지정할 수도 있습니다.
 
-조직에서 특정 조직 에서만 공동 작업을 허용 하려는 경우를 고려 합니다. 또한 조직에서 특정 조직과 공동 작업을 차단 하려는 경우를 고려 합니다. 이러한 설정은 전체 B2B 상환 또는 특정 액세스 패키지에 적용 될 수 있습니다.
 
 ![새 액세스 패키지를 만들 때 거부 목록 허용의 스크린샷](media/secure-external-access/2-new-access-package.png)
 

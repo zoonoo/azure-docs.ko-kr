@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 4156308fa58ea1f02e6e3f2c5174839dc1cd381c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 2731a7f263db223c258ddfc434bc84f59632d1f5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841527"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223366"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
 
@@ -316,6 +316,11 @@ CLI에서 일반적인 복제본 수를 지정하려면 `az sig image-version cr
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>관리형 이미지를 사용하여 만든 Virtual Machine Scale Set가 Shared Image Gallery 이미지를 사용하도록 업데이트할 수 있나요?
 
 예, OS 유형, Hyper-V 생성 및 데이터 디스크 레이아웃이 이미지 간에 일치한다면 확장 집합 이미지 참조를 관리형 이미지에서 Shared Image Gallery 이미지로 업데이트할 수 있습니다.
+
+## <a name="troubleshoot-shared-image-gallery-issues"></a>공유 이미지 갤러리 문제 해결
+공유 이미지 갤러리 리소스에 대 한 작업을 수행 하는 동안 문제가 발생 한 경우 [문제 해결 가이드](troubleshooting-shared-images.md)에서 일반적인 오류 목록을 참조 하십시오.
+
+또한 `azure-virtual-machines-images` [Q&A](/answers/topics/azure-virtual-machines-images.html)를 사용 하 여 질문을 게시 하 고 태그를 지정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

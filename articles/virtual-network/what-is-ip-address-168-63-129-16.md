@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 03c1badf984fb150631c157f3fdc07856b60e965
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1e304bc30a48c92fdff576723dae6af1e26ef3da
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088900"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222584"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP 주소 168.63.129.16
 
@@ -37,7 +37,7 @@ IP 주소 168.63.129.16은 Azure 플랫폼 리소스에 대한 통신 채널을 
 
 ## <a name="scope-of-ip-address-1686312916"></a>IP 주소 168.63.129.16의 범위
 
-공용 IP 주소 168.63.129.16은 모든 지역 및 모든 국가 클라우드에서 사용 됩니다. 이 특수 공용 IP 주소는 Microsoft에서 소유 하며 변경 되지 않습니다. 모든 로컬 (VM) 방화벽 정책 (아웃 바운드 방향)에서이 IP 주소를 허용 하는 것이 좋습니다. 이 IP 주소에서는 내부 Azure 플랫폼만이 메시지 원본을 제공할 수 있으므로, 이 특수 IP 주소와 리소스 간의 통신은 안전합니다. 이 주소가 차단되면 여러 시나리오에서 예기치 않은 동작이 발생할 수 있습니다. 168.63.129.16는 [호스트 노드의 가상 IP](../virtual-network/security-overview.md#azure-platform-considerations) 로, 사용자 정의 경로가 적용 되지 않습니다.
+공용 IP 주소 168.63.129.16은 모든 지역 및 모든 국가 클라우드에서 사용 됩니다. 이 특수 공용 IP 주소는 Microsoft에서 소유 하며 변경 되지 않습니다. 모든 로컬 (VM) 방화벽 정책 (아웃 바운드 방향)에서이 IP 주소를 허용 하는 것이 좋습니다. 이 IP 주소에서는 내부 Azure 플랫폼만이 메시지 원본을 제공할 수 있으므로, 이 특수 IP 주소와 리소스 간의 통신은 안전합니다. 이 주소가 차단되면 여러 시나리오에서 예기치 않은 동작이 발생할 수 있습니다. 168.63.129.16는 [호스트 노드의 가상 IP](./network-security-groups-overview.md#azure-platform-considerations) 로, 사용자 정의 경로가 적용 되지 않습니다.
 
 - VM 에이전트에는 포트 80/tcp 및 32526/tcp with WireServer (168.63.129.16)를 통한 아웃 바운드 통신이 필요 합니다. VM의 로컬 방화벽에서 열려 있어야 합니다. 168.63.129.16를 사용 하 여 이러한 포트에 대 한 통신은 구성 된 네트워크 보안 그룹이 적용 되지 않습니다.
 
@@ -49,5 +49,5 @@ IP 주소 168.63.129.16은 Azure 플랫폼 리소스에 대한 통신 채널을 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [보안 그룹](security-overview.md)
+- [보안 그룹](./network-security-groups-overview.md)
 - [네트워크 보안 그룹 만들기, 변경 또는 삭제](manage-network-security-group.md)

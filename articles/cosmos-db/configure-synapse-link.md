@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: f44751feca67fdd4473dd3f427fcf2b9d1bbe717
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: dde6af75b751037c10d7786fa5b0b03ae31d969e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916493"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222618"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -58,7 +58,7 @@ Azure Synapse 링크는 Azure Cosmos DB SQL API 컨테이너 또는 Mongo DB 컬
 > [!NOTE]
 > 현재 새 계정 및 기존 계정 모두 **새** 컨테이너에 대해 분석 저장소를 사용하도록 설정할 수 있습니다. [Azure Cosmos DB 마이그레이션 도구](cosmosdb-migrationchoices.md) 를 사용 하 여 기존의 컨테이너에서 새 컨테이너로 데이터를 마이그레이션할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 
 1. [Azure Portal](https://portal.azure.com/) 또는 [Azure Cosmos DB 탐색기](https://cosmos.azure.com/)에 로그인 합니다.
 
@@ -79,16 +79,15 @@ Azure Synapse 링크는 Azure Cosmos DB SQL API 컨테이너 또는 Mongo DB 컬
 다음 코드는 .NET SDK를 사용하여 분석 저장소와 함께 컨테이너를 만듭니다. 분석 TTL 속성을 필요한 값으로 설정합니다. 허용되는 값 목록은 [분석 TTL 지원 값](analytical-store-introduction.md#analytical-ttl) 문서를 참조하세요.
 
 ```csharp
-// Create a container with a partition key, and analytical TTL configured to  -1 (infinite retention)
-string containerId = “myContainerName”;
-int analyticalTtlInSec = -1;
-ContainerProperties cpInput = new ContainerProperties()
-            {
-Id = containerId,
-PartitionKeyPath = "/id",
-AnalyticalStorageTimeToLiveInSeconds = analyticalTtlInSec,
+// Create a container with a partition key, and analytical TTL configured to -1 (infinite retention)
+ContainerProperties properties = new ContainerProperties()
+{
+    Id = "myContainerId",
+    PartitionKeyPath = "/id",
+    AnalyticalStoreTimeToLiveInSeconds = -1,
 };
- await this. cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(cpInput);
+CosmosClient cosmosClient = new CosmosClient("myConnectionString");
+await cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(properties);
 ```
 
 ### <a name="java-v4-sdk"></a>Java V4 SDK

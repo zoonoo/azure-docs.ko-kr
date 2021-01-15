@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291001"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220595"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
 
@@ -41,19 +41,19 @@ Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 
 
 Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제한이 있습니다. 자세한 내용은 [네트워킹 제한-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)를 참조 하세요.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 
-1. 검색 상자에 *경로 테이블*을 입력합니다. 검색 결과에 **경로 테이블**이 나타나면 이를 선택합니다.
+1. 검색 상자에 *경로 테이블* 을 입력합니다. 검색 결과에 **경로 테이블** 이 나타나면 이를 선택합니다.
 
-1. **경로 테이블** 페이지에서 **만들기**를 선택합니다.
+1. **경로 테이블** 페이지에서 **만들기** 를 선택합니다.
 
 1. **경로 테이블 만들기** 대화 상자에서 다음을 수행 합니다.
 
     1. 경로 테이블의 **이름을** 입력 합니다.
-    1. **구독**을 선택합니다.
+    1. **구독** 을 선택합니다.
     1. 기존 **리소스 그룹** 을 선택 하거나 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다.
-    1. **위치**를 선택합니다.
-    1. VPN gateway를 통해 온-프레미스 네트워크에 연결 된 가상 네트워크의 서브넷에 경로 테이블을 연결 하 고 온-프레미스 경로를 서브넷의 네트워크 인터페이스로 전파 하지 않으려는 경우 **가상 네트워크 게이트웨이 경로 전파** 를 **사용 안 함으로**설정 합니다.
+    1. **위치** 를 선택합니다.
+    1. VPN gateway를 통해 온-프레미스 네트워크에 연결 된 가상 네트워크의 서브넷에 경로 테이블을 연결 하 고 온-프레미스 경로를 서브넷의 네트워크 인터페이스로 전파 하지 않으려는 경우 **가상 네트워크 게이트웨이 경로 전파** 를 **사용 안 함으로** 설정 합니다.
 
 1. **만들기** 를 선택 하 여 새 경로 테이블을 만듭니다.
 
@@ -66,7 +66,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
 
 ## <a name="view-route-tables"></a>경로 테이블 보기
 
-가상 네트워크를 관리하기 위해 [Azure Portal](https://portal.azure.com)로 이동합니다. **경로 테이블**을 검색하여 선택합니다. 구독에 있는 경로 테이블이 나열됩니다.
+가상 네트워크를 관리하기 위해 [Azure Portal](https://portal.azure.com)로 이동합니다. **경로 테이블** 을 검색하여 선택합니다. 구독에 있는 경로 테이블이 나열됩니다.
 
 ### <a name="view-route-table---commands"></a>경로 테이블 보기-명령
 
@@ -77,11 +77,11 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
 
 ## <a name="view-details-of-a-route-table"></a>경로 테이블의 세부 정보 보기
 
-1. 가상 네트워크를 관리하기 위해 [Azure Portal](https://portal.azure.com)로 이동합니다. **경로 테이블**을 검색하여 선택합니다.
+1. 가상 네트워크를 관리하기 위해 [Azure Portal](https://portal.azure.com)로 이동합니다. **경로 테이블** 을 검색하여 선택합니다.
 
 1. 경로 테이블 목록에서 세부 정보를 보려는 경로 테이블을 선택 합니다.
 
-1. 경로 테이블 페이지의 **설정**에서 경로 테이블 또는 경로 테이블이 연결 된 **서브넷** 의 **경로** 를 확인 합니다.
+1. 경로 테이블 페이지의 **설정** 에서 경로 테이블 또는 경로 테이블이 연결 된 **서브넷** 의 **경로** 를 확인 합니다.
 
 일반적인 Azure 설정에 대한 자세한 내용은 다음 정보를 참조하세요.
 
@@ -100,7 +100,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
 
 ## <a name="change-a-route-table"></a>경로 테이블 변경
 
-1. 가상 네트워크를 관리하기 위해 [Azure Portal](https://portal.azure.com)로 이동합니다. **경로 테이블**을 검색하여 선택합니다.
+1. 가상 네트워크를 관리하기 위해 [Azure Portal](https://portal.azure.com)로 이동합니다. **경로 테이블** 을 검색하여 선택합니다.
 
 1. 경로 테이블 목록에서 변경할 경로 테이블을 선택 합니다.
 
@@ -117,19 +117,19 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
 
 필요에 따라 서브넷에 경로 테이블을 연결할 수 있습니다. 경로 테이블은 0 개 이상의 서브넷에 연결할 수 있습니다. 경로 테이블은 가상 네트워크와 연결 되어 있지 않기 때문에 경로 테이블을 연결 하려는 각 서브넷에 경로 테이블을 연결 해야 합니다. Azure는 가상 네트워크가 Azure virtual network 게이트웨이 (Express 경로 또는 VPN)에 연결 된 경우 경로 테이블 내에서 만든 경로, [기본 경로](virtual-networks-udr-overview.md#default)및 온-프레미스 네트워크에서 전파 된 경로를 기반으로 서브넷을 나가는 모든 트래픽을 라우팅합니다. 경로 테이블과 동일한 Azure 위치 및 구독에 있는 가상 네트워크의 서브넷에만 경로 테이블을 연결할 수 있습니다.
 
-1. 가상 네트워크를 관리하기 위해 [Azure Portal](https://portal.azure.com)로 이동합니다. **가상 네트워크**를 검색하여 선택합니다.
+1. 가상 네트워크를 관리하기 위해 [Azure Portal](https://portal.azure.com)로 이동합니다. **가상 네트워크** 를 검색하여 선택합니다.
 
 1. 가상 네트워크 목록에서 경로 테이블을 연결할 서브넷이 포함 된 가상 네트워크를 선택 합니다.
 
-1. 가상 네트워크 메뉴 모음에서 **서브넷**을 선택 합니다.
+1. 가상 네트워크 메뉴 모음에서 **서브넷** 을 선택 합니다.
 
 1. 경로 테이블을 연결할 서브넷을 선택합니다.
 
-1. **경로 테이블**에서 서브넷에 연결할 경로 테이블을 선택 합니다.
+1. **경로 테이블** 에서 서브넷에 연결할 경로 테이블을 선택 합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
-가상 네트워크가 Azure VPN gateway에 연결 된 경우 *0.0.0.0/0*의 대상이 포함 된 경로를 포함 하는 [게이트웨이 서브넷](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) 에 경로 테이블을 연결 하지 마세요. 그러면 게이트웨이가 제대로 작동하지 못할 수 있습니다. 경로에서 *0.0.0.0/0* 을 사용 하는 방법에 대 한 자세한 내용은 [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md#default-route)을 참조 하세요.
+가상 네트워크가 Azure VPN gateway에 연결 된 경우 *0.0.0.0/0* 의 대상이 포함 된 경로를 포함 하는 [게이트웨이 서브넷](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) 에 경로 테이블을 연결 하지 마세요. 그러면 게이트웨이가 제대로 작동하지 못할 수 있습니다. 경로에서 *0.0.0.0/0* 을 사용 하는 방법에 대 한 자세한 내용은 [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md#default-route)을 참조 하세요.
 
 ### <a name="associate-a-route-table---commands"></a>경로 테이블 연결-명령
 
@@ -142,17 +142,17 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
 
 서브넷에서 경로 테이블을 분리하면 Azure는 [기본 경로](virtual-networks-udr-overview.md#default)를 기반으로 트래픽을 라우트합니다.
 
-1. 가상 네트워크를 관리하기 위해 [Azure Portal](https://portal.azure.com)로 이동합니다. **가상 네트워크**를 검색하여 선택합니다.
+1. 가상 네트워크를 관리하기 위해 [Azure Portal](https://portal.azure.com)로 이동합니다. **가상 네트워크** 를 검색하여 선택합니다.
 
 1. 가상 네트워크 목록에서 경로 테이블을 분리 하려는 서브넷이 포함 된 가상 네트워크를 선택 합니다.
 
-1. 가상 네트워크 메뉴 모음에서 **서브넷**을 선택 합니다.
+1. 가상 네트워크 메뉴 모음에서 **서브넷** 을 선택 합니다.
 
 1. 경로 테이블을 분리할 서브넷을 선택합니다.
 
-1. **경로 테이블**에서 **없음**을 선택 합니다.
+1. **경로 테이블** 에서 **없음** 을 선택 합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="dissociate-a-route-table---commands"></a>경로 테이블 분리-명령
 
@@ -165,11 +165,11 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
 
 모든 서브넷에 연결 된 경로 테이블은 삭제할 수 없습니다. 경로 테이블을 삭제하기 전에 모든 서브넷에서 [분리](#dissociate-a-route-table-from-a-subnet)합니다.
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블** 을 검색하여 선택합니다.
 
 1. 경로 테이블 목록에서 삭제 하려는 경로 테이블을 선택 합니다.
 
-1. **삭제**를 선택한 다음 확인 대화 상자에서 **예** 를 선택 합니다.
+1. **삭제** 를 선택한 다음 확인 대화 상자에서 **예** 를 선택 합니다.
 
 ### <a name="delete-a-route-table---commands"></a>경로 테이블 삭제-명령
 
@@ -182,21 +182,21 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
 
 Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수에 제한이 있습니다. 자세한 내용은 [네트워킹 제한-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)를 참조 하세요.
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블** 을 검색하여 선택합니다.
 
 1. 경로 테이블 목록에서 경로를 추가 하려는 경로 테이블을 선택 합니다.
 
-1. 경로 테이블 메뉴 모음에서 **경로**  >  **추가**를 선택 합니다.
+1. 경로 테이블 메뉴 모음에서 **경로**  >  **추가** 를 선택 합니다.
 
 1. 경로 테이블 내의 경로에 대 한 고유한 **경로 이름을** 입력 합니다.
 
-1. 트래픽을 라우팅할 CIDR (클래스 없는 Inter-Domain 라우팅) 표기법으로 **주소 접두사**를 입력 합니다. 접두사는 다른 접두사 내에 있을 수 있지만 경로 테이블 내에서 둘 이상의 경로에서 중복 될 수 없습니다. 예를 들어 한 경로에서 *10.0.0.0/16* 을 접두사로 정의한 경우에도 *10.0.0.0/22* 주소 접두사로 다른 경로를 정의할 수 있습니다. Azure는 가장 긴 접두사 일치를 기반으로 트래픽 경로를 선택합니다. 자세히 알아보려면 [Azure에서 경로를 선택 하는 방법](virtual-networks-udr-overview.md#how-azure-selects-a-route)을 참조 하세요.
+1. 트래픽을 라우팅할 CIDR (클래스 없는 Inter-Domain 라우팅) 표기법으로 **주소 접두사** 를 입력 합니다. 접두사는 다른 접두사 내에 있을 수 있지만 경로 테이블 내에서 둘 이상의 경로에서 중복 될 수 없습니다. 예를 들어 한 경로에서 *10.0.0.0/16* 을 접두사로 정의한 경우에도 *10.0.0.0/22* 주소 접두사로 다른 경로를 정의할 수 있습니다. Azure는 가장 긴 접두사 일치를 기반으로 트래픽 경로를 선택합니다. 자세히 알아보려면 [Azure에서 경로를 선택 하는 방법](virtual-networks-udr-overview.md#how-azure-selects-a-route)을 참조 하세요.
 
-1. **다음 홉 유형**을 선택 합니다. 다음 홉 유형에 대해 자세히 알아보려면 [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)을 참조 하세요.
+1. **다음 홉 유형** 을 선택 합니다. 다음 홉 유형에 대해 자세히 알아보려면 [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)을 참조 하세요.
 
-1. **가상 어플라이언스**의 **다음 홉 유형을** 선택한 경우 **다음 홉 주소**에 대 한 IP 주소를 입력 합니다.
+1. **가상 어플라이언스** 의 **다음 홉 유형을** 선택한 경우 **다음 홉 주소** 에 대 한 IP 주소를 입력 합니다.
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
 ### <a name="create-a-route---commands"></a>경로 만들기-명령
 
@@ -209,7 +209,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 경로 테이블에는 0개 또는 여러 개의 경로가 포함됩니다. 경로를 볼 때 나열 되는 정보에 대 한 자세한 내용은 [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)을 참조 하세요.
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블** 을 검색하여 선택합니다.
 
 1. 경로 테이블 목록에서 경로를 보려는 경로 테이블을 선택 합니다.
 
@@ -224,7 +224,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 ## <a name="view-details-of-a-route"></a>경로의 세부 정보 보기
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블** 을 검색하여 선택합니다.
 
 1. 경로 테이블 목록에서 세부 정보를 보려는 경로가 포함 된 경로 테이블을 선택 합니다.
 
@@ -241,7 +241,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 ## <a name="change-a-route"></a>경로 변경
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블** 을 검색하여 선택합니다.
 
 1. 경로 테이블 목록에서 변경 하려는 경로가 포함 된 경로 테이블을 선택 합니다.
 
@@ -249,7 +249,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 1. 변경할 경로를 선택 합니다.
 
-1. 기존 설정을 새 설정으로 변경한 후 **저장**을 선택합니다.
+1. 기존 설정을 새 설정으로 변경한 후 **저장** 을 선택합니다.
 
 ### <a name="change-a-route---commands"></a>경로 변경-명령
 
@@ -260,7 +260,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 ## <a name="delete-a-route"></a>경로 삭제
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 경로 테이블을 관리 합니다. **경로 테이블** 을 검색하여 선택합니다.
 
 1. 경로 테이블 목록에서 삭제 하려는 경로를 포함 하는 경로 테이블을 선택 합니다.
 
@@ -268,7 +268,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 1. 삭제 하려는 경로를 선택 합니다.
 
-1. **삭제**를 선택한 다음 확인 대화 상자에서 **예** 를 선택 합니다.
+1. **삭제** 를 선택한 다음 확인 대화 상자에서 **예** 를 선택 합니다.
 
 ### <a name="delete-a-route---commands"></a>경로 삭제-명령
 
@@ -281,15 +281,15 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 각 VM 연결 네트워크 인터페이스에 대 한 유효 경로는 만든 경로 테이블, Azure의 기본 경로 및 Azure virtual network 게이트웨이를 통해 BGP (Border Gateway Protocol)를 통해 온-프레미스 네트워크에서 전파 되는 모든 경로를 조합한 것입니다. 네트워크 인터페이스의 유효 경로를 파악하면 라우팅 문제를 해결할 때 유용합니다. 실행 중인 VM에 연결 된 모든 네트워크 인터페이스에 대 한 유효 경로를 볼 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 vm을 관리 합니다. **가상 머신**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 vm을 관리 합니다. **가상 머신** 을 검색하여 선택합니다.
 
 1. 가상 컴퓨터 목록에서 유효 경로를 보려는 VM을 선택 합니다.
 
-1. VM 메뉴 모음에서 **네트워킹**을 선택 합니다.
+1. VM 메뉴 모음에서 **네트워킹** 을 선택 합니다.
 
 1. 네트워크 인터페이스의 이름을 선택합니다.
 
-1. 네트워크 인터페이스 메뉴 모음에서 **유효 경로**를 선택 합니다.
+1. 네트워크 인터페이스 메뉴 모음에서 **유효 경로** 를 선택 합니다.
 
 1. 유효한 경로 목록을 검토 하 여 트래픽을 라우팅할 위치에 대 한 올바른 경로가 있는지 확인 합니다. [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)에서이 목록에 표시 되는 다음 홉 유형에 대해 자세히 알아보세요.
 
@@ -304,9 +304,9 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 가상 머신 및 다른 Azure 리소스, 온-프레미스 리소스 또는 인터넷 리소스의 IP 주소 사이에서 다음 홉 유형을 확인할 수 있습니다. Azure 라우팅을 확인하면 라우팅 문제를 해결할 때 유용합니다. 이 작업을 완료 하려면 기존 네트워크 감시자가 있어야 합니다. 기존 네트워크 감시자가 없는 경우 [Network Watcher 인스턴스 만들기](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 단계를 완료 하 여 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 네트워크 감시자를 관리 합니다. **Network Watcher**를 검색 하 고 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 네트워크 감시자를 관리 합니다. **Network Watcher** 를 검색 하 고 선택 합니다.
 
-1. 네트워크 감시자 메뉴 모음에서 **다음 홉**을 선택 합니다.
+1. 네트워크 감시자 메뉴 모음에서 **다음 홉** 을 선택 합니다.
 
 1. **Network Watcher | 다음 홉** 페이지:
 
@@ -318,7 +318,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
     1. 라우팅의 유효성을 검사 하려는 **대상 IP 주소** 를 입력 합니다.
 
-1. **다음 홉**을 선택합니다.
+1. **다음 홉** 을 선택합니다.
 
 짧은 대기 후 Azure는 트래픽을 라우팅되는 경로의 다음 홉 유형 및 ID를 알려 줍니다. [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)에서 반환 된 다음 홉 유형에 대해 자세히 알아보세요.
 
@@ -348,4 +348,4 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 ## <a name="next-steps"></a>다음 단계
 
 - [PowerShell](powershell-samples.md) 또는 [Azure CLI](cli-samples.md) 샘플 스크립트 또는 Azure [리소스 관리자 템플릿을](template-samples.md) 사용 하 여 경로 테이블 만들기
-- 가상 네트워크에 대 한 [정의 Azure Policy](policy-samples.md) 만들기 및 할당
+- 가상 네트워크에 대 한 [정의 Azure Policy](./policy-reference.md) 만들기 및 할당

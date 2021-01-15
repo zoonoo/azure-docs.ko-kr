@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: c0b0d366518b786b33048d2d2f182abd787856ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f72264e49a155068f866559db7edf79e68585c55
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075106"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222278"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -101,7 +101,7 @@ $mgmtRule = New-AzNetworkSecurityRuleConfig `
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-[New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNsg*라는 네트워크 보안 그룹을 만듭니다.
+[New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNsg* 라는 네트워크 보안 그룹을 만듭니다.
 
 ```powershell-interactive
 $nsg = New-AzNetworkSecurityGroup `
@@ -113,7 +113,7 @@ $nsg = New-AzNetworkSecurityGroup `
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVirtualNetwork*라는 가상 네트워크를 만듭니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVirtualNetwork* 라는 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzVirtualNetwork `
@@ -123,7 +123,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-[AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용 하 여 서브넷 구성을 만든 다음 [AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)를 사용 하 여 가상 네트워크에 서브넷 구성을 씁니다. 다음 예에서는 *mySubnet*이라는 서브넷을 가상 네트워크에 추가하고 *myNsg* 네트워크 보안 그룹을 연결합니다.
+[AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용 하 여 서브넷 구성을 만든 다음 [AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)를 사용 하 여 가상 네트워크에 서브넷 구성을 씁니다. 다음 예에서는 *mySubnet* 이라는 서브넷을 가상 네트워크에 추가하고 *myNsg* 네트워크 보안 그룹을 연결합니다.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig `
@@ -257,9 +257,9 @@ Get-AzPublicIpAddress `
 mstsc /v:<publicIpAddress>
 ```
 
-다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다.
+다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결** 을 선택합니다.
 
-VM을 만들 때 지정한 사용자 이름과 암호를 입력(VM을 만들 때 입력한 자격 증명을 지정하기 위해 **다른 옵션 선택**을 선택한 다음, **다른 계정 사용**을 선택해야 할 수도 있음)한 다음, **확인**을 선택합니다. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예**를 선택하여 연결을 진행합니다.
+VM을 만들 때 지정한 사용자 이름과 암호를 입력(VM을 만들 때 입력한 자격 증명을 지정하기 위해 **다른 옵션 선택** 을 선택한 다음, **다른 계정 사용** 을 선택해야 할 수도 있음)한 다음, **확인** 을 선택합니다. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예** 를 선택하여 연결을 진행합니다.
 
 포트 3389는 *myAsgMgmtServers* VM에 연결된 네트워크 인터페이스가 In인 *myVmMgmt* 애플리케이션 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
 
@@ -269,7 +269,7 @@ VM을 만들 때 지정한 사용자 이름과 암호를 입력(VM을 만들 때
 mstsc /v:myvmWeb
 ```
 
-각 네트워크 보안 그룹의 기본 보안 규칙에서 가상 네트워크 내 모든 IP 주소 간에 모든 포트를 경유한 트래픽을 허용하기 때문에 연결이 성공합니다. *myAsgWebServers*에 대한 보안 규칙에서는 인터넷으로부터의 포트 3389 인바운드 트래픽을 허용하지 않으므로 인터넷으로부터 *myVmWeb* VM에 대한 원격 데스크톱 연결을 만들 수 없습니다.
+각 네트워크 보안 그룹의 기본 보안 규칙에서 가상 네트워크 내 모든 IP 주소 간에 모든 포트를 경유한 트래픽을 허용하기 때문에 연결이 성공합니다. *myAsgWebServers* 에 대한 보안 규칙에서는 인터넷으로부터의 포트 3389 인바운드 트래픽을 허용하지 않으므로 인터넷으로부터 *myVmWeb* VM에 대한 원격 데스크톱 연결을 만들 수 없습니다.
 
 다음 명령을 사용하여 PowerShell에서 *myVmWeb* VM에 Microsoft IIS를 설치합니다.
 
@@ -302,6 +302,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 네트워크 보안 그룹을 만들어 가상 네트워크 서브넷에 연결했습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](security-overview.md) 및 [네트워크 보안 그룹 관리](manage-network-security-group.md)를 참조하세요.
+이 문서에서는 네트워크 보안 그룹을 만들어 가상 네트워크 서브넷에 연결했습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](./network-security-groups-overview.md) 및 [네트워크 보안 그룹 관리](manage-network-security-group.md)를 참조하세요.
 
 기본적으로 Azure는 서브넷 간에 트래픽을 라우팅합니다. 그 대신 방화벽 역할을 하는 VM 등을 통해 서브넷 간에 트래픽을 라우팅하도록 선택할 수 있습니다. 자세한 내용은 [경로 테이블 만들기](tutorial-create-route-table-powershell.md)를 참조하세요.

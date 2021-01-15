@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: b5099f839da4547ab9551ea131fa65100d25fe65
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: dc8db3f1eccce2bb85f03d51fcfd1c4113823d49
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763046"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222669"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
 가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다. 가상 네트워크 피어링은 Azure 백본 네트워크를 통해 동일한 지역 및 여러 지역(글로벌 VNet 피어링)에 있는 네트워크를 연결할 수 있습니다. 피어링된 후 가상 네트워크는 여전히 별도의 리소스로 관리됩니다. 가상 네트워크 피어링을 처음 접하는 경우 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md)를 참조하거나 [자습서](tutorial-connect-virtual-networks-portal.md)를 완료하여 자세히 알아볼 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -46,14 +46,14 @@ ms.locfileid: "96763046"
 1. Azure Portal 맨 위에 있는 검색 상자에 *가상 네트워크* 를 입력합니다. 검색 결과에 **가상 네트워크** 가 표시되면 이를 선택합니다. 클래식 배포 모델을 통해 배포된 가상 네트워크에서는 피어링을 만들 수 없으므로 **가상 네트워크(클래식)** 가 목록에 나타나더라도 선택하지 않습니다.
 2. 목록에서 피어링을 만들 가상 네트워크를 선택합니다.
 3. **설정** 에서 **피어링** 을 선택합니다.
-4. **+ 추가** 를 선택합니다. 
+4. **+추가** 를 선택합니다. 
 5. <a name="add-peering"></a>다음 설정에 대한 값을 입력하거나 선택합니다.
     - **이름:** 피어링의 이름은 가상 네트워크 내에서 고유해야 합니다.
     - **가상 네트워크 배포 모델:** 피어링하려는 가상 네트워크를 배포한 배포 모델을 선택합니다.
-    - **리소스 ID를 알고 있음:** 피어링하려는 가상 네트워크에 대한 읽기 권한이 있는 경우 이 확인란을 선택 취소된 상태로 둡니다. 피어링하려는 가상 네트워크 또는 구독에 대한 읽기 권한이 없는 경우 이 확인란을 선택합니다. 확인란을 선택할 때 나타난 **리소스 ID** 상자에 피어링하려는 가상 네트워크의 전체 리소스 ID를 입력합니다. 입력하는 리소스 ID는 이 가상 네트워크와 동일한 또는 [지원되는 다른](#requirements-and-constraints) Azure [지역](https://azure.microsoft.com/regions)에 있는 가상 네트워크의 리소스 ID여야 합니다. 전체 리소스 ID는와 유사 `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>` 합니다. 가상 네트워크의 속성을 확인하여 가상 네트워크의 리소스 ID를 알 수 있습니다. 가상 네트워크의 속성을 확인하는 방법을 알아보려면 [가상 네트워크 관리](manage-virtual-network.md#view-virtual-networks-and-settings)를 참조하세요. 구독이 피어링을 만드는 가상 네트워크가 포함된 구독과 다른 Azure Active Directory 테넌트에 연결되어 있는 경우 먼저 각 테넌트의 사용자를 [게스트 사용자](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory)로 상대 테넌트에 추가합니다.
+    - **리소스 ID를 알고 있음:** 피어링하려는 가상 네트워크에 대한 읽기 권한이 있는 경우 이 확인란을 선택 취소된 상태로 둡니다. 피어링하려는 가상 네트워크 또는 구독에 대한 읽기 권한이 없는 경우 이 확인란을 선택합니다. 확인란을 선택할 때 나타난 **리소스 ID** 상자에 피어링하려는 가상 네트워크의 전체 리소스 ID를 입력합니다. 입력하는 리소스 ID는 이 가상 네트워크와 동일한 또는 [지원되는 다른](#requirements-and-constraints) Azure [지역](https://azure.microsoft.com/regions)에 있는 가상 네트워크의 리소스 ID여야 합니다. 전체 리소스 ID는와 유사 `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>` 합니다. 가상 네트워크의 속성을 확인하여 가상 네트워크의 리소스 ID를 알 수 있습니다. 가상 네트워크의 속성을 확인하는 방법을 알아보려면 [가상 네트워크 관리](manage-virtual-network.md#view-virtual-networks-and-settings)를 참조하세요. 구독이 피어링을 만드는 가상 네트워크가 포함된 구독과 다른 Azure Active Directory 테넌트에 연결되어 있는 경우 먼저 각 테넌트의 사용자를 [게스트 사용자](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory)로 상대 테넌트에 추가합니다.
     - **구독:** 피어링하려는 가상 네트워크의 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)을 선택합니다. 계정이 읽기 권한이 있는 구독 수에 따라 하나 이상의 구독이 나열됩니다. **리소스 ID** 확인란을 선택한 경우 이 설정을 사용할 수 없습니다.
     - **가상 네트워크:** 피어링하려는 가상 네트워크를 선택합니다. 두 Azure 배포 모델 중 하나를 통해 만든 가상 네트워크를 선택할 수 있습니다. 다른 지역에서 가상 네트워크를 선택하려는 경우 [지원되는 영역](#cross-region)에서 가상 네트워크를 선택해야 합니다. 목록에 가상 네트워크가 표시되게 하려면 가상 네트워크에 대한 읽기 권한이 있어야 합니다. 가상 네트워크가 나열되지만, 회색으로 표시된 경우 가상 네트워크의 주소 공간이 이 가상 네트워크의 주소 공간과 겹치기 때문일 수 있습니다. 가상 네트워크 주소 공간이 겹치면 피어링할 수 없습니다. **리소스 ID** 확인란을 선택한 경우 이 설정을 사용할 수 없습니다.
-    - **가상 네트워크 액세스 허용:** 기본 흐름을 통해 두 가상 네트워크 간의 통신을 사용 하도록 설정 하려면 **사용** (기본값)을 선택 `VirtualNetwork` 합니다. 가상 네트워크 간 통신을 사용하도록 설정하면 어느 쪽 가상 네트워크에든 연결된 리소스가 같은 가상 네트워크에 연결된 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. 두 가상 네트워크의 리소스 간 모든 통신은 Azure 프라이빗 네트워크를 통해 이루어집니다. 네트워크 보안 그룹에 대 한 **VirtualNetwork** service 태그는이 설정을 **사용** 하는 경우 가상 네트워크 및 피어 링 가상 네트워크를 포함 합니다. 네트워크 보안 그룹 서비스 태그에 대해 자세히 알아보려면 [네트워크 보안 그룹 개요](security-overview.md#service-tags)를 참조 하세요. 기본적으로 트래픽을 피어 링 가상 네트워크로 이동 하지 않으려면 **사용 안 함** 을 선택 합니다. 다른 가상 네트워크를 사용 하 여 가상 네트워크를 피어 링 경우에 따라 두 가상 네트워크 간에 기본 트래픽 흐름을 사용 하지 않도록 설정 하려는 경우 **사용 안 함** 을 선택할 수 있습니다. 피어링을 삭제하고 다시 만드는 것보다 사용/사용 안 함을 설정하는 것이 더 편리함을 알 수 있습니다. 이 설정을 사용 하지 않도록 설정 하면 기본적으로 피어 링 가상 네트워크 간에 트래픽이 전달 되지 않습니다. 그러나 적절 한 IP 주소 또는 응용 프로그램 보안 그룹을 포함 하는 [네트워크 보안 그룹](security-overview.md) 규칙을 통해 명시적으로 허용 하는 경우 트래픽은 계속 흐를 수 있습니다.
+    - **가상 네트워크 액세스 허용:** 기본 흐름을 통해 두 가상 네트워크 간의 통신을 사용 하도록 설정 하려면 **사용** (기본값)을 선택 `VirtualNetwork` 합니다. 가상 네트워크 간 통신을 사용하도록 설정하면 어느 쪽 가상 네트워크에든 연결된 리소스가 같은 가상 네트워크에 연결된 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. 두 가상 네트워크의 리소스 간 모든 통신은 Azure 프라이빗 네트워크를 통해 이루어집니다. 네트워크 보안 그룹에 대 한 **VirtualNetwork** service 태그는이 설정을 **사용** 하는 경우 가상 네트워크 및 피어 링 가상 네트워크를 포함 합니다. 네트워크 보안 그룹 서비스 태그에 대해 자세히 알아보려면 [네트워크 보안 그룹 개요](./network-security-groups-overview.md#service-tags)를 참조 하세요. 기본적으로 트래픽을 피어 링 가상 네트워크로 이동 하지 않으려면 **사용 안 함** 을 선택 합니다. 다른 가상 네트워크를 사용 하 여 가상 네트워크를 피어 링 경우에 따라 두 가상 네트워크 간에 기본 트래픽 흐름을 사용 하지 않도록 설정 하려는 경우 **사용 안 함** 을 선택할 수 있습니다. 피어링을 삭제하고 다시 만드는 것보다 사용/사용 안 함을 설정하는 것이 더 편리함을 알 수 있습니다. 이 설정을 사용 하지 않도록 설정 하면 기본적으로 피어 링 가상 네트워크 간에 트래픽이 전달 되지 않습니다. 그러나 적절 한 IP 주소 또는 응용 프로그램 보안 그룹을 포함 하는 [네트워크 보안 그룹](./network-security-groups-overview.md) 규칙을 통해 명시적으로 허용 하는 경우 트래픽은 계속 흐를 수 있습니다.
       > [!WARNING]
       > **가상 네트워크 액세스 허용** 설정을 사용 하지 않도록 설정 하면 **VirtualNetwork** service 태그의 정의만 변경 됩니다. 이 설정 설명에 설명 된 대로 피어 연결에서 트래픽 흐름을 완전히 방지 *하지 않습니다* .    
     - **전달된 트래픽 허용:** 가상 네트워크의 네트워크 가상 어플라이언스에서 *전달된* 트래픽이(가상 네트워크에서 발생하지 않은) 피어링을 통한 이 가상 네트워크로 흐를 수 있도록 허용하려면 이 확인란을 선택합니다. 예를 들어 Spoke1, Spoke2 및 Hub라는 3개의 가상 네트워크를 가정합니다. 피어링은 각 스포크 가상 네트워크와 허브 가상 네트워크 간에 존재하지만 피어링은 스포크 가상 네트워크 간에 존재하지 않습니다. 네트워크 가상 어플라이언스는 허브 가상 네트워크에 배포되고 사용자 정의 경로는 네트워크 가상 어플라이언스를 통해 서브넷 간에 트래픽을 라우팅하는 각 스포크 가상 네트워크에 적용됩니다. 각 스포크 가상 네트워크와 허브 가상 네트워크 간의 피어 링에 대해이 확인란을 선택 하지 않으면 허브는 가상 네트워크 간에 트래픽을 전달 하지 않으므로 스포크 가상 네트워크 간에 트래픽이 전달 되지 않습니다. 이 기능을 사용하도록 설정하여 피어링을 통해 전달된 트래픽을 허용하는 동안에는 사용자 정의 경로나 네트워크 가상 어플라이언스가 만들어지지 않습니다. 사용자 정의 경로와 네트워크 가상 어플라이언스는 개별적으로 만들어집니다. [사용자 정의 경로](virtual-networks-udr-overview.md#user-defined)에 대해 자세히 알아보세요. Azure VPN Gateway를 통해 가상 네트워크 간에 트래픽이 전달될 경우 이 설정을 선택할 필요가 없습니다.
@@ -135,7 +135,7 @@ ms.locfileid: "96763046"
 
   VirtualNetwork2를 통한 VirtualNetwork1과 VirtualNetwork3 사이의 피어링은 없습니다. VirtualNetwork1과 VirtualNetwork3 사이에 가상 네트워크 피어링을 만들려는 경우 VirtualNetwork1과 VirtualNetwork3 사이에 피어링을 만들어야 합니다. VirtualNetwork2를 통한 VirtualNetwork1과 VirtualNetwork3 사이의 피어링은 없습니다. VirtualNetwork1 및 VirtualNetwork3가 직접 통신 하도록 하려면 VirtualNetwork1와 VirtualNetwork3 간에 명시적 피어 링을 만들거나 허브 네트워크에서 NVA를 통과 해야 합니다.  
 - 기본 Azure 이름 확인을 사용하여 피어링된 가상 네트워크에서 이름을 확인할 수 없습니다. 다른 가상 네트워크에서 이름을 확인하려면 [프라이빗 도메인용 Azure DNS](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 사용자 지정 DNS 서버를 사용해야 합니다. 자체 DNS 서버를 설정하는 방법을 알아보려면 [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조하세요.
-- 동일한 지역의 피어링된 가상 네트워크에 있는 리소스는 같은 가상 네트워크에 있는 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. 그러나 각 가상 머신 크기에는 고유한 최대 네트워크 대역폭이 있습니다. 다양한 가상 머신 크기의 최대 네트워크 대역폭에 대한 자세한 내용을 알아보려면 [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기를 참조하세요.
+- 동일한 지역의 피어링된 가상 네트워크에 있는 리소스는 같은 가상 네트워크에 있는 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. 그러나 각 가상 머신 크기에는 고유한 최대 네트워크 대역폭이 있습니다. 다양한 가상 머신 크기의 최대 네트워크 대역폭에 대한 자세한 내용을 알아보려면 [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기를 참조하세요.
 - 가상 네트워크를 다른 가상 네트워크에 피어링할 수 있으며, Azure Virtual Network 게이트웨이를 통해 다른 가상 네트워크에 연결할 수도 있습니다. 가상 네트워크가 피어링 및 게이트웨이를 통해 연결된 경우 가상 네트워크 간 트래픽은 게이트웨이가 아니라 피어링 구성을 통해 흐릅니다.
 - 가상 네트워크 피어링이 성공적으로 구성된 후 지점 및 사이트 간 VPN 클라이언트를 다시 다운로드하여 새 경로가 클라이언트에 다운로드되는지 확인해야 합니다.
 - 가상 네트워크 피어링을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조하세요.
@@ -170,4 +170,4 @@ ms.locfileid: "96763046"
 
 - [허브 및 스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)를 만드는 방법을 알아봅니다.
 - [PowerShell](powershell-samples.md) 또는 [Azure CLI](cli-samples.md) 샘플 스크립트를 사용하거나 Azure [Resource Manager 템플릿](template-samples.md)을 사용하여 가상 네트워크 피어링을 만듬
-- 가상 네트워크에 대 한 [정의 Azure Policy](policy-samples.md) 만들기 및 할당
+- 가상 네트워크에 대 한 [정의 Azure Policy](./policy-reference.md) 만들기 및 할당

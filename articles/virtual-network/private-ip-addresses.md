@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36db885cab734c037b0032c714de28b905595ef0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84172258"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223264"
 ---
 # <a name="private-ip-addresses"></a>개인 IP 주소
 개인 Ip는 Azure의 리소스 간 통신을 허용 합니다. 
@@ -62,7 +62,7 @@ Azure는 각 서브넷 주소 범위에서 처음 4 개 주소를 예약 합니�
     
 ## <a name="virtual-machines"></a>가상 머신
 
-하나 이상의 개인 IP 주소가 하나 이상의 **네트워크 인터페이스**에 할당 됩니다. 네트워크 인터페이스는 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신에 할당 됩니다. 각 개인 IP 주소에 대한 할당 방법을 동적 또는 고정으로 지정할 수 있습니다.
+하나 이상의 개인 IP 주소가 하나 이상의 **네트워크 인터페이스** 에 할당 됩니다. 네트워크 인터페이스는 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신에 할당 됩니다. 각 개인 IP 주소에 대한 할당 방법을 동적 또는 고정으로 지정할 수 있습니다.
 
 ### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>내부 DNS 호스트 이름 확인(가상 머신)
 
@@ -82,8 +82,8 @@ Azure 관리 DNS로 구성 된 Vm은 동일한 가상 네트워크 내에서 호
 
 의 **프런트 엔드** 구성에 개인 IP 주소를 할당할 수 있습니다.
 
-* Azure ilb ( [내부 부하 분산 장치](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) )
-* [Azure Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+* Azure ilb ( [내부 부하 분산 장치](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) )
+* [Azure Application Gateway](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 
 이 개인 IP 주소는 내부 끝점으로 사용 됩니다. 내부 끝점은 해당 가상 네트워크 내의 리소스와 연결 된 원격 네트워크에만 액세스할 수 있습니다. 동적 또는 고정 IP를 할당할 수 있습니다.
 

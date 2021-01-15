@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: 15fe5d6d16948875253d65e70d9d440214a4a2e8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 54228ac0aa582d15509fbf967728364841e52453
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995661"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220578"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>가상 네트워크 서브넷 추가, 변경 또는 삭제
 
@@ -48,11 +48,11 @@ ms.locfileid: "95995661"
 
 4. **서브넷 추가** 대화 상자에서 다음 설정에 대 한 값을 입력 합니다.
 
-    | 설정 | Description |
+    | 설정 | 설명 |
     | --- | --- |
     | **이름** | 이름은 가상 네트워크 내에서 고유해야 합니다. 다른 Azure 서비스와의 호환성을 극대화하기 위해 이름의 첫 문자는 글자를 사용하는 것이 좋습니다. 예를 들어 Azure Application Gateway는 이름이 숫자로 시작하는 서브넷에는 배포되지 않습니다. |
     | **주소 범위** | <p>범위는 가상 네트워크의 주소 공간 내에서 고유해야 합니다. 범위는 가상 네트워크 내의 다른 서브넷 주소 범위와 겹칠 수 없습니다. CIDR(Classless Inter-Domain Routing) 표기법을 사용하여 주소 공간을 지정해야 합니다.</p><p>예를 들어 주소 공간이 *10.0.0.0/16* 인 가상 네트워크에서 서브넷 주소 공간을 *10.0.0.0/22* 로 정의할 수 있습니다. 지정할 수 있는 가장 작은 범위는 */29* 이며, 서브넷에 8 개의 IP 주소를 제공 합니다. Azure는 프로토콜 준수를 위해 각 서브넷의 첫 번째 및 마지막 주소를 예약합니다. 세 개의 추가 주소가 Azure 서비스를 사용하기 위해 예약되어 있습니다. 따라서 */29* 주소 범위를 사용 하 여 서브넷을 정의 하면 서브넷에 사용 가능한 3 개의 IP 주소가 생성 됩니다.</p><p>가상 네트워크를 VPN Gateway에 연결하려면 게이트웨이 서브넷을 만들어야 합니다. [게이트웨이 서브넷에 대한 특정 주소 범위 고려 사항](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에서 대해 자세히 알아보세요. 특정 조건에서는 서브넷을 추가한 후에 주소 범위를 변경할 수 있습니다. 서브넷 주소 범위를 변경하는 방법에 대한 자세한 내용은 [서브넷 설정 변경](#change-subnet-settings)을 참조하세요.</p> |
-    | **네트워크 보안 그룹** | 서브넷에 대 한 인바운드 및 아웃 바운드 네트워크 트래픽을 필터링 하기 위해 기존 네트워크 보안 그룹을 서브넷에 연결할 수 있습니다. 네트워크 보안 그룹은 가상 네트워크와 동일한 구독 및 위치에 있어야 합니다. [네트워크 보안 그룹](security-overview.md) 및 [네트워크 보안 그룹을 만드는 방법](tutorial-filter-network-traffic.md)에 대해 알아봅니다. |
+    | **네트워크 보안 그룹** | 서브넷에 대 한 인바운드 및 아웃 바운드 네트워크 트래픽을 필터링 하기 위해 기존 네트워크 보안 그룹을 서브넷에 연결할 수 있습니다. 네트워크 보안 그룹은 가상 네트워크와 동일한 구독 및 위치에 있어야 합니다. [네트워크 보안 그룹](./network-security-groups-overview.md) 및 [네트워크 보안 그룹을 만드는 방법](tutorial-filter-network-traffic.md)에 대해 알아봅니다. |
     | **경로 테이블** | 다른 네트워크에 대 한 네트워크 트래픽 라우팅을 제어 하기 위해 필요에 따라 기존 경로 테이블을 서브넷에 연결할 수 있습니다. 경로 테이블은 가상 네트워크와 동일한 구독 및 위치에 있어야 합니다. [Azure 라우팅](virtual-networks-udr-overview.md) 및 [경로 테이블을 만드는 방법](tutorial-create-route-table-portal.md)에 대해 자세히 알아보세요. |
     | **서비스 엔드포인트** | <p>서브넷은 선택적으로 하나 이상의 서비스 끝점을 사용 하도록 설정할 수 있습니다. 서비스에 대해 서비스 엔드포인트를 사용하려면 **서비스** 목록에서 서비스 엔드포인트를 사용할 서비스를 선택합니다. Azure에서 끝점에 대 한 위치를 자동으로 구성 합니다. 기본적으로 Azure는 가상 네트워크 지역에 대 한 서비스 끝점을 구성 합니다. 지역 장애 조치 (failover) 시나리오를 지원 하기 위해 Azure는 Azure Storage에 대 한 [azure 페어링 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions) 에 끝점을 자동으로 구성 합니다</p><p>서비스 엔드포인트를 제거하려면 서비스 엔드포인트를 제거할 서비스를 선택 취소합니다. 서비스 끝점 및 서비스 끝점을 사용 하도록 설정할 수 있는 서비스에 대 한 자세한 내용은 [가상 네트워크 서비스 끝점](virtual-network-service-endpoints-overview.md)을 참조 하세요. 서비스에 대한 서비스 엔드포인트를 사용하도록 설정하면 서비스를 사용하여 만든 리소스의 서브넷에 대해서도 네트워크 액세스를 사용하도록 설정해야 합니다. 예를 들어 **Microsoft.Storage** 에 대해 서비스 엔드포인트를 사용하도록 설정하면 네트워크 액세스 권한을 부여할 모든 Azure Storage 계정에 대해서도 네트워크 액세스를 사용하도록 설정해야 합니다. 서비스 끝점이 사용 되는 서브넷에 대 한 네트워크 액세스를 사용 하도록 설정 하려면에 대해 서비스 끝점을 사용 하도록 설정한 개별 서비스에 대 한 설명서를 참조 하세요.</p><p>서브넷에 대해 서비스 엔드포인트를 사용할 수 있는지 검증하려면 서브넷에 있는 임의 네트워크 인터페이스의 [유효 경로](diagnose-network-routing-problem.md)를 확인합니다. 끝점을 구성 하면 서비스의 주소 접두사와 **VirtualNetworkServiceEndpoint** 의 다음 홉 유형이 포함 된 *기본* 경로가 표시 됩니다. 라우팅에 대해 자세히 알아보려면 [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)을 참조 하세요.</p> |
     | **서브넷 위임** | 서브넷은 선택적으로 하나 이상의 위임을 사용 하도록 설정할 수 있습니다. 서브넷 위임은 서비스를 배포 하는 동안 고유 식별자를 사용 하 여 서브넷에 서비스별 리소스를 만들도록 서비스에 명시적 권한을 부여 합니다. 서비스를 위임하려면 **서비스** 목록에서 위임할 서비스를 선택합니다. |
@@ -78,7 +78,7 @@ ms.locfileid: "95995661"
 
 5. 서브넷 페이지에서 다음 설정 중 하나를 변경 합니다.
 
-    | 설정 | Description |
+    | 설정 | 설명 |
     | --- | --- |
     | **주소 범위** | 서브넷 내에 배포된 리소스가 없는 경우 주소 범위를 변경할 수 있습니다. 서브넷에 리소스가 있으면 먼저 다른 서브넷으로 리소스를 이동하거나 서브넷에서 삭제해야 합니다. 리소스 이동 또는 삭제를 수행하는 단계는 리소스에 따라 다릅니다. 서브넷에 있는 리소스를 이동 하거나 삭제 하는 방법에 대 한 자세한 내용은 각 리소스 종류에 대 한 설명서를 참조 하세요. [서브넷 추가](#add-a-subnet)의 4 단계에서 **주소 범위** 에 대 한 제약 조건을 참조 하세요. |
     | **사용자** | 기본 제공 역할 또는 사용자 지정 역할을 사용하여 서브넷에 대한 액세스를 제어할 수 있습니다. 역할 및 사용자를 할당 하 여 서브넷에 액세스 하는 방법에 대 한 자세한 내용은 [역할 할당 추가](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment)를 참조 하세요. |
@@ -132,4 +132,4 @@ ms.locfileid: "95995661"
 ## <a name="next-steps"></a>다음 단계
 
 - [PowerShell](powershell-samples.md) 또는 [Azure CLI](cli-samples.md) 샘플 스크립트를 사용하거나 Azure [리소스 관리자 템플릿](template-samples.md)을 사용하여 가상 네트워크 및 서브넷 만들기
-- 가상 네트워크에 대 한 [정의 Azure Policy](policy-samples.md) 만들기 및 할당
+- 가상 네트워크에 대 한 [정의 Azure Policy](./policy-reference.md) 만들기 및 할당

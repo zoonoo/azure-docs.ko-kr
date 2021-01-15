@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/16/2020
-ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/14/2020
+ms.openlocfilehash: 983e037376be48f497118b06cce8b23c430b1501
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914113"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223077"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Azure Machine Learning 프로젝트와의 오픈 소스 통합
 
@@ -42,11 +42,11 @@ Machine learning 모델을 학습 하려면 데이터가 필요 합니다. 데�
 
 오픈 소스 심층 학습 프레임 워크 및 방법 가이드는 다음과 같습니다.
 
- *  [PyTorch](https://github.com/pytorch/pytorch): [PyTorch에서 전송 학습을 사용 하 여 심층 학습 이미지 분류 모델 학습](how-to-train-pytorch.md) 
+ *  [PyTorch](https://github.com/pytorch/pytorch): [전송 학습을 사용 하 여 심층 학습 이미지 분류 모델 학습](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [TensorFlow를 사용 하 여 필기 숫자 인식](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [keras를 사용 하 여 이미지를 분석 하는 신경망 빌드](how-to-train-keras.md)
 
-처음부터 심층 학습 모델을 학습 하려면 많은 양의 시간, 데이터 및 계산 리소스가 필요 합니다. 전송 학습을 사용 하 여 학습 프로세스의 바로 가기를 만들 수 있습니다. 이전 학습은 한 가지 문제를 해결 하기 위해 얻은 정보를 다른 문제에 적용 하는 기술입니다. 즉 기존 모델을 사용할 수 있습니다. 전송 학습에 대해 자세히 알아보려면 [심층 학습 문서](concept-deep-learning-vs-machine-learning.md#transfer-learning) 를 참조 하세요.
+처음부터 심층 학습 모델을 학습 하려면 많은 양의 시간, 데이터 및 계산 리소스가 필요 합니다. 전송 학습을 사용 하 여 학습 프로세스의 바로 가기를 만들 수 있습니다. 이전 학습은 한 가지 문제를 해결 하기 위해 얻은 정보를 다른 문제에 적용 하는 기술입니다. 즉 기존 모델을 사용할 수 있습니다. 전송 학습에 대해 자세히 알아보려면 [심층 학습 vs machine learning 문서](concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) 를 참조 하세요.
 
 ### <a name="reinforcement-learning-ray-rllib"></a>보충 learning: 광선 RLLib
 

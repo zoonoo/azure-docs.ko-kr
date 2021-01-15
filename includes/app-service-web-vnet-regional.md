@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97506345"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225461"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -48,7 +48,6 @@ ms.locfileid: "97506345"
 * 이 기능을 사용 하려면 Azure Resource Manager VNet에서 a/28 이상의 사용 하지 않는 서브넷이 필요 합니다.
 * 앱과 VNet은 동일한 지역에 있어야 합니다.
 * 통합 된 앱이 있는 VNet은 삭제할 수 없습니다. VNet을 삭제 하기 전에 통합을 제거 합니다.
-* 앱과 동일한 구독에 있는 Vnet와만 통합할 수 있습니다.
 * App Service 계획 마다 하나의 지역 VNet 통합만 사용할 수 있습니다. 동일한 App Service 계획의 여러 앱에서 동일한 VNet을 사용할 수 있습니다.
 * 지역 VNet 통합을 사용 하는 앱이 있는 경우에는 앱 또는 계획의 구독을 변경할 수 없습니다.
 * 앱이 구성 변경 없이 Azure DNS Private Zones의 주소를 확인할 수 없습니다.

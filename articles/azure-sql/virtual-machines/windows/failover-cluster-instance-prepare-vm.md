@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358013"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223162"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>FCI (Azure Vm에 SQL Server)에 대 한 가상 머신 준비
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "97358013"
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 조건 
 
 - Microsoft Azure 구독. [무료로](https://azure.microsoft.com/free/)시작 하세요. 
 - Azure virtual machines의 Windows 도메인 또는 가상 네트워크 페어링을 사용 하 여 Azure로 확장 된 온-프레미스 데이터 센터.
@@ -68,7 +68,7 @@ Azure VM 게스트 장애 조치 (failover) 클러스터에서 서버당 단일 
 두 가상 머신을 다음에 배치합니다.
 
 - 가용성 집합을 사용 하는 경우 가용성 집합과 동일한 Azure 리소스 그룹에 있습니다.
-- 도메인 컨트롤러와 동일한 가상 네트워크에 있습니다.
+- 도메인 컨트롤러와 동일한 가상 네트워크 또는 도메인 컨트롤러에 적절 하 게 연결 된 가상 네트워크에 있습니다.
 - 최종적으로 클러스터에서 사용할 수 있는 가상 머신 및 모든 FCI에 충분한 IP 주소 공간이 있는 서브넷에.
 - Azure 가용성 집합 또는 가용성 영역에 있습니다.
 

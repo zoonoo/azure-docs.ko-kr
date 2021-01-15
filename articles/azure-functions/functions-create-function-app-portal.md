@@ -1,48 +1,81 @@
 ---
-title: Azure Portal에서 함수 앱 만들기
-description: Azure에서 포털을 통해 새 함수 앱을 만듭니다.
+title: Azure Portal에서 첫 번째 Azure Function을 만듭니다.
+description: Azure Portal를 사용하여 서버를 사용하지 않는 실행을 위해 첫 번째 Azure Function을 만드는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 08/29/2019
-ms.custom: mvc
-ms.openlocfilehash: 8d19a269903de309bf219c2546fa70c3abe7be10
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 03/26/2020
+ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
+ms.openlocfilehash: bebef4e8964576b968af8f8aebd06030ca0d0227
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093592"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222720"
 ---
-# <a name="create-a-function-app-from-the-azure-portal"></a>Azure Portal에서 함수 앱 만들기
+# <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
-이 항목에서는 Azure Functions를 사용 하 여 Azure Portal에서 함수 앱을 만드는 방법을 보여 줍니다. 함수 앱은 개별 함수의 실행을 호스팅하는 컨테이너입니다. 
+Azure Functions를 사용 하면 먼저 VM (가상 머신)을 만들거나 웹 응용 프로그램을 게시 하지 않고도 서버를 사용 하지 않는 환경에서 코드를 실행할 수 있습니다. 이 문서에서는 Azure Functions를 사용 하 여 Azure Portal에서 "hello 세계" HTTP 트리거 함수를 만드는 방법에 대해 알아봅니다.
+
+[함수를 로컬로 개발](functions-develop-local.md) 하 고 Azure에서 함수 앱에 게시 하는 것이 좋습니다.  
+다음 링크 중 하나를 사용 하 여 선택한 로컬 개발 환경 및 언어를 시작 합니다.
+
+| Visual Studio Code | 터미널/명령 프롬프트 | Visual Studio |
+| --- | --- | --- |
+|  &bull;&nbsp;[C 시작 #](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Java 시작](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[JavaScript 시작](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[PowerShell 시작](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Python 시작](./create-first-function-vs-code-python.md) |&bull;&nbsp;[C 시작 #](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Java 시작](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[JavaScript 시작](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[PowerShell 시작](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Python 시작](./create-first-function-cli-python.md) | [C# 시작](functions-create-your-first-function-visual-studio.md) |
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="sign-in-to-azure"></a>Azure에 로그인
+
+Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그인합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 더 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다.
 
-함수 앱을 만든 후에 하나 이상의 서로 다른 언어로 개별 함수를 만들 수 있습니다. [포털을 사용하여](functions-create-first-azure-function.md#create-function), [연속 배포](functions-continuous-deployment.md) 또는 [FTP를 사용하여 업로드](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp)하여 함수를 만듭니다.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="service-plans"></a>서비스 계획
+다음으로 새 함수 앱에서 함수를 만듭니다.
 
-Azure Functions에는 소비 계획, 프리미엄 계획 및 전용 (App Service) 계획과 같은 세 가지 서비스 계획이 있습니다. 함수 앱을 만들 때 서비스 계획을 선택 해야 하며 이후에는 변경할 수 없습니다. 자세한 내용은 [Azure Functions 호스팅 계획 선택](functions-scale.md)을 참조하세요.
+## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>HTTP 트리거 함수 만들기
 
-전용 (App Service) 계획에서 JavaScript 함수를 실행 하려는 경우 코어 수가 더 작은 계획을 선택 해야 합니다. 자세한 내용은 [함수에 대한 JavaScript 참조](functions-reference-node.md#choose-single-vcpu-app-service-plans)를 참조하세요.
+1. **Functions** 창의 왼쪽 메뉴에서 **Functions** 를 선택한 다음, 맨 위 메뉴에서 **추가** 를 선택합니다. 
+ 
+1. **새 함수** 창에서 **Http 트리거** 를 선택합니다.
 
-<a name="storage-account-requirements"></a>
+    ![HTTP 트리거 함수 선택](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
+1. **새 함수** 창에서 **새 함수** 의 기본 이름을 적용하거나 새 이름을 입력합니다. 
 
-함수 앱을 만들 때 Blob, Queue 및 Table 스토리지를 지원하는 범용 Azure Storage 계정을 만들거나 해당 계정에 연결해야 합니다. 내부적으로 함수는 트리거 관리 및 함수 실행 로깅 등의 작업을 위해 Storage를 사용합니다. Blob 전용 스토리지 계정, Azure Premium Storage 및 ZRS 복제를 포함한 범용 스토리지 계정과 같은 일부 스토리지 계정은 큐 및 테이블을 지원하지 않습니다. 
+1. **권한 부여 수준** 드롭다운 목록에서 **익명** 을 선택한 다음, **함수 만들기** 를 선택합니다.
 
-Azure Portal에서 함수 앱을 만들 때 지원 되지 않는 유형의 계정이 필터링 됩니다. 또한 포털에서는 해당 계정이 만들고 있는 함수 앱과 동일한 지역에 있는 경우에만 기존 저장소 계정을 사용할 수 있습니다. 어떤 이유로 든 함수 앱에서 사용 하는 저장소 계정을 동일한 지역에서 사용 하는 최상의 성능을 위반 하려면 포털 외부에서 함수 앱을 만들어야 합니다. 
+    Azure에서 HTTP 트리거 함수를 만듭니다. 이제 HTTP 요청을 전송하여 새 함수를 실행할 수 있습니다.
 
->[!NOTE]
->소비 호스팅 계획을 사용할 경우 함수 코드 및 바인딩 구성 파일은 기본 스토리지 계정의 Azure File Storage에 저장됩니다. 기본 스토리지 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다. 
+## <a name="test-the-function"></a>함수 테스트
 
-스토리지 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#core-storage-services)를 참조하세요. 
+1. 새 HTTP 트리거 함수의 왼쪽 메뉴에서 **코드 + 테스트** 를 선택한 다음, 상단 메뉴에서 **함수 URL 가져오기** 를 선택합니다.
+
+    ![[함수 URL 가져오기] 선택](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+
+1. **함수 URL 가져오기** 대화 상자의 드롭다운 목록에서 **기본값** 을 선택한 다음, **클립보드에 복사** 아이콘을 선택합니다. 
+
+    ![Azure Portal에서 함수 URL 복사](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+
+1. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `?name=<your_name>` 쿼리 문자열 값을 이 URL의 마지막에 추가하고 Enter 키를 눌러 요청을 실행합니다. 
+
+    다음 예에서는 브라우저의 응답을 보여 줍니다.
+
+    ![브라우저에 함수 응답.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+
+    요청 URL에 [액세스 키](functions-bindings-http-webhook-trigger.md#authorization-keys) ()가 포함 된 경우 `?code=...` 함수를 만들 때 **익명** 액세스 수준 대신 **함수** 를 선택 합니다. 이 경우 대신을 추가 해야 `&name=<your_name>` 합니다.
+
+1. 함수가 실행되면 추적 정보가 로그에 기록됩니다. 추적 출력을 보려면 포털의 **코드 + 테스트** 페이지로 돌아가서 페이지 하단에 있는 **로그** 화살표를 확장합니다.
+
+   ![Azure Portal에서 함수 로그 뷰어.](./media/functions-create-first-azure-function/function-view-logs.png)
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Portal을 통해 쉽게 함수를 만들고 사용해 볼 수 있습니다. [로컬 개발](functions-develop-local.md)을 권장합니다. 포털에서 함수 앱을 만든 후에도 함수를 추가해야 합니다. 
-
-> [!div class="nextstepaction"]
-> [HTTP 트리거 함수 추가](functions-create-first-azure-function.md#create-function)
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]

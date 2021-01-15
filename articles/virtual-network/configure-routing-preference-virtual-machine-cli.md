@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ccd04a43e6781e8d58234cc382b2739d800e5fe7
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d375b860c6b23fd6033e985e23c6f12dfe9a3c68
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510678"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223570"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Azure CLI를 사용하여 VM에 대한 라우팅 기본 설정 구성
 
@@ -58,7 +58,7 @@ VM을 배포하기 전에 지원되는 네트워크 리소스(네트워크 보�
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-[az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 VNet에서 인바운드 및 아웃바운드 통신을 제어하는 규칙에 대한 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 VNet에서 인바운드 및 아웃바운드 통신을 제어하는 규칙에 대한 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \
@@ -69,7 +69,7 @@ az network nsg create \
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *mySubNet* 으로 *myVNET* 이라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *mySubNet* 으로 *myVNET* 이라는 가상 네트워크를 만듭니다.
 
 ```azurecli
 # Create a virtual network
@@ -89,7 +89,7 @@ az network vnet subnet create \
 
 ### <a name="create-a-nic"></a>NIC 만들기
 
-[az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create)를 사용하여 VM에 대한 가상 NIC를 만듭니다. 다음 예제에서는 VM에 연결할 가상 NIC를 만듭니다.
+[az network nic create](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create)를 사용하여 VM에 대한 가상 NIC를 만듭니다. 다음 예제에서는 VM에 연결할 가상 NIC를 만듭니다.
 
 ```azurecli-interactive
 # Create a NIC
@@ -105,7 +105,7 @@ az network nic create \
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-[az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 Windows Server 2019 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다.
+[az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 Windows Server 2019 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다.
 
 ```azurecli
 az vm create \
@@ -128,5 +128,5 @@ az group delete --name myResourceGroup --yes
 ## <a name="next-steps"></a>다음 단계
 
 - [공용 IP 주소의 라우팅 기본 설정](routing-preference-overview.md)에 대해 자세히 알아봅니다.
-- Azure에서 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)에 대해 자세히 알아봅니다.
+- Azure에서 [공용 IP 주소](./public-ip-addresses.md#public-ip-addresses)에 대해 자세히 알아봅니다.
 - [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address)에 대해 자세히 알아봅니다.

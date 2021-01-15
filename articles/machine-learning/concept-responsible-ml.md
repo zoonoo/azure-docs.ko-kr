@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 12/21/2020
-ms.openlocfilehash: 83bca8a2a81823cd0a8bda1633599292460ddd30
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.custom: responsible-ml
+ms.openlocfilehash: 7124fdd6e7d137e21234ff40426e13dc65b4f9e0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724330"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223111"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>담당 기계 학습 이란 무엇 인가요? (미리 보기)
 

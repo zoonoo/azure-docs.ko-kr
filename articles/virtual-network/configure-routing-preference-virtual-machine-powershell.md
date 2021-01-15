@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: mnayak
-ms.openlocfilehash: 65f5b27ecc7b526c4b3e4f5ed62ac90149df1ce1
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cdd86984e5594d330f0080ee5f4cf0e9a8374652
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510610"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223546"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 VM에 대한 라우팅 기본 설정 구성
 
@@ -150,5 +150,5 @@ $nic = New-AzNetworkInterface `
 ## <a name="next-steps"></a>다음 단계
 
 * [공용 IP 주소의 라우팅 기본 설정](routing-preference-overview.md)에 대해 자세히 알아봅니다.
-* Azure에서 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)에 대해 자세히 알아봅니다.
+* Azure에서 [공용 IP 주소](./public-ip-addresses.md#public-ip-addresses)에 대해 자세히 알아봅니다.
 * [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address)에 대해 자세히 알아봅니다.

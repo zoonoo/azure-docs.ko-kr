@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 35e4b90e9bdd52a20bf892f0784b191384f271ac
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: beb670106690645a80aa12b930e3a005efb4282a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533709"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221649"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 VM에 대한 라우팅 기본 설정 구성
 
@@ -79,5 +79,5 @@ ms.locfileid: "96533709"
 
 ## <a name="next-steps"></a>다음 단계
 - [라우팅 기본 설정을 사용하는 공용 IP](routing-preference-overview.md)에 대해 자세히 알아봅니다.
-- Azure에서 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)에 대해 자세히 알아봅니다.
+- Azure에서 [공용 IP 주소](./public-ip-addresses.md#public-ip-addresses)에 대해 자세히 알아봅니다.
 - 모든 [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address)에 대해 자세히 알아봅니다.
