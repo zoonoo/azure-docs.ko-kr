@@ -20,7 +20,7 @@ ms.locfileid: "96858538"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Azure Active Directory에서 사용자 계정 이름 변경 계획 및 문제 해결
 
-UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 표준인 특성입니다. UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. 접두사는 "" 기호를 사용 하 여 접미사를 조인 합니다 \@ . someone@example.com)을 입력합니다. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
+UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 표준인 특성입니다. UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. 접두사는 "\@" 기호를 사용하여 접미사를 조인합니다. 예들 들어 someone@example.com입니다. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
 
 **이 문서에서는 사용자가 UPN을 사용 하 고 있다고 가정 합니다. UPN 변경에 대 한 계획을 수립 하 고 UPN 변경으로 인해 발생할 수 있는 문제를 해결 합니다.**
 

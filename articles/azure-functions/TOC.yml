@@ -248,7 +248,7 @@
             - name: HTTP 트리거
               items:
                 - name: Azure portal
-                  href: functions-create-first-azure-function.md
+                  href: functions-create-function-app-portal.md
                 - name: 명령 줄
                   href: ./create-first-function-cli-csharp.md
                 - name: Visual Studio

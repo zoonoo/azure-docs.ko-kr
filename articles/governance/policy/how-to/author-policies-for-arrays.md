@@ -3,12 +3,12 @@ title: 리소스의 배열 속성에 대한 작성자 정책
 description: 배열 매개 변수 및 배열 언어 식을 사용하고, [*] 별칭을 평가하고, Azure Policy 정의 규칙을 사용하여 요소를 추가하는 방법을 알아봅니다.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 60044d4a599c14088ea923a6a14cb46543646995
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920460"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220748"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대한 작성자 정책
 
@@ -16,10 +16,8 @@ Azure Resource Manager 속성은 일반적으로 문자열 및 부울로 정의�
 
 - 여러 옵션을 제공하기 위한 [정의 매개 변수](../concepts/definition-structure.md#parameters) 유형
 - **in** 또는 **notIn** 조건을 사용하는 [정책 규칙](../concepts/definition-structure.md#policy-rule)의 일부
-- [\[\*\] 별칭](../concepts/definition-structure.md#understanding-the--alias)을 평가하는 정책 규칙의 일부:
-  - **없음**, **임의** 또는 **모두** 같은 시나리오
-  - **count** 를 사용하는 복잡한 시나리오
-- 기존 배열을 바꾸거나 기존 배열에 추가하는 [추가 효과](../concepts/effects.md#append)
+- 조건에 맞는 배열 멤버의 수를 계산 하는 정책 규칙의 일부입니다.
+- [추가](../concepts/effects.md#append) 및 [수정](../concepts/effects.md#modify) 효과에서 기존 배열을 업데이트 합니다.
 
 이 문서에서는 Azure Policy의 각 사용법을 설명하고 몇 가지 예제 정의를 제공합니다.
 
@@ -99,48 +97,121 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용하는 경우 매개 변수
 - Azure PowerShell: **PolicyParameter** 매개 변수가 지정된 [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) cmdlet
 - REST API: 요청 본문에 **properties.parameters** 속성 값으로 포함된 _PUT_ [create](/rest/api/resources/policyassignments/create) 작업
 
-## <a name="array-conditions"></a>배열 조건
+## <a name="using-arrays-in-conditions"></a>조건에 배열 사용
 
-매개 변수의 _array_
-**type** 을 사용할 수 있는 정책 규칙 [조건](../concepts/definition-structure.md#conditions)은 `in` 및 `notIn`으로 제한됩니다. `equals` 조건을 사용하는 다음 정책 정의를 예로 들어 보겠습니다.
+### <a name="in-and-notin"></a>`In` 및 `notIn`
+
+`in`및 `notIn` 조건은 배열 값에만 적용 됩니다. 배열에 값이 있는지 확인 합니다. 배열은 리터럴 JSON 배열 이거나 배열 매개 변수에 대 한 참조일 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
-  "policyRule": {
-    "if": {
-      "not": {
-        "field": "location",
-        "equals": "[parameters('allowedLocations')]"
-      }
-    },
-    "then": {
-      "effect": "audit"
-    }
-  },
-  "parameters": {
-    "allowedLocations": {
-      "type": "Array",
-      "metadata": {
-        "description": "The list of allowed locations for resources.",
-        "displayName": "Allowed locations",
-        "strongType": "location"
-      }
-    }
-  }
+      "field": "tags.environment",
+      "in": [ "dev", "test" ]
 }
 ```
 
-Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 메시지와 같은 오류가 발생합니다.
+```json
+{
+      "field": "location",
+      "notIn": "[parameters('allowedLocations')]"
+}
+```
 
-- "유효성 검사 오류로 인해 '{GUID}' 정책을 매개 변수화할 수 없습니다. 정책 매개 변수가 제대로 정의되어 있는지 확인하세요. '언어 식 '[parameters('allowedLocations')]'의 평가 결과가 'Array' 유형입니다. 올바른 유형은 'String'입니다.'라는 내부 예외가 발생했습니다."
+### <a name="value-count"></a>값 개수
 
-`equals` 조건의 올바른 **type** 은 _string_ 입니다. **allowedLocations** 가 **type** _array_ 로 정의되었으므로 정책 엔진이 언어 식을 평가하고 오류를 throw합니다. `in` 및 `notIn` 조건을 사용하면 정책 엔진이 언어 식에서 **type** _array_ 를 예상합니다. 이 오류 메시지를 해결하려면 `equals`를 `in` 또는 `notIn`으로 변경하세요.
+[값 개수](../concepts/definition-structure.md#value-count) 식은 조건을 충족 하는 배열 멤버 수를 계산 합니다. 각 반복에 서로 다른 값을 사용 하 여 동일한 조건을 여러 번 평가 하는 방법을 제공 합니다. 예를 들어 다음 조건은 리소스 이름이 패턴 배열에서 패턴과 일치 하는지 여부를 확인 합니다.
+
+```json
+{
+    "count": {
+        "value": [ "test*", "dev*", "prod*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+식을 계산 하기 위해 Azure Policy는 `where` 의 각 멤버에 대해 한 번씩 조건을 3 번 평가 하 여 `[ "test*", "dev*", "prod*" ]` 계산 된 횟수를 계산 `true` 합니다. 모든 반복에서 현재 배열 멤버의 값은에 정의 된 인덱스 이름과 쌍을 이룹니다 `pattern` `count.name` . 그런 다음 `where` 특수 템플릿 함수를 호출 하 여 조건 내에서이 값을 참조할 수 있습니다 `current('pattern')` .
+
+| 반복 | `current('pattern')` 반환 값 |
+|:---|:---|
+| 1 | `"test*"` |
+| 2 | `"dev*"` |
+| 3 | `"prod*"` |
+
+조건은 결과 수가 0 보다 큰 경우에만 true입니다.
+
+조건을 보다 일반적인 조건으로 만들려면 리터럴 배열 대신 매개 변수 참조를 사용 합니다.
+
+ ```json
+{
+    "count": {
+        "value": "[parameters('patterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+**값 개수** 식이 다른 **카운트** 식 아래에 있지 않은 경우 `count.name` 는 선택 사항이 며 `current()` 인수 없이 함수를 사용할 수 있습니다.
+
+```json
+{
+    "count": {
+        "value": "[parameters('patterns')]",
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+**값 개수** 는 복잡 한 개체의 배열만 지원 하 여 더 복잡 한 조건을 허용 합니다. 예를 들어 다음 조건은 각 이름 패턴에 대해 원하는 태그 값을 정의 하 고 리소스 이름이 패턴과 일치 하는지 여부를 확인 하지만 필요한 태그 값은 포함 하지 않습니다.
+
+```json
+{
+    "count": {
+        "value": [
+            { "pattern": "test*", "envTag": "dev" },
+            { "pattern": "dev*", "envTag": "dev" },
+            { "pattern": "prod*", "envTag": "prod" },
+        ],
+        "name": "namePatternRequiredTag",
+        "where": {
+            "allOf": [
+                {
+                    "field": "name",
+                    "like": "[current('namePatternRequiredTag').pattern]"
+                },
+                {
+                    "field": "tags.env",
+                    "notEquals": "[current('namePatternRequiredTag').envTag]"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
+유용한 예제는 [값 개수 예](../concepts/definition-structure.md#value-count-examples)를 참조 하세요.
 
 ## <a name="referencing-array-resource-properties"></a>배열 리소스 속성 참조
 
 많은 사용 사례에서 계산 된 리소스의 배열 속성 작업을 수행 해야 합니다. 일부 시나리오에서는 전체 배열을 참조 해야 합니다 (예: 길이 확인). 다른 경우에는 각 개별 배열 멤버에 조건을 적용 해야 합니다. 예를 들어 모든 방화벽 규칙이 인터넷에서 액세스를 차단 하는지 확인 합니다. 리소스 속성을 참조할 수 Azure Policy 다양 한 방법 이해 및 배열 속성을 참조할 때 이러한 참조가 동작 하는 방식은 이러한 시나리오를 포함 하는 조건을 작성 하기 위한 키입니다.
 
 ### <a name="referencing-resource-properties"></a>리소스 속성 참조
+
 리소스 속성은 [별칭](../concepts/definition-structure.md#aliases) 을 사용 하 여 Azure Policy에서 참조할 수 있으며, Azure Policy 내에서 리소스 속성의 값을 참조 하는 두 가지 방법이 있습니다.
 
 - [필드](../concepts/definition-structure.md#fields) 조건을 사용 하 여 선택한 **모든** 리소스 속성이 조건을 충족 하는지 여부를 확인 합니다. 예제:
@@ -219,9 +290,9 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 }
 ```
 
-이 조건은의 모든 속성 값이 `property` 와 같으면 true입니다 `objectArray` `"value"` .
+이 조건은의 모든 속성 값이 `property` 와 같으면 true입니다 `objectArray` `"value"` . 더 많은 예제는 [추가 \[ \* \] 별칭 예](#appendix--additional--alias-examples)를 참조 하세요.
 
-함수를 사용 하 여 `field()` 배열 별칭을 참조 하는 경우 반환 되는 값은 선택한 모든 값의 배열입니다. 이 동작은 함수의 일반적인 사용 사례 `field()` , 리소스 속성 값에 템플릿 함수를 적용 하는 기능이 매우 제한적 임을 의미 합니다. 이 경우에 사용할 수 있는 유일한 템플릿 함수는 배열 인수를 허용 하는 함수입니다. 예를 들어를 사용 하 여 배열의 길이를 가져올 수 `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]` 있습니다. 그러나 각 배열 멤버에 템플릿 함수를 적용 하 고 원하는 값과 비교 하는 것과 같은 복잡 한 시나리오는 식을 사용 하는 경우에만 가능 `count` 합니다. 자세한 내용은 [Count 식](#count-expressions)을 참조 하세요.
+함수를 사용 하 여 `field()` 배열 별칭을 참조 하는 경우 반환 되는 값은 선택한 모든 값의 배열입니다. 이 동작은 함수의 일반적인 사용 사례 `field()` , 리소스 속성 값에 템플릿 함수를 적용 하는 기능이 매우 제한적 임을 의미 합니다. 이 경우에 사용할 수 있는 유일한 템플릿 함수는 배열 인수를 허용 하는 함수입니다. 예를 들어를 사용 하 여 배열의 길이를 가져올 수 `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]` 있습니다. 그러나 각 배열 멤버에 템플릿 함수를 적용 하 고 원하는 값과 비교 하는 것과 같은 복잡 한 시나리오는 식을 사용 하는 경우에만 가능 `count` 합니다. 자세한 내용은 [필드 개수 식](#field-count-expressions)을 참조 하세요.
 
 요약 하자면, 다음 예제 리소스 내용과 다양 한 별칭에서 반환 된 선택 된 값을 참조 하세요.
 
@@ -275,9 +346,9 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray')]` | `[[ 1, 2 ], [ 3, 4 ]]` |
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray[*]')]` | `[1, 2, 3, 4]` |
 
-## <a name="count-expressions"></a>개수 식
+### <a name="field-count-expressions"></a>필드 개수 식
 
-[개수](../concepts/definition-structure.md#count) 식은 조건을 충족 하는 배열 멤버 수를 계산 하 고 해당 개수를 대상 값과 비교 합니다. `Count` 는 조건과 비교 하 여 배열을 보다 직관적이 고 다양 하 게 평가할 수 `field` 있습니다. 구문은 다음과 같습니다.
+[필드 수](../concepts/definition-structure.md#field-count) 식은 조건을 충족 하는 배열 멤버 수를 계산 하 고 해당 개수를 대상 값과 비교 합니다. `Count` 는 조건과 비교 하 여 배열을 보다 직관적이 고 다양 하 게 평가할 수 `field` 있습니다. 구문은 다음과 같습니다.
 
 ```json
 {
@@ -289,7 +360,7 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 }
 ```
 
-' Where ' 조건 없이 사용 하는 경우은 `count` 단순히 배열의 길이를 반환 합니다. 이전 섹션의 예제 리소스 콘텐츠를 사용 하 여 다음 식의는 `count` `true` `stringArray` 세 개의 멤버를 포함 하므로로 계산 됩니다.
+조건 없이 사용 하는 경우은 `where` `count` 단순히 배열의 길이를 반환 합니다. 이전 섹션의 예제 리소스 콘텐츠를 사용 하 여 다음 식의는 `count` `true` `stringArray` 세 개의 멤버를 포함 하므로로 계산 됩니다.
 
 ```json
 {
@@ -311,9 +382,10 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 }
 ```
 
-의 거듭제곱 `count` 은 `where` 조건에 있습니다. 지정 Azure Policy 된 경우 배열 멤버를 열거 하 고 각 조건에 대해 평가 하 여 계산 된 배열 멤버 수를 계산 `true` 합니다. 특히, 조건 평가의 각 반복에서 `where` Azure Policy는 단일 배열 멤버 ***i** _를 선택 하 고 * `where` i가 array_ *의 유일한 멤버인 _것 처럼 *_i_*_ * i _ 조건에 대해 리소스 콘텐츠를 평가 합니다. 각 반복에서 배열 멤버를 하나만 사용할 수 있는 경우 각 개별 배열 멤버에 복잡 한 조건을 적용 하는 방법이 제공 됩니다.
+의 거듭제곱 `count` 은 `where` 조건에 있습니다. 지정 Azure Policy 된 경우 배열 멤버를 열거 하 고 각 조건에 대해 평가 하 여 계산 된 배열 멤버 수를 계산 `true` 합니다. 특히, 조건 평가의 각 반복에서 `where` Azure Policy는 단일 배열 멤버 ***i** _를 선택 하 고 * `where` i가 array_ *의 유일한 멤버인 _것 처럼 **_ * i _ 조건에 대해 리소스 콘텐츠를 평가 합니다. 각 반복에서 배열 멤버를 하나만 사용할 수 있는 경우 각 개별 배열 멤버에 복잡 한 조건을 적용 하는 방법이 제공 됩니다.
 
 예제:
+
 ```json
 {
   "count": {
@@ -326,7 +398,7 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
   "equals": 1
 }
 ```
-식을 계산 하기 위해 `count` Azure Policy는 `where` 의 각 멤버에 대해 한 번씩 조건을 3 번 평가 하 여 `stringArray` 계산 된 횟수를 계산 `true` 합니다. 조건에서 `where` 배열 멤버를 참조 하는 경우 `Microsoft.Test/resourceType/stringArray[*]` 의 모든 멤버를 선택 하는 대신 항상 `stringArray` 단일 배열 멤버를 선택 합니다.
+식을 계산 하기 위해 `count` Azure Policy는 `where` 의 각 멤버에 대해 한 번씩 조건을 3 번 평가 하 여 `stringArray` 계산 된 횟수를 계산 `true` 합니다. `where`조건이 배열 멤버를 참조 하는 경우 `Microsoft.Test/resourceType/stringArray[*]` 의 모든 멤버를 선택 하는 대신 항상 `stringArray` 단일 배열 멤버를 선택 합니다.
 
 | 반복 | 선택한 `Microsoft.Test/resourceType/stringArray[*]` 값 | `where` 평가 결과 |
 |:---|:---|:---|
@@ -337,6 +409,7 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 따라서는을 `count` 반환 `1` 합니다.
 
 더 복잡 한 식은 다음과 같습니다.
+
 ```json
 {
   "count": {
@@ -366,6 +439,7 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 따라서는을 `count` 반환 `1` 합니다.
 
 `where`식이 **전체** 요청 내용에 대해 계산 되 고 (현재 열거 되는 배열 멤버만 변경 됨), `where` 조건이 배열 외부의 필드를 참조할 수도 있음을 의미 합니다.
+
 ```json
 {
   "count": {
@@ -384,6 +458,7 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 | 2 | `tags.env` => `"prod"` | `true` |
 
 중첩 된 개수 식도 사용할 수 있습니다.
+
 ```json
 {
   "count": {
@@ -417,9 +492,33 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3` |
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4` |
 
-### <a name="the-field-function-inside-where-conditions"></a>`field()`조건 내의 함수 `where`
+#### <a name="accessing-current-array-member-with-template-functions"></a>템플릿 함수를 사용 하 여 현재 배열 멤버 액세스
 
-`field()`조건 내에서 함수가 동작 하는 방식은 `where` 다음과 같은 개념을 기반으로 합니다.
+템플릿 함수를 사용 하는 경우 `current()` 함수를 사용 하 여 현재 배열 멤버의 값 또는 해당 속성의 값에 액세스 합니다. 현재 배열 멤버의 값에 액세스 하려면 또는 해당 자식 별칭에 정의 된 별칭을 `count.field` 함수에 대 한 인수로 전달 합니다 `current()` . 예를 들면 다음과 같습니다.
+
+```json
+{
+  "count": {
+    "field": "Microsoft.Test/resourceType/objectArray[*]",
+    "where": {
+        "value": "[current('Microsoft.Test/resourceType/objectArray[*].property')]",
+        "like": "value*"
+    }
+  },
+  "equals": 2
+}
+
+```
+
+| 반복 | `current()` 반환 값 | `where` 평가 결과 |
+|:---|:---|:---|
+| 1 | `property`의 첫 번째 멤버에 있는의 값입니다 `objectArray[*]` .`value1` | `true` |
+| 2 | `property`의 첫 번째 멤버에 있는의 값입니다 `objectArray[*]` .`value2` | `true` |
+
+#### <a name="the-field-function-inside-where-conditions"></a>Where 조건 내의 field 함수
+
+`field()`또한 함수를 사용 하 여 **개수** 식이 **존재 조건** 에 포함 되지 않는 한 현재 배열 멤버의 값에 액세스할 수 있습니다 `field()` . 함수는 항상 **if** 조건에서 계산 된 리소스를 참조 합니다.
+`field()`평가 된 배열을 참조할 때의 동작은 다음 개념을 기반으로 합니다.
 1. 배열 별칭은 모든 배열 멤버에서 선택한 값의 컬렉션으로 확인 됩니다.
 1. `field()` 배열 별칭을 참조 하는 함수는 선택한 값이 포함 된 배열을 반환 합니다.
 1. 조건 내에서 계산 된 배열 별칭을 참조 하면 `where` 현재 반복에서 계산 되는 배열 멤버에서 단일 값이 선택 된 컬렉션이 반환 됩니다.
@@ -465,7 +564,7 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 | 2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"b"` | `true` |
 | 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"c"` | `true` |
 
-유용한 예제는 [Count 예](../concepts/definition-structure.md#count-examples)를 참조 하세요.
+유용한 예제는 [필드 개수 예](../concepts/definition-structure.md#field-count-examples)를 참조 하세요.
 
 ## <a name="modifying-arrays"></a>배열 수정
 
@@ -474,7 +573,7 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 > [!NOTE]
 > 별칭에 효과를 사용 하 `modify` 는 것은 현재 **미리 보기** 상태입니다.
 
-|Alias |영향 | 결과 |
+|Alias |효과 | 결과 |
 |-|-|-|
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Azure Policy는 효과 세부 정보에 지정 된 전체 배열을 누락 된 경우 추가 합니다. |
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` with `add` 작업 | Azure Policy는 효과 세부 정보에 지정 된 전체 배열을 누락 된 경우 추가 합니다. |
@@ -487,6 +586,59 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `addOrReplace` 작업 | Azure Policy는 `action` 각 배열 멤버의 기존 속성을 추가 하거나 바꿉니다. |
 
 자세한 내용은 [추가 예제](../concepts/effects.md#append-examples)를 참조하세요.
+
+## <a name="appendix--additional--alias-examples"></a>부록-추가 [*] 별칭 예
+
+요청 내용에 있는 배열의 멤버가 조건을 충족 하는지 여부를 확인 하려면 [필드 개수 식을](#field-count-expressions) 사용 하는 것이 좋습니다. 그러나 일부 간단한 조건의 경우에는 배열 [멤버 컬렉션 참조](#referencing-the-array-members-collection)에 설명 된 대로 배열 별칭이 있는 필드 접근자를 사용 하 여 동일한 결과를 얻을 수 있습니다. 이는 허용 되는 **개수** 식의 제한을 초과 하는 정책 규칙에서 유용할 수 있습니다. 일반적인 사용 사례에 대 한 예제는 다음과 같습니다.
+
+아래 시나리오 테이블의 정책 규칙 예:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            <-- Condition (see table below) -->
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+아래 시나리오 테이블의 **ipRules** 배열은 다음과 같습니다.
+
+```json
+"ipRules": [
+    {
+        "value": "127.0.0.1",
+        "action": "Allow"
+    },
+    {
+        "value": "192.168.1.1",
+        "action": "Allow"
+    }
+]
+```
+
+아래의 각 조건 예에서 `<field>`는 `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`로 바꿉니다.
+
+다음 결과는 이 조건 및 예제 정책 규칙과 상기 기존 값 배열의 조합에 대한 결과입니다.
+
+|조건 |결과 | 시나리오 |설명 |
+|-|-|-|-|
+|`{<field>,"notEquals":"127.0.0.1"}` |없음 |일치 항목 없음 |한 배열 요소가 false(127.0.0.1 != 127.0.0.1)로 평가되고, 한 배열 요소는 true(127.0.0.1 != 192.168.1.1)로 평가되므로 **notEquals** 조건이 _false_ 이고 효과는 트리거되지 않습니다. |
+|`{<field>,"notEquals":"10.0.4.1"}` |정책 효과 |일치 항목 없음 |두 배열 요소가 true(10.0.4.1 != 127.0.0.1 및 10.0.4.1 != 192.168.1.1)로 평가되므로 **notEquals** 조건이 _true_ 이고 효과가 트리거됩니다. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |정책 효과 |하나 이상 일치 |한 배열 요소가 false(127.0.0.1 != 127.0.0.1)로 평가되고, 한 배열 요소는 true(127.0.0.1 != 192.168.1.1)로 평가되므로 **notEquals** 조건이 _false_ 입니다. 논리 연산자가 true(_false_ **아님**)로 평가되므로 효과가 트리거됩니다. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |없음 |하나 이상 일치 |두 배열 요소가 true(10.0.4.1 != 127.0.0.1 및 10.0.4.1 != 192.168.1.1)로 평가되므로 **notEquals** 조건이 _true_ 입니다. 논리 연산자가 false(_true_ **아님**)로 평가되므로 효과가 트리거되지 않습니다. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |정책 효과 |일부만 일치 |한 배열 요소가 true(127.0.0.1 == 127.0.0.1)로 평가되고, 한 배열 요소는 false(127.0.0.1 == 192.168.1.1)로 평가되므로 **Equals** 조건이 _false_ 입니다. 논리 연산자가 true(_false_ **아님**)로 평가되므로 효과가 트리거됩니다. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |정책 효과 |일부만 일치 |두 배열 요소가 false(10.0.4.1 == 127.0.0.1 및 10.0.4.1 == 192.168.1.1)로 평가되므로 **Equals** 조건이 _false_ 입니다. 논리 연산자가 true(_false_ **아님**)로 평가되므로 효과가 트리거됩니다. |
+|`{<field>,"Equals":"127.0.0.1"}` |없음 |모두 일치 |한 배열 요소가 true(127.0.0.1 == 127.0.0.1)로 평가되고, 한 배열 요소는 false(127.0.0.1 == 192.168.1.1)로 평가되므로 **Equals** 조건이 _false_ 이고 효과는 트리거되지 않습니다. |
+|`{<field>,"Equals":"10.0.4.1"}` |없음 |모두 일치 |두 배열 요소가 false(10.0.4.1 == 127.0.0.1 및 10.0.4.1 == 192.168.1.1)로 평가되므로 **Equals** 조건이 _false_ 이고 효과는 트리거되지 않습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

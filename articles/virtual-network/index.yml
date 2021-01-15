@@ -11,12 +11,12 @@ metadata:
   author: KumudD
   ms.author: kumud
   ms.date: 08/28/2019
-  ms.openlocfilehash: a6c0bee32fbeb50c1eef0a9625706bcee9e1ae17
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 7bf639fb7bc89ec218b280bcf7d02c76c7bde277
+  ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "82086473"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98223604"
 landingContent:
 - title: Virtual Network 정보
   linkLists:
@@ -45,9 +45,9 @@ landingContent:
   - linkListType: concept
     links:
     - text: 네트워크 보안 그룹
-      url: security-overview.md
+      url: ./network-security-groups-overview.md
     - text: 애플리케이션 보안 그룹
-      url: security-overview.md#application-security-groups
+      url: ./network-security-groups-overview.md#application-security-groups
     - text: 가상 네트워크 서비스 엔드포인트
       url: virtual-network-service-endpoints-overview.md
     - text: 가상 네트워크 보안 FAQ
@@ -63,7 +63,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Azure 리소스에 대한 액세스 보호 및 격리
-      url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
+      url: /learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
   - linkListType: video
     links:
     - text: Azure Private Link를 사용하여 Azure PaaS 리소스에 안전하게 액세스
@@ -93,7 +93,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: 피어링을 사용하여 가상 네트워크 간 통신
-      url: https://docs.microsoft.com/learn/modules/integrate-vnets-with-vnet-peering
+      url: /learn/modules/integrate-vnets-with-vnet-peering
 - title: 네트워크 트래픽 라우팅
   linkLists:
   - linkListType: concept
@@ -109,7 +109,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: IP 주소 유형 및 할당 방법
-      url: virtual-network-ip-addresses-overview-arm.md
+      url: ./public-ip-addresses.md
   - linkListType: how-to-guide
     links:
     - text: 공용 IP 주소 만들기, 변경 또는 삭제
@@ -151,7 +151,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: IP 주소 유형 및 할당 방법
-      url: virtual-network-ip-addresses-overview-arm.md
+      url: ./public-ip-addresses.md
     - text: Azure 가상 네트워크용 IPv6란?
       url: ipv6-overview.md
     - text: 공용 IP 주소 접두사

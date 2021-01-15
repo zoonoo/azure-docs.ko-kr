@@ -11,6 +11,10 @@
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
+    - name: 포털
+      href: quickstart-portal.md
+    - name: CLI
+      href: quickstart-azure-cli.md
 - name: 자습서
   items:
     - name: 증명 정책 작성

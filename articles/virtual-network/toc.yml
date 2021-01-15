@@ -113,7 +113,7 @@
           items:
             - name: 개요
               href: network-security-groups-overview.md
-            - name: 작동 방식
+            - name: 작동 방법
               href: network-security-group-how-it-works.md
         - name: 애플리케이션 보안 그룹
           href: application-security-groups.md
@@ -124,7 +124,7 @@
         - name: Kubernetes 네트워크 정책
           href: kubernetes-network-policies.md
         - name: DDoS 보호
-          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview'
+          href: ../ddos-protection/ddos-protection-overview.md
         - name: 가상 네트워크 TAP
           href: virtual-network-tap-overview.md
         - name: Azure Policy의 보안 컨트롤
@@ -137,7 +137,7 @@
         - name: 서브넷 위임
           href: subnet-delegation-overview.md
     - name: 클래식 배포
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic'
+      href: /previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: 방법 가이드
   items:
     - name: 계획 및 구성
@@ -165,7 +165,7 @@
             - name: Azure CLI
               href: tutorial-create-route-table-cli.md
             - name: Ansible
-              href: /azure/ansible/ansible-create-configure-route-table
+              href: /azure/developer/ansible/route-table-configure
             - name: 경로 테이블 관리
               href: manage-route-table.md
         - name: NIC 관리
@@ -199,11 +199,11 @@
             - name: VNet(리소스 관리자)에서 VNet(클래식)으로
               href: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: VNet에서 온-프레미스 네트워크(VPN)로
-              href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+              href: ../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: VNet에서 온-프레미스 네트워크(ExpressRoute)로
               href: ../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: 고가용성 하이브리드 네트워크 아키텍처
-              href: ../guidance/guidance-hybrid-network-expressroute-vpn-failover.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+              href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=%2fazure%2fvirtual-network%2ftoc.json
         - name: 가상 네트워크 TAP 구성
           href: tutorial-tap-virtual-network-cli.md
         - name: 컨테이너 네트워킹 배포
@@ -311,9 +311,9 @@
                 - name: Azure CLI
                   href: virtual-network-service-endpoint-policies-cli.md
         - name: DDoS 보호 관리
-          href: 'https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection'
+          href: ../ddos-protection/manage-ddos-protection.md
         - name: DDoS Protection 표준에 파트너 온보딩
-          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-partner-onboarding'
+          href: ../ddos-protection/ddos-protection-partner-onboarding.md
         - name: 네트워크 보안 그룹 관리
           href: manage-network-security-group.md
         - name: 보안 시나리오
@@ -321,7 +321,7 @@
             - name: 가상 어플라이언스를 사용하여 네트워크 보안
               href: virtual-network-scenario-udr-gw-nva.md
             - name: Azure와 인터넷 간의 DMZ
-              href: ../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+              href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: VM 네트워킹
       items:
         - name: VM 만들기 - 고정 공용 IP
@@ -435,7 +435,7 @@
         - name: Azure VM 연결 문제 해결
           href: troubleshoot-vm-connectivity.md
     - name: 클래식 배포
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-network/create-virtual-network-classic'
+      href: /previous-versions/azure/virtual-network/create-virtual-network-classic
 - name: 참조
   items:
     - name: Azure CLI
@@ -447,7 +447,7 @@
     - name: Java
       href: /java/api/
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+      href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST (영문)
@@ -468,7 +468,7 @@
     - name: 네트워킹 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: 네트워킹에 대한 Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: 네트워킹 피드백
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: 가격 책정
