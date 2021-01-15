@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f00416f180f83c761be5ed444e80903e9fcbb6
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184572"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234446"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure Monitor 로그 데이터를 Power BI로 가져오기
 
@@ -28,6 +28,9 @@ Azure Monitor의 [Log Analytics 작업 영역](manage-access.md) 에서 Power BI
 ## <a name="export-query"></a>내보내기 쿼리
 먼저 Power BI 데이터 집합을 채울 데이터를 반환 하는 [로그 쿼리](../log-query/log-query-overview.md) 를 만듭니다.  그런 다음 해당 쿼리를 [파워 쿼리(M) 언어](/powerquery-m/power-query-m-language-specification)로 내보내면 Power BI Desktop에서 사용할 수 있습니다.
 
+> [!WARNING]
+> 쿼리를 실행 하는 데 너무 오래 걸리지 않거나 시간이 초과 될 수 있도록 [쿼리를 최적화](../log-query/query-optimization.md) 해야 합니다. 쿼리에서 검색할 데이터의 timespan을 정의 하는 내보낸 쿼리의 **timespan** 값을 확인 합니다. 쿼리에서 반환 하는 데이터 양을 제한 하는 데 필요한 최소 timespan을 사용 합니다.
+
 1. 데이터 집합에 대 한 데이터를 추출 하는 [Log Analytics에서 로그 쿼리를 만듭니다](../log-query/log-analytics-tutorial.md) .
 2. **내보내기**  >  **Power BI 쿼리 (M)** 를 선택 합니다.  이렇게 하면 쿼리가 **PowerBIQuery.txt** 라는 텍스트 파일로 내보내집니다. 
 
@@ -39,7 +42,7 @@ Azure Monitor의 [Log Analytics 작업 영역](manage-access.md) 에서 Power BI
 Power BI Desktop은 Power BI에 게시할 수 있는 데이터 세트 및 보고서를 만들 수 있는 데스크톱 애플리케이션입니다.  Azure Monitor에서 내보낸 파워 쿼리 언어를 사용 하 여 쿼리를 만드는 데 사용할 수도 있습니다. 
 
 1. 아직 설치하지 않았으면 [Power BI Desktop](https://powerbi.microsoft.com/desktop/)을 설치하고 애플리케이션을 엽니다.
-2. **데이터 가져오기**  >  **빈 쿼리** 를 선택 하 여 새 쿼리를 엽니다.  그런 다음 **고급 편집기** 를 선택하고 내보낸 파일의 내용을 쿼리에 붙여넣습니다. **Done** 을 클릭합니다.
+2. **데이터 가져오기**  >  **빈 쿼리** 를 선택 하 여 새 쿼리를 엽니다.  그런 다음 **고급 편집기** 를 선택하고 내보낸 파일의 내용을 쿼리에 붙여넣습니다. **완료** 를 클릭합니다.
 
     ![Power BI 데스크톱 쿼리](media/powerbi/desktop-new-query.png)
 
