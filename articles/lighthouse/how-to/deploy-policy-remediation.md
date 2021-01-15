@@ -1,14 +1,14 @@
 ---
 title: 수정할 수 있는 정책 배포
 description: Azure Lighthouse를 통해 재구성 작업을 사용 하는 정책을 배포 하려면 고객 테 넌 트에서 관리 되는 id를 만들어야 합니다.
-ms.date: 12/17/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: eb473fe2f589cf719e3944c887d46e75e9e7fdbf
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 01070133241117596bdf2b8e1e7c3fa101fc656c
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97670494"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233885"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>위임된 구독 내에서 수정할 수 있는 정책 배포
 
@@ -19,9 +19,9 @@ ms.locfileid: "97670494"
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>고객 테넌트에서 관리 ID에 역할을 할당할 수 있는 사용자 만들기
 
-Azure Lighthouse에 고객을 등록 하는 경우 고객 테 넌 트의 위임 된 리소스에 액세스할 수 있는 관리 테 넌 트의 사용자, 사용자 그룹 및 서비스 사용자를 정의 하는 매개 변수 파일과 함께 [Azure Resource Manager 템플릿을](onboard-customer.md#create-an-azure-resource-manager-template) 사용 합니다. 매개 변수 파일에서 이러한 각 사용자(**principalId**)에는 액세스 수준을 정의하는 [기본 제공 역할](../../role-based-access-control/built-in-roles.md)(**roleDefinitionId**)이 할당됩니다.
+Azure Lighthouse에 고객을 등록 하는 경우 매개 변수 파일과 함께 [Azure Resource Manager 템플릿을](onboard-customer.md#create-an-azure-resource-manager-template) 사용 하 여 고객 테 넌 트의 위임 된 리소스에 대 한 액세스 권한을 부여 하는 권한 부여를 정의 합니다. 각 권한 부여는 관리 테 넌 트의 Azure AD 사용자, 그룹 또는 서비스 주체에 해당 하는 **Principalid** 및 부여할 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 에 해당 하는 **roleDefinitionId** 를 지정 합니다.
 
-**principalId** 가 고객 테넌트에서 관리 ID를 만들도록 허용하려면 해당 **roleDefinitionId** 를 **사용자 액세스 관리자** 로 설정해야 합니다. 이 역할은 일반적으로 지원되지 않지만 이 특정 시나리오에서 사용할 수 있습니다. 이 권한을 가진 사용자는 관리 ID에 특정 기본 제공 역할을 하나 이상 할당할 수 있습니다. 이러한 역할은 **delegatedRoleDefinitionIds** 속성에서 정의됩니다. 사용자 액세스 관리자 또는 소유자를 제외하고 여기에 기본 제공 역할을 포함할 수 있습니다.
+**principalId** 가 고객 테넌트에서 관리 ID를 만들도록 허용하려면 해당 **roleDefinitionId** 를 **사용자 액세스 관리자** 로 설정해야 합니다. 이 역할은 일반적으로 지원 되지 않지만이 특정 시나리오에서 사용할 수 있습니다 .이 사용 권한이 있는 사용자 계정에서 관리 되는 id에 특정 기본 제공 역할을 하나 이상 할당할 수 있습니다. 이러한 역할은 **delegatedRoleDefinitionIds** 속성에 정의 되며, 사용자 액세스 관리자 또는 소유자를 제외 하 고 [지원 되는 모든 Azure 기본 제공 역할](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse) 을 포함할 수 있습니다.
 
 고객이 등록된 후 이 권한 부여에서 만든 **principalId** 는 이러한 기본 제공 역할을 고객 테넌트의 관리 ID에 할당할 수 있습니다. 그러나 일반적으로 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 없습니다.
 

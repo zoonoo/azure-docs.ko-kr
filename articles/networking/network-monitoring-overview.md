@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 36e41db6e1a3cff13f31f0abf2e83e872dfd7c49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a92c6789723dc42ac8f3a9c471e494079dc19328
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742335"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233443"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -52,10 +52,10 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Monitor 로그에서 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
-* [사용 사례](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
+* [사용 사례](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor)
 * 제품 업데이트:
-  * [2017년 2월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
-  * [2017년 8월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+  * [2017년 2월](/archive/blogs/msoms/oms-network-performance-monitor-is-now-generally-available)
+  * [2017년 8월](/archive/blogs/msoms/improvements-to-oms-network-performance-monitor)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
@@ -70,7 +70,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 
 ![전체 지역의 트래픽을 보여주는 지역 지도](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 * [ExpressRoute에 대한 네트워크 성능 모니터 구성](../expressroute/how-to-npm.md)
 * [블로그 게시물](https://aka.ms/NPMExRmonitorGA)
@@ -86,7 +86,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 * 잘못된 애플리케이션 성능을 일으킬 수 있는 네트워크상 핫 스폿 확인
 * Microsoft 365, Dynamics 365, 비즈니스용 Skype 및 기타 Microsoft 서비스에 대 한 기본 제공 테스트를 사용 하 여 Microsoft 365 응용 프로그램에 대 한 연결성을 모니터링 합니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 * [서비스 엔드포인트를 모니터링하기 위한 네트워크 성능 모니터 구성](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [블로그 게시물](https://aka.ms/svcendptmonitor)
@@ -106,7 +106,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 ![지역 간 트래픽을 보여 주는 지역 지도 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 관련 링크:
-* [블로그 게시물](https://aka.ms/trafficanalytics), [설명서](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+* [블로그 게시물](https://aka.ms/trafficanalytics), [설명서](../network-watcher/traffic-analytics.md), [FAQ](../network-watcher/traffic-analytics-faq.md)
 
 ## <a name="dns-analytics"></a>DNS 분석
 DNS 관리자 용으로 구축된 이 솔루션은 DNS 로그를 수집, 분석 및 상호 연관시켜서 보안, 운영 및 성능 관련 자세한 정보를 제공합니다.  일부 기능은 다음과 같습니다.
@@ -120,8 +120,8 @@ DNS 관리자 용으로 구축된 이 솔루션은 DNS 로그를 수집, 분석 
 ![DNS 분석 대시보드](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 관련 링크:
-* [블로그 게시물](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [설명서](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
+* [블로그 게시물](/archive/blogs/msoms/introducing-oms-dns-analytics), [설명서](../azure-monitor/insights/dns-analytics.md)
 
 ## <a name="miscellaneous"></a>기타
 
-* [새로운 가격 책정](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)
+* [새로운 가격 책정](../azure-monitor/insights/network-performance-monitor-pricing-faq.md)

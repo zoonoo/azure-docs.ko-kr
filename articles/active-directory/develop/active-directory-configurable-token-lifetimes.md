@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 0b3c2f74edff661326e97da7b06860914468c43b
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: ec925ce165c1de98fe920381e1b51e3388c1e4ad
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059350"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232406"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Microsoft id 플랫폼 (미리 보기)의 구성 가능한 토큰 수명
 
@@ -101,8 +101,7 @@ ID 토큰은 웹 사이트 및 기본 클라이언트에 전달됩니다. ID 토
 
 공용 클라이언트는 클라이언트 암호(비밀)를 안전하게 저장할 수 없습니다. 예를 들어 iOS/Android 앱은 리소스 소유자의 비밀을 난독 처리할 수 없으므로 공용 클라이언트로 간주됩니다. 리소스에 정책을 설정하여 지정된 기간보다 오래된 공용 클라이언트의 새로 고침 토큰이 새 액세스/새로 고침 토큰 쌍을 얻지 못하게 할 수 있습니다. 이렇게 하려면 [새로 고침 토큰 최대 비활성 시간 속성](#refresh-token-max-inactive-time) ()을 사용 `MaxInactiveTime` 합니다. 특정 기간이 지나면 더 이상 새로 고침 토큰이 허용되지 않도록 정책을 사용하여 기간을 설정할 수도 있습니다. 이렇게 하려면 [단일 단계 새로 고침 토큰 최대 기간](#single-factor-session-token-max-age) 또는 [다단계 세션 토큰 최대 기간](#multi-factor-refresh-token-max-age) 속성을 사용 합니다. 새로 고침 토큰의 수명을 조정하여 공용 클라이언트 애플리케이션을 사용할 때 자동으로 재인증되는 대신 사용자가 자격 증명을 다시 입력해야 하는 시기 및 빈도를 제어할 수 있습니다.
 
-> [!NOTE]
-> 최대 기간 속성은 단일 토큰을 사용할 수 있는 시간입니다. 
+최대 기간 속성은 단일 토큰을 사용할 수 있는 시간입니다. 
 
 ### <a name="single-sign-on-session-tokens"></a>Single Sign-On 세션 토큰
 사용자가 Microsoft id 플랫폼을 사용 하 여 인증 하는 경우 사용자의 브라우저 및 Microsoft id 플랫폼을 사용 하 여 SSO (Single Sign-On 세션)가 설정 됩니다. 쿠키 형식의 SSO 토큰은 이 세션을 나타냅니다. SSO 세션 토큰은 특정 리소스/클라이언트 응용 프로그램에 바인딩되지 않습니다. SSO 세션 토큰은 해지 가능하며 사용될 때마다 토큰의 유효성이 검사됩니다.

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: e8b1d985fcb2852df52382e005ec0f0266e23d9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aea205bee41aed232b8453417dca521d2dfc83ab
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345647"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233783"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -323,6 +323,29 @@ QnA 쌍이 기술 자료에 있으면 대답의 markdown 텍스트를 편집 하
 
 1. App service를 시작 합니다.
 1. 기술 자료에 액세스 하 여 지금 작동 하는지 확인 합니다.
+
+</details>
+<details>
+<summary><b>내 Application Insights 작동 하지 않는 이유는 무엇 인가요?</b></summary>
+
+**답변**: 문제를 해결 하려면 아래 단계를 교차 확인 하 고 업데이트 하세요.
+
+1. App Service-> 설정 그룹-> 구성 섹션-> 응용 프로그램 설정-> Name "UserAppInsightsKey" 매개 변수가 올바르게 구성 되 고 해당 application insights 개요 탭 ("계측 키") Guid로 설정 됩니다. 
+
+1. App Service-> 설정 그룹-> "Application Insights" > 섹션에서 App insights를 사용 하도록 설정 하 고 각 application insights 리소스에 연결 했는지 확인 합니다.
+
+</details>
+
+<details>
+<summary><b>내 Application Insights을 사용할 수 있지만 제대로 작동 하지 않는 이유는 무엇 인가요?</b></summary>
+
+**답변**: 아래 지정 된 단계를 수행 하세요. 
+
+1.  이미 존재 하는 값이 있는 경우 재정의 하 여 ' "APPINSIGHTS_INSTRUMENTATIONKEY" name '의 값을 ' UserAppInsightsKey ' 이름에 복사 합니다. 
+
+1.  앱 설정에 ' UserAppInsightsKey ' 키가 없는 경우 해당 이름의 새 키를 추가 하 고 값을 복사 하세요.
+
+1.  이 파일을 저장 하면 app service가 자동으로 다시 시작 됩니다. 이렇게 하면 문제가 해결 됩니다. 
 
 </details>
 

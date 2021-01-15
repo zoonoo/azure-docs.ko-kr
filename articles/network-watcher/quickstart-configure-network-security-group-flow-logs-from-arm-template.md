@@ -6,15 +6,15 @@ author: damendo
 Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
 ms.service: network-watcher
 ms.topic: quickstart
-ms.date: 07/22/2020
+ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: 563f111a656376899fcd0201b42f87bfea445865
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ded7b24461fdcdbc3d020a487cafc20620633097
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488047"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019723"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 네트워크 보안 그룹 흐름 로그 구성
 

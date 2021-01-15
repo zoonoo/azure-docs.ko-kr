@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 118bdcb6929abfc162ff05e91f1621f087b6c50c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ae0bc6ea35d5c6e3ebe0cd7f232e5c8b1e637d9d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186731"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234055"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 로그를 쿼리하는 방법
 
@@ -47,7 +47,7 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 비용 및 복잡성을 관리하기 위해 연결 레코드는 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 그런 다음, 각 테이블에 반영됩니다.  즉, *VMConnection* 테이블의 레코드는 관찰되는 개별 물리적 연결이 아닌 논리적 그룹화를 나타냅니다. 지정된 1분 간격 동안 다음 특성에 대해 동일한 값을 공유하는 물리적 네트워크 연결이 *VMConnection* 의 단일 논리적 레코드에 집계됩니다. 
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--|:--|
 |방향 |연결 방향으로 값은 *인바운드* 또는 *아웃바운드* 입니다. |
 |컴퓨터 |컴퓨터 FQDN |
@@ -59,7 +59,7 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 그룹화의 영향을 고려하기 위해 그룹화된 물리적 연결 수에 대한 정보가 다음과 같은 레코드 속성에서 제공됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--|:--|
 |LinksEstablished |보고 기간 동안 설정된 물리적 네트워크 연결의 수 |
 |LinksTerminated |보고 기간 동안 종료된 물리적 네트워크 연결의 수 |
@@ -70,7 +70,7 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 연결 수 메트릭 외에도 지정된 논리적 연결 또는 네트워크 포트에 전송 및 수신된 데이터의 볼륨에 대한 정보도 다음과 같은 레코드 속성에 포함됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--|:--|
 |BytesSent |보고 기간 동안 전송된 총 바이트 수 |
 |BytesReceived |보고 기간 동안 수신된 총 바이트 수 |
@@ -92,13 +92,13 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 #### <a name="naming-and-classification"></a>이름 지정 및 분류
 
-편의를 위해 연결의 원격 끝 IP 주소는 RemoteIp 속성에 포함됩니다. 인바운드 연결의 경우 RemoteIp는 SourceIp와 동일하고, 아웃바운드 연결의 경우 DestinationIp와 동일합니다. RemoteDnsCanonicalNames 속성은 RemoteIp에 대한 머신에서 보고된 DNS 정식 이름을 나타냅니다. 나중에 사용하기 위해 RemoteDnsQuestions 및 RemoteClassification 속성이 예약되어 있습니다. 
+편의를 위해 연결의 원격 끝 IP 주소는 RemoteIp 속성에 포함됩니다. 인바운드 연결의 경우 RemoteIp는 SourceIp와 동일하고, 아웃바운드 연결의 경우 DestinationIp와 동일합니다. RemoteDnsCanonicalNames 속성은 RemoteIp에 대한 머신에서 보고된 DNS 정식 이름을 나타냅니다. RemoteDnsQuestions 대답 속성은 RemoteIp에 대해 컴퓨터에서 보고 한 DNS 질문을 나타냅니다. RemoveClassification 속성은 나중에 사용 하도록 예약 되어 있습니다. 
 
 #### <a name="geolocation"></a>지리적 위치
 
 또한 *VMConnection* 은 다음과 같은 레코드 속성에서 각 연결 레코드의 원격 끝에 대한 지리적 위치 정보를 포함합니다. 
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--|:--|
 |RemoteCountry |RemoteIp를 호스트 하는 국가/지역의 이름입니다.  예: *미국* |
 |RemoteLatitude |지리적 위치 위도입니다. 예: *47.68* |
@@ -108,11 +108,11 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 *VMConnection* 테이블의 모든 RemoteIp 속성을 알려진 악의적인 활동의 IP 집합에 대해 검사합니다. RemoteIp가 악성으로 식별되면 다음과 같은 속성이 다음과 같은 레코드 속성에서 채워집니다(IP가 악성으로 간주되지 않으면 비어 있음).
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--|:--|
 |MaliciousIp |RemoteIp 주소 |
 |IndicatorThreadType |검색된 위협 표시기가 *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist* 값 중 하나입니다.   |
-|Description |관찰된 위협에 대한 설명입니다. |
+|설명 |관찰된 위협에 대한 설명입니다. |
 |TLPLevel |TLP(Traffic Light Protocol) 수준은 정의된 *White*, *Green*, *Amber*, *Red* 값 중 하나입니다. |
 |신뢰도 |값은 *0 - 100* 입니다. |
 |심각도 |값은 *0 - 5* 입니다. 여기서 *5* 는 가장 심각하고 *0* 은 심각하지 않습니다. 기본값은 *3* 입니다.  |
@@ -128,7 +128,7 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 VMBoundPort의 모든 레코드는 다음 필드로 식별 됩니다. 
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--|:--|
 |프로세스 | 포트가 연결 된 프로세스 (또는 프로세스 그룹)의 id입니다.|
 |Tcp/ip | 포트 IP 주소 (와일드 카드 IP 일 수 있음, *0.0.0.0*) |
@@ -156,7 +156,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 
 *Vmcomputer* 유형의 레코드는 종속성 에이전트가 있는 서버에 대 한 인벤토리 데이터를 포함 합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--|:--|
 |TenantId | 작업 영역에 대 한 고유 식별자입니다. |
 |SourceSystem | *Insights* | 
@@ -218,7 +218,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 
 *Vmprocess* 유형의 레코드는 종속성 에이전트가 있는 서버에서 TCP 연결 프로세스에 대 한 인벤토리 데이터를 포함 합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--|:--|
 |TenantId | 작업 영역에 대 한 고유 식별자입니다. |
 |SourceSystem | *Insights* | 
@@ -233,7 +233,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 |그룹 | 프로세스 그룹 이름입니다. 동일한 그룹의 프로세스는 논리적으로 관련 되어 있습니다. 예를 들어 동일한 제품 또는 시스템 구성 요소의 일부입니다. |
 |StartTime | 프로세스 풀 시작 시간 |
 |FirstPid | 프로세스 풀의 첫 번째 PID |
-|Description | 프로세스 설명 |
+|설명 | 프로세스 설명 |
 |CompanyName | 회사의 이름 |
 |InternalName | 내부 이름 |
 |ProductName | 제품 이름 |
@@ -434,7 +434,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 *InsightsMetrics* 형식의 레코드는 가상 컴퓨터의 게스트 운영 체제에서 성능 데이터를 포함 합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--|:--|
 |TenantId | 작업 영역에 대 한 고유 식별자 |
 |SourceSystem | *Insights* | 
@@ -446,17 +446,17 @@ let remoteMachines = remote | summarize by RemoteMachine;
 |Val | 수집 된 값 | 
 |태그 | 레코드에 대 한 관련 세부 정보입니다. 다른 레코드 형식에 사용 되는 태그는 아래 표를 참조 하세요.  |
 |AgentId | 각 컴퓨터의 에이전트에 대 한 고유 식별자 |
-|형식 | *InsightsMetrics* |
+|Type | *InsightsMetrics* |
 |_ResourceId_ | 가상 컴퓨터의 리소스 ID |
 
 *InsightsMetrics* 테이블에 현재 수집 된 성능 카운터는 다음 표에 나열 되어 있습니다.
 
-| 네임스페이스 | Name | Description | 단위 | 태그 |
+| 네임스페이스 | Name | 설명 | 단위 | 태그 |
 |:---|:---|:---|:---|:---|
 | Computer    | 하트비트             | 컴퓨터 하트 비트                        | | |
 | 메모리      | AvailableMB           | 사용 가능한 메모리 바이트                    | 메가바이트      | memorySizeMB-총 메모리 크기|
-| 네트워크     | WriteBytesPerSecond   | 초당 네트워크 쓰기 바이트 수            | 초당 바이트 수 | NetworkDeviceId-장치의 Id<br>바이트-보낸 총 바이트 수 |
-| 네트워크     | ReadBytesPerSecond    | 초당 네트워크 읽기 바이트 수             | 초당 바이트 수 | networkDeviceId-장치의 Id<br>바이트-받은 총 바이트 수 |
+| Network (네트워크)     | WriteBytesPerSecond   | 초당 네트워크 쓰기 바이트 수            | 초당 바이트 수 | NetworkDeviceId-장치의 Id<br>바이트-보낸 총 바이트 수 |
+| Network (네트워크)     | ReadBytesPerSecond    | 초당 네트워크 읽기 바이트 수             | 초당 바이트 수 | networkDeviceId-장치의 Id<br>바이트-받은 총 바이트 수 |
 | 프로세서   | UtilizationPercentage | 프로세서 사용률 비율          | 백분율        | totalCpus-총 Cpu |
 | LogicalDisk | WritesPerSecond       | 초당 논리 디스크 쓰기            | 초당 개수 | mountId-장치의 탑재 ID |
 | LogicalDisk | WriteLatencyMs        | 논리 디스크 쓰기 대기 시간 (밀리초)    | 밀리초   | mountId-장치의 탑재 ID |

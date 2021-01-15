@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 61bd23c74fd7960317dff17175b355b473cd6dc7
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602600"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233834"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>가상 컴퓨터 인증 문제 해결
 
@@ -35,7 +35,7 @@ VM (가상 컴퓨터) 이미지를 Azure Marketplace에 게시 하는 경우 Azu
 - [Windows 이미지](azure-vm-create-using-approved-base.md)
 
 > [!Note]
-> Azure Marketplace에서 가져오지 않은 Linux 기본 이미지를 사용 하는 경우 첫 번째 파티션을 2048 KB로 오프셋할 수 있습니다. 이렇게 하면 포맷 되지 않은 공간을 새 청구 정보를 추가 하는 데 사용할 수 있으며 Azure에서 Azure Marketplace에 VM을 게시 하는 과정을 진행할 수 있습니다.  
+> Azure Marketplace에서 가져오지 않은 Linux 기본 이미지를 사용 하는 경우 Azure에서 Azure Marketplace에 VM 게시를 계속 진행 하기 위해 VHD의 첫 2048 섹터 (각 섹터는 512 바이트)가 비어 있는지 확인 하세요.  
 
 ## <a name="vm-extension-failure"></a>VM 확장 오류
 
@@ -68,7 +68,7 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면:
 
 프로 비전 문제는 다음과 같은 오류 시나리오를 포함할 수 있습니다.
 
-|시나리오|오류|이유|해결 방법|
+|시나리오|오류|이유|솔루션|
 |---|---|---|---|
 |1|잘못 된 VHD (가상 하드 디스크)|VHD 바닥글의 지정 된 쿠키 값이 잘못 된 경우 VHD가 잘못 된 것으로 간주 됩니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |2|잘못 된 blob 유형|사용 된 블록이 페이지 유형이 아닌 blob 유형 이므로 VM을 프로 비전 하지 못했습니다.|이미지를 다시 만들고 요청을 제출 합니다.|
@@ -140,7 +140,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 될 Linux 테스트 사례를 보여 줍니다. 테스트 유효성 검사는 설명에 명시 되어 있습니다.
 
-|시나리오|테스트 사례|Description|
+|시나리오|테스트 사례|설명|
 |---|---|---|
 |1|Bash 기록|Bash 기록 파일은 VM 이미지를 만들기 전에 지워야 합니다.|
 |2|Linux 에이전트 버전|Azure Linux Agent 2.2.41 이상을 설치 해야 합니다.|
@@ -169,7 +169,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 되는 Windows 테스트 사례와 테스트 유효성 검사에 대 한 설명을 보여 줍니다.
 
-|시나리오 |테스트 사례|Description|
+|시나리오 |테스트 사례|설명|
 |---|---|---|---|
 |1|OS 아키텍처|Azure는 64 비트 운영 체제만 지원 합니다.|
 |2|사용자 계정 종속성|응용 프로그램 실행은 관리자 계정에 종속 되지 않아야 합니다.|
@@ -208,9 +208,9 @@ OS 디스크 크기에 대 한 제한 사항은 다음 규칙을 참조 하세�
 
 Vm은 기본 운영 체제에 대 한 액세스를 허용 하므로 vhd 크기가 VHD에 대해 충분히 큰지 확인 합니다. 가동 중지 시간 없이 디스크를 확장할 필요가 없습니다. 30GB에서 50 GB 까지의 디스크 크기를 사용 합니다.
 
-|VHD 크기|실제 차지 크기|해결 방법|
+|VHD 크기|실제 차지 크기|솔루션|
 |---|---|---|
-|>500 tebibytes (TiB)|해당 없음|예외 승인에 대해서는 지원 팀에 문의 하세요.|
+|>500 tebibytes (TiB)|N/A|예외 승인에 대해서는 지원 팀에 문의 하세요.|
 |250-500 TiB|Blob 크기와 >200 GiB) 차이|예외 승인에 대해서는 지원 팀에 문의 하세요.|
 
 > [!NOTE]
@@ -319,7 +319,7 @@ Azure의 모든 Vhd에는 1 메가바이트 (MB)의 배수로 크기를 맞춘 �
     
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드 하는 경우 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
-|시나리오|오류|이유|해결 방법|
+|시나리오|오류|이유|솔루션|
 |---|---|---|---|
 |1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
 |2|사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
@@ -328,14 +328,14 @@ SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드
 |6|HTTP 조건부 헤더|SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
 |7|잘못 된 VHD 이름|% 기호 또는 따옴표와 같은 특수 문자가 `%` `"` VHD 이름에 있는지 확인 하십시오.|특수 문자를 제거 하 여 VHD 파일의 이름을 바꿉니다.|
 
-## <a name="first-mb-2048-kb-partition-linux-only"></a>첫 번째 MB (2048 KB) 파티션 (Linux에만 해당)
+## <a name="first-1mb-2048-sectors-each-sector-of-512-bytes-partition-linux-only"></a>처음 1MB (2048 섹터, 512 바이트의 각 섹터) 파티션 (Linux에만 해당)
 
-VHD를 제출할 때 VHD의 첫 2048 KB가 비어 있는지 확인 합니다. 그렇지 않으면 요청이 실패 합니다.
+VHD를 제출할 때 VHD의 처음 2048 섹터 (1MB)가 비어 있는지 확인 합니다. 그렇지 않으면 요청이 실패 합니다. 이는 부팅/OS 디스크에 적용 되며 추가 데이터 디스크에는 적용 되지 않습니다.
 
 >[!NOTE]
->Azure Marketplace에서 가져온 Azure Windows 기본 이미지를 기반으로 하는 특정 이미지의 경우 청구 태그를 확인 하 고 청구 태그가 있고 내부 사용 가능한 값과 일치 하는 경우 MB 파티션을 무시 합니다.
+>Azure Marketplace에서 가져온 Azure Windows 기본 이미지를 기반으로 하는 특수 이미지와 같은 특정 이미지의 경우 VHD의 처음 1MB (2048 섹터)가 비어 있는지 확인 하세요. 
 
-### <a name="create-a-first-mb-2048-kb-partition-on-an-empty-vhd"></a>빈 VHD에 첫 번째 MB (2048 KB) 파티션 만들기
+### <a name="create-a-first-1mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>빈 VHD에 첫 번째 1MB (2048 섹터, 각 512 바이트의 섹터)를 만듭니다.
 
 이러한 단계는 Linux에만 적용 됩니다.
 
@@ -386,7 +386,7 @@ VHD를 제출할 때 VHD의 첫 2048 KB가 비어 있는지 확인 합니다. �
    1. _첫 번째 섹터_ 값으로 2048를 입력 합니다. _마지막 섹터_ 를 기본값으로 그대로 둘 수 있습니다.
 
       >[!IMPORTANT]
-      >모든 기존 데이터는 2048 KB까지 지워집니다. 새 파티션을 만들기 전에 VHD를 백업 합니다.
+      >모든 기존 데이터는 2048 섹터 (512 바이트의 각 섹터)까지 지워집니다. 새 파티션을 만들기 전에 VHD를 백업 합니다.
 
       ![지운 데이터의 명령 및 출력을 보여 주는 Putty client 명령줄 스크린샷](./media/create-vm/vm-certification-issues-solutions-22.png)
 
@@ -400,7 +400,7 @@ VHD를 제출할 때 VHD의 첫 2048 KB가 비어 있는지 확인 합니다. �
 
 1. VM에서 VHD를 분리 하 고 VM을 삭제 합니다.
 
-### <a name="create-a-first-mb-2048-kb-partition-by-moving-existing-data-on-vhd"></a>VHD에서 기존 데이터를 이동 하 여 첫 번째 MB (2048 KB) 파티션 만들기
+### <a name="create-a-first-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>VHD에서 기존 데이터를 이동 하 여 첫 번째 MB 2048 (512 바이트의 각 섹터) 파티션을 만듭니다.
 
 이러한 단계는 Linux에만 적용 됩니다.
 
@@ -480,7 +480,7 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 데이터 디스크와 관련 된 오류에 대 한 해결 방법은 다음 표를 사용 하십시오.
 
-|오류|이유|해결 방법|
+|오류|이유|솔루션|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|이 오류는 제품이 제출 될 때 잘못 된 LUN (논리 단위 번호)으로 인해 발생할 수 있습니다.|데이터 디스크에 대 한 LUN 번호 시퀀스가 파트너 센터에 있는지 확인 합니다.|
 |`DataDisk- NotFound:`|이 오류는 데이터 디스크가 지정 된 SAS URL에 있지 않기 때문에 발생할 수 있습니다.|데이터 디스크가 지정 된 SAS URL에 있는지 확인 합니다.|

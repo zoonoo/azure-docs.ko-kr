@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: deb05083ca45c24a58cabf9e923b706575ef093b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 484dd8313710332660bb20d55f3dac2aa21bbc61
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562143"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232525"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>기존 NPS (네트워크 정책 서버) 인프라를 Azure AD Multi-Factor Authentication와 통합
 
@@ -116,6 +116,8 @@ NPS 서버는 포트 80 및 443를 통해 다음 Url과 통신할 수 있어야 
 * *https: \/ /login.microsoftonline.com*
 * *https: \/ /provisioningapi.microsoftonline.com*
 * *https: \/ /aadcdn.msauth.net*
+* *https: \/ /www.powershellgallery.com*
+* *https: \/ /aadcdn.msftauthimages.net*
 
 ## <a name="prepare-your-environment"></a>환경 준비
 

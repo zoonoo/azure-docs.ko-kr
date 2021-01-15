@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: d5f5e1098b688fc307bae5ea3538c818cb529b0a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962400"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232304"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -420,8 +420,8 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 - Windows 통합 인증은 ‘페더레이션’ 사용자(즉, Active Directory에서 만들어지고 Azure AD에서 지원하는 사용자)만 지원합니다. Active Directory 지원 없이 Azure AD에서 직접 만들어진 사용자(‘관리형’ 사용자)는 이 인증 흐름을 사용할 수 없습니다. 이러한 제한은 사용자 이름 및 암호 흐름에 영향을 주지 않습니다.
 - IWA는 .NET Framework, .NET Core 및 UWP(유니버설 Windows 플랫폼)용으로 작성된 앱을 위한 것입니다.
 - IWA는 [MFA(다단계 인증)](../authentication/concept-mfa-howitworks.md)를 우회하지 않습니다. MFA가 구성된 경우, MFA 질문이 필요하면 IWA가 실패할 수 있습니다. MFA에는 사용자 상호 작용이 필요하기 때문입니다.
-  > [!NOTE]
-  > 이 부분은 까다로운 지점입니다. IWA는 비대화형이지만 MFA에는 사용자 상호 작용이 필요합니다. ID 공급자가 MFA를 언제 요구할지는 개발자가 아니라 테넌트 관리자가 제어합니다. 일반적으로 다른 국가/지역에서 로그인할 때, VPN을 통해 회사 네트워크에 연결되어 있지 않을 때, 그리고 간혹 VPN을 통해 연결되어 있을 때도 MFA가 필요합니다. 결정적 규칙 세트가 적용되지 않습니다. Azure AD는 AI를 사용하여 MFA가 필요한지 여부를 계속해서 학습합니다. IWA가 실패할 경우 대화형 인증이나 디바이스 코드 흐름과 같은 사용자 프롬프트를 사용하세요.
+  
+    IWA는 비대화형이지만 MFA에는 사용자 상호 작용이 필요합니다. ID 공급자가 MFA를 언제 요구할지는 개발자가 아니라 테넌트 관리자가 제어합니다. 일반적으로 다른 국가/지역에서 로그인할 때, VPN을 통해 회사 네트워크에 연결되어 있지 않을 때, 그리고 간혹 VPN을 통해 연결되어 있을 때도 MFA가 필요합니다. 결정적 규칙 세트가 적용되지 않습니다. Azure AD는 AI를 사용하여 MFA가 필요한지 여부를 계속해서 학습합니다. IWA가 실패할 경우 대화형 인증이나 디바이스 코드 흐름과 같은 사용자 프롬프트를 사용하세요.
 
 - `PublicClientApplicationBuilder`에 포함되어 전달되는 인증 기관은 다음이어야 합니다.
   - 테넌트(`https://login.microsoftonline.com/{tenant}/` 형식, 여기서 `tenant`는 테넌트 ID 또는 테넌트와 연결된 도메인을 나타내는 GUID).
@@ -602,14 +602,13 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 
 ### <a name="this-flow-isnt-recommended"></a>이 흐름은 권장되지 않습니다.
 
-애플리케이션이 사용자에게 암호를 묻는 것은 안전하지 않으므로 이 흐름은 ‘권장되지 않습니다’. 자세한 내용은 [What’s the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)(늘어나는 암호 문제에 대한 해결책)를 참조하세요. Windows 도메인에 가입된 컴퓨터에서 자동으로 토큰을 획득하는 기본 흐름은 [Windows 통합 인증](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication)입니다. [디바이스 코드 흐름](https://aka.ms/msal-net-device-code-flow)을 사용할 수도 있습니다.
+사용자에 게 암호를 묻는 메시지를 표시 하는 것은 안전 하지 않으므로 사용자 이름 및 암호 흐름은 사용 *하지 않는 것이 좋습니다* . 자세한 내용은 [암호의 증가 하는 문제에 대 한 해결책은 무엇 인가요?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) 를 참조 하세요. Windows 도메인에 가입된 컴퓨터에서 자동으로 토큰을 획득하는 기본 흐름은 [Windows 통합 인증](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication)입니다. [디바이스 코드 흐름](https://aka.ms/msal-net-device-code-flow)을 사용할 수도 있습니다.
 
-> [!NOTE]
-> 사용자 이름과 암호를 사용하는 것은 DevOps 시나리오와 같은 몇몇 경우에 유용합니다. 그러나 자체 UI를 제공하는 대화형 시나리오에서 사용자 이름과 암호를 사용하려는 경우에는 다른 방법을 고민하는 것이 좋습니다. 사용자 이름과 암호를 사용하면 다음을 포기하는 것입니다.
->
-> - 최신 ID의 핵심 개념. 공유 비밀이 가로채기를 당할 수 있으므로 암호는 피싱될 수 있고 리플레이될 수 있습니다. 암호 없는 인증과 호환되지 않습니다.
-> - MFA를 사용해야 하는 사용자의 경우 상호 작용이 없어 로그인할 수 없습니다.
-> - 사용자가 SSO(Single Sign-On)를 사용할 수 없습니다.
+사용자 이름과 암호를 사용하는 것은 DevOps 시나리오와 같은 몇몇 경우에 유용합니다. 그러나 자체 UI를 제공하는 대화형 시나리오에서 사용자 이름과 암호를 사용하려는 경우에는 다른 방법을 고민하는 것이 좋습니다. 사용자 이름과 암호를 사용하면 다음을 포기하는 것입니다.
+
+- 최신 ID의 핵심 개념. 공유 비밀이 가로채기를 당할 수 있으므로 암호는 피싱될 수 있고 리플레이될 수 있습니다. 암호 없는 인증과 호환되지 않습니다.
+- MFA를 사용해야 하는 사용자의 경우 상호 작용이 없어 로그인할 수 없습니다.
+- 사용자가 SSO(Single Sign-On)를 사용할 수 없습니다.
 
 ### <a name="constraints"></a>제약 조건
 

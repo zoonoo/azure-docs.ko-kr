@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ceb5acbee2e572b1859a5577b58dd586fc924b3b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653285"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232389"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft ID 플랫폼 액세스 토큰
 
@@ -91,7 +91,7 @@ JWT(JSON Web Token)는 세 부분으로 분할됩니다.
 
 ### <a name="payload-claims"></a>페이로드 클레임
 
-| 클레임 | 형식 | Description |
+| 클레임 | 형식 | 설명 |
 |-----|--------|-------------|
 | `aud` | 문자열, 앱 ID URI 또는 GUID | 토큰의 의도 된 수신자 (대상 그룹)를 식별 합니다.  API는이 값의 유효성을 검사 하 고 값이 일치 하지 않을 경우 토큰을 거부 해야 합니다. V2.0 토큰에서이는 항상 API의 클라이언트 ID이 고, v1.0 토큰에서는 클라이언트가 토큰을 요청한 방법에 따라 요청에 사용 되는 클라이언트 ID 또는 리소스 URI가 될 수 있습니다.|
 | `iss` | 문자열, STS URI | 토큰을 생성하고 반환하는 STS(보안 토큰 서비스) 및 사용자가 인증된 Azure AD 테넌트를 식별합니다. 발급된 토큰은 v2.0 토큰이며(`ver` 클레임 참조), URI는 `/v2.0`에서 종료됩니다. 사용자가 Microsoft 계정의 소비자 사용자임을 나타내는 GUID는 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. 앱은 클레임의 GUID 부분을 사용 하 여 앱에 로그인 할 수 있는 테 넌 트 집합 (해당 하는 경우)을 제한할 수 있습니다. |
@@ -292,10 +292,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 - 음성
 - PIN
 
-> [!NOTE]
-> Windows 10의 PRT(기본 새로 고침 토큰)는 자격 증명에 따라 분리됩니다. 예를 들어 Windows Hello 및 암호에는 서로 격리된 각각의 PRT가 있습니다. 사용자가 Hello 자격 증명(PIN 또는 생체 인식)으로 로그인한 다음, 암호를 변경하는 경우 이전에 획득된 암호 기반 PRT는 철회됩니다. 암호를 사용하여 다시 로그인하면 이전 PRT가 무효화되고 새 PRT가 요청됩니다.
->
-> 새로 고침 토큰은 새 액세스 토큰과 새로 고침 토큰을 가져오는 데 사용하면 무효화되거나 취소되지 않습니다.  그러나 새 토큰에는 새로운 만료 시간이 있으므로 앱에서 사용하는 즉시 이전 항목을 삭제하고 새 토큰으로 대체해야 합니다.
+기본 새로 고침 토큰에 대 한 자세한 내용은 [기본 새로 고침 토큰](../devices/concept-primary-refresh-token.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

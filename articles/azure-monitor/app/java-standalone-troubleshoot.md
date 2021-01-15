@@ -4,12 +4,12 @@ description: Azure Monitor에 대 한 Java 에이전트 문제를 해결 하는 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 54bf2440dff20fc757f37e3f31a53c57ebd59120
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 2876abd3749c9e56cef462e41b8268135f82cd12
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133194"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232219"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>문제 해결 가이드: Java 용 Azure Monitor Application Insights
 
@@ -17,7 +17,7 @@ ms.locfileid: "98133194"
 
 ## <a name="check-the-self-diagnostic-log-file"></a>자체 진단 로그 파일 확인
 
-기본적으로 Application Insights 용 Java 3.0 에이전트는 `applicationinsights.log` 파일을 보관 하는 동일한 디렉터리에 라는 로그 파일을 생성 합니다 `applicationinsights-agent-3.0.0.jar` .
+기본적으로 Application Insights 용 Java 3.0 에이전트는 `applicationinsights.log` 파일을 보관 하는 동일한 디렉터리에 라는 로그 파일을 생성 합니다 `applicationinsights-agent-3.0.1.jar` .
 
 이 로그 파일은 발생 했을 수 있는 문제에 대 한 힌트를 확인 하는 첫 번째 장소입니다.
 

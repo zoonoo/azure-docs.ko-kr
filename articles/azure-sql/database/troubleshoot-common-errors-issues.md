@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: 7c797c7e002f40a28e4be674c125c6ea5d60a13f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ec61f2c67576d6e144d8d4bb7e8ecaaa157db0a9
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219065"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233375"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 연결 문제 및 기타 오류 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,13 +42,13 @@ Azure 인프라에 는 SQL Database 서비스에 과도한 워크로드 부하�
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>일시적인 연결 문제를 해결하는 단계
 
 1. [Microsoft Azure 서비스 대시보드](https://azure.microsoft.com/status)에서 애플리케이션이 오류를 보고한 시간 동안 발생한 알려진 서비스 중단을 확인합니다.
-2. Azure SQL Database와 같이 클라우드 서비스에 연결하는 애플리케이션에서는 주기적으로 다시 구성 이벤트가 발생하므로, 이러한 이벤트를 사용자에게 애플리케이션 오류로 표시하는 대신 해당 오류를 처리하는 다시 시도 논리를 구현해야 합니다.
+2. Azure SQL Database와 같은 클라우드 서비스에 연결 하는 응용 프로그램은 주기적인 재구성 이벤트를 필요로 하며, 사용자에 게 응용 프로그램 오류를 발생 시키는 대신 다시 시도 논리를 구현 하 여 이러한 오류를 처리 해야 합니다.
 3. 데이터베이스가 리소스 한계에 도달하면 일시적인 연결 문제가 발생한 것처럼 보일 수 있습니다. [리소스 한도](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached)를 참조하세요.
 4. 연결 문제가 계속 발생하거나 애플리케이션에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options)를 선택하여 Azure 지원 요청을 접수합니다.
 
 #### <a name="implementing-retry-logic"></a>재시도 논리 구현
 
-자체 해결을 위한 일시적 오류 시간이 지난 후 연결을 다시 시도할 수 있도록 클라이언트 프로그램에 재시도 논리가 있는 것이 좋습니다.  첫 번째 재시도 전에 5초간 지연하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
+자체 해결을 위한 일시적 오류 시간이 지난 후 연결을 다시 시도할 수 있도록 클라이언트 프로그램에 재시도 논리가 있는 것이 좋습니다.  첫 번째 재시도 전에 5초간 지연하는 것이 좋습니다. 5 초 보다 짧은 지연 후 다시 시도 하면 클라우드 서비스가 과도 하 게 발생할 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
 다시 시도 논리의 코드 예제는 다음을 참조하십시오.
 
@@ -104,49 +104,46 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 일반적으로 서비스 관리자는 다음 단계를 사용 하 여 로그인 자격 증명을 추가할 수 있습니다.
 
 1. SSMS (SQL Server Management Studio)를 사용 하 여 서버에 로그인 합니다.
-2. 다음 SQL 쿼리를 실행 하 여 로그인 이름이 사용 하지 않도록 설정 되어 있는지 확인 합니다.
+2. Master 데이터베이스에서 다음 SQL 쿼리를 실행 하 여 로그인 이름이 사용 하지 않도록 설정 되었는지 여부를 확인 합니다.
 
    ```sql
-   SELECT name, is_disabled FROM sys.sql_logins
+   SELECT name, is_disabled FROM sys.sql_logins;
    ```
 
 3. 해당 이름이 비활성화된 경우 다음 문을 사용하여 활성화합니다.
 
    ```sql
-   Alter login <User name> enable
+   ALTER LOGIN <User name> ENABLE;
    ```
 
-4. SQL 로그인 사용자 이름이 존재 하지 않는 경우 다음 단계를 수행 하 여 만듭니다.
-
-   1. SSMS에서 **보안** 을 두 번 클릭 하 여 확장 합니다.
-   2. **로그인** 을 마우스 오른쪽 단추로 클릭 한 다음 **새 로그인** 을 선택 합니다.
-   3. 자리 표시 자가 있는 생성 된 스크립트에서 다음 SQL 쿼리를 편집 하 고 실행 합니다.
+4. SQL 로그인 사용자 이름이 없으면 다음 SQL 쿼리를 편집 하 고 실행 하 여 새 SQL 로그인을 만듭니다.
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = '<password, sysname, Change_Password>'
+   WITH PASSWORD = '<password, sysname, Change_Password>';
    GO
    ```
 
-5. **데이터베이스** 를 두 번 클릭 합니다.
+5. SSMS 개체 탐색기에서 **데이터베이스** 를 확장 합니다.
 6. 사용자에 게 권한을 부여 하려는 데이터베이스를 선택 합니다.
-7. **보안** 을 두 번 클릭 합니다.
-8. **사용자** 를 마우스 오른쪽 단추로 클릭 한 다음 **새 사용자** 를 선택 합니다.
-9. 자리 표시 자가 있는 생성 된 스크립트에서 다음 SQL 쿼리를 편집 하 고 실행 합니다.
+7. **보안** 을 마우스 오른쪽 단추로 클릭 한 다음 **새로 만들기**, **사용자** 를 차례로 선택 합니다.
+8. 자리 표시 자가 있는 생성 된 스크립트에서 다음 SQL 쿼리를 편집 하 고 실행 합니다.
 
    ```sql
    CREATE USER <user_name, sysname, user_name>
    FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>
+   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
    GO
-   -- Add user to the database owner role
 
-   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
+   -- Add user to the database owner role
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>';
    GO
    ```
 
+   를 사용 하 여 특정 `sp_addrolemember` 사용자를 특정 데이터베이스 역할에 매핑할 수도 있습니다.
+
    > [!NOTE]
-   > 를 사용 하 여 특정 `sp_addrolemember` 사용자를 특정 데이터베이스 역할에 매핑할 수도 있습니다.
+   > Azure SQL Database에서는 데이터베이스 역할 멤버 자격을 관리 하기 위한 새로운 [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql) 구문을 고려 합니다.  
 
 자세한 내용은 [Azure SQL Database에서 데이터베이스 및 로그인 관리](./logins-create-manage.md)를 참조 하세요.
 
@@ -183,7 +180,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 - 장기 실행 쿼리가 있는지 여부를 확인 합니다.
 
   > [!NOTE]
-  > 이는 문제를 해결 하지 못할 수 있는 전적 방법입니다. 쿼리 차단 문제 해결에 대 한 자세한 내용은 [AZURE SQL 차단 문제 이해 및 해결](understand-resolve-blocking.md)을 참조 하세요.
+  > 이는 문제를 해결 하지 못할 수 있는 전적 방법입니다. 장기 실행 또는 차단 쿼리의 문제 해결에 대 한 자세한 내용은 [Azure SQL Database 차단 문제 이해 및 해결](understand-resolve-blocking.md)을 참조 하세요.
 
 1. 다음 SQL 쿼리를 실행 하 여 [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 보기를 확인 하 고 차단 요청을 확인 합니다.
 
@@ -191,10 +188,13 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. 헤드 차단기에 대 한 **입력 버퍼** 를 확인 합니다.
-3. 헤드 차단기 쿼리를 조정 합니다.
+1. [Sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) 동적 관리 함수를 사용 하 여 헤드 차단기에 대 한 **입력 버퍼** 를 확인 하 고, 다음과 같은 잘못 된 쿼리의 session_id를 확인 합니다.
 
-   심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)를 참조 하세요. 
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
+
+1. 헤드 차단기 쿼리를 조정 합니다.
 
 블로킹 및 장기 실행 쿼리를 처리 하는 것에도 불구 하 고 데이터베이스가 지속적으로 제한에 도달한 경우 더 많은 리소스 [버전이](https://azure.microsoft.com/pricing/details/sql-database/)있는 버전으로 업그레이드 하는 것이 좋습니다.
 
@@ -254,12 +254,18 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. 장기 실행 쿼리에 대 한 입력 버퍼를 확인 합니다.
+2. [Sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) 동적 관리 함수를 사용 하 여 헤드 차단기에 대 한 **입력 버퍼** 를 확인 하 고, 다음과 같은 잘못 된 쿼리의 session_id를 확인 합니다.
+
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
+
 3. 쿼리를 튜닝 합니다.
 
-또한 쿼리를 일괄 처리 하는 것이 좋습니다. 일괄 처리에 대 한 자세한 내용은 [일괄 처리를 사용 하 여 SQL Database 응용 프로그램 성능 향상](../performance-improve-use-batching.md)을 참조 하세요.
+    > [!Note]
+    > Azure SQL Database 차단 문제 해결에 대 한 자세한 내용은 [차단 문제 Azure SQL Database 이해 및 해결](understand-resolve-blocking.md)을 참조 하세요.
 
-심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)를 참조 하세요.
+또한 쿼리를 일괄 처리 하는 것이 좋습니다. 일괄 처리에 대 한 자세한 내용은 [일괄 처리를 사용 하 여 SQL Database 응용 프로그램 성능 향상](../performance-improve-use-batching.md)을 참조 하세요.
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>오류 40551: TEMPDB 사용량이 너무 많아 세션이 종료 되었습니다.
 
@@ -297,7 +303,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 | 오류 코드 | 심각도 | 설명 |
 | ---:| ---:|:--- |
 | 10928 |20 |리소스 ID: %d입니다. 데이터베이스에 대한 %s 제한이 %d이며 이 제한에 도달했습니다. 자세한 내용은 [단일 데이터베이스 및 풀링된 데이터베이스에 대한 SQL Database 리소스 한도](resource-limits-logical-server.md)를 참조하세요.<br/><br/>리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다.<br/><br/>이 오류 및 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요. <br/>&bull;&nbsp; [논리 SQL server 리소스 제한](resource-limits-logical-server.md)<br/>&bull;&nbsp; [단일 데이터베이스에 대 한 DTU 기반 제한](service-tiers-dtu.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [단일 데이터베이스에 대 한 vcore 기반 제한](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Azure SQL Managed Instance 리소스 제한](../managed-instance/resource-limits.md)입니다. |
-| 10929 |20 |리소스 ID: %d입니다. %s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다. 자세한 내용은 다음을 참조하세요. <br/>&bull;&nbsp; [논리 SQL server 리소스 제한](resource-limits-logical-server.md)<br/>&bull;&nbsp; [단일 데이터베이스에 대 한 DTU 기반 제한](service-tiers-dtu.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [단일 데이터베이스에 대 한 vcore 기반 제한](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Azure SQL Managed Instance 리소스 제한](../managed-instance/resource-limits.md)입니다. <br/>그렇지 않은 경우 나중에 다시 시도하세요. |
+| 10929 |20 |리소스 ID: %d입니다. %s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다. 자세한 내용은 다음을 참조하세요. <br/>&bull;&nbsp; [논리 SQL server 리소스 제한](resource-limits-logical-server.md)<br/>&bull;&nbsp; [단일 데이터베이스에 대 한 DTU 기반 제한](service-tiers-dtu.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [단일 데이터베이스에 대 한 vcore 기반 제한](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Azure SQL Managed Instance 리소스 제한](../managed-instance/resource-limits.md)입니다. <br/>그렇지 않으면 나중에 다시 시도 하세요. |
 | 40544 |20 |데이터베이스가 크기 할당량에 도달했습니다. 데이터를 분할 또는 삭제하거나 인덱스를 삭제하거나 가능한 해결 방법에 대한 설명서를 참조하십시오. 데이터베이스 크기를 조정 하려면 [단일 데이터베이스 리소스 크기 조정](single-database-scale.md) 및 [탄력적 풀 리소스 크기 조정](elastic-pool-scale.md)을 참조 하세요.|
 | 40549 |16 |트랜잭션을 오래 실행하여 세션이 종료됩니다. 트랜잭션을 줄여 보세요. 일괄 처리에 대 한 자세한 내용은 [일괄 처리를 사용 하 여 SQL Database 응용 프로그램 성능 향상](../performance-improve-use-batching.md)을 참조 하세요.|
 | 40550 |16 |잠금을 너무 많이 획득하여 세션이 종료되었습니다. 단일 트랜잭션에서 읽거나 수정하는 행 수를 줄여 보세요. 일괄 처리에 대 한 자세한 내용은 [일괄 처리를 사용 하 여 SQL Database 응용 프로그램 성능 향상](../performance-improve-use-batching.md)을 참조 하세요.|
@@ -311,14 +317,14 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 
 | 오류 코드 | 심각도 | 설명 | 정정 작업 |
 |:--- |:--- |:--- |:--- |
-| 1132 | 17 |탄력적 풀이 스토리지 용량 한도에 도달했습니다. 탄력적 풀의 스토리지 사용량은 (%d)MB를 초과할 수 없습니다. 탄력적 풀이 스토리지 용량 한도에 도달했을 때 데이터베이스에 데이터를 기록하려고 했습니다. 리소스 제한에 대 한 자세한 내용은 다음을 참조 하세요. <br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)입니다. <br/> |가능하다면 탄력적 풀의 DTU를 늘리거나 탄력적 풀에 스토리지를 추가하여 스토리지 용량 한도를 늘리거나, 탄력적 풀에 있는 개별 데이터베이스에서 사용하는 스토리지를 줄이거나, 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. 탄력적 풀 크기 조정에 대해서는 [탄력적 풀 리소스 크기 조정](elastic-pool-scale.md)을 참조 하세요.|
-| 10929 | 16 |%s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 리소스 제한에 대 한 자세한 내용은 다음을 참조 하세요. <br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)입니다. <br/> 그렇지 않은 경우 나중에 다시 시도하세요. 데이터베이스당 DTU/vCore 최솟값, 데이터베이스당 DTU/vCore 최댓값. 탄력적 풀에 있는 전체 데이터베이스의 동시 작업자(요청) 수 합계가 풀 한도를 초과하려고 했습니다. |가능하다면 탄력적 풀의 DTU 또는 vCore를 늘려 작업자 한도를 늘리거나 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
-| 40844 | 16 |서버 '%ls'에 있는 데이터베이스 '%ls'은(는) 탄력적 풀에 포함된 '%ls' 버전 데이터베이스이며, 연속 복사 관계를 가질 수 없습니다.  |N/A |
+| 1132 | 17 |탄력적 풀이 스토리지 용량 한도에 도달했습니다. 탄력적 풀의 스토리지 사용량은 (%d)MB를 초과할 수 없습니다. 탄력적 풀이 스토리지 용량 한도에 도달했을 때 데이터베이스에 데이터를 기록하려고 했습니다. 리소스 제한에 대 한 자세한 내용은 다음을 참조 하세요. <br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)입니다. <br/> |가능하다면 탄력적 풀의 DTU를 늘리거나 탄력적 풀에 스토리지를 추가하여 스토리지 용량 한도를 늘리거나, 탄력적 풀에 있는 개별 데이터베이스에서 사용하는 스토리지를 줄이거나, 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. 탄력적 풀 크기 조정에 대해서는 [탄력적 풀 리소스 크기 조정](elastic-pool-scale.md)을 참조 하세요. 데이터베이스에서 사용 하지 않는 공간을 제거 하는 방법에 대 한 자세한 내용은 [Azure SQL Database의 데이터베이스에 대 한 파일 공간 관리](file-space-manage.md)를 참조 하세요.|
+| 10929 | 16 |%s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 리소스 제한에 대 한 자세한 내용은 다음을 참조 하세요. <br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)입니다. <br/> 그렇지 않으면 나중에 다시 시도 하세요. 데이터베이스당 DTU/vCore 최솟값, 데이터베이스당 DTU/vCore 최댓값. 탄력적 풀에 있는 전체 데이터베이스의 동시 작업자(요청) 수 합계가 풀 한도를 초과하려고 했습니다. |가능하다면 탄력적 풀의 DTU 또는 vCore를 늘려 작업자 한도를 늘리거나 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
+| 40844 | 16 |서버 '%ls'에 있는 데이터베이스 '%ls'은(는) 탄력적 풀에 포함된 '%ls' 버전 데이터베이스이며, 연속 복사 관계를 가질 수 없습니다.  |해당 없음 |
 | 40857 | 16 |서버: '%ls'에서 탄력적 풀을 찾을 수 없음, 탄력적 풀 이름: '%ls'. 지정한 탄력적 풀이 지정한 서버에 존재하지 않습니다. | 유효한 탄력적 풀 이름을 입력하세요. |
 | 40858 | 16 |탄력적 풀 '%ls'이(가) 서버 '%ls'에 이미 있습니다. 지정한 탄력적 풀이 지정한 서버에 이미 있습니다. | 새 탄력적 풀 이름을 입력하세요. |
 | 40859 | 16 |탄력적 풀이 서비스 계층 '%ls'을(를) 지원하지 않습니다. 지정한 서비스 계층은 탄력적 풀 프로비저닝에 대해 지원되지 않습니다. |기본 서비스 계층을 사용하려면 오류를 수정하거나 서비스 계층을 빈 상태로 두세요. |
 | 40860 | 16 |탄력적 풀 '%ls' 및 서비스 목표'%ls'의 조합은 유효하지 않습니다. 리소스 종류가 'ElasticPool'로 지정된 경우에만 탄력적 풀과 서비스 계층을 함께 지정할 수 있습니다. |탄력적 풀과 서비스 계층의 올바른 조합을 지정하세요. |
-| 40861 | 16 |데이터베이스 버전 '%.*ls'이(가) '%.* ls'인 탄력적 풀 서비스 계층과 다를 수 없습니다. 데이터베이스 버전이 탄력적 풀 서비스 계층과 다릅니다. |탄력적 풀 서비스 계층과 다른 데이터베이스 버전을 지정하지 마세요.  데이터베이스 버전은 지정할 필요가 없습니다. |
+| 40861 | 16 |데이터베이스 버전 '%.*ls'이(가) '%.* ls'인 탄력적 풀 서비스 계층과 다를 수 없습니다. 데이터베이스 버전이 탄력적 풀 서비스 계층과 다릅니다. |탄력적 풀 서비스 계층과 다른 데이터베이스 버전을 지정 하지 마세요.  데이터베이스 버전은 지정할 필요가 없습니다. |
 | 40862 | 16 |탄력적 풀 서비스 목표를 지정한 경우 탄력적 풀 이름을 지정해야 합니다. 탄력적 풀 서비스 목표가 탄력적 풀을 고유하게 식별하지 못합니다. |탄력적 풀 서비스 목표를 사용하는 경우 탄력적 풀 이름을 지정하세요. |
 | 40864 | 16 |탄력적 풀의 DTU는 서비스 계층 '%.*ls'에 대해 최소 (%d) DTU 이상이어야 합니다. 탄력적 풀의 DTU를 최소 한도 아래로 설정하려고 했습니다. |탄력적 풀의 DTU를 최소 한도 이상으로 다시 설정하세요. |
 | 40865 | 16 |탄력적 풀의 DTU는 서비스 계층 '%.*ls'에 대해 (%d) DTU를 초과할 수 없습니다. 탄력적 풀의 DTU를 최대 한도 위로 설정하려고 했습니다. |탄력적 풀의 DTU를 최대 한도 미만으로 다시 설정하세요. |

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074185"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234004"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -131,7 +131,7 @@ WebJob 로그를 검토하려면:
 2. WebJob을 선택합니다.
 3. **출력 설정/해제** 단추를 선택합니다.
 4. 출력 파일을 다운로드하려면 **다운로드** 링크를 선택합니다.
-5. 개별 실행의 경우 **Individual Invoke** (개별 호출)를 선택합니다.
+5. 개별 실행의 경우 **Individual Invoke**(개별 호출)를 선택합니다.
 6. **출력 설정/해제** 단추를 선택합니다.
 7. 다운로드 링크를 선택합니다.
 
@@ -180,12 +180,12 @@ F12 추적을 캡처할 수 있는 두 가지 옵션이 있습니다.
 3. **네트워크** 탭이 선택되어 있는지 확인하고 녹색 **재생** 단추를 선택합니다.
 4. 문제를 재현하는 단계를 수행합니다.
 5. 빨간색 **중지** 단추를 선택합니다.
-6. **저장** 단추(디스크 아이콘)를 선택하고 HAR 파일을 저장합니다(Internet Explorer 및 Microsoft Edge의 경우). *또는* HAR 파일을 마우스 오른쪽 단추로 클릭하고 **콘텐츠와 함께 HAR 파일로 저장** (Chrome의 경우)을 선택합니다.
+6. **저장** 단추(디스크 아이콘)를 선택하고 HAR 파일을 저장합니다(Internet Explorer 및 Microsoft Edge의 경우). *또는* HAR 파일을 마우스 오른쪽 단추로 클릭하고 **콘텐츠와 함께 HAR 파일로 저장**(Chrome의 경우)을 선택합니다.
 
 ### <a name="f12-console-output"></a>F12 콘솔 출력
 
 1. **콘솔** 탭을 선택합니다.
-2. 하나 이상의 항목이 포함된 각 탭에 대해 탭( **오류** , **경고** 또는 **정보** )을 선택합니다. 탭이 선택 되어 있지 않으면 커서를 커서를 밖으로 이동 하면 탭 아이콘이 회색 이나 검은색입니다.
+2. 하나 이상의 항목이 포함된 각 탭에 대해 탭(**오류**, **경고** 또는 **정보**)을 선택합니다. 탭이 선택 되어 있지 않으면 커서를 커서를 밖으로 이동 하면 탭 아이콘이 회색 이나 검은색입니다.
 3. 창의 메시지 영역을 마우스 오른쪽 단추로 클릭하고 **모두 복사** 를 선택합니다.
 4. 복사된 텍스트를 파일에 붙여넣고 파일을 저장합니다.
 
@@ -284,7 +284,7 @@ App Service의 인증 및 권한 부여에 대한 자세한 문서는 다양한 
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>기본 *.azurewebsites.net 도메인을 내 Azure 웹앱의 사용자 지정 도메인으로 리디렉션하려면 어떻게 하나요?
 
-Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름* .azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가 하 고 사용자가 기본 *. azurewebsites.net 도메인에 액세스할 수 없도록 하려는 경우 기본 URL을 리디렉션할 수 있습니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
+Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름*.azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가 하 고 사용자가 기본 *. azurewebsites.net 도메인에 액세스할 수 없도록 하려는 경우 기본 URL을 리디렉션할 수 있습니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>App Service에 어떤 .NET 버전이 설치되어 있는지 확인하려면 어떻게 하나요?
 
@@ -317,3 +317,8 @@ Azure 자동 크기 조정이 웹앱 인스턴스의 크기를 예상대로 축�
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>온-프레미스 환경에서 App Service로 마이그레이션하려면 어떻게 하나요?
 
 Windows 및 Linux 웹 서버에서 App Service로 마이그레이션하려면 Azure App Service Migration Assistant를 사용하면 됩니다. 이 마이그레이션 도구는 필요에 따라 Azure에서 웹앱 및 데이터베이스 만들고 나서 콘텐츠를 게시합니다. 자세한 내용은 [Azure App Service Migration Assistant](https://appmigration.microsoft.com/)를 참조하세요.
+
+## <a name="why-is-my-certificate-issued-for-11-months-and-not-for-a-full-year"></a>내 인증서의 기간이 1년이 아닌 11개월로 발급된 이유는 무엇인가요?
+
+2020년 9월 1일 이후 발급된 모든 인증서의 경우 최대 기간은 397일입니다. 2020년 9월 1일 이전에 발급된 인증서의 최대 유효 기간은 갱신되거나 키가 다시 입력될 때까지 825일입니다. 2020년 9월 1일 이후에 갱신된 인증서는 이 변경 내용의 영향을 받게 되며 사용자는 갱신된 인증서의 유효 기간이 더 짧다는 것을 알 수 있습니다.
+GoDaddy는 기존 고객 인증서를 적용하는 동시에 새 요구 사항을 충족하는 구독 서비스를 구현했습니다. 새로 발급된 인증서가 만료되기 30일 전에 서비스는 기간을 원래 만료 날짜로 연장하는 두 번째 인증서를 자동으로 발급합니다. App Service는 GoDaddy를 사용하여 이 변경 내용을 해결하고 고객이 전체 인증서 기간을 받도록 합니다.

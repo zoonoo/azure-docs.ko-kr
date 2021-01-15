@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ce90ab160696e2c38d917a391eecb0d51a31282f
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 655a146ccde9c75629d0a991a6a3aafa91f40764
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740592"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233970"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>VM용 Azure Monitor 사용 개요
 
@@ -52,6 +52,9 @@ VM용 Azure Monitor는 Arc 확장 서비스를 사용할 수 있는 지역에서
 
 VM용 Azure Monitor는 Log Analytics 에이전트 및 종속성 에이전트를 지 원하는 모든 운영 체제를 지원 합니다. 전체 목록은 [Azure Monitor 에이전트 개요 ](../platform/agents-overview.md#supported-operating-systems) 를 참조 하세요.
 
+> [!IMPORTANT]
+> VM용 Azure Monitor 게스트 상태 기능은 공개 미리 보기로 제공 되는 동안 보다 제한 된 운영 체제를 지원 합니다. 자세한 목록은 [VM용 Azure Monitor 게스트 상태 (미리 보기) 사용](vminsights-health-enable.md) 을 참조 하세요.
+
 VM용 Azure Monitor를 지 원하는 종속성 에이전트의 Linux 지원에 대 한 다음 고려 사항 목록을 참조 하세요.
 
 - 기본 및 SMP Linux 커널 릴리스만 지원됩니다.
@@ -63,7 +66,7 @@ VM용 Azure Monitor를 지 원하는 종속성 에이전트의 Linux 지원에 �
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
 VM용 Azure Monitor에 Log Analytics 작업 영역이 필요 합니다. 이 작업 영역의 세부 정보 및 요구 사항은 [VM용 Azure Monitor에 대 한 Log Analytics 작업 영역 구성](vminsights-configure-workspace.md) 을 참조 하세요.
 ## <a name="agents"></a>에이전트
-VM용 Azure Monitor 하려면 모니터링할 가상 컴퓨터 또는 가상 컴퓨터 확장 집합에 다음 두 에이전트를 설치 해야 합니다. 이러한 에이전트를 설치 하 고 작업 영역에 연결 하는 것은 리소스를 등록 하기 위한 유일한 요구 사항입니다.
+VM용 Azure Monitor 하려면 모니터링할 가상 컴퓨터 또는 가상 컴퓨터 확장 집합에 다음 두 에이전트를 설치 해야 합니다. 리소스를 등록 하려면 이러한 에이전트를 설치 하 고 작업 영역에 연결 합니다.  이러한 에이전트의 네트워크 요구 사항은 [네트워크 요구 사항](../platform/log-analytics-agent.md#network-requirements) 을 참조 하세요.
 
 - [에이전트를 Log Analytics](../platform/log-analytics-agent.md)합니다. 가상 머신 또는 가상 머신 확장 집합에서 이벤트 및 성능 데이터를 수집 하 여 Log Analytics 작업 영역으로 전달 합니다. Azure 리소스의 Log Analytics 에이전트에 대 한 배포 방법에서는 [Windows](../../virtual-machines/extensions/oms-windows.md) 및 [Linux](../../virtual-machines/extensions/oms-linux.md)용 VM 확장을 사용 합니다.
 - 종속성 에이전트. [VM용 Azure Monitor의 맵 기능](vminsights-maps.md)에서 사용 되는 가상 컴퓨터 및 외부 프로세스 종속성에서 실행 중인 프로세스에 대 한 검색 된 데이터를 수집 합니다. 종속성 에이전트는 Log Analytics 에이전트를 사용 하 여 데이터를 Azure Monitor으로 배달 합니다. Azure 리소스에 대 한 종속성 에이전트 배포 방법에서는 [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) 및 [Linux](../../virtual-machines/extensions/agent-dependency-linux.md)용 VM 확장을 사용 합니다.
@@ -73,7 +76,7 @@ VM용 Azure Monitor 하려면 모니터링할 가상 컴퓨터 또는 가상 컴
 
 다음은 이러한 에이전트를 배포 하는 여러 가지 방법입니다. 
 
-| 방법 | Description |
+| 메서드 | Description |
 |:---|:---|
 | [Azure Portal](./vminsights-enable-portal.md) | 단일 가상 머신, 가상 머신 확장 집합 또는 Azure Arc와 연결 된 하이브리드 가상 머신에 두 에이전트를 모두 설치 합니다. |
 | [리소스 관리자 템플릿](vminsights-enable-resource-manager.md) | 지원 되는 방법 중 하나를 사용 하 여 CLI 및 PowerShell을 비롯 한 리소스 관리자 템플릿을 배포 하는 두 에이전트를 모두 설치 합니다. |

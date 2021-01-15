@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694884"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232763"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>정보를 사용 하 여 Azure Load Balancer 모니터링 및 구성
 
@@ -68,7 +68,7 @@ Load Balancer의 정보 블레이드에서 더 자세한 메트릭을 선택 하
 ### <a name="flow-distribution"></a>흐름 분포
 흐름 분산 탭은 백 엔드 인스턴스가 받고 생성 하는 흐름 수를 시각화 하 고 관리 하는 데 도움이 됩니다. 인바운드 및 아웃 바운드 트래픽에 대 한 흐름 생성 비율 및 흐름 수와 각 VM 및 가상 머신 확장 집합 인스턴스가 수신 하는 네트워크 트래픽을 보여 줍니다. 
 
-이러한 보기는 Load Balancer 구성 또는 트래픽 패턴이 불균형 트래픽으로 선행 되는지 여부에 대 한 피드백을 제공 합니다. 예를 들어 세션 선호도가 구성 되어 있고 단일 클라이언트가 불균형 요청 수를 만드는 경우입니다. 또한 컴퓨터 크기에 대 한 [VM 당 흐름 제한](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) 에 근접 하 고 있는지 여부도 알 수 있습니다.
+이러한 보기는 Load Balancer 구성 또는 트래픽 패턴이 불균형 트래픽으로 선행 되는지 여부에 대 한 피드백을 제공 합니다. 예를 들어 세션 선호도가 구성 되어 있고 단일 클라이언트가 불균형 요청 수를 만드는 경우입니다. 또한 컴퓨터 크기에 대 한 [VM 당 흐름 제한](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) 에 근접 하 고 있는지 여부도 알 수 있습니다.
 
 ### <a name="connection-monitors"></a>연결 모니터
 연결 모니터 탭에는 구성한 모든 [연결 모니터](../network-watcher/connection-monitor.md)  의 글로벌 맵에 대 한 왕복 대기 시간이 표시 됩니다. 이러한 시각적 개체는 엄격한 대기 시간 요구 사항이 있는 서비스에 대 한 유용한 정보를 제공 합니다. 요구 사항에 맞게 추가 지역 배포를 추가 하거나 [지역 간 부하 분산](./cross-region-overview.md) 모델로 이동 해야 할 수 있습니다.

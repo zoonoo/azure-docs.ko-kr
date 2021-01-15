@@ -277,4 +277,4 @@ az group delete --name {name of the resource group}
 매개 변수, 변수 등을 사용하여 템플릿을 만드는 프로세스를 수행하여 ARM 템플릿 사용에 대해 자세히 알아보려면 다음을 시도하세요.
 
 > [!div class="nextstepaction"]
-> 첫 번째 ARM 템플릿 만들기 및 배포[
+> [첫 번째 ARM 템플릿 만들기 및 배포](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)

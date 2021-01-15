@@ -4,14 +4,14 @@ description: Azure Logic Apps 및 Power Automate용 식의 함수에 대한 참�
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 222f6ebacb6139ca26a6f1cdd0f896270c9b2fc2
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.topic: reference
+ms.date: 01/13/2021
+ms.openlocfilehash: fe40cbe84e8e3341b03c6c8e11701fe3db6bc3d0
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034298"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234225"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -1136,7 +1136,7 @@ bool(<value>)
 
 | 반환 값 | Type | 설명 |
 | ------------ | ---- | ----------- |
-| `true` 또는 `false` | 부울 | 지정 된 값의 부울 버전입니다. |
+| `true` 또는 `false` | Boolean | 지정 된 값의 부울 버전입니다. |
 ||||
 
 *출력*
@@ -2532,11 +2532,17 @@ iterationIndexes('<loopName>')
 
 ### <a name="json"></a>json :
 
-JSON(JavaScript Object Notation) 형식 값 또는 문자열이나 XML에 대한 개체를 반환합니다.
+JavaScript Object Notation (JSON) 형식 값, 개체 또는 문자열 또는 XML에 대 한 개체 배열을 반환 합니다.
 
 ```
 json('<value>')
+json(xml('value'))
 ```
+
+> [!IMPORTANT]
+> 출력의 구조를 정의 하는 XML 스키마가 없으면 함수는 입력에 따라 구조가 예상 형식과 크게 다른 결과를 반환할 수 있습니다.
+>  
+> 이 동작은 출력이 중요 한 비즈니스 시스템이 나 솔루션 등의 잘 정의 된 계약을 준수 해야 하는 시나리오에 적합 하지 않습니다.
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -2545,12 +2551,12 @@ json('<value>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | JSON 원시 형식 또는 개체 | JSON 고유 형식 값 또는 지정한 문자열이나 XML에 대한 개체입니다. 문자열이 Null이면, 함수는 빈 개체를 반환합니다. |
+| <*JSON-result*> | JSON 네이티브 형식, 개체 또는 배열 | 입력 문자열 또는 XML에서 JSON 네이티브 형식 값, 개체 또는 개체의 배열입니다. <p><p>-루트 요소에 단일 자식 요소가 있는 XML을 전달 하는 경우이 함수는 해당 자식 요소에 대해 단일 JSON 개체를 반환 합니다. <p> -루트 요소에 여러 자식 요소가 있는 XML을 전달 하는 경우이 함수는 해당 자식 요소에 대 한 JSON 개체를 포함 하는 배열을 반환 합니다. <p>-문자열이 null 인 경우 함수는 빈 개체를 반환 합니다. |
 ||||
 
 *예제 1*
 
-이 예제는 이 문자열을 JSON 값으로 변환합니다.
+이 예제에서는이 문자열을 JSON 값으로 변환 합니다.
 
 ```
 json('[1, 2, 3]')
@@ -2560,7 +2566,7 @@ json('[1, 2, 3]')
 
 *예제 2*
 
-이 예제는 이 문자열을 JSON으로 변환합니다.
+이 예제에서는이 문자열을 JSON으로 변환 합니다.
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2568,7 +2574,7 @@ json('{"fullName": "Sophia Owen"}')
 
 그리고 다음 결과를 반환합니다.
 
-```
+```json
 {
   "fullName": "Sophia Owen"
 }
@@ -2576,23 +2582,53 @@ json('{"fullName": "Sophia Owen"}')
 
 *예 3*
 
-이 예제는 이 XML을 JSON으로 변환합니다.
+이 예제에서는 및 함수를 사용 하 여 `json()` `xml()` root 요소의 단일 자식 요소가 있는 XML을 `person` 해당 자식 요소에 대해 라는 JSON 개체로 변환 합니다.
 
-```
-json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
-```
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 그리고 다음 결과를 반환합니다.
 
 ```json
 {
-   "?xml": { "@version": "1.0" },
+   "?xml": { 
+      "@version": "1.0" 
+   },
    "root": {
-      "person": [ {
+      "person": {
          "@id": "1",
          "name": "Sophia Owen",
          "occupation": "Engineer"
-      } ]
+      }
+   }
+}
+```
+
+*예제 4*
+
+이 예제에서는 및 함수를 사용 하 여 `json()` `xml()` root 요소의 여러 자식 요소가 있는 XML을 `person` 해당 자식 요소의 JSON 개체를 포함 하는 라는 배열로 변환 합니다.
+
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+
+그리고 다음 결과를 반환합니다.
+
+```json
+{
+   "?xml": {
+      "@version": "1.0"
+   },
+   "root": {
+      "person": [
+         {
+            "@id": "1",
+            "name": "Sophia Owen",
+            "occupation": "Engineer"
+         },
+         {
+            "@id": "2",
+            "name": "John Doe",
+            "occupation": "Engineer"
+         }
+      ]
    }
 }
 ```
@@ -3921,7 +3957,7 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | 예 | String | 해당 문자를 원하는 문자열 |
 | <*startIndex*> | 예 | 정수 | 시작 위치 또는 인덱스 값으로 사용하려는 0 이상의 양수 |
-| <*length*> | 아니요 | 정수 | 하위 문자열에 원하는 문자의 양수 |
+| <*length*> | 예 | 정수 | 하위 문자열에 원하는 문자의 양수 |
 |||||
 
 > [!NOTE]

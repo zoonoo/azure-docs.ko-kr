@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 835be5b867826d75732c9482743ad6a4ca2900e7
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80982857"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231845"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Azure 네트워킹 서비스를 사용 하 여 원격으로 작업
 
@@ -64,7 +64,7 @@ Azure에는 다양 한 에코 시스템 파트너 집합도 있습니다. Azure�
 
 - **AZURE vpn 기반 솔루션**: P2S 또는 S2S vpn을 통해 azure에 연결 된 원격 직원의 경우 온-프레미스 네트워크와 Azure VPN GATEWAY 간에 S2S vpn을 구성 하 여 온-프레미스 네트워크에 대 한 액세스를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [사이트 간 연결 만들기][S2S]를 참조 하세요.
 
-- **Express**경로: express 경로 개인 피어 링을 사용 하 여 Azure 배포와 온-프레미스 인프라 또는 공동 배치 기능에서 인프라 간에 개인 연결을 사용 하도록 설정할 수 있습니다. Microsoft 피어 링을 통해 Express 경로를 통해 온-프레미스 네트워크에서 Microsoft의 공용 끝점에 액세스할 수도 있습니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인터넷을 통한 일반 연결 보다 낮은 대기 시간과 일관성 있는 보안 연결, 안정성 및 높은 처리량을 제공 합니다. 자세한 내용은 [ExpressRoute 개요][ExR]를 참조하세요. 이미 [express 경로 파트너 에코 시스템][ExR-eco] 의 일부인 기존 네트워크 공급자를 활용 하면 Microsoft에 대 한 높은 대역폭 연결을 가져오는 시간을 줄일 수 있습니다.  [Express 경로 직접][ExR-D] 를 사용 하 여 온-프레미스 네트워크를 Microsoft 백본에 직접 연결할 수 있습니다. Express 경로 다이렉트는 이중 10gbps 또는 100 Gbps의 두 가지 다른 선 율 옵션을 제공 합니다. 
+- **Express** 경로: express 경로 개인 피어 링을 사용 하 여 Azure 배포와 온-프레미스 인프라 또는 공동 배치 기능에서 인프라 간에 개인 연결을 사용 하도록 설정할 수 있습니다. Microsoft 피어 링을 통해 Express 경로를 통해 온-프레미스 네트워크에서 Microsoft의 공용 끝점에 액세스할 수도 있습니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인터넷을 통한 일반 연결 보다 낮은 대기 시간과 일관성 있는 보안 연결, 안정성 및 높은 처리량을 제공 합니다. 자세한 내용은 [ExpressRoute 개요][ExR]를 참조하세요. 이미 [express 경로 파트너 에코 시스템][ExR-eco] 의 일부인 기존 네트워크 공급자를 활용 하면 Microsoft에 대 한 높은 대역폭 연결을 가져오는 시간을 줄일 수 있습니다.  [Express 경로 직접][ExR-D] 를 사용 하 여 온-프레미스 네트워크를 Microsoft 백본에 직접 연결할 수 있습니다. Express 경로 다이렉트는 이중 10gbps 또는 100 Gbps의 두 가지 다른 선 율 옵션을 제공 합니다. 
 
 - **Azure 가상 wan**: AZURE 가상 WAN은 VPN 연결과 express 경로 회로 간의 원활한 상호 운용성을 허용 합니다. 앞서 언급 했 듯이, Azure 가상 WAN은 서로 다른 지역 허브 및 스포크 가상 네트워크에서 다른 온-프레미스 전역 위치의 리소스 간 임의 연결도 지원 합니다.
 
@@ -86,15 +86,15 @@ Azure에는 다양 한 에코 시스템 파트너 집합도 있습니다. Azure�
 | [집에서 요구 하는 작업을 위해 노력 하 고 있나요? Azure 가상 WAN이 지원할 수 있는 위치는 다음과 같습니다.](../virtual-wan/work-remotely-support.md) | Azure 가상 WAN을 사용 하 여 조직의 원격 연결 요구를 해결 합니다.|
 | [Application Gateway 높은 트래픽 지원](../application-gateway/high-traffic-support.md) | 웹 응용 프로그램에 대 한 트래픽을 관리 하는 확장 가능 하 고 안전한 방법으로 WAF (웹 응용 프로그램 방화벽)와 함께 Application Gateway를 사용 합니다. |
 | [원격 작업에 대 한 NVA (네트워크 가상 어플라이언스) 고려 사항](../vpn-gateway/nva-work-remotely-support.md)|Azure의 Nva 활용에 대 한 지침을 검토 하 여 원격 액세스 솔루션을 제공 합니다. |
-| [SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환](https://go.microsoft.com/fwlink/?linkid=2124112) | OpenVPN 프로토콜 또는 IKEv2로 전환 하 여 SSTP의 128 동시 연결 제한을 극복 합니다.|
+| [SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환](../vpn-gateway/ikev2-openvpn-from-sstp.md) | OpenVPN 프로토콜 또는 IKEv2로 전환 하 여 SSTP의 128 동시 연결 제한을 극복 합니다.|
 | [Azure 방호를 사용 하 여 원격으로 작업](../bastion/work-remotely-support.md) | 공용 IP 주소를 사용 하지 않고 Azure Portal 직접 Azure virtual network 내에서 가상 머신에 대 한 안전 하 고 원활한 RDP/SSH 연결을 제공 합니다. |
 | [Azure Express 경로를 사용 하 여 원격 사용자를 지 원하는 하이브리드 연결 만들기](../expressroute/work-remotely-support.md) | 하이브리드 연결을 위한 Express 경로를 사용 하 여 조직의 사용자가 원격으로 작업할 수 있도록 합니다.|
 | [Azure 방화벽 원격 작업 지원](../firewall/remote-work-support.md)|Azure 방화벽을 사용 하 여 Azure 가상 네트워크 리소스를 보호 합니다. |
 
 <!--Link References-->
-[VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[S2S]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[ExR]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[ExR-eco]: https://docs.microsoft.com/azure/expressroute/expressroute-locations
-[ExR-D]: https://docs.microsoft.com/azure/expressroute/expressroute-erdirect-about
-[Az-OCI]: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
+[VNet-peer]: ../virtual-network/virtual-network-peering-overview.md
+[S2S]: ../vpn-gateway/tutorial-site-to-site-portal.md
+[ExR]: ../expressroute/expressroute-introduction.md
+[ExR-eco]: ../expressroute/expressroute-locations.md
+[ExR-D]: ../expressroute/expressroute-erdirect-about.md
+[Az-OCI]: ../virtual-machines/workloads/oracle/configure-azure-oci-networking.md

@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: abf9900e9749a1b21d927e0315076b38848bea10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c2ea2b53649cf148a19df46835c8936345aa20e5
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132650"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234344"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -37,18 +37,18 @@ ms.locfileid: "98132650"
 가동 중지 시간 또는이 변경과 관련 된 기능의 손실을 방지 하려면 아래에 나열 된 지원 되는 Service Fabric 버전으로 업그레이드 하세요. 사용자 환경에서 문제를 방지 하려면 클러스터가 이러한 버전 이상을 실행 하 고 있는지 확인 하세요.
 
   ###### <a name="supported-service-fabric-runtime-versions"></a>지원 되는 Service Fabric 런타임 버전
-   지원 되지 않는 버전의 Service Fabric에 대해 아래에 있지 않은 경우 클러스터에서 가동 중지 시간을 방지 하는 데 필요한 변경 내용이 이미 포함 되어 있는 이러한 버전 중 하나로 업그레이드 하세요.  
+   지원 되지 않는 버전의 Service Fabric에 대해 아래에 있지 않은 경우 클러스터에서 가동 중지 시간을 방지 하는 데 필요한 변경 내용이 이미 포함 되어 있는 이러한 버전 중 하나로 업그레이드 하세요. **참고:** 7.2의 모든 릴리스 버전에는 필요한 변경 내용이 포함 되어 있습니다.
   
   | OS | 클러스터의 현재 Service Fabric 런타임 | CU/Patch 릴리스  | 
   | --- | --- |--- | 
   | Windows | 7.0. * | 7.0.478.9590 |
   | Windows | 7.1. * | 7.1.503.9590 |
-  | Windows | 7.2. * | 7.2.445.9590 |
+  | Windows | 7.2. * | 7.2. * |
   | Ubuntu 16 | 7.0. * | 7.0.472.1  |
   | Linux Ubuntu 16.04 | 7.1. * | 7.1.455.1  |
   | Linux Ubuntu 18.04 | 7.1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7.2. * | 7.2.447.1 |
-  | Linux Ubuntu 18.04 | 7.2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16.04 | 7.2. * | 7.2. * |
+  | Linux Ubuntu 18.04 | 7.2. * | 7.2. * |
  
 ### <a name="upgrade-alert-for-versions-greater-than-63"></a>6.3 보다 큰 버전에 대 한 업그레이드 경고 
 보안 및 가용성을 개선 하기 위해 Azure 인프라는 Service Fabric 고객에 게 영향을 줄 수 있는 변경 작업을 수행 합니다. **[컨테이너에 대해 개방형 네트워킹 기능](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)을 사용 하는 모든 Service Fabric 클러스터는 6.3 보다 큰 지원 되지 않는 버전에서 실행 되 고 7.0 이상에서는 지원 되지 않는 지원 되는 버전이 7.0 이상에 영향을 받습니다**. 변경을 해결 하려면 모든 지역에서 지원 되는 모든 Service Fabric 버전에 대해 이미 사용할 수 있는 Service Fabric 런타임 업데이트가 필요 합니다.
@@ -58,24 +58,24 @@ ms.locfileid: "98132650"
  
   - **네트워킹 기능을 사용 하지 않는 6.3 보다 큰 Service Fabric를 실행 하는 클러스터의** 경우 클러스터는 계속 남아 있지만 컨테이너 클러스터에 대 한 네트워킹 열기 기능을 사용 하면 작업을 중단 시킬 수 있습니다.
 
- - **6.3 보다 큰 Service Fabric 버전을 실행 하 고 [컨테이너에 대 한 개방형 네트워킹 기능](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) 을 사용** 하는 클러스터의 경우 클러스터는 계속 작동 하지만 작동이 중단 되어 작업에 대 한 서비스가 중단 될 수 있습니다.
+ - **6.3 보다 큰 Service Fabric 버전을 실행 하 고 [컨테이너에 대해 개방형 네트워킹 기능](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) 을 사용** 하는 클러스터의 경우 클러스터를 사용할 수 없게 되 고 작동이 중단 되어 작업에 대 한 서비스 중단이 발생할 수 있습니다.
   
 #### <a name="required-action"></a>필요한 작업
 가동 중지 시간 또는이 변경과 관련 된 기능의 손실을 방지 하려면 아래에 나열 된 지원 되는 Service Fabric 버전으로 업그레이드 하세요. 사용자 환경에서 문제를 방지 하려면 클러스터가 이러한 버전 이상을 실행 하 고 있는지 확인 하세요. 
  
  ###### <a name="supported-service-fabric-runtime-versions"></a>지원 되는 Service Fabric 런타임 버전
- 지원 되지 않는 버전의 Service Fabric에 대해 아래에 있지 않은 경우 기능 손실을 방지 하기 위해 필요한 변경 내용이 이미 포함 되어 있는 이러한 버전 중 하나로 업그레이드 하세요.  
+ 지원 되지 않는 버전의 Service Fabric에 대해 아래에 있지 않은 경우 기능 손실을 방지 하기 위해 필요한 변경 내용이 이미 포함 되어 있는 이러한 버전 중 하나로 업그레이드 하세요.  **참고:** 7.2의 모든 릴리스 버전에는 필요한 변경 내용이 포함 되어 있습니다.
  
   | OS | 클러스터의 현재 Service Fabric 런타임 | CU/Patch 릴리스  | 
   | --- | --- |--- | 
   | Windows | 7.0. * | 7.0.478.9590 |
   | Windows | 7.1. * | 7.1.503.9590 |
-  | Windows | 7.2. * | 7.2.445.9590 |
+  | Windows | 7.2. * | 7.2. * |
   | Linux Ubuntu 16.04 | 7.0. * | 7.0.472.1  |
   | Linux Ubuntu 16.04 | 7.1. * | 7.1.455.1  |
   | Linux Ubuntu 18.04 | 7.1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7.2. * | 7.2.447.1 |
-  | Linux Ubuntu 18.04 | 7.2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16.04 | 7.2. * | 7.2. * |
+  | Linux Ubuntu 18.04 | 7.2. * | 7.2. * |
 
 ## <a name="supported-versions"></a>지원되는 버전
 다음 표에서는 Service Fabric 버전 및 지원 종료 날짜를 나열 합니다.

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 4e83cca79a4dc99533ab17cca7e96e1ac802d598
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ee13b2fbe4abbaf9bddf4975f8e25d746dc78f5e
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020796"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232185"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 이벤트 원본
 
@@ -45,13 +45,25 @@ ms.locfileid: "95020796"
 
 - 사용자 환경의 [처리량 속도 제한](./concepts-streaming-ingress-throughput-limits.md) 또는 파티션 당 제한을 초과 하지 마세요.
 
-- 환경에서 데이터를 처리 하는 데 문제가 발생 하는 경우 알림을 받도록 지연 [경고](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) 를 구성 합니다.
+- 환경에서 데이터를 처리 하는 데 문제가 발생 하는 경우 알림을 받도록 지연 [경고](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) 를 구성 합니다. 제안 된 경고 조건은 아래의 [프로덕션 워크 로드](./concepts-streaming-ingestion-event-sources.md#production-workloads) 를 참조 하세요. 
 
 - 거의 실시간 및 최근 데이터에만 스트리밍 수집을 사용합니다. 기록 데이터 스트리밍은 지원되지 않습니다.
 
 - 속성을 이스케이프 하 고 JSON 데이터를 [결합 하 고 저장](./concepts-json-flattening-escaping-rules.md) 하는 방법을 이해 합니다.
 
 - 이벤트 원본 연결 문자열을 제공할 때 최소 권한의 원칙을 따릅니다. Event Hubs의 경우, *보내기* 클레임만 사용 하 여 공유 액세스 정책을 구성 하 고 IoT Hub에 대해서는 *서비스 연결* 권한만 사용 합니다.
+
+## <a name="production-workloads"></a>프로덕션 워크로드
+
+위의 모범 사례 외에도 비즈니스에 중요 한 작업을 위해 다음을 구현 하는 것이 좋습니다. 
+
+- IoT Hub 또는 이벤트 허브 데이터 보존 시간을 최대 7 일로 늘립니다.
+
+- Azure Portal에서 환경 경고를 만듭니다. 플랫폼 [메트릭을](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) 기반으로 하는 경고를 통해 종단 간 파이프라인 동작의 유효성을 검사할 수 있습니다. 경고를 만들고 관리 하기 위한 지침은 [여기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts)에 있습니다. 제안 된 경고 조건:
+
+     - IngressReceivedMessagesTimeLag가 5 분 보다 큼
+     - IngressReceivedBytes는 0입니다.
+- IoT Hub 또는 이벤트 허브 파티션 간에 수집 부하를 분산 합니다.
 
 ### <a name="historical-data-ingestion"></a>기록 데이터 수집
 

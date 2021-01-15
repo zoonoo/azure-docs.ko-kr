@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 5e41bc86533815c394077bf5276d930fe958cd19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dfd869b92e042e71eed1ee692d90fc44a8ac6c1
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80518283"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234242"
 ---
 # <a name="interoperability-in-azure--control-plane-analysis"></a>Azure의 상호 운용성: 제어 평면 분석
 
@@ -29,13 +29,13 @@ ms.locfileid: "80518283"
 
 ![1][1]
 
-VNet의 Azure ExpressRoute 게이트웨이의 ASN이 Microsoft MSEE(Microsoft Enterprise Edge Router)의 ASN과 다른 것을 알 수 있습니다. ExpressRoute 게이트웨이는 프라이빗 ASN(**65515**의 값)을 사용하며 MSEE는 공용 ASN(**12076**의 값)을 전역적으로 사용합니다. Express 경로 피어 링을 구성 하는 경우 MSEE는 피어 이므로 **12076** 를 피어 ASN으로 사용 합니다. Azure 쪽의 경우 MSEE는 ExpressRoute 게이트웨이를 사용하여 eBGP 피어링을 설정합니다. MSEE가 각 ExpressRoute 피어링에 대해 설정하는 이중 eBGP 피어링은 제어 평면 수준에서 투명합니다. 따라서 Express 경로 테이블을 보면 VNet 접두사에 대 한 VNet의 Express 경로 게이트웨이 ASN이 표시 됩니다. 
+VNet의 Azure ExpressRoute 게이트웨이의 ASN이 Microsoft MSEE(Microsoft Enterprise Edge Router)의 ASN과 다른 것을 알 수 있습니다. ExpressRoute 게이트웨이는 프라이빗 ASN(**65515** 의 값)을 사용하며 MSEE는 공용 ASN(**12076** 의 값)을 전역적으로 사용합니다. Express 경로 피어 링을 구성 하는 경우 MSEE는 피어 이므로 **12076** 를 피어 ASN으로 사용 합니다. Azure 쪽의 경우 MSEE는 ExpressRoute 게이트웨이를 사용하여 eBGP 피어링을 설정합니다. MSEE가 각 ExpressRoute 피어링에 대해 설정하는 이중 eBGP 피어링은 제어 평면 수준에서 투명합니다. 따라서 Express 경로 테이블을 보면 VNet 접두사에 대 한 VNet의 Express 경로 게이트웨이 ASN이 표시 됩니다. 
 
 다음 그림에는 예제 ExpressRoute 경로 테이블을 보여줍니다. 
 
 ![5][5]
 
-Azure 내에서 ASN은 피어링 관점에서만 중요합니다. 기본적으로 ExpressRoute 게이트웨이 및 Azure VPN Gateway에서 VPN Gateway의 ASN은 **65515**입니다.
+Azure 내에서 ASN은 피어링 관점에서만 중요합니다. 기본적으로 ExpressRoute 게이트웨이 및 Azure VPN Gateway에서 VPN Gateway의 ASN은 **65515** 입니다.
 
 ## <a name="on-premises-location-1-and-the-remote-vnet-perspective-via-expressroute-1"></a>ExpressRoute 1을 통한 온-프레미스 위치 1 및 원격 VNet 관점
 
@@ -101,19 +101,17 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 [5]: ./media/backend-interoperability/ExR1-RouteTable.png "Express 경로 1 경로 테이블"
 
 <!--Link References-->
-[Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface
-[Configuration]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-configuration
-[ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
-[VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[Configuration]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-configuration
+[Setup]: ./connectivty-interoperability-preface.md
+[Configuration]: ./connectivty-interoperability-configuration.md
+[ExpressRoute]: ../expressroute/expressroute-introduction.md
+[VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+[VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+[Configuration]: ./connectivty-interoperability-configuration.md
 [Control-Analysis]:https://docs.microsoft.com/azure/networking/connectivty-interoperability-control-plane
-[Data-Analysis]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-data-plane
-[ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
-[ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
-[Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-[Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
-[VNet-Config]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering
-
-
+[Data-Analysis]: ./connectivty-interoperability-data-plane.md
+[ExR-FAQ]: ../expressroute/expressroute-faqs.md
+[S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md
+[ExR-S2S-CoEx]: ../expressroute/expressroute-howto-coexist-resource-manager.md
+[Hub-n-Spoke]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Deploy-NVA]: /azure/architecture/reference-architectures/dmz/nva-ha
+[VNet-Config]: ../virtual-network/virtual-network-manage-peering.md

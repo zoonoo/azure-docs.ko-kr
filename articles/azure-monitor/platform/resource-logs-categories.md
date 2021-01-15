@@ -4,12 +4,12 @@ description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤
 ms.subservice: logs
 ms.topic: reference
 ms.date: 12/09/2020
-ms.openlocfilehash: c7b2d48b40843930bba78f54d2294769d952daf6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: aeac069b4e9382867664a82af62e29e72da7585e
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931232"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232250"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원 되는 범주
 
@@ -18,7 +18,7 @@ ms.locfileid: "96931232"
 
 [Azure Monitor 리소스 로그](./platform-logs-overview.md) 는 해당 서비스 또는 리소스의 작업을 설명 하는 Azure 서비스에서 내보낸 로그입니다. Azure Monitor를 통해 제공 되는 모든 리소스 로그는 일반적인 최상위 스키마를 공유 하며 각 서비스는 고유한 이벤트의 고유한 속성을 내보낼 수 있는 유연성을 제공 합니다.
 
-리소스 종류(`resourceId` 속성에 제공) 및 `category`가 조합되어 스키마를 고유하게 식별합니다. 서비스 관련 필드를 포함 하는 모든 리소스 로그에 대 한 공통 스키마가 있으며, 다른 로그 범주에 대해 추가 됩니다. 자세한 내용은 [Azure 리소스 로그에 대 한 일반 및 서비스별 스키마]() 를 참조 하세요.
+리소스 종류(`resourceId` 속성에 제공) 및 `category`가 조합되어 스키마를 고유하게 식별합니다. 서비스 관련 필드를 포함 하는 모든 리소스 로그에 대 한 공통 스키마가 있으며, 다른 로그 범주에 대해 추가 됩니다. 자세한 내용은 [Azure 리소스 로그의 공통 및 서비스별 스키마]() 를 참조 하세요.
 
 
 ## <a name="costs"></a>비용
@@ -34,7 +34,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 그래도 문제가 없는 경우이 문서의 맨 아래에 있는 GitHub 주석을 열 수 있습니다.
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -44,7 +44,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -53,7 +53,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -63,7 +63,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -74,7 +74,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -83,7 +83,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -94,7 +94,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -106,7 +106,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftblockchaincordamembers"></a>Microsoft Blockchain/cordaMembers
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -115,16 +115,16 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft Cdn/cdnwebapplicationfirewallpolicies
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
-|WebApplicationFirewallLogs|웹 시작할지 방화벽 로그|
+|WebApplicationFirewallLogs|웹 응용 프로그램 방화벽 로그|
 
 
 ## <a name="microsoftcdnprofiles"></a>Microsoft.Cdn/profiles
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -133,7 +133,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftcdnprofilesendpoints"></a>Microsoft.Cdn/profiles/endpoints
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -142,7 +142,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftclassicnetworknetworksecuritygroups"></a>Microsoft.ClassicNetwork/networksecuritygroups
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -151,7 +151,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -162,7 +162,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -172,7 +172,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -185,7 +185,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft CustomProviders/resourceproviders
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -194,7 +194,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdatabricksworkspaces"></a>Databricks/작업 영역
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -212,7 +212,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -223,7 +223,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -233,7 +233,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/accounts
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -245,7 +245,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -255,7 +255,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdbformysqlflexibleservers"></a>Microsoft.DBforMySQL/flexibleServers
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -265,7 +265,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -275,7 +275,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdbforpostgresqlflexibleservers"></a>Microsoft.DBforPostgreSQL/flexibleServers
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -284,7 +284,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -295,7 +295,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft.DBforPostgreSQL/serversv2
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -304,7 +304,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdesktopvirtualizationapplicationgroups"></a>Microsoft DesktopVirtualization/applicationgroups
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -315,7 +315,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdesktopvirtualizationhostpools"></a>Microsoft DesktopVirtualization/hostpools
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -328,7 +328,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft DesktopVirtualization/작업 영역
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -340,7 +340,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -362,7 +362,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -372,7 +372,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -381,14 +381,14 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |DataPlaneRequests|DataPlaneRequests|
 |GremlinRequests|GremlinRequests|
 |MongoRequests|MongoRequests|
-|파티션 사용|파티션 사용|
-|파티션 파티션|파티션 파티션|
+|PartitionKeyRUConsumption|PartitionKeyRUConsumption|
+|PartitionKeyStatistics|PartitionKeyStatistics|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|
 
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -398,7 +398,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft EventGrid/systemTopics
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -407,7 +407,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -417,7 +417,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -432,7 +432,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -441,7 +441,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -451,7 +451,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -470,7 +470,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -479,7 +479,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -494,7 +494,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/integrationAccounts
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -503,7 +503,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -512,7 +512,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -525,7 +525,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -534,7 +534,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -545,7 +545,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -553,9 +553,9 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |AzureFirewallNetworkRule|Azure Firewall 네트워크 규칙|
 
 
-## <a name="microsoftnetworkbastionhosts"></a>Microsoft. Network/bastionHosts
+## <a name="microsoftnetworkbastionhosts"></a>Microsoft.Network/bastionHosts
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -564,7 +564,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -573,7 +573,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -583,7 +583,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -593,7 +593,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft.Network/networksecuritygroups
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -604,7 +604,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -615,7 +615,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -624,7 +624,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -637,7 +637,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -646,7 +646,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -655,7 +655,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -677,7 +677,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -686,7 +686,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -695,7 +695,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -704,7 +704,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -713,7 +713,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -724,7 +724,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.Sql/managedInstances/databases
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -736,7 +736,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -760,7 +760,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
+내보내기 비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -771,7 +771,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
-비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
+내보내기 비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -782,7 +782,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
+내보내기 비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
  
 |범주 |범주 표시 이름|
 |---|---|
@@ -793,7 +793,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
+내보내기 비용: [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 의 플랫폼 로그 섹션에 설명 된 대로 지불 합니다. 
  
 |범주 |범주 표시 이름|
 |---|---|
@@ -804,7 +804,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -814,7 +814,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/workspaces
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -826,7 +826,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Synapse/작업 영역/bigDataPools
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -835,7 +835,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Synapse/workspaces/sqlPools
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -849,7 +849,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftwebhostingenvironments"></a>microsoft.web/hostingenvironments
 
-비용: 무료 
+내보내기 비용: 무료 
 
 |범주 |범주 표시 이름|
 |---|---|
@@ -858,7 +858,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftwebsites"></a>microsoft.web/sites
 
-비용: 무료 
+내보내기 비용: 무료 
 
 
 |범주 |범주 표시 이름|
@@ -873,7 +873,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 ## <a name="microsoftwebsitesslots"></a>microsoft.web/sites/slots
 
-비용: 무료 
+내보내기 비용: 무료 
 
 
 |범주 |범주 표시 이름|

@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
-ms.date: 12/15/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516124"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232678"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -62,14 +62,17 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>역할 및 권한 정의
 
-서비스 공급자는 단일 고객을 위해 여러 작업을 수행하고, 범위마다 다른 액세스 권한을 요구할 수 있습니다. 테 넌 트의 사용자에 게 적절 한 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 할당 하기 위해 필요한 만큼의 권한 부여를 정의할 수 있습니다.
+서비스 공급자는 단일 고객을 위해 여러 작업을 수행하고, 범위마다 다른 액세스 권한을 요구할 수 있습니다. 적절 한 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 할당 하기 위해 필요한 만큼 권한 부여를 정의할 수 있습니다. 각 권한 부여에는 관리 테 넌 트의 Azure AD 사용자, 그룹 또는 서비스 주체를 참조 하는 **Principalid** 가 포함 됩니다.
 
-관리를 용이 하 게 하려면 각 역할에 대해 Azure AD 사용자 그룹을 사용 하는 것이 좋습니다. 이를 통해 액세스 권한이 있는 그룹에 개별 사용자를 추가 하거나 제거할 수 있으므로 사용자를 변경 하기 위해 온 보 딩 프로세스를 반복할 필요가 없습니다. 자동화 시나리오에 유용할 수 있는 서비스 주체에 역할을 할당할 수 있습니다.
+> [!NOTE]
+> 명시적으로 지정 되지 않은 경우 Azure Lighthouse 설명서의 "사용자"에 대 한 참조는 권한 부여의 Azure AD 사용자, 그룹 또는 서비스 주체에 적용 될 수 있습니다.
+
+관리를 용이 하 게 하려면 개별 사용자가 아니라 가능할 때마다 각 역할에 대해 Azure AD 사용자 그룹을 사용 하는 것이 좋습니다. 이를 통해 액세스 권한이 있는 그룹에 개별 사용자를 추가 하거나 제거할 수 있으므로 사용자를 변경 하기 위해 온 보 딩 프로세스를 반복할 필요가 없습니다. 자동화 시나리오에 유용할 수 있는 서비스 주체에 역할을 할당할 수도 있습니다.
 
 > [!IMPORTANT]
 > Azure AD 그룹에 대 한 사용 권한을 추가 하려면 **그룹 종류** 를 **보안** 으로 설정 해야 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
-권한 부여를 정의할 때는 사용자가 작업을 완료 하는 데 필요한 권한만 갖도록 최소 권한 원칙을 따라야 합니다. 지원 되는 역할에 대 한 지침 및 정보는 [Azure Lighthouse 시나리오에서 테 넌 트, 사용자 및 역할](../concepts/tenants-users-roles.md)을 참조 하세요.
+권한 부여를 정의할 때는 사용자가 작업을 완료 하는 데 필요한 권한만 갖도록 최소 권한 원칙을 따라야 합니다. 지원 되는 역할 및 모범 사례에 대 한 자세한 내용은 [Azure Lighthouse 시나리오에서 테 넌 트, 사용자 및 역할](../concepts/tenants-users-roles.md)을 참조 하세요.
 
 권한 부여를 정의 하려면 액세스 권한을 부여 하려는 서비스 공급자 테 넌 트의 각 사용자, 사용자 그룹 또는 서비스 사용자에 대 한 ID 값을 알고 있어야 합니다. 또한 할당하려는 각 기본 제공 역할에 대한 역할 정의 ID도 필요합니다. 아직 없는 경우 서비스 공급자 테넌트 내에서 아래 명령을 실행하여 검색할 수 있습니다.
 
@@ -195,7 +198,7 @@ az role definition list --name "<roleName>" | grep name
 }
 ```
 
-위 예제의 마지막 권한 부여는 사용자 액세스 관리자 역할이 있는 **principalId** 를 추가합니다(18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). 이 역할을 할당할 때 **delegatedRoleDefinitionIds** 속성 및 하나 이상의 기본 제공 역할을 포함해야 합니다. 이 권한 부여에서 만든 사용자는 이러한 기본 제공 역할을 고객 테 넌 트의 [관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 할당할 수 있습니다. 이러한 기본 제공 역할은 [재구성 가능한 정책을 배포](deploy-policy-remediation.md)하는 데 필요 합니다.  또한 사용자는 지원 인시던트를 만들 수 있습니다.  사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다.
+위 예제의 마지막 권한 부여는 사용자 액세스 관리자 역할이 있는 **principalId** 를 추가합니다(18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). 이 역할을 할당할 때 **delegatedRoleDefinitionIds** 속성 및 지원 되는 Azure 기본 제공 역할을 하나 이상 포함 해야 합니다. 이 권한 부여에서 만든 사용자는 수정할 [수 있는 정책을 배포](deploy-policy-remediation.md)하기 위해 필요한 고객 테 넌 트의 [관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 이러한 역할을 할당할 수 있습니다.  또한 사용자는 지원 인시던트를 만들 수 있습니다. 일반적으로 사용자 액세스 관리자 역할에 연결 된 다른 권한은이 **Principalid** 에 적용 되지 않습니다.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 배포
 
@@ -278,7 +281,7 @@ az deployment sub create --name <deploymentName> \
 3. Resource Manager 템플릿에서 제공한 제품 이름의 구독을 볼 수 있는지 확인합니다.
 
 > [!NOTE]
-> 배포가 완료되고 업데이트가 Azure Portal에 반영되기까지 몇 분 정도 걸릴 수 있습니다.
+> 업데이트가 Azure Portal 반영 되기 전에 배포가 완료 된 후 최대 15 분이 걸릴 수 있습니다. 브라우저를 새로 고치거 나 로그인/로그 아웃 하거나 새 토큰을 요청 하 여 Azure Resource Manager 토큰을 업데이트 하면 업데이트를 더 빨리 확인할 수 있습니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -312,6 +315,7 @@ az account list
 - 위임 된 구독에 대해 **Microsoft ManagedServices** 리소스 공급자를 등록 해야 합니다. 이는 배포 중에 자동으로 수행 되지만 그렇지 않은 경우 [수동으로 등록할](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)수 있습니다.
 - 권한 부여에는 [소유자](../../role-based-access-control/built-in-roles.md#owner) 기본 제공 역할이 있는 사용자 또는 [dataactions](../../role-based-access-control/role-definitions.md#dataactions)를 사용 하는 기본 제공 역할이 포함 되지 않아야 합니다.
 - [**그룹**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) 을 **Microsoft 365** 하지 않고 **보안** 으로 설정 하 여 그룹을 만들어야 합니다.
+- [중첩 된 그룹](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md)에 대 한 액세스를 사용 하도록 설정 하기 전에 추가 지연이 있을 수 있습니다.
 - Azure Portal에서 리소스를 확인 해야 하는 사용자에 게는 [읽기](../../role-based-access-control/built-in-roles.md#reader) 권한자 역할 (또는 읽기 권한자 액세스를 포함 하는 다른 기본 제공 역할)이 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계

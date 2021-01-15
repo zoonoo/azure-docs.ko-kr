@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: b11bdf9b82352c15b7f7236168494f32fe4a4f9f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 280b3cbef8307691b0d50c4a26f6dca18b7fb65b
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221513"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233868"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>가상 머신 네트워크 대역폭
 
@@ -52,15 +52,13 @@ Azure 가상 머신은 하나지만 여기에 연결된 네트워크 인터페�
 
 ![전달 어플라이언스를 통한 TCP 대화의 흐름 수](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
-## <a name="flow-limits-and-recommendations"></a>흐름 제한 및 권장 사항
+## <a name="flow-limits-and-active-connections-recommendations"></a>흐름 제한 및 활성 연결 권장 사항
 
-현재 Azure 네트워킹 스택은 cpu 코어가 8 개를 초과 하는 Vm에 대해 뛰어난 성능을 갖춘 250K 총 네트워크 흐름과 CPU 코어가 8 개 미만인 Vm에 대해 뛰어난 성능을 갖춘 총 흐름을 지원 합니다. 이 제한을 초과 하는 경우에는 추가 흐름이 삭제 되는 최대 500K 총 흐름 (250K 인바운드 및 250K 아웃 바운드)의 추가 흐름에 대 한 추가 흐름에 대해 네트워크 성능이 정상적으로 저하 됩니다.
+현재 Azure 네트워킹 스택은 VM에 대해 1M의 총 흐름 (500k 인바운드 및 500k 아웃 바운드)을 지원 합니다. 여러 시나리오에서 VM에 의해 처리 될 수 있는 총 활성 연결은 다음과 같습니다.
+- VNET에 속하는 Vm은 _*_각 방향에 500k 활성 흐름이_*_ 있는 모든 VM 크기에 대해 500k **_활성 연결_* _을 처리할 수 있습니다.  
+- 게이트웨이, 프록시, 방화벽과 같은 Nva (네트워크 가상 어플라이언스)를 사용 하는 Vm은 위의 다이어그램에 표시 된 대로 새 연결 설정에서 새 연결 설정에 대 한 새 흐름 만들기 및 추가 새 흐름 만들기로 인해 *_각 방향에서_* 500k _ 활성 흐름이 있는 250k _*_활성 연결_*_ 을 처리할 수 있습니다. 
 
-| 성능 수준 | <8 CPU 코어를 사용 하는 Vm | 8 개 이상의 CPU 코어가 있는 Vm |
-| ----------------- | --------------------- | --------------------- |
-|<b>뛰어난 성능</b>|10만의 흐름 |250K 흐름|
-|<b>성능 저하</b>|10만 개 흐름 초과|250K 흐름 초과|
-|<b>흐름 제한</b>|500K 흐름|500K 흐름|
+이 제한에 도달 하면 추가 연결이 삭제 됩니다. 연결 설정 및 종료 속도는 패킷 처리 루틴을 사용 하 여 CPU를 공유 하 고 연결을 설정 하면 네트워크 성능에 영향을 줄 수도 있습니다. 예상 되는 트래픽 패턴에 대해 워크 로드를 벤치 마크 하 고 성능 요구 사항에 맞게 워크 로드를 적절히 확장 하는 것이 좋습니다.
 
 [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) 에서 메트릭을 사용 하 여 VM 또는 vmss 인스턴스의 네트워크 흐름 수와 흐름 생성 률을 추적할 수 있습니다.
 

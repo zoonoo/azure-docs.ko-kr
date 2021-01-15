@@ -5,13 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: b2dbaa932c01c96582cb038143fa7686707be67d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/15/2021
+ms.custom: references_regions
+ms.openlocfilehash: 576ff68961a68a8b54037d661a51a9d2de7a56df
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541167"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231794"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 읽기 복제본
 
@@ -24,7 +25,7 @@ GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://ma
 > [!NOTE]
 > 바이어스 없는 통신
 >
-> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _slave(슬레이브)_ 라는 단어에 대한 참조가 포함되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md)에서는 이 단어를 '배제(exclusionary)'라는 단어로 인식합니다. 이 단어는 현재 소프트웨어에 표시되는 단어이므로 일관성을 위해 이 문서에서 사용됩니다. 이 단어를 제거하도록 소프트웨어가 업데이트되면 이 문서도 이에 맞춰 업데이트됩니다.
+> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _마스터_ 및 _슬레이브_ 라는 단어에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는 이러한 내용을 exclusionary 단어로 인식 합니다. 이러한 단어는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>읽기 복제본을 사용하는 경우
@@ -38,11 +39,12 @@ GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://ma
 복제본 읽기 기능은 비동기 복제를 사용 합니다. 이 기능은 동기식 복제 시나리오를 위한 것이 아닙니다. 원본 및 복제본 간의 지연 시간이 측정 됩니다. 복제본의 데이터는 결과적으로 마스터의 데이터와 일치하게 됩니다. 이러한 지연 시간을 수용할 수 있는 워크로드에 이 기능을 사용합니다.
 
 ## <a name="cross-region-replication"></a>지역 간 복제
+
 원본 서버에서 다른 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 재해 복구 계획 또는 사용자에게 더 가까운 데이터 가져오기 등의 시나리오에 유용할 수 있습니다.
 
 모든 [Azure Database for MariaDB 지역](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb)에서 원본 서버를 사용할 수 있습니다.  원본 서버는 쌍을 이루는 지역 또는 유니버설 복제본 지역에 복제본이 있을 수 있습니다. 아래 그림은 원본 영역에 따라 사용할 수 있는 복제본 영역을 보여 줍니다.
 
-[ ![읽기 복제본 지역](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![복제본 영역 읽기](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>유니버설 복제본 지역
 원본 서버가 있는 위치에 관계 없이 다음 지역에서 읽기 복제본을 만들 수 있습니다. 지원되는 유니버설 복제본 지역에는 다음이 포함됩니다.
@@ -109,7 +111,7 @@ Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)**
 
 [복제본에 대한 복제를 중지](howto-read-replicas-portal.md)하는 방법을 알아봅니다.
 
-## <a name="failover"></a>장애 조치
+## <a name="failover"></a>장애 조치 
 
 원본 서버와 복제 서버 간에는 자동화 된 장애 조치 (failover)가 없습니다. 
 
@@ -118,14 +120,13 @@ Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)**
 > [!Tip]
 > 복제본으로 장애 조치 (failover) 하는 경우 원본에서 복제본을 연결 취소 하는 시간에 지연 시간이 발생 하면 손실 되는 데이터의 양이 표시 됩니다.
 
-복제본으로 장애 조치 (failover)를 결정 한 후에는 다음을 선택 합니다. 
+복제본으로 장애 조치 (failover)를 결정 한 후에는
 
 1. 복제본에 대 한 복제 중지<br/>
    이 단계는 복제본 서버에서 쓰기를 허용할 수 있도록 하는 데 필요 합니다. 이 프로세스의 일부로 복제본 서버가 마스터에서 분리 됩니다. 복제 중지를 시작한 후 백 엔드 프로세스는 일반적으로 완료 하는 데 약 2 분이 걸립니다. 이 작업의 의미를 이해 하려면이 문서의 [복제 중지](#stop-replication) 섹션을 참조 하세요.
-    
 2. 응용 프로그램이 (이전) 복제본을 가리키도록 합니다.<br/>
    각 서버에는 고유한 연결 문자열이 있습니다. 마스터가 아닌 (이전) 복제본을 가리키도록 응용 프로그램을 업데이트 합니다.
-    
+
 응용 프로그램이 읽기 및 쓰기를 성공적으로 처리 하면 장애 조치 (failover)를 완료 한 것입니다. 응용 프로그램의 가동 중지 시간은 문제를 감지 하 고 위의 1 단계와 2 단계를 완료 하는 시기에 따라 달라 집니다.
 
 ## <a name="considerations-and-limitations"></a>고려 사항 및 제한 사항

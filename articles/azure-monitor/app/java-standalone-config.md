@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 375f0a26006f1176174b335073709e45911d9921
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 953a9cfeed558291fba1cb517039f26860444904
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165810"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233664"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
@@ -39,14 +39,14 @@ ms.locfileid: "98165810"
 
 ## <a name="configuration-file-path"></a>구성 파일 경로
 
-기본적으로 Application Insights Java 3.0은 구성 파일의 이름을로 지정 하 `applicationinsights.json` 고와 동일한 디렉터리에 위치 하도록 `applicationinsights-agent-3.0.0.jar` 합니다.
+기본적으로 Application Insights Java 3.0은 구성 파일의 이름을로 지정 하 `applicationinsights.json` 고와 동일한 디렉터리에 위치 하도록 `applicationinsights-agent-3.0.1.jar` 합니다.
 
 다음 중 하나를 사용 하 여 사용자 고유의 구성 파일 경로를 지정할 수 있습니다.
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` 환경 변수 또는
 * `applicationinsights.configuration.file` Java 시스템 속성
 
-상대 경로를 지정 하면가 있는 디렉터리를 기준으로 확인 됩니다 `applicationinsights-agent-3.0.0.jar` .
+상대 경로를 지정 하면가 있는 디렉터리를 기준으로 확인 됩니다 `applicationinsights-agent-3.0.1.jar` .
 
 ## <a name="connection-string"></a>연결 문자열
 
@@ -170,7 +170,7 @@ ms.locfileid: "98165810"
 `${...}` 시작 시 지정 된 환경 변수에서 값을 읽는 데 사용할 수 있습니다.
 
 > [!NOTE]
-> 3.0.1 버전부터 이라는 사용자 지정 차원을 추가 하는 경우이 `service.version` 값은 `application_Version` 사용자 지정 차원이 아닌 Application Insights Logs 테이블의 열에 저장 됩니다.
+> 버전 3.0.1부터 이라는 사용자 지정 차원을 추가 하는 경우 `service.version` 값은 `application_Version` 사용자 지정 차원이 아닌 Application Insights Logs 테이블의 열에 저장 됩니다.
 
 ## <a name="telemetry-processors-preview"></a>원격 분석 프로세서 (미리 보기)
 
@@ -338,7 +338,7 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 
 `level` ,,,, 또는 중 하나일 수 있습니다 `OFF` `ERROR` `WARN` `INFO` `DEBUG` `TRACE` .
 
-`path` 절대 경로 또는 상대 경로일 수 있습니다. 상대 경로는가 있는 디렉터리를 기준으로 확인 됩니다 `applicationinsights-agent-3.0.0.jar` .
+`path` 절대 경로 또는 상대 경로일 수 있습니다. 상대 경로는가 있는 디렉터리를 기준으로 확인 됩니다 `applicationinsights-agent-3.0.1.jar` .
 
 `maxSizeMb` 는 롤오버 되기 전에 로그 파일의 최대 크기입니다.
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/13/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e2f0d62ae6882229cee3ee32e3b362f2b6593da7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a262c2b4351c96217001ba42e8c745f7d71c7d45
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199238"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233902"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -205,7 +205,7 @@ Set-AzStorageSyncServerEndpoint `
     - 서버가 방화벽 뒤에 있는 경우 포트 443 아웃 바운드가 허용되는지 확인합니다. 방화벽이 트래픽을 특정 도메인으로 제한하는 경우 방화벽 [설명서](./storage-sync-files-firewall-and-proxy.md#firewall)에 나열된 도메인에 액세스할 수 있는지 확인합니다.
     - 서버가 프록시 뒤에 있는 경우 프록시 [설명서](./storage-sync-files-firewall-and-proxy.md#proxy)에 있는 단계에 따라 머신 전체 또는 앱 별 프록시 설정을 구성합니다.
     - Test-StorageSyncNetworkConnectivity cmdlet을 사용하여 서비스 엔드포인트에 대한 네트워크 연결을 확인합니다. 자세한 내용은 [서비스 엔드포인트에 대한 네트워크 연결 테스트](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints)를 참조하세요.
-    - 서버에 암호 그룹을 추가 하려면 그룹 정책 또는 TLS cmdlet을 사용 합니다.
+    - 서버에 TLS 암호 그룹 순서가 구성 된 경우 그룹 정책 또는 TLS cmdlet을 사용 하 여 암호 그룹을 추가할 수 있습니다.
         - 그룹 정책을 사용 하려면 그룹 정책을 [사용 하 여 TLS 암호 그룹 순서 구성](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy)을 참조 하세요.
         - Tls cmdlet을 사용 하려면 tls [PowerShell cmdlet을 사용 하 여 Tls 암호 그룹 순서 구성](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets)을 참조 하세요.
     

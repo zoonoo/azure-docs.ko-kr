@@ -4,12 +4,12 @@ description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 �
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ae64888669fb9a3c053802ee4f7ad7db6316265d
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780504"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233749"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -47,7 +47,7 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
 
     *C #:*`using Microsoft.ApplicationInsights;`
 
-    *Visual Basic:*`Imports Microsoft.ApplicationInsights`
+    *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
     *Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
 
@@ -57,7 +57,7 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
 
 `TelemetryClient`의 인스턴스 가져오기(웹 페이지의 JavaScript는 제외):
 
-[.Net/.Net Core 앱에 대 한 ASP.NET Core 앱 및 비 HTTP/Worker](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) 의 경우 [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) `TelemetryClient` 해당 설명서에 설명 된 대로 종속성 주입 컨테이너에서 인스턴스를 가져오는 것이 좋습니다.
+[.Net/.Net Core 앱에 대 한 ASP.NET Core 앱 및 비 HTTP/Worker](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) 의 경우 [](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) `TelemetryClient` 해당 설명서에 설명 된 대로 종속성 주입 컨테이너에서 인스턴스를 가져오는 것이 좋습니다.
 
 AzureFunctions v2 + 또는 Azure WebJobs v3 +를 사용 하는 경우 다음 문서를 따르세요. https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
@@ -146,7 +146,9 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>분석의 사용자 지정 이벤트
 
-[Application Insights 분석](../log-query/log-query-overview.md)의 `customEvents` 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 `trackEvent(..)` 호출을 나타냅니다.
+원격 분석은 `customEvents` [Application Insights 로그 탭](../log-query/log-query-overview.md) 또는 [사용 환경의](usage-overview.md)표에서 확인할 수 있습니다. 이벤트가 발생 `trackEvent(..)` 하거나 [분석 자동 수집 플러그 인을 클릭할](javascript-click-analytics-plugin.md)수 있습니다.
+
+ 
 
 [샘플링](./sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 사용자 지정 이벤트의 정확한 수를 가져오려면와 같은 코드를 사용 해야 합니다 `customEvents | summarize sum(itemCount)` .
 
@@ -437,7 +439,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예:
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들어 다음과 같습니다.
 
 ```kusto
 exceptions
@@ -500,7 +502,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예:
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들어 다음과 같습니다.
 
 *C#*
 
@@ -935,7 +937,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 [샘플링](./api-filtering-sampling.md)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 표시된 메트릭에 영향을 주지 않습니다. 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하여 문제를 진단하는 기능에 영향을 주지 않습니다.
 
-[자세히 알아봅니다](./api-filtering-sampling.md).
+[자세히 알아보기](./api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
 
@@ -1066,7 +1068,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예:
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들어 다음과 같습니다.
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1122,4 +1124,3 @@ telemetry.Context.Operation.Name = "MyOperationName";
 
 * [검색 이벤트 및 로그](./diagnostic-search.md)
 * [문제 해결](../faq.md)
-

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: jlian
-ms.openlocfilehash: e569cbe9030b2ac5a42bd99233b4fefc925a5662
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d36a7917693aef9063ade473759f2f451d3a677f
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220316"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234021"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>IoT Hub에서 TLS (전송 계층 보안) 지원
 
@@ -48,7 +48,7 @@ IoT Hub의 ECC 서버 인증서를 미리 보려면:
 * US Gov 애리조나
 * US Gov 버지니아 (TLS 1.0/1.1 지원은이 지역에서 사용할 수 없습니다.-TLS 1.2 적용을 사용 하도록 설정 해야 합니다. 또는 IoT hub를 만들지 못했습니다.)
 
-TLS 1.2 적용을 사용 하도록 설정 하려면 다음을 제외 하 고 [Azure Portal에서 IoT Hub 만들기](/.iot-hub-create-through-portal.md)의 단계를 따르세요.
+TLS 1.2 적용을 사용 하도록 설정 하려면 다음을 제외 하 고 [Azure Portal에서 IoT Hub 만들기](iot-hub-create-through-portal.md)의 단계를 따르세요.
 
 - 위의 목록에서 한 **지역을** 선택 합니다.
 - **관리-> > 고급 tls (Transport Layer Security)-> 최소 tls 버전** 에서 **1.2** 를 선택 합니다. 이 설정은 지원 되는 지역에서 만든 IoT hub에 대해서만 표시 됩니다.

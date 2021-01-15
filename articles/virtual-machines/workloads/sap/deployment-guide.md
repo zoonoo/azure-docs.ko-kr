@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 2eb3564153734ff70b7df69da568966e29747863
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: c70de186468eb3efacc82c1d5c8802612475fd4d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202439"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232797"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 
@@ -912,8 +912,8 @@ Windows에서 프록시를 구성하기 위해 거치는 단계는 Linux에서 �
 ### <a name="configure-the-azure-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>SAP용 Azure 확장 구성
 
 > [!NOTE]
-> 일반 지원 문: SAP 용 Azure 확장에 대 한 지원이 필요한 경우에는 항상 SAP의 구성 요소 BC-OP-MS-AZR-0017P-NT-MS-AZR-0017P에서 인시던트를 열어야 합니다.
-> 공동 고객을 지원 하기 위해 SAP 지원 시스템에서 작업 하는 전담 Microsoft 지원 엔지니어가 있습니다.
+> 일반 지원 설명:  
+> Sap 용 Azure 확장에 대 한 지원은 SAP 지원 채널을 통해 제공 됩니다. SAP 용 Azure 확장에 대 한 지원이 필요한 경우 [Sap 지원](https://support.sap.com/)에 대 한 지원 사례를 여세요. 
 
 [Azure의 SAP용 VM 배포 시나리오][deployment-guide-3]의 설명대로 VM을 준비한 경우, Azure VM 에이전트가 가상 머신에 설치됩니다. 다음 단계는 글로벌 Azure 데이터 센터의 Azure 확장 리포지토리에서 사용할 수 있는 SAP용 Azure 확장을 배포하는 것입니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide-9.1]을 참조하세요.
 
@@ -1510,7 +1510,7 @@ SAP Note [1999351] 을 사용 하 여 문제를 해결 해도 문제가 해결 �
 
 오류가 사라지지 않으면 [지원 담당자에 게 문의 하세요][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>지원 문의
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>지원에 문의
 
 예기치 않은 오류 이거나 알려진 솔루션이 없습니다. C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Drop (Windows) 또는/Var/log/azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) 폴더에 있는 AzureEnhancedMonitoring_service .log 파일을 수집 하 고 SAP 지원에 문의 하 여 추가 지원을 요청 합니다.
 

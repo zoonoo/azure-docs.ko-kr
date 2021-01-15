@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
-ms.date: 03/12/2019
-ms.openlocfilehash: 3a46e47d6e12d52113bf63342c84a58ca98743d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/22/2020
+ms.openlocfilehash: 08cab806d6ad8b75821a92994dde0fa07db8b960
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789610"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233596"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스에 대 한 파일 공간 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ Azure SQL Database는 데이터베이스 성능에 영향을 줄 수 있으므�
 SELECT TOP 1 storage_in_megabytes AS DatabaseDataSpaceUsedInMB
 FROM sys.resource_stats
 WHERE database_name = 'db1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>할당된 데이터베이스 데이터 공간 및 사용되지 않은 공간
@@ -98,7 +98,7 @@ SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
 SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
-HAVING type_desc = 'ROWS'
+HAVING type_desc = 'ROWS';
 ```
 
 ### <a name="database-data-max-size"></a>데이터베이스 데이터 최대 크기
@@ -108,7 +108,7 @@ HAVING type_desc = 'ROWS'
 ```sql
 -- Connect to database
 -- Database data max size in bytes
-SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
+SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes;
 ```
 
 ## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>탄력적 풀을 위한 스토리지 공간 유형 이해
@@ -121,6 +121,9 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 |**할당된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 할당된 데이터 공간의 합계입니다.||
 |**할당되었지만 사용되지 않은 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 할당된 데이터 공간의 크기와 사용된 데이터 공간 간의 차이입니다.|이 수량은 데이터베이스 데이터 파일을 축소하면 회수할 수 있는 탄력적 풀에 대해 할당된 공간의 최대 크기를 나타냅니다.|
 |**데이터 최대 크기**|해당 데이터베이스 모두에 대해 탄력적 풀에서 사용할 수 있는 최대 데이터 공간의 크기입니다.|탄력적 풀에 할당된 공간은 탄력적 풀 최대 크기를 초과할 수 없습니다.  이 상태가 발생하면 데이터베이스 데이터 파일을 축소하여 사용되지 않은 할당된 공간을 회수할 수 있습니다.|
+
+> [!NOTE]
+> "탄력적 풀이 저장소 용량 한도에 도달 했습니다." 오류 메시지는 데이터베이스 개체가 탄력적 풀 저장소 용량 한도를 충족 하기에 충분 한 공간을 할당 했지만 데이터 공간 할당에 사용 되지 않은 공간이 있을 수 있음을 나타냅니다. 탄력적 풀의 저장소 한도를 늘리거나 단기 솔루션으로 아래에서 [**사용 되지 않은 할당 된 공간 회수**](#reclaim-unused-allocated-space) 섹션을 사용 하 여 데이터 공간을 확보 하는 것이 좋습니다. 또한 데이터베이스 파일 축소의 잠재적 부정적 성능 영향에 대해 알고 있어야 합니다. 아래의 [**인덱스 다시 작성**](#rebuild-indexes) 섹션을 참조 하십시오.
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>스토리지 공간 정보를 탄력적 풀에 쿼리
 
@@ -136,7 +139,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>할당된 탄력적 풀 데이터 공간 및 사용되지 않은 공간
@@ -187,7 +190,7 @@ Write-Output $databaseStorageMetrics | Sort -Property DatabaseDataSpaceAllocated
 
 ### <a name="elastic-pool-data-max-size"></a>탄력적 풀 데이터 최대 크기
 
-다음 T-SQL 쿼리를 수정하여 탄력적 풀 데이터 최대 크기를 반환합니다.  쿼리 결과의 단위는 MB입니다.
+다음 T-sql 쿼리를 수정 하 여 마지막으로 기록 된 탄력적 풀 데이터 최대 크기를 반환 합니다.  쿼리 결과의 단위는 MB입니다.
 
 ```sql
 -- Connect to master
@@ -195,13 +198,13 @@ Write-Output $databaseStorageMetrics | Sort -Property DatabaseDataSpaceAllocated
 SELECT TOP 1 elastic_pool_storage_limit_mb AS ElasticPoolMaxSizeInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ## <a name="reclaim-unused-allocated-space"></a>사용되지 않는 할당된 공간 회수
 
 > [!NOTE]
-> 이 명령은 데이터베이스가 실행하는 동안 성능에 영향을 줄 수 있으므로, 가능하면 사용량이 낮은 기간 동안 실행해야 합니다.
+> 축소 명령은 실행 되는 동안 데이터베이스 성능에 영향을 줍니다. 사용 가능한 경우 사용량이 적은 기간 동안에는 실행 해야 합니다.
 
 ### <a name="dbcc-shrink"></a>DBCC 축소
 
@@ -209,24 +212,28 @@ ORDER BY end_time DESC
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'db1')
+DBCC SHRINKDATABASE (N'db1');
 ```
 
-이 명령은 데이터베이스가 실행하는 동안 성능에 영향을 줄 수 있으므로, 가능하면 사용량이 낮은 기간 동안 실행해야 합니다.  
+축소 명령은 실행 되는 동안 데이터베이스 성능에 영향을 줍니다. 사용 가능한 경우 사용량이 적은 기간 동안에는 실행 해야 합니다.  
 
-이 명령에 대한 자세한 내용은 [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)를 참조하세요.
+또한 데이터베이스 파일 축소의 잠재적 부정적 성능 영향에 대해 알고 있어야 합니다. 아래의 [**인덱스 다시 작성**](#rebuild-indexes) 섹션을 참조 하십시오.
+
+이 명령에 대한 자세한 내용은 [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md)를 참조하세요.
 
 ### <a name="auto-shrink"></a>자동 축소
 
 또는 데이터베이스에 대한 자동 축소를 사용하도록 설정할 수 있습니다.  자동 축소는 파일 관리의 복잡도를 줄여 주며 데이터베이스 성능에 대한 영향이 `SHRINKDATABASE` 또는 `SHRINKFILE`보다 더 적습니다.  자동 축소는 많은 데이터베이스에서 탄력적 풀을 관리하는 데 특히 유용할 수 있습니다.  그러나 자동 축소의 파일 공간 회수 효과는 `SHRINKDATABASE` 및 `SHRINKFILE`보다 떨어질 수 있습니다.
+기본적으로 대부분의 데이터베이스에는 자동 축소를 사용 하지 않도록 설정 되어 있습니다. 자세한 내용은 [AUTO_SHRINK 고려 사항](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink)을 참조 하세요.
+
 자동 축소를 사용하도록 설정하려면 다음 명령에서 데이터베이스의 이름을 수정합니다.
 
 ```sql
 -- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON
+ALTER DATABASE [db1] SET AUTO_SHRINK ON;
 ```
 
-이 명령에 대한 자세한 내용은 [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 옵션을 참조하세요.
+이 명령에 대한 자세한 내용은 [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options) 옵션을 참조하세요.
 
 ### <a name="rebuild-indexes"></a>인덱스 다시 작성
 

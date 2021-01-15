@@ -3,12 +3,12 @@ title: Cloud Services에서 Virtual Machines 배치 풀 구성 마이그레이�
 description: 풀 구성을 최신 및 권장 구성으로 업데이트 하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 1/6/2021
-ms.openlocfilehash: b6f4184f7c4f133f74cb3157638b1621dad25fda
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: d987a185efb6593fd541dd14fa74b6c4d3ca41be
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969030"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234310"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Cloud Services에서 Virtual Machines 배치 풀 구성 마이그레이션
 
@@ -22,7 +22,7 @@ ms.locfileid: "97969030"
 
 기존 활성 풀을 ' cloudServiceConfiguration '에서 ' virtualMachineConfiguration ' (으)로 업데이트할 수 없습니다. 새 풀을 만들어야 합니다. ' VirtualMachineConfiguration '를 사용 하 여 풀을 만드는 것은 모든 Batch Api, 명령줄 도구, Azure Portal 및 Batch Explorer UI에서 지원 됩니다.
 
-[.Net](tutorial-parallel-dotnet.md) 및 [Python](tutorial-parallel-python.md) 자습서에서는 ' virtualMachineConfiguration '을 사용 하 여 풀을 만드는 예제를 제공 합니다.
+**[.Net](tutorial-parallel-dotnet.md) 및 [Python](tutorial-parallel-python.md) 자습서에서는 ' virtualMachineConfiguration '을 사용 하 여 풀을 만드는 예제를 제공 합니다.**
 
 ## <a name="pool-configuration-differences"></a>풀 구성 차이점
 

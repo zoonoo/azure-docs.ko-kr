@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse 시나리오의 테 넌 트, 사용자 및 역할
 description: Azure Active Directory 테넌트, 사용자 및 역할의 개념과 Azure Lighthouse 시나리오에서 이러한 항목을 사용하는 방법을 알아봅니다.
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023945"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233919"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 시나리오의 테 넌 트, 사용자 및 역할
 
@@ -18,7 +18,10 @@ ms.locfileid: "96023945"
 
 이 논리적 프로젝션을 수행 하려면 고객 테 넌 트의 구독 (또는 구독 내의 하나 이상의 리소스 그룹)이 Azure Lighthouse로 *등록* 되어야 합니다. 이 온보딩 프로세스는 [Azure Resource Manager 템플릿을 통해](../how-to/onboard-customer.md) 수행하거나 [Azure Marketplace에 퍼블릭 또는 프라이빗 제품을 게시](../how-to/publish-managed-services-offers.md)하여 수행할 수 있습니다.
 
-선택하는 온보딩 방법에 관계없이 *권한 부여* 를 정의해야 합니다. 각 권한 부여는 위임된 리소스에 대해 액세스 권한이 있는 관리 테넌트의 사용자 계정을 지정하고 이러한 각 사용자가 이러한 리소스에 대해 보유하게 되는 사용 권한을 설정하는 기본 제공 역할을 지정합니다.
+선택하는 온보딩 방법에 관계없이 *권한 부여* 를 정의해야 합니다. 각 권한 부여는 위임 된 리소스에 대 한 액세스 권한이 있는 **Principalid** 를 지정 하 고 이러한 각 사용자가 이러한 리소스에 대해 갖는 사용 권한을 설정 하는 기본 제공 역할을 지정 합니다. 이 **Principalid** 는 관리 테 넌 트의 Azure AD 사용자, 그룹 또는 서비스 주체를 정의 합니다.
+
+> [!NOTE]
+> 명시적으로 지정 되지 않은 경우 Azure Lighthouse 설명서의 "사용자"에 대 한 참조는 권한 부여의 Azure AD 사용자, 그룹 또는 서비스 주체에 적용 될 수 있습니다.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>사용자 및 역할을 정의하기 위한 모범 사례
 

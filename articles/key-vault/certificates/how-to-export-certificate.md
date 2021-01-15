@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 0925b51ed960b8007d2df86115ea7e5cf627fe7e
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b3c917c9652954783fcddd92b9a7370c358ab3cc
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826137"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233647"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Azure Key Vault의 인증서 내보내기
 
-Azure Key Vault의 인증서를 내보내는 방법 Azure CLI, Azure PowerShell 또는 Azure Portal을 사용하여 인증서를 내보낼 수 있습니다. Azure Portal을 사용하여 Azure App Service 인증서를 내보낼 수도 있습니다.
+Azure Key Vault의 인증서를 내보내는 방법 Azure CLI, Azure PowerShell 또는 Azure Portal을 사용하여 인증서를 내보낼 수 있습니다. 
 
 ## <a name="about-azure-key-vault-certificates"></a>Azure Key Vault 인증서 정보
 
@@ -114,7 +114,7 @@ Azure Portal의 **인증서** 블레이드에서 인증서를 만들거나 가�
 
 **Azure App Service 인증서 내보내기**
 
-Azure App Service 인증서를 통해 SSL 인증서를 편리하게 구매할 수 있습니다. 포털 내에서 Azure 앱에 할당할 수 있습니다. 포털에서 이러한 인증서를 PFX 파일로 내보내면 다른 곳에서도 사용할 수 있습니다. 가져온 후 App Service 인증서는 **비밀** 아래에 있습니다.
+Azure App Service 인증서를 통해 SSL 인증서를 편리하게 구매할 수 있습니다. 포털 내에서 Azure 앱에 할당할 수 있습니다. 가져온 후 App Service 인증서는 **비밀** 아래에 있습니다.
 
 자세한 내용은 [Azure App Service 인증서 내보내기](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx) 단계를 참조하세요.
 

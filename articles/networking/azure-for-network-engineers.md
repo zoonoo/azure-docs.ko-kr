@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 9a22e58e4407897fb9418cae0ba9f32408cda8e1
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861403"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234208"
 ---
 # <a name="azure-for-network-engineers"></a>네트워크 엔지니어를 위한 Azure
 기존 네트워크 엔지니어는 라우터, 스위치, 케이블, 방화벽과 같은 물리적 자산을 처리 하 여 인프라를 구축 했습니다. 논리 계층에서 VLAN (가상 LAN), STP (스패닝 트리 프로토콜), 라우팅 프로토콜 (RIP, OSPF, BGP)을 구성 했습니다. 관리 도구 및 CLI를 사용 하 여 네트워크를 관리 했습니다. 클라우드의 네트워킹은 네트워크 끝점이 논리적 이며 라우팅 프로토콜을 사용 하는 것과는 다릅니다. Azure에서 자산을 구성 하 고 관리 하기 위해 Azure Resource Manager API, Azure CLI 및 PowerShell을 사용 합니다. Azure 네트워킹의 기본 테 넌 트를 이해 하 여 클라우드에서 네트워크 경험을 시작 합니다. 
@@ -88,7 +88,6 @@ NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함
 [네트워크 보안 그룹][network-security]에 대해 알아봅니다.
 
 <!--Link References-->
-[VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[vnet-routing]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
-[network-security]: https://docs.microsoft.com/azure/virtual-network/security-overview
-
+[VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+[vnet-routing]: ../virtual-network/virtual-networks-udr-overview.md
+[network-security]: ../virtual-network/network-security-groups-overview.md

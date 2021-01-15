@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 2011d013cce43eaf471d61936d5c34c318360381
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 32d906bf96a0ad5cf798f68bf83f2d6af1064361
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616646"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231743"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -34,11 +34,11 @@ Java 코드리스 애플리케이션 모니터링은 단순성에 관한 것입�
 >
 > 모든 구성 옵션은 json 구조가 완전히 변경 되었으므로 모든 [구성 옵션](./java-standalone-config.md) 을 신중 하 게 검토 해야 합니다.
 
-[Applicationinsights-agent-3.0.0를 다운로드 합니다.](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar)
+[Applicationinsights-agent-3.0.1를 다운로드 합니다.](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.1/applicationinsights-agent-3.0.1.jar)
 
 **2. JVM을 에이전트로 가리키기**
 
-`-javaagent:path/to/applicationinsights-agent-3.0.0.jar`응용 프로그램의 JVM 인수에를 추가 합니다.
+`-javaagent:path/to/applicationinsights-agent-3.0.1.jar`응용 프로그램의 JVM 인수에를 추가 합니다.
 
 일반적인 JVM 인수에는 및가 포함 됩니다 `-Xmx512m` `-XX:+UseG1GC` . 따라서이를 추가할 위치를 알고 있으면이를 추가할 위치를 이미 알고 있는 것입니다.
 
@@ -54,7 +54,7 @@ Application Insights 리소스가 아직 없는 경우 [리소스 만들기 가�
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-또는 이라는 구성 파일을 만들고와 `applicationinsights.json` 동일한 디렉터리에 배치 하 여 `applicationinsights-agent-3.0.0.jar` 다음과 같은 내용을 포함 합니다.
+또는 이라는 구성 파일을 만들고와 `applicationinsights.json` 동일한 디렉터리에 배치 하 여 `applicationinsights-agent-3.0.1.jar` 다음과 같은 내용을 포함 합니다.
 
 ```json
 {
@@ -255,7 +255,7 @@ try {
 ### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 요청 사용자 지정 차원 추가
 
 > [!NOTE]
-> 이 기능은 3.0.1-BETA 이상에만 해당 됩니다.
+> 이 기능은 3.0.1 이상에만 해당 됩니다.
 
 `applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
 
@@ -279,7 +279,7 @@ requestTelemetry.getProperties().put("mydimension", "myvalue");
 ### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 user_Id 요청 원격 분석 설정
 
 > [!NOTE]
-> 이 기능은 3.0.1-BETA 이상에만 해당 됩니다.
+> 이 기능은 3.0.1 이상에만 해당 됩니다.
 
 `applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
 
@@ -303,7 +303,7 @@ requestTelemetry.getContext().getUser().setId("myuser");
 ### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 요청 원격 분석 이름을 재정의 합니다.
 
 > [!NOTE]
-> 이 기능은 3.0.1-BETA 이상에만 해당 됩니다.
+> 이 기능은 3.0.1 이상에만 해당 됩니다.
 
 `applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
 

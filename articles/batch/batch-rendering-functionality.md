@@ -3,14 +3,14 @@ title: 렌더링 기능
 description: 표준 Azure Batch 기능은 렌더링 워크로드 및 앱을 실행하는 데 사용됩니다. Batch에는 렌더링 워크로드를 지원하는 특정 기능이 포함됩니다.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d9d196897800467fd02397bb774af0bbb9ebabf0
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107473"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234276"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -18,7 +18,15 @@ ms.locfileid: "92107473"
 
 풀, 작업 및 태스크를 포함한 Batch 개념의 개요는 [이 문서](./batch-service-workflow-features.md)를 참조하세요.
 
-## <a name="batch-pools"></a>Batch 풀
+## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>사용자 지정 VM 이미지 및 표준 응용 프로그램 라이선스를 사용 하는 Batch 풀
+
+응용 프로그램의 다른 작업 및 유형과 마찬가지로 사용자 지정 VM 이미지는 필요한 렌더링 응용 프로그램 및 플러그 인을 사용 하 여 만들 수 있습니다. 사용자 지정 VM 이미지는 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md) 에 배치 되며 [Batch 풀을 만드는 데 사용할 수 있습니다](batch-sig-images.md).
+
+작업 명령줄 문자열은 사용자 지정 VM 이미지를 만들 때 사용 되는 응용 프로그램 및 경로를 참조 해야 합니다.
+
+대부분의 렌더링 응용 프로그램에는 라이선스 서버에서 가져온 라이선스가 필요 합니다. 기존 온-프레미스 라이선스 서버가 있으면 풀과 라이선스 서버가 모두 동일한 [가상 네트워크](../virtual-network/virtual-networks-overview.md)에 있어야 합니다. 또한 Batch 풀과 라이선스 서버 VM이 동일한 가상 네트워크에 있는 Azure VM에서 라이선스 서버를 실행할 수 있습니다.
+
+## <a name="batch-pools-using-rendering-vm-images"></a>렌더링 VM 이미지를 사용 하는 Batch 풀
 
 ### <a name="rendering-application-installation"></a>애플리케이션 설치 렌더링
 
@@ -71,13 +79,13 @@ Arnold 2017 명령줄|kick.exe|ARNOLD_2017_EXEC|
 |Arnold 2018 명령줄|kick.exe|ARNOLD_2018_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 
-### <a name="azure-vm-families"></a>Azure VM 제품군
+## <a name="azure-vm-families"></a>Azure VM 제품군
 
 다른 워크로드와 마찬가지로 렌더링 애플리케이션 시스템 요구 사항은 각기 다르며 성능 요구 사항은 작업 및 프로젝트에 따라 달라집니다.  다양한 VM 제품군은 가장 낮은 비용, 최상의 가격/성능, 최고의 성능 등의 요구 사항을 기준으로 Azure에서 사용할 수 있습니다.
 Arnold 같은 일부 렌더링 애플리케이션은 CPU 기반이며, V-Ray 및 Blender Cycles 같은 기타 렌더링 애플리케이션은 CPU 및/또는 GPU를 사용할 수 있습니다.
 사용 가능한 VM 제품군 및 VM 크기에 대한 설명은 [VM 유형 및 크기를 참조 하세요](../virtual-machines/sizes.md).
 
-### <a name="low-priority-vms"></a>우선 순위가 낮은 VM
+## <a name="low-priority-vms"></a>우선 순위가 낮은 VM
 
 다른 워크 로드와 마찬가지로 우선 순위가 낮은 VM은 렌더링에 대한 Batch 풀에서 활용할 수 있습니다.  우선 순위가 낮은 VM은 기본 전용 VM과 동일하게 작동하지만 여분의 Azure 용량을 활용하며, 대폭 할인된 가격에 사용할 수 있습니다.  우선 순위가 낮은 VM은 할당이 가능하지 않거나, 사용 가능한 용량에 따라, 언제든지 선점될 수 있다는 단점이 있습니다. 이러한 이유로 우선 순위가 낮은 VM은 모든 렌더링 작업에 적합하지 않습니다. 예를 들어 이미지 렌더링에 많은 시간이 걸릴 경우 선점된 VM 때문에 해당 이미지의 렌더링을 중단했다가 다시 시작하는 것은 허용되지 않을 것 같습니다.
 
