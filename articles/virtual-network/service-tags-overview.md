@@ -13,32 +13,32 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: e357667e650e9feeb8dceeffe71c287cde9fe8a0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 965795b96deda03531504952fc8afbea0acb41bf
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631604"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221955"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
 
 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft에서는 서비스 태그에서 압축한 주소 접두사를 관리하고 주소를 변경하는 대로 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다.
 
-서비스 태그를 사용 하 여 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 또는 [Azure 방화벽](https://docs.microsoft.com/azure/firewall/service-tags)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절 한 *원본* 또는 *대상* 필드에 **microsoft.apimanagement** 와 같은 서비스 태그 이름을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
+서비스 태그를 사용 하 여 [네트워크 보안 그룹](./network-security-groups-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절 한 *원본* 또는 *대상* 필드에 **microsoft.apimanagement** 와 같은 서비스 태그 이름을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
 
 퍼블릭 엔드포인트가 있는 Azure 서비스에 액세스하면서, 서비스 태그를 사용하여 네트워크 격리를 수행하고 일반 인터넷에서 Azure 리소스를 보호할 수 있습니다. 인바운드/아웃바운드 네트워크 보안 그룹 규칙을 만들어 **인터넷** 에서 들어오고 나가는 트래픽을 거부하고 **AzureCloud** 또는 특정 Azure 서비스의 다른 [사용 가능한 서비스 태그](#available-service-tags)에서 들어오고 나가는 트래픽을 허용합니다.
 
 ![서비스 태그를 사용 하 여 Azure 서비스의 네트워크 격리](./media/service-tags-overview/service_tags.png)
 
 ## <a name="available-service-tags"></a>사용 가능한 서비스 태그
-다음 표에는 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 규칙에서 사용할 수 있는 모든 서비스 태그가 나와 있습니다.
+다음 표에는 [네트워크 보안 그룹](./network-security-groups-overview.md#security-rules) 규칙에서 사용할 수 있는 모든 서비스 태그가 나와 있습니다.
 
 열은 태그가 다음에 해당하는지 여부를 나타냅니다.
 
 - 인바운드 또는 아웃바운드 트래픽을 포함하는 규칙에 적합합니다.
 - [지역](https://azure.microsoft.com/regions) 범위를 지원합니다.
-- [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags) 규칙에서 사용할 수 있습니다.
+- [Azure Firewall](../firewall/service-tags.md) 규칙에서 사용할 수 있습니다.
 
 기본적으로 서비스 태그는 전체 클라우드의 범위를 반영합니다. 일부 서비스 태그는 해당 IP 범위를 지정된 지역으로 제한하여 보다 자세히 제어할 수 있습니다. 예를 들어, 서비스 태그 **Storage** 는 전체 클라우드의 Azure Storage를 나타내지만 **Storage.WestUS** 는 범위를 WestUS 지역의 스토리지 IP 주소 범위로 좁힙니다. 다음 표에서는 각 서비스 태그가 이러한 지역 범위를 지원하는지 여부를 나타냅니다.  
 
@@ -52,19 +52,19 @@ ms.locfileid: "97631604"
 | **AppServiceManagement** | App Service Environment 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **AzureActiveDirectory** | Azure Active Directory. | 아웃바운드 | 예 | 예 |
 | **AzureActiveDirectoryDomainServices** | Azure Active Directory Domain Services 전용 배포에 대한 관리 트래픽 | 모두 | 예 | 예 |
-| **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | 아웃바운드 | 예 | 예 |
+| **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | 아웃바운드 | 예 | 아니요 |
 | **AzureArcInfrastructure** | Azure Arc 사용 서버, Azure Arc enabled Kubernetes 및 게스트 구성 트래픽<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory**,**AzureTrafficManager** 및 **AzureResourceManager** 태그에 종속 됩니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다*.| 아웃바운드 | 예 | 예 |
 | **AzureBackup** |Azure Backup<br/><br/>*참고:* 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureBotService** | Azure Bot Service | 아웃바운드 | 예 | 예 |
 | **AzureCloud** | 모든 [데이터 센터 퍼블릭 IP 주소](https://www.microsoft.com/download/details.aspx?id=56519)입니다. | 아웃바운드 | 예 | 예 |
-| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>이 태그 또는 이 태그가 적용되는 IP 주소를 사용하여 데이터 원본에 대한 보안 액세스 권한을 인덱서에 부여할 수 있습니다. 자세한 내용은 [인덱서 연결 설명서](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) 를 참조 하세요. <br/><br/> *참고*: 검색 서비스의 IP는 이 서비스 태그의 IP 범위 목록에 포함되지 않으므로 데이터 원본의 IP 방화벽에 **도 추가해야 합니다**. | 인바운드 | 예 | 예 |
+| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>이 태그 또는 이 태그가 적용되는 IP 주소를 사용하여 데이터 원본에 대한 보안 액세스 권한을 인덱서에 부여할 수 있습니다. 자세한 내용은 [인덱서 연결 설명서](../search/search-indexer-troubleshooting.md#connection-errors) 를 참조 하세요. <br/><br/> *참고*: 검색 서비스의 IP는 이 서비스 태그의 IP 범위 목록에 포함되지 않으므로 데이터 원본의 IP 방화벽에 **도 추가해야 합니다**. | 인바운드 | 예 | 예 |
 | **AzureConnectors** | 프로브/백 엔드 연결용 Azure Logic Apps 커넥터입니다. | 인바운드 | 예 | 예 |
 | **AzureContainerRegistry** | Azure Container Registry입니다. | 아웃바운드 | 예 | 예 |
 | **AzureCosmosDB** | Azure Cosmos DB | 아웃바운드 | 예 | 예 |
 | **AzureDatabricks** | Azure Databricks입니다. | 모두 | 예 | 예 |
 | **AzureDataExplorerManagement** | Azure Data Explorer 관리 기능입니다. | 인바운드 | 예 | 예 |
 | **AzureDataLake** | Azure Data Lake Storage Gen1입니다. | 아웃바운드 | 예 | 예 |
-| **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 예 |
+| **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 아니요 |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*참고:이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.*| 인바운드 | 예 | 예 |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*참고:* 이 태그 또는이 태그에 포함 된 IP 주소는 이벤트 경로에 대해 구성 된 끝점에 대 한 액세스를 제한 하는 데 사용할 수 있습니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 인바운드 | 예 | 예 |
 | **AzureEventGrid** | Azure Event Grid. | 모두 | 예 | 예 |
@@ -72,17 +72,17 @@ ms.locfileid: "97631604"
 | **AzureInformationProtection** | Azure Information Protection입니다.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory**, **AzureFrontDoor.Frontend** 및 **AzureFrontDoor.FirstParty** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureIoTHub** | Azure IoT Hub입니다. | 아웃바운드 | 예 | 예 |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
-| **AzureLoadBalancer** | Azure 인프라 부하 분산 장치입니다. 이 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. 이는 백 엔드 리소스에 대 한 실제 트래픽이 아닌 프로브 트래픽만 포함 합니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다. | 모두 | 예 | 예 |
+| **AzureLoadBalancer** | Azure 인프라 부하 분산 장치입니다. 이 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](./network-security-groups-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. 이는 백 엔드 리소스에 대 한 실제 트래픽이 아닌 프로브 트래픽만 포함 합니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다. | 모두 | 예 | 예 |
 | **AzureMachineLearning** | Azure Machine Learning입니다. | 모두 | 예 | 예 |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon 및 사용자 지정 메트릭(GIG 엔드포인트)입니다.<br/><br/>*참고:* Log Analytics의 경우 이 태그는 **Storage** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureOpenDatasets** | Azure Open Datasets입니다.<br/><br/>*참고:* 이 태그는 **AzureFrontDoor** 및 **Storage** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
-| **AzurePlatformDNS** | 기본 인프라(기본값) DNS 서비스입니다.<br/><br>이 태그를 사용하여 기본 DNS를 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)을 읽어 보는 것이 좋습니다. 또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
-| **AzurePlatformIMDS** | 기본 인프라 서비스인 Azure IMDS(Instance Metadata Service)입니다.<br/><br/>이 태그를 사용하여 기본 IMDS를 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)을 읽어 보는 것이 좋습니다. 또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
-| **AzurePlatformLKM** | Windows 라이선스 또는 키 관리 서비스입니다.<br/><br/>이 태그를 사용하여 라이선스에 대한 기본값을 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)을 읽어 보는 것이 좋습니다.  또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
+| **AzurePlatformDNS** | 기본 인프라(기본값) DNS 서비스입니다.<br/><br>이 태그를 사용하여 기본 DNS를 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](./network-security-groups-overview.md#azure-platform-considerations)을 읽어 보는 것이 좋습니다. 또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
+| **AzurePlatformIMDS** | 기본 인프라 서비스인 Azure IMDS(Instance Metadata Service)입니다.<br/><br/>이 태그를 사용하여 기본 IMDS를 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](./network-security-groups-overview.md#azure-platform-considerations)을 읽어 보는 것이 좋습니다. 또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
+| **AzurePlatformLKM** | Windows 라이선스 또는 키 관리 서비스입니다.<br/><br/>이 태그를 사용하여 라이선스에 대한 기본값을 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](./network-security-groups-overview.md#azure-platform-considerations)을 읽어 보는 것이 좋습니다.  또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
 | **AzureResourceManager** | Azure Resource Manager입니다. | 아웃바운드 | 예 | 예 |
 | **AzureSignalR** | Azure SignalR입니다. | 아웃바운드 | 예 | 예 |
 | **AzureSiteRecovery** | Azure Site Recovery입니다.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** 및 **Storage** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
-| **AzureTrafficManager** | Azure Traffic Manager 프로브 IP 주소입니다.<br/><br/>Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)를 참조하세요. | 인바운드 | 예 | 예 |  
+| **AzureTrafficManager** | Azure Traffic Manager 프로브 IP 주소입니다.<br/><br/>Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md)를 참조하세요. | 인바운드 | 예 | 예 |  
 | **BatchNodeManagement** | Azure Batch 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **CognitiveServicesManagement** | Azure Cognitive Services에 대한 트래픽 주소 범위입니다. | 모두 | 예 | 예 |
 | **DataFactory**  | Azure 데이터 팩터리 | 모두 | 예 | 예 |
@@ -105,7 +105,7 @@ ms.locfileid: "97631604"
 | **스토리지** | Azure Storage. <br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. | 아웃바운드 | 예 | 예 |
 | **StorageSyncService** | 스토리지 동기화 서비스입니다. | 모두 | 예 | 예 |
 | **WindowsVirtualDesktop** | Windows 가상 데스크톱입니다. | 모두 | 예 | 예 |
-| **VirtualNetwork** | 가상 네트워크 주소 공간(가상 네트워크에 대해 정의된 모든 IP 주소 범위), 연결된 모든 온-프레미스 주소 공간 및 [피어링](virtual-network-peering-overview.md)된 가상 네트워크 또는 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)에 연결된 가상 네트워크, [사용자 정의 경로](virtual-networks-udr-overview.md)에 사용되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations)입니다. 이 태그에는 기본 경로가 포함될 수도 있습니다. | 모두 | 예 | 예 |
+| **VirtualNetwork** | 가상 네트워크 주소 공간(가상 네트워크에 대해 정의된 모든 IP 주소 범위), 연결된 모든 온-프레미스 주소 공간 및 [피어링](virtual-network-peering-overview.md)된 가상 네트워크 또는 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)에 연결된 가상 네트워크, [사용자 정의 경로](virtual-networks-udr-overview.md)에 사용되는 [호스트의 가상 IP 주소](./network-security-groups-overview.md#azure-platform-considerations)입니다. 이 태그에는 기본 경로가 포함될 수도 있습니다. | 모두 | 예 | 예 |
 
 >[!NOTE]
 >클래식 배포 모델(Azure Resource Manager 이전)에서는 이전 표에 나열된 태그의 하위 세트가 지원됩니다. 이러한 태그는 다음과 같이 철자가 다릅니다.
@@ -128,9 +128,9 @@ ms.locfileid: "97631604"
 ### <a name="use-the-service-tag-discovery-api-public-preview"></a>서비스 태그 검색 API(퍼블릭 미리 보기) 사용
 IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 프로그래밍 방식으로 검색할 수 있습니다.
 
-- [REST (영문)](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [REST (영문)](/rest/api/virtualnetwork/servicetags/list)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
+- [Azure CLI](/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
 > 퍼블릭 미리 보기로 제공되는 동안 검색 API는 JSON 다운로드에서 반환된 정보보다 최신이 아닌 정보를 반환할 수 있습니다. (다음 섹션을 참조하세요.)
@@ -151,7 +151,7 @@ IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 �
 
 ### <a name="tips"></a>팁 
 - JSON 파일에서 증가된 *changeNumber* 값을 기록하여 한 게시에서 다음 게시까지의 업데이트를 검색할 수 있습니다. 각 하위 섹션(예: **Storage.WestUS**)에는 변경이 발생할 때마다 증가하는 고유한 *changeNumber* 가 있습니다. 하위 섹션이 변경될 때 파일의 *changeNumber* 최상위 수준이 증가합니다.
-- 서비스 태그 정보를 구문 분석하는 방법에 대한 예제(예: WestUS의 스토리지에 대한 모든 주소 범위 가져오기)를 보려면 [서비스 태그 검색 API PowerShell](https://aka.ms/discoveryapi_powershell) 설명서를 참조하세요.
+- 서비스 태그 정보를 구문 분석하는 방법에 대한 예제(예: WestUS의 스토리지에 대한 모든 주소 범위 가져오기)를 보려면 [서비스 태그 검색 API PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2) 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [네트워크 보안 그룹 만들기](tutorial-filter-network-traffic.md)에 대해 알아보세요.

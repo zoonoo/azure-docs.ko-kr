@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a1eab081a7c1e83a57ef4735c6eb5248d92defc
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b4f9dcf6fd43749cdf71098b3cd0da8a42020f6d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734126"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221768"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -39,7 +39,7 @@ ms.locfileid: "94734126"
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙이](security-overview.md#default-security-rules)포함 되어 있습니다. 다음 규칙은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 허용 하는 기본 보안 규칙을 재정의 합니다. `destination-address-prefix "Internet"`옵션은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 거부 합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
+각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙이](./network-security-groups-overview.md#default-security-rules)포함 되어 있습니다. 다음 규칙은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 허용 하는 기본 보안 규칙을 재정의 합니다. `destination-address-prefix "Internet"`옵션은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 거부 합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -158,7 +158,7 @@ az network nsg rule create \
 
 서비스 엔드포인트에 사용할 수 있는 Azure 서비스를 통해 만든 리소스에 대한 네트워크 액세스를 제한하는 데 필요한 단계는 서비스에 따라 다릅니다. 각 서비스에 대한 특정 단계는 개별 서비스의 설명서를 참조하세요. 이 문서의 나머지 부분에는 Azure Storage 계정에 대한 네트워크 액세스를 제한하는 단계가 예제로 포함되어 있습니다.
 
-### <a name="create-a-storage-account"></a>스토리지 계정 만들기
+### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
 [az storage account create](/cli/azure/storage/account)를 사용하여 Azure Storage 계정을 만듭니다. `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.
 

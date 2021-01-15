@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: a820fb4ec5d6c2053b1104b68dbda0ae70f624c0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 58f6c7a3b5d68d2825cead545ba1b683d1faf1af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179200"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222805"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Cloud Shell 배포
 
@@ -87,9 +87,6 @@ ResourceTypes                             RegistrationState
 연결 하려는 VNET이 이미 있는 경우이 섹션을 건너뜁니다.
 
 Azure Portal 또는 Azure CLI, Azure PowerShell 등을 사용 하 여 새 리소스 그룹에 리소스 그룹 및 가상 네트워크를 만들고 **리소스 그룹 및 가상 네트워크는 동일한 지역에** 있어야 합니다.
-
-> [!NOTE]
-> 공개 미리 보기 상태에서 리소스 그룹과 가상 네트워크는 WestCentralUS 또는 WestUS 중 하나에 있어야 합니다.
 
 ### <a name="arm-templates"></a>ARM 템플릿
 [Azure 빠른 시작 템플릿](https://aka.ms/cloudshell/docs/vnet/template) 을 사용 하 여 가상 네트워크에 Cloud Shell 리소스를 만들고, 필요한 저장소를 만들기 위한 [Azure 빠른 시작 템플릿을](https://aka.ms/cloudshell/docs/vnet/template/storage) 활용 합니다. 리소스 이름 (주로 파일 공유 이름)을 기록해 둡니다.

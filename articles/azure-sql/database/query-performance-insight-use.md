@@ -10,13 +10,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: a016781e5b05c8f43c043bf1f3368a58064e43ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501263"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222346"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Azure SQL Database에 대한 Query Performance Insight
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Query Performance Insight는 단일 및 풀링된 데이터베이스에 대한 �
 
 ![쿼리](./media/query-performance-insight-use/opening-title.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 가 활성 상태여야 합니다. 기본적으로 Azure SQL Database의 모든 데이터베이스에 대해 자동으로 사용 하도록 설정 됩니다. 쿼리 저장소를 실행하지 않는 경우 Azure Portal에서 사용하도록 설정하라는 메시지가 나타납니다.
 
@@ -155,7 +155,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
 
 Query Performance Insight의 기간 및 실행 수라는 두 메트릭은 잠재적인 병목 상태를 찾는 데 도움이 될 수 있습니다.
 
-장기 실행 쿼리는 리소스를 더 오래 잠그고, 다른 사용자를 차단하고, 확장성을 제한할 가능성이 가장 높습니다. 또한 최적화에 가장 적합한 후보이기도 합니다.
+장기 실행 쿼리는 리소스를 더 오래 잠그고, 다른 사용자를 차단하고, 확장성을 제한할 가능성이 가장 높습니다. 또한 최적화에 가장 적합한 후보이기도 합니다. 자세한 내용은 [AZURE SQL 차단 문제 이해 및 해결](understand-resolve-blocking.md)을 참조 하세요.
 
 장기 실행 쿼리를 식별하려면 다음을 수행합니다.
 

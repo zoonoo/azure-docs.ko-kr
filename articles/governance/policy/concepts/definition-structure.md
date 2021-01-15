@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 52adaf9522e4690c4c44a72ed47592f5b1d6471e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 6e04551a2ef2f890844693fec71d2d3232a456f2
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883251"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220816"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -261,7 +261,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="conditions"></a>조건
 
-조건은 **field** 또는 **value** 접근자가 특정 기준을 충족하는지 여부를 평가합니다. 지원되는 조건은 다음과 같습니다.
+조건은 값이 특정 조건을 충족 하는지 여부를 평가 합니다. 지원되는 조건은 다음과 같습니다.
 
 - `"equals": "stringValue"`
 - `"notEquals": "stringValue"`
@@ -291,12 +291,9 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 **match** 및 **notMatch** 조건을 사용하는 경우 숫자 하나를 일치시키려면 `#`을, 문자 하나를 일치시키려면 `?`를, 임의 문자를 일치시키려면 `.`를, 실제 문자와 일치시키려면 다른 문자를 입력합니다. **Match** 및 **notmatch** 는 대/소문자를 구분 하지만 _stringValue_ 을 평가 하는 다른 모든 조건은 대/소문자를 구분 하지 않습니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively** 에서 확인할 수 있습니다.
 
-**\[\*\] alias** 배열 필드 값에서 배열의 각 요소는 요소 간에 논리적 **and** 를 사용하여 개별적으로 평가됩니다. 자세한 내용은 [배열 리소스 속성 참조](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)를 참조 하세요.
-
 ### <a name="fields"></a>필드
 
-조건은 필드를 사용하여 구성됩니다. 필드는 리소스 요청 페이로드의 속성을 일치시키고 리소스 상태를 설명합니다.
-
+리소스 요청 페이로드의 속성 값이 특정 기준을 충족 하는지 여부를 평가 하는 조건은 **필드** 식을 사용 하 여 지정할 수 있습니다.
 다음 필드가 지원됩니다.
 
 - `name`
@@ -305,6 +302,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 - `kind`
 - `type`
 - `location`
+  - 위치 필드는 다양 한 형식을 지원 하도록 정규화 됩니다. 예를 들어 `East US 2` 은와 동일한 것으로 간주 됩니다 `eastus2` .
   - 위치에 관계없는 리소스에는 **전역** 을 사용합니다.
 - `id`
   - 평가 중인 리소스의 리소스 ID를 반환 합니다.
@@ -324,6 +322,10 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 > [!NOTE]
 > `tags.<tagName>`, `tags[tagName]` 및 `tags[tag.with.dots]`도 여전히 허용되는 태그 필드 선언 방법입니다. 그러나 기본 식은 위에 나열된 식입니다.
+
+> [!NOTE]
+> **\[ \* \] 별칭** 을 참조 하는 **필드** 식에서 배열의 각 요소는 논리적 **and** between 요소를 사용 하 여 개별적으로 평가 됩니다.
+> 자세한 내용은 [배열 리소스 속성 참조](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)를 참조 하세요.
 
 #### <a name="use-tags-with-parameters"></a>매개 변수와 함께 태그 사용
 
@@ -355,7 +357,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="value"></a>값
 
-**value** 를 사용하여 조건을 구성할 수도 있습니다. **value** 는 [매개 변수](#parameters), [지원되는 템플릿 함수](#policy-functions) 또는 리터럴에 대해 조건을 확인합니다. **value** 는 지원되는 모든 [조건](#conditions)과 쌍을 이룹니다.
+**값 식을 사용** 하 여 값을 특정 조건을 충족 하는지 여부를 평가 하는 조건을 지정할 수 있습니다. 값은 리터럴, [매개 변수](#parameters)값 또는 [지원 되는 템플릿 함수의](#policy-functions)반환 값이 될 수 있습니다.
 
 > [!WARNING]
 > _템플릿 함수_ 의 결과가 오류이면 정책 평가가 실패합니다. 실패한 평가는 암시적 **거부** 입니다. 자세한 내용은 [템플릿 오류 방지](#avoiding-template-failures)를 참조하세요. **DoNotEnforce** 의 [enforcementMode](./assignment-structure.md#enforcement-mode)를 사용하여 새 정책 정의를 테스트하고 검증하는 동안 실패한 평가가 새로운 또는 업데이트된 리소스에 미치는 영향을 방지합니다.
@@ -440,9 +442,11 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="count"></a>개수
 
-리소스 페이로드에서 배열의 멤버 중 조건식을 충족하는 멤버의 수를 세는 조건은 **count** 식을 사용하여 형성할 수 있습니다. 일반적인 시나리오에서는 배열 멤버 '중 하나 이상', ' 중 정확히 하나', '중 모두' 또는 '중 아무도'라는 조건을 충족하는지 여부를 확인합니다. **count** 는 조건식에 대해 각 [\[\*\] alias](#understanding-the--alias) 배열 멤버를 평가하고 _true_ 결과의 합계를 낸 다음, 식 연산자와 비교합니다. **개수** 식은 단일 **policyrule** 정의에 최대 세 번 추가할 수 있습니다.
+특정 조건에 맞는 배열의 멤버 수를 계산 하는 조건은 **개수** 식을 사용 하 여 지정할 수 있습니다. 일반적인 시나리오는 ', ' 중 하나 이상이 정확히 하나 (', ' 모두 ' 또는 ' 없음 ')가 조건을 충족 하는지 여부를 확인 하는 것입니다. **Count** 는 조건 식에 대 한 각 배열 멤버를 평가 하 고 식 연산자와 비교 되는 _true_ 결과의 합계를 구합니다.
 
-**count** 식의 구조는 다음과 같습니다.
+#### <a name="field-count"></a>필드 수
+
+요청 페이로드의 배열에서 조건 식을 만족 하는 멤버의 수를 계산 합니다. **필드 개수** 식의 구조는 다음과 같습니다.
 
 ```json
 {
@@ -456,16 +460,62 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 }
 ```
 
-**count** 에 사용되는 속성은 다음과 같습니다.
+**필드 수** 와 함께 사용 되는 속성은 다음과 같습니다.
 
-- **count.field** (필수): 배열의 경로를 포함하며 배열 별칭이어야 합니다. 배열이 없으면 조건식을 고려하지 않고 식이 _false_ 로 평가됩니다.
-- **count.where**(선택 사항): **count.field** 의 각 [\[\*\] alias](#understanding-the--alias) 배열 멤버를 개별적으로 평가하는 조건식입니다. 이 속성을 제공 하지 않으면 ' field ' 경로를 사용 하는 모든 배열 멤버가 _true_ 로 평가 됩니다. 속성 내에서 모든 [condition](../concepts/definition-structure.md#conditions)을 사용할 수 있습니다.
+- **count.field** (필수): 배열의 경로를 포함하며 배열 별칭이어야 합니다.
+- **count. where** (선택 사항):의 각 [ \[ \* \] 별칭](#understanding-the--alias) 배열 멤버에 대해 개별적으로 평가할 조건 식 `count.field` 입니다. 이 속성을 제공 하지 않으면 ' field ' 경로를 사용 하는 모든 배열 멤버가 _true_ 로 평가 됩니다. 속성 내에서 모든 [condition](../concepts/definition-structure.md#conditions)을 사용할 수 있습니다.
   [논리 연산자](#logical-operators)는 이 속성 내에서 복잡한 평가 요구 사항을 만드는 데 사용할 수 있습니다.
 - **\<condition\>** (필수): 값은 count를 만족 하는 항목의 수와 비교 됩니다 **. where** 조건 식. 숫자 [조건](../concepts/definition-structure.md#conditions)을 사용해야 합니다.
 
-Azure Policy에서 배열 속성을 사용 하는 방법에 대 한 자세한 내용은 참조 [배열 리소스 속성](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)을 참조 하세요.
+**필드 수** 식은 단일 **policyrule** 정의에서 동일한 필드 배열을 최대 3 번까지 열거할 수 있습니다.
 
-#### <a name="count-examples"></a>Count 예
+**필드 개수** 식이 계산 되는 방법에 대 한 자세한 설명을 포함 하 여 Azure Policy에서 배열 속성으로 작업 하는 방법에 대 한 자세한 내용은 [배열 리소스 속성 참조](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)를 참조 하세요.
+
+#### <a name="value-count"></a>값 개수
+배열에서 조건을 충족 하는 멤버 수를 계산 합니다. 배열은 리터럴 배열 이거나 [배열 매개 변수에 대 한 참조일](#using-a-parameter-value)수 있습니다. **값 개수** 식의 구조는 다음과 같습니다.
+
+```json
+{
+    "count": {
+        "value": "<literal array | array parameter reference>",
+        "name": "<index name>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+**값 개수** 에 사용 되는 속성은 다음과 같습니다.
+
+- **count. value** (필수): 평가할 배열입니다.
+- **count.name** (필수): 영어 문자와 숫자로 구성 된 인덱스 이름입니다. 현재 반복에서 계산 된 배열 멤버의 값에 대 한 이름을 정의 합니다. 이 이름은 조건 내에서 현재 값을 참조 하는 데 사용 됩니다 `count.where` . **Count** 식이 다른 **count** 식의 자식에 있지 않은 경우 선택 사항입니다. 제공 되지 않은 경우 인덱스 이름은 암시적으로로 설정 됩니다 `"default"` .
+- **count. where** (선택 사항):의 각 배열 멤버에 대해 개별적으로 평가할 조건 식 `count.value` 입니다. 이 속성을 제공 하지 않으면 모든 배열 멤버가 _true_ 로 평가 됩니다. 속성 내에서 모든 [condition](../concepts/definition-structure.md#conditions)을 사용할 수 있습니다. [논리 연산자](#logical-operators)는 이 속성 내에서 복잡한 평가 요구 사항을 만드는 데 사용할 수 있습니다. 현재 열거 된 배열 멤버의 값은 [현재](#the-current-function) 함수를 호출 하 여 액세스할 수 있습니다.
+- **\<condition\>** (필수): 조건 식을 충족 하는 항목의 수와 값을 비교 합니다 `count.where` . 숫자 [조건](../concepts/definition-structure.md#conditions)을 사용해야 합니다.
+
+다음 한도가 적용 됩니다.
+- 단일 **Policyrule** 정의에는 최대 10 개의 **값 개수** 식을 사용할 수 있습니다.
+- 각 **값 개수** 식은 최대 100 회까지 수행할 수 있습니다. 이 수는 부모 **값 개수** 식에 의해 수행 되는 반복 횟수를 포함 합니다.
+
+#### <a name="the-current-function"></a>현재 함수입니다.
+
+`current()`함수는 조건 내 에서만 사용할 수 있습니다 `count.where` . 이 메서드는 현재 **개수** 식 계산에 의해 열거 된 배열 멤버의 값을 반환 합니다.
+
+**값 개수 사용**
+
+- `current(<index name defined in count.name>)`. 예를 들어 `current('arrayMember')`을 참조하십시오.
+- `current()`. **값 개수** 식이 다른 **count** 식의 자식이 아닌 경우에만 허용 됩니다. 위와 같은 값을 반환 합니다.
+
+호출에서 반환 된 값이 개체 이면 속성 접근자가 지원 됩니다. 예를 들어 `current('objectArrayMember').property`을 참조하십시오.
+
+**필드 수 사용**
+
+- `current(<the array alias defined in count.field>)`. 예들 들어 `current('Microsoft.Test/resource/enumeratedArray[*]')`입니다.
+- `current()`. **필드 개수** 식이 다른 **count** 식의 자식이 아닌 경우에만 허용 됩니다. 위와 같은 값을 반환 합니다.
+- `current(<alias of a property of the array member>)`. 예들 들어 `current('Microsoft.Test/resource/enumeratedArray[*].property')`입니다.
+
+#### <a name="field-count-examples"></a>필드 수 예
 
 예제 1: 배열이 비어 있는지 확인
 
@@ -550,18 +600,162 @@ Azure Policy에서 배열 속성을 사용 하는 방법에 대 한 자세한 �
 }
 ```
 
-예제 6: `field()` 조건 내에서 함수 `where` 를 사용 하 여 현재 계산 된 배열 멤버의 리터럴 값에 액세스 합니다. 이 조건은 짝수 _우선 순위_ 값을 가진 보안 규칙이 없는지 확인 합니다.
+예제 6: `current()` 조건 내에서 함수를 사용 `where` 하 여 템플릿 함수에서 현재 열거 된 배열 멤버의 값에 액세스 합니다. 이 조건은 가상 네트워크가 10.0.0.0/24 CIDR 범위에 속하지 않는 주소 접두사를 포함 하는지 여부를 확인 합니다.
 
 ```json
 {
     "count": {
-        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
         "where": {
-          "value": "[mod(first(field('Microsoft.Network/networkSecurityGroups/securityRules[*].priority')), 2)]",
-          "equals": 0
+          "value": "[ipRangeContains('10.0.0.0/24', current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+          "equals": false
         }
     },
     "greater": 0
+}
+```
+
+예제 7: `field()` 조건 내에서 함수 `where` 를 사용 하 여 현재 열거 된 배열 멤버의 값에 액세스 합니다. 이 조건은 가상 네트워크가 10.0.0.0/24 CIDR 범위에 속하지 않는 주소 접두사를 포함 하는지 여부를 확인 합니다.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+          "value": "[ipRangeContains('10.0.0.0/24', first(field(('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]')))]",
+          "equals": false
+        }
+    },
+    "greater": 0
+}
+```
+
+#### <a name="value-count-examples"></a>값 개수 예
+
+예제 1: 리소스 이름이 지정 된 이름 패턴과 일치 하는지 확인 합니다.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+예제 2: 리소스 이름이 지정 된 이름 패턴과 일치 하는지 확인 합니다. `current()`함수는 인덱스 이름을 지정 하지 않습니다. 결과는 이전 예제와 동일 합니다.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+예제 3: 리소스 이름이 배열 매개 변수에서 제공 하는 지정 된 이름 패턴과 일치 하는지 확인 합니다.
+
+```json
+{
+    "count": {
+        "value": "[parameters('namePatterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+예 4: 승인 된 접두사 목록 아래에 가상 네트워크 주소 접두사가 없는 경우 확인 합니다.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+            "count": {
+                "value": "[parameters('approvedPrefixes')]",
+                "name": "approvedPrefix",
+                "where": {
+                    "value": "[ipRangeContains(current('approvedPrefix'), current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+                    "equals": true
+                },
+            },
+            "equals": 0
+        }
+    },
+    "greater": 0
+}
+```
+
+예 5: 모든 예약 된 NSG 규칙이 NSG에 정의 되어 있는지 확인 합니다. 예약 된 NSG 규칙의 속성은 개체를 포함 하는 배열 매개 변수에 정의 됩니다.
+
+매개 변수 값:
+
+```json
+[
+    {
+        "priority": 101,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 22
+    },
+    {
+        "priority": 102,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 3389
+    }
+]
+```
+
+정책:
+```json
+{
+    "count": {
+        "value": "[parameters('reservedNsgRules')]",
+        "name": "reservedNsgRule",
+        "where": {
+            "count": {
+                "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+                "where": {
+                    "allOf": [
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].priority",
+                            "equals": "[current('reservedNsgRule').priority]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                            "equals": "[current('reservedNsgRule').access]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                            "equals": "[current('reservedNsgRule').direction]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                            "equals": "[current('reservedNsgRule').destinationPortRange]"
+                        }
+                    ]
+                }
+            },
+            "equals": 1
+        }
+    },
+    "equals": "[length(parameters('reservedNsgRules'))]"
 }
 ```
 
@@ -627,7 +821,6 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
   }
   ```
 
-
 - `ipRangeContains(range, targetRange)`
     - **범위**: [필수] 문자열 문자열-IP 주소 범위를 지정 합니다.
     - **Targetrange**: [필수] 문자열 문자열-IP 주소 범위를 지정 합니다.
@@ -639,6 +832,8 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
     - CIDR 범위 (예: `10.0.0.0/24` , `2001:0DB8::/110` )
     - 시작 IP 주소와 끝 IP 주소에 의해 정의 된 범위 (예: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
 
+- `current(indexName)`
+    - [Count 식](#count)내 에서만 사용할 수 있는 특수 함수입니다.
 
 #### <a name="policy-function-example"></a>정책 함수 예제
 
@@ -716,7 +911,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 
 'normal' 별칭은 필드를 단일 값으로 나타냅니다. 이 필드는 전체 값 세트가 정의한 것과 정확히 같아야 하는(초과 또는 미만 없이) 정확한 일치 비교 시나리오를 위한 것입니다.
 
-**\[\*\]** 별칭은 배열 리소스 속성의 요소에서 선택한 값의 컬렉션을 나타냅니다. 예:
+**\[\*\]** 별칭은 배열 리소스 속성의 요소에서 선택한 값의 컬렉션을 나타냅니다. 예를 들면 다음과 같습니다.
 
 | Alias | 선택한 값 |
 |:---|:---|

@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 65985e05be1061bb69eb160cf5be559cb271d5cd
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 89a437504394797b8cbed5325210186248082c33
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202932"
+ms.locfileid: "98218233"
 ---
 # <a name="azure-security-baseline-for-azure-synapse-analytics"></a>Azure Synapse Analytics에 대 한 azure 보안 기준
 
 Azure Synapse Analytics의 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
-이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
+이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [보안 제어: 네트워크 보안](/azure/security/benchmarks/security-control-network-security)을 참조하세요.*
+*자세한 내용은 [보안 제어: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -33,13 +33,13 @@ Azure Synapse Analytics의 Azure 보안 기준에는 배포의 보안 상태를 
 
 또는 Synapse SQL 풀에 연결 하는 경우 네트워크 보안 그룹을 사용 하 여 SQL database에 대 한 나가는 연결의 범위를 좁힙니다. Azure 서비스 허용을 OFF로 설정 하 여 공용 끝점을 통해 SQL database에 대 한 모든 Azure 서비스 트래픽을 사용 하지 않도록 설정 합니다. 방화벽 규칙에는 공용 IP 주소가 허용 되지 않아야 합니다.
 
-* [Azure 개인 링크 이해](https://docs.microsoft.com/azure/private-link/private-link-overview)
+* [Azure 개인 링크 이해](../private-link/private-link-overview.md)
 
-* [Azure Synapse SQL에 대 한 개인 링크 이해](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)
+* [Azure Synapse SQL에 대 한 개인 링크 이해](../azure-sql/database/private-endpoint-overview.md)
 
-* [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
-* [보안 구성을 사용 하 여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [보안 구성을 사용 하 여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -51,13 +51,13 @@ Azure Synapse Analytics의 Azure 보안 기준에는 배포의 보안 상태를 
 
 또한 NSG 흐름 로그를 Log Analytics 작업 영역에 보내고, 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 대한 인사이트를 제공할 수 있습니다. 트래픽 분석의 장점 중 일부는 네트워크 활동을 시각화하고, 핫 스폿을 식별하며, 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해하며, 잘못된 네트워크 구성을 파악할 수 있다는 것입니다.
 
-* [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Azure Security Center에서 제공 하는 네트워크 보안 이해](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Azure Security Center에서 제공 하는 네트워크 보안 이해](../security-center/security-center-network-recommendations.md)
 
-* [트래픽 분석을 사용하도록 설정하고 사용하는 방법](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [트래픽 분석을 사용하도록 설정하고 사용하는 방법](../network-watcher/traffic-analytics.md)
 
-* [Azure Security Center에서 제공 하는 네트워크 보안 이해](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Azure Security Center에서 제공 하는 네트워크 보안 이해](../security-center/security-center-network-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -77,15 +77,15 @@ Azure Synapse Analytics의 Azure 보안 기준에는 배포의 보안 상태를 
 
 분산 된 서비스 거부 공격 으로부터 보호 하기 위해 Azure Synapse SQL과 연결 된 가상 네트워크에서 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다.
 
-* [Azure Synapse SQL에 대 한 ATP 이해](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Azure Synapse SQL에 대 한 ATP 이해](../azure-sql/database/threat-detection-overview.md)
 
-* [Azure SQL Database에 대 한 고급 데이터 보안을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Azure SQL Database에 대 한 고급 데이터 보안을 사용 하도록 설정 하는 방법](../azure-sql/database/azure-defender-for-sql.md)
 
-* [광고 개요](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [광고 개요](../azure-sql/database/azure-defender-for-sql.md)
 
-* [DDoS 보호를 구성 하는 방법](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -95,9 +95,9 @@ Azure Synapse Analytics의 Azure 보안 기준에는 배포의 보안 상태를 
 
 **지침**: 전용 SQL 풀에 연결 하는 경우 nsg (네트워크 보안 그룹) 흐름 로그를 사용 하도록 설정 했으면 트래픽 감사에 대 한 Azure Storage 계정에 로그를 보냅니다. 또한 흐름 로그를 Log Analytics 작업 영역으로 전송 하거나 Event Hubs로 스트리밍할 수 있습니다. 비정상적인 활동을 조사 하는 데 필요한 경우 Network Watcher 패킷 캡처를 사용 하도록 설정 합니다.
 
-* [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Network Watcher를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+* [Network Watcher를 사용하도록 설정하는 방법](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -107,7 +107,7 @@ Azure Synapse Analytics의 Azure 보안 기준에는 배포의 보안 상태를 
 
 **지침**: AZURE Synapse SQL에 대해 ATP (Advanced Threat Protection)를 사용 합니다. ATP는 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 하 고, "잠재적인 SQL 삽입" 및 "비정상적인 위치에서 액세스"와 같은 다양 한 경고를 트리거할 수 있습니다. ATP는 광고 (Advanced data security) 제품의 일부 이며 중앙 SQL ADS 포털을 통해 액세스 하 고 관리할 수 있습니다. 또한 ATP는 경고를 Azure Security Center와 통합 합니다.
 
-* [Azure Synapse SQL에 대 한 ATP 이해](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Azure Synapse SQL에 대 한 ATP 이해](../azure-sql/database/threat-detection-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -127,9 +127,9 @@ Azure Synapse Analytics의 Azure 보안 기준에는 배포의 보안 상태를 
 
 전용 SQL 풀에 대해 서비스 끝점을 사용 하는 경우 Azure SQL database 공용 IP 주소에 대 한 아웃 바운드가 필요 합니다. 연결을 허용 하려면 Ip를 Azure SQL Database 하기 위해 NSGs (네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대 한 NSG 서비스 태그를 사용 하 여이 작업을 수행할 수 있습니다.
 
-* [Azure SQL Database에 대 한 서비스 끝점을 사용 하 여 서비스 태그 이해](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
+* [Azure SQL Database에 대 한 서비스 끝점을 사용 하 여 서비스 태그 이해](../azure-sql/database/vnet-service-endpoint-rule-overview.md#limitations)
 
-* [서비스 태그 이해 및 사용](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [서비스 태그 이해 및 사용](../virtual-network/service-tags-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -141,9 +141,9 @@ Azure Synapse Analytics의 Azure 보안 기준에는 배포의 보안 상태를 
 
 Azure 청사진을 사용 하 여 azure 리소스 관리 템플릿, azure RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 단일 청사진 정의로 패키지화 하 여 대규모 Azure 배포를 간소화 합니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Blueprint를 만드는 방법](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -157,7 +157,7 @@ Azure 청사진을 사용 하 여 azure 리소스 관리 템플릿, azure RBAC (
 
 Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소스에 대한 작업을 조회하거나 수행할 수 있습니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -167,9 +167,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 전용 SQL 풀과 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -177,13 +177,13 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [보안 제어: 로깅 및 모니터링](/azure/security/benchmarks/security-control-logging-monitoring)을 참조하세요.*
+*자세한 내용은 [보안 제어: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조하세요.*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
 
 **지침**: Microsoft는 Azure 리소스에 대 한 시간 소스를 유지 관리 합니다. 계산 배포에 대 한 시간 동기화를 업데이트할 수 있습니다.
 
-* [Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+* [Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법](../virtual-machines/windows/time-sync.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -199,9 +199,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
-* [Azure SQL 리소스에 대 한 감사를 설정 하는 방법](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#server-vs-database-level)
+* [Azure SQL 리소스에 대 한 감사를 설정 하는 방법](../azure-sql/database/auditing-overview.md#server-vs-database-level)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -213,11 +213,11 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 데이터베이스 또는 서버 수준 모두에서 감사를 사용 하도록 설정할 수 있으며, 특정 데이터베이스에 대 한 별도의 데이터 싱크 또는 보존을 구성 해야 하는 경우를 제외 하 고는 서버 수준 에서만 사용 하도록 제안 하는 것이 좋습니다.
 
-* [Azure SQL Database 감사를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)
+* [Azure SQL Database 감사를 사용 하도록 설정 하는 방법](../azure-sql/database/auditing-overview.md)
 
-* [서버에 대 한 감사를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#setup-auditing)
+* [서버에 대 한 감사를 사용 하도록 설정 하는 방법](../azure-sql/database/auditing-overview.md#setup-auditing)
 
-* [서버 수준 및 데이터베이스 수준 감사 정책의 차이점](https://docs.microsoft.com/azure/sql-database/sql-database-auditing#server-vs-database-level)
+* [서버 수준 및 데이터베이스 수준 감사 정책의 차이점](../azure-sql/database/auditing-overview.md#server-vs-database-level)
 
 **Azure Security Center 모니터링**: 예
 
@@ -235,11 +235,11 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: 저장소 계정, Log Analytics 작업 영역 또는 event hubs에서 전용 SQL 풀과 관련 된 로그를 저장 하는 경우 조직의 규정 준수 규정에 따라 로그 보존 기간을 설정 합니다.
 
-* [Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+* [Azure Blob Storage 수명 주기 관리](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
-* [Log Analytics 작업 영역에서 로그 보존 매개 변수를 설정 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Log Analytics 작업 영역에서 로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-* [Event Hubs에서 스트리밍 이벤트 캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [Event Hubs에서 스트리밍 이벤트 캡처](../event-hubs/event-hubs-capture-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -251,13 +251,13 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
-* [Azure SQL Database에 대 한 고급 위협 방지 및 경고 이해](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Azure SQL Database에 대 한 고급 위협 방지 및 경고 이해](../azure-sql/database/threat-detection-overview.md)
 
-* [Azure SQL Database에 대 한 고급 데이터 보안을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Azure SQL Database에 대 한 고급 데이터 보안을 사용 하도록 설정 하는 방법](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Azure SQL Database에 대 한 사용자 지정 경고를 구성 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0&preserve-view=true)
+* [Azure SQL Database에 대 한 사용자 지정 경고를 구성 하는 방법](../azure-sql/database/alerts-insights-configure-portal.md?preserve-view=true&view=azps-1.4.0)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -269,13 +269,13 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 또는 온보드 데이터를 Azure 센티널로 설정할 수 있습니다.
 
-* [Azure SQL Database에 대 한 고급 위협 방지 및 경고 이해](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Azure SQL Database에 대 한 고급 위협 방지 및 경고 이해](../azure-sql/database/threat-detection-overview.md)
 
-* [Azure SQL Database에 대 한 고급 데이터 보안을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Azure SQL Database에 대 한 고급 데이터 보안을 사용 하도록 설정 하는 방법](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Azure Security Center에서 경고를 관리 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+* [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -307,7 +307,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [보안 제어: ID 및 액세스 제어](/azure/security/benchmarks/security-control-identity-access-control)를 참조하세요.*
+*자세한 내용은 [보안 제어: ID 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
@@ -317,19 +317,19 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 관리 작업의 경우 명시적으로 할당 해야 하는 Azure 기본 제공 역할을 사용 합니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
-* [SQL Database에 대 한 인증](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
+* [SQL Database에 대 한 인증](../azure-sql/database/security-overview.md#authentication)
 
-* [비관리자 사용자에 대 한 계정 만들기](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-accounts-for-non-administrator-users)
+* [비관리자 사용자에 대 한 계정 만들기](../azure-sql/database/logins-create-manage.md#create-accounts-for-non-administrator-users)
 
-* [인증에 Azure Active Directory 계정 사용](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-additional-logins-and-users-having-administrative-permissions)
+* [인증에 Azure Active Directory 계정 사용](../azure-sql/database/logins-create-manage.md#create-additional-logins-and-users-having-administrative-permissions)
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-* [Azure SQL에서 기존 로그인 및 관리자 계정을 관리 하는 방법](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+* [Azure SQL에서 기존 로그인 및 관리자 계정을 관리 하는 방법](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Azure 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -339,9 +339,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure Active Directory에는 기본 암호 개념이 없습니다. 전용 SQL 풀을 프로 비전 하는 경우 인증을 Azure Active Directory와 통합 하도록 선택 하는 것이 좋습니다. 이 인증 방법을 사용 하는 경우 사용자는 사용자 계정 이름을 전송 하 고 서비스에서 Azure Active Directory (Azure AD)에 저장 된 자격 증명 정보를 사용 하도록 요청 합니다.
 
-* [Azure SQL을 사용 하 여 Azure Active Directory 인증을 구성 하 고 관리 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#active-directory-password-authentication)
+* [Azure SQL을 사용 하 여 Azure Active Directory 인증을 구성 하 고 관리 하는 방법](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#active-directory-password-authentication)
 
-* [Azure SQL의 인증 이해](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+* [Azure SQL의 인증 이해](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -353,9 +353,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 데이터베이스의 관리자 계정을 식별하려면 Azure Portal을 열고 서버 또는 관리형 인스턴스의 속성 탭으로 이동합니다.
 
-* [Azure Security Center Id 및 액세스 이해](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center Id 및 액세스 이해](../security-center/security-center-identity-access.md)
 
-* [Azure SQL에서 기존 로그인 및 관리자 계정을 관리 하는 방법](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+* [Azure SQL에서 기존 로그인 및 관리자 계정을 관리 하는 방법](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -365,11 +365,11 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure 앱 등록 (서비스 주체)을 사용 하 여 API 호출을 통해 제어 평면 (Azure Portal)에서 데이터 웨어하우스와 상호 작용 하는 데 사용할 수 있는 토큰을 검색 합니다.
 
-* [Azure REST Api를 호출 하는 방법](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+* [Azure REST Api를 호출 하는 방법](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-* [Azure AD를 사용 하 여 클라이언트 응용 프로그램 (서비스 사용자)을 등록 하는 방법](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+* [Azure AD를 사용 하 여 클라이언트 응용 프로그램 (서비스 사용자)을 등록 하는 방법](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-* [Azure Synapse SQL REST API 정보](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api)
+* [Azure Synapse SQL REST API 정보](./sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -379,11 +379,11 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure AD(Active Directory) MFA(Multi-Factor Authentication)를 사용하도록 설정하고, Azure Security Center ID 및 액세스 관리 추천 사항을 따릅니다.
 
-* [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
-* [Azure SQL의 MFA 이해](https://docs.microsoft.com/azure/azure-sql/database/authentication-mfa-ssms-overview)
+* [Azure SQL의 MFA 이해](../azure-sql/database/authentication-mfa-ssms-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -395,7 +395,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 * [Privileged Access Workstation에 대한 자세한 정보](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -409,15 +409,15 @@ Azure Security Center와 함께 Azure SQL Database에 대 한 고급 위협 방�
 
 SQL Server 감사를 사용하면 서버 수준 이벤트에 대한 서버 감사 사양과 데이터베이스 수준 이벤트에 대한 데이터베이스 감사 사양을 포함할 수 있는 서버 감사를 만들 수 있습니다. 감사 이벤트는 이벤트 로그 또는 감사 파일에 기록될 수 있습니다.
 
-* [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+* [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Azure Security Center에서 사용자 id 및 액세스 활동을 모니터링 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center에서 사용자 id 및 액세스 활동을 모니터링 하는 방법](../security-center/security-center-identity-access.md)
 
-* [Advanced Threat Protection 및 잠재적 경고 검토](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts)
+* [Advanced Threat Protection 및 잠재적 경고 검토](../azure-sql/database/threat-detection-overview.md#alerts)
 
-* [Azure SQL의 로그인 및 사용자 계정 이해](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Azure SQL의 로그인 및 사용자 계정 이해](../azure-sql/database/logins-create-manage.md)
 
-* [감사 SQL Server 이해](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15&preserve-view=true)
+* [감사 SQL Server 이해](/sql/relational-databases/security/auditing/sql-server-audit-database-engine?preserve-view=true&view=sql-server-ver15)
 
 **Azure Security Center 모니터링**: 예
 
@@ -427,7 +427,7 @@ SQL Server 감사를 사용하면 서버 수준 이벤트에 대한 서버 감�
 
 **지침**: 조건부 액세스 명명 된 위치를 사용 하 여 IP 주소 범위 또는 국가/지역의 특정 논리적 그룹 에서만 포털 및 Azure 리소스 관리 액세스를 허용 합니다.
 
-* [Azure에서 명명된 위치를 구성하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Azure에서 명명된 위치를 구성하는 방법](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -437,9 +437,9 @@ SQL Server 감사를 사용하면 서버 수준 이벤트에 대한 서버 감�
 
 **지침**: 전용 SQL 풀에서 Azure SQL Database 서버에 대 한 AD (Azure Active Directory) 관리자를 만듭니다.
 
-* [Azure SQL을 사용 하 여 Azure AD 인증을 구성 하 고 관리 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
+* [Azure SQL을 사용 하 여 Azure AD 인증을 구성 하 고 관리 하는 방법](../azure-sql/database/authentication-aad-configure.md)
 
-* [Azure AD 인스턴스를 만들고 구성하는 방법](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -451,9 +451,9 @@ SQL Server 감사를 사용하면 서버 수준 이벤트에 대한 서버 감�
 
 SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터베이스 사용자를 만듭니다. 사용자 그룹에 적절 한 특정 사용 권한이 있는 사용자 지정 데이터베이스 역할에 하나 이상의 데이터베이스 사용자를 두어야 합니다.
 
-* [액세스 검토를 사용 하는 방법](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
 
-* [Azure SQL의 로그인 및 사용자 계정 이해](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Azure SQL의 로그인 및 사용자 계정 이해](../azure-sql/database/logins-create-manage.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -465,13 +465,13 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터베이스 사용자를 만듭니다. 사용자 그룹에 적절 한 특정 사용 권한이 있는 사용자 지정 데이터베이스 역할에 하나 이상의 데이터베이스 사용자를 두어야 합니다.
 
-* [액세스 검토를 사용 하는 방법](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
 
-* [Azure SQL Database를 사용 하 여 Azure AD 인증을 구성 하 고 관리 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
+* [Azure SQL Database를 사용 하 여 Azure AD 인증을 구성 하 고 관리 하는 방법](../azure-sql/database/authentication-aad-configure.md)
 
-* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Azure SQL의 로그인 및 사용자 계정 이해](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Azure SQL의 로그인 및 사용자 계정 이해](../azure-sql/database/logins-create-manage.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -483,13 +483,13 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터베이스 사용자를 만듭니다. 사용자 그룹에 적절 한 특정 사용 권한이 있는 사용자 지정 데이터베이스 역할에 하나 이상의 데이터베이스 사용자를 두어야 합니다.
 
-* [Azure AD 위험 로그인을 보는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Azure AD 위험 로그인을 보는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/connect-data-sources.md)
 
-* [Azure SQL의 로그인 및 사용자 계정 이해](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Azure SQL의 로그인 및 사용자 계정 이해](../azure-sql/database/logins-create-manage.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -499,7 +499,7 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 **지침**: Microsoft에서 전용 SQL 풀의 Azure SQL Database와 관련 된 데이터에 액세스 해야 하는 지원 시나리오에서 Azure 고객 Lockbox는 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다.
 
-* [고객 Lockbox 이해](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [고객 Lockbox 이해](../security/fundamentals/customer-lockbox-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -507,7 +507,7 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [보안 제어: 데이터 보호](/azure/security/benchmarks/security-control-data-protection)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
@@ -515,9 +515,9 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 데이터 검색 &amp; 분류는 Azure SYNAPSE SQL에 기본 제공 됩니다. 데이터베이스에서 중요한 데이터의 검색, 분류, 레이블 지정 및 보고를 위한 고급 기능을 제공합니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-* [데이터 검색 &amp; 분류 이해](https://docs.microsoft.com/azure/azure-sql/database/data-discovery-and-classification-overview)
+* [데이터 검색 &amp; 분류 이해](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -527,13 +527,13 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 **지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. 리소스는 가상 네트워크/서브넷으로 구분 되며, 적절 하 게 태그가 지정 되 고, 네트워크 보안 그룹 또는 Azure 방화벽 내에서 보안이 유지 됩니다. 중요 한 데이터를 저장 하거나 처리 하는 리소스는 격리 되어야 합니다. 개인 링크 사용; 가상 네트워크 내에 Azure SQL Server를 배포 하 고 개인 링크를 사용 하 여 안전 하 게 연결 합니다.
 
-* [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-* [Azure SQL Database용 Private Link를 설정하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
+* [Azure SQL Database용 Private Link를 설정하는 방법](../azure-sql/database/private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -547,11 +547,11 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요한 것으로 간주하고, 고객 데이터 손실 및 노출을 방지하기 위해 모든 노력을 다하고 있습니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다.
 
-* [Azure SQL Database 인스턴스에서 데이터 반출을 방지 하도록 개인 링크 및 nsgs를 구성 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)
+* [Azure SQL Database 인스턴스에서 데이터 반출을 방지 하도록 개인 링크 및 nsgs를 구성 하는 방법](../azure-sql/database/private-endpoint-overview.md)
 
-* [Azure SQL Database에 대 한 Advanced Threat Protection 이해](https://docs.microsoft.com/azure/azure-sql/database/threat-detection-overview)
+* [Azure SQL Database에 대 한 Advanced Threat Protection 이해](../azure-sql/database/threat-detection-overview.md)
 
-* [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -561,7 +561,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: 전송 계층 보안을 사용 하 여 동작에서 데이터를 암호화 하 여 데이터를 보호 Azure SQL Database 합니다. SQL Server는 모든 연결에 대해 항상 암호화 (SSL/TLS)를 적용 합니다. 이렇게 하면 연결 문자열에서 Encrypt 또는 TrustServerCertificate의 설정에 관계 없이 모든 데이터가 클라이언트와 서버 간에 "전송 중"으로 암호화 됩니다.
 
-* [전송 중인 Azure SQL 암호화 이해](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview#information-protection-and-encryption)
+* [전송 중인 Azure SQL 암호화 이해](../azure-sql/database/security-overview.md#information-protection-and-encryption)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -575,9 +575,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 또한 Azure Portal에서 DDM (동적 데이터 마스킹) 정책을 설정할 수 있습니다. DDM 권장 사항 엔진은 잠재적으로 중요 한 필드로 데이터베이스의 특정 필드에 플래그를 지정할 수 있습니다.
 
-* [Azure SQL Server에 대 한 데이터 검색 및 분류를 사용 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
+* [Azure SQL Server에 대 한 데이터 검색 및 분류를 사용 하는 방법](../azure-sql/database/data-discovery-and-classification-overview.md)
 
-* [Azure Synapse SQL에 대 한 동적 데이터 마스킹 이해](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)
+* [Azure Synapse SQL에 대 한 동적 데이터 마스킹 이해](../azure-sql/database/dynamic-data-masking-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -589,11 +589,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 권한 부여는 사용자 계정의 데이터베이스 역할 구성원 자격 및 개체 수준 권한에 의해 제어됩니다. 사용자에게 필요한 최소한의 권한을 부여하는 것이 가장 좋습니다.
 
-* [인증을 위해 Azure SQL Server를 Azure Active Directory와 통합 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
+* [인증을 위해 Azure SQL Server를 Azure Active Directory와 통합 하는 방법](../azure-sql/database/authentication-aad-overview.md)
 
-* [Azure SQL Server에서 액세스를 제어 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-control-access)
+* [Azure SQL Server에서 액세스를 제어 하는 방법](../azure-sql/database/logins-create-manage.md)
 
-* [Azure SQL의 권한 부여 및 인증 이해](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Azure SQL의 권한 부여 및 인증 이해](../azure-sql/database/logins-create-manage.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -603,7 +603,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: 해당 사항 없음 Microsoft는 Azure Synapse SQL에 대 한 기본 인프라를 관리 하 고 고객 데이터 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
-* [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -613,11 +613,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: tde (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협 으로부터 AZURE Synapse SQL을 보호 하는 데 도움이 됩니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. Azure에서 TDE의 기본 설정은 DEK가 기본 제공 서버 인증서로 보호 되는 것입니다. 또는 TDE에 대 한 고객 관리 TDE (BYOK (Bring Your Own Key) 지원)를 사용할 수 있습니다. 이 시나리오에서 DEK를 암호화 하는 TDE 보호기는 고객이 관리 하는 비대칭 키로, 고객이 소유 하 고 관리 하는 Azure Key Vault (Azure의 클라우드 기반 외부 키 관리 시스템)에 저장 되 고 키 자격 증명 모음을 벗어날 수 없습니다.
 
-* [서비스 관리 투명 한 데이터 암호화 이해](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)
+* [서비스 관리 투명 한 데이터 암호화 이해](../azure-sql/database/transparent-data-encryption-tde-overview.md?tabs=azure-portal)
 
-* [고객 관리 투명 한 데이터 암호화 이해](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)
+* [고객 관리 투명 한 데이터 암호화 이해](../azure-sql/database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)
 
-* [사용자 고유의 키를 사용 하 여 TDE를 설정 하는 방법](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-configure)
+* [사용자 고유의 키를 사용 하 여 TDE를 설정 하는 방법](../azure-sql/database/transparent-data-encryption-byok-configure.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -629,9 +629,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 또한 Azure Portal를 사용 하 여 SQL Synapse 풀의 데이터베이스에 대 한 경고를 설정할 수 있습니다. 메트릭(예: 데이터베이스 크기 또는 CPU 사용량)이 임계값에 도달하면 경고에서 이메일을 보내거나 webhook를 호출할 수 있습니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Azure SQL Synapse에 대 한 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal)
+* [Azure SQL Synapse에 대 한 경고를 만드는 방법](../azure-sql/database/alerts-insights-configure-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -639,17 +639,17 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [보안 제어: 취약성 관리](/azure/security/benchmarks/security-control-vulnerability-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
 **지침**: 고급 데이터 보안을 사용 하도록 설정 하 고 Azure SQL 데이터베이스에서 취약성 평가를 수행 하는 Azure Security Center의 권장 사항을 따릅니다.
 
-* [Azure SQL 데이터베이스에서 취약성 평가를 실행 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Azure SQL 데이터베이스에서 취약성 평가를 실행 하는 방법](../azure-sql/database/sql-vulnerability-assessment.md)
 
-* [고급 데이터 보안을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [고급 데이터 보안을 사용 하도록 설정 하는 방법](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+* [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -675,7 +675,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: 취약성 평가는 AZURE Synapse SQL에 기본 제공 되는 검색 서비스입니다. 서비스는 보안 취약성에 플래그를 지정 하는 규칙의 기술 자료를 채택 합니다. 잘못 된 오류, 과도 한 권한 및 보호 되지 않는 중요 데이터와 같은 모범 사례의 차이를 강조 표시 합니다. 취약점 평가는 중앙 SQL 광고 (Advanced Data Security) 포털을 통해 액세스 하 고 관리할 수 있습니다.
 
-* [SQL ADS 포털에서 취약성 평가 검사 관리 및 내보내기](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [SQL ADS 포털에서 취약성 평가 검사 관리 및 내보내기](../azure-sql/database/sql-vulnerability-assessment.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -687,9 +687,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 데이터 검색 &amp; 분류는 Azure SYNAPSE SQL에 기본 제공 됩니다. 데이터베이스에서 중요한 데이터의 검색, 분류, 레이블 지정 및 보고를 위한 고급 기능을 제공합니다.
 
-* [보안 점수 Azure Security Center 이해](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+* [보안 점수 Azure Security Center 이해](../security-center/secure-score-security-controls.md)
 
-* [데이터 검색 &amp; 분류 이해](https://docs.microsoft.com/azure/azure-sql/database/data-discovery-and-classification-overview)
+* [데이터 검색 &amp; 분류 이해](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -697,7 +697,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
@@ -705,11 +705,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 클래식 Azure 리소스는 Azure 리소스 그래프를 통해 검색 될 수 있지만 앞으로 Azure Resource Manager 리소스를 만들고 사용 하는 것이 좋습니다.
 
-* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure 구독을 보는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true)
+* [Azure 구독을 보는 방법](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-3.0.0)
 
-* [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure RBAC 이해](../role-based-access-control/overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -719,7 +719,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적인 분류로 구성합니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -729,11 +729,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: 태그 지정, 관리 그룹 및 별도의 구독 (해당 하는 경우)을 사용 하 여 자산을 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-* [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -755,9 +755,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리/검색 합니다. 환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -795,9 +795,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리/검색 합니다. 환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -815,7 +815,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: "Microsoft Azure 관리" 앱에 대한 "액세스 차단"을 구성함으로써 Azure 조건부 액세스를 사용하여 Azure Resource Manager와 상호 작용하는 사용자 기능을 제한합니다.
 
-* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -833,9 +833,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: 비즈니스 운영에 필요한 전용 SQL 풀과 관련 된 모든 리소스는 조직에 대 한 위험을 초래할 수 있습니다. 자체 가상 머신 및/또는 가상 네트워크 내에서 격리 하 고 Azure 방화벽 또는 네트워크 보안 그룹을 사용 하 여 충분히 안전 하 게 보호 해야 합니다.
 
-* [가상 네트워크를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [가상 네트워크를 만드는 방법](../virtual-network/quick-create-portal.md)
 
-* [보안 구성을 사용 하 여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [보안 구성을 사용 하 여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -843,7 +843,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [보안 제어: 보안 구성](/azure/security/benchmarks/security-control-secure-configuration)을 참조하세요.*
+*자세한 내용은 [보안 제어: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -851,9 +851,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 - SQL 서버에 위협 탐지 배포
 - SQL Server는 가상 네트워크 서비스 엔드포인트를 사용해야 함
 
-* [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true)
+* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-3.3.0)
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -871,9 +871,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: [거부] 및 [존재하지 않으면 배포] Azure 정책을 사용하여 보안 설정을 Azure 리소스 전체에 적용합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy 효과 이해](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -891,9 +891,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure devops 또는 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-* [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
+* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-* [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true)
+* [Azure Repos 설명서](/azure/devops/repos/index?preserve-view=true&view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -927,7 +927,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: Azure Security Center 활용 하 여 전용 SQL 풀과 관련 된 모든 리소스에 대 한 기준 검색을 수행할 수 있습니다.
 
-* [Azure Security Center에서 권장 사항을 수정 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+* [Azure Security Center에서 권장 사항을 수정 하는 방법](../security-center/security-center-remediate-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -945,9 +945,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: Azure Key Vault에서 고객 관리 키를 사용 하는 투명한 데이터 암호화 (tde)는 Tde 보호기 라는 고객 관리 비대칭 키를 사용 하 여 자동으로 생성 된 Dek (데이터베이스 암호화 키)를 암호화할 수 있습니다. 일반적으로 투명한 데이터 암호화를 위한 BYOK(Bring Your Own Key) 지원이라고도 합니다. BYOK 시나리오에서 TDE 보호기는 고객이 소유 하 고 관리 하는 Azure Key Vault에 저장 됩니다. 또한 Azure Key Vault에서 일시 삭제를 사용 하도록 설정 해야 합니다.
 
-* [Azure Key Vault에서 고객 관리 키를 사용 하 여 TDE를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-configure?tabs=azure-powershell)
+* [Azure Key Vault에서 고객 관리 키를 사용 하 여 TDE를 사용 하도록 설정 하는 방법](../azure-sql/database/transparent-data-encryption-byok-configure.md?tabs=azure-powershell)
 
-* [Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)
+* [Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](../key-vault/general/key-vault-recovery.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -957,9 +957,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: 관리 되는 id를 사용 하 여 AD (Azure Active Directory)에서 자동으로 관리 되는 Id를 Azure 서비스에 제공 합니다. 관리 Id를 사용 하면 코드에 자격 증명 없이 Azure Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다.
 
-* [자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL에 액세스](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql)
+* [자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL에 액세스](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md)
 
-* [관리 Id를 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+* [관리 Id를 구성 하는 방법](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -977,7 +977,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [보안 제어: 맬웨어 방어](/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
+*자세한 내용은 [보안 제어: 맬웨어 방어](../security/benchmarks/security-control-malware-defense.md)를 참조하세요.*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙에서 관리 하는 맬웨어 방지 소프트웨어 사용
 
@@ -993,7 +993,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산 Azure 리소스에 업로드 되는 콘텐츠를 미리 검색 합니다. Microsoft는 이러한 인스턴스의 데이터에 액세스할 수 없습니다.
 
-* [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 이해](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 이해](../security/fundamentals/antimalware.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1009,13 +1009,13 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [보안 제어: 데이터 복구](/azure/security/benchmarks/security-control-data-recovery)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 복구](../security/benchmarks/security-control-data-recovery.md)를 참조하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 정기 자동 백업 확인
 
 **지침**: 전용 SQL 풀의 스냅숏은 7 일 동안 사용할 수 있는 복원 지점이 생성 되는 날 내내 자동으로 수행 됩니다. 이 보존 기간은 변경할 수 없습니다. 전용 SQL 풀은 8 시간 RPO (복구 지점 목표)를 지원 합니다. 지난 7일 동안 수행된 스냅샷 중 하나에서 주 지역의 데이터 웨어하우스를 복원할 수 있습니다. 필요한 경우 스냅숏을 수동으로 트리거할 수도 있습니다.
 
-* [전용 SQL 풀에서 백업 및 복원](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [전용 SQL 풀에서 백업 및 복원](./sql-data-warehouse/backup-and-restore.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1027,9 +1027,9 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 고객 관리 키를 사용 하 여 데이터베이스 암호화 키를 암호화 하는 경우 키를 백업 하 고 있는지 확인 합니다.
 
-* [전용 SQL 풀에서 백업 및 복원](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [전용 SQL 풀에서 백업 및 복원](./sql-data-warehouse/backup-and-restore.md)
 
-* [Azure Key Vault 키를 백업 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
+* [Azure Key Vault 키를 백업 하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?preserve-view=true&view=azurermps-6.13.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1039,11 +1039,11 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **지침**: 정기적으로 복원 지점이 테스트 하 여 스냅숏이 유효한 지 확인 합니다. 복원 지점에서 기존 전용 SQL 풀을 복원 하려면 Azure Portal 또는 PowerShell 중 하나를 사용할 수 있습니다. 백업 된 고객이 관리 하는 키의 복원을 테스트 합니다.
 
-* [Azure Key Vault 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
+* [Azure Key Vault 키를 복원 하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?preserve-view=true&view=azurermps-6.13.0)
 
-* [전용 SQL 풀에서 백업 및 복원](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [전용 SQL 풀에서 백업 및 복원](./sql-data-warehouse/backup-and-restore.md)
 
-* [기존 전용 SQL 풀을 복원 하는 방법](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
+* [기존 전용 SQL 풀을 복원 하는 방법](./sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1055,11 +1055,11 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 기본적으로 저장소 계정의 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. Microsoft에서 관리 하는 키를 사용 하 여 데이터를 암호화 하거나 자신의 키를 사용 하 여 암호화를 관리할 수 있습니다. Key Vault를 사용 하 여 고유한 키를 관리 하려면 일시 삭제를 사용 하도록 설정 해야 합니다.
 
-* [Azure SQL Database 장기 백업 보존 관리](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure)
+* [Azure SQL Database 장기 백업 보존 관리](../azure-sql/database/long-term-backup-retention-configure.md)
 
-* [미사용 데이터에 대한 Azure Storage 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+* [미사용 데이터에 대한 Azure Storage 암호화](../storage/common/storage-service-encryption.md)
 
-* [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1067,13 +1067,13 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [보안 제어: 인시던트 대응](/azure/security/benchmarks/security-control-incident-response)을 참조하세요.*
+*자세한 내용은 [보안 제어: 인시던트 대응](../security/benchmarks/security-control-incident-response.md)을 참조하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
 **지침**: 직원의 역할 및 인시던트 처리/관리 단계를 정의 하는 사고 대응 계획을 작성 해야 합니다.
 
-* [Azure Security Center 내에서 워크플로 자동화를 구성하는 방법](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Azure Security Center 내에서 워크플로 자동화를 구성하는 방법](../security-center/security-center-planning-and-operations-guide.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1083,7 +1083,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **지침**: Security Center는 경고에 대 한 심각도를 할당 하 여 각 경고에 참석 하는 순서의 우선 순위를 지정할 수 있도록 합니다. 따라서 리소스가 손상 되 면 즉시 가져올 수 있습니다. 심각도는 Security Center에서 경고를 실행하는 데 사용된 결과 또는 분석의 신뢰도 및 경고가 발생된 활동의 배후에 악의적인 의도가 있었음에 대한 신뢰 수준을 기준으로 합니다.
 
-* [Azure Security Center의 보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1103,7 +1103,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다.
 
-* [Azure Security Center 보안 연락처를 설정하는 방법](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1113,9 +1113,9 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **지침**: 연속 내보내기 기능을 사용하여 Azure Security Center 경고 및 추천 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center data connector를 사용 하 여 경고를 센티널로 스트리밍할 수 있습니다.
 
-* [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [연속 내보내기를 구성하는 방법](../security-center/continuous-export.md)
 
-* [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1125,7 +1125,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **지침**: Azure Security Center의 워크플로 자동화 기능을 사용하여 보안 경고 및 권장 사항에 대한 "Logic Apps"를 통해 응답을 자동으로 트리거합니다.
 
-* [워크플로 자동화와 Logic Apps를 구성하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [워크플로 자동화와 Logic Apps를 구성하는 방법](../security-center/workflow-automation.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1133,7 +1133,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조하세요.*
+*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
@@ -1147,5 +1147,5 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

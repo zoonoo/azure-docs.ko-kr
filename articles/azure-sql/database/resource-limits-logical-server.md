@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 09/15/2020
-ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 1/14/2021
+ms.openlocfilehash: e21a5a5be03ffa4ada362247c488ee7d12bd50f7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308830"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222227"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL Database 및 Azure Synapse Analytics 서버에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ ms.locfileid: "93308830"
 - 데이터베이스 또는 탄력적 풀의 컴퓨팅 크기를 늘려 데이터베이스에 더 많은 컴퓨팅 리소스를 제공합니다. [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요.
 - 쿼리를 최적화 하 여 각 쿼리의 CPU 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 사용된 데이터베이스 공간이 최대 크기 제한에 도달하면 데이터 크기 증가를 가져오는 데이터베이스 삽입 및 업데이트가 실패하고 클라이언트에 [오류 메시지](troubleshoot-common-errors-issues.md)가 표시됩니다. SELECT 및 DELETE 문은 계속 성공 합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "93308830"
 - 데이터베이스 또는 탄력적 풀의 서비스 계층 또는 컴퓨팅 크기를 늘립니다. [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요.
 - 컴퓨팅 리소스에 대한 경합 때문에 작업자 사용률이 증가할 경우 쿼리를 최적화하여 각 쿼리의 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
 - [MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (최대 병렬 처리 수준) 설정 감소.
-- 쿼리 작업을 최적화 하 여 쿼리 차단의 발생 횟수와 기간을 줄입니다.
+- 쿼리 작업을 최적화 하 여 쿼리 차단의 발생 횟수와 기간을 줄입니다. 자세한 내용은 [AZURE SQL 차단 문제 이해 및 해결](understand-resolve-blocking.md)을 참조 하세요.
 
 ### <a name="memory"></a>메모리
 

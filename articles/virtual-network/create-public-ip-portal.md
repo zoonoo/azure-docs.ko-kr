@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: bd35d3288591a01c14e306960601eef6dea7e761
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 02a6e934b517cdd118b6175d9cfef73bee4c996d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954144"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223009"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용 하 여 공용 IP 주소 만들기
 
-이 문서에서는 Azure Portal를 사용 하 여 공용 IP 주소 리소스를 만드는 방법을 보여 줍니다. 이에 연결할 수 있는 리소스, 기본 및 표준 SKU 간의 차이점 및 기타 관련 정보에 대 한 자세한 내용은 [공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses)를 참조 하세요.  이 예에서는 IPv4 주소에만 중점을 둡니다. IPv6 주소에 대 한 자세한 내용은 [Azure VNet 용 ipv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)을 참조 하세요.
+이 문서에서는 Azure Portal를 사용 하 여 공용 IP 주소 리소스를 만드는 방법을 보여 줍니다. 이에 연결할 수 있는 리소스, 기본 및 표준 SKU 간의 차이점 및 기타 관련 정보에 대 한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)를 참조 하세요.  이 예에서는 IPv4 주소에만 중점을 둡니다. IPv6 주소에 대 한 자세한 내용은 [Azure VNet 용 ipv6](./ipv6-overview.md)을 참조 하세요.
 
 # <a name="standard-sku---using-zones"></a>[**표준 SKU-영역 사용**](#tab/option-create-public-ip-standard-zones)
 
@@ -46,9 +46,9 @@ ms.locfileid: "97954144"
     | 위치                | **미국 동부 2** 를 선택 합니다.      |
     | 가용성 영역       | **영역 중복** 을 선택 하거나 특정 영역을 선택 합니다 (아래 참고 참조). |
 
-이러한 항목은 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones)있는 지역 에서만 유효 합니다.  이러한 지역에서 특정 영역을 선택할 수도 있지만 영역 오류에 대 한 복원 력이는 없습니다.
+이러한 항목은 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)있는 지역 에서만 유효 합니다.  이러한 지역에서 특정 영역을 선택할 수도 있지만 영역 오류에 대 한 복원 력이는 없습니다.
 
-\* = 계층은 현재 미리 보기로 제공 되는 [지역 간 Load Balancer](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) 기능과 관련이 있습니다.
+\* = 계층은 현재 미리 보기로 제공 되는 [지역 간 Load Balancer](../load-balancer/cross-region-overview.md) 기능과 관련이 있습니다.
 
 # <a name="basic-sku"></a>[**기본 SKU**](#tab/option-create-public-ip-basic)
 
@@ -78,9 +78,9 @@ ms.locfileid: "97954144"
 
 ## <a name="additional-information"></a>추가 정보 
 
-위에 나열 된 개별 필드에 대 한 자세한 내용은 [공용 IP 주소 관리](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address)를 참조 하세요.
+위에 나열 된 개별 필드에 대 한 자세한 내용은 [공용 IP 주소 관리](./virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [가상 컴퓨터에 공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal) 연결
-- Azure에서 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)에 대해 자세히 알아봅니다.
+- [가상 컴퓨터에 공용 IP 주소](./associate-public-ip-address-vm.md#azure-portal) 연결
+- Azure에서 [공용 IP 주소](./public-ip-addresses.md#public-ip-addresses)에 대해 자세히 알아봅니다.
 - 모든 [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address)에 대해 자세히 알아봅니다.

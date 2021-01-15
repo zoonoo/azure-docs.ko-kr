@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a2f6750a4d0a48c6971f60241976fb55410b65c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812287"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221445"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>대역폭/처리량 테스트(NTTTCP)
 
@@ -26,7 +26,7 @@ Azure에서 네트워크 처리량 성능을 테스트하는 경우 테스트할
 이 도구를 같은 크기의 두 Azure VM에 복사합니다. 한 VM은 송신기 역할을 하고 다른 VM은 수신기 역할을 합니다.
 
 #### <a name="deploying-vms-for-testing"></a>테스트를 위해 VM 배포
-이 테스트를 위해 두 Vm이 동일한 [근접 배치 그룹](../virtual-machines/windows/co-location.md) 또는 동일한 가용성 집합에 있어야 내부 ip를 사용 하 고 테스트에서 부하 분산 장치를 제외할 수 있습니다. VIP로 테스트할 수 있지만 이러한 종류의 테스트는 이 문서에서 다루지 않습니다.
+이 테스트를 위해 두 Vm이 동일한 [근접 배치 그룹](../virtual-machines/co-location.md) 또는 동일한 가용성 집합에 있어야 내부 ip를 사용 하 고 테스트에서 부하 분산 장치를 제외할 수 있습니다. VIP로 테스트할 수 있지만 이러한 종류의 테스트는 이 문서에서 다루지 않습니다.
 
 수신기의 IP 주소를 기록해 둡니다. 해당 IP를 "a.b.c.r"로 지칭하겠습니다.
 
@@ -65,7 +65,7 @@ NTTTCP를 c:\\tools와 같은 별도 폴더에 추가하는 것을 고려합니�
 
 netsh advfirewall firewall add rule program = \<PATH\> \\ntttcp.exe name = "ntttcp" protocol = any dir = in action = allow enable = yes PROFILE = any
 
-예를 들어 ntttcp.exe를 "c:\\tools" 폴더에 복사한 경우 명령은 다음과 같습니다. 
+예를 들어 ntttcp.exe를 "c:\\tools" 폴더에 복사한 경우 명령은 다음과 같습니다. 
 
 netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
@@ -82,7 +82,7 @@ ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
 수신기에서 NTTTCP를 시작합니다(PowerShell이 아닌 **CMD에서 실행**).
 
-ntttcp -s –m 8,\*,10.0.0.4 -t 300 
+ntttcp -s –m 8,\*,10.0.0.4 -t 300 
 
 결과를 기다립니다.
 
@@ -95,19 +95,19 @@ Linux VM(송신기 및 수신기 둘 다)에서 다음 명령을 실행하여 VM
 
 CentOS - Git 설치:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu - Git 설치:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
 둘 다에서 만들고 설치합니다.
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 Windows 예제와 같이 Linux 수신기의 IP를 10.0.0.4로 가정합니다.
@@ -123,12 +123,12 @@ ntttcp -r -t 300
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+ 
 시간 매개 변수를 지정하지 않을 경우 기본 테스트 시간은 60초입니다.
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>Windows 및 LINUX가 실행되는 VM 간의 테스트:
 
-이 시나리오에서는 테스트를 실행할 수 있도록 비동기화 모드를 사용하도록 설정합니다. Linux의 경우 **-N 플래그**, Windows의 경우 **-ns 플래그**를 사용하여 설정합니다.
+이 시나리오에서는 테스트를 실행할 수 있도록 비동기화 모드를 사용하도록 설정합니다. Linux의 경우 **-N 플래그**, Windows의 경우 **-ns 플래그** 를 사용하여 설정합니다.
 
 #### <a name="from-linux-to-windows"></a>Linux에서 Windows로:
 
@@ -167,5 +167,5 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 
 ## <a name="next-steps"></a>다음 단계
 * 결과에 따라 시나리오에 대해 [네트워크 처리량 컴퓨터를 최적화](virtual-network-optimize-network-bandwidth.md)할 수 있는 시간적 여유가 있을 수 있습니다.
-* [가상 머신에 대역폭이 할당되는 방법](virtual-machine-network-throughput.md)을 알아봅니다.
+* [가상 컴퓨터에 대역폭을 할당](virtual-machine-network-throughput.md) 하는 방법에 대해 알아봅니다.
 * [Azure Virtual Network FAQ(질문과 대답)](virtual-networks-faq.md)에 대해 자세히 알아보기

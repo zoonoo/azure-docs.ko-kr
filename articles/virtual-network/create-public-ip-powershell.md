@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 99e79e4d094fe6e93510d139d2f4d08f260102df
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b79a777ba8f7e615e4637f94311cba39e8a7f6c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010047"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223706"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용 하 여 공용 IP 주소 만들기
 
-이 문서에서는 Azure PowerShell를 사용 하 여 공용 IP 주소 리소스를 만드는 방법을 보여 줍니다. 이에 연결할 수 있는 리소스, 기본 및 표준 SKU 간의 차이점 및 기타 관련 정보에 대 한 자세한 내용은 [공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses)를 참조 하세요.  이 예에서는 IPv4 주소에만 중점을 둡니다. IPv6 주소에 대 한 자세한 내용은 [Azure VNet 용 ipv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)을 참조 하세요.
+이 문서에서는 Azure PowerShell를 사용 하 여 공용 IP 주소 리소스를 만드는 방법을 보여 줍니다. 이에 연결할 수 있는 리소스, 기본 및 표준 SKU 간의 차이점 및 기타 관련 정보에 대 한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)를 참조 하세요.  이 예에서는 IPv4 주소에만 중점을 둡니다. IPv6 주소에 대 한 자세한 내용은 [Azure VNet 용 ipv6](./ipv6-overview.md)을 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 # <a name="standard-sku---using-zones"></a>[**표준 SKU-영역 사용**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->다음 명령은 API 버전 2020-08-01 이상에 대해 작동 합니다.  현재 사용 중인 API 버전에 대 한 자세한 내용은 [리소스 공급자 및 형식](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)을 참조 하세요.
+>다음 명령은 API 버전 2020-08-01 이상에 대해 작동 합니다.  현재 사용 중인 API 버전에 대 한 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md)을 참조 하세요.
 
 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup** 에 **mystandardzrpublicip** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 
@@ -84,12 +84,12 @@ $zone = 2
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
 ```
 
-영역에 대 한 위의 옵션은 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones)있는 지역 에서만 유효한 선택입니다.
+영역에 대 한 위의 옵션은 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)있는 지역 에서만 유효한 선택입니다.
 
 # <a name="standard-sku---no-zones"></a>[**표준 SKU-영역 없음**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->다음 명령은 API 버전 2020-08-01 이상에 대해 작동 합니다.  현재 사용 중인 API 버전에 대 한 자세한 내용은 [리소스 공급자 및 형식](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)을 참조 하세요.
+>다음 명령은 API 버전 2020-08-01 이상에 대해 작동 합니다.  현재 사용 중인 API 버전에 대 한 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md)을 참조 하세요.
 
 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup** 에서 **mystandardpublicip** 라는 비 영역 리소스로 표준 공용 IP 주소를 만듭니다.
 
@@ -104,7 +104,7 @@ $alloc = 'Static'
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku
 ```
 
-이 선택 항목은 모든 지역에서 유효 하며, [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones)없는 지역에서 표준 공용 IP 주소에 대 한 기본 선택입니다.
+이 선택 항목은 모든 지역에서 유효 하며, [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)없는 지역에서 표준 공용 IP 주소에 대 한 기본 선택입니다.
 
 # <a name="basic-sku"></a>[**기본 SKU**](#tab/option-create-public-ip-basic)
 
@@ -126,9 +126,9 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 
 ## <a name="additional-information"></a>추가 정보 
 
-위에 나열 된 개별 변수에 대 한 자세한 내용은 [공용 IP 주소 관리](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address)를 참조 하세요.
+위에 나열 된 개별 변수에 대 한 자세한 내용은 [공용 IP 주소 관리](./virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [가상 컴퓨터에 공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal) 연결
-- Azure에서 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)에 대해 자세히 알아봅니다.
+- [가상 컴퓨터에 공용 IP 주소](./associate-public-ip-address-vm.md#azure-portal) 연결
+- Azure에서 [공용 IP 주소](./public-ip-addresses.md#public-ip-addresses)에 대해 자세히 알아봅니다.
 - 모든 [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address)에 대해 자세히 알아봅니다.

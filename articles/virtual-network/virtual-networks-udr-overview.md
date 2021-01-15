@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
-ms.openlocfilehash: ca6460497fa026feca503df741ad6811a95fb9e3
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936933"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221017"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -80,12 +80,12 @@ Azure에서 사용자 지정 경로 또는 사용자 정의(정적) 경로를 �
 
 * **가상 어플라이언스**: 가상 어플라이언스는 방화벽과 같은 네트워크 애플리케이션을 주로 실행하는 가상 머신입니다. Azure 가상 네트워크에 배포할 수 있는 미리 구성된 다양한 네트워크 가상 어플라이언스에 대한 자세한 내용은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)를 참조하세요. **가상 어플라이언스** 홉 유형으로 경로를 만들 때 다음 홉 IP 주소도 지정합니다. IP 주소는 다음과 같습니다.
 
-    * 가상 머신에 연결된 네트워크 인터페이스의 [개인 IP 주소](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses). 네트워크 트래픽을 자체 주소가 아닌 다른 주소로 전달하는 가상 머신에 연결된 모든 네트워크 인터페이스에는 Azure *IP 전달 사용* 옵션이 설정되어 있어야 합니다. 이 설정은 Azure에서 네트워크 인터페이스에 대한 원본과 대상을 확인하지 않도록 합니다. [네트워크 인터페이스에 대한 IP 전달 사용을 설정하는 방법](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)에 대해 자세히 알아보세요. *IP 전달 사용* 이 Azure 설정이지만 Azure 네트워크 인터페이스에 할당된 개인 IP 주소 간에 트래픽을 전달하도록 어플라이언스에 대한 가상 머신의 운영 체제 내에서 IP 전달을 사용하도록 설정해야 할 수도 있습니다. 어플라이언스가 트래픽을 공용 IP에 라우팅해야 하는 경우 트래픽 프록시 또는 네트워크 주소 중 하나를 사용하여 원본의 개인 IP 주소에 대한 개인 IP 주소를 고유한 개인 IP 주소로 변환해야 합니다. 그러면 인터넷에 트래픽을 전송하기 전에 Azure에서 네트워크 주소를 개인 IP 주소로 변환합니다. 가상 머신 내에서 필요한 설정을 확인하려면 운영 체제 또는 네트워크 애플리케이션의 설명서를 참조하세요. Azure에서 아웃바운드 연결을 이해하려면 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.<br>
+    * 가상 머신에 연결된 네트워크 인터페이스의 [개인 IP 주소](./private-ip-addresses.md). 네트워크 트래픽을 자체 주소가 아닌 다른 주소로 전달하는 가상 머신에 연결된 모든 네트워크 인터페이스에는 Azure *IP 전달 사용* 옵션이 설정되어 있어야 합니다. 이 설정은 Azure에서 네트워크 인터페이스에 대한 원본과 대상을 확인하지 않도록 합니다. [네트워크 인터페이스에 대한 IP 전달 사용을 설정하는 방법](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)에 대해 자세히 알아보세요. *IP 전달 사용* 이 Azure 설정이지만 Azure 네트워크 인터페이스에 할당된 개인 IP 주소 간에 트래픽을 전달하도록 어플라이언스에 대한 가상 머신의 운영 체제 내에서 IP 전달을 사용하도록 설정해야 할 수도 있습니다. 어플라이언스가 트래픽을 공용 IP에 라우팅해야 하는 경우 트래픽 프록시 또는 네트워크 주소 중 하나를 사용하여 원본의 개인 IP 주소에 대한 개인 IP 주소를 고유한 개인 IP 주소로 변환해야 합니다. 그러면 인터넷에 트래픽을 전송하기 전에 Azure에서 네트워크 주소를 개인 IP 주소로 변환합니다. 가상 머신 내에서 필요한 설정을 확인하려면 운영 체제 또는 네트워크 애플리케이션의 설명서를 참조하세요. Azure에서 아웃바운드 연결을 이해하려면 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.<br>
 
         > [!NOTE]
         > 가상 어플라이언스를 통해 라우팅되는 리소스가 배포된 것과 다른 서브넷에 가상 어플라이언스를 배포합니다. 가상 어플라이언스를 동일한 서브넷에 배포한 다음 가상 어플라이언스를 통해 트래픽을 라우팅하는 서브넷에 경로 테이블을 적용하면 트래픽이 서브넷에서 나가지 않는 라우팅 루프가 발생할 수 있습니다.
 
-    * Azure [내부 부하 분산 장치](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 개인 IP 주소. 부하 분산 장치는 종종 [네트워크 가상 어플라이언스에 대한 고가용성 전략](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json)의 일부로 사용됩니다.
+    * Azure [내부 부하 분산 장치](../load-balancer/quickstart-load-balancer-standard-internal-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 개인 IP 주소. 부하 분산 장치는 종종 [네트워크 가상 어플라이언스에 대한 고가용성 전략](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json)의 일부로 사용됩니다.
 
     어플라이언스에서 트래픽을 검사하고 해당 트래픽을 전달하거나 삭제할지 여부를 결정할 수 있도록 0.0.0.0/0 주소 접두사 및 가상 어플라이언스의 다음 홉 유형이 포함된 경로를 정의합니다. 0\.0.0.0/0 주소 접두사가 포함된 사용자 정의 경로를 만들려면 먼저 [0.0.0.0/0 주소 접두사](#default-route)를 참조하세요.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: 9b5fc9e4118d98905138b7f205f61d85a96b60b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76f92b5da2331748fbbbfc68f1e456fd50dd71ee
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035470"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223026"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>가상 컴퓨터에 공용 IP 주소 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "88035470"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 공용 IP 주소를 추가 하려는 가상 컴퓨터를 찾아보거나 검색 한 다음 선택 합니다.
-3. 아래 그림에 표시 된 것 처럼 **설정**에서 **네트워킹**을 선택 하 고 공용 IP 주소를 추가 하려는 네트워크 인터페이스를 선택 합니다.
+3. 아래 그림에 표시 된 것 처럼 **설정** 에서 **네트워킹** 을 선택 하 고 공용 IP 주소를 추가 하려는 네트워크 인터페이스를 선택 합니다.
 
    ![네트워크 인터페이스 선택](./media/associate-public-ip-address-vm/select-nic.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "88035470"
    > [!NOTE]
    > 공용 IP 주소는 네트워크 인터페이스에 대 한 IP 구성에 연결 됩니다. 이전 그림에서 네트워크 인터페이스에는 IP 구성이 하나 있습니다. 네트워크 인터페이스에 여러 IP 구성이 있는 경우 모두 목록에 표시 되며, 공용 IP 주소를 연결 하려는 IP 구성을 선택 합니다.
 
-5. **사용**을 선택 하 고 **IP 주소 (*필수 설정 구성*)** 를 선택 합니다. **공용 ip 주소 선택** 상자를 자동으로 닫는 기존 공용 ip 주소를 선택 합니다. 사용 가능한 공용 IP 주소가 나열 되지 않은 경우 새로 만들어야 합니다. 방법을 알아보려면 [공용 IP 주소 만들기](virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조 하세요. 다음 그림에 표시 된 것 처럼 **저장**을 선택 하 고 IP 구성 상자를 닫습니다.
+5. **사용** 을 선택 하 고 **IP 주소 (*필수 설정 구성*)** 를 선택 합니다. **공용 ip 주소 선택** 상자를 자동으로 닫는 기존 공용 ip 주소를 선택 합니다. 사용 가능한 공용 IP 주소가 나열 되지 않은 경우 새로 만들어야 합니다. 방법을 알아보려면 [공용 IP 주소 만들기](virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조 하세요. 다음 그림에 표시 된 것 처럼 **저장** 을 선택 하 고 IP 구성 상자를 닫습니다.
 
    ![공용 IP 주소 사용](./media/associate-public-ip-address-vm/enable-public-ip-address.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "88035470"
 [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)를 설치하거나 Azure Cloud Shell을 사용합니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음에 나오는 CLI 명령에서 **사용해 보세요.** 단추를 선택합니다. **사용해 보세요.** 를 선택하면 Azure 계정에 로그인할 수 있는 Cloud Shell이 호출됩니다.
 
 1. Bash에서 로컬로 CLI를 사용하는 경우 `az login`을 사용하여 Azure에 로그인합니다.
-2. 퍼블릭 IP 주소는 VM에 연결된 네트워크 인터페이스의 IP 구성에 연결됩니다. [Az network nic-ip-https update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) 명령을 사용 하 여 ip 구성에 공용 ip 주소를 연결 합니다. 다음 예제에서는 *Myvmpublicip* 이라는 기존 공용 IP 주소를 *myresourcegroup*이라는 리소스 그룹에 있는 *myvmvmnic* 라는 기존 네트워크 인터페이스의 *ipconfigmyvm* 이라는 ip 구성에 연결 합니다.
+2. 퍼블릭 IP 주소는 VM에 연결된 네트워크 인터페이스의 IP 구성에 연결됩니다. [Az network nic-ip-https update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) 명령을 사용 하 여 ip 구성에 공용 ip 주소를 연결 합니다. 다음 예제에서는 *Myvmpublicip* 이라는 기존 공용 IP 주소를 *myresourcegroup* 이라는 리소스 그룹에 있는 *myvmvmnic* 라는 기존 네트워크 인터페이스의 *ipconfigmyvm* 이라는 ip 구성에 연결 합니다.
   
    ```azurecli-interactive
    az network nic ip-config update \
@@ -75,7 +75,7 @@ ms.locfileid: "88035470"
      --public-ip-address myVMPublicIP
    ```
 
-   - 기존 공용 IP 주소가 없는 경우 [az network 공용-IP create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 명령을 사용 하 여 하나를 만듭니다. 예를 들어 다음 명령은 *Myresourcegroup*이라는 리소스 그룹에 *myvmpublicip* 라는 공용 IP 주소를 만듭니다.
+   - 기존 공용 IP 주소가 없는 경우 [az network 공용-IP create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 명령을 사용 하 여 하나를 만듭니다. 예를 들어 다음 명령은 *Myresourcegroup* 이라는 리소스 그룹에 *myvmpublicip* 라는 공용 IP 주소를 만듭니다.
   
      ```azurecli-interactive
      az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
@@ -84,7 +84,7 @@ ms.locfileid: "88035470"
      > [!NOTE]
      > 이전 명령은 사용자 지정 하려는 여러 설정에 대 한 기본값을 사용 하 여 공용 IP 주소를 만듭니다. 모든 공용 IP 주소 설정에 대해 자세히 알아보려면 [공용 ip 주소 만들기](virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조 하세요. 주소는 각 Azure 지역에 사용 되는 공용 IP 주소 풀에서 할당 됩니다. 각 지역에서 사용 되는 주소 풀 목록을 보려면 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조 하세요.
 
-   - VM에 연결된 네트워크 인터페이스의 이름을 모르는 경우 [az vm nic list](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) 명령을 사용하여 볼 수 있습니다. 예를 들어 다음 명령은 *myResourceGroup* 리소스 그룹에서 *myVM*이라는 VM에 연결된 네트워크 인터페이스의 이름을 나열합니다.
+   - VM에 연결된 네트워크 인터페이스의 이름을 모르는 경우 [az vm nic list](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) 명령을 사용하여 볼 수 있습니다. 예를 들어 다음 명령은 *myResourceGroup* 리소스 그룹에서 *myVM* 이라는 VM에 연결된 네트워크 인터페이스의 이름을 나열합니다.
 
      ```azurecli-interactive
      az vm nic list --vm-name myVM --resource-group myResourceGroup
@@ -96,15 +96,15 @@ ms.locfileid: "88035470"
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
      ```
 
-     이전 예제에서 *myVMVMNic*는 네트워크 인터페이스의 이름입니다.
+     이전 예제에서 *myVMVMNic* 는 네트워크 인터페이스의 이름입니다.
 
-   - 네트워크 인터페이스에 대한 IP 구성의 이름을 모르는 경우 [az network nic ip-config list](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) 명령을 사용하여 검색합니다. 예를 들어, 다음 명령은 *myResourceGroup* 리소스 그룹에 *myVMVMNic*라는 네트워크 인터페이스에 대한 IP 구성의 이름을 나열합니다.
+   - 네트워크 인터페이스에 대한 IP 구성의 이름을 모르는 경우 [az network nic ip-config list](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) 명령을 사용하여 검색합니다. 예를 들어, 다음 명령은 *myResourceGroup* 리소스 그룹에 *myVMVMNic* 라는 네트워크 인터페이스에 대한 IP 구성의 이름을 나열합니다.
 
      ```azurecli-interactive
      az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
      ```
 
-3. [Az vm list-ip addresses](/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) 명령을 사용 하 여 ip 구성에 할당 된 공용 ip 주소를 확인 합니다. 다음 예제에서는 *Myvm*이라는 리소스 그룹에서 *MYVM* 이라는 기존 VM에 할당 된 IP 주소를 보여 줍니다.
+3. [Az vm list-ip addresses](/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) 명령을 사용 하 여 ip 구성에 할당 된 공용 ip 주소를 확인 합니다. 다음 예제에서는 *Myvm* 이라는 리소스 그룹에서 *MYVM* 이라는 기존 VM에 할당 된 IP 주소를 보여 줍니다.
 
    ```azurecli-interactive
    az vm list-ip-addresses --name myVM --resource-group myResourceGroup --out table
@@ -122,7 +122,7 @@ ms.locfileid: "88035470"
 1. PowerShell을 로컬로 사용하는 경우 `Connect-AzAccount`를 사용하여 Azure에 로그인합니다.
 2. 퍼블릭 IP 주소는 VM에 연결된 네트워크 인터페이스의 IP 구성에 연결됩니다. [AzVirtualNetwork](/powershell/module/Az.Network/Get-AzVirtualNetwork) 및 [AzVirtualNetworkSubnetConfig](/powershell/module/Az.Network/Get-AzVirtualNetworkSubnetConfig) 명령을 사용 하 여 네트워크 인터페이스가 있는 가상 네트워크 및 서브넷을 가져옵니다. 그런 다음 [AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) 명령을 사용 하 여 네트워크 인터페이스를 가져오고 [AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 명령을 사용 하 여 기존 공용 IP 주소를 가져옵니다. 그런 다음 [AzNetworkInterfaceIpConfig](/powershell/module/Az.Network/Set-AzNetworkInterfaceIpConfig) 명령을 사용 하 여 공용 ip 주소를 IP 구성에 연결 하 고 [AzNetworkInterface](/powershell/module/Az.Network/Set-AzNetworkInterface) 명령을 사용 하 여 네트워크 인터페이스에 새 ip 구성을 작성 합니다.
 
-   다음 예제에서는 *Myvmpublicip* 이라는 기존 공용 ip 주소를 *myvmpublicip*이라는 가상 네트워크에서 *Myvmsubnet* 이라는 서브넷에 있는 *myvmvmnic* 라는 기존 네트워크 인터페이스의 *ipconfigmyvm* 이라는 ip 구성에 연결 합니다. 모든 리소스는 *myResourceGroup* 리소스 그룹에 있습니다.
+   다음 예제에서는 *Myvmpublicip* 이라는 기존 공용 ip 주소를 *myvmpublicip* 이라는 가상 네트워크에서 *Myvmsubnet* 이라는 서브넷에 있는 *myvmvmnic* 라는 기존 네트워크 인터페이스의 *ipconfigmyvm* 이라는 ip 구성에 연결 합니다. 모든 리소스는 *myResourceGroup* 리소스 그룹에 있습니다.
   
    ```azurepowershell-interactive
    $vnet = Get-AzVirtualNetwork -Name myVMVNet -ResourceGroupName myResourceGroup
@@ -142,20 +142,20 @@ ms.locfileid: "88035470"
      > [!NOTE]
      > 이전 명령은 사용자 지정 하려는 여러 설정에 대 한 기본값을 사용 하 여 공용 IP 주소를 만듭니다. 모든 공용 IP 주소 설정에 대해 자세히 알아보려면 [공용 ip 주소 만들기](virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조 하세요. 주소는 각 Azure 지역에 사용 되는 공용 IP 주소 풀에서 할당 됩니다. 각 지역에서 사용 되는 주소 풀 목록을 보려면 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조 하세요.
 
-   - VM에 연결된 네트워크 인터페이스의 이름을 모르는 경우 [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) 명령을 사용하여 볼 수 있습니다. 예를 들어 다음 명령은 *myResourceGroup* 리소스 그룹에서 *myVM*이라는 VM에 연결된 네트워크 인터페이스의 이름을 나열합니다.
+   - VM에 연결된 네트워크 인터페이스의 이름을 모르는 경우 [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) 명령을 사용하여 볼 수 있습니다. 예를 들어 다음 명령은 *myResourceGroup* 리소스 그룹에서 *myVM* 이라는 VM에 연결된 네트워크 인터페이스의 이름을 나열합니다.
 
      ```azurepowershell-interactive
      $vm = Get-AzVM -name myVM -ResourceGroupName myResourceGroup
      $vm.NetworkProfile
      ```
 
-     출력에는 다음 예제와 비슷한 하나 이상의 줄이 포함됩니다. 예제 출력에서 *myVMVMNic*는 네트워크 인터페이스의 이름입니다.
+     출력에는 다음 예제와 비슷한 하나 이상의 줄이 포함됩니다. 예제 출력에서 *myVMVMNic* 는 네트워크 인터페이스의 이름입니다.
   
      ```
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
      ```
 
-   - 네트워크 인터페이스가 있는 가상 네트워크 또는 서브넷의 이름을 모르는 경우 `Get-AzNetworkInterface` 명령을 사용 하 여 정보를 확인 합니다. 예를 들어 다음 명령은 *Myresourcegroup*이라는 리소스 그룹에 있는 *Myvmvmnic* 라는 네트워크 인터페이스에 대 한 가상 네트워크 및 서브넷 정보를 가져옵니다.
+   - 네트워크 인터페이스가 있는 가상 네트워크 또는 서브넷의 이름을 모르는 경우 `Get-AzNetworkInterface` 명령을 사용 하 여 정보를 확인 합니다. 예를 들어 다음 명령은 *Myresourcegroup* 이라는 리소스 그룹에 있는 *Myvmvmnic* 라는 네트워크 인터페이스에 대 한 가상 네트워크 및 서브넷 정보를 가져옵니다.
 
      ```azurepowershell-interactive
      $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
@@ -169,20 +169,20 @@ ms.locfileid: "88035470"
      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVMVNET/subnets/myVMSubnet",
      ```
 
-   - 네트워크 인터페이스에 대한 IP 구성의 이름을 모르는 경우 [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) 명령을 사용하여 검색합니다. 예를 들어, 다음 명령은 *myResourceGroup* 리소스 그룹에 *myVMVMNic*라는 네트워크 인터페이스에 대한 IP 구성의 이름을 나열합니다.
+   - 네트워크 인터페이스에 대한 IP 구성의 이름을 모르는 경우 [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) 명령을 사용하여 검색합니다. 예를 들어, 다음 명령은 *myResourceGroup* 리소스 그룹에 *myVMVMNic* 라는 네트워크 인터페이스에 대한 IP 구성의 이름을 나열합니다.
 
      ```azurepowershell-interactive
      $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
      $nic.IPConfigurations
      ```
 
-     출력에는 다음 예제와 비슷한 하나 이상의 줄이 포함됩니다. 예제 출력에서 *ipconfigmyVM*은 IP 구성의 이름입니다.
+     출력에는 다음 예제와 비슷한 하나 이상의 줄이 포함됩니다. 예제 출력에서 *ipconfigmyVM* 은 IP 구성의 이름입니다.
   
      ```
      Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
      ```
 
-3. [AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 명령을 사용 하 여 IP 구성에 할당 된 공용 ip 주소를 확인 합니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myvmpublicip* 라는 공용 IP 주소에 할당 된 주소를 보여 줍니다.
+3. [AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 명령을 사용 하 여 IP 구성에 할당 된 공용 ip 주소를 확인 합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myvmpublicip* 라는 공용 IP 주소에 할당 된 주소를 보여 줍니다.
 
    ```azurepowershell-interactive
    Get-AzPublicIpAddress -Name myVMPublicIP -ResourceGroupName myResourceGroup | Select IpAddress
@@ -214,4 +214,4 @@ ms.locfileid: "88035470"
 
 ## <a name="next-steps"></a>다음 단계
 
-네트워크 보안 그룹을 사용 하 여 VM에 대 한 인바운드 인터넷 트래픽을 허용 합니다. 네트워크 보안 그룹을 만드는 방법에 대 한 자세한 내용은 [네트워크 보안 그룹 작업](manage-network-security-group.md#work-with-network-security-groups)을 참조 하세요. 네트워크 보안 그룹에 대 한 자세한 내용은 [보안 그룹](security-overview.md)을 참조 하세요.
+네트워크 보안 그룹을 사용 하 여 VM에 대 한 인바운드 인터넷 트래픽을 허용 합니다. 네트워크 보안 그룹을 만드는 방법에 대 한 자세한 내용은 [네트워크 보안 그룹 작업](manage-network-security-group.md#work-with-network-security-groups)을 참조 하세요. 네트워크 보안 그룹에 대 한 자세한 내용은 [보안 그룹](./network-security-groups-overview.md)을 참조 하세요.

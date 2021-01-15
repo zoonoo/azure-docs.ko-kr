@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: a29454f09268406511730c63dcc3bc3063b909c6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882367"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218657"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>네트워크 격리를 위해 가상 네트워크와 Azure 서비스 통합
 
@@ -66,7 +66,7 @@ VNet 서비스 끝점은 Azure 백본 네트워크를 통해 최적화 된 경�
 
 ## <a name="service-tags"></a>서비스 태그
 
-서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. 서비스 태그를 사용 하 여 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 또는 [Azure 방화벽](https://docs.microsoft.com/azure/firewall/service-tags)에서 네트워크 액세스 제어를 정의할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 (예: AzureEventGrid)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
+서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. 서비스 태그를 사용 하 여 [네트워크 보안 그룹](./network-security-groups-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 (예: AzureEventGrid)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
 
 ![서비스 태그를 사용 하 여 트래픽 허용 또는 거부](./media/network-isolation/service-tags.png)
 
@@ -78,4 +78,4 @@ VNet 서비스 끝점은 Azure 백본 네트워크를 통해 최적화 된 경�
 
 - [Azure 네트워크와 앱을 통합](../app-service/web-sites-integrate-with-vnet.md)하는 방법에 대해 알아봅니다.
 - [서비스 태그를 사용 하 여 리소스에 대 한 액세스를 제한](tutorial-restrict-network-access-to-resources.md)하는 방법을 알아봅니다.
-- [Azure 개인 링크를 사용 하 여 개인적으로 Azure Cosmos 계정에 연결](../private-link/create-private-endpoint-cosmosdb-portal.md)하는 방법을 알아봅니다.
+- [Azure 개인 링크를 사용 하 여 개인적으로 Azure Cosmos 계정에 연결](../private-link/tutorial-private-endpoint-cosmosdb-portal.md)하는 방법을 알아봅니다.

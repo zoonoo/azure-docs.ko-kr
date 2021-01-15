@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/12/2020
 ms.author: allensu
-ms.openlocfilehash: 1ae0b869b24c4e05c88b936eceb1b9b1db3a9405
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: d416af3d3a8eb8ab8057f13cc0d9a133adcb849a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506314"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221159"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 고정 공용 IP 주소로 가상 머신 만들기
 
@@ -53,7 +53,7 @@ ms.locfileid: "94506314"
     | 암호 | 암호를 입력합니다. |
     | 암호 확인 | 암호를 다시 입력합니다. |
 
-3. **네트워킹** 탭을 선택하거나 **다음: 디스크** , **다음: 네트워킹** 을 차례로 선택합니다.
+3. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹** 을 차례로 선택합니다.
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "94506314"
     | 인바운드 포트 선택 | **RDP (3389)를** 선택 합니다. |
 
     > [!WARNING]
-    > 인터넷에서 Windows Server 가상 머신에 원격 액세스할 수 있도록 포털 3389가 선택됩니다. 프로덕션 워크 로드를 관리 하는 데에는 포트 3389을 인터넷에 열지 않는 것이 좋습니다. </br> Azure virtual machines에 안전 하 게 액세스 하려면 **[azure 방호 이란?](/azure/bastion/bastion-overview) 을 참조 하세요.**
+    > 인터넷에서 Windows Server 가상 머신에 원격 액세스할 수 있도록 포털 3389가 선택됩니다. 프로덕션 워크 로드를 관리 하는 데에는 포트 3389을 인터넷에 열지 않는 것이 좋습니다. </br> Azure virtual machines에 안전 하 게 액세스 하려면 **[azure 방호 이란?](../bastion/bastion-overview.md) 을 참조 하세요.**
    
 5. **검토 + 만들기** 를 선택합니다. 
   
@@ -95,7 +95,7 @@ ms.locfileid: "94506314"
 
 Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 범위(접두사) 목록을 다운로드할 수 있습니다.
 
-- [고정 공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#allocation-method)에 대해 자세히 알아봅니다.
-- Azure에서 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)에 대해 자세히 알아봅니다.
+- [고정 공용 IP 주소](./public-ip-addresses.md#allocation-method)에 대해 자세히 알아봅니다.
+- Azure에서 [공용 IP 주소](./public-ip-addresses.md#public-ip-addresses)에 대해 자세히 알아봅니다.
 - 모든 [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address)에 대해 자세히 알아봅니다.
-- [개인 ip 주소](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) 및 Azure 가상 머신에 [고정 개인 ip 주소](virtual-network-network-interface-addresses.md#add-ip-addresses) 할당에 대해 자세히 알아보세요.
+- [개인 ip 주소](./private-ip-addresses.md) 및 Azure 가상 머신에 [고정 개인 ip 주소](virtual-network-network-interface-addresses.md#add-ip-addresses) 할당에 대해 자세히 알아보세요.

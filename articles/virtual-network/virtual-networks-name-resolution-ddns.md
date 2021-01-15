@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: 9f5b535a341956e5675ba96ba9570bd3f2ff3443
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad91eb94aedcdd0e4e715162e3ae064a1d2fb1ea
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710952"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220425"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>동적 DNS를 사용하여 자체 DNS 서버에 호스트 이름 등록
 
@@ -28,7 +28,7 @@ ms.locfileid: "84710952"
 사용자 지정 DNS 서버가 Azure VM으로 호스트되는 경우 동일한 가상 네트워크에 대한 호스트 이름 쿼리를 Azure로 전달하여 호스트 이름을 확인할 수 있습니다. 이 옵션을 사용하지 않으려는 경우 동적 DNS(DDNS)를 사용하여 DNS 서버에 VM 호스트 이름을 등록할 수 있습니다. Azure에는 DNS 서버에 레코드를 직접 만드는 자격 증명이 없으므로 종종 대체 정렬이 필요합니다. 대체 항목으로 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
 ## <a name="windows-clients"></a>Windows 클라이언트
-비 도메인에 연결된 Windows 클라이언트는 부팅하거나 해당 IP 주소가 변경될 때 보안되지 않은 DDNS 업데이트를 시도합니다. DNS 이름은 호스트 이름과 주 DNS 접미사입니다. Azure는 주 DNS 접미사를 비워 두지만 [사용자 인터페이스](https://technet.microsoft.com/library/cc794784.aspx) 또는 [PowerShell](/powershell/module/dnsclient/set-dnsclient)을 통해 VM에서 접미사를 설정할 수 있습니다.
+비 도메인에 연결된 Windows 클라이언트는 부팅하거나 해당 IP 주소가 변경될 때 보안되지 않은 DDNS 업데이트를 시도합니다. DNS 이름은 호스트 이름과 주 DNS 접미사입니다. Azure는 주 DNS 접미사를 비워 두지만 [사용자 인터페이스](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794784(v=ws.10)) 또는 [PowerShell](/powershell/module/dnsclient/set-dnsclient)을 통해 VM에서 접미사를 설정할 수 있습니다.
 
 도메인에 연결된 Windows 클라이언트는 보안 DDNS를 사용하여 해당 IP를 도메인 컨트롤러에 등록합니다. 도메인 연결 프로세스는 클라이언트에 대한 주 DNS 접미사를 설정하고 트러스트 관계를 만들고 유지 관리합니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008091"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223689"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대 한 지속적인 통합 및 전달
 
@@ -21,11 +21,11 @@ ms.locfileid: "97008091"
 
 CI (연속 통합)는 팀 멤버가 변경 내용을 버전 제어에 커밋할 때마다 코드의 빌드 및 테스트를 자동화 하는 프로세스입니다. CD (연속 배포)는 여러 테스트 또는 스테이징 환경에서 프로덕션 환경으로 빌드, 테스트, 구성 및 배포 하는 프로세스입니다.
 
-Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 모든 엔터티를 한 환경 (개발, 테스트, 프로덕션)에서 다른 환경으로 이동 합니다. 작업 영역을 다른 작업 영역으로 승격 하려면 두 부분으로 구성 됩니다. 작업 영역 리소스 (풀 및 작업 영역)를 만들거나 업데이트 하려면 [Azure Resource Manager 템플릿을](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) 사용 합니다. Azure DevOps의 Synapse CI/CD 도구를 사용 하 여 아티팩트 (SQL 스크립트, 노트북, Spark 작업 정의, 파이프라인, 데이터 집합, 데이터 흐름 등)를 마이그레이션합니다. 
+Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 모든 엔터티를 한 환경 (개발, 테스트, 프로덕션)에서 다른 환경으로 이동 합니다. 작업 영역을 다른 작업 영역으로 승격 하려면 두 부분으로 구성 됩니다. 작업 영역 리소스 (풀 및 작업 영역)를 만들거나 업데이트 하려면 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/overview.md) 사용 합니다. Azure DevOps의 Synapse CI/CD 도구를 사용 하 여 아티팩트 (SQL 스크립트, 노트북, Spark 작업 정의, 파이프라인, 데이터 집합, 데이터 흐름 등)를 마이그레이션합니다. 
 
 이 문서에서는 Azure 릴리스 파이프라인을 사용 하 여 여러 환경에 Synapse 작업 영역의 배포를 자동화 하는 방법을 간략하게 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 -   개발에 사용 되는 작업 영역이 스튜디오에서 Git 리포지토리로 구성 되었습니다. [Synapse Studio의 소스 제어](source-control.md)를 참조 하세요.
 -   Azure DevOps 프로젝트가 릴리스 파이프라인을 실행할 준비가 되었습니다.
@@ -46,7 +46,7 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
 
 1.  **단계 이름** 상자에 사용자 환경의 이름을 입력합니다.
 
-1.  **아티팩트 추가** 를 선택한 다음 Development Synapse Studio를 사용 하 여 구성 된 git 리포지토리를 선택 합니다. 풀 및 작업 영역의 ARM 템플릿을 관리 하는 데 사용한 git 리포지토리를 선택 합니다. GitHub를 원본으로 사용 하는 경우 GitHub 계정 및 풀 리포지토리에 대 한 서비스 연결을 만들어야 합니다. [서비스 연결](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) 에 대 한 자세한 내용은 
+1.  **아티팩트 추가** 를 선택한 다음 Development Synapse Studio를 사용 하 여 구성 된 git 리포지토리를 선택 합니다. 풀 및 작업 영역의 ARM 템플릿을 관리 하는 데 사용한 git 리포지토리를 선택 합니다. GitHub를 원본으로 사용 하는 경우 GitHub 계정 및 풀 리포지토리에 대 한 서비스 연결을 만들어야 합니다. [서비스 연결](/azure/devops/pipelines/library/service-endpoints) 에 대 한 자세한 내용은 
 
     ![게시 분기 추가](media/release-creation-github.png)
 
@@ -87,7 +87,7 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
     ![권한 부여](media/release-creation-grant-permission.png)
 
  > [!WARNING]
-> 전체 배포 모드에서는 리소스 그룹에 있지만 새 리소스 관리자 템플릿에 지정 되지 않은 리소스는 **삭제** 됩니다. 자세한 내용은 [Azure Resource Manager 배포 모드](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes) 를 참조 하세요.
+> 전체 배포 모드에서는 리소스 그룹에 있지만 새 리소스 관리자 템플릿에 지정 되지 않은 리소스는 **삭제** 됩니다. 자세한 내용은 [Azure Resource Manager 배포 모드](../../azure-resource-manager/templates/deployment-modes.md) 를 참조 하세요.
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>아티팩트 배포에 대 한 단계 작업 설정 
 
@@ -122,7 +122,7 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
 
 ## <a name="create-release-for-deployment"></a>배포용 릴리스 만들기 
 
-모든 변경 내용을 저장 한 후 **릴리스 만들기** 를 선택 하 여 수동으로 릴리스를 만들 수 있습니다. 릴리스 만들기를 자동화하려면 [Azure DevOps 릴리스 트리거](https://docs.microsoft.com/azure/devops/pipelines/release/triggers)를 참조하세요.
+모든 변경 내용을 저장 한 후 **릴리스 만들기** 를 선택 하 여 수동으로 릴리스를 만들 수 있습니다. 릴리스 만들기를 자동화하려면 [Azure DevOps 릴리스 트리거](/azure/devops/pipelines/release/triggers)를 참조하세요.
 
    ![릴리스 만들기 선택](media/release-creation-manually.png)
 
@@ -133,6 +133,4 @@ Synapse 작업 영역에서 Git 통합을 사용 하 고 변경 내용을 개발
 -   **Git 통합**. Git 통합을 사용 하 여 development Synapse 작업 영역을 구성 합니다. 테스트 및 프로덕션 작업 영역에 대 한 변경 내용은 CI/CD를 통해 배포 되며 Git 통합이 필요 하지 않습니다.
 -   **아티팩트 마이그레이션 전에 풀을 준비** 합니다. 개발 작업 영역의 풀에 연결 된 SQL 스크립트 또는 노트북이 있는 경우 다른 환경에서 동일한 풀 이름이 필요 합니다. 
 -   **IaC (Infrastructure As Code)**. 설명 모델에서 인프라 (네트워크, 가상 컴퓨터, 부하 분산 장치 및 연결 토폴로지)를 관리 하는 것은 DevOps 팀에서 소스 코드에 대해 사용 하는 것과 동일한 버전 관리를 사용 합니다. 
--   **기타**. [ADF 아티팩트의 모범 사례를](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) 참조 하세요.
-
-
+-   **기타**. [ADF 아티팩트의 모범 사례를](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd) 참조 하세요.

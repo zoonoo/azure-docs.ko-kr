@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: d279516c1c9c08512c850a0f70eb84c0c1f63166
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 0a9945a58aa6ec49ad58f3a0a0d03ea75e30f6d8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111217"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223621"
 ---
 # <a name="azure-virtual-network-concepts-and-best-practices"></a>Azure Virtual Network 개념 및 모범 사례
 
@@ -25,7 +25,7 @@ ms.locfileid: "97111217"
 ## <a name="vnet-concepts"></a>VNet 개념
 
 - **주소 공간:** VNet을 만들 때 공용 및 프라이빗(RFC 1918) 주소를 사용하여 사용자 지정 프라이빗 IP 주소 공간을 지정해야 합니다. Azure는 가상 네트워크의 리소스에 사용자가 할당한 주소 공간의 개인 IP 주소를 할당합니다. 예를 들어 주소 공간인 10.0.0.0/16이 있는 VNet에 VM을 배포하는 경우 VM에는 10.0.0.4 같은 프라이빗 IP가 할당됩니다.
-- **서브넷:** 서브넷을 사용하면 가상 네트워크를 하나 이상의 하위 네트워크로 분할하고 가상 네트워크 주소 공간의 일부를 각 서브넷에 할당합니다. 그런 다음, 특정 서브넷에 Azure 리소스를 배포할 수 있습니다. 기존 네트워크와 마찬가지로 서브넷을 사용하여 VNet 주소 공간을 조직의 내부 네트워크에 적합한 세그먼트로 분할할 수 있습니다. 주소 할당 효율성도 향상됩니다. 네트워크 보안 그룹을 사용하여 서브넷 내의 리소스에 보안을 지정할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹](security-overview.md)을 참조하세요.
+- **서브넷:** 서브넷을 사용하면 가상 네트워크를 하나 이상의 하위 네트워크로 분할하고 가상 네트워크 주소 공간의 일부를 각 서브넷에 할당합니다. 그런 다음, 특정 서브넷에 Azure 리소스를 배포할 수 있습니다. 기존 네트워크와 마찬가지로 서브넷을 사용하여 VNet 주소 공간을 조직의 내부 네트워크에 적합한 세그먼트로 분할할 수 있습니다. 주소 할당 효율성도 향상됩니다. 네트워크 보안 그룹을 사용하여 서브넷 내의 리소스에 보안을 지정할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹](./network-security-groups-overview.md)을 참조하세요.
 - **지역**: VNet은 단일 지역/위치로 범위가 제한되지만 가상 네트워크 피어링을 사용하여 여러 지역의 여러 가상 네트워크를 연결할 수 있습니다.
 - **구독:** VNet은 구독으로 범위가 제한됩니다. 각 Azure [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 및 Azure [지역](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) 내에서 여러 가상 네트워크를 구현할 수 있습니다.
 

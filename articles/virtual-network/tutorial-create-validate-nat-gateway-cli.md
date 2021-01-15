@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0ec054d55432ad2680314b4ff91a067d37b629d4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: e99ee28460c1639a7f0b9dd989bbe5a287a9158c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734332"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221842"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>자습서: Azure CLI를 사용하여 NAT 게이트웨이 만들기 및 NAT 서비스 테스트
 
@@ -34,7 +34,7 @@ ms.locfileid: "94734332"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 다음 예제에서는 **myResourceGroupNAT** 라는 리소스 그룹을 **eastus2** 위치에 만듭니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "94734332"
 
 ### <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-공용 인터넷에 액세스 하려면 NAT 게이트웨이에 대 한 공용 IP 주소가 하나 이상 필요 합니다. [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)를 사용하여 **myPublicIPsource** 라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.
+공용 인터넷에 액세스 하려면 NAT 게이트웨이에 대 한 공용 IP 주소가 하나 이상 필요 합니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 **myPublicIPsource** 라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -77,7 +77,7 @@ ms.locfileid: "94734332"
   - NAT 게이트웨이 리소스에서 변환하는 아웃바운드 흐름에 사용할 공용 IP 풀 및 공용 IP 접두사입니다.
   - 유휴 시간 제한을 4분(기본값)에서 10분으로 변경합니다.
 
-[az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest)를 사용하여 **myNATgateway** 라는 글로벌 Azure NAT 게이트웨이를 만듭니다. 이 명령은 **myPublicIP** 공용 IP 주소와 **myPublicIPprefix** 공용 IP 접두사를 모두 사용합니다. 또한 유휴 시간 제한을 10분으로 변경합니다.
+[az network nat gateway create](/cli/azure/network/nat?view=azure-cli-latest)를 사용하여 **myNATgateway** 라는 글로벌 Azure NAT 게이트웨이를 만듭니다. 이 명령은 **myPublicIP** 공용 IP 주소와 **myPublicIPprefix** 공용 IP 접두사를 모두 사용합니다. 또한 유휴 시간 제한을 10분으로 변경합니다.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -99,7 +99,7 @@ ms.locfileid: "94734332"
 
 VM을 배포하기 전에 NAT 게이트웨이를 테스트하려면 먼저 가상 네트워크를 만들어야 합니다.
 
-[az network Microsoft Azure Virtual Network create](https://docs.microsoft.com/cli/azure/network/vnet)를 사용하여 **myResourceGroupNAT** 의 서브넷 이름이 **mySubnetsource** 인 **myVnetsource** 라는 가상 네트워크를 만듭니다.  가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.
+[az network Microsoft Azure Virtual Network create](/cli/azure/network/vnet)를 사용하여 **myResourceGroupNAT** 의 서브넷 이름이 **mySubnetsource** 인 **myVnetsource** 라는 가상 네트워크를 만듭니다.  가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.
 
 ```azurecli-interactive
   az network vnet create \
@@ -113,7 +113,7 @@ VM을 배포하기 전에 NAT 게이트웨이를 테스트하려면 먼저 가�
 
 ### <a name="configure-nat-service-for-source-subnet"></a>원본 서브넷에 대한 NAT 서비스 구성
 
-[az network Microsoft Azure Virtual Network subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet)를 사용하여 특정 **myNATgateway** NAT 게이트웨이 리소스를 사용하도록 **myVnetsource** 가상 네트워크의 **mySubnetsource** 원본 서브넷을 구성합니다. 이 명령은 지정된 서브넷에서 NAT 서비스를 활성화합니다.
+[az network Microsoft Azure Virtual Network subnet update](/cli/azure/network/vnet/subnet)를 사용하여 특정 **myNATgateway** NAT 게이트웨이 리소스를 사용하도록 **myVnetsource** 가상 네트워크의 **mySubnetsource** 원본 서브넷을 구성합니다. 이 명령은 지정된 서브넷에서 NAT 서비스를 활성화합니다.
 
 ```azurecli-interactive
     az network vnet subnet update \
@@ -132,7 +132,7 @@ NAT 게이트웨이를 테스트하려면 먼저 원본 VM을 만들어야 합�
 
 ### <a name="create-public-ip-for-source-vm"></a>원본 VM에 대한 공용 IP 만들기
 
-원본 VM에 액세스하는 데 사용할 공용 IP를 만듭니다. [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)를 사용하여 **myPublicIPsourceVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.
+원본 VM에 액세스하는 데 사용할 공용 IP를 만듭니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 **myPublicIPsourceVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -144,7 +144,7 @@ NAT 게이트웨이를 테스트하려면 먼저 원본 VM을 만들어야 합�
 
 ### <a name="create-an-nsg-for-source-vm"></a>원본 VM에 대한 NSG 만들기
 
-표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh 액세스에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다.  Azure NAT 서비스는 흐름 방향을 인식합니다. NAT 게이트웨이가 동일한 서브넷에 구성되면 이 NSG는 아웃바운드에 사용되지 않습니다. [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 **myNSGsource** 라는 NSG 리소스를 **myResourceGroupNAT** 에 만듭니다.
+표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh 액세스에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다.  Azure NAT 서비스는 흐름 방향을 인식합니다. NAT 게이트웨이가 동일한 서브넷에 구성되면 이 NSG는 아웃바운드에 사용되지 않습니다. [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 **myNSGsource** 라는 NSG 리소스를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
   az network nsg create \
@@ -155,7 +155,7 @@ NAT 게이트웨이를 테스트하려면 먼저 원본 VM을 만들어야 합�
 
 ### <a name="expose-ssh-endpoint-on-source-vm"></a>원본 VM에서 SSH 엔드포인트 공개
 
-NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **ssh** 라는 NSG 규칙을 만듭니다. 이 규칙은 **myResourceGroupNAT** 리소스 그룹의 **myNSGsource** 라는 NSG에 만들어집니다.
+NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **ssh** 라는 NSG 규칙을 만듭니다. 이 규칙은 **myResourceGroupNAT** 리소스 그룹의 **myNSGsource** 라는 NSG에 만들어집니다.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -211,7 +211,7 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
 
  대상 가상 머신이 있는 가상 네트워크를 만들어야 합니다.  이러한 명령은 대상 엔드포인트를 공개하기 위해 약간 변경되는 원본 VM에 적용되는 단계와 동일합니다.
 
-[az network Microsoft Azure Virtual Network create](https://docs.microsoft.com/cli/azure/network/vnet)를 사용하여 **myResourceGroupNAT** 의 서브넷 이름이 **mySubnetdestination** 인 **myVnetdestination** 이라는 가상 네트워크를 만듭니다.  가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.
+[az network Microsoft Azure Virtual Network create](/cli/azure/network/vnet)를 사용하여 **myResourceGroupNAT** 의 서브넷 이름이 **mySubnetdestination** 인 **myVnetdestination** 이라는 가상 네트워크를 만듭니다.  가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.
 
 ```azurecli-interactive
   az network vnet create \
@@ -225,7 +225,7 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
 
 ### <a name="create-public-ip-for-destination-vm"></a>대상 VM에 대한 공용 IP 만들기
 
-원본 VM에 액세스하는 데 사용할 공용 IP를 만듭니다. [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)를 사용하여 **myPublicIPdestinationVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다. 
+원본 VM에 액세스하는 데 사용할 공용 IP를 만듭니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 **myPublicIPdestinationVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다. 
 
 ```azurecli-interactive
   az network public-ip create \
@@ -237,7 +237,7 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
 
 ### <a name="create-an-nsg-for-destination-vm"></a>대상 VM에 대한 NSG 만들기
 
-표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다. Azure NAT 서비스는 흐름 방향을 인식합니다. NAT 게이트웨이가 동일한 서브넷에 구성되면 이 NSG는 아웃바운드에 사용되지 않습니다. [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 **myNSGdestination** 이라는 NSG 리소스를 **myResourceGroupNAT** 에 만듭니다.
+표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다. Azure NAT 서비스는 흐름 방향을 인식합니다. NAT 게이트웨이가 동일한 서브넷에 구성되면 이 NSG는 아웃바운드에 사용되지 않습니다. [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 **myNSGdestination** 이라는 NSG 리소스를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
     az network nsg create \
@@ -248,7 +248,7 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
 
 ### <a name="expose-ssh-endpoint-on-destination-vm"></a>대상 VM에서 SSH 엔드포인트 공개
 
-NSG에서 대상 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **ssh** 라는 NSG 규칙을 만듭니다. 이 규칙은 **myResourceGroupNAT** 리소스 그룹의 **myNSGdestination** 이라는 NSG에 만들어집니다.
+NSG에서 대상 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **ssh** 라는 NSG 규칙을 만듭니다. 이 규칙은 **myResourceGroupNAT** 리소스 그룹의 **myNSGdestination** 이라는 NSG에 만들어집니다.
 
 ```azurecli-interactive
     az network nsg rule create \
@@ -266,7 +266,7 @@ NSG에서 대상 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
 
 ### <a name="expose-http-endpoint-on-destination-vm"></a>대상 VM에서 HTTP 엔드포인트 공개
 
-NSG에서 대상 VM에 대한 HTTP 액세스 규칙을 만듭니다. [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **http** 라는 NSG 규칙을 **myResourceGroupNAT** 의 **myNSGdestination** 이라는 NSG에 만듭니다.
+NSG에서 대상 VM에 대한 HTTP 액세스 규칙을 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **http** 라는 NSG 규칙을 **myResourceGroupNAT** 의 **myNSGdestination** 이라는 NSG에 만듭니다.
 
 ```azurecli-interactive
     az network nsg rule create \
@@ -434,4 +434,3 @@ Azure Monitor에서 메트릭을 검토하여 NAT 서비스의 작동 상태를 
 - [Azure Portal을 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-portal.md)를 배포하기 위한 빠른 시작.
 
 > [!div class="nextstepaction"]
-

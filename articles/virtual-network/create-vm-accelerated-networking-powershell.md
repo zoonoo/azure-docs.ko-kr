@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289621"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223638"
 ---
-# <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 가속화 된 네트워킹을 사용 하는 Windows VM 만들기
+# <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell을 사용하여 가속 네트워킹을 사용하는 VM 만들기
 
 이 자습서에서는 가속화 된 네트워킹을 사용 하 여 Windows VM (가상 머신)을 만드는 방법에 대해 알아봅니다.
 
@@ -65,7 +65,7 @@ Azure 갤러리에서 직접 지원 되는 배포는 다음과 같습니다.
 
 하이퍼스레딩을 지 원하는 인스턴스에서는 4 개 이상의 vCPUs가 있는 VM 인스턴스에서 가속화 된 네트워킹을 지원 합니다. 지원 되는 시리즈는 D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
 
-VM 인스턴스에 대 한 자세한 내용은 [Azure에서 Windows 가상 머신에 대 한 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조 하세요.
+VM 인스턴스에 대 한 자세한 내용은 [Azure에서 Windows 가상 머신에 대 한 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조 하세요.
 
 ### <a name="custom-images"></a>사용자 지정 이미지
 
@@ -85,18 +85,18 @@ VM 인스턴스에 대 한 자세한 내용은 [Azure에서 Windows 가상 머�
 
 ## <a name="vm-creation-using-the-portal"></a>포털을 사용 하 여 VM 만들기
 
-이 문서에서는 Azure PowerShell를 사용 하 여 가속화 된 네트워킹을 사용 하는 VM을 만드는 단계를 제공 하지만 Azure Portal를 사용 하 여 가속화 된 네트워킹을 사용 하는 [가상 머신을 만들](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 수도 있습니다. 포털에서 VM을 만들 때 **가상 머신 만들기** 페이지에서 **네트워킹** 탭을 선택 합니다. 이 탭에는 가속화 된 **네트워킹**옵션이 있습니다. 지원 되는 [운영 체제](#supported-operating-systems) 및 [VM 크기](#supported-vm-instances)를 선택한 경우이 옵션은 자동으로 설정 됨 **으로 설정 됩니다.** 그렇지 않으면 옵션이 **Off**로 설정 되 고 Azure에서 사용할 수 없는 이유가 표시 됩니다.
+이 문서에서는 Azure PowerShell를 사용 하 여 가속화 된 네트워킹을 사용 하는 VM을 만드는 단계를 제공 하지만 Azure Portal를 사용 하 여 가속화 된 네트워킹을 사용 하는 [가상 머신을 만들](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 수도 있습니다. 포털에서 VM을 만들 때 **가상 머신 만들기** 페이지에서 **네트워킹** 탭을 선택 합니다. 이 탭에는 가속화 된 **네트워킹** 옵션이 있습니다. 지원 되는 [운영 체제](#supported-operating-systems) 및 [VM 크기](#supported-vm-instances)를 선택한 경우이 옵션은 자동으로 설정 됨 **으로 설정 됩니다.** 그렇지 않으면 옵션이 **Off** 로 설정 되 고 Azure에서 사용할 수 없는 이유가 표시 됩니다.
 
 > [!NOTE]
 > 지원 되는 운영 체제만 포털을 통해 사용 하도록 설정할 수 있습니다. 사용자 지정 이미지를 사용 하 고 이미지가 가속화 된 네트워킹을 지 원하는 경우 CLI 또는 PowerShell을 사용 하 여 VM을 만듭니다. 
 
 VM을 만든 후 가속화 된 네트워킹을 사용할 수 있는지 여부를 확인할 수 있습니다. 다음 지침을 따릅니다.
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 vm을 관리 합니다. **가상 머신**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 vm을 관리 합니다. **가상 머신** 을 검색하여 선택합니다.
 
 2. 가상 컴퓨터 목록에서 새 VM을 선택 합니다.
 
-3. VM 메뉴 모음에서 **네트워킹**을 선택 합니다.
+3. VM 메뉴 모음에서 **네트워킹** 을 선택 합니다.
 
 네트워크 인터페이스 정보의 **가속화 된 네트워킹** 레이블 옆에는 가속화 된 네트워킹 상태에 대해 **사용 안 함** 또는 **사용으로 설정** 된 포털이 표시 됩니다.
 
@@ -104,7 +104,7 @@ VM을 만든 후 가속화 된 네트워킹을 사용할 수 있는지 여부를
 
 계속 하기 전에 1.0.0 이상의 [Azure PowerShell](/powershell/azure/install-az-ps) 버전을 설치 합니다. 현재 설치된 버전을 찾으려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 또는 업그레이드 해야 하는 경우 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az)에서 Az module의 최신 버전을 설치 합니다. PowerShell 세션에서 [AzAccount](/powershell/module/az.accounts/connect-azaccount)를 사용 하 여 Azure 계정에 로그인 합니다.
 
-다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *Myresourcegroup*, *MyNic*, *myresourcegroup*이 포함 됩니다.
+다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *Myresourcegroup*, *MyNic*, *myresourcegroup* 이 포함 됩니다.
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -114,7 +114,7 @@ VM을 만든 후 가속화 된 네트워킹을 사용할 수 있는지 여부를
     New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
     ```
 
-2. [AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig)를 사용 하 여 서브넷 구성을 만듭니다. 다음 명령은 *mysubnet*이라는 서브넷을 만듭니다.
+2. [AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig)를 사용 하 여 서브넷 구성을 만듭니다. 다음 명령은 *mysubnet* 이라는 서브넷을 만듭니다.
 
     ```azurepowershell
     $subnet = New-AzVirtualNetworkSubnetConfig `
@@ -134,7 +134,7 @@ VM을 만든 후 가속화 된 네트워킹을 사용할 수 있는지 여부를
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-1. [AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig)를 사용 하 여 네트워크 보안 그룹 규칙을 만듭니다.
+1. [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
 
     ```azurepowershell
     $rdp = New-AzNetworkSecurityRuleConfig `
@@ -202,13 +202,13 @@ VM을 만든 후 가속화 된 네트워킹을 사용할 수 있는지 여부를
     $cred = Get-Credential
     ```
 
-2. [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)를 사용하여 VM을 정의합니다. 다음 명령은*Standard_DS4_v2*(가속화 된 네트워킹)를 지 원하는 vm 크기를 사용 하 여 *myvm* 이라는 vm을 정의 합니다.
+2. [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)를 사용하여 VM을 정의합니다. 다음 명령은 *Standard_DS4_v2*(가속화 된 네트워킹)를 지 원하는 vm 크기를 사용 하 여 *myvm* 이라는 vm을 정의 합니다.
 
     ```azurepowershell
     $vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
     ```
 
-    모든 VM 크기 및 특성 목록은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+    모든 VM 크기 및 특성 목록은 [Windows VM 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 3. [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) 및 [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)를 사용하여 나머지 VM 구성을 만듭니다. 다음 명령은 Windows Server 2016 VM을 만듭니다.
 
@@ -242,17 +242,17 @@ VM을 만든 후 가속화 된 네트워킹을 사용할 수 있는지 여부를
 
 Azure에서 VM을 만든 후 VM에 연결 하 고 Windows에서 이더넷 컨트롤러가 설치 되어 있는지 확인 합니다.
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 vm을 관리 합니다. **가상 머신**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 vm을 관리 합니다. **가상 머신** 을 검색하여 선택합니다.
 
 2. 가상 컴퓨터 목록에서 새 VM을 선택 합니다.
 
-3. Vm 개요 페이지에서 VM의 **상태가** **만들기**로 표시 되는 경우 Azure에서 vm 만들기를 완료할 때까지 기다립니다. VM 생성이 완료 되 면 **상태가** **실행 중** 으로 변경 됩니다.
+3. Vm 개요 페이지에서 VM의 **상태가** **만들기** 로 표시 되는 경우 Azure에서 vm 만들기를 완료할 때까지 기다립니다. VM 생성이 완료 되 면 **상태가** **실행 중** 으로 변경 됩니다.
 
-4. VM 개요 도구 모음에서 **연결**  >  **rdp**  >  **파일 다운로드 rdp 파일**을 선택 합니다.
+4. VM 개요 도구 모음에서 **연결**  >  **rdp**  >  **파일 다운로드 rdp 파일** 을 선택 합니다.
 
 5. .Rdp 파일을 열고 [Vm 만들기 및 네트워크 인터페이스 연결](#create-a-vm-and-attach-the-network-interface) 섹션에 입력 한 자격 증명을 사용 하 여 vm에 로그인 합니다. Azure에서 Windows VM에 연결된 적이 없는 경우 [가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine)을 참조하세요.
 
-6. VM에 대 한 원격 데스크톱 세션이 나타나면 Windows 시작 단추를 마우스 오른쪽 단추로 클릭 하 고 **Device Manager**를 선택 합니다.
+6. VM에 대 한 원격 데스크톱 세션이 나타나면 Windows 시작 단추를 마우스 오른쪽 단추로 클릭 하 고 **Device Manager** 를 선택 합니다.
 
 7. **Device Manager** 창에서 **네트워크 어댑터** 노드를 확장 합니다.
 

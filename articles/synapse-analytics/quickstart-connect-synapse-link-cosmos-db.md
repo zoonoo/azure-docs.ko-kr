@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 14c71d5888aefc11485c03935c5d8c7ff7d17045
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7462c78ecad718c30980a98ff7659a2a4d2ea020
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995882"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222159"
 ---
 # <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>빠른 시작: Azure Cosmos DB용 Azure Synapse Link에 연결
 
@@ -24,8 +24,8 @@ ms.locfileid: "95995882"
 
 Azure Cosmos DB 계정을 작업 영역에 연결하기 전에 몇 가지 필요한 사항이 있습니다.
 
-* 기존 Azure Cosmos DB 계정 또는 이 [빠른 시작](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)에 따라 새 계정을 만듭니다.
-* 이 [빠른 시작](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)에 따라 기존 Synapse 작업 영역을 만들거나 새 작업 영역을 만듭니다. 
+* 기존 Azure Cosmos DB 계정 또는 이 [빠른 시작](../cosmos-db/how-to-manage-database-account.md)에 따라 새 계정을 만듭니다.
+* 이 [빠른 시작](./quickstart-create-workspace.md)에 따라 기존 Synapse 작업 영역을 만들거나 새 작업 영역을 만듭니다. 
 
 ## <a name="enable-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소 사용
 

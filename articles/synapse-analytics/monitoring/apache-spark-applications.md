@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 16b37258d922db59f520d4e30c45773f6d1108cf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2f9fa6e7ef9a7ee8ea7dd2a09622f26f6fd9739e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341073"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223128"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Synapse Studio를 사용 하 여 Apache Spark 응용 프로그램 모니터링
 
@@ -33,7 +33,7 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
 이 자습서를 시작하기 전에 다음 요구 사항이 충족되는지 확인합니다.
 
-- Synapse Studio 작업 영역입니다. 자세한 내용은 [Synapse Studio 작업 영역 만들기](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)를 참조 하세요.
+- Synapse Studio 작업 영역입니다. 자세한 내용은 [Synapse Studio 작업 영역 만들기](../../machine-learning/how-to-manage-workspace.md#create-a-workspace)를 참조 하세요.
 
 - Apache Spark 풀.
 
@@ -47,7 +47,7 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
   ![완료 된 작업 선택](./media/how-to-monitor-spark-applications/select-completed-job.png)
 
-1. 완료 된 **작업** , **상태** 및 **전체 기간** 을 확인 합니다.
+1. 완료 된 **작업**, **상태** 및 **전체 기간** 을 확인 합니다.
 
 2. 로그 쿼리를 새로 고칩니다.
 
@@ -59,7 +59,7 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
 6. 생성 된 작업 그래프에서 작업에 대 한 개요를 볼 수 있습니다. 기본적으로 그래프는 모든 작업을 표시 합니다. **작업 ID** 를 기준으로이 뷰를 필터링 할 수 있습니다.
 
-7. 기본적으로 **진행률** 표시가 선택 되어 있습니다. **Progress** / **Read** / **Written** / **표시** 드롭다운 목록에서 진행률 읽기 기록 **기간** 을 선택 하 여 데이터 흐름을 확인할 수 있습니다.
+7. 기본적으로 **진행률** 표시가 선택 되어 있습니다.  /  /  / **표시** 드롭다운 목록에서 진행률 읽기 기록 **기간** 을 선택 하 여 데이터 흐름을 확인할 수 있습니다.
 
 8. 작업을 재생 하려면 **재생** 단추를 클릭 합니다. 언제 든 지 중지 **단추를** 클릭 하 여 중지할 수 있습니다.
 
@@ -96,7 +96,7 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
    ![실행 중인 작업 선택](./media/how-to-monitor-spark-applications/select-running-job.png)
 
-1. 완료 된 **작업** , **상태** 및 **전체 기간** 을 확인 합니다.
+1. 완료 된 **작업**, **상태** 및 **전체 기간** 을 확인 합니다.
 
 2. Apache Spark 응용 프로그램을 **취소** 합니다.
 
@@ -120,7 +120,7 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
  ![취소 한 작업 선택](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
 
-1. 완료 된 **작업** , **상태** 및 **전체 기간** 을 확인 합니다.
+1. 완료 된 **작업**, **상태** 및 **전체 기간** 을 확인 합니다.
 
 2. 로그 쿼리를 새로 고칩니다.
 
@@ -142,7 +142,7 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
 ![실패 한 작업 선택](./media/how-to-monitor-spark-applications/select-failed-job.png)
 
-1. 완료 된 **작업** , **상태** 및 **전체 기간** 을 확인 합니다.
+1. 완료 된 **작업**, **상태** 및 **전체 기간** 을 확인 합니다.
 
 2. 로그 쿼리를 새로 고칩니다.
 
@@ -158,4 +158,4 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
 ## <a name="next-steps"></a>다음 단계
 
-파이프라인 실행 모니터링에 대 한 자세한 내용은 [Synapse Studio를 사용 하 여 파이프라인 실행 모니터링](how-to-monitor-pipeline-runs.md) 문서를 참조 하세요.  
+파이프라인 실행 모니터링에 대 한 자세한 내용은 [Synapse Studio를 사용 하 여 파이프라인 실행 모니터링](how-to-monitor-pipeline-runs.md) 문서를 참조 하세요.

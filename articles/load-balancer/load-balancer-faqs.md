@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 2e559d574413b8eb0be2303798e0b16bfffad2cb
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e9f46b11d9c0b5251ee4d52f64d657926f6f9c5e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695404"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222992"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer 질문과 대답
 
@@ -36,7 +36,7 @@ NAT 규칙은 트래픽을 라우팅하는 백 엔드 리소스를 지정 하는
 ## <a name="what-is-ip-1686312916"></a>IP 168.63.129.16?
 Azure 상태 검색이 시작 되는 Azure 인프라 Load Balancer로 태그가 지정 된 호스트의 가상 IP 주소입니다. 백 엔드 인스턴스를 구성할 때이 IP 주소의 트래픽이 상태 프로브에 성공적으로 응답 하도록 허용 해야 합니다. 이 규칙은 Load Balancer 프런트 엔드에 대 한 액세스와 상호 작용 하지 않습니다. Azure Load Balancer 사용 하지 않는 경우이 규칙을 재정의할 수 있습니다. [여기](../virtual-network/service-tags-overview.md#available-service-tags)에서 서비스 태그에 대해 자세히 알아볼 수 있습니다.
 
-## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>기본 Load Balancer와 함께 글로벌 VNET 피어 링을 사용할 수 있나요?
+## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>기본 Load Balancer와 함께 글로벌 VNet 피어 링을 사용할 수 있나요?
 아니요. 기본 Load Balancer는 글로벌 VNET 피어 링을 지원 하지 않습니다. 대신 표준 Load Balancer를 사용할 수 있습니다. 원활한 업그레이드는 [기본에서 표준으로 업그레이드](upgrade-basic-standard.md) 문서를 참조 하세요.
 
 ## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>Azure VM에서 사용 하는 공용 IP를 검색 하려면 어떻게 해야 하나요?
@@ -45,6 +45,9 @@ Azure 상태 검색이 시작 되는 Azure 인프라 Load Balancer로 태그가 
 nslookup 명령을 사용하여 OpenDNS 확인자에 myip.opendns.com이라는 이름에 대한 DNS 쿼리를 전송할 수 있습니다. 서비스는 쿼리를 보내는 데 사용된 원본 IP 주소를 반환합니다. VM에서 다음 쿼리를 실행하는 경우 응답은 해당 VM에 사용되는 공용 IP입니다.
 
  ```nslookup myip.opendns.com resolver1.opendns.com```
+ 
+## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>동일한 가용성 집합의 VM을 Load Balancer의 여러 백 엔드 풀에 추가할 수 있나요?
+아니요, 이는 불가능합니다.
 
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>동일한 지역에서 Azure Storage에 대 한 연결은 어떻게 작동 하나요?
 위의 시나리오를 통한 아웃바운드 연결은 VM과 동일한 지역에 있는 스토리지에 연결하는 데 필요하지 않습니다. 이를 원하지 않는 경우 위에서 설명한 대로 NSG(네트워크 보안 그룹)를 사용합니다. 다른 지역의 스토리지에 연결하려면 아웃바운드 연결이 필요합니다. 동일한 지역의 VM에서 스토리지에 연결하는 경우 스토리지 진단 로그의 원본 IP 주소는 VM의 공용 IP 주소가 아니라 내부 공급자 주소가 됩니다. 동일한 지역에서 하나 이상의 Virtual Network 서브넷에 있는 VM에 대한 스토리지 계정에 액세스를 제한하려면 스토리지 계정 방화벽을 구성할 때 공용 IP 주소가 아니라 [Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 사용합니다. 서비스 엔드포인트가 구성되면 내부 공급자 주소가 아닌 스토리지 진단 로그에 Virtual Network 개인 IP 주소가 표시됩니다.

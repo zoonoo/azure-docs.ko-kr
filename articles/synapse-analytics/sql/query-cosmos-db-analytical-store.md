@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 4681039f60154b95eeb7e40196ca33055a192c74
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121348"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222108"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link Preview에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
@@ -205,6 +205,8 @@ FROM OPENROWSET(
 Azure Cosmos DB 값에 사용 해야 하는 SQL 형식에 대 한 자세한 내용은 문서의 끝에 있는 [sql 형식 매핑 규칙](#azure-cosmos-db-to-sql-type-mappings) 을 참조 하세요.
 
 ## <a name="create-view"></a>뷰 만들기
+
+Master 또는 기본 데이터베이스에서 뷰를 만드는 것은 권장 되지 않거나 지원 되지 않습니다. 따라서 보기에 대 한 사용자 데이터베이스를 만들어야 합니다.
 
 스키마를 확인 한 후 Azure Cosmos DB 데이터를 기반으로 보기를 준비할 수 있습니다. Azure Cosmos DB 계정 키를 별도의 자격 증명에 넣고 함수에서이 자격 증명을 참조 해야 합니다 `OPENROWSET` . 계정 키를 보기 정의에 보관 하지 마세요.
 
@@ -422,7 +424,7 @@ GROUP BY geo_id
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 
-| Error | 근본 원인 |
+| 오류 | 근본 원인 |
 | --- | --- |
 | 구문 오류:<br/> -근처의 구문이 잘못 되었습니다. `Openrowset`<br/> - `...` 은 (는) 인식할 수 없는 `BULK OPENROWSET` 공급자 옵션입니다.<br/> -근처의 구문이 잘못 되었습니다. `...` | 가능한 근본 원인은 다음과 같습니다.<br/> -첫 번째 매개 변수로 CosmosDB를 사용 하지 않습니다.<br/> -세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용 합니다.<br/> -세 번째 매개 변수 (컨테이너 이름)를 지정 하지 않습니다. |
 | CosmosDB 연결 문자열에 오류가 있습니다. | -계정, 데이터베이스 또는 키가 지정 되지 않았습니다. <br/> -인식 되지 않는 연결 문자열에는 몇 가지 옵션이 있습니다.<br/> -세미콜론 ( `;` )은 연결 문자열의 끝에 배치 됩니다. |

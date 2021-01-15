@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 669b8427f13efcc55a69bc7c970b6658a6719cd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e798f81102017b4d34c4b1b219a9f23035b0359
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86134723"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222839"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>PowerShell을 사용하여 가상 머신(클래식)에 대한 개인 IP 주소 구성
 
@@ -35,10 +35,10 @@ ms.locfileid: "86134723"
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-아래 샘플 PowerShell 명령에는 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [VNet 만들기](virtual-networks-create-vnet-classic-netcfg-ps.md)에 설명된 테스트 환경을 빌드합니다.
+아래 샘플 PowerShell 명령에는 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [VNet 만들기](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps)에 설명된 테스트 환경을 빌드합니다.
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>특정 IP 주소를 사용할 수 있는지 확인하는 방법
-IP 주소 *192.168.1.101*을 *TestVnet*이라는 이름의 VNet에서 사용할 수 있는지 확인하려면 다음 PowerShell 명령을 실행하고 *IsAvailable* 값을 확인합니다.
+IP 주소 *192.168.1.101* 을 *TestVnet* 이라는 이름의 VNet에서 사용할 수 있는지 확인하려면 다음 PowerShell 명령을 실행하고 *IsAvailable* 값을 확인합니다.
 
 ```azurepowershell
 Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 192.168.1.101 
@@ -55,7 +55,7 @@ OperationStatus      : Succeeded
 ```
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
-아래의 PowerShell 스크립트는 *TestService*라는 새 클라우드 서비스를 만들고 Azure에서 이미지를 검색합니다. 그 다음에 이 이미지를 사용하여 새 클라우드 서비스에 *DNS01*이라는 VM을 만들고 이 VM을 *FrontEnd*라는 서브넷에 속하도록 설정하고 VM의 정적 개인 IP로 *192.168.1.7*을 설정합니다.
+아래의 PowerShell 스크립트는 *TestService* 라는 새 클라우드 서비스를 만들고 Azure에서 이미지를 검색합니다. 그 다음에 이 이미지를 사용하여 새 클라우드 서비스에 *DNS01* 이라는 VM을 만들고 이 VM을 *FrontEnd* 라는 서브넷에 속하도록 설정하고 VM의 정적 개인 IP로 *192.168.1.7* 을 설정합니다.
 
 ```azurepowershell
 New-AzureService -ServiceName TestService -Location "Central US"
@@ -78,7 +78,7 @@ New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded
 ```
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>VM의 정적 개인 IP 주소 정보를 검색하는 방법
-위의 스크립트를 사용하여 만든 VM의 고정 개인 IP 주소 정보를 보려면 다음 PowerShell 명령을 실행하고 *IpAddress*의 값을 확인합니다.
+위의 스크립트를 사용하여 만든 VM의 고정 개인 IP 주소 정보를 보려면 다음 PowerShell 명령을 실행하고 *IpAddress* 의 값을 확인합니다.
 
 ```azurepowershell
 Get-AzureVM -Name DNS01 -ServiceName TestService
@@ -154,7 +154,6 @@ Update-AzureVM       77d8cae2-87e6-0ead-9738-7c7dae9810cb Succeeded
 반드시 필요한 경우가 아니면, VM의 운영 체제 내에서 Azure 가상 머신에 할당된 프라이빗 IP를 고정적으로 할당하는 것은 바람직하지 않습니다. 운영 체제 내에서 개인 IP 주소를 수동으로 설정하는 경우 Azure VM에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. 가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
-* [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
-* [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
-
+* [예약된 공용 IP](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) 주소에 대해 알아봅니다.
+* [ILPIP(인스턴스 수준 공용 IP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) 주소에 대해 알아봅니다.
+* [예약된 IP REST API](/previous-versions/azure/reference/dn722420(v=azure.100))를 참조합니다.

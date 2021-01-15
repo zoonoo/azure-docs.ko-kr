@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: ec70f7820994898cb8e552dab66547cc9c9f10ec
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 73562d8d32f265fa43ca80d2f8d4f84b1b631ec6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042876"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223672"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
 
 이 문서에서는 VM(가상 머신)에 적용되는 NSG(네트워크 보안 그룹) 보안 규칙을 확인하여 네트워크 트래픽 필터 문제를 진단하는 방법을 알아봅니다.
 
-NSG에서는 VM에서 들어오고 나가는 트래픽 유형을 제어할 수 있습니다. Azure 가상 네트워크의 서브넷, VM에 연결된 네트워크 인터페이스 또는 둘 다에 NSG를 연결할 수 있습니다. 네트워크 인터페이스에 적용되는 효과적인 보안 규칙은 네트워크 인터페이스 및 네트워크 인터페이스가 있는 서브넷에 연결된 NSG에 존재하는 규칙의 집계입니다. 때로는 서로 다른 NSG의 규칙이 서로 충돌하고 VM의 네트워크 연결에 영향을 줄 수 있습니다. VM의 네트워크 인터페이스에 적용된 NSG의 모든 효과적인 보안 규칙을 볼 수 있습니다. 가상 네트워크, 네트워크 인터페이스 또는 NSG 개념을 잘 모르는 경우 [가상 네트워크 개요](virtual-networks-overview.md), [네트워크 인터페이스](virtual-network-network-interface.md) 및 [네트워크 보안 그룹 개요](security-overview.md)를 참조하세요.
+NSG에서는 VM에서 들어오고 나가는 트래픽 유형을 제어할 수 있습니다. Azure 가상 네트워크의 서브넷, VM에 연결된 네트워크 인터페이스 또는 둘 다에 NSG를 연결할 수 있습니다. 네트워크 인터페이스에 적용되는 효과적인 보안 규칙은 네트워크 인터페이스 및 네트워크 인터페이스가 있는 서브넷에 연결된 NSG에 존재하는 규칙의 집계입니다. 때로는 서로 다른 NSG의 규칙이 서로 충돌하고 VM의 네트워크 연결에 영향을 줄 수 있습니다. VM의 네트워크 인터페이스에 적용된 NSG의 모든 효과적인 보안 규칙을 볼 수 있습니다. 가상 네트워크, 네트워크 인터페이스 또는 NSG 개념을 잘 모르는 경우 [가상 네트워크 개요](virtual-networks-overview.md), [네트워크 인터페이스](virtual-network-network-interface.md) 및 [네트워크 보안 그룹 개요](./network-security-groups-overview.md)를 참조하세요.
 
 ## <a name="scenario"></a>시나리오
 
@@ -44,12 +44,12 @@ NSG에서는 VM에서 들어오고 나가는 트래픽 유형을 제어할 수 �
 
    이전 그림에 나열된 규칙은 **myVMVMNic** 라는 네트워크 인터페이스에 대한 것입니다. 두 개의 서로 다른 네트워크 보안 그룹에서 네트워크 인터페이스에 대한 **인바운드 포트 규칙** 이 있습니다.
    
-   - **mySubnetNSG** : 네트워크 인터페이스가 있는 서브넷에 연결됩니다.
-   - **myVMNSG** : **myVMVMNic** 라는 VM에서 네트워크 인터페이스에 연결됩니다.
+   - **mySubnetNSG**: 네트워크 인터페이스가 있는 서브넷에 연결됩니다.
+   - **myVMNSG**: **myVMVMNic** 라는 VM에서 네트워크 인터페이스에 연결됩니다.
 
-   **DenyAllInBound** 라는 규칙은 [시나리오](#scenario)에 설명된 대로 인터넷에서 포트 80을 통해 VM에 대한 인바운드 통신을 방지하는 규칙입니다. 규칙은 인터넷을 포함하는 **원본** 에 대한 *0.0.0.0/0* 을 나열합니다. 더 높은 우선 순위(낮은 숫자)가 있는 다른 규칙은 포트 80 인바운드를 허용하지 않습니다. 인터넷에서 VM에 대한 포트 80 인바운드를 허용하려면 [문제 해결](#resolve-a-problem)을 참조하세요. 보안 규칙 및 Azure에서 적용하는 방법에 대해 자세히 알아보려면 [네트워크 보안 그룹](security-overview.md)을 참조하세요.
+   **DenyAllInBound** 라는 규칙은 [시나리오](#scenario)에 설명된 대로 인터넷에서 포트 80을 통해 VM에 대한 인바운드 통신을 방지하는 규칙입니다. 규칙은 인터넷을 포함하는 **원본** 에 대한 *0.0.0.0/0* 을 나열합니다. 더 높은 우선 순위(낮은 숫자)가 있는 다른 규칙은 포트 80 인바운드를 허용하지 않습니다. 인터넷에서 VM에 대한 포트 80 인바운드를 허용하려면 [문제 해결](#resolve-a-problem)을 참조하세요. 보안 규칙 및 Azure에서 적용하는 방법에 대해 자세히 알아보려면 [네트워크 보안 그룹](./network-security-groups-overview.md)을 참조하세요.
 
-   그림의 맨 아래에 **아웃바운드 포트 규칙** 이 표시됩니다. 아래는 네트워크 인터페이스에 대한 아웃바운드 포트 규칙입니다. 그림은 각 NSG에 대한 4개의 인바운드 규칙만을 표시하지만 NSG에는 4개 이상의 규칙이 있을 수 있습니다. 그림에서 **원본** 및 **대상** 아래에 **VirtualNetwork** 가 표시되고 **원본** 아래에 **AzureLoadBalancer** 가 표시됩니다. **VirtualNetwork** 및 **AzureLoadBalancer** 는 [서비스 태그](security-overview.md#service-tags)입니다. 서비스 태그는 보안 규칙 생성에 대한 복잡성을 최소화할 수 있는 IP 주소 접두사의 그룹을 나타냅니다.
+   그림의 맨 아래에 **아웃바운드 포트 규칙** 이 표시됩니다. 아래는 네트워크 인터페이스에 대한 아웃바운드 포트 규칙입니다. 그림은 각 NSG에 대한 4개의 인바운드 규칙만을 표시하지만 NSG에는 4개 이상의 규칙이 있을 수 있습니다. 그림에서 **원본** 및 **대상** 아래에 **VirtualNetwork** 가 표시되고 **원본** 아래에 **AzureLoadBalancer** 가 표시됩니다. **VirtualNetwork** 및 **AzureLoadBalancer** 는 [서비스 태그](./network-security-groups-overview.md#service-tags)입니다. 서비스 태그는 보안 규칙 생성에 대한 복잡성을 최소화할 수 있는 IP 주소 접두사의 그룹을 나타냅니다.
 
 4. VM이 실행 상태에 있는지 확인한 다음, 이전 그림에 표시된 것처럼 **효과적인 보안 규칙** 을 선택하여 다음 그림에 표시된 효과적인 보안 규칙을 봅니다.
 
@@ -72,8 +72,8 @@ NSG에서는 VM에서 들어오고 나가는 트래픽 유형을 제어할 수 �
    **myVMVMNic** 네트워크 인터페이스와 달리 **myVMVMNic2** 네트워크 인터페이스에는 연결된 네트워크 보안 그룹이 없습니다. 각 네트워크 인터페이스와 서브넷은 0개 또는 하나의 연결된 NSG를 가질 수 있습니다. 각 네트워크 인터페이스 또는 서브넷에 연결된 NSG는 동일하거나 다를 수 있습니다. 동일한 네트워크 보안 그룹을 선택한 만큼의 네트워크 인터페이스 및 서브넷에 연결할 수 있습니다.
 
 효과적인 보안 규칙은 VM을 통해 표시되지만 다음과 같은 개별 항목을 통해서도 효과적인 보안 규칙을 볼 수 있습니다.
-- **네트워크 인터페이스** : [네트워크 인터페이스를 보는](virtual-network-network-interface.md#view-network-interface-settings) 방법을 알아봅니다.
-- **NSG** : [NSG를 보는](manage-network-security-group.md#view-details-of-a-network-security-group) 방법을 알아봅니다.
+- **네트워크 인터페이스**: [네트워크 인터페이스를 보는](virtual-network-network-interface.md#view-network-interface-settings) 방법을 알아봅니다.
+- **NSG**: [NSG를 보는](manage-network-security-group.md#view-details-of-a-network-security-group) 방법을 알아봅니다.
 
 ## <a name="diagnose-using-powershell"></a>PowerShell을 사용하여 진단
 
@@ -156,9 +156,9 @@ az vm show \
 
 문제를 진단하는 데 [PowerShell](#diagnose-using-powershell) 또는 [Azure CLI](#diagnose-using-azure-cli)를 사용했는지 여부에 관계 없이 다음 정보를 포함하는 출력을 받습니다.
 
-- **NetworkSecurityGroup** : 네트워크 보안 그룹의 ID입니다.
-- **연결** : 네트워크 보안 그룹이 *NetworkInterface* 또는 *서브넷* 에 연결되었는지 여부입니다. NSG가 둘 다에 연결된 경우 출력은 각 NSG에 대해 **NetworkSecurityGroup** , **Association** 및 **EffectiveSecurityRules** 로 반환됩니다. 효과적인 보안 규칙을 보기 위해 명령을 실행하기 직전에 NSG가 연결되거나 연결 해제되면 명령 출력에 변경 내용이 반영될 때까지 몇 초 정도 기다려야 할 수 있습니다.
-- **EffectiveSecurityRules** : 각 속성의 설명은 [보안 규칙 만들기](manage-network-security-group.md#create-a-security-rule)에 자세히 설명되어 있습니다. *defaultSecurityRules/* 가 앞에 추가된 규칙 이름은 모든 NSG에 존재하는 기본 보안 규칙입니다. *securityRules/* 가 앞에 추가된 규칙 이름은 사용자가 만든 규칙입니다. **destinationAddressPrefix** 또는 **sourceAddressPrefix** 속성에 대해 **Internet** , **VirtualNetwork** 및 **AzureLoadBalancer** 와 같은 [서비스 태그](security-overview.md#service-tags)를 지정하는 규칙은 **expandedDestinationAddressPrefix** 속성에 대한 값도 갖습니다. **expandedDestinationAddressPrefix** 속성은 서비스 태그로 표시되는 모든 주소 접두사를 나열합니다.
+- **NetworkSecurityGroup**: 네트워크 보안 그룹의 ID입니다.
+- **연결**: 네트워크 보안 그룹이 *NetworkInterface* 또는 *서브넷* 에 연결되었는지 여부입니다. NSG가 둘 다에 연결된 경우 출력은 각 NSG에 대해 **NetworkSecurityGroup**, **Association** 및 **EffectiveSecurityRules** 로 반환됩니다. 효과적인 보안 규칙을 보기 위해 명령을 실행하기 직전에 NSG가 연결되거나 연결 해제되면 명령 출력에 변경 내용이 반영될 때까지 몇 초 정도 기다려야 할 수 있습니다.
+- **EffectiveSecurityRules**: 각 속성의 설명은 [보안 규칙 만들기](manage-network-security-group.md#create-a-security-rule)에 자세히 설명되어 있습니다. *defaultSecurityRules/* 가 앞에 추가된 규칙 이름은 모든 NSG에 존재하는 기본 보안 규칙입니다. *securityRules/* 가 앞에 추가된 규칙 이름은 사용자가 만든 규칙입니다. **destinationAddressPrefix** 또는 **sourceAddressPrefix** 속성에 대해 **Internet**, **VirtualNetwork** 및 **AzureLoadBalancer** 와 같은 [서비스 태그](./network-security-groups-overview.md#service-tags)를 지정하는 규칙은 **expandedDestinationAddressPrefix** 속성에 대한 값도 갖습니다. **expandedDestinationAddressPrefix** 속성은 서비스 태그로 표시되는 모든 주소 접두사를 나열합니다.
 
 출력에 중복 규칙이 나열되는 경우 NSG가 네트워크 인터페이스와 서브넷 모두에 연결되었기 때문입니다. 두 NSG는 동일한 기본 규칙을 가지며 두 NSG에서 동일한 사용자 고유의 규칙을 만든 경우 추가 중복 규칙을 가질 수 있습니다.
 
@@ -181,7 +181,7 @@ az vm show \
 
 규칙을 만든 후 규칙의 우선 순위는 트래픽을 거부하는 *DenyAllInBound* 라는 기본 보안 규칙보다 높기 때문에 포트 80은 인터넷에서 허용된 인바운드입니다. [보안 규칙을 만드는](manage-network-security-group.md#create-a-security-rule) 방법을 알아봅니다. 다른 NSG가 네트워크 인터페이스와 서브넷 모두에 연결되어 있는 경우 두 NSG에 동일한 규칙을 만들어야 합니다.
 
-Azure에서 인바운드 트래픽을 처리할 때 서브넷에 연결된 NSG의 규칙을 처리한 다음(연결된 NSG가 있는 경우), 네트워크 인터페이스에 연결된 NSG의 규칙을 처리합니다. 네트워크 인터페이스와 서브넷에 연결된 NSG가 있는 경우 포트는 VM에 도달하는 트래픽에 대해 두 NSG에서 열려야 합니다. 관리 및 통신 문제를 완화하려면 개별 네트워크 인터페이스가 아닌 서브넷에 NSG를 연결하는 것이 좋습니다. 서브넷 내의 VM에 다른 보안 규칙이 필요한 경우 ASG(애플리케이션 보안 그룹)의 네트워크 인터페이스 멤버를 만들고, ASG를 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. [애플리케이션 보안 그룹](security-overview.md#application-security-groups)에 대해 자세히 알아봅니다.
+Azure에서 인바운드 트래픽을 처리할 때 서브넷에 연결된 NSG의 규칙을 처리한 다음(연결된 NSG가 있는 경우), 네트워크 인터페이스에 연결된 NSG의 규칙을 처리합니다. 네트워크 인터페이스와 서브넷에 연결된 NSG가 있는 경우 포트는 VM에 도달하는 트래픽에 대해 두 NSG에서 열려야 합니다. 관리 및 통신 문제를 완화하려면 개별 네트워크 인터페이스가 아닌 서브넷에 NSG를 연결하는 것이 좋습니다. 서브넷 내의 VM에 다른 보안 규칙이 필요한 경우 ASG(애플리케이션 보안 그룹)의 네트워크 인터페이스 멤버를 만들고, ASG를 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. [애플리케이션 보안 그룹](./network-security-groups-overview.md#application-security-groups)에 대해 자세히 알아봅니다.
 
 여전히 통신 문제가 있는 경우 [고려 사항](#considerations) 및 추가 진단을 참조 하세요.
 
@@ -189,8 +189,8 @@ Azure에서 인바운드 트래픽을 처리할 때 서브넷에 연결된 NSG�
 
 연결 문제를 해결하는 경우 다음 사항을 고려합니다.
 
-* 기본 보안 규칙은 인터넷의 인바운드 액세스를 차단하고, 가상 네트워크의 인바운드 트래픽만 허용합니다. 인터넷의 인바운드 트래픽을 허용하려면 기본 규칙보다 더 높은 우선 순위의 보안 규칙을 추가합니다. [기본 보안 규칙](security-overview.md#default-security-rules) 또는 [보안 규칙을 추가하는](manage-network-security-group.md#create-a-security-rule) 방법에 대해 자세히 알아봅니다.
-* 가상 네트워크를 피어링한 경우 기본적으로, **VIRTUAL_NETWORK** 서비스 태그는 피러링된 가상 네트워크에 대한 접두사를 포함하도록 자동으로 확장됩니다. 가상 네트워크 피어링과 관련된 문제를 해결하기 위해 **ExpandedAddressPrefix** 목록에서 접두사를 볼 수 있습니다. [가상 네트워크 피어링](virtual-network-peering-overview.md) 및 [서비스 태그](security-overview.md#service-tags)에 대해 자세히 알아봅니다.
+* 기본 보안 규칙은 인터넷의 인바운드 액세스를 차단하고, 가상 네트워크의 인바운드 트래픽만 허용합니다. 인터넷의 인바운드 트래픽을 허용하려면 기본 규칙보다 더 높은 우선 순위의 보안 규칙을 추가합니다. [기본 보안 규칙](./network-security-groups-overview.md#default-security-rules) 또는 [보안 규칙을 추가하는](manage-network-security-group.md#create-a-security-rule) 방법에 대해 자세히 알아봅니다.
+* 가상 네트워크를 피어링한 경우 기본적으로, **VIRTUAL_NETWORK** 서비스 태그는 피러링된 가상 네트워크에 대한 접두사를 포함하도록 자동으로 확장됩니다. 가상 네트워크 피어링과 관련된 문제를 해결하기 위해 **ExpandedAddressPrefix** 목록에서 접두사를 볼 수 있습니다. [가상 네트워크 피어링](virtual-network-peering-overview.md) 및 [서비스 태그](./network-security-groups-overview.md#service-tags)에 대해 자세히 알아봅니다.
 * VM의 네트워크 인터페이스 및 또는 서브넷과 연결된 NSG가 있고 VM이 실행 상태에 있는 경우 네트워크 인터페이스에 대한 효과적인 보안 규칙만 표시됩니다.
 * 네트워크 인터페이스 또는 서브넷과 연결된 NSG가 없고 VM에 할당된 [공용 IP 주소](virtual-network-public-ip-address.md)가 있는 경우 모든 포트가 인바운드 및 아웃바운드 액세스를 위해 열립니다. VM에 공용 IP 주소가 있는 경우 서브넷 및 네트워크 인터페이스에 NSG를 적용하는 것이 좋습니다.
 
@@ -204,4 +204,4 @@ Azure에서 인바운드 트래픽을 처리할 때 서브넷에 연결된 NSG�
 ## <a name="next-steps"></a>다음 단계
 
 - [네트워크 보안 그룹](manage-network-security-group.md#work-with-network-security-groups) 및 [보안 규칙](manage-network-security-group.md#work-with-security-rules)에 대한 모든 작업, 속성 및 설정에 대해 알아봅니다.
-- VM에 대한 [기본 보안 규칙](security-overview.md#default-security-rules), [태그 서비스](security-overview.md#service-tags) 및 [Azure에서 인바운드 및 아웃바운드 트래픽에 대한 보안 규칙을 처리하는 방법](security-overview.md#network-security-groups)에 대해 알아봅니다.
+- VM에 대한 [기본 보안 규칙](./network-security-groups-overview.md#default-security-rules), [태그 서비스](./network-security-groups-overview.md#service-tags) 및 [Azure에서 인바운드 및 아웃바운드 트래픽에 대한 보안 규칙을 처리하는 방법](./network-security-groups-overview.md#network-security-groups)에 대해 알아봅니다.
