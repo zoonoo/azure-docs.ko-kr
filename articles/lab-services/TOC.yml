@@ -63,19 +63,8 @@
         - name: 팀 내에서 Azure Lab Services 사용
           items:
             - name: 개요
+              displayName: labs within Teams
               href: lab-services-within-teams-overview.md
-            - name: 팀에서 랩 만들기
-              href: how-to-get-started-create-lab-within-teams.md
-            - name: 사용자 목록 관리
-              href: how-to-manage-user-lists-within-teams.md
-            - name: VM 풀 관리
-              href: how-to-manage-vm-pool-within-teams.md
-            - name: 랩 삭제
-              href: how-to-delete-lab-within-teams.md
-            - name: 일정 및 설정
-              href: how-to-create-schedules-within-teams.md
-            - name: VM 액세스(학생 보기)
-              href: how-to-access-vm-for-students-within-teams.md
 - name: 방법 가이드
   items:
     - name: 관리자 가이드
@@ -164,6 +153,20 @@
           href: how-to-set-virtual-machine-passwords-student.md
         - name: 지원 정보 보기(학생)
           href: lab-user-support-information.md
+    - name: 팀 내에서 랩 사용
+      items:
+        - name: 팀에서 랩 만들기
+          href: how-to-get-started-create-lab-within-teams.md
+        - name: 사용자 목록 관리
+          href: how-to-manage-user-lists-within-teams.md
+        - name: VM 풀 관리
+          href: how-to-manage-vm-pool-within-teams.md
+        - name: 랩 삭제
+          href: how-to-delete-lab-within-teams.md
+        - name: 일정 및 설정
+          href: how-to-create-schedules-within-teams.md
+        - name: VM 액세스(학생 보기)
+          href: how-to-access-vm-for-students-within-teams.md
 - name: 참조
   items:
     - name: REST API

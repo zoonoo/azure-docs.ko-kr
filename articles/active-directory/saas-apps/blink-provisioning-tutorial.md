@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 886d6ff1d3437a9d45bdabc68b2bf3ab8cdaa3ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5f49d2c918164fa529b12313e000aff5f8893a65
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349976"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201855"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Blink 구성
 
@@ -117,7 +117,7 @@ Azure AD를 사용하여 사용자를 자동으로 프로비저닝하도록 Blin
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Blink로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Blink의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Blink 사용자 특성](media/blink-provisioning-tutorial/user-attributes.png)
+    ![Blink 사용자 특성](media/blink-provisioning-tutorial/new-user-attributes.png)
 
 10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
@@ -136,6 +136,10 @@ Azure AD를 사용하여 사용자를 자동으로 프로비저닝하도록 Blin
 이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고, Blink의 Azure AD 프로비저닝 서비스에서 수행한 모든 작업을 설명하는 프로비저닝 활동 보고서에 대한 링크를 따를 수 있습니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
+
+## <a name="change-log"></a>로그 변경
+
+* 2021년 1월 14일 - 사용자 지정 확장 특성 **회사** , **설명** 및 **위치** 가 추가되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
