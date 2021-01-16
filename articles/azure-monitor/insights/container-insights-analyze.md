@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 모니
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 성능을 확인 하 고 분석 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 68d0ac03ae0f6029e0f984e296a89048536f4eb7
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905709"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251287"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 성능 모니터링
 
@@ -70,25 +70,25 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 |-------|-------|-----------------|
 |**사용자 pod**| | |
 | |정상 |100% |
-| |Warning |90-99% |
-| |위험 |<90% |
+| |경고 |90-99% |
+| |중요 |<90% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 |**시스템 pod**| | |
 | |정상 |100% |
-| |Warning |해당 없음 |
-| |위험 |<100% |
+| |경고 |해당 없음 |
+| |중요 |<100% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 |**Node** | | |
 | |정상 |>85% |
-| |Warning |60 - 84% |
-| |위험 |<60% |
+| |경고 |60 - 84% |
+| |중요 |<60% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 
 클러스터의 목록에서 클러스터의 이름을 선택 하 여 **클러스터** 페이지로 드릴 다운할 수 있습니다. 그런 다음 노드 성능 페이지로 이동 하 여 해당 특정 클러스터에 대 한 **노드** 열에서 노드 롤업을 **선택 합니다.** 또는 **사용자 pod** 또는 **System pod** 열에 대 한 롤업을 선택 하 여 **컨트롤러** 성능 페이지로 드릴 다운할 수 있습니다.
 
 ## <a name="view-performance-directly-from-a-cluster"></a>클러스터에서 직접 성능 보기
 
-컨테이너의 Azure Monitor에 대 한 액세스는 **Insights**  >  왼쪽 창에서 Insights **클러스터** 를 선택 하거나 다중 클러스터 뷰에서 클러스터를 선택 하 여 AKS 클러스터에서 직접 사용할 수 있습니다. 클러스터에 대 한 정보는 다음 네 가지 관점으로 구성 됩니다.
+컨테이너의 Azure Monitor에 대 한 액세스는   >  왼쪽 창에서 Insights **클러스터** 를 선택 하거나 다중 클러스터 뷰에서 클러스터를 선택 하 여 AKS 클러스터에서 직접 사용할 수 있습니다. 클러스터에 대 한 정보는 다음 네 가지 관점으로 구성 됩니다.
 
 - 클러스터
 - 노드
@@ -130,9 +130,9 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 | pod/ | |
 | | PodCount | Kubernetes의 pod 개수입니다.|
 
-메트릭을 [분할](../platform/metrics-charts.md#apply-splitting-to-a-chart) 하 여 차원 별로 표시 하 고 서로 다른 세그먼트의 서로 비교 하는 방법을 시각화할 수 있습니다. 노드의 경우 *호스트* 차원에 따라 차트를 분할할 수 있습니다. Pod에서 다음 차원으로 분할할 수 있습니다.
+메트릭을 [분할](../platform/metrics-charts.md#apply-splitting) 하 여 차원 별로 표시 하 고 서로 다른 세그먼트의 서로 비교 하는 방법을 시각화할 수 있습니다. 노드의 경우 *호스트* 차원에 따라 차트를 분할할 수 있습니다. Pod에서 다음 차원으로 분할할 수 있습니다.
 
-* Controller
+* 컨트롤러
 * Kubernetes 네임 스페이스
 * 노드
 * 단계
@@ -197,7 +197,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 | 최소값, 평균, 50, 90, 95, 최대값 | 선택한 기간 동안 백분위 수를 기준으로 하는 평균 노드 값입니다. Average 값은 노드에 대해 설정 된 CPU/메모리 제한에서 측정 됩니다. Pod 및 컨테이너의 경우 호스트에서 보고 하는 평균 값입니다. |
 | 컨테이너 | 컨테이너의 수입니다. |
 | 작동 시간 | 노드가 시작되었거나 다시 부팅된 이후 경과된 시간을 나타냅니다. |
-| Controller | 컨테이너 및 Pod용입니다. 컨트롤러가 있는 컨트롤러를 표시 합니다. 모든 Pod가 컨트롤러에 있는 것은 아니므로 **N/A** 가 표시될 수 있습니다. |
+| 컨트롤러 | 컨테이너 및 Pod용입니다. 컨트롤러가 있는 컨트롤러를 표시 합니다. 모든 Pod가 컨트롤러에 있는 것은 아니므로 **N/A** 가 표시될 수 있습니다. |
 | 추세 Min &nbsp; %, Avg &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, 최대값&nbsp;% | 컨트롤러의 평균 백분위 메트릭 비율을 나타내는 막대 그래프 추세입니다. |
 
 **다른 프로세스** 라는 노드를 확장 한 후에 작업을 확인할 수 있습니다. 이는 노드에서 실행 되 고 다음을 포함 하는 비 컨테이너 화 된 프로세스를 나타냅니다.
@@ -212,7 +212,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 * 노드 하드웨어 또는 VM에서 실행되는 기타 비 Kubernetes 워크로드
 
-*Total usage from CAdvisor*  -  *컨테이너 화 된 프로세스의* cadvisor 사용에 대 한 총 사용량을 기준으로 계산 됩니다.
+  -  *컨테이너 화 된 프로세스의* cadvisor 사용에 대 한 총 사용량을 기준으로 계산 됩니다.
 
 선택기에서 **컨트롤러** 를 선택합니다.
 

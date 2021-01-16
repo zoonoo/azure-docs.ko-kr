@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 872a67d8d9f41c0c809df54304352b2a5f58e011
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621079"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251763"
 ---
 # <a name="required-url-list"></a>필수 URL 목록
 
@@ -32,6 +32,7 @@ Windows 가상 데스크톱에 대해 만든 Azure virtual machines는 Azure 상
 |* xt.blob.core.windows.net|443|에이전트 트래픽|AzureCloud|
 |* eh.servicebus.windows.net|443|에이전트 트래픽|AzureCloud|
 |* xt.table.core.windows.net|443|에이전트 트래픽|AzureCloud|
+|* xt.queue.core.windows.net|443|에이전트 트래픽|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows 정품 인증|인터넷|
 |mrsglobalsteus2prod.blob.core.windows.net|443|에이전트 및 SXS 스택 업데이트|AzureCloud|
@@ -72,8 +73,8 @@ Windows 가상 데스크톱에 대해 만든 Azure virtual machines는 Azure Gov
 |login.windows.net|443|Microsoft Online Services, Microsoft 365에 로그인|login.microsoftonline.us|
 |*.sfx.ms|443|OneDrive 클라이언트 소프트웨어에 대한 업데이트|oneclient.sfx.ms|
 |*.digicert.com|443|인증서 해지 확인|None|
-|*. azure-dns.com|443|Azure DNS 해상도|None|
-|*. azure-dns.net|443|Azure DNS 해상도|None|
+|*. azure-dns.com|443|Azure DNS 해상도|없음|
+|*. azure-dns.net|443|Azure DNS 해상도|없음|
 
 >[!NOTE]
 >현재 Windows 가상 데스크톱에는 네트워크 트래픽을 허용 하기 위해 차단 해제할 수 있는 IP 주소 범위 목록이 없습니다. 지금은 특정 Url의 차단 해제만 지원 합니다.
@@ -96,11 +97,11 @@ Windows 가상 데스크톱에 대해 만든 Azure virtual machines는 Azure Gov
 |---|---|---|---|---|
 |*.wvd.microsoft.com|443|서비스 트래픽|모두|*. wvd.microsoft.us|
 |\*.servicebus.windows.net|443|데이터 문제 해결|모두|*.servicebus.usgovcloudapi.net|
-|go.microsoft.com|443|Microsoft FWLinks|모두|None|
-|aka.ms|443|Microsoft URL 단축기|모두|None|
-|docs.microsoft.com|443|설명서|모두|None|
-|privacy.microsoft.com|443|개인정보처리방침|모두|None|
-|query.prod.cms.rt.microsoft.com|443|클라이언트 업데이트|Windows Desktop|None|
+|go.microsoft.com|443|Microsoft FWLinks|모두|없음|
+|aka.ms|443|Microsoft URL 단축기|모두|없음|
+|docs.microsoft.com|443|설명서|모두|없음|
+|privacy.microsoft.com|443|개인정보처리방침|모두|없음|
+|query.prod.cms.rt.microsoft.com|443|클라이언트 업데이트|Windows Desktop|없음|
 
 >[!IMPORTANT]
 >이러한 URL을 여는 것은 신뢰할 수 있는 클라이언트 환경을 위해 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다.

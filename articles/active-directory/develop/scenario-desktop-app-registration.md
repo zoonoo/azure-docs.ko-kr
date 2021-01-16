@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 08e07ac3a8079d725611f9b072e8d21dabb32867
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: c769fd86f432d135542c1f09b83ea5a01c6ab0a6
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011563"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250607"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 데스크톱 앱: 앱 등록
 
@@ -42,7 +42,7 @@ ms.locfileid: "98011563"
 - 대화형 인증 또는 장치 코드 흐름을 사용 하는 경우를 사용 `https://login.microsoftonline.com/common/oauth2/nativeclient` 합니다. 이 구성을 얻으려면 응용 프로그램에 대 한 **인증** 섹션에서 해당 URL을 선택 합니다.
 
   > [!IMPORTANT]
-  > 현재 MSAL.NET는 Windows ()에서 실행 되는 데스크톱 응용 프로그램에서 기본적으로 다른 리디렉션 URI를 사용 `urn:ietf:wg:oauth:2.0:oob` 합니다. 나중에이 기본값을 변경 하려고 하므로를 사용 하는 것이 좋습니다 `https://login.microsoftonline.com/common/oauth2/nativeclient` .
+  > 보안 모범 사례를 사용 하 여 리디렉션 URI를 사용 하는 것이 `https://login.microsoftonline.com/common/oauth2/nativeclient` 좋습니다.  리디렉션 URI를 지정 하지 않으면 MSAL.NET는 `urn:ietf:wg:oauth:2.0:oob` 기본적으로 recommneded가 아닌를 사용 합니다.  이 기본값은 다음 주요 릴리스의 주요 변경 내용으로 업데이트 됩니다.
 
 - MacOS에 대 한 기본 목표-C 또는 Swift 앱을 빌드하는 경우 응용 프로그램의 번들 식별자를 기반으로 하는 리디렉션 URI를 형식으로 등록 `msauth.<your.app.bundle.id>://auth` 합니다. `<your.app.bundle.id>`을 응용 프로그램의 번들 식별자로 바꿉니다.
 - 응용 프로그램에서 Windows 통합 인증 또는 사용자 이름 및 암호만 사용 하는 경우 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft identity platform v2.0 끝점으로의 왕복을 수행 합니다. 응용 프로그램은 특정 URI에서 다시 호출 되지 않습니다.

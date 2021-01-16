@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/15/2020
-ms.openlocfilehash: 4ffe663c1a1651891af5f6e65ee231cbe3e8d650
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.date: 01/15/2021
+ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882309"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251474"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>vCore 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -231,6 +231,37 @@ ms.locfileid: "97882309"
 
 **참고 2**: 대기 시간은 가장 많이 사용 되는 데이터 페이지를 캐시 하는 로컬 계산 복제본 SSD의 데이터에 대해 1-2 밀리초입니다. 페이지 서버에서 검색 되는 데이터에 대 한 대기 시간이 더 높습니다.
 
+## <a name="hyperscale---provisioned-compute---dc-series"></a>Hyperscale 프로 비전 된 계산-DC 시리즈
+
+|컴퓨팅 크기(서비스 목표)|HS_DC_2|HS_DC_4|HS_DC_6|HS_DC_8|
+|:--- | --: |--: |--: |--: |---: | 
+|컴퓨팅 세대|DC 시리즈|DC 시리즈|DC 시리즈|DC 시리즈|
+|vCore 수|2|4|6|8|
+|메모리(GB)|9|18|27|36|
+|[RBPEX](service-tier-hyperscale.md#compute) 크기가|3 x 메모리|3 x 메모리|3 x 메모리|3 x 메모리|
+|Columnstore 지원 여부|예|예|예|예|
+|메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|
+|최대 데이터 크기(TB)|100 |100 |100 |100 |
+|최대 로그 크기(TB)|제한 없음 |제한 없음 |제한 없음 |제한 없음 |
+|TempDB 최대 데이터 크기 (GB)|64|128|192|256|
+|스토리지 유형| [참고 1](#notes) |[참고 1](#notes)|[참고 1](#notes) |[참고 1](#notes) |
+|최대 로컬 SSD IOPS *|8000 |16000 |24000 |32000 |
+|최대 로그 전송률 (MBps)|100 |100 |100 |100 |
+|IO 대기 시간(근사치)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|
+|최대 동시 작업자(요청)|160|320|480|640|
+|최대 동시 세션|30,000|30,000|30,000|30,000|
+|보조 복제본|0-4|0-4|0-4|0-4|
+|다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|
+|읽기 확장|예|예|예|예|
+|백업 저장소 보존|7 일|7 일|7 일|7 일|
+|||
+
+### <a name="notes"></a>참고
+
+**참고 1**: hyperscale은 별도의 계산 및 저장소 구성 요소를 포함 하는 다중 계층 아키텍처입니다. [대규모 서비스 계층 아키텍처](service-tier-hyperscale.md#distributed-functions-architecture)
+
+**참고 2**: 대기 시간은 가장 많이 사용 되는 데이터 페이지를 캐시 하는 로컬 계산 복제본 SSD의 데이터에 대해 1-2 밀리초입니다. 페이지 서버에서 검색 되는 데이터에 대 한 대기 시간이 더 높습니다.
+
 ## <a name="general-purpose---provisioned-compute---gen4"></a>범용 프로 비전 된 계산-Gen4
 
 > [!IMPORTANT]
@@ -389,6 +420,32 @@ ms.locfileid: "97882309"
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
+
+\* 8kb에서 64 KB 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>범용 프로 비전 된 계산-DC 시리즈
+
+|컴퓨팅 크기(서비스 목표)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8| 
+|:---| ---:|---:|---:|---:|
+|컴퓨팅 세대|DC 시리즈|DC 시리즈|DC 시리즈|DC 시리즈|
+|vCore 수|2|4|6|8|
+|메모리(GB)|9|18|27|36|
+|Columnstore 지원 여부|예|예|예|예|
+|메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|
+|최대 데이터 크기(GB)|1024|1536|3072|3072|
+|최대 로그 크기(GB)|307|461|922|922|
+|TempDB 최대 데이터 크기 (GB)|64|128|192|256|
+|스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
+|IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
+|최대 데이터 IOPS *|640|1280|1920|2560|
+|최대 로그 전송률 (MBps)|9|18|27|36|
+|최대 동시 작업자(요청)|160|320|480|640|
+|최대 동시 세션|30,000|30,000|30,000|30,000|
+|복제본 수|1|1|1|1|
+|다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|
+|읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|
+|포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
+
 
 \* 8kb에서 64 KB 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
 
@@ -563,6 +620,31 @@ ms.locfileid: "97882309"
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database에서 파일 공간 관리](file-space-manage.md)를 참조 하세요.
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>업무상 중요-프로 비전 된 계산-DC 시리즈
+
+|컴퓨팅 크기(서비스 목표)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|컴퓨팅 세대|DC 시리즈|DC 시리즈|DC 시리즈|DC 시리즈|
+|vCore 수|2|4|6|8|
+|메모리(GB)|9|18|27|36|
+|Columnstore 지원 여부|예|예|예|예|
+|메모리 내 OLTP 스토리지(GB)|1.7|3.7|5.9|8.2|
+|최대 데이터 크기(GB)|768|768|768|768|
+|최대 로그 크기(GB)|230|230|230|230|
+|TempDB 최대 데이터 크기 (GB)|64|128|192|256|
+|스토리지 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
+|IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|
+|최대 데이터 IOPS *|14000|28000|42000|56000|
+|최대 로그 전송률 (MBps)|24|48|72|96|
+|최대 동시 작업자(요청)|200|400|600|800|
+|최대 동시 로그인|200|400|600|800|
+|최대 동시 세션|30,000|30,000|30,000|30,000|
+|복제본 수|4|4|4|4|
+|다중 AZ|아니요|아니요|아니요|아니요|
+|읽기 확장|아니요|아니요|아니요|아니요|
+|포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
+
+\* 8kb에서 64 KB 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

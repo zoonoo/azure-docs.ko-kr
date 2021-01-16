@@ -2,13 +2,13 @@
 title: Azure CLI 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: a2caea70a51a737bfa433a089c03b43f252b5d6e
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.date: 01/15/2021
+ms.openlocfilehash: d79a5c93bf79c5851beabbba2eb3a663c6ab5999
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028151"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251083"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포
 
@@ -134,7 +134,7 @@ deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
 
 로컬 또는 원격 템플릿을 배포 하는 대신 [템플릿 사양을](template-specs.md)만들 수 있습니다. 템플릿 사양은 ARM 템플릿을 포함 하는 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
 
-다음 예에서는 템플릿 사양을 만들고 배포 하는 방법을 보여 줍니다. 이러한 명령은 [미리 보기에 등록 한 경우에](https://aka.ms/templateSpecOnboarding)만 사용할 수 있습니다.
+다음 예에서는 템플릿 사양을 만들고 배포 하는 방법을 보여 줍니다.
 
 먼저 ARM 템플릿을 제공 하 여 템플릿 사양을 만듭니다.
 

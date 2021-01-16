@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 11/06/2020
-ms.openlocfilehash: 2fabf75f74ccf57f57e7b47720ceda8885420842
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 35134f3ee4946d294ba6c6f71bd3953823d6d138
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460906"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250031"
 ---
 # <a name="monitoring-azure-iot-hub"></a>모니터링 Azure IoT Hub
 
@@ -87,7 +87,7 @@ Azure IoT Hub에 대해 수집 되는 플랫폼 메트릭의 목록은 [모니�
 
 개수 단위로 수집 되는 IoT Hub 플랫폼 메트릭의 경우 일부 집계를 사용 하지 않거나 사용할 수 없는 경우도 있습니다. 자세히 알아보려면 [모니터링 Azure IoT Hub 데이터 참조에서 지원 되는 집계](monitor-iot-hub-reference.md#supported-aggregations)를 참조 하세요.
 
-[라우팅 메트릭과](monitor-iot-hub-reference.md#routing-metrics)같은 일부 IoT Hub 메트릭은 다차원입니다. 이러한 메트릭에 대해 차원을 기반으로 하는 차트에 [필터](../azure-monitor/platform/metrics-charts.md#apply-filters-to-charts) 및 [분할](../azure-monitor/platform/metrics-charts.md#apply-splitting-to-a-chart) 을 적용할 수 있습니다.
+[라우팅 메트릭과](monitor-iot-hub-reference.md#routing-metrics)같은 일부 IoT Hub 메트릭은 다차원입니다. 이러한 메트릭에 대해 차원을 기반으로 하는 차트에 [필터](../azure-monitor/platform/metrics-charts.md#filters) 및 [분할](../azure-monitor/platform/metrics-charts.md#apply-splitting) 을 적용할 수 있습니다.
 
 ## <a name="analyzing-logs"></a>로그 분석
 
@@ -119,7 +119,7 @@ IoT Hub 리소스 로그의 일부 작업 `sdkVersion` 은 개체의 속성을 �
 
 다음 표에서는 다양 한 Azure IoT Sdk에 사용 되는 SDK 이름을 보여 줍니다.
 
-| SdkVersion 속성의 SDK 이름 | Language |
+| SdkVersion 속성의 SDK 이름 | 언어 |
 |----------|----------|
 | .NET | .NET (C#) |
 | microsoft. azure. 장치 | .NET (c #) 서비스 SDK |

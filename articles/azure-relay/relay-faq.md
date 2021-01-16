@@ -3,12 +3,12 @@ title: Azure Relay FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Relay 서비스에 대 한 몇 가지 자주 묻는 질문에 대 한 답변을 제공 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131851"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250057"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -70,7 +70,7 @@ Azure Relay로 메시지를 보내는 것은 메시지를 받는 릴레이 수�
 ## <a name="quotas"></a>할당량
 | 할당량 이름 | 범위 |  메모 | 값 |
 | --- | --- | --- | --- |
-| 릴레이의 동시 수신기 |엔터티 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
+| 릴레이의 동시 수신기 |엔터티 (하이브리드 연결 또는 WCF relay) |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
 | 서비스 네임스페이스의 모든 릴레이 엔드포인트당 동시 릴레이 연결 |네임스페이스 |- |5,000 |
 | 서비스 네임스페이스당 릴레이 엔드포인트 |네임스페이스 |- |10000 |
 | [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) and [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) 릴레이의 메시지 크기 |네임스페이스 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |64KB |

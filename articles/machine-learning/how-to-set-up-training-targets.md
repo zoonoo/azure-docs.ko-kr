@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: ec4917aa378f746eb2caac6a7b4ce99d1c44db90
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 55e618a7e4e0d21f6d4afab270e257c26fa15634
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127654"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251117"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
@@ -75,6 +75,9 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 학습 스크립트를 실행할 계산 대상을 선택 합니다. ScriptRunConfig에 계산 대상이 지정 되어 있지 않거나 이면 `compute_target='local'` AZURE ML이 스크립트를 로컬로 실행 합니다. 
 
 이 문서의 예제 코드에서는 `my_compute_target` "전제 조건" 섹션에서 계산 대상을 이미 만들었다고 가정 합니다.
+
+>[!Note]
+>Azure Databricks은 모델 학습을 위한 계산 대상으로 지원 되지 않습니다. Azure Databricks를 사용 하 여 데이터 준비 및 배포 작업을 수행할 수 있습니다. 
 
 ## <a name="create-an-environment"></a>환경 만들기
 Azure Machine Learning [환경은](concept-environments.md) Machine Learning 교육이 발생 하는 환경을 캡슐화 하는 것입니다. 이는 교육 및 점수 매기기 스크립트와 관련 된 Python 패키지, Docker 이미지, 환경 변수 및 소프트웨어 설정을 지정 합니다. 또한 런타임 (Python, Spark 또는 Docker)을 지정 합니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 7c3af0865282475ded0172d18aecad1dfb61721b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 5219553fe300d607212af1ef6cedf72ce6506762
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814264"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250335"
 ---
 # <a name="troubleshooting-metrics-charts"></a>메트릭 차트 문제 해결
 
@@ -48,7 +48,7 @@ Azure에서 메트릭에 대 한 액세스는 azure [역할 기반 액세스 제
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>모든 메트릭 값이 잠긴 y축 범위를 벗어남
 
-[차트 y축의 경계를 잠그면](metrics-charts.md#lock-boundaries-of-chart-y-axis) 의도치 않게 차트 표시 영역에 차트 선이 표시되지 않을 수 있습니다. 예를 들어 y축을 0%-50% 사이의 범위로 잠그고 메트릭이 상수 값 100%를 갖는 경우 선이 항상 가시 영역 외부에 렌더링되므로 빈 차트가 표시됩니다.
+[차트 y축의 경계를 잠그면](metrics-charts.md#locking-the-range-of-the-y-axis) 의도치 않게 차트 표시 영역에 차트 선이 표시되지 않을 수 있습니다. 예를 들어 y축을 0%-50% 사이의 범위로 잠그고 메트릭이 상수 값 100%를 갖는 경우 선이 항상 가시 영역 외부에 렌더링되므로 빈 차트가 표시됩니다.
 
 **해결 방법:** 차트의 y 축 경계가 메트릭 값의 범위 밖에 잠기지 않았는지 확인 합니다. y축 경계가 잠긴 경우 메트릭 값이 차트 범위를 벗어나지 않도록 경계를 다시 설정해야 합니다. **합계**, **최솟값** 및 **최댓값** 을 집계하는 차트는 브라우저 창의 크기를 조정하거나 화면 해상도를 전환할 때 값이 변경되므로 자동 단위에 y축 잠금을 사용하지 않는 것이 좋습니다. 단위를 전환할 때 차트의 표시 영역이 비어 있을 수 있습니다.
 

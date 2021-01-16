@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: adec2a85373d33d08fe9aa16895d03229e40f475
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 886db905008af94b66a902cc551e4d55b36572a8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825828"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250131"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions의 Azure Event Grid 트리거
 
@@ -603,7 +603,7 @@ Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내�
 
 ### <a name="manually-post-the-request"></a>수동으로 요청 게시
 
-Event Grid 함수를 로컬로 실행합니다.
+Event Grid 함수를 로컬로 실행합니다. `Content-Type`및 `aeg-event-type` 헤더는 수동으로 설정 해야 하며, 다른 모든 값은 기본값으로 남겨둘 수 있습니다.
 
 [Postman](https://www.getpostman.com/) 또는 [curl](https://curl.haxx.se/docs/httpscripting.html)과 같은 도구를 사용하여 HTTP POST 요청을 만듭니다.
 

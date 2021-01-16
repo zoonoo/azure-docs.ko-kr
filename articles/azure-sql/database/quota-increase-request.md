@@ -9,17 +9,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: 44a37a912c5c7a882d21631b8ce2da2c7ba9c05e
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 27719663acfbdbcd7293defc4b746153359adb61
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967704"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251858"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 요청 할당량이 늘어납니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 할당량 증가를 요청 하는 방법을 설명 합니다. 또한 지역에 대 한 구독 액세스를 사용 하도록 설정 하는 방법을 설명 합니다.
+이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 할당량 증가를 요청 하는 방법을 설명 합니다. 지역에 대 한 구독 액세스를 사용 하도록 설정 하는 방법 및 지역에서 특정 하드웨어 사용을 요청 하는 방법에 대해서도 설명 합니다.
 
 ## <a name="create-a-new-support-request"></a><a id="newquota"></a> 새 지원 요청 만들기
 
@@ -62,8 +62,7 @@ ms.locfileid: "97967704"
 
 - 서버당 Dtu (데이터베이스 트랜잭션 단위)
 - 구독당 서버
-- M 시리즈 영역 액세스
-- 지역 액세스
+- 구독 또는 특정 하드웨어에 대 한 지역 액세스
 
 ### <a name="database-transaction-units-dtus-per-server"></a>서버당 Dtu (데이터베이스 트랜잭션 단위)
 
@@ -109,30 +108,15 @@ ms.locfileid: "97967704"
 
    ![요청 영역 액세스](./media/quota-increase-request/quota-request.png)
 
-<!--
-### <a id="mseries"></a> Enable M-series access to a region
+### <a name="request-enabling-specific-hardware-in-a-region"></a>지역에서 특정 하드웨어 활성화 요청
 
-To enable M-series hardware for a subscription and region, a support request must be opened.
+사용 하려는 [하드웨어 생성](service-tiers-vcore.md#hardware-generations) 을 해당 지역에서 사용할 수 없는 경우 ( [하드웨어 가용성](service-tiers-vcore.md#hardware-availability)참조) 다음 단계를 사용 하 여 요청할 수 있습니다.
 
-1. Select the **M-series region access** quota type.
+1. **다른 할당량 요청** 할당량 유형을 선택 합니다.
 
-1. In the **Select a location** list, select the Azure region to use. The quota is per subscription in each region.
+1. **설명** 필드에 하드웨어 생성 이름과 필요한 지역의 이름을 포함 하 여 요청을 상태를 표시 합니다.
 
-
-   ![Request M-series region access](./media/quota-increase-request/quota-m-series.png)
--->
-
-## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> SQL Managed Instance 할당량 유형
-
-**SQL Managed Instance** 할당량 유형에 대해 다음 단계를 사용 합니다.
-
-1. **지역** 목록에서 대상으로 할 Azure 지역을 선택 합니다.
-
-1. **서브넷** 및 **vcore** 에 대해 요청 하는 새 제한을 입력 합니다.
-
-   ![SQL Managed Instance 할당량 정보](./media/quota-increase-request/quota-details-managed-instance.png)
-
-자세한 내용은 [AZURE SQL Managed Instance 리소스 제한 개요](../managed-instance/resource-limits.md)를 참조 하세요.
+   ![새 지역에 하드웨어 요청](./media/quota-increase-request/hardware-in-new-region.png)
 
 ## <a name="submit-your-request"></a>요청 제출
 

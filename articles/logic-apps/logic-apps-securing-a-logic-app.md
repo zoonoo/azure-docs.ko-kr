@@ -3,15 +3,15 @@ title: 액세스 및 데이터 보안
 description: Azure Logic Apps의 입력, 출력, 요청 기반 트리거, 실행 기록, 관리 작업 및 기타 리소스에 대한 보안 액세스
 services: logic-apps
 ms.suite: integration
-ms.reviewer: rarayudu, logicappspm
+ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: 5ad01e31cb9af18fa018d99424b25dee338981d7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.date: 01/15/2021
+ms.openlocfilehash: c889498d6341875682055e9d67b8d2b958bac70a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034512"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251066"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -911,6 +911,10 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 > 논리 앱이 처리 하는 중요 한 정보를 보호 하려면 보안 매개 변수를 사용 하 고 필요에 따라 데이터를 인코딩합니다.
 > 매개 변수 사용 및 보안에 대한 자세한 내용은 [매개 변수 입력에 대한 액세스](#secure-action-parameters)를 참조하세요.
 
+<a name="authentication-types-supported-triggers-actions"></a>
+
+#### <a name="authentication-types-for-triggers-and-actions-that-support-authentication"></a>트리거에 대 한 인증 유형 및 인증을 지 원하는 작업
+
 다음 표에서는 사용자가 인증 유형을 선택할 수 있는 트리거와 작업에서 사용할 수 있는 인증 유형을 식별 합니다.
 
 | 인증 유형 | 지원 되는 트리거 및 작업 |
@@ -919,12 +923,12 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 | [클라이언트 인증서](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [원시](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [관리 ID](#managed-identity-authentication) | Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP Webhook |
+| [관리 ID](#managed-identity-authentication) | **기본 제공 트리거 및 작업** <p><p>Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP Webhook <p><p>**관리 되는 커넥터** <p><p>Azure AD ID 보호, Azure Automation, Azure Container Instance, Azure 데이터 탐색기, Azure Data Factory, Azure Data Lake, Azure Event Grid, azure IoT Central V3, Azure Key Vault, Azure Log Analytics, Azure Monitor 로그, Azure Resource Manager, Azure 센티널, Azure AD와의 HTTP <p><p>**참고**: 관리 되는 커넥터에 대 한 지원은 현재 미리 보기 상태입니다. |
 |||
 
 <a name="basic-authentication"></a>
 
-### <a name="basic-authentication"></a>기본 인증
+#### <a name="basic-authentication"></a>기본 인증
 
 [기본](../active-directory-b2c/secure-rest-api.md) 옵션을 사용할 수 있는 경우 다음 속성 값을 지정합니다.
 
@@ -955,7 +959,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 
 <a name="client-certificate-authentication"></a>
 
-### <a name="client-certificate-authentication"></a>클라이언트 인증서 인증
+#### <a name="client-certificate-authentication"></a>클라이언트 인증서 인증
 
 [클라이언트 인증서](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) 옵션을 사용할 수 있는 경우 다음 속성 값을 지정합니다.
 
@@ -994,7 +998,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory 공개 인증
+#### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory 공개 인증
 
 요청 트리거에서 논리 앱에 대 한 [AZURE ad 권한 부여 정책을 설정한](#enable-oauth) 후에 들어오는 호출을 인증 하는 데 [Azure Active Directory Open AUTHENTICATION (azure ad OAuth)](../active-directory/develop/index.yml)을 사용할 수 있습니다. 선택할 수 있는 **Active Directory OAuth** 인증 유형을 제공하는 다른 모든 트리거 및 작업의 경우 다음 속성 값을 지정합니다.
 
@@ -1034,7 +1038,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 
 <a name="raw-authentication"></a>
 
-### <a name="raw-authentication"></a>원시 인증
+#### <a name="raw-authentication"></a>원시 인증
 
 **원시** 옵션을 사용할 수 있으면 [OAuth 2.0 프로토콜](https://oauth.net/2/)을 따르지 않는 [인증 체계](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml)를 사용해야 하는 경우 이 인증 유형을 사용할 수 있습니다. 이 유형을 사용하면 나가는 요청과 함께 보내는 인증 헤더 값을 수동으로 만들고 트리거 또는 작업에서 이 헤더 값을 지정합니다.
 
@@ -1077,15 +1081,17 @@ Authorization: OAuth realm="Photos",
 
 <a name="managed-identity-authentication"></a>
 
-### <a name="managed-identity-authentication"></a>관리 ID 인증
+#### <a name="managed-identity-authentication"></a>관리 ID 인증
 
-[관리 id](../active-directory/managed-identities-azure-resources/overview.md) 옵션을 [특정 트리거 또는 동작](#add-authentication-outbound)에서 사용할 수 있는 경우 논리 앱은 로그인 하지 않고 Azure Active Directory (Azure AD)로 보호 되는 다른 리소스에 대 한 액세스를 인증 하기 위해 시스템이 할당 한 id 또는 수동으로 만들어진 *단일* 사용자 할당 id를 사용할 수 있습니다. 이 ID는 Azure에서 관리되며, 비밀을 제공하거나 순환할 필요가 없기 때문에 자격 증명을 보호하는 데 유용합니다. [Azure AD 인증에 관리 ID를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 대해 자세히 알아보세요.
+관리 되는 id [인증을 지 원하는 트리거 또는 작업](#add-authentication-outbound)에서 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 옵션을 사용할 수 있는 경우, 논리 앱은 자격 증명, 비밀 또는 azure ad 토큰이 아닌 Azure Active Directory (azure ad)로 보호 되는 azure 리소스에 대 한 액세스를 인증 하기 위해 시스템 할당 id *또는 수동으로 만든* 사용자 할당 id를 사용할 수 있습니다. Azure는 사용자를 위해이 id를 관리 하 고, 암호를 관리 하거나 Azure AD 토큰을 직접 사용 하지 않으므로 자격 증명을 보호 하는 데 도움이 됩니다. [Azure AD 인증에 관리 ID를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 대해 자세히 알아보세요.
 
 1. 논리 앱이 관리 ID를 사용할 수 있으려면 그 전에 [Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증](../logic-apps/create-managed-service-identity.md)의 단계를 따르세요. 이 단계는 논리 앱에서 관리 ID를 사용하도록 설정하고 대상 Azure 리소스에 대한 해당 ID의 액세스 권한을 설정합니다.
 
 1. Azure 함수가 관리 ID를 사용할 수 있으려면 먼저 [Azure functions에 대한 인증이 가능하도록 설정](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions)합니다.
 
-1. 관리 ID를 사용하려는 트리거 또는 작업에서 다음 속성 값을 지정합니다.
+1. 관리 id를 사용 하 여를 지 원하는 트리거 또는 작업에서 다음 정보를 제공 합니다.
+
+   **기본 제공 트리거 및 작업**
 
    | 속성(디자이너) | 속성(JSON) | 필수 | 값 | Description |
    |---------------------|-----------------|----------|-------|-------------|
@@ -1094,7 +1100,7 @@ Authorization: OAuth realm="Photos",
    | **대상** | `audience` | 예 | <*target-resource-ID*> | 액세스하려는 대상 리소스의 리소스 ID입니다. <p>예를 들어 `https://storage.azure.com/`은 인증을 위한 [액세스 토큰](../active-directory/develop/access-tokens.md)을 모든 스토리지 계정에 유효하게 만듭니다. 하지만 특정 스토리지 계정에 대해 `https://fabrikamstorageaccount.blob.core.windows.net`과 같은 루트 서비스 URL을 지정할 수도 있습니다. <p>**참고**: **대상 그룹** 속성은 일부 트리거나 작업에서 숨겨질 수 있습니다. 이 속성을 표시하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **대상 그룹** 을 선택합니다. <p><p>**중요**: 이 대상 리소스 ID는 필수 후행 슬래시를 포함하여 Azure AD에 필요한 값과 정확히 일치해야 합니다. 따라서 모든 Azure Blob Storage 계정에 대한 `https://storage.azure.com/` 리소스 ID에는 후행 슬래시가 필요합니다. 하지만 특정 스토리지 계정에 대한 리소스 ID에는 슬래시가 필요하지 않습니다. 이러한 리소스 ID를 알아보려면 [Azure AD를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요. |
    |||||
 
-   [보안 매개 변수](#secure-action-parameters)를 사용하여 중요한 정보를 처리하고 보안을 유지하는 경우(예: [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)에서), 식을 사용하여 런타임 시 해당 매개 변수 값에 액세스할 수 있습니다. 다음 예제 HTTP 작업 정의는 인증 `type`을 `ManagedServiceIdentity`로 지정하고 [parameters() 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters)를 사용하여 매개 변수 값을 가져옵니다.
+   [보안 매개 변수](#secure-action-parameters)를 사용하여 중요한 정보를 처리하고 보안을 유지하는 경우(예: [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)에서), 식을 사용하여 런타임 시 해당 매개 변수 값에 액세스할 수 있습니다. 예를 들어이 HTTP 작업 정의는 인증을 `type` 로 지정 하 `ManagedServiceIdentity` 고 [parameters () 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 를 사용 하 여 매개 변수 값을 가져옵니다.
 
    ```json
    "HTTP": {
@@ -1111,6 +1117,15 @@ Authorization: OAuth realm="Photos",
       "runAfter": {}
    }
    ```
+
+   **관리 되는 커넥터 트리거 및 작업**
+
+   | 속성(디자이너) | 필수 | 값 | Description |
+   |---------------------|----------|-------|-------------|
+   | **연결 이름** | 예 | <*연결-이름*> ||
+   | **관리 ID** | 예 | **시스템 할당 관리 ID** <br>또는 <br> <*사용자 할당 관리 id-이름*> | 사용할 인증 유형 |
+   |||||
+
 
 <a name="block-connections"></a>
 

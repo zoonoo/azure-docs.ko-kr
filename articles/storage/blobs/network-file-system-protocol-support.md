@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: c48a7f4b5b1512ec5bcd289e4fb8bd7884ca7394
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922549"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250811"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)
 
@@ -102,6 +102,8 @@ ms.locfileid: "96922549"
 - 탑재 목록 (예: 명령 사용 `showmount -a` )
 
 - 내보내기 나열 (예: 명령 사용 `showmount -e` )
+
+- 하드 링크
 
 - 컨테이너를 읽기 전용으로 내보내기
 

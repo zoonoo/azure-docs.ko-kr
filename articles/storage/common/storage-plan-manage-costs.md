@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 6942c3ecd631a141f1df741ff827a6889605e536
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 14e53efb7be9eef3ca388e6524e5ffd678671cd0
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498203"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251644"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob 저장소에 대 한 비용 계획 및 관리
 
@@ -75,16 +75,16 @@ Blob 데이터를 가장 비용 효율적인 액세스 계층에 배치 하 여 
 
 ## <a name="create-budgets"></a>예산 만들기
 
-[예산](../../cost-management-billing/costs/tutorial-acm-create-budgets.md)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 경고를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대 한 예산과 경고가 생성 되므로 전체 비용 모니터링 전략의 일부로 유용 합니다. 그러나 더 높은 수준에서 비용을 추적 하도록 디자인 되었기 때문에 Azure Storage 비용과 같은 개별 Azure 서비스 비용을 관리 하는 기능이 제한 될 수 있습니다.
+[예산](../../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 경고를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대 한 예산과 경고가 생성 되므로 전체 비용 모니터링 전략의 일부로 유용 합니다. 그러나 더 높은 수준에서 비용을 추적 하도록 디자인 되었기 때문에 Azure Storage 비용과 같은 개별 Azure 서비스 비용을 관리 하는 기능이 제한 될 수 있습니다.
 
 ## <a name="monitor-costs"></a>비용 모니터링
 
-Azure Storage에서 Azure 리소스를 사용 하는 경우 비용이 발생 합니다. 리소스 사용 단위 비용은 시간 간격 (초, 분, 시간 및 일) 또는 단위 사용 (바이트, 메가바이트 등)에 따라 달라 집니다. Azure Storage 사용이 시작 되는 즉시 비용이 발생 합니다. Azure Portal의 [비용 분석](../../cost-management-billing/costs/quick-acm-cost-analysis.md) 창에서 비용을 볼 수 있습니다.
+Azure Storage에서 Azure 리소스를 사용 하는 경우 비용이 발생 합니다. 리소스 사용 단위 비용은 시간 간격 (초, 분, 시간 및 일) 또는 단위 사용 (바이트, 메가바이트 등)에 따라 달라 집니다. Azure Storage 사용이 시작 되는 즉시 비용이 발생 합니다. Azure Portal의 [비용 분석](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 창에서 비용을 볼 수 있습니다.
 
 비용 분석을 사용 하면 서로 다른 시간 간격에 대 한 그래프 및 테이블의 Azure Storage 비용을 볼 수 있습니다. 몇 가지 예로는 일, 현재 및 이전 달 및 연도가 있습니다. 예산 및 예상 비용에 대 한 비용을 볼 수도 있습니다. 시간이 지남에 따라 더 긴 보기로 전환 하면 지출 추세를 파악 하 고 낭비를 발생 시킬 수 있는 위치를 확인할 수 있습니다. 예산을 만든 경우 해당 위치를 쉽게 확인할 수도 있습니다.
 
 >[!NOTE]
-> 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](../../cost-management-billing/costs/understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다. Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [데이터에 대한 액세스 할당](../../cost-management-billing/costs/assign-access-acm-data.md)을 참조하세요.
+> 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다. Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [데이터에 대한 액세스 할당](../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
 
 비용 분석에서 Azure Storage 비용을 보려면 다음을 수행 합니다.
 

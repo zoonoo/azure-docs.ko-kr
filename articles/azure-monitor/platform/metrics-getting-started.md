@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614596"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250403"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Azure 메트릭 탐색기 시작
 
@@ -38,7 +38,7 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
     > ![메트릭 선택](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. 필요에 따라 [메트릭 집계를 변경할](metrics-charts.md#changing-aggregation)수 있습니다. 예를 들어 메트릭에 대 한 최소값, 최대값 또는 평균 값을 차트에 표시 하려고 할 수 있습니다.
+4. 필요에 따라 [메트릭 집계를 변경할](metrics-charts.md#aggregation)수 있습니다. 예를 들어 메트릭에 대 한 최소값, 최대값 또는 평균 값을 차트에 표시 하려고 할 수 있습니다.
 
 > [!TIP]
 > 동일한 차트에 여러 메트릭을 표시하려면 **메트릭 추가** 단추를 사용하여 이 단계를 반복합니다. 한 보기의 여러 차트에 대해 맨 위에 있는 **차트 추가** 단추를 선택 합니다.
@@ -57,7 +57,7 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
 ## <a name="apply-dimension-filters-and-splitting"></a>차원 필터 및 분할 적용
 
-[필터링](metrics-charts.md#apply-filters-to-charts) 및 [분할](metrics-charts.md#apply-splitting-to-a-chart) 은 차원이 있는 메트릭에 대 한 강력한 진단 도구입니다. 이러한 기능은 다양 한 메트릭 세그먼트 ("차원 값")가 메트릭의 전체 값에 영향을 주는 방법을 보여 주고 가능한 이상 값을 식별할 수 있도록 합니다.
+[필터링](metrics-charts.md#filters) 및 [분할](metrics-charts.md#apply-splitting) 은 차원이 있는 메트릭에 대 한 강력한 진단 도구입니다. 이러한 기능은 다양 한 메트릭 세그먼트 ("차원 값")가 메트릭의 전체 값에 영향을 주는 방법을 보여 주고 가능한 이상 값을 식별할 수 있도록 합니다.
 
 - **필터링** 을 사용하여 차트에 포함할 차원 값을 선택할 수 있습니다. 예를 들어 *서버 응답 시간* 메트릭을 차트로 작성 하는 경우 성공적인 요청을 표시할 수 있습니다. *요청 차원 성공* 에 필터를 적용 해야 합니다. 
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: fb7d9f78ac5498affa10521e17cff4348eecb5eb
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 5ebae41e68633eb10959c56011dd71952f9564bd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231947"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250420"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 입력 데이터 복제 구성
 
@@ -23,12 +23,6 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
 > [!NOTE]
 > 원본 서버가 버전 10.2 이상이 면 [전역 트랜잭션 ID](https://mariadb.com/kb/en/library/gtid/)를 사용 하 여 입력 데이터 복제를 설정 하는 것이 좋습니다.
-
-> [!NOTE]
-> 바이어스 없는 통신
->
-> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _마스터_ 및 _슬레이브_ 라는 단어에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는 이러한 내용을 exclusionary 단어로 인식 합니다. 이러한 단어는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
->
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>복제본으로 사용할 MariaDB 서버 만들기
 
@@ -46,6 +40,10 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 3. 원본 서버의 IP 주소를 복제본의 방화벽 규칙에 추가 합니다. 
 
    [Azure Portal](howto-manage-firewall-portal.md) 또는 [Azure CLI](howto-manage-firewall-cli.md)를 사용하여 방화벽 규칙을 업데이트합니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+>
 
 ## <a name="configure-the-source-server"></a>원본 서버 구성
 
@@ -83,7 +81,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
       ping <output of step 2b>
       ```
 
-      예를 들어 다음과 같습니다.
+      예를 들면 다음과 같습니다.
 
       ```bash
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net

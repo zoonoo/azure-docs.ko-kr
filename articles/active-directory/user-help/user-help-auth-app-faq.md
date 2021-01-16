@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/09/2020
+ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: a1307aa19c66e3f6fcb71f677e6c67551d2a01f9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f799ed5c18537b862a4971075ae9107b7a722fdd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928327"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251508"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 FAQ (질문과 대답)
 
@@ -33,13 +33,17 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며 Azure
 
 **A**: 장치를 등록 하면 조직의 서비스에 액세스할 수 있으며 조직에서 장치에 액세스할 수 없습니다.
 
-## <a name="too-many-app-permissions"></a>앱 사용 권한 너무 많음
+### <a name="too-many-app-permissions"></a>앱 사용 권한 너무 많음
 
 **Q**: 앱에서 많은 권한을 요청 하는 이유는 무엇 인가요?
 
-**A**: 요청 될 수 있는 사용 권한의 전체 목록 및 앱에서 사용 하는 방법은 다음과 같습니다. 표시되는 특정 사용 권한은 사용하는 휴대폰의 종류에 따라 달라집니다.
+**A**: 요청 될 수 있는 사용 권한의 전체 목록 및 앱에서 사용 하는 방법은 다음과 같습니다. 표시되는 특정 사용 권한은 사용하는 휴대폰의 종류에 따라 달라집니다. 경우에 따라 특정 리소스에 액세스할 수 있도록 하기 전에 조직에서 사용자의 **위치** 를 알고 싶을 수 있습니다. 앱은 조직에 위치가 필요한 정책이 있는 경우에만이 권한을 요청 합니다.
 
-- **위치**. 경우에 따라 특정 리소스에 액세스할 수 있도록 하기 전에 조직에서 사용자의 위치를 알고 싶을 수 있습니다. 앱은 조직에 위치가 필요한 정책이 있는 경우에만이 권한을 요청 합니다. 
+### <a name="error-adding-account"></a>계정 추가 중 오류 발생
+
+**Q**: 내 계정을 추가 하려고 하면 "추가 하려는 계정이 현재 유효 하지 않음" 이라는 오류 메시지가 표시 됩니다. 이 문제를 해결 하려면 관리자에 게 문의 하십시오 (고유성 유효성 검사). " 어떻게 해야 합니까?
+
+**A**: 관리자에 게 연락 하 여 고유성 유효성 검사 문제로 인해 인증자에 게 계정을 추가할 수 없습니다. 관리자가 조직에서 볼 수 있도록 로그인 사용자 이름을 제공 해야 합니다.
 
 ### <a name="legacy-apns-support-deprecated"></a>레거시 APNs 지원 사용 되지 않음
 

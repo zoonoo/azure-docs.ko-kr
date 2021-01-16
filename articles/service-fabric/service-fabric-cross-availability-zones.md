@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: f729c00d3b78631a32013ec9453302584cecbd16
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 82161a8f66dd717a9dc448a743b818a9ab9938db
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962434"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250981"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -345,7 +345,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 * 첫 번째 값은 가상 머신 확장 집합에 있는 가용성 영역를 지정 하는 **zones** 속성입니다.
 * 두 번째 값은 true로 설정 해야 하는 "Singleto Ementgroup" 속성입니다. **3 AZ의 범위에 걸친 확장 집합은 "Singleementgroup = true"를 사용 하 여 300 Vm까지 확장할 수 있습니다.**
-* 세 번째 값은 "zoneBalance"이 고, true로 설정 된 경우 엄격한 영역 분산을 보장 하는 옵션입니다. [ZoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing)에 대해 읽어 보세요.
+* 세 번째 값은 "zoneBalance" 이며, true로 설정 된 경우 엄격한 영역 균형 조정을 보장 합니다. 영역 간에 Vm의 불균형 배포를 방지 하려면이를 true로 설정 하는 것이 좋습니다. [ZoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing)에 대해 읽어 보세요.
 * FaultDomain 및 UpgradeDomain 재정의는 구성할 필요가 없습니다.
 
 ```json
@@ -357,7 +357,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
     "zones": ["1", "2", "3"],
     "properties": {
         "singlePlacementGroup": "true",
-        "zoneBalance": false
+        "zoneBalance": true
     }
 }
 ```

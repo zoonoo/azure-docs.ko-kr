@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
-ms.openlocfilehash: 34210d08ad5328f200f5b92c13bfcf85cfead3ec
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 92513a8c24b5106e3a59c8cfa4d743e900b957bf
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199481"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249774"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Azure Database for MySQL의 복제 지연 문제 해결
 
@@ -32,9 +32,7 @@ ms.locfileid: "98199481"
 이 문서에서는 Azure Database for MySQL의 복제 대기 시간 문제를 해결 하는 방법을 알아봅니다. 또한 복제 서버에서 복제 대기 시간이 증가 하는 몇 가지 일반적인 원인을 이해 하 게 됩니다.
 
 > [!NOTE]
-> 바이어스 없는 통신
->
-> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _마스터_ 및 _슬레이브_ 라는 단어에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는 이러한 내용을 exclusionary 단어로 인식 합니다. 이러한 단어는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 
 ## <a name="replication-concepts"></a>복제 개념

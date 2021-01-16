@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec900f0537030d3ed0d1c875e8125806159bd51
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667166"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251457"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 호스트 풀 만들기
 
@@ -37,7 +37,7 @@ New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -W
 등록 토큰을 만들기 위해 다음 cmdlet을 실행하여 세션 호스트의 호스트 풀 참가를 인증하고 로컬 컴퓨터의 새 파일에 저장합니다. -ExpirationHours 매개 변수를 사용하여 등록 토큰의 유효 기간을 지정할 수 있습니다.
 
 >[!NOTE]
->토큰의 만료 날짜는 1시간 이상 한 달 이하여야 합니다. 이 한도를 벗어나 *-ExpirationTime*을 설정하는 경우 이 cmdlet은 토큰을 만들지 않습니다.
+>토큰의 만료 날짜는 1시간 이상 한 달 이하여야 합니다. 이 한도를 벗어나 *-ExpirationTime* 을 설정하는 경우 이 cmdlet은 토큰을 만들지 않습니다.
 
 ```powershell
 New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
@@ -92,9 +92,9 @@ Windows Virtual Desktop 에이전트를 설치하고 가상 머신을 Windows Vi
 성공적인 도메인 조인을 위해 각 가상 머신에서 다음을 수행합니다.
 
 1. 가상 머신을 만들 때 입력한 자격 증명으로 [가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine)합니다.
-2. 가상 머신에서 **제어판**을 시작하고 **시스템**을 선택합니다.
+2. 가상 머신에서 **제어판** 을 시작하고 **시스템** 을 선택합니다.
 3. **컴퓨터 이름**, **설정 변경**, **변경...** 을 차례로 선택합니다.
-4. **도메인**을 선택한 다음, 가상 네트워크에 Active Directory 도메인을 입력합니다.
+4. **도메인** 을 선택한 다음, 가상 네트워크에 Active Directory 도메인을 입력합니다.
 5. 도메인 조인 머신에 대한 권한이 있는 도메인 계정으로 인증합니다.
 
     >[!NOTE]
@@ -124,20 +124,20 @@ Windows Virtual Desktop 에이전트를 등록하려면 각 가상 머신에서 
 
 다음 상황 중 하나에 해당 하는 경우 에이전트를 업데이트 해야 합니다.
 
-- 이전에 등록 한 세션을 새 호스트 풀로 마이그레이션하려고 합니다.
+- 이전에 등록 한 세션 호스트를 새 호스트 풀로 마이그레이션하려고 합니다.
 - 업데이트 후에도 호스트 풀에 세션 호스트가 나타나지 않음
 
 에이전트를 업데이트 하려면:
 
 1. 관리자 권한으로 VM에 로그인 합니다.
-2. **서비스**로 이동한 다음 **Rdagent** 및 **원격 데스크톱 에이전트 로더** 프로세스를 중지 합니다.
+2. **서비스** 로 이동한 다음 **Rdagent** 및 **원격 데스크톱 에이전트 로더** 프로세스를 중지 합니다.
 3. 그런 다음 에이전트 및 부팅 로더 Msi을 찾습니다. 이 폴더는 **C:\deployagent** 폴더에 있거나 설치할 때 저장 한 위치에 있습니다.
 4. 다음 파일을 찾아 제거 합니다.
      
      - RDInfra-64-verx. x. x. x
      - RDInfra. 설치 관리자-x64
 
-   이러한 파일을 제거 하려면 각 파일 이름을 마우스 오른쪽 단추로 클릭 한 다음 **제거**를 선택 합니다.
+   이러한 파일을 제거 하려면 각 파일 이름을 마우스 오른쪽 단추로 클릭 한 다음 **제거** 를 선택 합니다.
 5. 필요에 따라 다음 레지스트리 설정을 제거할 수도 있습니다.
      
      - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 61bd23c74fd7960317dff17175b355b473cd6dc7
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 921c05b76640935a1bd9e65d556933c23093e5b2
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233834"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251440"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>가상 컴퓨터 인증 문제 해결
 
@@ -23,19 +23,6 @@ VM (가상 컴퓨터) 이미지를 Azure Marketplace에 게시 하는 경우 Azu
 > [!NOTE]
 > 이 문서 또는 향상 된 제안 사항에 대 한 질문이 있는 경우 [파트너 센터 지원](https://aka.ms/marketplacepublishersupport)에 문의 하세요.
 
-## <a name="approved-base-image"></a>승인 된 기본 이미지
-
-업데이트를 사용 하 여 이미지를 다시 게시 하는 요청을 제출 하면 파트 번호 확인 테스트 사례가 실패할 수 있습니다. 실패 하면 이미지가 승인 되지 않습니다.
-
-이 오류는 다른 게시자에 속하는 기본 이미지를 사용 하 여 이미지를 업데이트 한 경우에 발생 합니다. 이 경우 이미지를 게시할 수 없습니다.
-
-이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 문서를 참조하세요.
-
-- [Linux 이미지](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Windows 이미지](azure-vm-create-using-approved-base.md)
-
-> [!Note]
-> Azure Marketplace에서 가져오지 않은 Linux 기본 이미지를 사용 하는 경우 Azure에서 Azure Marketplace에 VM 게시를 계속 진행 하기 위해 VHD의 첫 2048 섹터 (각 섹터는 512 바이트)가 비어 있는지 확인 하세요.  
 
 ## <a name="vm-extension-failure"></a>VM 확장 오류
 
@@ -140,7 +127,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 될 Linux 테스트 사례를 보여 줍니다. 테스트 유효성 검사는 설명에 명시 되어 있습니다.
 
-|시나리오|테스트 사례|설명|
+|시나리오|테스트 사례|Description|
 |---|---|---|
 |1|Bash 기록|Bash 기록 파일은 VM 이미지를 만들기 전에 지워야 합니다.|
 |2|Linux 에이전트 버전|Azure Linux Agent 2.2.41 이상을 설치 해야 합니다.|
@@ -169,8 +156,8 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 되는 Windows 테스트 사례와 테스트 유효성 검사에 대 한 설명을 보여 줍니다.
 
-|시나리오 |테스트 사례|설명|
-|---|---|---|---|
+|시나리오 |테스트 사례|Description|
+|---|---|---|
 |1|OS 아키텍처|Azure는 64 비트 운영 체제만 지원 합니다.|
 |2|사용자 계정 종속성|응용 프로그램 실행은 관리자 계정에 종속 되지 않아야 합니다.|
 |3|장애 조치 클러스터|Windows Server 장애 조치 (failover) 클러스터링 기능은 아직 지원 되지 않습니다. 응용 프로그램은이 기능에 종속 되지 않아야 합니다.|
@@ -250,7 +237,7 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 |OS 제품군|버전|커널|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0| 
-||14.04 LTS|4.15.0-1049-*-azure|
+||14.04 LTS|4.15.0-1049- \* -azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
@@ -283,9 +270,9 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 |Oracle|6.10|UEK2 2.6.39-400.312.2<br>UNBREAKABLE 3.8.13-118.35.2<br>RHCK 2.6.32 커널을-754.15.3 
 ||7.0-7.5|UNBREAKABLE 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK는 위의 RHEL을 따릅니다.|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
-|CoreOS 안정 2079.6.0|4.19.43*|
-||베타 2135.3.1|4.19.50*|
-||알파 2163.2.1|4.19.50*|
+|CoreOS 안정 2079.6.0|4.19.43\*|
+||베타 2135.3.1|4.19.50\*|
+||알파 2163.2.1|4.19.50\*|
 |Debian|jessie (보안)|3.16.68-2|
 ||jessie backports|4.9.168 + deb9u3|
 ||스트레치 (보안)|4.9.168 + deb9u3|
@@ -328,14 +315,11 @@ SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드
 |6|HTTP 조건부 헤더|SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
 |7|잘못 된 VHD 이름|% 기호 또는 따옴표와 같은 특수 문자가 `%` `"` VHD 이름에 있는지 확인 하십시오.|특수 문자를 제거 하 여 VHD 파일의 이름을 바꿉니다.|
 
-## <a name="first-1mb-2048-sectors-each-sector-of-512-bytes-partition-linux-only"></a>처음 1MB (2048 섹터, 512 바이트의 각 섹터) 파티션 (Linux에만 해당)
+## <a name="first-1-mb-partition-2048-sectors-each-sector-of-512-bytes"></a>첫 1mb 파티션 (2048 섹터, 각 섹터 512 바이트)
 
-VHD를 제출할 때 VHD의 처음 2048 섹터 (1MB)가 비어 있는지 확인 합니다. 그렇지 않으면 요청이 실패 합니다. 이는 부팅/OS 디스크에 적용 되며 추가 데이터 디스크에는 적용 되지 않습니다.
+사용자 [고유의 이미지를 작성](azure-vm-create-using-own-image.md)하는 경우 OS 디스크의 첫 2048 섹터 (1mb)가 비어 있는지 확인 합니다. 그렇지 않으면 게시가 실패 합니다. 이 요구 사항은 OS 디스크 (데이터 디스크가 아님)에만 적용 됩니다. [승인 된 기준에서](azure-vm-create-using-approved-base.md)이미지를 작성 하는 경우이 요구 사항을 건너뛸 수 있습니다. 
 
->[!NOTE]
->Azure Marketplace에서 가져온 Azure Windows 기본 이미지를 기반으로 하는 특수 이미지와 같은 특정 이미지의 경우 VHD의 처음 1MB (2048 섹터)가 비어 있는지 확인 하세요. 
-
-### <a name="create-a-first-1mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>빈 VHD에 첫 번째 1MB (2048 섹터, 각 512 바이트의 섹터)를 만듭니다.
+### <a name="create-a-1-mb-partition-2048-sectors-each-sector-of-512-bytes-on-an-empty-vhd-linux-only-steps"></a>빈 VHD (Linux 전용 단계)에서 1mb 파티션 (2048 섹터, 512 바이트의 각 섹터)을 만듭니다.
 
 이러한 단계는 Linux에만 적용 됩니다.
 
@@ -400,7 +384,7 @@ VHD를 제출할 때 VHD의 처음 2048 섹터 (1MB)가 비어 있는지 확인 
 
 1. VM에서 VHD를 분리 하 고 VM을 삭제 합니다.
 
-### <a name="create-a-first-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>VHD에서 기존 데이터를 이동 하 여 첫 번째 MB 2048 (512 바이트의 각 섹터) 파티션을 만듭니다.
+### <a name="create-a-first-1-mb-partition-2048-sectors-each-sector-of-512-bytes-by-moving-existing-data-on-vhd"></a>VHD에서 기존 데이터를 이동 하 여 첫 1mb 파티션 (2048 섹터, 각 섹터 512 바이트) 만들기
 
 이러한 단계는 Linux에만 적용 됩니다.
 

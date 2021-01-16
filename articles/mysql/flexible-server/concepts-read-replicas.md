@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/14/2021
-ms.openlocfilehash: ccae7b3f201e55af0e9e6b4ca9e7fd4ffb9c4897
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fa7cc9b9a09bfd2bc503640272b5e7ac3a0a7b58
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200977"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251304"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL-유연한 서버에서 복제본 읽기
 
@@ -29,9 +29,7 @@ MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 �
 MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설명서](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)를 참조하세요.
 
 > [!NOTE]
-> 바이어스 없는 통신
->
-> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _마스터_ 및 _슬레이브_ 라는 단어에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는 이러한 내용을 exclusionary 단어로 인식 합니다. 이러한 단어는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 
 ## <a name="common-use-cases-for-read-replica"></a>복제본 읽기의 일반적인 사용 사례
@@ -75,7 +73,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin -p
 
 ## <a name="monitor-replication"></a>복제 모니터링
 
-Azure Database for MySQL 유연한 서버는 Azure Monitor에서 **복제 지연 시간 (초)** 을 제공 합니다. 이 메트릭은 복제본에만 사용할 수 있습니다. 이 메트릭은 `seconds_behind_master`MySQL에서 사용할 수 있는 메트릭`SHOW SLAVE STATUS` 명령을 사용하여 계산됩니다. 복제 지연 시간이 워크로드에 적합하지 않은 값에 도달하면 알리도록 경고를 설정합니다.
+Azure Database for MySQL 유연한 서버는 Azure Monitor에서 **복제 지연 시간 (초)** 을 제공 합니다. 이 메트릭은 복제본에만 사용할 수 있습니다. 이 메트릭은 `seconds_behind_master`MySQL에서 사용할 수 있는 메트릭`SHOW SLAVE STATUS` 명령을 사용하여 계산됩니다. 복제 지연 시간이 작업에 적합 하지 않은 값에 도달 하는 경우 사용자에 게 알리는 경고를 설정 합니다.
 
 복제 지연 [시간이 늘어나면 복제 대기 시간 문제 해결](./../howto-troubleshoot-replication-latency.md) 을 참조 하 여 문제를 해결 하 고 가능한 원인을 파악 하십시오.
 
@@ -116,8 +114,8 @@ Azure Database for MySQL 유연한 서버는 Azure Monitor에서 **복제 지연
 
 | 시나리오 | 제한 사항/고려 사항 |
 |:-|:-|
-| 영역 중복 HA를 사용 하도록 설정 된 서버의 복제본 | 지원되지 않음 |
-| 영역 간 읽기 복제 | 지원되지 않음 |
+| 영역 중복 HA를 사용 하도록 설정 된 서버의 복제본 | 지원 안 함 |
+| 영역 간 읽기 복제 | 지원 안 함 |
 | 가격 책정 | 복제 서버를 실행 하는 비용은 복제본 서버가 실행 되는 지역을 기반으로 합니다. |
 | 원본 서버 다시 시작 | 기존 복제본이 없는 원본에 대 한 복제본을 만드는 경우 원본 복제본이 먼저 다시 시작 되어 복제를 위한 준비가 됩니다. 이를 고려 하 여 사용량이 많지 않은 기간 동안 이러한 작업을 수행 합니다. |
 | 새 복제본 | 읽기 복제본은 새 Azure Database for MySQL 유연한 서버로 생성 됩니다. 기존 서버를 복제본으로 만들 수 없습니다. 다른 읽기 복제본의 복제본을 만들 수 없습니다. |

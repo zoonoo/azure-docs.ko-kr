@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a5921026c8f260683f091870850350fcc4619f6b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 713f99f67706caded0694d88ece220373920e555
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538617"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250522"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "94538617"
 
 PowerShell을 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

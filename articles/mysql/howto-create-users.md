@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: de4e7959a5778c7275427450ead876338f052882
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9a6346a2b62c81dd74cf0ebe9a85df12d3488679
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196778"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251253"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 데이터베이스 및 사용자 만들기
 
@@ -20,9 +20,7 @@ ms.locfileid: "98196778"
 이 문서에서는 Azure Database for MySQL에서 사용자를 만드는 방법을 설명 합니다.
 
 > [!NOTE]
-> 바이어스 없는 통신
->
-> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _마스터_ 및 _슬레이브_ 라는 단어에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는 이러한 내용을 exclusionary 단어로 인식 합니다. 이러한 단어는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 
 Azure Database for MySQL 서버를 처음 만들 때 서버 관리자 사용자 이름과 암호를 제공 했습니다. 자세한 내용은이 [빠른](quickstart-create-mysql-server-database-using-azure-portal.md)시작을 참조 하세요. Azure Portal에서 서버 관리자 사용자 이름을 확인할 수 있습니다.

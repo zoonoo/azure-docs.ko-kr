@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0bb0a7833e9ee3b499ae013b665ecf137c667005
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968590"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250998"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Azure Portal를 사용 하 여 SAP 솔루션에 대 한 Azure Monitor 배포
 
@@ -59,7 +59,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 6. 사용 하려는 데이터베이스 사용자 이름을 입력 합니다. 데이터베이스 사용자에 게 **모니터링** 및 **카탈로그 읽기** 역할이 할당 되어 있는지 확인 하십시오. 
 
-7. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
+7. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 계속 해 서 공급자를 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="공급자 정보를 추가할 때의 구성 옵션 이미지입니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
@@ -74,9 +74,21 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
  
 3. 시스템 ID (SID), 호스트 이름 및 클러스터 이름을 입력 합니다.
 
-4. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
+4. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 계속 해 서 공급자를 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="이미지 HA 클러스터 Pacemaker 공급자와 관련 된 옵션을 표시 합니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+
+
+### <a name="os-linux-provider"></a>OS (Linux) 공급자 
+
+1. 드롭다운에서 OS (Linux)를 선택 합니다. 
+
+> [!IMPORTANT]
+> OS (Linux) 공급자를 구성 하려면 Node_Exporter 각 BareMetal 인스턴스에 설치 되어 있는지 확인 합니다. 자세한 내용은 [Node_Exporter](https://github.com/prometheus/node_exporter) 를 참조 하세요.
+
+2. BareMetal 인스턴스에 대 한 식별자가 될 이름을 입력 합니다.
+3. 형식으로 노드 내보내기 끝점을 입력 합니다 http://IP:9100/metrics .
+4. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 계속 해 서 공급자를 추가 하거나 **검토 + 만들기** 를 선택 하 여   배포를 완료 합니다. 
 
 
 ### <a name="microsoft-sql-server-provider"></a>Microsoft SQL Server 공급자
@@ -112,7 +124,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 3. Microsoft SQL Server 관련 된 정보를 사용 하 여 필드를 채웁니다. 
 
-4. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
+4. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 계속 해 서 공급자를 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="이미지 Microsoft SQL Server 공급자를 추가 하는 것과 관련 된 정보를 표시 합니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 

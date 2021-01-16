@@ -6,21 +6,19 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: f7103a83d115f30367cc07ff4e1ea64a9cc617b9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 22974a47a6b1e9d49e5055a85f46286497cfe149
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199549"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250535"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
 이 문서에서는 원본 및 복제 서버를 구성 하 여 Azure Database for MySQL에서 [입력 데이터 복제](concepts-data-in-replication.md) 를 설정 하는 방법을 설명 합니다. 이 문서에서는 사용자에 게 MySQL 서버 및 데이터베이스를 사용 하는 이전 경험이 있다고 가정 합니다.
 
 > [!NOTE]
-> 바이어스 없는 통신
->
-> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _마스터_ 및 _슬레이브_ 라는 단어에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는 이러한 내용을 exclusionary 단어로 인식 합니다. 이러한 단어는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 
 Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 데이터 복제](concepts-data-in-replication.md)  원본 MySQL 서버 온-프레미스, vm (가상 머신) 또는 클라우드 데이터베이스 서비스에서 데이터를 동기화 합니다. 내부 데이터 복제는 MySQL에 네이티브인 이진 로그(binlog) 파일 위치 기반 복제를 기반으로 합니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.

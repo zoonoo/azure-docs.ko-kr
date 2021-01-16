@@ -6,22 +6,20 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: 62aadb366fd216cb6dcefff6cdde24dc21b8483a
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 77975ae16ba6b66c55db5ef5927bfc49f9cecdc5
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231913"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251525"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 사용자 만들기
 
 이 문서에서는 Azure Database for MariaDB 서버에서 사용자를 만드는 방법을 설명합니다.
 
 > [!NOTE]
-> 바이어스 없는 통신
->
-> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _마스터_ 및 _슬레이브_ 라는 단어에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는 이러한 내용을 exclusionary 단어로 인식 합니다. 이러한 단어는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
->
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+
 
 Azure Database for MariaDB를 처음으로 만든 경우 서버 관리자 로그인 사용자 이름과 암호를 제공했습니다. 자세한 내용은 [빠른 시작](quickstart-create-mariadb-server-database-using-azure-portal.md)을 참조하세요. Azure Portal에서 서버 관리자 로그인 사용자 이름을 찾을 수 있습니다.
 

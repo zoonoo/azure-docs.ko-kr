@@ -1,71 +1,173 @@
 ---
 title: Azure Service Fabric 주 노드 유형 강화
-description: 노드 유형을 추가 하 여 Service Fabric 클러스터의 크기를 조정 하는 방법을 알아봅니다.
-ms.topic: article
-ms.date: 08/06/2020
+description: 새 노드 유형을 추가 하 고 이전 노드 유형을 제거 하 여 Service Fabric 클러스터를 수직으로 확장 합니다.
+ms.date: 12/11/2020
 ms.author: pepogors
-ms.openlocfilehash: a18a40cc9e467b089ea9d6be3d0ca81a21d2c474
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: how-to
+ms.openlocfilehash: 325ece761481077171a670c52e9d98071237601a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89228718"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251184"
 ---
-# <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-node-type"></a>노드 유형을 추가 하 여 Service Fabric 클러스터 주 노드 유형 강화
-이 문서에서는 클러스터에 노드 유형을 추가 하 여 Service Fabric 클러스터 주 노드 유형을 확장 하는 방법을 설명 합니다. Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 가상 머신 확장 집합은 가상 머신의 모음을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 컴퓨팅 리소스입니다. Azure 클러스터에 정의된 모든 노드 유형은 [별도의 확장 집합으로 설정](service-fabric-cluster-nodetypes.md)됩니다. 각 노드 형식을 별도로 관리할 수 있습니다.
+# <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Service Fabric 클러스터 주 노드 형식 강화
 
-다음 자습서의 샘플 템플릿은 [Service Fabric 주 노드 형식 크기 조정 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Primary-NodeType-Scaling-Sample) 에서 찾을 수 있습니다.
+이 문서에서는 가동 중지 시간을 최소화 하면서 Service Fabric 클러스터 주 노드 유형을 확장 하는 방법을 설명 합니다. Service Fabric 클러스터 노드 유형을 업그레이드 하는 일반적인 전략은 다음과 같습니다.
+
+1. 업그레이드 (또는 수정 된) 가상 머신 확장 집합 SKU 및 구성에 의해 지원 되는 Service Fabric 클러스터에 새 노드 유형을 추가 합니다. 또한이 단계는 확장 집합에 대 한 새 부하 분산 장치, 서브넷 및 공용 IP를 설정 하는 작업을 포함 합니다.
+
+1. 원본 및 업그레이드 된 확장 집합을 모두 나란히 실행 하는 경우에는 원래 노드 인스턴스를 한 번에 하나씩 사용 하지 않도록 설정 하 여 시스템 서비스 (또는 상태 저장 서비스의 복제본)를 새 확장 집합으로 마이그레이션합니다.
+
+1. 클러스터 및 새 노드가 정상 인지 확인 하 고 삭제 된 노드에 대 한 원래 확장 집합 (및 관련 리소스) 및 노드 상태를 제거 합니다.
+
+다음은 5 개의 노드가 포함 된 단일 확장 집합에 의해 지원 되는 [실버 내구성이](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)있는 샘플 클러스터의 주 노드 형식 VM의 vm 크기 및 운영 체제를 업데이트 하는 프로세스를 안내 합니다. 주 노드 유형을 업그레이드할 예정입니다.
+
+- VM 크기에서 *표준 D4_V2* 로 *Standard_D2_V2*
+- 컨테이너를 사용 하는 VM 운영 체제 *Windows server 2016 datacenter* 에서 컨테이너를 *사용 하는 Windows server 2019 datacenter* 로.
 
 > [!WARNING]
-> 클러스터 상태가 비정상 인 경우 주 노드 유형 확장 프로시저를 시도 하지 마십시오. 이렇게 하면 클러스터를 추가로 불안정 하 게 됩니다.
+> 프로덕션 클러스터에서 이 절차를 시도하기 전에 먼저 샘플 템플릿을 알아보고 테스트 클러스터에 대한 프로세스를 확인하는 것이 좋습니다. 클러스터를 짧은 시간 동안 사용할 수 없는 경우도 있습니다.
 >
+> 클러스터 상태가 비정상 인 경우 주 노드 유형 확장 프로시저를 시도 하지 마십시오. 이렇게 하면 클러스터를 추가로 불안정 하 게 됩니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+다음은이 샘플 업그레이드 시나리오를 완료 하는 데 사용할 수 있는 단계별 Azure 배포 템플릿입니다. https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade
 
-## <a name="process-to-upgrade-the-size-and-operating-system-of-the-primary-node-type"></a>주 노드 형식의 크기 및 운영 체제를 업그레이드 하는 프로세스
-다음은 VM 크기 및 주 노드 유형 Vm의 운영 체제를 업데이트 하는 프로세스입니다.  업그레이드 후 주 노드 유형 Vm은 크기 표준 D4_V2 하 고 컨테이너를 포함 하는 Windows Server 2019 Datacenter를 실행 합니다.
+## <a name="set-up-the-test-cluster"></a>테스트 클러스터 설정
 
-> [!WARNING]
-> 프로덕션 클러스터에서 이 절차를 시도하기 전에 먼저 샘플 템플릿을 알아보고 테스트 클러스터에 대한 프로세스를 확인하는 것이 좋습니다. 클러스터를 짧은 시간 동안 사용할 수 없는 경우도 있습니다. 
+초기 Service Fabric 테스트 클러스터를 설정 해 보겠습니다. 먼저이 시나리오를 완료 하는 데 사용할 Azure Resource Manager 샘플 템플릿을 [다운로드](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) 합니다.
 
-### <a name="deploy-the-initial-service-fabric-cluster"></a>초기 Service Fabric 클러스터 배포 
-샘플과 함께 수행 하려면 단일 주 노드 유형 및 단일 확장 집합 [Service Fabric 초기](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-1.json)클러스터로 초기 클러스터를 배포 합니다. 기존 Service Fabric 클러스터가 이미 배포 되어 있는 경우이 단계를 건너뛸 수 있습니다. 
+다음으로, Azure 계정에 로그인합니다.
 
-1. Azure 계정에 로그인 
 ```powershell
-# sign in to your Azure account and select your subscription
-Login-AzAccount -SubscriptionId "<your subscription ID>"
+# Sign in to your Azure account
+Login-AzAccount -SubscriptionId "<subscription ID>"
 ```
-2. 새 리소스 그룹 만들기 
-```powershell
-# create a resource group for your cluster deployment
-$resourceGroupName = "myResourceGroup"
-$location = "WestUS"
 
-New-AzResourceGroup `
-    -Name $resourceGroupName `
-    -Location $location
+그런 다음 파일 [*에서parameters.js*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade/parameters.json) 를 열고의 값 `clusterName` 을 Azure 내에서 고유한 값으로 업데이트 합니다.
+
+다음 명령은 자체 서명 된 새 인증서를 생성 하 고 테스트 클러스터를 배포 하는 과정을 안내 합니다. 사용 하려는 인증서가 이미 있는 경우 [기존 인증서를 사용](#use-an-existing-certificate-to-deploy-the-cluster)하 여 클러스터를 배포 하는 것으로 건너뜁니다.
+
+### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>자체 서명된 인증서 생성 및 클러스터 배포
+
+먼저 Service Fabric 클러스터 배포에 필요한 변수를 할당합니다. 특정 계정 및 환경에 대한 `resourceGroupName`, `certSubjectName`, `parameterFilePath` 및 `templateFilePath`의 값을 조정합니다.
+
+```powershell
+# Assign deployment variables
+$resourceGroupName = "sftestupgradegroup"
+$certOutputFolder = "c:\certificates"
+$certPassword = "Password!1" | ConvertTo-SecureString -AsPlainText -Force
+$certSubjectName = "sftestupgrade.southcentralus.cloudapp.azure.com"
+$parameterFilePath = "C:\parameters.json"
+$templateFilePath = "C:\Initial-TestClusterSetup.json"
 ```
-3. 템플릿 파일의 매개 변수 값을 입력 합니다. 
-4. 2 단계에서 만든 리소스 그룹에 클러스터를 배포 합니다. 
-```powershell
-# deploy the template files to the resource group created above
-$templateFilePath = "C:\AzureDeploy-1.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
 
+> [!NOTE]
+> `certOutputFolder`새 Service Fabric 클러스터를 배포 하는 명령을 실행 하기 전에 로컬 컴퓨터에 위치가 있는지 확인 합니다.
+
+그런 다음, Service Fabric 테스트 클러스트를 배포합니다.
+
+```powershell
+# Deploy the initial test cluster
+New-AzServiceFabricCluster `
+    -ResourceGroupName $resourceGroupName `
+    -CertificateOutputFolder $certOutputFolder `
+    -CertificatePassword $certPassword `
+    -CertificateSubjectName $certSubjectName `
+    -TemplateFile $templateFilePath `
+    -ParameterFile $parameterFilePath
+```
+
+배포가 완료되면 로컬 머신에서 *.pfx* 파일(`$certPfx`)을 찾아서 인증서 저장소로 가져옵니다.
+
+```powershell
+cd c:\certificates
+$certPfx = ".\sftestupgradegroup20200312121003.pfx"
+
+Import-PfxCertificate `
+     -FilePath $certPfx `
+     -CertStoreLocation Cert:\CurrentUser\My `
+     -Password (ConvertTo-SecureString Password!1 -AsPlainText -Force)
+```
+
+작업은 이제 [새 클러스터에 연결](#connect-to-the-new-cluster-and-check-health-status) 하 고 상태를 확인 하는 데 사용할 수 있는 인증서 지문을 반환 합니다. 클러스터 배포에 대 한 대체 방법인 다음 섹션을 건너뜁니다.
+
+### <a name="use-an-existing-certificate-to-deploy-the-cluster"></a>기존 인증서를 사용 하 여 클러스터 배포
+
+또는 기존 Azure Key Vault 인증서를 사용 하 여 테스트 클러스터를 배포할 수 있습니다. 이렇게 하려면 Key Vault 및 인증서 지문에 대 한 [참조를 가져와야](#obtain-your-key-vault-references) 합니다.
+
+```powershell
+# Key Vault variables
+$certUrlValue = "https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
+$sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
+$thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
+```
+
+다음으로 클러스터에 대 한 리소스 그룹 이름을 지정 하 고 및 위치를 설정 합니다 `templateFilePath` `parameterFilePath` .
+
+> [!NOTE]
+> 지정 된 리소스 그룹이 이미 존재 하 고 Key Vault와 동일한 지역에 있어야 합니다.
+
+```powershell
+$resourceGroupName = "sftestupgradegroup"
+$templateFilePath = "C:\Initial-TestClusterSetup.json"
+$parameterFilePath = "C:\parameters.json"
+```
+
+마지막으로 다음 명령을 실행 하 여 초기 테스트 클러스터를 배포 합니다.
+
+```powershell
+# Deploy the initial test cluster
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath
+    -TemplateParameterFile $parameterFilePath `
+    -CertificateThumbprint $thumb `
+    -CertificateUrlValue $certUrlValue `
+    -SourceVaultValue $sourceVaultValue `
+    -Verbose
 ```
 
-### <a name="add-a-new-primary-node-type-to-the-cluster"></a>클러스터에 새 주 노드 형식 추가
+### <a name="connect-to-the-new-cluster-and-check-health-status"></a>새 클러스터에 연결하고 성능 상태 확인
+
+클러스터에 연결 하 고 5 개의 노드가 정상 상태 인지 확인 합니다 ( `clusterName` 및 `thumb` 변수를 고유한 값으로 대체).
+
+```powershell
+# Connect to the cluster
+$clusterName = "sftestupgrade.southcentralus.cloudapp.azure.com:19000"
+$thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
+
+Connect-ServiceFabricCluster `
+    -ConnectionEndpoint $clusterName `
+    -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCertThumbprint $thumb  `
+    -FindType FindByThumbprint `
+    -FindValue $thumb `
+    -StoreLocation CurrentUser `
+    -StoreName My
+
+# Check cluster health
+Get-ServiceFabricClusterHealth
+```
+
+그러면 업그레이드 절차를 시작할 준비가 된 것입니다.
+
+## <a name="deploy-a-new-primary-node-type-with-upgraded-scale-set"></a>업그레이드 된 확장 집합을 사용 하 여 새 주 노드 유형 배포
+
+노드 유형을 업그레이드 (수직 확장) 하기 위해 먼저 새 확장 집합 및 지원 리소스에 의해 지원 되는 새 노드 유형을 배포 해야 합니다. 새 확장 집합은 원래 확장 집합과 마찬가지로 기본 ()으로 표시 됩니다 `isPrimary: true` (주 노드 형식이 아닌 업그레이드를 수행 하지 않는 경우). 다음 섹션에서 만든 리소스는 궁극적으로 클러스터의 새 주 노드 유형이 되며 원래 주 노드 유형 리소스가 삭제 됩니다.
+
+### <a name="update-the-cluster-template-with-the-upgraded-scale-set"></a>업그레이드 된 확장 집합으로 클러스터 템플릿 업데이트
+
+새 주 노드 유형 및 지원 리소스를 추가 하기 위한 원본 클러스터 배포 템플릿의 섹션 별 수정 사항은 다음과 같습니다.
+
+이 단계에 필요한 변경 내용은 템플릿 파일 [*의Step1-AddPrimaryNodeType.js*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade/Step1-AddPrimaryNodeType.json) 에 이미 적용 되었으며, 다음은 이러한 변경 내용을 자세히 설명 합니다. 원하는 경우 설명을 건너뛰고 계속 해 서 [Key Vault 참조를 가져오고](#obtain-your-key-vault-references) 새 주 노드 형식을 클러스터에 추가 하는 [업데이트 된 템플릿을 배포할](#deploy-the-updated-template) 수 있습니다.
+
 > [!Note]
-> 다음 단계에서 만든 리소스는 크기 조정 작업이 완료 되 면 클러스터의 새 주 노드 유형이 됩니다. 초기 서브넷, 공용 IP, Load Balancer, 가상 컴퓨터 확장 집합 및 노드 형식에서 고유한 이름을 사용 해야 합니다. 
+> 원래 주 노드 형식의 원래 노드 유형, 확장 집합, 부하 분산 장치, 공용 IP 및 서브넷에서 고유한 이름을 사용 해야 합니다. 이러한 리소스는 프로세스의 이후 단계에서 삭제 됩니다.
 
-[Service Fabric-새 노드 형식 클러스터](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-2.json)에서 완료 한 다음 단계를 모두 사용 하 여 템플릿을 찾을 수 있습니다. 다음 단계에는 새 리소스의 변경 내용을 강조 표시 하는 부분 리소스 조각이 포함 되어 있습니다.  
+#### <a name="create-a-new-subnet-in-the-existing-virtual-network"></a>기존 가상 네트워크에서 새 서브넷 만들기
 
-1. 기존 Virtual Network에 새 서브넷을 만듭니다.
 ```json
 {
     "name": "[variables('subnet1Name')]",
@@ -74,7 +176,9 @@ New-AzResourceGroupDeployment `
     }
 }
 ```
-2. 고유한 domainNameLabel를 사용 하 여 새 공용 IP 리소스를 만듭니다. 
+
+#### <a name="create-a-new-public-ip-with-a-unique-domainnamelabel"></a>고유한 domainNameLabel를 사용 하 여 새 공용 IP 만들기
+
 ```json
 {
     "apiVersion": "[variables('publicIPApiVersion')]",
@@ -83,7 +187,7 @@ New-AzResourceGroupDeployment `
     "location": "[variables('computeLocation')]",
     "properties": {
     "dnsSettings": {
-        "domainNameLabel": "[concat(variables('dnsName'),'-','nt2')]"
+        "domainNameLabel": "[concat(variables('dnsName'),'-','nt1')]"
     },
     "publicIPAllocationMethod": "Dynamic"
     },
@@ -93,20 +197,25 @@ New-AzResourceGroupDeployment `
     }
 }
 ```
-3. 위에서 만든 공용 IP에 따라 새 Load Balancer 리소스를 만듭니다. 
+
+#### <a name="create-a-new-load-balancer-for-the-public-ip"></a>공용 IP에 대 한 새 부하 분산 장치 만들기
+
 ```json
 "dependsOn": [
     "[concat('Microsoft.Network/publicIPAddresses/',concat(variables('lbIPName'),'-',variables('vmNodeType1Name')))]"
 ]
 ```
-4. 확장할 새 VM SKU 및 OS SKU를 사용 하는 새 가상 머신 확장 집합을 만듭니다. 
 
-노드 유형 참조 
+#### <a name="create-a-new-virtual-machine-scale-set-with-upgraded-vm-and-os-skus"></a>새 가상 머신 확장 집합 만들기 (업그레이드 된 VM 및 OS Sku 사용)
+
+노드 유형 참조
+
 ```json
 "nodeTypeRef": "[variables('vmNodeType1Name')]"
 ```
 
 VM SKU
+
 ```json
 "sku": {
     "name": "[parameters('vmNodeType1Size')]",
@@ -115,7 +224,8 @@ VM SKU
 }
 ```
 
-OS SKU 
+OS SKU
+
 ```json
 "imageReference": {
     "publisher": "[parameters('vmImagePublisher1')]",
@@ -125,134 +235,12 @@ OS SKU
 }
 ```
 
-다음 코드 조각은 Service Fabric 클러스터에 대해 새 노드 유형을 만드는 데 사용 되는 새 가상 머신 확장 집합 리소스의 예입니다. 워크 로드에 필요한 추가 확장을 포함 해야 합니다. 
+또한 워크 로드에 필요한 추가 확장을 포함 해야 합니다.
 
-```json
-    {
-      "apiVersion": "[variables('vmssApiVersion')]",
-      "type": "Microsoft.Compute/virtualMachineScaleSets",
-      "name": "[variables('vmNodeType1Name')]",
-      "location": "[variables('computeLocation')]",
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
-        "[concat('Microsoft.Network/loadBalancers/', concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType1Name')))]",
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]",
-        "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
-      ],
-      "properties": {
-        "overprovision": "[variables('overProvision')]",
-        "upgradePolicy": {
-          "mode": "Automatic"
-        },
-        "virtualMachineProfile": {
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "[concat('ServiceFabricNodeVmExt_',variables('vmNodeType1Name'))]",
-                "properties": {
-                  "type": "ServiceFabricNode",
-                  "autoUpgradeMinorVersion": true,
-                  "protectedSettings": {
-                    "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
-                    "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
-                  },
-                  "publisher": "Microsoft.Azure.ServiceFabric",
-                  "settings": {
-                    "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                    "nodeTypeRef": "[variables('vmNodeType1Name')]",
-                    "dataPath": "D:\\SvcFab",
-                    "durabilityLevel": "Bronze",
-                    "enableParallelJobs": true,
-                    "nicPrefixOverride": "[variables('subnet1Prefix')]",
-                    "certificate": {
-                      "thumbprint": "[parameters('certificateThumbprint')]",
-                      "x509StoreName": "[parameters('certificateStoreValue')]"
-                    }
-                  },
-                  "typeHandlerVersion": "1.0"
-                }
-              }
-            ]
-          },
-          "networkProfile": {
-            "networkInterfaceConfigurations": [
-              {
-                "name": "[concat(variables('nicName'), '-1')]",
-                "properties": {
-                  "ipConfigurations": [
-                    {
-                      "name": "[concat(variables('nicName'),'-',1)]",
-                      "properties": {
-                        "loadBalancerBackendAddressPools": [
-                          {
-                            "id": "[variables('lbPoolID1')]"
-                          }
-                        ],
-                        "loadBalancerInboundNatPools": [
-                          {
-                            "id": "[variables('lbNatPoolID1')]"
-                          }
-                        ],
-                        "subnet": {
-                          "id": "[variables('subnet1Ref')]"
-                        }
-                      }
-                    }
-                  ],
-                  "primary": true
-                }
-              }
-            ]
-          },
-          "osProfile": {
-            "adminPassword": "[parameters('adminPassword')]",
-            "adminUsername": "[parameters('adminUsername')]",
-            "computernamePrefix": "[variables('vmNodeType1Name')]",
-            "secrets": [
-              {
-                "sourceVault": {
-                  "id": "[parameters('sourceVaultValue')]"
-                },
-                "vaultCertificates": [
-                  {
-                    "certificateStore": "[parameters('certificateStoreValue')]",
-                    "certificateUrl": "[parameters('certificateUrlValue')]"
-                  }
-                ]
-              }
-            ]
-          },
-          "storageProfile": {
-            "imageReference": {
-              "publisher": "[parameters('vmImagePublisher1')]",
-              "offer": "[parameters('vmImageOffer1')]",
-              "sku": "[parameters('vmImageSku1')]",
-              "version": "[parameters('vmImageVersion1')]"
-            },
-            "osDisk": {
-              "caching": "ReadOnly",
-              "createOption": "FromImage",
-              "managedDisk": {
-                "storageAccountType": "[parameters('storageAccountType')]"
-              }
-            }
-          }
-        }
-      },
-      "sku": {
-        "name": "[parameters('vmNodeType1Size')]",
-        "capacity": "[parameters('nt1InstanceCount')]",
-        "tier": "Standard"
-      },
-      "tags": {
-        "resourceType": "Service Fabric",
-        "clusterName": "[parameters('clusterName')]"
-      }
-    },
+#### <a name="add-a-new-primary-node-type-to-the-cluster"></a>클러스터에 새 주 노드 형식 추가
 
-```
+이제 새 노드 형식 (vmNodeType1Name)에 고유한 이름, 서브넷, IP, 부하 분산 장치 및 확장 집합이 있으므로 원래 노드 형식 (예:, 및)의 다른 모든 변수를 재사용할 수 있습니다 `nt0applicationEndPort` `nt0applicationStartPort` `nt0fabricTcpGatewayPort` .
 
-5. 클러스터에 새 노드 유형을 추가 하 여 위에서 만든 가상 머신 확장 집합을 참조 합니다. 이 노드 형식의 **isPrimary** 속성은 true로 설정 해야 합니다. 
 ```json
 "name": "[variables('vmNodeType1Name')]",
 "applicationPorts": {
@@ -270,72 +258,97 @@ OS SKU
 "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
 "vmInstanceCount": "[parameters('nt1InstanceCount')]"
 ```
-6. 업데이트 된 ARM 템플릿을 배포 합니다. 
+
+템플릿 및 매개 변수 파일의 모든 변경 내용을 구현한 후 다음 섹션으로 이동 하 여 Key Vault 참조를 가져오고 클러스터에 업데이트를 배포 합니다.
+
+### <a name="obtain-your-key-vault-references"></a>Key Vault 참조 가져오기
+
+업데이트 된 구성을 배포 하려면 Key Vault에 저장 된 클러스터 인증서에 대 한 몇 가지 참조가 필요 합니다. 이러한 값을 찾는 가장 쉬운 방법은 Azure Portal을 통하는 것입니다. 다음 도구가 필요합니다.
+
+* **클러스터 인증서의 Key Vault URL입니다.** Azure Portal의 Key Vault에서   >  *원하는 인증서*  >  **비밀 식별자** 를 선택 합니다.
+
+    ```powershell
+    $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
+    ```
+
+* **클러스터 인증서의 지문입니다.** [초기 클러스터에 연결](#connect-to-the-new-cluster-and-check-health-status) 하 여 상태를 확인할 수 있습니다. Azure Portal의 동일한 인증서 블레이드 (  >  *원하는 인증서* 의 인증서)에서 **x.509 sha-1 지문 (16 진수)** 을 복사 합니다.
+
+    ```powershell
+    $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
+    ```
+
+* **Key Vault의 리소스 ID입니다.** Azure Portal의 Key Vault에서 **속성**  >  **리소스 ID** 를 선택 합니다.
+
+    ```powershell
+    $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
+    ```
+
+### <a name="deploy-the-updated-template"></a>업데이트된 템플릿 배포
+
+필요에 따라를 조정 `templateFilePath` 하 고 다음 명령을 실행 합니다.
+
 ```powershell
-# deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-2.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
+# Deploy the new node type and its resources
+$templateFilePath = "C:\Step1-AddPrimaryNodeType.json"
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $templateFilePath `
     -TemplateParameterFile $parameterFilePath `
+    -CertificateThumbprint $thumb `
+    -CertificateUrlValue $certUrlValue `
+    -SourceVaultValue $sourceVaultValue `
+    -Verbose
 ```
 
-배포가 완료 되 면 이제 Service Fabric 클러스터에 두 개의 노드 유형이 있습니다. 
+배포가 완료 되 면 클러스터 상태를 다시 확인 하 고 두 노드 유형의 모든 노드가 정상 상태 인지 확인 합니다.
 
-### <a name="remove-the-existing-node-type"></a>기존 노드 형식 제거 
-리소스 배포가 완료 되 면 원래 주 노드 유형의 노드를 사용 하지 않도록 설정할 수 있습니다. 노드가 사용 하지 않도록 설정 되 면 시스템 서비스는 위 단계에서 배포 된 새 주 노드 유형으로 마이그레이션됩니다.
+```powershell
+Get-ServiceFabricClusterHealth
+```
 
-1. Service Fabric 클러스터 리소스의 주 노드 유형 속성을 false로 설정 합니다. 
+## <a name="migrate-seed-nodes-to-the-new-node-type"></a>새 노드 형식으로 시드 노드 마이그레이션
+
+이제 원래 노드 형식을 비기본로 업데이트 하 고 노드 비활성화를 시작할 준비가 되었습니다. 노드가 사용 하지 않도록 설정 되 면 클러스터의 시스템 서비스 및 시드 노드가 새 확장 집합으로 마이그레이션됩니다.
+
+### <a name="unmark-the-original-node-type-as-primary"></a>원래 노드 유형을 기본으로 표시 해제
+
+먼저 `isPrimary` 원래 노드 형식에서 템플릿의 지정을 제거 합니다.
+
 ```json
 {
-    "name": "[variables('vmNodeType0Name')]",
-    "applicationPorts": {
-        "endPort": "[variables('nt0applicationEndPort')]",
-        "startPort": "[variables('nt0applicationStartPort')]"
-    },
-    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
-    "durabilityLevel": "Bronze",
-    "ephemeralPorts": {
-        "endPort": "[variables('nt0ephemeralEndPort')]",
-        "startPort": "[variables('nt0ephemeralStartPort')]"
-    },
-    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
     "isPrimary": false,
-    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
-    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
 }
 ```
-2. 원래 노드 형식에 업데이트 된 isPrimary 속성을 사용 하 여 템플릿을 배포 합니다. 원본 노드 형식에 대 한 기본 플래그가 false로 설정 된 템플릿을 찾을 수 있습니다. [Service Fabric-주 노드 형식 false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
+
+그런 다음 업데이트를 사용 하 여 템플릿을 배포 합니다. 이렇게 하면 시드 노드를 새 확장 집합으로 마이그레이션하기 시작 합니다.
 
 ```powershell
-# deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-3.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
+$templateFilePath = "C:\Step2-UnmarkOriginalPrimaryNodeType.json"
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $templateFilePath `
     -TemplateParameterFile $parameterFilePath `
+    -CertificateThumbprint $thumb `
+    -CertificateUrlValue $certUrlValue `
+    -SourceVaultValue $sourceVaultValue `
+    -Verbose
 ```
 
-3. 노드 유형 0에서 노드를 사용 하지 않도록 설정 합니다. 
+> [!Note]
+> 새 확장 집합으로 시드 노드 마이그레이션을 완료 하는 데 다소 시간이 걸립니다. 데이터 일관성을 보장하기 위해 한 번에 하나의 시드 노드만 변경할 수 있습니다. 각 시드 노드 변경에는 클러스터 업데이트가 필요합니다. 따라서 시드 노드를 교체하려면 두 개의 클러스터 업그레이드가 필요합니다 (노드 추가 및 제거 시 각각 하나씩). 이 샘플 시나리오에서 5개의 시드 노드를 업그레이드하면 10개의 클러스터 업그레이드가 발생합니다.
+
+Service Fabric Explorer를 사용 하 여 seed 노드의 마이그레이션을 새 확장 집합으로 모니터링할 수 있습니다. 원본 노드 유형 (nt0vm)의 노드는 **Is 초기값 노드** 열에서 모두 *false* 가 되 고 새 노드 유형 (nt1vm)의 노드는 *true* 가 됩니다.
+
+### <a name="disable-the-nodes-in-the-original-node-type-scale-set"></a>원래 노드 형식 확장 집합에서 노드를 사용 하지 않도록 설정
+
+모든 초기값 노드가 새 확장 집합으로 마이그레이션되면 원래 확장 집합의 노드를 사용 하지 않도록 설정할 수 있습니다.
+
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterConnectionEndpoint `
-    -KeepAliveIntervalInSec 10 `
-    -X509Credential `
-    -ServerCertThumbprint $thumb  `
-    -FindType FindByThumbprint `
-    -FindValue $thumb `
-    -StoreLocation CurrentUser `
-    -StoreName My 
-
-Write-Host "Connected to cluster"
-
-
-$nodeType = "nt1vm" # specify the name of node type
-$nodes = Get-ServiceFabricNode 
+# Disable the nodes in the original scale set.
+$nodeType = "nt0vm"
+$nodes = Get-ServiceFabricNode
 
 Write-Host "Disabling nodes..."
 foreach($node in $nodes)
@@ -348,14 +361,23 @@ foreach($node in $nodes)
   }
 }
 ```
-* 청동 내구성의 경우 모든 노드가 비활성 상태가 될 때까지 기다립니다.
-* 실버 및 골드 내구성의 경우 일부 노드가 사용 하지 않도록 설정 되 고 나머지는 비활성화 상태로 전환 됩니다. 상태를 사용 하지 않도록 설정 하는 노드의 세부 정보 탭을 확인 합니다. 모두 인프라 서비스 파티션에 대 한 쿼럼을 보장 하는 데 문제가 있으면 계속 하는 것이 안전 합니다.
 
-> [!Note]
-> 이 단계를 완료 하는 데 다소 시간이 걸릴 수 있습니다. 
+Service Fabric Explorer를 사용 하 여 원래 확장 집합의 노드를 사용 안 함 *상태에서 사용 안 함 상태로* 의 *진행 상태를* 모니터링할 수 있습니다.
 
-4. 노드 유형 0에서 데이터를 중지 합니다. 
+:::image type="content" source="./media/scale-up-primary-node-type/service-fabric-explorer-node-status.png" alt-text="비활성 노드의 상태를 보여 주는 Service Fabric Explorer":::
+
+실버 및 골드 내구성의 경우 일부 노드는 비활성화 상태로 전환 되 고 다른 노드는 *비활성화* 상태로 남아 있을 수 있습니다. Service Fabric Explorer에서 상태 비활성화 노드의 **세부 정보** 탭을 선택 합니다. Kind *EnsurePartitionQuorem* (인프라 서비스 파티션에 대 한 쿼럼 보장)의 *보안을 보류 중인* 것으로 표시 되는 경우 계속 하는 것이 안전 합니다.
+
+:::image type="content" source="./media/scale-up-primary-node-type/service-fabric-explorer-node-status-disabling.png" alt-text="' EnsurePartitionQuorum ' 유형의 보류 중인 안전 검사를 표시 하는 경우 데이터를 중지 하 고 ' 비활성화 ' 상태에서 중단 된 노드 제거를 계속할 수 있습니다.":::
+
+클러스터가 청동 내구성 인 경우 모든 노드가 *비활성화* 된 상태에 도달할 때까지 기다립니다.
+
+### <a name="stop-data-on-the-disabled-nodes"></a>사용 하지 않도록 설정 된 노드에서 데이터 중지
+
+이제 사용 하지 않도록 설정 된 노드에서 데이터를 중지할 수 있습니다.
+
 ```powershell
+# Stop data on the disabled nodes.
 foreach($node in $nodes)
 {
   if ($node.NodeType -eq $nodeType)
@@ -366,44 +388,62 @@ foreach($node in $nodes)
   }
 }
 ```
-5. 원본 가상 머신 확장 집합에서 노드 할당 취소 
+
+## <a name="remove-the-original-node-type-and-cleanup-its-resources"></a>원래 노드 형식을 제거 하 고 해당 리소스를 정리 합니다.
+
+수직 확장 프로시저를 종료 하기 위해 원래 노드 유형과 연결 된 리소스를 제거할 준비가 되었습니다.
+
+### <a name="remove-the-original-scale-set"></a>원래 확장 집합 제거
+
+먼저 노드 형식의 지원 확장 집합을 제거 합니다.
+
 ```powershell
-$scaleSetName="nt1vm"
-$scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
+$scaleSetName = "nt0vm"
+$scaleSetResourceType = "Microsoft.Compute/virtualMachineScaleSets"
 
 Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
 ```
-> [!Note]
-> 표준 SKU 공용 IP 및 표준 SKU 부하 분산 장치를 이미 사용 중인 경우에는 6 단계와 7 단계를 선택할 수 있습니다. 이 경우 동일한 부하 분산 장치에서 여러 가상 머신 확장 집합/노드 유형을 가질 수 있습니다. 
 
-6. 이제 원래 IP 및 Load Balancer 리소스를 삭제할 수 있습니다. 이 단계에서는 DNS 이름도 업데이트 합니다. 
+### <a name="delete-the-original-ip-and-load-balancer-resources"></a>원래 IP 및 부하 분산 장치 리소스를 삭제 합니다.
+
+이제 원래 IP 및 부하 분산 장치 리소스를 삭제할 수 있습니다. 이 단계에서는 DNS 이름도 업데이트 합니다.
+
+> [!Note]
+> *표준* SKU 공용 IP 및 부하 분산 장치를 이미 사용 하 고 있는 경우이 단계는 선택 사항입니다. 이 경우 동일한 부하 분산 장치에 여러 확장 집합/노드 형식을 포함할 수 있습니다.
+
+필요에 따라 값을 수정 하 여 다음 명령을 실행 합니다 `$lbname` .
 
 ```powershell
-$lbname="LB-cluster-name-nt1vm"
-$lbResourceType="Microsoft.Network/loadBalancers"
-$ipResourceType="Microsoft.Network/publicIPAddresses"
-$oldPublicIpName="PublicIP-LB-FE-nt1vm"
-$newPublicIpName="PublicIP-LB-FE-nt2vm"
+# Delete the original IP and load balancer resources
+$lbName = "LB-sftestupgrade-nt0vm"
+$lbResourceType = "Microsoft.Network/loadBalancers"
+$ipResourceType = "Microsoft.Network/publicIPAddresses"
+$oldPublicIpName = "PublicIP-LB-FE-nt0vm"
+$newPublicIpName = "PublicIP-LB-FE-nt1vm"
 
-$oldprimaryPublicIP = Get-AzPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $resourceGroupName
-$primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
-$primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
+$oldPrimaryPublicIP = Get-AzPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $resourceGroupName
+$primaryDNSName = $oldPrimaryPublicIP.DnsSettings.DomainNameLabel
+$primaryDNSFqdn = $oldPrimaryPublicIP.DnsSettings.Fqdn
 
-Remove-AzResource -ResourceName $lbname -ResourceType $lbResourceType -ResourceGroupName $resourceGroupName -Force
+Remove-AzResource -ResourceName $lbName -ResourceType $lbResourceType -ResourceGroupName $resourceGroupName -Force
 Remove-AzResource -ResourceName $oldPublicIpName -ResourceType $ipResourceType -ResourceGroupName $resourceGroupName -Force
 
 $PublicIP = Get-AzPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $resourceGroupName
 $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
-``` 
-
-7. 새 IP를 참조 하도록 클러스터의 관리 끝점을 업데이트 합니다. 
-```json
-  "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
 ```
-8. 노드 유형 0에서 노드 상태를 제거 합니다.
+
+### <a name="remove-node-state-from-the-original-node-type"></a>원래 노드 형식에서 노드 상태 제거
+
+이제 원래 노드 형식 노드에는 해당 **상태** 에 대 한 *오류가* 표시 됩니다. 클러스터에서 해당 노드 상태를 제거 합니다.
+
 ```powershell
+# Remove state of the obsolete nodes from the cluster
+$nodeType = "nt0vm"
+$nodes = Get-ServiceFabricNode
+
+Write-Host "Removing node state..."
 foreach($node in $nodes)
 {
   if ($node.NodeType -eq $nodeType)
@@ -414,7 +454,25 @@ foreach($node in $nodes)
   }
 }
 ```
-9. ARM 템플릿의 Service Fabric 리소스에서 원래 노드 형식 참조를 제거 합니다. 
+
+Service Fabric Explorer은 이제 새 노드 형식 (nt1vm)의 5 개 노드만 반영 하 고 모든 상태 값은 *OK* 입니다. 클러스터 성능 상태에 계속 *오류가* 표시 됩니다. 최신 변경 내용을 반영 하 고 다시 배포 하는 템플릿을 업데이트 하 여 다음을 수정 합니다.
+
+### <a name="update-the-deployment-template-to-reflect-the-newly-scaled-up-primary-node-type"></a>새로 확장 된 주 노드 유형을 반영 하도록 배포 템플릿 업데이트
+
+이 단계에 필요한 변경 내용은 템플릿 파일 [*의Step3-CleanupOriginalPrimaryNodeType.js*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade/Step3-CleanupOriginalPrimaryNodeType.json) 에 이미 적용 되었으며, 다음 섹션에서는 이러한 템플릿 변경 내용에 대해 자세히 설명 합니다. 원하는 경우 설명을 건너뛰고 [업데이트 된 템플릿을 계속 배포](#deploy-the-finalized-template) 하 고 자습서를 완료할 수 있습니다.
+
+#### <a name="update-the-cluster-management-endpoint"></a>클러스터 관리 끝점 업데이트
+
+`managementEndpoint`새 IP를 참조 하도록 배포 템플릿의 클러스터를 업데이트 합니다 ( *VmNodeType1Name* 로 *vmNodeType0Name* 를 업데이트 하 여).
+
+```json
+  "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
+```
+
+#### <a name="remove-the-original-node-type-reference"></a>원래 노드 형식 참조를 제거 합니다.
+
+배포 템플릿의 Service Fabric 리소스에서 원래 노드 형식 참조를 제거 합니다.
+
 ```json
 "name": "[variables('vmNodeType0Name')]",
 "applicationPorts": {
@@ -432,7 +490,11 @@ foreach($node in $nodes)
 "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
 "vmInstanceCount": "[parameters('nt0InstanceCount')]"
 ```
-실버 이상 내구성이 있는 클러스터의 경우에만 템플릿에서 클러스터 리소스를 업데이트 하 고 아래 지정 된 대로 클러스터 리소스 속성 아래에 applicationDeltaHealthPolicies를 추가 하 여 패브릭:/시스템 응용 프로그램 상태를 무시 하도록 상태 정책을 구성 합니다. 아래 정책은 기존 오류는 무시 하지만 새 상태 오류는 허용 하지 않습니다.
+
+#### <a name="configure-health-policies-to-ignore-existing-errors"></a>기존 오류를 무시 하도록 상태 정책 구성
+
+실버 이상 내구성이 있는 클러스터의 경우에만 템플릿에서 클러스터 리소스를 업데이트 하 고 `fabric:/System` 아래 지정 된 대로 클러스터 리소스 속성 아래에 *applicationDeltaHealthPolicies* 를 추가 하 여 응용 프로그램 상태를 무시 하도록 상태 정책을 구성 합니다. 아래 정책은 기존 오류를 무시 하지만 새 상태 오류는 허용 하지 않습니다.
+
 ```json
 "upgradeDescription":  
 { 
@@ -465,25 +527,55 @@ foreach($node in $nodes)
  } 
 }
 ```
-10. ARM 템플릿에서 원래 노드 유형과 관련 된 다른 모든 리소스를 제거 합니다. 이러한 모든 원본 리소스가 제거 된 템플릿에 대 한 [Service Fabric-새 노드 형식 클러스터](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) 를 참조 하세요.
 
-11. 수정 된 Azure Resource Manager 템플릿을 배포 합니다. * *이 단계는 시간이 오래 걸립니다 (일반적으로 최대 2 시간). 이 업그레이드는 설정을 InfrastructureService로 변경 합니다. 따라서 노드를 다시 시작 해야 합니다. 이 경우 forceRestart은 무시 됩니다. UpgradeReplicaSetCheckTimeout 매개 변수는 아직 안전 상태가 아닌 경우 파티션이 안전한 상태가 될 때까지 Service Fabric 대기 하는 최대 시간을 지정 합니다. 안전 검사가 노드의 모든 파티션에 대해 통과 하면 Service Fabric는 해당 노드에서의 업그레이드를 진행 합니다. UpgradeTimeout 매개 변수에 대 한 값을 6 시간으로 줄일 수 있지만 최대 보안을 12 시간으로 사용 해야 합니다.
-그런 다음 포털의 Service Fabric 리소스가 준비 된 것으로 표시 되는지 확인 합니다. 
+#### <a name="remove-supporting-resources-for-the-original-node-type"></a>원본 노드 형식에 대 한 지원 리소스 제거
+
+ARM 템플릿 및 매개 변수 파일에서 원래 노드 유형과 관련 된 다른 모든 리소스를 제거 합니다. 다음 내용을 삭제합니다.
+
+```json
+    "vmImagePublisher": {
+      "value": "MicrosoftWindowsServer"
+    },
+    "vmImageOffer": {
+      "value": "WindowsServer"
+    },
+    "vmImageSku": {
+      "value": "2016-Datacenter-with-Containers"
+    },
+    "vmImageVersion": {
+      "value": "latest"
+    },
+```
+
+#### <a name="deploy-the-finalized-template"></a>완성 된 템플릿 배포
+
+마지막으로 수정 된 Azure Resource Manager 템플릿을 배포 합니다.
 
 ```powershell
-# deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-4.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
+# Deploy the updated template file
+$templateFilePath = "C:\Step3-CleanupOriginalPrimaryNodeType"
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $templateFilePath `
     -TemplateParameterFile $parameterFilePath `
+    -CertificateThumbprint $thumb `
+    -CertificateUrlValue $certUrlValue `
+    -SourceVaultValue $sourceVaultValue `
+    -Verbose
 ```
 
-이제 클러스터의 기본 노드 형식이 업그레이드되었습니다. 배포된 애플리케이션이 제대로 작동하고 클러스터 상태가 정상인지 확인합니다.
+> [!NOTE]
+> 이 단계는 시간이 오래 걸릴 수 있으며, 일반적으로 최대 2 시간까지 소요 됩니다.
+
+업그레이드 하면 설정이 *InfrastructureService* 로 변경 됩니다. 따라서 노드를 다시 시작 해야 합니다. 이 경우 *forceRestart* 은 무시 됩니다. 매개 변수는 `upgradeReplicaSetCheckTimeout` 아직 안전 상태가 아닌 경우 파티션이 안전한 상태가 될 때까지 Service Fabric 대기 하는 최대 시간을 지정 합니다. 안전 검사가 노드의 모든 파티션에 대해 통과 하면 Service Fabric는 해당 노드에서의 업그레이드를 진행 합니다. 매개 변수의 값은 `upgradeTimeout` 6 시간으로 줄일 수 있지만 최대 보안을 12 시간으로 사용 해야 합니다.
+
+배포가 완료 되 면 Service Fabric 리소스 상태가 *준비* Azure Portal를 확인 합니다. 새 Service Fabric Explorer 끝점에 연결할 수 있는지 확인 하 고, **클러스터 상태가** *양호 인지 확인* 하 고, 배포 된 응용 프로그램이 제대로 작동 하는지 확인 합니다.
+
+이를 통해 클러스터 주 노드 유형을 수직으로 확장 했습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [클러스터에 노드 형식을 추가](virtual-machine-scale-set-scale-node-type-scale-out.md)하는 방법을 알아봅니다.
 * [애플리케이션 확장성](service-fabric-concepts-scalability.md)에 대해 알아봅니다.
 * [Azure 클러스터를 스케일 인 또는 스케일 아웃](service-fabric-tutorial-scale-cluster.md)합니다.

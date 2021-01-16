@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/06/2020
+ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: a07898692c8af70fab0d2634ed1513f0f3666a4d
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 759759b67582b241d0bab1e043dd15e54a804faf
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505463"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251542"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>용량 풀 문제 해결
 
@@ -34,9 +34,6 @@ ms.locfileid: "97505463"
 | 오류가 발생 하 여 볼륨을 만들거나 수정할 때 오류가 발생 함 `Requested throughput not available` | 볼륨에 사용 가능한 처리량은 용량 풀의 크기와 서비스 수준에 따라 결정 됩니다. 충분 한 처리량이 없으면 풀 크기를 늘리거나 기존 볼륨 처리량을 조정 해야 합니다. | 
 
 ## <a name="issues-when-changing-the-capacity-pool-of-a-volume"></a>볼륨의 용량 풀을 변경할 때 발생 하는 문제 
-
-> [!IMPORTANT] 
-> 볼륨 공개 미리 보기 등록 [의 서비스 수준을 동적으로 변경](dynamic-change-volume-service-level.md) 하는 것은 추가 공지가 있을 때까지 보류 중입니다.
 
 |     오류 조건    |     해결 방법    |
 |-|-|

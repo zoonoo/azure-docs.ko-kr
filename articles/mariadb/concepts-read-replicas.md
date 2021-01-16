@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: 576ff68961a68a8b54037d661a51a9d2de7a56df
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c91aab2bf59f93cf897f9a1b9109172523ae4e57
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231794"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251406"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 읽기 복제본
 
@@ -23,10 +23,7 @@ ms.locfileid: "98231794"
 GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://mariadb.com/kb/en/library/gtid/)를 참조 하세요.
 
 > [!NOTE]
-> 바이어스 없는 통신
->
-> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _마스터_ 및 _슬레이브_ 라는 단어에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는 이러한 내용을 exclusionary 단어로 인식 합니다. 이러한 단어는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
->
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ## <a name="when-to-use-a-read-replica"></a>읽기 복제본을 사용하는 경우
 
@@ -123,8 +120,11 @@ Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)**
 복제본으로 장애 조치 (failover)를 결정 한 후에는
 
 1. 복제본에 대 한 복제 중지<br/>
+
    이 단계는 복제본 서버에서 쓰기를 허용할 수 있도록 하는 데 필요 합니다. 이 프로세스의 일부로 복제본 서버가 마스터에서 분리 됩니다. 복제 중지를 시작한 후 백 엔드 프로세스는 일반적으로 완료 하는 데 약 2 분이 걸립니다. 이 작업의 의미를 이해 하려면이 문서의 [복제 중지](#stop-replication) 섹션을 참조 하세요.
-2. 응용 프로그램이 (이전) 복제본을 가리키도록 합니다.<br/>
+
+2. 응용 프로그램이 (이전) 복제본을 가리키도록 합니다.
+
    각 서버에는 고유한 연결 문자열이 있습니다. 마스터가 아닌 (이전) 복제본을 가리키도록 응용 프로그램을 업데이트 합니다.
 
 응용 프로그램이 읽기 및 쓰기를 성공적으로 처리 하면 장애 조치 (failover)를 완료 한 것입니다. 응용 프로그램의 가동 중지 시간은 문제를 감지 하 고 위의 1 단계와 2 단계를 완료 하는 시기에 따라 달라 집니다.

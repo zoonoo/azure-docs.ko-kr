@@ -2,19 +2,19 @@
 title: PowerShell 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure PowerShell를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 40ee659f5892c983f84409a10634c6a8d6d78cc5
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.date: 01/15/2021
+ms.openlocfilehash: d895c6e029b0b4a70333dde987706549609c8bd3
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028492"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251029"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포
 
 이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)과 함께 Azure PowerShell를 사용 하 여 Azure에 리소스를 배포 하는 방법을 설명 합니다. Azure 솔루션 배포 및 관리 개념을 잘 모르는 경우 [템플릿 배포 개요](overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 배포할 템플릿이 필요 합니다. 아직 없는 경우 Azure 빠른 시작 템플릿 리포지토리에서 [예제 템플릿을](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 다운로드 하 고 저장 합니다. 이 문서에 사용 된 로컬 파일 이름은 _C:\MyTemplates\azuredeploy.js_ 됩니다.
 
@@ -135,7 +135,7 @@ $deploymentName="ExampleDeployment"+"$today"
 
 로컬 또는 원격 템플릿을 배포 하는 대신 [템플릿 사양을](template-specs.md)만들 수 있습니다. 템플릿 사양은 ARM 템플릿을 포함 하는 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
 
-다음 예에서는 템플릿 사양을 만들고 배포 하는 방법을 보여 줍니다. 이러한 명령은 [미리 보기에 등록 한 경우에](https://aka.ms/templateSpecOnboarding)만 사용할 수 있습니다.
+다음 예에서는 템플릿 사양을 만들고 배포 하는 방법을 보여 줍니다.
 
 먼저 ARM 템플릿을 제공 하 여 템플릿 사양을 만듭니다.
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2b99d032b953caecfca2b34d5eadafe94f45f307
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ec3892c5e47c372d9f54d4a4224e94183e31f181
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009537"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251134"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Azure에서 Durable Functions의 인스턴스 관리
 
@@ -24,7 +24,7 @@ Durable Functions에는 이러한 각 관리 작업을 구현 하는 방법에 �
 
 오케스트레이션 인스턴스를 시작할 수 있는 것이 중요 합니다. 이는 다른 함수의 트리거에서 Durable Functions 바인딩을 사용 하는 경우에 일반적으로 수행 됩니다.
 
-`StartNewAsync`오케스트레이션 클라이언트 바인딩의 (.net), `startNew` (JavaScript) 또는 `start_new` (Python) 메서드는 [orchestration client binding](durable-functions-bindings.md#orchestration-client) 새 인스턴스를 시작 합니다. 내부적으로이 메서드는 메시지를 제어 큐에 큐 [오케스트레이션 트리거 바인딩을](durable-functions-bindings.md#orchestration-trigger)사용 하는 지정 된 이름을 사용 하 여 함수의 시작을 트리거합니다.
+`StartNewAsync`오케스트레이션 클라이언트 바인딩의 (.net), `startNew` (JavaScript) 또는 `start_new` (Python) 메서드는 [](durable-functions-bindings.md#orchestration-client) 새 인스턴스를 시작 합니다. 내부적으로이 메서드는 메시지를 제어 큐에 큐 [오케스트레이션 트리거 바인딩을](durable-functions-bindings.md#orchestration-trigger)사용 하는 지정 된 이름을 사용 하 여 함수의 시작을 트리거합니다.
 
 오케스트레이션 프로세스가 성공적으로 예약되면 이 비동기 작업이 완료됩니다.
 
@@ -137,7 +137,7 @@ module.exports = async function(context, input) {
 > [!NOTE]
 > 이 예제는 Durable Functions 버전 2.x를 대상으로 합니다. 버전 1.x에서는 대신을 사용 `orchestrationClient` `durableClient` 합니다.
 
-**__init__ py**
+**py**
 
 ```python
 import logging
@@ -177,7 +177,7 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 오케스트레이션을 관리 하는 작업의 일환으로 오케스트레이션 인스턴스 상태에 대 한 정보 (예: 정상적으로 완료 되었는지 아니면 실패 했는지)를 수집 해야 하는 경우가 많습니다.
 
-`GetStatusAsync`오케스트레이션 클라이언트 바인딩의 (.net), `getStatus` (JavaScript) 또는 `get_status` (Python) 메서드는 오케스트레이션 [orchestration client binding](durable-functions-bindings.md#orchestration-client) 인스턴스의 상태를 쿼리 합니다.
+`GetStatusAsync`오케스트레이션 클라이언트 바인딩의 (.net), `getStatus` (JavaScript) 또는 `get_status` (Python) 메서드는 오케스트레이션 [](durable-functions-bindings.md#orchestration-client) 인스턴스의 상태를 쿼리 합니다.
 
 `instanceId`(필수), `showHistory`(선택 사항), `showHistoryOutput`(선택 사항) 및 `showInput`(선택 사항)을 매개 변수로 사용합니다.
 
@@ -300,6 +300,10 @@ public static async Task Run(
     {
         log.LogInformation(JsonConvert.SerializeObject(instance));
     }
+    
+    // Note: ListInstancesAsync only returns the first page of results.
+    // To request additional pages provide the result.ContinuationToken
+    // to the OrchestrationStatusQueryCondition's ContinuationToken property.
 }
 ```
 
@@ -471,7 +475,7 @@ func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before
 
 오케스트레이션 인스턴스를 실행 하는 데 시간이 너무 오래 걸리거나 어떤 이유로 든 완료 되기 전에 중지 해야 하는 경우에는 종료 하는 옵션이 있습니다.
 
-`TerminateAsync`오케스트레이션 클라이언트 바인딩의 (.net), `terminate` (JavaScript) 또는 `terminate` (Python) 메서드를 사용 하 여 인스턴스 [orchestration client binding](durable-functions-bindings.md#orchestration-client) 를 종료할 수 있습니다. 두 매개 변수는 `instanceId` `reason` 로그 및 인스턴스 상태에 기록 되는 및 문자열입니다.
+`TerminateAsync`오케스트레이션 클라이언트 바인딩의 (.net), `terminate` (JavaScript) 또는 `terminate` (Python) 메서드를 사용 하 여 인스턴스 [](durable-functions-bindings.md#orchestration-client) 를 종료할 수 있습니다. 두 매개 변수는 `instanceId` `reason` 로그 및 인스턴스 상태에 기록 되는 및 문자열입니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -800,7 +804,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.co
 > [!NOTE]
 > 이 API로 적절한 오류 처리 및 재시도 정책을 대체할 수 없습니다. 예기치 않은 이유로 오케스트레이션 인스턴스가 실패하는 경우에만 사용할 수 있습니다. 오류 처리 및 다시 시도 정책에 대 한 자세한 내용은 [오류 처리](durable-functions-error-handling.md) 문서를 참조 하세요.
 
-오케스트레이션 `RewindAsync` 클라이언트 바인딩의 (.net) 또는 `rewind` (JavaScript) 메서드를 [orchestration client binding](durable-functions-bindings.md#orchestration-client) 사용 하 여 오케스트레이션을 다시 *실행 중* 상태로 전환 합니다. 또한이 메서드는 오케스트레이션 실패를 일으킨 작업 또는 하위 오케스트레이션 실행 오류를 다시 실행 합니다.
+오케스트레이션 `RewindAsync` 클라이언트 바인딩의 (.net) 또는 `rewind` (JavaScript) 메서드를 [](durable-functions-bindings.md#orchestration-client) 사용 하 여 오케스트레이션을 다시 *실행 중* 상태로 전환 합니다. 또한이 메서드는 오케스트레이션 실패를 일으킨 작업 또는 하위 오케스트레이션 실행 오류를 다시 실행 합니다.
 
 예를 들어 일련의 [인적 승인을](durable-functions-overview.md#human)포함 하는 워크플로가 있다고 가정해 보겠습니다. 사용자에 게 승인이 필요 함을 알리는 일련의 작업 함수가 있다고 가정 하 고 실시간 응답을 기다립니다. 모든 승인 작업에서 응답을 받았거나 시간이 초과 되 면 잘못 된 데이터베이스 연결 문자열과 같은 응용 프로그램의 잘못 된 구성으로 인해 다른 작업이 실패 하는 것으로 가정 합니다. 결과적으로 워크플로에 대한 오케스트레이션 실패가 발생합니다. `RewindAsync`(.Net) 또는 `rewind` (JAVASCRIPT) API를 사용 하 여 응용 프로그램 관리자는 구성 오류를 해결 하 고 실패 한 오케스트레이션을 오류 직전의 상태로 다시 되감을 수 있습니다. 사용자 상호 작용 단계를 다시 승인 하지 않아도 되 고 오케스트레이션이 성공적으로 완료 될 수 있습니다.
 

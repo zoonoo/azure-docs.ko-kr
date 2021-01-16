@@ -4,12 +4,12 @@ description: Service Fabric, Virtual Machines, Web Apps 및 클라우드 서비�
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4589acd17e76d1341d5aceada67e565c8f8c37
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979038"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251270"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Azure 자동 크기 조정 문제 해결
  
@@ -51,20 +51,20 @@ ms.locfileid: "90979038"
 
 ![가상 머신 확장 집합 백분율 CPU 예](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-***그림 1a-자동 크기 조정 설정에 대 한 가상 머신 확장 집합 및 관찰 된 메트릭 값 메트릭에 대 한 백분율 CPU 메트릭***
+**_그림 1a-자동 크기 조정 설정에 대 한 가상 머신 확장 집합 및 관찰 된 메트릭 값 메트릭에 대 한 백분율 CPU 메트릭_*
 
 ![메트릭 임계값 및 관찰 된 용량](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
-***그림 1b-메트릭 임계값 및 관찰 된 용량***
+_*_그림 1b-메트릭 임계값 및 관찰 된 용량_*_
 
-그림 1b에서 스케일 아웃 규칙의 **메트릭 임계값** (연한 파란색 선)은 70입니다.  **관찰 된 용량** (진한 파란색 선)은 현재 3 인 활성 인스턴스의 수를 표시 합니다. 
+그림 1b에서 스케일 아웃 규칙의 _ *메트릭 임계값** (연한 파란색 선)은 70입니다.  **관찰 된 용량** (진한 파란색 선)은 현재 3 인 활성 인스턴스의 수를 표시 합니다. 
 
 > [!NOTE]
 > 규모 확장 임계값을 확인 하 고 규칙 크기 조정 (감소)을 수행 하려면 메트릭 트리거 규칙 차원 확장 (증가) 규칙에 따라 **메트릭 임계값** 을 필터링 해야 합니다. 
 
 ## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>예제 2-가상 머신 확장 집합에 대 한 고급 자동 크기 조정
 
-가상 머신 확장 집합 리소스를 자체 메트릭 **아웃 바운드 흐름**에 따라 확장할 수 있는 자동 크기 조정 설정이 있습니다. 메트릭 임계값에 대 한 **인스턴스 수로 메트릭 나누기** 옵션이 선택 되어 있는지 확인 합니다. 
+가상 머신 확장 집합 리소스를 자체 메트릭 **아웃 바운드 흐름** 에 따라 확장할 수 있는 자동 크기 조정 설정이 있습니다. 메트릭 임계값에 대 한 **인스턴스 수로 메트릭 나누기** 옵션이 선택 되어 있는지 확인 합니다. 
 
 크기 조정 작업 규칙은 다음과 같습니다. 
 
@@ -76,18 +76,18 @@ ms.locfileid: "90979038"
 
 ![가상 머신 확장 집합 자동 크기 조정 메트릭 차트 예](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-***그림 2-가상 머신 확장 집합 자동 크기 조정 메트릭 차트 예***
+**_그림 2-가상 머신 확장 집합 자동 크기 조정 메트릭 차트 예_* _
 
 그림 2에서는 두 개의 메트릭 차트를 볼 수 있습니다. 
 
-위쪽의 차트에는 **아웃 바운드 흐름** 메트릭의 실제 값이 표시 됩니다. 실제 값은 6입니다. 
+위쪽의 차트는 _ *아웃 바운드 흐름** 메트릭의 실제 값을 보여 줍니다. 실제 값은 6입니다. 
 
 아래쪽의 차트에서는 몇 가지 값을 보여 줍니다. 
  - **관찰 된 메트릭 값** (연한 파란색)은 2 개의 활성 인스턴스와 6이 2로 나뉘어 3 이기 때문에 3입니다. 
  - **관찰 된 용량** (자주)은 자동 크기 조정 엔진에서 표시 하는 인스턴스 수를 표시 합니다. 
  - **메트릭 임계값** (연한 녹색)은 10으로 설정 되어 있습니다. 
 
-여러 크기 조정 작업 규칙이 있는 경우 메트릭 탐색기 차트의 분할 또는 **필터 추가** 옵션을 사용 하 여 특정 원본 또는 규칙에 따라 메트릭을 확인할 수 있습니다. 메트릭 차트를 분할 하는 방법에 대 한 자세한 내용은 [메트릭 차트의 고급 기능-분할](metrics-charts.md#apply-splitting-to-a-chart) 을 참조 하세요.
+여러 크기 조정 작업 규칙이 있는 경우 메트릭 탐색기 차트의 분할 또는 **필터 추가** 옵션을 사용 하 여 특정 원본 또는 규칙에 따라 메트릭을 확인할 수 있습니다. 메트릭 차트를 분할 하는 방법에 대 한 자세한 내용은 [메트릭 차트의 고급 기능-분할](metrics-charts.md#apply-splitting) 을 참조 하세요.
 
 ## <a name="example-3---understanding-autoscale-events"></a>예제 3-자동 크기 조정 이벤트 이해
 
