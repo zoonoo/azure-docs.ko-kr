@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: efc78307a4b03c9b5a7546dd899f83b0eed76457
-  ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+  ms.openlocfilehash: 0f0536c259bb8b4168ab5fcf3e05016a281b05d5
+  ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/10/2021
-  ms.locfileid: "98059741"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98233953"
 highlightedContent:
   items:
   - title: Azure 네트워킹이란?
@@ -28,10 +28,10 @@ highlightedContent:
     url: https://azure.microsoft.com/updates/?category=networking
   - title: Azure의 부하 분산 옵션
     itemType: architecture
-    url: https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview
+    url: /azure/architecture/guide/technology-choices/load-balancing-overview
   - title: Azure의 허브-스포크 네트워크 토폴로지
     itemType: architecture
-    url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
   - title: Azure Orbital이란?
     itemType: concept
     url: azure-orbital-overview.md
@@ -62,7 +62,7 @@ conceptualContent:
     - url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
       itemType: overview
       text: Azure VPN Gateway란?
-    - url: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
+    - url: ../vpn-gateway/tutorial-site-to-site-portal.md
       itemType: tutorial
       text: 사이트 간 연결
     - url: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
@@ -209,7 +209,7 @@ conceptualContent:
     - url: ../bastion/bastion-overview.md
       itemType: overview
       text: Azure Bastion 정보
-    - url: ../bastion/bastion-create-host-portal.md
+    - url: ../bastion/tutorial-create-host-portal.md
       itemType: how-to-guide
       text: Azure Bastion 호스트 만들기
     - url: ../bastion/troubleshoot.md
@@ -333,10 +333,10 @@ additionalContent:
   - items:
     - title: Azure 네트워킹에 대한 Azure PowerShell 명령
       summary: Azure 네트워크 Cmdlet에 대해 알아봅니다.
-      url: https://docs.microsoft.com/en-us/powershell/module/az.network/?view=azps-3.5.0#networking
+      url: /powershell/module/az.network/?view=azps-3.5.0#networking
     - title: Azure 네트워킹에 대한 Azure CLI 명령
       summary: CLI 참조에서 Azure 네트워크 명령을 찾아보세요.
-      url: https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest
+      url: /cli/azure/network?view=azure-cli-latest
     - title: Azure 네트워킹 블로그
       summary: Azure 네트워킹의 최신 블로그를 봅니다.
       url: https://azure.microsoft.com/blog/topics/networking/
