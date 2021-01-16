@@ -12,20 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: e5219e1c87221ade8da68c21209f41b4d6139be2
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 78cc68d2be600cec78c433ae3eae1de09d31ac94
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579082"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251814"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>볼륨의 서비스 수준을 동적으로 변경
 
 > [!IMPORTANT] 
-> * 이 기능에 대 한 공개 미리 보기 등록은 추가 공지가 있을 때까지 보류 중입니다. 
-> * 복제 대상 볼륨의 서비스 수준을 동적으로 변경 하는 것은 현재 지원 되지 않습니다.
+> 복제 대상 볼륨의 서비스 수준을 동적으로 변경 하는 것은 현재 지원 되지 않습니다.
 
 볼륨에 대해 원하는 [서비스 수준을](azure-netapp-files-service-levels.md) 사용 하는 다른 용량 풀로 볼륨을 이동 하 여 기존 볼륨의 서비스 수준을 변경할 수 있습니다. 볼륨에 대한 이러한 내부 서비스 수준 변경에서는 데이터를 마이그레이션할 필요가 없습니다. 또한 볼륨에 대 한 액세스에는 영향을 주지 않습니다.  
 
@@ -38,27 +37,27 @@ ms.locfileid: "94579082"
 * 볼륨을 다른 용량 풀로 이동한 후에는 더 이상 이전 볼륨 활동 로그 및 볼륨 메트릭에 액세스할 수 없습니다. 새 용량 풀 아래의 새 활동 로그 및 메트릭으로 볼륨이 시작 됩니다.
 
 * 볼륨을 상위 서비스 수준의 용량 풀로 이동 하는 경우 (예: *표준* 에서 *프리미엄* 또는 *Ultra* service 수준으로 전환) 해당 볼륨을 더 낮은 서비스 수준의 용량 풀 (예: *Ultra* 에서 *프리미엄* 또는 *표준* 으로 이동)로 *다시* 이동 하려면 7 일 이상 기다려야 합니다.  
-<!-- 
-## Register the feature
 
-The feature to move a volume to another capacity pool is currently in preview. If you are using this feature for the first time, you need to register the feature first.
+## <a name="register-the-feature"></a>기능 등록
 
-1. Register the feature: 
+볼륨을 다른 용량 풀로 이동 하는 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용하는 경우 먼저 기능을 등록해야 합니다.
+
+1. 기능을 등록 합니다. 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
 
-2. Check the status of the feature registration: 
+2. 기능 등록의 상태를 확인 합니다. 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+    >  `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
-You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
---> 
+[Azure CLI 명령을](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+ 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>볼륨을 다른 용량 풀로 이동
 
 1.  볼륨 페이지에서 변경할 서비스 수준을 가진 볼륨을 마우스 오른쪽 단추로 클릭 합니다. **풀 변경** 을 선택 합니다.
@@ -76,3 +75,4 @@ You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view
 
 * [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)
 * [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+* [볼륨의 용량 풀을 변경 하는 문제 해결](troubleshoot-capacity-pools.md#issues-when-changing-the-capacity-pool-of-a-volume)

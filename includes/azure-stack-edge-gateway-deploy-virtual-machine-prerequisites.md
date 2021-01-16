@@ -2,27 +2,27 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 12/21/2020
+ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: f2443765ecc9116193cefbc729ced25fa5657e59
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 56fc24966fa60c3a5e91f92b57332ae2f6a525ff
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763434"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256554"
 ---
 Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 통해 Azure Resource Manager를 통해 장치에 연결 하도록 클라이언트를 구성 해야 합니다. 자세한 단계는 [Azure Stack Edge 장치에서 Azure Resource Manager에 연결](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md)로 이동 합니다.
 
 
 클라이언트에서 장치에 액세스 하는 데 다음 단계를 사용할 수 있는지 확인 합니다 (Azure Resource Manager에 연결할 때이 구성을 완료 했 고 구성이 정상적으로 완료 되었는지 확인 하는 중). 
 
-1. Azure Resource Manager 통신이 작동 하는지 확인 합니다. 형식:     
+1. Azure Resource Manager 통신이 작동 하는지 확인 합니다. 유형:     
 
     ```powershell
     Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
     ```
 
-1. 로컬 장치 Api를 호출 하 여 인증 합니다. 형식: 
+1. 로컬 장치 Api를 호출 하 여 인증 합니다. 유형: 
 
     `login-AzureRMAccount -EnvironmentName <Environment Name>`
 
@@ -38,11 +38,3 @@ Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 
     > GPU Vm을 만드는 경우 인터넷에 연결 된 네트워크 인터페이스를 선택 합니다. 그러면 장치에 GPU 확장을 설치할 수 있습니다.
 
 
-1. Azure Portal에서 VM 역할을 사용 하도록 설정 합니다. 이 단계에서는 장치의 로컬 Api를 통해 Vm을 만드는 데 사용 되는 장치에 대 한 고유한 구독을 만듭니다. 
-
-    1. VM 역할을 사용 하도록 설정 하려면 Azure Portal에서 Azure Stack Edge 장치에 대 한 Azure Stack Edge 리소스로 이동 합니다. **Edge compute > Virtual Machines** 로 이동 합니다.
-
-        ![VM 이미지 1 추가](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
-
-    1. **Virtual Machines** 를 선택 하 여 **개요** 페이지로 이동 합니다. 가상 컴퓨터 클라우드 관리를 **사용 하도록 설정** 합니다.
-        ![VM 이미지 2 추가](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)

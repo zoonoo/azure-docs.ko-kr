@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 5a06a0663601c221dd456b9cf4437cb9f32a18f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99bc49dfe7b3f7b6a9d49c2947d8d8c01ad98dac
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81400011"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256359"
 ---
 :::row:::
     :::column span="3":::
@@ -30,20 +30,6 @@ ms.locfileid: "81400011"
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
 ```
-
-#### <a name="c-binaries-and-header-files"></a>C + + 이진 파일 및 헤더 파일
-
-또는 c + + Speech SDK를 이진 파일에서 설치할 수 있습니다. 해당 SDK를 <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">tar 패키지로 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 다운로드 하 고 원하는 디렉터리에서 파일의 압축을 풉니다. X86 및 x64 대상 아키텍처에 대 한 헤더 파일을 포함 하는이 패키지의 내용은 다음과 같이 구성 됩니다.
-
-  | 경로                   | 설명                                          |
-  |------------------------|------------------------------------------------------|
-  | `license.md`           | 라이선스                                              |
-  | `ThirdPartyNotices.md` | 타사 알림                                  |
-  | `include`              | C + + 용 헤더 파일                                 |
-  | `lib/x64`              | 애플리케이션과 연결할 기본 x64 라이브러리 |
-  | `lib/x86`              | 애플리케이션과 연결할 기본 x86 라이브러리 |
-
-  애플리케이션을 만들려면 개발 환경에 필수 이진 파일(및 라이브러리)을 복사하고 이동합니다. 필요에 따라 빌드 프로세스에 포함합니다.
 
 #### <a name="additional-resources"></a>추가 리소스
 

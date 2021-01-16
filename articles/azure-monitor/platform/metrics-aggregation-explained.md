@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.subservice: metrics
-ms.openlocfilehash: 79728e53c1d53a8a4463fc0bd1ddee5db89fc013
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 1d83ef07714e0ce69f01aa240cc3058195c7b1af
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234807"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251984"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Azure Monitor 메트릭 메트릭 집계 및 표시 설명
 
@@ -125,7 +125,7 @@ ms.locfileid: "98234807"
 
 :::image type="content" source="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png" alt-text="가상 컴퓨터 이름으로 분할 및 필터링 된 Contoso 호텔 리소스 그룹의 모든 가상 컴퓨터에 대 한 디스크 쓰기 바이트를 보여 주는 스크린샷" border="true" lightbox="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png":::
 
-메트릭 탐색기 차트에서 분할 차원 데이터를 표시 하는 방법에 대 한 자세한 내용은 [메트릭 탐색기의 고급 기능-필터 및 분할](metrics-charts.md#apply-filters-to-charts)을 참조 하세요.
+메트릭 탐색기 차트에서 분할 차원 데이터를 표시 하는 방법에 대 한 자세한 내용은 [메트릭 탐색기의 고급 기능-필터 및 분할](metrics-charts.md#filters)을 참조 하세요.
 
 ### <a name="null-and-zero-values"></a>NULL 및 0 값
 

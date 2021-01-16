@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 85172e2430a3e65edb0c5ec119c920e2c7d20217
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 877251ba7e0c1f3c33cab37e20d609479b69520c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234856"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251831"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>기존 Operations Manager 고객에 대 한 Azure Monitor
 이 문서는 현재 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome) 를 사용 하 고 비즈니스 응용 프로그램 및 기타 리소스를 Azure로 마이그레이션할 때 [Azure Monitor](overview.md) 전환을 계획 하는 고객을 위한 지침을 제공 합니다. 이 문서에서는 비즈니스 및 IT 운영 요구 사항을 손상 시 키 지 않고 최대한 많은 Operations Manager 기능을 Azure Monitor 최대한 활용 하 여 클라우드로 완전히 전환 하는 것으로 가정 합니다. 
@@ -21,7 +21,7 @@ ms.locfileid: "98234856"
 > [!IMPORTANT]
 > 여기에 설명 된 여러 Azure Monitor 기능을 구현 하는 데 비용이 듭니다. 따라서 전체 환경에서 배포 하기 전에 해당 값을 평가 해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 이미 [Operations Manager](https://docs.microsoft.com/system-center/scom) 를 사용 하 고 있으며 최소한 [Azure Monitor](overview.md)에 대 한 기본적인 지식이 있다고 가정 합니다. 둘 간의 전체 비교는 [클라우드 모니터링 가이드: 플랫폼 모니터링 개요](/azure/cloud-adoption-framework/manage/monitor/platform-overview)를 참조 하세요. 이 문서에서는 여기에 설명 된 몇 가지 권장 사항을 이해 하는 데 도움이 되는 두 가지 간의 특정 기능 차이점에 대해 자세히 설명 합니다. 
 
 
@@ -63,7 +63,7 @@ Azure 구독을 만드는 즉시 Azure 서비스에 대해 Azure Monitor를 사�
 Azure Monitor에 대해 잘 알고 있으면 일부 관리 팩 기능을 대체 하 고 새 모니터링 플랫폼을 사용 하기 위해 비즈니스 프로세스를 발전 시킬 수 있는 경고 규칙을 만들기 시작 합니다. 이렇게 하면 Operations Manager 관리 그룹에서 컴퓨터 및 관리 팩 제거를 시작할 수 있습니다. 중요 한 서버 소프트웨어 및 온-프레미스 인프라에 대 한 관리 팩을 계속 사용 하지만 추가 기능을 사용 중지 하는 데 사용할 수 있는 Azure Monitor의 새로운 기능을 계속 감시 합니다.
 
 ## <a name="monitor-azure-services"></a>Azure 서비스 모니터링
-Azure 서비스는 실제로 원격 분석을 수집 하는 Azure Monitor 필요 하며, Azure 구독을 만들 때 사용 하도록 설정 됩니다. [활동 로그](platform/activity-log.md) 는 구독에 대해 자동으로 수집 되 고 [플랫폼 메트릭은](platform/data-platform-metrics.md) 사용자가 만든 모든 Azure 리소스에서 자동으로 수집 됩니다. 운영 콘솔의 성능 보기와 유사 하 게 [메트릭 탐색기](platform/metrics-getting-started.md)를 사용 하 여 바로 시작할 수 있지만 데이터의 대화형 분석과 [고급 집계](platform/metrics-charts.md) 를 제공 합니다. 값이 임계값을 초과 하는 경우 알림을 받을 [메트릭 경고를 만들거나](platform/alerts-metric.md) 표시를 위해 [Azure 대시보드에 차트를 추가](platform/metrics-charts.md#pin-charts-to-dashboards) 합니다.
+Azure 서비스는 실제로 원격 분석을 수집 하는 Azure Monitor 필요 하며, Azure 구독을 만들 때 사용 하도록 설정 됩니다. [활동 로그](platform/activity-log.md) 는 구독에 대해 자동으로 수집 되 고 [플랫폼 메트릭은](platform/data-platform-metrics.md) 사용자가 만든 모든 Azure 리소스에서 자동으로 수집 됩니다. 운영 콘솔의 성능 보기와 유사 하 게 [메트릭 탐색기](platform/metrics-getting-started.md)를 사용 하 여 바로 시작할 수 있지만 데이터의 대화형 분석과 [고급 집계](platform/metrics-charts.md) 를 제공 합니다. 값이 임계값을 초과 하는 경우 알림을 받을 [메트릭 경고를 만들거나](platform/alerts-metric.md) 표시를 위해 [Azure 대시보드에 차트를 추가](platform/metrics-charts.md#pinning-to-dashboards) 합니다.
 
 [![메트릭 탐색기](media/azure-monitor-operations-manager/metrics-explorer.png)](media/azure-monitor-operations-manager/metrics-explorer.png#lightbox)
 

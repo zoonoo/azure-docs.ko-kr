@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 376a4941ac767b670bd2706cb3af63d139b0c3a3
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: b0f0ee9477a84dc198ea3fb48b2ed81be10ea9c5
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233494"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251882"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 루트 CA 변경의 변경 내용 이해
 
@@ -19,12 +19,6 @@ SSL로 설정 된 클라이언트 응용 프로그램/드라이버에 대 한 �
 
 >[!NOTE]
 > 고객의 의견에 따라 2020 년 10 월 15 2021 일에 년 10 월 15 일까지 기존 Baltimore 루트 CA에 대 한 루트 인증서 사용 중단을 연장 했습니다. 이 확장은 사용자가 영향을 받는 경우 클라이언트 변경을 구현할 수 있는 충분 한 리드 시간을 제공 하는 데 도움이 될 것입니다.
-
-> [!NOTE]
-> 바이어스 없는 통신
->
-> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _마스터_ 및 _슬레이브_ 라는 단어에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는 이러한 내용을 exclusionary 단어로 인식 합니다. 이러한 단어는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
->
 
 ## <a name="what-update-is-going-to-happen"></a>어떤 업데이트를 수행 해야 하나요?
 
@@ -79,15 +73,17 @@ Azure Database for MariaDB sslmode를 이해 하려면 [SSL 모드 설명을](co
 
   - SSL_CERT_DIR를 사용 하는 Linux의 .NET 사용자의 경우, SSL_CERT_DIR에 표시 된 디렉터리에 **baltimorecybertrustroot.crt.pem** 및 **DigiCertGlobalRootG2** 가 모두 있는지 확인 합니다. 인증서가 없는 경우 누락 된 인증서 파일을 만듭니다.
 
-  - 기타 (MariaDB Client/Mariadb 워크 벤치/C/c + +/Go/Python/Ruby/PHP/NodeJS/Perl/Swift) 사용자의 경우 아래와 같은 두 가지 CA 인증서 파일을 병합할 수 있습니다.</b>
+  - 기타 (MariaDB Client/Mariadb 워크 벤치/C/c + +/Go/Python/Ruby/PHP/NodeJS/Perl/Swift) 사용자의 경우 아래와 같은 두 가지 CA 인증서 파일을 병합할 수 있습니다.
 
-    </br>인증서-----시작-----
-    </br>(Root C A 1: Baltimorecybertrustroot.crt.pem)
-    </br>-----최종 인증서-----
-    </br>인증서-----시작-----
-    </br>(Root CA2: DigiCertGlobalRootG2)
-    </br>-----최종 인증서-----
-
+   ```
+   -----BEGIN CERTIFICATE-----
+   (Root CA1: BaltimoreCyberTrustRoot.crt.pem)
+   -----END CERTIFICATE-----
+   -----BEGIN CERTIFICATE-----
+    (Root CA2: DigiCertGlobalRootG2.crt.pem)
+   -----END CERTIFICATE-----
+   ```
+   
 - 원래 루트 CA pem 파일을 결합 된 루트 CA 파일로 바꾸고 응용 프로그램/클라이언트를 다시 시작 합니다.
 - 나중에 서버 쪽에 새 인증서를 배포한 후에는 CA pem 파일을 DigiCertGlobalRootG2로 변경할 수 있습니다.
 
@@ -134,7 +130,7 @@ Azure Integration Runtime를 사용 하는 커넥터의 경우 커넥터는 Azur
 
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7 .이 변경에 대 한 데이터베이스 서버 유지 관리 가동 중지 시간을 계획 해야 하나요?
 
-틀렸습니다. 여기서 변경 된 내용은 데이터베이스 서버에 연결 하기 위해 클라이언트 쪽 에서만 변경 되었으므로 데이터베이스 서버에 대 한 유지 관리 가동 중지 시간은 없습니다.
+아니요. 여기서 변경 된 내용은 데이터베이스 서버에 연결 하기 위해 클라이언트 쪽 에서만 변경 되었으므로 데이터베이스 서버에 대 한 유지 관리 가동 중지 시간은 없습니다.
 
 ### <a name="8--what-if-i-cant-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8.2021 (02/15/2021) 이전에이 변경에 대 한 예약 된 가동 중지 시간을 얻을 수 없는 경우 어떻게 하나요?
 
@@ -154,6 +150,21 @@ Azure Database for MariaDB에서 사용 하는 이러한 인증서는 신뢰할 
 
 ### <a name="12-if-im-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. 데이터 복제를 사용 하는 경우 어떤 작업을 수행 해야 하나요?
 
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+>
+
+*   가상 컴퓨터 (온-프레미스 또는 Azure 가상 컴퓨터)에서 Azure Database for MySQL로 데이터를 복제 하는 경우에는 SSL을 사용 하 여 복제본을 만들 수 있는지 확인 해야 합니다. **슬레이브 상태 표시** 를 실행 하 고 다음 설정을 선택 합니다.
+
+    ```azurecli-interactive
+    Master_SSL_Allowed            : Yes
+    Master_SSL_CA_File            : ~\azure_mysqlservice.pem
+    Master_SSL_CA_Path            :
+    Master_SSL_Cert               : ~\azure_mysqlclient_cert.pem
+    Master_SSL_Cipher             :
+    Master_SSL_Key                : ~\azure_mysqlclient_key.pem
+    ```
+
 [데이터에서 복제](concepts-data-in-replication.md) 를 사용 하 여 Azure Database for MySQL에 연결 하는 경우 다음 두 가지 사항을 고려해 야 합니다.
 
 - 가상 컴퓨터 (온-프레미스 또는 Azure 가상 컴퓨터)에서 Azure Database for MySQL로 데이터를 복제 하는 경우에는 SSL을 사용 하 여 복제본을 만들 수 있는지 확인 해야 합니다. **슬레이브 상태 표시** 를 실행 하 고 다음 설정을 선택 합니다. 
@@ -166,8 +177,7 @@ Azure Database for MariaDB에서 사용 하는 이러한 인증서는 신뢰할 
   Master_SSL_Cipher             :
   Master_SSL_Key                : ~\azure_mysqlclient_key.pem
   ```
-
-    CA_file, SSL_Cert 및 SSL_Key에 대 한 인증서가 제공 되는 것으로 확인 되 면 [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 추가 하 여 파일을 업데이트 해야 합니다.
+  CA_file, SSL_Cert 및 SSL_Key에 대 한 인증서가 제공 되는 것으로 확인 되 면 [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 추가 하 여 파일을 업데이트 해야 합니다.
 
 - 데이터 복제가 두 Azure Database for MySQL 사이에 있는 경우 **호출 mysql.az_replication_change_master** 를 실행 하 여 복제본을 다시 설정 하 고 새 이중 루트 인증서를 [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication)마지막 매개 변수로 제공 해야 합니다.
 
@@ -177,7 +187,7 @@ SSL 연결을 사용 하 여 서버에 연결 하 고 있는지 확인 하려면
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. 인증서 파일에 DigiCertGlobalRootG2이 이미 있는 경우 필요한 작업이 있나요?
 
-틀렸습니다. 인증서 파일에 **DigiCertGlobalRootG2** 이 이미 있는 경우에는 필요한 작업이 없습니다.
+아니요. 인증서 파일에 **DigiCertGlobalRootG2** 이 이미 있는 경우에는 필요한 작업이 없습니다.
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. 추가 질문이 있으면 어떻게 하나요?
 

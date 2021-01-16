@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: 3632c098f865b1e5c4e76709a83176035be7abc2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 07e165382608f4fde5433de0f4436cb86f5083af
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351830"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251899"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 비용 계획 및 관리
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "96351830"
 
 Azure Cosmos DB 리소스 사용을 시작한 후에는 Cost Management 기능을 사용 하 여 예산을 설정 하 고 비용을 모니터링 합니다. 예상 비용을 검토 하 고 지출 추세를 파악 하 여 작업할 수 있는 영역을 식별할 수도 있습니다. Azure Cosmos DB 비용은 Azure 청구서의 월별 비용 중 일부에 불과합니다. 이 문서에서는 Azure Cosmos DB에 대 한 비용을 계획 하 고 관리 하는 방법을 설명 하지만, 타사 서비스를 비롯 하 여 Azure 구독에 사용 되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="provisioned-throughput-or-serverless"></a>프로 비전 된 처리량 또는 서버 리스
 
@@ -43,7 +43,7 @@ Cost Management의 비용 분석은 대부분의 Azure 계정 유형을 지원 �
 
 서버를 사용 하지 않는 모드로 Azure Cosmos DB를 사용 하려면 월 기준으로 사용할 수 있는 [요청 단위](request-units.md) 및 GB의 저장소 수를 예상 해야 합니다. 한 달에 발생 하는 데이터베이스 작업의 수를 평가 하 여 필요한 요청 단위 양을 예측 하 고 해당 하는 시간을 해당 하는 작업 비용에 곱할 수 있습니다. 다음 표에서는 일반적인 데이터베이스 작업에 대 한 예상 비용을 보여 줍니다.
 
-| 연산 | 예상 비용 | 참고 |
+| 작업 | 예상 비용 | 참고 |
 | --- | --- | --- |
 | 항목 만들기 | 5RU | 5 개 미만의 속성을 인덱싱하는 1kb 항목에 대 한 평균 비용 |
 | 항목 업데이트 | 10RU | 5 개 미만의 속성을 인덱싱하는 1kb 항목에 대 한 평균 비용 |
@@ -71,7 +71,7 @@ Azure Portal에서 Azure Cosmos DB 리소스를 사용 하기 시작 하면 예�
 
    :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="예상 비용 Azure Portal":::
 
-Azure 구독에 지출 한도가 있는 경우 Azure는 크레딧 금액을 초과 하 여 지출 하지 못하도록 합니다. Azure 리소스를 만들고 사용할 때 크레딧이 사용 됩니다. 신용 한도에 도달 하면 배포한 리소스는 해당 청구 기간의 나머지 기간 동안 사용 하지 않도록 설정 됩니다. 신용 한도를 변경할 수 없지만 제거할 수는 있습니다. 지출 한도에 대 한 자세한 내용은 [Azure 지출 한도](../cost-management-billing/manage/spending-limit.md)를 참조 하세요.
+Azure 구독에 지출 한도가 있는 경우 Azure는 크레딧 금액을 초과 하 여 지출 하지 못하도록 합니다. Azure 리소스를 만들고 사용할 때 크레딧이 사용 됩니다. 신용 한도에 도달 하면 배포한 리소스는 해당 청구 기간의 나머지 기간 동안 사용 하지 않도록 설정 됩니다. 신용 한도를 변경할 수 없지만 제거할 수는 있습니다. 지출 한도에 대 한 자세한 내용은 [Azure 지출 한도](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 참조 하세요.
 
 Azure 기업계약 금액 약정 크레딧을 사용 하 여 Azure Cosmos DB 요금을 지불할 수 있습니다. 그러나 현금 약정 금액을 사용 하 여 Azure Marketplace에서 사용 하는 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
 
