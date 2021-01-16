@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835026"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247468"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>IoT 용 Azure Defender 질문과 대답
 
@@ -38,7 +38,7 @@ IoT 용 Azure Defender는 포괄적인 프로토콜 지원을 제공 합니다. 
 프로토콜을 플러그 인으로 개발 하기 위한 고유한 솔루션에는 새 프로토콜을 지원 하기 위해 전담 개발자 팀 또는 버전 릴리스가 필요 하지 않습니다. 개발자, 파트너 및 고객은 안전 하 게 프로토콜을 개발 하 고 수평을 사용 하 여 정보 및 지식을 공유할 수 있습니다. 
 
 ## <a name="do-i-have-to-purchase-hardware-appliances-from-microsoft-partners"></a>Microsoft 파트너에서 하드웨어 어플라이언스를 구입 해야 하나요?
-IoT 센서 용 Azure Defender는 [하드웨어 사양 가이드](https://aka.ms/AzureDefenderforIoTBareMetalAppliance)에 설명 된 대로 특정 하드웨어 사양에서 실행 되며, 고객이 Microsoft 파트너 로부터 인증 된 하드웨어를 구입 하거나 제공 된 자료 (bom)를 사용 하 여 자체적으로 구매할 수 있습니다. 
+IoT 센서 용 Azure Defender는 [하드웨어 사양 가이드](./how-to-identify-required-appliances.md)에 설명 된 대로 특정 하드웨어 사양에서 실행 되며, 고객이 Microsoft 파트너 로부터 인증 된 하드웨어를 구입 하거나 제공 된 자료 (bom)를 사용 하 여 자체적으로 구매할 수 있습니다. 
 
 인증 된 하드웨어는 드라이버 안정성, 패킷 삭제 및 네트워크 크기 조정에 대해 랩에서 테스트 되었습니다.
 

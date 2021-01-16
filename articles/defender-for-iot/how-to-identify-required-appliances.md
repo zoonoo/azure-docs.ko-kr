@@ -4,15 +4,15 @@ description: IoT 센서 및 온-프레미스 관리 콘솔의 인증 된 Defende
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b22f880eee1b691b6b50b8151a64a2d501b891b3
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 25685d7e933c9d171e1547be2f5899c08443321a
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840342"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246573"
 ---
 # <a name="identify-required-appliances"></a>필수 어플라이언스 식별
 
@@ -100,7 +100,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 프로세서 | Intel Xeon 실버 4215 R 3.2 GHz, 11M 캐시, 8c/16T, 130 W |
 | 칩셋은 | Intel C621 |
 | 메모리 | 32 GB = 2 x 16gb 2666MT/s DDR4 ECC UDIMM |
-| 스토리지 | Hot-Plug 하드 드라이브-RAID 5의 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) |
+| Storage | Hot-Plug 하드 드라이브-RAID 5의 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) |
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb Broadcom BCM5720<br>온-보드 LOM: iDRAC 포트 카드 1-Gb Broadcom BCM5720<br><br>외부: 1 x Intel 이더넷 i350 QP 1 Gb 서버 어댑터, 낮은 프로필 |
 | 관리 | HPE iLO 고급 |
 | 장치 액세스 | 두 개의 후면 USB 3.0<br>전면 USB 2.0 하나<br>단일 내부 USB 3.0 |
@@ -109,7 +109,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 ### <a name="appliance-bom"></a>어플라이언스 BOM
 
-| PN | 설명 | 수량 |
+| PN | Description | 수량 |
 |--|--|--|
 | P19766-B21 | HPE DL360 Gen10 8SFF NC CTO Server | 1 |
 | P19766-B21 | 유럽-다국어 지역화 | 1 |
@@ -136,7 +136,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 프로세서 | Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W |
 | 칩셋은 | Intel C242 |
 | 메모리 | 2 x 16gb 듀얼 랭크 x8 DDR4-2666 |
-| 스토리지 | 3 x 1TB SATA 6G 중간 7.2 K SFF (2.5 in) – RAID 5 (스마트 배열 P408i)-SR 컨트롤러 |
+| Storage | 3 x 1TB SATA 6G 중간 7.2 K SFF (2.5 in) – RAID 5 (스마트 배열 P408i)-SR 컨트롤러 |
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb <br>온-보드: iLO 포트 카드 1gb <br>외부: 1 x HPE 이더넷 1-Gb 4-포트 366FLR 어댑터 |
 | 관리 | HPE iLO 고급 |
 | 장치 액세스 | 전면: 1 x USB 3.0, 1 x USB iLO 서비스 포트 <br>후면: 2 x USB 3.0 <br>내부: 1 x USB 3.0 |
@@ -171,7 +171,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 프로세서 | Intel Xeon E-2224, 3.4 GHz, 4C, 71 W |
 | 칩셋은 | Intel C242 |
 | 메모리 | 1 x 8gb 듀얼 랭크 x8 DDR4-2666 |
-| 스토리지 | 2 x 1TB SATA 6G 중간 7.2 K SFF (2.5 in) – RAID 1 (스마트 배열 P208i 포함) |
+| Storage | 2 x 1TB SATA 6G 중간 7.2 K SFF (2.5 in) – RAID 1 (스마트 배열 P208i 포함) |
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb <br>온-보드: iLO 포트 카드 1gb <br>외부: 1 x HPE 이더넷 1-Gb 4-포트 366FLR 어댑터 |
 | 관리 | HPE iLO 고급 |
 | 장치 액세스 | 전면: 1 x USB 3.0, 1 x USB iLO 서비스 포트 <br>후면: 2 x USB 3.0 <br>내부: 1 x USB 3.0 |
@@ -180,7 +180,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 ### <a name="appliance-bom"></a>어플라이언스 BOM
 
-| PN | 설명 | 수량 |
+| PN | Description | 수량 |
 |--|--|--|
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
@@ -199,20 +199,20 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 ### <a name="sensors"></a>센서
 
-| 유형 | 회사 | Enterprise | SMB |
+| Type | 회사 | Enterprise | SMB |
 |--|--|--|--|
 | vCPU | 32 | 8 | 4 |
 | 메모리 | 32GB | 32GB | 8GB |
-| 스토리지 | 5.6 TB | 1.8 TB | 500GB |
+| Storage | 5.6 TB | 1.8 TB | 500GB |
 
 ### <a name="on-premises-management-console-appliance"></a>온-프레미스 관리 콘솔 어플라이언스
 
-| 유형 | Enterprise |
+| Type | Enterprise |
 |--|--|
-| 설명 | 엔터프라이즈 배포 유형의 가상 어플라이언스 |
+| Description | 엔터프라이즈 배포 유형의 가상 어플라이언스 |
 | vCPU | 8 |
 | 메모리 | 32GB |
-| 스토리지 | 1.8 TB |
+| Storage | 1.8 TB |
 
 지원 되는 하이퍼바이저: VMware ESXi 버전 5.0 이상, Hyper-v
 
@@ -244,7 +244,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 프로세서 | Intel Xeon E-2144G 3.6 g h z, 8M cache, 4C/8T, 터보 (71 W) |
 | 칩셋은 | Intel C246 |
 | 메모리 | 32 GB = 2 x 16gb 2666MT/s DDR4 ECC UDIMM |
-| 스토리지 | 3 x 2tb 7.2 K RPM SATA 6-Gbps 512n 3.5-Hot-Plug 하드 드라이브-RAID 5 |
+| Storage | 3 x 2tb 7.2 K RPM SATA 6-Gbps 512n 3.5-Hot-Plug 하드 드라이브-RAID 5 |
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb Broadcom BCM5720<br>온-보드 LOM: iDRAC 포트 카드 1-Gb Broadcom BCM5720 <br><br>외부: 1 x Intel 이더넷 i350 QP 1 Gb 서버 어댑터, 낮은 프로필 |
 | 관리 | iDRAC 9 Enterprise |
 | 장치 액세스 | 두 개의 후면 USB 3.0 <br> 전면 USB 3.0 하나 |
@@ -255,30 +255,8 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 :::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 BOM.":::
 
-## <a name="smb-deployment-neousys-nuvo-5006lp"></a>SMB 배포: Neousys Nuvo-5006LP
-
-| 구성 요소 | 기술 사양 |
-|--|--|
-| 건설업 | 알루미늄, fanless 및 먼지 교정 디자인 |
-| 차원 | 240 mm (W) x 225 mm (D) x 77 mm (H) |
-| 무게 | 3.1 kg (CPU, 메모리 및 HDD 포함) |
-| CPU | Intel Core i5-6500TE (6M 캐시, 최대 3.30 g h z) S1151 |
-| 칩셋은 | Intel Q170 Platform Controller Hub |
-| 메모리 | 8gb DDR4 2133 MHz 와이드 온도 SODIMM |
-| 스토리지 | 128-GB 3ME3 와이드 온도 mSATA SSD |
-| 네트워크 컨트롤러 | Intel I219의 6x 기가 비트 이더넷 포트 |
-| 장치 액세스 | 4 USBs: 두 개의 rears, 하나의 내부 |
-| 전원 어댑터 | 120/240VAC-20VDC/6A |
-| 장착 | 탑재 키트, DIN 레일 |
-| 운영 온도 | \-25 ° C ~ 70 ° C |
-| 저장소 온도 | \-40 ° C ~ 85 ° C |
-| 습도 | 10% ~ 90%, 비 비응축 |
-| Vibration | 운영, 5 Grms, 5-500 Hz, 3 축 <br>(IEC60068-64에 따라) |
-| 충격 | 운영, 50 Grms, 반 사인 11-ms duration (w/SSD, IEC60068-27에 따라) |
-| EMC | EN-US 55022, EN 55024 및 EN 55032에 따라 CE/FCC 클래스 A |
-
 ## <a name="next-steps"></a>다음 단계
 
 [IoT 설치용 Azure Defender 정보](how-to-install-software.md)
 
-[IoT 용 Azure Defender 네트워크 설정 정보](how-to-set-up-your-network.md)
+[Azure Defender for IoT 네트워크 설정 정보](how-to-set-up-your-network.md)

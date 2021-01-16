@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 793ff9eedb747da0edcbbf2df50b62f06f407892
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368742"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247428"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -256,7 +256,8 @@ Cosmos DB는 MongoDB에 대해 작성된 애플리케이션에 MongoDB 유선 �
 
 Cosmos DB 평가판은 미국 중부, 북유럽 및 동남 아시아 지역에서만 글로벌 배포판을 지원합니다. Azure Cosmos DB 평가판 계정에 대한 Azure 지원 티켓을 만들 수 없습니다. 그러나 기존 지원 계획이 있는 구독자에게는 지원이 제공됩니다.
 
-## <a name="free-tier-account-limits"></a>평가판 계정 제한
+## <a name="azure-cosmos-db-free-tier-account-limits"></a>Azure Cosmos DB 무료 계층 계정 제한
+
 다음 표에는 [Azure Cosmos DB 평가판 계정](optimize-dev-test.md#azure-cosmos-db-free-tier)의 제한이 나열되어 있습니다.
 
 | 리소스 | 기본 제한 |
@@ -268,7 +269,10 @@ Cosmos DB 평가판은 미국 중부, 북유럽 및 동남 아시아 지역에�
 | 최대 공유 처리량 데이터베이스 수 | 5 |
 | 공유 처리량 데이터베이스의 최대 컨테이너 수 | 25 <br>평가판 계정에서 25개 이하의 컨테이너를 포함하고 있는 공유 처리량 데이터베이스의 최소 RU/s는 400RU/s입니다. |
 
-  위의 제한 외에도, [계정당 제한](#per-account-limits)이 평가판 계정에 적용됩니다.
+위의 제한 외에도, [계정당 제한](#per-account-limits)이 평가판 계정에 적용됩니다.
+
+> [!NOTE]
+> Azure Cosmos DB 무료 계층은 Azure 무료 계정과 다릅니다. Azure 무료 계정은 제한 된 시간 동안 Azure 크레딧 및 리소스를 무료로 제공 합니다. 이 무료 계정의 일부로 Azure Cosmos DB를 사용 하는 경우 12 개월 동안 프로 비전 된 처리량이 25GB 인 25gb의 저장소 및 400 r u/초를 얻을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,15 +2,15 @@
 title: Azure Automation 업데이트 관리 문제 해결
 description: 이 문서에서는 Azure Automation 업데이트 관리와 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.date: 12/04/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: f00002c7374e0c35c7bb91c28b2dd87ad71e3350
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 55e58c92004f4f4cf4ba6a96620b4f037c80cdb4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184920"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246267"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -144,13 +144,11 @@ Error details: Failed to enable the Update solution
    | summarize by Computer, Solutions
    ```
 
-4. 쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 [에이전트를 다시 설치](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)해야 합니다.
+    쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 [에이전트를 다시 설치](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)해야 합니다.
 
-5. 머신이 쿼리 결과에 표시되면 범위 구성에 문제가 있는지 확인합니다. [범위 구성](../update-management/scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다.
+    컴퓨터가 쿼리 결과에 표시 되는 경우 **솔루션** 속성에 **업데이트가** 나열 되어 있는지 확인 합니다. 이렇게 하면 업데이트 관리에 등록 되었는지 확인 합니다. 그렇지 않으면 범위 구성 문제를 확인 합니다. [범위 구성](../update-management/scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 컴퓨터를 대상으로 하는 범위 구성을 구성 하려면 [작업 영역에서 컴퓨터 사용](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)을 참조 하세요.
 
-6. 머신이 작업 영역에 표시되지만 업데이트 관리에는 표시되지 않는 경우 해당 머신을 대상으로 하도록 범위 구성을 지정해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [작업 영역에서 머신 사용](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)를 참조하세요.
-
-7. 작업 영역에서 이 쿼리를 실행합니다.
+4. 작업 영역에서 이 쿼리를 실행합니다.
 
    ```kusto
    Operation
@@ -158,9 +156,9 @@ Error details: Failed to enable the Update solution
    | sort by TimeGenerated desc
    ```
 
-8. `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 결과를 얻는 경우 작업 영역에 정의된 할당량에 도달하여 중지된 데이터를 저장하지 못한 것입니다. 작업 영역에서 **사용량 및 예상 비용** 에서 **데이터 볼륨 관리** 로 이동하고 할당량을 변경하거나 제거합니다.
+   `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 결과를 얻는 경우 작업 영역에 정의된 할당량에 도달하여 중지된 데이터를 저장하지 못한 것입니다. 작업 영역에서 **사용량 및 예상 비용** 에서 **데이터 볼륨 관리** 로 이동하고 할당량을 변경하거나 제거합니다.
 
-9. 그래도 문제가 해결되지 않으면 [Windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md)의 단계에 따라 Windows용 Hybrid Worker를 다시 설치합니다. Linux의 경우 [Linux Hybrid Runbook Worker 배포](../automation-linux-hrw-install.md)의 단계를 따르세요.
+5. 그래도 문제가 해결되지 않으면 [Windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md)의 단계에 따라 Windows용 Hybrid Worker를 다시 설치합니다. Linux의 경우 [Linux Hybrid Runbook Worker 배포](../automation-linux-hrw-install.md)의 단계를 따르세요.
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>시나리오: Automation 리소스 공급자를 구독에 등록할 수 없음
 

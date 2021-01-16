@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 4432178d5908d4360cda05a62b62d05687be4235
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7797ee9d20b33a25c1b51289036651c7ad9f22a1
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541133"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247501"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 서버 매개 변수
 
@@ -159,7 +159,7 @@ MariaDB에 대한 새 클라이언트 연결을 만들려면 시간이 오래 �
 
 이 매개 변수에 대해 자세히 알아보려면 [MariaDB 설명서](https://mariadb.com/kb/en/server-system-variables/#query_cache_size)를 검토하세요.
 
-|**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|* * 최대 값 * *|
+|**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|**Max 값 (바이트)**|
 |---|---|---|---|---|
 |Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|

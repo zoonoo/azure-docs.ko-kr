@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b51be165d3d05ae753c7e0e5536a157fbbacf1ab
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b0d27cb2f941db374a144cbd5c026444730e24e8
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938633"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247508"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB 요금 청구 이해
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -215,8 +215,12 @@ Azure Cosmos 컨테이너가 미국 서부에 있다고 가정해보겠습니다
 | | |2개의 추가 지역인 미국 동부, 북유럽(모든 지역이 쓰기 가능)에 대한 처리량 요금  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**월간 총 비용**  | |**$38,688**   |
 
-## <a name="billing-examples-with-free-tier-accounts"></a>무료 계층 계정에 대한 청구 예
+## <a name="billing-examples-with-azure-cosmos-db-free-tier-accounts"></a><a id="azure-free-tier"></a>Azure Cosmos DB 무료 계층 계정을 사용한 청구 예
+
 Microsoft Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 400RU/초 및 5GB의 스토리지가 계정 수준에서 무료로 제공됩니다. 400RU/초 및 5GB를 초과하는 모든 RU/초 및 스토리지는 요금 페이지당 정가로 청구됩니다. 청구서에는 무료 400RU/초 및 5GB에 대한 청구 내역 또는 품목이 없고 무료 계층에 적용되는 범위를 넘어서는 RU/초 및 스토리지에 대해서만 표시됩니다. 400 o s/s는 프로 비전 된 처리량, 자동 크기 조정 및 다중 지역 쓰기의 모든 형식에 적용 됩니다.  
+
+> [!NOTE]
+> Azure Cosmos DB 무료 계층은 Azure 무료 계정과 다릅니다. Azure 무료 계정은 제한 된 시간 동안 Azure 크레딧 및 리소스를 무료로 제공 합니다. 이 무료 계정의 일부로 Azure Cosmos DB를 사용 하는 경우 12 개월 동안 프로 비전 된 처리량이 25GB 인 25gb의 저장소 및 400 r u/초를 얻을 수 있습니다.
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>청구 예 - 프로비저닝된 처리량이 있는 컨테이너 또는 데이터베이스
 - 무료 계층 계정에서 400RU/초와 5GB의 스토리지가 있는 데이터베이스나 컨테이너를 만든다고 가정해보겠습니다.

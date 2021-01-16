@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 31b96f03a8519b068eaa816443be0a0f374a4a8c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368582"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247032"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 자동 크기 조정 프로비전된 처리량 FAQ
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "97368582"
 다중 쓰기 지역 예약 용량은 자동 크기 조정 및 표준 (수동) 프로 비전 된 처리량에 대해 동일 하 게 작동 합니다. [Azure Cosmos DB 예약된 용량](cosmos-db-reserved-capacity.md)을 참조하세요.
 
 ### <a name="does-autoscale-work-with-free-tier"></a>자동 크기 조정은 무료 계층에 적용되나요?
-예. 무료 계층에서는 컨테이너에서 자동 크기 조정 처리량을 사용할 수 있습니다. 사용자 지정 최대 RU/s를 사용하는 자동 크기 조정 공유 처리량 데이터베이스에 대한 지원은 아직 사용할 수 없습니다. [무료 계층 청구가 자동 크기 조정에 적용되는 방식](understand-your-bill.md#billing-examples-with-free-tier-accounts)을 참조하세요.
+예. 무료 계층에서는 컨테이너에서 자동 크기 조정 처리량을 사용할 수 있습니다. 사용자 지정 최대 RU/s를 사용하는 자동 크기 조정 공유 처리량 데이터베이스에 대한 지원은 아직 사용할 수 없습니다. [무료 계층 청구가 자동 크기 조정에 적용되는 방식](understand-your-bill.md#azure-free-tier)을 참조하세요.
 
 ### <a name="is-autoscale-supported-for-all-apis"></a>모든 API에 대해 자동 크기 조정이 지원되나요?
 예, 자동 크기 조정은 모든 API에 대해 지원됩니다. Core(SQL), Gremlin, Table, Cassandra 및 API for MongoDB.

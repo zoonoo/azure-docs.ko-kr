@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2cdd02ef6ff67f14dbf99e40a254f2c214e23afb
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 646c47920d87fe1d11bc991838ba767b8569a6c9
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165419"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246760"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>자습서 - Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -790,6 +790,7 @@ SCIM 서비스에는 루트 인증 기관의 이름이 다음 중 하나인 HTTP
 * Go Daddy
 * VeriSign
 * WoSign
+* DST Root CA X3
 
 .NET Core SDK에는 개발 중에 사용할 수 있는 HTTPS 개발 인증서가 포함되어 있으며 인증서는 최초 실행 환경의 일부로 설치됩니다. ASP.NET Core 웹 애플리케이션을 실행하는 방법에 따라 다른 포트를 수신 대기합니다.
 

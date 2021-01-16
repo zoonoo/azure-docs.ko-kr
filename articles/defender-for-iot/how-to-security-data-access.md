@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: c4f65da4f9a4f7ade94d76e99d57439e62b3c808
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 495f9d568760421c7f42df3acf74217c15b01a05
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092060"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246342"
 ---
 # <a name="access-your-security-data"></a>보안 데이터 액세스
 
@@ -37,7 +37,7 @@ IoT 용 Defender는 보안 경고, 권장 사항 및 원시 보안 데이터 (�
 1. IoT 용 Defender에서 경고 또는 권장 사항을 선택 합니다.
 1. **추가 조사** 를 클릭 한 다음 **이 경고가 있는 장치를 보려면 여기를 클릭 하 여 DeviceId 열을 확인** 합니다.
 
-Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [Log Analytics에서 쿼리 시작](/azure/azure-monitor/log-query/get-started-queries)을 참조 하세요.
+Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [Log Analytics에서 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조 하세요.
 
 ## <a name="security-alerts"></a>보안 경고
 

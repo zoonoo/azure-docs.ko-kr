@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: b4dabee6a725fd02b7be6dd12c8a032e3d816835
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489372"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247185"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>HTTPS 엔드포인트를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -66,6 +66,10 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
         },
         "LeadSource": {
           "id": "/properties/LeadSource",
+          "type": "string"
+        },
+        "Description": {
+          "id": "/properties/Description",
           "type": "string"
         },
         "UserDetails": {
@@ -162,15 +166,15 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
 1. **이메일 보내기** 창에서 다음과 같은 필수 필드를 구성합니다.
 
-   - **받는 사람** : 잠재 고객이 전송될 유효한 이메일 주소를 하나 이상 입력합니다.
-   - **주체** : Power Automate에서는 다음 화면의 **LeadSource** 와 같이 동적 콘텐츠를 추가하는 옵션이 제공됩니다. 필드 이름을 입력하여 시작합니다. 그런 다음, 팝업 창에서 동적 콘텐츠 선택 목록을 선택합니다. 
+   - **받는 사람**: 잠재 고객이 전송될 유효한 이메일 주소를 하나 이상 입력합니다.
+   - **주체**: Power Automate에서는 다음 화면의 **LeadSource** 와 같이 동적 콘텐츠를 추가하는 옵션이 제공됩니다. 필드 이름을 입력하여 시작합니다. 그런 다음, 팝업 창에서 동적 콘텐츠 선택 목록을 선택합니다. 
 
         >[!NOTE] 
         > 필드 이름을 추가할 때 각 이름 뒤에 콜론(:)을 붙인 다음, **Enter** 키를 선택하여 새 행을 만들 수 있습니다. 필드 이름을 추가한 후, 동적 선택 목록에서 연결된 각 매개 변수를 추가할 수 있습니다.
 
         ![동적 콘텐츠를 사용하여 이메일 작업 추가](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **본문** : 동적 콘텐츠 목록에서 원하는 정보를 이메일의 본문에 추가합니다. 예를 들어, LastName, FirstName, Email 및 Company입니다. 이메일 알림 설정을 완료하면 다음 화면의 예제와 같이 표시됩니다.
+   - **본문**: 동적 콘텐츠 목록에서 원하는 정보를 이메일의 본문에 추가합니다. 예를 들어, LastName, FirstName, Email 및 Company입니다. 이메일 알림 설정을 완료하면 다음 화면의 예제와 같이 표시됩니다.
 
 
        ![이메일 알림 예제](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)

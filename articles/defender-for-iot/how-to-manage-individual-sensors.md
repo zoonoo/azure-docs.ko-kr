@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/10/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b61bef89d53da280961b818425d11a6f81bbf5ea
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 25f47be98b11f05ee6ac27018152ece05c0de4e4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210242"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246692"
 ---
 # <a name="manage-individual-sensors"></a>개별 센서 관리
 
@@ -84,7 +84,7 @@ ms.locfileid: "98210242"
 
 - **로컬로 연결 된 센서**: 활성화 파일이 잘못 되었습니다. 파일이 유효 하지 않으면 IoT 포털 용 Defender로 이동 합니다. **센서 관리** 페이지에서 잘못 된 파일이 있는 센서를 선택 하 고 새 활성화 파일을 다운로드 합니다.
 
-- **클라우드 연결 센서**: 센서를 인터넷에 연결할 수 없습니다. 센서의 네트워크 구성을 확인 하세요. 인터넷에 액세스 하기 위해 웹 프록시를 통해 센서를 연결 해야 하는 경우 **센서 네트워크 구성** 화면에서 프록시 서버가 올바르게 구성 되어 있는지 확인 합니다. \*Azure-devices.net:443가 방화벽 및/또는 프록시에서 허용 되는지 확인 합니다. 와일드 카드가 지원 되지 않거나 더 많은 제어를 원하는 경우 IoT hub에 대 한 특정 Defender에 대 한 FQDN을 방화벽 및/또는 프록시에서 열어야 합니다. 자세한 내용은 [참조 IoT Hub 끝점](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints)을 참조 하세요.  
+- **클라우드 연결 센서**: 센서를 인터넷에 연결할 수 없습니다. 센서의 네트워크 구성을 확인 하세요. 인터넷에 액세스 하기 위해 웹 프록시를 통해 센서를 연결 해야 하는 경우 **센서 네트워크 구성** 화면에서 프록시 서버가 올바르게 구성 되어 있는지 확인 합니다. \*Azure-devices.net:443가 방화벽 및/또는 프록시에서 허용 되는지 확인 합니다. 와일드 카드가 지원 되지 않거나 더 많은 제어를 원하는 경우 IoT hub에 대 한 특정 Defender에 대 한 FQDN을 방화벽 및/또는 프록시에서 열어야 합니다. 자세한 내용은 [참조 IoT Hub 끝점](../iot-hub/iot-hub-devguide-endpoints.md)을 참조 하세요.  
 
 - **클라우드 연결 센서의 경우**: 정품 인증 파일은 올바르지만 IoT 용 Defender는이 파일을 거부 했습니다. 이 문제를 해결할 수 없는 경우 Defender IoT 포털의 **센서 관리** 페이지에서 다른 정품 인증을 다운로드할 수 있습니다. 그래도 작동 하지 않으면 Microsoft 지원에 문의 하세요.
 
@@ -282,7 +282,7 @@ CLI 명령을 사용 하는 경우:
 
 3. 다음과 같이 매개 변수를 설정 합니다.
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--|--|
     | IP 주소 | 센서 IP 주소 |
     | 서브넷 마스크 | 마스크 주소 |
@@ -299,7 +299,7 @@ CLI 명령을 사용 하는 경우:
 
 :::image type="content" source="media/how-to-manage-individual-sensors/time-and-region.png" alt-text="시간과 지역을 구성 합니다.":::
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |--|--|
 | 표준 시간대 | 다음에 대 한 표준 시간대 정의:<br />-경고<br />-추세 및 통계 위젯<br />-데이터 마이닝 보고서<br />   -위험 평가 보고서<br />-공격 벡터 |
 | 날짜 형식 | 다음 서식 옵션 중 하나를 선택 합니다.<br />-dd/MM/yyyy HH: MM: ss<br />-MM/dd/yyyy HH: MM: ss<br />-yyyy/MM/dd HH: MM: ss |
@@ -397,7 +397,7 @@ CLI를 사용 하 여 센서 콘솔에서 백업을 복원할 수 있습니다.
 
 다음 절차에서는 센서 콘솔을 사용 하 여 독립 실행형 센서를 업데이트 하는 방법을 설명 합니다. 업데이트 프로세스는 30 분 정도 걸립니다.
 
-1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
 
 2. IoT 용 Defender로 이동 합니다.
 
@@ -455,7 +455,7 @@ CLI를 사용 하 여 센서 콘솔에서 백업을 복원할 수 있습니다.
 
 3. **일반** 섹션에서 **시스템 속성** 을 선택 합니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 [위협 인텔리전스 연구 및 패키지](how-to-work-with-threat-intelligence-packages.md)
 

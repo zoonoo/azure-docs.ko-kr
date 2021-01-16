@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6c8be064ade8182355c320e948b3b60b846033d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348061"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246709"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
@@ -165,7 +165,7 @@ BitAnd 함수는 값에 지정된 비트를 설정합니다.
 
 즉, 두 매개 변수의 해당 비트가 1일 경우를 제외하는 모든 경우에는 0을 반환합니다.
 
-**예:**  
+**예제:**  
 `BitAnd(&HF, &HF7)`  
 16진법 "F" AND "F7"로 이 값을 계산했기 때문에 7을 반환합니다.
 
@@ -193,7 +193,7 @@ CBool 함수는 계산된 식에 따라 부울을 반환합니다.
 **설명**  
 식에서 0이 아닌 값으로 계산하는 경우 CBool은 True를 반환하고, 그렇지 않으면 False를 반환합니다.
 
-**예:**  
+**예제:**  
 `CBool([attrib1] = [attrib2])`  
 
 두개의 속성이 같은 동일한 값을 가지면 True로 반환합니다.
@@ -211,7 +211,7 @@ CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. 날짜/시
 **설명**  
 반환되는 문자열은 항상 UTC로 나타납니다.
 
-**예:**  
+**예제:**  
 `CDate([employeeStartTime])`  
 직원의 시작 시간을 기반으로 날짜/시간을 반환합니다.
 
@@ -440,7 +440,7 @@ Contains 함수는 다중 값 특성에 포함된 문자열을 찾습니다.
 다중값 문자열 특성에 대한 검색 값에서 부분 문자열을 찾습니다.  
 참조 특성에 대해 검색된 문자열은 일치하는 것으로 간주될 값에 정확히 일치해야 합니다.
 
-**예:**  
+**예제:**  
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
 proxyAddresses 특성이 기본 전자 메일 주소(대문자로 표시 “SMTP:”)를 가질 경우 proxyAddress 특성이 반환되며, 그 외에는 오류가 반환됩니다.
 
@@ -476,7 +476,7 @@ ConvertFromUTF8Hex 함수는 지정된 UTF8 16진수 인코딩 값을 문자열�
 이 함수와 ConvertFromBase64([],UTF8) 결과의 차이점은 DN 특성을 사용하기 쉽다는 것입니다.  
 이 형식은 DN으로 Azure Active Directory에서 사용됩니다.
 
-**예:**  
+**예제:**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
 "*Hello world!*"를 반환합니다.
 
@@ -489,7 +489,7 @@ ConvertToBase64 함수는 문자열을 유니코드 base64 문자열로 변환�
 **구문:**  
 `str ConvertToBase64(str source)`
 
-**예:**  
+**예제:**  
 `ConvertToBase64("Hello world!")`  
 "SABlAGwAbABvACAAdwBvAHIAbABkACEA"를 반환합니다.
 
@@ -504,7 +504,7 @@ ConvertToUTF8Hex 함수는 문자열을 UTF8 16진수 인코딩 값으로 변환
 **설명**  
 이 함수의 출력 형식은 DN 특성 형식으로 Azure Active Directory에서 사용됩니다.
 
-**예:**  
+**예제:**  
 `ConvertToUTF8Hex("Hello world!")`  
 48656C6C6F20776F726C6421을 반환합니다.
 
@@ -532,7 +532,7 @@ CNum 함수는 문자열을 숫자 데이터 형식으로 반환합니다.
 **구문:**  
 `ref CRef(str value)`
 
-**예:**  
+**예제:**  
 `CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
 ---
@@ -547,7 +547,7 @@ CStr 함수는 문자열 데이터 형식으로 변환합니다.
 
 * 값: 숫자 값, 참조 특성 또는 부울입니다.
 
-**예:**  
+**예제:**  
 `CStr([dn])`  
 "cn=Joe,dc=contoso,dc=com"을 반환할 수 있습니다.
 
@@ -573,7 +573,7 @@ CStr 함수는 문자열 데이터 형식으로 변환합니다.
 * 값: 추가하고자 하는 단위 수 입니다. 양수(미래 날짜) 또는 음수(과거 날짜)가 될 수 있습니다.
 * 날짜: 날짜/시간은 간격이 추가된 날짜로 나타납니다.
 
-**예:**  
+**예제:**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
 3개월을 추가하고 "2001-04-01"을 나타내는 날짜/시간을 반환합니다.
 
@@ -585,7 +585,7 @@ DateFromNum 함수는 AD의 날짜 값 형식을 날짜/시간 형식으로 변�
 **구문:**  
 `dt DateFromNum(num value)`
 
-**예:**  
+**예제:**  
 `DateFromNum([lastLogonTimestamp])`  
 `DateFromNum(129699324000000000)`  
 2012-01-01 23:00:00을 나타내는 날짜/시간을 반환합니다.
@@ -601,7 +601,7 @@ DNComponent 함수는 왼쪽부터 지정된 DN 구성 요소의 값을 반환�
 * dn: 참조 특성 해석
 * ComponentNumber: 반환할 DN 내의 구성 요소
 
-**예:**  
+**예제:**  
 `DNComponent(CRef([dn]),1)`  
 dn이 "cn=Joe,ou=…"인 경우 Joe를 반환합니다.
 
@@ -618,7 +618,7 @@ DNComponentRev 함수는 오른쪽(끝)부터 지정된 DN 구성 요소의 값�
 * ComponentNumber-반환할 DN 내의 구성 요소
 * 옵션: DC –"dc ="가 있는 모든 구성 요소를 무시합니다.
 
-**예:**  
+**예제:**  
 dn이 "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"인 경우  
 `DNComponentRev(CRef([dn]),3)`  
 `DNComponentRev(CRef([dn]),1,"DC")`  
@@ -632,7 +632,7 @@ Error 함수는 사용자 지정 오류를 반환하는 데 사용됩니다.
 **구문:**  
 `void Error(str ErrorMessage)`
 
-**예:**  
+**예제:**  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 accountName 특성이 없는 경우 개체에서 오류가 throw됩니다.
 
@@ -644,7 +644,7 @@ EscapeDNComponent 함수는 DN의 한 구성 요소를 받고 LDAP에 나타낼 
 **구문:**  
 `str EscapeDNComponent(str value)`
 
-**예:**  
+**예제:**  
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
 LDAP 디렉터리 내에서, displayName 특성에 LDAP에서 이스케이프된 문자가 포함된 경우에도 개체가 생성될 수 있음을 확인합니다.
 
@@ -662,16 +662,16 @@ FormatDateTime 함수는 날짜/시간을 지정된 형식의 문자열로 구�
 **설명**  
 형식에 사용할 수 있는 값은 [format 함수의 사용자 지정 날짜 및 시간 형식](/dax/custom-date-and-time-formats-for-the-format-function)에서 찾을 수 있습니다.
 
-**예:**  
+**예제:**  
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")`  
+`FormatDateTime(CDate("12/25/2007"),"yyyy-MM-dd")`  
 "2007-12-25"를 반환합니다.
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
 "20140905081453.0Z"를 반환할 수 있습니다.
 
 ---
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **설명:**  
 함수 Guid는 임의의 GUID를 새로 생성합니다.
 
@@ -690,7 +690,7 @@ IIF 함수는 지정된 조건에 따라 가능한 값 집합 중 하나를 반�
 * valueIfTrue: 조건이 true로 평가되는 경우 반환된 값입니다.
 * valueIfFalse: 조건이 false로 평가되는 경우 반환된 값입니다.
 
-**예:**  
+**예제:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  사용자가 인턴일 경우 사용자 별칭 앞에 “t-”를 추가하여 반환하고, 그 외의 경우에는 본래의 별칭 그대로 반환합니다.
 
@@ -713,7 +713,7 @@ InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 �
 **설명**  
 부분 문자열을 찾으면 위치가 반환되고, 찾지 못할 경우 0이 반환됩니다.
 
-**예:**  
+**예제:**  
 `InStr("The quick brown fox","quick")`  
 5로 계산합니다.
 
@@ -738,7 +738,7 @@ InStrRev 함수는 문자열에서 부분 문자열이 마지막으로 나오는
 **설명**  
 부분 문자열을 찾으면 위치가 반환되고, 찾지 못할 경우 0이 반환됩니다.
 
-**예:**  
+**예제:**  
 `InStrRev("abbcdbbbef","bb")`  
 7을 반환합니다.
 
@@ -752,7 +752,7 @@ IsBitSet 함수는 비트 설정 여부를 테스트합니다.
 
 * 값: 숫자 값은 evaluated.flag: 숫자 값은 계산할 수 있는 숫자 값을 가집니다.
 
-**예:**  
+**예제:**  
 `IsBitSet(&HF,4)`  
 비트 "4"는 16진수 값 "F" 안에 설정되어 있으므로 True를 반환합니다.
 
@@ -796,7 +796,7 @@ GUID는 다음 패턴 중 하나로 정의됩니다. xxxxxxxx-xxxx-xxxx-xxxx-xxx
 
 CGuid()가 성공적으로 수행될 수 있는지 여부를 결정하는데 사용됩니다.
 
-**예:**  
+**예제:**  
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
 StrAttribute가 GUID 형식을 가질 경우, 이진 표현으로 반환되며, 아닐 경우 Null을 반환합니다.
 
@@ -811,7 +811,7 @@ StrAttribute가 GUID 형식을 가질 경우, 이진 표현으로 반환되며, 
 **설명**  
 특성이 없는 경우 Null로 표현됩니다.
 
-**예:**  
+**예제:**  
 `IsNull([displayName])`  
 CS 또는 MV에 특성이 없을 경우 True를 반환합니다.
 
@@ -827,7 +827,7 @@ CS 또는 MV에 특성이 없을 경우 True를 반환합니다.
 특성이 없거나, 빈 문자열로 존재하는 경우 True로 계산합니다.  
 이 함수의 역원을 IsPresnt라고 합니다.
 
-**예:**  
+**예제:**  
 `IsNullOrEmpty([displayName])`  
 특성이 없거나 CS 또는 MV에서 빈 문자열인 경우 True를 반환합니다.
 
@@ -864,7 +864,7 @@ CStr()이 식을 구문 분석하는 데 성공할 수 있는지 여부를 결�
 **설명**  
 이 함수의 역함수는 IsNullOrEmpty으로 지칭됩니다.
 
-**예:**  
+**예제:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
@@ -883,7 +883,7 @@ Item 함수는 다중값 특성의 항목에 대한 인덱스를 반환하는 Co
 
 인덱스가 범위를 초과하는 경우 오류가 나타납니다.
 
-**예:**  
+**예제:**  
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 기본 전자 메일 주소를 반환합니다.
 
@@ -918,7 +918,7 @@ Join 함수는 다중값 문자열을 사용하여 각 항목 사이에 지정�
 **주의**  
 Join 및 Split 함수 사이에 패리티가 있습니다. Join 함수는 단일 문자열을 반환하기 위해 문자열의 배열을 채택하고  구분 기호 문자열을 사용하여 배열을 연결합니다. Split 함수는 문자열의 배열을 반환하기 위해 문자열을 채택하고 구분 기호로 구분합니다. 그러나 Join 함수는 모든 구분 기호 문자열을 사용하여 문자열을 연결할 수 있지만, Split 함수는 단일 문자 구분 기호를 사용하여 오직 문자열을 나눌 수만 있다는 것이 가장 중요한 차이점입니다.
 
-**예:**  
+**예제:**  
 `Join([proxyAddresses],",")`  
 "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"을 반환할 수 있습니다.
 
@@ -930,7 +930,7 @@ LCase 함수는 문자열의 모든 문자를 소문자로 변환합니다.
 **구문:**  
 `str LCase(str value)`
 
-**예:**  
+**예제:**  
 `LCase("TeSt")`  
 "test"를 반환합니다.
 
@@ -954,7 +954,7 @@ Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다
 
 문자열이 numChars 내에서 숫자가 지정한 문자보다 적은 문자를 포함하는 경우, 문자열과 동일한 문자열(즉, 매개 변수 1의 모든 문자가 포함)이 반환됩니다.
 
-**예:**  
+**예제:**  
 `Left("John Doe", 3)`  
 "Joh"를 반환합니다.
 
@@ -966,7 +966,7 @@ Len 함수는 문자열의 문자 수를 반환합니다.
 **구문:**  
 `num Len(str value)`
 
-**예:**  
+**예제:**  
 `Len("John Doe")`  
 8을 반환합니다.
 
@@ -978,7 +978,7 @@ LTrim 함수는 문자열에서 선행 공백을 제거합니다.
 **구문:**  
 `str LTrim(str value)`
 
-**예:**  
+**예제:**  
 `LTrim(" Test ")`  
 "Test"를 반환합니다.
 
@@ -1006,7 +1006,7 @@ Mid 함수는 문자열의 지정된 위치부터 지정된 수의 문자를 반
 
 시작 위치에서 문자열의 numChar 문자가 남아있지 않는 경우, 가능한 많은 문자가 반환됩니다.
 
-**예:**  
+**예제:**  
 `Mid("John Doe", 3, 5)`  
 "hn Do"를 반환합니다.
 
@@ -1029,7 +1029,7 @@ NumFromDate 함수는 AD 날짜 형식으로 날짜를 반환합니다.
 **구문:**  
 `num NumFromDate(dt value)`
 
-**예:**  
+**예제:**  
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
 129699324000000000을 반환합니다.
 
@@ -1054,7 +1054,7 @@ PadLeft 함수는 제공된 채움 문자를 사용하여 문자열을 지정된
 * 문자열의 길이가 본래의 길이보다 작은 경우, 채움 문자로 채워진 문자열이 포함된 원하는 길이의 새 문자열이 반환됩니다.
 * 문자열이 null이면, 함수는 빈 문자열을 반환합니다.
 
-**예:**  
+**예제:**  
 `PadLeft("User", 10, "0")`  
 "000000User"를 반환합니다.
 
@@ -1079,7 +1079,7 @@ PadRight 함수는 제공된 채움 문자를 사용하여 지정된 길이로 �
 * 문자열의 길이가 본래의 길이보다 작은 경우, 채움 문자로 채워진 문자열이 포함된 원하는 길이의 새 문자열이 반환됩니다.
 * 문자열이 null이면, 함수는 빈 문자열을 반환합니다.
 
-**예:**  
+**예제:**  
 `PadRight("User", 10, "0")`  
 "User000000"을 반환합니다.
 
@@ -1095,7 +1095,7 @@ PCase 함수는 문자열내의 각 공백으로 구분된 단어의 첫 문자�
 
 * 이 기능은 현재 머리글자어와 같이 전체적으로 대문자인 단어를 변경할 적절한 대/소문자 구분을 제공하지 않습니다.
 
-**예:**  
+**예제:**  
 `PCase("TEsT")`  
 "test"를 반환합니다.
 
@@ -1113,7 +1113,7 @@ RandomNum 함수는 지정된 간격 사이의 난수를 반환합니다.
 * start: 생성할 난수 값의 하한을 식별하는 번호
 * 끝: 난수 값의 상한값을 식별 하는 번호를 생성
 
-**예:**  
+**예제:**  
 `Random(100,999)`  
 734를 반환할 수 있습니다.
 
@@ -1125,7 +1125,7 @@ RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고
 **구문:**  
 `mvstr RemoveDuplicates(mvstr attribute)`
 
-**예:**  
+**예제:**  
 `RemoveDuplicates([proxyAddresses])`  
 모든 중복 값을 제거한 삭제된 proxyAddress 특성을 반환합니다.
 
@@ -1148,7 +1148,7 @@ Replace 함수는 한 문자열이 나오는 모든 경우를 다른 문자열�
 * \r – 캐리지 반환
 * \t – 탭
 
-**예:**  
+**예제:**  
 `Replace([address],"\r\n",", ")`  
 CRLF를 쉼표와 공백으로 바꾸고 "One Microsoft Way, Redmond, WA, USA"로 나타낼 수 있습니다.
 
@@ -1176,7 +1176,7 @@ ReplaceChars 함수는 ReplacePattern 문자열에 해당 문자가 나오는 �
 * ,(쉼표) 및: (콜론)은 지정된 문자이며 이 함수를 사용하여 바꿀 수 없습니다.
 * ReplacePattern의 공백 및 white character는 무시됩니다.
 
-**예:**  
+**예제:**  
 `%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o`
 
 `ReplaceChars("Räksmörgås",%ReplaceString%)`  
@@ -1207,7 +1207,7 @@ Right 함수는 문자열의 오른쪽(끝)부터 지정된 수의 문자를 반
 
 문자열의 문자가 NumChars의 지정된 숫자보다 적은 경우, 문자열과 동일한 문자열이 반환됩니다.
 
-**예:**  
+**예제:**  
 `Right("John Doe", 3)`  
 "Doe"를 반환합니다.
 
@@ -1219,7 +1219,7 @@ RTrim 함수는 문자열에서 후행 공백을 제거합니다.
 **구문:**  
 `str RTrim(str value)`
 
-**예:**  
+**예제:**  
 `RTrim(" Test ")`  
 "Test"를 반환합니다.
 
@@ -1254,7 +1254,7 @@ Split 함수는 구분 기호로 구분된 문자열을 다중값 문자열로 �
 * delimiter: 구분 기호로 사용할 수 있는 단일 문자입니다.
 * limit: 반환될 수 있는 값의 최대 갯수입니다.
 
-**예:**  
+**예제:**  
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
 proxyAddress 특성에 유용한 2개 이상의 요소가 있는 다중값 문자열을 반환합니다.
 
@@ -1299,7 +1299,7 @@ Switch 함수 인수 목록은 식과 값의 쌍으로 구성됩니다. 식은 �
 
 값은 사용자 지정 문자열을 반환하는 오류 함수가 될 수도 있습니다.
 
-**예:**  
+**예제:**  
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
 일부 주요 도시에서 사용하는 언어를 반환하지만 그 외의 경우에는 오류를 반환합니다.
 
@@ -1311,7 +1311,7 @@ Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.
 **구문:**  
 `str Trim(str value)`  
 
-**예:**  
+**예제:**  
 `Trim(" Test ")`  
 "test"를 반환합니다.
 
@@ -1326,7 +1326,7 @@ UCase 함수는 문자열의 모든 문자를 대문자로 변환합니다.
 **구문:**  
 `str UCase(str string)`
 
-**예:**  
+**예제:**  
 `UCase("TeSt")`  
 "test"를 반환합니다.
 
@@ -1344,7 +1344,7 @@ UCase 함수는 문자열의 모든 문자를 대문자로 변환합니다.
 * condition: true 또는 false로 평가될 수 있는 모든 식입니다.
 * expression: 값의 컬렉션을 반환하는 식입니다.
 
-**예:**  
+**예제:**  
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
 만료되지 않은 userCertificate 다중값 특성의 인증서 값을 반환합니다.
 
@@ -1359,7 +1359,7 @@ With 함수는 복합 식에서 한 번 이상 나타나는 하위 식을 변수
 * subExpression: 변수로 표현되는 하위 식입니다.
 * complexExpression: 복합 식입니다.
 
-**예:**  
+**예제:**  
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
 기능적으로 다음과 같습니다.  
 `IIF (Count(Where($item,[userCertificate],CertNotAfter($item)>Now()))>0, Where($item,[userCertificate],CertNotAfter($item)>Now()),NULL)`  
@@ -1386,7 +1386,7 @@ Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 따라 �
 
 문자열이 단어 수보다 적거나, 구분 기호로 식별되는 단어를 포함할 경우, 빈 문자열이 반환됩니다.
 
-**예:**  
+**예제:**  
 `Word("The quick brown fox",3," ")`  
 "brown"을 반환합니다.
 

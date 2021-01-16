@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2019
 ms.author: shhazam
-ms.openlocfilehash: d3b50d909fb167ee123b548603628bae7d844c5b
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2b1cd131e578b1d16fabee99b8de536e4a48ece0
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841247"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247304"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-security-agents"></a>IoT 장치 보안 에이전트로 Azure Defender 시작
 
@@ -31,7 +31,7 @@ IoT 용 Defender 보안 에이전트는 장치 운영 체제에서 원시 이벤
 다음 워크플로를 사용 하 여 IoT 보안 에이전트에 대 한 Defender를 배포 하 고 테스트 합니다.
 
 1. [IoT Hub에 대 한 IoT 서비스용 Defender 사용](quickstart-onboard-iot-hub.md)
-1. IoT Hub에 등록 된 장치가 없는 경우 [새 장치를 등록](../iot-accelerators/quickstart-device-simulation-deploy.md)합니다.
+1. IoT Hub에 등록 된 장치가 없는 경우 [새 장치를 등록](../iot-accelerators/iot-accelerators-device-simulation-overview.md)합니다.
 1. 장치에 대해 [azureiotsecurity 보안 모듈을 만듭니다](quickstart-create-security-twin.md) .
 1. 실제 장치에를 설치 하는 대신 Azure 시뮬레이트된 장치에 에이전트를 설치 하려면 사용 가능한 영역에서 [새 AZURE VM (가상 머신)](../virtual-machines/linux/quick-create-portal.md) 을 실행 합니다.
 1. Iot 장치 또는 새 VM에 [iot 보안 에이전트 용 Defender를 배포](how-to-deploy-linux-cs.md) 합니다.

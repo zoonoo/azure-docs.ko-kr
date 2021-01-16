@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: fc82d046caa3663cffcda585258642813ab3a7d8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 76bb9d289e984dd8c229bdaaab09e679e11283fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207260"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246284"
 ---
 # <a name="camera"></a>카메라
 
@@ -32,7 +32,7 @@ ms.locfileid: "92207260"
 
 **근거리 및 원거리 평면:**
 
-잘못 된 범위를 설정할 수 없도록 하기 위해 **NearPlane** 및 **FarPlane** 속성은 읽기 전용이 고, 범위를 변경 하기 위해 별도의 함수 **SetNearAndFarPlane** 가 있습니다. 이 데이터는 프레임의 끝에 있는 서버로 전송 됩니다.
+잘못 된 범위를 설정할 수 없도록 하기 위해 **NearPlane** 및 **FarPlane** 속성은 읽기 전용이 고, 범위를 변경 하기 위해 별도의 함수 **SetNearAndFarPlane** 가 있습니다. 이 데이터는 프레임의 끝에 있는 서버로 전송 됩니다. 이러한 값을 설정 하는 경우 **NearPlane** 는 **FarPlane** 보다 작아야 합니다. 그렇지 않으면 오류가 발생 합니다.
 
 > [!IMPORTANT]
 > Unity에서이는 주 카메라와 far 비행기를 변경할 때 자동으로 처리 됩니다.
@@ -44,6 +44,21 @@ ms.locfileid: "92207260"
 > [!TIP]
 > Unity에서 편집기 UI에서이 기능을 설정/해제 하는 데 사용할 수 있는 **EnableDepthComponent** 라는 디버그 구성 요소가 제공 됩니다.
 
+**InverseDepth**:
+
+> [!NOTE]
+> 이 설정은 `EnableDepth` 가로 설정 된 경우에만 중요 `true` 합니다. 그렇지 않으면이 설정은 영향을 주지 않습니다.
+
+깊이 버퍼는 일반적으로 z 값을 [0, 1]의 부동 소수점 범위에 기록 합니다. 0은 가까운 평면 깊이를, 1은 먼 평면 깊이를 나타냅니다. 이 범위를 반전 시킬 수도 있습니다. 즉, [1; 0] 범위에서이 범위를 반전 시킬 수 있습니다. 즉, 근사 평면 깊이가 1이 되 고 먼 평면 깊이가 0이 됩니다. 일반적으로 후자는 선형이 아닌 z 범위에서 부동 소수점 정밀도의 분포를 향상 시킵니다.
+
+> [!WARNING]
+> 일반적인 접근 방식은 카메라 개체의 가까운 평면 및 먼 평면 값을 반전 하는 것입니다. 에서이를 시도할 때 오류가 발생 하 여 Azure 원격 렌더링에 실패 합니다 `CameraSettings` .
+
+로컬 수준 버퍼로 원격 깊이를 올바르게 구성 하기 위해 Azure 원격 렌더링 API는 로컬 렌더러의 깊이 버퍼 규칙에 대해 알고 있어야 합니다. 깊이 버퍼 범위가 [0, 1] 이면이 플래그를로 둡니다 `false` . [1; 0] 범위에서 반전 된 깊이 버퍼를 사용 하는 경우 플래그를 `InverseDepth` 로 설정 `true` 합니다.
+
+> [!NOTE]
+> Unity의 경우에서 올바른 설정이 이미 적용 되었으므로 `RemoteManager` 수동 작업이 필요 하지 않습니다.
+
 카메라 설정을 변경 하는 작업은 다음과 같이 수행할 수 있습니다.
 
 ```cs
@@ -53,6 +68,7 @@ void ChangeCameraSetting(AzureSession session)
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
+    settings.InverseDepth = false;
 }
 ```
 
@@ -63,6 +79,7 @@ void ChangeStageSpace(ApiHandle<AzureSession> session)
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);
+    settings->SetInverseDepth(false);
 }
 ```
 

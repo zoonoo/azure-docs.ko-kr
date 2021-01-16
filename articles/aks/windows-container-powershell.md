@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bf446c858e40014a4085721d646f819e08542064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97741423fa8b689a92bd9db78b810e6b86aefcbd
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497888"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247117"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>PowerShell을 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -24,7 +24,11 @@ AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치][install-azure-powershell]를 참조하세요.
+PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치][install-azure-powershell]를 참조하세요. 또한 Aks PowerShell 모듈을 설치 해야 합니다. 
+
+```azurepowershell-interactive
+Install-Module Az.Aks
+```
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -50,10 +54,10 @@ Windows Server 노드 풀에는 다음과 같은 추가 제한 사항이 적용�
 
 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [New-AzResourceGroup][new-azresourcegroup] cmdlet을 사용하여 리소스 그룹을 만듭니다.
 
-다음 예제에서는 **eastus** 위치에 **myResourceGroup**이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 **eastus** 위치에 **myResourceGroup** 이라는 리소스 그룹을 만듭니다.
 
 > [!NOTE]
-> 이 문서에서는 이 자습서의 명령에 대해 PowerShell 구문을 사용합니다. Azure Cloud Shell을 사용하는 경우 Cloud Shell 창의 왼쪽 상단에 있는 드롭다운 메뉴가 **PowerShell**로 설정되어 있어야 합니다.
+> 이 문서에서는 이 자습서의 명령에 대해 PowerShell 구문을 사용합니다. Azure Cloud Shell을 사용하는 경우 Cloud Shell 창의 왼쪽 상단에 있는 드롭다운 메뉴가 **PowerShell** 로 설정되어 있어야 합니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location eastus
@@ -73,14 +77,14 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 `ssh-keygen` 명령줄 유틸리티를 사용하여 SSH 키 쌍을 생성합니다. 자세한 내용은 [빠른 단계: Azure에서 Linux VM용 SSH 퍼블릭-프라이빗 키 쌍 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
 
-Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 실행하려면 클러스터에서 [Azure CNI][azure-cni-about](고급) 네트워크 플러그인을 사용하는 네트워크 정책을 사용해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조하세요. 아래의 [New-AzAks][new-azaks] cmdlet을 사용하여 **myAKSCluster**라는 AKS 클러스터를 만듭니다. 다음 예제에서는 필요한 네트워크 리소스(존재하지 않는 경우)를 만듭니다.
+Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 실행하려면 클러스터에서 [Azure CNI][azure-cni-about](고급) 네트워크 플러그인을 사용하는 네트워크 정책을 사용해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조하세요. 아래의 [New-AzAks][new-azaks] cmdlet을 사용하여 **myAKSCluster** 라는 AKS 클러스터를 만듭니다. 다음 예제에서는 필요한 네트워크 리소스(존재하지 않는 경우)를 만듭니다.
 
 > [!NOTE]
 > 클러스터를 안정적으로 작동하도록 하려면 기본 노드 풀에서 2개 이상의 노드를 실행해야 합니다.
 
 ```azurepowershell-interactive
 $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
-New-AzAKS -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -KubernetesVersion 1.16.7 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName akswinuser -WindowsProfileAdminUserPassword $Password
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -KubernetesVersion 1.16.7 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName akswinuser -WindowsProfileAdminUserPassword $Password
 ```
 
 > [!Note]
@@ -96,11 +100,11 @@ New-AzAKS -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -Ku
 New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -OsType Windows -Name npwin -KubernetesVersion 1.16.7
 ```
 
-위의 명령은 **npwin**이라는 새 노드 풀을 만들어 **myAKSCluster**에 추가합니다. Windows Server 컨테이너를 실행하기 위해 노드 풀을 만들 때 **VmSize**의 기본값은 **Standard_D2s_v3**입니다. **VmSize** 매개 변수를 설정하도록 선택하는 경우 [제한된 VM 크기][restricted-vm-sizes] 목록을 확인합니다. 권장되는 최소 크기는 **Standard_D2s_v3**입니다. 또한 이전 명령은 `New-AzAks`를 실행할 때 생성되는 기본 vnet의 기본 서브넷을 사용합니다.
+위의 명령은 **npwin** 이라는 새 노드 풀을 만들어 **myAKSCluster** 에 추가합니다. Windows Server 컨테이너를 실행하기 위해 노드 풀을 만들 때 **VmSize** 의 기본값은 **Standard_D2s_v3** 입니다. **VmSize** 매개 변수를 설정하도록 선택하는 경우 [제한된 VM 크기][restricted-vm-sizes] 목록을 확인합니다. 권장되는 최소 크기는 **Standard_D2s_v3** 입니다. 또한 이전 명령은 `New-AzAks`를 실행할 때 생성되는 기본 vnet의 기본 서브넷을 사용합니다.
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-Kubernetes 클러스터를 관리하려면 [kubectl][kubectl] Kubernetes 명령줄 클라이언트를 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. `kubectl`을 로컬로 설치하려면 다음 `Install-AzAksKubectl` cmdlet을 사용합니다.
+Kubernetes 클러스터를 관리하려면 [kubectl][kubectl] Kubernetes 명령줄 클라이언트를 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. `kubectl`을 로컬로 설치하려면 `Install-AzAksKubectl` cmdlet을 사용합니다.
 
 ```azurepowershell-interactive
 Install-AzAksKubectl
@@ -195,7 +199,7 @@ service/sample created
 
 ## <a name="test-the-application"></a>애플리케이션 테스트
 
-애플리케이션이 실행되면 Kubernetes 서비스는 응용 프로그램 프런트 엔드를 인터넷에 공개합니다.
+애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다.
 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다. 경우에 따라 서비스를 프로비저닝하는 데 몇 분 이상 걸릴 수 있습니다. 이 경우 최대 10분이 허용됩니다.
 
 진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
@@ -204,14 +208,14 @@ service/sample created
 kubectl get service sample --watch
 ```
 
-처음에는 **샘플** 서비스에 대한 **EXTERNAL-IP**가 **보류 중**으로 표시됩니다.
+처음에는 **샘플** 서비스에 대한 **EXTERNAL-IP** 가 **보류 중** 으로 표시됩니다.
 
 ```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-**EXTERNAL-IP** 주소가 **보류 중**에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
+**EXTERNAL-IP** 주소가 **보류 중** 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
 ```plaintext
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m

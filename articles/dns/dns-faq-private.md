@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 10/05/2019
+ms.date: 01/15/2021
 ms.author: rohink
-ms.openlocfilehash: 24f2ca238288854b99160a25c3d4dcedf8ce3368
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3272f4fea4169fd5e91b1ba2b97ad72dfbb49080
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952389"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247389"
 ---
 # <a name="azure-private-dns-faq"></a>Azure 프라이빗 DNS FAQ
 
@@ -88,6 +88,10 @@ Azure DNS 전용 영역에 대 한 사용 제한에 대 한 자세한 내용은 
 ## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>기존 개인 DNS 영역을 새 모델로 마이그레이션할 어떻게 할까요? 있나요?
 
 가능한 한 빨리 새 리소스 모델로 마이그레이션하는 것이 좋습니다. 레거시 리소스 모델은 지원 되지만이 모델 위에는 추가 기능이 개발 되지 않습니다. 향후에는 새 리소스 모델을 위해 사용 중단. 기존 개인 DNS 영역을 새 리소스 모델로 마이그레이션하는 방법에 대 한 지침은[Azure DNS 개인 영역에 대 한 마이그레이션 가이드](private-dns-migration-guide.md)를 참조 하세요.
+
+### <a name="does-azure-dns-private-zones-store-any-customer-content"></a>개인 영역에서 고객 콘텐츠를 저장 Azure DNS 합니까?
+
+아니요, Azure DNS 개인 영역은 고객 콘텐츠를 저장 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

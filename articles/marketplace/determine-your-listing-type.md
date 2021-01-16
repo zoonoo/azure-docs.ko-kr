@@ -6,21 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 12/18/2020
-ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.date: 01/14/2021
+ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107398"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247553"
 ---
 # <a name="introduction-to-listing-options"></a>목록 옵션 소개
-
-상업적 marketplace에서 사용 가능한 _목록 옵션_ 을 사용 하 여 다양 한 방법으로 잠재 고객에 게 참여할 수 있습니다. 제품을 게시 한 후 제품에 대해 선택한 목록 옵션이 온라인 상점에서 제품 목록 페이지의 왼쪽 위 모서리에 단추로 표시 되 고, 예를 들어 다음 스크린샷에서는 **연락처** 및 **테스트 드라이브** 단추가 있는 Microsoft AppSource online store의 제품 목록 페이지를 보여 줍니다.
-
-:::image type="content" source="./media/listing-options.png" alt-text="제안에 대 한 목록 페이지를 보여 줍니다. 연락처 및 테스트 드라이브 단추가 표시 됩니다.":::
-
-## <a name="available-listing-options-by-offer-type"></a>제안 유형별로 사용 가능한 목록 옵션
 
 제품 유형을 만들 때 하나 이상의 목록 옵션을 선택 합니다. 이러한 옵션은 고객에 게 온라인 상점에서 제품 목록 페이지에 표시 되는 단추를 결정 합니다. 목록 옵션에는 _무료 평가판_, _시험_ 사용, _연락_ 및 _지금 받기_ 가 포함 됩니다.
 
@@ -42,7 +36,7 @@ ms.locfileid: "98107398"
 | SaaS(Software as a Service) | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-`*` 지금 다운로드 하 여 나열 옵션에는 지금 가져오기 (무료), BYOL (사용자 라이선스 필요), 구독 및 사용량 기반 가격 책정이 포함 됩니다. 자세한 내용은 [지금 가져오기](#get-it-now)를 참조 하세요.
+지금 가져오기 목록에 &#42;에는 지금 가져오기 (무료), BYOL (사용자 라이선스 필요), 구독 및 사용량 기반 가격 책정이 포함 됩니다. 자세한 내용은 [지금 가져오기](#get-it-now)를 참조 하세요.
 
 ### <a name="free-trial"></a>무료 평가판
 
@@ -71,12 +65,12 @@ Virtual machine 제품의 경우 고객은 평가 기간 동안 제품 사용에
 
 - 지금 받기 (무료)
 - BYOL(사용자 라이선스 필요)
-- Subscription
+- 구독
 - 사용량 기반 가격 책정
 
 이 표에서는 현재 목록에 포함 된 추가 가격 옵션을 지 원하는 제품 유형을 보여 줍니다.
 
-| 제품 유형 | 지금 받기 (무료) | BYOL | Subscription | 사용량 기반 가격 책정 |
+| 제품 유형 | 지금 받기 (무료) | BYOL | 구독 | 사용량 기반 가격 책정 |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Azure 애플리케이션 (관리 되는 앱) |   |   | &#10004; | &#10004; |
 | Azure 애플리케이션 (솔루션 템플릿) | &#10004; |   |   |   |
@@ -102,11 +96,17 @@ Virtual machine 제품의 경우 고객은 평가 기간 동안 제품 사용에
 
 이 목록 옵션을 사용 하 여 응용 프로그램을 무료로 제공할 수 있습니다. 고객은 _지금 가져오기_ 단추를 사용 하 여 무료 제품을 얻을 수 있습니다.
 
-#### <a name="byol"></a>BYOL
+> [!NOTE]
+> 지금 받기 (무료) 제품은 불가능 제품의 Marketplace 보상 혜택을 받을 자격이 없습니다. Storefront를 통한 트랜잭션은 없으므로 "평가판"으로 분류 됩니다. 아래의 [Marketplace 보상](#marketplace-rewards) 을 참조 하세요.
 
-상업적 marketplace를 사용 하 여 검색 기능을 개선 하 고, 솔루션의 프로 비전을 자동화 하 고, marketplace와 별도로 금융 거래를 완료 하세요. BYOL (사용자 라이선스 보유) 목록 옵션은 온-프레미스와 클라우드 간 마이그레이션에 적합 합니다. 고객이 미리 구매한 라이선스를 사용 하 여 제품을 구매 하려면 _지금 가져오기_ 단추를 사용 합니다.
+#### <a name="bring-your-own-license-byol"></a>BYOL(사용자 라이선스 필요)
 
-#### <a name="subscription"></a>Subscription
+이 목록 옵션을 사용 하면 고객이 상용 marketplace 외부에서 구매한 라이선스를 사용 하 여 제품을 배포할 수 있습니다. 이 옵션은 온-프레미스에서 클라우드로의 마이그레이션에 적합 합니다. 고객이 미리 구매한 라이선스를 사용 하 여 제품을 구매 하려면 _지금 가져오기_ 단추를 사용 합니다.
+
+> [!NOTE]
+> BYOL 제품은 불가능 제품에 대 한 Marketplace 보상 혜택을 받을 자격이 없습니다. 고객은 파트너 로부터 라이선스를 획득 해야 하 고 상업적 marketplace storefront을 통한 트랜잭션은 없으므로 "목록"으로 분류 됩니다. 아래의 [Marketplace 보상](#marketplace-rewards) 을 참조 하세요.
+
+#### <a name="subscription"></a>구독
 
 이러한 제품 유형에 대 한 정액 요금을 부과할 수 있습니다.
 
@@ -117,11 +117,17 @@ Virtual machine 제품의 경우 고객은 평가 기간 동안 제품 사용에
 
 다음 제품 유형은 사용량 기반 가격 책정을 지원 합니다.
 
-- Azure 애플리케이션 (관리 되는 앱)은 요금제 청구를 지원 합니다. 자세한 내용은 [관리 되는 응용 프로그램 요금제 청구](./partner-center-portal/azure-app-metered-billing.md)를 참조 하세요.
-- SaaS 제품은 데이터 요금 청구 및 사용자 단위 (사용자 단위) 가격 책정을 지원 합니다. 요금제에 대 한 자세한 내용은 [상용 marketplace 계량 서비스를 사용 하 여 SaaS에 대 한 요금제 청구](./partner-center-portal/saas-metered-billing.md)를 참조 하세요.
+- Azure 애플리케이션 (관리 되는 앱)은 요금제 청구를 지원 합니다. 자세한 내용은 [관리 되는 응용 프로그램 요금제 청구](partner-center-portal/azure-app-metered-billing.md)를 참조 하세요.
+- SaaS 제품은 데이터 요금 청구 및 사용자 단위 (사용자 단위) 가격 책정을 지원 합니다. 요금제에 대 한 자세한 내용은 [상용 marketplace 계량 서비스를 사용 하 여 SaaS에 대 한 요금제 청구](partner-center-portal/saas-metered-billing.md)를 참조 하세요.
 - Azure 가상 머신은 코어, 코어 크기 및 시장 당 코어 및 코어 크기 가격 책정에 따라 지원을 제공 합니다. 이러한 가격 책정 옵션은 시간당 가격이 책정 되며 매달 청구 됩니다.
 
 불가능 제품을 만들 때 제품 유형을 선택 하 고 제품을 만들기 전에 가격 책정, 청구, 청구서 및 지급 고려 사항을 이해 하는 것이 중요 합니다. 자세히 알아보려면 [상업적 marketplace 온라인 상점](overview.md#commercial-marketplace-online-stores)을 참조 하세요.
+
+## <a name="sample-offer"></a>샘플 제안
+
+제품을 게시 한 후에는 선택한 목록 옵션이 온라인 상점에서 목록 페이지의 왼쪽 위 모서리에 단추로 나타납니다. 예를 들어 다음 화면에는 **지금 가져오기** 및 **시험** 사용 단추를 사용 하 여 Microsoft AppSource 온라인 스토어의 제품 목록 페이지가 표시 됩니다.
+
+:::image type="content" source="media/listing-options.png" alt-text="연락처 및 드라이브 테스트 단추를 사용 하 여 제품에 대 한 목록 페이지를 보여 줍니다.":::
 
 ## <a name="listing-and-pricing-options-by-online-store"></a>온라인 스토어 별 목록 및 가격 옵션
 
@@ -149,10 +155,14 @@ AppSource의 &#42; SaaS 불가능 제품은 현재 신용 카드만 제공 합�
 
 &#42;&#42; Microsoft 365 추가 기능은 무료로 설치할 수 있으며 SaaS 제품을 사용 하 여 수익 화할 수 있습니다. 자세한 내용은 [Microsoft 상업용 Marketplace를 통해 Office 365 추가 기능으로 수익 창출](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조하세요.
 
-## <a name="marketplace-rewards"></a>Marketplace 보상
+## <a name="marketplace-rewards"></a>Marketplace Rewards
 
 Marketplace 보상은 선택한 목록 옵션에 따라 차별화 됩니다. 자세히 알아보려면 [상용 marketplace 혜택](gtm-your-marketplace-benefits.md)을 참조 하세요.
 
+제품이 불가능 인 경우 청구 된 판매를 늘리면 혜택을 받을 수 있습니다.
+
+불가능 없는 제품은 무료 평가판의 연결 여부에 따라 혜택을 얻을 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-- 만들 제품 유형을 선택 하려면 [제품 유형별 게시 가이드](./publisher-guide-by-offer-type.md)를 참조 하세요.
+- 만들 제품 유형을 선택 하려면 [제품 유형별 게시 가이드](publisher-guide-by-offer-type.md)를 참조 하세요.

@@ -7,18 +7,18 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2bd994f14863715274e137bce2dd6873eeec1135
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 49a0129ff26d4a12392066aa6304317d71fdb0f1
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208763"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247593"
 ---
 # <a name="defender-for-iot-installation"></a>IoT 설치용 Defender
 
 이 문서에서는 IoT 용 Azure Defender의 다음 요소를 설치 하는 방법을 설명 합니다.
 
-- **센서**: IoT 센서에 대 한 Defender는 수동 (에이전트 없는) 모니터링을 사용 하 여 ICS 네트워크 트래픽을 수집 합니다. 수동 및 비-간섭, 센서는 OT 및 IoT 네트워크 및 장치에 대 한 영향을 0으로 설정 합니다. 센서는 범위 포트나 네트워크 탭에 연결 하 고 즉시 네트워크 모니터링을 시작 합니다. 감지는 센서 콘솔에 표시 됩니다. 여기에서 네트워크 맵, 장치 인벤토리 및 광범위 한 보고서에서이를 보고 조사 하 고 분석할 수 있습니다. 예를 들면 위험 평가 보고서, 데이터 마이닝 쿼리 및 공격 벡터가 있습니다. [IoT 용 Defender 센서 사용자 가이드](https://aka.ms/AzureDefenderforIoTUserGuide)의 센서 기능에 대해 자세히 알아보세요 (직접 다운로드).
+- **센서**: IoT 센서에 대 한 Defender는 수동 (에이전트 없는) 모니터링을 사용 하 여 ICS 네트워크 트래픽을 수집 합니다. 수동 및 비-간섭, 센서는 OT 및 IoT 네트워크 및 장치에 대 한 영향을 0으로 설정 합니다. 센서는 범위 포트나 네트워크 탭에 연결 하 고 즉시 네트워크 모니터링을 시작 합니다. 감지는 센서 콘솔에 표시 됩니다. 여기에서 네트워크 맵, 장치 인벤토리 및 광범위 한 보고서에서이를 보고 조사 하 고 분석할 수 있습니다. 예를 들면 위험 평가 보고서, 데이터 마이닝 쿼리 및 공격 벡터가 있습니다. [IoT 용 Defender 센서 사용자 가이드](./getting-started.md)의 센서 기능에 대해 자세히 알아보세요 (직접 다운로드).
 
 - 온 **-프레미스 관리 콘솔**: 온-프레미스 관리 콘솔을 사용 하 여 장치 관리, 위험 관리 및 취약성 관리를 수행할 수 있습니다. 또한 엔터프라이즈 전체에서 위협 모니터링 및 인시던트 대응을 수행 하는 데 사용할 수 있습니다. 센서를 배포한 시설에서 감지 된 모든 네트워크 장치, 키 IoT 및 OT 위험 표시기와 경고에 대 한 통합 보기를 제공 합니다. 온-프레미스 관리 콘솔을 사용 하 여 gapped 네트워크에서 센서를 보고 관리 합니다.
 
@@ -67,7 +67,7 @@ IoT 어플라이언스 센서 용 Defender는 범위 포트 또는 네트워크 
 
 ### <a name="hardware-specifications-for-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에 대 한 하드웨어 사양
 
- | 항목 | 설명 |
+ | 항목 | Description |
  |----|--|
  **설명** | 다중 계층 아키텍처에서 온-프레미스 관리 콘솔은 지리적으로 분산 된 사이트에 대 한 가시성 및 제어를 제공 합니다. SIEMs, 티켓 시스템, 차세대 방화벽, 보안 원격 액세스 플랫폼, IoT for IoT ICS 맬웨어 샌드박스에 포함 된 SOC 보안 스택과 통합 됩니다. |
  **배포 유형** | Enterprise |
@@ -580,13 +580,13 @@ HPE 프로라이언트 DL20 설치에 대 한 이전 섹션을 참조 하세요.
 다음 아키텍처에서 IoT 용 Defender 센서에 대 한 가상 머신을 배포할 수 있습니다.
 
 
-| 아키텍처 | 사양 | 사용량 | 의견 |
+| Architecture | 사양 | 사용량 | 주석 |
 |---|---|---|---|
 | **엔터프라이즈** | CPU: 8<br/>메모리: 32G RAM<br/>HDD: 1800 G B | 프로덕션 환경 | 기본 및 가장 일반적인 |
 | **중소기업** | CPU: 4 <br/>메모리: 8G RAM<br/>HDD: 500 G B | 테스트 또는 소규모 프로덕션 환경 | -  |
 | **Office** | CPU: 4<br/>메모리: 8G RAM<br/>HDD: 100 G B | 소규모 테스트 환경 | -  |
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 온-프레미스 관리 콘솔은 VMware 및 Hyper-v 배포 옵션을 모두 지원 합니다. 설치를 시작 하기 전에 다음 항목이 있는지 확인 합니다.
 
@@ -711,13 +711,13 @@ HPE 프로라이언트 DL20 설치에 대 한 이전 섹션을 참조 하세요.
 
 온-프레미스 관리 콘솔 VM은 다음 아키텍처를 지원 합니다.
 
-| 아키텍처 | 사양 | 사용량 | 
+| Architecture | 사양 | 사용량 | 
 |--|--|--|
 | Enterprise <br/>(기본 및 가장 일반적) | CPU: 8 <br/>메모리: 32G RAM<br/> HDD: 1.8 TB | 대량 프로덕션 환경 | 
 | Enterprise | CPU: 4 <br/> 메모리: 8G RAM<br/> HDD: 500 G B | 대량 프로덕션 환경 |
 | Enterprise | CPU: 4 <br/>메모리: 8G RAM <br/> HDD: 100 G B | 소규모 테스트 환경 | 
    
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 온-프레미스 관리 콘솔은 VMware 및 Hyper-v 배포 옵션을 모두 지원 합니다. 설치를 시작 하기 전에 다음을 확인 합니다.
 
@@ -881,7 +881,7 @@ GUI 또는 CLI를 사용 하 여 유효성 검사를 수행 합니다. 사용자
 
 - **가장 긴 키**: 광범위 한 메모리 사용을 유발할 수 있는 가장 긴 키를 표시 합니다.
 
-#### <a name="system"></a>System
+#### <a name="system"></a>시스템
 
 - **핵심 로그**: 전체 시스템 로그를 내보내지 않고 최근 로그 행을 볼 수 있도록 핵심 로그의 마지막 500 행을 제공 합니다.
 

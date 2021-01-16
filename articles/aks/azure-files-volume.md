@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 여러 Pod에 동시에 사용�
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 89976211763f5d4729718c4e4c6503650f27f7cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a6e28464df2ff9c9dcc7734a127cc00f887e08dd
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126276"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246964"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files 공유를 사용하여 수동으로 볼륨을 만들고 사용합니다.
 
@@ -145,7 +145,6 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
   azureFile:
     secretName: azure-secret
     shareName: aksshare
@@ -161,7 +160,7 @@ spec:
 
 버전 1.8.0 - 1.8.4의 클러스터를 사용하는 경우 *runAsUser* 값을 *0* 으로 설정하여 보안 컨텍스트를 지정할 수 있습니다. Pod 보안 컨텍스트에 대한 자세한 내용은 [보안 컨텍스트 구성][kubernetes-security-context]을 참조하세요.
 
-탑재 옵션을 업데이트 하려면 *PersistentVolume* 를 사용 하 여 *azurefile-mount-pv .yaml* 파일을 만듭니다. 다음은 그 예입니다.
+탑재 옵션을 업데이트 하려면 *PersistentVolume* 를 사용 하 여 *azurefile-mount-pv .yaml* 파일을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 apiVersion: v1
@@ -173,7 +172,6 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
   azureFile:
     secretName: azure-secret
     shareName: aksshare
@@ -187,7 +185,7 @@ spec:
   - nobrl
 ```
 
-*PersistentVolume* 를 사용 하는 *PersistentVolumeClaim* 를 사용 하 여 *azurefile-mount-.yaml* 파일을 만듭니다. 다음은 그 예입니다.
+*PersistentVolume* 를 사용 하는 *PersistentVolumeClaim* 를 사용 하 여 *azurefile-mount-.yaml* 파일을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 apiVersion: v1
@@ -197,7 +195,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
+  storageClassName: ""
   resources:
     requests:
       storage: 5Gi
@@ -219,7 +217,7 @@ NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 ```
 
-*PersistentVolumeClaim* 를 참조 하 고 pod를 업데이트 하도록 컨테이너 사양을 업데이트 합니다. 다음은 그 예입니다.
+*PersistentVolumeClaim* 를 참조 하 고 pod를 업데이트 하도록 컨테이너 사양을 업데이트 합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 ...

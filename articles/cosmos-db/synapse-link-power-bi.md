@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 8a3142199502b912f20ebe05c625aa40be9fab11
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f0111228b9b0030cbbceb9fc70d829a7a22fda01
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218674"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247015"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Power BI 및 서버를 사용 하지 않는 Synapse SQL 풀 (미리 보기)을 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "98218674"
 > [!IMPORTANT]
 > Azure Cosmos DB에 대 한 Azure Synapse 링크에 대 한 Synapse 서버 리스 SQL 풀 지원은 현재 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음 리소스를 만들어야 합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "98218674"
 
 ## <a name="create-a-database-and-views"></a>데이터베이스 및 뷰 만들기
 
-Master 또는 기본 데이터베이스에서 뷰를 만드는 것은 권장 되지 않거나 지원 되지 않습니다. 따라서 데이터베이스를 만들어이 단계를 시작 해야 합니다. Synapse 작업 영역에서 **개발** 탭으로 이동 하 여 **+** 아이콘을 선택 하 고 **SQL 스크립트** 를 선택 합니다.
+Synapse 작업 영역에서 **개발** 탭으로 이동 하 여 **+** 아이콘을 선택 하 고 **SQL 스크립트** 를 선택 합니다.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
 
@@ -49,7 +49,7 @@ Master 또는 기본 데이터베이스에서 뷰를 만드는 것은 권장 되
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="작업 영역에서 서버를 사용 하지 않는 SQL 끝점을 사용 하도록 SQL 스크립트를 설정 합니다.":::
 
-**RetailCosmosDB** 라는 새 데이터베이스와 Synapse 링크를 사용 하도록 설정 된 컨테이너에 대 한 SQL 뷰를 만듭니다. 다음 명령은 데이터베이스를 만드는 방법을 보여 줍니다.
+**Master** 또는 **기본** 데이터베이스에서 뷰를 만드는 것은 권장 되지 않거나 지원 되지 않습니다. **RetailCosmosDB** 라는 새 데이터베이스와 Synapse 링크를 사용 하도록 설정 된 컨테이너에 대 한 SQL 뷰를 만듭니다. 다음 명령은 데이터베이스를 만드는 방법을 보여 줍니다.
 
 ```sql
 -- Create database

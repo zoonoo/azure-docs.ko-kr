@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
-ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188754"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247168"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>상용 marketplace에 제품을 검토 하 고 게시 하는 방법
 
@@ -150,7 +150,7 @@ ms.locfileid: "96188754"
 ### <a name="previewing-and-approving-your-offer"></a>제품 미리 보기 및 승인
 
 > [!IMPORTANT]
-> 종단 간 구매 및 설정 흐름의 유효성을 검사 하려면 미리 보기로 제공 되는 동안 제품을 구매 하세요. 먼저 Microsoft에 [지원 티켓](https://aka.ms/marketplacesupport) 을 알리고 요금을 처리 하지 않도록 합니다.
+> 종단 간 구매 및 설정 흐름의 유효성을 검사 하려면 미리 보기로 제공 되는 동안 제품을 구매 하세요. 먼저 Microsoft에 [지원 티켓](https://aka.ms/marketplacesupport) 을 알리고 요금을 처리 하지 않도록 합니다. 제품이 연락처 목록 인 경우 미리 보기 중에 연락처 세부 정보를 제공 하 여 잠재 고객이 예상 대로 생성 되는지 테스트 합니다.
 
 **제품 개요** 페이지의 **라이브 이동** 단추 아래에 미리 보기 링크가 표시 됩니다. 제품을 만들 때 선택한 옵션에 따라 AppSource 미리 보기, Azure Marketplace 미리 보기 또는 둘 다에 대 한 링크가 있습니다. Microsoft를 통해 제품을 판매 하도록 선택한 경우 미리 보기 대상에 추가 된 모든 사용자가 제품의 획득 및 배포를 테스트 하 여이 단계에서 요구 사항을 충족 하는지 확인할 수 있습니다.
 
@@ -197,7 +197,7 @@ ms.locfileid: "96188754"
 
 |이벤트    |Description    |
 |---------|---------------|
-|제안 생성    |제품은 파트너 센터에서 만들어졌습니다. 사용자가 **상업적 Marketplace** 개요에서 제안 유형, 제품 ID 및 제품 별칭을 선택  >  **Overview** 했습니다.    |
+|제안 생성    |제품은 파트너 센터에서 만들어졌습니다. 사용자가 **상업적 Marketplace** 개요에서 제안 유형, 제품 ID 및 제품 별칭을 선택  >  했습니다.    |
 |만든 계획: *계획 이름*    |사용자가 계획 **개요** 탭에 계획 ID와 계획 이름을 입력 하 여 새 계획을 만들었습니다.</br>*이 이벤트는 계획을 지 원하는 제안 유형에만 적용 됩니다*.    |
 |삭제 된 계획    |사용자가 **계획 개요** 페이지에서 **초안 삭제** 를 선택 하 여 게시 되지 않은 초안 계획을 삭제 했습니다.</br>*이 이벤트는 계획을 지 원하는 제안 유형에만 적용 됩니다*.    |
 |시작 된 계획 중지 판매: *계획 이름*    |사용자가 **계획 개요** 페이지에서 **판매 중지** 를 선택 하 여 계획 중지 판매를 시작 했습니다.</br>*이 이벤트는 계획을 지 원하는 제안 유형에만 적용 됩니다*.    |
@@ -225,7 +225,7 @@ ms.locfileid: "96188754"
 네 가지 필터가 있습니다.
 * 이벤트
 * 사용자
-* Date
+* 날짜
 * 페이지
 
 **페이지** 필터를 선택 하면 제품 유형에 적용 되는 파트너 센터 페이지를 선택할 수 있습니다. **페이지** 필터를 적용 하면 선택한 페이지에 대 한 변경 내용으로 이벤트 **를 미리 볼 수 있는 제출** 된 모든 제안이 표시 됩니다.
