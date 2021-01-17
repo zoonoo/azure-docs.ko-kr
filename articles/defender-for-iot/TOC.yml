@@ -201,6 +201,10 @@
       items:
         - name: Defender for IoT API 작업
           href: references-work-with-defender-for-iot-apis.md
+        - name: Horizon API
+          href: references-horizon-api.md
+        - name: Horizon SDK
+          href: references-horizon-sdk.md
         - name: Defender for IoT CLI 명령 작업
           href: references-work-with-defender-for-iot-cli-commands.md
         - name: 독점 프로토콜 관리(Horizon)

@@ -179,6 +179,8 @@
               href: database/performance-guidance.md
             - name: DMV를 사용하여 성능 모니터링
               href: database/monitoring-with-dmvs.md
+            - name: 차단 이해 및 해결
+              href: database/understand-resolve-blocking.md
             - name: 로그 진단 원격 분석
               href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
             - name: 메모리 내 OLTP
@@ -1098,7 +1100,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: 수동으로 구성
                           items:
-                            - name: 필수 구성 요소
+                            - name: 사전 요구 사항
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: 자습서
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
