@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 43784fe2bb94d5abd012f22ed530e4631a304614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13203c076378e1ff8f213971466eb5f63dfc4f4
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335989"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539179"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure 하이브리드 혜택
 Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 머신을 실행하여 비용을 절감할 수 있습니다. Windows OS를 사용하여 새 가상 머신을 배포하려면 Windows Server용 Azure Hybrid Benefit을 사용할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
@@ -42,10 +42,9 @@ Windows Server OS를 실행하는 모든 VM을 통해 Windows Server용 Azure Hy
 Windows Server용 Azure Hybrid Benefit에 대해 모든 Windows Server OS 기반 이미지를 제공합니다. Azure 플랫폼 지원 이미지를 사용하거나 사용자 지정 Windows Server 이미지를 업로드할 수 있습니다. 
 
 ### <a name="portal"></a>포털
-Windows Server용 Azure Hybrid Benefit을 사용하여 VM을 만들려면 "비용 절감" 섹션에서 토글을 사용하세요.
+Windows Server에 대 한 Azure 하이브리드 혜택를 사용 하 여 VM을 만들려면 만들기 프로세스 중에 **기본** 탭의 아래쪽으로 스크롤하고 **라이선스** 아래에서 기존 Windows Server 라이선스 사용 확인란을 선택 합니다. 
 
 ### <a name="powershell"></a>PowerShell
-
 
 ```powershell
 New-AzVm `

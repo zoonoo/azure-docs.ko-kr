@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b8be516051f8eed0649064ae0f7c29a4dde85675
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8a0d69ea57eb5b8b2a074c37d4798a99c576ce95
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224466"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538168"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>다른 Azure AD B2C 테 넌 트에서 Azure AD B2C 계정으로 등록 및 로그인 설정
 
@@ -37,13 +37,13 @@ ms.locfileid: "98224466"
 ![다른 Azure AD B2C 테 넌 트와 Azure AD B2C 페더레이션](./media/identity-provider-azure-ad-b2c/azure-ad-b2c-federation.png)
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-다른 Azure AD B2C (예: Fabrikam)에서 Azure AD B2C 테 넌 트 (예: Contoso)에서 Azure AD B2C 계정을 [id 공급자로](openid-connect.md) 사용 하려면 다음을 수행 합니다.
+다른 Azure AD B2C 테 넌 트 (예: Fabrikam)의 계정이 있는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 (예: Contoso) Azure AD B2C 합니다.
 
 1. [사용자 흐름](tutorial-create-user-flows.md)또는 [사용자 지정 정책을](custom-policy-get-started.md)만듭니다.
 1. 그런 다음이 섹션에 설명 된 대로 Azure AD B2C에서 응용 프로그램을 만듭니다. 
@@ -62,7 +62,7 @@ ms.locfileid: "98224466"
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    예들 들어 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`입니다.
+    예를 들어, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`를 입력합니다.
 
 1. 사용 권한 아래에서 **openid connect 및 offline_access 권한에 관리자 동의 부여** 확인란을 선택 합니다.
 1. **등록** 을 선택합니다.
@@ -184,8 +184,8 @@ ms.locfileid: "98224466"
     |ClaimsProvider\Domain  | [직접 로그인](direct-signin.md?pivots=b2c-custom-policy#redirect-sign-in-to-a-social-provider)에 사용 되는 도메인 이름입니다. 직접 로그인에 사용 하려는 도메인 이름을 입력 합니다. 예를 들면 *fabrikam.com* 입니다. |
     |TechnicalProfile\DisplayName|이 값은 로그인 화면의 로그인 단추에 표시됩니다. 예: *Fabrikam*. |
     |메타 데이터 \ client_id|ID 공급자의 애플리케이션 식별자입니다. 다른 Azure AD B2C 테 넌 트에서 이전에 만든 응용 프로그램 ID를 사용 하 여 클라이언트 ID를 업데이트 합니다.|
-    |Metadata\METADATA|Openid connect 잘 알려진 구성 끝점이 라고도 하는 Openid connect Connect id 공급자 구성 문서를 가리키는 URL입니다. `{tenant}`다른 Fabrikam (Azure AD B2C 테 넌 트)의 도메인 이름으로 대체 하는 다음 URL을 입력 합니다. 을 `{tenant}` 다른 테 넌 트에서 구성한 정책 이름으로 바꾸고을 `{policy]` 정책 이름으로 바꿉니다 `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/v2.0/.well-known/openid-configuration` . 예들 들어 `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/B2C_1_susi/v2.0/.well-known/openid-configuration`입니다.|
-    |CryptographicKeys| **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트 합니다. 예들 들어 `B2C_1A_FabrikamAppSecret`입니다.| 
+    |Metadata\METADATA|Openid connect 잘 알려진 구성 끝점이 라고도 하는 Openid connect Connect id 공급자 구성 문서를 가리키는 URL입니다. `{tenant}`다른 Fabrikam (Azure AD B2C 테 넌 트)의 도메인 이름으로 대체 하는 다음 URL을 입력 합니다. 을 `{tenant}` 다른 테 넌 트에서 구성한 정책 이름으로 바꾸고을 `{policy]` 정책 이름으로 바꿉니다 `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/v2.0/.well-known/openid-configuration` . 예를 들어, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/B2C_1_susi/v2.0/.well-known/openid-configuration`를 입력합니다.|
+    |CryptographicKeys| **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트 합니다. 예를 들어, `B2C_1A_FabrikamAppSecret`를 입력합니다.| 
     
 
 ### <a name="upload-the-extension-file-for-verification"></a>확인을 위한 확장 파일 업로드
@@ -258,7 +258,7 @@ ms.locfileid: "98224466"
 
 1. 작업 디렉터리에서 *SignUpOrSignIn.xml* 의 복사본을 만들고 이름을 바꿉니다. 예를 들어 *SignUpSignInFabrikam.xml* 로 이름을 바꿉니다.
 1. 새 파일을 열고 **TrustFrameworkPolicy** 의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예들 들어 `SignUpSignInFabrikam`입니다.
-1. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예들 들어 `http://contoso.com/B2C_1A_signup_signin_fabrikam`입니다.
+1. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어, `http://contoso.com/B2C_1A_signup_signin_fabrikam`를 입력합니다.
 1. **Defaultuserjourney** 에서 **ReferenceId** 특성의 값을 이전에 만든 사용자 경험의 ID와 일치 하도록 업데이트 합니다. 예를 들면 *SignUpSignInFabrikam* 입니다.
 1. 변경 내용을 저장하고 파일을 업로드합니다.
 1. **사용자 지정 정책** 아래의 목록에서 새 정책을 선택 합니다.

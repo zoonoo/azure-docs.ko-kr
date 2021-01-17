@@ -1,7 +1,7 @@
 ---
 title: 데이터 집합 버전 관리
 titleSuffix: Azure Machine Learning
-description: 데이터 집합을 최대한 활용 하는 방법과 기계 학습 파이프라인을 사용 하 여 버전 관리를 작동 하는 방법을 알아봅니다.
+description: 기계 학습 데이터 집합의 버전을 지정 하는 방법 및 기계 학습 파이프라인에서 버전 관리가 작동 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 7eb8010853ba370f4502b6bc155c6a098e64965b
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3290574b26abe544c8c749165e22bef41a83ecf3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133449"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538158"
 ---
-# <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
+# <a name="version-and-track-azure-machine-learning-datasets"></a>버전 및 추적 Azure Machine Learning 데이터 집합
 
 이 문서에서는 재현 가능성에 대 한 Azure Machine Learning 데이터 집합을 버전 및 추적 하는 방법을 알아봅니다. 데이터 집합 버전 관리는 이후 실험을 위해 데이터 집합의 특정 버전을 적용할 수 있도록 데이터의 상태에 책갈피를 지정 하는 방법입니다.
 

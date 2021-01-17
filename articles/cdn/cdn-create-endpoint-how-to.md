@@ -14,17 +14,17 @@ ms.topic: how-to
 ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bbd54ed68863a4704319a25af96b6463ad2377b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021965"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539698"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 만들기
 이 문서에서는 기존 CDN 프로필에서 [Azure CDN(Content Delivery Network)](cdn-overview.md) 엔드포인트를 만드는 모든 설정에 대해 설명합니다. 프로필과 엔드포인트를 만든 후에는 고객에게 콘텐츠를 제공할 수 있습니다. 프로필 및 엔드포인트를 만드는 빠른 시작은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 CDN 엔드포인트를 만들려면 먼저 하나 이상의 CDN 엔드포인트를 포함할 수 있는 CDN 프로필을 하나 이상 만들어야 합니다. 인터넷 도메인, 웹 애플리케이션 또는 일부 기타 조건으로 CDN 엔드포인트를 구성하려면 여러 프로필을 사용하면 됩니다. CDN 가격은 CDN 프로필 수준에서 적용되기 때문에 다양한 Azure CDN 가격 책정 계층을 사용하려면 여러 CDN 프로필을 만들어야 합니다. CDN 프로필을 만들려면 [새 CDN 프로필 만들기](cdn-create-new-endpoint.md#create-a-new-cdn-profile)를 참조하세요.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
@@ -97,7 +97,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
     등록이 전파되는 등록에 시간이 걸리기 때문에, 엔드포인트를 즉시 사용할 수는 없습니다. 
     - **Microsoft의 Azure CDN 표준** 프로필의 경우 일반적으로 10분 이내에 전파가 완료됩니다. 
     - **Akamai의 Azure CDN Standard** 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. 
-    - **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우 일반적으로 90분 이내에 전파가 완료됩니다. 
+    - **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN Premium** 프로필의 경우 일반적으로 30 분 내에 전파가 완료 됩니다. 
    
     엔드포인트 구성이 POP(point-of-presence) 서버에 전파되기 전에 CDN 도메인 이름을 사용하려고 시도하면 HTTP 404 응답 상태가 수신될 수 있습니다. 엔드포인트를 만든 후 몇 시간이 지난 후에도 404 응답 상태가 계속 수신되는 경우 [404 상태 코드를 반환하는 Azure CDN 엔드포인트 문제 해결](cdn-troubleshoot-endpoint.md)을 참조하세요.
 

@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 01/15/2021
-ms.openlocfilehash: 5ebae41e68633eb10959c56011dd71952f9564bd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/18/2021
+ms.openlocfilehash: 67e4da13d6954342b9979eb57a35c812cb63bb3e
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250420"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539993"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 입력 데이터 복제 구성
 
@@ -23,6 +23,9 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
 > [!NOTE]
 > 원본 서버가 버전 10.2 이상이 면 [전역 트랜잭션 ID](https://mariadb.com/kb/en/library/gtid/)를 사용 하 여 입력 데이터 복제를 설정 하는 것이 좋습니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>복제본으로 사용할 MariaDB 서버 만들기
 
@@ -40,10 +43,6 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 3. 원본 서버의 IP 주소를 복제본의 방화벽 규칙에 추가 합니다. 
 
    [Azure Portal](howto-manage-firewall-portal.md) 또는 [Azure CLI](howto-manage-firewall-cli.md)를 사용하여 방화벽 규칙을 업데이트합니다.
-
-> [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
->
 
 ## <a name="configure-the-source-server"></a>원본 서버 구성
 
@@ -95,7 +94,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
 3. 이진 로깅을 설정 합니다.
 
-    마스터에서 이진 로깅이 사용 되는지 확인 하려면 다음 명령을 입력 합니다.
+    주 복제본에서 이진 로깅이 사용 되는지 확인 하려면 다음 명령을 입력 합니다.
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';

@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360176"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539894"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
@@ -42,7 +42,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 
     1. 자동화 된 기계 학습 (자동화 된 기계 학습) 실험 실행, 기계 학습 파이프라인 또는 [Azure Machine Learning 디자이너](concept-designer.md)와 같은 Azure Machine Learning 솔루션에서 직접 사용 하세요.
 
-4. 데이터 드리프트를 검색할 모델 출력 데이터 집합에 대 한 [데이터 집합 모니터](#data-drift) 를 만듭니다. 
+4. 데이터 드리프트를 검색할 모델 출력 데이터 집합에 대 한 [데이터 집합 모니터](#drift) 를 만듭니다. 
 
 5. 데이터 드리프트가 검색 되 면 입력 데이터 집합을 업데이트 하 고 모델을 적절 하 게 다시 학습.
 
@@ -50,7 +50,8 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 
 ![다이어그램은 데이터 집합으로 흐르는 데이터 저장소로 이동 하는 Azure Storage 서비스를 보여 줍니다. 데이터 집합은 데이터 드리프트로 흐르는 모델 학습으로 이동 하 여 데이터 집합으로 다시 흐릅니다.](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>데이터 저장소
+<a name="datastores"></a>
+## <a name="connect-to-storage-with-datastores"></a>데이터 저장소를 사용 하 여 저장소에 연결
 
 데이터 저장소는 Azure storage에 대 한 연결 정보를 안전 하 게 유지 하므로 스크립트에서 코딩할 필요가 없습니다. Azure Machine Learning 저장소 계정에 쉽게 연결 하 고 기본 Azure storage 서비스의 데이터에 액세스 하는 데이터 저장소를 [등록 하 고 만듭니다](how-to-access-data.md) . 
 
@@ -65,7 +66,8 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 + Databricks 파일 시스템
 + Azure Database for MySQL
 
-## <a name="datasets"></a>데이터 세트
+<a name="datasets"></a>
+## <a name="reference-data-in-storage-with-datasets"></a>데이터 집합을 사용 하 여 저장소의 데이터 참조
 
 Azure Machine Learning 데이터 집합은 데이터의 복사본이 아닙니다. 데이터 집합을 만들면 해당 메타 데이터의 복사본과 함께 저장소 서비스에서 데이터에 대 한 참조를 만들 수 있습니다. 
 
@@ -105,7 +107,7 @@ Azure Machine Learning 데이터 집합은 데이터의 복사본이 아닙니�
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>데이터 레이블 지정
+## <a name="label-data-with-data-labeling-projects"></a>데이터 레이블 프로젝트를 사용 하 여 데이터 레이블 지정
 
 많은 양의 데이터에 레이블을 지정하는 것은 기계 학습 프로젝트에서 골칫거리인 경우가 많습니다. 이미지 분류 또는 개체 검색과 같은 컴퓨터 비전 구성 요소가 있는 컴퓨터에는 일반적으로 수천 개의 이미지와 해당 레이블이 필요 합니다.
 
@@ -115,7 +117,7 @@ Azure Machine Learning은 레이블 지정 프로젝트를 만들고, 관리하�
 
 <a name="drift"></a>
 
-## <a name="data-drift"></a>데이터 드리프트
+## <a name="monitor-model-performance-with-data-drift"></a>데이터 드리프트를 사용 하 여 모델 성능 모니터링
 
 기계 학습의 컨텍스트에서 데이터 드리프트는 모델의 성능 저하를 초래 하는 모델 입력 데이터의 변경 내용입니다. 모델 정확도가 시간에 따라 저하 되는 가장 중요 한 이유 중 하나 이므로 데이터 드리프트를 모니터링 하면 모델 성능 문제를 감지 하는 데 도움이 됩니다.
 

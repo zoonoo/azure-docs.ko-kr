@@ -1,7 +1,7 @@
 ---
-title: Azureml-데이터 집합으로 학습
+title: Machine learning 데이터 집합으로 학습
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 데이터 집합을 사용 하 여 ML 모델 학습을 위해 로컬 또는 원격 계산에서 데이터를 사용할 수 있도록 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 데이터 집합을 사용 하 여 모델 학습을 위해 로컬 또는 원격 계산에서 데이터를 사용할 수 있도록 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,15 +12,14 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108593"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539668"
 ---
-# <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
-
+# <a name="train-models-with-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합을 사용 하 여 모델 학습 
 
 이 문서에서는 [Azure Machine Learning 데이터 집합](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) 을 사용 하 여 기계 학습 모델을 학습 하는 방법에 대해 알아봅니다.  연결 문자열 또는 데이터 경로에 대 한 걱정 없이 로컬 또는 원격 계산 대상에서 데이터 집합을 사용할 수 있습니다. 
 
@@ -28,7 +27,7 @@ Azure Machine Learning 데이터 집합은 [ScriptRunConfig](/python/api/azureml
 
 데이터를 모델 학습에 사용할 수 있도록 준비 하지 않았지만 데이터 탐색을 위해 데이터를 전자 필기장에 로드 하려는 경우 데이터 [집합에서 데이터를 탐색](how-to-create-register-datasets.md#explore-data)하는 방법을 참조 하세요. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 집합을 만들고 학습 하려면 다음이 필요 합니다.
 
@@ -41,7 +40,7 @@ Azure Machine Learning 데이터 집합은 [ScriptRunConfig](/python/api/azureml
 > [!Note]
 > 일부 데이터 집합 클래스에는 [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
 
-## <a name="use-datasets-directly-in-training-scripts"></a>학습 스크립트에서 직접 데이터 집합 사용
+## <a name="consume-datasets-in-machine-learning-training-scripts"></a>기계 학습 교육 스크립트에서 데이터 집합 사용
 
 구조화 된 데이터를 데이터 집합으로 아직 등록 하지 않은 경우 TabularDataset를 만들어 로컬 또는 원격 실험을 위한 학습 스크립트에서 직접 사용 합니다.
 
@@ -90,6 +89,7 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-training-run"></a>학습 실행 구성
+
 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) 개체는 학습 실행을 구성 하 고 제출 하는 데 사용 됩니다.
 
 이 코드는를 `src` 지정 하는 ScriptRunConfig 개체를 만듭니다.
@@ -141,6 +141,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 ```
 
 ### <a name="configure-the-training-run"></a>학습 실행 구성
+
 `arguments`생성자의 매개 변수를 통해 탑재할 때 데이터 집합을 인수로 전달 하는 것이 좋습니다 `ScriptRunConfig` . 이렇게 하면 인수를 통해 학습 스크립트에서 데이터 경로 (탑재 지점)를 얻게 됩니다. 이러한 방식으로 모든 클라우드 플랫폼에서 로컬 디버깅 및 원격 교육에 대해 동일한 학습 스크립트를 사용할 수 있습니다.
 
 다음 예에서는를 통해 FileDataset에 전달 되는 ScriptRunConfig를 만듭니다 `arguments` . 실행을 제출한 후에는 데이터 집합에서 참조 하는 데이터 파일이 `mnist_ds` 계산 대상으로 탑재 됩니다.
@@ -160,7 +161,7 @@ run = experiment.submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
-### <a name="retrieve-the-data-in-your-training-script"></a>학습 스크립트에서 데이터 검색
+### <a name="retrieve-data-in-your-training-script"></a>학습 스크립트에서 데이터 검색
 
 다음 코드에서는 스크립트에서 데이터를 검색 하는 방법을 보여 줍니다.
 
@@ -222,10 +223,9 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
+## <a name="get-datasets-in-machine-learning-scripts"></a>기계 학습 스크립트에서 데이터 집합 가져오기
 
-## <a name="directly-access-datasets-in-your-script"></a>스크립트의 데이터 집합에 직접 액세스
-
-등록 된 데이터 집합은 Azure Machine Learning 계산 등의 계산 클러스터에서 로컬로 또는 원격으로 액세스할 수 있습니다. 실험에서 등록 된 데이터 집합에 액세스 하려면 다음 코드를 사용 하 여 작업 영역에 액세스 하 고 이름으로 등록 된 데이터 집합에 액세스 합니다. 기본적으로 [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) 클래스의 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다.
+등록 된 데이터 집합은 Azure Machine Learning 계산 등의 계산 클러스터에서 로컬로 또는 원격으로 액세스할 수 있습니다. 실험에서 등록 된 데이터 집합에 액세스 하려면 다음 코드를 사용 하 여 작업 영역에 액세스 하 고 이전에 제출 된 실행에서 사용 된 데이터 집합을 가져옵니다. 기본적으로 [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) 클래스의 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다.
 
 ```Python
 %%writefile $script_folder/train.py
@@ -244,7 +244,7 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## <a name="accessing-source-code-during-training"></a>학습 도중에 소스 코드 액세스
+## <a name="access-source-code-during-training"></a>학습 중 소스 코드 액세스
 
 Azure Blob Storage는 Azure 파일 공유보다 처리 속도가 빠르며 동시에 시작되는 여러 작업으로 스케일링됩니다. 이러한 이유로 소스 코드 파일을 전송할 때 Blob Storage를 사용하도록 실행을 구성하는 것이 좋습니다.
 

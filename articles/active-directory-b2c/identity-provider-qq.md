@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b497176deff896e785387f4b64a8e66ff4d6d58e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 5b7c6a229cfee5b543d1169b30be336cc97ba7ed
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654322"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538088"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인
 
@@ -31,7 +31,7 @@ ms.locfileid: "97654322"
 
 ## <a name="create-a-qq-application"></a>QQ 애플리케이션 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 id 공급자로 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. 아직 QQ 계정이 없는 경우에는에서 등록할 수 있습니다 [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) .
+Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 사용 하는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 [qq 개발자 포털](http://open.qq.com)에서 응용 프로그램을 만들어야 합니다. 아직 QQ 계정이 없는 경우에는에서 등록할 수 있습니다 [https://ssl.zc.qq.com](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) .
 
 ### <a name="register-for-the-qq-developer-program"></a>QQ 개발자 프로그램 등록
 
@@ -43,7 +43,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 id 공급자로 사
 
 ### <a name="register-a-qq-application"></a>QQ 애플리케이션 등록
 
-1. [https://connect.qq.com/index.html](https://connect.qq.com/index.html)으로 이동합니다.
+1. [https://connect.qq.com/index.html](https://connect.qq.com/index.html)로 이동하세요.
 1. **应用管理**(앱 관리)를 선택합니다.
 1. **创建应用**(앱 만들기)를 선택한 후 필수 정보를 입력합니다.
 1. **授权回调域**(콜백 URL)에 `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp`를 입력합니다. 예를 들어 `tenant_name`이 contoso인 경우 URL을 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`가 되도록 설정합니다.
@@ -189,7 +189,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 id 공급자로 사
 ## <a name="add-qq-identity-provider-to-a-user-flow"></a>사용자 흐름에 QQ id 공급자 추가 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. QQ id 공급자에 대해 원하는 사용자 흐름을 클릭 합니다.
+1. QQ id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
 1. **소셜 id 공급자** 아래에서 **qq** 를 선택 합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.

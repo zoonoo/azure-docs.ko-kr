@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c8b942e66a76bcc3a095f9bd3d40b44bf4217e50
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 286f4f5ca8a18a67da2ac24beb4c6935de35778d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584887"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538111"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Google 계정으로 등록 설정 및 로그인
 
@@ -30,14 +30,14 @@ ms.locfileid: "97584887"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
 ## <a name="create-a-google-application"></a>Google 애플리케이션 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 Google 계정을 [id 공급자로](authorization-code-flow.md) 사용 하려면 Google 개발자 콘솔에서 응용 프로그램을 만들어야 합니다. Google 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) .
+Azure Active Directory B2C (Azure AD B2C)에서 Google 계정을 사용 하는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 [Google 개발자 콘솔](https://console.developers.google.com/)에서 응용 프로그램을 만들어야 합니다. 자세한 내용은 [OAuth 2.0 설정](https://support.google.com/googleapi/answer/6158849)을 참조 하세요. Google 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) .
 
 1. Google 계정 자격 증명을 사용하여 [Google 개발자 콘솔](https://console.developers.google.com/)에 로그인합니다.
 1. 페이지의 왼쪽 위 모서리에서 프로젝트 목록을 선택한 다음 **새 프로젝트** 를 선택 합니다.
@@ -189,7 +189,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Google 계정을 [id 공급자�
 ## <a name="add-google-identity-provider-to-a-user-flow"></a>사용자 흐름에 Google id 공급자 추가 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. Google id 공급자에 사용할 사용자 흐름을 클릭 합니다.
+1. Google id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
 1. **소셜 id 공급자** 아래에서 **Google** 을 선택 합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.

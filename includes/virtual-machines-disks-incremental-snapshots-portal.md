@@ -8,25 +8,13 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e207866b61d21334bc9923d0d784b900906b0045
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002524"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539722"
 ---
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
-
-## <a name="regional-availability"></a>국가별 가용성
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-regions](virtual-machines-disks-incremental-snapshots-regions.md)]
-
-### <a name="restrictions"></a>제한
-
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](virtual-machines-disks-incremental-snapshots-restrictions.md)]
-
-## <a name="portal"></a>포털
-
-
 1. [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 원하는 디스크로 이동 합니다.
 1. 디스크에서 **스냅숏 만들기** 를 선택 합니다.
 
@@ -40,7 +28,3 @@ ms.locfileid: "96002524"
 1. **만들기** 를 선택합니다.
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="샷에. 스냅숏에 대 한 유효성 검사 페이지에서 선택 사항을 확인 한 다음 스냅숏을 만듭니다.":::
-
-## <a name="next-steps"></a>다음 단계
-
-.NET을 사용 하 여 증분 스냅숏의 차등 기능을 보여 주는 샘플 코드를 보려면 [증분 스냅숏의 차등 기능을 사용 하 여 다른 지역에 Azure Managed Disks 백업 복사](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)를 참조 하세요.

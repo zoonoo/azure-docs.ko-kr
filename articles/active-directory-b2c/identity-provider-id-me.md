@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6877a82d81b46ac2ffda8d0f0bf3fb0d7b337ff3
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c7d43a55878a07e424ce1b6f55782502c244239c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97663630"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537934"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-idme-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 ID.me 계정으로 등록 및 로그인 설정
 
@@ -39,7 +39,7 @@ ms.locfileid: "97663630"
 
 ## <a name="create-an-idme-application"></a>ID.me 응용 프로그램 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 ID.me 계정을 id 공급자로 사용 하려면 [API & SDK 용 개발자 리소스 ID.me](https://developers.id.me/)에 응용 프로그램을 만들어야 합니다. ID.me developer 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://developers.id.me/registration/new](https://developers.id.me/registration/new) .
+Azure Active Directory B2C (Azure AD B2C)에서 ID.me 계정을 사용 하는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 [API & SDK 용 개발자 리소스 ID.me](https://developers.id.me/)에 응용 프로그램을 만들어야 합니다. 자세한 내용은 [OAuth 통합 가이드](https://developers.id.me/documentation/oauth/overview/kyc)를 참조 하세요. ID.me developer 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://developers.id.me/registration/new](https://developers.id.me/registration/new) .
 
 1. ID.me 계정 자격 증명을 사용 하 여 [API & SDK에 대 한 ID.me Developer 리소스](https://developers.id.me/) 에 로그인 합니다.
 1. **내 응용 프로그램 보기** 를 선택 하 고 **계속** 을 선택 합니다.

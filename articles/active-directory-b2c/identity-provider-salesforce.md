@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 129809a83bcebdcf80b05a7300dd9acf862e5886
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 92c5850c3e8c6db63bb5f6287078d2b0345a051c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900402"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538040"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 Salesforce 계정으로 등록 및 로그인 설정
 
@@ -30,14 +30,14 @@ ms.locfileid: "97900402"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
 ## <a name="create-a-salesforce-application"></a>Salesforce 응용 프로그램 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정을 사용 하려면 Salesforce **앱 관리자** 에서 응용 프로그램을 만들어야 합니다. 자세한 내용은 [기본 연결 된 앱 설정 구성](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)및 [API 통합에 OAuth 설정 사용](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm) 을 참조 하세요.
+Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정이 있는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 Salesforce [앱 관리자](https://login.salesforce.com/)에서 응용 프로그램을 만들어야 합니다. 자세한 내용은 [기본 연결 된 앱 설정 구성](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)및 [API 통합에 OAuth 설정 사용](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm) 을 참조 하세요.
 
 1. [Salesforce에 로그인](https://login.salesforce.com/)합니다.
 1. 메뉴에서 **설정** 을 선택 합니다.
@@ -210,7 +210,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정을 사용 하�
 ## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>사용자 흐름에 Salesforce id 공급자 추가 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. Salesforce id 공급자에 대해 원하는 사용자 흐름을 클릭 합니다.
+1. Salesforce id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
 1. **소셜 id 공급자** 아래에서 **Salesforce** 를 선택 합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.

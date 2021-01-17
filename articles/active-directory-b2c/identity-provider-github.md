@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 68ffde11059de4809e519c1ac4f79503f25b0004
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 38eee59ecffa0c09403f47678e588b678e038413
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653744"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537966"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 GitHub 계정으로 등록 설정 및 로그인
 
@@ -38,9 +38,9 @@ ms.locfileid: "97653744"
 
 ## <a name="create-a-github-oauth-application"></a>GitHub OAuth 애플리케이션 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 GitHub 계정을 [id 공급자로](authorization-code-flow.md) 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. 아직 GitHub 계정이 없는 경우에는에서 등록할 수 있습니다 [https://www.github.com/](https://www.github.com/) .
+Azure Active Directory B2C (Azure AD B2C)에서 GitHub 계정으로 로그인 할 수 있도록 하려면 [Github 개발자](https://github.com/settings/developers) 포털에서 응용 프로그램을 만들어야 합니다. 자세한 내용은 [OAuth 앱 만들기](https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-an-oauth-app)를 참조 하세요. 아직 GitHub 계정이 없는 경우에는에서 등록할 수 있습니다 [https://www.github.com/](https://www.github.com/) .
 
-1. GitHub 자격 증명을 사용하여 [GitHub Developer](https://github.com/settings/developers) 웹 사이트에 로그인합니다.
+1. Github 자격 증명을 사용 하 여 [Github 개발자](https://github.com/settings/developers) 에 게 로그인 합니다.
 1. **OAuth 앱**, **새 OAuth 앱** 을 차례로 선택합니다.
 1. **애플리케이션 이름** 및 **홈페이지 URL** 을 입력합니다.
 1. **권한 부여 콜백 URL** 에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용합니다.
@@ -218,7 +218,7 @@ GitHub 기술 프로필을 사용 하려면 **CreateIssuerUserId** 클레임 변
 ## <a name="add-github-identity-provider-to-a-user-flow"></a>사용자 흐름에 GitHub id 공급자 추가 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. GitHub id 공급자에 사용할 사용자 흐름을 클릭 합니다.
+1. GitHub id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
 1. **소셜 id 공급자** 아래에서 **GitHub** 를 선택 합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.

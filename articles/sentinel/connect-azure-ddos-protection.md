@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: yelevin
-ms.openlocfilehash: b5d98a834ed4f87fb95a13e666967a7b2d80975d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c54b5b785f6da1bb651d8b1f508da42ab0fb802d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656057"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538387"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Azure DDoS Protection에서 데이터 연결
 
@@ -38,7 +38,7 @@ DDoS (배포 된 서비스 거부) 공격은 응용 프로그램의 리소스를
 
 1. 데이터 커넥터 갤러리에서 **Azure DDoS Protection** 을 선택한 다음 미리 보기 창에서 **커넥터 페이지 열기** 를 선택 합니다.
 
-1. 연결 하려는 로그가 있는 모든 방화벽에서 **진단 로그** 를 사용 하도록 설정 합니다.
+1. 연결 하려는 로그의 모든 공용 IP 주소에서 **진단 로그** 를 사용 하도록 설정 합니다.
 
     1. **진단 설정 >열기** 링크를 선택 하 고 목록에서 **공용 IP 주소** 리소스를 선택 합니다.
 

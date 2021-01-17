@@ -5,24 +5,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/13/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 97d89db17af9cde3afadee430b3d0c2a434e12c9
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 57192ab2ee1624cb18de832ac91c95290da727df
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210140"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539874"
 ---
 # <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Service Bus 네임 스페이스 및 엔터티를 동적으로 프로 비전 
 Azure Service Bus 관리 라이브러리는 Service Bus 네임스페이스 및 엔터티를 동적으로 프로비전할 수 있습니다. 이를 통해 복잡한 배포 및 메시지 시나리오가 가능하며, 어떤 엔터티를 프로비전할 것인지 프로그래밍 방식으로 결정할 수 있습니다. 이러한 라이브러리는 현재 .NET에서 사용할 수 있습니다.
 
-## <a name="supported-functionality"></a>지원되는 기능
+## <a name="overview"></a>개요
+Service Bus 엔터티를 만들고 관리 하는 데 사용할 수 있는 세 가지 관리 라이브러리가 있습니다. 관련 토폴로지는 다음과 같습니다.
 
-* 네임스페이스 만들기, 업데이트, 삭제
-* 큐 만들기, 업데이트, 삭제
-* 토픽 만들기, 업데이트, 삭제
-* 구독 만들기, 업데이트, 삭제
+- [ServiceBus. 관리](#azuremessagingservicebusadministration)
+- [ServiceBus. 관리](#microsoftazureservicebusmanagement)
+- [Microsoft.Azure.Management.ServiceBus](#microsoftazuremanagementservicebus)
 
-## <a name="azuremessagingservicebusadministration-recommended"></a>ServiceBus (권장)
+이러한 모든 패키지는 **큐, 토픽 및 구독** 에 대 한 만들기, 가져오기, 나열, 삭제, 업데이트, 삭제 및 업데이트 작업을 지원 합니다. 그러나 [ServiceBus](#microsoftazuremanagementservicebus) 만 **네임 스페이스** 에 대 한 만들기, 업데이트, 나열, 가져오기 및 삭제 작업을 지원 하 고 SAS 키를 나열 하 고 다시 생성 하는 등의 작업을 지원 합니다. 
+
+ServiceBus 라이브러리는 Azure Active Directory (Azure AD) 인증에만 사용할 수 있으며 연결 문자열 사용은 지원 하지 않습니다. 반면 다른 두 라이브러리 (ServiceBus 및 ServiceBus)는 서비스를 인증 하는 데 연결 문자열을 사용 하는 것을 지원 하 고 더 쉽게 사용할 수 있습니다. 이러한 라이브러리 사이에 ServiceBus은 최신 버전 이며 사용 하는 것이 좋습니다.
+
+다음 섹션에서는 이러한 라이브러리에 대 한 자세한 정보를 제공 합니다. 
+
+## <a name="azuremessagingservicebusadministration"></a>ServiceBus. 관리
 [ServiceBus](/dotnet/api/azure.messaging.servicebus.administration) 네임 스페이스에서 [ServiceBusAdministrationClient](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient) 클래스를 사용 하 여 네임 스페이스, 큐, 토픽 및 구독을 관리할 수 있습니다. 샘플 코드는 다음과 같습니다. 전체 예제는 [CRUD 예](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/tests/Samples/Sample07_CrudOperations.cs)를 참조 하세요.
 
 ```csharp
@@ -89,7 +95,7 @@ namespace adminClientTrack2
 [ServiceBus](/dotnet/api/microsoft.azure.servicebus.management) 네임 스페이스에서 [managementclient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) 클래스를 사용 하 여 네임 스페이스, 큐, 토픽 및 구독을 관리할 수 있습니다. 샘플 코드는 다음과 같습니다. 
 
 > [!NOTE]
-> `ServiceBusAdministrationClient`라이브러리의 클래스 (최신 SDK)를 사용 하는 것이 좋습니다 `Azure.Messaging.ServiceBus.Administration` . 자세한 내용은 [첫 번째 섹션](#azuremessagingservicebusadministration-recommended)을 참조 하세요. 
+> `ServiceBusAdministrationClient`라이브러리의 클래스 (최신 SDK)를 사용 하는 것이 좋습니다 `Azure.Messaging.ServiceBus.Administration` . 자세한 내용은 [첫 번째 섹션](#azuremessagingservicebusadministration)을 참조 하세요. 
 
 ```csharp
 using System;
@@ -150,13 +156,13 @@ namespace SBusManagementClient
 ## <a name="microsoftazuremanagementservicebus"></a>Microsoft.Azure.Management.ServiceBus 
 이 라이브러리는 Azure Resource Manager 기반 컨트롤 평면 SDK의 일부입니다. 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 라이브러리를 사용 하기 시작 하려면 Azure Active Directory (Azure AD) 서비스를 사용 하 여 인증 해야 합니다. Azure AD를 사용하려면 Azure 리소스에 대한 액세스를 제공하는 서비스 주체로 인증해야 합니다. 서비스 주체 만들기에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.  
 
 * [Azure Portal를 사용 하 여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체를 만듭니다.](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 이러한 자습서는 관리 라이브러리를 통해 인증에 사용되는 `AppId`(클라이언트 ID), `TenantId` 및 `ClientSecret`(인증 키)를 제공합니다. 실행 하려는 리소스 그룹에 대 한 [**Azure Service Bus 이상의 데이터 소유자**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 또는 [**참가자**](../role-based-access-control/built-in-roles.md#contributor) 권한이 있어야 합니다.
 

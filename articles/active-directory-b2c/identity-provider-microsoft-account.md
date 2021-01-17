@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 123b36ba854bec8b363d59bbed5e70f18da1e578
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d9cba08e5b6650edc0decd3ff9df4060e9ad815c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653710"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538003"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인
 
@@ -36,7 +36,7 @@ ms.locfileid: "97653710"
 
 ## <a name="create-a-microsoft-account-application"></a>Microsoft 계정 애플리케이션 만들기
 
-Azure AD B2C(Azure Active Directory B2C)에서 Microsoft 계정을 [ID 공급자](openid-connect.md)로 사용하려면 Azure AD 테넌트에 애플리케이션을 만들어야 합니다. Azure AD 테넌트는 Azure AD B2C 테넌트와 다릅니다. Microsoft 계정이 없는 경우 [https://www.live.com/](https://www.live.com/)에서 하나의 계정을 얻을 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)에서 Microsoft 계정를 사용 하 여 사용자가 로그인 할 수 있도록 하려면 [Azure Portal](https://portal.azure.com)에서 응용 프로그램을 만들어야 합니다. 자세한 내용은 [Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)을 참조 하세요. Microsoft 계정이 없는 경우 [https://www.live.com/](https://www.live.com/)에서 하나의 계정을 얻을 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
@@ -210,7 +210,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 ## <a name="add-microsoft-identity-provider-to-a-user-flow"></a>사용자 흐름에 Microsoft id 공급자 추가 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. Microsoft id 공급자에 사용할 사용자 흐름을 클릭 합니다.
+1. Microsoft id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
 1. **소셜 id 공급자** 에서 **Microsoft 계정** 을 선택 합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.

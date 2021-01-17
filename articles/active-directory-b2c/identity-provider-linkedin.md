@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: bde7c1adefea88ed5b5d86e2c0e17f475be1bc71
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e2c576c97d170726f5ec1b06e5a6d0d859a85e64
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654373"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538124"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 LinkedIn 계정으로 등록 설정 및 로그인
 
@@ -36,7 +36,7 @@ ms.locfileid: "97654373"
 
 ## <a name="create-a-linkedin-application"></a>LinkedIn 애플리케이션 만들기
 
-LinkedIn 계정을 Azure Active Directory B2C (Azure AD B2C)에서 [id 공급자로](authorization-code-flow.md) 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. LinkedIn 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://www.linkedin.com/](https://www.linkedin.com/) .
+Azure Active Directory B2C (Azure AD B2C)에서 LinkedIn 계정이 있는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 [Linkedin 개발자 웹 사이트](https://www.developer.linkedin.com/)에서 응용 프로그램을 만들어야 합니다. 자세한 내용은 [권한 부여 코드 흐름](https://docs.microsoft.com/linkedin/shared/authentication/authorization-code-flow)을 참조 하세요. LinkedIn 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://www.linkedin.com/](https://www.linkedin.com/) .
 
 1. LinkedIn 계정 자격 증명을 사용하여 [LinkedIn 개발자 웹 사이트](https://www.developer.linkedin.com/)에 로그인합니다.
 1. **내 앱** 을 선택한 다음, **앱 만들기** 를 클릭 합니다.
@@ -232,7 +232,7 @@ LinkedIn 기술 프로필을 사용 하려면 **ExtractGivenNameFromLinkedInResp
 ## <a name="add-linkedin-identity-provider-to-a-user-flow"></a>사용자 흐름에 LinkedIn id 공급자 추가 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. LinkedIn id 공급자에 대해 원하는 사용자 흐름을 클릭 합니다.
+1. LinkedIn id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
 1. **소셜 id 공급자** 에서 **LinkedIn** 을 선택 합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 42502864cfed177adfe487e9c59247579628fec8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108952"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539084"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Windows Virtual Desktop 서비스 연결
 
@@ -49,14 +49,15 @@ ms.locfileid: "92108952"
 이는 CSP 공급자가 구독을 만든 다음 고객에 게 전송한 경우에도 발생할 수 있습니다. 이 문제를 해결 하려면 리소스 공급자를 다시 등록 합니다.
 
 1. Azure Portal에 로그인합니다.
-2. **구독**으로 이동한 다음 구독을 선택 합니다.
-3. 페이지의 왼쪽에 있는 메뉴에서 **리소스 공급자**를 선택 합니다.
-4. **Microsoft DesktopVirtualization**을 찾아 선택한 다음 **다시 등록**을 선택 합니다.
+2. **구독** 으로 이동한 다음 구독을 선택 합니다.
+3. 페이지의 왼쪽에 있는 메뉴에서 **리소스 공급자** 를 선택 합니다.
+4. **Microsoft DesktopVirtualization** 을 찾아 선택한 다음 **다시 등록** 을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Windows Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
 - Windows Virtual Desktop 환경에서 Windows Virtual Desktop 환경 및 호스트 풀을 만드는 데 발생하는 문제를 해결하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조하세요.
 - Windows Virtual Desktop에서 VM(가상 머신)을 구성하면서 생기는 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration.md)을 참조하세요.
+- Windows 가상 데스크톱 에이전트 또는 세션 연결과 관련 된 문제를 해결 하려면 [일반적인 Windows 가상 데스크톱 에이전트 문제 해결](troubleshoot-agent.md)을 참조 하세요.
 - Windows Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.

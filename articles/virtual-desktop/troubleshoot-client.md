@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 097c97d16cf62793d03ac42662267e0553383bc1
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108969"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539614"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>원격 데스크톱 클라이언트 문제 해결
 
@@ -33,7 +33,7 @@ msrdcw.exe /reset [/f]
 
 먼저 브라우저에서 다른 웹 사이트를 열어 인터넷 연결을 테스트합니다. 예를 들어 [www.bing.com](https://www.bing.com)입니다.
 
-**nslookup**을 사용하여 DNS에서 FQDN을 확인할 수 있는지 다음과 같이 확인합니다.
+**nslookup** 을 사용하여 DNS에서 FQDN을 확인할 수 있는지 다음과 같이 확인합니다.
 
 ```cmd
 nslookup rdweb.wvd.microsoft.com
@@ -94,14 +94,15 @@ Windows 클라이언트 피드에 Windows 가상 데스크톱 (클래식) 앱이
 목록에서 앱 ID 9cdead84-a844-4324-93f2-b2e6bb768d07를 찾을 수 없는 경우 Windows 가상 데스크톱 리소스 공급자를 등록 해야 합니다. 리소스 공급자를 등록하려면 다음 단계를 따릅니다.
 
 1. Azure Portal에 로그인합니다.
-2. **구독**으로 이동한 다음 구독을 선택 합니다.
-3. 페이지의 왼쪽에 있는 메뉴에서 **리소스 공급자**를 선택 합니다.
-4. **Microsoft DesktopVirtualization**을 찾아 선택한 다음 **다시 등록**을 선택 합니다.
+2. **구독** 으로 이동한 다음 구독을 선택 합니다.
+3. 페이지의 왼쪽에 있는 메뉴에서 **리소스 공급자** 를 선택 합니다.
+4. **Microsoft DesktopVirtualization** 을 찾아 선택한 다음 **다시 등록** 을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Windows Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
 - Windows Virtual Desktop 환경에서 Windows Virtual Desktop 환경 및 호스트 풀을 만드는 데 발생하는 문제를 해결하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조하세요.
 - Windows Virtual Desktop에서 VM(가상 머신)을 구성하면서 생기는 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration.md)을 참조하세요.
+- Windows 가상 데스크톱 에이전트 또는 세션 연결과 관련 된 문제를 해결 하려면 [일반적인 Windows 가상 데스크톱 에이전트 문제 해결](troubleshoot-agent.md)을 참조 하세요.
 - Windows Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.

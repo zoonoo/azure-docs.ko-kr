@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 24e267b66d11cb3c5ca2b70ed09b7acb3653da99
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 36b7618fbacc18ec506f12eabc642246d3148ce0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653608"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537916"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인
 
@@ -32,7 +32,7 @@ ms.locfileid: "97653608"
 
 ## <a name="create-a-weibo-application"></a>Weibo 애플리케이션 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 Weibo 계정을 id 공급자로 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. Weibo 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) .
+Azure Active Directory B2C (Azure AD B2C)에서 Weibo 계정을 사용 하는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 [Weibo 개발자 포털](https://open.weibo.com/)에서 응용 프로그램을 만들어야 합니다. Weibo 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us) .
 
 1. Weibo 계정 자격 증명을 사용하여 [Weibo 개발자 포털](https://open.weibo.com/)에 로그인합니다.
 1. 로그인한 후 오른쪽 위 모서리의 표시 이름을 선택합니다.
@@ -263,7 +263,7 @@ GitHub 기술 프로필을 사용 하려면 **CreateIssuerUserId** 클레임 변
 ## <a name="add-weibo-identity-provider-to-a-user-flow"></a>사용자 흐름에 Weibo id 공급자 추가 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. Weibo id 공급자에 사용할 사용자 흐름을 클릭 합니다.
+1. Weibo id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
 1. **소셜 id 공급자** 아래에서 **Weibo** 을 선택 합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.

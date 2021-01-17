@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: af840a7becb0fb2c23e01153828458ee1cfa51a1
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1dd9af3abd723b3a7adad82f3bbb4a09fc4464f7
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654237"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538027"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 WeChat 계정으로 등록 설정 및 로그인
 
@@ -33,7 +33,7 @@ ms.locfileid: "97654237"
 
 ## <a name="create-a-wechat-application"></a>WeChat 애플리케이션 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 WeChat 계정을 id 공급자로 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. WeChat 계정이 아직 없는 경우에서 정보를 가져올 수 있습니다 [https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html) .
+Azure Active Directory B2C (Azure AD B2C)에서 WeChat 계정을 사용 하는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 [WeChat 관리 센터](https://open.weixin.qq.com/)에서 응용 프로그램을 만들어야 합니다. WeChat 계정이 아직 없는 경우에서 정보를 가져올 수 있습니다 [https://kf.qq.com](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html) .
 
 ### <a name="register-a-wechat-application"></a>WeChat 애플리케이션 등록
 
@@ -183,7 +183,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 WeChat 계정을 id 공급자로
 ## <a name="add-wechat-identity-provider-to-a-user-flow"></a>사용자 흐름에 WeChat id 공급자 추가 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. WeChat id 공급자에 사용할 사용자 흐름을 클릭 합니다.
+1. WeChat id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
 1. **소셜 id 공급자** 아래에서 **WeChat** 을 선택 합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.

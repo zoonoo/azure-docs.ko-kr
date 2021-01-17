@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
-ms.openlocfilehash: 921c05b76640935a1bd9e65d556933c23093e5b2
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/15/2021
+ms.openlocfilehash: 8c2739503f00848b1515f2061c2a9aa250c091a3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251440"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539844"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>가상 컴퓨터 인증 문제 해결
 
@@ -22,7 +22,6 @@ VM (가상 컴퓨터) 이미지를 Azure Marketplace에 게시 하는 경우 Azu
 
 > [!NOTE]
 > 이 문서 또는 향상 된 제안 사항에 대 한 질문이 있는 경우 [파트너 센터 지원](https://aka.ms/marketplacepublishersupport)에 문의 하세요.
-
 
 ## <a name="vm-extension-failure"></a>VM 확장 오류
 
@@ -60,12 +59,12 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면:
 |1|잘못 된 VHD (가상 하드 디스크)|VHD 바닥글의 지정 된 쿠키 값이 잘못 된 경우 VHD가 잘못 된 것으로 간주 됩니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |2|잘못 된 blob 유형|사용 된 블록이 페이지 유형이 아닌 blob 유형 이므로 VM을 프로 비전 하지 못했습니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |3|프로 비전 시간 초과 또는 제대로 일반화 되지 않음|VM 일반화에 문제가 있습니다.|일반화를 사용 하 여 이미지를 다시 만들고 요청을 제출 합니다.|
+|
 
 > [!NOTE]
 > VM 일반화에 대 한 자세한 내용은 다음을 참조 하세요.
 > - [Linux 설명서](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Windows 설명서](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
-
 
 ## <a name="vhd-specifications"></a>VHD 사양
 
@@ -93,7 +92,7 @@ Creator 응용 프로그램|4
 고유 ID|16
 저장 된 상태|1
 예약됨|427
-
+|
 
 ### <a name="vhd-specifications"></a>VHD 사양
 
@@ -127,7 +126,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 될 Linux 테스트 사례를 보여 줍니다. 테스트 유효성 검사는 설명에 명시 되어 있습니다.
 
-|시나리오|테스트 사례|Description|
+|시나리오|테스트 사례|설명|
 |---|---|---|
 |1|Bash 기록|Bash 기록 파일은 VM 이미지를 만들기 전에 지워야 합니다.|
 |2|Linux 에이전트 버전|Azure Linux Agent 2.2.41 이상을 설치 해야 합니다.|
@@ -139,6 +138,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 |8|클라이언트 연결 간격|ClientAliveInterval를 180로 설정 합니다. 응용 프로그램 요구에 따라 30에서 235로 설정할 수 있습니다. 최종 사용자에 대해 SSH를 사용 하도록 설정 하는 경우이 값은 설명 된 대로 설정 해야 합니다.|
 |9|OS 아키텍처|64비트 운영 체제만 지원됩니다.|
 |10|자동 업데이트|Linux 에이전트 자동 업데이트가 사용 되는지 여부를 식별 합니다.|
+|
 
 ### <a name="common-test-case-errors"></a>일반적인 테스트 사례 오류
 
@@ -150,13 +150,13 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 | 2 | Bash 기록 테스트 사례 | 제출 된 이미지의 Bash 기록 크기가 1kb를 초과 하는 경우 오류가 발생 합니다. 이 크기는 Bash 기록 파일에 잠재적으로 중요 한 정보가 포함 되지 않도록 1kb로 제한 됩니다. | VHD를 다른 작업 중인 VM에 탑재 하 여 해결 하 고 크기를 1kb 이하로 줄이기 위해 변경 합니다. 예를 들어 `.bash` 기록 파일을 삭제 합니다. |
 | 3 | 필수 커널 매개 변수 테스트 사례 | 의 값이 `console` 로 설정 되지 않은 경우이 오류가 표시 됩니다 `ttyS0` . 다음 명령을 실행 하 여 확인 합니다. <br /> `cat /proc/cmdline` | 의 값을로 설정 하 `console` `ttyS0` 고 요청을 다시 제출 합니다. |
 | 4 | ClientAlive 간격 테스트 사례 | 도구 키트가이 테스트 사례에 대해 실패 한 결과를 제공 하는 경우에는 적합 하지 않은 값이 있습니다 `ClientAliveInterval` . | 의 값을 `ClientAliveInterval` 235 보다 작거나 같게 설정한 다음 요청을 다시 제출 합니다. |
-
+|
 
 ### <a name="windows-test-cases"></a>Windows 테스트 사례
 
 다음 표에서는 도구 키트가 실행 되는 Windows 테스트 사례와 테스트 유효성 검사에 대 한 설명을 보여 줍니다.
 
-|시나리오 |테스트 사례|Description|
+|시나리오 |테스트 사례|설명|
 |---|---|---|
 |1|OS 아키텍처|Azure는 64 비트 운영 체제만 지원 합니다.|
 |2|사용자 계정 종속성|응용 프로그램 실행은 관리자 계정에 종속 되지 않아야 합니다.|
@@ -175,8 +175,9 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 |15|SNMP 서비스|SNMP (Simple Network Management Protocol) 서비스 기능은 아직 지원 되지 않습니다. 응용 프로그램은이 기능에 종속 되지 않아야 합니다.|
 |16|Windows Internet Name Service|Windows 인터넷 이름 서비스입니다. 이 서버 기능은 아직 지원 되지 않습니다. 응용 프로그램은이 기능에 종속 되지 않아야 합니다.|
 |17|무선 LAN 서비스|무선 LAN 서비스. 이 서버 기능은 아직 지원 되지 않습니다. 응용 프로그램은이 기능에 종속 되지 않아야 합니다.|
+|
 
-이전 테스트 사례와 관련 된 모든 오류를 발생 하는 경우 솔루션에 대 한 표의 **설명** 열을 참조 하세요. 자세한 내용은 지원 팀에 문의 하세요. 
+이전 테스트 사례와 관련 된 모든 오류를 발생 하는 경우 솔루션에 대 한 표의 **설명** 열을 참조 하세요. 자세한 내용은 지원 팀에 문의 하세요.
 
 ## <a name="data-disk-size-verification"></a>데이터 디스크 크기 확인
 
@@ -192,6 +193,7 @@ OS 디스크 크기에 대 한 제한 사항은 다음 규칙을 참조 하세�
 |---|---|
 |Linux|1gb에서 1023 GB|
 |Windows|30GB ~ 250 g b|
+|
 
 Vm은 기본 운영 체제에 대 한 액세스를 허용 하므로 vhd 크기가 VHD에 대해 충분히 큰지 확인 합니다. 가동 중지 시간 없이 디스크를 확장할 필요가 없습니다. 30GB에서 50 GB 까지의 디스크 크기를 사용 합니다.
 
@@ -199,6 +201,7 @@ Vm은 기본 운영 체제에 대 한 액세스를 허용 하므로 vhd 크기�
 |---|---|---|
 |>500 tebibytes (TiB)|N/A|예외 승인에 대해서는 지원 팀에 문의 하세요.|
 |250-500 TiB|Blob 크기와 >200 GiB) 차이|예외 승인에 대해서는 지원 팀에 문의 하세요.|
+|
 
 > [!NOTE]
 > 디스크 크기가 클수록 비용이 더 많이 들 며 설정 및 복제 프로세스 중에 지연이 발생 합니다. 이러한 지연 및 비용으로 인해 지원 팀은 예외 승인에 대 한 근거를 검색할 수 있습니다.
@@ -209,7 +212,7 @@ WannaCry 바이러스와 관련 된 잠재적인 공격을 방지 하려면 모�
 
 또는에서 이미지 파일 버전을 확인할 수 `C:\windows\system32\drivers\srv.sys` 있습니다 `srv2.sys` .
 
-다음 표에서는 Windows Server의 최소 패치 버전을 보여 줍니다. 
+다음 표에서는 Windows Server의 최소 패치 버전을 보여 줍니다.
 
 |OS|버전|
 |---|---|
@@ -218,6 +221,7 @@ WannaCry 바이러스와 관련 된 잠재적인 공격을 방지 하려면 모�
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|해당 없음|
+|
 
 > [!NOTE]
 > Windows Server 2019에는 필수 버전 요구 사항이 없습니다.
@@ -230,8 +234,8 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 
 다음 커널 버전 중 하나를 사용 하 여 이미지를 설치 하지 않은 경우 올바른 패치로 업데이트 합니다. 이러한 필수 패치를 사용 하 여 이미지를 업데이트 한 후 지원 팀의 필요한 승인을 요청 합니다.
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |OS 제품군|버전|커널|
@@ -278,6 +282,7 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 ||스트레치 (보안)|4.9.168 + deb9u3|
 ||Debian GNU/Linux 10 (buster)|Debian 6.3.0-18 + deb9u1|
 ||buster, sid (스트레치 백 포트)|4.19.37-5|
+|
 
 ## <a name="image-size-should-be-in-multiples-of-megabytes"></a>이미지 크기는 메가바이트의 배수 여야 합니다.
 
@@ -303,7 +308,7 @@ Azure의 모든 Vhd에는 1 메가바이트 (MB)의 배수로 크기를 맞춘 �
 3. 인증 요청을 다시 제출 합니다.
 
 ## <a name="download-failure"></a>다운로드 실패
-    
+
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드 하는 경우 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
 |시나리오|오류|이유|솔루션|
@@ -314,12 +319,13 @@ SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드
 |4|잘못 된 서명|VHD에 연결 된 SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
 |6|HTTP 조건부 헤더|SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
 |7|잘못 된 VHD 이름|% 기호 또는 따옴표와 같은 특수 문자가 `%` `"` VHD 이름에 있는지 확인 하십시오.|특수 문자를 제거 하 여 VHD 파일의 이름을 바꿉니다.|
+|
 
-## <a name="first-1-mb-partition-2048-sectors-each-sector-of-512-bytes"></a>첫 1mb 파티션 (2048 섹터, 각 섹터 512 바이트)
+## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>첫 1mb (2048 섹터, 512 바이트의 각 섹터) 파티션
 
-사용자 [고유의 이미지를 작성](azure-vm-create-using-own-image.md)하는 경우 OS 디스크의 첫 2048 섹터 (1mb)가 비어 있는지 확인 합니다. 그렇지 않으면 게시가 실패 합니다. 이 요구 사항은 OS 디스크 (데이터 디스크가 아님)에만 적용 됩니다. [승인 된 기준에서](azure-vm-create-using-approved-base.md)이미지를 작성 하는 경우이 요구 사항을 건너뛸 수 있습니다. 
+사용자 [고유의 이미지를 작성](azure-vm-create-using-own-image.md)하는 경우 OS 디스크의 첫 2048 섹터 (1mb)가 비어 있는지 확인 합니다. 그렇지 않으면 게시가 실패 합니다. 이 요구 사항은 OS 디스크에만 적용 되 고 데이터 디스크에는 적용 되지 않습니다. [승인 된 기준에서](azure-vm-create-using-approved-base.md)이미지를 작성 하는 경우이 요구 사항을 건너뛸 수 있습니다.
 
-### <a name="create-a-1-mb-partition-2048-sectors-each-sector-of-512-bytes-on-an-empty-vhd-linux-only-steps"></a>빈 VHD (Linux 전용 단계)에서 1mb 파티션 (2048 섹터, 512 바이트의 각 섹터)을 만듭니다.
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>빈 VHD에 1mb (2048 섹터, 각 512 바이트의 섹터)를 만듭니다.
 
 이러한 단계는 Linux에만 적용 됩니다.
 
@@ -374,17 +380,17 @@ SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드
 
       ![지운 데이터의 명령 및 출력을 보여 주는 Putty client 명령줄 스크린샷](./media/create-vm/vm-certification-issues-solutions-22.png)
 
-   1. `w`을 입력 하 여 파티션 생성을 확인 합니다. 
+   1. `w`을 입력 하 여 파티션 생성을 확인 합니다.
 
       ![파티션을 만들기 위한 명령을 보여 주는 Putty client 명령줄 스크린샷](./media/create-vm/vm-certification-issues-solutions-23.png)
 
-   1. 명령을 실행 하 고를 입력 하 여 파티션 테이블을 확인할 수 있습니다 `n fdisk /dev/sdb` `p` . 2048 오프셋 값을 사용 하 여 파티션이 생성 되는 것을 볼 수 있습니다. 
+   1. 명령을 실행 하 고를 입력 하 여 파티션 테이블을 확인할 수 있습니다 `n fdisk /dev/sdb` `p` . 2048 오프셋 값을 사용 하 여 파티션이 생성 되는 것을 볼 수 있습니다.
 
       ![2048 오프셋을 만들기 위한 명령을 보여 주는 Putty client 명령줄 스크린샷](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 1. VM에서 VHD를 분리 하 고 VM을 삭제 합니다.
 
-### <a name="create-a-first-1-mb-partition-2048-sectors-each-sector-of-512-bytes-by-moving-existing-data-on-vhd"></a>VHD에서 기존 데이터를 이동 하 여 첫 1mb 파티션 (2048 섹터, 각 섹터 512 바이트) 만들기
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>VHD에서 기존 데이터를 이동 하 여 1mb (2048 섹터, 각 섹터의 512 바이트) 파티션을 만듭니다.
 
 이러한 단계는 Linux에만 적용 됩니다.
 
@@ -452,11 +458,11 @@ SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드
 
 Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경우 운영 체제 VHD를 일반화 해야 합니다.
 
-* **Linux** 의 경우 다음 프로세스는 linux vm을 일반화 하 고 별도의 vm으로 다시 배포 합니다.
+- **Linux** 의 경우 다음 프로세스는 linux vm을 일반화 하 고 별도의 vm으로 다시 배포 합니다.
 
   SSH 창에서 다음 명령을 입력합니다. `sudo waagent -deprovision+user`
 
-* **Windows** 의 경우를 사용 하 여 windows 이미지를 일반화 `sysreptool` 합니다.
+- **Windows** 의 경우를 사용 하 여 windows 이미지를 일반화 `sysreptool` 합니다.
 
   이 도구에 대 한 자세한 내용은 `sysreptool` [시스템 준비 (Sysprep) 개요](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조 하세요.
 

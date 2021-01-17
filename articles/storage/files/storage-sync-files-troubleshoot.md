@@ -4,15 +4,15 @@ description: Windows Server를 Azure 파일 공유의 빠른 캐시로 변환 �
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 1/13/2021
+ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a262c2b4351c96217001ba42e8c745f7d71c7d45
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233902"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539247"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -916,6 +916,22 @@ Azure 파일 동기화 에이전트가 최신 버전인지 확인합니다. Azur
 | **재구성 필요** | 예 |
 
 이 오류는 데이터 수집 작업이 시간 제한을 초과하는 경우에 발생합니다. 동기화가 진행 중인 경우(AppliedItemCount가 0보다 큼) 이 오류를 무시할 수 있습니다. [현재 동기화 세션의 진행률을 모니터링하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-progress-of-a-current-sync-session)를 참조하세요.
+
+<a id="-2134375814"></a>**서버에서 서버 끝점 경로를 찾을 수 없어서 동기화 하지 못했습니다.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027a |
+| **HRESULT(10진)** | -2134375814 |
+| **오류 문자열** | ECS_E_SYNC_ROOT_DIRECTORY_NOT_FOUND |
+| **재구성 필요** | 예 |
+
+이 오류는 서버 끝점 경로로 사용 된 디렉터리가 이름이 바뀌었거나 삭제 된 경우에 발생 합니다. 디렉터리의 이름이 변경 된 경우 디렉터리의 이름을 원래 이름으로 다시 바꾸고 저장소 동기화 에이전트 서비스 (Files, Csvc)를 다시 시작 합니다.
+
+디렉터리가 삭제 된 경우 다음 단계를 수행 하 여 기존 서버 끝점을 제거 하 고 새 경로를 사용 하 여 새 서버 끝점을 만듭니다.
+
+1. [서버 끝점 제거](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint)에 설명 된 단계를 수행 하 여 동기화 그룹에서 서버 끝점을 제거 합니다.
+2. [서버 끝점 추가](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint)에 설명 된 단계를 수행 하 여 동기화 그룹에 새 서버 끝점을 만듭니다.
 
 ### <a name="common-troubleshooting-steps"></a>일반적인 문제 해결 단계
 <a id="troubleshoot-storage-account"></a>**스토리지 계정이 있는지 확인합니다.**  

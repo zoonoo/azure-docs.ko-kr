@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 3370215e9a69e62596f214ba4330fc4914a2837f
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696237"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539681"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테 넌 트 등록 및 검사 (미리 보기)
 
@@ -55,7 +55,7 @@ ms.locfileid: "97696237"
     > [!Important]
     > 테 넌 트 설정 페이지를 보려면 Power BI 관리자 여야 합니다.
 
-1. **개발자 설정**  >  **에서 서비스 사용자가 읽기 전용 Power BI 관리 api (미리 보기)를 사용 하도록 허용을** 선택 합니다.
+1.   >  **서비스 사용자가 읽기 전용 Power BI 관리 api (미리 보기)를 사용할 수 있도록** 관리 api 설정을 선택 합니다.
 1. **특정 보안 그룹** 을 선택 합니다.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="서비스 사용자가 읽기 전용 Power BI admin API 권한을 가져오도록 허용 하는 방법을 보여 주는 이미지":::

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: chrande
-ms.openlocfilehash: 06a06d275ba6f5ded475ffd693ee61e7a72b9516
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 26097408d0b83b043f4a25183146c892fc4b48ad
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127705"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538544"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API의 일반적인 문제 해결
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "98127705"
 
 ## <a name="common-errors-and-solutions"></a>일반 오류 및 해결 방법
 
-| 코드       | Error                | 설명  | 솔루션  |
+| 코드       | 오류                | 설명  | 솔루션  |
 |------------|----------------------|--------------|-----------|
 | 2 | 지정 된 order by 항목에 해당 하는 인덱스 경로가 제외 되거나 order by 쿼리에 해당 인덱스를 제공할 수 있는 해당 복합 인덱스가 없습니다. | 쿼리에서 인덱싱되지 않은 필드에 대한 정렬을 요청합니다. | 시도 중인 정렬 쿼리에 대해 일치 하는 인덱스 (또는 복합 인덱스)를 만듭니다. |
 | 13 | 권한 없음 | 요청에 완료할 수 있는 권한이 없습니다. | 데이터베이스 및 컬렉션에 대 한 적절 한 권한을 설정 했는지 확인 합니다.  |
@@ -36,7 +36,7 @@ ms.locfileid: "98127705"
 | 67 | CannotCreateIndex | 인덱스를 만드는 요청을 완료할 수 없습니다. | 컨테이너에서 최대 500 개의 단일 필드 인덱스를 만들 수 있습니다. 복합 인덱스에는 최대 8 개의 필드를 포함할 수 있습니다. 복합 인덱스는 버전 3.6 이상에서 지원 됩니다. |
 | 115 | CommandNotSupported | 시도한 요청은 지원 되지 않습니다. | 오류에 추가 세부 정보를 제공 해야 합니다. 배포에이 기능이 중요 한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 지원 티켓을 만들어 알려주세요. |
 | 11000 | DuplicateKey | 삽입 중인 문서의 분할 키 (Azure Cosmos DB 파티션 키)가 이미 컬렉션에 있거나 고유 인덱스 필드 제약 조건을 위반 했습니다. | Update () 함수를 사용 하 여 기존 문서를 업데이트할 수 있습니다. Unique index 필드 제약 조건을 위반 하는 경우에는 분할/파티션에 아직 존재 하지 않는 필드 값으로 문서를 삽입 하거나 업데이트 합니다. |
-| 16500 | TooManyRequests  | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 작업을 다시 시도하는 것이 좋습니다. SSR (서버 쪽 다시 시도)를 사용 하도록 설정 하면 Azure Cosmos DB이 오류로 인해 실패 한 요청을 자동으로 다시 시도 합니다. |
+| 16500 | TooManyRequests  | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 작업을 다시 시도하는 것이 좋습니다. SSR (서버 쪽 다시 시도)를 [사용 하도록 설정](prevent-rate-limiting-errors.md) 하면 Azure Cosmos DB이 오류로 인해 실패 한 요청을 자동으로 다시 시도 합니다. |
 | 16501 | ExceededMemoryLimit | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. 예: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | 40324 | 인식할 수 없는 파이프라인 단계 이름입니다. | 집계 파이프라인 요청에서 스테이지 이름이 인식 되지 않았습니다. | 요청에서 모든 집계 파이프라인 이름이 유효한 지 확인 합니다. |
 | - | MongoDB 유선 버전 문제 | 이전 버전의 MongoDB 드라이버는 연결 문자열에서 Azure Cosmos 계정의 이름을 검색할 수 없습니다. | MongoDB에 대 한 Cosmos DB API 연결 문자열의 끝에 *appName = @**accountName** @* 을 추가 합니다. 여기서 ***accountname*** 은 Cosmos DB 계정 이름입니다. |

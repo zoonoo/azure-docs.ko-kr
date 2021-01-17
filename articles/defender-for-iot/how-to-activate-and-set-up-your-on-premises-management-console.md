@@ -4,15 +4,15 @@ description: 관리 콘솔 정품 인증 및 설치 프로그램은 센서를 Az
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/24/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56092d61e1eed4e4ebe4f8cb7f97d01e91e8543e
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843820"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538576"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>온-프레미스 관리 콘솔 활성화 및 설정 
 
@@ -51,7 +51,7 @@ ms.locfileid: "97843820"
 
 ## <a name="set-up-a-certificate"></a>인증서 설정
 
-관리 콘솔을 설치한 후에는 로컬 자체 서명 된 인증서가 생성 되 고 콘솔에 액세스 하는 데 사용 됩니다. 관리자가 관리 콘솔에 처음으로 로그인 하면 해당 사용자에 게 SSL/TLS 인증서를 등록 하 라는 메시지가 표시 됩니다. 신뢰할 수 있는 CA 서명 인증서로 작업 하 고 로컬로 생성 된 자체 서명 된 인증서를 사용 하지 않는 것이 좋습니다.
+관리 콘솔을 설치한 후에는 로컬 자체 서명 된 인증서가 생성 되 고 콘솔에 액세스 하는 데 사용 됩니다. 관리자가 관리 콘솔에 처음으로 로그인 하면 해당 사용자에 게 SSL/TLS 인증서를 등록 하 라는 메시지가 표시 됩니다. 
 
 두 가지 수준의 보안을 사용할 수 있습니다.
 
@@ -61,7 +61,9 @@ ms.locfileid: "97843820"
 콘솔은 다음과 같은 유형의 인증서를 지원 합니다.
 
 - 개인 및 엔터프라이즈 키 인프라 (사설 PKI)
+
 - 공개 키 인프라 (공용 PKI)
+
 - 어플라이언스에서 로컬로 생성 (로컬에서 자체 서명 됨) 
 
   > [!IMPORTANT]
@@ -153,7 +155,7 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 액세스 그룹을 사용 하면 사용자가 IoT 플랫폼용 Defender에서 자산을 관리 하 고 분석 하는 위치를 보다 효과적으로 제어할 수 있습니다.
 
-### <a name="how-it-works"></a>작동 방식
+### <a name="how-it-works"></a>작동 방법
 
 각 사이트에 대해 사업부와 지역을 정의할 수 있습니다. 그런 다음 네트워크의 논리적 엔터티인 영역을 추가할 수 있습니다. 
 
@@ -221,7 +223,7 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 다음 표에서는 **사이트 관리** 창의 매개 변수에 대해 설명 합니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |--|--|
 | Name | 센서의 이름입니다. 이 이름은 센서 에서만 변경할 수 있습니다. 자세한 내용은 IoT 용 Defender 사용자 가이드를 참조 하세요. |
 | IP | 센서 IP 주소입니다. |
@@ -314,6 +316,6 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 3. 사이트에서 할당 되지 않은 센서를 삭제 하려면 할당 되지 않은 센서 목록에서 센서를 선택 하 고를 선택 :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [센서 및 온-프레미스 관리 콘솔 문제 해결](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
