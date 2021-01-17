@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 38ddfc2d3940bb9267edd6c5c683918c1fb5dc58
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 1a1fc0ce634282ffd4fcf374138fe97a04f32062
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251706"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539602"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -71,7 +71,7 @@ ms.locfileid: "98251706"
 
 ## <a name="billing-rates"></a>요금 청구 요금
 
-계층에는 더 비싼 하드웨어에서 실행 되거나 더 많은 비용이 드는 기능을 제공 하는 계층에 대 한 더 높은 요금을 가진 다른 요금 청구 요금이 있습니다. 청구 요금은 Azure Cognitive Search의 각 서비스 계층에 대 한 [azure 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/) 에 표시 됩니다.
+계층에는 더 비싼 하드웨어에서 실행 되거나 더 많은 비용이 드는 기능을 제공 하는 계층에 대 한 더 높은 요금을 가진 다른 요금 청구 요금이 있습니다. Azure Cognitive Search에 대 한 [azure 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/) 에서 계층 당 청구 요금을 찾을 수 있습니다.
 
 서비스를 만들면 요금 청구 요금은 클록에 대 한 서비스 실행에 대 한 *고정 비용* 및 용량을 추가 하도록 선택 하는 경우 *증분 비용* 을 모두 갖습니다.
 

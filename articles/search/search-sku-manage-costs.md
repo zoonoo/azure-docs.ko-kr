@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: a708fb76b5a3d0fd0683cdb8915d1a5e1824a57c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251671"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539545"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스의 비용을 예측 하 고 관리 하는 방법
 
@@ -25,7 +25,12 @@ Azure Cognitive Search의 확장성 아키텍처는 다양 한 쿼리 또는 인
 
 서비스 계층에 의해 설정 된 청구 요금을 곱하여 검색 서비스에서 사용 하는 리소스의 양은 서비스 실행 비용을 결정 합니다. 비용과 용량은 긴밀 하 게 바인딩되어 있습니다. 비용을 예측할 때 인덱싱 및 쿼리 워크 로드를 실행 하는 데 필요한 용량을 이해 하면 예상 되는 비용을 파악할 수 있습니다.
 
-요금 청구를 위해 Cognitive Search에는 SU ( *검색 단위* )의 개념이 있습니다. SU는 서비스에서 사용 하는 *복제본* 및 *파티션* **(R x P = SU)** 의 곱입니다. SUs의 수에는 청구 요금 **(SU * rate = 월별 지출)** 이 검색 관련 비용의 기본 결정입니다. 
+요금 청구를 위해 다음 두 가지 간단한 수식이 인식 됩니다.
+
+| 수식 | 설명 |
+|---------|-------------|
+| **R x P = SU** | 사용 된 파티션 수를 곱하여 사용 된 복제본 수는 서비스에서 사용 하는 SU ( *검색 단위* )의 수량과 같습니다. SU는 리소스의 단위 이며, 파티션 또는 복제본이 될 수 있습니다. |
+| **SU * 청구 요금 = 월별 지출** | 서비스를 프로 비전 한 계층의 청구 요금에 대 한 SUs의 수는 전체 월간 청구의 기본 결정입니다. 일부 기능이 나 워크 로드는 다른 Azure 서비스에 대 한 종속성을 가지 며,이를 통해 구독 수준에서 솔루션의 비용을 높일 수 있습니다. 아래 청구 가능한 이벤트 섹션은 청구서에 추가할 수 있는 기능을 식별 합니다. |
 
 모든 서비스는 최소값으로 1SU(복제본 1개 x 파티션 1개)에서 시작합니다. 모든 서비스에 대 한 최대값은 36입니다. 이 최대 크기는 여러 가지 방법으로 연결할 수 있습니다. 예를 들어 6 개 파티션 x 복제본 6 개 또는 3 개의 파티션 x 12 복제본입니다. 총 용량을 사용 하는 것이 일반적입니다 (예: 3 개 복제본, 3-파티션 서비스는 9 개 SUs로 청구 됨). 올바른 조합은 [파티션 및 복제본 조합](search-capacity-planning.md#chart) 차트를 참조 하세요.
 

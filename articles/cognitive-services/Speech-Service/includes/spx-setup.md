@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 327dce053c38fdb7b03e7ceb0d7a62ec8b8e7248
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96992992"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540469"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -59,11 +59,11 @@ Docker 컨테이너에서 Speech CLI를 설치하려면 다음 단계를 수행�
 
 1. 아직 설치되지 않은 경우 플랫폼에 <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop을 설치<span class="docon docon-navigate-external x-hidden-focus"></span></a>합니다.
 2. 새 명령 프롬프트 또는 터미널에서 다음 명령을 입력합니다. 
-   ```shell   
+   ```console   
    docker pull msftspeech/spx
    ```
 3. 다음 명령을 입력합니다. Speech CLI에 대한 도움말 정보가 표시되어야 합니다. 
-   ```shell 
+   ```console 
    docker run -it --rm msftspeech/spx help
    ```
 
@@ -93,27 +93,27 @@ Docker 컨테이너에서 `spx` 명령을 호출하는 경우, Speech CLI에서 
 
 Windows에서 명령은 다음과 같이 시작됩니다.
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 Linux 또는 macOS에서 명령은 아래 샘플과 같습니다. `ABSOLUTE_PATH`를 탑재된 디렉터리의 절대 경로로 바꿉니다. 이 경로는 이전 섹션의 `pwd` 명령에 의해 반환되었습니다. 
 
 키와 지역을 설정하기 전에 이 명령을 실행하면 키와 지역을 설정하라는 오류 메시지가 표시됩니다.
-```shell   
+```console   
 sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
 
 컨테이너에 설치된 `spx` 명령을 사용하려면 항상 위에 표시된 전체 명령과 요청의 매개 변수를 차례로 입력합니다.
 예를 들어 Windows에서 이 명령은 키를 설정합니다.
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 명령줄 도구와의 보다 확장된 상호 작용을 위해 entrypoint 매개 변수를 추가하여 대화형 bash 셸로 컨테이너를 시작할 수 있습니다.
 Windows에서 다음 명령을 입력하여 여러 `spx` 명령을 입력할 수 있는 대화형 명령줄 인터페이스를 표시하는 컨테이너를 시작합니다.
-```shell
+```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
@@ -160,7 +160,7 @@ Follow these instructions to create a shortcut:
 음성 CLI 사용을 시작하려면 음성 구독 키 및 지역 식별자를 입력해야 합니다. [음성 서비스 무료로 사용해 보기](../overview.md#try-the-speech-service-for-free)의 단계를 따라 이러한 자격 증명을 가져오세요.
 구독 키와 지역 식별자가 있으면(예: `eastus`, `westus`) 다음 명령을 실행합니다.
 
-```shell
+```console
 spx config @key --set SUBSCRIPTION-KEY
 spx config @region --set REGION
 ```

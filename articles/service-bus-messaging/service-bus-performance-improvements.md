@@ -2,14 +2,14 @@
 title: Azure Service Bus를 사용 하 여 성능 향상을 위한 모범 사례
 description: broker 저장 메시지를 교환할 때 Azure Service Bus를 사용하여 성능을 최적화하는 방법에 대해 설명합니다.
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 01/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6a0457537712ccb85191f320fd348446eed9b229
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7bfff1a31365724ed1d1cb6ff1956a4e2ef4f4c0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655631"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539435"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 
@@ -24,22 +24,27 @@ Service Bus를 사용하면 클라이언트에서 세 가지 프로토콜 중 �
 2. SBMP(Service Bus 메시징 프로토콜)
 3. HTTP(Hypertext Transfer Protocol)
 
-AMQP는 Service Bus에 대 한 연결을 유지 하기 때문에 가장 효율적입니다. 또한 일괄 처리와 프리페치도 구현합니다. 명시적으로 언급하지 않는 한 이 문서의 모든 내용에서는 AMQP 또는 SBMP를 사용하는 것으로 가정합니다.
+AMQP는 Service Bus에 대 한 연결을 유지 하기 때문에 가장 효율적입니다. [일괄 처리](#batching-store-access) 및 [프리페치](#prefetching)도 구현 합니다. 명시적으로 언급하지 않는 한 이 문서의 모든 내용에서는 AMQP 또는 SBMP를 사용하는 것으로 가정합니다.
 
 > [!IMPORTANT]
 > SBMP는 .NET Framework에만 사용할 수 있습니다. AMQP는 .NET Standard에 대 한 기본값입니다.
 
 ## <a name="choosing-the-appropriate-service-bus-net-sdk"></a>적절 한 Service Bus .NET SDK 선택
-지원 되는 두 가지 Azure Service Bus .NET Sdk가 있습니다. Api의 Api는 비슷하며 선택할 수 있는 것과 혼동 될 수 있습니다. 결정을 내리는 데 도움이 필요 하면 다음 표를 참조 하세요. ServiceBus SDK를 사용 하는 것이 더 현대적인 성능을 제공 하 고 플랫폼 간 호환성을 위해 사용 하는 것이 좋습니다. 또한 Websocket을 통한 AMQP를 지원 하 고 오픈 소스 프로젝트의 Azure .NET SDK 컬렉션의 일부입니다.
+지원 되는 세 가지 Azure Service Bus .NET Sdk가 있습니다. Api의 Api는 비슷하며 선택할 수 있는 것과 혼동 될 수 있습니다. 결정을 내리는 데 도움이 필요 하면 다음 표를 참조 하세요. ServiceBus SDK는 최신 버전 이며 다른 Sdk를 통해 사용 하는 것이 좋습니다. ServiceBus 및 ServiceBus Sdk는 모두 최신이 고, 성능이 뛰어나고, 플랫폼 간 호환이 가능 합니다. 또한 Websocket을 통한 AMQP를 지원 하 고 오픈 소스 프로젝트의 Azure .NET SDK 컬렉션의 일부입니다.
 
 | NuGet 패키지 | 기본 네임 스페이스 | 최소 플랫폼 | 프로토콜 |
 |---------------|----------------------|---------------------|-------------|
-| <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>유니버설 Windows 플랫폼 10.0.16299 | AMQP<br>HTTP |
-| <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">Windowsazure.servicebus. ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
+| [ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>유니버설 Windows 플랫폼 10.0.16299 | AMQP<br>HTTP |
+| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>유니버설 Windows 플랫폼 10.0.16299 | AMQP<br>HTTP |
+| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 최소 .NET Standard 플랫폼 지원에 대 한 자세한 내용은 [.net 구현 지원](/dotnet/standard/net-standard#net-implementation-support)을 참조 하세요.
 
 ## <a name="reusing-factories-and-clients"></a>팩터리 및 클라이언트 다시 사용
+# <a name="azuremessagingservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk-2)
+[Servicebusclient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [servicebusclient](/dotnet/api/azure.messaging.servicebus.servicebussender), [Servicebusclient](/dotnet/api/azure.messaging.servicebus.servicebusreceiver)및 [servicebusclient](/dotnet/api/azure.messaging.servicebus.servicebusprocessor)와 같이 서비스와 상호 작용 하는 Service Bus 개체는 종속성 주입을 위해 단일 항목 (또는 한 번 인스턴스화 및 공유 됨)로 등록 되어야 합니다. ServiceBusClient는 종속성 주입을 위해 [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs)를 사용 하 여 등록할 수 있습니다. 
+
+각 메시지를 보내거나 받은 후에는 이러한 개체를 닫거나 삭제 하지 않는 것이 좋습니다. 엔터티 관련 개체 (ServiceBusSender/Receiver/Processor)를 닫거나 삭제 하면 Service Bus 서비스에 대 한 링크가 중단 됩니다. ServiceBusClient를 삭제 하면 Service Bus 서비스에 대 한 연결이 중단 됩니다. 연결 설정은 동일한 ServiceBusClient를 다시 사용 하 고 동일한 ServiceBusClient 인스턴스에서 필요한 엔터티 관련 개체를 만들어 방지할 수 있는 비용이 많이 드는 작업입니다. 동시 비동기 작업에 대해 다중 스레드에서 이러한 클라이언트 개체를 안전하게 사용할 수 있습니다.
 
 # <a name="microsoftazureservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -55,6 +60,27 @@ AMQP는 Service Bus에 대 한 연결을 유지 하기 때문에 가장 효율�
 보내기, 받기, 삭제 등의 작업에는 다소 시간이 걸립니다. 이 시간에는 Service Bus 서비스에서 작업을 처리 하는 데 걸리는 시간과 요청 및 응답의 대기 시간을 포함 합니다. 시간당 작업 수를 늘리려면 작업이 동시에 실행되어야 합니다.
 
 클라이언트는 **비동기** 작업을 수행 하 여 동시 작업을 예약 합니다. 이전 요청이 완료되기 전에 다음 요청이 시작됩니다. 다음 코드 조각은 비동기 전송 작업의 예제입니다.
+
+# <a name="azuremessagingservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk-2)
+```csharp
+var messageOne = new ServiceBusMessage(body);
+var messageTwo = new ServiceBusMessage(body);
+
+var sendFirstMessageTask =
+    sender.SendMessageAsync(messageOne).ContinueWith(_ =>
+    {
+        Console.WriteLine("Sent message #1");
+    });
+var sendSecondMessageTask =
+    sender.SendMessageAsync(messageTwo).ContinueWith(_ =>
+    {
+        Console.WriteLine("Sent message #2");
+    });
+
+await Task.WhenAll(sendFirstMessageTask, sendSecondMessageTask);
+Console.WriteLine("All messages sent");
+
+```
 
 # <a name="microsoftazureservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -101,6 +127,35 @@ Console.WriteLine("All messages sent");
 ---
 
 다음 코드는 비동기 수신 작업의 예제입니다.
+
+# <a name="azuremessagingservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk-2)
+
+```csharp
+var client = new ServiceBusClient(connectionString);
+var options = new ServiceBusProcessorOptions 
+{
+
+      AutoCompleteMessages = false,
+      MaxConcurrentCalls = 20
+};
+await using ServiceBusProcessor processor = client.CreateProcessor(queueName,options);
+processor.ProcessMessageAsync += MessageHandler;
+processor.ProcessErrorAsync += ErrorHandler;
+
+static Task ErrorHandler(ProcessErrorEventArgs args)
+{
+    Console.WriteLine(args.Exception);
+    return Task.CompletedTask;
+};
+
+static async Task MessageHandler(ProcessMessageEventArgs args)
+{
+Console.WriteLine("Handle message");
+      await args.CompleteMessageAsync(args.Message);
+}
+
+await processor.StartProcessingAsync();
+```
 
 # <a name="microsoftazureservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -168,6 +223,9 @@ Service Bus는 수신 및 삭제 작업에 대 한 트랜잭션을 지원 하지
 
 클라이언트 쪽 일괄 처리에서는 큐 또는 토픽 클라이언트가 일정 시간 동안 메시지 전송을 연기할 수 있습니다. 클라이언트가 이 기간 동안 추가 메시지를 보내면 메시지를 단일 배치로 전송합니다. 또한 클라이언트 쪽 일괄 처리에서는 또한 큐 또는 구독 클라이언트가 여러 **완료** 요청을 단일 요청으로 일괄 처리합니다. 일괄 처리는 비동기 **Send** 및 **Complete** 작업에만 사용할 수 있습니다. 동기 작업은 Service Bus 서비스에 즉시 보내집니다. 미리 보기 또는 받기 작업의 경우에는 일괄 처리가 발생 하지 않으며 클라이언트에서 일괄 처리도 발생 하지 않습니다.
 
+# <a name="azuremessagingservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk-2)
+.NET Standard SDK에 대 한 일괄 처리 기능은 아직 조작할 속성을 노출 하지 않습니다.
+
 # <a name="microsoftazureservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk)
 
 .NET Standard SDK에 대 한 일괄 처리 기능은 아직 조작할 속성을 노출 하지 않습니다.
@@ -217,6 +275,19 @@ var factory = MessagingFactory.Create(namespaceUri, settings);
 이 간격 동안 발생하는 추가 저장소 작업은 배치에 추가됩니다. 일괄 처리 된 저장소 액세스는 **보내기** 및 **완료** 작업에만 영향을 줍니다. 수신 작업은 영향을 받지 않습니다. 일괄 처리된 저장소 액세스는 엔터티의 속성입니다. 일괄 처리는 일괄 처리된 저장소 액세스가 가능한 모든 엔터티에서 발생합니다.
 
 새 큐, 토픽 또는 구독을 만들면 기본적으로 일괄 처리된 저장소 액세스가 사용하도록 설정됩니다.
+
+
+# <a name="azuremessagingservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk-2)
+일괄 처리 된 저장소 액세스를 사용 하지 않도록 설정 하려면 인스턴스가 필요 `ServiceBusAdministrationClient` 합니다. 속성을 `CreateQueueOptions` 로 설정 하는 큐 설명에서를 만듭니다 `EnableBatchedOperations` `false` .
+
+```csharp
+var options = new CreateQueueOptions(path)
+{
+    EnableBatchedOperations = false
+};
+var queue = await administrationClient.CreateQueueAsync(options);
+```
+
 
 # <a name="microsoftazureservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -270,6 +341,12 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 
 프리페치는 청구 가능한 메시징 작업의 수에 영향을 주지 않으며 Service Bus 클라이언트 프로토콜에 대해서만 사용할 수 있습니다. HTTP 프로토콜은 프리페치를 지원 하지 않습니다. 프리페치는 동기 및 비동기 수신 작업에 사용할 수 있습니다.
 
+# <a name="azuremessagingservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk-2)
+자세한 내용은 다음 속성을 참조 하세요 `PrefetchCount` .
+
+- [ServiceBusReceiver. PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount)
+- [ServiceBusProcessor. PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount)
+
 # <a name="microsoftazureservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk)
 
 자세한 내용은 다음 속성을 참조 하세요 `PrefetchCount` .
@@ -287,10 +364,6 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 ---
 
 ## <a name="prefetching-and-receivebatch"></a>프리페치 및 ReceiveBatch
-
-> [!NOTE]
-> 이 섹션은 Windowsazure.servicebus sdk가 batch 함수를 노출 하지 않으므로 ServiceBus SDK에만 적용 됩니다.
-
 여러 메시지를 함께 프리페치 하는 개념은 일괄 처리 ()에서 메시지를 처리 하는 것과 비슷한 의미를 가지 지만 `ReceiveBatch` 이러한 방식을 함께 사용 하는 경우 주의 해야 하는 몇 가지 사소한 차이점이 있습니다.
 
 프리페치는 클라이언트 (및)의 구성 (또는 모드) `QueueClient` 이 `SubscriptionClient` 고 `ReceiveBatch` 작업은 요청-응답 의미 체계가 있습니다.
@@ -309,7 +382,7 @@ Greedy 접근 방법을 사용 하는 경우, 즉 메시지가 특정 수신자�
 ## <a name="development-and-testing-features"></a>개발 및 테스트 기능
 
 > [!NOTE]
-> Windowsazure.servicebus sdk는이 기능을 노출 하지 않으므로이 섹션은 ServiceBus SDK에만 적용 됩니다.
+> 이 섹션은 Windowsazure.servicebus ServiceBus SDK에만 적용 됩니다. ServiceBus 및 ServiceBus는이 기능을 노출 하지 않습니다.
 
 Service Bus에는 **프로덕션 구성에서 사용해 서는 안** 되는, 개발 전용으로 사용 되는 기능이 하나 [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] 있습니다.
 
@@ -372,9 +445,9 @@ Service Bus는 엔터티에 대해 최대 1,000개의 동시 연결을 지원합
 * 일괄 처리된 저장소 액세스는 사용하도록 설정한 상태로 둡니다. 이렇게 하면 엔터티의 전체 부하가 줄어듭니다. 또한 메시지가 큐 또는 토픽에 기록되는 전반적 속도가 향상됩니다.
 * 프리페치 수를 작은 값으로 설정합니다(예: PrefetchCount = 10). 이렇게 하면 발신기에 많은 수의 메시지가 캐시된 동안 수신기가 유휴 상태가 되지 않습니다.
 
-### <a name="topic-with-a-small-number-of-subscriptions"></a>구독 수가 적은 토픽
+### <a name="topic-with-a-few-subscriptions"></a>구독 수가 적은 토픽
 
-목표: 구독 수가 적은 토픽의 처리량을 최대화합니다. 여러 구독에서 메시지를 수신합니다. 즉, 모든 구독의 수신 속도를 결합한 속도가 전송 속도보다 큼을 의미합니다. 발신기의 수가 작습니다. 구독당 수신기의 수가 작습니다.
+목표: 구독 수가 적은 토픽의 처리량을 최대화 합니다. 여러 구독에서 메시지를 수신합니다. 즉, 모든 구독의 수신 속도를 결합한 속도가 전송 속도보다 큼을 의미합니다. 발신기의 수가 작습니다. 구독당 수신기의 수가 작습니다.
 
 처리량을 최대화 하려면 다음 지침을 따르세요.
 
