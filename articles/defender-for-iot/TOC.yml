@@ -230,7 +230,7 @@
         - name: Azure Security Center 설명서
           href: ../security-center/
         - name: Azure 보안 설명서
-          href: 'https://docs.microsoft.com/azure/security/'
+          href: ../security/index.yml
         - name: Stack Overflow의 Azure RTOS 보안 모듈
           href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
         - name: 'Azure IoT 보안, 개인 정보 보호 및 규정 준수 블로그'
