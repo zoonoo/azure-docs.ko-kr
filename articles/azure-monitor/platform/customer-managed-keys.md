@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 6c1f323828eb48b61b38370bc2fe56d4c93bf036
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 889ee48c43119086047d6f52737266f4c611fc8d
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127212"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562746"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -83,11 +83,11 @@ Azure Monitor는 관리 id를 사용 하 여 Azure Key Vault에 대 한 액세�
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-해당 없음
+N/A
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-해당 없음
+N/A
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -95,7 +95,7 @@ Azure Monitor는 관리 id를 사용 하 여 Azure Key Vault에 대 한 액세�
 
 # <a name="rest"></a>[REST (영문)](#tab/rest)
 
-REST를 사용 하는 경우 응답은 처음에 허용 될 때 HTTP 상태 코드 200 (OK) 및 *AsyncOperation* 속성을 사용 하 여 헤더를 반환 합니다.
+REST를 사용 하는 경우 응답은 초기에 HTTP 상태 코드 202 (수락 됨) 및 *AsyncOperation* 속성을 사용 하 여 헤더를 반환 합니다.
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -160,7 +160,7 @@ Azure Monitor 데이터에 대한 액세스와 키를 보호하기 위해 Key Va
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-해당 없음
+N/A
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -194,13 +194,13 @@ Content-type: application/json
 }
 ```
 
-**Response**
+**응답**
 
 키의 전파를 완료 하는 데 몇 분이 걸립니다. 업데이트 상태는 다음 두 가지 방법으로 확인할 수 있습니다.
 1. 응답에서 Azure-AsyncOperation URL 값을 복사하고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행합니다.
 2. 클러스터에 GET 요청을 보내고 *KeyVaultProperties* 속성을 확인 합니다. 최근에 업데이트 된 키가 응답에서 반환 되어야 합니다.
 
-키 업데이트가 완료 되 면 GET 요청에 대 한 응답이 다음과 같이 표시 됩니다. 200 확인 및 헤더
+키 업데이트가 완료 되 면 GET 요청에 대 한 응답이 다음과 같이 표시 됩니다. 202 (수락 됨) 및 헤더
 ```json
 {
   "identity": {
@@ -283,7 +283,7 @@ Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 �
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-해당 없음
+N/A
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -327,7 +327,7 @@ Content-type: application/json
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-해당 없음
+N/A
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

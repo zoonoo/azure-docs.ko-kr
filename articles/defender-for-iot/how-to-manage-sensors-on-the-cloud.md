@@ -7,16 +7,16 @@ ms.author: shhazam
 ms.date: 12/27/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a763d8b65049cd9f301379c2c038a1d799114653
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 427ea3884a3db6ba33405014435cf1f962670064
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839806"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562712"
 ---
 # <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>IoT 용 Defender 포털에서 센서 등록 및 관리
 
-이 문서에서는 IoT 포털 용 Defender에서 센서를 등록, 확인 및 관리 하는 방법을 설명 합니다.
+이 문서에서는 [IoT 포털 용 Defender](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)에서 센서를 등록, 확인 및 관리 하는 방법을 설명 합니다.
 
 ## <a name="onboard-sensors"></a>온보드 센서
 
@@ -26,9 +26,9 @@ IoT 용 Azure Defender에 등록 하 고 센서 활성화 파일을 다운로드
 
 등록하려면 다음을 수행합니다.
 
-1. IoT 용 Defender 포털의 **시작** 페이지로 이동 합니다.
+1. [IoT 용 Defender 포털](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)의 **시작** 페이지로 이동 합니다.
 1. **온보드 센서** 를 선택 합니다.
-1. 센서 이름을 만듭니다. 이름의 일부로 설치한 센서의 IP 주소를 포함 하거나 쉽게 식별할 수 있는 이름을 사용 하는 것이 좋습니다. 이렇게 하면 Azure Defender for IoT 포털의 등록 이름과 센서 콘솔에 표시 되는 배포 된 센서의 IP 간에 더 쉽게 추적 하 고 일관 된 이름을 지정할 수 있습니다.
+1. 센서 이름을 만듭니다. 이름의 일부로 설치한 센서의 IP 주소를 포함 하거나 쉽게 식별할 수 있는 이름을 사용 하는 것이 좋습니다. 이렇게 하면 Azure [Defender For IoT 포털](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) 의 등록 이름과 센서 콘솔에 표시 되는 배포 된 센서의 IP 간에 더 쉽게 추적 하 고 일관 된 이름을 지정할 수 있습니다.
 1. 센서를 Azure 구독과 연결 합니다.
 1. **클라우드 연결** 설정/해제를 사용 하 여 센서 관리 모드를 선택 합니다. 설정/해제가 설정 되어 있으면 센서가 클라우드로 연결 된 것입니다. 토글이 해제 된 경우에는 센서가 로컬로 관리 됩니다.
 
@@ -52,7 +52,7 @@ IoT 용 Azure Defender에 등록 하 고 센서 활성화 파일을 다운로드
 
 ## <a name="view-onboarded-sensors"></a>등록 센서 보기
 
-IoT 용 Defender 포털에서 등록 센서에 대 한 기본 정보를 볼 수 있습니다. 
+[IoT 용 Defender 포털](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)에서 등록 센서에 대 한 기본 정보를 볼 수 있습니다. 
 
 1. **사이트 및 센서** 를 선택 합니다.
 1. **사이트 및 센서** 페이지에서 필터 및 검색 도구를 사용 하 여 필요한 센서 정보를 찾습니다.
@@ -66,7 +66,7 @@ IoT 용 Defender 포털에서 등록 센서에 대 한 기본 정보를 볼 수 
 
 ## <a name="manage-onboarded-sensors"></a>등록 센서 관리
 
-센서와 관련 된 관리 작업에는 IoT 용 Defender 포털을 사용 합니다.
+센서와 관련 된 관리 작업에는 [IoT 용 Defender 포털](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) 을 사용 합니다.
 
 ### <a name="export"></a>내보내기
 
@@ -76,7 +76,7 @@ IoT 용 Defender 포털에서 등록 센서에 대 한 기본 정보를 볼 수 
 
 사이트 **및 센서** 편집 도구를 사용 하 여 사이트 이름, 영역 및 태그를 추가 하 고 편집할 수 있습니다.
 
-### <a name="delete"></a>DELETE
+### <a name="delete"></a>삭제
 
 클라우드 연결 센서를 삭제 하면 정보가 IoT hub로 전송 되지 않습니다. 더 이상 사용 하지 않는 경우 로컬에서 연결 된 센서를 삭제 합니다.
 
@@ -87,9 +87,9 @@ IoT 용 Defender 포털에서 등록 센서에 대 한 기본 정보를 볼 수 
 
 ### <a name="reactivate"></a>다시 활성화
 
-센서가 관리 되는 모드를 업데이트 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
+센서가 관리 되는 모드를 업데이트 하는 것이 좋습니다. 예를 들어 다음과 같습니다.
 
-- **로컬로 관리 되는 모드가 아닌 클라우드 연결 모드로 작업**: 이렇게 하려면 클라우드 연결 센서에 대 한 정품 인증 파일을 사용 하 여 로컬로 연결 된 센서에 대 한 정품 인증 파일을 업데이트 합니다. 다시 활성화 한 후 센서 검색은 IoT 포털의 센서와 Defender 모두에 표시 됩니다. 다시 활성화 파일이 성공적으로 업로드 되 면 새로 검색 된 경고 정보가 Azure로 전송 됩니다.
+- **로컬로 관리 되는 모드가 아닌 클라우드 연결 모드로 작업**: 이렇게 하려면 클라우드 연결 센서에 대 한 정품 인증 파일을 사용 하 여 로컬로 연결 된 센서에 대 한 정품 인증 파일을 업데이트 합니다. 다시 활성화 한 후 센서 검색은 [IoT 포털의](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)센서와 Defender 모두에 표시 됩니다. 다시 활성화 파일이 성공적으로 업로드 되 면 새로 검색 된 경고 정보가 Azure로 전송 됩니다.
 
 - **클라우드 연결 모드 대신 로컬로 연결 된 모드로 작업**: 이렇게 하려면 로컬로 관리 되는 센서에 대 한 정품 인증 파일을 사용 하 여 클라우드 연결 센서에 대 한 활성화 파일을 업데이트 합니다. 다시 활성화 한 후 센서 검색 정보는 센서에만 표시 됩니다.
 
@@ -97,7 +97,7 @@ IoT 용 Defender 포털에서 등록 센서에 대 한 기본 정보를 볼 수 
 
 센서를 다시 활성화 하려면:
 
-1. IoT 용 Defender 포털에서 **사이트 및 센서** 페이지로 이동 합니다.
+1. [IoT 용 Defender 포털](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)에서 **사이트 및 센서** 페이지로 이동 합니다.
 
 2. 새 정품 인증 파일을 업로드 하려는 센서를 선택 합니다.
 
@@ -117,6 +117,6 @@ IoT 용 Defender 포털에서 등록 센서에 대 한 기본 정보를 볼 수 
 
 9. **활성화** 를 선택합니다. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 [센서 활성화 및 설정](how-to-activate-and-set-up-your-sensor.md)

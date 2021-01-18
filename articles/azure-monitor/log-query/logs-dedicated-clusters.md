@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 34524626cc213233c3db2ca438261b238eb18a2a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831774"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562678"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 
@@ -58,7 +58,7 @@ Log Analytics 전용 클러스터는 최소 1000 g b/일의 용량 예약 가격
 
 ## <a name="asynchronous-operations-and-status-check"></a>비동기 작업 및 상태 검사
 
-일부 구성 단계는 신속 하 게 완료할 수 없기 때문에 비동기적으로 실행 됩니다. 응답에 포함 된 상태는 오류 코드를 포함 하 여 ' InProgress ', ' 업데이트 중 ', ' 삭제 중 ', ' 성공 ' 또는 ' 실패 ' 중 하나일 수 있습니다. REST를 사용 하는 경우 응답은 초기에 HTTP 상태 코드 200 (OK) 및 헤더를 반환 합니다 (승인 된 경우 Azure-AsyncOperation 속성 포함).
+일부 구성 단계는 신속 하 게 완료할 수 없기 때문에 비동기적으로 실행 됩니다. 응답에 포함 된 상태는 오류 코드를 포함 하 여 ' InProgress ', ' 업데이트 중 ', ' 삭제 중 ', ' 성공 ' 또는 ' 실패 ' 중 하나일 수 있습니다. REST를 사용 하는 경우 응답은 초기에 Azure-AsyncOperation 속성을 사용 하 여 HTTP 상태 코드 202 (수락 됨) 및 헤더를 반환 합니다.
 
 ```JSON
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
@@ -89,7 +89,7 @@ Authorization: Bearer <token>
 
 클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한이 있어야 `(Microsoft.OperationalInsights/clusters/write)` 합니다.
 
-### <a name="create"></a>만들기 
+### <a name="create"></a>생성 
 
 **PowerShell**
 
@@ -102,7 +102,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST (영문)**
 
-*호출* 
+*전화할* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
@@ -123,9 +123,9 @@ Content-type: application/json
 }
 ```
 
-*Response*
+*응답*
 
-200 OK 및 헤더로 지정 해야 합니다.
+202 (수락 됨) 및 헤더 여야 합니다.
 
 ### <a name="check-cluster-provisioning-status"></a>클러스터 프로 비전 상태 확인
 
@@ -145,7 +145,7 @@ Log Analytics 클러스터를 프로 비전 하는 작업은 완료 하는 데 �
    Authorization: Bearer <token>
    ```
 
-   **Response**
+   **응답**
 
    ```json
    {
@@ -213,7 +213,7 @@ Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Propert
 
 다음 REST 호출을 사용 하 여 클러스터에 연결 합니다.
 
-*보내기*
+*Send*
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
@@ -229,7 +229,7 @@ Content-type: application/json
 
 *응답*
 
-200 OK 및 헤더입니다.
+202 (수락 됨) 및 헤더.
 
 ### <a name="check-workspace-link-status"></a>작업 영역 링크 상태 확인
   
@@ -255,14 +255,14 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 
 **REST (영문)**
 
-*호출*
+*전화할*
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-*Response*
+*응답*
 
 ```json
 {
@@ -322,14 +322,14 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 
 **REST (영문)**
 
-*호출*
+*전화할*
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
-*Response*
+*응답*
   
   ```json
   {
@@ -380,14 +380,14 @@ Get-AzOperationalInsightsCluster
 
 **REST (영문)**
 
-*호출*
+*전화할*
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
     
-*Response*
+*응답*
     
 ' 리소스 그룹의 클러스터 '의 경우와 동일 하지만 구독 범위에 있습니다.
 
@@ -411,7 +411,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 
 **REST (영문)**
 
-*호출*
+*전화할*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -434,7 +434,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 
 **REST (영문)**
 
-*호출*
+*전화할*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
