@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5fa8377b3cdddb2818c04c5a75e347ff73dc07d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 40d2f957ce115b43a1dcc138b86e05ec9cc47384
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509522"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060612"
 ---
 이 자습서를 사용하려면 다음과 같은 Azure 리소스가 필요합니다.
 
@@ -30,8 +30,11 @@ ms.locfileid: "96509522"
 1. 스크립트가 완료되면 중괄호를 선택하여 폴더 구조를 표시합니다. *~/clouddrive/lva-sample* 디렉터리에 몇 개의 파일이 표시됩니다. 이 빠른 시작에서 유의해야 할 사항은 다음과 같습니다.
 
      * * **~/clouddrive/lva-sample/edge-deployment/.env** _ - 이 파일에는 Visual Studio Code가 에지 디바이스에 모듈을 배포하는 데 사용하는 속성이 포함되어 있습니다.
-     _ ***~/clouddrive/lva-sample/appsetting.json*** - Visual Studio Code에서 샘플 코드를 실행하는 데 이 파일을 사용합니다.
+     _ * **~/clouddrive/lva-sample/appsetting.json** _ - Visual Studio Code에서 샘플 코드를 실행하는 데 이 파일을 사용합니다.
      
     다음 섹션의 Visual Studio Code에서 개발 환경을 설정할 때 이러한 파일이 필요합니다. 지금은 로컬 파일에 복사하는 것이 좋습니다.
     
     ![앱 설정](../../../media/quickstarts/clouddrive.png)
+
+> [!TIP]
+> 만든 Azure 리소스와 관련된 문제가 발생하는 경우 _ *[문제 해결 가이드](../../../troubleshoot-how-to.md#common-error-resolutions)* *를 참조하여 일반적으로 발생하는 문제를 해결하세요.

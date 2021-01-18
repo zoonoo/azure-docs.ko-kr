@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 클러스터 업그레이드
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 기존 AKS 클러스터를 최신 Kubernetes 버전으로 업그레이드하는 방법을 알아봅니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 517172b919552a24e9cb12bbaad14eb8cb71b3fd
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 8efb381562a5c55fa2c29b8379312dc41ef6a046
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007537"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251338"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 Kubernetes 업그레이드
 
@@ -37,22 +37,22 @@ ms.locfileid: "97007537"
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-다음 예제에서는 현재 버전이 *1.15.11* 이며 사용 가능한 버전이 *업그레이드* 아래에 표시됩니다.
+다음 예제에서는 현재 버전이 *1.18.10* 이며 사용 가능한 버전이 *업그레이드* 아래에 표시됩니다.
 
 ```json
 {
   "agentPoolProfiles": null,
   "controlPlaneProfile": {
-    "kubernetesVersion": "1.15.11",
+    "kubernetesVersion": "1.18.10",
     ...
     "upgrades": [
       {
         "isPreview": null,
-        "kubernetesVersion": "1.16.8"
+        "kubernetesVersion": "1.19.1"
       },
       {
         "isPreview": null,
-        "kubernetesVersion": "1.16.9"
+        "kubernetesVersion": "1.19.3"
       }
     ]
   },
@@ -82,7 +82,7 @@ az aks upgrade \
 > [!NOTE]
 > 부 버전을 한 번에 하나씩 업그레이드할 수 있습니다. 예를 들어 *1.14.x* 에서 *1.15.x* 로 업그레이드할 수 있지만, *1.14.x* 에서 *1.16.x* 로 직접 업그레이드할 수는 없습니다. *1.14.x* 에서 *1.16.x* 로 업그레이드하려면 먼저 *1.14.x* 에서 *1.15.x* 로 업그레이드한 다음, *1.15.x* 에서 *1.16.x* 로 업그레이드합니다.
 
-압축된 다음 예제 출력에서는 *1.16.8* 로 업그레이드한 결과를 보여줍니다. 이제 *kubernetesVersion* 에서 *1.16.8* 을 보고합니다.
+압축된 다음 예제 출력에서는 *1.19.1* 로 업그레이드한 결과를 보여줍니다. 이제 *kubernetesVersion* 에서 *1.19.1* 을 보고합니다.
 
 ```json
 {
@@ -100,7 +100,7 @@ az aks upgrade \
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.16.8",
+  "kubernetesVersion": "1.19.1",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -115,12 +115,12 @@ az aks upgrade \
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-다음 예제 출력에서는 AKS 클러스터에서 *KubernetesVersion 1.16.8* 을 실행하는 것을 보여줍니다.
+다음 예제 출력에서는 AKS 클러스터에서 *KubernetesVersion 1.19.1* 을 실행하는 것을 보여줍니다.
 
-```
+```output
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.16.8               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.19.1               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제

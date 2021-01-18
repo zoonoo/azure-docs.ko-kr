@@ -9,13 +9,13 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/02/2020
-ms.openlocfilehash: 3956f8d91793367f7200d2f349a8713aff3d2f59
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 01/11/2021
+ms.openlocfilehash: cb5bac06ab6eeaa00e72ba6068328a972b8ac37b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016227"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119364"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>빠른 시작: Azure Time Series Insights Gen2 데모 환경 탐색
 
@@ -38,12 +38,27 @@ Azure Time Series Insights Gen2 탐색기는 기록 데이터 및 근본 원인 
 
 ## <a name="work-with-historical-data"></a>기록 데이터 사용
 
-1. **Contoso Plant 1** 에서 풍력 터빈 **W7** 을 살펴봅니다.  
+1. **Contoso WindFarm 계층 구조** 를 선택합니다.
+
+   [![Contoso WindFarm 계층 구조](media/quickstart-explore/quick-start-contoso-1.png)](media/quickstart-explore/quick-start-contoso-1.png#lightbox)
+
+1. **Contoso Plant 1** 에서 풍력 터빈 **W7** 을 살펴봅니다.
+
+   [![Contoso Plant 1의 W7](media/quickstart-explore/quick-start-contoso-2.png)](media/quickstart-explore/quick-start-contoso-2.png#lightbox)
 
    1. 보기 범위를 **1/1/17 20:00:00.00 - 3/10/17 20:00:00.00(UTC)** 로 변경합니다.
+
+      [![범위 보기](media/quickstart-explore/range-setting-1.png)](media/quickstart-explore/range-setting-1.png#lightbox)
+
+      [![범위 보기 설정](media/quickstart-explore/range-setting-2.png)](media/quickstart-explore/range-setting-2.png#lightbox)
+
+   1. 확대 **(+)** 및 축소 **(-)** 를 사용하여 슬라이드 바를 이동하여 범위 보기를 조정합니다.
+
+      [ ![범위 보기 조정](media/quickstart-explore/view-range-setting.png)](media/quickstart-explore/view-range-setting.png#lightbox)
+
    1. 센서를 선택하려면 **Contoso Plant 1** > **W7** > **발전기 시스템** > **GeneratorSpeed** 를 선택합니다. 그런 다음, 표시되는 값을 검토합니다.
 
-      [![Contoso Plant 1의 W7](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
+      [![생성기 속도](media/quickstart-explore/quick-start-generator-speed-1.png)](media/quickstart-explore/quick-start-generator-speed-1.png#lightbox)
 
 1. 최근에 Contoso는 풍력 터빈 **W7** 에서 화재를 발견했습니다. 화재 원인에 대한 여러 의견이 있습니다. Azure Time Series Insights Gen2에는 화재 발생 시 활성화된 화재 경고 센서가 표시됩니다.
 

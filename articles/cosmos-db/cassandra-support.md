@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188550"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134231"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -84,10 +84,11 @@ Azure Cosmos DB Cassandra API는 다음 CQL 함수를 지원합니다.
 | Token * | 예 |
 | ttl | 예 |
 | writetime | 예 |
-| 캐스트 | 예 |
+| 캐스트 ** | Yes |
 
-> [!NOTE]
-> \* Cassandra API는 토큰을 프로젝션/선택기로 지원하며 where 절의 왼쪽에는 token(pk)만 허용합니다. 예를 들어 `WHERE token(pk) > 1024`는 지원되지만 `WHERE token(pk) > token(100)`은 지원되지 **않습니다**.
+> [!NOTE] 
+> \* Cassandra API는 토큰을 프로젝션/선택기로 지원하며 where 절의 왼쪽에는 token(pk)만 허용합니다. 예를 들어 `WHERE token(pk) > 1024`는 지원되지만 `WHERE token(pk) > token(100)`은 지원되지 **않습니다**.  
+> \*\* `cast()` 함수는 Cassandra API에서 중첩할 수 없습니다. 예를 들어 `SELECT cast(count as double) FROM myTable`는 지원되지만 `SELECT avg(cast(count as double)) FROM myTable`은 지원되지 **않습니다**.
 
 
 
@@ -183,6 +184,30 @@ Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령�
 | UPDATE(IF CONDITION이 있는 경량 트랜잭션)| 예 |
 | TRUNCATE | 예 |
 | USE | 예 |
+
+## <a name="cql-shell-commands"></a>CQL Shell 명령
+
+Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령을 지원합니다.
+
+|명령  |지원됨 |
+|---------|---------|
+| 캡처 | Yes |
+| CLEAR | Yes |
+| 일관성 * | 해당 없음 |
+| 복사 | No |
+| DESCRIBE | Yes |
+| cqlshExpand | No |
+| EXIT | Yes |
+| LOGIN | 해당 없음(CQL 함수 `USER`가 지원되지 않으므로 `LOGIN`이 중복됨) |
+| 페이징 | Yes |
+| 직렬 일관성 * | 해당 없음 |
+| 표시 | Yes |
+| 원본 | Yes |
+| 추적 | 해당 없음(Cassandra API는 Azure Cosmos DB에 의해 지원됨 - 문제 해결을 위해 [진단 로깅](cosmosdb-monitor-resource-logs.md) 사용) |
+
+> [!NOTE] 
+> \* 일관성은 Azure Cosmos DB에서 다르게 작동합니다. 자세한 내용은 [여기](cassandra-consistency.md)를 참조하세요.  
+
 
 ## <a name="json-support"></a>JSON 지원
 |명령  |지원됨 |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4e82b4adbfde7623de9497c94e56a9ae303131ad
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ff777f079116942eba32e49f359c7f7e0b99f65d
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202779"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555783"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 보안 기준
 
@@ -311,7 +311,7 @@ Azure Data Factory에 대 한 진단 설정을 구성 하 고 Log Analytics 작�
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: 명령줄 감사 로깅 사용
 
-**지침**: Azure VM (가상 머신)에서 Integration Runtime를 실행 하는 경우 명령줄 감사 로깅을 사용 하도록 설정할 수 있습니다. Azure Security Center은 Azure Vm에 대 한 보안 이벤트 로그 모니터링을 제공 합니다. Security Center은 지원 되는 모든 Azure Vm 및 자동 프로 비전이 사용 하도록 설정 된 경우 생성 되는 새 Vm에 대 한 Microsoft Monitoring Agent를 프로 비전 하거나 에이전트를 수동으로 설치할 수 있습니다. 에이전트는 프로세스 생성 이벤트 4688 및 이벤트 4688 내의 CommandLine 필드를 활성화합니다. VM에서 생성된 새로운 프로세스는 이벤트 로그에서 기록되고 Security Center의 검색 서비스에 의해 모니터링됩니다.
+**지침**: Azure VM (가상 머신)에서 Integration Runtime를 실행 하는 경우 명령줄 감사 로깅을 사용 하도록 설정할 수 있습니다. Azure Security Center은 Azure Vm에 대 한 보안 이벤트 로그 모니터링을 제공 합니다. Security Center은 지원 되는 모든 Azure Vm 및 자동 프로 비전이 사용 하도록 설정 된 경우 생성 되는 새 Vm에 대 한 Microsoft Monitoring Agent를 프로 비전 하거나 에이전트를 수동으로 설치할 수 있습니다. 에이전트는 프로세스 생성 이벤트 4688 및 이벤트 4688 내의 CommandLine 필드를 활성화합니다. VM에서 생성된 새로운 프로세스는 EventLog에서 기록되고 Security Center의 검색 서비스에 의해 모니터링됩니다.
 
 * [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
@@ -335,9 +335,9 @@ Azure AD는 사용자 액세스를 관리할 수 있는 권장 되는 방법 이
 
 * [권한 있는 Id 관리자에 대 한 정보](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 * [로컬 계정에 대 한 정보](../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
@@ -744,7 +744,7 @@ Security Center는 취약성을 식별하는 경우 발견 사항 및 관련 정
 
 * [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription)
 
 * [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -880,7 +880,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: Azure 가상 머신에서 런타임 통합을 실행 하는 경우 스크립트 유형에 따라 운영 체제별 구성 또는 타사 리소스를 사용 하 여 사용자가 azure compute 리소스 내에서 스크립트를 실행 하는 기능을 제한할 수 있습니다. Azure Security Center 적응 응용 프로그램 제어를 활용 하 여 권한 있는 소프트웨어만 실행 되 고 권한이 없는 모든 소프트웨어가 Azure Virtual Machines에서 실행 되지 않도록 차단할 수도 있습니다.
 
-* [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](../security-center/security-center-adaptive-application.md)
 
@@ -918,7 +918,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: Azure Policy를 사용 하 여 Azure Data Factory에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "DataFactory" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Azure Data Factory 인스턴스의 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
-* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -964,7 +964,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Resource Manager 템플릿 만들기에 대 한 정보](../virtual-machines/windows/ps-template.md)
 
-* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Azure Security Center 모니터링**: 예
 
@@ -974,9 +974,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure devops 또는 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow)
 
-* [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
+* [Azure Repos 설명서](/azure/devops/repos/index)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1150,7 +1150,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 * [Azure VM 백업 개요](../backup/backup-azure-vms-introduction.md)
 
-* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1164,7 +1164,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 * [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](../backup/backup-azure-restore-files-from-vm.md)
 
-* [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1214,7 +1214,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 ### <a name="103-test-security-response-procedures"></a>10.3: 보안 대응 프로시저 테스트
 
-**지침**: 시스템의 인시던트 대응 기능을 정기적으로 테스트합니다. 약점과 격차를 식별하고 필요에 따라 계획을 수정합니다.
+**지침**: 정기적으로 시스템의 인시던트 응답 기능을 테스트 하는 연습을 수행 합니다. 약점과 격차를 식별하고 필요에 따라 계획을 수정합니다.
 
 * [NIST의 게시물을 참조하세요. IT 계획 및 기능에 대한 테스트, 학습 및 연습 프로그램에 대한 안내](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1264,7 +1264,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 * [Microsoft Engagement 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다.](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft에서 관리하는 클라우드 인프라, 서비스 및 애플리케이션에 대한 레드 팀 및 라이브 사이트 침투 테스트 실행에 대한 자세한 내용은 ](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)를 참조하세요.
+* [Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트에 대 한 자세한 내용은 Microsoft에서 확인할 수 있습니다.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a236cf99d3131e83619cfab06e8ec028938a87ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454618"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120226"
 ---
 # <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 참고 자료
 
@@ -37,7 +37,7 @@ ms.locfileid: "96454618"
 
 ## <a name="data-migration"></a>데이터 마이그레이션
 
-먼저 [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 Azure Blob Storage에 데이터를 로드합니다. 그런 다음, [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(미리 보기)을 사용하여 데이터를 준비 테이블에 로드합니다. 다음 구성을 사용합니다.
+먼저 [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 Azure Blob Storage에 데이터를 로드합니다. 그런 다음, [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 사용하여 데이터를 준비 테이블에 로드합니다. 다음 구성을 사용합니다.
 
 | 디자인 | 권장 |
 |:--- |:--- |
@@ -46,7 +46,7 @@ ms.locfileid: "96454618"
 | 분할 | None |
 | 리소스 클래스 | largerc 또는 xlargerc |
 
-[데이터 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [데이터 로드](design-elt-data-loading.md), [ELT(추출, 로드 및 변환) 프로세스](design-elt-data-loading.md)에 대해 자세히 알아보세요.
+[데이터 마이그레이션](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), [데이터 로드](design-elt-data-loading.md), [ELT(추출, 로드 및 변환) 프로세스](design-elt-data-loading.md)에 대해 자세히 알아보세요.
 
 ## <a name="distributed-or-replicated-tables"></a>분산 또는 복제된 테이블
 
@@ -137,7 +137,7 @@ Azure Synapse의 주요 기능은 [컴퓨팅 리소스 관리](sql-data-warehous
 
 허브 및 스포크 아키텍처에서 SQL Database 및 Azure Analysis Services를 고려하는 것이 좋습니다. 이 솔루션은 SQL Database 및 Azure Analysis Services의 고급 보안 기능을 사용하면서 동시에 다른 사용자 그룹 간에 워크로드 격리를 제공할 수 있습니다. 또한 사용자에게 무제한 동시성을 제공하는 방법이기도 합니다.
 
-[Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)을 활용하는 일반적인 아키텍처](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)에 대해 자세히 알아보세요.
+[Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)을 활용하는 일반적인 아키텍처](/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse)에 대해 자세히 알아보세요.
 
 전용 SQL 풀(이전의 SQL DW)에서 SQL 데이터베이스의 스포크를 한 번의 클릭으로 배포합니다.
 

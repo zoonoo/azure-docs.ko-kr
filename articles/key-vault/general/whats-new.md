@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 10/01/2020
+ms.date: 01/12/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dbbde397ab235068ea90280da721e3e3dc38866a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ef2c42ae76dc5e1511494635904228a8b574d483
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792364"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132191"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Azure Key Vault의 새 기능
 
@@ -37,7 +37,7 @@ Azure Key Vault의 새 기능은 다음과 같습니다. [Azure 업데이트 Key
 
 ### <a name="soft-delete-on-by-default"></a>기본적으로 일시 삭제 사용
 
-2020년이 종료되면 새 키 자격 증명 모음과 기존 키 자격 증명 모음을 포함한 **모든 키 자격 증명 모음에서 기본적으로 소프트 삭제가 사용** 됩니다. 호환성이 손상될 수 있는 이 변경 내용에 대한 자세한 내용과 영향을 받는 키 자격 증명 모음을 찾아서 미리 업데이트하는 단계에 대한 자세한 내용은 [모든 키 자격 증명 모음에 대해 사용하도록 설정되는 일시 삭제](soft-delete-change.md) 문서를 참조하세요.
+신규 및 기존 키 자격 증명 모음 모두에 대해 **일시 삭제를 사용하도록 설정해야 합니다**. 향후 몇 개월 동안 일시 삭제를 옵트아웃하는 기능은 더 이상 사용되지 않습니다. 호환성이 손상될 수 있는 이 변경 내용에 대한 자세한 내용과 영향을 받는 키 자격 증명 모음을 찾아서 미리 업데이트하는 단계에 대한 자세한 내용은 [모든 키 자격 증명 모음에 대해 사용하도록 설정되는 일시 삭제](soft-delete-change.md) 문서를 참조하세요.
 
 ### <a name="azure-tls-certificate-changes"></a>Azure TLS 인증서 변경
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 5f49d2c918164fa529b12313e000aff5f8893a65
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d691807f673dcd6c8147c9ff18a95c6ce0c88ae6
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201855"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247440"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Blink 구성
 
@@ -50,7 +50,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용하여 어떤 사�
 
 ## <a name="setup-blink-for-provisioning"></a>프로비저닝을 위한 Blink 설정
 
-1. support@joinblink.com에서 [지원 사례](https://support.joinblink.com) 또는 이메일 **Blink 지원** 에 로그하여 SCIM 토큰을 요청합니다. .
+1. support@joinblink.com에서 [지원 사례](https://support.joinblink.com) 또는 이메일 **Blink 지원** 에 로그하여 SCIM 토큰을 요청합니다.
 
 2.  **SCIM 인증 토큰** 을 복사합니다. 이 값은 Azure Portal에서 Blink 애플리케이션의 프로비저닝 탭에 있는 비밀 토큰 필드에 입력됩니다.
 
@@ -117,7 +117,23 @@ Azure AD를 사용하여 사용자를 자동으로 프로비저닝하도록 Blin
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Blink로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Blink의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Blink 사용자 특성](media/blink-provisioning-tutorial/new-user-attributes.png)
+   |attribute|Type|필터링에 지원됨|
+   |---|---|---|
+   |userName|String|&check;|
+   |활성|부울|
+   |title|String|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
+   |urn:ietf:params:scim:schemas:extension:blink:2.0:User:company|String|
+   urn:ietf:params:scim:schemas:extension:blink:2.0:User:description|String|
+   urn:ietf:params:scim:schemas:extension:blink:2.0:User:location|String|
 
 10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
@@ -137,15 +153,23 @@ Azure AD를 사용하여 사용자를 자동으로 프로비저닝하도록 Blin
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
+## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
+프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
+
+* [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
+* [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+* 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.  
+
+
 ## <a name="change-log"></a>로그 변경
 
-* 2021년 1월 14일 - 사용자 지정 확장 특성 **회사** , **설명** 및 **위치** 가 추가되었습니다.
+* 2021년 1월 14일 - 사용자 지정 확장 특성 **회사**, **설명** 및 **위치** 가 추가되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d1325ac1afbca8b30cc640f1f22cb598506a5c91
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497897"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555715"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 Data Factory 모니터링 및 경고
 
@@ -162,7 +162,7 @@ Azure Data Factory 버전 2에서 내보내는 메트릭은 다음과 같습니�
 
 ## <a name="data-factory-alerts"></a>Data Factory 경고
 
-Azure Portal에 로그인 하 고 **Monitor**  >  **경고** 모니터링을 선택 하 여 경고를 만듭니다.
+Azure Portal에 로그인 하 고   >  **경고** 모니터링을 선택 하 여 경고를 만듭니다.
 
 ![포털 메뉴의 경고](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | Description |
 | --- | --- | --- |
 | **storageAccountId** |String | 진단 로그를 보낼 저장소 계정의 리소스 ID입니다. |
 | **serviceBusRuleId** |String | 진단 로그 스트리밍을 위해 Event Hubs 생성 하려는 service bus 네임 스페이스의 service bus 규칙 ID입니다. 규칙 ID의 형식은 `{service bus resource ID}/authorizationrules/{key name}` 입니다.|
@@ -442,7 +442,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | 설명 | 예제 |
+| 속성 | Type | Description | 예제 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -488,7 +488,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | 설명 | 예제 |
+| 속성 | Type | Description | 예제 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -531,7 +531,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | 설명 | 예제 |
+| 속성 | Type | Description | 예제 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -568,7 +568,7 @@ SSIS IR 시작/중지/유지 관리 작업의 로그 특성은 다음과 같습�
 }
 ```
 
-| 속성                   | 형식   | 설명                                                   | 예제                        |
+| 속성                   | Type   | Description                                                   | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | SSIS IR 작업의 이름                            | `Start/Stop/Maintenance` |
@@ -583,7 +583,7 @@ SSIS IR 시작/중지/유지 관리 작업의 로그 특성은 다음과 같습�
 
 #### <a name="ssis-event-message-context-log-attributes"></a>SSIS 이벤트 메시지 컨텍스트 로그 특성
 
-Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지와 관련 된 조건의 로그 특성은 다음과 같습니다. 이러한 속성은 여러 SSIS 패키지 속성의 런타임 값을 보여 주는 [SSISDB (ssis 카탈로그) 이벤트 메시지 컨텍스트 테이블 또는 뷰와](/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) 유사한 정보를 전달 합니다. 로깅 수준을 선택 하면 생성 되 `Basic/Verbose` 고 디버깅/준수 검사에 유용 합니다.
+Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지와 관련 된 조건의 로그 특성은 다음과 같습니다. 이러한 속성은 여러 SSIS 패키지 속성의 런타임 값을 보여 주는 [SSISDB (ssis 카탈로그) 이벤트 메시지 컨텍스트 테이블 또는 뷰와](/sql/integration-services/system-views/catalog-event-message-context) 유사한 정보를 전달 합니다. 로깅 수준을 선택 하면 생성 되 `Basic/Verbose` 고 디버깅/준수 검사에 유용 합니다.
 
 ```json
 {
@@ -608,7 +608,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 }
 ```
 
-| 속성                   | 형식   | 설명                                                          | 예제                        |
+| 속성                   | Type   | Description                                                          | 예제                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
@@ -620,7 +620,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 | **operationId**            | String | SSISDB에서 특정 작업을 추적 하기 위한 고유 ID          | `1` (1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 작업을 나타냅니다.) |
 | **contextDepth**           | String | 이벤트 메시지 컨텍스트의 깊이입니다.                              | `0` (0은 패키지 실행이 시작 되기 전에 컨텍스트를 나타내고, 1은 오류가 발생 했을 때 컨텍스트를 나타내고, 컨텍스트는 오류에서 추가 될 때 더 커집니다.) |
 | **packagePath**            | String | 이벤트 메시지 컨텍스트 원본인 패키지 개체의 경로입니다.      | `\Package` |
-| **contextType**            | String | 이벤트 메시지 컨텍스트 원본인 패키지 개체의 유형입니다.      | `60`( [추가 컨텍스트 형식](/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)참조) |
+| **contextType**            | String | 이벤트 메시지 컨텍스트 원본인 패키지 개체의 유형입니다.      | `60`( [추가 컨텍스트 형식](/sql/integration-services/system-views/catalog-event-message-context#remarks)참조) |
 | **contextSourceName**      | String | 이벤트 메시지 컨텍스트 원본인 패키지 개체의 이름입니다.      | `MyPackage` |
 | **contextSourceId**        | String | 이벤트 메시지 컨텍스트 원본인 패키지 개체의 고유 ID | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
 | **propertyName**           | String | 이벤트 메시지 컨텍스트 소스에 대 한 패키지 속성의 이름입니다.   | `DelayValidation` |
@@ -629,7 +629,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 
 #### <a name="ssis-event-messages-log-attributes"></a>SSIS 이벤트 메시지 로그 특성
 
-Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지의 로그 특성은 다음과 같습니다. 이벤트 메시지의 자세한 텍스트/메타 데이터를 보여 주는 [SSISDB 이벤트 메시지 테이블 또는 뷰와](/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) 유사한 정보를 전달 합니다. 을 제외한 모든 로깅 수준에서 생성 `None` 됩니다.
+Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지의 로그 특성은 다음과 같습니다. 이벤트 메시지의 자세한 텍스트/메타 데이터를 보여 주는 [SSISDB 이벤트 메시지 테이블 또는 뷰와](/sql/integration-services/system-views/catalog-event-messages) 유사한 정보를 전달 합니다. 을 제외한 모든 로깅 수준에서 생성 `None` 됩니다.
 
 ```json
 {
@@ -658,7 +658,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 }
 ```
 
-| 속성                   | 형식   | 설명                                                        | 예제                        |
+| 속성                   | Type   | Description                                                        | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
@@ -669,8 +669,8 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 | **level**                  | String | 진단 로그의 수준                                       | `Informational` |
 | **operationId**            | String | SSISDB에서 특정 작업을 추적 하기 위한 고유 ID        | `1` (1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 작업을 나타냅니다.) |
 | **messageTime**            | String | 이벤트 메시지가 UTC 형식으로 생성 되는 시간입니다.          | `2017-06-28T21:00:27.3534352Z` |
-| **messageType**            | String | 이벤트 메시지의 형식입니다.                                     | `70`( [자세한 메시지 유형](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)참조) |
-| **messageSourceType**      | String | 이벤트 메시지 원본의 형식입니다.                              | `20`( [자세한 메시지 원본 유형](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)참조) |
+| **messageType**            | String | 이벤트 메시지의 형식입니다.                                     | `70`( [자세한 메시지 유형](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)참조) |
+| **messageSourceType**      | String | 이벤트 메시지 원본의 형식입니다.                              | `20`( [자세한 메시지 원본 유형](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)참조) |
 | **message**                | String | 이벤트 메시지의 텍스트입니다.                                     | `MyPackage:Validation has started.` |
 | **packageName**            | String | 실행 된 패키지 파일의 이름입니다.                             | `MyPackage.dtsx` |
 | **eventName**              | String | 관련 런타임 이벤트의 이름입니다.                                 | `OnPreValidate` |
@@ -683,7 +683,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>SSIS 실행 파일 통계 로그 특성
 
-Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 실행 가능한 통계의 로그 특성은 다음과 같습니다. 여기서 실행 파일은 패키지 제어 흐름의 컨테이너 또는 작업입니다. 이러한 테이블은 실행 중인 각 실행 파일에 대 한 행을 보여 주는 [SSISDB 실행 파일 통계 테이블 또는 뷰와](/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) 유사한 정보를 해당 반복을 포함 하 여 전달 합니다. 이러한 `None` 오류는 작업 수준 병목 상태를 식별 하는 데 유용 하며 모든 로깅 수준에서 생성 됩니다.
+Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 실행 가능한 통계의 로그 특성은 다음과 같습니다. 여기서 실행 파일은 패키지 제어 흐름의 컨테이너 또는 작업입니다. 이러한 테이블은 실행 중인 각 실행 파일에 대 한 행을 보여 주는 [SSISDB 실행 파일 통계 테이블 또는 뷰와](/sql/integration-services/system-views/catalog-executable-statistics) 유사한 정보를 해당 반복을 포함 하 여 전달 합니다. 이러한 `None` 오류는 작업 수준 병목 상태를 식별 하는 데 유용 하며 모든 로깅 수준에서 생성 됩니다.
 
 ```json
 {
@@ -707,7 +707,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 실행 가능한 통
 }
 ```
 
-| 속성                   | 형식   | 설명                                                      | 예제                        |
+| 속성                   | Type   | Description                                                      | 예제                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
@@ -727,7 +727,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 실행 가능한 통
 
 #### <a name="ssis-execution-component-phases-log-attributes"></a>SSIS 실행 구성 요소 단계 로그 특성
 
-Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구성 요소에 대 한 런타임 통계의 로그 특성은 다음과 같습니다. 모든 실행 단계에서 데이터 흐름 구성 요소에 소요 된 시간을 보여 주는 [SSISDB 실행 구성 요소 단계 테이블 또는 뷰와](/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) 유사한 정보를 전달 합니다. `Performance/Verbose`로깅 수준을 선택 하 고 데이터 흐름 실행 통계를 캡처하는 데 유용 하 게 사용할 때 생성 됩니다.
+Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구성 요소에 대 한 런타임 통계의 로그 특성은 다음과 같습니다. 모든 실행 단계에서 데이터 흐름 구성 요소에 소요 된 시간을 보여 주는 [SSISDB 실행 구성 요소 단계 테이블 또는 뷰와](/sql/integration-services/system-views/catalog-execution-component-phases) 유사한 정보를 전달 합니다. `Performance/Verbose`로깅 수준을 선택 하 고 데이터 흐름 실행 통계를 캡처하는 데 유용 하 게 사용할 때 생성 됩니다.
 
 ```json
 {
@@ -752,7 +752,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구
 }
 ```
 
-| 속성                   | 형식   | 설명                                                         | 예제                        |
+| 속성                   | Type   | Description                                                         | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
@@ -773,7 +773,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구
 
 #### <a name="ssis-execution-data-statistics-log-attributes"></a>SSIS 실행 데이터 통계 로그 특성
 
-다음은 SSIS IR에서 SSIS 패키지 실행에 의해 생성 되는 업스트림에서 다운스트림 구성 요소에 이르기까지 데이터 흐름 파이프라인의 각 레그를 통한 데이터 이동의 로그 특성입니다. 데이터 흐름 태스크를 통해 이동 된 데이터의 행 수를 보여 주는 [SSISDB 실행 데이터 통계 테이블 또는 뷰와](/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) 유사한 정보를 전달 합니다. 로깅 수준을 선택 하면 생성 되 `Verbose` 고 데이터 흐름 처리량을 계산 하는 데 유용 합니다.
+다음은 SSIS IR에서 SSIS 패키지 실행에 의해 생성 되는 업스트림에서 다운스트림 구성 요소에 이르기까지 데이터 흐름 파이프라인의 각 레그를 통한 데이터 이동의 로그 특성입니다. 데이터 흐름 태스크를 통해 이동 된 데이터의 행 수를 보여 주는 [SSISDB 실행 데이터 통계 테이블 또는 뷰와](/sql/integration-services/system-views/catalog-execution-data-statistics) 유사한 정보를 전달 합니다. 로깅 수준을 선택 하면 생성 되 `Verbose` 고 데이터 흐름 처리량을 계산 하는 데 유용 합니다.
 
 ```json
 {
@@ -800,7 +800,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구
 }
 ```
 
-| 속성                     | 형식   | 설명                                                        | 예제                        |
+| 속성                     | Type   | Description                                                        | 예제                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                     | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**            | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
@@ -829,7 +829,7 @@ Log Analytics는 다음과 같은 예외를 제외 하 고 모니터에서 스�
 * "Level" 열이 없습니다.
 * 동적 "속성" 열은 다음과 같은 동적 JSON blob 유형으로 유지 됩니다.
 
-    | Azure Monitor 열 | Log Analytics 열 | 형식 |
+    | Azure Monitor 열 | Log Analytics 열 | Type |
     | --- | --- | --- |
     | $. 속성. UserProperties | UserProperties | 동적 |
     | $. 속성. 달 | 주석 | 동적 |
@@ -903,7 +903,7 @@ SSIS 작업 로그 특성/속성에 대 한 자세한 내용은 [ADF의 Azure Mo
 
 ![Log Analytics에서 SSIS IR 작업 로그 쿼리](media/data-factory-monitor-oms/log-analytics-query.png)
 
-로그 분석에서 SSIS 패키지 실행 로그를 쿼리할 때 **OperationId** / **executionid** / **CorrelationId** 속성을 사용 하 여 조인할 수 있습니다. **OperationId** / **ExecutionId** `1` T-SQL을 통해 호출 되는 SSISDB에 저장 **되지 않은** 패키지와 관련 된 모든 작업/실행의 경우 executionid는 항상로 설정 됩니다.
+로그 분석에서 SSIS 패키지 실행 로그를 쿼리할 때 **OperationId** / **executionid** / **CorrelationId** 속성을 사용 하 여 조인할 수 있습니다. **OperationId** /  `1` T-SQL을 통해 호출 되는 SSISDB에 저장 **되지 않은** 패키지와 관련 된 모든 작업/실행의 경우 executionid는 항상로 설정 됩니다.
 
 ![Log Analytics에서 SSIS 패키지 실행 로그 쿼리](media/data-factory-monitor-oms/log-analytics-query2.png)
 

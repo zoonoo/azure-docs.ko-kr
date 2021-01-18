@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 시작 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 방법을 보여 줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: db48183e918fcb1096734f912f02c091ddac1d74
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 276c2ceaa9e0bef254c70f91541a3a3db7c02d47
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511878"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060404"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>빠른 시작: 시작 - IoT Edge의 Live Video Analytics
 
@@ -21,7 +21,7 @@ ms.locfileid: "97511878"
 
 IoT Edge에서 Live Video Analytics를 시작하는 방법에 대한 자세한 단계가 포함된 다음 비디오를 볼 수 있습니다.
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -43,7 +43,7 @@ IoT Edge에서 Live Video Analytics를 시작하는 방법에 대한 자세한 �
 
 이 빠른 시작에서는 [Live Video Analytics 리소스 설치 스크립트](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)를 사용하여 Azure 구독에 필요한 리소스를 배포하는 것이 좋습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
-1. [Azure Cloud Shell](https://shell.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동하여 클라우드 셸 아이콘을 선택합니다.
 1. Cloud Shell을 처음 사용하는 경우 스토리지 계정 및 Microsoft Azure Files 공유를 만들 구독을 선택하라는 메시지가 표시됩니다. **스토리지 만들기** 를 선택하여 Cloud Shell 세션 정보에 대한 스토리지 계정을 만듭니다. 이 스토리지 계정은 Azure Media Services 계정에서 사용하기 위해 스크립트에서 만드는 계정과는 다릅니다.
 1. Cloud Shell 창 왼쪽의 드롭다운 메뉴에서 사용자 환경으로 **Bash** 를 선택합니다.
 
@@ -55,9 +55,13 @@ IoT Edge에서 Live Video Analytics를 시작하는 방법에 대한 자세한 �
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-스크립트가 성공적으로 완료되면 구독에 필요한 모든 리소스가 표시됩니다. 스크립트 출력의 리소스 테이블에 IoT 허브 이름이 나열됩니다. `Microsoft.Devices/IotHubs` 리소스 종류를 찾고 이름을 적어 둡니다. 이 이름은 다음 단계에서 필요합니다. 
+스크립트가 성공적으로 완료되면 구독에 필요한 모든 리소스가 표시됩니다. 스크립트 출력의 리소스 테이블에 IoT 허브 이름이 나열됩니다. **`Microsoft.Devices/IotHubs`** 리소스 종류를 찾고 이름을 적어 둡니다. 이 이름은 다음 단계에서 필요합니다.  
 
-또한 스크립트는 몇 가지 구성 파일을 *~/clouddrive/lva-sample/* 디렉터리에 생성합니다. 이러한 파일은 빠른 시작에서 나중에 필요합니다.
+> [!NOTE]
+> 또한 스크립트는 몇 가지 구성 파일을 **_~/clouddrive/lva-sample/_* _ 디렉터리에 생성합니다. 이러한 파일은 빠른 시작에서 나중에 필요합니다.
+
+> [!TIP]
+> 만든 Azure 리소스와 관련된 문제가 발생하는 경우 _ *[문제 해결 가이드](troubleshoot-how-to.md#common-error-resolutions)* *를 참조하여 일반적으로 발생하는 문제를 해결하세요.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>에지 디바이스에 모듈 배포
 
@@ -417,8 +421,8 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 이 페이로드는 다음과 같습니다.
 
 * 인스턴스를 만들어야 하는 토폴로지 이름(`MotionDetection`)을 지정합니다.
-* 그래프 토폴로지 페이로드에 기본값이 없는 `rtspUrl`에 대한 매개 변수 값을 포함합니다.
-
+* 그래프 토폴로지 페이로드에 기본값이 없는 `rtspUrl`에 대한 매개 변수 값을 포함합니다. 이 값은 아래 샘플 비디오에 대한 링크입니다.
+    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 몇 초 안에 **출력** 창에 다음 응답이 표시됩니다.
 
 ```

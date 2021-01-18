@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 9003366ec0d64057ca7426d5b6b99986bc21fc9d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920296"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555902"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>온-프레미스 SQL server 등록 및 검사
 
 이 문서에서는 부서의 범위에 SQL server 데이터 원본을 등록 하 고 검색을 설정 하는 방법을 설명 합니다.
 
-## <a name="supported-capabilities"></a>지원 되는 기능
+## <a name="supported-capabilities"></a>지원되는 기능
 
 SQL server 온-프레미스 데이터 원본은 다음과 같은 기능을 지원 합니다.
 
@@ -34,15 +34,15 @@ SQL server 온-프레미스 데이터 원본은 다음을 지원 합니다.
 
 ### <a name="known-limitations"></a>알려진 제한 사항
 
-Azure 부서의 범위는 SQL Server의 [뷰](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) 검색을 지원 하지 않습니다. 
+Azure 부서의 범위는 SQL Server의 [뷰](/sql/relational-databases/views/views) 검색을 지원 하지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 데이터 원본을 등록 하기 전에 Azure 부서의 범위 계정을 만듭니다. 부서의 범위 계정을 만드는 방법에 대 한 자세한 내용은 [빠른 시작: Azure 부서의 범위 계정 만들기](create-catalog-portal.md)를 참조 하세요.
 
 - [자체 호스팅 integration runtime](manage-integration-runtimes.md) 을 설정 하 여 데이터 원본을 검색 합니다.
 
-## <a name="setting-up-authentication-for-a-scan"></a>검색에 대 한 인증 설정
+## <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
 
 SQL server 온-프레미스에 대 한 인증을 설정 하는 방법은 한 가지 뿐입니다.
 
@@ -88,20 +88,20 @@ SQL server를 검색할 수 있는 새 로그인 및 사용자를 만들려면 �
 
 #### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>부서의 범위에서 SQL 로그인 암호를 key vault에 저장 하 고 자격 증명 만들기
 
-1. Azure Portal에서 주요 자격 증명 모음으로 이동 합니다.
-1. **설정 > 비밀** 선택
+1. Azure Portal에서 키 자격 증명 모음으로 이동합니다.
+1. **설정 > 비밀** 을 선택합니다.
 1. **+ 생성/가져오기** 를 선택 하 고 SQL server 로그인의 *암호로* **이름과** **값** 을 입력 합니다.
-1. **만들기** 를 선택 하 여 완료 합니다.
-1. 키 자격 증명 모음이 부서의 범위에 아직 연결 되지 않은 경우 [새 키 자격 증명 모음 연결을 만들어야](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account) 합니다.
-1. 마지막으로, **사용자 이름** 및 **암호** 를 사용 하 여 [새 자격 증명을 만들어](manage-credentials.md#create-a-new-credential) 검색을 설정 합니다.
+1. **만들기** 를 선택하여 완료합니다.
+1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
+1. 마지막으로 **사용자 이름** 및 **암호** 를 사용하여 검사를 설정하기 위한 [새 자격 증명을 만듭니다](manage-credentials.md#create-a-new-credential).
 
 ## <a name="register-a-sql-server-data-source"></a>SQL server 데이터 원본 등록
 
-1. 부서의 범위 계정으로 이동 합니다.
+1. Purview 계정으로 이동합니다.
 
-1. 왼쪽 탐색의 원본 및 스캔에서 **Integration** runtime을 선택 합니다. 자체 호스팅 통합 런타임이 설정 되었는지 확인 합니다. 설정 되지 않은 경우 온-프레미스 네트워크에 대 한 액세스 권한이 있는 온-프레미스 또는 Azure VM에서 검색을 위한 자체 호스팅 통합 런타임을 만들려면 [여기](manage-integration-runtimes.md) 에 설명 된 단계를 따르세요.
+1. 왼쪽 탐색의 원본 및 스캔에서 **Integration** runtime을 선택 합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정 되지 않은 경우 온-프레미스 네트워크에 대 한 액세스 권한이 있는 온-프레미스 또는 Azure VM에서 검색을 위한 자체 호스팅 통합 런타임을 만들려면 [여기](manage-integration-runtimes.md) 에 설명 된 단계를 따르세요.
 
-1. 왼쪽 탐색 영역에서 **원본** 선택
+1. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
 
 1. **등록** 을 선택합니다.
 
@@ -115,5 +115,5 @@ SQL server를 검색할 수 있는 새 로그인 및 사용자를 만들려면 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 부서의 범위 Data catalog 찾아보기](how-to-browse-catalog.md)
-- [Azure 부서의 범위 Data Catalog 검색](how-to-search-catalog.md)
+- [Azure Purview 데이터 카탈로그 찾아보기](how-to-browse-catalog.md)
+- [Azure Purview Data Catalog 검색](how-to-search-catalog.md)

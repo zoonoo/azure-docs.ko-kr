@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 86bff161e29384b10030ed3d524301f6dea6037e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: fb622bdb1d7aa485c421122cdfbd2493a32cf5db
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634167"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555665"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server Integration Services (SSIS)를 사용 하 여 Azure SQL Managed Instance 사용
 
@@ -80,12 +80,12 @@ ms.locfileid: "92634167"
 
 ### <a name="configure-virtual-network"></a>가상 네트워크 구성
 
-1. **사용자 권한** . Azure-SSIS IR를 만드는 사용자는 아래 옵션 중 하나를 사용하여 적어도 Azure Data Factory 리소스에서 [역할 할당](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)이 있어야 합니다.
+1. **사용자 권한**. Azure-SSIS IR를 만드는 사용자는 아래 옵션 중 하나를 사용하여 적어도 Azure Data Factory 리소스에서 [역할 할당](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)이 있어야 합니다.
 
     - 기본 제공 네트워크 참가자 역할을 사용합니다. 이 역할에는 범위가 필요 이상으로 큰 _Microsoft.Network/\*_ 권한이 제공됩니다.
     - 필요한 _Microsoft.Network/virtualNetworks/\*/join/action_ 권한만 포함하는 사용자 지정 역할을 만듭니다. 또한 Azure Resource Manager 가상 네트워크에 조인하는 동안 Azure-SSIS IR의 고유한 퍼블릭 IP 주소를 요구하려면 역할에 _Microsoft.Network/publicIPAddresses/*/join/action_ 권한도 포함합니다.
 
-1. **가상 네트워크** .
+1. **가상 네트워크**.
 
     1. 가상 네트워크의 리소스 그룹이 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인합니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "92634167"
         | TCP | VirtualNetwork | * | 스토리지 | 445 | (선택 사항) 이 규칙은 Azure Files에 저장된 SSIS 패키지를 실행하려는 경우에만 필요합니다. |
         |||||||
 
-        1. Azure-SSIS IR에 필요한 트래픽을 허용하기 위한 **Azure-SSIS IR의 인바운드 요구 사항** .
+        1. Azure-SSIS IR에 필요한 트래픽을 허용하기 위한 **Azure-SSIS IR의 인바운드 요구 사항**.
 
         | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 | 대상 포트 범위 | 주석 |
         |---|---|---|---|---|---|
@@ -163,7 +163,7 @@ Azure-SSIS IR을 만드는 방법에 대한 자세한 정보는 [Azure Data Fact
 
 ## <a name="clean-up-ssisdb-logs"></a>SSISDB 로그 정리
 
-SSISDB 로그 보존 정책은 [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15)에서 아래 속성을 통해 정의됩니다.
+SSISDB 로그 보존 정책은 [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database)에서 아래 속성을 통해 정의됩니다.
 
 - OPERATION_CLEANUP_ENABLED
 

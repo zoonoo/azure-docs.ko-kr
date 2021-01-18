@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
-ms.openlocfilehash: 82cc58d46061ec7b623d062ab0b0e5a1fdae7ddd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bde8bc11a959bea4bd2c05c5ae75db81192aad6a
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352221"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555868"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성
 
@@ -54,7 +54,7 @@ ms.locfileid: "96352221"
 
 ### <a name="enable-windows-authentication-for-on-premises-staging-tasks"></a>온-프레미스 준비 작업에 대해 Windows 인증 사용
 
-자체 호스팅 IR에서 온-프레미스 스테이징 작업에 Windows 인증이 필요한 경우 [동일한 windows 인증을 사용 하도록 SSIS 패키지를 구성](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15)합니다. 
+자체 호스팅 IR에서 온-프레미스 스테이징 작업에 Windows 인증이 필요한 경우 [동일한 windows 인증을 사용 하도록 SSIS 패키지를 구성](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth)합니다. 
 
 온-프레미스 준비 작업은 자체 호스팅 IR 서비스 계정 (기본적으로 *NT SERVICE\DIAHostService*)을 사용 하 여 호출 되 고, 데이터 저장소는 Windows 인증 계정을 사용 하 여 액세스 됩니다. 두 계정 모두에 특정 보안 정책을 할당 해야 합니다. 자체 호스팅 IR 컴퓨터에서 **로컬 보안 정책**  >  **로컬 정책**  >  **사용자 권한 할당** 으로 이동 하 고 다음을 수행 합니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "96352221"
 - **인증 방법** 에 대해 **계정 키**, **SAS URI**, **서비스 주체** 또는 **관리 id** 를 선택 합니다.  
 
 >[!TIP]
->**서비스 주체** 방법을 선택 하는 경우 적어도 *저장소 Blob 데이터 참가자* 역할을 서비스 주체에 부여 합니다. 자세한 내용은 [Azure Blob Storage 커넥터](connector-azure-blob-storage.md#linked-service-properties)를 참조 하세요. **관리 되는 id** 메서드를 선택 하는 경우 ADF 관리 id에 적절 한 역할을 부여 하 여 Azure Blob Storage에 액세스 합니다. 자세한 내용은 [ADF 관리 id로 Azure Active Directory 인증을 사용 하 여 Azure Blob Storage 액세스](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)를 참조 하세요.
+>**서비스 주체** 방법을 선택 하는 경우 적어도 *저장소 Blob 데이터 참가자* 역할을 서비스 주체에 부여 합니다. 자세한 내용은 [Azure Blob Storage 커넥터](connector-azure-blob-storage.md#linked-service-properties)를 참조 하세요. **관리 되는 id** 메서드를 선택 하는 경우 ADF 관리 id에 적절 한 역할을 부여 하 여 Azure Blob Storage에 액세스 합니다. 자세한 내용은 [ADF 관리 id로 Azure Active Directory 인증을 사용 하 여 Azure Blob Storage 액세스](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)를 참조 하세요.
 
 ![스테이징을 위해 Azure Blob 저장소 연결 된 서비스 준비](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -132,7 +132,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 최신 SSDT을 Visual Studio 용 SSIS 프로젝트 확장 또는 독립 실행형 설치 관리자로 사용 하 여 `ConnectByProxy` 지원 되는 데이터 흐름 구성 요소에 대 한 연결 관리자에 추가 된 새 속성을 찾을 수 있습니다.
 * [Visual Studio 용 SSIS 프로젝트 확장 다운로드](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
-* [독립 실행형 설치 관리자 다운로드](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
+* [독립 실행형 설치 관리자 다운로드](/sql/ssdt/download-sql-server-data-tools-ssdt#ssdt-for-vs-2017-standalone-installer)   
 
 온-프레미스 데이터에 액세스 하는 구성 요소가 포함 된 데이터 흐름 태스크를 포함 하는 새 패키지를 디자인 하는 경우 관련 연결 관리자의 **속성** 창에서이 속성을 *True* 로 설정 하 여이 속성을 설정할 수 있습니다.
 

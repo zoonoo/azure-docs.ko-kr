@@ -3,17 +3,17 @@ title: Windows Virtual Desktop의 새로운 기능 - Azure
 description: Windows Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 01/06/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: df3dd8b5b18ec2997ee20ad4955ffd7bc1dc573d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617360"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955011"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -25,6 +25,44 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 - 버그 수정
 
 이 문서는 매월 업데이트됩니다. 새 업데이트를 유지하려면 이 문서를 다시 확인하세요.
+
+## <a name="december-2020"></a>2020년 12월
+
+2020년 12월에 변경된 내용은 다음과 같습니다. 
+
+### <a name="azure-monitor-for-windows-virtual-desktop"></a>Azure Monitor for Windows Virtual Desktop
+
+이제 Azure Monitor for Windows Virtual Desktop용 공개 미리 보기를 사용할 수 있습니다. 이 새로운 기능에는 IT 전문가가 Windows Virtual Desktop 환경을 이해하는 데 도움을 주는 Azure Monitor 통합 문서 위에 구축된 강력한 대시보드가 포함되어 있습니다. 자세한 내용은 [블로그의 공지](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587)를 확인하세요. 
+
+### <a name="azure-resource-manager-template-change"></a>Azure Resource Manager 템플릿 변경 
+
+최신 업데이트에서는 호스트 풀을 만들고 프로비저닝하기 위해 Azure Resource Manager 템플릿에서 모든 공용 IP 주소 매개 변수를 제거했습니다. 배포를 안전하게 유지하기 위해 Windows Virtual Desktop에 공용 IP를 사용하지 않는 것이 좋습니다. 배포가 공용 IP에 의존하는 경우 개인 IP를 대신 사용하도록 다시 구성해야 합니다. 그렇지 않으면 배포가 제대로 작동하지 않습니다.
+
+### <a name="msix-app-attach-public-preview"></a>MSIX 앱 연결 공개 미리 보기 
+
+MSIX 앱 연결은 이번 달에 공개 미리 보기를 시작한 다른 서비스입니다. MSIX 앱 연결은 Windows Virtual Desktop 세션 호스트 VM에 MSIX 애플리케이션을 동적으로 제공하는 서비스입니다. 자세한 내용은 [블로그의 공지](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231)를 확인하세요. 
+
+### <a name="screen-capture-protection"></a>화면 캡처 보호 
+
+이번 달에는 화면 캡처 보호를 위한 공개 미리 보기의 시작도 표시되어 있습니다. 이 기능을 사용하여 클라이언트 엔드포인트에서 중요한 정보가 캡처되지 않도록 할 수 있습니다. [이 페이지](https://aka.ms/WVDScreenCaptureProtection)로 이동하여 화면 캡처 보호를 사용해 보세요.  
+
+### <a name="built-in-roles"></a>기본 제공 역할
+
+관리자 권한으로 Windows Virtual Desktop에 대한 새로운 기본 제공 역할을 추가했습니다. 자세한 내용은 [Windows Virtual Desktop에 대한 기본 제공 역할](rbac.md)을 참조하세요. 
+
+### <a name="application-group-limit-increase"></a>애플리케이션 그룹 제한 증가
+
+Azure Active Directory 테넌트당 기본 애플리케이션 그룹 제한을 200개 그룹으로 늘렸습니다.
+
+### <a name="client-updates-for-december-2020"></a>2020년 12월 클라이언트 업데이트
+
+다음 클라이언트의 새 버전을 릴리스했습니다. 
+
+- Android
+- macOS
+- Windows
+
+클라이언트 업데이트에 대한 자세한 내용은 [클라이언트 업데이트](whats-new.md#client-updates)를 참조하세요.
 
 ## <a name="november-2020"></a>2020년 11월
 

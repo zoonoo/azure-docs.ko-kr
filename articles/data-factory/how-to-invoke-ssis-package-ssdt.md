@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/06/2020
-ms.openlocfilehash: 6b3c94023daf51559623f69e34b8e2b1f42fde92
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a455d547fa3db2fd6e963458a29c77f516112e18
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637244"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556514"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>SSDT에서 Azure에서 SSIS 패키지 실행
 
@@ -29,7 +29,7 @@ ms.locfileid: "92637244"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 기능을 사용 하려면 [여기](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)에서 Visual STUDIO 용 SSIS 프로젝트 확장 (VS)을 사용 하 여 최신 SSDT를 다운로드 하 여 설치 하세요. 또는 [여기](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)에서 최신 SSDT를 독립 실행형 설치 관리자로 다운로드 하 여 설치할 수도 있습니다.
+이 기능을 사용 하려면 [여기](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)에서 Visual STUDIO 용 SSIS 프로젝트 확장 (VS)을 사용 하 여 최신 SSDT를 다운로드 하 여 설치 하세요. 또는 [여기](/sql/ssdt/download-sql-server-data-tools-ssdt#ssdt-for-vs-2017-standalone-installer)에서 최신 SSDT를 독립 실행형 설치 관리자로 다운로드 하 여 설치할 수도 있습니다.
 
 ## <a name="azure-enable-ssis-projects"></a>Azure-SSIS 프로젝트 사용
 
@@ -53,7 +53,7 @@ Azure-SSIS IR에 즉시 연결 하려면 [Azure-SSIS IR에 연결](#connectssisi
 
    ![Azure-기존 SSIS 프로젝트 사용](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-for-existing-project.png)
 
-2. **Visual Studio 구성 선택** 페이지에서 기존 VS 구성을 선택 하 여 Azure에서 패키지 실행 설정을 적용 합니다. 새 [VS 구성 만들기](/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019)를 아직 수행 하지 않은 경우 새 항목을 만들 수도 있습니다. 로컬 및 클라우드 환경에서 패키지를 실행 하기 위해 두 개 이상의 서로 다른 VS 구성을 사용 하는 것이 좋습니다. 따라서 클라우드 구성에 대해 프로젝트를 사용 하도록 설정할 수 있습니다. 이러한 방식으로 프로젝트 또는 패키지를 매개 변수화 한 경우 런타임에 다른 실행 환경 (로컬 컴퓨터 또는 Azure)을 기반으로 하 여 프로젝트 또는 패키지 매개 변수에 다른 값을 할당할 수 있습니다. 예를 들어 [패키지 실행 환경 전환](#switchenvironment)을 참조 하세요.
+2. **Visual Studio 구성 선택** 페이지에서 기존 VS 구성을 선택 하 여 Azure에서 패키지 실행 설정을 적용 합니다. 새 [VS 구성 만들기](/visualstudio/ide/how-to-create-and-edit-configurations)를 아직 수행 하지 않은 경우 새 항목을 만들 수도 있습니다. 로컬 및 클라우드 환경에서 패키지를 실행 하기 위해 두 개 이상의 서로 다른 VS 구성을 사용 하는 것이 좋습니다. 따라서 클라우드 구성에 대해 프로젝트를 사용 하도록 설정할 수 있습니다. 이러한 방식으로 프로젝트 또는 패키지를 매개 변수화 한 경우 런타임에 다른 실행 환경 (로컬 컴퓨터 또는 Azure)을 기반으로 하 여 프로젝트 또는 패키지 매개 변수에 다른 값을 할당할 수 있습니다. 예를 들어 [패키지 실행 환경 전환](#switchenvironment)을 참조 하세요.
 
    ![Visual Studio 구성 선택](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
@@ -74,7 +74,7 @@ Azure 사용 프로젝트를 ADF의 SSIS에 연결 하면 패키지를 Azure Fil
 2. **Adf에서 SSIS IR 선택** 페이지에서 기존 ADF를 선택 하 고 패키지를 실행할 Azure-SSIS IR 합니다. 새 항목을 만들 수도 있습니다 (없는 경우).
    - 기존 Azure-SSIS IR을 선택 하려면 먼저 관련 Azure 구독 및 ADF를 선택 합니다.
    - Azure-SSIS IR 없는 기존 ADF를 선택 하는 경우에는 **SSIS IR 만들기** 단추를 선택 하 여 adf 포털에서 새 항목을 만듭니다. 만든 후에는이 페이지로 돌아와서 새 Azure-SSIS IR을 선택할 수 있습니다.
-   - ADF가 없는 기존 Azure 구독을 선택 하는 경우 **CREATE SSIS IR** 단추를 선택 하 여 **Integration Runtime 만들기 마법사** 를 시작 합니다. 마법사에서 사용자를 대신 하 여 새 Azure 리소스 그룹, Data Factory 및 SSIS IR을 자동으로 만들도록 지정 된 위치와 접두사를 입력할 수 있습니다 .이에 대 한 자세한 **접두사-RG/DF/IR-YourCreationTime** . 만든 후에는이 페이지로 돌아와서 새 ADF를 선택 하 고 Azure-SSIS IR 수 있습니다.
+   - ADF가 없는 기존 Azure 구독을 선택 하는 경우 **CREATE SSIS IR** 단추를 선택 하 여 **Integration Runtime 만들기 마법사** 를 시작 합니다. 마법사에서 사용자를 대신 하 여 새 Azure 리소스 그룹, Data Factory 및 SSIS IR을 자동으로 만들도록 지정 된 위치와 접두사를 입력할 수 있습니다 .이에 대 한 자세한 **접두사-RG/DF/IR-YourCreationTime**. 만든 후에는이 페이지로 돌아와서 새 ADF를 선택 하 고 Azure-SSIS IR 수 있습니다.
 
    ![ADF에서 SSIS IR 선택](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard2.png)
 
@@ -109,7 +109,7 @@ Azure에서 패키지를 실행 하기 전에이를 평가 하 여 잠재적인 
 
    ![평가 규칙 비 표시 설정](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings.png)
 
--  또는 SSDT의 솔루션 탐색기 창에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭 하 여 메뉴를 팝업 합니다. Azure Data Factory 하위 메뉴 **에서 SSIS** 의 **Azure 사용 설정** 항목을 선택 하 여 프로젝트 속성 페이지를 포함 하는 창을 팝업 합니다. **Azure 사용 설정** 섹션에서 **억제 된 평가 규칙 id** 속성을 선택 합니다. 마지막으로, 줄임표 ( **...** ) 단추를 선택 하 여 **평가 규칙 억제 설정** 창을 팝 합니다. 여기서 표시 하지 않을 평가 규칙을 선택할 수 있습니다.
+-  또는 SSDT의 솔루션 탐색기 창에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭 하 여 메뉴를 팝업 합니다. Azure Data Factory 하위 메뉴 **에서 SSIS** 의 **Azure 사용 설정** 항목을 선택 하 여 프로젝트 속성 페이지를 포함 하는 창을 팝업 합니다. **Azure 사용 설정** 섹션에서 **억제 된 평가 규칙 id** 속성을 선택 합니다. 마지막으로, 줄임표 (**...**) 단추를 선택 하 여 **평가 규칙 억제 설정** 창을 팝 합니다. 여기서 표시 하지 않을 평가 규칙을 선택할 수 있습니다.
 
    ![Azure 사용 설정](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
 
@@ -125,11 +125,11 @@ Azure에서 패키지를 실행 하기 전에 azure에서 사용할 수 있는 �
 
    ![Azure 사용 설정](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
 
-2. **Azure 사용 설정** 에서 **Windows 인증 사용** 속성 섹션을 선택 하 고 드롭다운 메뉴에서 **True** 를 선택 합니다. 그런 다음 **Windows 인증 자격 증명** 속성을 선택 하 고 줄임표 ( **...** ) 단추를 선택 하 여 **windows 인증 자격 증명** 창을 표시 합니다.
+2. **Azure 사용 설정** 에서 **Windows 인증 사용** 속성 섹션을 선택 하 고 드롭다운 메뉴에서 **True** 를 선택 합니다. 그런 다음 **Windows 인증 자격 증명** 속성을 선택 하 고 줄임표 (**...**) 단추를 선택 하 여 **windows 인증 자격 증명** 창을 표시 합니다.
 
    ![Windows 인증을 사용하도록 설정](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-open.png)
 
-3. Windows 인증 자격 증명을 입력 합니다. 예를 들어 Azure Files에 액세스 하려면 `Azure` `YourStorageAccountName` `YourStorageAccountKey` **도메인** , **사용자 이름** 및 **암호** 에 각각, 및을 입력 하면 됩니다.
+3. Windows 인증 자격 증명을 입력 합니다. 예를 들어 Azure Files에 액세스 하려면 `Azure` `YourStorageAccountName` `YourStorageAccountKey` **도메인**, **사용자 이름** 및 **암호** 에 각각, 및을 입력 하면 됩니다.
 
    ![Windows 인증 자격 증명](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-credential.png)
 
@@ -164,9 +164,9 @@ Azure 사용 프로젝트를 ADF의 SSIS에 연결 하 고, 클라우드 호환�
 Azure에서 SSIS 패키지를 실행 하는 것은 **EncryptSensitiveWithUserKey** / **EncryptAllWithUserKey** 보호 수준을 지원 하지 않습니다. 따라서 패키지가 해당 패키지를 사용 하도록 구성 된 경우에는 각각 **EncryptSensitiveWithPassword** / **EncryptAllWithPassword** 보호 수준을 사용 하 여 임시로 변환 합니다. 또한 Azure-SSIS IR에 대 한 실행을 위해 패키지를 Azure Files으로 업로드 하는 경우에도 암호화 암호를 임의로 생성 합니다.
 
 > [!NOTE]
-> **EncryptSensitiveWithUserKey** EncryptAllWithUserKey 보호 수준을 사용 하도록 구성 된 자식 패키지를 참조 하는 패키지 실행 태스크가 패키지에 포함 되어 있는 경우 / **EncryptAllWithUserKey** 패키지를 **EncryptSensitiveWithPassword** / 실행 하기 전에 각각 EncryptSensitiveWithPassword **EncryptAllWithPassword** protection 수준을 사용 하도록 해당 자식 패키지를 수동으로 다시 구성 해야 합니다.
+> **EncryptSensitiveWithUserKey** EncryptAllWithUserKey 보호 수준을 사용 하도록 구성 된 자식 패키지를 참조 하는 패키지 실행 태스크가 패키지에 포함 되어 있는 경우 /  패키지를  / 실행 하기 전에 각각 EncryptSensitiveWithPassword **EncryptAllWithPassword** protection 수준을 사용 하도록 해당 자식 패키지를 수동으로 다시 구성 해야 합니다.
 
-패키지가 이미 **EncryptSensitiveWithPassword** EncryptAllWithPassword 보호 수준을 사용 하도록 구성 된 경우에는 / **EncryptAllWithPassword** 변경 되지 않은 상태로 유지 됩니다. Azure-SSIS IR에서 실행 하기 위해 패키지를 Azure Files에 업로드할 때에도 암호화 암호가 임의로 생성 됩니다.
+패키지가 이미 **EncryptSensitiveWithPassword** EncryptAllWithPassword 보호 수준을 사용 하도록 구성 된 경우에는 /  변경 되지 않은 상태로 유지 됩니다. Azure-SSIS IR에서 실행 하기 위해 패키지를 Azure Files에 업로드할 때에도 암호화 암호가 임의로 생성 됩니다.
 
 ### <a name="switching-package-execution-environments"></a><a name="switchenvironment"></a> 패키지 실행 환경 전환
 
@@ -180,7 +180,7 @@ Azure에서 SSIS 패키지를 실행 하는 것은 **EncryptSensitiveWithUserKey
 
    ![소스 연결 매개 변수화](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-update-task-with-parameters.png)
 
-3. 기본적으로 **개발** 이라는 로컬 환경에서 패키지 실행에 대 한 기존 VS 구성이 있습니다. **Azure** 라는 클라우드 환경에서 패키지 실행에 대 한 새 vs 구성을 만듭니다. 아직 수행 하지 않은 경우 [새 vs 구성 만들기](/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019)를 참조 하세요.
+3. 기본적으로 **개발** 이라는 로컬 환경에서 패키지 실행에 대 한 기존 VS 구성이 있습니다. **Azure** 라는 클라우드 환경에서 패키지 실행에 대 한 새 vs 구성을 만듭니다. 아직 수행 하지 않은 경우 [새 vs 구성 만들기](/visualstudio/ide/how-to-create-and-edit-configurations)를 참조 하세요.
 
 4. 패키지의 매개 변수를 볼 때 **구성에 매개 변수 추가** 단추를 선택 하 여 패키지에 대 한 **매개 변수 값 관리** 창을 엽니다. 그런 다음 **개발** 및 **Azure** 구성에서 **FilePath** 패키지 매개 변수에 다른 대상 파일 경로 값을 할당 합니다.
 

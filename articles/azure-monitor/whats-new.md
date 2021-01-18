@@ -5,17 +5,75 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 12/04/2020
-ms.openlocfilehash: 91aa76fd3d9dbb54316f32fdb319e92ca2283b1d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 01/11/2021
+ms.openlocfilehash: 6347bd3710a4727b9d3f820072ffff21cb57752d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745777"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071870"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 
 이 문서에는 새롭거나 크게 업데이트된 Azure Monitor 문서가 나열되어 있습니다. 지난 달의 문서 업데이트가 포함되도록 매월 첫째 주에 새로 고쳐집니다.
+
+## <a name="december-2020"></a>2020년 12월
+
+### <a name="general"></a>일반
+- [Azure Monitor 고객 관리형 키](platform/customer-managed-keys.md) - 오류 메시지가 추가되었습니다.
+- [Azure Monitor와 통합하는 파트너](platform/partners.md) - 이벤트 허브 통합에 관한 섹션이 추가되었습니다.
+
+### <a name="agents"></a>에이전트
+- [Azure Monitor를 사용하여 Azure Data Explorer 교차 리소스 쿼리](platform/azure-monitor-data-explorer-proxy.md) - 새 문서입니다.
+- [Azure 모니터링 에이전트 개요](platform/agents-overview.md) - Oracle 8에 대한 지원이 추가되었습니다.
+
+### <a name="alerts"></a>경고
+- [Azure 메트릭 경고 문제 해결](platform/alerts-troubleshoot-metric.md) - 동적 임계값에 대한 문제 해결이 추가되었습니다.
+- [Log Analytics의 IT 서비스 관리 커넥터](platform/itsmc-definition.md) - 새 문서입니다.
+- [IT 서비스 관리 커넥터 개요](platform/itsmc-overview.md) - 문제 해결 정보가 재구성되었습니다.
+- [Cherwell을 Azure의 IT 서비스 관리 커넥터에 연결](platform/itsmc-connections-cherwell.md) - 새 문서입니다.
+- [Provance를 Azure의 IT 서비스 관리 커넥터에 연결](platform/itsmc-connections-provance.md) - 새 문서입니다.
+- [SCSM을 Azure의 IT 서비스 관리 커넥터에 연결](platform/itsmc-connections-scsm.md) - 새 문서입니다.
+- [ServiceNow를 Azure의 IT 서비스 관리 커넥터에 연결](platform/itsmc-connections-servicenow.md) - 새 문서입니다.
+- [ServiceNow 동기화 문제를 수동으로 해결하는 방법](platform/itsmc-resync-servicenow.md) - 문제 해결 정보가 재구성되었습니다.
+
+
+
+
+### <a name="application-insights"></a>Application Insights
+- [JavaScript 웹앱용 Azure Application Insights](app/javascript.md) - 연결 문자열 설정이 추가되었습니다.
+- [Azure Application Insights 표준 메트릭](app/standard-metrics.md) - 새 문서입니다.
+- [Azure Monitor Application Insights Java](app/java-in-process-agent.md) - 애플리케이션에서 사용자 지정 원격 분석을 보내는 방법에 대한 추가 정보입니다.
+- [Application Insights에서 원격 분석 연속 내보내기](app/export-telemetry.md) - 진단 설정 기반 내보내기가 추가되었습니다.
+- [Azure Functions에서 .NET 및 .NET Core 앱용 스냅샷 디버거를 사용하도록 설정](app/snapshot-debugger-function-app.md) - 새 문서입니다.
+- [Application Insights 및 Log Analytics에서 사용하는 IP 주소](app/ip-addresses.md) - Azure Government에 대한 IP 주소가 추가되었습니다.
+- [Azure Application Insights Profiler 문제 해결](app/profiler-troubleshooting.md) - 진단 서비스 사이트 확장의 상태 페이지에 관한 정보가 추가되었습니다.
+- [Azure Application Insights 가용성 테스트](app/troubleshoot-availability.md) 문제 해결 - ping 테스트 문제 해결이 업데이트되었습니다.
+- [Java용 Azure Monitor Application Insights 문제 해결](app/java-standalone-troubleshoot.md) - 새 문서입니다.
+
+### <a name="containers"></a>컨테이너
+- [Azure Monitor의 컨테이너 보고서](insights/container-insights-reports.md) - 새 문서입니다.
+
+### <a name="logs"></a>로그
+- [Azure Monitor 로그 전용 클러스터](log-query/logs-dedicated-clusters.md) - 자동화된 명령, 연결 해제 및 제거 방법, 문제 해결이 추가되었습니다.
+- [Azure Monitor와 Azure Data Explorer 간의 교차 서비스 쿼리(미리 보기)](platform/azure-data-explorer-monitor-cross-service-query.md) - 새 문서입니다.
+- [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)](platform/logs-data-export.md) - ARM 템플릿이 추가되었습니다.
+
+### <a name="metrics"></a>메트릭
+- [Azure 메트릭 탐색기의 고급 기능](platform/metrics-charts.md) - 리소스 범위 선택기에 대한 정보가 추가되었습니다.
+- [메트릭 탐색기에서 여러 리소스 보기](platform/metrics-dynamic-scope.md) - 새 문서입니다.
+
+### <a name="networks"></a>네트워크
+- [Azure Monitor의 Azure 네트워킹 분석 솔루션](insights/azure-networking-analytics.md) - Network Insights 통합 문서에 대한 정보가 추가되었습니다.
+
+### <a name="virtual-machines"></a>Virtual Machines
+- [하이브리드 환경에서 Azure Monitor 사용](insights/vminsights-enable-hybrid.md) - 새로운 종속성 에이전트 버전입니다.
+
+
+### <a name="visualizations"></a>시각화
+- [Azure Monitor 통합 문서 맵 시각화](platform/workbooks-map-visualizations.md) - 새 문서입니다.
+- [자체 스토리지를 제공하는 Azure Monitor 통합 문서](platform/workbooks-bring-your-own-storage.md) - 새 문서입니다.
+
 
 ## <a name="november-2020"></a>2020년 11월
 

@@ -55,6 +55,8 @@
               href: ./database/security-controls-policy.md
             - name: 보안 기준
               href: database/security-baseline.md
+            - name: Always Encrypted
+              href: database/always-encrypted-landing.yml
             - name: Azure Defender for SQL
               href: database/azure-defender-for-sql.md
             - name: Advanced Threat Protection
@@ -255,6 +257,8 @@
               href: database/service-tier-hyperscale.md
             - name: 하이퍼스케일 FAQ
               href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
+        - name: 비용 계획 및 관리
+          href: database/cost-management.md
     - name: 빠른 시작
       href: database/quickstart-content-reference-guide.md
       items:
@@ -293,14 +297,16 @@
               href: database/active-geo-replication-configure-portal.md
         - name: 보안
           items:
+            - name: 보안 Enclave를 사용한 Always Encrypted
+              href: database/always-encrypted-enclaves-getting-started.md
             - name: 보안 구성
               href: database/secure-database-tutorial.md
+            - name: 서비스 주체를 사용하여 사용자 만들기
+              href: database/authentication-aad-service-principal-tutorial.md
             - name: TDE BYOK 키 순환
               href: database/transparent-data-encryption-byok-key-rotation.md
             - name: TDE 보호기 제거
               href: database/transparent-data-encryption-byok-remove-tde-protector.md
-            - name: 서비스 주체를 사용하여 사용자 만들기
-              href: database/authentication-aad-service-principal-tutorial.md
         - name: 데이터 이동
           items:
             - name: DMS를 사용하여 마이그레이션
@@ -371,6 +377,19 @@
               href: database/sql-data-sync-troubleshoot.md
         - name: 보안
           items:
+            - name: Always Encrypted
+              href: database/always-encrypted-landing.yml
+            - name: 보안 Enclave를 사용한 Always Encrypted
+              href: database/always-encrypted-with-secure-enclaves-landing.yml
+              items:
+                - name: 보안 enclave를 사용한 Always Encrypted 구성 및 사용 >
+                  href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
+                - name: Intel SGX enclave 및 증명 계획
+                  href: database/always-encrypted-enclaves-plan.md
+                - name: Intel SGX 사용
+                  href: database/always-encrypted-enclaves-enable-sgx.md
+                - name: Azure Attestation 구성
+                  href: database/always-encrypted-enclaves-configure-attestation.md
             - name: Azure SQL 감사
               href: database/auditing-overview.md
             - name: 감사 로그 형식
@@ -922,10 +941,12 @@
               href: /sql/relational-databases/database-mail/database-mail?toc=%2fazure%2fazure-sql%2ftoc.json
         - name: 보안
           items:
-            - name: 보안 공용 엔드포인트
-              href: managed-instance/public-endpoint-overview.md
+            - name: Always Encrypted
+              href: database/always-encrypted-landing.yml
             - name: 감사
               href: managed-instance/auditing-configure.md
+            - name: 보안 공용 엔드포인트
+              href: managed-instance/public-endpoint-overview.md
             - name: 서버 트러스트 그룹
               href: managed-instance/server-trust-group-overview.md
     - name: 방법

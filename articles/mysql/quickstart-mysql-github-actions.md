@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 6e3dbb968d0dff8d8227518fe53d257bfc1fae4b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: f62ca85bd4e027595103b738c23c9997a05cc85c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607969"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132820"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>빠른 시작: GitHub Actions를 사용하여 Azure MySQL에 연결
 
-**적용 대상**: :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 단일 서버 :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 유연한 서버
+**적용 대상**: :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for MySQL - 단일 서버 :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for MySQL - 유연한 서버
 
 워크플로를 사용하여 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)에 데이터베이스 업데이트를 배포하는 [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions)를 시작합니다.
 

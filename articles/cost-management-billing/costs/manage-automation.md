@@ -3,17 +3,17 @@ title: 자동화로 Azure 비용 관리
 description: 이 문서에서는 자동화를 사용하여 Azure 비용을 관리하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/19/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 47d9c2838c5c806214e3be2f9ba7ce335bc0af67
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 02215bace693ac5ac36f9fc29758215d45b23eb1
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956095"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051788"
 ---
 # <a name="manage-costs-with-automation"></a>자동화로 비용 관리
 
@@ -56,6 +56,22 @@ Power BI는 많은 양의 데이터를 수집하고 처리하는 데 사용됩�
 **필터링하지 않은 최상위 수준 범위를 대상으로 하기**
 
 API를 사용하여 사용 가능한 최상위 범위에서 필요한 모든 데이터를 가져옵니다. 필터링, 그룹화 또는 집계된 분석을 수행하기 전에 필요한 모든 데이터가 수집될 때까지 기다립니다. API는 집계되지 않은 원시 비용 데이터를 제공하기 위해 특별히 최적화되어 있습니다. Cost Management에서 사용할 수 있는 범위에 대한 자세한 내용은 [범위 이해 및 작업](./understand-work-scopes.md)을 참조하세요. 범위에 필요한 데이터를 다운로드한 후에는 Excel을 사용하여 필터 및 피벗 테이블로 데이터를 추가로 분석할 수 있습니다.
+
+### <a name="notes-about-pricing"></a>가격 책정에 대한 참고 사항
+
+사용량 및 요금을 가격표 또는 송장에 맞게 조정하려면 다음 정보를 참고하세요.
+
+가격표 가격 동작 - 가격표에 표시되는 가격은 Azure에서 받은 가격입니다. 특정 측정 단위로 크기가 조정됩니다. 안타깝게도 측정 단위가 실제 리소스 사용량과 요금이 부과되는 측정 단위와 항상 일치하지는 않습니다.
+
+사용량 세부 정보 가격 동작 - 사용량 파일은 가격표와 정확하게 일치하지 않을 수 있는 조정된 정보를 표시합니다. 특히 다음에 대한 내용을 설명합니다.
+
+- 단가 - 가격은 Azure 리소스에서 실제로 요금이 부과되는 측정 단위와 일치하도록 조정됩니다. 크기 조정이 발생하면 가격은 가격표에 표시된 가격과 일치하지 않습니다.
+- 측정 단위 - Azure 리소스에서 실제로 요금을 부과하는 측정 단위를 나타냅니다.
+- 유효 가격 / 리소스 요율 - 가격은 할인이 고려된 후 단위당 지불하게 되는 실제 요율을 나타냅니다. 요금을 조정하기 위해 가격 * 수량 계산을 수행하는 데 사용해야 하는 가격입니다. 가격에는 다음 시나리오와 파일에도 표시되는 조정된 단가가 고려됩니다. 따라서 조정된 단가와 다를 수 있습니다.
+  - 계층화된 가격 책정 - 예: 처음 100개 단위는 $10, 다음 100개 단위는 $8입니다.
+  - 포항된 수량 - 예: 처음 100개 단위는 무료이며 단위당 $10입니다.
+  - 예약
+  - 계산 중에 발생하는 반올림 - 반올림은 사용된 수량, 계층화/포함된 수량 가격 및 조정된 단가를 고려합니다.
 
 ## <a name="example-usage-details-api-requests"></a>예제 사용량 정보 API 요청
 
@@ -325,7 +341,7 @@ Azure 작업 그룹을 사용하여 자동화된 작업을 시작하도록 예�
 
 ## <a name="data-latency-and-rate-limits"></a>데이터 대기 시간 및 속도 제한
 
-API는 하루에 한 번만 호출하는 것이 좋습니다. Azure 리소스 공급자에서 새 사용량 데이터가 수신되면 Cost Management 데이터가 4시간마다 데이터를 새로 고칩니다. 더 자주 호출하면 추가 데이터가 제공되지 않습니다. 대신 부하가 증가합니다. 데이터 변경 빈도와 데이터 대기 시간 처리 방법에 대한 자세한 내용은 [비용 관리 데이터 이해](understand-cost-mgt-data.md)를 참조하세요.
+API는 하루에 한 번만 호출하는 것이 좋습니다. Azure 리소스 공급자에서 새 사용량 데이터가 수신되면 Cost Management 데이터가 4시간마다 데이터를 새로 고칩니다. 더 자주 호출해도 더 많은 데이터가 제공되지 않습니다. 대신 부하가 증가합니다. 데이터 변경 빈도와 데이터 대기 시간 처리 방법에 대한 자세한 내용은 [비용 관리 데이터 이해](understand-cost-mgt-data.md)를 참조하세요.
 
 ### <a name="error-code-429---call-count-has-exceeded-rate-limits"></a>오류 코드 429-호출 횟수가 속도 제한을 초과했습니다.
 

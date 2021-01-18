@@ -1,0 +1,34 @@
+---
+author: memildin
+ms.service: security-center
+ms.topic: include
+ms.date: 01/12/2021
+ms.author: memildin
+ms.custom: generated
+ms.openlocfilehash: 7b915a8ac22ab3b9393531c5130fd466e378e94c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133084"
+---
+이 범주에는 **15** 개의 권장 사항이 있습니다.
+
+|권장 |Description |심각도 |
+|---|---|---|
+|구독에 최대 3명의 소유자를 지정해야 합니다. |손상된 소유자 계정으로 인한 위반 가능성을 줄이려면 소유자 계정 수를 최대 3개로 제한하는 것이 좋습니다.<br />(관련 정책: [구독에 최대 3명의 소유자를 지정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4f11b553-d42e-4e3a-89be-32ca364cad4c)) |높음 |
+|Azure Defender for Key Vault를 사용해야 합니다. |Azure Security Center에는 Azure Defender for Key Vault가 포함되어 있으며, 추가 보안 인텔리전스를 계층에 제공합니다.<br>Azure Defender for Key Vault는 Key Vault 계정에 액세스하거나 이를 악용하려는 비정상적이고 잠재적으로 유해한 시도를 탐지합니다.<br><br>중요: 이 권장 사항에 따라 수정하면 키 자격 증명 모음을 보호하기 위한 요금이 부과됩니다. 이 구독에 키 자격 증명 모음이 없으면 요금이 발생하지 않습니다.<br>나중에 이 구독에 키 자격 증명 모음을 만들면 자동으로 보호되고 해당 시간에 요금이 청구됩니다.<br> <a href='https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault'>Azure Defender for Key Vault에 대해 자세히 알아보세요.</a><br />(관련 정책: [Azure Defender for Key Vault를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)) |높음 |
+|더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다. |로그인할 수 없도록 차단된 사용자 계정은 구독에서 제거해야 합니다.<br>이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [사용되지 않는 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)) |높음 |
+|소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다. |로그인할 수 없도록 차단된 사용자 계정은 구독에서 제거해야 합니다.<br>이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [소유자 권한이 있는 사용되지 않는 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)) |높음 |
+|Key Vault의 진단 로그를 사용하도록 설정해야 합니다. |로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br />(관련 정책: [Key Vault에서 진단 로그를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcf820ca0-f99e-4f3e-84fb-66e913812d21)) |낮음 |
+|소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다. |도메인 이름(외부 계정)이 다른 소유자 권한이 있는 계정은 구독에서 제거해야 합니다. 이렇게 하면 모니터링되지 않는 액세스를 방지합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [소유자 권한이 있는 외부 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff8456c1c-aa66-4dfb-861a-25d127b775c9)) |높음 |
+|읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다. |도메인 이름(외부 계정)이 다른 읽기 권한이 있는 계정은 구독에서 제거해야 합니다. 이렇게 하면 모니터링되지 않는 액세스를 방지합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [읽기 권한이 있는 외부 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5f76cf89-fbf2-47fd-a3f4-b891fa780b60)) |높음 |
+|쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다. |도메인 이름(외부 계정)이 다른 쓰기 권한이 있는 계정은 구독에서 제거해야 합니다. 이렇게 하면 모니터링되지 않는 액세스를 방지합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [쓰기 권한이 있는 외부 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5c607a2e-c700-4744-8254-d77e7c9eb5e4)) |높음 |
+|구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다. |계정 또는 리소스 위반을 방지하려면 소유자 권한이 있는 모든 구독 계정에 대해 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.<br />(관련 정책: [구독에 대한 소유자 권한이 있는 계정에서 MFA를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faa633080-8b72-40c4-a2d7-d00c03e80bed)) |높음 |
+|구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다. |계정 또는 리소스 위반을 방지하려면 읽기 권한이 있는 모든 구독 계정에서 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.<br />(관련 정책: [구독에 대한 읽기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe3576e28-8b17-4677-84c3-db2990658d64)) |높음 |
+|구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다. |계정 또는 리소스 위반을 방지하려면 쓰기 권한이 있는 모든 구독 계정에서 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.<br />(관련 정책: [구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f9297c21d-2ed6-4474-b48f-163f75654ce3)) |높음 |
+|관리 인증서 대신 서비스 주체를 사용하여 구독을 보호해야 함 |관리 인증서를 사용하면 해당 인증서로 인증된 사람은 누구나 연결된 구독을 관리할 수 있습니다. 구독을 보다 안전하게 관리하려면 Resource Manager와 함께 서비스 주체를 사용하여 인증서가 손상되었을 때 영향을 받는 범위를 제한하는 것이 좋습니다. 또한 리소스 관리가 자동화됩니다. <br />(관련 정책: [관리 인증서 대신 서비스 주체를 사용하여 구독을 보호해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6646a0bd-e110-40ca-bb97-84fcee63c414)) |중간 |
+|스토리지 계정 공용 액세스가 허용되지 않아야 함 |Azure Storage의 컨테이너 및 Blob에 대한 익명 공용 읽기 액세스는 데이터를 공유하는 편리한 방법이지만 보안 위험이 있을 수도 있습니다. 원치 않는 익명 액세스로 인해 발생하는 데이터 위반을 방지하기 위해 Microsoft는 시나리오에 필요한 경우가 아니면 스토리지 계정에 대한 공용 액세스를 방지하는 것이 좋습니다<br />(관련 정책: [스토리지 계정 공용 액세스가 허용되지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f4fa4b6c0-31ca-4c0d-b10d-24b96f62a751)) |중간 |
+|구독에 둘 이상의 소유자를 할당해야 합니다. |관리자 액세스 중복성을 유지하려면 둘 이상의 구독 소유자를 지정합니다.<br />(관련 정책: [구독에 소유자를 2명 이상 할당해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f09024ccc-0c5f-475e-9457-b7c0d9ed487b)) |높음 |
+|Azure Key Vault에 저장된 인증서의 유효 기간이 12개월을 넘어서는 안 됩니다. |인증서의 유효 기간이 12개월을 넘지 않도록 합니다.<br />(관련 정책: [인증서에는 지정된 최대 유효 기간이 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0a075868-4c26-42ef-914c-5bc007359560)) |중간 |
+|||

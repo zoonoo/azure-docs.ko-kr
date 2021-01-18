@@ -4,16 +4,16 @@ description: 클라우드에서 엔터프라이즈급 데이터 모델을 제공
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/07/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: e70d02c02ba9a3f14d1659851919fbccf71776d1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c4a14ab1e5b52eb36a532c6d69713d588864d288
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487357"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019077"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -91,6 +91,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |미국 중부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중부     |    S8v2, S9v2     |    1     |
 |미국 중남부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|미국 중남부     |    S8v2, S9v2     |    1     |
 |미국 중서부   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |미국 서부     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |미국 서부     |    S8v2, S9v2   |    2  |
@@ -115,6 +116,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |오스트레일리아 동부     |    S8v2, S9v2    |    1     |
 |오스트레일리아 남동부     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |일본 동부     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|일본 동부     |    S8v2, S9v2    |    1     |
 |동남아시아     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
 |동남아시아     |     S8v2, S9v2     |   1      |
 |인도 서부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -160,7 +162,7 @@ Azure Analysis Services에서 테이블 형식 모델은 간단한 텍스트 파
 
 ## <a name="your-data-is-secure"></a>데이터가 안전함
 
-Azure Analysis Services는 여러 수준에서 중요한 데이터에 대한 보안을 제공합니다. Azure 서비스인 Analysis Services는 Azure 플랫폼의 일부로 자동으로 사용하도록 설정된 **기본** 수준의 DDoS(배포된 서비스 거부) 공격을 제공합니다. 자세한 내용은 [Azure DDoS Protection 표준 개요](../ddos-protection/ddos-protection-overview.md)를 참조하세요. 
+Azure Analysis Services는 여러 수준에서 중요한 데이터에 대한 보안을 제공합니다. Azure 서비스인 Analysis Services는 Azure 플랫폼의 일부로 자동으로 사용하도록 설정된 DDoS(배포된 서비스 거부) 공격의 **기본** 수준 보호를 제공합니다. 자세한 내용은 [Azure DDoS Protection 표준 개요](../ddos-protection/ddos-protection-overview.md)를 참조하세요. 
 
 서버 수준에서 Analysis Services는 방화벽, Azure 인증, 서버 관리자 역할 및 서버 쪽 암호화를 제공합니다. 데이터 모델 수준에서 사용자 역할, 행 수준 및 개체 수준 보안은 데이터가 안전하고 데이터를 볼 수 있는 사용자에게만 표시되도록 합니다.
 

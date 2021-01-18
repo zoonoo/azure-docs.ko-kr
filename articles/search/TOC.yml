@@ -308,10 +308,10 @@
       items:
         - name: 계층 선택
           href: search-sku-tier.md
-        - name: 용량 및 비용 예측
-          href: search-sku-manage-costs.md
-        - name: 용량 조정
+        - name: 용량 예측 및 관리
           href: search-capacity-planning.md
+        - name: 비용 예측
+          href: search-sku-manage-costs.md
         - name: 서비스 제한
           href: search-limits-quotas-capacity.md
         - name: 성능 확장

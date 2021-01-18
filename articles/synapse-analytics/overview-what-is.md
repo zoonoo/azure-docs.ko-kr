@@ -9,18 +9,18 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c315dae7e5f02f112dfdfbec02e1ebaaa5e48a9f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e5b12632a60ad5580325fbcda294e1a600bb2b6b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445776"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121705"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Azure Synapse Analytics란?
 
 엔터프라이즈 분석은 원시 데이터, 정제된 데이터 또는 고도로 선별된 데이터 등 모든 종류의 데이터에 대해 대규모로 작동해야 합니다. 이를 위해서는 일반적으로 기업은 빅 데이터 및 데이터 웨어하우징 기술을 관계형 저장소 및 데이터 레이크의 데이터 전반에서 작동하는 복잡한 데이터 파이프라인에 결합해야 합니다. 이러한 종류의 솔루션은 빌드, 유지 관리 및 보안이 어렵습니다. 복잡성으로 인해 기업에 필요한 인사이트 제공이 지연됩니다.
 
-**Azure Synapse** 는 데이터 웨어하우스와 빅 데이터 시스템 전체에서 인사이트를 얻는 시간을 앞당길 수 있는 통합 분석 서비스입니다. Azure Synapse는 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터에 사용되는 **Spark** 기술, 데이터 통합 및 ETL/ELT를 위한 **파이프라인** 을 결합합니다. **Synapse Studio** 는 관리, 모니터링, 코딩 및 보안을 위한 통합 환경을 제공합니다. Synapse는 **Power BI**, **CosmosDB** 및 **AzureML** 과 같은 다른 Azure 서비스와 긴밀하게 통합됩니다.
+**Azure Synapse** 는 데이터 웨어하우스와 빅 데이터 시스템 전체에서 인사이트를 얻는 시간을 앞당길 수 있는 통합 분석 서비스입니다. Azure Synapse는 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터에 사용되는 **Spark** 기술, 데이터 통합 및 ETL/ELT를 위한 **파이프라인**, **Power BI**, **CosmosDB** 및 **AzureML** 과 같은 Azure 서비스와의 긴밀한 통합을 결합합니다.
 
 ## <a name="key-features--benefits"></a>주요 기능 및 이점
 

@@ -3,12 +3,12 @@ title: 동작을 감지하고 Azure Media Services에 비디오 녹화
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 사용하여 라이브 비디오 스트림의 동작을 감지하고 Azure Media Services에 비디오 클립을 녹화하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 8872c9aefa0ed748cbed93d0f7376586859be9df
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 33deabf27fe9b74fd01dba5d6fbe3883b54dda63
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511895"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060421"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>빠른 시작: 동작을 감지하고 Media Services에 비디오 녹화
 
@@ -24,12 +24,14 @@ ms.locfileid: "97511895"
     * [Azure 리소스 설정](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [모듈 배포](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
     * [Visual Studio Code 구성](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
-
+    > [!TIP]
+    > 만든 Azure 리소스와 관련된 문제가 발생하는 경우 **[문제 해결 가이드](troubleshoot-how-to.md#common-error-resolutions)** 를 참조하여 일반적으로 발생하는 문제를 해결하세요.
 ## <a name="review-the-sample-video"></a>샘플 비디오 검토
 
 위의 단계에 따라 Azure 리소스를 설정하면 주차장에 대한 (짧은) 비디오가 IoT Edge 디바이스로 사용되는 Azure의 Linux VM에 복사됩니다. 이 비디오 파일은 이 자습서의 라이브 스트림을 시뮬레이션하는 데 사용됩니다.
 
 [VLC Player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 사용하여 시작하고, `Ctrl+N`을 누르고, [주차장 비디오 샘플](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) 링크를 붙여넣어 재생을 시작할 수 있습니다. 5초 마크 정도에 흰색 차가 주차장을 통과합니다.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 
 아래 단계를 완료하면 Live Video Analytics on IoT Edge를 사용하여 자동차의 동작을 감지하고 5초 마크 정도에 시작되는 비디오 클립을 녹화할 수 있습니다. 아래 다이어그램은 전체 흐름의 시각적 표현입니다.
 
@@ -194,7 +196,7 @@ GraphTopologyList 호출에서 설명한 것과 동일한 단계를 따라 다�
 
 위의 JSON 페이로드는 5개의 매개 변수(그 중 4개는 기본값)를 정의하는 그래프 토폴로지를 생성합니다. 토폴로지에는 원본 노드([RTSP 원본](media-graph-concept.md#rtsp-source)) 1개, 프로세서 노드 2개([동작 감지 프로세서](media-graph-concept.md#motion-detection-processor) 및 [신호 게이트 프로세서](media-graph-concept.md#signal-gate-processor)), 싱크 노드 2개(IoT Hub 싱크 및 [자산 싱크](media-graph-concept.md#asset-sink))가 있습니다. 토폴로지의 시각적 표현은 위에 나와 있습니다.
 
-몇 초 이내에 출력 창에 다음 응답이 표시됩니다.
+몇 초 이내에 **출력** 창에 다음 응답이 표시됩니다.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologySet] to [lva-sample-device/lvaEdge] ...

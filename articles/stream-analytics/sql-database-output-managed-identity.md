@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 244f8a446e33102e018881b3ec8f32ba9d8cbcc6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d624f2dd2c0c9b4c7e99d5628a1d47e4303da7f
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014148"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555596"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>관리 되는 id를 사용 하 여 Azure Stream Analytics 작업에서 Azure SQL Database 또는 Azure Synapse Analytics에 액세스 (미리 보기)
 
@@ -123,7 +123,7 @@ Azure Stream Analytics Azure SQL Database 및 Azure Synapse Analytics 출력 싱
 
 이전 섹션에 설명 된 것 처럼 포함 된 데이터베이스 사용자를 만들고 포털에서 Azure 서비스에 대 한 액세스 권한을 부여 하면 Stream Analytics 작업에 관리 id를 통해 Azure Synapse 데이터베이스 리소스에 **연결할** 수 있는 권한이 관리 되는 id로 포함 됩니다. Stream Analytics 작업에 대 한 선택, 삽입 및 관리 데이터베이스 대량 작업을 추가 하는 것이 좋습니다 .이 작업은 나중에 Stream Analytics 워크플로에서 필요 하기 때문입니다. **SELECT** 권한을 사용 하면 작업에서 Azure Synapse 데이터베이스의 테이블에 대 한 연결을 테스트할 수 있습니다. **데이터베이스 대량 작업** **삽입** 및 관리 권한을 통해 입력 및 Azure Synapse 데이터베이스 출력을 구성한 후에는 종단 간 Stream Analytics 쿼리를 테스트할 수 있습니다.
 
-데이터베이스 대량 작업 관리 권한을 부여 하려면 Stream Analytics 작업에 대 한 [데이터베이스 사용 권한을 포함](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest#remarks) 하는 **컨트롤** 로 레이블이 지정 된 모든 사용 권한을 부여 해야 합니다. Stream Analytics 작업에서 COPY 문을 수행 하기 때문에이 권한이 필요 합니다. 여기에는 [데이터베이스 대량 작업 및 삽입](/sql/t-sql/statements/copy-into-transact-sql)이 필요 합니다.
+데이터베이스 대량 작업 관리 권한을 부여 하려면 Stream Analytics 작업에 대 한 [데이터베이스 사용 권한을 포함](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) 하는 **컨트롤** 로 레이블이 지정 된 모든 사용 권한을 부여 해야 합니다. Stream Analytics 작업에서 COPY 문을 수행 하기 때문에이 권한이 필요 합니다. 여기에는 [데이터베이스 대량 작업 및 삽입](/sql/t-sql/statements/copy-into-transact-sql)이 필요 합니다.
 
 ---
 

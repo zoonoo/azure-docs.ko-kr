@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 9fe1b7a077142b00aaf2a8502faa0e166c4311c4
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 219f8728eb90101e7437cbb82b44a1f7124ef14d
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915626"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556429"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>개인 링크를 사용 하 여 Azure HDInsight 클러스터 보호 및 격리 (미리 보기)
 
@@ -60,7 +60,7 @@ Azure Key Vault에 대 한 전용 끝점 사용은 지원 되지 않습니다. �
 
 ### <a name="prepare-your-environment"></a>환경 준비
 
-Successgfull 개인 링크 서비스를 만들려면 [개인 링크 서비스에 대 한 네트워크 정책을 명시적으로 사용 하지 않도록 설정](../private-link/disable-private-link-service-network-policy.md)해야 합니다.
+개인 링크 서비스를 성공적으로 만들려면 [개인 링크 서비스에 대 한 네트워크 정책을 명시적으로 사용 하지 않도록 설정](../private-link/disable-private-link-service-network-policy.md)해야 합니다.
 
 다음 다이어그램에서는 클러스터를 만들기 전에 필요한 네트워킹 구성의 예를 보여 줍니다. 이 예제에서 모든 아웃 바운드 트래픽은 UDR을 사용 하 여 Azure 방화벽에 [강제](../firewall/forced-tunneling.md) 적용 되며 클러스터를 만들기 전에 방화벽에서 필요한 아웃 바운드 종속성이 "허용" 이어야 합니다. Enterprise Security Package 클러스터의 경우 VNet 피어 링에서 Azure Active Directory Domain Services에 대 한 네트워크 연결을 제공할 수 있습니다.
 
@@ -100,12 +100,12 @@ networkProperties: {
 
 개인 링크를 비롯 한 다양 한 HDInsight 엔터프라이즈 보안 기능이 포함 된 전체 템플릿은 [hdinsight enterprise security template (hdinsight enterprise security 템플릿](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template))을 참조 하세요.
 
-### <a name="use-azure-powershell"></a>Azure Powershell 사용
+### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
-Powershell을 사용 하려면 [여기](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature)에서 예제를 참조 하세요.
+PowerShell을 사용 하려면 [여기](/powershell/module/az.hdinsight/new-azhdinsightcluster#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature)의 예제를 참조 하세요.
 
 ### <a name="use-azure-cli"></a>Azure CLI 사용
-Azure CLI를 사용 하려면 [여기](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples)의 예제를 참조 하세요.
+Azure CLI를 사용 하려면 [여기](/cli/azure/hdinsight#az_hdinsight_create-examples)의 예제를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

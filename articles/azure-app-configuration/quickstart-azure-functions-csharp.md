@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: 4197891949062123042736e578cfbcc5def4e1f9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: b5c659a673ece8fd7fbb9566d8bb84201a668a7f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930808"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964085"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration으로 Azure Functions 앱 만들기
 
@@ -44,45 +44,75 @@ ms.locfileid: "96930808"
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
+이 프로젝트는 [.NET Azure Functions에서 종속성 주입](/azure/azure-functions/functions-dotnet-dependency-injection)을 사용하고 추가 구성 원본으로 Azure 앱 구성을 추가합니다.
 
-1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리** 를 선택합니다. **찾아보기** 탭에서 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
+1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리** 를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다.
+   - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) 버전 4.1.0 이상
+   - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) 버전 1.1.0 이상 
 
-2. *Function1.cs* 파일을 열고, .NET Core 구성 및 App Configuration 공급자의 네임스페이스를 추가합니다.
+2. 다음 코드를 사용하여 새 파일 *Startup.cs* 를 추가합니다. `FunctionsStartup` 추상 클래스를 구현하는 `Startup`이라는 클래스를 정의합니다. 어셈블리 특성은 Azure Functions 시작 중에 사용되는 형식 이름을 지정하는 데 사용됩니다.
+
+    `ConfigureAppConfiguration` 메서드가 재정의되고 Azure 앱 구성 공급자가 `AddAzureAppConfiguration()`을 호출하여 추가 구성 소스로 추가됩니다. 이 시점에서 서비스를 등록할 필요가 없으므로 `Configure` 메서드는 비어 있습니다.
+    
+    ```csharp
+    using System;
+    using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Configuration;
+
+    [assembly: FunctionsStartup(typeof(FunctionApp.Startup))]
+
+    namespace FunctionApp
+    {
+        class Startup : FunctionsStartup
+        {
+            public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+            {
+                string cs = Environment.GetEnvironmentVariable("ConnectionString");
+                builder.ConfigurationBuilder.AddAzureAppConfiguration(cs);
+            }
+
+            public override void Configure(IFunctionsHostBuilder builder)
+            {
+            }
+        }
+    }
+    ```
+
+3. *Function1.cs* 를 열고 다음 네임스페이스를 추가합니다.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-3. `Configuration`이라는 `static` 속성을 추가하여 `IConfiguration`의 단일 인스턴스를 만듭니다. 그런 다음, `AddAzureAppConfiguration()`를 호출하여 App Configuration에 연결하는 `static` 생성자를 추가합니다. 그러면 애플리케이션이 시작될 때 구성이 한 번 로드됩니다. 이후부터는 모든 Functions 호출에 동일한 구성 인스턴스가 사용됩니다.
+   종속성 주입을 통해 `IConfiguration`의 인스턴스를 가져오는 데 사용되는 생성자를 추가합니다.
 
     ```csharp
-    private static IConfiguration Configuration { set; get; }
+    private readonly IConfiguration _configuration;
 
-    static Function1()
+    public Function1(IConfiguration configuration)
     {
-        var builder = new ConfigurationBuilder();
-        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
-        Configuration = builder.Build();
+        _configuration = configuration;
     }
     ```
 
 4. 구성에서 값을 읽도록 `Run` 메서드를 업데이트합니다.
 
     ```csharp
-    public static async Task<IActionResult> Run(
+    public async Task<IActionResult> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, ILogger log)
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
         string keyName = "TestApp:Settings:Message";
-        string message = Configuration[keyName];
+        string message = _configuration[keyName];
 
         return message != null
             ? (ActionResult)new OkObjectResult(message)
             : new BadRequestObjectResult($"Please create a key-value with the key '{keyName}' in App Configuration.");
     }
     ```
+
+   `Function1` 클래스와 `Run` 메서드는 정적이어서는 안됩니다. 자동 생성된 경우 `static` 한정자를 제거합니다.
 
 ## <a name="test-the-function-locally"></a>로컬에서 함수 테스트
 
@@ -120,7 +150,7 @@ ms.locfileid: "96930808"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 App Configuration 스토리지를 만들고, [App Configuration 공급자](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)를 통해 Azure Functions 앱에서 사용했습니다. 구성 설정을 동적으로 새로 고치도록 Azure Functions 앱을 구성하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+이 빠른 시작에서는 새 App Configuration 스토리지를 만들고, [App Configuration 공급자](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)를 통해 Azure Functions 앱에서 사용했습니다. 구성을 동적으로 새로 고치도록 Azure Functions 앱을 업데이트하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [동적 구성을 사용하도록 설정](./enable-dynamic-configuration-azure-functions-csharp.md)
+> [Azure Functions에서 동적 구성을 사용하도록 설정](./enable-dynamic-configuration-azure-functions-csharp.md)

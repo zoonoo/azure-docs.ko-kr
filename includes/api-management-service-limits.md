@@ -6,15 +6,15 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 04/14/2020
+ms.date: 01/11/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: cf051d96651161658796689639b5d268230d4b5a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 78890c0596642b629482a6d24d17d83fb8ebc9a0
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95559753"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147486"
 ---
 | 리소스 | 제한 |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -33,7 +33,8 @@ ms.locfileid: "95559753"
 | 최대 총 요청 기간<sup>8</sup> | 30초 |
 | 최대 버퍼링된 페이로드 크기<sup>8</sup> | 2MiB |
 | 최대 요청 URL 크기<sup>9</sup> | 4,096바이트 |
-| 최대 자체 호스팅 게이트웨이 수<sup>10</sup> | 25 |
+| URL 경로 세그먼트의 최대 길이<sup>10</sup> | 260자 |
+| 최대 자체 호스팅 게이트웨이 수<sup>11</sup> | 25 |
 
 <sup>1</sup>크기 조정 제한은 가격 책정 계층에 따라 달라집니다. 가격 책정 계층 및 해당 크기 조정 제한에 대한 자세한 내용은 [API Management 가격](https://azure.microsoft.com/pricing/details/api-management/)을 참조하세요.<br/>
 <sup>2</sup>단위당 캐시 크기는 가격 책정 계층에 따라 달라집니다. 가격 책정 계층 및 해당 크기 조정 제한에 대한 자세한 내용은 [API Management 가격](https://azure.microsoft.com/pricing/details/api-management/)을 참조하세요.<br/>
@@ -44,4 +45,5 @@ ms.locfileid: "95559753"
 <sup>7</sup>CA 인증서는 소비 계층에서 지원되지 않습니다.<br/>
 <sup>8</sup>이 제한은 소비 계층에만 적용됩니다. 이러한 범주에는 다른 계층에 대한 제한이 없습니다.<br/>
 <sup>9</sup>소비 계층에만 적용됩니다. 최대 2,048바이트 길이의 쿼리 문자열을 포함합니다.<br/>
-<sup>10</sup>자체 호스팅 게이트웨이는 개발자 및 프리미엄 계층에서만 지원됩니다. 이 제한은 [자체 호스팅 게이트웨이 리소스](/rest/api/apimanagement/2019-12-01/gateway)의 수에 적용됩니다. 이 제한을 늘리려면 [지원](https://azure.microsoft.com/support/options/)에 문의하세요. 자체 호스팅 게이트웨이 리소스와 연결된 노드(또는 복제본)의 수는 프리미엄 계층에서 무제한이며, 개발자 계층에서는 단일 노드로 제한됩니다.
+<sup>10</sup> 이 제한을 늘리려면 [지원](https://azure.microsoft.com/support/options/)에 문의하세요.<br/>
+<sup>11</sup> 자체 호스팅 게이트웨이는 개발자 및 프리미엄 계층에서만 지원됩니다. 이 제한은 [자체 호스팅 게이트웨이 리소스](/rest/api/apimanagement/2019-12-01/gateway)의 수에 적용됩니다. 이 제한을 늘리려면 [지원](https://azure.microsoft.com/support/options/)에 문의하세요. 자체 호스팅 게이트웨이 리소스와 연결된 노드(또는 복제본)의 수는 프리미엄 계층에서 무제한이며, 개발자 계층에서는 단일 노드로 제한됩니다.

@@ -223,14 +223,12 @@
           items:
             - name: Azure를 사용한 렌더링
               href: batch-rendering-service.md
-            - name: VM 이미지 렌더링
+            - name: VM 이미지 일괄 처리 렌더링
               href: batch-rendering-applications.md
             - name: Batch 렌더링 기능
               href: batch-rendering-functionality.md
             - name: Batch 렌더링 사용
               href: batch-rendering-using.md
-            - name: 렌더링 관리자 사용
-              href: batch-rendering-render-managers.md
             - name: 렌더링 애플리케이션 참조
               href: batch-rendering-application-reference.md
             - name: Storage 및 데이터 이동

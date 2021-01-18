@@ -10,12 +10,12 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 545f698f444e99d3f3807f22b308963172018fcb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 77283596e4b0d7e25d757c9de76c284ca4f5d4f2
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746668"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556399"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Azure의 SSIS 패키지에서 Windows 인증으로 데이터 저장소 및 파일 공유 액세스
 
@@ -99,7 +99,7 @@ SSIS 패키지에서 Windows 인증을 사용하는 경우 한 집합의 자격 
 
 3. SSMS에서 온-프레미스 SQL Server에 연결할 수 있는지 확인합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 Azure에서 실행 중인 패키지에서 온-프레미스 SQL Server에 액세스하려면 다음을 수행합니다.
 
@@ -126,7 +126,7 @@ Azure에서 실행 중인 패키지에서 온-프레미스 SQL Server에 액세�
 
 3. 온-프레미스 파일 공유에 대한 디렉터리 목록이 반환되는지 확인합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 Azure에서 실행 중인 패키지에서 온-프레미스 파일 공유에 액세스하려면 다음을 수행합니다.
 
@@ -170,4 +170,4 @@ Azure에서 실행 중인 패키지에서 Azure Files의 파일 공유에 액세
 
 - 패키지를 배포합니다. 자세한 내용은 [SSMS를 사용하여 Azure에 SSIS 프로젝트 배포](/sql/integration-services/ssis-quickstart-deploy-ssms)를 참조합니다.
 - 패키지를 실행합니다. 자세한 내용은 [SSMS를 사용하여 Azure에서 SSIS 패키지 실행](/sql/integration-services/ssis-quickstart-run-ssms)을 참조합니다.
-- 패키지를 예약합니다. 자세한 내용은 [Azure에서 SSIS 패키지 예약](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)을 참조 하세요.
+- 패키지를 예약합니다. 자세한 내용은 [Azure에서 SSIS 패키지 예약](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조 하세요.

@@ -1,18 +1,18 @@
 ---
-title: Kotlin 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기
-description: Kotlin 및 Maven을 사용하여 Azure에 HTTP 트리거 함수를 만들어 게시합니다.
+title: Maven을 사용하여 Azure Functions에서 Kotlin 함수 만들기
+description: Kotlin 및 Maven을 사용하여 HTTP 트리거 함수앱을 만들고 Azure Functions에 게시합니다.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 167e7c447fe43851255677a44043c508cbdc4239
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 6f7b79b6e3e72b34a27e5b4f0e1fb5426c539699
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934835"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035243"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>빠른 시작: Kotlin 및 Maven을 사용하여 첫 번째 함수 만들기
 
@@ -32,9 +32,9 @@ Kotlin을 사용하여 함수를 개발하려면 다음을 설치해야 합니�
 > [!IMPORTANT]
 > 이 퀵 스타트를 완료하려면 JAVA_HOME 환경 변수를 JDK 설치 위치로 설정해야 합니다.
 
-## <a name="generate-a-new-functions-project"></a>새 Functions 프로젝트 생성
+## <a name="generate-a-new-azure-functions-project"></a>새 Azure Functions 프로젝트 생성
 
-빈 폴더에서 다음 명령을 실행하여 [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)으로부터 Functions 프로젝트를 생성합니다.
+빈 폴더에서 다음 명령을 실행하여 [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)에서 Azure Functions 프로젝트를 생성합니다.
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
@@ -167,13 +167,13 @@ az login
 `azure-functions:deploy` Maven 대상을 사용하여 새 함수 앱에 코드를 배포합니다.
 
 > [!NOTE]
-> Visual Studio Code를 사용하여 함수 앱을 배포하는 경우 체험판이 아닌 구독을 선택해야 합니다. 그렇지 않으면 오류가 표시됩니다. IDE의 왼쪽에 구독이 표시됩니다.
+> Visual Studio Code를 사용하여 함수 앱을 배포하는 경우 체험판이 아닌 구독을 선택해야 합니다. 그렇지 않으면 오류가 발생합니다. IDE의 왼쪽에 구독이 표시됩니다.
 
 ```
 mvn azure-functions:deploy
 ```
 
-배포가 완료되면 Azure 함수 앱에 액세스하는 데 사용할 수 있는 URL이 표시됩니다.
+배포가 완료되면 함수 앱에 액세스하는 데 사용할 수 있는 URL이 표시됩니다.
 
 <pre>
 [INFO] Successfully deployed Function App with package.
@@ -231,7 +231,7 @@ Hi, AzureFunctionsTest
 
 ## <a name="reference-bindings"></a>바인딩 참조
 
-HTTP 트리거 및 타이머 트리거 이외의 [Functions 트리거 및 바인딩을](functions-triggers-bindings.md) 사용하려면 바인딩 확장을 설치해야 합니다. 이 문서에서는 필요하지 않지만 다른 바인딩 형식으로 작업할 때 확장을 사용하도록 설정하는 방법을 알고 있어야 합니다.
+HTTP 트리거 및 타이머 트리거 이외의 [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)을 사용하려면 바인딩 확장을 설치해야 합니다. 이 문서에서는 필요하지 않지만 다른 바인딩 형식으로 작업할 때 확장을 사용하도록 설정하는 방법을 알고 있어야 합니다.
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -239,7 +239,7 @@ HTTP 트리거 및 타이머 트리거 이외의 [Functions 트리거 및 바인
 
 간단한 HTTP 트리거가 있는 Kotlin 함수 앱을 만들어 Azure Functions에 배포했습니다.
 
-- Java 및 Kotlin 함수 개발에 대한 자세한 내용은 [Java Functions 개발자 가이드](functions-reference-java.md)를 검토하세요.
+- Java 및 Kotlin 함수 개발에 대한 자세한 내용은 [Azure Functions Java 개발자 가이드](functions-reference-java.md)를 검토하세요.
 - `azure-functions:add` Maven 대상을 사용하여 프로젝트에 다른 트리거가 있는 다른 함수를 추가합니다.
 - [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) 및 [Eclipse](functions-create-maven-eclipse.md)를 사용하여 로컬로 함수를 작성하고 디버그합니다. 
 - Visual Studio Code를 사용하여 Azure에 배포된 함수를 디버그합니다. 자세한 지침은 Visual Studio Code [서버 없는 Java 애플리케이션](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) 설명서를 참조하세요.

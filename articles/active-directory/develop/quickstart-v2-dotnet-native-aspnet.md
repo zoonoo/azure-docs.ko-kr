@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: fe82b03c4a8c71f84de02245b075ff30da31b45b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 2967476d06b8f6f88b740f811a94c5fdb4284b4d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031100"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011869"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼으로 보호되는 ASP.NET 웹 API 호출
 
@@ -48,13 +48,13 @@ ms.locfileid: "97031100"
 
 앱을 수동으로 등록하려면 앱을 만들려는 Azure AD(Azure Active Directory) 테넌트를 선택합니다.
 
-1. 회사 또는 학교 계정, 개인 Microsoft 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 회사 또는 학교 계정, 개인 Microsoft 계정으로 <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 1. 계정이 둘 이상의 Azure AD 테넌트에 있는 경우 오른쪽 위에서 프로필을 선택한 다음, **디렉터리 전환** 을 선택합니다.
 1. 포털 세션을 사용하려는 Azure AD 테넌트로 변경합니다.
 
 ### <a name="register-the-todolistservice-app"></a>TodoListService 앱 등록
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.

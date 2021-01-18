@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/06/2020
-ms.openlocfilehash: bc5d2cad7b4fbf1871d2c02dc91db30daf55e855
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b9dc88c5773d1329ad4fb4d1c45a0cbc88737423
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600730"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556582"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
@@ -299,7 +299,7 @@ Azure PowerShell를 사용 하 여 사용자 지정 설정과 함께 Azure-SSIS 
 
       * *BCP* 폴더-Azure-SSIS IR의 각 노드에 SQL Server 명령줄 유틸리티 (*MsSqlCmdLnUtils.msi*)를 설치 하는 사용자 지정 설치 스크립트 (*기본 .cmd*)를 포함 합니다. 이러한 유틸리티 중 하나는 *bcp*(대량 복사 프로그램)입니다.
 
-      * 사용자 지정 설치 *스크립트 (test.com)를* 포함 하는 *dns 접미사* 폴더는 정규화 되지 않은 단일 레이블 도메인 이름에 자체 dns 접미사 (예: *test.com*)를 추가 하 고 정규화 된 도메인 이름 (FQDN)으로 전환 하 여 Azure-SSIS IR의 dns 쿼리에서 사용 합니다.
+      * 사용자 지정 설치 *스크립트 (test.com)를* 포함 하는 *dns 접미사* 폴더는 정규화 되지 않은 단일 레이블 도메인 이름에 자체 dns 접미사 (예: )를 추가 하 고 정규화 된 도메인 이름 (FQDN)으로 전환 하 여 Azure-SSIS IR의 dns 쿼리에서 사용 합니다.
 
       * 사용자 지정 설치 스크립트 (*기본 .cmd*)를 포함 하는 *EXCEL* 폴더로, Azure-SSIS IR의 각 노드에 c # 어셈블리 및 라이브러리를 설치 합니다. 스크립트 태스크에서이를 사용 하 여 Excel 파일을 동적으로 읽고 쓸 수 있습니다. 
       
@@ -345,7 +345,7 @@ Azure PowerShell를 사용 하 여 사용자 지정 설정과 함께 Azure-SSIS 
 
       * 사용자 지정 설치 스크립트 (*기본 .cmd*)를 포함 하는 *tls 1.2* 폴더를 사용 하 여 Azure-SSIS IR의 각 노드에 강력한 암호화와 더욱 안전한 1.2 tls (네트워크 프로토콜)를 사용할 수 있습니다. 또한이 스크립트는 이전 SSL/TLS 버전을 사용 하지 않도록 설정 합니다.
 
-      * *ZULU OPENJDK* 폴더 - Zulu OpenJDK를 Azure-SSIS IR의 각 노드에 설치하는 사용자 지정 설치 스크립트(*main.cmd*) 및 PowerShell 파일(*iinstall_openjdk.ps1*)이 포함되어 있습니다. 이 설치를 통해 Azure Data Lake Store 및 Flexible File 커넥터를 사용하여 ORC 및 Parquet 파일을 처리할 수 있습니다. 자세한 내용은 [Integration Services용 Azure 기능 팩](/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java)을 참조하세요. 
+      * *ZULU OPENJDK* 폴더 - Zulu OpenJDK를 Azure-SSIS IR의 각 노드에 설치하는 사용자 지정 설치 스크립트(*main.cmd*) 및 PowerShell 파일(*iinstall_openjdk.ps1*)이 포함되어 있습니다. 이 설치를 통해 Azure Data Lake Store 및 Flexible File 커넥터를 사용하여 ORC 및 Parquet 파일을 처리할 수 있습니다. 자세한 내용은 [Integration Services용 Azure 기능 팩](/sql/integration-services/azure-feature-pack-for-integration-services-ssis#dependency-on-java)을 참조하세요. 
       
         먼저 [최신 Zulu OpenJDK(예: *zulu8.33.0.1-jdk8.0.192-win_x64.zip*)를 다운로드](https://www.azul.com/downloads/zulu/zulu-windows/)한 다음, *main.cmd* 및 *install_openjdk.ps1* 과 함께 모두 컨테이너에 업로드합니다.
 

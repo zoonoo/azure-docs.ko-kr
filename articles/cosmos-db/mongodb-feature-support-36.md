@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: bb9efa3fde0ed840589b66db7b28392de67ee8dd
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0ca1f1222881a2b4ca640fa31192bd1c151ebd9f
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635607"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028848"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.6 버전): 지원되는 기능 및 구문
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -27,7 +27,10 @@ Azure Cosmos DB의 API for MongoDB는 새 계정의 경우 기본적으로 Mongo
 
 ## <a name="query-language-support"></a>쿼리 언어 지원
 
-Azure Cosmos DB의 API for MongoDB는 MongoDB 쿼리 언어 구문을 포괄적으로 지원합니다. 아래에서 현재 지원되는 연산, 연산자, 단계, 명령 및 옵션에 대한 자세한 목록을 찾을 수 있습니다.
+Azure Cosmos DB의 API for MongoDB는 MongoDB 쿼리 언어 구문을 포괄적으로 지원합니다. 다음 섹션에서는 Azure Cosmos DB에서 현재 지원되는 서버 작업, 연산자, 단계, 명령 및 옵션에 대한 자세한 목록을 보여줍니다.
+
+> [!NOTE]
+> 이 문서에서는 지원되는 서버 명령만 나열하고 클라이언트 쪽 래퍼 함수는 제외합니다. `deleteMany()` 및 `updateMany()`와 같은 클라이언트 쪽 래퍼 함수는 내부적으로 `delete()` 및 `update()` 서버 명령을 활용합니다. 지원되는 서버 명령을 활용하는 함수는 Azure Cosmos DB의 API for MongoDB와 호환됩니다.
 
 ## <a name="database-commands"></a>데이터베이스 명령
 
@@ -138,7 +141,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 |$lookup    |    예|
 |$out        |예|
 |$indexStats|        예|
-|$facet    |예|
+|$facet    |Yes|
 |$bucket|    예|
 |$bucketAuto|    예|
 |$sortByCount|    예|
@@ -148,7 +151,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 |$currentOp|    예|
 |$listLocalSessions    |예|
 |$listSessions    |예|
-|$graphLookup    |예|
+|$graphLookup    |Yes|
 
 ### <a name="boolean-expressions"></a>부울 식
 
@@ -409,7 +412,7 @@ $regex 쿼리에서 왼쪽에 고정된 식은 인덱스 검색을 허용합니�
 
 ‘$’ 또는 ‘|’을 포함해야 하는 경우 두 개 이상의 정규식 쿼리를 만드는 것이 가장 좋습니다. 예를 들어, 다음 원래 쿼리가 ```find({x:{$regex: /^abc$/})```인 경우 이를 다음과 같이 수정해야 합니다.
 
-```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```입니다.
+```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 
 첫 번째 부분은 인덱스를 사용하여 ^abc로 시작하는 문서로 검색을 제한하며, 두 번째 부분은 정확한 항목의 일치를 확인합니다. 막대 연산자 ‘|’는 “or” 함수 역할을 하고, ```find({x:{$regex: /^abc|^def/})``` 쿼리는 ‘x’ 필드에 “abc” 또는 “def”로 시작하는 값이 있는 문서를 일치하는 항목으로 검색합니다. 인덱스를 사용하려면 쿼리를 $or 연산자 ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```에 의해 조인된 두 개의 서로 다른 쿼리로 나누는 것이 좋습니다.
 
@@ -496,10 +499,10 @@ $nearSphere |  예 |
 $geometry |  예 |
 $minDistance | 예 |
 $maxDistance | 예 |
-$center | 예 |
-$centerSphere | 예 |
-$box | 예 |
-$polygon |  예 |
+$center | No |
+$centerSphere | No |
+$box | No |
+$polygon |  No |
 
 ## <a name="cursor-methods"></a>커서 메서드
 

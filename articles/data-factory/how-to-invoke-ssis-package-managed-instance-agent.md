@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: 98484655dec069c3a284dce0ea83477faf75d9a8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5f8b18375c517ab5b620b2d6d897f5133b14705d
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637754"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556463"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Azure SQL Managed Instance 에이전트를 사용 하 여 SSIS 패키지 실행
 
@@ -24,7 +24,7 @@ ms.locfileid: "92637754"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 기능을 사용 하려면 최신 SQL Server Management Studio (SSMS)를 [다운로드](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) 하 여 설치 합니다. 버전 지원 세부 정보:
+이 기능을 사용 하려면 최신 SQL Server Management Studio (SSMS)를 [다운로드](/sql/ssms/download-sql-server-management-studio-ssms) 하 여 설치 합니다. 버전 지원 세부 정보:
 
 - SSISDB 또는 파일 시스템에서 패키지를 실행 하려면 SSMS 버전 18.5 이상을 설치 합니다.
 - 패키지 저장소에서 패키지를 실행 하려면 SSMS 버전 18.6 이상을 설치 합니다.
@@ -78,7 +78,7 @@ ms.locfileid: "92637754"
 
    1. **패키지 위치** 에서 **파일 시스템** 을 선택 합니다.
 
-   1. **파일 원본 유형** :
+   1. **파일 원본 유형**:
 
       - 패키지가 Azure Files에 업로드 된 경우 **Azure 파일 공유** 를 선택 합니다.
 
@@ -123,7 +123,7 @@ ms.locfileid: "92637754"
 
    1. **패키지 위치** 에서 **패키지 저장소** 를 선택 합니다.
 
-   1. **패키지 경로** :
+   1. **패키지 경로**:
 
       패키지 **`<package store name>\<folder name>\<package name>`** 경로가 인 경우
 

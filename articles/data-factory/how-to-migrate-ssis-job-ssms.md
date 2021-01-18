@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 5566717387f6da375129a0e70c9ad825198d66b7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1072f915c5d8483676874422703820dc75719256
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005710"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555749"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>SSMS를 사용 하 여 ADF로 SQL Server 에이전트 작업 마이그레이션
 
@@ -31,7 +31,7 @@ Ssis ( [온-프레미스 SQL Server Integration Services) 워크 로드를 ADF�
     > 파일 시스템의 패키지 위치만 지원 됩니다.
 - 해당 하는 작업 단계를 사용 하 여 해당 하는 작업을 아래와 같은 해당 ADF 리소스로 마이그레이션합니다.
 
-|SQL 에이전트 작업 개체  |ADF 리소스  |참고|
+|SQL 에이전트 작업 개체  |ADF 리소스  |메모|
 |---------|---------|---------|
 |SQL 에이전트 작업|pipeline     |*에 대해 \<job name> 생성* 되는 파이프라인의 이름입니다. <br> <br> 기본 제공 에이전트 작업은 적용 되지 않습니다. <li> SSIS 서버 유지 관리 작업 <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
 |SSIS 작업 단계|SSIS 패키지 실행 작업|<li> 활동의 이름은 \<step name> 입니다. <li> 작업 단계에서 사용 되는 프록시 계정이이 작업의 Windows 인증으로 마이그레이션됩니다. <li> 작업 단계에서 정의한 *32 비트 런타임 사용* 을 제외한 *실행 옵션* 은 마이그레이션에서 무시 됩니다. <li> 작업 단계에서 정의 된 *확인* 은 마이그레이션하는 동안 무시 됩니다.|
@@ -39,9 +39,9 @@ Ssis ( [온-프레미스 SQL Server Integration Services) 워크 로드를 ADF�
 
 - 로컬 출력 폴더에 Azure Resource Manager (ARM) 템플릿을 생성 하 고 직접 또는 나중에 데이터 팩터리에 직접 배포 합니다. ADF 리소스 관리자 템플릿에 대 한 자세한 내용은 [DataFactory 리소스 유형](/azure/templates/microsoft.datafactory/allversions)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서 설명 하는 기능을 사용 하려면 SQL Server Management Studio 버전 18.5 이상이 필요 합니다. SSMS의 최신 버전을 다운로드하려면 [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)(SSMS(SQL Server Management Studio) 다운로드)를 참조하세요.
+이 문서에서 설명 하는 기능을 사용 하려면 SQL Server Management Studio 버전 18.5 이상이 필요 합니다. SSMS의 최신 버전을 다운로드하려면 [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)(SSMS(SQL Server Management Studio) 다운로드)를 참조하세요.
 
 ## <a name="migrate-ssis-jobs-to-adf"></a>SSIS 작업을 ADF로 마이그레이션
 

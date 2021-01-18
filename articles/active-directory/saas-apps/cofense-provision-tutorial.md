@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 56b75d34bed65dae53c88eab6a16d848083ccc73
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 084592a8db47a94a0fcd683105f749f514c05ea3
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179116"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247576"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cofense Recipient Sync 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "96179116"
 > * Cofense Recipient Sync에서 더 이상 액세스할 필요가 없는 사용자 제거
 > * Azure AD와 Cofense Recipient Sync 간에 사용자 특성을 동기화된 상태로 유지
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -116,23 +116,23 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |name.formatted|String|
    |name.givenName|String|
    |name.familyName|String|
-   |name.honorificSuffix|문자열|
-   |phoneNumbers[type eq"work"].value|문자열|
-   |phoneNumbers[type eq"home"].value|문자열|
-   |phoneNumbers[type eq"other"].value|문자열|
-   |phoneNumbers[type eq"pager"].value|문자열|
-   |phoneNumbers[type eq"mobile"].value|문자열|
-   |phoneNumbers[type eq"fax"].value|문자열|
-   |addresses[type eq"other"].formatted|문자열|
-   |addresses[type eq"work"].formatted|문자열|
-   |addresses[type eq"work"].streetAddress|문자열|
-   |addresses[type eq"work"].locality|문자열|
-   |addresses[type eq"work"].region|문자열|
-   |addresses[type eq"work"].postalCode|문자열|
+   |name.honorificSuffix|String|
+   |phoneNumbers[type eq"work"].value|String|
+   |phoneNumbers[type eq"home"].value|String|
+   |phoneNumbers[type eq"other"].value|String|
+   |phoneNumbers[type eq"pager"].value|String|
+   |phoneNumbers[type eq"mobile"].value|String|
+   |phoneNumbers[type eq"fax"].value|String|
+   |addresses[type eq"other"].formatted|String|
+   |addresses[type eq"work"].formatted|String|
+   |addresses[type eq"work"].streetAddress|String|
+   |addresses[type eq"work"].locality|String|
+   |addresses[type eq"work"].region|String|
+   |addresses[type eq"work"].postalCode|String|
    |addresses[type eq"work"].country|String|
    |title|String|
    |emails[type eq "work"].value|String|
-   |emails[type eq "home"].value|문자열|
+   |emails[type eq "home"].value|String|
    |emails[type eq "other"].value|String|
    |preferredLanguage|String|
    |nickName|String|
@@ -165,9 +165,13 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 ## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
-1. [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-2. [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
-3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.  
+* [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
+* [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+* 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요. 
+
+## <a name="change-log"></a>로그 변경
+
+* 2020년 1월 15일 - objectId -> externalId 매핑에 대해 "Only during Object Creation(개체를 만드는 동안만)"에서 "Always(항상)"로 변경이 구현되었습다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

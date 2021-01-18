@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 11c20f3f79a4fceafaca9b1a948f1b4a425dad87
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 00aa24f0ff8c918c645239ca36888c6a214062c8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572714"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028763"
 ---
 # <a name="voice-and-video-concepts"></a>음성 및 비디오 개념
 
@@ -49,7 +49,7 @@ H.264(MPEG-4) 지원
 네이티브(iOS, Android) SDK에서 최대 Full HD 1080p를 지원합니다. Web(JS) SDK의 경우 Standard HD 720p를 지원합니다. 품질은 사용 가능한 대역폭에 따라 달라집니다.  
 
 ### <a name="rooms-concept"></a>대화방 개념
-대화방은 웹 사이트 또는 네이티브 애플리케이션에 오디오, 비디오, 화면 공유, PSTN 및 SMS 상호 작용을 손쉽게 추가할 수 있는 API 및 SDK의 세트입니다.
+대화방은 웹 사이트 또는 네이티브 애플리케이션에 오디오, 비디오, 화면 공유, PSTN 및 SMS 상호 작용을 손쉽게 추가할 수 있는 API 및 SDK 세트입니다.
 미리 보기 중에 그룹 ID를 사용하여 동일한 대화를 조인할 수 있습니다. 필요한 만큼 그룹 ID를 만들고 사용자를 “대화방”으로 구분할 수 있습니다. 앞으로 이동하면 “대화방” 주위에 더 많은 컨트롤이 도입됩니다. 
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 06/16/2020
+ms.date: 01/13/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: e4f17fbfad1e7e550b3a1e95c93e4b061d0f1c3c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08e7463f4657b2ae5d6da1017c14226e97af7605
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993428"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165742"
 ---
 ### <a name="general-requirements"></a>일반 요구 사항
 
@@ -29,6 +29,8 @@ ms.locfileid: "95993428"
 * 풀에 대해 지정한 서브넷에는 풀에 대상이 되는 VM 수를 수용할 만큼 충분한 할당되지 않은 IP 주소가 있어야 합니다. 즉 풀의 `targetDedicatedNodes` 및 `targetLowPriorityNodes` 속성 합계입니다. 서브넷에 할당되지 않은 IP 주소가 충분하지 않으면 풀은 컴퓨팅 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
 
 * VNet을 서비스하는 모든 사용자 지정 DNS 서버에서 Azure Storage 엔드포인트를 확인할 수 있어야 합니다. 특히 `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` 및 `<account>.blob.core.windows.net` 양식의 URL을 확인할 수 있어야 합니다.
+
+* 동일한 VNet 또는 동일한 서브넷에서 여러 풀을 만들 수 있습니다(충분한 주소 공간이 있는 경우). 단일 풀은 여러 VNet 또는 서브넷에 존재할 수 없습니다.
 
 추가적인 VNet 요구 사항은 Batch 풀이 Virtual Machine 구성인지 또는 Cloud Services 구성인지에 따라 다릅니다. 새 풀을 VNet에 배포하는 경우 Virtual Machine 구성을 권장합니다.
 

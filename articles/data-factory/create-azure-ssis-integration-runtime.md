@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 7936699832a09f535729c42b12fec2d5c49a11a0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 62b1575e2ab379e6b4e61926e00dfad85ffeb6c0
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350945"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556361"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 
@@ -27,7 +27,7 @@ ms.locfileid: "96350945"
 - Azure SQL Database 서버/Managed Instance(프로젝트 배포 모델)가 호스트하는 SSIS 카탈로그(SSISDB)에 배포된 패키지 실행
 - Azure SQL Managed Instance(패키지 배포 모델)가 호스트하는 파일 시스템, Azure Files 또는 SQL Server 데이터베이스(MSDB)에 배포된 패키지 실행
 
-Azure-SSIS IR이 프로비저닝되면 익숙한 도구를 사용하여 Azure에서 패키지를 배포하고 실행할 수 있습니다. 이러한 도구는 이미 Azure를 사용하며 SSDT(SQL Server Data Tools), SSMS(SQL Server Management Studio) 및 명령줄 유틸리티(예: [dtutil](/sql/integration-services/dtutil-utility?view=sql-server-2017) 및 [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md))를 포함하고 있습니다.
+Azure-SSIS IR이 프로비저닝되면 익숙한 도구를 사용하여 Azure에서 패키지를 배포하고 실행할 수 있습니다. 이러한 도구는 이미 Azure를 사용하며 SSDT(SQL Server Data Tools), SSMS(SQL Server Management Studio) 및 명령줄 유틸리티(예: [dtutil](/sql/integration-services/dtutil-utility) 및 [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md))를 포함하고 있습니다.
 
 [프로 비전 Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md) 자습서에서는 Azure Portal 또는 Data Factory 앱을 통해 Azure-SSIS IR을 만드는 방법을 보여 줍니다. 또한 필요에 따라 Azure SQL Database 서버 또는 관리 되는 인스턴스를 사용 하 여 SSISDB를 호스트 하는 방법도 보여 줍니다. 이 문서는 자습서를 확장 하 고 다음과 같은 선택적 작업을 수행 하는 방법을 설명 합니다.
 
@@ -39,7 +39,7 @@ Azure-SSIS IR이 프로비저닝되면 익숙한 도구를 사용하여 Azure에
 
 이 문서에서는 Azure Portal, Azure PowerShell 및 Azure Resource Manager 템플릿을 사용 하 여 Azure-SSIS IR를 프로 비전 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -81,11 +81,11 @@ Data Factory 및 Azure-SSIS IR을 사용할 수 있는 Azure 지역 목록은 [�
 
 | 기능 | SQL Database| SQL 관리 되는 인스턴스 |
 |---------|--------------|------------------|
-| **일정 예약** | SQL Server 에이전트를 사용할 수 없습니다.<br/><br/>[Data Factory 파이프라인에서 패키지 실행 예약](/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)을 참조 하세요.| Managed Instance 에이전트를 사용할 수 있습니다. |
+| **일정 예약** | SQL Server 에이전트를 사용할 수 없습니다.<br/><br/>[Data Factory 파이프라인에서 패키지 실행 예약](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity)을 참조 하세요.| Managed Instance 에이전트를 사용할 수 있습니다. |
 | **인증** | 데이터 팩터리의 관리 id를 사용 하 여 **db_owner** 역할의 멤버로 Azure AD 그룹을 나타내는 포함 된 데이터베이스 사용자로 SSISDB 인스턴스를 만들 수 있습니다.<br/><br/>[Azure SQL Database server에서 SSISDB를 만들려면 AZURE AD 인증 사용을](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)참조 하세요. | 데이터 팩터리의 관리 되는 id를 나타내는 포함 된 데이터베이스 사용자로 SSISDB 인스턴스를 만들 수 있습니다. <br/><br/>Azure [SQL Managed Instance에서 SSISDB를 만들려면 AZURE AD 인증 사용을](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance)참조 하세요. |
 | **서비스 계층** | Azure SQL Database 서버를 사용 하 여 Azure-SSIS IR를 만들 때 SSISDB의 서비스 계층을 선택할 수 있습니다. 여러 서비스 계층이 있습니다. | 관리 되는 인스턴스를 사용 하 여 Azure-SSIS IR를 만들 때는 SSISDB의 서비스 계층을 선택할 수 없습니다. 관리 되는 인스턴스의 모든 데이터베이스는 해당 인스턴스에 할당 된 동일한 리소스를 공유 합니다. |
 | **가상 네트워크** | IP 방화벽 규칙/가상 네트워크 서비스 끝점에서 Azure SQL Database 서버를 사용 하는 경우 Azure-SSIS IR Azure Resource Manager 가상 네트워크에 가입할 수 있습니다. | 개인 끝점에서 관리 되는 인스턴스를 사용 하는 경우 Azure-SSIS IR Azure Resource Manager 가상 네트워크에 가입할 수 있습니다. 관리 되는 인스턴스에 대해 공용 끝점을 사용 하지 않는 경우 가상 네트워크가 필요 합니다.<br/><br/>Azure-SSIS IR를 관리 되는 인스턴스와 동일한 가상 네트워크에 조인 하는 경우 Azure-SSIS IR 관리 되는 인스턴스와 다른 서브넷에 있는지 확인 합니다. Azure-SSIS IR를 관리 되는 인스턴스의 다른 가상 네트워크에 조인 하는 경우 가상 네트워크 피어 링 또는 네트워크 간 연결을 권장 합니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결을](../azure-sql/managed-instance/connect-application-instance.md)참조 하세요. |
-| **분산 트랜잭션** | 이 기능은 탄력적 트랜잭션을 통해 지원 됩니다. MSDTC(Microsoft Distributed Transaction Coordinator) 트랜잭션은 지원되지 않습니다. SSIS 패키지가 MSDTC를 사용 하 여 분산 트랜잭션을 조정 하는 경우 Azure SQL Database에 대해 탄력적 트랜잭션으로 마이그레이션하는 것이 좋습니다. 자세한 내용은 [클라우드 데이터베이스 간 분산 트랜잭션](../azure-sql/database/elastic-transactions-overview.md)을 참조 하세요. | 지원 안 됨 |
+| **분산 트랜잭션** | 이 기능은 탄력적 트랜잭션을 통해 지원 됩니다. MSDTC(Microsoft Distributed Transaction Coordinator) 트랜잭션은 지원되지 않습니다. SSIS 패키지가 MSDTC를 사용 하 여 분산 트랜잭션을 조정 하는 경우 Azure SQL Database에 대해 탄력적 트랜잭션으로 마이그레이션하는 것이 좋습니다. 자세한 내용은 [클라우드 데이터베이스 간 분산 트랜잭션](../azure-sql/database/elastic-transactions-overview.md)을 참조 하세요. | 지원되지 않습니다. |
 | | | |
 
 ## <a name="use-the-azure-portal-to-create-an-integration-runtime"></a>Azure Portal를 사용 하 여 통합 런타임 만들기
@@ -173,7 +173,7 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
 **통합 런타임 설정** 창의 **배포 설정** 페이지에서 Azure-SSIS IR 패키지 저장소를 통해 MSDB, 파일 시스템 또는 Azure Files(패키지 배포 모델)에 배포된 패키지를 관리하려면 **Azure SQL Managed Instance가 호스트하는 파일 시스템/Azure Files/SQL Server 데이터베이스(MSDB)에 배포되는 패키지를 관리할 패키지 저장소 만들기** 확인란을 선택합니다.
    
-Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저장소](/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017)와 비슷하게 SSMS를 통해 패키지를 가져오고/내보내고/삭제하고/실행하고 실행 중인 패키지를 모니터링/중지할 수 있습니다. 자세한 내용은 [Azure-SSIS IR 패키지 저장소를 사용하여 SSIS 패키지 관리](./azure-ssis-integration-runtime-package-store.md)를 참조하세요.
+Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저장소](/sql/integration-services/service/package-management-ssis-service)와 비슷하게 SSMS를 통해 패키지를 가져오고/내보내고/삭제하고/실행하고 실행 중인 패키지를 모니터링/중지할 수 있습니다. 자세한 내용은 [Azure-SSIS IR 패키지 저장소를 사용하여 SSIS 패키지 관리](./azure-ssis-integration-runtime-package-store.md)를 참조하세요.
    
 이 확인란을 선택하면 **새로 만들기** 를 선택하여 Azure-SSIS IR에 여러 패키지 저장소를 추가할 수 있습니다. 반대로, 패키지 저장소 하나를 여러 Azure SSIS IR이 공유할 수 있습니다.
 
@@ -1004,9 +1004,9 @@ SSISDB를 사용하는 경우 Azure 지원 SSDT 또는 SSMS 도구를 사용하�
 - 프라이빗 엔드포인트가 있는 관리형 인스턴스의 경우 서버 엔드포인트 형식은 `<server name>.<dns prefix>.database.windows.net`입니다.
 - 퍼블릭 엔드포인트가 있는 관리형 인스턴스의 경우 서버 엔드포인트 형식은 `<server name>.public.<dns prefix>.database.windows.net,3342`입니다. 
 
-SSISDB를 사용하지 않는 경우 [dtutil](/sql/integration-services/dtutil-utility?view=sql-server-2017) 및 [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md) 명령줄 유틸리티를 사용하여 Azure SQL Managed Instance가 호스트하는 파일 시스템, Azure Files 또는 MSDB에 패키지를 배포하고 Azure-SSIS IR에서 실행할 수 있습니다. 
+SSISDB를 사용하지 않는 경우 [dtutil](/sql/integration-services/dtutil-utility) 및 [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md) 명령줄 유틸리티를 사용하여 Azure SQL Managed Instance가 호스트하는 파일 시스템, Azure Files 또는 MSDB에 패키지를 배포하고 Azure-SSIS IR에서 실행할 수 있습니다. 
 
-자세한 내용은 [SSIS 프로젝트/패키지 배포](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-ver15)를 참조하세요.
+자세한 내용은 [SSIS 프로젝트/패키지 배포](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages)를 참조하세요.
 
 또한 두 경우 모두 Data Factory 파이프라인에서 SSIS 패키지 실행 활동을 사용하여 배포된 패키지를 Azure-SSIS IR에서 실행할 수도 있습니다. 자세한 내용은 [SSIS 패키지 실행을 Data Factory 첫 번째 클래스 활동으로 호출](./how-to-invoke-ssis-package-ssis-activity.md)을 참조하세요.
 

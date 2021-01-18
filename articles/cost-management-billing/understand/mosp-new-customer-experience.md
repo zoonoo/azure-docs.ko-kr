@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 01/11/2021
 ms.author: banders
-ms.openlocfilehash: 7bec455b804d1f4b13ab7e13677092077214a121
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f0645115246995c9605563626d99bbf6a76784e1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965853"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133571"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>업데이트된 Azure 청구 계정 시작
 
@@ -40,7 +40,7 @@ ms.locfileid: "94965853"
 
 계정이 업데이트되면 각 구독에 대한 청구 프로필이 자동으로 생성됩니다. 구독 요금은 해당 청구 프로필에 청구되고 해당 청구서에 표시됩니다.
 
-청구 프로필의 역할에는 청구서 및 결제 방법을 보고 관리할 수 있는 권한이 있습니다. 조직의 회계 팀원처럼 청구서 대금을 결제하는 사용자에게 이러한 역할을 할당해야 합니다. 자세한 내용은 [청구 프로필 역할 및 작업](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요. 
+청구 프로필의 역할에는 청구서 및 결제 방법을 보고 관리할 수 있는 권한이 있습니다. 조직의 회계 팀원처럼 청구서 대금을 결제하는 사용자에게 이러한 역할을 할당해야 합니다. 자세한 내용은 [청구 프로필 역할 및 작업](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
 
 계정이 업데이트되면 다른 사람에게 [청구서 보기](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice) 권한을 부여한 각 구독에서 소유자, 기여자, 읽기 권한자 또는 청구 읽기 권한자 Azure 역할이 있는 사용자에게 해당 청구 프로필에 대한 읽기 권한자 역할이 부여됩니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "94965853"
 
 #### <a name="invoice-management"></a>청구서 관리
 
-**보다 예측 가능한 월간 청구 기간** - 새 계정의 청구 기간은 Azure 사용을 가입하는 날짜에 관계 없이 해당 월의 1일에 시작하여 마지막 날에 끝납니다. 매월 1일에 청구서가 생성되며, 이전 달의 모든 요금이 포함됩니다.
+**보다 예측 가능한 월간 청구 기간** - 새 계정의 청구 기간은 Azure 사용을 가입하는 날짜에 관계 없이 해당 월의 1일에 시작하여 말일에 끝납니다. 매월 1일에 청구서가 생성되며, 이전 달의 모든 요금이 포함됩니다.
 
 **여러 구독에 대한 단일 월별 청구서 제공** - 구독마다 월별 청구서를 받을 수도 있고 여러 구독에 대한 단일 청구서를 받을 수도 있습니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "94965853"
 
 **청구 작업을 수행할 여러 관리자 할당** - 계정의 대금 청구를 관리할 여러 사용자에게 청구 권한을 할당합니다. 다른 사람에게 읽기, 쓰기 또는 두 권한을 모두 제공하여 유연성을 높일 수 있습니다.
 
-**Azure Portal에서 직접 추가 구독 만들기** - Azure Portal에서 클릭 한 번으로 모든 구독을 만들 수 있습니다.
+**Azure Portal에서 직접 추가 구독 만들기** - Azure Portal에서 선택 한 번으로 모든 구독을 만들 수 있습니다.
 
 #### <a name="api-support"></a>API 지원
 
@@ -106,6 +106,57 @@ Cost Management 또는 청구 API를 사용하여 청구 또는 비용 데이터
 |---------|---------|
 |[청구 계정 - 나열](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | 청구 계정 - 나열 API에서 이전 청구 계정의 agreementType은 **MicrosoftOnlineServiceProgram** 이고, 새 청구 계정의 agreementType은 **MicrosoftCustomerAgreement** 입니다. agreementType을 사용하는 경우 업데이트하세요. |
 |[청구서 - 청구 구독별 나열](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | 이 API는 계정이 업데이트되기 전에 생성된 청구서만 반환합니다. 새 청구 계정에서 생성된 청구서를 가져오려면 [청구서 - 청구서 계정별 나열](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API를 사용해야 합니다. |
+
+## <a name="cost-management-updates-after-account-update"></a>계정 업데이트 후 Cost Management가 업데이트됨
+
+Microsoft 고객 계약에 맞게 업데이트된 Azure 청구 계정을 사용하면 Azure Portal에서 종량제 계정으로는 이용할 수 없었던 새롭고 확장된 Cost Management 환경에 액세스할 수 있습니다.
+
+### <a name="new-capabilities"></a>새로운 기능
+
+Azure 청구 계정에서 다음과 같은 새 기능을 사용할 수 있습니다.
+
+#### <a name="new-billing-scopes"></a>새 청구 범위
+
+업데이트된 계정의 일부로 Cost Management + Billing에 새 범위가 있습니다. 이는 계층 구조의 조직과 청구서 발부에 도움이 될 뿐만 아니라, 여러 기본 구독의 결합된 요금을 볼 수 있게 해줍니다. 청구 범위에 대한 자세한 내용은 [Microsoft 고객 계약 범위](../costs/understand-work-scopes.md#microsoft-customer-agreement-scopes)를 참조하세요.
+
+Cost Management API에 액세스하여 상위 범위에서 결합된 비용 보기를 확인할 수도 있습니다. 구독 범위를 사용하는 모든 Cost Management API도 스키마를 조금만 변경하면 사용할 수 있습니다. 이러한 API에 대한 자세한 내용은 [Azure Cost Management API](/rest/api/cost-management/) 및 [Azure Consumption API](/rest/api/consumption/)를 참조하세요.
+
+#### <a name="cost-allocation"></a>비용 할당
+
+업데이트된 계정으로 비용 할당 기능을 사용하여 조직의 공유 서비스 비용을 분산시킬 수 있습니다. 비용 할당에 대한 자세한 내용은 [Azure 비용 할당 규칙 만들기 및 관리](../costs/allocate-costs.md)를 참조하세요.
+
+#### <a name="power-bi"></a>Power BI
+
+Power BI Desktop용 Azure Cost Management 커넥터를 사용하여 Azure 사용량 및 지출에 대한 사용자 지정 시각화 및 보고서를 작성할 수 있습니다. 업데이트된 계정에 연결한 후 비용 및 사용량 데이터에 액세스합니다. Power BI Desktop용 Azure Cost Management 커넥터에 대한 자세한 내용은 [Power BI Desktop에서 Azure Cost Management 커넥터를 사용하여 시각적 개체 및 보고서 만들기](/power-bi/connect-data/desktop-connect-azure-cost-management)를 참조하세요.
+
+### <a name="updated-capabilities"></a>업데이트된 기능
+
+Azure 청구 계정에서 다음과 같은 업데이트된 기능을 사용할 수 있습니다.
+
+#### <a name="cost-analysis"></a>비용 분석
+
+전월 대비 소비 비용을 보고 추적하는 기능을 계속 사용할 수 있으며, 비용 분석에서 예약 및 Marketplace 구매 비용을 보는 기능이 새롭게 추가되었습니다.
+
+업데이트된 계정을 사용하면 모든 Azure 요금에 대한 단일 청구서가 수신됩니다. 또한 이제 간단한 단일 월별 달력 보기가 기존의 청구 기간 보기를 대체합니다.
+
+예를 들어 이전 계정의 청구 기간이 11월 24일~12월 23일이었다면 업그레이드 후에는 11월 1일~11월30일, 12월 1일~12월 31일 등으로 청구 기간이 변경됩니다.
+
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="이전 청구 기간과 새 청구 기간을 비교하여 보여 주는 이미지" lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+
+#### <a name="budgets"></a>예산
+
+이제 청구 계정에 대한 예산을 만들어 구독 전반의 비용을 추적할 수 있습니다. 또한 예산을 사용하여 구매 요금을 파악할 수 있습니다. 예산에 대한 자세한 내용은 [Azure 예산 만들기 및 관리](../costs/tutorial-acm-create-budgets.md)를 참조하세요.
+
+#### <a name="exports"></a>내보내기
+
+새 청구 계정은 향상된 내보내기 기능을 제공합니다. 예를 들어 구매 또는 분할 상환 비용(구매 기간에 걸쳐 분할된 예약 구매 비용)을 포함하는 실제 비용에 대한 내보내기를 만들 수 있습니다. 또한 청구 계정에 대한 내보내기를 만들어 청구 계정의 모든 구독에 대한 사용량 및 요금 데이터를 확인할 수도 있습니다. 내보내기에 대한 자세한 내용은 [내보낸 데이터를 만들고 관리](../costs/tutorial-export-acm-data.md)를 참조하세요.
+
+> [!NOTE]
+> **지난달 비용 월별 내보내기** 유형을 사용하여 계정 업데이트 전에 생성된 내보내기는 마지막 청구 기간이 아니라 지난달의 데이터를 내보냅니다.
+
+예를 들어 청구 기간이 12월 23일~1월 22일일 경우 내보낸 CSV 파일에 해당 기간의 비용 및 사용량 데이터가 포함됩니다. 업데이트 후에는 해당 월에 대한 데이터가 내보내기에 포함됩니다. 예를 들면 1월 1일~1월 31일 등입니다.
+
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="이전 내보내기 정보와 새 내보내기 정보를 비교하여 보여 주는 이미지" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
 
 ## <a name="additional-information"></a>추가 정보
 

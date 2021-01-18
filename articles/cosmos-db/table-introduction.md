@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 01/08/2021
 ms.author: sngun
-ms.openlocfilehash: 98b1db18b72aad0c68f2faee031cc040a2a1f369
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1cf3bf30b37a09b5dfe94bf1e754a7f8e9dcd82c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181240"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045668"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 소개: 테이블 API
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -20,7 +20,7 @@ ms.locfileid: "96181240"
 [Azure Cosmos DB](introduction.md)는 Azure Table Storage용으로 작성되었으며 다음과 같은 프리미엄 기능이 필요한 애플리케이션에 대한 테이블 API를 제공합니다.
 
 * [턴키 전역 배포](distribute-data-globally.md)
-* 전 세계적인 [전용 처리량](partitioning-overview.md)
+* 전 세계 [전용 처리량](partitioning-overview.md)(프로비저닝된 처리량 사용 시).
 * 99번째 백분위수에서 1자리 밀리초 대기 시간
 * 보장된 고가용성
 * 자동 보조 인덱싱.
@@ -44,7 +44,7 @@ Azure Table Storage에 대해 작성된 애플리케이션은 코드를 변경�
 | 인덱싱 | PartitionKey 및 RowKey에 대한 기본 인덱스만 제공. 보조 인덱스가 없습니다. | 인덱스 관리 없이 기본적으로 모든 속성에 대해 자동 및 전체 인덱싱을 수행할 수 있습니다. |
 | 쿼리 | 쿼리 실행 시 기본 키에 대한 인덱스를 사용하고 그렇지 않은 경우 검색합니다. | 쿼리는 빠른 쿼리 시간을 위해 속성에 대해 자동 인덱싱을 활용할 수 있습니다. |
 | 일관성 | 주 지역 내에서 강력하게 유지되며, 최종적으로는 보조 지역 내에서 유지됩니다. | 애플리케이션 요구 사항에 따라 가용성, 대기 시간, 처리량 및 일관성을 절충할 수 있는 [잘 정의된 5가지 일관성 수준](consistency-levels.md)이 적용됩니다. |
-| 가격 책정 | 스토리지 최적화 | 처리량 최적화 |
+| 가격 책정 | 소비 기반. | [소비 기반](serverless.md)과 [프로비저닝된 용량](set-throughput.md) 모드에서 모두 사용할 수 있습니다. |
 | SLA | 복제 전략에 따라 99.9% ~ 99.99%의 가용성을 제공합니다. | 99.999% 읽기 가용성, 단일 지역 계정에 대한 99.99% 쓰기 가용성 및 다중 지역 계정에 대한 99.999% 쓰기 가용성을 제공합니다. 가용성, 대기 시간, 처리량 및 일관성을 포괄하는 [종합적인 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/). |
 
 ## <a name="get-started"></a>시작하기

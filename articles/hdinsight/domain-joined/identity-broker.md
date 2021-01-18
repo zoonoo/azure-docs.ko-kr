@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: c6bc5ca748a35b17c61d314e96f7284d30e7fc3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b8dfe9a23e5c6697323142212156006cb65d2f9b
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338132"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556531"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Azure HDInsight ID Broker (계층 2)
 
@@ -126,9 +126,9 @@ HDInsight 도구는 기본적으로 OAuth를 지원 하도록 업데이트 됩�
 
 HDInsight ID Broker 설정에서 게이트웨이에 연결 하는 사용자 지정 앱 및 클라이언트를 업데이트 하 여 필요한 OAuth 토큰을 먼저 획득할 수 있습니다. [이 문서의](../../storage/common/storage-auth-aad-app.md) 단계에 따라 다음 정보를 사용 하 여 토큰을 가져옵니다.
 
-*   OAuth 리소스 uri: `https://hib.azurehdinsight.net` 
+*    OAuth 리소스 uri: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
-*   권한: (이름: Cluster. ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+*    권한: (이름: Cluster. ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 OAuth 토큰을 획득 한 후에는 클러스터 게이트웨이에 대 한 HTTP 요청의 인증 헤더 (예: https://-int.azurehdinsight.net)에이 토큰을 사용 <clustername> 합니다. Apache Livy API에 대 한 샘플 말아 명령은 다음 예제와 같이 보일 수 있습니다.
     
@@ -146,7 +146,7 @@ Beeline 및 Livy를 사용 하는 경우 [여기](https://github.com/Azure-Sampl
 AAD에서 사용자를 인증 하거나 데이터에 액세스 하기 전에 모든 타사 응용 프로그램에 대 한 동의가 필요 합니다.
 
 ### <a name="can-the-consent-be-approved-programatically"></a>동의를 프로그래밍 방식으로 승인할 수 있습니까?
-Microsoft Graph api를 사용 하 여 동의를 자동화할 수 있습니다. 동의를 자동화 하는 시퀀스는 [api 설명서](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) 를 참조 하세요.
+Microsoft Graph api를 사용 하 여 동의를 자동화할 수 있습니다. 동의를 자동화 하는 시퀀스는 [api 설명서](/graph/api/resources/oauth2permissiongrant) 를 참조 하세요.
 
 * 앱을 등록 하 고 응용 프로그램에 대 한 권한을 부여 합니다. ReadWrite. 앱에 액세스 하려면 Microsoft Graph
 * 클러스터를 만든 후에는 식별자 uri를 기준으로 클러스터 앱을 쿼리 합니다.

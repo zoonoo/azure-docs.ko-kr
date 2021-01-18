@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3906de9cd94b4db3e675c2b822df2f061040c586
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 8da5e86362f41322102c3b5316df5743e0c2458f
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935294"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976993"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 키 설정 및 검색
 
@@ -59,7 +59,7 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 
 자격 증명 모음에 키를 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 키는 애플리케이션에서 사용할 수 있습니다. 
 
-아래 명령을 입력하여 호출된 **ExampleKey** 를 만듭니다.
+아래 명령을 입력하여 **ExampleKey** 라는 키를 만듭니다.
 
 ```azurecli
 az keyvault key create --vault-name "Contoso-Vault2" -n ExampleKey --protection software

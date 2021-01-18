@@ -3,18 +3,18 @@ title: Azure Cost Management 데이터 이해
 description: 이 문서는 Azure Cost Management에 포함된 데이터와 이 데이터의 처리, 수집, 표시 및 마감 빈도를 파악하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 97ae2ba26818bbc306da71af814d9b4f95858b6a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6096c259ec1870a711a515bf02d5d00b4f75345
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032578"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964153"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -114,11 +114,11 @@ Azure Cost Management는 개별 서비스에서 제출한 각 사용량 레코�
 - 일부 배포된 리소스는 태그를 지원하지 않거나 사용량 데이터에 태그를 포함하지 않을 수 있습니다.
 - 태그를 적용하는 동안에는 사용량 데이터에만 리소스 태그가 포함됩니다. 태그는 기록 데이터에 적용되지 않습니다.
 - 리소스 태그는 데이터를 새로 고친 후 Cost Management에서만 사용할 수 있습니다.
-- 리소스 태그는 리소스가 활성/실행 중이고 사용량 레코드를 생성하는 경우(예제: VM이 할당 취소되지 않은 경우)에만 Cost Management에서 사용할 수 있습니다.
+- 리소스 태그는 리소스가 활성/실행 중이고 사용량 레코드를 생성하는 경우에만 Cost Management에서 사용할 수 있습니다. 예를 들어 VM이 할당 취소되는 경우입니다.
 - 태그를 관리하려면 각 리소스에 대한 기여자 액세스 권한이 필요합니다.
 - 태그 정책을 관리하려면 소유자 또는 정책 기여자에게 관리 그룹, 구독 또는 리소스 그룹에 대한 액세스 권한이 있어야 합니다.
     
-Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 고려하세요.
+Cost Management에 특정 태그가 표시되지 않는 경우 다음 질문을 고려하세요.
 
 - 태그가 리소스에 직접 적용되었습니까?
 - 태그가 24시간 전에 적용되었습니까?
@@ -141,7 +141,6 @@ Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 
 - Azure Policy를 사용하여 리소스 그룹 태그를 개별 리소스로 복사하고 태그 지정 전략을 적용합니다.
 - 태그 API를 Query 또는 UsageDetails와 함께 사용하여 현재 태그를 기준으로 모든 비용을 가져옵니다.
 
-
 ## <a name="cost-and-usage-data-updates-and-retention"></a>비용, 사용량 데이터 업데이트 및 보존
 
 비용 및 사용량 데이터는 일반적으로 Azure Portal의 비용 관리 + 청구와 지원 API에서 8-24시간 내에 사용할 수 있습니다. 비용을 검토할 때 다음 사항에 유의하세요.
@@ -151,21 +150,22 @@ Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 
 - 현재 청구 기간의 예상 요금은 사용량이 증가함에 따라 변경될 수 있습니다.
 - 각 업데이트는 누적되며, 이전 업데이트의 모든 라인 항목 및 정보를 포함합니다.
 - Azure는 청구 기간이 종료된 후 최대 72시간(3일) 이내에 현재 청구 기간을 ‘마감’합니다.
+- 개설 월(청구되지 않은) 기간 동안 비용 관리 데이터는 추정치만 간주되어야 합니다. 경우에 따라 사용량이 실제로 발생한 후 시스템에 도달하는 데 비용이 발생할 수 있습니다.
 
 다음 예제에서는 청구 기간이 종료되는 방식을 보여줍니다.
 
 * EA(기업계약) 구독 - 청구 월이 3월 31일에 종료되는 경우 예상 요금이 최대 72시간 후에 업데이트됩니다. 이 예제에서는 4월 4일 자정(UTC)까지입니다.
 * 종량제 구독 - 청구 월이 5월 15일에 종료되는 경우 예상 요금이 최대 72시간 후에 업데이트될 수 있습니다. 이 예제에서는 5월 19일 자정(UTC)까지입니다.
 
-Cost Management + 청구에서 비용 및 사용량 데이터를 사용할 수 있게 되면 최소 7년 동안 보존됩니다.
+Cost Management + Billing에서 비용 및 사용량 데이터를 사용할 수 있게 되면 최소 7년 동안 보존됩니다.
 
 ### <a name="rerated-data"></a>데이터 재평가
 
-Cost Management API, Power BI 또는 Azure Portal을 사용하여 데이터를 검색하든 상관없이, 청구서가 마감되기 전에는 현재 청구 기간의 요금이 재평가되고 그에 따라 변경될 수 있습니다.
+Cost Management API, Power BI 또는 Azure Portal을 사용하여 데이터를 검색하든 상관없이, 청구서가 마감될 때까지 현재 청구 기간의 요금이 재평가되고 그에 따라 변경될 수 있습니다.
 
 ## <a name="cost-rounding"></a>비용 반올림
 
-Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 반환하는 비용은 반올림되지 않습니다. 다음은 그 예입니다.
+Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 반환하는 비용은 반올림되지 않습니다. 예를 들면 다음과 같습니다.
 
 - Azure Portal의 비용 분석 - 요금은 표준 반올림 규칙을 사용하여 반올림됩니다. 즉 0.5보다 큰 값은 반올림되고, 그렇지 않으면 비용이 반올림됩니다. 값이 표시되는 경우에만 반올림이 수행됩니다. 데이터 처리 및 집계 중에는 반올림이 수행되지 않습니다. 예를 들어 비용 분석에서 집계하는 비용은 다음과 같습니다.
   -    요금 1: $0.004
@@ -184,6 +184,6 @@ Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 �
 - MSDN(MS-AZR-0062P)
 - Visual Studio(MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 - Cost Management에 대한 첫 번째 빠른 시작을 아직 완료하지 않은 경우 [비용 분석 시작](./quick-acm-cost-analysis.md)을 참조하세요.

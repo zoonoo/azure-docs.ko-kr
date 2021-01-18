@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: dd989d5925da864728e944e84962086c0cfb08ea
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 12841c747116cc9e14f348dfcf81acaa5da5e8c9
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462321"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165368"
 ---
 # <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지에 쿼리 결과 저장
 
@@ -74,6 +74,9 @@ FROM
 
 ```
 
+> [!NOTE]
+> 이 스크립트를 수정하고 대상 위치를 변경하여 다시 실행해야 합니다. 이미 일부 데이터가 있는 위치에는 외부 테이블을 만들 수 없습니다.
+
 ## <a name="use-the-external-table"></a>외부 테이블 사용
 
 CETAS를 통해 생성된 외부 테이블을 일반 외부 테이블처럼 사용할 수 있습니다.
@@ -93,6 +96,14 @@ WHERE
 ORDER BY
     [population] DESC;
 ```
+
+## <a name="remarks"></a>설명
+
+결과를 저장한 후에는 외부 테이블의 데이터를 수정할 수 없습니다. CETAS는 이전 실행에서 만든 기본 데이터를 덮어쓰지 않으므로 이 스크립트를 반복할 수 없습니다. 시나리오에서 이러한 항목 중 일부가 필요한 경우 다음 피드백 항목에 투표하거나 Azure 피드백 사이트에서 새 항목을 제안하세요.
+- [외부 테이블에 새 데이터 삽입 사용](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/32981347-polybase-allow-insert-new-data-to-existing-exteran)
+- [외부 테이블에서 데이터 삭제 사용](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/15158034-polybase-delete-from-external-tables)
+- [CETAS에서 파티션 지정](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/19520860-polybase-partitioned-by-functionality-when-creati)
+- [파일 크기 및 개수 지정](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/42263617-cetas-specify-number-of-parquet-files-file-size)
 
 ## <a name="next-steps"></a>다음 단계
 

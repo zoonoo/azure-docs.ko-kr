@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9609c382161514611ddc41af040e8fb438431fdf
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844185"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556004"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>SSIS integration runtime에서 패키지 실행 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "94844185"
 
 Azure Data Factory 포털을 사용 하 여 SSIS 패키지 실행 작업의 출력을 확인 합니다. 출력에는 실행 결과, 오류 메시지 및 작업 ID가 포함 됩니다. 자세한 내용은 [파이프라인 모니터링](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline)을 참조 하세요.
 
-SSIS 카탈로그 (SSISDB)를 사용 하 여 실행에 대 한 세부 정보 로그를 확인 합니다. 자세한 내용은 [실행 중인 패키지 및 기타 작업 모니터링](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017)을 참조 하세요.
+SSIS 카탈로그 (SSISDB)를 사용 하 여 실행에 대 한 세부 정보 로그를 확인 합니다. 자세한 내용은 [실행 중인 패키지 및 기타 작업 모니터링](/sql/integration-services/performance/monitor-running-packages-and-other-operations)을 참조 하세요.
 
 ## <a name="common-errors-causes-and-solutions"></a>일반적인 오류, 원인 및 해결 방법
 
@@ -91,7 +91,7 @@ SSIS 카탈로그 (SSISDB)를 사용 하 여 실행에 대 한 세부 정보 로
 이 오류는 패키지 실행이 SSIS 통합 런타임의 로컬 디스크에서 파일을 찾을 수 없을 때 발생 합니다. 다음과 같이 작업해 보세요.
 * SSIS 통합 런타임에 실행 되는 패키지의 절대 경로를 사용 하지 마세요. 현재 실행 작업 디렉터리 (.) 또는 임시 폴더 (% TEMP%)를 사용 합니다. 대신.
 * SSIS 통합 런타임 노드에 일부 파일을 유지 해야 하는 경우 [설치 사용자 지정](how-to-configure-azure-ssis-ir-custom-setup.md)에 설명 된 대로 파일을 준비 합니다. 작업 디렉터리의 모든 파일은 실행이 완료 된 후 정리 됩니다.
-* SSIS integration runtime 노드에 파일을 저장 하는 대신 Azure Files를 사용 합니다. 자세한 내용은 [Azure 파일 공유 사용](/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares)을 참조 하세요.
+* SSIS integration runtime 노드에 파일을 저장 하는 대신 Azure Files를 사용 합니다. 자세한 내용은 [Azure 파일 공유 사용](/sql/integration-services/lift-shift/ssis-azure-files-file-shares#use-azure-file-shares)을 참조 하세요.
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>오류 메시지: "' SSISDB ' 데이터베이스가 크기 할당량에 도달 했습니다."
 
@@ -154,7 +154,7 @@ Self-Hosted integration runtime이 올바르게 설치 되지 않았거나 업�
 
 * 잠재적인 원인 & 권장 조치:
   * "구성 요소에서 연결 관리자를 사용 하 여 연결 관리자의 연결 관리자 사용을 지원 하지 않습니다." 라는 경고 메시지가 나타나면 "ConnectByProxy"를 아직 지원 하지 않는 구성 요소에서 연결 관리자를 사용 하는 것을 의미 합니다. 지원 되는 구성 요소는 [ADF의 Azure-SSIS IR에 대 한 프록시로 Self-Hosted IR 구성](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy) 에서 찾을 수 있습니다.
-  * 실행 로그는 [SSMS 보고서](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) 또는 SSIS 패키지 실행 작업에서 지정한 로그 폴더에서 찾을 수 있습니다.
+  * 실행 로그는 [SSMS 보고서](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) 또는 SSIS 패키지 실행 작업에서 지정한 로그 폴더에서 찾을 수 있습니다.
   * vNet은 다른 방법으로 온-프레미스 데이터에 액세스 하는 데도 사용할 수 있습니다. 자세한 내용은 [AZURE SSIS integration runtime을 가상 네트워크에 가입](join-azure-ssis-integration-runtime-virtual-network.md) 에서 찾을 수 있습니다.
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>오류 메시지: "준비 작업 상태: 실패 준비 작업 오류: ErrorCode: 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {"OperationErrorMessages": "SSIS Executor 종료 코드:-1. \ n", "LogLocation": "... \\ SSISTelemetry \\ executionlog \\ ... "," effectiveIntegrationRuntime ":" ... "," executionlog ": ...," durationInQueue ": {" integrationRuntimeQueue ": ...}}"
