@@ -234,7 +234,7 @@
         - name: 디스크 스토리지 예약
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md
         - name: 가상 머신 및 디스크 성능
-          href: disk-performance-linux.md
+          href: ../disks-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 고성능을 위한 디자인
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 디스크 버스팅
@@ -906,10 +906,8 @@
           href: snapshot-copy-managed-disk.md
         - name: 디스크 스토리지 예약
           href: ../disks-reserved-capacity.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: 증분 스냅샷 만들기 - CLI
-          href: disks-incremental-snapshots.md
-        - name: 증분 스냅샷 만들기 - 포털
-          href: disks-incremental-snapshots-portal.md
+        - name: 증분 스냅샷 만들기
+          href: ../disks-incremental-snapshots.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 관리되지 않는 디스크 백업
           href: incremental-snapshots.md
         - name: 암호화
@@ -943,7 +941,7 @@
             - name: 울트라 디스크 사용
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: 디스크 벤치마크
-              href: disks-benchmarks.md
+              href: ../disks-benchmarks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 연결되지 않은 디스크 찾기 - CLI
           href: find-unattached-disks.md
         - name: 연결되지 않은 디스크 찾기 - 포털

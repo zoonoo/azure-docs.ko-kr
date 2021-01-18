@@ -255,7 +255,7 @@
           items:
             - name: 개요
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 최선의 구현 방법
+            - name: 모범 사례
               href: sql/data-loading-best-practices.md
             - name: Columnstore 압축
               href: sql/data-load-columnstore-compression.md
@@ -1094,25 +1094,26 @@
     - name: 자습서
       items:
         - name: Apache Spark를 사용하여 데이터 시각화
+          displayname: machine learning
           href: ./spark/apache-spark-data-visualization-tutorial.md
-          displayname: machine learning
         - name: 전용 SQL 풀에 채점 마법사 사용
-          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
+          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
         - name: 자동화된 ML을 사용하여 코드 없이 모델 학습
+          displayname: machine learning
           href: ./machine-learning/tutorial-automl.md
         - name: 자동화된 ML을 사용하여 Python에서 모델 학습
+          displayname: machine learning
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-          displayname: machine learning
         - name: Apache Spark MLlib를 사용하여 모델 만들기
-          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
           displayname: machine learning
+          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+        - name: Azure Synapse에 맞게 Cognitive Services 구성
+          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
         - name: Cognitive Services를 사용하여 감정 분석
           href: ./machine-learning/tutorial-cognitive-services-sentiment.md
         - name: Cognitive Services를 사용하여 변칙 검색
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-        - name: Azure Synapse에 맞게 Cognitive Services 구성
-          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
 - name: Data Catalog 및 거버넌스
   items:
     - name: 빠른 시작
