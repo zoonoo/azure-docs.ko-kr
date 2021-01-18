@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
-ms.openlocfilehash: 599ad76f38833e06cc458fd0687921e6975e190b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426370"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541193"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>대상 Azure VM의 네트워킹 구성 사용자 지정
 
@@ -31,25 +31,25 @@ Azure Vm을 복제 하는 동안 장애 조치 VM에 대해 다음과 같은 주
 - [공용 IP](../virtual-network/public-ip-addresses.md)
 - 서브넷 및 NIC 모두에 대 한 [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 복구 쪽 구성을 미리 계획 해야 합니다.
 - 네트워킹 리소스를 미리 만듭니다. Azure Site Recovery 서비스에서 이러한 설정을 적용 하 고 장애 조치 (failover) VM이 이러한 설정을 준수 하는지 확인할 수 있도록 입력으로 제공 합니다.
 
 ## <a name="customize-failover-and-test-failover-networking-configurations"></a>장애 조치 (failover) 및 테스트 장애 조치 네트워킹 구성 사용자 지정
 
-1. 복제 된 **항목**으로 이동 합니다. 
+1. 복제 된 **항목** 으로 이동 합니다. 
 2. 원하는 Azure VM을 선택 합니다.
-3. **Compute 및 네트워크** 를 선택 하 고 **편집**을 선택 합니다. NIC 구성 설정에는 원본에 해당 하는 리소스가 포함 되어 있습니다. 
+3. **Compute 및 네트워크** 를 선택 하 고 **편집** 을 선택 합니다. NIC 구성 설정에는 원본에 해당 하는 리소스가 포함 되어 있습니다. 
 
      ![장애 조치 (failover) 네트워킹 구성 사용자 지정](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. 테스트 장애 조치 (failover) 가상 네트워크를 선택 합니다. 비워 두고 테스트 장애 조치 (failover) 시에 하나를 선택 하도록 선택할 수 있습니다.
+4. 테스트 장애 조치 (failover) 가상 네트워크를 선택 합니다.
 5. 장애 조치 (Failover) 네트워크는 구성 하려는 NIC 근처에서 **편집** 을 선택 합니다. 열리는 다음 블레이드에서 테스트 장애 조치 (failover) 및 장애 조치 (failover) 위치에서 미리 생성 된 해당 리소스를 선택 합니다.
 
     ![NIC 구성 편집](media/azure-to-azure-customize-networking/nic-drilldown.png) 
 
-6. **확인**을 선택합니다.
+6. **확인** 을 선택합니다.
 
 Site Recovery는 이제 이러한 설정을 적용 하 고 장애 조치 (failover) 시 VM이 해당 NIC를 통해 선택한 리소스에 연결 되도록 합니다.
 
