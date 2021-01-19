@@ -3,12 +3,12 @@ title: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에
 description: 이 자습서에서는 Azure Live Video Analytics on IoT Edge를 사용하여 클라우드에 지속적으로 비디오를 녹화하고, Azure Media Services를 사용하여 비디오에서 원하는 부분을 스트리밍하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: c38ab1f32d1ef4e54cd8568ff17d325fabdefc31
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8fa2b65416499e58235fa312ffdcd2d71c3cfb39
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498373"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060149"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에서 재생
 
@@ -51,6 +51,9 @@ ms.locfileid: "96498373"
 * Azure Media Services 계정
 * [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge.md)이 설치된 Azure의 Linux VM
 
+> [!TIP]
+> 만든 Azure 리소스와 관련된 문제가 발생하는 경우 **[문제 해결 가이드](troubleshoot-how-to.md#common-error-resolutions)** 를 참조하여 일반적으로 발생하는 문제를 해결하세요.
+
 ## <a name="concepts"></a>개념
 
 [미디어 그래프 개념](media-graph-concept.md) 문서에 설명된 대로, 미디어 그래프를 통해
@@ -64,7 +67,9 @@ ms.locfileid: "96498373"
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="미디어 그래프":::
 
-이 자습서에서는 [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)를 사용하여 빌드된 에지 모듈을 하나 사용하여 RTSP 카메라를 시뮬레이션합니다. 미디어 그래프 내에서 [RTSP 원본](media-graph-concept.md#rtsp-source) 노드를 사용하여 라이브 피드를 가져온 다음, 해당 비디오를 자산에 기록할 [자산 싱크 노드](media-graph-concept.md#asset-sink)로 보냅니다.
+이 자습서에서는 [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)를 사용하여 빌드된 에지 모듈을 하나 사용하여 RTSP 카메라를 시뮬레이션합니다. 미디어 그래프 내에서 [RTSP 원본](media-graph-concept.md#rtsp-source) 노드를 사용하여 라이브 피드를 가져온 다음, 해당 비디오를 자산에 기록할 [자산 싱크 노드](media-graph-concept.md#asset-sink)로 보냅니다. 이 자습서에서 사용되는 비디오는 [고속도로 교차로 샘플 비디오](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv)입니다.
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 
@@ -169,14 +174,14 @@ Live Video Analytics on IoT Edge 모듈을 사용하여 라이브 비디오 스�
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="자세한 정보 메시지 표시":::
-1. <!--In Visual Studio Code, go-->src/cloud-to-device-console-app/operations.json으로 이동합니다.
+1. src/cloud-to-device-console-app/operations.json으로 이동합니다.
 1. **GraphTopologySet** 노드 아래에서 다음을 편집합니다.
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
 1. 그런 다음, **GraphInstanceSet** 및 **GraphTopologyDelete** 노드에서 **topologyName** 값이 이전 그래프 토폴로지의 **name** 속성 값과 일치하는지 확인합니다.
 
     `"topologyName" : "CVRToAMSAsset"`  
-1. 브라우저에서 [토폴로지](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json)를 열고 assetNamePattern을 확인합니다. 자산에 고유한 이름을 지정하기 위해 operations.json 파일에서 그래프 인스턴스 이름을 (기본값 "Sample-Graph-1"에서 다른 값으로) 변경해야 할 수도 있습니다.
+1. 브라우저에서 [토폴로지](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/2.0/topology.json)를 열고 assetNamePattern을 확인합니다. 자산에 고유한 이름을 지정하기 위해 operations.json 파일에서 그래프 인스턴스 이름을 (기본값 "Sample-Graph-1"에서 다른 값으로) 변경해야 할 수도 있습니다.
 
     `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
 1. F5 키를 선택하여 디버깅 세션을 시작합니다. **터미널** 창에 일부 메시지가 출력됩니다.
@@ -187,7 +192,7 @@ Live Video Analytics on IoT Edge 모듈을 사용하여 라이브 비디오 스�
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -204,7 +209,7 @@ Live Video Analytics on IoT Edge 모듈을 사용하여 라이브 비디오 스�
      
      ```
      {
-       "@apiVersion": "1.0",
+       "@apiVersion": "2.0",
        "name": "Sample-Graph-1",
        "properties": {
          "topologyName": "CVRToAMSAsset",
@@ -277,7 +282,7 @@ Live Video Analytics on IoT Edge 모듈을 사용하여 라이브 비디오 스�
 
 ### <a name="recordingstarted-event"></a>RecordingStarted 이벤트
 
-자산 싱크 노드는 비디오 녹화가 시작되면 Microsoft.Media.Graph.Operational.RecordingStarted 유형의 이벤트를 내보냅니다.
+자산 싱크 노드는 비디오 녹화가 시작되면 **Microsoft.Media.Graph.Operational.RecordingStarted** 유형의 이 이벤트를 내보냅니다.
 
 ```
 [IoTHubMonitor] [9:42:38 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -302,7 +307,7 @@ body 섹션에는 출력 위치에 대한 정보가 포함됩니다. 이 경우 
 
 ### <a name="recordingavailable-event"></a>RecordingAvailable 이벤트
 
-이름에서 알 수 있듯이, 녹화가 시작되면 RecordingStarted 이벤트가 전송되지만, 비디오 데이터는 아직 자산에 업로드되지 않았을 수 있습니다. 자산 싱크 노드는 자산에 비디오 데이터를 업로드한 후 Microsoft.Media.Graph.Operational.RecordingAvailable 유형의 이벤트를 내보냅니다.
+이름에서 알 수 있듯이, 녹화가 시작되면 RecordingStarted 이벤트가 전송되지만, 비디오 데이터는 아직 자산에 업로드되지 않았을 수 있습니다. 자산 싱크 노드는 자산에 비디오 데이터를 업로드한 후 **Microsoft.Media.Graph.Operational.RecordingAvailable** 유형의 이 이벤트를 내보냅니다.
 
 ```
 [IoTHubMonitor] [[9:43:38 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -329,7 +334,7 @@ body 섹션에는 출력 위치에 대한 정보가 포함됩니다. 이 경우 
 
 ### <a name="recordingstopped-event"></a>RecordingStopped 이벤트
 
-Graph 인스턴스를 비활성화하면 자산 싱크 노드는 자산에 비디오를 녹화하는 것을 중지합니다. 그리고 Microsoft.Media.Graph.Operational.RecordingStopped 형식의 이벤트를 내보냅니다.
+Graph 인스턴스를 비활성화하면 자산 싱크 노드는 자산에 비디오를 녹화하는 것을 중지합니다. 그리고 **Microsoft.Media.Graph.Operational.RecordingStopped** 형식의 이 이벤트를 내보냅니다.
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [lva-sample-device/lvaEdge]:

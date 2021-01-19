@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 43a483f49a9e9004a4f487e82195198f2600a919
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96570963"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071156"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>자습서: "Hello world!" Python 스크립트 실행(2/4부)
 
@@ -36,9 +36,6 @@ ms.locfileid: "96570963"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 아직 Azure Machine Learning 작업 영역이 없는 경우 [1부](tutorial-1st-experiment-sdk-setup-local.md)의 완료
-- Python 언어 및 기계 학습 워크플로에 대한 입문 지식
-- Visual Studio Code, Jupyter 및 PyCharm과 같은 로컬 개발 환경
-- Python(버전 3.5 ~ 3.7)
 
 ## <a name="create-and-run-a-python-script-locally"></a>Python 스크립트 만들기 및 로컬로 실행
 
@@ -64,7 +61,7 @@ tutorial
 
 ### <a name="test-your-script-locally"></a><a name="test"></a>로컬로 스크립트 테스트
 
-즐겨 사용하는 IDE 또는 터미널을 사용하여 코드를 로컬로 실행할 수 있습니다. 코드를 로컬로 실행하면 코드의 대화형 디버깅을 활용할 수 있습니다.
+즐겨 사용하는 IDE 또는 터미널을 사용하여 코드를 로컬로 실행할 수 있습니다. 코드를 로컬로 실행하면 코드의 대화형 디버깅을 활용할 수 있습니다.  활성화된 *tutorial1* conda 환경이 있는 창에서 Python 파일을 실행합니다.
 
 ```bash
 cd <path/to/tutorial>
@@ -93,8 +90,6 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
-
-
 
 ### <a name="understand-the-code"></a>코드 이해
 
@@ -148,13 +143,6 @@ print(aml_url)
 
 제어 스크립트를 실행합니다. 그러면 [설정 자습서](tutorial-1st-experiment-sdk-setup-local.md)에서 만든 컴퓨팅 클러스터에서 `hello.py`가 실행됩니다.
 
-첫 번째 실행은 완료하는 데 5~10분 정도 걸립니다. 다음과 같은 경우에 발생합니다.
-
-* Docker 이미지가 클라우드에 빌드됩니다.
-* 컴퓨팅 클러스터의 크기가 0에서 1 노드로 조정됩니다.
-* Docker 이미지가 컴퓨팅에 다운로드됩니다. 
-
-Docker 이미지가 컴퓨팅에 캐시되기 때문에 후속 실행이 훨씬 더 빠릅니다(~15초). 첫 번째 실행이 완료된 후 아래 코드를 다시 제출하여 테스트할 수 있습니다.
 
 ```bash
 python 03-run-hello.py
@@ -168,9 +156,17 @@ python 03-run-hello.py
 
 ## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>스튜디오를 사용하여 클라우드에서 코드 모니터링
 
-출력에는 다음과 같은 스튜디오에 대한 링크(`https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`)가 포함됩니다.
+스크립트의 출력에는 다음과 같은 스튜디오에 대한 링크(`https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`)가 포함됩니다.
 
-링크를 따르고 **출력 + 로그** 탭으로 이동합니다. 여기서 다음과 같은 `70_driver_log.txt` 파일을 볼 수 있습니다.
+링크를 따릅니다.  처음에는 **준비 중** 상태가 표시됩니다.  첫 번째 실행은 완료하는 데 5~10분 정도 걸립니다. 다음과 같은 경우에 발생합니다.
+
+* Docker 이미지가 클라우드에 빌드됩니다.
+* 컴퓨팅 클러스터의 크기가 0에서 1 노드로 조정됩니다.
+* Docker 이미지가 컴퓨팅에 다운로드됩니다. 
+
+후속 실행은 Docker 이미지가 컴퓨팅에 캐시되므로 훨씬 더 빠릅니다(~15초). 첫 번째 실행이 완료된 후 아래 코드를 다시 전송하여 테스트할 수 있습니다.
+
+작업이 완료되면 **출력 + 로그** 탭으로 이동합니다. 여기서 다음과 같은 `70_driver_log.txt` 파일을 볼 수 있습니다.
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

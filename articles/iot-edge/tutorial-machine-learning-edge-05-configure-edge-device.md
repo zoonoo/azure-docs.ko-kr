@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 74d77d8c81455116cec861bf6704c6cb96526561
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932356"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121093"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
@@ -81,7 +81,7 @@ ms.locfileid: "96932356"
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Azure Key Vault에 인증서 업로드
 
-인증서를 안전하게 저장하고 여러 디바이스에서 액세스할 수 있도록 Azure Key Vault에 인증서를 업로드하겠습니다. 위의 목록에서 볼 수 있듯이, 두 가지 형식의 인증서 파일이 있습니다. 하나는 PFX이고 다른 하나는 PEM입니다. PFX는 Key Vault에 업로드할 Key Vault 인증서로 처리하겠습니다. PEM 파일은 일반 텍스트이며 Key Vault 비밀로 처리하겠습니다. [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks)를 실행하여 만든 Azure Machine Learning 작업 영역과 연결된 Key Vault를 사용할 것입니다.
+인증서를 안전하게 저장하고 여러 디바이스에서 액세스할 수 있도록 Azure Key Vault에 인증서를 업로드하겠습니다. 위의 목록에서 볼 수 있듯이, 두 가지 형식의 인증서 파일이 있습니다. 하나는 PFX이고 다른 하나는 PEM입니다. PFX는 Key Vault에 업로드할 Key Vault 인증서로 처리하겠습니다. PEM 파일은 일반 텍스트이며 Key Vault 비밀로 처리하겠습니다. [Jupyter Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks)를 실행하여 만든 Azure Machine Learning 작업 영역과 연결된 Key Vault를 사용할 것입니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure Machine Learning 작업 영역으로 이동합니다.
 

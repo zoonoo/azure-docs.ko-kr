@@ -1,35 +1,35 @@
 ---
 title: Azure Key Vault와 Kubernetes 통합
 description: 이 자습서에서는 비밀 저장소 CSI(컨테이너 스토리지 인터페이스) 드라이버를 통해 비밀을 Kubernetes Pod에 탑재하여 Azure 키 자격 증명 모음에서 해당 비밀에 액세스하고 검색합니다.
-author: ShaneBala-keyvault
-ms.author: sudbalas
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 2645842130b83fe7b4cfb33b9389b19a1306506d
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: f0699ed065da4c63bc88945d75a866abcfbb9053
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756027"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121365"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
 > [!IMPORTANT]
-> CSI 드라이버는 Azure 기술 지원에서 지원되지 않는 오픈 소스 프로젝트입니다. 페이지 하단의 github 링크에서 CSI 드라이버 Key Vault 통합과 관련된 모든 피드백과 문제를 보고하세요. 이 도구는 사용자가 클러스터에 직접 설치하고 커뮤니티에서 피드백을 수집할 수 있도록 제공됩니다.
+> CSI 드라이버는 Azure 기술 지원에서 지원되지 않는 오픈 소스 프로젝트입니다. [여기](https://github.com/Azure/secrets-store-csi-driver-provider-azure/issues)의 github 링크에서 CSI 드라이버 Key Vault 통합과 관련된 모든 피드백과 문제를 보고하세요. 이 도구는 사용자가 클러스터에 직접 설치하고 커뮤니티에서 피드백을 수집할 수 있도록 제공됩니다.
+
 
 이 자습서에서는 비밀 저장소 CSI(컨테이너 스토리지 인터페이스) 드라이버를 통해 비밀을 Kubernetes Pod에 탑재하여 Azure 키 자격 증명 모음에서 해당 비밀에 액세스하고 검색합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 서비스 주체 만들기 또는 관리 ID 사용
+> * 관리 ID를 사용합니다.
 > * Azure CLI를 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 > * Helm 및 비밀 저장소 CSI 드라이버 설치
 > * Azure 키 자격 증명 모음 만들기 및 비밀 설정
 > * 사용자 고유의 SecretProviderClass 개체 만들기
-> * 서비스 주체 할당 또는 관리 ID 사용
 > * 키 자격 증명 모음에서 탑재된 비밀을 사용하여 Pod 배포
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -38,22 +38,7 @@ ms.locfileid: "97756027"
 
 * 이 자습서를 시작하기 전에 [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)를 설치해야 합니다.
 
-## <a name="create-a-service-principal-or-use-managed-identities"></a>서비스 주체 만들기 또는 관리 ID 사용
-
-관리 ID를 사용하려면 다음 섹션으로 이동합니다.
-
-Azure 키 자격 증명 모음에서 액세스할 수 있는 리소스를 제어하는 서비스 주체를 만듭니다. 이 서비스 주체의 액세스는 서비스 주체에게 할당된 역할로 제한됩니다. 이 기능을 사용하면 서비스 주체가 비밀을 관리하는 방법을 제어할 수 있습니다. 다음 예제에서는 서비스 주체의 이름이 *contosoServicePrincipal* 입니다.
-
-```azurecli
-az ad sp create-for-rbac --name contosoServicePrincipal --skip-assignment
-```
-이 작업을 수행하면 일련의 키/값 쌍이 반환됩니다.
-
-![contosoServicePrincipal에 대한 appId 및 password를 보여 주는 스크린샷](../media/kubernetes-key-vault-1.png)
-
-나중에 사용할 수 있도록 **appId** 및 **password** 자격 증명을 복사합니다.
-
-## <a name="flow-for-using-managed-identity"></a>관리 ID 사용 흐름
+## <a name="use-managed-identities"></a>관리 ID 사용
 
 이 다이어그램은 관리 ID에 대한 AKS–Key Vault 통합 흐름을 보여줍니다.
 
@@ -66,7 +51,7 @@ Azure Cloud Shell은 사용할 필요가 없습니다. Azure CLI가 설치된 �
 [Azure CLI를 사용하여 Azure Kubernetes Service 클러스터 배포](../../aks/kubernetes-walkthrough.md)의 "리소스 그룹 만들기", "AKS 클러스터 만들기" 및 "클러스터에 연결" 섹션을 완료합니다. 
 
 > [!NOTE] 
-> 서비스 주체 대신 Pod ID를 사용하려면 다음 명령과 같이 Kubernetes 클러스터를 만들 때 이 ID를 사용하도록 설정해야 합니다.
+> Pod ID를 사용하려는 경우 다음 명령과 같이 Kubernetes 클러스터를 만들 때 이 ID를 사용하도록 설정해야 합니다.
 >
 > ```azurecli
 > az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
@@ -121,7 +106,7 @@ Azure Cloud Shell은 사용할 필요가 없습니다. Azure CLI가 설치된 �
 
 SecretProviderClass YAML 파일 샘플에서 누락된 매개 변수를 입력합니다. 필수 매개 변수는 다음과 같습니다.
 
-* **userAssignedIdentityID**: # [필수] 서비스 주체를 사용하는 경우 클라이언트 ID를 사용하여 사용할 사용자가 할당한 관리 ID를 지정합니다. 사용자가 할당한 ID를 VM의 관리 ID로 사용하는 경우 ID의 클라이언트 ID를 지정합니다. 값이 비어 있는 경우 기본적으로 VM에서 시스템 할당 ID를 사용합니다. 
+* **userAssignedIdentityID**: # [REQUIRED] 값이 비어 있는 경우 기본적으로 VM에서 시스템 할당 ID를 사용합니다. 
 * **keyvaultName**: 키 자격 증명 모음의 이름
 * **objects**: 탑재하려는 모든 비밀 콘텐츠에 대한 컨테이너
     * **objectName**: 비밀 콘텐츠의 이름
@@ -147,9 +132,8 @@ spec:
   parameters:
     usePodIdentity: "false"                   # [REQUIRED] Set to "true" if using managed identities
     useVMManagedIdentity: "false"             # [OPTIONAL] if not provided, will default to "false"
-    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED] If you're using a service principal, use the client id to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
-                                                             #     az ad sp show --id http://contosoServicePrincipal --query appId -o tsv
-                                                             #     the preceding command will return the client ID of your service principal
+    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED]  If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
+                                                         
     keyvaultName: "contosoKeyVault5"          # [REQUIRED] the name of the key vault
                                               #     az keyvault show --name contosoKeyVault5
                                               #     the preceding command will display the key vault metadata, which includes the subscription ID, resource group name, key vault 
@@ -174,58 +158,18 @@ spec:
 
 !["az keyvault show --name contosoKeyVault5"에 대한 콘솔 출력을 보여 주는 스크린샷](../media/kubernetes-key-vault-4.png)
 
-## <a name="assign-your-service-principal-or-use-managed-identities"></a>서비스 주체 할당 또는 관리 ID 사용
+## <a name="assign-managed-identity"></a>관리 ID 할당
 
-### <a name="assign-a-service-principal"></a>서비스 주체 할당
-
-서비스 주체를 사용하는 경우 키 자격 증명 모음에 액세스하고 비밀을 검색할 수 있는 권한을 부여합니다. *Reader* 역할을 할당하고 다음 명령을 수행하여 키 자격 증명 모음에서 비밀을 *가져올* 수 있는 서비스 주체 권한을 부여합니다.
-
-1. 서비스 주체를 기존 키 자격 증명 모음에 할당합니다. **$AZURE _CLIENT_ID** 매개 변수는 서비스 주체를 만든 후에 복사한 **appId** 입니다.
-    ```azurecli
-    az role assignment create --role Reader --assignee $AZURE_CLIENT_ID --scope /subscriptions/$SUBID/resourcegroups/$KEYVAULT_RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
-    ```
-
-    명령의 출력은 다음 이미지에 나와 있습니다. 
-
-    ![principalId 값을 보여 주는 스크린샷](../media/kubernetes-key-vault-5.png)
-
-1. 비밀을 가져올 수 있는 권한을 서비스 주체에 부여합니다.
-    ```azurecli
-    az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $AZURE_CLIENT_ID
-    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $AZURE_CLIENT_ID
-    ```
-
-1. 이제 키 자격 증명 모음에서 비밀을 읽을 수 있는 권한을 사용하여 서비스 주체를 구성했습니다. **$AZURE_CLIENT_SECRET** 은 서비스 주체의 암호입니다. 서비스 주체 자격 증명을 비밀 저장소 CSI 드라이버에서 액세스할 수 있는 Kubernetes 비밀로 추가합니다.
-    ```azurecli
-    kubectl create secret generic secrets-store-creds --from-literal clientid=$AZURE_CLIENT_ID --from-literal clientsecret=$AZURE_CLIENT_SECRET
-    ```
-
-> [!NOTE] 
-> Kubernetes Pod를 배포하고 잘못된 클라이언트 암호 ID에 대한 오류를 받는 경우 만료되었거나 다시 설정된 이전 클라이언트 암호 ID가 있을 수 있습니다. 이 문제를 해결하려면 *secrets-store-creds* 비밀을 삭제하고 현재 클라이언트 암호 ID를 사용하여 새 비밀을 만듭니다. *secrets-store-creds* 를 삭제하려면 다음 명령을 실행합니다.
->
-> ```azurecli
-> kubectl delete secrets secrets-store-creds
-> ```
-
-서비스 주체의 클라이언트 암호 ID를 잊은 경우 다음 명령을 사용하여 다시 설정할 수 있습니다.
-
-```azurecli
-az ad sp credential reset --name contosoServicePrincipal --credential-description "APClientSecret" --query password -o tsv
-```
-
-### <a name="use-managed-identities"></a>관리 ID 사용
-
-관리 ID를 사용하는 경우 특정 역할을 사용자가 만든 AKS 클러스터에 할당합니다. 
+사용자가 만든 AKS 클러스터에 특정 역할을 할당합니다. 
 
 1. 사용자가 할당한 관리 ID를 만들거나, 나열하거나 읽으려면 [관리 ID 운영자](../../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할을 AKS 클러스터에 할당해야 합니다. **$clientId** 가 Kubernetes 클러스터의 clientId인지 확인합니다. 범위의 경우 Azure 구독 서비스, 특히 AKS 클러스터를 만들 때 생성한 노드 리소스 그룹 아래에 있게 됩니다. 이 범위는 해당 그룹 내의 리소스만 아래에 할당된 역할의 영향을 받을 수 있도록 합니다. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
     
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     ```
 
 1. Azure AD(Azure Active Directory) ID를 AKS에 설치합니다.
@@ -242,7 +186,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 1. *읽기 권한자* 역할을 이전 단계에서 만든 키 자격 증명 모음의 Azure AD ID에 할당한 다음, 키 자격 증명 모음에서 비밀을 가져올 수 있는 ID 권한을 부여합니다. Azure AD ID에서 **clientId** 및 **principalId** 를 사용합니다.
     ```azurecli
-    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
+    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/<SUBID>/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
     az keyvault set-policy -n contosoKeyVault5 --secret-permissions get --spn $clientId
     az keyvault set-policy -n contosoKeyVault5 --key-permissions get --spn $clientId
@@ -253,16 +197,6 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 SecretProviderClass 개체를 구성하려면 다음 명령을 실행합니다.
 ```azurecli
 kubectl apply -f secretProviderClass.yaml
-```
-
-### <a name="use-a-service-principal"></a>서비스 주체 사용
-
-서비스 주체를 사용하는 경우 다음 명령을 사용하여 이전에 구성한 SecretProviderClass 및 secrets-store-creds를 사용하여 Kubernetes Pod를 배포합니다. 배포 템플릿은 다음과 같습니다.
-* [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-inline-volume-service-principal.yaml)용
-* [Windows](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/windows-pod-secrets-store-inline-volume-secret-providerclass.yaml)용
-
-```azurecli
-kubectl apply -f updateDeployment.yaml
 ```
 
 ### <a name="use-managed-identities"></a>관리 ID 사용
@@ -318,8 +252,6 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
-        nodePublishSecretRef:           # Only required when using service principal mode
-          name: secrets-store-creds     # Only required when using service principal mode
 ```
 
 다음 명령을 실행하여 Pod를 배포합니다.

@@ -5,21 +5,18 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 456c42dc0b25e168744ce283cddbd63b877813ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ebff49db895468549a7abd420e7b74292b742eab
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747150"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108639"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>자습서 - cloud-init를 사용하여 첫 번째 부팅 시 Azure에서 Linux 가상 머신을 사용자 지정하는 방법
 
@@ -39,17 +36,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install** 은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init에서 선택한 배포판의 기본 패키지 관리 도구를 자동으로 사용합니다.
 
-당사는 파트너와 협력하여 파트너가 Azure에 제공하는 이미지에 cloud-init를 포함하고 이러한 이미지에서 cloud-init가 작동하도록 설정하고 있습니다. 다음 표에서는 Azure 플랫폼 이미지에서 현재 cloud-init 가용성을 간략하게 설명합니다.
-
-| 게시자 | 제안 | SKU | 버전 | cloud-init 준비 여부 |
-|:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |최신 |예 | 
-|Canonical |UbuntuServer |16.04-LTS |최신 |예 | 
-|Canonical |UbuntuServer |14.04.5-LTS |최신 |예 |
-|CoreOS |CoreOS |Stable |최신 |예 |
-|OpenLogic 7.6 |CentOS |7-CI |최신 |미리 보기 |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |예 |
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |미리 보기 |
+당사는 파트너와 협력하여 파트너가 Azure에 제공하는 이미지에 cloud-init를 포함하고 이러한 이미지에서 cloud-init가 작동하도록 설정하고 있습니다. 각 배포의 cloud-init 지원에 대한 자세한 내용은 [Azure의 VM에 대한 cloud-init 지원](using-cloud-init.md)을 참조하세요.
 
 
 ## <a name="create-cloud-init-config-file"></a>cloud-init 구성 파일 만들기
@@ -147,7 +134,7 @@ Azure Key Vault는 암호화 키 및 비밀(인증서 또는 암호)을 보호�
 - VM 만들기 및 인증서 삽입
 
 ### <a name="create-an-azure-key-vault"></a>Azure Key Vault 만들기
-먼저 [az keyvault create](/cli/azure/keyvault#az-keyvault-create)를 사용하여 Key Vault를 만들고 VM 배포 시에 사용할 수 있도록 설정합니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 *mykeyvault* 를 사용자 고유의 Key Vault 이름으로 바꿉니다.
+먼저 [az keyvault create](/cli/azure/keyvault#az-keyvault-create)를 사용하여 Key Vault를 만들고 VM 배포 시에 사용할 수 있도록 설정합니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 `mykeyvault`를 사용자 고유의 Key Vault 이름으로 바꿉니다.
 
 ```azurecli-interactive
 keyvault_name=mykeyvault

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/04/2020
+ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: bd62855aef59439ed476a13770f79ce6d3cf68f8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d4f8e71a0afbb1b00313d5e100ba8b3fd2b4e2ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180798"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>자습서:Azure Active Directory와 Marketo 통합
 
@@ -40,6 +40,9 @@ Marketo와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Marketo에서 **IDP** 시작 SSO를 지원합니다.
 
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
+
 ## <a name="adding-marketo-from-the-gallery"></a>갤러리에서 Marketo 추가
 
 Marketo의 Azure AD 통합을 구성하려면 갤러리의 Marketo를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -51,7 +54,7 @@ Marketo의 Azure AD 통합을 구성하려면 갤러리의 Marketo를 관리되�
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Marketo** 를 입력합니다.
 1. 결과 패널에서 **Marketo** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Azure AD SSO 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-marketo"></a>Marketo에 대한 Azure AD SSO 구성 및 테스트
 
 이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 Marketo에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Marketo의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -59,10 +62,10 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 Marketo의 관련 사용
 Marketo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD SSO를 테스트합니다.
-    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD SSO를 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD SSO를 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD SSO를 사용할 수 있도록 합니다.
 2. **[Marketo SSO 구성](#configure-marketo-sso)** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
-    * **[Marketo 테스트 사용자 만들기](#create-marketo-test-user)** - Britta Simon의 Azure AD 표현과 연결된 대응 사용자를 Marketo에 만듭니다.
+    1. **[Marketo 테스트 사용자 만들기](#create-marketo-test-user)** - Britta Simon의 Azure AD 표현과 연결된 대응 사용자를 Marketo에 만듭니다.
 3. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -71,20 +74,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Marketo** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://saml.marketo.com/sp` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://saml.marketo.com/sp` URL을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://login.marketo.com/saml/assertion/\<munchkinid\>` 패턴을 사용하여 URL을 입력합니다.
 
     다. **릴레이 상태** 텍스트 상자에서 `https://<munchkinid>.marketo.com/` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 릴레이 상태로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Marketo 클라이언트 지원 팀](https://investors.marketo.com/contactus.cfm)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 릴레이 상태로 값을 업데이트합니다. 이러한 값을 얻으려면 [Marketo 클라이언트 지원 팀](https://investors.marketo.com/contactus.cfm)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -120,7 +123,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-marketo-sso"></a>Marketo SSO 구성
 
-1. 애플리케이션의 Munchkin ID를 가져오려면 관리자 자격 증명을 사용하여 Marketo에 로그인하고 다음 작업을 수행합니다.
+1. Marketo 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Marketo 설정** 을 클릭하면 Marketo 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Marketo에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+3. Marketo를 수동으로 설정하려면 다른 웹 브라우저 창에서 관리자 권한으로 Marketo 회사 사이트에 로그인합니다.
+
+1. 애플리케이션의 Munchkin ID를 가져오려면 다음 작업을 수행합니다.
    
     a. 관리자 자격 증명을 사용하여 Marketo 앱에 로그인합니다.
    
@@ -233,13 +246,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 8. 사용자는 이메일 알림을 받으면 링크를 클릭하고 암호를 변경하여 계정을 활성화해야 합니다. 
 
-### <a name="test-sso"></a>SSO 테스트 
+### <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-1. Azure Portal에서 [이 애플리케이션 테스트]를 클릭하면 SSO를 설정한 Marketo에 자동으로 로그인됩니다.
+* Azure Portal에서 [이 애플리케이션 테스트]를 클릭하면 SSO를 설정한 Marketo에 자동으로 로그인됩니다.
 
-1. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Marketo 타일을 클릭하면 SSO를 설정한 Marketo에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Marketo 타일을 클릭하면 SSO를 설정한 Marketo에 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,12 +4,12 @@ description: Azure Custom Vision을 사용하여 장난감 트럭을 검색할 �
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 614c4e401579eda68d8030dc2d2a42b2c4736031
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401698"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060522"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>자습서: Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
 
@@ -61,8 +61,11 @@ ms.locfileid: "97401698"
 ::: zone-end
 ## <a name="review-the-sample-video"></a>샘플 비디오 검토
 
+이 자습서에서는 [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv) 파일을 사용하여 라이브 스트림을 시뮬레이션합니다. [VLC media player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 통해 비디오를 검사할 수 있습니다. **Ctrl+N** 을 선택한 다음, [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 비디오를 시청할 때 36초 마커에서 장난감 트럭이 비디오에 나타납니다. 사용자 지정 모델은 이 특정 장난감 트럭을 검색하도록 학습되었습니다. 
 
-이 자습서에서는 [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv) 파일을 사용하여 라이브 스트림을 시뮬레이션합니다. [VLC media player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 통해 비디오를 검사할 수 있습니다. **Ctrl+N** 을 선택한 다음, [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 비디오를 시청할 때 36초 마커에서 장난감 트럭이 비디오에 나타납니다. 사용자 지정 모델은 이 특정 장난감 트럭을 검색하도록 학습되었습니다. 이 자습서에서는 Live Video Analytics on IoT Edge를 사용하여 이러한 장난감 트럭을 탐지하고 IoT Edge 허브에 관련 유추 이벤트를 게시합니다.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LPwK]
+
+이 자습서에서는 Live Video Analytics on IoT Edge를 사용하여 이러한 장난감 트럭을 탐지하고 IoT Edge 허브에 관련 유추 이벤트를 게시합니다.
 
 ## <a name="overview"></a>개요
 
@@ -127,7 +130,6 @@ Custom Vision은 그 이름처럼 클라우드에서 사용자 지정 개체 탐
 
 ## <a name="examine-the-sample-files"></a>샘플 파일 검사
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/csharp/examine-sample-files.md)]
 ::: zone-end
@@ -140,7 +142,7 @@ Custom Vision은 그 이름처럼 클라우드에서 사용자 지정 개체 탐
 
 1. Visual Studio Code에서 src/cloud-to-device-console-app/operations.json으로 이동합니다.
 
-1. `GraphTopologySet`에서 다음 사항을 충족하는지 확인합니다.<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+1. `GraphTopologySet`에서 다음 사항을 충족하는지 확인합니다.<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 1. `GraphInstanceSet`에서 다음 작업을 수행합니다.
     1. `"topologyName" : "InferencingWithHttpExtension"`
     1. 매개 변수 배열의 맨 위에 `{"name": "inferencingUrl","value": "http://cv:80/image"},`를 추가합니다.
@@ -261,7 +263,7 @@ Custom Vision은 그 이름처럼 클라우드에서 사용자 지정 개체 탐
 
 ### <a name="mediasessionestablished-event"></a>MediaSessionEstablished 이벤트
 
-미디어 그래프가 인스턴스화되면 RTSP 원본 노드가 rtspsim-live555 컨테이너에서 실행되는 RTSP 서버에 연결을 시도합니다. 연결에 성공하면 다음 이벤트가 출력됩니다. 이벤트 유형은 `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`입니다.
+미디어 그래프가 인스턴스화되면 RTSP 원본 노드가 rtspsim-live555 컨테이너에서 실행되는 RTSP 서버에 연결을 시도합니다. 연결에 성공하면 다음 이벤트가 출력됩니다. 이벤트 유형은 **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished** 입니다.
 
 ```
 {

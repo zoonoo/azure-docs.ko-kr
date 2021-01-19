@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure PowerShell 스크립트 샘플을 사용�
 ms.topic: sample
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 6e3af44284acdc96f6f0197c4153c6f7538570d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73dc119e8db34aed04ce8926bfa85f557027c8e2
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069490"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967330"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>PowerShell을 사용하여 암호화된 Azure 가상 머신 백업
 
-이 스크립트는 암호화된 Azure 가상 머신에 대한 GRS(지역 중복 스토리지)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음에 기본 보호 정책이 적용됩니다. 이 정책은 가상 머신에 대한 일별 백업을 생성하고 30일 동안 각 백업을 유지합니다. 또한 스크립트는 가상 머신에 대한 초기 복구 지점을 트리거하고 해당 복구 지점을 365일 동안 유지합니다.
+이 스크립트는 암호화된 Azure 가상 머신에 대한 GRS(지역 중복 스토리지)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음에 기본 보호 정책이 적용됩니다. 이 정책은 가상 머신에 대한 일별 백업을 생성하고 365일 동안 각 백업을 유지합니다. 또한 스크립트는 가상 머신에 대한 초기 복구 지점을 트리거하고 해당 복구 지점을 30일 동안 유지합니다.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: 16b924f486215d972477e93c4e199e7076a0a531
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.date: 01/12/2021
+ms.openlocfilehash: 2fcb8f6d22e93f3a95be26b7bc61f3b5226ba090
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508886"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117132"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Azure Portal에서 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -51,20 +51,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 스토리지로 사용됩니다. 
-* **Azure SQL Database**. 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. 
-* **Azure Synapse Analytics**. 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. 
-
-### <a name="prepare-sql-database-and-azure-synapse-analytics"></a>SQL Database 및 Azure Synapse Analytics 준비 
-
-**원본 Azure SQL Database 준비**:
-
-[Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하여 Adventure Works LT 샘플 데이터를 사용하여 SQL Database에 데이터베이스를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 Azure Synapse Analytics로 복사합니다.
-
-**싱크 Azure Synapse Analytics 준비**:
-
-1. Azure Synapse Analytics 작업 영역이 없는 경우 [Azure Synapse Analytics 시작](..\synapse-analytics\get-started.md) 문서에서 만드는 단계를 참조하세요.
-
-1. Azure Synapse Analytics에서 해당 테이블 스키마를 만듭니다. Azure Data Factory를 사용하여 이후 단계에서 데이터를 마이그레이션/복사합니다.
+* **Azure SQL Database**. 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하여 Adventure Works LT 샘플 데이터를 사용하여 SQL Database에 데이터베이스를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 Azure Synapse Analytics로 복사합니다.
+* **Azure Synapse Analytics**. 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. Azure Synapse Analytics 작업 영역이 없는 경우 [Azure Synapse Analytics 시작](..\synapse-analytics\get-started.md) 문서에서 만드는 단계를 참조하세요.
 
 ## <a name="azure-services-to-access-sql-server"></a>SQL 서버에 액세스하는 Azure 서비스
 
@@ -241,6 +229,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     ![Foreach 매개 변수 작성기](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
     d. **활동** 탭으로 전환하고, **연필 아이콘** 을 클릭하여 자식 활동을 **ForEach** 활동에 추가합니다.
+    
     ![Foreach 활동 작성기](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
 
 1. **활동** 도구 상자에서 **이동 및 전송** 을 펼치고, **데이터 복사** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 위쪽의 이동 경로 탐색 메뉴를 확인합니다. **IterateAndCopySQLTable** 은 파이프라인 이름이고 **IterateSQLTables** 는 ForEach 작업 이름입니다. 디자이너가 활동 범위에 있습니다. ForEach 편집기에서 파이프라인 편집기로 다시 전환하려면 이동 경로 탐색 메뉴에서 링크를 클릭합니다. 
@@ -257,7 +246,6 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
-
 1. **싱크** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **싱크 데이터 세트** 에 대해 **AzureSqlDWDataset** 를 선택합니다.
@@ -265,6 +253,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     1. DWSchema 매개 변수의 VALUE 입력란을 클릭하고, 아래에서 **동적 콘텐츠 추가** 를 선택하고, `@item().TABLE_SCHEMA` 식을 스크립트로 입력하고, **마침** 을 선택합니다.
     1. 복사 방법에 대해 **PolyBase** 를 선택합니다. 
     1. **유형 기본 옵션 사용** 의 선택을 취소합니다. 
+    1. 테이블 옵션의 경우 기본 설정은 "None"입니다. 싱크 Azure Synapse Analytics에 미리 생성된 테이블이 없는 경우 **테이블 자동 생성** 옵션을 사용하도록 설정합니다. 그러면 복사 작업에서 원본 데이터를 기반으로 테이블을 자동으로 만듭니다. 자세한 내용은 [싱크 테이블 자동 생성](copy-activity-overview.md#auto-create-sink-tables)을 참조하세요. 
     1. **사전 복사 스크립트** 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가** 를 선택하고, 다음 식을 스크립트로 입력하고, **마침** 을 선택합니다. 
 
         ```sql
@@ -272,6 +261,8 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
         ```
 
         ![싱크 복사 설정](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
+
+
 1. **설정** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **준비 프로세스 사용** 확인란을 선택합니다.

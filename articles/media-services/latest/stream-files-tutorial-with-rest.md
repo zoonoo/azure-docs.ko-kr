@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: 023c4d685804b2c6c201f44ab672139d56338cdb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1798ca74493ba22d29cd9ce819d469c29cd5ec3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979107"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059588"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
@@ -50,7 +50,7 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 일부 AMS REST 자습서에 표시되는 REST API를 실행합니다. 
 
-    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. 다른 대안은 다음과 같습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
+    지금은 **Postman** 을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. 다른 대안은 다음과 같습니다. **Visual Studio Code** 와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler** 를 사용할 수도 있습니다. 
 
 ## <a name="download-postman-files"></a>Postman 파일 다운로드
 
@@ -72,7 +72,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 2. 화면 오른쪽에서 **환경 관리** 옵션을 선택합니다.
 
     ![환경 관리](./media/develop-with-postman/postman-import-env.png)
-4. **환경 관리** 대화 상자에서 **가져오기**를 클릭합니다.
+4. **환경 관리** 대화 상자에서 **가져오기** 를 클릭합니다.
 2. `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`을 복제할 때 다운로드한 `Azure Media Service v3 Environment.postman_environment.json` 파일을 찾습니다.
 6. **Azure Media Service v3 Environment** 환경이 추가되었습니다.
 
@@ -87,7 +87,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
    
 ### <a name="configure-the-collection"></a>컬렉션 구성
 
-1. **가져오기**를 클릭하여 컬렉션 파일을 가져옵니다.
+1. **가져오기** 를 클릭하여 컬렉션 파일을 가져옵니다.
 1. `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`을 복제할 때 다운로드한 `Media Services v3.postman_collection.json` 파일을 찾습니다.
 3. **Media Services v3.postman_collection.json** 파일을 선택합니다.
 
@@ -112,7 +112,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
 1. Postman 앱의 왼쪽 창에서 “1단계: AAD 인증 토큰 가져오기"를 선택합니다.
 2. 그런 다음, "서비스 주체 인증을 위한 Azure AD 토큰 가져오기"를 선택합니다.
-3. **보내기**를 누릅니다.
+3. **보내기** 를 누릅니다.
 
     다음 **POST** 작업을 보냅니다.
 
@@ -134,7 +134,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
 1. Postman 앱의 왼쪽 창에서 “스트리밍 및 라이브”를 선택합니다.
 2. 그런 다음, “StreamingEndpoint 시작”을 선택합니다.
-3. **보내기**를 누릅니다.
+3. **보내기** 를 누릅니다.
 
     * 다음 **POST** 작업이 전송됩니다.
 
@@ -157,7 +157,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
 1. Postman 앱의 왼쪽 창에서 “자산”을 선택합니다.
 2. 그런 다음, "자산 만들기 또는 업데이트"를 선택합니다.
-3. **보내기**를 누릅니다.
+3. **보내기** 를 누릅니다.
 
     * 다음 **PUT** 작업을 보냅니다.
 
@@ -170,16 +170,23 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
         {
         "properties": {
             "description": "My Asset",
-            "alternateId" : "some GUID"
+            "alternateId" : "some GUID",
+            "storageAccountName": "<replace from environment file>",
+            "container": "<supply any valid container name of your choosing>"
          }
         }
         ```
 
+> [!NOTE]
+> 스토리지 계정 및 컨테이너 이름을 환경 파일의 이름으로 바꾸거나 직접 제공해야 합니다.
+>
+> 이 문서의 나머지 부분에 설명된 단계를 완료하면 요청 본문에 올바른 매개 변수를 제공해야 합니다.
+
 ### <a name="create-a-transform"></a>변환 만들기
 
-Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Jobs](./transforms-jobs-concept.md)를 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
+Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job** 을 제출합니다. 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform** 이라고 합니다. 자세한 내용은 [Transform 및 Jobs](./transforms-jobs-concept.md)를 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
 
-새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필요한 매개 변수는 **TransformOutput** 개체입니다. 각 **TransformOutput**에는 **Preset**이 포함됩니다. **Preset**은 원하는 **TransformOutput**을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming**이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩하고 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다. 이 Preset에 대한 정보는 [자동 생성된 비트 전송률 사다리](autogen-bitrate-ladder.md)를 참조하세요.
+새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필요한 매개 변수는 **TransformOutput** 개체입니다. 각 **TransformOutput** 에는 **Preset** 이 포함됩니다. **Preset** 은 원하는 **TransformOutput** 을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming** 이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩하고 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다. 이 Preset에 대한 정보는 [자동 생성된 비트 전송률 사다리](autogen-bitrate-ladder.md)를 참조하세요.
 
 기본 제공 EncoderNamedPreset을 사용하거나 사용자 지정 사전 설정을 사용할 수 있습니다. 
 
@@ -188,7 +195,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 1. Postman 앱의 왼쪽 창에서 “인코딩 및 분석”을 선택합니다.
 2. 그런 다음, "변환 만들기"를 선택합니다.
-3. **보내기**를 누릅니다.
+3. **보내기** 를 누릅니다.
 
     * 다음 **PUT** 작업을 보냅니다.
 
@@ -217,13 +224,13 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 ### <a name="create-a-job"></a>작업 만들기
 
-[작업](/rest/api/media/jobs)은 만들어진 **변환**을 지정된 입력 비디오 또는 오디오 콘텐츠에 적용하기 위한 Media Services에 대한 실제 요청입니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다.
+[작업](/rest/api/media/jobs)은 만들어진 **변환** 을 지정된 입력 비디오 또는 오디오 콘텐츠에 적용하기 위한 Media Services에 대한 실제 요청입니다. **Job** 은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다.
 
 이 예제에서 작업의 입력은 HTTPS URL(“https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/”)을 기반으로 합니다.
 
 1. Postman 앱의 왼쪽 창에서 “인코딩 및 분석”을 선택합니다.
 2. 그런 다음, "작업 만들기 또는 업데이트"를 선택합니다.
-3. **보내기**를 누릅니다.
+3. **보내기** 를 누릅니다.
 
     * 다음 **PUT** 작업을 보냅니다.
 
@@ -254,7 +261,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. 작업 진행률을 보려면 Event Grid를 사용하는 것이 좋습니다. Event Grid는 고가용성, 일관된 성능 및 동적 크기 조정을 위해 설계되었습니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. 간단한 HTTP 기반 반응형 이벤트 처리는 이벤트의 지능형 필터링 및 라우팅을 통해 효율적인 솔루션을 구축하는 데 도움이 됩니다.  [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
 
-**작업**은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고 완료되면 **취소됨**이 표시됩니다.
+**작업** 은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중** 이 표시되고 완료되면 **취소됨** 이 표시됩니다.
 
 #### <a name="job-error-codes"></a>작업 오류 코드
 
@@ -262,20 +269,20 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 ### <a name="create-a-streaming-locator"></a>스트리밍 로케이터 만들기
 
-인코딩 작업이 완료된 후에 수행할 단계는 출력 **자산**의 비디오를 클라이언트에서 재생할 수 있도록 만드는 것입니다. 이 작업은 두 단계로 수행할 수 있습니다. 첫째, [StreamingLocator](/rest/api/media/streaminglocators)를 만들고 둘째, 클라이언트가 사용할 수 있는 스트리밍 URL을 작성합니다. 
+인코딩 작업이 완료된 후에 수행할 단계는 출력 **자산** 의 비디오를 클라이언트에서 재생할 수 있도록 만드는 것입니다. 이 작업은 두 단계로 수행할 수 있습니다. 첫째, [StreamingLocator](/rest/api/media/streaminglocators)를 만들고 둘째, 클라이언트가 사용할 수 있는 스트리밍 URL을 작성합니다. 
 
 스트리밍 로케이터를 만드는 과정을 게시라고 합니다. 기본적으로 스트리밍 로케이터는 API 호출을 수행한 직후부터 유효하며, 선택적인 시작 및 종료 시간을 구성하지 않는 한 삭제될 때까지 지속됩니다. 
 
-[StreamingLocator](/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName**을 지정해야 합니다. 이 예제에서는 미리 정의된 암호화되지 않은 스트리밍 정책(“Predefined_ClearStreamingOnly”)을 사용하도록 암호화되지 않은(in-the-clear 또는 non-encrypted) 콘텐츠를 스트림합니다.
+[StreamingLocator](/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName** 을 지정해야 합니다. 이 예제에서는 미리 정의된 암호화되지 않은 스트리밍 정책(“Predefined_ClearStreamingOnly”)을 사용하도록 암호화되지 않은(in-the-clear 또는 non-encrypted) 콘텐츠를 스트림합니다.
 
 > [!IMPORTANT]
 > 사용자 지정 [StreamingPolicy](/rest/api/media/streamingpolicies)를 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 StreamingLocator에 다시 사용해야 합니다. 
 
-Media Service 계정에는 **스트리밍 정책** 항목의 수에 대한 할당량이 있습니다. 각 스트리밍 로케이터에 대한 새 **스트리밍 정책**을 만들지 않아야 합니다.
+Media Service 계정에는 **스트리밍 정책** 항목의 수에 대한 할당량이 있습니다. 각 스트리밍 로케이터에 대한 새 **스트리밍 정책** 을 만들지 않아야 합니다.
 
 1. Postman 앱의 왼쪽 창에서 "스트리밍 정책 및 로케이터"를 선택합니다.
 2. 그런 다음, "스트리밍 로케이터 만들기(clear)"를 선택합니다.
-3. **보내기**를 누릅니다.
+3. **보내기** 를 누릅니다.
 
     * 다음 **PUT** 작업을 보냅니다.
 
@@ -303,7 +310,7 @@ Media Service 계정에는 **스트리밍 정책** 항목의 수에 대한 할�
 
 1. Postman 앱의 왼쪽 창에서 “스트리밍 정책”을 선택합니다.
 2. 그런 다음, "경로 나열"을 선택합니다.
-3. **보내기**를 누릅니다.
+3. **보내기** 를 누릅니다.
 
     * 다음 **POST** 작업을 보냅니다.
 
@@ -355,8 +362,9 @@ Media Service 계정에는 **스트리밍 정책** 항목의 수에 대한 할�
     호스트 이름을 가져오기 위해 다음 GET 작업을 사용할 수 있습니다.
     
     ```
-    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/default?api-version={{api-version}}
     ```
+    환경 파일과 일치하도록 `resourceGroupName` 및 `accountName` 매개 변수를 설정했는지 확인합니다. 
     
 3. 이전 경로 나열 섹션에서 가져온 경로입니다.  
 
@@ -370,19 +378,19 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> 스트리밍하려는 **스트리밍 엔드포인트**가 실행 중인지 확인합니다.
+> 스트리밍하려는 **스트리밍 엔드포인트** 가 실행 중인지 확인합니다.
 
 이 문서에서는 스트림을 테스트하기 위해 Azure Media Player를 사용합니다. 
 
 1. 웹 브라우저를 열고 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)로 이동합니다.
 2. **URL:** 상자에서 작성한 URL을 붙여넣습니다. 
-3. **플레이어 업데이트**를 누릅니다.
+3. **플레이어 업데이트** 를 누릅니다.
 
 Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 환경에서는 사용할 수 없습니다. 
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Media Services 계정의 리소스 정리
 
-일반적으로 재사용할 개체를 제외하고 모두 정리해야 합니다. 일반적으로 **변환**을 재사용하고 **스트리밍 로케이터** 등을 유지합니다. 실험 후 계정이 정리되도록 하려면 재사용하지 않을 리소스는 삭제해야 합니다.  
+일반적으로 재사용할 개체를 제외하고 모두 정리해야 합니다. 일반적으로 **변환** 을 재사용하고 **스트리밍 로케이터** 등을 유지합니다. 실험 후 계정이 정리되도록 하려면 재사용하지 않을 리소스는 삭제해야 합니다.  
 
 리소스를 삭제하려면 삭제할 리소스 아래에서 "삭제 ..." 작업을 선택합니다.
 

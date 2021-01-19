@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df511e79b73256833ec54c5906bb6acbc852bc46
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: b1fa4d3e6c017232922e500352558e34726b90cc
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739623"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183084"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>자습서: 첫 번째 기계 학습 모델 학습(3/4부)
 
@@ -40,10 +40,8 @@ ms.locfileid: "97739623"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 시리즈 중 [2부](tutorial-1st-experiment-hello-world.md) 완료.
-* Python 언어 및 기계 학습 워크플로에 대한 입문 지식
-* Visual Studio Code, Jupyter 및 PyCharm과 같은 로컬 개발 환경
-* Python(버전 3.5 ~ 3.7).
+- Python 가상 환경을 관리하고 패키지를 설치하는 [Anaconda](https://www.anaconda.com/download/) 또는 [Miniconda](https://www.anaconda.com/download/).
+- 시리즈의 [1부](tutorial-1st-experiment-sdk-setup-local.md) 및 [2부](tutorial-1st-experiment-hello-world.md) 완료.
 
 ## <a name="create-training-scripts"></a>학습 스크립트 만들기
 
@@ -77,9 +75,7 @@ tutorial
 > [!div class="nextstepaction"]
 > [학습 스크립트를 만들었습니다.](?success=create-scripts#environment) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
-## <a name="create-a-python-environment"></a><a name="environment"></a> Python 환경 만들기
-
-데모용으로 Conda 환경을 사용할 예정입니다. (pip 가상 환경에 대한 단계는 거의 동일합니다.)
+## <a name="create-a-new-python-environment"></a><a name="environment"></a> 새 Python 환경 만들기
 
 `pytorch-env.yml`이라는 파일을 숨겨진 `.azureml` 디렉터리에 만듭니다.
 
@@ -92,18 +88,19 @@ tutorial
 
 ## <a name="test-locally"></a><a name="test-local"></a> 로컬로 테스트
 
-다음 코드를 사용하여 이 환경에서 로컬로 실행되는 스크립트를 테스트합니다.
+터미널 또는 Anaconda 프롬프트 창에서 다음 코드를 사용하여 새 환경에서 로컬로 스크립트를 테스트합니다.  
 
 ```bash
-conda env create -f .azureml/pytorch-env.yml    # create conda environment
-conda activate pytorch-env                      # activate conda environment
+conda deactivate                                # If you are still using the tutorial environment, exit it
+conda env create -f .azureml/pytorch-env.yml    # create the new Conda environment
+conda activate pytorch-env                      # activate new Conda environment
 python src/train.py                             # train model
 ```
 
 이 스크립트가 실행되면 `tutorial/data`라는 디렉터리에 다운로드된 데이터가 표시됩니다.
 
 > [!div class="nextstepaction"]
-> [환경 파일을 만들었습니다.](?success=test-local#create-local) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=test-local)
+> [코드를 로컬로 실행했습니다.](?success=test-local#create-local) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 ## <a name="create-the-control-script"></a><a name="create-local"></a> 제어 스크립트 만들기
 
@@ -163,11 +160,11 @@ if __name__ == "__main__":
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Azure Machine Learning에 실행 제출
 
-로컬 환경을 전환한 경우 Python용 Azure Machine Learning SDK가 설치된 환경으로 다시 전환해야 합니다.
-
-다음을 실행합니다.
+Python용 Azure Machine Learning SDK가 설치된 *자습서* 환경으로 다시 전환합니다. 학습 코드가 컴퓨터에서 실행되고 있지 않으므로 PyTorch를 설치할 필요가 없습니다.  그러나 *자습서* 환경에 있는 `azureml-sdk`가 필요합니다.
 
 ```bash
+conda deactivate
+conda activate tutorial
 python 04-run-pytorch.py
 ```
 

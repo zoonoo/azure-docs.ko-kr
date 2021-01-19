@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 7e63f770763d1960148dfdfa184d0b4e2b76754c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2c4fbefc1bb801ab4a9387054ac91e5fca14ec18
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427092"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185600"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 
@@ -57,21 +57,21 @@ yes | cp -rf .prep/* .
 
 1. Azure CLI에 로그인하고 둘 이상의 로그인 자격 증명에 연결된 경우 필요에 따라 구독을 설정합니다.
 
-    ```bash
+    ```azurecli
     az login
     az account set -s <your-subscription-id>
     ```   
 
 2. Azure 리소스 그룹을 만들고 리소스 그룹 이름을 입력합니다.
 
-    ```bash
+    ```azurecli
     az group create -n <your-azure-group-name> \
         -l <your-resource-group-region>
     ```
 
 3. `GlobalDocumentDB` 종류로 Azure Cosmos DB를 만듭니다. Cosmos DB의 이름에는 대/소문자만 사용해야 합니다. 명령의 응답에서 `documentEndpoint` 필드를 입력합니다.
 
-    ```bash
+    ```azurecli
     az cosmosdb create --kind GlobalDocumentDB \
         -g <your-azure-group-name> \
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
@@ -79,7 +79,7 @@ yes | cp -rf .prep/* .
 
 4. Azure Cosmos DB 키를 가져와서 앱에 연결합니다. 다음 단계에서 필요하므로 `primaryMasterKey`, `documentEndpoint`를 가까운 위치에 유지합니다.
 
-    ```bash
+    ```azurecli
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
@@ -146,7 +146,7 @@ mvn package spring-boot:run
 
 출력은 다음과 비슷합니다.
 
-```bash
+```output
 bash-3.2$ mvn package spring-boot:run
 [INFO] Scanning for projects...
 [INFO] 
@@ -291,7 +291,7 @@ curl https://spring-todo-app.azurewebsites.net
 
 다른 작업자를 추가하여 애플리케이션을 확장합니다.
 
-```bash
+```azurecli
 az appservice plan update --number-of-workers 2 \
    --name ${WEBAPP_PLAN_NAME} \
    --resource-group <your-azure-group-name>
@@ -301,7 +301,7 @@ az appservice plan update --number-of-workers 2 \
 
 다른 자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next) 참조) Cloud Shell에서 다음 명령을 실행하여 삭제할 수 있습니다. 
   
-```bash
+```azurecli
 az group delete --name <your-azure-group-name>
 ```
 

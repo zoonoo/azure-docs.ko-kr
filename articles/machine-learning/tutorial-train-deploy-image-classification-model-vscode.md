@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9ad96bdb632e134cf3e3a0f82bb97f88c87e72e9
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 937b5ebb13bfbf27ff04b6944f2de7e32e7e656c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033445"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185855"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Azure Machine Learning Visual Studio Code 확장(미리 보기)을 사용하여 이미지 분류 TensorFlow 모델 학습 및 배포
 
@@ -78,7 +78,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
     > [!div class="mx-imgBorder"]
     > ![실험 만들기](./media/tutorial-train-deploy-image-classification-model-vscode/create-experiment.png)
 
-1. 실험 이름을 "MNIST"로 지정하고, **Enter** 키를 눌러 새 실험을 만듭니다. 
+1. 실험 이름을 "Tutorial-VSCode-MNIST"로 지정하고, **Enter** 를 눌러 새 실험을 만듭니다. 
 
 작업 영역과 마찬가지로, 제공된 구성을 사용하여 실험을 만들도록 요구하는 요청을 Azure에 보냅니다. 몇 분 후에 새 실험이 작업 영역의 *실험* 노드에 표시됩니다. 
 

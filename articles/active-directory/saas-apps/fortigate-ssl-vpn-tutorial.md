@@ -2,25 +2,21 @@
 title: '자습서: FortiGate SSL VPN과 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
 description: FortiGate SSL VPN을 Azure AD(Azure Active Directory)와 통합하기 위해 수행해야 하는 단계를 알아봅니다.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 18a3d9d5-d81c-478c-be7e-ef38b574cb88
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/11/2020
+ms.date: 12/26/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 021550598452516d45ae67c1139c2f891629a875
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: b9a22025f124e7639aa1b9a157dbbd020e2ff966
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296576"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020267"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>자습서: FortiGate SSL VPN과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -30,9 +26,7 @@ ms.locfileid: "96296576"
 * 사용자가 해당 Azure AD 계정으로 FortiGate SSL VPN에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -45,13 +39,12 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 FortiGate SSL VPN은 SP 시작 SSO를 지원합니다.
 
-FortiGate SSL VPN이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-fortigate-ssl-vpn-from-the-gallery"></a>갤러리에서 FortiGate SSL VPN 추가
 
 FortiGate SSL VPN이 Azure AD에 통합되도록 구성하려면 갤러리의 FortiGate SSL VPN을 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. 회사 계정, 학교 계정 또는 개인 Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 회사 계정, 학교 계정 또는 개인 Microsoft 계정을 사용하여 Azure Portal에 로그인합니다.
 1. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
@@ -69,13 +62,13 @@ FortiGate SSL VPN에서 Azure AD SSO를 구성하고 테스트하려면 다음�
     1. **[테스트 사용자에게 액세스 권한 부여](#grant-access-to-the-test-user)** - 해당 사용자에 대해 Azure AD Single Sign-On을 사용하도록 설정합니다.
 1. **[FortiGate SSL VPN SSO 구성](#configure-fortigate-ssl-vpn-sso)** - 애플리케이션 쪽에서 구성합니다.
     1. **FortiGate SSL VPN 테스트 사용자 만들기** - 사용자의 Azure AD 표현에 해당하는 사용자를 만듭니다.
-1. **[SSO 테스트](#test-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **FortiGate SSL VPN** 애플리케이션 통합 페이지에 있는 **관리** 섹션에서, **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **FortiGate SSL VPN** 애플리케이션 통합 페이지에 있는 **관리** 섹션에서 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 선택하여 설정을 편집합니다.
 
@@ -106,17 +99,26 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    | group | user.groups |
    
    이러한 추가 클레임을 만들려면 다음을 수행합니다.
+
+   a. **사용자 특성 및 클레임** 옆에 있는 **편집** 을 선택합니다.
+
+   b. **새 클레임 추가** 를 선택합니다.
+
+   c. **이름** 에 대해 **사용자 이름** 을 입력합니다.
+
+   d. **원본 특성** 에 대해 **user.userprincipalname** 을 선택합니다.
+
+   e. **저장** 을 선택합니다.
+
+   f. **그룹 클레임 추가** 를 선택합니다.
+
+   g. **모든 그룹** 을 선택합니다.
+
+   h. **그룹 클레임 이름 사용자 지정** 확인란을 선택합니다.
+
+   i. **이름** 에 대해 **그룹** 을 입력합니다.
    
-   1. **사용자 특성 및 클레임** 옆에 있는 **편집** 을 선택합니다.
-   1. **새 클레임 추가** 를 선택합니다.
-   1. **이름** 에 대해 **사용자 이름** 을 입력합니다.
-   1. **원본 특성** 에 대해 **user.userprincipalname** 을 선택합니다.
-   1. **저장** 을 선택합니다.
-   1. **그룹 클레임 추가** 를 선택합니다.
-   1. **모든 그룹** 을 선택합니다.
-   1. **그룹 클레임 이름 사용자 지정** 확인란을 선택합니다.
-   1. **이름** 에 대해 **그룹** 을 입력합니다.
-   1. **저장** 을 선택합니다.   
+   j. **저장** 을 선택합니다.   
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 옆에 있는 **다운로드** 링크를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -145,13 +147,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 1. 애플리케이션 목록에서 **FortiGate SSL VPN** 을 선택합니다.
 1. 앱의 개요 페이지에 있는 **관리** 섹션에서 **사용자 및 그룹** 을 선택합니다.
-
-   ![사용자 및 그룹 옵션을 보여 주는 스크린샷](common/users-groups-blade.png)
-
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 단추를 보여 주는 스크린샷](common/add-assign-user.png)
-
 1. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **B.Simon** 을 선택하고, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택합니다. 화면의 아래쪽에서 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
@@ -256,22 +252,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 [FortiGate 지원 팀](mailto:tac_amer@fortinet.com)과 협력하여 VPN 포털 및 방화벽 정책을 FortiGate VPN 플랫폼에 추가합니다. Single Sign-On을 사용하기 전에 이 단계를 완료해야 합니다.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
+## <a name="test-sso"></a>SSO 테스트 
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 FortiGate SSL VPN 타일을 선택하면 SSO를 설정한 FortiGate SSL VPN에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 FortiGate VPN 로그온 URL로 리디렉션됩니다. 
 
-Microsoft 및 FortiGate는 최상의 최종 사용자 환경을 위해 Fortinet VPN 클라이언트인 FortiClient를 사용하도록 추천합니다.
+* FortiGate VPN 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 FortiGate VPN 타일을 클릭하면 FortiGate VPN 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
-
-- [Azure AD로 FortiGate SSL VPN 사용해 보기](https://aad.portal.azure.com/)
-
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
+FortiGate VPN이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)

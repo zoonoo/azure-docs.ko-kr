@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: de89f9d87b010dc3710e7d82f4d846de12303905
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: ab497dee35afdd60247d156d0f30bbf003ea1210
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739436"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072159"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>자습서: 사용자 고유의 데이터 사용(4/4부)
 
@@ -40,9 +40,6 @@ ms.locfileid: "97739436"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 시리즈의 [3부](tutorial-1st-experiment-sdk-train.md) 완료
-* Python 언어 및 기계 학습 워크플로에 대한 입문 지식
-* Visual Studio Code, Jupyter 및 PyCharm과 같은 로컬 개발 환경
-* Python(버전 3.5 ~ 3.7).
 
 ## <a name="adjust-the-training-script"></a>학습 스크립트 조정
 
@@ -130,7 +127,7 @@ Azure Machine Learning에서 이 스크립트를 실행하려면 Azure에서 학
 >[!TIP] 
 > Azure Machine Learning을 사용하여 데이터를 업로드하는 동안 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 임시 파일을 업로드할 수 있습니다. ETL 도구가 필요한 경우 [Azure Data Factory](../data-factory/introduction.md)를 사용하여 데이터를 Azure에 수집할 수 있습니다.
 
-Python 파일을 실행하여 데이터를 업로드합니다. (업로드 속도는 60초 미만이어야 합니다.)
+활성화된 *tutorial1* conda 환경이 있는 창에서 Python 파일을 실행하여 데이터를 업로드합니다. (업로드 속도는 60초 미만이어야 합니다.)
 
 ```bash
 python 05-upload-data.py

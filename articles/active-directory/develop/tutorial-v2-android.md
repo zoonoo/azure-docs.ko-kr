@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7ba15e66cca7baefdf8cca5cabd5e5d5b1e2c7f7
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 1282c27378e6a088a600a3ab3105f3f548984d03
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507815"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063147"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -71,11 +71,11 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
 6. **최소 API 수준** 을 **API 19** 이상으로 설정하고 **마침** 을 클릭합니다.
 7. 프로젝트 보기의 드롭다운 목록에서 **프로젝트** 를 선택하여 소스 및 소스가 아닌 프로젝트 파일을 표시하고, **app/build.gradle** 을 열고, `targetSdkVersion`을 `28`로 설정합니다.
 
-## <a name="integrate-with-microsoft-authentication-library"></a>Microsoft 인증 라이브러리와 통합
+## <a name="integrate-with-the-microsoft-authentication-library"></a>Microsoft 인증 라이브러리와 통합
 
 ### <a name="register-your-application"></a>애플리케이션 등록
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.

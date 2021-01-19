@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: d2961bbf65fe1cf3ddf59c648f506cee85e248a5
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 10741fbf2deb61d63f444ff9e2247bc59f41af38
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951624"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968726"
 ---
 # <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro를 사용하여 데이터 변환
 
@@ -42,30 +42,35 @@ Azure Stack Edge Pro 디바이스에서 컴퓨팅 역할을 설정하기 전에 
 
 Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 합니다.
 
-1. Azure Stack Edge 리소스의 Azure Portal에서 개요로 이동합니다. 오른쪽에 있는 **컴퓨팅** 타일에서 **시작**을 선택합니다.
+1. Azure Stack Edge 리소스의 Azure Portal에서 **개요** 로 이동합니다. 오른쪽 창에서 **IoT Edge** 를 선택합니다.
 
     ![컴퓨팅 시작](./media/azure-stack-edge-deploy-configure-compute/configure-compute-1.png)
 
-2. **Edge 컴퓨팅 구성** 타일에서 **컴퓨팅 구성**을 선택합니다.
-3. **Edge 컴퓨팅 구성** 블레이드에서 다음 정보를 입력합니다.
+1. **IoT Edge 사용** 타일에서 **추가** 를 선택합니다. 이렇게 하면 디바이스에서 IoT Edge 모듈을 로컬로 배포할 수 있는 IoT Edge 서비스를 사용할 수 있습니다.
+
+    ![컴퓨팅 시작 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
+
+1. **IoT Edge 서비스 만들기** 블레이드에서 다음을 입력합니다.
 
    
     |필드  |값  |
     |---------|---------|
+    |구독     |IoT Hub 리소스에 대한 구독을 선택합니다. Azure Stack Edge 리소스에서 사용하는 것과 동일한 구독을 사용할 수 있습니다.         |
+    |Resource group     |IoT Hub 리소스에 대한 리소스 그룹을 선택합니다. Azure Stack Edge 리소스에서 사용하는 것과 동일한 리소스 그룹을 사용할 수 있습니다.         |
     |IoT Hub     | **새로 만들기** 또는 **기존 항목** 중에서 선택합니다. <br> 표준 계층(S1)을 사용하여 IoT 리소스를 만드는 것이 기본입니다. 무료 계층 IoT 리소스를 사용하려면 IoT 리소스를 새로 만든 후 기존 리소스를 선택합니다. <br> 어떤 방법을 선택하든, IoT Hub 리소스는 Azure Stack Edge 리소스에서 사용하는 것과 동일한 구독 및 리소스 그룹을 사용합니다.     |
-    |속성     |IoT Hub 리소스의 이름을 입력합니다.         |
+    |Name     |IoT Hub 리소스의 이름을 입력합니다.         |
 
-    ![컴퓨팅 시작 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
-
-4. **만들기**를 선택합니다. IoT Hub 리소스 만들기는 몇 분 정도 걸립니다. IoT Hub 리소스가 만들어지면 컴퓨팅 구성을 표시하도록 **컴퓨팅 구성** 타일이 업데이트됩니다. Edge 컴퓨팅 역할이 구성되었는지 확인하려면 **컴퓨팅 구성** 타일의 **컴퓨팅 보기**를 선택합니다.
-    
     ![컴퓨팅 시작 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
-    > [!NOTE]
-    > IoT Hub가 Azure Stack Edge Pro 디바이스와 연결되기 전에 **컴퓨팅 구성** 대화 상자가 닫히면 IoT Hub가 생성되지만 컴퓨팅 구성에는 표시되지 않습니다. 
-    
-    Edge 컴퓨팅 역할이 Edge 디바이스에 설정되면 두 가지 디바이스, 즉 IoT 디바이스와 IoT Edge 디바이스가 만들어집니다. 이 두 디바이스는 모두 IoT Hub 리소스에서 볼 수 있습니다. IoT Edge 런타임 역시 이 IoT Edge 디바이스에서 실행됩니다. 이 시점에서 IoT Edge 디바이스에는 Linux 플랫폼만 사용할 수 있습니다.
+4. **검토 + 만들기** 를 선택합니다. IoT Hub 리소스 만들기는 몇 분 정도 걸립니다. IoT Hub 리소스가 생성되면 **개요** 가 업데이트되어 IoT Edge 서비스가 실행 중임을 나타냅니다. 
 
+    ![컴퓨팅 시작 4](./media/azure-stack-edge-deploy-configure-compute/configure-compute-4.png)    
+    
+    IoT Edge 서비스가 Edge 디바이스에 구성되면 IoT 디바이스와 IoT Edge 디바이스라는 두 개의 디바이스가 만들어집니다. 이 두 디바이스는 모두 IoT Hub 리소스에서 볼 수 있습니다. IoT Edge 런타임 역시 이 IoT Edge 디바이스에서 실행됩니다. 이 시점에서 IoT Edge 디바이스에는 Linux 플랫폼만 사용할 수 있습니다.
+
+    Edge 컴퓨팅 역할이 구성되었는지 확인하려면 **IoT Edge 서비스 > 속성** 을 선택하고 IoT 디바이스와 IoT Edge 디바이스를 확인합니다.
+
+    ![컴퓨팅 시작 5](./media/azure-stack-edge-deploy-configure-compute/configure-compute-5.png) 
 
 ## <a name="add-shares"></a>공유 추가
 
@@ -73,11 +78,11 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 
 1. 다음 단계에 따라 디바이스에 Edge 공유를 추가합니다.
 
-    1. Azure Stack Edge 리소스에서 **Edge 컴퓨팅 > 시작**으로 이동합니다.
-    2. **공유 추가** 타일에서 **추가**를 선택합니다.
+    1. Azure Stack Edge 리소스에서 **IoT Edge 컴퓨팅 > 공유** 로 이동합니다.
+    2. 명령 모음에서 **+ 공유 추가** 를 선택합니다.
     3. **공유 추가** 블레이드에서 공유 이름을 입력하고 공유 유형을 선택합니다.
     4. Edge 공유를 탑재하려면 **Edge 컴퓨팅과 공유 사용** 확인란을 선택합니다.
-    5. **스토리지 계정**, **스토리지 서비스**, 기존 사용자를 선택한 다음, **만들기**를 선택합니다.
+    5. **스토리지 계정**, **스토리지 서비스**, 기존 사용자를 선택한 다음, **만들기** 를 선택합니다.
 
         ![Edge 공유 추가](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-1.png) 
 
@@ -94,7 +99,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
     ![Edge 로컬 공유 추가](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-2.png)
 
   
-3. **공유 추가**를 선택하여 업데이트된 공유 목록을 볼 수 있습니다.
+3. **IoT Edge > 공유** 로 이동하여 업데이트된 공유 목록을 확인합니다.
 
     ![업데이트된 공유 목록](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-3.png) 
  
@@ -105,13 +110,13 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 
 이 섹션에서는 사용자 지정 모듈을 [Azure Stack Edge Pro용 C# 모듈 개발](azure-stack-edge-create-iot-edge-module.md)에서 만든 IoT Edge 디바이스에 추가합니다. 이 사용자 지정 모듈은 Edge 디바이스의 Edge 로컬 공유에서 파일을 가져와 디바이스의 Edge(클라우드) 공유로 이동합니다. 그런 다음, 클라우드 공유에서 파일을 클라우드 공유와 연결된 Azure 스토리지 계정에 푸시합니다.
 
-1. **Edge 컴퓨팅 > 시작**으로 이동합니다. **모듈 추가** 타일에서 시나리오 유형을 **단순**으로 선택합니다. **추가**를 선택합니다.
+1. **IoT Edge > 모듈** 로 이동합니다. 디바이스 명령 모음에서 **+ 모듈 추가** 를 선택합니다.
 2. **모듈 구성 및 추가** 블레이드에서 다음 값을 입력합니다.
 
     
     |필드  |값  |
     |---------|---------|
-    |속성     | 모듈의 고유한 이름입니다. 이 모듈은 Azure Stack Edge Pro와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
+    |Name     | 모듈의 고유한 이름입니다. 이 모듈은 Azure Stack Edge Pro와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
     |이미지 URI     | 모듈의 해당 컨테이너 이미지에 대한 이미지 URI입니다.        |
     |자격 증명 필요     | 이 옵션을 선택하면 사용자 이름과 암호를 사용하여 URL이 일치하는 모듈을 검색하게 됩니다.        |
     |입력 공유     | 입력 공유를 선택합니다. 이 예에서는 Edge 로컬 공유가 입력 공유입니다. 여기에 사용된 모듈은 Edge 로컬 공유의 파일을 클라우드에 업로드되는 Edge 공유로 이동합니다.        |
@@ -122,7 +127,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 
     ![모듈 추가 및 구성](./media/azure-stack-edge-deploy-configure-compute/add-module-1.png)
 
-3. **추가**를 선택합니다. 모듈이 추가됩니다. 모듈이 배포된 것을 나타내도록 **모듈 추가** 타일이 업데이트됩니다. 
+3. **추가** 를 선택합니다. 모듈이 추가됩니다. **IoT Edge > 개요** 페이지가 업데이트되어 모듈이 배포되었음을 나타냅니다. 
 
     ![배포된 모듈](./media/azure-stack-edge-deploy-configure-compute/add-module-2.png)
 
@@ -132,7 +137,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 
 모듈이 실행되는지 확인하려면 다음을 수행합니다.
 
-1. **모듈 추가** 타일을 선택합니다. 그러면 **모듈** 블레이드로 이동됩니다. 모듈 목록에서, 배포한 모듈을 찾습니다. 추가한 모듈의 런타임 상태가 *실행 중*일 것입니다.
+1. **모듈 추가** 타일을 선택합니다. 그러면 **모듈** 블레이드로 이동됩니다. 모듈 목록에서, 배포한 모듈을 찾습니다. 추가한 모듈의 런타임 상태가 *실행 중* 일 것입니다.
 
     ![데이터 변환 확인](./media/azure-stack-edge-deploy-configure-compute/verify-data-1.png)
  

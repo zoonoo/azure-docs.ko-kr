@@ -128,6 +128,8 @@
       href: authentication.md
     - name: Windows Virtual Desktop 환경
       href: environment-setup.md
+    - name: Windows Virtual Desktop 에이전트
+      href: agent-overview.md
     - name: 네트워크 연결
       items:
         - name: 네트워크 연결 이해
@@ -180,6 +182,8 @@
       href: troubleshoot-vm-configuration.md
     - name: 원격 데스크톱 서비스 연결
       href: troubleshoot-service-connection.md
+    - name: Windows Virtual Desktop 에이전트
+      href: troubleshoot-agent.md
     - name: 원격 데스크톱 클라이언트 문제
       href: troubleshoot-client.md
     - name: Windows Virtual Desktop PowerShell

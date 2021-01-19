@@ -8,6 +8,8 @@
       href: faq.md
     - name: 새로운 기능
       href: whats-new.md
+    - name: Operations Manager에서 마이그레이션
+      href: azure-monitor-operations-manager.md
 - name: 빠른 시작
   items:
     - name: Azure 리소스 모니터링
@@ -196,6 +198,8 @@
               href: platform/metric-chart-samples.md
             - name: 메트릭 차트 문제 해결
               href: platform/metrics-troubleshoot.md
+            - name: 메트릭 집계 이해
+              href: platform/metrics-aggregation-explained.md
     - name: Azure Monitor 로그
       items:
         - name: 개요
@@ -253,7 +257,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: Functions
+            - name: 함수
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -567,7 +571,11 @@
             - name: ITSM 제품에서 동기화된 데이터
               href: platform/itsmc-synced-data.md
             - name: ITSM 커넥터의 문제 해결
-              href: platform/itsmc-resync-servicenow.md
+              items:
+                - name: 개요
+                  href: platform/itsmc-resync-servicenow.md
+                - name: 대시보드 조사
+                  href: platform/itsmc-dashboard.md
             - name: 보안 내보내기와 통합
               items:
                 - name: 개요
@@ -664,6 +672,8 @@
                       href: app/javascript-react-native-plugin.md
                     - name: Angular 플러그 인
                       href: app/javascript-angular-plugin.md
+                    - name: 분석 자동 컬렉션 플러그 인 클릭
+                      href: app/javascript-click-analytics-plugin.md
                 - name: 문제 해결
                   items:
                     - name: SDK 로드 실패
@@ -1235,7 +1245,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

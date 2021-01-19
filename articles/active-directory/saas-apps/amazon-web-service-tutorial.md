@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 237ed71f058ae099f19924481eb4dbeb2e2aba05
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3db6fd2e6df96590d7d405157cbb33900c7d8531
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589443"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127807"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -388,7 +388,11 @@ Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이�
 * AWS에서 Azure AD로 가져올 수 있으려면 역할이 다음 요구 사항을 충족해야 합니다.
 
   * 역할에는 AWS에 정의된 saml 공급자가 하나만 있어야 합니다.
-  * 역할에 대한 ARN(Amazon Resource Name)과 연결된 saml 공급자에 대한 ARN의 결합된 길이는 120자 미만이어야 합니다.
+  * 역할에 대한 ARN(Amazon Resource Name)과 연결된 saml 공급자에 대한 ARN의 결합된 길이는 240자 미만이어야 합니다.
+
+## <a name="change-log"></a>로그 변경
+
+* 2020년 1월 12일 - 역할 길이 제한이 119자에서 239자로 증가했습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

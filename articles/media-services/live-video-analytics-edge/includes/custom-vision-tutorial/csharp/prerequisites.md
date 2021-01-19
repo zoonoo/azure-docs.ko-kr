@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/05/2020
 ms.author: russellcooks
-ms.openlocfilehash: f4107e2dfa0c4c91f101f6a9031482fb6f84bf68
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: af029118fed725000941b5ff0a51aeb2bad59e7c
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358315"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060504"
 ---
 이 자습서의 필수 구성 요소는 다음과 같습니다.
 
@@ -22,3 +22,6 @@ ms.locfileid: "94358315"
     
     * [Azure 리소스 설정](../../../detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [개발 환경 설정](../../../detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
+
+> [!TIP]
+> 만든 Azure 리소스와 관련된 문제가 발생하는 경우 **[문제 해결 가이드](../../../troubleshoot-how-to.md#common-error-resolutions)** 를 참조하여 일반적으로 발생하는 문제를 해결하세요.

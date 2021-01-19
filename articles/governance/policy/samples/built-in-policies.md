@@ -1,15 +1,15 @@
 ---
 title: 기본 제공 정책 정의 목록
 description: Azure Policy에 대한 기본 제공 정책 정의를 나열합니다. 범주에는 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 포함됩니다.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 66563a4754d706f2c73e90ad3c2e8e0f4fe7d3a0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: ccd310583f003fd381b9ddd48333644f2241ea88
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "96007833"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98047441"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy 기본 제공 정책 정의
 
@@ -49,6 +49,10 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 
 [!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
 
+## <a name="azure-stack-edge"></a>Azure Stack Edge
+
+[!INCLUDE [azure-policy-reference-policies-azure-stack-edge](../../../../includes/policy/reference/bycat/policies-azure-stack-edge.md)]
+
 ## <a name="backup"></a>Backup
 
 [!INCLUDE [azure-policy-reference-policies-backup](../../../../includes/policy/reference/bycat/policies-backup.md)]
@@ -56,6 +60,10 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 ## <a name="batch"></a>Batch
 
 [!INCLUDE [azure-policy-reference-policies-batch](../../../../includes/policy/reference/bycat/policies-batch.md)]
+
+## <a name="bot-services"></a>Bot Services
+
+[!INCLUDE [azure-policy-reference-policies-bot-services](../../../../includes/policy/reference/bycat/policies-bot-services.md)]
 
 ## <a name="cache"></a>캐시
 
@@ -80,6 +88,10 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 ## <a name="custom-provider"></a>사용자 지정 공급자
 
 [!INCLUDE [azure-policy-reference-policies-custom-provider](../../../../includes/policy/reference/bycat/policies-custom-provider.md)]
+
+## <a name="data-box"></a>Data Box
+
+[!INCLUDE [azure-policy-reference-policies-data-box](../../../../includes/policy/reference/bycat/policies-data-box.md)]
 
 ## <a name="data-lake"></a>데이터 레이크
 

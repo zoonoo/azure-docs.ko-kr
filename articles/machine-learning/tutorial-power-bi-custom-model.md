@@ -1,7 +1,7 @@
 ---
-title: '자습서: Notebook을 사용하여 예측 모델 만들기(1/2부)'
+title: '자습서: Notebook을 사용하여 예측 모델 만들기(2-1부)'
 titleSuffix: Azure Machine Learning
-description: Jupyter Notebook의 코드를 사용하여 기계 학습 모델을 빌드하고 배포하는 방법을 알아봅니다. 이 모델을 사용하여 Microsoft Power BI에서 결과를 예측할 수 있습니다.
+description: Jupyter Notebook의 코드를 사용하여 기계 학습 모델을 빌드하고 배포하는 방법을 알아봅니다. 또한 Microsoft Power BI에 쉽게 통합할 수 있도록 입력 및 출력을 정의하는 채점 스크립트를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 1dfee56f90011d3c532767e136b383e4eb95c234
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 29b340448f3ce3e18a649065bdcd0b335bab8b73
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814774"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108248"
 ---
-# <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-a-jupyter-notebook-part-1-of-2"></a>자습서: Power BI 통합 - Jupyter Notebook을 사용하여 예측 모델 만들기(1/2부)
+# <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-jupyter-notebook-part-1-of-2"></a>자습서: Power BI 통합 - Jupyter Notebook을 사용하여 예측 모델 만들기(2-1부)
 
-이 자습서의 1부에서는 Jupyter Notebook의 코드를 사용하여 기계 학습 예측 모델을 학습시키고 배포합니다. 2부에서는 Microsoft Power BI에서 모델을 사용하여 결과를 예측합니다.
+이 자습서의 1부에서는 Jupyter Notebook의 코드를 사용하여 기계 학습 예측 모델을 학습시키고 배포합니다. 또한 Power BI에 통합할 모델의 입력 및 출력 스키마를 정의하는 채점 스크립트를 만듭니다.  2부에서는 Microsoft Power BI에서 모델을 사용하여 결과를 예측합니다.
 
 이 자습서에서는 다음과 같은 작업을 수행했습니다.
 
@@ -27,6 +27,7 @@ ms.locfileid: "97814774"
 > * Jupyter Notebook 만들기
 > * Azure Machine Learning 컴퓨팅 인스턴스를 만듭니다.
 > * scikit-learn을 사용하여 회귀 모델을 학습시킵니다.
+> * Microsoft Power BI에 쉽게 통합할 수 있도록 입력 및 출력을 정의하는 채점 스크립트를 작성합니다.
 > * 실시간 채점 엔드포인트에 모델을 배포합니다.
 
 Power BI에서 사용할 모델을 만들고 배포하는 방법은 세 가지가 있습니다.  이 문서에서는 "옵션 A: Notebook을 사용하여 모델 학습 및 배포"에 대해 설명합니다.  이 옵션은 코드 우선 작성 환경입니다. 이는 Azure Machine Learning 스튜디오에서 호스팅되는 Jupyter Notebook을 사용합니다. 
@@ -34,7 +35,7 @@ Power BI에서 사용할 모델을 만들고 배포하는 방법은 세 가지�
 그러나 다른 옵션 중 하나를 대신 사용할 수 있습니다.
 
 * [옵션 B: Azure Machine Learning 디자이너를 사용하여 모델 학습 및 배포](tutorial-power-bi-designer-model.md) 이는 끌어서 놓기 사용자 인터페이스를 사용하는 로우 코드 작성 환경입니다.
-* [옵션 C: 자동화된 Machine Learning을 사용하여 모델을 학습시키고 배포합니다](tutorial-power-bi-automated-model.md). 이는 데이터 준비 및 모델 학습을 완전히 자동화하는 코드 없음 작성 환경입니다.
+* [옵션 C: 자동화된 Machine Learning을 사용하여 모델을 학습시키고 배포합니다](tutorial-power-bi-automated-model.md). 이는 데이터 준비 및 모델 학습을 완전히 자동화하는 코드 없음 제작 환경입니다.
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -157,7 +158,7 @@ Azure Machine Learning 스튜디오에서도 모델을 볼 수 있습니다. 왼
 
 :::image type="content" source="media/tutorial-power-bi/model.png" alt-text="모델을 보는 방법을 보여 주는 스크린샷":::
 
-### <a name="define-the-scoring-script"></a>채점 스크립트 정의
+## <a name="define-the-scoring-script"></a>채점 스크립트 정의
 
 Power BI에 통합할 모델을 배포하는 경우 Python *채점 스크립트* 및 사용자 지정 환경을 정의해야 합니다. 채점 스크립트에는 다음 두 가지 함수가 있습니다.
 
@@ -165,7 +166,7 @@ Power BI에 통합할 모델을 배포하는 경우 Python *채점 스크립트*
 - `run(data)` 함수는 서비스에 대한 호출에 채점이 필요한 입력 데이터가 포함되어 있을 때 실행됩니다. 
 
 >[!NOTE]
-> 이 문서에서는 Python 데코레이터를 사용하여 입력 및 출력 데이터의 스키마를 정의합니다. 이 설정은 Power BI 통합에 중요합니다.
+> 아래 코드의 Python 데코레이터는 입력 및 출력 데이터의 스키마를 정의합니다. 이는 Power BI로의 통합에 중요합니다.
 
 다음 코드를 복사한 후 Notebook의 새 *코드 셀* 에 붙여넣습니다. 다음 코드 조각에는 *score.py* 이라는 파일에 코드를 기록하는 셀 매직이 있습니다.
 

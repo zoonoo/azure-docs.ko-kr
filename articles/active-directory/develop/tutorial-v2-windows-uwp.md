@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 63d56d8afc584a760f4b31c6021d4c764afd52b3
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509464"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064422"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>자습서: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -50,7 +50,7 @@ ms.locfileid: "97509464"
 
 |라이브러리|Description|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft 인증 라이브러리|
+|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)| Microsoft 인증 라이브러리|
 |[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Microsoft Graph 클라이언트 라이브러리|
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
@@ -71,7 +71,7 @@ ms.locfileid: "97509464"
 
    ![최소 및 대상 버전](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
-### <a name="add-microsoft-authentication-library-to-your-project"></a>프로젝트에 Microsoft 인증 라이브러리 추가
+### <a name="add-the-microsoft-authentication-library-to-your-project"></a>프로젝트에 Microsoft 인증 라이브러리 추가
 
 1. Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 선택합니다.
 1. **패키지 관리자 콘솔** 창에서 다음 명령을 복사하여 붙여넣습니다.
@@ -103,7 +103,7 @@ Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml* 을 만듭�
 </Grid>
 ```
 
-### <a name="use-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft 인증 라이브러리를 사용하여 Microsoft Graph API에 대한 토큰 가져오기
+### <a name="use-the-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft 인증 라이브러리를 사용하여 Microsoft Graph API에 대한 토큰 가져오기
 
 이 섹션에서는 Microsoft 인증 라이브러리를 사용하여 Microsoft Graph API에 대한 토큰을 가져오는 방법을 보여줍니다. *MainPage.xaml.cs* 파일을 변경합니다.
 
@@ -322,7 +322,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 #### <a name="more-information"></a>자세한 정보<a name="more-information-1"></a>
 
-**OpenID Connect** 를 사용하여 획득한 ID 토큰에는 사용자와 관련된 정보의 작은 하위 세트도 포함됩니다. `DisplayBasicTokenInfo`는 토큰에 포함된 기본 정보를 표시합니다. 이 정보에는 사용자의 표시 이름과 ID가 포함되어 있습니다. 또한 토큰의 만료 날짜와 액세스 토큰 자체를 나타내는 문자열도 포함되어 있습니다. **Microsoft Graph API 호출** 단추를 여러 번 선택하면 동일한 토큰이 이후의 요청에 다시 사용되었음을 알 수 있습니다. 또한 Microsoft 인증 라이브러리가 토큰을 갱신할 때가 되었다고 판단할 때 만료 날짜가 연장되는 것도 볼 수 있습니다.
+**OpenID Connect** 를 사용하여 획득한 ID 토큰에는 사용자와 관련된 정보의 작은 하위 세트도 포함됩니다. `DisplayBasicTokenInfo`는 토큰에 포함된 기본 정보를 표시합니다. 이 정보에는 사용자의 표시 이름과 ID가 포함되어 있습니다. 또한 토큰의 만료 날짜와 액세스 토큰 자체를 나타내는 문자열도 포함되어 있습니다. **Microsoft Graph API 호출** 단추를 여러 번 선택하면 동일한 토큰이 이후의 요청에 다시 사용되었음을 알 수 있습니다. Microsoft 인증 라이브러리가 토큰을 갱신할 때가 되었다고 판단할 때 만료 날짜가 연장되는 것도 볼 수 있습니다.
 
 ### <a name="display-message"></a>메시지 표시
 
@@ -346,7 +346,7 @@ private async Task DisplayMessageAsync(string message)
 
 이제 애플리케이션을 등록해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -357,7 +357,7 @@ private async Task DisplayMessageAsync(string message)
 
 애플리케이션에 대한 인증을 구성합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 돌아가 **관리** 에서 **인증** > **플랫폼 추가** 를 선택한 다음, **모바일 및 데스크톱 애플리케이션** 을 선택합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>로 돌아가 **관리** 에서 **인증** > **플랫폼 추가** 를 선택한 다음, **모바일 및 데스크톱 애플리케이션** 을 선택합니다.
 1. **리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 확인합니다.
 1. **구성** 을 선택합니다.
 

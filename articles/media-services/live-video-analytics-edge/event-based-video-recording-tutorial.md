@@ -3,12 +3,12 @@ title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 
 description: 이 자습서에서는 Azure Live Video Analytics on Azure IoT Edge를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 이를 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 8f3ecdf7e4260d700f31663852abbb39474cd474
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: cfb4648d991565470133d603194c07b797f89311
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401675"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060438"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생
 
@@ -53,6 +53,9 @@ ms.locfileid: "97401675"
 * Azure Storage 계정
 * Azure Media Services 계정
 * [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge.md)이 설치된 Azure의 Linux VM
+
+> [!TIP]
+> 만든 Azure 리소스와 관련된 문제가 발생하는 경우 **[문제 해결 가이드](troubleshoot-how-to.md#common-error-resolutions)** 를 참조하여 일반적으로 발생하는 문제를 해결하세요.
 
 ## <a name="concepts"></a>개념
 
@@ -230,7 +233,7 @@ objectCounter 모듈 및 Live Video Analytics on IoT Edge 모듈의 이벤트를
      
         ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "2.0",
           "name": "Sample-Graph-1",
           "properties": {
             "topologyName": "EVRtoAssetsOnObjDetect",
@@ -277,7 +280,7 @@ objectCounter 모듈 및 Live Video Analytics on IoT Edge 모듈의 이벤트를
 
 ### <a name="mediasessionestablished-event"></a>MediaSessionEstablished 이벤트 
 
-미디어 그래프가 인스턴스화되면 RTSP 원본 노드는 RTSP 시뮬레이터 컨테이너에서 실행되는 RTSP 서버에 연결을 시도합니다. 성공하면 이 이벤트가 출력됩니다. 이벤트 유형은 Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished입니다.
+미디어 그래프가 인스턴스화되면 RTSP 원본 노드는 RTSP 시뮬레이터 컨테이너에서 실행되는 RTSP 서버에 연결을 시도합니다. 성공하면 이 이벤트가 출력됩니다. 이벤트 유형은 **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished** 입니다.
 
 ```
 [IoTHubMonitor] [5:53:17 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -325,7 +328,7 @@ applicationProperties 섹션에는 이벤트 시간이 포함됩니다. 이는 o
 
 ### <a name="recordingstarted-event"></a>RecordingStarted 이벤트
 
-개체 카운터에서 이벤트를 보낸 직후에 Microsoft.Media.Graph.Operational.RecordingStarted 유형의 이벤트가 표시됩니다.
+개체 카운터에서 이벤트를 보낸 직후에 **Microsoft.Media.Graph.Operational.RecordingStarted** 유형의 이벤트가 표시됩니다.
 
 ```
 [IoTHubMonitor] [5:53:46 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -348,7 +351,7 @@ applicationProperties의 subject 섹션은 이 메시지를 생성한 그래프�
 
 ### <a name="recordingavailable-event"></a>RecordingAvailable 이벤트
 
-자산 싱크 노드에서 비디오를 자산에 업로드하면 Microsoft.Media.Graph.Operational.RecordingAvailable 유형의 이 이벤트를 내보냅니다.
+자산 싱크 노드에서 비디오를 자산에 업로드하면 **Microsoft.Media.Graph.Operational.RecordingAvailable** 유형의 이 이벤트를 내보냅니다.
 
 ```
 [IoTHubMonitor] [5:54:15 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -371,7 +374,7 @@ applicationProperties의 subject 섹션은 이 메시지를 생성한 그래프�
 
 ### <a name="recordingstopped-event"></a>RecordingStopped 이벤트
 
-[토폴로지](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json)에서 신호 게이트 프로세서 노드의 활성화 설정(maximumActivationTime)을 검사하면 30초 동안 비디오를 보낸 후에 게이트가 닫히도록 설정되어 있음을 알 수 있습니다. RecordingStarted 이벤트가 시작되고 약 30초 후에 Microsoft.Media.Graph.Operational.RecordingStopped 유형의 이벤트가 표시됩니다. 이 이벤트는 자산 싱크 노드에서 비디오를 자산에 녹화하지 않도록 중지했음을 나타냅니다.
+[토폴로지](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json)에서 신호 게이트 프로세서 노드의 활성화 설정(maximumActivationTime)을 검사하면 30초 동안 비디오를 보낸 후에 게이트가 닫히도록 설정되어 있음을 알 수 있습니다. RecordingStarted 이벤트가 시작되고 약 30초 후에 **Microsoft.Media.Graph.Operational.RecordingStopped** 유형의 이벤트가 표시됩니다. 이 이벤트는 자산 싱크 노드에서 비디오를 자산에 녹화하지 않도록 중지했음을 나타냅니다.
 
 ```
 [IoTHubMonitor] [5:54:15 PM] Message received from [lva-sample-device/lvaEdge]:

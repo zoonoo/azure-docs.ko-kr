@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 169a8dba979571a5f4b8c8056737fce72db1d058
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3baeb87bf3fe1cdcd5e9f27aed2587eed060c5a8
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629870"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064524"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 엔드포인트)
 
@@ -140,7 +140,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | ![이 이미지는 ASP.NET Core 로고를 표시](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)의 ASP.NET Core Web API(서비스) Azure 함수  |
 | ![이 이미지는 Python 로고를 표시](media/sample-v2-code/logo_python.png)</p>Python | [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)의 Web API(서비스) |
 | ![이 이미지는 Node.js 로고를 표시](media/sample-v2-code/logo_nodejs.png)</p>Node.js | [Node.js 및 passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)의 Web API(서비스) |
-| ![이 이미지는 Node.js 로고를 표시](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | [다음을 대신 사용한 NodeJS 및 passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions)의 Web API(서비스) |
+| ![이 이미지는 Node.js 로고를 표시](media/sample-v2-code/logo_nodejs.png)</p>Node.js | [다음을 대신 사용하는 Node.js 및 passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions)의 Web API(서비스) |
 
 ## <a name="other-microsoft-graph-samples"></a>다른 Microsoft Graph 샘플
 

@@ -11,16 +11,14 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: b0b415cce37e464abcba9fab5ad4c1196b1b2e1b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 8222f88f5118c4ac8f489bb05ee5ca2724dbf067
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033479"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184087"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
-
-
 
 이 고급 자습서에서는 [Azure Machine Learning 파이프라인](concept-ml-pipelines.md)을 빌드하여 일괄 처리 채점 작업을 실행하는 방법에 대해 알아봅니다. 기계 학습 파이프라인은 속도, 이식성 및 재사용을 통해 워크플로를 최적화하므로 인프라 및 자동화 대신 기계 학습에 집중할 수 있습니다. 파이프라인이 빌드되어 게시되면 모든 플랫폼의 모든 HTTP 라이브러리에서 해당 파이프라인을 트리거하는 데 사용할 수 있는 REST 엔드포인트를 구성합니다. 
 
@@ -79,26 +77,24 @@ def_data_store = ws.get_default_datastore()
 
 ## <a name="create-dataset-objects"></a>데이터 세트 개체 만들기
 
-파이프라인을 빌드하는 경우 `Dataset` 개체는 작업 영역 데이터 저장소에서 데이터를 읽는 데 사용되고, `PipelineData` 개체는 파이프라인 단계 간에 중간 데이터를 전송하는 데 사용됩니다.
+파이프라인을 빌드하는 경우 `Dataset` 개체는 작업 영역 데이터 저장소에서 데이터를 읽는 데 사용되고, `OutputFileDatasetConfig` 개체는 파이프라인 단계 간에 중간 데이터를 전송하는 데 사용됩니다.
 
 > [!Important]
 > 이 자습서의 일괄 처리 채점 예제에서는 하나의 파이프라인 단계만 사용합니다. 여러 단계가 있는 사용 사례의 일반적인 흐름에 포함되는 단계는 다음과 같습니다.
 >
-> 1. `Dataset` 개체를 *입력* 으로 사용하여 원시 데이터를 가져오고, 일부 변환을 수행한 다음, `PipelineData` 개체를 *출력* 합니다.
+> 1. `Dataset` 개체를 *입력* 으로 사용하여 원시 데이터를 가져오고 일부 변환을 수행한 다음, `OutputFileDatasetConfig` 개체로 *출력* 합니다.
 >
-> 2. 이전 단계의 `PipelineData` *출력 개체* 를 *입력 개체* 로 사용합니다. 이후 단계에서 이 작업을 반복합니다.
+> 2. 이전 단계의 `OutputFileDatasetConfig` *출력 개체* 를 *입력 개체* 로 사용합니다. 이후 단계에서 이 작업을 반복합니다.
 
-이 시나리오에서는 입력 이미지와 분류 레이블(y-test 값) 모두에 대한 데이터 저장소 디렉터리에 해당하는 `Dataset` 개체를 만듭니다. 일괄 처리 채점 출력 데이터에 대한 `PipelineData` 개체도 만듭니다.
+이 시나리오에서는 입력 이미지와 분류 레이블(y-test 값) 모두에 대한 데이터 저장소 디렉터리에 해당하는 `Dataset` 개체를 만듭니다. 일괄 처리 채점 출력 데이터에 대한 `OutputFileDatasetConfig` 개체도 만듭니다.
 
 ```python
 from azureml.core.dataset import Dataset
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
 input_images = Dataset.File.from_files((batchscore_blob, "batchscoring/images/"))
 label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/"))
-output_dir = PipelineData(name="scores", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="batchscoring/results")
+output_dir = OutputFileDatasetConfig(name="scores")
 ```
 
 나중에 다시 사용하려면 작업 영역에 데이터 세트를 등록합니다. 이 단계는 선택 사항입니다.
@@ -345,7 +341,7 @@ from azureml.core import Experiment
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
-pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline)
+pipeline_run = Experiment(ws, 'Tutorial-Batch-Scoring').submit(pipeline)
 pipeline_run.wait_for_completion(show_output=True)
 ```
 
@@ -409,7 +405,7 @@ import requests
 rest_endpoint = published_pipeline.endpoint
 response = requests.post(rest_endpoint, 
                          headers=auth_header, 
-                         json={"ExperimentName": "batch_scoring",
+                         json={"ExperimentName": "Tutorial-Batch-Scoring",
                                "ParameterAssignments": {"process_count_per_node": 6}})
 run_id = response.json()["Id"]
 ```
@@ -422,7 +418,7 @@ run_id = response.json()["Id"]
 from azureml.pipeline.core.run import PipelineRun
 from azureml.widgets import RunDetails
 
-published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
+published_pipeline_run = PipelineRun(ws.experiments["Tutorial-Batch-Scoring"], run_id)
 RunDetails(published_pipeline_run).show()
 ```
 

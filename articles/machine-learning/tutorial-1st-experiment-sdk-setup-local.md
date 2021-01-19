@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5df8b478c550522d4602398afd208c1e001c96a2
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 2f33fe4fafbe194238fcfbd4942807ed2fc4d6ff
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883302"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183543"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>자습서: 개발 환경에서 Azure Machine Learning 시작(1/4부)
 
@@ -32,30 +32,49 @@ ms.locfileid: "97883302"
 > * 컴퓨팅 클러스터 설정
 
 > [!NOTE]
-> 이 자습서 시리즈는 컴퓨팅 집약적이거나 재현 가능성이 필요한 Python *작업 기반* 기계 학습 작업에 적합한 Azure Machine Learning 개념을 중점적으로 다룹니다. 예비 워크플로에 더 관심이 있는 경우 [Azure Machine Learning 컴퓨팅 인스턴스의 Jupyter 또는 RStudio](tutorial-1st-experiment-sdk-setup.md)를 대신 사용할 수 있습니다.
+> 이 자습서 시리즈는 **일괄** 작업을 제출하는 데 필요한 Azure Machine Learning 개념에 중점을 두고 있습니다. 여기서 코드는 클라우드에 제출되어 사용자 상호 작용 없이 백그라운드에서 실행됩니다. 이는 반복적으로 실행할 완료된 스크립트 또는 코드, 또는 컴퓨팅 집약 기계 학습 작업에 유용합니다. 예비 워크플로에 더 관심이 있는 경우 [Azure Machine Learning 컴퓨팅 인스턴스의 Jupyter 또는 RStudio](tutorial-1st-experiment-sdk-setup.md)를 대신 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
-- Python 및 [Machine Learning 개념](concept-azure-machine-learning-architecture.md)에 대한 이해. 예를 들어 환경, 학습, 점수 매기기 등이 있습니다.
-- Visual Studio Code, Jupyter 및 PyCharm과 같은 로컬 개발 환경
-- Python(버전 3.5 ~ 3.7).
-
+- Python 가상 환경을 관리하고 패키지를 설치하는 [Anaconda](https://www.anaconda.com/download/) 또는 [Miniconda](https://www.anaconda.com/download/).
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Azure Machine Learning SDK 설치
 
-이 자습서에서는 Azure Machine Learning SDK for Python을 사용합니다.
+이 자습서에서는 Azure Machine Learning SDK for Python을 사용합니다. Python 종속성 문제를 방지하려면 분리된 환경을 만듭니다. 이 자습서 시리즈는 Conda를 사용하여 해당 환경을 만듭니다. `venv`, `virtualenv` 또는 docker와 같은 다른 솔루션을 사용하려면 Python 버전 3.5 이상, 3.9 이하를 사용해야 합니다.
 
-가장 친숙한 도구(예: Conda 및 pip)를 사용하여 이 자습서 전체에서 사용할 Python 환경을 설정할 수 있습니다. pip를 통해 Python용 Azure Machine Learning SDK를 Python 환경에 설치합니다.
+시스템에 Conda가 설치되어 있는지 확인합니다.
+    
+```bash
+conda --version
+```
+    
+이 명령이 `conda not found` 오류를 반환하면 [Miniconda를 다운로드하여 설치합니다](https://docs.conda.io/en/latest/miniconda.html). 
+
+Conda를 설치했으면 터미널 또는 Anaconda 프롬프트 창을 사용하여 새 환경을 만듭니다.
 
 ```bash
-pip install azureml-sdk
+conda create -n tutorial python=3.8
 ```
+
+다음으로, 만든 conda 환경에 Azure Machine Learning SDK를 설치합니다.
+
+```bash
+conda activate tutorial
+pip install azureml-core
+```
+    
+> [!NOTE]
+> Azure Machine Learning SDK 설치가 완료되는 데 약 2분이 소요됩니다.
+>
+> 시간 초과 오류가 발생하는 경우 `pip install --default-timeout=100 azureml-core`를 대신 사용해봅니다.
+
 
 > [!div class="nextstepaction"]
 > [SDK를 설치했습니다.](?success=install-sdk#dir) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
 
 ## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>코드에 대한 디렉터리 구조 만들기
+
 이 자습서에서는 다음과 같은 간단한 디렉터리를 설정하는 것이 좋습니다.
 
 ```markdown
@@ -68,8 +87,9 @@ tutorial
 
 > [!TIP]
 > 터미널 창에는 숨겨진 .azureml 하위 디렉터리를 만들 수 있습니다.  또는 다음을 사용합니다.
+>
 > * Mac Finder 창에서 **명령 + Shift +** 를 사용합니다. 점으로 시작하는 디렉터리를 보고 만들 수 있는 기능을 설정/해제합니다.  
-> * Windows 10에서는 [숨김 파일 및 폴더를 보는 방법](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5)을 참조하세요. 
+> * Windows 10 파일 탐색기에서 [숨김 파일 및 폴더를 보는 방법](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5)을 참조하세요. 
 > * Linux 그래픽 인터페이스에서 **Ctrl + h** 또는 **보기** 메뉴를 사용하고 **숨김 파일 표시** 확인란을 선택합니다.
 
 > [!div class="nextstepaction"]
@@ -104,7 +124,7 @@ ws = Workspace.create(name='<my_workspace_name>', # provide a name for your work
 ws.write_config(path='.azureml')
 ```
 
-`tutorial` 디렉터리에서 다음 코드를 실행합니다.
+활성화된 *tutorial1* conda 환경이 있는 창에서 `tutorial` 디렉토리에서 이 코드를 실행합니다.
 
 ```bash
 cd <path/to/tutorial>
@@ -163,7 +183,7 @@ except ComputeTargetException:
 cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-Python 파일을 실행합니다.
+활성화된 *tutorial1* conda 환경이 있는 창에서 Python 파일을 실행합니다.
 
 ```bash
 python ./02-create-compute.py
@@ -185,6 +205,19 @@ tutorial
 
 > [!div class="nextstepaction"]
 > [컴퓨팅 클러스터를 만들었습니다.](?success=create-compute-cluster#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
+
+## <a name="view-in-the-studio"></a>스튜디오에서 보기
+
+[Azure Machine Learning Studio](https://ml.azure.com)에 로그인하여 만든 작업 영역 및 컴퓨팅 인스턴스를 확인합니다.
+
+1. 작업 영역을 만드는 데 사용한 **구독** 을 선택합니다.
+1. 만든 **Machine Learning 작업 영역**, *tutorial-ws* 를 선택합니다.
+1. 작업 영역이 로드되면 왼쪽에서 **컴퓨팅** 을 선택합니다.
+1. 상단에서 **컴퓨팅 클러스터** 탭을 선택합니다.
+
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/compute-instance-in-studio.png" alt-text="스크린샷: 작업 영역에서 컴퓨팅 인스턴스를 봅니다.":::
+
+이 보기는 유휴 노드, 사용 중인 노드 및 프로비저닝되지 않은 노드의 수와 함께 프로비저닝된 컴퓨팅 클러스터를 표시합니다.  아직 클러스터를 사용하지 않았으므로 현재 모든 노드가 프로비저닝되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

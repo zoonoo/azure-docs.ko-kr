@@ -3,12 +3,12 @@ title: 공간 분석을 위해 Computer Vision을 사용하여 라이브 비디�
 description: 이 자습서에서는 Azure Cognitive Services에서 Computer Vision 공간 분석 AI 기능과 함께 Live Video Analytics를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하는 방법을 보여 줍니다.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5cebedec11b91f5b0b94df25a860da3d517bb997
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5b979bfeb6961b285cfeb2287888d8f157608d96
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400535"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060183"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>공간 분석을 위해 Computer Vision을 사용하여 라이브 비디오 분석(미리 보기)
 
@@ -166,7 +166,7 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
 다음 단계에 따라 템플릿 파일에서 매니페스트를 생성한 다음, 에지 디바이스에 배포합니다.
 
 1. Visual Studio Code를 엽니다.
-1. AZURE IOT HUB 창 옆에 있는 추가 작업 아이콘을 선택하여 IoT Hub 연결 문자열을 설정합니다. src/cloud-to-device-console-app/appsettings.json 파일에서 문자열을 복사할 수 있습니다.
+1. AZURE IOT HUB 창 옆에 있는 추가 작업 아이콘을 선택하여 IoT Hub 연결 문자열을 설정합니다. `src/cloud-to-device-console-app/appsettings.json` 파일에서 문자열을 복사할 수 있습니다.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="공간 분석: 연결 문자열":::
@@ -222,13 +222,13 @@ src/cloud-to-device-console-app/operations.json에서 직접 메서드를 호출
 
 operations.json:
 
-* 다음과 같이 토폴로지를 설정합니다(로컬 토폴로지는 topologyFile, 온라인 토폴로지는 topologyUrl).
+* 다음과 같이 토폴로지를 설정합니다.
 
 ```json
 {
     "opName": "GraphTopologySet",
     "opParams": {
-        "topologyFile": "../edge/spatialAnalysisTopology.json"
+        "topologyUrl": "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/2.0/topology.json"
     }
 },
 ```
@@ -261,17 +261,6 @@ operations.json:
     }
 },
 ```
-* 그래프 토폴로지의 링크를 변경합니다.
-
-`topologyUrl` : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/topology.json"
-
-**GraphInstanceSet** 에서 이전 링크의 값과 일치하도록 그래프 토폴로지의 이름을 편집합니다.
-
-`topologyName`: InferencingWithCVExtension
-
-**GraphTopologyDelete** 에서 이름을 편집합니다.
-
-`name`: InferencingWithCVExtension
 
 >[!Note]
 MediaGraphRealTimeComputerVisionExtension을 사용하여 공간 분석 모듈에 연결하는지 확인합니다. ${grpcUrl}을 **tcp://spatialAnalysis:<PORT_NUMBER>** (예: tcp://spatialAnalysis:50051)로 설정합니다.
@@ -281,40 +270,51 @@ MediaGraphRealTimeComputerVisionExtension을 사용하여 공간 분석 모듈�
     "@type": "#Microsoft.Media.MediaGraphCognitiveServicesVisionExtension",
     "name": "computerVisionExtension",
     "endpoint": {
-    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
-    "url": "${grpcUrl}",
-    "credentials": {
-        "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-        "username": "${spatialanalysisusername}",
-        "password": "${spatialanalysispassword}"
-    }
+        "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+        "url": "${grpcUrl}",
+        "credentials": {
+            "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+            "username": "${spatialanalysisusername}",
+            "password": "${spatialanalysispassword}"
+        }
     },
     "image": {
-    "scale": {
-        "mode": "pad",
-        "width": "1408",
-        "height": "786"
+        "scale": {
+            "mode": "pad",
+            "width": "1408",
+            "height": "786"
+        },
+        "format": {
+            "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
+            "pixelFormat": "bgr24"
+        }
     },
-    "format": {
-        "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
-        "pixelFormat": "bgr24"
-    }
+    "samplingOptions": {
+        "skipSamplesWithoutAnnotation": "false",
+        "maximumSamplesPerSecond": "20"
     },
     "inputs": [
-    {
-        "nodeName": "frameRateFilter"
-    }
+        {
+            "nodeName": "rtspSource",
+            "outputSelectors": [
+                {
+                    "property": "mediaType",
+                    "operator": "is",
+                    "value": "video"
+                }
+            ]
+        }
     ]
 }
 ```
 
-디버그 세션을 실행하고 TERMINAL 지침에 따라 토폴로지를 설정하고, 그래프 인스턴스를 설정하고, 그래프 인스턴스를 활성화하고, 마지막으로 리소스를 삭제합니다.
+디버그 세션을 실행하고 **TERMINAL** 지침에 따라 토폴로지를 설정하고, 그래프 인스턴스를 설정하고, 그래프 인스턴스를 활성화하고, 마지막으로 리소스를 삭제합니다.
 
 ## <a name="interpret-results"></a>결과 해석
 
 미디어 그래프가 인스턴스화되면 "MediaSessionEstablished" 이벤트(여기서는 [sample MediaSessionEstablished event](detect-motion-emit-events-quickstart.md#mediasessionestablished-event))가 표시됩니다.
 
-또한 공간 분석 모듈은 AI 인사이트 이벤트를 Live Video Analytics로 전송한 다음 IoTHub로 전송하여 OUTPUT에 표시합니다. ENTITY는 검색 개체이고 EVENT는 spaceanalytics 이벤트입니다. 이 출력은 Live Video Analytics로 전달됩니다.
+또한 공간 분석 모듈은 AI 인사이트 이벤트를 Live Video Analytics로 전송한 다음, IoTHub로 전송하여 **OUTPUT** 에 표시합니다. ENTITY는 검색 개체이고 EVENT는 spaceanalytics 이벤트입니다. 이 출력은 Live Video Analytics로 전달됩니다.
 
 personZoneEvent에 대한 샘플 출력(cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics 작업):
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 36fb54b4b6521d87c7461936c84a644bf22f7e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683501"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963966"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>자습서: 배포 스크립트를 사용하여 자체 서명된 인증서 만들기
 
@@ -329,13 +329,13 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
 
     ![Resource Manager 템플릿 배포 스크립트 리소스](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
-    두 파일에는 모두 **azscripts** 접미사가 있습니다. 하나는 스토리지 계정이고, 다른 하나는 컨테이너 인스턴스입니다.
+    두 파일에는 모두 _azscripts_ 접미사가 있습니다. 하나는 스토리지 계정이고, 다른 하나는 컨테이너 인스턴스입니다.
 
     **숨겨진 형식 표시** 를 선택하여 `deploymentScripts` 리소스를 나열합니다.
 
-1. **azscripts** 접미사가 있는 스토리지 계정을 선택합니다.
-1. **파일 공유** 타일을 선택합니다. **azscripts** 폴더가 표시됩니다. 이 폴더에는 배포 스크립트 실행 파일이 포함되어 있습니다.
-1. **azscripts** 를 선택합니다. **azscriptinput** 및 **azscriptoutput** 의 두 폴더가 표시됩니다. 입력 폴더에는 시스템 PowerShell 스크립트 파일과 사용자 배포 스크립트 파일이 포함되어 있습니다. 출력 폴더에는 _executionresult.json_ 및 스크립트 출력 파일이 포함되어 있습니다. _executionresult.json_ 에서 오류 메시지를 볼 수 있습니다. 실행이 실패하여 출력 파일이 없습니다.
+1. _azscripts_ 접미사가 있는 스토리지 계정을 선택합니다.
+1. **파일 공유** 타일을 선택합니다. 배포 스크립트 실행 파일이 포함된 _azscripts_ 폴더가 표시됩니다.
+1. _azscripts_ 를 선택합니다. _azscriptinput_ 및 _azscriptoutput_ 의 두 폴더가 표시됩니다. 입력 폴더에는 시스템 PowerShell 스크립트 파일과 사용자 배포 스크립트 파일이 포함되어 있습니다. 출력 폴더에는 _executionresult.json_ 및 스크립트 출력 파일이 포함되어 있습니다. _executionresult.json_ 에서 오류 메시지를 볼 수 있습니다. 실행이 실패하여 출력 파일이 없습니다.
 
 `Write-Output1` 줄을 제거하고, 해당 템플릿을 다시 배포합니다.
 

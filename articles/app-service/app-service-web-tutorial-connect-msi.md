@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 1f6757a9f78e3c400d92fd65a0795ceae7570c99
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f043f7ed63353dcb9cf9fd26690da97b902f32a6
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347577"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108622"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -229,6 +229,9 @@ GO
 > [!NOTE]
 > 또한 관리 ID의 백 엔드 서비스는 만료된 경우에만 대상 리소스에 대한 토큰을 업데이트하는 [토큰 캐시를 유지 관리](overview-managed-identity.md#obtain-tokens-for-azure-resources)합니다. SQL Database 사용 권한을 구성하는 실수를 하고 앱을 사용하여 토큰을 가져오려고 시도한 *후* 에 사용 권한을 수정하려고 하는 경우 캐시된 토큰이 만료될 때까지 실제로 업데이트된 권한으로 새 토큰을 얻을 수 없습니다.
 
+> [!NOTE]
+> AAD는 온-프레미스 SQL Server에서 지원되지 않으며 MSI를 포함합니다. 
+
 ### <a name="modify-connection-string"></a>연결 문자열 수정
 
 *Web.config* 또는 *appsettings.json* 에서 변경한 내용은 관리 ID와 함께 작동하므로 Visual Studio가 처음으로 앱을 배포할 때 만든 기존 연결 문자열을 App Service에서 제거하기만 하면 됩니다. 다음 명령을 사용하되 *\<app-name>* 을 앱의 이름으로 바꾸어 사용합니다.
@@ -251,7 +254,7 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 새 웹 페이지에 할 일 목록이 표시되면 앱이 관리 ID를 사용하여 데이터베이스에 연결합니다.

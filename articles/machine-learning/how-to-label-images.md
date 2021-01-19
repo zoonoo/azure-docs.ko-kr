@@ -9,16 +9,16 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: f14e120fb7373cc80b9d6e23f155dd964b37a551
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: eb8c69a6bf009543e104a472469c243638726f60
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347968"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060370"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정 
 
-프로젝트 관리자가 Azure Machine Learning에서 [레이블 지정 프로젝트를 만든](./how-to-create-labeling-projects.md#create-a-labeling-project) 후에는 레이블 지정 도구를 사용하여 Machine Learning 프로젝트에 사용할 데이터를 빠르게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
+프로젝트 관리자가 Azure Machine Learning에서 [데이터 레이블 지정 프로젝트를 만든](./how-to-create-labeling-projects.md#create-a-data-labeling-project) 후에는 레이블 지정 도구를 사용하여 Machine Learning 프로젝트에 사용할 데이터를 빠르게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
 
 > [!div class="checklist"]
 > * 레이블 지정 프로젝트에 액세스하는 방법

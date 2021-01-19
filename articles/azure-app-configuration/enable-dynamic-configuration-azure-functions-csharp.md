@@ -15,16 +15,16 @@ ms.date: 11/17/2019
 ms.author: zhenlwa
 ms.custom: devx-track-csharp, azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: e603aa8ba85fdd214c04de515f405bcf9028791e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: add4b54adb02db09536f4e56a7f039c46245c182
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207100"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963566"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>자습서: Azure Functions 앱에서 동적 구성 사용
 
-App Configuration .NET 표준 구성 공급자는 애플리케이션 작업 기반의 구성을 동적으로 캐싱하고 새로 고치는 것을 지원합니다. 이 자습서에서는 코드에서 동적 구성 업데이트를 구현하는 방법을 보여줍니다. 빠른 시작에서 소개한 Azure Functions 앱을 기반으로 합니다. 계속 진행하기 전에, 먼저 [Azure App Configuration을 사용하여 Azure Functions 앱 만들기](./quickstart-azure-functions-csharp.md)를 완료합니다.
+App Configuration .NET 구성 공급자는 애플리케이션 작업 기반의 구성을 동적으로 캐싱하고 새로 고치는 것을 지원합니다. 이 자습서에서는 코드에서 동적 구성 업데이트를 구현하는 방법을 보여줍니다. 빠른 시작에서 소개한 Azure Functions 앱을 기반으로 합니다. 계속 진행하기 전에, 먼저 [Azure App Configuration을 사용하여 Azure Functions 앱 만들기](./quickstart-azure-functions-csharp.md)를 완료합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -41,44 +41,71 @@ App Configuration .NET 표준 구성 공급자는 애플리케이션 작업 기�
 
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
 
-1. *Function1.cs* 파일을 엽니다. `static` 속성 `Configuration` 외에도, 나중에 Functions 호출 중에 구성 업데이트 신호를 보내는 데 사용할 `IConfigurationRefresher`의 싱글톤 인스턴스를 유지하도록 새 `static` 속성 `ConfigurationRefresher`를 추가합니다.
+1. *Startup.cs* 를 열고 `ConfigureAppConfiguration` 메서드를 업데이트합니다. 
+
+   `ConfigureRefresh` 메서드는 애플리케이션 내에서 새로 고침이 트리거될 때마다 변경 내용을 확인할 설정을 등록합니다. 이 작업은 이후 단계에서 `_configurationRefresher.TryRefreshAsync()`를 추가할 때 수행합니다. `refreshAll` 매개 변수는 등록된 설정에서 변경 내용이 검색될 때마다 App Configuration 공급자에게 전체 구성을 다시 로드하도록 지시합니다.
+
+    새로 고침을 위해 등록된 모든 설정의 기본 캐시 만료 시간은 30초입니다. `AzureAppConfigurationRefreshOptions.SetCacheExpiration` 메서드를 호출하여 업데이트할 수 있습니다.
 
     ```csharp
-    private static IConfiguration Configuration { set; get; }
-    private static IConfigurationRefresher ConfigurationRefresher { set; get; }
-    ```
-
-2. 생성자를 업데이트하고 `ConfigureRefresh` 메서드를 사용하여 App Configuration 저장소에서 새로 고칠 설정을 지정합니다. `IConfigurationRefresher` 인스턴스는 `GetRefresher` 메서드를 사용하여 검색됩니다. 필요에 따라 구성 캐시 만료 시간을 기본값인 30초에서 1분으로 변경합니다.
-
-    ```csharp
-    static Function1()
+    public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
     {
-        var builder = new ConfigurationBuilder();
-        builder.AddAzureAppConfiguration(options =>
+        builder.ConfigurationBuilder.AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                   // Load all keys that start with `TestApp:`
+                   .Select("TestApp:*")
+                   // Configure to reload configuration if the registered 'Sentinel' key is modified
                    .ConfigureRefresh(refreshOptions =>
-                        refreshOptions.Register("TestApp:Settings:Message")
-                                      .SetCacheExpiration(TimeSpan.FromSeconds(60))
-            );
-            ConfigurationRefresher = options.GetRefresher();
+                      refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
         });
-        Configuration = builder.Build();
     }
     ```
 
-3. Functions 호출을 시작할 때 `Run` 메서드를 업데이트하고 `TryRefreshAsync` 메서드를 사용하여 구성을 새로 고치도록 신호를 보냅니다. 이 동작은 캐시 만료 시간이 되기 전에는 작동하지 않습니다. 차단하지 않고 구성을 새로 고치려면 `await` 연산자를 제거합니다.
+   > [!TIP]
+   > App Configuration에서 여러 키 값을 업데이트하는 경우에는 일반적으로 애플리케이션이 모든 변경 작업을 수행하기 전에 구성을 다시 로드하지 않도록 합니다. **센티널** 키를 등록하고 다른 모든 구성 변경을 완료한 경우에만 업데이트할 수 있습니다. 이렇게 하면 애플리케이션에서 구성의 일관성을 유지할 수 있습니다.
+
+2. 종속성 주입을 통해 Azure App Configuration 서비스를 사용할 수 있도록 하려면 `Configure` 메서드를 업데이트합니다.
 
     ```csharp
-    public static async Task<IActionResult> Run(
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        builder.Services.AddAzureAppConfiguration();
+    }
+    ```
+
+3. *Function1.cs* 를 열고 다음 네임스페이스를 추가합니다.
+
+    ```csharp
+    using System.Linq;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
+
+   생성자를 업데이트하여 `IConfigurationRefresher`의 인스턴스를 가져올 수 있는 종속성 주입을 통해 `IConfigurationRefresherProvider`의 인스턴스를 가져옵니다.
+
+    ```csharp
+    private readonly IConfiguration _configuration;
+    private readonly IConfigurationRefresher _configurationRefresher;
+
+    public Function1(IConfiguration configuration, IConfigurationRefresherProvider refresherProvider)
+    {
+        _configuration = configuration;
+        _configurationRefresher = refresherProvider.Refreshers.First();
+    }
+    ```
+
+4. Functions 호출을 시작할 때 `Run` 메서드를 업데이트하고 `TryRefreshAsync` 메서드를 사용하여 구성을 새로 고치도록 신호를 보냅니다. 이는 캐시 만료 시간 범위에 도달해야만 작동합니다. 현재 Functions 호출을 차단하지 않고 구성을 새로 고치려면 `await` 연산자를 제거합니다. 이 경우 이후 Functions 호출에서 업데이트된 값을 가져옵니다.
+
+    ```csharp
+    public async Task<IActionResult> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, ILogger log)
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        await ConfigurationRefresher.TryRefreshAsync(); 
+        await _configurationRefresher.TryRefreshAsync(); 
 
         string keyName = "TestApp:Settings:Message";
-        string message = Configuration[keyName];
+        string message = _configuration[keyName];
             
         return message != null
             ? (ActionResult)new OkObjectResult(message)
@@ -88,7 +115,7 @@ App Configuration .NET 표준 구성 공급자는 애플리케이션 작업 기�
 
 ## <a name="test-the-function-locally"></a>로컬에서 함수 테스트
 
-1. **ConnectionString**이라는 환경 변수를 설정하고, 앱 구성 저장소에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
+1. **ConnectionString** 이라는 환경 변수를 설정하고, 앱 구성 저장소에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
     ```console
     setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -112,23 +139,31 @@ App Configuration .NET 표준 구성 공급자는 애플리케이션 작업 기�
 
     ![VS에서 빠른 시작 함수 디버깅](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. HTTP 요청에 대한 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. 다음 이미지에서는 함수에서 반환된 로컬 GET 요청에 대한 브라우저의 응답을 보여 줍니다.
+4. 브라우저의 주소 표시줄에 HTTP 요청에 대한 URL을 붙여 넣습니다. 다음 이미지에서는 함수에서 반환된 로컬 GET 요청에 대한 브라우저의 응답을 보여 줍니다.
 
     ![빠른 시작 함수 로컬 시작](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-5. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
+5. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스** 를 선택하고, 빠른 시작에서 만든 App Configuration 저장소를 선택합니다.
 
-6. **구성 탐색기**를 선택하고, 다음 키의 값을 업데이트합니다.
+6. **구성 탐색기** 를 선택하고, 다음 키의 값을 업데이트합니다.
 
     | 키 | 값 |
     |---|---|
     | TestApp:Settings:Message | Azure App Configuration의 데이터 - 업데이트됨 |
 
-7. 브라우저를 몇 번 새로 고칩니다. 캐시된 설정이 1분 후 만료되면 페이지에 업데이트된 값이 있는 Functions 호출의 응답이 표시됩니다.
+   그런 다음, 예를 들어 센티널 키를 만들거나 이미 있는 경우 해당 값을 수정합니다.
+
+    | 키 | 값 |
+    |---|---|
+    | TestApp:Settings:Sentinel | v1 |
+
+
+7. 브라우저를 몇 번 새로 고칩니다. 캐시된 설정이 30초 후에 만료되면 페이지에 업데이트된 값이 있는 Functions 호출의 응답이 표시됩니다.
 
     ![빠른 시작 함수 새로 고침 로컬](./media/quickstarts/dotnet-core-function-refresh-local.png)
 
-이 자습서에 사용된 예제 코드는 [App Configuration GitHub 리포지토리](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction)에서 다운로드할 수 있습니다.
+> [!NOTE]
+> 이 자습서에 사용된 예제 코드는 [App Configuration GitHub 리포지토리](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction)에서 다운로드할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

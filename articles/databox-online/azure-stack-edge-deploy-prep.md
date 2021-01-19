@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/11/2020
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3943caba5249432b3a0a4b7c2e63b2b818e2b7a1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575706"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968501"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro 배포 준비  
 
@@ -150,11 +150,11 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
 Azure Stack Edge 리소스가 가동되면 활성화 키를 가져와야 합니다. 이 키는 Azure Stack Edge Pro 디바이스를 활성화하고 리소스와 연결하는 데 사용됩니다. 이제 Azure Portal에서 이 키를 얻을 수 있습니다.
 
-1. 만든 리소스의 이름을 선택합니다. **개요** 를 선택한 다음, **디바이스 설정** 을 선택합니다.
+1. 사용자가 만든 리소스로 이동하여 **개요** 를 선택합니다. 주문이 처리 중이라는 알림이 표시됩니다.
 
-    ![디바이스 설정 선택](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![개요 선택](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
 
-2. **활성화** 타일에서 **키 생성** 을 선택하여 활성화 키를 만듭니다. 복사 아이콘을 선택하여 키를 복사하고 나중에 사용할 수 있도록 저장합니다.
+2. 주문이 처리되고 디바이스가 사용 중이면 **개요** 가 업데이트됩니다. 기본 **Azure Key Vault 이름** 을 적용하거나 새 이름을 입력합니다. **활성화 키 생성** 을 선택합니다. 복사 아이콘을 선택하여 키를 복사하고 나중에 사용할 수 있도록 저장합니다.
 
     ![활성화 키 가져오기](media/azure-stack-edge-deploy-prep/get-activation-key.png)
 
