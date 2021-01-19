@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: aac949de0b0ae1f085187c1b5e1f3b64d8edad03
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c0f4f1d7f0213ad24d25d8d34235475bbdb0316a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233817"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567101"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -163,6 +163,8 @@ Azure Migrate:Server Migration은 복제 어플라이언스를 사용하여 머�
     - 복제 어플라이언스에서 암호를 가져올 수 있습니다. 명령줄에서 **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** 를 실행하여 현재 암호를 확인합니다.
     - 암호는 다시 생성하지 않습니다. 다시 생성하는 경우 연결이 끊어지므로 복제 어플라이언스를 다시 등록해야 합니다.
 
+> [!NOTE]
+> */Platform* 매개 변수에서 VMware VM 또는 물리적 컴퓨터를 마이그레이션하는 경우 *VMware* 를 지정합니다.
 
 ### <a name="install-on-windows"></a>Windows에 설치
 
