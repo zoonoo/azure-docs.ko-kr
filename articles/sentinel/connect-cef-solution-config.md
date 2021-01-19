@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 36c832e198d7b6e9a6c3f6ddc19ad87c87917f38
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: 80e5cc18888b0e014fc1f617ca27dee05146472e
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541277"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567671"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>2 단계: CEF 메시지를 보내도록 보안 솔루션 구성
 
@@ -41,6 +41,7 @@ ms.locfileid: "98541277"
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
+- [Thycotic Secret 서버](connect-thycotic-secret-server.md)
 - [Trend Micro Deep Security](connect-trend-micro.md)
 - [추세 마이크로 TippingPoint](connect-trend-micro-tippingpoint.md)
 - [WireX 네트워크 법률 분석 플랫폼](connect-wirex-systems.md)
@@ -64,7 +65,7 @@ ms.locfileid: "98541277"
 > [!NOTE]
 > **TimeGenerated 필드의 원본 변경**
 >
-> - 기본적으로 Log Analytics 에이전트는 스키마의 *Timegenerated* 필드를 Syslog 디먼에서 에이전트가 이벤트를 받은 시간으로 채웁니다. 따라서 원본 시스템에서 이벤트가 생성 된 시간은 Azure 센티널에 기록 되지 않습니다.
+> - 기본적으로 Log Analytics 에이전트는 스키마의 *Timegenerated* 필드를 Syslog 디먼에서 에이전트가 이벤트를 받은 시간으로 채웁니다. 따라서 원본 시스템에서 이벤트가 생성된 시간은 Azure Sentinel에 기록되지 않습니다.
 >
 > - 그러나 스크립트를 다운로드 하 여 실행 하는 다음 명령을 실행할 수 있습니다 `TimeGenerated.py` . 이 스크립트는 에이전트에서 수신 된 시간 대신 원본 시스템에서 *Timegenerated* 필드를 이벤트의 원래 시간으로 채우도록 Log Analytics 에이전트를 구성 합니다.
 >

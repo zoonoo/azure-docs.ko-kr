@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28abb9f09e3bca2522b959c6a9b890de5320b17a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089654"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567450"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Azure 센티널에 Infoblox NIOS 연결
 
@@ -34,11 +34,11 @@ ms.locfileid: "87089654"
 
 ## <a name="forward-infoblox-logs-to-the-syslog-agent"></a>Syslog 에이전트에 Infoblox 로그 전달  
 
-Syslog 에이전트를 통해 Azure 작업 영역에 Syslog 메시지를 전달 하도록 Infoblox를 구성 합니다.
+Syslog 에이전트를 통해 Azure 센티널 작업 영역에 Syslog 메시지를 전달 하도록 Infoblox를 구성 합니다.
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **Infoblox NIOS** connector를 선택 합니다.
 
-1. **커넥터 페이지 열기**를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택 합니다.
 
 1. **Infoblox NIOS** 페이지의 지침을 따릅니다.
 
@@ -48,7 +48,7 @@ Syslog 에이전트를 통해 Azure 작업 영역에 Syslog 메시지를 전달 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다. 
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

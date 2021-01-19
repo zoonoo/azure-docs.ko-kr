@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 01/15/2021
-ms.openlocfilehash: 8c2739503f00848b1515f2061c2a9aa250c091a3
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.date: 01/18/2021
+ms.openlocfilehash: f802292d9723179b36d5291993bd4e07487fe6a8
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539844"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567399"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>가상 컴퓨터 인증 문제 해결
 
@@ -70,7 +70,7 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면:
 
 ### <a name="conectix-cookie-and-other-vhd-specifications"></a>Conectix 쿠키 및 기타 VHD 사양
 
-' Conectix ' 문자열은 VHD 사양의 일부입니다. 이 파일은 VHD 바닥글에서 파일 작성자를 식별 하는 8 바이트 쿠키로 정의 됩니다. Microsoft에서 만든 모든 VHD 파일에는이 쿠키가 있습니다. 
+' Conectix ' 문자열은 VHD 사양의 일부입니다. 이 파일은 VHD 바닥글에서 파일 작성자를 식별 하는 8 바이트 쿠키로 정의 됩니다. Microsoft에서 만든 모든 VHD 파일에는이 쿠키가 있습니다.
 
 VHD 형식 blob의 경우 다음 형식으로 512 바이트 바닥글이 있어야 합니다.
 
@@ -238,7 +238,7 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 - CVE-2019-11478
 - CVE-2019-11479
 
-|OS 제품군|버전|커널|
+|OS 제품군|Version|커널|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0| 
 ||14.04 LTS|4.15.0-1049- \* -azure|
@@ -311,14 +311,14 @@ Azure의 모든 Vhd에는 1 메가바이트 (MB)의 배수로 크기를 맞춘 �
 
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드 하는 경우 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
-|시나리오|오류|이유|솔루션|
-|---|---|---|---|
-|1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
-|2|사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
-|3|잘못 된 SAS URL|VHD에 연결 된 SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
-|4|잘못 된 서명|VHD에 연결 된 SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
-|6|HTTP 조건부 헤더|SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
-|7|잘못 된 VHD 이름|% 기호 또는 따옴표와 같은 특수 문자가 `%` `"` VHD 이름에 있는지 확인 하십시오.|특수 문자를 제거 하 여 VHD 파일의 이름을 바꿉니다.|
+|오류|이유|솔루션|
+|---|---|---|
+|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
+|사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
+|잘못 된 SAS URL|VHD에 연결 된 SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
+|잘못 된 서명|VHD에 연결 된 SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
+|HTTP 조건부 헤더|SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
+|잘못 된 VHD 이름|% 기호 또는 따옴표와 같은 특수 문자가 `%` `"` VHD 이름에 있는지 확인 하십시오.|특수 문자를 제거 하 여 VHD 파일의 이름을 바꿉니다.|
 |
 
 ## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>첫 1mb (2048 섹터, 512 바이트의 각 섹터) 파티션
@@ -558,7 +558,7 @@ Bash 기록을 삭제 하려면:
 
 #### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>새 VM 이미지를 제공 하 여 보안 취약성 또는 악용을 해결 합니다.
 
-이러한 단계를 완료 하려면 추가 하려는 VM 이미지에 대 한 기술 자산을 준비 합니다. 자세한 내용은 [승인 된 기본을 사용 하 여 가상 머신 만들기](azure-vm-create-using-approved-base.md)또는 [고유한 이미지를 사용 하 여 가상 머신](azure-vm-create-using-own-image.md) 만들기 및 [VM 이미지에 대 한 SAS URI 생성](azure-vm-get-sas-uri.md)을 참조 하세요.
+이러한 단계를 완료 하려면 추가 하려는 VM 이미지에 대 한 기술 자산을 준비 합니다. 자세한 내용은 [승인 된 기본을 사용 하 여 가상 머신 만들기](azure-vm-create-using-approved-base.md) 또는 [고유한 이미지를 사용 하 여 가상 머신](azure-vm-create-using-own-image.md) 만들기 및 [VM 이미지에 대 한 SAS URI 생성](azure-vm-get-sas-uri.md)을 참조 하세요.
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 왼쪽 창에서 **상업용 마켓플레이스**  >  **개요** 를 선택 합니다.

@@ -6,16 +6,16 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c2a6a88e9f730e17c929cf7949352448903435f6
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 730d12558e413d96909914d06187d0d5f89ec661
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118458"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567529"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>고객 관리형 키를 사용하여 Azure Database for PostgreSQL Single 서버 데이터 암호화
 
-Azure PostgreSQL는 기본적으로 Microsoft 관리 키를 사용 하 여 미사용 데이터를 암호화 하는 [Azure Storage 암호화](../storage/common/storage-service-encryption.md) 를 활용 합니다. Azure PostgreSQL 사용자의 경우 SQL Server와 같은 다른 데이터베이스의 TDE (투명 한 데이터 Encruption)와 매우 비슷합니다. 많은 조직에서 고객이 관리 하는 키를 사용 하 여 데이터에 대 한 액세스를 완벽 하 게 제어 해야 합니다. Azure Database for PostgreSQL Single 서버 데이터에 고객 관리형 키를 사용한 암호화를 적용하면 저장 데이터 보호에 BYOK(Bring Your Own Key)를 사용할 수 있습니다. 또한 조직이 키 및 데이터 관리에서 업무 분리를 구현할 수도 있습니다. 고객 관리 암호화를 사용하여 사용자가 키 수명 주기, 키 사용 권한 및 키 작업 감사를 담당합니다.
+Azure PostgreSQL는 기본적으로 Microsoft 관리 키를 사용 하 여 미사용 데이터를 암호화 하는 [Azure Storage 암호화](../storage/common/storage-service-encryption.md) 를 활용 합니다. Azure PostgreSQL 사용자의 경우 SQL Server와 같은 다른 데이터베이스의 TDE (투명한 데이터 암호화)와 매우 비슷합니다. 많은 조직에서 고객이 관리 하는 키를 사용 하 여 데이터에 대 한 액세스를 완벽 하 게 제어 해야 합니다. Azure Database for PostgreSQL Single 서버 데이터에 고객 관리형 키를 사용한 암호화를 적용하면 저장 데이터 보호에 BYOK(Bring Your Own Key)를 사용할 수 있습니다. 또한 조직이 키 및 데이터 관리에서 업무 분리를 구현할 수도 있습니다. 고객 관리 암호화를 사용하여 사용자가 키 수명 주기, 키 사용 권한 및 키 작업 감사를 담당합니다.
 
 고객 관리형 키를 사용한 Azure Database for PostgreSQL Single 서버 데이터의 암호화는 서버 수준에서 설정됩니다. 특정 서버에 대해 KEK(키 암호화 키)라고 하는 고객 관리형 키를 사용하여 서비스에 사용되는 DEK(데이터 암호화 키)를 암호화합니다. KEK는 고객이 소유하고 관리하는 [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) 인스턴스에 저장되는 비대칭 키입니다. KEK(키 암호화 키) 및 DEK(데이터 암호화 키)에 대한 자세한 내용은 이 문서의 뒷부분에서 설명합니다.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: c95f8b9e4466b22519a4dea580a86a0dcda83857
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3ba43b83166b5548dee4ea4e52c7411db48d23f5
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555936"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567275"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Azure Synapse Analytics 등록 및 검사
 
@@ -34,7 +34,7 @@ Azure 부서의 범위는 Azure Synapse Analytics에서 [보기](/sql/relational
  
 ## <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
 
-Azure blob 저장소에 대 한 인증을 설정 하는 방법에는 다음 세 가지가 있습니다.
+Azure Synapse Analytics에 대 한 인증을 설정 하는 방법에는 다음 세 가지가 있습니다.
 
 - 관리 ID
 - SQL 인증

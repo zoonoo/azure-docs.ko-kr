@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e294423e3f078253984dc4fcd8695c2676abb236
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: cffc41264dfa30fd833aef465a13abc799334b2f
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541260"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567470"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
@@ -77,8 +77,10 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
     - [Okta SSO](connect-okta-single-sign-on.md)
     - [Orca Security](connect-orca-security-alerts.md)
     - [Perimeter 81 로그](connect-perimeter-81-logs.md)
+    - [POD (proofpoint on demand On Demand) 전자 메일 보안](connect-proofpoint-pod.md)
     - [Proofpoint TAP](connect-proofpoint-tap.md)
     - [Qualys VM](connect-qualys-vm.md)
+    - [Salesforce 서비스 클라우드](connect-salesforce-service-cloud.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
@@ -104,15 +106,19 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
         - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
         - [One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
+        - [Thycotic Secret 서버](connect-thycotic-secret-server.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
         - [추세 마이크로 TippingPoint](connect-trend-micro-tippingpoint.md)
         - [WireX 네트워크 법률 분석 플랫폼](connect-wirex-systems.md)
         - [Zscaler](connect-zscaler.md)
         - [기타 CEF 기반 어플라이언스](connect-common-event-format.md)
     - **방화벽, 프록시 및 끝점-Syslog:**
+        - [Cisco UCS (통합 컴퓨팅 시스템)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
+        - [Juniper SRX](connect-juniper-srx.md)
         - [Pulse Connect Secure](connect-pulse-connect-secure.md)
         - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Squid 프록시](connect-squid-proxy.md)
         - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
         - [기타 Syslog 기반 어플라이언스](connect-syslog.md)

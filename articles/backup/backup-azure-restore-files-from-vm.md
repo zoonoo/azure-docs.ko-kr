@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b4bd64fb00c2f341e474ecb96738fab47d717474
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831672"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567132"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -188,7 +188,7 @@ Linux에서 복구 지점의 볼륨은 스크립트가 실행되는 폴더에 �
 파일 복원 스크립트를 실행 한 후 파일 복구 프로세스가 중지 되 면 (예: 디스크가 탑재 되지 않았거나 볼륨이 탑재 되었지만 볼륨이 나타나지 않는 경우) 다음 단계를 수행 합니다.
 
 1. /etc/iscsi/iscsid.conf 파일에서 설정을 다음과 같이 변경합니다.
-    - `node.conn[0].timeo.noop_out_timeout = 5`  받는 사람 `node.conn[0].timeo.noop_out_timeout = 30`
+    - `node.conn[0].timeo.noop_out_timeout = 5`  받는 사람 `node.conn[0].timeo.noop_out_timeout = 120`
 2. 위의 변경 내용을 적용 한 후 스크립트를 다시 실행 합니다. 일시적인 오류가 발생 하는 경우 대상 준비에 영향을 주는 연속 요청 급증을 방지 하기 위해 다시 사용 될 때마다 20-30 분 간격이 있는지 확인 합니다. 다시 실행 사이에이 간격을 유지 하면 대상의 스크립트 연결 준비가 완료 됩니다.
 3. 파일 복구 후 포털로 돌아가서 볼륨을 탑재할 수 없는 복구 지점에 대해 **디스크 분리** 를 선택 합니다. 기본적으로 이 단계는 기존 프로세스/세션을 모두 정리하고 복구 가능성을 높입니다.
 

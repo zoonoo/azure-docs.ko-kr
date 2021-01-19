@@ -1,21 +1,21 @@
 ---
 title: Azure Migrate 프로젝트 만들기 및 관리
 description: Azure Migrate에서 프로젝트를 찾고 만들고 관리 하 고 삭제 합니다.
-author: ms-psharma
-ms.author: panshar
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 445e08b255e5b4dd67dd1c6a47c8df6ce59df5bd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: de0c48bb775b96052fe16d60aa58049bfd58ca4d
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753827"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567789"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate 프로젝트 만들기 및 관리
 
-이 문서에서는 [Azure Migrate](migrate-services-overview.md) 프로젝트를 만들고, 관리 하 고, 삭제 하는 방법을 설명 합니다.
+이 문서에서는 [Azure Migrate](migrate-services-overview.md) 프로젝트를 만들고, 관리 하 고, 삭제 하는 방법을 설명 합니다. 클래식 Azure Migrate 프로젝트를 사용 하는 경우 해당 프로젝트를 삭제 하 고 단계에 따라 새 Azure Migrate 프로젝트를 만듭니다. 클래식 Azure Migrate 프로젝트나 구성 요소를 Azure Migrate로 업그레이드할 수 없습니다.
 
 Azure Migrate 프로젝트는 평가하거나 마이그레이션하는 환경에서 수집된 검색, 평가 및 마이그레이션 메타데이터를 저장하는 데 사용됩니다. 프로젝트에서 검색 된 자산을 추적 하 고, 평가를 만들고, Azure로 마이그레이션을 오케스트레이션 할 수 있습니다.  
 

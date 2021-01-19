@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 93d17ec2a4fb5c191ce02c73a7a3532e9c854b00
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: fb1ec55bc68ccc323f8dee90982a9169e3085219
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752076"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567642"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Azure VMware 솔루션 (AVS) 평가 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "96752076"
 
 - Azure Migrate 프로젝트를 [만들었는지](./create-manage-projects.md) 확인 합니다.
 - 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
-- 평가를 만들려면 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 전송 하는 [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 해야 합니다. [자세히 알아봅니다](migrate-appliance.md).
+- 평가를 만들려면 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 전송 하는 [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 해야 합니다. [자세히 알아보기](migrate-appliance.md).
 - 쉼표로 구분 된 값 (CSV) 형식으로 [서버 메타 데이터를 가져올](./tutorial-discover-import.md) 수도 있습니다.
 
 
@@ -58,27 +58,29 @@ Azure VMware 솔루션 (AVS) 평가를 만드는 데 사용할 수 있는 두 �
 
     ![평가 도구에서 평가를 선택한 Azure Migrate 서버가 스크린샷으로 표시 됩니다.](./media/how-to-create-assessment/assess.png)
 
-3. **서버 평가** 에서 평가 유형을 "Azure VMware 솔루션 (AVS)"으로 선택 하 고, 검색 원본을 선택 하 고, 평가 이름을 지정 합니다.
+3. **서버 평가** 에서 평가 유형을 "Azure VMware 솔루션 (AVS)"으로 선택 하 고 검색 원본을 선택 합니다.
 
-    ![평가 기본 사항](./media/how-to-create-avs-assessment/assess-servers-avs.png)
+    :::image type="content" source="./media/how-to-create-avs-assessment/assess-servers-avs.png" alt-text="평가 기본 사항 추가":::
 
-4. 평가 속성을 검토하려면 **모두 보기** 를 클릭합니다.
+4. **편집** 을 클릭 하 여 평가 속성을 검토 합니다.
 
-    ![AVS 평가 속성](./media/how-to-create-avs-assessment/avs-view-all.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="평가 속성을 검토 하기 위한 편집 단추의 위치":::
 
-5. **다음** 을 클릭하여 **평가할 머신을 선택** 합니다. **그룹 선택 또는 만들기** 에서 **새로 만들기** 를 선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
+1. 평가 **이름을 평가할 컴퓨터 선택**  >   > 평가의 이름을 지정 합니다. 
+ 
+1. **그룹 선택 또는 만들기** 에서 **새로 만들기** 를 선택 하 > 그룹 이름을 지정 합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
+    
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="그룹에 VM 추가":::
 
-6. **그룹에 머신 추가** 에서 그룹에 추가할 VM을 선택합니다.
+1. **그룹에 머신 추가** 에서 그룹에 추가할 VM을 선택합니다.
 
-7. **다음** 에서 **검토 + 평가 만들기** 를 클릭하여 평가 세부 정보를 검토합니다.
+1. **다음** 에서 **검토 + 평가 만들기** 를 클릭하여 평가 세부 정보를 검토합니다.
 
-8. **평가 만들기** 를 클릭하여 그룹을 만들고, 평가를 실행합니다.
+1. **평가 만들기** 를 클릭하여 그룹을 만들고, 평가를 실행합니다.
 
-    ![AVS 평가 만들기](./media/how-to-create-avs-assessment/avs-assessment-create.png)
+1. 평가가 만들어지면 **서버** > **Azure Migrate: 서버 평가** > **평가** 에서 해당 평가를 확인합니다.
 
-9. 평가가 만들어지면 **서버** > **Azure Migrate: 서버 평가** > **평가** 에서 해당 평가를 확인합니다.
-
-10. **평가 내보내기** 를 클릭하고, Excel 파일로 다운로드합니다.
+1. **평가 내보내기** 를 클릭하고, Excel 파일로 다운로드합니다.
 
 
 ## <a name="review-an-azure-vmware-solution-avs-assessment"></a>Azure VMware 솔루션 (AVS) 평가 검토
@@ -88,6 +90,8 @@ Azure VMware 솔루션 (AVS) 평가는 다음을 설명 합니다.
 - **Azure Vmware 솔루션 (avs) 준비**: 온-프레미스 Vm이 Azure vmware 솔루션 (avs)로 마이그레이션하는 데 적합 한지 여부입니다.
 - **Avs 노드 수**: vm을 실행 하는 데 필요한 총 avs 노드 수입니다.
 - 모든 노드에서 CPU, 메모리 및 저장소 사용률을 예측 **합니다.**
+    - 사용률에는 NSX Manager (large), NSX Edge와 같이 HCX가 배포 되는 경우 Manager (large), Edge와 vCenter Server 같은 클러스터 관리 오버 헤드가 포함 됩니다 .이는 hcx가 배포 되 고, HCX Manager와 IX 어플라이언스를 사용 하 여 4044vcpu (11 CPU), 75GB의 RAM 및 722GB의 저장소를 압축 및 중복 제거
+    - 메모리, 중복 제거 및 압축은 현재 메모리 및 1.5 중복 제거 및 압축에 대해 100%의 사용률으로 설정 되며, 사용자가 필요한 크기 조정을 추가로 수행할 수 있도록 하는 릴리스의 사용자 정의 입력이 됩니다.
 - **월간 비용 예측**: 온-프레미스 vm을 실행 하는 모든 Azure VMware SOLUTION (AVS) 노드에 대 한 월별 예상 비용입니다.
 
 
@@ -97,7 +101,7 @@ Azure VMware 솔루션 (AVS) 평가는 다음을 설명 합니다.
 
 2. **평가** 에서 해당 평가를 클릭하여 엽니다.
 
-    ![AVS 평가 요약](./media/how-to-create-avs-assessment/avs-assessment-summary.png)
+    :::image type="content" source="./media/how-to-create-avs-assessment/avs-assessment-summary.png" alt-text="AVS 평가 요약":::
 
 ### <a name="review-azure-vmware-solution-avs-readiness"></a>Azure VMware 솔루션 (AVS) 준비 상태 검토
 

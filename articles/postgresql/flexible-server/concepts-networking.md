@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: cf7c5fa8563544add55a7fad5075848eb5116fe1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c30c01a18a17981b4e034c9df2cf822e6580430e
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901935"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567734"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>네트워킹 개요-Azure Database for PostgreSQL 유연한 서버
 
@@ -74,7 +74,7 @@ PostgreSQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야
 [Azure Portal](how-to-manage-virtual-network-portal.md) 또는 [Azure CLI](how-to-manage-virtual-network-cli.md)에서 개인 액세스 (VNet 통합)를 사용 하 여 유연한 서버를 만드는 방법에 대해 알아봅니다.
 
 > [!NOTE]
-> 사용자 지정 DNS 서버를 사용 하는 경우에는 DNS 전달자를 사용 하 여 Azure Database for MySQL 유연한 서버의 FQDN을 확인 해야 합니다. 자세한 내용은 [자체 DNS 서버를 사용 하는 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 을 참조 하세요.
+> 사용자 지정 DNS 서버를 사용 하는 경우에는 DNS 전달자를 사용 하 여 Azure Database for PostgreSQL 유연한 서버의 FQDN을 확인 해야 합니다. 자세한 내용은 [자체 DNS 서버를 사용 하는 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 을 참조 하세요.
 
 ## <a name="public-access-allowed-ip-addresses"></a>퍼블릭 액세스(허용된 IP 주소)
 공용 액세스 방법의 특성은 다음과 같습니다.
@@ -112,7 +112,7 @@ PostgreSQL용 Microsoft Azure 데이터베이스 서버 서비스로의 연결�
 ## <a name="hostname"></a>호스트 이름
 선택한 네트워킹 옵션에 관계 없이 유연한 서버에 연결할 때 항상 FQDN (정규화 된 도메인 이름)을 호스트 이름으로 사용 하는 것이 좋습니다. 서버의 IP 주소는 정적으로 유지 되지 않을 수 있습니다. FQDN을 사용 하면 연결 문자열을 변경 하지 않아도 됩니다. 
 
-예
+예제
 * 바람직하지 `hostname = servername.postgres.database.azure.com`
 * 가능 하면 `hostname = 10.0.0.4` (개인 주소) 또는 `hostname = 40.2.45.67` (공용 주소)를 사용 하지 마십시오.
 

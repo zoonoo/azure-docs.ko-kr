@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: 549b4e1e5e1aef3f6957fa52d69d252c55934286
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: 989520e079988e1821d8bb9a936f857e1f62c11a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541578"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567768"
 ---
 # <a name="connect-your-trend-micro-tippingpoint-solution-to-azure-sentinel"></a>추세 마이크로 TippingPoint 솔루션을 Azure 센티널에 연결
 
@@ -32,7 +32,7 @@ ms.locfileid: "98541578"
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
@@ -48,15 +48,15 @@ Azure 센티널로 로그를 가져오려면 TippingPoint TPS 솔루션을 구�
 
 1. **지침** 탭의 **구성** 아래에 있는 지침을 따르세요.
 
-    1. **1. Linux Syslog 에이전트 구성** -실행 중인 로그 전달 자가 아직 없는 경우 또는 다른 것이 필요한 경우이 단계를 수행 합니다. 자세한 지침 및 설명은 1 단계: Azure 센티널 설명서에서 [로그 전달자 배포](connect-cef-agent.md) 를 참조 하세요.
+    1. **1. Linux Syslog 에이전트 구성** -로그 전달 자가 아직 실행 되지 않은 경우 또는 다른 것이 필요한 경우이 단계를 수행 합니다. 자세한 지침 및 설명은 1 단계: Azure 센티널 설명서에서 [로그 전달자 배포](connect-cef-agent.md) 를 참조 하세요.
 
-    1. 2. 다음 요소를 포함 **하는 추세 마이크로 TippingPoint SMS 로그를 Syslog 에이전트로 전달** 합니다.
+    1. **2 미만.** 이 구성에는 다음 요소가 포함 되어야 합니다 .이 구성에는 다음 요소가 포함 되어야 합니다.
         - 로그 대상 – 로그 전달 서버의 호스트 이름 및/또는 IP 주소
         - 프로토콜 및 포트 – **TCP 514** (그렇지 않은 경우 로그 전달 서버에서 syslog 디먼의 병렬 변경을 수행 해야 합니다.)
         - 로그 형식 – **Arcsight CEF 형식 v 4.2**
         - 로그 형식-모두 사용 가능
 
-    1. **3. 연결 유효성 검사** -커넥터 페이지에서 명령을 복사 하 고 로그 전달자에서 실행 하 여 데이터 수집을 확인 합니다. 자세한 지침 및 설명은 3 단계: Azure 센티널 설명서에서 [연결 유효성 검사](connect-cef-verify.md) 를 참조 하세요.
+    1. **3. 연결 유효성 검사** -커넥터 페이지에서 명령을 복사 하 고 로그 전달자에서 실행 하 여 데이터 수집을 검증 합니다. 자세한 지침 및 설명은 3 단계: Azure 센티널 설명서에서 [연결 유효성 검사](connect-cef-verify.md) 를 참조 하세요.
 
         로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다.
 
