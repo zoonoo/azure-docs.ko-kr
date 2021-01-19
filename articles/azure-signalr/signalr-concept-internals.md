@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 3fc6971c66d06ae9f25584f5be28b051075bfa49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afb63b76666f47217f9c19376d81aa4ed73991bf
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88921973"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572564"
 ---
 # <a name="azure-signalr-service-internals"></a>Azure SignalR Service 내부 기능
 
@@ -42,7 +42,7 @@ SignalR Service를 사용하면 애플리케이션 서버가 영구적인 클라
 - ASP.NET Core SignalR의 경우, Azure SignalR Service SDK에서 SignalR Service에 허브당 WebSocket 연결을 5개 엽니다. 
 - ASP.NET SignalR의 경우, Azure SignalR Service SDK가 SignalR Service에 허브당 WebSocket 연결을 5개 열고, 애플리케이션 WebSocket 연결당 하나를 엽니다.
 
-WebSocket 연결 5개는 [구성](https://github.com/Azure/azure-signalr/blob/dev/docs/use-signalr-service.md#connectioncount)에서 변경할 수 있는 기본값입니다.
+WebSocket 연결 5개는 [구성](https://github.com/Azure/azure-signalr/blob/dev/docs/run-asp-net-core.md#connectioncount)에서 변경할 수 있는 기본값입니다.
 
 클라이언트와 주고 받는 메시지는 이러한 연결로 멀티플렉싱됩니다.
 

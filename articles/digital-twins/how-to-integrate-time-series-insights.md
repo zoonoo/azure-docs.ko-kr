@@ -4,21 +4,21 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins에서 Azure Time Series Insights로 이벤트 경로를 설정 하는 방법을 참조 하세요.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 7/14/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f776482c684004c8d661f69d8158ba9597c923b2
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 24b4f56e5798acc4d9bd0962be7059a359958645
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127039"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573244"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Azure Time Series Insights와 Azure Digital Twins 통합
 
 이 문서에서는 [twins (Azure Time Series Insights](../time-series-insights/overview-what-is-tsi.md)와 Azure Digital twins를 통합 하는 방법에 대해 알아봅니다.
 
-이 문서에서 설명 하는 솔루션을 통해 IoT 솔루션에 대 한 기록 데이터를 수집 하 고 분석할 수 있습니다. Azure Digital Twins는 데이터를 Time Series Insights으로 보내기 전에 데이터를 표준화 하 고 정보를 표준화 하는 데 사용할 수 있기 때문에 데이터를 Time Series Insights으로 공급할 수 있는 좋은 방법입니다. 
+이 문서에서 설명 하는 솔루션을 통해 IoT 솔루션에 대 한 기록 데이터를 수집 하 고 분석할 수 있습니다. Azure Digital Twins는 여러 데이터 스트림의 상관 관계를 발견하고 정보를 Time Series Insights로 전송하기 전에 표준화할 수 있으므로 Time Series Insights에 데이터를 공급하는 좋은 방법이 됩니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -38,31 +38,28 @@ Time Series Insights와의 관계를 설정 하려면 먼저 **Azure Digital Twi
     :::column-end:::
 :::row-end:::
 
-## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>경로 만들기 및 쌍 업데이트 알림을 위한 필터
+## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>트윈 업데이트 알림을 위한 경로 및 필터 만들기
 
 Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 쌍 [업데이트 이벤트](how-to-interpret-event-data.md) 를 내보낼 수 있습니다. 이 섹션에서는 추가 처리를 위해 이러한 업데이트 이벤트를 Azure [Event Hubs](../event-hubs/event-hubs-about.md) 로 전달 하는 Azure Digital twins [**이벤트 경로**](concepts-route-events.md) 를 만듭니다.
 
 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md) 은 온도계를 사용 하 여 방을 나타내는 디지털 쌍의 온도 특성을 업데이트 하는 시나리오를 안내 합니다. 이 패턴은 IoT 장치에서 원격 분석을 전달 하는 대신 쌍 업데이트를 사용 하 여 Time Series Insights 논리를 업데이트할 필요 없이 기본 데이터 원본을 변경할 수 있는 유연성을 제공 합니다.
 
-1. 먼저 Azure Digital Twins 인스턴스에서 이벤트를 수신 하는 event hub 네임 스페이스를 만듭니다. 아래 Azure CLI 지침을 사용 하거나 Azure Portal: [*빠른 시작: Azure Portal를 사용 하 여 이벤트 허브 만들기*](../event-hubs/event-hubs-create.md)를 사용할 수 있습니다.
+1. 먼저, Azure Digital Twins 인스턴스에서 이벤트를 수신 하는 이벤트 허브 네임 스페이스를 만듭니다. 아래 Azure CLI 지침을 사용 하거나 Azure Portal: [*빠른 시작: Azure Portal를 사용 하 여 이벤트 허브 만들기*](../event-hubs/event-hubs-create.md)를 사용할 수 있습니다. Event Hubs 지 원하는 지역을 확인 하려면 [*지역별 제공 되는 Azure 제품*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs)을 방문 하세요.
 
     ```azurecli-interactive
-    # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
-    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
+    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region>
     ```
 
-2. 네임 스페이스 내에 이벤트 허브를 만듭니다.
+2. 쌍으로 된 변경 이벤트를 수신 하는 네임 스페이스 내에 이벤트 허브를 만듭니다. 이벤트 허브의 이름을 지정 합니다.
 
     ```azurecli-interactive
-    # Create an event hub to receive twin change events. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
-3. 보내기 및 받기 권한을 사용 하 여 [권한 부여 규칙](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) 을 만듭니다.
+3. 보내기 및 받기 권한을 사용 하 여 [권한 부여 규칙](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) 을 만듭니다. 규칙의 이름을 지정 합니다.
 
     ```azurecli-interactive
-    # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
+        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
 
 4. Azure Digital Twins 인스턴스에 이벤트 허브를 연결 하는 Azure Digital Twins [끝점](concepts-route-events.md#create-an-endpoint) 을 만듭니다.
@@ -71,7 +68,7 @@ Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to
     az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
     ```
 
-5. 엔드포인트 업데이트 이벤트를 끝점으로 보내기 위해 Azure Digital Twins에서 [경로](concepts-route-events.md#create-an-event-route) 를 만듭니다. 이 경로의 필터는 쌍 업데이트 메시지만 끝점에 전달 되도록 허용 합니다.
+5. Azure Digital Twins에서 엔드포인트에 트윈 업데이트 이벤트를 전송하는 [경로](concepts-route-events.md#create-an-event-route)를 만듭니다. 이 경로의 필터는 쌍 업데이트 메시지만 끝점에 전달 되도록 허용 합니다.
 
     >[!NOTE]
     >Cloud Shell에는 `az dt route`, `az dt model`, `az dt twin` 명령 그룹에 영향을 주는 **알려진 문제** 가 있습니다.
@@ -86,7 +83,7 @@ Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to
 
 ## <a name="create-a-function-in-azure"></a>Azure에서 함수 만들기
 
-다음으로 Azure Functions를 사용 하 여 함수 앱 내에 Event Hubs 트리거 함수를 만듭니다. 종단 간 자습서에서 만든 함수 앱 ([*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)) 또는 자체를 사용할 수 있습니다. 
+다음으로 Azure Functions를 사용 하 여 함수 앱 내에 **Event Hubs 트리거 함수** 를 만듭니다. 종단 간 자습서에서 만든 함수 앱 ([*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)) 또는 자체를 사용할 수 있습니다. 
 
 이 함수는 이러한 쌍 업데이트 이벤트를 원래 폼에서 json 패치 문서로 변환 하 여 업데이트 되 고 쌍의 추가 된 값만 포함 하는 JSON 개체로 변환 합니다.
 
@@ -100,9 +97,9 @@ Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세�
 
 나중에이 함수가 고유한 event hubs에 연결 하는 데 사용 하는 환경 변수를 설정할 수도 있습니다.
 
-## <a name="send-telemetry-to-an-event-hub"></a>이벤트 허브로 원격 분석 전송
+## <a name="send-telemetry-to-an-event-hub"></a>이벤트 허브에 원격 분석 전송
 
-이제 두 번째 이벤트 허브를 만들고 해당 출력을 해당 이벤트 허브로 스트리밍하는 함수를 구성 합니다. 그러면이 이벤트 허브가 Time Series Insights에 연결 됩니다.
+이제 두 번째 이벤트 허브를 만들고 해당 출력을 해당 이벤트 허브로 스트리밍하는 함수를 구성 합니다. 그러면 이 이벤트 허브가 Time Series Insights에 연결됩니다.
 
 ### <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
@@ -110,15 +107,15 @@ Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세�
 
 1. 이 문서의 앞 부분에서 *Event Hubs 네임 스페이스* 및 *리소스 그룹* 이름 준비
 
-2. 새 이벤트 허브 만들기
+2. 새 이벤트 허브를 만듭니다. 이벤트 허브의 이름을 지정 합니다.
+
     ```azurecli-interactive
-    # Create an event hub. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
-3. 보내기 및 받기 권한을 사용 하 여 [권한 부여 규칙](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) 만들기
+3. 보내기 및 받기 권한을 사용 하 여 [권한 부여 규칙](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) 을 만듭니다. 규칙의 이름을 지정 합니다.
+
     ```azurecli-interactive
-    # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
+        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
     ```
 
 ## <a name="configure-your-function"></a>함수 구성
@@ -133,7 +130,7 @@ Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세�
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
     ```
 
-2. 결과로 얻을 수 있는 연결 문자열을 사용 하 여 연결 문자열을 포함 하는 함수 앱에 앱 설정을 만듭니다.
+2. 결과로 얻은 연결 문자열을 사용하여 함수 앱에서 해당 연결 문자열을 포함하는 앱 설정을 만듭니다.
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
@@ -147,7 +144,7 @@ Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세�
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
     ```
 
-2. 함수 앱에서 연결 문자열을 포함 하는 앱 설정을 만듭니다.
+2. 함수 앱에서 연결 문자열을 포함하는 앱 설정을 만듭니다.
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>

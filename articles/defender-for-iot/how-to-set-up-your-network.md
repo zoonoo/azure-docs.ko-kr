@@ -4,17 +4,17 @@ description: IoT 어플라이언스 용 Azure Defender를 사용 하도록 네�
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/06/2020
+ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3e9380f067b091c4473b8c29bda3d31bb93cbc6d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840846"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573142"
 ---
-# <a name="about-azure-defender-for-iot-network-setup"></a>IoT 용 Azure Defender 네트워크 설정 정보
+# <a name="about-azure-defender-for-iot-network-setup"></a>Azure Defender for IoT 네트워크 설정 정보
 
 IoT 용 Azure Defender는 연속 ICS 위협 모니터링 및 장치 검색을 제공 합니다. 플랫폼에는 다음 구성 요소가 포함 됩니다.
 
@@ -54,7 +54,7 @@ Iot **for iot 포털:** IoT 용 Defender 응용 프로그램은 솔루션 어플
 
 - 구성 워크스테이션.
 
-- SSL 인증서 (선택 사항).
+- SSL 인증서 (선택 사항 이지만 권장 됨).
 
 - SMTP 인증 (옵션). 인증에 SMTP 서버를 사용 하려면 서버에 필요한 자격 증명을 준비 하십시오.
 
@@ -101,7 +101,7 @@ Iot **for iot 포털:** IoT 용 Defender 응용 프로그램은 솔루션 어플
 | **IoT 플랫폼 및 온-프레미스 관리 콘솔에 대 한 Defender 간 연결** | SSL | TCP | 인 또는 아웃 | 443 | 센서 및 온-프레미스 관리 콘솔|
 | **센서에 NTP로 사용 되는 온-프레미스 관리 콘솔** | NTP | UDP| In CM | 123 | 시간 동기화 | 
 | **외부 NTP 서버에 연결 된 센서 (관련 된 경우)** | NTP | UDP | 인 또는 아웃| 123 | 시간 동기화 |
-| **IoT 플랫폼과 관리 플랫폼과 메일 서버 (관련 된 경우)에 대 한 Defender 간 연결** | SMTP | TCP | 센서를 관리 하지 않음 | 25 | 메일 |
+| **IoT 플랫폼과 관리 플랫폼과 메일 서버 (관련 된 경우)에 대 한 Defender 간 연결** | SMTP | TCP | 센서를 관리 하지 않음 | 25 | Email |
 | **온-프레미스 관리 콘솔에서 Syslog 서버로 전송 하는 로그 (관련 된 경우)** | syslog | UDP | 센서를 관리 하지 않음| 514 | LEEF |
 | **DNS 서버 포트 (관련 된 경우)** | DNS | 해당 없음 | 인 또는 아웃| 53 | DNS |
 | **IoT 플랫폼과 온-프레미스 관리 콘솔에서 Active Directory로의 연결 (관련 된 경우)** | LDAPS | TCP | 인 또는 아웃 | 636 <br />389 | Active Directory |
@@ -223,7 +223,7 @@ IoT 어플라이언스 용 Defender는 계층 1과 2 사이의 산업용 통신�
 
 다음은 여러 센서를 배포 하기 위한 몇 가지 권장 사항입니다.
 
-| * * 번호 * *| **단위로** | **종속성** | **센서 수** |
+| **Number** | **단위로** | **종속성** | **센서 수** |
 |--|--|--|--|
 | 스위치 간 최대 거리입니다. | 80 미터 | 준비 된 이더넷 케이블 | 1 개 이상 |
 | 네트워크 수 | 1 개 이상 | 물리적 연결 없음 | 1 개 이상 |
@@ -530,7 +530,7 @@ Wireshark 응용 프로그램을 통해 이미 구성 된 범위 포트에 노�
 
 사이트 배포 전에이 목록을 검토 합니다.
 
-| **#** | **작업 또는 작업** | **상태** | **설명** |
+| **#** | **작업 또는 작업** | **Status** | **설명** |
 |--|--|--|--|
 | 1 | 전역을 제공 합니다. | ☐ |  |
 | 3 | 주문 어플라이언스. | ☐ |  |
@@ -569,7 +569,7 @@ Wireshark 응용 프로그램을 통해 이미 구성 된 범위 포트에 노�
     > [!NOTE]
     > IoT 어플라이언스 용 Defender는 스위치의 포트 간 트래픽을 확인 하는 하위 수준 스위치에 연결 되어야 합니다.  
 
-2. 네트워크의 대략적인 장치 수를 제공 합니다 (선택 사항).
+2. 모니터링할 네트워크 장치의 대략적인 수를 제공 합니다. IoT 포털에 대 한 Azure Defender에 구독을 온 보 딩 하는 경우이 정보가 필요 합니다. 온 보 딩 프로세스 중에 장치 수를 1000 단위로 입력 하 라는 메시지가 표시 됩니다.
 
 3. 프로덕션 네트워크에 대 한 서브넷 목록 및 설명 (선택 사항)을 제공 합니다. 
 
@@ -694,6 +694,6 @@ Active Directory 관리자에 게 문의 하 여 Active Directory 사이트 사�
 | 카메라 | |
 | X 광선 컴퓨터 | |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [IoT 설치용 Defender 정보](how-to-install-software.md)

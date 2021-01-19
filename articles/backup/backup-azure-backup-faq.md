@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: bd84ff553b486d200ec4501b89b42335335b223f
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327154"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572530"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -61,6 +61,10 @@ ms.locfileid: "96327154"
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Recovery Services 자격 증명 모음에서 온-프레미스로 데이터를 이동 하려면 어떻게 해야 하나요?
 
 Data Box를 사용 하 여 Recovery Services 자격 증명 모음에서 온-프레미스로 직접 데이터를 내보낼 수는 없습니다. 데이터를 저장소 계정으로 복원한 다음 [Data Box](../databox/data-box-overview.md) 또는 [Import/Export](../storage/common/storage-import-export-service.md)를 통해 온-프레미스로 이동할 수 있습니다.
+
+### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>CRR (지역 중복 저장소) 기능을 사용 하거나 사용 하지 않고 GRS (지역 중복 저장소) 자격 증명 모음 간의 차이점은 무엇 인가요?
+
+[Crr](azure-backup-glossary.md#cross-region-restore-crr) 기능이 사용 하도록 설정 되지 않은 [GRS](azure-backup-glossary.md#grs) 자격 증명 모음의 경우 Azure가 주 지역에서 재해를 선언할 때까지 보조 지역의 데이터에 액세스할 수 없습니다. 이러한 시나리오에서 복원은 보조 지역에서 발생 합니다. CRR을 사용 하는 경우 주 지역이 실행 되 고 있는 경우에도 보조 지역에서 복원을 트리거할 수 있습니다.
 
 ## <a name="azure-backup-agent"></a>Azure Backup 에이전트
 

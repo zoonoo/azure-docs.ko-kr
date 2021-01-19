@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124172"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573193"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -44,8 +44,8 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 
 ## <a name="data-upload-caveats"></a>데이터 업로드 주의 사항
 
-- 디스크에 직접 데이터를 복사하지 마세요. 미리 만들어진 *Blockblob*,*Pageblob*및 *azurefile* 폴더에 데이터를 복사 합니다.
-- *BlockBlob* 및 *PageBlob* 아래의 폴더는 컨테이너입니다. 예를 들어 컨테이너는 *BlockBlob/컨테이너* 및 *PageBlob/컨테이너*로 만들어집니다.
+- 디스크에 직접 데이터를 복사하지 마세요. 미리 만들어진 *Blockblob*,*Pageblob* 및 *azurefile* 폴더에 데이터를 복사 합니다.
+- *BlockBlob* 및 *PageBlob* 아래의 폴더는 컨테이너입니다. 예를 들어 컨테이너는 *BlockBlob/컨테이너* 및 *PageBlob/컨테이너* 로 만들어집니다.
 - 클라우드에서 복사 중인 개체와 이름이 같은 기존 Azure 개체 (예: blob)가 있는 경우 클라우드에서 파일의 이름을 파일 (1)로 바꿉니다 Data Box Disk 합니다.
 - *BlockBlob* 및 *PageBlob* 공유에 기록된 모든 파일은 각각 블록 Blob 및 페이지 Blob으로 업로드됩니다.
 - *BlockBlob* 및 *PageBlob* 폴더 아래에 만들어진 모든 빈 디렉터리 계층 구조(어떤 파일도 없는)는 업로드되지 않습니다.
@@ -76,7 +76,7 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 | 블록 Blob        | ~ 4.75TiB                                                 |
 | 페이지 Blob         | 8TiB <br> (페이지 Blob 형식으로 업로드 되는 모든 파일은 512 바이트 정렬 되어야 하며, 그렇지 않은 경우 업로드가 실패 합니다. <br> VHD와 VHDX는 모두 512 바이트 정렬 됩니다. |
 |Azure 파일        | 1TiB <br> 최대 공유 크기는 5 TiB     |
-| 관리 디스크     |4TiB <br> 크기 및 제한에 대 한 자세한 내용은 다음을 참조 하세요. <li>[관리 디스크에 대 한 확장성 목표](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| 관리 디스크     |4TiB <br> 크기 및 제한에 대 한 자세한 내용은 다음을 참조 하세요. <li>[관리 디스크에 대 한 확장성 목표](../virtual-machines/disks-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure 블록 Blob과 페이지 Blob 및 파일 명명 규칙

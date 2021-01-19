@@ -1,15 +1,15 @@
 ---
 title: Azure Monitor에서 메트릭 경고가 작동하는 방식을 이해합니다.
 description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에서 메트릭 경고가 작동하는 방식에 대한 개요를 제공합니다.
-ms.date: 01/13/2021
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: ab80496784b5d86d270830546cec73aadbcc50a6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 031768b8a72fbe9498abd3c17e0f79fd157d4f52
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251236"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572734"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -26,7 +26,7 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 - 대상 리소스(모니터링할 Azure 리소스): myVM
 - 메트릭: 백분율 CPU
 - 조건 형식: Static
-- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. [지원 되는 시간 집계](metrics-charts.md#aggregation) 는 Min, Max, Avg, Total, Count): Average입니다.
+- 집계 유형 (원시 메트릭 값을 통해 실행 되는 통계) [지원 되는 집계 유형은](./metrics-aggregation-explained.md#aggregation-types) 최소, 최대, 평균, 합계, 개수): 평균입니다.
 - 기간 (메트릭 값을 확인 하는 뒤로 이동 창): 지난 5 분 동안
 - 빈도 (메트릭 경고에서 조건이 충족 되었는지 확인 하는 빈도): 1 분
 - 연산자: 보다 큼
@@ -43,7 +43,7 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 - 대상 리소스(모니터링할 Azure 리소스): myVM
 - 메트릭: 백분율 CPU
 - 조건 형식: 동적
-- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. [지원 되는 시간 집계](metrics-charts.md#aggregation) 는 Min, Max, Avg, Total, Count): Average입니다.
+- 집계 유형 (원시 메트릭 값을 통해 실행 되는 통계) [지원 되는 집계 유형은](./metrics-aggregation-explained.md#aggregation-types) 최소, 최대, 평균, 합계, 개수): 평균입니다.
 - 기간 (메트릭 값을 확인 하는 뒤로 이동 창): 지난 5 분 동안
 - 빈도 (메트릭 경고에서 조건이 충족 되었는지 확인 하는 빈도): 1 분
 - 연산자: 보다 큼
@@ -80,7 +80,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 - 조건 형식: Static
 - 차원
   - 인스턴스 = InstanceName1, InstanceName2
-- 시간 집계: 평균
+- 집계 유형: 평균
 - 기간: 지난 5분
 - 빈도: 1분
 - 연산자: GreaterThan
@@ -95,7 +95,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 - 조건 형식: Static
 - 차원
   - 인스턴스 = *
-- 시간 집계: 평균
+- 집계 유형: 평균
 - 기간: 지난 5분
 - 빈도: 1분
 - 연산자: GreaterThan
@@ -112,7 +112,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 - 조건 형식: 동적
 - 차원
   - 인스턴스 = *
-- 시간 집계: 평균
+- 집계 유형: 평균
 - 기간: 지난 5분
 - 빈도: 1분
 - 연산자: GreaterThan

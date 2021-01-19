@@ -105,7 +105,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
   * 특성 매핑(사용자 프로비전)
 * 서비스 주체 및 응용 프로그램 개체에 대 한 자세한 내용은 Microsoft Graph API 참조 설명서를 참조 하세요.
   * [애플리케이션](/graph/api/resources/application)
-  * Service Principal
+  * [서비스 주체](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>애플리케이션이 Azure AD와 통합되는 이유는 무엇일까요?
 

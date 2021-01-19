@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: ef5b065425fa05d016c1b1c1688cc28508f32d30
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: deb5f07340f44e7ae4da3372fd17e484d500e6ab
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462050"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573261"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -256,7 +256,7 @@ BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>동일한 ExpressRoute 회로에 연결된 가상 네트워크가 서로 통신할 수 있나요?
 
-예. 동일한 ExpressRoute 회로에 연결된 가상 네트워크에 배포된 가상 머신은 서로 통신할 수 있습니다.
+예. 동일한 ExpressRoute 회로에 연결된 가상 네트워크에 배포된 가상 머신은 서로 통신할 수 있습니다. 이러한 통신을 용이 하 게 하려면 [가상 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 을 설정 하는 것이 좋습니다.
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>ExpressRoute와 함께 가상 네트워크에 대한 사이트 간 연결을 사용할 수 있나요?
 
@@ -424,7 +424,7 @@ Microsoft 365 서비스를 사용 하려면 프리미엄 추가 기능을 사용
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
 
-## <a name="privacy"></a>개인 정보 취급 방침
+## <a name="privacy"></a>개인 정보 보호
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>Express 경로 서비스에서 고객 데이터를 저장 하나요?
 

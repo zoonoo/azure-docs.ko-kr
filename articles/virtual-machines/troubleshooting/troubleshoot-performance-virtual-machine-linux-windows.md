@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526659"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573312"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Linux 또는 Windows에서 Azure 가상 머신 성능 문제 해결
 
@@ -40,11 +40,11 @@ VM 진단을 사용 하도록 설정 하려면:
 
 1. VM으로 이동
 2. **진단 설정** 을 클릭 합니다.
-3. 저장소 계정을 선택 하 고 **게스트 수준 모니터링 사용**을 클릭 합니다.
+3. 저장소 계정을 선택 하 고 **게스트 수준 모니터링 사용** 을 클릭 합니다.
 
    ![설정, 진단을 차례로 클릭 합니다.](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
 
-진단 **설정**의 **에이전트** 탭에서 진단 설정에 사용 되는 저장소 계정을 확인할 수 있습니다.
+진단 **설정** 의 **에이전트** 탭에서 진단 설정에 사용 되는 저장소 계정을 확인할 수 있습니다.
 
 ![저장소 계정 확인](media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png)
 
@@ -52,7 +52,7 @@ VM 진단을 사용 하도록 설정 하려면:
 
 저장소는 Azure에서 가상 머신에 대 한 IO 성능을 분석 하려는 경우 매우 중요 한 계층입니다. 저장소 관련 메트릭의 경우 추가 단계로 진단을 사용 하도록 설정 해야 합니다. 저장소 관련 카운터만 분석 하려는 경우에도이 기능을 사용 하도록 설정할 수 있습니다.
 
-1. Vm을 선택 하 여 VM에서 사용 하는 저장소 계정 (또는 계정)을 식별 합니다. **설정**을 클릭 한 다음 **디스크**를 클릭 합니다.
+1. Vm을 선택 하 여 VM에서 사용 하는 저장소 계정 (또는 계정)을 식별 합니다. **설정** 을 클릭 한 다음 **디스크** 를 클릭 합니다.
 
    ![설정, 디스크를 차례로 클릭 합니다.](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
@@ -69,10 +69,10 @@ VM 진단을 사용 하도록 설정 하려면:
 
 이러한 옵션을 구성 하려면:
 
-1.  **메트릭**을 선택합니다.
+1.  **메트릭** 을 선택합니다.
 2.  **리소스** (저장소 계정)를 선택 합니다.
 3.  **네임 스페이스** 선택
-4.  **메트릭**을 선택 합니다.
+4.  **메트릭** 을 선택 합니다.
 5.  **집계** 유형을 선택 합니다.
 6.  이 보기를 대시보드에 고정할 수 있습니다.
 
@@ -82,7 +82,7 @@ VM 진단을 사용 하도록 설정 하려면:
 
 ### <a name="accessing-the-monitoring"></a>모니터링에 액세스
 
-조사 하려는 Azure VM을 선택 하 고 **모니터링**을 선택 합니다.
+조사 하려는 Azure VM을 선택 하 고 **모니터링** 을 선택 합니다.
 
 ![모니터링 선택](media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png)
  
@@ -129,7 +129,7 @@ VM을 증가 시키고 CPU가 여전히 95%를 실행 하는 경우이 설정이
 1. 섹션을 추가 합니다.
 2. 타일을 추가 합니다.
 3. 갤러리를 엽니다.
-4. 메모리 사용량을 선택 하 고 끕니다. 타일이 도킹 되 면 마우스 오른쪽 단추를 클릭 하 고 **6x4**를 선택 합니다.
+4. 메모리 사용량을 선택 하 고 끕니다. 타일이 도킹 되 면 마우스 오른쪽 단추를 클릭 하 고 **6x4** 를 선택 합니다.
 
 ### <a name="memory-observe-trends"></a>메모리 관찰 추세
 
@@ -198,7 +198,7 @@ AverageE2ELatency은 클라이언트 대기 시간을 나타냅니다. 응용 �
 
 #### <a name="check-for-azure-storage-throttling---add-the-storage-account-metrics-throttlingerror"></a>Azure storage 제한 확인-저장소 계정 메트릭 추가: ThrottlingError
 
-제한 값은 사용자가 저장소 계정 수준에서 제한 되 고 있음을 나타냅니다. 즉, 계정에 대 한 IOPS 제한에 도달 하 고 있음을 나타냅니다. **TotalRequests**메트릭을 확인 하 여 IOPs 임계값에 도달 하 고 있는지 여부를 확인할 수 있습니다.
+제한 값은 사용자가 저장소 계정 수준에서 제한 되 고 있음을 나타냅니다. 즉, 계정에 대 한 IOPS 제한에 도달 하 고 있음을 나타냅니다. **TotalRequests** 메트릭을 확인 하 여 IOPs 임계값에 도달 하 고 있는지 여부를 확인할 수 있습니다.
 
 각 VHD의 제한은 500 IOPS 또는 60 메가 비트 이지만 저장소 계정 당 초당 2만 IOPS의 누적 한도에 의해 바인딩됩니다.
 
@@ -208,7 +208,7 @@ IOPS 제한에 도달 하 고 있는지 확인 하려면 Storage 계정 진단�
 
 Standard storage에서 새로운 디스크 제품을 사용 하는 경우 IOPS 및 처리량 한도가 다를 수 있지만 표준 저장소 계정의 누적 제한은 2만 IOPS (Premium storage는 계정 또는 디스크 수준에서 다른 한도)입니다. 다른 standard storage 디스크 제공 및 디스크당 제한 사항에 대해 자세히 알아보세요.
 
-* [Windows의 VM 디스크에 대 한 확장성 및 성능 목표](../windows/disk-scalability-targets.md)
+* [Windows의 VM 디스크에 대 한 확장성 및 성능 목표](../disks-scalability-targets.md)
 
 #### <a name="references"></a>참조
 
@@ -224,7 +224,7 @@ VM에 연결 된 Vhd의 처리량 한도를 확인 합니다. VM 메트릭 디�
 
 Standard storage의 새 디스크 제공에는 IOPS 및 처리량 한도가 다릅니다 (IOPS는 VHD 당 노출 되지 않음). 데이터를 확인 하 여 디스크 읽기 및 쓰기를 사용 하는 VM 수준에서 VHD의 총 용량 (MB)에 대 한 제한에 도달 했는지 확인 한 다음 VM 저장소 구성을 최적화 하 여 지난 단일 VHD 제한을 확장 합니다. 다른 standard storage 디스크 제공 및 디스크당 제한 사항에 대해 자세히 알아보세요.
 
-* [Windows의 VM 디스크에 대 한 확장성 및 성능 목표](../windows/disk-scalability-targets.md)
+* [Windows의 VM 디스크에 대 한 확장성 및 성능 목표](../disks-scalability-targets.md)
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>높은 디스크 사용률/대기 시간 재구성
 
@@ -252,4 +252,4 @@ Standard storage의 새 디스크 제공에는 IOPS 및 처리량 한도가 다�
 
 이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의 하세요.
 
-또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
+또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기** 를 선택합니다.

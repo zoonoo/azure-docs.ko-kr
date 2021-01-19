@@ -11,18 +11,18 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 2e26bfa484d573c0158e518b31087fb10bdcdfb9
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8e749e5f6ea6bcf76a1b4f143bce03ceb41cbb07
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185685"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573295"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화된 Machine Learning에서 데이터 분할 및 교차 유효성 검사 구성
 
 이 문서에서는 자동화 된 기계 학습, 자동화 된 ML, 실험에 대해 학습/유효성 검사 데이터 분할 및 교차 유효성 검사를 구성 하는 다양 한 옵션에 대해 알아봅니다.
 
-Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델을 작성 하는 경우 각 자식 실행은 정확도 또는 보조 c 가중치와 같은 해당 모델의 품질 메트릭을 계산 하 여 관련 모델의 유효성을 검사 해야 합니다. 이러한 메트릭은 각 모델과의 예측을 유효성 검사 데이터의 과거 관찰 으로부터 실제 레이블과 비교 하 여 계산 합니다. 
+Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델을 작성 하는 경우 각 자식 실행은 정확도 또는 보조 c 가중치와 같은 해당 모델의 품질 메트릭을 계산 하 여 관련 모델의 유효성을 검사 해야 합니다. 이러한 메트릭은 각 모델과의 예측을 유효성 검사 데이터의 과거 관찰 으로부터 실제 레이블과 비교 하 여 계산 합니다. [유효성 검사 유형을 기반으로 메트릭이 계산 되는 방법에 대해 자세히 알아보세요](#metric-calculation-for-cross-validation-in-machine-learning). 
 
 자동 ML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다음 섹션에서는 [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)를 사용 하 여 유효성 검사 설정을 추가로 사용자 지정할 수 있는 방법을 설명 합니다. 
 
@@ -31,7 +31,7 @@ Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델
 > [!NOTE]
 > 스튜디오는 현재 학습/유효성 검사 데이터 분할 및 교차 유효성 검사 옵션을 지원 하지만 유효성 검사 집합에 대 한 개별 데이터 파일을 지정 하는 것은 지원 하지 않습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에는 다음이 필요 합니다.
 
@@ -43,9 +43,9 @@ Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델
 
     * [Machine Learning의 학습, 유효성 검사 및 테스트 집합 정보](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
-    * [기계 학습의 교차 유효성 검사 이해](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
+    * [기계 학습의 교차 유효성 검사 이해](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
-## <a name="default-data-splits-and-cross-validation"></a>기본 데이터 분할 및 교차 유효성 검사
+## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>기계 학습의 기본 데이터 분할 및 교차 유효성 검사
 
 [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 개체를 사용 하 여 실험 및 학습 설정을 정의 합니다. 다음 코드 조각에서는 또는에 대 한 매개 변수가 `n_cross_validation` `validation_ data` 포함 **되지** 않은 필수 매개 변수만 정의 합니다.
 
@@ -155,6 +155,13 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 > [!NOTE]
 > `cv_split_column_names`및와 함께를 사용 하려면 `training_data` `label_column_name` Azure Machine Learning Python SDK 버전 1.6.0 이상으로 업그레이드 하세요. 이전 SDK 버전의 경우 사용을 참조 하세요 `cv_splits_indices` . 단, `X` 및 `y` 데이터 집합 입력에만 사용 됩니다. 
+
+
+## <a name="metric-calculation-for-cross-validation-in-machine-learning"></a>기계 학습에서 교차 유효성 검사에 대 한 메트릭 계산
+
+K-접기 또는 Monte 몬테카를로 교차 유효성 검사를 사용 하는 경우 각 유효성 검사 접기에 대해 메트릭이 계산 된 후 집계 됩니다. 집계 작업은 스칼라 메트릭에 대 한 평균과 차트의 합계입니다. 교차 유효성 검사 중에 계산 된 메트릭은 모든 접기를 기반으로 하므로 학습 집합의 모든 샘플을 기반으로 합니다. [자동화 된 machine learning의 메트릭에 대해 자세히 알아보세요](how-to-understand-automated-ml.md).
+
+사용자 지정 유효성 검사 집합 또는 자동으로 선택 된 유효성 검사 집합을 사용 하는 경우 모델 평가 메트릭은 학습 데이터가 아니라 해당 유효성 검사 집합 에서만 계산 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

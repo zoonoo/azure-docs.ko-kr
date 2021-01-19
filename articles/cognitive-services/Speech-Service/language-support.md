@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: be0f082e7c27db1a696e17b32f11e676f4068810
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3f8e497fb21b3fac6a2bc5842e6bc56c47444c8b
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201045"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572496"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -36,10 +36,10 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| 언어                 | 로캘 (BCP-47) | 사용자 지정  | [언어 감지](how-to-automatic-language-detection.md) |
+| Language                 | 로캘 (BCP-47) | 사용자 지정  | [언어 감지](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
-| 아랍어(바레인), 최신 표준  | `ar-BH` | 언어 모델                                   | Yes                           | 
-| 아랍어(이집트)                     | `ar-EG` | 언어 모델                                   | Yes                          |
+| 아랍어(바레인), 최신 표준  | `ar-BH` | 언어 모델                                   | 예                           | 
+| 아랍어(이집트)                     | `ar-EG` | 언어 모델                                   | 예                          |
 | 아랍어(이라크)                      | `ar-IQ` | 언어 모델                                   |                           |
 | 아랍어(이스라엘)                    | `ar-IL` | 언어 모델                                   |                           |
 | 아랍어(요르단)                    | `ar-JO` | 언어 모델                                   |                           |
@@ -47,54 +47,54 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 아랍어(레바논)                   | `ar-LB` | 언어 모델                                   |                           |
 | 아랍어(오만)                      | `ar-OM` | 언어 모델                                   |                           |
 | 아랍어(카타르)                     | `ar-QA` | 언어 모델                                   |                           |
-| 아랍어(사우디아라비아)              | `ar-SA` | 언어 모델                                   | Yes                          |
+| 아랍어(사우디아라비아)              | `ar-SA` | 언어 모델                                   | 예                          |
 | 아랍어 (팔레스타인 자치 정부 상태)        | `ar-PS` | 언어 모델                                   |                           |
-| 아랍어(시리아)                     | `ar-SY` | 언어 모델                                   | Yes                          |
+| 아랍어(시리아)                     | `ar-SY` | 언어 모델                                   | 예                          |
 | 아랍어 (아랍에미리트)      | `ar-AE` | 언어 모델                                   |                           |
 | 불가리아어(불가리아)               | `bg-BG` | 언어 모델                                   |                           |
-| 카탈로니아어(스페인)                    | `ca-ES` | 언어 모델                                   | Yes                          |
-| 중국어(광둥어, 번체)   | `zh-HK` | 음향 모델<br>언어 모델                 |        Yes                   |
-| 중국어 (북경어, 간체)     | `zh-CN` | 음향 모델<br>언어 모델                 |     Yes                      |
-| 중국어(대만어)       | `zh-TW` | 음향 모델<br>언어 모델                 |           Yes                |
+| 카탈로니아어(스페인)                    | `ca-ES` | 언어 모델                                   | 예                          |
+| 중국어(광둥어, 번체)   | `zh-HK` | 음향 모델<br>언어 모델                 |        예                   |
+| 중국어 (북경어, 간체)     | `zh-CN` | 음향 모델<br>언어 모델                 |     예                      |
+| 중국어(대만어)       | `zh-TW` | 음향 모델<br>언어 모델                 |           예                |
 | 크로아티아어(크로아티아)                 | `hr-HR` | 언어 모델                                   |                           |
 | 체코어(체코)             | `cs-CZ` | 언어 모델                                   |                           |
-| 덴마크어(덴마크)                   | `da-DK` | 언어 모델                                   | Yes                          |
-| 네덜란드어(네덜란드)                | `nl-NL` | 언어 모델                                   |    Yes                       |
-| 영어(호주)                | `en-AU` | 음향 모델<br>언어 모델                 | Yes                          |
-| 영어(캐나다)                   | `en-CA` | 음향 모델<br>언어 모델                 | Yes                          |
+| 덴마크어(덴마크)                   | `da-DK` | 언어 모델                                   | 예                          |
+| 네덜란드어(네덜란드)                | `nl-NL` | 언어 모델                                   |    예                       |
+| 영어(호주)                | `en-AU` | 음향 모델<br>언어 모델                 | 예                          |
+| 영어(캐나다)                   | `en-CA` | 음향 모델<br>언어 모델                 | 예                          |
 | 영어 (홍콩)                | `en-HK` | 언어 모델                                   |                           |
-| 영어(인도)                    | `en-IN` | 음향 모델<br>언어 모델                 | Yes                          |
+| 영어(인도)                    | `en-IN` | 음향 모델<br>언어 모델                 | 예                          |
 | 영어(아일랜드)                  | `en-IE` | 언어 모델                                   |                           |
-| 영어(뉴질랜드)              | `en-NZ` | 음향 모델<br>언어 모델                 |  Yes                         |
+| 영어(뉴질랜드)              | `en-NZ` | 음향 모델<br>언어 모델                 |  예                         |
 | 영어 (나이지리아)                  | `en-NG` | 언어 모델                                   |                           |
 | 영어(필리핀)              | `en-PH` | 언어 모델                                   |                           |
 | 영어(싱가포르)                | `en-SG` | 언어 모델                                   |                           |
 | 영어(남아프리카 공화국)             | `en-ZA` | 언어 모델                                   |                           |
-| 영어(영국)           | `en-GB` | 음향 모델<br>언어 모델<br>발음| Yes                          |
-| 영어(미국)            | `en-US` | 음향 모델<br>언어 모델<br>발음| Yes                          |
+| 영어(영국)           | `en-GB` | 음향 모델<br>언어 모델<br>발음| 예                          |
+| 영어(미국)            | `en-US` | 음향 모델<br>언어 모델<br>발음| 예                          |
 | 에스토니아어 (에스토니아)                  | `et-EE` | 언어 모델                                   |                           |
-| 핀란드어(핀란드)                  | `fi-FI` | 언어 모델                                   |     Yes                      |
-| 프랑스어(캐나다)                    | `fr-CA` | 음향 모델<br>언어 모델                 |     Yes                      |
-| 프랑스어(프랑스)                    | `fr-FR` | 음향 모델<br>언어 모델<br>발음|      Yes                     |
-| 독일어(독일)                   | `de-DE` | 음향 모델<br>언어 모델<br>발음|  Yes                         |
+| 핀란드어(핀란드)                  | `fi-FI` | 언어 모델                                   |     예                      |
+| 프랑스어(캐나다)                    | `fr-CA` | 음향 모델<br>언어 모델                 |     예                      |
+| 프랑스어(프랑스)                    | `fr-FR` | 음향 모델<br>언어 모델<br>발음|      예                     |
+| 독일어 (독일)                   | `de-DE` | 음향 모델<br>언어 모델<br>발음|  예                         |
 | 그리스어(그리스)                     | `el-GR` | 언어 모델                                   |                           |
 | 구자라트어(인도)                  | `gu-IN` | 언어 모델                                   |                           |
-| 힌디어(인도)                      | `hi-IN` | 음향 모델<br>언어 모델                 |     Yes                      |
+| 힌디어(인도)                      | `hi-IN` | 음향 모델<br>언어 모델                 |     예                      |
 | 헝가리어(헝가리)                | `hu-HU` | 언어 모델                                   |                           |
 | 아일랜드어 (아일랜드)                     | `ga-IE` | 언어 모델                                   |                           |
-| 이탈리아어(이탈리아)                    | `it-IT` | 음향 모델<br>언어 모델<br>발음|      Yes                     |
-| 일본어(일본)                   | `ja-JP` | 음향 모델<br>언어 모델                 |      Yes                     |
-| 한국어(한국)                     | `ko-KR` | 음향 모델<br>언어 모델                 |      Yes                     |
+| 이탈리아어(이탈리아)                    | `it-IT` | 음향 모델<br>언어 모델<br>발음|      예                     |
+| 일본어(일본)                   | `ja-JP` | 음향 모델<br>언어 모델                 |      예                     |
+| 한국어(한국)                     | `ko-KR` | 음향 모델<br>언어 모델                 |      예                     |
 | 라트비아어(라트비아)                   | `lv-LV` | 언어 모델                                   |                           |
 | 리투아니아어(리투아니아)             | `lt-LT` | 언어 모델                                   |                           |
 | 몰타어 (몰타)                     | `mt-MT` | 언어 모델                                   |                           |
 | 마라티어(인도)                    | `mr-IN` | 언어 모델                                   |                           |
-| 노르웨이어(복말)(노르웨이)         | `nb-NO` | 언어 모델                                   |     Yes                      |
-| 폴란드어(폴란드)                    | `pl-PL` | 언어 모델                                   |       Yes                    |
-| 포르투갈어(브라질)                | `pt-BR` | 음향 모델<br>언어 모델<br>발음|          Yes                 |
-| 포르투갈어(포르투갈)              | `pt-PT` | 언어 모델                                   |             Yes              |
+| 노르웨이어(복말)(노르웨이)         | `nb-NO` | 언어 모델                                   |     예                      |
+| 폴란드어(폴란드)                    | `pl-PL` | 언어 모델                                   |       예                    |
+| 포르투갈어(브라질)                | `pt-BR` | 음향 모델<br>언어 모델<br>발음|          예                 |
+| 포르투갈어(포르투갈)              | `pt-PT` | 언어 모델                                   |             예              |
 | 루마니아어(루마니아)                 | `ro-RO` | 언어 모델                                   |                           |
-| 러시아어(러시아)                   | `ru-RU` | 음향 모델<br>언어 모델                 |                Yes           |
+| 러시아어(러시아)                   | `ru-RU` | 음향 모델<br>언어 모델                 |                예           |
 | 슬로바키아어(슬로바키아)                  | `sk-SK` | 언어 모델                                   |                           |
 | 슬로베니아어(슬로베니아)               | `sl-SI` | 언어 모델                                   |                           |
 | 스페인어(아르헨티나)                | `es-AR` | 언어 모델                                   |                           |
@@ -109,20 +109,20 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 스페인어 (적도 기니)        | `es-GQ` | 언어 모델                                   |                           |
 | 스페인어(과테말라)                | `es-GT` | 언어 모델                                   |                           |
 | 스페인어(온두라스)                 | `es-HN` | 언어 모델                                   |                           |
-| 스페인어(멕시코)                   | `es-MX` | 음향 모델<br>언어 모델                 |    Yes                       |
+| 스페인어(멕시코)                   | `es-MX` | 음향 모델<br>언어 모델                 |    예                       |
 | 스페인어(니카라과)                | `es-NI` | 언어 모델                                   |                           |
 | 스페인어(파나마)                   | `es-PA` | 언어 모델                                   |                           |
 | 스페인어(파라과이)                 | `es-PY` | 언어 모델                                   |                           |
 | 스페인어(페루)                     | `es-PE` | 언어 모델                                   |                           |
 | 스페인어(푸에르토리코)              | `es-PR` | 언어 모델                                   |                           |
-| 스페인어(스페인)                    | `es-ES` | 음향 모델<br>언어 모델                 |  Yes                         |
+| 스페인어(스페인)                    | `es-ES` | 음향 모델<br>언어 모델                 |  예                         |
 | 스페인어(우루과이)                  | `es-UY` | 언어 모델                                   |                           |
 | 스페인어 (미국)                      | `es-US` | 언어 모델                                   |                           |
 | 스페인어(베네수엘라)                | `es-VE` | 언어 모델                                   |                           |
-| 스웨덴어(스웨덴)                   | `sv-SE` | 언어 모델                                   |   Yes                        |
+| 스웨덴어(스웨덴)                   | `sv-SE` | 언어 모델                                   |   예                        |
 | 타밀어(인도)                      | `ta-IN` | 언어 모델                                   |                           |
 | 텔루구어(인도)                     | `te-IN` | 언어 모델                                   |                           |
-| 태국어(태국)                    | `th-TH` | 언어 모델                                   |      Yes                     |
+| 태국어(태국)                    | `th-TH` | 언어 모델                                   |      예                     |
 | 터키어(터키)                   | `tr-TR` | 언어 모델                                   |                           |
 
 ## <a name="text-to-speech"></a>텍스트 음성 변환
@@ -143,7 +143,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 > 모든 음성이 synthesizing 때 다른 샘플 요금으로 upsample 하거나 다운 샘플링할 수 있습니다.
 
 
-| 언어 | Locale | 성별 | 음성 이름 | 스타일 지원 |
+| Language | Locale | 성별 | 음성 이름 | 스타일 지원 |
 |---|---|---|---|---|
 | 아랍어(이집트) | `ar-EG` | Female | `ar-EG-SalmaNeural` | 일반 |
 | 아랍어(이집트) | `ar-EG` | Male | `ar-EG-ShakirNeural` <sup>단추를 사용하여 새</sup> | 일반 |
@@ -199,7 +199,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 독일어(오스트리아) | `de-AT` | Female | `de-AT-IngridNeural` | 일반 |
 | 독일어(오스트리아) | `de-AT` | Male | `de-AT-JonasNeural` <sup>단추를 사용하여 새</sup> | 일반 |
 | 독일어(독일) | `de-DE` | Female | `de-DE-KatjaNeural` | 일반 |
-| 독일어(독일) | `de-DE` | Male | `de-DE-ConradNeural` | 일반 |
+| 독일어 (독일) | `de-DE` | Male | `de-DE-ConradNeural` | 일반 |
 | 독일어(스위스) | `de-CH` | Female | `de-CH-LeniNeural` | 일반 |
 | 독일어(스위스) | `de-CH` | Male | `de-CH-JanNeural` <sup>단추를 사용하여 새</sup> | 일반 |
 | 그리스어(그리스) | `el-GR` | Female | `el-GR-AthinaNeural` | 일반 |
@@ -264,7 +264,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 신경망 아래에는 공개 미리 보기로 제공 됩니다. 
 
-| 언어                         | Locale  | 성별 | 음성 이름                             | 스타일 지원 |
+| Language                         | Locale  | 성별 | 음성 이름                             | 스타일 지원 |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
 | 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 역할 재생 및 스타일 |
@@ -304,7 +304,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 > **En-us-미국 AriaRUS** 및 **En-us-미국 GuyRUS** 음성도 24 khz 샘플 요금을 사용 하는 샘플에서 만들어집니다.
 > 모든 음성이 synthesizing 때 다른 샘플 요금으로 upsample 하거나 다운 샘플링할 수 있습니다.
 
-| 언어 | 로캘 (BCP-47) | 성별 | 음성 이름 |
+| Language | 로캘 (BCP-47) | 성별 | 음성 이름 |
 |--|--|--|--|
 | 아랍어 (아랍어) | `ar-EG` | Female | `ar-EG-Hoda`|
 | 아랍어(사우디아라비아) | `ar-SA` | Male | `ar-SA-Naayf`|
@@ -346,7 +346,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 프랑스어(스위스) | `fr-CH` | Male | `fr-CH-Guillaume`|
 | 독일어(오스트리아) | `de-AT` | Male | `de-AT-Michael`|
 | 독일어(독일) | `de-DE` | Female | `de-DE-HeddaRUS`|
-| 독일어(독일) | `de-DE` | Male | `de-DE-Stefan`|
+| 독일어 (독일) | `de-DE` | Male | `de-DE-Stefan`|
 | 독일어(스위스) | `de-CH` | Male | `de-CH-Karsten`|
 | 그리스어(그리스) | `el-GR` | Male | `el-GR-Stefanos`|
 | 히브리어(이스라엘) | `he-IL` | Male | `he-IL-Asaf`|
@@ -392,10 +392,30 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 ### <a name="customization"></a>사용자 지정
 
-음성 사용자 지정은 `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-MX`, `fr-FR`, `it-IT`, `pt-BR`, `zh-CN`에 사용할 수 있습니다. 사용자 지정 음성 모델을 학습하는 데 사용할 학습 데이터와 일치하는 올바른 로캘을 선택합니다. 예를 들어, 보유하고 있는 기록 데이터가 영국식 영어로 말하는 경우 `en-GB`를 선택합니다.
+사용자 지정 음성은 표준 및 신경망 계층에서 사용할 수 있습니다. 지원 되는 언어는 이러한 두 계층에 따라 다릅니다. 
+
+| Language | Locale | 표준 | 신경 |
+|--|--|--|--|
+| 중국어 (북경어, 간체) | `zh-CN` | 예 | 예 |
+| 중국어 (북경어, 간체), 영어 (미국) | `zh-CN` 사전 | 예 | 예 |
+| 영어(호주) | `en-AU` | 아니요 | 예 |
+| 영어(인도) | `en-IN` | 예 | 예 |
+| 영어(영국) | `en-GB` | 예 | 예 |
+| 영어(미국) | `en-US` | 예 | 예 |
+| 프랑스어(캐나다) | `fr-CA` | 아니요 | 예 |
+| 프랑스어(프랑스) | `fr-FR` | 예 | 예 |
+| 독일어(독일) | `de-DE` | 예 | 예 |
+| 이탈리아어(이탈리아) | `it-IT` | 예 | 예 |
+| 일본어(일본) | `ja-JP` | 아니요 | 예 |
+| 한국어(한국) | `ko-KR` | 아니요 | 예 |
+| 포르투갈어(브라질) | `pt-BR` | 예 | 예 |
+| 스페인어(멕시코) | `es-MX` | 예 | 예 |
+| 스페인어(스페인) | `es-ES` | 아니요 | 예 |
+
+사용자 지정 음성 모델을 학습하는 데 사용할 학습 데이터와 일치하는 올바른 로캘을 선택합니다. 예를 들어, 보유하고 있는 기록 데이터가 영국식 영어로 말하는 경우 `en-GB`를 선택합니다.
 
 > [!NOTE]
-> Custom Voice에서는 이중 언어 모델 학습(중국어-영어 이중 언어 제외)을 지원하지 않습니다. 영어도 말할 수 있는 중국어 음성을 학습하려면 "중국어-영어 이중 언어"를 선택합니다. 모든 로캘의 음성 학습은 모든 크기의 교육 데이터로 시작할 수 있는 `en-US` 및 `zh-CN`을 제외한 2,000개 이상의 발화 데이터 세트로 시작합니다.
+> Custom Voice에서는 이중 언어 모델 학습(중국어-영어 이중 언어 제외)을 지원하지 않습니다. 영어도 말할 수 있는 중국어 음성을 학습하려면 "중국어-영어 이중 언어"를 선택합니다. 표준 방법을 사용 하는 모델 학습 Chinese-English는 서유럽 및 미국 중 북부 에서만 사용할 수 있습니다. 사용자 지정 신경망 교육은 영국 남부 및 미국 동부에서 사용할 수 있습니다. 
 
 ## <a name="speech-translation"></a>음성 번역
 
@@ -481,9 +501,9 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 다양한 Speaker Recognition API에 대해 지원되는 언어는 다음 테이블을 참조하세요. Speaker Recognition에 대한 자세한 내용은 [개요](speaker-recognition-overview.md)를 참조하세요.
 
-| 언어 | 로캘 (BCP-47) | 텍스트 종속 확인 | 텍스트 독립 확인 | 텍스트 독립 식별 |
+| Language | 로캘 (BCP-47) | 텍스트 종속 확인 | 텍스트 독립 확인 | 텍스트 독립 식별 |
 |----|----|----|----|----|
-|영어(미국)  |  en-US  |  예  |  예  |  예 |
+|영어(미국)  |  ko-KR  |  예  |  예  |  예 |
 |중국어(북경어, 간체) | zh-CN     |     해당 없음 |     예 |     예|
 |영어(오스트레일리아)     | en-AU     | 해당 없음     | 예     | 예|
 |영어(캐나다)     | en-CA     | 해당 없음 |     예 |     예|

@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: eaf12a9799f834046bc3914816f38d672fcc931b
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4bf0227cf11b21d7cde2807d465385bfc2b998b5
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234089"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573057"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -57,6 +57,9 @@ IIS | 다음을 확인합니다.<br/><br/> -기존의 기본 웹 사이트 없�
 NIC 유형 | VMXNET3(VMware VM으로 배포될 경우)
 IP 주소 유형 | 정적
 포트 | 443 컨트롤 채널 오케스트레이션에 사용 됨<br/>데이터 전송의 경우 9443
+
+> [!NOTE]
+운영 체제는 영어 로캘과 함께 설치 해야 합니다. 로캘 설치 후 설치를 변환 하면 잠재적인 문제가 발생할 수 있습니다.
 
 ## <a name="replicated-machines"></a>복제된 컴퓨터
 
@@ -176,17 +179,17 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 > [!NOTE]
 > 디스크 id를 변경 하는 것은 지원 되지 않습니다. 예를 들어 디스크 분할이 GPT에서 MBR로 또는 그 반대로 변경 된 경우 디스크 id가 변경 됩니다. 이러한 시나리오에서는 복제가 중단 되 고 새로 설치가 필요 합니다. 
 
-## <a name="network"></a>Network (네트워크)
+## <a name="network"></a>네트워크
 
 **구성 요소** | **지원됨**
 --- | ---
 호스트 네트워크 NIC 팀 | VMware VM에서 지원됩니다. <br/><br/>물리적 컴퓨터 복제에 지원되지 않습니다.
 호스트 네트워크 VLAN | 예.
 호스트 네트워크 IPv4 | 예.
-호스트 네트워크 IPv6 | 틀렸습니다.
-게스트/서버 네트워크 NIC 팀 | 틀렸습니다.
+호스트 네트워크 IPv6 | 아니요.
+게스트/서버 네트워크 NIC 팀 | 아니요.
 게스트/서버 네트워크 IPv4 | 예.
-게스트/서버 네트워크 IPv6 | 틀렸습니다.
+게스트/서버 네트워크 IPv6 | 아니요.
 게스트/서버 네트워크 정적 IP(Windows) | 예.
 게스트/서버 네트워크 정적 IP(Linux) | 예. <br/><br/>VM이 장애 복구(Failback) 시 DHCP를 사용하도록 구성되어 있습니다.
 게스트/서버 네트워크 다중 NIC | 예.

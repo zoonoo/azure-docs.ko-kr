@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 9bee5fa6b76aad9305947ebe460f37c399340038
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: d858474eca34243a007d0d0ac1e023a4a0fab8ec
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033456"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572343"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -60,9 +60,11 @@ ms.locfileid: "98033456"
 | 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 남아프리카 북부 | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 동남아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 미국 중서부 | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |

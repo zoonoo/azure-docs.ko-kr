@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 6ae164b1300119481e495e647dd491beafdd5241
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e48dfd224a9656c7d8327dd77f1b55e9a744f3af
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025081"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573091"
 ---
 # <a name="get-started-with-custom-voice"></a>Custom Voice 시작
 
@@ -39,10 +39,10 @@ ms.locfileid: "95025081"
 
 ## <a name="custom-neural-voices"></a>사용자 지정 신경망
 
-신경망 사용자 지정 기능은 현재 공개 미리 보기로 제공 되며 선택 된 고객으로 제한 됩니다. 이 [응용 프로그램 양식을](https://go.microsoft.com/fwlink/?linkid=2108737) 작성 하 여 시작 하세요.
+사용자 지정 음성은 현재 표준 계층과 신경망을 모두 지원 합니다. 사용자 지정 신경망은 사용자가 더 적은 데이터를 요구 하는 동시에 고품질의 음성 모델을 빌드할 수 있도록 지원 하 고 AI를 강력한 방식으로 배포할 수 있는 방법을 제공 합니다 사용자 지정 신경망을 사용 하 여 보다 자연 스러운 대화형 인터페이스에 대해 보다 현실적인 음성을 개발 하 고 고객과 최종 사용자가 책임을 지는 최신 텍스트 음성 변환 기술을 활용 하는 것이 좋습니다. [사용자 지정 신경망에 대해 자세히 알아보세요](https://aka.ms/CNV-Transparency-Note). 
 
 > [!NOTE]
-> Microsoft는 책임이 있는 AI 디자인을 위한 노력으로 개인 및 사회의 권리를 보호 하 고 사용자 컴퓨터의 투명 한 상호 작용을 촉진 합니다. 따라서 사용자 지정 신경망은 일반적으로 모든 고객에 게 제공 되지 않습니다. 응용 프로그램을 검토 하 고 윤리 원칙에 따라이를 사용 하도록 커밋한 후에만 기술에 대 한 액세스 권한을 얻을 수 있습니다. [응용 프로그램 제어 프로세스](./concepts-gating-overview.md)에 대해 자세히 알아보세요.
+> Microsoft는 책임이 있는 AI 디자인의 일환으로 사용자 지정 신경망 사용을 제한 했습니다. 응용 프로그램을 검토 하 고이를 담당 AI 원칙에 따라 사용 하도록 커밋한 후에만 기술에 대 한 액세스 권한을 얻을 수 있습니다. 액세스 제한 및 여기 [에 적용에서 정책](https://aka.ms/gating-overview) 에 대해 [](https://aka.ms/customneural)자세히 알아보세요. 표준 및 신경망 버전의 사용자 지정 음성에 대해 지원 되는 [언어](language-support.md#customization) 와 [지역은](regions.md#custom-voices) 다릅니다. 시작 하기 전에 세부 정보를 확인 합니다.  
 
 ## <a name="set-up-your-azure-account"></a>Azure 계정 설정
 
@@ -56,7 +56,7 @@ Azure 계정과 음성 서비스 구독을 만든 후에는 사용자 지정 음
 4. 다른 음성 구독으로 전환 하려면 위쪽 탐색에 있는 코그 아이콘을 사용 합니다.
 
 > [!NOTE]
-> 서비스를 사용 하려면 먼저 Azure에서 F0 또는 S0 키를 만들어야 합니다.
+> 서비스를 사용 하려면 Azure에서 F0 또는 S0 Speech service 키를 만들어야 합니다. 사용자 지정 신경망은 S0 계층만 지원 합니다. 
 
 ## <a name="how-to-create-a-project"></a>프로젝트를 만드는 방법
 

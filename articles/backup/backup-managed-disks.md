@@ -3,12 +3,12 @@ title: Azure Managed Disks 백업
 description: Azure Portal에서 Azure Managed Disks를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: c4e2d4e649d59389ac3f8bd115e43acabc792eb2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 2169e2f44e3ffb2c05c674d633efabed2c531878
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557828"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573125"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Azure Managed Disks 백업 (미리 보기)
 
@@ -129,6 +129,8 @@ Azure 디스크 백업 지역 가용성, 지원 되는 시나리오 및 제한 �
    >백업 자격 증명 모음 이름을 입력 하 여 자격 증명 모음의 관리 되는 id를 선택 합니다.
 
    ![디스크 스냅숏 참가자 역할 추가](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
+
+1. 백업할 디스크를 [CMK (고객 관리 키)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) 로 암호화 하거나 [플랫폼 관리 키 및 고객 관리 키를 사용 하 여 이중 암호화](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal)를 사용 하는 경우 **디스크 암호화 집합** 리소스에서 백업 자격 증명 모음 관리 id에 **읽기** 역할 권한을 할당 합니다.
 
 1. 백업 자격 증명 모음에서 관리 되는 id에 스냅숏 데이터 저장소 역할을 하는 원본 디스크 및 리소스 그룹에 대 한 올바른 역할 할당 집합이 있는지 확인 합니다.
 

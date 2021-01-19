@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a09a2083c1258a3120f8696aa39a0252dbfcf2d
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 83a4a2aa8328a6e3de9eab44bbf19fc76921b128
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209697"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573362"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -35,11 +35,15 @@ Azure Storage 계정의 데이터는 항상 기본 지역에서 세 번 복제�
 
 ### <a name="locally-redundant-storage"></a>LRS(로컬 중복 스토리지)
 
-LRS(로컬 중복 저장소)는 기본 지역의 단일 물리적 위치 내에서 데이터를 세 번 복제합니다. LRS는 지정된 1년 동안 개체에 99.999999999%(11개의 9) 이상의 내구성을 제공합니다.
+LRS (로컬 중복 저장소)는 주 지역의 단일 데이터 센터 내에서 데이터를 세 번 복제 합니다. LRS는 지정된 1년 동안 개체에 99.999999999%(11개의 9) 이상의 내구성을 제공합니다.
 
 LRS는 가장 저렴한 중복성 옵션이며 다른 옵션에 비해 내구성이 가장 낮습니다. LRS는 서버 랙 및 드라이브 오류로부터 데이터를 보호합니다. 그러나 데이터 센터 내에서 화재나 홍수와 같은 재해가 발생하는 경우 LRS를 사용하는 저장소 계정의 모든 복제본이 손실되거나 복구할 수 없게 됩니다. 이 위험을 완화하기 위해 Microsoft는 [ZRS(영역 중복 저장소)](#zone-redundant-storage), [GRS(지역 중복 저장소)](#geo-redundant-storage) 또는 [GZRS(지역 영역 중복 저장소)](#geo-zone-redundant-storage)를 사용하는 것을 권장합니다.
 
 LRS를 사용하는 저장소 계정에 대한 쓰기 요청은 동기적으로 발생합니다. 쓰기 작업은 3개의 모든 복제본에 데이터가 작성된 후에만 성공적으로 반환됩니다.
+
+다음 다이어그램에서는 LRS를 사용 하 여 단일 데이터 센터 내에서 데이터를 복제 하는 방법을 보여 줍니다.
+
+:::image type="content" source="media/storage-redundancy/locally-redundant-storage.png" alt-text="LRS를 사용 하 여 단일 데이터 센터에 데이터를 복제 하는 방법을 보여 주는 다이어그램":::
 
 LRS는 다음과 같은 시나리오에 적합합니다.
 
@@ -54,7 +58,11 @@ ZRS를 사용하면 영역을 사용할 수 없게 되는 경우에도 읽기 �
 
 ZRS를 사용하는 저장소 계정에 대한 쓰기 요청은 동기적으로 발생합니다. 쓰기 작업은 3개의 가용성 영역에서 데이터가 모든 복제본에 작성된 후에만 성공적으로 반환됩니다.
 
-Microsoft는 일관성, 내구성 및 고가용성이 필요한 시나리오인 경우 기본 지역에서 ZRS를 사용하는 것을 권장합니다. 데이터 거 버 넌 스 요구 사항으로 인해 국가 또는 지역 내 에서만 데이터를 복제 하도록 응용 프로그램을 제한 하려는 경우에도 ZRS를 사용 하는 것이 좋습니다.
+Microsoft는 일관성, 내구성 및 고가용성이 필요한 시나리오인 경우 기본 지역에서 ZRS를 사용하는 것을 권장합니다. ZRS은 데이터 관리 요구 사항을 충족 하기 위해 국가나 지역 내에서 데이터 복제를 제한 하는 데에도 권장 됩니다.
+
+다음 다이어그램에서는 ZRS를 사용 하 여 주 지역의 가용성 영역에서 데이터를 복제 하는 방법을 보여 줍니다.
+
+:::image type="content" source="media/storage-redundancy/zone-redundant-storage.png" alt-text="ZRS를 사용 하 여 주 지역에 데이터를 복제 하는 방법을 보여 주는 다이어그램":::
 
 ZRS는 데이터를 일시적으로 사용할 수 없는 경우 탁월한 성능, 낮은 대기 시간 및 복원력을 제공합니다. 그러나 ZRS 자체만으로는 여러 영역에 영구적인 영향을 주는 지역 재해로부터 데이터를 보호하지 못할 수 있습니다. 지역 재해를 방지하기 위해 Microsoft는 기본 지역에서 ZRS를 사용하고 보조 지역으로 데이터를 지역 복제하는 [GZRS(지역 영역 중복 저장소)](#geo-zone-redundant-storage)를 사용하는 것을 권장합니다.
 
