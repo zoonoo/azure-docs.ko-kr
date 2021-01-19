@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 511801962d07e5fb99000b2fc19adce2489b46d3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967485"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570085"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
 
@@ -64,15 +64,15 @@ Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수�
 
 LIF 및 단일 Linux 세션의 최대 처리량은 1.2에서 1.4 g b/초 사이입니다. 
 
-| 크기  | 처리량 표준 | 처리량 프리미엄 | 처리량 Ultra |
+| Size  | 처리량 표준 | 처리량 프리미엄 | 처리량 Ultra |
 | --- | --- | --- | --- |
 | 1TB | 16 m b/초 | 64 m b/초 | 128 m b/초 |
 | 2TB | 32 m b/초 | 128 m b/초 | 256 m b/초 |
 | 4 TB | 64 m b/초 | 256 m b/초 | 512 m b/초 |
-| 10TB | 160 m b/초 | 640 m b/초 | 1.280 m b/초 |
-| 15TB | 240 m b/초 | 960 m b/초 | 1.400 m b/초 |
-| 20TB | 320 m b/초 | 1.280 m b/초 | 1.400 m b/초 |
-| 40 TB | 640 m b/초 | 1.400 m b/초 | 1.400 m b/초 |
+| 10TB | 160 m b/초 | 640 m b/초 | 1280 m b/초 |
+| 15TB | 240 m b/초 | 960 m b/초 | 1400 m b/초 |
+| 20TB | 320 m b/초 | 1280 m b/초 | 1400 m b/초 |
+| 40 TB | 640 m b/초 | 1400 m b/초 | 1400 m b/초 |
 
 데이터가 저장소 백 엔드에서 동일한 Ssd에 기록 된다는 것을 이해 하는 것이 중요 합니다. 환경을 관리할 수 있도록 용량 풀의 성능 할당량을 만들었습니다.
 저장소 Kpi는 모든 HANA 데이터베이스 크기에 대해 동일 합니다. 거의 모든 경우에이 가정은 현실 및 고객의 기대를 반영 하지 않습니다. HANA 시스템의 크기는 반드시 작은 시스템에 저장소 처리량이 충분 하지 않다는 것을 의미 하는 것은 아니며, 대규모 시스템에는 높은 저장소 처리량이 필요 합니다. 그러나 일반적으로 더 큰 HANA 데이터베이스 인스턴스에 대 한 처리량 요구 사항이 더 높아질 수 있습니다. 기본 하드웨어에 대 한 SAP의 크기 조정 규칙에 따라, 인스턴스를 다시 시작한 후 데이터를 로드 하는 등의 작업에서 더 많은 CPU 리소스와 더 많은 병렬 처리를 제공 합니다. 따라서 고객 기대치 및 요구 사항에 맞게 볼륨 크기를 채택 해야 합니다. 순수 용량 요구 사항에 따라 달라 지는 것은 아닙니다.

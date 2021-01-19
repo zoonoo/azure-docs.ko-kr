@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 95993b35174b80dae8c878c22554ee60afeb8a14
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 57a9f6f11283e020efc25f55f1df473a6cb2d321
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206223"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570000"
 ---
 # <a name="server-side-performance-queries"></a>서버 쪽 성능 쿼리
 
@@ -29,7 +29,7 @@ ms.locfileid: "92206223"
 
 이 그림은 다음과 같은 방법을 보여줍니다.
 
-* 60Hz의 일정한 프레임 속도(16.6밀리초 간격)로 클라이언트에서 *포즈 예상*이 시작됩니다.
+* 60Hz의 일정한 프레임 속도(16.6밀리초 간격)로 클라이언트에서 *포즈 예상* 이 시작됩니다.
 * 그런 후 포즈를 기반으로 서버가 렌더링을 시작합니다.
 * 서버가 인코딩된 비디오 이미지를 다시 전송합니다.
 * 클라이언트가 이미지를 디코딩하고, 그 위에서 몇 가지 CPU 및 GPU 작업을 수행하고, 이미지를 표시합니다.
@@ -64,14 +64,14 @@ void QueryFrameData(ApiHandle<AzureSession> session)
 
 | 멤버 | 설명 |
 |:-|:-|
-| latencyPoseToReceive | 이 포즈의 서버 프레임이 클라이언트 애플리케이션에 완전히 제공될 때까지 클라이언트 디바이스에서의 클라이언트 카메라 포즈 예상에 걸리는 대기 시간입니다. 이 값에는 네트워크 왕복, 서버 렌더링 시간, 비디오 디코딩 및 지터 보정이 포함됩니다. 위 그림에서 **간격 1**을 참조하세요.|
-| latencyReceiveToPresent | 수신된 원격 프레임이 제공된 시점으로부터 클라이언트 앱이 CPU에서 PresentFrame을 호출할 때까지 대기 시간입니다. |
-| latencyPresentToDisplay  | CPU에 프레임을 제공한 시점으로부터 디스플레이가 켜질 때까지 대기 시간입니다. 이 값에는 클라이언트 GPU 시간, OS에서 수행되는 모든 프레임 버퍼링, 하드웨어 다시 프로젝션 및 디바이스별 디스플레이 스캔 아웃 시간이 포함됩니다. 위 그림에서 **간격 2**를 참조하세요.|
-| timeSinceLastPresent | CPU에서 PresentFrame 후속 호출 사이의 시간입니다. 표시 기간보다 큰 값(예: 60Hz 클라이언트 디바이스에서 16.6밀리초)은 해당 CPU 워크로드가 시간 내에 완료되지 않아 클라이언트 애플리케이션에서 문제가 발생했음을 나타냅니다. 위 그림에서 **간격 3**을 참조하세요.|
+| latencyPoseToReceive | 이 포즈의 서버 프레임이 클라이언트 애플리케이션에 완전히 제공될 때까지 클라이언트 디바이스에서의 클라이언트 카메라 포즈 예상에 걸리는 대기 시간입니다. 이 값에는 네트워크 왕복, 서버 렌더링 시간, 비디오 디코딩 및 지터 보정이 포함됩니다. 위 그림에서 **간격 1** 을 참조하세요.|
+| latencyReceiveToPresent | 수신된 원격 프레임이 제공된 시점으로부터 클라이언트 앱이 CPU에서 PresentFrame을 호출할 때까지 대기 시간입니다. 위 그림에서 **간격 2** 를 참조하세요.|
+| latencyPresentToDisplay  | CPU에 프레임을 제공한 시점으로부터 디스플레이가 켜질 때까지 대기 시간입니다. 이 값에는 클라이언트 GPU 시간, OS에서 수행되는 모든 프레임 버퍼링, 하드웨어 다시 프로젝션 및 디바이스별 디스플레이 스캔 아웃 시간이 포함됩니다. 위 그림에서 **간격 3** 을 참조하세요.|
+| timeSinceLastPresent | CPU에서 PresentFrame 후속 호출 사이의 시간입니다. 표시 기간보다 큰 값(예: 60Hz 클라이언트 디바이스에서 16.6밀리초)은 해당 CPU 워크로드가 시간 내에 완료되지 않아 클라이언트 애플리케이션에서 문제가 발생했음을 나타냅니다.|
 | videoFramesReceived | 마지막 1초 동안 서버에서 수신된 프레임 수입니다. |
 | videoFrameReusedCount | 디바이스에서 두 번 이상 사용되었고 마지막 1초 동안 수신된 프레임 수입니다. 0이 아닌 값은 네트워크 지터 또는 과도한 서버 렌더링 시간으로 인해 프레임을 다시 사용하고 다시 프로젝션해야 했음을 나타냅니다. |
 | videoFramesSkipped | 디코딩되었지만 새로운 프레임이 도착하여 디스플레이에 표시되지 않은 마지막 1초 동안 수신된 프레임 수입니다. 0이 아닌 값은 네트워크 지터링으로 인해 여러 프레임이 표시된 후 클라이언트 디바이스에 갑자기 한번에 도착했음을 나타냅니다. |
-| videoFramesDiscarded | **videoFramesSkipped**와 매우 비슷하지만 프레임이 버려지는 이유는 프레임이 너무 늦게 도착해서 보류 중인 포즈와 더 이상 상관 관계로 연결될 수 없기 때문입니다. 이 경우 심각한 네트워크 경합이 발생합니다.|
+| videoFramesDiscarded | **videoFramesSkipped** 와 매우 비슷하지만 프레임이 버려지는 이유는 프레임이 너무 늦게 도착해서 보류 중인 포즈와 더 이상 상관 관계로 연결될 수 없기 때문입니다. 이 경우 심각한 네트워크 경합이 발생합니다.|
 | videoFrameMinDelta | 마지막 1초 동안 도착하는 연속된 프레임 2개 사이의 최소 시간입니다. 이 범위는 videoFrameMaxDelta와 함께 네트워크 또는 비디오 코덱에 의해 발생한 지터를 표시합니다. |
 | videoFrameMaxDelta | 마지막 1초 동안 도착하는 연속된 프레임 2개 사이의 최대 시간입니다. 이 범위는 videoFrameMinDelta와 함께 네트워크 또는 비디오 코덱에 의해 발생한 지터를 표시합니다. |
 
@@ -85,7 +85,7 @@ void QueryFrameData(ApiHandle<AzureSession> session)
 
 ## <a name="performance-assessment-queries"></a>성능 평가 쿼리
 
-*성능 평가 쿼리*는 서버에서 CPU 및 GPU 워크로드에 대해 더 자세한 정보를 제공합니다. 서버에서 데이터가 요청되기 때문에 성능 스냅샷을 쿼리할 때는 일반적인 비동기 패턴을 따릅니다.
+*성능 평가 쿼리* 는 서버에서 CPU 및 GPU 워크로드에 대해 더 자세한 정보를 제공합니다. 서버에서 데이터가 요청되기 때문에 성능 스냅샷을 쿼리할 때는 일반적인 비동기 패턴을 따릅니다.
 
 ```cs
 PerformanceAssessmentAsync _assessmentQuery = null;
@@ -132,7 +132,7 @@ void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
 | networkLatency | 대략적인 평균 왕복 네트워크 대기 시간(밀리초)입니다. 위 그림에서 이 값은 빨간색 화살표의 합계에 해당합니다. 값은 `FrameStatistics`의 `latencyPoseToReceive` 값에서 실제 서버 렌더링 시간을 빼서 계산됩니다. 이 근사값이 정확하진 않아도 클라이언트에서 계산되는 대기 시간 값에서 분리된 네트워크 대기 시간을 어느 정도 나타낼 수 있습니다. |
 | polygonsRendered | 한 프레임에서 렌더링된 삼각형의 개수입니다. 이 숫자에는 렌더링 중 나중에 골라낸 삼각형도 포함됩니다. 즉, 여러 카메라 위치에 따라 이 숫자가 크게 달라지진 않아도, 삼각형 고르기 속도에 따라 성능이 크게 달라질 수 있습니다.|
 
-값을 평가하는 데 도움이 될 수 있도록 각 부분에는 **Great**, **Good**, **Mediocre** 또는 **Bad**와 같은 품질 분류가 제공됩니다.
+값을 평가하는 데 도움이 될 수 있도록 각 부분에는 **Great**, **Good**, **Mediocre** 또는 **Bad** 와 같은 품질 분류가 제공됩니다.
 이 평가 메트릭은 서버 상태에 대한 간략한 표시를 제공하지만 절대적인 것으로 이해하지는 않아야 합니다. 예를 들어 GPU 시간 점수가 'mediocre'라고 가정해보세요. mediocre로 간주되는 이유는 전체 프레임 시간 예산의 한계에 근접하기 때문입니다. 하지만 이 경우에는 복잡한 모델을 렌더링하기 때문에 그럼에도 불구하고 Good 값일 수 있습니다.
 
 ## <a name="statistics-debug-output"></a>통계 디버그 출력

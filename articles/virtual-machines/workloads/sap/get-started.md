@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/05/2021
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3a4c367bbe0770495a63c00ca33861ac815460f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0b323268c625ed25236cf4a9f9faa17606bd967c
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121008"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570068"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -49,7 +49,8 @@ Azure의 SAP 워크로드 섹션의 문서에 대한 변경 내용은 이 문서
 - 시나리오에 가장 적합 한 Azure storage는 무엇 인가요? [SAP 워크 로드에 대 한 Azure Storage 형식](./planning-guide-storage.md) 읽기
 - SAP에서 지 원하는 Oracle Enterprise Linux의 Red Hat 커널이 있나요? SAP [sap 지원 정보](https://launchpad.support.sap.com/#/notes/1565179) 를 참조 하십시오 #1565179
 - Azure [Da v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series) / [Ea](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) VM 제품군 SAP HANA에 대해 인증 되지 않는 이유는 무엇 인가요? Azure Das/Eas VM 제품군은 AMD 프로세서 기반 하드웨어를 기반으로 합니다. SAP HANA는 가상화 된 시나리오에도 포함 되지 않고 AMD 프로세서를 지원 하지 않습니다.
-- 가장 최근의 Linux 커널을 실행 하는 사실에도 불구 하 고, ' RDTSCP 명령에 대 한 cpu 플래그 또는 constant_tsc 또는 nonstop_tsc에 대 한 cpu 플래그는 설정 되어 있지 않거나 current_clocksource 및 available_clocksource 올바르게 SAP HANA 구성 되어 있지 않습니다. ' 메시지가 표시 되는 이유는 무엇 인가요? 답변에 대 한 자세한 내용은 [SAP 지원 정보](https://launchpad.support.sap.com/#/notes/2791572) 를 확인 #2791572 
+- 가장 최근의 Linux 커널을 실행 하는 사실에도 불구 하 고, ' RDTSCP 명령에 대 한 cpu 플래그 또는 constant_tsc 또는 nonstop_tsc에 대 한 cpu 플래그는 설정 되어 있지 않거나 current_clocksource 및 available_clocksource 올바르게 SAP HANA 구성 되어 있지 않습니다. ' 메시지가 표시 되는 이유는 무엇 인가요? 답변에 대 한 자세한 내용은 [SAP 지원 정보](https://launchpad.support.sap.com/#/notes/2791572) 를 확인 #2791572
+- Azure에서 SAP Fiori를 배포 하기 위한 아키텍처는 어디서 찾을 수 있나요? [Azure의 블로그 sap: 인터넷 연결 SAP Fiori 앱 용 WAF (웹 응용 프로그램 방화벽) V2 설치](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/) 를 확인 합니다 Application Gateway. 
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA 사용
@@ -83,6 +84,7 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>로그 변경
 
+- 01/18/2021: azure의 Oracle에 대 한 Azure net Apps 파일 기반 NFS의 지원이 추가 되었습니다. [SAP 워크 로드에 대 한 ORACLE DBMS 배포 Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle) 에 [대 한 Azure NetApp Files의 NFS v 4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) 문서에서 10 진수를 조정 SAP HANA
 - 01/11/2021: [sap 용 RHEL의 Azure vm에 대 한 ha](./high-availability-guide-rhel.md)의 사소한 변경 내용, [RHEL의](./high-availability-guide-rhel-netapp-files.md) Azure vm에 있는 azure vm의 azure vm에 대 한 Ha 및 [RHEL의 azure vm에](./high-availability-guide-rhel-multi-sid.md) 있는 azure vm의 HA에 대 한 ha 가이드 RHEL8 및 RHEL7 모두에 대해 작동 하는 명령을 조정 하 고 ENSA1 및 ENSA2
 - 01/05/2021: SLES의 ANF를 사용 하 여 [Azure vm의 대기 노드를 사용 하는 SAP HANA 확장](./sap-hana-scale-out-standby-netapp-files-suse.md) 의 변경 내용 및 [RHEL의 anf를 사용 하는 azure vm의 대기 노드로 확장 SAP HANA](./sap-hana-scale-out-standby-netapp-files-rhel.md)SAP 호스트 에이전트가 로컬 포트 범위를 관리할 수 있도록 권장 구성을 수정 합니다.  
 - 01/04/2021: HLI에서 지 원하는 새 Azure 지역을 [azure (Large Instances)의 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 에 추가 합니다.

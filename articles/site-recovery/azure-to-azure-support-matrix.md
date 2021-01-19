@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: f0c7e23e45a84fa73c7e63b5aaa6280177cf8b27
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: fdd5b8f9cea549f64c4857d1c45b95b0d9b9ec53
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541311"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569966"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -44,13 +44,13 @@ ms.locfileid: "98541311"
 **지리적 클러스터** | **Azure 지역**
 -- | --
 America | 캐나다 동부, 캐나다 중부, 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중부, 미국 중북부
-유럽 | 영국 서부, 영국 남부, 북부 유럽, 유럽 서부, 남아프리카 공화국 서 부, 남아프리카 공화국 북부, 노르웨이 동부, 프랑스 중부, 스위스 북부
+유럽 | 영국 서부, 영국 남부, 북부 유럽, 유럽 서부, 남아프리카 공화국 서 부, 남아프리카 공화국 북부, 노르웨이 동부, 프랑스 중부, 스위스 북부, 독일 중서부
 아시아 | 인도 남부, 인도 중부, 인도 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서부, 한국 중부, 한국 남부
 오스트레일리아    | 오스트레일리아 동부, 오스트레일리아 남동부, 오스트레일리아 중부, 오스트레일리아 중부 2
 Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조나, US Gov 텍사스, US DoD 동부, US DoD 중부
 독일    | 독일 중부, 독일 북동부
 중국 | 중국 동부, 중국 북부, 중국 북부 2, 중국 동부 2
-국내 재해 복구를 위해 예약된 제한된 지역 |독일 중서부 용 스위스 서부으로 예약 된 독일 북부, 스위스 북부 용 프랑스 남부, 프랑스 중부에 대해 프랑스 남부 예약, 아랍에미리트 북부 고객에 대 한 아랍에미리트 중부 제한, 노르웨이 동부 고객의 노르웨이 서 부
+국내 재해 복구를 위해 예약된 제한된 지역 |스위스 북부 용으로 예약 된 스위스 서부, 프랑스 중부에 대해 프랑스 남부 예약, 아랍에미리트 북부 고객의 경우 아랍에미리트 중부, 노르웨이 동부 고객의 경우 노르웨이 서 부
 
 >[!NOTE]
 >
@@ -198,7 +198,7 @@ Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | VMware VM �
 Azure RBAC 정책 | 지원되지 않음 | Vm의 azure RBAC (역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다.
 확장 | 지원되지 않음 | 확장은 대상 지역의 장애 조치(failover) VM에 복제되지 않습니다. 장애 조치(failover) 후 수동으로 설치해야 합니다.
 근접 배치 그룹 | 지원됨 | 근접 배치 그룹 내에 있는 가상 머신은 Site Recovery를 사용 하 여 보호할 수 있습니다.
-태그  | 지원됨 | 원본 가상 컴퓨터에 적용 된 사용자 생성 태그는 테스트 장애 조치 (failover) 또는 장애 조치 (failover) 후 대상 가상 컴퓨터로 전달 됩니다.
+태그들  | 지원됨 | 원본 가상 컴퓨터에 적용 된 사용자 생성 태그는 테스트 장애 조치 (failover) 또는 장애 조치 (failover) 후 대상 가상 컴퓨터로 전달 됩니다.
 
 
 ## <a name="replicated-machines---disk-actions"></a>복제된 컴퓨터 - 디스크 작업
@@ -258,7 +258,7 @@ NVMe 디스크 | 지원되지 않음
 Azure 공유 디스크 | 지원되지 않음
 보안 전송 옵션 | 지원됨
 쓰기 가속기 사용 디스크 | 지원되지 않음
-태그  | 사용자가 생성 한 태그는 24 시간 마다 복제 됩니다.
+태그들  | 사용자가 생성 한 태그는 24 시간 마다 복제 됩니다.
 
 >[!IMPORTANT]
 > 성능 문제를 방지하려면 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM에 대한 VM 디스크 확장성 및 성능 목표를 따라야 합니다. 기본 설정을 사용하는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 스토리지 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 따릅니다.
@@ -305,7 +305,7 @@ Virtual Network 서비스 엔드포인트 | 지원됨 | 스토리지 계정에 �
 Palo Alto 네트워크 어플라이언스 | 지원되지 않음 | 타사 어플라이언스를 사용하는 경우 공급자가 가상 머신 내부에서 적용하는 제한 사항이 있는 경우가 흔합니다. Azure Site Recovery가 에이전트, 확장 및 아웃바운드 연결을 사용할 수 있어야 합니다. 하지만 어플라이언스는 가상 머신 내에서 아웃바운드 작업을 구성하는 것을 허용하지 않습니다.
 IPv6  | 지원되지 않음 | IPv4 및 IPv6을 모두 포함하는 혼합 구성도 지원되지 않습니다. Site Recovery 작업을 수행하기 전에 IPv6 범위의 서브넷을 확보하세요.
 Site Recovery 서비스에 대 한 개인 링크 액세스 | 지원됨 | [자세히 알아보기](azure-to-azure-how-to-enable-replication-private-endpoints.md)
-태그  | 지원됨 | Nic의 사용자 생성 태그는 24 시간 마다 복제 됩니다.
+태그들  | 지원됨 | Nic의 사용자 생성 태그는 24 시간 마다 복제 됩니다.
 
 
 

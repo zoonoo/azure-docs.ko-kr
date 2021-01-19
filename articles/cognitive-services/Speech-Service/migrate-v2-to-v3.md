@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9e5db87f983c5db59715eb8b6a9561acf5fad14
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630618"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569847"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>REST API v 2.0에서 v 3.0으로 코드 마이그레이션
 
@@ -24,11 +24,51 @@ V 2와 비교 하 여, 음성-텍스트에 대 한 음성 REST API 서비스의 
 
 ## <a name="forward-compatibility"></a>이후 버전과의 호환성
 
-V2의 모든 엔터티는 동일한 id의 v3 API 에서도 찾을 수 있습니다. 결과의 스키마가 변경 된 경우 (예를 들어, 예를 들어,) v3 버전의 API에 있는 GET 결과는 v3 스키마를 사용 합니다. V2 버전의 API에서 GET 결과는 동일한 v2 스키마를 사용 합니다. V3에서 새로 만든 엔터티는 v2 Api의 결과에서 사용할 수 **없습니다** .
+V2의 모든 엔터티는 동일한 id의 v3 API 에서도 찾을 수 있습니다. 결과의 스키마가 변경 된 경우 (예를 들어, 예를 들어,) v3 버전의 API에 있는 GET 결과는 v3 스키마를 사용 합니다. V2 버전의 API에서 GET 결과는 동일한 v2 스키마를 사용 합니다. V3에서 새로 만든 엔터티는 ****   v2 api의 응답에서 사용할 수 없습니다. 
+
+## <a name="migration-steps"></a>마이그레이션 단계
+
+마이그레이션을 준비할 때 주의 해야 하는 항목의 요약 목록입니다. 세부 정보는 개별 링크에 있습니다. 현재 API 사용에 따라 여기에 나열 된 모든 단계는 적용 되지 않을 수 있습니다. 몇 가지 변경 내용 으로만 호출 코드에서 중요 한 변경 내용이 필요 하지 않습니다. 대부분의 변경 내용에는 항목 이름을 변경 해야 합니다. 
+
+일반 변경 내용: 
+
+1. [호스트 이름 변경](#host-name-changes)
+
+1. [클라이언트 코드에서 속성 id의 이름을 self로 바꾸기](#identity-of-an-entity) 
+
+1. [엔터티 컬렉션을 반복 하도록 코드 변경](#working-with-collections-of-entities)
+
+1. [클라이언트 코드에서 속성 이름 이름을 displayName으로 바꿉니다.](#name-of-an-entity)
+
+1. [참조 된 엔터티의 메타 데이터 검색 조정](#accessing-referenced-entities)
+
+1. 일괄 처리 기록을 사용 하는 경우: 
+
+    * [일괄 처리를 만들기 위한 코드 조정](#creating-transcriptions) 
+
+    * [새 기록 결과 스키마에 코드 조정](#format-of-v3-transcription-results)
+
+    * [결과를 검색 하는 방법에 대 한 코드 조정](#getting-the-content-of-entities-and-the-results)
+
+1. 사용자 지정 모델 학습/테스트 Api를 사용 하는 경우: 
+
+    * [사용자 지정 모델 학습에 수정 내용 적용](#customizing-models)
+
+    * [기본 모델과 사용자 지정 모델을 검색 하는 방법 변경](#retrieving-base-and-custom-models)
+
+    * [클라이언트 코드에서 accuracytests 경로 세그먼트의 이름을 평가로 바꿉니다.](#accuracy-tests)
+
+1. 끝점 Api를 사용 하는 경우:
+
+    * [끝점 로그를 검색 하는 방법 변경](#retrieving-endpoint-logs)
+
+1. 기타 사소한 변경 내용: 
+
+    * [POST 요청에서 속성 대신 customProperties로 모든 사용자 지정 속성을 전달 합니다.](#using-custom-properties)
+
+    * [작업 위치 대신 응답 헤더 위치에서 위치를 읽습니다.](#response-headers)
 
 ## <a name="breaking-changes"></a>주요 변경 내용
-
-주요 변경 내용 목록이 조정에 필요한 변경의 크기를 기준으로 정렬 되었습니다. 몇 가지 변경 내용 으로만 호출 코드에서 중요 한 변경 내용이 필요 하지 않습니다. 대부분의 변경 내용에는 항목 이름을 변경 해야 합니다.
 
 ### <a name="host-name-changes"></a>호스트 이름 변경
 

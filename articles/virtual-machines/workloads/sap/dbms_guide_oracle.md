@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/20/2020
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e99b3a8960eb49856e9a016eb054eed41eccde9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b4cf2e79acf4cd58ff94a2e90f07202341672a1d
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965258"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569439"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>SAP 워크 로드에 대 한 Azure Virtual Machines Oracle DBMS 배포
 
@@ -445,15 +445,19 @@ SAP 설치 설명서에 따라 Oracle 관련 파일을 VM의 부팅 디스크용
 
 ### <a name="storage-configuration"></a>스토리지 구성
 
-ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 또는 [Azure Managed Disks](../../managed-disks-overview.md)를 기준으로 합니다.
+파일 시스템 of ext4, xfs, NFSv 4.1 (ANF (on Azure NetApp Files) 또는 Oracle ASM (릴리스/버전 요구 사항에 대 한 SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619) 참조)은 Azure의 Oracle Database 파일에 대해 지원 됩니다. 모든 데이터베이스 파일은 Vhd, Managed Disks 또는 ANF에 따라 이러한 파일 시스템에 저장 되어야 합니다. 이러한 디스크는 azure VM에 탑재 되 고 [azure page blob storage](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs), [azure Managed Disks](../../managed-disks-overview.md)또는 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)를 기반으로 합니다.
 
-Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](../../premium-storage-performance.md#disk-caching)를 지원하려면 최소 UEK 버전 4가 필요합니다.
+최소 요구 사항 목록은 다음과 같습니다. 
+
+- Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](../../premium-storage-performance.md#disk-caching)를 지원하려면 최소 UEK 버전 4가 필요합니다.
+- Oracle의 경우 지원 되는 최소 Oracle Linux은 8.2입니다.
+- Oracle의 경우 지원 되는 최소 Oracle 버전은 19c (19.8.0.0)입니다.
 
 [SAP 워크 로드에 대 한 문서 Azure Storage 형식](./planning-guide-storage.md) 을 체크 아웃 하 여 DBMS 작업에 적합 한 특정 Azure 블록 저장소 형식에 대 한 자세한 정보를 가져옵니다.
 
-[Azure Managed Disks](../../managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [Azure 프리미엄 SSD](../../disks-types.md)를 사용하는 것이 좋습니다.
+Azure 블록 저장소를 사용 하 여 Oracle Database 배포에 azure [managed disks](../../managed-disks-overview.md) 및 [azure premium ssd](../../disks-types.md) 를 사용 하는 것이 좋습니다.
 
-네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 
+Azure NetApp Files를 제외 하 고 다른 공유 디스크, 네트워크 드라이브 또는 AFS (Azure 파일 서비스)와 같은 원격 공유는 Oracle Database 파일에 대해 지원 되지 않습니다. 자세한 내용은 
 
 - [Microsoft Azure 파일 서비스 소개](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
@@ -469,10 +473,10 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 | 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA & mirrlogB | 프리미엄 또는 Ultra disk | None | 필요하지 않음 |
-| /oracle/\<SID>/origlogaB & mirrlogA | 프리미엄 또는 Ultra disk | None | 필요하지 않음 |
-| /oracle/\<SID>/sapdata1...n | 프리미엄 또는 Ultra disk | 읽기 전용 | 프리미엄에 사용할 수 있습니다. |
-| /oracle/\<SID>/oraarch | Standard | None | 필요하지 않음 |
+| /oracle/\<SID>/origlogaA & mirrlogB | 프리미엄, 울트라 디스크 또는 ANF | None | 필요하지 않음 |
+| /oracle/\<SID>/origlogaB & mirrlogA | 프리미엄, 울트라 디스크 또는 ANF | None | 필요하지 않음 |
+| /oracle/\<SID>/sapdata1...n | 프리미엄, 울트라 디스크 또는 ANF | 읽기 전용 | 프리미엄에 사용할 수 있습니다. |
+| /oracle/\<SID>/oraarch | Standard 또는 ANF | None | 필요하지 않음 |
 | Oracle 홈, `saptrace` , ... | OS 디스크 (프리미엄) | | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
@@ -483,13 +487,13 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 | 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다.  |
-| /oracle/\<SID>/origlogaB | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
-| /oracle/\<SID>/mirrlogAB | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
-| /oracle/\<SID>/mirrlogBA | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
-| /oracle/\<SID>/sapdata1...n | 프리미엄 또는 Ultra disk | 읽기 전용 | 프리미엄에 권장  |
-| /oracle/\<SID>/sapdata(n+1)* | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
-| /oracle/\<SID>/oraarch* | 프리미엄 또는 Ultra disk | None | 필요하지 않음 |
+| /oracle/\<SID>/origlogaA | 프리미엄, 울트라 디스크 또는 ANF | 없음 | 프리미엄에 사용할 수 있습니다.  |
+| /oracle/\<SID>/origlogaB | 프리미엄, 울트라 디스크 또는 ANF | 없음 | 프리미엄에 사용할 수 있습니다. |
+| /oracle/\<SID>/mirrlogAB | 프리미엄, 울트라 디스크 또는 ANF | 없음 | 프리미엄에 사용할 수 있습니다. |
+| /oracle/\<SID>/mirrlogBA | 프리미엄, 울트라 디스크 또는 ANF | 없음 | 프리미엄에 사용할 수 있습니다. |
+| /oracle/\<SID>/sapdata1...n | 프리미엄, 울트라 디스크 또는 ANF | 읽기 전용 | 프리미엄에 권장  |
+| /oracle/\<SID>/sapdata(n+1)* | 프리미엄, 울트라 디스크 또는 ANF | 없음 | 프리미엄에 사용할 수 있습니다. |
+| /oracle/\<SID>/oraarch* | 프리미엄, 울트라 디스크 또는 ANF | None | 필요하지 않음 |
 | Oracle 홈, `saptrace` , ... | OS 디스크 (프리미엄) | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
@@ -500,6 +504,10 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 
 Azure premium storage를 사용할 때 더 많은 IOPS가 필요한 경우 LVM (논리 볼륨 관리자) 또는 MDADM을 사용 하 여 탑재 된 여러 디스크에 하나의 대규모 논리 볼륨을 만드는 것이 좋습니다. 자세한 내용은 LVM 또는 MDADM을 활용하는 방법에 대한 지침과 조언을 제공하는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)을 참조하세요. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 파일을 수동으로 배포하는 수고를 덜 수 있습니다.
+
+Azure NetApp Files 사용 하려면 dNFS 클라이언트가 올바르게 구성 되어 있는지 확인 합니다. 지원 되는 환경을 사용 하려면 dNFS를 반드시 사용 해야 합니다. DNFS의 구성은 [직접 NFS에 대 한 Oracle Database 만들기](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA)문서에 설명 되어 있습니다.
+
+Oracle 데이터베이스에 대 한 Azure NetApp Files 기반 NFS 사용을 보여 주는 예제는 [Azure NetApp Files와 함께 SAP AnyDB (oracle 19c) 배포](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)블로그에 나와 있습니다.
 
 
 #### <a name="write-accelerator"></a>Write Accelerator

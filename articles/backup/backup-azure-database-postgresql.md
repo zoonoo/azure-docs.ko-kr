@@ -4,12 +4,12 @@ description: 장기 보존을 통한 Azure Database for PostgreSQL 백업에 대
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 32837e5bb871f7db5024569efc27940047aeacd7
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734643"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569490"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>장기 보존을 사용 하는 Azure Database for PostgreSQL 백업 (미리 보기)
 
@@ -29,7 +29,7 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
 ## <a name="support-matrix"></a>지원 매트릭스
 
-|지원  |세부 정보  |
+|Support(지원)  |세부 정보  |
 |---------|---------|
 |지원되는 배포   |  [Azure Database for PostgreSQL - 단일 서버](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
 |지원되는 Azure 지역 |  미국 동부, 미국 동부 2, 미국 중부, 미국 동부 2, 미국 서 부, 미국 서 부 2, 미국 서 부, 미국 서 부, 캐나다 중부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 독일 중서부, 스위스 북부, 스위스 서부, 동아시아, 남부 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 인도 중부, 오스트레일리아 동부, 오스트레일리아 중부  |
@@ -135,7 +135,7 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
 1. **보존** 설정을 정의 합니다. 하나 이상의 보존 규칙을 추가할 수 있습니다. 각 보존 규칙은 특정 백업에 대 한 입력과 해당 백업에 대 한 데이터 저장소 및 보존 기간을 가정 합니다.
 
-1. 백업을 **데이터** 저장소 (핫 계층) 또는 **보관 데이터 저장소** (미리 보기) 중 하나에 저장 하도록 선택할 수 있습니다. 두 개의 데이터 저장소에서 백업이 계층화 되는 경우를 정의 하는 **두 개의 계층화 옵션** 중에서 선택할 수 있습니다.
+1. **백업 데이터 저장소** (표준 계층) 또는 **보관 데이터 저장소** (미리 보기) 중 하나에 백업을 저장 하도록 선택할 수 있습니다. 두 개의 데이터 저장소에서 백업이 계층화 되는 경우를 정의 하는 **두 개의 계층화 옵션** 중에서 선택할 수 있습니다.
 
     - 백업과 보관 데이터 저장소 둘 다에서 백업 복사본을 사용 하려는 경우 **즉시** 복사를 선택 합니다.
     - 백업 데이터 저장소에서 만료 될 때 백업을 보관 데이터 저장소로 이동 하려는 경우 **에는 만료** 날짜를 이동 하도록 선택 합니다.

@@ -3,12 +3,12 @@ title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309667"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569422"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -18,6 +18,9 @@ Azure Backup은 Azure에서 데이터의 보호를 향상 시키는 새로운 �
 
 ## <a name="updates-summary"></a>업데이트 요약
 
+- 2021년 1월
+  - [Azure 디스크 백업 (미리 보기)](disk-backup-overview.md)
+  - [이제 고객이 관리 하는 키를 사용 하 여 미사용 암호화를 일반적으로 사용할 수 있음](encryption-at-rest-with-cmk.md)
 - 2020년 11월
   - [Azure 파일 공유 (AFS) 백업용 Azure Resource Manager 템플릿](#azure-resource-manager-template-for-afs-backup)
   - [Azure Vm의 SAP HANA 데이터베이스에 대 한 증분 백업](#incremental-backups-for-sap-hana-databases)
@@ -32,9 +35,21 @@ Azure Backup은 Azure에서 데이터의 보호를 향상 시키는 새로운 �
   - [백업 데이터에 대 한 ZRS (영역 중복 저장소)](#zone-redundant-storage-zrs-for-backup-data)
   - [Azure Vm의 SQL Server 및 SAP HANA 작업에 대 한 일시 삭제](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
+## <a name="azure-disk-backup-in-preview"></a>Azure 디스크 백업 (미리 보기)
+
+Azure Disk Backup은 스냅숏을 정기적으로 만들고 백업 정책을 사용 하 여 구성 된 기간 동안 보존 하 여 [azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) 에 대 한 스냅숏 수명 주기 관리를 제공 하는 턴키 솔루션을 제공 합니다. 인프라 비용이 0이 고 사용자 지정 스크립팅 또는 관리 오버 헤드가 없어도 디스크 스냅숏을 관리할 수 있습니다. 이는 매일 여러 백업에 대 한 지원을 포함 하는 [증분 스냅숏을](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) 사용 하 여 관리 디스크의 지정 시간 백업을 수행 하는 크래시 일치 백업 솔루션입니다. 에이전트 없는 솔루션 이기도 하며 프로덕션 응용 프로그램 성능에 영향을 주지 않습니다. 현재 실행 중인 Azure 가상 컴퓨터에 연결 되어 있는지 여부에 관계 없이 OS 및 데이터 디스크 (공유 디스크 포함)의 백업 및 복원을 지원 합니다.
+
+자세한 내용은 [Azure Disk Backup (미리 보기)](disk-backup-overview.md)을 참조 하세요.
+
+## <a name="encryption-at-rest-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 미사용 암호화
+
+이제 고객이 관리 하는 키를 사용 하 여 미사용 암호화에 대 한 지원이 일반적으로 제공 됩니다. 이를 통해 Azure Key vault에 저장 된 고유한 키를 사용 하 여 Recovery Services 자격 증명 모음에서 백업 데이터를 암호화할 수 있습니다. Recovery Services 자격 증명 모음의 백업 암호화에 사용 되는 암호화 키는 원본 암호화에 사용 된 것과 다를 수 있습니다. 데이터는 AES 256 기반 DEK (데이터 암호화 키)를 사용 하 여 보호 됩니다. 즉, Key Vault에 저장 된 키를 사용 하 여 보호 됩니다. 플랫폼 관리 키를 사용 하는 암호화 (기본적으로 사용 가능)와 비교 하면 키에 대 한 더 많은 제어를 제공 하 고 규정 준수 요구 사항을 충족 하는 데 도움이 될 수 있습니다.
+
+자세한 내용은 [고객 관리 키를 사용 하 여 백업 데이터 암호화](encryption-at-rest-with-cmk.md)를 참조 하세요.
+
 ## <a name="azure-resource-manager-template-for-afs-backup"></a>AFS 백업용 Azure Resource Manager 템플릿
 
-이제 Azure Backup는 ARM (Azure Resource Manager) 템플릿을 사용 하 여 기존 Azure 파일 공유에 대 한 백업 구성을 지원 합니다. 템플릿은 Recovery Services 자격 증명 모음 및 백업 정책에 대 한 적절 한 세부 정보를 지정 하 여 기존 Azure 파일 공유에 대 한 보호를 구성 합니다. 필요에 따라 새 Recovery Services 자격 증명 모음 및 백업 정책을 만들고 파일 공유를 포함 하는 저장소 계정을 Recovery Services 자격 증명 모음에 등록 합니다.
+이제 Azure Backup는 ARM (Azure Resource Manager) 템플릿을 사용 하 여 기존 Azure 파일 공유에 대 한 백업 구성을 지원 합니다. 템플릿은 Recovery Services 자격 증명 모음 및 백업 정책에 대 한 적절 한 세부 정보를 지정 하 여 기존 Azure 파일 공유에 대 한 보호를 구성 합니다. 필요에 따라 새 Recovery Services 자격 증명 모음 및 백업 정책을 만들고 파일 공유를 포함하는 스토리지 계정을 Recovery Services 자격 증명 모음에 등록합니다.
 
 자세한 내용은 [Azure Backup Azure Resource Manager 템플릿](backup-rm-template-samples.md)을 참조 하세요.
 

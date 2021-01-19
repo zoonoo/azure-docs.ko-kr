@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/20/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e97be7fef09287e6c4f8696e217702b97853fa6a
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969530"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569456"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Azure Active Directory 프로비저닝이 SAP SuccessFactors와 통합 되는 방법 
 
@@ -55,29 +55,30 @@ SuccessFactors의 모든 사용자에 대해 Azure AD 프로 비전 서비스는
 | 6  | 사용자                                   | employmentNav/userNav        | 항상           |
 | 7  | EmpJob                                 | employmentNav/jobInfoNav     | 항상           |
 | 8  | EmpEmploymentTermination               | activeEmploymentsCount       | 항상           |
-| 9  | 회사                              | employmentNav/jobInfoNav/companyNav | `company`또는 `companyId` 특성만 매핑되는 경우에만 |
-| 10 | 기타 부서                           | employmentNav/jobInfoNav/departmentNav | `department`또는 `departmentId` 특성만 매핑되는 경우에만 |
-| 11 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | `businessUnit`또는 `businessUnitId` 특성만 매핑되는 경우에만 |
-| 12 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | `costCenter`또는 `costCenterId` 특성만 매핑되는 경우에만 |
-| 13 | 구분                             | employmentNav/jobInfoNav/divisionNav  | `division`또는 `divisionId` 특성만 매핑되는 경우에만 |
-| 14 | 코드 코드                              | employmentNav/jobInfoNav/jobCodeNav  | `jobCode`또는 `jobCodeId` 특성만 매핑되는 경우에만 |
-| 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | `payGrade`특성이 매핑되는 경우에만 |
-| 16 | 위치                             | employmentNav/jobInfoNav/locationNav  | `location`특성이 매핑되는 경우에만 |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | 매핑에 다음 특성 중 하나가 포함 된 경우: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
-| 18 | 이벤트 이유                          | employmentNav/jobInfoNav/eventReasonNav  | `eventReason`특성이 매핑되는 경우에만 |
-| 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | `assignmentType`가 매핑될 경우에만 |
-| 20 | EmploymentType 선택 목록                | employmentNav/jobInfoNav/employmentTypeNav | `employmentType`가 매핑될 경우에만 |
-| 21 | EmployeeClass 선택 목록                 | employmentNav/jobInfoNav/employeeClassNav | `employeeClass`가 매핑될 경우에만 |
-| 22 | EmplStatus 선택 목록                    | employmentNav/jobInfoNav/emplStatusNav | `emplStatus`가 매핑될 경우에만 |
-| 23 | AssignmentType 선택 목록                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | `assignmentType`가 매핑될 경우에만 |
+| 9  | 사용자의 관리자                         | employmentNav/userNav/manager/empInfo | 항상  |
+| 10 | 회사                              | employmentNav/jobInfoNav/companyNav | `company`또는 `companyId` 특성만 매핑되는 경우에만 |
+| 11 | 기타 부서                           | employmentNav/jobInfoNav/departmentNav | `department`또는 `departmentId` 특성만 매핑되는 경우에만 |
+| 12 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | `businessUnit`또는 `businessUnitId` 특성만 매핑되는 경우에만 |
+| 13 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | `costCenter`또는 `costCenterId` 특성만 매핑되는 경우에만 |
+| 14 | 구분                             | employmentNav/jobInfoNav/divisionNav  | `division`또는 `divisionId` 특성만 매핑되는 경우에만 |
+| 15 | 코드 코드                              | employmentNav/jobInfoNav/jobCodeNav  | `jobCode`또는 `jobCodeId` 특성만 매핑되는 경우에만 |
+| 16 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | `payGrade`특성이 매핑되는 경우에만 |
+| 17 | 위치                             | employmentNav/jobInfoNav/locationNav  | `location`특성이 매핑되는 경우에만 |
+| 18 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | 매핑에 다음 특성 중 하나가 포함 된 경우: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 19 | 이벤트 이유                          | employmentNav/jobInfoNav/eventReasonNav  | `eventReason`특성이 매핑되는 경우에만 |
+| 20 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | `assignmentType`가 매핑될 경우에만 |
+| 21 | EmploymentType 선택 목록                | employmentNav/jobInfoNav/employmentTypeNav | `employmentType`가 매핑될 경우에만 |
+| 22 | EmployeeClass 선택 목록                 | employmentNav/jobInfoNav/employeeClassNav | `employeeClass`가 매핑될 경우에만 |
+| 23 | EmplStatus 선택 목록                    | employmentNav/jobInfoNav/emplStatusNav | `emplStatus`가 매핑될 경우에만 |
+| 24 | AssignmentType 선택 목록                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | `assignmentType`가 매핑될 경우에만 |
 
 ## <a name="how-full-sync-works"></a>전체 동기화 작동 방법
 특성 매핑을 기반으로 전체 동기화를 수행 하는 동안 Azure AD 프로 비전 서비스는 다음 "GET" OData API 쿼리를 전송 하 여 모든 활성 사용자의 유효 데이터를 가져옵니다. 
 
 > [!div class="mx-tdCol2BreakAll"]
->| 매개 변수 | Description |
+>| 매개 변수 | 설명 |
 >| ----------|-------------|
->| OData API 호스트 | *테 넌 트 URL*에 https를 추가 합니다. 예: `https://api4.successfactors.com` |
+>| OData API 호스트 | *테 넌 트 URL* 에 https를 추가 합니다. 예: `https://api4.successfactors.com` |
 >| OData API 끝점 | `/odata/v2/PerPerson` |
 >| OData $format 쿼리 매개 변수 | `json` |
 >| OData $filter 쿼리 매개 변수 | `(personEmpTerminationInfoNav/activeEmploymentsCount ge 1) and (lastModifiedDateTime le <CurrentExecutionTime>)` |
@@ -113,12 +114,12 @@ Azure AD 프로 비전 서비스 쿼리가 SuccessFactors 되 면 JSON 결과 �
 
 추가 특성을 검색 하려면 아래 나열 된 단계를 따르세요.
     
-1. **엔터프라이즈 응용 프로그램**  ->  **SuccessFactors 앱**  ->  **프로 비전**  ->  **편집 프로**비전  ->  **특성 매핑 페이지**로 이동 합니다.
-1. 아래로 스크롤하고 **고급 옵션 표시**를 클릭 합니다.
-1. **SuccessFactors에 대 한 특성 목록 편집**을 클릭 합니다. 
+1. **엔터프라이즈 응용 프로그램**  ->  **SuccessFactors 앱**  ->  **프로 비전**  ->  **편집 프로** 비전  ->  **특성 매핑 페이지** 로 이동 합니다.
+1. 아래로 스크롤하고 **고급 옵션 표시** 를 클릭 합니다.
+1. **SuccessFactors 특성 목록 편집** 을 클릭합니다. 
 
    > [!NOTE] 
-   > **SuccessFactors에 대 한 특성 목록 편집** 옵션이 Azure Portal에 표시 되지 않으면 URL을 사용 하 여 *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* 페이지에 액세스 합니다. 
+   > Azure Portal에 **SuccessFactors 특성 목록 편집** 옵션이 표시되지 않으면 *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* URL을 사용하여 해당 페이지에 액세스합니다. 
 
 1. 이 보기의 **API 식** 열에는 커넥터에서 사용 하는 JSONPath 식이 표시 됩니다.
 
@@ -166,9 +167,9 @@ JSONPath 변환을 사용 하 여 Azure AD 프로 비전 앱의 동작을 사용
    * 특성이 *사용자* 엔터티의 일부인 경우 *EmploymentNav/usernav* 노드 아래에서 특성을 찾습니다.
    * 특성이 *EmpJob* 엔터티의 일부인 경우 *EmploymentNav/jobInfoNav* 노드 아래에서 특성을 찾습니다. 
 1. 특성과 연결 된 JSON 경로를 생성 하 고이 새 특성을 SuccessFactors 특성 목록에 추가 합니다. 
-   * 예제 1: *employmentNav* 엔터티의 일부인 *Oktorehire*특성을 추가 하 고 JSONPath를 사용 하는 경우를 가정해 보겠습니다.`$.employmentNav.results[0].okToRehire`
-   * 예제 2: *Usernav* 엔터티의 일부인 특성 *timeZone*를 추가 하 고 JSONPath를 사용 하는 경우를 가정해 보겠습니다.`$.employmentNav.results[0].userNav.timeZone`
-   * 예 3: *Jobinfonav* 엔터티의 일부인 *flsastatus*특성을 추가 하려는 경우 JSONPath를 사용 합니다.`$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
+   * 예제 1: *employmentNav* 엔터티의 일부인 *Oktorehire* 특성을 추가 하 고 JSONPath를 사용 하는 경우를 가정해 보겠습니다.`$.employmentNav.results[0].okToRehire`
+   * 예제 2: *Usernav* 엔터티의 일부인 특성 *timeZone* 를 추가 하 고 JSONPath를 사용 하는 경우를 가정해 보겠습니다.`$.employmentNav.results[0].userNav.timeZone`
+   * 예 3: *Jobinfonav* 엔터티의 일부인 *flsastatus* 특성을 추가 하려는 경우 JSONPath를 사용 합니다.`$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
 1. 스키마를 저장합니다. 
 1. 프로 비전을 다시 시작 합니다.
 
@@ -181,10 +182,10 @@ JSONPath 변환을 사용 하 여 Azure AD 프로 비전 앱의 동작을 사용
 
 직원 중심 인스턴스에서 *EmpJobInfo* 의 *customString35* attribute는 위치 설명을 저장 합니다. 이 값을 Active Directory *physicalDeliveryOfficeName* 특성으로 이동 하려고 합니다. 이 시나리오에 대 한 특성 매핑을 구성 하려면 아래 지정 된 단계를 사용 합니다. 
 
-1. SuccessFactors 특성 목록을 편집 하 여 *empJobNavCustomString35*라는 새 특성을 추가 합니다.
+1. SuccessFactors 특성 목록을 편집 하 여 *empJobNavCustomString35* 라는 새 특성을 추가 합니다.
 1. 이 특성에 대 한 JSONPath API 식을 다음과 같이 설정 합니다. `$.employmentNav.results[0].jobInfoNav.results[0].customString35`
 1. Azure Portal에서 매핑 변경을 저장 하 고 다시 로드 합니다.  
-1. 특성 매핑 블레이드에서 *empJobNavCustomString35* 을 *physicalDeliveryOfficeName*에 매핑합니다.
+1. 특성 매핑 블레이드에서 *empJobNavCustomString35* 을 *physicalDeliveryOfficeName* 에 매핑합니다.
 1. 매핑을 저장 합니다.
 
 이 시나리오를 확장 합니다. 
@@ -196,7 +197,7 @@ JSONPath 변환을 사용 하 여 Azure AD 프로 비전 앱의 동작을 사용
 작업자 변환은 기존 정규 직원을 계약자 또는 계약자로 변환 하는 프로세스입니다. 이 시나리오에서 Employee Central은 동일한 *Person* 엔터티에 대해 새 *사용자* 엔터티와 함께 새 *EmpEmployment* 엔터티를 추가 합니다. 이전 *EmpEmployment* 엔터티 아래에 중첩 된 *사용자* 엔터티는 null로 설정 됩니다. 변환이 발생할 때 새 고용 데이터가 표시 되도록이 시나리오를 처리 하려면 아래 나열 된 단계를 사용 하 여 프로 비전 앱 스키마를 대량 업데이트할 수 있습니다.  
 
 1. SuccessFactors 프로 비전 앱의 특성 매핑 블레이드를 엽니다. 
-1. 아래로 스크롤하고 **고급 옵션 표시**를 클릭 합니다.
+1. 아래로 스크롤하고 **고급 옵션 표시** 를 클릭 합니다.
 1. **여기에서 스키마 검토** 링크를 클릭 하 여 스키마 편집기를 엽니다. 
 
    >![스키마 편집기를 여는 여기의 스키마 검토 링크를 보여 주는 스크린샷](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
@@ -226,7 +227,7 @@ HR 프로세스에서 옵션 1을 사용 하는 경우 프로 비전 스키마�
 다시 고용 프로필에 대 한 최신 고용 데이터가 표시 되도록이 rehire 시나리오 (옵션 2)를 처리 하려면 아래 나열 된 단계를 사용 하 여 프로 비전 앱 스키마를 대량 업데이트할 수 있습니다.  
 
 1. SuccessFactors 프로 비전 앱의 특성 매핑 블레이드를 엽니다. 
-1. 아래로 스크롤하고 **고급 옵션 표시**를 클릭 합니다.
+1. 아래로 스크롤하고 **고급 옵션 표시** 를 클릭 합니다.
 1. **여기에서 스키마 검토** 링크를 클릭 하 여 스키마 편집기를 엽니다.   
 1. 편집 하기 전에 **다운로드** 링크를 클릭 하 여 스키마 복사본을 저장 합니다.   
 1. 스키마 편집기에서 Ctrl + H 키를 눌러 찾기-바꾸기 컨트롤을 엽니다.
@@ -244,13 +245,13 @@ HR 프로세스에서 옵션 1을 사용 하는 경우 프로 비전 스키마�
 ### <a name="handling-global-assignment-scenario"></a>전역 할당 시나리오 처리
 
 Employee Central의 사용자가 전역 할당에 대해 처리 되 면 SuccessFactors는 새 *EmpEmployment* 엔터티를 추가 하 고 *ASSIGNMENTCLASS* 를 "GA"로 설정 합니다. 또한 새 *사용자* 엔터티를 만듭니다. 따라서 사용자에 게는 다음이 포함 됩니다.
-* *EmpEmployment*  +  *AssignmentClass* 가 "ST"로 설정 된 home 할당에 해당 하는 1 개의 EmpEmployment*사용자* 엔터티입니다. 
-* *EmpEmployment*  +  *AssignmentClass* 가 "GA"로 설정 된 전역 할당에 해당 하는 다른 EmpEmployment*사용자* 엔터티입니다.
+*   +  *AssignmentClass* 가 "ST"로 설정 된 home 할당에 해당 하는 1 개의 EmpEmployment *사용자* 엔터티입니다. 
+*   +  *AssignmentClass* 가 "GA"로 설정 된 전역 할당에 해당 하는 다른 EmpEmployment *사용자* 엔터티입니다.
 
 표준 할당 및 전역 할당 사용자 프로필에 속한 특성을 페치 하려면 아래 나열 된 단계를 사용 합니다. 
 
 1. SuccessFactors 프로 비전 앱의 특성 매핑 블레이드를 엽니다. 
-1. 아래로 스크롤하고 **고급 옵션 표시**를 클릭 합니다.
+1. 아래로 스크롤하고 **고급 옵션 표시** 를 클릭 합니다.
 1. **여기에서 스키마 검토** 링크를 클릭 하 여 스키마 편집기를 엽니다.   
 1. 편집 하기 전에 **다운로드** 링크를 클릭 하 여 스키마 복사본을 저장 합니다.   
 1. 스키마 편집기에서 Ctrl + H 키를 눌러 찾기-바꾸기 컨트롤을 엽니다.
@@ -262,8 +263,8 @@ Employee Central의 사용자가 전역 할당에 대해 처리 되 면 SuccessF
    * 이전 JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
    * 새 JSONPath: `$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
 1. 앱의 특성 매핑 블레이드를 다시 로드 합니다. 
-1. 아래로 스크롤하고 **고급 옵션 표시**를 클릭 합니다.
-1. **SuccessFactors에 대 한 특성 목록 편집**을 클릭 합니다.
+1. 아래로 스크롤하고 **고급 옵션 표시** 를 클릭 합니다.
+1. **SuccessFactors 특성 목록 편집** 을 클릭합니다.
 1. 새 특성을 추가 하 여 전역 할당 데이터를 인출 합니다. 예를 들어 전역 할당 프로필에 연결 된 부서 이름을 페치 하려는 경우 JSONPath 식이로 설정 된 *globalAssignmentDepartment* 특성을 추가할 수 있습니다 `$.employmentNav.results[?(@.assignmentClass == 'GA')].jobInfoNav.results[0].departmentNav.name_localized` . 
 1. 이제 두 부서 값을 Active Directory 특성으로 이동 하거나 식 매핑을 사용 하 여 선택적으로 값을 전달할 수 있습니다. 예: 아래 식은 AD *부서* 특성의 값을 *globalAssignmentDepartment* 로 설정 하 고, 다른 값은 표준 할당과 연결 된 *학과* 로 설정 합니다. 
    * `IIF(IsPresent([globalAssignmentDepartment]),[globalAssignmentDepartment],[department])`
@@ -276,8 +277,8 @@ Employee Central의 사용자가 전역 할당에 대해 처리 되 면 SuccessF
 Employee Central의 사용자에 게 동시/여러 작업이 있는 경우 *AssignmentClass* 가 "ST"로 설정 된 두 개의 *EmpEmployment* 및 *사용자* 엔터티가 있습니다. 두 작업에 모두 속하는 특성을 페치 하려면 아래 나열 된 단계를 사용 합니다. 
 
 1. SuccessFactors 프로 비전 앱의 특성 매핑 블레이드를 엽니다. 
-1. 아래로 스크롤하고 **고급 옵션 표시**를 클릭 합니다.
-1. **SuccessFactors에 대 한 특성 목록 편집**을 클릭 합니다.
+1. 아래로 스크롤하고 **고급 옵션 표시** 를 클릭 합니다.
+1. **SuccessFactors 특성 목록 편집** 을 클릭합니다.
 1. 작업 1 및 작업 2와 연결 된 부서를 풀 려 한다고 가정해 보겠습니다. 미리 정의 된 특성 *부서* 는 첫 번째 작업에 대 한 학과의 가치를 이미 페치합니다. *SecondJobDepartment* 라는 새 특성을 정의 하 고 JSONPath 식을로 설정할 수 있습니다.`$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
 1. 이제 두 부서 값을 Active Directory 특성으로 이동 하거나 식 매핑을 사용 하 여 선택적으로 값을 전달할 수 있습니다. 
 1. 매핑을 저장 합니다. 
@@ -310,7 +311,7 @@ Employee Central의 사용자에 게 동시/여러 작업이 있는 경우 *Assi
 
 * [Active Directory 프로 비전에 대해 SuccessFactors를 구성 하는 방법을 알아봅니다.](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [SuccessFactors에 쓰기 저장을 구성 하는 방법 알아보기](../saas-apps/sap-successfactors-writeback-tutorial.md)
-* [인바운드 프로 비전에 대해 지원 되는 SuccessFactors 특성에 대 한 자세한 정보](sap-successfactors-attribute-reference.md)
+* [인바운드 프로비저닝에 지원되는 SuccessFactors 특성에 대해 자세히 알아봅니다.](sap-successfactors-attribute-reference.md)
 
 
 
