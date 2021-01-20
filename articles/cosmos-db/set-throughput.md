@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/19/2021
+ms.openlocfilehash: a03ad1eb893c97671d7ab60cc38708115a73d260
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170829"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602389"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 프로비전된 처리량 소개
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -109,7 +109,7 @@ Azure Portal에서 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베
 실제 최소/s는 계정 구성에 따라 다를 수 있습니다. 그러나 일반적으로 다음의 최대값입니다.
 
 * 400RU/s 
-* 현재 저장소 (GB) * 10 r u/초 (컨테이너 또는 데이터베이스에 1TB 이상의 데이터가 포함 되어 있지 않은 경우 [높은 저장소/낮은 처리량 프로그램](#high-storage-low-throughput-program)참조)
+* 현재 저장소 (GB) * 10 r u/초 (일부 경우에는 [높은 저장소/낮은 처리량 프로그램](#high-storage-low-throughput-program)참조)
 * 데이터베이스 또는 컨테이너/100에 프로 비전 된 최고 r u/초
 
 ### <a name="changing-the-provisioned-throughput"></a>프로 비전 된 처리량 변경
@@ -139,7 +139,7 @@ Azure Portal 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베이스
 
 많은 양의 데이터를 저장 해야 하지만 처리량 요구 사항이 적은 경우에는이 문제가 발생할 수 있습니다. 이러한 시나리오를 보다 잘 활용 하기 위해 Azure Cosmos DB는 **"높은 저장소/낮은 처리량" 프로그램** 을 도입 하 여 적격 계정에 대 한 GB 당 r u/GB 제약 조건을 줄일 수 있습니다.
 
-현재 계정에 1TB가 넘는 데이터를 포함 하는 하나 이상의 컨테이너 또는 공유 처리량 데이터베이스가 있어야 합니다. 이 프로그램에 참여 하 고 모든 자격을 평가 하려면 [이 설문 조사](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u)를 작성 해야 합니다. 그러면 Azure Cosmos DB 팀이 후속 작업을 진행 하 고 온 보 딩을 진행 합니다.
+이 프로그램에 참여 하 고 모든 자격을 평가 하려면 [이 설문 조사](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u)를 작성 해야 합니다. 그러면 Azure Cosmos DB 팀이 후속 작업을 진행 하 고 온 보 딩을 진행 합니다.
 
 ## <a name="comparison-of-models"></a>모델 비교
 다음 표에서는 데이터베이스 및 컨테이너에 대한 표준(수동) 처리량 프로비전을 비교합니다. 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: christopheranderson
 ms.author: chrande
-ms.openlocfilehash: 3f5996b281c1985747f754e3796e9fb84f90fdd3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0442d21aebe1cf577c50d14a5aeff40bd1f6cd9c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356963"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600533"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB Gremlin 서버 응답 헤더
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -21,9 +21,9 @@ ms.locfileid: "93356963"
 
 이러한 헤더에 대 한 종속성을 유지 하는 것은 응용 프로그램의 이식성을 다른 Gremlin 구현으로 제한 한다는 점에 유의 해야 합니다. 반환 시 Cosmos DB Gremlin와 긴밀 하 게 통합 됩니다. 이러한 헤더는 TinkerPop 표준이 아닙니다.
 
-## <a name="headers"></a>headers
+## <a name="headers"></a>헤더
 
-| 헤더 | 유형 | 샘플 값 | 포함 된 경우 | 설명 |
+| 헤더 | Type | 샘플 값 | 포함 된 경우 | 설명 |
 | --- | --- | --- | --- | --- |
 | **x-ms 요청 요금** | double | 11.3243 | Success and Failure | 부분 응답 메시지에 대 한 [요청 단위 (o s/s 또는 RUs)](request-units.md) 에서 사용 되는 수집 또는 데이터베이스 처리량입니다. 이 헤더는 여러 청크를 포함 하는 요청에 대 한 모든 연속에 존재 합니다. 특정 응답 청크의 요금을 반영 합니다. 단일 응답 청크로 구성 된 요청에 대해서만이 헤더는 총 순회 비용과 일치 합니다. 그러나 대부분의 복합 순회에서이 값은 부분 비용을 나타냅니다. |
 | **x-밀리초-총 요청 요금** | double | 423.987 | Success and Failure | 전체 요청에 대 한 [요청 단위 (r u/초 또는 RUs)](request-units.md) 에서 사용 된 수집 또는 데이터베이스 처리량입니다. 이 헤더는 여러 청크를 포함 하는 요청에 대 한 모든 연속에 존재 합니다. 요청 시작 이후 누적 요금을 나타냅니다. 마지막 청크의이 헤더의 값은 전체 요청 요금을 나타냅니다. |
@@ -36,13 +36,12 @@ ms.locfileid: "93356963"
 
 ## <a name="status-codes"></a>상태 코드
 
-서버에서 반환 하는 가장 일반적인 상태 코드는 다음과 같습니다.
+`x-ms-status-code`서버에서 상태 특성에 대해 반환 하는 가장 일반적인 코드는 다음과 같습니다.
 
 | 상태 | 설명 |
 | --- | --- |
 | **401** | `"Unauthorized: Invalid credentials provided"`인증 암호가 Cosmos DB 계정 키와 일치 하지 않을 경우 오류 메시지가 반환 됩니다. Azure Portal에서 Cosmos DB Gremlin 계정으로 이동 하 여 키가 올바른지 확인 합니다.|
 | **404** | 동일한 edge 또는 정점을 동시에 삭제 하 고 업데이트 하려고 하는 동시 작업 `"Owner resource does not exist"` 오류 메시지는 지정된 데이터베이스 또는 컬렉션이 `/dbs/<database name>/colls/<collection or graph name>` 형식의 연결 매개 변수에서 올바르지 않다는 것을 의미합니다.|
-| **408** | `"Server timeout"` 순회가 **30 초** 이상 걸려서 서버에 의해 취소 되었음을 나타냅니다. 트래버스의 모든 홉에 대 한 꼭 짓 점 또는 가장자리를 필터링 하 여 검색 범위를 좁혀 빠르게 실행 되도록 트래버스를 최적화 합니다.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` 이 문제는 식별자가 있는 꼭짓점 또는 에지가 이미 그래프에 있는 경우에 발생합니다.| 
 | **412** | 상태 코드는 오류 메시지와 함께 보충 됩니다 `"PreconditionFailedException": One of the specified pre-condition is not met` . 이 오류는에 지 또는 꼭 짓 점 읽기와 수정 후 저장소에 다시 쓰기 간의 낙관적 동시성 제어 위반을 나타냅니다. 이 오류가 발생 하는 가장 일반적인 상황은 속성 수정입니다 (예:) `g.V('identifier').property('name','value')` . Gremlin 엔진에서 꼭 짓 점을 읽고, 수정 하 고, 다시 씁니다. 동시에 동일한 꼭 짓 점 또는 가장자리를 쓰려고 하는 다른 트래버스를 실행 하는 경우 그 중 하나에이 오류가 표시 됩니다. 응용 프로그램에서 서버에 다시 트래버스를 제출 해야 합니다.| 
 | **429** | 요청이 제한되었으며 **x-ms-retry-after-ms** 값 이후에 다시 시도해야 합니다.| 
@@ -53,6 +52,7 @@ ms.locfileid: "93356963"
 | **1004** | 이 상태 코드는 잘못 된 그래프 요청을 나타냅니다. Deserialization에 실패 하는 경우 요청의 형식이 잘못 될 수 있습니다. 값 형식 또는 지원 되지 않는 gremlin 작업이 요청 되었으므로 값이 아닌 형식이 deserialize 됩니다. 응용 프로그램이 성공 하지 않으므로 요청을 다시 시도해 서는 안 됩니다. | 
 | **1007** | 일반적으로이 상태 코드는 오류 메시지와 함께 반환 됩니다 `"Could not process request. Underlying connection has been closed."` . 이 상황은 클라이언트 드라이버가 서버에서 닫히는 연결을 사용 하려고 시도 하는 경우에 발생할 수 있습니다. 응용 프로그램은 다른 연결에서 트래버스를 다시 시도해 야 합니다.
 | **1008** | Cosmos DB Gremlin 서버는 클러스터의 균형을 다시 조정 하는 연결을 종료할 수 있습니다. 클라이언트 드라이버는 이러한 상황을 처리 하 고 라이브 연결만을 사용 하 여 서버에 요청을 보냅니다. 때때로 클라이언트 드라이버에서 연결이 닫 혔는 것을 감지 하지 못할 수 있습니다. 응용 프로그램에서 오류가 발생 하면 `"Connection is too busy. Please retry after sometime or open more connections."` 다른 연결에서 트래버스를 다시 시도해 야 합니다.
+| **1009** | 작업이 할당 된 시간 내에 완료 되지 않았고 서버에 의해 취소 되었습니다. 트래버스의 모든 홉에 대 한 꼭 짓 점 또는 가장자리를 필터링 하 여 검색 범위를 좁힐 수 있도록 트래버스를 최적화 합니다. 요청 시간 제한 기본값은 **60 초** 입니다. |
 
 ## <a name="samples"></a>샘플
 

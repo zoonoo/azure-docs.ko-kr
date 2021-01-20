@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: f92b766fc1122456fda70d2deff81fa80a02d159
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 85035ff894127df4e9eb8334702fd9546d7a63c3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250114"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598705"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Azure App Service에 대 한 비용 계획 및 관리
 
@@ -61,7 +61,7 @@ Azure App Service 리소스를 삭제 한 후에는 관련 Azure 서비스의 �
 
 ### <a name="using-monetary-credit-with-azure-app-service"></a>Azure App Service에서 금액 크레딧 사용
 
-EA 금액 약정 크레딧을 사용 하 여 Azure App Service 요금을 지불할 수 있습니다. 그러나 Azure Marketplace에서 비롯 한 타사 제품 및 서비스에 대 한 요금을 지불 하기 위해 EA 현금 약정 크레딧을 사용할 수는 없습니다.
+Azure 선불 (이전에는 금액 약정 이라고 함) 크레딧을 사용 하 여 Azure App Service 요금을 지불할 수 있습니다. 그러나 Azure 선불 크레딧을 사용 하 여 Azure Marketplace에서 비롯 한 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
 
 ## <a name="estimate-costs"></a>비용 예측
 

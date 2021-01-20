@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 4fe06edbb3e02f23ef56a3e7fff848682e36e3af
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 925a092eb67fa459213a37df0fc6b3f7a1b8a0fb
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251321"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602357"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Azure Cognitive Services에 대 한 비용 계획 및 관리
 
@@ -60,9 +60,9 @@ QnA Maker 리소스를 삭제 한 후에는 다음 리소스가 계속 존재할
 - [Azure App Service (런타임)](https://azure.microsoft.com/pricing/details/app-service/)
 - [Azure Cognitive Search (데이터)](https://azure.microsoft.com/pricing/details/search/)
 
-### <a name="using-monetary-credit-with-cognitive-services"></a>Cognitive Services에서 금액 크레딧 사용
+### <a name="using-azure-prepayment-credit-with-cognitive-services"></a>Cognitive Services Azure 선불 크레딧을 사용
 
-EA 금액 약정 크레딧을 사용 하 여 Cognitive Services 요금을 지불할 수 있습니다. 그러나 EA 현금 약정 크레딧을 사용 하 여 Azure Marketplace에서 사용 하는 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
+Azure 선불 (이전에는 금액 약정 이라고 함) 크레딧을 사용 하 여 Cognitive Services 요금을 지불할 수 있습니다. 그러나 Azure 선불 크레딧을 사용 하 여 Azure Marketplace에서 사용 하는 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
 
 ## <a name="create-budgets"></a>예산 만들기
 

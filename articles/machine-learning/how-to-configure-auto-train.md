@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: f2170aad9bc0218d39244d08f5cc838235f8fee9
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9021d933e3808867ec784ad3c6d0f8810d608ea3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134367"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600066"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
@@ -65,7 +65,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. 데이터를 **Pandas 데이터 프레임** 또는 **Azure Machine Learning TabularDataset** 로 읽어 들일 수 있습니다. [데이터 세트](how-to-create-register-datasets.md)에 대해 자세히 알아보세요.
 
-학습 데이터 요구 사항:
+Machine learning에서 데이터 학습을 위한 요구 사항:
 - 데이터는 테이블 형식이어야 합니다.
 - 예측하려는 값(대상 열)이 데이터에 있어야 합니다.
 
@@ -96,9 +96,9 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## <a name="training-validation-and-test-data"></a>학습, 유효성 검사 및 테스트 데이터
 
-별도의 **학습 및 유효성 검사 집합** 을 생성자에서 직접 지정할 수 있습니다 `AutoMLConfig` . AutoML 실험의 [데이터 분할 및 교차 유효성 검사를 구성 하는 방법](how-to-configure-cross-validation-data-splits.md) 에 대해 자세히 알아보세요. 
+생성자에 별도의 **학습 데이터 및 유효성 검사 데이터 집합** 을 직접 지정할 수 있습니다 `AutoMLConfig` . AutoML 실험의 [데이터 분할 및 교차 유효성 검사를 구성 하는 방법](how-to-configure-cross-validation-data-splits.md) 에 대해 자세히 알아보세요. 
 
-또는 매개 변수를 명시적으로 지정 하지 않으면 `validation_data` `n_cross_validation` automl은 유효성 검사를 수행 하는 방법을 결정 하는 기본 기술을 적용 합니다. 이러한 결정은 매개 변수에 할당 된 데이터 집합의 행 수에 따라 달라 집니다 `training_data` . 
+또는 매개 변수를 명시적으로 지정 하지 않는 경우 `validation_data` `n_cross_validation` 자동화 된 ML은 유효성 검사를 수행 하는 방법을 결정 하는 기본 기술을 적용 합니다. 이러한 결정은 매개 변수에 할당 된 데이터 집합의 행 수에 따라 달라 집니다 `training_data` . 
 
 |학습 &nbsp; 데이터 &nbsp; 크기| 유효성 검사 기술 |
 |---|-----|

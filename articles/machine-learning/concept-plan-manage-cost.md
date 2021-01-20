@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 81d9a6bcbd910a60e1f659e430bbe527eb3077c6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 5be02ff698dac02d702e47f8929c6f8ddf2adbb7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251746"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602549"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -81,9 +81,9 @@ ws.delete(delete_dependent_resources=True)
 
 작업 영역에 Azure Kubernetes 서비스 (AKS)를 만들거나 작업 영역에 계산 리소스를 연결 하는 경우 [Azure Portal](https://portal.azure.com)에서 별도로 삭제 해야 합니다.
 
-### <a name="using-monetary-credit-with-azure-machine-learning"></a>Azure Machine Learning에서 금액 크레딧 사용
+### <a name="using-azure-prepayment-credit-with-azure-machine-learning"></a>Azure Machine Learning Azure 선불 크레딧을 사용
 
-EA 금액 약정 크레딧을 사용 하 여 Azure Machine Learning 요금을 지불할 수 있습니다. 그러나 EA 현금 약정 크레딧을 사용 하 여 Azure Marketplace에서 사용 하는 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
+Azure 선불 (이전에는 금액 약정 이라고 함) 크레딧을 사용 하 여 Azure Machine Learning 요금을 지불할 수 있습니다. 그러나 Azure 선불를 사용 하 여 Azure Marketplace에서 사용 하는 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
 
 
 ## <a name="create-budgets"></a>예산 만들기

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/15/2021
-ms.openlocfilehash: 9291689b362b5cbe651a72220196dd30b40745cf
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 9a43318ed935dd1e71b6da75c9f078fbebbd29eb
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540619"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599021"
 ---
 # <a name="error-investigation-using-the-dashboard"></a>대시보드를 사용 하 여 오류 조사
 
@@ -53,6 +53,9 @@ ms.locfileid: "98540619"
     ![영향을 받는 컴퓨터를 표시 하는 스크린샷](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
 3. 커넥터 상태: 그래프 및 아래 표에는 커넥터의 상태에 대 한 메시지가 포함 되어 있습니다. 테이블의 행에 대 한 그래프를 클릭 하면 커넥터 상태의 메시지에 대 한 자세한 정보를 볼 수 있습니다.
     "모두 보기"를 클릭 하 여 모든 목록을 보려면 테이블에 제한 된 수의 행이 포함 되어 있습니다.
+
+    테이블에서 메시지에 대 한 세부 정보를 볼 수 [있습니다.](itsmc-dashboard-errors.md)
+
     ![커넥터 상태를 보여 주는 스크린샷](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
 4. 경고 규칙: 테이블에는 검색 된 경고 규칙 수에 대 한 정보가 포함 되어 있습니다.
     테이블에서 행을 클릭 하면 검색 된 규칙에 대 한 자세한 정보를 볼 수 있습니다.

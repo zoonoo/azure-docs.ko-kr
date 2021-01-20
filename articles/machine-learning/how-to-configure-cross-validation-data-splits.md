@@ -11,16 +11,16 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 8e749e5f6ea6bcf76a1b4f143bce03ceb41cbb07
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a781900534156e455c125dffe3b1334820fdf4d5
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573295"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599066"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화된 Machine Learning에서 데이터 분할 및 교차 유효성 검사 구성
 
-이 문서에서는 자동화 된 기계 학습, 자동화 된 ML, 실험에 대해 학습/유효성 검사 데이터 분할 및 교차 유효성 검사를 구성 하는 다양 한 옵션에 대해 알아봅니다.
+이 문서에서는 자동화 된 기계 학습, 자동화 된 ML, 실험에 대 한 교차 유효성 검사 설정과 함께 학습 데이터 및 유효성 검사 데이터 분할을 구성 하는 다양 한 옵션을 알아봅니다.
 
 Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델을 작성 하는 경우 각 자식 실행은 정확도 또는 보조 c 가중치와 같은 해당 모델의 품질 메트릭을 계산 하 여 관련 모델의 유효성을 검사 해야 합니다. 이러한 메트릭은 각 모델과의 예측을 유효성 검사 데이터의 과거 관찰 으로부터 실제 레이블과 비교 하 여 계산 합니다. [유효성 검사 유형을 기반으로 메트릭이 계산 되는 방법에 대해 자세히 알아보세요](#metric-calculation-for-cross-validation-in-machine-learning). 
 
@@ -29,7 +29,7 @@ Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델
 코드 또는 코드가 없는 환경의 경우 [Azure Machine Learning studio에서 자동화 된 기계 학습 실험 만들기](how-to-use-automated-ml-for-ml-models.md)를 참조 하세요. 
 
 > [!NOTE]
-> 스튜디오는 현재 학습/유효성 검사 데이터 분할 및 교차 유효성 검사 옵션을 지원 하지만 유효성 검사 집합에 대 한 개별 데이터 파일을 지정 하는 것은 지원 하지 않습니다. 
+> 스튜디오는 현재 학습 및 유효성 검사 데이터 분할 뿐만 아니라 교차 유효성 검사 옵션을 지원 하지만 유효성 검사 집합에 대해 개별 데이터 파일을 지정 하는 것은 지원 하지 않습니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -41,7 +41,7 @@ Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델
 
 * 기계 학습 개념으로 학습/유효성 검사 데이터 분할 및 교차 유효성 검사를 이해 합니다. 개략적인 설명의 경우
 
-    * [Machine Learning의 학습, 유효성 검사 및 테스트 집합 정보](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
+    * [Machine learning의 학습, 유효성 검사 및 테스트 데이터 정보](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
     * [기계 학습의 교차 유효성 검사 이해](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
@@ -62,7 +62,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-또는 매개 변수 중 하나를 명시적으로 지정 하지 않으면 `validation_data` `n_cross_validation` automl은 제공 된 단일 데이터 집합의 행 수에 따라 기본 기술을 적용 합니다 `training_data` .
+또는 매개 변수를 명시적으로 지정 하지 않는 경우 `validation_data` `n_cross_validation` 자동화 된 ML은 단일 데이터 집합에 제공 된 행 수에 따라 기본 기술을 적용 합니다 `training_data` .
 
 |학습 &nbsp; 데이터 &nbsp; 크기| 유효성 검사 기술 |
 |---|-----|
@@ -71,7 +71,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-data"></a>유효성 검사 데이터 제공
 
-이 경우 단일 데이터 파일로 시작 하 여 학습 및 유효성 검사 집합으로 분할 하거나 유효성 검사 집합에 대 한 별도의 데이터 파일을 제공할 수 있습니다. 어느 쪽이 든 `validation_data` 개체의 매개 변수는 `AutoMLConfig` 유효성 검사 집합으로 사용할 데이터를 할당 합니다. 이 매개 변수는 [Azure Machine Learning 데이터 집합](how-to-create-register-datasets.md) 또는 pandas 데이터 프레임 형식의 데이터 집합만을 허용 합니다.   
+이 경우 단일 데이터 파일로 시작 하 여 학습 데이터 및 유효성 검사 데이터 집합으로 분할 하거나 유효성 검사 집합에 대 한 별도의 데이터 파일을 제공할 수 있습니다. 어느 쪽이 든 `validation_data` 개체의 매개 변수는 `AutoMLConfig` 유효성 검사 집합으로 사용할 데이터를 할당 합니다. 이 매개 변수는 [Azure Machine Learning 데이터 집합](how-to-create-register-datasets.md) 또는 pandas 데이터 프레임 형식의 데이터 집합만을 허용 합니다.   
 
 다음 코드 예제에서는에서 제공 되는 데이터 중 `dataset` 학습 및 유효성 검사에 사용할 데이터 부분을 명시적으로 정의 합니다.
 

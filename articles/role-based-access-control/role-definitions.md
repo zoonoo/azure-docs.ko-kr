@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/18/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: bc3640fecbe1138e46fd0d36975691740bc669dd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369262"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602458"
 ---
 # <a name="understand-azure-role-definitions"></a>Azure 역할 정의 이해
 
@@ -291,11 +291,27 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 ## <a name="notactions"></a>NotActions
 
-`NotActions` 권한은 허용된 `Actions`에서 제외되는 관리 작업을 지정합니다. 제한된 작업을 제외하여 허용하려는 작업 집합을 더 쉽게 정의하는 경우 `NotActions` 권한을 사용합니다. 역할(유효 사용 권한)로 부여되는 액세스 권한은 `Actions` 작업에서 `NotActions` 작업을 제외하여 계산됩니다.
+`NotActions`사용 권한은 `Actions` 와일드 카드 ()를 포함 하는 허용 된에서 빼고 제외 되는 관리 작업을 지정 합니다 `*` . 허용 하려는 `NotActions` 작업 집합이 `Actions` 와일드 카드 ()를 사용 하 여에서 빼서 보다 쉽게 정의 되는 경우 사용 권한을 사용 합니다 `*` . 역할(유효 사용 권한)로 부여되는 액세스 권한은 `Actions` 작업에서 `NotActions` 작업을 제외하여 계산됩니다.
+
+`Actions - NotActions = Effective management permissions`
+
+다음 표에서는 [CostManagement](resource-provider-operations.md#microsoftcostmanagement) 와일드 카드 연산에 대 한 유효 사용 권한의 두 가지 예를 보여 줍니다.
+
+> [!div class="mx-tableFixed"]
+> | Actions | NotActions | 효과적인 관리 권한 |
+> | --- | --- | --- |
+> | `Microsoft.CostManagement/exports/*` | *없음* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
+> | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
 > [!NOTE]
 > 사용자에게 `NotActions`에서 작업을 제외하는 역할이 할당되고 동일한 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 작업을 수행할 수 있습니다. `NotActions`는 거부 규칙이 아니며, 특정 작업을 제외해야 할 경우 허용되는 작업 집합을 만드는 편리한 방법일 뿐입니다.
 >
+
+### <a name="differences-between-notactions-and-deny-assignments"></a>NotActions와 deny 할당 간의 차이점
+
+`NotActions` 및 거부 할당은 서로 다른 용도를 제공 합니다. `NotActions` 는 와일드 카드 () 작업에서 특정 작업을 빼는 편리한 방법 `*` 입니다.
+
+거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 작업을 사용자가 수행할 수 없도록 차단합니다. 자세한 내용은 [Azure 거부 할당 이해](deny-assignments.md)를 참조하세요.
 
 ## <a name="dataactions"></a>DataActions
 
@@ -311,7 +327,17 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 ## <a name="notdataactions"></a>NotDataActions
 
-`NotDataActions` 권한은 허용된 `DataActions`에서 제외되는 데이터 작업을 지정합니다. 역할(유효 사용 권한)로 부여되는 액세스 권한은 `DataActions` 작업에서 `NotDataActions` 작업을 제외하여 계산됩니다. 각 리소스 공급자는 데이터 작업을 수행하기 위한 각각의 API 집합을 제공합니다.
+`NotDataActions`사용 권한은 `DataActions` 와일드 카드 ()를 포함 하는 허용 된에서 빼고 제외 되는 데이터 작업을 지정 합니다 `*` . 허용 하려는 `NotDataActions` 작업 집합이 `DataActions` 와일드 카드 ()를 사용 하 여에서 빼서 보다 쉽게 정의 되는 경우 사용 권한을 사용 합니다 `*` . 역할(유효 사용 권한)로 부여되는 액세스 권한은 `DataActions` 작업에서 `NotDataActions` 작업을 제외하여 계산됩니다. 각 리소스 공급자는 데이터 작업을 수행하기 위한 각각의 API 집합을 제공합니다.
+
+`DataActions - NotDataActions = Effective data permissions`
+
+다음 표에서는 [Microsoft 저장소](resource-provider-operations.md#microsoftstorage) 와일드 카드 작업에 대 한 유효 사용 권한의 두 가지 예를 보여 줍니다.
+
+> [!div class="mx-tableFixed"]
+> | DataActions | NotDataActions | 유효 데이터 권한 |
+> | --- | --- | --- |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | *없음* | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 > [!NOTE]
 > 사용자에게 `NotDataActions`에서 데이터 작업을 제외하는 역할이 할당되고 동일한 데이터 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 데이터 작업을 수행할 수 있습니다. `NotDataActions`는 거부 규칙이 아니며, 특정 데이터 작업을 제외해야 할 경우 허용되는 데이터 작업 집합을 만드는 편리한 방법일 뿐입니다.

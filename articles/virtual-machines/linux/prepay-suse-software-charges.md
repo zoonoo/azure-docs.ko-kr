@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a4f7de0cacb17087e346123f53dad45ae1de357
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81759294"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602624"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Azure 소프트웨어 플랜 선결제
 
@@ -32,7 +32,7 @@ Azure Portal에서 SUSE 및 RedHat 소프트웨어 계획을 구매할 수 있�
 필수 필드를 입력합니다. 구입 하는 항목의 특성과 일치 하는 모든 SUSE Linux VM 또는 RedHat VM은 할인을 가져옵니다. 할인을 받을 실제 배포 수는 선택한 범위 및 수량에 따라 달라집니다.
 3. 구독을 선택합니다. 계획에 대 한 요금을 지불 하는 데 사용 됩니다.
 구독 지불 방법에는 예약에 대 한 선행 비용이 청구 됩니다. 구독 유형은 기업계약 (제품 번호: MS-MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 종 량 제 가격의 개별 계약 (제품 번호: MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다.
-    - Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다.
+    - 엔터프라이즈 구독의 경우 요금은 등록의 Azure 선불 (이전에는 금액 약정 이라고 함) 잔액 또는 초과분으로 청구 되는 공제 됩니다.
     - 종 량 제 가격의 개별 구독에서 요금은 구독의 신용 카드 또는 송장 지불 방법으로 청구 됩니다.
 4. 범위를 선택합니다. 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다.
     - 단일 구독-계획 할인이 구독의 일치 사용에 적용 됩니다.
@@ -68,7 +68,7 @@ RedHat 계획 할인은 구매할 때 선택한 VM 크기에만 적용 됩니다
 
 예약을 관리 하는 방법에 대 한 자세한 내용은 [Azure 예약 관리](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)를 참조 하세요.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세히 알아보려면 다음 아티클을 참조하세요.
 
 - [Azure 예약이란?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Azure에서 Reservations 관리](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)

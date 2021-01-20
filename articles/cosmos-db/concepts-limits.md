@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/19/2020
-ms.openlocfilehash: 793ff9eedb747da0edcbbf2df50b62f06f407892
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 01/19/2021
+ms.openlocfilehash: 9ace9a319f4cc6bcc1545d6d1becce61b1892765
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247428"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598677"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -37,7 +37,7 @@ ms.locfileid: "98247428"
 | 컨테이너당 최대 스토리지 | 제한 없음 |
 | 데이터베이스당 최대 스토리지 | 제한 없음 |
 | 계정 당 최대 첨부 파일 크기 (첨부 기능을 사용 하지 않는 경우) | 2GB |
-| 1gb 당 최소 r u/s가 필요 합니다. | 10RU/s<br>**참고:** 컨테이너 또는 데이터베이스에 1tb가 넘는 데이터가 포함 된 경우 계정이 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program) 에 적합 한 것일 수 있습니다. |
+| 1gb 당 최소 r u/s가 필요 합니다. | 10RU/s<br>**참고:** 계정이 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program) 에 적합 한 경우이 최소값을 낮출 수 있습니다. |
 
 > [!NOTE]
 > 파티션 키의 스토리지 또는 처리량 제한을 높여야 하는 워크로드 관리에 대한 모범 사례는 [가상 파티션 키 만들기](synthetic-partition-keys.md)를 참조하세요.
@@ -60,7 +60,7 @@ Cosmos 컨테이너(또는 공유 처리량 데이터베이스)의 처리량이 
 
 예: 400 r u/s 및 5GB 저장소로 프로 비전 된 컨테이너가 있다고 가정 합니다. 처리량을 5만 r u/초까지 늘리고 20gb의 데이터를 가져옵니다. 이제 최소 r u/s가 `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 r u/초입니다. 시간이 지남에 따라 저장소는 200 GB로 확장 됩니다. 이제 최소 r u/s가 `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 r u/초입니다. 
 
-**참고:** 컨테이너 또는 데이터베이스에 1tb가 넘는 데이터가 포함 된 경우 계정에 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program)을 사용할 수 있습니다.
+**참고:** 계정이 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program)에 적합 한 경우 저장소의 GB 당 최소 처리량 인 10 r u/초를 낮출 수 있습니다.
 
 #### <a name="minimum-throughput-on-shared-throughput-database"></a>공유 처리량 데이터베이스의 최소 처리량 
 수동 처리량을 포함 하는 공유 처리량 데이터베이스에 필요한 최소 처리량을 예측 하려면 다음의 최대값을 찾습니다.
@@ -72,7 +72,7 @@ Cosmos 컨테이너(또는 공유 처리량 데이터베이스)의 처리량이 
 
 예: 400 r u/초, 15gb의 저장소 및 10 개의 컨테이너로 프로 비전 된 데이터베이스가 있다고 가정 합니다. 최소 r u/s는 `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 r u/초입니다. 데이터베이스에 30 개 컨테이너가 있는 경우 최소 r u/초는 `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 r u/초입니다. 
 
-**참고:** 컨테이너 또는 데이터베이스에 1tb가 넘는 데이터가 포함 된 경우 계정에 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program)을 사용할 수 있습니다.
+**참고:** 계정이 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program)에 적합 한 경우 저장소의 GB 당 최소 처리량 인 10 r u/초를 낮출 수 있습니다.
 
 요약하자면, 최소 프로비저닝 RU 제한은 다음과 같습니다. 
 

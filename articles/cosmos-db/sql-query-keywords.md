@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 35232f95bc18432db05775807d95f23ceab66aea
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333786"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599353"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -107,6 +107,73 @@ FROM f
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
+
+## <a name="like"></a>LIKE
+
+특정 문자열이 지정 된 패턴과 일치 하는지 여부에 따라 부울 값을 반환 합니다. 패턴은 일반 문자와 와일드카드 문자를 포함할 수 있습니다. `LIKE`키워드 또는 [RegexMatch](sql-query-regexmatch.md) 시스템 함수를 사용 하 여 논리적으로 동일한 쿼리를 작성할 수 있습니다. 선택한 항목에 관계 없이 동일한 인덱스 사용률을 확인할 수 있습니다. 따라서 `LIKE` 구문을 정규식 보다 더 선호 하는 경우를 사용 해야 합니다.
+
+> [!NOTE]
+> 는 인덱스를 사용할 수 있기 때문에를 `LIKE` 사용 하 여 비교 하는 속성에 대해 [범위 인덱스를 만들어야](indexing-policy.md) 합니다 `LIKE` .
+
+다음과 같은 와일드 카드 문자를 사용할 수 있습니다.
+
+| 와일드카드 문자 | Description                                                  | 예제                                     |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| %                    | 0 개 이상의 문자를 가진 문자열                      | WHERE c. "%,% PS%"와 같은 설명      |
+| _ (밑줄)     | 임의의 단일 문자                                       | WHERE c. "% SO_PS%"와 같은 설명      |
+| [ ]                  | 지정 된 범위 ([a-f]) 또는 집합 ([abcdef]) 내의 단일 문자입니다. | WHERE c. 설명: "%)  |
+| [^]                  | 지정 된 범위 ([^ a-f]) 또는 집합 ([^ abcdef])에 속하지 않는 임의의 단일 문자입니다. | WHERE c. "% [^ abc] PS%"와 같은 설명 |
+
+
+### <a name="using-like-with-the--wildcard-character"></a>LIKE와 % 와일드카드 문자 사용
+
+`%`문자는 0 개 이상의 문자를 갖는 모든 문자열과 일치 합니다. 예를 `%` 들어, 패턴의 시작과 끝에를 배치 하면 다음 쿼리는가 포함 된 설명이 있는 모든 항목을 반환 합니다 `fruit` .
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "%fruit%"
+```
+
+`%`패턴의 시작 부분에 문자만 사용 하는 경우로 시작 하는 설명이 포함 된 항목만 반환 합니다 `fruit` .
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "fruit%"
+```
+
+
+### <a name="using-not-like"></a>좋아요 사용 안 함
+
+아래 예제에서는 설명이 포함 되지 않은 모든 항목을 반환 합니다 `fruit` .
+
+```sql
+SELECT *
+FROM c
+WHERE c.description NOT LIKE "%fruit%"
+```
+
+### <a name="using-the-escape-clause"></a>Escape 절 사용
+
+이스케이프 절을 사용 하 여 하나 이상의 와일드 카드 문자를 포함 하는 패턴을 검색할 수 있습니다. 예를 들어 문자열을 포함 하는 설명을 검색 하려면를 `20-30%` 와일드 카드 문자로 해석 하지 않는 것이 좋습니다 `%` .
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE '%20-30!%%' ESCAPE '!'
+```
+
+### <a name="using-wildcard-characters-as-literals"></a>와일드 카드 문자를 리터럴로 사용
+
+와일드 카드 문자를 대괄호로 묶어 리터럴 문자로 취급할 수 있습니다. 와일드 카드 문자를 대괄호로 묶으면 특수 한 특성을 모두 제거 합니다. 다음은 몇 가지 예입니다.
+
+| 무늬           | 의미 |
+| ----------------- | ------- |
+| LIKE "20-30 [%]" | 20-30%  |
+| LIKE "[_] n"     | _n      |
+| LIKE "[[]"    | [       |
+| LIKE "]"        | ]       |
 
 ## <a name="in"></a>IN
 

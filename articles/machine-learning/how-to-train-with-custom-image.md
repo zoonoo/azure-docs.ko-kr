@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cb8e71d9f94441f79dd7ce2fd5ee6458987563c3
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: ad86ebdbef8bf8c8ec00e54e15b751fd2285ad68
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795923"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601342"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 학습
 
@@ -23,7 +23,7 @@ ms.locfileid: "97795923"
 
 Azure Machine Learning 기본 Docker 기본 이미지를 제공 합니다. Azure Machine Learning 환경을 사용 하 여 유지 관리 되는 [Azure Machine Learning 기본](https://github.com/Azure/AzureML-Containers) 이미지 중 하나 또는 고유한 [사용자 지정 이미지](how-to-deploy-custom-docker-image.md#create-a-custom-base-image)와 같은 다른 기본 이미지를 지정할 수도 있습니다. 사용자 지정 기본 이미지를 사용 하면 종속성을 긴밀 하 게 관리 하 고 학습 작업을 실행할 때 구성 요소 버전을 보다 강력 하 게 제어할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 환경 중 하나에서 코드를 실행 합니다.
 
@@ -101,6 +101,12 @@ fastai_env.docker.base_dockerfile = dockerfile
 fastai_env.docker.base_image = None
 fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
+
+>[!IMPORTANT]
+> Azure Machine Learning는 다음 소프트웨어를 제공 하는 Docker 이미지만 지원 합니다.
+> * Ubuntu 16.04 이상.
+> * Conda 4.5. # 이상
+> * Python 3.5 이상
 
 Azure Machine Learning 환경을 만들고 관리 하는 방법에 대 한 자세한 내용은 [소프트웨어 환경 만들기 및 사용](how-to-use-environments.md)을 참조 하세요. 
 

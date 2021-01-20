@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 텍스트 음성 변환
-ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 54db794d4e9cf0cd2a049a865f2e7bb52698a4bd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024520"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599534"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 
@@ -39,7 +39,7 @@ ms.locfileid: "95024520"
 
 * 신경망-심층 신경망은 음성 언어의 스트레스 및 intonation 관련 하 여 기존 음성 합성의 제한을 극복 하는 데 사용 됩니다. Prosody 예측 및 음성 합성은 동시에 수행 되므로 더 많은 유체와 자연 스런 출력이 발생 합니다. 신경망을 사용 하면 자연 스런 봇 및 음성 도우미와의 상호 작용을 보다 자연스럽 게 수행 하 고, 전자 책과 같은 디지털 텍스트를 오디오 책으로 변환 하 고, 자동차 내 탐색 시스템을 향상 시킬 수 있습니다. 인간 같은 자연 스러운 자연 proaaady와 명확한 articulation을 사용 하 여 AI 시스템을 조작할 때 신경망은 듣기 피로를 크게 줄입니다. 신경망의 전체 목록은 [지원 되는 언어](language-support.md#text-to-speech)를 참조 하세요.
 
-* SSML (speech 합성 Markup Language)-음성 텍스트 출력을 사용자 지정 하는 데 사용 되는 XML 기반 태그 언어입니다. SSML를 사용 하면 피치를 조정 하 고, 일시 중지를 추가 하 고, 발음을 높이고, 속도를 높이 거 나 낮출 수 있으며, 볼륨을 늘리거나 줄일 수 있으며, 여러 음성 특성을 단일 문서로 사용할 수 있습니다. [SSML](speech-synthesis-markup.md)을 참조 하십시오.
+* SSML 스타일을 ssml로 조정은 XML 기반 태그 언어를 사용 하 여 음성-텍스트 출력을 사용자 지정 하는 데 사용 되는 XML 기반 태그 언어입니다. SSML를 사용 하면 피치를 조정 하 고, 일시 중지를 추가 하 고, 발음을 높이고, 속도를 높이 거 나 낮출 수 있으며, 볼륨을 늘리거나 줄일 수 있으며, 여러 음성 특성을 단일 문서로 사용할 수 있습니다. 말하는 스타일 [을 조정 하려면 방법을](speech-synthesis-markup.md) 참조 하세요.
 
 ## <a name="get-started"></a>시작하기
 

@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: c5f8be87e7ee95e1deff12cce09204b5fe8a0bb7
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 2cc37cc66c06dc9e6997c6a031a9c60ad050c01a
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694192"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601774"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>사용자 지정 명령을 사용하여 음성 도우미 만들기
 
-이 빠른 시작에서는 Speech Studio를 사용 하 여 기본 사용자 지정 명령 응용 프로그램을 만들고 테스트 합니다. 이 응용 프로그램은 Windows 클라이언트 앱 에서도 액세스할 수 있습니다. **사용자 지정 명령을** 사용 하면 음성 우선 상호 작용 환경에 최적화 된 풍부한 음성 명령 앱을 쉽게 빌드할 수 있습니다. 통합 된 제작 환경, 자동 호스팅 모델 및 비교적 낮은 복잡성을 제공 하므로 음성 명령 시나리오에 가장 적합 한 솔루션을 구축 하는 데 집중할 수 있습니다.
+이 빠른 시작에서는 Speech Studio를 사용 하 여 기본 사용자 지정 명령 응용 프로그램을 만들고 테스트 합니다. 이 응용 프로그램은 Windows 클라이언트 앱 에서도 액세스할 수 있습니다.
 
 ## <a name="region-availability"></a>지역 가용성
 이번에는 사용자 지정 명령이 다음 지역에서 만든 음성 등록을 지원 합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "97694192"
 * 동남아시아
 * 인도 중부
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">사용자 지정 명령을 지 원하는 지역에서 Azure Speech 리소스를 만듭니다.<span class="docon docon-navigate-external x-hidden-focus"></span></a> 지원 되는 지역 목록에 대해서는 위의 **지역 가용성** 섹션을 참조 하세요.

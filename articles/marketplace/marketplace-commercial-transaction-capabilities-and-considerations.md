@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: d602687ea623b90ea5dcae4ece09a1ccc438ea57
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 5a2a7abf0227812826428557b86c4468f7693c82
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822389"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600392"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -160,7 +160,7 @@ BYOL의 비용 구조는 다음과 같습니다.
 
 **신용 카드 및 월별 청구서** – 고객은 신용 카드 및 월별 청구서를 사용하여 지불할 수도 있습니다. 이 경우 소프트웨어 라이선스 요금은 기업 계약 시나리오와 마찬가지로 Azure별 사용 요금과는 별도로 항목별 요금으로 청구됩니다.
 
-**무료 크레딧과 현금 약정 금액** - 기업 계약에서 현금 약정 금액으로 Azure에 선불하는 것을 선택하거나 Azure에서 무료 크레딧을 제공받는 고객도 있습니다. 이러한 크레딧은 Azure 사용에 대한 요금을 지불하는 데는 사용할 수 있으나, 게시자 소프트웨어 라이선스 요금 지불에는 사용할 수 없습니다.
+**무료 크레딧 및 Azure 선불** – 일부 고객은 기업계약에서 azure 선불 (이전에는 금액 약정 이라고 함)를 사용 하 여 azure를 선불 하거나 azure에서 사용할 수 있도록 무료 크레딧을 제공 했습니다. 이러한 크레딧은 Azure 사용에 대한 요금을 지불하는 데는 사용할 수 있으나, 게시자 소프트웨어 라이선스 요금 지불에는 사용할 수 없습니다.
 
 **청구 및 컬렉션** -게시자 소프트웨어 라이선스 요금은 고객이 선택한 청구서의 방법을 사용 하 여 표시 되며 송장 발부 타임 라인을 따릅니다. 기업 계약을 사용하지 않는 고객은 Marketplace 소프트웨어 라이선스에 대해 월별로 청구됩니다. 기업 계약을 사용하는 고객은 분기별로 표시된 청구서를 통해 월별로 청구됩니다.
 

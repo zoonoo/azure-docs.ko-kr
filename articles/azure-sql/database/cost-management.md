@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: sql-database
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: 19531b9d0019fb000efe5aeb2d1b9fed34ce23f1
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 8d36166a67e683dd7f15eef18d589562b39ba568
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253423"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600634"
 ---
 # <a name="plan-and-manage-costs-for-azure-sql-database"></a>Azure SQL Database에 대 한 비용 계획 및 관리
 
@@ -67,7 +67,7 @@ Azure SQL Database (서버 리스 서버 제외)는 예측 가능한 시간당 �
 
 ### <a name="using-monetary-credit-with-azure-sql-database"></a>Azure SQL Database에서 금액 크레딧 사용
 
-EA 금액 약정 크레딧을 사용 하 여 Azure SQL Database 요금을 지불할 수 있습니다. 그러나 EA 현금 약정 크레딧을 사용 하 여 Azure Marketplace에서 사용 하는 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
+Azure 선불 (이전에는 금액 약정 이라고 함) 크레딧을 사용 하 여 Azure SQL Database 요금을 지불할 수 있습니다. 그러나 Azure 선불 크레딧을 사용 하 여 Azure Marketplace에서 사용 하는 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
 
 ## <a name="review-estimated-costs-in-the-azure-portal"></a>Azure Portal에서 예상 비용 검토
 

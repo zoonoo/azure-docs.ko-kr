@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: d620df0b55b024cd5d7c25ea17d9b09c5c5da8ff
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3d9360b167a246e257d8c0b2ec4cb88f1ae39dcd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722881"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600144"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>자동화 스크립트를 사용하여 Service Manager 웹앱 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "97722881"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
  Windows Management Framework 5.0 이상
 Windows 10에는 기본적으로 5.1 버전이 있습니다. [여기](https://www.microsoft.com/download/details.aspx?id=50395)에서 이 Framework를 다운로드할 수도 있습니다.
@@ -317,6 +317,11 @@ if(!$err)
 }
 ```
 
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>웹 앱 배포 Service Manager 문제 해결
+
+-   웹 앱 배포에 문제가 있는 경우 구독에서 리소스를 만들거나 배포할 수 있는 권한이 있는지 확인 합니다.
+-   [스크립트](itsmc-service-manager-script.md)를 실행할 때 개체 **참조를 개체의 인스턴스로 설정 하지** 않으면 **사용자 구성** 섹션에서 올바른 값을 입력 했는지 확인 합니다.
+-   Service bus relay 네임 스페이스를 만들지 못한 경우 필요한 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 등록 되지 않은 경우 Azure Portal에서 service bus relay 네임 스페이스를 수동으로 만듭니다. Azure Portal에서 [하이브리드 연결을 만들](./itsmc-connections-scsm.md#configure-the-hybrid-connection) 때도 만들 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 [하이브리드 연결을 구성](./itsmc-connections-scsm.md#configure-the-hybrid-connection)합니다.
-

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0f0d94dbc7b2c720faa1da41a88e3c3313dac377
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680753"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601592"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community 오픈 소스 프로젝트
 
@@ -24,7 +24,7 @@ ms.locfileid: "97680753"
 
 **봇**
 
-| 프로젝트 이름 | Description |
+| 프로젝트 이름 | 설명 |
 |-|-|
 | [Bot 프레임 워크-관심 지점 기술](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | 관심 지점 기술은 Azure Bot Service 및 봇 프레임 워크와 함께 Azure Maps를 사용 하 여 가상 비서에 게 POI 관련 기능을 제공 합니다. |
 | [BotBuilder 위치](https://github.com/Microsoft/BotBuilder-Location) | Bing 지도 REST 서비스에서 제공 하는 Microsoft Bot Framework에 대 한 오픈 소스 위치 선택 컨트롤입니다. |
@@ -35,7 +35,7 @@ ms.locfileid: "97680753"
 
 다음은 Azure Maps 웹 SDK의 기능을 확장 하는 오픈 소스 프로젝트의 목록입니다.
 
-| 프로젝트 이름 | Description |
+| 프로젝트 이름 | 설명 |
 |-|-|
 | [Azure Maps 애니메이션 모듈](https://github.com/Azure-Samples/azure-maps-animations) | Azure Maps 웹 SDK와 함께 사용 하기 위한 풍부한 애니메이션 라이브러리입니다. |
 | [데이터를 View 컨트롤 모듈로 가져오기 Azure Maps](https://github.com/Azure-Samples/azure-maps-bring-data-into-view-control) | 지도에 로드 된 데이터를 보기 쉽게 가져올 수 있도록 하는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
@@ -55,7 +55,7 @@ ms.locfileid: "97680753"
 
 **샘플**
 
-| 프로젝트 이름 | Description |
+| 프로젝트 이름 | 설명 |
 |-|-|
 | [Azure Maps 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | 웹 기반 앱에서 Azure Maps를 사용 하기 위한 코드 샘플 모음입니다. |
 | [Azure Maps .Gov 클라우드 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Azure Government 클라우드를 통해 Azure Maps를 사용 하는 코드 샘플 모음입니다. |
@@ -65,9 +65,15 @@ ms.locfileid: "97680753"
 | [Azure Maps .NET UWP IoT 원격 제어](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Azure Maps 및 IoT hub 서비스를 사용 하 여 원격으로 제어 되는 맵을 빌드하는 방법을 보여 주는 샘플 응용 프로그램입니다. |
 | [Azure Maps를 사용하여 IoT 공간 분석 구현](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | 공간과 시간에서 발생하는 관련 이벤트를 추적하고 캡처하는 것은 일반적인 IoT 시나리오입니다. |
 
+**타사 맵 컨트롤 플러그 인**
+
+| 프로젝트 이름 | 설명 |
+|-|-|
+| [Azure Maps Leaflet 플러그 인](https://github.com/azure-samples/azure-maps-leaflet) | [Azure Maps 타일 서비스](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)에서 타일 계층을 쉽게 오버레이 하는 데 사용 되는 [leaflet](https://leafletjs.com/) JavaScript 플러그 인입니다. |
+ 
 **도구 및 리소스**
 
-| 프로젝트 이름 | Description |
+| 프로젝트 이름 | 설명 |
 |-|-|
 | [문서 Azure Maps](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | 모든 Azure Location Based Services 설명서의 원본입니다. |
 | [Azure Maps 작성자 (미리 보기) 도구](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator (미리 보기) 도구. |

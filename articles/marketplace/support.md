@@ -1,18 +1,18 @@
 ---
-title: 파트너 센터에서 상용 marketplace 포털에 대 한 지원 받기
-description: 지원 요청을 파일 하는 방법을 비롯 하 여 파트너 센터의 지원 옵션에 대해 알아봅니다.
+title: 파트너 센터에서 상업적 marketplace 프로그램 지원 받기
+description: 지원 요청을 파일 하는 방법을 비롯 하 여 파트너 센터에서 상업적 marketplace 프로그램의 지원 옵션에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 01/14/2020
-ms.openlocfilehash: 8979a94ee63ef50c0a3abacd5ab3515226200131
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.date: 01/19/2020
+ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183441"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602569"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업적 marketplace 프로그램 지원
 
@@ -22,60 +22,43 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 - Azure에서 실행 되는 응용 프로그램에 대 한 보안 문제를 검색 한 게시자 인 경우 [보안 이벤트 지원 티켓을 기록 하는 방법](/azure/security/fundamentals/event-support-ticket)을 참조 하세요. 판매자는 Azure Marketplace 소프트웨어 및 서비스 제품 관련 보안 인시던트 및 취약성을 비롯하여 의심스러운 보안 이벤트를 최대한 빨리 보고해야 합니다.
 - 게시자이 고 앱 이나 서비스와 관련 된 질문이 있는 경우 다음 지원 옵션을 검토 하세요.
 
-## <a name="support-options-for-publishers"></a>게시자에 대 한 지원 옵션
+## <a name="get-help-or-open-a-support-ticket"></a>도움말 보기 또는 지원 티켓 열기
 
-1. 회사 계정을 사용 하 여 [파트너 센터의 상용 marketplace 프로그램](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 에 로그인 합니다 (아직 수행 하지 않은 경우 [파트너 센터 계정을 만들어야](partner-center-portal/create-account.md)함).
+1. 회사 계정을 사용하여 로그인합니다. 아직 수행 하지 않은 경우 [파트너 센터 계정을 만들어야](partner-center-portal/create-account.md)합니다.
 
-2. 페이지 오른쪽 상단 메뉴에서 **지원** 아이콘을 선택 합니다.
+1. 페이지의 오른쪽 위에 있는 메뉴에서 **지원** 아이콘을 선택 합니다. **도움말 및 지원** 창이 페이지의 오른쪽에 나타납니다.
 
-3. **도움말 및 지원** 창이 페이지의 오른쪽에 표시 됩니다.
+1. 상업적 marketplace에 대 한 도움이 필요 하면 **상업적 marketplace** 를 선택 합니다.
 
    ![지원 드롭다운 메뉴](./media/support/commercial-marketplace-support-pane.png)
 
-    또는 **홈 페이지** 창으로 이동한 다음 **도움말 및 지원** 을 선택 합니다.
+1. **문제 요약** 상자에 문제에 대 한 간단한 설명을 입력 합니다.
 
-   ![홈 페이지에서 도움말 및 지원](./media/support/homepage-help-support.png)
+1. **문제 유형** 상자에서 다음 중 하나를 수행 합니다.
 
-4. **[설명서](../index.yml)** 를 선택 하 여 질문 및 리소스에 대 한 포괄적인 대답을 검토 합니다.
+    - **옵션 1**: Marketplace, Azure 앱, SaaS 제품, 계정 관리, 잠재 고객 관리, 배포 문제, 지급 또는 공동 판매 제품 마이그레이션과 같은 키워드를 입력 합니다. 그런 다음 표시 되는 권장 목록에서 문제 유형을 선택 합니다.
 
-5. 다른 Microsoft 게시자의 지식을 활용 하 여 질문에 답변 하려면 **[Marketplace 파트너 커뮤니티 포럼](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** 을 선택 합니다.
+    - **옵션 2**: **범주** 목록에서 **찾아보기 항목** 을 선택 하 고 **상업적 마켓플레이스** 를 선택 합니다. 그런 다음 적절 한 **토픽** 및 하위 **주제** 를 선택 합니다.
 
-6. **[추가 도움말](https://aka.ms/marketplacepublishersupport)** 을 선택 하 여 **새 지원 요청** 티켓을 엽니다.  
+1. 선택한 항목을 찾은 후 **솔루션 검토** 를 선택 합니다.
 
-## <a name="how-to-open-a-support-ticket"></a>지원 티켓을 여는 방법
+    ![다음 단계](./media/support/next-step.png)
 
-이제 **도움말 및 지원** 화면에서 지원 티켓을 열 준비가 되었습니다.
+표시 되는 옵션은 다음과 같습니다.
 
-![도움말 및 지원](./media/support/help-and-support.png)
+- 다른 항목을 선택 하려면 **다른 문제 선택** 을 클릭 합니다.
+- 문제를 해결 하려면 권장 단계와 문서 (사용 가능한 경우)를 검토 합니다.
 
->[!Note]
->파트너 센터에 로그인 한 경우 지원에 대 한 더 나은 환경을 받게 됩니다.
+    ![권장 해결 방법](./media/support/recommended-solutions.png)
 
-**옵션 1:** Marketplace, Azure 앱, SaaS 제품, 계정 관리, 잠재 고객 관리, 배포 문제, 지급 등의 키워드를 입력 합니다.
-
-**옵션 2:** 항목 찾아보기- **범주** = 상용 marketplace > 선택 하 > 해당 항목을 선택 하 고 하위 **항목** 을 선택 **합니다.**
-
-선택한 항목을 찾았으면 **솔루션 검토** 를 선택 합니다.
-
-![다음 단계](./media/support/next-step.png)
-
-다음 옵션을 사용할 수 있습니다.
-
-- 다른 항목을 선택 하려면 **선택한 문제** 에서 다른 토픽 링크를 선택 합니다.
-- 사용 가능한 경우이 문제에 대 한 설명을 검토 합니다.  **권장 단계** 위에 표시 되는 텍스트입니다.
-- **권장 단계** 를 검토 합니다 (사용 가능한 경우).
-- 사용 가능한 경우 **권장 문서** 를 검토 합니다.
-
-![권장 해결 방법](./media/support/recommended-solutions.png)
-
-**권장 솔루션** 에서 답변을 찾을 수 없는 경우 **문제 세부 정보 제공** 을 선택 합니다. 모든 필수 필드를 입력 하 여 해결 프로세스의 속도를 높이고, **제출** 을 선택 합니다.
+자체 도움말에서 답변을 찾을 수 없는 경우 **문제 세부 정보 제공** 을 선택 합니다. 모든 필수 필드를 입력 하 여 해결 프로세스의 속도를 높이고, **제출** 을 선택 합니다.
 
 >[!Note]
->파트너 센터에 로그인 하지 않고 토픽에 인증이 필요한 경우 계속 진행 하기 전에 로그인 하도록 요청 합니다.  공개 항목의 경우 인증이 필요 하지 않습니다.
+>파트너 센터에 로그인 하지 않은 경우 티켓을 만들기 전에 로그인 해야 할 수 있습니다.
 
 ## <a name="track-your-existing-support-requests"></a>기존 지원 요청 추적
 
-모든 오픈 및 폐쇄 티켓을 검토 하려면 왼쪽 탐색 모음에서 **상업용 Marketplace** 로 이동한 다음 **지원** 을 선택 합니다.
+열린 및 닫힌 티켓을 검토 하려면 왼쪽 탐색 메뉴에서 **상업적 마켓플레이스**  >  **지원** 을 선택 합니다.
 
 ## <a name="record-issue-details-with-a-har-file"></a>HAR 파일을 사용 하 여 문제 정보 기록
 

@@ -1,5 +1,5 @@
 ---
-title: NFS 공유 만들기-Azure Files
+title: NFS 공유 만들기-Azure Files (미리 보기)
 description: 네트워크 파일 시스템 프로토콜을 사용 하 여 탑재할 수 있는 Azure 파일 공유를 만드는 방법에 대해 알아봅니다.
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 3cf22ee22c35b850aff33290a59a7043bb57c984
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 323eed77d6f7a6ccfcdd0a7c7aecff3a125300dc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620950"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602673"
 ---
 # <a name="how-to-create-an-nfs-share"></a>NFS 공유를 만드는 방법
 

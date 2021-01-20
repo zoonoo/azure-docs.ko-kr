@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 14e53efb7be9eef3ca388e6524e5ffd678671cd0
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251644"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601313"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob 저장소에 대 한 비용 계획 및 관리
 
@@ -41,7 +41,7 @@ Blob 저장소에 대 한 비용은 Azure 청구서의 월별 비용 중 일부�
 4. 나머지 옵션을 수정 하 여 예상 값에 대 한 영향을 확인 합니다.
 
    > [!NOTE]
-   > Azure 기업계약 금액 약정 크레딧을 사용 하 여 Azure Blob 저장소 요금에 대 한 비용을 지불할 수 있습니다. 그러나 현금 약정 금액을 사용 하 여 Azure Marketplace에서 사용 하는 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
+   > Azure 선불 (이전에는 금액 약정 이라고 함) 크레딧을 사용 하 여 Azure Blob storage 요금을 지불할 수 있습니다. 그러나 Azure 선불 크레딧을 사용 하 여 Azure Marketplace에서 사용 하는 타사 제품 및 서비스에 대 한 요금을 지불할 수 없습니다.
 
 ## <a name="optimize-costs"></a>비용 최적화
 

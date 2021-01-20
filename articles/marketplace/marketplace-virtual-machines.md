@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d9e26b6388223ae252a5e85e6e9fb9783a3b8429
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628291"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600407"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>가상 컴퓨터 제품을 계획 하는 방법
 
@@ -35,7 +35,7 @@ ms.locfileid: "94628291"
   - [Windows VM용 Azure CLI 샘플](../virtual-machines/windows/cli-samples.md)
   - [Windows VM용 Azure PowerShell 샘플](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
 
-## <a name="technical-requirements"></a>기술적인 요구 사항
+## <a name="technical-requirements"></a>기술 요구 사항
 
 VM 제공의 기술 요구 사항은 다음과 같습니다.
 
@@ -73,7 +73,7 @@ VM 제공에는 하나 이상의 계획이 필요 합니다. 계획은 솔루션
 Vm은 종 량 제 또는 BYOL (사용자 라이선스 보유) 라이선스 모델을 사용 하 여 완벽 하 게 상거래를 지원 합니다. Microsoft는 사용자 대신, 상거래를 주도하고 고객에게 요금을 청구합니다. 사용자는 기업계약을 비롯하여 고객과 Microsoft 간에 선호하는 결제 방식을 채택할 수 있습니다. 자세한 내용은 [상업적 marketplace의 기능](./marketplace-commercial-transaction-capabilities-and-considerations.md)을 참조 하세요.
 
 > [!NOTE]
-> 기업계약와 관련 된 금액 약정은 VM의 Azure 사용에 대해 사용할 수 있지만 소프트웨어 라이선스 요금에 대해서는 사용할 수 없습니다.
+> 기업계약와 관련 된 Azure 선불 (이전에는 금액 약정 이라고 함)는 VM의 Azure 사용에 대해 사용할 수 있지만 소프트웨어 라이선스 요금에 대해서는 사용할 수 없습니다.
 
 ### <a name="licensing-options"></a>라이선스 옵션
 

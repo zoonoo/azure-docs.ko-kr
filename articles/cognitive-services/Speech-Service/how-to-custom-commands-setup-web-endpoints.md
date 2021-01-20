@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6f2dfdbb5833b34441b4abba7359ad70c4717d1d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025894"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602158"
 ---
 # <a name="set-up-web-endpoints"></a>웹 엔드포인트 설정
 
@@ -23,7 +23,7 @@ ms.locfileid: "95025894"
 
 - 사용자 지정 명령 애플리케이션에서 웹 엔드포인트 설정
 - 사용자 지정 명령 애플리케이션에서 웹 엔드포인트 호출
-- 웹 엔드포인트 응답 수신 
+- 웹 엔드포인트 응답 수신
 - 웹 엔드포인트 응답을 사용자 지정 JSON 페이로드에 통합 및 C# UWP Speech SDK 클라이언트 애플리케이션에서 이를 보내기 및 시각화
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -35,7 +35,7 @@ ms.locfileid: "95025894"
 
 ## <a name="setup-web-endpoints"></a>웹 엔드포인트 설정
 
-1. 이전에 만든 사용자 지정 명령 애플리케이션을 엽니다. 
+1. 이전에 만든 사용자 지정 명령 애플리케이션을 엽니다.
 1. "웹 엔드포인트"로 이동하여 "새 웹 엔드포인트"를 클릭합니다.
 
    > [!div class="mx-imgBorder"]
@@ -61,7 +61,7 @@ ms.locfileid: "95025894"
 1. **TurnOnOff** 명령으로 이동하여 완료 규칙 아래에서 **ConfirmationResponse** 를 선택한 다음, **작업 추가** 를 선택합니다.
 1. **새 작업 - 유형** 아래에서 **웹 엔드포인트 호출** 을 선택합니다.
 1. **작업 편집 - 엔드포인트** 에서 만든 웹 엔드포인트인 **UpdateDeviceState** 를 선택합니다.  
-1. **구성** 에서 다음 값을 입력합니다. 
+1. **구성** 에서 다음 값을 입력합니다.
    > [!div class="mx-imgBorder"]
    > ![웹 엔드포인트 호출 작업 매개 변수](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -75,16 +75,16 @@ ms.locfileid: "95025894"
     > - 제안된 쿼리 매개 변수는 예제 엔드포인트에만 필요합니다.
 
 1. **성공 시 - 실행할 작업** 에서 **음성 응답 보내기** 를 선택합니다.
-    
+
     **간단한 편집기** 에서 `{SubjectDevice} is {OnOff}`를 입력합니다.
-   
+
    > [!div class="mx-imgBorder"]
    > ![성공 시-실행 화면 작업을 보여 주는 스크린샷](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | 설정 | 제안 값 | 설명 |
    | ------- | --------------- | ----------- |
    | 실행할 작업 | 음성 응답 보내기 | 웹 엔드포인트에 대한 요청이 성공하면 실행할 작업입니다. |
-   
+
    > [!NOTE]
    > - `{YourWebEndpointName.FieldName}`을 사용하여 http 응답의 필드에 직접 액세스할 수도 있습니다. `{UpdateDeviceState.TV}`
 
@@ -101,7 +101,7 @@ ms.locfileid: "95025894"
 
    > [!NOTE]
    > - `{WebEndpointErrorMessage}`는 선택 사항입니다. 오류 메시지를 공개하지 않으려면 이를 자유롭게 제거할 수 있습니다.
-   > - 예제 엔드포인트 내에서 헤더 매개 변수 누락과 같은 일반적인 오류에 대한 자세한 오류 메시지와 함께 http 응답을 다시 보냅니다. 
+   > - 예제 엔드포인트 내에서 헤더 매개 변수 누락과 같은 일반적인 오류에 대한 자세한 오류 메시지와 함께 http 응답을 다시 보냅니다.
 
 ### <a name="try-it-out-in-test-portal"></a>테스트 포털에서 사용해 보기
 - 성공 시 응답
@@ -119,7 +119,7 @@ ms.locfileid: "95025894"
 그러나 대부분의 경우 웹 엔드포인트 호출이 성공하는 경우에만 작업을 클라이언트 애플리케이션에 보내려고 합니다. 다음 예제에서 이 작업은 디바이스 상태가 성공적으로 업데이트되는 경우입니다.
 
 1. 이전에 추가한 **클라이언트에 작업 보내기** 작업을 삭제합니다.
-1. 웹 엔드포인트 호출을 편집합니다. 
+1. 웹 엔드포인트 호출을 편집합니다.
     1. **구성** 에서 **쿼리 매개 변수** 가 `item={SubjectDevice}&&value={OnOff}`인지 확인합니다.
     1. **성공 시** 에서 **실행할 작업** 을 **클라이언트에 작업 보내기** 로 변경합니다.
     1. 아래 JSON을 **작업 콘텐츠** 에 복사합니다.
@@ -133,7 +133,6 @@ ms.locfileid: "95025894"
       }
     }
    ```
-   
 이제 웹 엔드포인트에 대한 요청이 성공하는 경우에만 작업을 클라이언트에 보냅니다.
 
 ### <a name="create-visuals-for-syncing-device-state"></a>디바이스 상태 동기화를 위한 시각적 개체 만들기
@@ -147,7 +146,7 @@ ms.locfileid: "95025894"
         .........../>
 ```
 
-### <a name="sync-device-state"></a>디바이스 상태 동기화 
+### <a name="sync-device-state"></a>디바이스 상태 동기화
 
 `MainPage.xaml.cs`에서 `using Windows.Web.Http;`라는 참조를 추가합니다. `MainPage` 클래스에 다음 코드를 추가합니다. 이 메서드는 GET 요청을 예제 엔드포인트에 보내고 앱의 현재 디바이스 상태를 추출합니다. `<your_app_name>`을 사용자 지정 명령 웹 엔드포인트의 **헤더** 에서 사용한 것으로 변경해야 합니다.
 
@@ -157,7 +156,7 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
     //Create an HTTP client object
     var httpClient = new HttpClient();
 
-    //Add a user-agent header to the GET request. 
+    //Add a user-agent header to the GET request.
     var your_app_name = "<your-app-name>";
 
     Uri endpoint = new Uri("https://webendpointexample.azurewebsites.net/api/DeviceState");

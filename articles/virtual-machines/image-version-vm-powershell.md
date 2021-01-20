@@ -1,5 +1,5 @@
 ---
-title: VM에서 이미지 만들기 (미리 보기)
+title: VM에서 이미지 만들기
 description: Azure PowerShell를 사용 하 여 Azure의 기존 VM에서 공유 이미지 갤러리에 이미지를 만드는 방법에 대해 알아봅니다.
 author: cynthn
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3a7ca8236307bbf8a419d2988e1a6dc1e4c40597
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1a0bfb79b03b778696faef29597cabbcff47e6df
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964867"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601656"
 ---
-# <a name="preview-create-an-image-from-a-vm"></a>미리 보기: VM에서 이미지 만들기
+# <a name="create-an-image-from-a-vm"></a>VM에서 이미지 만들기
 
 동일한 vm을 여러 개 만드는 데 사용 하려는 기존 VM이 있는 경우 해당 VM을 사용 하 여 Azure PowerShell를 사용 하는 공유 이미지 갤러리에 이미지를 만들 수 있습니다. [Azure CLI](image-version-vm-cli.md)를 사용 하 여 VM에서 이미지를 만들 수도 있습니다.
 

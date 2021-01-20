@@ -5,19 +5,24 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 1/19/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f4e93deb40799cbcc9c86aff454e250f1ab71712
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 777c78047ec9bf195c5e0c823aa0edfb287b3998
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963337"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598321"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>H 시리즈 및 N 시리즈 VM의 알려진 문제
 
 이 문서에서는 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) HPC 및 GPU vm을 사용 하는 경우 가장 일반적인 문제 및 해결 방법을 제공 합니다.
+
+## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>HB, HC, HBv2 및 NDv2의 가속화 네트워킹
+
+이제 RDMA 및 InfiniBand 지원 및 SR-IOV 지원 VM 크기 [Hb](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) 및 [NDv2](../../ndv2-series.md)에서 [Azure 가속화 된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 을 사용할 수 있습니다. 이제이 기능을 통해 (최대 30gbps) Azure 이더넷 네트워크에서 대기 시간을 향상 시킬 수 있습니다. InfiniBand 네트워크를 통한 RDMA 기능과는 별개 이지만이 기능에 대 한 일부 플랫폼 변경은 InfiniBand를 통해 작업을 개의 에뮬레이터 때 특정 MPI 구현의 동작에 영향을 미칠 수 있습니다. 특히 일부 Vm의 InfiniBand 인터페이스에는 약간 다른 이름 (mlx5_1 이전 mlx5_0와 반대)이 포함 될 수 있으며,이로 인해 특히 (일반적으로 OpenMPI 및 HPC-X를 사용 하 여)를 사용 하는 경우 MPI 명령줄을 조정 해야 할 수 있습니다.
+이에 대 한 자세한 내용은이 [블로그 문서](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) 에서 관찰 된 문제를 해결 하는 방법에 대 한 지침을 제공 합니다.
 
 ## <a name="infiniband-driver-installation-on-n-series-vms"></a>N 시리즈 Vm에 InfiniBand 드라이버 설치
 

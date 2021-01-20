@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6c4f23406c97d647002fbb3ab4a3544866303cf4
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6f74f973abc33d809624bd8abd5a514a52ccfe70
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051346"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602701"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 함수 앱을 연결 하 여 데이터 처리
 
@@ -63,24 +63,20 @@ SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니
 프로젝트를 마우스 오른쪽 단추로 선택 하 고 목록에서 _NuGet 패키지 관리_ 를 선택 하 여이 작업을 수행할 수 있습니다. 그런 다음 열리는 창에서 _찾아보기_ 탭을 선택 하 고 다음 패키지를 검색 합니다. _설치_ 를 선택 하 고 사용권 계약에 _동의_ 하 여 패키지를 설치 합니다.
 
 * `Azure.DigitalTwins.Core`
-* `Azure.Identity` 
-
-Azure Functions에 대해 올바르게 설정 되도록 Azure SDK 파이프라인을 구성 하려면 다음 패키지도 필요 합니다. 위와 동일한 프로세스를 반복 하 여 모든 패키지를 설치 합니다.
-
+* `Azure.Identity`
 * `System.Net.Http`
-* `Azure.Core.Pipeline`
+* `Azure.Core`
 
 **옵션 2. 명령줄 도구를 사용 하 여 패키지를 추가 합니다 `dotnet` .**
 
 또는 `dotnet add` 명령줄 도구에서 다음 명령을 사용할 수 있습니다.
-```cmd/sh
-dotnet add package System.Net.Http
-dotnet add package Azure.Core.Pipeline
-```
 
-그런 다음 Azure Digital Twins를 사용 하는 데 필요한 두 개 이상의 종속성을 프로젝트에 추가 합니다. 아래 링크를 사용하여 NuGet의 패키지로 이동할 수 있습니다. 여기서 콘솔 명령(.NET CLI용 포함)을 찾아 각각의 최신 버전을 프로젝트에 추가할 수 있습니다.
- * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지입니다.
- * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). 이 라이브러리는 Azure에 대한 인증에 유용한 도구를 제공합니다.
+```cmd/sh
+dotnet add package Azure.DigitalTwins.Core
+dotnet add package Azure.Identity
+dotnet add package System.Net.Http
+dotnet add package Azure.Core
+```
 
 그런 다음 Visual Studio 솔루션 탐색기에서 샘플 코드가 있는 _function.cs_ 파일을 열고 함수에 다음 _using_ 문을 추가 합니다. 
 
@@ -154,7 +150,7 @@ Azure의 함수 앱에 프로젝트를 게시 하려면 솔루션 탐색기의 �
 ```azurecli-interactive 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-다음 명령에서 _principalid_ 값을 사용 하 여 Azure Digital twins 인스턴스의 _Azure Digital Twins 데이터 소유자_ 역할에 함수 앱의 id를 할당 합니다.
+다음 명령의 _principalId_ 값을 사용하여 함수 앱의 ID를 Azure Digital Twins 인스턴스의 _Azure Digital Twins 데이터 소유자_ 역할에 할당합니다.
 
 ```azurecli-interactive 
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"

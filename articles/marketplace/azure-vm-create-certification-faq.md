@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 01/18/2021
-ms.openlocfilehash: f802292d9723179b36d5291993bd4e07487fe6a8
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567399"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600982"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>가상 컴퓨터 인증 문제 해결
 
@@ -238,7 +238,7 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 - CVE-2019-11478
 - CVE-2019-11479
 
-|OS 제품군|Version|커널|
+|OS 제품군|버전|커널|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0| 
 ||14.04 LTS|4.15.0-1049- \* -azure|
@@ -321,7 +321,7 @@ SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드
 |잘못 된 VHD 이름|% 기호 또는 따옴표와 같은 특수 문자가 `%` `"` VHD 이름에 있는지 확인 하십시오.|특수 문자를 제거 하 여 VHD 파일의 이름을 바꿉니다.|
 |
 
-## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>첫 1mb (2048 섹터, 512 바이트의 각 섹터) 파티션
+## <a name="first-partition-starts-at-1-mb-2048-sectors"></a>첫 번째 파티션은 1mb (2048 섹터)로 시작 합니다.
 
 사용자 [고유의 이미지를 작성](azure-vm-create-using-own-image.md)하는 경우 OS 디스크의 첫 2048 섹터 (1mb)가 비어 있는지 확인 합니다. 그렇지 않으면 게시가 실패 합니다. 이 요구 사항은 OS 디스크에만 적용 되 고 데이터 디스크에는 적용 되지 않습니다. [승인 된 기준에서](azure-vm-create-using-approved-base.md)이미지를 작성 하는 경우이 요구 사항을 건너뛸 수 있습니다.
 

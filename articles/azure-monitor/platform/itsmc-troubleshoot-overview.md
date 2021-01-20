@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 14f1056bf761eb7b591d04db34610468058bc255
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 2ffe7c8994d32917a08896c7d25f20d4adf09066
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562854"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601898"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>ITSM 커넥터의 문제 해결
 
@@ -53,11 +53,36 @@ ITSMC 대시보드를 사용 하 여 인시던트 및 변경 요청 데이터를
      - 웹 앱이 성공적으로 배포 되 고 하이브리드 연결이 만들어졌는지 확인 합니다. 온-프레미스 Service Manager 컴퓨터에서 연결이 성공적으로 설정 되었는지 확인 하려면 [하이브리드 연결](./itsmc-connections-scsm.md#configure-the-hybrid-connection)에 대 한 설명서에 설명 된 대로 웹 앱 URL로 이동 합니다.  
 
 - Log Analytics 경고가 발생 했지만 작업 항목이 ITSM 제품에 생성 되지 않은 경우, 구성 항목이 작업 항목에 생성/연결 되지 않거나 기타 정보에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
-   -  ITSMC: 솔루션은 연결, 작업 항목, 컴퓨터 등에 대 한 요약을 보여 줍니다. **커넥터 상태** 레이블이 있는 타일을 선택 합니다. 이렇게 하면 관련 쿼리를 사용 하 여 **로그 검색** 으로 이동 합니다. 자세한 내용은의를 사용 하 여 로그 레코드를 살펴보세요 `LogType_S` `ERROR` .
+   -  ITSMC: 솔루션은 연결, 작업 항목, 컴퓨터 등에 [대 한 요약](itsmc-dashboard.md)을 보여 줍니다. **커넥터 상태** 레이블이 있는 타일을 선택 합니다. 이렇게 하면 관련 쿼리를 사용 하 여 **로그 검색** 으로 이동 합니다. 자세한 내용은의를 사용 하 여 로그 레코드를 살펴보세요 `LogType_S` `ERROR` .
+   테이블에서 메시지에 대 한 세부 정보를 볼 수 [있습니다.](itsmc-dashboard-errors.md)
    - **로그 검색** 페이지: 쿼리를 사용 하 여 오류 및 관련 정보를 직접 확인 합니다 `*ServiceDeskLog_CL*` .
 
-### <a name="troubleshoot-service-manager-web-app-deployment"></a>웹 앱 배포 Service Manager 문제 해결
+## <a name="common-symptoms---how-it-should-be-resolved"></a>일반적인 증상-어떻게 해결 해야 하나요?
 
--   웹 앱 배포에 문제가 있는 경우 구독에서 리소스를 만들거나 배포할 수 있는 권한이 있는지 확인 합니다.
--   [스크립트](itsmc-service-manager-script.md)를 실행할 때 개체 **참조를 개체의 인스턴스로 설정 하지** 않으면 **사용자 구성** 섹션에서 올바른 값을 입력 했는지 확인 합니다.
--   Service bus relay 네임 스페이스를 만들지 못한 경우 필요한 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 등록 되지 않은 경우 Azure Portal에서 service bus relay 네임 스페이스를 수동으로 만듭니다. Azure Portal에서 [하이브리드 연결을 만들](./itsmc-connections-scsm.md#configure-the-hybrid-connection) 때도 만들 수 있습니다.
+아래 목록에는 일반적인 증상과이를 해결 하는 방법이 포함 되어 있습니다.
+
+* **증상**: 중복 작업 항목이 생성 됨
+
+    **원인**: 원인은 다음 두 가지 옵션 중 하나일 수 있습니다.
+    * 경고에 대 한 ITSM 동작이 두 개 이상 정의 되어 있습니다.
+    * 경고가 해결 되었습니다.
+
+    **해결** 방법: 다음 두 가지 해결 방법이 있습니다.
+    * 경고 당 ITSM 작업 그룹이 하나 있는지 확인 합니다.
+    * ITSM 커넥터는 경고가 해결 될 때 일치 하는 작업 항목 상태 업데이트를 지원 하지 않습니다. 해결 된 새 작업 항목이 생성 됩니다.
+* **증상**: 작업 항목이 생성 되지 않습니다.
+
+    **원인**:이 증상에는 몇 가지 이유가 있을 수 있습니다.
+    * ServiceNow 쪽에서 코드 수정
+    * 사용 권한 잘못 구성
+    * ServiceNow rate 한도가 너무 높음/낮음
+    * 새로 고침 토큰이 만료 되었습니다.
+    * ITSM 커넥터 삭제 됨
+
+    **해결** 방법: [대시보드](itsmc-dashboard.md) 를 확인 하 고 커넥터 상태 섹션에서 오류를 검토할 수 있습니다. [일반적인 오류](itsmc-dashboard-errors.md) 를 검토 하 고 오류를 해결 하는 방법을 확인 합니다.
+
+* **증상**: 작업 그룹에 대 한 Itsm 작업을 만들 수 없습니다.
+
+    **원인**: 새로 만든 ITSM 커넥터에서 아직 초기 동기화를 완료 했습니다.
+
+    **해결** 방법: [일반적인 UI 오류](itsmc-dashboard-errors.md#ui-common-errors) 를 검토 하 고 오류를 해결 하는 방법을 확인할 수 있습니다.

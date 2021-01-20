@@ -3,17 +3,17 @@ title: Azure Maps Search services를 사용 하 여 위치 검색
 description: Azure Maps Search 서비스에 대해 알아봅니다. 지 오 코딩, 역방향 지 오 코딩, 유사 항목 검색 및 역방향 교차 번 검색에 대해이 Api 집합을 사용 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/05/2020
+ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: dddf56edf2037d87a28589a59834db32f8d04a4c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910987"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598371"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search services를 사용 하 여 위치 검색
 
@@ -94,7 +94,7 @@ Azure Maps [유사 항목 검색 API](/rest/api/maps/search/getsearchfuzzy) 는 
 
 4. 기본 동작은 전체 세계를 검색 하 여 불필요 한 결과를 반환 하는 것입니다. 다음으로, 미국 에서만 피자를 검색 합니다. `countrySet` **Params** 섹션에 키를 추가 하 고 해당 값을로 설정 `US` 합니다. 키를 `countrySet` 로 설정 하면 `US` 결과를 미국에 바인딩합니다.
 
-    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="주소 검색":::
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="미국의 피자 검색":::
 
     이제 결과는 국가 코드로 경계가 구분되며 쿼리는 미국의 피자 음식점을 반환합니다.
 
@@ -142,13 +142,13 @@ Azure Maps [Get Search Address 역방향 API]( https://docs.microsoft.com/rest/a
     | returnRoadUse | true | 주소에서도로 사용 유형을 반환 합니다. 모든 가능한 이동 형식에 대해 [이동 유형 사용](/rest/api/maps/search/getsearchaddressreverse#uri-parameters)을 참조 하세요.|
     | returnMatchType | true| 일치 항목의 유형을 반환 합니다. 가능한 모든 값은 [역방향 주소 검색 결과](/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult) 를 참조 하세요.
 
-   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="주소 검색":::
+   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="역순으로 검색 합니다.":::
 
 5. **보내기** 를 클릭 하 고 응답 본문을 검토 합니다.
 
 6. 다음으로 키를 추가 하 `entityType` 고 해당 값을로 설정 `Municipality` 합니다. `entityType` `returnMatchType` 이전 단계에서 키가 키를 재정의 합니다. `returnSpeedLimit` `returnRoadUse` 지방 자치 체에 대 한 정보를 요청 하 고 있으므로도 제거 해야 합니다.  가능한 모든 엔터티 형식은 [엔터티 형식](/rest/api/maps/search/getsearchaddressreverse#entitytype)을 참조 하세요.
 
-    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="주소 검색":::
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="역방향 entityType을 검색 합니다.":::
 
 7. **보내기** 를 클릭합니다. 결과를 5 단계에서 반환 된 결과와 비교 합니다.  요청 된 엔터티 형식이 이제 이므로 `municipality` 응답은 주소 정보를 포함 하지 않습니다. 또한 반환 된를 `geometryId` 사용 하 여 Azure Maps [검색 polygon API](/rest/api/maps/search/getsearchpolygon)를 통해 경계 다각형을 요청할 수 있습니다.
 
@@ -167,9 +167,9 @@ Azure Maps [Get Search Address 역방향 API]( https://docs.microsoft.com/rest/a
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
-    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="주소 검색":::
+    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="교차 주소를 검색 합니다.":::
   
-3. **보내기** 를 클릭 하 고 응답 본문을 검토 합니다. 응답에는 값이 포함 되어 있음을 알 수 있습니다 `crossStreet` `Occidental Avenue South` .
+3. **보내기** 를 클릭 하 고 응답 본문을 검토 합니다. 응답에는 값이 포함 되어 있음을 알 수 있습니다 `crossStreet` `South Atlantic Street` .
 
 ## <a name="next-steps"></a>다음 단계
 

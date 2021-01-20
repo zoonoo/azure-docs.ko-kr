@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: a9050b85c974a3c04ca717e8fe3d5188c1bf7a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6773c6b29ecfd8354c54a6214cfe0b4050edcd38
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244315"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602644"
 ---
 # <a name="how-to-sign-up-for-translator"></a>번역기에 등록 하는 방법
 
@@ -28,20 +28,20 @@ ms.locfileid: "88244315"
 
 포털에 로그인 한 후에 다음과 같이 번역기에 대 한 구독을 만들 수 있습니다.
 
-1. **+ 리소스 만들기**를 선택합니다.
+1. **+ 리소스 만들기** 를 선택합니다.
 1. **Marketplace** 검색 검색 상자에 **Translator** 를 입력 하 고 결과에서 선택 합니다.
-1. **만들기**를 선택하여 구독 세부 정보를 정의합니다.
+1. **만들기** 를 선택하여 구독 세부 정보를 정의합니다.
 1. **가격 책정 계층** 목록에서 요구 사항에 가장 적합한 가격 책정 계층을 선택합니다.
     1. 각 구독에는 체험 계층이 있습니다. 체험 계층에는 유료 플랜과 동일한 특징과 기능이 있으며 만료되지 않습니다.
     1. 계정에는 체험 구독 하나만 있을 수 있습니다.
-1. **만들기**를 선택하여 구독 만들기를 완료합니다.
+1. **만들기** 를 선택하여 구독 만들기를 완료합니다.
 
 ## <a name="authentication-key"></a>인증 키
 
 Translator에 등록 하면 구독에 고유한 개인 설정 된 액세스 키를 얻게 됩니다. 이 키는 변환기를 호출할 때마다 필요 합니다.
 
 1. 먼저 적합한 구독을 선택하여 인증 키를 검색합니다.
-1. 구독 세부 정보의 **리소스 관리** 섹션에서 **키**를 선택합니다.
+1. 구독 세부 정보의 **리소스 관리** 섹션에서 **키 및 끝점** 을 선택 합니다.
 1. 구독에 나열된 키 중 하나를 복사합니다.
 
 ## <a name="learn-test-and-get-support"></a>학습, 테스트 및 지원 받기

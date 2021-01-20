@@ -2,20 +2,20 @@
 title: 공유 액세스 서명을 사용 하 여 액세스 제어 Azure Service Bus
 description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 개요, Azure Service Bus를 사용한 SAS 권한 부여 상세 정보
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 01/19/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f71320613682f7d4b9f3b706845e68f581b3dc10
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6bdc167c437a79d609db25a2e3c48b71e0a748b2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339413"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598833"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
-*공유 액세스 서명* (SAS)은 Service Bus 메시징의 기본 보안 메커니즘입니다. 이 문서에서는 SAS, 그 작동 방법 및 플랫폼과 상관 없는 방식으로 사용하는 방법에 대해 설명합니다.
+이 문서에서는 SAS ( *공유 액세스 서명* ), 작동 방법 및 플랫폼에 상관 없는 방식으로 사용 하는 방법을 설명 합니다.
 
-SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호합니다. 네임스페이스 또는 메시징 엔터티(릴레이, 큐 또는 항목)에서 구성됩니다. 권한 부여 규칙에는 특정 권한과 연결된 이름이 있으며 암호화 키 쌍을 전달합니다. Service Bus SDK를 통해 또는 사용자 고유의 코드에서 규칙의 이름 및 키를 사용하여 SAS 토큰을 생성합니다. 그런 다음, 클라이언트는 토큰을 Service Bus에 전달하여 요청된 작업에 대한 권한 부여를 증명할 수 있습니다.
+SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호합니다. 이러한 항목은 네임 스페이스 또는 메시징 엔터티 (큐 또는 항목)에서 구성 됩니다. 권한 부여 규칙에는 특정 권한과 연결된 이름이 있으며 암호화 키 쌍을 전달합니다. Service Bus SDK를 통해 또는 사용자 고유의 코드에서 규칙의 이름 및 키를 사용하여 SAS 토큰을 생성합니다. 그런 다음, 클라이언트는 토큰을 Service Bus에 전달하여 요청된 작업에 대한 권한 부여를 증명할 수 있습니다.
 
 > [!NOTE]
 > Azure Service Bus는 Azure Active Directory (Azure AD)를 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여 합니다. Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하는 사용자 또는 응용 프로그램에 대 한 권한 부여는 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하는 경우 코드에 토큰을 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다.
@@ -36,12 +36,12 @@ Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조
 
 각 Service Bus 네임스페이스와 각 Service Bus 엔터티에는 규칙으로 이루어진 공유 액세스 권한 부여 정책이 있습니다. 네임스페이스 수준에서 정책은 개별 정책 구성에 관계 없이 네임스페이스 내부의 모든 엔터티에 적용됩니다.
 
-각각의 권한 부여 정책 규칙의 경우 **이름** , **범위** 및 **권한** 등, 3가지 정보를 결정합니다. **이름** 은 해당 범위 내에서 고유한 이름입니다. 범위는 아주 쉬운데, 해당 리소스의 URI를 말합니다. Service Bus 네임스페이스의 경우, 범위는 `https://<yournamespace>.servicebus.windows.net/` 등과 같이 정규화된 도메인 이름(FQDN)입니다.
+각각의 권한 부여 정책 규칙의 경우 **이름**, **범위** 및 **권한** 등, 3가지 정보를 결정합니다. **이름** 은 해당 범위 내에서 고유한 이름입니다. 범위는 아주 쉬운데, 해당 리소스의 URI를 말합니다. Service Bus 네임스페이스의 경우, 범위는 `https://<yournamespace>.servicebus.windows.net/` 등과 같이 정규화된 도메인 이름(FQDN)입니다.
 
 정책 규칙에 의해 부여되는 권한은 다음의 조합일 수 있습니다.
 
 * 'Send' - 엔터티에 메시지를 보낼 권한을 부여합니다.
-* 'Listen' - 수신 대기(릴레이) 또는 수신(큐, 구독) 및 모든 관련된 메시지 처리에 대한 권한을 부여합니다.
+* ' 수신 대기 '-권한을 부여 (큐, 구독) 모든 관련 메시지 처리를 받을 수 있는 권한입니다.
 * 'Manage' - 엔터티 만들기 및 삭제를 포함하여 네임스페이스의 토폴로지를 관리하는 권한을 부여합니다.
 
 'Manage' 권한은 'Send' 및 'Receive' 권한을 포함합니다.
@@ -55,7 +55,7 @@ Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey** 라�
 ## <a name="best-practices-when-using-sas"></a>SAS를 사용하는 경우 모범 사례
 애플리케이션에서 공유 액세스 서명을 사용할 경우 다음과 같은 두 가지 잠재적 위험에 대해 잘 알고 있어야 합니다.
 
-- SAS가 유출 되 면이를 가져오는 모든 사용자가 SAS를 사용 하 여 Event Hubs 리소스를 손상 시킬 수 있습니다.
+- SAS가 유출 되 면이를 가져오는 모든 사용자가 SAS를 사용 하 여 Service Bus 리소스를 손상 시킬 수 있습니다.
 - 클라이언트 응용 프로그램에 제공 된 SAS가 만료 되 고 응용 프로그램이 서비스에서 새 SAS를 검색할 수 없는 경우 응용 프로그램의 기능이 저하 될 수 있습니다.
 
 다음은 공유 액세스 서명을 사용하여 이러한 위험을 완화하는 데 도움이 될 수 있는 권장 사항입니다.
@@ -63,8 +63,8 @@ Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey** 라�
 - **필요한 경우 클라이언트가 sas를 자동으로 갱신 하도록** 지정: 클라이언트에서 sas를 제공 하는 서비스를 사용할 수 없는 경우 다시 시도할 수 있도록 만료 되기 전에 sas를 갱신 해야 합니다. SAS가 만료 기간 내에 완료 될 것으로 예상 되는 적은 수의 즉각적인 단기 작업에 사용 될 것으로 예상 되는 경우 SAS가 갱신 되지 않으므로 필요 하지 않을 수 있습니다. 하지만 클라이언트가 SAS를 통해 일상 요청을 수행하는 경우에는 중간에 만료될 수 있습니다. 핵심 고려 사항은, 이전에 설명한 대로 SAS가 정상적으로 갱신을 요청 하 고 있는지 확인 하는 것이 좋습니다 (이전에 언급 한 것 처럼).
 - **Sas 시작 시간을 사용 하 여 주의 해야 합니다**. sas의 시작 시간을 **지금** 으로 설정 하면 클럭 오차 (다른 컴퓨터에 따라 현재 시간의 차이)로 인해 처음 몇 분 동안 오류가 간헐적으로 발생할 수 있습니다. 일반적으로 시작 시간을 최소 15분 이전으로 설정하거나 또는 전혀 설정 하지 마세요. 그러면 모든 경우에 즉시 유효 해 집니다. 이는 만료 시간에도 일반적으로 적용 됩니다. 모든 요청에 대해 어느 방향에서 든 최대 15 분의 클록을 왜곡할 수 있습니다. 
 - **액세스할 리소스와 관련 되어 있어야** 합니다. 보안 모범 사례는 사용자에 게 필요한 최소 권한을 제공 하는 것입니다. 사용자가 단일 엔터티에 대한 읽기 권한만 필요한 경우 해당 엔터티에 대한 읽기 권한만 부여하고 모든 엔터티에 대한 읽기/쓰기/삭제 권한은 부여하지 않습니다. 또한 sas가 공격자의 도움을 줄 수 있기 때문에 SAS가 손상 되 면 손상을 줄일 수 있습니다.
-- **항상 sas를 사용 하지 않음** : Event Hubs에 대해 특정 작업과 관련 된 위험이 sas의 이점 보다 더 큽니다. 이러한 작업의 경우 비즈니스 규칙 유효성 검사, 인증 및 감사 후에 Event Hubs에 기록 하는 중간 계층 서비스를 만듭니다.
-- **항상 https 사용** : 항상 https를 사용 하 여 SAS를 만들거나 배포 합니다. HTTP를 통해 SAS를 전달 하 고 가로채는 경우 메시지 가로채기 (man-in-the-middle) 연결을 수행 하는 공격자가 SAS를 읽은 다음 의도 된 사용자가 보유 하는 것과 마찬가지로, 중요 한 데이터를 손상 시키거나 악의적인 사용자의 데이터 손상을 허용할 수 있습니다.
+- **항상 sas를 사용 하지 않음**: Event Hubs에 대해 특정 작업과 관련 된 위험이 sas의 이점 보다 더 큽니다. 이러한 작업의 경우 비즈니스 규칙 유효성 검사, 인증 및 감사 후에 Event Hubs에 기록 하는 중간 계층 서비스를 만듭니다.
+- **항상 https 사용**: 항상 https를 사용 하 여 SAS를 만들거나 배포 합니다. HTTP를 통해 SAS를 전달 하 고 가로채는 경우 메시지 가로채기 (man-in-the-middle) 연결을 수행 하는 공격자가 SAS를 읽은 다음 의도 된 사용자가 보유 하는 것과 마찬가지로, 중요 한 데이터를 손상 시키거나 악의적인 사용자의 데이터 손상을 허용할 수 있습니다.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>공유 액세스 서명 인증을 위한 구성
 
@@ -72,7 +72,7 @@ Service Bus 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthori
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
-이 그림에서는 *manageRuleNS* , *sendRuleNS* 및 *listenRuleNS* 권한 부여 규칙이 큐 Q1 및 토픽 topic T1에 적용되는 반면, *listenRuleQ* 및 *sendRuleQ* 는 큐 Q1에만 적용되고 *sendRuleT* 는 토픽 T1에만 적용됩니다.
+이 그림에서는 *manageRuleNS*, *sendRuleNS* 및 *listenRuleNS* 권한 부여 규칙이 큐 Q1 및 토픽 topic T1에 적용되는 반면, *listenRuleQ* 및 *sendRuleQ* 는 큐 Q1에만 적용되고 *sendRuleT* 는 토픽 T1에만 적용됩니다.
 
 ## <a name="generate-a-shared-access-signature-token"></a>공유 액세스 서명 토큰 생성
 
@@ -82,18 +82,34 @@ Service Bus 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthori
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** -토큰 만료 인스턴트. 토큰이 만료될 때 1970년 1월 1일(UNIX Epoch)의 Epoch `00:00:00 UTC` 이후의 초를 반영하는 정수
-* **`skn`** -권한 부여 규칙의 이름입니다.
-* **`sr`** -액세스 되는 리소스의 URI입니다.
-* **`sig`** 서명과.
+- `se` - 토큰 만료 인스턴트입니다. 토큰이 만료될 때 1970년 1월 1일(UNIX Epoch)의 Epoch `00:00:00 UTC` 이후의 초를 반영하는 정수
+- `skn` - 권한 부여 규칙의 이름입니다.
+- `sr` -액세스 되는 리소스의 URL로 인코딩된 URI입니다.
+- `sig` -URL로 인코딩된 HMACSHA256 signature. 해시 계산은 다음과 같이 의사 코드와 비슷하며 원시 이진 출력의 base64를 반환 합니다.
 
-는 `signature-string` 리소스 URI (이전 섹션에서 설명 하는 **범위** )에 대해 계산 된 SHA-256 해시와 토큰 만료 인스턴트의 문자열 표현을 LF로 구분 하 여 계산 합니다.
+    ```
+    urlencode(base64(hmacsha256(urlencode('https://<yournamespace>.servicebus.windows.net/') + "\n" + '<expiry instant>', '<signing key>')))
+    ```
 
-해시 계산은 다음 의사 코드와 유사하며 256비트/32바이트 해시 값을 반환합니다.
+SAS 토큰을 생성 하는 예제 c # 코드는 다음과 같습니다.
 
+```csharp
+private static string createToken(string resourceUri, string keyName, string key)
+{
+    TimeSpan sinceEpoch = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    var week = 60 * 60 * 24 * 7;
+    var expiry = Convert.ToString((int)sinceEpoch.TotalSeconds + week);
+    string stringToSign = HttpUtility.UrlEncode(resourceUri) + "\n" + expiry;
+    HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
+    var signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+    var sasToken = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", HttpUtility.UrlEncode(resourceUri), HttpUtility.UrlEncode(signature), expiry, keyName);
+    return sasToken;
+}
 ```
-SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
-```
+
+> [!IMPORTANT]
+> 다른 프로그래밍 언어를 사용 하 여 SAS 토큰을 생성 하는 예제는 [sas 토큰 생성](/rest/api/eventhub/generate-sas-token)을 참조 하세요. 
+
 
 토큰은 수신자가 동일한 매개 변수를 사용하여 해시를 다시 계산할 수 있도록 발급자가 유효한 서명 키를 소유하는지 확인하여 해시되지 않은 값을 포함합니다.
 
@@ -105,8 +121,6 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로 추가하는 모든 리소스에 유효합니다.
 
-> [!NOTE]
-> 다른 프로그래밍 언어를 사용 하 여 SAS 토큰을 생성 하는 예제는 [sas 토큰 생성](/rest/api/eventhub/generate-sas-token)을 참조 하세요. 
 
 ## <a name="regenerating-keys"></a>키 다시 생성
 
@@ -174,7 +188,7 @@ sendClient.Send(helloMessage);
 
 다른 클라이언트에 전달할 토큰을 발급하는 데 토큰 공급자를 직접 사용할 수도 있습니다.
 
-연결 문자열은 규칙 이름( *SharedAccessKeyName* ) 및 규칙 키( *SharedAccessKey* ) 또는 이전에 발급된 토큰( *SharedAccessSignature* )을 포함할 수 있습니다. 해당 항목이 생성자 또는 연결 문자열을 수락하는 팩터리 메서드에 전달된 연결 문자열에 있는 경우 SAS 토큰 공급자가 자동으로 만들어지고 채워집니다.
+연결 문자열은 규칙 이름(*SharedAccessKeyName*) 및 규칙 키(*SharedAccessKey*) 또는 이전에 발급된 토큰(*SharedAccessSignature*)을 포함할 수 있습니다. 해당 항목이 생성자 또는 연결 문자열을 수락하는 팩터리 메서드에 전달된 연결 문자열에 있는 경우 SAS 토큰 공급자가 자동으로 만들어지고 채워집니다.
 
 Service Bus 릴레이로 SAS 권한 부여를 사용하면 Service Bus 네임 스페이스에 구성된 SAS 키를 사용할 수 있습니다. 네임스페이스([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager)와 [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)) 개체에 명시적으로 릴레이를 만들면 해당 릴레이 대한 SAS 규칙을 설정할 수 있습니다. Service Bus 구독으로 SAS 권한 부여를 사용하려면 Service Bus 네임 스페이스 또는 항목에 구성된 SAS 키를 사용할 수 있습니다.
 
@@ -197,7 +211,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 이전 섹션에서는 HTTP POST 요청과 함께 SAS 토큰을 사용하여 데이터를 Service Bus에 보내는 방법을 살펴봤습니다. 아시다시피, Service Bus는 많은 시나리오에서 성능상의 이유로 사용하는 기본 설정 프로토콜인 AMQP(고급 메시지 큐 프로토콜)를 사용하여 액세스할 수 있습니다. AMQP를 사용 하는 SAS 토큰 사용에 대 한 자세한 내용은 2013 이후 초안으로 작동 하는 [Claim-Based 보안 버전 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) 문서에 설명 되어 있지만 현재 Azure에서 지원 됩니다.
 
-Service Bus에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **$cbs** (모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 AMQP 메시지 내부에 있는 **ReplyTo** 필드를 지정해야 합니다. 이는 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
+Service Bus에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **$cbs**(모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 AMQP 메시지 내부에 있는 **ReplyTo** 필드를 지정해야 합니다. 이는 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
 
 다음 단계에서는 [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) 라이브러리를 사용 하 여 amqp 프로토콜을 사용 하 여 SAS 토큰을 보내는 방법을 보여 줍니다. 이는 C에서 개발 하는 공식 Service Bus SDK (예: WinRT, .NET Compact Framework, .NET 마이크로 프레임 워크 및 Mono)를 사용할 수 없는 경우에 유용 합니다 \# . 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다("권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). AMQP에 대 한 이러한 심층 지식이 필요 하지 않은 경우에는 .NET Framework 응용 프로그램에서 공식 Service Bus SDK를 사용할 수 있습니다.
 
@@ -252,16 +266,16 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-위의 `PutCbsToken()` 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 *연결* ( [AMQP .NET Lite 라이브러리](https://github.com/Azure/amqpnetlite)에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다.
+위의 `PutCbsToken()` 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 *연결*([AMQP .NET Lite 라이브러리](https://github.com/Azure/amqpnetlite)에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다.
 
 > [!NOTE]
-> 연결이 **ANONYMOUS로 설정된 SASL 인증 메커니즘** (SAS 토큰을 보낼 필요가 없을 때 사용하는 사용자 이름 및 암호를 가진 기본 PLAIN이 아님)으로 생성된다는 사실이 중요합니다.
+> 연결이 **ANONYMOUS로 설정된 SASL 인증 메커니즘**(SAS 토큰을 보낼 필요가 없을 때 사용하는 사용자 이름 및 암호를 가진 기본 PLAIN이 아님)으로 생성된다는 사실이 중요합니다.
 >
 >
 
 그런 다음 게시자는 SAS 토큰을 보내고 서비스로부터 회신(토큰 유효성 검사 결과)을 받기 위한 2개의 AMQP 링크를 만듭니다.
 
-AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니다. SAS 토큰은 해당 생성자를 사용하여 메시지의 본문으로 배치됩니다. **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성함). 마지막 세 애플리케이션/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 나타내는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식** (이 경우 `servicebus.windows.net:sastoken`)인 **작업 이름** ("put-token")이 되고 토큰이 적용되는 **청중의 "이름"** 이어야 합니다(전체 엔터티).
+AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니다. SAS 토큰은 해당 생성자를 사용하여 메시지의 본문으로 배치됩니다. **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성함). 마지막 세 애플리케이션/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 나타내는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식**(이 경우 `servicebus.windows.net:sastoken`)인 **작업 이름**("put-token")이 되고 토큰이 적용되는 **청중의 "이름"** 이어야 합니다(전체 엔터티).
 
 보낸 사람 링크에서 SAS 토큰을 보낸 후 게시자는 수신자 링크에서 회신을 읽어야 합니다. 회신은 HTTP 상태 코드와 동일한 값을 포함할 수 있는 **"status-code"** 라는 이름의 애플리케이션 속성을 가진 간단한 AMQP 메시지입니다.
 
@@ -269,21 +283,21 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 
 다음 테이블에서는 Service Bus 리소스의 다양한 작업에 필요한 액세스 권한을 보여줍니다.
 
-| 작업(Operation) | 필요한 클레임 | 클레임 범위 |
+| 작업 | 필요한 클레임 | 클레임 범위 |
 | --- | --- | --- |
-| **Namespace** | | |
+| **네임스페이스** | | |
 | 네임스페이스에서 권한 부여 규칙 구성 |관리 |네임스페이스 주소 |
 | **서비스 레지스트리** | | |
 | 프라이빗 정책 열거 |관리 |네임스페이스 주소 |
 | 네임스페이스에서 수신 시작 |수신 대기 |네임스페이스 주소 |
-| 네임스페이스에서 수신기로 메시지 보내기 |보내기 |네임스페이스 주소 |
+| 네임스페이스에서 수신기로 메시지 보내기 |Send |네임스페이스 주소 |
 | **큐** | | |
 | 큐 만들기 |관리 |네임스페이스 주소 |
 | 큐 삭제 |관리 |유효한 큐 주소 |
 | 큐 열거 |관리 |/$Resources/Queues |
 | 큐 설명 가져오기 |관리 |유효한 큐 주소 |
 | 큐에서 권한 부여 규칙 구성 |관리 |유효한 큐 주소 |
-| 큐로 보내기 |보내기 |유효한 큐 주소 |
+| 큐로 보내기 |Send |유효한 큐 주소 |
 | 큐에서 메시지 받기 |수신 대기 |유효한 큐 주소 |
 | 메시지 보기-잠금 모드에서 메시지를 받은 후에 중단 또는 완료 |수신 대기 |유효한 큐 주소 |
 | 나중에 검색에 대한 메시지 연기 |수신 대기 |유효한 큐 주소 |
@@ -297,7 +311,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | 항목 열거 |관리 |/$Resources/Topics |
 | 항목 설명 가져오기 |관리 |유효한 항목 주소 |
 | 항목에서 권한 부여 규칙 구성 |관리 |유효한 항목 주소 |
-| 항목으로 보내기 |보내기 |유효한 항목 주소 |
+| 항목으로 보내기 |Send |유효한 항목 주소 |
 | **구독** | | |
 | 구독 만들기 |관리 |네임스페이스 주소 |
 | 구독 삭제 |관리 |../myTopic/Subscriptions/mySubscription |

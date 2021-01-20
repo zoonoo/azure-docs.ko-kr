@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 3f8e497fb21b3fac6a2bc5842e6bc56c47444c8b
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: e51354b1c2905d0532ce4eb49236dda8550f98a4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572496"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600087"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -128,6 +128,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 ## <a name="text-to-speech"></a>텍스트 음성 변환
 
 Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 음성 각각은 로캘로 식별되는 특정 언어를 지원합니다. [음성/목록 API](rest-text-to-speech.md#get-a-list-of-voices)를 통해 각 특정 영역/엔드포인트에 지원되는 언어 및 음성의 전체 목록을 얻을 수도 있습니다. 
+
+신경망을 비롯 하 여 말하기 스타일을 구성 하 고 조정 하는 방법을 알아보려면 음성 합성 마크업 [언어를 참조](speech-synthesis-markup.md#adjust-speaking-styles) 하세요.
 
 > [!IMPORTANT]
 > 가격 책정은 표준, 사용자 지정 및 인공신경망 음성마다 다릅니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) 페이지를 참조하세요.
@@ -286,8 +288,6 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 > 공개 미리 보기의 음성은 미국 동부, 유럽 서부 및 동남 아시아의 세 가지 서비스 지역 에서만 사용할 수 있습니다.
 
 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
-
-말하는 스타일과 같은 신경망을 구성 하 고 조정 하는 방법을 알아보려면 [음성 합성 마크업 언어](speech-synthesis-markup.md#adjust-speaking-styles)를 참조 하세요.
 
 > [!IMPORTANT]
 > `en-US-JessaNeural` 음성이 `en-US-AriaNeural`로 변경되었습니다. 이전에 "Jessa"를 사용했다면 "Aria"로 변환하세요.

@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 70aecc2613fbe21d34e36f9487d7ba383e140bc8
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 4db6abeb3e6f4a07780268a6455177e0ca237205
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217365"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598480"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -84,7 +84,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 ## <a name="hosting-plan-type"></a>호스팅 계획 유형
 
-함수 앱을 만들 때 앱이 실행 되는 App Service 호스팅 계획도 만듭니다. 계획에는 하나 이상의 함수 앱이 있을 수 있습니다. 기능의 기능, 크기 조정 및 가격은 계획 유형에 따라 달라 집니다. 자세히 알아보려면 [Azure Functions 가격 책정 페이지](https://azure.microsoft.com/pricing/details/functions/)를 참조 하세요.
+함수 앱을 만들 때 앱이 실행 되는 호스팅 계획도 만들 수도 있습니다. 계획에는 하나 이상의 함수 앱이 있을 수 있습니다. 기능의 기능, 크기 조정 및 가격은 계획 유형에 따라 달라 집니다. 자세히 알아보려면 [Azure Functions 호스팅 옵션](functions-scale.md)을 참조 하세요.
 
 Azure Portal에서 함수 앱에 사용 되는 계획의 유형을 결정 하거나 Azure CLI 또는 Azure PowerShell Api를 사용 하 여 확인할 수 있습니다. 
 
@@ -131,6 +131,75 @@ $PlanID = (Get-AzFunctionApp -ResourceGroupName $ResourceGroup -Name $FunctionAp
 
 ---
 
+## <a name="plan-migration"></a>마이그레이션 계획
+
+Azure CLI 명령을 사용 하 여 Windows의 소비 계획과 프리미엄 계획 간에 함수 앱을 마이그레이션할 수 있습니다. 특정 명령은 마이그레이션의 방향에 따라 달라 집니다. 전용 (App Service) 요금제에 대 한 직접 마이그레이션은 현재 지원 되지 않습니다.
+
+이 마이그레이션은 Linux에서 지원 되지 않습니다.
+
+### <a name="consumption-to-premium"></a>프리미엄에 대 한 사용량
+
+다음 절차를 사용 하 여 소비 계획에서 Windows의 프리미엄 계획으로 마이그레이션할 수 있습니다.
+
+1. 다음 명령을 실행 하 여 기존 함수 앱과 동일한 지역 및 리소스 그룹에 새 App Service 계획 (탄력적 프리미엄)을 만듭니다.  
+
+    ```azurecli-interactive
+    az functionapp plan create --name <NEW_PREMIUM_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP> --location <REGION> --sku EP1
+    ```
+
+1. 다음 명령을 실행 하 여 기존 함수 앱을 새 프리미엄 계획으로 마이그레이션합니다.
+
+    ```azurecli-interactive
+    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_PREMIUM_PLAN>
+    ```
+
+1. 이전 소비 함수 앱 계획이 더 이상 필요 하지 않은 경우 새 함수로 성공적으로 마이그레이션 되었는지 확인 한 후 원래 함수 앱 계획을 삭제 합니다. 다음 명령을 실행 하 여 리소스 그룹의 모든 소비 계획 목록을 가져옵니다.
+
+    ```azurecli-interactive
+    az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='Y'].{PlanName:name,Sites:numberOfSites}" -o table
+    ```
+
+    사이트를 0 개 포함 하는 계획을 안전 하 게 삭제할 수 있습니다. 여기서는 마이그레이션 한 것입니다.
+
+1. 다음 명령을 실행 하 여에서 마이그레이션한 소비 계획을 삭제 합니다.
+
+    ```azurecli-interactive
+    az functionapp plan delete --name <CONSUMPTION_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP>
+    ```
+
+### <a name="premium-to-consumption"></a>프리미엄에서 사용
+
+다음 절차를 사용 하 여 프리미엄 계획에서 Windows의 소비 계획으로 마이그레이션할 수 있습니다.
+
+1. 다음 명령을 실행 하 여 기존 함수 앱과 동일한 지역 및 리소스 그룹에 새 함수 앱 (소비)을 만듭니다. 또한이 명령은 함수 앱이 실행 되는 새 소비 계획을 만듭니다.
+
+    ```azurecli-interactive
+    az functionapp create --resource-group <MY_RESOURCE_GROUP> --name <NEW_CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
+    ```
+
+1. 다음 명령을 실행 하 여 기존 함수 앱을 새 소비 계획으로 마이그레이션합니다.
+
+    ```azurecli-interactive
+    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN>
+    ```
+
+1. 기존 함수 앱을 실행 하기 위해 만든 계획만 필요 하므로 1 단계에서 만든 함수 앱을 삭제 합니다.
+
+    ```azurecli-interactive
+    az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
+    ```
+
+1. 이전 프리미엄 함수 앱 계획이 더 이상 필요 하지 않은 경우 새 함수로 성공적으로 마이그레이션 되었는지 확인 한 후 원래 함수 앱 계획을 삭제 합니다. 계획을 삭제 하지 않으면 프리미엄 요금제에 대 한 요금이 계속 청구 됩니다. 다음 명령을 실행 하 여 리소스 그룹의 모든 프리미엄 계획 목록을 가져옵니다.
+
+    ```azurecli-interactive
+    az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
+    ```
+
+1. 다음 명령을 실행 하 여에서 마이그레이션한 프리미엄 요금제를 삭제 합니다.
+
+    ```azurecli-interactive
+    az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
+    ```
 
 ## <a name="platform-features"></a>플랫폼 기능
 

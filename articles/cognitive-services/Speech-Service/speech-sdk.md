@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 9356cbb6eb210d6745d90e8ad001917e73592cd3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96021992"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601812"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -58,7 +58,7 @@ Speech SDK는 음성 서비스의 많은 기능을 노출 하지만 일부는 �
 
 ### <a name="voice-assistants"></a>음성 도우미
 
-개발자 [는 음성 SDK를 사용 하](voice-assistants.md) 여 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있습니다. 음성 도우미 서비스는 장치와 비서 간에 빠르고 안정적인 상호 작용을 제공 합니다. 구현에서는 작업을 완료 하는 데 봇 프레임 워크의 Direct Line Speech channel 또는 통합 사용자 지정 명령 (미리 보기) 서비스를 사용 합니다. 또한 음성 도우미는 [사용자 지정 음성 포털](https://aka.ms/customvoice) 에서 만든 사용자 지정 음성을 사용 하 여 고유한 음성 출력 환경을 추가할 수 있습니다.
+개발자 [는 음성 SDK를 사용 하](voice-assistants.md) 여 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있습니다. 음성 도우미 서비스는 장치와 비서 간에 빠르고 안정적인 상호 작용을 제공 합니다. 구현에서는 Bot Framework의 Direct Line Speech channel 또는 통합 된 사용자 지정 명령 서비스를 사용 하 여 작업을 완료 합니다. 또한 음성 도우미는 [사용자 지정 음성 포털](https://aka.ms/customvoice) 에서 만든 사용자 지정 음성을 사용 하 여 고유한 음성 출력 환경을 추가할 수 있습니다.
 
 **음성 도우미** 는 다음 플랫폼에서 사용할 수 있습니다.
 
@@ -133,7 +133,7 @@ Speech SDK는 음성 서비스의 많은 기능을 다룹니다. 일부 시나�
 
 음성 서비스는 음성 텍스트, 텍스트 음성 변환 및 음성 변환에서 기본 모델과 함께 뛰어난 기능을 제공 합니다. 경우에 따라 고유한 사용 사례를 사용 하 여 기본 성능을 향상 시킬 수 있습니다. 음성 서비스에는 쉽게 만들 수 있는 다양 한 코드 사용자 지정 도구가 있으며 사용자 고유의 데이터를 기반으로 사용자 지정 모델을 사용 하 여 경쟁 우위를 만들 수 있습니다. 이러한 모델은 사용자와 사용자의 조직 에서만 사용할 수 있습니다.
 
-### <a name="custom-speech-to-text"></a>Custom Speech 텍스트
+### <a name="custom-speech-to-text"></a>사용자 지정 음성 텍스트 변환
 
 고유 환경에서 인식 및 기록에 대 한 음성 텍스트를 사용 하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습 하 여 주변 소음 또는 산업별 어휘를 해결할 수 있습니다. 코드 없는 Custom Speech 모델의 생성 및 관리는 [Custom Speech 포털](https://aka.ms/customspeech)을 통해 사용할 수 있습니다. Custom Speech 모델을 게시 한 후에는 Speech SDK에서 사용할 수 있습니다.
 

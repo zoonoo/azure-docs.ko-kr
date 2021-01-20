@@ -4,17 +4,17 @@ description: Python에서 Azure Queue Storage를 사용 하 여 큐를 만들고
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 08/25/2020
+ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: e473bf5c2761010a6aeea94e6430d34ca34989fb
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 82d18fd79b10a8500cfd9191f143438d69fda401
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588280"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600798"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Python에서 Azure Queue Storage를 사용 하는 방법
 
@@ -69,7 +69,7 @@ pip install azure-storage-queue==2.1.0
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-개체를 사용 [`QueueService`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2) 하면 큐로 작업할 수 있습니다. 다음 코드에서는 개체를 만듭니다 `QueueService` . 프로그래밍 방식으로 Azure Storage에 액세스 하려는 Python 파일의 위쪽에 다음 코드를 추가 합니다.
+개체를 사용 [`QueueService`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true) 하면 큐로 작업할 수 있습니다. 다음 코드에서는 개체를 만듭니다 `QueueService` . 프로그래밍 방식으로 Azure Storage에 액세스 하려는 Python 파일의 위쪽에 다음 코드를 추가 합니다.
 
 ```python
 from azure.storage.queue import (
@@ -127,7 +127,7 @@ queue_service.create_queue(queue_name)
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-큐에 메시지를 삽입 하려면 메서드를 사용 [`put_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) 하 여 새 메시지를 만들고 큐에 추가 합니다.
+큐에 메시지를 삽입 하려면 메서드를 사용 [`put_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) 하 여 새 메시지를 만들고 큐에 추가 합니다.
 
 ```python
 message = u"Hello, World"
@@ -167,7 +167,7 @@ queue_service.decode_function = QueueMessageFormat.binary_base64decode
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-메서드를 호출 하 여 큐에서 메시지를 제거 하지 않고 메시지를 피킹할 수 있습니다 [`peek_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#peek-messages-queue-name--num-messages-none--timeout-none-) . 기본적으로이 메서드는 단일 메시지를 피킹합니다.
+메서드를 호출 하 여 큐에서 메시지를 제거 하지 않고 메시지를 피킹할 수 있습니다 [`peek_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#peek-messages-queue-name--num-messages-none--timeout-none-) . 기본적으로이 메서드는 단일 메시지를 피킹합니다.
 
 ```python
 messages = queue_service.peek_messages(queue_name)
@@ -190,7 +190,7 @@ for peeked_message in messages:
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-다음 코드에서는 메서드를 사용 하 여 [`update_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) 메시지를 업데이트 합니다. 표시 제한 시간은 0으로 설정되어 있습니다.이는 메시지가 즉시 표시되고 콘텐츠가 업데이트됨을 의미합니다.
+다음 코드에서는 메서드를 사용 하 여 [`update_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) 메시지를 업데이트 합니다. 표시 제한 시간은 0으로 설정되어 있습니다.이는 메시지가 즉시 표시되고 콘텐츠가 업데이트됨을 의미합니다.
 
 ```python
 messages = queue_service.get_messages(queue_name)
@@ -214,7 +214,7 @@ for message in messages:
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-[`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-)메서드는를 포함 하 여 큐 속성을 반환 합니다 `approximate_message_count` .
+[`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-queue-metadata-queue-name--timeout-none-)메서드는를 포함 하 여 큐 속성을 반환 합니다 `approximate_message_count` .
 
 ```python
 metadata = queue_service.get_queue_metadata(queue_name)
@@ -238,7 +238,7 @@ print("Message count: " + str(count))
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-[Get_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-)를 호출 하면 기본적으로 큐에서 다음 메시지를 가져옵니다. `get_messages`에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. 큐에서 메시지 제거를 완료 하려면 [delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-message-queue-name--message-id--pop-receipt--timeout-none-)도 호출 해야 합니다.
+[Get_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-)를 호출 하면 기본적으로 큐에서 다음 메시지를 가져옵니다. `get_messages`에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. 큐에서 메시지 제거를 완료 하려면 [delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#delete-message-queue-name--message-id--pop-receipt--timeout-none-)도 호출 해야 합니다.
 
 ```python
 messages = queue_service.get_messages(queue_name)
@@ -260,7 +260,7 @@ for message in messages:
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-다음 코드 예제에서는 메서드를 사용 하 여 [`get_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) 한 번 호출에 16 개의 메시지를 가져옵니다. 그런 다음에 `for` 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다.
+다음 코드 예제에서는 메서드를 사용 하 여 [`get_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) 한 번 호출에 16 개의 메시지를 가져옵니다. 그런 다음에 `for` 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다.
 
 ```python
 messages = queue_service.get_messages(queue_name, num_messages=16, visibility_timeout=5*60)
@@ -282,7 +282,7 @@ for message in messages:
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-큐 및 해당 큐에 포함 된 모든 메시지를 삭제 하려면 메서드를 호출 [`delete_queue`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-queue-queue-name--fail-not-exist-false--timeout-none-) 합니다.
+큐 및 해당 큐에 포함 된 모든 메시지를 삭제 하려면 메서드를 호출 [`delete_queue`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#delete-queue-queue-name--fail-not-exist-false--timeout-none-) 합니다.
 
 ```python
 print("Deleting queue: " + queue_name)
