@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f464664737ab56b43ca0c0a159837487494a1eaa
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 2da90a2c8950d85d8db2a414bbe63dfc7b94cf01
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826041"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601325"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 
@@ -34,7 +34,7 @@ ms.locfileid: "97826041"
 
 Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개요는 [ML 환경 이란?](concept-environments.md) 을 참조 하세요. 개발 환경을 구성 하는 방법에 대 한 자세한 내용은 [여기](how-to-configure-environment.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -131,6 +131,8 @@ myenv.docker.base_image_registry="your_registry_location"
 #### <a name="use-your-own-dockerfile"></a>사용자 고유의 Dockerfile 사용 
 
 사용자 지정 Dockerfile을 지정할 수도 있습니다. Docker 명령을 사용 하 여 Azure Machine Learning 기본 이미지 중 하나에서 시작한 ```FROM``` 후 고유한 사용자 지정 단계를 추가 하는 것이 가장 간단 합니다. 비 Python 패키지를 종속성으로 설치 해야 하는 경우이 방법을 사용 합니다. 기본 이미지를 None으로 설정 해야 합니다.
+
+Python은 Azure Machine Learning에서 암시적 종속성 이므로 사용자 지정 dockerfile에 Python이 설치 되어 있어야 합니다.
 
 ```python
 # Specify docker steps as a string. 

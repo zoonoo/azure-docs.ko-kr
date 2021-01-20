@@ -1,7 +1,7 @@
 ---
 title: 음성 도우미 faq (질문과 대답)
 titleSuffix: Azure Cognitive Services
-description: 사용자 지정 명령 (미리 보기) 또는 직접 선 음성 채널을 사용 하 여 음성 도우미에 대해 가장 인기 있는 질문에 대 한 답변을 받으세요.
+description: 사용자 지정 명령 또는 직접 선 음성 채널을 사용 하 여 음성 도우미에 대해 가장 인기 있는 질문에 대 한 답변을 받으세요.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: b43d446930d1f8c40c12e5d0aeba6eb202ef47ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4b0bbb982ed48dc052b1a15514ad36b1d69b62b5
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353734"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599424"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>음성 도우미 faq (질문과 대답)
 
@@ -25,11 +25,11 @@ ms.locfileid: "96353734"
 
 **Q: 음성 지원 이란 무엇 인가요?**
 
-**A:** Cortana와 마찬가지로 음성 도우미는 사용자의 음성 길이 발언을 수신 하 고, 해당 길이 발언의 콘텐츠를 분석 하 고, utterance 의도에 대 한 응답으로 하나 이상의 작업을 수행한 다음, 자주 음성 구성 요소를 포함 하는 사용자에 게 응답을 제공 하는 솔루션입니다. 시스템과의 상호 작용을 위한 "음성 제공, 음성 출력" 환경입니다. 음성 도우미 작성자는 음성 SDK에서를 사용 하 여 장치 응용 프로그램을 만들고, `DialogServiceConnector` [사용자 지정 명령 (미리 보기)](custom-commands.md) 또는 Bot 프레임 워크의 [직접 선 음성](direct-line-speech.md) 채널을 사용 하 여 만든 비서와 통신 합니다. 이러한 도우미는 사용자 지정 키워드, 사용자 지정 음성 및 사용자 지정 음성을 사용 하 여 브랜드 또는 제품에 맞게 조정 된 환경을 제공할 수 있습니다.
+**A:** Cortana와 마찬가지로 음성 도우미는 사용자의 음성 길이 발언을 수신 하 고, 해당 길이 발언의 콘텐츠를 분석 하 고, utterance 의도에 대 한 응답으로 하나 이상의 작업을 수행한 다음, 자주 음성 구성 요소를 포함 하는 사용자에 게 응답을 제공 하는 솔루션입니다. 시스템과의 상호 작용을 위한 "음성 제공, 음성 출력" 환경입니다. 음성 도우미 작성자는 음성 SDK에서를 사용 하 여 장치 응용 프로그램을 만들고, `DialogServiceConnector` [사용자 지정 명령](custom-commands.md) 또는 봇 Framework의 [직접 선 음성](direct-line-speech.md) 채널을 사용 하 여 만든 비서와 통신 합니다. 이러한 도우미는 사용자 지정 키워드, 사용자 지정 음성 및 사용자 지정 음성을 사용 하 여 브랜드 또는 제품에 맞게 조정 된 환경을 제공할 수 있습니다.
 
-**Q: 사용자 지정 명령 (미리 보기)을 사용 해야 하나요, 아니면 직접 줄 음성을 사용 해야 하나요? 차이점은 뭔가요?**
+**Q: 사용자 지정 명령 또는 직접 줄 음성을 사용 해야 하나요? 차이점은 뭔가요?**
 
-**A:** [사용자 지정 명령 (미리 보기)](custom-commands.md) 은 작업 완료 시나리오에 적합 한 길잡이를 쉽게 만들고 호스팅하기 위한 복잡성이 낮은 도구 집합입니다. [직접 라인 음성](direct-line-speech.md) 은 강력한 대화형 시나리오를 사용할 수 있는 보다 풍부 하 고 정교한 기능을 제공 합니다. 자세한 내용은 [길잡이 솔루션의 비교](voice-assistants.md#choosing-an-assistant-solution) 를 참조 하세요.
+**A:** [사용자 지정 명령은](custom-commands.md) 작업 완료 시나리오에 적합 한 길잡이를 쉽게 만들고 호스트할 수 있는 복잡성이 뛰어난 도구 집합입니다. [직접 라인 음성](direct-line-speech.md) 은 강력한 대화형 시나리오를 사용할 수 있는 보다 풍부 하 고 정교한 기능을 제공 합니다. 자세한 내용은 [길잡이 솔루션의 비교](voice-assistants.md#choosing-an-assistant-solution) 를 참조 하세요.
 
 **Q: 어떻게 시작하나요?**
 
@@ -61,7 +61,7 @@ ms.locfileid: "96353734"
 
 **A:** 이 오류는 길잡이와 음성 도우미 서비스 간의 통신 문제가 있음을 나타냅니다.
 
-- 사용자 지정 명령 (미리 보기)의 경우 사용자 지정 명령 (미리 보기) 응용 프로그램이 게시 되었는지 확인 합니다.
+- 사용자 지정 명령의 경우 사용자 지정 명령 응용 프로그램이 게시 되었는지 확인 합니다.
 - 직접 라인 음성의 경우 [직접 선 음성 채널에 봇을 연결](/azure/bot-service/bot-service-channel-connect-directlinespeech)하 고, 봇에 [스트리밍 프로토콜 지원을 추가](/azure/bot-service/directline-speech-bot) 하 고 (관련 웹 소켓 지원), 봇이 채널에서 들어오는 요청에 응답 하 고 있는지 확인 합니다.
 
 **Q:이 코드는 여전히 작동 하지 않으며를 사용할 때 다른 오류가 발생 `DialogServiceConnector` 합니다. 제가 뭘 해야 하나요?**

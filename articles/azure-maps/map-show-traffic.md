@@ -9,22 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: ec7459a356221fb7b599cbbc02f1cb825920b5b3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b6fcf39e05c4649503f0b7a80aadaaa16df24674
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890669"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599554"
 ---
 # <a name="show-traffic-on-the-map"></a>맵에 트래픽 표시
 
 Azure Maps에서 사용할 수 있는 트래픽 데이터에는 두 가지 유형이 있습니다.
 
 - 인시던트 데이터 - 건설, 도로 폐쇄 및 사고와 같은 사항에 대한 점 및 선 기반 데이터로 구성됩니다.
-- 흐름 데이터 - 도로의 트래픽 흐름에 대한 메트릭을 제공합니다. 트래픽 흐름 데이터를 사용하여 도로 색을 조정하는 경우가 많습니다. 이 색은 속도 제한 또는 다른 메트릭을 기준으로 흐름을 저하시키는 트래픽 양을 기반으로 합니다. Azure Maps의 트래픽 흐름 데이터에는 세 가지 측정 메트릭이 있습니다.
-    - `relative` - 도로의 자유 흐름 속도를 기준으로 합니다.
-    - `absolute` - 도로에 있는 모든 자동차의 절대 속도입니다.
-    - `relative-delay` - 평균 예상 지연 시간보다 느린 영역을 표시합니다.
+- 흐름 데이터 - 도로의 트래픽 흐름에 대한 메트릭을 제공합니다. 트래픽 흐름 데이터를 사용하여 도로 색을 조정하는 경우가 많습니다. 이 색은 속도 제한 또는 다른 메트릭을 기준으로 흐름을 저하시키는 트래픽 양을 기반으로 합니다. 맵의 트래픽 옵션에 전달할 수 있는 4 개의 값이 있습니다 `flow` .
+
+    |흐름 값 | 설명|
+    | :-- | :-- |
+    | `none` | 지도에 트래픽 데이터를 표시 하지 않습니다. |
+    | `relative` | 도로의 자유 흐름 속도에 상대적인 트래픽 데이터를 표시 합니다. |
+    | `relative-delay` | 평균 예상 지연 시간 보다 느린 영역을 표시 합니다. |
+    | `absolute` | 도로의 모든 차량에 대 한 절대 속도를 표시 합니다. |
 
 다음 코드에서는 맵에 트래픽 데이터를 표시하는 방법을 보여줍니다.
 
@@ -71,7 +75,7 @@ map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-l
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="트래픽 제어" src="https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/ZEWaeLJ'>트래픽 제어</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/ZEWaeLJ'>트래픽 제어</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 

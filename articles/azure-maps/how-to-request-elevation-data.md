@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 76232a917e8856a06645fabc0ab4716195c5c0e1
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a303f5e6177d0dc4205eaec8c3b1911e8e004fe3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094202"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602427"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Azure Maps 권한 상승 서비스를 사용 하 여 데이터 권한 상승 요청 (미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "97094202"
 
 Azure Maps [권한 상승 서비스](https://docs.microsoft.com/rest/api/maps/elevation) 는 지구 표면의 모든 위치에서 권한 상승 데이터를 쿼리 하는 api를 제공 합니다. 정의 된 경계 상자 내에서 또는 특정 좌표에서 경로를 따라 샘플링 된 권한 상승 데이터를 요청할 수 있습니다. 또한 [Render V2-맵 가져오기 타일 API](https://docs.microsoft.com/rest/api/maps/renderv2) 를 사용 하 여 타일 형식의 권한 상승을 검색할 수 있습니다. 타일은 GeoTIFF 래스터 형식으로 전달 됩니다. 이 문서에서는 Azure Maps 권한 상승 서비스 및 맵 가져오기 타일 API를 사용 하 여 권한 상승 데이터를 요청 하는 방법을 보여 줍니다. GeoJSON 및 GeoTiff 형식 모두에서 권한 상승 데이터를 요청할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. [S1 가격 책정 계층에서 Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
@@ -471,7 +471,7 @@ CodePen에서 ()를 Azure Maps 하 여 <a href='https://codepen.io/azuremaps/pen
 
 ### <a name="get-elevation-data-by-polyline-path"></a>다중선 경로를 기준으로 데이터 상승 가져오기
 
-다음 샘플 웹 페이지에서는 지도 컨트롤을 사용 하 여 경로를 따라 상승 데이터를 표시 하는 방법을 보여 줍니다. `PolyLine`왼쪽 위 모퉁이에 있는 아이콘을 클릭 하 고 지도에 다중선을 그리면 사용자가 경로를 정의 합니다. 그러면 지도 컨트롤은 오른쪽 위 모퉁이에 있는 키에 지정 된 색으로 상승 데이터를 렌더링 합니다.
+다음 샘플 웹 페이지에서는 지도 컨트롤을 사용 하 여 경로를 따라 상승 데이터를 표시 하는 방법을 보여 줍니다. `Polyline`왼쪽 위 모퉁이에 있는 아이콘을 클릭 하 고 지도에 다중선을 그리면 사용자가 경로를 정의 합니다. 그러면 지도 컨트롤은 오른쪽 위 모퉁이에 있는 키에 지정 된 색으로 상승 데이터를 렌더링 합니다.
 
 <br/>
 

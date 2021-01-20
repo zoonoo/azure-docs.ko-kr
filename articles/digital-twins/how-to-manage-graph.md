@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 54001cde76bd89305eb77544c6e6858defda6096
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 037e7fd13f55a0f5de939197f71324221392bd55
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222550"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601076"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
@@ -22,7 +22,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 
 이 문서에서는 관계와 그래프를 전체적으로 관리 하는 방법을 집중적으로 설명 합니다. 개별 디지털 쌍으로 작업 하려면 [*방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -137,9 +137,12 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 샘플을 실행 하기 전에 다음을 수행 합니다.
 1. 모델 파일을 다운로드 하 고 프로젝트에 추가한 다음 `<path-to>` 아래 코드의 자리 표시자를 바꿔서 프로그램에서 찾을 위치를 알려 줍니다.
 2. 자리 표시자를 `<your-instance-hostname>` Azure 디지털 Twins 인스턴스의 호스트 이름으로 바꿉니다.
-3. Azure Digital Twins를 사용 하는 데 필요한 두 개의 종속성을 프로젝트에 추가 합니다. 아래 링크를 사용하여 NuGet의 패키지로 이동할 수 있습니다. 여기서 콘솔 명령(.NET CLI용 포함)을 찾아 각각의 최신 버전을 프로젝트에 추가할 수 있습니다.
-    * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지입니다.
-    * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). 이 라이브러리는 Azure에 대한 인증에 유용한 도구를 제공합니다.
+3. Azure Digital Twins를 사용 하는 데 필요한 두 개의 종속성을 프로젝트에 추가 합니다. 첫 번째는 [Azure Digital Twins SDK for .net](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)에 대 한 패키지이 고, 두 번째는 azure에 대 한 인증을 돕는 도구를 제공 합니다.
+
+      ```cmd/sh
+      dotnet add package Azure.DigitalTwins.Core
+      dotnet add package Azure.Identity
+      ```
 
 또한 샘플을 직접 실행 하려면 로컬 자격 증명을 설정 해야 합니다. 다음 섹션에서는이 과정을 안내 합니다.
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]

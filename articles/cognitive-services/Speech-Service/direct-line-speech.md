@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: e8c7e21b0784aacc85bd02e3c1702e1a710e76ab
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 501a0e954efbdbc9a0396fd94c915efaf0fde9fc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021884"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601117"
 ---
 # <a name="what-is-direct-line-speech"></a>Direct Line Speech란?
 
@@ -23,7 +23,7 @@ ms.locfileid: "95021884"
 
 [음성 도우미](voice-assistants.md) 는 사용자를 수신 하 고 응답으로 작업을 수행 하 여 자주 말하는 경우를 말합니다. [음성 텍스트](speech-to-text.md) 를 사용 하 여 사용자의 음성을 높여줄 다음 텍스트에 대 한 자연어 이해에 대 한 작업을 수행 합니다. 이 작업에는 [텍스트를 음성](text-to-speech.md)으로 생성 하 여 생성 된 비서의 음성 출력이 포함 되는 경우가 많습니다.
 
-직접 라인 음성은 음성 도우미에 대해 가장 높은 수준의 사용자 지정 및 복잡성을 제공 합니다. 작업 완료 또는 명령 및 제어를 사용 하는 두 가지 기능을 사용 하 여 열린 종료, 자연 또는 hybrids 대화형 시나리오용으로 설계 되었습니다. 이러한 높은 수준의 유연성은 더 복잡 해지고, 자연어 입력을 사용 하 여 잘 정의 된 작업으로 범위가 지정 된 시나리오에서는 간소화 된 솔루션 환경을 위한 [사용자 지정 명령 (미리 보기)](custom-commands.md) 을 고려해 야 할 수 있습니다.
+직접 라인 음성은 음성 도우미에 대해 가장 높은 수준의 사용자 지정 및 복잡성을 제공 합니다. 작업 완료 또는 명령 및 제어를 사용 하는 두 가지 기능을 사용 하 여 열린 종료, 자연 또는 hybrids 대화형 시나리오용으로 설계 되었습니다. 이러한 높은 수준의 유연성은 더 복잡 해지고, 자연어 입력을 사용 하 여 잘 정의 된 작업으로 범위가 지정 되는 시나리오에서는 간소화 된 솔루션 환경을 위한 [사용자 지정 명령을](custom-commands.md) 고려해 야 할 수 있습니다.
 
 ## <a name="getting-started-with-direct-line-speech"></a>직접 선 음성 시작
 
@@ -45,7 +45,7 @@ ms.locfileid: "95021884"
 
 음성 도우미를 만드는 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 몇 가지 인기 있는 프로그래밍 언어로 도우미에 연결 하기 위한 클라이언트 응용 프로그램을 포함 합니다.
 
-* [음성 도우미 샘플(SDK)](https://aka.ms/csspeech/samples)
+* [음성 도우미 샘플(SDK)](https://aka.ms/csspeech/samples/#voice-assistants-quickstarts)
 * [자습서: 음성 SDK를 사용 하 여 길잡이 활성화, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="customization"></a>사용자 지정

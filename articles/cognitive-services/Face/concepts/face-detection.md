@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 68d1e9744d937cf80327c3f41cc69f4af97d3400
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504132"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600190"
 ---
 # <a name="face-detection-and-attributes"></a>얼굴 감지 및 특성
 
@@ -64,7 +64,9 @@ ms.locfileid: "92504132"
 
 * 지원 되는 입력 이미지 형식은 첫 번째 프레임에 대 한 JPEG, PNG, GIF 및 BMP입니다.
 * 이미지 파일 크기는 6mb 보다 크지 않아야 합니다.
-* 감지 가능한 얼굴 크기 범위는 36 x 36 픽셀 ~ 4096x4096 픽셀입니다. 이 범위 밖의 얼굴은 검색 되지 않습니다.
+* 검색 가능한 최소 얼굴 크기는 1920 x 1080 픽셀 보다 크지 않은 이미지에서 36 x 36 픽셀입니다. 1920 x 1080 픽셀 보다 큰 이미지는 최소 면 크기가 비례 합니다. 얼굴 크기를 줄이면 일부 얼굴이 검색 되지 않을 수 있습니다 .이는 최소 검색 가능한 얼굴 크기 보다 큰 경우에도 마찬가지입니다.
+* 검색 가능한 최대 얼굴 크기는 4096 x 4096 픽셀입니다.
+* 36 x 36에서 4096 x 4096 픽셀의 크기 범위를 벗어나는 얼굴은 검색 되지 않습니다.
 * 기술적 문제 때문에 일부 면이 검색 되지 않을 수 있습니다. 극단적인 얼굴 각도 (head 포즈) 또는 얼굴 폐색 (예: 선글라스 또는 얼굴의)는 검색에 영향을 줄 수 있습니다. 전면 및 전면 면에서 최상의 결과를 제공 합니다.
 
 비디오 피드에서 얼굴을 감지 하는 경우 비디오 카메라의 특정 설정을 조정 하 여 성능을 향상 시킬 수 있습니다.

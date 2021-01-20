@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: e87fd8724ab9a967bf3b75579eb0e375a324a7b1
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b53501bf5aa4bafb0229158edfe0cb244116b909
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183101"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600848"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Azure DDoS Protection 표준 질문과 대답
 
@@ -34,6 +34,12 @@ DDoS 보호 계획에는 최대 100 개의 공용 IP 주소를 포함 하는 월
 테 넌 트에서 단일 DDoS 보호 계획을 여러 구독에서 사용할 수 있으므로 둘 이상의 DDoS 보호 계획을 만들 필요가 없습니다.
 
 자세한 내용은 [Azure DDoS Protection 표준 가격 책정](https://azure.microsoft.com/pricing/details/ddos-protection/) 을 참조 하세요.
+
+## <a name="is-the-service-zone-resilient"></a>서비스 영역 복원 력이 있나요?
+예. Azure DDoS Protection은 기본적으로 영역 복원 가능 합니다.
+
+## <a name="how-do-i-configure-the-service-to-be-zone-resilient"></a>서비스를 영역 복원 력이 되도록 구성 어떻게 할까요?
+영역 복원력을 사용하도록 설정하기 위한 고객 구성은 필요 없습니다. 영역-Azure DDoS Protection 리소스에 대 한 복원 력은 기본적으로 제공 되며 서비스 자체에서 관리 됩니다.
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>서비스 계층 (계층 7)의 보호는 어떻습니까?
 고객은 네트워크 계층 (Azure DDoS Protection 표준에서 제공 되는 레이어 3 및 4) 및 응용 프로그램 계층 (WAF에서 제공 하는 계층 7)에서 보호를 위해 WAF (웹 응용 프로그램 방화벽)와 함께 Azure DDoS Protection 서비스를 사용할 수 있습니다. WAF 제품은 Azure [APPLICATION GATEWAY WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 뿐만 아니라 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall)에서 사용할 수 있는 타사 웹 응용 프로그램 방화벽 제품을 포함 합니다.

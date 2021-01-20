@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 6450b44e5c7281f0a24fd5000c9feec6e61fa29c
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 325502255e84e38a39ca5b90ee4126354c0d425b
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540627"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601244"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Windows 가상 데스크톱 에이전트 시작
 
@@ -44,5 +44,4 @@ Windows 가상 데스크톱 서비스는 업데이트를 사용할 수 있게 �
 
 이제 Windows 가상 데스크톱 에이전트에 대해 더 잘 이해 했으므로 다음을 수행 하는 데 도움이 될 수 있는 몇 가지 리소스가 있습니다.
 
-- 새 에이전트 업데이트가 매월 수행 하는 작업에 대 한 정보를 보려면 [Windows 가상 데스크톱 에이전트 업데이트](whats-new.md) 섹션을 확인 하세요.
 - 에이전트 또는 연결 관련 문제가 발생 하는 경우 [Windows 가상 데스크톱 에이전트 문제 해결 가이드](troubleshoot-agent.md)를 확인 하세요.

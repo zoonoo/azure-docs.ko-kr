@@ -4,12 +4,12 @@ description: 사용자가 모든 사용자 및 역할에 대 한 잠금을 적�
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 7efeb8a073a04f78f77046c07c107abf0c7526f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555671"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602214"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -28,7 +28,7 @@ ms.locfileid: "94555671"
 
 ## <a name="considerations-before-applying-locks"></a>잠금 적용 전 고려 사항
 
-리소스를 수정하지 않는 일부 작업에 실제로 잠금에 의해 차단되는 작업이 필요하므로 잠금을 적용하면 예기치 않은 결과가 발생할 수 있습니다. 잠금에 의해 차단되는 작업의 몇 가지 일반적인 예제는 다음과 같습니다.
+리소스를 수정하지 않는 일부 작업에 실제로 잠금에 의해 차단되는 작업이 필요하므로 잠금을 적용하면 예기치 않은 결과가 발생할 수 있습니다. 잠금은 Azure Resource Manager API에 대 한 POST 요청이 필요한 모든 작업을 방지 합니다. 잠금에 의해 차단되는 작업의 몇 가지 일반적인 예제는 다음과 같습니다.
 
 * **스토리지 계정** 에 읽기 전용 잠금을 설정하면 모든 사용자가 키를 나열하지 않도록 방지합니다. 반환되는 키를 쓰기 작업에 사용할 수 있기 때문에 목록 키 작업은 POST 요청을 통해 처리됩니다.
 
