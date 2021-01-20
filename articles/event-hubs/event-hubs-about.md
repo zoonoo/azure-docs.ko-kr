@@ -2,13 +2,13 @@
 title: Azure Event Hubs 정의 - 빅 데이터 수집 서비스 | Microsoft Docs
 description: 초당 수백만 개의 이벤트를 수집하는 빅 데이터 스트리밍 서비스 Azure Event Hubs에 대해 알아봅니다.
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: b0124f023eab6638c986beb2305b1c4c375b47ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.date: 01/13/2021
+ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954348"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195768"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스
 Azure Event Hubs는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 초당 수백만 개의 이벤트를 수신하고 처리할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다.
@@ -66,7 +66,7 @@ Event Hubs에는 다음과 같은 [주요 구성 요소](event-hubs-features.md)
 
 다음 그림에서는 아키텍처를 처리하는 Event Hubs 스트림을 보여 줍니다.
 
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.svg)
 
 ## <a name="event-hubs-on-azure-stack-hub"></a>Azure Stack Hub의 Event Hubs
 Azure Stack Hub의 Event Hubs를 사용하면 하이브리드 클라우드 시나리오를 실현할 수 있습니다. 온-프레미스 및 Azure 클라우드 처리 모두에 대해 스트리밍 및 이벤트 기반 솔루션이 지원됩니다. 시나리오가 하이브리드(연결)인지 연결이 끊김인지에 관계없이 솔루션은 대규모 이벤트/스트림 처리를 지원할 수 있습니다. 시나리오는 필요에 따라 프로비저닝할 수 있는 Event Hubs 클러스터 크기에 의해서만 바인딩됩니다. 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 542fde3ac951bf60d999361dc114491515fb9528
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 568c738284a3d1b54ba907a973139fbced11f139
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94735248"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222699"
 ---
 # <a name="quickstart-load-data-into-dedicated-sql-pool-using-the-copy-activity"></a>빠른 시작: 복사 작업을 사용하여 전용 SQL 풀에 데이터 로드
 
@@ -130,6 +130,6 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 Azure Synapse Analytics 지원에 대해 알아보려면 다음 문서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [파이프라인 및 작업](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> [커넥터 개요](https://docs.microsoft.com/azure/data-factory/connector-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> [복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [파이프라인 및 작업](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [커넥터 개요](../data-factory/connector-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [복사 작업](../data-factory/copy-activity-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

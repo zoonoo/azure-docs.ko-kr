@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 906d3d28aabf8f6ecd6e04c38b4519937fa95c2b
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 68b113de63cfefde805c1c46e9303829c4eb33a7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092162"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222142"
 ---
 # <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Machine Learning 기능
 
@@ -40,7 +40,7 @@ Azure Synapse Analytics는 다양한 기계 학습 기능을 제공합니다. �
 
 #### <a name="data-source-and-pipelines"></a>데이터 원본 및 파이프라인
 
-Azure Synapse의 고유하게 통합된 부분인 [Azure Data Factory](/azure/data-factory/introduction) 덕분에 강력한 도구 세트를 데이터 수집 및 데이터 오케스트레이션 파이프라인에 사용할 수 있습니다. 이를 통해 데이터 파이프라인을 손쉽게 빌드하여 기계 학습에 사용할 수 있는 형식으로 데이터에 액세스하여 변환할 수 있습니다. Synapse의 [데이터 파이프라인에 대해 자세히 알아보세요](/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
+Azure Synapse의 고유하게 통합된 부분인 [Azure Data Factory](../../data-factory/introduction.md) 덕분에 강력한 도구 세트를 데이터 수집 및 데이터 오케스트레이션 파이프라인에 사용할 수 있습니다. 이를 통해 데이터 파이프라인을 손쉽게 빌드하여 기계 학습에 사용할 수 있는 형식으로 데이터에 액세스하여 변환할 수 있습니다. Synapse의 [데이터 파이프라인에 대해 자세히 알아보세요](../../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json). 
 
 #### <a name="data-preparation-and-explorationvisualization"></a>데이터 준비 및 탐색/시각화
 
@@ -64,13 +64,13 @@ MLlib 외에도 [Scikit Learn](https://scikit-learn.org/stable/)과 같이 인�
 
 #### <a name="train-models-with-azure-machine-learning-automated-ml"></a>Azure Machine Learning 자동화된 ML을 사용하여 모델 학습
 
-기계 학습에 대해 사전 지식이 크게 필요하지 않은 기계 학습 모델을 학습하는 또 다른 방법은 자동화된 ML을 사용하는 것입니다. [자동화된 ML](/azure/machine-learning/concept-automated-ml)은 기계 학습 모델 세트를 자동으로 학습하고 사용자가 특정 메트릭에 따라 최상의 모델을 선택할 수 있게 해 주는 기능입니다. Azure Synapse Notebooks의 Azure Machine Learning과 원활한 통합 덕분에 사용자는 통과 Azure Active Directory 인증으로 Synapse에서 자동화된 ML을 손쉽게 활용할 수 있습니다.  즉, Azure Machine Learning 작업 영역을 지정할 필요가 없으며 자격 증명을 입력하지 않아도 됩니다. 다음은 Synapse Spark 풀에서 Azure Machine Learning 자동화된 ML을 사용하여 모델을 학습하는 방법을 설명하는 [자동화된 ML 자습서](../spark/apache-spark-azure-machine-learning-tutorial.md)입니다.
+기계 학습에 대해 사전 지식이 크게 필요하지 않은 기계 학습 모델을 학습하는 또 다른 방법은 자동화된 ML을 사용하는 것입니다. [자동화된 ML](../../machine-learning/concept-automated-ml.md)은 기계 학습 모델 세트를 자동으로 학습하고 사용자가 특정 메트릭에 따라 최상의 모델을 선택할 수 있게 해 주는 기능입니다. Azure Synapse Notebooks의 Azure Machine Learning과 원활한 통합 덕분에 사용자는 통과 Azure Active Directory 인증으로 Synapse에서 자동화된 ML을 손쉽게 활용할 수 있습니다.  즉, Azure Machine Learning 작업 영역을 지정할 필요가 없으며 자격 증명을 입력하지 않아도 됩니다. 다음은 Synapse Spark 풀에서 Azure Machine Learning 자동화된 ML을 사용하여 모델을 학습하는 방법을 설명하는 [자동화된 ML 자습서](../spark/apache-spark-azure-machine-learning-tutorial.md)입니다.
 
 ### <a name="model-deployment-and-scoring"></a>모델 배포 및 점수 매기기
 
 Azure Synapse에서 또는 Azure Synapse 외부에서 학습된 모델은 일괄 처리 점수 매기기에 손쉽게 사용할 수 있습니다. 현재 Synapse에는 일괄 처리 점수 매기기를 실행할 수 있는 두 가지 방법이 있습니다.
 
-* Synapse SQL 풀에서 [TSQL PREDICT 함수](../sql-data-warehouse/sql-data-warehouse-predict.md)를 사용하여 데이터가 있는 위치에서 예측을 올바르게 실행할 수 있습니다. 이 강력하고 확장 가능한 기능을 통해 데이터 웨어하우스에서 데이터를 이동하지 않고도 데이터를 보강할 수 있습니다. 새롭게 [안내된 기반 기계 학습 모델 환경이 Synapse Studio에](https://aka.ms/synapse-ml-ui) 도입되었습니다. 여기서는 Synapse SQL 풀의 Azure Machine Learning 모델 레지스트리에서 ONNX 모델을 배포하여 예측을 사용한 일괄 처리 점수 매기기를 수행할 수 있습니다.
+* Synapse SQL 풀에서 [TSQL PREDICT 함수](../sql-data-warehouse/sql-data-warehouse-predict.md)를 사용하여 데이터가 있는 위치에서 예측을 올바르게 실행할 수 있습니다. 이 강력하고 확장 가능한 기능을 통해 데이터 웨어하우스에서 데이터를 이동하지 않고도 데이터를 보강할 수 있습니다. 새롭게 [안내된 기반 기계 학습 모델 환경이 Synapse Studio에](./tutorial-sql-pool-model-scoring-wizard.md) 도입되었습니다. 여기서는 Synapse SQL 풀의 Azure Machine Learning 모델 레지스트리에서 ONNX 모델을 배포하여 예측을 사용한 일괄 처리 점수 매기기를 수행할 수 있습니다.
 
 * Azure Synapse에서 기계 학습 모델에 대해 일괄 처리 점수 매기기를 수행하는 또 다른 옵션은 Azure Synapse의 Apache Spark 풀을 활용하는 것입니다. 모델 학습에 사용되는 라이브러리에 따라 코드 환경을 사용하여 일괄 처리 점수 매기기를 실행할 수 있습니다.
 

@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 08399c1b2d930abfdd5832cb102a789844931d61
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 22bfef17f68b2e83e4f7462d8e9af6fb8aacc284
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027699"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246743"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
@@ -103,7 +103,7 @@ Azure AD 게스트 사용자 액세스는 1:5 비율 청구 모델을 대체하�
 | 관리자는 500명의 사용자와 3명의 그룹 소유자가 있는 그룹 B의 액세스 검토를 만들고 3명의 그룹 소유자를 검토자로 할당합니다. | 검토자인 각 그룹 소유자용 라이선스 3개 | 3 |
 | 관리자가 500명의 사용자가 있는 그룹 B의 액세스 검토를 만듭니다. 자체적으로 검토합니다. | 자체 검토자인 각 사용자용 라이선스 500개 | 500 |
 | 관리자가 50명의 멤버 사용자와 25명의 게스트 사용자가 있는 그룹 C의 액세스 검토를 만듭니다. 자체적으로 검토합니다. | 자체 검토자인 각 사용자용 라이선스 50개.* | 50 |
-| 관리자가 6명의 멤버 사용자와 108명의 게스트 사용자가 있는 그룹 D의 액세스 검토를 만듭니다. 자체적으로 검토합니다. | 자체 검토자인 각 사용자용 라이선스 6개. 게스트 사용자에게는 MAU(월간 활성 사용자)를 기준으로 요금이 청구됩니다. 추가 라이선스는 필요하지 않습니다. *  | - |
+| 관리자가 6명의 멤버 사용자와 108명의 게스트 사용자가 있는 그룹 D의 액세스 검토를 만듭니다. 자체적으로 검토합니다. | 자체 검토자인 각 사용자용 라이선스 6개. 게스트 사용자에게는 MAU(월간 활성 사용자)를 기준으로 요금이 청구됩니다. 추가 라이선스는 필요하지 않습니다. *  | 6 |
 
 \* Azure AD 외부 ID(게스트 사용자) 가격은 MAU(월간 활성 사용자)를 기반으로 하며, 이는 한 달 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 모델은 테넌트의 각 Azure AD Premium 라이선스에 대해 최대 5명의 게스트 사용자를 허용하는 1:5 비율 청구 모델을 대체합니다. 테넌트가 구독에 연결되어 있고 외부 ID 기능을 사용하여 게스트 사용자와 협업하는 경우 MAU 기반 청구 모델을 사용하여 자동으로 청구됩니다. 자세한 내용은 Azure AD 외부 ID에 대한 청구 모델을 참조하세요.
 

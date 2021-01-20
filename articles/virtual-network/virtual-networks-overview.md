@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 11651b7a76ea0e61f78f3b2f305e39ed621df391
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109320"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218537"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
@@ -31,7 +31,7 @@ Azure 가상 네트워크를 사용하면 Azure 리소스가 상호 간, 인터�
 기본적으로 VNet의 모든 리소스는 인터넷으로 아웃바운드 통신을 할 수 있습니다. 공용 IP 주소 또는 공용 Load Balancer를 할당하여 리소스에 대해 인바운드로 통신할 수 있습니다. 공용 IP 또는 공용 Load Balancer를 사용하여 아웃바운드 연결을 관리할 수도 있습니다.  Azure의 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결](../load-balancer/load-balancer-outbound-connections.md), [공용 IP 주소](virtual-network-public-ip-address.md) 및 [Load Balancer](../load-balancer/load-balancer-overview.md)를 참조하세요.
 
 >[!NOTE]
->내부 [표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md)만 사용하는 경우 인스턴스 수준 공용 IP 또는 공용 Load Balancer와 함께 작동하도록 [아웃바운드 연결](../load-balancer/load-balancer-outbound-connections.md) 방식을 정의하기 전에는 아웃바운드 연결을 사용할 수 없습니다.
+>내부 [표준 Load Balancer](../load-balancer/load-balancer-overview.md)만 사용하는 경우 인스턴스 수준 공용 IP 또는 공용 Load Balancer와 함께 작동하도록 [아웃바운드 연결](../load-balancer/load-balancer-outbound-connections.md) 방식을 정의하기 전에는 아웃바운드 연결을 사용할 수 없습니다.
 
 ### <a name="communicate-between-azure-resources"></a>Azure 리소스 간 통신
 
@@ -53,7 +53,7 @@ Azure 리소스는 다음 방법 중 하나를 사용하여 서로 안전하게 
 
 다음 옵션 중 하나 또는 둘 다를 사용하여 서브넷 간의 네트워크 트래픽을 필터링할 수 있습니다.
 
-- **네트워크 보안 그룹:** 네트워크 보안 그룹 및 애플리케이션 보안 그룹에는 원본 및 대상 IP 주소, 포트 및 프로토콜을 기준으로 리소스와 주고받는 트래픽을 필터링할 수 있는 여러 개의 인바운드 및 아웃바운드 보안 규칙이 포함될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹](security-overview.md#network-security-groups) 또는 [애플리케이션 보안 그룹](security-overview.md#application-security-groups)을 참조하세요.
+- **네트워크 보안 그룹:** 네트워크 보안 그룹 및 애플리케이션 보안 그룹에는 원본 및 대상 IP 주소, 포트 및 프로토콜을 기준으로 리소스와 주고받는 트래픽을 필터링할 수 있는 여러 개의 인바운드 및 아웃바운드 보안 규칙이 포함될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹](./network-security-groups-overview.md#network-security-groups) 또는 [애플리케이션 보안 그룹](./network-security-groups-overview.md#application-security-groups)을 참조하세요.
 - **네트워크 가상 어플라이언스:** 네트워크 가상 어플라이언스는 방화벽, WAN 최적화 또는 기타 네트워크 기능과 같은 네트워크 기능을 수행하는 VM입니다. Azure 가상 네트워크에 배포할 수 있는 네트워크 가상 어플라이언스 목록을 보려면 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)를 참조하세요.
 
 ### <a name="route-network-traffic"></a>네트워크 트래픽 라우팅

@@ -5,26 +5,18 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: c72083f205fae77de366125e666cee479fd46805
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: dbba87be839d7f172d42827698a8e485c2edddd8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97691991"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256570"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 작동하는 [Communication Services 호출 앱](../getting-started-with-calling.md)
 - [Teams 배포](/deployoffice/teams-install)
 
-## <a name="enable-teams-interoperability"></a>Teams 상호 운용성 사용
-
-Teams 상호 운용성 기능은 현재 프라이빗 미리 보기에 있습니다. 이 기능을 Communication Services 리소스에 사용하도록 설정하려면 다음 항목이 포함된 이메일을 [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com)으로 보내주세요.
-
-1. Communication Services 리소스가 포함된 Azure 구독의 구독 ID
-2. Teams 테넌트 ID. 이를 가져오는 가장 쉬운 방법은 [Team에 대한 링크를 가져와서 공유](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f)하는 것입니다.
-
-이 기능을 사용하려면 두 엔터티를 소유하는 조직의 구성원이어야 합니다.
 
 ## <a name="add-the-teams-ui-controls"></a>Teams UI 컨트롤 추가
 

@@ -3,17 +3,17 @@ title: Azure Monitor Application Insights를 사용하여 모바일 앱 모니�
 description: Azure Monitor Application Insights 및 App Center를 사용하여 모니터링하도록 모바일 앱을 빠르게 설정하는 지침을 제공합니다.
 ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 27b74f99d926bf72bc22f153a8d76deb56646987
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 34c35baf1bd958058bec6642434464711f5e79f6
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993874"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210310"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -68,7 +68,7 @@ Analytics.trackEvent("Video clicked")
 앱에서 사용자 지정 이벤트를 보내고 App Center에서 이러한 이벤트를 수신하면 Azure Portal에서 App Center 유형의 Application Insights 리소스를 만들어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다.
+2. **리소스 만들기** > **개발자 도구** > **Application Insights** 를 선택합니다.
 
     > [!NOTE]
     > Application Insights 리소스를 처음 만드는 경우 자세한 내용은 [Application Insights 리소스 만들기](../app/create-new-resource.md) 문서를 참조하세요.
@@ -81,7 +81,7 @@ Analytics.trackEvent("Video clicked")
      | **리소스 그룹**     | 새 리소스 그룹, 또는 메뉴의 기존 리소스 그룹 | 새 Application Insights 리소스를 만들 리소스 그룹 |
    | **위치** | 메뉴의 위치 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
-3. **만들기**를 클릭합니다.
+3. **만들기** 를 클릭합니다.
 
 앱에 여러 플랫폼(iOS, Android 등)을 지원하는 경우 각 플랫폼에 하나씩 별도의 Application Insights 리소스를 만드는 것이 가장 좋습니다.
 
@@ -91,8 +91,8 @@ Analytics.trackEvent("Video clicked")
 
 앱에 대한 [App Center](https://appcenter.ms/) 인스턴스:
 
-1. **설정** 페이지에서 **내보내기**를 클릭합니다.
-2. **새 내보내기**, **Application Insights**를 차례로 선택한 다음, **사용자 지정**을 클릭합니다.
+1. **설정** 페이지에서 **내보내기** 를 클릭합니다.
+2. **새 내보내기**, **Application Insights** 를 차례로 선택한 다음, **사용자 지정** 을 클릭합니다.
 3. Application Insights 계측 키를 입력란에 붙여넣습니다.
 4. Application Insights 리소스를 포함하는 Azure 구독 사용 증가에 동의합니다. 각 Application Insights 리소스는 매월 받은 데이터의 첫 1GB는 무료입니다. [Application Insights 가격 책정 자세히 알아보기](https://azure.microsoft.com/pricing/details/application-insights/)
 
@@ -122,12 +122,12 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
    ![Logs(Analytics) 포털](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. 텍스트 편집기에서 쿼리의 아무 곳이나 클릭하여 해당 쿼리를 선택합니다.
-   2. 그런 다음, **이동**을 클릭하여 쿼리를 실행합니다. 
+   2. 그런 다음, **이동** 을 클릭하여 쿼리를 실행합니다. 
 
    [Application Insights Analytics](../log-query/log-query-overview.md) 및 [Log Analytics 쿼리 언어](/azure/data-explorer/kusto/query/)에 대해 자세히 알아봅니다.
 
 
-2. **사용자 지정 이벤트 원격 분석을 필터링하고 분할합니다**. Application Insights **개요** 페이지의 목차에서 **사용자**를 선택합니다.
+2. **사용자 지정 이벤트 원격 분석을 필터링하고 분할합니다**. Application Insights **개요** 페이지의 목차에서 **사용자** 를 선택합니다.
 
    ![사용자 도구 아이콘](./media/mobile-center-quickstart/users-icon-001.png)
 
@@ -135,9 +135,9 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
 
    ![사용자 도구](./media/mobile-center-quickstart/users-001.png) 
 
-   예를 들어, **분할 기준** 드롭다운 메뉴에서 **국가 또는 지역**을 선택하여 지리별로 사용률을 분할할 수 있습니다.
+   예를 들어, **분할 기준** 드롭다운 메뉴에서 **국가 또는 지역** 을 선택하여 지리별로 사용률을 분할할 수 있습니다.
 
-3. **앱에서 전환, 보존 및 탐색 패턴을 분석합니다.** Application Insights **개요** 페이지의 목차에서 **사용자 흐름**을 선택합니다.
+3. **앱에서 전환, 보존 및 탐색 패턴을 분석합니다.** Application Insights **개요** 페이지의 목차에서 **사용자 흐름** 을 선택합니다.
 
    ![사용자 흐름 도구](./media/mobile-center-quickstart/user-flows-001.png)
 
@@ -156,13 +156,13 @@ App Center에서 Application Insights를 계속 사용하고 싶지 않다면 Ap
 
 App Center에서 내보내기를 해제하려면:
 
-1. App Center에서 **설정**으로 이동하여 **내보내기**를 선택합니다.
-2. 삭제하려는 Application Insights 내보내기를 클릭한 다음, 맨 아래에서 **내보내기 삭제**를 클릭하고 확인합니다.
+1. App Center에서 **설정** 으로 이동하여 **내보내기** 를 선택합니다.
+2. 삭제하려는 Application Insights 내보내기를 클릭한 다음, 맨 아래에서 **내보내기 삭제** 를 클릭하고 확인합니다.
 
 Application Insights 리소스를 삭제하려면:
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음, Application Insights 리소스가 만들어진 리소스 그룹을 선택합니다.
-2. 삭제하려는 Application Insights 리소스를 엽니다. 그런 다음, 리소스 맨 위 메뉴에서 **삭제**를 클릭하고 확인합니다. 그러면 Application Insights로 내보낸 데이터 복사본이 영구적으로 삭제됩니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 클릭한 다음, Application Insights 리소스가 만들어진 리소스 그룹을 선택합니다.
+2. 삭제하려는 Application Insights 리소스를 엽니다. 그런 다음, 리소스 맨 위 메뉴에서 **삭제** 를 클릭하고 확인합니다. 그러면 Application Insights로 내보낸 데이터 복사본이 영구적으로 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

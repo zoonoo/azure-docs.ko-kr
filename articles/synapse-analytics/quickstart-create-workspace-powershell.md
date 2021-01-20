@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 005e3a3b717d4b1b8e5eb02b77a1d228908f8707
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0537d2353d6b372ed19127101c488b872bbc5224
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210576"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218861"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Synapse 작업 영역 만들기
 
@@ -25,14 +25,14 @@ Azure PowerShell은 PowerShell에서 직접 Azure 리소스를 관리하기 위�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Data Lake Storage Gen2 스토리지 계정](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
     > [!IMPORTANT]
-    > 선택한 ADLS Gen2 계정을 Azure Synapse 작업 영역에서 읽고 쓸 수 있어야 합니다. 기본 스토리지 계정으로 연결하는 모든 스토리지 계정의 경우 [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell#create-a-storage-account) 페이지에서 설명한 대로 스토리지 계정을 만들 때 **계층 구조 네임스페이스** 를 사용하도록 설정해야 합니다.
+    > 선택한 ADLS Gen2 계정을 Azure Synapse 작업 영역에서 읽고 쓸 수 있어야 합니다. 기본 스토리지 계정으로 연결하는 모든 스토리지 계정의 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-powershell#create-a-storage-account) 페이지에서 설명한 대로 스토리지 계정을 만들 때 **계층 구조 네임스페이스** 를 사용하도록 설정해야 합니다.
 
-Cloud Shell을 사용하도록 선택하는 경우 자세한 내용은 [Azure Cloud Shell 개요](https://docs.microsoft.com/azure/cloud-shell/overview)를 참조하세요.
+Cloud Shell을 사용하도록 선택하는 경우 자세한 내용은 [Azure Cloud Shell 개요](../cloud-shell/overview.md)를 참조하세요.
 
 ### <a name="install-the-azure-powershell-module-locally"></a>로컬로 Azure PowerShell 모듈 설치
 
@@ -141,7 +141,7 @@ Install-Module -Name Az.Synapse
 Azure Synapse 작업 영역을 삭제하려면 다음 단계를 수행합니다.
 
 > [!WARNING]
-> Azure Synapse 작업 영역을 삭제하면 포함된 SQL 풀 및 작업 영역 메타데이터 데이터베이스에 저장된 분석 엔진과 데이터가 제거됩니다. 더 이상 SQL 또는 Apache Spark 엔드포인트에 연결할 수 없게 됩니다. 모든 코드 아티팩트(쿼리, Notebook, 작업 정의 및 파이프라인)가 삭제됩니다. 작업 영역을 삭제해도 작업 영역에 연결된 Data Lake Store Gen2의 데이터에는 영향을 주지 **않습니다** .
+> Azure Synapse 작업 영역을 삭제하면 포함된 SQL 풀 및 작업 영역 메타데이터 데이터베이스에 저장된 분석 엔진과 데이터가 제거됩니다. 더 이상 SQL 또는 Apache Spark 엔드포인트에 연결할 수 없게 됩니다. 모든 코드 아티팩트(쿼리, Notebook, 작업 정의 및 파이프라인)가 삭제됩니다. 작업 영역을 삭제해도 작업 영역에 연결된 Data Lake Store Gen2의 데이터에는 영향을 주지 **않습니다**.
 
 이 문서에서 만든 Azure Synapse 작업 영역이 필요하지 않은 경우 다음 예제를 실행하여 삭제할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 009b060cc479c520dde8c4f595b24be7dcb4c6a6
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: ac24d84176f27170648545bc8044c5dcbc77781a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347764"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180016"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(JavaScript)
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 큐와 메시지를 주고 받는 방법에 대해 알아봅니다.
@@ -74,7 +74,7 @@ npm install @azure/service-bus
             // create a batch object
             let batch = await sender.createMessageBatch(); 
             for (let i = 0; i < messages.length; i++) {
-                // for each message in the arry         
+                // for each message in the array            
     
                 // try to add the message to the batch
                 if (!batch.tryAddMessage(messages[i])) {            
@@ -83,7 +83,7 @@ npm install @azure/service-bus
                     await sender.sendMessages(batch);
     
                     // then, create a new batch 
-                    batch = await sender.createBatch();
+                    batch = await sender.createMessageBatch();
      
                     // now, add the message failed to be added to the previous batch to this batch
                     if (!batch.tryAddMessage(messages[i])) {

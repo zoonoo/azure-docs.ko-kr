@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c9e9ea2e59537a1c0c8e372a766fba3aa9a1b9a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc0ac1a6e882f4197828bf79c7989c16b2eb16f7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88122161"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217671"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>빠른 시작: 가상 네트워크 만들기 - Resource Manager 템플릿
 
@@ -36,27 +36,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 :::code language="json" source="~/quickstart-templates/101-vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
 
 템플릿에는 다음과 같은 Azure 리소스가 정의되어 있습니다.
-- [**Microsoft.Network/virtualNetworks**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks): Azure 가상 네트워크를 만듭니다.
--  [**Microsoft.Network/virtualNetworks/subnets**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets) - 서브넷을 만듭니다.
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): Azure 가상 네트워크를 만듭니다.
+-  [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets) - 서브넷을 만듭니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
 Azure에 Resource Manager 템플릿 배포:
 
-1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 두 개의 서브넷이 있는 가상 네트워크를 만듭니다.
+1. **Azure에 배포** 를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 두 개의 서브넷이 있는 가상 네트워크를 만듭니다.
 
    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-virtual-network-2vms-create%2Fazuredeploy.json)
 
 2. 포털의 **두 개의 서브넷이 있는 Virtual Network 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
-   - **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력하고 **확인**을 선택합니다.
+   - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹의 이름을 입력하고 **확인** 을 선택합니다.
    - **가상 네트워크 이름**: 새 가상 네트워크의 이름을 입력합니다.
-3. **검토 및 만들기**를 선택한 후 **만들기**를 선택합니다.
+3. **검토 및 만들기** 를 선택한 후 **만들기** 를 선택합니다.
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
 가상 네트워크를 통해 만들어진 리소스를 검색합니다.
 
-템플릿에서 가상 네트워크의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
+템플릿에서 가상 네트워크의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

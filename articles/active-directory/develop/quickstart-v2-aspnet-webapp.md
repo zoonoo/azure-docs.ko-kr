@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 11c479c6cc8f330a2b3b1edd25bad39321d6ed1c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: dbddf35b0aa1494ef719803fa84cafae04f3ec50
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017547"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178588"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가
 
@@ -38,7 +38,7 @@ ms.locfileid: "98017547"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. 새 [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) 창으로 이동합니다.
+> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록<span class="docon docon-navigate-external x-hidden-focus"></span></a> 빠른 시작 환경으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -53,7 +53,7 @@ ms.locfileid: "98017547"
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `ASPNET-Quickstart`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
 > 1. **리디렉션 URI** 에 `https://localhost:44368/`을 추가하고 **등록** 을 선택합니다.
-> 1. 관리 섹션 아래의 왼쪽 탐색 창에서 **인증** 을 선택합니다.
+> 1. **관리** 에서 **인증** 을 선택합니다.
 > 1. **암시적 권한 부여** 하위 섹션에서 **ID 토큰** 을 선택합니다.
 > 1. **저장** 을 선택합니다.
 

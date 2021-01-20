@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 766035490c96d42de33d0b27d976b8e56ba50993
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 2fbff2abeb454fe02aa4bd50615033b9a0b7f27b
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017496"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178605"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -46,7 +46,7 @@ ms.locfileid: "98017496"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 앱을 등록하려면
-> 1. 새 [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs) 창으로 이동합니다.
+> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록<span class="docon docon-navigate-external x-hidden-focus"></span></a> 빠른 시작 환경으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >

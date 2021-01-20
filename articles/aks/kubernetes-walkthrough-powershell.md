@@ -3,14 +3,14 @@ title: '빠른 시작: PowerShell을 사용하여 AKS 클러스터 배포'
 description: PowerShell을 사용하여 Kubernetes 클러스터를 빠르게 만들고 애플리케이션을 배포하고 AKS(Azure Kubernetes Service)에서 성능을 모니터링하는 방법을 알아봅니다.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/11/2020
+ms.date: 01/13/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e5abcf9bfbf661abf5212d94d849d27c25fe9a8d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41412a4ec95bb9b89df5fded6962965594e823fc
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91461056"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98248516"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Kubernetes Service 클러스터 배포
 
@@ -40,7 +40,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [New-AzResourceGroup][new-azresourcegroup] cmdlet을 사용하여 리소스 그룹을 만듭니다.
 
-다음 예제에서는 **미국 동부** 지역에 **myResourceGroup**이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 **미국 동부** 지역에 **myResourceGroup** 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location eastus
@@ -60,13 +60,13 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 `ssh-keygen` 명령줄 유틸리티를 사용하여 SSH 키 쌍을 생성합니다. 자세한 내용은 [빠른 단계: Azure에서 Linux VM용 SSH 퍼블릭-프라이빗 키 쌍 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
 
-[New-AzAks][new-azaks] cmdlet을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 **myAKSCluster**라는 클러스터를 만듭니다. 컨테이너용 Azure Monitor는 기본적으로 사용하도록 설정되어 있습니다. 이 작업을 완료하는 데 몇 분 정도 걸립니다.
+[New-AzAks][new-azaks] cmdlet을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 **myAKSCluster** 라는 클러스터를 만듭니다. 컨테이너용 Azure Monitor는 기본적으로 사용하도록 설정되어 있습니다. 이 작업을 완료하는 데 몇 분 정도 걸립니다.
 
 > [!NOTE]
 > AKS 클러스터를 만들 때 AKS 리소스를 저장하기 위해 두 번째 리소스 그룹이 자동으로 만들어집니다. 자세한 내용은 [AKS를 통해 두 개의 리소스 그룹이 생성되는 이유는 무엇인가요?](./faq.md#why-are-two-resource-groups-created-with-aks)를 참조하세요.
 
 ```azurepowershell-interactive
-New-AzAks -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
 ```
 
 몇 분 후 명령이 완료되면 클러스터에 대한 정보가 반환됩니다.
@@ -91,7 +91,7 @@ Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
 .\kubectl get nodes
 ```
 
-다음 예제 출력은 이전 단계에서 만든 단일 노드를 보여줍니다. 노드 상태가 **준비**인지 확인합니다.
+다음 예제 출력은 이전 단계에서 만든 단일 노드를 보여줍니다. 노드 상태가 **준비** 인지 확인합니다.
 
 ```plaintext
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -218,14 +218,14 @@ service/azure-vote-front created
 .\kubectl get service azure-vote-front --watch
 ```
 
-처음에는 **azure-vote-front** 서비스에 대한 **EXTERNAL-IP**가 **보류 중**으로 표시됩니다.
+처음에는 **azure-vote-front** 서비스에 대한 **EXTERNAL-IP** 가 **보류 중** 으로 표시됩니다.
 
 ```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-**EXTERNAL-IP** 주소가 **보류 중**에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
+**EXTERNAL-IP** 주소가 **보류 중** 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
 ```plaintext
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m

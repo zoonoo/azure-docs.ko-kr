@@ -7,12 +7,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ea66e4295e8228aa382aa29a46fcca8147dcbc98
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1ad6b7241c7167c6da8952e7db2797fa275b7246
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97578051"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251927"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>빠른 시작: 채팅 앱으로 Teams 미팅에 참가
 
@@ -29,11 +29,7 @@ JavaScript 클라이언트 라이브러리를 사용하여 채팅 솔루션을 M
 
 게스트 사용자로 Teams 미팅에 조인하는 Communication Services 사용자는 Teams 미팅 호출에 조인한 경우에만 미팅 채팅에 액세스할 수 있습니다. Teams 미팅 호출에 Communication Services 사용자를 추가하는 방법을 알아보려면 [Teams interop](../voice-video-calling/get-started-teams-interop.md) 설명서를 참조하세요.
 
-Teams 상호 운용성 기능은 현재 프라이빗 미리 보기에 있습니다. 이 기능을 Communication Services 리소스에 사용하도록 설정하려면 다음 항목이 포함된 이메일을 acsfeedback@microsoft.com으로 보내주세요. 
-1. Communication Services 리소스가 포함된 Azure 구독의 구독 ID 
-2. Teams 테넌트 ID. 이를 가져오는 가장 쉬운 방법은 Team에 대한 링크를 가져와서 공유하는 것입니다. 
-
-이 기능을 사용하려면 두 엔터티를 소유하는 조직의 구성원이어야 합니다. 
+이 기능을 사용하려면 두 엔터티를 소유하는 조직의 구성원이어야 합니다.
 
 [!INCLUDE [Join Teams meetings](./includes/meeting-interop-javascript.md)]
 

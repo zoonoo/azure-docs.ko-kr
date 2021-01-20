@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ffa9e7b5685f9a200f6a403045687626f67f66f4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450499"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218300"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>빠른 시작: 서버리스 SQL 풀 사용
 
@@ -26,7 +26,7 @@ Synapse 서버리스 SQL 풀은 Azure Storage에 있는 파일에서 SQL 쿼리�
 
 쿼리를 실행할 SQL 클라이언트를 선택합니다.
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md)는 스토리지에서 파일을 검색하고 SQL 쿼리를 만드는 데 사용할 수 있는 웹 도구입니다.
+- [Azure Synapse Studio](./get-started-create-workspace.md)는 스토리지에서 파일을 검색하고 SQL 쿼리를 만드는 데 사용할 수 있는 웹 도구입니다.
 - [Azure Data Studio](sql/get-started-azure-data-studio.md)는 주문형 데이터베이스에서 SQL 쿼리와 Notebook을 실행할 수 있는 클라이언트 도구입니다.
 - [SQL Server Management Studio](sql/get-started-ssms.md)는 주문형 데이터베이스에서 SQL 쿼리를 실행할 수 있는 클라이언트 도구입니다.
 

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: e5b12632a60ad5580325fbcda294e1a600bb2b6b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 5d2765787a4eb417f4aa86396e07a25f8157b8ce
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121705"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223060"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Azure Synapse Analytics란?
 
@@ -30,7 +30,7 @@ ms.locfileid: "98121705"
 
 * Synapse SQL은 **서버리스** 및 **전용** 리소스 모델을 모두 제공하여 필요에 맞는 소비 및 청구 옵션을 제공합니다. 예측 가능한 성능 및 비용을 위해 전용 SQL 풀을 생성하여 SQL 테이블에 저장된 데이터를 위한 처리 성능을 예약합니다. 계획하지 않은 워크로드나 버스티 워크로드에는 항상 사용 가능한 서버리스 SQL 엔드포인트를 사용합니다.
 * 기본 제공 **스트리밍** 기능을 사용하여 클라우드 데이터 원본의 데이터를 SQL 테이블로 이동합니다.
-* [T-SQL PREDICT 함수](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)를 통해 데이터의 점수를 매기는 **기계 학습** 모델을 사용하여 AI와 SQL을 통합합니다.
+* [T-SQL PREDICT 함수](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)를 통해 데이터의 점수를 매기는 **기계 학습** 모델을 사용하여 AI와 SQL을 통합합니다.
 
 ### <a name="industry-standard-apache-spark"></a>업계 표준 Apache Spark
 
@@ -76,7 +76,7 @@ Azure Synapse는 엔터프라이즈에서 분석 리소스를 관리하고, 사�
 ## <a name="engage-with-the-synapse-engineering-team"></a>Synapse 엔지니어링 팀과 협력
 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): 개발에 관한 질문을 합니다.
-- [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): 기술에 관한 질문을 합니다.
+- [Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html): 기술에 관한 질문을 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

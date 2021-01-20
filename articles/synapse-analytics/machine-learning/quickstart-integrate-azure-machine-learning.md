@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 800cbf9b7a7fa415452f29b253347188c8917c52
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455501"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219456"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>빠른 시작: Synapse에서 새로운 Azure Machine Learning 연결된 서비스 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "96455501"
 
 예를 들어 Azure Machine Learning 작업 영역에 연결하면 다음과 같은 환경을 사용할 수 있습니다.
 
-- Synapse 파이프라인의 한 단계로 Azure Machine Learning 파이프라인을 실행합니다. 자세한 내용은 [Azure Machine Learning 파이프라인 실행](/azure/data-factory/transform-data-machine-learning-service)을 참조하세요.
+- Synapse 파이프라인의 한 단계로 Azure Machine Learning 파이프라인을 실행합니다. 자세한 내용은 [Azure Machine Learning 파이프라인 실행](../../data-factory/transform-data-machine-learning-service.md)을 참조하세요.
 
 - Azure Machine Learning 모델 레지스트리에서 기계 학습 모델을 가져오고 Synapse SQL 풀에서 모델 점수 매기기를 수행하여 예측을 통해 데이터를 보강합니다. 자세한 내용은 [자습서: Synapse SQL 풀에 대한 기계 학습 모델 점수 매기기 마법사](tutorial-sql-pool-model-scoring-wizard.md)를 참조하세요.
 
@@ -30,7 +30,7 @@ ms.locfileid: "96455501"
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - 기본 스토리지로 구성된 ADLS Gen2 스토리지 계정이 있는 [Synapse Analytics 작업 영역](../get-started-create-workspace.md). 작업하려는 ADLS Gen2 파일 시스템의 **Storage Blob 데이터 기여자** 여야 합니다.
-- [Azure Machine Learning 작업 영역](/azure/machine-learning/how-to-manage-workspace).
+- [Azure Machine Learning 작업 영역](../../machine-learning/how-to-manage-workspace.md).
 - 연결된 서비스를 만드는 데 사용할 수 있는 서비스 주체와 비밀을 만들려면 권한(또는 권한이 있는 사용자에게 요청)이 필요합니다. 이 서비스 주체에 Azure Machine Learning 작업 영역의 기여자 역할을 할당해야 합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: ec3929219a6297bd4a3d8d3e0eff93d2ed847ba0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9b85f04ca507b5d40c091b52507d0fad2cd3e798
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835223"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185719"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 
@@ -62,7 +62,7 @@ az webapp up --location westeurope --name <app_name> --html
 
 이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보를 출력합니다.
 
-<pre>
+```output
 {
   "app_url": "https://&lt;app_name&gt;.azurewebsites.net",
   "location": "westeurope",
@@ -74,7 +74,7 @@ az webapp up --location westeurope --name <app_name> --html
   "src_path": "/home/&lt;username&gt;/quickstart/html-docs-hello-world ",
   &lt; JSON data removed for brevity. &gt;
 }
-</pre>
+```
 
 `resourceGroup` 값을 기록해 둡니다. [리소스 정리](#clean-up-resources) 섹션에서 필요합니다.
 

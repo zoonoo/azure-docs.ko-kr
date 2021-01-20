@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 3c03a207e91ae969836e208f4e6bf4ea32086c7d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b3ca4f11b02f32e65cf80adc65ec12d25e6e7905
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121324"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573176"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -66,7 +66,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 |Azure Event Grid| 모든 공용 지역<br/> Azure Government 지역       |  | GA   <br/> [Azure Event Grid에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../event-grid/network-security.md) |
 |Azure Web Apps | 모든 공용 지역      | PremiumV2, PremiumV3 또는 함수 프리미엄 계획에서 지원됨  | GA   <br/> [Azure Web Apps에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](./tutorial-private-endpoint-webapp-portal.md)   |
 |Azure Machine Learning | 모든 공용 지역    |  | GA   <br/> [Azure Machine Learning에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../machine-learning/how-to-configure-private-link.md)   |
-| Azure Automation  | 모든 공용 지역 |  | 미리 보기 </br> [Azure Automation에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../automation/how-to/private-link-security.md)| |
+| Azure Automation  | 모든 공용 지역<br/> Azure Government 지역 |  | 미리 보기 </br> [Azure Automation에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | 모든 공용 지역    |  | GA   <br/> [Azure IoT Hub에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | 미국 동부, 미국 중남부,<br/>미국 서부 2, 모든 중국 지역      |  | 미리 보기   <br/> [Azure SignalR에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-signalr/howto-private-endpoints.md)   |
 | Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [Azure Monitor에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-monitor/platform/private-link-security.md)   | 

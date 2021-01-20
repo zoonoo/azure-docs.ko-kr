@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0d833c32000eb91511782184ef4455bc1973a714
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: a7ee4e205851a751f7a50ac0ddadfb4e4c7eb81a
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97807912"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247406"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics 질문과 대답
 
@@ -138,11 +138,6 @@ A: "이동" 또는 "마이그레이션"을 수행할 수 없습니다. 기존 �
 ### <a name="q-what-is-the-default-deployment-of-dedicated-sql-pools-now"></a>Q: 현재 전용 SQL 풀의 기본 배포는 무엇인가요? 
 
 A: 기본적으로 모든 새 전용 SQL 풀이 작업 영역에 배포되지만, 필요한 경우 여전히 독립 실행형 폼 팩터에서 전용 SQL 풀(이전의 SQL DW)을 만들 수 있습니다. 
-
-
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pools"></a>Q: 전용 SQL 풀과 서버리스 SQL 풀 간의 기능적 차이점은 무엇인가요?
-
-A: 차이점에 대한 전체 목록은 [Synapse SQL의 T-SQL 기능 차이점](./sql/overview-features.md)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 460cca051d743102e734971cf45069362e24c147
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e7ed4ba181d3730ebbea7725451567c93433afb8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106006"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251100"
 ---
 # <a name="metrics-overview"></a>메트릭 개요
 
@@ -30,7 +30,7 @@ Communication Services 메트릭 내에는 **채팅 API 요청** 및 **SMS API �
 
 채팅 및 SMS API 요청 메트릭에는 메트릭 데이터를 필터링하는 데 사용할 수 있는 3개의 차원이 포함되어 있습니다. 이러한 차원은 `Count` 집계 유형을 사용하여 함께 집계할 수 있으며 `Sum`, `Average`, `Min` 및 `Max`를 비롯한 모든 표준 Azure 집계 시계열을 지원합니다.
 
-지원되는 집계 유형 및 시계열 집계에 대한 자세한 내용은 [Azure 메트릭 탐색기의 고급 기능](../../azure-monitor/platform/metrics-charts.md#changing-aggregation)에서 찾을 수 있습니다.
+지원되는 집계 유형 및 시계열 집계에 대한 자세한 내용은 [Azure 메트릭 탐색기의 고급 기능](../../azure-monitor/platform/metrics-charts.md#aggregation)에서 찾을 수 있습니다.
 
 - **작업** - ACS 채팅 게이트웨이에서 호출할 수 있는 모든 작업 또는 경로입니다.
 - **상태 코드** - 요청 후에 전송된 상태 코드 응답입니다.

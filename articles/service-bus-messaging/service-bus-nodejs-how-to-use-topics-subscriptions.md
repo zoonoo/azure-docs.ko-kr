@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: aac3b6339c318c76e9b0c9abd0bc3778f2563a6f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a1afe4207ce3833f3bcb55bc7bc2e8e27f393f63
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498696"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179999"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>빠른 시작: Node.js 및 미리 보기 azure/service-bus 패키지를 사용하는 Service Bus 토픽 및 구독
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 해당 토픽으로 메시지를 받는 방법에 대해 알아봅니다.
@@ -80,7 +80,7 @@ npm install @azure/service-bus
                     await sender.sendMessages(batch);
     
                     // then, create a new batch 
-                    batch = await sender.createBatch();
+                    batch = await sender.createMessageBatch();
      
                     // now, add the message failed to be added to the previous batch to this batch
                     if (!batch.tryAddMessage(messages[i])) {

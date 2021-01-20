@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 26905b746efb0bfcc877e0fa8fad797672bb6447
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d0973682a62b17a21557727a8d5eb8fcb7ec7ef1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483219"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203374"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Azure의 Windows 가상 머신
 
@@ -45,12 +45,12 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 
 아래 표에서는 사용할 수 있는 위치 목록을 가져올 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 메서드 | Description |
+| 메서드 | 설명 |
 | --- | --- |
 | Azure portal |VM을 만들 때 목록에서 위치를 선택합니다. |
 | Azure PowerShell |[Get-AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 사용합니다. |
 | REST API |[위치 나열](/rest/api/resources/subscriptions) 작업을 사용합니다. |
-| Azure CLI |[az account list-locations](/cli/azure/account?view=azure-cli-latest) 작업을 사용합니다. |
+| Azure CLI |[az account list-locations](/cli/azure/account) 작업을 사용합니다. |
 
 ### <a name="singapore-data-residency"></a>싱가포르 데이터 상주
 
@@ -61,7 +61,7 @@ Azure는 모든 디스크에 프리미엄 스토리지를 사용하여 VM을 배
 
 
 ## <a name="vm-size"></a>VM 크기
-사용할 VM의 [크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 스토리지 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
+사용할 VM의 [크기](../sizes.md)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 스토리지 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
 
 Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)을 청구합니다. 부분 시간의 경우 Azure는 사용 시간(분)에 대해서만 청구합니다. 스토리지는 가격이 책정되며 개별적으로 청구됩니다.
 
@@ -69,18 +69,18 @@ Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://a
 구독에는 프로젝트에 대해 많은 수의 VM을 배포하는 데 영향을 줄 수 있는 기본 [할당량 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md)이 있습니다. 구독별 기준으로 현재 제한은 지역당 20대의 VM입니다. [증가를 요구하는 지원 티켓을 제출](../../azure-portal/supportability/resource-manager-core-quotas-request.md)하면 한도가 늘어날 수 있습니다.
 
 ### <a name="operating-system-disks-and-images"></a>운영 체제 디스크 및 이미지
-가상 머신은 [VHD(가상 하드 디스크)](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하여 해당 OS(운영 체제) 및 데이터를 저장합니다. VHD는 OS를 설치하도록 선택할 수 있는 이미지에도 사용됩니다. 
+가상 머신은 [VHD(가상 하드 디스크)](../managed-disks-overview.md)를 사용하여 해당 OS(운영 체제) 및 데이터를 저장합니다. VHD는 OS를 설치하도록 선택할 수 있는 이미지에도 사용됩니다. 
 
 Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 사용할 수 있도록 많은 [마켓플레이스 이미지](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1)를 제공합니다. Marketplace 이미지는 이미지 게시자, 제안, SKU 및 버전(대개 최신으로 지정된 버전)으로 식별됩니다. 64비트 운영 체제만 지원됩니다. 지원되는 게스트 운영 체제, 역할 및 기능에 대한 자세한 내용은 [Microsoft Azure 가상 머신에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)을 참조하세요.
 
 아래 표에서는 이미지에 대한 정보를 찾을 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 방법 | Description |
+| 방법 | 설명 |
 | --- | --- |
 | Azure portal |사용할 이미지를 선택할 때 사용자에 적합한 값이 자동으로 지정됩니다. |
 | Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST API |[이미지 게시자 나열](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[이미지 제안 나열](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[이미지 SKU 나열](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[az vm image list-offers](/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
+| Azure CLI |[az vm image list-publishers](/cli/azure/vm/image) --location *location*<BR>[az vm image list-offers](/cli/azure/vm/image) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](/cli/azure/vm) --location *location* --publisher *publisherName* --offer *offerName*|
 
 [사용자 고유의 이미지를 업로드하고 사용하도록](upload-generalized-managed.md) 선택할 수 있습니다. 이렇게 하는 경우 게시자 이름, 제안 및 SKU는 사용되지 않습니다.
 
@@ -103,7 +103,7 @@ VM [확장](../extensions/features-windows.md?toc=/azure/virtual-machines/window
 | [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
 | [공용 IP 주소](../../virtual-network/public-ip-addresses.md) |예 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
 | [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
-| [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |예 |VM은 스토리지 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
+| [데이터 디스크](attach-managed-disk-portal.md) |예 |VM은 스토리지 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 
 
 ## <a name="data-residency"></a>데이터 상주

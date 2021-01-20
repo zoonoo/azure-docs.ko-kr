@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7dabf94c711972f9fe543edac0d7b95469fc2d35
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 07fadd7b3129b3ca3351e0416c8aa6f49de82212
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661106"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201232"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 고가용성 웹 애플리케이션에 대한 Traffic Manager 프로필 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "94661106"
 - 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-[az group create](https://docs.microsoft.com/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "94661106"
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 
-[az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create)를 사용하여 엔드포인트 우선 순위에 따라 사용자 트래픽을 보내는 Traffic Manager 프로필을 만듭니다.
+[az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create)를 사용하여 엔드포인트 우선 순위에 따라 사용자 트래픽을 보내는 Traffic Manager 프로필을 만듭니다.
 
 다음 예제에서 **<profile_name>** 을 고유한 Traffic Manager 프로필 이름으로 바꿉니다.
 
@@ -70,7 +70,7 @@ az network traffic-manager profile create \
 이 빠른 시작에는 두 개의 서로 다른 Azure 지역(*미국 동부* 및 *서유럽*)에 배포된 두 개의 웹 애플리케이션 인스턴스가 필요합니다. 각각은 Traffic Manager에 대한 기본 및 장애 조치 엔드포인트의 역할을 합니다.
 
 ### <a name="create-web-app-service-plans"></a>웹앱 서비스 계획 만들기
-[az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)를 사용하여 서로 다른 두 Azure 지역에 배포할 웹 애플리케이션의 두 인스턴스에 대한 웹앱 서비스 계획을 만듭니다.
+[az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)를 사용하여 서로 다른 두 Azure 지역에 배포할 웹 애플리케이션의 두 인스턴스에 대한 웹앱 서비스 계획을 만듭니다.
 
 다음 예제에서 **<appspname_eastus>** 및 **<appspname_westeurope>** 을 고유한 App Service 계획 이름으로 바꿉니다.
 
@@ -91,7 +91,7 @@ az appservice plan create \
 ```
 
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>앱 서비스 계획에 웹앱 만들기
-[az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)를 사용하여 웹 애플리케이션의 두 인스턴스를 *미국 동부* 및 *서유럽* Azure 지역의 App Service 계획에 만듭니다.
+[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)를 사용하여 웹 애플리케이션의 두 인스턴스를 *미국 동부* 및 *서유럽* Azure 지역의 App Service 계획에 만듭니다.
 
 다음 예제에서 **<app1name_eastus>** 및 **<app2name_westeurope>** 을 고유한 앱 이름으로 바꾸고, **<appspname_eastus>** 및 **<appspname_westeurope>** 을 이전 섹션에서 App Service 계획을 만드는 데 사용한 이름으로 바꿉니다.
 
@@ -110,7 +110,7 @@ az webapp create \
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
-다음과 같이 [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create)를 사용하여 두 Web App을 Traffic Manager 엔드포인트로 Traffic Manager 프로필에 추가합니다.
+다음과 같이 [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create)를 사용하여 두 Web App을 Traffic Manager 엔드포인트로 Traffic Manager 프로필에 추가합니다.
 
 - Web App ID를 확인하고, *미국 서부* Azure 지역에 있는 Web App을 모든 사용자 트래픽을 라우팅하는 기본 엔드포인트로 추가합니다. 
 - Web App ID를 확인하고, *서유럽* Azure 지역에 있는 Web App을 장애 조치(failover) 엔드포인트로 추가합니다. 
@@ -178,7 +178,7 @@ az network traffic-manager endpoint create \
 
 ### <a name="determine-the-dns-name"></a>DNS 이름 확인
 
-[az network traffic-manager profile show](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-show)를 사용하여 Traffic Manager 프로필의 DNS 이름을 확인합니다.
+[az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-show)를 사용하여 Traffic Manager 프로필의 DNS 이름을 확인합니다.
 
 ```azurecli-interactive
 
@@ -196,7 +196,7 @@ az network traffic-manager profile show \
 
     > [!NOTE]
     > 이 빠른 시작 시나리오에서는 모든 요청이 기본 엔드포인트로 라우팅됩니다. **우선 순위 1** 로 설정됩니다.
-2. 작동 중인 Traffic Manager 장애 조치를 보려면 [az network traffic-manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update)를 사용하여 기본 사이트를 사용하지 않도록 설정합니다.
+2. 작동 중인 Traffic Manager 장애 조치를 보려면 [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update)를 사용하여 기본 사이트를 사용하지 않도록 설정합니다.
 
    ```azurecli-interactive
 
@@ -214,7 +214,7 @@ az network traffic-manager profile show \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-완료되면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete)를 사용하여 리소스 그룹, 웹 애플리케이션 및 모든 관련 리소스를 삭제합니다.
+완료되면 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete)를 사용하여 리소스 그룹, 웹 애플리케이션 및 모든 관련 리소스를 삭제합니다.
 
 ```azurecli-interactive
 

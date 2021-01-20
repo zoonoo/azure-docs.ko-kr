@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp, contperf-fy21q1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: alkemper
-ms.openlocfilehash: d1582cda4b083623daf7bb756d0bc8aa3e74eae8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d0e564b98ab6331677451afd32a0848e7f5594dd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033649"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598739"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
@@ -70,7 +70,7 @@ dotnet new mvc --no-https --output TestAppConfig
     ```
 
     > [!IMPORTANT]
-    > 일부 셸에서는 연결 문자열을 따옴표로 묶지 않으면 연결 문자열이 잘립니다. `dotnet user-secrets` 명령의 출력에 전체 연결 문자열이 표시되는지 확인합니다. 표시되지 않으면 연결 문자열을 따옴표로 묶고 명령을 다시 실행합니다.
+    > 일부 셸에서는 연결 문자열을 따옴표로 묶지 않으면 연결 문자열이 잘립니다. `dotnet user-secrets list` 명령의 출력에 전체 연결 문자열이 표시되는지 확인합니다. 표시되지 않으면 연결 문자열을 따옴표로 묶고 명령을 다시 실행합니다.
 
     비밀 관리자는 웹앱을 로컬로 테스트하는 데만 사용됩니다. 앱이 [Azure App Service](https://azure.microsoft.com/services/app-service/web)에 배포되면 비밀 관리자 대신 App Service의 **연결 문자열** 애플리케이션 설정을 사용하여 연결 문자열을 저장합니다.
 
