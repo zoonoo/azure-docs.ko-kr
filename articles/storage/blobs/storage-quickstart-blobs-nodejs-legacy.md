@@ -3,17 +3,17 @@ title: '빠른 시작: JavaScript용 Azure Blob 스토리지 클라이언트 라
 description: JavaScript용 Azure Storage 클라이언트 라이브러리 v10을 통해 Node.js에서 blob 및 컨테이너 만들기, 업로드 및 삭제
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1f47c35997fe060fd3c318602bcad17de83b530c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2371c789b9e4a9fc70f4207fd8a634e419c97912
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249623"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599462"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>빠른 시작: Node.js에서 JavaScript v10 SDK를 사용하여 Blob 관리
 
@@ -46,11 +46,11 @@ cd azure-storage-js-v10-quickstart
 
 ## <a name="configure-your-storage-credentials"></a>스토리지 자격 증명 구성
 
-애플리케이션을 실행하기 전에 스토리지 계정에 대한 보안 자격 증명을 제공해야 합니다. 샘플 리포지토리에는 *.env.example*이라는 파일이 포함되어 있습니다. *.example* 확장명을 제거하여 *.env*라는 파일이 되도록 이 파일의 이름을 바꿉니다. *.env* 파일에서 *AZURE_STORAGE_ACCOUNT_NAME* 및 *AZURE_STORAGE_ACCOUNT_ACCESS_KEY* 키 뒤에 사용자 계정 이름과 액세스 키 값을 추가합니다.
+애플리케이션을 실행하기 전에 스토리지 계정에 대한 보안 자격 증명을 제공해야 합니다. 샘플 리포지토리에는 *.env.example* 이라는 파일이 포함되어 있습니다. *.example* 확장명을 제거하여 *.env* 라는 파일이 되도록 이 파일의 이름을 바꿉니다. *.env* 파일에서 *AZURE_STORAGE_ACCOUNT_NAME* 및 *AZURE_STORAGE_ACCOUNT_ACCESS_KEY* 키 뒤에 사용자 계정 이름과 액세스 키 값을 추가합니다.
 
 ## <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
-애플리케이션 디렉터리에서 *npm install*을 실행하여 애플리케이션에 필요한 패키지를 설치합니다.
+애플리케이션 디렉터리에서 *npm install* 을 실행하여 애플리케이션에 필요한 패키지를 설치합니다.
 
 ```bash
 npm install
@@ -111,7 +111,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
-*dotenv* 모듈은 로컬에서 디버깅을 위해 앱을 실행할 때 환경 변수를 로드합니다. 값은 *.env*라는 파일에 정의되고, 현재 실행 컨텍스트에 로드됩니다. 프로덕션에서는 서버 구성이 이러한 값을 제공하므로 스크립트가 “프로덕션” 환경에서 실행되고 있지 *않을* 때만 이 코드가 실행됩니다.
+*dotenv* 모듈은 로컬에서 디버깅을 위해 앱을 실행할 때 환경 변수를 로드합니다. 값은 *.env* 라는 파일에 정의되고, 현재 실행 컨텍스트에 로드됩니다. 프로덕션에서는 서버 구성이 이러한 값을 제공하므로 스크립트가 “프로덕션” 환경에서 실행되고 있지 *않을* 때만 이 코드가 실행됩니다.
 
 파일 시스템과의 인터페이스에 도움이 되도록 모듈의 다음 블록을 가져옵니다.
 
@@ -122,9 +122,9 @@ const path = require('path');
 
 이러한 모듈의 목적은 다음과 같습니다. 
 
-- *fs*는 파일 시스템과 작동하는 데 사용되는 네이티브 Node.js 모듈입니다.
+- *fs* 는 파일 시스템과 작동하는 데 사용되는 네이티브 Node.js 모듈입니다.
 
-- *path*는 Blob Storage에 파일을 업로드할 때 사용되는 절대 파일 경로를 결정하는 데 필요합니다.
+- *path* 는 Blob Storage에 파일을 업로드할 때 사용되는 절대 파일 경로를 결정하는 데 필요합니다.
 
 다음으로, 환경 변수 값은 상수에서 따로 읽고 설정됩니다.
 
@@ -139,7 +139,7 @@ const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-API에 의해 수행된 요청은 지정된 간격 이후의 시간 초과로 설정할 수 있습니다. [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) 클래스는 요청이 시간 초과되는 방식을 관리하는 역할을 담당하며, 이 샘플에서 사용되는 시간 제한을 정의하는 데 다음 상수가 사용됩니다.
+API에 의해 수행된 요청은 지정된 간격 이후의 시간 초과로 설정할 수 있습니다. [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy&preserve-view=true) 클래스는 요청이 시간 초과되는 방식을 관리하는 역할을 담당하며, 이 샘플에서 사용되는 시간 제한을 정의하는 데 다음 상수가 사용됩니다.
 
 ```javascript
 const ONE_MINUTE = 60 * 1000;
@@ -147,7 +147,7 @@ const ONE_MINUTE = 60 * 1000;
 
 ### <a name="calling-code"></a>코드 호출
 
-JavaScript의 *async/await* 구문을 지원하기 위해 모든 호출 코드는 *execute*라는 함수에 래핑됩니다. 그런 다음, *execute*가 호출되고 promise로 처리됩니다.
+JavaScript의 *async/await* 구문을 지원하기 위해 모든 호출 코드는 *execute* 라는 함수에 래핑됩니다. 그런 다음, *execute* 가 호출되고 promise로 처리됩니다.
 
 ```javascript
 async function execute() {
@@ -178,13 +178,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 
 다음 클래스가 이 코드 블록에 사용됩니다.
 
-- [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy) 클래스는 요청 파이프라인에 제공하기 위해 스토리지 계정 자격 증명을 래핑하는 일을 담당합니다.
+- [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy&preserve-view=true) 클래스는 요청 파이프라인에 제공하기 위해 스토리지 계정 자격 증명을 래핑하는 일을 담당합니다.
 
-- [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy) 클래스는 새 파이프라인을 만듭니다.
+- [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy&preserve-view=true) 클래스는 새 파이프라인을 만듭니다.
 
-- [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy)은 REST API에 사용되는 URL을 모델링합니다. 이 클래스의 인스턴스를 사용하면 컨테이너를 나열하는 등의 작업을 수행하고, 컨텍스트 정보를 제공하여 컨테이너 URL을 생성할 수 있습니다.
+- [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy&preserve-view=true)은 REST API에 사용되는 URL을 모델링합니다. 이 클래스의 인스턴스를 사용하면 컨테이너를 나열하는 등의 작업을 수행하고, 컨텍스트 정보를 제공하여 컨테이너 URL을 생성할 수 있습니다.
 
-스토리지 계정에서 컨테이너 및 blob을 관리하는 데 *ServiceURL*의 인스턴스가 [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy) 및 [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy) 인스턴스와 함께 사용됩니다.
+스토리지 계정에서 컨테이너 및 blob을 관리하는 데 *ServiceURL* 의 인스턴스가 [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy&preserve-view=true) 및 [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy&preserve-view=true) 인스턴스와 함께 사용됩니다.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -193,13 +193,13 @@ const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
 
 *containerURL* 및 *blockBlobURL* 변수는 스토리지 계정에서 작동하도록 샘플 전체에서 다시 사용됩니다. 
 
-이 시점에서 컨테이너는 스토리지 계정에 존재하지 않습니다. *ContainerURL*의 인스턴스는 취할 수 있는 URL을 나타냅니다. 이 인스턴스를 사용하면 컨테이너를 만들고 삭제할 수 있습니다. 이 컨테이너의 위치는 다음과 같은 위치와 동일합니다.
+이 시점에서 컨테이너는 스토리지 계정에 존재하지 않습니다. *ContainerURL* 의 인스턴스는 취할 수 있는 URL을 나타냅니다. 이 인스턴스를 사용하면 컨테이너를 만들고 삭제할 수 있습니다. 이 컨테이너의 위치는 다음과 같은 위치와 동일합니다.
 
 ```bash
 https://<ACCOUNT_NAME>.blob.core.windows.net/demo
 ```
 
-*blockBlobURL*은 blob 콘텐츠를 업로드, 다운로드 및 삭제할 수 있도록 하는 개별 blob을 관리하는 데 사용됩니다. 여기에 표시되는 URL은 다음 위치와 비슷합니다.
+*blockBlobURL* 은 blob 콘텐츠를 업로드, 다운로드 및 삭제할 수 있도록 하는 개별 blob을 관리하는 데 사용됩니다. 여기에 표시되는 URL은 다음 위치와 비슷합니다.
 
 ```bash
 https://<ACCOUNT_NAME>.blob.core.windows.net/demo/quickstart.txt
@@ -224,7 +224,7 @@ Aborters는 사용자에게 다음을 허용하여 요청에 대한 제어를 �
 
 ### <a name="create-a-container"></a>컨테이너 만들기
 
-컨테이너를 만들려면 *ContainerURL*의 *create* 메서드를 사용합니다.
+컨테이너를 만들려면 *ContainerURL* 의 *create* 메서드를 사용합니다.
 
 ```javascript
 await containerURL.create(aborter);
@@ -235,7 +235,7 @@ console.log(`Container: "${containerName}" is created`);
 
 ### <a name="show-container-names"></a>컨테이너 이름 표시
 
-계정은 많은 컨테이너를 저장할 수 있습니다. 다음 코드는 많은 컨테이너를 순환할 수 있도록 분할된 방식으로 컨테이너를 나열하는 방법을 설명합니다. *showContainerNames* 함수가 *ServiceURL* 및 *Aborter*의 인스턴스에 전달됩니다.
+계정은 많은 컨테이너를 저장할 수 있습니다. 다음 코드는 많은 컨테이너를 순환할 수 있도록 분할된 방식으로 컨테이너를 나열하는 방법을 설명합니다. *showContainerNames* 함수가 *ServiceURL* 및 *Aborter* 의 인스턴스에 전달됩니다.
 
 ```javascript
 console.log("Containers:");
@@ -258,7 +258,7 @@ async function showContainerNames(aborter, serviceURL) {
 }
 ```
 
-응답이 반환되면 *containerItems*가 반복되어 이름을 콘솔에 기록합니다. 
+응답이 반환되면 *containerItems* 가 반복되어 이름을 콘솔에 기록합니다. 
 
 ### <a name="upload-text"></a>텍스트 업로드
 
@@ -303,7 +303,7 @@ await uploadStream(containerURL, localFilePath, aborter);
 console.log(`Local file "${localFilePath}" is uploaded as a stream`);
 ```
 
-*uploadStream* 함수는 *uploadStreamToBlockBlob*을 호출하여 스토리지 컨테이너에 스트림을 업로드합니다.
+*uploadStream* 함수는 *uploadStreamToBlockBlob* 을 호출하여 스토리지 컨테이너에 스트림을 업로드합니다.
 
 ```javascript
 async function uploadStream(aborter, containerURL, filePath) {
@@ -330,7 +330,7 @@ async function uploadStream(aborter, containerURL, filePath) {
 }
 ```
 
-업로드하는 동안 *uploadStreamToBlockBlob*은 다시 시도해야 하는 경우 스트림에서 데이터를 캐시하도록 버퍼를 할당합니다. *maxBuffers* 값은 각 버퍼가 별도 업로드 요청을 만들 때 사용되는 최대 버퍼 수를 지정합니다. 이상적으로 버퍼 수가 높으면 속도도 빠르지만, 메모리 사용 비용도 높아집니다. 업로드 속도는 버퍼 수가 클라이언트 대신 네트워크 또는 디스크로의 병목 전환에 충분할 정도로 높을 때 안정화됩니다.
+업로드하는 동안 *uploadStreamToBlockBlob* 은 다시 시도해야 하는 경우 스트림에서 데이터를 캐시하도록 버퍼를 할당합니다. *maxBuffers* 값은 각 버퍼가 별도 업로드 요청을 만들 때 사용되는 최대 버퍼 수를 지정합니다. 이상적으로 버퍼 수가 높으면 속도도 빠르지만, 메모리 사용 비용도 높아집니다. 업로드 속도는 버퍼 수가 클라이언트 대신 네트워크 또는 디스크로의 병목 전환에 충분할 정도로 높을 때 안정화됩니다.
 
 ### <a name="show-blob-names"></a>blob 이름 표시
 
@@ -341,7 +341,7 @@ console.log(`Blobs in "${containerName}" container:`);
 await showBlobNames(aborter, containerURL);
 ```
 
-*showBlobNames* 함수는 *listBlobFlatSegment*를 호출하여 컨테이너에서 blob의 일괄 처리를 요청합니다.
+*showBlobNames* 함수는 *listBlobFlatSegment* 를 호출하여 컨테이너에서 blob의 일괄 처리를 요청합니다.
 
 ```javascript
 async function showBlobNames(aborter, containerURL) {

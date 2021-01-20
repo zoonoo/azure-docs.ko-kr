@@ -55,7 +55,7 @@ az extension update --name aks-preview
 az feature register --namespace "Microsoft.ContainerService" --name "StartStopPreview"
 ```
 
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/StartStopPreview')].{Name:name,State:properties.state}"
@@ -69,7 +69,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="stop-an-aks-cluster"></a>AKS 클러스터 중지
 
-명령을 사용하여 `az aks stop` 실행 중인 AKS 클러스터의 노드 및 제어 평면을 중지할 수 있습니다. 다음 예제에서는 *myAKSCluster*라는 클러스터를 중지 합니다.
+명령을 사용하여 `az aks stop` 실행 중인 AKS 클러스터의 노드 및 제어 평면을 중지할 수 있습니다. 다음 예제에서는 *myAKSCluster* 라는 클러스터를 중지 합니다.
 
 ```azurecli-interactive
 az aks stop --name myAKSCluster --resource-group myResourceGroup
@@ -100,7 +100,7 @@ az aks stop --name myAKSCluster --resource-group myResourceGroup
 ## <a name="start-an-aks-cluster"></a>AKS 클러스터 시작
 
 명령을 사용하여 `az aks start` 중지 된 AKS 클러스터의 노드 및 제어 평면을 시작할 수 있습니다. 클러스터가 이전 제어 평면 상태 및 에이전트 노드 수로 다시 시작 됩니다.  
-다음 예제에서는 *myAKSCluster*라는 클러스터를 시작 합니다.
+다음 예제에서는 *myAKSCluster* 라는 클러스터를 시작 합니다.
 
 ```azurecli-interactive
 az aks start --name myAKSCluster --resource-group myResourceGroup
