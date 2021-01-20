@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 7240c1b0f19dc49ab4130c5ee2516dcfefb2e2c2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9521c13b21317bb0a782b0bea0b08312ff24b113
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602199"
+ms.locfileid: "98610355"
 ---
 # <a name="errors-in-the-connector-status"></a>커넥터 상태의 오류
 
@@ -27,7 +27,7 @@ ms.locfileid: "98602199"
   * ServiceNow 인스턴스에 배포 된 사용자 지정 스크립트는 인시던트를 무시 합니다.
   * "OMS 통합자 앱" 코드 자체가 ServiceNow 쪽에서 수정 되었습니다 (예: onBefore 스크립트).
 
-    **해결** 방법: 데이터 가져오기 경로의 모든 사용자 지정 스크립트 또는 코드 수정을 사용 하지 않도록 설정 합니다.
+  **해결** 방법: 데이터 가져오기 경로의 모든 사용자 지정 스크립트 또는 코드 수정을 사용 하지 않도록 설정 합니다.
 
 * **오류**: "{" error ": {" message ":" 작업이 실패 했습니다. "," 세부 정보 ":" 보안 제약 조건으로 인해 ACL 예외를 업데이트 하지 못했습니다. "}"
 

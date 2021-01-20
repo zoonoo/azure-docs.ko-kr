@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 4052a9c8614a17c3b5cdd871ad78be8cc3258c5a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3bacec27f5253741b340688374d64402fdbc2836
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202592"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610389"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure에서 PostgreSQL 설치 및 구성
 PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이스입니다. 전체 ACID 규정 준수, 신뢰할 수 있는 트랜잭션 처리 및 다중 버전 동시성 제어와 같은 엔터프라이즈 기능이 포함됩니다. 또한 ANSI SQL 및 SQL/MED(Oracle, MySQL, MongoDB 등에 대한 외부 데이터 래퍼 포함)와 같은 표준을 지원합니다. 12개 이상의 프로시저 언어, GIN 및 GiST 인덱스, 공간 데이터 지원 및 JSON에 대한 여러 NoSQL 같은 기능 또는 키 값 기반 애플리케이션에 대한 지원을 통해 확장성을 높일 수 있습니다.
@@ -35,7 +35,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 1. 다음 명령을 실행하여 루트(관리자)로 전환합니다.
 
     ```console
-    # sudo su -
+    sudo su -
     ```
 
 2. 일부 배포의 경우 PostgreSQL을 설치하기 전에 설치해야 하는 종속성이 있습니다. 이 목록에서 배포를 확인하고 적절한 명령을 실행합니다.
@@ -43,27 +43,27 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
    * Red Hat 기반 Linux:
 
         ```console
-        # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y
+        yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y
         ```
 
    * Debian 기반 Linux:
 
         ```console
-        # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y
+        apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y
         ```
 
    * SUSE Linux:
 
         ```console
-        # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y
+        zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y
         ```
 
 3. 루트 디렉터리에 PostgreSQL를 다운로드한 다음 패키지의 압축을 풉니다.
 
     ```console
-    # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
+    wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
 
-    # tar jxvf  postgresql-9.3.5.tar.bz2
+    tar jxvf  postgresql-9.3.5.tar.bz2
     ```
 
     위 내용은 한 예입니다. [/pub/source/의 인덱스](https://ftp.postgresql.org/pub/source/)에서 더 자세한 다운로드 주소를 찾을 수 있습니다.
@@ -71,15 +71,15 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 4. 빌드를 시작하려면 다음 명령을 실행합니다.
 
     ```console
-    # cd postgresql-9.3.5
+    cd postgresql-9.3.5
 
-    # ./configure --prefix=/opt/postgresql-9.3.5
+    ./configure --prefix=/opt/postgresql-9.3.5
     ```
 
 5. 설명서 (HTML 및 man 페이지) 및 추가 모듈 ()을 비롯 하 여 빌드할 수 있는 모든 항목을 빌드 하려는 경우에는 `contrib` 다음 명령을 대신 실행 합니다.
 
     ```console
-    # gmake install-world
+    gmake install-world
     ```
 
     다음과 같은 확인 메시지가 표시됩니다.
@@ -92,23 +92,23 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 1. (선택 사항) 바로 가기 링크를 만들어 버전 번호를 포함하지 않도록 PostgreSQL 참조를 짧게 줄입니다.
 
     ```console
-    # ln -s /opt/postgresql-9.3.5 /opt/pgsql
+    ln -s /opt/postgresql-9.3.5 /opt/pgsql
     ```
 
 2. 데이터베이스에 대한 디렉터리를 만듭니다.
 
     ```console
-    # mkdir -p /opt/pgsql_data
+    mkdir -p /opt/pgsql_data
     ```
 
 3. 루트가 아닌 사용자를 만들고 해당 사용자의 프로필을 수정합니다. 그런 다음 이 새 사용자(이 예제에서는 *postgres* 임)로 전환합니다.
 
     ```console
-    # useradd postgres
+    useradd postgres
    
-    # chown -R postgres.postgres /opt/pgsql_data
+    chown -R postgres.postgres /opt/pgsql_data
    
-    # su - postgres
+    su - postgres
     ```
    
    > [!NOTE]
@@ -135,13 +135,13 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 5. *bash_profile* 파일을 실행합니다.
 
     ```console
-    $ source .bash_profile
+    source .bash_profile
     ```
 
 6. 다음 명령을 사용하여 설치의 유효성을 검사합니다.
 
     ```console
-    $ which psql
+    which psql
     ```
 
     설치에 성공하면 다음과 같은 응답이 표시됩니다.
@@ -153,13 +153,13 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 7. 또한 PostgreSQL 버전을 확인할 수 있습니다.
 
     ```sql
-    $ psql -V
+    psql -V
     ```
 
 8. 데이터베이스를 초기화합니다.
 
     ```console
-    $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
+    initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
     ```
 
     다음과 같은 출력이 표시됩니다.
@@ -172,17 +172,17 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 다음 명령을 실행합니다.
 
 ```console
-# cd /root/postgresql-9.3.5/contrib/start-scripts
+cd /root/postgresql-9.3.5/contrib/start-scripts
 
-# cp linux /etc/init.d/postgresql
+cp linux /etc/init.d/postgresql
 ```
 
 /Etc/init.d/postgresql 파일에서 두 변수를 수정합니다. 접두사가 PostgreSQL의 설치 경로인 **/opt/pgsql** 로 설정됩니다. PGDATA가 PostgreSQL의 데이터 스토리지 경로인 **/opt/pgsql_data** 로 설정됩니다.
 
 ```config
-# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
+sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
-# sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
+sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 ```
 
 ![설치 접두사와 데이터 디렉터리를 보여 주는 스크린샷](./media/postgresql-install/no2.png)
@@ -190,19 +190,19 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 파일을 변경하여 실행 가능하도록 설정합니다.
 
 ```console
-# chmod +x /etc/init.d/postgresql
+chmod +x /etc/init.d/postgresql
 ```
 
 PostgreSQL을 시작합니다.
 
 ```console
-# /etc/init.d/postgresql start
+/etc/init.d/postgresql start
 ```
 
 PostgreSQL의 엔드포인트가 켜져 있는지 확인합니다.
 
 ```console
-# netstat -tunlp|grep 1999
+netstat -tunlp|grep 1999
 ```
 
 다음과 같은 출력이 표시됩니다.
@@ -213,19 +213,19 @@ PostgreSQL의 엔드포인트가 켜져 있는지 확인합니다.
 다시 한 번 postgres 사용자로 전환합니다.
 
 ```console
-# su - postgres
+su - postgres
 ```
 
 Postgres 데이터베이스를 만듭니다.
 
 ```console
-$ createdb events
+createdb events
 ```
 
 방금 만든 이벤트 데이터베이스에 연결합니다.
 
 ```console
-$ psql -d events
+psql -d events
 ```
 
 ## <a name="create-and-delete-a-postgres-table"></a>Postgres 테이블 만들기 및 삭제

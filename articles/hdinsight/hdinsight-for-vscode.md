@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: c32f90221a73d04fd6c54c8332826232d0e6a6f3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 30c13adfebb911e443fb042821e09628da3b9405
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968537"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610984"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -211,31 +211,30 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
    ![pyspark 설치 성공](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. 명령 프롬프트를 사용 하 여 **pip install numpy = = 1.19.3** 를 실행 한 다음 vscode 창을 다시 로드 하십시오.
 
-8. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Python: Select Interpreter to start Jupyter Server** 를 입력합니다.
+7. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Python: Select Interpreter to start Jupyter Server** 를 입력합니다.
 
    ![jupyter 서버를 시작할 인터프리터 선택](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
-9. 아래의 python 옵션을 선택합니다.
+8. 아래의 python 옵션을 선택합니다.
 
    ![아래 옵션을 선택합니다.](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-10. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Developer: Reload Window** 를 입력합니다.
+9. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Developer: Reload Window** 를 입력합니다.
 
     ![창 다시 로드](./media/hdinsight-for-vscode/reload-window.png)
 
-11. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
+10. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
-12. 모든 코드를 선택 하 고 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark interactive/Synapse: PySpark interactive** 를 선택 하 여 쿼리를 제출 합니다. 
+11. 모든 코드를 선택 하 고 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark interactive/Synapse: PySpark interactive** 를 선택 하 여 쿼리를 제출 합니다. 
 
     ![pyspark 대화형 상황에 맞는 메뉴](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-13. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark을 클릭 하 여 커널을 **PySpark/Synapse PySpark** 로 전환 하면 코드가 성공적으로 실행 됩니다. Synapse Pyspark kernel로 전환 하려는 경우 Azure Portal에서 자동 설정을 사용 하지 않도록 설정 하는 것이 좋습니다. 그렇지 않으면 클러스터의 절전 모드를 해제하고 처음 사용할 때 synapse 커널을 설정하는 데 시간이 오래 걸릴 수 있습니다. 도구를 통해 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다.
+12. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark을 클릭 하 여 커널을 **PySpark/Synapse PySpark** 로 전환 하면 코드가 성공적으로 실행 됩니다. Synapse Pyspark kernel로 전환 하려는 경우 Azure Portal에서 자동 설정을 사용 하지 않도록 설정 하는 것이 좋습니다. 그렇지 않으면 클러스터의 절전 모드를 해제하고 처음 사용할 때 synapse 커널을 설정하는 데 시간이 오래 걸릴 수 있습니다. 도구를 통해 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다.
 
     ![pyspark 대화형 python 대화형 창](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-14. **%% Info** 를 입력 한 다음 Shift + enter를 눌러 작업 정보를 확인 합니다 (선택 사항).
+13. **%% Info** 를 입력 한 다음 Shift + enter를 눌러 작업 정보를 확인 합니다 (선택 사항).
 
     ![pyspark 대화형 보기 작업 정보](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -355,21 +354,21 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
   | name | description | 형식 |
   | --- | --- | --- |
-  | 파일 | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
-  | proxyUser | 작업을 실행할 때 가장할 사용자 | 문자열 |
-  | className | 애플리케이션 Java/Spark 주 클래스 | 문자열 |
+  | file | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
+  | proxyUser | 작업을 실행할 때 가장할 사용자 | String |
+  | className | 애플리케이션 Java/Spark 주 클래스 | String |
   | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
   | jars | 이 세션에서 사용할 jar | 문자열 목록 | 
   | pyFiles | 이 세션에서 사용할 Python 파일 | 문자열 목록 |
   | files | 이 세션에 사용할 파일입니다. | 문자열 목록 |
-  | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | 문자열 |
+  | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | String |
   | driverCores | 드라이버 프로세스에 사용할 코어 수 | Int |
-  | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | 문자열 |
+  | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | String |
   | executorCores | 각 실행기에 사용할 코어 수 | Int |
   | numExecutors | 이 세션에서 시작할 실행기 수 | Int |
   | archives | 이 세션에서 사용할 보관 파일 | 문자열 목록 |
   | queue | 제출할 YARN 큐의 이름입니다.| String |
-  | name | 이 세션의 이름 | 문자열 |
+  | name | 이 세션의 이름 | String |
   | conf | Spark 구성 속성 | 키=값 맵 |
 
   **응답 본문** 만든 일괄 처리 개체입니다.
@@ -377,10 +376,10 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
   | name | description | 형식 |
   | --- | ---| --- |
   | ID | 세션 ID | Int |
-  | appId | 이 세션의 응용 프로그램 ID | 문자열 |
+  | appId | 이 세션의 응용 프로그램 ID | String |
   | appInfo | 자세한 응용 프로그램 정보 | 키=값 맵 |
   | log | 로그 줄 | 문자열 목록 |
-  | state |일괄 처리 상태 | 문자열 |
+  | state |일괄 처리 상태 | String |
 
   > [!NOTE]
   > 할당 된 Livy 구성은 스크립트를 제출할 때 출력 창에 표시 됩니다.

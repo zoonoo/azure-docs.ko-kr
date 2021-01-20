@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 048068a74151bb986392b5cb27787385fc0f5363
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.date: 01/19/2021
+ms.openlocfilehash: 7013a4ab1becd6108d30d8369f1f72bcb3e55c37
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315535"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611069"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Azure Monitor의 데이터 수집 규칙 (미리 보기)
 DCR (데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정의 하 고 데이터를 보내거나 저장할 위치를 지정 합니다. 이 문서에서는 콘텐츠 및 구조를 포함 하는 데이터 수집 규칙의 개요와이를 만들고 사용 하는 방법을 설명 합니다.
@@ -53,10 +53,20 @@ DCR (데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정�
 
 
 ## <a name="create-a-dcr"></a>DCR 만들기
-현재 DCR를 만드는 데 사용할 수 있는 두 가지 방법이 있습니다.
+현재 다음 방법 중 하나를 사용 하 여 DCR를 만들 수 있습니다.
 
 - [Azure Portal를 사용](data-collection-rule-azure-monitor-agent.md) 하 여 데이터 수집 규칙을 만들고 하나 이상의 가상 컴퓨터와 연결 합니다.
 - JSON에서 데이터 수집 규칙을 직접 편집 하 고 [REST API를 사용 하 여 제출](/rest/api/monitor/datacollectionrules)합니다.
+- [Azure CLI](https://github.com/Azure/azure-cli-extensions/blob/master/src/monitor-control-service/README.md)를 사용 하 여 DCR 및 연결을 만듭니다.
+- Azure PowerShell를 사용 하 여 DCR 및 연결을 만듭니다.
+  - [AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRule.md)
+  - [AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRule.md)
+  - [AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Set-AzDataCollectionRule.md)
+  - [업데이트-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Update-AzDataCollectionRule.md)
+  - [AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRule.md)
+  - [AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRuleAssociation.md)
+  - [AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRuleAssociation.md)
+  - [AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## <a name="sample-data-collection-rule"></a>샘플 데이터 수집 규칙
 아래의 샘플 데이터 수집 규칙은 Azure 관리 에이전트를 사용 하는 가상 머신에 대 한 것 이며 다음과 같은 세부 정보를 포함 합니다.

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e87c9efc910d08307d40d42e58f8272a01902a41
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b351be1e7212dc9923f701599dd951a73254afe0
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554276"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610372"
 ---
 # <a name="role-based-access-control-in-azure-purviews-data-plane"></a>Azure 부서의 범위의 데이터 평면에서 역할 기반 액세스 제어
 
@@ -31,9 +31,9 @@ Azure 부서의 범위는 Azure 부서의 범위에서 어떤 항목에 액세�
 
 ## <a name="understanding-how-to-use-azure-purviews-data-plane-roles"></a>Azure 부서의 범위의 데이터 평면 역할을 사용 하는 방법 이해
 
-Azure 부서의 범위 계정을 만들면 작성자가 부서의 범위 Data 큐레이터 및 부서의 범위 데이터 원본 관리자 역할 모두에 있는 것 처럼 처리 됩니다. 그러나 계정 작성자는 역할 저장소의 이러한 역할에 할당 되지 않습니다. Azure 부서의 범위는 보안 주체가 계정의 작성자 임을 인식 하 고 해당 id에 따라 이러한 기능을 확장 합니다.
+Azure 부서의 범위 계정을 만들면 작성자가 부서의 범위 Data 큐레이터 및 부서의 범위 데이터 원본 관리자 역할 모두에 있는 것 처럼 처리 됩니다. 그러나 계정 작성자는 역할 저장소의 이러한 역할에 할당되지 않습니다. Azure Purview는 보안 주체가 계정의 작성자임을 인식하고 ID를 기반으로 이러한 기능을 확장합니다.
 
-다른 모든 사용자는 이러한 역할 중 하나 이상에 배치 된 경우에만 Azure 부서의 범위 계정을 사용할 수 있습니다. 즉, Azure 부서의 범위 계정이 생성 될 때 작성자가 계정에 액세스 하거나 이전에 정의 된 역할 중 하나 이상에 배치 될 때까지 해당 Api를 사용할 수 있습니다.
+다른 모든 사용자는 이러한 역할 중 하나 이상에 배치된 경우에만 Azure Purview 계정을 사용할 수 있습니다. 즉, Azure 부서의 범위 계정이 생성 될 때 작성자가 계정에 액세스 하거나 이전에 정의 된 역할 중 하나 이상에 배치 될 때까지 해당 Api를 사용할 수 있습니다.
 
 부서의 범위 데이터 원본 관리자 역할에는 지원 되는 두 가지 시나리오가 있습니다. 첫 번째 시나리오는 데이터 판독기를 이미 부서의 범위 하거나 검색을 만들 수 있는 데이터를 부서의 범위 하는 사용자를 위한 것입니다. 이러한 사용자는 하나 이상의 부서의 범위 데이터 판독기 또는 부서의 범위 Data 큐레이터 및 부서의 범위 데이터 원본 관리자 역할에 배치 해야 합니다.
 
@@ -77,8 +77,8 @@ Azure 부서의 범위 계정에 대 한 액세스 권한을 부여 하 여 해�
 |프로그래밍 id를 사용 하 여 카탈로그 정보에 액세스 하지 않고 Azure 부서의 범위에서 검색을 설정 하 고 모니터링 하려면 서비스 사용자 또는 다른 프로그래밍 id를 사용 하도록 설정 해야 합니다. |부서의 범위 데이터 원본 관리자 역할|
 |Azure 부서의 범위에서 사용자를 역할에 추가 해야 합니다. | 소유자 또는 사용자 액세스 관리자 |
 
-역할에 보안 주체를 추가 하는 방법을 알아보려면 다음 문서로 이동 합니다.
+역할에 보안 주체를 추가 하는 방법에 대 한 자세한 내용은 빠른 시작 [: Azure 부서의 범위 계정 만들기](create-catalog-portal.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Azure 부서의 범위 계정 만들기](create-catalog-portal.md)
+* [데이터 인사이트](concept-insights.md)

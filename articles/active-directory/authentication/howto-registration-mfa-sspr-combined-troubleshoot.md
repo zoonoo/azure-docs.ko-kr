@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 04/15/2020
+ms.date: 01/19/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba1e280e3c14a24e33246799ca0d7ef8221294f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db87887fc2b51c7cb8cb300eb8e711d3ae9b6ac8
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741697"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610790"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>결합 된 보안 정보 등록 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "96741697"
 
 ## <a name="audit-logs"></a>감사 로그
 
-결합 된 등록에 대해 기록 된 이벤트는 Azure AD 감사 로그의 인증 방법 범주에 있습니다.
+결합 된 등록에 대해 기록 된 이벤트는 Azure AD 감사 로그의 인증 방법 서비스에 있습니다.
 
 ![등록 이벤트를 표시 하는 Azure AD Audit logs 인터페이스](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 

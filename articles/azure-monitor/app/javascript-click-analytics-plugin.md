@@ -8,16 +8,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: e69d5cc76f8f4b14ab87e13546c98859bb801418
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 7af26be91ff129e4c968bcb131cc98290cd8d7b9
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234846"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610083"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK 용 분석 자동 수집 플러그 인을 클릭 합니다.
 
-Application Insights JavaScript SDK 용 분석 자동 수집 플러그 인을 클릭 하면 메타 태그를 기반으로 웹 페이지에서 클릭 이벤트를 자동으로 추적할 수 있습니다 `data-*` . 이 플러그 인은 전역 특성을 사용 하 여 `data-*` 클릭 이벤트를 캡처하고 원격 분석 데이터를 채웁니다.
+이 플러그 인은 웹 페이지에서 클릭 이벤트를 자동으로 추적 하 고 HTML 요소의 data-* 특성을 사용 하 여 이벤트 원격 분석을 채웁니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -101,19 +101,19 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| Name                      | Type    | 기본값   | 설명                                                                                       |
-|---------------------------|---------|-----------|---------------------------------------------------------------------------------------------------|
-| useDefaultContentNameOrId | boolean | false     | 특정 요소가 기본 customDataPrefix로 태그가 지정 되지 않았거나 사용자가 customDataPrefix를 제공 하지 않는 경우이 플래그는 contentName에 대 한 표준 HTML 특성을 수집 하는 데 사용 됩니다. |
-| customDataPrefix          | 문자열  | `data-`   | 제공 된 접두사로 태그가 지정 된 요소의 콘텐츠 이름과 값을 자동으로 캡처합니다.       |
-| aiBlobAttributeTag        | 문자열  | `ai-blob` | 플러그 인은 개별 특성 대신 JSON blob 콘텐츠 메타 데이터 태깅을 지원 합니다 `data-*` . |
-| metaDataPrefix            | 문자열  | null      | 제공 된 접두사를 사용 하 여 HTML 헤드의 meta 요소 이름 및 콘텐츠를 자동으로 캡처합니다. |
-| captureAllMetaDataContent | 문자열  | null      | 모든 HTML 헤드의 메타 요소 이름 및 콘텐츠를 자동으로 캡처합니다. 기본값은 false입니다. 사용 하도록 설정 하면 제공 된 metaDataPrefix이 재정의 됩니다. |
-| parentDataTag             | 문자열  | null      | 이 태그를 사용 하 여 발견 된 경우 DOM을 탐색 하 여 콘텐츠 이름 및 요소 값을 캡처합니다.|
-| dntDataTag                | 문자열  | `ai-dnt`  | 이 특성이 있는 HTML 요소는 원격 분석 데이터를 캡처하기 위해 플러그 인에서 무시 됩니다.|
+| Name                      | Type    | 기본값   | HTML에 사용할 기본 태그 |   설명                                                                                |
+|---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
+| useDefaultContentNameOrId | boolean | false     | 해당 없음         |특정 요소가 기본 customDataPrefix로 태그가 지정 되지 않은 경우 또는 사용자가 customDataPrefix를 제공 하지 않는 경우 contentName에 대 한 표준 HTML 특성을 수집 합니다. |
+| customDataPrefix          | 문자열  | `data-`   | `data-*`| 제공 된 접두사로 태그가 지정 된 요소의 콘텐츠 이름과 값을 자동으로 캡처합니다. 예를 들어,는 `data-*-id` `data-<yourcustomattribute>` HTML 태그에서 사용할 수 있습니다.   |
+| aiBlobAttributeTag        | 문자열  | `ai-blob` |  `data-ai-blob`| 플러그 인은 개별 특성 대신 JSON blob 특성을 지원 합니다 `data-*` . |
+| metaDataPrefix            | 문자열  | null      | 해당 없음  | 캡처 시 제공 된 접두사를 사용 하 여 HTML 헤드의 meta 요소 이름 및 콘텐츠를 자동으로 캡처합니다. 예를 들어는 `custom-` HTML meta 태그에서 사용할 수 있습니다. |
+| captureAllMetaDataContent | boolean | false     | 해당 없음   | 모든 HTML 헤드의 메타 요소 이름 및 콘텐츠를 자동으로 캡처합니다. 기본값은 false입니다. 사용 하도록 설정 하면 제공 된 metaDataPrefix이 재정의 됩니다. |
+| parentDataTag             | 문자열  | null      |  해당 없음  | 이 태그를 사용 하 여 발견 된 경우 DOM을 탐색 하 여 콘텐츠 이름 및 요소 값을 캡처합니다. 예를 들어는 `data-<yourparentDataTag>` HTML 태그에서 사용할 수 있습니다.|
+| dntDataTag                | 문자열  | `ai-dnt`  |  `data-ai-dnt`| 이 특성이 있는 HTML 요소는 원격 분석 데이터를 캡처하기 위해 플러그 인에서 무시 됩니다.|
 
 ### <a name="behaviorvalidator"></a>behaviorValidator
 
-코드의 태그가 지정 된 동작이 엔터프라이즈 내에서 알려진 및 허용 되는 분류의 미리 정의 된 목록을 준수 하는지 자동으로 확인 하는 경우에도 behaviorValidator 함수를 사용할 수 있습니다. 대부분의 Azure Monitor 고객은이 기능을 사용 하지만 고급 시나리오에 사용할 수 있는 것은 필수는 아닙니다. 이 확장의 일부로 노출 되는 세 가지 behaviorValidator 콜백 함수가 있습니다. 그러나 노출 된 함수에서 요구 사항을 해결 하지 못하면 사용자가 자신의 콜백 함수를 사용할 수 있습니다. 사용자 고유의 동작 데이터 구조를 가져오기 위해 플러그 인은 데이터 태그에서 동작을 추출 하는 동안이 유효성 검사기 함수를 사용 합니다.
+BehaviorValidator 함수는 코드의 태그가 지정 된 동작이 미리 정의 된 목록에 맞는지 자동으로 확인 합니다. 이렇게 하면 태그가 지정 된 동작이 기업의 설정 분류와 일치 하 게 됩니다. 대부분의 Azure Monitor 고객은이 기능을 사용 하지만 고급 시나리오에 사용할 수 있는 것은 필수는 아닙니다. 이 확장의 일부로 노출 되는 세 가지 behaviorValidator 콜백 함수가 있습니다. 그러나 노출 된 함수에서 요구 사항을 해결 하지 못하면 사용자가 자신의 콜백 함수를 사용할 수 있습니다. 사용자 고유의 동작 데이터 구조를 가져오기 위해 플러그 인은 데이터 태그에서 동작을 추출 하는 동안이 유효성 검사기 함수를 사용 합니다.
 
 | Name                   | 설명                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
@@ -312,6 +312,7 @@ appInsights.loadAppInsights();
 
 ## <a name="next-steps"></a>다음 단계
 
+- 클릭 분석 자동 수집 플러그 인에 대 한 [GitHub 리포지토리](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) 및 [NPM 패키지](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) 를 확인 합니다.
 - 사용 [환경에서 이벤트 분석](usage-segmentation.md) 을 사용 하 여 상위 클릭 및 사용 가능한 차원과 조각화를 분석 합니다.
 - [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query)의 CustomEvents 테이블에서 customdimensions 특성의 내용 필드 아래에서 데이터 클릭을 찾습니다.
 - [통합 문서](../platform/workbooks-overview.md) 를 빌드하여 클릭 데이터의 사용자 지정 시각화를 만듭니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 43d593a65fd08542eb2829fcebcea81ea0c99986
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e10f45af89e19f6fe62ff729f96d870e008c96ec
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995439"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611103"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -87,16 +87,16 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 | 개체 수 | 2500만 개 개체 |
 | 데이터 세트 크기| ~ 4.7 TiB |
 | 평균 파일 크기 | ~ 200 KiB (가장 큰 파일: 100 GiB) |
-| 초기 클라우드 변경 열거 | 초당 7 개의 개체  |
+| 초기 클라우드 변경 열거 | 초당 20개 개체  |
 | 처리량 업로드 | 동기화 그룹당 초당 20 개의 개체 |
 | 네임 스페이스 다운로드 처리량 | 초당 개체 400개 |
 
 ### <a name="initial-one-time-provisioning"></a>일회성 초기 프로비전
 
 **초기 클라우드 변경 내용 열거**: 새 동기화 그룹을 만들 때 첫 번째 단계는 실행 되는 첫 번째 단계입니다. 이 프로세스에서 시스템은 Azure 파일 공유의 모든 항목을 열거 합니다. 이 과정에서 동기화 작업이 수행 되지 않습니다. 즉, 클라우드 끝점에서 서버 끝점으로 다운로드 되는 항목이 없으며 서버 끝점에서 클라우드 끝점으로 항목이 업로드 되지 않습니다. 초기 클라우드 변경 열거가 완료 되 면 동기화 활동이 다시 시작 됩니다.
-성능 속도는 초당 7 개의 개체입니다. 고객은 클라우드 공유의 항목 수를 확인 하 고 다음] 열의 공식을를 사용 하 여 시간 (일)을 확보 하 여 초기 클라우드 변경 열거를 완료 하는 데 걸리는 시간을 예측할 수 있습니다. 
+성능 속도는 초당 20 개의 개체입니다. 고객은 클라우드 공유의 항목 수를 확인 하 고 다음] 열의 공식을를 사용 하 여 시간 (일)을 확보 하 여 초기 클라우드 변경 열거를 완료 하는 데 걸리는 시간을 예측할 수 있습니다. 
 
-   **초기 클라우드 열거의 시간 (일) = (클라우드 끝점의 개체 수)/(7 * 60 * 60 * 24)**
+   **초기 클라우드 열거의 시간 (일) = (클라우드 끝점의 개체 수)/(20 * 60 * 60 * 24)**
 
 **네임 스페이스 다운로드 처리량** 기존 동기화 그룹에 새 서버 끝점을 추가 하면 Azure File Sync 에이전트가 클라우드 끝점에서 파일 콘텐츠를 다운로드 하지 않습니다. 먼저 전체 네임스페이스를 동기화한 다음, 백그라운드 회수를 트리거하여 전체 파일을 다운로드하거나 클라우드 계층화를 사용하는 경우 서버 엔드포인트에서 설정된 클라우드 계층화 정책에 파일을 다운로드합니다.
 
@@ -121,5 +121,5 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 
 ## <a name="see-also"></a>참고 항목
 
-- [Azure 파일 배포에 대한 계획](storage-files-planning.md)
+- [Azure Files 배포 계획](storage-files-planning.md)
 - [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)

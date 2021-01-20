@@ -4,12 +4,12 @@ description: 사용자가 모든 사용자 및 역할에 대 한 잠금을 적�
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7efeb8a073a04f78f77046c07c107abf0c7526f4
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 53054f89c992139fbbd4f087d2a0344e26d97efc
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602214"
+ms.locfileid: "98610202"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -254,10 +254,17 @@ Get-AzResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -
 Get-AzResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-잠금을 삭제하려면 다음을 사용합니다.
+리소스에 대 한 잠금을 삭제 하려면 다음을 사용 합니다.
 
 ```azurepowershell-interactive
 $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+리소스 그룹에 대 한 잠금을 삭제 하려면 다음을 사용 합니다.
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup).LockId
 Remove-AzResourceLock -LockId $lockId
 ```
 
@@ -295,10 +302,17 @@ az lock list --resource-group exampleresourcegroup --resource-name examplesite -
 az lock list --resource-group exampleresourcegroup
 ```
 
-잠금을 삭제하려면 다음을 사용합니다.
+리소스에 대 한 잠금을 삭제 하려면 다음을 사용 합니다.
 
 ```azurecli
 lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+리소스 그룹에 대 한 잠금을 삭제 하려면 다음을 사용 합니다.
+
+```azurecli
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup  --output tsv --query id)
 az lock delete --ids $lockid
 ```
 

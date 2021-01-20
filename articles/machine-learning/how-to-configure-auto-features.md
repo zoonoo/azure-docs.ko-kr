@@ -11,26 +11,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134418"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610304"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>자동화 된 기계 학습의 데이터 기능화
 
-
-
-Azure Machine Learning의 데이터 기능화 설정 및 [자동화 된 ML 실험](concept-automated-ml.md)을 위해 이러한 기능을 사용자 지정 하는 방법에 대해 알아봅니다.
+Azure Machine Learning의 데이터 기능화 설정 및 [자동화 된 Machine Learning 실험](concept-automated-ml.md)을 위해 이러한 기능을 사용자 지정 하는 방법에 대해 알아봅니다.
 
 ## <a name="feature-engineering-and-featurization"></a>기능 엔지니어링 및 기능화
 
-*기능 엔지니어링* 은 데이터에 대 한 도메인 정보를 사용 하 여 기계 학습 (ML) 알고리즘을 통해 더 나은 학습을 돕는 기능을 만드는 프로세스입니다. Azure Machine Learning에서 데이터 크기 조정 및 정규화 기술이 기능 엔지니어링을 용이 하 게 하기 위해 적용 됩니다. 이러한 기술과이 기능 엔지니어링은 자동화 된 기계 학습 또는 *Automl*, 실험에서 *기능화* 이라고 통칭 됩니다.
+학습 데이터는 행과 열로 구성 됩니다. 각 행은 관찰 또는 레코드 이며 각 행의 열은 각 레코드를 설명 하는 기능입니다. 일반적으로 데이터의 패턴에 가장 잘 맞는 기능을 선택 하 여 예측 모델을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+많은 원시 데이터 필드를 직접 사용 하 여 모델을 학습 시킬 수 있지만, 데이터의 패턴을 보다 잘 구분할 수 있는 정보를 제공 하는 추가 (엔지니어링) 기능을 만들어야 하는 경우가 많습니다. 이 프로세스를 **기능 엔지니어링** 이라고 하며,이를 통해 데이터에 대 한 도메인 정보 사용을 활용 하 여 기계 학습 알고리즘을 사용 하 여 보다 효율적으로 학습할 수 있습니다. 
 
-이 문서에서는 AutoML 실험을 구성 하는 방법을 이미 알고 있다고 가정 합니다. 구성에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+Azure Machine Learning에서 데이터 크기 조정 및 정규화 기술이 기능 엔지니어링을 용이 하 게 하기 위해 적용 됩니다. 이러한 기술과이 기능 엔지니어링을 통칭 하 여 자동화 된 ML 실험에서 **기능화** 이라고 합니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+이 문서에서는 자동화 된 ML 실험을 구성 하는 방법을 이미 알고 있다고 가정 합니다. 구성에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
 - 코드 우선 환경의 경우: [Python 용 AZURE MACHINE LEARNING SDK를 사용 하 여 자동화 된 ML 실험을 구성](how-to-configure-auto-train.md)합니다.
 - 코드 또는 비 코드 환경의 경우: [Azure Machine Learning studio를 사용 하 여 자동화 된 기계 학습 모델을 만들고 검토 하 고 배포](how-to-use-automated-ml-for-ml-models.md)합니다.
@@ -59,7 +61,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 다음 표에는 데이터에 자동으로 적용 되는 기술이 요약 되어 있습니다. 이러한 기술은 SDK 또는 studio를 사용 하 여 구성 된 실험에 적용 됩니다. 이 동작을 사용 하지 않도록 설정 하려면 `"featurization": 'off'` 개체에서을 설정 `AutoMLConfig` 합니다.
 
 > [!NOTE]
-> AutoML에서 만든 모델을 [onnx 모델로](concept-onnx.md)내보낼 계획인 경우 별표 ("*")로 표시 된 기능화 옵션만 onnx 형식으로 지원 됩니다. [모델을 ONNX로 변환](concept-automated-ml.md#use-with-onnx)하는 방법에 대해 자세히 알아보세요.
+> AutoML에서 만든 모델을 [onnx 모델로](concept-onnx.md)내보낼 계획인 경우 별표 ("*")로 표시 된 기능화 옵션만 onnx 형식으로 지원 됩니다. [모델을 ONNX로 변환](how-to-use-automl-onnx-model-dotnet.md)하는 방법에 대해 자세히 알아보세요.
 
 |기능화 &nbsp; 단계| 설명 |
 | ------------- | ------------- |
@@ -89,7 +91,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 데이터 guardrails 세 가지 상태 중 하나를 표시 합니다.
 
-|시스템 상태| 설명 |
+|주| 설명 |
 |----|---- |
 |**통과**| 데이터 문제가 검색 되지 않았으므로 사용자에 게 아무런 조치도 필요 하지 않습니다. |
 |**완료**| 변경 내용이 데이터에 적용되었습니다. 변경 내용이 예상 된 결과와 일치 하는지 확인 하기 위해 AutoML에서 수행한 정정 작업을 검토 하는 것이 좋습니다. |

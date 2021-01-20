@@ -2,17 +2,17 @@
 title: 작업 크기 초과 오류
 description: 작업 크기나 템플릿이 너무 클 때 발생 하는 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
-ms.date: 10/07/2020
-ms.openlocfilehash: 638bdef246fc908ab997bfb99e7526febdb3792e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/19/2021
+ms.openlocfilehash: 1fde4918aff6e3bf494876f83c5b4313b3c5f3d2
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822149"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610406"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>작업 크기 초과에 대 한 오류 해결
 
-이 문서에서는 **JobSizeExceededException** 및 **DeploymentSizeExceededException** 오류를 해결 하는 방법을 설명 합니다.
+이 문서에서는 **JobSizeExceededException** 및 **DeploymentJobSizeExceededException** 오류를 해결 하는 방법을 설명 합니다.
 
 ## <a name="symptom"></a>증상
 
@@ -20,9 +20,12 @@ ms.locfileid: "91822149"
 
 ## <a name="cause"></a>원인
 
-템플릿의 크기가 4mb를 초과 하면이 오류가 발생할 수 있습니다. 4mb 제한은 [복사](copy-resources.md) 를 사용 하 여 여러 인스턴스를 만드는 리소스 정의에 대해 확장 된 후 템플릿의 최종 상태에 적용 됩니다. 최종 상태에는 변수 및 매개 변수에 대 한 확인 된 값도 포함 됩니다.
+배포가 허용 되는 한도 중 하나를 초과 하면이 오류가 발생 합니다. 일반적으로이 오류는 배포를 실행 하는 작업 또는 템플릿 중 하나가 너무 클 때 표시 됩니다.
 
-배포 작업에는 요청에 대 한 메타 데이터도 포함 됩니다. 큰 템플릿의 경우 템플릿과 결합 된 메타 데이터는 작업에 대해 허용 되는 크기를 초과할 수 있습니다.
+배포 작업은 1mb를 초과할 수 없습니다. 작업에는 요청에 대 한 메타 데이터가 포함 됩니다. 큰 템플릿의 경우 템플릿과 결합 된 메타 데이터는 작업에 대해 허용 되는 크기를 초과할 수 있습니다.
+
+
+템플릿은 4mb를 초과할 수 없습니다. 4mb 제한은 [복사](copy-resources.md) 를 사용 하 여 여러 인스턴스를 만드는 리소스 정의에 대해 확장 된 후 템플릿의 최종 상태에 적용 됩니다. 최종 상태에는 변수 및 매개 변수에 대 한 확인 된 값도 포함 됩니다.
 
 템플릿에 대 한 다른 한도는 다음과 같습니다.
 
@@ -44,4 +47,4 @@ ms.locfileid: "91822149"
 
 ## <a name="solution-3---use-serial-copy"></a>해결 방법 3-직렬 복사본 사용
 
-두 번째 옵션은 복사 루프를 [병렬로](copy-resources.md#serial-or-parallel)변경 하는 것입니다. 이 옵션은 복사를 통해 많은 수의 리소스를 배포 하 여 오류가 발생 한 것으로 의심 되는 경우에만 사용 합니다. 이러한 변경으로 인해 리소스가 병렬로 배포 되지 않기 때문에 배포 시간이 크게 늘어날 수 있습니다.
+복사 루프를 [병렬로 변경 하](copy-resources.md#serial-or-parallel)는 것이 좋습니다. 이 옵션은 복사를 통해 많은 수의 리소스를 배포 하 여 오류가 발생 한 것으로 의심 되는 경우에만 사용 합니다. 이러한 변경으로 인해 리소스가 병렬로 배포 되지 않기 때문에 배포 시간이 크게 늘어날 수 있습니다.

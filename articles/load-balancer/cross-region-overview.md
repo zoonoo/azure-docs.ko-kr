@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8a2ad6cea4ab97742261b1cfd84975b243a46e87
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 4a9663e1356f616ed5f428c993f3367ce67cdbb5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938718"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610915"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
 
@@ -35,7 +35,7 @@ Azure 표준 Load Balancer는 다음과 같은 지역 중복 HA 시나리오를 
 * 학습 곡선이 없는 [기존 부하 분산 장치 솔루션에 빌드](#build-cross-region-solution-on-existing-azure-load-balancer)
 
 > [!IMPORTANT]
-> 지역 간 부하 분산 장치는 현재 미리 보기 상태이며 미리 보기 포털에서 숨겨집니다. 에 로그인 하 여 **https://preview.portal.azure.com** 기능을 확인 하 고 배포 합니다. </br> </br>
+> 영역 간 부하 분산 장치는 현재 미리 보기 상태 이며 포털에서 배포할 수 있습니다. 에 로그인 하 여 **https://portal.azure.com** 기능을 확인 하 고 배포 합니다. </br> </br>
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 지역 간 부하 분산은 지역 표준 부하 분산 장치 처럼 고성능 및 짧은 대기 시간으로 동일한 이점을 제공 합니다. 

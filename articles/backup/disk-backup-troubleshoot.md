@@ -3,12 +3,12 @@ title: Azure Disk Backup에서 백업 오류 문제 해결
 description: Azure Disk Backup에서 백업 실패 문제를 해결 하는 방법 알아보기
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 0a2ef1ea20ee8d6b7a3f32e244d3e00f3add80a2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3e7c81d70fc898528532a841a484bf6fff8b83a7
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98558844"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611239"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Azure 디스크 백업 (미리 보기)의 백업 오류 문제 해결
 
@@ -153,11 +153,29 @@ ms.locfileid: "98558844"
 
 권장 조치: 복원할 다른 복구 지점을 사용 하는 것이 좋습니다. 자세한 내용은 [복원 설명서](restore-managed-disks.md)를 참조 하세요.
 
+### <a name="error-code-backupagentpluginhostvalidateprotectionerror"></a>오류 코드: BackupAgentPluginHostValidateProtectionError
+
+오류 메시지: 백업 자격 증명 모음에서 보호를 구성 하는 동안 아직 디스크 백업을 사용할 수 없습니다.
+
+권장 작업: 백업 자격 증명 모음은 지원 되는 미리 보기 영역에 있어야 합니다. 지역 가용성은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
+
+### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>오류 코드: UserErrorDppDatasourceAlreadyHasBackupInstance
+
+오류 메시지: 백업을 구성 하려는 디스크가 이미 보호 되 고 있습니다. 디스크가 백업 자격 증명 모음의 백업 인스턴스와 이미 연결 되어 있습니다.
+
+권장 작업:이 디스크는 백업 자격 증명 모음의 백업 인스턴스와 이미 연결 되어 있습니다. 이 디스크를 다시 보호 하려면 현재 보호 된 백업 자격 증명 모음에서 백업 인스턴스를 삭제 하 고 다른 자격 증명 모음에서 디스크를 다시 보호 하십시오.
+
+### <a name="error-code-usererrordppdatasourcealreadyprotected"></a>오류 코드: UserErrorDppDatasourceAlreadyProtected
+
+오류 메시지: 백업을 구성 하려는 디스크가 이미 보호 되 고 있습니다. 디스크가 백업 자격 증명 모음의 백업 인스턴스와 이미 연결 되어 있습니다.
+
+권장 작업:이 디스크는 백업 자격 증명 모음의 백업 인스턴스와 이미 연결 되어 있습니다. 이 디스크를 다시 보호 하려면 현재 보호 중인 백업 자격 증명 모음에서 백업 인스턴스를 삭제 하 고 다른 자격 증명 모음에서 디스크를 다시 보호 하십시오.
+
 ### <a name="error-code-usererrormaxconcurrentoperationlimitreached"></a>오류 코드: UserErrorMaxConcurrentOperationLimitReached
 
-오류 메시지:이 작업 형식에 대해 허용 되는 동시 작업의 최대 수에 도달 하 여 작업을 시작할 수 없습니다.
+오류 메시지: 허용 되는 최대 동시 백업 수에 도달 하 여 작업을 시작할 수 없습니다.
 
-권장 작업: 이전 작업이 완료 될 때까지 기다립니다.
+권장 조치: 이전에 실행 중인 백업이 완료 될 때까지 기다립니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 434917c1cee26a4a8eeb7f27808e3fcb487f3f55
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aac0139e09866ce44d25989119b2eafb31e76961
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350044"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610457"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 진단 로그 액세스
 Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 설정하는 방법 및 계정에 대해 수집된 로그를 보는 방법을 알아봅니다.
@@ -115,7 +115,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| Name | 유형 | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -128,7 +128,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
-| Name | 유형 | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | 경로 |String |작업이 수행된 경로 |
@@ -136,6 +136,8 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | ClientRequestId |String |이 요청을 고유하게 식별하는 ID |
 | StartTime |String |서버가 요청을 받은 시간 |
 | EndTime |String |서버가 응답을 전송한 시간 |
+| 크기 조정 |long |Data Lake Store 수신 크기 (바이트) |
+| 크기 조정 |long |Data Lake Store에서 egressed 크기 (바이트) |
 
 ### <a name="audit-logs"></a>감사 로그
 다음은 JSON 형식인 감사 로그의 샘플 항목입니다. 각 blob에는 로그 개체의 배열을 포함 하는 **레코드** 라는 하나의 루트 개체가 있습니다.
@@ -164,7 +166,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| Name | 유형 | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -177,7 +179,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
-| Name | 유형 | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | StreamName |String |작업이 수행된 경로 |
 
@@ -193,6 +195,6 @@ search *
 
 Azure Data Lake Storage Gen1에서는 로그 데이터를 처리하고 분석하는 방법에 대한 샘플을 제공합니다. 에서 샘플을 찾을 수 있습니다 [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) . 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)

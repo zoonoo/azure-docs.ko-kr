@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b7980bfc58ed696a74d3da259e23fb7e428621a9
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: e92b17a5743e983ca3e77ad18c0973b9f056dfbd
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028916"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611171"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -41,7 +41,7 @@ Azure Key Vault에 대한 일반적인 내용은 [Key Vault란?](overview.md)을
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[참조](/cli/azure/keyvault)<br>[빠른 시작](quick-create-cli.md)|[참조](/powershell/module/az.keyvault)<br>[빠른 시작](quick-create-powershell.md)|[참조](/rest/api/keyvault/)|[참조](/azure/templates/microsoft.keyvault/vaults)|[참조](/dotnet/api/microsoft.azure.management.keyvault)<br>[빠른 시작](https://docs.microsoft.com/azure/key-vault/general/vault-create-template)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[참조](/java/api/com.microsoft.azure.management.keyvault)|[참조](/javascript/api/@azure/arm-keyvault)|
+|[참조](/cli/azure/keyvault)<br>[빠른 시작](quick-create-cli.md)|[참조](/powershell/module/az.keyvault)<br>[빠른 시작](quick-create-powershell.md)|[참조](/rest/api/keyvault/)|[참조](/azure/templates/microsoft.keyvault/vaults)<br>[빠른 시작](https://docs.microsoft.com/azure/key-vault/general/vault-create-template)|[참조](/dotnet/api/microsoft.azure.management.keyvault)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[참조](/java/api/com.microsoft.azure.management.keyvault)|[참조](/javascript/api/@azure/arm-keyvault)|
 
 설치 패키지 및 소스 코드는 [클라이언트 라이브러리](client-libraries.md) 를 참조 하세요.
 
@@ -67,7 +67,7 @@ Azure에 배포 된 응용 프로그램에 관리 되는 id를 사용 하는 것
 
 Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참조 하세요.
 
-### <a name="azure-identity-client-libraries"></a>Azure Id 클라이언트 라이브러리
+**Azure Id 클라이언트 라이브러리**
 
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
@@ -85,22 +85,19 @@ Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참�
 
 키, 암호 및 인증서에 대 한 액세스는 데이터 평면에 의해 제어 됩니다. 데이터 평면 액세스 제어는 로컬 자격 증명 모음 액세스 정책 또는 Azure RBAC (미리 보기)를 사용 하 여 수행할 수 있습니다.
 
-**키 Api 및 Sdk**
-
+**키 API 및 Sdk**
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[참조](/cli/azure/keyvault/key)<br>[빠른 시작](../keys/quick-create-cli.md)|[참조](/powershell/module/az.keyvault/)<br>[빠른 시작](../keys/quick-create-powershell.md)|[참조](/rest/api/keyvault/#key-operations)|[참조](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[빠른 시작](../keys/quick-create-template.md)|[참조](/dotnet/api/azure.security.keyvault.keys)<br>[빠른 시작](../keys/quick-create-net.md)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[빠른 시작](../keys/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[빠른 시작](../keys/quick-create-java.md)|[참조](/javascript/api/@azure/keyvault-keys/)<br>[빠른 시작](../keys/quick-create-node.md)|
 
-**인증서 Api 및 Sdk**
-
+**인증서 API 및 Sdk**
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[참조](/cli/azure/keyvault/certificate)<br>[빠른 시작](../certificates/quick-create-cli.md)|[참조](/powershell/module/az.keyvault)<br>[빠른 시작](../certificates/quick-create-powershell.md)|[참조](/rest/api/keyvault/#certificate-operations)|해당 없음|[참조](/dotnet/api/azure.security.keyvault.certificates)<br>[빠른 시작](../certificates/quick-create-net.md)|[참조](/python/api/overview/azure/keyvault-certificates-readme)<br>[빠른 시작](../certificates/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)<br>[빠른 시작](../certificates/quick-create-java.md)|[참조](/javascript/api/@azure/keyvault-certificates/)<br>[빠른 시작](../certificates/quick-create-node.md)|
 
-**비밀 Api 및 Sdk**
-
+**비밀 API 및 Sdk**
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|

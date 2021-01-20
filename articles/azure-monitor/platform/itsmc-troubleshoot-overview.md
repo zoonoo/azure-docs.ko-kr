@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 2ffe7c8994d32917a08896c7d25f20d4adf09066
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a4a7b7a4008d5cc4636e2d533c225a618f35af05
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601898"
+ms.locfileid: "98611188"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>ITSM 커넥터의 문제 해결
 
@@ -57,7 +57,7 @@ ITSMC 대시보드를 사용 하 여 인시던트 및 변경 요청 데이터를
    테이블에서 메시지에 대 한 세부 정보를 볼 수 [있습니다.](itsmc-dashboard-errors.md)
    - **로그 검색** 페이지: 쿼리를 사용 하 여 오류 및 관련 정보를 직접 확인 합니다 `*ServiceDeskLog_CL*` .
 
-## <a name="common-symptoms---how-it-should-be-resolved"></a>일반적인 증상-어떻게 해결 해야 하나요?
+## <a name="common-symptoms---how-should-it-be-resolved"></a>일반적인 증상-어떻게 해결할 수 있나요?
 
 아래 목록에는 일반적인 증상과이를 해결 하는 방법이 포함 되어 있습니다.
 

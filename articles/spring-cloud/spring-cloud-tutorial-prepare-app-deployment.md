@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 5d160c46b235c6890426cab9de52ec7b827efe4a
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 37753265afa7e76e87dbcdc5893595bea66798f4
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750716"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610253"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 배포용 응용 프로그램 준비
 
@@ -146,40 +146,14 @@ Azure Spring Cloud는 Spring Boot 버전 2.1 또는 버전 2.2의 Spring Boot �
 
 Spring Boot 버전 | Spring Cloud 버전
 ---|---
-2.1 | Greenwich.RELEASE
 2.2 | Hoxton
 2.3 | Hoxton
+2.4.1 + | 2020.0.0
 
 > [!NOTE]
-> 앱과 Eureka 간의 TLS 인증에서 스프링 부팅 2.4에 대 한 문제를 확인 하 고 현재 스프링 커뮤니티와 협력 하 여 문제를 해결 하 고 있습니다. 해결 방법에 대 한 [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) 를 참조 하세요.
+> 앱과 Eureka 간의 TLS 인증에 대 한 스프링 부팅 2.4.0 문제가 확인 되었습니다. 2.4.1 이상을 사용 하세요. 2.4.0 사용을 참조 하는 경우 해결 방법에 대 한 [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) 를 참조 하세요.
 
-### <a name="dependencies-for-spring-boot-version-21"></a>Spring Boot 버전 2.1에 대한 종속성
-
-Spring Boot 버전 2.1의 경우, 애플리케이션 POM 파일에 다음 종속성을 추가합니다.
-
-```xml
-    <!-- Spring Boot dependencies -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.12.RELEASE</version>
-    </parent>
-
-    <!-- Spring Cloud dependencies -->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-```
-
-### <a name="dependencies-for-spring-boot-version-22"></a>Spring Boot 버전 2.2에 대한 종속성
+### <a name="dependencies-for-spring-boot-version-2223"></a>스프링 부팅 버전 2.2/2.3에 대 한 종속성
 
 Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속성을 추가합니다.
 
@@ -204,16 +178,17 @@ Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속
         </dependencies>
     </dependencyManagement>
 ```
-### <a name="dependencies-for-spring-boot-version-23"></a>스프링 부팅 버전 2.3에 대 한 종속성
 
-스프링 부팅 버전 2.3의 경우 응용 프로그램 POM 파일에 다음 종속성을 추가 합니다.
+### <a name="dependencies-for-spring-boot-version-24"></a>스프링 부팅 버전 2.4에 대 한 종속성
+
+Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속성을 추가합니다.
 
 ```xml
     <!-- Spring Boot dependencies -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.0.RELEASE</version>
+        <version>2.4.1.RELEASE</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -222,34 +197,14 @@ Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR8</version>
+                <version>2020.0.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 ```
-## <a name="azure-spring-cloud-client-dependency"></a>Azure Spring Cloud 클라이언트 종속성
 
-Azure Spring Cloud는 Spring Cloud 구성 요소를 호스트하고 관리합니다. 구성 요소에는 Spring Cloud 서비스 레지스트리 및 Spring Cloud 구성 서버가 포함됩니다. 스프링 부트 2.2 또는 2.3을 사용 하는 것이 좋습니다. 스프링 부팅 2.1의 경우 Azure 스프링 클라우드 서비스 인스턴스와 통신할 수 있도록 종속성에 Azure 스프링 클라우드 클라이언트 라이브러리를 포함 해야 합니다.
-
-다음 표에는 Spring Boot 및 Spring Cloud를 사용하는 앱의 올바른 Azure Spring Cloud 버전이 나와 있습니다.
-
-Spring Boot 버전 | Spring Cloud 버전 | Azure 스프링 클라우드 클라이언트 스타터 버전
----|---|---
-2.1.x | Greenwich.RELEASE | 2.1.2
-2.2. x | Hoxton | 필요하지 않음
-2.3. x | Hoxton | 필요하지 않음
-
-스프링 부트 2.1를 사용 하는 경우 pom.xml 파일에 다음 dependenciy를 포함 합니다.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.2</version>
-</dependency>
-```
 > [!WARNING]
 > `server.port`구성에를 지정 하지 마십시오. Azure 스프링 클라우드는이 설정을 고정 포트 번호로 재정의 합니다. 또한이 설정을 준수 하 고 코드에서 서버 포트를 지정 하지 마십시오.
 
@@ -329,6 +284,9 @@ public class GatewayApplication {
 
 ### <a name="distributed-tracing"></a>분산 추적
 
+또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure 스프링 클라우드에서 Application Insights를 사용 하는 방법에 대 한 자세한 내용은 [분산 추적에 대 한 설명서](spring-cloud-tutorial-distributed-tracing.md)를 참조 하세요.
+
+#### <a name="spring-boot-2223"></a>스프링 부트 2.2/2.3
 pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `spring-cloud-starter-zipkin` 종속성을 포함합니다.
 
 ```xml
@@ -342,7 +300,15 @@ pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `
 </dependency>
 ```
 
- 또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure 스프링 클라우드에서 Application Insights를 사용 하는 방법에 대 한 자세한 내용은 [분산 추적에 대 한 설명서](spring-cloud-tutorial-distributed-tracing.md)를 참조 하세요.
+#### <a name="spring-boot-24"></a>스프링 부팅 2.4
+`spring-cloud-sleuth-zipkin`pom.xml 파일의 종속성 섹션에 다음 종속성을 포함 합니다.
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+</dependency>
+```
 
 ## <a name="see-also"></a>참고 항목
 * [애플리케이션 로그 및 메트릭 분석](./diagnostic-services.md)

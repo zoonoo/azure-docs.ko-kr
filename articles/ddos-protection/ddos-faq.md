@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: b53501bf5aa4bafb0229158edfe0cb244116b909
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 89685d1b8c3a57fa142bbbfd1114f9aa0ff0c400
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600848"
+ms.locfileid: "98611120"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Azure DDoS Protection 표준 질문과 대답
 
@@ -79,4 +79,7 @@ DDoS 보호를 사용 하도록 설정 하려면 Azure의 VNet에 연결 된 서
 
 ## <a name="how-long-does-it-take-for-the-metrics-to-load-on-portal"></a>포털이 포털에서 로드 하는 데 얼마나 걸립니까?
 메트릭은 5 분 이내에 포털에 표시 되어야 합니다. 리소스가 공격을 받고 있는 경우 다른 메트릭은 5-7 분 내에 포털에 표시 되기 시작 합니다. 
+
+## <a name="does-the-service-store-customer-data"></a>서비스에서 고객 데이터를 저장 하나요?
+아니요, Azure DDoS protection은 고객 데이터를 저장 하지 않습니다.
     

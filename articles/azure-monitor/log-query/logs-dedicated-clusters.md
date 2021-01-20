@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562678"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98609947"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 
@@ -102,7 +102,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST (영문)**
 
-*전화할* 
+*호출* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
@@ -213,7 +213,7 @@ Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Propert
 
 다음 REST 호출을 사용 하 여 클러스터에 연결 합니다.
 
-*Send*
+*보내기*
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
@@ -255,7 +255,7 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 
 **REST (영문)**
 
-*전화할*
+*호출*
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
@@ -322,7 +322,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 
 **REST (영문)**
 
-*전화할*
+*호출*
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -380,7 +380,7 @@ Get-AzOperationalInsightsCluster
 
 **REST (영문)**
 
-*전화할*
+*호출*
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -411,7 +411,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 
 **REST (영문)**
 
-*전화할*
+*호출*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -434,7 +434,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 
 **REST (영문)**
 
-*전화할*
+*호출*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -512,27 +512,25 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-nam
 
 - 작업 영역을 클러스터에 연결 하 고 연결을 끊을 수 있습니다. 특정 작업 영역에 대 한 작업 영역 링크 작업 수는 30 일 동안 2 개로 제한 됩니다.
 
-- 클러스터에 대 한 작업 영역 링크는 Log Analytics 클러스터 프로 비전이 완료 되었음을 확인 한 후에만 수행 해야 합니다.  완료된 후에는 작업 영역으로 보낸 데이터를 삭제하고 복구할 수 있습니다.
-
 - 다른 리소스 그룹 또는 구독으로의 클러스터 이동은 현재 지원 되지 않습니다.
-
-- 다른 클러스터에 연결 된 경우에는 클러스터에 대 한 작업 영역 링크가 실패 합니다.
 
 - 현재 중국에서는 Lockbox를 사용할 수 없습니다. 
 
-- [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) 는 지원 되는 지역에서 10 월 2020 일에 만든 클러스터에 대해 자동으로 구성 됩니다. 클러스터가 클러스터에서 GET 요청을 통해 이중 암호화로 구성 되었는지 확인 하 고 속성 값을 관찰할 수 있습니다 `"isDoubleEncryptionEnabled"` `true` . 이중 암호화를 사용 하는 클러스터의 경우입니다. 
-  - 클러스터를 만들고 "<영역 이름> 클러스터에 대 한 이중 암호화를 지원 하지 않습니다." 라는 오류 메시지가 표시 되 면 이중 암호화 없이 클러스터를 만들 수 있습니다. `"properties": {"isDoubleEncryptionEnabled": false}`REST 요청 본문에 속성을 추가 합니다.
+- [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) 는 지원 되는 지역에서 10 월 2020 일에 만든 클러스터에 대해 자동으로 구성 됩니다. 클러스터에 GET 요청을 보내고 `isDoubleEncryptionEnabled` `true` 이중 암호화를 사용 하는 클러스터에 대 한 값을 관찰 하 여 클러스터가 이중 암호화에 대해 구성 되었는지 확인할 수 있습니다. 
+  - 클러스터를 만들 때 "<영역 이름> 클러스터에 대 한 이중 암호화를 지원 하지 않습니다." 라는 오류 메시지가 표시 되 면 `"properties": {"isDoubleEncryptionEnabled": false}` REST 요청 본문에를 추가 하 여 이중 암호화 없이 클러스터를 만들 수 있습니다.
   - 클러스터를 만든 후에는 이중 암호화 설정을 변경할 수 없습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 - 클러스터를 만들 때 충돌 오류가 발생 하는 경우 – 지난 14 일간 클러스터를 삭제 하 고 일시 삭제 상태에 있을 수 있습니다. 클러스터 이름은 일시 삭제 기간 동안 예약 된 상태로 유지 되며 해당 이름을 사용 하 여 새 클러스터를 만들 수 없습니다. 이 이름은 클러스터가 영구적으로 삭제 될 때 일시 삭제 기간이 지나면 릴리스됩니다.
 
-- 작업이 진행 되는 동안 클러스터를 업데이트 하면 작업이 실패 합니다.
+- 클러스터를 프로 비전 하거나 상태를 업데이트 하는 동안 클러스터를 업데이트 하는 경우 업데이트는 실패 합니다.
 
 - 일부 작업은 길고 완료 하는 데 시간이 걸릴 수 있습니다 (클러스터 만들기, 클러스터 키 업데이트 및 클러스터 삭제). 다음 두 가지 방법으로 작업 상태를 확인할 수 있습니다.
   - REST를 사용 하는 경우 응답에서 Azure-AsyncOperation URL 값을 복사 하 고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 따릅니다.
   - 클러스터 또는 작업 영역에 GET 요청을 보내고 응답을 관찰 합니다. 예를 들어 연결 되지 않은 작업 영역에는 *기능* 아래에 *clusterresourceid* 가 없습니다.
+
+- 다른 클러스터에 연결 된 경우에는 클러스터에 대 한 작업 영역 링크가 실패 합니다.
 
 - 오류 메시지
   

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6466647056535635b67cd53012d051f11e9b484c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f04e2aa97cafe2345918e433bcef5e719cee7483
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323314"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610168"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 트리거
 
@@ -43,11 +43,15 @@ public static async Task<IActionResult> Run(
     log.LogInformation("C# HTTP trigger function processed a request.");
 
     string name = req.Query["name"];
-
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    
+    string requestBody = String.Empty;
+    using (StreamReader streamReader =  new  StreamReader(req.Body))
+    {
+        requestBody = await streamReader.ReadToEndAsync();
+    }
     dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
-
+    
     return name != null
         ? (ActionResult)new OkObjectResult($"Hello, {name}")
         : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
@@ -100,11 +104,15 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     log.LogInformation("C# HTTP trigger function processed a request.");
 
     string name = req.Query["name"];
-
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    
+    string requestBody = String.Empty;
+    using (StreamReader streamReader =  new  StreamReader(req.Body))
+    {
+        requestBody = await streamReader.ReadToEndAsync();
+    }
     dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
-
+    
     return name != null
         ? (ActionResult)new OkObjectResult($"Hello, {name}")
         : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
@@ -588,7 +596,7 @@ HTTP 트리거의 입력 바인딩에서 선택적 `route` 속성을 사용하�
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-이 구성으로 함수 코드에서 주소의 두 매개 변수, _category_ 및 _id_를 지원할 수 있습니다.
+이 구성으로 함수 코드에서 주소의 두 매개 변수, _category_ 및 _id_ 를 지원할 수 있습니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -838,7 +846,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 ## <a name="obtaining-keys"></a>키 확보
 
-키는 Azure에 함수 앱의 일부로 저장되며 나머지는 암호화되어 있습니다. 키를 보거나 새 키를 만들거나 키를 새 값으로 전환하려면 [Azure Portal](https://portal.azure.com)에서 HTTP 트리거 함수 중 하나로 이동한 다음 **관리**를 선택합니다.
+키는 Azure에 함수 앱의 일부로 저장되며 나머지는 암호화되어 있습니다. 키를 보거나 새 키를 만들거나 키를 새 값으로 전환하려면 [Azure Portal](https://portal.azure.com)에서 HTTP 트리거 함수 중 하나로 이동한 다음 **관리** 를 선택합니다.
 
 ![포털에서 함수 키를 관리합니다.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 

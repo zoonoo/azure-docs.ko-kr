@@ -4,12 +4,12 @@ description: Application Insights를 사용하여 Node.js 서비스의 성능을
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920589"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611018"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -142,7 +142,7 @@ appInsights.setup("<instrumentation_key>")
 IDE의 기본 제공 형식 힌트 또는 [applicationinsights](https://github.com/microsoft/ApplicationInsights-node.js/blob/develop/applicationinsights.ts) 에서 해당 컨트롤에 대 한 자세한 내용 및 선택적 보조 인수에 대 한 설명을 검토 합니다.
 
 > [!NOTE]
->  기본적으로 `setAutoCollectConsole` 는 *exclude* `console.log` (및 기타 콘솔 메서드)에 대 한 호출을 제외 하도록 구성 됩니다. 지원 되는 타사로 거 (예: winston 및 bunyan)에 대 한 호출만 수집 됩니다. 을 사용 하 여 메서드에 대 한 호출을 포함 하도록이 동작을 변경할 수 있습니다 `console` `setAutoCollectConsole(true, true)` .
+>  기본적으로 `setAutoCollectConsole` 는  `console.log` (및 기타 콘솔 메서드)에 대 한 호출을 제외 하도록 구성 됩니다. 지원 되는 타사로 거 (예: winston 및 bunyan)에 대 한 호출만 수집 됩니다. 을 사용 하 여 메서드에 대 한 호출을 포함 하도록이 동작을 변경할 수 있습니다 `console` `setAutoCollectConsole(true, true)` .
 
 ### <a name="sampling"></a>샘플링
 
@@ -335,6 +335,12 @@ server.on("listening", () => {
 });
 ```
 
+### <a name="flush"></a>플러시
+
+기본적으로 원격 분석은 수집 서버로 전송 되기 전에 15 초 동안 버퍼링 됩니다. 응용 프로그램에 짧은 수명이 있는 경우 (예: CLI 도구) 응용 프로그램이 종료 될 때 버퍼링 된 원격 분석을 수동으로 플러시하는 것이 필요할 수 있습니다 `appInsights.defaultClient.flush()` .
+
+SDK에서 응용 프로그램이 충돌 하는 것을 감지 하면 사용자를 위해 플러시를 호출 `appInsights.defaultClient.flush({ isAppCrashing: true })` 합니다. 플러시 옵션을 사용 하면 `isAppCrashing` 응용 프로그램은 비정상 상태에 있는 것으로 간주 되며 원격 분석을 보내는 데 적합 하지 않습니다. 대신 SDK는 버퍼링 된 모든 원격 분석을 [영구 저장소](./data-retention-privacy.md#nodejs) 에 저장 하 고 응용 프로그램이 종료 되도록 합니다. 응용 프로그램이 다시 시작 되 면 영구 저장소에 저장 된 원격 분석을 보내려고 시도 합니다.
+
 ### <a name="preprocess-data-with-telemetry-processors"></a>원격 분석 프로세서를 사용 하 여 데이터 전처리
 
 수집 된 데이터는 *원격 분석 프로세서* 를 사용 하 여 보존을 위해 전송 되기 전에 처리 하 고 필터링 할 수 있습니다. 원격 분석 항목을 클라우드로 보내기 전에 추가 된 순서 대로 원격 분석 프로세서를 하나씩 호출 합니다.
@@ -377,7 +383,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 여러 Application Insights 리소스를 만들고 각각의 계측 키 ("ikey")를 사용 하 여 서로 다른 데이터를 보낼 수 있습니다.
 
- 예를 들어:
+ 예:
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -400,7 +406,7 @@ client.config.PROPERTYNAME = VALUE;
 
 이러한 속성은 클라이언트 마다 고유 하므로 `appInsights.defaultClient` 를 사용 하 여 만든 클라이언트와 별도로 구성할 수 있습니다 `new appInsights.TelemetryClient()` .
 
-| 속성                        | Description                                                                                                |
+| 속성                        | 설명                                                                                                |
 | ------------------------------- |------------------------------------------------------------------------------------------------------------|
 | instrumentationKey              | Application Insights 리소스의 식별자입니다.                                                      |
 | endpointUrl                     | 원격 분석 페이로드를 보낼 수집 끝점입니다.                                                      |
