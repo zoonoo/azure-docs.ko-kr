@@ -118,7 +118,7 @@ Azure에 영향을 주는 방법 중 하나를 사용 하 여 다른 사용자�
 
 Vnet에 영향을 주는 연결 가중치를 사용 하 여 온-프레미스 네트워크 바운드 트래픽에 대 한 로컬 피어 링 위치에 대 한 연결을 선호 하는 시나리오를 설계할 수 있습니다. 이 솔루션을 완료 하려면 대칭 역방향 트래픽 흐름을 확인 해야 합니다. BGP 라우터 (온-프레미스 쪽에서 Express 경로 회로가 종료 됨) 간의 iBGP 세션에서 로컬 기본 설정을 사용 하 여 Express 경로 회로를 선호 합니다. 이 솔루션은 다음 다이어그램에 설명 되어 있습니다. 
 
-[![8]][8]
+[![20cm(8]][8]
 
 ### <a name="scenario-2"></a>시나리오 2
 
@@ -143,7 +143,7 @@ Vnet에 영향을 주는 연결 가중치를 사용 하 여 온-프레미스 네
 [2]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/specificroute.png "더 구체적인 경로를 사용 하 여 경로 선택에 영향"
 [3]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/configure-weight.png "Azure Portal를 통해 연결 가중치 구성"
 [4]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/connectionweight.png "연결 가중치를 사용 하 여 경로 선택에 영향"
-[5]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/aspath.png에 "영향을 주는 경로 선택에 사용 경로" 추가
+[5]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/aspath.png에 "영향을 주는 경로 선택에 사용 경로 추가"
 [6]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png "개의 대량 분산 온-프레미스 네트워크 고려 사항"
 [7]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch1.png "시나리오 1"
 [8]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol1.png "활성-활성 express 경로 회로 솔루션 1"
