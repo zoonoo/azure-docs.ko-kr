@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 5cbfdd57ebd25da013bfb82b761839b1e74ee012
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 8e83841031593d0d1af4499f3ef9a15400ce7794
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609023"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569608"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -41,11 +41,11 @@ ms.locfileid: "97609023"
 ### <a name="whats-new"></a>새로운 기능
 이 섹션에서는 향상된 최신 Workday 통합 기능에 대해 설명합니다. 포괄적인 업데이트, 계획된 변경 및 보관에 대한 목록은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md) 페이지를 참조하세요. 
 
+* **2020년 10월 - Workday에 대한 주문형 프로비저닝 사용:** [주문형 프로비저닝](../app-provisioning/provision-on-demand.md)을 사용하여, 이제 Workday에서 특정 사용자 프로필에 대한 엔드투엔드 프로비저닝을 테스트하여 특성 매핑 및 식 논리를 확인할 수 있습니다.   
+
 * **2020년 5월 - Workday에 전화 번호 쓰기 저장 기능:** 이제 이메일 및 사용자 이름 외에도 이제 회사 전화 번호와 휴대폰 번호를 Azure AD에서 Workday로 쓰기 저장할 수 있습니다. 자세한 내용은 [쓰기 저장 앱 자습서](workday-writeback-tutorial.md)를 참조하세요.
 
 * **2020년 4월 - 최신 버전의 WWS(Workday Web Services) API 지원:** Workday는 매년 3월과 9월에 두 번 비즈니스 목표와 변화하는 인력 수요를 충족하는 데 도움이 되는 다양한 기능의 업데이트를 제공합니다. Workday에서 제공하는 새로운 기능을 계속 유지하기 위해 이제 연결 URL에서 사용할 WWS API 버전을 직접 지정할 수 있습니다. Workday API 버전을 지정하는 방법에 대한 자세한 내용은 [Workday 연결 구성](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory) 섹션을 참조하세요. 
-
-* **2020년 1월 - AD accountExpires 특성 설정 기능:** 이제 [NumFromDate](../app-provisioning/functions-for-customizing-application-data.md#numfromdate) 함수를 사용하여 *EndContractDate* 또는 *StatusTerminationDate* 와 같은 Workday 날짜 필드를 매핑할 수 있습니다. 
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>이 사용자 프로비전 솔루션에 가장 적합한 사용자
 
@@ -151,51 +151,37 @@ Workday에서 Active Directory로 사용자 프로비저닝을 수행하도록 �
 
 **도메인 보안 정책 권한을 구성하려면**
 
-1. 검색 상자에 **도메인 보안 구성** 을 입력한 다음, **도메인 보안 구성 보고서** 링크를 클릭합니다.  
+1. 검색 상자에서 **보안 그룹 멤버 자격 및 액세스** 를 입력하고 보고서 링크를 클릭합니다.
    >[!div class="mx-imgBorder"]
-   >![검색 상자에 입력된 "도메인 보안 구성" 및 결과에 표시된 "도메인 보안 구성-보고서"를 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_06.png "도메인 보안 정책")  
-2. **도메인** 텍스트 상자에서 다음 도메인을 검색하고 필터에 하나씩 추가합니다.  
+   >![보안 그룹 멤버 자격 검색](./media/workday-inbound-tutorial/security-group-membership-access.png)
+
+1. 이전 단계에서 만든 보안 그룹을 찾아 선택합니다. 
+   >[!div class="mx-imgBorder"]
+   >![보안 그룹 선택](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+
+1. 그룹 이름 옆에 있는 줄임표(...)를 클릭하고 메뉴에서 **보안 그룹 > 보안 그룹에 대한 도메인 권한 유지** 를 선택합니다.
+   >[!div class="mx-imgBorder"]
+   >![도메인 사용 권한 유지 선택](./media/workday-inbound-tutorial/select-maintain-domain-permissions.png)
+
+1. **통합 권한** 에서 다음 도메인을 **Put 액세스를 허용하는 도메인 보안 정책** 목록에 추가합니다.
    * *외부 계정 프로비저닝*
+   * *작업자 데이터: 공용 작업자 보고서* 
+   * *사용자 데이터: 회사 연락처 정보*(Azure AD에서 Workday로 연락처 데이터를 쓰기 저장하려는 경우 필요)
+   * *Workday 계정*(Azure AD에서 Workday로 사용자 이름/UPN을 쓰기 저장하려는 경우 필요)
+
+1. **통합 권한** 에서 다음 도메인을 **Get 액세스를 허용하는 도메인 보안 정책** 목록에 추가합니다.
    * *작업자 데이터: 작업자*
-   * *작업자 데이터: 공용 작업자 보고서*
-   * *사용자 데이터: 회사 연락처 정보*
    * *작업자 데이터: 모든 위치*
    * *작업자 데이터: 현재 직원 충원 정보*
    * *작업자 데이터: 작업자 프로필 직함*
-   * *Workday 계정*
+   * *작업자 데이터: 정규 작업자*(선택 사항 - 프로비저닝을 위해 작업자 자격 데이터를 검색하려면 이 옵션을 추가)
+   * *작업자 데이터: 기술 및 경험*(선택 사항 - 프로비저닝을 위해 작업자 기술 데이터를 검색하려면 이 옵션을 추가)
 
-     >[!div class="mx-imgBorder"]
-     >!["도메인" 텍스트 상자에 "외부 계정"이 있는 도메인 보안 구성 보고서를 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_07.png "도메인 보안 정책")  
-
-     >[!div class="mx-imgBorder"]
-     >![도메인 목록이 선택된 도메인 보안 구성 보고서를 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_08.png "도메인 보안 정책") 
-
-     **확인** 을 클릭합니다.
-
-3. 표시되는 보고서에서 **외부 계정 프로비저닝** 옆에 나타나는 줄임표(...)를 선택하고 메뉴 옵션 **도메인 -> 보안 정책 권한 편집** 을 클릭합니다.
+1. 위의 단계를 완료하면 아래와 같이 권한 화면이 나타납니다.
    >[!div class="mx-imgBorder"]
-   >![도메인 보안 정책](./media/workday-inbound-tutorial/wd_isu_09.png "도메인 보안 정책")  
+   >![모든 도메인 보안 권한](./media/workday-inbound-tutorial/all-domain-security-permissions.png)
 
-4. **도메인 보안 정책 권한 편집** 페이지에서 **통합 권한** 섹션까지 아래로 스크롤합니다. “+” 기호를 클릭하여 **Get** 및 **Put** 통합 권한이 있는 보안 그룹 목록에 통합 시스템 그룹을 추가합니다.
-   >[!div class="mx-imgBorder"]
-   >![강조 표시된 "통합 권한" 섹션을 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_10.png "편집 권한")  
-
-5. “+” 기호를 클릭하여 **Get** 및 **Put** 통합 권한이 있는 보안 그룹 목록에 통합 시스템 그룹을 추가합니다.
-
-   >[!div class="mx-imgBorder"]
-   >![권한 편집](./media/workday-inbound-tutorial/wd_isu_11.png "편집 권한")  
-
-6. 이러한 나머지 보안 정책 각각에 대해 위의 3-5단계를 반복합니다.
-
-   | 작업(Operation) | 도메인 보안 정책 |
-   | ---------- | ---------- |
-   | 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
-   | 가져오기 및 넣기 | 사용자 데이터: 회사 연락처 정보 |
-   | 가져오기 | 작업자 데이터: 작업자 |
-   | 가져오기 | 작업자 데이터: 모든 위치 |
-   | 가져오기 | 작업자 데이터: 현재 직원 충원 정보 |
-   | 가져오기 | 작업자 데이터: 작업자 프로필 직함 |
-   | 가져오기 및 넣기 | Workday 계정 |
+1. **확인** 을 클릭하고 다음 화면에서 **완료** 하여 구성을 완료합니다. 
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>비즈니스 프로세스 보안 정책 권한 구성
 
@@ -240,35 +226,9 @@ Workday에서 Active Directory로 사용자 프로비저닝을 수행하도록 �
    >[!div class="mx-imgBorder"]
    >![보류 중인 보안 활성화](./media/workday-inbound-tutorial/wd_isu_18.png "보류 중인 보안 활성화")  
 
-## <a name="configure-active-directory-service-account"></a>Active Directory 서비스 계정 구성
+## <a name="provisioning-agent-installation-prerequisites"></a>프로비저닝 에이전트 설치 필수 구성 요소
 
-이 섹션에서는 Azure AD Connect 프로비저닝 에이전트를 설치하고 구성하는 데 필요한 AD 서비스 계정 권한에 대해 설명합니다.
-
-### <a name="permissions-required-to-run-the-provisioning-agent-installer"></a>프로비저닝 에이전트 설치 관리자를 실행하는 데 필요한 권한
-프로비저닝 에이전트를 호스팅하는 Windows Server가 확인되면 로컬 관리자 또는 도메인 관리자 자격 증명을 사용하여 서버 호스트에 로그인합니다. 에이전트 설치 프로세스는 보안 키 저장소 자격 증명 파일을 만들고 호스트 서버의 서비스 프로필 구성을 업데이트합니다. 이렇게 하려면 에이전트를 호스팅하는 서버에 대한 관리자 액세스 권한이 필요합니다. 
-
-### <a name="permissions-required-to-configure-the-provisioning-agent-service"></a>프로비저닝 에이전트 서비스를 구성하는 데 필요한 권한
-아래 단계를 사용하여 에이전트 작업을 프로비저닝하는 데 사용할 수 있는 서비스 계정을 설정합니다. 
-1. AD 도메인 컨트롤러에서 *Active Directory 사용자 및 컴퓨터* 스냅인을 엽니다. 
-2. 새 도메인 사용자(예: *provAgentAdmin*)를 만듭니다.  
-3. 마우스 오른쪽 단추로 OU 또는 도메인 이름을 클릭하고, *제어 위임* 을 선택하여 *제어 위임 마법사* 를 엽니다. 
-
-> [!NOTE] 
-> 테스트를 위해 특정 OU에서만 사용자를 만들고 읽을 수 있도록 프로비저닝 에이전트를 제한하려면 테스트 실행 중에 적절한 OU 수준에서 제어를 위임하는 것이 좋습니다.
-
-4. 시작 화면에서 **다음** 을 클릭합니다. 
-5. **사용자 또는 그룹 선택** 화면에서 2단계에서 만든 도메인 사용자를 추가합니다. **다음** 을 클릭합니다.
-   >[!div class="mx-imgBorder"]
-   >![추가 화면](./media/workday-inbound-tutorial/delegation-wizard-01.png "추가 화면")
-
-6. **위임할 작업** 화면에서 다음 작업을 선택합니다. 
-   * 사용자 계정 만들기, 삭제 및 관리
-   * 모든 사용자 정보 읽기
-
-   >[!div class="mx-imgBorder"]
-   >![작업 화면](./media/workday-inbound-tutorial/delegation-wizard-02.png "작업 화면")
-
-7. **다음** 을 클릭하고, 구성을 **저장** 합니다.
+다음 섹션으로 진행하기 전에 [에이전트 설치 필수 구성 요소 프로비저닝](../cloud-provisioning/how-to-prerequisites.md)을 검토합니다. 
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Workday에서 Active Directory로 사용자 프로비전 구성
 
@@ -305,72 +265,9 @@ Workday에서 Active Directory로 사용자 프로비저닝을 수행하도록 �
 
 ### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>2부: 온-프레미스 프로비전 에이전트 설치 및 구성
 
-Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7.1 이상이 있고 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 서버에 Provisioning Agent를 설치해야 합니다.
+Active Directory 온-프레미스에 프로비저닝하려면 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 도메인 조인 서버에 프로비저닝 에이전트를 설치해야 합니다.
 
-> [!TIP]
-> [여기](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)에 제공된 지침을 사용하여 서버에서 .NET Framework 버전을 확인할 수 있습니다.
-> 서버에 .NET 4.7.1 이상이 설치되어 있지 않으면 [여기](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows)에서 다운로드할 수 있습니다.  
-
-다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 아래에 제시된 단계에 따라 에이전트 구성을 완료합니다.
-
-1. 새 에이전트를 설치하려는 Windows Server에 로그인합니다.
-
-1. Provisioning Agent 설치 관리자를 시작하고 동의한 다음, **설치** 단추를 클릭합니다.
-
-   >[!div class="mx-imgBorder"]
-   >![설치 화면](./media/workday-inbound-tutorial/pa_install_screen_1.png "설치 화면")
-
-1. 설치가 완료되면 마법사가 시작되고 **Azure AD 연결** 화면이 표시됩니다. **인증** 단추를 클릭하여 Azure AD 인스턴스에 연결합니다.
-
-   >[!div class="mx-imgBorder"]
-   >![Azure AD 연결](./media/workday-inbound-tutorial/pa_install_screen_2.png "Azure AD 연결")
-
-1. 하이브리드 ID 관리자 자격 증명을 사용하여 Azure AD 인스턴스에 인증합니다.
-
-   >[!div class="mx-imgBorder"]
-   >![관리자 인증](./media/workday-inbound-tutorial/pa_install_screen_3.png "관리자 인증")
-
-   > [!NOTE]
-   > Azure AD 관리자 자격 증명은 Azure AD 테넌트에 연결하는 데만 사용됩니다. 에이전트는 자격 증명을 서버에 로컬로 저장하지 않습니다.
-
-1. Azure AD의 인증에 성공하면 **Active Directory 연결** 화면이 표시됩니다. 이 단계에서는 AD 도메인 이름을 입력하고 **디렉터리 추가** 단추를 클릭합니다.
-
-   >[!div class="mx-imgBorder"]
-   >![디렉터리 추가](./media/workday-inbound-tutorial/pa_install_screen_4.png "디렉터리 추가")
-
-1. 이제 AD 도메인에 연결하는 데 필요한 자격 증명을 입력하라는 메시지가 표시됩니다. 동일한 화면에서 **도메인 컨트롤러 우선 순위 선택** 을 사용하여 에이전트가 프로비전 요청을 보내는 데 사용할 도메인 컨트롤러를 지정할 수 있습니다.
-
-   >[!div class="mx-imgBorder"]
-   >![도메인 자격 증명](./media/workday-inbound-tutorial/pa_install_screen_5.png)
-
-1. 도메인을 구성한 후 설치 관리자는 구성된 도메인 목록을 표시합니다. 이 화면에서 5 및 6단계를 반복하여 도메인을 더 추가하거나 **다음** 을 클릭하여 에이전트 등록을 진행할 수 있습니다.
-
-   >[!div class="mx-imgBorder"]
-   >![구성된 도메인](./media/workday-inbound-tutorial/pa_install_screen_6.png "구성된 도메인")
-
-   > [!NOTE]
-   > 여러 AD 도메인이 있는 경우(예: na.contoso.com, emea.contoso.com) 각 도메인을 목록에 개별적으로 추가하세요.
-   > 부모 도메인(예: contoso.com)만 추가하는 것은 충분하지 않습니다. 각 자식 도메인을 에이전트에 등록해야 합니다.
-
-1. 구성 세부 정보를 검토하고 **확인** 을 클릭하여 에이전트를 등록합니다.
-
-   >[!div class="mx-imgBorder"]
-   >![확인 화면](./media/workday-inbound-tutorial/pa_install_screen_7.png "확인 화면")
-
-1. 구성 마법사가 에이전트 등록의 진행률을 표시합니다.
-
-   >[!div class="mx-imgBorder"]
-   >![에이전트 등록](./media/workday-inbound-tutorial/pa_install_screen_8.png "에이전트 등록")
-
-1. 에이전트 등록이 완료되면 **종료** 를 클릭하여 마법사를 끝낼 수 있습니다.
-
-   >[!div class="mx-imgBorder"]
-   >![종료 화면](./media/workday-inbound-tutorial/pa_install_screen_9.png "종료 화면")
-
-1. 에이전트 설치를 확인하고 "서비스" 스냅인을 열고 "Microsoft Azure AD Connect Provisioning Agent"라는 서비스를 찾아 해당 에이전트가 실행 중인지 확인합니다.
-
-   >[!div class="mx-imgBorder"]
-   >![서비스에서 실행되는 Microsoft Azure AD Connect 프로비저닝 에이전트의 스크린샷](./media/workday-inbound-tutorial/services.png)
+다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 [**설치 에이전트** 섹션](../cloud-provisioning/how-to-install.md)에 나열된 단계에 따라 에이전트 구성을 완료합니다.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>3부: 프로비저닝 앱에서 Workday 및 Active Directory에 대한 연결 구성
 이 단계에서는 Azure Portal에서 Workday 및 Active Directory와의 연결을 설정합니다. 
@@ -514,24 +411,22 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
 | **LocalReference** |  preferredLanguage  |     |  만들기 + 업데이트 |                                               
 | **Switch(\[Municipality\], "OU=Default Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  만들기 + 업데이트 |
 
-특성 매핑 구성이 완료되면 이제 [사용자 프로비저닝 서비스를 사용하도록 설정하고 시작](#enable-and-launch-user-provisioning)할 수 있습니다.
+속성 매핑 구성이 완료되면 [주문형 프로비저닝](../app-provisioning/provision-on-demand.md)을 사용하여 단일 사용자에 대한 프로비저닝을 테스트한 다음, [사용자 프로비저닝 서비스를 사용하고 시작](#enable-and-launch-user-provisioning)할 수 있습니다.
 
 ## <a name="enable-and-launch-user-provisioning"></a>사용자 프로비저닝 사용 및 시작
 
-Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 서비스를 켤 수 있습니다.
+Workday 프로비저닝 앱 구성이 완료되고 [주문형 프로비저닝](../app-provisioning/provision-on-demand.md)을 사용하는 단일 사용자에 대한 프로비저닝을 확인하면 Azure Portal에서 프로비저닝 서비스를 설정할 수 있습니다.
 
 > [!TIP]
-> 기본적으로 프로비전 서비스를 켜면 범위 내 모든 사용자의 프로비전 작업이 시작됩니다. 매핑 오류 또는 Workday 데이터 문제가 있는 경우 프로비전 작업이 실패하고 격리 상태로 전환될 수 있습니다. 이를 방지하기 위해 **원본 개체 범위** 필터를 구성하고 모든 사용자의 전체 동기화를 시작하기 전에 몇몇 테스트 사용자로 특성 매핑을 테스트하는 것이 좋습니다. 매핑이 작동하고 원하는 결과를 제공하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
+> 기본적으로 프로비전 서비스를 켜면 범위 내 모든 사용자의 프로비전 작업이 시작됩니다. 매핑 오류 또는 Workday 데이터 문제가 있는 경우 프로비전 작업이 실패하고 격리 상태로 전환될 수 있습니다. 이를 방지하기 위해 **원본 개체 범위** 필터를 구성하고 모든 사용자의 전체 동기화를 시작하기 전에 [온디멘드 프로비저닝](../app-provisioning/provision-on-demand.md)을 사용하는 몇몇 테스트 사용자로 특성 매핑을 테스트하는 것이 좋습니다. 매핑이 작동하고 원하는 결과를 제공하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
-1. **프로비전** 탭에서 **프로비전 상태** 를 **켜기** 로 설정합니다.
+1. **프로비저닝** 블레이드로 이동하고 **프로비저닝 시작** 을 클릭합니다.
 
-2. **저장** 을 클릭합니다.
+1. 이 작업을 수행하면 초기 동기화가 시작되고, Workday 테넌트에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다. 진행률 표시줄을 확인하여 동기화 주기의 진행 상황을 추적할 수 있습니다. 
 
-3. 이 작업을 수행하면 초기 동기화가 시작되고, Workday 테넌트에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다. 
+1. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그는 Workday에서 어떤 사용자를 읽은 다음, Active Directory에 추가 또는 업데이트되는지와 같은 프로비저닝 서비스에서 수행한 모든 개별 동기화 이벤트를 나열합니다. 감사 로그를 검토하고 프로비저닝 오류를 수정하는 방법에 대한 지침은 문제 해결 섹션을 참조하세요.
 
-4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그는 Workday에서 어떤 사용자를 읽은 다음, Active Directory에 추가 또는 업데이트되는지와 같은 프로비저닝 서비스에서 수행한 모든 개별 동기화 이벤트를 나열합니다. 감사 로그를 검토하고 프로비저닝 오류를 수정하는 방법에 대한 지침은 문제 해결 섹션을 참조하세요.
-
-5. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
+1. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
    > [!div class="mx-imgBorder"]
    > ![프로비저닝 진행률 표시줄](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
@@ -540,12 +435,10 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 * **솔루션 기능 질문**
   * [Workday에서 신규 채용자를 처리할 때 솔루션에서 Active Directory에서 새 사용자 계정의 암호를 어떻게 설정하나요?](#when-processing-a-new-hire-from-workday-how-does-the-solution-set-the-password-for-the-new-user-account-in-active-directory)
   * [솔루션에서 프로비전 작업이 완료된 후 메일 알림 보내기를 지원하나요?](#does-the-solution-support-sending-email-notifications-after-provisioning-operations-complete)
-  * [신규 채용자의 암호 전송을 관리하고 해당 암호를 재설정하는 메커니즘을 안전하게 제공하려면 어떻게 할까요?](#how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password)
   * [솔루션에서는 Azure AD 클라우드 또는 프로비전 에이전트 계층에서 Workday 사용자 프로필을 캐시하나요?](#does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer)
   * [솔루션에서 온-프레미스 AD 그룹을 사용자에게 할당할 수 있나요?](#does-the-solution-support-assigning-on-premises-ad-groups-to-the-user)
   * [솔루션에서 Workday 작업자 프로필을 쿼리 및 업데이트하는 데 사용하는 Workday API는 무엇인가요?](#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles)
   * [두 Azure AD 테넌트를 사용하여 Workday HCM 테넌트를 구성할 수 있나요?](#can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants)
-  * [Azure AD Connect를 배포한 경우 “Workday-Azure AD” 사용자 프로비저닝 앱이 지원되지 않는 이유는 무엇인가요?](#why-workday-to-azure-ad-user-provisioning-app-is-not-supported-if-we-have-deployed-azure-ad-connect)
   * [Workday 및 Azure AD 통합에 관련된 개선 사항을 제안하거나 새로운 기능을 요청하려면 어떻게 할까요?](#how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration)
 
 * **프로비전 에이전트 질문**
@@ -577,19 +470,13 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 아니요. 프로비전 작업을 완료한 후 메일 알림 보내기는 현재 릴리스에서 지원되지 않습니다.
 
-#### <a name="how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password"></a>신규 채용자의 암호 전송을 관리하고 해당 암호를 재설정하는 메커니즘을 안전하게 제공하려면 어떻게 할까요?
-
-새 AD 계정 프로비저닝에 포함된 마지막 단계 중 하나는 사용자의 AD 계정에 할당된 임시 암호를 전송하는 것입니다. 많은 기업에서 사용자의 관리자에게 임시 암호를 전달한 다음, 해당 관리자가 신규 채용자/임시 고용 작업자에게 암호를 전달하는 기존 접근 방식을 사용하고 있습니다. 이 프로세스에는 고유한 보안 결함이 있으며 Azure AD 기능을 사용하여 더 나은 접근 방식을 구현할 수 있는 옵션이 있습니다.
-
-HR 팀은 채용 프로세스의 일부로 일반적으로 신원 조사를 실행하고 신규 채용자의 휴대폰 번호를 조사합니다. Workday-AD 사용자 프로비저닝 통합을 사용하면 이 사실을 기반으로 빌드하고 첫날에 사용자의 셀프 서비스 암호 재설정 기능을 출시할 수 있습니다. 이 작업을 수행하려면 Azure AD Connect를 사용하여 신규 채용자의 "휴대폰 번호" 특성을 Workday에서 AD로 전파한 후 AD에서 Azure AD로 전파합니다. Azure AD에 "휴대폰 번호"가 있으면 사용자 계정의 [SSPR(셀프 서비스 암호 재설정)](../authentication/howto-sspr-authenticationdata.md)을 사용하도록 설정하여 첫날에 신규 채용자가 등록되고 확인된 휴대폰 번호를 인증에 사용할 수 있습니다.
-
 #### <a name="does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer"></a>솔루션에서는 Azure AD 클라우드 또는 프로비전 에이전트 계층에서 Workday 사용자 프로필을 캐시하나요?
 
 아니요. 솔루션은 사용자 프로필의 캐시를 유지하지 않습니다. Azure AD 프로비전 서비스는 단순히 Workday에서 데이터를 읽고 대상 Active Directory 또는 Azure AD에 쓰는 데이터 프로세서로 사용됩니다. 사용자 개인 정보 및 데이터 보존에 대한 자세한 내용은 [개인 데이터 관리](#managing-personal-data) 섹션을 참조하세요.
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>솔루션에서 온-프레미스 AD 그룹을 사용자에게 할당할 수 있나요?
 
-이 기능은 현재 지원되지 않습니다. 이를 해결하려면 [감사 로그 데이터](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta)에 대한 Microsoft Graph API 엔드포인트를 쿼리하는 PowerShell 스크립트를 배포하고 이 스크립트를 사용하여 그룹 할당과 같은 시나리오를 트리거하는 것이 좋습니다. 이 PowerShell 스크립트는 작업 스케줄러에 연결되고 프로비전 에이전트를 실행하는 동일한 상자에 배포될 수 있습니다.  
+이 기능은 현재 지원되지 않습니다. 이를 해결하려면 [감사 로그 데이터](/graph/api/resources/azure-ad-auditlog-overview)에 대한 Microsoft Graph API 엔드포인트를 쿼리하는 PowerShell 스크립트를 배포하고 이 스크립트를 사용하여 그룹 할당과 같은 시나리오를 트리거하는 것이 좋습니다. 이 PowerShell 스크립트는 작업 스케줄러에 연결되고 프로비전 에이전트를 실행하는 동일한 상자에 배포될 수 있습니다.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>솔루션에서 Workday 작업자 프로필을 쿼리 및 업데이트하는 데 사용하는 Workday API는 무엇인가요?
 
@@ -611,10 +498,6 @@ HR 팀은 채용 프로세스의 일부로 일반적으로 신원 조사를 실�
 * 프로비전 에이전트 #2를 배포하고 Azure AD 테넌트 #2에 등록합니다.
 * 각 프로비전 에이전트가 관리할 “자식 도메인”에 따라 도메인을 사용하여 각 에이전트를 구성합니다. 하나의 에이전트가 여러 도메인을 처리할 수 있습니다.
 * Azure Portal을 통해 각 테넌트에서 Workday-AD 사용자 프로비저닝 앱을 설정하고 각 도메인을 사용하여 앱을 구성합니다.
-
-#### <a name="why-workday-to-azure-ad-user-provisioning-app-is-not-supported-if-we-have-deployed-azure-ad-connect"></a>Azure AD Connect를 배포한 경우 “Workday-Azure AD” 사용자 프로비저닝 앱이 지원되지 않는 이유는 무엇인가요?
-
-Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 함께 포함된 모드)에서 사용하는 경우 “인증 원본”의 명확한 정의가 있어야 합니다. 일반적으로 하이브리드 시나리오의 경우 Azure AD Connect를 배포해야 합니다. Azure AD Connect가 배포된 경우에는 온-프레미스 AD가 인증 원본입니다. Workday-Azure AD 커넥터를 함께 도입하면 Workday 특성 값이 Azure AD Connect에서 설정한 값을 덮어쓸 수 있는 상황이 발생할 수 있습니다. 이런 이유로 Azure AD Connect가 사용하도록 설정된 경우 “Workday-Azure AD” 프로비전 앱 사용이 지원되지 않습니다. 이 상황에 발생하면 사용자를 온-프레미스 AD로 가져온 후 Azure AD Connect를 사용하여 Azure AD에 동기화하는 데 “Workday-AD 사용자” 프로비저닝 앱을 사용하는 것이 좋습니다.
 
 #### <a name="how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration"></a>Workday 및 Azure AD 통합에 관련된 개선 사항을 제안하거나 새로운 기능을 요청하려면 어떻게 할까요?
 
@@ -845,35 +728,69 @@ SelectUniqueValue(
 
 이 섹션에서는 문제 해결의 다음 측면을 다룹니다.
 
+* [이벤트 뷰어 로그를 내보내도록 프로비저닝 에이전트 구성](#configure-provisioning-agent-to-emit-event-viewer-logs)
 * [에이전트 문제 해결을 위한 Windows 이벤트 뷰어 설정](#setting-up-windows-event-viewer-for-agent-troubleshooting)
 * [서비스 문제 해결을 위한 Azure Portal 감사 로그 설정](#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 * [AD 사용자 계정 생성 작업에 대한 로그 이해](#understanding-logs-for-ad-user-account-create-operations)
 * [관리자 업데이트 작업에 대한 로그 이해](#understanding-logs-for-manager-update-operations)
 * [일반적으로 발생하는 오류 해결](#resolving-commonly-encountered-errors)
 
+### <a name="configure-provisioning-agent-to-emit-event-viewer-logs"></a>이벤트 뷰어 로그를 내보내도록 프로비저닝 에이전트 구성
+1. 프로비저닝 에이전트가 배포된 Windows Server 머신에 로그인
+1. **Microsoft Azure AD Connect 프로비저닝 에이전트** 서비스를 중지합니다.
+1. 원래 구성 파일의 복사본 만들기 *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
+1. 기존 `<system.diagnostics>` 섹션을 다음으로 바꿉니다. 
+   * 수신기 구성 **etw** 는 EventViewer 로그에 메시지를 내보냅니다.
+   * 수신기 구성 **textWriterListener** 는 *ProvAgentTrace.log* 파일에 추적 메시지를 보냅니다. 고급 문제 해결을 위해서만 textWriterListener와 관련된 줄의 주석 처리를 제거합니다. 
+
+   ```xml
+     <system.diagnostics>
+         <sources>
+         <source name="AAD Connect Provisioning Agent">
+             <listeners>
+             <add name="console"/>
+             <add name="etw"/>
+             <!-- <add name="textWriterListener"/> -->
+             </listeners>
+         </source>
+         </sources>
+         <sharedListeners>
+         <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
+         <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
+             <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
+         </add>
+         <!-- <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/> -->
+         </sharedListeners>
+     </system.diagnostics>
+
+   ```
+1. **Microsoft Azure AD Connect 프로비저닝 에이전트** 서비스를 시작합니다.
+
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>에이전트 문제 해결을 위한 Windows 이벤트 뷰어 설정
 
-* Provisioning Agent가 배포된 Windows Server 머신에 로그인
-* **Windows Server 이벤트 뷰어** 데스크톱 앱을 엽니다.
-* **Windows 로그 &gt; 애플리케이션** 을 선택합니다.
-* **현재 로그 필터링...** 옵션을 사용하여 **AAD.Connect.ProvisioningAgent** 원본 아래에서 기록된 모든 이벤트를 보고 다음과 같이 필터 “-5”를 지정하여 이벤트 ID “5”가 포함된 이벤트를 제외합니다.
+1. Provisioning Agent가 배포된 Windows Server 머신에 로그인
+1. **Windows Server 이벤트 뷰어** 데스크톱 앱을 엽니다.
+1. **Windows 로그 &gt; 애플리케이션** 을 선택합니다.
+1. **현재 로그 필터링...** 아래에 표시된 대로 필터 "-5"를 지정하여 **Azure AD Connect 프로비저닝 에이전트** 소스 아래에 기록된 모든 이벤트를 보고 이벤트 ID가 "5"인 이벤트를 제외하는 옵션입니다.
+   > [!NOTE]
+   > 이벤트 ID 5는 에이전트 부트스트랩 메시지를 Azure AD 클라우드 서비스로 캡처하므로 로그 파일을 분석하는 동안 필터링합니다. 
 
-  ![Windows 이벤트 뷰어](media/workday-inbound-tutorial/wd_event_viewer_01.png))
+   ![Windows 이벤트 뷰어](media/workday-inbound-tutorial/wd_event_viewer_01.png)
 
-* **확인** 을 클릭하고 **날짜 및 시간** 열을 기준으로 결과 보기를 정렬합니다.
+1. **확인** 을 클릭하고 **날짜 및 시간** 열을 기준으로 결과 보기를 정렬합니다.
 
 ### <a name="setting-up-azure-portal-audit-logs-for-service-troubleshooting"></a>서비스 문제 해결을 위한 Azure Portal 감사 로그 설정
 
-* [Azure Portal](https://portal.azure.com)을 시작하고 Workday 프로비전 애플리케이션의 **감사 로그** 섹션으로 이동합니다.
-* 감사 로그 페이지의 **열** 단추를 사용하여 보기에 날짜, 활동, 상태, 상태 이유 열만 표시합니다. 이 구성은 문제 해결에 관련된 데이터에만 초점을 맞추도록 합니다.
+1. [Azure Portal](https://portal.azure.com)을 시작하고 Workday 프로비전 애플리케이션의 **감사 로그** 섹션으로 이동합니다.
+1. 감사 로그 페이지의 **열** 단추를 사용하여 보기에 날짜, 활동, 상태, 상태 이유 열만 표시합니다. 이 구성은 문제 해결에 관련된 데이터에만 초점을 맞추도록 합니다.
 
-  ![감사 로그 열](media/workday-inbound-tutorial/wd_audit_logs_00.png)
+   ![감사 로그 열](media/workday-inbound-tutorial/wd_audit_logs_00.png)
 
-* **대상** 및 **날짜 범위** 쿼리 매개 변수를 사용하여 보기를 필터링합니다. 
-  * **대상** 쿼리 매개 변수를 Workday 작업자 개체의 “작업자 ID” 또는 “직원 ID”로 설정합니다.
-  * 프로비저닝 관련 오류 또는 문제를 조사하려는 적절한 기간으로 **날짜 범위** 를 설정합니다.
+1. **대상** 및 **날짜 범위** 쿼리 매개 변수를 사용하여 보기를 필터링합니다. 
+   * **대상** 쿼리 매개 변수를 Workday 작업자 개체의 “작업자 ID” 또는 “직원 ID”로 설정합니다.
+   * 프로비저닝 관련 오류 또는 문제를 조사하려는 적절한 기간으로 **날짜 범위** 를 설정합니다.
 
-  ![감사 로그 필터](media/workday-inbound-tutorial/wd_audit_logs_01.png)
+   ![감사 로그 필터](media/workday-inbound-tutorial/wd_audit_logs_01.png)
 
 ### <a name="understanding-logs-for-ad-user-account-create-operations"></a>AD 사용자 계정 생성 작업에 대한 로그 이해
 

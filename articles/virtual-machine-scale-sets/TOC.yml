@@ -182,7 +182,7 @@
         - name: 사용 후 삭제 OS 디스크
           href: ../virtual-machines/ephemeral-os-disks.md
         - name: 디스크에 대한 확장성 목표
-          href: ../virtual-machines/windows/disk-scalability-targets.md
+          href: ../virtual-machines/disks-scalability-targets.md
           maintainContext: true
         - name: 디스크의 복구 및 재해 복구
           href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: a62943c1a808424ded1a5e46ed115cda332bf7d5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a73ecf18a4bd89567dc603758d9ff8501267a1f
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020758"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570044"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>자습서: SAP SuccessFactors에서 Active AD로 사용자 프로비저닝 구성
 이 자습서에서는 작업자 데이터를 SuccessFactors Employe Central에서 Azure Active Directory로 프로비저닝하기 위해 수행해야 하는 단계를 보여 주며, 선택적으로 이메일 주소가 SuccessFactors에 쓰기 저장됩니다. 
@@ -91,51 +91,61 @@ SuccessFactors 관리자 팀 또는 구현 파트너와 협력하여 OData API�
 
 ### <a name="create-an-api-permissions-role"></a>API 권한 역할 만들기
 
-* Admin Center(관리 센터)에 액세스할 수 있는 권한이 있는 사용자 계정을 사용하여 SAP SuccessFactors에 로그인합니다.
-* *Manage Permission Roles(권한 역할 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Roles** 를 선택합니다.
+1. Admin Center(관리 센터)에 액세스할 수 있는 권한이 있는 사용자 계정을 사용하여 SAP SuccessFactors에 로그인합니다.
+1. *Manage Permission Roles(권한 역할 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Roles** 를 선택합니다.
   ![Manage Permission Roles](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* Permission Role List(권한 역할 목록)에서 **Create New(새로 만들기)** 를 클릭합니다.
-  > [!div class="mx-imgBorder"]
-  > ![새 권한 역할 만들기](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* 새 권한 역할에 대한 **Role Name(역할 이름)** 및 **Description(설명)** 을 추가합니다. 이름 및 설명은 API 사용 권한에 대한 역할임을 나타내야 합니다.
-  > [!div class="mx-imgBorder"]
-  > ![권한 역할 세부 정보](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* Permission settings(권한 설정) 아래에서 **Permission(권한)...** 을 클릭한 다음, 권한 목록을 아래로 스크롤하여 **Manage Integration Tools(통합 도구 관리)** 를 클릭합니다. **Allow Admin to Access to OData API through Basic Authentication(관리자가 기본 인증을 통해 OData API에 액세스할 수 있도록 허용)** 확인란을 선택합니다.
-  > [!div class="mx-imgBorder"]
-  > ![Manage Integration Tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* 동일한 상자에서 아래로 스크롤하여 **Employee Central API** 를 선택합니다. 아래와 같이 ODATA API를 사용하여 읽고 편집할 수 있는 권한을 추가합니다. 동일한 계정을 SuccessFactors에 쓰기 저장 시나리오에 사용하려면 편집 옵션을 선택합니다. 
-  > [!div class="mx-imgBorder"]
-  > ![읽기 쓰기 권한](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* **완료** 를 클릭합니다. **변경 내용 저장** 을 클릭합니다.
+1. Permission Role List(권한 역할 목록)에서 **Create New(새로 만들기)** 를 클릭합니다.
+    > [!div class="mx-imgBorder"]
+    > ![새 권한 역할 만들기](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+1. 새 권한 역할에 대한 **Role Name(역할 이름)** 및 **Description(설명)** 을 추가합니다. 이름 및 설명은 API 사용 권한에 대한 역할임을 나타내야 합니다.
+    > [!div class="mx-imgBorder"]
+    > ![권한 역할 세부 정보](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+1. Permission settings(권한 설정) 아래에서 **Permission(권한)...** 을 클릭한 다음, 권한 목록을 아래로 스크롤하여 **Manage Integration Tools(통합 도구 관리)** 를 클릭합니다. **Allow Admin to Access to OData API through Basic Authentication(관리자가 기본 인증을 통해 OData API에 액세스할 수 있도록 허용)** 확인란을 선택합니다.
+    > [!div class="mx-imgBorder"]
+    > ![Manage Integration Tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
+1. 동일한 상자에서 아래로 스크롤하여 **Employee Central API** 를 선택합니다. 아래와 같이 ODATA API를 사용하여 읽고 편집할 수 있는 권한을 추가합니다. 동일한 계정을 SuccessFactors에 쓰기 저장 시나리오에 사용하려면 편집 옵션을 선택합니다. 
+    > [!div class="mx-imgBorder"]
+    > ![읽기 쓰기 권한](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+
+1. 동일한 권한 상자에서 **사용자 권한-> 직원 데이터** 로 이동하고 SuccessFactors 테넌트에서 서비스 계정을 읽을 수 있는 특성을 검토합니다. 예를 들어 SuccessFactors에서 *사용자 이름* 특성을 검색하려면 이 특성에 대해 "보기" 권한이 부여되어 있는지 확인합니다. 마찬가지로 보기 권한에 대한 각 속성을 검토합니다. 
+
+    > [!div class="mx-imgBorder"]
+    > ![직원 데이터 권한](./media/sap-successfactors-inbound-provisioning/review-employee-data-permissions.png)
+   
+
+    >[!NOTE]
+    >이 프로비저닝 앱에서 검색하는 전체 특성 목록은 [SuccessFactors 특성 참조](../app-provisioning/sap-successfactors-attribute-reference.md)를 참조하세요.
+
+1. **완료** 를 클릭합니다. **변경 내용 저장** 을 클릭합니다.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>API 사용자에 대한 권한 그룹 만들기
 
-* SuccessFactors Admin Center(관리 센터)에서 *Manage Permission Groups(권한 그룹 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Groups** 를 선택합니다.
-  > [!div class="mx-imgBorder"]
-  > ![Manage Permission Groups](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* Manage Permission Groups 창에서 **Create New(새로 만들기)** 를 클릭합니다.
-  > [!div class="mx-imgBorder"]
-  > ![새 그룹 추가](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* 새 그룹에 대한 Group Name(그룹 이름)을 추가합니다. 그룹 이름은 API 사용자에 대한 그룹임을 나타내야 합니다.
-  > [!div class="mx-imgBorder"]
-  > ![권한 그룹 이름](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* 멤버를 그룹에 추가합니다. 예를 들어 People Pool(사용자 풀) 드롭다운 메뉴에서 **Username(사용자 이름)** 을 선택한 다음, 통합에 사용할 API 계정의 사용자 이름을 입력할 수 있습니다. 
-  > [!div class="mx-imgBorder"]
-  > ![그룹 멤버 추가](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
-* **Done(완료)** 을 클릭하여 권한 그룹 만들기를 완료합니다.
+1. SuccessFactors Admin Center(관리 센터)에서 *Manage Permission Groups(권한 그룹 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Groups** 를 선택합니다.
+    > [!div class="mx-imgBorder"]
+    > ![Manage Permission Groups](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+1. Manage Permission Groups 창에서 **Create New(새로 만들기)** 를 클릭합니다.
+    > [!div class="mx-imgBorder"]
+    > ![새 그룹 추가](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+1. 새 그룹에 대한 Group Name(그룹 이름)을 추가합니다. 그룹 이름은 API 사용자에 대한 그룹임을 나타내야 합니다.
+    > [!div class="mx-imgBorder"]
+    > ![권한 그룹 이름](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+1. 멤버를 그룹에 추가합니다. 예를 들어 People Pool(사용자 풀) 드롭다운 메뉴에서 **Username(사용자 이름)** 을 선택한 다음, 통합에 사용할 API 계정의 사용자 이름을 입력할 수 있습니다. 
+    > [!div class="mx-imgBorder"]
+    > ![그룹 멤버 추가](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
+1. **Done(완료)** 을 클릭하여 권한 그룹 만들기를 완료합니다.
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>권한 그룹에 권한 역할 부여
 
-* SuccessFactors Admin Center(관리 센터)에서 *Manage Permission Roles(권한 역할 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Roles** 를 선택합니다.
-* **Permission Role List(권한 역할 목록)** 에서 API 사용 권한에 대해 만든 역할을 선택합니다.
-* **Grant this role to(이 권한을 부여할 대상)...** 아래에서 **Add(추가)...** 단추를 클릭합니다.
-* 드롭다운 메뉴에서 **Permission Group(권한 그룹)...** 을 선택한 다음, **Select(선택)...** 를 클릭하여 Groups(그룹) 창을 열어 위에서 만든 그룹을 선택합니다. 
-  > [!div class="mx-imgBorder"]
-  > ![권한 그룹 추가](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Permission Group(권한 그룹)에 부여된 Permission Role(권한 역할)을 검토합니다. 
-  > [!div class="mx-imgBorder"]
-  > ![권한 역할 및 그룹 세부 정보](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* **변경 내용 저장** 을 클릭합니다.
+1. SuccessFactors Admin Center(관리 센터)에서 *Manage Permission Roles(권한 역할 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Roles** 를 선택합니다.
+1. **Permission Role List(권한 역할 목록)** 에서 API 사용 권한에 대해 만든 역할을 선택합니다.
+1. **Grant this role to(이 권한을 부여할 대상)...** 아래에서 **Add(추가)...** 단추를 클릭합니다.
+1. 드롭다운 메뉴에서 **Permission Group(권한 그룹)...** 을 선택한 다음, **Select(선택)...** 를 클릭하여 Groups(그룹) 창을 열어 위에서 만든 그룹을 선택합니다. 
+    > [!div class="mx-imgBorder"]
+    > ![권한 그룹 추가](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+1. Permission Group(권한 그룹)에 부여된 Permission Role(권한 역할)을 검토합니다. 
+    > [!div class="mx-imgBorder"]
+    > ![권한 역할 및 그룹 세부 정보](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
+1. **변경 내용 저장** 을 클릭합니다.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-azure-ad"></a>사용자 프로비저닝을 SuccessFactors에서 Azure AD로 수행하도록 구성
 

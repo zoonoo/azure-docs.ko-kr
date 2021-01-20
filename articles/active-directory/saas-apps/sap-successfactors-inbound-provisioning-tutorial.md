@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 53707261070e8efbd014614ee700df63a0925ef8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce48d87c6e04e6c349b681e953647feb5e7ddda5
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999708"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570119"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>자습서: SAP SuccessFactors에서 Active Directory로 사용자 프로비저닝 구성 
 이 자습서에서는 사용자를 SuccessFactors Employe Central에서 AD(Active Directory) 및 Azure AD로 프로비저닝하기 위해 수행해야 하는 단계를 보여 주며, 선택적으로 이메일 주소가 SuccessFactors에 쓰기 저장됩니다. 
@@ -94,55 +94,61 @@ SuccessFactors 관리자 팀 또는 구현 파트너와 협력하여 OData API�
 
 ### <a name="create-an-api-permissions-role"></a>API 권한 역할 만들기
 
-* Admin Center(관리 센터)에 액세스할 수 있는 권한이 있는 사용자 계정을 사용하여 SAP SuccessFactors에 로그인합니다.
-* *Manage Permission Roles(권한 역할 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Roles** 를 선택합니다.
+1. Admin Center(관리 센터)에 액세스할 수 있는 권한이 있는 사용자 계정을 사용하여 SAP SuccessFactors에 로그인합니다.
+1. *Manage Permission Roles(권한 역할 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Roles** 를 선택합니다.
   ![Manage Permission Roles](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* Permission Role List(권한 역할 목록)에서 **Create New(새로 만들기)** 를 클릭합니다.
-  > [!div class="mx-imgBorder"]
-  > ![새 권한 역할 만들기](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* 새 권한 역할에 대한 **Role Name(역할 이름)** 및 **Description(설명)** 을 추가합니다. 이름 및 설명은 API 사용 권한에 대한 역할임을 나타내야 합니다.
-  > [!div class="mx-imgBorder"]
-  > ![권한 역할 세부 정보](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* Permission settings(권한 설정) 아래에서 **Permission(권한)...** 을 클릭한 다음, 권한 목록을 아래로 스크롤하여 **Manage Integration Tools(통합 도구 관리)** 를 클릭합니다. **Allow Admin to Access to OData API through Basic Authentication(관리자가 기본 인증을 통해 OData API에 액세스할 수 있도록 허용)** 확인란을 선택합니다.
-  > [!div class="mx-imgBorder"]
-  > ![Manage Integration Tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* 동일한 상자에서 아래로 스크롤하여 **Employee Central API** 를 선택합니다. 아래와 같이 ODATA API를 사용하여 읽고 편집할 수 있는 권한을 추가합니다. 동일한 계정을 SuccessFactors에 쓰기 저장 시나리오에 사용하려면 편집 옵션을 선택합니다. 
-  > [!div class="mx-imgBorder"]
-  > ![읽기 쓰기 권한](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+1. Permission Role List(권한 역할 목록)에서 **Create New(새로 만들기)** 를 클릭합니다.
+    > [!div class="mx-imgBorder"]
+    > ![새 권한 역할 만들기](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+1. 새 권한 역할에 대한 **Role Name(역할 이름)** 및 **Description(설명)** 을 추가합니다. 이름 및 설명은 API 사용 권한에 대한 역할임을 나타내야 합니다.
+    > [!div class="mx-imgBorder"]
+    > ![권한 역할 세부 정보](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+1. Permission settings(권한 설정) 아래에서 **Permission(권한)...** 을 클릭한 다음, 권한 목록을 아래로 스크롤하여 **Manage Integration Tools(통합 도구 관리)** 를 클릭합니다. **Allow Admin to Access to OData API through Basic Authentication(관리자가 기본 인증을 통해 OData API에 액세스할 수 있도록 허용)** 확인란을 선택합니다.
+    > [!div class="mx-imgBorder"]
+    > ![Manage Integration Tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
+1. 동일한 상자에서 아래로 스크롤하여 **Employee Central API** 를 선택합니다. 아래와 같이 ODATA API를 사용하여 읽고 편집할 수 있는 권한을 추가합니다. 동일한 계정을 SuccessFactors에 쓰기 저장 시나리오에 사용하려면 편집 옵션을 선택합니다. 
+    > [!div class="mx-imgBorder"]
+    > ![읽기 쓰기 권한](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
-  >[!NOTE]
-  >이 프로비저닝 앱에서 검색하는 전체 특성 목록은 [SuccessFactors 특성 참조](../app-provisioning/sap-successfactors-attribute-reference.md)를 참조하세요.
+1. 동일한 권한 상자에서 **사용자 권한-> 직원 데이터** 로 이동하고 SuccessFactors 테넌트에서 서비스 계정을 읽을 수 있는 특성을 검토합니다. 예를 들어 SuccessFactors에서 *사용자 이름* 특성을 검색하려면 이 특성에 대해 "보기" 권한이 부여되어 있는지 확인합니다. 마찬가지로 보기 권한에 대한 각 속성을 검토합니다. 
 
-* **완료** 를 클릭합니다. **변경 내용 저장** 을 클릭합니다.
+    > [!div class="mx-imgBorder"]
+    > ![직원 데이터 권한](./media/sap-successfactors-inbound-provisioning/review-employee-data-permissions.png)
+   
+
+    >[!NOTE]
+    >이 프로비저닝 앱에서 검색하는 전체 특성 목록은 [SuccessFactors 특성 참조](../app-provisioning/sap-successfactors-attribute-reference.md)를 참조하세요.
+
+1. **완료** 를 클릭합니다. **변경 내용 저장** 을 클릭합니다.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>API 사용자에 대한 권한 그룹 만들기
 
-* SuccessFactors Admin Center(관리 센터)에서 *Manage Permission Groups(권한 그룹 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Groups** 를 선택합니다.
-  > [!div class="mx-imgBorder"]
-  > ![Manage Permission Groups](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* Manage Permission Groups 창에서 **Create New(새로 만들기)** 를 클릭합니다.
-  > [!div class="mx-imgBorder"]
-  > ![새 그룹 추가](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* 새 그룹에 대한 Group Name(그룹 이름)을 추가합니다. 그룹 이름은 API 사용자에 대한 그룹임을 나타내야 합니다.
-  > [!div class="mx-imgBorder"]
-  > ![권한 그룹 이름](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* 멤버를 그룹에 추가합니다. 예를 들어 People Pool(사용자 풀) 드롭다운 메뉴에서 **Username(사용자 이름)** 을 선택한 다음, 통합에 사용할 API 계정의 사용자 이름을 입력할 수 있습니다. 
-  > [!div class="mx-imgBorder"]
-  > ![그룹 멤버 추가](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
-* **Done(완료)** 을 클릭하여 권한 그룹 만들기를 완료합니다.
+1. SuccessFactors Admin Center(관리 센터)에서 *Manage Permission Groups(권한 그룹 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Groups** 를 선택합니다.
+    > [!div class="mx-imgBorder"]
+    > ![Manage Permission Groups](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+1. Manage Permission Groups 창에서 **Create New(새로 만들기)** 를 클릭합니다.
+    > [!div class="mx-imgBorder"]
+    > ![새 그룹 추가](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+1. 새 그룹에 대한 Group Name(그룹 이름)을 추가합니다. 그룹 이름은 API 사용자에 대한 그룹임을 나타내야 합니다.
+    > [!div class="mx-imgBorder"]
+    > ![권한 그룹 이름](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+1. 멤버를 그룹에 추가합니다. 예를 들어 People Pool(사용자 풀) 드롭다운 메뉴에서 **Username(사용자 이름)** 을 선택한 다음, 통합에 사용할 API 계정의 사용자 이름을 입력할 수 있습니다. 
+    > [!div class="mx-imgBorder"]
+    > ![그룹 멤버 추가](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
+1. **Done(완료)** 을 클릭하여 권한 그룹 만들기를 완료합니다.
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>권한 그룹에 권한 역할 부여
 
-* SuccessFactors Admin Center(관리 센터)에서 *Manage Permission Roles(권한 역할 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Roles** 를 선택합니다.
-* **Permission Role List(권한 역할 목록)** 에서 API 사용 권한에 대해 만든 역할을 선택합니다.
-* **Grant this role to(이 권한을 부여할 대상)...** 아래에서 **Add(추가)...** 단추를 클릭합니다.
-* 드롭다운 메뉴에서 **Permission Group(권한 그룹)...** 을 선택한 다음, **Select(선택)...** 를 클릭하여 Groups(그룹) 창을 열어 위에서 만든 그룹을 선택합니다. 
-  > [!div class="mx-imgBorder"]
-  > ![권한 그룹 추가](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Permission Group(권한 그룹)에 부여된 Permission Role(권한 역할)을 검토합니다. 
-  > [!div class="mx-imgBorder"]
-  > ![권한 역할 및 그룹 세부 정보](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* **변경 내용 저장** 을 클릭합니다.
+1. SuccessFactors Admin Center(관리 센터)에서 *Manage Permission Roles(권한 역할 관리)* 를 검색한 다음, 검색 결과에서 **Manage Permission Roles** 를 선택합니다.
+1. **Permission Role List(권한 역할 목록)** 에서 API 사용 권한에 대해 만든 역할을 선택합니다.
+1. **Grant this role to(이 권한을 부여할 대상)...** 아래에서 **Add(추가)...** 단추를 클릭합니다.
+1. 드롭다운 메뉴에서 **Permission Group(권한 그룹)...** 을 선택한 다음, **Select(선택)...** 를 클릭하여 Groups(그룹) 창을 열어 위에서 만든 그룹을 선택합니다. 
+    > [!div class="mx-imgBorder"]
+    > ![권한 그룹 추가](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+1. Permission Group(권한 그룹)에 부여된 Permission Role(권한 역할)을 검토합니다. 
+    > [!div class="mx-imgBorder"]
+    > ![권한 역할 및 그룹 세부 정보](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
+1. **변경 내용 저장** 을 클릭합니다.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>사용자 프로비저닝을 SuccessFactors에서 Active Directory로 수행하도록 구성
 
@@ -173,68 +179,14 @@ SuccessFactors 관리자 팀 또는 구현 파트너와 협력하여 OData API�
 7. **프로비저닝** **모드** 를 **자동** 으로 변경합니다.
 
 8. 표시된 정보 배너를 클릭하여 Provisioning Agent를 다운로드합니다. 
-   > [!div class="mx-imgBorder"]
-   > ![에이전트 다운로드](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "에이전트 다운로드 화면")
-
+   >[!div class="mx-imgBorder"]
+   >![에이전트 다운로드](./media/workday-inbound-tutorial/pa-download-agent.png "에이전트 다운로드 화면")
 
 ### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>2부: 온-프레미스 프로비전 에이전트 설치 및 구성
 
-Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7.1 이상이 있고 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 서버에 Provisioning Agent를 설치해야 합니다.
+Active Directory 온-프레미스에 프로비저닝하려면 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 도메인 조인 서버에 프로비저닝 에이전트를 설치해야 합니다.
 
-> [!TIP]
-> [여기](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)에 제공된 지침을 사용하여 서버에서 .NET Framework 버전을 확인할 수 있습니다.
-> 서버에 .NET 4.7.1 이상이 설치되어 있지 않으면 [여기](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows)에서 다운로드할 수 있습니다.  
-
-다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 아래에 제시된 단계에 따라 에이전트 구성을 완료합니다.
-
-1. 새 에이전트를 설치하려는 Windows Server에 로그인합니다.
-
-1. Provisioning Agent 설치 관리자를 시작하고 동의한 다음, **설치** 단추를 클릭합니다.
-
-   ![설치 화면](./media/workday-inbound-tutorial/pa_install_screen_1.png "설치 화면")
-   
-1. 설치가 완료되면 마법사가 시작되고 **Azure AD 연결** 화면이 표시됩니다. **인증** 단추를 클릭하여 Azure AD 인스턴스에 연결합니다.
-
-   ![Azure AD 연결](./media/workday-inbound-tutorial/pa_install_screen_2.png "Azure AD 연결")
-   
-1. 글로벌 관리자 자격 증명을 사용하여 Azure AD 인스턴스에 대해 인증합니다.
-
-   ![관리자 인증](./media/workday-inbound-tutorial/pa_install_screen_3.png "관리자 인증")
-
-   > [!NOTE]
-   > Azure AD 관리자 자격 증명은 Azure AD 테넌트에 연결하는 데만 사용됩니다. 에이전트는 자격 증명을 서버에 로컬로 저장하지 않습니다.
-
-1. Azure AD의 인증에 성공하면 **Active Directory 연결** 화면이 표시됩니다. 이 단계에서는 AD 도메인 이름을 입력하고 **디렉터리 추가** 단추를 클릭합니다.
-
-   ![디렉터리 추가](./media/workday-inbound-tutorial/pa_install_screen_4.png "디렉터리 추가")
-  
-1. 이제 AD 도메인에 연결하는 데 필요한 자격 증명을 입력하라는 메시지가 표시됩니다. 동일한 화면에서 **도메인 컨트롤러 우선 순위 선택** 을 사용하여 에이전트가 프로비전 요청을 보내는 데 사용할 도메인 컨트롤러를 지정할 수 있습니다.
-
-   ![도메인 자격 증명](./media/workday-inbound-tutorial/pa_install_screen_5.png)
-   
-1. 도메인을 구성한 후 설치 관리자는 구성된 도메인 목록을 표시합니다. 이 화면에서 5 및 6단계를 반복하여 도메인을 더 추가하거나 **다음** 을 클릭하여 에이전트 등록을 진행할 수 있습니다.
-
-   ![구성된 도메인](./media/workday-inbound-tutorial/pa_install_screen_6.png "구성된 도메인")
-
-   > [!NOTE]
-   > 여러 AD 도메인이 있는 경우(예: na.contoso.com, emea.contoso.com) 각 도메인을 목록에 개별적으로 추가하세요.
-   > 부모 도메인(예: contoso.com)만 추가하는 것은 충분하지 않습니다. 각 자식 도메인을 에이전트에 등록해야 합니다.
-   
-1. 구성 세부 정보를 검토하고 **확인** 을 클릭하여 에이전트를 등록합니다.
-  
-   ![확인 화면](./media/workday-inbound-tutorial/pa_install_screen_7.png "확인 화면")
-   
-1. 구성 마법사가 에이전트 등록의 진행률을 표시합니다.
-  
-   ![에이전트 등록](./media/workday-inbound-tutorial/pa_install_screen_8.png "에이전트 등록")
-   
-1. 에이전트 등록이 완료되면 **종료** 를 클릭하여 마법사를 끝낼 수 있습니다.
-  
-   ![종료 화면](./media/workday-inbound-tutorial/pa_install_screen_9.png "종료 화면")
-   
-1. 에이전트 설치를 확인하고 "서비스" 스냅인을 열고 "Microsoft Azure AD Connect Provisioning Agent"라는 서비스를 찾아 해당 에이전트가 실행 중인지 확인합니다.
-  
-   ![서비스에서 실행되는 Microsoft Azure AD Connect 프로비저닝 에이전트의 스크린샷](./media/workday-inbound-tutorial/services.png)
+다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 [설치 에이전트 섹션에](../cloud-provisioning/how-to-install.md) 나열된 단계에 따라 에이전트 구성을 완료합니다.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>3부: 프로비저닝 앱에서 SuccessFactors 및 Active Directory에 대한 연결 구성
 이 단계에서는 Azure Portal에서 SuccessFactors 및 Active Directory와의 연결을 설정합니다. 
@@ -331,24 +283,22 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
 
 1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장** 을 클릭합니다.
 
-특성 매핑 구성이 완료되면 이제 [사용자 프로비저닝 서비스를 사용하도록 설정하고 시작](#enable-and-launch-user-provisioning)할 수 있습니다.
+속성 매핑 구성이 완료되면 [주문형 프로비저닝](../app-provisioning/provision-on-demand.md)을 사용하여 단일 사용자에 대한 프로비저닝을 테스트한 다음, [사용자 프로비저닝 서비스를 사용하고 시작](#enable-and-launch-user-provisioning)할 수 있습니다.
 
 ## <a name="enable-and-launch-user-provisioning"></a>사용자 프로비저닝 사용 및 시작
 
-SuccessFactors 프로비저닝 앱 구성이 완료되면 Azure Portal에서 프로비저닝 서비스를 설정할 수 있습니다.
+SuccessFactors 프로비저닝 앱 구성이 완료되고 [주문형 프로비저닝](../app-provisioning/provision-on-demand.md)을 사용하는 단일 사용자에 대한 프로비저닝을 확인하면 Azure Portal에서 프로비저닝 서비스를 설정할 수 있습니다.
 
 > [!TIP]
-> 기본적으로 프로비전 서비스를 켜면 범위 내 모든 사용자의 프로비전 작업이 시작됩니다. 매핑 오류 또는 SuccessFactors 데이터 문제가 있는 경우 프로비저닝 작업이 실패하고 격리 상태로 전환될 수 있습니다. 이를 방지하기 위해 **원본 개체 범위** 필터를 구성하고 모든 사용자의 전체 동기화를 시작하기 전에 몇몇 테스트 사용자로 특성 매핑을 테스트하는 것이 좋습니다. 매핑이 작동하고 원하는 결과를 제공하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
+> 기본적으로 프로비전 서비스를 켜면 범위 내 모든 사용자의 프로비전 작업이 시작됩니다. 매핑 오류 또는 SuccessFactors 데이터 문제가 있는 경우 프로비저닝 작업이 실패하고 격리 상태로 전환될 수 있습니다. 이를 방지하기 위해 **원본 개체 범위** 필터를 구성하고 모든 사용자의 전체 동기화를 시작하기 전에 [온디멘드 프로비저닝](../app-provisioning/provision-on-demand.md)을 사용하는 몇몇 테스트 사용자로 특성 매핑을 테스트하는 것이 좋습니다. 매핑이 작동하고 원하는 결과를 제공하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
-1. **프로비전** 탭에서 **프로비전 상태** 를 **켜기** 로 설정합니다.
+1. **프로비저닝** 블레이드로 이동하고 **프로비저닝 시작** 을 클릭합니다.
 
-2. **저장** 을 클릭합니다.
+1. 이 작업을 수행하면 초기 동기화가 시작되며, 이 경우 동기화하는 데 걸리는 시간이 SuccessFactors 테넌트의 사용자 수에 따라 달라질 수 있습니다. 진행률 표시줄을 확인하여 동기화 주기의 진행 상황을 추적할 수 있습니다. 
 
-3. 이 작업을 수행하면 초기 동기화가 시작되며, 이 경우 동기화하는 데 걸리는 시간이 SuccessFactors 테넌트의 사용자 수에 따라 달라질 수 있습니다. 진행률 표시줄을 확인하여 동기화 주기의 진행 상황을 추적할 수 있습니다. 
+1. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그에는 SuccessFactors에서 읽은 다음, Active Directory에 추가 또는 업데이트되는 사용자와 같이 프로비저닝 서비스에서 수행되는 모든 개별 동기화 이벤트가 나열됩니다. 
 
-4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그에는 SuccessFactors에서 읽은 다음, Active Directory에 추가 또는 업데이트되는 사용자와 같이 프로비저닝 서비스에서 수행되는 모든 개별 동기화 이벤트가 나열됩니다. 
-
-5. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
+1. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
    > [!div class="mx-imgBorder"]
    > ![프로비저닝 진행률 표시줄](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
