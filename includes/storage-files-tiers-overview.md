@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3ba7baf79ee972ed7289a1aab93484108da70cf
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 6d06a46d2eaaad362890f1e3e44dbc746fa10898
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724235"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633444"
 ---
 Azure Files는 프리미엄, 트랜잭션 최적화, 핫, 쿨 등의 4가지 스토리지 계층을 제공하여 시나리오의 성능 및 가격 요구 사항에 맞게 공유를 조정할 수 있도록 지원합니다.
 
@@ -22,7 +22,7 @@ Azure Files는 프리미엄, 트랜잭션 최적화, 핫, 쿨 등의 4가지 스
 - **핫**: 핫 파일 공유는 팀 공유와 같은 범용 파일 공유 시나리오에 최적화된 스토리지를 제공합니다. 핫 파일 공유는 HDD를 통해 지원하는 표준 스토리지 하드웨어에서 제공됩니다.
 - **쿨**: 쿨 파일 공유는 온라인 보관 스토리지 시나리오에 최적화된 비용 효율적인 스토리지를 제공합니다. 쿨 파일 공유는 HDD를 통해 지원하는 표준 스토리지 하드웨어에서 제공됩니다.
 
-프리미엄 파일 공유는 **FileStorage 스토리지 계정** 종류로 배포되며, 프로비저닝된 청구 모델에서만 사용할 수 있습니다. 프리미엄 파일 공유의 프로비저닝된 청구 모델에 대한 자세한 내용은 [프리미엄 파일 공유에 대한 프로비저닝 이해](../articles/storage/files/understanding-billing.md#provisioned-billing)를 참조하세요. 트랜잭션 최적화, 핫 및 쿨 파일 공유를 포함한 표준 파일 공유는 **GPv2(범용 버전 2) 스토리지 계정** 종류로 배포되며, 종량제 청구를 통해 사용할 수 있습니다. 핫 및 쿨 파일 공유는 모든 Azure 공용 및 Azure Government 지역에서 사용할 수 있습니다. 트랜잭션 최적화 파일 공유는 국가 클라우드 지역을 포함한 모든 Azure 중국 및 Azure 독일 지역에서 사용할 수 있습니다.
+프리미엄 파일 공유는 **FileStorage 스토리지 계정** 종류로 배포되며, 프로비저닝된 청구 모델에서만 사용할 수 있습니다. 프리미엄 파일 공유의 프로비저닝된 청구 모델에 대한 자세한 내용은 [프리미엄 파일 공유에 대한 프로비저닝 이해](../articles/storage/files/understanding-billing.md#provisioned-model)를 참조하세요. 트랜잭션 최적화, 핫 및 쿨 파일 공유를 포함한 표준 파일 공유는 **GPv2(범용 버전 2) 스토리지 계정** 종류로 배포되며, 종량제 청구를 통해 사용할 수 있습니다. 핫 및 쿨 파일 공유는 모든 Azure 공용 및 Azure Government 지역에서 사용할 수 있습니다. 트랜잭션 최적화 파일 공유는 국가 클라우드 지역을 포함한 모든 Azure 중국 및 Azure 독일 지역에서 사용할 수 있습니다.
 
 워크로드에 대한 스토리지 계층을 선택하는 경우 성능 및 사용량 요구 사항을 고려합니다. 워크로드에 한 자릿수 대기 시간이 필요하거나 온-프레미스에서 SSD 스토리지 미디어를 사용하는 경우 프리미엄 계층이 가장 적합할 수 있습니다. 예를 들어 Azure에서 온-프레미스에 탑재되거나 Azure 파일 동기화를 사용하여 온-프레미스에 캐시되는 팀 공유와 같이 짧은 대기 시간이 그다지 중요하지 않은 경우 표준 스토리지가 비용 측면에서 더 적합할 수 있습니다.
 

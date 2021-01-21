@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8279aee4a0df8155b23e6f984d259bf92555dc95
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509106"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632836"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Windows 중지 오류-"심각한 프로세스를 #0x000000EF."
 
@@ -27,7 +27,7 @@ ms.locfileid: "86509106"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 메시지에 *중요 한 프로세스*를 종료 하는 오류 *#0x000000EF* 스크린 샷에 표시 되는 것을 볼 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 메시지에 *중요 한 프로세스* 를 종료 하는 오류 *#0x000000EF* 스크린 샷에 표시 되는 것을 볼 수 있습니다.
 
 !["PC에 문제가 생겨 다시 시작해야 합니다. 방금 몇 가지 오류 정보를 수집하고 있습니다. 이후에 다시 시작할 수 있습니다. (# #% 완료) 자세히 알아보려면 나중에이 오류에 대해 온라인으로 검색할 수 있습니다. 0x000000EF "](media/troubleshoot-guide-critical-process-died/1.jpg)
 
@@ -38,6 +38,9 @@ ms.locfileid: "86509106"
 ## <a name="solution"></a>해결 방법
 
 ### <a name="process-overview"></a>프로세스 개요:
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 1. 복구 VM을 만들고 액세스합니다.
 2. 모든 OS 손상을 수정 합니다.
@@ -75,7 +78,7 @@ SFC를 실행 한 후에도 문제가 지속 되 면 메모리 덤프 파일을 
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>덤프 파일을 찾고 지원 티켓을 제출 합니다.
 
-3. 복구 VM에서 연결 된 OS 디스크의 windows 폴더로 이동 합니다. 연결 된 OS 디스크에 할당 된 드라이버 문자가 *F*인 경우에는 *F:\Windows*으로 이동 해야 합니다.
+3. 복구 VM에서 연결 된 OS 디스크의 windows 폴더로 이동 합니다. 연결 된 OS 디스크에 할당 된 드라이버 문자가 *F* 인 경우에는 *F:\Windows* 으로 이동 해야 합니다.
 4. *Memory.dmp* 파일을 찾은 다음 메모리 덤프 파일을 사용 하 여 [지원 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 합니다.
 
    > [!NOTE]

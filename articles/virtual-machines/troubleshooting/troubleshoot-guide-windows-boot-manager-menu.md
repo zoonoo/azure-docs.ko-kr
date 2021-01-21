@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f83f4871d5cde23194ff51a90a22031b526cf91
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526542"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632566"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Windows 부팅 관리자로 인해 windows VM을 부팅할 수 없습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "86526542"
 
 VM이 사용자 프롬프트에 대 한 대기 상태를 유지 하 고 수동으로 지시 하지 않는 한 부팅 되지 않습니다.
 
-[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 경우 스크린샷에 Windows 부팅 관리자가 표시 됩니다. 메시지가 표시 되 면 *시작할 운영 체제를 선택 하거나 tab 키를 눌러 도구를 선택*합니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 경우 스크린샷에 Windows 부팅 관리자가 표시 됩니다. 메시지가 표시 되 면 *시작할 운영 체제를 선택 하거나 tab 키를 눌러 도구를 선택* 합니다.
 
 그림 1
  
@@ -39,7 +39,10 @@ VM이 사용자 프롬프트에 대 한 대기 상태를 유지 하 고 수동�
 
 이 오류는 Windows 부팅 관리자의 BCD 플래그 *displaybootmenu* 때문에 발생 합니다. 플래그를 사용 하는 경우 Windows 부팅 관리자는 부팅 프로세스 동안 사용자에 게 실행 하려는 로더를 선택 하 라는 메시지를 표시 하 여 부팅 지연을 발생 시킵니다. Azure에서이 기능은 VM을 부팅 하는 데 걸리는 시간에 추가할 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 프로세스 개요:
 
@@ -85,11 +88,11 @@ VM이 사용자 프롬프트에 대 한 대기 상태를 유지 하 고 수동�
 1. 관리자 권한 명령 프롬프트를 엽니다.
 2. 다음을 입력 하 여 DisplayBootMenu를 사용 하도록 설정 합니다.
 
-   **1 세대 vm**에 대해이 명령을 사용 합니다.
+   **1 세대 vm** 에 대해이 명령을 사용 합니다.
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes`
 
-   **2 세대 vm**에 대해이 명령을 사용 합니다.
+   **2 세대 vm** 에 대해이 명령을 사용 합니다.
 
    `bcdedit /store <VOLUME LETTER OF EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /set {bootmgr} displaybootmenu yes`
 
@@ -97,11 +100,11 @@ VM이 사용자 프롬프트에 대 한 대기 상태를 유지 하 고 수동�
 
 3. 제한 시간 값을 5 초로 변경 합니다.
 
-   **1 세대 vm**에 대해이 명령을 사용 합니다.
+   **1 세대 vm** 에 대해이 명령을 사용 합니다.
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5`
 
-   **2 세대 vm**에 대해이 명령을 사용 합니다.
+   **2 세대 vm** 에 대해이 명령을 사용 합니다.
 
    `bcdedit /store <VOLUME LETTER OF EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /set {bootmgr} timeout 5`
 

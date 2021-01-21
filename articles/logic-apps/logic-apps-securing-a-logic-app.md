@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: c889498d6341875682055e9d67b8d2b958bac70a
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/20/2021
+ms.openlocfilehash: 337e242e3c194c8ec9f66e1888926e6a8f6a8375
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251066"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633081"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -966,7 +966,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 | 속성(디자이너) | 속성(JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | 사용할 인증 유형입니다. [Azure API Management](../api-management/api-management-howto-mutual-certificates.md)를 사용 하 여 인증서를 관리할 수 있습니다. <p></p>**참고**: 사용자 지정 커넥터는 인바운드 및 아웃 바운드 호출에 대해 인증서 기반 인증을 지원 하지 않습니다. |
-| **Pfx** | `pfx` | 예 | <*encoded-pfx-file-content*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 <p><p>PFX 파일을 base64 인코딩 형식으로 변환하려면 다음 단계에 따라 PowerShell을 사용합니다. <p>1. 인증서 콘텐츠를 변수에 저장합니다. <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. `ToBase64String()` 함수를 사용하여 인증서 콘텐츠를 변환하고 해당 콘텐츠를 텍스트 파일에 저장합니다. <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **Pfx** | `pfx` | 예 | <*encoded-pfx-file-content*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 <p><p>PFX 파일을 base64 인코딩 형식으로 변환하려면 다음 단계에 따라 PowerShell을 사용합니다. <p>1. 인증서 콘텐츠를 변수에 저장합니다. <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. `ToBase64String()` 함수를 사용하여 인증서 콘텐츠를 변환하고 해당 콘텐츠를 텍스트 파일에 저장합니다. <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` <p><p>**문제 해결**: 명령을 사용 하는 경우 `cert mmc/PowerShell` 다음과 같은 오류가 발생할 수 있습니다. <p><p>`Could not load the certificate private key. Please check the authentication certificate password is correct and try again.` <p><p>이 오류를 해결 하려면 다음 명령을 사용 하 여 PFX 파일을 PEM 파일로 변환 하 고 다시 시도 합니다 `openssl` . <p><p>`openssl pkcs12 -in certificate.pfx -out certificate.pem` <br>`openssl pkcs12 -in certificate.pem -export -out certificate2.pfx` <p><p>그런 다음 인증서의 새로 변환 된 PFX 파일에 대 한 b a s e 64로 인코딩된 문자열을 가져오면 이제 Azure Logic Apps에서 문자열이 작동 합니다. |
 | **암호** | `password`| 예 | <*password-for-pfx-file*> | PFX 파일에 액세스하기 위한 암호 |
 |||||
 
@@ -1120,7 +1120,7 @@ Authorization: OAuth realm="Photos",
 
    **관리 되는 커넥터 트리거 및 작업**
 
-   | 속성(디자이너) | 필수 | 값 | Description |
+   | 속성(디자이너) | 필수 | 값 | 설명 |
    |---------------------|----------|-------|-------------|
    | **연결 이름** | 예 | <*연결-이름*> ||
    | **관리 ID** | 예 | **시스템 할당 관리 ID** <br>또는 <br> <*사용자 할당 관리 id-이름*> | 사용할 인증 유형 |

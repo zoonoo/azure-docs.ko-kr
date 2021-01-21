@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 8af8d7695c48c6ac682109bb38935e98921fa9e4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: fc3bd5d2590e969db07e9dffa61b4902ea4604c3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681910"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632549"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager-service"></a>로컬 세션 관리자 서비스를 기다리는 동안 VM이 응답 하지 않습니다.
 
@@ -34,6 +34,9 @@ ms.locfileid: "94681910"
 VM이 로컬 세션 관리자를 대기 하는 데는 여러 가지 이유가 있을 수 있습니다. 이 문제가 지속 되 면 분석을 위해 메모리 덤프를 수집 해야 합니다.
 
 ## <a name="solution"></a>솔루션
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 경우에 따라 프로세스가 완료 될 때까지 대기 하면 문제가 해결 됩니다. VM이 응답 하지 않고 1 시간 넘게 대기 화면에 남아 있는 경우 메모리 덤프를 수집 하 고 Microsoft 지원에 문의 해야 합니다.
 

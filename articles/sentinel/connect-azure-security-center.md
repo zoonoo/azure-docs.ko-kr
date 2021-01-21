@@ -9,18 +9,18 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: b37675d46d501fc43446eafc83d6c0a02f238177
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bb188aa79015c2123b9d9d8b6baf277dfadf2f9c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655955"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633047"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Azure Security Center에서 Azure Defender 경고 데이터 연결
 
 Azure Defender 경고 커넥터를 사용 하 여 [Azure Security Center](../security-center/security-center-introduction.md) 에서 azure defender 경고를 수집 하 고 azure 센티널로 스트리밍합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 사용자는 스트리밍할 로그의 구독에 보안 읽기 권한자 역할이 있어야 합니다.
 
@@ -39,6 +39,8 @@ Azure Defender 경고 커넥터를 사용 하 여 [Azure Security Center](../sec
 1. Azure Defender 알림에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Securityalert** 를 검색 합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이 문서에서는 azure 사용자를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.

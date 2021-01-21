@@ -3,12 +3,12 @@ title: .NET 및 AMQP 1.0을 사용한 Azure Service Bus | Microsoft Docs
 description: 이 문서에서는 AMQP (고급 메시징 큐 프로토콜)를 사용 하 여 .NET 응용 프로그램에서 Azure Service Bus를 사용 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0d6d7d01a56d2e7068f9c4ccb8ec505914a31ecf
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 20800363327aefda073cd484dc737b28e60466a7
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233936"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632853"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>AMQP 1.0을 사용하여 .NET에서 Service Bus 사용
 
@@ -107,10 +107,10 @@ AMQP를 사용하는 경우 기본 프로토콜에 비해 Service Bus .NET API�
 
 [.Net api](/dotnet/api/) 는 amqp 프로토콜의 동작을 제어 하기 위해 여러 설정을 노출 합니다.
 
-* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: 링크에 적용되는 초기 크레딧을 제어합니다. 기본값은 0입니다.
-* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: 연결 열기 시간 시 협상 동안 제공되는 최대 AMQP 프레임 크기를 제어합니다. 기본값은 65,536바이트입니다.
-* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: 전송을 배치로 사용 가능한 경우 이 값은 배치 전송을 위한 최대 지연을 결정합니다. 기본적으로 발신자/수신자를 상속합니다. 개별 발신자/수신자는 기본값 20 밀리초를 재정의할 수 있습니다.
-* **[Messagingfactorysettings.operationtimeout messagingfactorysettings.amqptransportsettings.usesslstreamsecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: AMQP 연결이 TLS 연결을 통해 설정 되는지 여부를 제어 합니다. 기본값은 **true** 입니다.
+* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: 링크에 적용되는 초기 크레딧을 제어합니다. 기본값은 0입니다.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: 연결 열기 시간 시 협상 동안 제공되는 최대 AMQP 프레임 크기를 제어합니다. 기본값은 65,536바이트입니다.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: 전송을 배치로 사용 가능한 경우 이 값은 배치 전송을 위한 최대 지연을 결정합니다. 기본적으로 발신자/수신자를 상속합니다. 개별 발신자/수신자는 기본값 20 밀리초를 재정의할 수 있습니다.
+* **[Messagingfactorysettings.operationtimeout messagingfactorysettings.amqptransportsettings.usesslstreamsecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: AMQP 연결이 TLS 연결을 통해 설정 되는지 여부를 제어 합니다. 기본값은 **true** 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -120,10 +120,10 @@ AMQP를 사용하는 경우 기본 프로토콜에 비해 Service Bus .NET API�
 * [AMQP 1.0 프로토콜 가이드]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
-[DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1
-[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
-[Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
-[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
+[DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
+[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
 [NuGet]: https://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md

@@ -3,12 +3,12 @@ title: CLI를 사용 하 여 Azure Event Grid 시스템 항목 만들기, 보기
 description: 이 문서에서는 Azure CLI 사용 하 여 시스템 항목을 만들고, 확인 하 고, 삭제 하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1c847c7f25e3a656b798e186a408e560b9ee9e6
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86115046"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633225"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Azure CLI을 사용 하 여 Event Grid 시스템 항목 만들기, 보기 및 관리
 이 문서에서는 Azure CLI를 사용 하 여 시스템 항목을 만들고 관리 하는 방법을 보여 줍니다. 시스템 항목의 개요는 [시스템 항목](system-topics.md)을 참조 하십시오.
@@ -30,7 +30,7 @@ Cloud Shell:
 ## <a name="create-a-system-topic"></a>시스템 항목 만들기
 
 - 먼저 Azure 원본에서 시스템 항목을 만든 다음 해당 토픽에 대 한 이벤트 구독을 만들려면 다음 참조 항목을 참조 하세요.
-    - [az event grid 시스템-토픽 만들기](/cli/azure/ext/eventgrid/eventgrid/system-topic?view=azure-cli-latest#ext-eventgrid-az-eventgrid-system-topic-create)
+    - [az event grid 시스템-토픽 만들기](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-create)
 
         ```azurecli-interactive
         # Get the ID of the Azure source (for example: Azure Storage account)
@@ -53,14 +53,14 @@ Cloud Shell:
         ```azurecli-interactive
         az eventgrid topic-type  list --output json | grep -w id
         ```
-    - [az event grid system 토픽 이벤트-구독 만들기](/cli/azure/ext/eventgrid/eventgrid/system-topic/event-subscription?view=azure-cli-latest#ext-eventgrid-az-eventgrid-system-topic-event-subscription-create)
+    - [az event grid system 토픽 이벤트-구독 만들기](/cli/azure/ext/eventgrid/eventgrid/system-topic/event-subscription#ext-eventgrid-az-eventgrid-system-topic-event-subscription-create)
 
         ```azurecli-interactive
         az eventgrid system-topic event-subscription create --name <SPECIFY EVENT SUBSCRIPTION NAME> \
             -g rg1 --system-topic-name <SYSTEM TOPIC NAME> \
             --endpoint <ENDPOINT URL>         
         ```
-- Azure source에 대 한 이벤트 구독을 만들 때 시스템 항목을 암시적으로 만들려면 [az event grid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription?view=azure-cli-latest#ext-eventgrid-az-eventgrid-event-subscription-create) 메서드를 사용 합니다. 예를 들면 다음과 같습니다.
+- Azure source에 대 한 이벤트 구독을 만들 때 시스템 항목을 암시적으로 만들려면 [az event grid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) 메서드를 사용 합니다. 예를 들면 다음과 같습니다.
     
     ```azurecli-interactive
     storageid=$(az storage account show --name <AZURE STORAGE ACCOUNT NAME> --resource-group <AZURE RESOURCE GROUP NAME> --query id --output tsv)
@@ -76,12 +76,12 @@ Cloud Shell:
 ## <a name="view-all-system-topics"></a>모든 시스템 항목 보기
 선택한 시스템 항목의 모든 시스템 항목 및 세부 정보를 보려면 다음 명령을 사용 합니다.
 
-- [az event grid system-항목 목록](/cli/azure/ext/eventgrid/eventgrid/system-topic?view=azure-cli-latest#ext-eventgrid-az-eventgrid-system-topic-list)
+- [az event grid system-항목 목록](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-list)
 
     ```azurecli-interactive
     az eventgrid system-topic list   
      ```
-- [az event grid system-토픽 show](/cli/azure/ext/eventgrid/eventgrid/system-topic?view=azure-cli-latest#ext-eventgrid-az-eventgrid-system-topic-show)
+- [az event grid system-토픽 show](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-show)
 
     ```azurecli-interactive
     az eventgrid system-topic show -g <AZURE RESOURCE GROUP NAME> -n <SYSTEM TOPIC NAME>     
@@ -90,7 +90,7 @@ Cloud Shell:
 ## <a name="delete-a-system-topic"></a>시스템 항목 삭제
 시스템 항목을 삭제 하려면 다음 명령을 사용 합니다. 
 
-- [az event grid 시스템 항목 삭제](/cli/azure/ext/eventgrid/eventgrid/system-topic?view=azure-cli-latest#ext-eventgrid-az-eventgrid-system-topic-delete)
+- [az event grid 시스템 항목 삭제](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-delete)
 
     ```azurecli-interactive
     az eventgrid system-topic delete -g <AZURE RESOURCE GROUP NAME> --name <SYSTEM TOPIC NAME>   

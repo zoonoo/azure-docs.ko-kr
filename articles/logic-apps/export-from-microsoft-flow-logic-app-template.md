@@ -3,17 +3,19 @@ title: 전원 자동화에서 Azure Logic Apps로 흐름 내보내기
 description: Azure Resource Manager 템플릿으로 내보내 전원 자동화에서 Azure Logic Apps로 흐름 마이그레이션
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 2192ae5f3de551cb8ff2b6c36e233804c3c56bf1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014417"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633250"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Power Automate에서 흐름을 내보내고 Azure Logic Apps에 배포
+
+> 2020 년 10 월 이후 생성 된 흐름의 경우 더 이상 전원 자동화에서 내보내고 Azure Logic Apps에 배포할 수 없습니다.
 
 흐름의 기능을 확장 하 고 확장 하려면 [전원 자동화](https://flow.microsoft.com) 에서 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 흐름을 마이그레이션할 수 있습니다. 논리 앱에 대 한 Azure Resource Manager 템플릿으로 흐름을 내보내고, 해당 논리 앱 템플릿을 Azure 리소스 그룹에 배포한 다음 논리 앱 디자이너에서 해당 논리 앱을 열 수 있습니다.
 
@@ -24,7 +26,7 @@ ms.locfileid: "96014417"
 >
 > * 전원 자동화가 해당 하는 Logic Apps 커넥터를 찾으려면 [커넥터 Logic Apps](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -32,7 +34,7 @@ ms.locfileid: "96014417"
 
 ## <a name="export-your-flow"></a>흐름 내보내기
 
-1. [Power 자동화](https://flow.microsoft.com)에 로그인 하 고 **내 흐름** 을 선택 합니다. 흐름을 찾아 선택 합니다. 도구 모음에서 줄임표 (**...**) 단추를 선택 하 **Export**  >  **Logic Apps 템플릿 (json)**> 내보냅니다.
+1. [Power 자동화](https://flow.microsoft.com)에 로그인 하 고 **내 흐름** 을 선택 합니다. 흐름을 찾아 선택 합니다. 도구 모음에서 줄임표 (**...**) 단추를 선택 하   >  **Logic Apps 템플릿 (json)**> 내보냅니다.
 
    ![전원 자동화에서 흐름 내보내기](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -66,7 +68,7 @@ ms.locfileid: "96014417"
 
    1. 템플릿에 대 한 입력 매개 변수 값을 선택 하거나 지정 합니다.
 
-      | 속성 | Description |
+      | 속성 | 설명 |
       |----------|-------------|
       | **구독** | 청구에 사용할 Azure 구독입니다. |
       | **리소스 그룹** | 논리 앱에 사용할 Azure 리소스 그룹입니다. 기존 그룹을 사용 하거나 새 그룹을 만들 수 있습니다. |
@@ -76,13 +78,13 @@ ms.locfileid: "96014417"
       | <*연결-이름*> | 논리 앱에서 다시 사용할 수 있는 이전에 만든 연결에 대 한 하나 또는 여러 이름 <p><p>**참고**:이 논리 앱이 첫 번째 이면 모든 연결이 새로 만들어지므로 기본 이름을 그대로 사용할 수 있습니다. 그렇지 않은 경우에는 여러 논리 앱에서 사용할 수 있는 이전에 만든 연결의 이름을 지정할 수 있습니다. |
       |||
 
-      예들 들어 다음과 같습니다.
+      다음은 그 예입니다. 
 
       ![템플릿에 대 한 입력 매개 변수 지정](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
    1. 완료 되 면 필요한 Azure 리소스를 만들고 적절 하 게 Azure 구독을 청구 하는 데 대 한 사용 **약관** 을 검토 합니다.
 
-   1. 준비가 되 면 **귀하가 위에 명시 된 사용 약관에 동의 함** 을 선택  >  **Purchase** 합니다.
+   1. 준비가 되 면 **귀하가 위에 명시 된 사용 약관에 동의 함** 을 선택  >  합니다.
 
       Azure는 지정 된 리소스 그룹에 템플릿을 논리 앱으로 배포 합니다.
 
@@ -146,7 +148,7 @@ ms.locfileid: "96014417"
 
    1. 논리 앱을 배포 하기 전에 솔루션을 저장 합니다.
 
-1. 솔루션 탐색기에서 프로젝트 바로 가기 메뉴를 열고 새로 **배포** 를 선택  >  **New** 합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
+1. 솔루션 탐색기에서 프로젝트 바로 가기 메뉴를 열고 새로 **배포** 를 선택  >  합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
 
 1. 메시지가 표시 되 면 Azure 구독, Azure 리소스 그룹 및 배포에 사용 하려는 기타 설정 (예: 템플릿 매개 변수 값을 전달 하는 데 사용할 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md) )을 확인 한 후 **배포** 를 선택 합니다.
 
@@ -156,7 +158,7 @@ ms.locfileid: "96014417"
 
    ![배포 매개 변수 편집](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 예들 들어 다음과 같습니다.
+   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 다음은 그 예입니다. 
 
    ![출력 창](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

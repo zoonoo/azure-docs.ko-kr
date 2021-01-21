@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14da41815e177ece64c72ac27a7cb126e69fdc62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509038"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633191"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>부팅 오류 – 부팅 가능한 디스크가 아닙니다.
 
@@ -41,6 +41,9 @@ ms.locfileid: "86509038"
 
 ### <a name="process-overview"></a>프로세스 개요
 
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
+
 1. 복구 VM을 만들고 액세스합니다.
 2. 파티션 상태를 활성으로 설정 합니다.
 3. 디스크 파티션을 수정 합니다.
@@ -57,10 +60,10 @@ ms.locfileid: "86509038"
 
 ### <a name="set-partition-status-to-active"></a>파티션 상태를 활성으로 설정
 
-1 세대 Vm은 먼저 BCD 저장소를 포함 하는 OS 파티션이 *활성*으로 표시 되는지 확인 해야 합니다. 2 세대 VM이 있는 경우 나중에 생성에서 *상태* 플래그가 더 이상 사용 되지 않으므로 [디스크 파티션 수정](#fix-the-disk-partition)으로 건너뜁니다.
+1 세대 Vm은 먼저 BCD 저장소를 포함 하는 OS 파티션이 *활성* 으로 표시 되는지 확인 해야 합니다. 2 세대 VM이 있는 경우 나중에 생성에서 *상태* 플래그가 더 이상 사용 되지 않으므로 [디스크 파티션 수정](#fix-the-disk-partition)으로 건너뜁니다.
 
 1. 관리자 권한 명령 프롬프트 *(cmd.exe)* 를 엽니다.
-2. *diskpart*를 입력하고 DISKPART 도구를 시작합니다.
+2. *diskpart* 를 입력하고 DISKPART 도구를 시작합니다.
 3. *목록 디스크* 를 입력 하 여 시스템의 디스크를 나열 하 고 연결 된 OS VHD를 확인 합니다.
 4. 연결된 OS VHD를 찾으면 *sel disk #* 을 입력하여 해당 디스크를 선택합니다.  그림 2를 참조 하세요. 여기서 Disk 1은 연결 된 OS VHD입니다.
 
@@ -68,14 +71,14 @@ ms.locfileid: "86509038"
 
    ![그림 2에는 테이블에 표시 되는 디스크 목록 명령, 디스크 0 및 디스크 1의 출력을 보여 주는 * DISKPART * 창이 표시 됩니다.  또한 sel disk 1 명령의 출력을 표시 하 고 디스크 1은 선택한 디스크를 표시 합니다.](media/troubleshoot-guide-not-bootable-disk/2.jpg)
 
-5. 디스크가 선택되면 *list partition*을 입력하여 선택한 디스크의 파티션을 나열합니다.
+5. 디스크가 선택되면 *list partition* 을 입력하여 선택한 디스크의 파티션을 나열합니다.
 6. 부팅 파티션이 식별되면 *sel partition #* 을 입력하여 파티션을 선택합니다.  일반적으로 부팅 파티션은 350 크기가 약입니다.  그림 3을 참조 하십시오. 여기서 파티션 1은 부팅 파티션입니다.
 
    그림 3
 
    ![그림 3에는 * 파티션 나열 * 명령의 출력이 포함 된 * DISKPART * 창이 표시 됩니다. 파티션 1과 파티션 2가 테이블에 표시 됩니다. 또한 파티션 1이 선택한 디스크인 경우 * sel 파티션 1 * 명령의 출력을 보여 줍니다.](media/troubleshoot-guide-not-bootable-disk/3.jpg)
 
-7. 파티션 상태를 확인 하려면 ' 정보 파티션 '을 입력 합니다. 파티션이 활성 상태인 그림 4를 참조 하십시오 *. 아니요*또는 그림 5 (파티션이 ' 활성: 예 ' 인 경우).
+7. 파티션 상태를 확인 하려면 ' 정보 파티션 '을 입력 합니다. 파티션이 활성 상태인 그림 4를 참조 하십시오 *. 아니요* 또는 그림 5 (파티션이 ' 활성: 예 ' 인 경우).
 
    그림 4
 
@@ -86,13 +89,13 @@ ms.locfileid: "86509038"
    ![그림 5에서는 파티션 1이 * 활성: 예 *로 설정 된 경우 * 정보 파티션 * 명령을 출력 하는 * DISKPART * 창을 보여 줍니다.](media/troubleshoot-guide-not-bootable-disk/5.jpg)
 
 8. 파티션이 **활성 상태가 아닌** *경우 활성을 입력 하* 여 *활성* 플래그를 변경 합니다.
-9. *세부 정보 파티션*을 입력 하 여 상태 변경이 제대로 수행 되었는지 확인 합니다.
+9. *세부 정보 파티션* 을 입력 하 여 상태 변경이 제대로 수행 되었는지 확인 합니다.
 
    그림 6
 
    ![그림 6에는 파티션 1이 * 활성: 예 *로 설정 된 경우 * detail partition * 명령을 출력 하는 diskpart 창이 표시 됩니다.](media/troubleshoot-guide-not-bootable-disk/6.jpg)
 
-10. *exit*를 입력하여 DISKPART 도구를 닫고 구성 변경 내용을 저장합니다.
+10. *exit* 를 입력하여 DISKPART 도구를 닫고 구성 변경 내용을 저장합니다.
 
 ### <a name="fix-the-disk-partition"></a>디스크 파티션 수정
 

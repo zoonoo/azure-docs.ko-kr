@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: e85c97df29bbbcc5d446d788cc190f3c90f24024
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: bbad7dcaa1d92df4969c88e4ba86a62987509e39
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602226"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632802"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database 및 Azure Synapse IP 방화벽 규칙
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -101,7 +101,9 @@ Azure Portal, PowerShell 또는 Transact-sql 문을 사용 하 여 서버 수준
 
 ### <a name="connections-from-inside-azure"></a>Azure 내부에서 연결
 
-Azure 내에서 호스트 되는 응용 프로그램이 SQL server에 연결할 수 있도록 하려면 Azure 연결을 사용 하도록 설정 해야 합니다. Azure의 응용 프로그램이 서버에 연결 하려고 하면 방화벽은 Azure 연결이 허용 되는지 확인 합니다. 방화벽 규칙을 설정 하 고 방화벽 **및 가상 네트워크** 설정에서 **이 서버에 액세스할 수 있도록 허용** 을 **전환 하는** 것을 비롯 하 여 Azure Portal 블레이드에서 직접 설정할 수 있습니다. 연결이 허용 되지 않으면 요청이 서버에 도달 하지 않습니다.
+Azure 내에서 호스트 되는 응용 프로그램이 SQL server에 연결할 수 있도록 하려면 Azure 연결을 사용 하도록 설정 해야 합니다. Azure 연결을 사용 하도록 설정 하려면 시작 및 끝 IP 주소가 0.0.0.0으로 설정 된 방화벽 규칙이 있어야 합니다.
+
+Azure의 응용 프로그램이 서버에 연결 하려고 하면 방화벽은이 방화벽 규칙이 있는지 확인 하 여 Azure 연결이 허용 되는지 확인 합니다. **방화벽 및 가상 네트워크** **설정에서이** 서버에 액세스할 수 있는 **Azure 서비스 및 리소스 허용** 을 전환 하 여 Azure Portal 블레이드에서 직접 설정할 수 있습니다. ON으로 설정 하면 이름이 **AllowAllWindowsIP** 인 IP 0.0.0.0-0.0.0.0에 대 한 인바운드 방화벽 규칙이 생성 됩니다. 포털을 사용 하지 않는 경우 PowerShell 또는 Azure CLI를 사용 하 여 시작 및 끝 IP 주소가 0.0.0.0으로 설정 된 방화벽 규칙을 만듭니다. 
 
 > [!IMPORTANT]
 > 이 옵션은 다른 고객의 구독에서 연결을 포함 하 여 Azure의 모든 연결을 허용 하도록 방화벽을 구성 합니다. 이 옵션을 선택 하는 경우 로그인 및 사용자 권한이 권한 있는 사용자만 액세스할 수 있도록 제한 해야 합니다.

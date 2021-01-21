@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/28/2020
 ms.author: juliako
-ms.openlocfilehash: b25341fb58c1e758d807e3c7b4345fd0ab1baa53
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 07e4b05e12a5994c707a171c5736aea04a9c9723
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610423"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632929"
 ---
 # <a name="add-video-clips-to-your-projects"></a>프로젝트에 비디오 클립 추가
 
-[Video Indexer](https://www.videoindexer.ai/) 웹 사이트를 사용 하면 비디오의 심층 통찰력을 사용 하 여 올바른 미디어 콘텐츠를 찾고 관심 있는 부분을 찾은 다음 결과를 사용 하 여 완전히 새로운 프로젝트를 만들 수 있습니다. 
+[Video Indexer](https://www.videoindexer.ai/) 웹 사이트를 사용 하면 비디오의 심층 정보를 사용 하 여 올바른 미디어 콘텐츠를 찾고 관심 있는 부분을 찾은 다음 결과를 사용 하 여 완전히 새로운 프로젝트를 만들 수 있습니다. 
 
 프로젝트를 만든 후에는 Video Indexer에서 렌더링 하 고 다운로드 한 다음 자체 편집 응용 프로그램 또는 다운스트림 워크플로에서 사용할 수 있습니다.
 

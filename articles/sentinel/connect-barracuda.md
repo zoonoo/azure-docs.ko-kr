@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 1131c8e79d9df2883dcf7e975af9732c21318a49
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e1462246b95da67591cbdfd1f9ed819220de5764
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621167"
+ms.locfileid: "98633064"
 ---
 # <a name="connect-your-barracuda-waf-appliance"></a>Barracuda WAF 어플라이언스 연결 
 
@@ -30,16 +30,20 @@ Barracuda WAF (웹 응용 프로그램 방화벽) 커넥터를 사용 하면 Azu
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Barracuda WAF 구성 및 연결
-Barracuda 웹 응용 프로그램 방화벽은 Log Analytics 에이전트를 통해 Azure 센티널에 직접 로그를 통합 하 고 내보낼 수 있습니다.
-1. [Barracuda WAF 구성 흐름](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)으로 이동 하 고 지침에 따라 다음 매개 변수를 사용 하 여 연결을 설정 합니다.
-    - **작업 영역 id**: Azure 센티널 Barracuda 커넥터 페이지에서 작업 영역 id의 값을 복사 합니다.
-    - **기본 키**: Azure 센티널 Barracuda 커넥터 페이지에서 기본 키의 값을 복사 합니다.
-1. Barracuda 이벤트에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **CommonSecurityLog** 및 **barracuda_CL** 를 검색 합니다.
 
+Barracuda 웹 응용 프로그램 방화벽은 Log Analytics 에이전트를 통해 Azure 센티널에 직접 로그를 통합 하 고 내보낼 수 있습니다.
+
+1. [Barracuda WAF 구성 흐름](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)으로 이동 하 고 지침에 따라 다음 매개 변수를 사용 하 여 연결을 설정 합니다.
+
+    - **작업 영역 id**: Azure 센티널 Barracuda 커넥터 페이지에서 작업 영역 id의 값을 복사 합니다.
+
+    - **기본 키**: Azure 센티널 Barracuda 커넥터 페이지에서 기본 키의 값을 복사 합니다.
+
+1. Barracuda 이벤트에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **CommonSecurityLog** 및 **barracuda_CL** 를 검색 합니다.
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다. 
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다. 
 
 
 

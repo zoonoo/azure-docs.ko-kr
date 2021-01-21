@@ -13,18 +13,16 @@ ms.workload: infrastructure
 ms.date: 11/20/2020
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 00095eed3fe6d143d9ed7a0c748c4702028f4632
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 87bf311b5199ec187c24c28a42314d9dc6787998
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832063"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633030"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
  이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 시작할 때 발생할 수 있는 BitLocker 오류에 대해 설명합니다.
-
- 
 
 ## <a name="symptom"></a>증상
 
@@ -42,6 +40,9 @@ ms.locfileid: "97832063"
 이 문제는 VM이 암호화된 디스크의 암호를 해독하기 위한 BEK(BitLocker 복구 키) 파일을 찾을 수 없는 경우에 발생할 수 있습니다.
 
 ## <a name="solution"></a>솔루션
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 이 문제를 해결 하려면 VM을 중지 하 고 할당을 취소 한 다음 시작 합니다. 이 작업을 수행하면 VM이 강제로 Azure Key Vault에서 BEK 파일을 검색한 후 암호화된 디스크에 넣습니다. 
 
@@ -304,7 +305,7 @@ ms.locfileid: "97832063"
 
 **매개 변수 샘플**
 
-| 매개 변수  | 값 샘플  |주석   |
+| 매개 변수  | 값 샘플  |의견   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | 키를 저장 하는 키 자격 증명 모음의 이름입니다. |
 |$kekName   |mykey   | VM을 암호화 하는 데 사용 되는 키의 이름입니다.|

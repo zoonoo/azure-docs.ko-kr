@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/22/2020
+ms.date: 01/20/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 797b5f569f081065eb950f7c10bf6449002f733b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 9a739736182713b35c3a5e9e25742aa39c5d1122
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436983"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633140"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge 보안 디먼 및 런타임 업데이트
 
@@ -30,7 +30,7 @@ IoT Edge 보안 디먼은 IoT Edge 디바이스에서 패키지 관리자를 사
 
 `iotedge version` 명령을 사용하여 디바이스에서 실행 중인 보안 디먼의 버전을 확인합니다.
 
-### <a name="linux-devices"></a>Linux 디바이스
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Linux x64 장치에서 apt-get 또는 적절 한 패키지 관리자를 사용 하 여 보안 데몬을 최신 버전으로 업데이트 합니다.
 
@@ -48,7 +48,7 @@ Microsoft에서 최신 리포지토리 구성을 가져옵니다.
    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-* **Raspberry PI OS 스트레치**:
+* **Raspberry Pi OS Stretch**:
 
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -98,26 +98,18 @@ curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-st
 curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 ```
 
-### <a name="windows-devices"></a>Windows 디바이스
+# <a name="windows"></a>[Windows](#tab/windows)
 
-Windows 장치에서 PowerShell 스크립트를 사용 하 여 보안 디먼을 업데이트 합니다. 이 스크립트는 보안 디먼의 최신 버전을 자동으로 가져옵니다.
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
 
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
-```
+Windows의 Linux에 대 한 IoT Edge를 사용 하 여 Windows 장치에서 호스트 되는 Linux 가상 머신에서 실행 IoT Edge. 이 가상 머신은 IoT Edge와 함께 미리 설치 되며, Microsoft 업데이트 구성 요소를 최신 상태로 유지 하기 위해 관리 됩니다. 현재 사용 가능한 업데이트가 없습니다.
 
-Update-IoTEdge 명령을 실행 하면 두 개의 런타임 컨테이너 이미지와 함께 장치에서 보안 데몬이 제거 되 고 업데이트 됩니다. Config.xml 파일은 Windows 컨테이너를 사용 하는 경우 Moby 컨테이너 엔진의 데이터 뿐만 아니라 장치에도 유지 됩니다. 구성 정보를 유지 하는 것은 업데이트 프로세스 중에 장치에 대 한 연결 문자열 또는 장치 프로 비전 서비스 정보를 다시 제공할 필요가 없음을 의미 합니다.
+::: moniker-end
 
-특정 버전의 보안 디먼으로 업데이트 하려면 [IoT Edge 릴리스에서](https://github.com/Azure/azure-iotedge/releases)대상으로 지정할 버전을 찾습니다. 해당 버전에서 **Microsoft-Azure-IoTEdge.cab** 파일을 다운로드 합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 사용 하 여 로컬 파일 위치를 가리킵니다. 다음은 그 예입니다. 
+Windows에 대 한 IoT Edge를 사용 하면 IoT Edge Windows 장치에서 직접 실행 됩니다. PowerShell 스크립트를 사용 하는 업데이트 지침은 [Windows 용 Azure IoT Edge 설치 및 관리](how-to-install-iot-edge-windows-on-windows.md)를 참조 하세요.
 
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux> -OfflineInstallationPath <absolute path to directory>
-```
-
->[!NOTE]
->`-OfflineInstallationPath`매개 변수는 제공 된 디렉터리에서 **Microsoft-Azure-IoTEdge.cab** 라는 파일을 찾습니다. IoT Edge 버전 1.0.9부터 사용 가능한 두 개의 .cab 파일 (AMD64 장치와 ARM32 용)이 있습니다. 장치에 맞는 파일을 다운로드 한 다음 파일 이름을 변경 하 여 아키텍처 접미사를 제거 합니다.
-
-업데이트 옵션에 대 한 자세한 내용은 명령을 사용 `Get-Help Update-IoTEdge -full` 하거나 [Windows의 IoT Edge에 대 한 PowerShell 스크립트](reference-windows-scripts.md)를 참조 하세요.
+---
 
 ## <a name="update-the-runtime-containers"></a>런타임 컨테이너 업데이트
 
@@ -172,35 +164,6 @@ IoT Edge 서비스는 최신 버전의 런타임 이미지를 끌어오고 해�
 
 1. **검토 + 만들기** 를 선택 하 고 배포를 검토 한 다음 **만들기** 를 선택 합니다.
 
-## <a name="update-offline-or-to-a-specific-version"></a>오프 라인 또는 특정 버전으로 업데이트
-
-장치를 오프 라인으로 업데이트 하거나 최신 버전이 아닌 IoT Edge의 특정 버전으로 업데이트 하려는 경우 매개 변수를 사용 하 여이 작업을 수행할 수 있습니다 `-OfflineInstallationPath` .
-
-IoT Edge 장치를 업데이트 하는 데 사용 되는 두 가지 구성 요소는 다음과 같습니다.
-
-* 설치 지침을 포함 하는 PowerShell 스크립트
-* Microsoft Azure IoT Edge cab (IoT Edge 보안 디먼), Moby 컨테이너 엔진 및 Moby CLI를 포함 합니다.
-
-1. 이전 버전과 함께 최신 IoT Edge 설치 파일은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조 하세요.
-
-2. 설치 하려는 버전을 찾고 릴리스 정보의 **자산** 섹션에서 다음 파일을 IoT 장치로 다운로드 합니다.
-
-   * IoTEdgeSecurityDaemon.ps1
-   * 릴리스 1.0.9 이상에서 Microsoft-Azure-IoTEdge-amd64.cab 하거나 1.0.8 이전 버전에서 Microsoft-Azure-IoTEdge.cab 합니다.
-
-   Microsoft-Azure-IotEdge-arm32.cab는 테스트 목적 으로만 1.0.9에서 사용할 수 있습니다. IoT Edge는 현재 Windows ARM32 장치에서 지원 되지 않습니다.
-
-   각 릴리스의 기능을 지원 하기 위해 기능이 변경 되기 때문에 사용 하는 .cab 파일과 동일한 릴리스의 PowerShell 스크립트를 사용 하는 것이 중요 합니다.
-
-3. 다운로드 한 .cab 파일의 아키텍처 접미사가 있는 경우 파일 이름을 **Microsoft-Azure-IoTEdge.cab** 으로 바꿉니다.
-
-4. 오프 라인 구성 요소로 업데이트 하려면 [도트 원본](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) 에 PowerShell 스크립트의 로컬 복사본을 사용 합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 명령의 일부로 사용 `Update-IoTEdge` 하 고 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예제:
-
-   ```powershell
-   . <path>\IoTEdgeSecurityDaemon.ps1
-   Update-IoTEdge -OfflineInstallationPath <path>
-   ```
-
 ## <a name="update-to-a-release-candidate-version"></a>릴리스 후보 버전으로 업데이트
 
 Azure IoT Edge은 IoT Edge 서비스의 새 버전을 정기적으로 릴리스 합니다. 안정적인 각 릴리스 전에는 RC (릴리스 후보) 버전이 하나 이상 있습니다. RC 버전에는 릴리스에 대해 계획 된 모든 기능이 포함 되어 있지만 여전히 테스트 및 유효성 검사를 진행 하 고 있습니다. 초기에 새 기능을 테스트 하려는 경우 RC 버전을 설치 하 고 GitHub를 통해 피드백을 제공할 수 있습니다.
@@ -213,7 +176,7 @@ IoT Edge 에이전트 및 허브 모듈에는 동일한 규칙으로 태그가 �
 
 이 문서의 섹션을 사용 하 여 IoT Edge 장치를 특정 버전의 보안 데몬 또는 런타임 모듈로 업데이트 하는 방법을 알아봅니다.
 
-기존 설치를 업그레이드 하는 대신 IoT Edge를 설치 하는 경우 [오프 라인 또는 특정 버전 설치](how-to-install-iot-edge.md#offline-or-specific-version-installation)의 단계를 사용 합니다.
+기존 설치를 업그레이드 하는 대신 IoT Edge를 설치 하는 경우 [오프 라인 또는 특정 버전 설치](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional)의 단계를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

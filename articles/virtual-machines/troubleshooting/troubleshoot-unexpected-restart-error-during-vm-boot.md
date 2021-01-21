@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: cfeb040893ae2be5842959ed8458bd713bebe6ee
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d8d2ab2bb3f24e1faa4791ebdc1ce3852f6a790e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512140"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632693"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>OS 시작-컴퓨터가 예기치 않게 다시 시작 되거나 예기치 않은 오류가 발생 했습니다.
 
@@ -49,9 +49,12 @@ Azure에서 **시스템 준비 도구 GUI** 에서 **시스템 oobe (첫 실행 
 
 이 문제는 일반적으로 온-프레미스 VM과 함께 sysprep을 사용 하 여 일반화 된 VM을 Azure에 업로드 하는 동안 생성 됩니다. 이 경우 일반화 된 VM을 적절 하 게 업로드 하는 방법에도 관심이 있을 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 ### <a name="do-not-use-unattendxml"></a>Unattend.xml 사용 안 함
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 이 문제를 해결 하려면 [이미지 준비/캡처](../windows/upload-generalized-managed.md) 및 새로운 일반화 된 이미지 준비에 대 한 Azure 지침을 따르세요. Sysprep을 실행 하는 동안 **`/unattend:<your file’s name>` 플래그를 사용 하지 마십시오**. 대신 아래 플래그만 사용 합니다.
 
@@ -63,6 +66,6 @@ Azure에서 **시스템 준비 도구 GUI** 에서 **시스템 oobe (첫 실행 
 
 - 기본 제공 환경 입력
 - 일반화
-- Shutdown
+- 종료
  
 ![시스템 준비 도구 창 (OOBE, 일반화 및 종료 옵션 선택).](./media/unexpected-restart-error-during-vm-boot/3.png)

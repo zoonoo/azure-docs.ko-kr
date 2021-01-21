@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3fe87f94ce05efa4a784ba7e3f65e53abb00fd05
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 7ddc13306f4adb1730169c4811b9d2227dedca33
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914249"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632769"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용 하 여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -115,7 +115,7 @@ Azure Portal를 통해 SQL Server VM Azure Marketplace 이미지를 배포 하�
 
 ### <a name="named-instance-support"></a>명명 된 인스턴스 지원
 
-SQL Server IaaS 에이전트 확장은 가상 머신에서 사용할 수 있는 유일한 SQL Server 인스턴스인 경우 SQL Server의 명명 된 인스턴스에서 작동 합니다. 여러 SQL Server 인스턴스가 있는 Vm에 확장을 설치 하지 못합니다. 
+SQL Server IaaS 에이전트 확장은 가상 머신에서 사용할 수 있는 유일한 SQL Server 인스턴스인 경우 SQL Server의 명명 된 인스턴스에서 작동 합니다. VM에 기본 인스턴스가 없는 경우 명명 된 SQL Server 인스턴스가 여러 개 있는 Vm에 확장을 설치 하지 못합니다. 
 
 SQL Server의 명명 된 인스턴스를 사용 하려면 Azure 가상 컴퓨터를 배포 하 고 명명 된 단일 SQL Server 인스턴스를 설치 하 고 [SQL IaaS 확장](sql-agent-extension-manually-register-single-vm.md)에 등록 합니다.
 
@@ -228,7 +228,7 @@ NoAgent 모드에서는 고객이 SQL Server 버전 및 버전 속성을 설정 
 
 **여러 SQL Server 인스턴스가 있는 경우 SQL IaaS 에이전트 확장을 사용 하 여 VM을 등록할 수 있나요?**
 
-예. SQL IaaS 에이전트 확장은 하나의 SQL Server (데이터베이스 엔진) 인스턴스만 등록 합니다. SQL IaaS 에이전트 확장은 여러 인스턴스의 경우 기본 SQL Server 인스턴스를 등록 합니다. 기본 인스턴스가 없으면 경량 모드 등록만 지원됩니다. 경량에서 전체 관리 모드로 업그레이드하려면 기본 SQL Server 인스턴스가 있어야 합니다. 그렇지 않으면 VM에 명명된 SQL Server 인스턴스가 하나만 있어야 합니다.
+예. VM에 기본 인스턴스가 제공 됩니다. SQL IaaS 에이전트 확장은 하나의 SQL Server (데이터베이스 엔진) 인스턴스만 등록 합니다. SQL IaaS 에이전트 확장은 여러 인스턴스의 경우 기본 SQL Server 인스턴스를 등록 합니다.
 
 **SQL IaaS 에이전트 확장을 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스를 등록할 수 있나요?**
 

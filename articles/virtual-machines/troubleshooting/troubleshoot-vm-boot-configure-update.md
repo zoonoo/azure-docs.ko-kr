@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e4d51b4d41fa0dc23e9b12ac0251c14215de5c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079845"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633013"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 시작이 다음 상태에서 중지되었습니다. "Windows가 준비 중입니다. Azure에서 컴퓨터를 끄지 마세요."
 
@@ -39,6 +39,9 @@ Windows VM은 부팅 되지 않습니다. **부팅 진단을** 사용 하 여 vm
 일반적으로 이 문제는 구성이 변경된 후 서버가 마지막 다시 부팅을 수행하는 동안 발생합니다. 구성 변경은 Windows 업데이트로 인해 또는 서버 역할/기능 변경으로 인해 초기화될 수 있습니다. Windows 업데이트의 경우, 업데이트의 크기가 크면 운영 체제가 변경 내용을 다시 구성하는 데 더 많은 시간이 걸립니다.
 
 ## <a name="collect-an-os-memory-dump"></a>OS 메모리 덤프 수집
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 처리가 변경 될 때까지 기다린 후 문제가 해결 되지 않으면 메모리 덤프 파일을 수집 하 여 지원 담당자에 게 문의 해야 합니다. 덤프 파일을 수집하려면 다음 단계를 수행합니다.
 

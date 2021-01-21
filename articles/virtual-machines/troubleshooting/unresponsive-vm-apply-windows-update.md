@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 145d58013b259bf14c26d0840b8cd4299cfe85f0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200722"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632625"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>Windows 업데이트를 적용 하는 동안 "C01A001D" 오류가 발생 하 여 VM이 응답 하지 않습니다.
 
@@ -38,6 +38,9 @@ ms.locfileid: "98200722"
 ## <a name="resolution"></a>해결 방법
 
 ### <a name="process-overview"></a>프로세스 개요
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 1. [복구 VM 만들기 및 액세스](#create-and-access-a-repair-vm)
 2. [하드 디스크의 공간을 확보](#free-up-space-on-the-hard-disk)합니다.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: b382efc4d283d64ce0f833bde9104fa2e3bc973a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a95ddf882e5edba9daa8ff91c02d1df1f50bceb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088548"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632979"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows는 Azure VM을 부팅할 때 블루 스크린 오류를 표시
 이 문서에서는 Microsoft Azure에서 Windows VM(Virtual Machine)을 부팅할 때 발생할 수 있는 블루 스크린 오류에 대해 설명합니다. 지원 티켓에 대한 데이터를 수집할 수 있도록 하는 단계를 제공합니다. 
@@ -41,6 +41,9 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 - 애플리케이션에서 메모리의 금지된 섹터에 액세스
 
 ## <a name="collect-memory-dump-file"></a>메모리 덤프 파일 수집
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 이 문제를 해결하려면 먼저 크래시에 대한 덤프 파일을 수집하고 덤프 파일을 사용하여 지원에 문의해야 합니다. 덤프 파일을 수집하려면 다음 단계를 수행합니다.
 

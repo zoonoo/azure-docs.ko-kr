@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165793"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632583"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>원격 분석 프로세서 (미리 보기)-Java 용 Azure Monitor Application Insights
 
@@ -38,7 +38,7 @@ Application Insights 용 Java 3.0 에이전트는 데이터를 내보내기 전�
 
 원격 분석 프로세서의 경우 범위의 중요 한 구성 요소는 다음과 같습니다.
 
-* 이름
+* 속성
 * 특성
 
 범위 이름은 Azure Portal의 요청 및 종속성에 사용 되는 기본 표시입니다.
@@ -241,7 +241,7 @@ Span 특성은 지정 된 요청 또는 종속성의 표준 및 사용자 지정
 ### `extract`
 
 > [!NOTE]
-> 이 기능은 3.0.1 이상에만 해당 됩니다.
+> 이 기능은 3.0.2 이상에만 해당 됩니다.
 
 입력 키에서 규칙에 지정 된 대상 키에 대 한 정규식 규칙을 사용 하 여 값을 추출 합니다. 대상 키가 이미 있으면 재정의 됩니다. 기존 특성을 소스로 사용 하는 [범위 프로세서](#extract-attributes-from-span-name) 설정과 유사 하 게 작동 합니다 `toAttributes` .
 

@@ -3,12 +3,12 @@ title: Event Grid 리소스에 대 한 액세스 키 가져오기
 description: 이 문서에서는 Event Grid 토픽 또는 도메인에 대 한 액세스 키를 가져오는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 2e258cebe1652178a67c292d0cccab3a151eddf7
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: a642affbac79766684dc75a37dae0373450d20e8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624834"
+ms.locfileid: "98632532"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Event Grid 리소스 (토픽 또는 도메인)에 대 한 액세스 키 가져오기
 액세스 키는 리소스 (토픽 및 도메인)를 Azure Event Grid 응용 프로그램 게시 이벤트를 인증 하는 데 사용 됩니다. 키를 정기적으로 다시 생성 하 고 안전 하 게 저장 하는 것이 좋습니다. 다른 키를 다시 생성 하는 동안 한 키를 사용 하 여 연결을 유지할 수 있도록 두 개의 액세스 키가 제공 됩니다.
@@ -34,13 +34,13 @@ Get-AzEventGridDomainKey -ResourceGroup <RESOURCE GROUP NAME> -Name <DOMAIN NAME
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-항목에 대 한 액세스 키를 가져오려면 [az event grid 토픽 키 목록을](/cli/azure/eventgrid/topic/key?view=azure-cli-latest#az-eventgrid-topic-key-list) 사용 합니다. 
+항목에 대 한 액세스 키를 가져오려면 [az event grid 토픽 키 목록을](/cli/azure/eventgrid/topic/key#az-eventgrid-topic-key-list) 사용 합니다. 
 
 ```azurecli-interactive
 az eventgrid topic key list --resource-group <RESOURCE GROUP NAME> --name <TOPIC NAME>
 ```
 
-[Az event grid 도메인 키 목록을](/cli/azure/eventgrid/domain/key?view=azure-cli-latest#az-eventgrid-domain-key-list) 사용 하 여 도메인에 대 한 액세스 키를 가져옵니다. 
+[Az event grid 도메인 키 목록을](/cli/azure/eventgrid/domain/key#az-eventgrid-domain-key-list) 사용 하 여 도메인에 대 한 액세스 키를 가져옵니다. 
 
 ```azurecli-interactive
 az eventgrid domain key list --resource-group <RESOURCE GROUP NAME> --name <DOMAIN NAME>

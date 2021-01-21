@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0c0ec45eee86031e1533b97ccf352de0ecf70e38
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635708"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633157"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>OS 시작 - Windows 업데이트 설치 용량 문제 해결
 
@@ -38,6 +38,9 @@ ms.locfileid: "94635708"
 ## <a name="solution"></a>해결 방법
 
 ### <a name="process-overview"></a>프로세스 개요:
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 1. 복구 VM을 만들고 액세스합니다.
 1. 디스크의 공간을 확보합니다.
@@ -73,7 +76,7 @@ ms.locfileid: "94635708"
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>직렬 콘솔과 메모리 덤프 수집 사용
 
-**권장** : VM을 다시 빌드하기 전에 다음 스크립트를 실행하여 직렬 콘솔과 메모리 덤프 수집을 사용하도록 설정합니다.
+**권장**: VM을 다시 빌드하기 전에 다음 스크립트를 실행하여 직렬 콘솔과 메모리 덤프 수집을 사용하도록 설정합니다.
 
 1. 관리자 권한 명령 프롬프트 세션을 엽니다.
 1. 다음 명령을 실행합니다.

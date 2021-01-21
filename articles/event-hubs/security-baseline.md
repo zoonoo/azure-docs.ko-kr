@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3f56fc1b321396c5cc6aa93e3f47fcaafcbe4ae4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 0fbd7cda4723b62863d7d9bb0fe6aa2fac32dcd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202337"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633106"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Event Hubs에 대 한 Azure 보안 기준
 
@@ -293,9 +293,9 @@ Azure Sentinel을 온보딩하는 방법: https://docs.microsoft.com/azure/senti
 
 **지침**: AD (Azure Active Directory)에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기본 제공 역할이 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다. 
 
-PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
-PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 **Azure Security Center 모니터링**: 예
 
@@ -633,7 +633,7 @@ Azure 활동 로그 이벤트에 대한 경고를 만드는 방법: https://docs
 
 Azure Resource Graph를 사용하여 쿼리를 만드는 방법: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Azure 구독을 확인하는 방법: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Azure 구독을 확인하는 방법: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Azure RBAC 이해: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -779,7 +779,7 @@ Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세�
 
 Event Hubs 네임 스페이스에 대 한 Azure 기본 제공 정책: https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-사용 가능한 Azure 정책 별칭을 확인하는 방법: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+사용 가능한 Azure 정책 별칭을 확인하는 방법: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Azure Policy를 구성하고 관리하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -820,9 +820,9 @@ Azure Policy 효과에 대 한 자세한 내용은 다음과 같습니다.  http
 
 **지침**: Event Hubs 또는 관련 리소스에 대 한 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-코드를 Azure DevOps에 저장하는 방법: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+코드를 Azure DevOps에 저장하는 방법: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow
 
-Azure Repos 설명서: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Azure Repos 설명서: https://docs.microsoft.com/azure/devops/repos/index
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -986,7 +986,7 @@ Key Vault 비밀을 백업 하는 방법: https://docs.microsoft.com/powershell/
 
  
 
-Azure에서 주요 자격 증명 모음 키를 복원 하는 방법: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+Azure에서 주요 자격 증명 모음 키를 복원 하는 방법: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Azure Security Center 모니터링**: 해당 없음
 
