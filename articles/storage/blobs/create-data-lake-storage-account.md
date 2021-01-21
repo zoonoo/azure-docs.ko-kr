@@ -8,12 +8,12 @@ ms.date: 08/31/2020
 ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6b63933fc625079bb490942cf3a32232a484fe38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 712f1dc0679ee49791831e782fb68c39a757870a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89270326"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624340"
 ---
 # <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 사용할 저장소 계정 만들기
 
@@ -40,6 +40,9 @@ Data Lake Storage 기능은 다음 유형의 저장소 계정에서 지원 됩�
 > ![계층 구조 네임 스페이스 설정](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
 Data Lake Storage 사용 하려는 기존 저장소 계정이 있고 계층 구조 네임 스페이스 설정을 사용 하지 않도록 설정한 경우 해당 설정을 사용 하도록 설정 된 새 저장소 계정으로 데이터를 마이그레이션해야 합니다.
+
+> [!NOTE]
+> **데이터 보호** 및 **계층적 네임 스페이스** 는 동시에 사용 하도록 설정할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

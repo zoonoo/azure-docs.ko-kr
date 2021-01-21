@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 7bb1ce8141f609feb4f354aa85f202915e197f37
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: cdd8783daf9e1e1458f47e773eb3b6ccedfbae83
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599303"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624560"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebooks를 실행하는 방법
 
@@ -342,7 +342,14 @@ Jupyter 노트북과 마찬가지로 Azure Machine Learning Studio 노트북에�
 
 [스튜디오](https://ml.azure.com)의 **컴퓨팅** 페이지에서 컴퓨팅 인스턴스에 대한 세부 정보를 찾습니다.
 
+## <a name="troubleshooting"></a>문제 해결
+
+* 노트북에 연결할 수 없는 경우 웹 소켓 통신 **을 사용 하지 않도록 설정** 해야 합니다. 계산 인스턴스 Jupyter 기능이 작동 하려면 웹 소켓 통신을 사용 하도록 설정 해야 합니다. 네트워크에서 *. instances.azureml.net 및 *. instances.azureml.ms에 대 한 websocket 연결을 허용 하는지 확인 하세요. 
+
+* 계산 인스턴스가 개인 링크 작업 영역에 배포 된 경우 가상 네트워크 내 에서만 액세스할 수 있습니다. 사용자 지정 DNS 또는 호스트 파일을 사용 하는 경우 <인스턴스 이름>에 대 한 항목을 추가 <region> 하세요. 작업 영역 개인 끝점의 개인 IP 주소를 사용 하는 instances.azureml.ms입니다. 자세한 내용은 [사용자 지정 DNS](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli) 문서를 참조 하세요.
+    
 ## <a name="next-steps"></a>다음 단계
 
 * [첫 번째 실험 실행](tutorial-1st-experiment-sdk-train.md)
 * [스냅샷으로 파일 스토리지 백업](../storage/files/storage-snapshots-files.md)
+* [보안 환경에서 작업](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)

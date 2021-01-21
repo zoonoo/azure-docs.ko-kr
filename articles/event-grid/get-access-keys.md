@@ -3,12 +3,12 @@ title: Event Grid 리소스에 대 한 액세스 키 가져오기
 description: 이 문서에서는 Event Grid 토픽 또는 도메인에 대 한 액세스 키를 가져오는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: e5694fe0b5f22f7f76285c344627005ea727ae3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e258cebe1652178a67c292d0cccab3a151eddf7
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105866"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624834"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Event Grid 리소스 (토픽 또는 도메인)에 대 한 액세스 키 가져오기
 액세스 키는 리소스 (토픽 및 도메인)를 Azure Event Grid 응용 프로그램 게시 이벤트를 인증 하는 데 사용 됩니다. 키를 정기적으로 다시 생성 하 고 안전 하 게 저장 하는 것이 좋습니다. 다른 키를 다시 생성 하는 동안 한 키를 사용 하 여 연결을 유지할 수 있도록 두 개의 액세스 키가 제공 됩니다.
@@ -21,13 +21,13 @@ Azure Portal에서 토픽 또는 도메인에 대 한 **Event Grid 토픽** 또�
 :::image type="content" source="./media/get-access-keys/azure-portal.png" alt-text="액세스 키 페이지":::
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-항목에 대 한 액세스 키를 가져오려면 [AzEventGridTopicKey](/powershell/module/az.eventgrid/get-azeventgridtopickey?view=azps-4.3.0) 명령을 사용 합니다. 
+항목에 대 한 액세스 키를 가져오려면 [AzEventGridTopicKey](/powershell/module/az.eventgrid/get-azeventgridtopickey) 명령을 사용 합니다. 
 
 ```azurepowershell-interactive
 Get-AzEventGridTopicKey -ResourceGroup <RESOURCE GROUP NAME> -Name <TOPIC NAME>
 ```
 
-[AzEventGridDomainKey](/powershell/module/az.eventgrid/get-azeventgriddomainkey?view=azps-4.3.0) 명령을 사용 하 여 도메인에 대 한 액세스 키를 가져옵니다. 
+[AzEventGridDomainKey](/powershell/module/az.eventgrid/get-azeventgriddomainkey) 명령을 사용 하 여 도메인에 대 한 액세스 키를 가져옵니다. 
 
 ```azurepowershell-interactive
 Get-AzEventGridDomainKey -ResourceGroup <RESOURCE GROUP NAME> -Name <DOMAIN NAME>

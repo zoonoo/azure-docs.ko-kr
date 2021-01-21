@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 36db1b23d8fb17cec4fe981c938f8c7003543b4d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839831"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624594"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>관리 콘솔에서 센서 관리
 
@@ -150,7 +150,7 @@ IoT 포털의 **업데이트** 페이지에서이 파일을 수동으로 업로�
 | 정책 위반 엔진 | 정책 위반은 학습 또는 구성 된 정책에 정의 된 기준 동작의 편차를 사용 하 여 발생 합니다. | "권한이 없는 HTTP 사용자 에이전트" 경고입니다. 이 경고는 정책에 의해 학습 또는 승인 되지 않은 응용 프로그램이 장치에서 HTTP 클라이언트로 사용 됨을 나타냅니다. 이는 해당 장치의 새 웹 브라우저 또는 응용 프로그램 일 수 있습니다. |
 | 맬웨어 엔진 | 맬웨어 엔진이 악의적인 네트워크 작업을 검색 합니다. | "했는지에 of 악성 작업 (Stuxnet)" 경고 이 경고는 센서가 산업용 제어 및 SCADA 네트워크를 목표로 하는 고급 영구 위협 인 Stuxnet 맬웨어에 관련 된 것으로 알려진 의심 스러운 네트워크 활동을 발견 했음을 나타냅니다. |
 | 변칙 엔진 | 맬웨어 엔진이 네트워크 동작의 비정상을 감지 합니다. | "통신 채널의 주기적인 동작" 이 구성 요소는 네트워크 연결을 검사 하 고 산업용 네트워크에서 공통적으로 발생 하는 데이터 전송의 주기적 또는 순환 동작을 찾는 구성 요소입니다. |
-| 운영 엔진 | 이 엔진은 작업 인시던트 또는 작동 하지 않는 엔터티를 검색 합니다. | "자산의 연결이 끊어져 (응답 하지 않음)" 경고가 발생 합니다. 이 경고는 장치가 미리 정의 된 기간 동안 요청에 응답 하지 않을 때 트리거됩니다. 장치 종료, 연결 끊기 또는 오작동을 나타낼 수 있습니다.
+| 운영 엔진 | 이 엔진은 작업 인시던트 또는 작동 하지 않는 엔터티를 검색 합니다. | `Device is Suspected to be Disconnected (Unresponsive)` 오류. 이 경고는 장치가 미리 정의 된 기간 동안 요청에 응답 하지 않을 때 트리거됩니다. 장치 종료, 연결 끊기 또는 오작동을 나타낼 수 있습니다.
 |
 
 연결 된 센서에 대 한 엔진을 사용 하거나 사용 하지 않도록 설정 하려면:
@@ -215,7 +215,7 @@ IoT 포털의 **업데이트** 페이지에서이 파일을 수동으로 업로�
 
 정의 된 백업 수를 초과 하면 가장 오래 된 백업 파일이 삭제 되어 새 백업 파일이 적용 됩니다.
 
-센서 백업 파일은 자동으로 이름이로 지정 `<sensor name>-backup-version-<version>-<date>.tar` 됩니다. 예: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar` 
+센서 백업 파일은 자동으로 이름이로 지정 `<sensor name>-backup-version-<version>-<date>.tar` 됩니다. 예를 들어 `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`을 참조하십시오. 
 
 센서를 백업 하려면:
 
@@ -315,6 +315,6 @@ CLI를 사용 하 여 복원 하려면:
 
 9. `Backup.shared_location`를 `<backup_folder_name_on_cyberx_server>`로 설정합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [개별 센서 관리](how-to-manage-individual-sensors.md)

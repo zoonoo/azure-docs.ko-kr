@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: c12a812f66345a26701b2a1623487fd262ede4be
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9958fa07d6e814cdf886c3f559d57ae1e397264a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968335"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625084"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Azure에서 IBM zD&T 개발/테스트 환경 설치
 
@@ -40,7 +40,7 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
 
 이 문서에서는 Azure에서 Z 개발 및 테스트 환경 (zD&T) Enterprise Edition을 설정 하는 방법을 보여 줍니다. 그런 다음 zD&T Enterprise Edition 웹 서버를 사용 하 여 Azure에서 Z 기반 환경을 만들고 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 > [!NOTE]
 > IBM에서는 zD&T Enterprise Edition을 개발/테스트 환경에만 설치할 수 있으며 프로덕션 환경에서는 설치할 수 *없습니다* .
@@ -96,12 +96,13 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
 
     ```
     cd ZDT
-    chmod 755 ZDT\_Install\_EE\_V12.0.0.0.tgz
+    tar zxvf ZDT\_Install\_EE\_V12.0.0.0.tgz
     ```
 
 2. 설치 관리자를 실행 합니다.
 
     ```
+    chmod 755 ZDT\_Install\_EE\_V12.0.0.0.x86_64
     ./ZDT_Install_EE_V12.0.0.0.x86_64
     ```
 

@@ -1,5 +1,5 @@
 ---
-title: IoT Api 용 Defender 작업
+title: Defender for IoT API 작업
 description: 외부 REST API를 사용 하 여 센서 및 관리 콘솔에서 검색 된 데이터에 액세스 하 고 해당 데이터를 사용 하 여 작업을 수행 합니다.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: d49aa50b1b8843dfb5c3d32983ff0bb129543bb0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 44ea6e8343203a9cb18947f31f45aa0b023178b0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841231"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624577"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>IoT 센서 및 관리 콘솔 Api 용 Defender
 
@@ -44,7 +44,7 @@ ms.locfileid: "97841231"
 
 5. **마침** 을 선택합니다. 만든 토큰이 **액세스 토큰** 대화 상자에 나타납니다.
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="채워진 토큰이 있는 자산 토큰 대화 상자 스크린샷":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="채워진 토큰이 있는 장치 토큰 대화 상자 스크린샷":::
 
    **사용** 됨이 토큰을 사용 하는 외부 호출을 마지막으로 받은 시간을 나타냅니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "97841231"
 
 #### <a name="apiv1devices"></a>/api/v1/devices
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **GET**
 
@@ -110,40 +110,40 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 #### <a name="device-fields"></a>장치 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **id** | 숫자 | 아니요 | - |
-| **ipAddresses** | JSON 배열 | 예 | IP 주소 (인터넷 주소 또는 이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
-| **name** | String | 아니요 | - |
-| **type** | String | 아니요 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
-| **macAddresses** | JSON 배열 | 예 | MAC 주소 (이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
+| **id** | 숫자 | No | - |
+| **ipAddresses** | JSON 배열 | Yes | IP 주소 (인터넷 주소 또는 이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
+| **name** | String | No | - |
+| **type** | String | No | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
+| **macAddresses** | JSON 배열 | Yes | MAC 주소 (이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
 | **operatingSystem** | String | 예 | - |
-| **engineeringStation** | 부울 | 아니요 | True 또는 False |
-| **장치가** | 부울 | 아니요 | True 또는 False |
-| **승인됨** | 부울 | 아니요 | True 또는 False |
+| **engineeringStation** | 부울 | No | True 또는 False |
+| **장치가** | 부울 | No | True 또는 False |
+| **승인됨** | 부울 | No | True 또는 False |
 | **업체인** | String | 예 | - |
-| **인터넷용** | JSON 배열 | 예 | 프로토콜 개체 |
-| **펌웨어입니다** | JSON 배열 | 예 | 펌웨어 개체 |
+| **인터넷용** | JSON 배열 | Yes | 프로토콜 개체 |
+| **펌웨어입니다** | JSON 배열 | Yes | 펌웨어 개체 |
 
 #### <a name="protocol-fields"></a>프로토콜 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **Name** | String | 아니요 |  |
-| **주소** | JSON 배열 | 예 | Master 또는 numeric 값 |
+| **이름** | String | No |  |
+| **주소** | JSON 배열 | Yes | Master 또는 numeric 값 |
 
 #### <a name="firmware-fields"></a>펌웨어 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **연속적인** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **model** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **firmwareVersion** | Double | 아니요 | 해당 없음 또는 실제 값 |
-| **additionalData** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **moduleAddress** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **랙마운트** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **슬롯** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **address** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **연속적인** | String | No | 해당 없음 또는 실제 값 |
+| **model** | String | No | 해당 없음 또는 실제 값 |
+| **firmwareVersion** | Double | No | 해당 없음 또는 실제 값 |
+| **additionalData** | String | No | 해당 없음 또는 실제 값 |
+| **moduleAddress** | String | No | 해당 없음 또는 실제 값 |
+| **랙마운트** | String | No | 해당 없음 또는 실제 값 |
+| **슬롯** | String | No | 해당 없음 또는 실제 값 |
+| **address** | String | No | 해당 없음 또는 실제 값 |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -285,7 +285,7 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 #### <a name="apiv1devicesconnections"></a>/api/v1/devices/connections
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **GET**
 
@@ -331,21 +331,21 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 #### <a name="fields"></a>필드
 
-| 이름 | 유형 | Nullable | 값 목록 |
+| 이름 | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **firstDeviceId** | 숫자 | 아니요 | - |
-| **secondDeviceId** | 숫자 | 아니요 | - |
-| **lastSeen** | 숫자 | 아니요 | Epoch (UTC) |
-| **검색** | 숫자 | 아니요 | Epoch (UTC) |
-| **포트** | 숫자 배열 | 아니요 | - |
-| **인터넷용** | JSON 배열 | 아니요 | 프로토콜 필드 |
+| **firstDeviceId** | 숫자 | No | - |
+| **secondDeviceId** | 숫자 | No | - |
+| **lastSeen** | 숫자 | No | Epoch (UTC) |
+| **검색** | 숫자 | No | Epoch (UTC) |
+| **포트** | 숫자 배열 | No | - |
+| **인터넷용** | JSON 배열 | No | 프로토콜 필드 |
 
 #### <a name="protocol-field"></a>프로토콜 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **name** | String | 아니요 | - |
-| **명령을** | 문자열 배열 | 아니요 | - |
+| **name** | String | No | - |
+| **명령을** | 문자열 배열 | No | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -453,7 +453,7 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 #### <a name="apiv1devicescves"></a>/api/v1/devices/cves
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **GET**
 
@@ -489,13 +489,13 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="fields"></a>필드
 
-| 이름 | 유형 | Nullable | 값 목록 |
+| 이름 | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **cveId** | String | 아니요 | - |
-| **\** | String | 아니요 | IP 주소 |
-| **점수** | String | 아니요 | 0.0-10.0 |
-| **attackVector** | String | 아니요 | 네트워크, 인접 네트워크, 로컬 또는 물리적 |
-| **description** | String | 아니요 | - |
+| **cveId** | String | No | - |
+| **\** | String | No | IP 주소 |
+| **점수** | String | No | 0.0-10.0 |
+| **attackVector** | String | No | 네트워크, 인접 네트워크, 로컬 또는 물리적 |
+| **description** | String | No | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -563,7 +563,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="apiv1alerts"></a>/api/v1/alerts
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **GET**
 
@@ -603,23 +603,23 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="alert-fields"></a>경고 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **ID** | 숫자 | 아니요 | - |
-| **time** | 숫자 | 아니요 | Epoch (UTC) |
-| **title** | String | 아니요 | - |
-| **message** | String | 아니요 | - |
-| **severity** | String | 아니요 | 경고, 부, 주 또는 위험 |
-| **엔진** | String | 아니요 | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
-| **sourceDevice** | 숫자 | 예 | 디바이스 ID |
-| **destinationDevice** | 숫자 | 예 | 디바이스 ID |
-| **additionalInformation** | 추가 정보 개체 | 예 | - |
+| **ID** | 숫자 | No | - |
+| **time** | 숫자 | No | Epoch (UTC) |
+| **title** | String | No | - |
+| **message** | String | No | - |
+| **severity** | String | No | 경고, 부, 주 또는 위험 |
+| **엔진** | String | No | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
+| **sourceDevice** | 숫자 | Yes | 디바이스 ID |
+| **destinationDevice** | 숫자 | Yes | 디바이스 ID |
+| **additionalInformation** | 추가 정보 개체 | Yes | - |
 
 #### <a name="additional-information-fields"></a>추가 정보 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **description** | String | 아니요 | - |
+| **description** | String | No | - |
 | **내용을** | JSON 배열 | 예 | String |
 
 #### <a name="response-example"></a>응답 예제
@@ -691,7 +691,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="apiv1events"></a>/api/v1/events
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **GET**
 
@@ -721,13 +721,13 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="event-fields"></a>이벤트 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|--|
-| **timestamp** | 숫자 | 아니요 | Epoch (UTC) |
-| **title** | String | 아니요 | - |
-| **severity** | String | 아니요 | 정보, 알림 또는 경고 |
+| **timestamp** | 숫자 | No | Epoch (UTC) |
+| **title** | String | No | - |
+| **severity** | String | No | 정보, 알림 또는 경고 |
 | **소유자도** | String | 예 | 이벤트를 수동으로 만든 경우이 필드에는 이벤트를 만든 사용자 이름이 포함 됩니다. |
-| **content** | String | 아니요 | - |
+| **content** | String | No | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -808,7 +808,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="apiv1reportsvulnerabilitiesdevices"></a>/api/v1/reports/vulnerabilities/devices
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **GET**
 
@@ -830,76 +830,76 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="device-fields"></a>장치 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **name** | String | 아니요 | - |
-| **ipAddresses** | JSON 배열 | 아니요 | - |
-| **securityScore** | 숫자 | 아니요 | - |
+| **name** | String | No | - |
+| **ipAddresses** | JSON 배열 | No | - |
+| **securityScore** | 숫자 | No | - |
 | **업체인** | String | 예 |  |
 | **firmwareVersion** | String | 예 | - |
 | **model** | String | 예 | - |
-| **isWirelessAccessPoint** | 부울 | 아니요 | True 또는 False |
-| **operatingSystem** | 운영 체제 개체 | 예 | - |
-| **취약성** | 취약성 개체 | 예 | - |
+| **isWirelessAccessPoint** | 부울 | No | True 또는 False |
+| **operatingSystem** | 운영 체제 개체 | Yes | - |
+| **취약성** | 취약성 개체 | Yes | - |
 
 #### <a name="operating-system-fields"></a>운영 체제 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **Name** | String | 예 | - |
+| **이름** | String | 예 | - |
 | **형식** | String | 예 | - |
-| **Version** | String | 예 | - |
+| **버전** | String | 예 | - |
 | **latestVersion** | String | 예 | - |
 
 #### <a name="vulnerabilities-fields"></a>취약성 필드
  
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **바이러스 방지** | JSON 배열 | 예 | 바이러스 백신 이름 |
-| **plainTextPasswords** | JSON 배열 | 예 | Password 개체 |
-| **remoteAccess** | JSON 배열 | 예 | 원격 액세스 개체 |
-| **isBackupServer** | 부울 | 아니요 | True 또는 False |
-| **openedPorts** | JSON 배열 | 예 | 열린 포트 개체 |
-| **isEngineeringStation** | 부울 | 아니요 | True 또는 False |
-| **isKnownScanner** | 부울 | 아니요 | True 또는 False |
-| **같이** | JSON 배열 | 예 | CVE 개체 |
-| **isUnauthorized 없음** | 부울 | 아니요 | True 또는 False |
-| **malwareIndicationsDetected** | 부울 | 아니요 | True 또는 False |
-| **weakAuthentication** | JSON 배열 | 예 | 약한 인증을 사용 하는 검색 된 응용 프로그램 |
+| **바이러스 방지** | JSON 배열 | Yes | 바이러스 백신 이름 |
+| **plainTextPasswords** | JSON 배열 | Yes | Password 개체 |
+| **remoteAccess** | JSON 배열 | Yes | 원격 액세스 개체 |
+| **isBackupServer** | 부울 | No | True 또는 False |
+| **openedPorts** | JSON 배열 | Yes | 열린 포트 개체 |
+| **isEngineeringStation** | 부울 | No | True 또는 False |
+| **isKnownScanner** | 부울 | No | True 또는 False |
+| **같이** | JSON 배열 | Yes | CVE 개체 |
+| **isUnauthorized 없음** | 부울 | No | True 또는 False |
+| **malwareIndicationsDetected** | 부울 | No | True 또는 False |
+| **weakAuthentication** | JSON 배열 | Yes | 약한 인증을 사용 하는 검색 된 응용 프로그램 |
 
 #### <a name="password-fields"></a>암호 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **password** | String | 아니요 | - |
-| **protocol** | String | 아니요 | - |
-| **강도가** | String | 아니요 | 매우 약함, 약함, Medium 또는 Strong |
+| **password** | String | No | - |
+| **protocol** | String | No | - |
+| **강도가** | String | No | 매우 약함, 약함, Medium 또는 Strong |
 
 #### <a name="remote-access-fields"></a>원격 액세스 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **port** | 숫자 | 아니요 | - |
-| **트랜스포트가** | String | 아니요 | TCP 또는 UDP |
-| **클라이언트로** | String | 아니요 | IP 주소 |
-| **clientSoftware** | String | 아니요 | SSH, VNC, 원격 데스크톱 또는 팀 뷰어 |
+| **port** | 숫자 | No | - |
+| **트랜스포트가** | String | No | TCP 또는 UDP |
+| **클라이언트로** | String | No | IP 주소 |
+| **clientSoftware** | String | No | SSH, VNC, 원격 데스크톱 또는 팀 뷰어 |
 
 #### <a name="open-port-fields"></a>포트 필드 열기
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **port** | 숫자 | 아니요 | - |
-| **트랜스포트가** | String | 아니요 | TCP 또는 UDP |
+| **port** | 숫자 | No | - |
+| **트랜스포트가** | String | No | TCP 또는 UDP |
 | **protocol** | String | 예 | - |
-| **isConflictingWithFirewall** | 부울 | 아니요 | True 또는 False |
+| **isConflictingWithFirewall** | 부울 | No | True 또는 False |
 
 #### <a name="cve-fields"></a>CVE 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **ID** | String | 아니요 | - |
-| **점수** | 숫자 | 아니요 | Double |
-| **description** | String | 아니요 | - |
+| **ID** | String | No | - |
+| **점수** | 숫자 | No | Double |
+| **description** | String | No | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -1060,7 +1060,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="apiv1reportsvulnerabilitiessecurity"></a>/api/v1/reports/vulnerabilities/security
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **GET**
 
@@ -1078,7 +1078,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 **unauthorizedDevices**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 | ---------- | ---- | -------------- |
 | **address** | String | IP 주소 |
 | **name** | String | - |
@@ -1087,7 +1087,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 **illegalTrafficByFirewallRules**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 | ---------- | ---- | -------------- |
 | **server** | String | IP 주소 |
 | **클라이언트로** | String | IP 주소 |
@@ -1096,7 +1096,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 **weakFirewallRules**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 | ---------- | ---- | -------------- |
 | **sources** | 소스의 JSON 배열입니다. 각 소스는 네 가지 형식 중 하나일 수 있습니다. | "Any", "ip 주소 (호스트)", "ip에서 ip로 (범위)", "ip 주소, 서브넷 마스크 (네트워크)" |
 | **대상** | 대상의 JSON 배열입니다. 각 대상은 네 가지 형식 중 하나일 수 있습니다. | "Any", "ip 주소 (호스트)", "ip에서 ip로 (범위)", "ip 주소, 서브넷 마스크 (네트워크)" |
@@ -1104,7 +1104,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 **accessPoints**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 | ---------- | ---- | -------------- |
 | **macAddress** | String | MAC 주소 |
 | **업체인** | String | 공급업체 이름 |
@@ -1114,14 +1114,14 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 **connectionsBetweenSubnets**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 | ---------- | ---- | -------------- |
 | **server** | String | IP 주소 |
 | **클라이언트로** | String | IP 주소 |
 
 **industrialMalwareIndicators**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 | ---------- | ---- | -------------- |
 | **detectionTime** | 숫자 | Epoch (UTC) |
 | **Alertmessage가 잘못** | String | - |
@@ -1130,7 +1130,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 **internetConnections**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 | ---------- | ---- | -------------- |
 | **internalAddress** | String | IP 주소 |
 | **승인됨** | 부울 | Yes 또는 No | 
@@ -1301,7 +1301,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="apiv1reportsvulnerabilitiesoperational"></a>/api/v1/reports/vulnerabilities/operational
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **GET**
 
@@ -1319,7 +1319,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 **backupServer**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 |--|--|--|
 | **source** | String | IP 주소 |
 | **destination** | String | IP 주소 |
@@ -1330,7 +1330,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 **ipNetworks**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 |--|--|--|
 | **addresse** s | 숫자 | - |
 | **network** | String | IP 주소 |
@@ -1338,7 +1338,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 **protocolProblems**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 |--|--|--|
 | **protocol** | String | - |
 | **주소로** | JSON 배열 | IP 주소 |
@@ -1347,14 +1347,14 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 **protocolDataVolumes**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 |--|--|--|
 | protocol | String | - |
 | 볼륨 | String | "볼륨 번호 MB" |
 
 **연결 끊김**
 
-| 필드 이름 | 유형 | 값 목록 |
+| 필드 이름 | 형식 | 값 목록 |
 |--|--|--|
 | **assetAddress** | String | IP 주소 |
 | **assetName** | String | - |
@@ -1496,7 +1496,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="apiexternalauthenticationvalidation"></a>/sa/cv/cv/validation
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **POST**
 
@@ -1508,8 +1508,8 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 아니요 |
-| **password** | String | 아니요 |
+| **username** | String | No |
+| **password** | String | No |
 
 #### <a name="request-example"></a>요청 예제
 
@@ -1557,7 +1557,7 @@ response:
 
 #### <a name="externalauthenticationset_password"></a>/external/authentication/set_password
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **POST**
 
@@ -1617,9 +1617,9 @@ response:
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 아니요 |
-| **password** | String | 아니요 |
-| **new_password** | String | 아니요 |
+| **username** | String | No |
+| **password** | String | No |
+| **new_password** | String | No |
 
 ### <a name="user-password-update-by-system-admin"></a>시스템 관리자의 사용자 암호 업데이트
 
@@ -1627,7 +1627,7 @@ response:
 
 #### <a name="externalauthenticationset_password_by_admin"></a>/external/authentication/set_password_by_admin
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **POST**
 
@@ -1692,10 +1692,10 @@ response:
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **admin_username** | String | 아니요 |
-| **admin_password** | String | 아니요 |
-| **username** | String | 아니요 |
-| **new_password** | String | 아니요 |
+| **admin_username** | String | No |
+| **admin_password** | String | No |
+| **username** | String | No |
+| **new_password** | String | No |
 
 ## <a name="on-premises-management-console-api-specifications"></a>온-프레미스 관리 콘솔 API 사양
 
@@ -1744,7 +1744,7 @@ response:
 
 - **/external/v1/devices**
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **GET**
 
@@ -1782,42 +1782,42 @@ response:
 
 #### <a name="device-fields"></a>장치 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **sensorId** | 숫자 | 아니요 | - |
-| **zoneId** | 숫자 | 예 | - |
-| **siteId** | 숫자 | 예 | - |
-| **ipAddresses** | JSON 배열 | 예 | IP 주소 (인터넷 주소 또는 이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
-| **name** | String | 아니요 | - |
-| **type** | String | 아니요 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
-| **macAddresses** | JSON 배열 | 예 | MAC 주소 (이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
+| **sensorId** | 숫자 | No | - |
+| **zoneId** | 숫자 | Yes | - |
+| **siteId** | 숫자 | Yes | - |
+| **ipAddresses** | JSON 배열 | Yes | IP 주소 (인터넷 주소 또는 이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
+| **name** | String | No | - |
+| **type** | String | No | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
+| **macAddresses** | JSON 배열 | Yes | MAC 주소 (이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
 | **operatingSystem** | String | 예 | - |
-| **engineeringStation** | 부울 | 아니요 | True 또는 False |
-| **장치가** | 부울 | 아니요 | True 또는 False |
-| **승인됨** | 부울 | 아니요 | True 또는 False |
+| **engineeringStation** | 부울 | No | True 또는 False |
+| **장치가** | 부울 | No | True 또는 False |
+| **승인됨** | 부울 | No | True 또는 False |
 | **업체인** | String | 예 | - |
-| **프로토콜** | JSON 배열 | 예 | 프로토콜 개체 |
-| **펌웨어입니다** | JSON 배열 | 예 | 펌웨어 개체 |
+| **프로토콜** | JSON 배열 | Yes | 프로토콜 개체 |
+| **펌웨어입니다** | JSON 배열 | Yes | 펌웨어 개체 |
 
 #### <a name="protocol-fields"></a>프로토콜 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| Name | String | 아니요 | - |
-| 주소 | JSON 배열 | 예 | Master 또는 numeric 값 |
+| Name | String | No | - |
+| 주소 | JSON 배열 | Yes | Master 또는 numeric 값 |
 
 #### <a name="firmware-fields"></a>펌웨어 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **연속적인** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **model** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **firmwareVersion** | Double | 아니요 | 해당 없음 또는 실제 값 |
-| **additionalData** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **moduleAddress** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **랙마운트** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **슬롯** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **address** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **연속적인** | String | No | 해당 없음 또는 실제 값 |
+| **model** | String | No | 해당 없음 또는 실제 값 |
+| **firmwareVersion** | Double | No | 해당 없음 또는 실제 값 |
+| **additionalData** | String | No | 해당 없음 또는 실제 값 |
+| **moduleAddress** | String | No | 해당 없음 또는 실제 값 |
+| **랙마운트** | String | No | 해당 없음 또는 실제 값 |
+| **슬롯** | String | No | 해당 없음 또는 실제 값 |
+| **address** | String | No | 해당 없음 또는 실제 값 |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -1965,7 +1965,7 @@ response:
 
 #### <a name="externalv1alerts"></a>/external/v1/alerts
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **GET**
 
@@ -1999,23 +1999,23 @@ response:
 
 #### <a name="alert-fields"></a>경고 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **ID** | 숫자 | 아니요 | - |
-| **time** | 숫자 | 아니요 | Epoch (UTC) |
-| **title** | String | 아니요 | - |
-| **message** | String | 아니요 | - |
-| **severity** | String | 아니요 | 경고, 부, 주 또는 위험 |
-| **엔진** | String | 아니요 | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
-| **sourceDevice** | 숫자 | 예 | 디바이스 ID |
-| **destinationDevice** | 숫자 | 예 | 디바이스 ID |
-| **additionalInformation** | 추가 정보 개체 | 예 | - |
+| **ID** | 숫자 | No | - |
+| **time** | 숫자 | No | Epoch (UTC) |
+| **title** | String | No | - |
+| **message** | String | No | - |
+| **severity** | String | No | 경고, 부, 주 또는 위험 |
+| **엔진** | String | No | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
+| **sourceDevice** | 숫자 | Yes | 디바이스 ID |
+| **destinationDevice** | 숫자 | Yes | 디바이스 ID |
+| **additionalInformation** | 추가 정보 개체 | Yes | - |
 
 #### <a name="additional-information-fields"></a>추가 정보 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **description** | String | 아니요 | - |
+| **description** | String | No | - |
 | **내용을** | JSON 배열 | 예 | String |
 
 #### <a name="response-example"></a>응답 예제
@@ -2140,7 +2140,7 @@ QRadar으로 전송 된 페이로드의 예:
 
 #### <a name="externalv1alertsltuuidgt"></a>/external/v1/alerts/ &lt; UUID&gt;
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **PUT**
 
@@ -2154,9 +2154,9 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 
 #### <a name="action-fields"></a>작업 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **action** | String | 아니요 | 핸들 또는 handleAndLearn |
+| **action** | String | No | 핸들 또는 handleAndLearn |
 
 #### <a name="request-example"></a>요청 예제
 
@@ -2178,9 +2178,9 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 #### <a name="response-fields"></a>응답 필드
 
 
-| Name | 유형 | Nullable | 설명 |
+| Name | Type | Nullable | Description |
 |--|--|--|--|
-| **내용/오류** | String | 아니요 | 요청에 성공 하면 content 속성이 나타납니다. 그렇지 않으면 오류 속성이 나타납니다. |
+| **내용/오류** | String | No | 요청에 성공 하면 content 속성이 나타납니다. 그렇지 않으면 오류 속성이 나타납니다. |
 
 #### <a name="possible-content-values"></a>가능한 콘텐츠 값
 
@@ -2356,7 +2356,7 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 
 #### <a name="response-structure"></a>응답 구조
 
-| Name | 유형 | 설명 | Nullable |
+| Name | Type | 의견 | Nullable |
 |--|--|--|--|
 | **dateTime** | String | 예: "2012-04-23T18:25:43.511 Z" | 아니요 |
 | **ticketId** | String | 예: "9a5fe99c-d914-4bda-9332-307384fe40bf" | 아니요 |
@@ -2373,7 +2373,7 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 
 #### <a name="externalauthenticationvalidation"></a>/external/cvrv/유효성 검사
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **POST**
 
@@ -2411,8 +2411,8 @@ request:
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 아니요 |
-| **password** | String | 아니요 |
+| **username** | String | No |
+| **password** | String | No |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -2432,7 +2432,7 @@ response:
 
 #### <a name="externalauthenticationset_password"></a>/external/authentication/set_password
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **POST**
 
@@ -2492,9 +2492,9 @@ response:
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 아니요 |
-| **password** | String | 아니요 |
-| **new_password** | String | 아니요 |
+| **username** | String | No |
+| **password** | String | No |
+| **new_password** | String | No |
 
 ### <a name="user-password-update-by-system-admin"></a>시스템 관리자의 사용자 암호 업데이트
 
@@ -2502,7 +2502,7 @@ response:
 
 #### <a name="externalauthenticationset_password_by_admin"></a>/external/authentication/set_password_by_admin
 
-#### <a name="method"></a>방법
+#### <a name="method"></a>메서드
 
 **POST**
 
@@ -2567,9 +2567,9 @@ response:
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **admin_username** | String | 아니요 |
-| **admin_password** | String | 아니요 |
-| **username** | String | 아니요 |
+| **admin_username** | String | No |
+| **admin_password** | String | No |
+| **username** | String | No |
 | **new_password** | String | 예 |
 
 ## <a name="see-also"></a>참고 항목

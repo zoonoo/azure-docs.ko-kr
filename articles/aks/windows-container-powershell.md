@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 97741423fa8b689a92bd9db78b810e6b86aefcbd
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 56fc11583bcdd271d0225de90ef7ab06bcf87cbf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247117"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625117"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>PowerShell을 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -97,7 +97,7 @@ New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCoun
 기본적으로 AKS 클러스터는 Linux 컨테이너를 실행할 수 있는 노드 풀로 생성됩니다. `New-AzAksNodePool` cmdlet을 사용하여 Linux 노드 풀과 함께 Windows Server 컨테이너를 실행할 수 있는 노드 풀을 추가합니다.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -OsType Windows -Name npwin -KubernetesVersion 1.16.7
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin -KubernetesVersion 1.16.7
 ```
 
 위의 명령은 **npwin** 이라는 새 노드 풀을 만들어 **myAKSCluster** 에 추가합니다. Windows Server 컨테이너를 실행하기 위해 노드 풀을 만들 때 **VmSize** 의 기본값은 **Standard_D2s_v3** 입니다. **VmSize** 매개 변수를 설정하도록 선택하는 경우 [제한된 VM 크기][restricted-vm-sizes] 목록을 확인합니다. 권장되는 최소 크기는 **Standard_D2s_v3** 입니다. 또한 이전 명령은 `New-AzAks`를 실행할 때 생성되는 기본 vnet의 기본 서브넷을 사용합니다.

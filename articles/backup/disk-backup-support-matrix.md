@@ -4,12 +4,12 @@ description: 지원 설정 및 Azure Disk Backup 제한 사항에 대 한 요약
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 950651148237c7b9374c378e27ef5cd76697ae9e
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 099e83d8a2fb109da862657265dad8be8143f608
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557869"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624937"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Azure Disk Backup 지원 매트릭스 (미리 보기)
 
@@ -55,6 +55,8 @@ Azure Disk Backup은 미국 서 부 지역에서 미리 보기로 제공 됩니�
 - 현재 백업 정책은 수정할 수 없으며, 디스크의 백업을 구성할 때 백업 인스턴스에 할당 된 스냅숏 리소스 그룹은 변경할 수 없습니다.
 
 - 현재 디스크의 백업을 구성 하는 Azure Portal 환경은 동일한 구독의 최대 20 개의 디스크로 제한 됩니다.
+
+- 현재 미리 보기 중에는 PowerShell 및 Azure CLI를 사용 하 여 디스크의 백업 및 복원을 구성 하는 것이 지원 되지 않습니다.
 
 - 백업을 구성할 때 백업 하도록 선택한 디스크와 스냅숏이 저장 될 스냅숏 리소스 그룹은 동일한 구독의 일부 여야 합니다. 해당 디스크의 구독 외부에 있는 특정 디스크에 대해 증분 스냅숏을 만들 수 없습니다. 관리 디스크의 [증분 스냅숏에](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) 대해 자세히 알아보세요. 스냅숏 리소스 그룹을 선택 하는 방법에 대 한 자세한 내용은  [백업 구성](backup-managed-disks.md#configure-backup)을 참조 하세요.
 

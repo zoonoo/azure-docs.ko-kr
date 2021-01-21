@@ -3,12 +3,12 @@ title: Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Mic
 description: Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736717"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624492"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -73,7 +73,7 @@ Azure Service Bus는 현재 각 연결에 대해 정확히 하나의 세션을 �
 
 ### <a name="amqp-outbound-port-requirements"></a>AMQP 아웃 바운드 포트 요구 사항
 
-TCP를 통해 AMQP 연결을 사용 하는 클라이언트에는 로컬 방화벽에서 포트 5671 및 5672을 열어야 합니다. 이러한 포트와 함께 [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) 기능을 사용 하는 경우 추가 포트를 열어야 할 수도 있습니다. `EnableLinkRedirect` 는 메시지를 수신 하는 동안 1 홉을 건너뛰어 처리량을 높이는 데 도움이 되는 새로운 메시징 기능입니다. 클라이언트는 다음 그림에 표시 된 것 처럼 포트 범위 104XX를 통해 백 엔드 서비스와 직접 통신을 시작 합니다. 
+TCP를 통해 AMQP 연결을 사용 하는 클라이언트에는 로컬 방화벽에서 포트 5671 및 5672을 열어야 합니다. 이러한 포트와 함께 [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) 기능을 사용 하는 경우 추가 포트를 열어야 할 수도 있습니다. `EnableLinkRedirect` 는 메시지를 수신 하는 동안 1 홉을 건너뛰어 처리량을 높이는 데 도움이 되는 새로운 메시징 기능입니다. 클라이언트는 다음 그림에 표시 된 것 처럼 포트 범위 104XX를 통해 백 엔드 서비스와 직접 통신을 시작 합니다. 
 
 ![대상 포트 목록][4]
 
@@ -142,49 +142,49 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 #### <a name="create-message-receiver"></a>메시지 수신자 만들기
 
-| Client | Service Bus |
+| 클라이언트 | Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link ID}<br/>) |클라이언트는 수신자로서 엔터티에 연결합니다. |
 | Service Bus는 응답하고 링크의 해당 끝을 연결합니다. |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link ID}<br/>) |
 
 #### <a name="create-message-sender"></a>메시지 발신자 만들기
 
-| Client | Service Bus |
+| 클라이언트 | Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |작업 없음 |
 | 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link ID},<br/>target={entity name}<br/>) |
 
 #### <a name="create-message-sender-error"></a>메시지 발신자 만들기(오류)
 
-| Client | Service Bus |
+| 클라이언트 | Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |작업 없음 |
 | 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
 #### <a name="close-message-receiversender"></a>메시지 수신자/발신자 닫기
 
-| Client | Service Bus |
+| 클라이언트 | Service Bus |
 | --- | --- |
 | --> detach(<br/>handle={numeric handle},<br/>닫힘 =**true**<br/>) |작업 없음 |
 | 작업 없음 |<-- detach(<br/>handle={numeric handle},<br/>닫힘 =**true**<br/>) |
 
 #### <a name="send-success"></a>전송(성공)
 
-| Client | Service Bus |
+| 클라이언트 | Service Bus |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
 | 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>상태 =**수락 됨**<br/>) |
 
 #### <a name="send-error"></a>전송(오류)
 
-| Client | Service Bus |
+| 클라이언트 | Service Bus |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
 | 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>Receive
 
-| Client | Service Bus |
+| 클라이언트 | Service Bus |
 | --- | --- |
 | --> flow(<br/>link-credit=1<br/>) |작업 없음 |
 | 작업 없음 |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
@@ -192,7 +192,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 #### <a name="multi-message-receive"></a>다중 메시지 수신
 
-| Client | Service Bus |
+| 클라이언트 | Service Bus |
 | --- | --- |
 | --> flow(<br/>link-credit=3<br/>) |작업 없음 |
 | 작업 없음 |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
@@ -222,7 +222,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | --- | --- | --- |
 | message-id |이 메시지에 대한 애플리케이션 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[있어](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Service Bus에서 해석되지 않는 애플리케이션 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
-| to |Service Bus에서 해석되지 않는 애플리케이션 정의 대상 식별자입니다. |[수행할 작업](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| 다음으로 변경: |Service Bus에서 해석되지 않는 애플리케이션 정의 대상 식별자입니다. |[수행할 작업](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | subject |Service Bus에서 해석되지 않는 애플리케이션 정의 메시지 용도 식별자입니다. |[레이블](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Service Bus에서 해석되지 않는 애플리케이션 정의 회산 경로 식별자입니다. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Service Bus에서 해석되지 않는 애플리케이션 정의 상관 관계 식별자입니다. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -240,14 +240,14 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 
 | 주석 맵 키 | 사용량 | API 이름 |
 | --- | --- | --- |
-| x-opt-scheduled-enqueue-time | 메시지가 엔터티에 표시되어야 하는 시간을 선언합니다. |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partition-key | 메시지가 배치되어야 하는 파티션을 지정하는 애플리케이션 정의 키입니다. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-via-partition-key | 전송 큐를 통해 메시지를 전송하는 데 트랜잭션이 사용되어야 하는 경우의 애플리케이션 정의 파티션 키 값입니다. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-opt-enqueued-time | 메시지를 큐에 넣는 데 걸리는 실제 시간을 나타내는 서비스 정의 UTC 시간입니다. 입력 시 무시됩니다. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt-sequence-number | 메시지에 할당되는 서비스 정의 고유 번호입니다. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
-| x-opt-offset | 메시지의 큐에 넣은 서비스 정의 시퀀스 번호입니다. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
-| x-opt-locked-until | 서비스 정의입니다. 큐/구독에서 메시지가 언제까지 잠기는지를 나타내는 날짜 및 시간입니다. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-opt-deadletter-source | 서비스 정의입니다. 메시지가 배달 못한 편지 큐에서 수신된 경우 원래 메시지의 원본입니다. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-scheduled-enqueue-time | 메시지가 엔터티에 표시되어야 하는 시간을 선언합니다. |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
+| x-opt-partition-key | 메시지가 배치되어야 하는 파티션을 지정하는 애플리케이션 정의 키입니다. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
+| x-opt-via-partition-key | 전송 큐를 통해 메시지를 전송하는 데 트랜잭션이 사용되어야 하는 경우의 애플리케이션 정의 파티션 키 값입니다. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
+| x-opt-enqueued-time | 메시지를 큐에 넣는 데 걸리는 실제 시간을 나타내는 서비스 정의 UTC 시간입니다. 입력 시 무시됩니다. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
+| x-opt-sequence-number | 메시지에 할당되는 서비스 정의 고유 번호입니다. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
+| x-opt-offset | 메시지의 큐에 넣은 서비스 정의 시퀀스 번호입니다. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
+| x-opt-locked-until | 서비스 정의입니다. 큐/구독에서 메시지가 언제까지 잠기는지를 나타내는 날짜 및 시간입니다. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
+| x-opt-deadletter-source | 서비스 정의입니다. 메시지가 배달 못한 편지 큐에서 수신된 경우 원래 메시지의 원본입니다. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### <a name="transaction-capability"></a>트랜잭션 기능
 
@@ -323,7 +323,7 @@ AMQP 관리 사양은 이 문서에서 설명하는 초안 확장 중 첫 번째
 
 이러한 모든 제스처는 클라이언트와 메시지 인프라 간에 요청/응답 상호 작용을 필요로 하므로, 해당 사양에서는 AMQP를 토대로 이러한 상호 작용 패턴을 모델링하는 방법을 정의합니다. 클라이언트는 메시지 인프라에 연결하고, 세션을 시작하고, 링크 쌍을 만듭니다. 한 링크에서 클라이언트는 보낸 사람 역할을 하고, 다른 링크에서는 받는 사람 역할을 하므로 양방향 채널로 작동할 수 있는 링크 쌍이 만들어집니다.
 
-| 논리 연산 | Client | Service Bus |
+| 논리 연산 | 클라이언트 | Service Bus |
 | --- | --- | --- |
 | 요청 응답 경로 만들기 |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |작업 없음 |
 | 요청 응답 경로 만들기 |작업 없음 |\<-- attach(<br/>name = {*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
@@ -357,7 +357,7 @@ CBS는 *$cbs* 라는 가상 관리 노드가 메시징 인프라에 의해 제�
 
 요청 메시지에는 다음과 같은 애플리케이션 속성이 적용됩니다.
 
-| Key | 선택 사항 | 값 형식 | 값 내용 |
+| 키 | 선택 사항 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
 | operation |예 |문자열 |**put-token** |
 | 형식 |예 |문자열 |배치되는 토큰의 형식입니다. |
@@ -366,7 +366,7 @@ CBS는 *$cbs* 라는 가상 관리 노드가 메시징 인프라에 의해 제�
 
 *name* 속성은 토큰이 연결되어야 하는 엔터티를 식별합니다. Service Bus에서 큐 또는 토픽/구독에 대한 경로에 해당합니다. *type* 속성은 토큰 형식을 식별합니다.
 
-| 토큰 형식 | 토큰 설명 | 본문 형식 | 메모 |
+| 토큰 형식 | 토큰 설명 | 본문 형식 | 참고 |
 | --- | --- | --- | --- |
 | amqp:jwt |JWT(JSON 웹 토큰) |AMQP 값(문자열) |아직 사용할 수 없습니다. |
 | amqp:swt |SWT(단순 웹 토큰) |AMQP 값(문자열) |AAD/ACS에서 발급한 SWT 토큰에 대해서만 지원됩니다. |
@@ -376,9 +376,9 @@ CBS는 *$cbs* 라는 가상 관리 노드가 메시징 인프라에 의해 제�
 
 회신 메시지는 다음과 같은 *애플리케이션 속성* 값을 갖습니다.
 
-| Key | 선택 사항 | 값 형식 | 값 내용 |
+| 키 | 선택 사항 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
-| status-code |예 |int |HTTP 응답 코드 **[RFC2616]** |
+| status-code |No |int |HTTP 응답 코드 **[RFC2616]** |
 | status-description |예 |문자열 |상태에 대한 설명입니다. |
 
 클라이언트는 메시징 인프라의 모든 엔터티에 대해 반복적으로 *put-token* 을 호출할 수 있습니다. 토큰은 현재 클라이언트로 범위가 지정되며 현재 연결에 고정됩니다. 즉, 연결이 삭제되면 서버는 보유된 토큰을 모두 삭제합니다.
@@ -399,7 +399,7 @@ CBS는 *$cbs* 라는 가상 관리 노드가 메시징 인프라에 의해 제�
 
 > 참고: 이 링크를 설정하기 전에 *via-entity* 및 *destination-entity* 모두에 대해 인증이 수행되어야 합니다.
 
-| Client | 방향 | Service Bus |
+| 클라이언트 | 방향 | Service Bus |
 | :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target =**{via-엔터티}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |

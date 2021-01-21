@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 953a9cfeed558291fba1cb517039f26860444904
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 98499961f55b55b15687d5742b4d593e3d461e49
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233664"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625333"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
@@ -39,14 +39,14 @@ ms.locfileid: "98233664"
 
 ## <a name="configuration-file-path"></a>구성 파일 경로
 
-기본적으로 Application Insights Java 3.0은 구성 파일의 이름을로 지정 하 `applicationinsights.json` 고와 동일한 디렉터리에 위치 하도록 `applicationinsights-agent-3.0.1.jar` 합니다.
+기본적으로 Application Insights Java 3.0은 구성 파일의 이름을로 지정 하 `applicationinsights.json` 고와 동일한 디렉터리에 위치 하도록 `applicationinsights-agent-3.0.2.jar` 합니다.
 
 다음 중 하나를 사용 하 여 사용자 고유의 구성 파일 경로를 지정할 수 있습니다.
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` 환경 변수 또는
 * `applicationinsights.configuration.file` Java 시스템 속성
 
-상대 경로를 지정 하면가 있는 디렉터리를 기준으로 확인 됩니다 `applicationinsights-agent-3.0.1.jar` .
+상대 경로를 지정 하면가 있는 디렉터리를 기준으로 확인 됩니다 `applicationinsights-agent-3.0.2.jar` .
 
 ## <a name="connection-string"></a>연결 문자열
 
@@ -170,7 +170,7 @@ ms.locfileid: "98233664"
 `${...}` 시작 시 지정 된 환경 변수에서 값을 읽는 데 사용할 수 있습니다.
 
 > [!NOTE]
-> 버전 3.0.1부터 이라는 사용자 지정 차원을 추가 하는 경우 `service.version` 값은 `application_Version` 사용자 지정 차원이 아닌 Application Insights Logs 테이블의 열에 저장 됩니다.
+> 버전 3.0.2부터 이라는 사용자 지정 차원을 추가 하는 경우 `service.version` 값은 `application_Version` 사용자 지정 차원이 아닌 Application Insights Logs 테이블의 열에 저장 됩니다.
 
 ## <a name="telemetry-processors-preview"></a>원격 분석 프로세서 (미리 보기)
 
@@ -241,7 +241,7 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>특정 자동 수집 원격 분석 표시 안 함
 
-3.0.1 버전부터 다음 구성 옵션을 사용 하 여 특정 자동 수집 원격 분석을 억제할 수 있습니다.
+3.0.2 버전부터 다음 구성 옵션을 사용 하 여 특정 자동 수집 원격 분석을 억제할 수 있습니다.
 
 ```json
 {
@@ -338,7 +338,7 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 
 `level` ,,,, 또는 중 하나일 수 있습니다 `OFF` `ERROR` `WARN` `INFO` `DEBUG` `TRACE` .
 
-`path` 절대 경로 또는 상대 경로일 수 있습니다. 상대 경로는가 있는 디렉터리를 기준으로 확인 됩니다 `applicationinsights-agent-3.0.1.jar` .
+`path` 절대 경로 또는 상대 경로일 수 있습니다. 상대 경로는가 있는 디렉터리를 기준으로 확인 됩니다 `applicationinsights-agent-3.0.2.jar` .
 
 `maxSizeMb` 는 롤오버 되기 전에 로그 파일의 최대 크기입니다.
 

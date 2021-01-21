@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ee32749e2c6f0118507fcfc6d4994a04ea3a6d69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 759adea3cf34b79c76b6facec3bd4626ca54107e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997276"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625035"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
@@ -471,6 +471,10 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 
 
 [Event Grid 및 Logic Apps를 사용하여 이메일 알림을 보내](../event-grid/publish-iot-hub-events-to-logic-apps.md)고 Azure Maps를 사용하여 [Event Grid에서 지원되는 이벤트 처리기](../event-grid/event-handlers.md)를 확인할 수도 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+정리가 필요한 리소스가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

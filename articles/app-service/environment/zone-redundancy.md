@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1e88aac4209f7960b2589cf43f59ead4bd129134
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 383b5bb5c7295fe54efda883e47b9b2338286de5
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605076"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624728"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>App Service 환경에 대 한 가용성 영역 지원
 
@@ -30,14 +30,12 @@ ILB ASE는 특정 영역에 고정 되므로 AZ에 명시적으로 배포 된 IL
 영역 ILB Ase는 다음 지역 중 하나에서 만들 수 있습니다.
 
 - 오스트레일리아 동부
-- 브라질 남부
 - 캐나다 중부
 - 미국 중부
 - 미국 동부
 - 미국 동부 2
 - 미국 동부 2 (EUAP)
 - 프랑스 중부 
-- 독일 중서부
 - 일본 동부
 - 북유럽
 - 서유럽
@@ -51,9 +49,9 @@ ILB ASE는 특정 영역에 고정 되므로 AZ에 명시적으로 배포 된 IL
 
 영역 ILB Ase는 ARM 템플릿을 사용 하 여 만들어야 합니다. 영역 ILB ASE를 ARM 템플릿을 통해 만든 후에는 Azure Portal 및 CLI를 통해 표시 하 고 상호 작용할 수 있습니다.  ARM 템플릿은 영역 ILB ASE를 처음 만들 때만 필요 합니다.
 
-영역 ILB ASE를 지정 하기 위해 ARM 템플릿에서 필요한 유일한 변경 내용은 새 ***영역*** 속성입니다. ***Zones*** 속성은 ILB ASE가 고정 되어야 하는 논리 가용성 영역에 따라 "1", "2", "3"의 값으로 설정 되어야 합니다.
+영역 ILB ASE를 지정 하기 위해 ARM 템플릿에서 필요한 유일한 변경 내용은 new ***zones** _ 속성입니다. _*_Zones_*_ 속성은 ILB ASE가 고정 되어야 하는 논리 가용성 영역에 따라 "1", "2", "3"의 값으로 설정 되어야 합니다.
 
-아래 예제 ARM 템플릿 코드 조각에서는 ILB ASE를 영역 2에 고정 하도록 지정 하는 새 ***영역*** 속성을 보여 줍니다.
+아래 예제 ARM 템플릿 코드 조각에서는 ILB ASE를 영역 2에 고정 하도록 지정 하는 새 _*_영역_*_ 속성을 보여 줍니다.
 
 ```
    "resources": [
@@ -91,6 +89,6 @@ ILB ASE는 특정 영역에 고정 되므로 AZ에 명시적으로 배포 된 IL
 
 고객은 다음 단계를 수행 하 여 단일 지역에 데이터를 저장 하도록 App Service Environment 올바르게 구성 되었는지 확인할 수 있습니다. 
 
-1. [리소스 탐색기](https://resources.azure.com)를 사용 하 여 App Service Environment에 대 한 ARM 리소스로 이동 합니다.  Ase */hostingEnvironments*아래에 나열 됩니다.
+1. [리소스 탐색기](https://resources.azure.com)를 사용 하 여 App Service Environment에 대 한 ARM 리소스로 이동 합니다.  Ase는 _providers/Microsoft.Web/hostingEnvironments * 아래에 나열 됩니다.
 2. *영역* 속성이 ARM json 구문 뷰에 있고 값이 "1", "2", "3" 인 단일 값 JSON 배열을 포함 하는 경우 ASE는 zonally 배포 되 고 고객 데이터는 동일한 지역에 유지 됩니다.
 2. *Zones* 속성이 존재 하지 않거나 속성에 이전에 지정 된 유효한 영역 값이 없는 경우 ASE가 zonally 배포 되지 않고 고객 데이터가 동일한 지역에 독점적으로 저장 되지 않습니다.

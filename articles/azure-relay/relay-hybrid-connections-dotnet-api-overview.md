@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Relay 하이브리드 연결 .NET Standar
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 44d5800c08b49118e99a678e31d02e5b7a1f550c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 724fb1a62b82036b4a0fa8b9f4f3608293f608a9
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935673"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625134"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure Relay 하이브리드 연결 .NET Standard API 개요
 
@@ -83,7 +83,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### <a name="receiving-data"></a>데이터 수신
 
-[HybridConnectionStream][HCStream] 클래스를 사용하면 양방향 통신이 가능합니다. 대부분의 경우 스트림에서 지속적으로 수신합니다. 스트림에서 텍스트를 읽는 경우 데이터 구문 분석이 더 쉬운 [StreamReader](/dotnet/api/system.io.streamreader?view=netcore-3.1) 개체를 사용하는 것이 좋을 수도 있습니다. 예를 들어 아닌 데이터를 `byte[]`가 아닌 텍스트로 읽을 수 있습니다.
+[HybridConnectionStream][HCStream] 클래스를 사용하면 양방향 통신이 가능합니다. 대부분의 경우 스트림에서 지속적으로 수신합니다. 스트림에서 텍스트를 읽는 경우 데이터 구문 분석이 더 쉬운 [StreamReader](/dotnet/api/system.io.streamreader) 개체를 사용하는 것이 좋을 수도 있습니다. 예를 들어 아닌 데이터를 `byte[]`가 아닌 텍스트로 읽을 수 있습니다.
 
 다음 코드는 취소가 요청될 때까지 스트림에서 개별 텍스트 줄을 읽습니다.
 
@@ -110,14 +110,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>데이터 전송
 
-연결을 설정하면 Relay 엔드포인트로 메시지를 보낼 수 있습니다. 연결 개체는 [스트림](/dotnet/api/system.io.stream?view=netcore-3.1)을 상속하기 때문에 데이터를 `byte[]`로 전송합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
+연결을 설정하면 Relay 엔드포인트로 메시지를 보낼 수 있습니다. 연결 개체는 [스트림](/dotnet/api/system.io.stream)을 상속하기 때문에 데이터를 `byte[]`로 전송합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-단, 매번 문자열을 인코딩할 필요 없이 텍스트를 직접 전송하려는 경우 `hybridConnectionStream` 개체를 [StreamWriter](/dotnet/api/system.io.streamwriter?view=netcore-3.1) 개체로 래핑할 수 있습니다.
+단, 매번 문자열을 인코딩할 필요 없이 텍스트를 직접 전송하려는 경우 `hybridConnectionStream` 개체를 [StreamWriter](/dotnet/api/system.io.streamwriter) 개체로 래핑할 수 있습니다.
 
 ```csharp
 // The StreamWriter object only needs to be created once

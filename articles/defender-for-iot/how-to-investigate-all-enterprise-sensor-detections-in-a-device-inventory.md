@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 47e3833fe9f35467c1d16945a9b336d4014b2efd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839774"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625467"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>장치 인벤토리에서 모든 엔터프라이즈 센서 검색 조사
 
@@ -30,8 +30,8 @@ ms.locfileid: "97839774"
 | **사이트** | 이 장치를 포함 하는 사이트입니다. |
 | **영역** | 이 장치를 포함 하는 영역입니다. |
 | **어플라이언스** | 이 장치를 보호 하는 IoT 용 Azure Defender 센서입니다. |
-| **Name** | IoT 용 Defender에서이 장치의 이름을 검색 했습니다. |
-| **형식** | 장치 유형 (예: PLC 또는 HMI)입니다. |
+| **이름** | IoT 용 Defender에서이 장치의 이름을 검색 했습니다. |
+| **Type** | 장치 유형 (예: PLC 또는 HMI)입니다. |
 | **공급업체** | MAC 주소에 정의 된 장치 공급 업체의 이름입니다. |
 | **운영 체제** | 장치의 OS입니다. |
 | **펌웨어** | 장치의 펌웨어입니다. |
@@ -67,7 +67,7 @@ ms.locfileid: "97839774"
 
 - 장치에 로그인 한 사용자
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="자산 인벤토리 화면의 데이터 테이블":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="장치 인벤토리 화면의 데이터 테이블":::
 
 다음 중 하나를 수행 하 여 데이터를 통합할 수 있습니다.
 
@@ -131,13 +131,13 @@ IoT API 용 Defender를 사용 하 여이 정보를 검색 하 고 통합 합니
 
 장치 인벤토리를 필터링 하 여 관심 있는 열을 표시할 수 있습니다. 예를 들어 PLC 장치 정보를 볼 수 있습니다.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="자산 인벤토리의 스크린샷.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="장치 인벤토리의 스크린샷.":::
 
 창을 벗어나면 필터가 지워집니다.
 
 동일한 필터를 여러 번 사용 하려면 필요한 필터 또는 필터 조합을 저장할 수 있습니다. 왼쪽 창을 열고 저장 한 필터를 볼 수 있습니다.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="자산 인벤토리 화면.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="장치 인벤토리 화면":::
 
 장치 인벤토리를 필터링 하려면:
 
@@ -187,7 +187,7 @@ IoT API 용 Defender를 사용 하 여이 정보를 검색 하 고 통합 합니
 
 - **장치 속성 보기**: 예를 들어 장치를 모니터링 하는 센서 및 기본 장치 속성입니다. 장치를 마우스 오른쪽 단추로 클릭 하 여 장치 속성을 봅니다.
 
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="자산 속성 보기의 스크린샷":::
+  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="장치 속성 보기의 스크린샷":::
 
 - **장치와 연결 된 경고:** 장치를 마우스 오른쪽 단추로 클릭 하 여 관련 경고를 확인 합니다.
 
@@ -225,6 +225,6 @@ IoT API 용 Defender를 사용 하 여이 정보를 검색 하 고 통합 합니
 
 - **업데이트 진행률**: 연결 된 센서를 업그레이드 하는 경우 업그레이드 상태가 표시 됩니다. 업그레이드 하는 동안 온-프레미스 관리 콘솔은 센서에서 장치 정보를 받지 않습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-[장치 인벤토리에서 센서 검색 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+[디바이스 인벤토리에서 센서 감지 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)

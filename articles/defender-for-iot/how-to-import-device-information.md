@@ -1,5 +1,5 @@
 ---
-title: 장치 정보 가져오기
+title: 디바이스 정보 가져오기
 description: IoT 센서에 대 한 Defender는 미러된 트래픽을 모니터링 하 고 분석 합니다. 이러한 경우에는 이미 검색 된 장치에 대 한 정보를 보강 하기 위해 데이터를 가져올 수 있습니다.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 0a443ba7b41615fc62882bd8de6bf077c6b5a137
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7cb805f60ba9feb0ae2d1483b2ab2df4e03639d8
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840302"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625417"
 ---
 # <a name="import-device-information-to-a-sensor"></a>장치 정보를 센서로 가져오기
 
@@ -67,7 +67,7 @@ IoT 센서에 대 한 Azure Defender는 미러된 트래픽을 모니터링 하 
 
 IP 주소, OS 및 패치 수준을 가져오려면:
 
-1. [도움말 센터](https://cyberx-labs.zendesk.com/hc/en-us) 에서 [assets_info_2.2.8 및 up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) 파일을 다운로드 하 고 다음과 같이 정보를 입력 합니다.
+1. [도움말 센터](https://cyberx-labs.zendesk.com/hc/en-us) 에서 [devices_info_2.2.8 및 up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) 파일을 다운로드 하 고 다음과 같이 정보를 입력 합니다.
 
    - **Ip 주소**: 장치 ip 주소를 입력 합니다.
 
@@ -85,7 +85,7 @@ IP 주소, OS 및 패치 수준을 가져오려면:
 
 권한 부여 상태를 가져오려면:
 
-1. IoT 용 Defender 도움말 센터에서 [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) 파일을 다운로드 하 여 저장 합니다. 파일을 CSV로 저장 했는지 확인 합니다.
+1. IoT 용 Defender 도움말 센터에서 [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) 파일을 다운로드 하 여 저장 합니다. 파일을 CSV로 저장 했는지 확인 합니다.
 
 2. 다음과 같이 정보를 입력 합니다.
 
@@ -154,7 +154,7 @@ IP 주소, OS 및 패치 수준을 가져오려면:
 
 IP 주소, OS 및 패치 수준을 가져오려면:
 
-1. [도움말 센터](https://cyberx-labs.zendesk.com/hc/en-us) 에서 [assets_info_2.2.8 및 up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) 파일을 다운로드 하 고 다음과 같이 정보를 입력 합니다.
+1. [도움말 센터](https://cyberx-labs.zendesk.com/hc/en-us) 에서 [devices_info_2.2.8 및 up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) 파일을 다운로드 하 고 다음과 같이 정보를 입력 합니다.
 
    - **Ip 주소**: 장치 ip 주소입니다.
 
@@ -172,7 +172,7 @@ IP 주소, OS 및 패치 수준을 가져오려면:
 
 권한 부여 상태를 가져오려면:
 
-1. IoT 용 Defender 도움말 센터에서 [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) 파일을 다운로드 하 여 저장 합니다. 파일을 CSV로 저장 했는지 확인 합니다.
+1. IoT 용 Defender 도움말 센터에서 [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) 파일을 다운로드 하 여 저장 합니다. 파일을 CSV로 저장 했는지 확인 합니다.
 
 2. 다음과 같이 정보를 입력 합니다.
 
@@ -188,8 +188,8 @@ IP 주소, OS 및 패치 수준을 가져오려면:
 
 정보를 가져오면이 목록에 표시 되지 않은 모든 장치에 대 한 권한이 없는 장치에 대 한 경고가 표시 됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-[모니터링 되는 트래픽 제어](how-to-control-what-traffic-is-monitored.md)
+[모니터링된 트래픽 제어](how-to-control-what-traffic-is-monitored.md)
 
-[장치 인벤토리에서 센서 검색 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+[디바이스 인벤토리에서 센서 감지 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)

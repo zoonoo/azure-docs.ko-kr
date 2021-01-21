@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977078"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624687"
 ---
 # <a name="control-what-traffic-is-monitored"></a>모니터링된 트래픽 제어
 
@@ -157,7 +157,7 @@ OT 장치에서 포커스를 사용 하도록 설정 하기 위해 IT 장치는 
 
 각 센서에 동적 IP 주소를 정의 하면 IP 주소 변경의 인스턴스에서 포괄적인 투명 지원을 사용할 수 있습니다. 이렇게 하면 각 고유 장치에 대 한 포괄적인 보고가 보장 됩니다.
 
-센서 콘솔은 장치와 연결 된 최신 IP 주소를 표시 하 고 동적 장치를 나타냅니다. 다음은 그 예입니다. 
+센서 콘솔은 장치와 연결 된 최신 IP 주소를 표시 하 고 동적 장치를 나타냅니다. 예를 들면 다음과 같습니다.
 
 - 데이터 마이닝 보고서 및 장치 인벤토리 보고서는 IP 주소 변경에 관계 없이 장치에서 배운 모든 활동을 하나의 엔터티로 통합 합니다. 이러한 보고서는 DHCP 주소로 정의 된 주소를 표시 합니다.
 
@@ -186,11 +186,11 @@ DHCP 주소 범위를 설정 하려면:
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>역방향 조회 확인을 위한 DNS 서버 구성
 
-Asset 보강을 향상 시키기 위해 여러 DNS 서버를 carryout 역방향 조회로 구성할 수 있습니다. 네트워크 서브넷에서 검색 된 IP 주소와 연결 된 호스트 이름 또는 Fqdn을 확인할 수 있습니다. 예를 들어 센서가 IP 주소를 검색 하는 경우 여러 DNS 서버를 쿼리하여 호스트 이름을 확인할 수 있습니다.
+장치 보강을 향상 시키기 위해 여러 DNS 서버를 carryout 역방향 조회로 구성할 수 있습니다. 네트워크 서브넷에서 검색 된 IP 주소와 연결 된 호스트 이름 또는 Fqdn을 확인할 수 있습니다. 예를 들어 센서가 IP 주소를 검색 하는 경우 여러 DNS 서버를 쿼리하여 호스트 이름을 확인할 수 있습니다.
 
 모든 CIDR 형식이 지원 됩니다.
 
-호스트 이름은 자산 인벤토리 및 자산 맵과 보고서에도 표시 됩니다.
+호스트 이름은 장치 인벤토리 및 장치 맵과 보고서에 표시 됩니다.
 
 12 시간 마다 특정 시간 간격에 대 한 역방향 조회 확인 일정을 예약할 수 있습니다. 또는 특정 시간을 예약할 수 있습니다.
 
@@ -212,7 +212,7 @@ DNS 서버를 정의 하려면:
 
 5. **Dns 서버 포트** 필드에 dns 포트를 입력 합니다.
 
-6. 네트워크 IP 주소를 자산 Fqdn으로 확인 합니다. **레이블 수** 필드에 표시할 도메인 레이블 수를 추가 합니다. 왼쪽에서 오른쪽으로 최대 30 자까지 표시 됩니다.
+6. 네트워크 IP 주소를 장치 Fqdn으로 확인 합니다. **레이블 수** 필드에 표시할 도메인 레이블 수를 추가 합니다. 왼쪽에서 오른쪽으로 최대 30 자까지 표시 됩니다.
 
 7. **서브넷** 필드에 DNS 서버에서 쿼리할 서브넷을 입력 합니다.
 
@@ -220,7 +220,7 @@ DNS 서버를 정의 하려면:
 
 ### <a name="test-the-dns-configuration"></a>DNS 구성 테스트 
 
-테스트 자산을 사용 하 여 정의한 설정이 제대로 작동 하는지 확인 합니다.
+테스트 장치를 사용 하 여 정의한 설정이 제대로 작동 하는지 확인 합니다.
 
 1. **DNS 조회** 를 설정/해제 합니다.
 
@@ -295,7 +295,7 @@ UDP 포트 135 및 1024 위의 모든 TCP 포트를 사용 하 여 센서의 나
 
 1. 검색이 완료 되 면 **작업** 창에서 **검사 결과 보기** 를 선택 합니다. 검색 결과가 포함 된 CSV 파일이 컴퓨터에 다운로드 됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [장치 인벤토리에서](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  센서 검색 조사 [장치 맵의 센서 검색 조사](how-to-work-with-the-sensor-device-map.md)

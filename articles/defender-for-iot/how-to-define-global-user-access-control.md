@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: de3ff6ead1f0dd86e07c86b992a720a676a2095c
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 399eee06d472204eaf6dbc333f15cee7c4373739
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840926"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624645"
 ---
 # <a name="define-global-access-control"></a>전역 액세스 제어 정의
 
@@ -20,7 +20,7 @@ ms.locfileid: "97840926"
 
 전체적이 고 복잡 한 사용자 액세스 권한 요구를 지원 하기 위해 비즈니스 단위, 지역 및 사이트를 기반으로 하는 글로벌 비즈니스 토폴로지를 만들 수 있습니다. 그런 다음 이러한 엔터티에 대 한 사용자 액세스 권한을 정의할 수 있습니다.
 
-비즈니스 토폴로지에 대 한 액세스 도구를 사용 하면 조직에서 사용자가 IoT 플랫폼용 Azure Defender의 자산을 관리 하 고 분석 하는 위치를 보다 효율적으로 제어 하 여 0 신뢰 전략을 구현할 수 있습니다.
+비즈니스 토폴로지에 대 한 액세스 도구를 사용 하면 조직에서 사용자가 IoT 플랫폼용 Azure Defender에서 장치를 관리 하 고 분석 하는 위치를 효과적으로 제어 하 여 0 신뢰 전략을 구현할 수 있습니다.
 
 ## <a name="about-access-groups"></a>액세스 그룹 정보
 
@@ -88,6 +88,6 @@ ms.locfileid: "97840926"
 
 - 사업부 또는 지역이 선택 되지 않은 경우 사용자는 정의 된 모든 사업부 및 지역에 액세스할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [IoT 콘솔 사용자를 위한 Defender 정보](how-to-create-and-manage-users.md)

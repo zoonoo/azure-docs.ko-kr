@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 63184a623c6f0a8c53e09e6af92c05e45c5e0794
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b530fc320f6c29dd7a86a39c5a7019265bb6b724
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185984"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624425"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
@@ -70,6 +70,38 @@ ms.locfileid: "98185984"
 | SPACEANALYTICS_CONFIG | 아래에 설명 된 영역 및 줄에 대 한 JSON 구성|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` 비디오 스트림에 얼굴 마스크를 입고 있는 사용자를 검색 하 `False` 여 사용 하지 않도록 설정할 수 있습니다. 기본적으로이 기능은 사용 되지 않습니다. 얼굴 마스크 검색을 사용 하려면 입력 비디오 너비 매개 변수가 1920 이어야 `"INPUT_VIDEO_WIDTH": 1920` 합니다. 검색 된 사람이 카메라를 연결 하지 않거나 너무 멀리 떨어져 있는 경우 얼굴 마스크 특성은 반환 되지 않습니다. 자세한 내용은 [카메라 배치](spatial-analysis-camera-placement.md) 가이드를 참조 하세요. |
 
+모든 공간 분석 작업에 대 한 DETECTOR_NODE_CONFIG 매개 변수의 예입니다.
+
+```json
+{
+"gpu_index": 0,
+"do_calibration": true,
+"enable_recalibration": true,
+"calibration_quality_check_frequency_seconds":86400,
+"calibration_quality_check_sampling_num": 80,
+"calibration_quality_check_sampling_times": 5,
+"calibration_quality_check_sample_collect_frequency_seconds": 300,
+"calibration_quality_check_one_round_sample_collect_num":10,
+"calibration_quality_check_queue_max_size":1000,
+"recalibration_score": 75
+}
+```
+
+| Name | Type| Description|
+|---------|---------|---------|
+| `gpu_index` | 문자열| 이 작업이 실행 될 GPU 인덱스입니다.|
+| `do_calibration` | 문자열 | 보정 기능이 설정 되어 있음을 나타냅니다. `do_calibration`**spatialanalysis-persondistance** 가 제대로 작동 하려면 true 여야 합니다. do_calibration는 기본적으로 True로 설정 됩니다. |
+| `enable_recalibration` | bool | 자동 보정할가 설정 되어 있는지 여부를 나타냅니다. 기본값은 `true`입니다.|
+| `calibration_quality_check_frequency_seconds` | int | 보정할가 필요한 지 여부를 확인 하기 위해 각 품질 검사 사이의 최소 시간 (초)입니다. 기본값은 `86400` (24 시간)입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
+| `calibration_quality_check_sampling_num` | int | 품질 검사 오류 측정 당 사용 하기 위해 임의로 선택 된 저장 된 데이터 샘플 수입니다. 기본값은 `80`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
+| `calibration_quality_check_sampling_times` | int | 품질 검사 당 임의로 선택 된 여러 데이터 샘플 집합에서 오류 측정이 수행 되는 횟수입니다. 기본값은 `5`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
+| `calibration_quality_check_sample_collect_frequency_seconds` | int | 보정할 및 품질 검사를 위한 새 데이터 샘플 수집 사이의 최소 시간 (초)입니다. 기본값은 `300` (5 분)입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
+| `calibration_quality_check_one_round_sample_collect_num` | int | 샘플 컬렉션의 라운드 당 수집할 새 데이터 샘플의 최소 수입니다. 기본값은 `10`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
+| `calibration_quality_check_queue_max_size` | int | 카메라 모델이 보정 될 때 저장할 최대 데이터 샘플 수입니다. 기본값은 `1000`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
+| `recalibration_score` | int | 보정할을 시작 하기 위한 최대 품질 임계값입니다. 기본값은 `75`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다. 보정 품질은 이미지 대상 reprojection 오류와의 역 관계에 따라 계산 됩니다. 2D 이미지 프레임에서 검색 된 대상이 지정 된 경우 대상은 3D 공간에 투영 되 고 기존 카메라 보정 매개 변수를 사용 하 여 2D 이미지 프레임으로 다시 투영 됩니다. 재 프로젝션 오류는 검색 된 대상과 다시 프로젝션 된 대상 사이의 평균 거리 만큼 측정 됩니다.|
+| `enable_breakpad`| bool | 디버그 사용을 위해 크래시 덤프를 생성 하는 데 사용 되는 간 채움을 사용할지 여부를 나타냅니다. `false`기본적으로입니다. 로 설정 하면 `true` `"CapAdd": ["SYS_PTRACE"]` 컨테이너의 파트에도 추가 해야 `HostConfig` `createOptions` 합니다. 기본적으로 크래시 덤프는 [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) appcenter 앱에 업로드 되며, 사용자의 appcenter 앱에 크래시 덤프를 업로드 하려면 `RTPT_APPCENTER_APP_SECRET` 앱의 앱 암호를 사용 하 여 환경 변수를 재정의할 수 있습니다.
+
+
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>Cognitiveservices account에 대 한 영역 구성 spatialanalysis-personcount
 
  영역을 구성 하는 SPACEANALYTICS_CONFIG 매개 변수에 대 한 JSON 입력의 예입니다. 이 작업에 대 한 여러 영역을 구성할 수 있습니다.
@@ -90,7 +122,7 @@ ms.locfileid: "98185984"
 }
 ```
 
-| 이름 | 유형| Description|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -135,17 +167,17 @@ ms.locfileid: "98185984"
 }
 ```
 
-| 이름 | 유형| Description|
+| Name | Type| Description|
 |---------|---------|---------|
 | `lines` | list| 줄 목록입니다.|
 | `name` | 문자열| 이 줄에 대 한 친숙 한 이름입니다.|
 | `line` | list| 줄의 정의입니다. "항목"과 "종료"를 이해할 수 있는 방향 줄입니다.|
 | `start` | 값 쌍| 선의 시작점에 대 한 x, y 좌표입니다. Float 값은 왼쪽 위 모퉁이를 기준으로 하는 꼭 짓 점의 위치를 나타냅니다. 절대 x, y 값을 계산 하려면 이러한 값을 프레임 크기와 곱합니다. |
 | `end` | 값 쌍| 선의 끝 지점에 대 한 x, y 좌표입니다. Float 값은 왼쪽 위 모퉁이를 기준으로 하는 꼭 짓 점의 위치를 나타냅니다. 절대 x, y 값을 계산 하려면 이러한 값을 프레임 크기와 곱합니다. |
-| `threshold` | float| AI 모델의 신뢰도가이 값 보다 크거나 같으면 이벤트가 egressed 됩니다. |
+| `threshold` | float| AI 모델의 신뢰도가이 값 보다 크거나 같으면 이벤트가 egressed 됩니다. 기본값은 16입니다. 최대 정확도를 얻기 위해 권장 되는 값입니다. |
 | `type` | 문자열| Cognitiveservices account의 경우 **spatialanalysis-personcrossingline** 여야 `linecrossing` 합니다.|
 |`trigger`|문자열|이벤트를 보내기 위한 트리거의 유형입니다.<br>지원 되는 값: "event": 누군가가 선을 교차할 때 발생 합니다.|
-| `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다.|
+| `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다. 기본값은 공간입니다.|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon"></a>Cognitiveservices account에 대 한 영역 구성 spatialanalysis-personcrossingpolygon
 
@@ -181,15 +213,15 @@ ms.locfileid: "98185984"
 }
 ```
 
-| 이름 | 유형| Description|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
 | `polygon` | list| 각 값 쌍은 다각형의 꼭 짓 점에 대 한 x, y를 나타냅니다. 다각형은 사람들이 추적 하거나 계산 하는 영역을 나타냅니다. Float 값은 왼쪽 위 모퉁이를 기준으로 하는 꼭 짓 점의 위치를 나타냅니다. 절대 x, y 값을 계산 하려면 이러한 값을 프레임 크기와 곱합니다. 
-| `threshold` | float| AI 모델의 신뢰도가이 값 보다 크거나 같으면 이벤트가 egressed 됩니다. |
+| `threshold` | float| AI 모델의 신뢰도가이 값 보다 크거나 같으면 이벤트가 egressed 됩니다. Zonecrossing가 DwellTime 인 경우 기본값은 48이 고, time이 인 경우 16입니다. 최대 정확도를 얻기 위해 권장 되는 값은 다음과 같습니다.  |
 | `type` | 문자열| **Cognitiveservices account의 spatialanalysis-personcrossingpolygon** 는 또는 여야 합니다. `zonecrossing` `zonedwelltime`|
 | `trigger`|문자열|이벤트를 보내기 위한 트리거의 유형입니다.<br>지원 되는 값: "event": 누군가가 영역을 입력 하거나 종료할 때 발생 합니다.|
-| `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다.|
+| `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다. 기본값은 공간입니다.|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-persondistance"></a>Cognitiveservices account에 대 한 영역 구성 spatialanalysis-persondistance
 
@@ -215,7 +247,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이름 | 유형| Description|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -228,29 +260,6 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `minimum_distance_threshold` | float| 사용자가 멀리 떨어져 있을 때 "TooClose" 이벤트를 트리거할 거리 (미터)입니다.|
 | `maximum_distance_threshold` | float| 사용자가 멀리 떨어져 있을 때 "TooFar" 이벤트를 트리거하는 거리 (미터)입니다.|
 | `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다.|
-
-**Cognitiveservices account spatialanalysis-persondistance** 영역을 구성 하는 DETECTOR_NODE_CONFIG 매개 변수에 대 한 JSON 입력의 예입니다.
-
-```json
-{ 
-"gpu_index": 0, 
-"do_calibration": true
-}
-```
-
-| 이름 | 유형| Description|
-|---------|---------|---------|
-| `gpu_index` | 문자열| 이 작업이 실행 될 GPU 인덱스입니다.|
-| `do_calibration` | 문자열 | 보정 기능이 설정 되어 있음을 나타냅니다. `do_calibration`**spatialanalysis-persondistance** 가 제대로 작동 하려면 true 여야 합니다.|
-| `enable_recalibration` | bool | 자동 보정할가 설정 되어 있는지 여부를 나타냅니다. 기본값은 `true`입니다.|
-| `calibration_quality_check_frequency_seconds` | int | 보정할가 필요한 지 여부를 확인 하기 위해 각 품질 검사 사이의 최소 시간 (초)입니다. 기본값은 `86400` (24 시간)입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_sampling_num` | int | 품질 검사 오류 측정 당 사용 하기 위해 임의로 선택 된 저장 된 데이터 샘플 수입니다. 기본값은 `80`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_sampling_times` | int | 품질 검사 당 임의로 선택 된 여러 데이터 샘플 집합에서 오류 측정이 수행 되는 횟수입니다. 기본값은 `5`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_sample_collect_frequency_seconds` | int | 보정할 및 품질 검사를 위한 새 데이터 샘플 수집 사이의 최소 시간 (초)입니다. 기본값은 `300` (5 분)입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_one_round_sample_collect_num` | int | 샘플 컬렉션의 라운드 당 수집할 새 데이터 샘플의 최소 수입니다. 기본값은 `10`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_queue_max_size` | int | 카메라 모델이 보정 될 때 저장할 최대 데이터 샘플 수입니다. 기본값은 `1000`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `recalibration_score` | int | 보정할을 시작 하기 위한 최대 품질 임계값입니다. 기본값은 `75`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다. 보정 품질은 이미지 대상 reprojection 오류와의 역 관계에 따라 계산 됩니다. 2D 이미지 프레임에서 검색 된 대상이 지정 된 경우 대상은 3D 공간에 투영 되 고 기존 카메라 보정 매개 변수를 사용 하 여 2D 이미지 프레임으로 다시 투영 됩니다. 재 프로젝션 오류는 검색 된 대상과 다시 프로젝션 된 대상 사이의 평균 거리 만큼 측정 됩니다.|
-| `enable_breakpad`| bool | 디버그 사용을 위해 크래시 덤프를 생성 하는 데 사용 되는 간 채움을 사용할지 여부를 나타냅니다. `false`기본적으로입니다. 로 설정 하면 `true` `"CapAdd": ["SYS_PTRACE"]` 컨테이너의 파트에도 추가 해야 `HostConfig` `createOptions` 합니다. 기본적으로 크래시 덤프는 [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) appcenter 앱에 업로드 되며, 사용자의 appcenter 앱에 크래시 덤프를 업로드 하려면 `RTPT_APPCENTER_APP_SECRET` 앱의 앱 암호를 사용 하 여 환경 변수를 재정의할 수 있습니다.
 
 영역 및 선 구성에 대해 알아보려면 [카메라 배치](spatial-analysis-camera-placement.md) 지침을 참조 하세요.
 
@@ -606,7 +615,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 | `trackinId` | 문자열| 검색 된 사용자의 고유 식별자입니다.|
 | `status` | 문자열| ' Enter ' 또는 ' Exit ' 인 polygon 교차의 방향입니다.|
 | `side` | int| 사용자가 교차 한 다각형의 변의 수입니다. 각 측면은 영역을 나타내는 다각형의 두 꼭 짓 점 사이에 번호가 매겨진 가장자리입니다. 다각형의 처음 두 꼭 짓 점 사이에 있는 가장자리는 첫 번째 면을 나타냅니다.|
-| `durationMs` | int | 사용자가 영역에서 소비한 시간을 나타내는 밀리초 수입니다. 이 필드는 이벤트 유형이 _personZoneDwellTimeEvent_ 때 제공 됩니다.|
+| `durationMs` | float | 사용자가 영역에서 소비한 시간을 나타내는 밀리초 수입니다. 이 필드는 이벤트 유형이 _personZoneDwellTimeEvent_ 때 제공 됩니다.|
 | `zone` | 문자열 | 교차 된 영역을 나타내는 polygon의 "이름" 필드|
 
 | 검색 필드 이름 | 형식| Description|
@@ -955,7 +964,7 @@ Gpu의 최고 성능 및 사용률을 얻기 위해 그래프 인스턴스를 �
       }
   }
   ```
-| 이름 | 유형| Description|
+| Name | Type| Description|
 |---------|---------|---------|
 | `batch_size` | int | 작업에 사용 되는 카메라 수를 나타냅니다. |
 

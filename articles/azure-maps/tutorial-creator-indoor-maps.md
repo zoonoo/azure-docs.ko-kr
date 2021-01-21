@@ -8,20 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
-ms.translationtype: HT
+ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905726"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625018"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>자습서: Creator(미리 보기)를 사용하여 실내 맵 만들기
 
 > [!IMPORTANT]
 > Azure Maps Creator 서비스는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-
 
 이 자습서에서는 실내 맵을 만드는 방법을 보여 줍니다. 이 자습서에서 API를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 
@@ -411,6 +409,10 @@ ms.locfileid: "96905726"
 [기능 상태 가져오기 API](/rest/api/maps/featurestate/getstatespreview)를 사용하면 기능 `ID`를 사용하여 기능의 상태를 검색할 수 있습니다. 또한 [기능 상태 삭제 API](/rest/api/maps/featurestate/deletestatesetpreview)를 사용하여 상태 세트 및 해당 리소스를 삭제할 수도 있습니다.
 
 이 문서에서 설명하는 다양한 Azure Maps Creator 서비스(미리 보기)에 대한 자세한 내용은 [실내 맵용 Creator](creator-indoor-maps.md)를 참조하세요.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+정리가 필요한 리소스가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

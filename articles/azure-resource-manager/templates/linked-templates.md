@@ -2,13 +2,13 @@
 title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 연결 된 템플릿을 사용 하 여 모듈식 템플릿 솔루션을 만드는 방법을 설명 합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: cac63ccdd13e245baf97695e9b138c29d3db4958
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/20/2021
+ms.openlocfilehash: dd810167e07f1bb23f9563936cb481652953ccd1
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760625"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624861"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -162,7 +162,7 @@ ms.locfileid: "97760625"
 
 의 `exampleVar` 속성 값에 따라의 값이 변경 `scope` `expressionEvaluationOptions` 됩니다. 다음 표에서는 두 범위에 대 한 결과를 보여 줍니다.
 
-| `expressionEvaluationOptions` 범위 | 출력 |
+| 평가 범위 | 출력 |
 | ----- | ------ |
 | inner | 중첩 된 템플릿 |
 | 외부 (또는 기본값) | 부모 템플릿에서 |
@@ -277,6 +277,129 @@ ms.locfileid: "97760625"
 }
 ```
 
+중첩 된 템플릿에서 보안 매개 변수 값을 사용할 때는 주의 해야 합니다. 범위를 외부로 설정 하는 경우 보안 값은 배포 기록에 일반 텍스트로 저장 됩니다. 배포 기록에서 템플릿을 보는 사용자는 보안 값을 볼 수 있습니다. 대신 내부 범위를 사용 하거나, 보안 값이 필요한 리소스를 부모 템플릿에 추가 합니다.
+
+다음 발췌에서는 안전 하 고 안전 하지 않은 값을 보여 줍니다.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for the Virtual Machine."
+      }
+    },
+    "adminPasswordOrKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+      }
+    }
+  },
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2020-06-01",
+      "name": "mainTemplate",
+      "properties": {
+        ...
+        "osProfile": {
+          "computerName": "mainTemplate",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in parent template
+        }
+      }
+    },
+    {
+      "name": "outer",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "outer"
+        },
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2020-06-01",
+              "name": "outer",
+              "properties": {
+                ...
+                "osProfile": {
+                  "computerName": "outer",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // No, not secure because resource is in nested template with outer scope
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "inner",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "adminPasswordOrKey": {
+              "value": "[parameters('adminPasswordOrKey')]"
+          },
+          "adminUsername": {
+              "value": "[parameters('adminUsername')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "adminUsername": {
+              "type": "string",
+              "metadata": {
+                "description": "Username for the Virtual Machine."
+              }
+            },
+            "adminPasswordOrKey": {
+              "type": "securestring",
+              "metadata": {
+                "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2020-06-01",
+              "name": "inner",
+              "properties": {
+                ...
+                "osProfile": {
+                  "computerName": "inner",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in nested template and scope is inner
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
 > [!NOTE]
 >
 > Scope를로 설정 하면 `outer` `reference` 중첩 된 템플릿에 배포한 리소스에 대해 중첩 된 템플릿의 출력 섹션에서 함수를 사용할 수 없습니다. 중첩 된 템플릿에서 배포 된 리소스에 대 한 값을 반환 하려면 범위를 사용 `inner` 하거나 중첩 된 템플릿을 연결 된 템플릿으로 변환 합니다.
@@ -377,7 +500,7 @@ GitHub의 템플릿에 연결 하는 경우 원시 URL을 사용 합니다. 링�
 
 액세스 가능한 끝점에서 연결 된 템플릿을 유지 관리 하는 대신, 배포할 수 있는 단일 엔터티로 주 템플릿과 연결 된 템플릿을 패키지 하는 [템플릿 사양을](template-specs.md) 만들 수 있습니다. 템플릿 사양은 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 - [자습서: 연결 된 템플릿으로 템플릿 사양을 만듭니다](./template-specs-create-linked.md).
 - [자습서: 템플릿 사양을 연결 된 템플릿으로 배포](./template-specs-deploy-linked-template.md)합니다.
