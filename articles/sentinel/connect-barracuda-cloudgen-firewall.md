@@ -14,21 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: aaedbfdd3b1bbbc653756d74ee86fc277b21caec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0115fa34b10805570b6e9d8d09ae96fc169dfc
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588504"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621134"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Barracuda CloudGen Firewall 연결
 
 CGFW (Barracuda CloudGen Firewall) 커넥터를 사용 하면 Barracuda CGFW 로그를 Azure 센티널에 쉽게 연결 하 고, 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. 이렇게 하면 조직의 네트워크에 대 한 자세한 정보를 제공 하 고 보안 작업 기능을 향상 시킬 수 있습니다.
 
-
-
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
 
@@ -38,7 +35,7 @@ CGFW (Barracuda CloudGen Firewall) 커넥터를 사용 하면 Barracuda CGFW 로
 
 1. Azure Portal에서 **Azure 센티널**  >  **데이터 커넥터** 로 이동한 다음 **Barracuda cloudgen 방화벽** 커넥터를 선택 합니다.
 
-2. **커넥터 페이지 열기**를 선택 합니다.
+2. **커넥터 페이지 열기** 를 선택 합니다.
 
 3. **Barracuda CloudGen 방화벽** 페이지의 지침을 따릅니다.
 

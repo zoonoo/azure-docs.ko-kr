@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 68fa3ea15199ec1d9cc99f92f497847fb029acd6
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539568"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621217"
 ---
 # <a name="manage-individual-sensors"></a>개별 센서 관리
 
@@ -282,7 +282,7 @@ CLI 명령을 사용 하는 경우:
 
 다음 명령을 사용 하 여 인증서를 관리 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | 새 개인 키 및 인증서 서명 요청 생성 | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
 | 자체 서명된 인증서 생성 | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
@@ -292,7 +292,7 @@ CLI 명령을 사용 하는 경우:
 
 인증서, CSR 또는 개인 키 내의 정보를 확인 해야 하는 경우 다음 명령을 사용 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | CSR (인증서 서명 요청) 확인 | `openssl req -text -noout -verify -in CSR.csr` |
 | 개인 키 확인 | `openssl rsa -in privateKey.key -check` |
@@ -300,13 +300,13 @@ CLI 명령을 사용 하는 경우:
 
 개인 키가 인증서와 일치 하지 않거나 사이트에 설치한 인증서를 신뢰할 수 없다는 오류가 표시 되 면 다음 명령을 사용 하 여 오류를 해결 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | 공개 키의 MD5 해시를 확인 하 여 CSR 또는 개인 키에 있는 항목과 일치 하는지 확인 합니다. | 1(sp1). `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
 
 인증서와 키를 다른 형식으로 변환 하 여 특정 유형의 서버 또는 소프트웨어와 호환 되도록 하려면 다음 명령을 사용 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | DER 파일 (.crt. .cer)을 PEM으로 변환  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
 | PEM 파일을 DER로 변환 | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
@@ -315,7 +315,7 @@ CLI 명령을 사용 하는 경우:
 
 ## <a name="connect-a-sensor-to-the-management-console"></a>관리 콘솔에 센서 연결
 
-이 섹션에서는 센서와 온-프레미스 관리 콘솔 간의 연결을 확인 하는 방법을 설명 합니다. Gapped 네트워크에서 작업 중 이며 센서에서 자산 및 경고 정보를 관리 콘솔로 보내려는 경우이 작업을 수행 합니다. 이 연결을 통해 관리 콘솔에서 센서에 시스템 설정을 푸시하고 센서에 대해 다른 관리 작업을 수행할 수도 있습니다.
+이 섹션에서는 센서와 온-프레미스 관리 콘솔 간의 연결을 확인 하는 방법을 설명 합니다. Gapped 네트워크에서 작업 중 이며 센서에서 관리 콘솔로 장치 및 경고 정보를 보내려는 경우이 작업을 수행 해야 합니다. 이 연결을 통해 관리 콘솔에서 센서에 시스템 설정을 푸시하고 센서에 대해 다른 관리 작업을 수행할 수도 있습니다.
 
 연결 하려면:
 
@@ -389,7 +389,7 @@ CLI 명령을 사용 하는 경우:
 
 3. 다음과 같이 매개 변수를 설정 합니다.
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--|--|
     | IP 주소 | 센서 IP 주소 |
     | 서브넷 마스크 | 마스크 주소 |
@@ -406,7 +406,7 @@ CLI 명령을 사용 하는 경우:
 
 :::image type="content" source="media/how-to-manage-individual-sensors/time-and-region.png" alt-text="시간과 지역을 구성 합니다.":::
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |--|--|
 | 표준 시간대 | 다음에 대 한 표준 시간대 정의:<br />-경고<br />-추세 및 통계 위젯<br />-데이터 마이닝 보고서<br />   -위험 평가 보고서<br />-공격 벡터 |
 | 날짜 형식 | 다음 서식 옵션 중 하나를 선택 합니다.<br />-dd/MM/yyyy HH: MM: ss<br />-MM/dd/yyyy HH: MM: ss<br />-yyyy/MM/dd HH: MM: ss |

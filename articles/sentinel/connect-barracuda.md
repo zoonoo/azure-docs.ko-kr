@@ -15,19 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: f28243be6b4f998e8bdea0ce02da3ceedde23e02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1131c8e79d9df2883dcf7e975af9732c21318a49
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559118"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621167"
 ---
-# <a name="connect-your-barracuda-appliance"></a>Barracuda 어플라이언스 연결 
-
-
+# <a name="connect-your-barracuda-waf-appliance"></a>Barracuda WAF 어플라이언스 연결 
 
 Barracuda WAF (웹 응용 프로그램 방화벽) 커넥터를 사용 하면 Azure 센티널에 Barracuda 로그를 쉽게 연결 하 고, 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. 이렇게 하면 조직의 네트워크에 대 한 자세한 정보를 제공 하 고 보안 작업 기능을 향상 시킬 수 있습니다. Azure 센티널은 **Barracuda** 와 Log Analytics 에이전트 간의 네이티브 통합을 활용 하 여 원활한 통합을 제공 합니다. 
-
 
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
@@ -37,7 +34,7 @@ Barracuda 웹 응용 프로그램 방화벽은 Log Analytics 에이전트를 통
 1. [Barracuda WAF 구성 흐름](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)으로 이동 하 고 지침에 따라 다음 매개 변수를 사용 하 여 연결을 설정 합니다.
     - **작업 영역 id**: Azure 센티널 Barracuda 커넥터 페이지에서 작업 영역 id의 값을 복사 합니다.
     - **기본 키**: Azure 센티널 Barracuda 커넥터 페이지에서 기본 키의 값을 복사 합니다.
-1. Barracuda 이벤트에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **CommonSecurityLog** 및 **barracuda_CL**를 검색 합니다.
+1. Barracuda 이벤트에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **CommonSecurityLog** 및 **barracuda_CL** 를 검색 합니다.
 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사

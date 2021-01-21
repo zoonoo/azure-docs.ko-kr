@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 444e7c9ad06c6f2ad584c0701fa652b901a4c3e7
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
-ms.translationtype: HT
+ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680772"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624041"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>자습서: Google Maps에서 웹 서비스 마이그레이션
 
@@ -22,6 +22,7 @@ Azure 및 Google Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세�
 
 이 자습서에서는 다음 작업 방법을 배웁니다.
 
+> [!div class="checklist"]
 > * 정방향 및 역방향 지오코딩
 > * 관심 지점 검색
 > * 경로 및 방향 계산

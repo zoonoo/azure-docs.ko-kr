@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538562"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623592"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>센서 활성화 및 설정
 
@@ -44,7 +44,7 @@ ms.locfileid: "98538562"
 
 센서가 특정 관리 모드에서 IoT 용 Azure Defender로 등록 되었습니다.
 
-| 모드 유형 | 설명 |
+| 모드 유형 | Description |
 |--|--|
 | **클라우드 연결 모드** | 센서가 감지한 정보는 센서 콘솔에 표시 됩니다. 또한 경고 정보는 IoT hub를 통해 제공 되며, Azure 센티널과 같은 다른 Azure 서비스와 공유할 수 있습니다. |
 | **로컬 연결 모드** | 센서가 감지한 정보는 센서 콘솔에 표시 됩니다. 또한 검색 정보는 온-프레미스 관리 콘솔과 공유 됩니다 (센서가 연결 된 경우). |
@@ -134,9 +134,9 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 ## <a name="initial-setup-and-learning-for-administrators"></a>초기 설정 및 학습 (관리자 용)
 
-처음 로그인 하면 IoT 용 Azure Defender 센서가 네트워크를 자동으로 모니터링 하기 시작 합니다. 네트워크 자산은 자산 지도 및 asset inventory 섹션에 표시 됩니다. IoT 용 Azure Defender는 네트워크에서 발생 하는 모든 보안 및 운영 인시던트에 대 한 검색 및 경고를 시작 합니다. 그런 다음 검색 된 정보를 기반으로 보고서 및 쿼리를 만들 수 있습니다.
+처음 로그인 하면 IoT 용 Azure Defender 센서가 네트워크를 자동으로 모니터링 하기 시작 합니다. 장치 맵 및 장치 인벤토리 섹션에 네트워크 장치가 표시 됩니다. IoT 용 Azure Defender는 네트워크에서 발생 하는 모든 보안 및 운영 인시던트에 대 한 검색 및 경고를 시작 합니다. 그런 다음 검색 된 정보를 기반으로 보고서 및 쿼리를 만들 수 있습니다.
 
-처음에는이 작업을 학습 모드에서 수행 합니다. 그러면 센서에 네트워크의 일반적인 작업에 대해 알아봅니다. 예를 들어 센서는 네트워크에서 검색 된 자산, 네트워크에서 검색 된 프로토콜 및 특정 자산 간에 발생 하는 파일 전송을 알아냅니다. 이 활동은 네트워크의 기본 활동이 됩니다.
+처음에는이 작업을 학습 모드에서 수행 합니다. 그러면 센서에 네트워크의 일반적인 작업에 대해 알아봅니다. 예를 들어 센서는 네트워크에서 검색 된 장치, 네트워크에서 검색 된 프로토콜 및 특정 장치 간에 발생 하는 파일 전송을 알아냅니다. 이 활동은 네트워크의 기본 활동이 됩니다.
 
 ### <a name="review-and-update-basic-system-settings"></a>기본 시스템 설정 검토 및 업데이트
 
@@ -177,7 +177,7 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 **탐색** 
 
-| 시간 범위 | 아이콘 | 설명 |
+| 시간 범위 | 아이콘 | Description |
 | -----------|--|--|
 | 대시보드 | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | 네트워크 보안 상태의 직관적인 스냅숏을 표시 합니다. |
 | 장치 맵 | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | 지도에서 네트워크 장치, 장치 연결 및 장치 속성을 봅니다. 다양 한 확대/축소, 강조 표시 및 필터 옵션을 사용 하 여 네트워크를 표시할 수 있습니다. |
@@ -187,13 +187,13 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 **분석**
 
-| 시간 범위| 아이콘 | 설명 |
+| 시간 범위| 아이콘 | Description |
 |---|---|---|
 | 이벤트 타임 라인 | :::image type="icon" source="media/concept-sensor-console-overview/event-timeline-icon-azure.png" border="false"::: | 경고, 네트워크 이벤트 (정보) 및 사용자 작업 (예: 사용자 로그인 및 사용자 삭제)에 대 한 정보가 포함 된 타임 라인을 봅니다.|
 
 **탐색**
 
-| 시간 범위 | 아이콘 | 설명 |
+| 시간 범위 | 아이콘 | Description |
 |---|---|---|
 | 데이터 마이닝 | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | 다양 한 계층에서 네트워크 장치에 대 한 포괄적이 고 세부적인 정보를 생성 합니다. |
 | 추세 및 통계 | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | 광범위 한 위젯에서 추세와 통계를 봅니다. |
@@ -201,7 +201,7 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 **관리자**
 
-| 시간 범위 | 아이콘 | 설명 |
+| 시간 범위 | 아이콘 | Description |
 |---|---|---|
 | 사용자 | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | 다양 한 액세스 수준을 사용 하 여 사용자 및 역할을 정의 합니다. |
 | 전송 | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | IoT 용 Defender, 전자 메일 주소, webhook 서버 등에 통합 하는 파트너에 게 경고 정보를 전달 합니다. <br /> 자세한 내용은 [경고 정보 전달](how-to-forward-alert-information-to-partners.md) 을 참조 하세요. |
@@ -210,9 +210,9 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 **지원**
 
-| 시간 범위| 아이콘 | 설명 |
+| 시간 범위| 아이콘 | Description |
 |----|---|---|
-| 지원 | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | 도움이 필요 하면 [Microsoft 지원](https://support.microsoft.com/) 문의 하세요. |
+| Support(지원) | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | 도움이 필요 하면 [Microsoft 지원](https://support.microsoft.com/) 문의 하세요. |
 
 ### <a name="see-also"></a>참고 항목
 

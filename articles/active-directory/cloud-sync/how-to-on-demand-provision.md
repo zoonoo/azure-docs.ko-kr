@@ -11,12 +11,12 @@ ms.date: 09/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0daca8b19f9a712253bc231cba9a0245553b0adb
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 6ac186d4b460165605ccf0fc53bdb0b691348bf3
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613617"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622527"
 ---
 # <a name="azure-ad-connect-cloud-sync-on-demand-provisioning"></a>Azure AD Connect 클라우드 동기화 주문형 프로 비전
 
@@ -32,9 +32,9 @@ Azure AD Connect 클라우드 동기화에는 단일 사용자에 게이 변경 
 
 1.  Azure Portal에서 **Azure Active Directory** 를 선택합니다.
 2.  **Azure AD Connect** 를 선택합니다.
-3.  **프로 비전 관리** 를 선택 합니다.
+3.  **클라우드 동기화 관리** 를 선택 합니다.
 
-    ![프로 비전 관리](media/how-to-configure/manage-1.png)
+    ![프로 비전 관리](media/how-to-install/install-6.png)
 4. **구성** 아래에서 구성을 선택 합니다.
 5. **유효성 검사** 아래에서 **사용자 프로 비전** 단추를 클릭 합니다. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/13/2021
 ms.author: shhazam
-ms.openlocfilehash: f3239434a7ba737bc9323bc4f383afd794800db1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 66b960bf874cc46985230e488c749663eff0b835
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201481"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621100"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>IoT 용 Azure Defender 아키텍처
 
@@ -81,7 +81,7 @@ IoT 센서에 대 한 Defender는 범위 포트 또는 네트워크 탭에 연�
 - Azure Portal
 
 ### <a name="sensor-console"></a>센서 콘솔
-센서 검색은 네트워크 맵, 자산 인벤토리 및 광범위 한 보고서 (예: 위험 평가 보고서, 데이터 마이닝 쿼리 및 공격 벡터)에서 보고 조사 하 고 분석할 수 있는 센서 콘솔에 표시 됩니다. 콘솔을 사용 하 여 센서 엔진에서 검색 한 위협, 파트너 시스템에 정보 전달, 사용자 관리 등을 보고 처리할 수도 있습니다.
+센서 검색은 네트워크 맵, 장치 인벤토리 및 광범위 한 보고서 범위 (예: 위험 평가 보고서, 데이터 마이닝 쿼리 및 공격 벡터)에서 보고 조사 하 고 분석할 수 있는 센서 콘솔에 표시 됩니다. 콘솔을 사용 하 여 센서 엔진에서 검색 한 위협, 파트너 시스템에 정보 전달, 사용자 관리 등을 보고 처리할 수도 있습니다.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="IoT 센서 콘솔용 Defender":::
 
@@ -96,7 +96,7 @@ IoT 센서에 대 한 Defender는 범위 포트 또는 네트워크 탭에 연�
 
 SOC 워크플로 및 실행 서적에 긴밀 하 게 통합 되어 있어 완화 작업 및 위협에 대 한 사이트 간 상관 관계를 쉽게 확인할 수 있습니다.
 
-- 자산 관리, 위험 및 취약성 관리용 단일 통합 플랫폼 및 인시던트 응답과 함께 위협 모니터링을 사용 하 여 전체적인 복잡성을 줄입니다.
+- 장치 관리, 위험 및 취약성 관리를 위한 단일 통합 플랫폼 및 인시던트 응답과 함께 위협 모니터링을 통해 전체적인 복잡성을 줄입니다.
 
 - 집계 및 상관 관계 – 모든 사이트에서 수집 된 데이터 및 경고를 표시, 집계 및 분석 합니다.
 
@@ -104,7 +104,7 @@ SOC 워크플로 및 실행 서적에 긴밀 하 게 통합 되어 있어 완화
 
    :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="모든 경고 및 정보를 관리 합니다.":::
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 Azure의 IoT 용 Defender 포털은 다음을 도와 주는 데 사용 됩니다.
 
@@ -136,7 +136,7 @@ Defender for IoT 권장 사항 및 경고 (분석 파이프라인 출력)는 각
 
 :::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="마이크로 에이전트 아키텍처입니다.":::
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 [IoT 용 Defender FAQ](resources-frequently-asked-questions.md)
 

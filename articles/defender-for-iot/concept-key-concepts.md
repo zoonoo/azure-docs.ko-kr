@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 1ac87f98af555aae155a201cc20692c950fc7924
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839663"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621931"
 ---
 # <a name="basic-concepts"></a>기본 개념 
 
@@ -22,7 +22,7 @@ ms.locfileid: "97839663"
 
 IoT 센서에 대 한 Defender는 범위 포트 또는 네트워크 탭에 연결 하 고, 수동 (에이전트 없는) 모니터링을 통해 ICS 네트워크 트래픽 수집을 즉시 시작 합니다. DPI (심층 패킷 검사)는 직렬 및 이더넷 제어 네트워크 장비에서 트래픽을 알아본 하는 데 사용 됩니다. IoT 용 Defender는 데이터 경로에 배치 되지 않고 장치를 적극적으로 검색 하지 않으므로 OT 네트워크에 미치는 영향을 0으로 설정 합니다. 
 
-자세한 자산 정보에 대 한 즉각적인 스냅숏을 제공 하기 위해 Defender IoT 센서의 수동 모니터링은 선택적 활성 구성 요소를 보완 합니다. 이 구성 요소는 안전 하 고 공급 업체에 승인 된 명령을 사용 하 여 자산 세부 정보에 대 한 Windows 및 컨트롤러 장치를 모두 쿼리 하는 데 필요한 만큼 자주 또는 자주 쿼리 합니다.
+자세한 장치 정보의 즉각적인 스냅숏을 제공 하기 위해 Defender는 선택적 활성 구성 요소를 사용 하 여 수동 모니터링을 보완 합니다. 이 구성 요소는 안전 하 고 공급 업체의 승인 된 명령을 사용 하 여 Windows 및 컨트롤러 장치에서 장치 세부 정보를 원하는 만큼 자주 또는 자주 쿼리 합니다.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>ICS 프로토콜, 장치 및 응용 프로그램에 대 한 포함 된 지식
 
@@ -34,7 +34,7 @@ DPI 만으로는 프로토콜 변칙을 식별 하기에 충분 하지 않으며
 
 - **프로토콜 위반 검색**: ICS 프로토콜 사양을 위반 하는 패킷 구조와 필드 값의 사용을 식별 합니다.
 
-- **정책 위반 검색**: 함수 코드의 무단 사용, 특정 개체에 대 한 액세스 또는 자산 구성 변경 등의 정책 위반을 식별 합니다.
+- **정책 위반 검색**: 함수 코드의 무단 사용, 특정 개체에 대 한 액세스 또는 장치 구성 변경 등의 정책 위반을 식별 합니다.
 
 - **산업용 맬웨어 검색**: Conficker, Black Energy, Havex, WannaCry 및 NotPetya와 같은 알려진 맬웨어가 있는지를 나타내는 동작을 식별 합니다.
 

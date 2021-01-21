@@ -3,13 +3,13 @@ title: 일반 배포 오류 문제 해결
 description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생하는 일반적인 오류를 해결하는 방법을 설명합니다.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 09/09/2020
-ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/20/2021
+ms.openlocfilehash: bb701baf164cfd6ba1dd5c670a406343e83c5c70
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185830"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622814"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "96185830"
 | DeploymentNameLengthLimitExceeded | 배포 이름은 64 자로 제한 됩니다.  | |
 | DeploymentFailed | DeploymentFailed 오류는 해결하는 데 필요한 세부 정보를 제공하지 않는 일반 오류입니다. 자세한 정보를 제공하는 오류 코드에 대해서는 오류 세부 정보를 살펴봅니다. | [오류 코드 찾기](#find-error-code) |
 | DeploymentQuotaExceeded | 리소스 그룹당 800개 배포 제한에 도달하면 기록에서 더 이상 필요하지 않은 배포를 삭제합니다. | [배포 수가 800를 초과 하는 경우 오류 해결](deployment-quota-exceeded.md) |
-| DeploymentSizeExceeded | 크기를 줄이기 위해 템플릿을 단순화 합니다. | [템플릿 크기 오류 해결](error-job-size-exceeded.md) |
+| DeploymentJobSizeExceeded | 크기를 줄이기 위해 템플릿을 단순화 합니다. | [템플릿 크기 오류 해결](error-job-size-exceeded.md) |
 | DnsRecordInUse | DNS 레코드 이름은 고유해야 합니다. 다른 이름을 입력 하십시오. | |
 | ImageNotFound | VM 이미지 설정을 확인합니다. |  |
 | InUseSubnetCannotBeDeleted | 리소스를 업데이트 하려고 할 때이 오류가 발생할 수 있으며, 리소스를 삭제 하 고 만들어 요청을 처리 합니다. 변경되지 않은 모든 값을 지정해야 합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |

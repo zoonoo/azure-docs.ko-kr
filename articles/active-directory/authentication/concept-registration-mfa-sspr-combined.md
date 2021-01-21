@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 01/19/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8dce284c0fffe10fe077fcb6c6713ba65c45751
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 9442489efd2a84ac8a31dfb2efb5718e1fd4f594
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743907"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621796"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 개요에 대 한 결합 된 보안 정보 등록
 
@@ -30,18 +30,18 @@ ms.locfileid: "96743907"
 > [!div class="nextstepaction"]
 > [결합 된 보안 등록 사용](howto-registration-mfa-sspr-combined.md)
 
-![사용자에 대 한 등록 된 보안 정보를 표시 하는 내 프로필](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![사용자에 대해 등록 된 보안 정보를 표시 하는 내 계정](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
 
 새 환경을 사용 하도록 설정 하기 전에이 관리자 중심 설명서 및 사용자 중심의 설명서를 검토 하 여이 기능의 기능과 영향을 이해 해야 합니다. [사용자 설명서](../user-help/security-info-setup-signin.md) 에 대 한 교육을 바탕으로 사용자에 게 새로운 환경을 준비 하 고 성공적으로 롤아웃 하도록 도움을 줍니다.
 
 Azure AD 통합 보안 정보 등록은 현재 Azure 독일 또는 Azure 중국 21Vianet과 같은 국가별 클라우드에서 사용할 수 없습니다. Azure 미국 정부에서 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 원본 미리 보기와 향상 된 결합 등록 환경 모두에 대해 사용 하도록 설정 된 사용자는 새로운 동작을 볼 수 있습니다. 두 환경 모두에 대해 사용 하도록 설정 된 사용자는 새로운 내 프로필 환경만 볼 수 있습니다. 새 *내 프로필* 은 결합 된 등록의 모양과 느낌을 맞추고 사용자에 게 원활한 환경을 제공 합니다. 사용자는로 이동 하 여 내 프로필을 볼 수 있습니다 [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
+> 원본 미리 보기와 향상 된 결합 등록 환경 모두에 대해 사용 하도록 설정 된 사용자는 새로운 동작을 볼 수 있습니다. 두 환경 모두에 대해 사용 하도록 설정 된 사용자에 게는 내 계정 환경만 표시 됩니다. *내 계정은* 결합 된 등록의 모양과 느낌을 맞추고 사용자에 게 원활한 환경을 제공 합니다. 사용자는로 이동 하 여 내 계정을 볼 수 있습니다 [https://myaccount.microsoft.com](https://myaccount.microsoft.com) .
 >
 > "죄송 하지만 로그인 할 수 없습니다."와 같은 보안 정보 옵션에 액세스 하려고 할 때 오류 메시지가 나타날 수 있습니다. 웹 브라우저에서 타사 쿠키를 차단 하는 구성 또는 그룹 정책 개체가 없는지 확인 합니다.
 
-*내 프로필* 페이지는 페이지에 액세스 하는 컴퓨터의 언어 설정에 따라 지역화 됩니다. Microsoft는 브라우저 캐시에서 가장 최근에 사용 된 언어를 저장 하므로 이후 페이지에 대 한 액세스 시도는 마지막으로 사용 된 언어로 계속 렌더링 됩니다. 캐시를 지우면 페이지가 다시 렌더링 됩니다.
+*내 계정* 페이지는 페이지에 액세스 하는 컴퓨터의 언어 설정에 따라 지역화 됩니다. Microsoft는 브라우저 캐시에서 가장 최근에 사용 된 언어를 저장 하므로 이후 페이지에 대 한 액세스 시도는 마지막으로 사용 된 언어로 계속 렌더링 됩니다. 캐시를 지우면 페이지가 다시 렌더링 됩니다.
 
 특정 언어를 적용 하려는 경우 `?lng=<language>` URL의 끝에를 추가할 수 있습니다 `<language>` . 여기서은 렌더링 하려는 언어의 코드입니다.
 
@@ -51,18 +51,18 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 독일 또는 Azure 중국 
 
 결합 된 등록에서는 다음과 같은 인증 방법과 작업을 지원 합니다.
 
-| 메서드 | 레지스터 | 변경 | 삭제 |
+| 메서드 | 등록 | 변경 | DELETE |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | 예 (최대 5 개) | 아니요 | 예 |
-| 기타 authenticator 앱 | 예 (최대 5 개) | 아니요 | 예 |
-| 하드웨어 토큰 | 아니요 | 아니요 | 예 |
-| 전화 | 예 | 예 | 예 |
-| 대체 전화 | 예 | 예 | 예 |
-| 사무실 전화 | 예 | 예 | 예 |
-| 전자 메일 | 예 | 예 | 예 |
-| 본인 확인 질문 | 예 | 아니요 | 예 |
-| 앱 암호 | 예 | 아니요 | 예 |
-| FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| 예 | 예 | 예 |
+| Microsoft Authenticator | 예 (최대 5 개) | 예 | yes |
+| 기타 authenticator 앱 | 예 (최대 5 개) | 예 | yes |
+| 하드웨어 토큰 | 예 | 예 | yes |
+| 전화 | yes | yes | yes |
+| 대체 전화 | yes | yes | yes |
+| 사무실 전화 | yes | yes | yes |
+| 메일 | yes | yes | yes |
+| 본인 확인 질문 | yes | 예 | yes |
+| 앱 암호 | yes | 예 | yes |
+| FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| yes | yes | yes |
 
 > [!NOTE]
 > 앱 암호는 Multi-Factor Authentication에 대해 적용 된 사용자만 사용할 수 있습니다. 조건부 액세스 정책을 통해 Multi-Factor Authentication을 사용 하도록 설정 된 사용자는 앱 암호를 사용할 수 없습니다.
@@ -116,7 +116,7 @@ SSPR 정책에서 사용자가 일정 한 간격으로 보안 정보를 검토 �
 
 ### <a name="manage-mode"></a>관리 모드
 
-사용자는 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 내 프로필에서 **보안 정보** 를 선택 하 여 또는로 이동 하 여 관리 모드에 액세스할 수 있습니다. 여기에서 사용자는 메서드를 추가 하 고, 기존 메서드를 삭제 하거나 변경 하 고, 기본 메서드를 변경 하는 등의 방법을 사용할 수 있습니다.
+사용자는 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 내 계정에서 **보안 정보** 를 선택 하 여 또는로 이동 하 여 관리 모드에 액세스할 수 있습니다. 여기에서 사용자는 메서드를 추가 하 고, 기존 메서드를 삭제 하거나 변경 하 고, 기본 메서드를 변경 하는 등의 방법을 사용할 수 있습니다.
 
 ## <a name="key-usage-scenarios"></a>주요 사용 시나리오
 
@@ -126,17 +126,17 @@ SSPR 정책에서 사용자가 일정 한 간격으로 보안 정보를 검토 �
 
 사용자가 필요한 보안 정보를 모두 설정 하지 않은 상태에서 Azure Portal로 이동 합니다. 사용자 이름 및 암호를 입력 하면 보안 정보를 설정 하 라는 메시지가 표시 됩니다. 그러면 사용자가 마법사에 표시 된 단계에 따라 필요한 보안 정보를 설정 합니다. 설정에서 허용 하는 경우 사용자는 기본적으로 표시 되는 방법이 아닌 다른 방법을 설정 하도록 선택할 수 있습니다. 마법사를 완료 한 후 사용자는 설정 된 방법과 Multi-Factor Authentication의 기본 방법을 검토 합니다. 사용자는 설치 프로세스를 완료 하기 위해 정보를 확인 하 고 Azure Portal을 계속 진행 합니다.
 
-### <a name="set-up-security-info-from-my-profile"></a>내 프로필에서 보안 정보 설정
+### <a name="set-up-security-info-from-my-account"></a>내 계정에서 보안 정보 설정
 
 관리자가 등록을 적용 하지 않았습니다.
 
-필요한 보안 정보를 아직 설정 하지 않은 사용자는로 이동 [https://myprofile.microsoft.com](https://myprofile.microsoft.com) 합니다. 사용자가 왼쪽 창에서 **보안 정보** 를 선택 합니다. 여기서 사용자는 메서드를 추가 하도록 선택 하 고, 사용 가능한 메서드를 선택 하 고, 해당 메서드를 설정 하는 단계를 따릅니다. 완료 되 면 사용자에 게 보안 정보 페이지에 설정 된 메서드가 표시 됩니다.
+필요한 보안 정보를 아직 설정 하지 않은 사용자는로 이동 [https://myaccount.microsoft.com](https://myaccount.microsoft.com) 합니다. 사용자가 왼쪽 창에서 **보안 정보** 를 선택 합니다. 여기서 사용자는 메서드를 추가 하도록 선택 하 고, 사용 가능한 메서드를 선택 하 고, 해당 메서드를 설정 하는 단계를 따릅니다. 완료 되 면 사용자에 게 보안 정보 페이지에 설정 된 메서드가 표시 됩니다.
 
-### <a name="delete-security-info-from-my-profile"></a>내 프로필에서 보안 정보 삭제
+### <a name="delete-security-info-from-my-account"></a>내 계정에서 보안 정보 삭제
 
 이전에 하나 이상의 메서드를 설정한 사용자는로 이동 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 합니다. 사용자가 이전에 등록 된 메서드 중 하나를 삭제 하도록 선택 합니다. 완료 되 면 사용자에 게 보안 정보 페이지에서 해당 메서드가 더 이상 표시 되지 않습니다.
 
-### <a name="change-the-default-method-from-my-profile"></a>내 프로필에서 기본 방법 변경
+### <a name="change-the-default-method-from-my-account"></a>내 계정에서 기본 방법 변경
 
 이전에 Multi-Factor Authentication로 탐색 하는 데 사용할 수 있는 메서드를 하나 이상 설정한 사용자 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 입니다. 사용자가 현재 기본 메서드를 다른 기본 메서드로 변경 합니다. 완료 되 면 사용자는 보안 정보 페이지에 새 기본 메서드를 표시 합니다.
 

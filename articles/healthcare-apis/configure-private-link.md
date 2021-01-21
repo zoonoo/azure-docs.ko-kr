@@ -8,21 +8,18 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398218"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621881"
 ---
 # <a name="configure-private-link"></a>개인 링크 구성
 
-> [!IMPORTANT]
-> 이 기능은 공개 미리 보기 상태이고 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 개인 링크를 사용 하면 가상 네트워크의 개인 IP 주소를 사용 하 여 안전 하 게 안전 하 게 연결 하는 네트워크 인터페이스인 개인 끝점을 통해 FHIR 용 Azure API에 액세스할 수 있습니다. 개인 링크를 사용 하 여 공용 DNS를 통하지 않고도 Vnet에서 자사 서비스로 안전 하 게 서비스에 액세스할 수 있습니다. 이 문서에서는 FHIR 용 Azure API에 대 한 개인 끝점을 만들고, 테스트 하 고, 관리 하는 방법을 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 개인 끝점을 만들기 전에 먼저 만들어야 할 몇 가지 Azure 리소스가 있습니다.
 
@@ -88,8 +85,8 @@ FHIR 리소스에 대 한 RBAC 권한이 있는 개발자는 Azure Portal, [Azur
 
 ![리소스에서 보기](media/private-link/private-link-view.png)
 
-### <a name="delete"></a>삭제
+### <a name="delete"></a>DELETE
 
-개인 끝점은 개요 블레이드 (아래 참조)를 통하거나 네트워킹 (미리 보기)의 "개인 끝점 연결" 탭에서 삭제 옵션을 통해 Azure Portal 에서만 삭제할 수 있습니다. 삭제 단추를 클릭 하면 개인 끝점과 연결 된 NIC가 삭제 됩니다. FHIR 리소스에 대 한 모든 개인 끝점을 삭제 하 고 공용 네트워크 액세스를 사용 하지 않도록 설정한 경우 FHIR 서버에 요청 하지 않습니다. FHIR 리소스를 삭제 하거나 이동 하려면 먼저 모든 개인 끝점을 FHIR 리소스에서 삭제 해야 합니다.
+개인 끝점은 개요 블레이드 (아래 참조)를 통하거나 네트워킹 (미리 보기)의 "개인 끝점 연결" 탭에서 삭제 옵션을 통해 Azure Portal 에서만 삭제할 수 있습니다. 삭제 단추를 클릭 하면 개인 끝점과 연결 된 NIC가 삭제 됩니다. FHIR 리소스에 대 한 모든 개인 끝점을 삭제 하 고 공용 네트워크 액세스를 사용 하지 않도록 설정한 경우 FHIR 서버에 요청 하지 않습니다.
 
 ![개인 끝점 삭제](media/private-link/private-link-delete.png)

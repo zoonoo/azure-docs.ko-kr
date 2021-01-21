@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2020
-ms.openlocfilehash: 13f9e2271dd18121ba740c843e99fae86c76821d
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 5b4ab207462955be3876dc1a25fae491e48a9cd2
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845406"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621713"
 ---
 # <a name="welcome-to-azure-defender-for-iot"></a>IoT 용 Azure Defender 시작
 
 OT (운영 기술) 네트워크는 사회의 가장 중요 한 측면을 많이 활용 합니다. 그러나 이러한 기술 중 상당수는 보안을 염두에 두면 설계 되지 않았으므로 기존의 IT 보안 제어로 보호할 수 없습니다. 한편, IoT (사물 인터넷)는 수십억 개의 연결 된 장치에서 새로운 혁신적인 혁신을 구현 하 여 공격 노출 영역 및 위험을 늘립니다.  
 
-IoT 용 Azure Defender는 IoT/OT 자산, 취약성 및 위협을 식별 하기 위한 통합 보안 솔루션입니다. 이를 통해 기존 IoT/OT 장치를 보호 하거나 새로운 IoT 혁신에 보안을 구축 해야 하는지 여부에 관계 없이 전체 IoT/OT 환경을 보호할 수 있습니다.  
+IoT 용 Azure Defender는 IoT/OT 장치, 취약성 및 위협을 식별 하기 위한 통합 보안 솔루션입니다. 이를 통해 기존 IoT/OT 장치를 보호 하거나 새로운 IoT 혁신에 보안을 구축 해야 하는지 여부에 관계 없이 전체 IoT/OT 환경을 보호할 수 있습니다.  
 
 IoT 용 Azure Defender는 환경의 요구 사항에 맞는 두 가지 기능 집합을 제공 합니다.
 
@@ -47,7 +47,7 @@ IoT 용 Azure Defender의 에이전트 없는 모니터링 기능은 이러한 �
 
 ### <a name="automatic-device-discovery"></a>자동 장치 검색  
 
-수동, 에이전트 없는 네트워크 모니터링을 사용 하 여 iot/ot 자산의 전체 인벤토리, 세부 정보 및 통신 하는 방법을 확인 합니다.  
+수동, 에이전트 없는 네트워크 모니터링을 사용 하 여 iot/ot 네트워크에 미치는 영향을 0으로 설정 하 여 모든 IoT/OT 장치, 세부 정보 및 통신 방법에 대 한 완전 한 인벤토리를 얻을 수 있습니다.  
 
 ### <a name="proactive-visibility-into-risk-and-vulnerabilities"></a>위험 및 취약성에 대 한 자동 관리 가시성
  
@@ -61,7 +61,7 @@ IoT/OT 환경에서 위험과 취약점을 식별 합니다. 예를 들어 패�
 
 전체 조직에 대 한 bird 's 눈동자 보기를 위해 Azure 센티널에 통합 합니다. Splunk, IBM QRadar 및 ServiceNow와 같은 타사 도구를 비롯 하 여 기존 워크플로에 통합 하 여 통합 IoT/OT 보안 거 버 넌 스를 구현 합니다. 
 
-## <a name="agent-based-solution-for-device-builders"></a>장치 빌더를 위한 에이전트 기반 솔루션 
+## <a name="agent-based-solution-for-device-builders"></a>디바이스 빌더를 위한 에이전트 기반 솔루션 
 
 보안은 IoT 구현자의 거의 보편적인 문제입니다. IoT 장치에는 끝점 모니터링, 보안 상태 관리 및 위협 검색에 대 한 고유한 요구 사항이 있으며,이는 매우 구체적인 성능 요구 사항이 있습니다. 
 
@@ -81,6 +81,6 @@ IoT 장치의 보안 상태를 사전에 모니터링 합니다. IoT 용 Azure D
 
 IoT 마이크로 에이전트에 대 한 Azure Defender에는 소스 코드가 포함 되어 있으므로 마이크로 에이전트를 펌웨어에 통합 하거나 필요한 항목만 포함 하도록 사용자 지정할 수 있습니다. 또한 이진 패키지로 사용 하거나 다른 Azure IoT 솔루션에 직접 통합할 수 있습니다. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [IoT 용 Azure Defender 아키텍처](architecture.md)

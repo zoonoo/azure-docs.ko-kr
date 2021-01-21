@@ -17,19 +17,19 @@ ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c7d02b48d30fa558f8fd12f92705046dab74057
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600754"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624238"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
 
 Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
 - **활동** 
-    - **로그인** – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용량에 대한 정보입니다.
+    - **로그인** -관리 되는 응용 프로그램의 사용과 사용자 로그인 활동에 대 한 정보입니다.
     - **감사 로그**  -  [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
     - **로그 프로 비전** -Azure AD 프로 비전 서비스에서 프로 비전 하는 사용자, 그룹 및 역할에 대 한 시스템 활동을 제공 합니다. 
 
@@ -37,9 +37,13 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
     - **위험한 로그인** - [위험한 로그인](../identity-protection/overview-identity-protection.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자가 수행 했을 수 있는 로그인 시도에 대 한 표시기입니다.
     - **위험 플래그가 지정** 된 사용자- [위험한 사용자](../identity-protection/overview-identity-protection.md) 는 손상 되었을 수 있는 사용자 계정에 대 한 표시기입니다.
 
-이 항목에서는 프로 비전 보고서의 개요를 제공 합니다.
+이 항목에서는 프로 비전 로그의 개요를 제공 합니다. 다음과 같은 질문에 대 한 답변을 제공 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+* ServiceNow에서 성공적으로 생성 된 그룹은 무엇 인가요?
+* Adobe에서 성공적으로 제거 된 사용자는 무엇입니까?
+* Active Directory에서 만든 Workday의 사용자는 무엇 인가요? 
+
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 응용 프로그램 소유자는 자신이 소유한 응용 프로그램에 대 한 로그를 볼 수 있습니다.
@@ -52,14 +56,16 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 모든 프로 비전 활동 보고서를 보려면 테 넌 트에 연결 된 Azure AD Premium 라이선스가 있어야 합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 
 
-## <a name="provisioning-logs"></a>프로비저닝 로그
 
-프로 비전 로그는 다음 질문에 대 한 답변을 제공 합니다.
+## <a name="ways-of-interacting-with-the-provisioning-logs"></a>프로 비전 로그와 상호 작용 하는 방법 
+고객은 프로 비전 로그와 상호 작용 하는 네 가지 방법이 있습니다.
 
-* ServiceNow에서 성공적으로 생성 된 그룹은 무엇 인가요?
-* Adobe에서 성공적으로 제거 된 사용자는 무엇입니까?
-* DropBox에서 어떤 사용자를 만들지 못했습니다.
+1. 아래 설명 된 대로 Azure Portal에서 로그에 액세스 합니다.
+1. 프로 비전 로그를 [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics)으로 스트리밍하 여 확장 된 데이터 보존, 사용자 지정 대시보드, 경고 및 쿼리 작성을 허용 합니다.
+1. 프로 비전 로그에 대 한 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) 를 쿼리 합니다.
+1. 프로 비전 로그를 CSV 파일 또는 json으로 다운로드 합니다.
 
+## <a name="access-the-logs-from-the-azure-portal"></a>Azure Portal에서 로그에 액세스 합니다.
 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **모니터링** 섹션에서 **프로 비전** 로그를 선택 하 여 프로 비전 로그에 액세스할 수 있습니다. 일부 프로 비전 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
 
 ![프로비저닝 로그](./media/concept-provisioning-logs/access-provisioning-logs.png "프로비저닝 로그")
@@ -87,7 +93,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
-![자세한 정보](./media/concept-provisioning-logs/steps.png "Assert")
+![자세한 정보](./media/concept-provisioning-logs/steps.png "필터")
 
 
 ## <a name="filter-provisioning-activities"></a>프로 비전 작업 필터링
@@ -101,7 +107,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - 작업
 
 
-![필터 추가](./media/concept-provisioning-logs/default-filter.png "Assert")
+![필터 추가](./media/concept-provisioning-logs/default-filter.png "필터")
 
 **Id** 필터를 사용 하면 관심 있는 이름이 나 id를 지정할 수 있습니다. 이 id는 사용자, 그룹, 역할 또는 다른 개체 일 수 있습니다. 개체의 이름 또는 ID를 기준으로 검색할 수 있습니다. ID는 시나리오에 따라 달라 집니다. 예를 들어 Azure AD에서 SalesForce로 개체를 프로 비전 할 때 원본 ID는 Azure AD에서 사용자의 개체 ID이 고 TargetID는 Salesforce의 사용자 ID입니다. Workday에서 Active Directory로 프로 비전 할 때 원본 ID는 Workday 작업자 직원 ID입니다. 사용자 이름은 항상 Id 열에 표시 되지 않을 수 있습니다. 항상 하나의 ID가 있습니다. 
 
@@ -132,7 +138,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - 생성 
 - 업데이트
 - DELETE
-- 사용 안 함
+- 사용 중지
 - 기타
 
 또한 기본 보기의 필터에는 다음 필터를 설정할 수도 있습니다.
@@ -192,7 +198,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 
 
-![스크린샷 프로 비전 단계를 보여 주는 단계 탭을 표시 합니다.](./media/concept-provisioning-logs/steps.png "Assert")
+![스크린샷 프로 비전 단계를 보여 주는 단계 탭을 표시 합니다.](./media/concept-provisioning-logs/steps.png "필터")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>문제 해결 및 권장 사항
@@ -205,10 +211,57 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **수정 된 속성** 은 이전 값 및 새 값을 표시 합니다. 이전 값이 없는 경우에는 이전 값 열이 비어 있습니다. 
 
-
 ### <a name="summary"></a>요약
 
 **요약** 탭에서는 원본 및 대상 시스템의 개체에 대 한 변경 내용과 식별자에 대 한 개요를 제공 합니다. 
+
+## <a name="download-logs-as-csv-or-json"></a>로그를 CSV 또는 JSON으로 다운로드
+
+Azure Portal에서 로그로 이동 하 고 다운로드를 클릭 하 여 나중에 사용할 프로 비전 로그를 다운로드할 수 있습니다. 선택한 필터 조건에 따라 파일이 필터링 됩니다. 다운로드 하는 데 걸리는 시간과 다운로드 크기를 줄이기 위해 가능한 한 구체적으로 필터를 설정할 수 있습니다. CSV 다운로드는 세 개의 파일로 나뉩니다.
+
+* ProvisioningLogs: 프로 비전 단계와 수정 된 속성을 제외 하 고 모든 로그를 다운로드 합니다.
+* ProvisioningLogs_ProvisioningSteps: 프로 비전 단계와 변경 ID를 포함 합니다. 변경 ID는 다른 두 파일에 이벤트를 조인 하는 데 사용할 수 있습니다.
+* ProvisioningLogs_ModifiedProperties: 변경 된 특성과 변경 ID를 포함 합니다. 변경 ID는 다른 두 파일에 이벤트를 조인 하는 데 사용할 수 있습니다.
+
+#### <a name="opening-the-json-file"></a>JSON 파일 열기
+Json 파일을 열려면 [Microsoft Visual Studio 코드](https://aka.ms/vscode)와 같은 텍스트 편집기를 사용 합니다. Visual Studio Code를 사용 하면 구문 강조 표시를 통해 보다 쉽게 읽을 수 있습니다. 편집할 수 없는 형식의 브라우저를 사용 하 여 json 파일을 열 수도 있습니다 (예: [Microsoft Edge](https://aka.ms/msedge) ). 
+
+#### <a name="prettifying-the-json-file"></a>JSON 파일 Prettifying
+JSON 파일은 다운로드 크기를 줄이기 위해 파일 형식으로 다운로드 됩니다. 이렇게 하면 페이로드 읽기를 어렵게 만들 수 있습니다. 다음 두 가지 옵션을 확인 하 여 파일을 꾸밀.
+
+1. Visual Studio Code를 사용 하 여 JSON 서식 지정
+
+Visual Studio Code를 사용 하 여 JSON 파일의 형식을 지정 하려면 [여기](https://code.visualstudio.com/docs/languages/json#_formatting) 에 정의 된 지침을 따르세요.
+
+2. PowerShell을 사용 하 여 JSON 서식 지정
+
+이 스크립트는 탭과 공백을 사용 하 여 json을 prettified 형식으로 출력 합니다. 
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+`$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
+
+#### <a name="parsing-the-json-file"></a>JSON 파일 구문 분석
+
+PowerShell을 사용 하 여 JSON 파일을 사용할 수 있는 몇 가지 샘플 명령은 다음과 같습니다. 편안 하 게 사용할 수 있는 모든 프로그래밍 언어를 사용할 수 있습니다.  
+
+먼저 다음을 실행 하 여 [JSON 파일을 읽습니다](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) .
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+이제 시나리오에 따라 데이터를 구문 분석할 수 있습니다. 다음은 몇 가지 예입니다. 
+
+1. JsonFile의 모든 jobIDs를 출력 합니다.
+
+`foreach ($provitem in $JSONContent) { $provitem.jobId }`
+
+2. 작업이 "생성" 된 이벤트에 대 한 모든 changeIds를 출력 합니다.
+
+`foreach ($provitem in $JSONContent) { `
+`   if ($provItem.action -eq 'Create') {`
+`       $provitem.changeId `
+`   }`
+`}`
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 
@@ -241,7 +294,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 |InternalError |Azure AD 프로 비전 서비스 내에서 내부 서비스 오류가 발생 했습니다. 수행할 작업이 없습니다. 이 시도는 40 분 내에 자동으로 다시 시도 됩니다.|
 |InvalidDomain |잘못 된 도메인 이름을 포함 하는 특성 값으로 인해 작업을 수행할 수 없습니다. 사용자의 도메인 이름을 업데이트 하거나 대상 응용 프로그램의 허용 목록에 추가 합니다. |
 |제한 시간 |대상 응용 프로그램이 응답 하는 데 너무 오래 걸려서 작업을 완료할 수 없습니다. 수행할 작업이 없습니다. 이 시도는 40 분 내에 자동으로 다시 시도 됩니다.|
-|LicenseLimitExceeded|이 사용자에 대해 사용할 수 있는 라이선스가 없어서 대상 응용 프로그램에서 사용자를 만들 수 없습니다. 대상 응용 프로그램에 대 한 추가 라이선스를 구입 하거나, 사용자 할당 및 특성 매핑 구성을 검토 하 여 올바른 사용자가 올바른 특성으로 할당 되었는지 확인 합니다.|
+|LicenseLimitExceeded|이 사용자에 대해 사용할 수 있는 라이선스가 없어서 대상 응용 프로그램에서 사용자를 만들 수 없습니다. 대상 응용 프로그램에 대 한 라이선스를 더 확보 하거나 사용자 할당과 특성 매핑 구성을 검토 하 여 올바른 사용자가 올바른 특성으로 할당 되었는지 확인 합니다.|
 |DuplicateTargetEntries  |구성 된 일치 특성을 사용 하 여 대상 응용 프로그램에서 둘 이상의 사용자를 찾았지만 작업을 완료할 수 없습니다. 대상 응용 프로그램에서 중복 사용자를 제거 하거나 [여기](../app-provisioning/customize-application-attributes.md)에 설명 된 대로 특성 매핑을 다시 구성 하십시오.|
 |DuplicateSourceEntries | 구성 된 일치 특성을 가진 사용자를 둘 이상 찾았지만 작업을 완료할 수 없습니다. 중복 사용자를 제거 하거나 [여기](../app-provisioning/customize-application-attributes.md)에 설명 된 대로 특성 매핑을 다시 구성 하십시오.|
 |ImportSkipped | 각 사용자를 평가할 때 원본 시스템에서 사용자를 가져오려고 시도 합니다. 이 오류는 가져올 사용자에 게 특성 매핑에 정의 된 일치 속성이 없는 경우에 일반적으로 발생 합니다. 일치 특성에 대 한 사용자 개체에 값이 없으면 범위 지정, 일치 또는 변경 내용 내보내기를 평가할 수 없습니다. 이 오류가 있는 경우 사용자의 범위를 아직 평가 하지 않았으므로 사용자가 범위 내에 있는 것으로 표시 되지 않습니다.|

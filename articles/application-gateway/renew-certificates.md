@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 8/15/2018
+ms.date: 01/20/2021
 ms.author: victorh
-ms.openlocfilehash: 413ae2ee19f0b8e427de9167b52971e413cdf573
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: f0c06a94498f4d2481a6e953b959d766c60415fb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397215"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622183"
 ---
 # <a name="renew-application-gateway-certificates"></a>Application Gateway 인증서 갱신
 
@@ -22,11 +22,11 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 수신기와 연
 
 ## <a name="azure-portal"></a>Azure portal
 
-포털에서 수신기 인증서를 갱신하려면 애플리케이션 게이트웨이 수신기로 이동합니다. 인증서를 갱신해야 하는 수신기를 클릭한 다음, **선택한 인증서 갱신 또는 편집** 을 클릭합니다.
+포털에서 수신기 인증서를 갱신하려면 애플리케이션 게이트웨이 수신기로 이동합니다. 갱신 해야 하는 인증서가 있는 수신기를 선택한 다음, **선택한 인증서 갱신 또는 편집** 을 선택 합니다.
 
-![인증서 갱신](media/renew-certificate/ssl-cert.png)
+:::image type="content" source="media/renew-certificate/ssl-cert.png" alt-text="인증서 갱신":::
 
-새 PFX 인증서를 업로드하고, 이름을 지정하고, 암호를 입력한 다음, **저장** 을 클릭합니다.
+새 PFX 인증서를 업로드 하 고, 이름을 지정 하 고, 암호를 입력 한 다음, **저장** 을 선택 합니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

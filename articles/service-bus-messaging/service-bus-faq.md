@@ -3,12 +3,12 @@ title: Azure Service Bus FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대답)를 제공 합니다.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: acd741101928f5a2dfd72eab1598af6e4556a3d1
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 576df12a9d53ec3585f8691016cd250bf1ba4be3
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96022145"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623110"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
 
@@ -57,7 +57,7 @@ HTTPS 포트는 일반적으로 포트 5671을 통해 AMQP를 사용 하는 경�
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
-.NET Framework에 대 한 이전 Windowsazure.servicebus ServiceBus 패키지에는 "NetMessaging"이 라고도 하는 레거시 "SBMP" (Service Bus Messaging Protocol)를 사용 하는 옵션이 있습니다. 이 프로토콜은 TCP 포트 9350-9354를 사용 합니다. 이 패키지의 기본 모드는 해당 포트가 통신에 사용할 수 있는지 여부를 자동으로 감지 하 고, 그렇지 않은 경우 포트 443을 통해 TLS를 사용 하는 Websocket로 전환 합니다. `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) 응용 프로그램에 전역적으로 적용 되는 설정에 대해 하도록 connectivitymode.autodetect 지정할를 설정 하 여이 설정을 재정의 하 고이 모드를 적용할 수 있습니다.
+.NET Framework에 대 한 이전 Windowsazure.servicebus ServiceBus 패키지에는 "NetMessaging"이 라고도 하는 레거시 "SBMP" (Service Bus Messaging Protocol)를 사용 하는 옵션이 있습니다. 이 프로토콜은 TCP 포트 9350-9354를 사용 합니다. 이 패키지의 기본 모드는 해당 포트가 통신에 사용할 수 있는지 여부를 자동으로 감지 하 고, 그렇지 않은 경우 포트 443을 통해 TLS를 사용 하는 Websocket로 전환 합니다. `Https` [](/dotnet/api/microsoft.servicebus.connectivitymode) [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) 응용 프로그램에 전역적으로 적용 되는 설정에 대해 하도록 connectivitymode.autodetect 지정할를 설정 하 여이 설정을 재정의 하 고이 모드를 적용할 수 있습니다.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>허용 목록에 추가 해야 하는 IP 주소는 무엇 인가요?
 연결에 대 한 허용 목록에 추가할 올바른 IP 주소를 찾으려면 다음 단계를 수행 합니다.

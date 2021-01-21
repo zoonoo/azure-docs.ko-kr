@@ -7,24 +7,20 @@ ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: c54b5b785f6da1bb651d8b1f508da42ab0fb802d
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 8089b1e74e88db81c1c15ad2cbf2072abcfff241
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538387"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621348"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Azure DDoS Protection에서 데이터 연결
 
-> [!IMPORTANT]
-> Azure 센티널의 Azure DDoS Protection 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
-> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 DDoS (배포 된 서비스 거부) 공격은 응용 프로그램의 리소스를 고갈 시켜 합법적인 사용자가 응용 프로그램을 사용할 수 없게 합니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](../ddos-protection/ddos-protection-overview.md)은 DDoS 공격에 대 한 강력한 방어를 제공 합니다. Azure DDoS Protection 로그를 Azure 센티널에 연결 하 여 통합 문서에서 로그 데이터를 보고,이를 사용 하 여 사용자 지정 경고를 만들고,이를 통합 하 여 조사를 개선할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

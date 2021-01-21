@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 72b2ba0ea444fb14ef9fc1bc3ea6aea3654677df
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0db4e0fe0472c75f1eae392980ae697f53007244
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655530"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623369"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Microsoft Defender for Endpoint (이전의 Microsoft Defender ATP)에서 경고 연결
 
@@ -28,10 +28,6 @@ ms.locfileid: "94655530"
 > - **Microsoft defender For Endpoint** 는 이전의 **Microsoft Defender Advanced Threat Protection** 또는 **mdatp** 로 알려져 있었습니다.
 >
 >     제품에서 아직 사용 중인 이전 이름 (Azure 센티널의 데이터 커넥터 포함)을 일정 기간 동안 볼 수 있습니다.
->
-> - Microsoft Defender for Endpoint alerts 수집은 현재 공개 미리 보기로 제공 됩니다.
-> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 [Microsoft defender For endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) connector를 사용 하 여 끝점에 대 한 microsoft defender의 경고를 Azure 센티널로 스트리밍할 수 있습니다. 이렇게 하면 조직 전체에서 보안 이벤트를 보다 포괄적으로 분석 하 고, 유효 하 고 즉각적인 응답을 위해 플레이 북을 빌드할 수 있습니다.
 
@@ -39,7 +35,7 @@ ms.locfileid: "94655530"
 >
 > 끝점의 [고급 구하기](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview)에 대해 microsoft defender에서 새로운 원시 데이터 로그를 수집 하려면 Microsoft 365 Defender에 대 한 새 커넥터 (이전에는 Microsoft 위협 방지, [설명서 참조](./connect-microsoft-365-defender.md))를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - [끝점 배포용 Microsoft Defender 설정](/windows/security/threat-protection/microsoft-defender-atp/licensing)에 설명 된 대로 끝점에 대 한 microsoft defender에 대 한 유효한 라이선스가 있어야 합니다. 
 

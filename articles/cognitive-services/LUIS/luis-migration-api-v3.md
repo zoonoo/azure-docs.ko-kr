@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018789"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624306"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3에 대 한 예측 끝점 변경
 
@@ -66,9 +66,6 @@ Bot Framework를 사용 하거나 V7를 Bing Spell Check 하거나 LUIS 앱 제�
 
 Bot Framework의 V 4.7이 릴리스될 때까지 V2 API 예측 끝점을 계속 사용 합니다.
 
-## <a name="v2-api-deprecation"></a>V2 API 사용 중단
-
-V2 예측 API는 V3 preview 이후 최소 9 개월 동안 (6 월 8 일, 2020)에는 사용 되지 않습니다.
 
 ## <a name="endpoint-url-changes"></a>끝점 URL 변경
 
@@ -268,9 +265,6 @@ V3에서 다음과 같이 플래그를 사용 `verbose` 하 여 엔터티 메타
 
 예측 런타임에서 앱을 확장 하는 방법에 대 한 [개념](schema-change-prediction-runtime.md) 을 알아봅니다.
 
-## <a name="deprecation"></a>사용 중단
-
-V2 API는 V3 미리 보기 후 9 개월 이상 사용 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

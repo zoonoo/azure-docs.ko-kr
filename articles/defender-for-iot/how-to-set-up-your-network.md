@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573142"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621315"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Azure Defender for IoT 네트워크 설정 정보
 
@@ -94,35 +94,36 @@ Iot **for iot 포털:** IoT 용 Defender 응용 프로그램은 솔루션 어플
 
 조직 보안 정책에서 다음에 대 한 액세스를 허용 하는지 확인 합니다.
 
-| **용도** | **프로토콜** | **전송** | **인 또는 아웃** | **포트** | **범주** |
-| ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **웹 콘솔에 대 한 액세스** | HTTPS | TCP | 인 또는 아웃 | 443 | IoT 플랫폼용 Defender에 대 한 온-프레미스 관리 콘솔 |
-| **CLI에 대 한 액세스** | SSH | TCP | 인 또는 아웃 | 22 | CLI |
-| **IoT 플랫폼 및 온-프레미스 관리 콘솔에 대 한 Defender 간 연결** | SSL | TCP | 인 또는 아웃 | 443 | 센서 및 온-프레미스 관리 콘솔|
-| **센서에 NTP로 사용 되는 온-프레미스 관리 콘솔** | NTP | UDP| In CM | 123 | 시간 동기화 | 
-| **외부 NTP 서버에 연결 된 센서 (관련 된 경우)** | NTP | UDP | 인 또는 아웃| 123 | 시간 동기화 |
-| **IoT 플랫폼과 관리 플랫폼과 메일 서버 (관련 된 경우)에 대 한 Defender 간 연결** | SMTP | TCP | 센서를 관리 하지 않음 | 25 | Email |
-| **온-프레미스 관리 콘솔에서 Syslog 서버로 전송 하는 로그 (관련 된 경우)** | syslog | UDP | 센서를 관리 하지 않음| 514 | LEEF |
-| **DNS 서버 포트 (관련 된 경우)** | DNS | 해당 없음 | 인 또는 아웃| 53 | DNS |
-| **IoT 플랫폼과 온-프레미스 관리 콘솔에서 Active Directory로의 연결 (관련 된 경우)** | LDAPS | TCP | 인 또는 아웃 | 636 <br />389 | Active Directory |
-| **원격 SNMP 수집기 (관련 된 경우)** | SNMP | UDP | 센서를 관리 하지 않음| 161 | 모니터링 |
-| **Windows 끝점 모니터링 (관련 된 경우)** | WMI | UDP | 센서를 관리 하지 않음| 135 | 모니터링 |
-| **Windows 끝점 모니터링 (관련 된 경우)** | WMI | TCP | 센서를 관리 하지 않음| 1024 이상 | 모니터링 |
-| **터널링 (관련 된 경우)** | 터널링 | TCP | IN CM | 9000<br />포트 443 외에도<br />최종 사용자에서 온-프레미스 관리 콘솔로 <br />포트 22를 센서에서 온-프레미스 관리 콘솔로 | 모니터링 |
-| **IoT hub에 대 한 Defender로 아웃 바운드** | HTTPS | TCP | 센서를 관리 하지 않음| **URL**<br />*. azure-devices.net:443<br />또는 와일드 카드가 지원 되지 않는 경우<br />{IoT hub 이름}. azure-devices.net:443 |
+| 프로토콜 | 전송 | 입/출력 | 포트 | 사용됨 | 목적 | 원본 | 대상 |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | IN/OUT | 443 | 센서 및 온-프레미스 관리 콘솔 웹 콘솔 | 웹 콘솔에 대 한 액세스 | 클라이언트 | 센서 및 온-프레미스 관리 콘솔 |
+| SSH | TCP | IN/OUT | 22 | CLI | CLI에 대 한 액세스 | 클라이언트 | 센서 및 온-프레미스 관리 콘솔 |
+| SSL | TCP | IN/OUT | 443 | 센서 및 온-프레미스 관리 콘솔 | CyberX 플랫폼과 중앙 관리 플랫폼 간 연결 | 센서 | 온-프레미스 관리 콘솔 |
+| NTP | UDP | IN | 123 | 시간 동기화 | 온-프레미스 관리 콘솔을 사용 하 여 센서에 NTP | 센서 | 온-프레미스 관리 콘솔 |
+| NTP | UDP | IN/OUT | 123 | 시간 동기화 | 온-프레미스 관리 콘솔이 설치 되어 있지 않은 경우 외부 NTP 서버에 연결 된 센서 | 센서 | NTP |
+| SMTP | TCP | OUT | 25 | 메일 | CyberX 플랫폼과 관리 플랫폼과 메일 서버 간의 연결 | 센서 및 온-프레미스 관리 콘솔 | 메일 서버 |
+| syslog | UDP | OUT | 514 | LEEF | 온-프레미스 관리 콘솔에서 Syslog 서버로 전송 하는 로그 | 온-프레미스 관리 콘솔 및 센서 | Syslog 서버 |
+| DNS |  | IN/OUT | 53 | DNS | DNS 서버 포트 | 온-프레미스 관리 콘솔 및 센서 | DNS 서버 |
+| LDAP | TCP | IN/OUT | 389 | Active Directory | CyberX 플랫폼과 관리 플랫폼 간의 연결 Active Directory | 온-프레미스 관리 콘솔 및 센서 | LDAP 서버 |
+| LDAPS | TCP | IN/OUT | 636 | Active Directory | CyberX 플랫폼과 관리 플랫폼 간의 연결 Active Directory | 온-프레미스 관리 콘솔 및 센서 | LDAPS 서버 |
+| SNMP | UDP | OUT | 161 | 모니터링 | 원격 SNMP 수집기. | 온-프레미스 관리 콘솔 및 센서 | SNMP 서버 |
+| WMI | UDP | OUT | 135 | 모니터링 | Windows 끝점 모니터링 | 센서 | 관련 네트워크 요소 |
+| 터널링 | TCP | IN | 9000 <br /><br />-포트 443 위에 <br /><br />최종 사용자에서 온-프레미스 관리 콘솔로 <br /><br />-포트 22를 센서에서 온-프레미스 관리 콘솔로  | 모니터링 | 터널링 | 센서 | 온-프레미스 관리 콘솔 |
 
 ### <a name="planning-rack-installation"></a>랙 설치 계획
 
 랙 설치를 계획 하려면 다음을 수행 합니다.
 
 1. 어플라이언스 네트워크 설정에 대 한 모니터와 키보드를 준비 합니다.
-2. 어플라이언스에 대 한 랙 공간을 할당 합니다.
-3. 어플라이언스에 대 한 AC 전원을 사용할 수 있습니다.
-4. 관리를 네트워크 스위치에 연결 하기 위한 LAN 케이블을 준비 합니다.
-5. 스위치 범위 (미러) 포트를 연결 하기 위한 LAN 케이블을 준비 하 고 IoT 어플라이언스에 대 한 네트워크 탭을 Defender에 연결 합니다. 
-6. 아키텍처 검토 세션에 설명 된 대로 미러된 스위치의 범위 포트를 구성, 연결 및 유효성을 검사 합니다.
-7. Wireshark를 실행 하는 컴퓨터에 구성 된 범위 포트를 연결 하 고 포트가 올바르게 구성 되었는지 확인 합니다.
-8. 모든 관련 방화벽 포트를 엽니다.
+
+1. 어플라이언스에 대 한 랙 공간을 할당 합니다.
+
+1. 어플라이언스에 대 한 AC 전원을 사용할 수 있습니다.
+1. 관리를 네트워크 스위치에 연결 하기 위한 LAN 케이블을 준비 합니다.
+1. 스위치 범위 (미러) 포트를 연결 하기 위한 LAN 케이블을 준비 하 고 IoT 어플라이언스에 대 한 네트워크 탭을 Defender에 연결 합니다. 
+1. 아키텍처 검토 세션에 설명 된 대로 미러된 스위치의 범위 포트를 구성, 연결 및 유효성을 검사 합니다.
+1. Wireshark를 실행 하는 컴퓨터에 구성 된 범위 포트를 연결 하 고 포트가 올바르게 구성 되었는지 확인 합니다.
+1. 모든 관련 방화벽 포트를 엽니다.
 
 ## <a name="about-passive-network-monitoring"></a>수동 네트워크 모니터링 정보
 
@@ -141,6 +142,7 @@ Iot **for iot 포털:** IoT 용 Defender 응용 프로그램은 솔루션 어플
 수준 0은 기본 제조 프로세스에 관련 된 다양 한 센서, 발동기 및 장치로 구성 됩니다. 이러한 장치는 다음과 같은 산업용 자동화 및 제어 시스템의 기본 기능을 수행 합니다.
 
 - 모터를 구동 합니다.
+
 - 변수 측정.
 - 출력 설정
 - 그리기, 용접, 벤딩 등의 주요 기능을 수행 합니다.
@@ -227,7 +229,7 @@ IoT 어플라이언스 용 Defender는 계층 1과 2 사이의 산업용 통신�
 |--|--|--|--|
 | 스위치 간 최대 거리입니다. | 80 미터 | 준비 된 이더넷 케이블 | 1 개 이상 |
 | 네트워크 수 | 1 개 이상 | 물리적 연결 없음 | 1 개 이상 |
-| 스위치 수 | RSPAN 구성을 사용할 수 있습니다. | 케이블 거리로 센서에 가까운 로컬 범위를 포함 하는 최대 8 개의 스위치 | 1 개 이상 |
+| 스위치 수 | RSPAN 구성을 사용할 수 있습니다. | 케이블 거리가 센서에 가까운 로컬 범위를 포함 하는 최대 8 개의 스위치 | 1 개 이상 |
 
 #### <a name="traffic-mirroring"></a>트래픽 미러링  
 
@@ -355,7 +357,7 @@ RSPAN: Cisco catalyst 2960 (24 포트)을 기반으로 합니다.
 
 탭은 다양 한 이유로 유용 합니다. 하드웨어 기반 이며 손상 될 수 없습니다. 이러한 메시지는 모두 삭제 하는 경우에도 손상 된 메시지를 포함 하 여 모든 트래픽을 전달 합니다. 프로세서를 인식 하지 않으므로 패킷 타이밍은 스위치가 미러 패킷의 타이밍에 영향을 줄 수 있는 낮은 우선 순위의 작업으로 미러 함수를 처리 하는 정확한 위치입니다. 법적 용도의 경우 탭이 가장 적합 한 장치입니다.
 
-탭 집계는 포트 모니터링에도 사용할 수 있습니다. 이러한 장치는 프로세서 기반 이며 하드웨어 탭 만큼 본질적으로 안전 하지 않습니다. 정확한 패킷 타이밍을 반영 하지 않을 수 있습니다.
+탭 집계는 포트 모니터링에도 사용할 수 있습니다. 이러한 장치는 프로세서 기반 이며 하드웨어 탭으로 본질적으로 안전 하지 않습니다. 정확한 패킷 타이밍을 반영 하지 않을 수 있습니다.
 
 :::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.PNG" alt-text="활성 및 수동 탭의 다이어그램입니다.":::
 
@@ -364,10 +366,10 @@ RSPAN: Cisco catalyst 2960 (24 포트)을 기반으로 합니다.
 이러한 모델은 호환성 테스트를 거쳤습니다. 다른 공급 업체 및 모델이 호환 될 수도 있습니다.
 
 | 이미지 | 모델 |
-| -- | -- |
-| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Garland P1GCCAS의 스크린샷":::  | Garland P1GCCAS  |
-| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="IXIA TPA2-CU3의 스크린샷":::  | IXIA TPA2-CU3  |
-| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="MICROSOFT USR 4503의 스크린샷":::  | US 로봇 USR 4503  |
+|--|--|
+| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Garland P1GCCAS의 스크린샷"::: | Garland P1GCCAS |
+| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="IXIA TPA2-CU3의 스크린샷"::: | IXIA TPA2-CU3 |
+| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="MICROSOFT USR 4503의 스크린샷"::: | US 로봇 USR 4503 |
 
 ##### <a name="special-tap-configuration"></a>특수 탭 구성
 
@@ -425,7 +427,7 @@ RSPAN: Cisco catalyst 2960 (24 포트)을 기반으로 합니다.
 
 - IoT 어플라이언스 용 Defender를 해당 스위치에 연결 해야 하는 경우 해당 캐비닛에 사용 가능한 실제 랙 공간이 있나요?
 
-#### <a name="additional-considerations"></a>기타 고려 사항
+#### <a name="other-considerations"></a>기타 고려 사항
 
 IoT 어플라이언스의 Defender는 계층 1과 2의 트래픽을 모니터링 하는 용도로 사용할 수 있습니다.
 
@@ -547,7 +549,7 @@ Wireshark 응용 프로그램을 통해 이미 구성 된 범위 포트에 노�
 | 14 | 어플라이언스를 랙 및 케이블로 연결 합니다. | ☐ |  |
 | 15 | 사이트 리소스를 할당 하 여 배포를 지원 합니다. | ☐ |  |
 | 16 | Active Directory 그룹 또는 로컬 사용자를 만듭니다. | ☐ |  |
-| 17 | 교육 (자가 학습)을 설정 합니다. | ☐ |  |
+| 17 | 설정 교육 (자가 학습) | ☐ |  |
 | 18 | Go 또는 no go. | ☐ |  |
 | 19 | 배포 날짜를 예약 합니다. | ☐ |  |
 
@@ -671,7 +673,7 @@ Wireshark 응용 프로그램을 통해 이미 구성 된 범위 포트에 노�
 | 비밀 키 | |
 | SNMP v2 커뮤니티 문자열 |
 
-### <a name="cm-ssl-certificate"></a>CM SSL 인증서
+### <a name="on-premises-management-console-ssl-certificate"></a>온-프레미스 관리 콘솔 SSL 인증서
 
 SSL 인증서를 사용 하려고 계획 하 고 있습니까? Yes 또는 No
 

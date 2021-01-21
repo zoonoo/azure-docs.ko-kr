@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 13bfd7c602389ff286a80f625829da5924a73bdf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922580"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621898"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Azure IoT Edge 게시 및 구독
 
@@ -27,11 +27,11 @@ Azure IoT Edge MQTT broker를 사용 하 여 메시지를 게시 하 고 구독�
 ## <a name="pre-requisites"></a>필수 구성 요소
 
 - 유효한 구독이 있는 Azure 계정
-- [Azure CLI](/cli/azure/) `azure-iot` CLI 확장이 설치 된 Azure CLI. 자세한 내용은 [azure Azure CLI에 대 한 Azure IoT 확장 설치 단계](/cli/azure/azure-cli-reference-for-iot)를 참조 하세요.
+- [](/cli/azure/) `azure-iot` CLI 확장이 설치 된 Azure CLI. 자세한 내용은 [azure Azure CLI에 대 한 Azure IoT 확장 설치 단계](/cli/azure/azure-cli-reference-for-iot)를 참조 하세요.
 - SKU의 **IoT Hub** 는 F1, S1, S2 또는 S3 중 하나입니다.
 - **1.2 이상 버전의 IoT Edge 장치가** 있어야 합니다. IoT Edge MQTT broker는 현재 공개 미리 보기로 제공 되므로 edgeHub 컨테이너에서 다음 환경 변수를 true로 설정 하 여 MQTT broker를 사용 하도록 설정 합니다.
 
-   | 이름 | 값 |
+   | Name | 값 |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
@@ -171,7 +171,7 @@ MQTT 클라이언트가 IoT Edge 허브에 인증 되 면 연결할 권한이 �
     - `{{iot:identity}}` 현재 연결 된 클라이언트의 id를 나타냅니다. 예를 들어 또는 같은 모듈 id와 같은 장치 id가 `myDevice` `myEdgeDevice/SampleModule` 있습니다.
     - `{{iot:device_id}}` 현재 연결 된 장치의 id를 나타냅니다. 예를 들어 또는와 같이 모듈을 실행 하는 장치 id와 같은 장치 id를 사용할 `myDevice` 수 `myEdgeDevice` 있습니다.
     - `{{iot:module_id}}` 현재 연결 된 모듈의 id를 나타냅니다. 이 변수는 연결 된 장치 또는와 같은 모듈 id에 대해 비어 `SampleModule` 있습니다.
-    - `{{iot:this_device_id}}` 권한 부여 정책을 실행 하는 IoT Edge 장치의 id를 나타냅니다. 예: `myIoTEdgeDevice`.
+    - `{{iot:this_device_id}}` 권한 부여 정책을 실행 하는 IoT Edge 장치의 id를 나타냅니다. 예들 들어 `myIoTEdgeDevice`입니다.
 
 IoT hub에 대 한 권한 부여 항목은 사용자 정의 항목과 약간 다르게 처리 됩니다. 기억할 주요 사항은 다음과 같습니다.
 
@@ -251,7 +251,7 @@ IoT Hub에 두 IoT 장치를 만들고 암호를 가져옵니다. 터미널에�
 
 ### <a name="authorize-publisher-and-subscriber-clients"></a>게시자 및 구독자 클라이언트 권한 부여
 
-게시자와 구독자에 게 권한을 부여 하려면 Azure CLI, Visual Studio 또는 Visual Studio code를 통해 IoT Edge 허브 쌍을 편집 하 여 다음 권한 부여 정책을 포함 합니다.
+게시자 및 구독자에 권한을 부여 하려면 Azure CLI, Visual Studio 또는 Visual Studio code를 통해 다음 권한 부여 정책을 포함 하 IoT Edge 배포를 만들어 IoT Edge 허브 쌍을 편집 합니다.
 
 ```json
 {

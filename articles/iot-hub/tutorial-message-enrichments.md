@@ -4,16 +4,16 @@ description: Azure IoT Hub 메시지에 대해 메시지 강화를 사용 하는
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 60bd416cf330676485f83720be4365b56c56baaf
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: ddc212e99c0e55156f56df6bf77e122408a727f9
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436711"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624058"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>자습서: Azure IoT Hub 메시지 강화 사용
 
@@ -77,7 +77,7 @@ IoT hub 이름 및 저장소 계정 이름과 같이 전역적으로 고유 해�
 
 스크립트에서 만든 리소스는 다음과 같습니다. *보강* 는 강화가 포함 된 메시지에 대 한 리소스 임을 의미 합니다. *원래* 는 보강 않은 메시지에 대 한 리소스 임을 의미 합니다.
 
-| 속성 | 값 |
+| Name | 값 |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | 컨테이너 이름 | 오리지널  |
@@ -259,7 +259,7 @@ az iot hub route create \
 
 2. 이러한 값을 ContosoStorageEndpointEnriched 끝점 목록에 추가 합니다.
 
-   | Key | 값 | 끝점 (드롭다운 목록) |
+   | 키 | 값 | 끝점 (드롭다운 목록) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | Msds-devicelocation | $twin. tags. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -297,7 +297,7 @@ az iot hub route create \
 
    템플릿을 로드 하 여 만든 리소스는 다음과 같습니다. **보강** 는 강화가 포함 된 메시지에 대 한 리소스 임을 의미 합니다. **원래** 는 보강 않은 메시지에 대 한 리소스 임을 의미 합니다. 이러한 값은 Azure CLI 스크립트에서 사용 되는 것과 동일한 값입니다.
 
-   | 속성 | 값 |
+   | Name | 값 |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | 컨테이너 이름 | 오리지널  |
@@ -386,7 +386,7 @@ Unenriched 메시지는 다음과 같습니다. 이러한 필드는 강화에 �
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Azure CLI를 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다. `$resourceGroup`이 자습서의 시작 부분에서 **ContosoResourcesMsgEn** 로 설정 된 리콜입니다.
+리소스 그룹을 제거하려면 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) 명령을 사용합니다. `$resourceGroup`이 자습서의 시작 부분에서 **ContosoResourcesMsgEn** 로 설정 된 리콜입니다.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -397,6 +397,7 @@ az group delete --name $resourceGroup
 이 자습서에서는 다음 단계를 사용 하 여 메시지 강화에 메시지 IoT Hub를 추가 하도록 구성 하 고 테스트 했습니다.
 
 **IoT Hub 메시지 강화 사용**
+
 > [!div class="checklist"]
 > * 첫 번째 방법: Azure CLI를 사용 하 여 리소스를 만들고 메시지 라우팅을 구성 합니다. [Azure Portal](https://portal.azure.com)를 사용 하 여 수동으로 메시지 강화를 구성 합니다.
 > * 두 번째 방법: Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 메시지 라우팅 및 메시지 강화를 구성 합니다.
@@ -407,5 +408,8 @@ az group delete --name $resourceGroup
 
 메시지 라우팅에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-* [IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기](iot-hub-devguide-messages-d2c.md)
-* [자습서: IoT Hub 라우팅](tutorial-routing.md)
+> [!div class="nextstepaction"]
+> [IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기](iot-hub-devguide-messages-d2c.md)
+
+> [!div class="nextstepaction"]
+> [자습서: IoT Hub 라우팅](tutorial-routing.md)

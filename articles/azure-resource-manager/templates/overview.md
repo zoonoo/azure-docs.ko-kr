@@ -2,13 +2,13 @@
 title: 템플릿 개요
 description: 리소스 배포를 위한 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하는 이점에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c4995791b784351219458c546442d082e2396315
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 01/20/2021
+ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657314"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621842"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -126,10 +126,16 @@ REQUEST BODY
 
 중첩된 템플릿에 대한 자세한 내용은 [Azure Resource Manager에서 연결된 템플릿 사용](linked-templates.md)을 참조하세요.
 
+## <a name="share-templates"></a>템플릿 공유
+
+템플릿을 만든 후에는 조직의 다른 사용자와 공유할 수 있습니다. [템플릿 사양을](template-specs.md) 사용 하면 템플릿을 리소스 유형으로 저장할 수 있습니다. 역할 기반 액세스 제어를 사용 하 여 템플릿 사양에 대 한 액세스를 관리 합니다. 템플릿 사양에 대 한 읽기 권한이 있는 사용자는이를 배포할 수 있지만 템플릿은 변경할 수 없습니다.
+
+이 접근 방식은 조직의 표준을 충족 하는 템플릿을 안전 하 게 공유할 수 있음을 의미 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 * 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 [자습서: 첫 번째 ARM 템플릿 만들기 및 배포](template-tutorial-create-first-template.md)를 참조하세요.
-* Microsoft Learn의 단계별 모듈 집합을 통한 ARM 템플릿에 대 한 자세한 내용은 [arm 템플릿을 사용 하 여 Azure에서 리소스 배포 및 관리](/learn/paths/deploy-manage-resource-manager-templates/)를 참조 하세요.
+* Microsoft Learn의 단계별 모듈 세트를 통한 ARM 템플릿에 대한 자세한 내용은 [ARM 템플릿을 사용하여 Azure에서 리소스 배포 및 관리](/learn/paths/deploy-manage-resource-manager-templates/)를 참조하세요.
 * 템플릿 파일의 속성에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
 * 템플릿 내보내기에 대 한 자세한 내용은 [빠른 시작: Azure Portal 사용 하 여 ARM 템플릿 만들기 및 배포](quickstart-create-templates-use-the-portal.md)를 참조 하세요.
 * 일반적인 질문에 대 한 대답은 [ARM 템플릿에 대 한](frequently-asked-questions.md)질문과 대답을 참조 하세요.

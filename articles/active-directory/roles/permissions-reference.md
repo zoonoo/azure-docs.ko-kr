@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62fb239fd9cb8c1817dea5ab5c22684a65955ed5
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3a66ad61afe1439a80d750097d3c90d010547539
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555732"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622411"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -1971,6 +1971,7 @@ Graph displayName | Azure Portal 표시 이름 | directoryRoleTemplateId
 인증 관리자 | 인증 관리자 | c4e39bd9-1100-46d3-8c65-fb160da0071f
 공격 페이로드 작성자 | 공격 페이로드 작성자 | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
 공격 시뮬레이션 관리자 | 공격 시뮬레이션 관리자 | c430b396-e693-46cc-96f3-db01bf8bb62a
+Azure AD 조인 장치 로컬 관리자 | Azure AD 조인 장치 로컬 관리자 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Azure DevOps 관리자 | Azure DevOps 관리자 | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection 관리자 | Azure Information Protection 관리자 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C IEF 키 세트 관리자 | B2C IEF 키 세트 관리자 | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1978,24 +1979,23 @@ B2C IEF 정책 관리자 | B2C IEF 정책 관리자 | 3edaf663-341e-4475-9f94-5c
 대금 청구 관리자 | 대금 청구 관리자 | b0f54661-2d74-4c50-afa3-1ec803f12efe
 클라우드 애플리케이션 관리자 | 클라우드 애플리케이션 관리자 | 158c047a-c907-4556-b7ef-446551a6b5f7
 클라우드 디바이스 관리자 | 클라우드 디바이스 관리자 | 7698a772-787b-4ac8-901f-60d6b08affd2
-회사 관리자 | 전역 관리자 | 62e90394-69f5-4237-9190-012177145e10
 규정 준수 관리자 | 규정 준수 관리자 | 17315797-102d-40b4-93e0-432062caca18
 규정 준수 데이터 관리자 | 규정 준수 데이터 관리자 | e6d1a23a-da11-4be4-9570-befc86d067a7
 조건부 액세스 관리자 | 조건부 액세스 관리자 | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
-CRM 서비스 관리자 | Dynamics 365 관리자 | 44367163-eba1-44c3-98af-f5787879f96a
 고객 LockBox 액세스 승인자 | 고객 Lockbox 액세스 승인자 | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 데스크톱 분석 관리자 | 데스크톱 분석 관리자 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-디바이스 관리자 | 디바이스 관리자 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 디바이스 연결 | 사용되지 않음 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 디바이스 관리 | 사용되지 않음 | 2b499bcd-da44-4968-8aec-78e1674fa64d
 디바이스 사용자 | 사용되지 않음 | d405c6df-0af8-4e3b-95e4-4d06e542189e
 디렉터리 읽기 권한자 | 디렉터리 읽기 권한자 | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 디렉터리 동기화 계정 | 사용하면 안되므로 표시되지 않습니다. | d29b2b05-8046-44ba-8758-1e26182fcf32
 디렉터리 작성자 | 디렉터리 작성자 | 9360feb5-f418-4baa-8175-e2a00bac4301
-Exchange 서비스 관리자 | Exchange 관리자 | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Dynamics 365 Administrator | Dynamics 365 관리자 | 44367163-eba1-44c3-98af-f5787879f96a
+Exchange 관리자 | Exchange 관리자 | 29232cdf-9323-42fd-ade2-1d097af3e4de
 외부 ID 사용자 흐름 관리자 | 외부 ID 사용자 흐름 관리자 | 6e591065-9bad-43ed-90f3-e9424366d2f0
 외부 ID 사용자 흐름 특성 관리자 | 외부 ID 사용자 흐름 특성 관리자 | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 외부 ID 공급자 관리자 | 외부 ID 공급자 관리자 | be2f45a1-457d-42af-a067-6ec1fa63bc45
+전역 관리자 | 전역 관리자 | 62e90394-69f5-4237-9190-012177145e10
 글로벌 읽기 권한자 | 글로벌 읽기 권한자 | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 그룹 관리자 | 그룹 관리자 | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 게스트 초대자 | 게스트 초대자 | 95e79109-95c0-4d8e-aee3-d01accf2d47b
@@ -2003,10 +2003,9 @@ Exchange 서비스 관리자 | Exchange 관리자 | 29232cdf-9323-42fd-ade2-1d09
 하이브리드 ID 관리자 | 하이브리드 ID 관리자 | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
 Insights 관리자 | Insights 관리자 | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c
 Insights 비즈니스 리더 | Insights 비즈니스 리더 | 31e939ad-9672-4796-9c2e-873181342d2d
-Intune 서비스 관리자 | Intune 관리자 | 3a2c62db-5318-420d-8d74-23affee5d9d5
+Intune 관리자 | Intune 관리자 | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala 관리자 | Kaizala 관리자 | 74ef975b-6605-40af-a5d2-b9539d836353
 라이선스 관리자 | 라이선스 관리자 | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
-Lync 서비스 관리자 | 비즈니스용 Skype 관리자 | 75941009-915a-4869-abe7-691bff18279e
 메시지 센터 개인 정보 읽기 권한자 | 메시지 센터 개인 정보 읽기 권한자 | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 메시지 센터 읽기 권한자 | 메시지 센터 읽기 권한자 | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 최신 Commerce 사용자 | 최신 Commerce 사용자 | d24aef57-1500-4070-84db-2666f29cf966
@@ -2015,7 +2014,7 @@ Office 앱 관리자 | Office 앱 관리자 | 2b745bdf-0803-4d80-aa65-822c4493da
 파트너 계층1 지원 | 사용하면 안되므로 표시되지 않습니다. | 4ba39ca4-527c-499a-b93d-d9b492c50246
 파트너 계층2 지원 | 사용하면 안되므로 표시되지 않습니다. | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 암호 관리자 | 암호 관리자 | 966707d0-3269-4727-9be2-8c3a10f19b9d
-Power BI 서비스 관리자 | Power BI 관리자 | a9ea8996-122f-4c74-9520-8edcd192826c
+Power BI 관리자 | Power BI 관리자 | a9ea8996-122f-4c74-9520-8edcd192826c
 Power Platform 관리자 | Power Platform 관리자 | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 프린터 관리자 | 프린터 관리자 | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f
 프린터 기술자 | 프린터 기술자 | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477
@@ -2028,15 +2027,16 @@ Search 편집자 | Search 편집자 | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 보안 운영자 | 보안 운영자 | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 보안 판독기 | 보안 판독기 | 5d6b6bb7-de71-4623-b4af-96380a352509
 서비스 지원 관리자 | 서비스 지원 관리자 | f023fd81-a637-4b56-95fd-791ac0226033
-SharePoint 서비스 관리자 | SharePoint 관리자 | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+SharePoint 관리자 | SharePoint 관리자 | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+비즈니스용 Skype 관리자 | 비즈니스용 Skype 관리자 | 75941009-915a-4869-abe7-691bff18279e
 Teams 통신 관리자 | Teams 통신 관리자 | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Teams 통신 지원 엔지니어 | Teams 통신 지원 엔지니어 | f70938a0-fc10-4177-9e90-2178f8765737
 Teams 통신 지원 전문가 | Teams 통신 지원 전문가 | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams 디바이스 관리자 | Teams 디바이스 관리자 | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Teams 서비스 관리자 | Teams 서비스 관리자 | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Teams 관리자 | Teams 관리자 | 69091246-20e8-4a56-aa4d-066075b2a7a8
 사용 요약 보고서 판독기 | 사용 요약 보고서 판독기 | 75934031-6c7e-415a-99d7-48dbd49e875e
 사용자 | 사용하면 안되므로 표시되지 않습니다. | a0b1b346-4d3e-4e8b-98f8-753987be4970
-사용자 계정 관리자 | 사용자 관리자 | fe930be7-5e62-47db-91af-98c3a49a38b1
+사용자 관리자 | 사용자 관리자 | fe930be7-5e62-47db-91af-98c3a49a38b1
 작업 공간 디바이스 연결 | 사용되지 않음 | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>사용되지 않는 역할
@@ -2057,15 +2057,11 @@ PowerShell 또는 MS Graph API에서 반환된 모든 역할이 Azure Portal에 
 
 API 이름 | Azure Portal 이름 | 메모
 -------- | ------------------- | -------------
-회사 관리자 | 전역 관리자 | [명확성을 높이기 위해 이름이 변경됨](permissions-reference.md#role-template-ids)
-CRM 서비스 관리자 | Dynamics 365 관리자 | [현재 제품 브랜드를 반영](permissions-reference.md#role-template-ids)
 디바이스 연결 | 사용되지 않음 | [사용되지 않는 역할 설명서](permissions-reference.md#deprecated-roles)
 디바이스 관리 | 사용되지 않음 | [사용되지 않는 역할 설명서](permissions-reference.md#deprecated-roles)
 디바이스 사용자 | 사용되지 않음 | [사용되지 않는 역할 설명서](permissions-reference.md#deprecated-roles)
 디렉터리 동기화 계정 | 사용하면 안되므로 표시되지 않습니다. | [디렉터리 동기화 계정 설명서](permissions-reference.md#directory-synchronization-accounts)
-디렉터리 작성자 | 사용하면 안되므로 표시되지 않습니다. | [디렉터리 쓰기 권한자 설명서](permissions-reference.md#directory-writers)
 게스트 사용자 | 사용하면 안되므로 표시되지 않습니다.  | 해당 없음
-Lync 서비스 관리자 | 비즈니스용 Skype 관리자 | [현재 제품 브랜드를 반영](permissions-reference.md#role-template-ids)
 파트너 계층 1 지원 | 사용하면 안되므로 표시되지 않습니다. | [파트너 계층1 지원 설명서](permissions-reference.md#partner-tier1-support)
 파트너 계층 2 지원 | 사용하면 안되므로 표시되지 않습니다. | [파트너 계층2 지원 설명서](permissions-reference.md#partner-tier2-support)
 제한된 게스트 사용자 | 사용하면 안되므로 표시되지 않습니다. | 해당 없음

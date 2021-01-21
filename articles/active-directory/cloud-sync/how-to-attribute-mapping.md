@@ -11,12 +11,12 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f1b1d792891b3ab8dabff42757d0e705e512879
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 80a035f30294449a024bbde76df2d42ddc23396e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613797"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622714"
 ---
 # <a name="azure-ad-connect-cloud-sync-attribute-mapping"></a>Azure AD Connect 클라우드 동기화 특성 매핑
 
@@ -57,9 +57,9 @@ Azure AD Connect 클라우드 동기화에는 온-프레미스 사용자/그룹 
 
 1.  Azure Portal에서 **Azure Active Directory** 를 선택합니다.
 2.  **Azure AD Connect** 를 선택합니다.
-3.  **프로 비전 관리** 를 선택 합니다.
+3.  **클라우드 동기화 관리** 를 선택 합니다.
 
-    ![프로 비전 관리](media/how-to-configure/manage-1.png)
+    ![프로 비전 관리](media/how-to-install/install-6.png)
 
 4. **구성** 아래에서 구성을 선택 합니다.
 5. **매핑을 편집 하려면 클릭** 하십시오 .를 선택 합니다.  이렇게 하면 특성 매핑 화면이 열립니다.

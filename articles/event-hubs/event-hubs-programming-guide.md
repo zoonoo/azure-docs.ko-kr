@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure .NET SDK를 사용하여 Azure Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 46bd0c3c1488d6dd7afbae5e88e0b83f56654bb8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a299813620ee90591d8c9491991237f75f2e9382
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131239"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623051"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Azure Event Hubs에 대 한 .NET 프로그래밍 가이드 (레거시 EventHubs 패키지)
 이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](./event-hubs-about.md)를 참조하세요.
@@ -97,7 +97,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>비동기적으로 보내고 규모로 보내기
 
-비동기적으로 이벤트를 이벤트 허브로 보낼 수 있습니다. 비동기적으로 보내기는 클라이언트가 이벤트를 보낼 수 있는 속도를 증가시킵니다. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync)는 [Task](/dotnet/api/system.threading.tasks.task?view=netcore-3.1) 개체를 반환합니다. 클라이언트에서 [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) 클래스를 사용하여 클라이언트 다시 시도 옵션을 제어할 수 있습니다.
+비동기적으로 이벤트를 이벤트 허브로 보낼 수 있습니다. 비동기적으로 보내기는 클라이언트가 이벤트를 보낼 수 있는 속도를 증가시킵니다. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync)는 [Task](/dotnet/api/system.threading.tasks.task) 개체를 반환합니다. 클라이언트에서 [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) 클래스를 사용하여 클라이언트 다시 시도 옵션을 제어할 수 있습니다.
 
 ## <a name="event-consumers"></a>이벤트 소비자
 [EventProcessorHost][] 클래스는 Event Hubs에서 데이터를 처리합니다. .NET 플랫폼에서 이벤트 판독기를 작성할 때 이 구현을 사용해야 합니다. [EventProcessorHost][] 는 검사점 및 파티션 임대 관리를 제공하는 이벤트 처리기 구현에 대한 스레드 안전, 다중 프로세스, 안전한 런타임 환경을 제공합니다.

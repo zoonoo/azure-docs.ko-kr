@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538576"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623757"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>온-프레미스 관리 콘솔 활성화 및 설정 
 
@@ -147,15 +147,15 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 ## <a name="set-up-a-site"></a>사이트 설정
 
-기본 기업 맵은 여러 지리적 위치에 따라 자산의 전체 보기를 제공 합니다.
+기본 기업 맵은 여러 지리적 위치에 따라 장치의 전체적인 보기를 제공 합니다.
 
-조직 구조와 사용자 권한이 복잡 한 경우 자산 보기가 필요할 수 있습니다. 이러한 경우 사이트 설치는 표준 사이트 또는 영역 구조 외에도 전역 조직 구조에 의해 결정 될 수 있습니다.
+조직 구조와 사용자 권한이 복잡 한 경우 장치 보기가 필요할 수 있습니다. 이러한 경우 사이트 설치는 표준 사이트 또는 영역 구조 외에도 전역 조직 구조에 의해 결정 될 수 있습니다.
 
 이 환경을 지원 하려면 조직의 비즈니스 단위, 지역, 사이트 및 영역을 기반으로 하는 글로벌 비즈니스 토폴로지를 만들어야 합니다. 또한 액세스 그룹을 사용 하 여 이러한 엔터티에 대 한 사용자 액세스 권한을 정의 해야 합니다.
 
-액세스 그룹을 사용 하면 사용자가 IoT 플랫폼용 Defender에서 자산을 관리 하 고 분석 하는 위치를 보다 효과적으로 제어할 수 있습니다.
+액세스 그룹을 사용 하면 사용자가 IoT 플랫폼용 Defender에서 장치를 관리 하 고 분석 하는 위치를 보다 효과적으로 제어할 수 있습니다.
 
-### <a name="how-it-works"></a>작동 방법
+### <a name="how-it-works"></a>작동 방식
 
 각 사이트에 대해 사업부와 지역을 정의할 수 있습니다. 그런 다음 네트워크의 논리적 엔터티인 영역을 추가할 수 있습니다. 
 
@@ -215,7 +215,7 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 ## <a name="create-enterprise-zones"></a>엔터프라이즈 영역 만들기
 
-영역은 여러 특성에 따라 사이트 내의 자산을 그룹으로 나눌 수 있도록 하는 논리적 엔터티입니다. 예를 들어 프로덕션 라인, 변전소, 사이트 영역 또는 자산의 유형에 대 한 그룹을 만들 수 있습니다. 조직에 적합 한 특성을 기반으로 영역을 정의할 수 있습니다.
+영역은 여러 특성에 따라 사이트 내의 장치를 그룹으로 나눌 수 있도록 하는 논리적 엔터티입니다. 예를 들어 프로덕션 라인, 변전소, 사이트 영역 또는 장치 유형에 대 한 그룹을 만들 수 있습니다. 조직에 적합 한 특성을 기반으로 영역을 정의할 수 있습니다.
 
 사이트 구성 프로세스의 일부로 영역을 구성 합니다.
 
@@ -223,7 +223,7 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 다음 표에서는 **사이트 관리** 창의 매개 변수에 대해 설명 합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |--|--|
 | Name | 센서의 이름입니다. 이 이름은 센서 에서만 변경할 수 있습니다. 자세한 내용은 IoT 용 Defender 사용자 가이드를 참조 하세요. |
 | IP | 센서 IP 주소입니다. |
@@ -231,7 +231,7 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 | 연결 | 센서 연결 상태입니다. 상태를 연결 하거나 **연결** 을 **끊을** 수 있습니다. |
 | 마지막 업그레이드 | 마지막 업그레이드 날짜입니다. |
 | 업그레이드 진행률 | 진행률 표시줄은 다음과 같이 업그레이드 프로세스의 상태를 표시 합니다.<br />-패키지 업로드 중<br />-설치 준비 중<br />-프로세스를 중지 하는 중<br />-데이터 백업<br />-스냅숏 만들기<br />-구성을 업데이트 하는 중<br />-종속성 업데이트<br />-라이브러리를 업데이트 하는 중<br />-데이터베이스 패치<br />-프로세스 시작<br />-시스템 온전성 유효성 검사<br />-유효성 검사 성공<br />-성공<br />-실패<br />-업그레이드가 시작 됨<br />-설치 시작 중ogress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >업그레이드에 대 한 자세한 내용은 [Microsoft 지원](https://support.microsoft.com/) 도움말을 참조 하세요. |
-| 자산 | 센서가 모니터링 하는 OT 자산의 수입니다. |
+| 디바이스 | 센서가 모니터링 하는 OT 장치 수입니다. |
 | 경고 | 센서에 대 한 경고의 수입니다. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | 영역에 센서를 할당할 수 있습니다. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::| 사이트에서 연결 되지 않은 센서를 삭제할 수 있습니다. |
