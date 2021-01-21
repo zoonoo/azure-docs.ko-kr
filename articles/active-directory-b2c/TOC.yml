@@ -140,10 +140,14 @@
           href: phone-authentication-user-flows.md
     - name: ID 공급자
       items:
+        - name: 로컬 계정 ID 공급자
+          href: identity-provider-local.md
+          displayName: 'Username, Email, Phone authorization, Phone sing-in'
         - name: ID 공급자 추가
           href: add-identity-provider.md
         - name: AD FS
           href: identity-provider-adfs.md
+          displayName: 'AD-FS, ADFS'
         - name: Amazon
           href: identity-provider-amazon.md
         - name: Azure AD(단일 테넌트)
