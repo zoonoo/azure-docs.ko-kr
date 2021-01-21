@@ -1,5 +1,5 @@
 ---
-title: 가용성 영역를 지 원하는 Azure 서비스
+title: 가용성 영역을 지원하는 Azure 서비스
 description: Azure에서 가용성과 복원력이 높은 애플리케이션을 만들려면 가용성 영역에서 리소스를 실행하는 데 사용할 수 있는 별도의 실제 위치를 제공합니다.
 author: cynthn
 ms.service: azure
@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 0365a60317538ba31f39928cd30a57e2c969c832
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: ea21a56249c8eaa7c6b329b755e96b21b91ebaa1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723044"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632311"
 ---
-# <a name="azure-services-that-support-availability-zones"></a>가용성 영역를 지 원하는 Azure 서비스
+# <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
 가용성 영역은 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역를 지 원하는 기존 및 예정 된 지역 목록은 [Azure에서 지역 및 가용성 영역](az-overview.md)을 참조 하세요.  
 
@@ -52,7 +52,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 | **제품** | **미국 중부** | **미국 동부** | **미국 동부 2** | **미국 서부 2** | **캐나다 중부** |
 |--|--|--|--|--|--|
-| **컴퓨팅** |  |  |  |  |  |
+| **Compute** |  |  |  |  |  |
 | [ILB (App Service 환경)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Virtual Machines 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -97,7 +97,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 | **제품** | **프랑스 중부** | **북유럽** | **영국 남부** | **서유럽** |
 |--|--|--|--|--|
-| **컴퓨팅** |  |  |  |  |
+| **Compute** |  |  |  |  |
 | [ILB (App Service 환경)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [AKS(Azure Kubernetes Service)](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -124,7 +124,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for MySQL 유연한 서버](../mysql/flexible-server/concepts-high-availability.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for PostgreSQL - 유연한 서버](../postgresql/flexible-server/overview.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (일반 용도 계층)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | : heavy_check_mark: (미리 보기) | :x: | : heavy_check_mark: (미리 보기) |
+| [Azure SQL Database (일반 용도 계층)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (미리 보기) | : heavy_check_mark: (미리 보기) | :x: | : heavy_check_mark: (미리 보기) |
 | [Azure SQL Database (프리미엄 & 중요 비즈니스용 계층)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **분석** |  |  |  |  |
 | [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -142,7 +142,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 | **제품** | **일본 동부** | **동남 아시아** | **오스트레일리아 동부** |
 |--|--|--|--|
-| **컴퓨팅** |  |  |  |
+| **Compute** |  |  |  |
 | [ILB (App Service 환경)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [AKS(Azure Kubernetes Service)](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -169,7 +169,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for MySQL 유연한 서버](../mysql/flexible-server/concepts-high-availability.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for PostgreSQL - 유연한 서버](../postgresql/flexible-server/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (일반 용도 계층)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | : heavy_check_mark: (미리 보기) | : heavy_check_mark: (미리 보기) |
+| [Azure SQL Database (일반 용도 계층)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (미리 보기) | : heavy_check_mark: (미리 보기) | : heavy_check_mark: (미리 보기) |
 | [Azure SQL Database (프리미엄 & 중요 비즈니스용 계층)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **분석** |  |  |  |
 | [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

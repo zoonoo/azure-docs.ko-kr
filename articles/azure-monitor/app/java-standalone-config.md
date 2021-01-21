@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 98499961f55b55b15687d5742b4d593e3d461e49
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 397c650d1d7a593a855c8f26e61dbf12ec6360fa
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625333"
+ms.locfileid: "98631324"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
@@ -296,7 +296,9 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 }
 ```
 
-[//]: # "참고 OpenTelemetry 지원 광고는 0.10.0를 지원 하기 전까지 0.9.0의 대규모 주요 변경 사항이 있습니다."
+Application Insights Java 3.0 `-Dhttps.proxyHost` 는 전역 및 `-Dhttps.proxyPort` 설정 된 경우에도 해당 합니다.
+
+[//]: # "참고 OpenTelemetry 지원은 OpenTelemetry API가 1.0에 도달할 때까지 비공개 미리 보기 상태입니다."
 
 [//]: # "# # OpenTelemetry API 이전 1.0 릴리스 지원"
 
@@ -343,6 +345,8 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 `maxSizeMb` 는 롤오버 되기 전에 로그 파일의 최대 크기입니다.
 
 `maxHistory` 현재 로그 파일 외에도 유지 되는 로그 파일에 대해 롤업되는 수입니다.
+
+버전 3.0.2에서 시작 하 여 `level` 환경 변수를 사용 하 여 자체 진단을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` .
 
 ## <a name="an-example"></a>예제
 

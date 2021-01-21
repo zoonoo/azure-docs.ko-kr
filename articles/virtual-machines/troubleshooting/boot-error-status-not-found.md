@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: a91add684d7b7aaee67e7dd4f4f2d0c6df078132
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657127"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632227"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Windows 부팅 관리자 오류 문제 해결 - 0xC0000225 "상태를 찾을 수 없음"
  
@@ -79,6 +79,9 @@ ms.locfileid: "97657127"
 ## <a name="solution"></a>해결 방법
 
 ### <a name="process-overview"></a>프로세스 개요
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 1. 복구 VM을 만들고 액세스합니다.
 1. 다음과 같은 솔루션을 선택합니다.
@@ -260,7 +263,7 @@ ms.locfileid: "97657127"
 1. 관리자 권한 명령 프롬프트 세션을 엽니다.
 1. 다음 명령을 실행합니다.
 
-   **직렬 콘솔을 사용하도록 설정합니다**.
+   **직렬 콘솔을 사용하도록 설정합니다.**
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 

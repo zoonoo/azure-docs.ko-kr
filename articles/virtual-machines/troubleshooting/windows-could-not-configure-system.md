@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6cb3467fec99bd12810ed058a61de1be7b39cdd0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977051"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629592"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Windows에서 시스템 구성을 완료할 수 없는 문제 해결
 
@@ -39,5 +39,8 @@ ms.locfileid: "91977051"
 OS (운영 체제)에서 [Sysprep 프로세스](/windows-hardware/manufacture/desktop/sysprep-process-overview)를 완료할 수 없는 경우이 오류가 발생 합니다. 이 오류는 일반화 된 VM의 초기 부팅을 시도할 때 발생 합니다. 이 문제가 발생 하는 경우 이미지가 배포 되지 않은 상태 이며 복구할 수 없기 때문에 일반화 된 이미지를 다시 만듭니다.
 
 ## <a name="solution"></a>솔루션
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 이 문제를 해결 하려면 [이미지 준비/캡처](../windows/upload-generalized-managed.md) 및 새로운 일반화 된 이미지 준비에 대 한 Azure 지침을 따르세요.

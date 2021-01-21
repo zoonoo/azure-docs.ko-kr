@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: d374043235d6c09243ea5ecdacccf141a2d4f8b4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 143c1a183ba697cbf5d9b19d7e0868a638650bc8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181347"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632015"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Webroot Security Awareness Training 구성
 
@@ -120,7 +120,8 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
    |attribute|Type|필터링에 지원됨|
    |---|---|---|
-   |externalId|String|&check;|
+   |userName|String|&check;|
+   |externalId|String|
    |name.givenName|String|
    |name.familyName|String|
    |emails[type eq "work"].value|String|

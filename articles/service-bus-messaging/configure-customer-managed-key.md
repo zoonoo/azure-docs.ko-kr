@@ -3,12 +3,12 @@ title: 휴지 상태의 데이터를 암호화 하기 위한 고유한 키 구�
 description: 이 문서에서는 rest Azure Service Bus 데이터를 암호화 하기 위한 고유한 키를 구성 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 35680819350582062dd4227c65f9e72ae8b3ee5c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3e8f3a599ee5fe40c85a93dd58d36e6cd611c9ea
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489703"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631769"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 데이터 Azure Service Bus 데이터를 암호화 하기 위해 고객이 관리 하는 키 구성
 Azure Service Bus Premium은 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Service Bus Premium은 Azure Storage를 사용 하 여 데이터를 저장 하며, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 
@@ -45,12 +45,12 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
 고객이 관리 하는 키를 사용 하도록 설정한 후에는 고객 관리 키를 Azure Service Bus 네임 스페이스와 연결 해야 합니다. Service Bus은 Azure Key Vault만 지원 합니다. 이전 섹션에서 **고객이 관리 하는 키로 암호화** 옵션을 사용 하도록 설정 하는 경우 키를 Azure Key Vault으로 가져와야 합니다. 또한 키에는 **일시 삭제** 및 키에 대해 구성 된 **제거 안 함** 이 있어야 합니다. 이러한 설정은 [PowerShell](../key-vault/general/key-vault-recovery.md) 또는 [CLI](../key-vault/general/key-vault-recovery.md)를 사용 하 여 구성할 수 있습니다.
 
 1. 새 키 자격 증명 모음을 만들려면 Azure Key Vault [빠른](../key-vault/general/overview.md)시작을 수행 합니다. 기존 키를 가져오는 방법에 대 한 자세한 내용은 [키, 암호 및 인증서 정보](../key-vault/general/about-keys-secrets-certificates.md)를 참조 하세요.
-1. 자격 증명 모음을 만들 때 일시 삭제 및 제거 보호를 모두 켜려면 [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 명령을 사용 합니다.
+1. 자격 증명 모음을 만들 때 일시 삭제 및 제거 보호를 모두 켜려면 [az keyvault create](/cli/azure/keyvault#az-keyvault-create) 명령을 사용 합니다.
 
     ```azurecli-interactive
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. 이미 일시 삭제를 사용 하도록 설정한 상태에서 기존 자격 증명 모음에 제거 방지를 추가 하려면 [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) 명령을 사용 합니다.
+1. 이미 일시 삭제를 사용 하도록 설정한 상태에서 기존 자격 증명 모음에 제거 방지를 추가 하려면 [az keyvault update](/cli/azure/keyvault#az-keyvault-update) 명령을 사용 합니다.
 
     ```azurecli-interactive
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true

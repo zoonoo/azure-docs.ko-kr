@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 43a035662cc76dc6de1de3fa990e06f2e00cfd66
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637686"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632328"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 
@@ -47,9 +47,9 @@ Data Factory는 개별적 또는 다른 작업과 연계하여 [파이프라인]
 
 데이터 흐름 매핑은 Azure Data Factory에서 시각적으로 디자인 된 데이터 변환입니다. 데이터 흐름을 통해 데이터 엔지니어는 코드를 작성 하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 확장 된 Spark 클러스터를 사용 하는 Azure Data Factory 파이프라인 내에서 작업으로 실행 됩니다. 기존 Data Factory 일정, 제어, 흐름 및 모니터링 기능을 통해 데이터 흐름 활동을 조작 가능한 수 있습니다. 자세한 내용은 [데이터 흐름 매핑](concepts-data-flow-overview.md)을 참조 하세요.
 
-### <a name="wrangling-data-flows"></a>랭 글 링 데이터 흐름
+### <a name="data-wrangling"></a>데이터 랭 글 링
 
-Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드 규모에서 코드 없는 데이터 준비를 반복적으로 수행할 수 있습니다. 랭 글 링 데이터 흐름은 [파워 쿼리 Online](/power-query/) 과 통합 되며 spark 실행을 통해 클라우드 규모의 데이터 랭 글 링에 사용할 수 있는 파워 쿼리 M 함수를 제공 합니다. 자세한 내용은 [랭 글 링 data](wrangling-data-flow-overview.md)flow을 참조 하세요.
+Azure Data Factory에서 파워 쿼리 클라우드 규모의 데이터 랭 글 링를 사용 하 여 클라우드 규모의 코드 없는 데이터 준비를 반복적으로 수행할 수 있습니다. 데이터 랭 글 링은 [온라인 파워 쿼리](/power-query/) 와 통합 되며 spark 실행을 통해 클라우드 규모의 데이터 랭 글 링 사용할 수 있는 파워 쿼리 M 함수를 제공 합니다. 자세한 내용은 [data 랭 글 링 IN ADF](wrangling-overview.md)항목을 참조 하세요.
 
 ## <a name="external-transformations"></a>외부 변환
 
@@ -78,7 +78,7 @@ Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 Azure Mac
 이러한 Studio (클래식) 활동에 대 한 자세한 내용은 [Azure Machine Learning Studio (클래식) 활동 사용](transform-data-using-machine-learning.md) 을 참조 하세요. 
 
 ### <a name="stored-procedure-activity"></a>저장 프로시저 작업
-Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용 하 여 엔터프라이즈 또는 Azure VM의 데이터 저장소 Azure SQL Database, Azure Synapse Analytics (이전의 SQL Data Warehouse), SQL Server 데이터베이스 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](transform-data-using-stored-procedure.md) 문서를 참조하세요.  
+Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용 하 여 엔터프라이즈 또는 Azure VM의 데이터 저장소 Azure SQL Database, Azure Synapse Analytics, SQL Server 데이터베이스 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](transform-data-using-stored-procedure.md) 문서를 참조하세요.  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
 Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [Data Analytics U-SQL 작업](transform-data-using-data-lake-analytics.md) 문서를 참조하세요. 
@@ -103,8 +103,8 @@ R이 설치된 HDInsight 클러스터에서 R 스크립트를 실행하는 사�
 ### <a name="compute-environments"></a>컴퓨팅 환경
 컴퓨팅 환경을 위한 연결된 서비스를 만들고 변환 작업을 정의할 때 이 연결된 서비스를 사용합니다. 데이터 팩터리에서 지원하는 컴퓨팅 환경은 두 가지 유형이 있습니다. 
 
-- **주문형** : 이 경우 데이터 팩터리에서 완전히 컴퓨팅 환경을 관리합니다. 데이터를 처리하기 위한 작업을 제출하기 전에 데이터 팩터리 서비스에서 자동으로 컴퓨팅 환경을 만들고 작업이 완료되면 제거합니다. 작업 실행, 클러스터 관리, 부트스트래핑 작업에 대한 주문형 컴퓨팅 환경의 세부적인 설정을 구성 및 제어할 수 있습니다. 
-- **자체 환경 사용** : 이 경우 사용자 고유의 컴퓨팅 환경(예: HDInsight 클러스터)을 데이터 팩터리에 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 이를 사용하여 작업을 실행하는 데이터 팩터리 서비스와 사용자에 의해 관리됩니다. 
+- **주문형**: 이 경우 데이터 팩터리에서 완전히 컴퓨팅 환경을 관리합니다. 데이터를 처리하기 위한 작업을 제출하기 전에 데이터 팩터리 서비스에서 자동으로 컴퓨팅 환경을 만들고 작업이 완료되면 제거합니다. 작업 실행, 클러스터 관리, 부트스트래핑 작업에 대한 주문형 컴퓨팅 환경의 세부적인 설정을 구성 및 제어할 수 있습니다. 
+- **자체 환경 사용**: 이 경우 사용자 고유의 컴퓨팅 환경(예: HDInsight 클러스터)을 데이터 팩터리에 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 이를 사용하여 작업을 실행하는 데이터 팩터리 서비스와 사용자에 의해 관리됩니다. 
 
 데이터 팩터리에서 지원하는 컴퓨팅 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. 
 

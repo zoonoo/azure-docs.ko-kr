@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cbfdb9a73f53e194b43010c0b2d84357aa3e2e5b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977034"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631988"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Windows 중지 오류-0x00000074 잘못 된 시스템 구성 정보
 
@@ -27,7 +27,7 @@ ms.locfileid: "91977034"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 스크린 샷에서 Windows 중지 코드 **#0x00000074** 또는 **BAD_SYSTEM_CONFIG_INFO**표시 되는 것을 볼 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 스크린 샷에서 Windows 중지 코드 **#0x00000074** 또는 **BAD_SYSTEM_CONFIG_INFO** 표시 되는 것을 볼 수 있습니다.
 
 *PC에서 문제가 발생 하 여 컴퓨터를 다시 시작 해야 합니다. 를 다시 시작할 수 있습니다.* 
  *이 문제 및 가능한 해결 방법에 대 한 자세한 내용은 http://windows.com/stopcode 다음을 참조 하세요.* 
@@ -47,6 +47,9 @@ ms.locfileid: "91977034"
 ## <a name="solution"></a>해결 방법
 
 ### <a name="process-overview"></a>프로세스 개요:
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 1. 복구 VM을 만들고 액세스합니다.
 1. Hive 손상이 있는지 확인 합니다.
@@ -72,8 +75,8 @@ ms.locfileid: "91977034"
 
 1. 복구 VM에서 **레지스트리 편집기** 응용 프로그램을 엽니다. Windows 검색 창에서 "REGEDIT"를 입력 하 여 찾습니다.
 1. 레지스트리 편집기에서 **HKEY_LOCAL_MACHINE** 를 선택 하 여 강조 표시 하 고 **파일 > Hive 로드** ...를 선택 합니다. (채널 만들기...)을 선택합니다.
-1. 으로 이동 하 여 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` **열기**를 선택 합니다.
-1. 이름을 입력 하 라는 메시지가 표시 되 면 **BROKENSYSTEM**를 입력 합니다.
+1. 으로 이동 하 여 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` **열기** 를 선택 합니다.
+1. 이름을 입력 하 라는 메시지가 표시 되 면 **BROKENSYSTEM** 를 입력 합니다.
 
    1. Hive를 열지 못했거나 비어 있으면 hive가 손상 된 것입니다. Hive가 손상 된 경우 [지원 티켓을 엽니다](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

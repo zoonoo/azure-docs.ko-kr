@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0ed7e9619f0b789bf8949fe398aa27bc36b9e0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86500925"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629643"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM의 Windows 다시 부팅 루프
 이 문서에서는 Microsoft Azure의 Windows VM(Virtual Machine)에서 발생할 수 있는 다시 부팅 루프에 대해 설명합니다.
@@ -50,13 +50,16 @@ ms.locfileid: "86500925"
 
 ## <a name="solution"></a>솔루션
 
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
+
 이 문제를 해결하려면 [OS 디스크를 백업](../windows/snapshot-copy-managed-disk.md)하고, [OS 디스크를 복구 VM에 연결](./troubleshoot-recovery-disks-portal-windows.md)한 다음, 이에 따라 솔루션 옵션을 따르거나 솔루션을 하나씩 시도합니다.
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
-1. OS 디스크가 작업 VM에 연결되면 [디스크 관리] 콘솔에서 디스크의 플래그가 **온라인**으로 설정되어 있는지 확인하고, **\Windows** 폴더가 있는 파티션의 드라이브 문자를 적어 둡니다.
+1. OS 디스크가 작업 VM에 연결되면 [디스크 관리] 콘솔에서 디스크의 플래그가 **온라인** 으로 설정되어 있는지 확인하고, **\Windows** 폴더가 있는 파티션의 드라이브 문자를 적어 둡니다.
 
-2. 디스크가 **오프라인**으로 설정되어 있으면 해당 디스크를 **온라인**으로 설정합니다.
+2. 디스크가 **오프라인** 으로 설정되어 있으면 해당 디스크를 **온라인** 으로 설정합니다.
 
 3. 변경할 때 롤백해야 하는 경우 **\Windows\System32\config** 폴더의 복사본을 만듭니다.
 
@@ -66,7 +69,7 @@ ms.locfileid: "86500925"
 
 6. **\Windows\System32\config** 폴더에서 SYSTEM 파일을 찾습니다.
 
-7. **열기**를 선택하고, 이름에 대해 **BROKENSYSTEM**을 입력하고, **HKEY_LOCAL_MACHINE** 키를 펼치면 **BROKENSYSTEM**이라는 추가 키가 표시됩니다.
+7. **열기** 를 선택하고, 이름에 대해 **BROKENSYSTEM** 을 입력하고, **HKEY_LOCAL_MACHINE** 키를 펼치면 **BROKENSYSTEM** 이라는 추가 키가 표시됩니다.
 
 8. 컴퓨터가 부팅되는 ControlSet을 확인합니다. 다음 레지스트리 키에 키 번호가 표시됩니다.
 
@@ -76,11 +79,11 @@ ms.locfileid: "86500925"
 
     `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\RDAgent\ErrorControl`
 
-10. 레지스트리 키 값이 **2**로 설정되어 있지 않으면 다음 완화로 이동합니다.
+10. 레지스트리 키 값이 **2** 로 설정되어 있지 않으면 다음 완화로 이동합니다.
 
-11. 레지스트리 키 값이 **2**로 설정되어 있으면 값을 **2**에서 **1**로 변경합니다.
+11. 레지스트리 키 값이 **2** 로 설정되어 있으면 값을 **2** 에서 **1** 로 변경합니다.
 
-12. 다음 키 중 하나가 있고 값이 **2** 또는 **3**이면 해당 값을 **1**로 변경합니다.
+12. 다음 키 중 하나가 있고 값이 **2** 또는 **3** 이면 해당 값을 **1** 로 변경합니다.
 
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
@@ -104,7 +107,7 @@ VM을 마지막으로 알려진 성공한 구성으로 복원하고, [마지막�
 >[!NOTE]
 >다음 절차는 마지막 리소스로만 사용해야 합니다. regback에서 복원하면 머신에 대한 액세스가 복원될 수 있지만, 하이브의 타임스탬프와 현재 날짜 사이에 손실된 레지스트리 데이터가 있으므로 OS가 안정적이라고 간주되지 않습니다. 새 VM을 빌드하고 데이터를 마이그레이션할 계획을 세워야 합니다.
 
-1. 디스크가 문제 해결을 위한 VM에 연결되면 [디스크 관리] 콘솔에서 디스크의 플래그가 **온라인**으로 지정되어 있는지 확인합니다.
+1. 디스크가 문제 해결을 위한 VM에 연결되면 [디스크 관리] 콘솔에서 디스크의 플래그가 **온라인** 으로 지정되어 있는지 확인합니다.
 
 2. 변경할 때 롤백해야 하는 경우 **\Windows\System32\config** 폴더의 복사본을 만듭니다.
 

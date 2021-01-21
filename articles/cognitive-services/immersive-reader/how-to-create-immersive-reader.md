@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: b012da0b2aea4a50002e9adbc0876396ddd4b5e7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 2503355a24a7452ca1ff9886a80f2956897889c4
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368732"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630398"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>몰입 형 판독기 리소스 만들기 및 Azure Active Directory 인증 구성
 
@@ -143,21 +143,27 @@ ms.locfileid: "94368732"
     }
     ```
 
-1. `Create-ImmersiveReaderResource`매개 변수를 적절 하 게 제공 하 여 함수를 실행 합니다.
+1. 함수를 실행 `Create-ImmersiveReaderResource` 하 여 아래에 ' <PARAMETER_VALUES> ' 자리 표시자를 적절 한 값으로 제공 합니다.
 
     ```azurepowershell-interactive
+    Create-ImmersiveReaderResource -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceName '<RESOURCE_NAME>' -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' -ResourceSKU '<RESOURCE_SKU>' -ResourceLocation '<RESOURCE_LOCATION>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>' -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
+    ```
+
+    전체 명령은 다음과 유사 하 게 표시 됩니다. 여기서는 명확 하 게 하기 위해 각 매개 변수를 별도의 줄에 배치 했으므로 전체 명령을 볼 수 있습니다. 이 명령을 그대로 사용 하거나 복사 하지 마십시오. 위의 명령을 사용자 고유의 값으로 복사 하 여 사용 합니다. 이 예제에는 위의 ' <PARAMETER_VALUES> '에 대 한 더미 값이 있습니다. 이러한 값에 대 한 고유한 이름을 사용 하기 때문에 사용자는 달라질 것입니다.
+
+    ```
     Create-ImmersiveReaderResource
-      -SubscriptionName '<SUBSCRIPTION_NAME>' `
-      -ResourceName '<RESOURCE_NAME>' `
-      -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' `
-      -ResourceSKU '<RESOURCE_SKU>' `
-      -ResourceLocation '<RESOURCE_LOCATION>' `
-      -ResourceGroupName '<RESOURCE_GROUP_NAME>' `
-      -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' `
-      -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
-      -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
-      -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
-      -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
+        -SubscriptionName 'MyOrganizationSubscriptionName'
+        -ResourceName 'MyOrganizationImmersiveReader'
+        -ResourceSubdomain 'MyOrganizationImmersiveReader'
+        -ResourceSKU 'S0'
+        -ResourceLocation 'westus2'
+        -ResourceGroupName 'MyResourceGroupName'
+        -ResourceGroupLocation 'westus2'
+        -AADAppDisplayName 'MyOrganizationImmersiveReaderAADApp'
+        -AADAppIdentifierUri 'https://MyOrganizationImmersiveReaderAADApp'
+        -AADAppClientSecret 'SomeStrongPassword'
+        -AADAppClientSecretExpiration '2021-12-31'
     ```
 
     | 매개 변수 | 주석 |
@@ -165,12 +171,12 @@ ms.locfileid: "94368732"
     | SubscriptionName |몰입 형 판독기 리소스에 사용할 Azure 구독의 이름입니다. 리소스를 만들려면 구독이 있어야 합니다. |
     | ResourceName |  '-'가 첫 번째 또는 마지막 문자가 아닌 경우 영숫자 여야 하며 '-'를 포함할 수 있습니다. 길이는 63 자를 초과할 수 없습니다.|
     | ResourceSubdomain |사용자 지정 하위 도메인은 몰입 형 판독기 리소스에 필요 합니다. 하위 도메인은 몰입 형 판독기 서비스를 호출 하 여 판독기를 시작할 때 SDK에서 사용 됩니다. 하위 도메인은 전역적으로 고유 해야 합니다. '-'가 첫 번째 또는 마지막 문자가 아닌 경우 하위 도메인은 영숫자 여야 하 고 '-'를 포함할 수 있습니다. 길이는 63 자를 초과할 수 없습니다. 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
-    | ResourceSKU |옵션: `S0` . 사용 가능한 각 SKU에 대 한 자세한 내용은 [Cognitive Services 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) 를 참조 하세요. 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
+    | ResourceSKU |옵션: `S0` (표준 계층) 또는 `S1` (교육/비영리 조직). 사용 가능한 각 SKU에 대 한 자세한 내용은 [Cognitive Services 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) 를 참조 하세요. 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
     | ResourceLocation |옵션: `eastus` , `eastus2` , `southcentralus` , `westus` , `westus2` , `australiaeast` `southeastasia` `centralindia` `japaneast` `northeurope` `uksouth` ,,,,,, `westeurope` 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
     | ResourceGroupName |리소스는 구독 내의 리소스 그룹에 만들어집니다. 기존 리소스 그룹의 이름을 제공 합니다. 리소스 그룹이 아직 없는 경우이 이름을 가진 새 리소스 그룹이 생성 됩니다. |
     | ResourceGroupLocation |리소스 그룹이 없는 경우 그룹을 만들 위치를 제공 해야 합니다. 위치 목록을 찾으려면를 실행 `az account list-locations` 합니다. 반환 된 결과의 *이름* 속성 (공백 없음)을 사용 합니다. 리소스 그룹이 이미 있는 경우이 매개 변수는 선택 사항입니다. |
     | AADAppDisplayName |Azure Active Directory 응용 프로그램 표시 이름입니다. 기존 Azure AD 응용 프로그램을 찾을 수 없는 경우이 이름을 가진 새 응용 프로그램이 생성 됩니다. Azure AD 응용 프로그램이 이미 있는 경우이 매개 변수는 선택 사항입니다. |
-    | AADAppIdentifierUri |Azure AD 앱에 대 한 URI입니다. 기존 Azure AD 앱을 찾을 수 없는 경우이 URI를 사용 하는 새 앱이 만들어집니다. 예를 들어 `https://immersivereaderaad-mycompany`. |
+    | AADAppIdentifierUri |Azure AD 앱에 대 한 URI입니다. 기존 Azure AD 앱을 찾을 수 없는 경우이 URI를 사용 하는 새 앱이 만들어집니다. 예들 들어 `https://immersivereaderaad-mycompany`입니다. |
     | AADAppClientSecret |사용자가 만드는 암호는 나중에 몰입 형 판독기를 시작 하기 위해 토큰을 획득 하는 경우 나중에 인증 하는 데 사용 됩니다. 암호는 16 자 이상 이어야 하 고 하나 이상의 특수 문자를 포함 하 고 하나 이상의 숫자 문자를 포함 해야 합니다. 이 리소스를 만든 후 Azure AD 응용 프로그램 클라이언트 암호를 관리 하려면 https://portal.azure.com `[AADAppDisplayName]` 아래 "azure ad 응용 프로그램 비밀 관리" 스크린샷에서 볼 수 있는 것 처럼 azure ad 응용 프로그램 클라이언트 암호를 방문 하 여 > Azure Active Directory-> 앱 등록 >-> 인증서 및 비밀 블레이드-> 클라이언트 암호 섹션으로 이동 하세요. |
     | AADAppClientSecretExpiration |가 만료 되는 날짜 또는 날짜/시간 `[AADAppClientSecret]` 입니다 (예: ' 2020-12-31T11:59:59 + 00:00 ' 또는 ' 2020-12-31 '). |
 

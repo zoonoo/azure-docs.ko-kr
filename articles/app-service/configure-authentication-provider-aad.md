@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 0c06cb11d916b417cf577b7b8f3578749feddd62
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092230"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630033"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -78,7 +78,7 @@ App Service 앱을 구성할 때 다음 정보가 필요합니다.
 1. **Azure Active Directory** > **앱 등록** > **새 등록** 을 선택합니다.
 1. **애플리케이션 등록** 페이지에서 앱 등록의 **이름** 을 입력합니다.
 1. **리디렉션 URI** 에서 **웹** 을 선택하고 `<app-url>/.auth/login/aad/callback`를 입력합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다.
-1. **만들기** 를 선택합니다.
+1. **등록** 을 선택합니다.
 1. 앱 등록을 만든 후에는 나중에 사용할 수 있도록 **애플리케이션(클라이언트) ID** 및 **디렉터리(테넌트) ID** 를 복사합니다.
 1. **인증** 을 선택합니다. **암시적 권한 부여** 에서 **ID 토큰** 을 사용하도록 설정하여 OpenID Connect 사용자가 App Service에서 로그인하는 것을 허용합니다.
 1. (선택 사항) **브랜딩** 을 선택합니다. **홈페이지 URL** 에서 App Service 앱의 URL을 입력하고 **저장** 을 선택합니다.

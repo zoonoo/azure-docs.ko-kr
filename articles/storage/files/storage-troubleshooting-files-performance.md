@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 960b3c29f97c43e1247018a60f6c6310c7cf02de
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724666"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632498"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Azure 파일 공유 성능 문제 해결
 
@@ -46,7 +46,7 @@ ms.locfileid: "97724666"
 ### <a name="solution"></a>솔루션
 
 - 표준 파일 공유를 사용 하는 경우 저장소 계정에서 [대량 파일 공유](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) 를 사용 하도록 설정 합니다. 대량 파일 공유는 공유 당 최대 1만 IOPS를 지원 합니다.
-- 프리미엄 파일 공유를 사용 하는 경우 프로 비전 된 파일 공유 크기를 늘려 IOPS 제한을 늘립니다. 자세히 알아보려면 [프리미엄 파일 공유에 대 한 프로 비전 이해](./understanding-billing.md#provisioned-billing)를 참조 하세요.
+- 프리미엄 파일 공유를 사용 하는 경우 프로 비전 된 파일 공유 크기를 늘려 IOPS 제한을 늘립니다. 자세히 알아보려면 [프리미엄 파일 공유에 대 한 프로 비전 이해](./understanding-billing.md#provisioned-model)를 참조 하세요.
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>원인 2: 메타 데이터 또는 네임 스페이스 작업량이 많은 작업
 

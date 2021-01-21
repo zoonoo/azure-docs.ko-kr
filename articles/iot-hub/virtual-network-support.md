@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: 08f033cbe121135e281379a013e11a33ae962dfb
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703809"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630296"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -70,6 +70,9 @@ ms.locfileid: "97703809"
 
 :::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="각 IoT Hub 개인 링크를 지정 하 여 두 개의 개인 끝점을 보여 주는 이미지":::
 
+IoT Hub의 [IP 필터](iot-hub-ip-filtering.md) 는 기본 제공 끝점에 대 한 공용 액세스를 선택적으로 제어할 수 있습니다. 
+
+IoT hub에 대 한 공용 네트워크 액세스를 완전히 차단 하려면 [공용 네트워크 액세스를 끄거나](iot-hub-public-network-access.md) ip 필터를 사용 하 여 모든 ip를 차단 하 고 기본 제공 끝점에 규칙을 적용 하는 옵션을 선택 합니다.
 
 ### <a name="pricing-for-private-link"></a>Private Link의 가격
 

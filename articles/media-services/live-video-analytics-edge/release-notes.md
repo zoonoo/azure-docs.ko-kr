@@ -3,12 +3,12 @@ title: IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석-Azure
 description: 이 항목에서는 IoT Edge 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대 한 라이브 비디오 분석의 릴리스 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 328fe97c4e03f039a1224d13ce6712ccff06b3b7
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121246"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629779"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석
 
@@ -23,7 +23,7 @@ ms.locfileid: "98121246"
 
 <hr width=100%>
 
-## <a name="january-12-2021"></a>2021 년 1 월 12 일
+## <a name="january-12-2021"></a>2021년 1월 12일
 
 이 릴리스 태그는 모듈의 1 월 2021 새로 고침에 대 한 것입니다.
 
@@ -51,9 +51,12 @@ mcr.microsoft.com/media/live-video-analytics:2.0.1
 * 싱크 노드에 대 한 디스크 공간 관리에 대 한 지원이 추가 되었습니다.
 * `MediaGraphGrpcExtension` 이제 노드는 단일 gRPC 서버 내에서 여러 AI 모델을 사용 하기 위한 [Extensionconfiguration](grpc-extension-protocol.md) 속성을 지원 합니다.
 * [프로메테우스 형식의](https://prometheus.io/docs/practices/naming/)라이브 비디오 분석 모듈 메트릭을 수집 하는 지원이 추가 되었습니다. [Azure Monitor에서 메트릭 및 보기를 수집](monitoring-logging.md#azure-monitor-collection-via-telegraf) 하는 방법에 대해 자세히 알아보세요. 
+* 출력 선택을 필터링 하는 기능이 추가 되었습니다. 의 도움말을 사용 하 여 모든 그래프 노드에 **오디오 전용** 또는 **비디오 전용** 이나 **오디오 및 비디오** 를 전달할 수 있습니다 `outputSelectors` . 
 * 프레임 요금 필터 프로세서가 **사용 되지** 않습니다.  
     * 이제 그래프 확장 프로세서 노드 자체에서 프레임 주기 관리를 사용할 수 있습니다.
 
+### <a name="visual-studio-code-extension"></a>Visual Studio Code 확장
+* [IoT Edge에서 라이브 비디오 분석](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) 릴리스-lva 미디어 그래프를 관리 하는 데 도움이 되는 Visual Studio Code 확장입니다. 이 확장은 **Lva 2.0 모듈** 에서 작동 하며 매우 슬림 하 고 사용 하기 쉬운 그래픽 인터페이스로 미디어 그래프를 편집 및 관리 하는 기능을 제공 합니다.
 ## <a name="september-22-2020"></a>2020년 9월 22일
 
 이 릴리스 태그는 모듈의 9 월 2020 새로 고침에 대 한 것입니다.

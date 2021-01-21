@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1258fd4b5c69b399b70d1f2db1be63765771e631
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187836"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629406"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>다운스트림 IoT Edge 장치를 Azure IoT Edge 게이트웨이 (미리 보기)에 연결
 
@@ -39,7 +39,7 @@ ms.locfileid: "96187836"
 * **게이트웨이 검색**: 자식 장치가 로컬 네트워크에서 해당 부모 장치를 찾을 수 있는지 확인 합니다.
 * **보안 연결**: 동일한 체인에 포함 된 신뢰할 수 있는 인증서를 사용 하 여 보안 연결을 설정 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 무료 또는 표준 IoT hub
 * 두 개 이상의 **IoT Edge 장치**, 하나는 최상위 계층 장치 및 하나 이상의 하위 계층 장치입니다. IoT Edge 장치를 사용할 수 없는 경우 [Ubuntu 가상 머신에서 Azure IoT Edge을 실행할](how-to-install-iot-edge-ubuntuvm.md)수 있습니다.
@@ -118,7 +118,7 @@ Azure CLI에 대 한 [azure iot](/cli/azure/ext/azure-iot) 확장은 iot 리소�
 
 보안 연결을 사용 하려면 게이트웨이 시나리오의 모든 IoT Edge 장치를 고유한 장치 CA 인증서와 게이트웨이 계층의 모든 장치에서 공유 하는 루트 CA 인증서의 복사본으로 구성 해야 합니다.
 
-장치에 IoT Edge 이미 설치 되어 있어야 합니다. 그렇지 않은 경우 [Azure IoT Edge 런타임을 설치한](how-to-install-iot-edge.md) 다음 [대칭 키 인증](how-to-manual-provision-symmetric-key.md) 또는 [x.509 인증서 인증](how-to-manual-provision-x509.md)을 사용 하 여 장치를 프로 비전 하는 단계를 수행 합니다.
+장치에 IoT Edge 이미 설치 되어 있어야 합니다. 그렇지 않은 경우 [에는 IoT Hub에 IoT Edge 장치를 등록](how-to-register-device.md) 하는 단계를 수행 하 고 [Azure IoT Edge 런타임을 설치](how-to-install-iot-edge.md)합니다.
 
 이 섹션의 단계에서는이 문서의 앞부분에서 설명한 **루트 ca 인증서** 및 **장치 ca 인증서와 개인 키** 를 참조 합니다. 다른 장치에서 인증서를 만든 경우이 장치에서 해당 인증서를 사용할 수 있도록 합니다. USB 드라이브와 같은 [Azure Key Vault](../key-vault/general/overview.md)서비스를 사용 하거나 [안전한 파일 복사](https://www.ssh.com/ssh/scp/)와 같은 기능을 사용 하 여 파일을 물리적으로 전송할 수 있습니다.
 
@@ -206,7 +206,7 @@ Linux에서 사용자 **iotedge** 에 인증서와 키를 보유 하는 디렉�
 
 1. EdgeHub 모듈에 대해 다음과 같은 환경 변수를 구성 합니다.
 
-   | Name | 값 |
+   | 속성 | 값 |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -328,7 +328,7 @@ API 프록시 모듈은 가장 일반적인 게이트웨이 시나리오를 처�
 
 1. **추가** 를 선택 하 여 모듈을 배포에 추가 합니다.
 1. 다음 **: 경로** 를 선택 하 여 다음 단계로 이동 합니다.
-1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면 모든 메시지를 IoT Hub에 전달 하는 경로를 포함 합니다. 예를 들어:
+1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면 모든 메시지를 IoT Hub에 전달 하는 경로를 포함 합니다. 다음은 그 예입니다. 
     1. **이름**: `Route`
     1. **값**: `FROM /messages/* INTO $upstream`
 1. **검토 + 만들기** 를 선택 하 여 최종 단계로 이동 합니다.
@@ -358,7 +358,7 @@ IoT Edge 에이전트는 IoT Edge 장치에서 시작 하는 첫 번째 런타�
 
 IoT Edge 장치에서 config.xml 파일로 이동 하 여 인증 정보, 인증서 및 부모 호스트 이름을 제공 하는 경우 edgeAgent 컨테이너 이미지도 업데이트 합니다.
 
-최상위 게이트웨이 장치가 컨테이너 이미지 요청을 처리 하도록 구성 된 경우를 `mcr.microsoft.com` 부모 호스트 이름 및 API 프록시 수신 대기 포트로 바꿉니다. 배포 매니페스트에서는를 바로 가기로 사용할 수 `$upstream` 있지만이 경우 라우팅을 처리 하려면 edgeHub 모듈이 필요 하며,이 시점에서 모듈이 시작 되지 않았습니다. 예를 들어:
+최상위 게이트웨이 장치가 컨테이너 이미지 요청을 처리 하도록 구성 된 경우를 `mcr.microsoft.com` 부모 호스트 이름 및 API 프록시 수신 대기 포트로 바꿉니다. 배포 매니페스트에서는를 바로 가기로 사용할 수 `$upstream` 있지만이 경우 라우팅을 처리 하려면 edgeHub 모듈이 필요 하며,이 시점에서 모듈이 시작 되지 않았습니다. 다음은 그 예입니다. 
 
 ```yml
 agent:
@@ -435,7 +435,7 @@ API 프록시 모듈은 가장 일반적인 게이트웨이 시나리오를 처�
 
 1. **저장** 을 선택 하 여 변경 내용을 런타임 설정에 저장 합니다.
 1. 다음 **: 경로** 를 선택 하 여 다음 단계로 이동 합니다.
-1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면에 모든 메시지를 전달 하는 경로를 포함 `$upstream` 합니다. 낮은 계층 장치의 경우 업스트림 매개 변수는 부모 장치를 가리킵니다. 예를 들어:
+1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면에 모든 메시지를 전달 하는 경로를 포함 `$upstream` 합니다. 낮은 계층 장치의 경우 업스트림 매개 변수는 부모 장치를 가리킵니다. 다음은 그 예입니다. 
     1. **이름**: `Route`
     1. **값**: `FROM /messages/* INTO $upstream`
 1. **검토 + 만들기** 를 선택 하 여 최종 단계로 이동 합니다.

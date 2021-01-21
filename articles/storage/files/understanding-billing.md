@@ -4,22 +4,22 @@ description: Azure 파일 공유에 대해 프로 비전 된 종 량 제 청구 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/1/2020
+ms.date: 01/20/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 880ec90ce1cf0efffce0cfd6800bdbaed23f8dd0
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831468"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632481"
 ---
 # <a name="understanding-azure-files-billing"></a>Azure Files 청구 이해
 Azure Files는 프로 비전 되 고 종 량 제 인 두 개의 고유한 청구 모델을 제공 합니다. 프로 비전 된 모델은 **FileStorage** storage 계정 종류에 배포 된 파일 공유 인 프리미엄 파일 공유에만 사용할 수 있습니다. 종 량 제 모델은 **GPv2 (범용 버전 2)** 저장소 계정 종류에 배포 된 파일 공유 인 표준 파일 공유에만 사용할 수 있습니다. 이 문서에서는 월간 Azure Files 청구서를 이해 하는 데 도움이 되도록 두 모델의 작동 방식을 설명 합니다.
 
 Azure Files에 대 한 현재 가격은 [Azure Files 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)에서 찾을 수 있습니다.
 
-## <a name="provisioned-billing"></a>프로 비전 된 청구
+## <a name="provisioned-model"></a>프로 비전 된 모델
 Azure Files는 프리미엄 파일 공유에 프로 비전 된 모델을 사용 합니다. 프로 비전 된 비즈니스 모델에서 사용 하는 내용에 따라 비용이 청구 되는 것이 아니라 Azure Files 서비스에 저장소 요구 사항을 사전에 지정 합니다. 이는 온-프레미스에서 하드웨어를 구입 하는 것과 유사 합니다. 즉, 특정 양의 저장소로 Azure 파일 공유를 프로 비전 할 때 공간 사용을 시작 하는 경우 온-프레미스에서 실제 미디어의 비용을 지불 하지 않는 것과 마찬가지로 사용 여부에 관계 없이 해당 저장소에 대 한 비용을 지불 합니다. 온-프레미스에서 물리적 미디어를 구매 하는 것과 달리 프로 비전 된 파일 공유는 저장소 및 IO 성능 특성에 따라 동적으로 확장 또는 축소할 수 있습니다.
 
 프리미엄 파일 공유를 프로 비전 할 때 워크 로드에 필요한 Gid의 수를 지정 합니다. 프로 비전 하는 각 GiB는 고정 비율에 대 한 추가 IOPS 및 처리량을 되며 합니다. 보장 되는 기본 IOPS 외에도 각 프리미엄 파일 공유는 최상의 노력을 기반으로 버스트를 지원 합니다. IOPS 및 처리량에 대 한 수식은 다음과 같습니다.
@@ -63,7 +63,7 @@ Azure Files는 프리미엄 파일 공유에 프로 비전 된 모델을 사용 
 
 새 파일 공유는 버스트 버킷의 전체 크레딧 수로 시작 합니다. 서버 제한으로 인해 공유 IOPS가 기준선 IOPS 미만이 면 버스트 크레딧을 계산 하지 않습니다.
 
-## <a name="pay-as-you-go-billing"></a>종 량 제 요금 청구
+## <a name="pay-as-you-go-model"></a>종 량 제 모델
 Azure Files는 표준 파일 공유에 종 량 제 비즈니스 모델을 사용 합니다. 종 량 제 비즈니스 모델에서 요금을 지불 하는 금액은 프로 비전 된 금액을 기반으로 하는 것이 아니라 실제로 사용한 양에 따라 결정 됩니다. 높은 수준에서 디스크에 저장 된 데이터의 양에 대 한 비용을 지불 하 고 해당 데이터 사용량에 따라 추가 트랜잭션 집합을 지불 합니다. 종 량 제 모델은 향후 성장 또는 성능 요구 사항을 고려 하 여 과도 하 게 프로 비전 할 필요가 없으며, 워크 로드가 시간에 따라 달라 지는 경우 프로 비전을 해제할 필요가 없기 때문에 비용 효율적일 수 있습니다. 반면에 종 량 제 청구 모델은 최종 사용자가 사용 하기 때문에 종 량 제 모델을 계획 하는 과정에서 계획 하기 어려울 수도 있습니다.
 
 ### <a name="differences-in-standard-tiers"></a>표준 계층의 차이점
@@ -92,7 +92,7 @@ Azure Files는 표준 파일 공유에 종 량 제 비즈니스 모델을 사용
 > [!Note]  
 > NFS 4.1은 프로 비전 된 청구 모델을 사용 하는 프리미엄 파일 공유에만 사용할 수 있으며, 트랜잭션은 프리미엄 파일 공유에 대 한 청구에 영향을 주지 않습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 - [가격 책정 페이지를 Azure Files](https://azure.microsoft.com/pricing/details/storage/files/)합니다.
-- [Azure Files 배포를 계획](./storage-files-planning.md) 하 고 [Azure File Sync 배포를 계획](./storage-sync-files-planning.md)합니다.
-- [파일 공유를 만들고](./storage-how-to-create-file-share.md) [Azure File Sync를 배포](./storage-sync-files-deployment-guide.md)합니다.
+- [Azure Files 배포를 계획](./storage-files-planning.md) 하 고 [Azure 파일 동기화 배포를 계획](./storage-sync-files-planning.md)합니다.
+- [파일 공유를 만들고](./storage-how-to-create-file-share.md) [Azure 파일 동기화를 배포](./storage-sync-files-deployment-guide.md)합니다.

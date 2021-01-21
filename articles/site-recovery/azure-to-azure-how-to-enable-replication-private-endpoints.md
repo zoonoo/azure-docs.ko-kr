@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2db8d09511385039ea79ad1ed1f50177156f69c8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 86f18be73966cb07489630191420b846622e45b8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369933"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629830"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>개인 끝점을 사용 하 여 컴퓨터 복제
 
@@ -32,7 +32,7 @@ Azure Site Recovery를 사용 하면 격리 된 가상 네트워크 내에서 �
 
 ## <a name="prerequisites-and-caveats"></a>필수 조건 및 주의 사항
 
-- 개인 끝점은 자격 증명 모음에 등록 된 항목이 없는 새 Recovery Services 자격 증명 모음에 대해서만 만들 수 있습니다. 따라서 **자격 증명 모음에 항목을 추가 하기 전에**개인 끝점을 만들어야 합니다. [전용 끝점](https://azure.microsoft.com/pricing/details/private-link/)에 대 한 가격 책정 구조를 검토 합니다.
+- 개인 끝점은 자격 증명 모음에 등록 된 항목이 없는 새 Recovery Services 자격 증명 모음에 대해서만 만들 수 있습니다. 따라서 **자격 증명 모음에 항목을 추가 하기 전에** 개인 끝점을 만들어야 합니다. [전용 끝점](https://azure.microsoft.com/pricing/details/private-link/)에 대 한 가격 책정 구조를 검토 합니다.
 - 자격 증명 모음에 대 한 개인 끝점을 만들 때 자격 증명 모음은 잠기므로 **개인 끝점이 있는 네트워크 이외의 네트워크에서 액세스할 수 없습니다**.
 - 현재 Azure Active Directory 개인 끝점을 지원 하지 않습니다. 따라서 지역에서 작업 하 Azure Active Directory 하는 데 필요한 Ip와 정규화 된 도메인 이름은 보안 네트워크에서 아웃 바운드 액세스를 허용 해야 합니다. 네트워크 보안 그룹 태그 "Azure Active Directory" 및 Azure 방화벽 태그를 사용 하 여 해당 하는 경우 Azure Active Directory에 대 한 액세스를 허용할 수도 있습니다.
 - 원본 컴퓨터와 복구 컴퓨터 모두의 서브넷에는 **7 개 이상의 IP 주소가 필요** 합니다. 자격 증명 모음에 대 한 개인 끝점을 만들 때 Site Recovery는 마이크로 서비스에 액세스 하기 위해 5 개의 개인 링크를 만듭니다. 또한 복제를 사용 하도록 설정 하면 원본 및 대상 지역 페어링에 대해 두 개의 추가 개인 링크가 추가 됩니다.
@@ -55,11 +55,11 @@ Recovery services 자격 증명 모음은 컴퓨터의 복제 정보를 포함 �
 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하면 자격 증명 모음에서 고객의 저장소 계정에 액세스할 수 있습니다. 시나리오 요구 사항에 따라 원본 저장소, 대상 저장소 및 캐시/로그 저장소 계정에 액세스 해야 Site Recovery.
 관리 id 액세스는 자격 증명 모음에 개인 링크 서비스를 사용 하는 경우에 필요 합니다.
 
-1. Recovery Services 자격 증명 모음으로 이동 합니다. _설정_에서 **id** 를 선택 합니다.
+1. Recovery Services 자격 증명 모음으로 이동 합니다. _설정_ 에서 **id** 를 선택 합니다.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Azure Portal 및 Recovery Services 페이지를 표시 합니다.":::
 
-1. **상태** 를 _켜기_ 로 변경 하 고 **저장**을 선택 합니다.
+1. **상태** 를 _켜기_ 로 변경 하 고 **저장** 을 선택 합니다.
 
 1. 자격 증명 모음이 이제 Azure Active Directory에 등록 되었음을 나타내는 **개체 ID** 가 생성 됩니다.
 
@@ -73,21 +73,23 @@ Azure 가상 컴퓨터에 대 한 장애 조치 및 장애 복구를 모두 사�
 
 1. Azure Portal 검색 창에서 "개인 링크"를 검색 하 고 선택 합니다. 이 작업을 수행 하면 개인 링크 센터로 이동 합니다.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="개인 링크 센터에 대 한 Azure Portal 검색을 표시 합니다.":::
 
-1. 왼쪽 탐색 모음에서 **전용 끝점**을 선택 합니다. 개인 끝점 페이지에서 ** \+ 추가** 를 선택 하 여 자격 증명 모음에 대 한 개인 끝점 만들기를 시작 합니다.
+1. 왼쪽 탐색 모음에서 **전용 끝점** 을 선택 합니다. 개인 끝점 페이지에서 **\+ 추가** 를 선택 하 여 자격 증명 모음에 대 한 개인 끝점 만들기를 시작 합니다.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다." 환경에서 개인 끝점 연결을 만드는 방법에 대 한 세부 정보를 지정 해야 합니다.
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="개인 링크 센터에서 개인 끝점을 만드는 방법을 보여 줍니다.":::
+
+1. "개인 끝점 만들기" 환경에서 개인 끝점 연결을 만드는 방법에 대 한 세부 정보를 지정 해야 합니다.
 
    1. **기본 사항**: 개인 끝점에 대 한 기본 세부 정보를 입력 합니다. 지역은 원본 컴퓨터와 동일 해야 합니다.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Azure Portal에서 개인 끝점을 만들기 위한 기본 탭, 프로젝트 세부 정보, 구독 및 기타 관련 필드를 표시 합니다.":::
 
-   1. **리소스**:이 탭을 사용 하려면 연결을 만들 platform as a service 리소스를 언급 해야 합니다. 선택한 구독의 **리소스 유형에** 서 _Microsoft recoveryservices/자격 증명 모음_ 을 선택 합니다. 그런 다음 **리소스** 에 대 한 Recovery Services 자격 증명 모음의 이름을 선택 하 고 _Azure Site Recovery_ 를 **대상 하위 리소스로**설정 합니다.
+   1. **리소스**:이 탭을 사용 하려면 연결을 만들 platform as a service 리소스를 언급 해야 합니다. 선택한 구독의 **리소스 유형에** 서 _Microsoft recoveryservices/자격 증명 모음_ 을 선택 합니다. 그런 다음 **리소스** 에 대 한 Recovery Services 자격 증명 모음의 이름을 선택 하 고 _Azure Site Recovery_ 를 **대상 하위 리소스로** 설정 합니다.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Azure Portal의 전용 끝점에 연결 하기 위한 리소스 탭, 리소스 유형, 리소스 및 대상 하위 리소스 필드를 표시 합니다.":::
 
-   1. **구성**: 구성에서 개인 끝점을 만들 가상 네트워크 및 서브넷을 지정 합니다. 이 가상 네트워크는 가상 머신이 있는 네트워크입니다. **예**를 선택 하 여 사설 DNS 영역과의 통합을 사용 하도록 설정 합니다. 이미 생성 된 DNS 영역을 선택 하거나 새로 만듭니다. **예** 를 선택 하면 자동으로 영역을 원본 가상 네트워크에 연결 하 고, 새 IP의 dns 확인 및 개인 끝점에 대해 만든 정규화 된 도메인 이름에 필요한 dns 레코드를 추가 합니다.
+   1. **구성**: 구성에서 개인 끝점을 만들 가상 네트워크 및 서브넷을 지정 합니다. 이 가상 네트워크는 가상 머신이 있는 네트워크입니다. **예** 를 선택 하 여 사설 DNS 영역과의 통합을 사용 하도록 설정 합니다. 이미 생성 된 DNS 영역을 선택 하거나 새로 만듭니다. **예** 를 선택 하면 자동으로 영역을 원본 가상 네트워크에 연결 하 고, 새 IP의 dns 확인 및 개인 끝점에 대해 만든 정규화 된 도메인 이름에 필요한 dns 레코드를 추가 합니다.
 
       동일한 자격 증명 모음에 연결 하는 모든 새 개인 끝점에 대 한 새 DNS 영역을 만들도록 선택 합니다. 기존 개인 DNS 영역을 선택 하는 경우 이전 CNAME 레코드를 덮어씁니다. 계속 하기 전에 [개인 끝점 지침](../private-link/private-endpoint-overview.md#private-endpoint-properties) 을 참조 하십시오.
 
@@ -95,7 +97,7 @@ Azure 가상 컴퓨터에 대 한 장애 조치 및 장애 복구를 모두 사�
 
       개인 DNS 영역을 수동으로 만들려면 [개인 dns 영역 만들기 및 수동으로 DNS 레코드 추가](#create-private-dns-zones-and-add-dns-records-manually)의 단계를 따르세요.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Azure Portal에서 개인 끝점을 구성 하는 데 사용할 네트워킹 및 DNS 통합 필드가 있는 구성 탭을 표시 합니다.":::
 
    1. **태그**: 선택적으로 개인 끝점에 대 한 태그를 추가할 수 있습니다.
 
@@ -113,7 +115,7 @@ Azure 가상 컴퓨터에 대 한 장애 조치 및 장애 복구를 모두 사�
 
 계속 하기 전에 개인 끝점 리소스로 이동 하 여 연결 상태를 검토할 수 있습니다.
 
-:::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다.":::
+:::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="자격 증명 모음의 개인 끝점 연결 페이지와 Azure Portal 연결 목록을 표시 합니다.":::
 
 ## <a name="optional-create-private-endpoints-for-the-cache-storage-account"></a><a name="create-private-endpoints-for-the-cache-storage-account"></a>필드 캐시 저장소 계정에 대 한 개인 끝점 만들기
 
@@ -121,6 +123,9 @@ Azure Storage에 대 한 개인 끝점을 사용할 수 있습니다. Azure Site
 
 - 원본 가상 네트워크의 캐시/로그 저장소 계정에 대 한 개인 끝점이 필요 합니다.
 - 복구 네트워크에서 장애 조치 (failover) 된 컴퓨터를 다시 보호 때 두 번째 개인 끝점이 필요 합니다. 이 개인 끝점은 대상 지역에서 만든 새 저장소 계정에 대 한 것입니다.
+
+> [!NOTE]
+> 저장소 계정에서 개인 끝점을 사용 하도록 설정 하지 않은 경우에도 보호에 성공 합니다. 그러나 복제 트래픽은 Azure Site Recovery 공용 끝점으로 전송 됩니다. 복제 트래픽이 개인 링크를 통해 전달 되도록 하려면 개인 끝점을 사용 하 여 저장소 계정을 설정 해야 합니다.
 
 > [!NOTE]
 > 저장소에 대 한 개인 끝점은 범용 **v2** 저장소 계정에만 만들 수 있습니다. 가격 책정에 대 한 자세한 내용은 [표준 페이지 blob 가격](https://azure.microsoft.com/pricing/details/storage/page-blobs/)을 참조 하세요.
@@ -147,11 +152,15 @@ Azure Storage에 대 한 개인 끝점을 사용할 수 있습니다. Azure Site
 
 1. 저장소 계정으로 이동 하 여 페이지의 왼쪽에 있는 **액세스 제어 (IAM)** 로 이동 합니다.
 
-1. **액세스 제어 (IAM)** 에서 "역할 할당 추가" 상자에 **추가**를 선택 합니다.
+1. **액세스 제어 (IAM)** 에서 "역할 할당 추가" 상자에 **추가** 를 선택 합니다.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다." 쪽 페이지의 **역할** 드롭다운에서 위의 목록에서 역할을 선택 합니다. 자격 증명 모음의 **이름을** 입력 하 고 **저장**을 선택 합니다.
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="저장소 계정에 대 한 액세스 제어 (IAM) 페이지와 Azure Portal의 ' 역할 할당 추가 ' 단추를 표시 합니다.":::
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다." 확인란을 선택 합니다.
+1. "역할 할당 추가" 쪽 페이지의 **역할** 드롭다운에서 위의 목록에서 역할을 선택 합니다. 자격 증명 모음의 **이름을** 입력 하 고 **저장** 을 선택 합니다.
+
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="저장소 계정에 대 한 액세스 제어 (IAM) 페이지 및 역할을 선택 하는 옵션과 Azure Portal에 해당 역할을 부여할 보안 주체를 표시 합니다.":::
+
+이러한 권한 외에도 MS 신뢰할 수 있는 서비스도 액세스를 허용 해야 합니다. **예외** 에서 "방화벽 및 가상 네트워크"로 이동 하 고 "신뢰할 수 있는 Microsoft 서비스에서이 저장소 계정에 액세스 하도록 허용" 확인란을 선택 합니다.
 
 ## <a name="protect-your-virtual-machines"></a>가상 컴퓨터 보호
 
@@ -167,9 +176,13 @@ Azure Storage에 대 한 개인 끝점을 사용할 수 있습니다. Azure Site
 
    1. **모든 서비스** 검색 표시줄에서 "사설 DNS 영역"을 검색 하 고 드롭다운에서 "사설 DNS 영역"을 선택 합니다.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다." 페이지에서 필요한 세부 정보를 입력 합니다. 개인 DNS 영역 이름을으로 입력 합니다 `privatelink.siterecovery.windowsazure.com` . 모든 리소스 그룹 및 구독을 선택 하 여 만들 수 있습니다.
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Azure Portal의 새 리소스 페이지에서 ' 개인 dns 영역 ' 검색을 표시 합니다.":::
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다.":::
+   1. "사설 DNS 영역" 페이지에서 **\+ 추가** 단추를 선택 하 여 새 영역 만들기를 시작 합니다.
+
+   1. "개인 DNS 영역 만들기" 페이지에서 필요한 세부 정보를 입력 합니다. 개인 DNS 영역 이름을으로 입력 합니다 `privatelink.siterecovery.windowsazure.com` . 모든 리소스 그룹 및 구독을 선택 하 여 만들 수 있습니다.
+
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Azure Portal에서 사설 DNS 영역 만들기 페이지의 기본 탭 및 관련 프로젝트 세부 정보를 표시 합니다.":::
 
    1. **검토 \+ 만들기** 탭으로 이동 하 여 DNS 영역을 검토 하 고 만듭니다.
 
@@ -177,15 +190,28 @@ Azure Storage에 대 한 개인 끝점을 사용할 수 있습니다. Azure Site
 
    위에서 만든 개인 DNS 영역은 현재 서버가 있는 가상 네트워크에 연결 되어야 합니다. 또한 개인 DNS 영역을 대상 가상 네트워크에 미리 연결 해야 합니다.
 
-   1. 이전 단계에서 만든 개인 DNS 영역으로 이동 하 여 페이지의 왼쪽에 있는 **가상 네트워크 링크** 로 이동 합니다. 그런 다음 ** \+ 추가** 단추를 선택 합니다.
+   1. 이전 단계에서 만든 개인 DNS 영역으로 이동 하 여 페이지의 왼쪽에 있는 **가상 네트워크 링크** 로 이동 합니다. 그런 다음 **\+ 추가** 단추를 선택 합니다.
 
    1. 필요한 세부 정보를 입력 합니다. **구독** 및 **가상 네트워크** 필드는 서버가 있는 가상 네트워크의 해당 세부 정보로 채워야 합니다. 다른 필드는 그대로 유지 해야 합니다.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다." 페이지에서 가져올 수 있습니다. 아래 예제에 표시 된 것 처럼 개인 끝점의 정규화 된 첫 번째 도메인 이름이 개인 DNS 영역의 레코드 집합에 추가 됩니다.
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Azure Portal에서 링크 이름, 구독 및 관련 가상 네트워크를 사용 하 여 가상 네트워크 링크를 추가 하는 페이지를 표시 합니다.":::
+
+1. DNS 레코드 추가
+
+   필요한 개인 DNS 영역 및 개인 끝점을 만들었으면 dns 영역에 DNS 레코드를 추가 해야 합니다.
+
+   > [!NOTE]
+   > 사용자 지정 개인 DNS 영역을 사용 하는 경우 아래에 설명 된 대로 유사한 항목이 생성 되었는지 확인 합니다.
+
+   이 단계에서는 개인 끝점의 각 정규화 된 도메인 이름에 대 한 항목을 개인 DNS 영역으로 설정 해야 합니다.
+
+   1. 개인 DNS 영역으로 이동 하 여 페이지의 왼쪽에 있는 **개요** 섹션으로 이동 합니다. 일단 레코드 **\+ 집합** 을 선택 하 여 레코드 추가를 시작 합니다.
+
+   1. 열리는 "레코드 집합 추가" 페이지에서 각 정규화 _된_ 도메인 이름 및 개인 IP에 대 한 항목을 유형 레코드로 추가 합니다. 정규화 된 도메인 이름 및 Ip 목록은 **개요** 의 "개인 끝점" 페이지에서 가져올 수 있습니다. 아래 예제에 표시 된 것 처럼 개인 끝점의 정규화 된 첫 번째 도메인 이름이 개인 DNS 영역의 레코드 집합에 추가 됩니다.
 
       이러한 정규화 된 도메인 이름은 패턴과 일치 합니다. `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="전용 끝점을 사용 하는 Site Recovery에 대 한 참조 아키텍처입니다.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="정규화 된 도메인 이름에 대 한 DNS A 형식 레코드를 Azure Portal의 개인 끝점에 추가 하는 페이지를 표시 합니다.":::
 
    > [!NOTE]
    > 복제를 사용 하도록 설정 하면 두 지역의 개인 끝점에 정규화 된 도메인 이름이 두 개 이상 만들어집니다. 새로 만든 정규화 된 도메인 이름에 대 한 DNS 레코드를 추가 해야 합니다.
@@ -195,4 +221,4 @@ Azure Storage에 대 한 개인 끝점을 사용할 수 있습니다. Azure Site
 가상 컴퓨터 복제를 위한 개인 끝점을 사용 하도록 설정 했으므로 다음과 같은 다른 페이지에서 추가 및 관련 정보를 참조 하세요.
 
 - [Azure VM을 다른 Azure 지역에 복제](./azure-to-azure-how-to-enable-replication.md)
-- [자습서: Azure Vm에 대 한 재해 복구 설정](./azure-to-azure-tutorial-enable-replication.md)
+- [자습서: Azure VM에 대한 재해 복구 설정](./azure-to-azure-tutorial-enable-replication.md)

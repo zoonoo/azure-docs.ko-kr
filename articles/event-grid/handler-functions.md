@@ -3,12 +3,12 @@ title: Azure의 함수를 Azure Event Grid 이벤트에 대 한 이벤트 처리
 description: 에서 만든 함수를 Event Grid 이벤트에 대 한 이벤트 처리기로 Azure Functions에서 호스팅하는 방법에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 5a1ec575b58829a422e4d263ae0324e0343d5ad3
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034971"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632515"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Event Grid 이벤트에 대 한 이벤트 처리기로 함수 사용
 
@@ -75,7 +75,7 @@ UI에서 구독을 만들 때 **이벤트 구독 만들기** 페이지에서 **�
 Azure Resource Manager 템플릿에서 **maxEventsPerBatch** 및 **preferredBatchSizeInKilobytes** 를 설정할 수 있습니다. 자세한 내용은 [Microsoft EventGrid Eventgrid 템플릿 참조](/azure/templates/microsoft.eventgrid/eventsubscriptions)를 참조 하세요.
 
 ### <a name="azure-cli"></a>Azure CLI
-[Az event grid event-subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) 또는 [az event grid event-subscription update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) 명령을 사용 하 여 다음 매개 변수를 사용 하 여 일괄 처리 관련 설정을 구성할 수 `--max-events-per-batch` 있습니다. `--preferred-batch-size-in-kilobytes`
+[Az event grid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create&preserve-view=true) 또는 [az event grid event-subscription update](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_update&preserve-view=true) 명령을 사용 하 여 다음 매개 변수를 사용 하 여 일괄 처리 관련 설정을 구성할 수 `--max-events-per-batch` 있습니다. `--preferred-batch-size-in-kilobytes`
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 [AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) 또는 [AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet을 사용 하 여 또는와 같은 매개 변수를 사용 하 여 일괄 처리 관련 설정을 구성할 수 있습니다. `-MaxEventsPerBatch` `-PreferredBatchSizeInKiloBytes`

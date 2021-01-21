@@ -4,12 +4,12 @@ description: Azure Service Bus의 배달 못한 편지 큐에 대해 설명합�
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 4dbd1216d3ff81e785f16ebed6ceabfa5d5897db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad62f946584071e7ce6fd55f48b5f7ee8db44a2f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91301026"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630101"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 
@@ -26,11 +26,11 @@ API 및 프로토콜의 관점에서, 부모 엔터티의 배달하지 못한 �
 DLQ는 자동으로 정리되지 않습니다. 사용자가 DLQ에서 명시적으로 메시지를 검색하고 배달 못 한 메시지에서 [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)를 호출할 때까지 메시지가 DLQ에 남아 있습니다.
 
 ## <a name="dlq-message-count"></a>DLQ 메시지 수
-토픽 수준에서 배달 못한 편지 큐의 메시지 수를 가져올 수 없습니다. 이는 Service Bus에서 내부 오류를 throw하지 않는 한 메시지가 토픽 수준에 있지 않기 때문입니다. 대신 발신기에서 토픽에 메시지를 보낼 때 메시지는 수 밀리초 내에 해당 토픽에 대한 구독에 전달되므로 더 이상 토픽 수준에 있지 않습니다. 따라서 DLQ에서 해당 토픽의 구독과 연결된 메시지를 볼 수 있습니다. 다음 예에서는 **Service Bus Explorer**에서 "test1" 구독에 대한 62개의 메시지가 현재 DLQ에 있음을 보여 줍니다. 
+토픽 수준에서 배달 못한 편지 큐의 메시지 수를 가져올 수 없습니다. 이는 Service Bus에서 내부 오류를 throw하지 않는 한 메시지가 토픽 수준에 있지 않기 때문입니다. 대신 발신기에서 토픽에 메시지를 보낼 때 메시지는 수 밀리초 내에 해당 토픽에 대한 구독에 전달되므로 더 이상 토픽 수준에 있지 않습니다. 따라서 DLQ에서 해당 토픽의 구독과 연결된 메시지를 볼 수 있습니다. 다음 예에서는 **Service Bus Explorer** 에서 "test1" 구독에 대한 62개의 메시지가 현재 DLQ에 있음을 보여 줍니다. 
 
 ![DLQ 메시지 수](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-또한 [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show) Azure CLI 명령을 사용하여 DLQ 메시지 수를 가져올 수도 있습니다. 
+또한 [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show) Azure CLI 명령을 사용하여 DLQ 메시지 수를 가져올 수도 있습니다. 
 
 ## <a name="moving-messages-to-the-dlq"></a>DLQ로 메시지 이동
 
@@ -56,7 +56,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 ## <a name="exceeding-timetolive"></a>TimeToLive 초과
 
-[QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성을 **true**로 설정하면(기본값은 **false**) 만료되는 모든 메시지가 DLQ로 이동되고, `TTLExpiredException` 이유 코드를 지정합니다.
+[QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성을 **true** 로 설정하면(기본값은 **false**) 만료되는 모든 메시지가 DLQ로 이동되고, `TTLExpiredException` 이유 코드를 지정합니다.
 
 만료 된 메시지는 기본 큐 또는 구독에서 끌어오는 활성 수신기가 하나 이상 있는 경우에만 제거 되 고 DLQ로 이동 됩니다. 또한 [지연 된 메시지](./message-deferral.md) 는 만료 된 후 삭제 되지 않고 배달 못 한 편지 큐로 이동 하지 않습니다. 이러한 동작은 의도적으로 설계 되었습니다.
 
@@ -80,7 +80,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 ## <a name="example"></a>예제
 
-다음은 메시지 수신자를 만드는 코드 조각입니다. 기본 큐의 수신 루프에서, 이 코드는 [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)가 포함된 메시지를 검색합니다. 이 속성은 broker에 즉시 사용 가능한 메시지를 즉시 반환하도록 또는 결과 없이 반환하도록 요청합니다. 이 코드는 메시지를 받으면 그 즉시 메시지를 중단하며, 이로 인해 `DeliveryCount`가 증가합니다. 시스템에서 메시지를 DLQ로 이동하면 [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)에서 **null**을 반환하기 때문에 기본 큐가 비어 있고 루프가 종료됩니다.
+다음은 메시지 수신자를 만드는 코드 조각입니다. 기본 큐의 수신 루프에서, 이 코드는 [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)가 포함된 메시지를 검색합니다. 이 속성은 broker에 즉시 사용 가능한 메시지를 즉시 반환하도록 또는 결과 없이 반환하도록 요청합니다. 이 코드는 메시지를 받으면 그 즉시 메시지를 중단하며, 이로 인해 `DeliveryCount`가 증가합니다. 시스템에서 메시지를 DLQ로 이동하면 [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)에서 **null** 을 반환하기 때문에 기본 큐가 비어 있고 루프가 종료됩니다.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5dfdf846410e9b622f3ef1e9006aa9846de9979c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 60504bcf9e2c3f9460eee9a2e72d18767c0cfa71
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498713"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631677"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-net"></a>Azure Service Bus 토픽에 메시지 보내기 및 토픽의 구독에서 메시지 받기(.NET)
 이 자습서에서는 메시지를 Service Bus 토픽으로 보내고 해당 토픽의 구독에서 메시지를 받는 .NET Core 콘솔 앱을 만드는 방법을 보여 줍니다. 
@@ -270,4 +270,4 @@ Stopped receiving messages
 
 - [.NET용 Azure Service Bus 클라이언트 라이브러리 - 추가 정보](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [GitHub 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [.NET API 참조](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)
+- [.NET API 참조](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

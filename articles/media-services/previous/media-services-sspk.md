@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: cdb575d7b3884370e1a53f79f1184d40cd15d270
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: eb88d2cf96cc8557f2b8c729554106530cf6f956
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732396"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629626"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Microsoft &reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스
 
@@ -32,7 +32,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서 **SS
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Description
+## <a name="description"></a>설명
 SSPK는 뛰어난 비즈니스 가치를 제공하는 조건으로 사용 허가됩니다. SSPK 라이선스는 업계에 다음을 제공합니다.
 
 * C++의 부드러운 스트리밍 이식 키트 소스 
@@ -128,6 +128,7 @@ SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있
 * 홍콩 특별 행정구 Konka
 * Innolux Corporation
 * Innopia 기술, Inc.
+* Jinpin 전기적 Zhuhai. ..E. Z
 * K-Tronics (Suzhou) 기술 공동., l t d. 
 * Kaonmedia Co., Ltd.
 * KDDI Corporation

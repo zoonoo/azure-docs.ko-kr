@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: 0057a4671dbc63bf53bafa8d2d742d4edcda1e5e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 01/20/2021
+ms.openlocfilehash: d31fbd813f0c5d63ee9eddbff5b299209618626b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741051"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629677"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>고객 관리 키를 설정 하 여 ISEs (integration service environment)에 대 한 미사용 데이터를 암호화 Azure Logic Apps
 
 Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../storage/common/storage-service-encryption.md)를 저장 하 고 자동으로 암호화 합니다. 이 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. 기본적으로 Azure Storage는 Microsoft 관리 키를 사용 하 여 데이터를 암호화 합니다. Azure Storage 암호화가 작동 하는 방식에 대 한 자세한 내용은 [미사용 데이터에 대 한 Azure Storage 암호화](../storage/common/storage-service-encryption.md) 및 [미사용 Azure 데이터 암호화](../security/fundamentals/encryption-atrest.md)를 참조 하세요.
 
-논리 앱을 호스팅하기 위한 [ISE (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) )를 만들 때 Azure Storage에 사용 되는 암호화 키를 더 많이 제어 하려는 경우 [Azure Key Vault](../key-vault/general/overview.md)를 사용 하 여 사용자 고유의 키를 설정, 사용 및 관리할 수 있습니다. 이 기능은 BYOK ("Bring Your Own Key") 라고도 하며, 키를 "고객 관리 키" 라고 합니다.
+논리 앱을 호스팅하기 위한 [ISE (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) )를 만들 때 Azure Storage에 사용 되는 암호화 키를 더 많이 제어 하려는 경우 [Azure Key Vault](../key-vault/general/overview.md)를 사용 하 여 사용자 고유의 키를 설정, 사용 및 관리할 수 있습니다. 이 기능을 "Bring Your Own Key" (BYOK) 라고 하며, 키를 "고객 관리 키" 라고 합니다. 이 기능을 사용 하면 키에 [플랫폼 관리 키를 사용 하 여 이중 암호화 또는 *인프라 암호화*](../security/fundamentals/double-encryption.md) 를 자동으로 사용 하도록 Azure Storage. 자세히 알아보려면 [인프라 암호화를 사용 하 여 데이터 이중 암호화](../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)를 참조 하세요.
 
 이 항목에서는 Logic Apps REST API를 사용 하 여 ISE를 만들 때 사용할 사용자 고유의 암호화 키를 설정 하 고 지정 하는 방법을 보여 줍니다. Logic Apps REST API 통해 ISE를 만드는 일반적인 단계는 [Logic Apps REST API를 사용 하 여 ise (integration service environment) 만들기](../logic-apps/create-integration-service-environment-rest-api.md)를 참조 하세요.
 
@@ -51,7 +51,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
   |----------|-------|
   | **키 유형** | RSA |
   | **RSA 키 크기** | 2048 |
-  | **사용** | Yes |
+  | **Enabled** | 예 |
   |||
 
   ![고객이 관리 하는 암호화 키 만들기](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -240,7 +240,7 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 
       !["키 관리" > "키 사용 권한"을 선택 합니다.](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-   1. **보안 주체 선택** 에서 선택 **안 함** 을 선택 합니다. **주** 창이 열리면 검색 상자에서 ISE를 찾아 선택 합니다. 완료 되 면 추가 **선택** 을 선택  >  **Add** 합니다.
+   1. **보안 주체 선택** 에서 선택 **안 함** 을 선택 합니다. **주** 창이 열리면 검색 상자에서 ISE를 찾아 선택 합니다. 완료 되 면 추가 **선택** 을 선택  >  합니다.
 
       ![주 서버로 사용할 ISE를 선택 합니다.](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 

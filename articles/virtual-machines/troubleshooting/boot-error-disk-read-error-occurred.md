@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d1cf8638f922bb0275322568eb1399db4f49e8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87069152"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629728"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>부팅 오류 문제 해결 - 디스크 읽기 오류 발생
 
@@ -33,11 +33,14 @@ ms.locfileid: "87069152"
 
 ## <a name="cause"></a>원인
 
-이 오류 메시지는 디스크 구조가 손상되어 읽을 수 없음을 나타냅니다. 1세대 VM을 사용하는 경우 부팅 구성 데이터가 포함된 디스크 파티션이 **Active**로 설정되어 있지 않을 수도 있습니다.
+이 오류 메시지는 디스크 구조가 손상되어 읽을 수 없음을 나타냅니다. 1세대 VM을 사용하는 경우 부팅 구성 데이터가 포함된 디스크 파티션이 **Active** 로 설정되어 있지 않을 수도 있습니다.
 
 ## <a name="solution"></a>해결 방법
 
 ### <a name="process-overview"></a>프로세스 개요
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 1. 복구 VM을 만들고 액세스합니다.
 1. 다음과 같은 솔루션을 선택합니다.
@@ -56,21 +59,21 @@ ms.locfileid: "87069152"
 
 ### <a name="set-partition-status-to-active"></a>파티션 상태를 Active(활성)로 설정
 
-1세대 VM은 먼저 BCD 저장소를 포함하는 OS 파티션이 **Active**로 표시되어 있는지 확인해야 합니다. 2세대 VM이 있는 경우 이후 세대에서 상태 플래그가 더 이상 사용되지 않으므로 [디스크 파티션 수정](#fix-the-disk-partition)으로 건너뜁니다.
+1세대 VM은 먼저 BCD 저장소를 포함하는 OS 파티션이 **Active** 로 표시되어 있는지 확인해야 합니다. 2세대 VM이 있는 경우 이후 세대에서 상태 플래그가 더 이상 사용되지 않으므로 [디스크 파티션 수정](#fix-the-disk-partition)으로 건너뜁니다.
 
 1. 관리자 권한 명령 프롬프트(cmd.exe)를 엽니다.
-1. **diskpart**를 입력하고 **DISKPART** 도구를 시작합니다.
-1. **list disk**를 입력하여 시스템의 디스크를 나열하고 연결된 OS VHD(가상 하드 디스크)를 확인합니다.
+1. **diskpart** 를 입력하고 **DISKPART** 도구를 시작합니다.
+1. **list disk** 를 입력하여 시스템의 디스크를 나열하고 연결된 OS VHD(가상 하드 디스크)를 확인합니다.
 1. 연결된 OS VHD를 찾으면 **sel disk #** 을 입력하여 해당 디스크를 선택합니다. Disk 1이 연결된 OS VHD인 경우의 예는 다음 이미지를 참조하세요.
 
    ![표에 Disk 0과 Disk 1이 있고, **list disk** 명령의 출력이 표시된 diskpart 창. 이 창에는 **sel disk 1** 명령의 출력도 표시됩니다. 여기에서 Disk 1이 선택된 디스크입니다.](./media/disk-read-error-occurred/2.png)
 
-1. 디스크가 선택되면 **list partition**을 입력하여 선택한 디스크의 파티션을 나열합니다.
+1. 디스크가 선택되면 **list partition** 을 입력하여 선택한 디스크의 파티션을 나열합니다.
 1. 부팅 파티션이 식별되면 **sel partition #** 을 입력하여 파티션을 선택합니다. 부팅 파티션의 크기는 대개 약 350MB입니다.  Partition 1이 부팅 파티션인 경우의 예는 다음 이미지를 참조하세요.
 
    ![표에 Partition 1과 Partition 2가 있고, **list partition** 명령 출력이 표시된 diskpart 창. 이 창에는 **sel partition 1** 명령의 출력도 표시됩니다. 여기에서 Partition 1이 선택된 디스크입니다.](./media/disk-read-error-occurred/3.png)
 
-1. 파티션 상태를 확인하려면 **detail partition**을 입력합니다. Partition이 **Active: No** 또는 **Active: Yes**로 설정된 파티션의 예는 다음 스크린샷을 참조하세요.
+1. 파티션 상태를 확인하려면 **detail partition** 을 입력합니다. Partition이 **Active: No** 또는 **Active: Yes** 로 설정된 파티션의 예는 다음 스크린샷을 참조하세요.
 
    **Active: No**
 
@@ -80,14 +83,14 @@ ms.locfileid: "87069152"
 
    ![Partition 1이 **Active: Yes**로 설정되어 있고 **detail partition** 명령의 출력이 표시된 diskpart 창.](./media/disk-read-error-occurred/5.png)
 
-1. 파티션이 **Active**로 설정되어 있지 않은 경우 **active**를 입력하고 활성 플래그를 변경합니다.
-1. **detail partition**을 입력하여 상태 변경이 제대로 완료되었는지 확인하고 출력에 **Active: Yes**로 설정된 파티션의 예는 다음 스크린샷을 참조하세요. 
-1. **exit**를 입력하여 DISKPART 도구를 닫고 구성 변경 내용을 저장합니다.
+1. 파티션이 **Active** 로 설정되어 있지 않은 경우 **active** 를 입력하고 활성 플래그를 변경합니다.
+1. **detail partition** 을 입력하여 상태 변경이 제대로 완료되었는지 확인하고 출력에 **Active: Yes** 로 설정된 파티션의 예는 다음 스크린샷을 참조하세요. 
+1. **exit** 를 입력하여 DISKPART 도구를 닫고 구성 변경 내용을 저장합니다.
 
 ### <a name="fix-the-disk-partition"></a>디스크 파티션 수정
 
 1. 관리자 권한 명령 프롬프트(cmd.exe)를 엽니다.
-1. 다음 명령을 사용하여 디스크에서 **CHKDSK**를 실행하고 오류 수정 작업을 수행합니다.
+1. 다음 명령을 사용하여 디스크에서 **CHKDSK** 를 실행하고 오류 수정 작업을 수행합니다.
 
    `chkdsk <DRIVE LETTER>: /f`
 

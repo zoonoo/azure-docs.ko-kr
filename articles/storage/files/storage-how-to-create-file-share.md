@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 705910a9e2f4ebc80a63ab22ac4edecc5ae03cd0
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 7f72d703e5377f725addc4aa8c52e1cdb0fa571d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724802"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630754"
 ---
 # <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 Azure 파일 공유를 만들려면이를 사용 하는 방법에 대 한 세 가지 질문에 답변해 야 합니다.
@@ -84,7 +84,7 @@ FileStorage 저장소 계정을 만들려면 **성능** 라디오 단추가 *프
 
 고급 탭에서 사용할 수 있는 다른 설정 (blob 일시 삭제, Azure Data Lake 저장소의 계층 구조 네임 스페이스 및 blob 저장소에 대 한 NFSv3)은 Azure Files에 적용 되지 않습니다.
 
-#### <a name="tags"></a>태그
+#### <a name="tags"></a>태그들
 태그는 동일한 태그를 여러 개의 리소스 및 리소스 그룹에 적용하여 리소스를 범주화하고 통합된 청구를 볼 수 있는 이름/값 쌍입니다. 이러한 항목은 선택 사항이 며 저장소 계정을 만든 후에 적용할 수 있습니다.
 
 #### <a name="review--create"></a>검토 + 만들기
@@ -172,7 +172,7 @@ az storage account create \
 
 - 표준 파일 공유의 경우에는 최종 사용자가 이동할 수 없는 Azure 파일 공유의 상한입니다. 표준 파일 공유에 대 한 할당량의 주 목적은 예산: "이 시점 이후에이 파일 공유를 확장 하지 않으려고 함"입니다. 할당량을 지정 하지 않으면 표준 파일 공유는 최대 100 TiB (또는 5 TiB, 저장소 계정에 대 한 대량 파일 공유 속성이 설정 되지 않은 경우)까지 확장 될 수 있습니다.
 
-- 프리미엄 파일 공유의 경우 할당량은 **프로 비전 된 크기** 의 평균으로 오버 로드 됩니다. 프로 비전 된 크기는 실제 사용량에 관계 없이 요금이 청구 되는 금액입니다. 프리미엄 파일 공유를 프로 비전 할 때 두 가지 요인을 고려해 야 합니다. 1) 공간 사용률 관점에서 공유의 향후 증가 및 2) 작업에 필요한 IOPS입니다. 프로 비전 된 모든 GiB는 추가 예약 및 버스트 IOPS를 되며 합니다. 프리미엄 파일 공유를 계획 하는 방법에 대 한 자세한 내용은 [premium 파일 공유 프로 비전](understanding-billing.md#provisioned-billing)을 참조 하세요.
+- 프리미엄 파일 공유의 경우 할당량은 **프로 비전 된 크기** 의 평균으로 오버 로드 됩니다. 프로 비전 된 크기는 실제 사용량에 관계 없이 요금이 청구 되는 금액입니다. 프리미엄 파일 공유를 프로 비전 할 때 두 가지 요인을 고려해 야 합니다. 1) 공간 사용률 관점에서 공유의 향후 증가 및 2) 작업에 필요한 IOPS입니다. 프로 비전 된 모든 GiB는 추가 예약 및 버스트 IOPS를 되며 합니다. 프리미엄 파일 공유를 계획 하는 방법에 대 한 자세한 내용은 [premium 파일 공유 프로 비전](understanding-billing.md#provisioned-model)을 참조 하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 방금 저장소 계정을 만든 경우 **리소스로 이동** 을 선택 하 여 배포 화면에서 이동할 수 있습니다. 이전에 저장소 계정을 만든 경우 해당 계정을 포함 하는 리소스 그룹을 통해 이동할 수 있습니다. 저장소 계정에서 **파일 공유** 라는 타일을 선택 합니다. 저장소 계정에 대 한 목차를 통해 **파일 공유** 로 이동할 수도 있습니다.
@@ -296,6 +296,6 @@ az storage share-rm update \
 ---
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure File Sync 배포에 대](storage-sync-files-planning.md)한 Azure Files 또는 계획 [의 배포를 계획](storage-files-planning.md) 합니다. 
+- [Azure 파일 동기화 배포에 대](storage-sync-files-planning.md)한 Azure Files 또는 계획 [의 배포를 계획](storage-files-planning.md) 합니다. 
 - [네트워킹 개요](storage-files-networking-overview.md).
 - [Windows](storage-how-to-use-files-windows.md), [Macos](storage-how-to-use-files-mac.md)및 [Linux](storage-how-to-use-files-linux.md)에서 파일 공유를 연결 하 고 탑재 합니다.

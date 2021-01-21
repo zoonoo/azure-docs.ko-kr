@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d14ef742c19556a9df2bd193a54bfaa1672d5964
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0e044e8102308fce4145d4aa6c887cefaa99be34
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044227"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629965"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -50,7 +50,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 
     **관리자 사용자 이름**: 배포에 대 한 루트 권한이 제공 되는 사용자 이름입니다.
 
-    **장치 연결 문자열**: 의도 한 [IoT Hub](../iot-hub/about-iot-hub.md)내에 생성 된 장치에 대 한 [장치 연결 문자열](./how-to-manual-provision-symmetric-key.md) 입니다.
+    **장치 연결 문자열**: 의도 한 [IoT Hub](../iot-hub/about-iot-hub.md)내에 생성 된 장치에 대 한 [장치 연결 문자열](./how-to-register-device.md) 입니다.
 
     **VM 크기**: 배포할 가상 컴퓨터의 [크기](../cloud-services/cloud-services-sizes-specs.md) 입니다.
 
@@ -64,9 +64,9 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 
     모든 필드가 채워져 있으면 페이지 맨 아래에 있는 확인란을 선택 하 여 약관에 동의한 다음 **구매** 를 선택 하 여 배포를 시작 합니다.
 
-1. 배포가 성공적으로 완료되었는지 확인합니다.  가상 머신 리소스는 선택한 리소스 그룹에 배포되어야 합니다.  컴퓨터 이름을 기록해 둡니다 .이 이름은 형식 이어야 합니다 `vm-0000000000000` . 또한 연결된 **DNS 이름**을 기록해 둡니다. 형식은 `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com이어야 합니다.
+1. 배포가 성공적으로 완료되었는지 확인합니다.  가상 머신 리소스는 선택한 리소스 그룹에 배포되어야 합니다.  컴퓨터 이름을 기록해 둡니다 .이 이름은 형식 이어야 합니다 `vm-0000000000000` . 또한 연결된 **DNS 이름** 을 기록해 둡니다. 형식은 `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com이어야 합니다.
 
-    **DNS 이름**은 Azure Portal 내에 새로 배포된 가상 머신의 **개요** 섹션에서 가져올 수 있습니다.
+    **DNS 이름** 은 Azure Portal 내에 새로 배포된 가상 머신의 **개요** 섹션에서 가져올 수 있습니다.
 
     > [!div class="mx-imgBorder"]
     > [![Iotedge vm의 dns 이름을 보여 주는 스크린샷](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
@@ -139,7 +139,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
     ```
 
-1. 배포가 성공적으로 완료되었는지 확인합니다.  가상 머신 리소스는 선택한 리소스 그룹에 배포되어야 합니다.  컴퓨터 이름을 기록해 둡니다 .이 이름은 형식 이어야 합니다 `vm-0000000000000` . 또한 연결된 **DNS 이름**을 기록해 둡니다. 형식은 `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com이어야 합니다.
+1. 배포가 성공적으로 완료되었는지 확인합니다.  가상 머신 리소스는 선택한 리소스 그룹에 배포되어야 합니다.  컴퓨터 이름을 기록해 둡니다 .이 이름은 형식 이어야 합니다 `vm-0000000000000` . 또한 연결된 **DNS 이름** 을 기록해 둡니다. 형식은 `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com이어야 합니다.
 
     **DNS 이름은** 이전 단계의 JSON 형식 출력에서 가져올 수 있으며,이는 **공용 SSH** 항목의 일부로 **출력** 섹션 내에서 가져올 수 있습니다.  이 항목의 값을 사용 하 여 새로 배포 된 컴퓨터에 SSH를 수행할 수 있습니다.
 

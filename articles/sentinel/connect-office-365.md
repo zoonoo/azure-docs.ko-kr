@@ -14,22 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 4d3e3615ede7406a3b581171ae759ec0ec53f13e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 05848eb2761284669e659b3875e96acdfa71f90f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655373"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632185"
 ---
-# <a name="connect-office-365-logs-to-azure-sentinel"></a>Azure 센티널에 Office 365 로그 연결
+# <a name="connect-office-365-logs-to-azure-sentinel"></a>Azure Sentinel에 Office 365 로그 연결
 
 [Office 365](/office/) 로그 커넥터는 **Exchange** 및 **SharePoint** ( **OneDrive** 포함)에서 진행 중인 사용자 및 관리 활동에 대 한 Azure 센티널 정보를 제공 하 고, 현재 **팀** 에서도 제공 합니다. 이 정보에는 작업을 수행한 사용자의 세부 정보 뿐만 아니라 파일 다운로드, 보낸 액세스 요청, 그룹 이벤트 변경 내용, 사서함 작업, 팀 이벤트 (예: 채팅, 팀, 멤버 및 채널 이벤트)와 같은 작업에 대 한 세부 정보가 포함 됩니다. Office 365 로그를 Azure 센티널에 연결 하면 통합 문서에서이 데이터를 보고 분석 하며, 사용자 지정 경고를 만들어 쿼리하고,이를 통합 하 여 조사 프로세스를 개선 하 고, Office 365 보안에 대 한 자세한 정보를 제공할 수 있습니다.
 
-> [!IMPORTANT]
-> **Microsoft 팀 로그의** Office 365 로그 커넥터 확장은 현재 공개 미리 보기 상태입니다.
-> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

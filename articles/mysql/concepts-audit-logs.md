@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: aac8e6e04b8bac7a1d27fefc780fb9fadb3122dc
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fa845e7c402073a64f51d75b1da51f56142eee2e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534180"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630503"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 감사 로그
 
@@ -43,7 +43,7 @@ Azure Database for MySQL에서 감사 로그는 사용자에 게 제공 됩니�
 | `DCL` | "권한 부여"와 같은 쿼리 |
 | `ADMIN` | "SHOW STATUS"와 같은 쿼리 |
 | `GENERAL` | DML_SELECT, DML_NONSELECT, DML, DDL, DCL 및 관리자의 모든 |
-| `TABLE_ACCESS` | -MySQL 5.7에만 사용할 수 있음 <br> -SELECT 또는 INSERT INTO ...와 같은 테이블 읽기 문 [ <br> -DELETE 또는 TRUNCATE TABLE와 같은 Table delete 문 <br> -INSERT 또는 REPLACE와 같은 테이블 insert 문 <br> -UPDATE와 같은 테이블 업데이트 문 |
+| `TABLE_ACCESS` | -MySQL 5.7 및 MySQL 8.0에서 사용 가능 <br> -SELECT 또는 INSERT INTO ...와 같은 테이블 읽기 문 [ <br> -DELETE 또는 TRUNCATE TABLE와 같은 Table delete 문 <br> -INSERT 또는 REPLACE와 같은 테이블 insert 문 <br> -UPDATE와 같은 테이블 업데이트 문 |
 
 ## <a name="access-audit-logs"></a>감사 로그 액세스
 

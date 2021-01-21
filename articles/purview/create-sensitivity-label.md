@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/19/2021
+ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196591"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630279"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 자동으로 레이블
 
@@ -32,10 +32,9 @@ ms.locfileid: "98196591"
 
 부서의 범위는 Microsoft 365 같이 중요 한 정보 형식이 라고도 하는 동일한 분류를 사용 합니다.  밉 민감도 레이블은 Microsoft 365 보안 및 규정 준수 센터 (SCC)에서 생성 됩니다. 이렇게 하면 Azure 부서의 범위 자산에서 기존 민감도 레이블을 확장할 수 있습니다.
 
-> [!NOTE]
-> 분류는 **주민 등록** 번호를 분류 하는 주민 등록 번호와 같이 직접 일치 합니다. 
->
-> 이와 달리 민감도 레이블은 하나 이상의 분류 및 조건을 함께 발견할 경우 적용 됩니다. 이 컨텍스트에서 [조건은](/microsoft-365/compliance/apply-sensitivity-label-automatically) **다른 분류에 근접** 한 경우와 같이 비구조적 데이터에 대해 정의할 수 있는 모든 매개 변수를 **나타냅니다.** 
+**분류는** **주민 등록** 번호를 분류 하는 주민 등록 번호와 같이 직접 일치 합니다. 
+
+이와 달리 **민감도 레이블은** 하나 이상의 분류 및 조건을 함께 발견할 경우 적용 됩니다. 이 컨텍스트에서 [조건은](/microsoft-365/compliance/apply-sensitivity-label-automatically) *다른 분류에 근접* 한 경우와 같이 비구조적 데이터에 대해 정의할 수 있는 모든 매개 변수를 *나타냅니다.* 
 
 Azure 부서의 범위의 민감도 레이블을 사용 하 여 파일 및 데이터베이스 열에 레이블을 자동으로 적용할 수 있습니다.
 
@@ -44,6 +43,7 @@ Azure 부서의 범위의 민감도 레이블을 사용 하 여 파일 및 데�
 - Microsoft 365 설명서의 [민감도 레이블에 대 한 자세한 정보](/microsoft-365/compliance/sensitivity-labels)
 - [Autolabeling 규칙 이란?](#what-are-autolabeling-rules)
 - [Azure 부서의 범위의 민감도 레이블에 대해 지원 되는 데이터 형식](#supported-data-types-for-sensitivity-labels-in-azure-purview)
+- [SQL 데이터베이스 열에 대 한 레이블 지정](#labeling-for-sql-database-columns)
 
 #### <a name="what-are-autolabeling-rules"></a>Autolabeling 규칙 이란?
 
@@ -54,7 +54,6 @@ Autolabeling 규칙은 특정 레이블을 적용 해야 하는 경우를 지정
 레이블을 만들 때 [파일](#define-autolabeling-rules-for-files) 및 [데이터베이스 열](#define-autolabeling-rules-for-database-columns) 모두에 대해 autolabeling 규칙을 정의 하 여 각 데이터 검색에 레이블을 자동으로 적용 해야 합니다. 
 
 부서의 범위에서 데이터를 검사 한 후 부서의 범위 카탈로그 및 정보 보고서에서 자동으로 적용 되는 레이블을 볼 수 있습니다.
-
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Azure 부서의 범위의 민감도 레이블에 대해 지원 되는 데이터 형식
 
 민감도 레이블은 Azure 부서의 범위에서 다음 데이터 형식에 대해 지원 됩니다.
@@ -62,8 +61,16 @@ Autolabeling 규칙은 특정 레이블을 적용 해야 하는 경우를 지정
 |데이터 형식  |원본  |
 |---------|---------|
 |파일에 대 한 자동 레이블 지정     |      - Azure Blob Storage  </br>-Azure Data Lake Storage Gen 1 및 Gen 2  |
-|데이터베이스 열에 대 한 자동 레이블 지정     |  -SQL server </br>-Azure SQL database </br>-Azure SQL Database Managed Instance   <br> -Azure Synapse  <br> - Azure Cosmos DB   |
+|데이터베이스 열에 대 한 자동 레이블 지정     |  -SQL server </br>-Azure SQL database </br>-Azure SQL Database Managed Instance   <br> -Azure Synapse  <br> - Azure Cosmos DB <br><br>자세한 내용은 아래의 [SQL 데이터베이스 열에 대 한 레이블](#labeling-for-sql-database-columns) 지정을 참조 하세요.  |
 | | |
+
+#### <a name="labeling-for-sql-database-columns"></a>SQL 데이터베이스 열에 대 한 레이블 지정
+
+데이터베이스 열에 대 한 부서의 범위 레이블 지정 외에도 Microsoft는 [SSMS (SQL Server Management Studio)](/sql/ssms/sql-server-management-studio-ssms)에서 sql 데이터 분류를 사용 하 여 sql database 열에 대 한 레이블 지정을 지원 합니다. 부서의 범위는 글로벌 [밉 민감도 레이블을](/microsoft-365/compliance/sensitivity-labels)사용 하는 반면 SSMS는 로컬로 정의 된 레이블만 사용 합니다.
+
+SSMS에서 부서의 범위 및 레이블 지정은 현재 서로 상호 작용 하지 않는 별도의 프로세스입니다. 따라서 SSMS에서 적용 되는 레이블은 부서의 범위에 표시 되지 않으며 그 반대의 경우도 마찬가지입니다. 여러 플랫폼에 적용 될 수 있는 글로벌 밉 레이블을 사용 하므로 SQL 데이터베이스에 레이블을 지정 하는 데 Azure 부서의 범위를 사용 하는 것이 좋습니다.
+
+자세한 내용은 [SQL 데이터 검색 및 분류 설명서](/sql/relational-databases/security/sql-data-discovery-and-classification)를 참조 하세요.
 
 ## <a name="how-to-create-sensitivity-labels-in-microsoft-365"></a>Microsoft 365에서 민감도 레이블을 만드는 방법
 
@@ -97,7 +104,7 @@ Azure 부서의 범위의 Azure 자산에 밉 민감도 레이블을 적용 하�
 
 Microsoft 365에서 **Information Protection** 페이지로 이동 합니다. **Azure에서 자산에 대 한 레이블 확장 부서의 범위** 에서 **켜기** 단추를 선택한 다음 표시 되는 확인 대화 상자에서 **예** 를 선택 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 :::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="민감도 레이블을 부서의 범위로 확장 하려면 * * 켜기 * *를 선택 합니다." lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
@@ -123,7 +130,7 @@ Azure 부서의 범위에서 자산에 대 한 레이블 지정을 확장 한 �
 
     마법사 옵션에 대 한 자세한 내용은 Microsoft 365 설명서에서 [수행할 수 있는 민감도 레이블](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) 을 참조 하십시오.
 
-1. 위에 나열 된 단계를 반복 하 여 추가 레이블을 만듭니다. 
+1. 위에 나열 된 단계를 반복 하 여 더 많은 레이블을 만듭니다. 
 
     하위 레이블을을 만들려면 부모 **레이블 >**  >  선택 합니다. **추가 작업**  >  **하위 레이블을 추가** 합니다.
 
@@ -155,7 +162,7 @@ Azure 부서의 범위에서 자산에 대 한 레이블 지정을 확장 한 �
 
 **Office 앱에 대 한 자동** 레이블 지정 페이지에서 **office 앱에 대 한 자동 레이블** 지정을 사용 하도록 설정 하 고 데이터에 레이블을 자동으로 적용 하려는 조건을 정의 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Microsoft 365 보안 및 규정 준수 센터의 파일에 대 한 autolabeling 규칙을 정의 합니다." lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
@@ -171,7 +178,7 @@ Azure 부서의 범위에서 자산에 대 한 레이블 지정을 확장 한 �
 
 1. **중요 한 정보 유형 확인** 을 선택 하 여 레이블에 적용할 중요 한 정보 유형을 선택 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
         
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Microsoft 365 보안 및 규정 준수 센터에서 SQL 열에 대 한 autolabeling 규칙 정의" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
@@ -194,11 +201,11 @@ Microsoft 365에서 레이블에 대 한 autolabeling 규칙을 정의 하 고 A
 
 **Azure 부서의 범위 카탈로그에서 자산에 적용 되는 레이블을 보려면 다음을 수행 합니다.**
 
-Azure 부서의 범위 카탈로그에서 **레이블** 필터링 옵션을 사용 하 여 특정 레이블만 있는 파일만 표시 합니다. 예를 들면 다음과 같습니다. 
+Azure 부서의 범위 카탈로그에서 **레이블** 필터링 옵션을 사용 하 여 특정 레이블만 있는 파일만 표시 합니다. 다음은 그 예입니다.  
 
 :::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="레이블 별 자산 검색" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="Azure Blob Storage 파일의 민감도 레이블 보기" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 

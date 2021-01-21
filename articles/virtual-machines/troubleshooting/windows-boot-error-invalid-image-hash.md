@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 22db9c7966b6f988ca0ea799104275f3f86c77ea
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969605"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629575"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Windows 부팅 관리자 오류-0xC0000428 상태 잘못 된 이미지 해시
 
@@ -65,6 +65,9 @@ VM을 빌드하는 데 사용 된 이미지는 RTM (Release to Manufacturing) �
 - Azure에서 미리 보기 버전의 Windows 용 모든 이미지에는 프로덕션에 적합 하지 않으며 지정 된 평가 기간 또는 "미리 보기 릴리스"에만 사용할 수 있다는 설명이 포함 되어 있습니다.
 
 ## <a name="solution"></a>솔루션
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 이미지가 미리 보기 이미지 인 경우 사용 되는 이미지의 만료 날짜를 연장할 수 없습니다. 미리 보기가 아닌 이미지를 사용 하 여 [새 VM을 배포](../windows/quick-create-portal.md) 해야 합니다. 아래 단계는 미리 보기 이미지를 사용 했는지 여부를 식별 하는 데 도움이 되 고,이 VM에서 새 VM으로 데이터를 전송 하는 데 도움이 되는 리소스를 제공 합니다. 이미지를 미리 보기 이미지로 확실 하 게 식별 한 경우 이제는 만료 되기 때문에 이미지를 복구할 수 없습니다.
 

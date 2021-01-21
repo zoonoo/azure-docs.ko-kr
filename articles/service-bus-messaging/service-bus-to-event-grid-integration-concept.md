@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5cc112767b2204d019cb1b7bd23b1603cefdf416
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 71ee21c971b71c4000a123d1561e7e93d21203e1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882520"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629150"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 
@@ -186,7 +186,7 @@ Service Bus 네임 스페이스로 이동한 다음, **액세스 제어 (IAM)** 
 
 ## <a name="azure-cli-instructions"></a>Azure CLI 지침
 
-먼저, Azure CLI 버전 2.0 이상이 설치되어 있는지 확인 합니다. [설치 관리자를 다운로드](/cli/azure/install-azure-cli?view=azure-cli-latest)합니다. **Windows + X** 를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
+먼저, Azure CLI 버전 2.0 이상이 설치되어 있는지 확인 합니다. [설치 관리자를 다운로드](/cli/azure/install-azure-cli)합니다. **Windows + X** 를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
 
 다음 코드를 실행합니다.
 

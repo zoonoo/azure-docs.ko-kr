@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: fe2d444bbdc09ed5ab0205d4139591e3288e3358
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 3090b7b889d914fc0cdb598b8bf29a73c81f50cb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734568"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632006"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 시작이 Windows 업데이트에서 중단되는 경우
 
@@ -37,6 +37,8 @@ ms.locfileid: "94734568"
 
 
 ## <a name="solution"></a>솔루션
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 설치 또는 롤백하는 업데이트 수에 따라 업데이트 프로세스에 어느 정도 시간이 걸릴 수 있습니다. 이 상태에서 8 시간 동안 VM을 그대로 유지하십시오. 그 기간이 지난 후에도 VM이 여전히 이 상태에 있는 경우 Azure Portal에서 VM을 다시 시작하고 정상으로 시작할 수 있는지 확인하십시오. 이 단계도 소용이 없으면 다음 솔루션을 시도합니다.
 

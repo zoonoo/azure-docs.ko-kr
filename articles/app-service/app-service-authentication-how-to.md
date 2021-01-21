@@ -4,12 +4,12 @@ description: 다양 한 시나리오에 대 한 App Service의 인증 및 권한
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 85fd7fdba4c62f4837a419af44c83f7e46cb9e39
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601784"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630330"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -34,7 +34,7 @@ ms.locfileid: "96601784"
 
 **요청이 인증되지 않은 경우 수행할 작업** 에서 **익명 요청 허용(작업 없음)** 을 선택합니다.
 
-로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들어:
+로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 다음은 그 예입니다. 
 
 ```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -57,7 +57,7 @@ ms.locfileid: "96601784"
 
 클라이언트 리디렉션 로그인에 애플리케이션은 사용자가 수동으로 공급자에 로그인한 다음, 유효성 검사를 위해 인증 토큰을 App Service에 제출합니다([인증 흐름](overview-authentication-authorization.md#authentication-flow) 참조). 이 유효성 검사 자체는 실제로 원하는 앱 리소스에 대한 액세스 권한을 부여하지 않지만, 유효성 검사가 성공하면 앱 리소스에 액세스하는 데 사용할 수 있는 세션 토큰이 제공됩니다. 
 
-공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예를 들어: 
+공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 다음은 그 예입니다.  
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -88,7 +88,7 @@ Content-Type: application/json
 }
 ```
 
-이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예를 들어: 
+이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 다음은 그 예입니다.  
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -109,7 +109,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 <a href="/.auth/logout">Sign out</a>
 ```
 
-기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예를 들어:
+기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 다음은 그 예입니다. 
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -271,7 +271,7 @@ App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 
 
 ### <a name="identity-provider-level"></a>Id 공급자 수준
 
-Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들어:
+Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 다음은 그 예입니다. 
 
 - [Azure App Service](configure-authentication-provider-aad.md)의 경우 Azure AD에서 직접 [엔터프라이즈 수준의 액세스를 관리할](../active-directory/manage-apps/what-is-access-management.md) 수 있습니다. 자세한 내용은 [응용 프로그램에 대 한 사용자 액세스를 제거 하는 방법](../active-directory/manage-apps/methods-for-removing-user-access.md)을 참조 하세요.
 - [Google](configure-authentication-provider-google.md)의 경우 조직에 속한 google API 프로젝트는 조직의 사용자 에게만 액세스를 허용 하도록 구성할 [수 있습니다 (](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) [Google의 **OAuth 2.0 지원 설정** 페이지](https://support.google.com/cloud/answer/6158849?hl=en)참조).
@@ -279,6 +279,150 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
 ### <a name="application-level"></a>애플리케이션 수준
 
 다른 수준 중 하나에서 필요한 권한 부여를 제공 하지 않거나 플랫폼 또는 id 공급자가 지원 되지 않는 경우 사용자 [클레임](#access-user-claims)에 따라 사용자에 게 권한을 부여 하는 사용자 지정 코드를 작성 해야 합니다.
+
+## <a name="updating-the-configuration-version-preview"></a>구성 버전 업데이트 (미리 보기)
+
+인증/권한 부여 기능에는 두 가지 버전의 관리 API가 있습니다. Preview V2 버전은 Azure Portal의 "인증 (미리 보기)" 환경에 필요 합니다. 몇 가지 변경 작업을 수행한 후에는 이미 V1 API를 사용 하는 앱을 V2 버전으로 업그레이드할 수 있습니다. 특히 비밀 구성은 슬롯 고정 응용 프로그램 설정으로 이동 해야 합니다. 현재 V2에서는 Microsoft 계정 공급자의 구성도 지원 되지 않습니다.
+
+> [!WARNING]
+> V2 preview로 마이그레이션하면 일부 클라이언트를 통해 응용 프로그램에 대 한 App Service 인증/권한 부여 기능을 관리할 수 없게 됩니다. 예를 들어 Azure Portal, Azure CLI 및 Azure PowerShell에서 기존 환경 등이 있습니다. 이는 되돌릴 수 없습니다. 미리 보기 중에는 프로덕션 워크 로드의 마이그레이션이 권장 되지 않거나 지원 되지 않습니다. 테스트 응용 프로그램에 대해서는이 섹션의 단계를 수행 해야 합니다.
+
+### <a name="moving-secrets-to-application-settings"></a>비밀을 응용 프로그램 설정으로 이동
+
+1. V1 API를 사용 하 여 기존 구성을 가져옵니다.
+
+   ```azurecli
+   # For Web Apps
+   az webapp auth show -g <group_name> -n <site_name>
+
+   # For Azure Functions
+   az functionapp auth show -g <group_name> -n <site_name>
+   ```
+
+   결과 JSON 페이로드에 구성 된 각 공급자에 사용 되는 비밀 값을 기록해 둡니다.
+
+   * ADD `clientSecret`
+   * 로그 `googleClientSecret`
+   * Facebook `facebookAppSecret`
+   * Twitter `twitterConsumerSecret`
+   * Microsoft 계정: `microsoftAccountClientSecret`
+
+   > [!IMPORTANT]
+   > 비밀 값은 중요 한 보안 자격 증명 이므로 신중 하 게 처리 해야 합니다. 이러한 값을 공유 하거나 로컬 컴퓨터에 보관 하지 마십시오.
+
+1. 각 비밀 값에 대 한 슬롯 고정 응용 프로그램 설정을 만듭니다. 각 응용 프로그램 설정의 이름을 선택할 수 있습니다. 이 값은 이전 단계에서 얻은 것과 일치 하거나 해당 값을 사용 하 여 만든 [Key Vault 비밀을 참조](./app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json) 해야 합니다.
+
+   설정을 만들려면 Azure Portal를 사용 하거나 각 공급자에 대해 다음과 같은 변형을 실행할 수 있습니다.
+
+   ```azurecli
+   # For Web Apps, Google example    
+   az webapp config appsettings set -g <group_name> -n <site_name> --slot-settings GOOGLE_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+
+   # For Azure Functions, Twitter example
+   az functionapp config appsettings set -g <group_name> -n <site_name> --slot-settings TWITTER_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+   ```
+
+   > [!NOTE]
+   > 이 구성에 대 한 응용 프로그램 설정은 슬롯 고정으로 표시 되어야 합니다. 즉, [슬롯 교환 작업](./deploy-staging-slots.md)중에 환경 간에 이동 하지 않습니다. 이는 인증 구성 자체가 환경에 연결 되기 때문입니다. 
+
+1. 이라는 새 JSON 파일을 만듭니다 `authsettings.json` . 이전에 받은 출력을 가져와 각 비밀 값을 제거 합니다. 나머지 출력을 파일에 기록 하 여 암호가 포함 되지 않도록 합니다. 경우에 따라 구성에 빈 문자열을 포함 하는 배열이 있을 수 있습니다. 가이 아닌지 확인 하 `microsoftAccountOAuthScopes` 고, 그렇지 않으면 해당 값을로 전환 `null` 합니다.
+
+1. `authsettings.json`각 공급자에 대해 이전에 만든 응용 프로그램 설정 이름을 가리키는 속성을 추가 합니다.
+ 
+   * ADD `clientSecretSettingName`
+   * 로그 `googleClientSecretSettingName`
+   * Facebook `facebookAppSecretSettingName`
+   * Twitter `twitterConsumerSecretSettingName`
+   * Microsoft 계정: `microsoftAccountClientSecretSettingName`
+
+   이 작업 후의 예제 파일은 다음과 유사 합니다 .이 경우에는 AAD에 대해서만 구성 됩니다.
+
+   ```json
+   {
+       "id": "/subscriptions/00d563f8-5b89-4c6a-bcec-c1b9f6d607e0/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/mywebapp/config/authsettings",
+       "name": "authsettings",
+       "type": "Microsoft.Web/sites/config",
+       "location": "Central US",
+       "properties": {
+           "enabled": true,
+           "runtimeVersion": "~1",
+           "unauthenticatedClientAction": "AllowAnonymous",
+           "tokenStoreEnabled": true,
+           "allowedExternalRedirectUrls": null,
+           "defaultProvider": "AzureActiveDirectory",
+           "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
+           "clientSecret": null,
+           "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
+           "clientSecretCertificateThumbprint": null,
+           "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
+           "allowedAudiences": [
+               "https://mywebapp.azurewebsites.net"
+           ],
+           "additionalLoginParams": null,
+           "isAadAutoProvisioned": true,
+           "aadClaimsAuthorization": null,
+           "googleClientId": null,
+           "googleClientSecret": null,
+           "googleClientSecretSettingName": null,
+           "googleOAuthScopes": null,
+           "facebookAppId": null,
+           "facebookAppSecret": null,
+           "facebookAppSecretSettingName": null,
+           "facebookOAuthScopes": null,
+           "gitHubClientId": null,
+           "gitHubClientSecret": null,
+           "gitHubClientSecretSettingName": null,
+           "gitHubOAuthScopes": null,
+           "twitterConsumerKey": null,
+           "twitterConsumerSecret": null,
+           "twitterConsumerSecretSettingName": null,
+           "microsoftAccountClientId": null,
+           "microsoftAccountClientSecret": null,
+           "microsoftAccountClientSecretSettingName": null,
+           "microsoftAccountOAuthScopes": null,
+           "isAuthFromFile": "false"
+       }   
+   }
+   ```
+
+1. 앱에 대 한 새 인증/권한 부여 구성으로이 파일을 제출 합니다.
+
+   ```azurecli
+   az rest --method PUT --url "/subscriptions/<subscription_id>/resourceGroups/<group_name>/providers/Microsoft.Web/sites/<site_name>/config/authsettings?api-version=2020-06-01" --body @./authsettings.json
+   ```
+
+1. 이 제스처 후에도 앱이 예상 대로 작동 하는지 확인 합니다.
+
+1. 이전 단계에서 사용한 파일을 삭제 합니다.
+
+이제 응용 프로그램 설정으로 id 공급자 비밀을 저장 하도록 앱을 마이그레이션 했습니다.
+
+### <a name="support-for-microsoft-account-registrations"></a>Microsoft 계정 등록 지원
+
+V2 API는 현재 Microsoft 계정을 고유한 공급자로 지원 하지 않습니다. 대신, 개인 Microsoft 계정으로 로그인 하는 사용자에 게 수렴 형 [Microsoft Id 플랫폼](../active-directory/develop/v2-overview.md) 을 활용 합니다. V2 API로 전환할 때 V1 Azure Active Directory 구성이 Microsoft Id 플랫폼 공급자를 구성 하는 데 사용 됩니다.
+
+기존 구성에 Microsoft 계정 공급자가 포함 되어 있고 Azure Active Directory 공급자가 포함 되어 있지 않은 경우 구성을 Azure Active Directory 공급자로 전환한 후 마이그레이션을 수행할 수 있습니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
+
+1. Azure Portal [**앱 등록**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 으로 이동 하 여 Microsoft 계정 공급자와 연결 된 등록을 찾습니다. "개인 계정의 응용 프로그램" 제목 아래에 있을 수 있습니다.
+1. 등록에 대 한 "인증" 페이지로 이동 합니다. "리디렉션 Uri"에서 종료 된 항목이 표시 됩니다 `/.auth/login/microsoftaccount/callback` . 이 URI를 복사합니다.
+1. 방금 복사한 URI와 일치 하는 새 URI를 추가 합니다. 단, 대신가 종료 `/.auth/login/aad/callback` 됩니다. 이렇게 하면 App Service 인증/권한 부여 구성에서 등록을 사용할 수 있습니다.
+1. 앱에 대 한 App Service 인증/권한 부여 구성으로 이동 합니다.
+1. Microsoft 계정 공급자에 대 한 구성을 수집 합니다.
+1. 이전 단계에서 수집한 클라이언트 ID 및 클라이언트 암호 값을 제공 하 여 "고급" 관리 모드를 사용 하 여 Azure Active Directory 공급자를 구성 합니다. 발급자 URL에 대해 Use를 사용 하 `<authentication-endpoint>/<tenant-id>/v2.0` 고를 *\<authentication-endpoint>* [클라우드 환경의 인증 끝점](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (예: https://login.microsoftonline.com 글로벌 Azure의 경우 "")으로 바꾸고를 *\<tenant-id>* **디렉터리 (테 넌 트) ID** 로 바꿉니다.
+1. 구성을 저장 한 후 브라우저에서 `/.auth/login/aad` 사이트의 끝점으로 이동 하 고 로그인 흐름을 완료 하 여 로그인 흐름을 테스트 합니다.
+1. 이 시점에서 구성을 성공적으로 복사 했지만 기존 Microsoft 계정 공급자 구성은 그대로 유지 됩니다. 제거 하기 전에 앱의 모든 부분이 로그인 링크 등을 통해 Azure Active Directory 공급자를 참조 하는지 확인 합니다. 앱의 모든 부분이 예상 대로 작동 하는지 확인 합니다.
+1. AAD Azure Active Directory 공급자에 대해 작동 하는지 확인 한 후에는 Microsoft 계정 공급자 구성을 제거할 수 있습니다.
+
+일부 앱에는 Azure Active Directory 및 Microsoft 계정에 대 한 별도의 등록이 이미 있을 수 있습니다. 지금은 이러한 앱을 마이그레이션할 수 없습니다. 
+
+> [!WARNING]
+> AAD 앱 등록에 대해 [지원 되는 계정 유형을](../active-directory/develop/supported-accounts-validation.md) 수정 하 여 두 등록을 수렴 하는 것이 가능 합니다. 그러나 이렇게 하면 Microsoft 계정 사용자에 대 한 새 동의 프롬프트가 강제로 적용 되 고, 해당 사용자의 id 클레임이 구조에서 다를 수 있습니다 `sub` . 특히 새 앱 id가 사용 되 고 있으므로 값이 변경 될 수 있습니다. 이 방법은 철저 하 게 이해 하지 않는 한 권장 되지 않습니다. 대신 V2 API surface에서 두 등록에 대 한 지원을 대기 해야 합니다.
+
+### <a name="switching-to-v2"></a>V2로 전환
+
+위의 단계를 수행한 후 Azure Portal에서 앱으로 이동 합니다. "인증 (미리 보기)" 섹션을 선택 합니다. 
+
+또는 사이트 리소스에서 리소스에 대 한 PUT 요청을 수행할 수 있습니다 `config/authsettingsv2` . 페이로드에 대 한 스키마는 [파일을 사용 하 여 구성](#config-file) 섹션에서 캡처한 것과 같습니다.
 
 ## <a name="configure-using-a-file-preview"></a><a name="config-file"> </a>파일 (미리 보기)을 사용 하 여 구성
 

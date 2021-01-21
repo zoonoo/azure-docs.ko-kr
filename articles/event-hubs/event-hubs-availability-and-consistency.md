@@ -4,12 +4,12 @@ description: 파티션을 사용하여 Azure Event Hubs에서 가용성 및 일�
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bacd5507396352bb814310979498234ee35347
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7b97d76f29ee8b7e44373c865baa09ba5ea4dd23
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902904"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631922"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
 
@@ -30,10 +30,10 @@ Event Hubs는 분할된 데이터 모델을 기반으로 빌드됩니다. 설치
 Event Hubs를 시작하는 가장 간단한 방법은 기본 동작을 사용하는 것입니다. 
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[EventHubs (5.0.0 이상)](#tab/latest)
-새 **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** 개체를 만들고 **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** 메서드를 사용 하는 경우 이벤트 허브의 파티션 간에 이벤트가 자동으로 분산 됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
+새 **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient)** 개체를 만들고 **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync)** 메서드를 사용 하는 경우 이벤트 허브의 파티션 간에 이벤트가 자동으로 분산 됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
 
 #### <a name="microsoftazureeventhubs-410-or-earlier"></a>[EventHubs (4.1.0 또는 이전 버전)](#tab/old)
-새 **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** 개체를 만들고 **[보내기](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 메서드를 사용하는 경우 사용자의 이벤트는 이벤트 허브의 파티션 사이에 자동으로 분산됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
+새 **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** 개체를 만들고 **[보내기](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 메서드를 사용하는 경우 사용자의 이벤트는 이벤트 허브의 파티션 사이에 자동으로 분산됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
 
 ---
 

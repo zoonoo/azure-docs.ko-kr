@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6c139398182ca9d875de0d3b21c58afe503bd8a5
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963128"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632277"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>기본 도메인 컨트롤러 정책을 적용하는 동안 VM이 응답하지 않음
 
@@ -28,7 +28,7 @@ ms.locfileid: "91963128"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 메시지 **기본 도메인 컨트롤러 정책**으로 부팅 하는 동안 OS가 응답 하지 않는 것으로 표시 되는 것을 볼 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 메시지 **기본 도메인 컨트롤러 정책** 으로 부팅 하는 동안 OS가 응답 하지 않는 것으로 표시 되는 것을 볼 수 있습니다.
 
   ![그림 1은 ' 기본 도메인 컨트롤러 정책 ' 메시지와 함께 중지 된 OS를 표시 합니다.](./media/vm-unresponsive-domain-controllers-policy/1-default-domain-controllers-policy.png)
 
@@ -37,6 +37,9 @@ ms.locfileid: "91963128"
 이 문제는 기본 도메인 컨트롤러 정책에 대 한 최근 변경 내용으로 인해 발생할 수 있습니다. 그렇지 않으면 메모리 덤프 파일 분석을 수행 하 여 근본 원인을 확인 해야 합니다.
 
 ## <a name="solution"></a>솔루션
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 최근에 기본 도메인 컨트롤러 정책을 변경한 경우 해당 변경 내용을 취소 하 여 문제를 해결할 수 있습니다. 문제의 원인이 무엇 인지 확실 하지 않은 경우 메모리 덤프를 수집 하 고 지원 티켓을 제출 합니다.
 
