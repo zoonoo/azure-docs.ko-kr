@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 01/07/2020
+ms.date: 01/20/2021
 ms.topic: conceptual
-ms.openlocfilehash: a550655b8076a1e3946ff015239715ddf0712236
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 0e380b49f122e63113e790f4e866fed40aa9beac
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131766"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662715"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -173,6 +173,7 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 - 역할 할당은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용 해야 합니다. 모든 기본 제공 역할은 현재 소유자 또는 권한이 있는 기본 제공 역할을 제외 하 고 Azure 위임 된 리소스 관리에서 지원 됩니다 [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) . 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
 - Azure Databricks를 사용하는 구독을 온보딩할 수 있지만 관리 테넌트의 사용자는 현재 위임된 구독에서 Azure Databricks 작업 영역을 시작할 수 없습니다.
 - 리소스 잠금을 포함 하는 구독 및 리소스 그룹을 등록할 수 있지만 이러한 잠금은 관리 테 넌 트의 사용자가 작업을 수행 하는 것을 방지 하지 않습니다. Azure 관리 애플리케이션 또는 Azure Blueprints(시스템이 할당한 거부 할당)에서 만든 것과 같이 시스템 관리 리소스를 보호하는 [거부 할당](../../role-based-access-control/deny-assignments.md)은 관리 테넌트의 사용자가 해당 리소스에 대해 작업을 수행하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자신의 거부 할당(사용자가 할당한 거부 할당)을 만들 수 없습니다.
+- [국가별 클라우드](../../active-directory/develop/authentication-national-cloud.md) 및 Azure 공용 클라우드 또는 별도의 두 국가에서 구독의 위임은 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,15 +3,15 @@ title: 데이터 인 복제-Azure Database for MariaDB
 description: 데이터에서 복제를 사용 하 여 외부 서버에서 Azure Database for MariaDB 서비스로 동기화 하는 방법에 대해 알아봅니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 331e064bcf11af31a778cb8dd06c463712421b7c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 4f83af5c72529b652b23db53bf9532e87b824ea4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533432"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662630"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Azure Database for MariaDB에 데이터 복제
 

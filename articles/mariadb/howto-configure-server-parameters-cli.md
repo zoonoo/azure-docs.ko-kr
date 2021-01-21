@@ -3,17 +3,17 @@ title: 서버 매개 변수 구성 - Azure CLI - Azure Database for MariaDB
 description: 이 문서에서는 Azure CLI 명령줄 유틸리티를 사용하여 Azure Database for MariaDB에서 서비스 매개 변수를 구성하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4009d8047dae7bf8d9ba66566ff8797fa09a8878
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c2c9d87c153563e2c33d15eda668469674f75494
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538141"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662307"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MariaDB에서 서버 매개 변수 구성
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MariaDB 서버의 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다.

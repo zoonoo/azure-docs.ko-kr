@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a8e08d0045d0520241341cc08fb800468ed6897
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c3e6c1d6bfa83ef238ef38b25b189510cf142a38
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928616"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661088"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 계정 개요
 
@@ -38,7 +38,7 @@ Azure Active Directory B2C (Azure AD B2C)에는 여러 가지 유형의 계정�
 
 - **이름** 및 **사용자 이름** - **이름** 속성에는 사용자의 이름과 성이 포함됩니다. **사용자 이름** 은 사용자가 로그인할 때 입력하는 식별자입니다. 사용자 이름에는 전체 도메인이 포함됩니다. 사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 *your-domain.onmicrosoft.com* 또는 *contoso.com* 과 같은 확인된 페더레이션되지 않은 [사용자 지정 도메인](../active-directory/fundamentals/add-custom-domain.md)이어야 합니다.
 - **프로필** - 계정이 사용자 데이터 프로필로 설정됩니다. 이름, 성, 직위 및 부서 이름을 입력할 수 있습니다. 계정이 생성된 후 프로필을 편집할 수 있습니다.
-- **그룹** - 그룹을 사용하여 한 번에 많은 사용자 또는 디바이스에 라이선스 또는 사용 권한을 할당하는 등 관리 작업을 수행합니다. 테넌트의 기존 [그룹](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)에 새 계정을 삽입할 수 있습니다.
+- **그룹** -그룹을 사용 하 여 여러 사용자에 게 라이선스 또는 사용 권한을 할당 하는 등의 관리 작업을 수행 하거나 한 번에 장치를 사용 합니다. 테넌트의 기존 [그룹](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)에 새 계정을 삽입할 수 있습니다.
 - **디렉터리 역할** - 사용자 계정이 테넌트의 리소스에 대해 가지는 액세스 수준을 지정해야 합니다. 다음 권한 수준을 사용할 수 있습니다.
 
     - **사용자** - 사용자는 할당된 리소스에 액세스할 수 있지만, 대부분의 테넌트 리소스를 관리할 수는 없습니다.
@@ -70,7 +70,7 @@ Azure Active Directory B2C (Azure AD B2C)에는 여러 가지 유형의 계정�
 
 외부 사용자를 게스트 사용자로 테넌트에 초대할 수 있습니다. Azure AD B2C 테넌트에 게스트 사용자를 초대하기 위한 일반적인 시나리오는 관리 책임을 공유하는 것입니다. 게스트 계정 사용 예제를 보려면 [Azure Active Directory B2B 협업 사용자 속성](../active-directory/external-identities/user-properties.md)을 참조하세요.
 
-테넌트에 게스트 사용자를 초대하는 경우 받는 사람의 이메일 주소와 초대를 설명하는 메시지를 제공합니다. 초대 링크를 클릭하면 **시작** 단추가 선택되고 권한 검토가 수락되는 동의 페이지로 이동됩니다. 전자 메일 주소에 받은 편지함이 연결되어 있지 않으면 초대된 자격 증명을 사용하여 Microsoft 페이지로 이동한 후 동의 페이지로 이동할 수 있습니다. 그러면 사용자는 전자 메일의 링크를 클릭할 때와 동일한 방식으로 초대를 강제로 사용하게 됩니다. 예를 들어 `https://myapps.microsoft.com/B2CTENANTNAME`을 참조하십시오.
+테넌트에 게스트 사용자를 초대하는 경우 받는 사람의 이메일 주소와 초대를 설명하는 메시지를 제공합니다. 초대 링크를 누르면 사용자가 동의 페이지로 이동 합니다. 전자 메일 주소에 받은 편지함이 연결되어 있지 않으면 초대된 자격 증명을 사용하여 Microsoft 페이지로 이동한 후 동의 페이지로 이동할 수 있습니다. 그러면 사용자는 전자 메일의 링크를 클릭할 때와 동일한 방식으로 초대를 강제로 사용하게 됩니다. 예를 들어 `https://myapps.microsoft.com/B2CTENANTNAME`을 참조하십시오.
 
 [Microsoft Graph API](/graph/api/invitation-post?view=graph-rest-beta)를 사용하여 게스트 사용자를 초대할 수도 있습니다.
 
@@ -78,7 +78,7 @@ Azure Active Directory B2C (Azure AD B2C)에는 여러 가지 유형의 계정�
 
 소비자 사용자는 Azure AD B2C에서 보호하는 애플리케이션에 로그인할 수 있지만 Azure Portal과 같은 Azure 리소스에 액세스할 수 없습니다. 소비자 사용자는 로컬 계정이나 Facebook 또는 Twitter와 같은 페더레이션된 계정을 사용할 수 있습니다. [등록 또는 로그인 사용자 흐름](user-flow-overview.md)을 사용 하거나 Microsoft Graph API를 사용 하거나 Azure Portal를 사용 하 여 소비자 계정을 만들 수 있습니다.
 
-사용자 지정 특성을 사용하여 소비자 사용자 계정이 생성될 때 수집되는 데이터를 지정할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C에서 사용자 지정 특성 정의](user-flow-custom-attributes.md)를 참조하세요.
+소비자 사용자 계정을 만들 때 수집 되는 데이터를 지정할 수 있습니다. 자세한 내용은 [사용자 특성 추가 및 사용자 입력 사용자 지정](configure-user-input.md)을 참조 하세요.
 
 소비자 계정을 관리 하는 방법에 대 한 자세한 내용은 [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](manage-user-accounts-graph-api.md)를 참조 하세요.
 

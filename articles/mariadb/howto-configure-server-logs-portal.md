@@ -3,15 +3,15 @@ title: 저속 쿼리 로그 액세스-Azure Portal-Azure Database for MariaDB
 description: 이 문서에서는 Azure Portal에서 Azure Database for MariaDB의 저속 쿼리 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: c5ee948daecafc061910f36d2ac95d15338bfb38
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f3a01d3e80be35d10ef5c163c9ad8956f37283c1
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539943"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662511"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-from-the-azure-portal"></a>Azure Portal에서 민 데이터베이스의 저속 쿼리 로그에 대 한 Azure 데이터베이스 구성 및 액세스
 

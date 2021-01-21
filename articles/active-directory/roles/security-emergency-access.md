@@ -1,5 +1,5 @@
 ---
-title: Azure AD에서 응급 액세스 관리자 계정 관리 - Azure AD | Microsoft Docs
+title: 응급 액세스 관리자 계정 관리-Azure AD
 description: 이 문서에서는 응급 액세스 계정을 사용하여 Azure AD(Azure Active Directory) 조직에서 실수로 계정이 잠기는 것을 방지하는 방법을 설명합니다.
 services: active-directory
 author: markwahl-msft
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6ef8e7ed662d8c0acfc7c43112d6d7edb1cb9a94
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834441"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660650"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Azure AD에서 응급 액세스 계정 관리
 
@@ -60,7 +60,7 @@ ms.locfileid: "94834441"
 
 ## <a name="federation-guidance"></a>페더레이션 지침
 
-AD Domain Services와 ADFS 또는 유사한 ID 공급자를 사용하여 Azure AD에 페더레이션하는 조직에 대한 추가 옵션은 해당 ID 공급자가 MFA 클레임을 제공할 수 있는 응급 액세스 계정을 구성하는 것입니다.  예를 들어, 응급 액세스 계정은 스마트 카드에 저장된 인증서와 키 쌍으로 지원할 수 있습니다.  사용자가 AD에서 인증되면 ADFS는 사용자가 MFA 요구 사항을 충족했음을 알려주며 Azure AD에 클레임을 제공할 수 있습니다.  이 방법을 사용하더라도 페더레이션을 설정할 수 없는 경우에는 조직에 클라우드 기반 응급 액세스 계정이 여전히 있어야 합니다. 
+일부 조직에서는 AD Domain Services 및 ADFS 또는 유사한 id 공급자를 사용 하 여 Azure AD에 페더레이션 합니다. [관리 권한이 있는 온-프레미스 계정이](../fundamentals/protect-m365-from-on-premises-attacks.md)없어야 합니다. Azure AD 외부에서 관리 권한이 있는 계정에 대 한 마스터링 및 또는 소싱 인증은 해당 시스템의 작동이 중단 되거나 손상 될 경우 불필요 한 위험을 추가 합니다.
 
 ## <a name="store-account-credentials-safely"></a>계정 자격 증명을 안전하게 저장
 

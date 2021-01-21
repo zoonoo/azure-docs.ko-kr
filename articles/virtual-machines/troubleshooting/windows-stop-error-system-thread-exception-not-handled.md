@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/04/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 1ce594d9e3ffddf781c61717ae4534f0c7bd40f8
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: beb658474e49f9b47900d8481dab0424dae8c5be
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681893"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661394"
 ---
 # <a name="windows-stop-error---0x0000007e-system-thread-exception-not-handled"></a>Windows 중지 오류-0x0000007E 시스템 스레드 예외가 처리 되지 않음
 
@@ -34,6 +34,10 @@ ms.locfileid: "94681893"
 메모리 덤프 파일이 분석 될 때까지 원인을 확인할 수 없습니다. 메모리 덤프 파일을 계속 수집 합니다.
 
 ## <a name="solution"></a>솔루션
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
+
 
 이 문제를 해결 하려면 먼저 작동 중단에 대 한 메모리 덤프 파일을 수집 하 고 파일을 Microsoft 지원으로 전송 해야 합니다. 덤프 파일을 수집 하려면 다음 두 섹션의 지침을 따르세요.
 

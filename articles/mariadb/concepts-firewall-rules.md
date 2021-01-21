@@ -3,15 +3,15 @@ title: 방화벽 규칙-Azure Database for MariaDB
 description: Azure Database for MariaDB 서버에 대 한 연결을 설정 하는 데 방화벽 규칙을 사용 하는 방법에 대해 알아봅니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 452ef4787812dbdf88eb541cf5a164f2888dddcc
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 2a200f25a42bc10b2e986fb710d1e7bc27a48880
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905437"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662562"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Azure Database for MariaDB 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.

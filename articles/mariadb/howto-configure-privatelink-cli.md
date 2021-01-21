@@ -3,16 +3,16 @@ title: 개인 링크-Azure CLI-Azure Database for MariaDB
 description: Azure CLI에서 Azure Database for MariaDB에 대 한 개인 링크를 구성 하는 방법을 알아봅니다.
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7ba8a5ded1d83ffdf153724c5e76b27e10bccfcb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 693fe5820894de38a5b43fc700d517cdcb27233e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015471"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660126"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>CLI를 사용 하 여 Azure Database for MariaDB에 대 한 개인 링크 만들기 및 관리
 
@@ -23,13 +23,13 @@ ms.locfileid: "96015471"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Database for MariaDB 서버가](quickstart-create-mariadb-server-database-using-azure-cli.md)필요 합니다. 
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -176,7 +176,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
     | 설정 | 값 |
     | ------- | ----- |
     | 연결 이름| 원하는 연결 이름을 선택 합니다.|
-    | Hostname | *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |
+    | 호스트 이름 | *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |
     | 사용자 이름 | *username@servername* MariaDB 서버 생성 중에 제공 되는 사용자 이름을 입력 합니다. |
     | 암호 | MariaDB 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     ||

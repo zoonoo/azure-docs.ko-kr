@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6e738152e542617046834980d3e7c58e497093
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005908"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664684"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Windows 중지 오류 - 메모리 없음 상태
 
@@ -27,7 +27,7 @@ ms.locfileid: "87005908"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM (가상 머신)의 스크린샷을 볼 때 스크린 샷에 오류 코드가 표시 됩니다 `0xC0000017` . 실행 중인 Windows 버전에 따라 **Windows 부팅 관리자나** **복구 화면**에이 코드가 표시 될 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM (가상 머신)의 스크린샷을 볼 때 스크린 샷에 오류 코드가 표시 됩니다 `0xC0000017` . 실행 중인 Windows 버전에 따라 **Windows 부팅 관리자나** **복구 화면** 에이 코드가 표시 될 수 있습니다.
 
    **Windows 부팅 관리자**
 
@@ -44,6 +44,9 @@ ms.locfileid: "87005908"
 ## <a name="solution"></a>해결 방법
 
 ### <a name="process-overview"></a>프로세스 개요:
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 1. 복구 VM 만들기 및 액세스
 1. 디스크 공간 확보
@@ -64,9 +67,9 @@ ms.locfileid: "87005908"
 
 2 세대 VM을 사용 하는 경우 연결 된 디스크의 EFI 파티션에 문자를 할당 하지 않을 수 있습니다. 이 문제 해결 가이드를 진행 하기 전에 다음 단계를 수행 하 여 파티션에 문자를 할당 해야 합니다.
 
-1. Windows 검색에서 `diskmgmt` **디스크 관리 콘솔**을 입력 하 고 엽니다.
+1. Windows 검색에서 `diskmgmt` **디스크 관리 콘솔** 을 입력 하 고 엽니다.
 1. 복구 VM에 연결 된 손상 된 디스크를 확인 합니다. 일반적으로이 디스크는 콘솔의 마지막에 표시 되며 숫자 값이 가장 높습니다.
-1. 이 디스크에는 **EFI 시스템 파티션을**보유 하는 파티션이 있습니다. 여기에는 문자 값 (예: 드라이브 *F:*)도 할당 되지 않습니다. 모든 파티션이 할당 된 경우 디스크의 공간을 확보 하기 위해 건너뛸 수 있습니다. 그렇지 않으면 계속 해 서이 디스크에 문자를 할당 합니다.
+1. 이 디스크에는 **EFI 시스템 파티션을** 보유 하는 파티션이 있습니다. 여기에는 문자 값 (예: 드라이브 *F:*)도 할당 되지 않습니다. 모든 파티션이 할당 된 경우 디스크의 공간을 확보 하기 위해 건너뛸 수 있습니다. 그렇지 않으면 계속 해 서이 디스크에 문자를 할당 합니다.
 
    ![디스크 관리 콘솔에는 연결 된 디스크 "디스크 2"가 포함 되 고 할당 되지 않은 파티션 (100, "EFI 시스템 파티션")도 포함 됩니다.](./media/troubleshoot-windows-stop-error/3.png)
 
@@ -93,9 +96,9 @@ ms.locfileid: "87005908"
 
 이제 손상 된 디스크가 복구 VM에 연결 되었으므로 해당 디스크의 OS에 제대로 작동 하는 데 충분 한 공간이 있는지 확인 해야 합니다. 
 
-1. 연결 된 디스크의 드라이브를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 하 여 디스크가 꽉 찬 경우를 확인 합니다.
-1. 디스크의 **사용 가능한 공간이 300 Mb 미만인**경우 [PowerShell을 사용 하 여 최대 1tb까지 확장](../windows/expand-os-disk.md)합니다.
-1. 디스크 크기가 **1tb**이면 디스크 정리를 수행 해야 합니다. [디스크 정리 도구](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) 를 사용 하 여 공간을 확보할 수 있습니다.
+1. 연결 된 디스크의 드라이브를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 하 여 디스크가 꽉 찬 경우를 확인 합니다.
+1. 디스크의 **사용 가능한 공간이 300 Mb 미만인** 경우 [PowerShell을 사용 하 여 최대 1tb까지 확장](../windows/expand-os-disk.md)합니다.
+1. 디스크 크기가 **1tb** 이면 디스크 정리를 수행 해야 합니다. [디스크 정리 도구](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) 를 사용 하 여 공간을 확보할 수 있습니다.
 1. 관리자 권한 명령 프롬프트 (관리자 권한으로 실행) 인스턴스를 열고 드라이브에서 조각화를 취소 합니다.
 
    ``
@@ -137,14 +140,14 @@ ms.locfileid: "87005908"
    ![레지스트리 편집기의 Hive 로드 메뉴](./media/troubleshoot-windows-stop-error/4.png)
 
 1. Hive 로드 대화 상자에서 **\windows\system32\config\SYSTEM** 를 선택 하 고 열기를 클릭 합니다.
-   1. **BROKENSYSTEM**에 입력 해야 하는 이름을 입력 하 라는 메시지가 표시 됩니다. 이 이름은 문제를 해결 하는 동안 영향을 받는 하이브를 구분 하는 데 도움이 됩니다.
+   1. **BROKENSYSTEM** 에 입력 해야 하는 이름을 입력 하 라는 메시지가 표시 됩니다. 이 이름은 문제를 해결 하는 동안 영향을 받는 하이브를 구분 하는 데 도움이 됩니다.
    1. **HKEY_LOCAL_MACHINE** 를 확장 하 여 추가한 새 BROKENSYSTEM 키를 확인 합니다.
 1. 레지스트리 편집기를 사용 하 여 컴퓨터가 부팅 되는 ControlSet 확인 합니다.
-   1. **HKEY_LOCAL_MACHINE >> BROKENSYSTEM >> Select**로 이동 합니다.
+   1. **HKEY_LOCAL_MACHINE >> BROKENSYSTEM >> Select** 로 이동 합니다.
    1. 나열 된 키에서 Current의 데이터 값을 확인 합니다. 예를 들어이 값이 **1** 또는 **0x00000001 (1)** 이면 컨트롤 집합은 ControlSet001가 됩니다.
 1. 페이지 파일 만들기가 구성 된 위치를 확인 합니다.
    1. HKEY_LOCAL_MACHINE\BROKENSYSTEM 중에 4 단계에서 식별 한 ControlSet 수와 일치 하는 디렉터리 (예: **ControlSet001**)를 확장 합니다.
-   1. ** >> 세션 관리자 >> 메모리 관리** 로 이동 하 여 **existingpagefiles** 키의 위치를 확인 합니다.
+   1. **>> 세션 관리자 >> 메모리 관리** 로 이동 하 여 **existingpagefiles** 키의 위치를 확인 합니다.
    1. 이 키는 임시 드라이브의 기본 Azure 위치에 있어야 합니다. 데이터 디스크 드라이브 또는 OS 드라이브와 같은 다른 위치에 있는 VHD가 없는 경우에는 삭제 해야 합니다.
    1. 파일 탐색기에서 해당 위치로 이동한 다음 **pagefile.sys** 파일을 삭제 합니다.
 
@@ -174,8 +177,8 @@ ms.locfileid: "87005908"
       ``
    
    - 명령에서를 `<LETTER OF THE EFI SYSTEM PARTITION>` EFI 시스템 파티션의 문자로 바꿉니다.
-   - **EFI 시스템 파티션**으로 레이블이 지정 된 적절 한 시스템 파티션을 식별 하는 디스크 관리 콘솔을 시작 하는 것이 유용할 수 있습니다.
-   - 식별자는 고유한 GUID 이거나 기본 **bootmgr**일 수 있습니다.
+   - **EFI 시스템 파티션** 으로 레이블이 지정 된 적절 한 시스템 파티션을 식별 하는 디스크 관리 콘솔을 시작 하는 것이 유용할 수 있습니다.
+   - 식별자는 고유한 GUID 이거나 기본 **bootmgr** 일 수 있습니다.
 
 1. 다음 명령을 실행 하 여 직렬 콘솔을 사용 하도록 설정 합니다.
 

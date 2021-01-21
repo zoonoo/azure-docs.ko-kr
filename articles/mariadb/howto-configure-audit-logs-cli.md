@@ -3,16 +3,16 @@ title: 감사 로그에 액세스-Azure CLI-Azure Database for MariaDB
 description: 이 문서에서는 Azure CLI에서 Azure Database for MariaDB의 감사 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c1d446d8ee2863077ad84c361876758336f5a3cb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 57fc79e88e3268c37dd932a5618bd661f000e09c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540980"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665177"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>Azure CLI에서 민 DB 감사 로그에 대해 Azure Database 구성 및 액세스
 
@@ -28,7 +28,7 @@ Azure CLI에서 [Azure Database for MariaDB 감사 로그](concepts-audit-logs.m
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- 이 문서에는 Azure CLI 버전 2.0 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="configure-audit-logging"></a>감사 로깅 구성
 

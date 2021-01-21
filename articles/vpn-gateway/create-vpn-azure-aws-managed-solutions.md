@@ -3,17 +3,17 @@ title: 관리 솔루션을 사용 하 여 Azure와 AWS 간의 VPN 만들기
 description: Vm 또는 어플라이언스 대신 관리 솔루션을 사용 하 여 Azure와 AWS 간에 VPN 연결을 만드는 방법입니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
-author: cherylmc
+author: ricmmartins
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.author: cherylmc
-ms.openlocfilehash: c1bc263ca67a7d05dbb0d40bb07ba1ae43c2db5c
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.author: ricmart
+ms.openlocfilehash: 3b9e60eb037182318e9d1ef7336565908a9c8f32
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605642"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664786"
 ---
 # <a name="create-a-vpn-connection-between-azure-and-aws-using-managed-solutions"></a>관리 솔루션을 사용 하 여 Azure와 AWS 간 VPN 연결 만들기
 
@@ -53,7 +53,7 @@ ms.locfileid: "98605642"
 * **활성-활성 모드를 사용 하도록 설정 합니다.** 하지
 * **BGP 구성:** 하지
 
-예제:
+예:
 
 :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/summary.png" alt-text="가상 네트워크 게이트웨이 요약":::
 

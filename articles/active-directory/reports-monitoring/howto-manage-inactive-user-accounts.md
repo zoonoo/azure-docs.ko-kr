@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/07/2020
+ms.date: 01/21/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b48a84bb69a356815cccd1e33c555eeb667699f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fb517f8c50ad2c32f23542e60069a0e0a496a2d
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89244724"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660667"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>방법: Azure AD의 비활성 사용자 계정 관리
 
@@ -85,7 +85,7 @@ ms.locfileid: "89244724"
 
 lastSignInDateTime 타임스탬프를 생성하려면 성공적인 로그인이 필요합니다. lastSignInDateTime 속성은 새로운 기능이므로 다음과 같은 경우 lastSignInDateTime 속성의 값을 비워 둘 수 있습니다.
 
-- 이 기능이 출시되기(2019년 12월 1일) 전에 사용자가 마지막으로 성공한 로그인이 발생한 경우
+- 4 월 2020 일 전에 사용자의 마지막으로 성공한 로그인이 발생 했습니다.
 - 영향을 받는 사용자 계정이 성공적인 로그인에 사용된 적이 없는 경우
 
 ## <a name="next-steps"></a>다음 단계

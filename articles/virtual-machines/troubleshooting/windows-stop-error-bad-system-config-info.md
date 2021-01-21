@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: cbfdb9a73f53e194b43010c0b2d84357aa3e2e5b
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 8d501bcc745ef19d15564951b8c0f29f9e2678ab
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631988"
+ms.locfileid: "98661309"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Windows 중지 오류-0x00000074 잘못 된 시스템 구성 정보
 
@@ -34,7 +34,7 @@ ms.locfileid: "98631988"
  *지원 담당자를 호출 하는 경우 다음 정보를 제공 합니다.* 
  *Stop code: BAD_SYSTEM_CONFIG_INFO*
 
-  ![Windows 중지 코드 0x00000074는 "BAD_SYSTEM_CONFIG_INFO"으로 표시 됩니다. Windows에서 사용자 PC에 문제가 발생 하 여 다시 시작 해야 함을 사용자에 게 알립니다.](./media/windows-stop-error-bad-system-config-info/1.png)
+  ![Windows 중지 코드 0x00000074는 "BAD_SYSTEM_CONFIG_INFO"으로 표시 됩니다. Windows에서 사용자 PC에 문제가 발생 하 여 다시 시작 해야 함을 사용자에 게 알립니다.](./media/windows-stop-error-bad-system-config-info/stop-code-0x00000074.png)
 
 ## <a name="cause"></a>원인
 
@@ -56,8 +56,8 @@ ms.locfileid: "98631988"
 1. 직렬 콘솔과 메모리 덤프 수집을 사용하도록 설정합니다.
 1. VM을 다시 빌드합니다.
 
-> [!NOTE]
-> 이 오류가 발생할 경우 게스트 OS (운영 체제)가 작동 하지 않습니다. 이 문제를 해결 하기 위해 오프 라인 모드에서 문제를 해결 합니다.
+   > [!NOTE]
+   > 이 오류가 발생할 경우 게스트 OS (운영 체제)가 작동 하지 않습니다. 이 문제를 해결 하기 위해 오프 라인 모드에서 문제를 해결 합니다.
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
@@ -66,8 +66,8 @@ ms.locfileid: "98631988"
 1. 원격 데스크톱 연결를 사용 하 여 복구 VM에 연결 합니다.
 1. 폴더를 복사 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` 하 여 정상 디스크 파티션이나 다른 안전한 위치에 저장 합니다. 중요 한 레지스트리 파일을 편집할 수 있기 때문에이 폴더를 예방 조치로 백업 합니다. 
 
-> [!NOTE]
-> 레지스트리에 대 한 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` 변경 내용을 롤백해야 하는 경우 백업으로 폴더 복사본을 만듭니다.
+   > [!NOTE]
+   > 레지스트리에 대 한 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` 변경 내용을 롤백해야 하는 경우 백업으로 폴더 복사본을 만듭니다.
 
 ### <a name="check-for-hive-corruption"></a>Hive 손상 확인
 
@@ -80,7 +80,7 @@ ms.locfileid: "98631988"
 
    1. Hive를 열지 못했거나 비어 있으면 hive가 손상 된 것입니다. Hive가 손상 된 경우 [지원 티켓을 엽니다](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-     ![레지스트리 편집기에서 하이브를 로드할 수 없다는 오류가 발생 합니다.](./media/windows-stop-error-bad-system-config-info/2.png)
+      ![레지스트리 편집기에서 하이브를 로드할 수 없다는 오류가 발생 합니다.](./media/windows-stop-error-bad-system-config-info/cannot-load-hive-error.png)
 
    1. Hive가 정상적으로 열리면 hive가 제대로 닫히지 않았습니다. 5 단계를 계속 합니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "98631988"
 
    **직렬 콘솔을 사용하도록 설정합니다.**
    
-   ```
+   ```ps
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
@@ -108,13 +108,13 @@ ms.locfileid: "98631988"
 
    **손상된 OS 디스크에서 레지스트리 하이브를 로드합니다.**
 
-   ```
+   ```ps
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
    ```
 
    **ControlSet001에서 사용하도록 설정합니다.**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -122,7 +122,7 @@ ms.locfileid: "98631988"
 
    **ControlSet002에서 사용하도록 설정합니다.**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -130,7 +130,7 @@ ms.locfileid: "98631988"
 
    **손상된 OS 디스크를 언로드합니다.**
 
-   ```
+   ```ps
    REG UNLOAD HKLM\BROKENSYSTEM
    ```
    

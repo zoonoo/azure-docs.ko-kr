@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 04d5a989fcaf3cef3eea3b782842fb3255d4b317
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952729"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661105"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -53,7 +53,7 @@ Azure Portal의이 이미지 예제에서는 사용자가 외부 id 공급자 (�
 
 |섹션|필드|Description|
 |-------|-----|-----------|
-| 작업 | 속성 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에* 대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
+| 활동 | 속성 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에* 대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
 | 초기자(작업자) | ObjectId | 사용자가 로그인 하는 B2C 응용 프로그램의 **개체 ID** 입니다. 이 식별자는 Azure Portal에 표시 되지 않지만 Microsoft Graph API를 통해 액세스할 수 있습니다. |
 | 초기자(작업자) | Spn | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 | 대상 | ObjectId | 로그인 중인 사용자의 **개체 ID** 입니다. |
@@ -223,4 +223,4 @@ if ($oauth.access_token -ne $null) {
 
 ## <a name="next-steps"></a>다음 단계
 
-다른 관리 작업 (예: [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](manage-user-accounts-graph-api.md))을 자동화할 수 있습니다.
+다른 관리 작업 (예: [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](microsoft-graph-operations.md))을 자동화할 수 있습니다.

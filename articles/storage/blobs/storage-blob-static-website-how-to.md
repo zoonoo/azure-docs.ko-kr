@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8ca670049b49500e6b6310bca25cb78ded31a294
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a90251097f2b4cced5b30f5d6eea03b6ca0b1c61
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95537852"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664752"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
@@ -54,9 +54,9 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠(HTML, CS
 
 <a id="cli"></a>
 
-CLI([Azure 명령줄 인터페이스)](/cli/azure/?view=azure-cli-latest)를 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정할 수 있습니다.
+CLI([Azure 명령줄 인터페이스)](/cli/azure/)를 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정할 수 있습니다.
 
-1. 먼저 [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest)을 열거나 Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli?view=azure-cli-latest)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
+1. 먼저 [Azure Cloud Shell](../../cloud-shell/overview.md)을 열거나 Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
 
 2. ID가 둘 이상의 구독과 연결된 경우 정적 웹 사이트를 호스트하는 스토리지 계정의 구독으로 활성 구독을 설정합니다.
 
