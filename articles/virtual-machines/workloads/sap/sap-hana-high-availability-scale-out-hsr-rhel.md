@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 23a5ea2d3ffc1511bea66bb8bc3c4282b6d16cc2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c97975d6920cd0f04a7d2d4e73c00104a2b13235
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489125"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685615"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 SAP HANA 스케일 아웃 시스템의 고가용성 
 
@@ -141,7 +141,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 2. 가상 네트워크 서브넷에서 각 HANA DB 가상 머신에 대해 하나씩 6 개의 네트워크 인터페이스를 만듭니다 `inter` (이 예에서는 hana-s1- **db1** **, hana** **-s2-db1**, **hana-s2**- **db3**, hana- **s2-db3**-s-s-s-s-간).  
 
-3. 6 개의 네트워크 인터페이스를 만듭니다. 각 HANA DB 가상 컴퓨터에 대 한 하나는 `hsr` 가상 네트워크 서브넷에 있습니다 (이 예에서는 hana-s1- **db1-hsr** **, hana**-db3-hsr, hana- **db1-hsr**, **hana**- **hana-s1-db3-hsr**-hsr, hana- **s2-db3-hsr**).  
+3. 6 개의 네트워크 인터페이스를 만듭니다. 각 HANA DB 가상 컴퓨터에 대 한 하나는 `hsr` 가상 네트워크 서브넷에 있습니다 (이 예에서는 hana-s1- **db1-hsr** **, hana**-db3-hsr, hana- **db1-hsr**, **hana**- -hsr, hana- **s2-db3-hsr**).  
 
 4. 새로 만든 가상 네트워크 인터페이스를 해당 가상 컴퓨터에 연결 합니다.  
 
@@ -149,7 +149,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
     b. 왼쪽 창에서 **Virtual Machines** 을 선택 합니다. 가상 컴퓨터 이름 (예: **db1**)을 필터링 한 다음 가상 컴퓨터를 선택 합니다.  
 
-    c. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
+    다. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
 
     d. **네트워킹** 을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 및 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다 `inter` `hsr` .  
     
@@ -165,7 +165,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
     b. 다음 명령을 실행 하 여 및 서브넷에 연결 된 추가 네트워크 인터페이스에 대 한 가속화 된 네트워킹을 사용 하도록 설정 `inter` `hsr` 합니다.  
 
-    ```
+    ```azurecli
     az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db1-inter --accelerated-networking true
     az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db2-inter --accelerated-networking true
     az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db3-inter --accelerated-networking true
@@ -256,7 +256,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 1. **[A]** 가상 컴퓨터에서 호스트 파일을 유지 관리 합니다. 모든 서브넷에 대 한 항목을 포함 합니다. 이 예제의에 추가 된 항목은 다음과 같습니다 `/etc/hosts` .  
 
-    ```
+    ```bash
      # Client subnet
      10.23.0.11 hana-s1-db1
      10.23.0.12 hana-s1-db1
@@ -303,17 +303,17 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 1. **[AH]** HANA 데이터베이스 볼륨의 탑재 위치를 만듭니다.  
 
-    ```
+    ```bash
     mkdir -p /hana/shared
     ```
 
-2. **[AH]** NFS 도메인 설정을 확인 합니다. 도메인이 기본 Azure NetApp Files 도메인으로 구성 되었는지 확인 하 고, 즉, **`defaultv4iddomain.com`** 매핑이 없음으로 설정 되었는지 확인 합니다. **nobody**  
+2. **[AH]** NFS 도메인 설정을 확인 합니다. 도메인이 기본 Azure NetApp Files 도메인으로 구성 되었는지 확인 하 고, 즉, **`defaultv4iddomain.com`** 매핑이 없음으로 설정 되었는지 확인 합니다.   
    이 단계는 Azure NetAppFiles NFSv 4.1을 사용 하는 경우에만 필요 합니다.  
 
     > [!IMPORTANT]
     > VM의 `/etc/idmapd.conf`에서 NFS 도메인을 Azure NetApp Files의 기본 도메인 구성( **`defaultv4iddomain.com`** )과 일치하도록 설정해야 합니다. NFS 클라이언트(예: VM)의 도메인 구성과 NFS 서버(예: Azure NetApp 구성)가 일치하지 않는 경우 VM에 탑재된 Azure NetApp 볼륨의 파일에 대한 사용 권한이 `nobody`로 표시됩니다.  
 
-    ```
+    ```bash
     sudo cat /etc/idmapd.conf
     # Example
     [General]
@@ -326,7 +326,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 3. **[AH]** 확인 `nfs4_disable_idmapping` . **Y** 로 설정되어야 합니다. `nfs4_disable_idmapping`이 있는 디렉터리 구조를 만들려면 mount 명령을 실행합니다. 커널/드라이버용으로 액세스가 예약되어 있기 때문에 /sys/modules 아래에 디렉터리를 수동으로 만들 수 없습니다.  
    이 단계는 Azure NetAppFiles NFSv 4.1을 사용 하는 경우에만 필요 합니다.  
 
-    ```
+    ```bash
     # Check nfs4_disable_idmapping 
     cat /sys/module/nfs/parameters/nfs4_disable_idmapping
     # If you need to set nfs4_disable_idmapping to Y
@@ -342,20 +342,20 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 4. **[AH1]** SITE1 HANA DB Vm에 공유 Azure NetApp Files 볼륨을 탑재 합니다.  
 
-    ```
+    ```bash
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
     ```
 
 5. **[AH2]** SITE2 HANA DB Vm에 공유 Azure NetApp Files 볼륨을 탑재 합니다.  
 
-    ```
+    ```bash
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
     ```
 
 
 10. **[AH]** 해당 `/hana/shared/` 파일 시스템이 NFS 프로토콜 버전 **NFSv4** 를 사용 하는 모든 HANA DB vm에 탑재 되어 있는지 확인 합니다.  
 
-    ```
+    ```bash
     sudo nfsstat -m
     # Verify that flag vers is set to 4.1 
     # Example from SITE 1, hana-s1-db1
@@ -372,25 +372,25 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 **LVM (논리 볼륨 관리자)** 을 사용 하 여 디스크 레이아웃을 설정 합니다. 다음 예에서는 각 HANA 가상 컴퓨터에 두 개의 볼륨을 만드는 데 사용 되는 세 개의 데이터 디스크가 연결 되어 있다고 가정 합니다.
 
 1. **[AH]** 사용 가능한 모든 디스크 나열:
-    ```
+    ```bash
     ls /dev/disk/azure/scsi1/lun*
     ```
 
    예제 출력:
 
-    ```
+    ```bash
     /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2 
     ```
 
 2. **[AH]** 사용 하려는 모든 디스크에 대 한 실제 볼륨을 만듭니다.
-    ```
+    ```bash
     sudo pvcreate /dev/disk/azure/scsi1/lun0
     sudo pvcreate /dev/disk/azure/scsi1/lun1
     sudo pvcreate /dev/disk/azure/scsi1/lun2
     ```
 
 3. **[AH]** 데이터 파일에 대 한 볼륨 그룹을 만듭니다. 로그 파일에 대해 한 볼륨 그룹, SAP HANA의 공유 디렉터리에 대해 한 볼륨을 사용합니다.
-    ```
+    ```bash
     sudo vgcreate vg_hana_data_HN1 /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
     sudo vgcreate vg_hana_log_HN1 /dev/disk/azure/scsi1/lun2
     ```
@@ -402,7 +402,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
    > 스위치를 사용 `-i` 하 여 각 데이터 또는 로그 볼륨에 둘 이상의 실제 볼륨을 사용 하는 경우 기본 실제 볼륨의 수로 설정 합니다. 스트라이프 볼륨을 만들 때 `-I` 스위치를 사용하여 스트라이프 크기를 지정합니다.  
    > 스트라이프 크기 및 디스크 수를 비롯한 권장되는 스토리지 구성은 [SAP HANA VM 스토리지 구성](./hana-vm-operations-storage.md)을 참조하세요.  
 
-    ```
+    ```bash
     sudo lvcreate -i 2 -I 256 -l 100%FREE -n hana_data vg_hana_data_HN1
     sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_HN1
     sudo mkfs.xfs /dev/vg_hana_data_HN1/hana_data
@@ -410,7 +410,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     ```
 
 5. **[AH]** 탑재 디렉터리를 만들고 모든 논리 볼륨의 UUID를 복사 합니다.
-    ```
+    ```bash
     sudo mkdir -p /hana/data/HN1
     sudo mkdir -p /hana/log/HN1
     # Write down the ID of /dev/vg_hana_data_HN1/hana_data and /dev/vg_hana_log_HN1/hana_log
@@ -418,20 +418,20 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     ```
 
 6. **[AH]** `fstab` 논리 볼륨에 대 한 항목을 만들고 탑재 합니다.
-    ```
+    ```bash
     sudo vi /etc/fstab
     ```
 
    `/etc/fstab` 파일에서 다음 줄을 삽입합니다.
 
-    ```
+    ```bash
     /dev/disk/by-uuid/UUID of /dev/mapper/vg_hana_data_HN1-hana_data /hana/data/HN1 xfs  defaults,nofail  0  2
     /dev/disk/by-uuid/UUID of /dev/mapper/vg_hana_log_HN1-hana_log /hana/log/HN1 xfs  defaults,nofail  0  2
     ```
 
    새 볼륨을 탑재합니다.
 
-    ```
+    ```bash
     sudo mount -a
     ```
 
@@ -444,27 +444,27 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 1. **[AH]** HANA 설치 전에 루트 암호를 설정 합니다. 설치가 완료 된 후 루트 암호를 사용 하지 않도록 설정할 수 있습니다. Execute as `root` 명령 `passwd` 입니다.  
 
 2. **[1, 2]** 에 대 한 사용 권한 변경 `/hana/shared` 
-    ```
+    ```bash
     chmod 775 /hana/shared
     ```
 
 3. **[1]** 암호를 입력 하 라는 메시지가 표시 되지 않고,이 사이트의 Hana DB vm ( **hana-s1-db2** 및 hana- **s1-db3)** 을 통해 SSH를 통해 로그인 할 수 있는지 확인 합니다.  
    이 경우에는 [키 기반 인증 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs)에 설명 된 대로 exchange ssh 키를 사용 합니다.  
-    ```
+    ```bash
     ssh root@hana-s1-db2
     ssh root@hana-s1-db3
     ```
 
 4. **[2]** 암호를 입력 하 라는 메시지가 표시 되지 않고 **SSH를 통해** **이 사이트의 hana DB** vm에 로그인 할 수 있는지 확인 합니다.  
    이 경우에는 [키 기반 인증 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs)에 설명 된 대로 exchange ssh 키를 사용 합니다.  
-    ```
+    ```bash
     ssh root@hana-s2-db2
     ssh root@hana-s2-db3
     ```
 
 5. **[AH]** HANA 2.0 s p 4에 필요한 추가 패키지를 설치 합니다. 자세한 내용은 RHEL 7에 대 한 SAP Note [2593824](https://launchpad.support.sap.com/#/notes/2593824) 을 참조 하세요. 
 
-    ```
+    ```bash
     # If using RHEL 7
     yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1
     # If using RHEL 8
@@ -473,7 +473,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 
 6. **[A]** HANA 설치를 방해 하지 않도록 일시적으로 방화벽을 사용 하지 않도록 설정 합니다. HANA 설치가 완료 된 후에 다시 사용 하도록 설정할 수 있습니다. 
-    ```
+    ```bash
     # Execute as root
     systemctl stop firewalld
     systemctl disable firewalld
@@ -483,9 +483,9 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 1. **[1]** [SAP HANA 2.0 설치 및 업데이트 가이드](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.04/en-US/7eb0167eb35e4e2885415205b8383584.html)의 지침에 따라 SAP HANA를 설치 합니다. 다음 지침에서는 사이트 1의 첫 번째 노드에 SAP HANA 설치를 보여 줍니다.   
 
-   a. **hdblcm** `root` HANA 설치 소프트웨어 디렉터리에서 hdblcm 프로그램을 시작 합니다. `internal_network`매개 변수를 사용 하 고 내부 HANA 노드 간 통신에 사용 되는 서브넷에 대 한 주소 공간을 전달 합니다.  
+   a.  `root` HANA 설치 소프트웨어 디렉터리에서 hdblcm 프로그램을 시작 합니다. `internal_network`매개 변수를 사용 하 고 내부 HANA 노드 간 통신에 사용 되는 서브넷에 대 한 주소 공간을 전달 합니다.  
 
-    ```
+    ```bash
     ./hdblcm --internal_network=10.23.1.128/26
     ```
 
@@ -522,7 +522,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
    global.ini를 표시 하 고 내부 SAP HANA 노드 간 통신에 대 한 구성이 준비 되었는지 확인 합니다. **통신** 섹션을 확인 합니다. 서브넷에 대 한 주소 공간이 있어야 하 `inter` 고 `listeninterface` 로 설정 되어야 합니다 `.internal` . **Internal_hostname_resolution** 섹션을 확인 합니다. 서브넷에 속하는 HANA 가상 컴퓨터의 IP 주소가 있어야 합니다 `inter` .  
 
-   ```
+   ```bash
      sudo cat /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
      # Example from SITE1 
      [communication]
@@ -536,7 +536,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 4. **[1, 2]** `global.ini` SAP note [2080991](https://launchpad.support.sap.com/#/notes/0002080991)에 설명 된 대로 공유 되지 않는 환경에서 설치를 준비 합니다.  
 
-   ```
+   ```bash
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
     [persistence]
     basepath_shared = no
@@ -544,14 +544,14 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 4. **[1, 2]** SAP HANA을 다시 시작 하 여 변경 내용을 활성화 합니다.  
 
-   ```
+   ```bash
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StartSystem
    ```
 
 6. **[1, 2]** 클라이언트 인터페이스가 통신을 위해 서브넷의 IP 주소를 사용 하는지 확인 `client` 합니다.  
 
-    ```
+    ```bash
     # Execute as hn1adm
     /usr/sap/HN1/HDB03/exe/hdbsql -u SYSTEM -p "password" -i 03 -d SYSTEMDB 'select * from SYS.M_HOST_INFORMATION'|grep net_publicname
     # Expected result - example from SITE 2
@@ -562,13 +562,13 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 7. **[AH]** HANA 설치 오류를 방지 하려면 데이터 및 로그 디렉터리에 대 한 사용 권한을 변경 하십시오.  
 
-   ```
+   ```bash
     sudo chmod o+w -R /hana/data /hana/log
    ```
 
 8. **[1]** 보조 HANA 노드를 설치 합니다. 이 단계의 예제 지침은 사이트 1에 대 한 것입니다.  
    a. 로 상주 **hdblcm** 프로그램을 시작 `root` 합니다.    
-    ```
+    ```bash
      cd /hana/shared/HN1/hdblcm
      ./hdblcm 
     ```
@@ -602,21 +602,21 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
    **H n 1** adm으로 데이터베이스를 백업 합니다.
 
-    ```
+    ```bash
     hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
     hdbsql -d HN1 -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupHN1')"
     ```
 
    시스템 PKI 파일을 보조 사이트에 복사합니다.
 
-    ```
+    ```bash
     scp /usr/sap/HN1/SYS/global/security/rsecssfs/data/SSFS_HN1.DAT hana-s2-db1:/usr/sap/HN1/SYS/global/security/rsecssfs/data/
     scp /usr/sap/HN1/SYS/global/security/rsecssfs/key/SSFS_HN1.KEY  hana-s2-db1:/usr/sap/HN1/SYS/global/security/rsecssfs/key/
     ```
 
    기본 사이트를 만듭니다.
 
-    ```
+    ```bash
     hdbnsutil -sr_enable --name=HANA_S1
     ```
 
@@ -624,7 +624,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     
    두 번째 사이트를 등록 하 여 시스템 복제를 시작 합니다. 다음 명령을 <hanasid\>adm으로 실행합니다.
 
-    ```
+    ```bash
     sapcontrol -nr 03 -function StopWait 600 10
     hdbnsutil -sr_register --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=sync --name=HANA_S2
     sapcontrol -nr 03 -function StartSystem
@@ -634,7 +634,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
    복제 상태를 확인하고 모든 데이터베이스가 동기화될 때까지 기다립니다.
 
-    ```
+    ```bash
     sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
     # | Database | Host          | Port  | Service Name | Volume ID | Site ID | Site Name | Secondary     | Secondary | Secondary | Secondary | Secondary     | Replication | Replication | Replication    |
     # |          |               |       |              |           |         |           | Host          | Port      | Site ID   | Site Name | Active Status | Mode        | Status      | Status Details |
@@ -657,12 +657,12 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 4. **[1, 2]** hana 시스템 복제 가상 네트워크 인터페이스를 통해 전달 된 경우 hana 시스템 복제에 대 한 통신이 되도록 hana 구성을 변경 합니다.   
    - 두 사이트에서 HANA 중지
-    ```
+    ```bash
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem HDB
     ```
 
    - global.ini 편집 하 여 HANA 시스템 복제에 대 한 호스트 매핑을 추가 합니다. 서브넷의 IP 주소를 사용 `hsr` 합니다.  
-    ```
+    ```bash
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
     #Add the section
     [system_replication_hostname_resolution]
@@ -675,7 +675,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     ```
 
    - 두 사이트에서 HANA 시작
-   ```
+   ```bash
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StartSystem HDB
    ```
 
@@ -683,7 +683,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 5. **[AH]** 방화벽을 다시 사용 하도록 설정 합니다.  
    - 방화벽 다시 사용
-       ```
+       ```bash
        # Execute as root
        systemctl start firewalld
        systemctl enable firewalld
@@ -694,7 +694,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
        > [!IMPORTANT]
        > HANA 노드 통신과 클라이언트 트래픽을 허용 하는 방화벽 규칙을 만듭니다. 필수 포트 목록은 [모든 SAP 제품의 TCP/IP 포트](https://help.sap.com/viewer/ports)에 나열되어 있습니다. 다음 명령은 예제 일 뿐입니다. 이 시나리오에서는 시스템 번호 03이 사용 됩니다.
 
-       ```
+       ```bash
         # Execute as root
         sudo firewall-cmd --zone=public --add-port=30301/tcp --permanent
         sudo firewall-cmd --zone=public --add-port=30301/tcp
@@ -753,19 +753,19 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 1. **[1, 2]** 두 복제 사이트에서 SAP HANA를 중지 합니다. <sid adm으로 실행 \> 합니다.  
 
-    ```
+    ```bash
     sapcontrol -nr 03 -function StopSystem
     ```
 
 2. **[AH]** `/hana/shared`모든 HANA DB vm에 설치 하기 위해 일시적으로 탑재 된 파일 시스템의 탑재를 해제 합니다. 파일 시스템을 사용 하는 프로세스 및 세션을 중지 한 후에 탑재를 해제할 수 있습니다. 
  
-    ```
+    ```bash
     umount /hana/shared 
     ```
 
 3. **[1]** `/hana/shared` 사용 안 함 상태의에 대 한 파일 시스템 클러스터 리소스를 만듭니다. `--disabled`탑재를 사용 하도록 설정 하기 전에 위치 제약 조건을 정의 해야 하기 때문에 옵션을 사용 하 여 리소스를 만듭니다.  
 
-    ```
+    ```bash
     # /hana/shared file system for site 1
     pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1  directory=/hana/shared \
     fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,intr,noatime,sec=sys,vers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 \
@@ -787,7 +787,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 4. **[1]** 노드 특성을 구성 하 고 확인 합니다. 복제 사이트 1의 모든 SAP HANA DB 노드에는 특성이 할당 되 `S1` 고 복제 사이트 2의 모든 SAP HANA db 노드에는 특성이 할당 됩니다 `S2` .  
 
-    ```
+    ```bash
     # HANA replication site 1
     pcs node attribute hana-s1-db1 NFS_SID_SITE=S1
     pcs node attribute hana-s1-db2 NFS_SID_SITE=S1
@@ -801,7 +801,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     ```
 
 5. **[1]** NFS 파일 시스템이 탑재 되는 위치를 결정 하는 제약 조건을 구성 하 고 파일 시스템 리소스를 사용 하도록 설정 합니다.  
-    ```
+    ```bash
     # Configure the constraints
     pcs constraint location fs_hana_shared_s1-clone rule resource-discovery=never score=-INFINITY NFS_SID_SITE ne S1
     pcs constraint location fs_hana_shared_s2-clone rule resource-discovery=never score=-INFINITY NFS_SID_SITE ne S2
@@ -814,7 +814,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
  
 6. **[AH]** ANF 볼륨이 `/hana/shared` 두 사이트의 모든 HANA DB vm에 탑재 되어 있는지 확인 합니다.
 
-    ```
+    ```bash
     sudo nfsstat -m
     # Verify that flag vers is set to 4.1 
     # Example from SITE 1, hana-s1-db1
@@ -827,7 +827,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 7. **[1]** 특성 리소스를 구성 합니다. `true`에 대 한 NFS 탑재를 탑재 하는 경우 특성을로 설정할 제약 조건을 구성 합니다 `hana/shared` .  
 
-    ```
+    ```bash
     # Configure the attribure resources
     pcs resource create hana_nfs_s1_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs_s1_active
     pcs resource create hana_nfs_s2_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs_s2_active
@@ -843,7 +843,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
    > 구성에 NFS가 탑재 된 다른 파일 시스템이 포함 된 경우에는 `hana/shared` `sequential=false` 파일 시스템 간에 정렬 종속성이 없도록 옵션을 포함 합니다. 모든 NFS 탑재 파일 시스템은 해당 특성 리소스 보다 먼저 시작 해야 하지만 서로를 기준으로 하 여 시작할 필요는 없습니다. 자세한 내용은 [HANA 파일 시스템이 NFS 공유 인 경우 pacemaker 클러스터에서 SAP HANA Scale-Out HSR 어떻게 할까요? 구성을](https://access.redhat.com/solutions/5423971)참조 하세요.  
 
 8. **[1]** pacemaker를 유지 관리 모드로 전환 하 여 HANA 클러스터 리소스 만들기를 준비 합니다.  
-    ```
+    ```bash
     pcs property set maintenance-mode=true
     ```
 
@@ -851,7 +851,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 1. **[A]** 과반수 maker를 포함 하 여 모든 클러스터 노드에 HANA 확장 리소스 에이전트를 설치 합니다.    
 
-    ```
+    ```bash
     yum install -y resource-agents-sap-hana-scaleout 
     ```
 
@@ -862,14 +862,14 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 2. **[1, 2]** HANA "시스템 복제 후크"를 설치 합니다. 후크는 각 시스템 복제 사이트의 하나의 HANA DB 노드에 설치 해야 합니다. SAP HANA 여전히 작동 중단 되어야 합니다.        
 
    1. 후크 준비 `root` 
-    ```
+    ```bash
      mkdir -p /hana/shared/myHooks
      cp /usr/share/SAPHanaSR-ScaleOut/SAPHanaSR.py /hana/shared/myHooks
      chown -R hn1adm:sapsys /hana/shared/myHooks
     ```
 
    2. 조정해 `global.ini`
-    ```
+    ```bash
     # add to global.ini
     [ha_dr_provider_SAPHanaSR]
     provider = SAPHanaSR
@@ -881,7 +881,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     ```
 
 3. **[AH]** 클러스터 <sid adm의 클러스터 노드에 sudoers 구성이 필요 합니다 \> . 이 예에서는 새 파일을 만들어 수행 합니다. 로 명령을 실행 `root` 합니다.    
-    ``` 
+    ```bash
     cat << EOF > /etc/sudoers.d/20-saphana
     # SAPHanaSR-ScaleOut needs for srHook
      Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SOK -t crm_config -s SAPHanaSR
@@ -892,13 +892,13 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 4. **[1, 2]** 두 복제 사이트에서 SAP HANA를 시작 합니다. <sid adm으로 실행 \> 합니다.  
 
-    ```
+    ```bash
     sapcontrol -nr 03 -function StartSystem 
     ```
 
 5. **[1]** 후크 설치를 확인 합니다. \>활성 HANA 시스템 복제 사이트에서 <sid adm으로 실행 합니다.   
 
-    ```
+    ```bash
     cdtrace
      awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
      { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
@@ -917,7 +917,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     
    2. 다음으로 HANA 토폴로지 리소스를 만듭니다.  
       RHEL **7.x** 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
-      ```
+      ```bash
       pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopologyScaleOut \
        SID=HN1 InstanceNumber=03 \
        op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600
@@ -926,7 +926,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
       ```
 
       RHEL **8gb** 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
-      ```
+      ```bash
       pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopology \
        SID=HN1 InstanceNumber=03 meta clone-node-max=1 interleave=true \
        op methods interval=0s timeout=5 \
@@ -937,10 +937,10 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
    3. 다음으로 HANA 인스턴스 리소스를 만듭니다.  
       > [!NOTE]
-      > 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *종속* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.  
+      > 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *종속* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.  
  
       RHEL **7.x** 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.    
-      ```
+      ```bash
       pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
        SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
        op start interval=0 timeout=3600 op stop interval=0 timeout=3600 op promote interval=0 timeout=3600 \
@@ -951,7 +951,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
       ```
 
       RHEL **8gb** 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
-      ```
+      ```bash
       pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
        SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
        op demote interval=0s timeout=320 op methods interval=0s timeout=5 \
@@ -965,7 +965,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
       > 철저 한 장애 조치 (failover) 테스트를 수행 하는 동안 AUTOMATED_REGISTER를 **아니요** 로 설정 하 여 실패 한 주 인스턴스가 보조로 자동으로 등록 되는 것을 방지 하는 것이 좋습니다. 장애 조치 (failover) 테스트가 성공적으로 완료 되 면 AUTOMATED_REGISTER를 **예** 로 설정 하 여 인수 시스템 복제를 자동으로 다시 시작할 수 있도록 합니다. 
 
    4. 가상 IP 및 연결 된 리소스를 만듭니다.  
-      ```
+      ```bash
       pcs resource create vip_HN1_03 ocf:heartbeat:IPaddr2 ip=10.23.0.18 op monitor interval="10s" timeout="20s"
       sudo pcs resource create nc_HN1_03 azure-lb port=62503
       sudo pcs resource group add g_ip_HN1_03 nc_HN1_03 vip_HN1_03
@@ -973,7 +973,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
    5. 클러스터 제약 조건 만들기  
       RHEL **7.x** 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
-      ```
+      ```bash
       #Start HANA topology, before the HANA instance
       pcs constraint order SAPHanaTopology_HN1_HDB03-clone then msl_SAPHana_HN1_HDB03
 
@@ -983,7 +983,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
       ```
  
       RHEL **8gb** 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
-      ```
+      ```bash
       #Start HANA topology, before the HANA instance
       pcs constraint order SAPHanaTopology_HN1_HDB03-clone then SAPHana_HN1_HDB03-clone
 
@@ -993,7 +993,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
       ```
 
 7. **[1]** 클러스터를 유지 관리 모드에서 제외 합니다. 클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다.  
-    ```
+    ```bash
     sudo pcs property set maintenance-mode=false
     #If there are failed cluster resources, you may need to run the next command
     pcs resource cleanup
@@ -1007,7 +1007,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 1. 테스트를 시작 하기 전에 클러스터를 확인 하 고 시스템 복제 상태를 SAP HANA 합니다.  
 
    a. 실패 한 클러스터 작업이 없는지 확인 합니다.  
-     ```
+     ```bash
      #Verify that there are no failed cluster actions
      pcs status
      # Example
@@ -1044,7 +1044,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
    b. SAP HANA 시스템 복제가 동기화 되었는지 확인
 
-      ```
+      ```bash
       # Verify HANA HSR is in sync
       sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
       #| Database | Host        | Port  | Service Name | Volume ID | Site ID | Site Name | Secondary     | Secondary| Secondary | Secondary | Secondary     | Replication | Replication | Replication    |
@@ -1071,10 +1071,10 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
    SAP HANA 리소스 에이전트는 `/hana/shared` 장애 조치 (failover) 중에 작업을 수행 하기 위해에 저장 된 이진 파일에 종속 됩니다. 파일 시스템 `/hana/shared` 은 제공 된 구성에서 NFS를 통해 탑재 됩니다. 실행할 수 있는 테스트는 `/hana/shared` 파일 시스템을 *읽기 전용* 으로 다시 탑재 하는 것입니다. 이 접근 방식은 `/hana/shared` 활성 시스템 복제 사이트에 대 한 액세스가 손실 된 경우 클러스터가 장애 조치 (failover) 되는 것을 확인 합니다.  
 
-   **예상 결과**: 읽기 전용으로 다시 탑재 하는 경우 파일 시스템에 `/hana/shared` 대 한 읽기/쓰기 작업을 수행 하는 모니터링 작업이 실패 하 고 HANA 리소스 장애 조치 (failover)가 트리거됩니다. *Read only* HANA 노드가 NFS 공유에 액세스할 수 없는 경우에도 동일한 결과가 예상 됩니다.  
+   **예상 결과**: 읽기 전용으로 다시 탑재 하는 경우 파일 시스템에 `/hana/shared` 대 한 읽기/쓰기 작업을 수행 하는 모니터링 작업이 실패 하 고 HANA 리소스 장애 조치 (failover)가 트리거됩니다.  HANA 노드가 NFS 공유에 액세스할 수 없는 경우에도 동일한 결과가 예상 됩니다.  
      
    또는를 실행 하 여 클러스터 리소스의 상태를 확인할 수 있습니다 `crm_mon` `pcs status` . 테스트 시작 전 리소스 상태:
-      ```
+      ```bash
       # Output of crm_mon
       #7 nodes configured
       #45 resources configured
@@ -1103,7 +1103,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
       ```
 
    `/hana/shared`주 복제 사이트 vm 중 하나에서 실패를 시뮬레이트하려면 다음 명령을 실행 합니다.
-      ```
+      ```bash
       # Execute as root 
       mount -o ro /hana/shared
       # Or if the above command returns an error
@@ -1114,7 +1114,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
          
    클러스터가 VM에서 시작 되지 않은 경우 다시 시작 되 면 다음을 실행 하 여 클러스터를 시작 합니다. 
 
-      ```
+      ```bash
       # Start the cluster 
       pcs cluster start
       ```
@@ -1122,7 +1122,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
    클러스터가 시작 되 면 파일 시스템이 `/hana/shared` 자동으로 탑재 됩니다.     
    AUTOMATED_REGISTER = "false"를 설정 하는 경우 보조 사이트에서 SAP HANA 시스템 복제를 구성 해야 합니다. 이 경우 다음 명령을 실행 하 여 SAP HANA를 보조로 다시 구성할 수 있습니다.   
 
-      ```
+      ```bash
       # Execute on the secondary 
       su - hn1adm
       # Make sure HANA is not running on the secondary site. If it is started, stop HANA
@@ -1135,7 +1135,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
    테스트 후의 리소스 상태입니다. 
 
-      ```
+      ```bash
       # Output of crm_mon
       #7 nodes configured
       #45 resources configured

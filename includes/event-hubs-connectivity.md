@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 11/19/2020
+ms.date: 01/21/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 7ebb9dbce020086a716872c86221b97b4b7a6653
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 44afd8ea4ef2ab06ec31b7528e9776faebc3b4dc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97978775"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689615"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
 Azure Event Hubs에서 다음 프로토콜을 사용 하 여 이벤트를 보내고 받을 수 있습니다.
@@ -36,10 +36,10 @@ Azure Event Hubs에서 다음 프로토콜을 사용 하 여 이벤트를 보내
 
 | 언어 | 옵션   |
 | -------- | ----- |
-| .NET     | EventHubsTransportType [EventHubConnectionOptions TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype?view=azure-dotnet&preserve-view=true) 속성- [AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) 또는 [EventHubsTransportType](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) |
-| Java     | [Eventhubs EventProcessorClientBuilder. transporttype](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype?view=azure-java-stable&preserve-view=true) 와 [AmqpTransportType. amqp](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) 또는 [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) |
-| 노드  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions?view=azure-node-latest&preserve-view=true) 에는 `webSocketOptions` 속성이 있습니다. |
-| Python | [TransportType](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) 또는 TransportType를 사용 하 여 [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient?view=azure-python&preserve-view=true) [. amqpoverwebsocket](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python&preserve-view=true) |
+| .NET     | EventHubsTransportType [EventHubConnectionOptions TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype) 속성- [AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype) 또는 [EventHubsTransportType](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype) |
+| Java     | [Eventhubs EventProcessorClientBuilder. transporttype](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype) 와 [AmqpTransportType. amqp](/java/api/com.azure.core.amqp.amqptransporttype) 또는 [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype) |
+| 노드  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions) 에는 `webSocketOptions` 속성이 있습니다. |
+| Python | [TransportType](/python/api/azure-eventhub/azure.eventhub.transporttype) 또는 TransportType를 사용 하 여 [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient) [. amqpoverwebsocket](/python/api/azure-eventhub/azure.eventhub.transporttype) |
 
 ### <a name="what-ip-addresses-do-i-need-to-allow"></a>허용 해야 하는 IP 주소는 무엇 인가요?
 Azure를 사용 하는 경우 회사 방화벽이 나 프록시에서 특정 IP 주소 범위 또는 Url을 사용 하 여 사용 하거나 사용 하려는 모든 Azure 서비스에 액세스 해야 하는 경우가 있습니다. Event Hubs에서 사용 하는 IP 주소에서 트래픽이 허용 되는지 확인 합니다. Azure Event Hubs에서 사용 하는 IP 주소에 대해서는 [AZURE IP 범위 및 서비스 태그-공용 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조 하세요.

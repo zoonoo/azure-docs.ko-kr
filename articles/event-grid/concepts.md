@@ -2,13 +2,13 @@
 title: Azure Event Grid 개념
 description: Azure Event Grid 및 해당 개념을 설명합니다. Event Grid의 몇 가지 주요 구성 요소를 정의합니다.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/21/2021
+ms.openlocfilehash: 6edc8a3980bfea15f28cfb7114bb9f8350a47a3f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075112"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685706"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid의 개념
 
@@ -18,10 +18,7 @@ ms.locfileid: "93075112"
 
 이벤트는 시스템에서 발생하는 무언가를 완벽히 설명하는 가장 작은 크기의 정보입니다. 모든 이벤트에는 이벤트의 원본, 이벤트가 발생한 시간 및 고유 식별자와 같은 일반적인 정보가 있습니다. 또한 모든 이벤트에는 특정 유형의 이벤트에만 관련된 특정 정보도 있습니다. 예를 들어 Azure Storage에서 만드는 새 파일에 대한 이벤트에는 `lastTimeModified` 값 같은 파일에 대한 세부 정보가 포함되어 있습니다. 또는 Event Hubs 이벤트는 캡처 파일의 URL을 갖습니다. 
 
-최대 64 KB 크기의 이벤트는 GA (일반 공급) Service Level Agreement(서비스 수준 약정) (SLA)에서 다룹니다. 최대 1mb 크기의 이벤트에 대 한 지원은 현재 미리 보기 상태입니다. 64 KB를 초과 하는 이벤트는 64 KB 단위로 요금이 부과 됩니다. 
-
-
-이벤트에 포함되어 전송되는 속성은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이벤트에 허용 되는 최대 크기는 1mb입니다. 64 KB를 초과 하는 이벤트는 64 KB 단위로 요금이 부과 됩니다. 이벤트에 포함되어 전송되는 속성은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
 ## <a name="publishers"></a>게시자
 
@@ -76,10 +73,7 @@ Event Grid에서 이벤트가 구독자의 엔드포인트에서 수신되었는
 
 ## <a name="batching"></a>일괄 처리
 
-사용자 지정 토픽을 사용하는 경우 이벤트를 항상 배열에 게시해야 합니다. 처리량이 적은 시나리오를 위한 일괄 처리로 사용할 수 있지만, 볼륨이 큰 사용 사례인 경우 효율을 높일 수 있도록 게시마다 여러 이벤트를 일괄 처리하는 것이 좋습니다. 일괄 처리의 최대 크기는 1MB입니다. 각 이벤트는 여전히 64 KB (일반 공급) 또는 1mb (미리 보기) 보다 크지 않아야 합니다.
-
-> [!NOTE]
-> 최대 64 KB 크기의 이벤트는 GA (일반 공급) Service Level Agreement(서비스 수준 약정) (SLA)에서 다룹니다. 최대 1mb 크기의 이벤트에 대 한 지원은 현재 미리 보기 상태입니다. 64 KB를 초과 하는 이벤트는 64 KB 단위로 요금이 부과 됩니다. 
+사용자 지정 토픽을 사용하는 경우 이벤트를 항상 배열에 게시해야 합니다. 처리량이 적은 시나리오를 위한 일괄 처리로 사용할 수 있지만, 볼륨이 큰 사용 사례인 경우 효율을 높일 수 있도록 게시마다 여러 이벤트를 일괄 처리하는 것이 좋습니다. 일괄 처리는 최대 1mb까지 가능 하며 이벤트의 최대 크기는 1mb입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

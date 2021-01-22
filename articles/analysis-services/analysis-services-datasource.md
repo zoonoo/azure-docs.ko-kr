@@ -4,15 +4,15 @@ description: Azure Analysis Services에서 테이블 형식 1200 이상 데이�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 01/21/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 61efc7719b071ff4e8e5c0e07534b72a2883aff1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b778cf55ea485d7b3b4d3730d3659750f27b2697
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458873"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685598"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -117,6 +117,14 @@ Visual Studio에서 테이블 가져오기 마법사를 사용하는 경우 데�
 클라우드 데이터 원본의 경우:
 
 * SQL 인증을 사용하는 경우 가장은 서비스 계정이어야 합니다.
+
+## <a name="service-principal-authentication"></a>서비스 사용자 인증
+
+*공급자* 데이터 원본으로 지정 하는 경우 Azure Analysis Services은 Azure SQL Database 및 Azure Synapse 데이터 원본에 대 한 [MSOLEDBSQL](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) Azure Active Directory 서비스 주체 인증을 지원 합니다.
+
+`
+Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authentication=ActiveDirectoryServicePrincipal;User ID=[Application (client) ID];Password=[Application (client) secret];Use Encryption for Data=true
+`
 
 ## <a name="oauth-credentials"></a>OAuth 자격 증명
 

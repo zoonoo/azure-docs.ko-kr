@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 72caeb60fc058b88158979d211a0bc38985975c7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 444b514dfb1798ff810e84fc4e9d50001dbaee1c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968860"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685791"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
@@ -65,7 +65,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
     
     b. **이름**: 알림의 고유한 이름을 입력 합니다.
 
-    c. **세부 정보**: 선택한 알림 유형에 따라 전자 메일 주소, 전화 번호 등을 입력 합니다.
+    다. **세부 정보**: 선택한 알림 유형에 따라 전자 메일 주소, 전화 번호 등을 입력 합니다.
     
     d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](./alerts-common-schema.md)를 사용하도록 선택할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
     
     b. **이름**: 동작에 대 한 고유한 이름을 입력 합니다.
 
-    c. **세부 정보**: 작업 유형에 따라 webhook URI, Azure 앱, itsm 연결 또는 자동화 runbook을 입력 합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
+    다. **세부 정보**: 작업 유형에 따라 webhook URI, Azure 앱, itsm 연결 또는 자동화 runbook을 입력 합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
     
     d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](./alerts-common-schema.md)를 사용하도록 선택할 수 있습니다.
     
@@ -164,6 +164,7 @@ ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](./itsmc-overview
 
 > [!NOTE]
 > 웹 후크 작업을 사용 하려면 대상 webhook 끝점에서 경고에 대 한 세부 정보가 제대로 작동 하지 않거나 POST 작업의 일부로 제공 된 경고 컨텍스트 정보를 구문 분석할 수 있어야 합니다. 웹 후크 끝점에서 경고 컨텍스트 정보를 자체적으로 처리할 수 없는 경우에는 [논리 앱 작업](./action-groups-logic-app.md) 같은 솔루션을 사용 하 여 웹 후크의 예상 데이터 형식과 일치 하도록 경고 컨텍스트 정보의 사용자 지정 조작을 수행할 수 있습니다.
+> 보안이 위반 되지 않도록 사용자는 웹 후크 서비스 주체의 **소유자** 여야 합니다. 모든 azure 고객은 소유자를 확인 하지 않고 포털을 통해 모든 개체 Id에 액세스할 수 있으므로 보안을 위반 하는 azure monitor 경고 알림에 대 한 보안 webhook를 자신의 작업 그룹에 추가할 수 있습니다.
 
 작업 그룹 웹후크 작업을 사용하면 Azure Active Directory를 활용하여 작업 그룹과 보호된 웹 API(웹후크 엔드포인트) 간의 연결을 보호할 수 있습니다. 이 기능을 활용하기 위한 전체 워크플로는 아래에 설명되어 있습니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](../../active-directory/develop/v2-overview.md)를 참조하세요.
 
@@ -318,11 +319,7 @@ Write-Host $myApp.AppRoles
 ### <a name="webhook"></a>웹후크
 
 > [!NOTE]
-> 웹 후크 작업을 사용 하려면 대상 webhook 끝점에서 경고에 대 한 세부 정보가 제대로 작동 하지 않거나 POST 작업의 일부로 제공 된 경고 컨텍스트 정보를 구문 분석할 수 있어야 합니다. 
-
-> 보안이 위반 되지 않도록 사용자는 웹 후크 서비스 주체의 **소유자** 여야 합니다. 모든 azure 고객은 소유자를 확인 하지 않고 포털을 통해 모든 개체 Id에 액세스할 수 있으므로 보안을 위반 하는 azure monitor 경고 알림에 대 한 보안 webhook를 자신의 작업 그룹에 추가할 수 있습니다.
-
-> 웹 후크 끝점에서 경고 컨텍스트 정보를 자체적으로 처리할 수 없는 경우에는 [논리 앱 작업](./action-groups-logic-app.md) 같은 솔루션을 사용 하 여 웹 후크의 예상 데이터 형식과 일치 하도록 경고 컨텍스트 정보의 사용자 지정 조작을 수행할 수 있습니다.
+> 웹 후크 작업을 사용 하려면 대상 webhook 끝점에서 경고에 대 한 세부 정보가 제대로 작동 하지 않거나 POST 작업의 일부로 제공 된 경고 컨텍스트 정보를 구문 분석할 수 있어야 합니다. 웹 후크 끝점에서 경고 컨텍스트 정보를 자체적으로 처리할 수 없는 경우에는 [논리 앱 작업](./action-groups-logic-app.md) 같은 솔루션을 사용 하 여 웹 후크의 예상 데이터 형식과 일치 하도록 경고 컨텍스트 정보의 사용자 지정 조작을 수행할 수 있습니다.
 
 웹 후크는 다음 규칙을 사용 하 여 처리 됩니다.
 - Webhook 호출은 최대 3 회 시도 됩니다.

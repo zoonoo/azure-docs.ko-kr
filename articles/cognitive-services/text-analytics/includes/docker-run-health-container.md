@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/12/2020
 ms.author: aahi
-ms.openlocfilehash: b19fb3f86be46a5db60fb87f9c7f5c3e28ac6428
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 82c33c038a1f8eaba540c9906efcffa0a9214762
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965149"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689793"
 ---
 ## <a name="install-the-container"></a>컨테이너 설치
 
@@ -62,7 +62,7 @@ Logging:Disk:Format=json
 > [!NOTE]
 > 데모는 상태 컨테이너의 Text Analytics 에서만 사용할 수 있습니다.
 
-컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다.  컨테이너의 끝점에 추가 하 여 액세스할 수 있는 시각화 도구를 컨테이너에 제공 했습니다 `/demo` . 예를 들면 다음과 같습니다.
+컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다.  컨테이너의 끝점에 추가 하 여 액세스할 수 있는 시각화 도구를 컨테이너에 제공 했습니다 `/demo` . 다음은 그 예입니다. 
 
 ```
 http://<serverURL>:5000/demo
@@ -84,7 +84,7 @@ Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/
 
 Azure CLI를 사용 하 여이 PowerShell 스크립트를 실행 하 고 HTTPS를 통해 구독 및 컨테이너 이미지를 사용 하 여 Web App for Containers를 만듭니다. 첫 번째 요청을 제출 하기 전에 스크립트가 완료 될 때까지 기다립니다 (약 25-30 분).
 
-```bash
+```azurecli
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
                                            #    and AppSerivce to be attached to.
@@ -118,7 +118,7 @@ Azure Portal를 사용 하 여 ACI 리소스를 배포 하는 단계는 [Azure C
 > [!NOTE] 
 > Azure Container Instances 기본 제공 도메인에 대 한 HTTPS 지원을 포함 하지 않습니다. HTTPS가 필요한 경우 인증서를 만들고 도메인을 등록 하는 등 수동으로 구성 해야 합니다. 아래 NGINX를 사용 하 여이 작업을 수행 하는 지침을 찾을 수 있습니다.
 
-```bash
+```azurecli
 $subscription_name = ""                    # The name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
                                            # and AppService to be attached to.

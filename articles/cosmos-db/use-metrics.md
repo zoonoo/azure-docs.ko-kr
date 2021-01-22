@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 243f6f26be592e2db82d8f46df3de9aafcd2078b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b0760b86012504ea86e4a0cde36ae878e8ff3b26
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996987"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685740"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -77,7 +77,7 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
 ## <a name="compare-data-size-against-index-size"></a>데이터 크기 및 인덱스 크기 비교
 
-Azure Cosmos DB에서 사용된 총 스토리지는 데이터 크기와 인덱스 크기의 조합입니다. 일반적으로 인덱스 크기는 데이터 크기의 비율입니다. [Azure Portal](https://portal.azure.com)의 메트릭 블레이드에서, 스토리지 탭에는 스토리지 사용량이 데이터 및 인덱스에 따라 분석되어 표시됩니다.
+Azure Cosmos DB에서 사용된 총 스토리지는 데이터 크기와 인덱스 크기의 조합입니다. 일반적으로 인덱스 크기는 데이터 크기의 비율입니다. 자세히 알아보려면 [인덱스 크기](index-policy.md#index-size) 문서를 참조 하세요. [Azure Portal](https://portal.azure.com)의 메트릭 블레이드에서, 스토리지 탭에는 스토리지 사용량이 데이터 및 인덱스에 따라 분석되어 표시됩니다.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 117bc71ba304445e3186b4e633f5888647be9223
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127620"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685632"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -77,7 +77,7 @@ ms.locfileid: "98127620"
     + Azureml 코어 패키지의 설명서에 대 한 f 경고 수정
     + SDK의 명령 지원 기능에 대 한 문서 문자열 수정
     + RunConfiguration에 명령 속성을 추가 하는 중입니다. 이 기능을 사용 하면 사용자가 AzureML SDK를 통해 계산에서 실제 명령 또는 실행 파일을 실행할 수 있습니다.
-    + 사용자는 해당 실험의 id가 지정 된 경우 빈 실험을 삭제할 수 있습니다.
+    + 사용자는 해당 실험의 ID가 지정 된 경우 빈 실험을 삭제할 수 있습니다.
   + **azureml-dataprep**
     + Scala 2.12를 사용 하 여 빌드된 Spark에 대 한 데이터 집합 지원이 추가 되었습니다. 이는 기존 2.11 지원에 추가 됩니다.
   + **azureml.mlflow**
@@ -148,8 +148,8 @@ ms.locfileid: "98127620"
     + `OutputDatasetConfig.register_on_complete`에서 이름이 이미 있는 경우 발생 하는 동작을 포함 하도록에 대 한 설명서를 개선 했습니다.
     + 공통 환경 변수와 충돌할 가능성이 있는 데이터 집합 입력 및 출력 이름을 지정 하면 경고가 발생 합니다.
     + `grant_workspace_access`Datastores를 등록할 때 매개 변수가 재사용 됩니다. `True`Machine Learning Studio에서 가상 네트워크 뒤에 있는 데이터에 액세스 하려면로 설정 합니다.
-      [자세한 정보](./how-to-enable-studio-virtual-network.md)
-    + 연결 된 서비스 API가 구체화 되었습니다. 리소스 Id를 제공 하는 대신 3 개의 별도 매개 변수 sub_id, rg 및 구성에 정의 된 이름을 갖습니다.
+      [자세히 알아보기](./how-to-enable-studio-virtual-network.md)
+    + 연결 된 서비스 API가 구체화 되었습니다. 리소스 ID를 제공 하는 대신 3 개의 별도 매개 변수 sub_id, rg 및 구성에 정의 된 이름을 갖습니다.
     + 고객이 토큰 손상 문제를 자체 해결할 수 있도록 하려면 작업 영역 토큰 동기화를 공용 메서드로 설정 합니다.
     + 이렇게 변경 하면 빈 문자열을 script_param 값으로 사용할 수 있습니다.
   + **azureml-train-automl-client**
@@ -895,7 +895,7 @@ ms.locfileid: "98127620"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
     
-| 웹 기반 도구  |     설명  |
+| 웹 기반 도구  |     Description  |
 |---|---|
 | Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | 
 
@@ -1407,7 +1407,7 @@ ms.locfileid: "98127620"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
 
-| 웹 기반 도구 | 설명 | 
+| 웹 기반 도구 | Description | 
 |-|-|-|
 | 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | 
 | [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | 
@@ -1421,7 +1421,7 @@ ms.locfileid: "98127620"
 
 ### <a name="r-sdk"></a>R SDK 
  
-데이터 과학자 및 AI 개발자는 [R 용 AZURE MACHINE LEARNING SDK](tutorial-1st-r-experiment.md) 를 사용 하 여 Azure Machine Learning에서 기계 학습 워크플로를 빌드하고 실행 합니다.
+데이터 과학자 및 AI 개발자는 [R 용 AZURE MACHINE LEARNING SDK](https://github.com/Azure/azureml-sdk-for-r) 를 사용 하 여 Azure Machine Learning에서 기계 학습 워크플로를 빌드하고 실행 합니다.
 
 R에 대 한 Azure Machine Learning SDK는 패키지를 사용 하 여 `reticulate` PYTHON SDK에 바인딩합니다. R 용 SDK를 사용 하면 Python에 직접 바인딩하여 선택한 R 환경에서 Python SDK에 구현 된 핵심 개체 및 메서드에 액세스할 수 있습니다.
 
@@ -1595,24 +1595,24 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-train-core**
     + TensorFlow 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
   + **azureml-학습-automl**
-    + [실험](/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예제:
+    + [실험](/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예:
 
-        ```py
+        ```python
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
-        [archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예제:
+        [archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예:
 
-        ```py
+        ```python
         experiment1 = Experiment(workspace, "Active Experiment")
         experiment1.archive()
         # Create new active experiment with the same name as the archived.
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        실험에서 정적 메서드 [목록 ()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예제:
+        실험에서 정적 메서드 [목록 ()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예:
 
-        ```py
+        ```python
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
@@ -1768,7 +1768,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + 추정의 매개 변수에 dockerfile 지원이 추가 되었습니다 `environment_definition` .
     + 추정의 단순화 된 분산 교육 매개 변수
 
-         ```py
+         ```python
         from azureml.train.dnn import TensorFlow, Mpi, ParameterServer
         ```
 
@@ -1820,14 +1820,14 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-core**
     + `TabularDataset`등록 이름으로 키가 지정 된 및 개체의 사전을 반환 하는 Dataset.get_all (작업 영역)을 소개 `FileDataset` 합니다.
 
-    ```py
+    ```python
     workspace = Workspace.from_config()
     all_datasets = Dataset.get_all(workspace)
     mydata = all_datasets['my-data']
     ```
 
     + `parition_format`및에 인수를 `Dataset.Tabular.from_delimited_files` 도입 `Dataset.Tabular.from_parquet.files` 합니다. 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/MM/ss} '는 datetime 열을 만듭니다. 여기서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시간 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가별로, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/data.csv '은 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열을 만듭니다.
-        ```py
+        ```python
         workspace = Workspace.from_config()
         all_datasets = Dataset.get_all(workspace)
         mydata = all_datasets['my-data']

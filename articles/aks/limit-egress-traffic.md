@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c6160d36240b59c60fafa955b916fb6167c2648e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701605"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685757"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -180,7 +180,7 @@ Windows Server 기반 노드 풀을 사용하려면 다음 FQDN/애플리케이�
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | 이 끝점은 log analytics 서비스를 인증 하는 데 사용 되는 omsagent에서 사용 됩니다. |
 | *.monitoring.azure.com | **`HTTPS:443`** | 이 끝점은 Azure Monitor에 메트릭 데이터를 전송 하는 데 사용 됩니다. |
 
-### <a name="azure-dev-spaces"></a>Azure Dev Spaces
+### <a name="azure-dev-spaces"></a>Azure Dev 공간
 
 아래 Fqdn 및 [Azure Dev Spaces 인프라 서비스][dev-spaces-service-tags]에 대 한 네트워크 트래픽을 허용 하도록 방화벽 또는 보안 구성을 업데이트 합니다.
 
@@ -745,7 +745,7 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 
 다음을 실행 하 여 서비스 IP를 가져옵니다.
 ```bash
-SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 다음을 실행 하 여 NAT 규칙을 추가 합니다.
