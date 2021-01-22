@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c30d8a66cf9deffaa32e5ec0356a9067575b77e8
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503172"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660705"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Azure AD 앱 프록시 (미리 보기)를 사용 하는 온-프레미스 앱에 대 한 헤더 기반 Single Sign-On
 
@@ -64,7 +64,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 인증에 헤
     - 내부 URL 값은 응용 프로그램의 범위를 결정 합니다. 응용 프로그램의 루트 경로에서 내부 URL 값을 구성 하는 경우 루트 아래의 모든 하위 경로에 동일한 헤더 구성과 기타 응용 프로그램 구성이 표시 됩니다. 
     - 구성 된 응용 프로그램 보다 더 세분화 된 경로에 대 한 다른 헤더 구성 또는 사용자 할당을 설정 하는 새 응용 프로그램을 만듭니다. 새 응용 프로그램에서 필요한 특정 경로를 사용 하 여 내부 URL을 구성한 다음이 URL에 필요한 특정 헤더를 구성 합니다. 응용 프로그램 프록시는 항상 구성 설정과 응용 프로그램에 대해 설정 된 가장 세분화 된 경로를 일치 시킵니다. 
 
-2.  **Azure Active Directory**    **사전 인증 방법** 으로 Azure Active Directory를 선택 합니다. 
+2.  ****    **사전 인증 방법** 으로 Azure Active Directory를 선택 합니다. 
 3. **사용자 및 그룹** 으로 이동 하 고 적절 한 사용자 및 그룹을 할당 하 여 테스트 사용자를 할당 합니다. 
 4. 브라우저를 열고 응용 프로그램 프록시 설정에서 **외부 URL** 로 이동 합니다   . 
 5. 응용 프로그램에 연결할 수 있는지 확인 합니다. 연결할 수 있지만 헤더가 구성 되지 않았기 때문에 앱에 액세스할 수 없습니다. 
@@ -85,12 +85,16 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 인증에 헤
 ## <a name="test-your-app"></a>앱 테스트 
 
 이러한 모든 단계를 완료 하면 앱이 실행 중이 고 사용 가능 해야 합니다. 앱을 테스트 하려면: 
-1. 새 브라우저 또는 개인 브라우저 창을 열어 이전에 캐시 된 헤더가 지워지는 지 확인 합니다. 그런 다음 **External URL**   응용 프로그램 프록시 설정에서 외부 URL로 이동 합니다.
+1. 새 브라우저 또는 개인 브라우저 창을 열어 이전에 캐시 된 헤더가 지워지는 지 확인 합니다. 그런 다음 ****   응용 프로그램 프록시 설정에서 외부 URL로 이동 합니다.
 2. 앱에 할당한 테스트 계정으로 로그인합니다. SSO를 사용 하 여 응용 프로그램을 로드 하 고 로그인 할 수 있으면 좋습니다. 
 
+## <a name="considerations"></a>고려 사항
+
+- 응용 프로그램 프록시는 온-프레미스 또는 사설 클라우드의 앱에 대 한 원격 액세스를 제공 하는 데 사용 됩니다. 응용 프로그램 프록시는 회사 네트워크에서 내부적으로 발생 하는 트래픽을 처리 하지 않는 것이 좋습니다.
+- 헤더 기반 인증 응용 프로그램에 대 한 액세스는 커넥터 또는 다른 허용 된 헤더 기반 인증 솔루션의 트래픽만 허용 되어야 합니다. 이는 일반적으로 응용 프로그램 서버에서 방화벽 또는 IP 제한을 사용 하 여 응용 프로그램에 대 한 네트워크 액세스를 제한 하 여 수행 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Single Sign-On이란?](what-is-single-sign-on.md)
+- [Single Sign-On 이란?](what-is-single-sign-on.md)
 - [응용 프로그램 프록시 란?](what-is-application-proxy.md)
 - [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)

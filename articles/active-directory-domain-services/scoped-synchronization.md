@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 01/20/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e65b47b2a1fd71c69ecb350f60df1fedff66b74
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 34692f5e563e4931a27ea59db84d9c88f27817da
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618912"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660901"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure AD에서 Azure Active Directory Domain Services로 범위 동기화 구성
 
@@ -43,15 +43,14 @@ ms.locfileid: "96618912"
 
 기본적으로 Azure AD 디렉터리의 모든 사용자 및 그룹은 관리 되는 도메인에 동기화 됩니다. 사용자가 관리 되는 도메인에만 액세스 해야 하는 경우에는 해당 사용자 계정만 동기화 할 수 있습니다. 이 범위 동기화는 그룹을 기반으로 합니다. 그룹 기반 범위 동기화를 구성 하는 경우 지정한 그룹에 속하는 사용자 계정만 관리 되는 도메인에 동기화 됩니다. 중첩 그룹이 동기화 되지 않고 선택한 특정 그룹만 동기화 됩니다.
 
-관리 되는 도메인을 만들 때 또는 배포 된 후에 동기화 범위를 변경할 수 있습니다. 이제 기존 관리 되는 도메인의 동기화 범위를 다시 만들 필요 없이 변경할 수 있습니다.
+관리 되는 도메인을 만들기 전이나 후에 동기화 범위를 변경할 수 있습니다. 동기화 범위는 응용 프로그램 식별자 2565bd9d-da50-47d4-8b85-4c97f669dc36를 사용 하 여 서비스 주체에 의해 정의 됩니다. 범위 손실을 방지 하려면 서비스 주체를 삭제 하거나 변경 하지 마십시오. 실수로 삭제 한 경우 동기화 범위를 복구할 수 없습니다. 
+
+동기화 범위를 변경 하는 경우 다음 주의 사항을 염두에 두어야 합니다.
+
+- 전체 동기화가 발생 합니다.
+- 관리 되는 도메인에서 더 이상 필요 하지 않은 개체는 삭제 됩니다. 새 개체는 관리되는 도메인에서 만들어집니다.
 
 동기화 프로세스에 대해 자세히 알아보려면 [Azure AD Domain Services의 동기화 이해][concepts-sync]를 참조 하세요.
-
-> [!WARNING]
-> 동기화 범위를 변경 하면 관리 되는 도메인에서 모든 데이터를 다시 동기화 합니다. 고려 사항은 다음과 같습니다.
->
->  * 관리되는 도메인의 동기화 범위를 변경하면 전체 다시 동기화가 수행됩니다.
->  * 관리 되는 도메인에서 더 이상 필요 하지 않은 개체는 삭제 됩니다. 새 개체는 관리되는 도메인에서 만들어집니다.
 
 ## <a name="enable-scoped-synchronization"></a>범위 동기화 사용
 

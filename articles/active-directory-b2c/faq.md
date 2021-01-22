@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30b7788419695db7ee5d4b81714bf55248a41b4a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e181b90219f340a29e818801ee2b53f1ccbd9c23
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108725"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660287"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답)
 
@@ -96,7 +96,7 @@ Microsoft Graph API를 사용 하 여 마이그레이션 도구를 작성할 수
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Azure AD Connect를 사용하여 온-프레미스 Active Directory에 저장된 소비자 ID를 Azure AD B2C에 마이그레이션할 수 있나요?
 
-아니요, Azure AD Connect는 Azure AD B2C와 함께 작동하지 않습니다. 사용자 마이그레이션에 [MICROSOFT GRAPH API](manage-user-accounts-graph-api.md) 를 사용 하는 것이 좋습니다. 자세한 내용은 [사용자 마이그레이션 가이드](user-migration.md)를 참조하세요.
+아니요, Azure AD Connect는 Azure AD B2C와 함께 작동하지 않습니다. 사용자 마이그레이션에 [MICROSOFT GRAPH API](microsoft-graph-operations.md) 를 사용 하는 것이 좋습니다. 자세한 내용은 [사용자 마이그레이션 가이드](user-migration.md)를 참조하세요.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>앱의 Azure AD B2C 페이지가 iFrame 내에서 열릴 수 있나요?
 
@@ -145,7 +145,7 @@ Azure AD B2C 테 넌 트를 삭제 하려면 다음 단계를 수행 합니다.
 1. **앱 등록** 를 선택 하 고 **모든 응용 프로그램** 탭을 선택 합니다.
 1. 등록 한 모든 응용 프로그램을 삭제 합니다.
 1. **B2c 앱** 을 삭제 합니다.
-1. **관리** 에서 **사용자** 를 선택합니다.
+1. **관리** 아래에서 **사용자** 를 선택합니다.
 1. 각 사용자를 차례로 선택 합니다 (현재 로그인 한 *구독 관리자* 사용자 제외). 페이지 맨 아래에서 **삭제** 를 선택 하 고 메시지가 표시 되 면 **예** 를 선택 합니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
 1. **관리** 에서 **사용자 설정** 을 선택 합니다.
@@ -163,7 +163,7 @@ Azure AD B2C 테 넌 트를 삭제 하려면 다음 단계를 수행 합니다.
 1. Azure AD B2C 테 넌 트에서 모든 **사용자 흐름 (정책)** 을 삭제 합니다.
 1. Azure AD B2C 테 넌 트에 등록 한 모든 **응용 프로그램 (레거시)** 을 삭제 합니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
-1. **관리** 에서 **사용자** 를 선택합니다.
+1. **관리** 아래에서 **사용자** 를 선택합니다.
 1. 각 사용자를 차례로 선택 합니다 (현재 로그인 한 *구독 관리자* 사용자 제외). 페이지 맨 아래에서 **삭제** 를 선택 하 고 메시지가 표시 되 면 **예** 를 선택 합니다.
 1. **관리** 에서 **앱 등록** 을 선택합니다.
 1. **모든 응용 프로그램 보기** 선택

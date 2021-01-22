@@ -1,5 +1,5 @@
 ---
-title: Microsoft Graph를 사용 하 여 리소스 관리
+title: Microsoft Graph 애플리케이션 등록
 titleSuffix: Azure AD B2C
 description: 필요한 Graph API 권한이 부여 된 응용 프로그램을 등록 하 여 Microsoft Graph를 통해 Azure AD B2C 리소스를 관리할 준비를 합니다.
 services: B2C
@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 01/21/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 61e32f50e02e45487830c5ea7ff476a0571960f6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1886a0308f32ed53a1c9f0974715f20823e8bdd5
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94954004"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660355"
 ---
-# <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 관리
+# <a name="register-a-microsoft-graph-application"></a>Microsoft Graph 애플리케이션 등록
 
 [Microsoft Graph][ms-graph] 를 사용 하면 고객 사용자 계정 및 사용자 지정 정책을 포함 하 여 Azure AD B2C 테 넌 트 내의 많은 리소스를 관리할 수 있습니다. [MICROSOFT GRAPH API][ms-graph-api]를 호출 하는 스크립트나 응용 프로그램을 작성 하 여 다음과 같은 테 넌 트 관리 작업을 자동화할 수 있습니다.
 
@@ -51,7 +51,7 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 현재 Azure AD B2C 인
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **앱 등록** 을 선택한 다음, **새 등록** 을 선택합니다.
 1. 애플리케이션의 **이름** 을 입력합니다. 예를 들면 *managementapp1* 입니다.
-1. **이 조직 디렉터리 에서만 계정을** 선택 하십시오.
+1. **이 조직 디렉터리의 계정만** 을 선택합니다.
 1. **사용 권한** 아래에서 *openid connect 및 offline_access 권한으로 관리자 동의 부여* 확인란의 선택을 취소 합니다.
 1. **등록** 을 선택합니다.
 1. 응용 프로그램 개요 페이지에 표시 되는 **응용 프로그램 (클라이언트) ID** 를 기록 합니다. 이후 단계에서이 값을 사용 합니다.
@@ -83,12 +83,13 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 현재 Azure AD B2C 인
 1. **추가** 를 선택합니다. 권한이 완전히 전파 되는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 관리 응용 프로그램을 등록 하 고 필요한 권한을 부여 했으므로 응용 프로그램 및 서비스 (예: Azure Pipelines)에서 자격 증명 및 사용 권한을 사용 하 여 Microsoft Graph API와 상호 작용할 수 있습니다. 
 
 * [Azure AD에서 액세스 토큰 가져오기](/graph/auth-v2-service#4-get-an-access-token)
 * [액세스 토큰을 사용 하 여 Microsoft Graph 호출](/graph/auth-v2-service#4-get-an-access-token)
 * [Microsoft Graph에서 지 원하는 B2C 작업](microsoft-graph-operations.md)
-* [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](manage-user-accounts-graph-api.md)
+* [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](microsoft-graph-operations.md)
 * [Azure AD reporting API를 사용 하 여 감사 로그 가져오기](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->

@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 9c9f5972cdd2690b86610ea585bdd82d736ed163
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 76f9fb4ed5c3b88b3a1f69e352f50079586ec336
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792143"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663335"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Transact-sql (T-sql)을 사용 하 여 Elastic Database 작업 만들기 및 관리 (미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -63,8 +63,8 @@ EXEC jobs.sp_add_target_group 'ServerGroup1'
 EXEC jobs.sp_add_target_group_member
 'ServerGroup1',
 @target_type = 'SqlServer',
-@refresh_credential_name='mymastercred', --credential required to refresh the databases in a server
-@server_name='server1.database.windows.net'
+@refresh_credential_name = 'mymastercred', --credential required to refresh the databases in a server
+@server_name = 'server1.database.windows.net'
 
 --View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name='ServerGroup1';
@@ -87,16 +87,16 @@ GO
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in a server
-@server_name=N'London.database.windows.net'
+@refresh_credential_name = N'mymastercred', --credential required to refresh the databases in a server
+@server_name = N'London.database.windows.net'
 GO
 
 -- Add a server target member
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in a server
-@server_name='server2.database.windows.net'
+@refresh_credential_name = N'mymastercred', --credential required to refresh the databases in a server
+@server_name = 'server2.database.windows.net'
 GO
 
 --Exclude a database target member from the server target group
@@ -105,7 +105,7 @@ EXEC [jobs].sp_add_target_group_member
 @membership_type = N'Exclude',
 @target_type = N'SqlDatabase',
 @server_name = N'server1.database.windows.net',
-@database_name =N'MappingDB'
+@database_name = N'MappingDB'
 GO
 
 --View the recently created target group and target group members
@@ -128,9 +128,9 @@ EXEC jobs.sp_add_target_group 'PoolGroup'
 EXEC jobs.sp_add_target_group_member
 'PoolGroup',
 @target_type = 'SqlElasticPool',
-@refresh_credential_name='mymastercred', --credential required to refresh the databases in a server
-@server_name='server1.database.windows.net',
-@elastic_pool_name='ElasticPool-1'
+@refresh_credential_name = 'mymastercred', --credential required to refresh the databases in a server
+@server_name = 'server1.database.windows.net',
+@elastic_pool_name = 'ElasticPool-1'
 
 -- View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name = N'PoolGroup';
@@ -146,14 +146,14 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 --Connect to the job database specified when creating the job agent
 
 --Add job for create table
-EXEC jobs.sp_add_job @job_name='CreateTableTest', @description='Create Table Test'
+EXEC jobs.sp_add_job @job_name = 'CreateTableTest', @description = 'Create Table Test'
 
 -- Add job step for create table
-EXEC jobs.sp_add_jobstep @job_name='CreateTableTest',
-@command=N'IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id(''Test''))
+EXEC jobs.sp_add_jobstep @job_name = 'CreateTableTest',
+@command = N'IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id(''Test''))
 CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
-@credential_name='myjobcred',
-@target_group_name='PoolGroup'
+@credential_name = 'myjobcred',
+@target_group_name = 'PoolGroup'
 ```
 
 ## <a name="data-collection-using-built-in-parameters"></a>기본 제공 매개 변수를 사용하여 데이터 수집
@@ -198,15 +198,15 @@ EXEC jobs.sp_add_job @job_name ='ResultsJob', @description='Collection Performan
 
 -- Add a job step w/ schedule to collect results
 EXEC jobs.sp_add_jobstep
-@job_name='ResultsJob',
-@command= N' SELECT DB_NAME() DatabaseName, $(job_execution_id) AS job_execution_id, * FROM sys.dm_db_resource_stats WHERE end_time > DATEADD(mi, -20, GETDATE());',
-@credential_name='myjobcred',
-@target_group_name='PoolGroup',
-@output_type='SqlDatabase',
-@output_credential_name='myjobcred',
-@output_server_name='server1.database.windows.net',
-@output_database_name='<resultsdb>',
-@output_table_name='<resutlstable>'
+@job_name = 'ResultsJob',
+@command = N' SELECT DB_NAME() DatabaseName, $(job_execution_id) AS job_execution_id, * FROM sys.dm_db_resource_stats WHERE end_time > DATEADD(mi, -20, GETDATE());',
+@credential_name = 'myjobcred',
+@target_group_name = 'PoolGroup',
+@output_type = 'SqlDatabase',
+@output_credential_name = 'myjobcred',
+@output_server_name = 'server1.database.windows.net',
+@output_database_name = '<resultsdb>',
+@output_table_name = '<resutlstable>'
 Create a job to monitor pool performance
 --Connect to the job database specified when creating the job agent
 
@@ -215,17 +215,17 @@ EXEC jobs.sp_add_target_group 'MasterGroup'
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
-@target_group_name='MasterGroup',
-@target_type='SqlDatabase',
-@server_name='server1.database.windows.net',
-@database_name='master'
+@target_group_name = 'MasterGroup',
+@target_type = 'SqlDatabase',
+@server_name = 'server1.database.windows.net',
+@database_name = 'master'
 
 -- Add a job to collect perf results
 EXEC jobs.sp_add_job
-@job_name='ResultsPoolsJob',
-@description='Demo: Collection Performance data from all pools',
-@schedule_interval_type='Minutes',
-@schedule_interval_count=15
+@job_name = 'ResultsPoolsJob',
+@description = 'Demo: Collection Performance data from all pools',
+@schedule_interval_type = 'Minutes',
+@schedule_interval_count = 15
 
 -- Add a job step w/ schedule to collect results
 EXEC jobs.sp_add_jobstep
@@ -246,13 +246,13 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
         avg_storage_percent, elastic_pool_storage_limit_mb FROM sys.elastic_pool_resource_stats
         WHERE end_time > @poolStartTime and end_time <= @poolEndTime;
 '),
-@credential_name='myjobcred',
-@target_group_name='MasterGroup',
-@output_type='SqlDatabase',
-@output_credential_name='myjobcred',
-@output_server_name='server1.database.windows.net',
-@output_database_name='resultsdb',
-@output_table_name='resutlstable'
+@credential_name = 'myjobcred',
+@target_group_name = 'MasterGroup',
+@output_type = 'SqlDatabase',
+@output_credential_name = 'myjobcred',
+@output_server_name = 'server1.database.windows.net',
+@output_database_name = 'resultsdb',
+@output_table_name = 'resutlstable'
 ```
 
 ## <a name="view-job-definitions"></a>작업 정의 보기
@@ -306,10 +306,10 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 --Connect to the job database specified when creating the job agent
 
 EXEC jobs.sp_update_job
-@job_name='ResultsJob',
+@job_name = 'ResultsJob',
 @enabled=1,
-@schedule_interval_type='Minutes',
-@schedule_interval_count=15
+@schedule_interval_type = 'Minutes',
+@schedule_interval_count = 15
 ```
 
 ## <a name="monitor-job-execution-status"></a>작업 실행 상태 모니터링
@@ -433,7 +433,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 [ **\@ enabled =** ] 사용  
 작업 일정이 사용되는지 여부입니다. enabled는 bit 형식이며, 기본값은 0(사용 안 함)입니다. 0인 경우 작업이 사용되지 않으며 일정에 따라 실행되지 않습니다. 그러나 수동으로는 실행할 수 있습니다. 1인 경우 작업이 일정에 따라 실행되며, 수동으로 실행할 수도 있습니다.
 
-[ **\@ schedule_interval_type =** ] schedule_interval_type  
+[ **\@ schedule_interval_type =**] schedule_interval_type  
 값은 작업을 실행할 시기를 나타냅니다. schedule_interval_type은 nvarchar(50) 형식이며, 기본값은 Once이고, 다음 값 중 하나일 수 있습니다.
 
 - 'Once',
@@ -464,7 +464,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 sp_add_job은 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 실행해야 합니다.
 sp_add_job을 실행하여 작업이 추가되면 sp_add_jobstep을 사용하여 작업에 대한 활동을 수행하는 단계를 추가할 수 있습니다. 작업의 초기 버전 번호는 0이며, 첫 번째 단계가 추가되면 1로 증가합니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -530,7 +530,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 sp_add_job을 실행하여 작업이 추가되면 sp_add_jobstep을 사용하여 작업에 대한 활동을 수행하는 단계를 추가할 수 있습니다. 작업의 초기 버전 번호는 0이며, 첫 번째 단계가 추가되면 1로 증가합니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -565,7 +565,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 작업을 삭제하면 작업 기록이 자동으로 삭제됩니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -690,7 +690,7 @@ null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이�
 
 sp_add_jobstep이 성공하면 작업의 현재 버전 번호가 증가합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다. 작업이 현재 실행 중이면 해당 실행에는 새 단계가 포함되지 않습니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.  
 
@@ -815,7 +815,7 @@ null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이�
 
 진행 중인 모든 작업 실행은 영향을 받지 않습니다. sp_update_jobstep이 성공하면 작업의 버전 번호가 증가합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -860,7 +860,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 다른 작업 단계는 삭제된 작업 단계에서 남겨진 간격을 채우기 위해 번호가 자동으로 다시 매겨집니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -960,7 +960,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 대상 그룹은 데이터베이스 컬렉션에서 작업을 대상으로 쉽게 지정할 수 있는 방법을 제공합니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -1051,7 +1051,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 서버 또는 탄력적 풀이 대상 그룹에 포함 된 경우 실행 시 서버 또는 탄력적 풀에 있는 모든 단일 데이터베이스에서 작업이 실행 됩니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -1120,7 +1120,7 @@ GO
 
 대상 그룹은 데이터베이스 컬렉션에서 작업을 대상으로 쉽게 지정할 수 있는 방법을 제공합니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -1179,7 +1179,7 @@ GO
 
 대상 그룹은 데이터베이스 컬렉션에서 작업을 대상으로 쉽게 지정할 수 있는 방법을 제공합니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 

@@ -3,12 +3,12 @@ title: Azure Backup 용어집
 description: 이 문서에서는 Azure Backup와 함께 사용 하는 데 도움이 되는 용어를 정의 합니다.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 1e28f0c2ad5d14ea2a8dc6ce8d5fa2b21c7e65ac
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 121258665ab275fdcffd618e7c0cf1b3e0537e70
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935073"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661479"
 ---
 # <a name="azure-backup-glossary"></a>Azure Backup 용어집
 
@@ -192,7 +192,7 @@ GFS (조부) 백업 정책은 매일 백업 일정 외에 매주, 매월 및 매
 
 (워크 로드 관련 용어)
 
-Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 애플리케이션 워크로드를 보호할 수 있습니다. DPM에서 많은 워크 로드 백업 기능을 상속 하지만 몇 가지 차이점이 있습니다. [자세한 정보](backup-azure-microsoft-azure-backup.md)
+Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 애플리케이션 워크로드를 보호할 수 있습니다. DPM에서 많은 워크 로드 백업 기능을 상속 하지만 몇 가지 차이점이 있습니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md)
 
 ## <a name="managed-disks"></a>관리 디스크
 
@@ -246,7 +246,7 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 *Microsoft RecoveryServices/* vault 형식의 Azure Resource Manager 리소스입니다. 현재 Recovery Services 자격 증명 모음을 사용 하 여 azure vm, azure vm의 SQL, Azure Vm의 SAP HANA 및 Azure 파일 공유와 같은 작업을 백업 합니다. MARS, Azure Backup Server (MABS) 및 System Center DPM을 사용 하 여 온-프레미스 워크 로드를 백업 하는 데도 사용 됩니다. [Recovery Services 자격 증명 모음에 대해 자세히 알아보세요](backup-azure-recovery-services-vault-overview.md).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>리소스 그룹
 
 [Azure Resource Manager 설명서](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group)를 참조 하세요.
 
@@ -286,7 +286,7 @@ RTO는 데이터 손실 시나리오 후에 사용 가능한 마지막 시점으
 
 [저장소 계정 설명서](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조 하세요.
 
-## <a name="subscription"></a>Subscription
+## <a name="subscription"></a>구독
 
 Azure 구독은 Azure에서 리소스를 프로비저닝하는 데 사용되는 논리적 컨테이너입니다. Vm (가상 머신), 데이터베이스 등의 모든 리소스에 대 한 세부 정보를 포함 합니다.
 

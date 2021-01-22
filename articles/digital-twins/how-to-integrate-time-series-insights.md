@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 24b4f56e5798acc4d9bd0962be7059a359958645
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 97f1f5d0f1f351164e05d18b9f80c7f26450f31b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573244"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661599"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Azure Time Series Insights와 Azure Digital Twins 통합
 
@@ -20,7 +20,7 @@ ms.locfileid: "98573244"
 
 이 문서에서 설명 하는 솔루션을 통해 IoT 솔루션에 대 한 기록 데이터를 수집 하 고 분석할 수 있습니다. Azure Digital Twins는 여러 데이터 스트림의 상관 관계를 발견하고 정보를 Time Series Insights로 전송하기 전에 표준화할 수 있으므로 Time Series Insights에 데이터를 공급하는 좋은 방법이 됩니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Time Series Insights와의 관계를 설정 하려면 먼저 **Azure Digital Twins 인스턴스가** 있어야 합니다. 이 인스턴스는 데이터를 기반으로 하는 디지털 쌍 정보를 업데이트 하는 기능을 사용 하 여 설정 해야 하며, Time Series Insights에서 추적 되는 데이터를 확인 하기 위해 쌍 정보를 몇 번 업데이트 해야 합니다. 
 
@@ -65,7 +65,7 @@ Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to
 4. Azure Digital Twins 인스턴스에 이벤트 허브를 연결 하는 Azure Digital Twins [끝점](concepts-route-events.md#create-an-endpoint) 을 만듭니다.
 
     ```azurecli-interactive
-    az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
+    az dt endpoint create eventhub -n <your Azure Digital Twins instance name> --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above>
     ```
 
 5. Azure Digital Twins에서 엔드포인트에 트윈 업데이트 이벤트를 전송하는 [경로](concepts-route-events.md#create-an-event-route)를 만듭니다. 이 경로의 필터는 쌍 업데이트 메시지만 끝점에 전달 되도록 허용 합니다.
@@ -89,11 +89,16 @@ Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to
 
 Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세한 내용은 [*Azure Functions에 대 한 Azure Event Hubs 트리거*](../azure-functions/functions-bindings-event-hubs-trigger.md)를 참조 하세요.
 
-게시 된 함수 앱 내에서 함수 코드를 다음 코드로 바꿉니다.
+게시 된 함수 앱 내에서 다음 코드를 사용 하 여 **Processdtupdatetotsi** 라는 새 함수를 추가 합니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
-그러면 함수는 만든 JSON 개체를 두 번째 이벤트 허브에 전송 하 여 Time Series Insights에 연결 합니다.
+>[!NOTE]
+>`dotnet add package`명령 또는 Visual Studio NuGet 패키지 관리자를 사용 하 여 프로젝트에 패키지를 추가 해야 할 수도 있습니다.
+
+다음으로 새 Azure 함수를 **게시** 합니다. 이 작업을 수행 하는 방법에 대 한 지침은 [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md#publish-the-function-app-to-azure)을 참조 하세요.
+
+앞서 살펴보면이 함수는 만든 JSON 개체를 두 번째 이벤트 허브로 전송 하 여 Time Series Insights에 연결 합니다. 다음 섹션에서 해당 이벤트 허브를 만듭니다.
 
 나중에이 함수가 고유한 event hubs에 연결 하는 데 사용 하는 환경 변수를 설정할 수도 있습니다.
 
@@ -130,7 +135,7 @@ Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세�
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
     ```
 
-2. 결과로 얻은 연결 문자열을 사용하여 함수 앱에서 해당 연결 문자열을 포함하는 앱 설정을 만듭니다.
+2. 결과에서 *Primaryconnectionstring* 값을 사용 하 여 연결 문자열을 포함 하는 함수 앱에 앱 설정을 만듭니다.
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
@@ -152,15 +157,15 @@ Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세�
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Time Series Insights 인스턴스 만들기 및 연결
 
-다음으로 두 번째 이벤트 허브에서 데이터를 받도록 Time Series Insights 인스턴스를 설정 합니다. 아래 단계를 수행 하 고이 프로세스에 대 한 자세한 내용은 [*자습서: Azure Time Series Insights GEN2 PAYG 환경 설정*](../time-series-insights/tutorials-set-up-tsi-environment.md)을 참조 하세요.
+다음으로 두 번째 (TSI) 이벤트 허브에서 데이터를 받도록 Time Series Insights 인스턴스를 설정 합니다. 아래 단계를 수행 하 고이 프로세스에 대 한 자세한 내용은 [*자습서: Azure Time Series Insights GEN2 PAYG 환경 설정*](../time-series-insights/tutorials-set-up-tsi-environment.md)을 참조 하세요.
 
-1. Azure Portal에서 Time Series Insights 리소스 만들기를 시작 합니다. 
+1. Azure Portal에서 Time Series Insights 환경 만들기를 시작 합니다. 
     1. **Gen2 (L1)** 가격 책정 계층을 선택 합니다.
     2. 이 환경에 대 한 **시계열 ID** 를 선택 해야 합니다. 시계열 ID는 Time Series Insights에서 데이터를 검색 하는 데 사용할 수 있는 최대 3 개의 값이 될 수 있습니다. 이 자습서에서는 **$dtId** 를 사용할 수 있습니다. [*시계열 id를 선택 하는 방법에 대 한 자세한 내용은 모범 사례*](../time-series-insights/how-to-select-tsid.md)에서 id 값 선택을 참조 하세요.
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Time Series Insights 환경의 생성 포털 UX입니다. Gen2 (L1) 가격 책정 계층이 선택 되 고 시계열 ID 속성 이름이 $dtId" lightbox="media/how-to-integrate-time-series-insights/create-twin-id.png":::
 
-2. **다음: 이벤트 원본** 을 선택 하 고 위에서 Event Hubs 정보를 선택 합니다. 새 Event Hubs 소비자 그룹을 만들어야 할 수도 있습니다.
+2. **다음: 이벤트 원본** 을 선택 하 고 이전에서 tsi 이벤트 허브 정보를 선택 합니다. 새 Event Hubs 소비자 그룹을 만들어야 할 수도 있습니다.
     
     :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="Time Series Insights 환경 이벤트 원본에 대 한 생성 포털 UX입니다. 위의 이벤트 허브 정보를 사용 하 여 이벤트 원본을 만듭니다. 또한 새 소비자 그룹을 만듭니다." lightbox="media/how-to-integrate-time-series-insights/event-source-twins.png":::
 
@@ -174,7 +179,7 @@ Time Series Insights로 데이터를 보내기 시작 하려면 변경 데이터
 
 이제 데이터를 Time Series Insights 인스턴스로 이동 하 여 분석할 준비가 되어 있어야 합니다. 다음 단계를 수행 하 여에서 제공 되는 데이터를 탐색 합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에서 Time Series Insights 인스턴스를 엽니다. 포털 검색 표시줄에서 인스턴스의 이름을 검색할 수 있습니다. 인스턴스 개요에 표시된 Time Series Insights 탐색기 URL을 방문합니다.
+1. [Azure Portal](https://portal.azure.com) 에서 Time Series Insights 환경을 엽니다. 포털 검색 표시줄에서 사용자 환경의 이름을 검색할 수 있습니다. 인스턴스 개요에 표시된 Time Series Insights 탐색기 URL을 방문합니다.
     
     :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Time Series Insights 환경의 개요 탭에서 Time Series Insights 탐색기 URL을 선택 합니다.":::
 

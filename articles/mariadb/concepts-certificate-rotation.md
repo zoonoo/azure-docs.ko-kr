@@ -3,15 +3,15 @@ title: Azure Database for MariaDB에 대 한 인증서 회전
 description: 영향을 받는 루트 인증서 변경의 예정 된 변경 내용에 대해 알아봅니다 Azure Database for MariaDB
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: ac7019abab1aefaee95c155e34fbc0cb551b4d94
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 66db443c4c52e4994e62a9f83f8a624319b349ab
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538425"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659889"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 루트 CA 변경의 변경 내용 이해
 

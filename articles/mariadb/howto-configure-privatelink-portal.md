@@ -3,15 +3,15 @@ title: 개인 링크-Azure Portal-Azure Database for MariaDB
 description: Azure Portal에서 Azure Database for MariaDB에 대 한 개인 링크를 구성 하는 방법을 알아봅니다.
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 127a1c83525c4a9c457f551c05045a63a3c4347a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005047"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659627"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>포털을 사용 하 여 Azure Database for MariaDB에 대 한 개인 링크 만들기 및 관리
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork* 를 입력 합니다. |
+    | 속성 | *MyVirtualNetwork* 를 입력 합니다. |
     | 주소 공간 | *10.1.0.0/16* 을 입력 합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력한 다음, **확인** 을 선택합니다. |
@@ -99,7 +99,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 Azure에서 Azure Database for MariaDB 서버를 만듭니다. 
 
-1. Azure Portal 화면의 왼쪽 위에서 Azure Database for MariaDB **리소스 데이터베이스 만들기** 를 선택  >  **Databases**  >  **Azure Database for MariaDB** 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 Azure Database for MariaDB **리소스 데이터베이스 만들기** 를 선택  >    >  합니다.
 
 1. **Azure Database for MariaDB** 에서 다음 정보를 제공 합니다.
 
@@ -143,7 +143,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup** 을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 세부 정보** |  |
-    | Name | *myPrivateEndpoint* 를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    | 속성 | *myPrivateEndpoint* 를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     |지역|**서유럽** 를 선택합니다.|
     |||
 5. 완료되면 **다음: 리소스** 를 선택합니다.
@@ -245,7 +245,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="clean-up-resources"></a>리소스 정리
 개인 끝점, MariaDB 서버 및 VM을 사용 하 여 작업을 완료 한 후에는 리소스 그룹과 해당 리소스 그룹에 포함 된 모든 리소스를 삭제 합니다.
 
-1.  *myResourceGroup*   포털 맨 위에 있는 **검색** 상자에 myresourcegroup을 입력 하 고 검색 결과에서  *myresourcegroup* 을 선택   합니다.
+1.  **   포털 맨 위에 있는 **검색** 상자에 myresourcegroup을 입력 하 고 검색 결과에서  *myresourcegroup* 을 선택   합니다.
 2. **리소스 그룹 삭제** 를 선택합니다.
 3. **리소스 그룹 이름 입력** 에 myresourcegroup을 입력 하 고 **삭제** 를 선택 합니다.
 

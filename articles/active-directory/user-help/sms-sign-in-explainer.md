@@ -1,5 +1,5 @@
 ---
-title: 전화 번호를 사용하는 SMS 로그인 사용자 환경(미리 보기) - Azure AD
+title: 전화 번호에 대 한 SMS 로그인 사용자 환경-Azure AD
 description: 새로운 또는 기존 전화 번호를 사용하는 SMS 로그인 사용자 환경에 대해 알아봅니다.
 services: active-directory
 author: curtand
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 04/14/2020
+ms.date: 01/21/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a50f2032a978a552205d1bba602249f34f0478a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536888"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661598"
 ---
-# <a name="use-your-phone-number-as-a-user-name-preview"></a>전화 번호를 사용자 이름으로 사용(미리 보기)
+# <a name="use-your-phone-number-as-a-user-name"></a>사용자 이름으로 전화 번호 사용
 
 전화를 등록하면 전화에서 조직의 서비스에 액세스할 수 있으며 조직에서는 전화에 액세스할 수 없습니다. 관리자는 [SMS 기반 인증용 사용자 구성 및 사용](../authentication/howto-authentication-sms-signin.md)에서 자세한 내용을 확인할 수 있습니다.
 
@@ -29,14 +29,14 @@ ms.locfileid: "91536888"
 
 새 전화 또는 새 번호를 SMS 로그인을 사용할 수 있는 조직에 등록하면 다음과 같은 일반적인 전화 등록 프로세스를 거치게 됩니다.
 
-1. **방법 추가**를 선택합니다.
-1. **전화**를 선택합니다.
-1. 전화 번호를 입력하고 **코드를 문자로 받기**를 선택합니다.
-1. 코드를 입력한 후 **다음**을 선택합니다.
+1. **방법 추가** 를 선택합니다.
+1. **전화** 를 선택합니다.
+1. 전화 번호를 입력하고 **코드를 문자로 받기** 를 선택합니다.
+1. 코드를 입력한 후 **다음** 을 선택합니다.
 1. 다음과 같은 메시지가 표시됩니다. “SMS가 확인되었습니다. 휴대폰이 등록되었습니다.”
 
 > [!Important]
-> 미리 보기의 알려진 문제로 인해 전화 번호를 추가해도 짧은 시간 동안은 해당 번호가 SMS 로그인용으로 등록되지 않습니다. 추가한 번호를 사용하여 로그인한 다음 메시지에 따라 SMS 로그인용으로 번호를 등록해야 합니다.
+> 알려진 문제로 인해 짧은 시간 동안 전화 번호를 추가 하면 SMS 로그인에 대 한 번호가 등록 되지 않습니다. 추가한 번호를 사용하여 로그인한 다음 메시지에 따라 SMS 로그인용으로 번호를 등록해야 합니다.
 
 ### <a name="when-the-phone-number-is-in-use"></a>전화 번호가 사용 중인 경우
 
@@ -58,11 +58,11 @@ ms.locfileid: "91536888"
 
     [![전화 번호에 대해 SMS 로그인을 사용 하도록 설정 하는 배너입니다.](media/sms-sign-in-explainer/sms-sign-in-phone-method.png)](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
 
-1. 이 방법을 사용하도록 설정하려면 **사용**을 선택합니다. 작업을 확인하라는 메시지가 표시됩니다.
+1. 이 방법을 사용하도록 설정하려면 **사용** 을 선택합니다. 작업을 확인하라는 메시지가 표시됩니다.
 
     ![전화 번호를 SMS 로그인용으로 사용하도록 설정하는 확인 대화 상자](media/sms-sign-in-explainer/sms-sign-in-confirmation.png)
 
-1. **사용**을 선택합니다.
+1. **사용** 을 선택합니다.
 
 ## <a name="when-you-remove-your-phone-number"></a>전화 번호를 제거하는 경우
 
@@ -70,6 +70,6 @@ ms.locfileid: "91536888"
 
     [![전화 번호에 대 한 SMS 로그인을 삭제 하는 배너입니다.](media/sms-sign-in-explainer/sms-sign-in-delete-method.png)](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
 
-2. 작업을 확인하라는 메시지가 표시되면 **확인**을 선택합니다.
+2. 작업을 확인하라는 메시지가 표시되면 **확인** 을 선택합니다.
 
 기본 로그인 방법으로 사용 중인 전화 번호는 제거할 수 없습니다. 이 번호를 제거하려면 기본 로그인 방법을 변경한 다음 다시 전화 번호를 제거해야 합니다.

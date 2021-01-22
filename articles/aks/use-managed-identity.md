@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 관리 id를 사용 하는 �
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: fe11170b1cdf18aacf832f4c8171bfc082339395
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e991f7313bae5aa67478043b4f9306dbc274e1e7
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599608"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659991"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 관리 되는 id 사용
 
@@ -25,7 +25,6 @@ ms.locfileid: "98599608"
 
 ## <a name="limitations"></a>제한 사항
 
-* 클러스터 **업그레이드** 작업 중에 관리 되는 id를 일시적으로 사용할 수 없습니다.
 * 테 넌 트 이동/관리 되는 id 사용 클러스터의 마이그레이션은 지원 되지 않습니다.
 * 클러스터가 `aad-pod-identity` 사용 하도록 Node-Managed 설정 된 경우 Pod Identity (NMI)는 Azure 인스턴스 메타 데이터 끝점에 대 한 호출을 가로채는 노드의 iptables를 수정 합니다. 이 구성은 pod가를 사용 하지 않는 경우에도 메타 데이터 끝점에 대 한 모든 요청이 NMI에 의해 차단 됨을 의미 합니다 `aad-pod-identity` . AzurePodIdentityException CRD는 CRD에서 정의 된 `aad-pod-identity` 레이블과 일치 하는 pod에서 발생 하는 메타 데이터 끝점에 대 한 모든 요청이 NMI를 처리 하지 않고 프록시 되어야 함을 알리도록 구성할 수 있습니다. `kubernetes.azure.com/managedby: aks`AZUREPODIDENTITYEXCEPTION CRD를 구성 하 여 _kube_ 네임 스페이스에서 레이블이 인 시스템 pod는에서 제외 되어야 합니다 `aad-pod-identity` . 자세한 내용은 [특정 pod 또는 응용 프로그램에 대 한 aad-Id 사용 안 함](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)을 참조 하세요.
   예외를 구성 하려면 [mic 예외 YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)을 설치 합니다.
@@ -36,7 +35,7 @@ AKS는 기본 제공 서비스 및 추가 기능에 대해 여러 관리 되는 
 
 | ID                       | 속성    | 사용 사례 | 기본 권한 | 사용자 고유의 id 가져오기
 |----------------------------|-----------|----------|
-| 제어 평면 | 표시 되지 않음 | AKS 제어 평면 구성 요소에서 수신 부하 분산 장치 및 AKS 관리 되는 공용 Ip를 포함 하 여 클러스터 리소스를 관리 하는 데 사용 되며 클러스터 Autoscaler 작업 | 노드 리소스 그룹에 대 한 참가자 역할 | 지원됨
+| 컨트롤 플레인 | 표시 되지 않음 | AKS 제어 평면 구성 요소에서 수신 부하 분산 장치 및 AKS 관리 되는 공용 Ip를 포함 하 여 클러스터 리소스를 관리 하는 데 사용 되며 클러스터 Autoscaler 작업 | 노드 리소스 그룹에 대 한 참가자 역할 | 지원됨
 | Kubelet | AKS 클러스터 이름-agentpool | Azure Container Registry 인증 (ACR) | NA (kubernetes v 1.15 +의 경우) | 현재 지원되지 않음
 | 추가 기능 | AzureNPM | Id가 필요 하지 않음 | 해당 없음 | 아니요
 | 추가 기능 | AzureCNI 네트워크 모니터링 | Id가 필요 하지 않음 | 해당 없음 | 아니요

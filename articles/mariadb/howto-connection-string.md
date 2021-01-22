@@ -3,16 +3,16 @@ title: 연결 문자열-Azure Database for MariaDB
 description: 이 문서에는 ADO.NET(C#), JDBC, Node.js, ODBC, PHP, Python, Ruby 등 애플리케이션을 Azure Database for MariaDB와 연결하려는 경우 현재 지원되는 연결 문자열이 나와 있습니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8119f0bfd1f9007cab0df93ad2c7ef22b4db2199
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 309c8b55910c5223f377571edb7207e5b34bd219
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533007"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662180"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 애플리케이션을 연결하는 방법
 이 항목에는 템플릿 및 예제와 함께 Azure Database for MariaDB에서 지원되는 연결 문자열 형식이 나와 있습니다. 연결 문자열에 다른 매개 변수 및 설정을 사용할 수도 있습니다.

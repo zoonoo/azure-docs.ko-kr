@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
-ms.translationtype: HT
+ms.openlocfilehash: a49258208f7a5945ac71c8f17db56fccfdcd6515
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607884"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662003"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 MediusFlow 구성
 
@@ -155,17 +155,25 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성 매핑** 섹션에서 Azure AD에서 MediusFlow로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 MediusFlow의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 MediusFlow API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|Type|
-   |---|---|
-   |userName|String|
+   |attribute|Type|필터링에 지원됨|
+   |---|---|---|
+   |userName|String|&check;|
    |emails[type eq "work"].value|String|
    |name.displayName|String|
    |활성|부울|
    |name.givenName|String|
    |name.familyName|String|
    |name.formatted|String|
-   |externalID|String|
+   |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
+   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: configurationFilter|String|
+   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: identityProvider|String|
+   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: nameIdentifier|String|
+   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: customFieldText1|String|
+   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: customFieldText2|String|
+   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: customFieldText3|String|
+   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: customFieldText4|String|
+   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: customFieldText5|String|
 
 
 10. **매핑** 섹션에서 **Azure Active Directory 그룹을 MediusFlow에 동기화** 를 선택합니다.
@@ -197,9 +205,13 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 ## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
-1. [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 여부를 확인합니다.
+1. [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 2. [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.
+
+## <a name="change-log"></a>로그 변경
+
+* 01/21/2021-사용자 지정 확장 특성 **Configurationfilter**, **identityProvider**, **nameIdentifier**, **customFieldText1**, **customFieldText2**, **customFieldText3**, **customFieldText3** 및 **customFieldText5** 가 추가 되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

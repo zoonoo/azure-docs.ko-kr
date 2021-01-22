@@ -3,17 +3,17 @@ title: 서버 매개 변수 구성-Azure PowerShell-Azure Database for MariaDB
 description: 이 문서에서는 PowerShell을 사용 하 여 Azure Database for MariaDB에서 서비스 매개 변수를 구성 하는 방법을 설명 합니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ace6306bec4c79cbce0a1572360db1acd2cea97
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 891cb5c6e570269d0414e7b7cece760af143927f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538243"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662460"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MariaDB에서 서버 매개 변수 구성
 

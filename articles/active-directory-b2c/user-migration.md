@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fea8d93121fcb5622f86257febcc7d834b444098
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178809"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661156"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>사용자를 Azure AD B2C으로 마이그레이션
 
-다른 id 공급자에서 Azure Active Directory B2C (Azure AD B2C)로 마이그레이션하려면 기존 사용자 계정을 마이그레이션해야 할 수도 있습니다. 마이그레이션 방법에 대 한 두 가지 마이그레이션 방법, 마이그레이션 *전* 및 *원활한 마이그레이션*. 어느 방법을 사용 하 든 [MICROSOFT GRAPH API](manage-user-accounts-graph-api.md) 를 사용 하 여 Azure AD B2C에서 사용자 계정을 만드는 응용 프로그램이 나 스크립트를 작성 해야 합니다.
+다른 id 공급자에서 Azure Active Directory B2C (Azure AD B2C)로 마이그레이션하려면 기존 사용자 계정을 마이그레이션해야 할 수도 있습니다. 마이그레이션 방법에 대 한 두 가지 마이그레이션 방법, 마이그레이션 *전* 및 *원활한 마이그레이션*. 어느 방법을 사용 하 든 [MICROSOFT GRAPH API](microsoft-graph-operations.md) 를 사용 하 여 Azure AD B2C에서 사용자 계정을 만드는 응용 프로그램이 나 스크립트를 작성 해야 합니다.
 
 ## <a name="pre-migration"></a>마이그레이션 전
 
@@ -34,7 +34,7 @@ ms.locfileid: "98178809"
 - 사용자의 일반 텍스트 자격 증명 (사용자 이름 및 암호)에 액세스할 수 있습니다.
 - 자격 증명은 암호화 되지만 암호를 해독할 수 있습니다.
 
-프로그래밍 방식으로 사용자 계정을 만드는 방법에 대 한 자세한 내용은 [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](manage-user-accounts-graph-api.md)를 참조 하세요.
+프로그래밍 방식으로 사용자 계정을 만드는 방법에 대 한 자세한 내용은 [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](microsoft-graph-operations.md)를 참조 하세요.
 
 ## <a name="seamless-migration"></a>원활한 마이그레이션
 

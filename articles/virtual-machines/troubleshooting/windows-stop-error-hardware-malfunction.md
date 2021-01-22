@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 18622d60f3a33658fadfd28c53c93a07b4b438a9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 89faa5b29e0a972f31ad51a7354635a53176541a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488649"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661360"
 ---
 # <a name="windows-stop-error---hardware-malfunction"></a>Windows 중지 오류 - 하드웨어 오작동
 
@@ -48,6 +48,9 @@ ms.locfileid: "96488649"
 ## <a name="solution"></a>해결 방법
 
 ### <a name="process-overview"></a>프로세스 개요 
+
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
 
 1. 비 마스크 인터럽트 (NMI) 레지스트리 키 설정 
 2. 복구 VM 만들기 및 액세스 

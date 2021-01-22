@@ -4,12 +4,12 @@ description: 여러 다른 Azure 지역의 Azure Container Instances 서비스�
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8651a1cc2c2ba41e2c28e9f63dc78c091a6af61d
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763896"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661377"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -40,6 +40,7 @@ ms.locfileid: "96763896"
 | 미국 동부 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | 미국 동부 2 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
 | 프랑스 중부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
+| 독일 중서부 | 3 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 일본 동부 | 2 | 8 | 4 | 16 | 50 | 해당 없음 |
 | 한국 중부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 미국 중북부 | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
@@ -48,6 +49,7 @@ ms.locfileid: "96763896"
 | 동남 아시아 | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | 인도 남부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 영국 남부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
+| 아랍에미리트 북부 | 3 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 미국 중서부| 4 | 16 | 4 | 16 | 50 | 해당 없음 |
 | 서유럽 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | 미국 서부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |

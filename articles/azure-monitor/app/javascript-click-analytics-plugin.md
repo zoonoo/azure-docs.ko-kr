@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: 7af26be91ff129e4c968bcb131cc98290cd8d7b9
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610083"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660456"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK 용 분석 자동 수집 플러그 인을 클릭 합니다.
 
@@ -69,7 +69,7 @@ appInsights.loadAppInsights();
     2. 효율성을 높이기 위해 플러그 인은이 태그를 플래그로 사용 합니다 .이 경우에는 DOM을 더 이상 처리 하지 않습니다 (문서 개체 모델).
     
     > [!CAUTION]
-    > `parentDataTag`를 사용 하면 사용 하는 HTML 요소가 아니라 전체 응용 프로그램 전체에 걸쳐 영구적으로 영향을 미칠 수 있습니다.
+    > `parentDataTag`를 사용 하면 SDK가 사용 되는 HTML 요소 뿐만 아니라 전체 응용 프로그램에서 부모 태그를 검색 하기 시작 합니다.
 4. `customDataPrefix` 예를 들어 사용자가 제공 하는은 항상로 시작 해야 `data-` `data-sample-` 합니다. HTML에서 `data-*` 전역 특성은 사용자 지정 데이터 특성 이라고 하는 특성 클래스를 형성 합니다 .이 특성을 사용 하면 HTML과 스크립트의 DOM 표시 간에 독점 정보를 교환할 수 있습니다. 이전 브라우저 (Internet Explorer, Safari)는로 시작 하지 않는 한 특성이 인식 되지 않는 특성을 삭제 `data-` 합니다.
 
     `*`의는 `data-*` [XML 이름에 대 한 프로덕션 규칙](https://www.w3.org/TR/REC-xml/#NT-Name) 뒤의 임의의 이름으로 대체 될 수 있으며, 다음과 같은 제한 사항이 있습니다.
@@ -79,7 +79,7 @@ appInsights.loadAppInsights();
 
 ## <a name="configuration"></a>구성
 
-| Name                  | Type                               | 기본값 | 설명                                                                                                                              |
+| 속성                  | Type                               | 기본값 | Description                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | autoCapture           | boolean                            | true    | 자동 캡처 구성.                                                                                                         |
 | 콜백(callback)              | [IValueCallback](#ivaluecallback)  | null    | 콜백 구성.                                                                                                                 |
@@ -93,7 +93,7 @@ appInsights.loadAppInsights();
 
 ### <a name="ivaluecallback"></a>IValueCallback
 
-| Name               | Type     | 기본값 | 설명                                                                             |
+| 속성               | Type     | 기본값 | 설명                                                                             |
 | ------------------ | -------- | ------- | --------------------------------------------------------------------------------------- |
 | pageName           | 함수 | null    | 기본 pageName 캡처 동작을 재정의 하는 함수입니다.                           |
 | pageActionPageTags | 함수 | null    | PageAction 이벤트 중에 수집 된 기본 pageTags를 확대 하는 콜백 함수입니다.  |
@@ -101,7 +101,7 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| Name                      | Type    | 기본값   | HTML에 사용할 기본 태그 |   설명                                                                                |
+| 속성                      | Type    | 기본값   | HTML에 사용할 기본 태그 |   Description                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
 | useDefaultContentNameOrId | boolean | false     | 해당 없음         |특정 요소가 기본 customDataPrefix로 태그가 지정 되지 않은 경우 또는 사용자가 customDataPrefix를 제공 하지 않는 경우 contentName에 대 한 표준 HTML 특성을 수집 합니다. |
 | customDataPrefix          | 문자열  | `data-`   | `data-*`| 제공 된 접두사로 태그가 지정 된 요소의 콘텐츠 이름과 값을 자동으로 캡처합니다. 예를 들어,는 `data-*-id` `data-<yourcustomattribute>` HTML 태그에서 사용할 수 있습니다.   |
@@ -115,7 +115,7 @@ appInsights.loadAppInsights();
 
 BehaviorValidator 함수는 코드의 태그가 지정 된 동작이 미리 정의 된 목록에 맞는지 자동으로 확인 합니다. 이렇게 하면 태그가 지정 된 동작이 기업의 설정 분류와 일치 하 게 됩니다. 대부분의 Azure Monitor 고객은이 기능을 사용 하지만 고급 시나리오에 사용할 수 있는 것은 필수는 아닙니다. 이 확장의 일부로 노출 되는 세 가지 behaviorValidator 콜백 함수가 있습니다. 그러나 노출 된 함수에서 요구 사항을 해결 하지 못하면 사용자가 자신의 콜백 함수를 사용할 수 있습니다. 사용자 고유의 동작 데이터 구조를 가져오기 위해 플러그 인은 데이터 태그에서 동작을 추출 하는 동안이 유효성 검사기 함수를 사용 합니다.
 
-| Name                   | 설명                                                                        |
+| 속성                   | Description                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
 | BehaviorValueValidator | 동작 데이터 구조가 문자열 배열인 경우이 콜백 함수를 사용 합니다.|
 | BehaviorMapValidator   | 동작 데이터 구조가 사전 인 경우이 콜백 함수를 사용 합니다.       |
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - 클릭 분석 자동 수집 플러그 인에 대 한 [GitHub 리포지토리](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) 및 [NPM 패키지](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) 를 확인 합니다.
 - 사용 [환경에서 이벤트 분석](usage-segmentation.md) 을 사용 하 여 상위 클릭 및 사용 가능한 차원과 조각화를 분석 합니다.
-- [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query)의 CustomEvents 테이블에서 customdimensions 특성의 내용 필드 아래에서 데이터 클릭을 찾습니다.
+- [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query)의 CustomEvents 테이블에서 customdimensions 특성의 내용 필드 아래에서 데이터 클릭을 찾습니다. 추가 지침은 [샘플 앱](https://go.microsoft.com/fwlink/?linkid=2152871) 을 참조 하세요.
 - [통합 문서](../platform/workbooks-overview.md) 를 빌드하여 클릭 데이터의 사용자 지정 시각화를 만듭니다.

@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: d9ae9cae1a0a8014f007cd7c4a3d1f97f27128bb
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 4ae69ddeb46d484a64edc4ccabfa6740b36c4264
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610967"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663267"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
@@ -33,7 +33,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 - PowerShell 스크립트를 사용 하 여 로컬 컴퓨터에 한 번 내보냅니다. [AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport)를 참조 하세요.
 
 
-## <a name="current-limitations"></a>현재 제한 사항
+## <a name="limitations"></a>제한 사항
 
 - 현재 CLI 또는 REST 요청을 사용 하 여 구성을 수행할 수 있습니다. Azure Portal 또는 PowerShell은 아직 지원 되지 않습니다.
 - ```--export-all-tables```CLI 및 REST의 옵션은 지원 되지 않으며 제거 됩니다. 내보내기 규칙에서 테이블 목록을 명시적으로 제공 해야 합니다.

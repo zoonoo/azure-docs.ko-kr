@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7c9e3344ed819f607feeab88ac43a9dc286a61e0
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 430da23986fc36a0e94c049512ef716aff1fed5c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109099"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660253"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 새로운 앱 등록 환경
 
@@ -63,12 +63,13 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 > [!NOTE]
 > 이 옵션은 Azure AD B2C 사용자 흐름을 실행 하 여이 응용 프로그램에 대 한 사용자를 인증 하는 데 필요 합니다. [사용자 흐름에 사용할 응용 프로그램을 등록 하는 방법](tutorial-register-applications.md) 에 대해 알아봅니다.
 
-이 옵션을 사용 하 여 Azure AD B2C를 SAML 서비스 공급자로 사용할 수도 있습니다. [자세히 알아봅니다](identity-provider-adfs.md).
+이 옵션을 사용 하 여 Azure AD B2C를 SAML 서비스 공급자로 사용할 수도 있습니다. [자세히 알아보기](identity-provider-adfs.md).
 
 ## <a name="applications-for-devops-scenarios"></a>DevOps 시나리오용 응용 프로그램
+
 다른 계정 유형을 사용 하 여 Id 경험 프레임 워크 정책을 업로드 하거나 사용자를 프로 비전 하는 Microsoft Graph 같은 DevOps 시나리오를 관리 하는 앱을 만들 수 있습니다. [Microsoft Graph 응용 프로그램을 등록 하 여 Azure AD B2C 리소스를 관리 하는 방법을](microsoft-graph-get-started.md)알아봅니다.
 
-이러한 권한이 대부분 Azure B2C consumer 사용자에 게 적용 되지 않기 때문에 Microsoft Graph 권한이 모두 표시 되지 않을 수 있습니다. [Microsoft Graph를 사용 하 여 사용자 관리에 대해 자세히](manage-user-accounts-graph-api.md)알아보세요.
+이러한 권한이 대부분 Azure B2C consumer 사용자에 게 적용 되지 않기 때문에 Microsoft Graph 권한이 모두 표시 되지 않을 수 있습니다. [Microsoft Graph를 사용 하 여 사용자 관리에 대해 자세히](microsoft-graph-operations.md)알아보세요.
 
 ## <a name="admin-consent-and-offline_accessopenid-scopes"></a>관리자 동의 및 offline_access + openid connect 범위
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->

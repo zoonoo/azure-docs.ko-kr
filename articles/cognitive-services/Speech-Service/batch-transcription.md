@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68a129f38e9a94a7e381d11ffa3c3d02791b025b
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: e48fead4d4364fd84f178388dbfb9158296e687b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755772"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659974"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
@@ -24,7 +24,7 @@ ms.locfileid: "97755772"
 
 일괄 처리 기록 REST Api를 사용 하 여 다음 메서드를 호출할 수 있습니다.
 
-|    일괄 처리 기록 작업                                             |    방법    |    REST API 호출                                   |
+|    일괄 처리 기록 작업                                             |    메서드    |    REST API 호출                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
 |    새 기록을 만듭니다.                                              |    POST      |    speechtotext/v 3.0/            |
 |    인증 된 구독의 기록 목록을 검색 합니다.    |    GET       |    speechtotext/v 3.0/            |
@@ -55,7 +55,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
 
 일괄 처리 기록 API는 다음과 같은 형식을 지원 합니다.
 
-| 형식 | Codec | 샘플 당 비트 수 | 샘플링 주기             |
+| 서식 | Codec | 샘플 당 비트 수 | 샘플링 주기             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
 | MP3    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
@@ -64,7 +64,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
 스테레오 오디오 스트림의 경우 기록 중 왼쪽 채널과 오른쪽 채널이 분할 됩니다. 각 채널에 대해 JSON 결과 파일이 생성 되 고 있습니다.
 정렬 된 최종 성적 증명서를 만들려면 utterance 생성 된 타임 스탬프를 사용 합니다.
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 구성 매개 변수는 JSON으로 제공 됩니다. 
 
@@ -208,7 +208,8 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
   ],
   "recognizedPhrases": [                // results for each phrase and each channel individually
     {
-      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"
+      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"          
+      "speaker": 1,                     // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
       "channel": 0,                     // channel number of the result
       "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration 
       "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
@@ -219,7 +220,6 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
       "nBest": [
         {
           "confidence": 0.898652852,    // confidence value for the recognition of the whole phrase
-          "speaker": 1,                 // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",

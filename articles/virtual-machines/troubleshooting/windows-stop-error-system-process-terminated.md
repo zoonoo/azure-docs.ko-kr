@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
-ms.openlocfilehash: b13b61aff819271ed1722572f251f9a6d14b17ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8af656e00c457dfa3d438f0cb104d85ccc687745
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977000"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661241"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Windows 중지 오류-0xC000021A 상태 시스템 프로세스가 종료 되었습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "91977000"
 
 ## <a name="cause"></a>원인
 
-오류 0xC000021A는 **STATUS_SYSTEM_PROCESS_TERMINATED**을 의미 합니다.
+오류 0xC000021A는 **STATUS_SYSTEM_PROCESS_TERMINATED** 을 의미 합니다.
 
 이 오류는 WinLogon (winlogon.exe) 또는 클라이언트 서버 Run-Time 하위 시스템 (csrss.exe)과 같은 중요 한 프로세스가 실패할 때 발생 합니다. 커널이 이러한 서비스 중 하나라도 중지 된 것을 감지 하면 **STOP 0xC000021A** 오류가 발생 합니다. 이 오류는 다음과 같은 여러 원인이 있을 수 있습니다.
 
@@ -48,12 +48,16 @@ ms.locfileid: "91977000"
 
 ### <a name="collect-the-memory-dump-file"></a>메모리 덤프 파일 수집
 
+> [!TIP]
+> VM의 최근 백업이 있는 경우 [백업에서 vm을 복원](../../backup/backup-azure-arm-restore-vms.md) 하 여 부팅 문제를 해결할 수 있습니다.
+
+
 이 문제를 해결 하려면 크래시 덤프를 분석 해야 합니다. 크래시에 대 한 메모리 덤프 파일을 수집 하 고 지원 서비스에 문의 하십시오. 덤프 파일을 수집 하려면 다음 단계를 수행 합니다.
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>새 복구 VM에 OS 디스크를 연결 합니다.
 
 1.  [VM 복구 명령](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
-2.  **원격 데스크톱 연결**를 사용 하 여 복구 VM에 연결 합니다.
+2.  **원격 데스크톱 연결** 를 사용 하 여 복구 VM에 연결 합니다.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>덤프 파일을 찾고 지원 티켓을 제출 합니다.
 

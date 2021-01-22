@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c4db7bf989a0062f87a5c3e6303ba64224996554
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2956f0ffb562214477249da3198ebbe42ef9bb45
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224459"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660372"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 로그인 흐름 설정
 
@@ -30,11 +30,11 @@ ms.locfileid: "98224459"
 * 사용자가 Azure AD B2C 로컬 계정으로 로그인 할 수 있음
 * 소셜 계정을 사용 하 여 등록 또는 로그인
 * 암호 재설정
-* 사용자가 Azure AD B2C 로컬 계정에 등록할 수 없습니다. 계정을 만들려면 관리자가 [MS Graph API](manage-user-accounts-graph-api.md)를 사용할 수 있습니다.
+* 사용자가 Azure AD B2C 로컬 계정에 등록할 수 없습니다. 계정을 만들려면 관리자가 [MS Graph API](microsoft-graph-operations.md)를 사용할 수 있습니다.
 
 ![프로필 편집 흐름](./media/add-sign-in-policy/sign-in-user-flow.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 아직 수행 하지 않은 경우 [Azure Active Directory B2C에 웹 응용 프로그램을 등록](tutorial-register-applications.md)합니다.
 
