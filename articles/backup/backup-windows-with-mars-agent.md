@@ -3,12 +3,12 @@ title: MARS 에이전트를 사용 하 여 Windows 컴퓨터 백업
 description: MARS (Microsoft Azure Recovery Services) 에이전트를 사용 하 여 Windows 컴퓨터를 백업 합니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052225"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702771"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Azure에 Windows Server 파일 및 폴더 백업
 
@@ -38,22 +38,22 @@ Azure Backup는 DST (일광 절약 시간)를 자동으로 고려 하지 않습�
 
 백업 정책을 만들려면:
 
-1. MARS 에이전트를 다운로드 하 고 등록 한 후에는 에이전트 콘솔을 엽니다. **Microsoft Azure Backup**에 대한 컴퓨터를 검색하여 찾을 수 있습니다.  
+1. MARS 에이전트를 다운로드 하 고 등록 한 후에는 에이전트 콘솔을 엽니다. **Microsoft Azure Backup** 에 대한 컴퓨터를 검색하여 찾을 수 있습니다.  
 
-1. **작업**아래에서 **백업 예약**을 선택 합니다.
+1. **작업** 아래에서 **백업 예약** 을 선택 합니다.
 
     ![Windows Server 백업 예약](./media/backup-configure-vault/schedule-first-backup.png)
-1. 백업 예약 마법사에서 다음 **시작**을 선택  >  **Next**합니다.
-1. **백업할 항목 선택**에서 **항목 추가**를 선택 합니다.
+1. 백업 예약 마법사에서 다음 **시작** 을 선택  >  합니다.
+1. **백업할 항목 선택** 에서 **항목 추가** 를 선택 합니다.
 
     ![백업할 항목 추가](./media/backup-azure-manage-mars/select-item-to-backup.png)
 
-1. **항목 선택** 상자에서 백업할 항목을 선택 하 고 **확인**을 선택 합니다.
+1. **항목 선택** 상자에서 백업할 항목을 선택 하 고 **확인** 을 선택 합니다.
 
     ![백업할 항목 선택](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
-1. **백업할 항목 선택** 페이지에서 **다음**을 선택 합니다.
-1. **백업 일정 지정** 페이지에서 매일 또는 매주 백업을 수행할 시간을 지정 합니다. 그런 후 **다음**을 선택합니다.
+1. **백업할 항목 선택** 페이지에서 **다음** 을 선택 합니다.
+1. **백업 일정 지정** 페이지에서 매일 또는 매주 백업을 수행할 시간을 지정 합니다. **다음** 을 선택합니다.
 
     * 복구 지점은 백업을 수행할 때 생성 됩니다.
     * 사용자 환경에서 생성 되는 복구 지점의 수는 백업 일정에 따라 다릅니다.
@@ -65,7 +65,7 @@ Azure Backup는 DST (일광 절약 시간)를 자동으로 고려 하지 않습�
 
         ![주간 백업 일정 설정](./media/backup-configure-vault/week-schedule.png)
 
-1. **보존 정책 선택** 페이지에서 데이터의 기록 복사본을 저장 하는 방법을 지정 합니다. 그런 후 **다음**을 선택합니다.
+1. **보존 정책 선택** 페이지에서 데이터의 기록 복사본을 저장 하는 방법을 지정 합니다. **다음** 을 선택합니다.
 
     * 보존 설정은 저장할 복구 지점과 저장 기간을 지정 합니다.
     * 매일 보존 설정의 경우 매일 보존에 지정 된 시간에 최신 복구 지점이 지정 된 기간 (일) 동안 보존 됨을 표시 합니다. 또는 매월 30 일에 생성 된 복구 지점을 12 개월 동안 저장 하도록 지정할 수 있습니다.
@@ -79,17 +79,17 @@ Azure Backup는 DST (일광 절약 시간)를 자동으로 고려 하지 않습�
 
         ![보존 정책의 예](./media/backup-configure-vault/retention-example.png)
 
-1. **초기 백업 유형 선택** 페이지에서 네트워크를 통해 초기 백업을 수행할 것인지 아니면 오프 라인 백업을 사용할지 결정 합니다. 네트워크를 통해 초기 백업을 수행 하려면 **네트워크를 통해 자동으로**  >  **다음**을 선택 합니다.
+1. **초기 백업 유형 선택** 페이지에서 네트워크를 통해 초기 백업을 수행할 것인지 아니면 오프 라인 백업을 사용할지 결정 합니다. 네트워크를 통해 초기 백업을 수행 하려면 **네트워크를 통해 자동으로**  >  **다음** 을 선택 합니다.
 
     오프 라인 백업에 대 한 자세한 내용은 [오프 라인 백업에 Azure Data Box 사용](offline-backup-azure-data-box.md)을 참조 하세요.
 
     ![초기 백업 유형 선택](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
 
-1. **확인** 페이지에서 정보를 검토 한 다음 **마침**을 선택 합니다.
+1. **확인** 페이지에서 정보를 검토 한 다음 **마침** 을 선택 합니다.
 
     ![백업 유형 확인](./media/backup-azure-manage-mars/confirm-backup-type.png)
 
-1. 마법사가 백업 일정 생성을 완료하면 **닫기**를 선택합니다.
+1. 마법사가 백업 일정 생성을 완료하면 **닫기** 를 선택합니다.
 
     ![백업 일정 진행률 보기](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
 
@@ -104,7 +104,7 @@ Azure Backup는 DST (일광 절약 시간)를 자동으로 고려 하지 않습�
 1. 준비 위치에 백업 데이터를 씁니다.
 1. AzureOfflineBackupDiskPrep 도구를 사용 하 여 스테이징 위치에서 하나 이상의 SATA 디스크로 데이터를 복사 합니다.
 
-    이 도구는 Azure 가져오기 작업을 만듭니다. 자세한 내용은 [Azure Import/Export 서비스 정의](../storage/common/storage-import-export-service.md)를 참조 하세요.
+    이 도구는 Azure 가져오기 작업을 만듭니다. 자세한 내용은 [Azure Import/Export 서비스 정의](../import-export/storage-import-export-service.md)를 참조 하세요.
 1. Azure 데이터 센터에 SATA 디스크를 보냅니다.
 
     데이터 센터에서 디스크 데이터는 Azure storage 계정에 복사 됩니다. Azure Backup 저장소 계정에서 자격 증명 모음으로 데이터를 복사 하 고 증분 백업이 예약 됩니다.
@@ -121,15 +121,15 @@ Azure Backup의 네트워크 제한은 로컬 운영 체제의 [QoS (서비스 �
 
 네트워크 제한을 사용 하려면 다음을 수행 합니다.
 
-1. MARS 에이전트에서 **속성 변경**을 선택 합니다.
-1. **제한** 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택 합니다.
+1. MARS 에이전트에서 **속성 변경** 을 선택 합니다.
+1. **제한** 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용** 을 선택 합니다.
 
     ![백업 작업에 대 한 네트워크 제한 설정](./media/backup-configure-vault/throttling-dialog.png)
-1. 근무 시간 및 근무 외 시간에 허용 되는 대역폭을 지정 합니다. 대역폭 값은 512 Kbps에서 시작 하 여 1023 Mbps로 이동 합니다. 그런 다음, **확인**을 선택합니다.
+1. 근무 시간 및 근무 외 시간에 허용 되는 대역폭을 지정 합니다. 대역폭 값은 512 Kbps에서 시작 하 여 1023 Mbps로 이동 합니다. 그런 다음, **확인** 을 선택합니다.
 
 ## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 
-1. MARS 에이전트에서 **지금 백업**을 선택 합니다.
+1. MARS 에이전트에서 **지금 백업** 을 선택 합니다.
 
     ![지금 Windows Server에서 백업](./media/backup-configure-vault/backup-now.png)
 
@@ -137,8 +137,8 @@ Azure Backup의 네트워크 제한은 로컬 운영 체제의 [QoS (서비스 �
 
    ![달력을 사용 하 여 보존 날짜 사용자 지정](./media/backup-configure-vault/mars-ondemand.png)
 
-1. **확인** 페이지에서 설정을 검토 하 고 **백업**을 선택 합니다.
-1. **닫기**를 선택하여 마법사를 닫습니다. 백업이 완료 되기 전에 마법사를 닫으면 마법사가 백그라운드에서 계속 실행 됩니다.
+1. **확인** 페이지에서 설정을 검토 하 고 **백업** 을 선택 합니다.
+1. **닫기** 를 선택하여 마법사를 닫습니다. 백업이 완료 되기 전에 마법사를 닫으면 마법사가 백그라운드에서 계속 실행 됩니다.
 
 초기 백업이 완료 되 면 백업 콘솔에 **작업 완료 됨** 상태가 표시 됩니다.
 

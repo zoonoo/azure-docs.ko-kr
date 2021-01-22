@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 702a59f768bfe978e1a7708d91c6b6b1bb9c92fe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0bd895b0c19293a199b2a9b135915b7dc45b9e5e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452233"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702500"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용
 
@@ -88,7 +88,7 @@ HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의
 용량이 수 테라바이트에 달하는 데이터 세트를 업로드하는 경우 위에서 설명한 방법을 사용하면 속도가 느리고 비용이 많이 들 수 있습니다. 이러한 경우 아래의 옵션을 사용할 수 있습니다.
 
 * **Azure ExpressRoute 사용**. Azure ExpressRoute를 사용하면 온-프레미스의 인프라와 Azure 데이터 센터 사이에 프라이빗 연결을 만들 수 있습니다. 이렇게 하면 대용량 데이터를 안전하게 전송할 수 있습니다. 자세한 내용은 [Azure ExpressRoute 설명서](../expressroute/expressroute-introduction.md)를 참조하세요.
-* **데이터를 "오프라인"으로 업로드**. Azure ExpressRoute를 사용할 수 없는 경우 [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md) 를 사용하여 데이터가 들어 있는 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그러면 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) 또는 [AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 데이터를 Azure Storage Blob에서 Data Lake Store Gen1으로 복사할 수 있습니다.
+* **데이터를 "오프라인"으로 업로드**. Azure ExpressRoute를 사용할 수 없는 경우 [Azure Import/Export 서비스](../import-export/storage-import-export-service.md) 를 사용하여 데이터가 들어 있는 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그러면 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) 또는 [AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 데이터를 Azure Storage Blob에서 Data Lake Store Gen1으로 복사할 수 있습니다.
 
   > [!NOTE]
   > Import/Export 서비스를 사용할 때 Azure 데이터 센터로 보내는 디스크의 파일 크기가 195GB를 초과하면 안 됩니다.

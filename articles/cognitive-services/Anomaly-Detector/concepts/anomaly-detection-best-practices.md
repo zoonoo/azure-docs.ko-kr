@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705152"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702729"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>변칙 탐지기 API 사용에 대 한 모범 사례
 
@@ -34,7 +34,7 @@ ms.locfileid: "97705152"
 * 때때로 비정상 상황을 포함 하는 계절 시계열.
 * 가끔 급증 하는 급수/dip가 있는 평면 추세 시계열. 
 
-실시간 데이터 모니터링을 위해 일괄 처리 변칙 검색을 사용 하거나 위의 특성이 없는 시계열 데이터에는 사용 하지 않는 것이 좋습니다. 
+실시간 데이터 모니터링에는 batch 변칙 검색을 사용 하거나 위의 특성이 없는 시계열 데이터에는 사용 하지 않는 것이 좋습니다. 
 
 * 일괄 처리 검색은 하나의 모델만 만들고 적용 하며, 각 지점의 검색은 전체 계열의 컨텍스트에서 수행 됩니다. 계절성 하지 않고 시계열 데이터의 추세가 증가 하거나 감소 하는 경우 모델에서 일부 변경 사항 (데이터의 dip 및 스파이크)이 누락 될 수 있습니다. 마찬가지로 데이터 집합에서 나중에 보다 중요 한 변경 사항 중 일부는 모델에 통합할 만큼 크게 계산 되지 않을 수 있습니다.
 
@@ -87,7 +87,7 @@ ms.locfileid: "97705152"
 
 ### <a name="aggregate-distributed-data"></a>분산 데이터 집계
 
-변칙 탐지기 API는 균일 하 게 분산 된 시계열에서 가장 잘 작동 합니다. 데이터가 무작위로 분산 된 경우, 예를 들어 분당, 매시간 또는 매일 같은 시간 단위로 집계 해야 합니다.
+변칙 탐지기 API는 균일 하 게 분산 된 시계열에서 가장 잘 작동 합니다. 데이터가 무작위로 분산 된 경우에는 분당, 매시간 또는 매일 같은 시간 단위로 집계 해야 합니다.
 
 ## <a name="anomaly-detection-on-data-with-seasonal-patterns"></a>계절 패턴을 사용 하 여 데이터에 대 한 변칙 검색
 
@@ -95,7 +95,7 @@ ms.locfileid: "97705152"
 
 `period`JSON 요청을 생성할 때를 지정 하면 변칙 검색 대기 시간을 최대 50%까지 줄일 수 있습니다. 는 `period` 시계열이 패턴을 반복 하는 데 걸리는 대략적인 데이터 요소 수를 지정 하는 정수입니다. 예를 들어, 하루에 한 개의 데이터 요소를 포함 하는 시계열에는가 포함 되 `period` `7` 고 시간당 한 지점을 포함 하는 시계열 (주간 패턴은 동일)은의이 됩니다 `period`  `7*24` . 데이터의 패턴을 잘 모를 경우에는이 매개 변수를 지정할 필요가 없습니다.
 
-최상의 결과를 위해 4 가지 `period` 데이터 요소와 추가 데이터 요소를 제공 합니다. 예를 들어 위에서 설명한 대로 주간 패턴이 있는 매시간 데이터는 요청 본문 ()에 673 데이터 요소를 제공 해야 합니다 `7 * 24 * 4 + 1` .
+최상의 결과를 위해 네 가지 `period` 데이터 요소와 추가 데이터 요소를 제공 합니다. 예를 들어 위에서 설명한 대로 주간 패턴이 있는 매시간 데이터는 요청 본문 ()에 673 데이터 요소를 제공 해야 합니다 `7 * 24 * 4 + 1` .
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>실시간 모니터링을 위한 데이터 샘플링
 
@@ -104,4 +104,4 @@ ms.locfileid: "97705152"
 ## <a name="next-steps"></a>다음 단계
 
 * [Anomaly Detector API란?](../overview.md)
-* [빠른 시작: 변칙 탐지기를 사용 하 여 시계열 데이터의 변칙 검색](../quickstarts/client-libraries.md)
+* [빠른 시작: Anomaly Detector를 사용하여 시계열 데이터에서 변칙 검색](../quickstarts/client-libraries.md)

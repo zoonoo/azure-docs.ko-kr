@@ -1,15 +1,15 @@
 ---
 title: Azure Service Fabric에 대한 기본 제공 정책 정의
 description: Azure Service Fabric에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8ca4f0b43962856c9bafc1654a732ae2c7783f5c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 95fd494430ac742f90b3c28dde97270cd0c2263a
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043996"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700665"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-fabric"></a>Azure Service Fabric에 대한 Azure Policy 기본 제공 정의
 

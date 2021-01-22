@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: f1ded1ce87df1cb57960bbc99cd950ed7b3f97ee
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: cf0e423648db174433f0717f2e5971ac49697b42
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573938"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704626"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>보통-높은 네트워크 대역폭에서 대용량 데이터 세트의 데이터 전송
  
@@ -95,7 +95,7 @@ ms.locfileid: "96573938"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Import/Export를 사용하여 데이터를 전송하는 방법 알아보기](./storage-import-export-data-to-blobs.md)
+- [Import/Export를 사용하여 데이터를 전송하는 방법 알아보기](../../import-export/storage-import-export-data-to-blobs.md)
 - 다음 작업을 수행하는 방법을 이해합니다.
 
     - [Data Box Disk를 사용 하 여 데이터를 전송](../../databox/data-box-disk-quickstart-portal.md)합니다.
