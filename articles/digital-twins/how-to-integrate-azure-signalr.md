@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d84acc5501b3d40f6db85d0ee6ee369aec5a6aa4
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 71e74789654d2df91d9a087eaaf8d8f2a2664f7b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051108"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664115"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
 
@@ -20,7 +20,7 @@ ms.locfileid: "98051108"
 
 이 문서에서 설명 하는 솔루션을 사용 하면 단일 웹 페이지 또는 모바일 응용 프로그램과 같은 연결 된 클라이언트에 디지털 쌍 원격 분석 데이터를 푸시할 수 있습니다. 결과적으로 클라이언트는 서버를 폴링하고 업데이트에 대 한 새 HTTP 요청을 제출할 필요 없이 IoT 장치에서 실시간 메트릭 및 상태로 업데이트 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 계속 하기 전에 완료 해야 하는 필수 구성 요소는 다음과 같습니다.
 
@@ -40,7 +40,11 @@ ms.locfileid: "98051108"
 
 먼저 필요한 샘플 앱을 다운로드 합니다. 다음 두 가지가 모두 필요 합니다.
 * [**Azure Digital Twins 종단 간 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/):이 샘플에는 Azure Digital twins 인스턴스를 중심으로 데이터를 이동 하기 위한 두 개의 azure 기능을 보유 하는 *AdtSampleApp* 포함 되어 있습니다. [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서이 시나리오에 대해 자세히 알아볼 수 있습니다. 또한 IoT 장치를 시뮬레이션 하 고 초 마다 새 온도 값을 생성 하는 *DeviceSimulator* 샘플 응용 프로그램이 포함 되어 있습니다. 
-    - 샘플 링크로 이동 하 고 *ZIP 다운로드* 단추를 클릭 하 _**Azure_Digital_Twins_end_to_end_samples.zip**_ 하 여 샘플의 복사본을 컴퓨터에 다운로드 합니다. 폴더의 압축을 풉니다.
+    - [*필수 조건*](#prerequisites)에서 자습서의 일부로 샘플을 아직 다운로드 하지 않은 경우 샘플 링크로 이동 하 여 제목 아래에 있는 *코드 찾아보기* 단추를 선택 합니다. 그러면으로 다운로드할 수 있는 샘플에 대 한 GitHub 리포지토리로 이동 됩니다 *.* *코드* 단추를 선택 하 고 *zip을 다운로드* 하 여 zip을 다운로드 합니다.
+
+    :::image type="content" source="media/includes/download-repo-zip.png" alt-text="GitHub의 디지털 쌍 샘플 리포지토리 보기입니다. 코드 단추가 선택 되어 ZIP 다운로드 단추가 강조 표시 된 작은 대화 상자를 생성 합니다." lightbox="media/includes/download-repo-zip.png":::
+
+    그러면 **digital-twins-samples-master.zip** 같이 샘플 리포지토리의 복사본이 컴퓨터에 다운로드 됩니다. 폴더의 압축을 풉니다.
 * [**SignalR integration 웹 앱 샘플**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): azure SignalR 서비스에서 Azure Digital twins 원격 분석 데이터를 사용 하는 샘플 반응 웹 앱입니다.
     -  샘플 링크로 이동 하 고 *ZIP 다운로드* 단추를 클릭 하 _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_ 하 여 샘플의 복사본을 컴퓨터에 다운로드 합니다. 폴더의 압축을 풉니다.
 
@@ -63,7 +67,7 @@ ms.locfileid: "98051108"
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="SignalR 인스턴스에 대 한 키 페이지를 표시 하는 Azure Portal의 스크린샷 기본 연결 문자열 옆의 ' 클립보드로 복사 ' 아이콘이 강조 표시 됩니다." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-그런 다음 Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp* 폴더에서 코드 솔루션을 엽니다. 그런 다음 함수를 만들려면 다음 단계를 수행 합니다.
+그런 다음 Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *ADTSampleApp 폴더 >* 에서 코드 솔루션을 엽니다. 그런 다음 함수를 만들려면 다음 단계를 수행 합니다.
 
 1. *SampleFunctionsApp* 프로젝트에서 **SignalRFunctions.cs** 라는 새 c # sharp 클래스를 만듭니다.
 
@@ -71,7 +75,7 @@ ms.locfileid: "98051108"
     
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
-1. Visual Studio의 *패키지 관리자 콘솔* 창 또는 *Azure_Digital_Twins_end_to_end_samples \adtsampleapp\samplefunctionsapp* 폴더에 있는 컴퓨터의 명령 창에서 다음 명령을 실행 하 여 `SignalRService` NuGet 패키지를 프로젝트에 설치 합니다.
+1. Visual Studio의 *패키지 관리자 콘솔* 창 또는 *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp* 폴더에 있는 컴퓨터의 명령 창에서 다음 명령을 실행 하 여 `SignalRService` NuGet 패키지를 프로젝트에 설치 합니다.
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
@@ -126,7 +130,7 @@ ms.locfileid: "98051108"
 
 종단 간 자습서 필수 구성 요소에서 IoT Hub 및 Azure Digital Twins 인스턴스로 데이터를 보내도록 [장치 시뮬레이터를 구성](tutorial-end-to-end.md#configure-and-run-the-simulation) 했습니다.
 
-이제 *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator* 에 있는 시뮬레이터 프로젝트를 시작 해야 합니다. Visual Studio를 사용 하는 경우 프로젝트를 열고 도구 모음에서이 단추를 사용 하 여 실행할 수 있습니다.
+이제 *디지털-twins-samples-master > DeviceSimulator > DeviceSimulator* 에 있는 시뮬레이터 프로젝트를 시작 해야 합니다. Visual Studio를 사용 하는 경우 프로젝트를 열고 도구 모음에서이 단추를 사용 하 여 실행할 수 있습니다.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Visual Studio 시작 단추(DeviceSimulator 프로젝트)":::
 
@@ -188,7 +192,7 @@ Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/c
 az group delete --name <your-resource-group>
 ```
 
-마지막으로, 로컬 컴퓨터에 다운로드 한 프로젝트 샘플 폴더 (*Azure_Digital_Twins_end_to_end_samples.zip* 및 *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*)를 삭제 합니다.
+마지막으로, 로컬 컴퓨터에 다운로드 한 프로젝트 샘플 폴더 (*digital-twins-samples-master.zip* 및 *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*)를 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

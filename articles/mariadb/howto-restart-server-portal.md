@@ -3,15 +3,15 @@ title: 서버 다시 시작-Azure Portal-Azure Database for MariaDB
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MariaDB 서버를 다시 시작하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 0c16cf8d67394f6aa50cb30a44b4ff5a677159de
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a912c1cde092b082e4c0229b1f454e80f32e319e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538889"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664888"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Azure Portal을 사용한 Azure Database for MariaDB 서버 다시 시작
 이 항목에서는 Azure Database for MariaDB 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.

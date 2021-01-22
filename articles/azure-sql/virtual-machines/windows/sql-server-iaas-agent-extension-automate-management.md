@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7ddc13306f4adb1730169c4811b9d2227dedca33
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 481a4ff21c361e4cf82a21d9e98357a4c8b7b1b4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632769"
+ms.locfileid: "98663675"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용 하 여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ SQL Server IaaS 에이전트 확장 (SqlIaasExtension)은 Azure Virtual Machines
 
 ## <a name="overview"></a>개요
 
-SQL Server IaaS 에이전트 확장은 Azure Vm의 SQL Server에 대 한 다양 한 이점을 제공 합니다. 
+SQL Server IaaS 에이전트 확장을 사용 하면 Azure Portal와 통합할 수 있으며, 관리 모드에 따라 Azure Vm의 SQL Server에 대 한 다양 한 기능 혜택을 잠금 해제할 수 있습니다. 
 
 - **기능 이점**: 확장이 포털 관리, 라이선스 유연성, 자동화 된 백업, 자동화 된 패치 등의 다양 한 자동화 기능 혜택을 해제 합니다. 자세한 내용은이 문서의 뒷부분에 나오는 [기능 이점](#feature-benefits) 을 참조 하세요. 
 
@@ -72,14 +72,15 @@ SQL Server IaaS 에이전트 확장은 SQL Server VM 관리에 대 한 다양 �
 다음 표에서는 이러한 이점에 대해 자세히 설명 합니다. 
 
 
-| 기능 | 설명 |
+| 기능 | Description |
 | --- | --- |
-| **포털 관리** | [포털에서 관리](manage-sql-vm-portal.md)의 잠금을 해제 하 여 모든 SQL Server vm을 한 곳에서 볼 수 있으므로 포털에서 직접 SQL 특정 기능을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 
-| **자동화 된 백업** |VM에 있는 SQL Server의 기본 인스턴스나 [제대로 설치된](frequently-asked-questions-faq.md#administration) 명명된 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 백업(Resource Manager)](automated-backup-sql-2014.md)을 참조하세요. |
-| **자동화 된 패치** |VM에 대 한 중요 한 Windows 및 SQL Server 보안 업데이트가 수행 될 수 있는 유지 관리 기간을 구성 하 여 작업에 대 한 사용량이 많은 시간에 업데이트를 방지할 수 있습니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 패치(Resource Manager)](automated-patching.md)를 참조하세요. |
-| **Azure Key Vault 통합** |SQL Server VM에서 Azure Key Vault를 자동으로 설치하고 구성할 수 있습니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)](azure-key-vault-integration-configure.md)을 참조하세요. |
-| **유연한 라이선스** | 사용자 고유 라이선스 (Azure 하이브리드 혜택 라고도 함)에서 종 량 제 라이선스 모델로 원활 하 게 전환 하 고 다시 [전환](licensing-model-azure-hybrid-benefit-ahb-change.md) 하 여 비용을 절감 하세요. | 
-| **유연한 버전/버전** | SQL Server [버전](change-sql-server-version.md) [또는 버전](change-sql-server-edition.md) 을 변경 하려는 경우 전체 SQL Server VM를 다시 배포 하지 않고도 Azure Portal 내에서 메타 데이터를 업데이트할 수 있습니다.  | 
+| **포털 관리** | [포털에서 관리](manage-sql-vm-portal.md)의 잠금을 해제 하 여 모든 SQL Server vm을 한 곳에서 볼 수 있으므로 포털에서 직접 SQL 특정 기능을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. <br/> 관리 모드: 경량 & full|  
+| **자동화 된 백업** |VM에 있는 SQL Server의 기본 인스턴스나 [제대로 설치된](frequently-asked-questions-faq.md#administration) 명명된 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 백업(Resource Manager)](automated-backup-sql-2014.md)을 참조하세요. <br/> 관리 모드: 전체|
+| **자동화 된 패치** |VM에 대 한 중요 한 Windows 및 SQL Server 보안 업데이트가 수행 될 수 있는 유지 관리 기간을 구성 하 여 작업에 대 한 사용량이 많은 시간에 업데이트를 방지할 수 있습니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 패치(Resource Manager)](automated-patching.md)를 참조하세요. <br/> 관리 모드: 전체|
+| **Azure Key Vault 통합** |SQL Server VM에서 Azure Key Vault를 자동으로 설치하고 구성할 수 있습니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)](azure-key-vault-integration-configure.md)을 참조하세요. <br/> 관리 모드: 전체|
+| **포털에서 디스크 사용률 보기** | Azure Portal에서 SQL 데이터 파일의 디스크 사용률에 대 한 그래픽 표현을 볼 수 있습니다.  <br/> 관리 모드: 전체 | 
+| **유연한 라이선스** | 사용자 고유 라이선스 (Azure 하이브리드 혜택 라고도 함)에서 종 량 제 라이선스 모델로 원활 하 게 전환 하 고 다시 [전환](licensing-model-azure-hybrid-benefit-ahb-change.md) 하 여 비용을 절감 하세요. <br/> 관리 모드: 경량 & full| 
+| **유연한 버전/버전** | SQL Server [버전](change-sql-server-version.md) [또는 버전](change-sql-server-edition.md) 을 변경 하려는 경우 전체 SQL Server VM를 다시 배포 하지 않고도 Azure Portal 내에서 메타 데이터를 업데이트할 수 있습니다.  <br/> 관리 모드: 경량 & full| 
 
 
 ## <a name="management-modes"></a>관리 모드

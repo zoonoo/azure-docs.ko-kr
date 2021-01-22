@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1667c21b9a35b8e93feffb8cf1b37d4409da73c3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 1552401953a8cba9dda787a0f0e461adb7972920
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044308"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664455"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -29,11 +29,13 @@ ms.locfileid: "98044308"
 
 ## <a name="prerequisites-download-the-script"></a>필수 조건: 스크립트 다운로드
 
-샘플 스크립트는 PowerShell로 작성 됩니다. 이 샘플은 샘플 링크로 이동 하 고 제목 아래에 있는 *ZIP 다운로드* 단추를 선택 하 여 컴퓨터에 다운로드할 수 있는 [**Azure Digital twins 종단 간 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)의 일부입니다.
+샘플 스크립트는 PowerShell로 작성 됩니다. 이 샘플은 샘플 링크로 이동 하 고 제목 아래에 있는 *코드 찾아보기* 단추를 선택 하 여 컴퓨터에 다운로드할 수 있는 [**Azure Digital twins 종단 간 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)의 일부입니다. 그러면으로 다운로드할 수 있는 샘플에 대 한 GitHub 리포지토리로 이동 됩니다 *.* *코드* 단추를 선택 하 고 *zip을 다운로드* 하 여 zip을 다운로드 합니다.
 
-이렇게 하면 샘플 프로젝트가 _**Azure_Digital_Twins_end_to_end_samples.zip**_ 으로 컴퓨터에 다운로드 됩니다. 컴퓨터의 폴더로 이동한 후 파일의 압축을 풀어 파일의 압축을 풉니다.
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="GitHub의 디지털 쌍 샘플 리포지토리 보기입니다. 코드 단추가 선택 되어 ZIP 다운로드 단추가 강조 표시 된 작은 대화 상자를 생성 합니다." lightbox="media/includes/download-repo-zip.png":::
 
-압축을 푼 폴더에서 배포 스크립트는 _Azure_Digital_Twins_end_to_end_samples > 스크립트 > **deploy.ps1**_ 에 있습니다.
+그러면이 다운로드 됩니다 *.* **digital-twins-samples-master.zip** 로 컴퓨터에 대 한 ZIP 폴더 컴퓨터의 폴더로 이동한 후 파일의 압축을 풀어 파일의 압축을 풉니다.
+
+압축을 푼 폴더에서 배포 스크립트는 _디지털-twins-샘플-마스터 > 스크립트 > **deploy.ps1**_ 에 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +58,7 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="업로드 아이콘의 선택 항목을 보여 주는 Cloud Shell 창":::
 
-    컴퓨터의 _**deploy.ps1**_ 파일 ( _Azure_Digital_Twins_end_to_end_samples > 스크립트 > **deploy.ps1**_)로 이동 하 고 "열기"를 누릅니다. 그러면 Cloud Shell 창에서 실행할 수 있도록 Cloud Shell에 파일이 업로드 됩니다.
+    컴퓨터의 _**deploy.ps1**_ 파일 ( _디지털-t-샘플-마스터 > 스크립트 > **deploy.ps1**_)로 이동 하 고 "열기"를 누릅니다. 그러면 Cloud Shell 창에서 실행할 수 있도록 Cloud Shell에 파일이 업로드 됩니다.
 
 4. Cloud Shell 창에서 명령을 전송 하 여 스크립트를 실행 `./deploy.ps1` 합니다. 아래 명령을 복사 (Cloud Shell에 붙여 넣을 수 있습니다. Windows 및 Linux에서는 **Ctrl + shift + v** 를 사용 하거나 Macos에서는 **Cmd + shift + v** 를 사용할 수 있습니다. 오른쪽 클릭 메뉴를 사용할 수도 있습니다.
 

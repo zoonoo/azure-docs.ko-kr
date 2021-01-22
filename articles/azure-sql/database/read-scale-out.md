@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 09/03/2020
-ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/20/2021
+ms.openlocfilehash: 5f9e7e1c96db2b60e41fe0ded69ea562cf8fcea6
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790273"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663988"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>읽기 전용 복제본을 사용 하 여 읽기 전용 쿼리 작업 오프 로드
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -85,7 +85,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 일반적으로 사용 되는 보기는 다음과 같습니다.
 
-| Name | 목적 |
+| 속성 | 목적 |
 |:---|:---|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| CPU, 데이터 IO 및 서비스 목표 제한과 관련 된 로그 쓰기 사용률을 포함 하 여 지난 1 시간 동안 리소스 사용률 메트릭을 제공 합니다.|
 |[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| 데이터베이스 엔진 인스턴스에 대 한 집계 대기 통계를 제공 합니다. |
@@ -115,12 +115,12 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>읽기 전용 복제본에 대 한 장기 실행 쿼리
 
-읽기 전용 복제본에서 실행 되는 쿼리는 쿼리에서 참조 되는 개체의 메타 데이터 (테이블, 인덱스, 통계 등)에 액세스 해야 합니다. 드문 경우 지만 쿼리가 읽기 전용 복제본의 동일한 개체에 대 한 잠금을 유지 하는 동안 주 복제본에서 메타 데이터 개체를 수정 하면 쿼리는 주 복제본의 변경 내용을 읽기 전용 복제본에 적용 하는 프로세스를 [차단할](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) 수 있습니다. 이러한 쿼리를 오랜 시간 동안 실행 하는 경우 읽기 전용 복제본이 주 복제본과 동기화 되지 않을 수 있습니다. 
+읽기 전용 복제본에서 실행 되는 쿼리는 쿼리에서 참조 되는 개체의 메타 데이터 (테이블, 인덱스, 통계 등)에 액세스 해야 합니다. 드문 경우 지만 쿼리가 읽기 전용 복제본의 동일한 개체에 대 한 잠금을 유지 하는 동안 주 복제본에서 메타 데이터 개체를 수정 하면 쿼리는 주 복제본의 변경 내용을 읽기 전용 복제본에 적용 하는 프로세스를 [차단할](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) 수 있습니다. 이러한 쿼리를 오랜 시간 동안 실행 하는 경우 읽기 전용 복제본이 주 복제본과 동기화 되지 않을 수 있습니다.
 
-읽기 전용 복제본에 대 한 장기 실행 쿼리로 인해 이러한 종류의 차단이 발생 하면 자동으로 종료 되 고 세션에서 오류 1219, "높은 우선 순위 DDL 작업으로 인해 세션의 연결이 끊어져 있습니다."가 표시 됩니다.
+읽기 전용 복제본에 대 한 장기 실행 쿼리로 인해 이러한 종류의 차단이 발생 하면 자동으로 종료 됩니다. 세션에서 오류 1219, "높은 우선 순위 DDL 작업으로 인해 세션의 연결을 끊었습니다." 또는 오류 3947 "메시지가 표시 됩니다." 보조 계산에서 다시 실행을 catch 하지 못해 트랜잭션이 중단 되었습니다. 트랜잭션을 다시 시도 하십시오. "
 
 > [!NOTE]
-> 읽기 전용 복제본에 대해 쿼리를 실행할 때 오류 3961 또는 오류 1219이 발생 하면 쿼리를 다시 시도 하십시오.
+> 읽기 전용 복제본에 대해 쿼리를 실행할 때 오류 3961, 1219 또는 3947가 표시 되 면 쿼리를 다시 시도 합니다.
 
 > [!TIP]
 > 프리미엄 및 중요 비즈니스용 서비스 계층에서 읽기 전용 복제본에 연결 된 경우 `redo_queue_size` `redo_rate` [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV의 및 열을 사용 하 여 읽기 전용 복제본의 데이터 대기 시간 표시기로 제공 되는 데이터 동기화 프로세스를 모니터링할 수 있습니다.

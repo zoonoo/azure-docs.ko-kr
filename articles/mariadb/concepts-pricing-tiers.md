@@ -3,15 +3,15 @@ title: 가격 책정 계층 - Azure Database for MariaDB
 description: 계산 세대, 저장소 유형, 저장소 크기, vCores, 메모리 및 백업 보존 기간을 포함 하 여 Azure Database for MariaDB에 대 한 다양 한 가격 책정 계층에 대해 알아봅니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6c786ea80ecbe2f174d8c3b701316791e1b6104f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536288"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664251"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 가격 책정 계층
 
@@ -21,7 +21,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 5세대 |5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10 GB |
+| vCore 메모리 | 2GB | 5GB | 10GB |
 | 스토리지 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -39,7 +39,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 
 컴퓨팅 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 5세대 논리적 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 프로비전하는 스토리지는 Azure Database for MariaDB 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 MariaDB 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 

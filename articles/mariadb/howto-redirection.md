@@ -3,15 +3,15 @@ title: 리디렉션을 사용 하 여 연결-Azure Database for MariaDB
 description: 이 문서에서는 리디렉션을 사용 하 여 Azure Database for MariaDB에 연결 하도록 응용 프로그램을 구성 하는 방법을 설명 합니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 3f26de72839fcaa39bff4d827aba757721736934
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 29f2ab8f70af2ca19cbffcbba6db39c5a93445fe
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537427"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664905"
 ---
 # <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>리디렉션을 사용 하 여 Azure Database for MariaDB에 연결
 

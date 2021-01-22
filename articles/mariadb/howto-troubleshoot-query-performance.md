@@ -3,15 +3,15 @@ title: 쿼리 성능 문제 해결 - Azure Database for MariaDB
 description: EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능 문제를 해결하는 방법을 대해 알아봅니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 2b7491723ffcff73e4b243fe54ef18608167d636
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8c996520a77a107017aecad30c221da9ec69137c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537240"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664718"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능을 프로파일링하는 방법
 **EXPLAIN** 은 쿼리를 최적화하는 편리한 도구입니다. EXPLAIN 문은 SQL 문이 어떻게 실행되는지에 대한 정보를 얻는 데 사용할 수 있습니다. 다음 출력은 EXPLAIN 문의 실행 예제입니다.
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-이런 경우 **c1** 과 **c2** 모두에 **covered 인덱스** 를 만들고 나중에 데이터 조회가 필요 없도록 **c2** "의 값을 인덱스에 바로 추가할 수 있습니다.
+이런 경우 **c1** 과 **c2** 모두에 **covered 인덱스** 를 만들고 나중에 데이터 조회가 필요 없도록 **c2**"의 값을 인덱스에 바로 추가할 수 있습니다.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);

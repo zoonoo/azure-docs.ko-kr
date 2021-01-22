@@ -4,12 +4,12 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 87966a9bd2f83916998a724fc6c1c26a91609665
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 2b0cc8a2fe9a45120bf0b74dbad5e107fd860845
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133398"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664370"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -66,23 +66,23 @@ az aks create \
 > [!NOTE]
 > Docker 브리지 주소 CIDR(172.17.0.1/16)이 서브넷 CIDR과 충돌하는 경우, Docker 브리지 주소를 적절하게 변경합니다.
 
-### <a name="configure-private-dns-zone"></a>사설 DNS 영역 구성
+## <a name="configure-private-dns-zone"></a>사설 DNS 영역 구성
 
 다음 매개 변수를 활용 하 여 사설 DNS 영역을 구성할 수 있습니다.
 
 1. "System"이 기본값입니다. --Private-dns 영역 인수를 생략 하면 AKS는 노드 리소스 그룹에 사설 DNS 영역을 만듭니다.
 2. "None"은 AKS가 사설 DNS 영역을 만들지 않음을 의미 합니다.  이렇게 하려면 자체 DNS 서버를 가져오고 개인 FQDN에 대 한 DNS 확인을 구성 해야 합니다.  DNS 확인을 구성 하지 않으면 DNS는 에이전트 노드 내 에서만 확인할 수 있으며 배포 후에 클러스터 문제가 발생 합니다.
-3. "사용자 지정 개인 dns 영역 이름"은 azure global cloud에 대해이 형식 이어야 `privatelink.<region>.azmk8s.io` 합니다. 사용자가 할당 한 id 또는 서비스 주체에는 적어도 `private dns zone contributor` 사용자 지정 개인 dns 영역에 대 한 역할을 부여 해야 합니다.
+3. "사용자 지정 개인 dns 영역 이름"은 azure global cloud에 대해이 형식 이어야 `privatelink.<region>.azmk8s.io` 합니다. 해당 사설 DNS 영역의 리소스 Id가 필요 합니다.  또한 사용자 할당 id 또는 서비스 사용자가 적어도 `private dns zone contributor` 사용자 지정 개인 dns 영역에 대 한 역할이 있어야 합니다.
 
-## <a name="no-private-dns-zone-prerequisites"></a>사설 DNS 영역 필수 구성 요소 없음
+### <a name="prerequisites"></a>필수 구성 요소
 
-* Azure CLI 버전 0.4.71 이상
+* AKS Preview 버전 0.4.71 이상
 * Api 버전 2020-11-01 이상
 
-## <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>사설 DNS 영역으로 개인 AKS 클러스터 만들기
+### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>사설 DNS 영역으로 개인 AKS 클러스터 만들기
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system|custom private dns zone]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]
 ```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>프라이빗 클러스터에 연결하기 위한 옵션
 

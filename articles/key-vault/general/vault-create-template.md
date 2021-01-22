@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e19277aa3639031371e0e8dd28f4dd849efd4597
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 24fef1680c5660a70a20ae727833b045f6c5aa88
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933934"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664353"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure key vault 및 자격 증명 모음 액세스 정책을 만드는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "97933934"
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음을 수행합니다.
 
@@ -150,7 +150,7 @@ Key Vault 템플릿 설정에 대 한 자세한 내용은 [ARM 템플릿 참조 
             "permissions": {
               "keys": "[parameters('keysPermissions')]",
               "secrets": "[parameters('secretsPermissions')]",
-              "certificates": [parameters('certificatesPermissions')]
+              "certificates": "[parameters('certificatesPermissions')]"
             }
           }
         ]
@@ -160,6 +160,7 @@ Key Vault 템플릿 설정에 대 한 자세한 내용은 [ARM 템플릿 참조 
 }
 
 ```
+
 템플릿 설정 Key Vault에 대 한 자세한 내용은 [ARM 템플릿 참조 Key Vault](/azure/templates/microsoft.keyvault/vaults/accesspolicies)를 참조 하세요.
 
 ## <a name="more-key-vault-resource-manager-templates"></a>템플릿 추가 Key Vault 리소스 관리자
@@ -213,7 +214,7 @@ Write-Host "Press [ENTER] to continue..."
 
 - [Azure Key Vault 개요](../general/overview.md)를 참조 하세요.
 - [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대해 자세히 알아보세요.
-- [Azure Key Vault 보안 개요](security-overview.md) 를 검토 합니다.
+- [Azure Key Vault 보안 개요](security-overview.md)를 검토하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

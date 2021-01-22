@@ -3,15 +3,15 @@ title: 메트릭 경고 구성-Azure Portal-Azure Database for MariaDB
 description: 이 문서에서는 Azure Portal에서 Azure Database for MariaDB의 메트릭 경고를 구성 및 액세스하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: e108ca3aa346af20b31ff446130014e1250f49c0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1e7dafaba6b6792afdec1f1866629fac9ba5a577
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541082"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664421"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Azure Portal을 사용하여 Azure Database for MariaDB의 메트릭에 대한 경고를 설정합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "94541082"
 
    ![경고 규칙 선택](./media/howto-alert-metric/2-alert-rules.png)
 
-3. **메트릭 경고 추가** (+ 아이콘)를 선택합니다.
+3. **메트릭 경고 추가**(+ 아이콘)를 선택합니다.
 
 4. 아래와 같이 **규칙 만들기** 페이지가 열립니다. 필수 정보를 입력합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "94541082"
    
    ![메트릭 선택](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. **조건** (예: "보다 큼"), **임계값** (예: 85%), **시간 집계** , 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간** (예: "지난 30 분") 및 **Frequency**.
+7. **조건**(예: "보다 큼"), **임계값**(예: 85%), **시간 집계**, 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**(예: "지난 30 분") 및 **Frequency**.
    
    완료되면 **완료** 를 선택합니다.
 

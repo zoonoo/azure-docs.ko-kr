@@ -3,15 +3,15 @@ title: 관리 저장 프로시저-Azure Database for MariaDB
 description: Azure Database for MariaDB에서 데이터 복제를 구성 하 고, 표준 시간대를 설정 하 고, 쿼리를 중지 하는 데 도움이 되는 저장 프로시저에 대해 알아봅니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 103bba37f5574185f10f5c4e28e66268da0c7f39
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8df6c1d6bd00743be4a56b3bfa7e5416848eb62c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536849"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664634"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Azure Database for MariaDB 관리 저장 프로시저
 

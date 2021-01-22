@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 68fdc29edfd41799e2628abf40efa6a9453a90b9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: e603e99c1aa9c49d20bdb281bbfd96131ae2efdd
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634033"
+ms.locfileid: "98663624"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 장치에 Linux 용 Azure IoT Edge 설치 및 프로 비전 (미리 보기)
 
@@ -61,6 +61,12 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
       ![대시보드의 오른쪽 위에 있는 기어 아이콘을 선택 하 여 설정에 액세스 합니다.](./media/how-to-install-iot-edge-on-windows/select-gear-icon.png)
 
    1. **설정** 메뉴의 **게이트웨이** 아래에서 **확장** 을 선택 합니다.
+
+   1. **피드** 탭을 선택 하 고 **추가** 를 선택 합니다.
+
+   1. https://aka.ms/wac-insiders-feed텍스트 상자에를 입력 하 고 **추가** 를 선택 합니다.
+
+   1. 피드가 추가 된 후 **사용 가능한 확장** 탭으로 이동 합니다. 확장 목록을 업데이트 하는 데 시간이 걸릴 수 있습니다.
 
    1. **사용 가능한 확장** 탭의 확장 목록에서 **Azure IoT Edge** 을 찾습니다. 이를 선택 하 고 확장 목록 위의 **설치** 프롬프트를 선택 합니다.
 

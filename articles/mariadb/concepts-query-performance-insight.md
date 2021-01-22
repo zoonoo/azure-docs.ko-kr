@@ -3,15 +3,15 @@ title: Query Performance Insight-Azure Database for MariaDB
 description: 이 문서에서는의 Query Performance Insight 기능에 대해 설명 Azure Database for MariaDB
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b643ba3305736480e06d7c10d594b2271839038f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9e8e4527ba1717b4d152f501a38c3c8f65faf70e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536335"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664234"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 Query Performance Insight
 
@@ -56,7 +56,7 @@ Azure Database for MariaDB 서버의 포털 페이지에서 메뉴 모음의 **�
 ### <a name="wait-statistics"></a>대기 통계 
 
 > [!NOTE]
-> 대기 통계는 쿼리 성능 문제를 해결하기 위한 것입니다. 문제 해결 목적을 위해서만 켜지도록 하는 것이 좋습니다. <br>Azure Portal "에 오류 메시지가 표시 되 면" *DBforMariaDB "에 대 한 문제가 발생 한 것입니다. 에서 요청을 수행할 수 없습니다. 이 문제가 계속 되거나 예기치 않은 경우 지원 서비스에 문의 하세요.* " 받은 경우 더 작은 기간을 사용하세요.
+> 대기 통계는 쿼리 성능 문제를 해결하기 위한 것입니다. 문제 해결 목적을 위해서만 켜지도록 하는 것이 좋습니다. <br>Azure Portal "에 오류 메시지가 표시 되 면"*DBforMariaDB "에 대 한 문제가 발생 한 것입니다. 에서 요청을 수행할 수 없습니다. 이 문제가 계속 되거나 예기치 않은 경우 지원 서비스에 문의 하세요.*" 받은 경우 더 작은 기간을 사용하세요.
 
 대기 통계는 특정 쿼리를 실행하는 동안 발생하는 대기 이벤트에 대한 보기를 제공합니다. [MySQL 엔진 설명서](https://go.microsoft.com/fwlink/?linkid=2098206)에서 대기 이벤트 유형에 대해 자세히 알아보세요.
 

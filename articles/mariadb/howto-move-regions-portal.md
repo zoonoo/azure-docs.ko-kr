@@ -3,16 +3,16 @@ title: Azure 지역 이동-Azure Portal-Azure Database for MariaDB
 description: 읽기 복제본과 Azure Portal를 사용 하 여 한 Azure 지역에서 다른 지역으로 Azure Database for MariaDB 서버를 이동 합니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: f4ce34bc1a1af7b2c0ee57a3297415bd9d033517
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: adb82b3ff371bdcdecbd964fef3c1d0c971df71a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540827"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664939"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB 서버를 다른 지역으로 이동
 
