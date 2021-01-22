@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2020
+ms.date: 01/22/2021
 ms.author: jingwang
-ms.openlocfilehash: a48ac86e8f9814adef9be2360b2446335d368447
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 430b9a1e567d9a79093f50ae388b4b69119c057d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296559"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695876"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata 유리한에서 데이터 복사
 
@@ -48,7 +48,7 @@ Teradata 유리한에서 지원 되는 모든 싱크 데이터 저장소로 데�
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-자체 호스팅 Integration Runtime를 사용 하는 경우 버전 3.18부터 시작 하는 기본 제공 Teradata 드라이버를 제공 합니다. 드라이버를 수동으로 설치 하지 않아도 됩니다. 이 드라이버를 사용 하려면 자체 호스팅 통합 런타임 컴퓨터에서 "Visual C++ 재배포 가능 2012 업데이트 4"가 필요 합니다. 아직 설치 하지 않은 경우 [여기](https://www.microsoft.com/en-sg/download/details.aspx?id=30679)에서 다운로드 합니다.
+자체 호스팅 Integration Runtime를 사용 하는 경우 버전 3.18부터 시작 하는 기본 제공 Teradata 드라이버를 제공 합니다. 드라이버를 수동으로 설치 하지 않아도 됩니다. 이 드라이버를 사용 하려면 자체 호스팅 통합 런타임 컴퓨터에서 "Visual C++ 재배포 가능 2012 업데이트 4"가 필요 합니다. 아직 설치되지 않은 경우 [여기](https://www.microsoft.com/en-sg/download/details.aspx?id=30679)서 다운로드하세요.
 
 ## <a name="getting-started"></a>시작
 
@@ -60,7 +60,7 @@ Teradata 유리한에서 지원 되는 모든 싱크 데이터 저장소로 데�
 
 Teradata 연결 된 서비스는 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **Teradata** 로 설정 되어야 합니다. | 예 |
 | connectionString | Teradata 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. 다음 샘플을 참조하세요.<br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다 `password` . 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요. | 예 |
@@ -70,8 +70,9 @@ Teradata 연결 된 서비스는 다음 속성을 지원 합니다.
 
 경우에 따라 연결 문자열에서 설정할 수 있는 추가 연결 속성이 있습니다.
 
-| 속성 | Description | 기본값 |
+| 속성 | 설명 | 기본값 |
 |:--- |:--- |:--- |
+| TdmstPortNumber | Teradata 데이터베이스에 액세스 하는 데 사용 되는 포트 번호입니다.<br>기술 지원에 의해 지시가 없는 한이 값을 변경 하지 마십시오. | 1025 |
 | UseDataEncryption | Teradata 데이터베이스와의 모든 통신을 암호화할지 여부를 지정 합니다. 허용 되는 값은 0 또는 1입니다.<br><br/>- **0 (사용 안 함, 기본값)**: 인증 정보만 암호화 합니다.<br/>- **1 (사용)**: 드라이버와 데이터베이스 간에 전달 되는 모든 데이터를 암호화 합니다. | `0` |
 | CharacterSet | 세션에 사용할 문자 집합입니다. `CharacterSet=UTF16`예:,.<br><br/>이 값은 사용자 정의 문자 집합 또는 미리 정의 된 다음 문자 집합 중 하나일 수 있습니다. <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-jis (Windows, DOS 호환, KANJISJIS_0S)<br/>-EUC (Unix 호환, KANJIEC_0U)<br/>-IBM 메인프레임 (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | `ASCII` |
 | MaxRespSize |SQL 요청에 대 한 응답 버퍼의 최대 크기 (kb)입니다 (Kb). `MaxRespSize=‭10485760‬`예:,.<br/><br/>Teradata 데이터베이스 버전 16.00 이상에서는 최대 값이 7361536입니다. 이전 버전을 사용 하는 연결의 경우 최대값은 1048576입니다. | `65536` |
@@ -167,13 +168,13 @@ Teradata 연결 된 서비스는 다음 속성을 지원 합니다.
 
 Teradata에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성을로 설정 해야 합니다 `TeradataTable` . | 예 |
 | 데이터베이스 | Teradata 인스턴스의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 | 테이블 | Teradata 인스턴스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
-**예:**
+**예제:**
 
 ```json
 {
@@ -221,7 +222,7 @@ Teradata에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
 Teradata에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을로 설정 해야 합니다 `TeradataSource` . | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 (데이터 집합의 테이블이 지정 된 경우) |
@@ -341,7 +342,7 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Interval Second |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | Interval Year |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | Interval Year To Month |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| 숫자 |Double |
+| Number |Double |
 | 기간 (Date) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | 기간 (시간) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | 기간 (표준 시간대가 포함 된 시간) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
@@ -355,7 +356,7 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | VarByte |Byte[] |
 | VarChar |String |
 | VarGraphic |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| xml |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Xml |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성

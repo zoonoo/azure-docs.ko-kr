@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: b7029c5cdd004910caa83425536bbe481e4b01f3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95554923"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698008"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리의 사용자
 
@@ -191,6 +191,8 @@ ms.locfileid: "95554923"
 1. **대체 승인자 추가** 를 클릭 하 고 목록에서 대체 승인자를 선택 합니다.
 
     ![액세스 패키지-정책-대체 승인자 추가](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+    첫 번째 승인자에 대 한 승인자로 관리자를 선택 하는 경우 대체 승인자 인 다른 **두 번째 수준 관리자** 를 선택 하 여 대체 승인자 필드에서 선택할 수 있습니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다.
 
 1. **남은 승인자 (일 수) 후의 대체 승인자** 에서 요청을 승인 하거나 거부 해야 하는 일 수를 입력 합니다. 요청 기간 전에 요청을 승인 하거나 거부 한 승인자가 없는 경우 요청은 만료 됩니다 (시간 제한). 사용자는 액세스 패키지에 대 한 다른 요청을 제출 해야 합니다. 
 

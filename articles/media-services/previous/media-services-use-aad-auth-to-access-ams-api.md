@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9dae3b1adc1f7fecf6a34fc51d2a35bf4c98ea65
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a26359c46caa8085384313f1c385c5740abc0b32
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425918"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694540"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스 
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 Azure Media Services API는 RESTful API입니다. 이 API와 REST API 또는 제공되는 클라이언트 SDK를 사용하여 미디어 리소스에 대한 작업을 수행할 수 있습니다. Azure Media Services는 Microsoft .NET용 Media Services 클라이언트 SDK를 제공합니다. Media Services 리소스 및 Media Services API에 액세스할 수 있는 권한을 부여하려면 먼저 인증을 거쳐야 합니다. 
 

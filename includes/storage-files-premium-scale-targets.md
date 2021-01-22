@@ -4,20 +4,20 @@ ms.service: storage
 ms.topic: include
 ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: 8dcb58499113b0b7ae0814419f0a76965a0ed945
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 86bf4911026e46c997469b956f9e7c75c4f17164
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680834"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98697896"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>추가 프리미엄 파일 공유 수준 제한
 
-|영역  |Target  |
+|영역  |대상  |
 |---------|---------|
 |최소 크기 증가/감소    |GiB 1      |
-|기준 IOPS    |GiB 당 IOPS 1 개, 최대 10만|
-|IOPS 버스트    |GiB 당 3, 000IOPS, 최대 10만|
+|기준 IOPS    |400 + GiB 당 1 IOPS, 최대 10만|
+|IOPS 버스트    |최대 (4000, GiB 당 3, 000iops), 최대 10만|
 |송신 율         |60 MiB/s + 0.06 * 프로 비전 된 GiB        |
 |수신 율| 40 MiB/s + 0.04 * 프로 비전 된 GiB |
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d85cbeb99264b5b730fe585fd39f658e6448467f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 495b6bc68e79e50a0bda773e7229225595236fac
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515766"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694345"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure Media Services 레거시 구성 요소
 
@@ -49,4 +49,4 @@ ms.locfileid: "92515766"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+[Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)

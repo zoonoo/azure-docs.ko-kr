@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: a411f4ce261ee6d203e274efe3cf23ca23203453
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 01/22/2021
+ms.openlocfilehash: 48450218975f2c6ee14e12af8d722942e8db1347
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070903"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695851"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics에서 데이터 복사 및 변환
 
@@ -76,6 +76,9 @@ Azure Synapse Analytics 연결된 서비스에 대해 지원되는 속성은 다
 - [SQL 인증](#sql-authentication)
 - Azure AD 애플리케이션 토큰 인증: [서비스 주체](#service-principal-authentication)
 - Azure AD 애플리케이션 토큰 인증: [Azure 리소스에 대한 관리 ID](#managed-identity)
+
+>[!TIP]
+>UI에서 Azure Synapse **서버** 를 사용 하지 않는 SQL 풀에 대해 연결 된 서비스를 만들 때 구독에서 검색 하는 대신 "수동으로 입력"을 선택 합니다.
 
 >[!TIP]
 >"UserErrorFailedToConnectToSqlServer" 오류 코드 및 "데이터베이스에 대한 세션 제한이 XXX이고 이에 도달했습니다."와 같은 메시지가 있는 오류가 발생하면 연결 문자열에 `Pooling=false`를 추가하고 다시 시도하세요.
@@ -780,6 +783,7 @@ Azure Synapse Analytics에 특정한 설정은 원본 변환의 **원본 옵션*
 
 - 저장소 연결 된 서비스에 대해 관리 id 인증을 사용 하는 경우 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 에 대해 필요한 구성을 각각 알아보세요.
 - Azure Storage VNet 서비스 끝점을 사용 하 여 구성 된 경우 저장소 계정에서 "신뢰할 수 있는 Microsoft 서비스 허용"이 설정 된 관리 id 인증을 사용 해야 합니다. [Azure storage에서 VNet 서비스 끝점 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조 하세요.
+- Azure Synapse **서버** 리스 SQL 풀을 원본으로 사용 하는 경우 준비 사용은 지원 되지 않습니다.
 
 **쿼리**: 입력 필드에서 쿼리를 선택하는 경우에는 원본에 대한 SQL 쿼리를 입력합니다. 이렇게 설정하면 데이터 세트에서 선택한 모든 테이블이 재정의됩니다. **Order By** 절은 여기서 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 테이블을 반환하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성합니다. 쿼리를 사용하는 것은 테스트 또는 조회를 위해 행을 줄이는 좋은 방법이기도 합니다.
 

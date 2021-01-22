@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 429e443ea0de665632cbacaee13a3ff3be443b9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 252495df8189f677ada66b67b8a845b320c81aca
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89263402"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694919"
 ---
 # <a name="how-to-check-job-progress"></a>방법: 작업 진행 상태 확인
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. 작업의 상태 속성을 사용하여 작업 상태를 찾을 수 있습니다. 상태 속성에 대한 자세한 내용은 [Job 엔터티 속성](/rest/api/media/operations/job#job_entity_properties)을 참조하세요.
 
@@ -74,6 +74,6 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [Media Services Operations REST API 개요](media-services-rest-how-to-use.md)

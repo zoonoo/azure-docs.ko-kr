@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9022b1e91b8a1030bf283675b213e87ecf171f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dc0a6ddba110a171baadab650304e8f772f6db2
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265935"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694557"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Azure Media Packager를 사용하여 정적 패키징 작업 수행  
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 
 ## <a name="overview"></a>개요
