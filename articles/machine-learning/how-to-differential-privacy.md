@@ -1,7 +1,7 @@
 ---
-title: SmartNoise 패키지를 사용 하 여 데이터 개인 정보를 유지 하는 방법 (미리 보기)
+title: 차등 개인 정보 취급 방침 소음 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: SmartNoise 패키지를 사용 하 여 Azure Machine Learning 모델에 대 한 차등 개인 정보 모범 사례를 적용 하는 방법에 대해 알아봅니다.
+description: SmartNoise 오픈 소스 라이브러리를 사용 하 여 Azure Machine Learning 모델에 대 한 차등 개인 정보 모범 사례를 적용 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ ms.custom: how-to, responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 12/21/2020
-ms.openlocfilehash: ebc14d6c9d0ebaa6e0258578f94771c9f286bdb4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 01/21/2020
+ms.openlocfilehash: 62a002569696da4ef18e7bd967f027eb8247ef65
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221938"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681407"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Azure Machine Learning에서 차등 개인 정보 사용 (미리 보기)
 
-SmartNoise Python 패키지를 사용 하 여 Azure Machine Learning 모델에 대 한 차등 개인 정보 모범 사례를 적용 하는 방법에 대해 알아봅니다.
+SmartNoise Python 오픈 소스 라이브러리를 사용 하 여 Azure Machine Learning 모델에 대 한 차등 개인 정보 모범 사례를 적용 하는 방법을 알아봅니다.
 
-차등 프라이버시는 프라이버시의 골드 표준 정의입니다. 이 프라이버시 정의를 준수하는 시스템은 보조 정보를 소유한 악의적 사용자의 공격을 포함하여 다양한 데이터 재구성 및 재식별 공격에 강력한 보증을 제공합니다. [차등 프라이버시 작업](./concept-differential-privacy.md)에 대해 자세히 알아봅니다.
+차등 프라이버시는 프라이버시의 골드 표준 정의입니다. 이 프라이버시 정의를 준수하는 시스템은 보조 정보를 소유한 악의적 사용자의 공격을 포함하여 다양한 데이터 재구성 및 재식별 공격에 강력한 보증을 제공합니다. [차등 개인 정보 취급의 작동 방식](./concept-differential-privacy.md)에 대해 자세히 알아보세요.
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -30,7 +30,7 @@ SmartNoise Python 패키지를 사용 하 여 Azure Machine Learning 모델에 �
 - Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 - [Python 3](https://www.python.org/downloads/)
 
-## <a name="install-smartnoise-packages"></a>SmartNoise 패키지 설치
+## <a name="install-smartnoise-python-libraries"></a>SmartNoise Python 라이브러리 설치
 
 ### <a name="standalone-installation"></a>독립 실행형 설치
 
@@ -51,7 +51,7 @@ import opendp.smartnoise.sql
 
 가져오기를 성공하면 라이브러리가 설치되고 사용할 준비가 된 것입니다.
 
-### <a name="docker-image"></a>Docker 이미지
+### <a name="docker-image-installation"></a>Docker 이미지 설치
 
 또한 Docker에서 SmartNoise 패키지를 사용할 수 있습니다.
 

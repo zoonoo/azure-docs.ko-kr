@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: da6c9f6df0e9e74de297cf6c8f655b62e3446bad
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462709"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679621"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Azure Synapse SQL 아키텍처 
 
@@ -67,7 +67,7 @@ Synapse SQL에서 분산 쿼리 엔진은 제어 노드에서 실행 되어 병�
 
 컴퓨팅 노드는 컴퓨팅 능력을 제공합니다. 
 
-전용 SQL 풀에서 배포판은 처리를 위해 계산 노드에 매핑됩니다. 비용을 지불하는 컴퓨팅 리소스가 많을수록 풀은 사용 가능한 컴퓨팅 노드에 분산을 다시 매핑합니다. 계산 노드 수는 1에서 60 사이 이며 전용 SQL 풀의 서비스 수준에 따라 결정 됩니다. 각 컴퓨팅 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 이러한 시스템 뷰 목록은 [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest)를 참조 하세요.
+전용 SQL 풀에서 배포판은 처리를 위해 계산 노드에 매핑됩니다. 비용을 지불하는 컴퓨팅 리소스가 많을수록 풀은 사용 가능한 컴퓨팅 노드에 분산을 다시 매핑합니다. 계산 노드 수는 1에서 60 사이 이며 전용 SQL 풀의 서비스 수준에 따라 결정 됩니다. 각 컴퓨팅 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 이러한 시스템 뷰 목록은 [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.
 
 서버를 사용 하지 않는 SQL 풀에서 각 계산 노드는 작업을 실행할 작업 및 파일 집합에 할당 됩니다. 태스크는 분산 쿼리 실행 단위로서, 실제로는 사용자가 제출한 쿼리의 일부입니다. 자동 크기 조정은 사용자 쿼리를 실행하는 데 충분한 컴퓨팅 노드가 활용되도록 하기 위함입니다.
 

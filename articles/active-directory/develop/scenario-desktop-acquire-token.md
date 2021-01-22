@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 040f9fa67617b058138926310706f4bc56c4ff62
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232304"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680976"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -1181,7 +1181,7 @@ ADAL.NET 3.x, ADAL.NET 5.x 및 MSAL.NET 간에 SSO 상태를 공유하도록 토
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>간단한 토큰 캐시 직렬화(MSAL만 해당)
 
-다음은 데스크톱 애플리케이션의 토큰 캐시를 사용자 지정 직렬화하는 간단한 예입니다. 여기서 사용자 토큰 캐시는 응용 프로그램과 동일한 폴더에 있는 파일 또는 앱이 [패키지 된 데스크톱 응용 프로그램](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes)일 경우 앱 별 사용자 당 폴더에 있습니다. 전체 코드는 다음 샘플을 참조 하세요. [활성-디렉터리-dotnet-데스크톱-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
+다음은 데스크톱 애플리케이션의 토큰 캐시를 사용자 지정 직렬화하는 간단한 예입니다. 여기서 사용자 토큰 캐시는 응용 프로그램과 동일한 폴더에 있는 파일 또는 앱이 [패키지 된 데스크톱 응용 프로그램](/windows/msix/desktop/desktop-to-uwp-behind-the-scenes)일 경우 앱 별 사용자 당 폴더에 있습니다. 전체 코드는 다음 샘플을 참조 하세요. [활성-디렉터리-dotnet-데스크톱-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 애플리케이션을 빌드한 후에 ``TokenCacheHelper.EnableSerialization()``을 호출하고 애플리케이션 `UserTokenCache`를 전달하여 직렬화를 사용하도록 설정합니다.
 

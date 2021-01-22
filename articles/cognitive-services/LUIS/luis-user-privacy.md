@@ -4,17 +4,17 @@ titleSuffix: Azure Cognitive Services
 description: 데이터 보기, 내보내기 및 삭제를 완전히 제어할 수 있습니다. 고객 데이터를 삭제 하 여 개인 정보 보호 및 규정 준수를 확인 합니다.
 services: cognitive-services
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/08/2020
-ms.openlocfilehash: cd9b353300b88c69efb0c458245a86963c579064
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 12/10/2020
+ms.openlocfilehash: 0a2d0ce683261ca3460c7aeaa0d7a42152b81a1e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007741"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680190"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Cognitive Services의 LUIS(Language Understanding)에서 고객 데이터 내보내기 및 삭제
 
@@ -58,31 +58,38 @@ LUIS 사용자에 게는 포털에서 데이터를 볼 수 있는 모든 권한�
 
 활성 학습 데이터 (아래에 자세히 설명)를 제외 하 고 LUIS는 [지역 서비스에 대 한 데이터 저장소 사례](https://azuredatacentermap.azurewebsites.net/)를 따릅니다.
 
+[!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
+
+
 ### <a name="europe"></a>유럽
 
-[Eu.luis.ai](https://eu.luis.ai) 포털 및 유럽 제작 (프로그래밍 api 라고도 함)은 Azure의 유럽 지리에서 호스팅됩니다. Eu.luis.ai 포털 및 유럽 제작 (프로그래밍 Api 라고도 함)은 다음과 같은 Azure 지역에 대 한 끝점 배포를 지원 합니다.
+유럽 제작 (프로그래밍 Api 라고도 함) 리소스는 Azure의 유럽 지리에서 호스트 되며 다음 Azure 지역에 대 한 끝점 배포를 지원 합니다.
 
 * 유럽
 * 프랑스
 * 영국
 
-이러한 Azure 지역에 배포 하는 경우 앱 최종 사용자의 끝점에서 받은 길이 발언는 활성 학습을 위해 Azure의 유럽 지리에 저장 됩니다. 활성 학습을 사용 하지 않도록 설정할 수 있습니다. [활성 학습 사용 안 함](luis-how-to-review-endpoint-utterances.md#disable-active-learning)을 참조 하세요. 저장 된 길이 발언를 관리 하려면 [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance)를 참조 하세요.
+이러한 Azure 지역에 배포 하는 경우 앱 최종 사용자의 끝점에서 받은 길이 발언는 활성 학습을 위해 Azure의 유럽 지리에 저장 됩니다.
 
 ### <a name="australia"></a>오스트레일리아
 
-[Au.luis.ai](https://au.luis.ai) 포털 및 오스트레일리아 제작 (프로그래밍 api 라고도 함)은 Azure의 오스트레일리아 지리에서 호스팅됩니다. Au.luis.ai 포털 및 오스트레일리아 제작 (프로그래밍 Api 라고도 함)은 다음과 같은 Azure 지역에 대 한 끝점 배포를 지원 합니다.
+오스트레일리아 제작 (프로그래밍 Api 라고도 함) 리소스는 Azure의 오스트레일리아 지리에서 호스트 되며 다음 Azure 지역에 대 한 끝점 배포를 지원 합니다.
 
 * 오스트레일리아
 
-이러한 Azure 지역에 배포 하는 경우 앱 최종 사용자의 끝점에서 받은 길이 발언는 활성 학습을 위해 Azure의 오스트레일리아 지리에 저장 됩니다. 활성 학습을 사용 하지 않도록 설정할 수 있습니다. [활성 학습 사용 안 함](luis-how-to-review-endpoint-utterances.md#disable-active-learning)을 참조 하세요. 저장 된 길이 발언를 관리 하려면 [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance)를 참조 하세요.
+이러한 Azure 지역에 배포 하는 경우 앱 최종 사용자의 끝점에서 받은 길이 발언는 활성 학습을 위해 Azure의 오스트레일리아 지리에 저장 됩니다.
 
 ### <a name="united-states"></a>미국
 
-[Luis.ai](https://www.luis.ai) 포털 및 미국 제작 (프로그래밍 api 라고도 함)은 Azure의 미국 지리에서 호스팅됩니다. Luis.ai 포털 및 미국 제작 (프로그래밍 Api 라고도 함)은 다음과 같은 Azure 지역에 대 한 끝점 배포를 지원 합니다.
+미국 제작 (프로그래밍 Api 라고도 함) 리소스는 Azure의 미국 지리에서 호스트 되며 다음 Azure 지역에 대 한 끝점 배포를 지원 합니다.
 
 * 유럽 또는 오스트레일리아 제작 지역에서 지원 하지 않는 Azure 지역
 
-이러한 Azure 지역에 배포 하는 경우 앱 최종 사용자의 끝점에서 받은 길이 발언는 활성 학습을 위해 Azure의 미국 지리에 저장 됩니다. 활성 학습을 사용 하지 않도록 설정할 수 있습니다. [활성 학습 사용 안 함](luis-how-to-review-endpoint-utterances.md#disable-active-learning)을 참조 하세요. 저장 된 길이 발언를 관리 하려면 [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance)를 참조 하세요.
+이러한 Azure 지역에 배포 하는 경우 앱 최종 사용자의 끝점에서 받은 길이 발언는 활성 학습을 위해 Azure의 미국 지리에 저장 됩니다. 
+
+## <a name="disable-active-learning"></a>활성 학습 사용 안 함
+
+활성 학습을 사용 하지 않도록 설정 하려면 [활성 학습 사용 안 함](luis-how-to-review-endpoint-utterances.md#disable-active-learning)을 참조 하세요. 저장 된 길이 발언를 관리 하려면 [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance)를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

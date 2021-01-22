@@ -4,12 +4,12 @@ description: 사용자 지정 메트릭으로 웹앱을 실시간으로 모니�
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c50f7e57c520321d752d6d46e36c45c615b5e785
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803581"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679469"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -29,14 +29,14 @@ ms.locfileid: "97803581"
 
 라이브 메트릭은 현재 ASP.NET, ASP.NET Core, Azure Functions, Java 및 Node.js 앱에 대해 지원 됩니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 1. 언어별 지침에 따라 라이브 메트릭을 사용 하도록 설정 합니다.
    * [ASP.NET](./asp-net.md) -라이브 메트릭은 기본적으로 사용 하도록 설정 되어 있습니다.
    * [ASP.NET Core](./asp-net-core.md)라이브 메트릭은 기본적으로 사용 하도록 설정 되어 있습니다.
    * [.Net/.Net Core 콘솔/작업자](./worker-service.md)-라이브 메트릭은 기본적으로 사용 하도록 설정 되어 있습니다.
    * [.Net 응용 프로그램-코드를 사용 하도록 설정](#enable-livemetrics-using-code-for-any-net-application)합니다.
-    * [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) -라이브 메트릭은 기본적으로 사용 하도록 설정 되어 있습니다.
+    * [Java](./java-in-process-agent.md) -라이브 메트릭은 기본적으로 사용 하도록 설정 되어 있습니다.
    * [Node.JS](./nodejs.md#live-metrics)
 
 2. [Azure Portal](https://portal.azure.com)에서 앱에 대한 Application Insights 리소스를 연 다음 라이브 스트림을 엽니다.

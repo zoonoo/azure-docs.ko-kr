@@ -4,12 +4,12 @@ description: Azure Application Insights 데이터를 사용하여 사용자 지�
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010608"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680453"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -33,7 +33,7 @@ ms.locfileid: "96010608"
 
 * [전원 자동화를 사용 하 여 보고서 자동화](../platform/logicapp-flow-connector.md)
 * [논리 앱을 사용하여 보고서 자동화](automate-with-logic-apps.md)
-* 모니터링 시나리오에서 "Application Insights 예약된 다이제스트" [Azure 함수](../../azure-functions/functions-create-first-azure-function.md) 템플릿을 사용합니다. 이 함수는 SendGrid를 사용하여 이메일을 배달합니다. 
+* 모니터링 시나리오에서 "Application Insights 예약된 다이제스트" [Azure 함수](../../azure-functions/functions-get-started.md) 템플릿을 사용합니다. 이 함수는 SendGrid를 사용하여 이메일을 배달합니다. 
 
     ![Azure 함수 템플릿](./media/automate-custom-reports/azure-function-template.png)
 
@@ -72,7 +72,7 @@ availabilityResults
 
 1. Azure 함수 앱를 만듭니다. (Application Insights는 Application Insights를 사용 하 여 새 함수 앱를 모니터링 하려는 경우 _에_ 만 필요 함)
 
-   [함수 앱을 만드는](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 방법에 대해 알아보려면 Azure Functions 설명서를 참조 하세요.
+   [함수 앱을 만드는](../../azure-functions/functions-get-started.md) 방법에 대해 알아보려면 Azure Functions 설명서를 참조 하세요.
 
 2. 새 함수 앱에서 배포를 완료하면 **리소스로 이동** 을 선택합니다.
 
@@ -154,4 +154,3 @@ availabilityResults
 * [Application Insights 데이터를 프로그래밍 방식으로 쿼리](https://dev.applicationinsights.io/)하는 방법에 대해 자세히 알아보기
 * [Logic Apps](../../logic-apps/logic-apps-overview.md)에 대해 자세히 알아봅니다.
 * [Microsoft Power 자동화](https://ms.flow.microsoft.com)에 대해 자세히 알아보세요.
-

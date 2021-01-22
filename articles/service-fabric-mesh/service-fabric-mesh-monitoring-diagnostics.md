@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: eda0b62729343b0a138d027548d8750b1e0fc74f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844406"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682074"
 ---
 # <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
 Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. Service Fabric Mesh의 모니터링 및 진단은 다음 세 가지 주요 진단 데이터 유형으로 분류됩니다.
@@ -26,7 +26,7 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네
 
 배포된 컨테이너의 docker 로그를 컨테이너별로 볼 수 있습니다. Service Fabric Mesh 애플리케이션 모델에서 각 컨테이너는 애플리케이션의 코드 패키지입니다. 코드 패키지와 연결된 로그를 보려면 다음 명령을 사용합니다.
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> --service-name <nameOfService> --replica-name <nameOfReplica> --code-package-name <nameOfCodePackage>
 ```
 
@@ -35,7 +35,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 
 투표 애플리케이션에서 VotingWeb.Code 컨테이너의 로그를 확인하면 다음과 같이 표시됩니다.
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzVoting --service-name VotingWeb --replica-name 0 --code-package-name VotingWeb.Code
 ```
 
@@ -43,7 +43,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 메시 환경은 컨테이너를 수행 하는 방법을 나타내는 몇 가지 메트릭을 노출 합니다. Azure Portal 및 Azure monitor CLI를 통해 다음 메트릭을 사용할 수 있습니다.
 
-| 메트릭 | 설명 | 단위|
+| 메트릭 | Description | 단위|
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu (백분율) | % |
 | MemoryUtilization | ActualMem/AllocatedMem (백분율) | % |
@@ -74,7 +74,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 ### <a name="azure-monitor-cli"></a>CLI Azure Monitor
 
-명령에 대 한 전체 목록은 [AZURE MONITOR CLI 문서](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) 에서 사용할 수 있지만 아래에 몇 가지 유용한 예가 포함 되어 있습니다. 
+명령에 대 한 전체 목록은 [AZURE MONITOR CLI 문서](/cli/azure/monitor/metrics#az-monitor-metrics-list) 에서 사용할 수 있지만 아래에 몇 가지 유용한 예가 포함 되어 있습니다. 
 
 각 예제에서 리소스 ID는이 패턴을 따릅니다.
 
@@ -83,21 +83,21 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 * 응용 프로그램에서 컨테이너의 CPU 사용률
 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization"
 ```
 * 각 서비스 복제본에 대 한 메모리 사용률
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "MemoryUtilization" --dimension "ServiceReplicaName"
 ``` 
 
 * 1 시간 창에서 각 컨테이너에 대 한 다시 시작 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "RestartCount" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z
 ``` 
 
 * 1 시간 창에서 이름이 "VotingWeb" 인 서비스 전반의 평균 CPU 사용률
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z --aggregation "Average" --filter "ServiceName eq 'VotingWeb'"
 ``` 
 
@@ -118,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>다음 단계
 * Service Fabric Mesh에 대한 자세한 내용은 [Service Fabric Mesh 개요](service-fabric-mesh-overview.md)를 참조하세요.
-* Azure Monitor 메트릭 명령에 대 한 자세한 내용은 [CLI 문서 Azure Monitor](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list)를 참조 하세요.
+* Azure Monitor 메트릭 명령에 대 한 자세한 내용은 [CLI 문서 Azure Monitor](/cli/azure/monitor/metrics#az-monitor-metrics-list)를 참조 하세요.

@@ -11,12 +11,12 @@ ms.date: 05/15/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 067551d198f717dd40995cb8bc3e1345e82f078f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 38fb842cf90c110266f53b79a9ab2ef6157025b4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461905"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681288"
 ---
 # <a name="configure-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에서 워크 로드 중요도 구성
 
@@ -24,7 +24,7 @@ Azure Synapse 전용 SQL 풀에서 중요도를 설정 하면 쿼리 예약에 �
 
 ## <a name="create-a-workload-classifier-with-importance"></a>중요도가 포함된 워크로드 분류자 만들기
 
-데이터 웨어하우스 시나리오에서 사용자는 사용 중인 시스템에서 쿼리를 신속하게 실행해야 하는 경우가 있습니다.  사용자는 보고서를 실행해야 하는 회사의 임원이거나 임시 쿼리를 실행하는 분석가일 수 있습니다. 중요도를 할당하려면 작업 분류자를 만들고 중요도를 쿼리에 할당합니다.  아래 예제에서는 [워크로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문을 사용하여 두 개의 분류자를 만듭니다. `Membername`은 단일 사용자 또는 그룹일 수 있습니다.  기존 전용 SQL 풀 사용자를 찾으려면 다음을 실행 합니다.
+데이터 웨어하우스 시나리오에서 사용자는 사용 중인 시스템에서 쿼리를 신속하게 실행해야 하는 경우가 있습니다.  사용자는 보고서를 실행해야 하는 회사의 임원이거나 임시 쿼리를 실행하는 분석가일 수 있습니다. 중요도를 할당하려면 작업 분류자를 만들고 중요도를 쿼리에 할당합니다.  아래 예제에서는 [워크로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문을 사용하여 두 개의 분류자를 만듭니다. `Membername`은 단일 사용자 또는 그룹일 수 있습니다.  기존 전용 SQL 풀 사용자를 찾으려면 다음을 실행 합니다.
 
 ```sql
 Select name from sys.sysusers

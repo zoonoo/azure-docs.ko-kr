@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: allensu
-ms.openlocfilehash: a1d94166c6c56a3652dc0ad532bd481c6e792c52
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 0b5e8f28be9960a2bb4e1406a293ab5e03962681
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217093"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680572"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -38,7 +38,7 @@ ms.locfileid: "98217093"
 3. 명령 셸에서 `az login` 명령을 사용하고 사용 중인 구독을 선택합니다.
 4. Linux 또는 Mac 컴퓨터에서 다음에 나오는 스크립트를 실행하여 VM을 만듭니다. 스크립트는 리소스 그룹, 하나의 VNet(가상 네트워크), 세 개의 IP 구성이 있는 하나의 NIC 및 연결된 두 개의 NIC가 있는 VM을 만듭니다. NIC, 공용 IP 주소, 가상 네트워크 및 VM 리소스는 모두 동일한 위치 및 구독에 있어야 합니다. 리소스가 모두 동일한 리소스 그룹에 위치할 필요는 없습니다. 하지만 다음 스크립트에서는 모두 동일한 리소스 그룹에 위치합니다.
 
-```bash
+```azurecli
     
 #!/bin/sh
     

@@ -3,18 +3,20 @@ title: 다른 사람들과 공동 작업-LUIS
 titleSuffix: Azure Cognitive Services
 description: 앱 소유자는 제작 리소스에 참가자를 추가할 수 있습니다. 이러한 참가자는 모델을 수정 하 고, 학습 하 고, 게시할 수 있습니다.
 services: cognitive-services
+author: aahill
+ms.author: aahi
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.openlocfilehash: d4bde21dd13b562ffbb51b27ef083ee53685397a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 01/21/2021
+ms.openlocfilehash: ea95b2097c611635eb937498c6f1d87cb544bcd1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007972"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681097"
 ---
 # <a name="add-contributors-to-your-app"></a>앱에 참가자 추가
 
@@ -66,9 +68,7 @@ LUIS는 표준 Azure AD(Azure Active Directory)에서 동의 흐름을 사용합
 테넌트 관리자는 Azure AD에서 LUIS를 사용하기 위해 권한을 부여 받아야 하는 사용자와 함께 작업해야 합니다.
 
 * 첫째, 사용자가 LUIS에 로그인하면 관리 승인이 필요한 팝업 대화 상자가 표시됩니다. 사용자는 계속하기 위해 먼저 테넌트 관리자를 연락합니다.
-* 둘째, 테넌트 관리자가 LUIS에 로그인하면 동의 흐름 팝업 대화 상자가 표시됩니다. 이 대화 상자에서 관리자는 사용자에게 권한을 부여해야 합니다. 관리자가 권한을 수락하면 사용자는 LUIS를 계속 사용할 수 있습니다. 테넌트 관리자가 LUIS에 로그인하지 않을 경우 관리자는 다음 스크린샷에 나온 LUIS에 대한 [동의](https://account.activedirectory.windowsazure.com/r#/applications)에 액세스할 수 있습니다. `LUIS` 이름이 포함된 항목으로 목록이 필터링됩니다.
-
-![앱 웹 사이트별 Azure Active Directory 권한](./media/luis-how-to-collaborate/tenant-permissions.png)
+* 둘째, 테넌트 관리자가 LUIS에 로그인하면 동의 흐름 팝업 대화 상자가 표시됩니다. 이 대화 상자에서 관리자는 사용자에게 권한을 부여해야 합니다. 관리자가 권한을 수락하면 사용자는 LUIS를 계속 사용할 수 있습니다. 테넌트 관리자는 LUIS에 로그인하지 않을 경우 LUIS에 대한 [동의](https://account.activedirectory.windowsazure.com/r#/applications)에 액세스할 수 있습니다. 이 페이지에서는 이름을 포함 하는 항목으로 목록을 필터링 할 수 있습니다 `LUIS` .
 
 테넌트 관리자는 특정 사용자만 LUIS를 사용하도록 지정하려는 경우 다음과 같은 몇 가지 방법을 사용할 수 있습니다.
 * "관리자 동의"(Azure AD의 모든 사용자에 대한 동의)를 제공한 다음 엔터프라이즈 애플리케이션 속성 아래의 "사용자 할당 필요"를 "예"로 설정하고, 마지막으로 원하는 사용자만 애플리케이션에 할당/추가합니다. 이 방법을 사용하는 경우에도 관리자는 앱에 "관리자 동의"를 제공하지만, 앱에 액세스할 수 있는 사용자를 제어할 수 있습니다.

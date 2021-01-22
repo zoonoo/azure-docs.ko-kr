@@ -13,12 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: a8c7ae8de41a01cb07a4bbbcd5943fb6290eced8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f87f2e79bd9439fddb52fad82c7ab4712fc68fb9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131647"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680368"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>B2C와 함께 Android 용 MSAL 사용
 
@@ -36,7 +36,7 @@ Android 용 MSAL에서 B2C 정책 (사용자 경험)은 개별 기관으로 구�
 
 앱에 대 한 구성 파일은 2를 선언 `authorities` 합니다. 각 정책에 대해 하나씩입니다. `type`각 기관의 속성은 `B2C` 입니다.
 
->참고: `account_mode` B2C 응용 프로그램의 경우를 **MULTIPLE** 으로 설정 해야 합니다. [여러 계정 공용 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account#multiple-account-public-client-application)에 대 한 자세한 내용은 설명서를 참조 하세요.
+>참고: `account_mode` B2C 응용 프로그램의 경우를 **MULTIPLE** 으로 설정 해야 합니다. [여러 계정 공용 클라이언트 앱](./single-multi-account.md#multiple-account-public-client-application)에 대 한 자세한 내용은 설명서를 참조 하세요.
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -142,7 +142,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>정책 지정
 
-B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `fromAuthority` `acquireToken` 또는 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다 `acquireTokenSilent` .  예를 들면 다음과 같습니다.
+B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `fromAuthority` `acquireToken` 또는 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다 `acquireTokenSilent` .  다음은 그 예입니다. 
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()

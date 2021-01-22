@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2ebff0d86c27bcdbc11d23e18116b33b4ea838a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4ca28efce28933eed9be5cca7bd412f2d9505aa
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300258"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679537"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>PowerShell을 사용 하 여 공유 이미지 갤러리에서 관리 디스크 또는 스냅숏에서 이미지 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "89300258"
 get-azsnapshot | Format-Table -Property Name,ResourceGroupName
 ```
 
-스냅숏 이름 및 리소스 그룹을 확인 한 후에는를 다시 사용 하 여 `Get-AzSnapshot` 스냅숏 개체를 가져온 후 나중에 사용할 수 있도록 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *mySnapshot* 라는 스냅숏을 가져와서 *$source*변수에 할당 합니다. 
+스냅숏 이름 및 리소스 그룹을 확인 한 후에는를 다시 사용 하 여 `Get-AzSnapshot` 스냅숏 개체를 가져온 후 나중에 사용할 수 있도록 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *mySnapshot* 라는 스냅숏을 가져와서 *$source* 변수에 할당 합니다. 
 
 ```azurepowershell-interactive
 $source = Get-AzSnapshot `
@@ -90,9 +90,9 @@ $gallery = Get-AzGallery `
 
 이미지 정의를 만들 때에 올바른 정보가 모두 있는지 확인 합니다. 이 예에서는 스냅숏 또는 관리 디스크를 사용 중인 VM에서 사용 하는 것으로 가정 하 고 일반화 되지 않은 것으로 가정 합니다. Windows 용 Sysprep 또는 [waagent](https://github.com/Azure/WALinuxAgent) 또는 Linux를 실행 한 후에 관리 되는 디스크 또는 스냅숏이 일반화 된 OS를 만든 경우 `-deprovision` `-deprovision+user` `-OsState` 를로 변경 합니다 `generalized` . 
 
-이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./windows/shared-image-galleries.md#image-definitions)를 참조하세요.
+이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./shared-image-galleries.md#image-definitions)를 참조하세요.
 
-[New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 특수 한 Windows OS를 위한 것입니다. Linux OS를 사용 하 여 이미지에 대 한 정의를 만들려면를 사용 `-OsType Linux` 합니다. 
+[New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 이미지 정의 이름은 *Myimagedefinition* 이며 특수 한 Windows OS를 위한 것입니다. Linux OS를 사용 하 여 이미지에 대 한 정의를 만들려면를 사용 `-OsType Linux` 합니다. 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -120,7 +120,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 OS 디스크 외에도 이미지에 데이터 디스크를 포함 하려면 매개 변수를 추가 하 `-DataDiskImage` 고 데이터 디스크 스냅숏 또는 관리 디스크의 ID로 설정 합니다.
 
-이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다.
+이 예제에서 이미지 버전은 *1.0.0* 이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다.
 
 
 ```azurepowershell-interactive

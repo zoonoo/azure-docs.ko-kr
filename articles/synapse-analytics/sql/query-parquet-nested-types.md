@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 45e1ae5b8a1084334b7596f62c272e16294c4c14
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6df8c3238ed6dfeb37fd10d0a7e97aa839e7bf26
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118764"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681080"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 및 JSON 파일의 중첩 형식 쿼리
 
@@ -47,7 +47,7 @@ FROM
 > [!IMPORTANT]
 > 이 예에서는 COVID-19 Open Research 데이터 집합의 파일을 사용 합니다. [여기에서 데이터의 라이선스 및 구조를 참조](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/)하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 첫 번째 단계는 데이터 원본이 생성 될 데이터베이스를 만드는 것입니다. 그런 다음 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) 를 실행 하 여 개체를 초기화 합니다. 설치 스크립트는 데이터 원본, 데이터베이스 범위 자격 증명 및 샘플에서 사용 되는 외부 파일 형식을 만듭니다.
 
@@ -147,7 +147,7 @@ FROM
 
 ## <a name="access-elements-from-repeated-columns"></a>반복된 열의 요소에 액세스
 
-다음 쿼리는 parquet 파일을 읽고 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 를 사용 하 여 배열 또는 맵과 같이 반복 되는 열에서 스칼라 요소를 검색 합니다.
+다음 쿼리는 parquet 파일을 읽고 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 를 사용 하 여 배열 또는 맵과 같이 반복 되는 열에서 스칼라 요소를 검색 합니다.
 
 ```sql
 SELECT
@@ -172,7 +172,7 @@ FROM
 
 ## <a name="access-sub-objects-from-complex-columns"></a>복합 열에서 하위 개체 액세스
 
-다음 쿼리는 mapExample 파일을 읽고 [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 를 사용 하 여 배열 또는 맵과 같이 반복 되는 열 내에서 비 스칼라 요소를 검색 합니다.
+다음 쿼리는 mapExample 파일을 읽고 [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 를 사용 하 여 배열 또는 맵과 같이 반복 되는 열 내에서 비 스칼라 요소를 검색 합니다.
 
 ```sql
 SELECT

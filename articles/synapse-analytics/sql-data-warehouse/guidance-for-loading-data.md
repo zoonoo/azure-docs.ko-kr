@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c91310d9d1e67dd77098ee13a87190ee6d411607
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 10e43332728ea70d27c08cf4d3dfe116c83b3f1f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120107"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679807"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 데이터를 로드 하는 모범 사례
 
@@ -47,7 +47,7 @@ ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으�
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-전용 SQL 풀에 연결 하 고 사용자를 만듭니다. 다음 코드에서는 mySampleDataWarehouse 라는 데이터베이스에 연결 되어 있다고 가정 합니다. 로더 라는 사용자를 만드는 방법을 보여 주고 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)사용 하 여 테이블을 만들고 로드 하는 사용자 권한을 부여 합니다. 그런 다음 사용자를 최대 리소스를 사용 하는 DataLoads 작업 그룹으로 분류 합니다. 
+전용 SQL 풀에 연결 하 고 사용자를 만듭니다. 다음 코드에서는 mySampleDataWarehouse 라는 데이터베이스에 연결 되어 있다고 가정 합니다. 로더 라는 사용자를 만드는 방법을 보여 주고 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)사용 하 여 테이블을 만들고 로드 하는 사용자 권한을 부여 합니다. 그런 다음 사용자를 최대 리소스를 사용 하는 DataLoads 작업 그룹으로 분류 합니다. 
 
 ```sql
    -- Connect to the dedicated SQL pool
@@ -79,7 +79,7 @@ ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으�
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>여러 사용자가 로드 하도록 허용 (PolyBase)
 
-여러 사용자가 전용 SQL 풀에 데이터를 로드 해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT (transact-sql)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase)를 사용 하 여 로드 하려면 데이터베이스에 대 한 CONTROL 권한이 필요 합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다.
+여러 사용자가 전용 SQL 풀에 데이터를 로드 해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT (transact-sql)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (PolyBase)를 사용 하 여 로드 하려면 데이터베이스에 대 한 CONTROL 권한이 필요 합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다.
 
 모든 로드 사용자가 모든 스키마에 대한 제어 액세스 권한을 갖는 것은 좋지 않습니다. 권한을 제한하려면 DENY CONTROL 문을 사용합니다.
 
@@ -114,7 +114,7 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>SqLBulkCopy API 또는 bcp를 사용 하는 경우 일괄 처리 크기 늘리기
 
-COPY 문으로 로드 하면 전용 SQL 풀에서 가장 높은 처리량이 제공 됩니다. 이 복사본을 사용 하 여 로드할 수 없고 [SQLBULKCOPY API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용 해야 하는 경우 처리량을 높이기 위해 일괄 처리 크기를 늘려야 합니다.
+COPY 문으로 로드 하면 전용 SQL 풀에서 가장 높은 처리량이 제공 됩니다. 이 복사본을 사용 하 여 로드할 수 없고 [SQLBULKCOPY API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용 해야 하는 경우 처리량을 높이기 위해 일괄 처리 크기를 늘려야 합니다.
 
 > [!TIP]
 > 최적의 일괄 처리 크기를 결정 하기 위한 권장 기준은 100 K ~ 1M 행 사이의 일괄 처리 크기입니다.
@@ -130,11 +130,11 @@ COPY 문으로 로드 하면 전용 SQL 풀에서 가장 높은 처리량이 제
 
 더티 레코드 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지와 외부 데이터가 이러한 정의를 준수하는지 확인합니다.
 
-외부 데이터 레코드의 하위 집합이 더티 인 경우 [CREATE EXTERNAL TABLE (transact-sql)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에서 거부 옵션을 사용 하 여 쿼리에 대해 이러한 레코드를 거부 하도록 선택할 수 있습니다.
+외부 데이터 레코드의 하위 집합이 더티 인 경우 [CREATE EXTERNAL TABLE (transact-sql)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에서 거부 옵션을 사용 하 여 쿼리에 대해 이러한 레코드를 거부 하도록 선택할 수 있습니다.
 
 ## <a name="inserting-data-into-a-production-table"></a>프로덕션 테이블에 데이터 삽입
 
-[INSERT 문](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용하는 작은 테이블에 한 번만 로드하거나 정기적으로 조회를 다시 로드하는 경우, `INSERT INTO MyLookup VALUES (1, 'Type 1')`와 같은 명령문으로 충분히 수행할 수 있습니다.  하지만, singleton 삽입은 대량 로드 수행만큼 효율적이지 않습니다.
+[INSERT 문](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 사용하는 작은 테이블에 한 번만 로드하거나 정기적으로 조회를 다시 로드하는 경우, `INSERT INTO MyLookup VALUES (1, 'Type 1')`와 같은 명령문으로 충분히 수행할 수 있습니다.  하지만, singleton 삽입은 대량 로드 수행만큼 효율적이지 않습니다.
 
 하루 종일 수천 개 이상의 단일 삽입을 수행하는 경우 대량 로드할 수 있도록 로드를 일괄 처리합니다.  파일에 단일 삽입을 추가하는 프로세스를 개발하고 정기적으로 파일을 로드하는 다른 프로세스를 만듭니다.
 
@@ -158,9 +158,9 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Azure Storage 계정 키를 회전하려면:
 
-키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 실행합니다.
+키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 실행합니다.
 
-예제:
+예:
 
 원래 키를 만드는 경우
 

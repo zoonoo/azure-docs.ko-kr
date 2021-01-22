@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683199"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680606"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>상태 비저장 전용 노드 유형 (미리 보기)을 사용 하 여 Azure Service Fabric 클러스터 배포
 Service Fabric 노드 형식은 특정 시점에 상태 저장 서비스가 노드에 배치 될 수 있다는 가정 하에 제공 됩니다. 상태 비저장 노드 형식은 노드 형식에 대 한 이러한 가정을 완화 하므로 더 빠른 규모 확장 작업과 같은 다른 기능을 사용할 수 있도록 하 고, 단일 가상 머신 확장 집합에서 100 개 보다 많은 노드를 확장 하 여 청동 내구성에서 자동 OS 업그레이드를 지원 합니다.
@@ -253,6 +253,8 @@ Service Fabric 노드 형식은 특정 시점에 상태 저장 서비스가 노�
 
 리소스 배포를 완료 한 후에는 원본 클러스터에서 제거 하려는 노드 형식의 노드를 사용 하지 않도록 설정할 수 있습니다.
 
+>[!NOTE]
+> 수평 확장 작업 후에는 상태 비저장 nodetypes에서 자동 크기 조정을 사용 하는 동안 노드 상태가 자동으로 정리 되지 않습니다. 자동 크기 조정 중에 노드의 NodeState를 정리 하기 위해 [Service Fabric 자동 크기 조정 도우미](https://github.com/Azure/service-fabric-autoscale-helper) 를 사용 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 2a8cfbe75925ddc49f6fa3205fafdd1c2203b472
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d31dfbf376bc3d93e31aa822a38c9f85db219324
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115636"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679587"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 테이블 디자인
 
@@ -36,7 +36,7 @@ ms.locfileid: "98115636"
 
 스키마는 비슷한 방식으로 함께 사용 되는 테이블을 그룹화 하는 좋은 방법입니다.  온-프레미스 솔루션에서 전용 SQL 풀로 여러 데이터베이스를 마이그레이션하는 경우 모든 팩트, 차원 및 통합 테이블을 전용 SQL 풀의 하나의 스키마로 마이그레이션하는 것이 가장 좋습니다.
 
-예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) SAMPLE 전용 SQL 풀의 모든 테이블을 wwi 라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi 라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 를 만듭니다.
+예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) SAMPLE 전용 SQL 풀의 모든 테이블을 wwi 라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi 라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 를 만듭니다.
 
 ```sql
 CREATE SCHEMA wwi;
@@ -111,7 +111,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 ## <a name="table-partitions"></a>테이블 파티션
 
-분할된 테이블은 데이터 범위에 따라 테이블 행에 저장하고 작업을 수행합니다. 예를 들어 테이블을 일, 월 또는 연도별로 분할할 수 있습니다. 쿼리 검색을 파티션 내의 데이터로 제한하는 파티션 제거를 통해 쿼리 성능을 향상시킬 수 있습니다. 파티션 전환을 통해 데이터를 유지 관리할 수도 있습니다. SQL 풀의 데이터는 이미 배포 되었으므로 너무 많은 파티션이 쿼리 성능을 저하 시킬 수 있습니다. 자세한 내용은 [분할 지침](sql-data-warehouse-tables-partition.md)을 참조하세요.  비어 있지 않은 테이블 파티션으로 파티션이 전환 될 때 기존 데이터를 잘라낼 경우 [ALTER table](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문에 TRUNCATE_TARGET 옵션을 사용 하는 것이 좋습니다. 아래 코드는 변환 된 매일 데이터를 기존 데이터를 덮어쓰는 SalesFact로 전환 합니다.
+분할된 테이블은 데이터 범위에 따라 테이블 행에 저장하고 작업을 수행합니다. 예를 들어 테이블을 일, 월 또는 연도별로 분할할 수 있습니다. 쿼리 검색을 파티션 내의 데이터로 제한하는 파티션 제거를 통해 쿼리 성능을 향상시킬 수 있습니다. 파티션 전환을 통해 데이터를 유지 관리할 수도 있습니다. SQL 풀의 데이터는 이미 배포 되었으므로 너무 많은 파티션이 쿼리 성능을 저하 시킬 수 있습니다. 자세한 내용은 [분할 지침](sql-data-warehouse-tables-partition.md)을 참조하세요.  비어 있지 않은 테이블 파티션으로 파티션이 전환 될 때 기존 데이터를 잘라낼 경우 [ALTER table](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문에 TRUNCATE_TARGET 옵션을 사용 하는 것이 좋습니다. 아래 코드는 변환 된 매일 데이터를 기존 데이터를 덮어쓰는 SalesFact로 전환 합니다.
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -126,7 +126,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 > [!TIP]
 > 힙 테이블은 최종 테이블로 변환 된 준비 테이블과 같은 임시 데이터를 로드 하는 데 특히 유용할 수 있습니다.
 
-columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요. columnstore 인덱스 성능을 향상하려면 [columnstore 인덱스의 행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
+columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요. columnstore 인덱스 성능을 향상하려면 [columnstore 인덱스의 행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
 
 ## <a name="statistics"></a>통계
 
@@ -144,12 +144,12 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 
 테이블을 새로운 빈 테이블로 만들 수 있습니다. 테이블을 만들고 select 문의 결과로 채울 수도 있습니다. 다음은 테이블을 만드는 T-SQL 명령입니다.
 
-| T-SQL 문 | 설명 |
+| T-SQL 문 | Description |
 |:----------------|:------------|
-| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | 모든 테이블 열과 옵션을 정의하여 빈 테이블을 만듭니다. |
-| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | 외부 테이블을 만듭니다. 테이블의 정의는 전용 SQL 풀에 저장 됩니다. 테이블 데이터는 Azure Blob Storage 또는 Azure Data Lake Store에 저장됩니다. |
-| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | select 문의 결과로 새 테이블을 채웁니다. 테이블 열과 데이터 형식은 select 문의 결과를 기반으로 합니다. 데이터를 가져오기 위해 이 문은 외부 테이블에서 선택할 수 있습니다. |
-| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | select 문의 결과를 외부 위치로 내보내 새 외부 테이블을 만듭니다.  위치는 Azure Blob Storage 또는 Azure Data Lake Store입니다. |
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 모든 테이블 열과 옵션을 정의하여 빈 테이블을 만듭니다. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 외부 테이블을 만듭니다. 테이블의 정의는 전용 SQL 풀에 저장 됩니다. 테이블 데이터는 Azure Blob Storage 또는 Azure Data Lake Store에 저장됩니다. |
+| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | select 문의 결과로 새 테이블을 채웁니다. 테이블 열과 데이터 형식은 select 문의 결과를 기반으로 합니다. 데이터를 가져오기 위해 이 문은 외부 테이블에서 선택할 수 있습니다. |
+| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | select 문의 결과를 외부 위치로 내보내 새 외부 테이블을 만듭니다.  위치는 Azure Blob Storage 또는 Azure Data Lake Store입니다. |
 
 ## <a name="aligning-source-data-with-dedicated-sql-pool"></a>전용 SQL 풀을 사용 하 여 원본 데이터 정렬
 
@@ -161,20 +161,20 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 
 전용 SQL 풀은 다른 데이터베이스에서 제공 하는 테이블 기능을 대부분 지원 합니다.  다음 목록에서는 전용 SQL 풀에서 지원 되지 않는 테이블 기능 중 일부를 보여 줍니다.
 
-- 외래 키, Check [테이블 제약 조건](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [계산 열](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [인덱싱된 뷰](/sql/relational-databases/views/create-indexed-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [시퀀스](/sql/t-sql/statements/create-sequence-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [스파스 열](/sql/relational-databases/tables/use-sparse-columns?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- 외래 키, Check [테이블 제약 조건](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [계산 열](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [인덱싱된 뷰](/sql/relational-databases/views/create-indexed-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [시퀀스](/sql/t-sql/statements/create-sequence-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [스파스 열](/sql/relational-databases/tables/use-sparse-columns?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - 서로게이트 키. [ID](sql-data-warehouse-tables-identity.md)로 구현합니다.
-- [동의어](/sql/t-sql/statements/create-synonym-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [트리거](/sql/t-sql/statements/create-trigger-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [고유 인덱스](/sql/t-sql/statements/create-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [사용자 정의 형식](/sql/relational-databases/native-client/features/using-user-defined-types?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [동의어](/sql/t-sql/statements/create-synonym-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [트리거](/sql/t-sql/statements/create-trigger-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [고유 인덱스](/sql/t-sql/statements/create-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [사용자 정의 형식](/sql/relational-databases/native-client/features/using-user-defined-types?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="table-size-queries"></a>테이블 크기 쿼리
 
-60개의 각 배포에서 한 테이블에 사용되는 공간 및 행을 식별하는 한 가지 간단한 방법은 [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하는 것입니다.
+60개의 각 배포에서 한 테이블에 사용되는 공간 및 행을 식별하는 한 가지 간단한 방법은 [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하는 것입니다.
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');

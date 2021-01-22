@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7fb84d544138b771170f95b5df71c33087252564
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186901"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679486"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 이 문서에서는 Azure Monitor를 사용하여 Azure 가상 머신에서 모니터링 데이터를 수집 및 분석하면서 상태를 유지하는 방법을 설명합니다. 가상 머신은 [다른 Azure 리소스](monitor-azure-resource.md)와 같이 Azure Monitor를 사용하여 가용성과 성능을 모니터링할 수 있지만 게스트 운영 체제와 여기에서 실행되는 워크로드를 모니터링해야 하기 때문에 다른 리소스와는 다릅니다. 
@@ -113,7 +113,7 @@ Azure Portal에서 각 가상 머신 호스트에 대해 수집된 플랫폼 메
 Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
 ```
 
-```CLI
+```azurecli
 az monitor diagnostic-settings create \
 --name VM-Diagnostics 
 --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm \

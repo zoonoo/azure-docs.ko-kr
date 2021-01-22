@@ -11,12 +11,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65569cadd8f778a94f93aa22dd3924c52ff12f8
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 3796b3d86f647e38cf2ff018e8c0c903d9a64e41
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613769"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682041"
 ---
 # <a name="inbound-synchronization-for-cloud-sync-using-ms-graph-api"></a>MS Graph API를 사용 하는 클라우드 동기화에 대 한 인바운드 동기화
 
@@ -31,7 +31,7 @@ ms.locfileid: "98613769"
 - [동기화 작업 시작](#start-sync-job)
 - [상태 검토](#review-status)
 
-이러한 [Windows PowerShell용 Microsoft Azure Active Directory 모듈](https://docs.microsoft.com/powershell/module/msonline/) 명령을 사용 하 여 해당 테 넌 트에 대 한 관리 웹 서비스를 호출 하기 위한 필수 구성 요소인 프로덕션 테 넌 트에 대해 동기화를 사용 하도록 설정할 수 있습니다.
+이러한 [Windows PowerShell용 Microsoft Azure Active Directory 모듈](/powershell/module/msonline/) 명령을 사용 하 여 해당 테 넌 트에 대 한 관리 웹 서비스를 호출 하기 위한 필수 구성 요소인 프로덕션 테 넌 트에 대해 동기화를 사용 하도록 설정할 수 있습니다.
 
 ## <a name="basic-setup"></a>기본 설정
 
@@ -60,7 +60,7 @@ ms.locfileid: "98613769"
 ## <a name="create-sync-job"></a>동기화 작업 만들기
 위 명령의 출력은 만들어진 서비스 주체의 objectId를 반환 합니다. 이 예에서는 objectId가 614ac0e9-a59b-481f-bd8f-79a73d167e1c입니다.  Microsoft Graph를 사용 하 여 해당 서비스 사용자에 게 synchronizationJob를 추가 합니다.  
 
-동기화 작업 만들기에 대 한 설명서는 [여기](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http)에서 찾을 수 있습니다.
+동기화 작업 만들기에 대 한 설명서는 [여기](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta)에서 찾을 수 있습니다.
 
 위의 ID를 기록 하지 않은 경우 다음 MS Graph 호출을 실행 하 여 서비스 주체를 찾을 수 있습니다. 디렉터리를 사용 해야 합니다. 다음을 호출 하는 데 필요한 모든 권한:
  
@@ -216,11 +216,11 @@ ObjectId: 8895955e-2e6c-4d79-8943-4d72ca36878f AppId: 00000014-0000-0000-c000-00
 
  `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ ` 
 
-작업 검색에 대 한 설명서는 [여기](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-list?view=graph-rest-beta&tabs=http)에서 찾을 수 있습니다. 
+작업 검색에 대 한 설명서는 [여기](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta)에서 찾을 수 있습니다. 
  
 작업을 시작 하려면 첫 번째 단계에서 만든 서비스 주체의 objectId를 사용 하 고 작업을 만든 요청에서 반환 된 작업 식별자를 사용 하 여이 요청을 실행 합니다.
 
-작업을 시작 하는 방법에 대 한 설명서는 [여기](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http)에서 찾을 수 있습니다. 
+작업을 시작 하는 방법에 대 한 설명서는 [여기](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta)에서 찾을 수 있습니다. 
 
  ```
  POST  https://graph.microsoft.com/beta/servicePrincipals/8895955e-2e6c-4d79-8943-4d72ca36878f/synchronization/jobs/AD2AADProvisioning.fc96887f36da47508c935c28a0c0b6da/start
@@ -228,7 +228,7 @@ ObjectId: 8895955e-2e6c-4d79-8943-4d72ca36878f AppId: 00000014-0000-0000-c000-00
 
 필요한 응답은 ...입니다. HTTP 204/내용 없음
 
-작업을 제어 하는 다른 명령은 [여기](https://docs.microsoft.com/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta)에 설명 되어 있습니다.
+작업을 제어 하는 다른 명령은 [여기](/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta)에 설명 되어 있습니다.
  
 작업을 다시 시작 하려면 다음 중 하나를 사용 합니다.
 
@@ -254,4 +254,4 @@ ObjectId: 8895955e-2e6c-4d79-8943-4d72ca36878f AppId: 00000014-0000-0000-c000-00
 
 - [Azure AD Connect 클라우드 동기화 란?](what-is-cloud-sync.md)
 - [변환](how-to-transformation.md)
-- [Azure AD 동기화 API](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Azure AD 동기화 API](/graph/api/resources/synchronization-overview?view=graph-rest-beta)

@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7dcb884d8eafdfa5218e96d63f62a5d462d20cf8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456489"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679933"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Synapse SQL 풀에서 복제된 테이블을 사용하기 위한 디자인 지침
 
@@ -46,8 +46,8 @@ ms.locfileid: "96456489"
 
 복제 테이블 사용을 고려하는 것이 좋은 경우:
 
-- 행의 수에 관계없이 디스크의 테이블 크기가 2GB미만입니다. 테이블 크기를 알아보려면 [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 사용하세요. `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
-- 복제 테이블이 아니면 데이터 이동이 필요한 조인에 사용됩니다. 라운드 로빈 테이블로의 해시 분산 테이블과 같이 동일한 열에 배포되지 않은 테이블을 조인하는 경우 쿼리를 완료하려면 데이터 이동이 필요합니다.  테이블 중 하나가 작은 경우 복제된 테이블을 고려합니다. 대부분의 경우 라운드 로빈 테이블 대신 복제 테이블을 사용하는 것이 좋습니다. 쿼리 계획에서 데이터 이동 작업을 보려면 [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용합니다.  BroadcastMoveOperation은 복제된 테이블을 사용하여 제거할 수 있는 일반적인 데이터 이동 작업입니다.  
+- 행의 수에 관계없이 디스크의 테이블 크기가 2GB미만입니다. 테이블 크기를 알아보려면 [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 명령을 사용하세요. `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
+- 복제 테이블이 아니면 데이터 이동이 필요한 조인에 사용됩니다. 라운드 로빈 테이블로의 해시 분산 테이블과 같이 동일한 열에 배포되지 않은 테이블을 조인하는 경우 쿼리를 완료하려면 데이터 이동이 필요합니다.  테이블 중 하나가 작은 경우 복제된 테이블을 고려합니다. 대부분의 경우 라운드 로빈 테이블 대신 복제 테이블을 사용하는 것이 좋습니다. 쿼리 계획에서 데이터 이동 작업을 보려면 [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용합니다.  BroadcastMoveOperation은 복제된 테이블을 사용하여 제거할 수 있는 일반적인 데이터 이동 작업입니다.  
 
 복제 테이블이 최상의 쿼리 성능을 얻을 수 없는 경우:
 
@@ -78,7 +78,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 
 라운드 로빈 테이블이 이미 있는 경우 이 문서에 설명된 조건을 충족한다면 복제 테이블로 변환하는 것이 좋습니다. 복제 테이블은 데이터 이동의 필요성을 없애기 때문에 라운드 로빈 테이블보다 성능을 향상시킵니다.  라운드 로빈 테이블은 조인을 위해 데이터 이동이 항상 필요합니다.
 
-이 예제는 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 DimSalesTerritory 테이블을 복제 테이블로 변경합니다. 이 예제는 DimSalesTerritory가 해시 분산이거나 라운드 로빈이거나 상관없이 작동합니다.
+이 예제는 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 DimSalesTerritory 테이블을 복제 테이블로 변경합니다. 이 예제는 DimSalesTerritory가 해시 분산이거나 라운드 로빈이거나 상관없이 작동합니다.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]
@@ -99,7 +99,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>라운드 로빈 대비 복제에 대한 쿼리 성능 예제
 
-복제 테이블은 각각의 Compute 노드에 전체 테이블이 이미 존재하기 때문에 조인을 위해 데이터를 이동할 필요가 없습니다. 차원 테이블이 라운드 로빈 분산이면 조인은 각각의 Compute 노드에 차원 테이블 전체를 복사합니다. 데이터를 이동하려면 쿼리 계획에 BroadcastMoveOperation이라는 작업이 포함됩니다. 이런 유형의 데이터 이동 작업은 쿼리 성능을 저하시키며 복제 테이블을 사용하면 필요가 없어집니다. 쿼리 계획 단계를 보려면 [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 시스템 카탈로그 보기를 사용합니다.  
+복제 테이블은 각각의 Compute 노드에 전체 테이블이 이미 존재하기 때문에 조인을 위해 데이터를 이동할 필요가 없습니다. 차원 테이블이 라운드 로빈 분산이면 조인은 각각의 Compute 노드에 차원 테이블 전체를 복사합니다. 데이터를 이동하려면 쿼리 계획에 BroadcastMoveOperation이라는 작업이 포함됩니다. 이런 유형의 데이터 이동 작업은 쿼리 성능을 저하시키며 복제 테이블을 사용하면 필요가 없어집니다. 쿼리 계획 단계를 보려면 [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 시스템 카탈로그 보기를 사용합니다.  
 
 예를 들어 AdventureWorks 스키마에 대한 다음 쿼리에서 `FactInternetSales` 테이블은 해시 분산입니다. `DimDate` 및 `DimSalesTerritory` 테이블은 작은 차원 테이블입니다. 이 쿼리는 회계 연도 2004년에 대한 북아메리카 지역의 총 매출을 반환합니다.
 
@@ -170,7 +170,7 @@ SQL 풀은 테이블의 마스터 버전을 유지하여 복제 테이블을 구
 
 일관적인 쿼리 실행 시간을 보장하려면 일괄 처리 로드 후 복제된 테이블을 강제로 빌드하는 것이 좋습니다. 그렇지 않으면 첫 번째 쿼리에서 쿼리를 완료하기 위해 계속 데이터를 이동합니다.
 
-다음 쿼리는 [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV를 사용하여 수정되었지만 다시 빌드되지 않은 복제 테이블을 나열합니다.
+다음 쿼리는 [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) DMV를 사용하여 수정되었지만 다시 빌드되지 않은 복제 테이블을 나열합니다.
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
@@ -193,7 +193,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 복제 테이블을 만들려면 다음 문 중 하나를 사용합니다.
 
-- [CREATE TABLE (SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (Synapse SQL 풀)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE AS SELECT (Synapse SQL 풀)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 분산 테이블에 대한 개요는 [분산 테이블](sql-data-warehouse-tables-distribute.md)을 참조하세요.

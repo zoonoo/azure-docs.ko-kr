@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tisande
-ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019179"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681653"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,6 +35,17 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 > Azure Cosmos DB는 지연 인덱싱 모드도 지원 합니다. 지연 인덱싱은 엔진이 다른 작업을 수행하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행합니다. 이로 인해 **불일치 또는 불완전** 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택하지 않아야 합니다. 새 컨테이너는 지연 인덱스를 선택할 수 없습니다. [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 에 문의 하 여 예외를 요청할 수 있습니다 (지연 인덱싱을 지원 하지 않는 [서버](serverless.md) 를 사용 하지 않는 모드에서 azure Cosmos 계정을 사용 하는 경우 제외).
 
 기본적으로 인덱싱 정책은로 설정 됩니다 `automatic` . `automatic`인덱싱 정책에서 속성을로 설정 하 여 구현 `true` 합니다. 이 속성을로 설정 `true` 하면 Azure CosmosDB가 작성 된 문서를 자동으로 인덱싱할 수 있습니다.
+
+## <a name="index-size"></a><a id="index-size"></a>인덱스 크기
+
+Azure Cosmos DB에서 사용된 총 스토리지는 데이터 크기와 인덱스 크기의 조합입니다. 인덱스 크기의 몇 가지 기능은 다음과 같습니다.
+
+* 인덱스 크기는 인덱싱 정책에 따라 달라 집니다. 모든 속성이 인덱싱되는 경우 인덱스 크기는 데이터 크기 보다 클 수 있습니다.
+* 데이터가 삭제 되 면 인덱스는 거의 연속 해 서 압축 됩니다. 그러나 작은 데이터 삭제의 경우 인덱스 크기가 감소 하지 않을 수 있습니다.
+* 인덱스 크기는 다음과 같은 경우에 늘어날 수 있습니다.
+
+  * 파티션 분할 기간-파티션 분할이 완료 된 후 인덱스 공간이 해제 됩니다.
+  * 파티션이 분할 되 면 파티션이 분할 되는 동안 인덱스 공간이 일시적으로 증가 합니다. 
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>속성 경로 포함 및 제외
 
@@ -125,7 +136,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 * Point
 
-* 다각형
+* Polygon
 
 * MultiPolygon
 

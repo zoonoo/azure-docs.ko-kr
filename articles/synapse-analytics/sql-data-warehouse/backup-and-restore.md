@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: b033fd9c0a7f752cf08d6e679facc9fa27b44037
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d8c680ec30dcecc56c064f08e4690cbbde9c2377
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120209"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679916"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Azure Synapse 전용 SQL 풀에서 백업 및 복원
 
@@ -88,7 +88,7 @@ Azure Synapse 가격 책정에 대 한 자세한 내용은 [Azure Synapse 가격
 
 각 스냅샷에서 스냅샷이 시작된 시간을 나타내는 복원 지점을 만듭니다. 데이터 웨어하우스를 복원하려면 복원 지점을 선택하고 복원 명령을 실행합니다.  
 
-복원된 데이터 웨어하우스와 현재 데이터 웨어하우스 중 하나를 유지하거나 삭제할 수 있습니다. 현재 데이터 웨어하우스를 복원 된 데이터 웨어하우스로 대체 하려면 [ALTER database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 를 사용 하 여 이름 수정 옵션으로 이름을 바꿀 수 있습니다.
+복원된 데이터 웨어하우스와 현재 데이터 웨어하우스 중 하나를 유지하거나 삭제할 수 있습니다. 현재 데이터 웨어하우스를 복원 된 데이터 웨어하우스로 대체 하려면 [ALTER database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 를 사용 하 여 이름 수정 옵션으로 이름을 바꿀 수 있습니다.
 
 데이터 웨어하우스를 복원 하려면 [전용 SQL 풀 복원](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal)을 참조 하세요.
 
