@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: c39104912c99b199d38cf489bb61d64e83b89286
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 3b647a02731a4fa404aab4bb648853eea766d92e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895599"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684075"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>비 대화형 로그인을 사용 하 여 단일 페이지 응용 프로그램을 보호 하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "92895599"
 
 Azure AD에 대 한 인증을 담당 하는 보안 웹 서비스 응용 프로그램을 만듭니다. 
 
-1. Azure Portal에서 함수를 만듭니다. 자세한 내용은 [Azure Function 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조 하세요.
+1. Azure Portal에서 함수를 만듭니다. 자세한 내용은 [Azure Function 만들기](../azure-functions/functions-get-started.md)를 참조 하세요.
 
 2. 단일 페이지 웹 응용 프로그램에서 액세스할 수 있도록 Azure 함수에서 CORS 정책을 구성 합니다. 그러면 브라우저 클라이언트가 허용 된 웹 응용 프로그램 원본으로 보호 됩니다. [CORS 기능 추가](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality)를 참조 하세요.
 

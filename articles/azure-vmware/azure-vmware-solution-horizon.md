@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 수평 배포
 description: Azure VMware 솔루션에 VMware 수평을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6d5d8e12e358e2289128af9840660be18f5f217a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 2cf6fc5cb7662188650365cb019774d6c778d405
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95537444"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684878"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Azure VMware 솔루션에 수평 배포 
 
@@ -130,15 +130,35 @@ Azure VMware 솔루션에서 실행 되는 호스트에 대 한 수평 크기 �
 
 ### <a name="sizing-tables"></a>테이블 크기 조정
 
-테이블은 로그인 .VSI 지식 근로자 작업 및 Power Worker 워크 로드에 대 한 일반적인 워크 로드를 보여 줍니다.
+수평 가상 데스크톱에 대 한 특정 vCPU/vRAM 요구 사항은 고객의 특정 작업 프로필에 따라 다릅니다.   MSFT 및 VMware 판매 팀과 협력 하 여 가상 데스크톱에 대 한 vCPU/vRAM 요구 사항을 확인 하세요. 
 
-#### <a name="knowledge-worker-workloads"></a>지식 근로자 작업
+| VM 당 vCPU | VM 당 vRAM (GB) | 인스턴스 | 100 Vm | 200 Vm | 300 Vm | 400 Vm | 500 Vm | 600 Vm | 700 Vm | 800 Vm | 900 Vm | 1000 Vm | 2000 Vm | 3000 Vm | 4000 Vm | 5000 Vm | 6000 Vm | 6400 Vm |
+|:-----------:|:----------------:|:--------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|      2      |        3.5       |    AVS   |    3    |    3    |    4    |    4    |    5    |    6    |    6    |    7    |    8    |     9    |    17    |    25    |    33    |    41    |    49    |    53    |
+|      2      |         4        |    AVS   |    3    |    3    |    4    |    5    |    6    |    6    |    7    |    8    |    9    |     9    |    18    |    26    |    34    |    42    |    51    |    54    |
+|      2      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    12   |    13    |    26    |    38    |    51    |    62    |    75    |    79    |
+|      2      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      2      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      2      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      4      |        3.5       |    AVS   |    3    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10   |    11    |    22    |    33    |    44    |    55    |    66    |    70    |
+|      4      |         4        |    AVS   |    3    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10   |    11    |    22    |    33    |    44    |    55    |    66    |    70    |
+|      4      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    12   |    13    |    26    |    38    |    51    |    62    |    75    |    79    |
+|      4      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      4      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      4      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      6      |        3.5       |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         4        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      6      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      6      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      8      |        3.5       |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         4        |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         6        |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      8      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      8      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
 
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="로그인 .VSI 기술 자료 작업을 위한 VMware 수평의 일반적인 VDI 프로필 표" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
-
-#### <a name="power-worker-workloads"></a>Power worker 워크 로드
-
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="로그인 .VSI Power worker 작업을 위한 VMware 대역에 대 한 일반적인 VDI 프로필 표" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### <a name="horizon-sizing-inputs"></a>수평 크기 조정 입력
 
@@ -189,24 +209,9 @@ Azure VMware 솔루션과 함께 사용할 수 있는 두 가지 라이선스가
 
 사용자의 요구에 따라 수평 라이선스 비용을 확인 하려면 VMware EUC 판매 팀과 함께 작업 하세요.
 
-### <a name="cost-of-the-horizon-infrastructure-vms-on-azure-virtual-network"></a>Azure Virtual Network의 수평 인프라 Vm 비용
+### <a name="azure-instance-types"></a>Azure 인스턴스 유형
 
-표준 배포 아키텍처에 따라 수평 인프라 Vm은 연결 서버, UAGs, 앱 볼륨 관리자로 구성 됩니다. 고객의 Azure Virtual Network에 배포 됩니다. Azure에서 HA (고가용성), Microsoft SQL 또는 AD (Microsoft Active Directory) 서비스를 지원 하려면 추가 Azure 네이티브 인스턴스가 필요 합니다. 이 표에는 2000-데스크톱 배포 예제에 따라 Azure 인스턴스가 나열 되어 있습니다. 
-
->[!NOTE]
->오류를 처리 하려면 연결 수 (n + 1)에 필요한 것 보다 하나 이상의 서버를 배포 합니다. 연결 서버, UAG 및 앱 볼륨 관리자의 최소 권장 인스턴스 수는 2이 고, 필요한 수는 환경에서 지원할 사용자의 양에 따라 증가 됩니다.  단일 연결 서버는 최대 4000 세션을 지원 2000 하지만 모범 사례로 권장 됩니다. 최대 7 개의 연결 서버는 pod 당 총 12000 활성 세션에 대 한 권장 사항으로 지원 됩니다. 최신 숫자는 [Vmware 기술 자료 문서 Vmware 수평 7 크기 제한 및 권장 사항](https://kb.vmware.com/s/article/2150348)을 참조 하세요.
-
-| 수평 인프라 구성 요소 | Azure 인스턴스 | 필요한 인스턴스 수 (2000-데스크톱)    | 의견  |
-|----------------------------------|----------------|----------------------------------------------------|----------|
-| 연결 서버                | D4sv3          | 2       | *위의 참고를 참조 하세요.*                         |    
-| UAG                              | F2sv2          | 2       | *위의 참고를 참조 하세요.*                         |
-| 앱 볼륨 관리자              | D4sv3          | 2       | *위의 참고를 참조 하세요.*                         |
-| 클라우드 커넥터                  | D4sv3          | 1       |                                          |
-| AD 컨트롤러                    | D4sv3          | 2       | *Azure에서 MSFT AD 서비스를 사용 하는 옵션* |
-| MS-SQL Database                  | D4sv3          | 2       | *Azure에서 SQL 서비스를 사용 하는 옵션*     |
-| Windows 파일 공유               | D4sv3          |         | *선택 사항*                               |
-
-\$위의 예제에서 2000-데스크톱 배포에 대 한 인프라 VM은 매월 사용자 당 0.36에 해당 합니다. 이 예제에서는 미국 동부 Azure 인스턴스 2020 년 6 월 가격 책정을 사용 합니다. 가격은 지역, 선택한 옵션 및 타이밍에 따라 달라질 수 있습니다.
+수평 인프라에 필요한 Azure virtual machine 크기를 이해 하려면 [여기](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution)에서 찾을 수 있는 VMware의 지침을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure VMware 솔루션의 VMware 수평에 대해 자세히 알아보려면 [Vmware 수평 FAQ](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf)를 참조 하세요.

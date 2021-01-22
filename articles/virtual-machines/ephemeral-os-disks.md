@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 52071b964412071d820745b173e8835c6f9e7d0e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 62f89106538ab7f57047e211fc8715878f889af1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510994"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684562"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Azure Vm 용 삭제 OS 디스크
 
@@ -26,7 +26,7 @@ ms.locfileid: "97510994"
 - 임시 디스크와 비슷한 대기 시간을 줄입니다. 
 - 사용 후 삭제 OS 디스크는 OS 디스크에 대 한 저장소 비용이 들지 않습니다.
 - 모든 Azure 지역에서 사용할 수 있습니다. 
-- 삭제 된 OS 디스크는 [공유 이미지 갤러리](./linux/shared-image-galleries.md)에서 지원 됩니다. 
+- 삭제 된 OS 디스크는 [공유 이미지 갤러리](./shared-image-galleries.md)에서 지원 됩니다. 
  
 
  
@@ -40,7 +40,7 @@ ms.locfileid: "97510994"
 | **지역 지원**              | 모든 지역                                                                                  | 모든 지역                              |
 | **데이터 지속성**            | Os 디스크에 작성 된 OS 디스크 데이터는 Azure Storage에 저장 됩니다.                                  | OS 디스크에 기록 되는 데이터는 로컬 VM 저장소에 저장 되 고 Azure Storage에 유지 되지 않습니다. |
 | **중지-할당 취소 됨 상태**      | Vm 및 확장 집합 인스턴스는 중지-할당 취소 되 고 중지-할당 취소 됨 상태에서 다시 시작 될 수 있습니다. | Vm 및 확장 집합 인스턴스는 중지-할당 취소할 수 없습니다.                                  |
-| **특수 OS 디스크 지원** | 예                                                                                          | 예                                                                                 |
+| **특수 OS 디스크 지원** | 예                                                                                          | 아니요                                                                                 |
 | **OS 디스크 크기 조정**              | VM을 만드는 동안 및 VM이 중지 되 고 할당이 취소 된 후에 지원 됨                                | VM을 만드는 동안에만 지원 됨                                                  |
 | **새 VM 크기로 크기 조정**   | OS 디스크 데이터가 보존 됩니다.                                                                    | Os 디스크의 데이터가 삭제 되 고 OS가 다시 프로 비전 됩니다.       
 | **페이지 파일 배치**   | Windows의 경우 페이지 파일이 리소스 디스크에 저장 됩니다.                                              | Windows의 경우 페이지 파일은 OS 디스크에 저장 됩니다.   |
@@ -240,7 +240,7 @@ A: 예, REST, 템플릿, PowerShell 및 CLI를 사용 하 여 사용 후 삭제 
 A: 임시 디스크는 다음을 지원 하지 않습니다.
 - VM 이미지 캡처
 - 디스크 스냅샷 
-- Azure 디스크 암호화 
+- Azure Disk Encryption 
 - Azure Backup
 - Azure Site Recovery  
 - OS 디스크 교환 

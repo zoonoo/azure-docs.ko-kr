@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1a0bfb79b03b778696faef29597cabbcff47e6df
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a7b8cb10f75d7a99198ddfdc1a1bbef3c34a03da
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601656"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685109"
 ---
 # <a name="create-an-image-from-a-vm"></a>VM에서 이미지 만들기
 
 동일한 vm을 여러 개 만드는 데 사용 하려는 기존 VM이 있는 경우 해당 VM을 사용 하 여 Azure PowerShell를 사용 하는 공유 이미지 갤러리에 이미지를 만들 수 있습니다. [Azure CLI](image-version-vm-cli.md)를 사용 하 여 VM에서 이미지를 만들 수도 있습니다.
 
-Azure PowerShell를 사용 하 여 [특수 하 고 일반화](./windows/shared-image-galleries.md#generalized-and-specialized-images) 된 vm에서 이미지를 캡처할 수 있습니다. 
+Azure PowerShell를 사용 하 여 [특수 하 고 일반화](./shared-image-galleries.md#generalized-and-specialized-images) 된 vm에서 이미지를 캡처할 수 있습니다. 
 
 이미지 갤러리의 이미지에는 다음 예제에서 만들 두 가지 구성 요소가 있습니다.
 - 이미지 **정의** 는 이미지 및 사용에 대 한 요구 사항에 대 한 정보를 전달 합니다. 여기에는 이미지가 Windows 또는 Linux 인지, 특수 하거나 일반화 되었는지, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함 됩니다. 이미지의 형식 정의입니다. 
@@ -77,7 +77,7 @@ Stop-AzVM `
 
 이미지 정의를 만들 때에 올바른 정보가 모두 있는지 확인 합니다. VM을 일반화 한 경우 (Windows 용 Sysprep 사용 또는 Linux 용 waagent-프로 비전 해제)를 사용 하 여 이미지 정의를 만들어야 합니다 `-OsState generalized` . VM을 일반화 하지 않은 경우을 사용 하 여 이미지 정의를 만듭니다 `-OsState specialized` .
 
-이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./windows/shared-image-galleries.md#image-definitions)를 참조하세요.
+이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./shared-image-galleries.md#image-definitions)를 참조하세요.
 
 [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 
 

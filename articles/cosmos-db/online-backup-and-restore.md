@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 43625a80df76ff35b8bb1804df5f5fd1524326c5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ba66013e37c196c58291a6bcd979be7fb5fa0130
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097535"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684579"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB에서 자동 온라인 백업 및 주문형 데이터 복원
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -52,15 +52,15 @@ Azure Cosmos DB는 4 시간 마다 데이터의 전체 백업을 자동으로 �
 
    * **보존 된 데이터 복사본** -기본적으로 데이터의 백업 복사본 두 개는 무료로 제공 됩니다. 복사본이 두 개 이상 필요한 경우에는 추가 요금이 부과 됩니다. 추가 복사본의 정확한 가격을 알아보려면 [가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/) 페이지에서 사용된 스토리지 섹션을 참조하세요.
 
-   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업" border="true":::
+   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="기존 Azure Cosmos 계정에 대 한 백업 간격 및 보존 구성" border="true":::
 
 계정을 만드는 동안 백업 옵션을 구성 하는 경우 **정기적** 으로 또는 **연속** 되는 **백업 정책을** 구성할 수 있습니다. 정기 정책을 사용 하면 백업 간격 및 백업 보존을 구성할 수 있습니다. 현재 연속 정책은 등록 전용으로 사용할 수 있습니다. Azure Cosmos DB 팀은 워크 로드를 평가 하 고 요청을 승인 합니다.
 
-:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업" border="true":::
+:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="새 Azure Cosmos 계정에 대 한 주기적 또는 연속 백업 정책 구성" border="true":::
 
 ## <a name="request-data-restore-from-a-backup"></a>백업에서 데이터 복원 요청
 
-데이터베이스나 컨테이너를 실수로 삭제 한 경우 [지원 티켓을](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 제출 하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/) 하 여 자동 온라인 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 **표준** , **개발자** 및 계획 보다 높은 요금제와 같은 선택 된 계획에만 사용할 수 있습니다. Azure 지원은 **Basic** 플랜에는 사용할 수 없습니다. 여러 지원 플랜에 대해 자세히 알아보려면 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지를 참조하세요.
+데이터베이스나 컨테이너를 실수로 삭제 한 경우 [지원 티켓을](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 제출 하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/) 하 여 자동 온라인 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 **표준**, **개발자** 및 계획 보다 높은 요금제와 같은 선택 된 계획에만 사용할 수 있습니다. Azure 지원은 **Basic** 플랜에는 사용할 수 없습니다. 여러 지원 플랜에 대해 자세히 알아보려면 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지를 참조하세요.
 
 백업의 특정 스냅샷을 복원하려면 Azure Cosmos DB에서 해당 스냅샷의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
 복원을 요청하려면 다음 세부 정보가 필요합니다.
@@ -81,7 +81,7 @@ Azure Cosmos 계정 이름, 데이터베이스 이름, 컨테이너 이름 외�
 
 다음 스크린샷은 Azure Portal을 사용하여 데이터를 복원하기 위해 컨테이너(컬렉션/그래프/테이블)에 대한 지원 요청을 만드는 방법을 보여줍니다. 요청의 우선 순위를 지정하는 데 도움이 되도록 데이터의 유형, 복원의 목적, 데이터가 삭제된 시간과 같은 추가 정보를 제공합니다.
 
-:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업":::
+:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Azure Portal을 사용하여 백업 지원 요청 만들기":::
 
 ## <a name="considerations-for-restoring-the-data-from-a-backup"></a>백업에서 데이터를 복원할 때의 고려 사항
 
@@ -115,6 +115,13 @@ Azure Cosmos 데이터베이스를 실수로 삭제 하는 경우 해당 데이�
 
 데이터베이스 수준에서 처리량을 프로 비전 하는 경우이 경우 백업 및 복원 프로세스는 개별 컨테이너 수준이 아니라 전체 데이터베이스 수준에서 발생 합니다. 이러한 경우에는 복원할 컨테이너의 하위 집합을 선택할 수 없습니다.
 
+## <a name="required-permissions-to-change-retention-or-restore-from-the-portal"></a>포털에서 보존 또는 복원을 변경 하는 데 필요한 권한
+[CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), 소유자 또는 참가자 역할의 일부인 보안 주체는 복원을 요청 하거나 보존 기간을 변경할 수 있습니다.
+
+## <a name="understanding-costs-of-extra-backups"></a>추가 백업의 비용 이해
+2 백업은 무료로 제공 되며 [백업 저장소 가격 책정](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)에 설명 된 백업 저장소에 대 한 지역 기반 가격 책정에 따라 추가 백업이 청구 됩니다. 예를 들어 백업 보존이 240 시간, 10 일, 백업 간격을 24 시간으로 구성 된 경우입니다. 이는 백업 데이터의 복사본 10 개를 의미 합니다. 미국 서 부 2에 1TB의 데이터가 있다고 가정 하면는 지정 된 달에 백업 저장소에 대해 1000 * 0.12 ~ $120이 됩니다. 
+
+
 ## <a name="options-to-manage-your-own-backups"></a>사용자 고유의 백업을 관리하기 위한 옵션
 
 Azure Cosmos DB SQL API 계정을 통해 다음 방법 중 하나를 사용하면 백업을 직접 유지할 수도 있습니다.
@@ -147,4 +154,3 @@ Azure Cosmos DB SQL API 계정을 통해 다음 방법 중 하나를 사용하�
 * 복원 요청을 수행하려면 Azure 지원에 문의하여 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 * [Cosmos DB 변경 피드를 사용](change-feed.md)하여 Azure Cosmos DB로 데이터를 이동합니다.
 * [Azure Data Factory를 사용](../data-factory/connector-azure-cosmos-db.md)하여 데이터를 Azure Cosmos DB로 이동합니다.
-

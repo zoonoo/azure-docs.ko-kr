@@ -11,12 +11,12 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e8826dff6d347f78625272a5620a1f168b8804db
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: bc101e6bb743b9290593937a4d1bac656430b438
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120039"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685313"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Synapse SQL 풀 개발 모범 사례
 
@@ -80,7 +80,7 @@ INSERT, UPDATE, DELETE 문은 트랜잭션에서 실행되며 실패할 경우 �
 
 분할되지 않은 테이블의 경우 DELETE를 사용하는 대신, 테이블에 유지할 데이터를 기록하도록 CTAS를 사용하는 것이 좋습니다.  CTAS에 동일한 시간이 소요되는 경우 최소한의 트랜잭션 로깅을 포함하므로 실행하기에 훨씬 더 안전한 작업이며 필요할 경우 신속하게 취소할 수 있습니다.
 
-또한 [트랜잭션 이해](sql-data-warehouse-develop-transactions.md), [트랜잭션 최적](sql-data-warehouse-develop-best-practices-transactions.md), [테이블 분할](sql-data-warehouse-tables-partition.md), [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [CTAS(Create Table As Select)](sql-data-warehouse-develop-ctas.md)도 참조하세요.
+또한 [트랜잭션 이해](sql-data-warehouse-develop-transactions.md), [트랜잭션 최적](sql-data-warehouse-develop-best-practices-transactions.md), [테이블 분할](sql-data-warehouse-tables-partition.md), [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [CTAS(Create Table As Select)](sql-data-warehouse-develop-ctas.md)도 참조하세요.
 
 ## <a name="use-the-smallest-possible-column-size"></a>가능한 가장 작은 열 크기 사용
 
@@ -114,7 +114,7 @@ columnstore 테이블은 일반적으로 테이블당 100만 개가 넘는 행�
 > [!TIP]
 > columnstore 테이블을 쿼리할 때 필요한 열만 선택하면 쿼리가 더 빨리 실행됩니다.  
 
-[테이블 인덱스](sql-data-warehouse-tables-index.md), [Columnstore 인덱스 가이드](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [Columnstore 인덱스 다시 빌드](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)도 참조하세요.
+[테이블 인덱스](sql-data-warehouse-tables-index.md), [Columnstore 인덱스 가이드](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [Columnstore 인덱스 다시 빌드](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)도 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

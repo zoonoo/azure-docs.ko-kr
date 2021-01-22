@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 80369883b84ca30cae475235d41addcfba7e52e1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 92e93c3746308d2d6c1a489efc6b5c866b0ad2d9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152337"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682633"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 개인 끝점 사용
 
@@ -31,7 +31,7 @@ Azure SignalR 서비스에 대 한 개인 끝점을 사용 하면 다음을 수�
 
 개인 끝점은 VNet ( [Virtual Network](../virtual-network/virtual-networks-overview.md) )의 Azure 서비스에 대 한 특별 한 네트워크 인터페이스입니다. Azure SignalR 서비스에 대 한 개인 끝점을 만들면 VNet과 서비스의 클라이언트 간에 보안 연결을 제공 합니다. 개인 끝점에는 VNet의 IP 주소 범위에서 IP 주소가 할당 됩니다. 개인 끝점과 Azure SignalR Service 간의 연결은 보안 개인 링크를 사용 합니다.
 
-VNet의 응용 프로그램은 **다른 방법으로 사용 하는 것과 동일한 연결 문자열 및 권한 부여 메커니즘을 사용 하 여**개인 끝점을 통해 Azure SignalR Service에 원활 하 게 연결할 수 있습니다. 개인 끝점은 REST API를 포함 하 여 Azure SignalR Service에서 지 원하는 모든 프로토콜과 함께 사용할 수 있습니다.
+VNet의 응용 프로그램은 **다른 방법으로 사용 하는 것과 동일한 연결 문자열 및 권한 부여 메커니즘을 사용 하 여** 개인 끝점을 통해 Azure SignalR Service에 원활 하 게 연결할 수 있습니다. 개인 끝점은 REST API를 포함 하 여 Azure SignalR Service에서 지 원하는 모든 프로토콜과 함께 사용할 수 있습니다.
 
 VNet에서 Azure SignalR 서비스에 대 한 개인 끝점을 만드는 경우 승인 요청이 Azure SignalR 서비스 소유자에 게 전송 됩니다. 개인 끝점의 생성을 요청 하는 사용자가 Azure SignalR 서비스의 소유자 이기도 한 경우이 동의 요청은 자동으로 승인 됩니다.
 
@@ -57,7 +57,7 @@ Azure SignalR 서비스 소유자는 [Azure Portal](https://portal.azure.com)에
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 Azure SignalR 서비스 ' foobar '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name                                                  | Type  | 값                                                 |
+| 속성                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | \<Azure SignalR Service public IP address\>           |
@@ -66,7 +66,7 @@ Azure SignalR 서비스 소유자는 [Azure Portal](https://portal.azure.com)에
 
 ' Foobar '에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
 
-| Name                                                  | Type  | 값                                                 |
+| 속성                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | 10.1.1.5                                              |
@@ -93,17 +93,17 @@ Azure SignalR Service에 대 한 개인 끝점의 권장 DNS 영역 이름은 `p
 
     ![Azure SignalR 서비스 만들기-네트워킹 탭](media/howto-private-endpoints/portal-create-blade-networking-tab.png)
 
-1. **추가**를 클릭합니다. 새 개인 끝점에 대 한 구독, 리소스 그룹, 위치, 이름을 입력 합니다. 가상 네트워크 및 서브넷을 선택 합니다.
+1. **추가** 를 클릭합니다. 새 개인 끝점에 대 한 구독, 리소스 그룹, 위치, 이름을 입력 합니다. 가상 네트워크 및 서브넷을 선택 합니다.
 
     ![Azure SignalR Service 만들기-개인 끝점 추가](media/howto-private-endpoints/portal-create-blade-add-private-endpoint.png)
 
-1. **검토 + 만들기**를 클릭합니다.
+1. **검토 + 만들기** 를 클릭합니다.
 
 ### <a name="create-a-private-endpoint-for-an-existing-azure-signalr-service-in-the-azure-portal"></a>Azure Portal에서 기존 Azure SignalR 서비스에 대 한 개인 끝점을 만듭니다.
 
 1. Azure SignalR 서비스로 이동 합니다.
 
-1. **개인 끝점 연결**이라고 하는 설정 메뉴를 클릭 합니다.
+1. **개인 끝점 연결** 이라고 하는 설정 메뉴를 클릭 합니다.
 
 1. 위쪽의 단추 **+ 개인 끝점** 을 클릭 합니다.
 
@@ -121,60 +121,60 @@ Azure SignalR Service에 대 한 개인 끝점의 권장 DNS 영역 이름은 `p
 
     ![개인 끝점 만들기-구성](media/howto-private-endpoints/portal-create-private-endpoint-configuration.png)
 
-1. **검토 + 만들기**를 클릭합니다.
+1. **검토 + 만들기** 를 클릭합니다.
 
 ### <a name="create-a-private-endpoint-using-azure-cli"></a>Azure CLI를 사용하여 Azure 프라이빗 엔드포인트 만들기
 
 1. Azure CLI에 로그인
-    ```console
+    ```azurecli
     az login
     ```
 1. Azure 구독 선택
-    ```console
+    ```azurecli
     az account set --subscription {AZURE SUBSCRIPTION ID}
     ```
 1. 새 리소스 그룹 만들기
-    ```console
+    ```azurecli
     az group create -n {RG} -l {AZURE REGION}
     ```
 1. SignalRService를 공급자로 등록
-    ```console
+    ```azurecli
     az provider register -n Microsoft.SignalRService
     ```
 1. 새 Azure SignalR Service 만들기
-    ```console
+    ```azurecli
     az signalr create --name {NAME} --resource-group {RG} --location {AZURE REGION} --sku Standard_S1
     ```
 1. Virtual Network 만들기
-    ```console
+    ```azurecli
     az network vnet create --resource-group {RG} --name {vNet NAME} --location {AZURE REGION}
     ```
 1. 서브넷 추가
-    ```console
+    ```azurecli
     az network vnet subnet create --resource-group {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
     ```
 1. Virtual Network 정책 사용 안 함
-    ```console
+    ```azurecli
     az network vnet subnet update --name {subnet NAME} --resource-group {RG} --vnet-name {vNet NAME} --disable-private-endpoint-network-policies true
     ```
 1. 프라이빗 DNS 영역 추가
-    ```console
+    ```azurecli
     az network private-dns zone create --resource-group {RG} --name privatelink.service.signalr.net
     ```
 1. Virtual Network에 프라이빗 DNS 영역 연결
-    ```console
+    ```azurecli
     az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.service.signalr.net --name {dnsZoneLinkName} --registration-enabled true
     ```
 1. 프라이빗 엔드포인트 만들기(자동으로 승인)
-    ```console
+    ```azurecli
     az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.SignalRService/SignalR/{NAME}" --group-ids signalr --connection-name {Private Link Connection Name} --location {AZURE REGION}
     ```
 1. 프라이빗 엔드포인트 만들기(수동으로 승인 요청)
-    ```console
+    ```azurecli
     az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.SignalRService/SignalR/{NAME}" --group-ids signalr --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
     ```
 1. 연결 상태 표시
-    ```console
+    ```azurecli
     az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
     ```
 

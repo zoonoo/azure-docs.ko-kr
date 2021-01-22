@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a303f5e6177d0dc4205eaec8c3b1911e8e004fe3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d14eda84144105bf2e04f1238284bc58a91c4c03
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602427"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684058"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Azure Maps 권한 상승 서비스를 사용 하 여 데이터 권한 상승 요청 (미리 보기)
 
@@ -22,9 +22,9 @@ ms.locfileid: "98602427"
 > Azure Maps 권한 상승 서비스는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure Maps [권한 상승 서비스](https://docs.microsoft.com/rest/api/maps/elevation) 는 지구 표면의 모든 위치에서 권한 상승 데이터를 쿼리 하는 api를 제공 합니다. 정의 된 경계 상자 내에서 또는 특정 좌표에서 경로를 따라 샘플링 된 권한 상승 데이터를 요청할 수 있습니다. 또한 [Render V2-맵 가져오기 타일 API](https://docs.microsoft.com/rest/api/maps/renderv2) 를 사용 하 여 타일 형식의 권한 상승을 검색할 수 있습니다. 타일은 GeoTIFF 래스터 형식으로 전달 됩니다. 이 문서에서는 Azure Maps 권한 상승 서비스 및 맵 가져오기 타일 API를 사용 하 여 권한 상승 데이터를 요청 하는 방법을 보여 줍니다. GeoJSON 및 GeoTiff 형식 모두에서 권한 상승 데이터를 요청할 수 있습니다.
+Azure Maps [권한 상승 서비스](/rest/api/maps/elevation) 는 지구 표면의 모든 위치에서 권한 상승 데이터를 쿼리 하는 api를 제공 합니다. 정의 된 경계 상자 내에서 또는 특정 좌표에서 경로를 따라 샘플링 된 권한 상승 데이터를 요청할 수 있습니다. 또한 [Render V2-맵 가져오기 타일 API](/rest/api/maps/renderv2) 를 사용 하 여 타일 형식의 권한 상승을 검색할 수 있습니다. 타일은 GeoTIFF 래스터 형식으로 전달 됩니다. 이 문서에서는 Azure Maps 권한 상승 서비스 및 맵 가져오기 타일 API를 사용 하 여 권한 상승 데이터를 요청 하는 방법을 보여 줍니다. GeoJSON 및 GeoTiff 형식 모두에서 권한 상승 데이터를 요청할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. [S1 가격 책정 계층에서 Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
@@ -35,7 +35,7 @@ Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증을 관리
 
 ## <a name="request-elevation-data-in-raster-tiled-format"></a>래스터 타일 형식의 권한 상승 데이터 요청
 
-래스터 타일 형식의 권한 상승 데이터를 요청 하려면 [Render V2-맵 가져오기 타일 API](https://docs.microsoft.com/rest/api/maps/renderv2)를 사용 합니다. 타일을 찾을 수 있는 경우 API는 타일을 GeoTIFF로 반환 합니다. 그렇지 않으면 API는 0을 반환 합니다. 모든 래스터 DEM 타일은 geoid (바다 수준) 지구 모드를 사용 합니다. 이 예제에서는 Mt의 상승 데이터를 요청 합니다. Everest.
+래스터 타일 형식의 권한 상승 데이터를 요청 하려면 [Render V2-맵 가져오기 타일 API](/rest/api/maps/renderv2)를 사용 합니다. 타일을 찾을 수 있는 경우 API는 타일을 GeoTIFF로 반환 합니다. 그렇지 않으면 API는 0을 반환 합니다. 모든 래스터 DEM 타일은 geoid (바다 수준) 지구 모드를 사용 합니다. 이 예제에서는 Mt의 상승 데이터를 요청 합니다. Everest.
 
 >[!TIP]
 >세계 지도의 특정 영역에서 타일을 검색 하려면 적절 한 확대/축소 수준에서 올바른 타일을 찾아야 합니다. 또한 WorldDEM는 전체 전역 landmass를 다루지만 대양를 다루지 않습니다.  자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조하세요.
@@ -58,9 +58,9 @@ Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증을 관리
 
 * [요소에 대 한 데이터 가져오기](/rest/api/maps/elevation/getdataforpoints)
 * [점에 대 한 게시 데이터](/rest/api/maps/elevation/postdataforpoints)
-* [다중선 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
-* [다중선의 게시 데이터](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
-* [경계 상자에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+* [다중선 데이터 가져오기](/rest/api/maps/elevation/getdataforpolyline)
+* [다중선의 게시 데이터](/rest/api/maps/elevation/postdataforpolyline)
+* [경계 상자에 대 한 데이터 가져오기](/rest/api/maps/elevation/getdataforboundingbox)
 
 >[!IMPORTANT]
 > 데이터를 반환할 수 없는 경우 모든 Api는를 반환 `0` 합니다.
@@ -126,11 +126,11 @@ Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증을 관리
 
 ### <a name="request-elevation-data-samples-along-a-polyline"></a>다중선을 따라 권한 상승 데이터 샘플 요청
 
-이 예제에서는 [다중선의 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline) 를 사용 하 여 Mt의 좌표 사이에 직선을 따라 데이터 상승에 대 한 5 개의 동일한 간격의 샘플을 요청 합니다. Everest 및 Chamlang 산. 두 좌표는 모두 Long/Lat 형식으로 정의 되어야 합니다. 매개 변수의 값을 지정 하지 않으면 `samples` 샘플 수는 기본적으로 10이 됩니다. 최대 샘플 수는 2000입니다.
+이 예제에서는 [다중선의 데이터 가져오기](/rest/api/maps/elevation/getdataforpolyline) 를 사용 하 여 Mt의 좌표 사이에 직선을 따라 데이터 상승에 대 한 5 개의 동일한 간격의 샘플을 요청 합니다. Everest 및 Chamlang 산. 두 좌표는 모두 Long/Lat 형식으로 정의 되어야 합니다. 매개 변수의 값을 지정 하지 않으면 `samples` 샘플 수는 기본적으로 10이 됩니다. 최대 샘플 수는 2000입니다.
 
 그런 다음, 폴리라인 데이터 가져오기를 사용 하 여 경로를 따라 데이터 상승에 대 한 세 개의 동일한 간격으로 샘플을 요청 합니다. 3 개의 긴/Lat 좌표 쌍을 전달 하 여 샘플에 대 한 정확한 위치를 정의 합니다.
 
-마지막으로, [폴리라인 API에 대 한 Post 데이터](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) 를 사용 하 여 동일한 간격으로 동일한 3 개의 샘플에서 권한 상승 데이터를 요청 합니다.
+마지막으로, [폴리라인 API에 대 한 Post 데이터](/rest/api/maps/elevation/postdataforpolyline) 를 사용 하 여 동일한 간격으로 동일한 3 개의 샘플에서 권한 상승 데이터를 요청 합니다.
 
 URL의 위도 및 경도는 WGS84 (세계 측 지 System)의 10 진수 수준에 있어야 합니다.
 
@@ -229,7 +229,7 @@ URL의 위도 및 경도는 WGS84 (세계 측 지 System)의 10 진수 수준에
     }
     ```
 
-7. 이제 [폴리라인 API에 대 한 Post 데이터](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) 를 호출 하 여 동일한 3 개 점에 대 한 권한 상승 데이터를 가져옵니다. 작성기 탭에서 **POST** HTTP 메서드를 선택 하 고 다음 URL을 입력 합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+7. 이제 [폴리라인 API에 대 한 Post 데이터](/rest/api/maps/elevation/postdataforpolyline) 를 호출 하 여 동일한 3 개 점에 대 한 권한 상승 데이터를 가져옵니다. 작성기 탭에서 **POST** HTTP 메서드를 선택 하 고 다음 URL을 입력 합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
@@ -256,7 +256,7 @@ URL의 위도 및 경도는 WGS84 (세계 측 지 System)의 10 진수 수준에
 
 ### <a name="request-elevation-data-by-bounding-box"></a>경계 상자를 기준으로 데이터 권한 상승 요청
 
-이제 [경계에 대 한 데이터 가져오기 상자](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) 를 사용 하 여 Mt 근처의 상승 데이터를 요청 합니다. Rainier, WA. 권한 상승 데이터는 경계 상자 내에서 간격이 동일한 위치에 반환 됩니다. (2) lat/긴 좌표 집합으로 정의 된 경계 영역 (남부 위도, 서 부 경도 | 북부 위도, 동쪽 경도)은 행과 열로 구분 됩니다. 두 개의 행과 두 개의 열 (2)에 대 한 경계 상자 계정의 가장자리입니다. 행 및 열 교차로 만든 그리드 꼭 짓 점에 대 한 상승이 반환 됩니다. 최대 2000 상승은 단일 요청으로 반환 될 수 있습니다.
+이제 [경계에 대 한 데이터 가져오기 상자](/rest/api/maps/elevation/getdataforboundingbox) 를 사용 하 여 Mt 근처의 상승 데이터를 요청 합니다. Rainier, WA. 권한 상승 데이터는 경계 상자 내에서 간격이 동일한 위치에 반환 됩니다. (2) lat/긴 좌표 집합으로 정의 된 경계 영역 (남부 위도, 서 부 경도 | 북부 위도, 동쪽 경도)은 행과 열로 구분 됩니다. 두 개의 행과 두 개의 열 (2)에 대 한 경계 상자 계정의 가장자리입니다. 행 및 열 교차로 만든 그리드 꼭 짓 점에 대 한 상승이 반환 됩니다. 최대 2000 상승은 단일 요청으로 반환 될 수 있습니다.
 
 이 예에서는 rows = 3 및 columns = 6을 지정 합니다. 18 개의 승격 값이 응답에 반환 됩니다. 다음 다이어그램에서 상승 값은 남서쪽 모퉁이부터 순서 대로 정렬 된 다음 서쪽에서 북부 및 남부에서 북쪽으로 진행 됩니다.  상승 지점은 반환 된 순서 대로 번호가 매겨집니다.
 
@@ -488,15 +488,15 @@ Azure Maps 권한 상승 (미리 보기) Api를 추가로 탐색 하려면 다�
 > [권한 상승 (미리 보기)-Lat 긴 좌표에 대 한 데이터 가져오기](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
-> [권한 상승 (미리 보기)-경계 상자에 대 한 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+> [권한 상승 (미리 보기)-경계 상자에 대 한 데이터 가져오기](/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [권한 상승 (미리 보기)-폴리라인 데이터 가져오기](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+> [권한 상승 (미리 보기)-폴리라인 데이터 가져오기](/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
-> [렌더링 V2 – 맵 타일 가져오기](https://docs.microsoft.com/rest/api/maps/renderv2)
+> [렌더링 V2 – 맵 타일 가져오기](/rest/api/maps/renderv2)
 
 Azure Maps REST API의 전체 목록은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Maps REST API](https://docs.microsoft.com/rest/api/maps/)
+> [Azure Maps REST API](/rest/api/maps/)

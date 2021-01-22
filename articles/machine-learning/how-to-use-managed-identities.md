@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b0b0c43039648737b229edc79dd4e0a3dc45f38e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311033"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683343"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Azure Machine Learning에서 관리 되는 id 사용 (미리 보기)
 
@@ -38,7 +38,7 @@ Azure Machine Learning 작업 영역을 신뢰할 수 있는 방식으로 구성
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 - [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)
 - [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?view=azure-ml-py)입니다.
-- 역할을 할당 하려면 Azure 구독에 대 한 로그인에 [관리 Id 운영자](../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할 또는 필요한 작업 (예: __소유자__ )을 부여 하는 다른 역할이 있어야 합니다.
+- 역할을 할당 하려면 Azure 구독에 대 한 로그인에 [관리 Id 운영자](../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할 또는 필요한 작업 (예: __소유자__)을 부여 하는 다른 역할이 있어야 합니다.
 - [관리 id](../active-directory/managed-identities-azure-resources/overview.md)를 만들고 사용 하는 방법에 대해 잘 알고 있어야 합니다.
 
 ## <a name="configure-managed-identities"></a>관리되는 ID 구성
@@ -59,7 +59,7 @@ ACR admin 사용자가 구독 정책에 의해 허용 되지 않는 경우 먼�
 인수를 설정 하지 않고 [Azure CLI에서](../container-registry/container-registry-get-started-azure-cli.md) ```--admin-enabled``` 또는 관리 사용자를 사용 하도록 설정 하지 않고 Azure Portal에서 ACR을 만듭니다. 그런 다음 Azure Machine Learning 작업 영역을 만들 때 ACR의 Azure 리소스 ID를 지정 합니다. 다음 예제에서는 기존 ACR을 사용 하는 새 Azure ML 작업 영역을 만드는 방법을 보여 줍니다.
 
 > [!TIP]
-> 매개 변수에 대 한 값을 가져오려면 `--container-registry` [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) 명령을 사용 하 여 acr에 대 한 정보를 표시 합니다. 이 `id` 필드에는 ACR의 리소스 ID가 포함 되어 있습니다.
+> 매개 변수에 대 한 값을 가져오려면 `--container-registry` [az acr show](/cli/azure/acr#az_acr_show) 명령을 사용 하 여 acr에 대 한 정보를 표시 합니다. 이 `id` 필드에는 ACR의 리소스 ID가 포함 되어 있습니다.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -90,7 +90,7 @@ az ml workspace create -w <workspace name> \
 
     이 명령은 다음 텍스트와 비슷한 값을 반환 합니다. ACR 인스턴스 이름인 텍스트의 마지막 부분만 필요 합니다.
 
-    ```text
+    ```output
     /subscriptions/<subscription id>/resourceGroups/<my resource group>/providers/MicrosoftContainerReggistry/registries/<ACR instance name>
     ```
 

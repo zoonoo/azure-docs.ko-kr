@@ -7,12 +7,12 @@ ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: b3babfe93012fae15e79362ba34f3f48856bc833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8314447e7d5d282eb428ec9316c4eef6844a7423
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171740"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682382"
 ---
 # <a name="event-grid-concepts"></a>Event Grid 개념
 
@@ -48,7 +48,7 @@ Event Grid에서 구독을 관리 하는 방법에 대 한 [REST API 설명서](
 
 ## <a name="event-handlers"></a>이벤트 처리기
 
-Event Grid 측면에서 볼 때 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리 하기 위해 추가 작업을 수행 합니다. Event Grid는 여러 가지 처리기 유형을 지원합니다. 지원 되는 Azure 서비스 또는 고유한 웹 후크를 처리기로 사용할 수 있습니다. 처리기의 형식에 따라 Event Grid는 이벤트의 배달을 보장하는 다양한 메커니즘을 따릅니다. 대상 이벤트 처리기가 HTTP 웹 후크가 면 처리기가 상태 코드를 반환할 때 이벤트를 다시 시도 합니다 `200 – OK` . Edge 허브의 경우 예외가 발생 하지 않고 이벤트가 전달 되 면 성공으로 간주 됩니다.
+Event Grid 측면에서 볼 때 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리 하기 위해 추가 작업을 수행 합니다. Event Grid는 여러 가지 처리기 유형을 지원합니다. 지원 되는 Azure 서비스 또는 고유한 웹 후크를 처리기로 사용할 수 있습니다. 처리기의 형식에 따라 Event Grid는 이벤트의 배달을 보장하는 다양한 메커니즘을 따릅니다. 대상 이벤트 처리기가 HTTP 웹 후크가 면 처리기가 상태 코드를 반환할 때까지 이벤트를 다시 시도 합니다 `200 – OK` . Edge 허브의 경우 예외가 발생 하지 않고 이벤트가 전달 되 면 성공으로 간주 됩니다.
 
 ## <a name="security"></a>보안
 

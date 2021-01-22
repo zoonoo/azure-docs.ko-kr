@@ -4,12 +4,12 @@ description: 모니터링을 위해 함수 앱을 Application Insights에 연결
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 24350eb07481db66907d199cd96f84a02cc98c9e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 73ed679288d9d03b81a0b01670aa0f574a14839f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937283"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684711"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Azure Functions에 대 한 모니터링을 구성 하는 방법
 
@@ -28,7 +28,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주* 가 포함되어 �
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
-| 범주 | 테이블 | 설명 |
+| Category | 테이블 | Description |
 | ----- | ----- | ----- |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **관계도**| 일부 서비스의 경우 종속성 데이터가 자동으로 수집 됩니다. 성공적인 실행의 경우 이러한 로그는 수준에 있습니다 `Information` . 자세히 알아보려면 [종속성](functions-monitoring.md#dependencies)을 참조 하세요. 예외는 수준에서 기록 됩니다 `Error` . 또한 런타임은 `Warning` 큐 메시지가 [포이즌 큐](functions-bindings-storage-queue-trigger.md#poison-messages)로 전송 되는 경우와 같은 수준 로그를 만듭니다. | 
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | C # 및 JavaScript Sdk를 사용 하면 사용자 지정 메트릭을 수집 하 고 사용자 지정 이벤트를 로그할 수 있습니다. 자세히 알아보려면 [사용자 지정 원격 분석 데이터](functions-monitoring.md#custom-telemetry-data)를 참조 하세요.|
@@ -44,7 +44,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주* 가 포함되어 �
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
-| 범주 | 테이블 | Description |
+| Category | 테이블 | Description |
 | ----- | ----- | ----- |
 | **`Function`** | **traces**| 로그 수준이 될 수 있는 사용자 생성 로그입니다. 함수에서 로그에 쓰는 방법에 대 한 자세한 내용은 [로그에 쓰기](functions-monitoring.md#writing-to-logs)를 참조 하세요. | 
 | **`Host.Aggregator`** | **customMetrics** | 이러한 런타임 생성 로그는 [구성 가능한](#configure-the-aggregator) 기간 동안 함수 호출의 개수 및 평균을 제공 합니다. 기본 기간은 30초 또는 결과 1,000개 중 먼저 도착하는 것입니다. 실행 수, 성공률 및 기간을 예로 들 수 있습니다. 이러한 로그는 모두 `Information` 수준에서 작성됩니다. `Warning` 이상에서 필터링하면 이 데이터가 표시되지 않습니다. |
@@ -233,7 +233,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 함수 앱이 Application Insights로 데이터를 보내려면 Application Insights 리소스의 계측 키를 알고 있어야 합니다. 이 키는 **APPINSIGHTS_INSTRUMENTATIONKEY** 라는 앱 설정에 있어야 합니다.
 
-[Azure Portal](functions-create-first-azure-function.md)의 명령줄에서 [Azure Functions Core Tools](./create-first-function-cli-csharp.md)를 사용하여 또는 [Visual Studio Code](./create-first-function-vs-code-csharp.md)를 사용하여 함수 앱을 만들 때 Application Insights 통합이 기본적으로 사용하도록 설정됩니다. Application Insights 리소스는 함수 앱과 동일한 이름을 가지며, 동일한 지역 또는 가장 가까운 지역에 생성됩니다.
+[Azure Portal](./functions-get-started.md)의 명령줄에서 [Azure Functions Core Tools](./create-first-function-cli-csharp.md)를 사용하여 또는 [Visual Studio Code](./create-first-function-vs-code-csharp.md)를 사용하여 함수 앱을 만들 때 Application Insights 통합이 기본적으로 사용하도록 설정됩니다. Application Insights 리소스는 함수 앱과 동일한 이름을 가지며, 동일한 지역 또는 가장 가까운 지역에 생성됩니다.
 
 ### <a name="new-function-app-in-the-portal"></a>포털의 새 함수 앱
 

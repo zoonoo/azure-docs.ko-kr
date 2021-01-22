@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1f1100c27bb3c02e3d1a5040942509c24bab0e65
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399369"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683991"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
 
@@ -175,7 +175,7 @@ HTML 로그인 페이지가 있는 웹 응용 프로그램을 만듭니다. 응�
 고객에 대 한 SCIM 표준 및 혜택에 대해 자세히 알아보려면 [scim으로 프로 비전-시작](https://aka.ms/scimoverview)을 참조 하세요.
 
 ### <a name="understand-the-azure-ad-scim-implementation"></a>Azure AD SCIM 구현 이해
-Azure AD SCIM 구현에 대해 자세히 알아보려면 [scim 끝점 빌드 및 AZURE ad를 사용 하 여 사용자 프로 비전 구성](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)을 참조 하세요.
+Azure AD SCIM 구현에 대해 자세히 알아보려면 [scim 끝점 빌드 및 AZURE ad를 사용 하 여 사용자 프로 비전 구성](../app-provisioning/use-scim-to-provision-users-and-groups.md)을 참조 하세요.
 
 ### <a name="implement-scim"></a>SCIM 구현
 Azure AD는 SCIM 끝점을 빌드하는 데 도움이 되는 [참조 코드](https://aka.ms/scimoverview) 를 제공 합니다. GitHub에서 찾을 수 있는 많은 타사 라이브러리/참조도 있습니다.  
@@ -186,7 +186,7 @@ Azure AD는 SCIM 끝점을 빌드하는 데 도움이 되는 [참조 코드](htt
 
 또는 Azure AD 테 넌 트는 모든 Microsoft 365 구독과 함께 제공 됩니다. 무료 Microsoft 365 개발 환경을 설정 하려면 [Microsoft 365 개발자 프로그램 참여](/office/developer-program/microsoft-365-developer-program)를 참조 하세요.
 
-테 넌 트가 있으면 single sign-on 및 [프로 비전](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client)을 테스트 해야 합니다. 
+테 넌 트가 있으면 single sign-on 및 [프로 비전](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client)을 테스트 해야 합니다. 
 
 **OIDC 또는 Oath 응용 프로그램의** 경우 [응용 프로그램](quickstart-register-app.md) 을 다중 테 넌 트 응용 프로그램으로 등록 합니다. 지원 되는 계정 유형에서 조직 디렉터리 및 개인 Microsoft 계정 옵션의 계정을 선택 합니다.
 
@@ -274,7 +274,7 @@ Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그
 
 ![갤러리에 암호 SSO 응용 프로그램 나열](./media/howto-app-gallery-listing/passwordsso.png)
 
-사용자 프로 비전을 위해 [Scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 끝점을 구현 하는 경우 표시 된 대로 옵션을 선택 합니다. 온 보 딩 요청에서 스키마를 제공 하는 경우 [여기](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) 에 있는 지침에 따라 스키마를 다운로드 하세요. 갤러리 응용 프로그램을 빌드하는 비 갤러리 응용 프로그램을 테스트할 때 구성한 스키마를 사용 합니다. 
+사용자 프로 비전을 위해 [Scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 끝점을 구현 하는 경우 표시 된 대로 옵션을 선택 합니다. 온 보 딩 요청에서 스키마를 제공 하는 경우 [여기](../app-provisioning/export-import-provisioning-configuration.md) 에 있는 지침에 따라 스키마를 다운로드 하세요. 갤러리 응용 프로그램을 빌드하는 비 갤러리 응용 프로그램을 테스트할 때 구성한 스키마를 사용 합니다. 
 
    ![사용자 프로 비전 요청](./media/howto-app-gallery-listing/user-provisioning.png)
 

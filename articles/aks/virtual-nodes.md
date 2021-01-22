@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2dd91e5c506f229d653fdf98bc0549c173cec793
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e5a53c80aed90e44ba594dcff3c8ca23afc2c4f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351889"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684777"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>가상 노드를 사용 하 여 AKS (Azure Kubernetes Services) 클러스터 만들기 및 구성
 
@@ -48,6 +48,7 @@ ACI (Azure Container Instances)에서 실행 되는 pod는 네트워킹을 구�
 * 개인 클러스터가 있는 가상 노드.
 * AKS에 대 한 api 서버 권한이 부여 된 ip 범위를 사용 합니다.
 * 볼륨 탑재 Azure Files 공유는 [범용 V1](../storage/common/storage-account-overview.md#types-of-storage-accounts)을 지원 합니다. [Azure Files 공유를 사용 하 여 볼륨을 탑재 하](azure-files-volume.md) 는 방법에 대 한 지침을 따르세요.
+* I p v 6을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e694630d8bcd7879d9405152c4141fb6e5bad4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cfb1fe6d2050a63070e9c21e4b8c3ef59efcb15
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297096"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682684"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Azure CLI를 사용 하 여 공유 이미지 갤러리에서 관리 디스크 또는 스냅숏에서 이미지 만들기
 
@@ -69,13 +69,13 @@ az sig list -o table
 
 이미지 정의를 만들 때에 올바른 정보가 모두 있는지 확인 합니다. 이 예에서는 스냅숏 또는 관리 디스크를 사용 중인 VM에서 사용 하는 것으로 가정 하 고 일반화 되지 않은 것으로 가정 합니다. Windows 용 Sysprep 또는 [waagent](https://github.com/Azure/WALinuxAgent) 또는 Linux를 실행 한 후에 관리 되는 디스크 또는 스냅숏이 일반화 된 OS를 만든 경우 `-deprovision` `-deprovision+user` `-OsState` 를로 변경 합니다 `generalized` . 
 
-이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./linux/shared-image-galleries.md#image-definitions)를 참조하세요.
+이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./shared-image-galleries.md#image-definitions)를 참조하세요.
 
 [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
 
-다음 예제에서는 이미지 정의의 이름이 *myImageDefinition*이며 [특수](./linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
+다음 예제에서는 이미지 정의의 이름이 *myImageDefinition* 이며 [특수](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
 
-이 예제에서 갤러리 이름은 *Mygallery*이 고, *myGalleryRG* 리소스 그룹에 있으며, 이미지 정의 이름이 *mimagedefinition*이 됩니다.
+이 예제에서 갤러리 이름은 *Mygallery* 이 고, *myGalleryRG* 리소스 그룹에 있으며, 이미지 정의 이름이 *mimagedefinition* 이 됩니다.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -118,7 +118,7 @@ az sig image-version create \
 이미지에 데이터 디스크를 포함 하려는 경우 `--data-snapshot-luns` LUN 번호에 설정 된 매개 변수와 `--data-snapshots` 데이터 디스크 또는 스냅숏의 ID로 설정 된 매개 변수를 모두 포함 해야 합니다.
 
 > [!NOTE]
-> 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
+> 동일한 관리형 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
 > 이미지 버전을 만들 때를 추가 하 여 모든 이미지 버전 복제본을 [영역 중복 저장소](../storage/common/storage-redundancy.md) 에 저장할 수도 있습니다 `--storage-account-type standard_zrs` .
 >

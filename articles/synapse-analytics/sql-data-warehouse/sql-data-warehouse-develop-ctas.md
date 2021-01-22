@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 95158193a978702392106c8aa3347de211fd1a3e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6750f010e3992a2b76cc688449ad44efa7ec76d0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115449"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683276"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
@@ -24,11 +24,11 @@ ms.locfileid: "98115449"
 
 ## <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-Ctas ( [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) ) 문은 사용할 수 있는 가장 중요 한 t-sql 기능 중 하나입니다. CTAS는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 병렬 작업입니다. CTAS는 단일 명령을 사용 하 여 테이블에 데이터를 만들고 삽입 하는 가장 간단 하 고 빠른 방법입니다.
+Ctas ( [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) ) 문은 사용할 수 있는 가장 중요 한 t-sql 기능 중 하나입니다. CTAS는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 병렬 작업입니다. CTAS는 단일 명령을 사용 하 여 테이블에 데이터를 만들고 삽입 하는 가장 간단 하 고 빠른 방법입니다.
 
 ## <a name="selectinto-vs-ctas"></a>...를 선택 합니다. Vs와 CTAS
 
-CTAS는 더 사용자 지정이 가능한 버전의 [SELECT ... INTO](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문.
+CTAS는 더 사용자 지정이 가능한 버전의 [SELECT ... INTO](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문.
 
 다음은 간단한 SELECT ... 범주로
 
@@ -379,7 +379,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 CTAS에서 형식 일관성 및 null 허용 여부 속성을 유지 하는 것이 엔지니어링 모범 사례 임을 확인할 수 있습니다. 계산의 무결성을 유지 하는 데 도움이 되며 파티션 전환이 가능 합니다.
 
-CTAS는 Synapse SQL에서 가장 중요 한 문 중 하나입니다. 완전하게 이해해야 합니다. [Ctas 설명서](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.
+CTAS는 Synapse SQL에서 가장 중요 한 문 중 하나입니다. 완전하게 이해해야 합니다. [Ctas 설명서](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

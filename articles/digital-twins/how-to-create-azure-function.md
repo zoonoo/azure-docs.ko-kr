@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6f74f973abc33d809624bd8abd5a514a52ccfe70
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 04ca8d515dbc5a28a7d3a30369d97877928c9dc1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602701"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683921"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 함수 앱을 연결 하 여 데이터 처리
 
@@ -36,7 +36,7 @@ ms.locfileid: "98602701"
 
 ## <a name="create-a-function-app-in-visual-studio"></a>Visual Studio에서 함수 앱 만들기
 
-Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure Functions_ 템플릿을 검색 한 후 _다음_ 을 선택 합니다.
+Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure Functions_ 템플릿을 검색 합니다. _다음_ 을 선택합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
@@ -44,11 +44,11 @@ Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure
 
 :::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: 새 프로젝트 구성":::
 
-*트리거 Event Grid* 함수 앱의 유형을 선택 하 고 _만들기_ 를 선택 합니다.
+*Event Grid 트리거의* 함수 앱 유형을 선택 하 고 _만들기_ 를 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: Azure Functions 프로젝트 트리거 대화 상자":::
+:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Visual Studio: Azure Functions 프로젝트 트리거 대화 상자":::
 
-함수 앱이 만들어지면 visual studio는 프로젝트 폴더의 **function.cs** 파일에 자동으로 채워진 코드 샘플을 갖게 됩니다. 이 short 함수는 이벤트를 기록 하는 데 사용 됩니다.
+함수 앱이 만들어지면 Visual Studio는 프로젝트 폴더의 **Function1.cs** 파일에 코드 샘플을 생성 합니다. 이 short 함수는 이벤트를 기록 하는 데 사용 됩니다.
 
 :::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: 프로젝트 창 및 샘플 코드":::
 
@@ -56,11 +56,11 @@ Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure
 
 함수 앱에 SDK를 추가 하 여 함수를 작성할 수 있습니다. 함수 앱은 [Azure Digital TWINS SDK for .net (c #)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)을 사용 하 여 azure 디지털 쌍과 상호 작용 합니다. 
 
-SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니다. Visual studio NuGet 패키지 관리자를 사용 하 여 패키지를 설치 하거나 명령줄 도구를 사용 하 여 패키지를 추가할 수 있습니다 `dotnet` . 다음 방법 중 하나를 선택 합니다. 
+SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니다. Visual Studio의 NuGet 패키지 관리자를 사용 하 여 패키지를 설치 하거나, 명령줄 도구에서를 사용 하 여 패키지를 추가할 수 있습니다 `dotnet` . 선호 하는 방법에 대 한 다음 단계를 수행 합니다.
 
 **옵션 1. Visual Studio 패키지 관리자를 사용 하 여 패키지 추가:**
     
-프로젝트를 마우스 오른쪽 단추로 선택 하 고 목록에서 _NuGet 패키지 관리_ 를 선택 하 여이 작업을 수행할 수 있습니다. 그런 다음 열리는 창에서 _찾아보기_ 탭을 선택 하 고 다음 패키지를 검색 합니다. _설치_ 를 선택 하 고 사용권 계약에 _동의_ 하 여 패키지를 설치 합니다.
+프로젝트를 마우스 오른쪽 단추로 선택 하 고 목록에서 _NuGet 패키지 관리_ 를 선택 합니다. 그런 다음 열리는 창에서 _찾아보기_ 탭을 선택 하 고 다음 패키지를 검색 합니다. _설치_ 를 선택 하 고 사용권 계약에 _동의_ 하 여 패키지를 설치 합니다.
 
 * `Azure.DigitalTwins.Core`
 * `Azure.Identity`
@@ -78,15 +78,15 @@ dotnet add package System.Net.Http
 dotnet add package Azure.Core
 ```
 
-그런 다음 Visual Studio 솔루션 탐색기에서 샘플 코드가 있는 _function.cs_ 파일을 열고 함수에 다음 _using_ 문을 추가 합니다. 
+그런 다음 Visual Studio 솔루션 탐색기에서 샘플 코드가 있는 _Function1.cs_ 파일을 열고 `using` 함수에 다음 문을 추가 합니다. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
 ## <a name="add-authentication-code-to-the-function"></a>함수에 인증 코드 추가
 
-이제 클래스 수준 변수를 선언 하 고 함수가 Azure Digital Twins에 액세스할 수 있게 하는 인증 코드를 추가 합니다. {Your function name} .cs 파일의 함수에 다음을 추가 합니다.
+이제 클래스 수준 변수를 선언 하 고 함수가 Azure Digital Twins에 액세스할 수 있게 하는 인증 코드를 추가 합니다. _Function1.cs_ 파일의 함수에 다음을 추가 합니다.
 
-* 환경 변수로 ADT 서비스 URL을 읽습니다. 함수에 하드 코딩 하는 대신 환경 변수에서 서비스 URL을 읽는 것이 좋습니다.
+* Azure Digital Twins 서비스 URL을 환경 변수로 읽는 코드입니다. 함수에 하드 코딩 하는 대신 환경 변수에서 서비스 URL을 읽는 것이 좋습니다.
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
@@ -97,43 +97,24 @@ dotnet add package Azure.Core
 * Azure Functions에서 관리 되는 id 자격 증명을 사용할 수 있습니다.
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
 
-* 함수 내부에 _DigitalTwinsClient_ 지역 변수를 추가 하 여 함수 프로젝트에 Azure Digital twins 클라이언트 인스턴스를 포함 합니다. 클래스 내부에서이 변수를 정적으로 설정 *하지* 마십시오.
+* 함수 내부에 _DigitalTwinsClient_ 지역 변수를 추가 하 여 Azure Digital twins 클라이언트 인스턴스를 보관 합니다. 클래스 내부에서이 변수를 정적으로 설정 *하지* 마십시오.
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
 
-* _AdtInstanceUrl_ 에 대 한 null 검사를 추가 하 고 함수 논리를 try catch 블록으로 래핑하여 예외를 catch 합니다.
+* _AdtInstanceUrl_ 에 대 한 null 검사를 추가 하 고 함수 논리를 try/catch 블록으로 래핑하여 예외를 catch 합니다.
 
 이러한 변경 후 함수 코드는 다음과 유사 합니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
+이제 응용 프로그램을 작성 했으므로 다음 섹션의 단계를 사용 하 여 Azure에 게시할 수 있습니다.
+
 ## <a name="publish-the-function-app-to-azure"></a>Azure에 함수 앱 게시
 
-Azure의 함수 앱에 프로젝트를 게시 하려면 솔루션 탐색기의 함수 프로젝트 (솔루션 아님)를 마우스 오른쪽 단추로 선택 하 고 **게시** 를 선택 합니다.
-
-> [!IMPORTANT] 
-> Azure에서 함수 앱에 게시 하는 경우 Azure Digital Twins와 무관 하 게 구독에 대 한 추가 요금이 발생 합니다.
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: Azure에 함수 게시":::
-
-게시 대상으로 **Azure** 를 선택 하 고 **다음** 을 선택 합니다.
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: 게시 Azure Functions 대화 상자에서 Azure를 선택 합니다. ":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: 게시 함수 대화 상자에서 컴퓨터에 따라 Azure 함수 앱 (Windows) 또는 (Linux)를 선택 합니다.":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: 함수 게시 대화 상자, 새 Azure 함수 만들기":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: 함수 게시 대화 상자에서 필드를 입력 하 고 만들기를 선택 합니다.":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: 함수 게시 대화 상자의 목록에서 함수 앱을 선택 하 고 마침을 선택 합니다.":::
-
-다음 페이지에서 새 함수 앱, 리소스 그룹 및 기타 세부 정보에 대해 원하는 이름을 입력 합니다.
-함수 앱이 Azure 디지털 쌍에 액세스할 수 있으려면 시스템에서 관리 하는 id가 있어야 하 고 Azure Digital Twins 인스턴스에 액세스할 수 있는 권한이 있어야 합니다.
-
-그런 다음 CLI 또는 Azure Portal를 사용 하 여 함수에 대 한 보안 액세스를 설정할 수 있습니다. 다음 방법 중 하나를 선택 합니다.
+[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
 ## <a name="set-up-security-access-for-the-function-app"></a>함수 앱에 대 한 보안 액세스 설정
-다음 옵션 중 하나를 사용 하 여 함수 앱에 대 한 보안 액세스를 설정할 수 있습니다.
+
+Azure CLI 또는 Azure Portal를 사용 하 여 함수 앱에 대 한 보안 액세스를 설정할 수 있습니다. 아래의 기본 옵션에 대 한 단계를 수행 합니다.
 
 ### <a name="option-1-set-up-security-access-for-the-function-app-using-cli"></a>옵션 1: CLI를 사용 하 여 함수 앱에 대 한 보안 액세스 설정
 
@@ -169,7 +150,7 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 
 [Azure Portal](https://portal.azure.com/)에서 이전에 만든 함수 앱 이름으로 검색 표시줄에서 _함수 앱_ 을 검색 합니다. 목록에서 *함수 앱* 을 선택 합니다. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Azure Portal: 함수 앱 검색":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Azure Portal: 함수 앱 검색":::
 
 함수 앱 창의 왼쪽 탐색 모음에서 _id_ 를 선택 하 여 관리 되는 id를 사용 하도록 설정 합니다.
 _시스템 할당 됨_ 탭에서 _상태_ 를 켜기로 전환 하 고 _저장_ 합니다. _시스템 할당 관리 id를 사용 하도록 설정_ 하는 팝업이 표시 됩니다.
@@ -206,25 +187,23 @@ _저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 
 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 이에 대 한 자세한 내용은 [*환경 변수*](/sandbox/functions-recipes/environment-variables)를 참조 하세요. 응용 프로그램 설정은 디지털 쌍 인스턴스에 액세스 하기 위한 환경 변수로 표시 됩니다. 
 
-응용 프로그램 설정을 만들려면 ADT_INSTANCE_URL 필요 합니다.
-
-인스턴스 호스트 이름에 **_https://_** 를 추가 하 여 ADT_INSTANCE_URL를 가져올 수 있습니다. Azure Portal 검색 창에서 인스턴스를 검색 하 여 디지털 쌍 인스턴스 호스트 이름을 찾을 수 있습니다. 그런 다음 왼쪽 탐색 모음에서 _개요_ 를 선택 하 여 _호스트 이름을_ 확인 합니다. 응용 프로그램 설정을 만들려면이 값을 복사 합니다.
+인스턴스 URL을 사용 하 여 환경 변수를 설정 하려면 먼저 Azure Digital Twins 인스턴스의 호스트 이름을 찾아 URL을 가져옵니다. [Azure Portal](https://portal.azure.com) 검색 창에서 인스턴스를 검색 합니다. 그런 다음 왼쪽 탐색 모음에서 _개요_ 를 선택 하 여 _호스트 이름을_ 확인 합니다. 이 값을 복사합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure Portal: 개요-_Value_ 필드에서 사용할 호스트 이름을 복사 > 합니다.":::
 
 이제 다음 단계에 따라 응용 프로그램 설정을 만들 수 있습니다.
 
-* 검색 창에서 함수 앱 이름을 사용 하 여 앱을 검색 하 고 목록에서 함수 앱을 선택 합니다.
-* 왼쪽의 탐색 모음에서 _구성_ 을 선택 하 여 새 응용 프로그램 설정을 만듭니다.
-* _응용 프로그램 설정_ 탭에서 _+ 새 응용 프로그램 설정_ 을 선택 합니다.
+1. 검색 창에서 함수 앱 이름을 사용 하 여 앱을 검색 하 고 목록에서 함수 앱을 선택 합니다.
+1. 왼쪽의 탐색 모음에서 _구성_ 을 선택 하 여 새 응용 프로그램 설정을 만듭니다.
+1. _응용 프로그램 설정_ 탭에서 _+ 새 응용 프로그램 설정_ 을 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure Portal: 기존 함수 앱 검색":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure Portal: 기존 함수 앱 검색" lightbox="media/how-to-create-azure-function/search-for-azure-function.png":::
 
 :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal: 응용 프로그램 설정 구성":::
 
-열리는 창에서 위에 복사 된 값을 사용 하 여 응용 프로그램 설정을 만듭니다. \
-_이름_  : ADT_SERVICE_URL \
-_값_ : https://{-azure-디지털-t--hostname}
+열리는 창에서 위에 복사 된 호스트 이름 값을 사용 하 여 응용 프로그램 설정을 만듭니다.
+* _이름_ : ADT_SERVICE_URL
+* _값_: https://{-azure-name}
 
 _확인_ 을 선택 하 여 응용 프로그램 설정을 만듭니다.
 
@@ -244,10 +223,7 @@ _알림_ 아이콘을 선택 하 여 응용 프로그램 설정이 업데이트 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 azure에서 Azure Digital Twins와 함께 사용 하기 위해 Azure에서 함수 앱을 설정 하는 단계를 따릅니다. 그런 다음 Event Grid에 대 한 함수를 구독 하 여 끝점에서 수신 대기할 수 있습니다. 이 끝점은 다음과 같을 수 있습니다.
-* Azure digital 쌍에 연결 된 Event Grid 끝점 (예: 속성 변경 메시지, 쌍의 [디지털](concepts-twins-graph.md) 쌍에 의해 생성 된 원격 분석 메시지 또는 수명 주기 메시지)을 처리 하기 위해 azure digital 쌍에 연결 된 끝점
-* IoT Hub에서 원격 분석 및 기타 장치 이벤트를 전송 하는 데 사용 하는 IoT 시스템 항목입니다.
-* 다른 서비스에서 메시지를 수신 하는 Event Grid 끝점
+이 문서에서는 azure에서 Azure Digital Twins와 함께 사용 하기 위해 Azure에서 함수 앱을 설정 하는 단계를 따릅니다.
 
 다음으로, 기본 함수를 빌드하여 Azure Digital Twins에 IoT Hub 데이터를 수집 하는 방법을 참조 하세요.
 * [*방법: IoT Hub에서 원격 분석 수집*](how-to-ingest-iot-hub-data.md)

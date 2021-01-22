@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 54bce5e839786862a6dac9aeb685dd364547a09a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122744"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685034"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 사용 현황 및 정보 보고서
 
@@ -50,15 +50,17 @@ ms.locfileid: "93122744"
 
 ## <a name="use-the-report"></a>보고서 사용
 
-사용 및 정보 보고서에는 하나 이상의 로그인을 사용 하는 응용 프로그램 목록이 표시 되며 성공한 로그인 횟수, 실패 한 로그인 횟수 및 성공률을 기준으로 정렬할 수 있습니다.
+사용 및 정보 보고서에는 로그인 시도가 하나 이상 포함 된 응용 프로그램 목록이 표시 되며 성공한 로그인 횟수, 실패 한 로그인 횟수 및 성공률을 기준으로 정렬할 수 있습니다.
 
-목록의 맨 아래에서 더 로드를 클릭 하면 페이지에서 추가 응용 프로그램을 볼 수 있습니다. 날짜 범위를 선택 하 여 범위 내에 사용 된 모든 응용 프로그램을 볼 수 있습니다.
+목록의 맨 아래에서 **더 로드** 를 클릭 하면 페이지에서 추가 응용 프로그램을 볼 수 있습니다. 날짜 범위를 선택 하 여 범위 내에 사용 된 모든 응용 프로그램을 볼 수 있습니다.
+
+![다른 앱에 대 한 범위를 선택 하 고 로그인 활동을 볼 수 있는 응용 프로그램 활동에 대 한 사용 현황 & 정보를 보여 주는 스크린샷](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 특정 응용 프로그램에 포커스를 설정할 수도 있습니다. **로그인 활동 보기** 를 선택 하 여 응용 프로그램 및 상위 오류에 대 한 시간에 따른 로그인 활동을 확인 합니다.  
 
 응용 프로그램 사용 그래프에서 날짜를 선택 하면 응용 프로그램에 대 한 로그인 활동의 자세한 목록이 표시 됩니다.  
 
-![다른 앱에 대 한 범위를 선택 하 고 로그인 활동을 볼 수 있는 응용 프로그램 활동에 대 한 사용 현황 & 정보를 보여 주는 스크린샷](./media/concept-usage-insights-report/usage-and-insights-report.png)
+:::image type="content" source="./media/concept-usage-insights-report/usage-and-insights-application-report.png" alt-text="스크린샷은 로그인 활동에 대 한 그래프를 볼 수 있는 특정 응용 프로그램에 대 한 사용 & 통찰력을 보여 줍니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

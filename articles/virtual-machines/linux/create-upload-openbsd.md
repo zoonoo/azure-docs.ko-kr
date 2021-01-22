@@ -6,18 +6,18 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
-ms.openlocfilehash: 08b18dae6cec3f30ba9ecc69a3537eec428cc9ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efa38384778bb63857d3c867d74ace7f4f199118
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372725"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685092"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>OpenBSD 디스크 이미지 만들기 및 Azure로 업로드
 이 문서에서는 OpenBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다. VHD를 업로드한 후에는 VHD를 사용자 고유의 이미지로 사용하여 Azure CLI를 통해 Azure에서 VM(가상 머신)을 만들 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
 * **Azure 구독** - 계정이 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조 하세요. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.  
@@ -56,7 +56,7 @@ Hyper-V 지원을 추가한, OpenBSD 운영 체제 6.1을 설치한 VM에서 다
     ln -sf /usr/local/bin/python2.7 /usr/local/bin/python
     ln -sf /usr/local/bin/python2.7-2to3 /usr/local/bin/2to3
     ln -sf /usr/local/bin/python2.7-config /usr/local/bin/python-config
-    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
+    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
 6. 언제든지 최신 버전의 Azure 에이전트를 [GitHub](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 다음과 같이 에이전트를 설치합니다.
@@ -87,20 +87,20 @@ Hyper-V 지원을 추가한, OpenBSD 운영 체제 6.1을 설치한 VM에서 다
 
 
 ## <a name="prepare-the-vhd"></a>VHD 준비
-VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD**만 지원됩니다. Hyper-V 관리자 또는 Powershell [convert-vhd](/powershell/module/hyper-v/convert-vhd?view=win10-ps) cmdlet을 사용하여 디스크를 고정 VHD 형식으로 변환할 수 있습니다. 예제는 다음과 같습니다.
+VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD** 만 지원됩니다. Hyper-V 관리자 또는 Powershell [convert-vhd](/powershell/module/hyper-v/convert-vhd?view=win10-ps) cmdlet을 사용하여 디스크를 고정 VHD 형식으로 변환할 수 있습니다. 예제는 다음과 같습니다.
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>스토리지 리소스 만들기 및 업로드
-먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-VHD를 업로드하려면 [az storage account create](/cli/azure/storage/account)를 사용하여 스토리지 계정을 만듭니다. Storage 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요. 다음 예제에서는 *mystorageaccount*라는 스토리지 계정을 만듭니다.
+VHD를 업로드하려면 [az storage account create](/cli/azure/storage/account)를 사용하여 스토리지 계정을 만듭니다. Storage 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요. 다음 예제에서는 *mystorageaccount* 라는 스토리지 계정을 만듭니다.
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -140,7 +140,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>VHD에서 VM 만들기
-[샘플 스크립트](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md)를 사용하거나 직접 [az vm create](/cli/azure/vm)를 사용하여 VM을 만들 수 있습니다. 업로드한 OpenBSD VHD를 지정하려면 다음과 같이 `--image` 매개 변수를 사용합니다.
+[샘플 스크립트](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-vhd)를 사용하거나 직접 [az vm create](/cli/azure/vm)를 사용하여 VM을 만들 수 있습니다. 업로드한 OpenBSD VHD를 지정하려면 다음과 같이 `--image` 매개 변수를 사용합니다.
 
 ```azurecli
 az vm create \
@@ -168,4 +168,4 @@ ssh azureuser@<ip address>
 ## <a name="next-steps"></a>다음 단계
 OpenBSD6.1의 Hyper-V 지원에 대한 자세한 내용은 [OpenBSD 6.1](https://www.openbsd.org/61.html) 및 [hyperv.4](https://man.openbsd.org/hyperv.4)를 참조하세요.
 
-관리 디스크에서 VM을 만들려면 [az disk](/cli/azure/disk)를 참조하세요. 
+관리 디스크에서 VM을 만들려면 [az disk](/cli/azure/disk)를 참조하세요.

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 9f0309f4e8273c2ef19ea86636de8e3aa6b6c4bc
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: edbcabfe4d0b633a784163562f52b303120916ca
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435103"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685068"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>프로 비전 에이전트 없이 일반화 된 이미지 만들기
 
@@ -78,7 +78,7 @@ $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 
 또한 VM 내에서 Azure Linux 에이전트를 제거 했으므로 준비를 보고 하는 메커니즘을 제공 해야 합니다. 
 
-#### <a name="python-script"></a>Python 스크립트
+#### <a name="python-script"></a>Python 스크립트 실행
 
 ```python
 import http.client
@@ -180,7 +180,7 @@ VM에 Python이 설치 되어 있지 않거나 사용할 수 없는 경우 다�
 
 이 데모에서는 최신 Linux 배포판에서 가장 일반적인 init 시스템용 systemd를 사용 합니다. 따라서이 보고서 준비 메커니즘을 적절 한 시간에 실행 하는 가장 쉽고 기본적인 방법은 systemd 서비스 단위를 만드는 것입니다. 다음 단위 파일을에 추가할 수 있습니다 `/etc/systemd/system` .이 예에서는 단위 파일의 이름을로 지정할 수 있습니다 `azure-provisioning.service` .
 
-```
+```bash
 [Unit]
 Description=Azure Provisioning
 
@@ -204,7 +204,7 @@ WantedBy=multi-user.target
 
 파일 시스템의 단위를 사용 하 여 사용 하도록 설정 하려면 다음을 실행 합니다.
 
-```
+```bash
 $ sudo systemctl enable azure-provisioning.service
 ```
 
@@ -214,14 +214,14 @@ $ sudo systemctl enable azure-provisioning.service
 
 개발 컴퓨터로 돌아가서 다음을 실행 하 여 기본 VM에서 이미지를 만들 준비를 합니다.
 
-```
+```bash
 $ az vm deallocate --resource-group demo1 --name demo1
 $ az vm generalize --resource-group demo1 --name demo1
 ```
 
 그리고이 VM에서 이미지를 만듭니다.
 
-```
+```bash
 $ az image create \
     --resource-group demo1 \
     --source demo1 \
@@ -231,7 +231,7 @@ $ az image create \
 
 이제 이미지에서 새 VM (또는 여러 Vm)을 만들 준비가 되었습니다.
 
-```
+```bash
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
 $ az vm create \
     --resource-group demo12 \
@@ -249,7 +249,7 @@ $ az vm create \
 
 이 VM은 성공적으로 프로 비전 되어야 합니다. 새로 프로 비전 VM에 로그인 하면 보고서 준비 된 systemd 서비스의 출력을 볼 수 있습니다.
 
-```
+```bash
 $ sudo journalctl -u azure-provisioning.service
 -- Logs begin at Thu 2020-06-11 20:28:45 UTC, end at Thu 2020-06-11 20:31:24 UTC. --
 Jun 11 20:28:49 thstringnopa systemd[1]: Starting Azure Provisioning...

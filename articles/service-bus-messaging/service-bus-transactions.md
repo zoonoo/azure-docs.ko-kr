@@ -4,16 +4,19 @@ description: 이 문서에서는 Azure Service Bus의 트랜잭션 처리 및 �
 ms.topic: article
 ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023604"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684794"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus 트랜잭션 처리의 개요
 
 이 문서에서는 Microsoft Azure Service Bus의 트랜잭션 기능을 설명합니다. 설명의 대부분은 [Service Bus 샘플을 사용 하는 Amqp 트랜잭션에](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)설명 되어 있습니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
+
+> [!NOTE]
+> Service Bus의 기본 계층에서는 트랜잭션을 지원 하지 않습니다. Standard 및 premium 계층은 트랜잭션을 지원 합니다. 이러한 계층 간의 차이점은 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 
 ## <a name="transactions-in-service-bus"></a>Service Bus의 트랜잭션
 
@@ -42,7 +45,7 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 
 ### <a name="see-it-in-code"></a>실제 코드 엿보기
 
-이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 예들 들어 다음과 같습니다.
+이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 다음은 그 예입니다. 
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);

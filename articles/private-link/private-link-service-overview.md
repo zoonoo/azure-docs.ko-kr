@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 27dba675f82c4d34ec793cf492c18b293a6c8c77
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7983a80da8a5ca9d900e44515b5e078cc9d70d79
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544261"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684189"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
@@ -91,7 +91,7 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 - GUID는 플랫폼에서 제공 됩니다. 이렇게 하면 이름을 전역적으로 고유 하 게 만들 수 있습니다. 
 - Azure: privatelinkservice에서 접미사를 추가 *합니다.* 
 
-전체 별칭:  *접두사* 입니다. {GUID}. *region* privatelinkservice  
+전체 별칭:  *접두사* 입니다. {GUID}. privatelinkservice  
 
 ## <a name="control-service-exposure"></a>제어 서비스 노출
 
@@ -111,7 +111,7 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 
 사용자 지정 TLV 세부 정보:
 
-|필드 |길이 (8 진수)  |설명  |
+|필드 |길이 (8 진수)  |Description  |
 |---------|---------|----------|
 |형식  |1        |PP2_TYPE_AZURE (0xEE)|
 |길이  |2      |값의 길이|
@@ -126,7 +126,7 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 다음은 개인 링크 서비스를 사용할 때의 알려진 제한 사항입니다.
 - 표준 Load Balancer 에서만 지원 됨 
 - IPv4 트래픽만 지원 합니다.
-- TCP 트래픽만 지원 합니다.
+- TCP 및 UDP 트래픽만 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure PowerShell를 사용 하 여 개인 링크 서비스 만들기](create-private-link-service-powershell.md)

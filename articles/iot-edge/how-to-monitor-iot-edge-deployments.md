@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45df700cc1772250e42a0e007fb4ea91b49471ba
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450172"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684206"
 ---
 # <a name="monitor-iot-edge-deployments"></a>IoT Edge 배포 모니터링
 
@@ -39,9 +39,9 @@ IoT Hub 서비스를 사용하면 이 데이터를 Azure Portal 및 Azure CLI에
 배포의 세부 정보를 확인하고 이를 실행하는 디바이스를 모니터링하려면 다음 단계를 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
-1. 왼쪽 창 메뉴에서 **IoT Edge**를 선택합니다.
+1. 왼쪽 창 메뉴에서 **IoT Edge** 를 선택합니다.
 1. **IoT Edge 배포** 탭을 선택합니다.
-1. 배포 목록을 검사합니다. 각 배포에 대해 다음 세부 정보를 볼 수 있습니다.
+1. 배포 목록을 검사합니다.  각 배포에 대해 다음 세부 정보를 볼 수 있습니다.
 
     | 열 | Description |
     | --- | --- |
@@ -54,12 +54,12 @@ IoT Hub 서비스를 사용하면 이 데이터를 Azure Portal 및 Azure CLI에
     | 사용자 지정 메트릭 | 배포에 대해 정의한 메트릭 데이터를 보고하는 IoT Edge 디바이스 수입니다. |
     | 만든 시간 | 배포를 만든 시점의 타임스탬프입니다. 이 타임스탬프는 두 배포의 우선 순위가 동일한 경우 연결을 중단하는 데 사용됩니다. |
 
-1. 모니터링하려는 배포를 선택합니다.  
-1. **배포 세부 정보** 페이지에서 아래쪽 섹션으로 스크롤하고 **대상 조건** 탭을 선택합니다. **보기**를 선택하여 대상 조건과 일치하는 디바이스를 나열합니다. 조건 및 **우선 순위**도 변경할 수 있습니다. 변경 내용을 적용한 경우 **저장**을 선택합니다.
+1. 모니터링하려는 배포를 선택합니다.  
+1. **배포 세부 정보** 페이지에서 아래쪽 섹션으로 스크롤하고 **대상 조건** 탭을 선택합니다. **보기** 를 선택하여 대상 조건과 일치하는 디바이스를 나열합니다. 조건 및 **우선 순위** 도 변경할 수 있습니다. 변경 내용을 적용한 경우 **저장** 을 선택합니다.
 
    ![배포를 위한 대상 디바이스 보기](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
 
-1. **메트릭** 탭을 선택합니다. **메트릭 선택** 드롭다운에서 메트릭을 선택하면 결과를 표시하는 **보기** 단추가 나타납니다. **메트릭 편집**을 선택하여 정의한 사용자 지정 메트릭에 대한 조건을 조정할 수도 있습니다. 변경 내용을 적용한 경우 **저장**을 선택합니다.
+1. **메트릭** 탭을 선택합니다. **메트릭 선택** 드롭다운에서 메트릭을 선택하면 결과를 표시하는 **보기** 단추가 나타납니다. **메트릭 편집** 을 선택하여 정의한 사용자 지정 메트릭에 대한 조건을 조정할 수도 있습니다. 변경 내용을 적용한 경우 **저장** 을 선택합니다.
 
    ![배포에 대한 메트릭 보기](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
@@ -69,7 +69,7 @@ IoT Hub 서비스를 사용하면 이 데이터를 Azure Portal 및 Azure CLI에
 
 [az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) 명령을 사용하여 단일 배포에 대한 세부 정보를 표시합니다.
 
-```cli
+```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
@@ -78,7 +78,7 @@ deployment show 명령은 다음 매개 변수를 사용합니다.
 * **--deployment-id** - IoT Hub에 있는 배포의 이름입니다. 필수 매개 변수입니다.
 * **--hub-name** - 배포가 있는 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
 
-명령 창에서 배포를 검사합니다. **metrics** 속성은 각 허브에서 평가되는 각 메트릭의 개수를 나열합니다.
+명령 창에서 배포를 검사합니다.  **metrics** 속성은 각 허브에서 평가되는 각 메트릭의 개수를 나열합니다.
 
 * **targetedCount** - 대상 지정 조건과 일치하는 IoT Hub의 디바이스 쌍의 수를 지정하는 시스템 메트릭입니다.
 * **appliedCount** - 시스템 메트릭은 IoT Hub에서 해당 모듈 쌍에 배포 콘텐츠를 적용한 디바이스 수를 지정합니다.
@@ -87,7 +87,7 @@ deployment show 명령은 다음 매개 변수를 사용합니다.
 
 [az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric) 명령을 사용하여 각 메트릭에 대한 디바이스 ID 또는 개체 목록을 표시할 수 있습니다.
 
-```cli
+```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
 ```
 

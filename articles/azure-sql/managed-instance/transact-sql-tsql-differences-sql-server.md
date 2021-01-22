@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: e6dc4656e33b55a2cc695874376baf1cd816a838
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 6fb17ead2546875c0f334aae322f8fb070e8f1ea
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796298"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684909"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -276,6 +276,8 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 - `RESTRICTED_USER`
 - `SINGLE_USER`
 - `WITNESS`
+
+일부 `ALTER DATABASE` 문 (예: [SET 제약](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)조건)은 transiently 실패할 수 있습니다. 예를 들어 자동화 된 데이터베이스 백업 중 또는 데이터베이스를 만든 직후입니다. 이 경우 `ALTER DATABASE` 문을 다시 시도해 야 합니다. 관련 오류 메시지에 대 한 자세한 내용 및 정보는 [설명 섹션](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2)을 참조 하세요.
 
 자세한 내용은 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options)를 참조하세요.
 

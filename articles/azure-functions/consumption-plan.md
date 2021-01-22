@@ -3,18 +3,18 @@ title: Azure Functions 소비 계획 호스팅
 description: Azure 함수 소비 계획 호스팅을 통해 동적으로 크기를 조정 하는 환경에서 코드를 실행할 수 있지만 실행 중에 사용 되는 리소스에 대해서만 비용을 지불 하는 방법에 대해 알아봅니다.
 ms.date: 8/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: c0619def4687935cd9e403563966b35b84f13c7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: ffb556ce48f18702e06fcdb02dda84f41ae5f906
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937787"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684694"
 ---
 # <a name="azure-functions-consumption-plan-hosting"></a>Azure Functions 소비 계획 호스팅
 
 소비 계획을 사용 하는 경우 Azure Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가 및 제거 됩니다. 소비 계획은 Azure Functions에 대해 완전히 <em>서버</em> 를 사용 하지 않는 호스팅 옵션입니다.
 
-## <a name="benefits"></a>혜택
+## <a name="benefits"></a>이점
 
 소비 계획은 높은 부하 기간 동안에도 자동으로 확장 됩니다. 소비 계획에서 함수를 실행 하는 경우 함수를 실행 하는 경우에만 계산 리소스에 대 한 요금이 청구 됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다.
 
@@ -33,10 +33,10 @@ Azure Portal에서 함수 앱을 만들 때 소비 계획이 기본값입니다.
 다음 링크를 사용 하 여 프로그래밍 방식으로 또는 Azure Portal에서 사용 계획으로 서버 리스 함수 앱을 만드는 방법을 알아보세요.
 
 + [Azure CLI](./scripts/functions-cli-create-serverless.md)
-+ [Azure Portal](functions-create-first-azure-function.md)
++ [Azure Portal](./functions-get-started.md)
 + [Azure Resource Manager 템플릿](functions-create-first-function-resource-manager.md)
 
-[Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) 또는 [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure)에서 함수 프로젝트를 게시할 때 소비 계획에서 함수 앱을 만들 수도 있습니다.
+[Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) 또는 [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure)에서 함수 프로젝트를 게시할 때 소비 계획에서 함수 앱을 만들 수도 있습니다.
 
 ## <a name="multiple-apps-in-the-same-plan"></a>동일한 계획의 여러 앱
 

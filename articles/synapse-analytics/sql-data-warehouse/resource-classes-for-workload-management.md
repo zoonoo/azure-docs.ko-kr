@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a557d4045b18b5c0ff71b3e47f0c189028702863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7714ce748eb172565357723924ab2212e9559e1f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289534"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685330"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 리소스 클래스로 워크로드 관리
 
@@ -78,7 +78,7 @@ Azure Synapse에서 리소스 클래스를 사용하여 Synapse SQL 풀에 대�
 
 ### <a name="default-resource-class"></a>기본 리소스 클래스
 
-기본적으로 각 사용자는 동적 리소스 클래스인 **smallrc**의 멤버입니다.
+기본적으로 각 사용자는 동적 리소스 클래스인 **smallrc** 의 멤버입니다.
 
 서비스 관리자의 리소스 클래스는 smallrc에 고정되어 있고 변경할 수 없습니다.  서비스 관리자는 프로세스 프로비전 중에 만든 사용자입니다.  이 컨텍스트의 서비스 관리자는 새 서버를 사용하여 새 Synapse SQL 풀을 만들 때 "서버 관리자 로그인"에 대해 지정한 로그인입니다.
 
@@ -162,13 +162,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 데이터베이스 역할에 사용자를 할당하여 리소스 클래스를 구현합니다. 사용자가 쿼리를 실행하면 사용자의 리소스 클래스를 사용하여 쿼리가 실행됩니다. 예를 들어 사용자가 staticrc10 데이터베이스 역할의 구성원인 경우 해당 쿼리는 적은 양의 메모리로 실행됩니다. 데이터베이스 사용자가 xlargerc 또는 staticrc80 데이터베이스 역할의 구성원인 경우 해당 쿼리는 많은 양의 메모리로 실행됩니다.
 
-사용자의 리소스 클래스를 늘리려면 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 사용자를 대규모 리소스 클래스의 데이터베이스 역할에 추가합니다.  아래 코드는 largerc 데이터베이스 역할에 사용자를 추가합니다.  각 요청은 시스템 메모리의 22%를 차지합니다.
+사용자의 리소스 클래스를 늘리려면 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 사용자를 대규모 리소스 클래스의 데이터베이스 역할에 추가합니다.  아래 코드는 largerc 데이터베이스 역할에 사용자를 추가합니다.  각 요청은 시스템 메모리의 22%를 차지합니다.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-리소스 클래스를 줄이려면 [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용합니다.  'loaduser'가 멤버 또는 다른 리소스 클래스가 아니면 3%의 메모리가 부여된 기본 smallrc 리소스 클래스로 이동합니다.  
+리소스 클래스를 줄이려면 [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용합니다.  'loaduser'가 멤버 또는 다른 리소스 클래스가 아니면 3%의 메모리가 부여된 기본 smallrc 리소스 클래스로 이동합니다.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';

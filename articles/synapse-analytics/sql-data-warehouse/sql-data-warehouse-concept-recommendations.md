@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6510a7143e78c054130a1f1dddba78342a6785fe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121195"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685279"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 Azure Advisor 권장 사항
 
@@ -73,4 +73,4 @@ tempdb 경합이 높은 경우 쿼리 성능이 저하될 수 있습니다.  Tem
 
 ## <a name="data-loading-misconfiguration"></a>데이터 로드 잘못 구성
 
-대기 시간을 최소화 하려면 항상 전용 SQL 풀과 동일한 지역의 저장소 계정에서 데이터를 로드 해야 합니다. [높은 처리량 데이터 수집을 위해 COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) 사용 하 고 준비 된 파일을 저장소 계정에 분할 하 여 처리량을 최대화 합니다. COPY 문을 사용할 수 없는 경우 더 나은 처리량을 위해 일괄 처리 크기가 높은 SqlBulkCopy API 또는 bcp를 사용할 수 있습니다. 추가 데이터 로드 지침은 다음 [설명서](./guidance-for-loading-data.md)를 참조 하세요.
+대기 시간을 최소화 하려면 항상 전용 SQL 풀과 동일한 지역의 저장소 계정에서 데이터를 로드 해야 합니다. [높은 처리량 데이터 수집을 위해 COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) 사용 하 고 준비 된 파일을 저장소 계정에 분할 하 여 처리량을 최대화 합니다. COPY 문을 사용할 수 없는 경우 더 나은 처리량을 위해 일괄 처리 크기가 높은 SqlBulkCopy API 또는 bcp를 사용할 수 있습니다. 추가 데이터 로드 지침은 다음 [설명서](./guidance-for-loading-data.md)를 참조 하세요.

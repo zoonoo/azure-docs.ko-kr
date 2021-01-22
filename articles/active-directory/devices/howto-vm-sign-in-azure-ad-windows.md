@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef2c9d7e2388d2da7a807fbf6b579360115a8323
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 22a4bdc92ea2a91425c1070a5837c672307de665
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629802"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683779"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -335,7 +335,7 @@ VM에 대 한 원격 데스크톱 연결을 시작할 때 다음과 같은 오�
 사용자에 게 가상 머신 관리자 로그인 또는 가상 머신 사용자 로그인 역할을 부여 하는 VM에 대 한 [AZURE RBAC 정책을 구성](../../virtual-machines/linux/login-using-aad.md) 했는지 확인 합니다.
 
 > [!NOTE]
-> Azure 역할 할당에 문제가 발생 하는 경우 [AZURE RBAC 문제 해결](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit)을 참조 하세요.
+> Azure 역할 할당에 문제가 발생 하는 경우 [AZURE RBAC 문제 해결](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit)을 참조 하세요.
  
 #### <a name="unauthorized-client"></a>권한 없는 클라이언트
 

@@ -3,12 +3,12 @@ title: Azure Service Bus 중복 메시지 검색 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus 메시지에서 중복을 검색 하는 방법을 설명 합니다. 중복 된 메시지는 무시 하 고 삭제할 수 있습니다.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 29972f756c66f524cc2e4684fcb7afd1ca628820
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184682"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684811"
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
@@ -17,6 +17,9 @@ ms.locfileid: "98184682"
 또한 클라이언트 또는 네트워크 수준의 오류가 이전에 발생 하 고 전송 된 메시지가 큐에 커밋될 수 있으며 승인이 클라이언트에 성공적으로 반환 되지 않을 수도 있습니다. 이런 시나리오에서 클라이언트는 보내기 작업의 결과에 의문을 갖게 됩니다.
 
 중복 검색은 보낸 사람이 동일한 메시지를 다시 보낼 수 있도록 하고 큐 또는 토픽에서 중복된 복사본을 삭제하여 이러한 상황에 대한 의문을 해소합니다.
+
+> [!NOTE]
+> Service Bus의 기본 계층은 중복 검색을 지원 하지 않습니다. Standard 및 premium 계층은 중복 검색을 지원 합니다. 이러한 계층 간의 차이점은 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 
 ## <a name="how-it-works"></a>작동 원리 
 중복 검색을 사용하면 지정된 기간 동안 큐 또는 토픽으로 전송된 모든 메시지의 애플리케이션 제어 *MessageId* 를 추적하는 데 도움이 됩니다. 해당 기간 중에 기록된 *MessageId* 로 새 메시지가 전송되면 해당 메시지는 수락된 것으로 보고되고(보내기 작업 성공), 새로 보낸 메시지는 즉시 무시되고 삭제됩니다. *MessageId* 를 제외한 메시지의 다른 부분은 고려되지 않습니다.

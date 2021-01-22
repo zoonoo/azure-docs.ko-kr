@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: GitOps를 사용 하 여 Azure Arc 사용 Kubernetes 클러스터 구성 (미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, 컨테이너
-ms.openlocfilehash: 906021377cbfd6960769f98f9dbd15a5c430c71f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 751b274a9cae68f6bc9b1adc45804f2dd2ef4c72
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955334"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684760"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포(미리 보기)
 
@@ -48,7 +48,7 @@ Git 리포지토리에는 네임 스페이스, ConfigMaps, 배포, DaemonSets �
 
 의 Azure CLI 확장을 사용 `k8sconfiguration` 하 여 연결 된 클러스터를 [예제 Git 리포지토리에](https://github.com/Azure/arc-k8s-demo)연결 합니다. 이 구성에 이름 `cluster-config`를 지정하고, `cluster-config` 네임스페이스에 연산자를 배포하도록 에이전트에 지시하고, 연산자에게 `cluster-admin` 권한을 부여합니다.
 
-```console
+```azurecli
 az k8sconfiguration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
 ```
 
@@ -97,7 +97,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-repo-with-ssh-and-flux-created-keys"></a>SSH 및 Flux에서 만든 키로 개인 Git 리포지토리 사용
 
-| 매개 변수 | 형식 | 메모
+| 매개 변수 | 형식 | 참고
 | ------------- | ------------- | ------------- |
 | --리포지토리-url | ssh://user@server/repo[. git] 또는 user@server:repo [. git] | `git@` 대체 될 수 있습니다. `user@`
 
@@ -106,7 +106,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-repo-with-ssh-and-user-provided-keys"></a>SSH 및 사용자 제공 키가 포함 된 개인 Git 리포지토리 사용
 
-| 매개 변수 | 형식 | 메모 |
+| 매개 변수 | 형식 | 참고 |
 | ------------- | ------------- | ------------- |
 | --리포지토리-url  | ssh://user@server/repo[. git] 또는 user@server:repo [. git] | `git@` 대체 될 수 있습니다. `user@` |
 | --ssh-개인 키 | [PEM 형식의](https://aka.ms/PEMformat) base64 인코딩 키 | 키 직접 제공 |
@@ -117,7 +117,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-host-with-ssh-and-user-provided-known-hosts"></a>SSH 및 사용자가 제공한 알려진 호스트에서 개인 Git 호스트 사용
 
-| 매개 변수 | 형식 | 메모 |
+| 매개 변수 | 형식 | 참고 |
 | ------------- | ------------- | ------------- |
 | --리포지토리-url  | ssh://user@server/repo[. git] 또는 user@server:repo [. git] | `git@` 대체 될 수 있습니다. `user@` |
 | --ssh-알려진 호스트 | base64 인코딩 | 직접 제공 된 알려진 호스트 콘텐츠 |
@@ -129,7 +129,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-repo-with-https"></a>HTTPS를 사용 하 여 개인 Git 리포지토리 사용
 
-| 매개 변수 | 형식 | 메모 |
+| 매개 변수 | 형식 | 참고 |
 | ------------- | ------------- | ------------- |
 | --리포지토리-url | https://server/repo[. git] | 기본 인증을 사용 하는 HTTPS |
 | --https-사용자 | 원시 또는 b a s e 64로 인코딩된 | HTTPS 사용자 이름 |
@@ -179,7 +179,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 Azure CLI를 사용하여 `sourceControlConfiguration`이 성공적으로 만들어졌는지 확인합니다.
 
-```console
+```azurecli
 az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
@@ -351,7 +351,7 @@ kubectl -n itops get all
 > 네임 스페이스 범위가 있는 sourceControlConfiguration을 만든 후에는 네임 스페이스에 대 한 `edit` 역할 바인딩이 있는 사용자가이 네임 스페이스에 작업을 배포할 수 있습니다. `sourceControlConfiguration`네임 스페이스 범위를 사용 하 여이를 삭제 하는 경우 네임 스페이스는 그대로 유지 되므로 이러한 다른 작업의 중단을 방지 하기 위해 삭제 되지 않습니다.  필요한 경우 kubectl를 사용 하 여이 네임 스페이스를 수동으로 삭제할 수 있습니다.
 > 추적 된 Git 리포지토리에서 배포의 결과로 생성 된 클러스터에 대 한 변경 내용은이 삭제 될 때 삭제 되지 않습니다 `sourceControlConfiguration` .
 
-```console
+```azurecli
 az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 

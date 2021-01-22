@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f1277972480f504d9d2df67930d9385cbe8c06b4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9ffb77db4f7bcd5a07e25085eed17e8972aa9a33
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063198"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683762"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
@@ -175,7 +175,7 @@ services.AddControllers();
 > - `$"api://{ClientId}` 다른 모든 경우 (v1.0 [액세스 토큰](access-tokens.md)의 경우)
 > 자세한 내용은 Microsoft. Identity. 웹 [소스 코드](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83)를 참조 하세요.
 
-위의 코드 조각은 [ASP.NET Core WEB API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28)에서 추출 됩니다. **AddMicrosoftIdentityWebApiAuthentication** 의 세부 정보는 [Microsoft. Identity. 웹](microsoft-identity-web.md)에서 확인할 수 있습니다. 이 메서드는 토큰의 유효성을 검사 하는 방법에 대 한 미들웨어에 지시 하는 [AddMicrosoftIdentityWebAPI](https://docs.microsoft.com/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?view=azure-dotnet-preview&preserve-view=true)를 호출 합니다.
+위의 코드 조각은 [ASP.NET Core WEB API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28)에서 추출 됩니다. **AddMicrosoftIdentityWebApiAuthentication** 의 세부 정보는 [Microsoft. Identity. 웹](microsoft-identity-web.md)에서 확인할 수 있습니다. 이 메서드는 토큰의 유효성을 검사 하는 방법에 대 한 미들웨어에 지시 하는 [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?preserve-view=true&view=azure-dotnet-preview)를 호출 합니다.
 
 ## <a name="token-validation"></a>토큰 유효성 검사
 
@@ -195,7 +195,7 @@ services.AddControllers();
 
 다음 표에서는 유효성 검사기에 대해 설명 합니다.
 
-| 유효성 검사기 | 설명 |
+| 유효성 검사기 | Description |
 |---------|---------|
 | **ValidateAudience** | 토큰의 유효성을 검사 하는 응용 프로그램에 대 한 토큰을 확인 합니다. |
 | **ValidateIssuer** | 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. 즉, 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. |

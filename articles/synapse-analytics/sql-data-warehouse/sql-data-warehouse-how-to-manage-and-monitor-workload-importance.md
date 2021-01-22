@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fb0a5fbf33b48521882646bf8fb5eb3fe5dacca6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 12b75ad3746cd0f54e27e474e0fd13bb0bba0e05
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459213"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685245"
 ---
 # <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Azure Synapse Analytics 전용 SQL 풀에서 워크 로드 중요도 관리 및 모니터링
 
@@ -24,7 +24,7 @@ Dmv 및 카탈로그 뷰를 사용 하 여 Azure Synapse에서 전용 SQL 풀 �
 
 ## <a name="monitor-importance"></a>중요도 모니터링
 
-[Sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 동적 관리 뷰에서 새 중요도 열을 사용 하 여 중요도를 모니터링 합니다.
+[Sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 동적 관리 뷰에서 새 중요도 열을 사용 하 여 중요도를 모니터링 합니다.
 아래 모니터링 쿼리는 쿼리 제출 시간 및 시작 시간을 보여 줍니다. 중요도와 함께 제출 시간 및 시작 시간을 검토 하 여 중요도의 영향을 받는 일정을 확인 합니다.
 
 ```sql
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-카탈로그 뷰 [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에는 분류자 생성에 사용 되는 매개 변수에 대 한 정보가 포함 되어 있습니다.  아래 쿼리는 ```membername``` ExecutiveReports를 사용 하 여 값에 대 한 매개 변수에 ExecReportsClassifier를 만들었음을 보여 줍니다.
+카탈로그 뷰 [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에는 분류자 생성에 사용 되는 매개 변수에 대 한 정보가 포함 되어 있습니다.  아래 쿼리는 ```membername``` ExecutiveReports를 사용 하 여 값에 대 한 매개 변수에 ExecReportsClassifier를 만들었음을 보여 줍니다.
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value

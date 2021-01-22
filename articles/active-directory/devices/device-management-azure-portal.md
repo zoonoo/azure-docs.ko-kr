@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a735817f59e43e1a9e5d2a513f1ad397f18aab8
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232321"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683813"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스 ID 관리
 
@@ -153,7 +153,7 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 
 - 전역 관리자
 - 클라우드 디바이스 관리자
-- 글로벌 읽기 권한자
+- 전역 독자
 - 디렉터리 판독기
 
 ![Azure AD와 관련 된 장치 설정](./media/device-management-azure-portal/device-settings-azure-portal.png)
@@ -168,7 +168,7 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 - **AZURE ad에 가입 하거나 azure ad에 등록 된 장치에는 Multi-Factor Authentication 필요** -사용자가 장치를 Azure AD에 가입 하거나 등록 하기 위해 추가 인증 요소를 제공 해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요** 입니다. 장치를 등록 하거나 조인할 때 multi-factor authentication을 요구 하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 여러 Azure AD Multi-Factor Authentication 서비스에 대 한 자세한 내용은 [AZURE ad Multi-Factor Authentication 시작](../authentication/concept-mfa-howitworks.md)하기를 참조 하세요. 
 
 > [!NOTE]
-> **AZURE ad에 가입 된 장치 또는 azure ad에 등록 된 장치** 는 azure ad 조인 (몇 가지 예외 포함) 또는 azure ad에 등록 된 장치에 Multi-Factor Authentication 설정이 적용 되어야 합니다. 하이브리드 Azure AD 조인 장치, azure [의 AZURE ad 조인 된 vm](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) 및 [Windows Autopilot 자체 배포 모드](/mem/autopilot/self-deploying)를 사용 하는 azure ad 조인 장치에는이 설정이 적용 되지 않습니다.
+> **AZURE ad에 가입 된 장치 또는 azure ad에 등록 된 장치** 는 azure ad 조인 (몇 가지 예외 포함) 또는 azure ad에 등록 된 장치에 Multi-Factor Authentication 설정이 적용 되어야 합니다. 하이브리드 Azure AD 조인 장치, azure [의 AZURE ad 조인 된 vm](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) 및 [Windows Autopilot 자체 배포 모드](/mem/autopilot/self-deploying)를 사용 하는 azure ad 조인 장치에는이 설정이 적용 되지 않습니다.
 
 - **최대 장치 수** -이 설정을 사용 하면 azure ad에 가입 된 azure ad 또는 azure ad에 등록 된 장치의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 기본값은 **50** 입니다.
 
@@ -202,7 +202,7 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 
 보고된 데이터를 자신에게 적합한 수준으로 좁히려면 다음 필드를 사용하여 감사 데이터를 필터링할 수 있습니다.
 
-- 범주
+- Category
 - 활동 리소스 종류
 - 활동
 - 날짜 범위
