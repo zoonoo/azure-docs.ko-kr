@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f680b1ec76200cb4d3bfc90cd83a2c134f379245
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913501"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696128"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -145,7 +145,7 @@ Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하
 1. 다음 PowerShell 명령을 사용 하 여 CaseSensitiveLookup를 사용 하도록 설정 합니다.   
     `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
 2. Windows 서버에 볼륨을 탑재 합니다.   
-    예제:   
+    예:   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## <a name="smb-faqs"></a>SMB FAQ
@@ -204,7 +204,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
-예제:
+예:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin
@@ -258,6 +258,16 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요�
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Azure Import/Export 서비스를 사용 하 여 마이그레이션이 지원 되나요?
 
 아니요. Azure Import/Export 서비스는 현재 Azure NetApp Files을 지원 하지 않습니다.
+
+## <a name="product-faqs"></a>제품 Faq
+
+### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Azure VMware 솔루션 (AVS)에서 Azure NetApp Files NFS 또는 SMB 볼륨을 사용할 수 있나요?
+
+AVS Windows Vm 또는 Linux Vm에 Azure NetApp Files NFS 볼륨을 탑재할 수 있습니다. AVS Windows Vm에서 SMB 공유 Azure NetApp Files를 매핑할 수 있습니다. 자세한 내용은 [Azure VMware 솔루션을 사용 하 여 Azure NetApp Files]( ../azure-vmware/net-app-files-with-azure-vmware-solution.md)를 참조 하세요.  
+
+### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Azure VMware 솔루션 (AVS)에서 Azure NetApp Files NFS 또는 SMB 볼륨 사용에 대해 지원 되는 지역은 무엇 인가요?
+
+온-미국 동부, 미국 서 부, 유럽 서부 및 오스트레일리아 동부 지역에서 AVS와 함께 Azure NetApp Files NFS 또는 SMB 볼륨을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계  
 

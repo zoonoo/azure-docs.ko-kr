@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: f8b2454bb0e39f5923af00502367f7b16bb040a4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cc3e26895f6bd11ba4f2e5f0b04e4dd36a4fcab
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018987"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695292"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Azure Portal을 사용한 주문형 콘텐츠 제공 시작
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 이 자습서에서는 Azure Portal을 사용한 Azure Media Services 애플리케이션으로 기본 주문형 비디오 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
@@ -54,7 +54,7 @@ Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 �
 스트리밍 엔드포인트를 시작하려면
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **설정**  >  **스트리밍 끝점**을 선택 합니다. 
+2. **설정**  >  **스트리밍 끝점** 을 선택 합니다. 
 3. 기본 스트리밍 엔드포인트를 선택합니다. **기본 스트리밍 끝점 세부 정보** 창이 나타납니다.
 4. **시작** 아이콘을 선택합니다.
 5. **저장** 단추를 선택합니다.
@@ -63,7 +63,7 @@ Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 �
 Media Services를 사용하여 비디오를 스트림하려면 원본 비디오를 업로드하고 다중 비트 전송률로 인코딩하고 결과를 게시합니다. 첫 번째 단계는 이 섹션에서 다룹니다. 
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
-2. 계정 배포 진행 상태를 보려면 **설정** > **자산**을 참조하세요. 그런 다음 **업로드** 단추를 선택합니다.
+2. 계정 배포 진행 상태를 보려면 **설정** > **자산** 을 참조하세요. 그런 다음 **업로드** 단추를 선택합니다.
    
     ![파일 업로드](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -73,7 +73,7 @@ Media Services를 사용하여 비디오를 스트림하려면 원본 비디오�
    > Media Services는 비디오를 업로드하기 위한 파일 크기를 제한하지 않습니다.
    > 
    > 
-3. 컴퓨터에서 업로드하려는 비디오로 이동합니다. 비디오를 선택한 다음 **확인**을 선택합니다.  
+3. 컴퓨터에서 업로드하려는 비디오로 이동합니다. 비디오를 선택한 다음 **확인** 을 선택합니다.  
    
     업로드가 시작됩니다. 파일 이름 아래에 진행 상태가 표시됩니다.  
 
@@ -86,17 +86,17 @@ Media Services를 사용하여 비디오를 스트림하려면 원본 비디오�
 Azure Portal에서 Media Encoder Standard를 사용하여 콘텐츠를 인코딩하려면
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
-2. 계정 배포 진행 상태를 보려면 **설정** > **자산**을 참조하세요. 인코딩하려는 자산을 선택합니다.
+2. 계정 배포 진행 상태를 보려면 **설정** > **자산** 을 참조하세요. 인코딩하려는 자산을 선택합니다.
 3. **인코딩** 단추를 선택합니다.
 4. **자산 인코딩** 창에서 **Media Encoder Standard** 프로세서 및 사전 설정을 선택합니다. 사전 설정에 대한 자세한 내용은 [비트 전송률 사다리 자동 생성](media-services-autogen-bitrate-ladder-with-mes.md) 및 [Media Encoder Standard에 대한 작업 미리 설정](media-services-mes-presets-overview.md)을 참조하세요. 입력 비디오에 가장 적합한 사전 설정을 선택하는 것이 중요합니다. 예를 들어 입력 비디오가 1920x1080픽셀 해상도를 포함하는 것을 알고 있는 경우 **H264 다중 비트 전송률 1080p** 사전 설정을 선택할 수 있습니다. 저해상도(640x360) 비디오가 있는 경우 **H264 다중 비트 전송률 1080p** 사전 설정을 사용할 수 없습니다.
    
    리소스를 관리할 수 있도록 출력 자산의 이름과 작업 이름을 편집할 수 있습니다.
    
    ![자산 인코딩](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. **만들기**를 선택합니다.
+5. **만들기** 를 선택합니다.
 
 ### <a name="monitor-encoding-job-progress"></a>인코딩 작업의 진행 상태 모니터링
-인코딩 작업의 진행 상태를 모니터링하려면 페이지 맨 위에 있는 **설정**을 선택한 후 **작업**을 선택합니다.
+인코딩 작업의 진행 상태를 모니터링하려면 페이지 맨 위에 있는 **설정** 을 선택한 후 **작업** 을 선택합니다.
 
 ![작업](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
@@ -134,14 +134,14 @@ MPEG-DASH 스트리밍 URL을 작성하려면 URL에 *(format=mpd-time-csf)* 를
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>자산을 게시하기 위해 포털을 사용하려면
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
-2. 계정 배포 진행 상태를 보려면 **설정** > **자산**을 참조하세요. 게시하려는 자산을 선택합니다.
+2. 계정 배포 진행 상태를 보려면 **설정** > **자산** 을 참조하세요. 게시하려는 자산을 선택합니다.
 3. **게시** 단추를 선택합니다.
 4. 로케이터 유형을 선택합니다.
-5. **추가**를 선택합니다.
+5. **추가** 를 선택합니다.
    
     ![비디오 게시](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-URL이 **게시된 URL**목록에 추가됩니다.
+URL이 **게시된 URL** 목록에 추가됩니다.
 
 ## <a name="play-content-from-the-portal"></a>포털에서 콘텐츠 재생
 Azure Portal의 콘텐츠 플레이어에서 비디오를 테스트할 수 있습니다.

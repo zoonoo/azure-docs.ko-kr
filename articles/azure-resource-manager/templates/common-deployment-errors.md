@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: bb701baf164cfd6ba1dd5c670a406343e83c5c70
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 61a306cd36c55a005ee9ebd897fcfc9a6c88d7c9
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622814"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696399"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -37,7 +37,7 @@ ms.locfileid: "98622814"
 | DeploymentJobSizeExceeded | 크기를 줄이기 위해 템플릿을 단순화 합니다. | [템플릿 크기 오류 해결](error-job-size-exceeded.md) |
 | DnsRecordInUse | DNS 레코드 이름은 고유해야 합니다. 다른 이름을 입력 하십시오. | |
 | ImageNotFound | VM 이미지 설정을 확인합니다. |  |
-| InUseSubnetCannotBeDeleted | 리소스를 업데이트 하려고 할 때이 오류가 발생할 수 있으며, 리소스를 삭제 하 고 만들어 요청을 처리 합니다. 변경되지 않은 모든 값을 지정해야 합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | 리소스를 업데이트 하려고 할 때이 오류가 발생할 수 있으며, 리소스를 삭제 하 고 만들어 요청을 처리 합니다. 변경되지 않은 모든 값을 지정해야 합니다. | [리소스 업데이트](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | 해당 테넌트에 대한 액세스 토큰을 가져옵니다. 계정이 속한 테넌트의 토큰만 가져올 수 있습니다. | |
 | InvalidContentLink | 사용할 수 없는 중첩 된 템플릿에 연결 하려고 시도 했을 수 있습니다. 중첩된 템플릿에 제공된 URI를 다시 한 번 확인합니다. 스토리지 계정에 해당 템플릿이 있는 경우 액세스 가능한 URI인지 확인합니다. SAS 토큰을 전달 해야 할 수도 있습니다. 현재 [Azure Storage 방화벽](../../storage/common/storage-network-security.md)뒤에 있는 저장소 계정에 있는 템플릿에 연결할 수 없습니다. 템플릿을 GitHub와 같은 다른 리포지토리로 이동 하는 것이 좋습니다. | [연결된 템플릿](linked-templates.md) |
 | InvalidDeploymentLocation | 구독 수준에서 배포 하는 경우 이전에 사용한 배포 이름에 대해 다른 위치를 제공 했습니다. | [구독 수준 배포](deploy-to-subscription.md) |
@@ -64,7 +64,7 @@ ms.locfileid: "98622814"
 | PasswordTooLong | 너무 많은 문자를 포함 하는 암호를 선택 하거나 암호 값을 보안 문자열로 변환한 후 매개 변수로 전달 했을 수 있습니다. 템플릿에 **보안 문자열** 매개 변수가 포함되어 있으면 값을 보안 문자열로 변환할 필요가 없습니다. 암호 값을 텍스트로 제공합니다. |  |
 | PrivateIPAddressInReservedRange | 지정된 IP 주소에는 Azure에 필요한 주소 범위가 포함됩니다. 예약된 범위를 방지하도록 IP 주소를 변경합니다. | [IP 주소](../../virtual-network/public-ip-addresses.md) |
 | PrivateIPAddressNotInSubnet | 지정된 IP 주소가 서브넷 범위를 벗어났습니다. 서브넷 범위에 속하는 IP 주소로 변경합니다. | [IP 주소](../../virtual-network/public-ip-addresses.md) |
-| PropertyChangeNotAllowed | 배포 된 리소스에서 일부 속성을 변경할 수 없습니다. 리소스를 업데이트할 때 변경이 허용되는 속성으로 제한합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| PropertyChangeNotAllowed | 배포 된 리소스에서 일부 속성을 변경할 수 없습니다. 리소스를 업데이트할 때 변경이 허용되는 속성으로 제한합니다. | [리소스 업데이트](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | RequestDisallowedByPolicy | 구독에는 배포 하는 동안 수행 하려는 작업을 방해 하는 리소스 정책이 포함 됩니다. 해당 작업을 차단하는 정책을 찾습니다. 가능 하면 정책의 제한 사항을 충족 하도록 배포를 변경 합니다. | [정책 오류 해결](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | 예약된 이름을 포함하지 않는 리소스 이름을 제공합니다. | [예약된 리소스 이름](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 삭제가 완료될 때까지 기다립니다. | |

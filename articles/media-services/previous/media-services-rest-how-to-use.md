@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f48a01bb81829ff2bc10b4db1ed543382f992b58
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264286"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696230"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 **Media Services Operations REST** API는 Media Services 계정에서 작업, 자산, 라이브 채널 및 기타 리소스를 만드는 데 사용됩니다. 자세한 내용은 [Media Services Operations REST API 참조](/rest/api/media/operations/azure-media-services-rest-api-reference)를 참조하세요.
 
@@ -90,7 +90,7 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services에서 지원되는 표준 HTTP 응답 헤더
 다음은 요청한 리소스 및 수행하려는 작업에 따라 사용자에게 반환될 수 있는 헤더 집합입니다.
 
-| 헤더 | 유형 | 값 |
+| 헤더 | 유형 | Value |
 | --- | --- | --- |
 | request-id |String |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
 | client-request-id |String |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
@@ -106,7 +106,7 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 | GET |개체의 현재 값을 반환합니다. |
 | POST |제공된 데이터를 기반으로 개체를 만들거나 명령을 제출합니다. |
 | PUT |개체를 바꾸거나 명명된 개체(있는 경우)를 만듭니다. |
-| Delete |개체를 삭제합니다. |
+| DELETE |개체를 삭제합니다. |
 | MERGE |명명된 속성 변경 내용으로 기존 개체를 업데이트합니다. |
 | HEAD |GET 응답에 대한 개체의 메타데이터를 반환합니다. |
 

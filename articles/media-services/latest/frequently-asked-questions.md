@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9e48d14419e2cd24251f1b00a09fd0289c50c55f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426879"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693810"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
@@ -60,7 +60,7 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Azure Media Services v3에서 아직 사용할 수 없는 기능은 무엇입니까?
 
-자세한 내용은 [V2 api에 대 한 기능 간격](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis)을 참조 하세요.
+자세한 내용은 [마이그레이션 가이드](migrate-v-2-v-3-migration-introduction.md)를 참조 하세요.
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>구독 간에 Media Services 계정을 이동 하는 프로세스는 무엇 인가요?  
 
@@ -169,7 +169,7 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 
 `AssetFile`개념은 저장소 SDK 종속성에서 Media Services를 분리 하기 위해 MEDIA SERVICES API에서 제거 되었습니다. 이제 Media Services 하지 않고 Azure Storage는 저장소 SDK에 속하는 정보를 유지 합니다. 
 
-자세한 내용은 [Media Services v3로 마이그레이션](media-services-v2-vs-v3.md)을 참조하세요.
+자세한 내용은 [Media Services v3로 마이그레이션](migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>클라이언트 쪽 스토리지 암호화는 어디에 있나요?
 
@@ -183,7 +183,7 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 
 #### <a name="why-does-only-audio-play-but-not-video-during-offline-mode"></a>왜 오프라인 모드에서는 오디오만 재생되고 비디오는 재생되지 않나요?
 
-이 동작은 의도적으로 샘플 앱의 것입니다. 오프 라인 모드에서 대체 오디오 트랙이 있는 경우 (HLS의 경우) iOS 10과 iOS 11은 모두 대체 오디오 트랙을 기본값으로 설정 합니다. FPS 오프 라인 모드에 대 한이 동작을 보완 하려면 스트림에서 대체 오디오 트랙을 제거 합니다. Media Services에서이 작업을 수행 하려면 동적 매니페스트 필터 **오디오 전용 = false**를 추가 합니다. 즉, HLS URL은 **. p s/매니페스트 (format = m3u8-aapl-v3-aapl, audio 전용 = false)** 로 끝납니다. 
+이 동작은 의도적으로 샘플 앱의 것입니다. 오프 라인 모드에서 대체 오디오 트랙이 있는 경우 (HLS의 경우) iOS 10과 iOS 11은 모두 대체 오디오 트랙을 기본값으로 설정 합니다. FPS 오프 라인 모드에 대 한이 동작을 보완 하려면 스트림에서 대체 오디오 트랙을 제거 합니다. Media Services에서이 작업을 수행 하려면 동적 매니페스트 필터 **오디오 전용 = false** 를 추가 합니다. 즉, HLS URL은 **. p s/매니페스트 (format = m3u8-aapl-v3-aapl, audio 전용 = false)** 로 끝납니다. 
 
 #### <a name="why-does-it-still-play-audio-only-without-video-during-offline-mode-after-i-add-audio-onlyfalse"></a>audio-only=false를 추가한 후에도 왜 여전히 오프라인 모드에서 동영상 없이 오디오만 재생되나요?
 

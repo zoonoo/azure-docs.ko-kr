@@ -6,12 +6,12 @@ ms.date: 12/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: b9ad5347e146fc94b513180c591b00c4f449619f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9b29c9611359c97c4097ad0b90ee2673bb28f37c
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98146447"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696315"
 ---
 # <a name="telemetry-processors-examples---azure-monitor-application-insights-for-java"></a>원격 분석 프로세서 예-Java 용 Azure Monitor Application Insights
 
@@ -281,7 +281,7 @@ ms.locfileid: "98146447"
 }
 ```
 
-### <a name="delete"></a>삭제
+### <a name="delete"></a>DELETE
 
 다음은 ' credit_card ' 키를 사용 하 여 특성을 삭제 하는 방법을 보여 줍니다.
 
@@ -304,7 +304,7 @@ ms.locfileid: "98146447"
 }
 ```
 
-### <a name="hash"></a>해시
+### <a name="hash"></a>Hash
 
 다음은 기존 특성 값을 해시 하는 방법을 보여 줍니다.
 
@@ -330,7 +330,7 @@ ms.locfileid: "98146447"
 ### <a name="extract"></a>Extract
 
 다음 예에서는 regex를 사용 하 여 다른 특성의 값을 기반으로 새 특성을 만드는 방법을 보여 줍니다.
-예를 들어 http. url = http://example.com/path?queryParam1=value1 , queryParam2 = value2를 지정 하면 다음 특성이 삽입 됩니다.
+예를 들어 http. url = ' http://example.com/path?queryParam1=value1 , queryParam2 = value2 '를 지정 하면 다음 특성이 삽입 됩니다.
 * httpProtocol: http
 * httpDomain: example.com
 * httpPath: 경로

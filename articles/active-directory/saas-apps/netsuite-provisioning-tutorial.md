@@ -10,21 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a5b995fd273fcfa231e101bc77b11d268be728fb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359138"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696492"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 NetSuite 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 NetSuite로 자동으로 프로비저닝 및 프로비저닝 해제를 하도록 NetSuite OneWorld 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-> [!NOTE]
-> 이 통합은 현재 기본 인증(사용자 이름 및 암호)을 사용하여 인증합니다. NetSuite는 이 요구 사항에 대한 예외가 있는 경우를 제외하고 고객이 이 통합을 사용할 수 없도록 하는 다단계 인증 요구 사항을 구현했습니다. NetSuite와 협력하여 이 통합을 고객이 예외 없이 다시 사용할 수 있도록 최신 인증 방법으로 업데이트하고 있습니다. 이 문서를 사용할 수 있게 되면 이 문서를 ETA로 업데이트합니다.
-
-권장 작업: 이 통합을 위한 인증 동작에 대한 업데이트를 릴리스할 때까지 기다리거나, 다단계 인증 요구 사항에 대한 예외를 NetSuite 지원에 문의하세요.
+> [!WARNING]
+> Microsoft에서 NetSuite에 사용자를 프로 비전 하는 데 사용 하는 NetSuite Api의 변경으로 인해이 프로 비전 통합은 2 월 2020에 작동을 중지 합니다. 이로 인해 Azure Active Directory Enterprise 앱 갤러리에서 NetSuite 응용 프로그램의 프로 비전 기능이 곧 제거 될 예정입니다. 응용 프로그램의 SSO 기능은 그대로 유지 됩니다. Microsoft에서 NetSuite를 사용 하 여 새 현대화 프로 비전 통합을 빌드 했지만이 작업이 완료 될 때 현재는 에타가 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

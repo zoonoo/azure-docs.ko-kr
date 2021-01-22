@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3d6c494232456b4819c9275d66fa6f7ab5de9b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2ac03f600f57ae97cebb77e3b67bcd466955d0b
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260733"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695410"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure AD 인증 시작
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 인증에 액세스하고 Azure Media Services API에 액세스하는 방법을 알아봅니다.
 
@@ -45,7 +45,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인�
 
 1. [Azure Portal](https://portal.azure.com/)에서 Media Services 계정을 선택합니다.
 2. Media Services API에 연결하는 방법을 선택합니다.
-3. **MEDIA SERVICES api에 연결**에서 연결 하려는 Media Services api 버전을 선택 합니다.
+3. **MEDIA SERVICES api에 연결** 에서 연결 하려는 Media Services api 버전을 선택 합니다.
 
 ## <a name="service-principal-authentication--recommended"></a>서비스 주체 인증(권장)
 
@@ -59,7 +59,7 @@ Azure AD 테넌트로 애플리케이션을 등록하고 애플리케이션을 A
 
 ### <a name="connect-to-media-services-api"></a>Media Services API에 연결
 
-**Media Services API에 연결**은 서비스 주체 애플리케이션에 연결하는 데 사용하는 값을 제공합니다. 텍스트 값을 가져오거나 JSON 또는 XML 블록을 복사할 수 있습니다.
+**Media Services API에 연결** 은 서비스 주체 애플리케이션에 연결하는 데 사용하는 값을 제공합니다. 텍스트 값을 가져오거나 JSON 또는 XML 블록을 복사할 수 있습니다.
 
 ## <a name="user-authentication"></a>사용자 인증
 

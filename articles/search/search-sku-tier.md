@@ -9,24 +9,27 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1a1fc0ce634282ffd4fcf374138fe97a04f32062
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 320f02f6ece106b4d0e14293f95533aa5b4e0743
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539602"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693454"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
-[검색 서비스를 만들](search-create-service-portal.md)때 서비스 수명 동안 고정 된 가격 책정 계층 (또는 SKU)을 선택 합니다. 예상 월별 비용은 포털의 **가격 책정 계층 선택** 페이지에 표시 됩니다. PowerShell을 통해 또는 Azure CLI를 대신 하 여 서비스를 만드는 경우 계층은 매개 변수를 통해 지정 됩니다 **`-Sku`** .
+[검색 서비스를 만드는](search-create-service-portal.md) 과정은 서비스 수명 동안 고정 된 가격 책정 계층 (또는 SKU)을 선택 하는 것을 의미 합니다. 서비스를 실행할 때 가격은 포털의 **가격 책정 계층 선택** 페이지에 표시 되며 서비스를 실행 하는 월별 예상 비용을 볼 수 있습니다. PowerShell 또는 Azure CLI를 통해 프로 비전 하는 경우 계층은 **`-Sku`** 매개 변수를 통해 지정 되며 [서비스 가격 책정](https://azure.microsoft.com/pricing/details/search/) 을 확인 하 여 예상 비용에 대해 알아보세요.
 
 선택한 계층에 따라 다음이 결정 됩니다.
 
-+ 서비스에서 만들 수 있는 인덱스 및 기타 개체의 최대 수
++ 서비스에서 허용 되는 인덱스 및 기타 개체의 최대 수
 + 파티션(실제 스토리지)의 크기와 속도
 + 고정 된 월별 비용으로 청구 가능 하 고 용량을 추가 하는 경우에는 증분 비용이 청구 됩니다.
 
 일부 인스턴스에서 선택 하는 계층에 따라 [프리미엄 기능의](#premium-features)가용성이 결정 됩니다.
+
+> [!NOTE]
+> "Azure Sku"에 대 한 정보를 찾고 있나요? [Azure 가격](https://azure.microsoft.com/pricing/) 책정으로 시작한 후 서비스별 가격 페이지에 대 한 링크를 아래로 스크롤합니다.
 
 ## <a name="tier-descriptions"></a>계층 설명
 
@@ -67,7 +70,7 @@ ms.locfileid: "98539602"
 
 ## <a name="partition-size-and-speed"></a>파티션 크기 및 속도
 
-계층 가격 책정에는 기본 2gb부터 저장소에 최적화 된 (L2) 계층의 경우 최대 2tb의 범위에 해당 하는 파티션 별 저장소에 대 한 세부 정보가 포함 됩니다. 작업 속도, 대기 시간 및 전송 속도와 같은 기타 하드웨어 특성은 게시 되지 않지만 특정 솔루션 아키텍처에 맞게 설계 된 계층은 이러한 시나리오를 지원 하기 위한 기능이 포함 된 하드웨어를 기반으로 합니다.
+계층 가격 책정에는 기본 2gb부터 저장소에 최적화 된 (L2) 계층의 경우 최대 2tb의 범위에 해당 하는 파티션 별 저장소에 대 한 세부 정보가 포함 됩니다. 작업 속도, 대기 시간 및 전송 속도와 같은 기타 하드웨어 특성은 게시 되지 않지만 특정 솔루션 아키텍처에 맞게 설계 된 계층은 이러한 시나리오를 지원 하기 위한 기능이 포함 된 하드웨어를 기반으로 합니다. 파티션에 대 한 자세한 내용은 [용량 예측 및 관리](search-capacity-planning.md) 및 [성능 크기 조정](search-performance-optimization.md)을 참조 하세요.
 
 ## <a name="billing-rates"></a>요금 청구 요금
 

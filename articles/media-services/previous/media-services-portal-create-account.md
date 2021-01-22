@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2ca47e49af06ab0a6dffc1f4011d7dceb58830be
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 34546e74c9d066af20ece834275732d55b8d6277
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348511"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695461"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Media Services 계정 만들기
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 Azure Portal을 통해 AMS(Azure Media Services) 계정을 신속하게 만들 수 있습니다. 계정을 사용하여 Azure에서 미디어 콘텐츠를 저장, 암호화, 인코딩, 관리 및 스트리밍할 수 있는 Media Services에 액세스할 수 있습니다. Media Services 계정을 만들 때 연결된 스토리지 계정도 만듭니다(또는 기존 스토리지 계정 사용). Media Services 계정을 삭제하는 경우 관련 스토리지 계정의 Blob은 삭제되지 않습니다.
 
@@ -37,7 +37,7 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 > [!NOTE]
 > 다른 지역의 Azure Media Services 기능 가용성에 대 한 자세한 내용은 [지역 간 AMS 기능](availability-regions-v-2.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -46,7 +46,7 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 이 섹션의 단계에서는 AMS 계정을 만드는 방법을 보여 줍니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **+ 리소스 만들기**  >  **미디어**  >  **Media Services** 를 클릭 합니다.
+2. **+리소스 만들기** > **미디어** > **Media Services** 를 클릭합니다.
 3. **미디어 서비스 계정 만들기** 에 필요한 값을 입력합니다.
 
    1. **계정 이름** 에 새 AMS 계정의 이름을 입력합니다. Media Services 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.
@@ -66,7 +66,7 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
    
 ## <a name="to-manage-your-ams-account"></a>AMS 계정을 관리하려면
 
-AMS 계정을 관리하려면(예: 프로그래밍 방식으로 AMS API에 연결, 비디오 업로드, 자산 인코딩, 콘텐츠 보호 구성, 작업 진행률 모니터링) 포털의 왼쪽에서 **설정** 을 선택합니다. **설정** 에서 사용할 수 있는 블레이드 중 하나로 이동합니다(예: **API 액세스** , **자산** , **작업** , **콘텐츠 보호** ).
+AMS 계정을 관리하려면(예: 프로그래밍 방식으로 AMS API에 연결, 비디오 업로드, 자산 인코딩, 콘텐츠 보호 구성, 작업 진행률 모니터링) 포털의 왼쪽에서 **설정** 을 선택합니다. **설정** 에서 사용할 수 있는 블레이드 중 하나로 이동합니다(예: **API 액세스**, **자산**, **작업**, **콘텐츠 보호**).
 
 ## <a name="next-steps"></a>다음 단계
 

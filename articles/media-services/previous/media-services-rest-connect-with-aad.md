@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 8bea4c049c3d7ea17e173f069a3e99cbcca1fe48
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 28719046c9a8ccc65d231244ef8b5b3f8e116282
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041987"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694733"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Media Services API 액세스
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가지 방법 중 하나로 인증할 수 있습니다.
 
@@ -49,14 +49,14 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 > [!IMPORTANT]
 > 현재 Media Services는 Azure Access Control 서비스 인증 모델을 지원합니다. 하지만 Access Control 인증은 2018년 6월 1일부로 사용 중단되었습니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - [Azure Portal를 사용 하 여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
 - [Azure AD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 이 문서에 나와 있는 REST API를 실행합니다. 
 
-    이 자습서에서는 **Postman** 을 사용하지만 어떤 REST 도구든 사용할 수 있습니다. 다른 대안은 REST 플러그 인 또는 **Telerik Fiddler** 를 사용 하는 **Visual Studio Code** 입니다. 
+    이 자습서에서는 **Postman** 을 사용하지만 어떤 REST 도구든 사용할 수 있습니다. 다른 대안은 다음과 같습니다. **Visual Studio Code** 와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler** 를 사용할 수도 있습니다. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Azure Portal에서 인증 정보 가져오기
 
@@ -64,7 +64,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 
 Media Services API에 액세스하려면 다음 데이터 요소를 수집해야 합니다.
 
-|설정|예제|Description|
+|설정|예제|설명|
 |---|-------|-----|
 |Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 엔드포인트처럼 Azure AD는 <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
 |REST API 엔드포인트|<https://amshelloworld.restv2.westus.media.azure.net/api/>|애플리케이션에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
@@ -98,14 +98,14 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
       새 앱이 페이지에 표시됩니다.
 
-6. **클라이언트 ID** (애플리케이션 ID)를 가져옵니다.
+6. **클라이언트 ID**(애플리케이션 ID)를 가져옵니다.
     
    1. 애플리케이션을 선택합니다.
    2. 오른쪽 창에서 **클라이언트 ID** 를 가져옵니다. 
 
       !["Azure A D 앱" 및 "응용 프로그램 관리"를 선택 하 고 오른쪽 창에 "클라이언트 I D"가 강조 표시 된 스크린샷](./media/connect-with-rest/existing-client-id.png)
 
-7. 애플리케이션의 **키** (클라이언트 암호) 가져오기 
+7. 애플리케이션의 **키**(클라이언트 암호) 가져오기 
 
    1. **애플리케이션 관리** 단추를 클릭합니다. 클라이언트 ID 정보는 **애플리케이션 ID** 아래에 있습니다. 
    2. **키** 를 누릅니다.
@@ -124,7 +124,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 ## <a name="get-the-access-token-using-postman"></a>Postman을 사용하여 액세스 토큰 가져오기
 
-이 섹션에서는 **Postman** 을 사용하여 JWT 전달자 토큰(액세스 토큰)을 반환하는 REST API를 실행하는 방법을 설명합니다. Media Services REST API를 호출하려면 호출에 "Authorization" 헤더를 추가한 다음, 이 자습서의 다음 섹션에 나와 있는 것처럼 각 호출에 "Bearer *your_access_token* " 값을 추가해야 합니다. 
+이 섹션에서는 **Postman** 을 사용하여 JWT 전달자 토큰(액세스 토큰)을 반환하는 REST API를 실행하는 방법을 설명합니다. Media Services REST API를 호출하려면 호출에 "Authorization" 헤더를 추가한 다음, 이 자습서의 다음 섹션에 나와 있는 것처럼 각 호출에 "Bearer *your_access_token*" 값을 추가해야 합니다. 
 
 1. **Postman** 을 엽니다.
 2. **POST** 를 선택합니다.

@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 49364681f0c5b4b6cc4d5f20778edb61e9f6f5b3
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563452"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695783"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure Cognitive Search의 보안-개요
 
-이 문서에서는 콘텐츠와 작업을 보호할 수 있는 Azure Cognitive Search의 주요 보안 기능을 설명 합니다.
+이 문서에서는 콘텐츠와 작업을 보호 하는 Azure Cognitive Search의 보안 기능을 설명 합니다.
 
-+ 저장소 계층에서 미사용 암호화는 인덱스, 동의어 맵, 인덱서, 데이터 원본 및 기술력과 정의를 포함 하 여 디스크에 저장 된 모든 서비스 관리 콘텐츠에 대해 기본 제공 됩니다. Azure Cognitive Search는 인덱싱된 콘텐츠의 보충 암호화를 위해 CMK (고객 관리 키) 추가도 지원 합니다. 8 월 1 2020 이후에 만들어진 서비스의 경우 CMK 암호화는 인덱싱된 콘텐츠의 전체 이중 암호화를 위해 임시 디스크의 데이터로 확장 됩니다.
++ 저장소 계층에서는 인덱스, 동의어 맵, 인덱서, 데이터 원본 및 기술력과 정의를 포함 하 여 디스크에 저장 된 모든 서비스 관리 콘텐츠에 대해 데이터 암호화가 기본 제공 됩니다. 필요에 따라 인덱싱된 콘텐츠의 보충 암호화를 위해 CMK (고객 관리 키)를 추가할 수 있습니다. 8 월 1 2020 이후에 만들어진 서비스의 경우 CMK 암호화는 인덱싱된 콘텐츠의 전체 "이중 암호화"에 대해 임시 디스크의 데이터로 확장 됩니다.
 
-+ 인바운드 보안은 요청에 대 한 API 키, 방화벽의 인바운드 규칙, 공용 인터넷에서 서비스를 완전히 보호 하는 개인 끝점에 대 한 보안 수준의 검색 서비스 끝점을 보호 합니다.
++ 인바운드 보안은 요청에 대 한 API 키, 방화벽의 인바운드 규칙, 공용 인터넷에서 서비스를 완전히 보호 하는 개인 끝점에 대 한 보안 수준 높이기에서 검색 서비스 끝점에 대 한 보호를 나타냅니다.
 
-+ 아웃 바운드 보안은 외부 소스에서 콘텐츠를 가져오는 인덱서에 적용 됩니다. 아웃 바운드 요청의 경우, Azure Storage, Azure SQL, Cosmos DB 또는 기타 Azure 데이터 원본에서 데이터에 액세스할 때 신뢰할 수 있는 서비스를 검색 하도록 관리 되는 id를 설정 합니다. 관리 id는 연결에 대 한 자격 증명 또는 액세스 키를 대체 합니다. 아웃 바운드 보안은이 문서에서 다루지 않습니다. 이 기능에 대 한 자세한 내용은 [관리 되는 id를 사용 하 여 데이터 원본에 연결](search-howto-managed-identities-data-sources.md)을 참조 하세요.
++ 아웃 바운드 보안은 외부 원본에서 콘텐츠를 가져오는 인덱서와 관련이 있습니다. 아웃 바운드 요청의 경우, Azure Storage, Azure SQL, Cosmos DB 또는 기타 Azure 데이터 원본에서 데이터에 액세스할 때 신뢰할 수 있는 서비스를 검색 하도록 관리 되는 id를 설정 합니다. 관리 id는 연결에 대 한 자격 증명 또는 액세스 키를 대체 합니다. 아웃 바운드 보안은이 문서에서 다루지 않습니다. 이 기능에 대 한 자세한 내용은 [관리 되는 id를 사용 하 여 데이터 원본에 연결](search-howto-managed-identities-data-sources.md)을 참조 하세요.
 
 보안 아키텍처 및 각 기능 범주에 대 한 개요는이 빠른 학습 비디오를 시청 하세요.
 

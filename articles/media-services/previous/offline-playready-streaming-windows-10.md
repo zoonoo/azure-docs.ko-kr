@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a26be590d5f7b467f57e8e18eac54ce57be24094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd1d50003ef4334f1ea83ac256b371b20d021936
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266598"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693895"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Windows 10에서 PlayReady 오프라인 스트리밍
 
@@ -31,7 +31,7 @@ ms.locfileid: "89266598"
 > * [버전 2](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로드/재생을 지원합니다. 이 문서에서는 Windows 10/PlayReady 클라이언트에 대한 Azure Media Services의 오프라인 지원을 설명합니다. 다음 문서에서는 iOS/FairPlay 및 Android/Widevine 디바이스에 대한 오프라인 모드 지원에 대해 알아볼 수 있습니다.
 
@@ -42,7 +42,7 @@ Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로
 
 이 섹션에서는 오프라인 모드 재생에 관한 약간의 배경 지식을 제공합니다.
 
-* 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한 됩니다.사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우 대개 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT/OVP 공급자가 오프라인 모드 지원을 요청하고 있습니다.
+* 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한 됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우 대개 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT/OVP 공급자가 오프라인 모드 지원을 요청하고 있습니다.
 * Netflix 2016 Q3 주주 컨퍼런스에서 공개된 바와 같이 Netflix CEO인 Reed Hastings는 콘텐츠 다운로드는 “자주 요청되는 기능”이고 “이 기능에 대해 열려 있습니다”라고 밝혔습니다.
 * 일부 콘텐츠 공급자는 국가/지역 테두리를 넘어 DRM 라이선스 배달을 허용 하지 않을 수 있습니다. 사용자가 해외 여행을 하면서도 콘텐츠를 보려는 경우 오프라인 다운로드가 필요합니다.
  

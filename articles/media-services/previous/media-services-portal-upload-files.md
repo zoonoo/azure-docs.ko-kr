@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 00035782a17936405b2b042035220dde87da12b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb301cd719d98d806e2a9e539cd81e6778461bb
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257061"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695309"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Azure Portal에서 Media Services 계정에 파일 업로드
 
@@ -32,7 +32,7 @@ ms.locfileid: "89257061"
 > 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. 포털을 사용 하 여 최신 파일을 업로드 [하려면 포털을 사용 하 여 콘텐츠 업로드, 인코딩 및 스트리밍](../latest/manage-assets-quickstart.md)을 참조 하세요.<br/>또한 [v3 Media Services](../latest/index.yml)확인 합니다. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. 포털을 사용 하 여 최신 파일을 업로드 [하려면 포털을 사용 하 여 콘텐츠 업로드, 인코딩 및 스트리밍](../latest/manage-assets-quickstart.md)을 참조 하세요.<br/>또한 [v3 Media Services](../latest/index.yml)확인 합니다. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 Azure Media Services에서 자산에 디지털 파일을 업로드합니다. 자산에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다. 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
@@ -42,7 +42,7 @@ Media Services는 파일 처리를 위해 최대 파일 크기를 포함합니�
 
 ## <a name="upload-files"></a>파일 업로드
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
-2. 계정 배포 진행 상태를 보려면 **설정** > **자산**을 참조하세요. 그런 다음 **업로드** 단추를 선택합니다.
+2. 계정 배포 진행 상태를 보려면 **설정** > **자산** 을 참조하세요. 그런 다음 **업로드** 단추를 선택합니다.
    
     ![파일 업로드](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -51,7 +51,7 @@ Media Services는 파일 처리를 위해 최대 파일 크기를 포함합니�
    > [!NOTE]
    > Media Services는 비디오를 업로드하기 위한 파일 크기를 제한하지 않습니다.
  
-3. 컴퓨터에서 업로드하려는 비디오로 이동합니다. 비디오를 선택한 다음 **확인**을 선택합니다.  
+3. 컴퓨터에서 업로드하려는 비디오로 이동합니다. 비디오를 선택한 다음 **확인** 을 선택합니다.  
    
     업로드가 시작됩니다. 파일 이름 아래에 진행 상태가 표시됩니다.  
 

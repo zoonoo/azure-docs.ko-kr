@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 09ee98bf8bbe0067f9c79ce4767f3cf68b83fb43
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: bb13df0f87cd10719f33afe4ec080c4c785df720
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016805"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695563"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Azure Time Series insights 환경에 IoT hub 이벤트 원본 추가
 
@@ -25,7 +25,7 @@ ms.locfileid: "95016805"
 > [!NOTE]
 > 이 문서의 지침은 Azure Time Series Insights Gen 1 및 Azure Time Series insights Gen 2 환경에 모두 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Time Series Insights 환경을](./tutorials-set-up-tsi-environment.md)만듭니다.
 * [Azure Portal을 사용하여 IoT Hub](../iot-hub/iot-hub-create-through-portal.md)를 만듭니다.
@@ -74,7 +74,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
        | 속성 | Description |
        | --- | --- |
-       | Subscription | 원하는 iot hub가 속한 구독입니다. |
+       | 구독 | 원하는 iot hub가 속한 구독입니다. |
        | IoT Hub 이름 | 선택한 iot hub의 이름입니다. |
        | IoT Hub 정책 이름 | 공유 액세스 정책을 선택합니다. IoT hub 설정 탭에서 공유 액세스 정책을 찾을 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **서비스 연결** 사용 권한이 *반드시* 있어야 합니다. |
        | IoT Hub 정책 키 | 키는 미리 채워져 있습니다. |

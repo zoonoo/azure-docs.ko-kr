@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 2b15389ae35a63c71ac4cb9e167e578e7e1e690e
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b8f2b3e1ffde49c8df3c3a6d7c0b9b3751fda5fa
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695780"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696179"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vm에 대 한 Azure Automanage 질문과 대답
 
@@ -28,7 +28,6 @@ Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack 
 
 Azure Automanage를 사용 하도록 설정 하기 위한 필수 구성 요소는 다음과 같습니다.
 - Windows Server Vm에만 해당
-- Vm이 실행 되 고 있어야 함
 - Vm은 지원 되는 지역에 있어야 합니다.
 - 사용자에 게 올바른 사용 권한이 있어야 합니다.
 - 확장 되지 않은 집합 Vm만

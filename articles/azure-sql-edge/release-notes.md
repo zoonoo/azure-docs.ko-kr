@@ -10,16 +10,31 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: c18cb1cef9b46b4b3cd2f614945f98abf9de7c58
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e078fb91b3279b6f4321cd51dfb094f82bbe5f14
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704353"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696382"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Azure SQL Edge 릴리스 정보 
 
 이 문서에서는 Azure SQL Edge의 모든 새로운 빌드에 대해 새롭게 제공 되는 기능과 변경 된 기능을 설명 합니다.
+
+## <a name="azure-sql-edge-102"></a>Azure SQL Edge 1.0.2
+
+SQL 엔진 빌드 15.0.2000.1554
+
+### <a name="fixes"></a>수정 프로그램
+
+- T-sql 스트리밍  
+   - 스트리밍 개체에 대 한 소유권 및 권한 수정
+   - 로그 회전 및 로그 접두사로 향상 된 로깅
+   - Azure Stream Analytics: 로깅 향상, 어댑터의 오류 코드/오류 메시지 개선 
+
+- ONNX
+    - 병렬 쿼리 시나리오 및 모델 정리 오류에 대 한 버그 수정
+    - ONNX 런타임을 1.5.1로 업그레이드
 
 ## <a name="azure-sql-edge-101"></a>Azure SQL Edge 1.0.1
 
@@ -93,7 +108,7 @@ SQL 엔진 빌드 15.0.2000.1549
 ## <a name="ctp-22"></a>CTP 2.2
 SQL 엔진 빌드 15.0.2000.1546
 ### <a name="whats-new"></a>새로운 기능
-- Nonroot 컨테이너에 대 한 지원 
+- 루트가 아닌 컨테이너 지원 
 - 사용 현황 및 진단 데이터 수집에 대 한 지원 
 - T-sql 스트리밍 업데이트:
    - 스트림 개체 이름의 유니코드 문자 지원

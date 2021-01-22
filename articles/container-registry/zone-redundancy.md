@@ -3,12 +3,12 @@ title: 고가용성을 위한 영역 중복 레지스트리
 description: Azure Container Registry에서 영역 중복성을 사용 하도록 설정 하는 방법에 대해 알아봅니다. Azure 가용성 영역에서 컨테이너 레지스트리 또는 복제를 만듭니다. 영역 중복성은 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 01/07/2021
-ms.openlocfilehash: 8c03b2bb093f8d0fa70ff5132f7448ce86e8779d
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 7de8ed101d2df9e491c475f522a56580798c49a9
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127358"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696281"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>복원 력 및 고가용성을 위해 Azure Container Registry에서 영역 중복성 사용
 
@@ -39,7 +39,7 @@ Azure CLI를 사용 하 여 영역 중복성을 사용 하려면 버전 2.17.0 �
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-필요한 경우 [az group create](/cli/az/group#az_group_create) 명령을 실행 하 여 레지스트리에 대 한 리소스 그룹을 만듭니다.
+필요한 경우 [az group create](/cli/azure/group#az_group_create) 명령을 실행 하 여 레지스트리에 대 한 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -47,7 +47,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-zone-enabled-registry"></a>영역 사용 레지스트리 만들기
 
-[Az acr create](/cli/az/acr#az_acr_create) 명령을 실행 하 여 프리미엄 서비스 계층에서 영역 중복 레지스트리를 만듭니다. Azure Container Registry에 대 한 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역을 선택 합니다. 다음 예제에서 영역 중복성은 *e미국* 지역에서 사용 하도록 설정 됩니다. `az acr create`자세한 레지스트리 옵션은 명령 도움말을 참조 하세요.
+[Az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) 명령을 실행 하 여 프리미엄 서비스 계층에서 영역 중복 레지스트리를 만듭니다. Azure Container Registry에 대 한 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역을 선택 합니다. 다음 예제에서 영역 중복성은 *e미국* 지역에서 사용 하도록 설정 됩니다. `az acr create`자세한 레지스트리 옵션은 명령 도움말을 참조 하세요.
 
 ```azurecli
 az acr create \
@@ -69,7 +69,7 @@ az acr create \
 
 ### <a name="create-zone-redundant-replication"></a>영역 중복 복제 만들기
 
-[Az acr replication create](/cli/az/acr/replication#az_acr_replication_create) 명령을 실행 하 여 *westus2* 과 같은 Azure Container Registry의 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역에 영역 중복 레지스트리 복제본을 만듭니다. 
+[Az acr replication create](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) 명령을 실행 하 여 *westus2* 과 같은 Azure Container Registry의 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역에 영역 중복 레지스트리 복제본을 만듭니다. 
 
 ```azurecli
 az acr replication create \
@@ -113,7 +113,7 @@ az acr replication create \
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-필요한 경우 [az group create](/cli/az/group#az_group_create) 명령을 실행 하 여 *에서는 eastus* 와 같이 Azure Container Registry에 대 한 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역에 레지스트리에 대 한 리소스 그룹을 만듭니다. 이 지역은 템플릿에서 레지스트리 위치를 설정 하는 데 사용 됩니다.
+필요한 경우 [az group create](/cli/azure/group#az_group_create) 명령을 실행 하 여 *에서는 eastus* 와 같이 Azure Container Registry에 대 한 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역에 레지스트리에 대 한 리소스 그룹을 만듭니다. 이 지역은 템플릿에서 레지스트리 위치를 설정 하는 데 사용 됩니다.
 
 ```azurecli
 az group create --name <resource-group-name> --location eastus
@@ -219,7 +219,7 @@ az group create --name <resource-group-name> --location eastus
   }
 ```
 
-다음 [az deployment group create](/cli/az/deployment#az_group_deployment_create) 명령을 실행 하 여 이전 템플릿 파일을 사용 하 여 레지스트리를 만듭니다. 표시 되는 경우 다음을 제공 합니다.
+다음 [az deployment group create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) 명령을 실행 하 여 이전 템플릿 파일을 사용 하 여 레지스트리를 만듭니다. 표시 되는 경우 다음을 제공 합니다.
 
 * 고유한 레지스트리 이름 또는 매개 변수 없이 템플릿을 배포 하 고 고유한 이름을 만듭니다.
 * 가용성 영역을 지 원하는 복제본의 위치 (예: *westus2* )

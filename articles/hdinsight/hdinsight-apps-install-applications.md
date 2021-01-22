@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2b6ea68d069b90293ab35024bebf3fbdc8acb592
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: f275064bd4accd0ca12acf3e71713f39d3860be2
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197679"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696458"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -25,7 +25,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 
 |애플리케이션 |클러스터 유형 | Description |
 |---|---|---|
-|[AtScale 인텔리전스 플랫폼](https://azuremarketplace.microsoft.com/marketplace/apps/atscaleinc.atscale) |Hadoop은 |AtScale은 HDInsight 클러스터를 스케일 아웃 OLAP 서버로 전환하여 Microsoft Excel, Power BI, Tableau Software에서 QlikView로 이미 알고, 소유하고, 좋아하는 BI 도구를 사용하여 수십억 개의 데이터 행을 대화형으로 쿼리할 수 있도록 합니다. |
+|[AtScale 인텔리전스 플랫폼](https://aws.amazon.com/marketplace/pp/AtScale-AtScale-Intelligence-Platform/B07BWWHH18) |Hadoop은 |AtScale은 HDInsight 클러스터를 스케일 아웃 OLAP 서버로 전환하여 Microsoft Excel, Power BI, Tableau Software에서 QlikView로 이미 알고, 소유하고, 좋아하는 BI 도구를 사용하여 수십억 개의 데이터 행을 대화형으로 쿼리할 수 있도록 합니다. |
 |[HDInsight용 CDAP](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP는 Hadoop에 가치를 창출하는 시간을 가속화하고 IT에서 셀프 서비스 데이터를 제공할 수 있도록 하는 첫 번째 빅 데이터용 통합 플랫폼입니다. 확장성 있는 오픈 소스 CDAP는 혁신의 장벽을 제거합니다. 요구 사항: 4개 지역 노드, 최소 D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop은 |Datameer는 분석할 데이터를 준비, 탐색, 관리하는 셀프 서비스 확장형 플랫폼으로, 복잡한 다중 소스 데이터를 비즈니스에 바로 사용 가능한 소중한 정보로 전환하여 더 빠르고 스마트한 인사이트를 기업 전체에 제공합니다. |
 |[HDInsight의 Dataiku DSS](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |데이터 과학자와 데이터 분석가가 협업을 통해 원시 데이터를 매우 효과적인 예측으로 전환하여 새 데이터 제품 및 서비스를 보다 효율적으로 디자인하고 실행할 수 있도록 하는 엔터프라이즈 데이터 과학 플랫폼의 Dataiku DSS. |

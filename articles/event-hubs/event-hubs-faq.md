@@ -2,13 +2,13 @@
 title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: e7a34fe0f2ef04fffeeddc5615d3ac1749467902
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.date: 01/20/2021
+ms.openlocfilehash: e6fd4814e771d03827e51f1cd5ee182c9e432cc5
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955419"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696111"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -55,8 +55,8 @@ Event Hubs 표준 계층은 현재 최대 7일의 보존 기간을 지원합니�
 ### <a name="how-do-i-monitor-my-event-hubs"></a>내 Event Hubs를 모니터링하려면 어떻게 할까요?
 Event Hubs는 [Azure Monitor](../azure-monitor/overview.md)에 리소스 상태를 제공하는 자세한 메트릭을 내보냅니다. 또한 네임스페이스 수준뿐만 아니라 엔터티 수준에서도 Event Hubs 서비스의 전반적인 상태를 평가할 수 있습니다. [Azure Event Hubs](event-hubs-metrics-azure-monitor.md)에 제공되는 모니터링에 대해 알아보세요.
 
-### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Azure Event Hubs 고객 데이터를 저장 하는 위치
-Azure Event Hubs는 고객 데이터를 저장 합니다. 이 데이터는 단일 지역에 Event Hubs 의해 자동으로 저장 되므로이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 데이터를 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
+### <a name="where-does-azure-event-hubs-store-data"></a><a name="in-region-data-residency"></a>Azure Event Hubs 데이터를 저장 하는 위치
+Azure Event Hubs 표준 및 전용 계층은 선택한 지역에 메타 데이터 및 데이터를 저장 합니다. Azure Event Hubs 네임 스페이스에 대해 지역 재해 복구를 설정 하는 경우 메타 데이터는 선택한 보조 지역에 복사 됩니다. 따라서이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 데이터를 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
 
 [!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
@@ -76,7 +76,7 @@ sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
-예제:
+예:
 
 ```properties
 bootstrap.servers=dummynamespace.servicebus.windows.net:9093

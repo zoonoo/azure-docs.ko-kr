@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: dc08e23b6ef040ba5833ffa97f71d8cd1da3bb8a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 3f9fc9fd1bacce8733949969b496dc03d6c10901
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019803"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695828"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -62,7 +62,7 @@ Media Services를 사용 하 여 서비스에 전송 되는 기여 피드의 [MP
 
 ![통과 라이브 이벤트의 비디오 및 오디오 피드가 수집 되 고 처리 되는 방법을 보여 주는 다이어그램입니다.](./media/live-streaming/pass-through.svg)
 
-통과 **라이브 이벤트**를 사용 하는 경우 온-프레미스 라이브 인코더를 사용 하 여 여러 비트 전송률 비디오 스트림을 생성 하 고이를 라이브 이벤트에 기여 피드로 보냅니다 (RTMP 또는 조각화 된 MP4 입력 프로토콜 사용). 그런 다음 라이브 이벤트는 추가 코드 변환 없이 들어오는 비디오 스트림을 동적 포장기 (스트리밍 끝점)에 전달 합니다. 이러한 통과 라이브 이벤트는 장기 실행 라이브 이벤트 또는 24x365 선형 라이브 스트리밍을 위해 최적화 되었습니다. 
+통과 **라이브 이벤트** 를 사용 하는 경우 온-프레미스 라이브 인코더를 사용 하 여 여러 비트 전송률 비디오 스트림을 생성 하 고이를 라이브 이벤트에 기여 피드로 보냅니다 (RTMP 또는 조각화 된 MP4 입력 프로토콜 사용). 그런 다음 라이브 이벤트는 추가 코드 변환 없이 들어오는 비디오 스트림을 동적 포장기 (스트리밍 끝점)에 전달 합니다. 이러한 통과 라이브 이벤트는 장기 실행 라이브 이벤트 또는 24x365 선형 라이브 스트리밍을 위해 최적화 되었습니다. 
 
 ### <a name="live-encoding"></a>라이브 인코딩  
 
@@ -103,7 +103,7 @@ Media Services v3에서 라이브 스트리밍 워크플로를 이해 하려면 
 8. 사용할 Url을 다시 가져오려면 **스트리밍 로케이터의** 경로를 나열 합니다 (결정적).
 9. 스트리밍할 **스트리밍 끝점** (원본)에 대 한 호스트 이름을 가져옵니다.
 10. 8단계의 URL을 9단계의 호스트 이름과 결합하여 전체 URL을 구합니다.
-11. **라이브 이벤트** 를 볼 수 있도록 중지 하려면 이벤트 스트리밍을 중지 하 고 **스트리밍 로케이터**를 삭제 해야 합니다.
+11. **라이브 이벤트** 를 볼 수 있도록 중지 하려면 이벤트 스트리밍을 중지 하 고 **스트리밍 로케이터** 를 삭제 해야 합니다.
 12. 스트리밍 이벤트를 완료하고 이전에 프로비전된 리소스를 정리하려면 다음 절차를 수행합니다.
 
     * 인코더에서 스트림의 푸시를 중지합니다.
@@ -135,4 +135,4 @@ Media Services v3에서 라이브 스트리밍 워크플로를 이해 하려면 
 
 * [라이브 스트리밍 빠른 시작](live-events-wirecast-quickstart.md)
 * [라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)
-* [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md)
+* [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-v-2-v-3-migration-introduction.md)

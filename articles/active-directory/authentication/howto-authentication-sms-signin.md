@@ -11,16 +11,16 @@ author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43573b54be6884e01121e404370d2e1d85a3c4e8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d9430066ad92b4d0b69bd07c763e3f7b5d6e889a
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660884"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693539"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 SMS 기반 인증용 사용자 구성 및 사용 
 
-응용 프로그램 및 서비스에 대 한 로그인을 간소화 하 고 보안을 위해 Azure Active Directory (Azure AD)는 여러 인증 옵션을 제공 합니다. SMS 기반 인증을 통해 사용자는 사용자 이름 및 암호를 제공 하거나 알지 못해도 로그인 할 수 있습니다. Id 관리자가 계정을 만든 후 로그인 프롬프트에 전화 번호를 입력할 수 있습니다. 로그인을 완료 하기 위해 제공할 수 있는 문자 메시지를 통해 인증 코드를 수신 합니다. 이 인증 방법을 사용하면 특히 일선 작업자가 애플리케이션 및 서비스에 간편하게 액세스할 수 있습니다.
+응용 프로그램 및 서비스에 대 한 로그인을 간소화 하 고 보안을 위해 Azure Active Directory (Azure AD)는 여러 인증 옵션을 제공 합니다. SMS 기반 인증을 통해 사용자는 사용자 이름 및 암호를 제공 하거나 알지 못해도 로그인 할 수 있습니다. Id 관리자가 계정을 만든 후 로그인 프롬프트에 전화 번호를 입력할 수 있습니다. 로그인을 완료 하기 위해 제공할 수 있는 문자 메시지를 통해 인증 코드를 수신 합니다. 이 인증 방법을 사용 하면 특히 Frontline 작업자의 응용 프로그램 및 서비스에 간편 하 게 액세스할 수 있습니다.
 
 이 문서에서는 Azure AD에서 일부 사용자 또는 그룹에 대해 SMS 기반 인증을 사용하도록 설정하는 방법을 보여 줍니다.
 

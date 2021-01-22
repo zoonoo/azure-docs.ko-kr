@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 83e9b0278e99867cafa7e633bc382e490ec273c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9f1dc0ce303b45ad2d43c0c9365edc197f7d8e
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250543"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695597"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>.NET을 사용하여 Media Services 계정에 파일 업로드
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 (및 이러한 파일에 대 한 메타 데이터)이 포함 될 수 있습니다.  파일이 업로드 되 면 추가 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전 하 게 저장 됩니다.
 
-자산에 포함된 파일을 **자산 파일**이라고 합니다. **AssetFile** 인스턴스 및 실제 미디어 파일은 별개의 두 개체입니다. AssetFile 인스턴스는 미디어 파일에 대한 메타데이터를 포함하는 반면 미디어 파일은 실제 미디어 콘텐츠를 포함합니다.
+자산에 포함된 파일을 **자산 파일** 이라고 합니다. **AssetFile** 인스턴스 및 실제 미디어 파일은 별개의 두 개체입니다. AssetFile 인스턴스는 미디어 파일에 대한 메타데이터를 포함하는 반면 미디어 파일은 실제 미디어 콘텐츠를 포함합니다.
 
 ## <a name="considerations"></a>고려 사항
 
@@ -54,9 +54,9 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
   
     자산이 암호화된 스토리지인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)을 참조 하세요.
 
-**CommonEncrypted** 옵션 또는 **EnvelopeEncrypted** 옵션으로 암호화할 자산을 지정하는 경우 **ContentKey**로 해당 자산을 연결해야 합니다. 자세한 내용은 [ContentKey를 만드는 방법](media-services-dotnet-create-contentkey.md)을 참조하세요 
+**CommonEncrypted** 옵션 또는 **EnvelopeEncrypted** 옵션으로 암호화할 자산을 지정하는 경우 **ContentKey** 로 해당 자산을 연결해야 합니다. 자세한 내용은 [ContentKey를 만드는 방법](media-services-dotnet-create-contentkey.md)을 참조하세요 
 
-**StorageEncrypted** 옵션으로 암호화할 자산을 지정하는 경우 .NET용 Media Services SDK에서 자산에 대한 **StorageEncrypted** **ContentKey**를 만듭니다.
+**StorageEncrypted** 옵션으로 암호화할 자산을 지정하는 경우 .NET용 Media Services SDK에서 자산에 대한 **StorageEncrypted** **ContentKey** 를 만듭니다.
 
 이 아티클에서는 Media Services .NET SDK와 Media Services .NET SDK 확장을 사용하여 Media Services 자산으로 파일을 업로드하는 방법을 설명합니다.
 
@@ -167,7 +167,7 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
 많은 수의 자산을 업로드할 때에는 다음 사항을 고려합니다.
 
 * 스레드마다 새 **CloudMediaContext** 개체를 만듭니다. **CloudMediaContext** 클래스는 스레드로부터 안전하지 않습니다.
-* 기본 값 2에서 5와 같이 더 높은 값으로 NumberOfConcurrentTransfers를 늘립니다. 이 자산을 설정하면 **CloudMediaContext**의 모든 인스턴스에 영향을 미칩니다. 
+* 기본 값 2에서 5와 같이 더 높은 값으로 NumberOfConcurrentTransfers를 늘립니다. 이 자산을 설정하면 **CloudMediaContext** 의 모든 인스턴스에 영향을 미칩니다. 
 * 기본 값 10으로 ParallelTransferThreadCount를 유지합니다.
 
 ## <a name="ingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Media Services .NET SDK를 사용하여 대량으로 자산 수집
@@ -237,9 +237,9 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성에서 제�
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
 ```
 
-**IngestManifest**의 Statistics 속성을 폴링하여 **IngestManifest**에 연결된 모든 자산의 대량 수집 과정을 결정할 수 있습니다. 과정 정보를 업데이트하려면 통계 속성을 폴링할 때마다 새 **CloudMediaContext** 를 사용해야 합니다.
+**IngestManifest** 의 Statistics 속성을 폴링하여 **IngestManifest** 에 연결된 모든 자산의 대량 수집 과정을 결정할 수 있습니다. 과정 정보를 업데이트하려면 통계 속성을 폴링할 때마다 새 **CloudMediaContext** 를 사용해야 합니다.
 
-다음 예제는 해당 **Id**로 IngestManifest를 폴링하는 방법을 설명합니다.
+다음 예제는 해당 **Id** 로 IngestManifest를 폴링하는 방법을 설명합니다.
 
 ```csharp
     static void MonitorBulkManifest(string manifestID)

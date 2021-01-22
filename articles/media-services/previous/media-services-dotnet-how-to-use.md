@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8eb45397b1941b9a6955066c22d6d9d00eeef4c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dda7849b6a5e22eea4891eacb2678b4c500dc1e1
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262094"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693666"
 ---
 # <a name="media-services-development-with-net"></a>.NET을 사용한 Media Services 개발
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 이 문서에서는 .NET을 사용하여 Media Services 애플리케이션 개발을 시작하는 방법을 설명합니다.
 
-**Azure Media Services .NET SDK** 라이브러리를 사용하면 .NET을 사용하여 Media Services를 프로그래밍 할 수 있습니다. .NET을 사용한 개발을 더욱 쉽게 도와주는 **Azure Media Services .NET SDK 확장** 라이브러리가 제공 됩니다. 이 라이브러리는 .NET 코드를 단순화하는 일련의 확장 방법 및 도우미 함수를 포함합니다. 두 라이브러리 모두 **NuGet** 및 **GitHub**를 통해 사용할 수 있습니다.
+**Azure Media Services .NET SDK** 라이브러리를 사용하면 .NET을 사용하여 Media Services를 프로그래밍 할 수 있습니다. .NET을 사용한 개발을 더욱 쉽게 도와주는 **Azure Media Services .NET SDK 확장** 라이브러리가 제공 됩니다. 이 라이브러리는 .NET 코드를 단순화하는 일련의 확장 방법 및 도우미 함수를 포함합니다. 두 라이브러리 모두 **NuGet** 및 **GitHub** 를 통해 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * 신규 또는 기존 Azure 구독의 Media Services 계정. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 문서를 참조하세요.
@@ -46,26 +46,26 @@ ms.locfileid: "89262094"
 
 또는 GitHub에서 최신 Media Services .NET SDK 비트를 가져오고([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 또는 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)) 솔루션을 빌드하고 클라이언트 프로젝트에 대한 참조를 추가합니다. 필요한 종속성은 모두 자동으로 다운로드되고 추출됩니다.
 
-1. Visual Studio를 사용하여 새 C# 콘솔 애플리케이션을 만듭니다. **이름**, **위치**및 **솔루션 이름**을 입력 한 다음 확인을 클릭 합니다.
+1. Visual Studio를 사용하여 새 C# 콘솔 애플리케이션을 만듭니다. **이름**, **위치** 및 **솔루션 이름** 을 입력 한 다음 확인을 클릭 합니다.
 2. 솔루션을 빌드합니다.
-3. **NuGet**을 사용하여 **Azure Media Services .NET SDK Extensions**(**windowsazure.mediaservices.extensions**)를 설치한 후 추가합니다. 이 패키지를 설치하면 **Media Services .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
+3. **NuGet** 을 사용하여 **Azure Media Services .NET SDK Extensions**(**windowsazure.mediaservices.extensions**)를 설치한 후 추가합니다. 이 패키지를 설치하면 **Media Services .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
    
     최신 버전의 NuGet이 설치 되어있는지 확인하십시오. 자세한 내용 및 설치 지침은 [NuGet](https://nuget.codeplex.com/)을 참조하세요.
 
-    1. 솔루션 탐색기에서 프로젝트의 이름을 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다.
+    1. 솔루션 탐색기에서 프로젝트의 이름을 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리** 를 선택 합니다.
 
     2. NuGet 패키지 관리 대화 상자가 나타납니다.
 
-    3. 온라인 갤러리에서 Azure Media Services 확장을 검색하여 **Azure Media Services .NET SDK 확장**(**windowsazure.mediaservices.extensions**)을 선택한 다음 **설치**단추를 클릭합니다.
+    3. 온라인 갤러리에서 Azure Media Services 확장을 검색하여 **Azure Media Services .NET SDK 확장**(**windowsazure.mediaservices.extensions**)을 선택한 다음 **설치** 단추를 클릭합니다.
    
     4. 프로젝트가 수정되고 Media Services .NET SDK 확장, Media Services .NET SDK 및 기타 종속 어셈블리에 대한 참조가 추가됩니다.
 4. 클리너 개발 환경의 수준을 올릴 NuGet 패키지 복원을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [NuGet 패키지 복원"](https://docs.nuget.org/consume/package-restore)을 참조하세요.
 5. **System.Configuration** 어셈블리에 참조를 추가합니다. 이 어셈블리는 구성 파일(예: App.config)에 액세스하는 데 사용되는 System.Configuration.**ConfigurationManager** 클래스를 포함합니다.
    
-    1. 참조 관리 대화 상자를 사용하여 참조를 추가하려면 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. **추가**를 클릭한 다음 **참조...** 를 클릭합니다.
+    1. 참조 관리 대화 상자를 사용하여 참조를 추가하려면 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. **추가** 를 클릭한 다음 **참조...** 를 클릭합니다.
    
     2. 참조 관리 대화 상자가 나타납니다.
-    3. .NET Framework 어셈블리에서 System.Configuration 어셈블리를 찾아 선택하고 **확인**을 누릅니다.
+    3. .NET Framework 어셈블리에서 System.Configuration 어셈블리를 찾아 선택하고 **확인** 을 누릅니다.
 6. App.config 파일을 열고 파일에 **appSettings** 섹션을 추가합니다. Media Services API에 연결하는 데 필요한 값을 설정합니다. 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
     **서비스 사용자** 인증 방법을 사용하여 연결하는 데 필요한 값을 설정합니다.
@@ -97,7 +97,7 @@ ms.locfileid: "89262094"
 
     이제 Media Services 애플리케이션 개발을 시작할 준비가 되었습니다.    
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음은 AMS API에 연결하고 사용 가능한 모든 미디어 프로세서를 나열하는 간단한 예제입니다.
 

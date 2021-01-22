@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 7d672da30a4d81ead9115fc6b829c35aeab3ee6a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f4b5d4915cd6520edd7a45af85a836c3360eee32
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016822"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696332"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Azure Time Series Insights 환경에 이벤트 허브 이벤트 원본 추가
 
@@ -25,7 +25,7 @@ ms.locfileid: "95016822"
 > [!NOTE]
 > 이 문서에서 설명 하는 단계는 Azure Time Series Insights Gen 1 및 Azure Time Series Insights Gen 2 환경에 모두 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Time Series Insights 환경 만들기](./tutorials-set-up-tsi-environment.md)에 설명 된 대로 Azure Time Series Insights 환경을 만듭니다.
 - 이벤트 허브를 만듭니다. 읽기 [Azure Portal를 사용 하 여 Event Hubs 네임 스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조 하세요.
@@ -76,9 +76,9 @@ ms.locfileid: "95016822"
 
        [![구독 및 이벤트 허브 세부 정보](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
-       | 속성 | Description |
+       | 속성 | 설명 |
        | --- | --- |
-       | Subscription | 원하는 이벤트 허브 인스턴스 및 네임 스페이스가 속한 구독입니다. |
+       | 구독 | 원하는 이벤트 허브 인스턴스 및 네임 스페이스가 속한 구독입니다. |
        | 이벤트 허브 네임스페이스 | 원하는 이벤트 허브 인스턴스가 속한 이벤트 허브 네임 스페이스입니다. |
        | 이벤트 허브 이름 | 원하는 이벤트 허브 인스턴스의 이름입니다. |
        | 이벤트 허브 정책 값 | 원하는 공유 액세스 정책을 선택 합니다. 이벤트 허브 **구성** 탭에서 공유 액세스 정책을 만들 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **읽기** 사용 권한이 *반드시* 있어야 합니다. |
@@ -88,7 +88,7 @@ ms.locfileid: "95016822"
 
        다음 표에서는 **수동으로 이벤트 허브 설정 제공** 옵션에 필요한 속성을 설명합니다.
 
-       | 속성 | Description |
+       | 속성 | 설명 |
        | --- | --- |
        | 구독 ID | 원하는 이벤트 허브 인스턴스 및 네임 스페이스가 속한 구독입니다. |
        | Resource group | 원하는 이벤트 허브 인스턴스 및 네임 스페이스가 속한 리소스 그룹입니다. |
@@ -99,7 +99,7 @@ ms.locfileid: "95016822"
 
    - 두 옵션 모두 다음 구성 옵션을 공유 합니다.
 
-       | 속성 | Description |
+       | 속성 | 설명 |
        | --- | --- |
        | 이벤트 허브 소비자 그룹 | 이벤트 허브에서 이벤트를 읽는 소비자 그룹입니다. 이벤트 원본에 대한 전용 소비자 그룹을 사용하는 것이 좋습니다. |
        | 이벤트 직렬화 형식 | 현재, JSON이 사용 가능한 유일한 직렬화 형식입니다. 이벤트 메시지는이 형식 이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |

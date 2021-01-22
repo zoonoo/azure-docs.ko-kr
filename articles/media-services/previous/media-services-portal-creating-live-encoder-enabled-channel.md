@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 826fda62f9c5c97d045f6dc31189b26255e72f33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02f1fd873c0578bb4ec3a7788a06b10eebec7bd
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532706"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695476"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 사용 하 여 라이브 스트리밍을 수행 하 여 다중 비트 전송률 스트림을 만들 Azure Portal
 
@@ -32,7 +32,7 @@ ms.locfileid: "91532706"
 > 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널** 을 만드는 단계를 안내합니다.
 
@@ -77,11 +77,11 @@ ms.locfileid: "91532706"
 ## <a name="create-a-channel"></a>채널 만들기
 
 1. [Azure Portal](https://portal.azure.com/)에서 Media Services를 선택한 후 Media Services 계정 이름을 클릭합니다.
-2. **라이브 스트리밍**을 선택합니다.
-3. **사용자 지정 만들기**를 선택합니다. 이 옵션을 통해 Live Encoding에 사용할 수 있는 채널을 만들 수 있습니다.
+2. **라이브 스트리밍** 을 선택합니다.
+3. **사용자 지정 만들기** 를 선택합니다. 이 옵션을 통해 Live Encoding에 사용할 수 있는 채널을 만들 수 있습니다.
 
     ![채널 만들기](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
-4. **설정**을 클릭합니다.
+4. **설정** 을 클릭합니다.
 
    1. **Live Encoding** 채널 형식을 선택합니다. 이 형식은 라이브 인코딩에 사용할 수 있는 채널을 만들도록 지정합니다. 즉, 들어오는 단일 비트 전송률 스트림이 채널로 전송되고 지정한 라이브 인코더 설정을 사용하여 다중 비트 전송률 스트림으로 인코딩됩니다. 자세한 내용은 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요. 확인을 클릭합니다.
    2. 채널의 이름을 지정합니다.
@@ -104,7 +104,7 @@ ms.locfileid: "91532706"
 6. **미리 보기** 탭에서 미리 보기에 대한 IP 제한을 적용합니다.
 7. **Encoding** 탭에서 인코딩 사전 설정을 지정합니다.
 
-    현재 선택할 수 있는 유일한 시스템 기본 설정은 **기본 720p**입니다. 사용자 지정 사전 설정을 지정하려면 Microsoft 지원 티켓을 엽니다. 그런 다음 만들어진 기본 설정의 이름을 입력합니다.
+    현재 선택할 수 있는 유일한 시스템 기본 설정은 **기본 720p** 입니다. 사용자 지정 사전 설정을 지정하려면 Microsoft 지원 티켓을 엽니다. 그런 다음 만들어진 기본 설정의 이름을 입력합니다.
 
 > [!NOTE]
 > 현재 채널 시작에는 30분 이상 걸릴 수 있습니다. 채널 다시 설정에는 최대 5분까지 걸릴 수 있습니다.
@@ -150,7 +150,7 @@ ms.locfileid: "91532706"
 
 이벤트를 시작하는 방법에는 다음 두 가지가 있습니다.
 
-1. **채널** 페이지에서 **라이브 이벤트**를 눌러 새 이벤트를 추가합니다.
+1. **채널** 페이지에서 **라이브 이벤트** 를 눌러 새 이벤트를 추가합니다.
 
     이벤트 이름, 자산 이름, 보관 창 및 암호화 옵션을 지정합니다.
 
@@ -158,7 +158,7 @@ ms.locfileid: "91532706"
 
     **지금 이 라이브 이벤트 게시** 를 선택한 상태로 두면 이벤트 게시 URL이 만들어집니다.
 
-    이벤트를 스트리밍할 준비가 되면 언제든지 **시작**을 누르면 됩니다.
+    이벤트를 스트리밍할 준비가 되면 언제든지 **시작** 을 누르면 됩니다.
 
     이벤트를 시작하면 **시청** 을 눌러 콘텐츠 재생을 시작할 수 있습니다.
 2. 또는 바로 가기를 사용하고 **채널** 페이지에서 **가동 중** 단추를 누를 수 있습니다. 그러면 기본 자산, 프로그램 및 스트리밍 로케이터가 만들어집니다.
@@ -167,7 +167,7 @@ ms.locfileid: "91532706"
 
 **라이브 이벤트** 페이지에서 게시된 이벤트를 볼 수 있습니다.
 
-**가동 안 함**을 클릭하면 라이브 이벤트를 모두 중지합니다.
+**가동 안 함** 을 클릭하면 라이브 이벤트를 모두 중지합니다.
 
 ## <a name="watch-the-event"></a>이벤트 보기
 
@@ -192,7 +192,7 @@ ms.locfileid: "91532706"
 > [!WARNING]
 > 자산을 이벤트에서 사용 하는 경우 삭제 하면 **안 됩니다.** 이벤트를 먼저 삭제 해야 합니다.
 
-자산을 관리하려면 **설정**을 선택하고 **자산**을 클릭합니다.
+자산을 관리하려면 **설정** 을 선택하고 **자산** 을 클릭합니다.
 
 ![자산](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 

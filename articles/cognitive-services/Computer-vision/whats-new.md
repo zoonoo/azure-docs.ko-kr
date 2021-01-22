@@ -8,18 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 98b8cca95b8815b32fb5de6567adcf4f150551eb
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 33987be39258adc74cf4f88dbb0544f7026f6086
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561973"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183356"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 이 페이지에 책갈피를 설정하여 서비스를 최신 상태로 유지하세요.
+
+## <a name="january-2021"></a>2021년 1월
+
+### <a name="spatial-analysis-container-update"></a>공간 분석 컨테이너 업데이트
+
+새 기능 집합과 함께 새 버전의 [공간 분석 컨테이너](spatial-analysis-container.md)가 릴리스되었습니다. 이 Docker 컨테이너를 사용하면 실시간 스트리밍 비디오를 분석하여 사용자와 사용자의 물리적 환경 간 이동의 공간 관계를 이해할 수 있습니다. 
+
+* 이제 [공간 분석 작업](spatial-analysis-operations.md)을 구성하여 사람이 마스크와 같은 얼굴 보호 커버를 착용하고 있는지 감지할 수 있습니다. 
+    * `ENABLE_FACE_MASK_CLASSIFIER` 매개 변수를 구성하여 `personcount`, `personcrossingline` 및 `personcrossingpolygon` 작업에 대해 마스크 분류자를 사용할 수 있습니다.
+    * `face_mask` 및 `face_noMask` 특성은 비디오 스트림에서 검색된 각 사람에 대한 신뢰 점수와 함께 메타데이터로 반환됩니다.
+
 
 ## <a name="october-2020"></a>2020년 10월
 

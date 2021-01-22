@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3eec935d0a25f9510cd9a2f6e00b7ac22756e697
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a5a44b9d27901fcd00f8813096de6bbae5f2310d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88796802"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179948"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>빠른 시작: HoloLens에 Unity 샘플 배포
 
@@ -32,23 +32,23 @@ ms.locfileid: "88796802"
 
 ## <a name="build-the-sample-project"></a>샘플 프로젝트 빌드
 
-1. *파일 > 빌드 설정*을 엽니다.
-1. *플랫폼*을 **유니버설 Windows 플랫폼**으로 변경합니다.
-1. *대상 디바이스*를 **HoloLens**로 설정합니다.
-1. *아키텍처*를 **ARM64**로 설정합니다.
-1. *빌드 형식*을 **D3D 프로젝트**로 설정합니다.\
+1. *파일 > 빌드 설정* 을 엽니다.
+1. *플랫폼* 을 **유니버설 Windows 플랫폼** 으로 변경합니다.
+1. *대상 디바이스* 를 **HoloLens** 로 설정합니다.
+1. *아키텍처* 를 **ARM64** 로 설정합니다.
+1. *빌드 형식* 을 **D3D 프로젝트**\로 설정합니다.
     ![빌드 설정](./media/unity-build-settings.png)
-1. **플랫폼으로 전환**을 선택합니다.
+1. **플랫폼으로 전환** 을 선택합니다.
 1. **빌드**(또는 '빌드 및 실행')를 누르면 솔루션을 저장할 폴더를 선택하라는 메시지가 표시됩니다.
-1. Visual Studio에서 생성된 **Quickstart.sln**을 엽니다.
-1. 구성을 **Release** 및 **ARM64**로 변경합니다.
-1. 디버거 모드를 **원격 머신**으로 전환합니다.\
+1. Visual Studio에서 생성된 **Quickstart.sln** 을 엽니다.
+1. 구성을 **Release** 및 **ARM64** 로 변경합니다.
+1. 디버거 모드를 **원격 머신**\으로 전환합니다.
     ![솔루션 구성](media/unity-deploy-config.png)
 1. 솔루션 빌드
-1. '빠른 시작' 프로젝트의 경우 *속성 > 디버깅*으로 이동합니다.
-    1. 구성 *릴리스*가 활성 상태인지 확인합니다.
-    1. *실행할 디버거*를 **원격 머신**으로 설정합니다.
-    1. *머신 이름*을 **HoleLens의 IP**로 변경합니다.
+1. '빠른 시작' 프로젝트의 경우 *속성 > 디버깅* 으로 이동합니다.
+    1. 구성 *릴리스* 가 활성 상태인지 확인합니다.
+    1. *실행할 디버거* 를 **원격 머신** 으로 설정합니다.
+    1. *머신 이름* 을 **HoloLens의 IP** 로 변경합니다.
 
 ## <a name="launch-the-sample-project"></a>샘플 프로젝트 시작
 

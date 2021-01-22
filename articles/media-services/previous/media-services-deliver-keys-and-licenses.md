@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 88d21c7ee092f8d4971770699bdcade4bf40039d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e564feadfdb1d3cb6943d76b4b39ba0ec814e0d6
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267805"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693643"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Media Services를 사용하여 DRM 라이선스 또는 AES 키 제공
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 Azure Media Services를 사용하여 수집, 인코드, 콘텐츠 보호 추가 및 콘텐츠 스트림을 수행할 수 있습니다. 자세한 내용은 [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)을 참조하세요. 일부 고객은 라이선스 및/또는 키를 제공하는 데만 Media Services를 사용하고 인코드, 암호화 및 스트림을 수행하는 데는 온-프레미스 서버를 사용하려고 합니다. 이 문서에서는 Media Services를 사용하여 PlayReady 및/또는 Widevine 라이선스를 제공하지만 나머지 작업에는 온-프레미스 서버를 사용하여 수행하는 방법을 설명합니다. 
 
@@ -49,7 +49,7 @@ Media Services는 라이선스 또는 키를 요청하는 사용자에 권한을
 
 1. 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다.
 
-2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
+2. 다음 요소를 app.config 파일에 정의된 **appSettings** 에 추가합니다.
 
     ```xml
     <add key="Issuer" value="http://testissuer.com"/>
@@ -358,6 +358,6 @@ namespace DeliverDRMLicenses
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)
 * [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-protect-with-aes128.md)

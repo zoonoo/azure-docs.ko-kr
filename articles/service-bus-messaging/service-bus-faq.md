@@ -2,13 +2,13 @@
 title: Azure Service Bus FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대답)를 제공 합니다.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: e5bc9aae081868c92e0968c88c8cb6dcfb8ee57c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 01/20/2021
+ms.openlocfilehash: 3a96cf94ca4a7edd115f12b3e2eded11a5894e04
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676377"
+ms.locfileid: "98693406"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
 
@@ -35,8 +35,11 @@ ms.locfileid: "98676377"
 
  분할된 엔터티는 [프리미엄 SKU](service-bus-premium-messaging.md)에서 지원되지 않습니다. 
 
-### <a name="where-does-azure-service-bus-store-customer-data"></a><a name="in-region-data-residency"></a>어디에서 고객 데이터를 저장 Azure Service Bus?
-Azure Service Bus 고객 데이터를 저장 합니다. 이 데이터는 Service Bus에 의해 단일 지역에 자동으로 저장 되므로이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 데이터를 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
+### <a name="where-does-azure-service-bus-store-data"></a><a name="in-region-data-residency"></a>어디에서 데이터를 Azure Service Bus 저장할 까 요?
+Azure Service Bus 표준 계층은 백엔드 저장소 계층에 대 한 Azure SQL Database를 활용 합니다. 브라질 남부 및 동남 아시아를 제외한 모든 지역에서 데이터베이스 백업은 다른 지역 (일반적으로 Azure 쌍을 이루는 지역)에서 호스팅됩니다. 브라질 남부 및 동남 아시아 지역의 경우 데이터베이스 백업은 이러한 지역에 대 한 데이터 상주 요구 사항을 수용 하기 위해 동일한 지역에 저장 됩니다.
+
+Azure Service Bus 프리미엄 계층은 선택한 지역에 메타 데이터 및 데이터를 저장 합니다. Azure Service Bus premium 네임 스페이스에 대해 지역 재해 복구를 설정 하는 경우 메타 데이터는 선택한 보조 지역에 복사 됩니다.
+
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
 Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고받을 수 있습니다.

@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 63bd44140ea5c355c3bb1a891a21e6c2e73ab041
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 646c47920d87fe1d11bc991838ba767b8569a6c9
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679503"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246760"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>자습서 - Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -56,7 +56,7 @@ SCIM 2.0(RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.i
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|name.lastName|lastName|
-|workMail|전자 메일 [type eq "work"]. value|Mail|
+|workMail|Emails[type eq “work”].value|Mail|
 |manager|manager|manager|
 |tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
 |상태|활성|isSoftDeleted(사용자에 저장되지 않은 계산된 값)|
@@ -1117,7 +1117,7 @@ _ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 애플리케이션 공급자 또는 애플리케이션 공급자의 설명서를 통해 이러한 요구 사항과의 호환성을 확인합니다.
 
 > [!IMPORTANT]
-> Azure AD SCIM 구현은 Azure AD 사용자 프로비저닝 서비스 위에 빌드되며, Azure AD와 대상 애플리케이션 간에 사용자를 지속적으로 유지하고 매우 구체적인 표준 작업을 구현하도록 디자인되었습니다. Azure AD SCIM 클라이언트의 동작을 이해하려면 해당 동작을 이해해야 합니다. 자세한 내용은 [프로비저닝 주기 섹션을 참조하세요. [프로비저닝 작동 방식](how-provisioning-works.md)의 초기 및 증분](how-provisioning-works.md#provisioning-cycles-initial-and-incremental)
+> Azure AD SCIM 구현은 Azure AD 사용자 프로비저닝 서비스 위에 빌드되며, Azure AD와 대상 애플리케이션 간에 사용자를 지속적으로 유지하고 매우 구체적인 표준 작업을 구현하도록 디자인되었습니다. Azure AD SCIM 클라이언트의 동작을 이해하려면 해당 동작을 이해해야 합니다. 자세한 내용은 [프로비저닝 작동 방식](how-provisioning-works.md)의 [프로비저닝 작동 방식: 초기 및 증분](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 섹션을 참조하세요.
 
 ### <a name="getting-started"></a>시작
 

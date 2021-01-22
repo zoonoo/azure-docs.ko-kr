@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 9dcb1113bb37cb0f5f65c54ae9d6ca76a88330c1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698668"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693615"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -171,21 +171,21 @@ Blueprints는 다음과 같은 다양한 리소스 템플릿 및 기타 아티�
 
 ## <a name="devops"></a>DevOps
 
-[DevOps(Developer Operations)](https://www.visualstudio.com/learn/what-is-devops/) 애플리케이션을 개발하기 전에 팀에서 소프트웨어 프로그램 및 코드 작성에 대한 비즈니스 요구 사항을 수집했습니다. 그런 다음 별도의 QA 팀이 격리된 개발 환경에서 프로그램을 테스트했습니다. 요구사항이 충족되면 QA 팀에서 배포할 작업 코드를 해제했습니다. 배포 팀은 네트워킹 및 데이터베이스와 같은 그룹으로 더 세분화되었습니다. 소프트웨어 프로그램이 독립된 팀으로 "사전 협의 없이 던져질(thrown over the wall)" 때마다 병목 현상이 추가되었습니다.
+[DevOps(Developer Operations)](https://azure.microsoft.com/overview/what-is-devops/) 애플리케이션을 개발하기 전에 팀에서 소프트웨어 프로그램 및 코드 작성에 대한 비즈니스 요구 사항을 수집했습니다. 그런 다음 별도의 QA 팀이 격리된 개발 환경에서 프로그램을 테스트했습니다. 요구사항이 충족되면 QA 팀에서 배포할 작업 코드를 해제했습니다. 배포 팀은 네트워킹 및 데이터베이스와 같은 그룹으로 더 세분화되었습니다. 소프트웨어 프로그램이 독립된 팀으로 "사전 협의 없이 던져질(thrown over the wall)" 때마다 병목 현상이 추가되었습니다.
 
 DevOps를 사용하면 팀에서 보다 안전하고 뛰어난 품질의 솔루션을 보다 빠르고 저렴하게 전달할 수 있습니다. 고객은 소프트웨어 및 서비스를 사용할 때 동적이고 안정적인 환경을 기대합니다. 팀은 소프트웨어 업데이트를 신속하게 반복하고 업데이트의 영향을 측정해야 합니다. 또한 새로운 개발 반복으로 신속하게 대응하여 문제를 해결하거나 더 많은 가치를 제공해야 합니다.  
 
 Microsoft Azure와 같은 클라우드 플랫폼은 기존 병목 현상을 제거하고 인프라를 범용 상품화(commoditize)하도록 지원했습니다. 모든 비즈니스에서 소프트웨어는 비즈니스 결과의 차별화 요소이자 핵심 요소입니다. 어떤 조직, 개발자 또는 IT 작업자도 DevOps로의 변화를 피할 수 없습니다.
 
-성숙한 DevOps 전문가는 다음 방법 중 몇 가지를 채택합니다. 이러한 방법에는 [사람들이 비즈니스 시나리오를 기반으로 하여 전략을 수립하는 것이 포함됩니다](https://www.visualstudio.com/learn/what-is-devops-culture/). 도구를 사용하면 다음과 같은 다양한 방법을 자동화할 수 있습니다.
+성숙한 DevOps 전문가는 다음 방법 중 몇 가지를 채택합니다. 이러한 방법에는 [사람들이 비즈니스 시나리오를 기반으로 하여 전략을 수립하는 것이 포함됩니다](/azure/devops/learn/what-is-devops-culture). 도구를 사용하면 다음과 같은 다양한 방법을 자동화할 수 있습니다.
 
 - [민첩한 계획 수립 및 프로젝트 관리](https://www.visualstudio.com/learn/what-is-agile/) 기술은 업무를 스프린트로 계획 및 분리하고, 팀 역량을 관리하며, 팀에서 변화하는 비즈니스 요구 사항에 신속하게 적응할 수 있도록 하는 데 사용됩니다.
-- [버전 제어(일반적으로 Git 포함)](https://www.visualstudio.com/learn/what-is-git/)를 사용하면 전 세계 어디에 있든지 간에 팀에서 소스를 공유하고 소프트웨어 개발 도구와 통합하여 릴리스 파이프라인을 자동화할 수 있습니다.
-- [연속 통합](https://www.visualstudio.com/learn/what-is-continuous-integration/)은 진행 중인 코드를 병합 및 테스트하여 결함을 초기에 찾아내도록 합니다.  다른 이점으로 병합 문제를 해결하는 데 걸리는 시간을 줄이고 개발 팀에게 신속한 피드백을 제공할 수 있습니다.
-- 프로덕션 및 테스트 환경에 대한 소프트웨어 솔루션의 [지속적인 업데이트](https://www.visualstudio.com/learn/what-is-continuous-delivery/)를 통해 조직에서 버그를 신속하게 수정하고 끊임없이 변화하는 비즈니스 요구 사항에 대응할 수 있습니다.
-- 애플리케이션 상태뿐만 아니라 고객 사용을 위한 프로덕션 환경을 포함하여 실행 중인 애플리케이션의 [모니터링](https://www.visualstudio.com/learn/what-is-monitoring/)을 사용하면 조직에서 가설을 세우고 전략을 신속하게 유효성을 검사하거나 반증할 수 있습니다.  자세한 데이터가 캡처되어 다양한 로깅 형식으로 저장됩니다.
-- 안전하고 안정적인 애플리케이션 호스팅 플랫폼을 제공하도록 지원하기 위해 [IaC(Infrastructure as Code)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/)를 사용하여 네트워크 및 가상 머신의 만들기 및 해제에 대한 자동화 및 유효성 검사를 사용하도록 설정하는 것이 좋습니다.
-- [마이크로 서비스](https://www.visualstudio.com/learn/what-are-microservices/) 아키텍처는 비즈니스 사용 사례를 재사용 가능한 작은 서비스로 격리하는 데 사용됩니다.  이 아키텍처는 확장성과 효율성을 가능하게 합니다.
+- [버전 제어(일반적으로 Git 포함)](/azure/devops/learn/git/what-is-git)를 사용하면 전 세계 어디에 있든지 간에 팀에서 소스를 공유하고 소프트웨어 개발 도구와 통합하여 릴리스 파이프라인을 자동화할 수 있습니다.
+- [연속 통합](/azure/devops/learn/what-is-continuous-integration)은 진행 중인 코드를 병합 및 테스트하여 결함을 초기에 찾아내도록 합니다.  다른 이점으로 병합 문제를 해결하는 데 걸리는 시간을 줄이고 개발 팀에게 신속한 피드백을 제공할 수 있습니다.
+- 프로덕션 및 테스트 환경에 대한 소프트웨어 솔루션의 [지속적인 업데이트](/azure/devops/learn/what-is-continuous-delivery)를 통해 조직에서 버그를 신속하게 수정하고 끊임없이 변화하는 비즈니스 요구 사항에 대응할 수 있습니다.
+- 애플리케이션 상태뿐만 아니라 고객 사용을 위한 프로덕션 환경을 포함하여 실행 중인 애플리케이션의 [모니터링](/azure/devops/learn/what-is-monitoring)을 사용하면 조직에서 가설을 세우고 전략을 신속하게 유효성을 검사하거나 반증할 수 있습니다.  자세한 데이터가 캡처되어 다양한 로깅 형식으로 저장됩니다.
+- 안전하고 안정적인 애플리케이션 호스팅 플랫폼을 제공하도록 지원하기 위해 [IaC(Infrastructure as Code)](/azure/devops/learn/what-is-infrastructure-as-code)를 사용하여 네트워크 및 가상 머신의 만들기 및 해제에 대한 자동화 및 유효성 검사를 사용하도록 설정하는 것이 좋습니다.
+- [마이크로 서비스](/azure/devops/learn/what-are-microservices) 아키텍처는 비즈니스 사용 사례를 재사용 가능한 작은 서비스로 격리하는 데 사용됩니다.  이 아키텍처는 확장성과 효율성을 가능하게 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: bcb912a24dfb2a5e78719cf9010fd23afe0df185
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1c33011d947d6dc9dd9ee4dd6331c24c06d99b38
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484399"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693827"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>SAP 솔루션에 대 한 Azure monitor (미리 보기)
 
@@ -35,7 +35,7 @@ SAP 솔루션에 대 한 Azure Monitor Azure Marketplace을 통해 제공 됩니
 - SAP HANA 데이터베이스
 - Microsoft SQL server
 
-SAP 솔루션에 대 한 Azure Monitor는 Log Analytics 및 [통합 문서](../../../azure-monitor/platform/workbooks-overview.md) 와 같은 기존 [Azure Monitor](../../../azure-monitor/overview.md) 기능의 기능을 활용 하 여 추가 모니터링 기능을 제공 합니다. 고객은 Azure Log Analytics 작업 영역을 사용 [하 여 Azure Monitor](../../../azure-monitor/learn/tutorial-response.md) 에서 제공 하는 기본 통합 문서를 편집 하 고, 사용자 지정 [쿼리](../../../azure-monitor/log-query/log-analytics-tutorial.md) 를 작성 하 고, [유연한 보존 기간](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 을 활용 하 고, 모니터링 데이터를 티켓 시스템과 연결 하 여 [사용자 지정 시각화](../../../azure-monitor/platform/workbooks-overview.md#getting-started) 를 만들 수 있습니다.
+SAP 솔루션 Azure Monitor은 Log Analytics 및 [통합 문서](../../../azure-monitor/platform/workbooks-overview.md) 와 같은 기존 [Azure Monitor](../../../azure-monitor/overview.md) 기능을 사용 하 여 더 많은 모니터링 기능을 제공 합니다. 고객은 Azure Log Analytics 작업 영역을 사용 [하 여 Azure Monitor](../../../azure-monitor/learn/tutorial-response.md) 에서 제공 하는 기본 통합 문서를 편집 하 고, 사용자 지정 [쿼리](../../../azure-monitor/log-query/log-analytics-tutorial.md) 를 작성 하 고, [유연한 보존 기간](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 을 활용 하 고, 모니터링 데이터를 티켓 시스템과 연결 하 여 [사용자 지정 시각화](../../../azure-monitor/platform/workbooks-overview.md#getting-started) 를 만들 수 있습니다.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>SAP 솔루션에 어떤 데이터를 수집 Azure Monitor?
 
@@ -62,6 +62,15 @@ Microsoft SQL server 원격 분석:
 - SAP 시스템의 상위 12 개 가장 큰 테이블
 - SQL Server 오류 로그에 기록 된 문제
 - 시간에 따른 차단 프로세스 및 SQL 대기 통계
+
+운영 체제 원격 분석 (Linux) 
+- CPU 사용률, 포크의 수, 실행 중 및 차단 된 프로세스입니다. 
+- 메모리 사용률 및 버퍼링 된 버퍼링. 
+- 스왑 사용률, 페이징 및 교환 비율입니다. 
+- 파일 시스템 사용률, 블록 장치당 읽고 쓴 바이트 수입니다. 
+- 블록 장치당 읽기/쓰기 대기 시간입니다. 
+- 지속적인 i/o 수, 영구적 메모리 읽기/쓰기 바이트 
+- 네트워크 패킷/아웃, 네트워크 바이트/출력 
 
 ## <a name="data-sharing-with-microsoft"></a>Microsoft와 데이터 공유
 
@@ -96,9 +105,9 @@ Microsoft 지원 및 엔지니어링 팀에서 고객 환경에 대 한 자세�
 
 아키텍처의 주요 주요 사항은 다음과 같습니다.
  - **다중 인스턴스** -고객은 sap 솔루션에 대 한 단일 Azure Monitor 리소스를 사용 하 여 VNET 내의 여러 sap sid에서 지정 된 구성 요소 유형 (예: HANA DB, HA 클러스터, Microsoft SQL server)의 여러 인스턴스에 대 한 모니터를 만들 수 있습니다.
- - **다중 공급자** -위의 아키텍처 다이어그램은 SAP HANA 공급자를 예로 보여 줍니다. 마찬가지로 고객은 해당 구성 요소 (예: HANA DB, HA 클러스터, Microsoft SQL server)에 대 한 추가 공급자를 구성 하 여 해당 구성 요소에서 데이터를 수집할 수 있습니다.
+ - **다중 공급자** -위의 아키텍처 다이어그램은 SAP HANA 공급자를 예로 보여 줍니다. 마찬가지로 고객은 해당 구성 요소 (예: HANA DB, HA 클러스터, Microsoft SQL server)에 대해 더 많은 공급자를 구성 하 여 해당 구성 요소에서 데이터를 수집할 수 있습니다.
  - **오픈 소스** -SAP 솔루션에 대 한 Azure Monitor의 소스 코드는 [GitHub](https://github.com/Azure/AzureMonitorForSAPSolutions)에서 사용할 수 있습니다. 고객은 공급자 코드를 참조 하 여 제품에 대 한 자세한 정보를 확인 하 고 의견을 올리거나 공유할 수 있습니다.
- - 원격 분석 데이터를 수집 하는 **확장 가능한 쿼리 프레임 워크** SQL 쿼리는 [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json)으로 작성 됩니다. 더 많은 원격 분석 데이터를 수집 하는 추가 SQL 쿼리를 쉽게 추가할 수 있습니다. 고객은이 문서의 끝에 있는 링크를 통해 피드백을 유지 하거나 계정 팀에 연락 하 여 SAP 솔루션에 대 한 Azure Monitor에 추가 될 특정 원격 분석 데이터를 요청할 수 있습니다.
+ - 원격 분석 데이터를 수집 하는 **확장 가능한 쿼리 프레임 워크** SQL 쿼리는 [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json)으로 작성 됩니다. 더 많은 원격 분석 데이터를 수집 하는 더 많은 SQL 쿼리를 쉽게 추가할 수 있습니다. 고객은이 문서의 끝에 있는 링크를 통해 피드백을 유지 하거나 계정 팀에 연락 하 여 SAP 솔루션에 대 한 Azure Monitor에 추가 될 특정 원격 분석 데이터를 요청할 수 있습니다.
 
 ## <a name="pricing"></a>가격 책정
 SAP 솔루션에 대 한 Azure Monitor은 무료 제품 (라이선스 요금 없음)입니다. 고객은 관리 되는 리소스 그룹의 기본 구성 요소에 대 한 비용을 지불할 책임이 있습니다.

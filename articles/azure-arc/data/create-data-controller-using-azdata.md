@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 19451fb09919238a04ac953c9c38fc70b4744d16
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 986019ec4de2fc25b6d8714a8c687cc9342f47b8
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955300"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696071"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>을 사용 하 여 Azure Arc 데이터 컨트롤러 만들기 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 개요 정보는 [Azure Arc data Controller 만들기](create-data-controller.md) 항목을 검토 하세요.
 
@@ -266,34 +266,11 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 
 ### <a name="create-on-azure-red-hat-openshift-aro"></a>Azure Red Hat OpenShift (ARO)에서 만들기
 
-#### <a name="apply-the-scc"></a>SCC 적용
+Azure Red Hat OpenShift에는 보안 컨텍스트 제약 조건이 필요 합니다.
 
-Azure Red Hat OpenShift에서 데이터 컨트롤러를 만들기 전에 특정 SCC (보안 컨텍스트 제약 조건)를 적용 해야 합니다. 미리 보기 릴리스의 경우 보안 제약 조건이 완화 됩니다. 이후 릴리스에서는 업데이트 된 SCC를 제공 합니다.
+#### <a name="apply-the-security-context"></a>보안 컨텍스트 적용
 
-1. 사용자 지정 SCC (보안 컨텍스트 제약 조건)를 다운로드 합니다. 다음 중 하나를 사용합니다. 
-   - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - ([Raw](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
-   - `curl` 다음 명령은 arc-데이터를 다운로드 합니다.
-
-      ```console
-      curl https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
-      ```
-
-1. SCC를 만듭니다.
-
-   ```console
-   oc create -f arc-data-scc.yaml
-   ```
-
-1. 서비스 계정에 SCC를 적용 합니다.
-
-   > [!NOTE]
-   > 아래 명령에서 같은 네임 스페이스를 사용 `azdata arc dc create` 합니다. 예를 들면 `arc` 입니다.
-
-   ```console
-   oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
-   ```
-
+[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
 #### <a name="create-custom-deployment-profile"></a>사용자 지정 배포 프로필 만들기
 
@@ -324,33 +301,11 @@ azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --
 > [!NOTE]
 > Azure에서 Red Hat OpenShift Container Platform을 사용 하는 경우 사용 가능한 최신 버전을 사용 하는 것이 좋습니다.
 
-#### <a name="apply-the-scc"></a>SCC 적용
+Red Hat OCP에서 데이터 컨트롤러를 만들기 전에 특정 보안 컨텍스트 제약 조건을 적용 해야 합니다. 
 
-Red Hat OCP에서 데이터 컨트롤러를 만들기 전에 특정 SCC (보안 컨텍스트 제약 조건)를 적용 해야 합니다. 미리 보기 릴리스의 경우 보안 제약 조건이 완화 됩니다. 이후 릴리스에서는 업데이트 된 SCC를 제공 합니다.
+#### <a name="apply-the-security-context-constraint"></a>보안 컨텍스트 제약 조건 적용
 
-1. 사용자 지정 SCC (보안 컨텍스트 제약 조건)를 다운로드 합니다. 다음 중 하나를 사용합니다. 
-   - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - ([Raw](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
-   - `curl` 다음 명령은 arc-데이터를 다운로드 합니다.
-
-      ```console
-      curl https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
-      ```
-
-1. SCC를 만듭니다.
-
-   ```console
-   oc create -f arc-data-scc.yaml
-   ```
-
-1. 서비스 계정에 SCC를 적용 합니다.
-
-   > [!NOTE]
-   > 아래 명령에서 같은 네임 스페이스를 사용 `azdata arc dc create` 합니다. 예를 들면 `arc` 입니다.
-
-   ```console
-   oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
-   ```
+[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
 #### <a name="determine-storage-class"></a>저장소 클래스 결정
 

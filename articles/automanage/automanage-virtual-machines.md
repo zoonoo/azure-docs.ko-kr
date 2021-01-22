@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695786"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695673"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>가상 컴퓨터에 대 한 Azure Automanage
 
@@ -37,22 +37,22 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 마지막으로 경험이 매우 간단 합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 가상 머신에서 Azure Automanage를 사용 하도록 설정 하기 전에 고려해 야 할 몇 가지 필수 구성 요소가 있습니다.
 
 - Windows Server Vm에만 해당
 - Vm이 실행 되 고 있어야 함
-- Vm은 지원 되는 지역에 있어야 합니다.
+- Vm은 지원 되는 지역에 있어야 합니다 (아래 단락 참조).
 - 사용자에 게 올바른 사용 권한이 있어야 합니다 (아래 단락 참조).
 - 지금은 automanage에서 샌드박스 구독을 지원 하지 않습니다.
 
-기존 Automanage 계정을 사용 하 여 Vm에서 Automanage를 사용 하도록 설정 하려면 Vm이 포함 된 리소스 그룹에 **참가자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용 하도록 설정 하는 경우 **사용자 액세스 관리자** 역할과 함께 **소유자** 역할 또는 **참가자** 에 대 한 다음 권한이 필요 합니다. 
+Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부, 일본 동부와 같은 지역에 있는 Windows Vm만 지원 한다는 점에 유의 해야 합니다.
+
+기존 Automanage 계정을 사용 하 여 Vm에서 Automanage를 사용 하도록 설정 하려면 Vm이 포함 된 리소스 그룹에 **참가자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용 하도록 설정 하는 경우 **사용자 액세스 관리자** 역할과 함께 **소유자** 역할 또는 **참가자** 에 대 한 다음 권한이 필요 합니다.
 
 > [!NOTE]
 > 다른 구독의 작업 영역에 연결 된 VM에서 Automanage를 사용 하려면 각 구독에서 위에 설명 된 사용 권한이 있어야 합니다.
-
-Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부, 일본 동부와 같은 지역에 있는 Windows Vm만 지원 한다는 점에 유의 해야 합니다.
 
 ## <a name="participating-services"></a>참여 하는 서비스
 
@@ -102,12 +102,20 @@ VM에 대해 Automanage를 처음 사용 하는 경우 **automanage – Azure vi
 
 ## <a name="automanage-account"></a>계정 자동 관리
 
-Automanage 계정은 자동화 된 작업이 수행 되는 보안 컨텍스트 또는 id입니다. 일반적으로 Automanage 계정 옵션을 선택 하는 것은 필요 하지 않지만 자동화 된 관리를 나눌 수 있는 위임 시나리오 (두 시스템 관리자)가 있는 경우이 옵션을 사용 하면 각 관리자에 대해 Azure id를 정의할 수 있습니다.
+Automanage 계정은 자동화 된 작업이 수행 되는 보안 컨텍스트 또는 id입니다. 일반적으로 Automanage 계정 옵션을 선택 하는 것은 필수는 아니지만 리소스의 자동화 된 관리를 나누려면 (두 시스템 관리자)이 옵션을 사용 하면 각 관리자에 대해 Azure id를 정의할 수 있습니다.
 
 Azure Portal 환경에서 Vm에 대해 Automanage를 사용 하도록 설정 하는 경우 Automanage 계정을 할당 하거나 수동으로 만들 수 있는 **AZURE VM 모범 사례 사용** 블레이드에서 고급 드롭다운이 있습니다.
 
+Automanage 계정에는 Automanage에 등록 한 컴퓨터를 포함 하는 구독에 대 한 **참가자** 및 **리소스 정책 참가자** 역할이 모두 부여 됩니다. 여러 구독에서 컴퓨터에 동일한 Automanage 계정을 사용할 수 있습니다. 그러면 모든 구독에 대 한 자동 관리 계정 **참여자** 및 **리소스 정책 참가자** 권한이 부여 됩니다.
+
+VM이 다른 구독의 Log Analytics 작업 영역에 연결 되어 있는 경우 Automanage 계정에는 **참가자** 와 **리소스 정책 참여자** 가 다른 구독에도 모두 부여 됩니다.
+
+새 Automanage 계정으로 Automanage를 사용 하도록 설정 하는 경우 **사용자 액세스 관리자** 역할과 함께 **소유자** 역할 또는 **참가자** 에 대 한 다음 권한이 필요 합니다.
+
+기존 Automanage 계정으로 Automanage를 사용 하도록 설정 하는 경우 Vm이 포함 된 리소스 그룹에 대 한 **참가자** 역할이 있어야 합니다.
+
 > [!NOTE]
-> 기존 Automanage 계정을 사용 하 여 Vm에서 Automanage를 사용 하도록 설정 하려면 Vm이 포함 된 리소스 그룹에 **참가자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용 하도록 설정 하는 경우 **사용자 액세스 관리자** 역할과 함께 **소유자** 역할 또는 **참가자** 에 대 한 다음 권한이 필요 합니다.
+> Automanage 모범 사례를 사용 하지 않도록 설정 하면 연결 된 구독에 대 한 Automanage 계정의 사용 권한이 유지 됩니다. 구독의 IAM 페이지로 이동 하 여 사용 권한을 수동으로 제거 하거나 Automanage 계정을 삭제 합니다. 컴퓨터를 계속 관리 하는 경우 Automanage 계정을 삭제할 수 없습니다.
 
 
 ## <a name="status-of-vms"></a>Vm의 상태
@@ -122,6 +130,7 @@ Azure Portal에서 자동 관리 되는 모든 Vm을 나열 하는 **Automanage 
 - *진행 중* -VM을 사용 하도록 설정 하 고 구성 하는 중입니다.
 - *구성* 됨-VM이 구성 되 고 드리프트가 검색 되지 않습니다.
 - *실패* -VM이 데이터베이스가 드리프트을 수정할 수 없습니다.
+- *보류 중* -vm은 현재 실행 되 고 있지 않으며 automanage는 다음에 실행 될 때 vm을 등록 하거나 재구성 하려고 합니다.
 
 **상태가** *실패* 로 표시 되는 경우 VM이 있는 리소스 그룹을 통해 배포 문제를 해결할 수 있습니다. **리소스 그룹** 으로 이동 하 여 리소스 그룹을 선택 하 고 **배포** 를 클릭 한 다음 오류 정보와 함께 *실패* 상태를 확인 합니다.
 
@@ -145,7 +154,6 @@ Azure Portal에서이 작업을 수행 하려면 자동 관리 되는 모든 Vm�
 
 
 무엇 보다도, 우리가 등록 구성 된 서비스에서 가상 머신을 오프 보드 하지 않습니다. 따라서 해당 서비스에 의해 발생 하는 모든 요금은 계속 청구 가능 상태로 유지 됩니다. 필요한 경우에는 보드를 꺼야 합니다. 모든 Automanage 동작은 즉시 중지 됩니다. 예를 들어 더 이상 VM에서 드리프트를 모니터링 하지 않습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

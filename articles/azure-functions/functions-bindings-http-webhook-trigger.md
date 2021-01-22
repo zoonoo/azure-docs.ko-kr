@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f04e2aa97cafe2345918e433bcef5e719cee7483
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: eaba099725530f24dcd6aa5da7eb59cb233efd46
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610168"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695648"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 트리거
 
@@ -749,6 +749,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 }
 ```
 
+경로 매개 변수를 사용 하는 경우 `invoke_URL_template` 함수에 대해가 자동으로 만들어집니다. 클라이언트는 url을 사용 하 여 함수를 호출할 때 url 템플릿을 사용 하 여 url에 전달 해야 하는 매개 변수를 이해할 수 있습니다. [Azure Portal](https://portal.azure.com) 에서 HTTP 트리거 함수 중 하나로 이동 하 고 **함수 URL 가져오기** 를 선택 합니다.
+
+`invoke_URL_template` [목록 함수](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) 또는 [Get 함수](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction)에 Azure Resource Manager api를 사용 하 여 프로그래밍 방식으로에 액세스할 수 있습니다.
+
 ## <a name="working-with-client-identities"></a>클라이언트 ID 사용
 
 함수 앱이 [App Service 인증 / 권한 부여](../app-service/overview-authentication-authorization.md)를 사용하는 경우 코드에서 인증된 클라이언트에 대한 정보를 볼 수 있습니다. 이 정보는 [플랫폼에 의해 삽입된 요청 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)로서 사용할 수 있습니다.
@@ -846,11 +850,17 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 ## <a name="obtaining-keys"></a>키 확보
 
-키는 Azure에 함수 앱의 일부로 저장되며 나머지는 암호화되어 있습니다. 키를 보거나 새 키를 만들거나 키를 새 값으로 전환하려면 [Azure Portal](https://portal.azure.com)에서 HTTP 트리거 함수 중 하나로 이동한 다음 **관리** 를 선택합니다.
+키는 Azure에 함수 앱의 일부로 저장되며 나머지는 암호화되어 있습니다. 키를 보거나, 새 키를 만들거나, 키를 새 값으로 롤오버 하려면 [Azure Portal](https://portal.azure.com) 에서 HTTP 트리거 함수 중 하나로 이동 하 여 **기능 키** 를 선택 합니다.
 
-![포털에서 함수 키를 관리합니다.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+호스트 키를 관리할 수도 있습니다. [Azure Portal](https://portal.azure.com) 의 함수 앱으로 이동 하 고 **앱 키** 를 선택 합니다.
 
-[키 관리 API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)를 사용하여 프로그래밍 방식으로 함수 키를 가져올 수 있습니다.
+Azure Resource Manager Api를 사용 하 여 프로그래밍 방식으로 함수 및 호스트 키를 가져올 수 있습니다. [기능 키를 나열](/rest/api/appservice/webapps/listfunctionkeys) 하 고 [호스트 키](/rest/api/appservice/webapps/listhostkeys)를 나열 하는 api가 있으며 배포 슬롯을 사용 하는 경우 해당 Api에는 [함수 키 슬롯](/rest/api/appservice/webapps/listfunctionkeysslot) 및 [목록 호스트 키 슬롯이](/rest/api/appservice/webapps/listhostkeysslot)나열 됩니다.
+
+[함수 비밀](/rest/api/appservice/webapps/createorupdatefunctionsecret)만들기 또는 업데이트, [함수 비밀 슬롯 만들기](/rest/api/appservice/webapps/createorupdatefunctionsecretslot)또는 업데이트, 호스트 [비밀](/rest/api/appservice/webapps/createorupdatehostsecret) 만들기 또는 업데이트, [호스트 비밀 슬롯 api 만들기](/rest/api/appservice/webapps/createorupdatehostsecretslot) 또는 업데이트를 사용 하 여 프로그래밍 방식으로 새 함수 및 호스트 키를 만들 수도 있습니다.
+
+함수 및 호스트 키는 [Delete 함수 비밀](/rest/api/appservice/webapps/deletefunctionsecret), [Delete 함수 비밀 슬롯](/rest/api/appservice/webapps/deletefunctionsecretslot)삭제, [호스트 암호](/rest/api/appservice/webapps/deletehostsecret)삭제 및 [호스트 비밀 슬롯](/rest/api/appservice/webapps/deletehostsecretslot) 삭제 api를 사용 하 여 프로그래밍 방식으로 삭제할 수 있습니다.
+
+[레거시 키 관리 api를 사용 하 여 함수 키를 가져올](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)수도 있지만 대신 Azure Resource Manager api를 사용 하는 것이 좋습니다.
 
 ## <a name="api-key-authorization"></a>API 키 권한 부여
 

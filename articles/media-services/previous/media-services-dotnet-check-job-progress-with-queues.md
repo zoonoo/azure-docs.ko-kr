@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6c1dcb0af500c47aabbd8e8193c066bb4a921c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 634b508ca15349152540aca90125575b17943929
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267771"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696433"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure Queue Storage를 사용하여 .NET으로 Media Services 작업 알림 모니터링
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 인코딩 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [Azure Queue Storage](../../storage/queues/storage-dotnet-how-to-use-queues.md)에 알림을 배달하도록 Media Services를 구성할 수 있습니다. Queue Storage에서 알림을 가져와 작업 진행 상태를 모니터링할 수 있습니다. 
 
@@ -54,20 +54,20 @@ Queue Storage를 사용하는 Media Services 애플리케이션을 개발할 때
 3. 인코딩 작업에 대한 알림 메시지를 받는 큐를 만듭니다.
 4. 큐에 매핑되는 알림 끝점을 만듭니다.
 5. 알림 끝점 작업에 연결하고 인코딩 작업을 제출합니다. 작업에 연결하는 여러 알림 끝점이 있을 수 있습니다.
-6. **NotificationJobState.FinalStatesOnly**를 **AddNew** 메서드에 전달합니다. 이 예제에서는 작업 처리의 최종 상태만 확인합니다.
+6. **NotificationJobState.FinalStatesOnly** 를 **AddNew** 메서드에 전달합니다. 이 예제에서는 작업 처리의 최종 상태만 확인합니다.
 
     ```csharp
     job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
     ```
 
-7. **NotificationJobState.All**을 전달하는 경우 모든 상태 변경 알림(큐에 대기, 예약됨, 처리 중, 완료됨)을 가져와야 합니다. 그러나 앞에서 설명한 대로 Queue Storage가 순차적 전달을 보장하지 않습니다. 메시지의 순서를 지정하려면 **Timestamp** 속성(아래 예제에서는 **EncodingJobMessage** 형식에서 정의됨)을 사용합니다. 중복된 메시지도 허용됩니다. 중복을 확인하려면 **ETag 속성**(**EncodingJobMessage** 형식에서 정의됨)을 사용합니다. 또한 일부 상태 변경 알림을 건너뛸 수 있습니다.
+7. **NotificationJobState.All** 을 전달하는 경우 모든 상태 변경 알림(큐에 대기, 예약됨, 처리 중, 완료됨)을 가져와야 합니다. 그러나 앞에서 설명한 대로 Queue Storage가 순차적 전달을 보장하지 않습니다. 메시지의 순서를 지정하려면 **Timestamp** 속성(아래 예제에서는 **EncodingJobMessage** 형식에서 정의됨)을 사용합니다. 중복된 메시지도 허용됩니다. 중복을 확인하려면 **ETag 속성**(**EncodingJobMessage** 형식에서 정의됨)을 사용합니다. 또한 일부 상태 변경 알림을 건너뛸 수 있습니다.
 8. 10초마다 큐를 검사하여 작업이 완성된 상태가 될 때를 기다립니다. 처리된 후 메시지를 삭제합니다.
 9. 큐와 알림 끝점을 삭제합니다.
 
 > [!NOTE]
 > 작업 상태 모니터링 방법으로 다음 예제와 같이 알림 메시지 수신을 권장합니다.
 >
-> 또는 **IJob.State** 속성을 사용하여 작업 상태를 확인할 수 있습니다.  **Ijob** 의 상태가 **완료**로 설정 되기 전에 작업 완료에 대 한 알림 메시지가 도착할 수 있습니다. **IJob.State** 속성은 약간의 지연 시간을 포함하여 정확한 상태를 반영합니다.
+> 또는 **IJob.State** 속성을 사용하여 작업 상태를 확인할 수 있습니다.  **Ijob** 의 상태가 **완료** 로 설정 되기 전에 작업 완료에 대 한 알림 메시지가 도착할 수 있습니다. **IJob.State** 속성은 약간의 지연 시간을 포함하여 정확한 상태를 반영합니다.
 >
 >
 
