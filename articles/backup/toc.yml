@@ -210,6 +210,8 @@
           items:
             - name: Azure에서 Windows Server로 파일 복구
               href: backup-azure-restore-windows-server.md
+            - name: 볼륨의 모든 파일 복원
+              href: restore-all-files-volume-mars.md
             - name: Windows Server 시스템 상태 복원
               href: backup-azure-restore-system-state.md
         - name: 관리

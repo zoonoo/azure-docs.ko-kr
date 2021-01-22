@@ -1,0 +1,88 @@
+- name: 클라우드 동기화
+  href: index.yml
+- name: 개요
+  items:
+    - name: ID 프로비저닝이란?
+      href: what-is-provisioning.md
+    - name: Azure AD Connect 클라우드 동기화란?
+      href: what-is-cloud-sync.md
+      maintainContext: true
+- name: 자습서
+  expanded: true
+  items:
+    - name: 단일 AD 포리스트를 단일 Azure AD 테넌트와 통합
+      href: tutorial-single-forest.md
+    - name: 기존 포리스트 및 새 포리스트를 단일 Azure AD 테넌트와 통합
+      href: tutorial-existing-forest.md
+    - name: 기존 동기화된 AD 포리스트에 파일럿 클라우드 동기화
+      href: tutorial-pilot-aadc-aadccp.md
+- name: 개념
+  items:
+    - name: 작동 방식
+      href: concept-how-it-works.md
+    - name: 암호 해시 동기화란?
+      href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
+    - name: 'Azure AD 스키마, 특성 및 식 이해'
+      href: concept-attributes.md
+    - name: Azure Active Directory의 특성 매핑에 대한 식 작성
+      href: reference-expressions.md
+- name: 방법 가이드
+  items:
+    - name: 설치 및 업그레이드
+      items:
+        - name: 설치 필수 구성 요소
+          href: how-to-prerequisites.md
+        - name: Azure AD Connect 클라우드 프로비저닝 에이전트 설치
+          href: how-to-install.md
+        - name: 클라우드 동기화 구성
+          href: how-to-configure.md
+        - name: 주문형 프로비저닝
+          href: how-to-on-demand-provision.md
+        - name: 특성 매핑
+          href: how-to-attribute-mapping.md
+        - name: Single Sign-On 사용
+          href: how-to-sso.md
+    - name: 계획 및 디자인
+      items:
+        - name: Azure AD Connect 클라우드 동기화를 위한 토폴로지 및 시나리오
+          href: plan-cloud-sync-topologies.md
+    - name: 관리
+      items:
+        - name: 에이전트 자동 업그레이드
+          href: how-to-automatic-upgrade.md
+        - name: 실수로 삭제
+          href: how-to-accidental-deletes.md
+        - name: 에이전트 레지스트리 옵션
+          href: how-to-manage-registry-options.md
+        - name: 에이전트 gMSA PowerShell cmdlet
+          href: how-to-gmsa-cmdlets.md
+        - name: PowerShell을 사용하여 프로비저닝 에이전트 설치
+          href: how-to-install-pshell.md
+    - name: 개발
+      items:
+        - name: 변환
+          href: how-to-transformation.md
+        - name: MS Graph API와의 인바운드 동기화
+          href: how-to-inbound-synch-ms-graph.md
+        - name: Azure AD 동기화 API
+          href: /graph/api/resources/synchronization-overview
+    - name: 문제 해결
+      items:
+        - name: 클라우드 동기화 문제 해결
+          href: how-to-troubleshoot.md
+        - name: 중복 특성
+          href: ../hybrid/how-to-connect-syncservice-duplicate-attribute-resiliency.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+- name: 참조
+  items:
+    - name: Azure AD Connect 클라우드 프로비저닝 에이전트 버전 기록
+      href: reference-version-history.md
+    - name: Azure AD Connect 클라우드 동기화 FAQ
+      href: reference-cloud-sync-faq.md
+    - name: AADCloudSyncTools PowerShell 모듈
+      href: reference-powershell.md
+    - name: 동기화되는 특성
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+    - name: 오류 코드 및 설명
+      href: reference-error-codes.md
+    - name: 기본 Active Directory 및 Azure AD 환경
+      href: tutorial-basic-ad-azure.md
