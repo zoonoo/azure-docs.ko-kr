@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: c4c364a6c448fcee3d3c7ad3b3b2b0c4d32fec92
-  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+  ms.openlocfilehash: 059d5545c71bef3465dc634f8fdad2396a6d9a7e
+  ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/01/2020
-  ms.locfileid: "96462967"
+  ms.lasthandoff: 01/22/2021
+  ms.locfileid: "98681573"
 highlightedContent:
   items:
   - title: Cognitive Services란?
@@ -93,7 +93,7 @@ conceptualContent:
       text: Speech Service
     - url: https://speech.microsoft.com/
       itemType: overview
-      text: " - Speech Studio에서 사용자 지정"
+      text: Speech Studio에서 사용자 지정
   - title: 의사 결정
     summary: 합리적이고 효율적인 의사 결정을 위해 권장 사항을 표시하는 앱을 빌드하세요.
     links:

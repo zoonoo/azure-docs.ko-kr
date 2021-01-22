@@ -6,6 +6,8 @@
       href: automation-intro.md
     - name: FAQ
       href: automation-faq.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   items:
     - name: Automation 계정 만들기

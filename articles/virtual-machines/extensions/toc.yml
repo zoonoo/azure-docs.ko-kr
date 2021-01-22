@@ -9,11 +9,11 @@
     - name: Windows VM 에이전트
       href: agent-windows.md
 - name: 빠른 시작
-  expanded: true
   items:
     - name: 사용자 지정 스크립트 확장 사용
       href: ../windows/tutorial-automate-vm-deployment.md
       maintainContext: true
+  expanded: true
 - name: 개념
   items:
     - name: Linux
@@ -120,13 +120,6 @@
         - name: Symantec
           href: symantec.md
     - name: 사용되지 않는 확장
-      items:
-        - name: 로그 수집기
-          href: log-collector.md
-        - name: Trend Micro Deep Security
-          href: trend.md
-        - name: Linux - 버전 1(OSTC)
-          href: custom-script-linuxOstc.md
     - name: 확장 설치 제한
       items:
         - name: Linux

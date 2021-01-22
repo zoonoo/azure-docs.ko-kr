@@ -73,8 +73,6 @@
           href: concept-baseline.md
         - name: 이벤트 집계
           href: event-aggregation.md
-        - name: 가격 책정 및 관련 비용
-          href: concept-pricing.md
 - name: 방법 가이드
   items:
     - name: 조직을 위한 에이전트 없는 솔루션
@@ -252,6 +250,6 @@
         - name: 국가별 가용성
           href: 'https://azure.microsoft.com/regions/services/'
         - name: 가격 책정
-          href: 'https://azure.microsoft.com/pricing/details/security-center/'
+          href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
         - name: 동영상
           href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'
