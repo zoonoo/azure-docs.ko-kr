@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017001"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678826"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -71,7 +71,7 @@ Visual Studio Code용 Azure Portal, Azure CLI 또는 IoT 확장을 사용하여 
 
 [Azure CLI에 대 한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 작업을 완료할 수도 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령을 사용 하 여 대칭 키 인증을 사용 하는 새 iot 장치를 만들고 부모 장치를 할당 합니다.
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
@@ -126,7 +126,7 @@ X.509 자체 서명 된 인증의 경우 (지문 인증이 라고도 함) 다운
 
 또한 [Azure CLI 용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 장치 만들기 작업을 완료할 수 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령을 사용 하 여 x.509 자체 서명 된 인증으로 새 iot 장치를 만들고 부모 장치를 할당 합니다.
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
@@ -170,7 +170,7 @@ X.509 CA (인증 기관) 서명 된 인증의 경우 다운스트림 장치에 �
 
 또한 [Azure CLI 용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 장치 만들기 작업을 완료할 수 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령을 사용 하 여 x.509 CA 서명 인증을 사용 하는 새 iot 장치를 만들고 부모 장치를 할당 합니다.
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
@@ -191,19 +191,19 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 
 최종적으로 전체 연결 문자열은 다음과 같습니다.
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
 또는
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예들 들어 다음과 같습니다.
+부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 다음은 그 예입니다. 
 
-```
+```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 ```
 

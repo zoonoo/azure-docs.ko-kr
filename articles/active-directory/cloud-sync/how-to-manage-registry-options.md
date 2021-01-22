@@ -16,12 +16,12 @@ ms.subservice: hybrid
 ms.reviewer: chmutali
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4cdda52271bc7b9e9d854e0af181e2c8f22ad9a
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 1f39ef611e2ea15ef3bc3dbfcf09e9624cbcf8b3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613633"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678224"
 ---
 # <a name="manage-agent-registry-options"></a>에이전트 레지스트리 옵션 관리
 
@@ -34,7 +34,7 @@ ms.locfileid: "98613633"
 System.DirectoryServices.Protocols.LdapException: The operation was aborted because the client side timeout limit was exceeded.
 `
 
-검색 특성이 인덱싱되지 않으면 LDAP 검색 작업에 시간이 오래 걸릴 수 있습니다. 첫 번째 단계로 위의 오류가 발생 하면 먼저 검색/조회 특성이 [인덱싱되](https://docs.microsoft.com/windows/win32/ad/indexed-attributes)는 지 확인 합니다. 검색 특성이 인덱싱되어 오류가 계속 발생 하면 다음 단계를 사용 하 여 LDAP 연결 시간 제한을 늘릴 수 있습니다. 
+검색 특성이 인덱싱되지 않으면 LDAP 검색 작업에 시간이 오래 걸릴 수 있습니다. 첫 번째 단계로 위의 오류가 발생 하면 먼저 검색/조회 특성이 [인덱싱되](/windows/win32/ad/indexed-attributes)는 지 확인 합니다. 검색 특성이 인덱싱되어 오류가 계속 발생 하면 다음 단계를 사용 하 여 LDAP 연결 시간 제한을 늘릴 수 있습니다. 
 
 1. Azure AD Connect 프로 비전 에이전트를 실행 하는 Windows server에서 관리자로 로그온 합니다.
 1. *실행* 메뉴 항목을 사용 하 여 레지스트리 편집기 (regedit.exe)를 엽니다. 
@@ -48,7 +48,7 @@ System.DirectoryServices.Protocols.LdapException: The operation was aborted beca
 1. 여러 프로 비전 에이전트를 배포한 경우 일관성을 위해 모든 에이전트에이 레지스트리 변경 내용을 적용 합니다. 
 
 ## <a name="configure-referral-chasing"></a>조회 추적 구성
-기본적으로 Azure AD Connect 프로 비전 에이전트는 [조회](https://docs.microsoft.com/windows/win32/ad/referrals)를 추적 하지 않습니다. 다음과 같은 특정 HR 인바운드 프로 비전 시나리오를 지원 하기 위해 조회 추적을 사용 하도록 설정할 수 있습니다. 
+기본적으로 Azure AD Connect 프로 비전 에이전트는 [조회](/windows/win32/ad/referrals)를 추적 하지 않습니다. 다음과 같은 특정 HR 인바운드 프로 비전 시나리오를 지원 하기 위해 조회 추적을 사용 하도록 설정할 수 있습니다. 
 * 여러 도메인에서 UPN의 고유성을 확인 하는 중
 * 도메인 간 관리자 참조 확인
 

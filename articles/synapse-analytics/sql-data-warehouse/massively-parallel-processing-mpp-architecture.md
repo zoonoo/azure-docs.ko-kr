@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: c537d3109f770c1ce77be6495bdacd24270dad5f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0e87451531750e502f67dc30e6fbd26c8c944d22
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119597"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678596"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW) 아키텍처
 
@@ -61,7 +61,7 @@ Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우징과 빅 �
 
 컴퓨팅 노드는 컴퓨팅 능력을 제공합니다. 분산은 처리를 위해 컴퓨팅 노드로 매핑됩니다. 더 많은 컴퓨팅 리소스에 대한 비용을 지불하는 경우 사용 가능한 컴퓨팅 노드에 분산이 다시 매핑됩니다. 컴퓨팅 노드 수는 1~60 사이이며 Synapse SQL의 서비스 수준에 따라 결정됩니다.
 
-각 컴퓨팅 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 이러한 시스템 뷰 목록은 [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.
+각 컴퓨팅 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 이러한 시스템 뷰 목록은 [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.
 
 ### <a name="data-movement-service"></a>데이터 이동 서비스
 

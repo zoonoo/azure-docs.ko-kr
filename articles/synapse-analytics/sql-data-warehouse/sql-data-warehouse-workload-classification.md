@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: bf19e2d1674d0a0c2102280b28b5549505c1dfab
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7cd3619aa60f1bd8ac13ff767857b44348989285
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447763"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678426"
 ---
 # <a name="workload-classification-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 워크 로드 분류
 
@@ -36,7 +36,7 @@ ms.locfileid: "96447763"
 
 ## <a name="classification-process"></a>분류 프로세스
 
-현재 전용 SQL 풀의 분류는 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용 하 여 할당 된 해당 리소스 클래스가 있는 역할에 사용자를 할당 하 여 수행 됩니다. 리소스 클래스에 대 한 로그인 이외의 요청에 대 한 특성을 제공 하는 기능은이 기능으로 제한 됩니다. 이제 [CREATE 워크 로드 분류자](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문을 사용 하 여 더 다양 한 분류 방법을 사용할 수 있습니다.  이 구문을 사용 하 여 전용 SQL 풀 사용자는 매개 변수를 통해 요청에 할당 된 시스템 리소스의 양과 중요도를 할당할 수 있습니다 `workload_group` .
+현재 전용 SQL 풀의 분류는 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 사용 하 여 할당 된 해당 리소스 클래스가 있는 역할에 사용자를 할당 하 여 수행 됩니다. 리소스 클래스에 대 한 로그인 이외의 요청에 대 한 특성을 제공 하는 기능은이 기능으로 제한 됩니다. 이제 [CREATE 워크 로드 분류자](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문을 사용 하 여 더 다양 한 분류 방법을 사용할 수 있습니다.  이 구문을 사용 하 여 전용 SQL 풀 사용자는 매개 변수를 통해 요청에 할당 된 시스템 리소스의 양과 중요도를 할당할 수 있습니다 `workload_group` .
 
 > [!NOTE]
 > 분류는 요청 단위로 평가 됩니다. 단일 세션의 여러 요청은 다르게 분류 될 수 있습니다.
@@ -76,7 +76,7 @@ SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <
 - 새 분류 구문을 테스트 하기 위해 데이터베이스 역할 DBARole (DBAUser가 멤버인)에는 mediumrc 및 high 중요도에 매핑되는 분류자가 만들어집니다.
 - DBAUser가 로그인 하 여 쿼리를 실행 하면 쿼리가 largerc에 할당 됩니다. 사용자가 역할 멤버 자격 보다 우선적으로 적용 됩니다.
 
-잘못 된 분류 문제 해결을 간소화 하려면 작업 분류자를 만들 때 리소스 클래스 역할 매핑을 제거 하는 것이 좋습니다.  아래 코드는 기존 리소스 클래스 역할 멤버 자격을 반환 합니다.  해당 하는 리소스 클래스에서 반환 된 각 멤버 이름에 대해 [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 를 실행 합니다.
+잘못 된 분류 문제 해결을 간소화 하려면 작업 분류자를 만들 때 리소스 클래스 역할 매핑을 제거 하는 것이 좋습니다.  아래 코드는 기존 리소스 클래스 역할 멤버 자격을 반환 합니다.  해당 하는 리소스 클래스에서 반환 된 각 멤버 이름에 대해 [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 를 실행 합니다.
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -92,7 +92,7 @@ sp_droprolemember '[Resource Class]', membername
 
 ## <a name="next-steps"></a>다음 단계
 
-- 분류자를 만드는 방법에 대 한 자세한 내용은 [워크 로드 분류자 만들기 (transact-sql)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.  
+- 분류자를 만드는 방법에 대 한 자세한 내용은 [워크 로드 분류자 만들기 (transact-sql)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.  
 - 워크 로드 분류자를 만드는 방법에 대 한 빠른 시작을 참조 하 여 [워크 로드 분류자를 만듭니다](quickstart-create-a-workload-classifier-tsql.md).
 - [작업 부하를 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 하는 방법 문서 및 [워크 로드 관리를 관리 하 고 모니터링](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)하는 방법 문서를 참조 하세요.
-- 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+- 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.

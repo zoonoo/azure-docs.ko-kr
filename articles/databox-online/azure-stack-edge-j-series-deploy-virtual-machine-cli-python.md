@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 54a4a938be18d39993652cecb87b3604e268fcef
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762924"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678956"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Azure CLI 및 Python을 사용하여 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
@@ -123,7 +123,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
     다음은 위 명령의 샘플 출력입니다.
 
-    ```powershell
+    ```output
     PS C:\windows\system32> az --version
     azure-cli                         2.0.80
     
@@ -147,7 +147,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
     PS C:\windows\system32>
     ```
 
-    Azure CLI가 없으면 [Windows에서 Azure CLI를 다운로드하여 설치](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)합니다. Windows 명령 프롬프트 또는 Windows PowerShell을 통해 Azure CLI를 실행할 수 있습니다.
+    Azure CLI가 없으면 [Windows에서 Azure CLI를 다운로드하여 설치](/cli/azure/install-azure-cli-windows)합니다. Windows 명령 프롬프트 또는 Windows PowerShell을 통해 Azure CLI를 실행할 수 있습니다.
 
 2. CLI의 Python 위치를 기록해 둡니다. 이 정보는 Azure CLI에 대한 신뢰할 수 있는 루트 인증서 저장소의 위치를 확인하는 데 필요합니다.
 
@@ -171,7 +171,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
     다음 샘플 출력은 Haikunator 설치를 보여줍니다.
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install haikunator
 
     Collecting haikunator
@@ -187,7 +187,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
     다음 샘플 출력은 `msrestazure`의 pip 설치를 보여줍니다. 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install msrestazure==0.6.2
     Requirement already satisfied: msrestazure==0.6.2 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (0.6.2)
     Requirement already satisfied: msrest<2.0.0,>=0.6.0 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (from msrestazure==0.6.2) (0.6.10)
@@ -211,7 +211,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
     
     cmdlet은 인증서 위치를 아래와 같이 반환합니다.  
         
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python -c "import certifi; print(certifi.where())"
     C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
@@ -323,7 +323,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
    다음 샘플은 암호를 제공한 후 성공한 로그인의 출력을 보여줍니다.  
    
-   ```powershell
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [

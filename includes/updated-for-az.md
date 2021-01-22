@@ -1,16 +1,15 @@
 ---
 ms.topic: include
-ms.date: 04/17/2019
-author: dbradish-microsoft
-ms.author: dbradish
+ms.date: 01/15/2021
+author: mikefrobbins
+ms.author: mirobb
 manager: barbkess
-ms.openlocfilehash: be2242e22ad2815a70be1a56cb77696afbd9a8d3
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8dbfb60d64123f16dc5198b04ed372e575d9080f
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "95975357"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98250056"
 ---
 > [!NOTE]
-> 이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다.
-> 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az?view=azps-3.3.0)를 참조하세요. Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps?view=azps-3.3.0)를 참조하세요.
+> 이 문서는 Azure Az PowerShell 모듈을 사용하도록 업데이트되었습니다. Az PowerShell 모듈은 Azure와 상호 작용하는 데 추천되는 PowerShell 모듈입니다. Az PowerShell 모듈을 시작하려면 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. Az PowerShell 모듈로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure PowerShell을 AzureRM에서 Azure로 마이그레이션](https://aka.ms/azpsmigrate)을 참조하세요.

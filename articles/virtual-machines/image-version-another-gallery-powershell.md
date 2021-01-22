@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2f26716a4d04b574bf393f502758a725948419da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85bc6f4468e0365d247b0adc204bd53ce9fa3006
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299952"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676719"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>PowerShell을 사용 하 여 다른 갤러리에서 이미지 복사
 
@@ -103,7 +103,7 @@ Get-AzGalleryImageDefinition `
 대상 갤러리에서 [AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) cmdlet 및 위의 출력 정보를 사용 하 여 새 이미지 정의를 만듭니다.
 
 
-이 *예제에서 이미지* 정의의 이름은 *mydestinationgallery*라는 갤러리에 있습니다.
+이 *예제에서 이미지* 정의의 이름은 *mydestinationgallery* 라는 갤러리에 있습니다.
 
 
 ```azurepowershell-interactive
@@ -127,7 +127,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
-이 예에서는 *Mydestinationgallery* 리소스 그룹 *West US* 의 *mydestinationgallery*로 대상 갤러리의 이름이 지정 됩니다. 이 이미지의 버전은 *1.0.0* *이며 미국* *서 부* 지역에 2 개의 복제본과 2 개의 복제본을 만듭니다. 
+이 예에서는 *Mydestinationgallery* 리소스 그룹  의 *mydestinationgallery* 로 대상 갤러리의 이름이 지정 됩니다. 이 이미지의 버전은 *1.0.0* *이며 미국* *서 부* 지역에 2 개의 복제본과 2 개의 복제본을 만듭니다. 
 
 
 ```azurepowershell-interactive
@@ -164,6 +164,6 @@ $job.State
 
 [일반화](vm-generalized-image-version-powershell.md) 된 이미지 버전 또는 [특수](vm-specialized-image-version-powershell.md) 이미지 버전에서 VM을 만듭니다.
 
-[Azure 이미지 작성기 (미리 보기)](./linux/image-builder-overview.md) 는 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전](./linux/image-builder-gallery-update-image-version.md)을 업데이트 하 고 만드는 데에도 사용할 수 있습니다. 
+[Azure 이미지 작성기 (미리 보기)](./image-builder-overview.md) 는 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전](./linux/image-builder-gallery-update-image-version.md)을 업데이트 하 고 만드는 데에도 사용할 수 있습니다. 
 
 구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.

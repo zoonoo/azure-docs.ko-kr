@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06d1957d182f2cabc336afcfc47a790442a3cb9a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322124"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678409"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Azure Synapse Analytics 워크 로드 중요도
 
@@ -38,9 +38,9 @@ ms.locfileid: "93322124"
 
 ### <a name="locking"></a>잠금
 
-읽기 및 쓰기 작업의 잠금에 대 한 액세스는 자연 경합의 한 영역입니다. [파티션 전환](sql-data-warehouse-tables-partition.md) 또는 [개체 이름 바꾸기](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 와 같은 활동에는 상승 된 잠금이 필요 합니다.  워크 로드의 중요성이 없는 경우 Azure Synapse의 전용 SQL 풀은 처리량을 최적화 합니다. 처리량을 최적화 하는 것은 실행 중이 고 대기 중인 요청이 동일한 잠금 요구와 리소스를 사용할 수 있는 경우 지연 된 요청은 이전에 요청 큐에 도착 한 더 높은 잠금 요구가 있는 요청을 무시할 수 있음을 의미 합니다. 잠금 요구 사항이 높은 요청에 워크 로드 중요도가 적용 되 면 중요도가 더 높은 요청은 중요도가 낮은 요청 보다 먼저 실행 됩니다.
+읽기 및 쓰기 작업의 잠금에 대 한 액세스는 자연 경합의 한 영역입니다. [파티션 전환](sql-data-warehouse-tables-partition.md) 또는 [개체 이름 바꾸기](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 와 같은 활동에는 상승 된 잠금이 필요 합니다.  워크 로드의 중요성이 없는 경우 Azure Synapse의 전용 SQL 풀은 처리량을 최적화 합니다. 처리량을 최적화 하는 것은 실행 중이 고 대기 중인 요청이 동일한 잠금 요구와 리소스를 사용할 수 있는 경우 지연 된 요청은 이전에 요청 큐에 도착 한 더 높은 잠금 요구가 있는 요청을 무시할 수 있음을 의미 합니다. 잠금 요구 사항이 높은 요청에 워크 로드 중요도가 적용 되 면 중요도가 더 높은 요청은 중요도가 낮은 요청 보다 먼저 실행 됩니다.
 
-다음과 같은 예제를 참조하세요.
+다음 예제를 참조하세요.
 
 - Q1이 적극적으로 실행 중이 고 SalesFact에서 데이터를 선택 합니다.
 - Q2가 Q1이 완료 될 때까지 대기 하는 중입니다.  오전 9 시에서 전송 되었으며 새 데이터를 SalesFact로 분할 하려고 합니다.
@@ -62,8 +62,8 @@ Q5는 mediumrc 이므로 두 개의 동시성 슬롯이 필요 합니다. Q5는 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 분류자를 만드는 방법에 대 한 자세한 내용은 [워크 로드 분류자 만들기 (transact-sql)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.  
+- 분류자를 만드는 방법에 대 한 자세한 내용은 [워크 로드 분류자 만들기 (transact-sql)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.  
 - 워크로드 분류에 대한 자세한 내용은 [워크로드 분류](sql-data-warehouse-workload-classification.md)를 참조하세요.  
 - 작업 분류자를 만드는 방법에 대 한 빠른 시작 [작업 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md) 를 참조 하세요.
 - [워크로드 중요도 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 및 [워크로드 관리 모니터링 및 관리](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) 방법에 대한 문서를 참조하세요.
-- 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+- 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.

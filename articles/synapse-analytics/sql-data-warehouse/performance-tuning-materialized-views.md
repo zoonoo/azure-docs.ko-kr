@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e137611809e2d2beefecfeaea11b4295bf6ba141
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460751"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678494"
 ---
 # <a name="performance-tune-with-materialized-views"></a>구체화 된 뷰로 성능 조정
 
@@ -29,7 +29,7 @@ Azure Synapse의 SQL 풀은 표준 및 구체화 된 뷰를 지원 합니다.  �
 
 구체화된 뷰는 테이블과 마찬가지로 SQL 풀에서 데이터를 미리 계산하고 저장하고 유지 관리합니다.  구체화된 뷰가 사용될 때마다 다시 계산할 필요가 없습니다.  따라서 구체화된 뷰의 데이터 전체 또는 일부를 사용하는 쿼리가 더 빠른 성능을 얻을 수 있습니다.  그뿐 아니라 쿼리에서는 구체화된 뷰를 직접 참조하지 않고 사용할 수 있으므로 애플리케이션 코드를 변경할 필요가 없습니다.  
 
-표준 뷰의 대부분의 요구 사항은 구체화된 뷰에 적용됩니다. 구체화된 뷰 구문 및 기타 요구 사항에 대한 자세한 내용은 [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+표준 뷰의 대부분의 요구 사항은 구체화된 뷰에 적용됩니다. 구체화된 뷰 구문 및 기타 요구 사항에 대한 자세한 내용은 [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 | 비교                     | 보기                                         | 구체화된 뷰
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -55,8 +55,8 @@ SQL 풀에서 구현된 구체화된 뷰는 다음과 같은 추가적인 이점
 다른 데이터 웨어하우스 공급자와 비교 하 여 Azure Synapse Analytics에서 구현 된 구체화 된 뷰는 다음과 같은 추가 이점도 제공 합니다.
 
 - 기본 테이블의 데이터 변경 내용으로 자동 및 동기식 데이터 새로 고침 추가적인 조치가 필요하지 않습니다.
-- 집계 함수를 광범위하게 지원합니다. [CREATE MATERIALIZED VIEW AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
-- 쿼리 관련 구체화된 뷰 권장 사항을 지원합니다.  [EXPLAIN(Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.
+- 집계 함수를 광범위하게 지원합니다. [CREATE MATERIALIZED VIEW AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
+- 쿼리 관련 구체화된 뷰 권장 사항을 지원합니다.  [EXPLAIN(Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
 ## <a name="common-scenarios"></a>일반적인 시나리오  
 

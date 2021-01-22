@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: ec925ce165c1de98fe920381e1b51e3388c1e4ad
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 33dffa40e0236483d641c2e2bbe318bb62a7724d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232406"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678190"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Microsoft id 플랫폼 (미리 보기)의 구성 가능한 토큰 수명
 
@@ -82,9 +82,11 @@ ID 토큰은 웹 사이트 및 기본 클라이언트에 전달됩니다. ID 토
 > [!IMPORTANT]
 > 2020 년 5 월 새 테 넌 트는 새로 고침 및 세션 토큰 수명을 구성할 수 없습니다.  기존 구성이 있는 테 넌 트는 2021 년 1 월 30 일까 지 새로 고침 및 세션 토큰 정책을 수정할 수 있습니다.   Azure Active Directory은 2021 년 1 월 30 일 이후에 정책에서 기존 새로 고침 및 세션 토큰 구성을 다시 설정 하는 것을 중지 합니다. 사용 중지 후에도 액세스, SAML 및 ID 토큰 수명을 구성할 수 있습니다.
 >
-> 사용자가 다시 로그인 하도록 요청 하는 시간 간격을 계속 정의 해야 하는 경우 조건부 액세스에서 로그인 빈도를 구성 합니다. 조건부 액세스에 대 한 자세한 내용은 [조건부 액세스를 사용 하 여 인증 세션 관리 구성](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)을 참조 하세요.
+> 사용자가 다시 로그인 하도록 요청 하는 시간 간격을 계속 정의 해야 하는 경우 조건부 액세스에서 로그인 빈도를 구성 합니다. 조건부 액세스에 대 한 자세한 내용은 [조건부 액세스를 사용 하 여 인증 세션 관리 구성](../conditional-access/howto-conditional-access-session-lifetime.md)을 참조 하세요.
 >
 > 사용 중지 날짜 후 조건부 액세스를 사용 하지 않으려는 경우 새로 고침 및 세션 토큰이 해당 날짜의 [기본 구성](#configurable-token-lifetime-properties-after-the-retirement) 으로 설정 되 고 더 이상 수명을 변경할 수 없게 됩니다.
+>
+> 기존 토큰의 수명은 변경 되지 않습니다. 만료 된 후에는 기본값을 기반으로 새 토큰이 발급 됩니다.
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="사용 중지 정보":::
 
@@ -246,7 +248,7 @@ PowerShell을 사용 하 여 사용 중지의 영향을 받는 정책을 찾을 
 
 다음 cmdlet을 사용하여 정책을 관리할 수 있습니다.
 
-| Cmdlet | 설명 | 
+| Cmdlet | Description | 
 | --- | --- |
 | [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | 새 정책을 만듭니다. |
 | [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | 모든 Azure AD 정책 또는 지정된 정책을 가져옵니다. |
@@ -257,7 +259,7 @@ PowerShell을 사용 하 여 사용 중지의 영향을 받는 정책을 찾을 
 ### <a name="application-policies"></a>애플리케이션 정책
 애플리케이션 정책에 다음 cmdlet을 사용할 수 있습니다.</br></br>
 
-| Cmdlet | 설명 | 
+| Cmdlet | Description | 
 | --- | --- |
 | [Add-AzureADApplicationPolicy](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 정책을 애플리케이션에 연결합니다. |
 | [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | 애플리케이션에 할당된 정책을 가져옵니다. |
@@ -266,7 +268,7 @@ PowerShell을 사용 하 여 사용 중지의 영향을 받는 정책을 찾을 
 ### <a name="service-principal-policies"></a>서비스 사용자 정책
 서비스 주체 정책에 다음 cmdlet을 사용할 수 있습니다.
 
-| Cmdlet | 설명 | 
+| Cmdlet | Description | 
 | --- | --- |
 | [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 정책을 서비스 주체에 연결합니다. |
 | [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 서비스 주체에 연결된 모든 정책을 가져옵니다.|

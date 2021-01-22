@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9500d682a99e6345289a83b4b3b2fc29ffe18457
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462658"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676887"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일 쿼리
 
 서버리스 SQL 풀을 사용하면 데이터 레이크의 데이터를 쿼리할 수 있습니다. 이는 반정형 및 비정형 데이터 쿼리를 수용하는 T-SQL 쿼리 노출 영역을 제공합니다. 쿼리에 지원되는 T-SQL 측면은 다음과 같습니다.
 
-- 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함하는 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 노출 영역.
+- 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함하는 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 노출 영역.
 - CREATE EXTERNAL TABLE AS SELECT([CETAS](develop-tables-cetas.md))는 [외부 테이블](develop-tables-external-tables.md)을 만든 다음, Transact-SQL SELECT 문의 결과를 Azure Storage에 병렬로 내보냅니다.
 
 현재 지원되는 항목과 지원되지 않는 항목에 대한 자세한 내용은 [서버리스 SQL 풀 개요](on-demand-workspace-overview.md) 문서 또는 다음 문서를 참조하세요.
@@ -190,15 +190,15 @@ Struct와 같은 중첩된 열의 중첩된 요소에 액세스하려면 "점 �
 
 #### <a name="access-elements-from-repeated-columns"></a>반복된 열의 요소에 액세스
 
-Array 또는 Map의 요소와 같은 반복된 열의 요소에 액세스하려면 프로젝션하여 제공해야 하는 모든 스칼라 요소에 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 함수를 사용합니다.
+Array 또는 Map의 요소와 같은 반복된 열의 요소에 액세스하려면 프로젝션하여 제공해야 하는 모든 스칼라 요소에 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 함수를 사용합니다.
 
 - 첫 번째 매개 변수로 중첩되거나 반복되는 열
-- 두 번째 매개 변수로 액세스할 요소 또는 속성을 지정하는 [JSON 경로](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- 두 번째 매개 변수로 액세스할 요소 또는 속성을 지정하는 [JSON 경로](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-반복된 열의 비 스칼라 요소에 액세스하려면 프로젝션하여 제공해야 하는 모든 비 스칼라 요소에 대해 [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 함수를 사용합니다.
+반복된 열의 비 스칼라 요소에 액세스하려면 프로젝션하여 제공해야 하는 모든 비 스칼라 요소에 대해 [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 함수를 사용합니다.
 
 - 첫 번째 매개 변수로 중첩되거나 반복되는 열
-- 두 번째 매개 변수로 액세스할 요소 또는 속성을 지정하는 [JSON 경로](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- 두 번째 매개 변수로 액세스할 요소 또는 속성을 지정하는 [JSON 경로](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 아래 구문 조각을 참조하세요.
 

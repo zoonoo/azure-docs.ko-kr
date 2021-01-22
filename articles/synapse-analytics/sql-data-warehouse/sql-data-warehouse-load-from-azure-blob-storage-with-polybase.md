@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bbe61444404b16a09a1e0d2bdead72ac53a60744
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aac0d8b923dc87f8be59cb594b155aafcf25fd0e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452889"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677157"
 ---
 # <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Contoso retail 데이터를 전용 SQL 풀로 로드
 
@@ -77,7 +77,7 @@ WITH (
 
 ## <a name="create-the-external-data-source"></a>외부 데이터 원본 만들기
 
-이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 사용 하 여 데이터의 위치와 데이터 형식을 저장 합니다.
+이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 명령을 사용 하 여 데이터의 위치와 데이터 형식을 저장 합니다.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -221,7 +221,7 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>데이터를 새 테이블에 로드합니다.
 
-Azure blob storage에서 데이터 웨어하우스 테이블로 데이터를 로드 하려면 [SELECT (transact-sql)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용 하 여 CREATE TABLE 합니다. [Ctas](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 를 사용 하 여 로드 하면 직접 만든 강력한 형식의 외부 테이블을 활용 합니다. 새 테이블에 데이터를 로드 하려면 테이블당 하나의 CTAS 문을 사용 합니다.
+Azure blob storage에서 데이터 웨어하우스 테이블로 데이터를 로드 하려면 [SELECT (transact-sql)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문을 사용 하 여 CREATE TABLE 합니다. [Ctas](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 를 사용 하 여 로드 하면 직접 만든 강력한 형식의 외부 테이블을 활용 합니다. 새 테이블에 데이터를 로드 하려면 테이블당 하나의 CTAS 문을 사용 합니다.
 
 CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
@@ -340,7 +340,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 
 ## <a name="achievement-unlocked"></a>목표를 달성했습니다!
 
-데이터 웨어하우스에 공용 데이터를 성공적으로 로드 했습니다. 잘했습니다.
+데이터 웨어하우스에 공용 데이터를 성공적으로 로드 했습니다. 잘하셨습니다!
 
 이제 테이블 쿼리를 시작 하 여 데이터를 탐색할 수 있습니다. 다음 쿼리를 실행 하 여 브랜드 별 총 판매량을 확인할 수 있습니다.
 

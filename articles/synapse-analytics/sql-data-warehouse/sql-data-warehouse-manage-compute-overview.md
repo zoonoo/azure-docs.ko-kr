@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 300759b4ab6f806c02e748ff4c9a63a6a772bff4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4a2ce18f4a02ccaadf66a96049b00f3837b927e4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461082"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677040"
 ---
 # <a name="manage-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)의 계산 관리
 
@@ -122,7 +122,7 @@ Azure Synapse Analytics에서 계산 리소스 전용 SQL 풀 (이전의 SQL DW)
 
 ## <a name="permissions"></a>사용 권한
 
-전용 SQL 풀 (이전의 SQL DW)의 크기를 조정 하려면 [ALTER database](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에 설명 된 권한이 필요 합니다.  일시 중지하고 다시 시작하려면 [SQL DB 참가자](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor) 권한, 특히 Microsoft.Sql/servers/databases/action이 필요합니다.
+전용 SQL 풀 (이전의 SQL DW)의 크기를 조정 하려면 [ALTER database](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에 설명 된 권한이 필요 합니다.  일시 중지하고 다시 시작하려면 [SQL DB 참가자](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor) 권한, 특히 Microsoft.Sql/servers/databases/action이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

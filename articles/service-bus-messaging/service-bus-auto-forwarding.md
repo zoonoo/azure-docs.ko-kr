@@ -2,18 +2,21 @@
 title: 자동 전달 Azure Service Bus 메시징 엔터티
 description: 이 문서에서는 Azure Service Bus 큐 또는 구독을 다른 큐 또는 토픽에 연결 하는 방법을 설명 합니다.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/20/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80bef52d568130fa800a1da661f4867abb3df02c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819575"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678991"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>자동 전달을 사용한 Service Bus 엔터티 연결
 
 Service Bus *자동 전달* 기능을 통해 동일한 네임스페이스의 일부인 다른 큐 또는 토픽에 큐 또는 구독을 연결할 수 있습니다. 자동 전달을 사용하도록 설정하면 Service Bus가 자동으로 첫 번째 큐 또는 구독(원본)에 있는 메시지를 제거하고 두 번째 큐 또는 토픽(대상)에 넣습니다. 대상 엔터티에 직접 메시지를 보내는 것은 여전히 가능합니다.
+
+> [!NOTE]
+> Service Bus의 기본 계층은 자동 전달 기능을 지원 하지 않습니다. Standard 및 premium 계층은이 기능을 지원 합니다. 이러한 계층 간의 차이점은 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 
 ## <a name="using-autoforwarding"></a>자동 전달 사용
 

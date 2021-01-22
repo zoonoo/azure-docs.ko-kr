@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f881dcc0d26589c4029246019119fa0555dcd5d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0974e880b75cce69f2b5ac82e3c4b39de53e03ce
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117778"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677107"
 ---
 # <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Data Lake Storage에서 Azure Synapse Analytics의 전용 SQL 풀로 데이터 로드
 
-이 가이드에서는 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) 사용 하 여 Azure Data Lake Storage에서 데이터를 로드 하는 방법을 설명 합니다. 모든 인증 방법에서 COPY 문을 사용 하는 방법에 대 한 빠른 예제를 보려면 [전용 SQL 풀을 사용 하 여 데이터를 안전 하 게 로드](./quickstart-bulk-load-copy-tsql-examples.md)설명서를 참조 하세요.
+이 가이드에서는 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) 사용 하 여 Azure Data Lake Storage에서 데이터를 로드 하는 방법을 설명 합니다. 모든 인증 방법에서 COPY 문을 사용 하는 방법에 대 한 빠른 예제를 보려면 [전용 SQL 풀을 사용 하 여 데이터를 안전 하 게 로드](./quickstart-bulk-load-copy-tsql-examples.md)설명서를 참조 하세요.
 
 > [!NOTE]  
 > COPY 문에 사용자 의견을 제공 하거나 문제를 보고 하려면 메일 그룹에 전자 메일을 보냅니다 sqldwcopypreview@service.microsoft.com .
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 다운로드하여 설치합니다.
+이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true))를 다운로드하여 설치합니다.
 
 이 자습서를 실행하려면 다음이 필요합니다.
 
@@ -133,6 +133,6 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 > [데이터 웨어하우징용 테이블을 개발하는 방법 알아보기](sql-data-warehouse-tables-overview.md)
 
 예제 및 참조를 로드 하는 방법에 대 한 자세한 내용은 다음 설명서를 참조 하세요.
-- [COPY 문 참조 설명서](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [COPY 문 참조 설명서](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
 - [각 인증 방법에 대 한 복사 예제](./quickstart-bulk-load-copy-tsql-examples.md)
 - [단일 테이블에 대 한 빠른 시작 복사](./quickstart-bulk-load-copy-tsql.md)

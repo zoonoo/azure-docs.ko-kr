@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 404103caf376b792d363996664a69f655d5bd202
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2ed19846209d098d9eba8dba991e08d1fc57f185
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326015"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678012"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Azure Key Vault 및 관리 Id를 사용 하 여 Azure Batch 계정에 대 한 고객 관리 키 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "96326015"
 
 새 Batch 계정을 만드는 경우 `SystemAssigned` 매개 변수에 대해를 지정 `--identity` 합니다.
 
-```powershell
+```azurecli
 resourceGroupName='myResourceGroup'
 accountName='mybatchaccount'
 
@@ -52,7 +52,7 @@ az batch account create \
 
 계정을 만든 후에는이 계정에서 시스템 할당 관리 id가 사용 하도록 설정 되었는지 확인할 수 있습니다. 이 `PrincipalId` 일괄 처리 계정에 Key Vault에 대 한 액세스 권한을 부여 하는 데이 값이 필요 하므로에 유의 해야 합니다.
 
-```powershell
+```azurecli
 az batch account show \
     -n $accountName \
     -g $resourceGroupName \
@@ -100,7 +100,7 @@ Azure Portal에서 **키** 섹션의 Key Vault 인스턴스로 이동 하 여 **
 
 시스템 할당 관리 id를 사용 하 여 Batch 계정을 만든 다음 Key Vault에 대 한 액세스 권한이 부여 되 면 매개 변수 아래의 URL을 사용 하 여 Batch 계정을 업데이트 `{Key Identifier}` `keyVaultProperties` 합니다. 또한 **encryption_key_source** 를로 설정 `Microsoft.KeyVault` 합니다.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -110,7 +110,7 @@ az batch account set \
 
 ## <a name="update-the-customer-managed-key-version"></a>고객 관리 키 버전 업데이트
 
-새 버전의 키를 만드는 경우 새 버전을 사용 하도록 Batch 계정을 업데이트 합니다. 아래 단계를 수행합니다.
+새 버전의 키를 만드는 경우 새 버전을 사용 하도록 Batch 계정을 업데이트 합니다. 다음 단계를 수행합니다.
 
 1. Azure Portal에서 배치 계정으로 이동 하 여 암호화 설정을 표시 합니다.
 2. 새 키 버전의 URI를 입력 합니다. 또는 키 자격 증명 모음을 다시 선택 하 고 키를 다시 선택 하 여 버전을 업데이트할 수 있습니다.
@@ -118,7 +118,7 @@ az batch account set \
 
 Azure CLI를 사용 하 여 버전을 업데이트할 수도 있습니다.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -134,7 +134,7 @@ az batch account set \
 
 Azure CLI를 사용 하 여 다른 키를 사용할 수도 있습니다.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \

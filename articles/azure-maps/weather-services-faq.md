@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8b7726e4e8fee0044a7865c8c494ef6451425676
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c8e971b4fda313ffede58455dd6d057d6848ce4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903873"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678132"
 ---
 # <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Azure Maps 날씨 서비스 (미리 보기) FAQ (질문과 대답)
 
 > [!IMPORTANT]
-> Azure Maps 날씨 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> Azure Maps Weather Services는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 문서에서는 Azure Maps [날씨 서비스](https://docs.microsoft.com/rest/api/maps/weather) 데이터 및 기능에 대 한 일반적인 질문에 답변 합니다. 이 섹션에서 다루는 항목은 다음과 같습니다.
+이 문서에서는 Azure Maps [날씨 서비스](/rest/api/maps/weather) 데이터 및 기능에 대 한 일반적인 질문에 답변 합니다. 이 섹션에서 다루는 항목은 다음과 같습니다.
 
 * 데이터 원본 및 데이터 모델
 * 날씨 서비스 범위 및 가용성
@@ -59,7 +59,7 @@ AccuWeather에는 전 세계 어디에서 나 사용할 수 있는 실시간 날
 
 **다른 국가/지역에 대해 어떤 종류의 적용을 받을 수 있나요?**
 
-날씨 서비스 범위는 국가/지역에 따라 다릅니다. 모든 기능을 모든 국가/지역에서 사용할 수 있는 것은 아닙니다. 자세한 내용은 [검사 설명서](https://docs.microsoft.com/azure/azure-maps/weather-coverage)를 참조 하세요.
+날씨 서비스 범위는 국가/지역에 따라 다릅니다. 모든 기능을 모든 국가/지역에서 사용할 수 있는 것은 아닙니다. 자세한 내용은 [검사 설명서](./weather-coverage.md)를 참조 하세요.
 
 ## <a name="data-update-frequency"></a>데이터 업데이트 빈도
 
@@ -79,7 +79,7 @@ Azure Maps 예측 Api는 최대 30 분 동안 캐시 됩니다. 캐시 된 응�
 
 **웹 SDK Azure Maps는 기본적으로 날씨 서비스 (미리 보기) 통합을 지원 하나요?**
 
-Azure Maps 웹 SDK는 서비스 모듈을 제공 합니다. 서비스 모듈은 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST 서비스를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다. JavaScript 또는 TypeScript를 사용 합니다. 시작 하려면 [설명서](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)를 참조 하세요.
+Azure Maps 웹 SDK는 서비스 모듈을 제공 합니다. 서비스 모듈은 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST 서비스를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다. JavaScript 또는 TypeScript를 사용 합니다. 시작 하려면 [설명서](./how-to-use-services-module.md)를 참조 하세요.
 
 **는 기본적으로 날씨 서비스 (미리 보기) 통합을 지원 Android SDK Azure Maps 합니까?**
 
@@ -91,26 +91,26 @@ Java/Android 용 서비스 모듈은 웹 SDK 모듈과 유사 하 게 만들 예
 
 **날씨 타일 Azure Maps 시각적 지원 Power BI Azure Maps 합니까?**
 
-예. 레이더 및 적외선 위성 타일을 Microsoft Power BI 시각적 개체에 마이그레이션하는 방법을 알아보려면 [Power BI 시각적 개체에 타일 계층 추가](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-add-tile-layer)를 참조 하세요. 
+예. 레이더 및 적외선 위성 타일을 Microsoft Power BI 시각적 개체에 마이그레이션하는 방법을 알아보려면 [Power BI 시각적 개체에 타일 계층 추가](./power-bi-visual-add-tile-layer.md)를 참조 하세요. 
 
 **방사형 및 위성 타일에 사용 되는 색을 해석 어떻게 할까요??**
 
-Azure Maps [날씨 개념 문서](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#radar-and-satellite-imagery-color-scale) 에는 방사형 및 위성 타일에 사용 된 색을 해석 하는 데 도움이 되는 가이드가 포함 되어 있습니다. 이 문서에서는 색 샘플과 16 진수 색 코드에 대해 설명 합니다.
+Azure Maps [날씨 개념 문서](./weather-services-concepts.md#radar-and-satellite-imagery-color-scale) 에는 방사형 및 위성 타일에 사용 된 색을 해석 하는 데 도움이 되는 가이드가 포함 되어 있습니다. 이 문서에서는 색 샘플과 16 진수 색 코드에 대해 설명 합니다.
  
 **방사형 및 위성 타일 애니메이션을 만들 수 있나요?**
 
-예. Azure Maps 고객은 실시간 레이더와 위성 타일 외에도 이전 및 이후 타일을 요청 하 여 지도 오버레이를 통해 데이터 시각화를 향상 시킬 수 있습니다. 이 작업은 [Get Map Tile V2 API](https://aka.ms/AzureMapsWeatherTiles ) 를 직접 호출 하거나 AZURE MAPS 웹 SDK를 통해 타일을 요청 하 여 수행할 수 있습니다. 레이더 타일은 과거 최대 1.5 시간 동안, 그리고 나중에 최대 2 시간 동안 제공 됩니다. 및 타일은 5 분 간격으로 사용할 수 있습니다. 적외선 타일은 지난 3 시간 동안 제공 되며 10 분 간격으로 사용할 수 있습니다. 자세한 내용은 오픈 소스 날씨 타일 애니메이션 [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)을 참조 하세요.  
+예. Azure Maps 고객은 실시간 레이더와 위성 타일 외에도 이전 및 이후 타일을 요청 하 여 지도 오버레이를 통해 데이터 시각화를 향상 시킬 수 있습니다. 이 작업은 [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview) 를 직접 호출 하거나 AZURE MAPS 웹 SDK를 통해 타일을 요청 하 여 수행할 수 있습니다. 레이더 타일은 과거 최대 1.5 시간 동안, 그리고 나중에 최대 2 시간 동안 제공 됩니다. 및 타일은 5 분 간격으로 사용할 수 있습니다. 적외선 타일은 지난 3 시간 동안 제공 되며 10 분 간격으로 사용할 수 있습니다. 자세한 내용은 오픈 소스 날씨 타일 애니메이션 [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)을 참조 하세요.  
 
 **다른 날씨 조건에 대 한 아이콘을 제공 하나요?**
 
-예. [여기](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons)에서 아이콘 및 해당 코드를 찾을 수 있습니다. [현재 조건 가져오기 api](https://aka.ms/azuremapsweathercurrentconditions)와 같은 일부 날씨 서비스 (미리 보기) api만 응답의 *iconcode* 를 반환 합니다. 자세한 내용은 현재 WeatherConditions 오픈 소스 [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)을 참조 하세요.
+예. [여기](./weather-services-concepts.md#weather-icons)에서 아이콘 및 해당 코드를 찾을 수 있습니다. [현재 조건 가져오기 api](/rest/api/maps/weather/getcurrentconditionspreview)와 같은 일부 날씨 서비스 (미리 보기) api만 응답의 *iconcode* 를 반환 합니다. 자세한 내용은 현재 WeatherConditions 오픈 소스 [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 FAQ에서 질문에 대답할 수 없는 경우 다음 채널을 통해 연락할 수 있습니다 (순서 대로).
 
 * 이 문서의 의견 섹션입니다.
-* [MSFT Q&Azure Maps 페이지](https://docs.microsoft.com/answers/topics/azure-maps.html)입니다.
+* [MSFT Q&Azure Maps 페이지](/answers/topics/azure-maps.html)입니다.
 * Microsoft 지원 새 지원 요청을 만들려면 [Azure Portal](https://portal.azure.com/)의 도움말 탭에서 **도움말 +** 지원 단추를 선택한 다음 **새 지원 요청** 을 선택 합니다.
 * [UserVoice를 Azure Maps](https://feedback.azure.com/forums/909172-azure-maps) 하 여 기능 요청을 제출 합니다.
 
@@ -120,9 +120,9 @@ Azure Maps 날씨 서비스 (미리 보기)를 사용 하 여 실시간 및 예�
 
 Azure Maps 날씨 서비스 (미리 보기) 개념 문서:
 > [!div class="nextstepaction"]
-> [날씨 서비스 개념](weather-coverage.md)
+> [Weather Service 개념](weather-coverage.md)
 
 Azure Maps 날씨 서비스 (미리 보기) API 설명서를 탐색 합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Maps 날씨 서비스](/rest/api/maps/weather)
+> [Azure Maps Weather Service](/rest/api/maps/weather)

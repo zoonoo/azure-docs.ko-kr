@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: d4abc9e1bba151f46adf71dd0185ddddad916a38
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5087278e5c89514cd43b7ca871a58f18e0fa98f2
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216464"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678149"
 ---
 # <a name="authentication-vs-authorization"></a>인증과 권한 부여의 차이점
 
@@ -51,7 +51,7 @@ Microsoft id 플랫폼은 id를 서비스로 제공 하 여 응용 프로그램 
 Microsoft id 플랫폼에서 사용 하는 프로토콜의 비교는 다음과 같습니다.
 
 * **Oauth 및 Openid connect connect**: 플랫폼은 인증을 위해 oidc (권한 부여 및 openid connect Connect)에 OAuth를 사용 합니다. OpenID Connect는 OAuth 2.0을 기준으로 구축되었으므로 두 제품 간에 용어와 흐름은 비슷합니다. Openid connect Connect를 통해 사용자를 인증 하 고 권한 부여를 사용 하 여 한 요청에서 사용자가 소유한 보호 된 리소스 (OAuth 2.0를 통해)에 액세스할 수도 있습니다. 자세한 내용은 [OAuth 2.0 및 OpenID Connect 프로토콜](active-directory-v2-protocols.md) 및 [OpenID Connect 프로토콜](v2-protocols-oidc.md)을 참조하세요.
-* **Oauth 및 saml**: 플랫폼은 인증에 OAuth 2.0을 사용 하 고 인증에는 saml을 사용 합니다. 이러한 프로토콜을 함께 사용 하 여 사용자를 인증 하 고 보호 된 리소스에 액세스 하기 위한 권한 부여를 가져오는 방법에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 SAML 전달자 어설션 흐름](v2-saml-bearer-assertion.md)을 참조 하세요.
+* **Oauth 및 saml**: 플랫폼은 인증에 OAuth 2.0을 사용 하 고 인증에는 saml을 사용 합니다. 이러한 프로토콜을 함께 사용 하 여 사용자를 인증 하 고 보호 된 리소스에 액세스 하기 위한 권한 부여를 가져오는 방법에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 SAML 전달자 어설션 흐름](./scenario-token-exchange-saml-oauth.md)을 참조 하세요.
 * **Openid connect connect 및 saml**: 플랫폼은 openid connect CONNECT와 saml을 모두 사용 하 여 사용자를 인증 하 고 Single Sign-On를 사용 하도록 설정 합니다. SAML 인증은 일반적으로 Azure AD에 페더레이션된 AD FS (Active Directory Federation Services)와 같은 id 공급자와 함께 사용 되므로 엔터프라이즈 응용 프로그램에서 자주 사용 됩니다. Openid connect 연결은 일반적으로 클라우드의 응용 프로그램, 웹 사이트, 웹 Api 등 전적으로 사용 되는 앱에 사용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계

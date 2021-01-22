@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 6a24713a6027c38d2b9817928f3a82161bd37314
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: e4a5803b3d04b59316f71e50af24945efc87cb69
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936729"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677566"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Azure Storage 계정에 대 한 공유 키 권한 부여 방지 (미리 보기)
 
@@ -239,8 +239,6 @@ resources
 ## <a name="about-the-preview"></a>미리 보기 정보
 
 공유 키 권한 부여를 허용 하지 않는 미리 보기는 Azure 공용 클라우드에서 사용할 수 있습니다. Azure Resource Manager 배포 모델만 사용 하는 저장소 계정에 대해서만 지원 됩니다. Azure Resource Manager 배포 모델을 사용 하는 저장소 계정에 대 한 자세한 내용은 [저장소 계정 유형](storage-account-overview.md#types-of-storage-accounts)을 참조 하세요.
-
-미리 보기에 등록 하려면 [공유 키 액세스 제한 된 공개 미리 보기 Azure Storage](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUN1o4TUtUUzZBV0JYVlhKQ1FITDlVUUU0Ui4u)를 참조 하세요.
 
 > [!IMPORTANT]
 > 이 미리 보기는 프로덕션 이외 용도로 사용해야 합니다.

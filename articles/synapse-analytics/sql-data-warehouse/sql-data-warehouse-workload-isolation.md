@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a9ebee68c7abd90f5fb3345eec1ee929fc30ca20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce2451ddf775b7aff63b43ec02041ecd5440c580
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212312"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678392"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Azure Synapse Analytics 작업 그룹 격리
 
@@ -24,13 +24,13 @@ ms.locfileid: "85212312"
 
 ## <a name="workload-groups"></a>워크로드 그룹
 
-작업 그룹은 일단의 요청에 대한 컨테이너이며 시스템에서 워크로드 격리를 포함하여 워크로드 관리를 구성하기 위한 기반이 됩니다.  작업 그룹은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문을 사용하여 만들어집니다.  간단한 워크로드 관리 구성에서 데이터 로드와 사용자 쿼리를 관리할 수 있습니다.  예를 들어 `wgDataLoads`라는 작업 그룹은 시스템에 로드되는 데이터에 대한 워크로드 측면을 정의합니다. 또한 `wgUserQueries`라는 작업 그룹은 쿼리를 실행하는 사용자가 시스템에서 데이터를 읽는 데 필요한 워크로드 측면을 정의합니다.
+작업 그룹은 일단의 요청에 대한 컨테이너이며 시스템에서 워크로드 격리를 포함하여 워크로드 관리를 구성하기 위한 기반이 됩니다.  작업 그룹은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문을 사용하여 만들어집니다.  간단한 워크로드 관리 구성에서 데이터 로드와 사용자 쿼리를 관리할 수 있습니다.  예를 들어 `wgDataLoads`라는 작업 그룹은 시스템에 로드되는 데이터에 대한 워크로드 측면을 정의합니다. 또한 `wgUserQueries`라는 작업 그룹은 쿼리를 실행하는 사용자가 시스템에서 데이터를 읽는 데 필요한 워크로드 측면을 정의합니다.
 
 다음 섹션에서는 작업 그룹에서 격리, 포함, 리소스 정의 요청 및 실행 규칙 준수를 정의하는 기능을 제공하는 방법에 대해 설명합니다.
 
 ## <a name="workload-isolation"></a>워크로드 격리
 
-워크로드 격리는 작업 그룹 전용으로 리소스가 예약되어 있음을 의미합니다.  [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문에서 MIN_PERCENTAGE_RESOURCE 매개 변수를 0보다 크게 구성하여 워크로드를 격리할 수 있습니다.  엄격한 SLA를 준수해야 하는 연속 실행 워크로드의 경우 격리를 통해 작업 그룹에서 리소스를 항상 사용할 수 있습니다.
+워크로드 격리는 작업 그룹 전용으로 리소스가 예약되어 있음을 의미합니다.  [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 MIN_PERCENTAGE_RESOURCE 매개 변수를 0보다 크게 구성하여 워크로드를 격리할 수 있습니다.  엄격한 SLA를 준수해야 하는 연속 실행 워크로드의 경우 격리를 통해 작업 그룹에서 리소스를 항상 사용할 수 있습니다.
 
 워크로드 격리를 구성하면 보장된 동시성 수준이 암시적으로 정의됩니다. 예를 들어 `MIN_PERCENTAGE_RESOURCE`가 30%로 설정되고 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`가 2%로 설정된 작업 그룹에는 15개의 동시성이 보장됩니다.  `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT`가 구성된 방법에 관계없이 15-2%의 리소스 슬롯이 항상 작업 그룹 내에 예약되므로 동시성 수준이 보장됩니다.  `REQUEST_MAX_RESOURCE_GRANT_PERCENT`가 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`보다 크고 `CAP_PERCENTAGE_RESOURCE`가 `MIN_PERCENTAGE_RESOURCE`보다 크면 요청마다 추가 리소스가 추가됩니다.  `REQUEST_MAX_RESOURCE_GRANT_PERCENT` 및 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`가 같고 `CAP_PERCENTAGE_RESOURCE`가 `MIN_PERCENTAGE_RESOURCE`보다 크면 추가 동시성이 가능합니다.  보장된 동시성을 결정하려면 아래 방법을 고려해 보세요.
 
@@ -50,18 +50,18 @@ ms.locfileid: "85212312"
 
 ## <a name="workload-containment"></a>워크로드 포함
 
-워크로드 포함은 작업 그룹에서 사용할 수 있는 리소스의 양을 제한하는 것을 의미합니다.  워크로드 포함은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문에서 CAP_PERCENTAGE_RESOURCE 매개 변수를 100 미만으로 구성하여 수행됩니다.  사용자가 임시 쿼리를 통해 가상(what-if) 분석을 실행할 수 있도록 시스템에 대한 읽기 액세스 권한이 필요한 시나리오를 고려합니다.  이러한 유형의 요청은 시스템에서 실행되는 다른 워크로드에 부정적인 영향을 줄 수 있습니다.  포함을 구성하면 리소스의 양이 제한됩니다.
+워크로드 포함은 작업 그룹에서 사용할 수 있는 리소스의 양을 제한하는 것을 의미합니다.  워크로드 포함은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 CAP_PERCENTAGE_RESOURCE 매개 변수를 100 미만으로 구성하여 수행됩니다.  사용자가 임시 쿼리를 통해 가상(what-if) 분석을 실행할 수 있도록 시스템에 대한 읽기 액세스 권한이 필요한 시나리오를 고려합니다.  이러한 유형의 요청은 시스템에서 실행되는 다른 워크로드에 부정적인 영향을 줄 수 있습니다.  포함을 구성하면 리소스의 양이 제한됩니다.
 
 워크로드 포함을 구성하면 최대 동시성 수준이 암시적으로 정의됩니다.  CAP_PERCENTAGE_RESOURCE가 60%로 설정되고 REQUEST_MIN_RESOURCE_GRANT_PERCENT가 1%로 설정되면 작업 그룹에 대해 최대 60개의 동시성 수준이 허용됩니다.  최대 동시성을 결정하려면 아래의 포함 방법을 고려해 보세요.
 
 [최대 동시성] = [`CAP_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE]
-> MIN_PERCENTAGE_RESOURCE가 0보다 큰 수준인 작업 그룹이 만들어지면 작업 그룹의 유효 CAP_PERCENTAGE_RESOURCE가 100%에 도달하지 않습니다.  유효 런타임 값은 [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+> MIN_PERCENTAGE_RESOURCE가 0보다 큰 수준인 작업 그룹이 만들어지면 작업 그룹의 유효 CAP_PERCENTAGE_RESOURCE가 100%에 도달하지 않습니다.  유효 런타임 값은 [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 ## <a name="resources-per-request-definition"></a>요청 정의당 리소스 수
 
-작업 그룹은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문에서 REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT 매개 변수를 사용하여 요청당 할당되는 최소 및 최대 리소스 양을 정의하는 메커니즘을 제공합니다.  이 경우 리소스는 CPU와 메모리입니다.  이러한 값을 구성하면 시스템에서 달성할 수 있는 리소스의 양과 동시성 수준이 결정됩니다.
+작업 그룹은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT 매개 변수를 사용하여 요청당 할당되는 최소 및 최대 리소스 양을 정의하는 메커니즘을 제공합니다.  이 경우 리소스는 CPU와 메모리입니다.  이러한 값을 구성하면 시스템에서 달성할 수 있는 리소스의 양과 동시성 수준이 결정됩니다.
 
 > [!NOTE]
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT는 기본적으로 REQUEST_MIN_RESOURCE_GRANT_PERCENT에 지정된 것과 동일한 값으로 설정되는 선택적 매개 변수입니다.
@@ -71,11 +71,11 @@ ms.locfileid: "85212312"
 REQUEST_MAX_RESOURCE_GRANT_PERCENT를 REQUEST_MIN_RESOURCE_GRANT_PERCENT보다 큰 값으로 구성하면 시스템에서 요청당 더 많은 리소스를 할당할 수 있습니다.  요청을 예약하는 동안 시스템에서 공유 풀의 리소스 가용성과 시스템의 현재 부하를 기반으로 하여 REQUEST_MIN_RESOURCE_GRANT_PERCENT와 REQUEST_MAX_RESOURCE_GRANT_PERCENT 사이에서 요청에 대한 실제 리소스 할당을 결정합니다.  쿼리가 예약되면 리소스가 리소스의 [공유 풀](#shared-pool-resources)에 있어야 합니다.  
 
 > [!NOTE]
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT에는 유효 MIN_PERCENTAGE_RESOURCE 및 CAP_PERCENTAGE_RESOURCE 값에 따라 달라지는 유효 값이 있습니다.  유효 런타임 값은 [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT에는 유효 MIN_PERCENTAGE_RESOURCE 및 CAP_PERCENTAGE_RESOURCE 값에 따라 달라지는 유효 값이 있습니다.  유효 런타임 값은 [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 ## <a name="execution-rules"></a>실행 규칙
 
-임시 보고 시스템에서 고객은 다른 사용자의 생산성에 심각한 영향을 주는 런어웨이 쿼리를 실수로 실행할 수 있습니다.  시스템 관리자는 시스템 리소스를 확보하기 위해 런어웨이 쿼리를 종료하는 데 시간을 할애해야 합니다.  작업 그룹은 지정된 값을 초과한 쿼리를 취소하도록 쿼리 실행 시간 제한 규칙을 구성할 수 있는 기능을 제공합니다.  규칙은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문에서 `QUERY_EXECUTION_TIMEOUT_SEC` 매개 변수를 설정하여 구성됩니다.
+임시 보고 시스템에서 고객은 다른 사용자의 생산성에 심각한 영향을 주는 런어웨이 쿼리를 실수로 실행할 수 있습니다.  시스템 관리자는 시스템 리소스를 확보하기 위해 런어웨이 쿼리를 종료하는 데 시간을 할애해야 합니다.  작업 그룹은 지정된 값을 초과한 쿼리를 취소하도록 쿼리 실행 시간 제한 규칙을 구성할 수 있는 기능을 제공합니다.  규칙은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 `QUERY_EXECUTION_TIMEOUT_SEC` 매개 변수를 설정하여 구성됩니다.
 
 ## <a name="shared-pool-resources"></a>공유 풀 리소스
 
@@ -88,6 +88,6 @@ REQUEST_MAX_RESOURCE_GRANT_PERCENT를 REQUEST_MIN_RESOURCE_GRANT_PERCENT보다 �
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작: 워크로드 격리 구성](quickstart-configure-workload-isolation-tsql.md)
-- [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [리소스 클래스를 작업 그룹으로 변환](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md)
 - [워크로드 관리 포털 모니터링](sql-data-warehouse-workload-management-portal-monitor.md)  

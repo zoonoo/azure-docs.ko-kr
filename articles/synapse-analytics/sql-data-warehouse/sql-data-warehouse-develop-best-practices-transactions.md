@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 46a165ea7fa21c02e859c16027086695f1f378c3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3f7d6f8ca285fdc024db9ba952af9f7d169e7188
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462804"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678477"
 ---
 # <a name="optimizing-transactions-in-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀의 트랜잭션 최적화
 
@@ -85,7 +85,7 @@ CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘
 
 ## <a name="optimizing-deletes"></a>삭제 최적화
 
-DELETE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 대량의 데이터를 삭제해야 하는 경우 보관하려는 데이터에 대해 최소 로깅 작업으로 실행할 수 있는 `SELECT` 를 사용하는 것이 적절한 경우가 많습니다.  데이터를 선택하려면 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 새 테이블을 만듭니다.  새 테이블을 만든 후에는 [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용하여 이전 테이블을 새로 만든 테이블로 교체합니다.
+DELETE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 대량의 데이터를 삭제해야 하는 경우 보관하려는 데이터에 대해 최소 로깅 작업으로 실행할 수 있는 `SELECT` 를 사용하는 것이 적절한 경우가 많습니다.  데이터를 선택하려면 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 새 테이블을 만듭니다.  새 테이블을 만든 후에는 [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 사용하여 이전 테이블을 새로 만든 테이블로 교체합니다.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -117,7 +117,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 ## <a name="optimizing-updates"></a>업데이트 최적화
 
-UPDATE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 행을 대량으로 업데이트해야 하는 경우 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)처럼 최소 로깅 작업을 사용하는 것이 훨씬 효율적일 때가 종종 있습니다.
+UPDATE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 행을 대량으로 업데이트해야 하는 경우 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)처럼 최소 로깅 작업을 사용하는 것이 훨씬 효율적일 때가 종종 있습니다.
 
 아래 예에서는 최소 로깅이 가능하도록 전체 테이블 업데이트가 CTAS로 변환되었습니다.
 
@@ -414,7 +414,7 @@ END
 
 가장 좋은 시나리오는 전용 SQL 풀을 일시 중지 하거나 크기를 조정 하기 전에 비행 데이터 수정 트랜잭션이 완료 되도록 하는 것입니다. 그러나 이 시나리오가 항상 실용적이지는 않습니다. 긴 롤백의 위험을 완화하기 위해 다음 옵션 중 하나를 고려해 볼 수 있습니다.
 
-* [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 실행 시간이 긴 작업을 다시 작성
+* [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 실행 시간이 긴 작업을 다시 작성
 * 작업을 청크로 나누어서 행의 하위 집합에서 작동
 
 ## <a name="next-steps"></a>다음 단계

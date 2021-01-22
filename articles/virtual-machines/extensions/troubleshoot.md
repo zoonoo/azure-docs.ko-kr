@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 343ddb109de41a0959533b16b11762841b5b1105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127144"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676762"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 확장 오류 문제 해결
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -85,7 +85,7 @@ Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomS
 - 를 마우스 오른쪽 단추로 클릭 하 고 "작업 끝내기"를 선택 합니다. 프로세스가 자동으로 다시 시작 됩니다.
 
 
-"VM 다시 적용"을 실행 하 여 VM에 대 한 새 GoalState을 트리거할 수도 있습니다. Vm [다시 적용](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply) 은 vm의 상태를 다시 적용 하기 위해 2020에 도입 된 API입니다. 짧은 VM 가동 중지 시간을 허용할 수 있는 경우에는이 작업을 수행 하는 것이 좋습니다. 다시 적용 해도 VM 재부팅은 발생 하지 않으며 다시 적용을 호출 하는 대다수의 경우 VM을 다시 부팅 하지 않습니다. 다시 적용은 새 목표 상태를 트리거할 때 VM 모델에 대해 보류 중인 다른 업데이트가 적용 되 고 다른 변경은 다시 시작 해야 할 수 있습니다. 
+"VM 다시 적용"을 실행 하 여 VM에 대 한 새 GoalState을 트리거할 수도 있습니다. Vm [다시 적용](/rest/api/compute/virtualmachines/reapply) 은 vm의 상태를 다시 적용 하기 위해 2020에 도입 된 API입니다. 짧은 VM 가동 중지 시간을 허용할 수 있는 경우에는이 작업을 수행 하는 것이 좋습니다. 다시 적용 해도 VM 재부팅은 발생 하지 않으며 다시 적용을 호출 하는 대다수의 경우 VM을 다시 부팅 하지 않습니다. 다시 적용은 새 목표 상태를 트리거할 때 VM 모델에 대해 보류 중인 다른 업데이트가 적용 되 고 다른 변경은 다시 시작 해야 할 수 있습니다. 
 
 Azure Portal:
 

@@ -8,23 +8,20 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c6b25fd3615fa76bc76e6d360f4c76a21a9ad02
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 817f9a88bd3536e9c0ec8a1057098e6b4a96716e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918266"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676360"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Azure 부서의 범위를 사용 하 여 Synapse에서 데이터 검색, 연결 및 탐색 
 
-> [!IMPORTANT]
-> Azure Synapse Analytics와 Azure 부서의 범위 간의 통합은 현재 미리 보기 상태입니다. Synapse에서 Azure 부서의 범위를 사용해 보려는 경우 Microsoft 영업 담당자에 게 문의 하세요. 
-
 이 문서에서는 Azure 부서의 범위 계정을 Synapse에 등록할 때 수행할 수 있는 상호 작용의 유형에 대해 알아봅니다. 
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
-- [Azure 부서의 범위 계정](../../purview/create-catalog-portal.md) 
+- [Azure  Purview 계정](../../purview/create-catalog-portal.md) 
 - [Synapse 작업 영역](../quickstart-create-workspace.md) 
 - [Synapse에 Azure 부서의 범위 계정 연결](quickstart-connect-azure-purview.md) 
 
@@ -71,5 +68,5 @@ Synapse에서 사용할 수 있는 Azure 부서의 범위 기능 목록은 다�
 
 ##  <a name="nextsteps"></a>다음 단계 
 
-- [Azure 부서의 범위에서 Azure Synapse 자산 등록 및 검색](../../purview/register-scan-azure-synapse-analytics.md)
+- [Azure Purview에서 Azure Synapse 자산 등록 및 검사](../../purview/register-scan-azure-synapse-analytics.md)
 - [Azure 부서의 범위 Data Catalog에서 데이터를 검색 하는 방법](../../purview/how-to-search-catalog.md)

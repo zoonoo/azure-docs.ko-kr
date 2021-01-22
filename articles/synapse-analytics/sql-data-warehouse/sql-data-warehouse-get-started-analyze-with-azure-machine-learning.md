@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 5348c0ed5d80e2738bb865ca3ec1ddf5aaed009a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 76a154d3a137017f374247308a3980d598698246
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118050"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678662"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 분석
 
@@ -104,7 +104,7 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되 면 Azure Ma
 
 1. 모듈을 클릭 하 여 속성 창을 엽니다. 열 편집을 클릭 하 여 삭제 하려는 열을 지정 합니다.
 
-1. 열 2개(CustomerAlternateKey 및 GeographyKey)를 제외합니다. **저장** 클릭
+1. 열 2개(CustomerAlternateKey 및 GeographyKey)를 제외합니다. 페이지 맨 아래에 있는 **저장**
 
     :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="삭제 된 열을 보여 주는 스크린샷":::
 
@@ -161,4 +161,4 @@ BikeBuyer (실제) 열을 점수가 매겨진 레이블 (예측)과 비교 하 �
 
 Azure Machine Learning에 대 한 자세한 내용은 [Azure의 Machine Learning 소개](../../machine-learning/overview-what-is-azure-ml.md)를 참조 하세요.
 
-데이터 웨어하우스의 기본 제공 점수 매기기에 대해 자세히 [알아보세요.](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
+데이터 웨어하우스의 기본 제공 점수 매기기에 대해 자세히 [알아보세요.](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)

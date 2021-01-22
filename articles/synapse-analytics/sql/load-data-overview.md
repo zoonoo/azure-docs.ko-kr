@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 58e14ab04084871dfd5de400cac0c38401855d0c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: a89fa72db3deaec12a9073233f861aa6835288a5
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120260"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678358"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대 한 PolyBase 데이터 로드 전략 디자인
 
@@ -50,7 +50,7 @@ ELT (추출, 로드 및 변환)는 데이터를 원본 시스템에서 추출 �
 
 PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. 그리고 분리된 텍스트 파일 외에 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서도 데이터를 로드합니다. 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다.
 
-SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다. Parquet to Azure Synapse Analytics 데이터 형식 매핑은 다음과 같습니다.
+SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다. Parquet to Azure Synapse Analytics 데이터 형식 매핑은 다음과 같습니다.
 
 | **Parquet 데이터 형식** |                      **SQL 데이터 형식**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -97,9 +97,9 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../../storage/
 
 외부 테이블 정의에는 데이터 원본, 텍스트 파일 형식 및 테이블 정의를 지정하는 것이 포함됩니다. 다음은 필요한 T-sql 구문 항목입니다.
 
-- [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ### <a name="format-text-files"></a>텍스트 파일 형식 지정
 
@@ -108,7 +108,7 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../../storage/
 
 - 데이터가 비관계형 원본에서 오는 경우 행과 열로 변환해야 합니다. 데이터가 관계형 원본에서 오건 비관계형 원본에서 오건, 데이터를 로드하려고 하는 테이블에 대한 열 정의와 정렬되도록 데이터를 변환해야 합니다.
 - 텍스트 파일의 데이터 형식을 지정 하 여 SQL 풀 대상 테이블의 열 및 데이터 형식과 맞춥니다. 외부 텍스트 파일의 데이터 형식과 데이터 웨어하우스 테이블의 데이터 형식이 정렬되지 않으면 로드 중에 행이 거부됩니다.
-- 종결자로 텍스트 파일의 필드를 구분합니다.  원본 데이터에서 찾을 수 없는 문자 또는 문자 시퀀스를 사용해야 합니다. [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)으로 지정한 종결자를 사용하세요.
+- 종결자로 텍스트 파일의 필드를 구분합니다.  원본 데이터에서 찾을 수 없는 문자 또는 문자 시퀀스를 사용해야 합니다. [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)으로 지정한 종결자를 사용하세요.
 
 ## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. PolyBase를 사용 하 여 전용 SQL 풀 준비 테이블에 데이터 로드
 
@@ -119,13 +119,13 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../../storage/
 PolyBase를 사용하여 데이터를 로드하려는 경우 다음 로드 옵션 중 하나를 사용할 수 있습니다.
 
 - [T-SQL을 이용한 PolyBase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json): Azure Blob Storage 또는 Azure Data Lake Store에 데이터가 있을 경우 효과적입니다. 로드 프로세스를 가장 잘 제어할 수 있지만, 외부 데이터 개체를 정의해야 합니다. 다른 방법에서는 원본 테이블을 대상 테이블에 매핑할 때 배후에서 이러한 개체를 정의합니다.  T-SQL 로드를 조정하려면 Azure Data Factory, SSIS 또는 Azure 함수를 사용할 수 있습니다.
-- [SSIS를 사용 하는 PolyBase](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 는 원본 데이터가 SQL Server 때 잘 작동 합니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다.
+- [SSIS를 사용 하는 PolyBase](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 는 원본 데이터가 SQL Server 때 잘 작동 합니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다.
 - [ADF(Azure Data Factory)를 이용한 PolyBase](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json): 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다.
 - [Azure Databricks polybase](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 는 Azure Synapse analytics 테이블에서 Databricks 데이터 프레임로 데이터를 전송 하 고 polybase를 사용 하 여 Databricks 데이터 프레임에서 Azure Synapse analytics 테이블로 데이터를 씁니다.
 
 ### <a name="non-polybase-loading-options"></a>PolyBase 외 로드 옵션
 
-데이터가 PolyBase와 호환되지 않으면 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 또는 [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용할 수 있습니다. bcp는 Azure Blob storage를 거치지 않고 전용 SQL 풀에 직접 로드 되며, 작은 로드에만 사용 됩니다. 이러한 옵션의 로드 성능은 PolyBase보다 훨씬 느립니다.
+데이터가 PolyBase와 호환되지 않으면 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 또는 [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용할 수 있습니다. bcp는 Azure Blob storage를 거치지 않고 전용 SQL 풀에 직접 로드 되며, 작은 로드에만 사용 됩니다. 이러한 옵션의 로드 성능은 PolyBase보다 훨씬 느립니다.
 
 ## <a name="5-transform-the-data"></a>5. 데이터 변환
 

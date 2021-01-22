@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 67cb4868ee8d4190c47e23315bf2a22e5c847ff1
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8144c588d4b6794cadc0577bf63dabc2cc3e0efd
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121178"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677289"
 ---
 # <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Azure Synapse에서 SQL 풀의 트랜잭션 사용 
 
@@ -30,7 +30,7 @@ ms.locfileid: "98121178"
 
 SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 수준은 기본적으로 READ UNCOMMITTED로 설정되어 있습니다.  Master 데이터베이스에 연결 된 경우 사용자 SQL 풀에 대해 READ_COMMITTED_SNAPSHOT 데이터베이스 옵션을 설정 하 여 커밋된 스냅숏 격리를 읽도록 변경할 수 있습니다.  
 
-활성화되면 이 데이터베이스의 모든 트랜잭션이 READ COMMITTED SNAPSHOT ISOLATION으로 실행되고 세션 수준의 READ UNCOMMITTED 설정은 적용되지 않습니다. 자세한 내용은 [ALTER DATABASE SET 옵션(Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.
+활성화되면 이 데이터베이스의 모든 트랜잭션이 READ COMMITTED SNAPSHOT ISOLATION으로 실행되고 세션 수준의 READ UNCOMMITTED 설정은 적용되지 않습니다. 자세한 내용은 [ALTER DATABASE SET 옵션(Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
 ## <a name="transaction-size"></a>트랜잭션 크기
 

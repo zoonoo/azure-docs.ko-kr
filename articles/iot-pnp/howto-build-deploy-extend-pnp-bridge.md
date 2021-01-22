@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ece9f62e64eb64b1f34af46b42d57ec583f8f214
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 43c89b0fac08bf9f2c72f885fbf4788371876b17
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675871"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678579"
 ---
 # <a name="build-deploy-and-extend-the-iot-plug-and-play-bridge"></a>IoT 플러그 앤 플레이 브리지를 빌드, 배포 및 확장
 
@@ -188,7 +188,7 @@ Adapter_manifest에서 참조를 추가 하 여 브리지에서 어댑터를 사
 
 [IoT 플러그 앤 플레이 브리지](https://github.com/Azure/iot-plug-and-play-bridge) 리포지토리를 로컬 컴퓨터에 복제 합니다.
 
-```cmd/sh
+```console
 git clone https://github.com/Azure/iot-plug-and-play-bridge.git
 
 cd iot-plug-and-play-bridge
@@ -205,7 +205,7 @@ git submodule update --init --recursive
 
 **VS 2019에 대 한 개발자 명령 프롬프트** 를 열고 복제 한 리포지토리가 포함 된 폴더로 이동 하 여 다음 명령을 실행 합니다.
 
-```cmd
+```console
 cd pnpbridge\scripts\windows
 
 build.cmd
@@ -279,7 +279,7 @@ DPS를 사용 하 여 IoT hub 또는 IoT Central 응용 프로그램에 연결 �
 
 명령 프롬프트에서 다음을 실행 하 여 브리지를 시작 합니다.
 
-```cmd
+```console
 cd iot-plug-and-play-bridge\pnpbridge\cmake\pnpbridge_x86\src\pnpbridge\samples\console
 
 Debug\pnpbridge_bin.exe
@@ -330,13 +330,13 @@ Debug\pnpbridge_bin.exe
 
 IoT hub에서 IoT Edge 장치 등록을 만들려면 WSL 2 환경에서 다음 명령을 실행 합니다. 명령을 사용 하 여 `az login` Azure 구독에 로그인 합니다.
 
-```bash
+```azurecli
 az iot hub device-identity create --device-id bridge-edge-device --edge-enabled true --hub-name {your IoT hub name}
 ```
 
 IoT Edge runtime이 설치 된 Azure 가상 머신을 만들려면 다음 명령을 실행 합니다. 적절 한 값을 사용 하 여 자리 표시자를 업데이트 합니다.
 
-```bash
+```azurecli
 az group create --name bridge-edge-resources --location eastus
 az deployment group create \
 --resource-group bridge-edge-resources \
@@ -350,7 +350,7 @@ az deployment group create \
 
 이제 가상 머신에서 실행 중인 IoT Edge 런타임이 있습니다. 다음 명령을 사용 하 여 **$edgeAgent** 및 **$edgeHub** 장치에서 실행 되 고 있는지 확인할 수 있습니다.
 
-```bash
+```azurecli
 az iot hub module-identity list --device-id bridge-edge-device -o table --hub-name {your IoT hub name}
 ```
 
@@ -405,7 +405,7 @@ IoT Edge 장치는 컨테이너 레지스트리에서 해당 모듈 이미지를
 
 **브리지-에 지 리소스** 그룹에 Azure container registry를 만듭니다. 그런 다음 컨테이너 레지스트리에 대 한 관리자 액세스를 사용 하도록 설정 하 고 IoT Edge 장치에서 모듈 이미지를 다운로드 하는 데 필요한 자격 증명을 가져옵니다.
 
-```bash
+```azurecli
 az acr create -g bridge-edge-resources --sku Basic -n {your container registry name}
 az acr update --admin-enabled true -n {your container registry name}
 az acr credential show -n {your container registry name}
@@ -517,7 +517,7 @@ VS Code에서 **탐색기** 보기에서 파일 *의 pnpbridge/config/deployment
 
 장치에서 모듈의 상태를 보려면 다음 명령을 실행 합니다.
 
-```bash
+```azurecli
 az iot hub module-identity list --device-id bridge-edge-device -o table --hub-name {your IoT hub name}
 ```
 
@@ -527,7 +527,7 @@ az iot hub module-identity list --device-id bridge-edge-device -o table --hub-na
 
 Azure 구독에서 가상 컴퓨터 및 컨테이너 레지스트리를 제거 하려면 다음 명령을 실행 합니다.
 
-```bash
+```azurecli
 az group delete -n bridge-edge-resources
 ```
 

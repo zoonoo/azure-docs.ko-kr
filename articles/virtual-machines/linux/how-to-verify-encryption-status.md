@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7f51aae39c2cb60d8b60d4fb496f74eadb91b33b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 42b1aed2f6c66dbfc0f04759b232855f3b7f0a2a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487656"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676821"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Linux의 암호화 상태 확인 
 
@@ -31,13 +31,13 @@ ms.locfileid: "92487656"
 
 ## <a name="portal"></a>포털
 
-Azure Portal의 **확장** 섹션의 목록에서 Azure Disk Encryption 확장을 선택합니다. **상태 메시지**의 정보는 현재 암호화 상태를 나타냅니다.
+Azure Portal의 **확장** 섹션의 목록에서 Azure Disk Encryption 확장을 선택합니다. **상태 메시지** 의 정보는 현재 암호화 상태를 나타냅니다.
 
 ![상태, 버전, 상태 메시지가 강조 표시된 포털 확인](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
 
 확장 목록에 해당하는 Azure Disk Encryption 확장 버전이 표시됩니다. 버전 0.x는 Azure Disk Encryption 이중 패스에 대응되고, 버전 1.x는 Azure Disk Encryption 단일 패스에 대응됩니다.
 
-확장을 선택하고 **자세한 상태 보기**를 선택하여 자세한 정보를 볼 수 있습니다. 암호화 프로세스의 자세한 상태가 JSON 형식으로 표시됩니다.
+확장을 선택하고 **자세한 상태 보기** 를 선택하여 자세한 정보를 볼 수 있습니다. 암호화 프로세스의 자세한 상태가 JSON 형식으로 표시됩니다.
 
 ![“자세한 상태 보기” 링크가 강조 표시된 포털 확인](./media/disk-encryption/verify-encryption-linux/portal-check-002.png)
 
@@ -70,7 +70,7 @@ Azure Portal의 **확장** 섹션의 목록에서 Azure Disk Encryption 확장�
 ### <a name="single-pass"></a>단일 패스
 단일 패스에서 암호화 설정은 각 디스크(OS 및 데이터)에 스탬프됩니다. 다음과 같이 단일 패스에서 OS 디스크의 암호화 설정을 캡처할 수 있습니다.
 
-``` powershell
+```powershell
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
@@ -160,7 +160,7 @@ Write-Host "====================================================================
 
 다음 Azure CLI 명령을 사용하여 암호화된 VM의 일반 암호화 상태를 확인할 수 있습니다.
 
-```bash
+```azurecli
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -170,7 +170,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ### <a name="single-pass"></a>단일 패스
 다음 Azure CLI 명령을 사용하여 각 디스크의 암호화 설정을 확인할 수 있습니다.
 
-```bash
+```azurecli
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
 ```
 
@@ -203,7 +203,7 @@ done
 
 데이터 디스크:
 
-```bash
+```azurecli
 RGNAME="RGNAME"
 VMNAME="VMNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -223,7 +223,7 @@ done
 
 ### <a name="dual-pass"></a>이중 패스
 
-``` bash
+```azurecli
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
@@ -276,7 +276,7 @@ echo "==========================================================================
 
 다음 명령은 모든 스토리지 계정의 모든 ID를 나열합니다.
 
-```bash
+```azurecli
 az storage account list --query [].[id] -o tsv
 ```
 스토리지 계정 ID는 다음과 같은 형식으로 나열됩니다.
@@ -295,7 +295,7 @@ ConnectionString=$(az storage account show-connection-string --ids $id --query c
 ```
 
 다음 명령은 스토리지 계정에 있는 모든 컨테이너를 나열합니다.
-```bash
+```azurecli
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 디스크에 사용되는 컨테이너는 일반적으로 “vhd”로 지정됩니다.
@@ -306,7 +306,7 @@ ContainerName="name of the container"
 ```
 
 다음 명령을 사용하여 특정 컨테이너의 모든 Blob을 나열합니다.
-```bash 
+```azurecli 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 쿼리하려는 디스크를 선택하고 그 이름을 변수에 저장합니다.
@@ -314,7 +314,7 @@ az storage blob list -c ${ContainerName} --connection-string $ConnectionString -
 DiskName="diskname.vhd"
 ```
 디스크 암호화 설정 쿼리:
-```bash
+```azurecli
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
@@ -323,7 +323,7 @@ OS 디스크가 아니라 데이터 디스크 파티션이 암호화되었는지
 
 암호화된 파티션 또는 디스크는 **crypt** 형식으로 표시됩니다. 암호화되지 않은 경우에는 **part/disk** 형식으로 표시됩니다.
 
-``` bash
+```bash
 lsblk
 ```
 
@@ -331,7 +331,7 @@ lsblk
 
 다음 **lsblk** 변형을 사용하여 더 자세한 정보를 얻을 수 있습니다. 
 
-확장 프로그램에 의해 탑재되는 **crypt** 형식 계층을 볼 수 있습니다. 다음 예제에서는 **crypto\_LUKS FSTYPE**을 갖는 논리 볼륨과 일반 디스크를 보여 줍니다.
+확장 프로그램에 의해 탑재되는 **crypt** 형식 계층을 볼 수 있습니다. 다음 예제에서는 **crypto\_LUKS FSTYPE** 을 갖는 논리 볼륨과 일반 디스크를 보여 줍니다.
 
 ```bash
 lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
@@ -340,15 +340,15 @@ lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 
 추가 단계로, 데이터 디스크에 로드된 키가 있는지 여부를 확인할 수 있습니다.
 
-``` bash
+```bash
 cryptsetup luksDump /dev/VGNAME/LVNAME
 ```
 
-``` bash
+```bash
 cryptsetup luksDump /dev/sdd1
 ```
 
-**crypt**로 나열된 **dm** 디바이스가 있는지도 확인할 수 있습니다.
+**crypt** 로 나열된 **dm** 디바이스가 있는지도 확인할 수 있습니다.
 
 ```bash
 dmsetup ls --target crypt

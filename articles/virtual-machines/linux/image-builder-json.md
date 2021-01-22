@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae477dd04237e285915157615dcb6a6b841ca99
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307282"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678258"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -154,7 +154,7 @@ API에는 이미지 빌드에 대한 소스를 정의하는 'SourceType'이 필�
 > 기존 Windows 사용자 지정 이미지를 사용 하는 경우 단일 Windows 이미지에서 Sysprep 명령을 최대 8 번까지 실행할 수 있습니다. 자세한 내용은 [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조 하십시오.
 
 ### <a name="platformimage-source"></a>PlatformImage 원본 
-Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure Marketplace 이미지를 지원합니다. 전체 목록은 [여기](../windows/image-builder-overview.md#os-support)를 참조하세요. 
+Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure Marketplace 이미지를 지원합니다. 전체 목록은 [여기](../image-builder-overview.md#os-support)를 참조하세요. 
 
 ```json
         "source": {

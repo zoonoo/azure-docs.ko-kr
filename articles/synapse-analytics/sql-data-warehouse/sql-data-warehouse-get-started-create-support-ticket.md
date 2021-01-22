@@ -10,12 +10,12 @@ author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6042b5be48144ce6730a9bf4f342d7735a262643
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: acc05d6367a0dc4334bc1d9e3cbb340bdb8d24c0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118067"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677432"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>할당량 증가 요청 및 Azure Synapse Analytics에 대한 지원 받기
 
@@ -117,7 +117,7 @@ ms.locfileid: "98118067"
 
 다른 할당량 요청 유형에 대 한 할당량 유형 드롭다운 메뉴에서 **기타 할당량 요청** 을 선택 합니다.
 
-![기타 할당량 세부 정보](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
+![기타 할당량 세부 정보](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details.png)
 
 ## <a name="submit-your-request"></a>요청 제출
 

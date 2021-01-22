@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 2b54277d0306244dc4ab6740fdd30e52668dd63c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d8c6c8d22c059c63fb4f84c84a02a70de30d4ebe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460774"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678528"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>결과 세트 캐싱을 사용한 성능 조정
 
@@ -24,13 +24,13 @@ ms.locfileid: "96460774"
 
 ## <a name="key-commands"></a>주요 명령
 
-[사용자 데이터베이스에 대한 결과 세트 캐싱 설정/해제](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[사용자 데이터베이스에 대한 결과 세트 캐싱 설정/해제](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-[세션에 대한 결과 세트 캐싱 설정/해제](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[세션에 대한 결과 세트 캐싱 설정/해제](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-[캐시된 결과 세트의 크기 확인](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+[캐시된 결과 세트의 크기 확인](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)  
 
-[캐시 정리](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[캐시 정리](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="whats-not-cached"></a>캐시되지 않는 내용  
 
@@ -74,7 +74,7 @@ WHERE request_id  = <'request_id'>;
 - 새 쿼리와 결과 집합 캐시를 생성한 이전 쿼리가 정확히 일치합니다.
 - 캐시된 결과 집합이 생성된 테이블에는 데이터 또는 스키마 변경 내용이 없습니다.
 
-이 명령을 실행하여 결과 캐시 적중 또는 누락으로 쿼리를 실행했는지 확인합니다. result_cache_hit 열은 캐시 적중 시 1을 반환하고, 캐시 누락 시 0을 반환하고, 결과 집합 캐싱이 사용되지 않은 이유에 대해 음수 값을 반환합니다. 자세한 내용은 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+이 명령을 실행하여 결과 캐시 적중 또는 누락으로 쿼리를 실행했는지 확인합니다. result_cache_hit 열은 캐시 적중 시 1을 반환하고, 캐시 누락 시 0을 반환하고, 결과 집합 캐싱이 사용되지 않은 이유에 대해 음수 값을 반환합니다. 자세한 내용은 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests

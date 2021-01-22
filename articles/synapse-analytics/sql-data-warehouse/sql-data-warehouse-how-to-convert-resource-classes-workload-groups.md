@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b82342ffb76f8bb58b8f6875751601094d6131ca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b6dd2199452837d81c201cf4aef2bcd94b35cda3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461903"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677208"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>리소스 클래스를 작업 그룹으로 변환
 
@@ -56,7 +56,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>분류자 만들기
 
-이전에는 [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class)를 사용하여 리소스 클래스에 대한 쿼리 매핑을 수행했습니다.  동일한 기능을 구현하고 요청을 작업 그룹에 매핑하려면 [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문을 만듭니다.  sp_addrolemember를 사용하는 경우 로그인을 기반으로 하는 요청에만 리소스를 매핑할 수 있습니다.  분류자는 로그인 외에 다음과 같은 추가 옵션을 제공합니다.
+이전에는 [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class)를 사용하여 리소스 클래스에 대한 쿼리 매핑을 수행했습니다.  동일한 기능을 구현하고 요청을 작업 그룹에 매핑하려면 [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문을 만듭니다.  sp_addrolemember를 사용하는 경우 로그인을 기반으로 하는 요청에만 리소스를 매핑할 수 있습니다.  분류자는 로그인 외에 다음과 같은 추가 옵션을 제공합니다.
     - label
     - 세션
     - 시간 아래 예제에서는 `AdfLogin` 로그인에서 쿼리를 할당합니다. 여기에는 위에서 만든 작업 그룹 `wgDataLoads`에 `factloads`로 설정된 [옵션 레이블](sql-data-warehouse-develop-label.md)도 있습니다.
@@ -91,4 +91,4 @@ SELECT request_id, [label], classifier_name, group_name, command
 - [워크로드 격리](sql-data-warehouse-workload-isolation.md)
 - [작업 그룹을 만드는 방법](quickstart-configure-workload-isolation-tsql.md)
 - [CREATE WORKLOAD CLASSIFIER(Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
-- [CREATE WORKLOAD GROUP(Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP(Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true)

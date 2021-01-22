@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: devx-track-azurecli
 services: iot-dps
-ms.openlocfilehash: 020b0dbc937885923b26c115f91147437b7a0f9b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dd0564fbb23a0695d849852fd464308cd1b5fac9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964731"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678964"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Azure CLI 및 IoT 확장을 사용하여 IoT Hub Device Provisioning Service를 관리하는 방법
 
-[Azure CLI](/cli/azure?view=azure-cli-latest)는 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. Azure CLI는 Windows, Linux 및 macOS에서 사용할 수 있습니다. Azure CLI를 사용하면 Azure IoT Hub 리소스, Device Provisioning 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다.
+[Azure CLI](/cli/azure)는 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. Azure CLI는 Windows, Linux 및 macOS에서 사용할 수 있습니다. Azure CLI를 사용하면 Azure IoT Hub 리소스, Device Provisioning 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다.
 
 IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
 
@@ -25,20 +25,13 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="installation"></a>설치 
+## <a name="prerequisites"></a>필수 구성 요소
 
-### <a name="install-python"></a>Python 설치
+- [Python 2.7x 또는 Python 3.x](https://www.python.org/downloads/)가 필요합니다.
 
-[Python 2.7x 또는 Python 3.x](https://www.python.org/downloads/)가 필요합니다.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-### <a name="install-the-azure-cli"></a>Azure CLI 설치
-
-[설치 지침](/cli/azure/install-azure-cli?view=azure-cli-latest)에 따라 환경에 Azure CLI를 설치합니다. Azure CLI 버전이 2.0.70 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. Windows에 설치하는 간단한 방법 중 하나는 [MSI](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 설치하는 것입니다.
-
-### <a name="install-iot-extension"></a>IoT 확장 설치
-
-[IoT 확장 추가 정보](https://github.com/Azure/azure-iot-cli-extension)에는 확장을 설치하는 여러 가지 방법이 설명되어 있습니다. 가장 간단한 방법은 `az extension add --name azure-iot` 명령을 사용하는 것입니다. 설치 후 `az extension list` 명령을 사용하여 현재 설치된 확장의 유효성을 검사하거나 `az extension show --name azure-iot` 명령을 사용하여 IoT 확장에 대한 세부 정보를 볼 수 있습니다. 확장을 제거하려면 `az extension remove --name azure-iot` 명령을 사용합니다.
-
+- 이 문서에는 Azure CLI 버전 2.0.70 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="basic-device-provisioning-service-operations"></a>기본 Device Provisioning 서비스 작업
 
