@@ -9,16 +9,16 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 25c692ea9a2dce4723472f6812ac46d82b2b318d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 1551e85bd45d4d64861b43bf53dd0c155520861f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120991"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673640"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Synapse SQL을 사용하여 안전하게 데이터 로드
 
-이 문서에서는 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)의 보안 인증 메커니즘을 설명하고 예시를 보여줍니다. COPY 문은 Synapse SQL에서 데이터를 대량 로드하기 위한 가장 유연하고 안전한 방법입니다.
+이 문서에서는 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)의 보안 인증 메커니즘을 설명하고 예시를 보여줍니다. COPY 문은 Synapse SQL에서 데이터를 대량 로드하기 위한 가장 유연하고 안전한 방법입니다.
 ## <a name="supported-authentication-mechanisms"></a>지원되는 인증 메커니즘
 
 다음 표에서는 각 파일 유형 및 스토리지 계정에 대해 지원되는 인증 방법을 설명합니다. 원본 스토리지 위치 및 오류 파일 위치에 적용됩니다.
@@ -176,5 +176,5 @@ WITH (
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 구문은 [COPY 문 문서](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)를 확인하세요.
+- 자세한 구문은 [COPY 문 문서](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)를 확인하세요.
 - 모범 사례를 로드하려면 [데이터 로드 개요](./design-elt-data-loading.md#what-is-elt) 문서를 확인하세요.

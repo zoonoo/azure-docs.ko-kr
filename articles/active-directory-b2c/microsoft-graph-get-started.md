@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/21/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1886a0308f32ed53a1c9f0974715f20823e8bdd5
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 67870a458138101f3b8a009f7c96c74991396284
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660355"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675189"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Microsoft Graph 애플리케이션 등록
 
@@ -94,4 +94,4 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 현재 Azure AD B2C 인
 
 <!-- LINKS -->
 [ms-graph]: /graph/
-[ms-graph-api]: https://docs.microsoft.com/graph/api/overview
+[ms-graph-api]: /graph/api/overview

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5161d8e169a7eb9e757dfbfa71fa697880e1806e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022567"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673690"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
@@ -24,7 +24,7 @@ Linux에서 Azure 파일 공유를 탑재 하는 권장 방법은 SMB 3.0을 사
 | Ubuntu | 14.04+ | 16.04+ |
 | RHEL(Red Hat Enterprise Linux) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ | 10+ |
+| Debian | 8+ | 10개 이상 |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12+ | 12 SP2+ |
 
@@ -34,7 +34,7 @@ Linux에서 Azure 파일 공유를 탑재 하는 권장 방법은 SMB 3.0을 사
 uname -r
 ```
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Cifs-유틸리티 패키지가 설치 되어 있는지 확인 합니다.**  
@@ -67,7 +67,7 @@ uname -r
 
     다른 배포판에서는 적절한 패키지 관리자를 사용하거나 [소스에서 컴파일합니다](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **최신 버전의 Azure CLI (명령줄 인터페이스)입니다.** Azure CLI를 설치 하는 방법에 대 한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest) 를 참조 하 고 운영 체제를 선택 하십시오. PowerShell 6 +에서 Azure PowerShell 모듈을 사용 하려는 경우에는 Azure CLI에 대 한 지침이 제공 될 수 있습니다.
+* **최신 버전의 Azure CLI (명령줄 인터페이스)입니다.** Azure CLI를 설치 하는 방법에 대 한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli) 를 참조 하 고 운영 체제를 선택 하십시오. PowerShell 6 +에서 Azure PowerShell 모듈을 사용 하려는 경우에는 Azure CLI에 대 한 지침이 제공 될 수 있습니다.
 
 * **445 포트가 열려 있는지 확인합니다**. SMB는 445 TCP 포트를 통해 통신합니다. 방화벽이 클라이언트 컴퓨터에서 445 TCP 포트를 차단하고 있지 않은지 확인합니다.  `<your-resource-group>`을 바꾸고 `<your-storage-account>` 다음 스크립트를 실행 합니다.
     ```bash
@@ -87,7 +87,7 @@ uname -r
 
     연결에 성공 하면 다음 출력과 유사한 내용이 표시 됩니다.
 
-    ```
+    ```ouput
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
@@ -250,22 +250,22 @@ Linux 커널 4.18부터 레거시 이유로 호출 되는 SMB 커널 모듈은 `
 
 | 배포 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | Yes |
-| Ubuntu 19.04 + | Yes |
-| Debian 8-9 | No |
-| Debian 10 이상 | Yes |
-| Fedora 29 이상 | Yes |
-| CentOS 7 | No | 
-| CentOS 8 이상 | Yes |
-| Red Hat Enterprise Linux 6.x-7.x | No |
-| Red Hat Enterprise Linux 8 이상 | Yes |
-| openSUSE Leap 15.0 | No |
-| openSUSE Leap 15.1 + | Yes |
-| openSUSE Tumbleweed | Yes |
-| SUSE Linux Enterprise 11.x-12. x | No |
-| SUSE Linux Enterprise 15 | No |
-| SUSE Linux Enterprise 15.1 | No |
+| Ubuntu 14.04-16.04 | 아니요 |
+| Ubuntu 18.04 | 예 |
+| Ubuntu 19.04 + | 예 |
+| Debian 8-9 | 아니요 |
+| Debian 10 이상 | 예 |
+| Fedora 29 이상 | 예 |
+| CentOS 7 | 아니요 | 
+| CentOS 8 이상 | 예 |
+| Red Hat Enterprise Linux 6.x-7.x | 아니요 |
+| Red Hat Enterprise Linux 8 이상 | 예 |
+| openSUSE Leap 15.0 | 아니요 |
+| openSUSE Leap 15.1 + | 예 |
+| openSUSE Tumbleweed | 예 |
+| SUSE Linux Enterprise 11.x-12. x | 아니요 |
+| SUSE Linux Enterprise 15 | 아니요 |
+| SUSE Linux Enterprise 15.1 | 아니요 |
 
 Linux 배포판에서 `disable_legacy_dialects` 다음 명령을 통해 module 매개 변수를 지원 하는지 확인할 수 있습니다.
 

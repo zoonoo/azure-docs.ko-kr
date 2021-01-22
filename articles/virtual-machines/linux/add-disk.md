@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ad3a2ae9fd9a99398b384ef4e4a44820faccf8c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499750"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675888"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
 
@@ -181,5 +181,5 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-* Linux VM을 올바르게 구성했는지 확인하려면 [Linux 컴퓨터 성능 최적화](optimization.md) 권장 사항을 검토합니다.
+* Linux VM을 올바르게 구성했는지 확인하려면 [Linux 컴퓨터 성능 최적화](/previous-versions/azure/virtual-machines/linux/optimization) 권장 사항을 검토합니다.
 * 디스크를 추가하여 스토리지 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](/previous-versions/azure/virtual-machines/linux/configure-raid)합니다.

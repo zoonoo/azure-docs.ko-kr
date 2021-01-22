@@ -1,6 +1,6 @@
 ---
 title: Azure 파일 동기화 네트워크 엔드포인트 구성 | Microsoft Docs
-description: Azure File Sync 네트워크 끝점을 구성 하는 방법을 알아봅니다.
+description: Azure 파일 동기화 네트워크 끝점을 구성 하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 61ff5d05eb74804af69b90d839115a8468619275
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921716"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673854"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Azure 파일 동기화 네트워크 엔드포인트 구성
 Azure Files와 Azure 파일 동기화는 Azure 파일 공유에 액세스하기 위한 다음과 같은 두 가지 기본 유형의 엔드포인트를 제공합니다. 
@@ -52,13 +52,13 @@ Azure 리소스의 프라이빗 엔드포인트를 만들 때 배포되는 리�
 
 가상 네트워크 내에 가상 머신이 있거나 [Azure Files에 대한 DNS 전달 구성](storage-files-networking-dns.md)에 설명된 대로 DNS 전달을 구성한 경우, PowerShell, 명령줄 또는 터미널에서 다음 명령을 실행하여 프라이빗 엔드포인트가 올바르게 설정되었는지 테스트할 수 있습니다(Windows, Linux 또는 macOS에서 작동). 다음과 같이 `<storage-account-name>`을 적절한 스토리지 계정 이름으로 바꿔야 합니다.
 
-```
+```console
 nslookup <storage-account-name>.file.core.windows.net
 ```
 
 모든 것이 정상적으로 작동하는 경우 다음과 같은 출력이 표시됩니다. 여기서 `192.168.0.5`는 가상 네트워크의 프라이빗 엔드포인트 개인 IP 주소입니다(Windows에 표시되는 출력).
 
-```Output
+```output
 Server:  UnKnown
 Address:  10.2.4.4
 
@@ -73,7 +73,7 @@ Aliases:  storageaccount.file.core.windows.net
 
 가상 네트워크 내에 가상 머신이 있거나 [Azure Files에 대한 DNS 전달 구성](storage-files-networking-dns.md)에 설명된 대로 DNS 전달을 구성한 경우, 다음 명령을 사용하여 프라이빗 엔드포인트가 올바르게 설정되었는지 테스트할 수 있습니다.
 
-```PowerShell
+```powershell
 $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
     Select-Object -ExpandProperty Host
 
@@ -82,7 +82,7 @@ Resolve-DnsName -Name $storageAccountHostName
 
 모든 것이 정상적으로 작동하는 경우 다음과 같은 출력이 표시됩니다. 여기서 `192.168.0.5`는 가상 네트워크의 프라이빗 엔드포인트 개인 IP 주소입니다.
 
-```Output
+```output
 Name                             Type   TTL   Section    NameHost
 ----                             ----   ---   -------    --------
 storageaccount.file.core.windows CNAME  60    Answer     storageaccount.privatelink.file.core.windows.net
@@ -113,7 +113,7 @@ nslookup $hostName
 
 모든 것이 정상적으로 작동하는 경우 다음과 같은 출력이 표시됩니다. 여기서 `192.168.0.5`는 가상 네트워크의 프라이빗 엔드포인트 개인 IP 주소입니다.
 
-```Output
+```output
 Server:         127.0.0.53
 Address:        127.0.0.53#53
 
@@ -168,7 +168,7 @@ Get-AzPrivateEndpoint `
 
 모든 것이 정상적으로 작동하는 경우 다음과 같은 출력이 표시됩니다. 여기서 `192.168.1.4`, `192.168.1.5`, `192.168.1.6`, `192.168.1.7`는 프라이빗 엔드포인트에 할당된 개인 IP 주소입니다.
 
-```Output
+```output
 Name     : mysssmanagement.westus2.afs.azure.net
 Type     : CNAME
 TTL      : 60
@@ -244,7 +244,7 @@ if ($null -eq $storageSyncService) {
 
 프라이빗 엔드포인트를 만들려면 스토리지 동기화 서비스에 대한 프라이빗 링크 서비스 연결을 만들어야 합니다. 프라이빗 링크 연결은 프라이빗 엔드포인트를 만들기 위한 입력입니다.
 
-```PowerShell 
+```powershell 
 # Disable private endpoint network policies
 $subnet.PrivateEndpointNetworkPolicies = "Disabled"
 $virtualNetwork = $virtualNetwork | `
@@ -325,7 +325,7 @@ if ($null -eq $dnsZone) {
 ```
 이제 프라이빗 DNS 영역에 대한 참조가 생겼으므로 스토리지 동기화 서비스에 대한 A 레코드를 만들어야 합니다.
 
-```PowerShell 
+```powershell 
 $privateEndpointIpFqdnMappings = $privateEndpoint | `
     Select-Object -ExpandProperty NetworkInterfaces | `
     Select-Object -ExpandProperty Id | `
@@ -607,7 +607,8 @@ $storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Forc
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-<a name="azure-cli-does-not-support-setting-the-incomingtrafficpolicy-property-on-the-storage-sync-service-please-select-the-azure-powershell-tab-to-get-instructions-on-how-to-disable-the-storage-sync-service-public-endpoint"></a>Azure CLI는 `incomingTrafficPolicy` 저장소 동기화 서비스의 속성 설정을 지원 하지 않습니다. 저장소 동기화 서비스 공용 끝점을 사용 하지 않도록 설정 하는 방법에 대 한 지침을 보려면 Azure PowerShell 탭을 선택 하세요.
+Azure CLI는 `incomingTrafficPolicy` 저장소 동기화 서비스의 속성 설정을 지원 하지 않습니다. 저장소 동기화 서비스 공용 끝점을 사용 하지 않도록 설정 하는 방법에 대 한 지침을 보려면 Azure PowerShell 탭을 선택 하세요.
+
 ---
 
 ## <a name="see-also"></a>참고 항목

@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d668c3e505d6849d3cde52d52698a95c1c5647d9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453727"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676165"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>전용 SQL 풀에서 columnstore 인덱스에 대 한 행 그룹 품질 최대화 
 
@@ -28,7 +28,7 @@ columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 �
 
 행 그룹에 행 수가 많은 경우 데이터 압축이 향상되며 따라서 디스크에서 읽어올 데이터가 줄어듭니다.
 
-행 그룹 에 대한 자세한 내용은 [Columnstore 인덱스 가이드](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+행 그룹 에 대한 자세한 내용은 [Columnstore 인덱스 가이드](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 ## <a name="target-size-for-rowgroups"></a>행 그룹의 대상 크기
 
@@ -42,11 +42,11 @@ columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 �
 
 1만 개 이상의 행을 각 행 그룹으로 압축 하기에 메모리가 부족 한 경우 오류가 생성 됩니다.
 
-대량 로드에 대한 자세한 내용은 [클러스터형 columnstore 인덱스로 대량 로드](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+대량 로드에 대한 자세한 내용은 [클러스터형 columnstore 인덱스로 대량 로드](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>행 그룹 품질을 모니터링 하는 방법
 
-DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([SYS.DM_DB_COLUMN_STORE_ROW_GROUP_PHYSICAL_STATS](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) SQL db와 일치 하는 뷰 정의가 포함 되어 있습니다.)는 행 그룹의 행 수와 트리밍 이유 (트리밍 이유)와 같은 유용한 정보를 노출 합니다.
+DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([SYS.DM_DB_COLUMN_STORE_ROW_GROUP_PHYSICAL_STATS](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) SQL db와 일치 하는 뷰 정의가 포함 되어 있습니다.)는 행 그룹의 행 수와 트리밍 이유 (트리밍 이유)와 같은 유용한 정보를 노출 합니다.
 
 다음 보기를 만들면 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 19aa847ce7ce1a6ba727a4733aefcdfad845e8c6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629394"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674996"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>암호 없는 인증을 위해 Azure Active Directory B2C를 구성 하는 자습서
 
@@ -30,9 +30,9 @@ ms.locfileid: "97629394"
 
 - Azure AD 구독 계정이 없는 경우 [무료 계정을](https://azure.microsoft.com/free/)받으세요.
 
-- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 입니다.
+- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md) 입니다.
 
-- 등록 정책 흐름에 네비스를 통합 하려는 경우 [사용자 지정 정책을](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started)사용 하도록 Azure AD B2C 환경을 구성 합니다.
+- 등록 정책 흐름에 네비스를 통합 하려는 경우 [사용자 지정 정책을](./custom-policy-get-started.md)사용 하도록 Azure AD B2C 환경을 구성 합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -46,7 +46,7 @@ ms.locfileid: "97629394"
 
 ![Azure AD B2C 및 네비스를 사용 하는 상위 수준의 암호 로그인 흐름](./media/partner-nevis/nevis-architecture-diagram.png)
 
-|단계 | 설명 |
+|단계 | Description |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 하 고 Azure AD B2C 로그인 정책을 통해 응용 프로그램에 로그인 하거나 로그인을 시도 합니다.
 | 2. | 등록 하는 동안 네비스 Access 앱은 QR 코드를 사용 하 여 사용자 장치에 등록 됩니다. 사용자 장치에 개인 키가 생성 되 고 사용자 요청에 서명 하는 데 사용 됩니다.
@@ -118,7 +118,7 @@ ms.locfileid: "97629394"
 
       b. 이름을 **AuthCloudAccessToken** 로 설정 합니다.
 
-      c. 이전에 저장 된 **네비스 액세스 토큰** 을 비밀 필드에 붙여넣습니다.
+      다. 이전에 저장 된 **네비스 액세스 토큰** 을 비밀 필드에 붙여넣습니다.
 
       d. 키 사용에 대해 **암호화** 를 선택 합니다.
 
@@ -134,9 +134,9 @@ ms.locfileid: "97629394"
 
 4. 변경 내용을 파일에 **저장** 합니다.
 
-5. [지침](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) 에 따라 **nevis.html** 파일을 Azure blob 저장소에 업로드 합니다.
+5. [지침](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account) 에 따라 **nevis.html** 파일을 Azure blob 저장소에 업로드 합니다.
 
-6. [지침](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) 에 따라이 파일에 대 한 CORS (크로스-원본 자원 공유)를 사용 하도록 설정 합니다.
+6. [지침](./customize-ui-with-html.md#3-configure-cors) 에 따라이 파일에 대 한 CORS (크로스-원본 자원 공유)를 사용 하도록 설정 합니다.
 
 7. 업로드가 완료 되 고 CORS가 사용 하도록 설정 되 면 목록에서 **nevis.html** 파일을 선택 합니다.
 
@@ -268,6 +268,6 @@ ms.locfileid: "97629394"
 
 자세한 내용은 다음 문서를 검토 하세요.
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7b134c4e9e980104a54f6a96d45445ee114556a5
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178724"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675749"
 ---
 # <a name="user-profile-attributes"></a>사용자 프로필 특성
 
@@ -39,7 +39,7 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 - 사용자 흐름에서 특성을 사용할 수 있는지 여부
 - 사용자 지정 정책 [Azure AD 기술 프로필](active-directory-technical-profile.md)에서 특성을 사용할 수 있는지 여부와 사용할 수 있는 섹션(&lt;InputClaims&gt;, &lt;OutputClaims&gt; 또는 &lt;PersistedClaims&gt;)
 
-|속성     |유형     |Description|Azure portal|사용자 흐름|사용자 지정 정책|
+|속성     |Type     |Description|Azure portal|사용자 흐름|사용자 지정 정책|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |부울|사용자 계정이 사용하도록 설정되었는지 여부: **true** - 계정이 사용하도록 설정됨, **false** - 계정이 사용하도록 설정되지 않음.|예|예|지속형, 출력|
 |ageGroup        |String|사용자의 나이 그룹입니다. 가능한 값: Null, Undefined, Minor, Adult, NotAdult.|예|예|지속형, 출력|
@@ -105,7 +105,7 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 
 Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [objectIdentity] [objectIdentity] 형식의 user 특성에 저장 됩니다. `identities`컬렉션은 사용자 계정에 로그인 하는 데 사용 되는 id 집합을 나타냅니다. 이 컬렉션을 통해 사용자는 연결 된 id를 사용 하 여 사용자 계정에 로그인 할 수 있습니다.
 
-| 이름   | 유형 |Description|
+| 속성   | Type |Description|
 |:---------------|:--------|:----------|
 |signInType|문자열| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 계정:,,,,  `emailAddress` `emailAddress1` 또는 원하는 `emailAddress2` `emailAddress3`  `userName` 다른 모든 형식 소셜 계정은로 설정 되어야 합니다  `federated` .|
 |발급자|문자열|Id의 발급자를 지정 합니다. 로컬 계정 (여기서 **signInType** 가이 아닌 경우)의 경우 `federated` 이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름입니다 (예:) `contoso.onmicrosoft.com` . 소셜 id (여기서 **signInType** 는)의 경우  `federated` 값은 발급자의 이름입니다 (예:). `facebook.com`|
@@ -160,7 +160,7 @@ Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [
 
 ## <a name="mfa-phone-number-attribute"></a>MFA 전화 번호 특성
 
-MFA (multi-factor authentication)에 전화를 사용 하는 경우 휴대폰을 사용 하 여 사용자 id를 확인 합니다. 새 전화 번호를 프로그래밍 방식으로 [추가](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) 하려면 전화 번호를 [업데이트](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [가져오기](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)또는 [삭제](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) 하려면 MS Graph API [전화 인증 방법을](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod)사용 합니다.
+MFA (multi-factor authentication)에 전화를 사용 하는 경우 휴대폰을 사용 하 여 사용자 id를 확인 합니다. 새 전화 번호를 프로그래밍 방식으로 [추가](/graph/api/authentication-post-phonemethods) 하려면 전화 번호를 [업데이트](/graph/api/b2cauthenticationmethodspolicy-update), [가져오기](/graph/api/b2cauthenticationmethodspolicy-get)또는 [삭제](/graph/api/phoneauthenticationmethod-delete) 하려면 MS Graph API [전화 인증 방법을](/graph/api/resources/phoneauthenticationmethod)사용 합니다.
 
 [사용자 지정 정책](custom-policy-overview.md)Azure AD B2C에서 전화 번호는 클레임 유형을 통해 사용할 수 있습니다 `strongAuthenticationPhoneNumber` .
 
@@ -175,7 +175,7 @@ MFA (multi-factor authentication)에 전화를 사용 하는 경우 휴대폰을
 > - b2c-extensions-app 애플리케이션을 삭제할 경우, 확장 특성은 포함된 데이터와 함께 모든 사용자에게서 제거됩니다.
 > - 확장 특성이 애플리케이션에 의해 삭제될 경우, 모든 사용자 계정에서 제거되고 값이 삭제됩니다.
 
-Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_AttributeName` . 여기서는 응용 프로그램의 응용 프로그램 `ApplicationClientID` **(클라이언트) ID** 입니다 `b2c-extensions-app` (   >  Azure Portal의 **모든 응용** 프로그램 앱 등록에 있음). 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예를 들면 다음과 같습니다.
+Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_AttributeName` . 여기서는 응용 프로그램의 응용 프로그램 `ApplicationClientID` **(클라이언트) ID** 입니다 `b2c-extensions-app` (   >  Azure Portal의 **모든 응용** 프로그램 앱 등록에 있음). 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 다음은 그 예입니다. 
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

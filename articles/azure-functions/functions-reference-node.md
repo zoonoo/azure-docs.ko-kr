@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0b32efe3738dedbe8178889b3e9008964d485b00
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 3e99b156d220b4c24a368886b1c0ca0813ffdc51
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034920"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674136"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -323,7 +323,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 기본 수준 외에도 다음과 같은 로깅 메서드를 사용 하 여 특정 추적 수준에서 함수 로그를 쓸 수 있습니다.
 
-| 메서드                 | 설명                                |
+| 메서드                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **오류 (_메시지_)**   | 로그에 오류 수준 이벤트를 씁니다.   |
 | **warn(_message_)**    | 로그에 경고 수준 이벤트를 씁니다. |
@@ -426,7 +426,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.req`(요청) 개체의 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                    |
+| 속성      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
 | _머리글과_     | 요청 헤더를 포함하는 개체입니다.                   |
@@ -441,7 +441,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.res`(응답) 개체의 속성은 다음과 같습니다.
 
-| 속성  | 설명                                               |
+| 속성  | Description                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _머리글과_ | 응답 헤더를 포함하는 개체입니다.             |
@@ -507,7 +507,7 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 
 | Functions 버전 | 노드 버전 (Windows) | 노드 버전 (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2(런타임에 의해 잠김) | 해당 없음 |
+| 1.x | 6.11.2(런타임에 의해 잠김) | N/A |
 | 2.x  | `~8`<br/>`~10` 바람직하지<br/>`~12` | `node|8`<br/>`node|10` 바람직하지  |
 | 3.x | `~10`<br/>`~12` 바람직하지<br/>`~14`(미리 보기)  | `node|10`<br/>`node|12` 바람직하지<br/>`node|14`(미리 보기) |
 
@@ -567,7 +567,7 @@ module.exports = function(context) {
 
 ### <a name="in-local-development-environment"></a>로컬 개발 환경
 
-로컬로 실행 하는 경우 함수 프로젝트에는 환경 변수를 개체에 저장 하는 [ `local.settings.json` 파일이](/azure/azure-functions/functions-run-local)포함 됩니다 `Values` . 
+로컬로 실행 하는 경우 함수 프로젝트에는 환경 변수를 개체에 저장 하는 [ `local.settings.json` 파일이](./functions-run-local.md)포함 됩니다 `Values` . 
 
 ```json
 {

@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: fea314d595fb39a1e35dec8ab24533ad4b893f98
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: fabbdf330d43737ffa85379f9cc4d5ac59c4a734
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448082"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673521"
 ---
 # <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 테이블 인덱싱
 
@@ -24,9 +24,9 @@ ms.locfileid: "96448082"
 
 ## <a name="index-types"></a>인덱스 형식
 
-전용 SQL 풀은 [클러스터형 columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [클러스터형 인덱스 및 비클러스터형 인덱스](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 비롯 한 여러 인덱싱 옵션과 [힙](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)이 라고도 하는 인덱스 이외 옵션을 제공 합니다.  
+전용 SQL 풀은 [클러스터형 columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [클러스터형 인덱스 및 비클러스터형 인덱스](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 비롯 한 여러 인덱싱 옵션과 [힙](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)이 라고도 하는 인덱스 이외 옵션을 제공 합니다.  
 
-인덱스가 있는 테이블을 만들려면 [CREATE TABLE (전용 SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 설명서를 참조 하세요.
+인덱스가 있는 테이블을 만들려면 [CREATE TABLE (전용 SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 설명서를 참조 하세요.
 
 ## <a name="clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스
 
@@ -230,7 +230,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 1 단계의 사용자 (예: LoadUser)로 로그인 합니다 .이 사용자는 이제 더 높은 리소스 클래스를 사용 하 고 ALTER INDEX 문을 실행 합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
 
-또는 인덱스를 다시 작성 하는 대신 [CTAS를 사용 하 여](sql-data-warehouse-develop-ctas.md)테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다.
+또는 인덱스를 다시 작성 하는 대신 [CTAS를 사용 하 여](sql-data-warehouse-develop-ctas.md)테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-전용 SQL 풀에서 인덱스를 다시 작성 하는 작업은 오프 라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)의 ALTER INDEX REBUILD 섹션을 참조하세요.
+전용 SQL 풀에서 인덱스를 다시 작성 하는 작업은 오프 라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)의 ALTER INDEX REBUILD 섹션을 참조하세요.
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3단계: 클러스터형 columnstore 세그먼트 품질이 향상되었는지 확인
 
@@ -260,7 +260,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>CTAS 및 파티션 전환을 사용하여 인덱스 다시 빌드
 
-이 예제에서는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문 및 파티션 전환을 사용하여 테이블 파티션을 다시 작성합니다.
+이 예제에서는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문 및 파티션 전환을 사용하여 테이블 파티션을 다시 작성합니다.
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS

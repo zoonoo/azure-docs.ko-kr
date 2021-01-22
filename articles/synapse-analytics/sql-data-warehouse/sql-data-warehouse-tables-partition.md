@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8a59c24100b433719ccfd3a9ea1b6a676695d381
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448021"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673437"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 테이블 분할
 
@@ -58,9 +58,9 @@ ms.locfileid: "96448021"
 
 전용 SQL 풀에는 SQL Server 보다 간단한 파티션을 정의 하는 방법이 도입 되었습니다. 분할 함수 및 스키마는 SQL Server에 있는 전용 SQL 풀에서 사용 되지 않습니다. 대신 분할된 열 및 경계 지점을 식별하기만 하면 됩니다. 
 
-분할의 구문은 SQL Server와 약간 다르지만 기본 개념은 동일합니다. SQL Server 및 전용 SQL 풀은 테이블 마다 하나의 파티션 열을 지원 하며이는 원거리 파티션이 될 수 있습니다. 분할에 대한 자세한 내용은 [분할된 테이블 및 인덱스](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+분할의 구문은 SQL Server와 약간 다르지만 기본 개념은 동일합니다. SQL Server 및 전용 SQL 풀은 테이블 마다 하나의 파티션 열을 지원 하며이는 원거리 파티션이 될 수 있습니다. 분할에 대한 자세한 내용은 [분할된 테이블 및 인덱스](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
-다음 예제에서는 [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용하여 OrderDateKey 열에서 FactInternetSales 테이블을 분할합니다.
+다음 예제에서는 [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문을 사용하여 OrderDateKey 열에서 FactInternetSales 테이블을 분할합니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -90,8 +90,8 @@ WITH
 
 SQL Server 파티션 정의를 전용 SQL 풀로 마이그레이션하려면 다음을 수행 하면 됩니다.
 
-- SQL Server [파티션 구성표](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 제거합니다.
-- [파티션 함수](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 정의를 CREATE TABLE에 추가합니다.
+- SQL Server [파티션 구성표](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 제거합니다.
+- [파티션 함수](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 정의를 CREATE TABLE에 추가합니다.
 
 SQL Server 인스턴스에서 분할된 테이블을 마이그레이션하는 경우 다음 SQL이 각 파티션에 있는 행의 수를 파악하는 데 도움이 될 수 있습니다. 전용 SQL 풀에서 동일한 분할 세분성이 사용 되는 경우 파티션당 행 수가 60의 비율로 감소 합니다.  
 
@@ -131,7 +131,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>파티션 전환
 
-전용 SQL 풀은 파티션 분할, 병합 및 전환을 지원 합니다. 이러한 각 함수는 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용하여 실행됩니다.
+전용 SQL 풀은 파티션 분할, 병합 및 전환을 지원 합니다. 이러한 각 함수는 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문을 사용하여 실행됩니다.
 
 두 테이블 간에 파티션을 전환하려면 파티션을 각 해당 경계에 맞추고 테이블 정의와 일치하는지 확인해야 합니다. Check 제약 조건은 테이블에 있는 값의 범위를 적용하는 데 사용할 수 없으므로 원본 테이블은 대상 테이블과 동일한 파티션 경계를 포함해야 합니다. 파티션 경계가 동일하지 않으면 파티션 전환은 파티션 메타데이터가 동기화되지 않아서 실패합니다.
 

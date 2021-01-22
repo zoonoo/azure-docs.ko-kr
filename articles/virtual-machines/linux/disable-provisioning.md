@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fea82c376a178de0be8ede6c0393e1de21de614
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86494516"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675807"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Vm 및 이미지에서 Linux 에이전트를 사용 하지 않도록 설정 하거나 제거 합니다.
 
@@ -31,9 +31,9 @@ Azure 플랫폼은 VM 구성, 모니터링, 보안 및 유틸리티 애플리케
 
 ## <a name="disabling-extension-processing"></a>확장 처리 사용 안 함
 
-필요에 따라 확장 처리를 사용 하지 않도록 설정 하는 몇 가지 방법이 있습니다. 계속 하기 전에 VM에 배포 된 확장을 모두 제거 **해야 합니다** . 예를 들어 AZ CLI를 사용 하 여 [나열](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) 하 고 [삭제할](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete)수 있습니다.
+필요에 따라 확장 처리를 사용 하지 않도록 설정 하는 몇 가지 방법이 있습니다. 계속 하기 전에 VM에 배포 된 확장을 모두 제거 **해야** 합니다. 예를 들어 Azure CLI를 사용 하 여 [나열](/cli/azure/vm/extension#az-vm-extension-list) 하 고 [삭제할](/cli/azure/vm/extension#az-vm-extension-delete)수 있습니다.
 
-```bash
+```azurecli
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ```
 > [!Note]
@@ -43,7 +43,7 @@ az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ### <a name="disable-at-the-control-plane"></a>컨트롤 평면에서 사용 안 함
 향후 확장이 필요한 지 확실 하지 않은 경우 VM에 Linux 에이전트를 설치 된 상태로 두고 플랫폼에서 확장 처리 기능을 사용 하지 않도록 설정할 수 있습니다. 이 옵션은 `Microsoft.Compute` api 버전 이상에서 사용할 수 `2018-06-01` 있으며 설치 된 Linux 에이전트 버전에 대 한 종속성이 없습니다.
 
-```bash
+```azurecli
 az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperations=false
 ```
 위의 명령을 사용 하 여 플랫폼에서이 확장 처리를 쉽게 다시 사용 하도록 설정할 수 있지만이를 ' t r u e '로 설정 합니다.
@@ -132,7 +132,7 @@ Linux 에이전트는 "waagent-프로 비전 + 사용자" 단계를 사용 하 �
 
 
 **일반 관리 이미지 만들기**
-```bash
+```azurecli
 az vm deallocate -g <resource_group> -n <vm_name>
 az vm generalize -g <resource_group> -n <vm_name>
 az image create -g <resource_group> -n <image_name> --source <vm_name>
@@ -140,7 +140,7 @@ az image create -g <resource_group> -n <image_name> --source <vm_name>
 
 **공유 이미지 갤러리에서 이미지 버전 만들기**
 
-```bash
+```azurecli
 az sig image-version create \
     -g $sigResourceGroup 
     --gallery-name $sigName 
@@ -157,7 +157,7 @@ Linux 에이전트가 없는 이미지에서 VM을 만드는 경우 VM 배포 �
 
 확장이 사용 하지 않도록 설정 된 VM을 배포 하려면 [--enable-agent](/cli/azure/vm#az-vm-create)와 함께 Azure CLI를 사용할 수 있습니다.
 
-```bash
+```azurecli
 az vm create \
     --resource-group $resourceGroup \
     --name $prodVmName \

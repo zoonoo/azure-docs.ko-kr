@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 7f72d703e5377f725addc4aa8c52e1cdb0fa571d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 3ff7b3cd29740461a4f94f3c1d433086db119a09
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630754"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673809"
 ---
 # <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 Azure 파일 공유를 만들려면이를 사용 하는 방법에 대 한 세 가지 질문에 답변해 야 합니다.
@@ -129,7 +129,7 @@ Azure CLI 사용 하 여 저장소 계정을 만들려면 az storage account cre
 
 저장소 계정 및 후속 파일 공유 만들기를 간소화 하기 위해 변수에 여러 매개 변수를 저장 합니다. 변수 콘텐츠를 원하는 값으로 바꿀 수 있지만 저장소 계정 이름은 전역적으로 고유 해야 합니다.
 
-```bash
+```azurecli
 resourceGroupName="myResourceGroup"
 storageAccountName="mystorageacct$RANDOM"
 region="westus2"
@@ -137,7 +137,7 @@ region="westus2"
 
 표준 Azure 파일 공유를 저장할 수 있는 저장소 계정을 만들려면 다음 명령을 사용 합니다. `--sku`매개 변수는 원하는 중복성 유형과 관련이 있습니다. 지역 중복 또는 지역 중복 저장소 계정을 원하는 경우에도 매개 변수를 제거 해야 합니다 `--enable-large-file-share` .
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -149,7 +149,7 @@ az storage account create \
 
 프리미엄 Azure 파일 공유를 저장할 수 있는 저장소 계정을 만들려면 다음 명령을 사용 합니다. `--sku`매개 변수는 `Premium` 와 원하는 중복성 수준 (로컬 중복)을 모두 포함 하도록 변경 되었습니다 `LRS` . `--kind` `FileStorage` `StorageV2` GPv2 Storage 계정 대신 FileStorage 저장소 계정에 프리미엄 파일 공유를 만들어야 하기 때문에 매개 변수는 대신입니다.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -233,7 +233,7 @@ New-AzRmStorageShare `
 > [!Important]  
 > 프리미엄 파일 공유의 경우 `--quota` 매개 변수는 프로 비전 된 파일 공유 크기를 참조 합니다. 프로 비전 된 파일 공유 크기는 사용량에 관계 없이 요금이 청구 되는 금액입니다. 표준 파일 공유는 프로 비전 된 크기가 아닌 사용량을 기준으로 요금이 청구 됩니다.
 
-```bash
+```azurecli
 shareName="myshare"
 
 az storage share-rm create \
@@ -285,7 +285,7 @@ Update-AzRmStorageShare `
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 다음 Azure CLI 명령은 `$resourceGroupName` `$storageAccountName` `$shareName` 이 문서의 이전 섹션에 설명 된 대로, 및 변수를 설정 했다고 가정 합니다.
 
-```bash
+```azurecli
 az storage share-rm update \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \

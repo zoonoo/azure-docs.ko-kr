@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e53bebf9cdb8c0fc084d04550c7444c1c01be50
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 56611794bc2f190eccef739679da8474c9b04eb4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352867"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675963"
 ---
 # <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Azure CLI를 사용 하 여 이미지 버전에 관리 되는 이미지 복제
 공유 이미지 갤러리에 복제 하려는 기존 관리 이미지가 있는 경우 관리 되는 이미지에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 관리 이미지를 삭제할 수 있습니다. [PowerShell](image-version-managed-image-powershell.md)을 사용 하 여 관리 되는 이미지에서 공유 이미지 갤러리로 마이그레이션할 수도 있습니다.
@@ -41,11 +41,11 @@ ms.locfileid: "96352867"
 
 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
 
-이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./linux/shared-image-galleries.md#image-definitions)를 참조하세요.
+이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./shared-image-galleries.md#image-definitions)를 참조하세요.
 
 [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
 
-이 예제에서 이미지 정의 이름은 *Myimagedefinition* 이며 [일반화](./linux/shared-image-galleries.md#generalized-and-specialized-images) 된 Linux OS 이미지를 위한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
+이 예제에서 이미지 정의 이름은 *Myimagedefinition* 이며 [일반화](./shared-image-galleries.md#generalized-and-specialized-images) 된 Linux OS 이미지를 위한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG

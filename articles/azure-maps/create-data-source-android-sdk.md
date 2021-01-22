@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 2f383876963e3e1d310e7d93f7dc99bb58b189d3
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681530"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674646"
 ---
 # <a name="create-a-data-source-android-sdk"></a>데이터 원본 만들기 (Android SDK)
 
@@ -355,10 +355,10 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
 
 Azure Maps는 [Mapbox Vector 타일 사양](https://github.com/mapbox/vector-tile-spec)(개방형 표준)을 준수 합니다. Azure Maps는 플랫폼의 일부로 다음 벡터 타일 서비스를 제공 합니다.
 
-- 도로 타일 [설명서](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
-- 트래픽 인시던트 [설명서](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
-- 트래픽 흐름 [설명서](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps 작성자는 또한 [Get 타일 렌더링 V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) 를 통해 사용자 지정 벡터 타일을 만들고 액세스할 수 있습니다.
+- 도로 타일 [설명서](/rest/api/maps/renderv2/getmaptilepreview)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- 트래픽 인시던트 [설명서](/rest/api/maps/traffic/gettrafficincidenttile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
+- 트래픽 흐름 [설명서](/rest/api/maps/traffic/gettrafficflowtile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
+- Azure Maps 작성자는 또한 [Get 타일 렌더링 V2](/rest/api/maps/renderv2/getmaptilepreview) 를 통해 사용자 지정 벡터 타일을 만들고 액세스할 수 있습니다.
 
 지도에 벡터 타일 원본의 데이터를 표시 하려면 데이터 렌더링 계층 중 하나에 원본을 연결 합니다. 벡터 원본을 사용 하는 모든 계층은 옵션에 값을 지정 해야 합니다 `sourceLayer` . 다음 코드는 Azure Maps traffic flow vector 타일 서비스를 벡터 타일 원본으로 로드 한 다음 선 계층을 사용 하 여 지도에 표시 합니다. 이 벡터 타일 원본에는 원본 계층에서 "트래픽 흐름" 이라는 단일 데이터 집합이 있습니다. 이 데이터 집합의 줄 데이터에는 `traffic_level` 이 코드에서 색을 선택 하 고 선의 크기를 조정 하는 데 사용 되는 라는 속성이 있습니다.
 
@@ -523,4 +523,4 @@ map.layers.add(new Layer[] { polygonLayer, lineLayer, bubbleLayer });
 > [열 지도 추가](map-add-heat-map-layer-android.md)
 
 > [!div class="nextstepaction"]
-> [웹 SDK 코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [웹 SDK 코드 샘플](/samples/browse/?products=azure-maps)

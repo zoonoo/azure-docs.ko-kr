@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: 3060bd6ea8d7fbc4a4bf005b84cd07d420987ab6
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: d86455eae0834f29099c7d5c96f8326408daf519
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696420"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675532"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Azure Functions에서 .NET 및 .NET Core 앱에 대 한 스냅숏 디버거 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "97696420"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [함수 앱에서 Application Insights 모니터링 사용](https://docs.microsoft.com/azure/azure-functions/configure-monitoring#add-to-an-existing-function-app)
+* [함수 앱에서 Application Insights 모니터링 사용](../../azure-functions/configure-monitoring.md#add-to-an-existing-function-app)
 
 ## <a name="enable-snapshot-debugger"></a>스냅숏 디버거 사용
 
@@ -147,5 +147,5 @@ namespace SnapshotCollectorAzureFunction
 
 - 예외를 트리거할 수 있는 응용 프로그램에 대 한 트래픽을 생성 합니다. 그런 다음 스냅숏이 Application Insights 인스턴스로 전송 될 때까지 10 ~ 15 분 정도 기다립니다.
 - Azure Portal에서 [스냅숏을 봅니다](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) .
-- 함수 앱에서 사용 사례에 따라 스냅숏 디버거 구성을 사용자 지정 합니다. 자세한 내용은 [host.js의 스냅숏 구성](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsightssnapshotconfiguration)을 참조 하세요.
+- 함수 앱에서 사용 사례에 따라 스냅숏 디버거 구성을 사용자 지정 합니다. 자세한 내용은 [host.js의 스냅숏 구성](../../azure-functions/functions-host-json.md#applicationinsightssnapshotconfiguration)을 참조 하세요.
 - 스냅숏 디버거 문제를 해결 하는 데 도움이 필요 하면 [스냅숏 디버거 문제 해결](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json)을 참조 하세요.

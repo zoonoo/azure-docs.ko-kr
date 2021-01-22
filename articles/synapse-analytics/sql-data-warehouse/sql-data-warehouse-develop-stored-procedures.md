@@ -11,12 +11,12 @@ ms.date: 04/02/2019
 ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: cc6a58b4ef78aca60d2a26870980e032c0b11a52
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e28eeac131c737d673cac947a3fda30239180a62
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463226"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673589"
 ---
 # <a name="using-stored-procedures-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀의 저장 프로시저 사용
 
@@ -73,7 +73,7 @@ GO
 EXEC prc_nesting
 ```
 
-전용 SQL 풀은 현재 [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 지원 하지 않습니다. 따라서 중첩 수준을 추적 해야 합니다. 8 개의 중첩 수준 제한을 초과할 가능성이 거의 없습니다. 그러나 이렇게 하면이 한도 내에서 중첩 수준에 맞게 코드를 재작업 해야 합니다.
+전용 SQL 풀은 현재 [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 지원 하지 않습니다. 따라서 중첩 수준을 추적 해야 합니다. 8 개의 중첩 수준 제한을 초과할 가능성이 거의 없습니다. 그러나 이렇게 하면이 한도 내에서 중첩 수준에 맞게 코드를 재작업 해야 합니다.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 

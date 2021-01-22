@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3b61df954e913671eafff4b739e0f53a4d420c28
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 5aefe869041d9fff8112b6aa380961ca6568ae0b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117302"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673572"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 분산 테이블을 디자인 하기 위한 지침
 
@@ -96,7 +96,7 @@ WITH
 
 배포 열의 값에 따라 행의 분산 방법이 결정되므로 배포 열을 선택하는 것은 중요한 디자인 결정 사항입니다. 최상의 선택은 여러 가지 요인에 따라 달라지며 일반적으로 장단점이 있습니다. 배포 열을 선택한 후에는 변경할 수 없습니다.  
 
-처음에 가장 적합한 열을 선택하지 않은 경우 [CREATE TABLE AS SELECT(CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 다른 배포 열이 있는 테이블을 다시 만들 수 있습니다.
+처음에 가장 적합한 열을 선택하지 않은 경우 [CREATE TABLE AS SELECT(CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 다른 배포 열이 있는 테이블을 다시 만들 수 있습니다.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>균일하게 분산되는 데이터가 포함된 배포 열 선택
 
@@ -133,7 +133,7 @@ WITH
 
 ### <a name="determine-if-the-table-has-data-skew"></a>테이블에 데이터 기울이기가 있는지 확인
 
-데이터 기울이기를 확인하는 빠른 방법은 [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하는 것입니다. 다음 SQL 코드는 60개의 각 배포에 저장된 테이블 행의 수를 반환합니다. 균형 잡힌 성능을 위해서는 분산 테이블의 행을 모든 배포에 균등하게 배포되어야 합니다.
+데이터 기울이기를 확인하는 빠른 방법은 [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하는 것입니다. 다음 SQL 코드는 60개의 각 배포에 저장된 테이블 행의 수를 반환합니다. 균형 잡힌 성능을 위해서는 분산 테이블의 행을 모든 배포에 균등하게 배포되어야 합니다.
 
 ```sql
 -- Find data skew for a distributed table
@@ -183,7 +183,7 @@ order by two_part_name, row_count
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>새 배포 열로 테이블 다시 만들기
 
-이 예제에서는 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 다른 해시 배포 열로 테이블을 다시 만듭니다.
+이 예제에서는 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 다른 해시 배포 열로 테이블을 다시 만듭니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 분산 테이블을 만들려면 다음 문 중 하나를 사용합니다.
 
-- [CREATE TABLE (전용 SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE SELECT (전용 SQL 풀)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (전용 SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE SELECT (전용 SQL 풀)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)

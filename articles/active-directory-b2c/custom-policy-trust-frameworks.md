@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed477a931ed63c0db378ff84f85544072492ef96
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 644192de74a888daa0391b31dd42eb6028403fd8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387040"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674477"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Azure AD B2C 사용자 지정 정책 개요
 
@@ -53,7 +53,7 @@ ms.locfileid: "97387040"
 
 ### <a name="customize-and-localize-your-ui"></a>UI 사용자 지정 및 지역화
 
-웹 브라우저에 페이지를 표시 하 여 사용자 로부터 정보를 수집 하려면 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 사용 합니다. 자체 어설션된 기술 프로필을 편집 하 여 클레임을 [추가 하 고 사용자 입력](custom-policy-configure-user-input.md)을 사용자 지정할 수 있습니다.
+웹 브라우저에 페이지를 표시 하 여 사용자 로부터 정보를 수집 하려면 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 사용 합니다. 자체 어설션된 기술 프로필을 편집 하 여 클레임을 [추가 하 고 사용자 입력](./configure-user-input.md)을 사용자 지정할 수 있습니다.
 
 자체 어설션된 기술 프로필에 대 한 [사용자 인터페이스를 사용자](customize-ui-with-html.md) 지정 하려면 사용자 지정 된 HTML 콘텐츠가 있는 [콘텐츠 정의](contentdefinitions.md) 요소에 URL을 지정 합니다. 자체 어설션된 기술 프로필에서는이 콘텐츠 정의 ID를 가리킵니다.
 
@@ -133,11 +133,11 @@ Azure AD B2C 사용자 지정 정책 내에서 사용자 고유의 비즈니스 
 
 - **확장 정책** 내에서 논리를 만들거나 **파티 정책을 릴레이** 합니다. 동일한 ID를 참조 하 여 기본 정책을 재정의 하는 새 요소를 추가할 수 있습니다. 이렇게 하면 나중에 Microsoft에서 새로운 시작 팩을 릴리스할 때 기본 정책을 더 쉽게 업그레이드할 수 있는 동시에 프로젝트를 확장할 수 있습니다.
 - **기본 정책** 내에서 변경 하는 것을 방지 하는 것이 좋습니다.  필요한 경우 변경이 수행 되는 위치를 설명 합니다.
-- 기술 프로필 메타 데이터와 같은 요소를 재정의 하는 경우에는 기본 정책에서 전체 기술 프로필을 복사 하지 않습니다. 대신 요소의 필수 섹션만 복사 합니다. 변경을 수행 하는 방법에 대 한 예제는 [메일 확인 사용 안 함](custom-policy-disable-email-verification.md) 을 참조 하세요.
+- 기술 프로필 메타 데이터와 같은 요소를 재정의 하는 경우에는 기본 정책에서 전체 기술 프로필을 복사 하지 않습니다. 대신 요소의 필수 섹션만 복사 합니다. 변경을 수행 하는 방법에 대 한 예제는 [메일 확인 사용 안 함](./disable-email-verification.md) 을 참조 하세요.
 - 핵심 기능이 공유 되는 기술 프로필의 중복을 줄이려면 [기술 프로필 포함](technicalprofiles.md#include-technical-profile)을 사용 합니다.
 - 로그인 하는 동안 Azure AD 디렉터리에 쓰지 말고 제한 문제가 발생할 수 있습니다.
 - 정책에 REST API와 같은 외부 종속성이 있는 경우 항상 사용 가능 하도록 설정 합니다.
-- 사용자 환경을 개선 하려면 사용자 지정 HTML 템플릿이 [온라인 콘텐츠 배달을](https://docs.microsoft.com/azure/cdn/)사용 하 여 전역적으로 배포 되었는지 확인 합니다. CDN (Azure Content Delivery Network)을 사용 하면 로드 시간을 줄이고, 대역폭을 절약 하 고, 응답성을 높일 수 있습니다.
+- 사용자 환경을 개선 하려면 사용자 지정 HTML 템플릿이 [온라인 콘텐츠 배달을](../cdn/index.yml)사용 하 여 전역적으로 배포 되었는지 확인 합니다. CDN (Azure Content Delivery Network)을 사용 하면 로드 시간을 줄이고, 대역폭을 절약 하 고, 응답성을 높일 수 있습니다.
 - 사용자 경험을 변경 하려는 경우 기본 정책에서 확장 정책으로 전체 사용자 경험을 복사 합니다. 복사한 사용자 경험에 고유한 사용자 경험 ID를 제공 합니다. 그런 다음 [신뢰 당사자 정책](relyingparty.md)에서 [기본 사용자](relyingparty.md#defaultuserjourney) 경험 요소를 변경 하 여 새로운 사용자 경험을 가리키도록 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -168,9 +168,9 @@ Azure AD B2C 사용자 지정 정책을 시작 합니다.
 
 Azure AD B2C 정책을 설정 하 고 테스트 한 후에는 정책 사용자 지정을 시작할 수 있습니다. 다음 문서를 통해 다음을 수행 하는 방법을 알아보세요.
 
-- 사용자 지정 정책을 사용 하 여 [클레임을 추가 하 고 사용자 입력을 사용자 지정](custom-policy-configure-user-input.md) 합니다. 클레임을 정의 하는 방법에 대해 설명 하 고 일부 시작 팩 기술 프로필을 사용자 지정 하 여 사용자 인터페이스에 클레임을 추가 합니다.
+- 사용자 지정 정책을 사용 하 여 [클레임을 추가 하 고 사용자 입력을 사용자 지정](./configure-user-input.md) 합니다. 클레임을 정의 하는 방법에 대해 설명 하 고 일부 시작 팩 기술 프로필을 사용자 지정 하 여 사용자 인터페이스에 클레임을 추가 합니다.
 - 사용자 지정 정책을 사용 하 여 응용 프로그램의 [사용자 인터페이스를 사용자 지정](customize-ui-with-html.md) 합니다. 고유한 HTML 콘텐츠를 만들고 콘텐츠 정의를 사용자 지정 하는 방법을 알아봅니다.
-- 사용자 지정 정책을 사용 하 여 응용 프로그램의 [사용자 인터페이스를 지역화](custom-policy-localization.md) 합니다. 지역화 된 리소스 요소를 추가 하 여 지원 되는 언어 목록을 설정 하 고 언어별 레이블을 제공 하는 방법에 대해 알아봅니다.
-- 정책을 개발 하 고 테스트 하는 동안 [전자 메일 확인을 사용 하지 않도록 설정할](custom-policy-disable-email-verification.md)수 있습니다. 기술 프로필 메타 데이터를 덮어쓰는 방법에 대해 알아봅니다.
-- 사용자 지정 정책을 사용 하 여 [Google 계정으로 로그인을 설정](identity-provider-google-custom.md) 합니다. OAuth2 기술 프로필을 사용 하 여 새 클레임 공급자를 만드는 방법에 대해 알아봅니다. 그런 다음 Google 로그인 옵션을 포함 하도록 사용자 경험을 사용자 지정 합니다.
+- 사용자 지정 정책을 사용 하 여 응용 프로그램의 [사용자 인터페이스를 지역화](./language-customization.md) 합니다. 지역화 된 리소스 요소를 추가 하 여 지원 되는 언어 목록을 설정 하 고 언어별 레이블을 제공 하는 방법에 대해 알아봅니다.
+- 정책을 개발 하 고 테스트 하는 동안 [전자 메일 확인을 사용 하지 않도록 설정할](./disable-email-verification.md)수 있습니다. 기술 프로필 메타 데이터를 덮어쓰는 방법에 대해 알아봅니다.
+- 사용자 지정 정책을 사용 하 여 [Google 계정으로 로그인을 설정](./identity-provider-google.md) 합니다. OAuth2 기술 프로필을 사용 하 여 새 클레임 공급자를 만드는 방법에 대해 알아봅니다. 그런 다음 Google 로그인 옵션을 포함 하도록 사용자 경험을 사용자 지정 합니다.
 - 사용자 지정 정책을 사용 하 여 문제를 진단 하려면 [Application Insights를 사용 하 여 Azure Active Directory B2C 로그를 수집할](troubleshoot-with-application-insights.md)수 있습니다. 새 기술 프로필을 추가 하 고 릴레이 파티 정책을 구성 하는 방법을 알아봅니다.

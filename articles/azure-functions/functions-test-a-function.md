@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 2488a476fe40c2bf1f3e290b462babceff30a9b0
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601393"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674153"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -32,12 +32,12 @@ ms.locfileid: "96601393"
 
 ![Visual Studio의 C#을 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치 프로그램
 
 환경을 설정하려면 함수 및 테스트 앱을 만듭니다. 다음 단계에서는 테스트를 지원하는 데 필요한 앱 및 함수를 만들 수 있습니다.
 
-1. [새 Functions 앱을 만들고](./functions-create-first-azure-function.md) 이름을 **Functions** 로 지정합니다.
-2. [템플릿에서 HTTP 함수를 만들고](./functions-create-first-azure-function.md) 이름을 **myhttptrigger** 로 이름을로 만듭니다.
+1. [새 Functions 앱을 만들고](./functions-get-started.md) 이름을 **Functions** 로 지정합니다.
+2. [템플릿에서 HTTP 함수를 만들고](./functions-get-started.md) 이름을 **myhttptrigger** 로 이름을로 만듭니다.
 3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 **myto trigger** 로 이름을로 합니다.
 4. 솔루션에서 [xUnit 테스트 앱을 만들고](https://xunit.net/docs/getting-started/netcore/cmdline) 이름을 test.txt로 합니다 **.**
 5. NuGet을 사용 하 여 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/) 에 테스트 앱의 참조를 추가 합니다.
@@ -251,7 +251,7 @@ namespace Functions.Tests
 
 - **Timer_should_log_message**:이 테스트는의 인스턴스를 만들어 `ListLogger` 타이머 함수에 전달 합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
 
-테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [inject](./functions-dotnet-dependency-injection.md) `IConfiguration` 모의 환경 변수 값을 사용 하 여 인스턴스를 함수에 삽입할 수 있습니다.
+테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [](./functions-dotnet-dependency-injection.md) `IConfiguration` 모의 환경 변수 값을 사용 하 여 인스턴스를 함수에 삽입할 수 있습니다.
 
 ### <a name="run-tests"></a>테스트 실행
 
@@ -269,7 +269,7 @@ namespace Functions.Tests
 
 ![VS Code의 JavaScript를 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치 프로그램
 
 환경을 설정하려면 `npm init`를 실행하여 빈 폴더에서 새 Node.js 앱을 초기화합니다.
 

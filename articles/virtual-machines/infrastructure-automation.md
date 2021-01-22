@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 96c68850cfd8b03f7d1457eb0f1ca9ce5880c926
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a20c19c3da89801570ca4d74a646e3cf0d8434b6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198002"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675905"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 
@@ -87,8 +87,8 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [Azure CLI를 사용하여 Linux VM 만들기 및 사용자 지정 스크립트 확장 사용](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json)
-- [Azure PowerShell을 사용하여 Windows VM 만들기 및 사용자 지정 스크립트 확장 사용](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md)
+- [Azure CLI를 사용하여 Linux VM 만들기 및 사용자 지정 스크립트 확장 사용](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json)
+- [Azure PowerShell을 사용하여 Windows VM 만들기 및 사용자 지정 스크립트 확장 사용](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis)
 
 
 ## <a name="packer"></a>Packer
@@ -144,7 +144,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 - [리소스 관리자 템플릿을 사용 하 여 스폿 vm을 배포](./linux/spot-template.md)합니다.
 - [리소스 관리자 템플릿에서 Windows 가상 머신을 만듭니다](./windows/ps-template.md).
-- [VM에 대 한 템플릿을 다운로드](./windows/download-template.md)합니다.
+- [VM에 대 한 템플릿을 다운로드](/previous-versions/azure/virtual-machines/windows/download-template)합니다.
 - [Azure 이미지 작성기 템플릿을 만듭니다](./linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>다음 단계

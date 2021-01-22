@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d1a7c94152b611ea0dbea249156add617178d7ca
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990893"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673237"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>디바이스의 데이터가 Azure IoT Central에 표시되지 않는 문제 해결 
 
@@ -35,11 +35,11 @@ ms.locfileid: "94990893"
 
 아직 수행 하지 않은 경우 `az cli` 도구와 확장을 설치 `azure-iot` 합니다.
 
-을 설치 하는 방법에 대 `az cli` 한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조 하세요.
+을 설치 하는 방법에 대 `az cli` 한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
-확장을 [설치](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) 하려면 `azure-iot` 다음 명령을 실행 합니다.
+확장을 [설치](/cli/azure/azure-cli-reference-for-IoT#extension-reference-installation) 하려면 `azure-iot` 다음 명령을 실행 합니다.
 
-```cmd/bash
+```azurecli
 az extension add --name azure-iot
 ```
 
@@ -50,20 +50,20 @@ az extension add --name azure-iot
 
 다음 명령을 사용 하 여 IoT Central 응용 프로그램이 있는 구독에 로그인 합니다.
 
-```cmd/bash
+```azurecli
 az login
 az set account --subscription <your-subscription-id>
 ```
 
 장치에서 보내는 원격 분석을 모니터링 하려면 다음 명령을 사용 합니다.
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 장치가 IoT Central 성공적으로 연결 되 면 다음과 유사한 출력이 표시 됩니다.
 
-```cmd/bash
+```output
 Monitoring telemetry.
 Filtering on device: device-001
 {
@@ -82,13 +82,13 @@ Filtering on device: device-001
 
 장치가 IoT Central와 교환 하는 속성 업데이트를 모니터링 하려면 다음 미리 보기 명령을 사용 합니다.
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 장치에서 속성 업데이트를 성공적으로 보내면 다음과 유사한 출력이 표시 됩니다.
 
-```cmd/bash
+```output
 Changes in reported properties:
 version : 32
 {'state': 'true', 'name': {'value': {'value': 'Contoso'}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac
@@ -106,7 +106,7 @@ rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 
 데이터가 모니터에 표시 되지 않으면 다음 명령을 실행 하 여 장치의 프로 비전 상태를 확인 합니다.
 
-```cmd/bash
+```azurecli
 az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
@@ -176,13 +176,13 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 - 원격 분석의 유효성을 검사 하려면 미리 보기 명령을 사용 합니다.
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - 속성 업데이트의 유효성을 검사 하려면 미리 보기 명령을 사용 합니다.
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
@@ -190,7 +190,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 다음 출력은 validate 명령의 예 오류 및 경고 메시지를 보여 줍니다.
 
-```cmd/bash
+```output
 Validating telemetry.
 Filtering on device: v22upeoqx6.
 Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).
