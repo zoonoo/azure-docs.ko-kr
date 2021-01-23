@@ -8,12 +8,12 @@ ms.subservice: extensions
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 66675f77d480ce8d9f21e5ffb507c475337c9dab
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c6a071956565a8bbc31e5be362c41a7c39d8f551
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490733"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738053"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure VM에서 실행 되는 SQL Server에 대 한 Azure Backup
 
@@ -85,7 +85,7 @@ Azure Backup는 NSG 태그, 프록시 서버 또는 나열 된 IP 범위 배포�
 
 ### <a name="property-values"></a>속성 값
 
-Name | 값/예제 | 데이터 형식
+속성 | 값/예제 | 데이터 형식
  --- | --- | ---
 locale | ko-kr  |  문자열
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | 문자열
@@ -102,14 +102,14 @@ statusBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrexten
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-Recovery services 자격 증명 모음을 사용 하 여 SQL 응용 프로그램이 포함 된 Azure VM을 ' 등록 ' 해야 합니다. 등록 하는 동안 AzureBackupWindowsWorkload 로드 확장이 VM에 설치 됩니다.  [AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-1.5.0) cmdlet을 사용 하 여 VM을 등록 합니다.
+Recovery services 자격 증명 모음을 사용 하 여 SQL 응용 프로그램이 포함 된 Azure VM을 ' 등록 ' 해야 합니다. 등록 하는 동안 AzureBackupWindowsWorkload 로드 확장이 VM에 설치 됩니다.  [AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) cmdlet을 사용 하 여 VM을 등록 합니다.
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
 Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID -Force
 ```
 
-명령을 통해이 리소스의 **백업 컨테이너가** 반환 되 고 상태가 **등록**됩니다.
+명령을 통해이 리소스의 **백업 컨테이너가** 반환 되 고 상태가 **등록** 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

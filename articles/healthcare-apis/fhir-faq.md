@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 31ae5b780bf451e29a97f04202f804db27fc387a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd6f32213a511987c0508dcc954252b2fd4e48f6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452934"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737594"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 
@@ -105,6 +105,12 @@ FHIR 용 Azure API에서 [컴파트먼트 검색](https://www.hl7.org/fhir/compa
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>FHIR 용 Azure API에서 리소스를 검색할 때의 기본 정렬은 무엇 인가요?
 
 마지막으로 업데이트 한 날짜의 정렬을 지원 합니다. _sort = _lastUpdated. 지원 되는 다른 검색 매개 변수에 대 한 자세한 내용은 [지원 되는 기능 페이지](./fhir-features-supported.md#search)를 참조 하세요.
+
+### <a name="does-the-azure-api-for-fhir-support-everything"></a>Azure API for FHIR 지원이 $everything 되나요? 
+
+아니요. 지금은 $everything을 지원 하지 않습니다. 그러나 두 개의 API 호출을 사용 하 여 달성할 수 있습니다. 예를 들어 환자 $ 모든 항목을 가져오려면 먼저/Patient/[ID]를 사용 하 여 환자 레코드를 가져온 다음 두 번째 호출을 통해/Patient/[ID]/*를 사용 하 여 모든 환자 데이터를 검색할 수 있습니다.
+
+이 [커뮤니티 게시물](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/.24everything.20with.20_type)에서 자세한 내용을 볼 수 있습니다. 
 
 ### <a name="how-does-export-work"></a>$export 작동 방법
 

@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0de1f1c1012315d2b9e6dd0297443f2633440869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03536bbfedc7f5ecf2fe8d8bb6bd3035f27b72c7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970977"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737883"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성
 
@@ -45,7 +45,7 @@ Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성은
 
 ### <a name="connect-to-your-azure-account"></a>Azure 계정에 연결
 
-Azure CLI 또는 Azure PowerShell을 사용하기 전에 먼저 Azure 구독에 연결해야 합니다. 메시지가 표시되면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Azure PowerShell로 로그인](/powershell/azure/authenticate-azureps?view=azps-2.5.0) 또는 자격 증명을 Azure Portal에 제공합니다.
+Azure CLI 또는 Azure PowerShell을 사용하기 전에 먼저 Azure 구독에 연결해야 합니다. 메시지가 표시되면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli), [Azure PowerShell로 로그인](/powershell/azure/authenticate-azureps) 또는 자격 증명을 Azure Portal에 제공합니다.
 
 ```azurecli-interactive
 az login

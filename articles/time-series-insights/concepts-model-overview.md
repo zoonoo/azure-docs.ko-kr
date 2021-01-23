@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 0c201ce984a216a5cc62e221c0433f83a7eeabae
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7b37934ff3b867b83c2c958d52bea2dd4db01354
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021765"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736804"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 시계열 모델
 
@@ -75,7 +75,7 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 
 [![시계열 모델 개요 차트](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-시계열 모델은 [Azure Time Series Insights 탐색기]()를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](/rest/api/time-series-insights/reference-model-apis)를 통해 관리할 수 있습니다.
+시계열 모델은 [Azure Time Series Insights 탐색기](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels)를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](/rest/api/time-series-insights/reference-model-apis)를 통해 관리할 수 있습니다.
 
 ## <a name="time-series-model-instances"></a>시계열 모델 인스턴스
 
@@ -97,11 +97,11 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 
 인스턴스는 **Timeseriesid**, **typeId**, **name**, **description**, **계층 id** 및 **instancefields** 에 의해 정의 됩니다. 각 인스턴스는 한 가지 *유형* 및 하나 이상의 *계층* 에 매핑됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | ---|
 | timeSeriesId | 인스턴스가 연결 된 시계열의 고유 ID입니다. 대부분의 경우 인스턴스는 deviceId 또는 assetId와 같은 속성으로 고유 하 게 식별 됩니다. 경우에 따라 최대 3 개의 속성을 결합 하는 보다 구체적인 복합 ID를 사용할 수 있습니다. |
 | typeId | 인스턴스가 연결 된 시계열 모델 유형의 고유 문자열 ID (대/소문자 구분)입니다. 기본적으로 검색 되는 새 인스턴스는 모두 기본 형식에 연결 됩니다.
-| name | **Name** 속성은 선택 사항이 며 대/소문자를 구분 합니다. **이름을** 사용할 수 없는 경우 기본적으로 **Timeseriesid** 로 설정 됩니다. 이름이 제공 되는 경우에도 **Timeseriesid** 는 여전히 사용할 수 [있습니다.](./concepts-ux-panels.md#4-time-series-well) |
+| 이름 | **Name** 속성은 선택 사항이 며 대/소문자를 구분 합니다. **이름을** 사용할 수 없는 경우 기본적으로 **Timeseriesid** 로 설정 됩니다. 이름이 제공 되는 경우에도 **Timeseriesid** 는 여전히 사용할 수 [있습니다.](./concepts-ux-panels.md#4-time-series-well) |
 | description | 인스턴스에 대 한 텍스트 설명입니다. |
 | 계층 Id | 인스턴스가 속한 계층을 정의 합니다. |
 | instanceFields | 인스턴스 속성 및 인스턴스를 정의 하는 정적 데이터입니다. 계층 구조 또는 비 계층 구조의 값을 정의하는 한편 검색 작업을 수행하기 위한 인덱싱도 지원합니다. |
@@ -148,7 +148,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 | 속성 | Description |
 | ---| ---|
 | id | 예를 들어 인스턴스를 정의할 때 사용 되는 계층의 고유 식별자입니다. |
-| name | 계층의 이름을 제공 하는 데 사용 되는 문자열입니다. |
+| 이름 | 계층의 이름을 제공 하는 데 사용 되는 문자열입니다. |
 | source | 사용자가 만들려는 계층의 하향식 부모 자식인 조직의 계층 또는 경로를 지정 합니다. 부모-자식 속성은 인스턴스 필드로 매핑됩니다. |
 
 계층은 JSON에서 다음과 같이 표시 됩니다.
@@ -190,7 +190,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 
 ### <a name="hierarchy-example"></a>계층 예
 
-**H1** `building` `floor` `room` **InstanceFieldNames** 정의의 일부로 계층 H1에, 및가 있는 경우를 예로 들어 보겠습니다.
+ `building` `floor` `room` **InstanceFieldNames** 정의의 일부로 계층 H1에, 및가 있는 경우를 예로 들어 보겠습니다.
 
 ```JSON
 {
@@ -240,7 +240,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 | 속성 | Description |
 | ---| ---|
 | id | 형식에 대 한 대/소문자를 구분 하는 고유 문자열 ID입니다. |
-| name | 형식의 이름을 제공 하는 데 사용 되는 문자열입니다. |
+| 이름 | 형식의 이름을 제공 하는 데 사용 되는 문자열입니다. |
 | description | 형식에 대 한 문자열 설명입니다. |
 | variables | 형식과 연결 된 변수를 지정 합니다. |
 

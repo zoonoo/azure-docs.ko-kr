@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 01/15/2021
-ms.openlocfilehash: 2daa07315be85e1fcd543480cd30a57c118d8547
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/22/2021
+ms.openlocfilehash: 619f4deee81c97f2d7a0b4359e2b999c476b1ae2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251491"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737560"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>VCore 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -218,7 +218,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |TempDB 최대 데이터 크기 (GB)|83.25|92.5|111|148|166.5|333|
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|5760|6400|7680|10240|11520|23040|
+|풀 당 최대 데이터 IOPS <sup>2</sup>|5760|6400|7680|10240|11520|12800|
 |풀 당 최대 로그 전송률 (MBps)|48|48|48|48|48|48|
 |풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|900|1000|1200|1600|1800|3600|
 |풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
@@ -511,7 +511,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 > [!NOTE]
 > 탄력적 풀의 개별 데이터베이스에 대 한 리소스 제한은 일반적으로 동일한 계산 크기 (서비스 목표)를 갖는 풀 외부의 단일 데이터베이스와 동일 합니다. 예를 들어 GP_Gen4_1 데이터베이스에 대한 최대 동시 작업자 수는 200명입니다. 따라서 GP_Gen4_1 풀의 데이터베이스에 대한 최대 동시 작업자 수도 200명입니다. GP_Gen4_1 풀에 대한 총 동시 작업자 수는 210명입니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | 데이터베이스당 최대 vCore 수 |풀의 다른 데이터베이스에서 사용량에 따라 사용할 수 있는 경우 풀의 모든 데이터베이스에서 사용할 수 있는 최대 vCore 수입니다. 데이터베이스당 최대 vCore 수는 데이터베이스에 대한 리소스를 보장하지 않습니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스당 최대 vCore 수는 데이터베이스 사용량의 최고값을 처리할 수 있을 만큼 충분히 높게 설정합니다. 풀은 일반적으로 모든 데이터베이스가 동시에 최대로 사용되지 않을 경우 데이터베이스에 대해 핫 및 콜드 사용률 패턴을 가정하므로 일정 수준의 오버커밋이 예상됩니다.|
 | 데이터베이스당 최소 vCore 수 |풀의 데이터베이스가 보장되는 최소 vCore 수입니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스당 최소 vCore 수를 0으로 설정할 수 있으며 기본값이기도 합니다. 이 속성은 0과 데이터베이스당 평균 vCore 사용량 사이의 값으로 설정됩니다. 풀의 데이터베이스 수와 데이터베이스당 최소 vCore 수를 곱한 값은 풀당 vCore 수를 초과할 수 없습니다.|

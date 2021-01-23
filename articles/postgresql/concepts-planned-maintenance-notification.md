@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 8db556709f68a1184046989a15fad147542a05a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920256"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735744"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 계획된 유지 관리 알림 - 단일 서버
 
@@ -25,7 +25,7 @@ Azure Database for PostgreSQL 서비스는 기본 하드웨어, OS 및 데이터
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>계획 된 유지 관리-기간 및 고객에 게 미치는 영향
 
-지정 된 Azure 지역에 대 한 계획 된 유지 관리는 일반적으로 15 시간 동안 실행 될 것으로 예상 됩니다. 또한이 창에는 필요한 경우 롤백 계획을 실행 하는 데 필요한 버퍼 시간도 포함 됩니다. 계획 된 유지 관리 중에는 데이터베이스 서버를 다시 시작 하거나 장애 조치 (failover) 할 수 있으며,이로 인해 최종 사용자가 데이터베이스 서버를 잠깐 사용할 수 없게 될 수 있습니다. Azure Database for PostgreSQL 서버는 컨테이너에서 실행 되므로 데이터베이스 서버를 다시 시작 하는 것은 일반적으로 빠르게 60-120 초 내에 완료 될 것으로 예상 됩니다. 각 서버 다시 시작을 포함 하 여 계획 된 전체 유지 관리 이벤트는 엔지니어링 팀에서 신중 하 게 모니터링 합니다. 서버 장애 조치 (failover) 시간은 데이터베이스 복구 시간에 따라 달라 지 며 장애 조치 (failover) 시 서버에서 트랜잭션 작업이 많은 경우 데이터베이스가 더 오래 온라인 상태가 될 수 있습니다. 다시 시작 시간을 방지 하려면 계획 된 유지 관리 이벤트 동안 장기 실행 트랜잭션 (대량 로드)을 방지 하는 것이 좋습니다.
+지정 된 Azure 지역에 대 한 계획 된 유지 관리는 일반적으로 15 시간 이내에 완료 될 것으로 예상 됩니다. 이 시간 창에는 필요한 경우 롤백 계획을 실행 하기 위한 버퍼 시간도 포함 됩니다. Azure Database for PostgreSQL 서버가 컨테이너에서 실행 되 고 있으므로 데이터베이스 서버를 다시 시작 하면 일반적으로 60-120 초 정도 걸리며이 15 시간 이내에 서버에 영향을 미칠 시기를 알 수 있는 명확한 방법은 없습니다. 각 서버 다시 시작을 포함 하 여 계획 된 전체 유지 관리 이벤트는 엔지니어링 팀에서 신중 하 게 모니터링 합니다. 서버 장애 조치 (failover) 시간은 데이터베이스 복구에 따라 달라 지 며 장애 조치 (failover) 시 서버에서 트랜잭션 작업이 많은 경우 데이터베이스가 더 오래 온라인 상태가 될 수 있습니다. 다시 시작 시간을 방지 하려면 계획 된 유지 관리 이벤트 동안 장기 실행 트랜잭션 (대량 로드)을 방지 하는 것이 좋습니다.
 
 요약 하자면 계획 된 유지 관리 이벤트는 15 시간 동안 실행 되지만 일반적으로 개별 서버 영향은 서버에서 트랜잭션 활동에 따라 60 초 동안 지속 됩니다. 지정 된 지역에 대해 계획 된 유지 관리를 시작 하 고 다른 하나는 유지 관리를 시작 하기 전에 72의 일정 시간에 알림이 전송 됩니다.
 

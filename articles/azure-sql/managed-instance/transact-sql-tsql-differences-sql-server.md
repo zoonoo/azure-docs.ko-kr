@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 6634ab3521fee3062ecee465eaf6dcda80ee6ff8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0a462c7d713ea9285096db48b4a3bb5c5b0d9874
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98699517"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737390"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -508,15 +508,14 @@ PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/poly
 
 ### <a name="subnet"></a>서브넷
 -  SQL Managed Instance를 배포한 서브넷에 다른 리소스 (예: 가상 컴퓨터)를 배치할 수 없습니다. 다른 서브넷을 사용하여 이러한 리소스를 배포합니다.
-- 서브넷에 사용 가능한 [IP 주소](connectivity-architecture-overview.md#network-requirements) 수가 충분해야 합니다. 최소는 16개이지만 서브넷에 IP 주소가 32개 이상 있는 것이 좋습니다.
-- [서비스 끝점은 SQL Managed Instance의 서브넷에 연결할 수 없습니다](connectivity-architecture-overview.md#network-requirements). 가상 네트워크를 만들 때 서비스 엔드포인트 옵션을 사용하지 않도록 설정해야 합니다.
+- 서브넷에 사용 가능한 [IP 주소](connectivity-architecture-overview.md#network-requirements) 수가 충분해야 합니다. 최소 32 IP 주소를 서브넷에 포함 해야 합니다.
 - 지역에 배포할 수 있는 vCore 및 인스턴스 유형 수에는 몇 가지 [제약 조건 및 제한](resource-limits.md#regional-resource-limitations)이 있습니다.
-- [서브넷에 적용해야 하는 보안 규칙](connectivity-architecture-overview.md#network-requirements)이 몇 가지 있습니다.
+- 서브넷에 적용 해야 하는 [네트워킹 구성이](connectivity-architecture-overview.md#network-requirements) 있습니다.
 
 ### <a name="vnet"></a>VNET
 - VNet은 리소스 모델을 사용하여 배포할 수 있으며 VNet에 대한 클래식 모델은 지원되지 않습니다.
 - SQL Managed Instance를 만든 후에는 SQL Managed Instance 또는 VNet을 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다.
-- App Service 환경, 논리 앱 및 SQL Managed Instance (지역에서 복제, 트랜잭션 복제 또는 연결 된 서버를 통해 사용)와 같은 일부 서비스는 [글로벌 피어 링](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)을 사용 하 여 해당 vnet가 연결 된 경우 다른 지역의 sql Managed Instance에 액세스할 수 없습니다. VNet 게이트웨이를 사용하여 ExpressRoute 또는 VNet 간을 통해 이러한 리소스에 연결할 수 있습니다.
+- 9/22/2020 이전에 만든 가상 클러스터에서 호스트 되는 SQL 관리 되는 인스턴스의 경우에는 [전역 피어 링](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 이 지원 되지 않습니다. VNet 게이트웨이를 사용하여 ExpressRoute 또는 VNet 간을 통해 이러한 리소스에 연결할 수 있습니다.
 
 ### <a name="failover-groups"></a>장애 조치(failover) 그룹
 시스템 데이터베이스는 장애 조치 (failover) 그룹의 보조 인스턴스에 복제 되지 않습니다. 따라서 시스템 데이터베이스의 개체에 종속 된 시나리오는 보조 인스턴스에서 개체를 수동으로 만들지 않는 한 보조 인스턴스에서는 불가능 합니다.

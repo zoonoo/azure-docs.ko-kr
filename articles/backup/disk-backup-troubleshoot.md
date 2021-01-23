@@ -3,12 +3,12 @@ title: Azure Disk Backup에서 백업 오류 문제 해결
 description: Azure Disk Backup에서 백업 실패 문제를 해결 하는 방법 알아보기
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 3e7c81d70fc898528532a841a484bf6fff8b83a7
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611239"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737730"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Azure 디스크 백업 (미리 보기)의 백업 오류 문제 해결
 
@@ -115,7 +115,7 @@ ms.locfileid: "98611239"
 
 오류 메시지: 구독에서 디스크 할당량 최대 제한에 도달 하 여 작업이 실패 했습니다.
 
-권장 조치: 추가 지침은 [Azure 구독 및 서비스 제한 및 할당량 문서](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) 를 참조 하거나 Microsoft 지원 하세요.
+권장 조치: 추가 지침은 [Azure 구독 및 서비스 제한 및 할당량 문서](../azure-resource-manager/management/azure-subscription-service-limits.md) 를 참조 하거나 Microsoft 지원 하세요.
 
 ### <a name="error-code-usererrordiskbackuprestorergormsipermissionsnotpresent"></a>오류 코드: UserErrorDiskBackupRestoreRGOrMSIPermissionsNotPresent
 

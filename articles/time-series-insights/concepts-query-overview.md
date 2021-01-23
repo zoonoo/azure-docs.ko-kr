@@ -8,16 +8,16 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 5682cf9856ad8969d930d72f53e888b03ff6ae75
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: bf743bf1997a339664a6da2e5c02f1bcc1deea26
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020864"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736754"
 ---
-# <a name="querying-data-from-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2에서 데이터 쿼리
+# <a name="querying-data-from-azure-time-series-insights-gen2"></a>Querying Data from Azure Time Series Insights Gen2(Azure Time Series Insights Gen2의 데이터 쿼리)
 
 Azure Time Series Insights Gen2를 사용 하면 공용 surface Api를 통해 환경에 저장 된 메타 데이터 및 이벤트에 대 한 데이터를 쿼리할 수 있습니다. 이러한 Api는 [Azure Time Series Insights TSI 탐색기](./concepts-ux-panels.md)에서도 사용 됩니다.
 

@@ -5,19 +5,19 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 85035ff894127df4e9eb8334702fd9546d7a63c3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9d742606435f62d48446bb8ad56ece7a31b76e47
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598705"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736224"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Azure App Service에 대 한 비용 계획 및 관리
 
 <!-- Check out the following published examples:
-- [https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs](https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs)
-- [https://docs.microsoft.com/azure/storage/common/storage-plan-manage-costs](https://docs.microsoft.com/azure/storage/common/storage-plan-manage-costs)
-- [https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost)
+- [https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs](../cosmos-db/plan-manage-costs.md)
+- [https://docs.microsoft.com/azure/storage/common/storage-plan-manage-costs](../storage/common/storage-plan-manage-costs.md)
+- [https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost](../machine-learning/concept-plan-manage-cost.md)
 -->
 
 <!-- Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact. They're used to measure traffic to Cost Management articles.
@@ -25,7 +25,7 @@ ms.locfileid: "98598705"
 
 <!-- Note for Azure service writer: Modify the following for your service. -->
 
-이 문서에서는 Azure App Service에 대 한 비용을 계획 하 고 관리 하는 방법을 설명 합니다. 먼저 Azure 가격 계산기를 사용 하 여 비용을 예측 하는 서비스에 대 한 리소스를 추가 하기 전에 App Service 비용을 계획할 수 있습니다. 그런 다음 Azure 리소스를 추가할 때 예상 비용을 검토 합니다. App Service 리소스 사용을 시작한 후에는 [Cost Management](https://docs.microsoft.com/azure/cost-management-billing/?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 기능을 사용 하 여 예산을 설정 하 고 비용을 모니터링 합니다. 예상 비용을 검토 하 고 지출 추세를 파악 하 여 작업할 수 있는 영역을 식별할 수도 있습니다. Azure App Service 비용은 Azure 청구서의 월별 비용 중 일부에 불과합니다. 이 문서에서는 App Service에 대 한 비용을 계획 하 고 관리 하는 방법을 설명 하지만, 타사 서비스를 비롯 하 여 Azure 구독에 사용 되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구 됩니다.
+이 문서에서는 Azure App Service에 대 한 비용을 계획 하 고 관리 하는 방법을 설명 합니다. 먼저 Azure 가격 계산기를 사용 하 여 비용을 예측 하는 서비스에 대 한 리소스를 추가 하기 전에 App Service 비용을 계획할 수 있습니다. 그런 다음 Azure 리소스를 추가할 때 예상 비용을 검토 합니다. App Service 리소스 사용을 시작한 후에는 [Cost Management](../cost-management-billing/index.yml?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 기능을 사용 하 여 예산을 설정 하 고 비용을 모니터링 합니다. 예상 비용을 검토 하 고 지출 추세를 파악 하 여 작업할 수 있는 영역을 식별할 수도 있습니다. Azure App Service 비용은 Azure 청구서의 월별 비용 중 일부에 불과합니다. 이 문서에서는 App Service에 대 한 비용을 계획 하 고 관리 하는 방법을 설명 하지만, 타사 서비스를 비롯 하 여 Azure 구독에 사용 되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구 됩니다.
 
 ## <a name="relevant-costs-for-app-service"></a>App Service 관련 비용
 
@@ -36,10 +36,10 @@ App Service는 비용을 계산 하는 Azure 인프라에서 실행 됩니다. �
 App Service에서 사용 하는 기능에 따라 다음과 같은 비용 발생 리소스가 만들어질 수 있습니다.
 
 - **App Service 계획**  App Service 앱을 호스트 하는 데 필요 합니다.
-- **격리 계층**  App Service 환경에 [Virtual Network](/azure/virtual-network/) 필요 합니다.
-- **백업**  백업을 수행 하려면 [저장소 계정이](/azure/storage/) 필요 합니다.
-- **진단 로그**  [저장소 계정을](/azure/storage/) 로깅 옵션으로 선택 하거나 [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)와 통합할 수 있습니다.
-- **인증서 App Service**  Azure에서 구입한 인증서는 [Azure Key Vault](/azure/key-vault/)에서 유지 관리 해야 합니다.
+- **격리 계층**  App Service 환경에 [Virtual Network](../virtual-network/index.yml) 필요 합니다.
+- **백업**  백업을 수행 하려면 [저장소 계정이](../storage/index.yml) 필요 합니다.
+- **진단 로그**  [저장소 계정을](../storage/index.yml) 로깅 옵션으로 선택 하거나 [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)와 통합할 수 있습니다.
+- **인증서 App Service**  Azure에서 구입한 인증서는 [Azure Key Vault](../key-vault/index.yml)에서 유지 관리 해야 합니다.
 
 App Service에 대 한 다른 비용 리소스 (자세한 내용은 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/) 참조):
 
@@ -51,7 +51,7 @@ App Service에 대 한 다른 비용 리소스 (자세한 내용은 [App Service
 
 App Service 계획의 모든 앱을 삭제 하는 경우 계획은 구성 된 가격 책정 계층 및 인스턴스 수에 따라 요금이 계속 청구 됩니다. 원치 않는 요금을 방지 하려면 계획을 삭제 하거나 **무료** 계층으로 축소 합니다.
 
-Azure App Service 리소스를 삭제 한 후에는 관련 Azure 서비스의 리소스가 계속 존재할 수 있습니다. 삭제할 때까지 비용이 계속 해 서 계산 됩니다. 예를 들면 다음과 같습니다.
+Azure App Service 리소스를 삭제 한 후에는 관련 Azure 서비스의 리소스가 계속 존재할 수 있습니다. 삭제할 때까지 비용이 계속 해 서 계산 됩니다. 예:
 
 - **격리** 된 계층 App Service 계획에 대해 만든 Virtual Network
 - 백업 또는 진단 로그를 저장 하기 위해 만든 저장소 계정
@@ -155,7 +155,7 @@ App Service에 대 한 비용을 보여 주는 예제는 다음과 같습니다.
 
 <!-- Note to Azure service writer: Modify the following as needed for your service. -->
 
-[예산을](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 만들어 비용을 관리 하 고 관련자에 게 잘못 된 지출 및 과도 한 지출 위험을 자동으로 알리는 [경고](../cost-management/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대 한 예산과 경고가 생성 되므로 전체 비용 모니터링 전략의 일부로 유용 합니다. 
+[예산을](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 만들어 비용을 관리 하 고 관련자에 게 잘못 된 지출 및 과도 한 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대 한 예산과 경고가 생성 되므로 전체 비용 모니터링 전략의 일부로 유용 합니다. 
 
 모니터링에 세분성이 더 필요한 경우 Azure의 특정 리소스 또는 서비스에 대 한 필터를 사용 하 여 예산을 만들 수 있습니다. 필터를 통해 실수로 추가 비용을 절감할 수 있는 새 리소스를 만들지 않도록 할 수 있습니다. 예산을 만들 때 사용할 수 있는 필터 옵션에 대 한 자세한 내용은 [그룹 및 필터 옵션](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조 하세요.
 
@@ -168,8 +168,8 @@ App Service에 대 한 비용을 보여 주는 예제는 다음과 같습니다.
 - Azure Storage에서 가격 책정을 사용 하는 방법에 대해 자세히 알아보세요. [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 - [Azure Cost Management를 사용 하 여 클라우드 투자를 최적화 하는 방법을](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)알아봅니다.
 - [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)으로 비용 관리에 대해 자세히 알아보세요.
-- [예기치 않은 비용을 방지](../cost-management-billing/manage/getting-started.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)하는 방법에 대해 알아봅니다.
-- [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 단계별 학습 과정을 수행 하세요.
+- [예기치 않은 비용을 방지](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)하는 방법에 대해 알아봅니다.
+- [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 단계별 학습 과정을 수행 하세요.
 
 <!-- Insert links to other articles that might help users save and manage costs for you service here.
 

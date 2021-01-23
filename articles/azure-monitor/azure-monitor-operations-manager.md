@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 877251ba7e0c1f3c33cab37e20d609479b69520c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: c213a38286de05df5c3be8e3498bcca4ab6e1fbf
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251831"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736148"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>기존 Operations Manager 고객에 대 한 Azure Monitor
-이 문서는 현재 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome) 를 사용 하 고 비즈니스 응용 프로그램 및 기타 리소스를 Azure로 마이그레이션할 때 [Azure Monitor](overview.md) 전환을 계획 하는 고객을 위한 지침을 제공 합니다. 이 문서에서는 비즈니스 및 IT 운영 요구 사항을 손상 시 키 지 않고 최대한 많은 Operations Manager 기능을 Azure Monitor 최대한 활용 하 여 클라우드로 완전히 전환 하는 것으로 가정 합니다. 
+이 문서는 현재 [System Center Operations Manager](/system-center/scom/welcome) 를 사용 하 고 비즈니스 응용 프로그램 및 기타 리소스를 Azure로 마이그레이션할 때 [Azure Monitor](overview.md) 전환을 계획 하는 고객을 위한 지침을 제공 합니다. 이 문서에서는 비즈니스 및 IT 운영 요구 사항을 손상 시 키 지 않고 최대한 많은 Operations Manager 기능을 Azure Monitor 최대한 활용 하 여 클라우드로 완전히 전환 하는 것으로 가정 합니다. 
 
 이 문서에서 만든 권장 사항은 Azure Monitor 변경 되 고 기능 Operations Manager 추가 됩니다. 하지만 기본 전략은 일관 되 게 유지 됩니다.
 
@@ -22,13 +22,13 @@ ms.locfileid: "98251831"
 > 여기에 설명 된 여러 Azure Monitor 기능을 구현 하는 데 비용이 듭니다. 따라서 전체 환경에서 배포 하기 전에 해당 값을 평가 해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-이 문서에서는 이미 [Operations Manager](https://docs.microsoft.com/system-center/scom) 를 사용 하 고 있으며 최소한 [Azure Monitor](overview.md)에 대 한 기본적인 지식이 있다고 가정 합니다. 둘 간의 전체 비교는 [클라우드 모니터링 가이드: 플랫폼 모니터링 개요](/azure/cloud-adoption-framework/manage/monitor/platform-overview)를 참조 하세요. 이 문서에서는 여기에 설명 된 몇 가지 권장 사항을 이해 하는 데 도움이 되는 두 가지 간의 특정 기능 차이점에 대해 자세히 설명 합니다. 
+이 문서에서는 이미 [Operations Manager](/system-center/scom) 를 사용 하 고 있으며 최소한 [Azure Monitor](overview.md)에 대 한 기본적인 지식이 있다고 가정 합니다. 둘 간의 전체 비교는 [클라우드 모니터링 가이드: 플랫폼 모니터링 개요](/azure/cloud-adoption-framework/manage/monitor/platform-overview)를 참조 하세요. 이 문서에서는 여기에 설명 된 몇 가지 권장 사항을 이해 하는 데 도움이 되는 두 가지 간의 특정 기능 차이점에 대해 자세히 설명 합니다. 
 
 
 ## <a name="general-strategy"></a>일반 전략
 플랫폼은 근본적으로 다르기 때문에 자산을 Operations Manager에서 Azure Monitor으로 변환 하는 마이그레이션 도구가 없습니다. 대신 마이그레이션을 사용 하 여 Operations Manager를 계속 사용 하면서 [표준 Azure Monitor 구현을](deploy.md) 구성 합니다. 다른 응용 프로그램 및 구성 요소에 대 한 요구 사항을 충족 하도록 Azure Monitor를 사용자 지정 하 고 더 많은 기능을 사용할 수 있으므로 Operations Manager에서 다른 관리 팩과 에이전트를 사용 중지할 수 있습니다.
 
-이 문서에서 권장 하는 일반적인 전략은 클라우드 [모니터링 가이드](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/)와 동일 합니다. 클라우드 모니터링 전략은 클라우드로 점진적 전환을 수행할 수 있도록 하는 [하이브리드 클라우드 모니터링](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) 전략을 권장 합니다. 일부 기능이 중복 될 수 있지만,이 전략을 사용 하면 새 플랫폼에 보다 친숙 하 게 기존 비즈니스 프로세스를 유지 관리할 수 있습니다. Azure Monitor으로 바꿀 수 있으므로 Operations Manager 기능에서 벗어나 이동 합니다. 여러 모니터링 도구를 사용 하면 복잡성이 증가 하지만, 온-프레미스 또는 다른 클라우드에 있을 수 있는 서버 소프트웨어 및 인프라 구성 요소를 모니터링 하 Operations Manager 기능을 유지 하면서 차세대 클라우드 워크 로드를 모니터링 하는 Azure Monitor 기능을 활용할 수 있습니다. 
+이 문서에서 권장 하는 일반적인 전략은 클라우드 [모니터링 가이드](/azure/cloud-adoption-framework/manage/monitor/)와 동일 합니다. 클라우드 모니터링 전략은 클라우드로 점진적 전환을 수행할 수 있도록 하는 [하이브리드 클라우드 모니터링](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) 전략을 권장 합니다. 일부 기능이 중복 될 수 있지만,이 전략을 사용 하면 새 플랫폼에 보다 친숙 하 게 기존 비즈니스 프로세스를 유지 관리할 수 있습니다. Azure Monitor으로 바꿀 수 있으므로 Operations Manager 기능에서 벗어나 이동 합니다. 여러 모니터링 도구를 사용 하면 복잡성이 증가 하지만, 온-프레미스 또는 다른 클라우드에 있을 수 있는 서버 소프트웨어 및 인프라 구성 요소를 모니터링 하 Operations Manager 기능을 유지 하면서 차세대 클라우드 워크 로드를 모니터링 하는 Azure Monitor 기능을 활용할 수 있습니다. 
 
 
 ## <a name="components-to-monitor"></a>모니터링할 구성 요소
@@ -37,7 +37,7 @@ ms.locfileid: "98251831"
 클라우드 전에는 Operations Manager를 사용 하 여 모든 계층을 모니터링 했습니다. IaaS (Infrastructure as a Service)를 사용 하 여 전환을 시작 하는 경우 가상 머신에 대 한 Operations Manager를 계속 사용 하지만 클라우드 리소스에 대 한 Azure Monitor 사용을 시작 합니다. PaaS (Platform as a Service)를 사용 하 여 최신 응용 프로그램으로 전환 하는 경우 Azure Monitor에 더 집중 하 여 Operations Manager 기능 사용을 중지할 수 있습니다.
 
 
-![클라우드 모델](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/media/monitoring-strategy/cloud-models.png)
+![클라우드 모델](/azure/cloud-adoption-framework/strategy/media/monitoring-strategy/cloud-models.png)
 
 이러한 계층은이 문서의 나머지 부분에서 자세히 설명 하는 다음과 같은 범주로 단순화할 수 있습니다. 사용자 환경의 모든 모니터링 워크 로드가 이러한 범주 중 하나에 적합 하지 않을 수 있지만, 일반적으로 적용 되는 일반적인 권장 사항에 따라 특정 범주에 충분 해야 합니다.
 

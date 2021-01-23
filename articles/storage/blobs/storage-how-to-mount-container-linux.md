@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: tamram
 ms.reviewer: twooley
-ms.openlocfilehash: 8de395e34b43a4edad2affa591adb8ab34ff9e66
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 002e8650a5555b70caf09179e03ce1bad1acdef5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921703"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737543"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
@@ -28,9 +28,9 @@ ms.locfileid: "96921703"
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Linux에 blobfuse 설치
-Blobfuse 이진 파일은 Ubuntu 및 RHEL 배포를 위한 [Linux용 Microsoft 소프트웨어 리포지토리](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)에서 사용할 수 있습니다. 해당 배포에서 Blobfuse를 설치하려면 목록에서 리포지토리 중 하나를 구성합니다. 배포에 사용할 수 있는 이진 파일이 없는 경우 [Azure Storage 설치 단계](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source)에 따라 소스 코드에서 이진 파일을 빌드할 수도 있습니다.
+Blobfuse 이진 파일은 Ubuntu, Debian, SUSE, CentoOS, Oracle Linux 및 RHEL 배포판 용 [Microsoft 소프트웨어 리포지토리에서](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) 사용할 수 있습니다. 해당 배포에서 Blobfuse를 설치하려면 목록에서 리포지토리 중 하나를 구성합니다. 배포에 사용할 수 있는 이진 파일이 없는 경우 [Azure Storage 설치 단계](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source)에 따라 소스 코드에서 이진 파일을 빌드할 수도 있습니다.
 
-Blobfuse는 Ubuntu 14.04, 16.04, 18.04 및 20.04에 대 한 설치를 지원 합니다. 이 명령을 실행하면 해당 버전 중 하나가 배포되었는지 확인할 수 있습니다.
+Blobfuse는 Ubuntu 버전: 16.04, 18.04 및 20.04, RHELversions: 7.5, 7.8, 8.0, 8.1, 8.2, CentOS 버전: 7.0, 8.0, Debian 버전: 9.0, 10.0, SUSE version: 15, OracleLinux 8.1에 대 한 설치를 지원 합니다. 이 명령을 실행하면 해당 버전 중 하나가 배포되었는지 확인할 수 있습니다.
 ```
 lsb_release -a
 ```
@@ -38,16 +38,16 @@ lsb_release -a
 ### <a name="configure-the-microsoft-package-repository"></a>Microsoft 패키지 리포지토리 구성
 [Microsoft 제품용 Linux 패키지 리포지토리](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)를 구성합니다.
 
-예를 들어 Enterprise Linux 6 배포의 경우 다음과 같습니다.
+예를 들어 엔터프라이즈 Linux 8 배포에서 다음을 수행 합니다.
 ```bash
-sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
+sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 ```
 
 마찬가지로 URL을 `.../rhel/7/...`로 변경하여 Enterprise Linux 7 배포를 가리킵니다.
 
-Ubuntu 14.04 배포의 또 다른 예:
+Ubuntu 20.04 배포의 또 다른 예는 다음과 같습니다.
 ```bash
-wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```

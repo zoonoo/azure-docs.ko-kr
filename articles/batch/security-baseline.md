@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c27ef1af3e439b22f00f9247b5270118bbe9ca89
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3678ead9f3e1ba2556fde3c2fbe30df4e7dc2225
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197713"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737238"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Batch에 대 한 Azure 보안 기준
 
@@ -62,9 +62,9 @@ Batch가 Azure 보안 벤치 마크에 완전히 매핑되는 방식을 보려�
 
 **지침**: DDoS 공격 으로부터 보호 하기 위해 Azure Batch 풀을 보호 하는 가상 네트워크에서 Azure DDoS (배포 된 서비스 거부) 표준 보호를 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다.
 
-- [DDoS 보호를 구성 하는 방법](/azure/virtual-network/manage-ddos-protection)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
-- [Azure Security Center 통합 위협 인텔리전스 이해](/azure/security-center/security-center-alerts-service-layer)
+- [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -126,7 +126,7 @@ Azure Batch 풀 노드와 동일한 가상 네트워크에 공용 IP 주소를 �
 
 Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소스에 대한 작업을 조회하거나 수행할 수 있습니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [가상 네트워크를 만드는 방법](../virtual-network/quick-create-portal.md)
 
@@ -140,7 +140,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure Batch 풀과 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view) 
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
 - [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -188,7 +188,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Azure Batch 계정에서 진단 로그를 수집 하는 방법](batch-diagnostics.md#batch-diagnostics)
 
-- [Azure Batch 풀 노드에 원격으로 연결 하는 방법](/azure/batch/batch-api-basics#error-handling)
+- [Azure Batch 풀 노드에 원격으로 연결 하는 방법](./batch-service-workflow-features.md#basic-workflow)
 
 **Azure Security Center 모니터링**: 예
 
@@ -260,9 +260,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 또한 Azure Security Center Id 및 액세스 관리 권장 사항을 사용할 수 있습니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [Azure Security Center를 사용 하 여 id 및 액세스를 모니터링 하는 방법](../security-center/security-center-identity-access.md)
 
@@ -324,7 +324,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure Active Directory를 사용 하 여 Azure Batch 응용 프로그램에 대 한 통합 인증을 사용 하는 경우 환경에서 의심 스러운 작업이 나 안전 하지 않은 활동이 발생 하는 경우 로그 및 경고 생성을 위한 Azure Active Directory 보안 보고서 Azure Security Center를 사용하여 ID 및 액세스 활동을 모니터링합니다.
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Security Center에서 사용자 id 및 액세스 활동을 모니터링 하는 방법](../security-center/security-center-identity-access.md)
 
@@ -378,7 +378,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure Active Directory 위험 검색 및 id 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성할 수 있습니다. 또한 추가 조사를 위해 데이터를 Azure 센티널로 수집할 수 있습니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -406,7 +406,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -418,7 +418,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Virtual Network 내에서 Azure Batch 풀을 만드는 방법](batch-virtual-network.md)
 
-- [Azure Storage 계정을 보호 하는 방법](/azure/storage/common/storage-security-guide)
+- [Azure Storage 계정을 보호 하는 방법](../storage/blobs/security-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -434,7 +434,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
-- [Azure Storage 계정을 보호 하는 방법](/azure/storage/common/storage-security-guide)
+- [Azure Storage 계정을 보호 하는 방법](../storage/blobs/security-recommendations.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -462,7 +462,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
-- [Azure Storage 계정을 보호 하는 방법](/azure/storage/common/storage-security-guide)
+- [Azure Storage 계정을 보호 하는 방법](../storage/blobs/security-recommendations.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -498,9 +498,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 Azure disk encryption을 사용 하 여 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 하 고 보호할 수 있습니다. 기존 디스크에 작성 된 모든 관리 디스크, 스냅숏, 이미지 및 데이터는 플랫폼 관리 키를 사용 하 여 미사용 상태로 자동으로 암호화 됩니다.
 
-- [Azure Storage 계정의 암호화 키를 관리 하는 방법](/azure/storage/common/storage-encryption-keys-portal)
+- [Azure Storage 계정의 암호화 키를 관리 하는 방법](../storage/common/customer-managed-keys-configure-key-vault.md)
 
-- [고객이 관리 하는 암호화 키를 구성 하는 방법](/azure/storage/common/storage-encryption-keys-portal)
+- [고객이 관리 하는 암호화 키를 구성 하는 방법](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [디스크 암호화를 사용 하는 풀을 만드는 방법](disk-encryption.md)
 
@@ -580,7 +580,7 @@ Azure disk encryption을 사용 하 여 조직의 보안 및 규정 준수 약�
 
 - [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -592,7 +592,7 @@ Azure disk encryption을 사용 하 여 조직의 보안 및 규정 준수 약�
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적인 분류로 구성합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -602,11 +602,11 @@ Azure disk encryption을 사용 하 여 조직의 보안 및 규정 준수 약�
 
 **지침**: 태그 지정, 관리 그룹 및 별도의 구독 (해당 하는 경우)을 사용 하 여 자산을 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -701,7 +701,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: "Microsoft.Batch" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 Azure Batch 계정 및 풀의 구성을 감사 하거나 적용 합니다.
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -747,9 +747,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: Azure Batch 계정, 풀 또는 관련 리소스에 대 한 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos 설명서](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -791,7 +791,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 - 서브넷은 네트워크 보안 그룹과 연결 되어야 합니다. 저장소 계정은 가상 네트워크 서비스 끝점을 사용 해야 합니다.
 - 배치 계정의 진단 로그를 사용하도록 설정해야 합니다.
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -884,7 +884,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 - [Azure Storage 계정에 대 한 저장소 중복성을 구성 하는 방법](../storage/common/storage-redundancy.md)
 
-- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -894,9 +894,9 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 **지침**: Azure Storage 계정 또는 Azure Batch 구현과 관련 된 다른 리소스에 대 한 고유한 키를 관리 하는 경우 백업 된 키의 복원을 정기적으로 테스트 합니다.
 
-- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
-- [PowerShell을 사용 하 여 고객 관리 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 고객 관리 키를 복원 하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -906,7 +906,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 **지침**: Azure Batch 풀 저장소 계정과 관련 된 키를 저장 하는 데 Azure Key Vault를 사용 하는 경우 Azure Key Vault에서 Soft-Delete를 사용 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 키를 보호 합니다.
 
-- [Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](/azure/key-vault/key-vault-soft-delete-powershell)
+- [Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](../key-vault/general/key-vault-recovery.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -994,5 +994,5 @@ Microsoft에서 관리 되는 클라우드 인프라, 서비스 및 응용 프�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

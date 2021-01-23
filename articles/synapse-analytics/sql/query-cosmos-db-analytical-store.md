@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4681039f60154b95eeb7e40196ca33055a192c74
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2059608faa8ce148e5823e48eff6abf9e71c9b01
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222108"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735436"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link Preview에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
@@ -24,7 +24,7 @@ ms.locfileid: "98222108"
 
 서버 리스 SQL 풀을 사용 하면 트랜잭션 워크 로드의 성능에 영향을 주지 않고 거의 실시간으로 [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 다양 한 BI (비즈니스 인텔리전스) 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
 
-Azure Cosmos DB 쿼리를 위해 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) 노출 영역은 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하는 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. [Create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS)를 사용 하 여 Azure Blob Storage 또는 Azure Data Lake Storage의 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 CETAS를 사용 하 여 Azure Cosmos DB에 서버 리스 SQL 풀 쿼리 결과를 저장할 수 없습니다.
+Azure Cosmos DB 쿼리를 위해 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) 노출 영역은 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하는 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. [Create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS)를 사용 하 여 Azure Blob Storage 또는 Azure Data Lake Storage의 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 CETAS를 사용 하 여 Azure Cosmos DB에 서버 리스 SQL 풀 쿼리 결과를 저장할 수 없습니다.
 
 이 문서에서는 Azure Synapse Link를 사용 하 여 사용 하도록 설정 된 Azure Cosmos DB 컨테이너에서 데이터를 쿼리 하는 서버를 사용 하지 않는 SQL 풀로 쿼리를 작성 하는 방법을 알아봅니다. 그런 다음 Azure Cosmos DB 컨테이너를 통해 서버 리스 SQL 풀 뷰를 빌드하고 [이 자습서](./tutorial-data-analyst.md)의 Power BI 모델에 연결 하는 방법에 대해 자세히 알아볼 수 있습니다.
 
@@ -424,7 +424,7 @@ GROUP BY geo_id
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 
-| 오류 | 근본 원인 |
+| Error | 근본 원인 |
 | --- | --- |
 | 구문 오류:<br/> -근처의 구문이 잘못 되었습니다. `Openrowset`<br/> - `...` 은 (는) 인식할 수 없는 `BULK OPENROWSET` 공급자 옵션입니다.<br/> -근처의 구문이 잘못 되었습니다. `...` | 가능한 근본 원인은 다음과 같습니다.<br/> -첫 번째 매개 변수로 CosmosDB를 사용 하지 않습니다.<br/> -세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용 합니다.<br/> -세 번째 매개 변수 (컨테이너 이름)를 지정 하지 않습니다. |
 | CosmosDB 연결 문자열에 오류가 있습니다. | -계정, 데이터베이스 또는 키가 지정 되지 않았습니다. <br/> -인식 되지 않는 연결 문자열에는 몇 가지 옵션이 있습니다.<br/> -세미콜론 ( `;` )은 연결 문자열의 끝에 배치 됩니다. |

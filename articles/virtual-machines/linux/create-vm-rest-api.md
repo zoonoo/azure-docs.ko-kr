@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3eeaf5f343b6026e02d17e4d3bd90dba4b991c4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373405"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737048"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
@@ -26,7 +26,7 @@ Azure Portal, Azure CLI 2.0, 여러 Azure SDK, Azure Resource Manager 템플릿 
 요청을 만들고 제출하기 전에 다음이 필요합니다.
 
 * 구독에 대한 `{subscription-id}`
-  * 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest) 을 참조 하세요.
+  * 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli) 을 참조 하세요.
 * 미리 만든 `{resourceGroupName}`
 * 같은 리소스 그룹의 [가상 네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md)
 * SSH 키 쌍(없는 경우 [새로 생성할](mac-create-ssh-keys.md) 수 있음)
@@ -54,7 +54,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-| Name                       | 필수 | Type                                                                                | 설명  |
+| 이름                       | 필수 | Type                                                                                | 설명  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | 위치                   | True     | 문자열                                                                              | 리소스 위치. |
 | name                       |          | 문자열                                                                              | 가상 머신의 이름. |
@@ -128,12 +128,12 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| Name        | 유형                                                                              | 설명 |
+| 이름        | 유형                                                                              | 설명 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 정상          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 생성일     |
 
-VM을 만든 이전 요청 본문 예제에서 압축된 *201 생성됨* 응답은 *vmId*가 할당되었으며 *provisioningState*가 *만들어지고 있음*을 보여 줍니다.
+VM을 만든 이전 요청 본문 예제에서 압축된 *201 생성됨* 응답은 *vmId* 가 할당되었으며 *provisioningState* 가 *만들어지고 있음* 을 보여 줍니다.
 
 ```json
 {

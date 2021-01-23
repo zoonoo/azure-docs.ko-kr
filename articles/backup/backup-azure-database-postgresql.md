@@ -4,12 +4,12 @@ description: 장기 보존을 통한 Azure Database for PostgreSQL 백업에 대
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569490"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737575"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>장기 보존을 사용 하는 Azure Database for PostgreSQL 백업 (미리 보기)
 
@@ -29,9 +29,9 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
 ## <a name="support-matrix"></a>지원 매트릭스
 
-|Support(지원)  |세부 정보  |
+|지원  |세부 정보  |
 |---------|---------|
-|지원되는 배포   |  [Azure Database for PostgreSQL - 단일 서버](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
+|지원되는 배포   |  [Azure Database for PostgreSQL - 단일 서버](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |지원되는 Azure 지역 |  미국 동부, 미국 동부 2, 미국 중부, 미국 동부 2, 미국 서 부, 미국 서 부 2, 미국 서 부, 미국 서 부, 캐나다 중부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 독일 중서부, 스위스 북부, 스위스 서부, 동아시아, 남부 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 인도 중부, 오스트레일리아 동부, 오스트레일리아 중부  |
 |지원 되는 Azure PostgreSQL 버전    |   9.5, 9.6, 10, 11      |
 

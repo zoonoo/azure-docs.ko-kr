@@ -3,12 +3,12 @@ title: 고객 관리 키를 사용 하 여 백업 데이터 암호화
 description: Azure Backup를 사용 하 여 고객 관리 키 (CMK)를 사용 하 여 백업 데이터를 암호화 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 30bcf907e1a2759c8a9977e50cb4880c2e254ca2
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562763"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735863"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 백업 데이터 암호화
 
@@ -77,9 +77,9 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
 **PowerShell 사용:**
 
-[AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) 명령을 사용 하 여 recovery services 자격 증명 모음에 대 한 시스템 할당 관리 id를 사용 하도록 설정 합니다.
+[AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) 명령을 사용 하 여 recovery services 자격 증명 모음에 대 한 시스템 할당 관리 id를 사용 하도록 설정 합니다.
 
-예제:
+예:
 
 ```AzurePowerShell
 $vault=Get-AzRecoveryServicesVault -ResourceGroupName "testrg" -Name "testvault"
@@ -121,9 +121,9 @@ Type        : SystemAssigned
 
 **PowerShell 사용**:
 
-[AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) 명령을 사용 하 여 고객이 관리 하는 키를 사용 하 여 암호화를 사용 하도록 설정 하 고 사용할 암호화 키를 할당 하거나 업데이트할 수 있습니다.
+[AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) 명령을 사용 하 여 고객이 관리 하는 키를 사용 하 여 암호화를 사용 하도록 설정 하 고 사용할 암호화 키를 할당 하거나 업데이트할 수 있습니다.
 
-예제:
+예:
 
 ```azurepowershell
 $keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
@@ -290,9 +290,9 @@ Recovery Services 자격 증명 모음에 저장 된 데이터는 [여기](./bac
 
 **PowerShell 사용**:
 
-[AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) 명령을 매개 변수 []와 함께 사용 `-DiskEncryptionSetId <string>` 하 여 복원 된 디스크를 암호화 하는 데 사용할 [DES를 지정](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) 합니다. VM 백업에서 디스크를 복원 하는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm)를 참조 하세요.
+[AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) 명령을 매개 변수 []와 함께 사용 `-DiskEncryptionSetId <string>` 하 여 복원 된 디스크를 암호화 하는 데 사용할 [DES를 지정](/powershell/module/az.compute/get-azdiskencryptionset) 합니다. VM 백업에서 디스크를 복원 하는 방법에 대 한 자세한 내용은 [이 문서](./backup-azure-vms-automation.md#restore-an-azure-vm)를 참조 하세요.
 
-예제:
+예:
 
 ```azurepowershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $vault.ID
@@ -311,7 +311,7 @@ $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -Storag
 
 Azure VM에서 실행 되는 백업 된 SAP HANA/SQL database에서 복원 하는 경우 복원 된 데이터는 대상 저장소 위치에서 사용 되는 암호화 키를 사용 하 여 암호화 됩니다. VM 디스크를 암호화 하는 데 사용 되는 고객 관리 키 또는 플랫폼 관리 키 일 수 있습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="can-i-encrypt-an-existing-backup-vault-with-customer-managed-keys"></a>고객 관리 키를 사용 하 여 기존 백업 자격 증명 모음을 암호화할 수 있나요?
 

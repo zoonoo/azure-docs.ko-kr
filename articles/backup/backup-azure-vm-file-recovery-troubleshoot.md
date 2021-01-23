@@ -3,12 +3,12 @@ title: Azure VM 파일 복구 문제 해결
 description: Azure VM 백업에서 파일 및 폴더를 복구할 때 발생 하는 문제를 해결 합니다.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: aec69b91ad1dae5864e5e8fba61c53e6d15887f4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624509"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735880"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Azure VM 백업의 파일 복구 문제 해결
 
@@ -46,7 +46,7 @@ ms.locfileid: "98624509"
 
 ### <a name="you-cant-download-the-script"></a>스크립트를 다운로드할 수 없습니다.
 
-1. [스크립트를 다운로드 하는 데 필요한 권한이](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#select-recovery-point-who-can-generate-script)있는지 확인 합니다.
+1. [스크립트를 다운로드 하는 데 필요한 권한이](./backup-azure-restore-files-from-vm.md#select-recovery-point-who-can-generate-script)있는지 확인 합니다.
 1. Azure 대상 Ip에 대 한 연결을 확인 합니다. 관리자 권한 명령 프롬프트에서 다음 명령 중 하나를 실행 합니다.
 
    `nslookup download.microsoft.com`
@@ -67,7 +67,7 @@ SUSE Linux Enterprise Server 12 s p 4에서 항목 수준 복구 (ILR)에 대 �
 
 "대상에 연결 하는 동안 예외가 catch 되었습니다." 라는 오류 메시지가 표시 될 수 있습니다.
 
-1. 스크립트가 실행 되는 컴퓨터가 [액세스 요구 사항을](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script)충족 하는지 확인 합니다.
+1. 스크립트가 실행 되는 컴퓨터가 [액세스 요구 사항을](./backup-azure-restore-files-from-vm.md#step-4-access-requirements-to-successfully-run-the-script)충족 하는지 확인 합니다.
 1. Azure 대상 Ip에 대 한 연결을 확인 합니다. 관리자 권한 명령 프롬프트에서 다음 명령 중 하나를 실행 합니다.
 
    `nslookup download.microsoft.com`

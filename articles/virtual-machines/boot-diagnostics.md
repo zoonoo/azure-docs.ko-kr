@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: dc9f7dfdf33411f11d51734b48105be200874d02
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071734"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738121"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure 부팅 진단
 
@@ -45,7 +45,7 @@ Azure Portal에서 VM을 만들 때 기본 설정은 관리 저장소 계정을 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="VM을 만드는 동안 관리 되는 부트 진단을 사용 하도록 설정 하는 스크린샷":::
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>CLI를 사용 하 여 관리 되는 부팅 진단 사용
-관리 저장소 계정을 사용한 부트 진단은 Azure CLI 2.12.0 이상에서 지원 됩니다. 저장소 계정에 대 한 이름 또는 URI를 입력 하지 않으면 관리 계정이 사용 됩니다. 자세한 내용 및 코드 샘플은 [부트 진단에 대 한 CLI 설명서](/cli/azure/vm/boot-diagnostics?preserve-view=true&view=azure-cli-latest)를 참조 하세요.
+관리 저장소 계정을 사용한 부트 진단은 Azure CLI 2.12.0 이상에서 지원 됩니다. 저장소 계정에 대 한 이름 또는 URI를 입력 하지 않으면 관리 계정이 사용 됩니다. 자세한 내용 및 코드 샘플은 [부트 진단에 대 한 CLI 설명서](/cli/azure/vm/boot-diagnostics)를 참조 하세요.
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>ARM (Azure Resource Manager) 템플릿을 사용 하 여 관리 되는 부트 진단 사용
 API 버전 2020-06-01 이후의 모든 항목은 관리 부트 진단을 지원 합니다. 자세한 내용은 [부팅 진단 인스턴스 보기](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics)를 참조 하세요.

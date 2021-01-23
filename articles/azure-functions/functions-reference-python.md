@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cf1d8f89de61a548f6c542d6d8a73fde93675e95
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: a13b4463d2a9c32a3487f839c0bf53b4c5bd2963
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895413"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735846"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -17,7 +17,7 @@ ms.locfileid: "97895413"
 
 Python 개발자는 다음 문서 중 하나에 관심이 있을 수도 있습니다.
 
-| 시작 | 개념| 시나리오/샘플 |
+| 시작하기 | 개념| 시나리오/샘플 |
 | -- | -- | -- | 
 | <ul><li>[Visual Studio Code를 사용 하는 Python 함수](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[터미널/명령 프롬프트를 사용 하는 Python 함수](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[PyTorch를 사용한 이미지 분류](machine-learning-pytorch.md)</li><li>[Azure automation 샘플](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[TensorFlow를 사용한 기계 학습](functions-machine-learning-tensorflow.md)</li><li>[Python 샘플 찾아보기](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
@@ -366,7 +366,7 @@ Azure Functions에서 지원하는 Python 버전은 다음과 같습니다.
 
 | Functions 버전 | Python<sup>*</sup> 버전 |
 | ----- | ----- |
-| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 3.x | 3.9 (미리 보기) <br/> 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
 <sup>*</sup>공식 CPython 배포판
@@ -588,6 +588,7 @@ Python 표준 라이브러리에는 각 Python 배포와 함께 제공 되는 �
 * [Python 3.6 표준 라이브러리](https://docs.python.org/3.6/library/)
 * [Python 3.7 표준 라이브러리](https://docs.python.org/3.7/library/)
 * [Python 3.8 표준 라이브러리](https://docs.python.org/3.8/library/)
+* [Python 3.9 표준 라이브러리](https://docs.python.org/3.9/library/)
 
 ### <a name="azure-functions-python-worker-dependencies"></a>Azure Functions Python 작업자 종속성
 
@@ -615,7 +616,7 @@ Python worker Docker 이미지의 사전 설치 된 시스템 라이브러리 �
 |  함수 런타임  | Debian 버전 | Python 버전 |
 |------------|------------|------------|
 | 버전 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| 버전 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+| 버전 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## <a name="cross-origin-resource-sharing"></a>크로스-원본 자원 공유
 

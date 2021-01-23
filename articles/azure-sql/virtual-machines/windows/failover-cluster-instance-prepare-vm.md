@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223162"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737798"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>FCI (Azure Vm에 SQL Server)에 대 한 가상 머신 준비
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "98223162"
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 - Microsoft Azure 구독. [무료로](https://azure.microsoft.com/free/)시작 하세요. 
 - Azure virtual machines의 Windows 도메인 또는 가상 네트워크 페어링을 사용 하 여 Azure로 확장 된 온-프레미스 데이터 센터.
@@ -44,7 +44,7 @@ ms.locfileid: "98223162"
 
 ## <a name="configure-vm-availability"></a>VM 가용성 구성 
 
-장애 조치 (failover) 클러스터 기능을 사용 하려면 가상 컴퓨터를 [가용성 집합](../../../virtual-machines/linux/tutorial-availability-sets.md) 또는 [가용성 영역](../../../availability-zones/az-overview.md#availability-zones)에 배치 해야 합니다. 가용성 집합을 선택 하는 경우 [근접 배치 그룹](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) 을 사용 하 여 vm을 더 가까이 배치할 수 있습니다. 실제로 근접 배치 그룹은 Azure 공유 디스크를 사용 하기 위한 필수 구성 요소입니다. 
+장애 조치 (failover) 클러스터 기능을 사용 하려면 가상 컴퓨터를 [가용성 집합](../../../virtual-machines/linux/tutorial-availability-sets.md) 또는 [가용성 영역](../../../availability-zones/az-overview.md#availability-zones)에 배치 해야 합니다. 가용성 집합을 선택 하는 경우 [근접 배치 그룹](../../../virtual-machines/co-location.md#proximity-placement-groups) 을 사용 하 여 vm을 더 가까이 배치할 수 있습니다. 실제로 근접 배치 그룹은 Azure 공유 디스크를 사용 하기 위한 필수 구성 요소입니다. 
 
 원하는 클러스터 구성과 일치 하는 VM 가용성 옵션을 신중 하 게 선택 합니다. 
 
@@ -52,7 +52,7 @@ ms.locfileid: "98223162"
    - 프리미엄 SSD: [근접 배치 그룹](../../../virtual-machines/windows/proximity-placement-groups-portal.md)내에 배치 된 프리미엄 ssd에 대해 서로 다른 장애/업데이트 도메인에 [가용성을 설정](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) 합니다.
    - Ultra Disk: [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) 이지만 vm은 클러스터의 가용성을 99.9%로 줄이는 동일한 가용성 영역에 배치 해야 합니다. 
 - **프리미엄 파일 공유**: [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) 또는 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
-- **스토리지 공간 다이렉트**: [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set)입니다.
+- **저장소 공간 다이렉트**: [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set)입니다.
 
 > [!IMPORTANT]
 > 가상 머신을 만든 후에는 가용성 집합을 설정하거나 변경할 수 없습니다.
@@ -123,7 +123,7 @@ Azure Marketplace의 SQL Server VM 이미지는 SQL IaaS 에이전트 확장에 
 
 ## <a name="review-storage-configuration"></a>저장소 구성 검토
 
-Azure Marketplace에서 만든 가상 머신은 연결 된 저장소와 함께 제공 됩니다. 프리미엄 파일 공유 또는 Azure 공유 디스크를 사용 하 여 FCI 저장소를 구성 하려는 경우 장애 조치 (failover) 클러스터 인스턴스에 로컬 저장소가 사용 되지 않기 때문에 연결 된 저장소를 제거 하 여 비용을 절감할 수 있습니다. 그러나 스토리지 공간 다이렉트 FCI 솔루션에 연결 된 저장소를 사용할 수 있으므로이 경우에는 제거 하는 것이 좋습니다. FCI 저장소 솔루션을 검토 하 여 연결 된 저장소 제거가 비용 절감에 가장 적합 한 것인지 확인 합니다. 
+Azure Marketplace에서 만든 가상 머신은 연결 된 저장소와 함께 제공 됩니다. 프리미엄 파일 공유 또는 Azure 공유 디스크를 사용 하 여 FCI 저장소를 구성 하려는 경우 장애 조치 (failover) 클러스터 인스턴스에 로컬 저장소가 사용 되지 않기 때문에 연결 된 저장소를 제거 하 여 비용을 절감할 수 있습니다. 그러나 저장소 공간 다이렉트 FCI 솔루션에 연결 된 저장소를 사용할 수 있으므로이 경우에는 제거 하는 것이 좋습니다. FCI 저장소 솔루션을 검토 하 여 연결 된 저장소 제거가 비용 절감에 가장 적합 한 것인지 확인 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -133,7 +133,7 @@ Azure Marketplace에서 만든 가상 머신은 연결 된 저장소와 함께 �
 다음 가이드 중 하나를 선택 하 여 비즈니스에 적합 한 FCI 환경을 구성 합니다. 
 - [Azure 공유 디스크를 사용 하 여 FCI 구성](failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - [프리미엄 파일 공유를 사용 하 여 FCI 구성](failover-cluster-instance-premium-file-share-manually-configure.md)
-- [스토리지 공간 다이렉트를 사용 하 여 FCI 구성](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
+- [저장소 공간 다이렉트를 사용 하 여 FCI 구성](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 
 자세한 내용은 [Azure vm의 SQL Server](failover-cluster-instance-overview.md) 및 [지원 되는 HADR 구성](hadr-cluster-best-practices.md)의 fci 개요를 참조 하세요. 
 

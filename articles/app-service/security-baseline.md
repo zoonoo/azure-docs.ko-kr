@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ea8f3bccd97e1aaa15a21ae605a163b11c8ae39
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197934"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736091"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>App Service에 대 한 Azure 보안 기준
 
@@ -71,7 +71,7 @@ Azure 방화벽을 사용 하 여 트래픽을 전송 하 고, 구독 및 가상
 
 - [Azure Security Center에서 제공 하는 네트워크 보안 이해](../security-center/security-center-network-recommendations.md)
 
-- [App Service의 모니터링 및 보호를 사용 하도록 설정 하는 방법](/azure/security-center/defender-for-app-service-introduction)
+- [App Service의 모니터링 및 보호를 사용 하도록 설정 하는 방법](../security-center/defender-for-app-service-introduction.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -168,7 +168,7 @@ Azure 방화벽 장치를 통해 모든 응용 프로그램 트래픽 아웃 바
 
 - [포털에서 Application Gateway를 사용 하 여 종단 간 TLS를 구성 하는 방법](../application-gateway/end-to-end-ssl-portal.md)
 
-- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](/azure/app-service/environment/firewall-integration)
+- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](./environment/firewall-integration.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -205,7 +205,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 - [포털에서 Application Gateway를 사용 하 여 종단 간 TLS를 구성 하는 방법](../application-gateway/end-to-end-ssl-portal.md)
 
-- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](/azure/app-service/environment/firewall-integration)
+- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](./environment/firewall-integration.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -221,7 +221,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure App Service 액세스 제한](/azure/app-service/app-service-ip-restrictions)
+- [Azure App Service 액세스 제한](./app-service-ip-restrictions.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -233,7 +233,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 가상 네트워크 끝점 서비스 사용을 위해 앱을 감사 하는 정책과 같이 App Service에 대 한 몇 가지 Azure Policy 기본 제공 정의 중 하나를 적용 합니다. 중요 한 네트워크 설정 또는 리소스에 대 한 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다. 
 
-포털에서 또는 프로그래밍 방식 도구를 통해 Security Center에서 자세한 보안 경고 및 권장 사항을 검토 합니다. 이 정보를 내보내거나 사용자 환경의 다른 모니터링 도구로 보냅니다. 도구를 사용 하 여 경고 및 권장 사항을 수동으로 또는 지속적으로 지속적으로 내보낼 수 있습니다. 이러한 도구를 사용 하 여 다음을 수행할 수 있습니다.
+포털에서 또는 프로그래밍 방식 도구를 통해 Security Center에서 자세한 보안 경고 및 권장 사항을 검토 합니다. 이 정보를 내보내거나 사용자 환경의 다른 모니터링 도구로 보냅니다. 도구를 사용 하 여 경고 및 권장 사항을 수동으로 또는 지속적으로 지속적으로 내보낼 수 있습니다. 이러한 도구를 사용하여 다음을 수행할 수 있습니다.
  
 - Log Analytics 작업 영역으로 지속적으로 내보내기
 - Azure Event Hubs로 계속 내보내기 (타사 SIEMs와 통합)

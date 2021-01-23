@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: GitOps를 사용 하 여 Azure Arc 사용 Kubernetes 클러스터 구성 (미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, 컨테이너
-ms.openlocfilehash: 751b274a9cae68f6bc9b1adc45804f2dd2ef4c72
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a068ed90ea53b3b25a1f41cebd9a5b8e607afa54
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684760"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737187"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포(미리 보기)
 
@@ -138,7 +138,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > HTTPS 투구 릴리스 개인 인증은 투구 operator chart version >= 1.2.0 에서만 지원 됩니다.  기본적으로 버전 1.2.0가 사용 됩니다.
 > HTTPS 투구 릴리스 개인 인증은 현재 Azure Kubernetes Services 관리 클러스터에 대해 지원 되지 않습니다.
-> 프록시를 통해 Git 리포지토리에 액세스 하는 데 Flux가 필요한 경우 프록시 설정을 사용 하 여 Azure Arc 에이전트를 업데이트 해야 합니다. [추가 정보](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#connect-using-an-outbound-proxy-server)
+> 프록시를 통해 Git 리포지토리에 액세스 하는 데 Flux가 필요한 경우 프록시 설정을 사용 하 여 Azure Arc 에이전트를 업데이트 해야 합니다. [추가 정보](./connect-cluster.md#connect-using-an-outbound-proxy-server)
 
 #### <a name="additional-parameters"></a>추가 매개 변수
 

@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: ricmmartins
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/22/2021
 ms.author: ricmart
-ms.openlocfilehash: 3b9e60eb037182318e9d1ef7336565908a9c8f32
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a0655ce1d2e9939981bb4fd3280af80e359ea1e1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664786"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737747"
 ---
 # <a name="create-a-vpn-connection-between-azure-and-aws-using-managed-solutions"></a>관리 솔루션을 사용 하 여 Azure와 AWS 간 VPN 연결 만들기
 
@@ -42,6 +42,8 @@ ms.locfileid: "98664786"
 
 이 문서에서 사용 되는 예제 값 및 설정은 다음과 같습니다.
 
+* **게이트웨이 이름:** vpn-azure-aws
+* **지역:** 미국 동부
 * **게이트웨이 유형:** VPN
 * **VPN 유형:** 경로 기반
 * **SKU:** VpnGw1
@@ -173,15 +175,13 @@ AWS는 고가용성을 위해 두 개의 IPsec 터널을 만듭니다. 다음 �
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-tunnels.png" alt-text="Azure 연결 상태":::
 
-1. AWS 연결을 확인 합니다.
+1. AWS 연결을 확인 합니다. 이 예제에서는 연결이 설정 된 것을 볼 수 있습니다.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-tunnels.png" alt-text="AWS 연결 상태":::
 
-이제 연결이 설정 됩니다.
+## <a name="to-test-connections"></a>연결을 테스트 하려면
 
-## <a name="test-connections"></a>연결 테스트
-
-1. VPC at AWS에 인터넷 게이트웨이를 추가 합니다. 인터넷 게이트웨이는 Amazon VPN과 인터넷 간의 논리적 연결입니다. 이 리소스를 사용 하면 인터넷을 통해 AWS 공용 IP에서 테스트 VM을 통해 연결할 수 있습니다. 이 리소스는 VPN 연결에 필요 하지 않습니다. 테스트에만 사용 됩니다.
+1. AWS의 VPC에 **인터넷 게이트웨이** 를 추가 합니다. 인터넷 게이트웨이는 Amazon VPN과 인터넷 간의 논리적 연결입니다. 이 리소스를 사용 하면 인터넷을 통해 AWS 공용 IP에서 테스트 VM을 통해 연결할 수 있습니다. 이 리소스는 VPN 연결에 필요 하지 않습니다. 테스트에만 사용 됩니다.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/create-igw.png" alt-text="인터넷 게이트웨이 만들기":::
 
@@ -201,11 +201,11 @@ AWS는 고가용성을 위해 두 개의 IPsec 터널을 만듭니다. 다음 �
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-effective-routes.png" alt-text="유효 경로를 확인 합니다.":::
 
-1. Azure의 Linux VM에서 환경은 다음 예와 유사 합니다.
+1. Azure의 Linux VM에서 테스트할 수 있습니다. 결과는 다음 예제와 유사 하 게 표시 됩니다.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-overview.png" alt-text="Linux VM에서 Azure 개요":::
 
-1. AWS의 Linux VM에서 환경은 다음 예와 유사 합니다.
+1. AWS의 Linux VM에서이를 테스트할 수도 있습니다. 결과는 다음 예제와 유사 하 게 표시 됩니다.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-overview.png" alt-text="Linux VM에서 AWS 개요":::
 

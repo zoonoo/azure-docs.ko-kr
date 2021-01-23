@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: c2ea2b53649cf148a19df46835c8936345aa20e5
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 82b90d6b0acf5d83f9509abd9ee4b34cb74d1b48
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234344"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736787"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -56,10 +56,13 @@ ms.locfileid: "98234344"
  #### <a name="impact-if-not-upgraded-to-supported-versions"></a>지원 되는 버전으로 업그레이드 되지 않은 경우의 영향
   컨테이너에 대해 **컨테이너에 [대해 개방형 네트워킹 기능](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) 을 사용** 하는 Azure Service Fabric 클러스터는 변경 내용이 포함 되지 않은 6.3 이상 버전에서 실행 되며 **, 2021 1 월 19** 일에 아래 지원 되는 버전 중 하나로 업그레이드 되지 않은 경우 기능 또는 서비스 중단이 발생할 수 있습니다.
  
-  - **네트워킹 기능을 사용 하지 않는 6.3 보다 큰 Service Fabric를 실행 하는 클러스터의** 경우 클러스터는 계속 남아 있지만 컨테이너 클러스터에 대 한 네트워킹 열기 기능을 사용 하면 작업을 중단 시킬 수 있습니다.
+  - **네트워킹 기능을 사용 하지 않는 6.3 보다 큰 Service Fabric 버전을 실행 하** 는 클러스터의 경우 클러스터는 계속 유지 됩니다.
 
  - **6.3 보다 큰 Service Fabric 버전을 실행 하 고 [컨테이너에 대해 개방형 네트워킹 기능](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) 을 사용** 하는 클러스터의 경우 클러스터를 사용할 수 없게 되 고 작동이 중단 되어 작업에 대 한 서비스 중단이 발생할 수 있습니다.
-  
+ 
+ -   Windows 버전을 실행 하는 **클러스터의 경우 [7.0과 7.0.466 (두 버전 모두 포함 됨)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) windows OS에서는 windows 컨테이너 기능을 사용 하도록 설정 합니다. 참고: Linux 버전 7.0.457, 7.0.464 및 7.0.465는 영향을 받지 않습니다**.
+    - **영향**: 클러스터의 작동이 중단 되 고 워크 로드에 대 한 서비스 중단이 발생할 수 있습니다.
+       
 #### <a name="required-action"></a>필요한 작업
 가동 중지 시간 또는이 변경과 관련 된 기능의 손실을 방지 하려면 아래에 나열 된 지원 되는 Service Fabric 버전으로 업그레이드 하세요. 사용자 환경에서 문제를 방지 하려면 클러스터가 이러한 버전 이상을 실행 하 고 있는지 확인 하세요. 
  

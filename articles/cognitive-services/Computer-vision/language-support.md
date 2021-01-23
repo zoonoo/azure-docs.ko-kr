@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: b065b36103b69f0601daa1388b45865856543d2b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1abb857c9f03be502db02099383c6fe0b5110461
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540521"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736821"
 ---
 # <a name="language-support-for-computer-vision"></a>Computer Vision에 대 한 언어 지원
 
@@ -58,7 +58,7 @@ Computer Vision의 OCR Api는 여러 언어를 지원 합니다. 언어 코드�
 
 [분석-이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부 작업은 쿼리 매개 변수로 지정 된 다른 언어로 결과를 반환할 수 있습니다 `language` . 다른 작업을 수행 하면 지정 된 언어에 관계 없이 영어로 결과가 반환 되 고 다른 작업은 지원 되지 않는 언어에 대 한 예외를 throw 합니다. 작업은 및 쿼리 매개 변수를 사용 하 여 지정 됩니다 `visualFeatures` `details` . 이미지 분석을 통해 수행할 수 있는 모든 작업 목록은 [개요](overview.md) 를 참조 하세요.
 
-|언어 | 언어 코드 | 범주 | 태그 | Description | 성인 | 브랜드 | 색 | 얼굴 | ImageType | 개체 | 유명인 | 랜드마크 |
+|언어 | 언어 코드 | 범주 | 태그들 | 설명 | 성인 | 브랜드 | 색 | 얼굴 | ImageType | 개체 | 유명인 | 랜드마크 |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |중국어 | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |영어 | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
@@ -70,5 +70,5 @@ Computer Vision의 OCR Api는 여러 언어를 지원 합니다. 언어 코드�
 
 이 가이드에서 설명 하는 Computer Vision 기능을 사용 하 여 시작 하세요.
 
-* [로컬 이미지 분석 (REST)](./quickstarts/csharp-analyze.md)
-* [인쇄 된 텍스트 추출 (REST)](./quickstarts/csharp-print-text.md)
+* [로컬 이미지 분석 (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
+* [인쇄 된 텍스트 추출 (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

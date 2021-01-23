@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ca49e7c171d0b8903beccf0b1ca803f5b359951b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3422c8eff847ed699fb75854a5ae52b4e8a08a24
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201708"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737102"
 ---
 # <a name="azure-security-baseline-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 Azure 보안 기준
 
@@ -22,7 +22,7 @@ Azure Managed Applications 완전히 Azure 보안 벤치 마크에 매핑되는 
 
 ## <a name="network-security"></a>네트워크 보안
 
-자세한 내용은 [Azure Security Benchmark: 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 네트워크 보안](../../security/benchmarks/security-controls-v2-network-security.md)을 참조하세요.
 
 ### <a name="ns-6-simplify-network-security-rules"></a>NS-6: 네트워크 보안 규칙 단순화
 
@@ -36,7 +36,7 @@ Azure Managed Applications 완전히 Azure 보안 벤치 마크에 매핑되는 
 
 ## <a name="identity-management"></a>ID 관리
 
-자세한 내용은 [Azure Security Benchmark: ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: ID 관리](../../security/benchmarks/security-controls-v2-identity-management.md)를 참조하세요.
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Azure Active Directory를 중앙 ID 및 인증 시스템으로 표준화
 
@@ -130,7 +130,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 - [Azure Active Directory의 감사 활동 보고서](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../../security-center/security-center-identity-access.md)
 
@@ -156,7 +156,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 ## <a name="privileged-access"></a>권한 있는 액세스
 
-자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](../../security/benchmarks/security-controls-v2-privileged-access.md)를 참조하세요.
 
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: 권한이 높은 사용자 보호 및 제한
 
@@ -168,11 +168,11 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 Azure AD PIM(Privileged Identity Management)을 사용하여 Azure 리소스 및 Azure AD에 대한 JIT(Just-In-Time) 권한 있는 액세스를 사용하도록 설정할 수 있습니다. JIT는 사용자가 필요한 경우에만 권한 있는 작업을 수행할 수 있는 임시 권한을 부여합니다. 또한 PIM은 Azure AD 조직에서 의심스럽거나 안전하지 않은 활동이 있을 때 보안 경고를 생성할 수 있습니다.
 
-- [Azure AD의 관리자 역할 권한](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [Azure AD의 관리자 역할 권한](../../active-directory/roles/permissions-reference.md)
 
 - [Azure Privileged Identity Management 보안 경고 사용](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
+- [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../../active-directory/roles/security-planning.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -244,7 +244,7 @@ Azure Managed Applications는 AAD (Azure Active Directory) 계정을 사용 하 
 
 - [권한 있는 액세스 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [권한 있는 액세스 워크스테이션 배포](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [권한 있는 액세스 워크스테이션 배포](/security/compass/privileged-access-deployment)
 
 **Azure Security Center 모니터링**: 예
 
@@ -288,13 +288,13 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 관리 되는 응용 프로그램�
 
 ## <a name="data-protection"></a>데이터 보호
 
-자세한 내용은 [Azure Security Benchmark: 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 데이터 보호](../../security/benchmarks/security-controls-v2-data-protection.md)를 참조하세요.
 
 ### <a name="dp-2-protect-sensitive-data"></a>DP-2: 중요한 데이터 보호
 
 **지침**: 고유한 키를 사용 하 여 암호화를 사용 하려면 관리 되는 응용 프로그램 구성 파일의 저장소에 대 한 사용자 고유의 저장소 계정을 활용할 수 있습니다.
 
-- [사용자 고유의 저장소를 사용 하 여 관리 되는 구성 파일의 데이터 보호](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#bring-your-own-storage-for-the-managed-application-definition)
+- [사용자 고유의 저장소를 사용 하 여 관리 되는 구성 파일의 데이터 보호](./publish-service-catalog-app.md?tabs=azure-powershell#bring-your-own-storage-for-the-managed-application-definition)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -306,11 +306,11 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 관리 되는 응용 프로그램�
 
 관리 되는 응용 프로그램 정의에 대 한 사용자 고유의 저장소를 가져올 수 없는 시나리오의 경우 Azure는 기본적으로 미사용 암호화 데이터를 제공 합니다.
 
-- [관리 되는 응용 프로그램 정의에 대 한 고유한 저장소 가져오기](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#bring-your-own-storage-for-the-managed-application-definition)
+- [관리 되는 응용 프로그램 정의에 대 한 고유한 저장소 가져오기](./publish-service-catalog-app.md?tabs=azure-powershell#bring-your-own-storage-for-the-managed-application-definition)
 
 - [Azure의 저장 데이터 암호화 이해](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
 
-- [고객이 관리 하는 암호화 키를 구성 하는 방법](/azure/storage/common/storage-encryption-keys-portal)
+- [고객이 관리 하는 암호화 키를 구성 하는 방법](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -318,7 +318,7 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 관리 되는 응용 프로그램�
 
 ## <a name="asset-management"></a>자산 관리
 
-자세한 내용은 [Azure Security Benchmark: 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 자산 관리](../../security/benchmarks/security-controls-v2-asset-management.md)를 참조하세요.
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀에서 자산 위험에 대한 가시성을 확보하도록 보장
 
@@ -348,7 +348,7 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 관리 되는 응용 프로그램�
 
 - [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md) 
 
-- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태그 지정 결정 가이드를 참조 하세요.](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태그 지정 결정 가이드를 참조 하세요.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Azure Security Center 모니터링**: 예
 
@@ -372,7 +372,7 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 관리 되는 응용 프로그램�
 
 **지침**: 관리 되는 응용 프로그램 리소스를 삭제 하 여 관리 되는 응용 프로그램 리소스 및 연결 된 관리 되는 리소스 그룹을 삭제할 수 있습니다. 관리 되는 응용 프로그램 리소스가 삭제 되 면 관리 되는 리소스 그룹 및 내용도 삭제 됩니다. 추가 수명 주기 기능은 응용 프로그램의 게시자가 지정 하며,이는 허용 되는 작업을 통해 기본 관리 되는 리소스의 수명 주기에 대 한 추가 권한을 소비자에 게 제공할 수 있습니다. 소비자가 관리 하는 리소스에 대해서는 관리 되는 응용 프로그램의 게시자에 게 문의 하세요.
 
-- [관리 되는 응용 프로그램 리소스 정리](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider?tabs=azurecli-interactive#clean-up-resources)
+- [관리 되는 응용 프로그램 리소스 정리](./tutorial-create-managed-app-with-custom-provider.md?tabs=azurecli-interactive#clean-up-resources)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -390,7 +390,7 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 관리 되는 응용 프로그램�
 
 ## <a name="logging-and-threat-detection"></a>로깅 및 위협 탐지
 
-자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](../../security/benchmarks/security-controls-v2-logging-threat-detection.md)를 참조하세요.
 
 ### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Azure ID 및 액세스 관리를 위한 위협 탐지 사용
 
@@ -405,7 +405,7 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 관리 되는 응용 프로그램�
 
 - [Azure ID 보호 사용](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [위협 방지 및 Azure Security Center](/azure/security-center/threat-protection)
+- [위협 방지 및 Azure Security Center](../../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -447,7 +447,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 - [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../../azure-monitor/platform/manage-cost-storage.md)
 
-- [Azure Storage 계정에 리소스 로그 저장](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Azure Storage 계정에 리소스 로그 저장](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center 모니터링**: 예
 
@@ -455,7 +455,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 ## <a name="incident-response"></a>사고 대응
 
-자세한 내용은 [Azure Security Benchmark: 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 인시던트 응답](../../security/benchmarks/security-controls-v2-incident-response.md)을 참조하세요.
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 - Azure에 대한 인시던트 응답 프로세스 업데이트
 
@@ -537,7 +537,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 - [Azure Security Center의 보안 경고](../../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -561,7 +561,7 @@ Azure Security Center 및 Azure Sentinel의 워크플로 자동화 기능을 사
 
 ## <a name="posture-and-vulnerability-management"></a>태세 및 취약성 관리
 
-자세한 내용은 [Azure Security Benchmark: 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 태세 및 취약성 관리](../../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)를 참조하세요.
 
 ### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Azure 서비스에 대한 보안 구성 설정 
 
@@ -611,15 +611,15 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 ## <a name="backup-and-recovery"></a>백업 및 복구
 
-자세한 내용은 [Azure Security Benchmark: 백업 및 복구](/azure/security/benchmarks/security-controls-v2-backup-recovery)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 백업 및 복구](../../security/benchmarks/security-controls-v2-backup-recovery.md)를 참조하세요.
 
 ### <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: 고객 관리형 키를 비롯한 모든 백업 유효성 검사
 
 **지침**: 관리 되는 응용 프로그램 정의를 고유한 저장소 계정에 저장 하는 경우 Azure Key Vault에 저장 된 해당 계정의 암호화에 사용 되는 모든 관련 고객 관리 키를 복원할 수 있는지 확인 합니다.
 
-- [관리 되는 응용 프로그램 정의에 대 한 고유한 저장소 가져오기](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#bring-your-own-storage-for-the-managed-application-definition)
+- [관리 되는 응용 프로그램 정의에 대 한 고유한 저장소 가져오기](./publish-service-catalog-app.md?tabs=azure-powershell#bring-your-own-storage-for-the-managed-application-definition)
 
-- [Azure에서 Key Vault 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-5.1.0&amp;preserve-view=true)
+- [Azure에서 Key Vault 키를 복원 하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-5.1.0)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -629,9 +629,9 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 **지침**: 관리 되는 응용 프로그램 정의에 대 한 사용자 고유의 저장소를 가져오는 경우 정의를 암호화 하는 데 사용 되는 키의 손실을 방지 하 고 복구할 수 있는 측정값이 있어야 합니다. 실수로 또는 악의적인 삭제 로부터 키를 보호 하기 위해 고객 관리 키를 저장 하는 Azure Key Vault에 대해 일시 삭제 및 제거 보호를 사용 하도록 설정 합니다.  
 
-- [관리 되는 응용 프로그램 정의에 대 한 고유한 저장소 가져오기](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#bring-your-own-storage-for-the-managed-application-definition)
+- [관리 되는 응용 프로그램 정의에 대 한 고유한 저장소 가져오기](./publish-service-catalog-app.md?tabs=azure-powershell#bring-your-own-storage-for-the-managed-application-definition)
 
-- [Key Vault에서 일시 삭제 및 제거 보호를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Key Vault에서 일시 삭제 및 제거 보호를 사용하도록 설정하는 방법](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -639,7 +639,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 ## <a name="governance-and-strategy"></a>거버넌스 및 전략
 
-자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](/azure/security/benchmarks/security-controls-v2-governance-strategy)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](../../security/benchmarks/security-controls-v2-governance-strategy.md)을 참조하세요.
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: 자산 관리 및 데이터 보호 전략 정의 
 
@@ -664,15 +664,15 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 -   적절한 암호화 표준
 
 자세한 내용은 다음 참조 문서를 참조하세요.
-- [Azure 보안 아키텍처 권장 사항 - 스토리지, 데이터, 암호화](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure 보안 아키텍처 권장 사항 - 스토리지, 데이터, 암호화](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure 보안 기본 사항 - Azure 데이터 보안, 암호화, 스토리지](../../security/fundamentals/encryption-overview.md)
 
-- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](../../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Azure Security Benchmark - 자산 관리](../../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Azure Security Benchmark - 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Azure Security Benchmark - 데이터 보호](../../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -700,7 +700,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 **지침**: 개별 자산과 해당 자산이 호스트되는 환경에 대한 위험을 지속적으로 측정하고 완화합니다. 게시된 애플리케이션, 네트워크 수신 및 송신 지점, 사용자 및 관리자 엔드포인트 등과 같은 고가치 자산과 노출이 많은 공격 노출 영역에 우선 순위를 지정합니다.
 
-- [Azure Security Benchmark - 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - 태세 및 취약성 관리](../../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -741,7 +741,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 자세한 내용은 다음 참조 문서를 참조하세요.
 - [Azure 보안 모범 사례 11 – 아키텍처 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Azure Security Benchmark - 네트워크 보안](../../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Azure 네트워크 보안 개요](../../security/fundamentals/network-overview.md)
 
@@ -769,9 +769,9 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure Security Benchmark - ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Azure Security Benchmark - ID 관리](../../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Azure Security Benchmark - 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Azure Security Benchmark - 권한 있는 액세스](../../security/benchmarks/security-controls-v2-privileged-access.md)
 
 - [Azure 보안 모범 사례 11 – 아키텍처 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -803,9 +803,9 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure Security Benchmark - 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Azure Security Benchmark - 로깅 및 위협 탐지](../../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Azure Security Benchmark - 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure Security Benchmark - 인시던트 응답](../../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Azure 보안 모범 사례 4 - 프로세스 클라우드에 대한 인시던트 응답 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -819,5 +819,5 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

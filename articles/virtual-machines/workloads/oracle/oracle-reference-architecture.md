@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bbaf34c977546891c6ac05fbd4b5feb15f333e04
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486745"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737815"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
 
@@ -21,7 +21,7 @@ ms.locfileid: "96486745"
 
 Oracle 데이터베이스의 성능을 최대화 하는 방법에 대 한 자세한 내용은 [Oracle DB 설계](oracle-design.md)를 참조 하세요.
 
-## <a name="assumptions"></a>가정
+## <a name="assumptions"></a>Assumptions
 
 - [가용성 영역](../../../availability-zones/az-overview.md) 등 Azure의 다양 한 개념을 이해 하 고 있습니다.
 - Oracle Database Enterprise Edition 12c 이상을 실행 하 고 있습니다.
@@ -207,7 +207,7 @@ Oracle Data Guard는 시스템 관리, 사용자 정의 및 복합 분할 메서
 
 Oracle 워크 로드를 Azure에 배포 하는 경우 Microsoft는 모든 호스트 OS 수준 패치를 처리 합니다. 계획 된 모든 OS 수준 유지 관리는 고객이 계획 된 유지 관리를 위해 고객에 게 미리 전달 됩니다. 서로 다른 두 가용성 영역의 두 서버는 동시에 패치할 수 없습니다. VM 유지 관리 및 패치 적용에 대 한 자세한 내용은 [virtual machines의 가용성 관리](../../manage-availability.md) 를 참조 하세요. 
 
-[Azure Automation 업데이트 관리](../../../automation/update-management/overview.md)를 사용 하 여 가상 머신 운영 체제 패치를 자동화할 수 있습니다. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) 또는 [Azure Automation 업데이트 관리](../../../automation/update-management/overview.md) 를 사용 하 여 Oracle 데이터베이스를 패치 및 유지 관리 하 여 가동 중지 시간을 최소화할 수 있습니다. Oracle 데이터베이스의 컨텍스트에서 사용할 수 있는 방법을 이해 하려면 [연속 배달 및 Blue/녹색 배포](/azure/devops/learn/what-is-continuous-delivery) 를 참조 하세요.
+[Azure Automation 업데이트 관리](../../../automation/update-management/overview.md)를 사용 하 여 가상 머신 운영 체제 패치를 자동화할 수 있습니다. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) 또는 [Azure Automation 업데이트 관리](../../../automation/update-management/overview.md) 를 사용 하 여 Oracle 데이터베이스를 패치 및 유지 관리 하 여 가동 중지 시간을 최소화할 수 있습니다. Oracle 데이터베이스의 컨텍스트에서 사용할 수 있는 방법을 이해 하려면 [연속 배달 및 Blue/녹색 배포](/azure/devops/learn/what-is-continuous-delivery) 를 참조 하세요.
 
 ## <a name="architecture-and-design-considerations"></a>아키텍처 및 디자인 고려 사항
 

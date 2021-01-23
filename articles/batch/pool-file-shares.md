@@ -3,12 +3,12 @@ title: Azure Batch 풀용 Azure 파일 공유
 description: Azure Batch의 Linux 또는 Windows 풀에서 컴퓨팅 노드의 Azure Files 공유를 탑재하는 방법입니다.
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 6bbaba20512a17de563e74ba095057c5c3f71f6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5682e7ba853973592c3a650a06ce72615cec7b6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986426"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735497"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>배치 풀에서 Azure 파일 공유 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "87986426"
 
 * Azure 파일 공유는 [비용 효율적](https://azure.microsoft.com/pricing/details/storage/files/)이며 다른 지역에 대한 데이터 복제를 사용하여 구성할 수 있으므로 전역으로 중복됩니다. 
 
-* 온-프레미스 컴퓨터에서 Azure 파일 공유를 동시에 탑재할 수 있습니다. 그러나 특히 REST Api를 사용할 때 [동시성 영향](../storage/common/storage-concurrency.md) 을 이해 해야 합니다.
+* 온-프레미스 컴퓨터에서 Azure 파일 공유를 동시에 탑재할 수 있습니다. 그러나 특히 REST Api를 사용할 때 [동시성 영향](../storage/blobs/concurrency-manage.md) 을 이해 해야 합니다.
 
 * Azure 파일 공유에 대한 일반적인 [플랜 고려 사항](../storage/files/storage-files-planning.md)도 참조하세요.
 

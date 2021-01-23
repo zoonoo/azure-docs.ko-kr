@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: c8532637e695b506e372817e6f4531f9a323936b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 25f555038c1ce0d960266eacc673a62a1ffd5ac0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632848"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736365"
 ---
 # <a name="get-started-with-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일관 된 스냅숏 도구 시작 (미리 보기)
 
@@ -126,7 +126,7 @@ GPG 사용에 대 한 자세한 내용은 [GNU 개인 정보 안내서](https://
 - SKU 유형 I
 - SKU 형식 II
 
-[HANA Large Instances에 대해 지원 되는 시나리오를](/azure/virtual-machines/workloads/sap/hana-supported-scenario) 참조 하세요.
+[HANA Large Instances에 대해 지원 되는 시나리오를](../virtual-machines/workloads/sap/hana-supported-scenario.md) 참조 하세요.
 
 ## <a name="snapshot-support-matrix-from-sap"></a>SAP의 스냅숏 지원 매트릭스
 

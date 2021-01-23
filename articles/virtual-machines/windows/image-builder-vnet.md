@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 94e3b95e5e1d3c65550046c5db56e0f783fd60c3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8ae41167b642be75c7bb99042bca829fd8c1728e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976303"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736372"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Windows Vm 용 Azure 이미지 작성기를 사용 하 여 기존 Azure VNET에 액세스 허용
 
@@ -233,7 +233,7 @@ $buildJsonStatus
 
 ```
 
-이 예제의 이미지 빌드에는 약 50 분 (여러 재부팅, windows 업데이트 설치/다시 부팅)이 소요 됩니다. 상태를 쿼리하면 *Lastrunstatus*를 확인 해야 합니다. 아래에는 빌드가 아직 실행 중 이라고 표시 되 고 성공적으로 완료 되 면 ' 성공 '이 표시 됩니다.
+이 예제의 이미지 빌드에는 약 50 분 (여러 재부팅, windows 업데이트 설치/다시 부팅)이 소요 됩니다. 상태를 쿼리하면 *Lastrunstatus* 를 확인 해야 합니다. 아래에는 빌드가 아직 실행 중 이라고 표시 되 고 성공적으로 완료 되 면 ' 성공 '이 표시 됩니다.
 
 ```text
   "lastRunStatus": {
@@ -258,7 +258,7 @@ $runOutJsonStatus
 ```
 ## <a name="create-a-vm"></a>VM 만들기
 
-이제 빌드가 완료 되 면 이미지에서 VM을 빌드할 수 있습니다. [PowerShell New-AzVM 설명서](/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description)의 예제를 사용 합니다.
+이제 빌드가 완료 되 면 이미지에서 VM을 빌드할 수 있습니다. [PowerShell New-AzVM 설명서](/powershell/module/az.compute/new-azvm#description)의 예제를 사용 합니다.
 
 ## <a name="clean-up"></a>정리
 

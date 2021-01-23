@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 0681346252f840173d5cd7d4cfe5ef40076f0068
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ac785d43a71039ce52f0c8cd4315149a11e91cfc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912600"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737356"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>원격 도구를 사용하여 Azure VM 문제 해결
 
@@ -251,7 +251,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 ## <a name="next-steps"></a>다음 단계
 
-- Enter-PSSession cmdlet에 대 한 자세한 내용은 [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1&preserve-view=true)을 참조 하세요.
+- Enter-PSSession cmdlet에 대 한 자세한 내용은 [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession)을 참조 하세요.
 - 클래식 배포 모델을 사용 하는 Windows 용 사용자 지정 스크립트 확장에 대 한 자세한 내용은 [windows 용 사용자 지정 스크립트 확장](../extensions/custom-script-windows.md)을 참조 하세요.
 - PsExec는 [PSTools 도구 모음](https://download.sysinternals.com/files/PSTools.zip)의 일부입니다.
 - PSTools Suite에 대 한 자세한 내용은 [PSTools](/sysinternals/downloads/pstools)를 참조 하세요.

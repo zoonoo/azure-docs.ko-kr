@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 86d7b1a6d361ebbc0d8419d184f9a11d390a37f1
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 08edd86fd19e7698a791e411f42a2a89084a91f7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803190"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737136"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구를 사용 하기 위한 팁과 요령 (미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "97803190"
 
 ## <a name="limit-service-principal-permissions"></a>서비스 사용자 권한 제한
 
-AzAcSnap 서비스 주체의 범위를 제한 해야 할 수도 있습니다.  Azure 리소스의 세분화 된 액세스 관리에 대 한 자세한 내용은 [AZURE RBAC 설명서](https://docs.microsoft.com/azure/role-based-access-control/) 를 검토 하세요.  
+AzAcSnap 서비스 주체의 범위를 제한 해야 할 수도 있습니다.  Azure 리소스의 세분화 된 액세스 관리에 대 한 자세한 내용은 [AZURE RBAC 설명서](../role-based-access-control/index.yml) 를 검토 하세요.  
 
 다음은 AzAcSnap를 작동 하는 데 필요한 최소한의 작업을 수행 하는 역할 정의의 예입니다.
 

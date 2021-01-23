@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8343c06992c896986ba26a90171e25f9c8c4f2f8
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9b8dafa4a69358b3f6f09551ac426b908750e2f4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600097"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735475"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>선불 for Azure Database for PostgreSQL-예약 된 용량의 단일 서버 계산 리소스
 
@@ -35,7 +35,7 @@ ms.locfileid: "98600097"
 
 예약 크기는 특정 지역 내에서 기존 또는 곧 배포 되는 서버에서 사용 하는 총 계산 용량을 기반으로 하며 동일한 성능 계층 및 하드웨어 생성을 사용 해야 합니다.</br>
 
-예를 들어 범용 Gen5 – 32 vCore PostgreSQL 데이터베이스와 두 개의 메모리 최적화 Gen5 – 16 vCore PostgreSQL 데이터베이스를 실행 하는 경우를 가정해 보겠습니다. 또한 다음 달에 추가 범용 Gen5 – 32 vCore 데이터베이스 서버 및 메모리 최적화 Gen5 – 16 vCore 데이터베이스 서버를 배포 하려는 경우를 가정해 보겠습니다. 적어도 1 년 동안 이러한 리소스가 필요 하다는 것을 알고 있다고 가정해 보겠습니다. 이 경우 단일 데이터베이스 메모리 최적화-Gen5에 대해 64 (2x32) Vcores, 단일 데이터베이스 일반 용도의 Gen5 및 48 (2x16 + 16) Vcores 1 년 예약을 구매 해야 합니다.
+예를 들어 범용 Gen5 – 32 vCore PostgreSQL 데이터베이스와 두 개의 메모리 최적화 Gen5 – 16 vCore PostgreSQL 데이터베이스를 실행 하는 경우를 가정해 보겠습니다. 또한 다음 달에 추가 범용 Gen5 – 8 vCore 데이터베이스 서버 및 메모리 최적화 Gen5 – 32 vCore 데이터베이스 서버를 배포 하려는 경우를 가정해 보겠습니다. 적어도 1 년 동안 이러한 리소스가 필요 하다는 것을 알고 있다고 가정해 보겠습니다. 이 경우 단일 데이터베이스 메모리 최적화-Gen5에 대해 40 (32 + 8) Vcores, 단일 데이터베이스 일반 용도의 Gen5 및 64 (2x16 + 32) Vcores 1 년 예약을 구매 해야 합니다.
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Azure Database for PostgreSQL 예약 된 용량 구입
@@ -53,8 +53,8 @@ ms.locfileid: "98600097"
 
 | 필드 | 설명 |
 | :------------ | :------- |
-| Subscription   | 예약 된 Azure Database for PostgreSQL 용량 예약에 대 한 비용을 지불 하는 데 사용 되는 구독입니다. 구독에 대 한 결제 방법은 Azure Database for PostgreSQL 예약 된 용량 예약에 대 한 선행 비용으로 청구 됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. 엔터프라이즈 구독의 경우 요금은 등록의 Azure 선불 (이전에는 금액 약정 이라고 함) 잔액 또는 초과분으로 청구 되는 공제 됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.
-| Scope | vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: </br></br> **공유**, vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Azure Database for PostgreSQL 서버에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독** 에서 vcore 예약 할인은이 구독의 Azure Database for PostgreSQL 서버에 적용 됩니다. </br></br> **단일 리소스 그룹**-예약 할인이 선택한 구독의 Azure Database for PostgreSQL 서버와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
+| 구독   | 예약 된 Azure Database for PostgreSQL 용량 예약에 대 한 비용을 지불 하는 데 사용 되는 구독입니다. 구독에 대 한 결제 방법은 Azure Database for PostgreSQL 예약 된 용량 예약에 대 한 선행 비용으로 청구 됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. 엔터프라이즈 구독의 경우 요금은 등록의 Azure 선불 (이전에는 금액 약정 이라고 함) 잔액 또는 초과분으로 청구 되는 공제 됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.
+| 범위 | vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: </br></br> **공유**, vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Azure Database for PostgreSQL 서버에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독** 에서 vcore 예약 할인은이 구독의 Azure Database for PostgreSQL 서버에 적용 됩니다. </br></br> **단일 리소스 그룹**-예약 할인이 선택한 구독의 Azure Database for PostgreSQL 서버와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
 | 지역 | Azure Database for PostgreSQL 예약 된 용량 예약이 적용 되는 Azure 지역입니다.
 | 배포 유형 | 예약을 구입할 Azure Database for PostgreSQL 리소스 형식입니다.
 | 성능 계층 | Azure Database for PostgreSQL 서버에 대 한 서비스 계층입니다.
@@ -67,7 +67,8 @@ ms.locfileid: "98600097"
 
 ## <a name="vcore-size-flexibility"></a>vCore 크기 유연성
 
-vCore 크기 유연성을 통해 예약된 용량 이점을 잃지 않고 성능 계층 및 지역 내에서 크기를 확장 또는 축소할 수 있습니다. 
+vCore 크기 유연성을 통해 예약된 용량 이점을 잃지 않고 성능 계층 및 지역 내에서 크기를 확장 또는 축소할 수 있습니다. 예약 된 용량 보다 더 높은 vCores로 크기를 조정 하는 경우 종 량 제 가격 책정을 사용 하 여 과도 한 vCores에 대해 요금이 청구 됩니다.
+
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 

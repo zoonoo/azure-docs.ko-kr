@@ -5,12 +5,12 @@ keywords: azure app service, 웹앱, 모바일 앱, API 앱, 함수 앱, 보안,
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55ffb2d03a42809a41583e6be25066b0b8e104b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61bffcfa8b98ed666e450c344023258b752e4880
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961502"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736108"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service의 보안
 
@@ -43,7 +43,7 @@ App Service는 파일을 배포하기 위해 FTP와 FTPS를 모두 지원합니�
 
 기본적으로 App Service 앱은 인터넷의 모든 IP 주소로부터 요청을 수락하지만, IP 주소의 작은 하위 집합에만 액세스하도록 제한할 수 있습니다. Windows에서 App Service를 사용하면 앱에 액세스할 수 있는 IP 주소 목록을 정의할 수 있습니다. 허용 목록에는 서브넷 마스크에서 정의된 개별 IP 주소 또는 IP 주소 범위가 포함될 수 있습니다. 자세한 내용은 [Azure App Service 고정 IP 제한](app-service-ip-restrictions.md)을 참조하세요.
 
-Windows에서 App Service _web.config_를 구성 하 여 IP 주소를 동적으로 제한할 수도 있습니다. 자세한 내용은 [동적 IP 보안 \<dynamicIpSecurity> ](/iis/configuration/system.webServer/security/dynamicIpSecurity/)을 참조 하세요.
+Windows에서 App Service _web.config_ 를 구성 하 여 IP 주소를 동적으로 제한할 수도 있습니다. 자세한 내용은 [동적 IP 보안 \<dynamicIpSecurity>](/iis/configuration/system.webServer/security/dynamicIpSecurity/)을 참조 하세요.
 
 ## <a name="client-authentication-and-authorization"></a>클라이언트 인증 및 권한 부여
 
@@ -85,8 +85,8 @@ Azure의 공유 네트워크에서 리소스 연결을 완전히 분리하려면
 데이터베이스와 같은 온-프레미스 리소스에는 다음 세 가지 방법으로 안전하게 액세스할 수 있습니다. 
 
 - [하이브리드 연결](app-service-hybrid-connections.md) - TCP 터널을 통해 원격 리소스에 대한 지점 간 연결을 설정합니다. TCP 터널은 SAS(공유 액세스 서명) 키가 있는 TLS 1.2를 사용하여 설정됩니다.
-- 사이트 간 VPN을 통한 [Virtual Network 통합](web-sites-integrate-with-vnet.md) - [Azure Virtual Network 내 리소스](#resources-inside-an-azure-virtual-network)에서 설명한 대로 액세스할 수 있지만, Virtual Network는 [사이트 간 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 통해 온-프레미스 네트워크에 연결할 수 있습니다. 이 네트워크 토폴로지에서 앱은 Virtual Network의 다른 리소스와 같은 온-프레미스 리소스에 연결할 수 있습니다.
-- 사이트 간 VPN을 통한 [App Service 환경](environment/intro.md) - [Azure Virtual Network 내 리소스](#resources-inside-an-azure-virtual-network)에서 설명한 대로 액세스할 수 있지만, Virtual Network는 [사이트 간 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 통해 온-프레미스 네트워크에 연결할 수 있습니다. 이 네트워크 토폴로지에서 앱은 Virtual Network의 다른 리소스와 같은 온-프레미스 리소스에 연결할 수 있습니다.
+- 사이트 간 VPN을 통한 [Virtual Network 통합](web-sites-integrate-with-vnet.md) - [Azure Virtual Network 내 리소스](#resources-inside-an-azure-virtual-network)에서 설명한 대로 액세스할 수 있지만, Virtual Network는 [사이트 간 VPN](../vpn-gateway/tutorial-site-to-site-portal.md)을 통해 온-프레미스 네트워크에 연결할 수 있습니다. 이 네트워크 토폴로지에서 앱은 Virtual Network의 다른 리소스와 같은 온-프레미스 리소스에 연결할 수 있습니다.
+- 사이트 간 VPN을 통한 [App Service 환경](environment/intro.md) - [Azure Virtual Network 내 리소스](#resources-inside-an-azure-virtual-network)에서 설명한 대로 액세스할 수 있지만, Virtual Network는 [사이트 간 VPN](../vpn-gateway/tutorial-site-to-site-portal.md)을 통해 온-프레미스 네트워크에 연결할 수 있습니다. 이 네트워크 토폴로지에서 앱은 Virtual Network의 다른 리소스와 같은 온-프레미스 리소스에 연결할 수 있습니다.
 
 ## <a name="application-secrets"></a>애플리케이션 비밀
 

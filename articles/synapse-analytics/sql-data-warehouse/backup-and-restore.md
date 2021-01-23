@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: d8c680ec30dcecc56c064f08e4690cbbde9c2377
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 842f2f92133664f58ca60d6d30181d48d63271eb
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679916"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736308"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Azure Synapse 전용 SQL 풀에서 백업 및 복원
 
@@ -71,8 +71,16 @@ order by run_id desc
 
 지역 백업은 쌍으로 연결 된 [데이터 센터](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 하루에 한 번 생성 됩니다. 지역 복원의 RPO는 24시간입니다. 전용 SQL 풀이 지원 되는 다른 지역의 서버에 지역 백업을 복원할 수 있습니다. 지역 백업을 사용하면 주 지역의 복원 지점에 액세스할 수 없는 경우에 데이터 웨어하우스를 복원할 수 있습니다.
 
+전용 SQL 풀에 대 한 지역 백업이 필요 하지 않은 경우이를 사용 하지 않도록 설정 하 고 재해 복구 저장소 비용을 절감할 수 있습니다. 이렇게 하려면 [방법 가이드: 전용 sql 풀에 대해 지역 백업 사용 안 함 (이전의 SQL DW)](disable-geo-backup.md)을 참조 하세요. 지역 백업을 사용 하지 않도록 설정 하면 기본 Azure 데이터 센터를 사용할 수 없는 경우 쌍을 이루는 Azure 지역에 전용 SQL 풀을 복구할 수 없습니다. 
+
 > [!NOTE]
 > 지역 백업에 더 짧은 RPO가 필요한 경우 [여기에서](https://feedback.azure.com/forums/307516-sql-data-warehouse) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 다른 지역의 새 데이터 웨어하우스로 복원할 수 있습니다. 복원되면 데이터 웨어하우스가 온라인 상태가 되며, 이를 무기한 일시 중지하여 컴퓨팅 비용을 절감할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 스토리지 비용이 부과됩니다. 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
+
+## <a name="data-residency"></a>데이터 상주 
+
+쌍을 이루는 데이터 센터가 지리적 경계 외부에 있는 경우 지역 중복 저장소를 옵트아웃 하 여 데이터가 지리적 경계 내에 유지 되도록 할 수 있습니다. 전용 SQL 풀 (이전의 SQL DW)을 만들거나 복원할 때 지역 중복 저장소 옵션을 통해 전용 SQL 풀 (이전의 SQL DW)을 프로 비전 할 때이 작업을 수행할 수 있습니다. 
+
+쌍을 이루는 데이터 센터가 다른 국가에 있는지 확인 하려면 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조 하세요.
 
 ## <a name="backup-and-restore-costs"></a>백업 및 복원 비용
 

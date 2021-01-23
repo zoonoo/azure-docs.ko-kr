@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1626ee074d51048dbf45c629f261a550822d746c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ea984e527eb526e49c87ce5385ba5715803cc72d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200841"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737255"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
@@ -556,7 +556,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 * [Azure를 사용 하 여 전송 중인 암호화 이해](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Azure Automation TLS 1.2 적용](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
+* [Azure Automation TLS 1.2 적용](../active-directory/hybrid/reference-connect-tls-enforcement.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -938,7 +938,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 배포에 대 한 Azure 가
 
 대부분의 시나리오에서 Azure Automation 상태 구성과 결합 된 Microsoft 기본 VM 템플릿은 보안 요구 사항을 충족 하 고 유지 관리 하는 데 도움이 될 수 있습니다.
 
-* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](../virtual-machines/windows/download-template.md)
+* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [ARM 템플릿 만들기에 대 한 정보](../virtual-machines/windows/ps-template.md)
 

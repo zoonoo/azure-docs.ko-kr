@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6538243cf8fc12131e1480c8578bfa8739c4f561
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e3ebd83646353e34c239e7d1812e380b9e9d2e26
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676292"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737526"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW) 릴리스 정보
 
@@ -52,7 +52,7 @@ ms.locfileid: "98676292"
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**T-sql 인라인 Table-Valued 함수 (미리 보기)**|이제이 릴리스에서는 Transact-sql을 사용 하 여 인라인 테이블 반환 함수를 만들고 테이블에서와 같이 결과를 쿼리할 수 있습니다. 이 기능은 현재 미리 보기 상태 이며 GA의 도구에서 지원 됩니다. 자세한 내용은 [CREATE FUNCTION (Azure Synapse Analytics)](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)을 참조 하세요.|
-|**MERGE 명령 (미리 보기)**|이제 원본 테이블과의 조인 결과에서 대상 테이블에 대 한 삽입, 업데이트 또는 삭제 작업을 실행할 수 있습니다. 예를 들어 원본 테이블과의 차이점에 따라 대상 테이블에서 행을 삽입, 업데이트 및 삭제하여 두 테이블을 동기화할 수 있습니다.  자세한 내용은 [병합](/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) 을 확인 하세요.|
+|**MERGE 명령 (미리 보기)**|이제 원본 테이블과의 조인 결과에서 대상 테이블에 대 한 삽입, 업데이트 또는 삭제 작업을 실행할 수 있습니다. 예를 들어 원본 테이블과의 차이점에 따라 대상 테이블에서 행을 삽입, 업데이트 및 삭제하여 두 테이블을 동기화할 수 있습니다.  자세한 내용은 [병합](/sql/t-sql/statements/merge-transact-sql??view=azure-sqldw-latest&preserve-view=true) 을 확인 하세요.|
 
 ## <a name="aug-2020"></a>8 월 2020
 
@@ -68,7 +68,7 @@ ms.locfileid: "98676292"
 |**열 수준 암호화 (공개 미리 보기)**|Transact-sql을 사용 하 여 데이터 열에 대칭 암호화를 적용 하 여 Azure Synapse Analytics의 중요 한 정보를 보호 합니다. 열 수준 암호화에는 인증서, 암호, 대칭 키 또는 비대칭 키로 보호 되는 대칭 키를 사용 하 여 데이터를 암호화 하는 데 사용할 수 있는 기본 제공 함수가 있습니다. 자세한 내용은 [데이터 열 암호화](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.|
 |**GA (호환성 수준 지원)**|이 릴리스에서는 이제 사용자가 데이터베이스의 호환성 수준을 설정하여 특정 버전의 Synapse SQL 엔진에 대한 Transact-SQL 언어 및 쿼리 처리 동작을 얻을 수 있습니다. 자세한 내용은 [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.|
 |**행 수준 보안**|이 릴리스에는 RLS를 적용 한 행에 대 한 업데이트 및 삭제 작업에 대 한 개선 사항이 포함 되어 있습니다. 이 릴리스에서는 내장 함수가 DML 대상 테이블의 열을 참조 하지 않는 경우 ' is_rolemember ' 같은 내장 함수를 사용 하 여 업데이트 및 삭제 작업이 성공 합니다. 이러한 향상 전에는 기본 DML 작업의 제한으로 인해 이러한 작업이 실패 했습니다.|
-|**GA (DBCC SHRINKDATABASE)**|이제 지정 된 데이터베이스에 있는 데이터 및 로그 파일의 크기를 축소할 수 있습니다. 자세한 내용은 [설명서](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15)를 참조 하세요.|
+|**GA (DBCC SHRINKDATABASE)**|이제 지정 된 데이터베이스에 있는 데이터 및 로그 파일의 크기를 축소할 수 있습니다. 자세한 내용은 [설명서](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.|
 
 ## <a name="may-2020"></a>2020년 5월
 

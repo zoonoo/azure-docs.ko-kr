@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 56dcf29a5c703a72fd137a5f1bf129f568a03b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734116"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735812"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -108,7 +108,7 @@ Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터�
 
 ## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>데이터 스트림에서 체크섬 작업을 수행할 Azure Backup 있습니까?
 
-데이터 스트림에서 체크섬 작업을 수행 합니다. 그러나이는 [SQL 체크섬](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server)과 혼동 되지 않습니다.
+데이터 스트림에서 체크섬 작업을 수행 합니다. 그러나이는 [SQL 체크섬](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server)과 혼동 되지 않습니다.
 Azure 워크 로드 백업은 데이터 스트림에 대 한 체크섬을 계산 하 고 백업 작업 중에 명시적으로 저장 합니다. 그런 다음 데이터의 일관성을 유지 하기 위해 복원 작업을 수행 하는 동안 데이터 스트림의 체크섬을 사용 하 여이 체크섬 스트림을 참조로 사용 하 고 교차 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계

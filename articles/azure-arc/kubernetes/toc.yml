@@ -38,4 +38,4 @@
 - name: 리소스
   items:
     - name: Azure Arc 빠른 시작
-      href: 'https://github.com/microsoft/azure_arc'
+      href: 'https://azurearcjumpstart.io'

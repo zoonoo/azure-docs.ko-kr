@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d31dfbf376bc3d93e31aa822a38c9f85db219324
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c55edbd24553189c11070999ddc5d3b3516f2d97
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679587"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737934"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 테이블 디자인
 
@@ -46,7 +46,7 @@ CREATE SCHEMA wwi;
 
 | WideWorldImportersDW 테이블  | 테이블 유형 | 전용 SQL 풀 |
 |:-----|:-----|:------|:-----|
-| City | 차원 | wwi.DimCity |
+| 구/군/시 | 차원 | wwi.DimCity |
 | 주문 | 팩트 | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>테이블 지속성
@@ -75,7 +75,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 ## <a name="data-types"></a>데이터 형식
 
-전용 SQL 풀은 가장 일반적으로 사용 되는 데이터 형식을 지원 합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문의 [CREATE TABLE 참조의 데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes)을 참조하세요. 데이터 형식 사용에 대한 지침은 [데이터 형식](sql-data-warehouse-tables-data-types.md)을 참조하세요.
+전용 SQL 풀은 가장 일반적으로 사용 되는 데이터 형식을 지원 합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문의 [CREATE TABLE 참조의 데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#datatypes)을 참조하세요. 데이터 형식 사용에 대한 지침은 [데이터 형식](sql-data-warehouse-tables-data-types.md)을 참조하세요.
 
 ## <a name="distributed-tables"></a>분산 테이블
 
@@ -144,7 +144,7 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 
 테이블을 새로운 빈 테이블로 만들 수 있습니다. 테이블을 만들고 select 문의 결과로 채울 수도 있습니다. 다음은 테이블을 만드는 T-SQL 명령입니다.
 
-| T-SQL 문 | Description |
+| T-SQL 문 | 설명 |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 모든 테이블 열과 옵션을 정의하여 빈 테이블을 만듭니다. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 외부 테이블을 만듭니다. 테이블의 정의는 전용 SQL 풀에 저장 됩니다. 테이블 데이터는 Azure Blob Storage 또는 Azure Data Lake Store에 저장됩니다. |

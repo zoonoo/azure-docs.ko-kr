@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 17b99a9d3fa6b2934705d913170f2f617c856998
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 1655c48eeb9227bf934c7fd9bb37610327b2b98c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915762"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736274"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Azure에 VHD를 업로드 하거나 관리 디스크를 다른 지역에 복사-Azure PowerShell
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [AzCopy v10의 최신 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드 합니다.
 - [Azure PowerShell 모듈을 설치](/powershell/azure/install-Az-ps)합니다.
@@ -44,7 +44,7 @@ Azure에 VHD를 업로드 하려면이 업로드 프로세스에 대해 구성 �
 
 업로드할 빈 표준 HDD를 만들려면 먼저 업로드할 VHD의 파일 크기 (바이트)가 필요 합니다. 예제 코드는 사용자를 위한 것 이지만를 직접 수행 하려면를 사용 하면 `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length` 됩니다. 이 값은 **-UploadSizeInBytes** 매개 변수를 지정할 때 사용 됩니다.
 
-이제 로컬 셸에서 **-createoption** 매개 변수의 **업로드** 설정과 [AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0&preserve-view=true) cmdlet의 **-UploadSizeInBytes** 매개 변수를 지정 하 여 업로드할 빈 표준 HDD를 만듭니다. 그런 다음 [AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0&preserve-view=true) 를 호출 하 여 디스크를 만듭니다.
+이제 로컬 셸에서 **-createoption** 매개 변수의 **업로드** 설정과 [AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) cmdlet의 **-UploadSizeInBytes** 매개 변수를 지정 하 여 업로드할 빈 표준 HDD를 만듭니다. 그런 다음 [AzDisk](/powershell/module/az.compute/new-azdisk) 를 호출 하 여 디스크를 만듭니다.
 
 ,을 (를) 바꾼 `<yourdiskname>` `<yourresourcegroupname>` `<yourregion>` 후 다음 명령을 실행 합니다.
 

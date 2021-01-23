@@ -3,12 +3,12 @@ title: Node.js용 Azure Batch 클라이언트 라이브러리 사용
 description: Azure Batch의 기본 개념을 알아보고 Node.js를 사용하여 간단한 솔루션을 빌드합니다.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 8d34d5bbb302e3781aabdd697de11d3d492b879a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: HT
+ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106702"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737289"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 
@@ -38,7 +38,7 @@ Node.js 클라이언트는 스토리지 계정에 있는 컨테이너의 수에 
 
 > [!TIP]
 > 지정된 링크의 Node.js 클라이언트는 Azure 함수 앱으로 배포될 특정 코드를 포함하고 있지 않습니다. 만드는 방법에 대한 지침은 다음 링크를 참조하세요.
-> - [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md)
+> - [함수 앱 만들기](../azure-functions/functions-get-started.md)
 > - [타이머 트리거 함수 만들기](../azure-functions/functions-bindings-timer.md)
 
 ## <a name="build-the-application"></a>애플리케이션 빌드

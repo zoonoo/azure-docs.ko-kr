@@ -3,12 +3,12 @@ title: Azure Managed Disks 복원
 description: Azure Portal에서 Azure Managed Disks를 복원 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 848a7476b1c5095d4e4d3156d4c7ce33da777090
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611137"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737379"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Azure Managed Disks 복원 (미리 보기)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98611137"
 >
 >미리 보기에 등록 하려면 [이 양식을 작성](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) 하세요.
 
-이 문서에서는 Azure Backup으로 만든 복원 지점에서 [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) 를 복원 하는 방법을 설명 합니다.
+이 문서에서는 Azure Backup으로 만든 복원 지점에서 [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) 를 복원 하는 방법을 설명 합니다.
 
 현재는 백업이 수행 된 원본 디스크를 대체 하 여 복원의 OLR (Original-Location 복구) 옵션이 지원 되지 않습니다. 복구 지점에서 복원 하 여 백업이 수행 된 원본 디스크와 동일한 리소스 그룹 또는 다른 리소스 그룹에 새 디스크를 만들 수 있습니다. 이를 ALR (Alternate-Location 복구) 라고 하며,이를 통해 원본 디스크와 복원 된 (새) 디스크를 모두 유지할 수 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "98611137"
 
 백업 자격 증명 모음은 관리 Id를 사용 하 여 다른 Azure 리소스에 액세스 합니다. 백업에서 복원 하려면 백업 자격 증명 모음의 관리 되는 id에 디스크를 복원 하는 리소스 그룹에 대 한 사용 권한 집합이 필요 합니다.
 
-백업 자격 증명 모음에는 시스템 할당 관리 id가 사용 됩니다 .이 id는 리소스 당 하나로 제한 되며이 리소스의 수명 주기에 연결 됩니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 관리 되는 id에 대 한 권한을 부여할 수 있습니다. 관리 id는 Azure 리소스에만 사용할 수 있는 특수 형식의 서비스 사용자입니다. [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 대해 자세히 알아보세요.
+백업 자격 증명 모음에는 시스템 할당 관리 id가 사용 됩니다 .이 id는 리소스 당 하나로 제한 되며이 리소스의 수명 주기에 연결 됩니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 관리 되는 id에 대 한 권한을 부여할 수 있습니다. 관리 id는 Azure 리소스에만 사용할 수 있는 특수 형식의 서비스 사용자입니다. [관리 id](../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아보세요.
 
 복원 작업을 수행 하려면 다음 필수 구성 요소가 필요 합니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "98611137"
     ![복원 매개 변수](./media/restore-managed-disks/restore-parameters.png)
 
     >[!TIP]
-    >디스크 백업 솔루션을 사용 하 여 Azure Backup에 의해 백업 되는 디스크는 Recovery Services 자격 증명 모음과 함께 Azure VM 백업 솔루션을 사용 하 여 Azure Backup도 백업할 수 있습니다. 이 디스크가 연결 된 Azure VM에 대 한 보호를 구성한 경우 Azure VM 복원 작업을 사용할 수도 있습니다. 해당 하는 Azure VM 백업 인스턴스의 복구 지점에서 VM, 디스크 및 파일 또는 폴더를 복원 하도록 선택할 수 있습니다. 자세한 내용은 [AZURE VM backup](https://docs.microsoft.com/azure/backup/about-azure-vm-restore)을 참조 하세요.
+    >디스크 백업 솔루션을 사용 하 여 Azure Backup에 의해 백업 되는 디스크는 Recovery Services 자격 증명 모음과 함께 Azure VM 백업 솔루션을 사용 하 여 Azure Backup도 백업할 수 있습니다. 이 디스크가 연결 된 Azure VM에 대 한 보호를 구성한 경우 Azure VM 복원 작업을 사용할 수도 있습니다. 해당 하는 Azure VM 백업 인스턴스의 복구 지점에서 VM, 디스크 및 파일 또는 폴더를 복원 하도록 선택할 수 있습니다. 자세한 내용은 [AZURE VM backup](./about-azure-vm-restore.md)을 참조 하세요.
 
 1. 유효성 검사에 성공 하면 **복원** 을 선택 하 여 복원 작업을 시작 합니다.
 
@@ -109,9 +109,9 @@ ms.locfileid: "98611137"
 
     ![OS 디스크 교체](./media/restore-managed-disks/swap-os-disks.png)
 
-- Windows 가상 컴퓨터의 경우 복원 된 디스크가 데이터 디스크인 경우 지침에 따라 가상 컴퓨터에서 [원래 데이터 디스크를 분리](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-the-portal) 합니다. 그런 다음, [복원 된 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) 를 가상 머신에 연결 합니다. 지침에 따라 가상 머신의 [OS 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/os-disk-swap) 를 복원 된 디스크로 바꿉니다.
+- Windows 가상 컴퓨터의 경우 복원 된 디스크가 데이터 디스크인 경우 지침에 따라 가상 컴퓨터에서 [원래 데이터 디스크를 분리](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-the-portal) 합니다. 그런 다음, [복원 된 디스크](../virtual-machines/windows/attach-managed-disk-portal.md) 를 가상 머신에 연결 합니다. 지침에 따라 가상 머신의 [OS 디스크](../virtual-machines/windows/os-disk-swap.md) 를 복원 된 디스크로 바꿉니다.
 
-- Linux 가상 머신의 경우 복원 된 디스크가 데이터 디스크인 경우 지침에 따라 가상 머신에서 [원래 데이터 디스크를 분리](https://docs.microsoft.com/azure/virtual-machines/linux/detach-disk#detach-a-data-disk-using-the-portal) 합니다. 그런 다음, [복원 된 디스크](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#attach-an-existing-disk) 를 가상 머신에 연결 합니다. 지침에 따라 가상 머신의 [OS 디스크](https://docs.microsoft.com/azure/virtual-machines/linux/os-disk-swap) 를 복원 된 디스크로 바꿉니다.
+- Linux 가상 머신의 경우 복원 된 디스크가 데이터 디스크인 경우 지침에 따라 가상 머신에서 [원래 데이터 디스크를 분리](../virtual-machines/linux/detach-disk.md#detach-a-data-disk-using-the-portal) 합니다. 그런 다음, [복원 된 디스크](../virtual-machines/linux/attach-disk-portal.md#attach-an-existing-disk) 를 가상 머신에 연결 합니다. 지침에 따라 가상 머신의 [OS 디스크](../virtual-machines/linux/os-disk-swap.md) 를 복원 된 디스크로 바꿉니다.
 
 복원 작업을 성공적으로 완료 한 후에 **대상 리소스 그룹** 의 백업 자격 증명 모음 관리 Id에서 **디스크 복원 운영자** 역할 할당을 취소 하는 것이 좋습니다.
 

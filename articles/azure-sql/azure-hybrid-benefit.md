@@ -5,18 +5,18 @@ description: Azure SQL Database 및 SQL Managed Instance 할인에 기존 SQL Se
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: features
-ms.custom: sqldbrb=4, devx-track-azurecli
+ms.custom: sqldbrb=4
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
-ms.openlocfilehash: 872b36eae9142473885885d5bf5ad3fa10ae5ccb
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841600"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737458"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure 하이브리드 혜택-Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -89,8 +89,8 @@ SQL Database 고객에 게는 SQL Server에 대 한 Azure 하이브리드 혜택
 
 |라이선스 사용 공간|SQL Server Azure 하이브리드 혜택은 무엇 인가요?|
 |---|---|
-|SA가 있는 SQL Server Enterprise Edition 핵심 고객|<li>범용 또는 중요 비즈니스용 SKU에 대 한 기본 요금을 지불할 수 있습니다.</li><br><li>온-프레미스의 1개 코어 = 범용 SKU의 4개 코어</li><br><li>온-프레미스의 1개 코어 = 중요 비즈니스 SKU의 1개 코어</li>|
-|SA가 있는 SQL Server Standard Edition 핵심 고객|<li>범용 SKU에 대해서만 기본 요금을 지불할 수 있습니다.</li><br><li>온-프레미스의 1개 코어 = 범용 SKU의 1개 코어</li>|
+|SA가 있는 SQL Server Enterprise Edition 핵심 고객|<li>Hyperscale, 범용 또는 중요 비즈니스용 SKU에 대 한 기본 요금을 지불할 수 있습니다.</li><br><li>1 코어 온-프레미스 = 4 코어 (Hyperscale SKU)</li><br><li>온-프레미스의 1개 코어 = 범용 SKU의 4개 코어</li><br><li>온-프레미스의 1개 코어 = 중요 비즈니스 SKU의 1개 코어</li>|
+|SA가 있는 SQL Server Standard Edition 핵심 고객|<li>Hyperscale 및 범용 SKU에 대해서만 기본 요금을 지불할 수 있습니다.</li><br><li>1 코어 온-프레미스 = 하이퍼 확장 SKU의 1 코어</li><br><li>온-프레미스의 1개 코어 = 범용 SKU의 1개 코어</li>|
 |||
 
 

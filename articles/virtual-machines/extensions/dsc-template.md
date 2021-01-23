@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 01a41e9acccdb40bf198031d13c3ea3f13c079ce
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8b862238c0c04fae72659d644dbaf882d00cca19
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180152"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735693"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 확장과 Azure Resource Manager 템플릿
 
@@ -32,7 +32,7 @@ ms.locfileid: "98180152"
 
 다음 코드 조각은 템플릿의 **리소스** 섹션에 대한 코드입니다.
 DSC 확장은 기본 확장 속성을 상속합니다.
-자세한 내용은 [VirtualMachineExtension 클래스](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet)를 참조하세요.
+자세한 내용은 [VirtualMachineExtension 클래스](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension)를 참조하세요.
 
 ```json
 {
@@ -85,7 +85,7 @@ DSC 확장은 기본 확장 속성을 상속합니다.
 **확장** 아래에 DSC 확장의 세부 정보를 추가합니다.
 
 DSC 확장은 기본 확장 속성을 상속합니다.
-자세한 내용은 [VirtualMachineScaleSetExtension 클래스](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet)를 참조하세요.
+자세한 내용은 [VirtualMachineScaleSetExtension 클래스](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension)를 참조하세요.
 
 ```json
 "extensionProfile": {

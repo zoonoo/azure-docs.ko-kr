@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
-ms.openlocfilehash: e4f6cefd56c12162b370c78b6df2cd29ece030f1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 827643866c23583051bc290c2c50bed3f1bdd421
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515715"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737917"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용
 
@@ -75,25 +75,25 @@ IOPS 제한은 VM당 및 디스크가 *아닌* VM을 기준으로 합니다. 모
 Azure PowerShell 버전 5.5.0 모듈에는 특정 Azure Premium Storage 디스크에 Write Accelerator를 사용하거나 사용하지 않도록 설정하는 관련 cmdlet에 대한 변경 내용이 포함되어 있습니다.
 Write Accelerator에서 지원하는 디스크를 사용하도록 설정하거나 배포하려면, 다음 PowerShell 명령을 변경하고 Write Accelerator에 대한 매개 변수를 허용하도록 확장합니다.
 
-새 스위치 매개 변수인 **WriteAccelerator**가 추가된 cmdlet은 다음과 같습니다.
+새 스위치 매개 변수인 **WriteAccelerator** 가 추가된 cmdlet은 다음과 같습니다.
 
-- [AzVMOsDisk](/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
-- [추가 AzVMDataDisk](/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
-- [집합 AzVMDataDisk](/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
-- [추가 AzVmssDataDisk](/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
+- [AzVMOsDisk](/powershell/module/az.compute/set-azvmosdisk)
+- [추가 AzVMDataDisk](/powershell/module/az.compute/Add-AzVMDataDisk)
+- [집합 AzVMDataDisk](/powershell/module/az.compute/Set-AzVMDataDisk)
+- [추가 AzVmssDataDisk](/powershell/module/az.compute/Add-AzVmssDataDisk)
 
 매개 변수를 제공하지 않을 경우 해당 속성을 false로 설정하고 Write Accelerator에서 지원하지 않는 디스크를 배포합니다.
 
 새 스위치 매개 변수인 **-osdiskwriteaccelerator** 가 다음 cmdlet에 추가 되었습니다.
 
-- [집합 AzVmssStorageProfile](/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
+- [집합 AzVmssStorageProfile](/powershell/module/az.compute/Set-AzVmssStorageProfile)
 
 매개 변수 집합을 지정하지 않으면 기본적으로 해당 속성이 false로 설정되어 Write Accelerator를 이용하지 않는 디스크가 반환됩니다.
 
-새 선택적 부울(nullable이 아님) 매개 변수인 **-OsDiskWriteAccelerator**가 추가된 cmdlet은 다음과 같습니다.
+새 선택적 부울(nullable이 아님) 매개 변수인 **-OsDiskWriteAccelerator** 가 추가된 cmdlet은 다음과 같습니다.
 
-- [Update-AzVM](/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
-- [업데이트 AzVmss](/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
+- [Update-AzVM](/powershell/module/az.compute/Update-AzVM)
+- [업데이트 AzVmss](/powershell/module/az.compute/Update-AzVmss)
 
 Azure Write Accelerator의 디스크 지원을 제어하려면 $true 또는 $false를 지정합니다.
 
@@ -168,13 +168,13 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 ## <a name="enabling-write-accelerator-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Write Accelerator를 사용하도록 설정
 
-[Azure CLI](/cli/azure/?view=azure-cli-latest)를 사용하여 Write Accelerator를 사용하도록 설정할 수 있습니다.
+[Azure CLI](/cli/azure/)를 사용하여 Write Accelerator를 사용하도록 설정할 수 있습니다.
 
-기존 디스크에서 Write Accelerator를 사용하도록 설정하려면 [az vm update](/cli/azure/vm?view=azure-cli-latest#az-vm-update)를 사용합니다. diskName, VMName 및 ResourceGroup을 사용자 고유의 값으로 바꾸는 경우, 다음 예제를 사용할 수 있습니다. `az vm update -g group1 -n vm1 -write-accelerator 1=true`
+기존 디스크에서 Write Accelerator를 사용하도록 설정하려면 [az vm update](/cli/azure/vm#az_vm_update)를 사용합니다. diskName, VMName 및 ResourceGroup을 사용자 고유의 값으로 바꾸는 경우, 다음 예제를 사용할 수 있습니다. `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
-Write Accelerator가 설정된 디스크를 연결하려면 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach)를 사용합니다. 사용자 고유의 항목으로 바꾸는 경우, 다음 예제를 사용할 수 있습니다. `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
+Write Accelerator가 설정된 디스크를 연결하려면 [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach)를 사용합니다. 사용자 고유의 항목으로 바꾸는 경우, 다음 예제를 사용할 수 있습니다. `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-쓰기 가속기를 사용 하지 않도록 설정 하려면 [az vm update](/cli/azure/vm?view=azure-cli-latest#az-vm-update)를 사용 하 고 속성을 false로 설정 합니다. `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+쓰기 가속기를 사용 하지 않도록 설정 하려면 [az vm update](/cli/azure/vm#az_vm_update)를 사용 하 고 속성을 false로 설정 합니다. `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ## <a name="enabling-write-accelerator-using-rest-apis"></a>REST API를 사용하여 Write Accelerator를 사용하도록 설정
 

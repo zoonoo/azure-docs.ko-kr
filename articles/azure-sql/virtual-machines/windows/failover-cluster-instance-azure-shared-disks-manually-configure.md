@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: becf9f8c7f6a967ed63cfd3040de90de76e32fff
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 8daec71745c9eff9a7db5bb34cb3596973def4aa
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607272"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736416"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,12 +27,12 @@ ms.locfileid: "97607272"
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 
 - Azure 구독 [무료로](https://azure.microsoft.com/free/)시작 하세요. 
-- [두 개 이상의 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md). 프리미엄 SSD 및 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) 에 대해 지원 되는 (ppgs) [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md) 및 [근접 배치 그룹](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) 은 Ultra Disks에 대해 지원 됩니다. PPG를 사용 하는 경우 모든 노드가 동일한 그룹에 있어야 합니다.
+- [두 개 이상의 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md). 프리미엄 SSD 및 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) 에 대해 지원 되는 (ppgs) [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md) 및 [근접 배치 그룹](../../../virtual-machines/co-location.md#proximity-placement-groups) 은 Ultra Disks에 대해 지원 됩니다. PPG를 사용 하는 경우 모든 노드가 동일한 그룹에 있어야 합니다.
 - Azure 가상 머신과 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)입니다. 
 
@@ -215,7 +215,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 아직 수행 하지 않은 경우 [가상 네트워크 이름 및 Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 또는 [DNN (분산 네트워크 이름)](failover-cluster-instance-distributed-network-name-dnn-configure.md)을 사용 하 여 fci에 대 한 연결을 구성 합니다. 
 
-Azure 공유 디스크가 적합 한 FCI 저장소 솔루션이 아니면 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md) 를 사용 하 여 fci를 만들거나 대신 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 하는 것이 좋습니다. 
+Azure 공유 디스크가 적합 한 FCI 저장소 솔루션이 아니면 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md) 를 사용 하 여 fci를 만들거나 대신 [저장소 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 하는 것이 좋습니다. 
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 구성 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요.
 

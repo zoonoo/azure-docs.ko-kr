@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 4c895b287f72929e2a0571ccc2cae8cc4f673388
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 5f5f75e63a0b201144329a6e2b7c0d503de54692
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250488"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736476"
 ---
 # <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Azure 메트릭 탐색기에서 여러 리소스 보기
 
@@ -33,7 +33,7 @@ ms.locfileid: "98250488"
 ![여러 리소스와 호환 되는 리소스의 메뉴를 보여 주는 스크린샷](./media/metrics-charts/020.png)
 
 > [!WARNING] 
-> 여러 리소스, 리소스 그룹 또는 구독에 대 한 메트릭을 시각화 하려면 구독 수준에서의 모니터링 판독기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 참조 하세요.
+> 여러 리소스, 리소스 그룹 또는 구독에 대 한 메트릭을 시각화 하려면 구독 수준에서의 모니터링 판독기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
 여러 리소스에 대 한 메트릭을 시각화 하려면 리소스 범위 선택에서 여러 리소스를 선택 하 여 시작 합니다. 
 
@@ -81,13 +81,12 @@ ms.locfileid: "98250488"
 
 ## <a name="pin-multiple-resource-charts"></a>여러 리소스 차트 고정 
 
-리소스 그룹 및 구독 간의 메트릭을 시각화 하는 여러 리소스 차트를 사용 하려면 사용자에 게 구독 수준에서의 *모니터링 판독기* 권한이 있어야 합니다. 여러 리소스 차트를 고정 하는 대시보드의 모든 사용자에 게 충분 한 권한이 있는지 확인 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 참조 하세요.
+리소스 그룹 및 구독 간의 메트릭을 시각화 하는 여러 리소스 차트를 사용 하려면 사용자에 게 구독 수준에서의 *모니터링 판독기* 권한이 있어야 합니다. 여러 리소스 차트를 고정 하는 대시보드의 모든 사용자에 게 충분 한 권한이 있는지 확인 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
-여러 리소스 차트를 대시보드에 고정 하려면 [대시보드에 고정](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pinning-to-dashboards)을 참조 하세요. 
+여러 리소스 차트를 대시보드에 고정 하려면 [대시보드에 고정](./metrics-charts.md#pinning-to-dashboards)을 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [메트릭 탐색기 문제 해결](metrics-troubleshoot.md)
 * [Azure 서비스에 사용 가능한 메트릭 목록 보기](metrics-supported.md)
 * [구성된 차트 예제 보기](metric-chart-samples.md)
-

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 5c2182fc80c3745e0238c378c1cade0530393181
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 00aaa5bdc0d48adb735679fc4a71b3431970ef09
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632847"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737170"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구 설치 (미리 보기)
 
@@ -34,9 +34,9 @@ ms.locfileid: "97632847"
 
 지침에 따라 스냅숏 및 재해 복구 명령을 설정 하 고 실행 합니다. 스냅숏 도구를 설치 하 고 사용 하기 전에 다음 단계를 루트로 완료 하는 것이 좋습니다.
 
-1. **OS 패치 됨**: [Azure에서 SAP HANA (Large Instances)를 설치 하 고 구성 하는 방법](/azure/virtual-machines/workloads/sap/hana-installation#setting-up-smt-server-for-suse-linux)의 패치 및 SMT 설치를 참조 하세요.
+1. **OS 패치 됨**: [Azure에서 SAP HANA (Large Instances)를 설치 하 고 구성 하는 방법](../virtual-machines/workloads/sap/hana-installation.md#operating-system)의 패치 및 SMT 설치를 참조 하세요.
 1. **시간 동기화가 설정 됩니다**. 고객은 NTP 호환 시간 서버를 제공 하 고이에 따라 OS를 구성 해야 합니다.
-1. **Hana가 설치** 됨: hana [데이터베이스의 SAP NetWeaver 설치](https://blogs.msdn.microsoft.com/saponsqlserver/2017/11/21/sap-netweaver-installation-on-hana-database/)에 있는 hana 설치 지침을 참조 하세요.
+1. **Hana가 설치** 됨: hana [데이터베이스의 SAP NetWeaver 설치](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database)에 있는 hana 설치 지침을 참조 하세요.
 1. **[저장소와의 통신 사용](#enable-communication-with-storage)** (자세한 내용은 별도 섹션 참조): 고객이 개인/공개 키 쌍을 사용 하 여 SSH를 설정 하 고 저장소 백 엔드에서 설치를 위해 스냅숏 도구를 Microsoft Operations로 실행 하도록 계획 된 각 노드에 대 한 공개 키를 제공 해야 합니다.
    1. **Azure NetApp Files (자세한 내용은 별도 섹션 참조)**: 고객이 서비스 주체 인증 파일을 생성 해야 합니다.
    1. **Azure 대량 인스턴스의 경우 (자세한 내용은 별도 섹션 참조)**: 고객이 개인/공개 키 쌍을 사용 하 여 SSH를 설정 하 고 저장소 백 엔드에서 설치를 위해 스냅숏 도구를 Microsoft 작업에 실행 하도록 계획 된 각 노드에 대 한 공개 키를 제공 해야 합니다.

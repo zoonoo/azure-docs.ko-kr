@@ -5,13 +5,13 @@ author: shreyasharmamsft
 ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: f1c394bb1a568d59e0821b61e7acfcf8f25290f7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 01/22/2021
+ms.openlocfilehash: fd08dc98fa47617bbc7c8d1fff895377837a7327
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020762"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736737"
 ---
 # <a name="time-series-model-variables"></a>시계열 모델 변수
 
@@ -29,7 +29,7 @@ ms.locfileid: "95020762"
 
 ## <a name="numeric-variables"></a>숫자 변수
 
-| 변수 속성 | Description |
+| 변수 속성 | 설명 |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
 | 변수 값 | 계산에 사용 되는 원격 분석 값은 장치 또는 센서에서 발생 하거나 시계열 식을 사용 하 여 변환 됩니다. 숫자 종류 변수는 *Double* 형식 이어야 합니다.|
@@ -59,7 +59,7 @@ ms.locfileid: "95020762"
 
 ## <a name="categorical-variables"></a>범주 변수
 
-| 변수 속성 | Description |
+| 변수 속성 | 설명 |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
 | 변수 값 | 장치 또는 센서에서 들어오는 계산에 사용 되는 원격 분석 값입니다. 범주 종류 변수는 *Long* 또는 *String* 이어야 합니다. |
@@ -99,7 +99,7 @@ ms.locfileid: "95020762"
 
 ## <a name="aggregate-variables"></a>집계 변수
 
-| 변수 속성 | Description |
+| 변수 속성 | 설명 |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
 | 변수 집계 | [집계 변수 종류에 대해](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind)지원 되는 집계 함수를 통해 계산을 수행 합니다. |
