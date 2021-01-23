@@ -3,12 +3,12 @@ title: Azure Disk Backup 개요
 description: Azure Disk backup 솔루션에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: fea0dd9d01bdc7c31d724cedd89d1fe6891c650a
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: d73c431fdc2b2906dc1d3d9485bded9449b2f2ba
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557877"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733033"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Azure Disk Backup 개요 (미리 보기)
 
@@ -19,15 +19,15 @@ ms.locfileid: "98557877"
 
 Azure Disk Backup은 관리 디스크에서 데이터를 보호 하는 클라우드 기반의 네이티브 백업 솔루션입니다. 몇 가지 단계를 통해 관리 디스크에 대 한 보호를 구성할 수 있는 간단 하 고 안전 하며 비용 효율적인 솔루션입니다. 재해 시나리오에서 데이터를 복구할 수 있도록 보장 합니다.
 
-Azure Disk Backup은 스냅숏 생성을 정기적으로 자동화 하 고 백업 정책을 사용 하 여 구성 된 기간 동안 유지 하 여 관리 디스크에 대 한 스냅숏 수명 주기 관리를 제공 하는 턴키 솔루션을 제공 합니다. 인프라 비용이 0이 고 사용자 지정 스크립팅 또는 관리 오버 헤드가 없어도 디스크 스냅숏을 관리할 수 있습니다. 이는 매일 여러 백업에 대 한 지원을 포함 하는 [증분 스냅숏을](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) 사용 하 여 관리 디스크의 지정 시간 백업을 수행 하는 크래시 일치 백업 솔루션입니다. 에이전트 없는 솔루션 이기도 하며 프로덕션 응용 프로그램 성능에 영향을 주지 않습니다. 현재 실행 중인 Azure 가상 컴퓨터에 연결 되어 있는지 여부에 관계 없이 OS 및 데이터 디스크 (공유 디스크 포함)의 백업 및 복원을 지원 합니다.
+Azure Disk Backup은 스냅숏 생성을 정기적으로 자동화 하 고 백업 정책을 사용 하 여 구성 된 기간 동안 유지 하 여 관리 디스크에 대 한 스냅숏 수명 주기 관리를 제공 하는 턴키 솔루션을 제공 합니다. 인프라 비용이 0이 고 사용자 지정 스크립팅 또는 관리 오버 헤드가 없어도 디스크 스냅숏을 관리할 수 있습니다. 이는 매일 여러 백업에 대 한 지원을 포함 하는 [증분 스냅숏을](../virtual-machines/disks-incremental-snapshots.md) 사용 하 여 관리 디스크의 지정 시간 백업을 수행 하는 크래시 일치 백업 솔루션입니다. 에이전트 없는 솔루션 이기도 하며 프로덕션 응용 프로그램 성능에 영향을 주지 않습니다. 현재 실행 중인 Azure 가상 컴퓨터에 연결 되어 있는지 여부에 관계 없이 OS 및 데이터 디스크 (공유 디스크 포함)의 백업 및 복원을 지원 합니다.
 
-데이터 디스크를 포함 하 여 가상 컴퓨터의 응용 프로그램 일치 백업이 필요 하거나 백업에서 전체 가상 컴퓨터를 복원 하거나, 파일이 나 폴더를 복원 하거나, 보조 지역으로 복원 하는 옵션을 사용 하는 경우 [AZURE VM 백업](backup-azure-vms-introduction.md) 솔루션을 사용 합니다. Azure Backup은 [AZURE VM 백업](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) 솔루션 외에도 디스크 백업을 사용 하 여 관리 디스크의 백업에 대 한 side-by-side 지원을 제공 합니다. 이는 한 번에 한 번씩 응용 프로그램에서 가상 컴퓨터의 일관 된 백업이 필요 하 고, OS 디스크 또는 충돌에 일관성이 있는 특정 데이터 디스크를 더 자주 백업 해야 하며, 프로덕션 응용 프로그램 성능에 영향을 주지 않는 경우에 유용 합니다.
+데이터 디스크를 포함 하 여 가상 컴퓨터의 응용 프로그램 일치 백업이 필요 하거나 백업에서 전체 가상 컴퓨터를 복원 하거나, 파일이 나 폴더를 복원 하거나, 보조 지역으로 복원 하는 옵션을 사용 하는 경우 [AZURE VM 백업](backup-azure-vms-introduction.md) 솔루션을 사용 합니다. Azure Backup은 [AZURE VM 백업](./backup-azure-vms-introduction.md) 솔루션 외에도 디스크 백업을 사용 하 여 관리 디스크의 백업에 대 한 side-by-side 지원을 제공 합니다. 이는 한 번에 한 번씩 응용 프로그램에서 가상 컴퓨터의 일관 된 백업이 필요 하 고, OS 디스크 또는 충돌에 일관성이 있는 특정 데이터 디스크를 더 자주 백업 해야 하며, 프로덕션 응용 프로그램 성능에 영향을 주지 않는 경우에 유용 합니다.
 
 Azure Disk Backup은 백업 센터에 통합 되어 있으며,이는 Azure에서 대규모 백업을 제어, 모니터링, 운영 및 분석 하는 데 사용할 수 있는 **단일 통합 관리 환경을** 제공 합니다.
 
 ## <a name="key-benefits-of-disk-backup"></a>디스크 백업의 주요 이점
 
-Azure Disk backup은 [증분 스냅숏을](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) 사용 하 고 다음과 같은 이점을 제공 하는 에이전트 없는 크래시 일관성 솔루션입니다.
+Azure Disk backup은 [증분 스냅숏을](../virtual-machines/disks-incremental-snapshots.md) 사용 하 고 다음과 같은 이점을 제공 하는 에이전트 없는 크래시 일관성 솔루션입니다.
 
 - 가상 컴퓨터를 중단 하지 않고 자주 및 빠른 백업.
 - 프로덕션 응용 프로그램의 성능에 영향을 주지 않습니다.
@@ -59,13 +59,13 @@ Azure Disk backup 솔루션은 다음과 같은 시나리오에서 유용 합니
 
 - 백업을 구성 하려면 백업 자격 증명 모음으로 이동 하 고, 백업 정책을 할당 하 고, 백업 해야 하는 관리 디스크를 선택 하 고 스냅숏을 저장 하 고 관리할 리소스 그룹을 제공 합니다. Azure Backup는 백업 빈도에 따라 디스크의 증분 스냅숏을 만드는 예약 된 백업 작업을 자동으로 트리거합니다. 이전 스냅숏은 백업 정책에 지정 된 보존 기간에 따라 삭제 됩니다.
 
-- Azure Backup는 관리 디스크의 [증분 스냅숏을](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) 사용 합니다. 증분 스냅숏은 마지막 스냅숏 이후 디스크의 델타 변경에 대해 청구 되는 관리 디스크의 비용 효율적인 특정 시점 백업입니다. 부모 디스크의 저장소 유형에 관계 없이 항상 가장 비용 효율적인 저장소, 표준 HDD 저장소에 저장 됩니다. 디스크의 첫 번째 스냅숏은 사용 된 디스크 크기를 차지 하 고 연속 증분 스냅숏은 마지막 스냅숏 이후 디스크에 델타 변경 내용을 저장 합니다.
+- Azure Backup는 관리 디스크의 [증분 스냅숏을](../virtual-machines/disks-incremental-snapshots.md#restrictions) 사용 합니다. 증분 스냅숏은 마지막 스냅숏 이후 디스크의 델타 변경에 대해 청구 되는 관리 디스크의 비용 효율적인 특정 시점 백업입니다. 부모 디스크의 저장소 유형에 관계 없이 항상 가장 비용 효율적인 저장소, 표준 HDD 저장소에 저장 됩니다. 디스크의 첫 번째 스냅숏은 사용 된 디스크 크기를 차지 하 고 연속 증분 스냅숏은 마지막 스냅숏 이후 디스크에 델타 변경 내용을 저장 합니다.
 
 - 관리 디스크의 백업을 구성 하면 backup 인스턴스가 백업 자격 증명 모음 내에 생성 됩니다. 백업 인스턴스를 사용 하 여 백업 작업의 상태를 확인 하 고 요청 시 백업을 트리거하고 복원 작업을 수행할 수 있습니다. 또한 여러 자격 증명 모음 및 백업 인스턴스를 사용 하 여 백업 상태를 볼 수 있습니다 .이를 통해 단일 창에 투명 한 창이 제공 됩니다.
 
 - 복원 하려면 디스크를 복원 하려는 복구 지점을 선택 하면 됩니다. 스냅숏에서 복원 된 디스크를 만들 리소스 그룹을 제공 합니다. Azure Backup는 스냅숏이 구독에 로컬로 저장 되므로 즉시 복원 환경을 제공 합니다.
 
-- 백업 자격 증명 모음은 관리 Id를 사용 하 여 다른 Azure 리소스에 액세스 합니다. 관리 디스크의 백업을 구성 하 고 이전 백업에서 복원 하려면 백업 자격 증명 모음의 관리 되는 id에 원본 디스크에 대 한 권한 집합, 스냅숏이 만들어지고 관리 되는 스냅숏 리소스 그룹, 백업을 복원할 대상 리소스 그룹이 필요 합니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 관리 되는 id에 대 한 권한을 부여할 수 있습니다. 관리 id는 Azure 리소스에만 사용할 수 있는 특수 형식의 서비스 사용자입니다. [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 대해 자세히 알아보세요.
+- 백업 자격 증명 모음은 관리 Id를 사용 하 여 다른 Azure 리소스에 액세스 합니다. 관리 디스크의 백업을 구성 하 고 이전 백업에서 복원 하려면 백업 자격 증명 모음의 관리 되는 id에 원본 디스크에 대 한 권한 집합, 스냅숏이 만들어지고 관리 되는 스냅숏 리소스 그룹, 백업을 복원할 대상 리소스 그룹이 필요 합니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 관리 되는 id에 대 한 권한을 부여할 수 있습니다. 관리 id는 Azure 리소스에만 사용할 수 있는 특수 형식의 서비스 사용자입니다. [관리 id](../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아보세요.
 
 - 현재 Azure Disk Backup은 관리 디스크의 운영 백업을 지원 하 고 백업 자격 증명 모음 저장소에 백업을 복사 하지 않습니다. 지원 되는 시나리오 및 지원 되지 않는 시나리오 및 지역 가용성에 대 한 자세한 목록은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
 

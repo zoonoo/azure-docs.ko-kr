@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: eafdebc795d5bede7fa52a3562d33c806035697f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126889"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704434"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 작성 방법
 
@@ -47,6 +47,8 @@ ms.locfileid: "98126889"
 - 영문자가 아닌 문자 또는 혼합 영숫자 문자는 발음으로 transcribed 합니다.
 - 단어로 발음 된 약어는 편집할 수 없습니다 (예: "방사형", "레이저", "RAM" 또는 "개 NATO").
 - 각 문자가 공백으로 구분 되는 별도의 문자로 발음 되는 약어를 작성 합니다.
+- 오디오를 사용 하는 경우 오디오와 일치 하는 단어 (예: "101")를 "1 0 1" 또는 "101"로 높여줄 수 있습니다.
+- 반복 되는 문자, 단어 또는 단어 그룹을 세 번 이상 (예: "예: 예 yes") 하지 않습니다. 이러한 반복이 있는 줄은 음성 서비스에 의해 삭제 될 수 있습니다.
 
 다음은 기록에서 수행 해야 하는 정규화의 몇 가지 예입니다.
 

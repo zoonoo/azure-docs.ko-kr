@@ -3,22 +3,22 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 PV 모니터링 �
 description: 이 문서에서는 Azure Monitor 컨테이너에 대해 영구적 볼륨으로 모니터링 Kubernetes 클러스터를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e7c547c137fc84e6e6dfb2807b871ef0329a3c13
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d7da6bc88e7c8526e3940714502d3c92d2f37dd8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186850"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704476"
 ---
 # <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 PV 모니터링 구성
 
-에이전트 버전 *ciprod10052020* 부터 컨테이너에 대 한 Azure monitor 통합 에이전트가 이제 PV (영구적 볼륨) 사용량 모니터링을 지원 합니다.
+에이전트 버전 *ciprod10052020* 부터 컨테이너에 대 한 Azure Monitor 통합 에이전트가 이제 PV (영구적 볼륨) 사용량 모니터링을 지원 합니다.
 
 ## <a name="pv-metrics"></a>PV 메트릭
 
 컨테이너 Azure Monitor는 60 초 간격으로 다음 메트릭을 수집 하 고 **InsightMetrics** 테이블에 저장 하 여 모니터링 PV를 자동으로 시작 합니다.
 
-|메트릭 이름 |메트릭 차원 (태그) |Description |
+|메트릭 이름 |메트릭 차원 (태그) |설명 |
 |------------|------------------------|------------|
 | `pvUsedBytes`|`container.azm.ms/pv`|특정 pod에서 사용 하는 클레임을 가진 특정 영구적 볼륨에 대해 사용 된 공간 (바이트)입니다. `pvCapacityBytes` 는 데이터 수집 비용을 줄이고 쿼리를 간소화 하기 위해 태그 필드에 차원으로 중첩 됩니다.|
 

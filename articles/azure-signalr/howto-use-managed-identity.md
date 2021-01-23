@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: 4f70cbacf686210c1188cb0a87e6116af8ed4b01
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: dee15977318eda7bcd0b1950286bb33f621221dd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763168"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731587"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 관리 되는 id
 
@@ -104,7 +104,7 @@ SignalR Service는 관리 되는 id를 사용 하 여 암호를 가져오기 위
 
 1. Azure SignalR Service에 대 한 시스템 할당 id 또는 사용자 할당 id를 추가 합니다.
 
-2. Key Vault의 액세스 정책에서 관리 되는 id에 대 한 비밀 읽기 권한을 부여 합니다. [Azure Portal를 사용 하 여 Key Vault 액세스 정책 할당을](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) 참조 하세요.
+2. Key Vault의 액세스 정책에서 관리 되는 id에 대 한 비밀 읽기 권한을 부여 합니다. [Azure Portal를 사용 하 여 Key Vault 액세스 정책 할당을](../key-vault/general/assign-access-policy-portal.md) 참조 하세요.
 
 현재이 기능은 다음과 같은 시나리오에서 사용할 수 있습니다.
 

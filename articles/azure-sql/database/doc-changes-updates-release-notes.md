@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93391996"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703770"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 이 문서에는 현재 공개 미리 보기로 제공 되는 Azure SQL Database 및 Azure SQL Managed Instance 기능이 나열 되어 있습니다. SQL Database 및 SQL Managed Instance 업데이트 및 개선 사항에 대해서는 [SQL Database & sql Managed Instance 서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-database)를 참조 하세요. 다른 Azure 서비스에 대한 개선 사항 및 업데이트는 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조하세요.
 
-## <a name="whats-new"></a>새로운 기능
+## <a name="whats-new"></a>새로운 기능은 무엇입니까?
 
 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 설명서는 개별 섹션으로 분할 되었습니다. 또한 관리 되는 인스턴스를 *Azure SQL Database 관리* 되는 인스턴스에서 *Azure SQL Managed Instance* 로 참조 하는 방법도 업데이트 했습니다.
 
@@ -78,7 +78,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 ### <a name="sql-managed-instance-h2-2019-updates"></a>SQL Managed Instance H2 2019 업데이트
 
 - [서비스-사용자 서브넷 구성은](https://azure.microsoft.com/updates/service-aided-subnet-configuration-for-managed-instance-in-azure-sql-database-available/) SQL Managed Instance가 중단 된 관리 트래픽을 방지 하는 동시에 데이터 트래픽을 제어 하는 서브넷 구성을 관리 하는 안전 하 고 편리한 방법입니다.
-- [BYOK (투명 한 데이터 암호화)를 Bring Your Own Key 사용](https://azure.microsoft.com/updates/general-avilability-transparent-data-encryption-with-customer-managed-keys-for-azure-sql-database-managed-instance/) 하면 미사용 데이터 보호를 위한 byok (사용자에 게는 byok) 시나리오를 사용할 수 있으며, 조직에서 키 및 데이터에 대 한 관리 의무를 구분할 수 있습니다.
+- [BYOK (Bring Your Own Key)를 사용 하는 TDE (투명한 데이터 암호화](https://azure.microsoft.com/updates/general-avilability-transparent-data-encryption-with-customer-managed-keys-for-azure-sql-database-managed-instance/) )는 미사용 데이터 보호를 위한 byok (byok) 시나리오를 지원 하 고 조직에서 키 및 데이터에 대 한 관리 업무를 구분할 수 있도록 합니다.
 - [자동 장애 조치(failover) 그룹](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/)을 사용하면 주 인스턴스의 모든 데이터베이스를 다른 지역의 보조 인스턴스로 복제할 수 있습니다.
 - [전역 추적 플래그](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/) 를 사용 하 여 SQL Managed Instance 동작을 구성할 수 있습니다.
 
@@ -92,12 +92,13 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
   - [공용 끝점](../managed-instance/public-endpoint-configure.md)을 사용 하 여 SQL Managed Instance를 구성 하 고, [프록시를 재정의](connectivity-architecture.md#connection-policy) 하 여 네트워크 성능을 향상 하거나, <a href="https://aka.ms/four-cores-sql-mi-update">Gen5 하드웨어 세대에서 4 개의 vcores</a> 를 구성 하거나, 지정 시간 복원에 대해 <a href="/azure/azure-sql/database/automated-backups-overview">최대 35 일의 백업 보존을 구성</a> 합니다. [장기 백업 보존](long-term-retention-overview.md#sql-managed-instance-support)(최대 10년)은 현재 제한된 공개 미리 보기로 제공됩니다.  
   - 새로운 기능을 통해 <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">PowerShell을 사용하여 데이터베이스를 다른 데이터 센터에 지리적 복원하고</a>, [데이터베이스 이름을 바꾸고](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [가상 클러스터를 삭제](../managed-instance/virtual-cluster-delete.md)할 수 있습니다.
   - 기본 제공되는 새로운 [인스턴스 기여자 역할](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor)을 통해 보안 원칙에 따른 SoD(업무 분리) 준수 및 엔터프라이즈 표준 준수가 가능합니다.
-  - SQL Managed Instance는 다음 Azure Government 지역에서 GA (US Gov 텍사스, US Gov 애리조나) 뿐만 아니라 중국 북부 2와 중국 동부 2에서 사용할 수 있습니다. 다음 공용 지역에서도 사용할 수 있습니다. 오스트레일리아 중부, 오스트레일리아 중부 2, 브라질 남부, 프랑스 남부, 아랍에미리트 중부, 아랍에미리트 북부, 남아프리카 공화국 북부, 남아프리카 공화국 서부.
+  - SQL Managed Instance는 다음 Azure Government 지역에서 GA (US Gov 텍사스, US Gov 애리조나) 및 중국 북부 2와 중국 동부 2에서 사용할 수 있습니다. 다음 공용 지역에서도 사용할 수 있습니다. 오스트레일리아 중부, 오스트레일리아 중부 2, 브라질 남부, 프랑스 남부, 아랍에미리트 중부, 아랍에미리트 북부, 남아프리카 공화국 북부, 남아프리카 공화국 서부.
 
 ## <a name="known-issues"></a>알려진 문제
 
 |문제  |발견된 날짜  |상태  |해결된 날짜  |
 |---------|---------|---------|---------|
+|[매개 변수가 사용 되 면 프로시저 sp_send_dbmail transiently 실패할 수 있음 @query](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|1 월 2021|해결 방법 있음||
 |[서버 트러스트 그룹에서 Managed Instance를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|10 월 2020|해결 방법 있음||
 |[Managed Instance 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|10 월 2020|해결 방법 있음||
 |[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / Azure SQL의 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) 및 `BACKUP` / `RESTORE` Managed Instance의 문은 azure AD 관리 id를 사용 하 여 azure storage에 인증할 수 없습니다.|9 월 2020|해결 방법 있음||
@@ -115,7 +116,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |[장애 조치(failover) 후 중요 비즈니스용 서비스 계층의 Resource Governor를 재구성해야 할 수도 있음](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|2019년 9월|해결 방법 있음||
 |[서비스 계층 업그레이드 후 데이터베이스 간 Service Broker 대화 상자를 다시 초기화 해야 함](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|2019년 8월|해결 방법 있음||
 |[Azure AD 로그인 유형의 가장은 지원 되지 않습니다.](#impersonation-of-azure-ad-login-types-is-not-supported)|2019년 7월|해결 방법 없음||
-|[@query 매개 변수가 sp_send_db_mail에서 지원되지 않음](#-parameter-not-supported-in-sp_send_db_mail)|2019년 4월|해결 방법 없음||
+|[@query 매개 변수가 sp_send_db_mail에서 지원되지 않음](#-parameter-not-supported-in-sp_send_db_mail)|2019년 4월|해결됨|1 월 2021|
 |[지역 장애 조치(failover) 후 트랜잭션 복제를 다시 구성해야 함](#transactional-replication-must-be-reconfigured-after-geo-failover)|2019년 3월|해결 방법 없음||
 |[복원 작업 중에 임시 데이터베이스가 사용됨](#temporary-database-is-used-during-restore-operation)||해결 방법 있음||
 |[TEMPDB 구조와 콘텐츠가 다시 생성됨](#tempdb-structure-and-content-is-re-created)||해결 방법 없음||
@@ -128,6 +129,29 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |원본 데이터베이스에 메모리 내 OLTP 개체가 포함되어 있으면 중요 비즈니스용 계층에서 범용 계층으로 특정 시점 데이터베이스 복원에 실패함||해결됨|2019년 10월|
 |보안 연결을 사용 하는 외부 (비 Azure) 메일 서버를 사용 하는 데이터베이스 메일 기능||해결됨|2019년 10월|
 |포함 된 데이터베이스는 SQL Managed Instance 지원 되지 않습니다.||해결됨|2019년 8월|
+
+### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>매개 변수가 사용 되 면 프로시저 sp_send_dbmail transiently 실패할 수 있음 @query
+
+매개 변수가 사용 되 면 프로시저 sp_send_dbmail transiently 실패할 수 있습니다 `@query` . 이 문제가 발생 하는 경우 프로시저 sp_send_dbmail의 모든 두 번째 실행은 오류 및 메시지와 함께 실패 `Msg 22050, Level 16, State 1` `Failed to initialize sqlcmd library with error number -2147467259` 합니다. 이 오류가 제대로 표시 되려면 매개 변수에 대 한 기본값 0을 사용 하 여 프로시저를 호출 해야 합니다 `@exclude_query_output` . 그렇지 않으면 오류가 전파 되지 않습니다.
+이 문제는 sp_send_dbmail 가장 및 연결 풀링을 사용 하는 방법과 관련 된 알려진 버그로 인해 발생 합니다.
+이 문제를 해결 하려면 output 매개 변수를 사용 하는 재시도 논리에 전자 메일을 보내기 위한 코드를 래핑합니다 `@mailitem_id` . 실행이 실패 하면 매개 변수 값이 NULL이 됩니다 .이 값은 전자 메일을 성공적으로 보내기 위해 sp_send_dbmail를 한 번 더 호출 해야 함을 나타냅니다. 다음은이 재시도 논리의 예입니다.
+```sql
+CREATE PROCEDURE send_dbmail_with_retry AS
+BEGIN
+    DECLARE @miid INT
+    EXEC msdb.dbo.sp_send_dbmail
+        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table',
+        @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
+        @mailitem_id = @miid OUTPUT
+
+    -- If sp_send_dbmail returned NULL @mailidem_id then retry sending email.
+    --
+    IF (@miid is NULL)
+    EXEC msdb.dbo.sp_send_dbmail
+        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table',
+        @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
+END
+```
 
 ### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>서버 트러스트 그룹에서 Managed Instance를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.
 
@@ -150,19 +174,19 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**해결 방법** : [공유 액세스 서명을 사용 하 여 저장소에 인증](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage)합니다.
+**해결 방법**: [공유 액세스 서명을 사용 하 여 저장소에 인증](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage)합니다.
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.
 
 경우에 따라 Azure AD 및 Azure Key Vault (AKV) 서비스에 액세스 하는 데 사용 되는 서비스 주체에 문제가 있을 수 있습니다. 따라서이 문제는 SQL Managed Instance를 사용 하 여 Azure AD 인증 및 TDE (투명 한 데이터베이스 암호화) 사용에 영향을 줍니다. 이는 일시적인 연결 문제 또는 외부 공급자의 로그인/사용자 만들기 또는 EXECUTE AS LOGIN/USER와 같은 문을 실행 하지 못하는 경우에 발생할 수 있습니다. 새 Azure SQL Managed Instance에서 고객 관리 키를 사용 하 여 TDE를 설정 하는 것도 일부 환경에서 작동 하지 않을 수 있습니다.
 
-**해결 방법** : 업데이트 명령을 실행 하기 전에 SQL Managed Instance에서이 문제가 발생 하지 않도록 하거나, 업데이트 명령 후에이 문제가 이미 발생 한 경우 AZURE PORTAL, SQL Managed Instance [Active Directory 관리자 블레이드](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal)로 이동 합니다. "Managed Instance에 Azure Active Directory 액세스 하려면 서비스 주체가 필요 합니다. 라는 오류 메시지가 표시 되는지 확인 합니다. 서비스 주체를 만들려면 여기를 클릭 하십시오. " 이 오류 메시지가 발생 한 경우이를 클릭 하 고이 오류가 해결 될 때까지 제공 된 단계별 지침을 따르세요.
+**해결 방법**: 업데이트 명령을 실행 하기 전에 SQL Managed Instance에서이 문제가 발생 하지 않도록 하거나, 업데이트 명령 후에이 문제가 이미 발생 한 경우 AZURE PORTAL, SQL Managed Instance [Active Directory 관리자 블레이드](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal)로 이동 합니다. "Managed Instance에 Azure Active Directory 액세스 하려면 서비스 주체가 필요 합니다. 라는 오류 메시지가 표시 되는지 확인 합니다. 서비스 주체를 만들려면 여기를 클릭 하십시오. " 이 오류 메시지가 발생 한 경우이를 클릭 하 고이 오류가 해결 될 때까지 제공 된 단계별 지침을 따르세요.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>CHECKSUM 없는 수동 백업 복원이 실패할 수 있음
 
 특정 상황에서는 체크섬을 사용 하지 않고 관리 되는 인스턴스에서 만들어진 데이터베이스의 수동 백업이 복원 되지 않을 수 있습니다. 이 경우 성공할 때까지 백업 복원을 다시 시도 합니다.
 
-**해결 방법** : 체크섬을 사용 하도록 설정 된 관리 되는 인스턴스에서 데이터베이스를 수동으로 백업 합니다.
+**해결 방법**: 체크섬을 사용 하도록 설정 된 관리 되는 인스턴스에서 데이터베이스를 수동으로 백업 합니다.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>기존 작업을 수정, 사용 안 함 또는 사용 하도록 설정할 때 에이전트가 응답 하지 않습니다.
 
@@ -172,19 +196,19 @@ BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzur
 
 SQL Managed Instance 참여자 Azure 역할을 리소스 그룹 (RG)에 적용 하는 경우 SQL Managed Instance에 적용 되지 않으며 효과가 없습니다.
 
-**해결 방법** : 구독 수준에서 사용자에 대 한 SQL Managed Instance 참가자 역할을 설정 합니다.
+**해결 방법**: 구독 수준에서 사용자에 대 한 SQL Managed Instance 참가자 역할을 설정 합니다.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>장애 조치(failover) 그룹용 포털을 통한 수동 장애 조치(failover)의 제한 사항
 
 장애 조치 (failover) 그룹이 다른 Azure 구독 또는 리소스 그룹의 여러 인스턴스에 걸쳐 있으면 장애 조치 (failover) 그룹의 주 인스턴스에서 수동 장애 조치 (failover)를 시작할 수 없습니다.
 
-**해결 방법** : 지역 보조 인스턴스에서 포털을 통해 장애 조치 (failover)를 시작 합니다.
+**해결 방법**: 지역 보조 인스턴스에서 포털을 통해 장애 조치 (failover)를 시작 합니다.
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>SQL 에이전트 역할에는 non-sysadmin 로그인에 대한 명시적 EXECUTE 권한이 필요함
 
 Sysadmin이 아닌 로그인이 모든 [SQL 에이전트 고정 데이터베이스 역할](/sql/ssms/agent/sql-server-agent-fixed-database-roles)에 추가 되 면 이러한 로그인이 작동 하기 위해 마스터 저장 프로시저에 명시적 실행 권한을 부여 해야 하는 문제가 있습니다. 이런 문제가 발생하면 "개체 <object_name>에 대한 EXECUTE 권한이 거부되었습니다(Microsoft SQL Server, 오류: 229)" 오류 메시지가 표시됩니다.
 
-**해결 방법** : SQL 에이전트 고정 데이터베이스 역할 (SQLAgentUserRole, SQLAgentReaderRole 또는 SQLAgentOperatorRole)에 로그인을 추가 하면 이러한 역할에 추가 된 각 로그인에 대해 아래 t-sql 스크립트를 실행 하 여 나열 된 저장 프로시저에 대 한 실행 권한을 명시적으로 부여 합니다.
+**해결 방법**: SQL 에이전트 고정 데이터베이스 역할 (SQLAgentUserRole, SQLAgentReaderRole 또는 SQLAgentOperatorRole)에 로그인을 추가 하면 이러한 역할에 추가 된 각 로그인에 대해 아래 t-sql 스크립트를 실행 하 여 나열 된 저장 프로시저에 대 한 실행 권한을 명시적으로 부여 합니다.
 
 ```tsql
 USE [master]
@@ -204,13 +228,13 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 경우에 따라 중요 비즈니스용 서비스 계층은 [메모리 액세스에 최적화 된 개체에 대 한 최대 메모리 제한을](../managed-instance/resource-limits.md#in-memory-oltp-available-space) 올바르게 적용 하지 않습니다. SQL Managed Instance를 사용 하면 메모리 내 OLTP 작업에 더 많은 메모리를 사용 하 여 작업을 수행할 수 있으며,이는 인스턴스의 가용성과 안정성에 영향을 줄 수 있습니다. 한도에 도달한 메모리 내 OLTP 쿼리는 즉시 실패하지 않을 수도 있습니다. 이 문제는 곧 해결될 예정입니다. 메모리 내 OLTP 메모리를 더 많이 사용 하는 쿼리는 [제한](../managed-instance/resource-limits.md#in-memory-oltp-available-space)에 도달 하면 더 빨리 장애 조치 (failover) 됩니다.
 
-**해결 방법** : [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) 를 사용 하 여 [메모리 내 OLTP 저장소 사용량을 모니터링](../in-memory-oltp-monitor-space.md) 하 여 작업에서 사용 가능한 메모리를 초과 하 여 사용 하지 않도록 합니다. vCore 수에 따라 메모리 한도를 늘리거나 메모리를 덜 사용하도록 워크로드를 최적화합니다.
+**해결 방법**: [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) 를 사용 하 여 [메모리 내 OLTP 저장소 사용량을 모니터링](../in-memory-oltp-monitor-space.md) 하 여 작업에서 사용 가능한 메모리를 초과 하 여 사용 하지 않도록 합니다. vCore 수에 따라 메모리 한도를 늘리거나 메모리를 덜 사용하도록 워크로드를 최적화합니다.
  
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>비어 있지 않은 파일을 제거하는 동안 잘못된 오류가 반환됨
 
 SQL Server 및 SQL Managed Instance [사용자가 비어 있지 않은 파일을 삭제할 수](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites)없습니다. 문을 사용 하 여 비어 있지 않은 데이터 파일을 제거 하려고 하면 `ALTER DATABASE REMOVE FILE` 오류가 `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` 즉시 반환 되지 않습니다. SQL Managed Instance는 파일을 삭제 하려고 계속 시도 하며, 30 분 후에 작업이 실패 합니다 `Internal server error` .
 
-**해결 방법** : 명령을 사용 하 여 파일의 내용을 제거 합니다 `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` . 파일 그룹의 유일한 파일인 경우 파일을 축소 하기 전에이 파일 그룹에 연결 된 테이블이 나 파티션에서 데이터를 삭제 하 고 필요에 따라이 데이터를 다른 테이블/파티션에 로드 해야 합니다.
+**해결 방법**: 명령을 사용 하 여 파일의 내용을 제거 합니다 `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` . 파일 그룹의 유일한 파일인 경우 파일을 축소 하기 전에이 파일 그룹에 연결 된 테이블이 나 파티션에서 데이터를 삭제 하 고 필요에 따라이 데이터를 다른 테이블/파티션에 로드 해야 합니다.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>진행 중인 데이터베이스 복원으로 인해 서비스 계층 변경 및 인스턴스 만들기 작업이 차단됨
 
@@ -218,19 +242,19 @@ SQL Server 및 SQL Managed Instance [사용자가 비어 있지 않은 파일을
 
 복원 프로세스는 복원 프로세스가 실행 되는 동일한 서브넷의 관리 되는 인스턴스 및 인스턴스 풀에서 이러한 작업을 차단 합니다. 인스턴스 풀의 인스턴스는 영향을 받지 않습니다. 서비스 계층 작업을 만들거나 변경 하면 실패 하거나 시간이 초과 되지 않습니다. 복원 프로세스가 완료 되거나 취소 되 면 계속 됩니다.
 
-**해결 방법** : 복원 프로세스가 완료 될 때까지 기다리거나, 만들기 또는 업데이트-서비스 계층 작업의 우선 순위가 더 높은 경우 복원 프로세스를 취소 합니다.
+**해결 방법**: 복원 프로세스가 완료 될 때까지 기다리거나, 만들기 또는 업데이트-서비스 계층 작업의 우선 순위가 더 높은 경우 복원 프로세스를 취소 합니다.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>장애 조치(failover) 후 중요 비즈니스용 서비스 계층의 Resource Governor를 재구성해야 할 수도 있음
 
 사용자 작업에 할당 된 리소스를 제한할 수 있도록 하는 [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) 기능은 장애 조치 (failover) 후 또는 사용자가 시작한 서비스 계층 변경 (예: 최대 vcore 또는 최대 인스턴스 저장소 크기의 변경)으로 인해 일부 사용자 작업을 잘못 분류 하는 것일 수 있습니다.
 
-**해결 방법** : `ALTER RESOURCE GOVERNOR RECONFIGURE` [Resource Governor](/sql/relational-databases/resource-governor/resource-governor)를 사용 하는 경우 인스턴스가 시작 될 때 sql 태스크를 실행 하는 sql 에이전트 작업의 일부로 정기적으로 또는를 실행 합니다.
+**해결 방법**: `ALTER RESOURCE GOVERNOR RECONFIGURE` [Resource Governor](/sql/relational-databases/resource-governor/resource-governor)를 사용 하는 경우 인스턴스가 시작 될 때 sql 태스크를 실행 하는 sql 에이전트 작업의 일부로 정기적으로 또는를 실행 합니다.
 
 ### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>서비스 계층 업그레이드 후 데이터베이스 간 Service Broker 대화 상자를 다시 초기화 해야 함
 
 데이터베이스 간 Service Broker dialog는 서비스 계층 변경 작업 후에 다른 데이터베이스의 서비스로 메시지를 배달하지 않습니다. 메시지는 *손실 되지* 않으며 발신자 큐에서 찾을 수 있습니다. SQL Managed Instance에서 vCores 또는 인스턴스 저장소 크기를 변경 하면 `service_broke_guid` 모든 데이터베이스에 대해 [sys. 데이터베이스](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) 보기의 값이 변경 됩니다. `DIALOG`다른 데이터베이스의 Service broker를 참조 하는 [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) 문을 사용 하 여 만든 모든는 대상 서비스에 대 한 메시지 배달을 중지 합니다.
 
-**해결 방법** : 서비스 계층을 업데이트 하기 전에 데이터베이스 간 Service Broker 대화 상자를 사용 하는 작업을 중지 하 고 나중에 다시 초기화 합니다. 서비스 계층 변경 후 배달 되지 않은 메시지가 남아 있으면 원본 큐에서 메시지를 읽고 대상 큐에 다시 보냅니다.
+**해결 방법**: 서비스 계층을 업데이트 하기 전에 데이터베이스 간 Service Broker 대화 상자를 사용 하는 작업을 중지 하 고 나중에 다시 초기화 합니다. 서비스 계층 변경 후 배달 되지 않은 메시지가 남아 있으면 원본 큐에서 메시지를 읽고 대상 큐에 다시 보냅니다.
 
 ### <a name="impersonation-of-azure-ad-login-types-is-not-supported"></a>Azure AD 로그인 유형의 가장은 지원 되지 않습니다.
 
@@ -258,7 +282,7 @@ SQL Server Data Tools는 Azure AD 로그인 및 사용자를 완전히 지원 �
 
 초기 단계에서는 사용자가 빈 데이터베이스에 액세스 하 고이 데이터베이스에 테이블을 만들거나 데이터를 로드할 수도 있습니다. 임시 데이터베이스는 복원 서비스가 두 번째 단계를 시작하면 삭제됩니다.
 
-**해결 방법** : 복원이 완료된 것을 볼 때까지 복원 중인 데이터베이스에 액세스하지 마십시오.
+**해결 방법**: 복원이 완료된 것을 볼 때까지 복원 중인 데이터베이스에 액세스하지 마십시오.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB 구조와 콘텐츠가 다시 생성됨
 
@@ -285,7 +309,7 @@ SQL Managed Instance의 각 범용 인스턴스에는 Azure Premium 디스크 �
 
 몇 가지 시스템 뷰, 성능 카운터, 오류 메시지, XEvent 및 오류 로그 항목에는 실제 데이터베이스 이름 대신 GUID 데이터베이스 식별자가 표시됩니다. 이러한 GUID 식별자는 나중에 실제 데이터베이스 이름으로 대체되기 때문에 사용하지 마세요.
 
-**해결 방법** : sys.debug 뷰를 사용 하 여 실제 데이터베이스 이름에서 GUID 데이터베이스 식별자 형식으로 지정 된 실제 데이터베이스 이름을 확인 합니다.
+**해결 방법**: sys.debug 뷰를 사용 하 여 실제 데이터베이스 이름에서 GUID 데이터베이스 식별자 형식으로 지정 된 실제 데이터베이스 이름을 확인 합니다.
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
@@ -324,13 +348,13 @@ using (var scope = new TransactionScope())
 
 ```
 
-**해결 방법 (3 월 2020 이후에는 필요 하지 않음)** : 두 개의 연결을 사용 하는 대신 [SqlConnection 데이터베이스 (String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) 를 사용 하 여 연결 컨텍스트에서 다른 데이터베이스를 사용 합니다.
+**해결 방법 (3 월 2020 이후에는 필요 하지 않음)**: 두 개의 연결을 사용 하는 대신 [SqlConnection 데이터베이스 (String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) 를 사용 하 여 연결 컨텍스트에서 다른 데이터베이스를 사용 합니다.
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>CLR 모듈 및 연결된 서버에서 로컬 IP 주소를 참조할 수 없는 경우가 있음
 
 SQL Managed Instance 및 연결 된 서버 또는 현재 인스턴스를 참조 하는 분산 쿼리의 CLR 모듈은 종종 로컬 인스턴스의 IP를 확인할 수 없습니다. 이 오류는 일시적인 문제입니다.
 
-**해결 방법** : 가능한 경우 CLR 모듈에서 컨텍스트 연결을 사용 합니다.
+**해결 방법**: 가능한 경우 CLR 모듈에서 컨텍스트 연결을 사용 합니다.
 
 ## <a name="updates"></a>업데이트
 

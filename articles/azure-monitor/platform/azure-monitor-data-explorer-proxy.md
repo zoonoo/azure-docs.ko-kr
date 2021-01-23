@@ -7,15 +7,15 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5671ec68901be289a87c23b6883160f9cda2b651
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060455"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733186"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 리소스 간 쿼리 Azure 데이터 탐색기
-Azure Monitor는 Azure 데이터 탐색기, [Application Insights](/azure/azure-monitor/app/app-insights-overview)및 [Log Analytics](/azure/azure-monitor/platform/data-platform-logs)간의 서비스 간 쿼리를 지원 합니다. 그런 다음 Log Analytics/Application Insights 도구를 사용 하 여 Azure 데이터 탐색기 클러스터를 쿼리하고 서비스 간 쿼리에서이를 참조할 수 있습니다. 이 문서에서는 서비스 간 쿼리를 만드는 방법을 보여 줍니다.
+Azure Monitor는 Azure 데이터 탐색기, [Application Insights](../app/app-insights-overview.md)및 [Log Analytics](./data-platform-logs.md)간의 서비스 간 쿼리를 지원 합니다. 그런 다음 Log Analytics/Application Insights 도구를 사용 하 여 Azure 데이터 탐색기 클러스터를 쿼리하고 서비스 간 쿼리에서이를 참조할 수 있습니다. 이 문서에서는 서비스 간 쿼리를 만드는 방법을 보여 줍니다.
 
 다음 다이어그램은 Azure Monitor 서비스 간 흐름을 보여 줍니다.
 
@@ -62,8 +62,8 @@ union customEvents, CL1 | take 10
 
 Azure 데이터 탐색기 리소스가 테 넌 트 A에 있고 Log Analytics 작업 영역이 테 넌 트 B에 있는 경우 다음 방법 중 하나를 사용 합니다.
 
-*  Azure Data Explorer를 사용하면 다른 테넌트의 보안 주체에 대한 역할을 추가할 수 있습니다. 테 넌 트 B의 사용자 ID를 Azure 데이터 탐색기 클러스터의 권한 있는 사용자로 추가 합니다. Azure 데이터 탐색기 클러스터의 [TrustedExternalTenant](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster) 속성에 테 넌 트 b가 포함 되어 있는지 확인 합니다. 테 넌 트 b에서 완전히 쿼리를 실행 합니다.
-*  [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) 를 사용 하 여 Azure Monitor 리소스를 테 넌 트 A에 프로젝션 합니다.
+*  Azure Data Explorer를 사용하면 다른 테넌트의 보안 주체에 대한 역할을 추가할 수 있습니다. 테 넌 트 B의 사용자 ID를 Azure 데이터 탐색기 클러스터의 권한 있는 사용자로 추가 합니다. Azure 데이터 탐색기 클러스터의 [TrustedExternalTenant](/powershell/module/az.kusto/update-azkustocluster) 속성에 테 넌 트 b가 포함 되어 있는지 확인 합니다. 테 넌 트 b에서 완전히 쿼리를 실행 합니다.
+*  [Lighthouse](../../lighthouse/index.yml) 를 사용 하 여 Azure Monitor 리소스를 테 넌 트 A에 프로젝션 합니다.
 
 ## <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>다른 테넌트에서 Azure Data Explorer 클러스터에 연결
 
@@ -72,6 +72,6 @@ Kusto Explorer는 사용자 계정이 원래 속한 테 넌 트에 자동으로 
 `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=TenantId`
 
 ## <a name="next-steps"></a>다음 단계
-* [쿼리 작성](https://docs.microsoft.com/azure/data-explorer/write-queries)
-* [Azure 데이터 탐색기를 사용 하 여 Azure Monitor에서 데이터 쿼리](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
-* [Azure Monitor에서 리소스 간 로그 쿼리 수행](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
+* [쿼리 작성](/azure/data-explorer/write-queries)
+* [Azure 데이터 탐색기를 사용 하 여 Azure Monitor에서 데이터 쿼리](/azure/data-explorer/query-monitor-data)
+* [Azure Monitor에서 리소스 간 로그 쿼리 수행](../log-query/cross-workspace-query.md)

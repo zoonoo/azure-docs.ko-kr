@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307453"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704543"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Azure Machine Learning에서 실험 추적 및 모델 배포
 
@@ -24,13 +24,13 @@ ms.locfileid: "93307453"
 
 ![실험 추적](./media/how-to-track-experiments/mlflow-diagram-track.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Machine Learning 작업 영역를 프로 비전 해야 합니다](../how-to-manage-workspace.md#create-a-workspace) .
 
 ## <a name="create-a-new-notebook"></a>새 Notebook 만들기
 
-Azure Machine Learning 및 MLFlow SDK는 Data Science VM에 미리 설치 되어 있으며 * *azureml_py36_ \** _ conda 환경에서 액세스할 수 있습니다. Jupyterlab에서 시작 관리자를 클릭 하 고 다음 커널을 선택 합니다.
+Azure Machine Learning 및 MLFlow SDK는 Data Science VM에 미리 설치 되어 있으며 **azureml_py36_ \** _ conda 환경에서 액세스할 수 있습니다. JupyterLab에서 시작 관리자를 클릭 하 고 다음 커널을 선택 합니다.
 
 ![커널 선택](./media/how-to-track-experiments/experiment-tracking-1.png)
 

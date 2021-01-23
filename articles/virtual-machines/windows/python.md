@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 15714405c683889c0f783359011a0f0f5f9f3f43
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d99f9326b3113742fdc0c14a4ae39d552df47edd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201793"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730159"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -567,4 +567,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 ## <a name="next-steps"></a>다음 단계
 
 - 배포에 문제가 있는 경우 다음 단계로서 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../../azure-resource-manager/templates/deployment-history.md)
-- [Azure Python 라이브러리](/python/api/overview/azure/?view=azure-python)에 대한 자세한 내용
+- [Azure Python 라이브러리](/python/api/overview/azure/)에 대한 자세한 내용

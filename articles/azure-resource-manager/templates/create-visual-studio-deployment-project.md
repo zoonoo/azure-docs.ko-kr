@@ -3,33 +3,33 @@ title: Visual Studio 리소스 그룹 프로젝트 만들기 및 배포
 description: Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 Azure에 리소스를 배포합니다.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372649"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704417"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
 Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프로젝트를 만들 수 있습니다. 예를 들어 웹 호스트, 웹 사이트 및 웹 사이트에 대한 코드를 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다. 이 문서에서는 웹앱을 배포합니다.
 
-이 문서에서는 [Azure 개발 및 ASP.NET 워크로드가 설치된 Visual Studio 2019 이상](/visualstudio/install/install-visual-studio?view=vs-2019)을 사용하는 방법을 보여줍니다. Visual Studio 2017을 사용하는 경우 환경이 대부분 동일합니다.
+이 문서에서는 [Azure 개발 및 ASP.NET 워크로드가 설치된 Visual Studio 2019 이상](/visualstudio/install/install-visual-studio)을 사용하는 방법을 보여줍니다. Visual Studio 2017을 사용하는 경우 환경이 대부분 동일합니다.
 
 ## <a name="create-azure-resource-group-project"></a>Azure 리소스 그룹 프로젝트 만들기
 
 이 섹션에서는 **웹앱** 템플릿으로 Azure 리소스 그룹 프로젝트를 만듭니다.
 
-1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택 합니다.
-1. **Azure 리소스 그룹** 프로젝트 템플릿 및 **다음**을 선택합니다.
+1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 선택 합니다.
+1. **Azure 리소스 그룹** 프로젝트 템플릿 및 **다음** 을 선택합니다.
 
     ![Azure 리소스 그룹을 사용 하 여 새 프로젝트 창 만들기 및 다음 단추가 강조 표시 된 스크린샷](./media/create-visual-studio-deployment-project/create-project.png)
 
-1. 프로젝트 이름을 지정합니다. 다른 기본 설정은 정상이지만 사용자 환경에 맞게 작동하는지 검토하세요. 완료되면 **만들기**를 선택합니다.
+1. 프로젝트 이름을 지정합니다. 다른 기본 설정은 정상이지만 사용자 환경에 맞게 작동하는지 검토하세요. 완료되면 **만들기** 를 선택합니다.
 
     ![프로젝트 만들기](./media/create-visual-studio-deployment-project/name-project.png)
 
-1. Azure 리소스 관리자에 배포하려는 템플릿을 선택합니다. 배포하려는 프로젝트의 유형에 따라 다양한 옵션이 있습니다. 이 문서의 경우 **웹앱** 템플릿 및 **확인**을 선택합니다.
+1. Azure 리소스 관리자에 배포하려는 템플릿을 선택합니다. 배포하려는 프로젝트의 유형에 따라 다양한 옵션이 있습니다. 이 문서의 경우 **웹앱** 템플릿 및 **확인** 을 선택합니다.
 
     ![템플릿 선택](./media/create-visual-studio-deployment-project/select-project.png)
 
@@ -53,7 +53,7 @@ Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프�
 
 배포하려는 리소스를 설명하는 Resource Manager 템플릿을 수정하여 배포 프로젝트를 사용자 지정할 수 있습니다. 리소스 관리자 템플릿의 요소에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](template-syntax.md)을 참조하세요.
 
-1. 템플릿에서 작업하려면 **WebSite.json**을 엽니다.
+1. 템플릿에서 작업하려면 **WebSite.json** 을 엽니다.
 
 1. Visual Studio 편집기는 Resource Manager 템플릿 편집에 도움이 되는 도구를 제공합니다. **JSON 개요** 창을 통해 템플릿에 정의된 요소를 쉽게 볼 수 있습니다.
 
@@ -63,11 +63,11 @@ Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프�
 
    ![JSON으로 이동](./media/create-visual-studio-deployment-project/navigate-json.png)
 
-1. JSON 개요 창의 맨 위에 있는 **리소스 추가** 버튼을 선택하거나 **리소스**를 마우스 오른쪽 단추로 클릭하고 **새 리소스 추가**를 선택하여 리소스를 추가할 수 있습니다.
+1. JSON 개요 창의 맨 위에 있는 **리소스 추가** 버튼을 선택하거나 **리소스** 를 마우스 오른쪽 단추로 클릭하고 **새 리소스 추가** 를 선택하여 리소스를 추가할 수 있습니다.
 
    ![스크린 샷에서는 새 리소스 추가 옵션이 강조 표시 된 JSON 개요 창을 보여 줍니다.](./media/create-visual-studio-deployment-project/add-resource.png)
 
-1. **스토리지 계정**을 선택하고 이름을 입력합니다. 11개 미만의 문자이며 숫자 및 소문자만을 포함하는 이름을 제공합니다.
+1. **스토리지 계정** 을 선택하고 이름을 입력합니다. 11개 미만의 문자이며 숫자 및 소문자만을 포함하는 이름을 제공합니다.
 
    ![스토리지 추가](./media/create-visual-studio-deployment-project/add-storage.png)
 
@@ -90,11 +90,11 @@ Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프�
    }
    ```
 
-1. Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성을 이해할 수 있도록 intellisense를 제공합니다. 예를 들어 App Service 계획에 대한 속성을 편집하려면 **HostingPlan** 리소스로 이동하고 **속성**에 대한 값을 추가합니다. intellisense는 사용 가능한 값을 표시하고 해당 값에 대한 설명을 제공합니다.
+1. Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성을 이해할 수 있도록 intellisense를 제공합니다. 예를 들어 App Service 계획에 대한 속성을 편집하려면 **HostingPlan** 리소스로 이동하고 **속성** 에 대한 값을 추가합니다. intellisense는 사용 가능한 값을 표시하고 해당 값에 대한 설명을 제공합니다.
 
    ![intellisense 표시](./media/create-visual-studio-deployment-project/show-intellisense.png)
 
-   **numberOfWorkers**를 1로 설정한 다음, 파일을 저장할 수 있습니다.
+   **numberOfWorkers** 를 1로 설정한 다음, 파일을 저장할 수 있습니다.
 
    ```json
    "properties": {
@@ -139,11 +139,11 @@ Az 모듈 스크립트의 경우 PowerShell 콘솔을 열고 다음을 실행합
 
 AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
-1. 배포 프로젝트 노드의 바로 가기 메뉴에서 **배포**  >  **새로 만들기**를 선택 합니다.
+1. 배포 프로젝트 노드의 바로 가기 메뉴에서 **배포**  >  **새로 만들기** 를 선택 합니다.
 
     ![새 배포 메뉴 항목](./media/create-visual-studio-deployment-project/deploy.png)
 
-1. **리소스 그룹에 배포** 대화 상자가 나타납니다. **리소스 그룹** 드롭다운 상자에서 기존 리소스 그룹을 선택하거나 새로 만듭니다. **배포**를 선택합니다.
+1. **리소스 그룹에 배포** 대화 상자가 나타납니다. **리소스 그룹** 드롭다운 상자에서 기존 리소스 그룹을 선택하거나 새로 만듭니다. **배포** 를 선택합니다.
 
     ![리소스 그룹에 배포 대화 상자](./media/create-visual-studio-deployment-project/show-deployment.png)
 
@@ -167,19 +167,19 @@ AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
 이 시점에서 앱에 대한 인프라를 배포했지만 프로젝트와 함께 배포된 실제 코드가 없습니다.
 
-1. Visual Studio 솔루션에 프로젝트를 추가합니다. 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **추가**  >  **새 프로젝트**를 선택 합니다.
+1. Visual Studio 솔루션에 프로젝트를 추가합니다. 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **추가**  >  **새 프로젝트** 를 선택 합니다.
 
     ![프로젝트 추가](./media/create-visual-studio-deployment-project/add-project.png)
 
-1. **ASP.NET Core 웹 애플리케이션**을 추가합니다.
+1. **ASP.NET Core 웹 애플리케이션** 을 추가합니다.
 
     ![웹앱 추가](./media/create-visual-studio-deployment-project/add-app.png)
 
-1. 웹앱에 이름을 지정하고 **만들기**를 선택합니다.
+1. 웹앱에 이름을 지정하고 **만들기** 를 선택합니다.
 
     ![웹앱 이름 지정](./media/create-visual-studio-deployment-project/name-web-app.png)
 
-1. **웹 애플리케이션** 및 **만들기**를 선택합니다.
+1. **웹 애플리케이션** 및 **만들기** 를 선택합니다.
 
     ![웹 애플리케이션 선택](./media/create-visual-studio-deployment-project/select-project-type.png)
 
@@ -187,15 +187,15 @@ AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
     ![프로젝트 표시](./media/create-visual-studio-deployment-project/show-projects.png)
 
-1. 이제, 리소스 그룹 프로젝트가 새 프로젝트를 인식하는지 확인해야 합니다. 리소스 그룹 프로젝트(ExampleAppDeploy)로 돌아갑니다. **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택합니다.
+1. 이제, 리소스 그룹 프로젝트가 새 프로젝트를 인식하는지 확인해야 합니다. 리소스 그룹 프로젝트(ExampleAppDeploy)로 돌아갑니다. **참조** 를 마우스 오른쪽 단추로 클릭하고 **참조 추가** 를 선택합니다.
 
     ![참조 추가 옵션이 강조 표시 된 ExampleAppDeploy 메뉴가 표시 됩니다.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. 만든 웹앱 프로젝트를 선택합니다.
 
-   ![추가 참조](./media/create-visual-studio-deployment-project/add-reference.png)
+   ![참조 추가](./media/create-visual-studio-deployment-project/add-reference.png)
 
-   참조를 추가하여 리소스 그룹 프로젝트에 웹앱 프로젝트를 연결하고 자동으로 몇 가지 속성을 설정합니다. 참조를 위한 **속성** 창에서 이러한 속성을 확인합니다. **파일 경로 포함**은 패키지를 만들 경로를 포함합니다. 폴더(ExampleApp) 및 파일(package.zip)을 적어둡니다. 이러한 값은 앱을 배포할 때 매개 변수로 제공하므로 알고 있어야 합니다.
+   참조를 추가하여 리소스 그룹 프로젝트에 웹앱 프로젝트를 연결하고 자동으로 몇 가지 속성을 설정합니다. 참조를 위한 **속성** 창에서 이러한 속성을 확인합니다. **파일 경로 포함** 은 패키지를 만들 경로를 포함합니다. 폴더(ExampleApp) 및 파일(package.zip)을 적어둡니다. 이러한 값은 앱을 배포할 때 매개 변수로 제공하므로 알고 있어야 합니다.
 
    ![참조 보기](./media/create-visual-studio-deployment-project/see-reference.png)
 
@@ -203,15 +203,15 @@ AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
     ![리소스 추가](./media/create-visual-studio-deployment-project/add-resource-2.png)
 
-1. 이번에는 **Web Apps에 대한 웹 배포**를 선택합니다.
+1. 이번에는 **Web Apps에 대한 웹 배포** 를 선택합니다.
 
     ![웹 배포 추가](./media/create-visual-studio-deployment-project/add-web-deploy.png)
 
    템플릿을 저장합니다.
 
-1. 템플릿에 몇 가지 새로운 매개 변수가 있습니다. 이전 단계에서 추가된 것입니다. 이러한 값은 자동으로 생성되므로 **_artifactsLocation** 또는 **_artifactsLocationSasToken**에 대한 값을 제공할 필요가 없습니다. 그러나 폴더와 파일 이름을 배포 패키지를 포함하는 경로로 설정해야 합니다. 이러한 매개 변수의 이름은 **PackageFolder** 및 **PackageFileName**으로 끝납니다. 이름의 첫 번째 부분은 추가한 웹 배포 리소스의 이름입니다. 이 문서에서는 이름을 **ExampleAppPackageFolder** 및 **ExampleAppPackageFileName**이라고 지정했습니다.
+1. 템플릿에 몇 가지 새로운 매개 변수가 있습니다. 이전 단계에서 추가된 것입니다. 이러한 값은 자동으로 생성되므로 **_artifactsLocation** 또는 **_artifactsLocationSasToken** 에 대한 값을 제공할 필요가 없습니다. 그러나 폴더와 파일 이름을 배포 패키지를 포함하는 경로로 설정해야 합니다. 이러한 매개 변수의 이름은 **PackageFolder** 및 **PackageFileName** 으로 끝납니다. 이름의 첫 번째 부분은 추가한 웹 배포 리소스의 이름입니다. 이 문서에서는 이름을 **ExampleAppPackageFolder** 및 **ExampleAppPackageFileName** 이라고 지정했습니다.
 
-   **Website.parameters.json**을 열고 참조 속성에서 확인한 값으로 해당 매개 변수를 설정합니다. **ExampleAppPackageFolder**를 폴더의 이름으로 설정합니다. **ExampleAppPackageFileName**을 zip 파일의 이름으로 설정합니다.
+   **Website.parameters.json** 을 열고 참조 속성에서 확인한 값으로 해당 매개 변수를 설정합니다. **ExampleAppPackageFolder** 를 폴더의 이름으로 설정합니다. **ExampleAppPackageFileName** 을 zip 파일의 이름으로 설정합니다.
 
    ```json
    {
@@ -237,7 +237,7 @@ AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
 ### <a name="az-module-script"></a>Az 모듈 스크립트
 
-Az 모듈 스크립트를 사용하는 경우 템플릿에 변경해야 할 사항이 하나 있습니다. 이 스크립트는 아티팩트 위치에 슬래시를 추가하지만 템플릿에는 해당 슬래시가 없습니다. WebSite.json을 열고 MSDeploy 확장에 대한 속성을 찾습니다. **packageUri**라는 속성이 있습니다. 아티팩트 위치와 패키지 폴더 간에 슬래시를 제거합니다.
+Az 모듈 스크립트를 사용하는 경우 템플릿에 변경해야 할 사항이 하나 있습니다. 이 스크립트는 아티팩트 위치에 슬래시를 추가하지만 템플릿에는 해당 슬래시가 없습니다. WebSite.json을 열고 MSDeploy 확장에 대한 속성을 찾습니다. **packageUri** 라는 속성이 있습니다. 아티팩트 위치와 패키지 폴더 간에 슬래시를 제거합니다.
 
 다음과 같이 표시되어야 합니다.
 
@@ -259,11 +259,11 @@ Az 모듈 스크립트를 사용하는 경우 템플릿에 변경해야 할 사�
 
 AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
-1. 다시 배포하려면 **배포**를 선택하고 이전에 배포한 리소스를 선택합니다.
+1. 다시 배포하려면 **배포** 를 선택하고 이전에 배포한 리소스를 선택합니다.
 
     ![프로젝트 다시 배포](./media/create-visual-studio-deployment-project/redeploy.png)
 
-1. **아티팩트 스토리지 계정**의 경우 이 리소스 그룹과 함께 배포된 스토리지 계정을 선택합니다.
+1. **아티팩트 스토리지 계정** 의 경우 이 리소스 그룹과 함께 배포된 스토리지 계정을 선택합니다.
 
    ![웹 배포 다시 배포](./media/create-visual-studio-deployment-project/redeploy-web-app.png)
 
@@ -362,7 +362,7 @@ Visual Studio 인터페이스를 통해 사용할 수 있는 리소스로만 제
 
 1. 프로젝트를 다시 배포합니다.
 
-1. 배포가 완료된 후 포털에서 대시보드를 확인합니다. **대시보드**를 선택하고 배포한 항목을 하나 선택합니다.
+1. 배포가 완료된 후 포털에서 대시보드를 확인합니다. **대시보드** 를 선택하고 배포한 항목을 하나 선택합니다.
 
    ![예제 사용자 지정 대시보드가 강조 표시 된 대시보드 페이지를 보여 주는 스크린샷](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
@@ -376,11 +376,11 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 대시보드에 �
 
 Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 
 1. 해당 리소스 그룹 이름을 선택합니다.
 
-1. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
+1. 위쪽 메뉴에서 **리소스 그룹 삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

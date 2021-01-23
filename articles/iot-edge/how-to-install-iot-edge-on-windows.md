@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: e603e99c1aa9c49d20bdb281bbfd96131ae2efdd
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 3470e07c1b5673efa6cd015e43e077828da1573e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663624"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703668"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 장치에 Linux 용 Azure IoT Edge 설치 및 프로 비전 (미리 보기)
 
@@ -28,7 +28,7 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
 >[!NOTE]
 >Windows에서 Linux에 대 한 IoT Edge는 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)상태입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 유효한 구독이 있는 Azure 계정. [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -162,7 +162,7 @@ Windows에서 Linux에 대 한 IoT Edge를 대상 장치에 설치 합니다 (�
    의 실행 정책이 `local machine` 이 아닌 경우 `AllSigned` 다음을 사용 하 여 실행 정책을 설정할 수 있습니다.
 
    ```azurepowershell-interactive
-   Set-ExecutionPolicy - ExecutionPolicy AllSigned -Force
+   Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
 1. Windows 배포에서 Linux에 대 한 IoT Edge를 만듭니다.

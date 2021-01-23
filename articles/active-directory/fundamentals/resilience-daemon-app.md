@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 74bfc9eeeb8375fca2c88a3fd3c31f17e130fc99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a7b8f893026bb96c8d768d2e6d07d0240ecb81fa
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919992"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724844"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-daemon-applications-you-develop"></a>개발 하는 디먼 응용 프로그램에서 인증 및 권한 부여의 복원 력 향상
 
@@ -26,7 +26,7 @@ ms.locfileid: "95919992"
 
 ## <a name="use-managed-identities-for-azure-resources"></a>Azure 리소스에 관리 되는 Id 사용
 
-Microsoft Azure에서 디먼 앱을 빌드하는 개발자는 [Azure 리소스에 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용할 수 있습니다. 관리 되는 Id를 통해 개발자는 암호 및 자격 증명을 관리할 필요가 없습니다. 이 기능은 인증서 만료, 회전 오류 또는 트러스트와 관련 된 실수를 방지 하 여 복원 력을 향상 시킵니다. 또한 복원 력을 높이기 위한 몇 가지 기본 제공 기능도 있습니다.
+Microsoft Azure에서 디먼 앱을 빌드하는 개발자는 [Azure 리소스에 관리 되는 id](../managed-identities-azure-resources/overview.md)를 사용할 수 있습니다. 관리 되는 Id를 통해 개발자는 암호 및 자격 증명을 관리할 필요가 없습니다. 이 기능은 인증서 만료, 회전 오류 또는 트러스트와 관련 된 실수를 방지 하 여 복원 력을 향상 시킵니다. 또한 복원 력을 높이기 위한 몇 가지 기본 제공 기능도 있습니다.
 
 관리 되는 Id는 오래 지속 되는 액세스 토큰 및 Microsoft Id의 정보를 사용 하 여 기존 토큰이 만료 되기 전에 긴 기간 내에 새 토큰을 사전에 획득 합니다. 새 토큰을 획득 하려고 시도 하는 동안 앱을 계속 실행할 수 있습니다.
 
@@ -34,11 +34,11 @@ Microsoft Azure에서 디먼 앱을 빌드하는 개발자는 [Azure 리소스�
 
 ## <a name="use-the-microsoft-authentication-library"></a>Microsoft 인증 라이브러리 사용
 
-관리 되는 Id를 사용 하지 않는 디먼 앱 개발자는 [MSAL (Microsoft 인증 라이브러리)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)을 사용 하 여 인증 및 권한 부여를 간단 하 게 구현 하 고 복원 력을 위한 모범 사례를 자동으로 사용할 수 있습니다. MSAL은 필요한 클라이언트 자격 증명을 보다 쉽게 제공 하는 프로세스를 수행 합니다. 예를 들어 인증서 기반 자격 증명을 사용 하는 경우 응용 프로그램에서 JSON Web Token 어설션을 만들고 서명 하는 것을 구현할 필요가 없습니다.
+관리 되는 Id를 사용 하지 않는 디먼 앱 개발자는 [MSAL (Microsoft 인증 라이브러리)](../develop/msal-overview.md)을 사용 하 여 인증 및 권한 부여를 간단 하 게 구현 하 고 복원 력을 위한 모범 사례를 자동으로 사용할 수 있습니다. MSAL은 필요한 클라이언트 자격 증명을 보다 쉽게 제공 하는 프로세스를 수행 합니다. 예를 들어 인증서 기반 자격 증명을 사용 하는 경우 응용 프로그램에서 JSON Web Token 어설션을 만들고 서명 하는 것을 구현할 필요가 없습니다.
 
 ### <a name="use-microsoftidentityweb-for-net-developers"></a>.NET 개발자를 위한 Microsoft. Identity를 사용 합니다.
 
-ASP.NET Core에서 디먼 앱을 빌드하는 개발자는 [Microsoft. Identity. 웹](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web) 라이브러리를 사용할 수 있습니다. 이 라이브러리는 MSAL을 기반으로 하 여 ASP.NET Core 앱에 대 한 권한 부여를 훨씬 쉽게 구현할 수 있도록 합니다. 여러 지역에서 실행 될 수 있는 분산 된 앱에 대 한 여러 [분산 토큰 캐시](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) 전략이 포함 되어 있습니다.
+ASP.NET Core에서 디먼 앱을 빌드하는 개발자는 [Microsoft. Identity. 웹](../develop/microsoft-identity-web.md) 라이브러리를 사용할 수 있습니다. 이 라이브러리는 MSAL을 기반으로 하 여 ASP.NET Core 앱에 대 한 권한 부여를 훨씬 쉽게 구현할 수 있도록 합니다. 여러 지역에서 실행 될 수 있는 분산 된 앱에 대 한 여러 [분산 토큰 캐시](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) 전략이 포함 되어 있습니다.
 
 ## <a name="cache-and-store-tokens"></a>캐시 및 저장소 토큰
 

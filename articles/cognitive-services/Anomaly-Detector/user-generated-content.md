@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: df526c23460e7146cd630afcb8b29a380c568250
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fcd4f73a9cea75877360b2b537776bf59fb22363
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017439"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704459"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Anomaly Detector API에 대한 추천 사용자 생성 콘텐츠
 
@@ -27,7 +27,7 @@ ms.locfileid: "92017439"
 
 ## <a name="open-source-projects"></a>오픈 소스 프로젝트
 
-* [변칙 검색을 보여 주고 Power BI에 스트리밍하는 Jupyter Notebook](https://github.com/marvinbuss/MS-AnomalyFinder)
+* [변칙 검색을 보여 주고 Power BI에 스트리밍하는 Jupyter Notebook](https://github.com/marvinbuss/MS-AnomalyDetector)
 
 리소스를 지정하려는 경우 [짧은 형식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxSkyhztUNZCtaivu8nmhd1UMENTMEJWTkRORkRGQUtGQzlWQ1dSV1JLTS4u)을 입력합니다.
 콘텐츠를 제거하려면 AnomalyDetector@microsoft.com으로 문의하거나 GitHub에서 문제를 제출하세요.

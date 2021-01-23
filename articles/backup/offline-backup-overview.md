@@ -4,12 +4,12 @@ description: 오프라인 백업의 구성 요소에 대해 알아봅니다. 여
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: c5e0f4e722e2dd15b7277a484af2a101844344e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c65cf6b36af3057fb06c6a6584fa458b1030c72
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86503628"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704138"
 ---
 # <a name="overview-of-offline-backup"></a>오프라인 백업 개요
 
@@ -45,7 +45,7 @@ Azure Data Box 기반의 오프라인 백업을 사용하려면 [Azure Data Box�
 
 ## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Azure Import/Export 서비스 기반 오프라인 백업
 
-이 옵션은 MABS(Microsoft Azure Backup Server), System Center DPM(Data Protection Manager) DPM-A 및 MARS 에이전트에서 지원됩니다. [Azure Import/Export서비스](../storage/common/storage-import-export-service.md)를 사용합니다. 사용자 고유의 Azure 호환 디스크 및 커넥터를 사용하여 초기 백업 데이터를 Azure에 전송할 수 있습니다. 이 접근 방식에서는 준비 위치라고 하는 임시 스토리지를 프로비저닝하고, 미리 작성된 유틸리티를 사용하여 포맷하고 백업 데이터를 고객 보유의 디스크에 복사해야 합니다.
+이 옵션은 MABS(Microsoft Azure Backup Server), System Center DPM(Data Protection Manager) DPM-A 및 MARS 에이전트에서 지원됩니다. [Azure Import/Export서비스](../import-export/storage-import-export-service.md)를 사용합니다. 사용자 고유의 Azure 호환 디스크 및 커넥터를 사용하여 초기 백업 데이터를 Azure에 전송할 수 있습니다. 이 접근 방식에서는 준비 위치라고 하는 임시 스토리지를 프로비저닝하고, 미리 작성된 유틸리티를 사용하여 포맷하고 백업 데이터를 고객 보유의 디스크에 복사해야 합니다.
 
 이 옵션을 사용한 백업 데이터의 이동을 설명하는 아키텍처가 여기에 표시됩니다.
 
@@ -73,7 +73,7 @@ MARS 에이전트를 통해 Azure Import/Export 서비스 기반의 오프라인
 | 서버당(MARS) 또는 보호 그룹당(MABS, DPM-A) 최대 백업 데이터 | [Azure Data Box 디스크](../databox/data-box-disk-overview.md) - 7.2TB <br> [Azure Data Box](../databox/data-box-overview.md) - 80TB       | 80TB(최대 10개 디스크, 디스크 각각 8TB)                          |
 | 보안(데이터, 디바이스 및 서비스)                           | [데이터](../databox/data-box-security.md#data-box-data-protection) - AES 256비트 암호화 <br> [디바이스](../databox/data-box-security.md#data-box-device-protection) - 데이터 복사를 위해 견고한 케이스, 독점적, 자격 증명 기반 인터페이스 <br> [서비스](../databox/data-box-security.md#data-box-service-protection) - Azure 보안 기능으로 보호 | 데이터 - BitLocker로 암호화                                 |
 | 임시 준비 위치 프로비저닝                     | 필요하지 않음                                                | 예상 백업 데이터 크기보다 크거나 같음        |
-| 지원되는 지역                                           | [Azure Data Box 디스크 지역](../databox/data-box-disk-overview.md#region-availability) <br> [Azure Data Box 지역](../databox/data-box-disk-overview.md#region-availability) | [Azure Import/Export 서비스 지역](../storage/common/storage-import-export-service.md#region-availability) |
+| 지원되는 지역                                           | [Azure Data Box 디스크 지역](../databox/data-box-disk-overview.md#region-availability) <br> [Azure Data Box 지역](../databox/data-box-disk-overview.md#region-availability) | [Azure Import/Export 서비스 지역](../import-export/storage-import-export-service.md#region-availability) |
 | 국가 간 배송                                     | 지원되지 않음  <br>    원본 주소와 대상 Azure 데이터 센터는 동일한 국가/지역에 있어야 함 * | 지원됨                                                    |
 | 전송 물류(배달, 전송, 픽업)           | Microsoft 완전 관리                                     | 고객 관리                                            |
 | 가격 책정                                                      | [Azure Data Box 가격 책정](https://azure.microsoft.com/pricing/details/databox/) <br> [Azure Data Box 디스크 가격 책정](https://azure.microsoft.com/pricing/details/databox/disk/) | [Azure Import/Export 서비스 가격 책정](https://azure.microsoft.com/pricing/details/storage-import-export/) |

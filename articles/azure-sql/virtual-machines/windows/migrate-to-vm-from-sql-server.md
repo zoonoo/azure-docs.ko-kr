@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4cd37128893309be5a1e362671b9e28dcc436b1b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: f6e9009040d2d02702f8a71c352716491d07d1f7
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356211"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704307"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신의 SQL Server로 SQL Server 데이터베이스 마이그레이션
 
@@ -68,7 +68,7 @@ ms.locfileid: "97356211"
 | [URL에 백업을 수행하고 URL에서 Azure 가상 머신으로 복원](#backup-to-url-and-restore-from-url) |SQL Server 2012 SP1 CU2 이상 | SQL Server 2012 SP1 CU2 이상 | SQL Server 2016의 경우 12.8TB 미만, 그렇지 않은 경우 1TB 미만 | 이 방법은 Azure Storage를 사용하여 VM에 백업 파일을 이동하는 또 다른 방법입니다. |
 | [데이터 및 로그 파일을 분리하여 Azure Blob 스토리지에 복사한 후 URL에서 Azure 가상 머신의 SQL Server에 연결](#detach-and-attach-from-a-url) | SQL Server 2005 이상 |SQL Server 2014 이상 | [Azure VM 스토리지 제한](../../../index.yml) | Azure File Storage를 DSVM에 탑재하려면 [데이터 과학 팀에 대한 팀 리더 작업](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure)의 섹션 4에서 설명하는 지침을 참조하세요. |
 | [온-프레미스 컴퓨터를 Hyper-V VHD로 변환하고 Azure Blob Storage에 업로드한 후 업로드된 VHD를 사용하여 새 가상 머신 배포](#convert-to-a-vm-upload-to-a-url-and-deploy-as-a-new-vm) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](../../../index.yml) |사용자 [고유의 SQL Server 라이선스](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md)를 가져올 때, 이전 버전의 SQL Server에서 실행 되는 데이터베이스를 마이그레이션할 때 또는 다른 사용자 데이터베이스 및/또는 시스템 데이터베이스에 종속 된 데이터베이스 마이그레이션의 일부로 시스템 및 사용자 데이터베이스를 함께 마이그레이션하는 경우에 사용 합니다. |
-| [Windows Import/Export 서비스를 사용하여 하드 드라이브 제공](#ship-a-hard-drive) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](../../../index.yml) |매우 큰 데이터베이스에 사용하는 경우와 같이 수동 복사 메서드가 너무 느린 경우 [Windows Import/Export 서비스](../../../storage/common/storage-import-export-service.md) 를 사용 |
+| [Windows Import/Export 서비스를 사용하여 하드 드라이브 제공](#ship-a-hard-drive) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](../../../index.yml) |매우 큰 데이터베이스에 사용하는 경우와 같이 수동 복사 메서드가 너무 느린 경우 [Windows Import/Export 서비스](../../../import-export/storage-import-export-service.md) 를 사용 |
 | [Azure 복제본 추가 마법사 사용](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-onprem-availability) |SQL Server 2012 이상 |SQL Server 2012 이상 |[Azure VM 스토리지 제한](../../../index.yml) |가동 중지 시간을 최소화하고 Always On 온-프레미스 배포가 있는 경우 사용 |
 | [SQL Server 트랜잭션 복제 사용](/sql/relational-databases/replication/transactional/transactional-replication) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](../../../index.yml) |가동 중지 시간을 최소화 하 고 Always On 온-프레미스 배포가 없는 경우 사용 |
 
@@ -83,7 +83,7 @@ ms.locfileid: "97356211"
 
 ## <a name="backup-to-url-and-restore-from-url"></a>Url에 백업 및 URL에서 복원
 
-로컬 파일에 백업 하는 대신 [url에 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 을 사용한 다음 URL에서 VM으로 복원할 수 있습니다. SQL Server 2016은 스트라이프 백업 세트를 지원합니다. 이는 성능을 위해 권장되며 Blob당 크기 제한을 초과하려면 필요합니다. 매우 큰 데이터베이스의 경우 [Windows Import/Export 서비스](../../../storage/common/storage-import-export-service.md) 를 사용하는 것이 좋습니다.
+로컬 파일에 백업 하는 대신 [url에 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 을 사용한 다음 URL에서 VM으로 복원할 수 있습니다. SQL Server 2016은 스트라이프 백업 세트를 지원합니다. 이는 성능을 위해 권장되며 Blob당 크기 제한을 초과하려면 필요합니다. 매우 큰 데이터베이스의 경우 [Windows Import/Export 서비스](../../../import-export/storage-import-export-service.md) 를 사용하는 것이 좋습니다.
 
 ## <a name="detach-and-attach-from-a-url"></a>URL에서 분리 및 연결
 
@@ -106,7 +106,7 @@ ms.locfileid: "97356211"
 
 ## <a name="ship-a-hard-drive"></a>하드 드라이브 운송
 
-네트워크를 통한 업로드가 매우 비싸거나 실행 불가능한 상황에서 [Windows 가져오기 / 내보내기 서비스 방법](../../../storage/common/storage-import-export-service.md)을 사용하여 대량의 파일 데이터를 Azure Blob 스토리지로 전송합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 스토리지 계정으로 업로드할 수 있습니다.
+네트워크를 통한 업로드가 매우 비싸거나 실행 불가능한 상황에서 [Windows 가져오기 / 내보내기 서비스 방법](../../../import-export/storage-import-export-service.md)을 사용하여 대량의 파일 데이터를 Azure Blob 스토리지로 전송합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 스토리지 계정으로 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

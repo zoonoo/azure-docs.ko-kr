@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 453eaa816ad48626b476fa392999f44e3c1a10cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 536cd01fbcf2c5d18a8c12030b709427d9bb91b1
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714555"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703609"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Azure CLI를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -38,7 +38,7 @@ Azure AD 자격 증명을 사용 하 여 Azure CLI에 로그인 합니다. 자�
 
 ## <a name="assign-permissions-with-azure-rbac"></a>Azure RBAC를 사용 하 여 사용 권한 할당
 
-Azure PowerShell에서 사용자 위임 SAS를 만들려면 Azure CLI에 로그인 하는 데 사용 되는 Azure AD 계정에 **Microsoft Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 포함 하는 역할을 할당 해야 합니다. 이 사용 권한을 통해 Azure AD 계정에서 *사용자 위임 키*를 요청할 수 있습니다. 사용자 위임 키는 사용자 위임 SAS에 서명 하는 데 사용 됩니다. 저장소 계정, 리소스 그룹 또는 구독 수준에서 **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 제공 하는 역할을 할당 해야 합니다.
+Azure PowerShell에서 사용자 위임 SAS를 만들려면 Azure CLI에 로그인 하는 데 사용 되는 Azure AD 계정에 **Microsoft Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 포함 하는 역할을 할당 해야 합니다. 이 사용 권한을 통해 Azure AD 계정에서 *사용자 위임 키* 를 요청할 수 있습니다. 사용자 위임 키는 사용자 위임 SAS에 서명 하는 데 사용 됩니다. 저장소 계정, 리소스 그룹 또는 구독 수준에서 **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 제공 하는 역할을 할당 해야 합니다.
 
 Azure AD 보안 주체에 Azure 역할을 할당할 수 있는 권한이 없는 경우 계정 소유자 또는 관리자에 게 필요한 권한을 할당 하도록 요청 해야 할 수 있습니다.
 
@@ -61,7 +61,7 @@ Azure CLI를 사용 하 여 사용자 위임 SAS를 만들 때 SAS에 서명 하
 
 사용자 위임 키가 유효한 최대 간격은 시작 날짜 로부터 7 일 이므로 시작 시간의 7 일 이내에 SAS에 대 한 만료 시간을 지정 해야 합니다. 사용자 위임 키가 만료 된 후에는 SAS가 유효 하지 않으므로 만료 시간이 7 일을 초과 하는 SAS는 7 일 동안만 유효 합니다.
 
-사용자 위임 SAS를 만들 때 및가 `--auth-mode login` `--as-user parameters` 필요 합니다. Azure Storage *login* 에 대 한 `--auth-mode` 요청이 Azure AD 자격 증명으로 인증 되도록 매개 변수에 대 한 로그인을 지정 합니다. 반환 된 `--as-user` sas가 사용자 위임 sas 여야 함을 나타내려면 매개 변수를 지정 합니다.
+사용자 위임 SAS를 만들 때 및가 `--auth-mode login` `--as-user parameters` 필요 합니다. Azure Storage  에 대 한 `--auth-mode` 요청이 Azure AD 자격 증명으로 인증 되도록 매개 변수에 대 한 로그인을 지정 합니다. 반환 된 `--as-user` sas가 사용자 위임 sas 여야 함을 나타내려면 매개 변수를 지정 합니다.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>컨테이너에 대 한 사용자 위임 SAS 만들기
 
@@ -103,7 +103,7 @@ az storage blob generate-sas \
     --permissions acdrw \
     --expiry <date-time> \
     --auth-mode login \
-    --as-user
+    --as-user \
     --full-uri
 ```
 

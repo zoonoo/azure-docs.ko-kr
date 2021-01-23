@@ -13,16 +13,16 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba7b8ff2555fd7014cf16f66745721c6425ff868
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: b40918db03c260f899c36d306c892b787cc6371c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029526"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724894"
 ---
 # <a name="build-resilience-in-your-customer-identity-and-access-management-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 고객 id 및 액세스 관리에서 복원 력 빌드
 
-[AD (Azure Active Directory) B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview) 는 중요 한 고객 연결 응용 프로그램을 성공적으로 시작할 수 있도록 설계 된 고객 Id 및 액세스 관리 (ciam) 플랫폼입니다. Microsoft는 서비스를 요구에 맞게 확장 하 고 잠재적인 중단 상황에서 복원 력을 향상 시 키도 록 설계 된 [복원 력을](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) 위한 많은 기본 제공 기능을 제공 합니다. 또한 중요 업무용 응용 프로그램을 시작 하는 경우 응용 프로그램의 다양 한 디자인 및 구성 요소와 Azure AD B2C 내에서 응용 프로그램을 구성 하는 방법을 고려 하 여 중단 또는 실패 시나리오에 대 한 응답으로 복원 력 있는 동작을 수행 하는 것이 중요 합니다. 이 문서에서는 복원 력을 높이는 데 도움이 되는 몇 가지 모범 사례에 대해 설명 합니다.
+[AD (Azure Active Directory) B2C](../../active-directory-b2c/overview.md) 는 중요 한 고객 연결 응용 프로그램을 성공적으로 시작할 수 있도록 설계 된 고객 Id 및 액세스 관리 (ciam) 플랫폼입니다. Microsoft는 서비스를 요구에 맞게 확장 하 고 잠재적인 중단 상황에서 복원 력을 향상 시 키도 록 설계 된 [복원 력을](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) 위한 많은 기본 제공 기능을 제공 합니다. 또한 중요 업무용 응용 프로그램을 시작 하는 경우 응용 프로그램의 다양 한 디자인 및 구성 요소와 Azure AD B2C 내에서 응용 프로그램을 구성 하는 방법을 고려 하 여 중단 또는 실패 시나리오에 대 한 응답으로 복원 력 있는 동작을 수행 하는 것이 중요 합니다. 이 문서에서는 복원 력을 높이는 데 도움이 되는 몇 가지 모범 사례에 대해 설명 합니다.
 
 복원 력 있는 서비스는 중단에도 불구 하 고 계속 작동 합니다. 다음과 같은 방법으로 서비스의 복원 력을 향상 시킬 수 있습니다.
 
@@ -49,3 +49,6 @@ ms.locfileid: "96029526"
 - [인증 인프라의 빌드 복원 력](resilience-in-infrastructure.md)
 
 - [응용 프로그램에서 인증 및 권한 부여의 복원 력 향상](resilience-app-development-overview.md)
+
+Azure AD B2C를 사용 하 여 복원 력 및 확장 가능한 흐름을 빌드하는 방법을 알아보려면이 비디오를 시청 하세요.
+>[!Video https://www.youtube.com/embed/8f_Ozpw9yTs]

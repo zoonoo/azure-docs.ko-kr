@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac86dfba02b54730773a1d243981e85d563517e7
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: aac1fb8e2da7a3c84b3abff47c8f476b9fb9049c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183833"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704341"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>자습서: Azure Data Box 내보내기 순서 만들기
 
@@ -28,7 +28,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 > * 내보내기 순서 추적
 > * 내보내기 순서를 취소 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 장치를 주문 하기 전에 Data Box 서비스 및 장치에 대 한 다음 구성 필수 구성 요소를 완료 합니다.
 
@@ -100,7 +100,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
     |---------|---------|
     |스토리지 계정     | 데이터를 내보낼 Azure Storage 계정입니다. |
     |내보내기 유형     | **모든 개체** 에서 내보내고 **XML 파일을 사용** 하는 데이터 형식을 지정 합니다.<ul><li> **모든 개체** - **전송 옵션** 에 대 한 선택 항목에 따라 작업에서 모든 데이터를 내보내도록 지정 합니다.</li><li> **Xml 파일 사용** – 저장소 계정에서 내보낼 blob 및/또는 파일의 경로 및 접두사 집합을 포함 하는 xml 파일을 지정 합니다. XML 파일은 선택한 저장소 계정의 컨테이너에 있어야 하 고, 파일 공유에서 선택 하는 기능은 현재 지원 되지 않습니다. 파일은 비어 있지 않은 .xml 파일 이어야 합니다.</li></ul>        |
-    |전송 옵션     |  **모두 선택**, **모든 blob** 및 **모든 파일** 에서 데이터 전송 옵션을 지정 합니다. <ul><li> **모두 선택** -모든 blob 및 Azure Files을 내보내도록 지정 합니다. Blob만 지 원하는 저장소 계정 (Blob Storage 계정)을 사용 하는 경우 **모든 파일** 옵션은 선택할 수 없습니다.</li><li> **모든 blob** -블록 및 페이지 blob만 내보내도록 지정 합니다.</li><li> **모든 파일** -blob을 제외 하 고 모든 파일을 내보내도록 지정 합니다. 저장소 계정 유형 (GPv1 및 GPv2, premium storage 또는 blob storage)은 내보낼 수 있는 데이터의 유형을 결정 합니다. 자세한 내용은 [지원 되는 저장소 계정 내보내기](../storage/common/storage-import-export-requirements.md#supported-storage-types)를 참조 하세요.</li></ul>         |
+    |전송 옵션     |  **모두 선택**, **모든 blob** 및 **모든 파일** 에서 데이터 전송 옵션을 지정 합니다. <ul><li> **모두 선택** -모든 blob 및 Azure Files을 내보내도록 지정 합니다. Blob만 지 원하는 저장소 계정 (Blob Storage 계정)을 사용 하는 경우 **모든 파일** 옵션은 선택할 수 없습니다.</li><li> **모든 blob** -블록 및 페이지 blob만 내보내도록 지정 합니다.</li><li> **모든 파일** -blob을 제외 하 고 모든 파일을 내보내도록 지정 합니다. 저장소 계정 유형 (GPv1 및 GPv2, premium storage 또는 blob storage)은 내보낼 수 있는 데이터의 유형을 결정 합니다. 자세한 내용은 [지원 되는 저장소 계정 내보내기](../import-export/storage-import-export-requirements.md#supported-storage-types)를 참조 하세요.</li></ul>         |
     |자세한 로그 포함     | 성공적으로 내보낸 모든 파일의 목록을 포함 하는 자세한 로그 파일이 필요한 지 여부를 나타냅니다.        |
 
     > [!NOTE]
@@ -181,7 +181,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 
     사용자가 할당한 관리 ID는 여러 리소스를 관리하는 데 사용할 수 있는 독립 실행형 Azure 리소스입니다. 자세한 내용은 [관리 ID 유형](/azure/active-directory/managed-identities-azure-resources/overview)을 참조하세요.  
 
-    관리 id를 새로 만들어야 하는 경우에는 [Azure Portal를 사용 하 여 사용자 할당 관리 id에 대 한 역할 만들기, 나열, 삭제 또는 할당](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)의 지침을 따르세요.
+    새 관리 ID를 만들어야 하는 경우 [Azure Portal을 사용하여 사용자가 할당한 관리 ID에 역할 만들기, 나열, 삭제 또는 할당](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)의 지침을 따릅니다.
     
     ![사용자 ID 선택](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 
@@ -330,7 +330,7 @@ Xml 파일에 대 한 몇 가지 중요 한 사항은 다음과 같습니다.
 
 다음 표에는 유효한 Blob 경로의 예가 있습니다.
 
-   | 선택기 | Blob 경로 | Description |
+   | 선택기 | Blob 경로 | 설명 |
    | --- | --- | --- |
    | 다음으로 시작 |/ |스토리지 계정의 모든 Blob을 내보냄 |
    | 다음으로 시작 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |

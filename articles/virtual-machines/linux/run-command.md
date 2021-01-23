@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 5baa6d57bd3895640f1654cf7a5ebca52f101cbe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970574"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737866"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>명령 실행을 사용하여 Linux VM에서 셸 스크립트 실행
 
@@ -21,7 +21,7 @@ ms.locfileid: "91970574"
 
 ## <a name="benefits"></a>이점
 
-여러 가지 방법으로 가상 머신에 액세스할 수 있습니다. 실행 명령은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Linux VM용 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)를 통해 사용합니다.
+여러 가지 방법으로 가상 머신에 액세스할 수 있습니다. 실행 명령은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Linux VM용 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke)를 통해 사용합니다.
 
 이 기능은 가상 머신 내에서 스크립트를 실행하려는 모든 시나리오에서 유용합니다. 네트워크 또는 관리 사용자 구성이 잘못되어 RDP 또는 SSH 포트가 열려 있지 않은 가상 머신의 문제를 해결 및 수정하는 유일한 방법 중 하나입니다.
 
@@ -56,7 +56,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>Azure CLI
 
-다음 예제는 [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 명령을 사용하여 Azure Linux VM에서 셸 스크립트를 실행합니다.
+다음 예제는 [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) 명령을 사용하여 Azure Linux VM에서 셸 스크립트를 실행합니다.
 
 ```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get update && apt-get install -y nginx"
@@ -67,16 +67,16 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## <a name="azure-portal"></a>Azure portal
 
-[Azure Portal](https://portal.azure.com)에서 VM으로 이동하여 **작업** 아래에서 **실행 명령**을 선택합니다. VM에서 실행에 사용할 수 있는 명령 목록이 표시됩니다.
+[Azure Portal](https://portal.azure.com)에서 VM으로 이동하여 **작업** 아래에서 **실행 명령** 을 선택합니다. VM에서 실행에 사용할 수 있는 명령 목록이 표시됩니다.
 
 ![명령 목록](./media/run-command/run-command-list.png)
 
-실행할 명령을 선택하세요. 명령 중 일부에는 선택 또는 필수 입력 매개 변수가 있을 수 있습니다. 이러한 명령의 경우 매개 변수는 입력 값을 제공하기 위한 텍스트 필드로 표시됩니다. 각 명령의 경우 **스크립트 보기**를 확장하여 실행되는 스크립트를 볼 수 있습니다. **RunShellScript**는 사용자 고유의 사용자 지정 스크립트를 제공할 수 있으므로 다른 명령과 다릅니다.
+실행할 명령을 선택하세요. 명령 중 일부에는 선택 또는 필수 입력 매개 변수가 있을 수 있습니다. 이러한 명령의 경우 매개 변수는 입력 값을 제공하기 위한 텍스트 필드로 표시됩니다. 각 명령의 경우 **스크립트 보기** 를 확장하여 실행되는 스크립트를 볼 수 있습니다. **RunShellScript** 는 사용자 고유의 사용자 지정 스크립트를 제공할 수 있으므로 다른 명령과 다릅니다.
 
 > [!NOTE]
 > 기본 제공된 명령은 편집할 수 없습니다.
 
-명령을 선택한 후 **실행**을 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 출력 창에 출력 및 모든 오류를 반환합니다. 다음 스크린샷은 **ifconfig** 명령을 실행하는 작업의 예제 출력을 보여줍니다.
+명령을 선택한 후 **실행** 을 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 출력 창에 출력 및 모든 오류를 반환합니다. 다음 스크린샷은 **ifconfig** 명령을 실행하는 작업의 예제 출력을 보여줍니다.
 
 ![명령 실행 스크립트 출력](./media/run-command/run-command-script-output.png)
 

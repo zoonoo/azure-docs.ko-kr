@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 9dcabe10822fd09c8f7a0da6259d81a089c1a042
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4a817f386d68c144968540dd05f3fa6859bb0acc
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936297"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704172"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -43,7 +43,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 | --- | --- |
 |Azure Virtual Machines 배포 서비스|[고객 관리 Key Vault에서 VM으로 인증서를 배포합니다](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Azure Resource Manager 템플릿 배포 서비스|[배포 하는 동안 보안 값을 전달](../../azure-resource-manager/templates/key-vault-parameter.md)합니다.|
-|Azure 애플리케이션 Gateway v2 SKU|[Key Vault 인증서를 사용 하는 TLS 종료](../../application-gateway/key-vault-certs.md)|
+|Azure 애플리케이션 Gateway v2 SKU|[Key Vault 인증서를 사용한 TLS 종료](../../application-gateway/key-vault-certs.md)|
 |Azure Disk Encryption 볼륨 암호화 서비스|가상 머신을 배포하는 동안 BitLocker 키(Windows VM) 또는 DM 암호(Linux VM) 및 키 암호화 키에 대한 액세스를 허용합니다. 그러면 [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)이 설정됩니다.|
 |Azure Backup|Azure Virtual Machines를 백업하는 동안 [Azure Backup](../../backup/backup-overview.md)을 사용하여 관련 키 및 비밀의 백업 및 복원을 허용합니다.|
 |Exchange Online 및 SharePoint Online|[고객 키](/microsoft-365/compliance/customer-key-overview)를 사용하여 Azure Storage 서비스 암호화를 위한 고객 키에 대한 액세스를 허용합니다.|
@@ -57,7 +57,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Azure 데이터 팩터리|[Data Factory에서 Key Vault의 데이터 저장소 자격 증명 페치](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](../../event-hubs/configure-customer-managed-key.md)|
 |Azure Service Bus|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](../../service-bus-messaging/configure-customer-managed-key.md)|
-|Azure Import/Export| [Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용](../../storage/common/storage-import-export-encryption-key-portal.md)
+|Azure Import/Export| [Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용](../../import-export/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[고객 관리 키를 사용 하는 레지스트리 암호화](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]

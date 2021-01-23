@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/22/2021
 ms.author: victorh
-ms.openlocfilehash: dc1eb64b5cfb527c10967a1a46525a418fdc37e3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6910fda855402d2f99994da1e835560be84ca2dd
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674000"
+ms.locfileid: "98703380"
 ---
 # <a name="ip-groups-in-azure-firewall"></a>Azure 방화벽의 IP 그룹
 
@@ -28,7 +28,7 @@ IP 그룹은 단일 IP 주소, 여러 IP 주소 또는 하나 이상의 IP 주�
 Azure의 지역 및 구독에서 여러 방화벽에 대 한 Azure 방화벽 DNAT, 네트워크 및 응용 프로그램 규칙에서 IP 그룹을 다시 사용할 수 있습니다. 그룹 이름은 고유 해야 합니다. Azure Portal, Azure CLI 또는 REST API에서 IP 그룹을 구성할 수 있습니다. 시작 하는 데 도움이 되는 샘플 템플릿이 제공 됩니다.
 
 > [!NOTE]
-> IP 그룹은 현재 Azure 국가별 클라우드 환경에서 사용할 수 없습니다.
+> 현재 Azure 국가별 클라우드 환경에서는 IP 그룹을 사용할 수 없습니다.
 
 ## <a name="sample-format"></a>샘플 형식
 

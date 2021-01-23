@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: bd84ff553b486d200ec4501b89b42335335b223f
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: dbe6ce95427b559c037e38525f9f48195a2a76a4
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572530"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703422"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -58,9 +58,9 @@ ms.locfileid: "98572530"
 - ILR은 Azure VM 백업을 통해 백업한 Azure VM에 대해 지원됩니다. 자세한 내용은 [문서](backup-azure-restore-files-from-vm.md)를 참조하세요.
 - ILR (MABS) 또는 System Center DPM에서 Azure Backup Server 백업 된 온-프레미스 Vm의 온라인 복구 지점은 지원 되지 않습니다.
 
-### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Recovery Services 자격 증명 모음에서 온-프레미스로 데이터를 이동 하려면 어떻게 해야 하나요?
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Recovery Services 자격 증명 모음에서 온-프레미스로 데이터를 이동하려면 어떻게 해야 하나요?
 
-Data Box를 사용 하 여 Recovery Services 자격 증명 모음에서 온-프레미스로 직접 데이터를 내보낼 수는 없습니다. 데이터를 저장소 계정으로 복원한 다음 [Data Box](../databox/data-box-overview.md) 또는 [Import/Export](../storage/common/storage-import-export-service.md)를 통해 온-프레미스로 이동할 수 있습니다.
+Data Box를 사용 하 여 Recovery Services 자격 증명 모음에서 온-프레미스로 직접 데이터를 내보낼 수는 없습니다. 데이터를 저장소 계정으로 복원한 다음 [Data Box](../databox/data-box-overview.md) 또는 [Import/Export](../import-export/storage-import-export-service.md)를 통해 온-프레미스로 이동할 수 있습니다.
 
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>CRR (지역 중복 저장소) 기능을 사용 하거나 사용 하지 않고 GRS (지역 중복 저장소) 자격 증명 모음 간의 차이점은 무엇 인가요?
 

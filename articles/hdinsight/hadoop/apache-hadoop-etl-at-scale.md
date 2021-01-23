@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e7a8a72d0669f39cc27c997d83af1e6272d045a6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462175"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704155"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -82,7 +82,7 @@ Data Lake Storage는 Azure Event Hubs 또는 Apache Storm을 통한 이벤트 �
 
 - **Azure ExpressRoute:** Azure 데이터 센터와 온-프레미스 인프라 사이의 프라이빗 연결을 만듭니다. 이러한 연결은 대량의 데이터를 전송할 때 신뢰할 수 있는 옵션을 제공합니다. 자세한 내용은 [Azure ExpressRoute 설명서](../../expressroute/expressroute-introduction.md)를 참조하세요.
 
-- **하드 디스크 드라이브에서 데이터 업로드:** [Azure Import/Export 서비스](../../storage/common/storage-import-export-service.md)를 사용하여 데이터가 포함된 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Blob Storage에 업로드됩니다. 그런 다음, Azure Data Factory 또는 AdlCopy 도구를 사용하여 Azure Blob storage에서 Data Lake Storage로 데이터를 복사할 수 있습니다.
+- **하드 디스크 드라이브에서 데이터 업로드:** [Azure Import/Export 서비스](../../import-export/storage-import-export-service.md)를 사용하여 데이터가 포함된 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Blob Storage에 업로드됩니다. 그런 다음, Azure Data Factory 또는 AdlCopy 도구를 사용하여 Azure Blob storage에서 Data Lake Storage로 데이터를 복사할 수 있습니다.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
