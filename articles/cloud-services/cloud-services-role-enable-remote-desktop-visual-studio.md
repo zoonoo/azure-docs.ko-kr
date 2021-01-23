@@ -1,25 +1,24 @@
 ---
-title: Visual Studio를 사용 하 여 역할에 대해 원격 데스크톱을 사용 하도록 설정 합니다 (Azure Cloud Services).
+title: Visual Studio를 사용 하 여 역할에 대해 원격 데스크톱을 사용 하도록 설정 합니다 (Azure Cloud Services 클래식).
 description: Azure 클라우드 서비스 애플리케이션을 구성하여 원격 데스크톱 연결을 허용하는 방법입니다.
-services: cloud-services
-author: ghogen
-manager: jillfra
-ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: article
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ad95cefbdf839c28b0979b051e217a1dfec76eea
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80294381"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743239"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Visual Studio를 사용하여 Azure Cloud Services에서 역할에 대한 원격 데스크톱 연결 사용
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Visual Studio를 사용 하 여 Azure Cloud Services (클래식)에서 역할에 대 한 원격 데스크톱 연결 사용
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -36,26 +35,26 @@ Visual Studio에서 클라우드 서비스에 제공하는 게시 마법사에�
 
 Visual Studio 2017 버전 15.4 및 이전 버전을 사용하는 경우 게시 마법사에서 **모든 역할에 원격 데스크톱 사용** 옵션을 사용할 수 있습니다. Visual Studio 2017 버전 15.5 이상에서는 마법사를 계속 사용할 수 있지만 원격 데스크톱 옵션은 사용하지 않습니다.
 
-1. Visual Studio의 [솔루션 탐색기]에서 클라우드 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택하여 게시 마법사를 시작합니다.
+1. Visual Studio의 [솔루션 탐색기]에서 클라우드 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택하여 게시 마법사를 시작합니다.
 
-2. 필요한 경우 Azure 구독에 로그인하고 **다음**을 선택합니다.
+2. 필요한 경우 Azure 구독에 로그인하고 **다음** 을 선택합니다.
 
-3. **설정** 페이지에서 **모든 역할에 원격 데스크톱 사용**을 선택한 다음, **설정...** 링크를 선택하여 **원격 데스크톱 구성** 대화 상자를 엽니다.
+3. **설정** 페이지에서 **모든 역할에 원격 데스크톱 사용** 을 선택한 다음, **설정...** 링크를 선택하여 **원격 데스크톱 구성** 대화 상자를 엽니다.
 
-4. 대화 상자의 아래쪽에서 **기타 옵션**을 선택합니다. 이 명령은 원격 데스크톱을 통해 연결할 때 자격 증명 정보를 암호화할 수 있도록 인증서를 만들거나 선택하는 드롭다운 목록을 표시합니다.
+4. 대화 상자의 아래쪽에서 **기타 옵션** 을 선택합니다. 이 명령은 원격 데스크톱을 통해 연결할 때 자격 증명 정보를 암호화할 수 있도록 인증서를 만들거나 선택하는 드롭다운 목록을 표시합니다.
 
    > [!Note]
    > 원격 데스크톱 연결에 필요한 인증서는 다른 Azure 작업에 사용하는 인증서와 다릅니다. 원격 액세스 인증서에는 프라이빗 키가 있어야 합니다.
 
-5. 목록에서 인증서를 선택 하거나 ** &lt; 만들기 &gt; **...를 선택 합니다. 새 인증서를 만들 때 메시지가 표시되면 새 인증서에 대한 이름을 입력하고 **확인**을 선택합니다. 새 인증서가 드롭다운 목록 상자에 표시됩니다.
+5. 목록에서 인증서를 선택 하거나 **&lt; 만들기 &gt;**...를 선택 합니다. 새 인증서를 만들 때 메시지가 표시되면 새 인증서에 대한 이름을 입력하고 **확인** 을 선택합니다. 새 인증서가 드롭다운 목록 상자에 표시됩니다.
 
 6. 사용자 이름과 암호를 제공합니다. 기존 계정을 사용할 수 없습니다. "관리자"는 새 계정에 대한 사용자 이름으로 사용하지 않습니다.
 
 7. 계정이 만료되고 이후에 원격 데스크톱 연결이 차단될 날짜를 선택합니다.
 
-8. 필요한 모든 정보를 제공한 후 **확인**을 클릭합니다. Visual Studio에서 선택한 인증서를 사용하여 암호화된 암호를 포함한 원격 데스크톱 설정을 프로젝트의 `.cscfg` 및 `.csdef` 파일에 추가합니다.
+8. 필요한 모든 정보를 제공한 후 **확인** 을 클릭합니다. Visual Studio에서 선택한 인증서를 사용하여 암호화된 암호를 포함한 원격 데스크톱 설정을 프로젝트의 `.cscfg` 및 `.csdef` 파일에 추가합니다.
 
-9. **다음** 단추를 사용하여 나머지 단계를 완료한 다음, 클라우드 서비스를 게시할 준비가 되면 **게시**를 선택합니다. 게시할 준비가 되지 않은 경우 변경 내용을 저장할지 묻는 메시지가 표시되면 **취소**를 선택하고 **예**로 대답합니다. 나중에 이러한 설정을 사용하여 클라우드 서비스를 게시할 수 있습니다.
+9. **다음** 단추를 사용하여 나머지 단계를 완료한 다음, 클라우드 서비스를 게시할 준비가 되면 **게시** 를 선택합니다. 게시할 준비가 되지 않은 경우 변경 내용을 저장할지 묻는 메시지가 표시되면 **취소** 를 선택하고 **예** 로 대답합니다. 나중에 이러한 설정을 사용하여 클라우드 서비스를 게시할 수 있습니다.
 
 ## <a name="configure-remote-desktop-when-using-visual-studio-2017-version-155-and-later"></a>Visual Studio 2017 버전 15.5 이상을 사용하는 경우의 원격 데스크톱 구성
 
@@ -86,7 +85,7 @@ Certificate with thumbprint [thumbprint] doesn't exist.
 
 Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인에 다음 세부 정보를 포함합니다.
 
-1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예를 들면 다음과 같습니다.
+1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None
@@ -97,7 +96,7 @@ Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인
 
 1. 배포 단계가 완료되면 **Azure Powershell** 단계를 추가하고, **표시 이름** 속성을 "Azure 배포: RDP 확장 사용"(또는 다른 적절한 이름)으로 설정하고, 적절한 Azure 구독을 선택합니다.
 
-1. **스크립트 유형**을 "인라인"으로 설정하고, 아래 코드를 **인라인 스크립트** 필드에 붙여넣습니다. (또한 이 스크립트를 사용하여 프로젝트에 `.ps1` 파일을 만들고, **스크립트 유형**을 "스크립트 파일 경로"로 설정하고, 이 파일을 가리키도록 **스크립트 경로**를 설정할 수도 있습니다.)
+1. **스크립트 유형** 을 "인라인"으로 설정하고, 아래 코드를 **인라인 스크립트** 필드에 붙여넣습니다. (또한 이 스크립트를 사용하여 프로젝트에 `.ps1` 파일을 만들고, **스크립트 유형** 을 "스크립트 파일 경로"로 설정하고, 이 파일을 가리키도록 **스크립트 경로** 를 설정할 수도 있습니다.)
 
     ```ps
     Param(
@@ -142,7 +141,7 @@ Azure에 클라우드 서비스를 게시하고 원격 데스크톱을 사용하
 
 1. 서버 탐색기에서 **Azure** 노드를 확장한 다음 클라우드 서비스에 대한 노드 및 해당 역할 중 하나를 확장하여 인스턴스 목록을 표시합니다.
 
-2. 인스턴스 노드를 마우스 오른쪽 단추로 클릭하고 **원격 데스크톱을 사용하여 연결**을 선택합니다.
+2. 인스턴스 노드를 마우스 오른쪽 단추로 클릭하고 **원격 데스크톱을 사용하여 연결** 을 선택합니다.
 
 3. 이전에 만든 사용자 이름 및 암호를 입력합니다. 이제 원격 세션에 로그인됩니다.
 

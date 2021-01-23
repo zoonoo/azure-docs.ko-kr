@@ -1,24 +1,25 @@
 ---
-title: Azure Cloud Services 역할에 .NET 설치 | Microsoft Docs
+title: Azure Cloud Services (클래식) 역할에 .NET 설치 | Microsoft Docs
 description: 이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 .NET Framework를 수동으로 설치하는 방법을 설명합니다.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 06/22/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6de4b79560557fc86edb9e1a25e32a6a1983ceb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 18665fabad079a8759f26be8834b2fe029ab5f49
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932239"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742780"
 ---
-# <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services 역할에 .NET 설치
+# <a name="install-net-on-azure-cloud-services-classic-roles"></a>Azure Cloud Services (클래식) 역할에 .NET 설치
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 이 문서에서는 Azure 게스트 OS와 함께 제공되지 않는 .NET Framework 버전을 설치하는 방법을 설명합니다. 클라우드 서비스 웹 및 작업자 역할을 구성하기 위해 게스트 OS에 .NET을 사용할 수 있습니다.
 
 예를 들어 게스트 OS 제품군 4에 .NET Framework 4.6.2를 설치할 수 있습니다 .이 4는 .NET Framework 4.6의 릴리스와 함께 제공 되지 않습니다. (게스트 OS 제품군 5는 .NET Framework 4.6와 함께 제공 됩니다.) Azure 게스트 OS 릴리스에 대 한 최신 정보는 [Azure 게스트 os 릴리스 뉴스](cloud-services-guestos-update-matrix.md)를 참조 하세요. 
@@ -36,11 +37,11 @@ ms.locfileid: "88932239"
 * [.NET Framework 4.6.2 웹 설치 관리자](https://www.microsoft.com/download/details.aspx?id=53345)
 
 *웹* 역할에 대한 설치 관리자를 추가하려면
-  1. **솔루션 탐색기** 내 클라우드 서비스 프로젝트의 **역할** 아래에서 *웹* 역할을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 폴더**를 선택합니다. **Bin**이라는 폴더를 만듭니다.
-  2. Bin 폴더를 마우스 오른쪽 단추로 클릭 하 **Add**고  >  **기존 항목**추가를 선택 합니다. .NET 설치 관리자를 선택하고 bin 폴더에 추가합니다.
+  1. **솔루션 탐색기** 내 클라우드 서비스 프로젝트의 **역할** 아래에서 *웹* 역할을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 폴더** 를 선택합니다. **Bin** 이라는 폴더를 만듭니다.
+  2. Bin 폴더를 마우스 오른쪽 단추로 클릭 하 고  >  **기존 항목** 추가를 선택 합니다. .NET 설치 관리자를 선택하고 bin 폴더에 추가합니다.
   
 *작업자* 역할에 대해 설치 관리자를 추가하려면
-* *작업자* 역할을 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목**을 선택합니다. .NET 설치 관리자를 선택하고 역할에 추가합니다. 
+* *작업자* 역할을 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목** 을 선택합니다. .NET 설치 관리자를 선택하고 역할에 추가합니다. 
 
 이러한 방식으로 역할 콘텐츠 폴더에 파일이 추가되면 클라우드 서비스 패키지에도 자동으로 추가됩니다. 그런 다음 파일은 가상 머신에서 일관된 위치에 배포됩니다. 모든 역할에 설치 관리자 복사본이 있도록 클라우드 서비스의 각 웹 및 작업자 역할에 대해 이 프로세스를 반복합니다.
 
@@ -74,14 +75,14 @@ ms.locfileid: "88932239"
     </Startup>
     ```
    
-    위 구성은 .NET Framework를 설치하기 위해 관리자 권한으로 `install.cmd` 콘솔 명령을 실행합니다. 이 구성에서는 이름이 **NETFXInstall**인 **LocalStorage** 요소도 만듭니다. 시작 스크립트는 이 로컬 스토리지 리소스를 사용하도록 temp 폴더를 설정합니다. 
+    위 구성은 .NET Framework를 설치하기 위해 관리자 권한으로 `install.cmd` 콘솔 명령을 실행합니다. 이 구성에서는 이름이 **NETFXInstall** 인 **LocalStorage** 요소도 만듭니다. 시작 스크립트는 이 로컬 스토리지 리소스를 사용하도록 temp 폴더를 설정합니다. 
     
     > [!IMPORTANT]
     > 프레임워크가 올바르게 설치되도록 하려면 이 리소스의 크기를 1024MB 이상으로 설정합니다.
     
     시작 작업에 대한 자세한 내용은 [일반적인 Azure Cloud Services 시작 작업](cloud-services-startup-tasks-common.md)을 참조하세요.
 
-2. **install.cmd**라는 파일을 만들어 다음 설치 스크립트를 파일에 추가합니다.
+2. **install.cmd** 라는 파일을 만들어 다음 설치 스크립트를 파일에 추가합니다.
 
    스크립트는 레지스트리를 쿼리하여 지정된 .NET Framework 버전이 컴퓨터에 이미 설치되어 있는지 확인합니다. .NET Framework 버전이 설치 되어 있지 않으면 .NET Framework 웹 설치 관리자가 열립니다. 문제 해결을 돕기 위해 이 스크립트는 **InstallLogs** 로컬 스토리지에 저장된 startuptasklog-(현재 날짜 및 시간).txt 파일에 모든 작업을 기록합니다.
    
@@ -198,7 +199,7 @@ ms.locfileid: "88932239"
    EXIT /B 0
    ```
 
-3. **Add**  >  이 항목의 앞부분에서 설명한 대로 **솔루션 탐색기** 의**기존 항목** 추가를 사용 하 여 각 역할에 install .cmd 파일을 추가 합니다. 
+3.   >  이 항목의 앞부분에서 설명한 대로 **솔루션 탐색기** 의 **기존 항목** 추가를 사용 하 여 각 역할에 install .cmd 파일을 추가 합니다. 
 
     이 단계가 완료된 후에는 모든 역할에 .NET 설치 관리자 파일과 install.cmd 파일이 있습니다.
 

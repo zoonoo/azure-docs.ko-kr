@@ -1,28 +1,24 @@
 ---
 title: 구성 및 관리 문제 FAQ
-titleSuffix: Azure Cloud Services
 description: 이 문서는 Microsoft Azure Cloud Services의 구성 및 관리에 대한 질문과 대답을 나열합니다.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: genli
-ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011027"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742593"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Azure Cloud Services (클래식)에 대 한 구성 및 관리 문제: Faq (질문과 대답)
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 
 이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 구성 및 관리 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
 
@@ -62,7 +58,7 @@ ms.locfileid: "96011027"
 
 **일반**
 
-- ["nosniff"를 내 웹 사이트에 추가하려면 어떻게 할까요?](#how-do-i-add-nosniff-to-my-website)
+- [`nosniff`내 웹 사이트에 추가 어떻게 할까요??](#how-do-i-add-nosniff-to-my-website)
 - [웹 역할에 IIS를 사용자 지정하려면 어떻게 할까요?](#how-do-i-customize-iis-for-a-web-role)
 - [클라우드 서비스에 대 한 할당량 제한은 무엇 인가요?](#what-is-the-quota-limit-for-my-cloud-service)
 - [클라우드 서비스 VM의 드라이브에 사용 가능한 디스크 공간이 거의 표시 되지 않는 이유는 무엇 인가요?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
@@ -128,7 +124,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있는 기능이 곧 제공됩니다. [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0)를 사용하여 각 위치 값을 설정할 수 있습니다.
+Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있는 기능이 곧 제공됩니다. [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0&preserve-view=true)를 사용하여 각 위치 값을 설정할 수 있습니다.
 
 인스턴스 수준에서 메트릭을 모니터링할 수 있습니다. 추가 모니터링 기능은 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)에서 제공합니다.
 
@@ -146,9 +142,9 @@ Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있�
 다음 옵션을 통해 WAD(Windows Azure Diagnostics) 로깅을 활성화할 수 있습니다.
 1. [Visual Studio에서 활성화](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [.NET 코드를 통해 사용](./cloud-services-dotnet-diagnostics.md)
-3. [Powershell을 통해 활성화](./cloud-services-diagnostics-powershell.md)
+3. [PowerShell을 통해 사용](./cloud-services-diagnostics-powershell.md)
 
-Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) ps cmd를 사용하거나 "Cloud Services --> 확장" 블레이드에서 포털을 통해 볼 수 있습니다.
+클라우드 서비스의 현재 WAD 설정을 가져오려면 [AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) PowerShell cmd를 사용 하거나 "Cloud Services--> 확장" 블레이드에서 포털을 통해 볼 수 있습니다.
 
 
 ## <a name="network-configuration"></a>네트워크 구성
@@ -198,7 +194,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 5. 서버를 다시 시작합니다.
 6. **기본 웹 사이트** 로 이동하여 **바인딩** 에서 방금 만든 자체 서명된 인증서와 새 TLS 바인딩을 만듭니다. 
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 - [IIS의 HTTP/2](https://blogs.iis.net/davidso/http2)
 - [동영상: Windows 10에서 HTTP/2: 브라우저, 앱 및 웹 서버](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -233,7 +229,7 @@ Azure Active Directory에 조인된 컴퓨터에서 RDP 파일을 사용하는 �
 1. 다운로드한 RDP 파일을 마우스 오른쪽 단추로 클릭한 다음 **편집** 을 선택합니다.
 2. 사용자 이름 앞에 "&#92;"을 접두사로 추가합니다. 예를 들어 **username** 대신 **.\username** 을 사용합니다.
 
-## <a name="scaling"></a>확장
+## <a name="scaling"></a>크기 조정
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>X 인스턴스 이상 확장할 수 없습니다.
 사용자의 Azure 구독은 사용할 수 있는 코어 수를 제한합니다. 사용 가능한 모든 코어를 사용하는 경우 크기 조정은 작동하지 않습니다. 예를 들어 100개의 코어 제한이 있으면 클라우드 서비스에 대한 100개의 A1 크기 가상 머신 인스턴스나 50개의 A2 크기 가상 머신 인스턴스를 생성할 수 있습니다.
@@ -254,7 +250,7 @@ Cloud Services용 Azure Diagnostics 로깅을 사용하도록 설정하는 방�
 
 ## <a name="generic"></a>일반
 
-### <a name="how-do-i-add-nosniff-to-my-website"></a>"nosniff"를 내 웹 사이트에 추가하려면 어떻게 할까요?
+### <a name="how-do-i-add-nosniff-to-my-website"></a>`nosniff`내 웹 사이트에 추가 어떻게 할까요??
 클라이언트가 MIME 형식을 스니핑하지 않도록 하려면 *web.config* 파일에 설정을 추가합니다.
 
 ```xml
@@ -284,11 +280,11 @@ IIS에서 설정으로도 추가할 수 있습니다. [일반적인 시작 작�
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>클라우드 서비스 VM의 드라이브에 사용 가능한 디스크 공간이 거의 표시되지 않는 이유는 무엇인가요?
 이 동작은 정상적이며 애플리케이션에 문제가 발생하지 않아야 합니다. 저널은 Azure PaaS VM에서 %approot% 드라이브에 설정되며 이 기능은 기본적으로 파일이 차지하는 공간의 두 배를 사용합니다. 그러나 이를 사소하게 만드는 몇 가지 사항이 있습니다.
 
-% Approot% 드라이브 크기는 \<size of .cspkg + max journal size + a margin of free space> 또는 1.5 GB 중 더 큰 값으로 계산 됩니다. VM의 크기는 이 계산과 관련이 없습니다. (VM 크기는 임시 C: 드라이브의 크기에 영향을 줍니다.) 
+%approot% 드라이브 크기는 <.cspkg 크기 + 최대 저널 크기 + 여유 공간의 여백> 또는 1.5GB 중 더 큰 값으로 계산됩니다. VM의 크기는 이 계산과 관련이 없습니다. (VM 크기는 임시 C: 드라이브의 크기에 영향을 줍니다.) 
 
 %approot% 드라이브에 작성하도록 지원되지 않습니다. Azure VM에 작성하는 경우 임시 LocalStorage 리소스에서 수행해야 합니다(또는 Blob Storage, Azure Files 등과 같은 다른 옵션). 따라서 %approot% 폴더에서 사용 가능한 공간의 크기는 의미가 없습니다. 애플리케이션을 %approot% 드라이브에 작성하는지 확실하지 않은 경우 몇 일 동안 서비스를 실행한 다음, "이전" 및 "이후" 크기를 비교할 수 있습니다. 
 
-Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다. .cspkg에서 VHD가 생성되고 Azure VM에 탑재되면 이 드라이브에 작성될 수 있는 유일한 항목은 사용자의 애플리케이션입니다. 
+Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다. 에서 VHD를 만들고 `.cspkg` AZURE VM에 탑재 한 후에는이 드라이브에 쓸 수 있는 유일한 사항은 응용 프로그램입니다. 
 
 저널 설정을 구성할 수 없으므로 끌 수 없습니다.
 
@@ -297,7 +293,7 @@ Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다
 시작 작업에서 PowerShell 스크립트를 사용하여 맬웨어 방지 확장을 사용하도록 설정할 수 있습니다. 다음 문서에 나온 단계를 따라 구현합니다. 
  
 - [PowerShell 시작 작업 만들기](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0&preserve-view=true)
 
 맬웨어 방지 배포 시나리오 및 포털에서 활성화하는 방법에 대한 자세한 내용은 [맬웨어 방지 배포 시나리오](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)를 참조하세요.
 

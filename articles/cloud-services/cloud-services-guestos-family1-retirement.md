@@ -9,14 +9,15 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 6de03969a22c5b699fdfd2be17a6ba65905d23e6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7f6d3feee95d4cce654b2cc1547b8bd7f4eb45d2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073396"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743018"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>게스트 OS 제품군 1 사용 중지 확인
+
 OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습니다.
 
 **2014 년 9월 2일** Windows Server 2008 운영 체제에 기반을 둔 Azure 게스트 운영 체제(게스트 OS) 제품군 1.x가 공식적으로 사용 중지되었습니다. 게스트 OS 제품군 1이 사용 중지된 것을 알리는 오류 메시지와 함께 새 서비스를 배포하거나 제품군 1을 사용하여 기존 서비스를 업그레이드 하려는 모든 시도가 실패했습니다.

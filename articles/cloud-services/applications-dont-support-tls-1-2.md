@@ -12,14 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: ae284a6afa1f2e396aef8177229c344b569be6ec
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 70bcf5bce1c8c07633baf070149a9bb80c331d9c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075674"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742576"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>TLS 1.2를 지원하지 않는 애플리케이션 문제 해결
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 이 문서에서는 이전 TLS 프로토콜(TLS 1.0 및 1.1)을 사용하도록 설정하고 Windows Server 2019 클라우드 서비스 웹 및 작업자 역할에서 추가 프로토콜을 지원하기 위한 레거시 암호 그룹을 적용하는 방법을 설명합니다. 
 
 TLS 1.0 및 TLS 1.1을 사용 중단하는 단계를 수행하는 동안 고객은 사용 중단을 계획할 때까지 이전 프로토콜 및 암호 그룹을 지원해야 할 수 있습니다.  이러한 레거시 값을 다시 사용하도록 설정하지 않는 것이 좋지만 고객에게 도움이 되는 지침을 제공하고 있습니다. 고객은 이 문서에서 설명하는 변경 내용을 구현하기 전에 재발 위험을 평가하는 것이 좋습니다. 
@@ -51,7 +55,7 @@ Windows Server 2019 클라우드 서버 이미지는 레지스트리 수준에�
 
 ## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>1단계: TLS 1.0 및 TLS 1.1를 사용하도록 설정하는 PowerShell 스크립트 만들기 
 
-이전 프로토콜 및 암호 그룹을 사용하도록 설정하는 스크립트를 만들려면 다음 코드를 예제로 사용합니다. 이 설명서에서는 이 스크립트의 이름을 **TLSsettings.ps1**으로 지정합니다. 이후 단계에서 쉽게 액세스할 수 있도록 이 스크립트를 로컬 데스크톱에 저장합니다. 
+이전 프로토콜 및 암호 그룹을 사용하도록 설정하는 스크립트를 만들려면 다음 코드를 예제로 사용합니다. 이 설명서에서는 이 스크립트의 이름을 **TLSsettings.ps1** 으로 지정합니다. 이후 단계에서 쉽게 액세스할 수 있도록 이 스크립트를 로컬 데스크톱에 저장합니다. 
 
 
 ```Powershell
@@ -273,7 +277,7 @@ If ($reboot) {
 
 ## <a name="step-2-create-a-command-file"></a>2단계: 명령 파일 만들기 
 
-아래 코드를 사용하여 **RunTLSSettings.cmd**라는 CMD 파일을 만듭니다. 이후 단계에서 쉽게 액세스할 수 있도록 이 스크립트를 로컬 데스크톱에 저장합니다. 
+아래 코드를 사용하여 **RunTLSSettings.cmd** 라는 CMD 파일을 만듭니다. 이후 단계에서 쉽게 액세스할 수 있도록 이 스크립트를 로컬 데스크톱에 저장합니다. 
 
 ```cmd
 SET LOG_FILE="%TEMP%\StartupLog.txt"
@@ -342,19 +346,19 @@ EXIT /B %ERRORLEVEL%
 ## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>4단계: 클라우드 서비스에 스크립트 추가 
 
 1) Visual Studio에서 WebRole 또는 WorkerRole을 마우스 오른쪽 단추로 클릭합니다.
-2) **추가**를 선택합니다.
-3) **기존 항목**을 선택합니다.
+2) **추가** 를 선택합니다.
+3) **기존 항목** 을 선택합니다.
 4) 파일 탐색기에서 **TLSsettings.ps1** 및 **RunTLSSettings.cmd** 파일을 저장한 데스크톱으로 이동합니다. 
 5) 두 파일을 선택하여 Cloud Services 프로젝트에 추가
 
 ## <a name="step-5-enable-copy-to-output-directory"></a>5단계: 출력 디렉터리로 복사 사용
 
-Visual Studio에서 푸시된 모든 업데이트를 사용하여 스크립트를 업로드하려면 *출력 디렉터리로 복사* 설정을 *항상 복사*로 설정해야 합니다.
+Visual Studio에서 푸시된 모든 업데이트를 사용하여 스크립트를 업로드하려면 *출력 디렉터리로 복사* 설정을 *항상 복사* 로 설정해야 합니다.
 
 1) WebRole 또는 WorkerRole 아래에서 RunTLSSettings.cmd를 마우스 오른쪽 단추로 클릭합니다.
-2) **속성**을 선택합니다.
+2) **속성** 을 선택합니다.
 3) 속성 탭에서 ‘출력 디렉터리로 복사’를 ‘항상 복사’로 변경합니다.
-4) **TLSsettings.ps1**에 대해 이 단계를 반복합니다.
+4) **TLSsettings.ps1** 에 대해 이 단계를 반복합니다.
 
 ## <a name="step-6-publish--validate"></a>6단계: 게시 및 유효성 검사
 

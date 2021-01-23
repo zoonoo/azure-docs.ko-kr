@@ -1,28 +1,31 @@
 ---
-title: Cloud Services 역할에 대한 통신 | Microsoft Docs
+title: Cloud Services (클래식)에서 역할에 대 한 통신 | Microsoft Docs
 description: Cloud Services의 역할 인스턴스에는 다른 역할 인스턴스의 외부 또는 그 사이에서 통신하도록 정의된 엔드포인트(http, https, tcp, udp)가 있을 수 있습니다.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/14/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 82aa1579a1f7feb36732153341e1eacf266a7218
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75386343"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743035"
 ---
-# <a name="enable-communication-for-role-instances-in-azure"></a>Azure에서 역할 인스턴스에 통신 사용
-클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 엔드포인트**라고 하고, 내부 연결을 **내부 엔드포인트**라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 엔드포인트를 만듭니다.
+# <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Azure Cloud Services에서 역할 인스턴스에 대 한 통신 사용 (클래식)
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
+클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 엔드포인트** 라고 하고, 내부 연결을 **내부 엔드포인트** 라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 엔드포인트를 만듭니다.
 
 ## <a name="input-endpoint"></a>입력 엔드포인트
 입력 엔드포인트가 외부에 포트를 표시하려는 경우에 사용됩니다. 엔드포인트에 대한 외부 및 내부 포트에 적용되는 엔드포인트의 프로토콜 종류 및 형식을 지정합니다. 원할 경우 [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) 특성을 사용하여 엔드포인트에 다른 내부 포트를 지정할 수 있습니다.
 
-입력 엔드포인트는 **http, https, tcp, udp**와 같은 프로토콜을 사용할 수 있습니다.
+입력 엔드포인트는 **http, https, tcp, udp** 와 같은 프로토콜을 사용할 수 있습니다.
 
 입력 엔드포인트를 만들려면 **InputEndpoint** 자식 요소를 웹 또는 작업자 역할의 **엔드포인트** 요소에 추가합니다.
 
@@ -35,7 +38,7 @@ ms.locfileid: "75386343"
 ## <a name="instance-input-endpoint"></a>인스턴스 입력 엔드포인트
 인스턴스 입력 엔드포인트는 입력 엔드포인트와 유사하지만 사용하면 부하 분산 장치에서 포트 전달을 사용하여 각 개별 역할 인스턴스에 대한 특정 공용 포트를 매핑할 수 있습니다. 단일 공용 포트 또는 포트의 범위를 지정할 수 있습니다.
 
-인스턴스 입력 엔드포인트는 프로토콜로 **tcp** 또는 **udp**만을 사용할 수 있습니다.
+인스턴스 입력 엔드포인트는 프로토콜로 **tcp** 또는 **udp** 만을 사용할 수 있습니다.
 
 인스턴스 입력 엔드포인트를 만들려면 **InstanceInputEndpoint** 자식 요소를 웹 또는 작업자 역할의 **엔드포인트** 요소에 추가합니다.
 
@@ -52,7 +55,7 @@ ms.locfileid: "75386343"
 ## <a name="internal-endpoint"></a>내부 엔드포인트
 내부 엔드포인트는 인스턴스 간 통신에 사용할 수 있습니다. 포트는 선택적이며 생략하면 엔드포인트에 동적 포트가 할당됩니다. 포트 범위를 사용할 수 있습니다. 역할 당 다섯 개의 내부 엔드포인트로 제한합니다.
 
-내부 엔드포인트는 **http, tcp, udp, any**와 같은 프로토콜을 사용할 수 있습니다.
+내부 엔드포인트는 **http, tcp, udp, any** 와 같은 프로토콜을 사용할 수 있습니다.
 
 내부 입력 엔드포인트를 만들려면 **InternalEndpoint** 자식 요소를 웹 또는 작업자 역할의 **엔드포인트** 요소에 추가합니다.
 
@@ -106,7 +109,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 > 
 > 
 
-역할 인스턴스의 내부 엔드포인트에서 포트 번호를 확인하려면 [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) 속성을 사용하여 엔드포인트 이름과 해당 IP 주소 및 포트를 포함하는 Dictionary 개체를 반환합니다. [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) 속성은 엔드포인트를 지정한 IP 주소 및 포트를 반환합니다. **PublicIPEndpoint** 속성은 엔드포인트를 분산한 부하에 포트를 반환합니다. **PublicIPEndpoint** 속성의 IP 주소 부분을 사용하지 않습니다.
+역할 인스턴스의 내부 끝점에 대 한 포트 번호를 확인 하려면 속성을 사용 하 여 [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) 끝점 이름과 해당 IP 주소 및 포트를 포함 하는 사전 개체를 반환할 수 있습니다. [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100))속성은 지정 된 끝점에 대 한 IP 주소 및 포트를 반환 합니다. `PublicIPEndpoint`속성은 부하 분산 된 끝점에 대 한 포트를 반환 합니다. 속성의 IP 주소 부분은 `PublicIPEndpoint` 사용 되지 않습니다.
 
 역할 인스턴스를 반복하는 예는 다음과 같습니다.
 
@@ -256,7 +259,7 @@ namespace WorkerRole1
 기본적으로 내부 엔드포인트가 정의된 후에 어떤 역할에서도 제한 없이 역할의 내부 엔드포인트로 통신할 수 있습니다. 통신을 제한하려면 **NetworkTrafficRules** 요소를 서비스 정의 파일의 **ServiceDefinition** 요소에 추가해야 합니다.
 
 ### <a name="scenario-1"></a>시나리오 1
-네트워크 트래픽은 **WebRole1**에서 **WorkerRole1**으로만 허용됩니다.
+네트워크 트래픽은 **WebRole1** 에서 **WorkerRole1** 으로만 허용됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -275,7 +278,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="scenario-2"></a>시나리오 2
-네트워크 트래픽은 **WebRole1**에서 **WorkerRole1** 및 **WorkerRole2**으로만 허용됩니다.
+네트워크 트래픽은 **WebRole1** 에서 **WorkerRole1** 및 **WorkerRole2** 으로만 허용됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -294,7 +297,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="scenario-3"></a>시나리오 3
-네트워크 트래픽은 **WebRole1**에서 **WorkerRole1**, 그리고 **WorkerRole1**에서 **WorkerRole2**로만 허용됩니다.
+네트워크 트래픽은 **WebRole1** 에서 **WorkerRole1**, 그리고 **WorkerRole1** 에서 **WorkerRole2** 로만 허용됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -323,7 +326,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="scenario-4"></a>시나리오 4
-네트워크 트래픽은 **WebRole1**에서 **WorkerRole1**, **WebRole1**에서 **WorkerRole2**, 그리고 **WorkerRole1**에서 **WorkerRole2**로만 허용됩니다.
+네트워크 트래픽은 **WebRole1** 에서 **WorkerRole1**, **WebRole1** 에서 **WorkerRole2**, 그리고 **WorkerRole1** 에서 **WorkerRole2** 로만 허용됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

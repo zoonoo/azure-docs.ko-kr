@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 2f242de3bfa6a2bc95dc46b4ca5c10222b755a2f
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 720d25079e1350315c9f403a8215f650db49ceb7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200926"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743086"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Windows VM에서 원격 데스크톱 서비스 또는 해당 관리자 암호 다시 설정
 Windows VM(가상 머신)에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정하거나 원격 데스크톱 서비스 구성을 다시 설정할 수 있습니다(Windows 도메인 컨트롤러에서는 지원되지 않음). 암호를 다시 설정하려면 Azure Portal이나 Azure PowerShell의 VM 액세스 확장을 사용합니다. VM에 로그인한 후 해당 로컬 관리자의 암호를 다시 설정합니다.  
@@ -90,10 +90,14 @@ PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure VM 액세스 확장이 응답하지 않고 암호를 다시 설정할 수 없는 경우 [오프라인으로 로컬 Windows 암호를 다시 설정](reset-local-password-without-agent.md)할 수 있습니다. 이는 좀 더 고급스러운 방법이며, 문제가 있는 VM의 가상 하드 디스크를 다른 VM에 연결해야 합니다. 먼저 이 문서에 설명된 단계를 수행하고, 이 단계로 해결되지 않으면 오프라인 암호 다시 설정 방법을 시도합니다.
+
+- Azure VM 액세스 확장을 설치 하지 못하는 경우 [vm 확장 문제를 해결할](../extensions/troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)수 있습니다.
+
+- VM 액세스 확장을 사용 하 여 암호를 재설정할 수 없는 경우 [로컬 Windows 암호를 오프 라인으로 다시 설정할](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)수 있습니다. 이는 좀 더 고급스러운 방법이며, 문제가 있는 VM의 가상 하드 디스크를 다른 VM에 연결해야 합니다. 먼저 이 문서에 설명된 단계를 수행하고, 이 단계로 해결되지 않으면 오프라인 암호 다시 설정 방법을 시도합니다.
 
 - [AZURE VM 확장 및 기능에 대해 알아봅니다](../extensions/features-windows.md).
 
 - [RDP 또는 SSH를 사용 하 여 Azure 가상 머신에 연결](/previous-versions/azure/dn535788(v=azure.100))합니다.
 
-- [Windows 기반 Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
+
+- [Windows 기반 Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -1,27 +1,28 @@
 ---
-title: Python 및 Azure Cloud Services 시작 | Microsoft Docs
+title: Python 및 Azure Cloud Services 시작 (클래식) | Microsoft Docs
 description: Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다.
-services: cloud-services
-documentationcenter: python
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 07/18/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-ms.openlocfilehash: 955498c663560351c01f1894fb348b89f72d549b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16aa6918c0f4b0df5ebf23f28268f8cbe5223fce
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079244"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743290"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
 
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 이 문서에서는 [Visual Studio용 Python Tools][Python Tools for Visual Studio]를 사용하여 Python 웹 및 작업자 역할을 사용하는 방법을 간략하게 설명합니다. Visual Studio를 사용하여 Python을 사용하는 기본 Cloud Service를 만들고 배포하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * [Visual Studio 2013, 2015 또는 2017](https://www.visualstudio.com/)
 * [Visual Studio용 Python Tools][Python Tools for Visual Studio](PTVS)
 * [VS 2013용 Azure SDK Tools][Azure SDK Tools for VS 2013] 또는  
@@ -44,7 +45,7 @@ Azure는 애플리케이션을 실행하기 위한 세 가지 컴퓨팅 모델�
 > 
 
 ## <a name="project-creation"></a>프로젝트 만들기
-Visual Studio의 **새 프로젝트** 대화 상자에 있는 **Python**에서 **Azure Cloud Service**를 선택하면 됩니다.
+Visual Studio의 **새 프로젝트** 대화 상자에 있는 **Python** 에서 **Azure Cloud Service** 를 선택하면 됩니다.
 
 ![새 프로젝트 대화 상자](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
@@ -70,7 +71,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 
 설치 스크립트의 가장 큰 문제는 Python을 설치하지 않았다는 점입니다. 먼저 [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 파일에 두 가지 [시작 태스크](cloud-services-startup-tasks.md)를 정의합니다. 첫 번째 작업(**PrepPython.ps1**)은 Python 런타임을 다운로드하고 설치합니다. 두 번째 작업(**PipInstaller.ps1**)은 pip를 실행하여 가질 수 있는 모든 종속성을 설치합니다.
 
-다음 스크립트는 Python 3.5를 대상으로 작성되었습니다. Python 2.x 버전을 사용하려는 경우 두 가지 시작 태스크 및 런타임 태스크에 **PYTHON2** 변수 파일을 **켜기**로 설정합니다. `<Variable name="PYTHON2" value="<mark>on</mark>" />`
+다음 스크립트는 Python 3.5를 대상으로 작성되었습니다. Python 2.x 버전을 사용하려는 경우 두 가지 시작 태스크 및 런타임 태스크에 **PYTHON2** 변수 파일을 **켜기** 로 설정합니다. `<Variable name="PYTHON2" value="<mark>on</mark>" />`
 
 ```xml
 <Startup>
@@ -97,7 +98,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 </Startup>
 ```
 
-**PYTHON2** 및 **PYPATH** 변수는 작업자 시작 작업에 추가되어야 합니다. **PYPATH** 변수는 **PYTHON2** 변수가 **켜기**로 설정되는 경우에 사용됩니다.
+**PYTHON2** 및 **PYPATH** 변수는 작업자 시작 작업에 추가되어야 합니다. **PYPATH** 변수는 **PYTHON2** 변수가 **켜기** 로 설정되는 경우에 사용됩니다.
 
 ```xml
 <Runtime>
@@ -166,7 +167,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 다음으로 역할의 **./bin** 폴더에 **PrepPython.ps1** 및 **PipInstaller.ps1** 파일을 만듭니다.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-이 스크립트는 Python을 설치합니다. **PYTHON2** 환경 변수가 **켜기**로 설정된 경우 Python 2.7이 설치되고 그렇지 않으면 Python 3.5가 설치됩니다.
+이 스크립트는 Python을 설치합니다. **PYTHON2** 환경 변수가 **켜기** 로 설정된 경우 Python 2.7이 설치되고 그렇지 않으면 Python 3.5가 설치됩니다.
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
@@ -213,7 +214,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-이 스크립트는 pip를 호출하고 **requirements.txt** 파일에 모든 종속성을 설치합니다. **PYTHON2** 환경 변수가 **켜기**로 설정된 경우 Python 2.7이 사용되고 그렇지 않으면 Python 3.5가 사용됩니다.
+이 스크립트는 pip를 호출하고 **requirements.txt** 파일에 모든 종속성을 설치합니다. **PYTHON2** 환경 변수가 **켜기** 로 설정된 경우 Python 2.7이 사용되고 그렇지 않으면 Python 3.5가 사용됩니다.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -246,9 +247,9 @@ if (-not $is_emulated){
 > 
 > 
 
-**bin\LaunchWorker.ps1**은 원래 많은 준비 작업을 수행하도록 만들었지만 실제로 작동하지 않습니다. 해당 파일의 내용을 다음 스크립트로 바꿉니다.
+**bin\LaunchWorker.ps1** 은 원래 많은 준비 작업을 수행하도록 만들었지만 실제로 작동하지 않습니다. 해당 파일의 내용을 다음 스크립트로 바꿉니다.
 
-이 스크립트는 Python 프로젝트에서 **worker.py** 파일을 호출합니다. **PYTHON2** 환경 변수가 **켜기**로 설정된 경우 Python 2.7이 사용되고 그렇지 않으면 Python 3.5가 사용됩니다.
+이 스크립트는 Python 프로젝트에서 **worker.py** 파일을 호출합니다. **PYTHON2** 환경 변수가 **켜기** 로 설정된 경우 Python 2.7이 사용되고 그렇지 않으면 Python 3.5가 사용됩니다.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -304,18 +305,18 @@ Cloud Service 프로젝트를 시작 프로젝트로 설정하고 F5 키를 누�
 
 PTVS를 에뮬레이터에서 시작할 수는 있지만 중단점 등의 디버깅 기능은 작동하지 않습니다.
 
-웹 및 작업자 역할을 디버그하려는 경우 역할 프로젝트를 시작 프로젝트로 설정하고 해당 프로젝트를 대신 디버그하면 됩니다.  여러 시작 프로젝트를 설정할 수도 있습니다.  이렇게 하려면 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다.
+웹 및 작업자 역할을 디버그하려는 경우 역할 프로젝트를 시작 프로젝트로 설정하고 해당 프로젝트를 대신 디버그하면 됩니다.  여러 시작 프로젝트를 설정할 수도 있습니다.  이렇게 하려면 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정** 을 선택합니다.
 
 ![솔루션 시작 프로젝트 속성](./media/cloud-services-python-ptvs/startup.png)
 
 ## <a name="publish-to-azure"></a>Azure에 게시
-게시하려면 솔루션의 클라우드 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+게시하려면 솔루션의 클라우드 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
 ![Microsoft Azure 게시 로그인](./media/cloud-services-python-ptvs/publish-sign-in.png)
 
 마법사를 따릅니다. 필요한 경우 원격 데스크톱을 사용합니다. 원격 데스크톱은 무언가를 디버깅해야 할 때 유용합니다.
 
-설정 구성을 완료한 후 **게시**를 클릭합니다.
+설정 구성을 완료한 후 **게시** 를 클릭합니다.
 
 출력 창에 진행률이 어느 정도 표시된 다음 Microsoft Azure 활동 로그 창이 표시됩니다.
 
@@ -324,7 +325,7 @@ PTVS를 에뮬레이터에서 시작할 수는 있지만 중단점 등의 디버
 몇 분 후에 배포가 완료되고 웹 및/또는 작업자 역할이 Azure에서 실행됩니다.
 
 ### <a name="investigate-logs"></a>로그 조사
-클라우드 서비스 가상 머신이 시작되고 Python을 설치한 후에 로그를 보고 오류 메시지를 찾을 수 있습니다. 이러한 로그는 **C:\Resources\Directory\\{role}\LogFiles** 폴더에 있습니다. 스크립트에서 Python이 설치되어 있는지 검색하려고 할 때 **PrepPython.err.txt**에는 하나 이상의 오류가 발견됩니다. **PipInstaller.err.txt**는 PIP의 이전 버전과 호환되지 않을 수 있습니다.
+클라우드 서비스 가상 머신이 시작되고 Python을 설치한 후에 로그를 보고 오류 메시지를 찾을 수 있습니다. 이러한 로그는 **C:\Resources\Directory\\{role}\LogFiles** 폴더에 있습니다. 스크립트에서 Python이 설치되어 있는지 검색하려고 할 때 **PrepPython.err.txt** 에는 하나 이상의 오류가 발견됩니다. **PipInstaller.err.txt** 는 PIP의 이전 버전과 호환되지 않을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Python Tools for Visual Studio에서 웹 및 작업자 역할을 사용하는 방법에 대한 자세한 내용은 PTVS 설명서를 참조하세요.

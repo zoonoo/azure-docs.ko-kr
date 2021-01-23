@@ -2,23 +2,23 @@
 title: Azure AD에서 Privileged Identity Management를 사용 하 여 그룹에 역할 할당 | Microsoft Docs
 description: PIM (Azure AD Privileged Identity Management)을 사용 하 여 그룹에 Azure Active Directory (Azure AD) 역할을 할당 하는 방법에 대해 알아봅니다.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74ad503374e0148e9813508b6c7f8b21e2dca7a3
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 10f179ab1bf328a2132c9206580dfa58efb80f1b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379165"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741924"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Privileged Identity Management를 사용 하 여 그룹에 역할 할당
 

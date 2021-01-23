@@ -1,28 +1,24 @@
 ---
 title: Microsoft Azure Cloud Services FAQ에 대한 배포 문제 | Microsoft Docs
 description: 이 문서는 Microsoft Azure Cloud Services의 배포에 대한 질문과 대답을 나열합니다.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
-ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75980638"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742219"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 배포 문제: FAQ(질문과 대답)
+# <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Azure Cloud Services (클래식)에 대 한 배포 문제: faq (질문과 대답)
 
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 배포 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -63,9 +59,9 @@ Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 �
 
 자세한 내용은 [클라우드 서비스를 업데이트하는 방법](cloud-services-update-azure-service.md)을 참조하세요.
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Azure Resource Manager 스토리지 계정을 사용하는 경우 Service Management API 또는 PowerShell을 통해 Cloud Services를 배포할 수 없는 이유는 무엇인가요? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Azure Resource Manager 스토리지 계정을 사용하는 경우 Service Management API 또는 PowerShell을 통해 Cloud Services를 배포할 수 없는 이유는 무엇인가요? 
 
-클라우드 서비스는 Azure Resource Manager 모델과 직접 호환 되지 않는 클래식 리소스 이므로 Azure Resource Manager 저장소 계정에 연결할 수 없습니다. 다음은 몇 가지 옵션입니다. 
+클라우드 서비스는 Azure Resource Manager 모델과 직접 호환 되지 않는 클래식 리소스 이므로 Azure Resource Manager 저장소 계정에 연결할 수 없습니다. 다음은 몇 가지 옵션입니다. 
 
 - REST API를 통해 배포.
 
@@ -73,7 +69,7 @@ Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 �
 
 - [Azure Portal](https://portal.azure.com)을 통해 배포.
 
-    이는 호출이 Azure Resource Manager와 클래식 리소스 간의 통신을 허용 하는 프록시/shim을 통과 하므로 [Azure Portal](https://portal.azure.com) 에서 작동 합니다. 
+    이는 호출이 Azure Resource Manager와 클래식 리소스 간의 통신을 허용 하는 프록시/shim을 통과 하므로 [Azure Portal](https://portal.azure.com) 에서 작동 합니다. 
 
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Azure Portal에서 배포할 스토리지 계정을 제공하도록 하는 이유는 무엇인가요?
 

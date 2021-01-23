@@ -1,21 +1,24 @@
 ---
-title: Azure 클라우드 서비스 모니터링 | Microsoft Docs
+title: Azure 클라우드 서비스 (클래식) 모니터링 | Microsoft Docs
 description: Azure 클라우드 서비스에 포함되는 모니터링 기능과 사용 가능한 일부 옵션에 대해 설명합니다.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 01/29/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 60f320f86860cca482cdf25c7d93f84dae8c4e5f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847250"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743375"
 ---
-# <a name="introduction-to-cloud-service-monitoring"></a>클라우드 서비스 모니터링 소개
+# <a name="introduction-to-cloud-service-classic-monitoring"></a>클라우드 서비스 (클래식) 모니터링 소개
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 
 클라우드 서비스의 주요 성능 메트릭을 모니터링할 수 있습니다. 모든 클라우드 서비스 역할은 최소 데이터에 해당하는 CPU 사용량, 네트워크 사용량 및 디스크 사용률을 수집합니다. `Microsoft.Azure.Diagnostics` 확장이 적용된 클라우드 서비스 역할은 추가 데이터 요소를 수집할 수 있습니다. 이 문서에서는 Cloud Services용 Azure Diagnostics 기능을 소개합니다.
 
@@ -34,7 +37,7 @@ ms.locfileid: "85847250"
 
 ## <a name="advanced-monitoring"></a>고급 모니터링
 
-고급 모니터링에서는 모니터링 하려는 역할에 **Azure 진단** 확장 (필요에 따라 Application Insights SDK)을 사용 해야 합니다. 진단 확장은 **diagnostics.wadcfgx**라는 구성 파일(역할당)을 사용하여 모니터링되는 진단 메트릭을 구성합니다. Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장합니다. 이러한 설정은 **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 및 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 파일에서 구성됩니다. 따라서 고급 모니터링에는 추가 비용이 부과됩니다.
+고급 모니터링에서는 모니터링 하려는 역할에 **Azure 진단** 확장 (필요에 따라 Application Insights SDK)을 사용 해야 합니다. 진단 확장은 **diagnostics.wadcfgx** 라는 구성 파일(역할당)을 사용하여 모니터링되는 진단 메트릭을 구성합니다. Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장합니다. 이러한 설정은 **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 및 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 파일에서 구성됩니다. 따라서 고급 모니터링에는 추가 비용이 부과됩니다.
 
 각 역할을 만들 때 Visual Studio는 역할에 Azure Diagnostics 확장을 추가합니다. 이 진단 확장은 다음과 같은 유형의 정보를 수집할 수 있습니다.
 
@@ -52,11 +55,11 @@ ms.locfileid: "85847250"
 
 ## <a name="setup-diagnostics-extension"></a>진단 확장 설정
 
-먼저 **클래식** 스토리지 계정이 없는 경우 [하나 만듭니다](../storage/common/storage-account-create.md). **클래식 배포 모델**을 지정하여 스토리지 계정을 만듭니다.
+먼저 **클래식** 스토리지 계정이 없는 경우 [하나 만듭니다](../storage/common/storage-account-create.md). **클래식 배포 모델** 을 지정하여 스토리지 계정을 만듭니다.
 
 다음으로, **스토리지 계정(클래식)** 리소스로 이동합니다. **설정**  >  **액세스 키** 를 선택 하 고 **기본 연결 문자열** 값을 복사 합니다. 클라우드 서비스에 대해 이 값이 필요합니다. 
 
-고급 진단을 사용하려면 두 개의 구성 파일인 **ServiceDefinition.csdef** 및 **ServiceConfiguration.cscfg**를 변경해야 합니다.
+고급 진단을 사용하려면 두 개의 구성 파일인 **ServiceDefinition.csdef** 및 **ServiceConfiguration.cscfg** 를 변경해야 합니다.
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
@@ -71,7 +74,7 @@ ms.locfileid: "85847250"
 
 이렇게 하면 모든 **ServiceConfiguration.cscfg** 파일에 추가해야 하는 새 설정이 정의됩니다. 
 
-Azure에 배포하기 위한 **ServiceConfiguration.cloud.cscfg** 및 에뮬레이트된 환경에서 로컬 배포에 사용되는 **ServiceConfiguration.local.cscfg**라는 두 개의 **.cscfg** 파일이 있을 것입니다. 각 **.cscfg** 파일을 열고 변경합니다. `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`이라는 설정을 추가합니다. 클래식 스토리지 계정의 **기본 연결 문자열**로 값을 설정합니다. 개발 컴퓨터에서 로컬 스토리지를 사용하려는 경우 `UseDevelopmentStorage=true`를 사용합니다.
+Azure에 배포하기 위한 **ServiceConfiguration.cloud.cscfg** 및 에뮬레이트된 환경에서 로컬 배포에 사용되는 **ServiceConfiguration.local.cscfg** 라는 두 개의 **.cscfg** 파일이 있을 것입니다. 각 **.cscfg** 파일을 열고 변경합니다. `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`이라는 설정을 추가합니다. 클래식 스토리지 계정의 **기본 연결 문자열** 로 값을 설정합니다. 개발 컴퓨터에서 로컬 스토리지를 사용하려는 경우 `UseDevelopmentStorage=true`를 사용합니다.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">

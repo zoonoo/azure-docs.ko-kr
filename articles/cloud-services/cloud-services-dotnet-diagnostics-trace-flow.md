@@ -1,28 +1,29 @@
 ---
-title: Azure 진단를 사용 하 여 Cloud Services 응용 프로그램에서 흐름 추적
-titleSuffix: Azure Cloud Services
+title: Azure 진단를 사용 하 여 Cloud Services (클래식) 응용 프로그램에서 흐름 추적
 description: Azure 애플리케이션에 추적 메시지를 추가하여 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 할 수 있습니다.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 02/20/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 8270766413729454181c461d469d49e418a1aa67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: b00bb28128cfe9a2e701647ad174ea2c9dd458e4
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932307"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742128"
 ---
-# <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Azure Diagnostics로 Cloud Services 애플리케이션의 흐름 추적
+# <a name="trace-the-flow-of-a-cloud-services-classic-application-with-azure-diagnostics"></a>Azure 진단를 사용 하 여 Cloud Services (클래식) 응용 프로그램의 흐름 추적
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 추적은 실행되는 동안 애플리케이션의 실행을 모니터링하는 방법입니다. [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) 및 [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) 클래스를 사용하여 로그의 오류 및 애플리케이션 실행, 텍스트 파일 또는 차후 분석을 위한 다른 디바이스에 대한 정보를 기록할 수 있습니다. 추적에 대한 자세한 내용은 [애플리케이션을 추적 및 계측](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications)을 참조하세요.
 
 ## <a name="use-trace-statements-and-trace-switches"></a>추적 문 및 추적 스위치 사용
-[DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) 를 애플리케이션 구성에 추가하고 애플리케이션 코드에 System.Diagnostics.Trace 또는 System.Diagnostics.Debug에 대해 호출하여 Cloud Services 애플리케이션에서 추적을 구현합니다. 작업자 역할에 대해 구성 파일 *app.config* 및 웹 역할에 대해 *web.config*를 사용합니다. Visual Studio 템플릿을 사용하여 새 호스티드 서비스를 만드는 경우 Azure Diagnostics가 프로젝트에 자동으로 추가되고 DiagnosticMonitorTraceListener가 추가하는 역할에 대한 적절한 구성 파일에 추가됩니다.
+[DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) 를 애플리케이션 구성에 추가하고 애플리케이션 코드에 System.Diagnostics.Trace 또는 System.Diagnostics.Debug에 대해 호출하여 Cloud Services 애플리케이션에서 추적을 구현합니다. 작업자 역할에 대해 구성 파일 *app.config* 및 웹 역할에 대해 *web.config* 를 사용합니다. Visual Studio 템플릿을 사용하여 새 호스티드 서비스를 만드는 경우 Azure Diagnostics가 프로젝트에 자동으로 추가되고 DiagnosticMonitorTraceListener가 추가하는 역할에 대한 적절한 구성 파일에 추가됩니다.
 
 추적 문 배치에 대한 정보는 [방법: 애플리케이션 코드에 추적 문 추가](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code)를 참조하세요.
 

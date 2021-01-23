@@ -1,21 +1,24 @@
 ---
 title: 클라우드 서비스에 대 한 TLS 구성 | Microsoft Docs
 description: 웹 역할에 대 한 HTTPS 끝점을 지정 하는 방법 및 응용 프로그램 보안을 위해 TLS/SSL 인증서를 업로드 하는 방법을 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/26/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 33aa088efd7768153d4a17472d82e0826f4ffa6b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82024849"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742644"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대 한 TLS 구성
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 
 이전에 SSL (Secure Socket Layer) 암호화로 알려진 TLS (Transport Layer Security)는 인터넷을 통해 전송 되는 데이터를 보호 하는 가장 일반적으로 사용 되는 방법입니다. 이 일반 작업에서는 웹 역할에 대 한 HTTPS 끝점을 지정 하는 방법 및 응용 프로그램 보안을 위해 TLS/SSL 인증서를 업로드 하는 방법을 설명 합니다.
 
@@ -34,10 +37,10 @@ ms.locfileid: "82024849"
 
 * 인증서는 공개 키를 포함 해야 합니다.
 * 개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
-* 인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다. Cloudapp.net 도메인에 대 한 CA (인증 기관)에서 TLS/SSL 인증서를 가져올 수 없습니다. 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 애플리케이션 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어 사용자 지정 도메인 이름이 **contoso.com** 인 경우 CA에서 ***. contoso.com** 또는 **www \. contoso.com**에 대 한 인증서를 요청 합니다.
+* 인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다. Cloudapp.net 도메인에 대 한 CA (인증 기관)에서 TLS/SSL 인증서를 가져올 수 없습니다. 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 애플리케이션 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어 사용자 지정 도메인 이름이 **contoso.com** 인 경우 CA에서 **_. contoso.com_* 또는 **www \. contoso.com** 에 대 한 인증서를 요청 합니다.
 * 인증서는 최소한 2048비트 암호화를 사용해야 합니다.
 
-테스트용으로 자체 서명된 인증서를 [만들어](cloud-services-certs-create.md) 사용할 수 있습니다. 자체 서명된 인증서는 CA를 통해 인증되지 않으며 cloudapp.net 도메인을 웹 사이트 URL로 사용할 수 있습니다. 예를 들어 다음 작업에서는 인증서에서 사용되는 CN(일반 이름)이 **sslexample.cloudapp.net**인 자체 서명된 인증서를 사용합니다.
+테스트용으로 자체 서명된 인증서를 [만들어](cloud-services-certs-create.md) 사용할 수 있습니다. 자체 서명된 인증서는 CA를 통해 인증되지 않으며 cloudapp.net 도메인을 웹 사이트 URL로 사용할 수 있습니다. 예를 들어 다음 작업에서는 인증서에서 사용되는 CN(일반 이름)이 **sslexample.cloudapp.net** 인 자체 서명된 인증서를 사용합니다.
 
 다음으로 인증서에 대한 정보를 서비스 정의 및 서비스 구성 파일에 포함해야 합니다.
 
@@ -128,9 +131,9 @@ ms.locfileid: "82024849"
     </Role>
     ```
 
-이 예제에서는 지문 알고리즘에 **sha1**을 사용합니다. 인증서의 지문 알고리즘에 적합한 값을 지정하세요.
+이 예제에서는 지문 알고리즘에 **sha1** 을 사용합니다. 인증서의 지문 알고리즘에 적합한 값을 지정하세요.
 
-서비스 정의 및 서비스 구성 파일이 업데이트되었으므로 Azure에 업로드할 배포를 패키지합니다. **cspack**를 사용하는 경우 **/generateConfigurationFile** 플래그를 사용하지 않도록 하세요. 이 플래그는 방금 삽입한 인증서 정보를 덮어씁니다.
+서비스 정의 및 서비스 구성 파일이 업데이트되었으므로 Azure에 업로드할 배포를 패키지합니다. **cspack** 를 사용하는 경우 **/generateConfigurationFile** 플래그를 사용하지 않도록 하세요. 이 플래그는 방금 삽입한 인증서 정보를 덮어씁니다.
 
 ## <a name="step-3-upload-a-certificate"></a>3단계: 인증서 업로드
 Azure Portal에 연결하고 다음을 수행합니다.
@@ -139,24 +142,24 @@ Azure Portal에 연결하고 다음을 수행합니다.
 
     ![클라우드 서비스 게시](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
-2. **인증서**를 클릭합니다.
+2. **인증서** 를 클릭합니다.
 
     ![인증서 아이콘 클릭](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-3. 인증서 영역 위쪽에서 **업로드**를 클릭합니다.
+3. 인증서 영역 위쪽에서 **업로드** 를 클릭합니다.
 
     ![업로드 메뉴 항목 클릭](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
 
-4. **파일**, **암호**를 입력하고 데이터 입력 영역 아래쪽의 **업로드**를 클릭합니다.
+4. **파일**, **암호** 를 입력하고 데이터 입력 영역 아래쪽의 **업로드** 를 클릭합니다.
 
 ## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>4단계: HTTPS를 사용하여 역할 인스턴스에 연결
 이제 Azure에서 배포가 실행되고 있으므로 HTTPS를 사용하여 연결할 수 있습니다.
 
-1. **사이트 URL**을 클릭하여 웹 브라우저를 엽니다.
+1. **사이트 URL** 을 클릭하여 웹 브라우저를 엽니다.
 
    ![사이트 URL 클릭](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
-2. 웹 브라우저에서 **http** 대신 **https**를 사용하도록 링크를 수정한 다음 페이지를 방문합니다.
+2. 웹 브라우저에서 **http** 대신 **https** 를 사용하도록 링크를 수정한 다음 페이지를 방문합니다.
 
    > [!NOTE]
    > 자체 서명된 인증서를 사용하는 경우 자체 서명된 인증서와 연결된 HTTPS 엔드포인트로 이동하면 브라우저에 인증서오류가 표시됩니다. 신뢰할 수 있는 인증 기관에서 서명한 인증서를 사용하면 이 문제가 해결되지만 이 오류는 무시할 수 있습니다. 또 다른 옵션으로 사용자의 신뢰할 수 있는 인증 기관 인증서 저장소에 자체 서명된 인증서를 추가할 수 있습니다.

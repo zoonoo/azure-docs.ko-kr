@@ -1,28 +1,24 @@
 ---
 title: 연결 및 네트워킹 문제
-titleSuffix: Azure Cloud Services
 description: 이 문서는 Microsoft Azure Cloud Services의 연결 및 네트워킹에 대한 질문과 대답을 나열합니다.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/23/2018
-ms.author: genli
-ms.openlocfilehash: d8f57cc16cad4c0b081478932f820c983e4bbdc7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c7b83c615e4ac19e10b5c4f6cc1a102206b1a39a
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070030"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742423"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 연결 및 네트워킹 문제: FAQ(질문과 대답)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Azure Cloud Services (클래식)에 대 한 연결 및 네트워킹 문제: Faq (질문과 대답)
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 
 이 문서는 [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 연결 및 네트워킹에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md)를 참조하세요.
 
@@ -32,7 +28,7 @@ ms.locfileid: "92070030"
 우선, IP를 예약하려는 가상 머신 인스턴스가 켜져 있는지 확인합니다. 다음으로 스테이징 및 프로덕션 배포 모두에 대해 예약된 IP를 사용하는지 확인합니다. *않습니다* .
 
 ## <a name="how-do-i-use-remote-desktop-when-i-have-an-nsg"></a>NSG가 있을 때 원격 데스크톱을 어떻게 사용하나요?
-포트 **3389** 및 **20000**에서 트래픽을 허용하는 규칙을 NSG에 추가합니다. 원격 데스크톱은 포트 **3389**를 사용합니다. 클라우드 서비스 인스턴스에서 부하가 분산되므로 연결할 인스턴스를 직접 제어할 수 없습니다. *RemoteForwarder* 및 *RemoteAccess* 에이전트가 RDP(원격 데스크톱 프로토콜) 트래픽을 관리하고 클라이언트에서 RDP 쿠키를 전송하고 연결할 개별 인스턴스를 지정할 수 있도록 합니다. *RemoteForwarder* 및 *RemoteAccess* 에이전트를 사용하려면 포트 **20000**이 열려 있어야 합니다. 이 포트는 NSG가 있으면 차단될 수 있습니다.
+포트 **3389** 및 **20000** 에서 트래픽을 허용하는 규칙을 NSG에 추가합니다. 원격 데스크톱은 포트 **3389** 를 사용합니다. 클라우드 서비스 인스턴스에서 부하가 분산되므로 연결할 인스턴스를 직접 제어할 수 없습니다. *RemoteForwarder* 및 *RemoteAccess* 에이전트가 RDP(원격 데스크톱 프로토콜) 트래픽을 관리하고 클라이언트에서 RDP 쿠키를 전송하고 연결할 개별 인스턴스를 지정할 수 있도록 합니다. *RemoteForwarder* 및 *RemoteAccess* 에이전트를 사용하려면 포트 **20000** 이 열려 있어야 합니다. 이 포트는 NSG가 있으면 차단될 수 있습니다.
 
 ## <a name="can-i-ping-a-cloud-service"></a>클라우드 서비스를 ping할 수 있나요?
 

@@ -2,23 +2,23 @@
 title: 클라우드 그룹에 할당 된 역할 문제 해결 FAQ-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory에서 그룹에 역할을 할당 하는 방법에 대 한 몇 가지 일반적인 질문과 문제 해결 팁을 알아보세요.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 0ff906654dc91c7b1980292efd2a737503e684e9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861938"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742916"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>클라우드 그룹에 할당된 역할 문제 해결
 
@@ -53,15 +53,15 @@ ms.locfileid: "96861938"
 
 Azure AD 디렉터리 역할 | 자격 관리 역할 | 보안 그룹을 추가할 수 있음\* | Microsoft 365 그룹 추가 가능\* | 앱 추가 가능 | SharePoint Online 사이트 추가 가능
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
-전역 관리자 | N/A | ✔️ | ✔️ | ✔️  | ✔️
-사용자 관리자  | N/A  | ✔️  | ✔️  | ✔️
+전역 관리자 | 해당 없음 | ✔️ | ✔️ | ✔️  | ✔️
+사용자 관리자  | 해당 없음  | ✔️  | ✔️  | ✔️
 Intune 관리자 | 카탈로그 소유자 | ✔️  | ✔️  | &nbsp;  | &nbsp;
 Exchange 관리자  | 카탈로그 소유자  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
 팀 서비스 관리자 | 카탈로그 소유자  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
 SharePoint 관리자 | 카탈로그 소유자 | &nbsp; | ✔️  | &nbsp;  | ✔️ 
 애플리케이션 관리자 | 카탈로그 소유자  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
 클라우드 애플리케이션 관리자 | 카탈로그 소유자  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
-사용자 | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만  | &nbsp;
+User | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만  | &nbsp;
 
 \*그룹에 역할을 할당할 수 없습니다. 즉, isAssignableToRole = false입니다. 그룹이 역할에 할당 가능 하 게 되 면 액세스 패키지를 만드는 사용자도 역할 할당 가능 그룹의 소유자 여야 합니다.
 

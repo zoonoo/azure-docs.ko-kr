@@ -1,22 +1,26 @@
 ---
-title: 클라우드 서비스를 만들고 배포하는 방법 | Microsoft Docs
+title: 클라우드 서비스를 만들고 배포 하는 방법 (클래식) | Microsoft Docs
 description: 빠른 생성 방법을 사용 하 여 클라우드 서비스를 만들고, 업로드를 사용 하 여 Azure에서 클라우드 서비스 패키지를 업로드 하 고 배포 하는 방법을 알아봅니다.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 879b86714adf50b5a4da4398389405063ac046dc
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164167"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743409"
 ---
-# <a name="how-to-create-and-deploy-a-cloud-service"></a>클라우드 서비스를 만들고 배포하는 방법
-Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기*를 제공합니다.
+# <a name="how-to-create-and-deploy-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스를 만들고 배포 하는 방법 (클래식)
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
+Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기* 를 제공합니다.
 
 이 문서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드** 를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 작업을 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 Azure 포털에서 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 사용자 지정 만들기를 사용하여 동시에 둘 다를 수행할 수 있습니다.
 
@@ -54,33 +58,34 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 
 ## <a name="create-and-deploy"></a>만들기 및 배포
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **리소스 만들기 > Compute**를 클릭한 다음, 아래로 스크롤하여 **클라우드 서비스**를 클릭합니다.
+2. **리소스 만들기 > Compute** 를 클릭한 다음, 아래로 스크롤하여 **클라우드 서비스** 를 클릭합니다.
 
-    ![리소스 만들기 > Compute에서 클라우드 서비스 옵션을 강조 표시 하는 스크린샷](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. 새 **클라우드 서비스** 창에서 **DNS 이름**의 값을 입력합니다.
+    ![클라우드 service1 게시](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+
+3. 새 **클라우드 서비스** 창에서 **DNS 이름** 의 값을 입력합니다.
 4. 새 리소스 그룹을 만들거나 기존 **리소스 그룹** 을 선택 합니다.
-5. **위치**를 선택합니다.
-6. **패키지**를 클릭합니다. **패키지 업로드** 창에서 열립니다. 필수 필드를 입력합니다. 역할에 단일 인스턴스가 포함된 경우 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.** 가 선택되어 있어야 합니다.
+5. **위치** 를 선택합니다.
+6. **패키지** 를 클릭합니다. **패키지 업로드** 창에서 열립니다. 필수 필드를 입력합니다. 역할에 단일 인스턴스가 포함된 경우 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.** 가 선택되어 있어야 합니다.
 7. **배포 시작** 이 선택되어 있는지 확인합니다.
-8. **확인**을 클릭하면 **패키지 업로드** 창이 닫힙니다.
-9. 추가할 인증서가 없는 경우 **만들기**를 클릭합니다.
+8. **확인** 을 클릭하면 **패키지 업로드** 창이 닫힙니다.
+9. 추가할 인증서가 없는 경우 **만들기** 를 클릭합니다.
 
-    ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![클라우드 service2 게시](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>인증서 업로드
 배포 패키지가 [인증서를 사용하도록 구성되었으면](cloud-services-configure-ssl-certificate-portal.md#modify)이제 인증서를 업로드할 수 있습니다.
 
-1. **인증서**를 선택 하 고 **인증서 추가** 창에서 TLS/SSL 인증서 .pfx 파일을 선택한 다음, 인증서에 대 한 **암호** 를 제공 합니다.
-2. **인증서 첨부**를 클릭한 다음, **인증서 추가** 창에서 **확인**을 클릭합니다.
-3. **클라우드 서비스** 창에서 **만들기**를 클릭합니다. 배포가 **준비** 상태에 도달하면 다음 단계로 진행할 수 있습니다.
+1. **인증서** 를 선택 하 고 **인증서 추가** 창에서 TLS/SSL 인증서 .pfx 파일을 선택한 다음, 인증서에 대 한 **암호** 를 제공 합니다.
+2. **인증서 첨부** 를 클릭한 다음, **인증서 추가** 창에서 **확인** 을 클릭합니다.
+3. **클라우드 서비스** 창에서 **만들기** 를 클릭합니다. 배포가 **준비** 상태에 도달하면 다음 단계로 진행할 수 있습니다.
 
-    ![인증서를 업로드 하는 프로세스를 강조 표시 하는 스크린샷](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![클라우드 service3 게시](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>배포가 완료되었는지 확인
 1. 클라우드 서비스 인스턴스를 클릭합니다.
 
-    서비스가 **실행 중**상태로 표시됩니다.
-2. **Essentials**에서 **사이트 URL**을 클릭하여 웹 브라우저에서 클라우드 서비스를 엽니다.
+    서비스가 **실행 중** 상태로 표시됩니다.
+2. **Essentials** 에서 **사이트 URL** 을 클릭하여 웹 브라우저에서 클라우드 서비스를 엽니다.
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 

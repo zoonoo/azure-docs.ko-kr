@@ -1,31 +1,32 @@
 ---
 title: Socket.io를 사용하는 Node.js 애플리케이션 - Azure
 description: 이 자습서를 사용 하 여 소켓을 호스트 하는 방법을 알아보세요. Azure의 IO 기반 채팅 응용 프로그램입니다. Socket.IO는 node.js 서버 및 클라이언트에 대 한 실시간 통신을 제공 합니다.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/17/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: ef7325b53f7d6450acdff4664f3e338c31be9612
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: abc02769d7d978e14975d90ae0f98547bdc4faf7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077221"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743324"
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스 (클래식)에서 Socket.IO를 사용 하 여 Node.js 채팅 응용 프로그램 빌드
 
-Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](https://socket.io)를 참조하세요.
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
+Socket.IO는 node.js 서버와 클라이언트 간의 실시간 통신을 제공 합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](https://socket.io)를 참조하세요.
 
 아래에는 완성된 애플리케이션의 스크린샷이 표시되어 있습니다.
 
 ![Azure에 호스트된 서비스를 표시하는 브라우저 창][completed-app]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
 * [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -35,10 +36,10 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 ## <a name="create-a-cloud-service-project"></a>클라우드 서비스 프로젝트 만들기
 다음은 Socket.IO 애플리케이션을 호스트하는 클라우드 서비스 프로젝트를 만드는 단계입니다.
 
-1. **시작 메뉴** 또는 **시작 화면**에서 **Windows PowerShell**을 검색합니다. 마지막으로, **Windows PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
+1. **시작 메뉴** 또는 **시작 화면** 에서 **Windows PowerShell** 을 검색합니다. 마지막으로, **Windows PowerShell** 을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행** 을 선택합니다.
 
     ![Azure PowerShell 아이콘][powershell-menu]
-2. **c:\\node**라는 디렉터리를 만듭니다.
+2. **c:\\node** 라는 디렉터리를 만듭니다.
 
     ```powershell
     PS C:\> md node
@@ -50,7 +51,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
     PS C:\> cd node
     ```
 
-4. 다음 명령을 입력하여 **chatapp**라는 이름의 새 솔루션과 **WorkerRole1**이라는 작업자 역할을 만듭니다.
+4. 다음 명령을 입력 하 여 라는 새 솔루션과 `chatapp` 이라는 작업자 역할을 만듭니다 `WorkerRole1` .
 
     ```powershell
     PS C:\node> New-AzureServiceProject chatapp
@@ -72,7 +73,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
    ![보관 파일에서 압축을 푼 examples\\chat 디렉터리의 내용을 표시하는 탐색기][chat-contents]
 
    위 스크린샷에서 강조 표시된 항목은 **examples\\chat** 디렉터리에서 복사한 파일입니다.
-3. **C:\\node\\chatapp\\WorkerRole1** 디렉터리에서 **server.js** 파일을 삭제한 다음 **app.js** 파일의 이름을 **server.js**로 변경합니다. 그러면 이전에 **Add-AzureNodeWorkerRole** cmdlet로 만든 기본 **server.js** 파일이 제거되고 채팅 예제의 애플리케이션 파일로 바뀝니다.
+3. **C:\\node\\chatapp\\WorkerRole1** 디렉터리에서 **server.js** 파일을 삭제한 다음 **app.js** 파일의 이름을 **server.js** 로 변경합니다. 그러면 이전에 **Add-AzureNodeWorkerRole** cmdlet로 만든 기본 **server.js** 파일이 제거되고 채팅 예제의 애플리케이션 파일로 바뀝니다.
 
 ### <a name="modify-serverjs-and-install-modules"></a>Server.js 수정 및 모듈 설치
 Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가지 항목을 수정해야 합니다. server.js 파일에 대해 다음 단계를 수행합니다.
@@ -89,19 +90,19 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
       var port = process.env.PORT || 3000;         //Updated
     ```
 
-3. 애플리케이션이 올바른 포트에서 수신하도록 메모장 또는 좋아하는 편집기에서 server.js를 연 후 아래와 같이 다음 줄에서 **3000**을 **process.env.port**로 변경합니다.
+3. 애플리케이션이 올바른 포트에서 수신하도록 메모장 또는 좋아하는 편집기에서 server.js를 연 후 아래와 같이 다음 줄에서 **3000** 을 **process.env.port** 로 변경합니다.
 
     ```js
-    //app.listen(3000, function () {            //Original
+    //app.listen(3000, function () {            //Original
     app.listen(process.env.port, function () {  //Updated
       var addr = app.address();
       console.log('   app listening on http://' + addr.address + ':' + addr.port);
     });
     ```
 
-**server.js**에 변경 내용을 저장한 후 다음 단계에 따라 필요한 모듈을 설치하고 Azure 에뮬레이터에서 애플리케이션을 테스트합니다.
+**server.js** 에 변경 내용을 저장한 후 다음 단계에 따라 필요한 모듈을 설치하고 Azure 에뮬레이터에서 애플리케이션을 테스트합니다.
 
-1. **Azure PowerShell**을 사용하여 디렉터리를 **C:\\node\\chatapp\\WorkerRole1** 디렉터리를 변경하고 다음 명령을 사용하여 이 애플리케이션에서 필요한 모듈을 설치합니다.
+1. **Azure PowerShell** 을 사용하여 디렉터리를 **C:\\node\\chatapp\\WorkerRole1** 디렉터리를 변경하고 다음 명령을 사용하여 이 애플리케이션에서 필요한 모듈을 설치합니다.
 
     ```powershell
     PS C:\node\chatapp\WorkerRole1> npm install
@@ -139,7 +140,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
     PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
     ```
 
-5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
+5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예:
 
     ```powershell
     PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch

@@ -1,21 +1,24 @@
 ---
-title: Windows PowerShell에서 Azure 클라우드 서비스 크기 조정 | Microsoft Docs
+title: Windows PowerShell에서 Azure 클라우드 서비스 (클래식) 크기 조정 | Microsoft Docs
 description: (클래식) PowerShell을 사용하여 Azure에서 웹 역할 또는 작업자 역할을 축소 또는 확장하는 방법을 알아봅니다.
-services: cloud-services
-author: mmccrory
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/01/2016
-ms.author: memccror
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c2cec08d86760694ec3c41a98af62c6b86e0a4c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: a090da1933b0fcd6edb5b2415c773f9efcb27387
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071094"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743307"
 ---
-# <a name="how-to-scale-a-cloud-service-in-powershell"></a>PowerShell에서 클라우드 서비스 크기를 조정하는 방법
+# <a name="how-to-scale-an-azure-cloud-service-classic-in-powershell"></a>PowerShell에서 Azure 클라우드 서비스 (클래식)의 크기를 조정 하는 방법
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 
 Windows PowerShell을 사용하여 인스턴스를 추가하거나 제거함으로써 웹 역할 또는 작업자 역할을 축소하거나 확대할 수 있습니다.  
 
@@ -59,7 +62,7 @@ Get-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>'
 Set-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>' -Slot <target_slot> -Count <desired_instances>
 ```
 
-새 인스턴스가 프로비전되고 시작되는 동안 cmdlet은 일시적으로 차단됩니다. 이 시간 동안 새 PowerShell 창을 열고 앞에 표시된 대로 **Get-AzureRole**을 호출하면 새 대상 인스턴스의 수가 표시됩니다. 그리고 포털에서 역할 상태를 검사하면 새 인스턴스가 시작 중임이 표시되어야 합니다.
+새 인스턴스가 프로비전되고 시작되는 동안 cmdlet은 일시적으로 차단됩니다. 이 시간 동안 새 PowerShell 창을 열고 앞에 표시된 대로 **Get-AzureRole** 을 호출하면 새 대상 인스턴스의 수가 표시됩니다. 그리고 포털에서 역할 상태를 검사하면 새 인스턴스가 시작 중임이 표시되어야 합니다.
 
 ![포털에서 시작 중인 VM 인스턴스](./media/cloud-services-how-to-scale-powershell/role-instance-starting.png)
 
@@ -69,7 +72,7 @@ Set-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>' -S
 
 ## <a name="scale-in-the-role-by-removing-instances"></a>인스턴스를 제거하여 역할 축소
 
-같은 방식으로 인스턴스를 제거하여 역할을 축소할 수 있습니다. **Set-AzureRole**에서 **Count** 매개 변수를 축소 작업이 완료된 후의 원하는 인스턴스 수로 설정합니다.
+같은 방식으로 인스턴스를 제거하여 역할을 축소할 수 있습니다. **Set-AzureRole** 에서 **Count** 매개 변수를 축소 작업이 완료된 후의 원하는 인스턴스 수로 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

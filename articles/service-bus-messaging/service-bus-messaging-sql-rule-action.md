@@ -3,12 +3,12 @@ title: Azure Service Bus Subscription Rule SQL 작업 구문 | Microsoft Docs
 description: 이 문서에서는 SQL 규칙 작업 구문에 대 한 참조를 제공 합니다. 작업은 메시지에 대해 수행 되는 SQL 언어 기반 구문으로 작성 됩니다.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 606281d42d5598d7f73312990d3a19775a202c08
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: f7b8cdfcccc22508b98a42391d2a0ef9955232d0
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632814"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742688"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>구독 규칙 SQL 작업 구문
 
@@ -53,11 +53,11 @@ ms.locfileid: "98632814"
   
 ## <a name="arguments"></a>인수  
   
--   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys` 값은 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user`는 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
+-   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys` 값은 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user`는 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `user` 범위는가 지정 되지 않은 경우의 기본 범위입니다 `<scope>` .  
   
 ### <a name="remarks"></a>설명  
 
-존재하지 않는 시스템 속성에 대한 액세스 시도는 오류이지만 존재하지 않는 사용자 속성에 대한 액세스 시도는 오류가 아닙니다. 대신, 존재하지 않는 사용자 속성은 알 수 없는 값;으로 내부적으로 평가됩니다. 알 수 없는 값은 연산자 평가 중에 특별히 처리됩니다.  
+존재 하지 않는 시스템 속성에 액세스 하려고 하면 오류가 발생 하는 반면, 존재 하지 않는 사용자 속성에 액세스 하려고 하면 오류가 발생 하지 않습니다. 대신, 존재하지 않는 사용자 속성은 알 수 없는 값;으로 내부적으로 평가됩니다. 알 수 없는 값은 연산자 평가 중에 특별히 처리됩니다.  
   
 ## <a name="property_name"></a>property_name  
   
@@ -84,7 +84,7 @@ ms.locfileid: "98632814"
   
  `[:IsDigit:]`는 10진수 문자로 분류된 유니코드 문자를 의미합니다. `System.Char.IsDigit(c)`에서는 `c`가 유니코드 숫자인 경우 `true`를 반환합니다.  
   
- `<regular_identifier>`는 예약된 키워드일 수 없습니다.  
+ 는 `<regular_identifier>` 예약 된 키워드가 될 수 없습니다.  
   
  `<delimited_identifier>`는 왼쪽/오른쪽 대괄호([])로 묶인 문자열입니다. 오른쪽 대괄호는 두 개의 오른쪽 대괄호로 표시됩니다. 다음은 `<delimited_identifier>`에 대한 예입니다.  
   
@@ -94,7 +94,7 @@ ms.locfileid: "98632814"
   
 ```  
   
- `<quoted_identifier>`는 큰따옴표로 묶인 문자열입니다. 식별자에서 큰따옴표는 두 개의 큰따옴표로 표시됩니다. 문자열 상수와 혼동될 수 있으므로 따옴표가 있는 식별자를 사용하지 않는 것이 좋습니다. 가능하면 구분된 식별자를 사용하세요. 다음은 `<quoted_identifier>`의 예입니다.  
+ `<quoted_identifier>`는 큰따옴표로 묶인 문자열입니다. 식별자에서 큰따옴표는 두 개의 큰따옴표로 표시됩니다. 문자열 상수와 쉽게 혼동 될 수 있으므로 따옴표 붙은 식별자를 사용 하지 않는 것이 좋습니다. 가능하면 구분된 식별자를 사용하세요. 다음은 `<quoted_identifier>`의 예입니다.  
   
 ```  
 "Contoso & Northwind"  
@@ -137,7 +137,7 @@ ms.locfileid: "98632814"
   
 ### <a name="arguments"></a>인수  
   
--   `<integer_constant>`는 따옴표로 묶이지 않고 소수점을 포함하지 않는 숫자의 문자열입니다. 값은 내부적으로는 `System.Int64`로 저장되며 동일한 범위를 따릅니다.  
+-   `<integer_constant>` 는 따옴표로 묶지 않고 소수점을 포함 하지 않는 숫자의 문자열입니다. 값은 내부적으로는 `System.Int64`로 저장되며 동일한 범위를 따릅니다.  
   
      다음은 long 상수에 대한 예입니다.  
   
@@ -146,9 +146,9 @@ ms.locfileid: "98632814"
     2  
     ```  
   
--   `<decimal_constant>`는 따옴표로 묶이지 않고 소수점을 포함하는 숫자의 문자열입니다. 값은 내부적으로는 `System.Double`로 저장되며 동일한 범위/자릿수를 따릅니다.  
+-   `<decimal_constant>` 는 따옴표로 묶지 않고 소수점이 포함 된 숫자의 문자열입니다. 값은 내부적으로는 `System.Double`로 저장되며 동일한 범위/자릿수를 따릅니다.  
   
-     이후 버전에서는 이 숫자가 정확한 숫자 의미 체계를 지원하기 위해 다른 데이터 형식으로 저장될 수 있으므로 `<decimal_constant>`에 대한 기본 데이터 형식이 `System.Double`이라는 사실이 해당되지 않습니다.  
+     이후 버전에서이 숫자는 정확한 숫자 의미 체계를 지원 하기 위해 다른 데이터 형식에 저장 될 수 있으므로 기본 데이터 형식이에 대 한 팩트를 사용 하면 안 `System.Double` 됩니다 `<decimal_constant>` .  
   
      다음은 10진수 상수에 대한 예입니다.  
   
@@ -195,9 +195,11 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
   
 ### <a name="remarks"></a>설명  
 
-`newid()` 함수는 `System.Guid.NewGuid()` 메서드에 의해 생성된 **System.Guid** 를 반환합니다.  
+`newid()`함수는 `System.Guid` 메서드에 의해 생성 된을 반환 합니다 `System.Guid.NewGuid()` .  
   
 `property(name)` 함수는 `name`으로 참조되는 속성 값을 반환합니다. `name` 값은 문자열 값을 반환하는 유효한 식일 수 있습니다.  
+
+[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
   
 ## <a name="considerations"></a>고려 사항
 
@@ -205,7 +207,7 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
 - REMOVE는 속성을 제거하는 데 사용됩니다.
 - SET은 식 형식과 기존 속성 형식이 다른 경우 암시적 변환을 수행합니다(가능한 경우).
 - 존재하지 않는 시스템 속성을 참조하면 작업에 실패합니다.
-- 존재하지 않는 사용자 속성을 참조하면 작업에 실패하지 않습니다.
+- 존재 하지 않는 사용자 속성을 참조 하는 경우에는 작업이 실패 하지 않습니다.
 - 연산자를 평가할 때 [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)와 동일한 의미 체계에 따라 존재하지 않는 사용자 속성이 내부적으로 "알 수 없음"으로 평가됩니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -214,5 +216,5 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
 - [SQLRuleAction 클래스 (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
 - [SqlRuleAction 클래스 (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
 - [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
-- [az servicebus 토픽 구독 규칙](/cli/azure/servicebus/topic/subscription/rule)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

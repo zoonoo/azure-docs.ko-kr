@@ -1,21 +1,25 @@
 ---
-title: Azure Cloud Services를 위한 가상 머신 크기 | Microsoft Docs
+title: Azure Cloud services (클래식)에 대 한 가상 머신 크기 | Microsoft Docs
 description: Azure 클라우드 서비스 웹 및 작업자 역할에 대한 다양한 가상 머신 크기 및 ID를 나열합니다.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: b617ba8db8f9dbb1c25ac34aa879613c29c723b7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 55fa3ab4e5bd4472f7dae9692ae3ac9bcfa8e2b6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340291"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743171"
 ---
-# <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
+# <a name="sizes-for-cloud-services-classic"></a>Cloud Services 크기 (클래식)
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 이 항목에서는 클라우드 서비스 역할 인스턴스(웹 역할 및 작업자 역할)에서 사용 가능한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 각 크기에 따라 [서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 입력할 ID가 있습니다. 각 크기의 가격은 [Cloud Services 가격](https://azure.microsoft.com/pricing/details/cloud-services/) 페이지에서 확인할 수 있습니다.
 
 > [!NOTE]
@@ -62,7 +66,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
-| [Express-g](#g-series) |180 - 240* |
+| [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 *로 표시된 ACU는 Intel® 터보 기술을 사용하여 CPU 주파수를 증가시키고 성능 향상을 제공합니다. 상승량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 작업에 따라 달라질 수 있습니다.
@@ -79,9 +83,9 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 | 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | 매우 작음      | 1         | 0.768        | 20                   | 1/낮음 |
-| 작음           | 1         | 1.75         | 225                  | 1/보통 |
+| 소형           | 1         | 1.75         | 225                  | 1/보통 |
 | 중간          | 2         | 3.5          | 490                  | 1/보통 |
-| 큼           | 4         | 7            | 1000                 | 2/높음 |
+| 대형           | 4         | 7            | 1000                 | 2/높음 |
 | 매우 큼      | 8         | 14           | 2040                 | 4/높음 |
 | A5              | 2         | 14           | 490                  | 1/보통 |
 | A6              | 4         | 28           | 1000                 | 2/높음 |

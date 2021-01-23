@@ -1,26 +1,27 @@
 ---
-title: Azure Cloud Services 및 ASP.NET 시작 | Microsoft 문서
+title: Azure Cloud Services (클래식) 및 ASP.NET 시작 하기 Microsoft Docs
 description: ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법을 알아보세요. 이 앱은 웹 역할 및 작업자 역할을 사용하여 클라우드 서비스에서 실행되며 Entity Framework, SQL Database 및 Azure Storage 큐와 Blob를 사용합니다.
-services: cloud-services, storage
-documentationcenter: .net
-author: tgore03
-manager: carmonm
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-csharp
-ms.topic: conceptual
-ms.date: 05/15/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: a875c036c79419357f1134c32f62fdb060fec7c6
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ae7fd5a7c9bc858cb18473374e7bd5589717eac6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562296"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742083"
 ---
-# <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
+# <a name="get-started-with-azure-cloud-services-classic-and-aspnet"></a>Azure Cloud Services (클래식) 및 ASP.NET 시작
 
 ## <a name="overview"></a>개요
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 애플리케이션을 만들어 [Azure 클라우드 서비스](cloud-services-choose-me.md)에 배포하는 방법을 보여 줍니다. 이 애플리케이션은 [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), [Azure Blob 서비스](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) 및 [Azure 큐 서비스](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 할 수 있습니다.
 
 이 자습서에서는 애플리케이션을 구축하고 로컬에서 실행하는 방법, 애플리케이션을 Azure에 배포하고 클라우드에서 실행하는 방법, 그리고 애플리케이션을 처음부터 구축하는 방법을 보여 줍니다. 처음부터 구축하는 방법으로 시작한 다음 원하는 경우 나중에 테스트 및 배포 단계를 수행할 수 있습니다.
@@ -28,7 +29,7 @@ ms.locfileid: "97562296"
 ## <a name="contoso-ads-application"></a>Contoso Ads 애플리케이션
 애플리케이션은 광고 게시판입니다. 사용자는 텍스트를 입력하고 이미지를 업로드하여 광고를 만듭니다. 사용자는 썸네일 이미지로 광고 목록을 볼 수 있으며 자세한 내용을 확인하기 위해 광고를 선택하면 전체 크기 이미지를 볼 수 있습니다.
 
-![광고 목록](./media/cloud-services-dotnet-get-started/list.png)
+![광고 목록 표시 이미지](./media/cloud-services-dotnet-get-started/list.png)
 
 이 애플리케이션에서는 [큐 중심 작업 패턴](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다.
 
@@ -43,7 +44,7 @@ ms.locfileid: "97562296"
 * 파일을 업로드하고 Azure Blob service에 저장하는 방법
 * 계층 간 통신에 Azure 큐 서비스를 사용하는 방법
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서에서는 *웹 역할* 및 *작업자 역할* 용어와 같이 [Azure Cloud Services에 대한 기본 개념](cloud-services-choose-me.md)을 알고 있다고 가정합니다.  또한 Visual Studio에서 [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [웹 양식](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 애플리케이션 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다.
 
 Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케이션을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)하거나 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)할 수 있습니다.
@@ -60,7 +61,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케�
 ## <a name="application-architecture"></a>애플리케이션 아키텍처
 앱은 Entity Framework Code First를 사용해 SQL 데이터베이스에 광고를 저장하여 테이블을 만들고 데이터에 액세스합니다. 광고별로 데이터베이스는 전체 크기 이미지용과 썸네일용으로 두 개의 URL을 저장합니다.
 
-![광고 테이블](./media/cloud-services-dotnet-get-started/adtable.png)
+![이 이미지는 Ad 테이블의 이미지입니다.](./media/cloud-services-dotnet-get-started/adtable.png)
 
 사용자가 이미지를 업로드하면 웹 역할로 실행 중인 프런트 엔드가 [Azure Blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문)에 이미지를 저장하며 Blob을 가리키는 URL을 사용하여 데이터베이스에 광고 정보를 저장합니다. 이와 동시에 Azure 큐에 메시지를 기록합니다. 작업자 역할로 실행되는 백 엔드 프로세스는 정기적으로 큐를 폴링하여 새 메시지를 확인합니다. 새 메시지가 나타나면 작업자 역할은 해당 이미지의 미리 보기를 만들고 광고에 대한 미리 보기 URL 데이터베이스 필드를 업데이트합니다. 다음은 애플리케이션의 여러 부분이 상호 작용하는 방법을 보여 주는 다이어그램입니다.
 
@@ -83,11 +84,11 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케�
 
     클라우드 서비스 프로젝트를 처음 실행하면 에뮬레이터가 시작되는 데 1분 정도 걸립니다. 에뮬레이터 시작이 완료되면 기본 브라우저가 열려 애플리케이션 홈페이지가 표시됩니다.
 
-    ![Contoso Ads 아키텍처](./media/cloud-services-dotnet-get-started/home.png)
+    ![Contoso Ads 아키텍처 1](./media/cloud-services-dotnet-get-started/home.png)
 8. **광고 만들기** 를 클릭합니다.
 9. 일부 테스트 데이터를 입력하고 업로드할 *.jpg* 이미지를 선택한 다음 **만들기** 를 클릭합니다.
 
-    ![페이지 만들기](./media/cloud-services-dotnet-get-started/create.png)
+    ![이미지 표시 만들기 페이지](./media/cloud-services-dotnet-get-started/create.png)
 
     앱이 인덱스 페이지로 이동하지만 아직 처리가 이루어지지 않았기 때문에 새 광고에 대한 미리 보기를 표시하지는 않습니다.
 10. 잠깐 기다렸다가 인덱스 페이지를 새로 고쳐 미리 보기를 표시합니다.
@@ -129,7 +130,7 @@ Azure 클라우드 서비스는 애플리케이션이 실행되는 환경입니�
 
     다음 이미지에서는 CSvccontosoads.cloudapp.net이라는 URL로 클라우드 서비스가 생성되었습니다.
 
-    ![새 클라우드 서비스](./media/cloud-services-dotnet-get-started/newcs.png)
+    ![새 클라우드 서비스를 보여 주는 이미지](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### <a name="create-a-database-in-azure-sql-database"></a>Azure SQL Database에서 데이터베이스 만들기
 앱이 클라우드에서 실행될 때는 클라우드 기반 데이터베이스를 사용합니다.
@@ -230,7 +231,7 @@ Azure Storage 계정은 큐 및 Blob 데이터를 클라우드에 저장하기 �
 
 1. **솔루션 탐색기** 에서 **ContosoAdsCloudService** 프로젝트의 **역할** 아래에 있는 **ContosoAdsWeb** 을 마우스 오른쪽 단추로 클릭하고 **속성** 을 클릭합니다.
 
-    ![역할 속성](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![역할 속성을 보여 주는 이미지](./media/cloud-services-dotnet-get-started/roleproperties.png)
 2. **설정** 탭을 클릭 합니다. **서비스 구성** 드롭다운 상자에서 **클라우드** 를 선택 합니다.
 
     ![클라우드 구성](./media/cloud-services-dotnet-get-started/sccloud.png)
@@ -378,7 +379,8 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 2. 변경 내용을 저장합니다.
 3. ContosoAdsCloudService 프로젝트에서 **역할** 아래의 ContosoAdsWeb을 마우스 오른쪽 단추로 클릭한 다음 **속성** 을 클릭합니다.
 
-    ![역할에서 속성 메뉴 옵션을 강조 표시 하는 스크린샷](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![역할 속성 이미지](./media/cloud-services-dotnet-get-started/roleproperties.png)
+
 4. **ContosoAdsWeb [Role]** 속성 창에서 **설정** 탭을 클릭한 다음, **설정 추가** 를 클릭합니다.
 
     **서비스 구성** 을 **모든 구성** 으로 설정해 둡니다.

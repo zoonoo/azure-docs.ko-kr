@@ -1,22 +1,24 @@
 ---
 title: 포털을 사용 하 여 역할에 대 한 원격 데스크톱을 사용 하도록 설정
-titleSuffix: Azure Cloud Services
 description: 원격 데스크톱 연결을 허용하기 위해 Azure 클라우드 서비스 애플리케이션을 구성하는 방법
-services: cloud-services
-documentationcenter: ''
-author: mmccrory
-ms.service: cloud-services
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: memccror
-ms.openlocfilehash: 507af87c3126be00a802bcbc5170f8ad364c06fc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 8fa0d3c0e29c53e6fe9cb32ddf02168686be1efe
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099320"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743256"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic"></a>Azure Cloud Services에서 역할에 대 한 원격 데스크톱 연결 사용 (클래식)
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -31,9 +33,9 @@ ms.locfileid: "93099320"
 
 Azure Portal에서는 애플리케이션이 배포된 후에도 원격 데스크톱을 사용 가능하게 설정할 수 있도록 원격 데스크톱 확장 접근 방법을 사용합니다. 클라우드 서비스의 **원격 데스크톱** 설정에서 원격 데스크톱을 사용하도록 설정하거나 가상 머신에 연결하는 데 사용되는 로컬 관리자 계정, 인증에 사용되는 인증서를 변경하고 만료 날짜를 설정할 수 있습니다.
 
-1. **Cloud Services** , 클라우드 서비스의 이름, **원격 데스크톱** 을 차례로 선택합니다.
+1. **Cloud Services**, 클라우드 서비스의 이름, **원격 데스크톱** 을 차례로 선택합니다.
 
-    ![원격 데스크톱 옵션을 강조 표시 하는 스크린샷](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
+    ![클라우드 서비스 원격 데스크톱을 보여 주는 이미지](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
 
 2. 개별 역할 또는 모든 역할 중 어떤 범주에 대해 원격 데스크톱을 사용하도록 설정할지 선택한 후 전환기의 값을 **Enabled** 로 변경합니다.
 
@@ -42,7 +44,7 @@ Azure Portal에서는 애플리케이션이 배포된 후에도 원격 데스크
     ![클라우드 서비스 원격 데스크톱](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > 처음으로 원격 데스크톱을 사용하도록 설정한 후 **확인** (확인 표시)을 선택하면 모든 역할 인스턴스가 다시 시작됩니다. 다시 부팅되지 않도록 하려면 암호를 암호화하는 데 사용되는 인증서가 역할에 설치되어 있어야 합니다. 다시 시작되지 않도록 하려면 [클라우드 서비스에 대 한 인증서를 업로드](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) 하고 이 대화 상자로 돌아옵니다.
+   > 처음으로 원격 데스크톱을 사용하도록 설정한 후 **확인**(확인 표시)을 선택하면 모든 역할 인스턴스가 다시 시작됩니다. 다시 부팅되지 않도록 하려면 암호를 암호화하는 데 사용되는 인증서가 역할에 설치되어 있어야 합니다. 다시 시작되지 않도록 하려면 [클라우드 서비스에 대 한 인증서를 업로드](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) 하고 이 대화 상자로 돌아옵니다.
 
 4. **역할** 에서 업데이트할 역할을 선택하거나 모든 역할을 선택하려면 **모두** 를 선택합니다.
 
@@ -56,12 +58,12 @@ Azure Portal에서는 애플리케이션이 배포된 후에도 원격 데스크
 2. 원격 데스크톱이 구성된 역할 인스턴스를 선택합니다.
 3. **연결** 을 클릭하여 역할 인스턴스에 대한 RDP 파일을 다운로드합니다.
 
-    ![연결 단추를 강조 표시하는 스크린샷.](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
+    ![Cloud services 원격 데스크톱 이미지](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
 
 4. **열기** 를 클릭한 후 **연결** 을 클릭하여 원격 데스크톱 연결을 시작합니다.
 
 >[!NOTE]
-> 클라우드 서비스가 NSG 뒤에 있는 경우 포트 **3389** 및 **20000** 의 트래픽을 허용하는 규칙을 만들어야 할 수 있습니다.  원격 데스크톱은 포트 **3389** 를 사용합니다.  클라우드 서비스 인스턴스에서 부하가 분산되므로 연결할 인스턴스를 직접 제어할 수 없습니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트가 RDP 트래픽을 관리하고 클라이언트에서 RDP 쿠키를 전송하고 연결할 개별 인스턴스를 지정할 수 있도록 합니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트를 사용하려면 포트 **20000** *이 열려 있어야 합니다. 이 포트는 NSG가 있으면 차단될 수 있습니다.
+> 클라우드 서비스가 NSG 뒤에 있는 경우 포트 **3389** 및 **20000** 의 트래픽을 허용하는 규칙을 만들어야 할 수 있습니다.  원격 데스크톱은 포트 **3389** 를 사용합니다.  클라우드 서비스 인스턴스에서 부하가 분산되므로 연결할 인스턴스를 직접 제어할 수 없습니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트가 RDP 트래픽을 관리하고 클라이언트에서 RDP 쿠키를 전송하고 연결할 개별 인스턴스를 지정할 수 있도록 합니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트를 사용하려면 포트 **20000***이 열려 있어야 합니다. 이 포트는 NSG가 있으면 차단될 수 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
