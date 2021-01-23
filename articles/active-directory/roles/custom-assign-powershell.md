@@ -2,23 +2,23 @@
 title: Azure AD PowerShell을 사용 하 여 사용자 지정 역할 할당-Azure AD | Microsoft Docs
 description: Azure AD PowerShell을 사용 하 여 Azure AD 관리자 사용자 지정 역할의 멤버를 관리 합니다.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b155ccd7f8f0d7f6d63d906d7d0baaa3243512b
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 7828313844b8f95b2bac5bff37022a822686ab33
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562780"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740247"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Azure Active Directory에서 PowerShell을 사용 하 여 리소스 범위에 사용자 지정 역할 할당
 

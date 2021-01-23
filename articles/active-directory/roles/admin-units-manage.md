@@ -3,23 +3,23 @@ title: 관리 단위 추가 및 제거-Azure Active Directory | Microsoft Docs
 description: 관리 단위를 사용 하 여 Azure Active Directory에서 역할 권한 범위를 제한할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395396"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740451"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Azure Active Directory에서 관리 단위 관리
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해
     
     b. 응용 프로그램 목록에서 **그래프 탐색기** 를 선택 합니다.
     
-    c. **사용 권한** 창에서 **그래프 탐색기에 대해 관리자 동의 부여** 를 선택 합니다.
+    다. **사용 권한** 창에서 **그래프 탐색기에 대해 관리자 동의 부여** 를 선택 합니다.
 
     !["Graph explorer에 대 한 관리자 동의 부여" 링크를 보여 주는 스크린샷](./media/admin-units-manage/select-graph-explorer.png)
 

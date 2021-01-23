@@ -1,21 +1,26 @@
 ---
-title: 클라우드 서비스 모델 및 패키지 정의 | Microsoft Docs
+title: 클라우드 서비스 (클래식) 모델 및 패키지 정의 | Microsoft Docs
 description: Azure의 클라우드 서비스 모델(.csdef,.cscfg) 및 패키지(.cspkg)에 대해 설명합니다.
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 180295599082a762fc525c4740079ceefc0954a1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 1cf8e966b80e005a0cb2cf7ea46f355e38cb0011
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077187"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741539"
 ---
-# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>클라우드 서비스 모델 정의 및 패키지 방법
-클라우드 서비스는 서비스 정의 *(.csdef)*, 서비스 구성 *(.cscfg)*, 서비스 패키지 *(.cspkg)* 의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg**는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg**와 **ServiceConfig.cscfg**에서 모두 클라우드 서비스를 만듭니다.
+# <a name="what-is-the-cloud-service-classic-model-and-how-do-i-package-it"></a>클라우드 서비스 (클래식) 모델 이란 무엇 이며 패키지를 어떻게 패키지 하나요?
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
+클라우드 서비스는 서비스 정의 *(.csdef)*, 서비스 구성 *(.cscfg)*, 서비스 패키지 *(.cspkg)* 의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg** 는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg** 와 **ServiceConfig.cscfg** 에서 모두 클라우드 서비스를 만듭니다.
 
 Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** 파일을 통해 다시 구성할 수 있지만 정의는 변경할 수 없습니다.
 
@@ -221,9 +226,9 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 하나의 IP 주�
 
 애플리케이션을 Azure에서 클라우드 서비스로 배포하려면 먼저 적절한 형식으로 애플리케이션을 패키지해야 합니다. **CSPack** 명령줄 도구( [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치됨)를 사용하여 Visual Studio 대신 패키지 파일을 만들 수 있습니다.
 
-**CSPack** 은 서비스 정의 파일 및 서비스 구성 파일의 콘텐츠를 사용하여 패키지의 콘텐츠를 정의합니다. **CSPack**은 [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy)을 사용하여 Azure에 업로드할 수 있는 애플리케이션 패키지 파일(.cspkg)을 생성합니다. 기본적으로 패키지의 이름은 `[ServiceDefinitionFileName].cspkg`이지만 **CSPack**의 `/out` 옵션을 사용하여 다른 이름을 지정할 수 있습니다.
+**CSPack** 은 서비스 정의 파일 및 서비스 구성 파일의 콘텐츠를 사용하여 패키지의 콘텐츠를 정의합니다. **CSPack** 은 [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy)을 사용하여 Azure에 업로드할 수 있는 애플리케이션 패키지 파일(.cspkg)을 생성합니다. 기본적으로 패키지의 이름은 `[ServiceDefinitionFileName].cspkg`이지만 **CSPack** 의 `/out` 옵션을 사용하여 다른 이름을 지정할 수 있습니다.
 
-**CSPack**은 다음 위치에 있습니다.  
+**CSPack** 은 다음 위치에 있습니다.  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 > [!NOTE]
@@ -236,7 +241,7 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 하나의 IP 주�
 <p />
 
 > [!TIP]
-> **Microsoft Azure Compute 에뮬레이터**에서 로컬로 클라우드 서비스를 실행하고 **/copyonly** 옵션을 사용합니다. 이 옵션을 사용하면 컴퓨팅 에뮬레이터에서 실행할 수 있는 디렉터리 레이아웃에 애플리케이션의 이진 파일을 복사합니다.
+> **Microsoft Azure Compute 에뮬레이터** 에서 로컬로 클라우드 서비스를 실행하고 **/copyonly** 옵션을 사용합니다. 이 옵션을 사용하면 컴퓨팅 에뮬레이터에서 실행할 수 있는 디렉터리 레이아웃에 애플리케이션의 이진 파일을 복사합니다.
 > 
 > 
 

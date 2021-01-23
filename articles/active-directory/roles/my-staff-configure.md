@@ -3,22 +3,22 @@ title: 내 직원을 사용 하 여 사용자 관리 위임 (미리 보기)-Azur
 description: 내 직원과 관리 단위를 사용 하 여 사용자 관리 위임
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.date: 05/08/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 927d1f6dff9a24fb8427bb9c353e6cc61ac6a1f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376307"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740145"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>내 직원 (미리 보기)을 사용 하 여 사용자 관리
 
@@ -54,8 +54,8 @@ ms.locfileid: "92376307"
 Au를 구성한 후에는 내 직원에 게 액세스 하는 사용자에 게이 범위를 적용할 수 있습니다. 관리자 역할이 할당 된 사용자만 내 직원에 액세스할 수 있습니다. 내 직원을 사용 하도록 설정 하려면 다음 단계를 완료 합니다.
 
 1. 사용자 관리자 권한으로 Azure Portal에 로그인 합니다.
-2. **Azure Active Directory**  >  **사용자 설정**사용자 기능 미리 보기  >  **User feature previews**  >  **사용자 기능 미리 보기 설정 관리**로 이동 합니다.
-3. **관리자는 내 직원에 액세스할 수 있으며**모든 사용자, 선택한 사용자 또는 사용자 액세스 권한 없음을 선택할 수 있습니다.
+2. **Azure Active Directory**  >  **사용자 설정** 사용자 기능 미리 보기  >    >  **사용자 기능 미리 보기 설정 관리** 로 이동 합니다.
+3. **관리자는 내 직원에 액세스할 수 있으며** 모든 사용자, 선택한 사용자 또는 사용자 액세스 권한 없음을 선택할 수 있습니다.
 
 > [!Note]
 > 관리자 역할이 할당 된 사용자만 내 직원에 액세스할 수 있습니다. 관리자 역할이 할당 되지 않은 사용자에 대해 내 직원이를 사용 하도록 설정한 경우 내 직원에 게는 액세스할 수 없습니다.
@@ -94,7 +94,7 @@ Azure AD 조건부 액세스 정책을 사용 하 여 내 직원 포털을 보�
 - [사용자 관리자](permissions-reference.md#user-administrator)
 - [암호 관리자](permissions-reference.md#password-administrator)
 
-**내 직원**에서 사용자의 프로필을 엽니다. **암호 다시 설정**을 선택합니다.
+**내 직원** 에서 사용자의 프로필을 엽니다. **암호 다시 설정** 을 선택합니다.
 
 - 사용자가 클라우드 전용 이면 사용자에 게 제공할 수 있는 임시 암호를 볼 수 있습니다.
 - 사용자가 온-프레미스 Active Directory에서 동기화 되는 경우 온-프레미스 AD 정책을 만족 하는 암호를 입력할 수 있습니다. 그런 다음 사용자에 게 해당 암호를 지정할 수 있습니다.
@@ -105,7 +105,7 @@ Azure AD 조건부 액세스 정책을 사용 하 여 내 직원 포털을 보�
 
 ## <a name="manage-a-phone-number"></a>전화 번호 관리
 
-**내 직원**에서 사용자의 프로필을 엽니다.
+**내 직원** 에서 사용자의 프로필을 엽니다.
 
 - **전화 번호 추가** 섹션을 선택 하 여 사용자의 전화 번호를 추가 합니다.
 - 전화 번호 **편집** 을 선택 하 여 전화 번호를 변경 합니다.

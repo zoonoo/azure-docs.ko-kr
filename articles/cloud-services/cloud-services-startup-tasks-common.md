@@ -1,21 +1,25 @@
 ---
-title: Cloud Services에 대한 일반적인 시작 작업 | Microsoft Docs
+title: Cloud Services에 대 한 일반적인 시작 작업 (클래식) | Microsoft Docs
 description: 클라우드 서비스 웹 역할 또는 작업자 역할에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 77cea7ebd333b958675438aaeb5e0e2a326a5866
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075181"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741199"
 ---
-# <a name="common-cloud-service-startup-tasks"></a>일반적인 클라우드 서비스 시작 작업
+# <a name="common-cloud-service-classic-startup-tasks"></a>Common Cloud Service (클래식) 시작 작업
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 이 문서에서는 클라우드 서비스에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다. 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다. 
 
 [이 문서](cloud-services-startup-tasks.md) 를 참조하여 시작 작업이 작동 하는 방법 및 시작 작업을 정의하는 항목을 만드는 방법을 구체적으로 이해할 수 있습니다.
@@ -52,22 +56,22 @@ ms.locfileid: "92075181"
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Appcmd.exe를 사용하여 IIS 시작을 구성합니다.
-[AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) 명령줄 도구는 Azure에서 시작 시 IIS 설정을 관리하는데 사용할 수 있습니다. *AppCmd.exe* 는 Azure에서 시작 작업에 사용하기 위한 구성 설정에 대한 편리한 명령줄 액세스를 제공합니다. *AppCmd.exe*를 사용하면 애플리케이션 및 사이트에 대해 웹사이트 설정을 추가, 수정하거나 제거할 수 있습니다.
+[AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) 명령줄 도구는 Azure에서 시작 시 IIS 설정을 관리하는데 사용할 수 있습니다. *AppCmd.exe* 는 Azure에서 시작 작업에 사용하기 위한 구성 설정에 대한 편리한 명령줄 액세스를 제공합니다. *AppCmd.exe* 를 사용하면 애플리케이션 및 사이트에 대해 웹사이트 설정을 추가, 수정하거나 제거할 수 있습니다.
 
 그러나 시작 작업으로 *AppCmd.exe* 사용에 대해 주의해야 할 사항이 몇 가지 있습니다.
 
 * 시작 작업은 재부팅 사이 두 번 이상 실행할 수 있습니다. 예를 들어 역할을 재활용하는 경우입니다.
-* *AppCmd.exe* 작업이 두 번 이상 수행되는 경우 오류를 생성할 수 있습니다. 예를 들어 *Web.config*에 섹션을 두 번 추가하려는 경우 오류가 생성될 수 있습니다.
-* 0이 아닌 종료 코드 또는 **errorlevel**을 반환하는 경우 시작 작업이 실패합니다. 예를 들어 *AppCmd.exe* 가 오류를 생성하는 경우입니다.
+* *AppCmd.exe* 작업이 두 번 이상 수행되는 경우 오류를 생성할 수 있습니다. 예를 들어 *Web.config* 에 섹션을 두 번 추가하려는 경우 오류가 생성될 수 있습니다.
+* 0이 아닌 종료 코드 또는 **errorlevel** 을 반환하는 경우 시작 작업이 실패합니다. 예를 들어 *AppCmd.exe* 가 오류를 생성하는 경우입니다.
 
-*AppCmd.exe*를 호출한 후 **errorlevel**을 확인하는 것이 좋습니다. *.cmd* 파일로 *AppCmd.exe*에 호출을 래핑하는 경우 수행하기 쉽습니다. 알려진 **errorlevel** 응답을 발견하는 경우 무시하거나 다시 전송할 수 있습니다.
+*AppCmd.exe* 를 호출한 후 **errorlevel** 을 확인하는 것이 좋습니다. *.cmd* 파일로 *AppCmd.exe* 에 호출을 래핑하는 경우 수행하기 쉽습니다. 알려진 **errorlevel** 응답을 발견하는 경우 무시하거나 다시 전송할 수 있습니다.
 
-*AppCmd.exe*로 반환되는 errorlevel은 winerror.h 파일에 나열되어 있으며 [MSDN](/windows/desktop/Debug/system-error-codes--0-499-)에서 볼 수도 있습니다.
+*AppCmd.exe* 로 반환되는 errorlevel은 winerror.h 파일에 나열되어 있으며 [MSDN](/windows/desktop/Debug/system-error-codes--0-499-)에서 볼 수도 있습니다.
 
 ### <a name="example-of-managing-the-error-level"></a>오류 수준 관리 예제
 이 예에서는 오류 처리 및 로깅으로 JSON에 대한 압축 섹션 및 압축 항목을 *Web.config* 파일에 추가합니다.
 
-[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe*에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) 특성을 `elevated`에 설정하는 것을 포함합니다.
+[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe* 에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) 특성을 `elevated`에 설정하는 것을 포함합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -80,10 +84,10 @@ ms.locfileid: "92075181"
 </ServiceDefinition>
 ```
 
-*Startup.cmd* 배치 파일은 *AppCmd.exe*를 사용하여 JSON에 대한 압축 섹션 및 압축 항목을 *Web.config* 파일에 추가합니다. 예상된 183의 **errorlevel** 은 VERIFY.EXE 명령줄 프로그램을 사용하여 0으로 설정됩니다. 예기치 않은 errorlevel은 StartupErrorLog.txt에 로깅됩니다.
+*Startup.cmd* 배치 파일은 *AppCmd.exe* 를 사용하여 JSON에 대한 압축 섹션 및 압축 항목을 *Web.config* 파일에 추가합니다. 예상된 183의 **errorlevel** 은 VERIFY.EXE 명령줄 프로그램을 사용하여 0으로 설정됩니다. 예기치 않은 errorlevel은 StartupErrorLog.txt에 로깅됩니다.
 
 ```cmd
-REM   *** Add a compression section to the Web.config file. ***
+REM   **_ Add a compression section to the Web.config file. _*_
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -98,7 +102,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Add compression for json. ***
+REM   _*_ Add compression for json. _*_
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -106,10 +110,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Exit batch file. ***
+REM   _*_ Exit batch file. _*_
 EXIT /b 0
 
-REM   *** Log error and exit ***
+REM   _*_ Log error and exit _*_
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -125,7 +129,7 @@ Azure에는 사실상 두 개의 방화벽이 있습니다. 첫 번째 방화벽
 
 Azure는 역할 내에서 시작되는 프로세스에 대한 방화벽 규칙을 만듭니다. 예를 들어 서비스 또는 프로그램을 시작하면 Azure는 필요한 방화벽 규칙을 만들어 해당 서비스가 인터넷과 통신할 수 있도록 합니다. 그러나 사용자의 역할(예: COM + 서비스 또는 Windows 예약된 태스크) 외부 프로세스에 의해 시작되는 서비스를 만드는 경우 해당 서비스에 대한 액세스를 허용하는 방화벽 규칙을 수동으로 만들어야 합니다. 이러한 방화벽 규칙은 시작 작업을 사용하여 만들 수 있습니다.
 
-방화벽 규칙을 만드는 시작 작업은 [상승된][환경]**executionContext**을 반환하는 경우 시작 작업이 실패합니다. 다음 시작 작업을 [ServiceDefinition.csdef] 파일에 추가합니다.
+방화벽 규칙을 만드는 시작 작업에는 [executionContext][작업] _ * 관리자 권한 * *이 있어야 합니다. 다음 시작 작업을 [ServiceDefinition.csdef] 파일에 추가합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -153,7 +157,7 @@ EXIT /B %errorlevel%
 ## <a name="block-a-specific-ip-address"></a>특정 IP 주소 차단
 IIS **web.config** 파일을 수정하여 일련의 지정된 IP 주소에 대한 Azure 웹 역할 액세스를 제한할 수 있습니다. 또한 **ApplicationHost.config** 파일의 **ipSecurity** 섹션의 차단을 해제하는 명령 파일을 사용해야 합니다.
 
-**ApplicationHost.config** 파일의 **ipSecurity** 섹션의 차단을 해제하려면 역할 시작 시 실행하는 명령 파일을 만듭니다. 웹 역할의 루트 수준에서 **startup**이라는 폴더를 만들고 이 폴더 내에서 **startup.cmd**라는 배치 파일을 만듭니다. Visual Studio 프로젝트에 이 파일을 추가하고 속성을 **항상 복사**로 설정하여 패키지에 포함되는지 확인합니다.
+**ApplicationHost.config** 파일의 **ipSecurity** 섹션의 차단을 해제하려면 역할 시작 시 실행하는 명령 파일을 만듭니다. 웹 역할의 루트 수준에서 **startup** 이라는 폴더를 만들고 이 폴더 내에서 **startup.cmd** 라는 배치 파일을 만듭니다. Visual Studio 프로젝트에 이 파일을 추가하고 속성을 **항상 복사** 로 설정하여 패키지에 포함되는지 확인합니다.
 
 다음 시작 작업을 [ServiceDefinition.csdef] 파일에 추가합니다.
 
@@ -215,7 +219,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 ## <a name="create-a-powershell-startup-task"></a>PowerShell 시작 작업 만들기
 Windows PowerShell 스크립트는 [ServiceDefinition.csdef] 파일에서 직접 호출할 수 없지만 시작 배치 파일 내에서 호출할 수 있습니다.
 
-PowerShell은 기본적으로 서명되지 않은 스크립트를 실행하지 않습니다. 스크립트를 서명하지 않으면 서명되지 않은 스크립트를 실행하도록 PowerShell을 구성해야 합니다. 서명되지 않은 스크립트를 실행하려면 **ExecutionPolicy**을 **제한 없음**으로 설정해야 합니다. 사용하는 **ExecutionPolicy** 설정은 Windows PowerShell의 버전에 기반합니다.
+PowerShell은 기본적으로 서명되지 않은 스크립트를 실행하지 않습니다. 스크립트를 서명하지 않으면 서명되지 않은 스크립트를 실행하도록 PowerShell을 구성해야 합니다. 서명되지 않은 스크립트를 실행하려면 **ExecutionPolicy** 을 **제한 없음** 으로 설정해야 합니다. 사용하는 **ExecutionPolicy** 설정은 Windows PowerShell의 버전에 기반합니다.
 
 ```cmd
 REM   Run an unsigned PowerShell script and log the output
@@ -272,7 +276,7 @@ EXIT /B %errorlevel%
 </ServiceDefinition>
 ```
 
-한 예로 이 **Startup.cmd** 배치 파일은 **PathToStartupStorage** 환경 변수를 사용하여 로컬 스토리지 위치에 파일 **MyTest.txt**를 만듭니다.
+한 예로 이 **Startup.cmd** 배치 파일은 **PathToStartupStorage** 환경 변수를 사용하여 로컬 스토리지 위치에 파일 **MyTest.txt** 를 만듭니다.
 
 ```cmd
 REM   Create a simple text file.
@@ -300,7 +304,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 
 컴퓨팅 에뮬레이터와 클라우드에서 서로 다른 동작을 수행하도록 하는 이 기능은 [ServiceDefinition.csdef] 파일에서 환경 변수를 만들어서 수행될 수 있습니다. 그런 다음 시작 태스크에서 값의 해당 환경 변수를 테스트합니다.
 
-환경 변수를 만들려면 RoleInstanceValue 요소 [변수]를 추가 하 / [RoleInstanceValue] 고의 XPath 값을 만듭니다 `/RoleEnvironment/Deployment/@emulated` . **%ComputeEmulatorRunning%** 환경 변수의 값은 컴퓨팅 에뮬레이터에서 실행되는 경우 `true`이 되고 클라우드에서 실행되는 경우 `false`가 됩니다.
+환경 변수를 만들려면 RoleInstanceValue 요소 [변수]를 추가 하 / [] 고의 XPath 값을 만듭니다 `/RoleEnvironment/Deployment/@emulated` . **%ComputeEmulatorRunning%** 환경 변수의 값은 컴퓨팅 에뮬레이터에서 실행되는 경우 `true`이 되고 클라우드에서 실행되는 경우 `false`가 됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -383,7 +387,7 @@ xml을 단순화하기 위해 로깅과 함께 모든 시작 태스크를 호출
 
 각 시작 태스크의 끝에 `>> "%TEMP%\StartupLog.txt" 2>&1`을 사용하지 않으려 할 수 있습니다. 사용자에 대한 로깅을 처리하는 래퍼를 만들어서 태스크 로깅을 적용할 수 있습니다. 이 래퍼는 실행하려는 실제 배치 파일을 호출합니다. 대상 배치 파일의 모든 출력은 *Startuplog.txt* 파일로 리디렉션됩니다.
 
-다음 예제는 시작 배치 파일의 모든 출력을 리디렉션하는 방법을 보여줍니다. 이 예에서 ServerDefinition.csdef 파일은 *logwrap.cmd*를 호출하는 시작 태스크를 만듭니다. *logwrap.cmd*는 *Startup2.cmd*를 호출하여 모든 출력을 **%TEMP%\\StartupLog.txt**로 리디렉션합니다.
+다음 예제는 시작 배치 파일의 모든 출력을 리디렉션하는 방법을 보여줍니다. 이 예에서 ServerDefinition.csdef 파일은 *logwrap.cmd* 를 호출하는 시작 태스크를 만듭니다. *logwrap.cmd* 는 *Startup2.cmd* 를 호출하여 모든 출력을 **%TEMP%\\StartupLog.txt** 로 리디렉션합니다.
 
 ServiceDefinition.cmd:
 
@@ -466,10 +470,10 @@ EXIT %ERRORLEVEL%
 
 [상승된][환경] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
 
-상승된 권한이 필요한 시작 작업의 예로 **AppCmd.exe** 를 사용하여 IIS를 구성하는 시작 작업을 들 수 있습니다. **AppCmd.exe**는 `executionContext="elevated"`이(가) 필요합니다.
+상승된 권한이 필요한 시작 작업의 예로 **AppCmd.exe** 를 사용하여 IIS를 구성하는 시작 작업을 들 수 있습니다. **AppCmd.exe** 는 `executionContext="elevated"`이(가) 필요합니다.
 
 ### <a name="use-the-appropriate-tasktype"></a>적절한 taskType 사용
-[taskType][태스크] 특성은 시작 태스크가 실행되는 방식을 결정합니다. **간단**, **백그라운드** 및 **포그라운드**의 세 가지 값이 있습니다. 백그라운드 및 포그라운드 작업은 비동기적으로 시작된 다음 간단 작업이 한 번에 하나씩 동기적으로 실행됩니다.
+[taskType][태스크] 특성은 시작 태스크가 실행되는 방식을 결정합니다. **간단**, **백그라운드** 및 **포그라운드** 의 세 가지 값이 있습니다. 백그라운드 및 포그라운드 작업은 비동기적으로 시작된 다음 간단 작업이 한 번에 하나씩 동기적으로 실행됩니다.
 
 **간단** 시작 태스크의 경우 ServiceDefinition.csdef 파일에 나열된 태스크의 순서에 따라 태스크를 실행할 순서를 설정할 수 있습니다. **간단** 태스크가 0이 아닌 종료 코드로 끝나는 경우 시작 절차가 중지되고 역할이 시작되지 않습니다.
 

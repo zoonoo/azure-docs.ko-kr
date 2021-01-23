@@ -21,8 +21,13 @@
         - name: ARM 템플릿 사용
           displayName: Resource Manager
           href: fhir-paas-arm-template-quickstart.md
-    - name: Azure IoT Connector for FHIR(미리 보기) 배포 - 포털
-      href: iot-fhir-portal-quickstart.md
+    - name: Azure IoT Connector for FHIR(미리 보기) 배포
+      expanded: false
+      items:
+        - name: 포털 사용
+          href: iot-fhir-portal-quickstart.md
+        - name: ARM 템플릿 사용
+          href: iot-fhir-arm-template-quickstart.md
 - name: 자습서
   expanded: false
   items:

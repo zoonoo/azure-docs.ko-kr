@@ -1,23 +1,24 @@
 ---
 title: Node.js 시작 가이드
 description: 간단한 Node.js 웹 애플리케이션을 만들고 Azure 클라우드 서비스에 배포하는 방법에 대해 알아봅니다.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 08/17/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: 86bc968c922bcfb90da9ae2babd456ce4db81cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 9889e0e95db84b4dbc5856ba6425f0f303161068
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327479"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741624"
 ---
-# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Node.js 애플리케이션 빌드 및 배포
+# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스 (클래식)에 Node.js 응용 프로그램 빌드 및 배포
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 
 이 자습서에서는 Azure 클라우드 서비스에서 실행되는 간단한 Node.js 애플리케이션을 만드는 방법을 보여줍니다. Cloud Services는 Azure에서 확장 가능한 클라우드 애플리케이션의 구성 요소입니다. 이 클라우드 서비스는 애플리케이션의 프런트 엔드 및 백 엔드 구성 요소의 구분과 독립적인 관리 및 스케일 아웃을 허용합니다.  Cloud Services는 각 역할을 안정적으로 호스팅할 수 있는 강력한 전용 가상 머신을 제공합니다.
 
@@ -32,7 +33,7 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 
 ![Hello World 웹 페이지를 표시하는 웹 브라우저][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 > [!NOTE]
 > 이 자습서는 Azure PowerShell을 사용하며,
 
@@ -44,7 +45,7 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 ## <a name="create-an-azure-cloud-service-project"></a>Azure 클라우드 서비스 프로젝트 만들기
 기본 Node.js 스캐폴딩과 함께 새 Azure 클라우드 서비스 프로젝트를 만들려면 다음 작업을 수행하세요.
 
-1. **시작 메뉴** 또는 **시작 화면**에서 관리자 권한으로 **Windows PowerShell**을 실행하고 **Windows PowerShell**을 검색합니다.
+1. **시작 메뉴** 또는 **시작 화면** 에서 관리자 권한으로 **Windows PowerShell** 을 실행하고 **Windows PowerShell** 을 검색합니다.
 2. [PowerShell을 연결] 합니다.
 3. 프로젝트를 만들려면 다음 PowerShell cmdlet을 입력합니다.
 
@@ -58,7 +59,7 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 
    Cmdlet은 다음 파일을 만듭니다.
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** 및 **ServiceDefinition.csdef**는 애플리케이션을 게시하는 데 필요한 Azure 관련 파일입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** 및 **ServiceDefinition.csdef** 는 애플리케이션을 게시하는 데 필요한 Azure 관련 파일입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
    * **deploymentSettings.json**: Azure PowerShell 배포 cmdlet에 사용되는 로컬 설정이 저장됩니다.
 
 4. 다음 명령을 사용하여 새 웹 역할을 추가하려면
@@ -121,7 +122,7 @@ $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
 Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 ```
 
-* **-ServiceName**은 배포에 대한 이름을 지정합니다. 이 이름은 고유해야 합니다. 그렇지 않으면 게시 프로세스가 실패합니다. **Get-Date** 명령은 이름을 고유하게 만들어야 하는 날짜/시간 문자열을 추적합니다.
+* **-ServiceName** 은 배포에 대한 이름을 지정합니다. 이 이름은 고유해야 합니다. 그렇지 않으면 게시 프로세스가 실패합니다. **Get-Date** 명령은 이름을 고유하게 만들어야 하는 날짜/시간 문자열을 추적합니다.
 * **-위치** 애플리케이션이 호스팅될 데이터센터를 지정합니다. 사용 가능한 데이터센터 목록을 보려면 **Get-AzureLocation** cmdlet을 사용하세요.
 * **-Launch** 는 브라우저 창을 열고 배포가 완료 된 후 호스티ㅡㄷ 서비스를 탐색합니다.
 
@@ -142,7 +143,7 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Laun
 
 1. 배포할 패키지를 만듭니다. 이 패키지에는 애플리케이션 폴더의 모든 파일이 포함됩니다.
 2. **스토리지 계정** 이 없는 경우 새로 만듭니다. Azure Storage 계정은 배포 중 애플리케이션 패키지를 저장하는 데 사용됩니다. 배포가 완료된 후에는 스토리지 계정을 삭제해도 안전합니다.
-3. **클라우드 서비스** 가 아직 없는 경우 새로 만듭니다. **클라우드 서비스**는 애플리케이션이 Azure에 배포될 때 호스트되는 컨테이너입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
+3. **클라우드 서비스** 가 아직 없는 경우 새로 만듭니다. **클라우드 서비스** 는 애플리케이션이 Azure에 배포될 때 호스트되는 컨테이너입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
 4. 배포 패키지를 Azure에 게시합니다.
 
 ## <a name="stopping-and-deleting-your-application"></a>애플리케이션 중지 및 삭제

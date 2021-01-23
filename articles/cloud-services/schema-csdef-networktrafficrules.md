@@ -1,26 +1,25 @@
 ---
-title: Azure Cloud Services NetworkTrafficRules 스키마 | Microsoft Docs
+title: Azure Cloud Services (클래식) NetworkTrafficRules 스키마 | Microsoft Docs
 description: 역할의 내부 끝점에 액세스할 수 있는 역할을 제한 하는 NetworkTrafficRules에 대해 알아봅니다. 서비스 정의 파일의 역할과 결합 됩니다.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
-caps.latest.revision: 17
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2c8ab53068b71652d03d03bf79a224fe5e34dff3
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534731"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739771"
 ---
-# <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services 정의 NetworkTrafficRules 스키마
+# <a name="azure-cloud-services-classic-definition-networktrafficrules-schema"></a>Azure Cloud Services (클래식) 정의 NetworkTrafficRules 스키마
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 `NetworkTrafficRules` 노드는 역할이 서로 통신하는 방법을 지정하는 서비스 정의 파일의 선택적 요소입니다. 특정 역할의 내부 엔드포인트에 액세스할 수 있는 역할을 제한합니다. `NetworkTrafficRules`는 독립 실행형 요소가 아닙니다. 서비스 정의 파일에 두 개 이상의 역할과 결합됩니다.
 
 서비스 정의 파일의 기본 확장명은 .csdef입니다.
@@ -76,10 +75,10 @@ ph x="1" /&gt; 요소는 대상 엔드포인트의 컬렉션 및 대상 엔드�
 ##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a> RoleEndpoint 요소
 ph x="1" /&gt; 요소는 역할에서 통신을 허용하는 엔드포인트를 설명합니다. 역할에 둘 이상의 엔드포인트가 있는 경우 `RoleEndpoint` 요소를 여러 개 지정할 수 있습니다.
 
-| attribute      | Type     | Description |
+| attribute      | Type     | 설명 |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | 필수 사항입니다. 트래픽을 허용하는 엔드포인트의 이름입니다.|
-| `roleName`     | `string` | 필수 사항입니다. 통신을 허용하는 웹 역할의 이름입니다.|
+| `endpointName` | `string` | 필수 요소. 트래픽을 허용하는 엔드포인트의 이름입니다.|
+| `roleName`     | `string` | 필수 요소. 통신을 허용하는 웹 역할의 이름입니다.|
 
 ## <a name="allowalltraffic-element"></a>AllowAllTraffic 요소
 ph x="1" /&gt; 요소는 모든 역할이 `Destinations` 노드에 정의된 엔드포인트와 통신하도록 허용하는 규칙입니다.
@@ -87,16 +86,16 @@ ph x="1" /&gt; 요소는 모든 역할이 `Destinations` 노드에 정의된 엔
 ##  <a name="whensource-element"></a><a name="WhenSource"></a> ... 원본 요소
 ph x="1" /&gt; 요소는 `Destinations` 노드에 정의된 엔드포인트와 통신할 수 있는 역할의 컬렉션을 설명합니다.
 
-| attribute | Type     | Description |
+| attribute | Type     | 설명 |
 | --------- | -------- | ----------- |
-| `matches` | `string` | 필수 사항입니다. 통신을 허용할 때 적용할 규칙을 지정합니다. 현재 유효한 값은 `AnyRule`뿐입니다.|
+| `matches` | `string` | 필수 요소. 통신을 허용할 때 적용할 규칙을 지정합니다. 현재 유효한 값은 `AnyRule`뿐입니다.|
   
 ##  <a name="fromrole-element"></a><a name="FromRole"></a> FromRole 요소
 ph x="1" /&gt; 요소는 `Destinations` 노드에 정의된 엔드포인트와 통신할 수 있는 역할을 지정합니다. 엔드포인트와 통신할 수 있는 역할이 둘 이상인 경우 `FromRole` 요소를 여러 개 지정할 수 있습니다.
 
-| attribute  | Type     | Description |
+| attribute  | Type     | 설명 |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | 필수 사항입니다. 통신을 허용하는 역할에 대한 이름입니다.|
+| `roleName` | `string` | 필수 요소. 통신을 허용하는 역할에 대한 이름입니다.|
 
 ## <a name="see-also"></a>참고 항목
 [Cloud Service(클래식) 정의 스키마](schema-csdef-file.md)

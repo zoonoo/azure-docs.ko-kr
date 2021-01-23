@@ -1,22 +1,25 @@
 ---
-title: Azure Cloud Services 정의 스키마(.csdef 파일) | Microsoft Docs
+title: Azure Cloud Services (클래식) 정의 스키마 (.csdef 파일) | Microsoft Docs
 description: 서비스 정의 (.csdef) 파일은 사용 가능한 역할, 끝점 및 서비스에 대 한 구성 값을 포함 하는 응용 프로그램에 대 한 서비스 모델을 정의 합니다.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 42
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 1896ee8385d1e41feffe7a9f542550ea7f34a8a3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: de81b6ffb5b4dc944f3d538a116383d06145661b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072563"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739804"
 ---
-# <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure Cloud Services 정의 스키마(.csdef 파일)
+# <a name="azure-cloud-services-classic-definition-schema-csdef-file"></a>Azure Cloud Services (클래식) 정의 스키마 (.csdef 파일)
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 서비스 정의 파일은 애플리케이션에 대한 서비스 모델을 정의합니다. 파일은 클라우드 서비스에 사용할 수 있는 역할에 대한 정의가 포함되며, 서비스 엔드포인트를 지정하고, 서비스에 대한 구성 설정을 설정합니다. 구성 설정 값은 [Cloud Service(클래식) 구성 스키마](/previous-versions/azure/reference/ee758710(v=azure.100))에 설명된 대로 서비스 구성 파일에서 설정됩니다.
 
 기본적으로 Azure Diagnostics 구성 스키마 파일은 `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` 디렉터리에 설치됩니다. `<version>`을 [Azure SDK](https://www.windowsazure.com/develop/downloads/)의 설치된 버전으로 바꿉니다.
@@ -63,9 +66,9 @@ ms.locfileid: "92072563"
 
 다음 표에서는 `ServiceDefinition` 요소의 특성을 설명합니다.
 
-| attribute               | Description |
+| attribute               | 설명 |
 | ----------------------- | ----------- |
-| name                    |필수 요소. 서비스의 이름입니다. 이름은 서비스 계정 내에서 고유해야 합니다.|
-| topologyChangeDiscovery | 선택 사항입니다. 토폴로지 유형 변경 알림을 지정합니다. 가능한 값은 다음과 같습니다.<br /><br /> -   `Blast` - 업데이트를 모든 역할 인스턴스에 최대한 빨리 보냅니다. 옵션을 선택한 경우 역할은 시작하지 않고 토폴로지 업데이트를 처리할 수 있어야 합니다.<br />-   `UpgradeDomainWalk` - 이전 인스턴스가 업데이트를 성공적으로 수락한 후 업데이트를 각 역할 인스턴스에 순차적으로 보냅니다.|
+| 이름                    |필수 요소. 서비스의 이름입니다. 이름은 서비스 계정 내에서 고유해야 합니다.|
+| topologyChangeDiscovery | 선택 사항입니다. 토폴로지 유형 변경 알림을 지정합니다. 가능한 값은<br /><br /> -   `Blast` - 업데이트를 모든 역할 인스턴스에 최대한 빨리 보냅니다. 옵션을 선택한 경우 역할은 시작하지 않고 토폴로지 업데이트를 처리할 수 있어야 합니다.<br />-   `UpgradeDomainWalk` - 이전 인스턴스가 업데이트를 성공적으로 수락한 후 업데이트를 각 역할 인스턴스에 순차적으로 보냅니다.|
 | schemaVersion           | 선택 사항입니다. 서비스 정의 스키마의 버전을 지정합니다. 스키마 버전을 사용하면 SDK가 둘 이상의 버전이 동시에 설치된 경우 Visual Studio에서 스키마 유효성 검사에 사용할 올바른 SDK 도구를 선택할 수 있습니다.|
 | upgradeDomainCount      | 선택 사항입니다. 이 서비스의 역할이 할당되는 업그레이드 도메인의 수를 지정합니다. 서비스를 배포할 때 역할 인스턴스가 업그레이드 도메인에 할당됩니다. 자세한 내용은 [클라우드 서비스 역할 또는 배포 업데이트](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [가상 컴퓨터의 가용성 관리](../virtual-machines/manage-availability.md) 및 [클라우드 서비스 모델 정의](./cloud-services-model-and-package.md)를 참조 하세요.<br /><br /> 최대 20개의 업그레이드 도메인을 지정할 수 있습니다. 지정하지 않은 경우 업그레이드 도메인의 기본값은 5입니다.|

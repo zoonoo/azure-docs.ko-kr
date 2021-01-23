@@ -3,29 +3,29 @@ title: 관리 단위 문제 해결 및 FAQ-Azure Active Directory | Microsoft Do
 description: Azure Active Directory에서 제한 된 범위가 포함 된 사용 권한을 부여 하는 관리 단위를 조사 합니다.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f585be2057bda19038fff1066e7864c6796576c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 0fb61388b13b912166c9c07b9ee28b365c4a63b9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394682"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740383"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Azure AD 관리 단위: 문제 해결 및 FAQ
 
 Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 관리 단위로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다. 일반 작업에 대 한 샘플 PowerShell 스크립트는 [관리 단위 작업](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true)을 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 **Q: 관리 단위를 만들 수 없는 이유는 무엇입니까?**
 

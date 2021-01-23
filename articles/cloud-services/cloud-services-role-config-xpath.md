@@ -1,20 +1,25 @@
 ---
-title: Cloud Services 역할 구성 XPath 참고 자료 | Microsoft Docs
+title: Cloud Services (클래식) 역할 구성 XPath 참고 자료 sheet | Microsoft Docs
 description: 클라우드 서비스 역할 구성에서 설정을 환경 변수로 노출하기 위해 사용할 수 있는 다양한 XPath 설정입니다.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 380b0be4e4e4b19d16cb611b0b472294339f2199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 397bc6845dc8d2d8bc44c00c27f6c12037651337
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75386088"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741386"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>XPath를 사용하여 역할 구성 설정을 환경 변수로 노출
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 클라우드 서비스 작업자 또는 웹 역할 서비스 정의 파일에서 런타임 구성 값을 환경 변수로 노출할 수 있습니다. 다음 XPath 값(API 값에 해당)을 사용할 수 있습니다.
 
 이러한 XPath 값을 [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee773173(v=azure.100)) 라이브러리를 통해서도 사용할 수 있습니다. 
@@ -115,7 +120,7 @@ ms.locfileid: "75386088"
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | 코드 |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 다음은 `TestIsEmulated` [ @emulated xpath 값](#app-running-in-emulator)으로 설정 된 환경 변수를 사용 하 여 시작 작업을 만드는 작업자 역할의 예입니다. 
 
 ```xml

@@ -4,16 +4,16 @@ description: OpenShift 4를 실행하는 Azure Red Hat OpenShift 프라이빗 �
 ms.service: container-service
 ms.topic: article
 ms.date: 03/12/2020
-author: georgewallace
-ms.author: gwallace
+author: sakthi-vetrivel
+ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3864d48399f00d5cfbdfa0a94939be0d88a73322
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 6daeb617e7d1922427fe1889b41512a61c5067cf
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928062"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740927"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Azure Red Hat OpenShift 4 프라이빗 클러스터 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "92928062"
 > * 필수 구성 요소를 설정하고 필요한 가상 네트워크 및 서브넷 만들기
 > * 프라이빗 API 서버 엔드포인트 및 프라이빗 수신 컨트롤러를 사용하여 클러스터 배포
 
-CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -192,7 +192,7 @@ az aro create \
 `az aro create` 명령을 실행한 후 클러스터를 만드는 데 일반적으로 약 35분이 소요됩니다.
 
 >[!IMPORTANT]
-> 사용자 지정 도메인(예: **foo.example.com** )을 지정하도록 선택하면 기본 제공 도메인 `https://console-openshift-console.apps.<random>.<location>.aroapp.io` 대신 `https://console-openshift-console.apps.foo.example.com` 같은 URL에서 OpenShift 콘솔을 사용할 수 있습니다.
+> 사용자 지정 도메인(예: **foo.example.com**)을 지정하도록 선택하면 기본 제공 도메인 `https://console-openshift-console.apps.<random>.<location>.aroapp.io` 대신 `https://console-openshift-console.apps.foo.example.com` 같은 URL에서 OpenShift 콘솔을 사용할 수 있습니다.
 >
 > 기본적으로 OpenShift는 `*.apps.<random>.<location>.aroapp.io`에서 생성되는 모든 경로에 자체 서명된 인증서를 사용합니다.  클러스터에 연결한 후 사용자 지정 DNS를 선택하는 경우 OpenShift 설명서에 따라 [수신 컨트롤러의 사용자 지정 CA](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) 및 [API 서버의 사용자 지정 CA](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html)를 구성해야 합니다.
 
@@ -235,7 +235,7 @@ az aro list-credentials \
 
 OpenShift 웹 콘솔에 로그인했으면 오른쪽 위에서 **?** 를 클릭한 다음, **명령줄 도구** 를 클릭합니다. 머신에 맞는 릴리스를 다운로드합니다.
 
-![Azure Red Hat OpenShift 로그인 화면](media/aro4-download-cli.png)
+![Azure Red Hat OpenShift 로그인 화면을 보여 주는 이미지](media/aro4-download-cli.png)
 
 <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>에서 현재 사용하는 머신에 맞는 최신 CLI 릴리스를 다운로드할 수도 있습니다.
 

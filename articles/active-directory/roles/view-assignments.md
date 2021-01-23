@@ -2,23 +2,23 @@
 title: Azure Active Directory 포털에서 사용자 지정 역할 할당 보기 | Microsoft Docs
 description: 이제 Azure Active Directory 관리 센터에서 Azure Active Directory 관리자 역할의 멤버를 보고 관리할 수 있습니다.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8546c2b50c78c7a24d07c75d2d730fd2566e8ba0
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c13167706c2794253108b04eaa2dcc46e0e6c09a
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862091"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740689"
 ---
 # <a name="view-custom-role-assignments-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 사용자 지정 역할 할당 보기
 

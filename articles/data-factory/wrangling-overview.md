@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: aa829f8f3de145cf831719a39cfb66163d9cc4f9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: f922e7a2755a6e26a0d9f93f2668753e2f4dad5a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634133"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738172"
 ---
 # <a name="what-is-data-wrangling"></a>데이터 랭 글 링 무엇 인가요?
 
@@ -27,6 +27,8 @@ Data Factory는 M을 Azure Data Factory 데이터 흐름으로 변환 하 여 �
 > Azure Data Factory의 파워 쿼리 활동은 현재 공개 미리 보기로 제공 됩니다.
 
 ## <a name="use-cases"></a>사용 사례
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4MFkW]
 
 ### <a name="fast-interactive-data-exploration-and-preparation"></a>신속한 대화형 데이터 탐색 및 준비
 

@@ -2,23 +2,23 @@
 title: Azure Active Directory에서 그룹에 할당 된 역할 보기 Microsoft Docs
 description: Azure AD 관리 센터를 사용 하 여 그룹에 할당 된 역할을 볼 수 있는 방법에 대해 알아봅니다. 그룹 및 할당 된 역할 보기는 기본 사용자 권한입니다.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8fdfd99b2ef5c1578bc9e87534461d68398c9f6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 1a1939be42126606fdae261e60c890c71374c894
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378281"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741828"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Azure Active Directory의 그룹에 할당 된 역할 보기
 

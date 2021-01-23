@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e603442bdecf9a627172e24390b06cef573f475
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 10c1680afd6cd6673efe3fe9d2397a0dc6a04859
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027571"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738809"
 ---
 클라이언트의 운영 체제에 따라 장치에 원격으로 연결 하는 절차가 다릅니다.
 
@@ -23,6 +23,8 @@ Windows 클라이언트에서 원격으로 연결 하려면 다음 단계를 수
 2. Windows 원격 관리 서비스가 클라이언트에서 실행 되 고 있는지 확인 합니다. 명령 프롬프트에 다음을 입력합니다.
 
     `winrm quickconfig`
+
+    자세한 내용은 [Windows 원격 관리를 위한 설치 및 구성](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management#quick-default-configuration)을 참조하세요.
 
 3. 장치 IP 주소에 변수를 할당 합니다.
 

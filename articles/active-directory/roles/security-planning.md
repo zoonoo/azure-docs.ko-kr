@@ -3,9 +3,9 @@ title: Azure AD의 관리자 액세스 보안 사례 | Microsoft Docs
 description: 조직의 관리 액세스 및 관리자 계정이 안전한 지 확인 합니다. Azure AD, Azure 및 Microsoft Online Services를 구성하는 시스템 설계자 및 IT 전문가를 대상으로 합니다.
 services: active-directory
 keywords: ''
-author: curtand
+author: rolyon
 manager: daveba
-ms.author: curtand
+ms.author: rolyon
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c981bde4e0699c4da33ada7e287b16e54b899a58
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 12f262347938720a9d5a95e070d792a83ac9188c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198920"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740808"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 

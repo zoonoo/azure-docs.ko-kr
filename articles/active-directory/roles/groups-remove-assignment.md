@@ -2,23 +2,23 @@
 title: Azure Active Directory에서 그룹의 역할 할당 제거 Microsoft Docs
 description: ID 관리를 위임하기 위한 사용자 지정 Azure AD 역할을 미리 봅니다. Azure Portal, PowerShell 또는 Graph API에서 Azure 역할을 관리합니다.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58465c56be310d3f9d500ab551c7d2b19ffaa83
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 89fa3bb94f72ab04c2ea68641b8d1dff7695aa53
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378383"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741029"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹의 역할 할당 제거
 
@@ -28,7 +28,7 @@ ms.locfileid: "93378383"
 
 1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
 
-1. **역할 및 관리자** > * *_역할 이름_* _을 선택 합니다.
+1. **역할 및 관리자** > **_역할 이름_* _을 선택 합니다.
 
 1. 역할 할당을 제거할 그룹을 선택 하 고 _ * 할당 제거 * *를 선택 합니다.
 

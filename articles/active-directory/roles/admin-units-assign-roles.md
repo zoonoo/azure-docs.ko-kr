@@ -3,25 +3,25 @@ title: 관리 단위 범위를 사용 하 여 역할 할당 및 나열-Azure Act
 description: 관리 단위를 사용 하 여 Azure Active Directory에서 역할 할당의 범위를 제한할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: ecfa9186ef42d4822c9b3053d76b7c0160841621
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393441"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740400"
 ---
-# <a name="assign-scoped-roles-to-an-administrative-unit"></a>관리 단위에 범위 지정 역할 할당
+# <a name="assign-scoped-roles-to-an-administrative-unit"></a>관리 단위에 범위가 지정된 역할 할당
 
 Azure AD (Azure Active Directory)에서 보다 세부적인 관리 제어를 위해 하나 이상의 관리 단위로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다.
 
@@ -29,7 +29,7 @@ PowerShell을 사용 하 고 관리 장치 관리에 Microsoft Graph을 준비 �
 
 ## <a name="available-roles"></a>사용 가능한 역할
 
-역할  |  Description
+역할  |  설명
 ----- |  -----------
 인증 관리자  |  할당 된 관리 단위 에서만 관리자가 아닌 사용자에 대 한 인증 방법 정보를 보고 설정 하 고 다시 설정 하기 위한 액세스 권한이 있습니다.
 그룹 관리자  |  는 할당 된 관리 단위 에서만 이름 지정 및 만료 정책 같은 그룹 및 그룹 설정의 모든 측면을 관리할 수 있습니다.

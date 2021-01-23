@@ -8,14 +8,18 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 9e16d77c36f382e72d5e9902b07afbbec50b6876
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4962d5f048cf41eca50a77a0dedad3cef48ac1f0
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723258"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740077"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Storage에서 진단 데이터 저장 및 보기
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 진단 데이터를 Microsoft Azure Storage 에뮬레이터으로 전송 하거나 Azure Storage 하지 않는 한 진단 데이터는 영구적으로 저장 되지 않습니다. 스토리지에서 사용할 수 있는 여러 도구 중 하나로 한 번 볼 수 있습니다.
 
 ## <a name="specify-a-storage-account"></a>스토리지 계정 지정

@@ -1,20 +1,24 @@
 ---
-title: 클라우드 서비스를 업데이트하는 방법 | Microsoft Docs
+title: 클라우드 서비스를 업데이트 하는 방법 (클래식) | Microsoft Docs
 description: Azure에서 클라우드 서비스를 업데이트하는 방법에 대해 알아봅니다. 가용성을 보장하도록 클라우드 서비스에서 업데이트가 진행되는 방법에 대해 알아봅니다.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075045"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741114"
 ---
-# <a name="how-to-update-a-cloud-service"></a>클라우드 서비스를 업데이트하는 방법
+# <a name="how-to-update-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스를 업데이트 하는 방법 (클래식)
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 
 해당 역할 및 게스트 OS를 포함한 클라우드 서비스 업데이트는 3단계 프로세스입니다. 먼저 새 클라우드 서비스 또는 OS 버전에 대한 이진 및 구성 파일을 업로드해야 합니다. 다음으로 Azure는 새 클라우드 서비스 버전의 요구 사항에 따라 클라우드 서비스에 대한 컴퓨팅 및 네트워크 리소스를 예약합니다. 마지막으로 Azure는 가용성을 유지하면서 새 버전 또는 게스트 OS로 테넌트를 증분 방식으로 업데이트하도록 롤링 업그레이드를 수행합니다. 이 문서에서는 롤링 업그레이드 마지막 단계에 대한 세부 정보를 설명합니다.
 
@@ -26,7 +30,7 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 서비스에서 하나 이상의 역할에 대한 전체 업데이트를 수행하면 Azure는 자신이 속한 업그레이드 도메인에 따라 역할 인스턴스의 집합을 업데이트합니다. Azure는 주어진 업그레이드 도메인 - 중지, 업데이트, 다시 온라인으로 전환 - 으로 모든 인스턴스를 업데이트하고 다음 도메인으로 이동합니다. 현재 업그레이드 도메인에서 실행 중인 인스턴스만 중지하여 Azure는 실행 중인 서비스에 가능한 한 최소한의 영향으로 업데이트를 발생하도록 합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [업데이트 진행 방법](#howanupgradeproceeds) 을 참조하세요.
 
 > [!NOTE]
-> 용어 **업데이트** 및 **업그레이드**는 Azure 컨텍스트에서 의미가 약간 다르지만 이 문서의 기능 프로세스 및 설명에 대해 같은 의미로 사용될 수 있습니다.
+> 용어 **업데이트** 및 **업그레이드** 는 Azure 컨텍스트에서 의미가 약간 다르지만 이 문서의 기능 프로세스 및 설명에 대해 같은 의미로 사용될 수 있습니다.
 >
 >
 
@@ -117,7 +121,7 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 수락된 후 서비스에 추가 작업을 시작할 수 있도록 하여 업데이트하는 동안 서비스 관리에 유연성을 제공합니다. 롤백은 배포에서 업데이트(구성 변경) 또는 업그레이드가 **진행 중인** 상태에서만 수행할 수 있습니다. 업데이트 또는 업그레이드는 아직 새 버전으로 업데이트되지 않은 서비스의 인스턴스가 하나 이상 있는 한 진행 중인 것으로 간주됩니다. 롤백이 허용되는지 여부를 테스트하려면 [배포 가져오기](/previous-versions/azure/reference/ee460804(v=azure.100)) 및 [클라우드 서비스 속성 가져오기](/previous-versions/azure/reference/ee460806(v=azure.100)) 작업으로 반환되는 RollbackAllowed 플래그의 값이 true로 설정되었는지 확인합니다.
 
 > [!NOTE]
-> VIP 교체는 실행 중인 전체 서비스 인스턴스를 다른 서비스로 교체하여 업그레이드하기 때문에 **진행 중**인 업데이트 또는 업그레이드에서만 롤백을 호출하는 것이 의미가 있습니다.
+> VIP 교체는 실행 중인 전체 서비스 인스턴스를 다른 서비스로 교체하여 업그레이드하기 때문에 **진행 중** 인 업데이트 또는 업그레이드에서만 롤백을 호출하는 것이 의미가 있습니다.
 >
 >
 
@@ -149,7 +153,7 @@ Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 �
 <a name="multiplemutatingoperations"></a>
 
 ## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>진행 중인 배포에 여러 변경 작업 시작
-일부 경우에서 진행 중인 배포에 여러 동시 변경 작업을 시작할 수 있습니다. 예를 들어 서비스 업데이트를 수행할 수 있으며 해당 업데이트가 서비스에서 롤아웃되는 동안 업데이트 롤백, 다른 업데이트 적용 또는 배포 삭제와 같은 다른 변경을 수행하려고 합니다. 이러한 작업이 필요한 경우는 서비스 업그레이드가 업그레이드된 역할 인스턴스를 반복적으로 충돌을 일으키는 버그가 있는 코드를 포함 하는 경우입니다. 이 경우 업그레이드된 도메인의 부족한 인스턴스 수가 정상이므로 Azure 패브릭 컨트롤러는 해당 업그레이드 적용 절차를 진행할 수 없습니다. 이러한 상태를 *배포 중단*이라고 합니다. 업데이트를 롤백하거나 새 업데이트를 실패한 배포의 위쪽에 적용하여 배포 중단을 해결할 수 있습니다
+일부 경우에서 진행 중인 배포에 여러 동시 변경 작업을 시작할 수 있습니다. 예를 들어 서비스 업데이트를 수행할 수 있으며 해당 업데이트가 서비스에서 롤아웃되는 동안 업데이트 롤백, 다른 업데이트 적용 또는 배포 삭제와 같은 다른 변경을 수행하려고 합니다. 이러한 작업이 필요한 경우는 서비스 업그레이드가 업그레이드된 역할 인스턴스를 반복적으로 충돌을 일으키는 버그가 있는 코드를 포함 하는 경우입니다. 이 경우 업그레이드된 도메인의 부족한 인스턴스 수가 정상이므로 Azure 패브릭 컨트롤러는 해당 업그레이드 적용 절차를 진행할 수 없습니다. 이러한 상태를 *배포 중단* 이라고 합니다. 업데이트를 롤백하거나 새 업데이트를 실패한 배포의 위쪽에 적용하여 배포 중단을 해결할 수 있습니다
 
 Azure 패브릭 컨트롤러에서 서비스 업데이트 또는 업그레이드에 대한 초기 요청을 받으면 후속 변경 작업을 시작할 수 있습니다. 즉, 다른 변경 작업을 시작할 수 있기 전에 초기 작업이 완료될 때까지 기다릴 필요가 없습니다.
 

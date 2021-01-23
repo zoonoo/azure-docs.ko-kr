@@ -1,28 +1,25 @@
 ---
 title: Service Management API 사용(Python) - 기능 가이드
 description: Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법에 대해 알아봅니다.
-services: cloud-services
-documentationcenter: python
-author: tanmaygore
-manager: vashan
-editor: ''
-ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: article
-ms.date: 05/30/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-ms.openlocfilehash: ef155116904ee0d3ecab250a254010e2f7664757
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 02993f2b79e37e5e50c20c4ee07220bcbd36edb8
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073991"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741403"
 ---
 # <a name="use-service-management-from-python"></a>Python에서 서비스 관리 사용
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)의 **ServiceManagementService** 클래스는 [Azure Portal][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다. 클라우드 서비스, 배포, 데이터 관리 서비스, 가상 머신 만들기, 업데이트 및 삭제에 이 기능을 사용할 수 있습니다. 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 애플리케이션을 빌드하는 데 유용할 수 있습니다.
 
 ## <a name="what-is-service-management"></a><a name="WhatIs"> </a>서비스 관리 정의
@@ -59,9 +56,9 @@ openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서 개요](cloud-services-certs-create.md)를 참조하세요. OpenSSL 매개 변수에 대 한 자세한 설명은에서 설명서를 참조 [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html) 하세요.
 
-이러한 파일을 만든 후 `.cer` 파일을 Azure에 업로드합니다. [Azure Portal][management-portal]의 **설정** 탭에서 **업로드**를 선택합니다. `.pem` 파일을 저장한 위치를 적어 둡니다.
+이러한 파일을 만든 후 `.cer` 파일을 Azure에 업로드합니다. [Azure Portal][management-portal]의 **설정** 탭에서 **업로드** 를 선택합니다. `.pem` 파일을 저장한 위치를 적어 둡니다.
 
-구독 ID를 가져온 후 인증서를 만들고, `.cer` 파일을 Azure에 업로드하고, Azure 관리 엔드포인트에 연결합니다. `.pem` 파일에 대한 구독 ID와 경로를 **ServiceManagementService**에 전달하여 연결합니다.
+구독 ID를 가져온 후 인증서를 만들고, `.cer` 파일을 Azure에 업로드하고, Azure 관리 엔드포인트에 연결합니다. `.pem` 파일에 대한 구독 ID와 경로를 **ServiceManagementService** 에 전달하여 연결합니다.
 
 ```python
 from azure import *
@@ -76,7 +73,7 @@ sms = ServiceManagementService(subscription_id, certificate_path)
 앞의 예제에서 `sms` 은 **ServiceManagementService** 개체입니다. **ServiceManagementService** 클래스는 Azure 서비스를 관리하는 데 사용되는 주 클래스입니다.
 
 ### <a name="management-certificates-on-windows-makecert"></a>Windows의 관리 인증서(MakeCert)
-`makecert.exe`를 사용하여 컴퓨터에 자체 서명된 관리 인증서를 만들 수 있습니다. **Visual Studio 명령 프롬프트**를 **관리자**로 열고 *AzureCertificate*를 사용하려는 인증서 이름으로 바꿔서 다음 명령을 사용합니다.
+`makecert.exe`를 사용하여 컴퓨터에 자체 서명된 관리 인증서를 만들 수 있습니다. **Visual Studio 명령 프롬프트** 를 **관리자** 로 열고 *AzureCertificate* 를 사용하려는 인증서 이름으로 바꿔서 다음 명령을 사용합니다.
 
 ```console
 makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
@@ -84,9 +81,9 @@ makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My 
 
 이 명령은 파일을 만들어 `.cer` **개인** 인증서 저장소에 설치 합니다. 자세한 내용은 [Azure Cloud Services 인증서 개요](cloud-services-certs-create.md)를 참조하세요.
 
-인증서를 만든 후 `.cer` 파일을 Azure에 업로드합니다. [Azure Portal][management-portal]의 **설정** 탭에서 **업로드**를 선택합니다.
+인증서를 만든 후 `.cer` 파일을 Azure에 업로드합니다. [Azure Portal][management-portal]의 **설정** 탭에서 **업로드** 를 선택합니다.
 
-구독 ID를 가져온 후 인증서를 만들고, `.cer` 파일을 Azure에 업로드하고, Azure 관리 엔드포인트에 연결합니다. 구독 ID와 **개인** 인증서 저장소의 인증서 위치를 **ServiceManagementService**에 전달하여 연결합니다(다시 *AzureCertificate*를 인증서의 이름으로 대체).
+구독 ID를 가져온 후 인증서를 만들고, `.cer` 파일을 Azure에 업로드하고, Azure 관리 엔드포인트에 연결합니다. 구독 ID와 **개인** 인증서 저장소의 인증서 위치를 **ServiceManagementService** 에 전달하여 연결합니다(다시 *AzureCertificate* 를 인증서의 이름으로 대체).
 
 ```python
 from azure import *
@@ -213,7 +210,7 @@ operation_result = sms.get_operation_status(result.request_id)
 print('Operation status: ' + operation_result.status)
 ```
 
-앞의 예제에서 **create\_storage\_account** 작업 상태는 **create\_storage\_account**가 반환한 결과를 **get\_operation\_status** 메서드에 전달하여 검색할 수 있습니다. 
+앞의 예제에서 **create\_storage\_account** 작업 상태는 **create\_storage\_account** 가 반환한 결과를 **get\_operation\_status** 메서드에 전달하여 검색할 수 있습니다. 
 
 **list\_storage\_accounts** 메서드로 스토리지 계정 및 해당 속성을 나열할 수 있습니다.
 

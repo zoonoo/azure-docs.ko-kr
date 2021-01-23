@@ -3,23 +3,23 @@ title: 관리 단위에서 사용자 추가, 제거 및 나열-Azure Active Dire
 description: Azure Active Directory 관리 단위에서 사용자 및 해당 역할 권한 관리
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b490e03ea7ac0a3bc780fa731629217126b6828a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d3dc7b37c96d2d82ae42d9bce32a97beab2d91e9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395532"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740519"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory 관리 단위에서 사용자 추가 및 관리
 
@@ -89,7 +89,7 @@ Request body
 }
 ```
 
-예제:
+예:
 
 ```http
 {

@@ -1,21 +1,24 @@
 ---
-title: Azure Cloud Services에서 성능 카운터 수집 | Microsoft Docs
+title: Azure Cloud Services에서 성능 카운터 수집 (클래식) | Microsoft Docs
 description: Azure Diagnostics 및 Application Insights를 사용하여 Cloud Services에서 성능 카운터를 검색, 사용 및 만드는 방법을 알아봅니다.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 02/02/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16b54e8a59eb42c6e2351d37ec0a29d775161493
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078598"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739839"
 ---
-# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
+# <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Azure 클라우드 서비스 (클래식)에 대 한 성능 카운터 수집
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
 
 성능 카운터는 애플리케이션과 호스트의 성능을 추적할 수 있는 방법을 제공합니다. Windows Server는 하드웨어, 애플리케이션, 운영 체제 등과 관련된 다양한 성능 카운터를 제공합니다. 성능 카운터를 수집하고 Azure에 보내면 이 정보를 분석하여 더 나은 결정을 내릴 수 있습니다. 
 
@@ -78,7 +81,7 @@ Azure Diagnostics 또는 Application Insights를 위해 클라우드 서비스�
 
 ### <a name="application-insights"></a>Application Insights
 
-Cloud Services용 Azure Application Insights를 사용하면 수집할 성능 카운터를 지정할 수 있습니다. [Application Insights를 프로젝트에 추가](../azure-monitor/app/cloudservices.md#sdk)하면 **ApplicationInsights.config**라는 구성 파일이 Visual Studio 프로젝트에 추가됩니다. 이 구성 파일은 Application Insights가 수집하여 Azure에 전송하는 정보 유형을 정의합니다.
+Cloud Services용 Azure Application Insights를 사용하면 수집할 성능 카운터를 지정할 수 있습니다. [Application Insights를 프로젝트에 추가](../azure-monitor/app/cloudservices.md#sdk)하면 **ApplicationInsights.config** 라는 구성 파일이 Visual Studio 프로젝트에 추가됩니다. 이 구성 파일은 Application Insights가 수집하여 Azure에 전송하는 정보 유형을 정의합니다.
 
 **ApplicationInsights.config** 파일을 열고 **ApplicationInsights** > **TelemetryModules** 요소를 찾습니다. 각 `<Add>` 자식 요소는 해당 구성과 함께 수집할 원격 분석 유형을 정의합니다. 성능 카운터 원격 분석 모듈 유형은 `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`입니다. 이 요소가 이미 정의된 경우에는 다시 추가하지 마세요. 수집할 각 성능 카운터는 `<Counters>`라는 노드 아래에 정의됩니다. 다음은 드라이브 성능 카운터를 수집하는 예제입니다.
 
@@ -236,7 +239,7 @@ counterServiceUsed.Increment();
 
 ### <a name="application-insights"></a>Application Insights
 
-이전에 설명한 대로 Application Insights의 성능 카운터는 **ApplicationInsights.config** 파일에서 정의됩니다. **ApplicationInsights.config**를 열고 **ApplicationInsights** > **TelemetryModules** > **Add** > **Counters** 요소를 찾습니다. `<Add>` 자식 요소를 만들고 `PerformanceCounter` 특성을 코드에서 만든 성능 카운터의 범주 및 이름으로 설정합니다. `ReportAs` 특성을 포털에 표시하려는 이름으로 설정합니다.
+이전에 설명한 대로 Application Insights의 성능 카운터는 **ApplicationInsights.config** 파일에서 정의됩니다. **ApplicationInsights.config** 를 열고 **ApplicationInsights** > **TelemetryModules** > **Add** > **Counters** 요소를 찾습니다. `<Add>` 자식 요소를 만들고 `PerformanceCounter` 특성을 코드에서 만든 성능 카운터의 범주 및 이름으로 설정합니다. `ReportAs` 특성을 포털에 표시하려는 이름으로 설정합니다.
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">

@@ -2,23 +2,23 @@
 title: 엔터프라이즈 앱 액세스 할당에 대 한 사용자 지정 역할 권한-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory에서 엔터프라이즈 앱 액세스에 대 한 사용자 지정 Azure AD 역할 만들기 및 할당
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: d3cb65503ffab610f9545acb313f7284ffb11ed1
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378553"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741148"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱을 관리 하는 사용자 지정 역할 할당
 

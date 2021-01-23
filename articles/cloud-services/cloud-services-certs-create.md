@@ -1,21 +1,25 @@
 ---
-title: Cloud Services 및 관리 인증서 | Microsoft Docs
+title: Cloud Services (클래식) 및 관리 인증서 | Microsoft Docs
 description: Cloud services에 대 한 인증서를 만들고 배포 하 고 Azure에서 관리 API를 사용 하 여 인증 하는 방법에 대해 알아봅니다.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 8650b8670c61cab15b26163dd5108145b8509434
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c73f9812f344eecf4e51f43405b48693ddfa191b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072427"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739737"
 ---
-# <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services 인증서 개요
+# <a name="certificates-overview-for-azure-cloud-services-classic"></a>Azure Cloud Services에 대 한 인증서 개요 (클래식)
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 인증서는 Azure에서 클라우드 서비스([서비스 인증서](#what-are-service-certificates))와 관리 API([관리 인증서](#what-are-management-certificates))를 통한 인증에 사용됩니다. 이 토픽에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 배포하는 방법을 살펴봅니다.
 
 Azure에서 사용되는 인증서는 x.509 v3 인증서이며 다른 신뢰할 수 있는 인증서에 의해 서명되거나 자체 서명될 수 있습니다. 자체 서명된 인증서는 해당 작성자에 의해 서명되므로 기본적으로 신뢰할 수 없습니다. 대부분의 브라우저는 이러한 문제를 무시할 수 있습니다. Cloud Services를 개발하고 테스트하는 경우에만 자체 서명된 인증서를 사용해야 합니다. 
@@ -55,7 +59,7 @@ Azure Portal을 사용하거나 클래식 배포 모델을 사용하여 서비�
 * 키 교환용으로 만들어졌어야 합니다(.pfx 파일).
 * 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다.
 
-    > Cloudapp.net (또는 Azure 관련) 도메인에 대 한 TLS/SSL 인증서를 가져올 수 없습니다. 인증서의 주체 이름은 응용 프로그램에 액세스 하는 데 사용 되는 사용자 지정 도메인 이름과 일치 해야 합니다. 예를 들어, **contoso.cloudapp.net**이 아니라**contoso.net**입니다.
+    > Cloudapp.net (또는 Azure 관련) 도메인에 대 한 TLS/SSL 인증서를 가져올 수 없습니다. 인증서의 주체 이름은 응용 프로그램에 액세스 하는 데 사용 되는 사용자 지정 도메인 이름과 일치 해야 합니다. 예를 들어, **contoso.cloudapp.net** 이 아니라 **contoso.net** 입니다.
 
 * 최소한 2048비트 암호화를 사용해야 합니다.
 * **서비스 인증서에만 해당**: 클라이언트 쪽 인증서는 *개인* 인증서 저장소에 있어야 합니다.
