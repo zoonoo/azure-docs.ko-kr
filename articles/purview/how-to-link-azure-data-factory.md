@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928769"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723883"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법
 
@@ -99,10 +99,10 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 
 | 데이터 저장소 시스템 | 원본으로 지원됨 | 싱크로 지원됨 |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (JSON 지원 안 함) | 예 | 예 (이진이 아닌 복사 전용) |
-| ADLS Gen2 (JSON 지원 안 함) | 예 | 예 |
-| Azure Blob (JSON 지원 안 함) | 예 | 예 |
-| Azure Cosmos DB(SQL API) | 예 | 예 |
+| ADLS Gen1 | 예 | 예 (이진이 아닌 복사 전용) |
+| ADLS Gen2 | 예 | 예 |
+| Azure Blob | 예 | 예 |
+| Azure Cosmos DB (SQL API) | 예 | 예 |
 | Azure Cosmos DB (Mongo API) | 예 | 예 |
 | Azure Cognitive Search | 예 | 예 |
 | Azure Data Explorer | 예 | 예 |

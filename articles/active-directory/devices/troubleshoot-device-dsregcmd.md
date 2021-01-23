@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 614b3f927dc22bc534168f8fe95cc2f97031b621
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80128754"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725526"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결
 
@@ -305,10 +305,10 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 ## <a name="ngc-prerequisite-check"></a>NGC 필수 구성 요소 확인
 
-이 섹션에서는 WHFB (비즈니스용 Windows Hello)를 프로 비전 하는 필수 검사를 수행 합니다. 
+이 섹션에서는 비즈니스용 Windows Hello (WHFB)를 프로 비전 하기 위한 필수 구성 요소 확인을 수행 합니다. 
 
 > [!NOTE]
-> 사용자가 이미 WHFB을 구성 했으면 dsregcmd.exe/status에서 NGC 필수 구성 요소 확인 세부 정보를 볼 수 없습니다.
+> 사용자가 이미 WHFB를 구성한 경우 dsregcmd.exe/status에서 NGC 필수 구성 요소 확인 세부 정보를 볼 수 없습니다.
 
 - **Isdevicejoined:** -장치가 Azure AD에 가입 되어 있는 경우 "예"로 설정 합니다.
 - **IsUserAzureAD:** -로그인 한 사용자가 Azure AD에 있는 경우 "예"로 설정 합니다.

@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdff7e62753e75a14d6711b77dd451603353dae5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 6a5e8b933f617d767f017f73fb6778a45b5a1ce3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012838"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725592"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 전화 옵션의 인증 방법
 
-문자 메시지를 사용하는 직접 인증의 경우 [SMS 기반 인증(미리 보기)에 대해 사용자를 구성하고 사용하도록 설정](howto-authentication-sms-signin.md)할 수 있습니다. SMS 기반 로그인은 일선 작업자에게 적합합니다. SMS 기반 로그인을 사용하면 사용자가 애플리케이션 및 서비스에 액세스하기 위해 사용자 이름과 암호를 몰라도 됩니다. 대신 사용자가 등록된 휴대폰 번호를 입력하고 확인 코드를 포함하는 문자 메시지를 받은 후 로그인 인터페이스에 입력합니다.
+문자 메시지를 사용 하는 직접 인증의 경우 [SMS 기반 인증을 위해 사용자를 구성 하 고 사용 하도록 설정할](howto-authentication-sms-signin.md)수 있습니다. SMS 기반 로그인은 Frontline 작업자에 게 적합 합니다. SMS 기반 로그인을 사용하면 사용자가 애플리케이션 및 서비스에 액세스하기 위해 사용자 이름과 암호를 몰라도 됩니다. 대신 사용자가 등록된 휴대폰 번호를 입력하고 확인 코드를 포함하는 문자 메시지를 받은 후 로그인 인터페이스에 입력합니다.
 
 사용자는 Azure AD Multi-Factor Authentication 또는 SSPR (셀프 서비스 암호 재설정) 중에 사용 되는 인증의 보조 양식으로 휴대폰 또는 사무실 전화를 사용 하 여 자신을 확인할 수도 있습니다.
 

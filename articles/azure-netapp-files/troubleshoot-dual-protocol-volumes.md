@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 01/12/2021
+ms.date: 01/22/2021
 ms.author: b-juche
-ms.openlocfilehash: 0ae7e8f745a91e080d12a47271057ed90f9bc835
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: fb4233a87231dddb1e3cb2777ac2ef53a61f833e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134333"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726618"
 ---
 # <a name="troubleshoot-dual-protocol-volumes"></a>이중 프로토콜 볼륨 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "98134333"
 
 |     오류 조건    |     해결 방법    |
 |-|-|
-| 이중 프로토콜 볼륨 만들기가 오류로 인해 실패 `This Active Directory has no Server root CA Certificate` 합니다.    |     이중 프로토콜 볼륨을 만들 때이 오류가 발생 하는 경우에는 NetApp 계정에 루트 CA 인증서가 업로드 되었는지 확인 합니다.    |
+| TLS를 통한 LDAP를 사용 하도록 설정 하 고 오류가 발생 하 여 이중 프로토콜 볼륨 만들기가 실패 `This Active Directory has no Server root CA Certificate` 합니다.    |     이중 프로토콜 볼륨을 만들 때이 오류가 발생 하는 경우에는 NetApp 계정에 루트 CA 인증서가 업로드 되었는지 확인 합니다.    |
 | 이중 프로토콜 볼륨 만들기가 오류로 인해 실패 `Failed to validate LDAP configuration, try again after correcting LDAP configuration` 합니다.    |  DNS 서버에 AD 호스트 컴퓨터의 포인터 (PTR) 레코드가 없을 수 있습니다. DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에서 AD 호스트 컴퓨터의 PTR 레코드를 추가 해야 합니다. <br> 예를 들어 AD 컴퓨터의 IP 주소가이 고 `1.1.1.1` , 명령을 사용 하 여 발견 된 ad 컴퓨터의 호스트 이름이이 `hostname` `AD1` 고, 도메인 이름이 인 것으로 가정 합니다 `contoso.com` .  역방향 조회 영역에 추가 된 PTR 레코드는 이어야 합니다 `1.1.1.1`  ->  `contoso.com` .   |
 | 이중 프로토콜 볼륨 만들기가 오류로 인해 실패 `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 1.1.1.1, port 88 using TCP\\n**[ 950] FAILURE` 합니다. |  이 오류는 Active Directory NetApp 계정에 가입할 때 AD 암호가 잘못 되었음을 나타냅니다. 올바른 암호를 사용 하 여 AD 연결을 업데이트 하 고 다시 시도 하십시오. |
 | 이중 프로토콜 볼륨 만들기가 오류로 인해 실패 `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available` 합니다. |   이 오류는 DNS에 연결할 수 없음을 나타냅니다. DNS IP가 잘못 되었거나 네트워킹 문제가 있기 때문일 수 있습니다. AD 연결에 입력 된 DNS IP를 확인 하 고 IP가 올바른지 확인 하십시오. <br> 또한 AD와 볼륨이 동일한 지역에 있고 동일한 VNet에 있어야 합니다. 서로 다른 Vnet에 있는 경우 두 Vnet 간에 VNet 피어 링이 설정 되어 있는지 확인 합니다.|

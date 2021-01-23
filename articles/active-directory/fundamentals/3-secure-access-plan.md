@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40738f8fcb14c48ccfe3bc7869e5176c4ab63165
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222333"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725214"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. 외부 액세스를 위한 보안 계획 만들기 
 
@@ -93,7 +93,7 @@ ms.locfileid: "98222333"
 | 높은 위험| 외부 사용자에 대해 MFA 항상 필요 |
 
 
-현재는 [테 넌 트의 B2B 사용자에 대해 multi-factor authentication을 적용할](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-tutorial-require-mfa)수 있습니다. 
+현재는 [테 넌 트의 B2B 사용자에 대해 multi-factor authentication을 적용할](../external-identities/b2b-tutorial-require-mfa.md)수 있습니다. 
 
 **사용자 및 장치 기반 로그인 조건**
 
@@ -106,11 +106,11 @@ ms.locfileid: "98222333"
 
 오늘날에는 장치 상태를 정책에 대 한 입력으로 사용 하려면 장치를 등록 하거나 테 넌 트에 조인 해야 합니다. 
 
-[Id 보호 위험 기반 정책을](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk) 사용할 수 있습니다. 그러나 사용자의 홈 테 넌 트에서 문제를 완화 해야 합니다.
+[Id 보호 위험 기반 정책을](../conditional-access/howto-conditional-access-policy-risk.md) 사용할 수 있습니다. 그러나 사용자의 홈 테 넌 트에서 문제를 완화 해야 합니다.
 
-[네트워크 위치의](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-location)경우 소유 하는 모든 IP 주소 범위에 대 한 액세스를 제한할 수 있습니다. 외부 파트너가 조직에서 사이트에 있는 동안 응용 프로그램에 액세스 하려는 경우에만이를 사용할 수 있습니다.
+[네트워크 위치의](../conditional-access/howto-conditional-access-policy-location.md)경우 소유 하는 모든 IP 주소 범위에 대 한 액세스를 제한할 수 있습니다. 외부 파트너가 조직에서 사이트에 있는 동안 응용 프로그램에 액세스 하려는 경우에만이를 사용할 수 있습니다.
 
-[조건부 액세스 정책에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+[조건부 액세스 정책에 대해 자세히 알아보세요](../conditional-access/overview.md).
 
 ## <a name="document-access-review-policies"></a>문서 액세스 검토 정책
 
@@ -126,15 +126,15 @@ ms.locfileid: "98222333"
 
 * **자격 관리 액세스 검토**. 자격 관리의 기능을 사용 하 여
 
-   * 는 [액세스 패키지를 자동으로 만료](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-lifecycle-policy)하므로 외부 사용자는 포함 된 리소스에 액세스할 수 있습니다.
+   * 는 [액세스 패키지를 자동으로 만료](../governance/entitlement-management-access-package-lifecycle-policy.md)하므로 외부 사용자는 포함 된 리소스에 액세스할 수 있습니다.
 
-   * 액세스 검토에 [필요한 검토 빈도](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-reviews-create) 를 설정 합니다.
+   * 액세스 검토에 [필요한 검토 빈도](../governance/entitlement-management-access-reviews-create.md) 를 설정 합니다.
 
-   * [연결 된 조직을](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-organization) 사용 하 여 단일 파트너의 모든 사용자를 그룹화 하는 경우 비즈니스 소유자 및 파트너 담당자와 정기적으로 검토를 예약 합니다.
+   * [연결 된 조직을](../governance/entitlement-management-organization.md) 사용 하 여 단일 파트너의 모든 사용자를 그룹화 하는 경우 비즈니스 소유자 및 파트너 담당자와 정기적으로 검토를 예약 합니다.
 
-* **그룹을 Microsoft 365** 합니다. 외부 사용자가 초대 되는 Microsoft 365 그룹에 대 한 [그룹 만료 정책을](https://docs.microsoft.com/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) 설정 합니다. 
+* **그룹을 Microsoft 365** 합니다. 외부 사용자가 초대 되는 Microsoft 365 그룹에 대 한 [그룹 만료 정책을](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) 설정 합니다. 
 
-* **기타 옵션** 입니다. 외부 사용자가 권한 부여 관리 액세스 패키지 또는 Microsoft 365 그룹 외부에서 액세스할 수 있는 경우, 계정을 비활성화 하거나 삭제 해야 하는 경우를 검토 하도록 비즈니스 프로세스를 설정 합니다. 예를 들면 다음과 같습니다.
+* **기타 옵션** 입니다. 외부 사용자가 권한 부여 관리 액세스 패키지 또는 Microsoft 365 그룹 외부에서 액세스할 수 있는 경우, 계정을 비활성화 하거나 삭제 해야 하는 경우를 검토 하도록 비즈니스 프로세스를 설정 합니다. 예:
 
    * 90 일 동안에 로그인 하지 않은 모든 계정에 대 한 로그인 기능을 제거 합니다.
 
@@ -146,9 +146,9 @@ ms.locfileid: "98222333"
 
 이제 액세스를 제어 하려는 항목, 일반적인 액세스를 위해 이러한 자산을 그룹화 하는 방법, 필요한 로그인 및 액세스 검토 정책을 배웠으므로 계획을 완료 하는 방법을 결정할 수 있습니다. 
 
-[자격 관리](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview)와 같은 일부 기능은 P2 (Azure AD Premium 2) 라이선스 에서만 사용할 수 있습니다. Microsoft 365 E5 및 Office 365 E5 라이선스는 Azure AD P2 라이선스를 포함 합니다. 
+[자격 관리](../governance/entitlement-management-overview.md)와 같은 일부 기능은 P2 (Azure AD Premium 2) 라이선스 에서만 사용할 수 있습니다. Microsoft 365 E5 및 Office 365 E5 라이선스는 Azure AD P2 라이선스를 포함 합니다. 
 
-Microsoft 365, Office 365 및 Azure AD의 다른 조합은 외부 사용자를 관리 하기 위한 몇 가지 기능을 사용할 수 있습니다. 자세한 내용은 [Information Protection](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance) 를 참조 하세요.
+Microsoft 365, Office 365 및 Azure AD의 다른 조합은 외부 사용자를 관리 하기 위한 몇 가지 기능을 사용할 수 있습니다. 자세한 내용은 [Information Protection](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance) 를 참조 하세요.
 
 > [!NOTE]
 > 라이선스는 사용자 당입니다. 따라서 모든 사용자에 대해 해당 라이선스를 사용 하도록 설정 하지 않고 Azure AD P2 또는 Microsoft 365 E5 수준에서 액세스 제어를 위임 하는 관리자 및 비즈니스 소유자를 비롯 한 특정 사용자를 가질 수 있습니다. 처음 5만 외부 사용자는 무료입니다. 다른 내부 사용자에 대해 P2 라이선스를 사용 하지 않는 경우 액세스 패키지와 같은 권한 관리 기능을 사용할 수 없습니다. 
@@ -180,7 +180,7 @@ Azure AD P2 및 Microsoft 365 E5에는 전체 보안 및 거 버 넌 스 도구 
 
 ### <a name="entitlement-management"></a>자격 관리 
 
-[자격 관리 액세스 패키지](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-create) 를 통해 그룹과 팀, 응용 프로그램 및 SharePoint 사이트에 대 한 액세스를 프로 비전 하 고 프로 비전을 해제 합니다. 액세스를 허용 하는 연결 된 조직, 셀프 서비스 요청이 허용 되는지 여부 및 액세스 권한을 부여 하는 데 필요한 승인 워크플로를 정의할 수 있습니다. 액세스가 필요한 것 보다 오래 지속 되지 않도록 하려면 각 액세스 패키지에 대 한 만료 정책 및 액세스 검토를 정의할 수 있습니다. 
+[자격 관리 액세스 패키지](../governance/entitlement-management-access-package-create.md) 를 통해 그룹과 팀, 응용 프로그램 및 SharePoint 사이트에 대 한 액세스를 프로 비전 하 고 프로 비전을 해제 합니다. 액세스를 허용 하는 연결 된 조직, 셀프 서비스 요청이 허용 되는지 여부 및 액세스 권한을 부여 하는 데 필요한 승인 워크플로를 정의할 수 있습니다. 액세스가 필요한 것 보다 오래 지속 되지 않도록 하려면 각 액세스 패키지에 대 한 만료 정책 및 액세스 검토를 정의할 수 있습니다. 
 
  
 

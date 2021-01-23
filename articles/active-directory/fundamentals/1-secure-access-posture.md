@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6814cafcf6dafa6f007bdd9d3623d30ef079084
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 37c27e84f15a01a2d8832baae137518685de59a8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222448"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725444"
 ---
 # <a name="determine-your-security-posture-for-external-access"></a>외부 액세스를 위한 보안 상태 결정 
 
@@ -69,7 +69,7 @@ IT 관리 및 위임 된 액세스의 목표가 다릅니다.
 
 * **응용 프로그램, 데이터 및 콘텐츠에 대 한 액세스를 제어** 합니다. [AZURE AD](https://azure.microsoft.com/pricing/details/active-directory/) 의 버전 및 [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)따라 다양 한 방법을 통해이를 수행할 수 있습니다. 
 
-* **공격 노출 영역을 줄입니다**. [권한 있는 id 관리](../privileged-identity-management/pim-configure.md), [DLP (데이터 손실 방지)](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) 및 [암호화 기능은](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) 공격 노출 영역을 줄입니다.
+* **공격 노출 영역을 줄입니다**. [권한 있는 id 관리](../privileged-identity-management/pim-configure.md), [DLP (데이터 손실 방지)](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) 및 [암호화 기능은](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) 공격 노출 영역을 줄입니다.
 
 * **정기적으로 작업 및 감사 로그를 검토 하 여 규정 준수를 확인** 합니다. 액세스 검토는 자격 관리를 통해 비즈니스 소유자에 게 액세스 결정을 위임할 수 있으며, 액세스 검토는 주기적으로 지속적으로 액세스를 확인 하는 방법을 제공 합니다. 민감도 레이블을 사용 하 여 자동화 된 데이터 분류를 사용 하면 중요 한 콘텐츠의 암호화를 자동화 하 여 직원의 최종 사용자가 쉽게 준수할 수 있습니다.
 
@@ -96,4 +96,3 @@ IT 관리 및 위임 된 액세스의 목표가 다릅니다.
 9. [Microsoft 팀, OneDrive 및 SharePoint에 대 한 액세스 보호](9-secure-access-teams-sharepoint.md)
  
 
- 

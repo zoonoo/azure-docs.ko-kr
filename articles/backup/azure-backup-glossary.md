@@ -3,12 +3,12 @@ title: Azure Backup 용어집
 description: 이 문서에서는 Azure Backup와 함께 사용 하는 데 도움이 되는 용어를 정의 합니다.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 121258665ab275fdcffd618e7c0cf1b3e0537e70
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 5b575e0f56c9cf39987e9e77850ab1d9b2e80d93
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661479"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723917"
 ---
 # <a name="azure-backup-glossary"></a>Azure Backup 용어집
 
@@ -21,7 +21,7 @@ ms.locfileid: "98661479"
 
 ## <a name="afs-azure-file-shares"></a>AFS (Azure 파일 공유)
 
-[Azure Files 설명서](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)를 참조 하세요.
+[Azure Files 설명서](../storage/files/storage-files-introduction.md)를 참조 하세요.
 
 ## <a name="alternate-location-recovery"></a>대체 위치 복구
 
@@ -35,7 +35,7 @@ ms.locfileid: "98661479"
 
 ## <a name="azure-resource-manager-arm-templates"></a>ARM(Azure Resource Manager) 템플릿
 
-[ARM 템플릿 설명서](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)를 참조 하세요.
+[ARM 템플릿 설명서](../azure-resource-manager/templates/overview.md)를 참조 하세요.
 
 ## <a name="autoprotection-for-databases"></a>Autoprotection (데이터베이스용)
 
@@ -49,38 +49,38 @@ Azure Backup는 저장소 및 데이터를 항상 사용 가능 하 게 유지 �
 
 ### <a name="lrs"></a>LRS
 
-[LRS (로컬 중복 저장소)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#locally-redundant-storage) 는 데이터 센터의 저장소 배율 단위로 백업 데이터를 세 번 복제 합니다 (백업 데이터의 복사본 3 개 생성). 백업 데이터의 모든 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류 로부터 백업 데이터를 보호 하기 위한 저렴 한 옵션입니다.
+[LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage) 는 데이터 센터의 저장소 배율 단위로 백업 데이터를 세 번 복제 합니다 (백업 데이터의 복사본 3 개 생성). 백업 데이터의 모든 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류 로부터 백업 데이터를 보호 하기 위한 저렴 한 옵션입니다.
 
 ### <a name="grs"></a>GRS
 
-[GRS(지역 중복 스토리지)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage)는 기본값이며 권장하는 복제 옵션입니다. GRS는 원본 데이터의 기본 위치에서 수백 마일 떨어진 보조 지역에 백업 데이터를 복제 합니다. GRS는 LRS 보다 더 많은 비용이 소요 되지만, GRS는 지역 가동 중단이 발생 하더라도 백업 데이터에 대 한 높은 수준의 영속성을 제공 합니다.
+[GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md#geo-redundant-storage)는 기본값이며 권장하는 복제 옵션입니다. GRS는 원본 데이터의 기본 위치에서 수백 마일 떨어진 보조 지역에 백업 데이터를 복제 합니다. GRS는 LRS 보다 더 많은 비용이 소요 되지만, GRS는 지역 가동 중단이 발생 하더라도 백업 데이터에 대 한 높은 수준의 영속성을 제공 합니다.
 
 >[!NOTE]
 >영역 간 복원 기능이 활성화 된 GRS 자격 증명 모음의 경우 백업 저장소는 GRS에서 RA로 업그레이드 됩니다 (읽기 액세스 Geo-Redundant 저장소).
 
 ### <a name="zrs"></a>ZRS
 
-[ZRS (영역 중복 저장소)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage) 는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)에서 백업 데이터를 복제 하 여 동일한 지역에 백업 데이터 상주 및 복원 력을 보장 합니다. 따라서 [데이터 상주](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) 필요한 중요 한 워크 로드를 ZRS로 백업할 수 있습니다.
+[ZRS (영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage) 는 [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 백업 데이터를 복제 하 여 동일한 지역에 백업 데이터 상주 및 복원 력을 보장 합니다. 따라서 [데이터 상주](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) 필요한 중요 한 워크 로드를 ZRS로 백업할 수 있습니다.
 
 ## <a name="azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)
 
-[Azure CLI 설명서](https://docs.microsoft.com/cli/azure/what-is-azure-cli)를 참조 하세요.
+[Azure CLI 설명서](/cli/azure/what-is-azure-cli)를 참조 하세요.
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy 설명서](https://docs.microsoft.com/azure/governance/policy/overview)를 참조 하세요.
+[Azure Policy 설명서](../governance/policy/overview.md)를 참조 하세요.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/)를 참조 하세요.
+[Azure PowerShell 설명서](/powershell/azure/)를 참조 하세요.
 
 ## <a name="azure-resource-manager-arm"></a>Azure Resource Manager (ARM)
 
-[Azure Resource Manager 설명서](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)를 참조 하세요.
+[Azure Resource Manager 설명서](../azure-resource-manager/management/overview.md)를 참조 하세요.
 
 ## <a name="azure-disk-encryption-ade"></a>ADE(Azure Disk Encryption)
 
-[Azure Disk Encryption 설명서](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss)를 참조 하세요.
+[Azure Disk Encryption 설명서](../security/fundamentals/azure-disk-encryption-vms-vmss.md)를 참조 하세요.
 
 ## <a name="backend-storage--cloud-storage--backup-storage"></a>백 엔드 저장소/클라우드 저장소/백업 저장소
 
@@ -124,11 +124,11 @@ BCDR는 비즈니스 중단을 최소화 하면서 계획 되거나 계획 되�
 
 ## <a name="cross-region-restore-crr"></a>CRR (영역 간 복원)
 
-[복원 옵션](backup-azure-arm-restore-vms.md#restore-options)중 하나로, crr (교차 지역 복원)을 사용 하면 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)인 보조 지역에서 백업 항목을 복원할 수 있습니다.
+[복원 옵션](backup-azure-arm-restore-vms.md#restore-options)중 하나로, crr (교차 지역 복원)을 사용 하면 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md#what-are-paired-regions)인 보조 지역에서 백업 항목을 복원할 수 있습니다.
 
 ## <a name="data-box"></a>Data box
 
-[Data box 설명서](https://docs.microsoft.com/azure/databox/data-box-overview)를 참조 하세요.
+[Data box 설명서](../databox/data-box-overview.md)를 참조 하세요.
 
 ## <a name="datasource"></a>데이터 원본
 
@@ -138,11 +138,11 @@ BCDR는 비즈니스 중단을 최소화 하면서 계획 되거나 계획 되�
 
 (워크 로드 관련 용어)
 
-[DPM 설명서](https://docs.microsoft.com/system-center/dpm/dpm-overview)를 참조 하십시오.
+[DPM 설명서](/system-center/dpm/dpm-overview)를 참조 하십시오.
 
 ## <a name="expressroute"></a>ExpressRoute
 
-[Express 경로 설명서](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 참조 하세요.
+[Express 경로 설명서](../expressroute/expressroute-introduction.md)를 참조 하세요.
 
 ## <a name="file-system-consistent-backup"></a>파일 시스템 일치 백업
 
@@ -164,7 +164,7 @@ GFS (조부) 백업 정책은 매일 백업 일정 외에 매주, 매월 및 매
 
 ## <a name="iaas-vms--azure-vms"></a>IaaS Vm/Azure Vm
 
-[AZURE VM 설명서](https://docs.microsoft.com/azure/virtual-machines/)를 참조 하세요.
+[AZURE VM 설명서](../virtual-machines/index.yml)를 참조 하세요.
 
 ## <a name="incremental-backup"></a>증분 백업
 
@@ -192,11 +192,11 @@ GFS (조부) 백업 정책은 매일 백업 일정 외에 매주, 매월 및 매
 
 (워크 로드 관련 용어)
 
-Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 애플리케이션 워크로드를 보호할 수 있습니다. DPM에서 많은 워크 로드 백업 기능을 상속 하지만 몇 가지 차이점이 있습니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md)
+Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 애플리케이션 워크로드를 보호할 수 있습니다. DPM에서 많은 워크 로드 백업 기능을 상속 하지만 몇 가지 차이점이 있습니다. [자세한 정보](backup-azure-microsoft-azure-backup.md)
 
 ## <a name="managed-disks"></a>관리 디스크
 
-[관리 디스크 설명서](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview)를 참조 하세요.
+[관리 디스크 설명서](../virtual-machines/managed-disks-overview.md)를 참조 하세요.
 
 ## <a name="mars-agent"></a>MARS 에이전트
 
@@ -206,7 +206,7 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 ## <a name="nsg-network-security-group"></a>NSG (네트워크 보안 그룹)
 
-[Nsg 설명서](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)를 참조 하세요.
+[Nsg 설명서](../virtual-network/network-security-groups-overview.md)를 참조 하세요.
 
 ## <a name="offline-seeding"></a>오프 라인 시드
 
@@ -228,7 +228,7 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 ## <a name="private-endpoint"></a>프라이빗 엔드포인트
 
-[개인 끝점 설명서](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)를 참조 하세요.
+[개인 끝점 설명서](../private-link/private-endpoint-overview.md)를 참조 하세요.
 
 ## <a name="protected-instance"></a>보호 된 인스턴스
 
@@ -236,7 +236,7 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 ## <a name="rbac-role-based-access-control"></a>RBAC (역할 기반 액세스 제어)
 
-[RBAC 설명서](https://docs.microsoft.com/azure/role-based-access-control/overview)를 참조 하세요.
+[RBAC 설명서](../role-based-access-control/overview.md)를 참조 하세요.
 
 ## <a name="recovery-point-restore-point-retention-point--point-in-time-pit"></a>복구 지점/복원 지점/보존 지점/지정 시간 (PIT)
 
@@ -246,13 +246,13 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 *Microsoft RecoveryServices/* vault 형식의 Azure Resource Manager 리소스입니다. 현재 Recovery Services 자격 증명 모음을 사용 하 여 azure vm, azure vm의 SQL, Azure Vm의 SAP HANA 및 Azure 파일 공유와 같은 작업을 백업 합니다. MARS, Azure Backup Server (MABS) 및 System Center DPM을 사용 하 여 온-프레미스 워크 로드를 백업 하는 데도 사용 됩니다. [Recovery Services 자격 증명 모음에 대해 자세히 알아보세요](backup-azure-recovery-services-vault-overview.md).
 
-## <a name="resource-group"></a>리소스 그룹
+## <a name="resource-group"></a>Resource group
 
-[Azure Resource Manager 설명서](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group)를 참조 하세요.
+[Azure Resource Manager 설명서](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)를 참조 하세요.
 
 ## <a name="rest-api"></a>REST API
 
-[Azure REST API 설명서](https://docs.microsoft.com/rest/api/azure/)를 참조 하세요.
+[Azure REST API 설명서](/rest/api/azure/)를 참조 하세요.
 
 ## <a name="retention-rule"></a>보존 규칙
 
@@ -272,7 +272,7 @@ RTO는 데이터 손실 시나리오 후에 사용 가능한 마지막 시점으
 
 ## <a name="secondary-region--paired-region"></a>보조 지역/쌍을 이루는 지역
 
-지역 쌍은 동일한 지리 내의 두 지역으로 구성 됩니다. 하나는 주 지역이 고 다른 하나는 보조 지역입니다. 쌍을 이루는 지역은 일부 Azure 서비스 (GRS 설정 Azure Backup 포함)에서 비즈니스 연속성을 보장 하 고 데이터 손실을 방지 하는 데 사용 됩니다. [자세히 알아보기](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+지역 쌍은 동일한 지리 내의 두 지역으로 구성 됩니다. 하나는 주 지역이 고 다른 하나는 보조 지역입니다. 쌍을 이루는 지역은 일부 Azure 서비스 (GRS 설정 Azure Backup 포함)에서 비즈니스 연속성을 보장 하 고 데이터 손실을 방지 하는 데 사용 됩니다. [자세히 알아보기](../best-practices-availability-paired-regions.md).
 
 ## <a name="soft-delete"></a>일시 삭제
 
@@ -280,11 +280,11 @@ RTO는 데이터 손실 시나리오 후에 사용 가능한 마지막 시점으
 
 ## <a name="snapshot"></a>스냅샷
 
-스냅숏은 VHD (가상 하드 드라이브) 또는 Azure 파일 공유의 완전 한 읽기 전용 복사본입니다. [디스크 스냅숏](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk) 및 [파일 스냅숏에](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)대해 자세히 알아보세요.
+스냅숏은 VHD (가상 하드 드라이브) 또는 Azure 파일 공유의 완전 한 읽기 전용 복사본입니다. [디스크 스냅숏](../virtual-machines/windows/snapshot-copy-managed-disk.md) 및 [파일 스냅숏에](../storage/files/storage-snapshots-files.md)대해 자세히 알아보세요.
 
 ## <a name="storage-account"></a>스토리지 계정
 
-[저장소 계정 설명서](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조 하세요.
+[저장소 계정 설명서](../storage/common/storage-account-overview.md)를 참조 하세요.
 
 ## <a name="subscription"></a>구독
 
@@ -302,7 +302,7 @@ Azure 구독은 Azure에서 리소스를 프로비저닝하는 데 사용되는 
 
 ## <a name="unmanaged-disk"></a>관리되지 않는 디스크
 
-[관리 되지 않는 디스크 설명서](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance#azure-unmanaged-disks)를 참조 하세요.
+[관리 되지 않는 디스크 설명서](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks)를 참조 하세요.
 
 ## <a name="vault"></a>Vault
 
@@ -314,11 +314,11 @@ Azure 구독은 Azure에서 리소스를 프로비저닝하는 데 사용되는 
 
 ## <a name="vnet-virtual-network"></a>VNET (Virtual Network)
 
-[VNET 설명서](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 참조 하세요.
+[VNET 설명서](../virtual-network/virtual-networks-overview.md)를 참조 하세요.
 
 ## <a name="vss-windows-volume-shadow-copy-service"></a>VSS (Windows 볼륨 섀도 복사본 서비스)
 
-[VSS 설명서](https://docs.microsoft.com/windows-server/storage/file-server/volume-shadow-copy-service)를 참조 하십시오.
+[VSS 설명서](/windows-server/storage/file-server/volume-shadow-copy-service)를 참조 하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

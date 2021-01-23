@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c45b362bc37df71346fc3b635c8ae4a51f62cdc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: de01788c01d4d6dedd9563faaaac07bff30bbd97
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919919"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724762"
 ---
 # <a name="build-resilience-in-your-hybrid-architecture"></a>하이브리드 아키텍처의 빌드 복원 력
 
@@ -82,7 +82,7 @@ PHS를 구현 하려면 다음 리소스를 참조 하세요.
 
 페더레이션에는 끝점의 교환, 토큰 서명 인증서 및 기타 메타 데이터를 포함 하는 페더레이션 서비스와 Azure AD 간의 트러스트 관계가 생성 됩니다. 요청이 Azure AD에 들어오면 구성을 읽고 구성 된 끝점으로 사용자를 리디렉션합니다. 이 시점에서 사용자는 Azure AD에서 유효성을 검사 하는 SAML 어설션을 발급 하는 페더레이션 서비스와 상호 작용 합니다. 
 
-다음 다이어그램에서는 여러 온-프레미스 데이터 센터에 걸쳐 중복 페더레이션 및 웹 응용 프로그램 프록시 서버를 포함 하는 엔터프라이즈 Active Directory Federation Services (AD FS)의 토폴로지를 보여 줍니다. 이 구성은 DNS와 같은 엔터프라이즈 네트워킹 인프라 구성 요소, 지리적 선호도 기능을 사용 하는 네트워크 부하 분산, 방화벽 등을 사용 합니다. 모든 온-프레미스 구성 요소 및 연결에는 오류가 발생 하기 쉽습니다. 자세한 내용은 [AD FS 용량 계획 설명서](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) 를 참조 하세요.
+다음 다이어그램에서는 여러 온-프레미스 데이터 센터에 걸쳐 중복 페더레이션 및 웹 응용 프로그램 프록시 서버를 포함 하는 엔터프라이즈 Active Directory Federation Services (AD FS)의 토폴로지를 보여 줍니다. 이 구성은 DNS와 같은 엔터프라이즈 네트워킹 인프라 구성 요소, 지리적 선호도 기능을 사용 하는 네트워크 부하 분산, 방화벽 등을 사용 합니다. 모든 온-프레미스 구성 요소 및 연결에는 오류가 발생 하기 쉽습니다. 자세한 내용은 [AD FS 용량 계획 설명서](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) 를 참조 하세요.
 
 > [!NOTE]
 >  페더레이션에는 가장 많은 수의 온-프레미스 종속성이 있으므로 오류가 발생할 가능성이 가장 높습니다. 이 다이어그램은 AD FS 표시 되는 반면, 다른 온-프레미스 id 공급자는 고가용성, 확장성 및 장애 조치 (failover)를 수행 하기 위해 유사한 디자인 고려 사항을 적용 합니다.
@@ -99,9 +99,9 @@ PHS를 구현 하려면 다음 리소스를 참조 하세요.
 
 * [Azure AD 페더레이션 호환성 목록](../hybrid/how-to-connect-fed-compatibility.md)
 
-* [AD FS 용량 계획 문서](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) 를 따르세요.
+* [AD FS 용량 계획 문서](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) 를 따르세요.
 
-* [Azure IaaS에서 AD FS 배포](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+* [Azure IaaS에서 AD FS 배포](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 
 * 페더레이션과 함께 [PHS 사용](../hybrid/tutorial-phs-backup.md)
 

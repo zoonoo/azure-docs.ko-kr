@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4b649942a52c51aef0d6edd17b913f75e1fb247b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a1b621b5d5601e6d8bffef48e23d217e0eee1d6a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674170"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725822"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -212,9 +212,11 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
+소비 계획에서 실행 되는 함수 앱에 필요한 설정은 Windows와 Linux 사이에서 지연 됩니다. 
+
 #### <a name="windows"></a>Windows
 
-Windows에서 소비 계획에는 사이트 구성에 및의 두 가지 추가 설정이 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 필요 `WEBSITE_CONTENTSHARE` 합니다. 이러한 속성은 함수 앱 코드와 구성이 저장되는 스토리지 계정 및 파일 경로를 구성합니다.
+Windows에서 소비 계획의 경우 사이트 구성에 추가 설정이 필요 [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) 합니다. 이 속성은 함수 앱 코드와 구성이 저장 되는 저장소 계정을 구성 합니다.
 
 ```json
 {
@@ -238,10 +240,6 @@ Windows에서 소비 계획에는 사이트 구성에 및의 두 가지 추가 �
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -259,9 +257,12 @@ Windows에서 소비 계획에는 사이트 구성에 및의 두 가지 추가 �
 }
 ```
 
+> [!IMPORTANT]
+> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)사이트를 처음 만들 때 생성 되는 설정으로 설정 하지 마세요.  
+
 #### <a name="linux"></a>Linux
 
-Linux에서 함수 앱은를 `kind` 로 설정 하 고 속성을로 설정 해야 합니다 `functionapp,linux` `reserved` `true` .
+Linux에서 함수 앱은를 `kind` 로 설정 하 `functionapp,linux` 고 `reserved` 속성을로 설정 해야 합니다 `true` . 
 
 ```json
 {
@@ -299,8 +300,9 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 고 속성을로 설정 해�
 }
 ```
 
-<a name="premium"></a>
+[`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)및 [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) 설정은 Linux에서 지원 되지 않습니다.
 
+<a name="premium"></a>
 ## <a name="deploy-on-premium-plan"></a>프리미엄 계획에 배포
 
 프리미엄 요금제는 소비 계획과 동일한 크기 조정을 제공 하지만 전용 리소스 및 추가 기능을 포함 합니다. 자세한 내용은 [Azure Functions Premium 요금제](./functions-premium-plan.md)를 참조 하세요.
@@ -332,7 +334,7 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 고 속성을로 설정 해�
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
-프리미엄 계획의 함수 앱은 속성을 앞에서 `serverFarmId` 만든 계획의 리소스 ID로 설정 해야 합니다. 또한 프리미엄 계획에는 사이트 구성에 및의 두 가지 추가 설정이 필요 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 합니다 `WEBSITE_CONTENTSHARE` . 이러한 속성은 함수 앱 코드와 구성이 저장되는 스토리지 계정 및 파일 경로를 구성합니다.
+프리미엄 계획의 함수 앱은 속성을 앞에서 `serverFarmId` 만든 계획의 리소스 ID로 설정 해야 합니다. 또한 프리미엄 계획의 경우 사이트 구성에 추가 설정이 필요 [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) 합니다. 이 속성은 함수 앱 코드와 구성이 저장 되는 저장소 계정을 구성 합니다.
 
 ```json
 {
@@ -358,10 +360,6 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 고 속성을로 설정 해�
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -378,6 +376,8 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 고 속성을로 설정 해�
     }
 }
 ```
+> [!IMPORTANT]
+> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)사이트를 처음 만들 때 생성 되는 설정으로 설정 하지 마세요.  
 
 <a name="app-service-plan"></a>
 

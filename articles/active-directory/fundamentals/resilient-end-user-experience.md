@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c695466fbd50435a85c63842ceb50ce80765760
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630295"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724444"
 ---
 # <a name="resilient-end-user-experience"></a>복원 력 최종 사용자 환경
 
@@ -34,19 +34,19 @@ ms.locfileid: "97630295"
 
 ## <a name="choose-between-user-flow-and-custom-policy"></a>사용자 흐름과 사용자 지정 정책 중에서 선택  
 
-가장 일반적인 id 작업을 설정 하는 데 도움이 되도록 Azure AD B2C는 구성 가능한 기본 제공 [사용자 흐름](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview)을 제공 합니다. 최대의 유연성을 제공 하는 [사용자 고유의 사용자 지정 정책을](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)빌드할 수도 있습니다. 그러나 사용자 지정 정책을 사용 하 여 복잡 한 시나리오를 처리 하는 것이 좋습니다.
+가장 일반적인 id 작업을 설정 하는 데 도움이 되도록 Azure AD B2C는 구성 가능한 기본 제공 [사용자 흐름](../../active-directory-b2c/user-flow-overview.md)을 제공 합니다. 최대의 유연성을 제공 하는 [사용자 고유의 사용자 지정 정책을](../../active-directory-b2c/custom-policy-overview.md)빌드할 수도 있습니다. 그러나 사용자 지정 정책을 사용 하 여 복잡 한 시나리오를 처리 하는 것이 좋습니다.
 
 ### <a name="how-to-decide-between-user-flow-and-custom-policy"></a>사용자 흐름과 사용자 지정 정책을 결정 하는 방법
 
 비즈니스 요구 사항을 충족할 수 있는 경우 기본 제공 사용자 흐름을 선택 합니다. Microsoft에서 광범위 하 게 테스트 했으므로 이러한 id 사용자 흐름의 정책 수준 기능, 성능 또는 규모의 유효성을 검사 하는 데 필요한 테스트를 최소화할 수 있습니다. 응용 프로그램의 기능, 성능 및 확장성을 테스트 해야 합니다.
 
-비즈니스 요구 사항으로 인해 [사용자 지정 정책을 선택](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) 해야 하는 경우 응용 프로그램 수준 테스트 외에도 기능, 성능 또는 규모에 대 한 정책 수준 테스트를 수행 해야 합니다.
+비즈니스 요구 사항으로 인해 [사용자 지정 정책을 선택](../../active-directory-b2c/custom-policy-get-started.md) 해야 하는 경우 응용 프로그램 수준 테스트 외에도 기능, 성능 또는 규모에 대 한 정책 수준 테스트를 수행 해야 합니다.
 
-[사용자 흐름과 사용자 지정 정책을 비교](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview#comparing-user-flows-and-custom-policies) 하 여 결정 하는 데 도움이 되는 문서를 참조 하세요.
+[사용자 흐름과 사용자 지정 정책을 비교](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) 하 여 결정 하는 데 도움이 되는 문서를 참조 하세요.
 
 ## <a name="choose-multiple-idps"></a>여러 IDPs 선택
 
-외부 [id 공급자](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview#external-identity-providers) (예: Facebook)를 사용 하는 경우 외부 공급자를 사용할 수 없게 되는 경우 대체 요금제를 사용 해야 합니다.
+외부 [id 공급자](../../active-directory-b2c/technical-overview.md#external-identity-providers) (예: Facebook)를 사용 하는 경우 외부 공급자를 사용할 수 없게 되는 경우 대체 요금제를 사용 해야 합니다.
 
 ### <a name="how-to-set-up-multiple-idps"></a>여러 IDPs를 설정 하는 방법
 
@@ -58,11 +58,11 @@ ms.locfileid: "97630295"
 
  2. 사용자가 로그인 한 후에 [다른 id를 자신의 계정에 연결할](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/account-linking) 수 있도록 프로필 정책을 구성 합니다.
 
- 3. 사용자에 게 알리고 중단 중에 [대체 IDP 전환](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#configure-dynamic-custom-page-content-uri) 하도록 허용 합니다.
+ 3. 사용자에 게 알리고 중단 중에 [대체 IDP 전환](../../active-directory-b2c/customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) 하도록 허용 합니다.
 
 ## <a name="availability-of-multi-factor-authentication"></a>Multi-factor authentication의 가용성
 
-[MFA (multi-factor authentication)에 전화 서비스](https://docs.microsoft.com/azure/active-directory-b2c/phone-authentication)를 사용 하는 경우 대체 서비스 공급자를 고려해 야 합니다. 로컬 Telco 또는 phone 서비스 공급자의 서비스가 중단 될 수 있습니다.
+[MFA (multi-factor authentication)에 전화 서비스](../../active-directory-b2c/phone-authentication.md)를 사용 하는 경우 대체 서비스 공급자를 고려해 야 합니다. 로컬 Telco 또는 phone 서비스 공급자의 서비스가 중단 될 수 있습니다.
 
 ### <a name="how-to-choose-an-alternate-mfa"></a>대체 MFA를 선택 하는 방법  
 

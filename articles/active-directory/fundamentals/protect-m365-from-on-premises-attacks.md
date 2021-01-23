@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97893dece068dfdde85159f734095401288231d2
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ecddb950c06c9f8e61f31e104051f5e3b3640ae5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201351"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725013"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>온-프레미스 공격 으로부터 Microsoft 365 보호
 
@@ -60,7 +60,7 @@ Microsoft 365 클라우드 환경은 광범위 한 모니터링 및 보안 인�
 
      *  Azure 관리 워크스테이션을 사용 하 여 액세스 합니다.
 
-제한 된 사용 계정입니다. **Microsoft 365에서 관리 권한이 있는 온-프레미스 계정이 없어야 합니다.** 자세한 내용은이 [개요 Microsoft 365 관리자 역할 개요](https://docs.microsoft.com/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide)를 참조 하세요.
+제한 된 사용 계정입니다. **Microsoft 365에서 관리 권한이 있는 온-프레미스 계정이 없어야 합니다.** 자세한 내용은이 [개요 Microsoft 365 관리자 역할 개요](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide)를 참조 하세요.
 또한 [Azure Active Directory에서 Microsoft 365에 대 한 역할을](../roles/m365-workload-docs.md)참조 하세요.
 
 *  **Microsoft 365에서 장치를 관리 합니다.** Azure AD 조인 및 클라우드 기반 MDM (모바일 장치 관리)을 사용 하 여 장치 및 보안 제어를 손상 시킬 수 있는 온-프레미스 장치 관리 인프라에 대 한 종속성을 제거 합니다.
@@ -82,7 +82,7 @@ Azure AD에서 관리자와 같은 권한 있는 역할을 가진 사용자는 �
 
 * Azure AD 및 Microsoft 365 권한 있는 역할에 대 한 클라우드 전용 계정을 사용 합니다.
 
-* 권한 있는 액세스 [장치](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles) 를 배포 하 여 Microsoft 365 및 Azure AD를 관리 합니다.
+* 권한 있는 액세스 [장치](/security/compass/privileged-access-devices#device-roles-and-profiles) 를 배포 하 여 Microsoft 365 및 Azure AD를 관리 합니다.
 
 *  권한 있는 역할이 있는 모든 인간 계정에 JIT (just-in-time) 액세스를 위한 PIM ( [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) )을 배포 하 고, 역할을 활성화 하려면 강력한 인증이 필요 합니다.
 
@@ -92,7 +92,7 @@ Azure AD에서 관리자와 같은 권한 있는 역할을 가진 사용자는 �
 
 * [응급 액세스 계정을](../roles/security-emergency-access.md) 배포 하 고 온-프레미스 암호 자격 증명 모음을 사용 하 여 자격 증명을 저장 하지 않습니다.
 
-자세한 내용은이 항목에 대 한 자세한 지침이 포함 된 [권한 있는 액세스 보안](https://aka.ms/SPA)을 참조 하세요. 또한 [AZURE AD의 관리자를 위한 보안 액세스 방법](../roles/security-planning.md)을 참조 하세요.
+자세한 내용은이 항목에 대 한 자세한 지침이 포함 된 [권한 있는 액세스 보안](/security/compass/overview)을 참조 하세요. 또한 [AZURE AD의 관리자를 위한 보안 액세스 방법](../roles/security-planning.md)을 참조 하세요.
 
 ### <a name="use-cloud-authentication"></a>클라우드 인증 사용 
 
@@ -100,15 +100,15 @@ Azure AD에서 관리자와 같은 권한 있는 역할을 가진 사용자는 �
 
 * 암호 없는 [인증 배포](../authentication/howto-authentication-passwordless-deployment.md): 암호 없는 자격 증명을 배포 하 여 가능한 한 많은 암호 사용을 줄입니다. 이러한 자격 증명은 클라우드에서 기본적으로 관리 되 고 유효성이 검사 됩니다. 다음 중에서 선택합니다.
 
-   * [비즈니스용 Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/passwordless-strategy)
+   * [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/passwordless-strategy)
 
    * [Authenticator 앱](../authentication/howto-authentication-passwordless-phone.md)
 
    * [FIDO2 보안 키](../authentication/howto-authentication-passwordless-security-key-windows.md)
 
-* [Multi-Factor Authentication 배포](https://aka.ms/deploymentplans/mfa): [Azure AD MFA를 사용 하 여 여러 강력한 자격 증명](../fundamentals/resilience-in-credentials.md)을 프로 비전 합니다. 이렇게 하면 클라우드 리소스에 액세스할 때 조작할 수 있는 온-프레미스 암호 외에도 Azure AD에서 관리 되는 자격 증명이 필요 합니다.
+* [Multi-Factor Authentication 배포](../authentication/howto-mfa-getstarted.md): [Azure AD MFA를 사용 하 여 여러 강력한 자격 증명](../fundamentals/resilience-in-credentials.md)을 프로 비전 합니다. 이렇게 하면 클라우드 리소스에 액세스할 때 조작할 수 있는 온-프레미스 암호 외에도 Azure AD에서 관리 되는 자격 증명이 필요 합니다.
 
-   * 자세한 내용은 [Azure Active Directory를 사용 하 여 복원 력 있는 액세스 제어 관리 전략 만들기](https://aka.ms/resilientaad)를 참조 하세요.
+   * 자세한 내용은 [Azure Active Directory를 사용 하 여 복원 력 있는 액세스 제어 관리 전략 만들기](./resilience-overview.md)를 참조 하세요.
 
 **제한 사항 및 장단점**
 
@@ -131,7 +131,7 @@ Azure AD에서 관리자와 같은 권한 있는 역할을 가진 사용자는 �
 
    *  디렉터리의 검색 그룹 및 기타 속성에 대 한 게스트 액세스를 제한 합니다. 외부 공동 작업 설정을 사용 하 여 구성원이 아닌 그룹을 읽는 게스트 기능을 제한할 수 있습니다. 
 
-    *   Azure Portal에 대 한 액세스를 차단 합니다. 거의 필요한 예외를 만들 수 있습니다.  모든 게스트 및 외부 사용자를 포함 하는 조건부 액세스 정책을 만든 다음 [액세스를 차단 하는 정책을 구현](/azure/role-based-access-control/conditional-access-azure-management)합니다. 
+    *   Azure Portal에 대 한 액세스를 차단 합니다. 거의 필요한 예외를 만들 수 있습니다.  모든 게스트 및 외부 사용자를 포함 하는 조건부 액세스 정책을 만든 다음 [액세스를 차단 하는 정책을 구현](../../role-based-access-control/conditional-access-azure-management.md)합니다. 
 
 * **연결 되지 않은 포리스트:** [AZURE AD 클라우드 프로 비전](../cloud-provisioning/what-is-cloud-provisioning.md)을 사용 합니다. 이렇게 하면 연결이 끊어진 포리스트에 연결 하 여 포리스트 간 연결 또는 트러스트를 설정할 필요가 없으므로 온-프레미스 위반의 영향을 넓힐 수 있습니다. * 
  
@@ -143,7 +143,7 @@ Azure AD에서 관리자와 같은 권한 있는 역할을 가진 사용자는 �
 
 클라우드 그룹을 사용 하 여 온-프레미스 인프라에서 공동 작업과 액세스를 분리할 수 있습니다.
 
-* **공동 작업:** 최신 공동 작업을 위해 Microsoft 365 그룹과 Microsoft 팀을 사용 합니다. Outlook에서 온-프레미스 메일 그룹의 서비스를 해제 하 고 [배포 목록을 Microsoft 365 그룹으로 업그레이드](https://docs.microsoft.com/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide)합니다.
+* **공동 작업:** 최신 공동 작업을 위해 Microsoft 365 그룹과 Microsoft 팀을 사용 합니다. Outlook에서 온-프레미스 메일 그룹의 서비스를 해제 하 고 [배포 목록을 Microsoft 365 그룹으로 업그레이드](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide)합니다.
 
 * **액세스:** Azure ad 보안 그룹 또는 Microsoft 365 그룹을 사용 하 여 Azure AD에서 응용 프로그램에 대 한 액세스 권한을 부여 합니다.
 * **Office 365 라이선스:** 그룹 기반 라이선스를 사용 하 여 클라우드 전용 그룹을 사용 하 여 Office 365에 프로 비전 합니다. 이 분리 온-프레미스 인프라에서 그룹 멤버 자격을 제어 합니다.
@@ -156,7 +156,7 @@ Azure AD에서 관리자와 같은 권한 있는 역할을 가진 사용자는 �
 
 Azure AD 기능을 사용 하 여 장치를 안전 하 게 관리 합니다.
 
--   **Windows 10 워크스테이션 사용:** MDM 정책을 사용 하 여 [Azure AD 가입](../devices/azureadjoin-plan.md) 장치를 배포 합니다. 완전 자동화 된 프로 비전 환경을 위해 [Windows Autopilot](https://docs.microsoft.com/mem/autopilot/windows-autopilot) 을 사용 하도록 설정 합니다.
+-   **Windows 10 워크스테이션 사용:** MDM 정책을 사용 하 여 [Azure AD 가입](../devices/azureadjoin-plan.md) 장치를 배포 합니다. 완전 자동화 된 프로 비전 환경을 위해 [Windows Autopilot](/mem/autopilot/windows-autopilot) 을 사용 하도록 설정 합니다.
 
     -   사용 중단 Windows 8.1 및 이전 컴퓨터
 
@@ -164,7 +164,7 @@ Azure AD 기능을 사용 하 여 장치를 안전 하 게 관리 합니다.
 
     -   모든 장치 관리 작업의 권한 원본으로 [Microsoft Intune](https://www.microsoft.com/en/microsoft-365/enterprise-mobility-security/microsoft-intune) 를 사용 합니다.
 
--   권한 있는 액세스 [**장치를 배포**](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles) 하 여 Microsoft 365 및 Azure AD를 관리 합니다.
+-   권한 있는 액세스 [**장치를 배포**](/security/compass/privileged-access-devices#device-roles-and-profiles) 하 여 Microsoft 365 및 Azure AD를 관리 합니다.
 
  ## <a name="workloads-applications-and-resources"></a>작업, 응용 프로그램 및 리소스 
 
@@ -181,19 +181,19 @@ Azure AD 기능을 사용 하 여 장치를 안전 하 게 관리 합니다.
 
 *  **응용 프로그램 및 워크 로드 서버**
 
-   * 필요한 서버를 Azure IaaS로 마이그레이션할 수 있는 응용 프로그램 또는 리소스를 사용 하 고 [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) (azure AD DS)를 사용 하 여 AD 온-프레미스에 대 한 트러스트 및 종속성을 분리할 수 있습니다. 이러한 분리를 위해 Azure AD DS에 사용 되는 가상 네트워크는 회사 네트워크에 연결 되어 있지 않아야 합니다.
+   * 필요한 서버를 Azure IaaS로 마이그레이션할 수 있는 응용 프로그램 또는 리소스를 사용 하 고 [Azure AD Domain Services](../../active-directory-domain-services/overview.md) (azure AD DS)를 사용 하 여 AD 온-프레미스에 대 한 트러스트 및 종속성을 분리할 수 있습니다. 이러한 분리를 위해 Azure AD DS에 사용 되는 가상 네트워크는 회사 네트워크에 연결 되어 있지 않아야 합니다.
 
-   * [자격 증명 계층화](https://aka.ms/TierModel)의 지침을 따릅니다. 응용 프로그램 서버는 일반적으로 계층 1 자산으로 간주 됩니다.
+   * [자격 증명 계층화](/security/compass/privileged-access-access-model#ADATM_BM)의 지침을 따릅니다. 응용 프로그램 서버는 일반적으로 계층 1 자산으로 간주 됩니다.
 
  ## <a name="conditional-access-policies"></a>조건부 액세스 정책
 
-Azure AD 조건부 액세스를 사용 하 여 신호를 해석 하 고 그에 따라 인증 결정을 내립니다. 자세한 내용은 [조건부 액세스 배포 계획](https://aka.ms/deploymentplans/ca) 을 참조 하세요.
+Azure AD 조건부 액세스를 사용 하 여 신호를 해석 하 고 그에 따라 인증 결정을 내립니다. 자세한 내용은 [조건부 액세스 배포 계획](../conditional-access/plan-conditional-access.md) 을 참조 하세요.
 
 * [레거시 인증 프로토콜](../fundamentals/auth-sync-overview.md): 조건부 액세스를 사용 하 여 가능한 경우 [레거시 인증](../conditional-access/howto-conditional-access-policy-block-legacy.md) 프로토콜을 차단 합니다. 또한 응용 프로그램 관련 구성을 사용 하 여 응용 프로그램 수준에서 레거시 인증 프로토콜을 사용 하지 않도록 설정 합니다.
 
-   * [Exchange online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) 및 [SharePoint online](https://docs.microsoft.com/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)에 대 한 특정 세부 정보를 참조 하세요.
+   * [Exchange online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) 및 [SharePoint online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)에 대 한 특정 세부 정보를 참조 하세요.
 
-* 권장 되는 [id 및 장치 액세스 구성을 구현 합니다.](https://docs.microsoft.com/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide)
+* 권장 되는 [id 및 장치 액세스 구성을 구현 합니다.](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide)
 
 * 조건부 액세스를 포함 하지 않는 Azure AD의 버전을 사용 하는 경우 [AZURE ad 보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용 하 고 있는지 확인 합니다.
 
@@ -206,13 +206,13 @@ Azure AD 조건부 액세스를 사용 하 여 신호를 해석 하 고 그에 �
 
 조직과 관련 된 시나리오 외에도 다음과 같은 주요 시나리오를 모니터링 합니다. 예를 들어 비즈니스에 중요 한 응용 프로그램 및 리소스에 대 한 액세스를 사전에 모니터링 해야 합니다.
 
-* **의심 스러운 활동**: 의심 스러운 활동에 대해 모든 [Azure AD 위험 이벤트](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection#risk-detection-and-remediation) 를 모니터링 해야 합니다. [Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) 은 기본적으로 Azure Security Center와 통합 됩니다.
+* **의심 스러운 활동**: 의심 스러운 활동에 대해 모든 [Azure AD 위험 이벤트](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) 를 모니터링 해야 합니다. [Azure AD ID 보호](../identity-protection/overview-identity-protection.md) 은 기본적으로 Azure Security Center와 통합 됩니다.
 
    * 위치 기반 신호의 소음 검색을 방지 하기 위해 네트워크 [명명 된 위치](../reports-monitoring/quickstart-configure-named-locations.md) 를 정의 합니다. 
 *  **UEBA (사용자 엔터티 동작 분석) 경고** UEBA를 사용 하 여 변칙 검색에 대 한 정보를 얻습니다.
-   * MCAS (Microsoft 클라우드 앱 검색) [는 클라우드에서 Ueba](https://docs.microsoft.com/cloud-app-security/tutorial-ueba)를 제공 합니다.
+   * MCAS (Microsoft 클라우드 앱 검색) [는 클라우드에서 Ueba](/cloud-app-security/tutorial-ueba)를 제공 합니다.
 
-   * [AZURE ATP에서 온-프레미스 UEBA를 통합할](https://docs.microsoft.com/defender-for-identity/install-step2)수 있습니다. MCAS는 Azure AD ID 보호에서 신호를 읽습니다. 
+   * [AZURE ATP에서 온-프레미스 UEBA를 통합할](/defender-for-identity/install-step2)수 있습니다. MCAS는 Azure AD ID 보호에서 신호를 읽습니다. 
 
 * **응급 액세스 계정 작업**: [응급 액세스 계정을](../roles/security-emergency-access.md) 사용 하는 모든 액세스를 모니터링 하 고 조사를 위해 생성 된 경고를 생성 해야 합니다. 이 모니터링에는 다음이 포함 되어야 합니다. 
 
@@ -223,7 +223,7 @@ Azure AD 조건부 액세스를 사용 하 여 신호를 해석 하 고 그에 �
    * 그룹 멤버 자격에 대 한 모든 업데이트 
 
    *    응용 프로그램 할당. 
-* **권한 있는 역할 활동**: [Azure AD PIM에서 생성 된 보안 경고](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts?tabs=new#security-alerts)를 구성 하 고 검토 합니다.
+* **권한 있는 역할 활동**: [Azure AD PIM에서 생성 된 보안 경고](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts)를 구성 하 고 검토 합니다.
     사용자가 직접 할당 될 때마다 경고를 생성 하 여 PIM 외부의 권한 있는 역할에 대 한 직접 할당을 모니터링 합니다.
 * **AZURE AD 테 넌 트 전체** 구성: 테 넌 트 전체 구성에 대 한 변경 내용은 시스템에서 경고를 생성 해야 합니다. 여기에는 다음이 포함 되지만이에 국한 되지 않습니다.
   *  사용자 지정 도메인 업데이트  
@@ -254,11 +254,11 @@ Azure 센티널, 일반적인 쿼리, 조사 및 법적 고가 플레이 북과 
 
    * 위험 이벤트 
 
-Azure AD는 로그인 활동 로그 및 감사 로그에 대 한 [Azure Monitor 통합](../reports-monitoring/concept-activity-logs-azure-monitor.md) 을 제공 합니다. 위험 이벤트는 [MICROSOFT GRAPH API](https://aka.ms/AzureADSecuredAzure/32b)를 통해 수집 수 있습니다. Azure [AD 로그를 azure monitor 로그로 스트리밍할](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)수 있습니다.
+Azure AD는 로그인 활동 로그 및 감사 로그에 대 한 [Azure Monitor 통합](../reports-monitoring/concept-activity-logs-azure-monitor.md) 을 제공 합니다. 위험 이벤트는 [MICROSOFT GRAPH API](/graph/api/resources/identityriskevent)를 통해 수집 수 있습니다. Azure [AD 로그를 azure monitor 로그로 스트리밍할](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)수 있습니다.
 
 * **하이브리드 인프라 OS 보안 로그.** 모든 하이브리드 id 인프라 OS 로그를 보관 하 고 신중 하 게 모니터링 해야 합니다. <br>계층 0 시스템 (노출 영역에 영향을 주어) 다음 내용이 포함됩니다. 
 
-   *  Azure AD Connect. Id 동기화를 모니터링 하려면 [Azure AD Connect Health](https://aka.ms/AzureADSecuredAzure/32e) 를 배포 해야 합니다.
+   *  Azure AD Connect. Id 동기화를 모니터링 하려면 [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md) 를 배포 해야 합니다.
 
    *  응용 프로그램 프록시 에이전트 
 

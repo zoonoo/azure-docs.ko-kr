@@ -14,17 +14,17 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 1/14/2020
-ms.openlocfilehash: d3bd63566daaf6e1d3e3343b5956d8a8d5fc8ea5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b73e72969a851428034499d447ecb162a61aa9ab
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224522"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725789"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Azure SQL Database 차단 문제 이해 및 해결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-## <a name="objective"></a>목표
+## <a name="objective"></a>Objective
 
 이 문서에서는 Azure SQL database의 차단을 설명 하 고 차단 문제를 해결 하는 방법을 보여 줍니다. 
 
@@ -345,7 +345,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
     서버에 쿼리를 보낸 후 모든 응용 프로그램은 모든 결과 행을 즉시 인출 하 여 완료 해야 합니다. 응용 프로그램에서 모든 결과 행을 인출 하지 않는 경우 다른 사용자를 차단 하 여 테이블에 대 한 잠금을 유지할 수 있습니다. 서버에 SQL 문을 투명 하 게 전송 하는 응용 프로그램을 사용 하는 경우 응용 프로그램은 모든 결과 행을 가져와야 합니다. 그렇지 않은 경우 (이 작업을 수행 하도록 구성할 수 없는 경우) 차단 문제를 해결할 수 없습니다. 문제를 방지 하기 위해 잘못 동작 하는 응용 프로그램을 보고 또는 의사 결정 지원 데이터베이스로 제한할 수 있습니다.
     
     > [!NOTE]
-    > Azure SQL Database에 연결 하는 응용 프로그램에 대 한 [재시도 논리에 대 한 지침](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) 을 참조 하세요. 
+    > Azure SQL Database에 연결 하는 응용 프로그램에 대 한 [재시도 논리에 대 한 지침](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) 을 참조 하세요. 
     
     **해결** 방법: 완료 될 결과의 모든 행을 인출 하기 위해 응용 프로그램을 다시 작성 해야 합니다. 쿼리의 [ORDER by 절에서 OFFSET 및 FETCH](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) 를 사용 하 여 서버 쪽 페이징을 수행 하지는 않습니다.
 
@@ -369,7 +369,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
     KILL 99
     ```
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [Azure SQL Database 및 Azure SQL Managed Instance의 모니터링 및 성능 튜닝](/monitor-tune-overview.md)
 * [쿼리 저장소를 사용한 성능 모니터링](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)

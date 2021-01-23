@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 12b5c95b67f8fada29914d3a8de559280e6145f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132548"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724223"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -100,7 +100,7 @@ Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여
 - [디지털 프로세스 자동화를 위한 Bizagi Studio](../saas-apps/bizagi-studio-for-digital-process-automation-provisioning-tutorial.md)
 - [CybSafe](../saas-apps/cybsafe-provisioning-tutorial.md)
 - [GroupTalk](../saas-apps/grouptalk-provisioning-tutorial.md)
-- [PaperCut 클라우드 인쇄 관리](/azure/active-directory/saas-apps/papercut-cloud-print-management-provisioning-tutorial)
+- [PaperCut 클라우드 인쇄 관리](../saas-apps/papercut-cloud-print-management-provisioning-tutorial.md)
 - [구문 분석 가능](../saas-apps/parsable-provisioning-tutorial.md)
 - [Shopify Plus](../saas-apps/shopify-plus-provisioning-tutorial.md)
 
@@ -191,7 +191,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
 **서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
- [위임 된 엔터프라이즈 응용 프로그램 관리에 대 한 사용자 지정 RBAC 역할](../users-groups-roles/roles-custom-available-permissions.md) 은 현재 공개 미리 보기로 제공 됩니다. 이러한 새 권한은 앱 등록 관리에 대 한 사용자 지정 역할을 기반으로 하며,이를 통해 관리자에 게 액세스 하는 기능을 세밀 하 게 제어할 수 있습니다. 시간이 지남에 따라 Azure AD의 관리를 위임 하는 추가 권한이 릴리스됩니다.
+ [위임 된 엔터프라이즈 응용 프로그램 관리에 대 한 사용자 지정 RBAC 역할](../roles/custom-available-permissions.md) 은 현재 공개 미리 보기로 제공 됩니다. 이러한 새 권한은 앱 등록 관리에 대 한 사용자 지정 역할을 기반으로 하며,이를 통해 관리자에 게 액세스 하는 기능을 세밀 하 게 제어할 수 있습니다. 시간이 지남에 따라 Azure AD의 관리를 위임 하는 추가 권한이 릴리스됩니다.
 
 몇 가지 일반적인 위임 시나리오는 다음과 같습니다.
 - SAML 기반 Single Sign-On 응용 프로그램에 액세스할 수 있는 사용자 및 그룹 할당
@@ -247,7 +247,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 인증에 헤
 - [3 목-Tac Mobile](../saas-apps/tic-tac-mobile-provisioning-tutorial.md)
 - [Visibly](../saas-apps/visibly-provisioning-tutorial.md)
 
-자세한 내용은 [AZURE AD를 사용 하 여 SaaS 응용 프로그램에 대 한 사용자 프로 비전 자동화](../manage-apps/user-provisioning.md)를 참조 하세요.
+자세한 내용은 [AZURE AD를 사용 하 여 SaaS 응용 프로그램에 대 한 사용자 프로 비전 자동화](../app-provisioning/user-provisioning.md)를 참조 하세요.
  
 ---
 
@@ -301,7 +301,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 인증에 헤
  
 이전에는/bitlocker 끝점을 통해 BitLocker 키를 복구할 수 있었습니다. 결국이 끝점을 사용 중단 고객이 이제/informationProtection. 아래에 있는 API를 사용 하기 시작 합니다. 
 
-이러한 변경 내용을 반영 하기 위해 설명서에 대 한 업데이트는 [BitLocker RECOVERY API](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) 를 참조 하세요.
+이러한 변경 내용을 반영 하기 위해 설명서에 대 한 업데이트는 [BitLocker RECOVERY API](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) 를 참조 하세요.
 
 ---
 
@@ -1126,4 +1126,3 @@ Azure MFA SDK (Multi-Factor Authentication 소프트웨어 개발)는 11 월 201
 
 ---
 
- 

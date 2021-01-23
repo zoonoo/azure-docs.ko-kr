@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18036644dc4df51bfacc5019f70ae7694757f753
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 218208891cccb4f606a574a9c1c09f30c4ac0b11
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222244"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725081"
 ---
 # <a name="secure-external-access-to-microsoft-teams-sharepoint-and-onedrive-for-business"></a>Microsoft 팀, SharePoint 및 비즈니스용 OneDrive에 대 한 외부 액세스 보호 
 
@@ -77,7 +77,7 @@ Microsoft 365 공유는 외부 Id의 영향을 받습니다. [ ](https://aad.por
 
 ## <a name="govern-access-in-teams"></a>팀의 액세스 제어
 
-[팀은 외부 사용자 (조직 외부 사용자)와 게스트 사용자 (게스트 계정을 사용 하는 사용자)를 구별](https://docs.microsoft.com/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH)합니다. [팀 관리 포털](https://admin.teams.microsoft.com/company-wide-settings/external-communications) 의 조직 전체 설정에서 공동 작업 설정을 관리 합니다. 
+[팀은 외부 사용자 (조직 외부 사용자)와 게스트 사용자 (게스트 계정을 사용 하는 사용자)를 구별](/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH%e2%80%8b)합니다. [팀 관리 포털](https://admin.teams.microsoft.com/company-wide-settings/external-communications) 의 조직 전체 설정에서 공동 작업 설정을 관리 합니다. 
 
 > [!NOTE]
 > Azure Active Directory의 외부 id 공동 작업 설정은 유효 사용 권한을 제어 합니다. 팀에서 제한을 늘릴 수 있지만 Azure AD에 설정 된 항목에서 제한을 줄일 수는 없습니다.
@@ -88,13 +88,13 @@ Microsoft 365 공유는 외부 Id의 영향을 받습니다. [ ](https://aad.por
 
 팀에서 외부 액세스를 관리 하는 방법에 대해 자세히 알아보려면 다음 리소스를 참조 하세요.
 
-* [Microsoft 팀에서 외부 액세스 관리](https://docs.microsoft.com/microsoftteams/manage-external-access)
+* [Microsoft 팀에서 외부 액세스 관리](/microsoftteams/manage-external-access)
 
-* [Microsoft 365 id 모델 및 Azure Active Directory](https://docs.microsoft.com/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Microsoft 365 id 모델 및 Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
 
-* [Microsoft 팀에 대 한 id 모델 및 인증](https://docs.microsoft.com/MicrosoftTeams/identify-models-authentication)
+* [Microsoft 팀에 대 한 id 모델 및 인증](/MicrosoftTeams/identify-models-authentication)
 
-* [Microsoft 팀의 민감도 레이블](https://docs.microsoft.com/MicrosoftTeams/sensitivity-labels)
+* [Microsoft 팀의 민감도 레이블](/MicrosoftTeams/sensitivity-labels)
 
 ## <a name="govern-access-in-sharepoint-and-onedrive"></a>SharePoint 및 OneDrive의 액세스 제어
 
@@ -102,9 +102,9 @@ SharePoint 관리자는 공동 작업에 사용할 수 있는 많은 설정을 �
 
 ### <a name="integrating-sharepoint-and-one-drive-with-azure-ad-b2b"></a>SharePoint와 한 드라이브를 Azure AD B2B와 통합
 
-외부 공동 작업을 관리 하는 전체 전략의 일부로 [AZURE AD B2B와의 SharePoint 및 OneDrive 통합 미리 보기를 사용 하도록 설정](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview) 하는 것이 좋습니다.
+외부 공동 작업을 관리 하는 전체 전략의 일부로 [AZURE AD B2B와의 SharePoint 및 OneDrive 통합 미리 보기를 사용 하도록 설정](/sharepoint/sharepoint-azureb2b-integration-preview) 하는 것이 좋습니다.
 
-Azure AD B2B는 게스트 사용자의 인증 및 관리를 제공 합니다. SharePoint 및 OneDrive 통합을 사용 하면 [AZURE AD B2B 일회성 암호](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) 파일, 폴더, 목록 항목, 문서 라이브러리 및 사이트의 외부 공유에 사용 됩니다. 이 기능은 기존의 [보안 외부 공유 받는 사람 환경](https://docs.microsoft.com/sharepoint/what-s-new-in-sharing-in-targeted-release)에서 업그레이드 된 환경을 제공 합니다.
+Azure AD B2B는 게스트 사용자의 인증 및 관리를 제공 합니다. SharePoint 및 OneDrive 통합을 사용 하면 [AZURE AD B2B 일회성 암호](../external-identities/one-time-passcode.md) 파일, 폴더, 목록 항목, 문서 라이브러리 및 사이트의 외부 공유에 사용 됩니다. 이 기능은 기존의 [보안 외부 공유 받는 사람 환경](/sharepoint/what-s-new-in-sharing-in-targeted-release)에서 업그레이드 된 환경을 제공 합니다.
 
 > [!NOTE]
 > Azure AD B2B 통합에 대해 미리 보기를 사용 하도록 설정 하는 경우 SharePoint 및 OneDrive 공유에는 **구성원이 초대** 하 고 **게스트가 초대할 수** 있는 것과 같은 azure ad 조직 관계 설정이 적용 됩니다.
@@ -171,9 +171,9 @@ Azure AD B2B와의 통합을 사용 하도록 설정 하면 파일 및 폴더를
 
 SharePoint에 대 한 외부 액세스를 관리 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-* [SharePoint 외부 공유 개요](https://docs.microsoft.com/sharepoint/external-sharing-overview)
+* [SharePoint 외부 공유 개요](/sharepoint/external-sharing-overview)
 
-* [Azure AD B2B와 SharePoint 및 OneDrive 통합](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview)
+* [Azure AD B2B와 SharePoint 및 OneDrive 통합](/sharepoint/sharepoint-azureb2b-integration-preview)
 
 #### <a name="next-steps"></a>다음 단계
 

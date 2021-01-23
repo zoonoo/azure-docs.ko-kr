@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562126"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725674"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
@@ -40,14 +40,14 @@ MFA (Azure AD Multi-Factor Authentication)는 사용자가 로그인 할 때 암
 
 | 인증 방법          | 보안 | 사용 편의성 | 가용성 |
 |--------------------------------|:--------:|:---------:|:------------:|
-| 비즈니스용 Windows Hello     | 높음     | 높음      | 높음         |
-| Microsoft Authenticator 앱    | 높음     | 높음      | 높음         |
-| FIDO2 보안 키 (미리 보기)   | 높음     | 높음      | 높음         |
-| OATH 하드웨어 토큰(미리 보기) | 중간   | 중간    | 높음         |
-| OATH 소프트웨어 토큰           | 중간   | 중간    | 높음         |
+| 비즈니스용 Windows Hello     | 높은     | 높은      | 높은         |
+| Microsoft Authenticator 앱    | 높은     | 높은      | 높은         |
+| FIDO2 보안 키 (미리 보기)   | 높은     | 높은      | 높은         |
+| OATH 하드웨어 토큰(미리 보기) | 중간   | 중간    | 높은         |
+| OATH 소프트웨어 토큰           | 중간   | 중간    | 높은         |
 | SMS                            | 중간   | 높음      | 중간       |
 | 음성                          | 중간   | 중간    | 중간       |
-| 암호                       | 낮음      | 높음      | 높음         |
+| 암호                       | 낮음      | 높음      | 높은         |
 
 보안에 대 한 최신 정보는 블로그 게시물을 확인 하세요.
 
@@ -70,7 +70,7 @@ MFA (Azure AD Multi-Factor Authentication)는 사용자가 로그인 할 때 암
 | FIDO2 보안 키 (미리 보기)   | 예                    | MFA                       |
 | OATH 하드웨어 토큰(미리 보기) | 예                     | MFA                       |
 | OATH 소프트웨어 토큰           | 예                     | MFA                       |
-| SMS                            | 예(미리 보기)          | MFA 및 SSPR              |
+| SMS                            | 예                    | MFA 및 SSPR              |
 | 음성 통화                     | 예                     | MFA 및 SSPR              |
 | 암호                       | 예                    |                           |
 
@@ -83,7 +83,7 @@ MFA (Azure AD Multi-Factor Authentication)는 사용자가 로그인 할 때 암
 * [FIDO2 보안 키 (미리 보기)](concept-authentication-passwordless.md#fido2-security-keys)
 * [OATH 하드웨어 토큰(미리 보기)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [OATH 소프트웨어 토큰](concept-authentication-oath-tokens.md#oath-software-tokens)
-* SMS [로그인 (미리 보기)](howto-authentication-sms-signin.md) 및 [확인](concept-authentication-phone-options.md#mobile-phone-verification)
+* [SMS 로그인](howto-authentication-sms-signin.md) 및 [확인](concept-authentication-phone-options.md#mobile-phone-verification)
 * [음성 통화 확인](concept-authentication-phone-options.md)
 * 암호
 

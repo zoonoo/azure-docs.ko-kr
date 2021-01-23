@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5fd5cf419adb137df5c578e3b17b88749215be5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 399d2f71fa20d63dce89cf3be5c12ffd63264895
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919980"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724713"
 ---
 # <a name="build-resilience-with-credential-management"></a>자격 증명 관리를 사용 하 여 복원 력 빌드
 
@@ -61,7 +61,7 @@ ms.locfileid: "95919980"
 
 * Windows Server Active Directory에서 동기화 되는 하이브리드 계정에 대 한 [암호 해시 동기화](../hybrid/whatis-phs.md) 를 설정 합니다. 이 옵션은 AD FS와 같은 페더레이션 서비스와 함께 사용 하도록 설정할 수 있으며, 페더레이션 서비스에 오류가 발생 하는 경우에는 대체를 제공 합니다.
 
-* [Multi-factor authentication 방법의 사용을 분석](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) 하 여 사용자 환경을 개선 합니다.
+* [Multi-factor authentication 방법의 사용을 분석](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) 하 여 사용자 환경을 개선 합니다.
 
 * [복원 력 있는 액세스 제어 전략 구현](../authentication/concept-resilient-controls.md)
 

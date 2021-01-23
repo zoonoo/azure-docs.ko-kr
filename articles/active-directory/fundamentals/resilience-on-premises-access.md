@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8bfc3fb239f30911eddf0aa27496a465e36c486
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8fed78d7d2250d749ced7fe343689df76329b60d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919883"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724663"
 ---
 # <a name="build-resilience-in-application-access-with-application-proxy"></a>응용 프로그램 프록시를 사용 하 여 응용 프로그램 액세스에서 복원 력 빌드
 
@@ -27,7 +27,7 @@ ms.locfileid: "95919883"
 사용자는 응용 프로그램 프록시를 통해 게시 된 URL을 통해 온-프레미스 리소스에 액세스 합니다. Azure AD 로그인 페이지로 리디렉션됩니다. 그런 다음 Azure AD의 응용 프로그램 프록시 서비스는 토큰을 온-프레미스 Active Directory 전달 하는 회사 네트워크의 응용 프로그램 프록시 커넥터에 토큰을 보냅니다. 그러면 인증 된 사용자가 온-프레미스 리소스에 액세스할 수 있습니다. 아래 다이어그램에서 커넥터는 [커넥터 그룹](../manage-apps/application-proxy-connector-groups.md)에 [표시 됩니다.](../manage-apps/application-proxy-connectors.md)
 
 > [!IMPORTANT]
-> 응용 프로그램 프록시를 통해 응용 프로그램을 게시 하는 경우 [응용 프로그램 프록시 커넥터에 대 한 용량 계획 및 적절 한 중복성](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning)을 구현 해야 합니다.
+> 응용 프로그램 프록시를 통해 응용 프로그램을 게시 하는 경우 [응용 프로그램 프록시 커넥터에 대 한 용량 계획 및 적절 한 중복성](../manage-apps/application-proxy-connectors.md#capacity-planning)을 구현 해야 합니다.
 
 ![응용 프로그램 y의 아키텍처 다이어그램](./media/resilience-on-prem-access/admin-resilience-app-proxy.png))
 

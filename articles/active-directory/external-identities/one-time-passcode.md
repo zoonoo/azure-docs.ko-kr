@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aebfaa176992b7e20824518bc214a6688ae493
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a9a0668b3ea651d129dc076e5f2247e38f5ab7d0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703588"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725498"
 ---
 # <a name="email-one-time-passcode-authentication"></a>일회용 암호 인증 전자 메일
 
@@ -102,7 +102,7 @@ ms.locfileid: "97703588"
 
 ![전자 메일 일회용 암호 옵트인 사용](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-그러나이 기능을 옵트아웃 (opt out) 하 고 3 월 2021에 자동으로 사용 하도록 설정 하려는 경우 Microsoft Graph API [전자 메일 인증 방법 구성 리소스 종류](https://aka.ms/exid-graphemailauth)를 사용 하 여 기본 설정으로 되돌릴 수 있습니다. 기본 설정으로 되돌린 후에는 **게스트에 대 한 전자 메일 일회용 암호** 에서 다음 옵션을 사용할 수 있습니다.
+그러나이 기능을 옵트아웃 (opt out) 하 고 3 월 2021에 자동으로 사용 하도록 설정 하려는 경우 Microsoft Graph API [전자 메일 인증 방법 구성 리소스 종류](/graph/api/resources/emailauthenticationmethodconfiguration)를 사용 하 여 기본 설정으로 되돌릴 수 있습니다. 기본 설정으로 되돌린 후에는 **게스트에 대 한 전자 메일 일회용 암호** 에서 다음 옵션을 사용할 수 있습니다.
 
 - **3 월 2021에 게스트에 대 한 전자 메일 일회용 암호를 자동으로 사용 하도록 설정** 합니다. 기본 테 넌 트에 대해 전자 메일 일회용 암호 기능을 아직 사용 하도록 설정 하지 않은 경우 3 월 2021에 자동으로 설정 됩니다. 이때 기능을 사용 하도록 설정 하려면 추가 작업이 필요 하지 않습니다. 이 기능을 이미 사용 하거나 사용 하지 않도록 설정한 경우에는이 옵션을 사용할 수 없습니다.
 

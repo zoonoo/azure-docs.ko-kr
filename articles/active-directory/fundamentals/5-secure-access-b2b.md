@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c0d63df3e5525b200723db209d05e5eb5013e23
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 654e1c163a16f427958320ea081c38338e0ab4e1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222363"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725395"
 ---
 # <a name="transition-to-governed-collaboration-with-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 공동 작업으로 관리 되는 공동 작업으로 전환 
 
@@ -100,7 +100,7 @@ Azure AD B2B를 사용 하도록 설정 하면 기본적으로 직접 링크 및
 
 Azure AD 자격 관리를 사용 하는 경우 외부 사용자가 답변할 질문을 구성할 수 있습니다. 그런 다음 결정을 내리는 데 도움이 되는 승인자에 게 질문을 표시 합니다. 승인자가 승인 하는 액세스에 대 한 관련 정보를 가질 수 있도록 각 [액세스 패키지 정책](../governance/entitlement-management-access-package-approval-policy.md) 에 대해 서로 다른 질문 집합을 구성할 수 있습니다. 예를 들어 공급 업체 액세스를 위한 액세스 패키지가 하나인 경우 요청자에 게 공급 업체 계약 번호를 요청 하는 메시지가 표시 될 수 있습니다. 공급 업체를 위해 설계 된 다른 액세스 패키지는 자신의 국가를 요청할 수 있습니다.
 
-셀프 서비스 포털을 사용 하는 경우 [API 커넥터](../external-identities/api-connectors-overview.md) 를 사용 하 여 사용자가 등록 하는 동안 사용자에 대 한 추가 특성을 수집할 수 있습니다. 그런 다음 이러한 특성을 사용 하 여 액세스 권한을 할당할 수 있습니다. 예를 들어 등록 프로세스 중에 공급자 ID를 수집 하는 경우 해당 특성을 사용 하 여 해당 공급자의 그룹 또는 액세스 패키지에 동적으로 할당할 수 있습니다. Azure Portal에 사용자 지정 특성을 만들고 셀프 서비스 가입 사용자 흐름에서 사용할 수 있습니다. 또한 [Microsoft Graph API](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api)를 사용하여 이러한 특성을 읽고 쓸 수도 있습니다. 
+셀프 서비스 포털을 사용 하는 경우 [API 커넥터](../external-identities/api-connectors-overview.md) 를 사용 하 여 사용자가 등록 하는 동안 사용자에 대 한 추가 특성을 수집할 수 있습니다. 그런 다음 이러한 특성을 사용 하 여 액세스 권한을 할당할 수 있습니다. 예를 들어 등록 프로세스 중에 공급자 ID를 수집 하는 경우 해당 특성을 사용 하 여 해당 공급자의 그룹 또는 액세스 패키지에 동적으로 할당할 수 있습니다. Azure Portal에 사용자 지정 특성을 만들고 셀프 서비스 가입 사용자 흐름에서 사용할 수 있습니다. 또한 [Microsoft Graph API](../../active-directory-b2c/manage-user-accounts-graph-api.md)를 사용하여 이러한 특성을 읽고 쓸 수도 있습니다. 
 
 ### <a name="troubleshoot-invitation-redemption-to-azure-ad-users"></a>Azure AD 사용자에 대 한 초대 상환 문제 해결
 
@@ -132,7 +132,7 @@ Azure AD를 사용 하 여 공동 작업 파트너의 게스트 사용자를 초
 
 * **Azure Portal에 대 한 액세스를 차단 합니다. 거의 필요한 예외를 만들 수** 있습니다. 
 
-   * 모든 게스트 및 외부 사용자를 포함 하는 조건부 액세스 정책을 만든 다음 [액세스를 차단 하는 정책을 구현](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)합니다.
+   * 모든 게스트 및 외부 사용자를 포함 하는 조건부 액세스 정책을 만든 다음 [액세스를 차단 하는 정책을 구현](../../role-based-access-control/conditional-access-azure-management.md)합니다.
 
  
 
@@ -185,7 +185,7 @@ Azure AD B2B를 사용 하지 않은 경우 테 넌 트에 직원이 아닌 사�
 
 ### <a name="direct-sharing-through-sharepoint-and-onedrive"></a>SharePoint 및 OneDrive를 통한 직접 공유
 
-SharePoint 및 OneDrive를 통한 직접 공유는 자격 관리 프로세스 외부에 사용자를 추가할 수 있습니다. 이러한 구성에 대 한 자세한 내용은 [Microsoft 팀, SharePoint 및 비즈니스용 OneDrive](9-secure-access-teams-sharepoint.md) 를 사용 하 여 액세스 관리를 참조 하세요. 원하는 경우 [사용자의 개인 onedrive 사용을 차단할](https://docs.microsoft.com/office365/troubleshoot/group-policy/block-onedrive-use-from-office) 수도 있습니다.
+SharePoint 및 OneDrive를 통한 직접 공유는 자격 관리 프로세스 외부에 사용자를 추가할 수 있습니다. 이러한 구성에 대 한 자세한 내용은 [Microsoft 팀, SharePoint 및 비즈니스용 OneDrive](9-secure-access-teams-sharepoint.md) 를 사용 하 여 액세스 관리를 참조 하세요. 원하는 경우 [사용자의 개인 onedrive 사용을 차단할](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) 수도 있습니다.
 
 ### <a name="sending-documents-through-email"></a>전자 메일을 통해 문서 보내기
 
@@ -197,9 +197,9 @@ SharePoint 및 OneDrive를 통한 직접 공유는 자격 관리 프로세스 �
 
 비 사용 권한 응용 프로그램을 관리 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-* [연결된 앱을 제어합니다.](https://docs.microsoft.com/cloud-app-security/governance-actions)
+* [연결된 앱을 제어합니다.](/cloud-app-security/governance-actions)
 
-* [응용 프로그램을 권한 부여 하 고 취소 합니다.](https://docs.microsoft.com/cloud-app-security/governance-discovery)
+* [응용 프로그램을 권한 부여 하 고 취소 합니다.](/cloud-app-security/governance-discovery)
 
  
 ### <a name="next-steps"></a>다음 단계

@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ad36c2a7f47948d9362b85e78355e6046cda703
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a12cc3299fbb5916afba48d2608024f28999634
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919871"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724630"
 ---
 # <a name="build-resilience-by-using-continuous-access-evaluation"></a>연속 액세스 평가를 사용 하 여 복원 력 빌드
 
-CAE ( [연속 액세스 평가](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) )를 사용 하면 Azure AD 응용 프로그램에서 중요 한 이벤트를 구독 하 여 평가 하 고 적용할 수 있습니다. 여기에는 다음 이벤트의 평가가 포함 됩니다.
+CAE ( [연속 액세스 평가](../conditional-access/concept-continuous-access-evaluation.md) )를 사용 하면 Azure AD 응용 프로그램에서 중요 한 이벤트를 구독 하 여 평가 하 고 적용할 수 있습니다. 여기에는 다음 이벤트의 평가가 포함 됩니다.
 
 * 삭제 되거나 사용 하지 않도록 설정 된 사용자 계정
 
@@ -48,11 +48,11 @@ Microsoft는 타사 응용 프로그램에서이 기능을 사용할 수 있는 
 
 ## <a name="how-do-i-implement-cae"></a>CAE 구현 어떻게 할까요??
 
-* Azure AD 보안 구성에서 [CAE을 사용 하도록 설정](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) 합니다.
+* Azure AD 보안 구성에서 [CAE을 사용 하도록 설정](../conditional-access/concept-continuous-access-evaluation.md) 합니다.
 
-* 조직에서 Microsoft Office 네이티브 응용 프로그램의 [호환 가능한 버전](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) 을 사용 하 고 있는지 확인 합니다.
+* 조직에서 Microsoft Office 네이티브 응용 프로그램의 [호환 가능한 버전](../conditional-access/concept-continuous-access-evaluation.md) 을 사용 하 고 있는지 확인 합니다.
 
-* [재인증 프롬프트를 최적화](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime)합니다.
+* [재인증 프롬프트를 최적화](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md)합니다.
 
  
 ## <a name="next-steps"></a>다음 단계

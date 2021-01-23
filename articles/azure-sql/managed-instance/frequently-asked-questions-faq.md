@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 6b217e77310224779ea3ea840e613e28da6c86a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5d15947254d80d97b6a241a717fb7d33a3d5ccb5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779869"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724019"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 제품 오류 및 알려진 문제는 [알려진 문제](../database/doc-changes-updates-release-notes.md#known-issues)를 참조 하세요.
 
-## <a name="new-features"></a>새 기능
+## <a name="new-features"></a>새로운 기능
 
 **공개 미리 보기에서 최신 기능과 기능을 어디에서 찾을 수 있나요?**
 
@@ -118,7 +118,7 @@ Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preser
 
 예, Managed Instance 기본 DNS 영역을 변경할 수 있습니다 *. database.windows.net* 를 변경할 수 있습니다. 
 
-기본값 대신 다른 DNS 영역을 사용 하려면 (예: *. contoso.com* ) 
+기본값 대신 다른 DNS 영역을 사용 하려면 (예: *. contoso.com*) 
 - CliConfig를 사용 하 여 별칭을 정의 합니다. 이 도구는 단지 레지스트리 설정 래퍼 이므로 그룹 정책 또는 스크립트를 사용 하 여 수행할 수 있습니다.
 - *Trustservercertificate = true* 옵션과 함께 *CNAME* 을 사용 합니다.
 
@@ -326,7 +326,7 @@ Managed Instance는 네트워크 및 응용 프로그램 수준에서 공용 끝
 
 **공용 끝점을 사용 하 여 Managed Instance 데이터베이스의 데이터에 액세스할 수 있나요?**
 
-예. 고객은 [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)PowerShell/ARM에서 공용 끝점 데이터 액세스를 사용 하도록 설정 하  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) 고 데이터 포트 (포트 번호 3342)에 대 한 액세스를 잠그기 위해 nsg를 구성 해야 합니다. 자세한 내용은 [AZURE sql Managed Instance에서 공용 끝점 구성](public-endpoint-configure.md) 및 [공용 끝점을 사용 하 여 azure sql Managed Instance 안전 하 게 사용](public-endpoint-overview.md)을 참조 하세요. 
+예. 고객은 [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)PowerShell/ARM에서 공용 끝점 데이터 액세스를 사용 하도록 설정 하  /  [](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) 고 데이터 포트 (포트 번호 3342)에 대 한 액세스를 잠그기 위해 nsg를 구성 해야 합니다. 자세한 내용은 [AZURE sql Managed Instance에서 공용 끝점 구성](public-endpoint-configure.md) 및 [공용 끝점을 사용 하 여 azure sql Managed Instance 안전 하 게 사용](public-endpoint-overview.md)을 참조 하세요. 
 
 **SQL 데이터 끝점에 대 한 사용자 지정 포트를 지정할 수 있나요?**
 
@@ -339,7 +339,7 @@ Express 경로 회로 피어 링은이 작업을 수행 하는 기본 방법입�
 > [!IMPORTANT]
 > [9/22/2020에서는 새로 만든 가상 클러스터에 대 한 글로벌 가상 네트워크 피어 링을 발표 했습니다](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). 즉, 글로벌 가상 네트워크 피어 링은 알림 날짜 이후에 빈 서브넷에 생성 된 SQL 관리 되는 인스턴스에 대해 지원 되며, 해당 서브넷에서 만들어진 모든 후속 관리 되는 인스턴스의 경우에도 지원 됩니다. 다른 모든 SQL 관리 되는 인스턴스의 경우에는 [글로벌 가상 네트워크 피어 링의 제약 조건](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크에 대 한 피어 링 지원이 제한 됩니다. 자세한 내용은 [Azure Virtual network faq](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (질문과 대답) 문서의 관련 단원을 참조 하세요. 
 
-Express 경로 회로 피어 링 및 글로벌 가상 네트워크 피어 링을 사용할 수 없는 경우 다른 옵션은 사이트 간 VPN 연결 ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))을 만드는 것입니다.
+Express 경로 회로 피어 링 및 글로벌 가상 네트워크 피어 링을 사용할 수 없는 경우 다른 옵션은 사이트 간 VPN 연결 ([Azure Portal](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))을 만드는 것입니다.
 
 ## <a name="mitigate-data-exfiltration-risks"></a>데이터 반출 위험 완화  
 

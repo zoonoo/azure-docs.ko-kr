@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9de0ce5e83b33cd793953e2b863f26dffafe58ee
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f06a54f59405d9833194b2e7d4488bc93d2437ae
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222397"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725181"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>권한 관리를 사용 하 여 외부 액세스 관리 
 
@@ -94,15 +94,15 @@ ms.locfileid: "98222397"
 
 ## <a name="using-automation-in-entitlement-management"></a>자격 관리에서 자동화 사용
 
-다음을 포함 하 여 [Microsoft Graph를 사용 하 여 권한 관리 기능](https://docs.microsoft.com/graph/tutorial-access-package-api)을 수행할 수 있습니다.
+다음을 포함 하 여 [Microsoft Graph를 사용 하 여 권한 관리 기능](/graph/tutorial-access-package-api)을 수행할 수 있습니다.
 
-* [액세스 패키지 관리](https://docs.microsoft.com/graph/api/resources/accesspackage?view=graph-rest-beta)
+* [액세스 패키지 관리](/graph/api/resources/accesspackage?view=graph-rest-beta)
 
-* [액세스 검토 관리](https://docs.microsoft.com/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta)
+* [액세스 검토 관리](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta)
 
-* [연결 된 조직 관리](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta)
+* [연결 된 조직 관리](/graph/api/resources/connectedorganization?view=graph-rest-beta)
 
-* [권한 관리 설정 관리](https://docs.microsoft.com/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta)
+* [권한 관리 설정 관리](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta)
 
 ## <a name="recommendations"></a>권장 사항 
 
@@ -112,7 +112,7 @@ ms.locfileid: "98222397"
 
 * 디렉터리에 B2B 사용자가 이미 있는 경우 해당 사용자를 적절 한 액세스 패키지에 직접 할당할 수도 있습니다.
 
-* [Azure Portal](../governance/entitlement-management-access-package-assignments.md)또는 [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta)를 통해 액세스 권한을 할당할 수 있습니다.
+* [Azure Portal](../governance/entitlement-management-access-package-assignments.md)또는 [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta)를 통해 액세스 권한을 할당할 수 있습니다.
 
 **Id 거 버 넌 스 설정을 사용 하 여 액세스 패키지가 만료 될 때 디렉터리에서 사용자를 제거** 합니다.
 
@@ -173,4 +173,3 @@ ms.locfileid: "98222397"
 
  
 
- 

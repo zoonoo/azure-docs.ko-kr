@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 58563629b30e7be764732a9810162e1a0b1931e6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722405"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725839"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 연결 아키텍처
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,7 +107,7 @@ Azure는 관리 끝점을 사용 하 여 SQL Managed Instance를 관리 합니�
 - **충분 한 IP 주소:** SQL Managed Instance 서브넷의 IP 주소는 32 이상 이어야 합니다. 자세한 내용은 [SQL Managed Instance에 대 한 서브넷 크기 확인](vnet-subnet-determine-size.md)을 참조 하세요. [SQL Managed Instance에 대 한 네트워킹 요구 사항을](#network-requirements)충족 하도록 구성한 후 [기존 네트워크](vnet-existing-add-subnet.md) 에서 관리 되는 인스턴스를 배포할 수 있습니다. 그러지 않으면 [새 네트워크 및 서브넷](virtual-network-subnet-create-arm-template.md)을 만듭니다.
 
 > [!IMPORTANT]
-> 관리 되는 인스턴스를 만들 때 네트워킹 설정에 대 한 비규격 변경을 방지 하기 위해 서브넷에 네트워크 의도 정책이 적용 됩니다. 서브넷에서 마지막 인스턴스를 제거한 후에도 네트워크 의도 정책이 제거 됩니다. 아래 규칙은 정보를 제공 하기 위한 것 이며 ARM template/PowerShell/CLI를 사용 하 여 배포 하면 안 됩니다. 최신 공식 템플릿을 사용 하려는 경우 언제 든 지 [포털에서 검색할](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal)수 있습니다.
+> 관리 되는 인스턴스를 만들 때 네트워킹 설정에 대 한 비규격 변경을 방지 하기 위해 서브넷에 네트워크 의도 정책이 적용 됩니다. 서브넷에서 마지막 인스턴스를 제거한 후에도 네트워크 의도 정책이 제거 됩니다. 아래 규칙은 정보를 제공 하기 위한 것 이며 ARM template/PowerShell/CLI를 사용 하 여 배포 하면 안 됩니다. 최신 공식 템플릿을 사용 하려는 경우 언제 든 지 [포털에서 검색할](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)수 있습니다.
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하는 필수 인바운드 보안 규칙
 
@@ -128,7 +128,7 @@ Azure는 관리 끝점을 사용 하 여 SQL Managed Instance를 관리 합니�
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하 여 사용자 정의 경로
 
-|Name|주소 접두사|다음 홉|
+|이름|주소 접두사|다음 홉|
 |----|--------------|-------|
 |서브넷-vnetlocal|MI SUBNET|가상 네트워크|
 |mi-13-64-11-nexthop-인터넷|13.64.0.0/11|인터넷|

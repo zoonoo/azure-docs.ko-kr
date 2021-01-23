@@ -17,12 +17,12 @@ ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c7d02b48d30fa558f8fd12f92705046dab74057
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: deab3460baf9c46e2a3073eb41b738b0e7ad586f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624238"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726304"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
 
@@ -43,12 +43,12 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 * Adobe에서 성공적으로 제거 된 사용자는 무엇입니까?
 * Active Directory에서 만든 Workday의 사용자는 무엇 인가요? 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 응용 프로그램 소유자는 자신이 소유한 응용 프로그램에 대 한 로그를 볼 수 있습니다.
 * 보안 관리자, 보안 읽기 권한자, 보고서 구독자, 응용 프로그램 관리자 및 클라우드 응용 프로그램 관리자 역할의 사용자
-* [ProvisioningLogs 권한이](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions) 있는 사용자 지정 역할의 사용자
+* [ProvisioningLogs 권한이](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions) 있는 사용자 지정 역할의 사용자
 * 글로벌 관리자
 
 
@@ -93,7 +93,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
-![자세한 정보](./media/concept-provisioning-logs/steps.png "필터")
+![자세한 정보](./media/concept-provisioning-logs/steps.png "Assert")
 
 
 ## <a name="filter-provisioning-activities"></a>프로 비전 작업 필터링
@@ -107,7 +107,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - 작업
 
 
-![필터 추가](./media/concept-provisioning-logs/default-filter.png "필터")
+![필터 추가](./media/concept-provisioning-logs/default-filter.png "Assert")
 
 **Id** 필터를 사용 하면 관심 있는 이름이 나 id를 지정할 수 있습니다. 이 id는 사용자, 그룹, 역할 또는 다른 개체 일 수 있습니다. 개체의 이름 또는 ID를 기준으로 검색할 수 있습니다. ID는 시나리오에 따라 달라 집니다. 예를 들어 Azure AD에서 SalesForce로 개체를 프로 비전 할 때 원본 ID는 Azure AD에서 사용자의 개체 ID이 고 TargetID는 Salesforce의 사용자 ID입니다. Workday에서 Active Directory로 프로 비전 할 때 원본 ID는 Workday 작업자 직원 ID입니다. 사용자 이름은 항상 Id 열에 표시 되지 않을 수 있습니다. 항상 하나의 ID가 있습니다. 
 
@@ -138,7 +138,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - 생성 
 - 업데이트
 - DELETE
-- 사용 중지
+- 사용 안 함
 - 기타
 
 또한 기본 보기의 필터에는 다음 필터를 설정할 수도 있습니다.
@@ -198,7 +198,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 
 
-![스크린샷 프로 비전 단계를 보여 주는 단계 탭을 표시 합니다.](./media/concept-provisioning-logs/steps.png "필터")
+![스크린샷 프로 비전 단계를 보여 주는 단계 탭을 표시 합니다.](./media/concept-provisioning-logs/steps.png "Assert")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>문제 해결 및 권장 사항

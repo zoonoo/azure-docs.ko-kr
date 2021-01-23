@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6d476be7a417cfc31cca76d3409074aaaa281a56
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602187"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724613"
 ---
 # <a name="build-resilience-with-device-states"></a>장치 상태를 사용 하 여 복원 력 빌드
 
@@ -40,11 +40,11 @@ Azure AD에서 [장치 상태](../devices/overview.md) 를 사용 하도록 설�
 
   조직에 이전 버전의 Windows가 있는 경우 해당 장치를 업그레이드 하 여 Windows 10을 사용 합니다.
 
-* 사용자 브라우저 액세스 표준화-PRT를 사용 하는 웹 응용 프로그램에 대해 원활한 SSO를 사용 하도록 설정 하는 [지원 되](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) 는 [확장과](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) 함께 [Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-security-identity) 또는 Google Chrome을 사용 합니다.
+* 사용자 브라우저 액세스 표준화-PRT를 사용 하는 웹 응용 프로그램에 대해 원활한 SSO를 사용 하도록 설정 하는 [지원 되](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) 는 [확장과](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) 함께 [Microsoft Edge](/deployedge/microsoft-edge-security-identity) 또는 Google Chrome을 사용 합니다.
 
-* 개인 또는 회사 소유의 iOS 및 Android 장치에는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)을 배포 합니다. Multi-factor authentication 및 암호 없는 로그인 기능 외에도, Microsoft Authenticator 앱은 최종 사용자에 게 더 낮은 인증 프롬프트를 사용 하 여 조정 된 [인증](../develop/brokered-auth.md) 을 통해 네이티브 응용 프로그램에서 single sign-on을 사용 하도록 설정 합니다.
+* 개인 또는 회사 소유의 iOS 및 Android 장치에는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)을 배포 합니다. Multi-factor authentication 및 암호 없는 로그인 기능 외에도, Microsoft Authenticator 앱은 최종 사용자에 게 더 낮은 인증 프롬프트를 사용 하 여 조정 된 [인증](../develop/msal-android-single-sign-on.md) 을 통해 네이티브 응용 프로그램에서 single sign-on을 사용 하도록 설정 합니다.
 
-* 개인 또는 회사 소유의 iOS 및 Android 장치에 대해 [모바일 응용 프로그램 관리](https://docs.microsoft.com/mem/intune/apps/app-management) 를 사용 하 여 인증 요청 수를 줄이고 회사 리소스에 안전 하 게 액세스 합니다. 
+* 개인 또는 회사 소유의 iOS 및 Android 장치에 대해 [모바일 응용 프로그램 관리](/mem/intune/apps/app-management) 를 사용 하 여 인증 요청 수를 줄이고 회사 리소스에 안전 하 게 액세스 합니다. 
 
 * [Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인 (미리 보기)을 사용](../develop/apple-sso-plugin.md)합니다. 그러면 장치를 등록 하 고 브라우저 및 네이티브 Azure AD 응용 프로그램에서 SSO를 제공 합니다. 
 

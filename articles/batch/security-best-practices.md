@@ -3,12 +3,12 @@ title: Batch 보안 및 규정 준수 모범 사례
 description: Azure Batch 솔루션을 사용 하 여 보안을 강화 하기 위한 모범 사례와 유용한 팁을 알아보세요.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9732ffb810a1038a6f402a46fa8b809f180f0a8
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 6ec4a1d89ebaa9318986fc0d51e832652ba51683
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802289"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723815"
 ---
 # <a name="batch-security-and-compliance-best-practices"></a>Batch 보안 및 규정 준수 모범 사례
 
@@ -137,8 +137,8 @@ Batch 서비스에 의해 저장 되는 경우 Batch Api에 지정 된 일부 �
 
 추가 보안을 위해 다음 Azure disk encryption 기능 중 하나를 사용 하 여 이러한 디스크를 암호화 합니다.
 
-- [플랫폼 관리 키를 사용 하 여 미사용 관리 디스크 암호화](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [플랫폼 관리 키를 사용 하 여 호스트에서 암호화](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [플랫폼 관리 키를 사용 하 여 미사용 관리 디스크 암호화](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [플랫폼 관리 키를 사용 하 여 호스트에서 암호화](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure 디스크 암호화](disk-encryption.md)
 
 ## <a name="securely-access-services-from-compute-nodes"></a>계산 노드에서 안전 하 게 서비스에 액세스

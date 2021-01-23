@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: be966a651df0c896ac7e1973d7783bb7fb686be3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3a02876234d43df2e98a3a4e60453fc3f1f74ef6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676496"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724172"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Azure 서비스가 서버에 액세스할 수 있도록 허용 하지 않고 Azure SQL Database 가져오기 또는 내보내기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,7 +77,7 @@ ms.locfileid: "92676496"
 
 다음 단계에서는 가상 컴퓨터의 공용 IP 주소에 대 한 서버 수준 IP 방화벽 규칙을 만들고 가상 컴퓨터에서 연결을 사용 하도록 설정 합니다.
 
-1. 왼쪽 메뉴에서 **sql 데이터베이스** 를 선택한 다음 **sql 데이터베이스** 페이지에서 데이터베이스를 선택 합니다. 데이터베이스에 대 한 개요 페이지가 열리고 정규화 된 서버 이름 (예: **servername.database.windows.net** )을 표시 하 고 추가 구성을 위한 옵션을 제공 합니다.
+1. 왼쪽 메뉴에서 **sql 데이터베이스** 를 선택한 다음 **sql 데이터베이스** 페이지에서 데이터베이스를 선택 합니다. 데이터베이스에 대 한 개요 페이지가 열리고 정규화 된 서버 이름 (예: **servername.database.windows.net**)을 표시 하 고 추가 구성을 위한 옵션을 제공 합니다.
 
 2. 서버 및 해당 데이터베이스에 연결할 때 사용할 정규화 된 서버 이름을 복사 합니다.
 
@@ -147,7 +147,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
 비용을 절감 하려면 Azure Blob을 사용 합니다 .이는 프리미엄 Azure 파일 공유 보다 비용이 저렴 합니다. 그러나를 복사 해야 합니다 [. ](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 가져오기 또는 내보내기 작업을 수행 하기 전에 blob와 로컬 파일 시스템 간의 BACPAC 파일 따라서 프로세스는 더 오래 걸립니다.
 
-업로드 하거나 다운로드 합니다. BACPAC 파일 [은 AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](../../storage/common/storage-use-azcopy-blobs.md)및 [AzCopy 및 file storage를 사용 하 여 데이터 전송](../../storage/common/storage-use-azcopy-files.md)을 참조 하세요.
+업로드 하거나 다운로드 합니다. BACPAC 파일 [은 AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](../../storage/common/storage-use-azcopy-v10.md#transfer-data)및 [AzCopy 및 file storage를 사용 하 여 데이터 전송](../../storage/common/storage-use-azcopy-files.md)을 참조 하세요.
 
 사용자 환경에 따라 [방화벽 및 가상 네트워크 Azure Storage 구성](../../storage/common/storage-network-security.md)해야 할 수 있습니다.
 
