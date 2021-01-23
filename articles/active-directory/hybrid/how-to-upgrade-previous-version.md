@@ -16,18 +16,18 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65fc0e84582c005c5796ceac86ee28fc46b2e1d8
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 36b7fce2e2ccb6f331e42e8052ef4fb75d35e831
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094219"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729993"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다.  [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
 
 >[!NOTE]
-> 최신 버전의 Azure AD Connect 서버를 최신 버전으로 유지 하는 것이 중요 합니다. AADConnect로 지속적으로 업그레이드 하는 중 이며, 이러한 업그레이드에는 보안 문제 및 버그에 대 한 수정 사항 뿐만 아니라 서비스 용이성, 성능 및 확장성이 포함 됩니다. 최신 버전을 확인 하 고 버전 간에 변경 된 내용을 알아보려면 [릴리스 버전 기록](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history) 을 참조 하세요.
+> 최신 버전의 Azure AD Connect 서버를 최신 버전으로 유지 하는 것이 중요 합니다. AADConnect로 지속적으로 업그레이드 하는 중 이며, 이러한 업그레이드에는 보안 문제 및 버그에 대 한 수정 사항 뿐만 아니라 서비스 용이성, 성능 및 확장성이 포함 됩니다. 최신 버전을 확인 하 고 버전 간에 변경 된 내용을 알아보려면 [릴리스 버전 기록](./reference-connect-version-history.md) 을 참조 하세요.
 
 >[!NOTE]
 > 현재 버전의 Azure AD Connect에서 현재 버전으로 업그레이드할 수 있습니다. DirSync 또는 ADSync의 전체 업그레이드는 지원 되지 않으며 스윙 마이그레이션은 필요 합니다.  DirSync에서 업그레이드 하려면 [AZURE AD sync 도구 (dirsync)](how-to-dirsync-upgrade-get-started.md) 또는 [스윙 Migration](#swing-migration) 섹션에서 업그레이드를 참조 하세요.  </br>실제로는 매우 이전 버전의 고객에 게 Azure AD Connect와 직접적인 관련이 없는 문제가 발생할 수 있습니다. 몇 년간 프로덕션 환경에 있었던 서버에는 일반적으로 여러 개의 패치가 적용 되어 있으며 이러한 서버 모두에 대해 고려할 수 있는 것은 아닙니다.  일반적으로 12-18 개월 이내에 업그레이드 되지 않은 고객은 가장 보수적인이 고 위험 하지 않은 옵션인 스윙 업그레이드를 고려해 야 합니다.
@@ -36,7 +36,7 @@ DirSync에서 업그레이드하려는 경우 대신 [Azure AD 동기화 도구(
 
 Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 전략이 있습니다.
 
-| 메서드 | Description |
+| 메서드 | 설명 |
 | --- | --- |
 | [자동 업그레이드](how-to-connect-install-automatic-upgrade.md) |빠른 설치를 사용하는 고객에게 가장 쉬운 방법입니다. |
 | [현재 위치 업그레이드](#in-place-upgrade) |단일 서버가 있는 경우 동일한 서버에 설치된 항목에 대해 전체 업그레이드를 수행할 수 있습니다. |
@@ -145,7 +145,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
 이전 버전에서 Azure AD Connect를 업그레이드할 때 업그레이드 시작 시 다음 오류가 발생할 수 있습니다. 
 
-![오류](./media/how-to-upgrade-previous-version/error1.png)
+![Error](./media/how-to-upgrade-previous-version/error1.png)
 
 이 오류는 식별자가 b891884f-051e-4a83-95af-2544101c9083인 Azure Active Directory Connect가 현재 Azure AD Connect 구성에 없기 때문에 발생합니다. 이러한 경우인지 확인하려면 PowerShell 창을 열고 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`를 실행합니다.
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: ed74d0829a8372ea8391fcd331eef2ef3af3dae0
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: d0a10c6c700f11e540dc7edaa27baee35396d814
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704914"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732397"
 ---
 # <a name="deploy-okd-in-azure"></a>Azure에서 OKD 배포
 
@@ -119,7 +119,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 
 
 > [!NOTE] 
-> 다음 명령은 Azure CLI 2.0.8 이상이 필요합니다. CLI 버전은 `az --version` 명령으로 확인할 수 있습니다. CLI 버전을 업데이트하려면 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+> 다음 명령은 Azure CLI 2.0.8 이상이 필요합니다. CLI 버전은 `az --version` 명령으로 확인할 수 있습니다. CLI 버전을 업데이트하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 다음 예제에서는 openshiftrg라는 리소스 그룹에 OKD 클러스터 및 모든 관련 리소스를 배포하고 배포 이름을 myOpenShiftCluster로 지정합니다. 템플릿은 azuredeploy.parameters.json이라는 로컬 매개 변수 파일을 사용하는 동안 GitHub 리포지토리에서 직접 참조됩니다.
 

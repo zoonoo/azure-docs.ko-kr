@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 2731a7f263db223c258ddfc434bc84f59632d1f5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3022e9c694d70359a90e71ecd1232e9274f92f10
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223366"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730325"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
 
@@ -188,10 +188,10 @@ Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스�
 
 다음 SDK를 사용하면 공유 이미지 갤러리를 만들 수 있습니다.
 
-- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](/java/azure/?view=azure-java-stable)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management)
+- [Java](/java/azure/)
 - [Node.JS](/javascript/api/@azure/arm-compute)
-- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Python](/python/api/overview/azure/virtualmachines)
 - [Go](/azure/go/)
 
 ## <a name="templates"></a>템플릿

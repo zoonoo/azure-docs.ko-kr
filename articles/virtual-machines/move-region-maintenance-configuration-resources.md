@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 7c4d9f3a5f73e5832e9ff22ed2cd4c215811c845
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 88082c441dafdc7571f2b9775bfc07ebe3ca5aa4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197560"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730509"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>유지 관리 제어 구성의 리소스를 다른 지역으로 이동
 
@@ -23,7 +23,7 @@ ms.locfileid: "98197560"
 - 유지 관리 제어 구성을 이동 하지만 구성과 관련 된 리소스는 이동 하지 않으려면 [다음 지침](move-region-maintenance-configuration.md)을 따르세요.
 - 유지 관리 구성과 연결 된 리소스를 모두 이동 하려면 먼저 [다음 지침](move-region-maintenance-configuration.md)을 따르세요. 그런 다음이 문서의 지침을 따릅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 유지 관리 제어 구성과 연결 된 리소스 이동을 시작 하기 전에 다음을 수행 합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "98197560"
     $adh | 전용 호스트 이름 | MyHost
     $adhParentName | 부모 리소스 이름 | HostGroup
     
-2. PowerShell [AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment?view=azps-3.5.0) 명령을 사용 하 여 유지 관리 구성을 검색 하려면:
+2. PowerShell [AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment) 명령을 사용 하 여 유지 관리 구성을 검색 하려면:
 
     - Azure 전용 호스트의 경우 다음을 실행 합니다.
         ```

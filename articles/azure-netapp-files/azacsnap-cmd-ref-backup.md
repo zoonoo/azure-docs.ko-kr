@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 1051859d514c77bad1aa5f14becc2218a923df44
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 17c29fdf88495f6ecc40963eda08858887173fd1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632992"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730941"
 ---
 # <a name="back-up-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구를 사용 하 여 백업 (미리 보기)
 
@@ -143,7 +143,7 @@ azacsnap -c backup --volume other --prefix boot_TEST --retention 9 --configfile 
 > 로그 파일 이름은 "(명령 이름-( `-c` 옵션)-(구성 파일 이름)"으로 구성 됩니다.  예를 들어 `-c backup` 옵션을 로그 파일 이름과 함께 사용 하는 경우 `h80.json` 로그 파일이 호출 됩니다 `azacsnap-backup-h80.log` .  또는 옵션을 동일한 구성 파일에 사용 하는 경우 `-c test` 로그 파일이 호출 됩니다 `azacsnap-test-h80.log` .
 
 - HANA Large Instance 유형: `TYPEI` 또는 `TYPEII` HANA Large instance 단위에 종속 된 두 개의 유효한 값이 있습니다.
-- 사용 가능한 Sku를 확인 하려면 [HANA Large Instances에 대해 사용 가능한 sku](/azure/virtual-machines/workloads/sap/hana-available-skus) 를 참조 하세요.
+- 사용 가능한 Sku를 확인 하려면 [HANA Large Instances에 대해 사용 가능한 sku](../virtual-machines/workloads/sap/hana-available-skus.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

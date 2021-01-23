@@ -3,16 +3,16 @@ title: Cloud Services에서 Virtual Machines 배치 풀 구성 마이그레이�
 description: 풀 구성을 최신 및 권장 구성으로 업데이트 하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 1/6/2021
-ms.openlocfilehash: d987a185efb6593fd541dd14fa74b6c4d3ca41be
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 417738be2c69101129079b8ff3a3d80634f9f99c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234310"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731502"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Cloud Services에서 Virtual Machines 배치 풀 구성 마이그레이션
 
-[CloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) 또는 [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)중 하나를 사용 하 여 Batch 풀을 만들 수 있습니다. 모든 일괄 처리 기능을 지원 하므로 ' virtualMachineConfiguration '은 권장 되는 구성입니다. ' cloudServiceConfiguration ' 풀은 모든 기능을 지원 하지 않으며 새로운 기능이 계획 되지 않았습니다.
+[CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) 또는 [virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration)중 하나를 사용 하 여 Batch 풀을 만들 수 있습니다. 모든 일괄 처리 기능을 지원 하므로 ' virtualMachineConfiguration '은 권장 되는 구성입니다. ' cloudServiceConfiguration ' 풀은 모든 기능을 지원 하지 않으며 새로운 기능이 계획 되지 않았습니다.
 
 ' CloudServiceConfiguration ' 풀을 사용 하는 경우 ' virtualMachineConfiguration ' 풀을 사용 하도록 이동 하는 것이 좋습니다. 이렇게 하면 확장 된 [VM 시리즈](batch-pool-vm-sizes.md), Linux vm, [컨테이너](batch-docker-container-workloads.md), [Azure Resource Manager 가상 네트워크](batch-virtual-network.md)및 [노드 디스크 암호화](disk-encryption.md)와 같은 모든 배치 기능을 활용할 수 있습니다.
 
@@ -41,4 +41,4 @@ ms.locfileid: "98234310"
 
 - [풀 구성](nodes-and-pools.md#configurations)에 대해 자세히 알아보세요.
 - [풀 모범 사례](best-practices.md#pools)에 대해 자세히 알아보세요.
-- [풀 추가](https://docs.microsoft.com/rest/api/batchservice/pool/add) 및 [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)에 대 한 참조를 REST API 합니다.
+- [풀 추가](/rest/api/batchservice/pool/add) 및 [virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration)에 대 한 참조를 REST API 합니다.

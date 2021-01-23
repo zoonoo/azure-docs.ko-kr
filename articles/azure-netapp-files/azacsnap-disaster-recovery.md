@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: c34ca08ae2ede9430804f6b8bb33f2bfcb0b39ab
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 70e1823b30814d7dc29fef69215fcb53a2a2ab96
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632836"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730873"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구를 사용 하 여 재해 복구 (미리 보기)
 
@@ -40,7 +40,7 @@ Azure 대규모 인스턴스 플랫폼에는 저장소 볼륨 스냅숏을 복�
 - 저장소 복제가 작동 하 고 있습니다. Microsoft 운영 팀은 DR 프로 비전 시 저장소 복제 설정을 자동으로 수행 합니다. DR 사이트에서 명령을 사용 하 여 저장소 복제를 모니터링할 수 있습니다 `azacsnap -c details --details replication` .
 - 기본 위치에서 저장소 스냅숏을 설정 하 고 구성 했습니다.
 - 주 인스턴스와 동일한 SID를 가진 주 복제본에 대해 DR 사이트에 HANA 인스턴스가 설치 되어 있어야 합니다.
-- [Azure의 고가용성 및 재해 복구 SAP HANA(대규모 인스턴스)](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) 에 설명 된 DR 장애 조치 (Failover) 절차를 읽고 이해 합니다.
+- [Azure의 고가용성 및 재해 복구 SAP HANA(대규모 인스턴스)](../virtual-machines/workloads/sap/hana-failover-procedure.md) 에 설명 된 DR 장애 조치 (Failover) 절차를 읽고 이해 합니다.
 - DR 위치에서 저장소 스냅숏을 설정 하 고 구성 했습니다.
 - Dr `DR.json` 저장소 볼륨 및 dr 서버에 관련 된 정보를 사용 하 여 구성 파일 (예:)을 만들었습니다.
 - DR 사이트에서 다음 단계를 완료 했습니다.

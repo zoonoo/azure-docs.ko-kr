@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2961f3f01f6ea4398fab6144b34fcb4409cdd96f
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 84e177f1ce55d803f54bb2553078441557e5c191
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96318169"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730890"
 ---
 # <a name="tutorial-for-azure-active-directory-single-sign-on-integration-with-f5-big-ip-for-password-less-vpn"></a>암호 없는 VPN의 경우 F5 빅 IP와 Azure Active Directory Single Sign-On 통합에 대 한 자습서
 
@@ -24,13 +24,13 @@ ms.locfileid: "96318169"
 
 대규모 IP SSL VPN을 Azure AD와 통합 하면 다음과 같은 [주요 이점을 누릴 수](f5-aad-integration.md)있습니다.
 
-- [AZURE AD 사전 인증 및 권한 부여를](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) 통한 제로 신뢰 관리 향상
+- [AZURE AD 사전 인증 및 권한 부여를](../../app-service/overview-authentication-authorization.md) 통한 제로 신뢰 관리 향상
 
 - [VPN 서비스에 대 한 암호 없는 인증](https://www.microsoft.com/security/business/identity/passwordless)
 
 - 단일 제어 평면에서 Id 및 액세스 관리- [Azure Portal](https://portal.azure.com/#home)
 
-이러한 유용한 값 추가에도 불구 하 고, 클래식 VPN은 네트워크 경계에 대 한 개념을 기준으로 합니다. 여기에서 신뢰할 수 있는 위치는 외부에 있습니다. 회사 자산은 더 이상 엔터프라이즈 데이터 센터의 벽에 한정 되지 않고 고정 경계가 없는 다중 클라우드 환경에서 사용 되기 때문에이 모델은 더 이상 진정한 제로 신뢰 상태를 달성 하는 데 효과적이 지 않습니다. 따라서 고객은 [응용 프로그램 별로 액세스](https://docs.microsoft.com/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad)를 관리 하는 데 더 많은 id 기반 방법으로 이동 하는 것이 좋습니다.
+이러한 유용한 값 추가에도 불구 하 고, 클래식 VPN은 네트워크 경계에 대 한 개념을 기준으로 합니다. 여기에서 신뢰할 수 있는 위치는 외부에 있습니다. 회사 자산은 더 이상 엔터프라이즈 데이터 센터의 벽에 한정 되지 않고 고정 경계가 없는 다중 클라우드 환경에서 사용 되기 때문에이 모델은 더 이상 진정한 제로 신뢰 상태를 달성 하는 데 효과적이 지 않습니다. 따라서 고객은 [응용 프로그램 별로 액세스](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)를 관리 하는 데 더 많은 id 기반 방법으로 이동 하는 것이 좋습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -41,15 +41,15 @@ ms.locfileid: "96318169"
 >[!NOTE]
 >이 가이드 전체에서 참조 되는 모든 예제 문자열 또는 값은 실제 환경에 대 한 값으로 바꾸어야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 그러나 F5의 이전 경험 또는 지식은 필요 하지 않습니다. 그러나 다음이 필요 합니다.
 
 - Azure AD [무료 구독](https://azure.microsoft.com/trial/get-started-active-directory/) 이상
 
-- 사용자 id는 [온-프레미스 디렉터리에서](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) Azure AD로 동기화 되어야 합니다.
+- 사용자 id는 [온-프레미스 디렉터리에서](../hybrid/how-to-connect-sync-whatis.md) Azure AD로 동기화 되어야 합니다.
 
-- Azure AD 응용 프로그램 관리자 [권한이](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator) 있는 계정
+- Azure AD 응용 프로그램 관리자 [권한이](../roles/permissions-reference.md#application-administrator) 있는 계정
 
 - 큰 ip에 대 한 클라이언트 트래픽을 라우팅하는 기존 대규모 IP 인프라 또는 [Azure에 빅 Ip 가상 버전을 배포](f5-bigip-deployment-guide.md)합니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "96318169"
 
 ## <a name="add-f5-big-ip-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 F5 큰 IP 추가
 
-단일 IP 간에 SAML 페더레이션 트러스트를 설정 하면 Azure AD에서 azure ad가 게시 된 VPN 서비스에 대 한 액세스 권한을 부여 하기 전에 Azure AD에 대 한 사전 인증 및 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) 를 전달할 수 있습니다.
+단일 IP 간에 SAML 페더레이션 트러스트를 설정 하면 Azure AD에서 azure ad가 게시 된 VPN 서비스에 대 한 액세스 권한을 부여 하기 전에 Azure AD에 대 한 사전 인증 및 [조건부 액세스](../conditional-access/overview.md) 를 전달할 수 있습니다.
 
 1. 응용 프로그램 관리자 권한이 있는 계정을 사용 하 여 Azure AD 포털에 로그인 합니다.
 
@@ -78,19 +78,19 @@ ms.locfileid: "96318169"
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
-1. 새 F5 응용 프로그램 속성 보기에서 **Manage**  >  **Single sign-on** 관리로 이동 합니다.
+1. 새 F5 응용 프로그램 속성 보기에서   >  **Single sign-on** 관리로 이동 합니다.
 
 2. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다. 아니요를 선택 하 여 Single Sign-On 설정을 저장 하 라는 메시지를 표시 **하지 않고 나중에 저장 하겠습니다**.
 
 3. **Saml 설치 Single Sign-On** 메뉴에서 **기본 SAML 구성** 의 펜 아이콘을 선택 하 여 다음 세부 정보를 제공 합니다.
 
-   - 미리 정의 된 **식별자 url** 을 큰 IP 게시 된 서비스의 url로 바꿉니다. 예, `https://ssl-vpn.contoso.com`
+   - 미리 정의 된 **식별자 url** 을 큰 IP 게시 된 서비스의 url로 바꿉니다. 예를 들어 `https://ssl-vpn.contoso.com`
 
-   - SAML 엔드포인트 경로를 포함 하 여 **회신 URL** 텍스트 상자를 사용 하 여 동일한 작업을 수행 합니다. 예, `https://ssl-vpn.contoso.com/saml/sp/profile/post/acs`
+   - SAML 엔드포인트 경로를 포함 하 여 **회신 URL** 텍스트 상자를 사용 하 여 동일한 작업을 수행 합니다. 예를 들어 `https://ssl-vpn.contoso.com/saml/sp/profile/post/acs`
 
-   - 이 구성 에서만 응용 프로그램은 IDP 시작 모드에서 작동 합니다. 여기서 Azure AD는 빅 IP SAML 서비스로 리디렉션하기 전에 사용자에 게 SAML 어설션을 발급 합니다. IDP 시작 모드를 지원 하지 않는 앱의 경우 큰 IP SAML 서비스에 대 한 로그온 **URL** 을 지정 합니다. 예: `https://ssl-vpn.contoso.com`.
+   - 이 구성 에서만 응용 프로그램은 IDP 시작 모드에서 작동 합니다. 여기서 Azure AD는 빅 IP SAML 서비스로 리디렉션하기 전에 사용자에 게 SAML 어설션을 발급 합니다. IDP 시작 모드를 지원 하지 않는 앱의 경우 큰 IP SAML 서비스에 대 한 로그온 **URL** 을 지정 합니다. 예들 들어 `https://ssl-vpn.contoso.com`입니다.
 
-   - 로그 아웃 Url의 경우 게시 되는 서비스의 호스트 헤더를 통해 대규모 IP APM SLO (단일 로그 아웃) 끝점을 입력 합니다. 예, `https://ssl-vpn.contoso.com/saml/sp/profile/redirect/slr`
+   - 로그 아웃 Url의 경우 게시 되는 서비스의 호스트 헤더를 통해 대규모 IP APM SLO (단일 로그 아웃) 끝점을 입력 합니다. 예를 들어 `https://ssl-vpn.contoso.com/saml/sp/profile/redirect/slr`
 
    SLO URL을 제공 하면 사용자가 로그 아웃 한 후 사용자 세션이 두 끝, 즉 빅 IP와 Azure AD에서 모두 종료 됩니다. 또한 빅 IP APM은 특정 응용 프로그램 URL을 호출할 때 모든 세션을 종료 하는 [옵션](https://support.f5.com/csp/article/K12056) 을 제공 합니다.
 
@@ -105,7 +105,7 @@ Azure AD는 빅 IP APM 인증을 위해 사용자에 게이를 발급 하므로 
 
 ![사용자 특성 클레임을 보여 주는 이미지](media/f5-sso-vpn/user-attributes-claims.png)
 
-Azure AD에 있는 경우에만 기본 집합에 정의 된 모든 클레임이 채워진 특성으로 발생 하는 경우에만 해당 하는 다른 특정 클레임을 추가 하면 됩니다. 마찬가지로, 디렉터리 [역할 또는 그룹](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-group-claims) 멤버 자격은 클레임으로 발급 되기 전에 Azure AD의 사용자 개체에 대해 정의 해야 합니다.
+Azure AD에 있는 경우에만 기본 집합에 정의 된 모든 클레임이 채워진 특성으로 발생 하는 경우에만 해당 하는 다른 특정 클레임을 추가 하면 됩니다. 마찬가지로, 디렉터리 [역할 또는 그룹](../hybrid/how-to-connect-fed-group-claims.md) 멤버 자격은 클레임으로 발급 되기 전에 Azure AD의 사용자 개체에 대해 정의 해야 합니다.
 
 ![페더레이션 메타 데이터 다운로드 링크를 보여 주는 이미지](media/f5-sso-vpn/saml-signing-certificate.png)
 
@@ -119,7 +119,7 @@ Azure AD에서 만든 SAML 서명 인증서의 수명은 3 년 이며, 따라서
 
 2. **+ 사용자 추가** 를 선택 하 고 할당 추가 메뉴에서 **사용자 및 그룹** 을 선택 합니다.
 
-3. **사용자 및 그룹** 대화 상자에서 VPN에 액세스할 수 있는 권한이 있는 사용자 그룹을 추가한 다음 할당을 **선택** 합니다.  >  **Assign**
+3. **사용자 및 그룹** 대화 상자에서 VPN에 액세스할 수 있는 권한이 있는 사용자 그룹을 추가한 다음 할당을 **선택** 합니다.  >  
 
 ![사용자 링크 추가 이미지가 표시 됩니다. ](media/f5-sso-vpn/add-user-link.png)
 
@@ -165,7 +165,7 @@ Azure AD에서 만든 SAML 서명 인증서의 수명은 3 년 이며, 따라서
 
 1. **액세스**  >  **webtops**  >  **Webtop 목록** 으로 이동 하 고 **만들기** 를 선택 합니다.
 
-2. 포털에 이름을 지정 하 고 유형을 **Full** 로 설정 합니다. 예: `Contoso_webtop`.
+2. 포털에 이름을 지정 하 고 유형을 **Full** 로 설정 합니다. 예들 들어 `Contoso_webtop`입니다.
 
 3. 나머지 기본 설정을 조정 하 고 **완료** 를 선택 합니다.
 
@@ -213,7 +213,7 @@ VPN 기능은 여러 요소로 구성 되며, 각 요소는 전체 서비스의 
 
 이제 VPN 서비스에서 지원 해야 하는 각 VPN 클라이언트 형식에 대 한 설정을 구성 하려면 큰 IP 연결 프로필이 필요 합니다. 예를 들어 Windows, OSX 및 Android가 있습니다.
 
-1. **액세스**  >  **연결/VPN** 연결 프로필로 이동 하 여  >  **Connectivity**  >  **Profiles** **추가** 를 선택 합니다.
+1. **액세스**  >  **연결/VPN** 연결 프로필로 이동 하 여  >    >   **추가** 를 선택 합니다.
 
 2. 프로필 이름을 입력 하 고 부모 프로필을 **/Common/connectivity** 로 설정 합니다 (예: Contoso_VPN_Profile).
 
@@ -299,11 +299,11 @@ VPN 개체가 구성 된 상태에서 SAML 인증에 서비스를 사용 하도�
 
 - [암호의 끝, 암호 없는 수준으로 이동 합니다.](https://www.microsoft.com/security/business/identity/passwordless)
 
-- [조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [조건부 액세스란?](../conditional-access/overview.md)
 
 - [원격 작업을 사용 하도록 설정 하는 Microsoft 제로 신뢰 프레임 워크](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
 
-- [Azure AD와 전체 응용 프로그램 통합에 대 한 5 단계](https://docs.microsoft.com/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad)
+- [Azure AD와 전체 응용 프로그램 통합에 대 한 5 단계](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -312,4 +312,4 @@ VPN 개체가 구성 된 상태에서 SAML 인증에 서비스를 사용 하도�
 ![Vpn 시작 관리자 표시 이미지](media/f5-sso-vpn/vpn-launcher.png)
 
 VPN 타일을 선택 하면 큰 IP에 지 클라이언트를 설치 하 고 SHA에 대해 구성 된 VPN 연결을 설정 합니다.
-또한 F5 VPN 응용 프로그램은 Azure AD 조건부 액세스에서 대상 리소스로 표시 되어야 합니다. 조건부 액세스 정책을 작성 하 고 사용자가 Azure AD [암호 없는 인증](https://www.microsoft.com/security/business/identity/passwordless)에 대 한 사용자를 사용 하도록 설정 하기 위한 [지침](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) 을 참조 하세요.
+또한 F5 VPN 응용 프로그램은 Azure AD 조건부 액세스에서 대상 리소스로 표시 되어야 합니다. 조건부 액세스 정책을 작성 하 고 사용자가 Azure AD [암호 없는 인증](https://www.microsoft.com/security/business/identity/passwordless)에 대 한 사용자를 사용 하도록 설정 하기 위한 [지침](../conditional-access/concept-conditional-access-policies.md) 을 참조 하세요.

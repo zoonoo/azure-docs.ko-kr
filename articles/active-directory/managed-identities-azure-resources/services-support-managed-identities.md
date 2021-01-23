@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 7ebe56b95b0c4b938c31c0ece04d27fd1b234b05
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861887"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729915"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -326,9 +326,9 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | 시스템 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
-| 사용자 할당 | [지원 되는 지역에서 사용 가능](../../virtual-machines/windows/image-builder-overview.md#regions) | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | [지원 되는 지역에서 사용 가능](../../virtual-machines/image-builder-overview.md#regions) | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-Azure VM 이미지 작성기 (사용 가능한 지역)에 대해 관리 id를 구성 하는 방법을 알아보려면 [이미지 작성기 개요](../../virtual-machines/windows/image-builder-overview.md#permissions)를 참조 하세요.
+Azure VM 이미지 작성기 (사용 가능한 지역)에 대해 관리 id를 구성 하는 방법을 알아보려면 [이미지 작성기 개요](../../virtual-machines/image-builder-overview.md#permissions)를 참조 하세요.
 ### <a name="azure-signalr-service"></a>Azure SignalR Service
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |

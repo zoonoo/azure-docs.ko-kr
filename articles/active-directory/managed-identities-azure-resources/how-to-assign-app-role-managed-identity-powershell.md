@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 409ba7a954830bb2370ce83989b9e8b08b742fe7
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f2d844054e3744aafa01f43ded354a5b5d9f8b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631179"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732102"
 ---
 # <a name="assign-a-managed-identity-access-to-an-application-role-using-powershell"></a>PowerShell을 사용 하 여 응용 프로그램 역할에 관리 id 액세스 할당
 
@@ -36,7 +36,7 @@ Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 id를 사�
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 - 예제 스크립트를 실행하려면 다음 두 가지 옵션을 사용합니다.
     - 코드 블록의 오른쪽 위 모퉁이에 있는 **사용해 보기** 단추를 사용 하 여 열 수 있는 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용 합니다.
-    - 최신 버전의 [AZURE AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)을 설치 하 여 스크립트를 로컬로 실행 합니다.
+    - 최신 버전의 [AZURE AD PowerShell](/powershell/azure/active-directory/install-adv2)을 설치 하 여 스크립트를 로컬로 실행 합니다.
 
 ## <a name="assign-a-managed-identity-access-to-another-applications-app-role"></a>다른 응용 프로그램의 앱 역할에 관리 id 액세스 권한 할당
 

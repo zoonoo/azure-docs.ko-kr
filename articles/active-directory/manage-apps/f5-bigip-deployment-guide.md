@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095188"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730660"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>보안 하이브리드 액세스를 위해 Azure IaaS에서 F5 빅 IP 가상 버전 VM을 배포 하는 방법에 대 한 자습서
 
@@ -26,7 +26,7 @@ ms.locfileid: "97095188"
 
 - 새 대규모 IP 시스템 업데이트 및 핫픽스를 테스트 하는 데 사용할 준비 인스턴스입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이전에는 F5 큰 IP 환경이 나 지식이 필요 하지 않지만, [F5 큰 ip 용어로](https://www.f5.com/services/resources/glossary)익숙해질 하는 것이 좋습니다. SHA에 대해 Azure에서 큰 IP를 배포 하려면 다음이 필요 합니다.
 
@@ -111,7 +111,7 @@ VM 배포 및 기본 시스템 configs 30 분 정도 걸립니다 .이 시점에
 
 10. **다음: 관리** 를 선택 하 고이 설정을 완료 합니다.
 
- |모니터링|    값 |
+ |모니터링|    Value |
  |:---------|:-----|
  |자세한 모니터링| 끄기|
  |부트 진단|사용자 지정 저장소 계정을 사용 하 여 사용 합니다. Azure Portal의 직렬 콘솔 옵션을 통해 SSH (빅 IP Secure Shell) 인터페이스에 연결할 수 있습니다. 사용 가능한 Azure storage 계정을 선택 합니다.|
@@ -216,7 +216,7 @@ VM 공용 IP와 개인 IP 간의이 1-1을 매핑하면 외부 트래픽이 VM�
  |:-------|:-----------|
  |구독| 큰 IP VM과 동일한 구독|
  |DNS 영역| 게시 된 웹 사이트에서 사용 하는 확인 된 도메인 접미사에 대 한 권한이 있는 DNS 영역 (예: www.contoso.com) |
- |Name | 지정한 호스트 이름이 선택한 보조 IP와 연결 된 공용 IP로 확인 됩니다. IP 매핑에 대 한 올바른 DNS를 정의 해야 합니다. Intranet.contoso.com > 13.77.148.215와 같은 네트워킹에서 마지막 이미지 configs 섹션을 참조 하세요.|
+ |이름 | 지정한 호스트 이름이 선택한 보조 IP와 연결 된 공용 IP로 확인 됩니다. IP 매핑에 대 한 올바른 DNS를 정의 해야 합니다. Intranet.contoso.com > 13.77.148.215와 같은 네트워킹에서 마지막 이미지 configs 섹션을 참조 하세요.|
  | TTL | 1 |
  |TTL 단위 | 시간 |
 
@@ -250,7 +250,7 @@ VM 공용 IP와 개인 IP 간의이 1-1을 매핑하면 외부 트래픽이 VM�
  |프로토콜| TCP |
  |작업| 허용|
  |우선 순위|100-4096 사이의 사용 가능한 최소값|
- |Name | 설명이 포함 된 이름입니다. 예를 들면 다음과 같습니다. `BIG-IP-VM_Web_Services_80_443`|
+ |이름 | 설명이 포함 된 이름입니다. 예를 들면 다음과 같습니다. `BIG-IP-VM_Web_Services_80_443`|
 
 3. **추가** 를 선택 하 여 변경 내용을 커밋하고 **네트워킹** 메뉴를 닫습니다.
 
@@ -264,7 +264,7 @@ VM 공용 IP와 개인 IP 간의이 1-1을 매핑하면 외부 트래픽이 VM�
 
 - 큰 IP VM의 내부 네트워크에 연결 된 VPN 클라이언트에서
 
-- [Azure AD 응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application) 를 통해 게시 됨
+- [Azure AD 응용 프로그램 프록시](./application-proxy-add-on-premises-application.md) 를 통해 게시 됨
 
 나머지 구성으로 진행 하기 전에 가장 적합 한 방법을 결정 해야 합니다. 필요한 경우 공용 IP를 사용 하 여 큰 IP의 기본 IP를 구성 하 여 인터넷에서 웹 구성에 직접 연결할 수 있습니다. 그런 다음 해당 주 IP에 대 한 8443 트래픽을 허용 하는 NSG 규칙을 추가 합니다. 원본을 신뢰할 수 있는 IP로 제한 해야 합니다. 그렇지 않으면 모든 사용자가 연결할 수 있습니다.
 
@@ -276,7 +276,7 @@ VM 공용 IP와 개인 IP 간의이 1-1을 매핑하면 외부 트래픽이 VM�
 
 일반적으로 CLI (명령줄) 작업 및 루트 수준 액세스에 사용 되는 기본 SSH 환경을 통해 큰 IP 시스템을 관리할 수도 있습니다. 다음을 포함 하 여 CLI에 연결 하기 위한 몇 가지 옵션이 있습니다.
 
-- [Azure 방호 서비스](https://docs.microsoft.com/azure/bastion/bastion-overview): 모든 위치에서 vNET 내의 모든 VM에 대 한 빠르고 안전한 연결을 허용 합니다.
+- [Azure 방호 서비스](../../bastion/bastion-overview.md): 모든 위치에서 vNET 내의 모든 VM에 대 한 빠르고 안전한 연결을 허용 합니다.
 
 - JIT 접근 방식을 통해 PuTTY와 같은 SSH 클라이언트를 통해 직접 연결
 
@@ -423,7 +423,7 @@ SHA 용 빅 IP를 준비 하는 마지막 단계는 게시 된 리소스와 SSO�
 
 6. 백업 링크를 선택 하 여 사용자 구성 집합 (UCS) 보관 파일을 로컬로 저장 하 고 **다운로드** 를 선택 합니다.
 
-선택적 단계로, [Azure 스냅숏을](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk)사용 하 여 전체 시스템 디스크의 백업을 수행할 수도 있습니다. 웹 구성 백업과 달리 TMOS 버전 간의 테스트에 대 한 일부 대체 기능을 제공 하거나 새로운 시스템으로 롤백합니다.
+선택적 단계로, [Azure 스냅숏을](../../virtual-machines/windows/snapshot-copy-managed-disk.md)사용 하 여 전체 시스템 디스크의 백업을 수행할 수도 있습니다. 웹 구성 백업과 달리 TMOS 버전 간의 테스트에 대 한 일부 대체 기능을 제공 하거나 새로운 시스템으로 롤백합니다.
 
 ```PowerShell
 # Install modules
@@ -471,7 +471,7 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 >[!NOTE]
 >작성 시 AzVmSnapshot cmdlet은 날짜를 기준으로 가장 최근의 스냅숏을 복원 하도록 제한 됩니다. 스냅숏은 VM 리소스 그룹의 루트에 저장 됩니다. 스냅숏을 복원 하는 것은 Azure VM을 다시 시작 하기 때문에 주의 해야 합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 -   [Azure에서 큰 IP VE 암호 다시 설정](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
     -   [포털을 사용 하지 않고 암호 다시 설정](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)

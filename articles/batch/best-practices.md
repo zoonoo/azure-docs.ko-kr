@@ -3,12 +3,12 @@ title: 모범 사례
 description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934291"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732414"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -149,7 +149,7 @@ Batch는 태스크를 자동으로 다시 시도할 수 있습니다. 사용자 
 
 ### <a name="isolated-nodes"></a>격리 된 노드
 
-규정 준수 또는 규정 요구 사항을 준수 하는 워크 로드에 대해 격리 된 VM 크기 사용을 고려 합니다. 가상 컴퓨터 구성 모드에서 지원 되는 격리 된 크기는 `Standard_E80ids_v4` ,,,, `Standard_M128ms` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` 및 `Standard_E64i_v3` 입니다. 격리 된 VM 크기에 대 한 자세한 내용은 [Azure의 가상 머신 격리](https://docs.microsoft.com/azure/virtual-machines/isolation)를 참조 하세요.
+규정 준수 또는 규정 요구 사항을 준수 하는 워크 로드에 대해 격리 된 VM 크기 사용을 고려 합니다. 가상 컴퓨터 구성 모드에서 지원 되는 격리 된 크기는 `Standard_E80ids_v4` ,,,, `Standard_M128ms` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` 및 `Standard_E64i_v3` 입니다. 격리 된 VM 크기에 대 한 자세한 내용은 [Azure의 가상 머신 격리](../virtual-machines/isolation.md)를 참조 하세요.
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>운영 체제 서비스 인터페이스를 통해 장기 실행 서비스 관리
 

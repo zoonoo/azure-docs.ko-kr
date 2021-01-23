@@ -4,16 +4,16 @@ description: 사용자 지정 이미지 풀은 Batch 워크 로드를 실행 하
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327307"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731364"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 
-Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 컴퓨팅 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. 지원 되는 Azure Marketplace 이미지를 사용 하 여 가상 머신 풀을 만들거나 [공유 이미지 갤러리 이미지](../virtual-machines/windows/shared-image-galleries.md)를 사용 하 여 사용자 지정 이미지를 만들 수 있습니다.
+Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 컴퓨팅 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. 지원 되는 Azure Marketplace 이미지를 사용 하 여 가상 머신 풀을 만들거나 [공유 이미지 갤러리 이미지](../virtual-machines/shared-image-galleries.md)를 사용 하 여 사용자 지정 이미지를 만들 수 있습니다.
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Shared Image Gallery의 이점
 
@@ -31,7 +31,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 - **많은 데이터를 한 번에 복사** 관리되는 공유 이미지를 관리되는 이미지의 데이터 디스크에 복사하여 관리되는 공유 이미지의 정적 데이터 부분을 만듭니다. 이 작업은 한 번만 수행하며 풀의 각 노드에서 데이터를 사용할 수 있게 됩니다.
 - **풀을 더 큰 크기로 확장** Shared Image Gallery를 사용하면 더 많은 공유 이미지 복제본과 함께 사용자 지정된 이미지를 사용하여 더 큰 풀을 만들 수 있습니다.
 - **관리 되는 이미지만 사용자 지정 이미지로 사용 하는 것 보다 성능이 향상 됩니다.** 공유 이미지 사용자 지정 이미지 풀의 경우 안정 된 상태에 도달 하는 시간은 최대 25% 더 빠르며 VM 유휴 대기 시간은 최대 30% 더 짧습니다.
-- **보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화** 이미지 그룹화 정의에는 이미지를 만든 이유에 대한 정보, 사용 중인 OS 및 이미지 사용에 대한 정보가 포함되어 있습니다. 이미지를 그룹화하면 이미지를 쉽게 관리할 수 있습니다. 자세한 내용은 [이미지 정의](../virtual-machines/windows/shared-image-galleries.md#image-definitions)를 참조하세요.
+- **보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화** 이미지 그룹화 정의에는 이미지를 만든 이유에 대한 정보, 사용 중인 OS 및 이미지 사용에 대한 정보가 포함되어 있습니다. 이미지를 그룹화하면 이미지를 쉽게 관리할 수 있습니다. 자세한 내용은 [이미지 정의](../virtual-machines/shared-image-galleries.md#image-definitions)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -226,4 +226,4 @@ client.pool.add(new_pool)
 ## <a name="next-steps"></a>다음 단계
 
 - Batch에 대한 자세한 개요는 [Batch 서비스 워크플로 및 리소스](batch-service-workflow-features.md)를 참조하세요.
-- [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md)에 대해 알아봅니다.
+- [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)에 대해 알아봅니다.

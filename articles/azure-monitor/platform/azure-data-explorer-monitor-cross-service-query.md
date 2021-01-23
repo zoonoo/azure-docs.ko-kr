@@ -7,17 +7,17 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: e60f77495cdb822a0c50be936c2b0d3ac31348f3
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 2b68afcb9d200970ca4ea29b13175223f52c77e0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116712"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730992"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>크로스 서비스 쿼리-Azure Monitor 및 Azure 데이터 탐색기 (미리 보기)
-[Azure 데이터 탐색기](https://docs.microsoft.com/azure/data-explorer/), [Application Insights](/azure/azure-monitor/app/app-insights-overview)및 [Log Analytics](/azure/azure-monitor/platform/data-platform-logs)간에 서비스 간 쿼리를 만듭니다.
+[Azure 데이터 탐색기](/azure/data-explorer/), [Application Insights](../app/app-insights-overview.md)및 [Log Analytics](./data-platform-logs.md)간에 서비스 간 쿼리를 만듭니다.
 ## <a name="azure-monitor-and-azure-data-explorer-cross-service-querying"></a>Azure Monitor 및 Azure 데이터 탐색기 서비스 간 쿼리
-이러한 환경을 통해 [azure 데이터 탐색기와 Azure Monitor 간에 크로스 서비스 쿼리를 만들고](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) [Azure Monitor와 azure 데이터 탐색기 간에 크로스 서비스 쿼리를 만들](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy)수 있습니다.
+이러한 환경을 통해 [azure 데이터 탐색기와 Azure Monitor 간에 크로스 서비스 쿼리를 만들고](/azure/data-explorer/query-monitor-data) [Azure Monitor와 azure 데이터 탐색기 간에 크로스 서비스 쿼리를 만들](./azure-monitor-data-explorer-proxy.md)수 있습니다.
 
 예: (Log Analytics에서 Azure 데이터 탐색기 쿼리):
 ```kusto
@@ -34,15 +34,15 @@ CustomEvents | where aField == 1
 
 Azure Monitor에서 Azure storage 계정으로 데이터를 내보내면 저렴 한 보존 및 여러 지역에 로그를 다시 할당할 수 있습니다.
 
-Azure 데이터 탐색기를 사용 하 여 Log Analytics 작업 영역에서 내보낸 데이터를 쿼리할 수 있습니다. 구성 된 후에는 작업 영역에서 Azure storage 계정으로 전송 된 지원 테이블을 Azure 데이터 탐색기의 데이터 원본으로 사용할 수 있습니다. [Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 내보낸 데이터를 쿼리](https://docs.microsoft.com/azure/azure-monitor/platform/azure-data-explorer-query-storage)합니다.
+Azure 데이터 탐색기를 사용 하 여 Log Analytics 작업 영역에서 내보낸 데이터를 쿼리할 수 있습니다. 구성 된 후에는 작업 영역에서 Azure storage 계정으로 전송 된 지원 테이블을 Azure 데이터 탐색기의 데이터 원본으로 사용할 수 있습니다. [Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 내보낸 데이터를 쿼리](./azure-data-explorer-query-storage.md)합니다.
 
 :::image type="content" source="media\azure-data-explorer-query-storage\exported-data-query.png" alt-text="저장소 흐름의 Azure 데이터 탐색기 쿼리입니다.":::
 
 >[!tip] 
-> * Log Analytics 작업 영역의 모든 데이터를 Azure storage 계정 또는 이벤트 허브로 내보내려면 Azure Monitor 로그의 Log Analytics 작업 영역 데이터 내보내기 기능을 사용 합니다. [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)를 참조](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)하세요.
+> * Log Analytics 작업 영역의 모든 데이터를 Azure storage 계정 또는 이벤트 허브로 내보내려면 Azure Monitor 로그의 Log Analytics 작업 영역 데이터 내보내기 기능을 사용 합니다. [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)를 참조](/azure/data-explorer/query-monitor-data)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음에 대해 자세히 알아봅니다.
-* [Azure 데이터 탐색기와 Azure Monitor 간에 서비스 간 쿼리를 만듭니다](https://docs.microsoft.com/azure/data-explorer/query-monitor-data). Azure 데이터 탐색기에서 Azure Monitor 데이터 쿼리
-* [Azure Monitor와 Azure 데이터 탐색기 사이에서 서비스 간 쿼리를 만듭니다](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy). Azure Monitor에서 Azure 데이터 탐색기 데이터 쿼리
-* [Azure Monitor에서 작업 영역 데이터 내보내기 (미리 보기)를 Log Analytics](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)합니다. Log Analytics 내보낸 데이터를 사용 하 여 Azure Blob storage 계정을 연결 하 고 쿼리 합니다.
+* [Azure 데이터 탐색기와 Azure Monitor 간에 서비스 간 쿼리를 만듭니다](/azure/data-explorer/query-monitor-data). Azure 데이터 탐색기에서 Azure Monitor 데이터 쿼리
+* [Azure Monitor와 Azure 데이터 탐색기 사이에서 서비스 간 쿼리를 만듭니다](./azure-monitor-data-explorer-proxy.md). Azure Monitor에서 Azure 데이터 탐색기 데이터 쿼리
+* [Azure Monitor에서 작업 영역 데이터 내보내기 (미리 보기)를 Log Analytics](/azure/data-explorer/query-monitor-data)합니다. Log Analytics 내보낸 데이터를 사용 하 여 Azure Blob storage 계정을 연결 하 고 쿼리 합니다.

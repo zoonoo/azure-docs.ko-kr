@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 71f4cfa9e7b69e51bafa5364f857f8ab689f2ad0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
-ms.translationtype: HT
+ms.openlocfilehash: 928b8118c614d7d16293c8d6e0cec194a270314e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955470"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729926"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ServiceNow 구성
 
@@ -155,7 +155,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 * **IP 범위** 
 
-   Azure AD 프로비저닝 서비스는 현재 특정 IP 범위에서 작동합니다. 따라서 필요한 경우 다른 IP 범위를 제한하고 이러한 특정 IP 범위를 애플리케이션의 허용 목록에 추가하여 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽 흐름을 허용할 수 있습니다. [IP 범위](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges)의 설명서를 참조하세요.
+   Azure AD 프로비저닝 서비스는 현재 특정 IP 범위에서 작동합니다. 따라서 필요한 경우 다른 IP 범위를 제한하고 이러한 특정 IP 범위를 애플리케이션의 허용 목록에 추가하여 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽 흐름을 허용할 수 있습니다. [IP 범위](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges)의 설명서를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

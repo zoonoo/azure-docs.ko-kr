@@ -51,8 +51,6 @@
           href: non-gallery-apps.md
         - name: 내 앱 배포 계획
           href: access-panel-deployment-plan.md
-        - name: 개발자를 위한 지침
-          href: developer-guidance-for-integrating-applications.md
     - name: Single Sign-On
       items:
         - name: Single Sign-On 배포 계획

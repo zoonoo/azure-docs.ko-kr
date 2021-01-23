@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5c960c7fbcc29d0aaea7511ba2187c916e84ab3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f8210e00824d7680f4eecde2f0b299dfcdc93b90
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935243"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730574"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>보안 하이브리드 액세스를 위한 F5 빅 IP 액세스 정책 관리자 및 Azure Active Directory 통합
 
@@ -29,19 +29,20 @@ SHA는 조직이 더 뛰어난 네트워크 및 응용 프로그램 배달에 �
 
 Azure AD에서 대규모 IP 게시 된 서비스에 대 한 사전 인증 액세스를 사용 하면 다음과 같은 여러 이점이 있습니다.
 
-- [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install), [FIDO (Fast Identity Online) 키](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)및 [인증서 기반 인증](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) 을 통한 암호 없는 인증
+- [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](../user-help/user-help-auth-app-download-install.md), [FIDO (Fast Identity Online) 키](../authentication/howto-authentication-passwordless-security-key.md)및 [인증서 기반 인증](../authentication/active-directory-certificate-based-authentication-get-started.md) 을 통한 암호 없는 인증
 
-- 선점형 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) 및 [MFA (multi-factor authentication)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)
+- 선점형 [조건부 액세스](../conditional-access/overview.md) 및 [MFA (multi-factor authentication)](../authentication/concept-mfa-howitworks.md)
 
-- [Id 보호](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection#:~:text=Identity%20Protection%20is%20a%20tool%20that%20allows%20organizations,detection%20data%20to%20third-party%20utilities%20for%20further%20analysis) -사용자 및 세션 위험 프로 파일링을 통한 적응 제어
+- [Id 보호](../identity-protection/overview-identity-protection.md) -사용자 및 세션 위험 프로 파일링을 통한 적응 제어
 
-- [누출 자격 증명 검색](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks)
 
-- [SSPR (셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr)
+- [누출 자격 증명 검색](../identity-protection/concept-identity-protection-risks.md)
 
-- [파트너 공동 작업](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users) -관리 되는 게스트 액세스를 위한 자격 관리
+- [SSPR (셀프 서비스 암호 재설정)](../authentication/tutorial-enable-sspr.md)
 
-- [Cloud App Security (CASB)](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) -전체 앱 검색 및 제어
+- [파트너 공동 작업](../governance/entitlement-management-external-users.md) -관리 되는 게스트 액세스를 위한 자격 관리
+
+- [Cloud App Security (CASB)](/cloud-app-security/what-is-cloud-app-security) -전체 앱 검색 및 제어
 
 - 위협 모니터링-advanced threat analytics 용 [Azure 센티널](https://azure.microsoft.com/services/azure-sentinel/)
 
@@ -61,26 +62,26 @@ LTM (로컬 Traffic Manager)는 역방향 프록시 기능을 통해 서비스�
 
 통합은 [SSL VPN 시나리오](f5-aad-password-less-vpn.md)를 포함 하는 대부분의 SHA 사용 사례에 공통적으로 사용 되는 APM과 Azure AD 간의 표준 페더레이션 트러스트를 기반으로 합니다. SAML (Security Assertion Markup Language), OAuth 및 OIDC (Open ID Connect) 리소스는 원격 액세스에 대해 보안을 유지할 수 없으므로 예외가 아닙니다. SaaS 앱을 포함 하 여 모든 서비스에 대 한 0 신뢰 액세스의 경우 큰 IP가 제한이 없는 경우가 있습니다.
 
-Azure AD와 통합 하는 데 필요한 큰 IP의 기능을 통해 [암호 없는 인증](https://www.microsoft.com/security/business/identity/passwordless) 및 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)와 같은 최신 제어를 사용 하 여 레거시 또는 비 Azure AD 통합 서비스를 보호 하는 데 필요한 프로토콜 전환을 사용할 수 있습니다. 이 시나리오에서 빅 IP는 서비스를 기준으로 Azure AD에 대 한 사전 인증 및 권한 부여를 처리 하는 동시 프록시로 해당 역할을 계속 해 서 수행 합니다.
+Azure AD와 통합 하는 데 필요한 큰 IP의 기능을 통해 [암호 없는 인증](https://www.microsoft.com/security/business/identity/passwordless) 및 [조건부 액세스](../conditional-access/overview.md)와 같은 최신 제어를 사용 하 여 레거시 또는 비 Azure AD 통합 서비스를 보호 하는 데 필요한 프로토콜 전환을 사용할 수 있습니다. 이 시나리오에서 빅 IP는 서비스를 기준으로 Azure AD에 대 한 사전 인증 및 권한 부여를 처리 하는 동시 프록시로 해당 역할을 계속 해 서 수행 합니다.
 
 다이어그램의 1-4 단계는 서비스 공급자가 시작한 흐름에서 사용자, 대규모 IP 및 Azure AD 간의 프런트 엔드 사전 인증 교환을 보여 줍니다. 5-6 단계는 개별 백엔드 서비스에 대 한 후속 APM 세션 보강 및 SSO를 표시 합니다.
 
 ![상위 수준 아키텍처를 보여 주는 이미지](./media/f5-aad-integration/integration-flow-diagram.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 |:------|:-----------|
 | 1. | 사용자가 포털에서 응용 프로그램 아이콘을 선택 하 여 SAML SP (빅 IP)에 대 한 URL을 확인 합니다. |
 | 2. | 사전 인증을 위해 사용자를 SAML IDP (Azure AD)로 리디렉션하는 대규모 IP|
-| 3. | Azure AD는 권한 부여에 대 한 조건부 액세스 정책 및 [세션 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) 을 처리 합니다.|
+| 3. | Azure AD는 권한 부여에 대 한 조건부 액세스 정책 및 [세션 컨트롤](../conditional-access/concept-conditional-access-session.md) 을 처리 합니다.|
 | 4. | 사용자가 Azure AD에서 발급 한 SAML 클레임을 제공 하는 빅 IP로 다시 리디렉션됩니다. |
-| 5. | 큰 IP는 [SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) 및 [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 에 포함 될 추가 세션 정보를 게시 된 서비스에 요청 합니다. |
+| 5. | 큰 IP는 [SSO](../hybrid/how-to-connect-sso.md) 및 [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 에 포함 될 추가 세션 정보를 게시 된 서비스에 요청 합니다. |
 | 6. | 빅 IP는 클라이언트 요청을 백 엔드 서비스에 전달 합니다.
 
 ## <a name="user-experience"></a>사용자 환경
 
 직원, 계열사 또는 소비자가 든 상관 없이, 대부분의 사용자는 이미 Office 365 로그인 환경을 사용 하 고 있으므로 SHA를 통해 큰 IP 서비스에 액세스 하는 것은 매우 익숙할 것입니다.
 
-이제 사용자는 장치 또는 위치 유형에 관계 없이, 사용자는  [Myapps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) 또는 [O365 launchpads](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) 에서 통합 된 광범위 한 서비스 집합에 대 한 셀프 서비스 기능과 함께 통합 된 대규모 IP 게시 서비스를 찾을 수 있습니다. 사용자는 원하는 경우 BIG-IPs 소유 Webtop 포털을 통해 직접 게시 된 서비스에 계속 액세스할 수 있습니다. 로그 오프할 때 SHA는 사용자의 세션이 두 끝, 즉 빅 IP와 Azure AD에서 모두 종료 되도록 하 여 서비스가 무단 액세스 로부터 완전히 보호 되도록 합니다.  
+이제 사용자는 장치 또는 위치 유형에 관계 없이, 사용자는  [Myapps](../user-help/my-apps-portal-end-user-access.md) 또는 [O365 launchpads](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) 에서 통합 된 광범위 한 서비스 집합에 대 한 셀프 서비스 기능과 함께 통합 된 대규모 IP 게시 서비스를 찾을 수 있습니다. 사용자는 원하는 경우 BIG-IPs 소유 Webtop 포털을 통해 직접 게시 된 서비스에 계속 액세스할 수 있습니다. 로그 오프할 때 SHA는 사용자의 세션이 두 끝, 즉 빅 IP와 Azure AD에서 모두 종료 되도록 하 여 서비스가 무단 액세스 로부터 완전히 보호 되도록 합니다.  
 
 제공 되는 스크린샷은 Azure AD 앱 포털에서 사용자가 큰 IP 게시 서비스를 찾고 계정 속성을 관리 하기 위해 안전 하 게 액세스 하는 것입니다.  
 
@@ -92,7 +93,7 @@ Azure AD와 통합 하는 데 필요한 큰 IP의 기능을 통해 [암호 없�
 
 대규모 IP의 역할은 모든 비즈니스에 중요 하므로 배포 된 빅 IP 인스턴스는 SHA 수준 및 운영상 모두에서 게시 된 서비스를 항상 사용할 수 있도록 모니터링 해야 합니다.
 
-로컬에서 또는 SIEM (보안 정보 및 이벤트 관리) 솔루션을 통해 원격으로 이벤트를 기록 하는 여러 가지 옵션이 있습니다 .이를 통해 원격 분석의 외부 저장 및 처리를 사용할 수 있습니다. Azure AD 및 SHA 관련 활동을 모니터링 하는 매우 효율적인 솔루션은 다음과 같은 기능을 함께 사용 하 여 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 및 [azure 센티널](https://docs.microsoft.com/azure/sentinel/overview)을 사용 하는 것입니다.
+로컬에서 또는 SIEM (보안 정보 및 이벤트 관리) 솔루션을 통해 원격으로 이벤트를 기록 하는 여러 가지 옵션이 있습니다 .이를 통해 원격 분석의 외부 저장 및 처리를 사용할 수 있습니다. Azure AD 및 SHA 관련 활동을 모니터링 하는 매우 효율적인 솔루션은 다음과 같은 기능을 함께 사용 하 여 [Azure Monitor](../../azure-monitor/overview.md) 및 [azure 센티널](../../sentinel/overview.md)을 사용 하는 것입니다.
 
 - 조직의 상세 개요, 여러 클라우드 및 대규모 IP 인프라를 비롯 한 온-프레미스 위치에서 잠재적으로
 
@@ -126,9 +127,9 @@ F i s h i p s를 Azure AD와 통합 하는 데에는 다음과 같은 필수 구
 
 - 다음 옵션 중 하나를 통해 Azure AD 라이선스:
 
-   - Azure AD [무료 구독은](https://docs.microsoft.com/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) 암호 없는 인증을 사용 하 여 SHA를 구현 하기 위한 최소 핵심 요구 사항을 제공 합니다.
+   - Azure AD [무료 구독은](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) 암호 없는 인증을 사용 하 여 SHA를 구현 하기 위한 최소 핵심 요구 사항을 제공 합니다.
 
-   - [프리미엄 구독은](https://azure.microsoft.com/pricing/details/active-directory/) [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview), [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)및 [id 보호](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) 를 포함 하 여 앞에 설명 된 추가 값 추가 값을 제공 합니다.
+   - [프리미엄 구독은](https://azure.microsoft.com/pricing/details/active-directory/) [조건부 액세스](../conditional-access/overview.md), [MFA](../authentication/concept-mfa-howitworks.md)및 [id 보호](../identity-protection/overview-identity-protection.md) 를 포함 하 여 앞에 설명 된 추가 값 추가 값을 제공 합니다.
 
 SHA를 구현 하기 위해 이전 경험이 나 F5 큰 IP 지식이 필요 하지는 않지만 F5 큰 IP 용어를 사용 하 여 익숙해질 하는 것이 좋습니다. F 5 bigip 리치 [기술](https://www.f5.com/services/resources/glossary) 자료도 큰 IP 기술 자료를 빌드하기 위한 좋은 장소입니다.
 
@@ -138,9 +139,9 @@ SHA를 구현 하기 위해 이전 경험이 나 F5 큰 IP 지식이 필요 하�
 
 - [Azure 배포 연습에서 F5 빅 IP](f5-bigip-deployment-guide.md)
 
-- [F5 빅 IP APM 및 Azure AD SSO에서 Kerberos 응용 프로그램](https://docs.microsoft.com/azure/active-directory/saas-apps/kerbf5-tutorial#configure-f5-single-sign-on-for-kerberos-application)
+- [F5 빅 IP APM 및 Azure AD SSO에서 Kerberos 응용 프로그램](../saas-apps/kerbf5-tutorial.md#configure-f5-single-sign-on-for-kerberos-application)
 
-- [F5 빅 IP APM 및 Azure AD SSO에서 헤더 기반 응용 프로그램](https://docs.microsoft.com/azure/active-directory/saas-apps/headerf5-tutorial#configure-f5-single-sign-on-for-header-based-application)
+- [F5 빅 IP APM 및 Azure AD SSO에서 헤더 기반 응용 프로그램](../saas-apps/headerf5-tutorial.md#configure-f5-single-sign-on-for-header-based-application)
 
 - [Azure AD SHA를 사용 하 여 F5 빅 IP SSL-VPN 보안](f5-aad-password-less-vpn.md)
 

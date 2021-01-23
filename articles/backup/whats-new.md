@@ -3,12 +3,12 @@ title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 935c2a806ed3b08f19e680bf1522d98a9ad67666
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569422"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730292"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -37,7 +37,7 @@ Azure Backup은 Azure에서 데이터의 보호를 향상 시키는 새로운 �
 
 ## <a name="azure-disk-backup-in-preview"></a>Azure 디스크 백업 (미리 보기)
 
-Azure Disk Backup은 스냅숏을 정기적으로 만들고 백업 정책을 사용 하 여 구성 된 기간 동안 보존 하 여 [azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) 에 대 한 스냅숏 수명 주기 관리를 제공 하는 턴키 솔루션을 제공 합니다. 인프라 비용이 0이 고 사용자 지정 스크립팅 또는 관리 오버 헤드가 없어도 디스크 스냅숏을 관리할 수 있습니다. 이는 매일 여러 백업에 대 한 지원을 포함 하는 [증분 스냅숏을](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) 사용 하 여 관리 디스크의 지정 시간 백업을 수행 하는 크래시 일치 백업 솔루션입니다. 에이전트 없는 솔루션 이기도 하며 프로덕션 응용 프로그램 성능에 영향을 주지 않습니다. 현재 실행 중인 Azure 가상 컴퓨터에 연결 되어 있는지 여부에 관계 없이 OS 및 데이터 디스크 (공유 디스크 포함)의 백업 및 복원을 지원 합니다.
+Azure Disk Backup은 스냅숏을 정기적으로 만들고 백업 정책을 사용 하 여 구성 된 기간 동안 보존 하 여 [azure Managed Disks](../virtual-machines/managed-disks-overview.md) 에 대 한 스냅숏 수명 주기 관리를 제공 하는 턴키 솔루션을 제공 합니다. 인프라 비용이 0이 고 사용자 지정 스크립팅 또는 관리 오버 헤드가 없어도 디스크 스냅숏을 관리할 수 있습니다. 이는 매일 여러 백업에 대 한 지원을 포함 하는 [증분 스냅숏을](../virtual-machines/disks-incremental-snapshots.md) 사용 하 여 관리 디스크의 지정 시간 백업을 수행 하는 크래시 일치 백업 솔루션입니다. 에이전트 없는 솔루션 이기도 하며 프로덕션 응용 프로그램 성능에 영향을 주지 않습니다. 현재 실행 중인 Azure 가상 컴퓨터에 연결 되어 있는지 여부에 관계 없이 OS 및 데이터 디스크 (공유 디스크 포함)의 백업 및 복원을 지원 합니다.
 
 자세한 내용은 [Azure Disk Backup (미리 보기)](disk-backup-overview.md)을 참조 하세요.
 

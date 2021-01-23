@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: ad3a2ae9fd9a99398b384ef4e4a44820faccf8c7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1155b4274b97f540fd97bf39e51fd41c37bc9627
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675888"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730624"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
 
@@ -21,7 +21,7 @@ ms.locfileid: "98675888"
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>VM에 새 디스크 연결
 
-VM에 새 빈 데이터 디스크를 추가하려는 경우 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) 명령에 `--new` 매개 변수를 사용합니다. VM이 가용성 영역에 있는 경우 VM과 동일한 영역에 디스크가 자동으로 생성됩니다. 자세한 내용은 [가용성 영역 개요](../../availability-zones/az-overview.md)를 참조하세요. 다음 예제에서는 크기가 50GB이고 이름이 *myDataDisk* 인 디스크를 만듭니다.
+VM에 새 빈 데이터 디스크를 추가하려는 경우 [az vm disk attach](/cli/azure/vm/disk) 명령에 `--new` 매개 변수를 사용합니다. VM이 가용성 영역에 있는 경우 VM과 동일한 영역에 디스크가 자동으로 생성됩니다. 자세한 내용은 [가용성 영역 개요](../../availability-zones/az-overview.md)를 참조하세요. 다음 예제에서는 크기가 50GB이고 이름이 *myDataDisk* 인 디스크를 만듭니다.
 
 ```azurecli
 az vm disk attach \
@@ -34,7 +34,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>기존 디스크 연결
 
-기존 디스크를 연결하려면 디스크 ID를 찾아 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) 명령에 ID를 전달합니다. 다음 예제에서는 *myResourceGroup* 에서 이름이 *myDataDisk* 인 디스크를 쿼리한 다음 이름이 *myVM* 인 VM에 연결합니다.
+기존 디스크를 연결하려면 디스크 ID를 찾아 [az vm disk attach](/cli/azure/vm/disk) 명령에 ID를 전달합니다. 다음 예제에서는 *myResourceGroup* 에서 이름이 *myDataDisk* 인 디스크를 쿼리한 다음 이름이 *myVM* 인 VM에 연결합니다.
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
