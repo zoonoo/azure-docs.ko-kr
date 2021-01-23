@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 4d2a55355318a1bf916017fa77026a87a95b7f57
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809720"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733843"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트 사용
 
@@ -149,7 +149,7 @@ Azure 리소스 템플릿 (ARM 템플릿)에서 배포 스크립트를 사용 �
 
   인수에 이스케이프 된 문자가 포함 된 경우 [JsonEscaper](https://www.jsonescaper.com/) 를 사용 하 여 문자를 두 번 이스케이프 합니다. 원래 이스케이프 된 문자열을 도구에 붙여넣은 다음, **이스케이프** 를 선택 합니다.  이 도구는 이중 이스케이프 된 문자열을 출력 합니다. 예를 들어 이전 샘플 템플릿에서 인수는 `-name \"John Dole\"` 입니다. 이스케이프 된 문자열은 `-name \\\"John Dole\\\"` 입니다.
 
-  Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 `\"` 를로 바꿉니다 `\\\"` . 예를 들면 다음과 같습니다.
+  Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 `\"` 를로 바꿉니다 `\\\"` . 예:
 
   ```json
   replace(string(parameters('tables')), '\"', '\\\"')
@@ -542,7 +542,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 > [!NOTE]
 > 스크립트 서비스에 의해 생성되는 스토리지 계정 및 컨테이너 인스턴스는 다른 용도로 사용하지 않는 것이 좋습니다. 스크립트 수명 주기에 따라 두 리소스가 제거될 수 있습니다.
 
-컨테이너 인스턴스 및 저장소 계정은에 따라 삭제 됩니다 `cleanupPreference` . 그러나 스크립트가 실패 하 고 `cleanupPreference` **항상** 로 설정 되어 있지 않으면 배포 프로세스에서 자동으로 1 시간 동안 컨테이너가 실행 되도록 유지 합니다. 이 시간을 사용 하 여 스크립트 문제를 해결할 수 있습니다. 성공적으로 배포 된 후 컨테이너를 계속 실행 하려면 스크립트에 절전 단계를 추가 합니다. 예를 들어 스크립트 끝에 [시작-절전 모드](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) 를 추가 합니다. 절전 단계를 추가 하지 않으면 컨테이너는 터미널 상태로 설정 되며 아직 삭제 되지 않은 경우에도 액세스할 수 없습니다.
+컨테이너 인스턴스 및 저장소 계정은에 따라 삭제 됩니다 `cleanupPreference` . 그러나 스크립트가 실패 하 고 `cleanupPreference` **항상** 로 설정 되어 있지 않으면 배포 프로세스에서 자동으로 1 시간 동안 컨테이너가 실행 되도록 유지 합니다. 이 시간을 사용 하 여 스크립트 문제를 해결할 수 있습니다. 성공적으로 배포 된 후 컨테이너를 계속 실행 하려면 스크립트에 절전 단계를 추가 합니다. 예를 들어 스크립트 끝에 [시작-절전 모드](/powershell/module/microsoft.powershell.utility/start-sleep) 를 추가 합니다. 절전 단계를 추가 하지 않으면 컨테이너는 터미널 상태로 설정 되며 아직 삭제 되지 않은 경우에도 액세스할 수 없습니다.
 
 ## <a name="run-script-more-than-once"></a>스크립트를 두 번 이상 실행
 

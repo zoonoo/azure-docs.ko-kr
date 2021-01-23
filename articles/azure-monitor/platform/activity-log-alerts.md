@@ -4,12 +4,12 @@ description: 활동 로그에서 특정 이벤트가 발생하면 SMS, 웹후크
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 8a30c0a0527f98cc00f7888299c09f1f26c3dd09
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708435"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735217"
 ---
 # <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고
 
@@ -19,7 +19,7 @@ ms.locfileid: "97708435"
 
 > [!NOTE]
 > * 활동 로그의 경고 범주에 있는 이벤트에 대 한 경고를 만들 수 **없습니다** .
-> * 보안 범주를 포함 하는 활동 로그 경고를 [새 업그레이드 된 흐름](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) 에서 [ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem) 로 정의할 수도 있습니다.
+> * 보안 범주를 포함 하는 활동 로그 경고를 [새 업그레이드 된 흐름](../../security-center/continuous-export.md?tabs=azure-portal) 에서 [ServiceNow](../../security-center/export-to-siem.md) 로 정의할 수도 있습니다.
 
 일반적으로 다음과 같은 경우에 알림을 수신하도록 활동 로그 경고를 만들 수 있습니다.
 

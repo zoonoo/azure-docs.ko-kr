@@ -11,9 +11,10 @@
     - name: 무제한 앱 등록 만들기
       href: quickstart-app-registration-limits.md
 - name: 자습서
+  expanded: true
   items:
-    - name: 동적 그룹 만들기
-      href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: 관리자 역할에 사용자 할당
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: 개념
   expanded: true
   items:
@@ -28,18 +29,6 @@
 - name: 방법 가이드
   expanded: true
   items:
-    - name: 사용자 및 역할
-      items:
-        - name: 관리자 역할에 사용자 할당
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: 사용자의 액세스 권한 취소
-          href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: 게스트 사용자에게 역할 할당
-          href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: 게스트 사용자 액세스 제한
-          href: ../enterprise-users/users-restrict-guest-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: 동적 그룹 및 게스트
-          href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: 역할 및 권한
       expanded: true
       items:
@@ -119,7 +108,7 @@
     - name: Microsoft 365 역할 설명서
       href: m365-workload-docs.md
     - name: 그래프 API
-      href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
+      href: /graph/api/resources/directoryrole?view=graph-rest-1.0
     - name: Azure AD CLI
       href: /cli/azure/ad
     - name: Azure AD PowerShell for Graph

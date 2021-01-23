@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 6750f010e3992a2b76cc688449ad44efa7ec76d0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 68bab754142538fc6067cf2593ae6244a03a48d1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683276"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734817"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-merge"></a>병합을 위한 ANSI 조인 대체 
 
-Azure Synapse Analytics에서 대상으로 일치 하지 않는 [병합](/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (미리 보기)을 사용 하려면 대상이 해시 분산 테이블 이어야 합니다.  사용자는 [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) 또는 [DELETE](/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) 와 함께 ANSI JOIN을 사용 하 여 다른 테이블과의 조인 결과에 따라 대상 테이블 데이터를 수정할 수 있습니다.  다음은 예제입니다.
+Azure Synapse Analytics에서 대상으로 일치 하지 않는 [병합](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true) (미리 보기)을 사용 하려면 대상이 해시 분산 테이블 이어야 합니다.  사용자는 [UPDATE](/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest&preserve-view=true) 또는 [DELETE](/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest&preserve-view=true) 와 함께 ANSI JOIN을 사용 하 여 다른 테이블과의 조인 결과에 따라 대상 테이블 데이터를 수정할 수 있습니다.  다음은 예제입니다.
 
 ```sql
 CREATE TABLE dbo.Table1   

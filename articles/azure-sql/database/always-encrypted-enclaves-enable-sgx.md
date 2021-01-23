@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 4c77103dbb043ef9d6af9a4078b3e574ab5f953f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: ded1406c47bb3f00c366da7a5b28319f3712f8a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253462"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733759"
 ---
 # <a name="enable-intel-sgx-for-your-azure-sql-database"></a>Azure SQL Database에 대해 Intel SGX 사용 
 
@@ -25,7 +25,7 @@ ms.locfileid: "98253462"
 > [!NOTE]
 > Always Encrypted secure enclaves for Azure SQL Database는 현재 **공개 미리 보기로** 제공 됩니다.
 
-Azure SQL Database의 [secure enclaves Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) 는 intel [SGX (Software Guard Extensions)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) enclaves를 사용 합니다. Intel SGX를 사용 하려면 데이터베이스에서 [Vcore 모델](service-tiers-vcore.md) 및 [DC 시리즈](service-tiers-vcore.md#dc-series) 하드웨어 생성을 사용 해야 합니다.
+Azure SQL Database의 [secure enclaves Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-enclaves) 는 intel [SGX (Software Guard Extensions)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) enclaves를 사용 합니다. Intel SGX를 사용 하려면 데이터베이스에서 [Vcore 모델](service-tiers-vcore.md) 및 [DC 시리즈](service-tiers-vcore.md#dc-series) 하드웨어 생성을 사용 해야 합니다.
 
 Intel SGX enclaves를 사용 하도록 DC 시리즈 하드웨어 생성을 구성 하는 것은 Azure SQL Database 관리자의 책임입니다. [SGX enclaves 및 증명을 구성할 때의 역할 및 책임](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation)을 참조 하세요.
 
@@ -43,4 +43,4 @@ Intel SGX enclaves를 사용 하도록 DC 시리즈 하드웨어 생성을 구�
 
 ## <a name="see-also"></a>참고 항목
 
-- [자습서: Azure SQL Database에서 secure enclaves를 사용 하 여 Always Encrypted 시작](always-encrypted-enclaves-getting-started.md)
+- [자습서: Azure SQL Database의 보안 Enclave를 사용한 Always Encrypted 시작](always-encrypted-enclaves-getting-started.md)

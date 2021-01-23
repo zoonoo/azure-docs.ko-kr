@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6f25ff02dee16812898d77d0e801f927b354dc78
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 11e21f376ea3b5cf580d54780509529b4536718b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918210"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734177"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure 데이터 탐색기 Azure Monitor (미리 보기)
 
@@ -49,7 +49,7 @@ Azure Monitor에서 구독의 여러 클러스터에서 쿼리, 수집 및 내�
 
 카운터 타일은 드롭다운 목록 아래에서 선택한 구독의 총 Azure 데이터 탐색기 클러스터 수를 롤업 하 고 선택 된 항목 수를 반영 합니다. 열에 대 한 조건부 색 codings 있습니다 (연결 유지, CPU, 수집 사용률 및 캐시 사용률). 주황색으로 구분 된 셀에는 클러스터에 사용할 수 없는 값이 있습니다. 
 
-각 메트릭이 나타내는 사항을 더 잘 이해 하려면 [Azure 데이터 탐색기 메트릭에](https://docs.microsoft.com/azure/data-explorer/using-metrics#cluster-metrics)대 한 설명서를 참조 하는 것이 좋습니다.
+각 메트릭이 나타내는 사항을 더 잘 이해 하려면 [Azure 데이터 탐색기 메트릭에](/azure/data-explorer/using-metrics#cluster-metrics)대 한 설명서를 참조 하는 것이 좋습니다.
 
 ### <a name="query-performance-tab"></a>쿼리 성능 탭
 
@@ -81,7 +81,7 @@ Azure 데이터 탐색기 클러스터에서 직접 Azure 데이터 탐색기 �
 
 이러한 보기에는 Azure Monitor insights 보기에서 Azure 데이터 탐색기 클러스터의 리소스 이름을 선택 하 여 액세스할 수도 있습니다.
 
-Azure 데이터 탐색기 Azure Monitor는 로그와 메트릭을 결합 하 여 글로벌 모니터링 솔루션을 제공 합니다. 로그 기반 시각화를 포함 하 여 사용자는 [Azure 데이터 탐색기 클러스터의 진단 로깅을 사용 하도록 설정 하 고 Log Analytics 작업 영역으로 보내야](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs)합니다. 사용 해야 하는 진단 로그는 **Command**, **Query**, **tabledetails** 및 **TableUsageStatistics** 입니다.
+Azure 데이터 탐색기 Azure Monitor는 로그와 메트릭을 결합 하 여 글로벌 모니터링 솔루션을 제공 합니다. 로그 기반 시각화를 포함 하 여 사용자는 [Azure 데이터 탐색기 클러스터의 진단 로깅을 사용 하도록 설정 하 고 Log Analytics 작업 영역으로 보내야](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs)합니다. 사용 해야 하는 진단 로그는 **Command**, **Query**, **tabledetails** 및 **TableUsageStatistics** 입니다.
 
 !["모니터링에 대 한 로그 사용" 텍스트를 표시 하는 파란색 단추의 스크린샷](./media/data-explorer/enable-logs.png)
 
@@ -90,7 +90,7 @@ Azure 데이터 탐색기 Azure Monitor는 로그와 메트릭을 결합 하 여
 
 - 메트릭 타일은 클러스터의 가용성 및 전반적인 상태를 강조 표시 하 여 상태를 빠르게 평가 합니다.
 
-- 활성 [Advisor 권장 사항](https://docs.microsoft.com/azure/data-explorer/azure-advisor) 및 [리소스 상태](https://docs.microsoft.com/azure/data-explorer/monitor-with-resource-health) 에 대 한 요약입니다.
+- 활성 [Advisor 권장 사항](/azure/data-explorer/azure-advisor) 및 [리소스 상태](/azure/data-explorer/monitor-with-resource-health) 에 대 한 요약입니다.
 
 - 상위 CPU 및 메모리 소비자와 시간이 지남에 따라 고유한 사용자 수를 보여 주는 차트
 
@@ -114,7 +114,7 @@ Azure 데이터 탐색기 Azure Monitor는 로그와 메트릭을 결합 하 여
 
 **테이블** 탭은 클러스터에 있는 테이블의 최신 및 기록 속성을 표시 합니다. 가장 많은 공간을 사용 하는 테이블을 확인 하 고 테이블 크기, 핫 데이터 및 시간별 행 수를 기준으로 증가 기록을 추적할 수 있습니다.
 
-사용자는 **캐시** 탭을 사용 하 여 실제 쿼리의 검색 백 패턴을 분석 하 고 각 테이블에 대해 구성 된 캐시 정책과 비교할 수 있습니다. 쿼리가 아닌 대부분의 쿼리 및 테이블에서 사용 하는 테이블을 식별 하 고 그에 따라 캐시 정책을 적용할 수 있습니다. Azure Advisor의 특정 테이블에 대 한 특정 캐시 정책 권장 사항을 확인할 수 있습니다. 현재는 최근 쿼리를 기준으로 최근 30 일 동안의 조회를 확인 하 고 최소 95%의 쿼리는 최적화 되지 않은 캐시 정책을 기반으로 하 여 [기본 Azure Advisor 대시보드에서](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)만 캐시 권장 사항을 사용할 수 있습니다. Azure Advisor의 캐시 감소 권장 사항은 클러스터가 낮은 CPU와 낮은 수집 사용률을 포함 하는 클러스터에 사용할 수 있습니다. 즉, 데이터 용량이 높아 클러스터를 확장 하거나 축소할 수 없습니다.
+사용자는 **캐시** 탭을 사용 하 여 실제 쿼리의 검색 백 패턴을 분석 하 고 각 테이블에 대해 구성 된 캐시 정책과 비교할 수 있습니다. 쿼리가 아닌 대부분의 쿼리 및 테이블에서 사용 하는 테이블을 식별 하 고 그에 따라 캐시 정책을 적용할 수 있습니다. Azure Advisor의 특정 테이블에 대 한 특정 캐시 정책 권장 사항을 확인할 수 있습니다. 현재는 최근 쿼리를 기준으로 최근 30 일 동안의 조회를 확인 하 고 최소 95%의 쿼리는 최적화 되지 않은 캐시 정책을 기반으로 하 여 [기본 Azure Advisor 대시보드에서](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)만 캐시 권장 사항을 사용할 수 있습니다. Azure Advisor의 캐시 감소 권장 사항은 클러스터가 낮은 CPU와 낮은 수집 사용률을 포함 하는 클러스터에 사용할 수 있습니다. 즉, 데이터 용량이 높아 클러스터를 확장 하거나 축소할 수 없습니다.
 
 [![캐시 세부 정보의 스크린샷](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
@@ -153,7 +153,7 @@ Azure 데이터 탐색기 클러스터가 포함 된 구독만 표시 됩니다.
 
 ### <a name="why-do-i-not-see-any-data-for-my-azure-data-explorer-cluster-under-the-usage-tables-or-cache-sections"></a>Azure 데이터 탐색기 클러스터에 대 한 데이터가 사용, 테이블 또는 캐시 섹션에 표시 되지 않는 이유는 무엇 인가요?
 
-로그 기반 데이터를 보려면 모니터링 하려는 각 Azure 데이터 탐색기 클러스터에 대해 [진단 로그를 사용 하도록 설정](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) 해야 합니다. 각 클러스터에 대 한 진단 설정에서이 작업을 수행할 수 있습니다. Log Analytics 작업 영역으로 데이터를 전송 해야 합니다. 사용 해야 하는 진단 로그는 Command, Query, TableDetails 및 TableUsageStatistics입니다.
+로그 기반 데이터를 보려면 모니터링 하려는 각 Azure 데이터 탐색기 클러스터에 대해 [진단 로그를 사용 하도록 설정](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) 해야 합니다. 각 클러스터에 대 한 진단 설정에서이 작업을 수행할 수 있습니다. Log Analytics 작업 영역으로 데이터를 전송 해야 합니다. 사용 해야 하는 진단 로그는 Command, Query, TableDetails 및 TableUsageStatistics입니다.
 
 ### <a name="i-have-already-enabled-logs-for-my-azure-data-explorer-cluster-why-am-i-still-unable-to-see-my-data-under-commands-and-queries"></a>Azure 데이터 탐색기 클러스터에 대 한 로그를 이미 사용 하도록 설정 했습니다. 여전히 명령 및 쿼리 아래의 데이터를 볼 수 없는 이유는 무엇입니까?
 

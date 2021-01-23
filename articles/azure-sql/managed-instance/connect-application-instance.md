@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791259"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732614"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>애플리케이션을 Azure SQL Managed Instance에 연결
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ Sql Managed Instance에서 다른 가상 네트워크에 있는 경우 응용 �
 
 온-프레미스를 Azure 가상 네트워크에 연결 하는 방법에는 두 가지 옵션이 있습니다.
 
-- 사이트 간 VPN 연결 ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
+- 사이트 간 VPN 연결 ([Azure Portal](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [Azure express](../../expressroute/expressroute-introduction.md) 경로 연결  
 
 온-프레미스에서 Azure로 연결을 성공적으로 설정 하 고 SQL Managed Instance에 연결할 수 없는 경우 방화벽에 SQL 포트 1433에 대 한 열려 있는 아웃 바운드 연결이 있는지 확인 하 고 리디렉션 포트의 11000-11999 범위를 확인 합니다.

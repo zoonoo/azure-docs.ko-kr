@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 01/15/2021
-ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/22/2021
+ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251474"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735244"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>vCore 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,7 +50,7 @@ ms.locfileid: "98251474"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|320|640|1280|1920|2560|
-|최대 로그 전송률 (MBps)|4.5|9|18|27|36|
+|최대 로그 전송률 (MBps)|4.5.|9|18|27|36|
 |최대 동시 작업자(요청)|75|150|300|450|600|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|1|
@@ -282,7 +282,7 @@ ms.locfileid: "98251474"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|320|640|960|1280|1600|1920|
-|최대 로그 전송률 (MBps)|4.5|9|13.5|18|22.5|27|
+|최대 로그 전송률 (MBps)|4.5.|9|13.5|18|22.5|27|
 |최대 동시 작업자(요청)|200|400|600|800|1000|1200|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|1|1|
@@ -411,7 +411,7 @@ ms.locfileid: "98251474"
 |TempDB 최대 데이터 크기 (GB)|83.25|92.5|111|148|166.5|333|
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|최대 데이터 IOPS *|5760|6400|7680|10240|11520|23040|
+|최대 데이터 IOPS *|5760|6400|7680|10240|11520|12800|
 |최대 로그 전송률 (MBps)|36|36|36|36|36|36|
 |최대 동시 작업자(요청)|900|1000|1200|1600|1800|3600|
 |최대 동시 로그인|1800|2000|2400|3200|3600|7200|

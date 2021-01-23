@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ad663b345d3d150b55e0e018afd1430775d77162
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452918"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733472"
 ---
 # <a name="features"></a>기능
 
@@ -34,7 +34,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | update                         | 예       | 예       | 예       |                                                     |
 | 낙관적 잠금으로 업데이트 | 예       | 예       | 예       |                                                     |
 | update (조건부)           | 예       | 예       | 예       |                                                     |
-| 패치나                          | 아니요        | 아니요        | 아니요        |                                                     |
+| 패치                          | 아니요        | 아니요        | 아니요        |                                                     |
 | delete                         | 예       | 예       | 예       |                                                     |
 | delete (조건부)           | 아니요        | 아니요        | 아니요        |                                                     |
 | history                        | 예       | 예       | 예       |                                                     |
@@ -55,7 +55,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 | 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 설명 |
 |-----------------------|-----------|-----------|-----------|---------|
-| 숫자                | 예       | 예       | 예       |         |
+| Number                | 예       | 예       | 예       |         |
 | Date/DateTime         | 예       | 예       | 예       |         |
 | String                | 예       | 예       | 예       |         |
 | 토큰                 | 예       | 예       | 예       |         |
@@ -86,7 +86,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | `_id`                   | 예       | 예       | 예       |         |
 | `_lastUpdated`          | 예       | 예       | 예       |         |
 | `_tag`                  | 예       | 예       | 예       |         |
-| `_profile`              | 예       | 예       | 예       |         |
+| `_profile`              | 부분   | Partial   | Partial   | STU3 에서만 지원 되며, 4 시에는 지원 되지 않습니다. |
 | `_security`             | 예       | 예       | 예       |         |
 | `_text`                 | 아니요        | 아니요        | 아니요        |         |
 | `_content`              | 아니요        | 아니요        | 아니요        |         |
@@ -137,7 +137,7 @@ FHIR 서버는 액세스 제어를 위해 [Azure Active Directory](https://azure
 
 * [**Rus (요청 단위)**](../cosmos-db/concepts-limits.md) -Azure API for FHIR에 대 한 포털에서 최대 1만 RUs를 구성할 수 있습니다. 최소 400 RUs 또는 10 RUs/GB 중 더 큰 값이 필요 합니다. 1만 명 이상의 RUs가 필요한 경우 지원 티켓에 추가 하 여이를 늘릴 수 있습니다. 사용 가능한 최대값은 100만입니다.
 
-* **동시 연결** 및 **인스턴스** -dafault에서 클러스터의 두 인스턴스에 대해 5 개의 동시 연결이 있습니다 (총 10 개의 동시 요청). 더 많은 동시 요청이 필요 하다 고 생각 되는 경우 요구 사항에 대 한 세부 정보가 포함 된 지원 티켓을 엽니다.
+* **동시 연결** 및 **인스턴스** -기본적으로 클러스터의 두 인스턴스에 대해 5 개의 동시 연결이 있습니다 (총 10 개의 동시 요청). 더 많은 동시 요청이 필요 하다 고 생각 되는 경우 요구 사항에 대 한 세부 정보가 포함 된 지원 티켓을 엽니다.
 
 * **번들 크기** -각 번들은 500 항목으로 제한 됩니다.
 

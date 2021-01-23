@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8a4c1b2ac53679153c8d9485443a231b817df77a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790630"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734582"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 표준 시간대
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ UTC (협정 세계시)는 클라우드 솔루션의 데이터 계층에 권장 �
 
 지원 되는 표준 시간대 집합은 관리 되는 인스턴스의 기본 운영 체제에서 상속 됩니다. 새 표준 시간대 정의를 가져오고 기존 항목에 대 한 변경 내용을 반영 하도록 정기적으로 업데이트 됩니다.
 
-[일광 절약 시간/표준 시간대 변경 정책은](https://aka.ms/time) 2010 전달의 과거 정확도를 보장 합니다.
+[일광 절약 시간/표준 시간대 변경 정책은](/troubleshoot/windows-client/system-management-components/daylight-saving-time-help-support) 2010 전달의 과거 정확도를 보장 합니다.
 
 지원 되는 표준 시간대의 이름이 있는 목록은 [sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) 시스템 뷰를 통해 노출 됩니다.
 

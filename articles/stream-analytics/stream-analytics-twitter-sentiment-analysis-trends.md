@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 3b321e318621c5687a2e3e5f0649985210a2d16c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 6a461ad906f7611c8a13e2ee495f4d2f62fedd53
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019876"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734844"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
@@ -40,6 +40,10 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 * Twitter 피드를 읽어오는 TwitterClientCore 애플리케이션입니다. 이 애플리케이션을 가져오려면 [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore)를 다운로드합니다.
 
 * [.NET Core CLI](/dotnet/core/tools/?tabs=netcore2x) 버전 2.1.0을 설치합니다.
+
+구현할 솔루션 아키텍처는 다음과 같습니다.
+
+   ![솔루션을 빌드하는 데 사용 되는 다양 한 서비스 및 응용 프로그램을 보여 주는 다이어그램입니다.](./media/stream-analytics-twitter-sentiment-analysis-trends/solution-diagram.png "솔루션 다이어그램")
 
 ## <a name="create-an-event-hub-for-streaming-input"></a>스트리밍 입력을 위한 이벤트 허브 만들기
 

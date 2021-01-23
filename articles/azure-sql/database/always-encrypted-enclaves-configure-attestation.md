@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: e8cb423d4d700c4b6b6caa30a02eac3e7ef10cb6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253477"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733824"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Azure SQL 논리 서버에 대 한 Azure 증명 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "98253477"
 
 [Microsoft Azure 증명](../../attestation/overview.md) 은 intel SGX (Software Guard Extensions) enclaves를 포함 하 여 TEEs (증명 Trusted Execution environment)를 위한 솔루션입니다. 
 
-Azure SQL Database에서 [보안 enclaves의 Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) 에 사용 되는 증명 Intel SGX enclaves에 대해 Azure 증명을 사용 하려면 다음을 수행 해야 합니다.
+Azure SQL Database에서 [보안 enclaves의 Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-enclaves) 에 사용 되는 증명 Intel SGX enclaves에 대해 Azure 증명을 사용 하려면 다음을 수행 해야 합니다.
 
 1. [증명 공급자](../../attestation/basic-concepts.md#attestation-provider) 를 만들고 권장 증명 정책으로 구성 합니다.
 
@@ -114,7 +114,7 @@ Write-Host "Your attestation URL is: " $attestationUrl
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Azure Portal를 사용 하 여 사용 권한 할당
 
-증명 공급자의 증명 판독기 역할에 Azure SQL server의 id를 할당 하려면 [Azure Portal을 사용 하 여 azure 역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)의 일반 지침을 따릅니다. **역할 할당 추가** 창에 있는 경우:
+증명 공급자의 증명 판독기 역할에 Azure SQL server의 id를 할당 하려면 [Azure Portal을 사용 하 여 azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)의 일반 지침을 따릅니다. **역할 할당 추가** 창에 있는 경우:
 
 1. **역할** 드롭다운에서 **증명 판독기** 역할을 선택 합니다.
 1. **Select** 필드에서 검색할 Azure SQL server의 이름을 입력 합니다.
@@ -143,12 +143,12 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-자세한 내용은 [Azure PowerShell를 사용 하 여 Azure 역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#add-a-role-assignment)를 참조 하세요.
+자세한 내용은 [Azure PowerShell를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [보안 Enclave를 사용한 Always Encrypted 키 관리](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
+- [보안 Enclave를 사용한 Always Encrypted 키 관리](/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
 
 ## <a name="see-also"></a>참고 항목
 
-- [자습서: Azure SQL Database에서 secure enclaves를 사용 하 여 Always Encrypted 시작](always-encrypted-enclaves-getting-started.md)
+- [자습서: Azure SQL Database의 보안 Enclave를 사용한 Always Encrypted 시작](always-encrypted-enclaves-getting-started.md)

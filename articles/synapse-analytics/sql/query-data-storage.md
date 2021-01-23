@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9500d682a99e6345289a83b4b3b2fc29ffe18457
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676887"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735384"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일 쿼리
 
@@ -184,7 +184,7 @@ Struct와 같은 중첩된 열의 중첩된 요소에 액세스하려면 "점 �
 - 함수는 지정된 요소와 지정된 경로에서 중첩 형식 그룹에 없는 모든 Parquet 형식에 대해 int, decimal 및 varchar와 같은 스칼라 값을 반환합니다.
 - 경로가 중첩 형식의 요소를 가리키는 경우 함수에서 지정된 경로의 최상위 요소에서 시작하는 JSON 조각을 반환합니다. JSON 조각은 varchar(8000) 형식입니다.
 - 지정된 column_name에서 속성을 찾을 수 없는 경우 함수에서 오류를 반환합니다.
-- [경로 모드](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE)에 따라 지정된 column_path에서 속성을 찾을 수 없는 경우 함수에서 strict 모드인 경우 오류를 반환하거나 lax 모드인 경우 null을 반환합니다.
+- [경로 모드](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE)에 따라 지정된 column_path에서 속성을 찾을 수 없는 경우 함수에서 strict 모드인 경우 오류를 반환하거나 lax 모드인 경우 null을 반환합니다.
 
 쿼리 샘플은 [Parquet 중첩 형식 쿼리](query-parquet-nested-types.md#read-properties-from-nested-object-columns) 문서의 '중첩된 열의 요소에 액세스' 섹션을 검토합니다.
 

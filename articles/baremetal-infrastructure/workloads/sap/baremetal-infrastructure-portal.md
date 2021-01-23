@@ -3,12 +3,12 @@ title: Azure의 BareMetal 인스턴스 단위
 description: Azure Portal를 통해 BareMetal 인스턴스 단위를 식별 하 고 상호 작용 하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 1/4/2021
-ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861029"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733266"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Azure Portal을 통해 BareMetal 인스턴스 관리
  
@@ -33,7 +33,7 @@ az provider register --namespace Microsoft.BareMetalInfrastructure
  
 자세한 내용은 [Azure 리소스 공급자 및 형식](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)문서를 참조 하세요.
  
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
  
 Azure Portal를 통해 BareMetalInfrastructure 리소스 공급자를 등록할 수 있습니다.
  
@@ -50,7 +50,7 @@ Azure Portal에서 구독을 나열 하 고 BareMetal 인스턴스 단위를 배
 1. **리소스 공급자** 를 선택 하 고 검색에 **BareMetalInfrastructure** 를 입력 합니다. 이미지에 표시 된 대로 리소스 공급자를 **등록** 해야 합니다.
  
 >[!NOTE]
->리소스 공급자가 등록 되지 않은 경우 **등록** 을 선택 합니다.
+>리소스 공급자가 등록되지 않은 경우 **등록** 을 선택합니다.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/register-resource-provider-azure-portal.png" alt-text="등록 된 BareMetal 인스턴스 단위를 보여 주는 스크린샷":::
  
@@ -97,7 +97,7 @@ BareMetal 인스턴스를 배포 하는 동안 배포 요청에서 사용한 Azu
 >[!NOTE]
 >Rev 4.2은 기존 수정 버전 4 아키텍처를 사용 하는 최신 리브랜딩 BareMetal 인프라입니다. Rev 4는 Azure VM (가상 컴퓨터) 호스트에 더 근접 하 게 됩니다. Rev 4 스탬프 또는 행에 배포 된 Azure Vm과 BareMetal instance 단위 간의 네트워크 대기 시간이 크게 향상 되었습니다. Azure Portal를 통해 BareMetal 인스턴스에 액세스 하 고 관리할 수 있습니다. 자세한 내용은 [BareMetal Infrastructure In Azure](baremetal-overview-architecture.md)항목을 참조 하세요.
  
-또한 오른쪽에는 배포 된 각 BareMetal 인스턴스 단위에 대해 자동으로 생성 되는 [Azure 근접 배치 그룹](../../../virtual-machines/linux/co-location.md) 이름이 있습니다. 응용 프로그램 계층을 호스트 하는 Azure Vm을 배포할 때 근접 배치 그룹을 참조 합니다. BareMetal 인스턴스 단위와 연결 된 근접 배치 그룹을 사용 하는 경우 Azure Vm이 BareMetal 인스턴스 단위에 가깝게 배포 되도록 합니다.
+또한 오른쪽에는 배포 된 각 BareMetal 인스턴스 단위에 대해 자동으로 생성 되는 [Azure 근접 배치 그룹](../../../virtual-machines/co-location.md) 이름이 있습니다. 응용 프로그램 계층을 호스트 하는 Azure Vm을 배포할 때 근접 배치 그룹을 참조 합니다. BareMetal 인스턴스 단위와 연결 된 근접 배치 그룹을 사용 하는 경우 Azure Vm이 BareMetal 인스턴스 단위에 가깝게 배포 되도록 합니다.
  
 >[!TIP]
 >수정 버전 4.x와 동일한 Azure 데이터 센터에서 응용 프로그램 계층을 찾으려면 [최적의 네트워크 대기 시간에 대 한 azure 근접 배치 그룹](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md)을 참조 하세요.

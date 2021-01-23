@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 138e3ee5272d790130cebfd8a1f61da7bed970d8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 587078f1f084d002e4d725ca3be64bcec36b4c45
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663971"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734650"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -107,7 +107,7 @@ Kubernetes의 새 **부** 버전
 1. AKS는 새 버전 릴리스의 계획 된 날짜와 [AKS 릴리스 정보](https://aka.ms/aks/releasenotes) 에 대 한 이전 버전의 사용 중단을 제거 하기 전에 최소 30 일 전에 사전 공지를 게시 합니다.
 2. AKS는 AKS 및 포털 액세스 권한이 있는 모든 사용자가 사용할 수 있는 [서비스 상태 알림을](../service-health/service-health-overview.md) 게시 하 고 구독 관리자에 게 예정 된 버전 제거 날짜를 사용 하 여 전자 메일을 보냅니다.
 ````
-To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
 ````
 3. 지원 되는 부 버전 릴리스로 업그레이드 하 여 지원 받기를 계속 하는 경우 **30 일 동안** 사용자가 버전을 제거 해야 합니다.
 
@@ -156,7 +156,7 @@ Kubernetes 1.19를 사용 하는 경우 [오픈 소스 커뮤니티는 1 년에 
 
 **사용자가 지원 되지 않는 부 버전으로 Kubernetes 클러스터를 업그레이드 하는 경우 어떻게 되나요?**
 
-이상 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 *의미 합니다.* 버전 n-3에서 n-2로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 다음은 그 예입니다. 
+이상 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 *의미 합니다.* 버전 n-3에서 n-2로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 예:
 
 - 가장 오래 된 지원 되는 AKS 버전이 *1.15입니다. a* 와 *1.14* 에 있는 경우에는 지원 되지 않습니다.
 - *1.14* 에서 1.15로 업그레이드 하는 경우 *에는* 지원 정책 내에 다시 로그인 합니다.

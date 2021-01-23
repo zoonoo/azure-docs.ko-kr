@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.subservice: application-insights
-ms.openlocfilehash: f59dce5a450cd745ad05ea3b53d85606706a8eaa
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8da719f399c0c49efd478f05a0114d85233c880f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97513467"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732631"
 ---
 # <a name="application-insights-standard-metrics"></a>Application Insights 표준 메트릭
 
@@ -272,5 +272,5 @@ TrackPageView () Application Insights API로 기록 된 페이지 보기 이벤�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [로그 기반 및 미리 집계 된 메트릭에](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)대해 알아봅니다.
-* [로그 기반 메트릭 쿼리 및 정의](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics).
+* [로그 기반 및 미리 집계 된 메트릭에](./pre-aggregated-metrics-log-metrics.md)대해 알아봅니다.
+* [로그 기반 메트릭 쿼리 및 정의](../platform/app-insights-metrics.md).

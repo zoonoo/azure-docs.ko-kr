@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 40ea367c1298a916df541d362b85e8d485d193f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505276"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734935"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
@@ -91,7 +91,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 *제거* API 경로를 처리하는 개인 정보의 일부로 사용할 수 있게 되었습니다. 이 경로는 이러한 작업과 관련된 위험, 잠재적인 성능 영향 및 Log Analytics 데이터의 총 집계, 측정 및 다른 측면을 왜곡할 수 있는 가능성으로 인해 드물게 사용해야 합니다. 프라이빗 데이터를 처리하는 다른 방법은 [개별 데이터 처리 전략](#strategy-for-personal-data-handling) 섹션을 참조하세요.
 
 > [!NOTE]
-> 제거 작업을 수행한 후에는 [제거 작업 상태가](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) *pending* 인 동안에는 데이터에 액세스할 수 없습니다. 
+> 제거 작업을 수행한 후에는 [제거 작업 상태가](/rest/api/loganalytics/workspacepurge/getpurgestatus) *pending* 인 동안에는 데이터에 액세스할 수 없습니다. 
 
 제거는 높은 수준의 권한이 필요한 작업으로 Azure의 사용자(리소스 소유자도 포함) 또는 앱이 Azure Resource Manager에서 명시적으로 역할을 부여받아야 실행할 수 있습니다. 이 역할은 _데이터 제거자_ 이며, 데이터 손실 가능성 때문에 신중하게 위임해야 합니다. 
 
@@ -129,4 +129,3 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 ## <a name="next-steps"></a>다음 단계
 - Log Analytics 데이터 수집, 처리 및 보안 방법에 대한 자세한 내용은 [Log Analytics 데이터 보안](./data-security.md)을 참조하세요.
 - Application Insights 데이터 수집, 처리 및 보안 방법에 대한 자세한 내용은 [Application Insights 데이터 보안](../app/data-retention-privacy.md)을 참조하세요.
-

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0a1221a8de10fd18768a1a0f0ac08277dc2901d6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013494"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735036"
 ---
 # <a name="app-service-environment-networking"></a>App Service Environment 네트워킹
 
@@ -52,7 +52,7 @@ Asev2)와 달리 ASEv3에서는 NSGs (네트워크 보안 그룹) 및 UDRs (Rout
 
 ## <a name="dns"></a>DNS
 
-ASE의 앱은 VNet이 구성 된 DNS를 사용 합니다. [App Service Environment 사용](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) 의 지침에 따라 ASE를 가리키도록 DNS 서버를 구성 합니다. 일부 앱에서 VNet이 구성 된 것과 다른 DNS 서버를 사용 하도록 하려면 앱 설정 WEBSITE_DNS_SERVER 및 WEBSITE_DNS_ALT_SERVER를 사용 하 여 앱 별로 앱을 수동으로 설정할 수 있습니다. 앱 설정 WEBSITE_DNS_ALT_SERVER는 보조 DNS 서버를 구성 합니다. 보조 DNS 서버는 주 DNS 서버에서 응답이 없는 경우에만 사용 됩니다. 
+ASE의 앱은 VNet이 구성 된 DNS를 사용 합니다. [App Service Environment 사용](./using.md#dns-configuration) 의 지침에 따라 ASE를 가리키도록 DNS 서버를 구성 합니다. 일부 앱에서 VNet이 구성 된 것과 다른 DNS 서버를 사용 하도록 하려면 앱 설정 WEBSITE_DNS_SERVER 및 WEBSITE_DNS_ALT_SERVER를 사용 하 여 앱 별로 앱을 수동으로 설정할 수 있습니다. 앱 설정 WEBSITE_DNS_ALT_SERVER는 보조 DNS 서버를 구성 합니다. 보조 DNS 서버는 주 DNS 서버에서 응답이 없는 경우에만 사용 됩니다. 
 
 ## <a name="preview-limitation"></a>미리 보기 제한 사항
 
@@ -61,4 +61,3 @@ ASEv3에서 사용할 수 없는 몇 가지 네트워킹 기능이 있습니다.
 • FTP • 원격 디버그 • 외부 부하 분산 장치 배포 • 컨테이너 배포를 위한 개인 컨테이너 레지스트리에 액세스할 수 있는 기능 • 글로벌 피어 링 Vnet에 대 한 호출을 수행할 수 있는 기능 • 서비스 엔드포인트 또는 개인 끝점 보안 저장소 계정으로 백업/복원 하는 기능 • 앱 설정을 포함 하는 기능 서비스 끝점 또는 개인 끝점 보안 된 keyvault 계정에 BYOS를 사용 하는 기능 • 서비스 끝점 또는 개인 끝점 보안 저장소 계정에 대해 BYOS를 사용 하는 기능 • 아웃 바운드 트래픽에 Network Watcher 또는 NSG 흐름 사용
     
     
-

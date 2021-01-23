@@ -6,12 +6,12 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: b2cac7a8310482305467a1cb3ed3127eb18ae416
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 2d48c767b836771600b3491299e0bdb33aacb75b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915779"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733152"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 개발자 4.0에 대 한 마이크로 포커스 BankDemo 설정
 
@@ -22,13 +22,13 @@ CICs는 여러 온라인 메인프레임 응용 프로그램에서 사용 하는
 > [!NOTE]
 > 출시 예정: Azure Vm에서 [마이크로 포커스 엔터프라이즈 서버 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) 을 설정 하는 방법에 대 한 지침입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [엔터프라이즈 개발자](set-up-micro-focus-azure.md)를 사용 하는 VM. 엔터프라이즈 개발자는 개발 및 테스트 목적으로 엔터프라이즈 서버의 전체 인스턴스를 보유 하 고 있습니다. 이 인스턴스는 데모에 사용 되는 Enterprise Server의 인스턴스입니다.
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express) 엔터프라이즈 개발자 VM에 다운로드 하 여 설치 합니다. Enterprise Server에는 CICS 영역을 관리 하기 위한 데이터베이스가 필요 하며 BankDemo 응용 프로그램은 BANKDEMO 라는 SQL Server 데이터베이스도 사용 합니다. 이 데모에서는 두 데이터베이스 모두에 대해 SQL Server Express를 사용 한다고 가정 합니다. 를 설치할 때 기본 설치를 선택 합니다.
 
-- SSMS ( [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) ). SSMS는 데이터베이스를 관리 하 고 T-sql 스크립트를 실행 하는 데 사용 됩니다. 엔터프라이즈 개발자 VM에 다운로드 하 여 설치 합니다.
+- SSMS ( [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ). SSMS는 데이터베이스를 관리 하 고 T-sql 스크립트를 실행 하는 데 사용 됩니다. 엔터프라이즈 개발자 VM에 다운로드 하 여 설치 합니다.
 
 - 최신 Service Pack 또는 [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)를 제공 하는 [visual studio 2019](https://azure.microsoft.com/downloads/) . 무료로 다운로드할 수 있습니다.
 
@@ -185,7 +185,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
      ![지역 영역 이름 정의: BANKDEMO](media/08-demo-cics.png)
 
-7. **Finish** 를 클릭합니다.
+7. **마침** 을 클릭합니다.
 
 ## <a name="create-xa-resource-definitions"></a>XA 리소스 정의 만들기
 

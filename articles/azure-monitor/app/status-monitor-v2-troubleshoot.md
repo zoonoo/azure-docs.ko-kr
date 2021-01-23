@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 472a7f128ea19cdcc9df5a03d171f345c7d601de
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 7a6fc27321fa924b7ef8f9bd39b5824bb6fe3c72
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616833"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732581"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 에이전트 문제 해결 (이전에 명명 된 상태 모니터 v2)
 
@@ -55,7 +55,7 @@ ms.locfileid: "97616833"
 ### <a name="powershell-versions"></a>PowerShell 버전
 이 제품은 PowerShell v 5.1을 사용 하 여 작성 및 테스트 되었습니다.
 이 모듈은 PowerShell 버전 6 또는 7과 호환 되지 않습니다.
-PowerShell v 5.1은 최신 버전과 함께 사용 하는 것이 좋습니다. 자세한 내용은 powershell [5.1과 함께 powershell 7 사용](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51)을 참조 하세요.
+PowerShell v 5.1은 최신 버전과 함께 사용 하는 것이 좋습니다. 자세한 내용은 powershell [5.1과 함께 powershell 7 사용](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51)을 참조 하세요.
 
 ### <a name="conflict-with-iis-shared-configuration"></a>IIS 공유 구성과 충돌 합니다.
 

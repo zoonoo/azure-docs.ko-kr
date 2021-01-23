@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3e45b5a48f9a7fb66d7539e83f385203ae371ad7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673555"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732730"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
 응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다.
@@ -272,4 +272,4 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 
 응용 프로그램이 프록시 또는 방화벽을 통해 인터넷에 연결 하는 경우 스냅숏 디버거 서비스와 통신 하도록 규칙을 업데이트 해야 할 수 있습니다.
 
-Application Insights 스냅숏 디버거에서 사용 되는 Ip는 Azure Monitor 서비스 태그에 포함 됩니다. 자세한 내용은 [서비스 태그 설명서](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)를 참조 하세요.
+Application Insights 스냅숏 디버거에서 사용 되는 Ip는 Azure Monitor 서비스 태그에 포함 됩니다. 자세한 내용은 [서비스 태그 설명서](../../virtual-network/service-tags-overview.md)를 참조 하세요.

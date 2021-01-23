@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: cc88712dd686983baed858de47e11dfa44e85350
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
-ms.translationtype: HT
+ms.openlocfilehash: 9190585face277d92ef86c9bfa045d6d8c05b01c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955521"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734874"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Snowflake 구성
 
@@ -164,7 +164,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 * **IP 범위** 
 
-   Azure AD 프로비저닝 서비스는 현재 특정 IP 범위에서 작동합니다. 따라서 필요한 경우 다른 IP 범위를 제한하고 이러한 특정 IP 범위를 애플리케이션의 허용 목록에 추가하여 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽 흐름을 허용할 수 있습니다. [IP 범위](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges)의 설명서를 참조하세요.
+   Azure AD 프로비저닝 서비스는 현재 특정 IP 범위에서 작동합니다. 따라서 필요한 경우 다른 IP 범위를 제한하고 이러한 특정 IP 범위를 애플리케이션의 허용 목록에 추가하여 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽 흐름을 허용할 수 있습니다. [IP 범위](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges)의 설명서를 참조하세요.
 
 ## <a name="change-log"></a>로그 변경
 

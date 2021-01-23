@@ -1,26 +1,22 @@
 ---
-title: 앱과 Azure AD 통합 시작 | Microsoft Docs
+title: 앱과 Azure AD 통합 시작
 description: 이 문서는 온-프레미스 애플리케이션 및 클라우드 애플리케이션과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
-ms.subservice: app-mgmt
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 913b7975de4598bba7240647c1d9e8c81cd1cec9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: db3d3623e175d582a2fe271d73aa452ca07b8e8d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659100"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735069"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
 
@@ -45,7 +41,7 @@ ms.locfileid: "94659100"
   * Azure AD
   * 사용자가 소유한 별도 애플리케이션 데이터베이스 내에서
   * 허용되지 않은 애플리케이션에서
-  * 위의 모든 항목
+  * 위 항목 모두
 * 개별 사용자는 현재 어떤 사용 권한 및 역할 할당을 가지고 있습니까? 액세스를 검토해야 하거나 사용자 액세스 및 역할 할당이 적절하다고 생각합니까?
 * 그룹은 온-프레미스 Active Directory 내에 만들어 집니까?
   * 그룹을 어떻게 구성합니까?
@@ -77,9 +73,7 @@ ms.locfileid: "94659100"
 Microsoft Azure AD 애플리케이션 프록시를 사용하여 어디서든 어떤 디바이스에서든 안전하게 프라이빗 네트워크 내부에 위치한 애플리케이션에 액세스를 제공할 수 있습니다. 환경 내에서 애플리케이션 프록시 커넥터를 설치한 후에 Azure AD를 이용하여 쉽게 구성될 수 있습니다.
 
 ### <a name="integrating-custom-applications"></a>사용자 지정 애플리케이션 통합
-새 응용 프로그램을 작성 하 고 개발자가 Azure AD의 기능을 활용 하도록 지원 하려면 [개발자 가이드](./developer-guidance-for-integrating-applications.md)를 참조 하세요.
-
-Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추가하려는 경우 [Azure AD 셀프 서비스 SAML 구성을 사용하여 "앱 가져오기"](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)를 참조하세요.
+Azure 애플리케이션 갤러리에 사용자 지정 응용 프로그램을 추가 하려면 [AZURE AD 앱 갤러리에 앱 게시](../develop/v2-howto-app-gallery-listing.md)를 참조 하세요.
 
 ## <a name="managing-access-to-applications"></a>애플리케이션에 대한 액세스 관리
 다음 문서는 애플리케이션이 Azure AD와 통합되면 Azure AD 커넥터 및 Azure AD를 사용하여 애플리케이션에 대한 액세스를 관리할 수 있는 방법을 설명합니다.

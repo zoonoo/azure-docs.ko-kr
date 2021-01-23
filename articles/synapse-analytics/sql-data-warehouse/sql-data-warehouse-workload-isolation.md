@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce2451ddf775b7aff63b43ec02041ecd5440c580
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 506aed16f1b8a6c631a759bb1367aef8242859ac
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678392"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734783"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Azure Synapse Analytics 작업 그룹 격리
 
@@ -37,7 +37,7 @@ ms.locfileid: "98678392"
 [보장된 동시성] = [`MIN_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE]
-> min_percentage_resource에 대한 특정 서비스 수준 실행 가능한 최솟값이 있습니다.  자세한 내용은 [유효 값](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values)을 참조하세요.
+> min_percentage_resource에 대한 특정 서비스 수준 실행 가능한 최솟값이 있습니다.  자세한 내용은 [유효 값](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#effective-values)을 참조하세요.
 
 워크로드 격리가 없으면 요청이 리소스의 [공유 풀](#shared-pool-resources)에서 작동합니다.  공유 풀의 리소스에 대한 액세스가 보장되지 않으며 [중요도](sql-data-warehouse-workload-importance.md) 기준으로 할당됩니다.
 

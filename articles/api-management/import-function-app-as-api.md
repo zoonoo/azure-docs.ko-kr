@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 01ac59ec435b19f5da56ca345840628964263a47
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
-ms.translationtype: HT
+ms.openlocfilehash: f66395b1e0f45f1e80cd0ac93bf8c9ae8674a0f2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147031"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732965"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure API Management에서 Azure 함수 앱을 API로 가져오기
 
@@ -38,7 +38,7 @@ Azure API Management는 Azure 함수 앱을 새 API로 가져오거나 기존 AP
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-* 구독에 Azure Functions 앱이 있는지 확인합니다. 자세한 내용은 [Azure 함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)를 참조하세요. HTTP 트리거 및 권한 부여 수준 설정이 *익명* 또는 *함수* 로 지정된 Functions가 포함되어야 합니다.
+* 구독에 Azure Functions 앱이 있는지 확인합니다. 자세한 내용은 [Azure 함수 앱 만들기](../azure-functions/functions-get-started.md)를 참조하세요. HTTP 트리거 및 권한 부여 수준 설정이 *익명* 또는 *함수* 로 지정된 Functions가 포함되어야 합니다.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -112,8 +112,8 @@ Azure API Management는 Azure 함수 앱을 새 API로 가져오거나 기존 AP
 
 Azure 함수 앱 가져오기에서 자동으로 생성되는 항목은 다음과 같습니다.
 
-* 함수 앱 내에 apim-{ *Azure API Management 서비스 인스턴스 이름* } 이름이 있는 호스트 키,
-* Azure API Management 인스턴스 내에 { *Azure 함수 앱 인스턴스 이름* }-key 이름(만든 호스트 키 포함)이 있는 명명된 값.
+* 함수 앱 내에 apim-{*Azure API Management 서비스 인스턴스 이름*} 이름이 있는 호스트 키,
+* Azure API Management 인스턴스 내에 {*Azure 함수 앱 인스턴스 이름*}-key 이름(만든 호스트 키 포함)이 있는 명명된 값.
 
 2019년 4월 4일 이후 만든 API의 경우 호스트 키는 HTTP 요청 시 API Management에서 헤더의 함수 앱으로 전달됩니다. 기존 API는 호스트 키를 [쿼리 매개 변수](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization)로 전달합니다. 이 동작은 함수 앱과 연결된 *백 엔드* 엔터티의 `PATCH Backend` [REST API 호출](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract)을 통해 변경할 수 있습니다.
 

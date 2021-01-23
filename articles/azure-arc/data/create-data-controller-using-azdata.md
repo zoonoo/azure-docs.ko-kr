@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 986019ec4de2fc25b6d8714a8c687cc9342f47b8
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 3d2652d2f6c1bb56dd009a9e4de375c42786986d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696071"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735002"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>을 사용 하 여 Azure Arc 데이터 컨트롤러 만들기 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 개요 정보는 [Azure Arc data Controller 만들기](create-data-controller.md) 항목을 검토 하세요.
 
@@ -59,7 +59,7 @@ kubectl config current-context
 
 ### <a name="connectivity-modes"></a>연결 모드
 
-[연결 모드 및 요구 사항](https://docs.microsoft.com/azure/azure-arc/data/connectivity)에 설명 된 대로, `direct` 또는 연결 모드를 사용 하 여 Azure Arc 데이터 컨트롤러를 배포할 수 있습니다 `indirect` . `direct`연결 모드를 사용 하는 경우 사용 데이터가 자동으로 Azure에 지속적으로 전송 됩니다. 이 문서에서 예제는 다음과 `direct` 같이 연결 모드를 지정 합니다.
+[연결 모드 및 요구 사항](./connectivity.md)에 설명 된 대로, `direct` 또는 연결 모드를 사용 하 여 Azure Arc 데이터 컨트롤러를 배포할 수 있습니다 `indirect` . `direct`연결 모드를 사용 하는 경우 사용 데이터가 자동으로 Azure에 지속적으로 전송 됩니다. 이 문서에서 예제는 다음과 `direct` 같이 연결 모드를 지정 합니다.
 
    ```console
    --connectivity-mode direct
