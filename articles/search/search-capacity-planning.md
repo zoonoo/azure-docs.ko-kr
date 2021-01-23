@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4a9a6b61e392ed2efd68cdcb1cf7e53d6bde5ccd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249732"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702788"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스의 용량 예측 및 관리
 
 [검색 서비스를 프로 비전](search-create-service-portal.md) 하 고 특정 가격 책정 계층에서 잠금을 수행 하기 전에 몇 분 정도 변동을 작업 부하를 수용 하기 위해 복제본과 파티션을 조정 하는 방법을 이해 하는 것이 좋습니다.
 
-Capacity는 [서비스 계층](search-sku-tier.md)의 기능입니다. 계층은 최대 저장소, 파티션당 저장소 저장소 및 만들 수 있는 개체 수에 대 한 최대 제한에 의해 구분 됩니다. 기본 계층은 저장소 요구 사항이 가장 적당 한 앱을 위해 설계 되었지만 (파티션만 하나씩) 고가용성 구성 (복제본 3 개)에서 실행할 수 있습니다. 다른 계층은 특정 작업 또는 패턴 (예: 배포할지에)을 위해 설계 되었습니다. 내부적으로 해당 계층에서 만든 서비스는 이러한 시나리오를 돕는 하드웨어를 활용 합니다.
+Capacity는 [서비스 계층](search-sku-tier.md)의 기능으로, 파티션당 최대 저장소, 파티션당 최대 저장소 및 만들 수 있는 개체 수에 대 한 최대 제한을 설정 합니다. 기본 계층은 저장소 요구 사항이 가장 적당 한 앱을 위해 설계 되었지만 (파티션만 하나씩) 고가용성 구성 (복제본 3 개)에서 실행할 수 있습니다. 다른 계층은 특정 작업 또는 패턴 (예: 배포할지에)을 위해 설계 되었습니다. 내부적으로 해당 계층에서 만든 서비스는 이러한 시나리오를 돕는 하드웨어를 활용 합니다.
 
 Azure Cognitive Search의 확장성 아키텍처는 추가 쿼리 또는 인덱싱 전력이 필요한 지 여부에 따라 용량을 변경할 수 있도록 복제본과 파티션의 유연한 조합을 기반으로 합니다. 서비스를 만든 후에는 복제본 또는 파티션 수를 독립적으로 늘리거나 줄일 수 있습니다. 각 추가 물리적 리소스에 대 한 비용이 발생 하지만 대규모 작업이 완료 되 면 규모를 줄여 청구서를 낮출 수 있습니다. 조정의 계층 및 크기에 따라 용량을 추가 하거나 축소 하는 데에는 15 분에서 몇 시간까지 걸릴 수 있습니다.
 

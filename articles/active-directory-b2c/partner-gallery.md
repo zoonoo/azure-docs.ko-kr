@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9aca01bae7911d2b6234d48bedc14b116e911a79
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6af68f51e76f60c807be2008ae61e27879ebbb11
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675383"
+ms.locfileid: "98703210"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>ISV 파트너 Azure Active Directory B2C
 
@@ -40,7 +40,6 @@ Microsoft는 id 확인 및 교정을 위해 다음 Isv와 협력 합니다.
 |![Experian 로고의 스크린샷](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) 는 사기 행위를 방지 하기 위해 사용자 특성을 기반으로 위험 평가를 수행 하는 id 확인 및 교정 공급자입니다. |
 |![IDology 로고의 스크린샷](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) 는 id 확인 솔루션, 사기 행위 방지 솔루션, 규정 준수 솔루션 및 기타를 제공 하는 id 확인 및 교정 공급자입니다.|
 |![Jumio 로고의 스크린샷](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) 는 id 확인 서비스 이며,이 서비스를 사용 하면 실시간 자동화 id를 확인 하 고 고객 데이터를 보호 합니다. |
-|![키가 없는 로고의 스크린샷](./media/partner-gallery/keyless-logo.png) | [키가 없는](./partner-keyless.md) 는 얼굴 생체 인식 검색의 형태로 인증을 제공 하 고 사기 행위, 피싱 및 자격 증명 재사용을 제거 하는 ID 확인 서비스입니다.
 | ![LexisNexis 로고의 스크린샷](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) 은 사용자 id를 확인 하 고 사용자의 장치에 따라 포괄적인 위험 평가를 제공 하는 프로 파일링 및 id 유효성 검사 공급자입니다. |
 | ![Onfido 로고의 스크린샷](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) 는 회사에서 고객 및 id 요구 사항을 실시간으로 *파악* 하는 데 사용할 수 있는 문서 ID 및 얼굴 인식 확인 솔루션입니다.  |
 
@@ -52,6 +51,7 @@ Microsoft는 MFA 및 암호 없는 인증을 위해 다음 Isv와 파트너를 �
 |:-------------------------|:--------------|
 | ![Hypr 로고의 스크린샷](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) 는 암호를 공개 키 암호화로 바꿔서 사기 행위, 피싱 및 자격 증명 재사용을 제거 하는 암호 없는 인증 공급자입니다. |
 | ![Itsme 로고의 스크린샷](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) 는 전자 Id, 인증 및 신뢰 서비스 (eidas) 호환 디지털 ID 솔루션으로, 사용자가 카드 판독기, 암호, 2 단계 인증 및 여러 PIN 코드 없이 안전 하 게 로그인 할 수 있도록 합니다. |
+|![키가 없는 로고의 스크린샷](./media/partner-gallery/keyless-logo.png) | [키가 없는](./partner-keyless.md) 는 얼굴 생체 인식 검색의 형태로 인증을 제공 하 고 사기 행위, 피싱 및 자격 증명 재사용을 제거 하는 암호 없는 인증 공급자입니다.
 | ![네비스 로고 스크린샷](./media/partner-gallery/nevis-logo.png) | [네비스](./partner-nevis.md) 는 암호 없는 인증을 가능 하 게 하며, 강력한 고객 인증을 위해 네비스 Access 앱을 통해 모바일 중심의 완전 한 최종 사용자 환경을 제공 하 고 PSD2 트랜잭션 요구 사항을 준수 합니다. |
 | ![Trusona 로고의 스크린샷](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) 통합을 사용 하면 안전 하 게 로그인 하 고 암호 없는 인증, MFA 및 디지털 라이선스 검색을 사용할 수 있습니다. |
 | ![Twilio 로고의 스크린샷](./media/partner-gallery/twilio-logo.png) | [Twilio Verify 앱](./partner-twilio.md) 은 여러 솔루션을 제공 하 여 SMS OTP (일회성 암호), 시간 기반 일회용 암호 (totp) 및 푸시 알림을 통해 MFA를 사용 하도록 설정 하 고, PSD2에 대 한 SCA 요구 사항을 준수 합니다. |

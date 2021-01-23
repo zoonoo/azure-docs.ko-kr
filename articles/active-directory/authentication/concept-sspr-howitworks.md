@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 496a8dba9b9ea7fb82ad9016479154d6a61cb767
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779365"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703278"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
@@ -75,7 +75,7 @@ SSPR을 시작 하려면 다음 자습서를 완료 하세요.
 Azure AD를 사용 하 여 응용 프로그램에 로그인 하는 경우 사용자가 SSPR 등록을 완료 하도록 요구 하는 옵션을 사용 하도록 설정할 수 있습니다. 이 워크플로에는 다음 애플리케이션이 포함됩니다.
 
 * Microsoft 365
-* Azure portal
+* Azure 포털
 * 액세스 패널
 * 페더레이션된 애플리케이션
 * Azure AD를 사용하여 애플리케이션 사용자 지정
@@ -137,7 +137,7 @@ SSPR에는 다음과 같은 인증 방법을 사용할 수 있습니다.
 에서 셀프 서비스 암호 재설정을 등록 하는 경우 사용자에 게 모바일 앱을 등록 하는 옵션이 없습니다 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . 사용자는에서 모바일 앱을 등록 [https://aka.ms/mfasetup](https://aka.ms/mfasetup) 하거나의 결합 된 보안 정보 등록에서 등록할 수 있습니다 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
 
 > [!IMPORTANT]
-> 메서드만 필요한 경우 인증자 앱을 유일한 인증 방법으로 선택할 수 없습니다. 마찬가지로 두 가지 메서드를 필요로 하는 경우 인증자 앱과 하나의 추가 메서드만 선택할 수 있습니다.
+> 한 가지 메서드만 필요한 경우 인증자 앱을 유일한 인증 방법으로 선택할 수 없습니다. 마찬가지로 두 가지 메서드를 필요로 하는 경우 인증자 앱과 하나의 추가 메서드만 선택할 수 있습니다.
 >
 > 인증자 앱을 메서드로 포함 하는 SSPR 정책을 구성 하는 경우 한 가지 방법이 필요할 때 하나 이상의 추가 메서드를 선택 하 고 두 개의 메서드를 구성 해야 하는 경우 두 개 이상의 추가 메서드를 선택 해야 합니다.
 >

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 103e4453ecf848822db0d82bc13e93b0c8c68331
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654628"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702137"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
@@ -66,7 +66,7 @@ A. Data Box Disk는 해당 대상과 동일한 국가/지역 내 에서만 데�
 
 ### <a name="option-1"></a>옵션 1: 
 
-Microsoft [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md) 를 사용 하 여 데이터를 포함 하는 [지원 되는 디스크](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) 를 캐나다의 원본 위치에서 azure 미국 서 부 데이터 센터로 배송 합니다.
+Microsoft [Azure Import/Export 서비스](../import-export/storage-import-export-service.md) 를 사용 하 여 데이터를 포함 하는 [지원 되는 디스크](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) 를 캐나다의 원본 위치에서 azure 미국 서 부 데이터 센터로 배송 합니다.
 
 ### <a name="option-2"></a>옵션 2:
 
@@ -84,7 +84,7 @@ A. Data Box 디스크에 문제가 발생 하는 경우 [Microsoft 지원에 문
 ### <a name="q-how-do-i-get-data-box-disk"></a>17. Data Box Disk를 가져올 어떻게 할까요? 있나요? 
 A.  Azure Data Box Disk를 얻으려면 Azure Portal에 로그인 하 고 Data Box Disk 순서를 만듭니다. 연락처 정보 및 알림 세부 정보를 제공합니다. 주문을 입력 한 후에는 사용 가능 여부에 따라 10 일 이내에 Data Box Disk 제공 됩니다. 자세한 내용은 [Data Box 주문](data-box-disk-deploy-ordered.md)을 참조하세요.
 
-### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box Disk 순서를 만들 수 없습니다. 이유
+### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box Disk 순서를 만들 수 없습니다. 그 이유는 무엇일까요?
 A. Data Box Disk 순서를 만들 수 없는 경우 구독 형식 또는 액세스에 문제가 있습니다.
 
 구독을 확인합니다. Data Box Disk는 EA (기업계약) 및 CSP (클라우드 솔루션 공급자) 구독 제안에만 사용할 수 있습니다. 이러한 구독 유형 중 하나가 없는 경우 Microsoft 지원에 문의 하 여 구독을 업그레이드 합니다.

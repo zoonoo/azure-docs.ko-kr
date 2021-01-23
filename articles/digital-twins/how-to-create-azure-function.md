@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 04ca8d515dbc5a28a7d3a30369d97877928c9dc1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1178b0ab5af3642026fe78c7de788f354691b13a
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683921"
+ms.locfileid: "98701166"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 함수 앱을 연결 하 여 데이터 처리
 
@@ -38,19 +38,19 @@ ms.locfileid: "98683921"
 
 Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure Functions_ 템플릿을 검색 합니다. _다음_ 을 선택합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
+:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="새 프로젝트 대화 상자를 보여 주는 Visual Studio의 스크린샷 Azure Functions 프로젝트 템플릿이 강조 표시 됩니다.":::
 
 함수 앱의 이름을 지정 하 고 _만들기_ 를 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: 새 프로젝트 구성":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="새 프로젝트를 구성 하는 대화 상자를 보여 주는 Visual Studio의 스크린샷, 프로젝트 이름, 저장 위치, 새 솔루션을 만드는 선택, 솔루션 이름 등이 있습니다.":::
 
 *Event Grid 트리거의* 함수 앱 유형을 선택 하 고 _만들기_ 를 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Visual Studio: Azure Functions 프로젝트 트리거 대화 상자":::
+:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="새 Azure Functions 응용 프로그램을 만드는 대화 상자를 표시 하는 Visual Studio의 스크린샷 Event Grid 트리거 옵션이 강조 표시 됩니다.":::
 
 함수 앱이 만들어지면 Visual Studio는 프로젝트 폴더의 **Function1.cs** 파일에 코드 샘플을 생성 합니다. 이 short 함수는 이벤트를 기록 하는 데 사용 됩니다.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: 프로젝트 창 및 샘플 코드":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="새로 만든 프로젝트에 대 한 프로젝트 창에 있는 Visual Studio의 스크린샷 Function1 라는 샘플 함수에 대 한 코드가 있습니다." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
 ## <a name="write-a-function-with-an-event-grid-trigger"></a>Event Grid 트리거를 사용 하 여 함수 작성
 
@@ -150,27 +150,27 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 
 [Azure Portal](https://portal.azure.com/)에서 이전에 만든 함수 앱 이름으로 검색 표시줄에서 _함수 앱_ 을 검색 합니다. 목록에서 *함수 앱* 을 선택 합니다. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Azure Portal: 함수 앱 검색":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Azure Portal 스크린샷: 포털 검색 표시줄에서 함수 앱의 이름을 검색 하는 중 이며 검색 결과가 강조 표시 됩니다.":::
 
 함수 앱 창의 왼쪽 탐색 모음에서 _id_ 를 선택 하 여 관리 되는 id를 사용 하도록 설정 합니다.
 _시스템 할당 됨_ 탭에서 _상태_ 를 켜기로 전환 하 고 _저장_ 합니다. _시스템 할당 관리 id를 사용 하도록 설정_ 하는 팝업이 표시 됩니다.
 _예_ 단추를 선택 합니다. 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure Portal: 시스템 관리 id 사용":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure Portal의 스크린샷: 함수 앱에 대 한 Id 페이지에서 시스템 할당 관리 id를 사용 하도록 설정 하는 옵션을 예로 설정 합니다. Status 옵션은 On으로 설정 되어 있습니다.":::
 
 함수가 Azure Active Directory에 성공적으로 등록 되었음을 알림에서 확인할 수 있습니다.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure Portal: 알림":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure Portal의 스크린샷: 포털의 위쪽 표시줄에서 종 모양의 아이콘을 선택 하는 알림 목록입니다. 사용자가 시스템 할당 관리 id를 사용 하도록 설정 되었다는 알림이 있습니다.":::
 
 또한 다음 섹션에서 사용 되므로 _id_ 페이지에 표시 된 **개체 id** 를 확인 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="나중에 사용할 개체 ID를 복사 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Azure Portal 스크린샷: Azure 함수의 Id 페이지에서 개체 ID 필드를 강조 표시 합니다.":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Azure Portal를 사용 하 여 액세스 역할 할당
 
 Azure 역할 _할당 단추를_ 선택 하면 *azure 역할 할당* 페이지가 열립니다. 그런 다음 _+ 역할 할당 추가 (미리 보기)_ 를 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure Portal: 역할 할당 추가":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure Portal 스크린샷: Azure 함수의 Id 페이지에서 사용 권한 아래에 있는 Azure 역할 할당 단추를 강조 표시 합니다.":::
 
 열리는 _역할 할당 추가 (미리 보기)_ 페이지에서 다음을 선택 합니다.
 
@@ -181,7 +181,7 @@ Azure 역할 _할당 단추를_ 선택 하면 *azure 역할 할당* 페이지가
 
 _저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure Portal: 역할 할당 추가 (미리 보기) ":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure Portal의 스크린샷: 새 역할 할당을 추가 하는 대화 상자 (미리 보기) 범위, 구독, 리소스 그룹 및 역할에 대 한 필드가 있습니다.":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Azure Portal를 사용 하 여 응용 프로그램 설정 구성
 
@@ -189,37 +189,37 @@ _저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 
 인스턴스 URL을 사용 하 여 환경 변수를 설정 하려면 먼저 Azure Digital Twins 인스턴스의 호스트 이름을 찾아 URL을 가져옵니다. [Azure Portal](https://portal.azure.com) 검색 창에서 인스턴스를 검색 합니다. 그런 다음 왼쪽 탐색 모음에서 _개요_ 를 선택 하 여 _호스트 이름을_ 확인 합니다. 이 값을 복사합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure Portal: 개요-_Value_ 필드에서 사용할 호스트 이름을 복사 > 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure Portal의 스크린샷: Azure Digital Twins 인스턴스의 개요 페이지에서 호스트 이름 값이 강조 표시 됩니다.":::
 
 이제 다음 단계에 따라 응용 프로그램 설정을 만들 수 있습니다.
 
-1. 검색 창에서 함수 앱 이름을 사용 하 여 앱을 검색 하 고 목록에서 함수 앱을 선택 합니다.
+1. 포털 검색 창에서 함수 앱을 검색 하 고 결과에서 선택 합니다.
 1. 왼쪽의 탐색 모음에서 _구성_ 을 선택 하 여 새 응용 프로그램 설정을 만듭니다.
 1. _응용 프로그램 설정_ 탭에서 _+ 새 응용 프로그램 설정_ 을 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure Portal: 기존 함수 앱 검색" lightbox="media/how-to-create-azure-function/search-for-azure-function.png":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Azure Portal 스크린샷: 포털 검색 표시줄에서 함수 앱의 이름을 검색 하는 중 이며 검색 결과가 강조 표시 됩니다.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal: 응용 프로그램 설정 구성":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal의 스크린샷: 함수 앱에 대 한 구성 페이지에서 새 응용 프로그램 설정을 만드는 단추가 강조 표시 됩니다.":::
 
 열리는 창에서 위에 복사 된 호스트 이름 값을 사용 하 여 응용 프로그램 설정을 만듭니다.
-* _이름_ : ADT_SERVICE_URL
-* _값_: https://{-azure-name}
+* **이름**: ADT_SERVICE_URL
+* **값**: https://{-azure-name}
 
 _확인_ 을 선택 하 여 응용 프로그램 설정을 만듭니다.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure Portal: 응용 프로그램 설정을 추가 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure Portal의 스크린샷: 응용 프로그램 설정 추가/편집 페이지에서 이름 및 값 필드를 입력 한 후 확인 단추가 강조 표시 됩니다.":::
 
 _이름_ 필드에 응용 프로그램 이름을 사용 하 여 응용 프로그램 설정을 볼 수 있습니다. 그런 다음 _저장_ 단추를 선택 하 여 응용 프로그램 설정을 저장 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal: 만든 응용 프로그램을 확인 하 고 응용 프로그램을 다시 시작 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal의 스크린샷: 새 ADT_SERVICE_URL 설정이 강조 표시 된 응용 프로그램 설정 페이지 저장 단추도 강조 표시 됩니다.":::
 
-응용 프로그램 설정에 대 한 변경 내용을 적용 하려면 응용 프로그램을 다시 시작 해야 합니다. _계속_ 을 선택 하 여 응용 프로그램을 다시 시작 합니다.
+응용 프로그램 설정을 변경 하려면 응용 프로그램을 다시 시작 해야 적용 됩니다. _계속_ 을 선택 하 여 응용 프로그램을 다시 시작 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal: 응용 프로그램 설정 저장":::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal 스크린샷: 응용 프로그램을 다시 시작 하는 응용 프로그램 설정이 변경 된 것을 확인할 수 있습니다. 계속 단추가 강조 표시 됩니다.":::
 
 _알림_ 아이콘을 선택 하 여 응용 프로그램 설정이 업데이트 된 것을 볼 수 있습니다. 응용 프로그램 설정이 만들어지지 않은 경우 위의 프로세스에 따라 응용 프로그램 설정 추가를 다시 시도할 수 있습니다.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure Portal: 응용 프로그램 설정 업데이트에 대 한 알림":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure Portal의 스크린샷: 포털의 위쪽 표시줄에서 종 모양의 아이콘을 선택 하는 알림 목록입니다. 웹 앱 설정이 성공적으로 업데이트 되었다는 알림이 있습니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

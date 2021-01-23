@@ -3,12 +3,12 @@ title: Data Protection Manager (DPM) 및 MABS (Microsoft Azure Backup 서버)-�
 description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사용 하 여 네트워크에서 데이터를 보낼 수 있습니다. 이 문서에서는 이전 버전의 DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0405ab66b7714f00349419e94bb064267ca711a6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88890096"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702188"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로 (이전 버전)
 
@@ -17,7 +17,7 @@ ms.locfileid: "88890096"
 
 Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 스토리지 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 전체 백업은 일반적으로 많은 양의 데이터를 전송하고 델타/증분만 전송하는 후속 백업과 비교할 때 더 많은 네트워크 대역폭이 필요합니다. Azure Backup은 초기 백업을 압축합니다. 오프라인 시드 프로세스를 통해 Azure Backup은 디스크를 사용하여 압축된 초기 백업 데이터를 Azure에 오프라인으로 업로드할 수 있습니다.
 
-Azure Backup의 오프 라인 시드 프로세스는 [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md)와 긴밀 하 게 통합 됩니다. 디스크를 사용 하 여 Azure로 데이터를 전송 하는 데이 서비스를 사용할 수 있습니다. 대기 시간이 짧고 대역폭이 높은 네트워크를 통해 전송 해야 하는 테라바이트 (테라바이트)의 초기 백업 데이터가 있는 경우 오프 라인 시드 워크플로를 사용 하 여 하나 이상의 하드 드라이브에 초기 백업 복사본을 Azure 데이터 센터에 제공할 수 있습니다. 이 문서에서는 System Center Data Protection Manager (DPM) 및 Microsoft Azure Backup 서버 (MABS)에 대해이 워크플로를 완료 하는 개요와 추가 단계를 제공 합니다.
+Azure Backup의 오프 라인 시드 프로세스는 [Azure Import/Export 서비스](../import-export/storage-import-export-service.md)와 긴밀 하 게 통합 됩니다. 디스크를 사용 하 여 Azure로 데이터를 전송 하는 데이 서비스를 사용할 수 있습니다. 대기 시간이 짧고 대역폭이 높은 네트워크를 통해 전송 해야 하는 테라바이트 (테라바이트)의 초기 백업 데이터가 있는 경우 오프 라인 시드 워크플로를 사용 하 여 하나 이상의 하드 드라이브에 초기 백업 복사본을 Azure 데이터 센터에 제공할 수 있습니다. 이 문서에서는 System Center Data Protection Manager (DPM) 및 Microsoft Azure Backup 서버 (MABS)에 대해이 워크플로를 완료 하는 개요와 추가 단계를 제공 합니다.
 
 > [!NOTE]
 > MARS (Microsoft Azure Recovery Services) 에이전트에 대 한 오프 라인 백업 프로세스는 DPM 및 MABS와는 다릅니다. MARS 에이전트를 사용 하 여 오프 라인 백업을 사용 하는 방법에 대 한 자세한 내용은 [Azure Backup의 오프 라인 백업 워크플로](backup-azure-backup-import-export.md)를 참조 하세요. Azure Backup 에이전트를 사용 하 여 수행 된 시스템 상태 백업에는 오프 라인 백업이 지원 되지 않습니다.
@@ -48,7 +48,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 >[!NOTE]
 >Azure CSP 구독은 DPM 2019 RTM 및 이전 버전, MABS v3 RTM 및 이전 버전에 대 한 오프 라인 시드에 사용 하도록 지원 되지 않습니다. 네트워크를 통한 온라인 백업은 계속 지원 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 오프 라인 백업 워크플로를 시작 하기 전에 다음 필수 구성 요소가 충족 되는지 확인 합니다.
 
@@ -66,13 +66,13 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
   ![리소스 관리자 개발을 사용 하 여 저장소 계정 만들기](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
 * 초기 복사본을 저장하기 위한 충분한 디스크 공간의 컴퓨터 내부 또는 외부에 네트워크 공유 또는 추가 드라이브일 수 있는 준비 위치가 생성됩니다. 예를 들어 500-GB 파일 서버를 백업 하려는 경우 준비 영역이 500 GB 이상 인지 확인 합니다. (압축으로 인해 더 적은 양이 사용됩니다.)
-* Azure로 전송 되는 디스크의 경우 2.5 인치 SSD 또는 2.5 인치 또는 3.5 인치 SATA II/III 내부 하드 드라이브만 사용 해야 합니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다. 서비스에서 지원하는 최신 드라이브 집합의 경우 [Azure Import/Export 서비스 설명서](../storage/common/storage-import-export-requirements.md#supported-hardware)를 확인하세요.
-* SATA 드라이브는 준비 위치에서 SATA 드라이브로 백업 데이터의 복사가 수행되는 컴퓨터(*복사 컴퓨터*라고 함)에 연결되어야 합니다. 복사 컴퓨터에서 BitLocker가 사용 하도록 설정 되어 있는지 확인 합니다.
+* Azure로 전송 되는 디스크의 경우 2.5 인치 SSD 또는 2.5 인치 또는 3.5 인치 SATA II/III 내부 하드 드라이브만 사용 해야 합니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다. 서비스에서 지원하는 최신 드라이브 집합의 경우 [Azure Import/Export 서비스 설명서](../import-export/storage-import-export-requirements.md#supported-hardware)를 확인하세요.
+* SATA 드라이브는 준비 위치에서 SATA 드라이브로 백업 데이터의 복사가 수행되는 컴퓨터(*복사 컴퓨터* 라고 함)에 연결되어야 합니다. 복사 컴퓨터에서 BitLocker가 사용 하도록 설정 되어 있는지 확인 합니다.
 
 ## <a name="prepare-the-server-for-the-offline-backup-process"></a>오프 라인 백업 프로세스를 위한 서버 준비
 
 >[!NOTE]
-> MARS 에이전트를 설치 하는 동안 *AzureOfflineBackupCertGen.exe*와 같은 나열 된 유틸리티를 찾을 수 없는 경우에 액세스 하 여 AskAzureBackupTeam@microsoft.com 액세스 권한을 얻습니다.
+> MARS 에이전트를 설치 하는 동안 *AzureOfflineBackupCertGen.exe* 와 같은 나열 된 유틸리티를 찾을 수 없는 경우에 액세스 하 여 AskAzureBackupTeam@microsoft.com 액세스 권한을 얻습니다.
 
 * 서버에서 관리자 권한 명령 프롬프트를 열고 다음 명령을 실행 합니다.
 
@@ -100,23 +100,23 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 오프 라인 백업에 대해 이전에 만든 Azure Active Directory 응용 프로그램에 오프 라인 백업 인증서를 수동으로 업로드 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에 로그인합니다.
-1. **Azure Active Directory** > **앱 등록**으로 이동합니다.
+1. **Azure Active Directory** > **앱 등록** 으로 이동합니다.
 1. 소유 하는 **응용 프로그램** 탭에서 표시 이름 형식의 응용 프로그램을 찾습니다 `AzureOfflineBackup _<Azure User Id` .
 
     ![소유 응용 프로그램 탭에서 응용 프로그램 찾기](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
 
-1. 애플리케이션을 선택합니다. 왼쪽 창의 **관리** 에서 **인증서 & 암호**로 이동 합니다.
+1. 애플리케이션을 선택합니다. 왼쪽 창의 **관리** 에서 **인증서 & 암호** 로 이동 합니다.
 1. 기존 인증서 나 공개 키를 확인 합니다. 없는 경우 응용 프로그램의 **개요** 페이지에서 **삭제** 단추를 선택 하 여 응용 프로그램을 안전 하 게 삭제할 수 있습니다. 그런 다음 [오프 라인 백업 프로세스를 위해 서버를 준비](#prepare-the-server-for-the-offline-backup-process) 하는 단계를 다시 시도 하 고 다음 단계를 건너뛸 수 있습니다. 그렇지 않으면 오프 라인 백업을 구성 하려는 DPM 인스턴스나 Azure Backup 서버에서 다음 단계를 계속 수행 합니다.
-1. **시작** – **실행**에서 *를 입력 합니다.* **인증서-로컬 컴퓨터** 창에서 **인증서-로컬 컴퓨터**  >  **개인** 탭을 선택 합니다. 이름이 인 인증서를 찾습니다. `CB_AzureADCertforOfflineSeeding_<ResourceId>`
-1. 인증서를 선택 하 고 **모든 작업**을 마우스 오른쪽 단추로 클릭 한 다음, 개인 키가 없는 .cer 형식으로 **내보내기**를 선택 합니다.
+1. **시작** – **실행** 에서 *를 입력 합니다.* **인증서-로컬 컴퓨터** 창에서 **인증서-로컬 컴퓨터**  >  **개인** 탭을 선택 합니다. 이름이 인 인증서를 찾습니다. `CB_AzureADCertforOfflineSeeding_<ResourceId>`
+1. 인증서를 선택 하 고 **모든 작업** 을 마우스 오른쪽 단추로 클릭 한 다음, 개인 키가 없는 .cer 형식으로 **내보내기** 를 선택 합니다.
 1. Azure Portal에서 Azure offline backup 응용 프로그램으로 이동 합니다.
-1. 인증서 **관리**  >  **& 비밀**  >  **업로드 인증서**를 선택 합니다. 이전 단계에서 내보낸 인증서를 업로드 합니다.
+1. 인증서 **관리**  >  **& 비밀**  >  **업로드 인증서** 를 선택 합니다. 이전 단계에서 내보낸 인증서를 업로드 합니다.
 
     ![인증서 업로드](./media/offline-backup-dpm-mabs-previous-versions/upload-certificate.png)
 
 1. 서버에서 실행 창에 **regedit** 를 입력 하 여 레지스트리를 엽니다.
-1. 레지스트리 항목 *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*로 이동 합니다.
-1. **Cloudbackupprovider**를 마우스 오른쪽 단추로 클릭 하 고 이름이 인 새 문자열 값을 추가 `AzureADAppCertThumbprint_<Azure User Id>` 합니다.
+1. 레지스트리 항목 *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider* 로 이동 합니다.
+1. **Cloudbackupprovider** 를 마우스 오른쪽 단추로 클릭 하 고 이름이 인 새 문자열 값을 추가 `AzureADAppCertThumbprint_<Azure User Id>` 합니다.
 
     >[!NOTE]
     > Azure 사용자 ID를 찾으려면 다음 단계 중 하나를 수행 합니다.
@@ -124,7 +124,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
     >* Azure에 연결된 PowerShell에서 `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as appears in the portal"` 명령을 실행합니다.
     >* 레지스트리 경로로 이동 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;` 합니다.
 
-1. 이전 단계에서 추가 된 문자열을 마우스 오른쪽 단추로 클릭 하 고 **수정**을 선택 합니다. 값에서 7 단계에서 내보낸 인증서의 지문을 제공 합니다. 그런 다음, **확인**을 선택합니다.
+1. 이전 단계에서 추가 된 문자열을 마우스 오른쪽 단추로 클릭 하 고 **수정** 을 선택 합니다. 값에서 7 단계에서 내보낸 인증서의 지문을 제공 합니다. 그런 다음, **확인** 을 선택합니다.
 1. 지문 값을 가져오려면 인증서를 두 번 클릭 합니다. **세부 정보** 탭을 선택 하 고 지문 필드가 표시 될 때까지 아래로 스크롤합니다. **손 도장 (Thumbprint**)을 선택 하 고 값을 복사 합니다.
 
     ![지문 필드에서 값을 복사 합니다.](./media/offline-backup-dpm-mabs-previous-versions/thumbprint-field.png)
@@ -133,7 +133,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 
 ## <a name="workflow"></a>워크플로
 
-이 섹션의 정보는 데이터를 Azure 데이터 센터에 배달 하 고 Azure Storage에 업로드할 수 있도록 오프 라인 백업 워크플로를 완료 하는 데 도움이 됩니다. 가져오기 서비스 또는 프로세스의 모든 측면에 대 한 질문이 있는 경우 앞에서 언급 한 [서비스 가져오기 개요 설명서](../storage/common/storage-import-export-service.md) 를 참조 하세요.
+이 섹션의 정보는 데이터를 Azure 데이터 센터에 배달 하 고 Azure Storage에 업로드할 수 있도록 오프 라인 백업 워크플로를 완료 하는 데 도움이 됩니다. 가져오기 서비스 또는 프로세스의 모든 측면에 대 한 질문이 있는 경우 앞에서 언급 한 [서비스 가져오기 개요 설명서](../import-export/storage-import-export-service.md) 를 참조 하세요.
 
 ### <a name="initiate-offline-backup"></a>오프라인 백업 시작
 
@@ -160,7 +160,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 
     ![지금 백업](./media/offline-backup-dpm-mabs-previous-versions/backup-now.png)
 
-    DPM 또는 Azure Backup Server에서 해당 워크플로를 완료 하려면 **보호 그룹**을 마우스 오른쪽 단추로 클릭 합니다. **복구 지점 만들기** 옵션을 선택 합니다. 그런 다음 **온라인 보호** 옵션을 선택 합니다.
+    DPM 또는 Azure Backup Server에서 해당 워크플로를 완료 하려면 **보호 그룹** 을 마우스 오른쪽 단추로 클릭 합니다. **복구 지점 만들기** 옵션을 선택 합니다. 그런 다음 **온라인 보호** 옵션을 선택 합니다.
 
     ![지금 DPM 및 MABS 백업](./media/offline-backup-dpm-mabs-previous-versions/dpm-backup-now.png)
 
@@ -228,7 +228,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | 매개 변수 | Description |
+    | 매개 변수 | 설명 |
     | --- | --- |
     | u: | 이 필수 입력은 Azure 가져오기 작업에 대 한 배송 정보를 업데이트 하는 데 사용 됩니다. |
     | s:&lt;*Staging Location Path*&gt; | 이 필수 입력은 명령이 원본 컴퓨터에서 실행 되지 않을 때 사용 됩니다. "오프 라인 백업 시작" 섹션의 워크플로에 입력 한 스테이징 위치에 대 한 경로를 제공 하는 데 사용 됩니다. |
@@ -238,7 +238,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 
     ![배송 정보 입력](./media/offline-backup-dpm-mabs-previous-versions/shipping-inputs.png)<br/>
 
-1. 입력을 모두 제공한 후 세부 정보를 신중 하 게 검토 하 고 **예**를 입력 하 여 제공한 배송 정보를 커밋합니다.
+1. 입력을 모두 제공한 후 세부 정보를 신중 하 게 검토 하 고 **예** 를 입력 하 여 제공한 배송 정보를 커밋합니다.
 
     ![배송 정보 검토](./media/offline-backup-dpm-mabs-previous-versions/review-shipping-information.png)<br/>
 
@@ -271,7 +271,7 @@ Azure 가져오기 작업을 처리 하는 데 걸리는 시간은 다양 합니
 
     ![가져오기 작업 상태 확인](./media/offline-backup-dpm-mabs-previous-versions/import-job-status-reporting.png)<br/>
 
-Azure 가져오기 작업의 여러 상태에 대 한 자세한 내용은 [Azure import/Export 작업의 상태 보기](../storage/common/storage-import-export-view-drive-status.md)를 참조 하세요.
+Azure 가져오기 작업의 여러 상태에 대 한 자세한 내용은 [Azure import/Export 작업의 상태 보기](../import-export/storage-import-export-view-drive-status.md)를 참조 하세요.
 
 ### <a name="finish-the-workflow"></a>워크플로 완료
 
@@ -283,4 +283,4 @@ Azure 가져오기 작업의 여러 상태에 대 한 자세한 내용은 [Azure
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Import/Export 서비스 워크플로에 대 한 질문은 [Microsoft Azure Import/Export 서비스를 사용 하 여 Blob storage로 데이터 전송](../storage/common/storage-import-export-service.md)을 참조 하세요.
+* Azure Import/Export 서비스 워크플로에 대 한 질문은 [Microsoft Azure Import/Export 서비스를 사용 하 여 Blob storage로 데이터 전송](../import-export/storage-import-export-service.md)을 참조 하세요.

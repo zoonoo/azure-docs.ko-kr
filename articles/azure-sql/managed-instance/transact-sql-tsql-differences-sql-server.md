@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 6fb17ead2546875c0f334aae322f8fb070e8f1ea
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6634ab3521fee3062ecee465eaf6dcda80ee6ff8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684909"
+ms.locfileid: "98699517"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -168,7 +168,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
     - SQL Managed Instance에서 데이터베이스를 내보내고 동일한 Azure AD 도메인 내에서 SQL Database으로 가져옵니다. 
     - SQL Database에서 데이터베이스를 내보내고 동일한 Azure AD 도메인 내에서 SQL Managed Instance으로 가져옵니다.
     - SQL Managed Instance에서 데이터베이스를 내보내고 SQL Server (버전 2012 이상)로 가져옵니다.
-      - 이 구성에서는 모든 Azure AD 사용자가 로그인 없이 SQL Server 데이터베이스 보안 주체 (사용자)로 생성 됩니다. 사용자의 유형은로 나열 되며 `SQL` `SQL_USER` sys.database_principals)에서 볼 수 있습니다. 해당 사용 권한과 역할은 SQL Server 데이터베이스 메타데이터에 남아 있으며 가장에 사용할 수 있습니다. 그러나 해당 자격 증명을 사용하여 SQL Server에 액세스하고 로그인하는 데는 사용할 수 없습니다.
+      - 이 구성에서는 모든 Azure AD 사용자가 로그인 없이 SQL Server 데이터베이스 보안 주체 (사용자)로 생성 됩니다. 사용자의 유형은로 나열 되 `SQL` 고 sys.database_principals)로 표시 됩니다 `SQL_USER` . 해당 사용 권한과 역할은 SQL Server 데이터베이스 메타데이터에 남아 있으며 가장에 사용할 수 있습니다. 그러나 해당 자격 증명을 사용하여 SQL Server에 액세스하고 로그인하는 데는 사용할 수 없습니다.
 
 - SQL Managed Instance 프로 비전 프로세스에서 생성 된 서버 수준 보안 주체 로그인, 서버 역할의 멤버 (예: `securityadmin` 또는) `sysadmin` 또는 서버 수준에서 ALTER ANY login 권한이 있는 기타 로그인만 sql Managed Instance의 master 데이터베이스에 Azure AD 서버 보안 주체 (로그인)를 만들 수 있습니다.
 - 로그인이 SQL 보안 주체인 경우 `sysadmin` 역할에 포함된 로그인만 create 명령을 사용하여 Azure AD 계정에 대한 로그인을 만들 수 있습니다.
@@ -277,7 +277,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 - `SINGLE_USER`
 - `WITNESS`
 
-일부 `ALTER DATABASE` 문 (예: [SET 제약](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)조건)은 transiently 실패할 수 있습니다. 예를 들어 자동화 된 데이터베이스 백업 중 또는 데이터베이스를 만든 직후입니다. 이 경우 `ALTER DATABASE` 문을 다시 시도해 야 합니다. 관련 오류 메시지에 대 한 자세한 내용 및 정보는 [설명 섹션](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2)을 참조 하세요.
+예 `ALTER DATABASE` 를 들어 [SET 제약](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)의 일부 문은 transiently 실패할 수 있습니다. 예를 들어 자동화 된 데이터베이스 백업 중 또는 데이터베이스를 만든 직후입니다. 이 경우 `ALTER DATABASE` 문을 다시 시도해 야 합니다. 관련 오류 메시지에 대 한 자세한 내용은 [설명 부분](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2)을 참조 하십시오.
 
 자세한 내용은 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options)를 참조하세요.
 
@@ -305,7 +305,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
   - 경고는 아직 지원되지 않습니다.
   - 프록시는 지원되지 않습니다.
 - EventLog는 지원되지 않습니다.
-- SQL 에이전트 작업을 만들거나, 수정 하거나, 실행 하려면 사용자를 Azure AD 서버 보안 주체 (로그인)에 직접 매핑해야 합니다. 직접 매핑되지 않은 사용자 (예: SQL 에이전트 작업을 생성, 수정 또는 실행할 수 있는 권한이 있는 Azure AD 그룹에 속한 사용자)는 이러한 작업을 효율적으로 수행할 수 없습니다. 이는 Managed Instance 가장 및 [실행 제한](#logins-and-users)으로 인 한 것입니다.
+- SQL 에이전트 작업을 만들거나, 수정 하거나, 실행 하려면 사용자를 Azure AD 서버 보안 주체 (로그인)에 직접 매핑해야 합니다. 사용자가 직접 매핑되지 않은 사용자 (예: SQL 에이전트 작업을 만들거나 수정 하거나 실행 하는 권한이 있는 Azure AD 그룹에 속한 사용자)는 이러한 작업을 효율적으로 수행할 수 없습니다. 이는 Managed Instance 가장 및 [실행 제한](#logins-and-users)으로 인 한 것입니다.
 
 현재 지원되지 않는 SQL 에이전트 기능은 다음과 같습니다.
 
@@ -400,12 +400,12 @@ SQL Server에서 사용 하도록 설정 된 문서화 되지 않은 DBCC 문은
 SQL Managed Instance의 연결 된 서버는 제한 된 수의 대상을 지원 합니다.
 
 - 지원 되는 대상은 SQL Managed Instance, SQL Database, Azure Synapse [SQL server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 를 사용 하지 않으며 전용 풀 및 SQL Server 인스턴스입니다. 
-- 연결된 서버는 분산 쓰기 가능 트랜잭션(MS DTC)을 지원하지 않습니다.
+- 관리 되는 인스턴스 간에만 분산 쓰기 가능 트랜잭션을 수행할 수 있습니다. 자세한 내용은 [분산 트랜잭션](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview)을 참조 하세요. 그러나 MS DTC는 지원 되지 않습니다.
 - 지원되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다. `BULK INSERT`또는 파일 가져오기에 대 한 대체 방법으로 또는를 사용 하 여 Azure Blob Storage에서 네이티브 CSV 가져오기를 사용 `OPENROWSET` 하거나 [Azure Synapse Analytics에서 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용 하지 않는 SQL 풀을 사용 하 여 파일을 로드 하십시오.
 
 작업: 
 
-- 인스턴스 간 쓰기 트랜잭션은 지원되지 않습니다.
+- [인스턴스 간](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) 쓰기 트랜잭션은 관리 되는 인스턴스에서만 지원 됩니다.
 - `sp_dropserver`는 연결된 서버를 삭제하는 데 지원됩니다. [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)를 참조하세요.
 - `OPENROWSET` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
 - `OPENDATASOURCE` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. `SQLNCLI`, `SQLNCLI11` 및 `SQLOLEDB` 값만 공급자로 지원됩니다. 예제는 `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`입니다. [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
@@ -413,7 +413,7 @@ SQL Managed Instance의 연결 된 서버는 제한 된 수의 대상을 지원 
 
 ### <a name="polybase"></a>PolyBase
 
-Azure SQL database, Azure SQL 관리 되는 인스턴스 및 Azure Synapse 풀에는 RDBMS (공개 미리 보기의 경우)만 사용할 수 있습니다. [Synapse Analytics에서 서버 리스 SQL 풀을 참조 하는 외부 테이블](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) 을 Azure storage에서 직접 읽는 Polybase 외부 테이블에 대 한 해결 방법으로 사용할 수 있습니다. Azure SQL 관리 되는 인스턴스에서 연결 된 서버를 [Synapse Analytics의 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 를 사용 하지 않는 sql 풀에 사용 하거나 SQL Server 하 여 azure storage 데이터를 읽을 수 있습니다.
+Azure SQL database, Azure SQL 관리 되는 인스턴스 및 Azure Synapse 풀에는 RDBMS (공개 미리 보기의 경우)만 사용할 수 있습니다. Azure storage에서 직접 읽는 Polybase 외부 테이블에 대 한 해결 방법으로 [Synapse Analytics에서 서버 리스 SQL 풀을 참조 하는 외부 테이블](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) 을 사용할 수 있습니다. Azure SQL 관리 되는 인스턴스에서 연결 된 서버를 [Synapse Analytics의 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 를 사용 하지 않는 sql 풀에 사용 하거나 SQL Server 하 여 azure storage 데이터를 읽을 수 있습니다.
 PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
 
 ### <a name="replication"></a>복제

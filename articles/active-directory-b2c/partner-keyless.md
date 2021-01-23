@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 7e6f19e03eee6fb6ddf946ea79d197a231f5f113
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2ab1b5ae87cee6265c965c45b706c7fbf10dfe3f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690631"
+ms.locfileid: "98702957"
 ---
-# <a name="tutorial-for-configuring-keyless-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 키가 없는 구성에 대 한 자습서
+# <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용 하 여 키가 없는 구성
 
 이 샘플 자습서에서는 [키가 없는](https://keyless.io/)로 AD (AZURE ACTIVE DIRECTORY) B2C를 구성 하는 방법에 대 한 지침을 제공 합니다. Azure AD B2C을 Id 공급자로 사용 하 여 키가 없는를 고객 응용 프로그램과 통합 하 여 사용자에 게 진정한 암호 없는 인증을 제공할 수 있습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "98690631"
 
 ![키가 없는 아키텍처 다이어그램을 보여 주는 이미지](./media/partner-keyless/keyless-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자가 로그인/등록을 선택 하 고 사용자 이름을 입력 합니다.
 | 2. | 응용 프로그램은 id 확인을 위해 Azure AD B2C 사용자 특성을 보냅니다.
@@ -85,7 +85,7 @@ Id 공급자를 구성 하려면 다음 단계를 수행 합니다.
 
    |속성 | 값 |
    |:-----| :-----------|
-   | 속성   | 키가 없는 |
+   | 이름   | 키가 없는 |
    | 메타데이터 URL | 호스트 된 키가 없는 인증 앱의 URI와 그 뒤에 특정 경로를 삽입 합니다. https://keyless.auth/.well-known/openid-configuration |
    | 클라이언트 암호 | 키가 없는 인증 인스턴스와 연결 된 비밀입니다. 이전에 구성 된 것과 동일 하지 않습니다. 선택한 복합 문자열을 삽입 합니다. 이 비밀은 나중에 키가 없는 컨테이너 구성에서 사용 됩니다.|
    | 클라이언트 ID | 클라이언트의 ID입니다. 이 ID는 나중에 키가 없는 컨테이너 구성에서 사용 됩니다.|
@@ -99,7 +99,7 @@ Id 공급자를 구성 하려면 다음 단계를 수행 합니다.
 
 5. 양식을 작성 하 여 Id 공급자를 매핑합니다.
 
-   |속성 | 값 |
+   |속성 | Value |
    |:-----| :-----------|
    | UserID    | 원본 구독 |
    | 표시 이름 | 원본 구독 |
