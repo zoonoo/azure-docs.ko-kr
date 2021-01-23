@@ -1,20 +1,25 @@
 ---
 title: Cloud Services에 대 한 Resource Health (클래식)
 description: 이 문서에서는 Microsoft Azure Cloud Services (클래식)에 대 한 RHC (Resource Health Check) 지원에 대해 설명 합니다.
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 9/1/2020
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 37294e681066eb27ace69bcacee3a813b750b8eb
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072716"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743511"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Azure Cloud Services (클래식)에 대 한 Resource Health Check (RHC) 지원
+
+> [!IMPORTANT]
+> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+
 이 문서에서는 [Microsoft Azure Cloud Services (클래식)](https://azure.microsoft.com/services/cloud-services) 에 대 한 RHC (Resource Health Check) 지원에 대해 설명 합니다.
 
 클라우드 서비스에 대 한 [Azure Resource Health](../service-health/resource-health-overview.md) 를 통해 클라우드 서비스 배포, 역할 & 역할 인스턴스에 영향을 주는 서비스 문제를 진단 하 고 지원을 받을 수 있습니다. 배포, 역할 & 역할 인스턴스 수준에서 클라우드 서비스의 현재 및 과거 상태를 보고 합니다.
@@ -24,13 +29,13 @@ Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 
 :::image type="content" source="media/cloud-services-allocation-failure/rhc-blade-cloud-services.png" alt-text="이미지 Azure Portal의 리소스 상태 검사 블레이드를 표시 합니다.":::
 
 ## <a name="how-health-is-checked-and-reported"></a>상태를 확인 하 고 보고 하는 방법
-리소스 상태는 배포 또는 역할 수준에서 보고 됩니다. 상태 검사는 역할 인스턴스 수준에서 발생 하며, 상태를 집계 하 고 역할 수준에 보고 합니다. 예를 들어 모든 역할 인스턴스를 사용할 수 있는 경우 역할 상태를 사용할 수 있습니다. 마찬가지로 모든 역할의 상태를 집계 하 여 배포 수준에 보고 합니다. 예를 들어 모든 역할을 사용할 수 있는 경우 배포 상태를 사용할 수 있게 됩니다. 
+리소스 상태는 배포 또는 역할 수준에서 보고 됩니다. 상태 검사는 역할 인스턴스 수준에서 발생 하며, 상태를 집계 하 고 역할 수준에 보고 합니다. 예: 모든 역할 인스턴스를 사용할 수 있는 경우 역할 상태를 사용할 수 있습니다. 마찬가지로 모든 역할의 상태를 집계 하 여 배포 수준에 보고 합니다. 예: 모든 역할을 사용할 수 있는 경우 배포 상태를 사용할 수 있게 됩니다. 
 
 ## <a name="why-i-cannot-see-health-status-for-my-staging-slot-deployment"></a>스테이징 슬롯 배포에 대 한 상태를 볼 수 없는 이유는 무엇입니까?
 리소스 상태 검사는 프로덕션 슬롯 배포에 대해서만 작동 합니다. 스테이징 슬롯 배포는 아직 지원 되지 않습니다. 
 
 ## <a name="does-resource-health-check-also-check-the-health-of-the-application"></a>응용 프로그램의 상태를 확인 하 고 있는지도 확인 Resource Health?
-아니요, 상태 검사는 역할 인스턴스에만 발생 하며 응용 프로그램 상태를 모니터링 하지 않습니다. 예를 들어 3 개 중 1 개 역할 인스턴스가 비정상 이더라도 응용 프로그램을 계속 사용할 수 있습니다. RHC는 [부하 분산 장치 프로브](../load-balancer/load-balancer-custom-probe-overview.md) 또는 게스트 에이전트 프로브를 사용 하지 않습니다. 따라서 고객은 계속 해 서 부하 분산 장치 프로브를 사용 하 여 응용 프로그램의 상태를 모니터링 해야 합니다. 
+아니요, 상태 검사는 역할 인스턴스에만 발생 하며 응용 프로그램 상태를 모니터링 하지 않습니다. 예: 3 개 중 1 개 역할 인스턴스가 비정상 이더라도 응용 프로그램을 계속 사용할 수 있습니다. RHC는 [부하 분산 장치 프로브](../load-balancer/load-balancer-custom-probe-overview.md) 또는 게스트 에이전트 프로브를 사용 하지 않습니다. 따라서 고객은 계속 해 서 부하 분산 장치 프로브를 사용 하 여 응용 프로그램의 상태를 모니터링 해야 합니다. 
 
 ## <a name="what-are-the-annotations-for-cloud-services"></a>Cloud Services에 대 한 주석은 무엇입니까?
 주석은 배포 또는 역할의 상태입니다. 상태, 상태 변경 이유 등을 기준으로 다양 한 주석이 있습니다. 
@@ -48,7 +53,7 @@ Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 
 | Annotation | 설명 | 
 | --- | --- | 
 | 사용 가능| 이 클라우드 서비스 배포에 영향을 미치는 알려진 Azure 플랫폼 문제가 없습니다. |
-| 알 수 없음 | 현재이 클라우드 서비스 배포의 상태를 확인할 수 없습니다. | 
+| Unknown | 현재이 클라우드 서비스 배포의 상태를 확인할 수 없습니다. | 
 | Resource Health 설정 | 이 리소스에 대 한 리소스 상태를 설정 합니다. 리소스 상태는 Azure 리소스를 감시 하 여 영향을 받은 진행 중인 이벤트와 과거 이벤트에 대 한 세부 정보를 제공 합니다.|
 | 성능 저하됨 | 클라우드 서비스 배포 성능이 저하됩니다. 클라우드 서비스 배포를 자동으로 복구하고 문제의 원인을 파악하기 위한 작업이 진행 중입니다. 지금은 추가 작업이 필요 하지 않습니다. |
 | Unhealthy | {0} {1} 역할 인스턴스를 사용할 수 없기 때문에 클라우드 서비스 배포가 비정상 상태입니다. |
@@ -61,10 +66,10 @@ Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 
 | Annotation | 설명 | 
 | --- | --- | 
 | 사용 가능 | 이 가상 컴퓨터에 영향을 미치는 알려진 Azure 플랫폼 문제가 없습니다. | 
-| 알 수 없음 | 현재이 가상 컴퓨터의 상태를 확인할 수 없습니다. |
+| Unknown | 현재이 가상 컴퓨터의 상태를 확인할 수 없습니다. |
 | 중지 및 할당 취소 | 권한 있는 사용자 또는 프로세스의 요청으로 이 가상 머신을 중지하고 할당을 취소하고 있습니다. |
 | Resource Health 설정 | 이 리소스에 대 한 리소스 상태를 설정 합니다. 리소스 상태는 Azure 리소스를 감시 하 여 영향을 받은 진행 중인 이벤트와 과거 이벤트에 대 한 세부 정보를 제공 합니다. |
-| 사용할 수 없음 | 가상 머신을 사용할 수 없습니다. 가상 머신을 자동으로 복구하고 문제의 원인을 파악하기 위한 작업이 진행 중입니다. 지금은 추가 작업이 필요 하지 않습니다. |
+| Unavailable | 가상 머신을 사용할 수 없습니다. 가상 머신을 자동으로 복구하고 문제의 원인을 파악하기 위한 작업이 진행 중입니다. 지금은 추가 작업이 필요 하지 않습니다. |
 | 성능 저하됨 | 가상 머신의 성능이 저하되었습니다. 가상 머신을 자동으로 복구하고 문제의 원인을 파악하기 위한 작업이 진행 중입니다. 지금은 추가 작업이 필요 하지 않습니다. |
 | 호스트 서버 하드웨어 오류 | 이 가상 머신은 호스트 서버에서 심각한 {HardwareCategory} 실패의 영향을 받습니다. Azure가 가상 머신을 정상 호스트 서버에 다시 배포 합니다. |
 | 하드웨어 성능 저하로 인해 마이그레이션 예정 | Azure에서 호스트 서버에 성능이 저하된 {0}이(가) 곧 실패할 것으로 확인했습니다. 가능한 경우 가상 머신을 가능한 한 빨리 실시간으로 마이그레이션하거나 {1} UTC 시간 후에 재배포합니다. 서비스에 대 한 위험을 최소화 하 고 시스템에서 마이그레이션을 시작 하기 전에 하드웨어에 오류가 발생 하는 경우 가능한 한 빨리 가상 머신을 다시 배포 하는 것이 좋습니다. |
@@ -96,7 +101,7 @@ Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 
 | 원격 디스크 연결 끊김 | 죄송합니다. 원격 디스크에 대한 연결이 끊어져 가상 머신을 사용할 수 없습니다. 디스크 연결을 재설정하기 위해 노력하고 있습니다. 지금은 추가 작업이 필요 하지 않습니다. |
 | Azure 서비스 문제 | 가상 머신이 Azure 서비스 문제의 영향을 받습니다. |
 | 네트워크 문제 | 이 가상 머신은 랙 네트워크 장치의 영향을 받습니다. |
-| 사용할 수 없음 | 가상 머신을 사용할 수 없습니다. 현재이 가동 중지 시간에 대 한 이유를 확인할 수 없습니다. |
+| Unavailable | 가상 머신을 사용할 수 없습니다. 현재이 가동 중지 시간에 대 한 이유를 확인할 수 없습니다. |
 | 호스트 서버 다시 부팅 | 죄송합니다. 호스트 서버가 예기치 않게 재부팅되어 가상 머신을 사용할 수 없습니다. 호스트 서버에서 예기치 않은 문제로 인해 가상 컴퓨터를 자동으로 복구할 수 없습니다. |
 | 호스트 오류로 인해 재배포 하는 경우 | 죄송합니다. 호스트 서버에서 예기치 않은 오류가 발생하여 가상 머신을 사용할 수 없습니다. 예기치 않은 호스트의 문제로 인해 가상 컴퓨터를 자동으로 복구할 수 없습니다. |
 | 예기치 않은 호스트 오류 | 죄송합니다. 호스트 서버에서 예기치 않은 오류가 발생하여 가상 머신을 사용할 수 없습니다. 예기치 않은 호스트의 문제로 인해 가상 컴퓨터를 자동으로 복구할 수 없습니다. |
