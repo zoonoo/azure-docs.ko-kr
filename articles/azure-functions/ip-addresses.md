@@ -3,12 +3,12 @@ title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 291a1cda7b8a2acc5426ea255519e1c2e58a2d7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fcc92e61e180d25bc67d5ca3f9e2bff4af01fd3f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936722"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726734"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -27,8 +27,7 @@ IP 주소는 개별 함수가 아니라 함수 앱과 연결됩니다. 들어오
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 함수 앱으로 이동합니다.
-3. **플랫폼 기능** 을 선택 합니다.
-4. **속성** 을 선택합니다. 그러면 **가상 IP 주소** 아래에 인바운드 IP 주소가 표시됩니다.
+3. **설정** 아래에서 **속성** 을 선택합니다. 인바운드 IP 주소는 **가상 ip 주소** 아래에 나타납니다.
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>함수 앱 아웃바운드 IP 주소
 

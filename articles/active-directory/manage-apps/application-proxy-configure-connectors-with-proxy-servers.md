@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 808357b95f4de904ead0741d848480d548a2e26a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b6ecea10c884bffb10c936ca7c619d70d2449467
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030079"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728494"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -169,7 +169,7 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 원하는 모니터링 도구를 사용할 수 있습니다. 이 문서에서는 Microsoft 메시지 분석기를 사용했습니다.
 
 > [!NOTE]
-> [MMA (Microsoft Message Analyzer)가 사용 중지 되었으며](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) 11 월 25 2019에 microsoft.com 사이트에서 다운로드 패키지가 제거 되었습니다.  현재 개발 중인 microsoft Message Analyzer에 대 한 Microsoft 대체가 없습니다.  유사한 기능을 사용 하려면 Wireshark와 같은 타사 네트워크 프로토콜 분석기 도구를 사용 하는 것을 고려 하세요.
+> [MMA (Microsoft Message Analyzer)가 사용 중지 되었으며](/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) 11 월 25 2019에 microsoft.com 사이트에서 다운로드 패키지가 제거 되었습니다.  현재 개발 중인 microsoft Message Analyzer에 대 한 Microsoft 대체가 없습니다.  유사한 기능을 사용 하려면 Wireshark와 같은 타사 네트워크 프로토콜 분석기 도구를 사용 하는 것을 고려 하세요.
 
 다음 예는 메시지 분석기에 대한 내용이지만 원칙은 모든 분석 도구에 적용할 수 있습니다.
 

@@ -1,14 +1,14 @@
 ---
 title: Azure Portal에서 VM 확장 사용
 description: 이 문서에서는 Azure Portal에서 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
-ms.date: 11/06/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48d7d4085dce893d94436fe0c6be32cfeea9cda3
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359088"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728955"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Azure Portal에서 Azure VM 확장을 사용 하도록 설정
 
@@ -39,6 +39,18 @@ Azure Portal를 통해 서버 관리 컴퓨터에 대 한 Arc를 VM 확장에 �
 
 >[!NOTE]
 >여러 확장을 함께 일괄 처리 하 고 처리할 수 있지만 직렬로 설치 됩니다. 첫 번째 확장 설치가 완료 되 면 다음 확장을 설치 하려고 시도 합니다.
+
+## <a name="list-extensions-installed"></a>설치 된 목록 확장
+
+Azure Portal에서 Arc 사용 서버에 대 한 VM 확장 목록을 가져올 수 있습니다. 다음 단계를 수행 하 여 확인 합니다.
+
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
+
+2. 포털에서 **서버-Azure Arc** 로 이동 하 여 목록에서 하이브리드 컴퓨터를 선택 합니다.
+
+3. **확장** 을 선택 하면 설치 된 확장 목록이 반환 됩니다.
+
+    ![선택한 컴퓨터에 배포 된 VM 확장 나열](./media/manage-vm-extensions/list-vm-extensions.png)
 
 ## <a name="uninstall-extension"></a>확장 제거
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 601f268f81c222ada5a4f99b05ae8ffcdfc13a23
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ca2a844364d11dbb5ac2a244945e07d8ca725c1c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916289"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728443"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -66,7 +66,7 @@ ms.locfileid: "97916289"
     - 고가용성 및 재해 복구 아키텍처.
         - RTO 및 RPO에 따라 고가용성 및 재해 복구 아키텍처가 어떻게 표시 되어야 하는지 정의 합니다.
         - 영역 내에서 고가용성을 위해 원하는 DBMS가 Azure에서 제공 해야 하는 항목을 확인 합니다. 대부분의 DBMS 패키지는 프로덕션 시스템에 권장 되는 동기 상시 대기의 동기 메서드를 제공 합니다. [Sap 워크 로드 및 관련 문서에 대 한 Azure VIRTUAL MACHINES DBMS 배포에 대 한 고려 사항](./dbms_guide_general.md) 부터 시작 하 여 다른 데이터베이스에 대 한 sap 관련 설명서도 확인 하세요.
-           [SQL Server에 대해 설명](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017&preserve-view=true)된 것과 같이 DBMS 계층에 대 한 공유 디스크 구성과 함께 Windows Server 장애 조치 (Failover) 클러스터링을 사용 하는 것은 지원 되지 않습니다. 대신 다음과 같은 솔루션을 사용 합니다.
+           [SQL Server에 대해 설명](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)된 것과 같이 DBMS 계층에 대 한 공유 디스크 구성과 함께 Windows Server 장애 조치 (Failover) 클러스터링을 사용 하는 것은 지원 되지 않습니다. 대신 다음과 같은 솔루션을 사용 합니다.
            - [SQL Server Always On](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle 데이터 가드](../oracle/configure-oracle-dataguard.md)
            - [HANA 시스템 복제](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)

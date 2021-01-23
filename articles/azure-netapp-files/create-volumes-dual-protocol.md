@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/12/2020
+ms.date: 01/22/2020
 ms.author: b-juche
-ms.openlocfilehash: c914ab007f482e4d2b560b1cb461e27d4f4442ec
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 47aefecce846f58128335768018ba59d3520bd87
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133160"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726683"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
@@ -51,6 +51,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로�
     | `Unix`    | NFS   | NFSv3 모드 비트   | UNIX  | NFS 및 Windows   |
     | `Ntfs`    | Windows   | NTFS Acl     | NTFS  |NFS 및 Windows|
 * NFS를 사용 하 여 NTFS 보안 스타일 볼륨을 탑재 하는 UNIX 사용자는 `root` unix `root` 및 `pcuser` 기타 모든 사용자로 인증 됩니다. NFS를 사용 하는 경우 볼륨을 탑재 하기 전에 Active Directory에 이러한 사용자 계정이 존재 하는지 확인 합니다. 
+* 이중 프로토콜 볼륨을 만들기 위한 서버 루트 CA 인증서가 필요 하지 않습니다. TLS를 통한 LDAP를 사용 하는 경우에만 필요 합니다.
 
 
 ## <a name="create-a-dual-protocol-volume"></a>이중 프로토콜 볼륨 만들기

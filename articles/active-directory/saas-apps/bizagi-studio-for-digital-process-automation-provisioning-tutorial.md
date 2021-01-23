@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4eaac716d06b102a07872059af28da4986889caa
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 72e021f47bb8db4dedf0e434d0d94bb2118a4c00
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673442"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728165"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 디지털 프로세스 자동화에 대해 Bizagi Studio 구성
 
-이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 Bizagi Studio for Digital Process Automation and Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 이렇게 구성 된 경우 azure ad는 Azure AD 프로 비전 서비스를 사용 하 여 자동으로 사용자 및 그룹을 [Bizagi Studio](https://www.bizagi.com/) 로 프로 비전 하 고 프로 비전 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 Bizagi Studio for Digital Process Automation and Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 이렇게 구성 된 경우 azure ad는 Azure AD 프로 비전 서비스를 사용 하 여 자동으로 사용자 및 그룹을 [Bizagi Studio](https://www.bizagi.com/) 로 프로 비전 하 고 프로 비전 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
@@ -32,22 +32,22 @@ ms.locfileid: "97673442"
 > * 디지털 프로세스 자동화를 위해 Bizagi Studio에서 사용자 만들기
 > * 더 이상 액세스 하지 않아도 되는 디지털 프로세스 자동화를 위해 Bizagi Studio에서 사용자 제거
 > * 디지털 프로세스 자동화를 위해 Azure AD와 Bizagi Studio 간에 사용자 특성을 동기화 상태로 유지
-> * Bizagi Studio에서 디지털 프로세스 자동화에 대 한 [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/bizagi-studio-for-digital-process-automation-tutorial) (권장)
+> * Bizagi Studio에서 디지털 프로세스 자동화에 대 한 [Single sign-on](./bizagi-studio-for-digital-process-automation-tutorial.md) (권장)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서 설명한 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
-* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* 프로비저닝을 구성할 수 있는 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정. 예를 들면 응용 프로그램 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 소유자 또는 전역 관리자가 있습니다. 
+* [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md) 
+* 프로비저닝을 구성할 수 있는 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정. 예를 들면 응용 프로그램 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 소유자 또는 전역 관리자가 있습니다. 
 * Bizagi Studio for Digital Process Automation version 11.2.4.2 X 이상.
 
 ## <a name="plan-your-provisioning-deployment"></a>프로비저닝 배포 계획
 계획을 위해 다음 단계를 수행 합니다.
 
-1. [프로비저닝 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
-2. [프로 비전 범위에](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)있는 사용자를 결정 합니다.
-3. [디지털 프로세스 자동화를 위해 AZURE AD와 Bizagi Studio 간에 매핑할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)데이터를 결정 합니다. 
+1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.
+2. [프로 비전 범위에](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)있는 사용자를 결정 합니다.
+3. [디지털 프로세스 자동화를 위해 AZURE AD와 Bizagi Studio 간에 매핑할](../app-provisioning/customize-application-attributes.md)데이터를 결정 합니다. 
 
 ## <a name="configure-to-support-provisioning-with-azure-ad"></a>Azure AD를 사용 하 여 프로 비전을 지원 하도록 구성
 Azure AD를 사용 하 여 프로 비전을 지원 하도록 Bizagi Studio for Digital Process 자동화를 구성 하려면 다음 단계를 수행 합니다.
@@ -69,17 +69,17 @@ Azure AD를 사용 하 여 프로 비전을 지원 하도록 Bizagi Studio for D
 
 ## <a name="add-the-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 응용 프로그램 추가
 
-디지털 프로세스 자동화에 대 한 Bizagi Studio 프로 비전 관리를 시작 하려면 Azure AD 응용 프로그램 갤러리에서 앱을 추가 합니다. Single Sign-On에 대 한 디지털 프로세스 자동화를 위해 Bizagi Studio를 이전에 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음에 통합을 테스트 하는 경우 별도의 앱을 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Active Directory (AZURE AD) 테 넌 트에 응용 프로그램 추가](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 참조 하세요. 
+디지털 프로세스 자동화에 대 한 Bizagi Studio 프로 비전 관리를 시작 하려면 Azure AD 응용 프로그램 갤러리에서 앱을 추가 합니다. Single Sign-On에 대 한 디지털 프로세스 자동화를 위해 Bizagi Studio를 이전에 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음에 통합을 테스트 하는 경우 별도의 앱을 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Active Directory (AZURE AD) 테 넌 트에 응용 프로그램 추가](../manage-apps/add-application-portal.md)를 참조 하세요. 
 
 ## <a name="define-who-is-in-scope-for-provisioning"></a>프로 비전 범위에 있는 사용자 정의 
 
-Azure AD 프로 비전 서비스를 사용 하면 사용자 및 그룹의 특성 또는 둘 다를 기반으로 응용 프로그램에 대 한 할당을 기반으로 프로 비전 된 사용자의 범위를 지정할 수 있습니다. 할당에 따라 범위를 지정 하는 경우 응용 프로그램에 사용자 및 그룹을 할당 하 [는 Graph API를 사용 하는 앱에 대해 사용자 및 그룹 할당 또는](../manage-apps/assign-user-or-group-access-portal.md) 할당 해제의 단계를 참조 하세요. 사용자 또는 그룹의 특성만을 기준으로 범위를 지정 하는 경우 범위 지정 필터를 사용할 수 있습니다. 자세한 내용은 [범위 지정 필터를 사용한 특성 기반 응용 프로그램 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)을 참조 하세요. 
+Azure AD 프로 비전 서비스를 사용 하면 사용자 및 그룹의 특성 또는 둘 다를 기반으로 응용 프로그램에 대 한 할당을 기반으로 프로 비전 된 사용자의 범위를 지정할 수 있습니다. 할당에 따라 범위를 지정 하는 경우 응용 프로그램에 사용자 및 그룹을 할당 하 [는 Graph API를 사용 하는 앱에 대해 사용자 및 그룹 할당 또는](../manage-apps/assign-user-or-group-access-portal.md) 할당 해제의 단계를 참조 하세요. 사용자 또는 그룹의 특성만을 기준으로 범위를 지정 하는 경우 범위 지정 필터를 사용할 수 있습니다. 자세한 내용은 [범위 지정 필터를 사용한 특성 기반 응용 프로그램 프로 비전](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)을 참조 하세요. 
 
 범위 지정에 대해 다음 사항에 유의 하세요.
 
-* 디지털 프로세스 자동화를 위해 Bizagi Studio에 사용자 및 그룹을 할당 하는 경우 **기본 액세스** 외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로 비전에서 제외 되 고, 프로 비전 로그에 표시 되는 것은 사실상 자격이 없는 것으로 표시 됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 더 많은 역할을 추가할 수 있습니다. 
+* 디지털 프로세스 자동화를 위해 Bizagi Studio에 사용자 및 그룹을 할당 하는 경우 **기본 액세스** 외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로 비전에서 제외 되 고, 프로 비전 로그에 표시 되는 것은 사실상 자격이 없는 것으로 표시 됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 더 많은 역할을 추가할 수 있습니다. 
 
-* 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 프로 비전 범위가 할당 된 사용자 및 그룹으로 설정 된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당 하 여이를 제어할 수 있습니다. 범위가 모든 사용자 및 그룹으로 설정 된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
+* 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 프로 비전 범위가 할당 된 사용자 및 그룹으로 설정 된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당 하 여이를 제어할 수 있습니다. 범위가 모든 사용자 및 그룹으로 설정 된 경우 [특성 기반 범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 지정할 수 있습니다. 
 
 
 ## <a name="configure-automatic-user-provisioning"></a>자동 사용자 프로비저닝 구성 
@@ -105,7 +105,7 @@ Azure AD 프로 비전 서비스를 사용 하면 사용자 및 그룹의 특성
 5. **관리자 자격 증명** 섹션에서 디지털 프로세스 자동화를 위해 Bizagi Studio 용 테 넌 트 URL 및 비밀 토큰을 입력 합니다. 
 
       * **테 넌 트 URL:** 다음 구조를 사용 하 여 Bizagi SCIM 끝점을 입력  `<Your_Bizagi_Project>/scim/v2/` 합니다.
-         예: `https://my-company.bizagi.com/scim/v2/`.
+         예를 들어 `https://my-company.bizagi.com/scim/v2/`을 참조하십시오.
 
       * **비밀 토큰:** 이 값은이 문서의 앞부분에 설명 된 단계에서 검색 됩니다.
 
@@ -121,7 +121,7 @@ Azure AD 프로 비전 서비스를 사용 하면 사용자 및 그룹의 특성
 
 8. **매핑** 섹션에서 **디지털 프로세스 자동화를 위해 Azure Active Directory 사용자를 Bizagi Studio에 동기화** 를 선택 합니다.
 
-9. **특성 매핑** 섹션에서 디지털 프로세스 자동화를 위해 Azure AD에서 Bizagi Studio로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 디지털 프로세스 자동화에 대 한 Bizagi Studio의 사용자 계정을 일치 시키는 데 사용 됩니다. [일치 하는 대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하는 경우 Bizagi Studio For Digital PROCESS Automation API에서 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. 변경 내용을 커밋하려면 **저장** 을 선택합니다.
+9. **특성 매핑** 섹션에서 디지털 프로세스 자동화를 위해 Azure AD에서 Bizagi Studio로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 디지털 프로세스 자동화에 대 한 Bizagi Studio의 사용자 계정을 일치 시키는 데 사용 됩니다. [일치 하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경 하는 경우 Bizagi Studio For Digital PROCESS Automation API에서 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. 변경 내용을 커밋하려면 **저장** 을 선택합니다.
 
    |attribute|Type|필터링에 지원됨|
    |---|---|---|
@@ -137,12 +137,12 @@ Azure AD 프로 비전 서비스를 사용 하면 사용자 및 그룹의 특성
    
     ![특성 목록을 편집 합니다.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
 
-   사용자 지정 특성을 추가 하는 방법에 대 한 자세한 내용은 [응용 프로그램 특성 사용자 지정](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)에서 찾을 수 있습니다.
+   사용자 지정 특성을 추가 하는 방법에 대 한 자세한 내용은 [응용 프로그램 특성 사용자 지정](../app-provisioning/customize-application-attributes.md)에서 찾을 수 있습니다.
 
 > [!NOTE]
 > 기본 형식 속성만 지원 됩니다 (예: 문자열, 정수, 부울, 날짜/시간 등). 패라메트릭 테이블 또는 여러 형식에 연결 된 속성은 아직 지원 되지 않습니다.
 
-10. 범위 지정 필터를 구성 하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)를 참조 하세요.
+10. 범위 지정 필터를 구성 하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 참조 하세요.
 
 11. Bizagi Studio for Digital Process Automation에 대해 Azure AD 프로 비전 서비스를 사용 하도록 설정 하려면 **설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
@@ -161,15 +161,15 @@ Azure AD 프로 비전 서비스를 사용 하면 사용자 및 그룹의 특성
 ## <a name="monitor-your-deployment"></a>배포 모니터링
 프로 비전을 구성한 후에는 다음 리소스를 사용 하 여 배포를 모니터링 합니다.
 
-- [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 여부를 확인합니다.
-- [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) 에서 프로 비전 주기의 상태와 완료 방법의 상태를 확인 합니다.
-- 프로 비전 구성이 비정상 상태 이면 응용 프로그램이 격리 됩니다. 자세한 내용은 [격리 상태에서 응용 프로그램 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)을 참조 하세요.  
+- [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 여부를 확인합니다.
+- [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) 에서 프로 비전 주기의 상태와 완료 방법의 상태를 확인 합니다.
+- 프로 비전 구성이 비정상 상태 이면 응용 프로그램이 격리 됩니다. 자세한 내용은 [격리 상태에서 응용 프로그램 프로 비전](../app-provisioning/application-provisioning-quarantine-status.md)을 참조 하세요.  
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).

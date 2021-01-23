@@ -3,12 +3,12 @@ title: CLI를 사용 하 여 기존 VM 백업 정책 업데이트
 description: Azure CLI를 사용 하 여 기존 VM 백업 정책을 업데이트 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/31/2020
-ms.openlocfilehash: ba4ded4c82a1eaea7c20ea94da580a8702467b85
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 33083d6585d2b9296cd184ba258b8d2143d685b4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858839"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728581"
 ---
 # <a name="update-the-existing-vm-backup-policy-using-cli"></a>CLI를 사용 하 여 기존 VM 백업 정책 업데이트
 
@@ -18,9 +18,9 @@ Azure CLI를 사용 하 여 기존 VM 백업 정책을 업데이트할 수 있�
 
 기존 VM 백업 정책을 수정 하려면 다음 단계를 수행 합니다.
 
-1. [Az backup policy show](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_show) 명령을 실행 하 여 업데이트 하려는 정책의 세부 정보를 검색 합니다.
+1. [Az backup policy show](/cli/azure/backup/policy#az_backup_policy_show) 명령을 실행 하 여 업데이트 하려는 정책의 세부 정보를 검색 합니다.
 
-    예제:
+    예:
 
     ```azurecli
     az backup policy show --name testing123 --resource-group rg1234 --vault-name testvault
@@ -101,14 +101,14 @@ Azure CLI를 사용 하 여 기존 VM 백업 정책을 업데이트할 수 있�
     ```
 
 1. 변경 내용을 저장합니다.
-1. [Az backup policy set](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_set) 명령을 실행 하 고 업데이트 된 JSON 파일의 전체 경로를 **--policy** 매개 변수의 값으로 전달 합니다.
+1. [Az backup policy set](/cli/azure/backup/policy#az_backup_policy_set) 명령을 실행 하 고 업데이트 된 JSON 파일의 전체 경로를 **--policy** 매개 변수의 값으로 전달 합니다.
 
     ```azurecli
     az backup policy set --resource-group rg1234 --vault-name testvault --policy C:\temp2\Policy.json --name testing123
     ```
 
 >[!NOTE]
->[Az backup policy get-default-vm](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_get_default_for_vm) 명령을 실행 하 여 샘플 JSON 정책을 검색할 수도 있습니다.
+>[Az backup policy get-default-vm](/cli/azure/backup/policy#az_backup_policy_get_default_for_vm) 명령을 실행 하 여 샘플 JSON 정책을 검색할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

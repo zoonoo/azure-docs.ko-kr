@@ -7,12 +7,12 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 4f5deb33218c336da7a477b4f39cd45f7386debf
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fec4ba8cba33a1d52d8f330308645fb616921ba4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97604977"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726810"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub Actions를 사용하여 App Service에 사용자 지정 컨테이너 배포
 
@@ -28,7 +28,7 @@ Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같
 |**빌드** | 1. 환경을 만듭니다. <br /> 2. 컨테이너 이미지를 빌드합니다. |
 |**배포** | 1. 컨테이너 이미지를 배포 합니다. |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요. Azure App Service에 배포 하려면 GitHub 리포지토리에 코드가 있어야 합니다. 
@@ -50,7 +50,7 @@ Azure를 인증 하기 위해 게시 프로필 자격 증명 또는 서비스 �
 1. **개요** 페이지에서 **게시 프로필 가져오기** 를 선택 합니다.
 
     > [!NOTE]
-    > 2020 년 10 월까지 Linux 웹 앱은 `WEBSITE_WEBDEPLOY_USE_SCM` `true` **파일을 다운로드 하기 전에** 앱 설정이로 설정 되어야 합니다. 이 요구 사항은 나중에 제거 될 예정입니다. 일반적인 웹 앱 설정을 구성 하는 방법을 알아보려면 [Azure Portal에서 App Service 앱 구성](/azure/app-service/configure-common)을 참조 하세요.  
+    > 2020 년 10 월까지 Linux 웹 앱은 `WEBSITE_WEBDEPLOY_USE_SCM` `true` **파일을 다운로드 하기 전에** 앱 설정이로 설정 되어야 합니다. 이 요구 사항은 나중에 제거 될 예정입니다. 일반적인 웹 앱 설정을 구성 하는 방법을 알아보려면 [Azure Portal에서 App Service 앱 구성](./configure-common.md)을 참조 하세요.  
 
 1. 다운로드한 파일을 저장합니다. 파일의 내용을 사용 하 여 GitHub 비밀을 만듭니다.
 

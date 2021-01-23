@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 2dba9fbcbddbc7a66763636986f3d98f4f95332c
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b75f4c85831fe66158da875c21af60ee73531026
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683134"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728259"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service) (미리 보기)에서 Azure CSI (disk Container Storage Interface) 드라이버 사용
 CSI (azure disk Container Storage Interface) 드라이버는 AKS (azure Kubernetes Service)에서 Azure 디스크의 수명 주기를 관리 하는 데 사용 하는 [CSI 사양](https://github.com/container-storage-interface/spec/blob/master/spec.md)규격 드라이버입니다.
@@ -101,7 +101,7 @@ storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 
 ## <a name="volume-snapshots"></a>볼륨 스냅숏
 
-Azure disk CSI 드라이버는 [영구적 볼륨의 스냅숏](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html)만들기를 지원 합니다. 이 기능의 일부로 드라이버는 매개 변수에 설정 된 값 (기본적으로 true 임)에 따라 *전체* 또는 [ *증분* 스냅숏을](../virtual-machines/windows/disks-incremental-snapshots.md) 수행할 수 있습니다 `incremental` .
+Azure disk CSI 드라이버는 [영구적 볼륨의 스냅숏](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html)만들기를 지원 합니다. 이 기능의 일부로 드라이버는 매개 변수에 설정 된 값 (기본적으로 true 임)에 따라 *전체* 또는 [ *증분* 스냅숏을](../virtual-machines/disks-incremental-snapshots.md) 수행할 수 있습니다 `incremental` .
 
 모든 매개 변수에 대 한 자세한 내용은 [볼륨 스냅숏 클래스 매개 변수](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md#volumesnapshotclass)를 참조 하세요.
 
@@ -370,7 +370,7 @@ deployment/deployment-azuredisk created
 
 또한 Azure disk CSI 드라이버는 Windows 노드와 컨테이너를 지원 합니다. Windows 컨테이너를 사용 하려면 windows [컨테이너 자습서](windows-container-cli.md) 에 따라 windows 노드 풀을 추가 합니다.
 
-Windows 노드 풀을 만든 후에는와 같은 기본 제공 저장소 클래스를 사용할 수 있습니다 `managed-csi` . Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [Windows 기반 상태 저장 집합](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` . [kubectl apply][kubectl-apply]
+Windows 노드 풀을 만든 후에는와 같은 기본 제공 저장소 클래스를 사용할 수 있습니다 `managed-csi` . Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [Windows 기반 상태 저장 집합](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` . [][kubectl-apply]
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/windows/statefulset.yaml

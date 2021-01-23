@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 80b2daebbd64f08dd4f5d728b2a9a4ee04b8952f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937113"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728995"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -229,11 +229,13 @@ _이 설정은 현재 미리 보기로 있습니다._
 
 ## <a name="website_contentazurefileconnectionstring"></a>웹 사이트 \_ CONTENTAZUREFILECONNECTIONSTRING
 
-소비 & 프리미엄 요금제에만 해당 합니다. 함수 앱 코드 및 구성이 저장된 스토리지 계정의 연결 문자열입니다. [함수 앱 만들기](functions-infrastructure-as-code.md#create-a-function-app)를 참조하세요.
+Windows에서 실행 되는 이벤트 기반 확장 계획에 함수 앱 코드와 구성이 저장 되는 저장소 계정에 대 한 연결 문자열입니다. 자세한 내용은 [함수 앱 만들기](functions-infrastructure-as-code.md#windows)를 참조 하세요.
 
 |키|샘플 값|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+
+Windows에서 실행 중인 소비 또는 프리미엄 계획에 배포 하는 경우에만 사용 됩니다. Linux에서는 지원 되지 않습니다. 이 설정을 변경 하거나 제거 하면 함수 앱이 시작 되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조 하세요. 
 
 ## <a name="website_contentovervnet"></a>웹 사이트 \_ CONTENT과잉 VNET
 
@@ -245,11 +247,15 @@ _이 설정은 현재 미리 보기로 있습니다._
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-소비 & 프리미엄 요금제에만 해당 합니다. 함수 앱 코드 및 구성에 대한 파일 경로입니다. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. 기본값은 함수 앱 이름으로 시작하는 고유한 문자열입니다. [함수 앱 만들기](functions-infrastructure-as-code.md#create-a-function-app)를 참조하세요.
+Windows에서 이벤트 기반 크기 조정 계획의 함수 앱 코드와 구성에 대 한 파일 경로입니다. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. 기본값은 함수 앱 이름으로 시작하는 고유한 문자열입니다. [함수 앱 만들기](functions-infrastructure-as-code.md#windows)를 참조하세요.
 
 |키|샘플 값|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
+
+Windows에서 실행 중인 소비 또는 프리미엄 계획의 함수 앱 에서만 사용 됩니다. Linux에서는 지원 되지 않습니다. 이 설정을 변경 하거나 제거 하면 함수 앱이 시작 되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조 하세요.
+
+Azure Resource Manager를 사용 하 여 배포 하는 동안 함수 앱을 만드는 경우 템플릿에 WEBSITE_CONTENTSHARE를 포함 하지 마십시오. 이 응용 프로그램 설정은 배포 중에 생성 됩니다. 자세히 알아보려면 [함수 앱에 대 한 리소스 배포 자동화](functions-infrastructure-as-code.md#windows)를 참조 하세요.   
 
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
@@ -264,7 +270,7 @@ _이 설정은 현재 미리 보기로 있습니다._
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-_Windows에만 해당 합니다._  
+_Windows만 해당합니다._  
 Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정 합니다. 물결표 (~)를 사용 하 여 런타임에서 대상 주 버전의 사용 가능한 최신 버전을 사용 하도록 해야 합니다. 예를 들어로 설정 하면 `~10` 최신 버전의 Node.js 10이 사용 됩니다. 주 버전의 대상이 물결표 인 경우 부 버전을 수동으로 업데이트 하지 않아도 됩니다. 
 
 |키|샘플 값|

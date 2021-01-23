@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914963"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728094"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 앱 구성으로 설정 끌어오기
 
@@ -47,7 +47,7 @@ ms.locfileid: "97914963"
 
 태스크가 앱 구성 저장소에 액세스할 수 있도록 작업 내에서 사용 되는 서비스 연결에 적절 한 앱 구성 역할을 할당 합니다.
 
-1. 대상 앱 구성 저장소로 이동 합니다. 앱 구성 저장소를 설정 하는 연습은 Azure 앱 구성 빠른 시작 중 하나에서 [앱 구성 저장소 만들기](/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store) 를 참조 하세요.
+1. 대상 앱 구성 저장소로 이동 합니다. 앱 구성 저장소를 설정 하는 연습은 Azure 앱 구성 빠른 시작 중 하나에서 [앱 구성 저장소 만들기](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) 를 참조 하세요.
 1. 왼쪽에서 **Access control (IAM)** 을 선택 합니다.
 1. 위쪽에서 **+ 추가** 를 선택 하 고 **역할 할당 추가** 를 선택 합니다.
 1. **역할** 아래에서 **앱 구성 데이터 판독기** 를 선택 합니다. 이 역할을 통해 작업은 앱 구성 저장소에서 읽을 수 있습니다. 

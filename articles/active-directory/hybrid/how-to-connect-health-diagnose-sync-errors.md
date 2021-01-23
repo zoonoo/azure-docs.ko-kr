@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5942d208fa3859d0a4a80de5f072f2e798fe040f
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 4fe6af43c9ca44095c328356e8171da10717875e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028933"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728240"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>중복된 특성 동기화 오류 진단 및 수정
 
@@ -139,7 +139,7 @@ Azure Portal에서 몇 가지 단계를 수행하여 수정 가능한 시나리�
 Azure AD의 클라우드 기반 사용자에게는 원본 앵커가 없어야 합니다. 이 경우에 원본 앵커의 업데이트는 지원되지 않습니다. 온-프레미스에서 수동 수정이 필요합니다. 
 
 **수정 프로세스에서 값을 업데이트 하지 못했습니다.**
-[Azure AD Connect에서 Userwriteback 등의](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback) 특정 설정은 지원 되지 않습니다. 설정에서을 사용 하지 않도록 설정 하세요. 
+[Azure AD Connect에서 Userwriteback 등의](./how-to-connect-preview.md#user-writeback) 특정 설정은 지원 되지 않습니다. 설정에서을 사용 하지 않도록 설정 하세요. 
 
 ## <a name="faq"></a>FAQ
 **Q.** **수정 적용** 실행이 실패하면 어떻게 되나요?  
