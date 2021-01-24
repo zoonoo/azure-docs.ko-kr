@@ -6,21 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4b88550ad489607bb66eb737067190d45a466a43
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 4abb795335bfcb2c9b335d4fb09ddc9fdb2476b4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607078"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746580"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>OpenCensus Python을 사용 하 여 들어오는 요청 추적
 
 들어오는 요청 데이터는 OpenCensus Python 및 다양 한 통합을 사용 하 여 수집 됩니다. 인기 있는 웹 프레임 워크를 기반으로 하는 웹 응용 프로그램에 전송 된 들어오는 요청 데이터를 추적 `django` `flask` `pyramid` 합니다. 그런 다음 데이터는 원격 분석으로 Azure Monitor Application Insights 전송 됩니다 `requests` .
 
 먼저 최신 [OpenCensus PYTHON SDK](./opencensus-python.md)를 사용 하 여 python 응용 프로그램을 계측 합니다.
-
-> [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *블랙 리스트* 에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 ## <a name="tracking-django-applications"></a>Django 응용 프로그램 추적
 
@@ -36,7 +33,7 @@ ms.locfileid: "96607078"
     )
     ```
 
-3. 에서 AzureExporter 올바르게 구성 되어 있는지 확인 `settings.py` `OPENCENSUS` 합니다. 추적 하지 않으려는 url의 요청을에 추가 `BLACKLIST_PATHS` 합니다.
+3. 에서 AzureExporter 올바르게 구성 되어 있는지 확인 `settings.py` `OPENCENSUS` 합니다. 추적 하지 않으려는 url의 요청을에 추가 `EXCLUDELIST_PATHS` 합니다.
 
     ```python
     OPENCENSUS = {
@@ -45,7 +42,7 @@ ms.locfileid: "96607078"
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -77,7 +74,7 @@ ms.locfileid: "96607078"
     
     ```
 
-2. 를 통해 응용 프로그램을 구성할 수도 있습니다 `flask` `app.config` . 추적 하지 않으려는 url의 요청을에 추가 `BLACKLIST_PATHS` 합니다.
+2. 를 통해 응용 프로그램을 구성할 수도 있습니다 `flask` `app.config` . 추적 하지 않으려는 url의 요청을에 추가 `EXCLUDELIST_PATHS` 합니다.
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -86,7 +83,7 @@ ms.locfileid: "96607078"
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>",
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -103,7 +100,7 @@ ms.locfileid: "96607078"
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. `pyramid`코드에서 직접 트윈을 구성할 수 있습니다. 추적 하지 않으려는 url의 요청을에 추가 `BLACKLIST_PATHS` 합니다.
+2. `pyramid`코드에서 직접 트윈을 구성할 수 있습니다. 추적 하지 않으려는 url의 요청을에 추가 `EXCLUDELIST_PATHS` 합니다.
 
     ```python
     settings = {
@@ -113,7 +110,7 @@ ms.locfileid: "96607078"
                 'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                     connection_string="InstrumentationKey=<your-ikey-here>",
                 )''',
-                'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+                'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
             }
         }
     }

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 주�
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109558"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746478"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대한 일반적인 질문
 
@@ -344,6 +344,14 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 이미 Azur
 
 * [VMware 가상 머신](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [Hyper-V 가상 머신](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
+
+### <a name="what-is-the-difference-between-complete-migration-commit-and-disable-replication"></a>마이그레이션 완료, 커밋 및 사용 안 함 간의 차이점은 무엇 인가요?
+
+원본 위치에서 컴퓨터를 대상 위치로 장애 조치 (failover) 한 후에는 세 가지 옵션을 선택할 수 있습니다. 세 가지 용도가 모두 다릅니다.
+
+1.  **마이그레이션 완료** 는 더 이상 원본 위치로 다시 이동 하지 않는다는 것을 의미 합니다. 대상 지역으로 마이그레이션 했으므로 이제 완료 되었습니다. 전체 마이그레이션을 클릭 하면 커밋을 트리거한 후 내부적으로 복제를 사용 하지 않도록 설정 합니다. 
+2.  **Commit** 은 복제 프로세스의 끝이 아니라는 것을 의미 합니다. 모든 구성과 함께 복제 항목은 그대로 유지 되며 나중에 **다시 보호** 를 누르면 컴퓨터를 다시 원본 지역으로 복제할 수 있습니다. 
+3.  **복제를 사용 하지 않도록 설정** 하면 복제를 사용 하지 않도록 설정 하 고 모든 관련 구성을 제거 합니다. 대상 지역에 존재 하는 기존 컴퓨터에는 영향을 주지 않습니다.
 
 ## <a name="automation"></a>Automation
 

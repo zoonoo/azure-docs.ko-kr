@@ -8,19 +8,16 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 890e2b972818cf9805623d94709ce5631b50aaf5
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e2c88091072921f1ca674868e401c34d354418de
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608608"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746512"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
 
 Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약점 및 악용 사례로부터 웹 애플리케이션을 보호합니다. 이 작업은 OWASP core 규칙 집합 3.1, 3.0 또는 2.2.9를 기반으로 정의 되는 규칙을 통해 수행 됩니다. 이러한 규칙은 규칙 별로 사용 하지 않도록 설정할 수 있습니다. 이 문서에는 제공 된 현재 규칙 및 규칙 집합이 포함 되어 있습니다.
-
-> [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *블랙 리스트* 에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 ## <a name="core-rule-sets"></a>핵심 규칙 집합
 
@@ -262,7 +259,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |941150|XSS 필터 - 범주 5 = 허용되지 않는 HTML 특성|
 |941160|NoScript XSS InjectionChecker: HTML 주입|
 |941170|NoScript XSS InjectionChecker: 특성 주입|
-|941180|노드 검사기 블랙리스트 키워드|
+|941180|Node-Validator 차단 목록 키워드|
 |941190|스타일 시트를 사용 하는 XSS|
 |941200|VML 프레임을 사용 하는 XSS|
 |941210|난독 처리 Javascript를 사용 하는 XSS|
@@ -490,7 +487,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |941130|XSS 필터 - 범주 3 = 특성 벡터|
 |941140|XSS 필터 - 범주 4 = Javascript URI 벡터|
 |941150|XSS 필터 - 범주 5 = 허용되지 않는 HTML 특성|
-|941180|노드 검사기 블랙리스트 키워드|
+|941180|Node-Validator 차단 목록 키워드|
 |941190|스타일 시트를 사용 하는 XSS|
 |941200|VML 프레임을 사용 하는 XSS|
 |941210|난독 처리 Javascript를 사용 하는 XSS|

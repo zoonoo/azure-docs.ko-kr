@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: aac0139e09866ce44d25989119b2eafb31e76961
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 07bf22cfc683d8c6f2c765364334ed1594e2fdaa
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610457"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745887"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 진단 로그 액세스
 Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 설정하는 방법 및 계정에 대해 수집된 로그를 보는 방법을 알아봅니다.
 
 조직에서는 Azure Data Lake Storage Gen1 계정에 대 한 진단 로깅을 사용 하도록 설정 하 여 데이터에 액세스 하는 사용자 목록, 데이터에 액세스 하는 빈도, 계정에 저장 된 데이터의 양 등의 정보를 제공 하는 데이터 액세스 감사 내역을 수집할 수 있습니다. 사용 하도록 설정 하는 경우 진단 및/또는 요청은 최상의 노력을 기반으로 기록 됩니다. 서비스 엔드포인트에 대한 요청이 있는 경우에만 요청 및 진단 로그 항목이 만들어집니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
@@ -106,7 +106,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
         "callerIpAddress": "::ffff:1.1.1.1",
         "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
         "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-        "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
+        "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"StoreIngressSize":0 ,"StoreEgressSize":4096,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z","QueryParameters":"api-version=<version>&op=<operationName>"}
     }
     ,
     . . . .
@@ -115,7 +115,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| Name | Type | 설명 |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -128,7 +128,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
-| Name | Type | 설명 |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | 경로 |String |작업이 수행된 경로 |
@@ -138,6 +138,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | EndTime |String |서버가 응답을 전송한 시간 |
 | 크기 조정 |long |Data Lake Store 수신 크기 (바이트) |
 | 크기 조정 |long |Data Lake Store에서 egressed 크기 (바이트) |
+| QueryParameters |String |설명: http 쿼리 매개 변수입니다. 예 1: api-version = 2014-01-01&op = getfilestatus Example 2: op = APPEND&append = true&syncFlag = DATA&filesessionid = bee3355a-4925-4435-bb4d-ceea52811aeb&leaseid = bee3355a-4925-4435-bb4d-ceea52811aeb&offset = 28313319&api-version = 2017-08-01 |
 
 ### <a name="audit-logs"></a>감사 로그
 다음은 JSON 형식인 감사 로그의 샘플 항목입니다. 각 blob에는 로그 개체의 배열을 포함 하는 **레코드** 라는 하나의 루트 개체가 있습니다.
@@ -166,7 +167,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| Name | Type | 설명 |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -179,7 +180,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
-| Name | Type | 설명 |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | StreamName |String |작업이 수행된 경로 |
 

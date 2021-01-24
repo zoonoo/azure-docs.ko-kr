@@ -1,27 +1,26 @@
 ---
-title: IoT 플러그 앤 플레이 브리지를 빌드, 배포 및 확장 하는 방법 | Microsoft Docs
-description: IoT 플러그 앤 플레이 브리지 구성 요소를 식별 합니다. 브리지를 확장 하는 방법 및 IoT 장치, 게이트웨이 및 IoT Edge 모듈로 실행 하는 방법에 대해 알아봅니다.
+title: IoT 플러그 앤 플레이 브리지를 빌드하고 배포 하는 방법 | Microsoft Docs
+description: IoT 플러그 앤 플레이 브리지 구성 요소를 식별 합니다. IoT 장치, 게이트웨이 및 IoT Edge 모듈로 실행 하는 방법에 대해 알아봅니다.
 author: usivagna
 ms.author: ugans
-ms.date: 12/11/2020
+ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 43c89b0fac08bf9f2c72f885fbf4788371876b17
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b7947eab93ebc8e523e163af601893522132e06a
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678579"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745670"
 ---
-# <a name="build-deploy-and-extend-the-iot-plug-and-play-bridge"></a>IoT 플러그 앤 플레이 브리지를 빌드, 배포 및 확장
+# <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>IoT 플러그 앤 플레이 브리지를 빌드하고 배포 합니다.
 
-IoT 플러그 앤 플레이 브리지를 사용 하 여 게이트웨이에 연결 된 기존 장치를 IoT hub에 연결할 수 있습니다. 브리지를 사용 하 여 IoT 플러그 앤 플레이 인터페이스를 연결 된 장치에 매핑합니다. IoT 플러그 앤 플레이 인터페이스는 장치에서 전송 하는 원격 분석, 장치와 클라우드 간에 동기화 되는 속성 및 장치가 응답 하는 명령을 정의 합니다. Windows 또는 Linux 게이트웨이에서 오픈 소스 브리지 응용 프로그램을 설치 하 고 구성할 수 있습니다.
+[Iot 플러그 앤 플레이 브리지](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) 를 사용 하 여 게이트웨이에 연결 된 기존 장치를 iot hub에 연결할 수 있습니다. 브리지를 사용 하 여 IoT 플러그 앤 플레이 인터페이스를 연결 된 장치에 매핑합니다. IoT 플러그 앤 플레이 인터페이스는 장치에서 전송 하는 원격 분석, 장치와 클라우드 간에 동기화 되는 속성 및 장치가 응답 하는 명령을 정의 합니다. Windows 또는 Linux 게이트웨이에서 오픈 소스 브리지 응용 프로그램을 설치 하 고 구성할 수 있습니다. 또한 브리지가 Azure IoT Edge 런타임 모듈로 실행 될 수 있습니다.
 
 이 문서에서는 다음 방법에 대해 자세히 설명 합니다.
 
 - 브리지를 구성 합니다.
-- 새 어댑터를 만들어 브리지를 확장 합니다.
 - 다양 한 환경에서 브리지를 빌드하고 실행 하는 방법을 설명 합니다.
 
 브리지를 사용 하는 방법을 보여 주는 간단한 예제는 [Linux 또는 Windows에서 실행 되는 IoT 플러그 앤 플레이 bridge 샘플을 IoT Hub에 연결 하는 방법](howto-use-iot-pnp-bridge.md)을 참조 하세요.
@@ -77,97 +76,6 @@ IoT 플러그 앤 플레이 브리지를 사용 하 여 게이트웨이에 연�
 ### <a name="iot-edge-module-configuration"></a>IoT Edge 모듈 구성
 
 브리지가 IoT Edge 런타임에서 IoT Edge 모듈로 실행 되 면 구성 파일이 클라우드에서 desired 속성에 대 한 업데이트로 전송 됩니다 `PnpBridgeConfig` . 브리지는 어댑터 및 구성 요소를 구성 하기 전에이 속성 업데이트를 대기 합니다.
-
-## <a name="extend-the-bridge"></a>브리지 확장
-
-브리지의 기능을 확장 하기 위해 고유한 브리지 어댑터를 제작할 수 있습니다.
-
-브리지는 어댑터를 사용 하 여 다음을 수행 합니다.
-
-- 장치와 클라우드 간에 연결을 설정 합니다.
-- 장치와 클라우드 간 데이터 흐름을 사용 하도록 설정 합니다.
-- 클라우드에서 장치 관리를 사용 하도록 설정 합니다.
-
-모든 브리지 어댑터는 다음을 수행 해야 합니다.
-
-- 디지털 쌍 인터페이스를 만듭니다.
-- 인터페이스를 사용 하 여 원격 분석, 속성 및 명령과 같은 클라우드 기반 기능에 장치 쪽 기능을 바인딩합니다.
-- 장치 하드웨어 또는 펌웨어와 제어 및 데이터 통신을 설정 합니다.
-
-각 브리지 어댑터는 어댑터가 장치와 상호 작용 하는 방식에 따라 특정 유형의 장치와 상호 작용 합니다. 장치와의 통신에서 핸드셰이킹 프로토콜을 사용 하는 경우에도 브리지 어댑터는 여러 가지 방법으로 장치에서 데이터를 해석할 수 있습니다. 이 시나리오에서 브리지 어댑터는 구성 파일의 어댑터에 대 한 정보를 사용 하 여 어댑터가 데이터를 구문 분석 하는 데 사용 해야 하는 *인터페이스 구성을* 결정 합니다.
-
-장치를 조작 하기 위해 브리지 어댑터는 장치에서 지원 되는 통신 프로토콜 및 기본 운영 체제 또는 장치 공급 업체에서 제공 하는 Api를 사용 합니다.
-
-클라우드와 상호 작용 하기 위해 브리지 어댑터는 Azure IoT 장치 C SDK에서 제공 하는 Api를 사용 하 여 원격 분석을 보내고, 디지털 쌍 인터페이스를 만들고, 속성 업데이트를 전송 하 고, 속성 업데이트 및 명령에 대 한 콜백 함수를 만듭니다.
-
-### <a name="create-a-bridge-adapter"></a>브리지 어댑터 만들기
-
-브리지는 [_PNP_ADAPTER](https://github.com/Azure/iot-plug-and-play-bridge/blob/9964f7f9f77ecbf4db3b60960b69af57fd83a871/pnpbridge/src/pnpbridge/inc/pnpadapter_api.h#L296) 인터페이스에 정의 된 api를 구현 하는 데 브리지 어댑터가 필요 합니다.
-
-```c
-typedef struct _PNP_ADAPTER {
-  // Identity of the IoT Plug and Play adapter that is retrieved from the config
-  const char* identity;
-
-  PNPBRIDGE_ADAPTER_CREATE createAdapter;
-  PNPBRIDGE_COMPONENT_CREATE createPnpComponent;
-  PNPBRIDGE_COMPONENT_START startPnpComponent;
-  PNPBRIDGE_COMPONENT_STOP stopPnpComponent;
-  PNPBRIDGE_COMPONENT_DESTROY destroyPnpComponent;
-  PNPBRIDGE_ADAPTER_DESTOY destroyAdapter;
-} PNP_ADAPTER, * PPNP_ADAPTER;
-```
-
-이 인터페이스에서:
-
-- `PNPBRIDGE_ADAPTER_CREATE` 어댑터를 만들고 인터페이스 관리 리소스를 설정 합니다. 어댑터는 어댑터 생성을 위해 전역 어댑터 매개 변수를 사용할 수도 있습니다. 이 함수는 단일 어댑터에 대해 한 번 호출 됩니다.
-- `PNPBRIDGE_COMPONENT_CREATE` 디지털 쌍 클라이언트 인터페이스를 만들고 콜백 함수를 바인딩합니다. 어댑터는 장치에 대 한 통신 채널을 시작 합니다. 어댑터는 원격 분석 흐름을 사용 하도록 리소스를 설정할 수 있지만가 호출 될 때까지 원격 분석 보고를 시작 하지 않습니다 `PNPBRIDGE_COMPONENT_START` . 이 함수는 구성 파일의 각 인터페이스 구성 요소에 대해 한 번씩 호출 됩니다.
-- `PNPBRIDGE_COMPONENT_START` 를 호출 하 여 브리지 어댑터가 장치에서 디지털 쌍 클라이언트로 원격 분석을 전달 하기 시작 합니다. 이 함수는 구성 파일의 각 인터페이스 구성 요소에 대해 한 번씩 호출 됩니다.
-- `PNPBRIDGE_COMPONENT_STOP` 원격 분석 흐름을 중지 합니다.
-- `PNPBRIDGE_COMPONENT_DESTROY` 디지털 쌍 클라이언트 및 연결 된 인터페이스 리소스를 소멸 시킵니다. 이 함수는 브리지가 손상 되거나 오류가 발생 한 경우 구성 파일의 각 인터페이스 구성 요소에 대해 한 번 호출 됩니다.
-- `PNPBRIDGE_ADAPTER_DESTROY` 브리지 어댑터 리소스를 정리 합니다.
-
-### <a name="bridge-core-interaction-with-bridge-adapters"></a>브리지 어댑터와의 브리지 코어 상호 작용
-
-다음 목록에서는 브리지가 시작 될 때 발생 하는 상황을 간략하게 설명 합니다.
-
-1. 연결이 시작 되 면 브리지 어댑터 관리자가 구성 파일에 정의 된 각 인터페이스 구성 요소를 살펴보고 `PNPBRIDGE_ADAPTER_CREATE` 해당 어댑터에서를 호출 합니다. 어댑터는 글로벌 어댑터 구성 매개 변수를 사용 하 여 다양 한 *인터페이스 구성을* 지원 하도록 리소스를 설정할 수 있습니다.
-1. 구성 파일의 모든 장치에 대해 브리지 관리자는 `PNPBRIDGE_COMPONENT_CREATE` 적절 한 브리지 어댑터에서를 호출 하 여 인터페이스 만들기를 시작 합니다.
-1. 어댑터는 인터페이스 구성 요소에 대 한 선택적 어댑터 구성 설정을 받으며이 정보를 사용 하 여 장치에 대 한 연결을 설정 합니다.
-1. 어댑터는 디지털 쌍 클라이언트 인터페이스를 만들고 속성 업데이트 및 명령에 대 한 콜백 함수를 바인딩합니다. 디지털 쌍 인터페이스를 만든 후에는 장치 연결을 설정 하면 콜백이 반환 되는 것을 차단 하지 않아야 합니다. 활성 장치 연결은 브리지가 만드는 활성 인터페이스 클라이언트와는 독립적입니다. 연결에 실패 하는 경우 어댑터는 장치가 비활성 상태인 것으로 가정 합니다. 연결 어댑터는이 연결을 다시 시도 하도록 선택할 수 있습니다.
-1. 브리지 어댑터 관리자가 구성 파일에 지정 된 모든 인터페이스 구성 요소를 만든 후에는 모든 인터페이스를 Azure IoT Hub에 등록 합니다. 등록은 블로킹, 비동기 호출입니다. 호출이 완료 되 면 브리지 어댑터에서 콜백이 트리거되고이는 클라우드에서 속성 및 명령 콜백을 처리 하기 시작할 수 있습니다.
-1. 그러면 브리지 어댑터 관리자가 `PNPBRIDGE_INTERFACE_START` 각 구성 요소에서를 호출 하 고, 브리지 어댑터가 디지털 쌍 클라이언트에 대 한 원격 분석 보고를 시작 합니다.
-
-### <a name="design-guidelines"></a>디자인 지침
-
-새 브리지 어댑터를 개발 하는 경우 다음 지침을 따르세요.
-
-- 지원 되는 장치 기능과이 어댑터를 사용 하는 구성 요소의 인터페이스 정의를 확인 합니다.
-- 어댑터에서 구성 파일에 정의 해야 하는 인터페이스 및 전역 매개 변수를 결정 합니다.
-- 구성 요소 속성 및 명령을 지 원하는 데 필요한 하위 수준 장치 통신을 확인 합니다.
-- 어댑터가 장치에서 원시 데이터를 구문 분석 하 고 IoT 플러그 앤 플레이 인터페이스 정의에서 지정 하는 원격 분석 형식으로 변환 하는 방법을 결정 합니다.
-- 이전에 설명한 브리지 어댑터 인터페이스를 구현 합니다.
-- 어댑터 매니페스트에 새 어댑터를 추가 하 고 브리지를 빌드합니다.
-
-### <a name="enable-a-new-bridge-adapter"></a>새 브리지 어댑터 사용
-
-Adapter_manifest에서 참조를 추가 하 여 브리지에서 어댑터를 사용 하도록 설정 [합니다.](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/shared/adapter_manifest.c)
-
-```c
-  extern PNP_ADAPTER MyPnpAdapter;
-  PPNP_ADAPTER PNP_ADAPTER_MANIFEST[] = {
-    .
-    .
-    &MyPnpAdapter
-  }
-```
-
-> [!IMPORTANT]
-> 브리지 어댑터 콜백은 순차적으로 호출 됩니다. 어댑터는 브리지 코어에서 진행을 수행 하지 못하도록 하므로 콜백을 차단 하지 않아야 합니다.
-
-### <a name="sample-camera-adapter"></a>샘플 카메라 어댑터
-
-[카메라 어댑터 추가 정보](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/Camera/readme.md) 에서는 사용할 수 있는 샘플 카메라 어댑터에 대해 설명 합니다.
 
 ## <a name="build-and-run-the-bridge-on-an-iot-device-or-gateway"></a>IoT 장치 또는 게이트웨이에서 브리지를 빌드하고 실행 합니다.
 
@@ -378,7 +286,6 @@ VS Code 시작 하 고, 명령 팔레트를 열고, *원격 wsl: wsl에서 폴�
 *Pnpbridge\Dockerfile.amd64* 파일을 엽니다. 환경 변수 정의를 다음과 같이 편집 합니다.
 
 ```dockerfile
-ENV IOTHUB_DEVICE_CONNECTION_STRING="{Add your device connection string here}"
 ENV PNP_BRIDGE_ROOT_MODEL_ID="dtmi:com:example:RootPnpBridgeSampleDevice;1"
 ENV PNP_BRIDGE_HUB_TRACING_ENABLED="false"
 ENV IOTEDGE_WORKLOADURI="something"

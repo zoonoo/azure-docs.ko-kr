@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b9a41f4d4bb10599d50e58ad6f08d61aaba7ecfc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: cd41f740d3cdb8130199a5dda6e73209637d5142
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608785"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745937"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
 
@@ -54,7 +54,7 @@ ms.locfileid: "97608785"
 - **데이터 컨트롤러 사용자 이름** -데이터 컨트롤러 관리자 사용자에 대 한 사용자 이름입니다.
 - **Data controller password** -데이터 컨트롤러 관리자 사용자에 대 한 암호입니다.
 - **Kubernetes 네임 스페이스의 이름** -데이터 컨트롤러를 만들려는 Kubernetes 네임 스페이스의 이름입니다.
-- **연결 모드** -클러스터의 [연결 모드](./connectivity.md) 입니다. 현재 "간접"만 지원 됩니다.
+- **연결 모드** -연결 모드에서는 azure Arc 사용 데이터 서비스 환경에서 azure로의 연결 수준을 결정 합니다. 현재 미리 보기는 간접적으로 연결 되 고 직접 연결 된 모드만 지원 합니다.  자세한 내용은 [연결 모드](./connectivity.md)를 참조 하세요. 
 - Azure **구독 ID** -azure의 데이터 컨트롤러 리소스를 만들려는 AZURE 구독 GUID입니다.
 - **Azure 리소스 그룹 이름** -azure의 데이터 컨트롤러 리소스를 만들려는 리소스 그룹의 이름입니다.
 - Azure **location** -데이터 컨트롤러 리소스 메타 데이터가 azure에 저장 되는 azure 위치입니다. 사용 가능한 지역 목록은 [지역별 Azure 글로벌 인프라/제품](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)을 참조 하세요.

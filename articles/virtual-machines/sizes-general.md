@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: 6929c0110dcf9ff9f59c200243e886af1936c22f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6f6f98b39f693d2d15b77cdf6de6251e1c264c8a
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018834"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746090"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>범용 가상 머신 크기
 
@@ -23,7 +23,7 @@ ms.locfileid: "92018834"
 - 다양한 하드웨어 유형 및 프로세서에 [Av2 시리즈](av2-series.md) VM을 배포할 수 있습니다. A 시리즈 VM은 개발과 테스트 등 항목별 작업에 가장 적합한 CPU 성능 및 메모리 구성을 갖추고 있습니다. 배포된 하드웨어에 관계없이 인스턴스 실행 시 일관된 프로세서 성능을 제공하기 위해 하드웨어에 따라 크기가 제한됩니다. 이 크기가 배포되는 실제 하드웨어를 확인하려면 Virtual Machine 내에서 가상 하드웨어를 쿼리합니다. 사용 사례로는 개발 및 테스트 서버, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스, 개념 증명, 코드 리포지토리 등이 있습니다.
 
   > [!NOTE]
-  > A8 ~ A11 VM은 2021년 3월에 사용 중지될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요.
+  > A8, A9, A10 A11 Vm은 3/2021에서 사용 중지 될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요. 이러한 VM 크기는 "v2"가 아니라 원래 "A_v1" 시리즈에 있습니다.
 
 - [버스트 가능한 B 시리즈](sizes-b-series-burstable.md) VM은 웹 서버, 소규모 데이터베이스 및 개발 및 테스트 환경과 같이 CPU의 전체 성능이 지속적으로 필요하지 않은 작업에 적합합니다. 이러한 작업에는 일반적으로 버스트 가능한 성능 요구 사항이 있습니다. B 시리즈는 이러한 고객들에게 VM에서 기준 성능보다 적게 사용할 때 VM 인스턴스에서 크레딧을 축적할 수 있는 양심적인 가격 위주의 기준 성능을 갖춘 VM 크기를 구입할 수 있는 기능을 제공합니다. VM에 대한 크레딧이 적립되면 애플리케이션에 더 높은 CPU 성능이 필요할 때 VM이 CPU의 최대 100%까지 사용하여 VM의 기준 이상으로 버스트할 수 있습니다.
 

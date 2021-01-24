@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 931189a6740009bd26472c186057fa0e6ef5fddf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 249afa361946e85a8c8ff241f07d7aae608949ae
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624895"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745703"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -143,13 +143,13 @@ Application Insights Java 3.0은 이러한 Api를 통해 전송 되는 원격 �
 
 |                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **사용자 지정 이벤트**   |            |                     |  Yes    |
-| **사용자 지정 메트릭**  |  yes       |                     |  yes    |
-| **종속성**    |            |                     |  Yes    |
-| **예외**      |            |  yes                |  yes    |
-| **페이지 보기**      |            |                     |  Yes    |
-| **요청**        |            |                     |  Yes    |
-| **추적**          |            |  yes                |  yes    |
+| **사용자 지정 이벤트**   |            |                     |  예    |
+| **사용자 지정 메트릭**  |  예       |                     |  yes    |
+| **종속성**    |            |                     |  예    |
+| **예외**      |            |  예                |  예    |
+| **페이지 보기**      |            |                     |  예    |
+| **요청**        |            |                     |  예    |
+| **추적**          |            |  예                |  예    |
 
 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
 
@@ -323,8 +323,3 @@ import com.microsoft.applicationinsights.web.internal.ThreadContext;
 RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
 requestTelemetry.setName("myname");
 ```
-
-> [!NOTE]
-> 위에서 설명한 것 외에도 검색 된에 대 한 다른 모든 작업 `RequestTelemetry` `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` 은 신속 하 게 실패 하 고 3.0 에이전트에서 정의 되지 않은 동작을 알 수 있도록 예외를 throw 합니다.
->
-> 의 다른 메서드에 대 한 interop가 필요한 경우 `RequestTelemetry` 문제를 열어 알려주세요 https://github.com/microsoft/ApplicationInsights-Java/issues .

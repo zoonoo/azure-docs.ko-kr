@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608591"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745736"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
 이 문서에서는 Centos 6.6 호스트 서버에서 다중 경로 IO(MPIO)를 구성하는 데 필요한 단계를 설명합니다. 호스트 서버는 iSCSI 초기자를 통해 고가용성용 Microsoft Azure StorSimple 디바이스에 연결됩니다. StorSimple 볼륨에 대한 다중 경로 디바이스 및 특정 설치의 자동 검색을 자세히 설명합니다.
@@ -21,10 +21,6 @@ ms.locfileid: "96608591"
 
 > [!NOTE]
 > StorSimple Cloud Appliance에 이 절차를 사용할 수 없습니다. 자세한 내용은 클라우드 어플라이언스에 호스트 서버를 구성하는 방법을 참조하세요.
-
-> [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *블랙 리스트* 에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
-
 
 ## <a name="about-multipathing"></a>다중 경로에 대해
 다중 경로 기능을 사용하면 호스트 서버와 스토리지 디바이스 간의 여러 I/O 경로를 구성할 수 있습니다. 이러한 I/O 경로는 별도 케이블, 스위치, 네트워크 인터페이스 및 컨트롤러를 포함할 수 있는 물리적 SAN 연결입니다. 다중 경로는 I/O 경로를 집계하여 집계된 모든 경로와 연관된 새 디바이스를 구성합니다.
@@ -54,7 +50,7 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
 
 - **시스템 수준 기본값** *(기본값)*: 시스템 수준 기본값을 재정의할 수 있습니다.
 - **금지 목록에 올린 디바이스** *(금지 목록)*: 디바이스 매퍼에서 제어하지 말아야 하는 디바이스 목록을 지정할 수 있습니다.
-- **금지 목록 예외** *(blacklist_exceptions)*: 금지 목록에 나열되면 특정 디바이스를 식별하여 다중 경로 디바이스로 취급할 수 있습니다.
+- **블랙 리스트 예외** *(blacklist_exceptions)*: 차단 목록에 나열 된 경우에도 다중 경로 장치로 취급할 특정 장치를 식별할 수 있습니다.
 - **스토리지 컨트롤러 특정 설정** *(디바이스)*: 공급업체 및 제품 정보가 있는 디바이스에 적용될 구성 설정을 지정할 수 있습니다.
 - **디바이스 특정 설정** *(다중 경로)*: 이 섹션을 사용하여 개별 LUN에 구성 설정을 미세하게 조정할 수 있습니다.
 
@@ -63,11 +59,11 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
 
 다음 절차는 두 네트워크 인터페이스가 있는 StorSimple 디바이스가 두 네트워크 인터페이스가 있는 호스트에 연결된 경우 다중 경로를 구성하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 섹션은 CentOS 서버 및 StorSimple 디바이스에 대한 필수 구성 요소를 자세히 설명합니다.
 
 ### <a name="on-centos-host"></a>CentOS 호스트에서
-1. CentOS 호스트에 사용 가능한 2개의 네트워크 인터페이스가 있는지 확인합니다. 형식:
+1. CentOS 호스트에 사용 가능한 2개의 네트워크 인터페이스가 있는지 확인합니다. 유형:
    
     `ifconfig`
    
@@ -107,10 +103,10 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
 1. CentOS 서버에 *iSCSI-initiator-utils* 를 설치합니다. 다음 단계를 수행하여 *iSCSI-initiator-utils* 를 설치합니다.
    
    1. CentOS 호스트에 `root` 로 로그온합니다.
-   1. *iSCSI-initiator-utils* 를 설치합니다. 형식:
+   1. *iSCSI-initiator-utils* 를 설치합니다. 유형:
       
        `yum install iscsi-initiator-utils`
-   1. *iSCSI-Initiator-utils* 를 성공적으로 설치한 후에 iSCSI 서비스를 시작합니다. 형식:
+   1. *iSCSI-Initiator-utils* 를 성공적으로 설치한 후에 iSCSI 서비스를 시작합니다. 유형:
       
        `service iscsid start`
       
@@ -130,7 +126,7 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
         ```
       
        위의 예제에서 iSCSI 환경이 실행 수준 2, 3, 4 및 5에서 부팅 시간에 실행된 것을 확인할 수 있습니다.
-1. *device-mapper-multipath* 를 설치합니다. 형식:
+1. *device-mapper-multipath* 를 설치합니다. 유형:
    
     `yum install device-mapper-multipath`
    
@@ -188,19 +184,19 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
 ### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>1단계: 자동 검색에 다중 경로 구성
 다중 경로를 지원하는 디바이스를 자동으로 검색 및 구성할 수 있습니다.
 
-1. `/etc/multipath.conf` 파일을 초기화합니다. 형식:
+1. `/etc/multipath.conf` 파일을 초기화합니다. 유형:
    
      `mpathconf --enable`
    
     위의 명령은 `sample/etc/multipath.conf` 파일을 만듭니다.
-1. 다중 경로 서비스를 시작합니다. 형식:
+1. 다중 경로 서비스를 시작합니다. 유형:
    
     `service multipathd start`
    
     다음 출력이 표시됩니다.
    
     `Starting multipathd daemon:`
-1. 다중 경로의 자동 검색을 사용하도록 설정합니다. 형식:
+1. 다중 경로의 자동 검색을 사용하도록 설정합니다. 유형:
    
     `mpathconf --find_multipaths y`
    
@@ -215,12 +211,12 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
     ```
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>2단계: StorSimple 볼륨에 대한 다중 경로 구성
-기본적으로 모든 디바이스는 multipath.conf 파일에서 금지 목록에 오르고 무시됩니다. 금지 목록 예외를 만들어서 StorSimple 디바이스에서 볼륨에 다중 경로를 허용해야 합니다.
+기본적으로 모든 장치는 다중 경로 파일에 표시 되며 무시 됩니다. StorSimple 장치에서 볼륨에 대 한 다중 경로를 허용 하는 차단 목록 예외를 만들어야 합니다.
 
-1. `/etc/mulitpath.conf` 파일을 편집합니다. 형식:
+1. `/etc/mulitpath.conf` 파일을 편집합니다. 유형:
    
     `vi /etc/multipath.conf`
-1. multipath.conf 파일에서 blacklist_exceptions 섹션을 찾습니다. StorSimple 디바이스는 이 섹션에서 금지 목록 예외로 나열되어야 합니다. 이 파일에서 관련된 줄의 주석 처리를 제거하여 아래 그림과 같이 수정할 수 있습니다.(사용하는 디바이스의 특정 모델에만 사용)
+1. multipath.conf 파일에서 blacklist_exceptions 섹션을 찾습니다. 이 섹션에서는 StorSimple 장치를 차단 목록 예외로 나열 해야 합니다. 이 파일에서 관련된 줄의 주석 처리를 제거하여 아래 그림과 같이 수정할 수 있습니다.(사용하는 디바이스의 특정 모델에만 사용)
    
     ```config
     blacklist_exceptions {
@@ -238,7 +234,7 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
 ### <a name="step-3-configure-round-robin-multipathing"></a>3단계: 라운드 로빈 다중 경로 구성
 이 부하 분산 알고리즘은 분산된 라운드 로빈 방식으로 활성 컨트롤러에 사용 가능한 모든 다중 경로를 사용합니다.
 
-1. `/etc/multipath.conf` 파일을 편집합니다. 형식:
+1. `/etc/multipath.conf` 파일을 편집합니다. 유형:
    
     `vi /etc/multipath.conf`
 1. `defaults` 섹션에서 `path_grouping_policy`를 `multibus`으로 설정합니다. `path_grouping_policy` 는 기본 경로 그룹화 정책을 지정하여 지정되지 않은 다중 경로에 적용합니다. 기본값 섹션은 아래와 같이 표시됩니다.
@@ -259,7 +255,7 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
 > 
 
 ### <a name="step-4-enable-multipathing"></a>4단계: 다중 경로 사용하도록 설정
-1. `multipathd` 데몬을 다시 시작합니다. 형식:
+1. `multipathd` 데몬을 다시 시작합니다. 유형:
    
     `service multipathd restart`
 1. 출력은 아래와 같습니다.
@@ -272,7 +268,7 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
 ### <a name="step-5-verify-multipathing"></a>5단계: 다중 경로 확인
 1. 먼저 iSCSI 연결이 StorSimple 디바이스에 다음과 같이 설정되어 있는지 확인합니다.
    
-   a. StorSimple 디바이스를 검색합니다. 형식:
+   a. StorSimple 디바이스를 검색합니다. 유형:
       
     `iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>`
     
@@ -285,7 +281,7 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
 
     이전 출력에서 StorSimple 디바이스 `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`의 IQN을 복사합니다.
 
-   b. 대상 IQN을 사용하여 디바이스에 연결합니다. StorSimple 디바이스는 여기서 iSCSI 대상입니다. 형식:
+   b. 대상 IQN을 사용하여 디바이스에 연결합니다. StorSimple 디바이스는 여기서 iSCSI 대상입니다. 유형:
 
       `iscsiadm -m node --login -T <IQN of iSCSI target>`
 
@@ -306,7 +302,7 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
 
 1. 볼륨은 StorSimple 디바이스에서 CentOS 서버에 노출됩니다. 자세한 내용은 StorSimple 디바이스에서 Azure Portal을 통한 [6단계: 볼륨 만들기](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume)를 참조하세요.
 
-1. 사용 가능한 경로를 확인합니다. 형식:
+1. 사용 가능한 경로를 확인합니다. 유형:
 
     `multipath -l`
 
@@ -426,7 +422,7 @@ dm-3 devnode blacklisted, unmonitored
 자세한 내용은 [다중 경로 문제 해결](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)을 참조 하세요.
 
 ## <a name="list-of-useful-commands"></a>유용한 명령 목록
-| 형식 | 명령 | 설명 |
+| 유형 | 명령 | 설명 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |iSCSI 서비스 시작 |
 | &nbsp; |`service iscsid stop` |iSCSI 서비스 중지 |

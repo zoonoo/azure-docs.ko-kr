@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/26/2020
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484280"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746750"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -63,10 +63,22 @@ HANA에 대 한 저장소 구성을 선택 하는 몇 가지 지침 원칙을 �
 - [SAP 워크 로드에 대 한 Azure Storage 유형을](./planning-guide-storage.md) 기반으로 저장소 유형을 결정 하 고 [디스크 유형을 선택](../../disks-types.md) 합니다.
 - VM의 크기를 조정 하거나 결정할 때 전체 VM i/o 처리량 및 IOPS 제한에 유의 합니다. 전체 VM 저장소 처리량은 [메모리 최적화 가상 머신 크기](../../sizes-memory.md) 문서에 설명 되어 있습니다.
 - 저장소 구성을 결정할 때 **/hana/data** 볼륨 구성을 사용 하 여 VM의 전체 처리량을 미만으로 유지 해 보세요. 저장점을 작성 하는 SAP HANA는 i/o가 적극적으로 실행 될 수 있습니다. 저장 점을 쓸 때 **/hana/data** 볼륨의 최대 처리량 제한을 푸시할 수 있습니다. **/Hana/data** 볼륨을 작성 하는 디스크의 처리량이 VM에서 허용 하는 것 보다 높은 경우 저장점 쓰기에서 사용 된 처리량이 다시 실행 로그 쓰기의 처리량 요구를 방해 하는 상황이 발생할 수 있습니다. 응용 프로그램 처리량에 영향을 줄 수 있는 상황
-- Azure premium storage를 사용 하는 경우 가장 저렴 한 구성은 논리 볼륨 관리자를 사용 하 여 **/hana/data** 및 **/hana/log** 볼륨을 빌드하는 스트라이프 집합을 빌드하는 것입니다.
+
 
 > [!IMPORTANT]
 > 저장소 구성에 대 한 제안 사항은부터 시작 하기 위한 지침을 의미 합니다. 워크 로드를 실행 하 고 저장소 사용률 패턴을 분석 하면 제공 된 모든 저장소 대역폭 또는 IOPS를 활용 하지 않는 것을 알 수 있습니다. 저장소에 대해 다운 크기 조정을 고려할 수 있습니다. 반대로, 워크 로드에는 이러한 구성으로 제안 된 것 보다 더 많은 저장소 처리량이 필요할 수 있습니다. 따라서 용량, IOPS 또는 처리량을 더 많이 배포 해야 할 수 있습니다. 필요한 저장소 용량, 저장소 대기 시간, 저장소 처리량 및 IOPS가 필요 하 고 비용이 많이 드는 구성의 필드에서 Azure는 다양 한 기능을 갖춘 다양 한 저장소 유형과 사용자의 HANA 워크 로드에 대 한 올바른 손상에 대 한 적절 한 손상에 대 한 다양 한 가격 점수를 제공 합니다.
+
+
+## <a name="stripe-sets-versus-sap-hana-data-volume-partitioning"></a>스트라이프 집합 및 SAP HANA 데이터 볼륨 분할
+Azure premium storage를 사용 하 여 여러 Azure 디스크에서 **/hana/data** 및/또는 **/hana/log** 볼륨을 스트라이프 하는 경우 최상의 가격/성능 비율에 도달할 수 있습니다. 더 많은 IOPS 또는 처리량을 제공 하는 더 큰 디스크 볼륨을 배포 하는 대신 지금까지 Linux의 일부인 LVM 및 MDADM 볼륨 관리자를 사용 하 여이 작업이 수행 되었습니다. 디스크를 스트라이프 하는 방법은 수십 년 이전 이며 잘 알려져 있습니다. 이러한 스트라이프 볼륨은 필요할 수 있는 IOPS 또는 처리량 기능을 제공 하는 것과 마찬가지로 스트라이프 볼륨을 관리 하는 것과 관련 된 복잡성을 추가 합니다. 특히 볼륨의 용량을 확장 해야 하는 경우입니다. 최소한 **/hana/data** 의 경우 SAP는 여러 Azure 디스크의 스트라이프와 동일한 목표를 달성 하는 대체 방법을 도입 했습니다. SAP HANA 2.0 SPS03 이므로 HANA indexserver는 서로 다른 Azure 디스크에 있는 여러 HANA 데이터 파일에서 i/o 작업을 스트라이프 할 수 있습니다. 다른 Azure 디스크에서 스트라이프 볼륨을 만들고 관리 하는 것은 걱정 하지 않아도 된다는 점입니다. 데이터 볼륨 분할의 SAP HANA 기능에 대 한 자세한 내용은 다음을 참조 하십시오.
+
+- [HANA 관리자 가이드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [SAP HANA-데이터 볼륨 분할에 대 한 블로그](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [SAP Note #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [SAP Note #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
+세부 정보를 읽고이 기능을 활용 하면 볼륨 관리자 기반 스트라이프 세트의 복잡성이 떨어지는 것을 알 수 있습니다. 또한 HANA 데이터 볼륨 분할이 azure premium storage와 같은 Azure 블록 저장소에 대해서만 작동 하는 것을 알 수 있습니다. 이러한 공유에 IOPS 또는 처리량 제한이 적용 되는 경우이 기능을 사용 하 여 NFS 공유를 스트라이프 할 수 있습니다.  
+
 
 ## <a name="linux-io-scheduler-mode"></a>Linux I/O 스케줄러 모드
 Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급 업체 및 SAP를 통한 일반적인 권장 사항은 디스크 볼륨에 대한 I/O 스케줄러 모드를 **mq-deadline** 또는 **kyber** 모드에서 **noop**(non-multiqueue) 또는 **없음**(multiqueue) 모드로 다시 구성하는 것입니다. 자세한 내용은 [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)에서 참조했습니다. 

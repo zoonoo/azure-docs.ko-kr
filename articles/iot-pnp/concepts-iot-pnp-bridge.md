@@ -3,17 +3,17 @@ title: IoT 플러그 앤 플레이 브리지 | Microsoft Docs
 description: IoT 플러그 앤 플레이 브리지 및이 브리지를 사용 하 여 Windows 또는 Linux 게이트웨이에 연결 된 기존 장치를 IoT 플러그 앤 플레이 장치로 연결 하는 방법에 대해 알아봅니다.
 author: usivagna
 ms.author: ugans
-ms.date: 09/22/2020
+ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 34af380d057ad47811e394da1e7a29198e102920
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 05b9df2c5083d24ae6a78212bdd29cd1c740e1d1
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672783"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746495"
 ---
 # <a name="iot-plug-and-play-bridge"></a>IoT 플러그 앤 플레이 브리지
 
@@ -29,14 +29,14 @@ IoT 플러그 앤 플레이 브리지는 어댑터 설명서에 대 한 링크�
 
 |파악|Windows|Linux|
 |---------|---------|---------|
-|[Bluetooth 센서 어댑터가](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/bluetooth_sensor_adapter.md) 검색 된 Bluetooth 저 에너지 (여) 사용 센서를 연결 합니다.       |예|예|
-|[카메라 어댑터](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/camera_adapter.md) 는 Windows 10 장치에서 카메라를 연결 합니다.               |예|예|
+|[Bluetooth 센서 어댑터가](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/bluetooth_sensor_adapter.md) 검색 된 Bluetooth 저 에너지 (여) 사용 센서를 연결 합니다.       |예|아니요|
+|[카메라 어댑터](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/camera_adapter.md) 는 Windows 10 장치에서 카메라를 연결 합니다.               |예|아니요|
 |[Modbus 어댑터](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/modbus_adapters.md) 는 modbus 장치에서 센서를 연결 합니다.              |예|예|
 |[Mqtt 어댑터](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/mqtt_adapter.md) 는 mqtt broker를 사용 하는 장치를 연결 합니다.                  |예|예|
 |[SerialPnP 어댑터](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/serialpnp/Readme.md) 는 직렬 연결을 통해 통신 하는 장치를 연결 합니다.               |예|예|
 |[WINDOWS USB 주변](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/coredevicehealth_adapter.md) 장치는 어댑터 지원 장치 인터페이스 클래스 목록을 사용 하 여 특정 하드웨어 ID가 있는 장치를 연결 합니다.  |예|해당 사항 없음|
 
-IoT 플러그 앤 플레이 브리지를 확장 하 여 추가 장치 프로토콜을 지 원하는 방법을 알아보려면 [iot 플러그 앤 플레이 브리지 빌드, 배포 및 확장](howto-build-deploy-extend-pnp-bridge.md)을 참조 하세요.
+IoT 플러그 앤 플레이 브리지를 확장 하 여 추가 장치 프로토콜을 지 원하는 방법을 알아보려면 [iot 플러그 앤 플레이 브리지 확장](howto-author-pnp-bridge-adapter.md)을 참조 하세요. IoT 플러그 앤 플레이 브리지를 빌드하고 배포 하는 방법을 알아보려면 [iot 플러그 앤 플레이 브리지 빌드 및 배포](howto-build-deploy-extend-pnp-bridge.md)를 참조 하세요.
 
 ## <a name="iot-plug-and-play-bridge-architecture"></a>IoT 플러그 앤 플레이 브리지 아키텍처
 
@@ -148,6 +148,7 @@ IoT 플러그 앤 플레이 브리지는 다음을 지정 하는 JSON 기반 구
 
 IoT 플러그 앤 플레이 브리지의 아키텍처에 대 한 개요를 만들었으므로 다음 단계는에 대 한 자세한 내용입니다.
 
-- [IoT 플러그 앤 플레이 브리지를 사용 하는 방법](./howto-use-iot-pnp-bridge.md)
-- [IoT 플러그 앤 플레이 브리지를 빌드, 배포 및 확장](howto-build-deploy-extend-pnp-bridge.md)
+- [Linux 또는 Windows에서 실행 되는 IoT 플러그 앤 플레이 bridge 샘플을 IoT Hub에 연결 하는 방법](./howto-use-iot-pnp-bridge.md)
+- [IoT 플러그 앤 플레이 브리지를 빌드하고 배포 합니다.](howto-build-deploy-extend-pnp-bridge.md)
+- [IoT 플러그 앤 플레이 브리지 확장](howto-build-deploy-extend-pnp-bridge.md)
 - [GitHub의 IoT 플러그 앤 플레이 브리지](https://github.com/Azure/iot-plug-and-play-bridge)

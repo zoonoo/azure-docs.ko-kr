@@ -2,18 +2,18 @@
 title: Azure의 FHIR 서비스에 대 한 Faq-FHIR 용 Azure API
 description: Fhir Api 및 버전 지원에 대 한 데이터의 저장소 위치와 같이 FHIR 용 Azure API에 대 한 질문과 대답을 확인 하세요.
 services: healthcare-apis
-author: matjazl
+author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/03/2020
-ms.author: matjazl
-ms.openlocfilehash: bd6f32213a511987c0508dcc954252b2fd4e48f6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 1/21/2021
+ms.author: cavoeg
+ms.openlocfilehash: 4d071af6f72bfe6136296185e65007d2413ed2c4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737594"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746716"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 

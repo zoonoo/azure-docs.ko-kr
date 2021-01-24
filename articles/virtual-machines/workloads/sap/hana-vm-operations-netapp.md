@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2021
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 906879c44a2d7a3248f3d3ac0c9fec7ced7f2a4f
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570085"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746546"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
 
@@ -62,9 +62,15 @@ Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수�
 
 아래 표에서는 단일 LIF의 물리적 대역폭 용량을 초과 하기 때문에 백업을 저장 하기 위해 큰 "표준" 볼륨을 만들고 12tb 보다 큰 "Ultra" 볼륨을 만드는 것이 적합 하다는 것을 보여 줍니다. 
 
-LIF 및 단일 Linux 세션의 최대 처리량은 1.2에서 1.4 g b/초 사이입니다. 
+LIF 및 단일 Linux 세션의 최대 처리량은 1.2에서 1.4 g b/초 사이입니다. /Hana/data에 대 한 더 많은 처리량이 필요한 경우 데이터 볼륨 분할 SAP HANA 사용 하 여 여러 NFS 공유에 있는 여러 HANA 데이터 파일에서 데이터를 다시 로드 하는 동안 또는 HANA 저장점에서 i/o 작업을 스트라이프 할 수 있습니다. HANA 데이터 볼륨 스트라이프에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-| Size  | 처리량 표준 | 처리량 프리미엄 | 처리량 Ultra |
+- [HANA 관리자 가이드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [SAP HANA-데이터 볼륨 분할에 대 한 블로그](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [SAP Note #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [SAP Note #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
+
+| 크기  | 처리량 표준 | 처리량 프리미엄 | 처리량 Ultra |
 | --- | --- | --- | --- |
 | 1TB | 16 m b/초 | 64 m b/초 | 128 m b/초 |
 | 2TB | 32 m b/초 | 128 m b/초 | 256 m b/초 |

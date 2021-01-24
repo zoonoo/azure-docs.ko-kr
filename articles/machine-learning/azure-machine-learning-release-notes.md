@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 38f37ff2fe150a9e1998fbe5e963b8737a6e1533
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 11aa739beeb07c3de056d8a2430b556fcc40b178
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737968"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746733"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -493,8 +493,8 @@ ms.locfileid: "98737968"
     + 이제 사용자는 매개 변수를 사용 하 여 예측 태스크에 대 한 시계열 빈도를 지정할 수 있습니다 `freq` .
   + **azureml-train-automl-runtime**
     + 최상의 모델 설명이 실패할 경우 향상 된 콘솔 출력입니다.
-    + "Backlist_models" 입력 매개 변수를 "blocked_models"로 바꿨습니다.
-      + "Whitelist_models" 입력 매개 변수를 "allowed_models"로 바꿨습니다.
+    + 중요 한 용어를 제거 하기 위해 입력 매개 변수의 이름을 "blocked_models"로 바꿨습니다.
+      + 중요 한 용어를 제거 하기 위해 입력 매개 변수의 이름을 "allowed_models"로 바꿨습니다.
     + 이제 사용자는 매개 변수를 사용 하 여 예측 태스크에 대 한 시계열 빈도를 지정할 수 있습니다 `freq` .
 
   

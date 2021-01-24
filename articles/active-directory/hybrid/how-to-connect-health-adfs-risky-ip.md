@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d74272d77183baa2284265aee298967f641250
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e0b76d2f943f254eb06208e2c190bae4d4088030
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504885"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746073"
 ---
 # <a name="risky-ip-report-public-preview"></a>위험한 IP 보고서 (공개 미리 보기)
 AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사용자가 Microsoft 365 같은 SaaS 응용 프로그램에 액세스할 수 있도록 인증 서비스를 제공할 수 있습니다. 이 경우 악의적 행위자가 AD FS 시스템에 대한 로그인을 시도하여 사용자의 암호를 추측하고 종료하고 애플리케이션 리소스에 액세스할 수 있습니다. Windows Server 2012 R2의 AD FS 이후부터 AD FS에서는 이러한 유형의 공격을 방지하기 위해 엑스트라넷 계정 잠금 기능을 제공합니다. 더 낮은 버전을 사용하는 경우 AD FS 시스템을 Windows Server 2016으로 업그레이드하는 것이 좋습니다. <br />
@@ -38,13 +38,10 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 > 미리 보기에 액세스하려면 전역 관리자 또는 [보안 읽기 권한자](../../role-based-access-control/built-in-roles.md#security-reader) 권한이 필요합니다.  
 >
 
-> [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 *허용 목록* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
-
 ## <a name="what-is-in-the-report"></a>보고서에는 무엇이 있나요?
 실패 한 로그인 활동 클라이언트 IP 주소는 웹 응용 프로그램 프록시 서버를 통해 집계 됩니다. 위험한 IP 보고서의 각 항목에는 지정된 임계값을 초과하는 실패한 AD FS 로그인 활동에 대한 집계 정보가 표시됩니다. 다음 정보를 제공 합니다. ![ 열 머리글이 강조 표시 된 위험한 IP 보고서를 보여 주는 스크린샷](./media/how-to-connect-health-adfs/report4a.png)
 
-| 보고서 항목 | Description |
+| 보고서 항목 | 설명 |
 | ------- | ----------- |
 | 타임스탬프 | 탐지 시간 범위가 시작되면 Azure Portal 현지 시간 기준의 타임스탬프가 표시됩니다.<br /> 모든 일별 이벤트는 자정 UTC 시간에 생성됩니다. <br />시간별 이벤트의 타임스탬프는 시간의 시작 시점으로 반올림됩니다. 첫 번째 활동 시작 시간은 내보낸 파일의 "firstAuditTimestamp"에서 찾을 수 있습니다. |
 | 트리거 형식 | 탐지 시간 범위 형식이 표시됩니다. 집계 트리거 형식은 시간 또는 일 단위입니다. 이렇게 하면 하루 동안에 걸쳐 분산된 시도 횟수에서 자주 발생한 무차별 암호 대입 공격 및 느린 공격을 탐지하는 데 도움이 될 수 있습니다. |
@@ -71,7 +68,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 ## <a name="download-risky-ip-report"></a>위험한 IP 보고서 다운로드 
 **다운로드** 기능을 사용하면 지난 30일 동안의 위험한 IP 주소 목록 전체를 Connect Health 포털에서 내보낼 수 있습니다. 내보내기 결과에는 각 탐지 시간 범위에서 실패한 AD FS 로그인 활동이 모두 포함되므로 내보낸 후에 필터링을 사용자 지정할 수 있습니다. 포털에서 강조 표시된 집계 외에도 내보내기 결과에는 실패한 로그인 활동에 대해 IP 주소별로 자세한 정보가 표시됩니다.
 
-|  보고서 항목  |  Description  | 
+|  보고서 항목  |  설명  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | 탐지 시간 범위 동안 실패한 활동이 시작된 첫 번째 타임스탬프를 표시합니다.  | 
 | lastAuditTimestamp | 탐지 시간 범위 동안 실패한 활동이 종료된 마지막 타임스탬프를 표시합니다.  | 
@@ -86,7 +83,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 
 ![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/report4d.png)
 
-| 임계값 항목 | Description |
+| 임계값 항목 | 설명 |
 | --- | --- |
 | (잘못된 U/P 수 + 엑스트라넷 잠금 수) / 일  | **일** 단위의 잘못된 암호 수와 엑스트라넷 잠금 수의 합계가 이 값을 초과하는 경우 활동을 보고하고 경고 알림을 트리거하는 임계값 설정 기본값은 100입니다.|
 | (잘못된 U/P 수 + 엑스트라넷 잠금 수) / 시간 | **시간** 단위의 잘못된 암호 수와 엑스트라넷 잠금 수의 합계가 이 값을 초과하는 경우 활동을 보고하고 경고 알림을 트리거하는 임계값 설정 기본값은 50입니다.|

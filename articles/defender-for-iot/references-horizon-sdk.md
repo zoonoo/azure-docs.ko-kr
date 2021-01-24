@@ -1,5 +1,5 @@
 ---
-title: 수평 SDK
+title: Horizon SDK
 titleSuffix: Azure Defender for IoT
 description: 수평 SDK를 사용 하면 IoT 용 Azure Defender 개발자는 네트워크 트래픽을 디코딩하는 dissector 플러그 인을 설계 하 여 자동 Defender for IoT 네트워크 분석 프로그램에서 처리할 수 있습니다.
 author: shhazam-ms
@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d6105f65508eff59164246020d9a3f286b68c5a1
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210651"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746022"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>수평 소유 프로토콜 dissector
 
@@ -396,7 +396,7 @@ JSON 구성 파일은로 저장 해야 합니다 `config.json` .
 
 예를 들어, 처음 8 바이트를 *매직 숫자로* 사용 합니다. 온전성에 오류가 발생 하는 경우 온전성 실패 응답이 반환 됩니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 ```C++
   horizon::protocol::ParserResult 
@@ -885,7 +885,7 @@ extern "C" {
 
 예를 들어 TCP를 기반으로 하는 값의 경우 IPv4 계층의 값을 사용할 수 있습니다. 이 계층에서 패킷의 원본 및 대상과 같은 값을 추출할 수 있습니다.
 
-이를 위해 JSON 구성 파일은 속성을 사용 하 여 업데이트 해야 합니다 `whitelist` .
+이를 위해 JSON 구성 파일은 속성을 사용 하 여 업데이트 해야 합니다 `whitelists` .
 
 ## <a name="allow-list-data-mining-fields"></a>허용 목록 (데이터 마이닝) 필드
 
@@ -970,7 +970,7 @@ extern "C" {
 ```
 ## <a name="extract-firmware-data"></a>펌웨어 데이터 추출
 
-펌웨어 정보를 추출 하 고, 인덱스 값을 정의 하 고, 플러그 인 프로토콜에 대 한 펌웨어 경고를 트리거할 수 있습니다. 예제:
+펌웨어 정보를 추출 하 고, 인덱스 값을 정의 하 고, 플러그 인 프로토콜에 대 한 펌웨어 경고를 트리거할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 펌웨어 모델 또는 버전을 추출 합니다. 이 정보를 활용 하 여 CVEs를 식별할 수 있습니다.
 
@@ -1104,9 +1104,9 @@ extern "C" {
 
 장치에서 인벤토리, 데이터 마이닝 및 기타 보고서의 장치에 사용할 수 있는 정보를 향상할 수 있습니다.
 
-- Name
+- 이름
 
-- Type
+- 유형
 
 - Vendor
 

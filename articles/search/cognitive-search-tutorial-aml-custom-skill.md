@@ -1,23 +1,23 @@
 ---
-title: '자습서: Azure Machine Learning을 사용하여 사용자 지정 기술 만들기 및 배포'
+title: '예: Azure Machine Learning을 사용 하 여 사용자 지정 기술 만들기 및 배포'
 titleSuffix: Azure Cognitive Search
-description: 이 자습서에서는 Azure Machine Learning을 사용하여 Azure Cognitive Search의 AI 보강 파이프라인에 대한 사용자 지정 기술을 빌드하고 배포하는 방법을 보여줍니다.
+description: 이 예제에서는 Azure Machine Learning를 사용 하 여 Azure Cognitive Search의 AI 보강 파이프라인에 대 한 사용자 지정 기술을 빌드 및 배포 하는 방법을 보여 줍니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fa961a5a6d3a3b827a082fbac2acc3431ac40949
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
-ms.translationtype: HT
+ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057606"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746830"
 ---
-# <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>자습서: Azure Machine Learning을 사용하여 사용자 지정 기술 빌드 및 배포 
+# <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>예: Azure Machine Learning을 사용 하 여 사용자 지정 기술 빌드 및 배포 
 
-이 자습서에서는 [호텔 리뷰 데이터 세트](https://www.kaggle.com/datafiniti/hotel-reviews)(Creative Commons 라이선스 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)에 따라 배포됨)를 사용하여 Azure Machine Learning을 통해 리뷰에서 양상 기반 감정을 추출하는 [사용자 지정 기술](./cognitive-search-aml-skill.md)을 만듭니다. 이렇게 하면 동일한 리뷰 내에서 긍정적인 감정과 부정적인 감정을 직원, 객실, 로비, 수영장 등의 확인된 엔터티에 올바르게 할당할 수 있습니다.
+이 예제에서는 [호텔 리뷰 데이터 집합](https://www.kaggle.com/datafiniti/hotel-reviews) (Creative Commons LICENSE [CC BY-감정 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)에 배포 됨)을 사용 하 여 리뷰에서 측면 기반을 추출 하는 Azure Machine Learning을 사용 하 여 [사용자 지정 기술을](./cognitive-search-aml-skill.md) 만듭니다. 이렇게 하면 동일한 리뷰 내에서 긍정적인 감정과 부정적인 감정을 직원, 객실, 로비, 수영장 등의 확인된 엔터티에 올바르게 할당할 수 있습니다.
 
 Azure Machine Learning에서 양상 기반 감정 모델을 학습하기 위해 [nlp 레시피 리포지토리](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa)를 사용합니다. 그러면 모델이 Azure Kubernetes 클러스터에 엔드포인트로 배포됩니다. 배포되면 엔드포인트가 Cognitive Search 서비스에서 사용할 수 있도록 AML 기술로 보강 파이프라인에 추가됩니다.
 

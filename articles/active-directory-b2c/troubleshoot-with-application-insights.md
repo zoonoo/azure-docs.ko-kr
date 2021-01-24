@@ -12,12 +12,12 @@ ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1628d78c9d1e4db1f59982d696dcc886646fe604
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 33504487b6175023e18893812c533950305cb1d3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132060"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746005"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Application Insights를 사용 하 여 Azure Active Directory B2C 로그 수집
 
@@ -26,7 +26,7 @@ ms.locfileid: "92132060"
 여기서 설명 하는 자세한 활동 로그는 사용자 지정 정책을 개발 하는 동안에 **만** 사용 하도록 설정 해야 합니다.
 
 > [!WARNING]
-> `DeploymentMode`프로덕션 환경에서를로 설정 하지 마십시오 `Developer` . 로그는 id 공급자와 주고 받는 모든 클레임을 수집 합니다. 개발자가 Application Insights 로그에 수집 된 개인 데이터를 담당 하 고 있다고 가정 합니다. 이러한 자세한 로그는 정책이 **개발자 모드로**배치 된 경우에만 수집 됩니다.
+> `DeploymentMode`프로덕션 환경에서를로 설정 하지 마십시오 `Development` . 로그는 id 공급자와 주고 받는 모든 클레임을 수집 합니다. 개발자가 Application Insights 로그에 수집 된 개인 데이터를 담당 하 고 있다고 가정 합니다. 이러한 자세한 로그는 정책이 **개발자 모드로** 배치 된 경우에만 수집 됩니다.
 
 ## <a name="set-up-application-insights"></a>Application Insights 설정
 
@@ -35,15 +35,15 @@ ms.locfileid: "92132060"
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure 구독을 포함 하는 디렉터리 (Azure AD B2C 디렉터리가 아님)를 선택 합니다.
 1. 왼쪽 탐색 메뉴에서 **리소스 만들기** 를 선택 합니다.
-1. **Application Insights**를 검색 하 고 선택한 다음 **만들기**를 선택 합니다.
-1. 양식을 작성 하 고 **검토 + 만들기**를 선택한 다음 **만들기**를 선택 합니다.
-1. 배포가 완료 되 면 **리소스로 이동**을 선택 합니다.
-1. Application Insights에서 **구성** 메뉴에서 **속성**을 선택 합니다.
+1. **Application Insights** 를 검색 하 고 선택한 다음 **만들기** 를 선택 합니다.
+1. 양식을 작성 하 고 **검토 + 만들기** 를 선택한 다음 **만들기** 를 선택 합니다.
+1. 배포가 완료 되 면 **리소스로 이동** 을 선택 합니다.
+1. Application Insights에서 **구성** 메뉴에서 **속성** 을 선택 합니다.
 1. 이후 단계에서 사용할 **계측 키** 를 기록 합니다.
 
 ## <a name="configure-the-custom-policy"></a>사용자 지정 정책 구성
 
-1. *SignUpOrSignin.xml*와 같은 RP (신뢰 당사자) 파일을 엽니다.
+1. *SignUpOrSignin.xml* 와 같은 RP (신뢰 당사자) 파일을 엽니다.
 1. 다음 속성을 `<TrustFrameworkPolicy>` 요소에 추가합니다.
 
    ```xml
@@ -59,10 +59,10 @@ ms.locfileid: "92132060"
     ```
 
     * `DeveloperMode="true"` 처리 파이프라인을 통해 원격 분석을 신속 하 게 처리 하도록 ApplicationInsights에 지시 합니다. 개발에 좋지만 고용량으로 제한 됩니다. 프로덕션에서을로 설정 `DeveloperMode` `false` 합니다.
-    * `ClientEnabled="true"` 페이지 보기 및 클라이언트 쪽 오류 추적을 위한 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다. Application Insights 포털의 **Browsertimings** 테이블에서 볼 수 있습니다. 을 설정 하 여 `ClientEnabled= "true"` 페이지 스크립트에 Application Insights을 추가 하면 페이지 로드 및 ajax 호출의 타이밍, 브라우저 예외 및 ajax 오류에 대 한 세부 정보, 사용자 및 세션 수가 표시 됩니다. 이 필드는 **선택 사항이**며 기본적으로로 설정 됩니다 `false` .
+    * `ClientEnabled="true"` 페이지 보기 및 클라이언트 쪽 오류 추적을 위한 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다. Application Insights 포털의 **Browsertimings** 테이블에서 볼 수 있습니다. 을 설정 하 여 `ClientEnabled= "true"` 페이지 스크립트에 Application Insights을 추가 하면 페이지 로드 및 ajax 호출의 타이밍, 브라우저 예외 및 ajax 오류에 대 한 세부 정보, 사용자 및 세션 수가 표시 됩니다. 이 필드는 **선택 사항이** 며 기본적으로로 설정 됩니다 `false` .
     * `ServerEnabled="true"`는 Application Insights에 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 보냅니다.
 
-    예를 들면 다음과 같습니다.
+    예:
 
     ```xml
     <TrustFrameworkPolicy
@@ -89,7 +89,7 @@ ms.locfileid: "92132060"
 Application Insights에서 새 로그를 볼 수 있으려면 일반적으로 5 분 이내에 짧은 지연이 발생 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 만든 Application Insights 리소스를 엽니다.
-1. **개요** 페이지에서 **로그**를 선택 합니다.
+1. **개요** 페이지에서 **로그** 를 선택 합니다.
 1. Application Insights에서 새 탭을 엽니다.
 
 로그를 확인 하는 데 사용할 수 있는 쿼리 목록은 다음과 같습니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 7336078d1f04b9dcb6c2f229654f1c36d9b3114b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: bc229974cf14ba364e5e7111dc1d2704e03c3635
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919972"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746801"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -345,7 +345,9 @@ WireData
 
 클라이언트 웹 주소의 **모든** 8진수는 지리적 위치 특성을 조회한 후에 항상 0으로 설정됩니다.
 
-### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>내 계측 키가 내 웹 페이지 원본에 표시됩니다. 
+[Application Insights JAVASCRIPT SDK](app/javascript.md) 는 기본적으로 자동 완성에 개인 데이터를 포함 하지 않습니다. 그러나 응용 프로그램에 사용 되는 일부 개인 데이터는 SDK에서 선택할 수 있습니다 (예:의 전체 이름 `window.title` 또는 XHR URL 쿼리 매개 변수의 계정 id). 사용자 지정 개인 데이터 마스킹의 경우 [원격 분석 이니셜라이저](app/api-filtering-sampling.md#javascript-web-applications)를 추가 합니다.
+
+### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>내 계측 키가 내 웹 페이지 원본에 표시됩니다.
 
 * 모니터링 솔루션에서 일반적으로 사용됩니다.
 * 데이터를 훔치는 데 사용할 수 없습니다.

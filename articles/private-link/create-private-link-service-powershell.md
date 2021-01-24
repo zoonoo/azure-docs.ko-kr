@@ -5,14 +5,14 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/24/2021
 ms.author: allensu
-ms.openlocfilehash: 66ad5aae9f8175d154bb07a8b112dada175a205a
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: e8d76e12dea27338e965d8e77871427e9dfabf23
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610066"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746682"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 링크 서비스 만들기
 
@@ -156,7 +156,11 @@ $ipsettings = @{
 $ipconfig = New-AzPrivateLinkServiceIpConfig @ipsettings
 
 ## Place the load balancer frontend configuration into a variable. ##
-$fe = Get-AzLoadBalancer -Name 'myLoadBalancer' | Get-AzLoadBalancerFrontendIpConfig
+$par = @{
+    Name = 'myLoadBalancer'
+    ResourceGroupName = 'CreatePrivLinkService-rg'
+}
+$fe = Get-AzLoadBalancer @par | Get-AzLoadBalancerFrontendIpConfig
 
 ## Create the private link service for the load balancer. ##
 $privlinksettings = @{
@@ -167,6 +171,129 @@ $privlinksettings = @{
     IpConfiguration = $ipconfig
 }
 New-AzPrivateLinkService @privlinksettings
+
+```
+
+개인 링크 서비스가 만들어지고 트래픽을 수신할 수 있습니다. 트래픽 흐름을 확인 하려면 표준 부하 분산 장치 뒤에 응용 프로그램을 구성 합니다.
+
+## <a name="create-private-endpoint"></a>프라이빗 엔드포인트 만들기
+
+이 섹션에서는 개인 끝점에 개인 링크 서비스를 매핑합니다. 가상 네트워크는 개인 링크 서비스에 대 한 개인 끝점을 포함 합니다. 이 가상 네트워크에는 개인 링크 서비스에 액세스 하는 리소스가 포함 되어 있습니다.
+
+### <a name="create-private-endpoint-virtual-network"></a>개인 끝점 가상 네트워크 만들기
+
+* [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다.
+
+```azurepowershell-interactive
+## Create backend subnet config ##
+$subnet = @{
+    Name = 'mySubnetPE'
+    AddressPrefix = '11.1.0.0/24'
+    PrivateEndpointNetworkPolicies = 'Disabled'
+}
+$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
+
+## Create the virtual network ##
+$net = @{
+    Name = 'myVNetPE'
+    ResourceGroupName = 'CreatePrivLinkService-rg'
+    Location = 'eastus2'
+    AddressPrefix = '11.1.0.0/16'
+    Subnet = $subnetConfig
+}
+$vnetpe = New-AzVirtualNetwork @net
+
+```
+
+### <a name="create-endpoint-and-connection"></a>끝점 및 연결 만들기
+
+* 나중에 사용할 수 있도록 [AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) 를 사용 하 여 초기에 만든 개인 링크 서비스의 구성을 변수에 넣습니다.
+
+* [AzPrivateLinkServiceConnection](/powershell/module/az.network/new-azprivatelinkserviceconnection) 를 사용 하 여 연결 구성을 만듭니다.
+
+* [AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) 를 사용 하 여 끝점을 만듭니다.
+
+
+
+```azurepowershell-interactive
+## Place the private link service configuration into variable. ##
+$par1 = @{
+    Name = 'myPrivateLinkService'
+    ResourceGroupName = 'CreatePrivLinkService-rg'
+}
+$pls = Get-AzPrivateLinkService @par1
+
+## Create the private link configuration and place in variable. ##
+$par2 = @{
+    Name = 'myPrivateLinkConnection'
+    PrivateLinkServiceId = $pls.Id
+}
+$plsConnection = New-AzPrivateLinkServiceConnection @par2
+
+## Place the virtual network into a variable. ##
+$par3 = @{
+    Name = 'myVNetPE'
+    ResourceGroupName = 'CreatePrivLinkService-rg'
+}
+$vnetpe = Get-AzVirtualNetwork @par3
+
+## Create private endpoint ##
+$par4 = @{
+    Name = 'MyPrivateEndpoint'
+    ResourceGroupName = 'CreatePrivLinkService-rg'
+    Location = 'eastus2'
+    Subnet = $vnetpe.subnets[0]
+    PrivateLinkServiceConnection = $plsConnection
+}
+New-AzPrivateEndpoint @par4 -ByManualRequest
+```
+
+### <a name="approve-the-private-endpoint-connection"></a>개인 끝점 연결 승인
+
+이 섹션에서는 이전 단계에서 만든 연결을 승인 합니다.
+
+* [AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnnection) 를 사용 하 여 연결을 승인 합니다.
+
+```azurepowershell-interactive
+## Place the private link service configuration into variable. ##
+$par1 = @{
+    Name = 'myPrivateLinkService'
+    ResourceGroupName = 'CreatePrivLinkService-rg'
+}
+$pls = Get-AzPrivateLinkService @par1
+
+$par2 = @{
+    Name = $pls.PrivateEndpointConnections[0].Name
+    ServiceName = 'myPrivateLinkService'
+    ResourceGroupName = 'CreatePrivLinkService-rg'
+    Description = 'Approved'
+}
+Approve-AzPrivateEndpointConnection @par2
+
+```
+
+### <a name="ip-address-of-private-endpoint"></a>개인 끝점의 IP 주소
+
+이 섹션에서는 부하 분산 장치 및 개인 링크 서비스에 해당 하는 개인 끝점의 IP 주소를 찾을 수 있습니다.
+
+* [AzPrivateEndpoint](/powershell/module/az.network/get-azprivateendpoint) 를 사용 하 여 IP 주소를 검색 합니다.
+
+```azurepowershell-interactive
+## Get private endpoint and the IP address and place in a variable for display. ##
+$par1 = @{
+    Name = 'myPrivateEndpoint'
+    ResourceGroupName = 'CreatePrivLinkService-rg'
+    ExpandResource = 'networkinterfaces'
+}
+$pe = Get-AzPrivateEndpoint @par1
+
+## Display the IP address by expanding the variable. ##
+$pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
+```
+
+```bash
+❯ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
+11.1.0.4
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리

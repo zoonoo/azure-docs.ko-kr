@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934903"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746107"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
 ==================================================
@@ -21,9 +21,6 @@ ms.locfileid: "97934903"
 --------
 
 기본적으로 Azure Application Gateway는 백 엔드 서버를 검색하여 상태를 확인하고 요청을 처리할 준비가 되었는지 여부를 확인합니다. 사용자는 호스트 이름, 검색할 경로 및 정상으로 허용할 상태 코드를 언급하는 사용자 지정 프로브를 만들 수도 있습니다. 각 경우에 백 엔드 서버가 성공적으로 응답하지 않으면 Application Gateway는 서버를 비정상으로 표시하고 요청을 서버로 전달하는 것을 중지합니다. 서버 응답이 성공적으로 시작되면 Application Gateway에서 요청 전달을 다시 시작합니다.
-
-> [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *허용 목록* 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ### <a name="how-to-check-backend-health"></a>백 엔드 상태를 확인하는 방법
 
@@ -245,7 +242,7 @@ Application Gateway에서 신뢰할 수 있는 루트 인증서를 추출하고 
 
 #### <a name="trusted-root-certificate-mismatch"></a>신뢰할 수 있는 루트 인증서 불일치
 
-**메시지:** 백 엔드에서 사용되는 서버 인증서의 루트 인증서가 Application Gateway에 추가된 신뢰할 수 있는 루트 인증서와 일치하지 않습니다. 올바른 루트 인증서를 추가하여 백 엔드를 허용 목록에 추가해야 합니다.
+**메시지:** 백 엔드에서 사용되는 서버 인증서의 루트 인증서가 Application Gateway에 추가된 신뢰할 수 있는 루트 인증서와 일치하지 않습니다. 백 엔드를 allowlist 올바른 루트 인증서를 추가 해야 합니다.
 
 **원인:** Application Gateway v2를 사용하는 엔드투엔드 SSL을 사용하려면 백 엔드 서버의 인증서를 확인하여 서버가 정상 상태인지 확인해야 합니다.
 TLS/SSL 인증서를 신뢰할 수 있도록 하려면 Application Gateway의 신뢰할 수 있는 저장소에 포함된 CA에서 백 엔드 서버의 인증서를 발급해야 합니다. 인증서가 신뢰할 수 있는 CA에서 발급되지 않은 경우(예: 자체 서명된 인증서 사용) 사용자는 발급자의 인증서를 Application Gateway에 업로드해야 합니다.
