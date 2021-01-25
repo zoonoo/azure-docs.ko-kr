@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4a888c3ad771e4a7edbd7110ba584050fe68e810
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b8360a22c815fa28626bb07a1518bd82ba6e3e46
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443792"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753509"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 웹 API: 코드 구성
 
@@ -140,7 +140,7 @@ public class Startup
 
 ### <a name="option-2-call-a-downstream-web-api-other-than-microsoft-graph"></a>옵션 2: Microsoft Graph 이외의 다운스트림 웹 API 호출
 
-Microsoft Graph 이외의 다운스트림 API를 호출 하려면 토큰을 *Microsoft.Identity.Web* `.AddDownstreamWebApi()` 요청 하 고 다운스트림 웹 API를 호출 하는을 제공 합니다.
+Microsoft Graph 이외의 다운스트림 API를 호출 하려면 토큰을  `.AddDownstreamWebApi()` 요청 하 고 다운스트림 웹 API를 호출 하는을 제공 합니다.
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -252,7 +252,7 @@ Python web API는 클라이언트에서 받은 전달자 토큰의 유효성을 
 
 ## <a name="protocol"></a>프로토콜
 
-OBO 프로토콜에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 On flow](./v2-oauth2-on-behalf-of-flow.md)를 참조 하세요.
+OBO 프로토콜에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 For flow](./v2-oauth2-on-behalf-of-flow.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

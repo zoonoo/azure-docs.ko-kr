@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 web API-Microsoft id 플랫폼 | Microsoft
+title: 웹 Api를 호출 하는 web API | Microsoft
+titleSuffix: Microsoft identity platform
 description: Web Api를 호출 하는 web API를 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b8eb737752741dc55da24ad6b605b081053b8a11
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2c69cea7055476bcc4c4a28cea0a0cf8c8f66f88
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443704"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753462"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>웹 api를 호출 하는 web API: API 호출
 

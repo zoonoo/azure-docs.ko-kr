@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 디먼 앱 빌드-Microsoft identity platform | Microsoft
+title: 웹 Api를 호출 하는 디먼 앱 빌드 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 디먼 앱을 빌드하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e63a948260863c93a92e4241044be5e0baf8afca
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45af940382a261f1793583e471871b9cceed0a57
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443265"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753835"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 디먼 애플리케이션
 
@@ -45,7 +46,7 @@ ms.locfileid: "94443265"
 
 > [!IMPORTANT]
 >
-> - 사용자는 디먼 응용 프로그램과 상호 작용할 수 없습니다. 디먼 응용 프로그램에는 고유한 id가 필요 합니다. 이러한 유형의 응용 프로그램은 응용 프로그램 id를 사용 하 고 응용 프로그램 ID, 자격 증명 (암호 또는 인증서) 및 응용 프로그램 ID URI를 Azure AD에 제공 하 여 액세스 토큰을 요청 합니다. 성공적으로 인증 되 면 디먼은 Microsoft id 플랫폼 끝점에서 액세스 토큰 (및 새로 고침 토큰)을 수신 합니다. 이 토큰은 웹 API를 호출 하는 데 사용 되며 필요에 따라 새로 고쳐집니다.
+> - 사용자는 디먼 응용 프로그램과 상호 작용할 수 없습니다. 디먼 응용 프로그램에는 고유한 id가 필요 합니다. 이러한 유형의 응용 프로그램은 응용 프로그램 id를 사용 하 고 응용 프로그램 ID, 자격 증명 (암호 또는 인증서) 및 응용 프로그램 ID URI를 Azure AD에 제공 하 여 액세스 토큰을 요청 합니다. 성공적으로 인증 되 면 디먼은 Microsoft id 플랫폼에서 액세스 토큰 및 새로 고침 토큰을 받습니다. 이 토큰은 웹 API를 호출 하는 데 사용 되며 필요에 따라 새로 고쳐집니다.
 > - 사용자는 디먼 응용 프로그램과 상호 작용할 수 없으므로 증분 동의가 가능 하지 않습니다. 모든 필수 API 권한은 응용 프로그램 등록 시 구성 해야 합니다. 응용 프로그램의 코드는 정적으로 정의 된 사용 권한만 요청 합니다. 이는 디먼 응용 프로그램이 증분 동의를 지원 하지 않는다는 것을 의미 하기도 합니다.
 
 개발자를 위해이 시나리오에 대 한 종단 간 환경에는 다음과 같은 측면이 있습니다.

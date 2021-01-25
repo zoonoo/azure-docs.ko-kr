@@ -1,5 +1,6 @@
 ---
-title: 지원 되는 계정 유형 별 유효성 검사 차이-Microsoft identity platform | Microsoft
+title: 지원 되는 계정 유형 별 유효성 검사 차이 | Microsoft
+titleSuffix: Microsoft identity platform
 description: Microsoft id 플랫폼에 앱을 등록할 때 지원 되는 다른 계정 유형에 대 한 다양 한 속성의 유효성 검사 차이점에 대해 알아봅니다.
 author: SureshJa
 ms.author: sureshja
@@ -10,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: e794e277f6731c7b6e57a4710eea437f65be0340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77521150e73014c5568003597059a9d32f6e80ee
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87336347"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752972"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>지원 되는 계정 유형 별 유효성 검사 차이 (signInAudience)
 
@@ -27,7 +28,7 @@ ms.locfileid: "87336347"
 - *AzureADMultipleOrgs*: 모든 조직 디렉터리의 계정 (다중 테 넌 트)
 - *AzureADandPersonalMicrosoftAccount*: 모든 조직 디렉터리의 계정 (다중 테 넌 트) 및 개인 Microsoft 계정 (예: Skype, Xbox 및 Outlook.com)
 
-등록 된 응용 프로그램의 경우 응용 프로그램의 **인증** 섹션에서 지원 되는 계정 유형 값을 찾을 수 있습니다. 매니페스트의 속성 아래에서 찾을 수도 있습니다 `signInAudience` . **Manifest**
+등록 된 응용 프로그램의 경우 응용 프로그램의 **인증** 섹션에서 지원 되는 계정 유형 값을 찾을 수 있습니다. 매니페스트의 속성 아래에서 찾을 수도 있습니다 `signInAudience` . 
 
 이 속성에 대해 선택 하는 값은 다른 앱 개체 속성에 영향을 미칩니다. 따라서이 속성을 변경 하는 경우 먼저 다른 속성을 변경 해야 할 수 있습니다.
 

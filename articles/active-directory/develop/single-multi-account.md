@@ -12,12 +12,12 @@ ms.date: 09/26/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 89a383aabf3487a0938604bc28ddb06c0541d13e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bea1753c87c11094e78f95a1bbadb02fb0b95e2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80881353"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752983"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>단일 및 여러 계정 공용 클라이언트 앱
 
@@ -118,7 +118,7 @@ if (app.signOut())
 - `getAccount`을 호출 하 여 특정 계정을 가져옵니다.
 - `getAccounts`을 호출 하 여 현재 앱에 알려진 계정 목록을 가져옵니다.
 
-앱은 broker 앱에 알려진 장치에서 모든 Microsoft id 플랫폼 계정을 열거할 수 없습니다. 앱에서 사용 된 계정만 열거할 수 있습니다.  장치에서 제거 된 계정은 이러한 함수에서 반환 되지 않습니다.
+앱은 broker 앱에 알려진 장치의 모든 Microsoft id 플랫폼 계정을 열거할 수 없습니다. 앱에서 사용 된 계정만 열거할 수 있습니다.  장치에서 제거 된 계정은 이러한 함수에서 반환 되지 않습니다.
 
 ### <a name="remove-an-account"></a>계정 제거
 

@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 데스크톱 앱 등록-Microsoft identity platform | Microsoft
+title: 웹 Api를 호출 하는 데스크톱 앱 등록 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 Api (앱 등록)를 호출 하는 데스크톱 앱을 빌드하는 방법 알아보기
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c769fd86f432d135542c1f09b83ea5a01c6ab0a6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 46c8127a93cef8f662930fffd07a2fa3d22b8871
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250607"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753712"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 데스크톱 앱: 앱 등록
 

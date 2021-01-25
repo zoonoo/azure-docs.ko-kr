@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dcb8675350442274418920bb9439b65643f1b046
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
-ms.translationtype: HT
+ms.openlocfilehash: 8b12df62a7080e57e47b52cb79ed8a67e12bd526
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178248"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753098"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>자습서: Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
 이 자습서에서는 OWIN(Open Web Interface for .NET) 미들웨어 및 Microsoft ID 플랫폼을 사용하여 사용자를 로그인하는 ASP.NET MVC 웹앱을 빌드합니다.
 
-이 가이드를 완료하면 애플리케이션이 outlook.com 및 live.com의 좋아요에서 개인 계정의 로그인을 허용할 수 있습니다. 또한 Microsoft ID 플랫폼과 통합된 회사 또는 조직의 회사 및 학교 계정에서 앱에 로그인할 수 있습니다.
+이 가이드를 완료하면 애플리케이션이 outlook.com 및 live.com의 좋아요에서 개인 계정의 로그인을 허용할 수 있습니다. 또한 Microsoft id 플랫폼과 통합 된 회사 또는 조직의 회사 및 학교 계정은 앱에 로그인 할 수 있습니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "98178248"
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed of the Microsoft identity platform and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -406,14 +406,13 @@ Visual Studio에서 애플리케이션을 테스트하려면 F5 키를 눌러 �
 <br/><br/>
 ![Microsoft 계정으로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
-
-Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 사용자가 이 애플리케이션에 액세스하기 위해 Microsoft ID 플랫폼을 사용하여 인증하면 애플리케이션에서 요청한 권한("기본 프로필 보기" 및 "사용자가 액세스 권한을 부여한 데이터에 대한 액세스 유지")에 동의하라는 메시지가 표시됩니다. 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 권한 및 동의
+Microsoft id 플랫폼과 통합 되는 응용 프로그램은 사용자와 관리자에 게 데이터에 액세스할 수 있는 방법을 제어 하는 권한 부여 모델을 따릅니다. 사용자가 Microsoft id 플랫폼을 사용 하 여이 응용 프로그램에 액세스 하면 응용 프로그램에서 요청한 사용 권한에 동의 하 라는 메시지가 표시 됩니다 ("기본 프로필 보기" 및 "액세스 권한을 부여한 데이터에 대 한 액세스 유지"). 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
 
 - 애플리케이션 개발자가 **관리자 동의** 가 필요한 추가 권한을 추가합니다.
 - 또는 사용자가 자신을 대신하여 회사 데이터에 액세스하는 앱에 동의할 수 없는 테넌트가 **엔터프라이즈 애플리케이션 -> 사용자 설정** 에 구성되어 있습니다.
 
-자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](./v2-permissions-and-consent.md)를 참조하세요.
+자세한 내용은 [Microsoft id 플랫폼에서 사용 권한 및 동의](./v2-permissions-and-consent.md)를 참조 하세요.
 
 ### <a name="view-application-results"></a>애플리케이션 결과 보기
 

@@ -13,12 +13,12 @@ ms.date: 09/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8f3fd462a52b035cd5b5447560e5472b41f237fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd0621d607b121f19bc47c717343b8e2e39b04f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653233"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752724"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Microsoft id 플랫폼 UserInfo 끝점
 
@@ -28,7 +28,7 @@ ms.locfileid: "91653233"
 
 에서 Openid connect Connect 검색 문서를 사용 하 여 사용자 정보 끝점을 프로그래밍 방식으로 검색할 수 있습니다 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . `userinfo_endpoint`이 패턴은 필드에 나열 되며이 패턴은 올바른 끝점을 가리키는 데 도움이 되는 클라우드 전체에서 사용할 수 있습니다.  앱에서 사용자 정보 끝점을 하드 코딩 하는 것은 권장 되지 않습니다. 대신 OIDC 검색 문서를 사용 하 여이 끝점을 대신 찾습니다.
 
-Openid connect Connect 사양의 일부로 사용자 정보 끝점은 사용자에 대 한 정보를 얻기 위해 [Oidc 규격 라이브러리](https://openid.net/developers/certified/)  에서 자동으로 호출 되는 경우가 많습니다.  이러한 끝점을 호스팅하지 않고 Microsoft id 플랫폼은 표준 규격이 아니고 일부 라이브러리가 실패 합니다.  [OIDC 표준에서 식별 된 클레임 목록](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) 에서 동의한에 대 한 이름 클레임, 주체 클레임 및 전자 메일을 생성 합니다.  
+Openid connect Connect 사양의 일부로 사용자 정보 끝점은 사용자에 대 한 정보를 얻기 위해 [Oidc 규격 라이브러리](https://openid.net/developers/certified/)  에서 자동으로 호출 되는 경우가 많습니다.  이러한 끝점을 호스팅하지 않고 Microsoft id 플랫폼은 표준을 준수 하지 않으며 일부 라이브러리가 실패 합니다.  [OIDC 표준에서 식별 된 클레임 목록](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) 에서 동의한에 대 한 이름 클레임, 주체 클레임 및 전자 메일을 생성 합니다.  
 
 ## <a name="consider-use-an-id-token-instead"></a>고려 사항: ID 토큰을 대신 사용 합니다.
 
@@ -48,7 +48,7 @@ UserInfo는 Microsoft Graph에 대 한 토큰을 가져올 때 받은 액세스 
 |:--------------------|:---------------------------------------------------------|
 |위임 됨 (회사 또는 학교 계정) | openid connect (필수), 프로필, 전자 메일 |
 |위임 됨 (개인 Microsoft 계정) | openid connect (필수), 프로필, 전자 메일 |
-|애플리케이션 | 적용할 수 없음 |
+|애플리케이션 | 해당 없음 |
 
 > [!TIP]
 > 브라우저에서이 URL을 복사 하 여 [ID 토큰](id-tokens.md) 뿐만 아니라 UserInfo 끝점에 대 한 토큰을 가져온 다음 클라이언트 id 및 리디렉션 URI를 고유한 이름으로 바꿉니다. Openid connect 또는 Graph 범위에 대 한 범위만 요청 하 고 다른 것은 요청 하지 않습니다.  동일한 토큰 요청에서 서로 다른 두 리소스에 대 한 사용 권한을 요청할 수 없기 때문에이는 필수입니다.

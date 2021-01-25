@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 45f2b75be9a0090b883c5cc62a0886366e81a302
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 28c7f2c0a61150b2014f669f37ac84ee3a94aebf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744416"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752159"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Azure Cloud Services 배포를 위한 필수 구성 요소 (확장 지원)
 
@@ -42,12 +42,12 @@ CloudServices           Microsoft.Compute    Registered
 ## <a name="required-service-configuration-cscfg-file-updates"></a>필요한 서비스 구성 (.cscfg) 파일 업데이트
 
 ### <a name="1-virtual-network"></a>1) Virtual Network
-클라우드 서비스 (확장 지원) 배포는 가상 네트워크에 있어야 합니다. [Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) 또는 [ARM 템플릿을](https://docs.microsoft.com/azure/virtual-network/quick-create-template)통해 가상 네트워크를 만들 수 있습니다. 또한 가상 네트워크 및 서브넷은 서비스 구성 (.cscfg)의 섹션 아래에 참조 해야 합니다 `NetworkConfiguration` . 
+클라우드 서비스 (확장 지원) 배포는 가상 네트워크에 있어야 합니다. [Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) 또는 [ARM 템플릿을](https://docs.microsoft.com/azure/virtual-network/quick-create-template)통해 가상 네트워크를 만들 수 있습니다. [NetworkConfiguration](schema-cscfg-networkconfiguration.md) 섹션 아래의 서비스 구성 (.cscfg) 에서도 가상 네트워크 및 서브넷을 참조 해야 합니다. 
 
 클라우드 서비스와 동일한 리소스 그룹에 속한 가상 네트워크의 경우 서비스 구성 (.cscfg) 파일의 가상 네트워크 이름만 참조 해도 충분 합니다. 가상 네트워크와 클라우드 서비스가 서로 다른 두 리소스 그룹에 있는 경우 가상 네트워크의 전체 Azure Resource Manager ID를 서비스 구성 (.cscfg) 파일에 지정 해야 합니다.
  
 #### <a name="virtual-network-located-in-same-resource-group"></a>Virtual Network 동일한 리소스 그룹에 있습니다.
-```json
+```xml
 <VirtualNetworkSite name="<vnet-name>"/> 
 <AddressAssignments> 
 <InstanceAddress roleName="<role-name>"> 
@@ -58,8 +58,8 @@ CloudServices           Microsoft.Compute    Registered
 ```
 
 #### <a name="virtual-network-located-in-different-resource-group"></a>다른 리소스 그룹에 있는 가상 네트워크
-```json
-“/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/> 
+```xml
+<VirtualNetworkSite name="/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>"/> 
 <AddressAssignments> 
 <InstanceAddress roleName="<role-name>"> 
 <Subnets> 

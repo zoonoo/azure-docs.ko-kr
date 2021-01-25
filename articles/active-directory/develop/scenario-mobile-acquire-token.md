@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 946908bf28a50bc8b523c4efd853e8720b115c7b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: c071cb9a8a27964a93e039e4d1536e078730bfc9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063079"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753620"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱에 대 한 토큰 가져오기
 
@@ -28,7 +28,7 @@ ms.locfileid: "98063079"
 
 토큰을 요청 하는 경우 범위를 정의 해야 합니다. 범위는 앱이 액세스할 수 있는 데이터를 결정 합니다.
 
-범위를 정의 하는 가장 쉬운 방법은 원하는 web API를 범위와 결합 하는 것입니다 `App ID URI` `.default` . 이 정의는 앱에서 포털에 설정 된 모든 범위가 필요한 Microsoft id 플랫폼을 나타냅니다.
+범위를 정의 하는 가장 쉬운 방법은 원하는 web API를 범위와 결합 하는 것입니다 `App ID URI` `.default` . 이 정의는 앱이 포털에 설정 된 모든 범위를 필요로 함을 Microsoft id 플랫폼에 알려 줍니다.
 
 ### <a name="android"></a>Android
 ```Java
@@ -243,7 +243,7 @@ Android에서를 사용 하 여 앱을 만들 때 부모 활동을 지정할 수
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-`WithExtraScopeToConsent`사용자가 여러 리소스에 대 한 사전 동의를 제공 하도록 하려는 고급 시나리오에서 한정자를 사용 합니다. MSAL.NET 또는 Microsoft id 플랫폼 2.0에서 일반적으로 사용 되는 증분 동의를 사용 하지 않으려는 경우이 한정자를 사용할 수 있습니다. 자세한 내용은 [처음에 여러 리소스에 대한 사용자 동의 받기](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources)를 참조하세요.
+`WithExtraScopeToConsent`사용자가 여러 리소스에 대 한 사전 동의를 제공 하도록 하려는 고급 시나리오에서 한정자를 사용 합니다. 일반적으로 MSAL.NET 또는 Microsoft id 플랫폼에서 사용 되는 증분 동의를 사용 하지 않으려는 경우이 한정자를 사용할 수 있습니다. 자세한 내용은 [처음에 여러 리소스에 대한 사용자 동의 받기](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources)를 참조하세요.
 
 다음은 코드 예제입니다.
 

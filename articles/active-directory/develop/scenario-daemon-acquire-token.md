@@ -1,5 +1,5 @@
 ---
-title: 웹 API를 호출 하는 토큰 얻기 (디먼 앱)-Microsoft identity platform | Microsoft
+title: 웹 API를 호출 하는 토큰 얻기 (디먼 앱)-Microsoft id 플랫폼 | Microsoft
 description: 웹 Api를 호출 하는 디먼 앱을 빌드하는 방법 알아보기 (토큰 획득)
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9416005c708cafe5adbad2b09ce70c41fae66fd7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 295897be03a7dd8e397e8202ff1cf10e6d59cdfb
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936025"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753869"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>웹 Api를 호출 하는 디먼 앱-토큰 획득
 

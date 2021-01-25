@@ -13,23 +13,23 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812542"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752647"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft ID 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
-Microsoft ID 플랫폼은 [OAuth 2.0 리소스 소유자 암호 자격 증명(ROPC) 권한 부여](https://tools.ietf.org/html/rfc6749#section-4.3)를 지원하므로 애플리케이션에서 암호를 직접 처리하여 사용자 로그인을 실행할 수 있습니다.  이 문서에서는 애플리케이션에서 프로토콜에 대해 직접 프로그래밍을 수행하는 방법을 설명합니다.  가능하다면 [토큰을 획득하고 보안 웹 API를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신, 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하는 것이 좋습니다.  [MSAL을 사용하는 샘플 앱](sample-v2-code.md)도 살펴봅니다.
+Microsoft id 플랫폼은 응용 프로그램이 암호를 직접 처리 하 여 사용자에 게 로그인 할 수 있도록 하는 [OAuth 2.0 리소스 소유자 암호 자격 증명 (ROPC) 부여](https://tools.ietf.org/html/rfc6749#section-4.3)를 지원 합니다.  이 문서에서는 애플리케이션에서 프로토콜에 대해 직접 프로그래밍을 수행하는 방법을 설명합니다.  가능하다면 [토큰을 획득하고 보안 웹 API를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신, 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하는 것이 좋습니다.  [MSAL을 사용하는 샘플 앱](sample-v2-code.md)도 살펴봅니다.
 
 > [!WARNING]
 > Microsoft 권장 사항: ROPC 흐름을 사용하지 _않는_ 것이 좋습니다. 대부분의 시나리오에서는 더 안전한 대체 방법을 사용하며 권장합니다. 이 흐름은 애플리케이션에서 매우 높은 신뢰 수준을 요구하며, 다른 흐름에는 없는 위험을 전달합니다. 보다 안전한 다른 흐름을 사용할 수 없는 경우에만 이 흐름을 사용해야 합니다.
 
 > [!IMPORTANT]
 >
-> * Microsoft ID 플랫폼 엔드포인트는 Azure AD 테넌트의 ROPC만 지원하고 개인 계정은 지원하지 않습니다. 이는 테넌트별 엔드포인트(`https://login.microsoftonline.com/{TenantId_or_Name}`) 또는 `organizations` 엔드포인트를 사용해야 함을 의미합니다.
+> * Microsoft id 플랫폼은 개인 계정이 아닌 Azure AD 테 넌 트 용 ROPC만 지원 합니다. 이는 테넌트별 엔드포인트(`https://login.microsoftonline.com/{TenantId_or_Name}`) 또는 `organizations` 엔드포인트를 사용해야 함을 의미합니다.
 > * Azure AD 테넌트에 초대된 개인 계정은 ROPC를 사용할 수 없습니다.
 > * 암호가 없는 계정은 ROPC를 통해 로그인할 수 없습니다. 이 경우 앱에 다른 흐름을 사용하는 것이 좋습니다.
 > * 사용자가 [MFA(Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)를 사용하여 애플리케이션에 로그인해야 하는 경우, 사용자가 차단됩니다.

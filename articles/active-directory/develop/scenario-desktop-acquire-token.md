@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 040f9fa67617b058138926310706f4bc56c4ff62
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a2048a509bdbe11c948ac8eb2daa6e78013c2fa5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680976"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753788"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -439,7 +439,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 - 이 흐름은 .NET 데스크톱, .NET Core 및 UWP 앱에 대해 사용하도록 설정됩니다.
 
-동의에 대한 자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](./v2-permissions-and-consent.md)를 참조하세요.
+승인에 대 한 자세한 내용은 [Microsoft id 플랫폼 권한 및 동의](./v2-permissions-and-consent.md)를 참조 하세요.
 
 ### <a name="learn-how-to-use-it"></a>사용 방법 알아보기
 

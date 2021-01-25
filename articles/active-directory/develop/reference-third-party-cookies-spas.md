@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: eed4e919684575bb2c63170d91517b661fac4acf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104583"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753960"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>타사 쿠키를 차단하는 Safari 및 다른 브라우저에서 ITP 처리
 
@@ -26,7 +26,7 @@ ms.locfileid: "92104583"
 
 ## <a name="what-is-intelligent-tracking-protection-itp"></a>ITP(Intelligent Tracking Protection)의 정의
 
-Apple Safari에는 [Intelligent Tracking Protection](https://webkit.org/tracking-prevention-policy/)또는 *ITP*라는 개인 정보 보호 기능이 기본적으로 설정되어 있습니다. ITP는 "타사" 쿠키 즉, 여러 도메인을 교차하는 요청에 대한 쿠키를 차단합니다.
+Apple Safari에는 [Intelligent Tracking Protection](https://webkit.org/tracking-prevention-policy/)또는 *ITP* 라는 개인 정보 보호 기능이 기본적으로 설정되어 있습니다. ITP는 "타사" 쿠키 즉, 여러 도메인을 교차하는 요청에 대한 쿠키를 차단합니다.
 
 일반적인 형태의 사용자 추적은 백그라운드에서 타사 사이트에 iframe을 로드하고 쿠키를 사용하여 인터넷을 통해 사용자를 상호 연결함으로써 실행됩니다. 아쉽게도 이 패턴은 단일 페이지 앱(SPA)에서 [암시적 흐름](v2-oauth2-implicit-grant-flow.md)을 구현하는 표준 방법이기도 합니다. 브라우저에서 타사 쿠키를 차단하여 사용자 추적을 방지하는 경우에도 SPA는 손상됩니다.
 
@@ -77,7 +77,7 @@ SPA에는 다음의 두 가지 추가 제한 사항이 있습니다.
 
 브라우저에 새로 고침 토큰을 발급하는 것은 보안 문제로 간주됩니다. 사이트 간 스크립팅(XSS) 공격 또는 손상된 JS 패키지는 새로 고침 토큰을 도용할 수 있으며 만료되거나 해지될 때까지 이 토큰을 원격으로 사용할 수 있습니다. 도용된 새로 고침 토큰의 위험을 최소화하기 위해 24시간 동안만 유효한 토큰이 SPA에 발급됩니다. 24시간 후 앱은 로그인 페이지에 대한 최상위 프레임 방문을 통해 새 인증 코드를 획득해야 합니다.
 
-수명이 제한된 이 새로 고침 토큰 패턴은 보안과 성능이 저하된 UX 간의 균형으로 선택되었습니다. 새로 고침 토큰 또는 타사 쿠키가 없다면 새 토큰 또는 추가 토큰이 필요할 때 ([OAuth 보안 모범 사례 초안](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)에서 권장하는) 인증 코드 흐름은 번거로워집니다. 토큰이 만료될 때마다(Microsoft ID 플랫폼 토큰의 경우에는 대체로 1시간마다) 모든 단일 토큰에 대해 전체 페이지 리디렉션 또는 팝업이 필요합니다.
+수명이 제한된 이 새로 고침 토큰 패턴은 보안과 성능이 저하된 UX 간의 균형으로 선택되었습니다. 새로 고침 토큰 또는 타사 쿠키가 없다면 새 토큰 또는 추가 토큰이 필요할 때 ([OAuth 보안 모범 사례 초안](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)에서 권장하는) 인증 코드 흐름은 번거로워집니다. 토큰이 만료 될 때마다 (일반적으로 Microsoft id 플랫폼 토큰의 경우) 모든 단일 토큰에 대해 전체 페이지 리디렉션 또는 팝업이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,6 @@
 ---
-title: 사용자가 로그인 하는 웹 앱 구성-Microsoft identity platform | Microsoft
+title: 사용자가 로그인 하는 웹 앱 구성 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 사용자를 로그인 하는 웹 앱을 빌드하는 방법 알아보기 (코드 구성)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443656"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753274"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인 하는 웹 앱: 코드 구성
 
@@ -202,7 +203,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 ## <a name="initialization-code"></a>초기화 코드
 
-초기화 코드는 플랫폼에 따라 다릅니다. ASP.NET Core 및 ASP.NET의 경우 로그인 사용자는 Openid connect Connect 미들웨어에 게 위임 됩니다. ASP.NET 또는 ASP.NET Core 템플릿은 Azure Active Directory (Azure AD) v 1.0 끝점에 대 한 웹 응용 프로그램을 생성 합니다. 일부 구성은 v2.0 (Microsoft identity platform) 끝점에 맞게 조정 해야 합니다. Java의 경우 응용 프로그램의 협력을 통해 스프링에 의해 처리 됩니다.
+초기화 코드는 플랫폼에 따라 다릅니다. ASP.NET Core 및 ASP.NET의 경우 로그인 사용자는 Openid connect Connect 미들웨어에 게 위임 됩니다. ASP.NET 또는 ASP.NET Core 템플릿은 Azure Active Directory (Azure AD) v 1.0 끝점에 대 한 웹 응용 프로그램을 생성 합니다. Microsoft id 플랫폼에 맞게 조정 하려면 몇 가지 구성이 필요 합니다. Java의 경우 응용 프로그램의 협력을 통해 스프링에 의해 처리 됩니다.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -262,7 +263,7 @@ Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려�
 - `AddMicrosoftIdentityWebAppAuthentication`확장 메서드는 **Microsoft. Identity. Web** 에 정의 되어 있습니다. 메서드
   - 인증 서비스를 추가 합니다.
   - 구성 파일을 읽는 옵션을 구성 합니다 (여기서는 "AzureAD" 섹션에서).
-  - Openid connect Connect 옵션을 구성 하 여 권한이 Microsoft id 플랫폼 엔드포인트가 되도록 합니다.
+  - Openid connect Connect 옵션을 구성 하 여 권한이 Microsoft id 플랫폼 임을 확인 합니다.
   - 토큰 발급자의 유효성을 검사 합니다.
   - 이름에 해당 하는 클레임이 `preferred_username` ID 토큰의 클레임에서 매핑되는지 확인 합니다.
 
@@ -291,7 +292,7 @@ ASP.NET 웹 앱 및 web Api의 인증과 관련 된 코드는 [App_Start/startup
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
+     // Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
      // `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
      ClientId = clientId,

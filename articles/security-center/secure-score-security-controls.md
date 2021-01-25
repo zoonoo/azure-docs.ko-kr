@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916374"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752217"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -54,7 +54,7 @@ Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으
 
 ### <a name="get-your-secure-score-from-the-portal"></a>포털에서 보안 점수 얻기
 
-Security Center는 포털에서 점수를 두드러지게 표시 합니다. Security Center 개요 페이지의 첫 번째 주 타일입니다. 이 타일을 선택 하면 전용 보안 점수 페이지로 이동 하 여 구독 별로 세분화 된 점수를 볼 수 있습니다. 단일 구독을 선택 하 여 우선 순위가 지정 된 권장 사항의 세부 목록과 구독의 점수를 수정 하 게 될 잠재적 영향을 확인 합니다.
+Security Center는 포털에서 점수를 두드러지게 표시 합니다. Security Center 개요 페이지의 첫 번째 주 타일입니다. 이 타일을 선택 하면 전용 보안 점수 페이지로 이동 하 여 구독 별로 세분화 된 점수를 볼 수 있습니다. 단일 구독을 선택 하 여 우선 순위가 지정 된 권장 사항의 세부 목록과 구독의 점수를 수정 하 게 될 잠재적 영향을 확인 합니다. 
 
 Security Center의 포털 페이지에서 다음 위치에 보안 점수가 표시 됩니다.
 
@@ -62,9 +62,14 @@ Security Center의 포털 페이지에서 다음 위치에 보안 점수가 표�
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Security Center 대시보드의 보안 점수":::
 
-- 전용 **보안 점수** 페이지에서 다음을 수행 합니다.
+- 전용 **보안 점수** 페이지에서 구독 및 관리 그룹에 대 한 보안 점수를 볼 수 있습니다.
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Security Center 보안 점수 페이지의 보안 점수":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Security Center의 보안 점수 페이지에서 구독에 대 한 보안 점수":::
+
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Security Center의 보안 점수 페이지에서 관리 그룹의 보안 점수":::
+
+    > [!NOTE]
+    > 충분 한 권한이 없는 모든 관리 그룹은 해당 점수를 "제한 됨"으로 표시 합니다. 
 
 - **권장 사항** 페이지의 맨 위에:
 
@@ -125,7 +130,7 @@ Pro 계정이 있는 사용자 Power BI 경우 **시간** 에 따른 보안 점�
 - **리소스 요약** -리소스 상태와 관련 하 여 요약 된 데이터를 제공 합니다.
 - **보안 점수 요약** -점수 진행률과 관련 하 여 요약 된 데이터를 제공 합니다. "구독 당 시간에 따른 보안 점수" 차트를 사용 하 여 점수의 변화를 확인 합니다. 점수가 크게 변경 되는 경우 변경 될 수 있는 가능한 변경 내용에 대해서는 "보안 점수에 영향을 줄 수 있는 검색 된 변경 내용" 표를 확인 합니다. 이 테이블에는 권장 사항 중 하나에 대해 보안 상태가 변경 된 리소스, 새로 배포 된 리소스 또는 리소스가 삭제 됩니다.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="시간에 따른 보안 점수를 추적 하 고 변경 내용을 조사 하는 데 필요한 선택적 보안 점수 PowerBI 대시보드":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="시간에 따른 보안 점수를 추적 하 고 변경 내용을 조사 하는 시간에 따른 선택적 보안 점수 Power BI 대시보드":::
 
 
 

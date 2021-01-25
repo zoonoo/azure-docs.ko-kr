@@ -301,12 +301,6 @@
         - name: 샘플 비교
           href: migrate-v-2-v-3-migration-samples.md
           displayName: 'migration, samples'
-        - name: v2와 v3 비교
-          displayName: 'migrate, v2 to v3'
-          href: media-services-v2-vs-v3.md
-        - name: 마이그레이션 지침
-          href: migrate-from-v2-to-v3.md
-          displayName: naming
 - name: 방법 가이드
   items:
     - name: 자산 만들기 및 미디어 업로드

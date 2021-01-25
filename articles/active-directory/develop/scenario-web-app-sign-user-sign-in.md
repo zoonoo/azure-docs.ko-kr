@@ -1,5 +1,6 @@
 ---
-title: 사용자를 로그인/로그 아웃 하는 웹 앱 작성-Microsoft identity platform | Microsoft
+title: 사용자를 로그인/로그 아웃 하는 웹 앱 작성 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 사용자를 로그인/로그 아웃 하는 웹 앱을 빌드하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e7397f6d02d71a6344953b8210b0349b9ee26360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443554"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752998"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>사용자 로그인 및 로그 아웃 하는 웹 앱
 
@@ -213,7 +214,7 @@ def _get_token_from_cache(scope=None):
 웹 앱에서 로그 아웃 하려면 웹 앱의 상태에서 로그인 한 계정에 대 한 정보를 제거 해야 합니다.
 또한 웹 앱은 사용자를 Microsoft id 플랫폼 끝점으로 리디렉션하여 `logout` 로그 아웃 해야 합니다.
 
-웹 앱이 사용자를 끝점으로 리디렉션하는 경우 `logout` 이 끝점은 브라우저에서 사용자의 세션을 지웁니다. 앱이 끝점으로 이동 하지 `logout` 않은 경우 사용자는 자격 증명을 다시 입력 하지 않고 앱에 다시 인증 합니다. 그 이유는 Microsoft id 플랫폼 끝점과의 유효한 단일 로그인 세션이 있기 때문입니다.
+웹 앱이 사용자를 끝점으로 리디렉션하는 경우 `logout` 이 끝점은 브라우저에서 사용자의 세션을 지웁니다. 앱이 끝점으로 이동 하지 `logout` 않은 경우 사용자는 자격 증명을 다시 입력 하지 않고 앱에 다시 인증 합니다. 그 이유는 Microsoft id 플랫폼을 사용 하는 유효한 single sign-on 세션이 있기 때문입니다.
 
 자세히 알아보려면 [Microsoft id 플랫폼 및 Openid connect Connect 프로토콜](v2-protocols-oidc.md) 설명서에서 [로그 아웃 요청 보내기](v2-protocols-oidc.md#send-a-sign-out-request) 섹션을 참조 하세요.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9ffb77db4f7bcd5a07e25085eed17e8972aa9a33
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3a26157949ff6ef69c9c009dfdd40781b47bc761
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683762"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753580"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
@@ -55,7 +55,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> 클라이언트 응용 프로그램은 *웹 API에 대 한* Microsoft id 플랫폼 끝점에 전달자 토큰을 요청 합니다. 웹 API는 토큰을 확인 하 고 포함 된 클레임을 확인 해야 하는 유일한 응용 프로그램입니다. 클라이언트 앱은 토큰의 클레임을 검사 해 서 사용해 서는 안 됩니다.
+> 클라이언트 응용 프로그램은 *웹 API에 대 한* Microsoft id 플랫폼에 전달자 토큰을 요청 합니다. 웹 API는 토큰을 확인 하 고 포함 된 클레임을 확인 해야 하는 유일한 응용 프로그램입니다. 클라이언트 앱은 토큰의 클레임을 검사 해 서 사용해 서는 안 됩니다.
 >
 > 이후에 웹 API에서 토큰을 암호화 해야 할 수도 있습니다. 이 요구 사항은 액세스 토큰을 볼 수 있는 클라이언트 앱에 대 한 액세스를 방지 합니다.
 
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- 현재 ASP.NET Core 템플릿은 조직 또는 조직 내에서 사용자를 로그인 하는 Azure Active Directory (Azure AD) 웹 Api를 만듭니다. 개인 계정으로 사용자를 로그인 하지 않습니다. 그러나 *Startup.cs* 에서 코드 [를 대체 하 여 microsoft id](https://www.nuget.org/packages/Microsoft.Identity.Web) 플랫폼 끝점을 사용 하도록 템플릿을 변경할 수 있습니다.
+ 현재 ASP.NET Core 템플릿은 조직 또는 조직 내에서 사용자를 로그인 하는 Azure Active Directory (Azure AD) 웹 Api를 만듭니다. 개인 계정으로 사용자를 로그인 하지 않습니다. 그러나 *Startup.cs* 에서 코드 [를 대체 하 여 microsoft id](https://www.nuget.org/packages/Microsoft.Identity.Web) 플랫폼을 사용 하도록 템플릿을 변경할 수 있습니다.
 
 ```csharp
 using Microsoft.Identity.Web;

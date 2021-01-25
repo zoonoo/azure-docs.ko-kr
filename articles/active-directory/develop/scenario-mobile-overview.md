@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f60e21f98092df65ef01e68fe9c2e64833a24855
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: a678e8545f761e98abbdf026886afa624f9d2b4e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063215"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753651"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 모바일 애플리케이션
 
@@ -34,7 +34,7 @@ ms.locfileid: "98063215"
 
 ## <a name="overview"></a>개요
 
-모바일 앱에는 개인화 된 원활한 사용자 환경이 필요 합니다.  Microsoft id 플랫폼을 사용 하면 모바일 개발자가 iOS 및 Android 사용자에 대 한 환경을 만들 수 있습니다. 응용 프로그램은 Azure AD (Azure Active Directory) 사용자, 개인 Microsoft 계정 사용자 및 Azure AD B2C 사용자에 게 로그인 할 수 있습니다. 대신 웹 API를 호출 하는 토큰을 가져올 수도 있습니다. 이러한 흐름을 구현 하려면 MSAL (Microsoft 인증 라이브러리)을 사용 합니다. MSAL은 업계 표준 [oauth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 구현 합니다.
+모바일 앱에는 개인화 된 원활한 사용자 환경이 필요 합니다. Microsoft id 플랫폼을 사용 하면 모바일 개발자가 iOS 및 Android 사용자에 대 한 환경을 만들 수 있습니다. 응용 프로그램은 Azure AD (Azure Active Directory) 사용자, 개인 Microsoft 계정 사용자 및 Azure AD B2C 사용자에 게 로그인 할 수 있습니다. 대신 웹 API를 호출 하는 토큰을 가져올 수도 있습니다. 이러한 흐름을 구현 하려면 MSAL (Microsoft 인증 라이브러리)을 사용 합니다. MSAL은 업계 표준 [oauth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 구현 합니다.
 
 ![디먼 앱](./media/scenarios/mobile-app.svg)
 
