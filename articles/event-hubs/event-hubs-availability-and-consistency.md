@@ -2,14 +2,14 @@
 title: 가용성 및 일관성 - Azure Event Hubs | Microsoft Docs
 description: 파티션을 사용하여 Azure Event Hubs에서 가용성 및 일관성의 최대치를 제공하는 방법입니다.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7b97d76f29ee8b7e44373c865baa09ba5ea4dd23
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 5ffa2df992eb0c22aafbbb7436250405998d8073
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631922"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762811"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
 
@@ -22,6 +22,11 @@ Brewer의 정리는 일관성 및 가용성을 다음과 같이 정의합니다.
 * 파티션 허용 오차: 파티션 오류가 발생하는 경우 데이터 처리를 계속하는 데이터 처리 시스템의 기능입니다.
 * 가용성: 실패하지 않은 노드가 오류 또는 시간 제한 없이 적절한 시간 내에 적절한 응답을 반환합니다.
 * 일관성: 읽기는 지정된 클라이언트에 대해 가장 최근의 쓰기를 반환하도록 보장됩니다.
+
+> [!NOTE]
+> **분할** 이라는 용어는 EVENT HUBS 및 CAP 정리의 다양 한 컨텍스트에서 사용 됩니다. 
+> - **Event Hubs** 는 이벤트를 하나 이상의 파티션으로 구성 합니다. 파티션은 독립적 이며 자체 데이터 시퀀스를 포함 하는 경우가 많으므로 종종 서로 다른 속도로 확장 됩니다. 자세한 내용은 [파티션](event-hubs-features.md#partitions)을 참조하세요.
+> - **CAP 정리** 에서 파티션은 분산 시스템의 노드 사이에서 통신을 중단 합니다.
 
 ## <a name="partition-tolerance"></a>파티션 허용 오차
 Event Hubs는 분할된 데이터 모델을 기반으로 빌드됩니다. 설치하는 동안 이벤트 허브의 파티션 수를 구성할 수 있지만 나중에 이 값을 변경할 수 없습니다. Event Hubs에서 파티션을 사용해야 하므로 애플리케이션의 가용성 및 일관성에 대한 결정을 내려야 합니다.

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 01/22/2021
+ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936127"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760623"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>개요: Azure Logic Apps 미리 보기
 
@@ -138,6 +138,8 @@ Azure Logic Apps 미리 보기에는 다음과 같은 많은 최신 기능과 �
 * Azure 및 [Docker 컨테이너](/dotnet/core/docker/introduction)와 같은 다양 한 호스팅 환경에 Visual Studio Code에서 논리 앱 및 해당 워크플로를 직접 게시 하거나 배포 합니다.
 
 * Azure 구독 및 논리 앱 설정에서 지원 되는 경우 [Application Insights](../azure-monitor/app/app-insights-overview.md) 를 사용 하 여 논리 앱에 대 한 진단 로깅 및 추적 기능을 사용 하도록 설정 합니다.
+
+* **논리 앱 (미리 보기)** 리소스의 개별 워크플로에서 사용 하는 관리 되는 연결에 대 한 액세스 키를 다시 생성 합니다. 이 작업의 경우에는 논리 앱 리소스 수준이 아닌 [개별 워크플로 수준에서 **Logic Apps** 리소스에 대해 동일한 단계를 수행](logic-apps-securing-a-logic-app.md#regenerate-access-keys)합니다.
 
 > [!NOTE]
 > 현재 알려진 문제에 대 한 자세한 내용은 [GitHub에서 공개 미리 보기의 알려진 문제 Logic Apps 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.

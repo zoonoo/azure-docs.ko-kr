@@ -7,12 +7,12 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1fb17d56c546511fee291f30b103a5310c8015cc
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 12485e07bc3cad9d420141ecc6ee66763ac010b7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122277"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760771"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>IoT Central 응용 프로그램에 연결 된 장치의 전반적인 상태를 모니터링 합니다.
 
@@ -60,4 +60,4 @@ Azure Portal의 메트릭에 대 한 액세스는 [Azure 역할 기반 액세스
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 응용 프로그램 템플릿을 사용 하는 방법을 배웠으므로 제안 된 다음 단계는 [Azure Portal에서 IoT Central를 관리](howto-manage-iot-central-from-portal.md) 하는 방법을 배우는 것입니다.
+이제 응용 프로그램 템플릿을 사용 하는 방법을 배웠으므로 제안 된 다음 단계는 [Azure Portal에서 IoT Central를 관리](howto-manage-iot-central-from-portal.md)하는 방법을 배우는 것입니다.

@@ -16,21 +16,18 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504392"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762257"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>원활한 Single Sign-on Azure Active Directory: 빠른 시작
 
 ## <a name="deploy-seamless-single-sign-on"></a>Seamless Single Sign-On 배포
 
 Azure AD(Active Directory) Seamless SSO(Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 데스크톱에 있을 때 사용자를 자동으로 서명합니다. Seamless SSO는 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 애플리케이션에 쉽게 액세스할 수 있습니다.
-
-> [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 *허용 목록* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 Seamless SSO를 배포하려면 다음 단계를 수행합니다.
 
@@ -40,7 +37,7 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
 
 * **Azure AD Connect 서버 설정**: 로그인 방법으로 [통과 인증](how-to-connect-pta.md) 을 사용 하는 경우 추가 필수 구성 요소 확인이 필요 하지 않습니다. 로그인 방법으로 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 사용하고 Azure AD Connect와 Azure AD 사이에 방화벽이 있는 경우 다음을 확인합니다.
    - Azure AD Connect 버전 1.1.644.0 이상을 사용합니다. 
-   - 방화벽 또는 프록시에서 허용 하는 경우 포트 443을 통해 **\* msappproxy.net** url에 대해 허용 된 목록에 대 한 연결을 추가 합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다. 이 필수 조건은 해당 기능을 사용하도록 설정한 경우에만 적용할 수 있습니다. 실제 사용자 로그인에서는 필요하지 않습니다.
+   - 방화벽 또는 프록시에서 허용 하는 경우 포트 443을 통해 **\* msappproxy.net** url에 대해 허용 된 목록에 대 한 연결을 추가 합니다. 프록시 구성에 와일드 카드 대신 특정 URL이 필요한 경우 **tenantid.registration.msappproxy.net** 를 구성할 수 있습니다. 여기서 tenantid는 기능을 구성 하는 테 넌 트의 GUID입니다. 조직에서 URL 기반 프록시 예외를 사용할 수 없는 경우에는 매주 업데이트 되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대 한 액세스를 허용할 수 있습니다. 이 필수 조건은 해당 기능을 사용하도록 설정한 경우에만 적용할 수 있습니다. 실제 사용자 로그인에서는 필요하지 않습니다.
 
     >[!NOTE]
     >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 자세한 내용은 [Azure AD Connect 릴리스 정보](./reference-connect-version-history.md)를 참조하세요.

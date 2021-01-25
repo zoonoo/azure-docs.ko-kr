@@ -4,16 +4,16 @@ description: 컨테이너 이미지를 빌드, 푸시 및 배포 하기 위한 �
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: c6c030e05953dc98c82c573704018c3b482d2fea
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 1409d8fc1430cd9bf67bd735d9826a74979d495b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814281"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762971"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>GitHub 작업을 구성하여 컨테이너 인스턴스 만들기
 
-[Github 작업](https://docs.github.com/en/free-pro-team@latest/actions) 은 코드를 저장 하 고 끌어오기 요청 및 문제에 대해 공동으로 작업 하는 것과 동일한 장소에서 소프트웨어 개발 워크플로를 자동화 하는 github의 기능 모음입니다.
+[Github 작업](https://docs.github.com/en/actions) 은 코드를 저장 하 고 끌어오기 요청 및 문제에 대해 공동으로 작업 하는 것과 동일한 장소에서 소프트웨어 개발 워크플로를 자동화 하는 github의 기능 모음입니다.
 
 [Azure Container Instances에 배포를](https://github.com/azure/aci-deploy) 사용 하 여 Azure Container Instances에 대 한 단일 컨테이너의 배포를 자동화 합니다. 이 작업을 사용 하면 [az container create][az-container-create] 명령에 있는 것과 유사한 컨테이너 인스턴스의 속성을 설정할 수 있습니다.
 
@@ -177,7 +177,7 @@ jobs:
 
 ![워크플로 진행률 보기](./media/container-instances-github-action/github-action-progress.png)
 
-워크플로의 각 단계에 대 한 상태 및 결과를 보는 방법에 대 한 자세한 내용은 [워크플로 실행 기록 보기](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/viewing-workflow-run-history) 를 참조 하세요. 워크플로가 완료 되지 않으면 [로그 보기를 참조 하 여 오류를 진단](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)합니다.
+워크플로의 각 단계에 대 한 상태 및 결과를 보는 방법에 대 한 자세한 내용은 [워크플로 실행 기록 보기](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history) 를 참조 하세요. 워크플로가 완료 되지 않으면 [로그 보기를 참조 하 여 오류를 진단](https://docs.github.com/en/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)합니다.
 
 워크플로가 성공적으로 완료 되 면 [az container show][az-container-show] 명령을 실행 하 여 *aci-sampleapp.exe* 라는 컨테이너 인스턴스에 대 한 정보를 가져옵니다. 리소스 그룹의 이름으로 대체 합니다. 
 
@@ -237,7 +237,7 @@ az container app up \
 
 ### <a name="command-progress"></a>명령 진행률
 
-* 메시지가 표시 되 면 github 자격 증명을 제공 하거나 github 계정으로 인증 하는 데 사용 되는 *리포지토리* 및 *사용자* 범위를 포함 하는 github PAT ( [개인용 액세스 토큰](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) )를 제공 합니다. GitHub 자격 증명을 제공 하는 경우이 명령은 사용자를 위해 PAT를 만듭니다. 추가 프롬프트에 따라 워크플로를 구성 합니다.
+* 메시지가 표시 되 면 github 자격 증명을 제공 하거나 github 계정으로 인증 하는 데 사용 되는 *리포지토리* 및 *사용자* 범위를 포함 하는 github PAT ( [개인용 액세스 토큰](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) )를 제공 합니다. GitHub 자격 증명을 제공 하는 경우이 명령은 사용자를 위해 PAT를 만듭니다. 추가 프롬프트에 따라 워크플로를 구성 합니다.
 
 * 이 명령은 워크플로에 대 한 리포지토리 비밀을 만듭니다.
 
@@ -258,7 +258,7 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
-GitHub UI의 각 단계에 대 한 워크플로 상태와 결과를 보려면 [워크플로 실행 기록 보기](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/viewing-workflow-run-history)를 참조 하십시오.
+GitHub UI의 각 단계에 대 한 워크플로 상태와 결과를 보려면 [워크플로 실행 기록 보기](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history)를 참조 하십시오.
 
 ### <a name="validate-workflow"></a>워크플로 유효성 검사
 

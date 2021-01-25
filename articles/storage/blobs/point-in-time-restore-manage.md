@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 01/15/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7bd85c60025475e8208847a12ccc2729743a975a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: f550f96a8bd2e402556089061604654b11d47844
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803921"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762900"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>블록 blob 데이터에 지정 시간 복원 수행
 
@@ -23,7 +23,7 @@ ms.locfileid: "97803921"
 지정 시간 복원에 대 한 자세한 내용은 [블록 blob에 대 한 지정 시간 복원](point-in-time-restore-overview.md)을 참조 하세요.
 
 > [!CAUTION]
-> 지정 시간 복원은 블록 Blob에 대한 작업만 복원하도록 지원합니다. 컨테이너에 대한 작업은 복원할 수 없습니다. 컨테이너 [삭제](/rest/api/storageservices/delete-container) 작업을 호출 하 여 저장소 계정에서 컨테이너를 삭제 하는 경우 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 전체 컨테이너를 삭제 하는 대신 나중에 복원할 수 있는 경우 개별 blob을 삭제 합니다.
+> 지정 시간 복원은 블록 Blob에 대한 작업만 복원하도록 지원합니다. 컨테이너에 대한 작업은 복원할 수 없습니다. 컨테이너 [삭제](/rest/api/storageservices/delete-container) 작업을 호출 하 여 저장소 계정에서 컨테이너를 삭제 하는 경우 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 전체 컨테이너를 삭제 하는 대신 나중에 복원할 수 있는 경우 개별 blob을 삭제 합니다. 또한 실수로 삭제 되지 않도록 보호 하기 위해 컨테이너 및 blob에 대해 일시 삭제를 사용 하도록 설정 하는 것이 좋습니다. 자세한 내용은 [컨테이너에 대 한 일시 삭제 (미리 보기)](soft-delete-container-overview.md) 및 [blob에 대 한 일시 삭제](soft-delete-blob-overview.md)를 참조 하세요.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>지정 시간 복원 활성화 및 구성
 
@@ -52,19 +52,16 @@ Azure Portal를 사용 하 여 지정 시간 복원을 구성 하려면 다음 �
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용 하 여 지정 시간 복원을 구성 하려면 먼저 [Az. Storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈 버전 2.6.0 이상을 설치 합니다. 그런 다음 Enable-AzStorageBlobRestorePolicy 명령을 호출 하 여 저장소 계정에 대 한 지정 시간 복원을 사용 하도록 설정 합니다.
+PowerShell을 사용 하 여 지정 시간 복원을 구성 하려면 먼저 [Az. Storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈 버전 2.6.0 이상을 설치 합니다. 그런 다음 [AzStorageBlobRestorePolicy](/powershell/module/az.storage/enable-azstorageblobrestorepolicy) 명령을 호출 하 여 저장소 계정에 대 한 지정 시간 복원을 사용 하도록 설정 합니다.
 
-다음 예에서는 일시 삭제를 사용 하도록 설정 하 고 일시 삭제 보존 기간을 설정 하 고, 변경 피드 및 버전 관리를 사용 하도록 설정 하 고, 특정 시점 복원을 사용 하도록 설정 합니다.    예제를 실행하는 경우 꺾쇠 괄호의 값을 고유한 값으로 바꿔야 합니다.
+다음 예에서는 일시 삭제를 사용 하도록 설정 하 고 일시 삭제 보존 기간을 설정 하 고, 변경 피드 및 버전 관리를 사용 하도록 설정 하 고, 특정 시점 복원을 사용 하도록 설정 합니다. 예제를 실행하는 경우 꺾쇠 괄호의 값을 고유한 값으로 바꿔야 합니다.
 
 ```powershell
-# Sign in to your Azure account.
-Connect-AzAccount
-
 # Set resource group and account variables.
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 
-# Enable soft delete with a retention of 14 days.
+# Enable blob soft delete with a retention of 14 days.
 Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
@@ -87,11 +84,33 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI를 사용 하 여 지정 시간 복원을 구성 하려면 먼저 Azure CLI 버전 2.2.0 이상을 설치 합니다. 그런 다음 [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) 명령을 호출 하 여 저장소 계정에 대 한 지정 시간 복원 및 기타 필수 데이터 보호 설정을 사용 하도록 설정 합니다.
+
+다음 예에서는 일시 삭제를 사용 하도록 설정 하 고 일시 삭제 보존 기간을 14 일로 설정 하 고, 변경 피드 및 버전 관리를 사용 하도록 설정 하 고, 복원 기간 7 일로 지정 시간 복원을 사용 하도록 설정 합니다. 예제를 실행하는 경우 꺾쇠 괄호의 값을 고유한 값으로 바꿔야 합니다.
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-delete-retention true \
+    --delete-retention-days 14 \
+    --enable-versioning true \
+    --enable-change-feed true \
+    --enable-restore-policy true \
+    --restore-days 7
+```
+
 ---
 
-## <a name="perform-a-restore-operation"></a>복원 작업 수행
+## <a name="choose-a-restore-point"></a>복원 지점 선택
 
-복원 작업을 수행 하는 경우에는 복원 지점을 UTC **날짜/시간** 값으로 지정 해야 합니다. 컨테이너 및 blob는 해당 날짜와 시간에 해당 상태로 복원 됩니다. 복원 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+복원 지점은 데이터가 복원 되는 날짜 및 시간입니다. Azure Storage는 항상 UTC 날짜/시간 값을 복원 지점으로 사용 합니다. 그러나 Azure Portal를 사용 하 여 로컬 시간에 복원 지점을 지정 하 고 해당 날짜/시간 값을 UTC 날짜/시간 값으로 변환 하 여 복원 작업을 수행할 수 있습니다.
+
+PowerShell 또는 Azure CLI를 사용 하 여 복원 작업을 수행 하는 경우 복원 지점을 UTC 날짜/시간 값으로 지정 해야 합니다. UTC 시간 값 대신 로컬 시간 값을 사용 하 여 복원 지점을 지정 하는 경우 복원 작업은 경우에 따라 여전히 예상 대로 작동할 수 있습니다. 예를 들어 현지 시간에서 5 시간을 뺀 시간을 지정 하는 경우 현지 시간 값을 지정 하면 지정한 값이 5 시간 이전인 복원 지점이 발생 합니다. 5 시간 동안 복원 되는 범위의 데이터를 변경 하지 않은 경우에는 지정 된 시간 값에 관계 없이 복원 작업에서 동일한 결과를 생성 합니다. 예기치 않은 결과를 방지 하려면 복원 지점에 UTC 시간을 지정 하는 것이 좋습니다.
+
+## <a name="perform-a-restore-operation"></a>복원 작업 수행
 
 저장소 계정의 모든 컨테이너를 복원 하거나 하나 이상의 컨테이너에서 blob 범위를 복원할 수 있습니다. Blob 범위는 사전순으로로 정의 되며,이는 사전 순서에서 의미가 있습니다. 복원 작업당 최대 10 개의 사전순 범위가 지원 됩니다. 범위의 시작은 포함 이며 범위의 끝은 제외입니다.
 
@@ -128,7 +147,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용 하 여 저장소 계정의 모든 컨테이너와 blob을 복원 하려면 **AzStorageBlobRange** 명령을 호출 합니다. 기본적으로 **AzStorageBlobRange** 명령은 비동기적으로 실행 되며 복원 작업의 상태를 확인 하는 데 사용할 수 있는 **PSBlobRestoreStatus** 형식의 개체를 반환 합니다.
+PowerShell을 사용 하 여 저장소 계정의 모든 컨테이너와 blob을 복원 하려면 **AzStorageBlobRange** 명령을 호출 하 고 복원 지점을 UTC 날짜/시간 값으로 제공 합니다. 기본적으로 **AzStorageBlobRange** 명령은 비동기적으로 실행 되며 복원 작업의 상태를 확인 하는 데 사용할 수 있는 **PSBlobRestoreStatus** 형식의 개체를 반환 합니다.
 
 다음 예제에서는 저장소 계정의 컨테이너를 현재 순간 12 시간 상태로 비동기적으로 복원 하 고 복원 작업의 속성 중 일부를 확인 합니다.
 
@@ -136,7 +155,7 @@ PowerShell을 사용 하 여 저장소 계정의 모든 컨테이너와 blob을 
 # Specify -TimeToRestore as a UTC value
 $restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddHours(-12)
+    -TimeToRestore (Get-Date).ToUniversalTime().AddHours(-12)
 
 # Get the status of the restore operation.
 $restoreOperation.Status
@@ -153,6 +172,22 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -TimeToRestore (Get-Date).AddHours(-12) -WaitForComplete
 ```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI를 사용 하 여 저장소 계정의 모든 컨테이너와 blob을 복원 하려면 [az storage blob restore](/cli/azure/storage/blob#az_storage_blob_restore) 명령을 호출 하 고 복원 지점을 UTC 날짜/시간 값으로 제공 합니다.
+
+다음 예제에서는 저장소 계정의 모든 컨테이너를 지정 된 날짜 및 시간 이전의 12 시간 상태로 비동기적으로 복원 합니다. 복원 작업의 상태를 확인 하려면 [az storage account show](/cli/azure/storage/account#az_storage_account_show)를 호출 합니다.
+
+```azurecli
+az storage blob restore \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --no-wait
+```
+
+**Az storage blob restore** 명령을 동기적으로 실행 하 고 복원 작업이 완료 될 때까지 실행을 차단 하려면 `--no-wait` 매개 변수를 생략 합니다.
 
 ---
 
@@ -244,6 +279,25 @@ $restoreOperation.Parameters.BlobRanges
 ```
 
 복원 작업을 동기적으로 실행 하 고 완료 될 때까지 실행을 차단 하려면 명령에 **-waitforcomplete** 매개 변수를 포함 합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Blob 범위를 복원 하려면 [az storage blob restore](/cli/azure/storage/blob#az_storage_blob_restore) 명령을 호출 하 고 매개 변수에 대 한 사전순의 컨테이너 및 blob 이름을 지정 `--blob-range` 합니다. 여러 범위를 지정 하려면 `--blob-range` 각 고유 범위에 대 한 매개 변수를 제공 합니다.
+
+예를 들어 *container1* 라는 단일 컨테이너에서 blob을 복원 하려면 *container1* 로 시작 하 고 *container2* 로 끝나는 범위를 지정할 수 있습니다. 시작 및 끝 범위에 명명된 컨테이너가 존재할 필요는 없습니다. 범위의 끝은 배타적 이므로 저장소 계정에 *container2* 이라는 컨테이너가 포함 된 경우에도 *container1* 라는 컨테이너가 복원 됩니다.
+
+제거할 컨테이너에서 blob의 하위 집합을 지정 하려면 슬래시 (/)를 사용 하 여 컨테이너 이름을 blob 접두사 패턴과 구분 합니다. 아래에 표시 된 예제에서는 이름이 문자에서로 시작 하는 컨테이너의 blob 범위를 비동기적으로 복원 `d` `f` 합니다.
+
+```azurecli
+az storage blob restore \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --blob-range container1 container2
+    --blob-range container3/d container3/g
+    --no-wait
+```
+
+**Az storage blob restore** 명령을 동기적으로 실행 하 고 복원 작업이 완료 될 때까지 실행을 차단 하려면 `--no-wait` 매개 변수를 생략 합니다.
 
 ---
 

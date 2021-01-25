@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: a4a7b7a4008d5cc4636e2d533c225a618f35af05
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: e43c5fb36c5395e12fd0b9c2c67b787a1137f5d0
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611188"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761982"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>ITSM 커넥터의 문제 해결
 
@@ -43,24 +43,23 @@ ITSMC 대시보드를 사용 하 여 인시던트 및 변경 요청 데이터를
 
 ![Log Analytics 화면을 보여 주는 스크린샷](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## <a name="troubleshoot-itsm-connections"></a>ITSM 연결 문제 해결
-
-- 연결에서 ITSM 시스템에 연결 하지 못하고 연결 메시지를 저장 하는 **동안 오류가** 발생 하는 경우 다음 단계를 수행 합니다.
-   - ServiceNow, Cherwell 및 Provance 연결의 경우:  
-     - 각 연결에 대 한 사용자 이름, 암호, 클라이언트 ID 및 클라이언트 암호를 올바르게 입력 했는지 확인 합니다.  
-     - 해당 ITSM 제품에 연결을 설정 하는 데 충분 한 권한이 있는지 확인 합니다.  
-   - Service Manager 연결의 경우:  
-     - 웹 앱이 성공적으로 배포 되 고 하이브리드 연결이 만들어졌는지 확인 합니다. 온-프레미스 Service Manager 컴퓨터에서 연결이 성공적으로 설정 되었는지 확인 하려면 [하이브리드 연결](./itsmc-connections-scsm.md#configure-the-hybrid-connection)에 대 한 설명서에 설명 된 대로 웹 앱 URL로 이동 합니다.  
-
-- Log Analytics 경고가 발생 했지만 작업 항목이 ITSM 제품에 생성 되지 않은 경우, 구성 항목이 작업 항목에 생성/연결 되지 않거나 기타 정보에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
-   -  ITSMC: 솔루션은 연결, 작업 항목, 컴퓨터 등에 [대 한 요약](itsmc-dashboard.md)을 보여 줍니다. **커넥터 상태** 레이블이 있는 타일을 선택 합니다. 이렇게 하면 관련 쿼리를 사용 하 여 **로그 검색** 으로 이동 합니다. 자세한 내용은의를 사용 하 여 로그 레코드를 살펴보세요 `LogType_S` `ERROR` .
-   테이블에서 메시지에 대 한 세부 정보를 볼 수 [있습니다.](itsmc-dashboard-errors.md)
-   - **로그 검색** 페이지: 쿼리를 사용 하 여 오류 및 관련 정보를 직접 확인 합니다 `*ServiceDeskLog_CL*` .
-
 ## <a name="common-symptoms---how-should-it-be-resolved"></a>일반적인 증상-어떻게 해결할 수 있나요?
 
 아래 목록에는 일반적인 증상과이를 해결 하는 방법이 포함 되어 있습니다.
 
+* **증상**: 연결에서 itsm 시스템에 연결 하지 못하고 연결 메시지를 저장 하는 **동안 오류가 발생** 하는 경우
+
+    **원인**: 원인은 다음 중 하나일 수 있습니다.
+    * 잘못 된 자격 증명
+     * 권한 부족
+     * 웹 앱을 올바르게 배포 해야 합니다.
+
+    **해결 방법**:
+    * ServiceNow, Cherwell 및 Provance 연결의 경우:
+        * 각 연결에 대 한 사용자 이름, 암호, 클라이언트 ID 및 클라이언트 암호를 올바르게 입력 했는지 확인 합니다.  
+        * ServiceNow의 경우 해당 ITSM 제품에 대해 [지정 된](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role)연결을 설정 하는 데 충분 한 권한이 있는지 확인 합니다.
+  * Service Manager 연결의 경우:  
+      * 웹 앱이 성공적으로 배포 되 고 하이브리드 연결이 만들어졌는지 확인 합니다. 온-프레미스 Service Manager 컴퓨터에서 연결이 성공적으로 설정 되었는지 확인 하려면 [하이브리드 연결](./itsmc-connections-scsm.md#configure-the-hybrid-connection)에 대 한 설명서에 설명 된 대로 웹 앱 URL로 이동 합니다.  
 * **증상**: 중복 작업 항목이 생성 됨
 
     **원인**: 원인은 다음 두 가지 옵션 중 하나일 수 있습니다.

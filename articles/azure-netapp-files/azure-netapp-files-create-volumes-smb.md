@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: cd2a293ebcc35d4884211f50783738a502dcc7de
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 48ee05eebd91c60fa2cfecc80898d3be54367269
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854828"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762672"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -74,7 +74,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
     AD 사이트 및 서비스에 대한 [사이트 토폴로지 디자인](/windows-server/identity/ad-ds/plan/designing-the-site-topology)을 참조하세요. 
     
-* [조인 Active Directory](#create-an-active-directory-connection) 창에서 **aes 암호화** 상자를 선택 하 여 SMB 볼륨에 대 한 aes 암호화를 사용 하도록 설정할 수 있습니다. Azure NetApp Files는 DES, Kerberos AES 128 및 Kerberos AES 256 암호화 유형 (최소 보안에서 가장 안전)을 지원 합니다. AES 암호화를 사용 하도록 설정 하는 경우 Active Directory를 조인 하는 데 사용 되는 사용자 자격 증명에 Active Directory에 대해 사용 하도록 설정 된 기능과 일치 하는 가장 높은 해당 계정 옵션을 사용 해야    
+* [조인 Active Directory](#create-an-active-directory-connection) 창에서 **aes 암호화** 상자를 선택 하 여 AD 인증에 대 한 aes 암호화를 사용 하도록 설정할 수 있습니다. Azure NetApp Files는 DES, Kerberos AES 128 및 Kerberos AES 256 암호화 유형 (최소 보안에서 가장 안전)을 지원 합니다. AES 암호화를 사용 하도록 설정 하는 경우 Active Directory를 조인 하는 데 사용 되는 사용자 자격 증명에 Active Directory에 대해 사용 하도록 설정 된 기능과 일치 하는 가장 높은 해당 계정 옵션을 사용 해야    
 
     예를 들어 Active Directory에만 AES-128 기능이 있는 경우 사용자 자격 증명에 대 한 AES-128 계정 옵션을 사용 하도록 설정 해야 합니다. Active Directory에 AES-256 기능이 있는 경우 aes-256 계정 옵션 (AES 128도 지원)을 사용 하도록 설정 해야 합니다. Active Directory에 Kerberos 암호화 기능이 없을 경우 기본적으로 DES를 사용 Azure NetApp Files 합니다.  
 
@@ -178,7 +178,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         기능 등록의 상태를 확인 합니다. 
 
         > [!NOTE]
-        > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+        >  `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
@@ -200,7 +200,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         기능 등록의 상태를 확인 합니다. 
 
         > [!NOTE]
-        > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+        >  `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
@@ -222,7 +222,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         기능 등록의 상태를 확인 합니다. 
 
         > [!NOTE]
-        > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+        >  `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: a53857061110d5a77ac3d166277e7076f4f7f9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b006932aace3149dd94e136e334c1b6e5bfcef
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541376"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762706"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>LUIS 앱의 활성 버전 학습
 
@@ -30,7 +30,7 @@ ms.locfileid: "91541376"
 
 1. **내 앱** 페이지에서 해당 이름을 선택하여 앱에 액세스합니다.
 
-1. 앱의 위쪽 패널에서 **학습**을 선택합니다.
+1. 앱의 위쪽 패널에서 **학습** 을 선택합니다.
 
 1. 교육이 완료 되 면 브라우저 맨 위에 알림이 나타납니다.
 
@@ -40,9 +40,15 @@ ms.locfileid: "91541376"
 
 ## <a name="train-with-all-data"></a>모든 데이터를 사용하여 학습
 
-학습은 음수 샘플링(negative sampling)의 작은 비율을 사용합니다. 작은 부정 샘플링 대신 모든 데이터를 사용 하려면 [API](#version-settings-api-use-of-usealltrainingdata)를 사용 합니다.
+학습은 음수 샘플링(negative sampling)의 작은 비율을 사용합니다. Portal 또는 API를 사용 하 여 사용 가능한 모든 데이터를 대신 사용할 수 있습니다. 
 
-### <a name="version-settings-api-use-of-usealltrainingdata"></a>UseAllTrainingData의 버전 설정 API 사용
+### <a name="using-the-luis-portal"></a>LUIS 포털 사용
+
+[LUIS 포털](https://www.luis.ai/) 에 로그인 하 고 앱을 클릭 합니다. 화면 위쪽에서 **관리** 를 선택한 다음 **설정** 을 선택 하 고 **사용-결정적 학습** 옵션을 사용 하거나 사용 하지 않도록 설정 합니다. 사용 하지 않도록 설정 하면 학습에서 사용 가능한 모든 데이터를 사용 합니다.
+
+![비 결정적 학습을 사용 하거나 사용 하지 않도록 설정 하는 단추](./media/non-determinstic-training.png)
+
+### <a name="using-the-version-settings-api"></a>버전 설정 API 사용
 
 을 true로 설정 하 여 [버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 를 사용 하면 `UseAllTrainingData` 이 기능을 해제할 수 있습니다.
 

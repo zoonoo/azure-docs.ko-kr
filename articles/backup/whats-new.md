@@ -3,12 +3,12 @@ title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 935c2a806ed3b08f19e680bf1522d98a9ad67666
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 5343ec2ae04853492abbaace2432cf94c9fb5a07
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730292"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762370"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -19,20 +19,20 @@ Azure Backup은 Azure에서 데이터의 보호를 향상 시키는 새로운 �
 ## <a name="updates-summary"></a>업데이트 요약
 
 - 2021년 1월
-  - [Azure 디스크 백업 (미리 보기)](disk-backup-overview.md)
-  - [이제 고객이 관리 하는 키를 사용 하 여 미사용 암호화를 일반적으로 사용할 수 있음](encryption-at-rest-with-cmk.md)
+  - [Azure 디스크 백업 (미리 보기)](#azure-disk-backup-in-preview)
+  - [고객 관리 키를 사용 하 여 미사용 암호화 (일반 공급)](#encryption-at-rest-using-customer-managed-keys)
 - 2020년 11월
   - [Azure 파일 공유 (AFS) 백업용 Azure Resource Manager 템플릿](#azure-resource-manager-template-for-afs-backup)
-  - [Azure Vm의 SAP HANA 데이터베이스에 대 한 증분 백업](#incremental-backups-for-sap-hana-databases)
+  - [Azure Vm의 SAP HANA 데이터베이스에 대 한 증분 백업 (미리 보기)](#incremental-backups-for-sap-hana-databases-in-preview)
 - 2020년 9월
-  - [백업 센터](#backup-center)
-  - [Azure Database for PostgreSQL 백업](#backup-azure-database-for-postgresql)
+  - [백업 센터 (미리 보기)](#backup-center-in-preview)
+  - [백업 Azure Database for PostgreSQL (미리 보기)](#backup-azure-database-for-postgresql-in-preview)
   - [선택적 디스크 백업 및 복원](#selective-disk-backup-and-restore)
-  - [Azure Vm의 SQL Server 및 SAP HANA 데이터베이스에 대 한 지역 간 복원](#cross-region-restore-for-sql-server-and-sap-hana)
-  - [최대 32 디스크를 포함 하는 Vm의 백업 지원](#support-for-backup-of-vms-with-up-to-32-disks)
+  - [Azure Vm의 SQL Server 및 SAP HANA 데이터베이스에 대 한 지역 간 복원 (미리 보기)](#cross-region-restore-for-sql-server-and-sap-hana-in-preview)
+  - [최대 32 디스크를 포함 하는 Vm의 백업 지원 (일반 공급)](#support-for-backup-of-vms-with-up-to-32-disks)
   - [Azure Vm의 SQL에 대 한 간소화 된 백업 구성 환경](#simpler-backup-configuration-for-sql-in-azure-vms)
-  - [RHEL Azure Virtual Machines의 백업 SAP HANA](#backup-sap-hana-in-rhel-azure-virtual-machines)
-  - [백업 데이터에 대 한 ZRS (영역 중복 저장소)](#zone-redundant-storage-zrs-for-backup-data)
+  - [RHEL Azure Virtual Machines에서 SAP HANA 백업 (미리 보기)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
+  - [백업 데이터에 대 한 ZRS (영역 중복 저장소) (미리 보기)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Azure Vm의 SQL Server 및 SAP HANA 작업에 대 한 일시 삭제](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
 ## <a name="azure-disk-backup-in-preview"></a>Azure 디스크 백업 (미리 보기)
@@ -53,13 +53,13 @@ Azure Disk Backup은 스냅숏을 정기적으로 만들고 백업 정책을 사
 
 자세한 내용은 [Azure Backup Azure Resource Manager 템플릿](backup-rm-template-samples.md)을 참조 하세요.
 
-## <a name="incremental-backups-for-sap-hana-databases"></a>SAP HANA 데이터베이스에 대 한 증분 백업
+## <a name="incremental-backups-for-sap-hana-databases-in-preview"></a>SAP HANA 데이터베이스에 대 한 증분 백업 (미리 보기)
 
 이제 Azure Backup은 Azure Vm에서 호스트 되는 SAP HANA 데이터베이스에 대 한 증분 백업을 지원 합니다. 이를 통해 SAP HANA 데이터를 보다 빠르고 비용 효율적으로 백업할 수 있습니다.
 
 자세한 내용은 [백업 정책을 만드는 동안 사용할 수 있는 다양 한 옵션](sap-hana-faq-backup-azure-vm.md#policy) 및 [SAP HANA 데이터베이스에 대 한 백업 정책을 만드는 방법](tutorial-backup-sap-hana-db.md#creating-a-backup-policy)을 참조 하세요.
 
-## <a name="backup-center"></a>백업 센터
+## <a name="backup-center-in-preview"></a>백업 센터 (미리 보기)
 
 Azure Backup는 중앙 콘솔에서 전체 백업 공간을 관리 하는 새로운 네이티브 관리 기능을 사용 하도록 설정 했습니다. 백업 센터에서는 Azure의 기본 관리 환경과 일관 된 통합 방식으로 데이터 보호를 대규모로 모니터링, 운영, 관리 및 최적화할 수 있는 기능을 제공 합니다.
 
@@ -67,7 +67,7 @@ Backup Center를 사용 하 여 구독, 위치, 리소스 그룹, 자격 증명 
 
 자세한 내용은 [백업 센터 개요](backup-center-overview.md)를 참조 하세요.
 
-## <a name="backup-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 백업
+## <a name="backup-azure-database-for-postgresql-in-preview"></a>백업 Azure Database for PostgreSQL (미리 보기)
 
 Azure Backup 및 Azure 데이터베이스 서비스는 Azure PostgreSQL (현재 미리 보기로 제공)에 대 한 엔터프라이즈급 백업 솔루션을 구축 하는 데 함께 제공 됩니다. 이제 최대 10 년 동안 백업 보존을 가능 하 게 하는 고객이 제어 하는 백업 정책을 사용 하 여 데이터 보호 및 규정 준수 요구 사항을 충족할 수 있습니다. 이를 통해 개별 데이터베이스 수준에서 백업 및 복원 작업을 관리 하는 세분화 된 제어를 사용할 수 있습니다. 마찬가지로, PostgreSQL 버전 또는 blob 저장소 간에 쉽게 복원할 수 있습니다.
 
@@ -79,7 +79,7 @@ Azure Backup는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든
 
 자세한 내용은 [Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원](selective-disk-backup-restore.md)을 참조 하세요.
 
-## <a name="cross-region-restore-for-sql-server-and-sap-hana"></a>SQL Server 및 SAP HANA에 대 한 지역 간 복원
+## <a name="cross-region-restore-for-sql-server-and-sap-hana-in-preview"></a>SQL Server 및 SAP HANA에 대 한 지역 간 복원 (미리 보기)
 
 지역 간 복원의 도입으로 이제는 보조 지역에서 복원을 시작 하 여 사용자 환경에 대 한 기본 지역에서의 실제 가동 중지 시간 문제를 완화할 수 있습니다. 이렇게 하면 보조 지역은 완전히 고객 제어를 복원 합니다. Azure Backup은 해당 복원에 대해 보조 지역에 복제 된 백업 된 데이터를 사용 합니다.
 
@@ -99,13 +99,13 @@ Azure Backup는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든
 
 자세한 내용은 [VM 창에서 SQL Server 백업](backup-sql-server-vm-from-vm-pane.md)을 참조 하세요.
 
-## <a name="backup-sap-hana-in-rhel-azure-virtual-machines"></a>RHEL Azure virtual machines의 백업 SAP HANA
+## <a name="backup-sap-hana-in-rhel-azure-virtual-machines-in-preview"></a>RHEL Azure virtual machines의 Backup SAP HANA (미리 보기)
 
 Azure Backup은 Azure에 대 한 기본 백업 솔루션으로, SAP에서 온-Int로 인증 됩니다. Azure Backup에서 SAP HANA를 실행 하는 가장 널리 사용 되는 Linux 운영 체제 중 하나인 Red Hat Enterprise Linux (RHEL)에 대 한 지원이 추가 되었습니다.
 
 자세한 내용은 [SAP HANA 데이터베이스 백업 시나리오 지원 매트릭스](sap-hana-backup-support-matrix.md#scenario-support)를 참조 하세요.
 
-## <a name="zone-redundant-storage-zrs-for-backup-data"></a>백업 데이터에 대 한 ZRS (영역 중복 저장소)
+## <a name="zone-redundant-storage-zrs-for-backup-data-in-preview"></a>백업 데이터에 대 한 ZRS (영역 중복 저장소) (미리 보기)
 
 Azure Storage은 다양 한 중복성 옵션을 통해 높은 성능, 고가용성 및 높은 데이터 복원 력을 제공 합니다. Azure Backup를 사용 하면 백업을 LRS (로컬 중복 저장소) 및 GRS (지역 중복 저장소)에 저장 하는 옵션을 사용 하 여 이러한 혜택을 백업 데이터로 확장할 수 있습니다. 이제 ZRS (영역 중복 저장소)에 대 한 추가 지원 기능이 포함 된 추가 내구성 옵션이 있습니다.
 

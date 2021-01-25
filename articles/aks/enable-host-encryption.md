@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 호스트 기반 
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 14ec39272bf2f434aaa57217a90667a62e82901a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6b23bf285d89a5f3285825feef849b3d168ed62f
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183297"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762035"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service)의 호스트 기반 암호화 (미리 보기)
 
@@ -23,37 +23,35 @@ ms.locfileid: "96183297"
 > [!NOTE]
 > 호스트 기반 암호화는 azure [지역][supported-regions] 에서 사용할 수 있으며, azure 관리 디스크의 서버 쪽 암호화와 지원 되는 특정 [VM 크기만][supported-sizes]지원 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - `aks-preview`CLI 확장 v 0.4.55 이상을 설치 했는지 확인 합니다.
-- `EncryptionAtHost`사용 아래에 기능 플래그가 있는지 확인 `Microsoft.Compute` 합니다.
 - `EnableEncryptionAtHostPreview`사용 아래에 기능 플래그가 있는지 확인 `Microsoft.ContainerService` 합니다.
 
+호스트에서 Vm 또는 가상 머신 확장 집합에 대 한 암호화를 사용할 수 있으려면 구독에서 기능을 사용 하도록 설정 해야 합니다. 구독 Id를 사용 하 여에 전자 메일을 보내 encryptionAtHost@microsoft.com 구독에 대해 사용 하도록 설정 된 기능을 가져옵니다.
+
 ### <a name="register-encryptionathost--preview-features"></a>`EncryptionAtHost`미리 보기 기능 등록
+
+> [!IMPORTANT]
+> encryptionAtHost@microsoft계산 리소스에 대해 사용 하도록 설정 된 기능을 얻으려면 구독 id로 .com을 전자 메일로 보내야 합니다. 이러한 리소스에 대해 스스로를 사용 하도록 설정할 수 없습니다. 컨테이너 서비스에서 직접 사용 하도록 설정할 수 있습니다.
 
 호스트 기반 암호화를 사용 하는 AKS 클러스터를 만들려면 `EnableEncryptionAtHostPreview` 구독에서 및 기능 플래그를 사용 하도록 설정 해야 합니다 `EncryptionAtHost` .
 
 `EncryptionAtHost`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 기능 플래그를 등록 합니다.
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
-
 az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
-
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 준비가 되 면 `Microsoft.ContainerService` `Microsoft.Compute` [az provider register][az-provider-register] 명령을 사용 하 여 및 리소스 공급자 등록을 새로 고칩니다.
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-
 az provider register --namespace Microsoft.ContainerService
 ```
 

@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Central에서 디바이스 연결 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Central의 디바이스 연결과 관련된 주요 개념을 소개합니다.
-author: dominicbetts
-ms.author: dobett
-ms.date: 10/22/2020
+author: TheJasonAndrew
+ms.author: v-anjaso@microsoft.com
+ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 90246459663980de25e301817f651e7719e8f380
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a0ba695adb25adb6d339535bb9496630eaec70bb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033184"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762798"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -234,13 +234,18 @@ Azure 장치 Sdk는 장치 코드를 구현 하는 가장 쉬운 방법을 제�
 IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사용됩니다.
 
 - [디바이스-클라우드 메시징](../../iot-hub/iot-hub-devguide-messages-d2c.md)
+- [클라우드-장치 메시징](../../iot-hub/iot-hub-csharp-csharp-c2d.md)
 - [장치 쌍](../../iot-hub/iot-hub-devguide-device-twins.md)
+
+> [!NOTE]
+> 이제 Azure에서
 
 다음 표에는 Azure IoT Central 디바이스 기능이 IoT Hub 기능에 매핑되는 방식이 요약되어 있습니다.
 
 | Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
 | 원격 분석 | 디바이스-클라우드 메시징 |
+| 오프 라인 명령 | 클라우드-디바이스 메시징 |
 | 속성 | 디바이스 쌍 reported 속성 |
 | 속성(쓰기 가능) | 디바이스 쌍 desired 및 reported 속성 |
 | 명령 | 직접 메서드 |

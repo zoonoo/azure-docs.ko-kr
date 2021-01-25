@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 25356e7101293fc27d4107b3a618cfc481aee969
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779586"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762401"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -115,7 +115,7 @@ namespace GetTokenResourceManagerRequests
 
 다음 지침을 사용하여 `{tenant id}`, `{application id}` 및 `{redirect uri}`을 바꿉니다.
 
-1. `{tenant id}`를 사용자가 만든 Azure Active Directory 애플리케이션의 테넌트 ID로 바꿉니다. **앱 등록** 끝점을 클릭 하 여 ID에 액세스할 수 있습니다  ->  **Endpoints**.
+1. `{tenant id}`를 사용자가 만든 Azure Active Directory 애플리케이션의 테넌트 ID로 바꿉니다. **앱 등록** 끝점을 클릭 하 여 ID에 액세스할 수 있습니다  ->  .
 
     ![엔드포인트][api-management-endpoint]
 
@@ -147,7 +147,7 @@ API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니�
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
-여기서
+각 항목이 나타내는 의미는 다음과 같습니다.
 
 -   `subscriptionId` - 백업하려는 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
@@ -177,7 +177,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
-여기서
+각 항목이 나타내는 의미는 다음과 같습니다.
 
 -   `subscriptionId` - 백업을 복원할 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - 백업을 복원할 Azure API Management 서비스를 포함하는 리소스 그룹의 이름입니다.
@@ -221,8 +221,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## <a name="what-is-not-backed-up"></a>백업 되지 않는 항목
 -   분석 보고서를 만드는 데 사용되는 **사용량 현황 데이터** 는 백업에 **포함되지 않습니다**. [Azure API Management REST API][azure api management rest api] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
--   [사용자 지정 도메인 TLS/SSL](configure-custom-domain.md) 인증서
--   고객이 업로드 한 중간 또는 루트 인증서를 포함 하는 [사용자 지정 CA 인증서](api-management-howto-ca-certificates.md)
+-   [사용자 지정 도메인 TLS/SSL](configure-custom-domain.md) 인증서.
+-   고객이 업로드 한 중간 또는 루트 인증서를 포함 하는 [사용자 지정 CA 인증서](api-management-howto-ca-certificates.md).
 -   [가상 네트워크](api-management-using-with-vnet.md) 통합 설정
 -   [관리 id](api-management-howto-use-managed-service-identity.md) 구성.
 -   [Azure Monitor 진단](api-management-howto-use-azure-monitor.md) 구성.

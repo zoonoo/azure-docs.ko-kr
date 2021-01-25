@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 01/21/2021
 ms.author: alkohli
-ms.openlocfilehash: f668136713024ba57d72bf5a457cd249742a3b11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09325289dd5cb83bfc26dd26b266d50b622fe098
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742029"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763085"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Azure Stack Edge Pro 문제 해결
 
@@ -26,12 +26,13 @@ ms.locfileid: "91742029"
 > * 진단 실행
 > * 지원 패키지 수집
 > * 로그를 사용하여 문제 해결
+> * IoT Edge 오류 문제 해결
 
 ## <a name="run-diagnostics"></a>진단 실행
 
 디바이스 오류를 진단하고 해결하기 위해 진단 테스트를 실행합니다. 진단 테스트를 실행하려면 디바이스의 로컬 웹 UI에서 다음 단계를 수행합니다.
 
-1. 로컬 웹 UI에서 **문제 해결 > 진단 테스트**로 이동합니다. 실행할 테스트를 선택 하 고 **테스트 실행**을 선택 합니다. 그러면 네트워크, 디바이스, 웹 프록시, 시간 또는 클라우드 설정에서 문제가 될만한 내용을 진단하는 테스트가 시작됩니다. 장치에서 테스트를 실행 하 고 있음을 알려 줍니다.
+1. 로컬 웹 UI에서 **문제 해결 > 진단 테스트** 로 이동합니다. 실행할 테스트를 선택 하 고 **테스트 실행** 을 선택 합니다. 그러면 네트워크, 디바이스, 웹 프록시, 시간 또는 클라우드 설정에서 문제가 될만한 내용을 진단하는 테스트가 시작됩니다. 장치에서 테스트를 실행 하 고 있음을 알려 줍니다.
 
     ![테스트 선택](media/azure-stack-edge-troubleshoot/run-diag-1.png)
 
@@ -49,11 +50,11 @@ ms.locfileid: "91742029"
 
 지원 패키지를 수집하려면 다음 단계를 수행합니다.
 
-1. 로컬 웹 UI에서 **문제 해결 > 지원**으로 이동합니다. **지원 패키지 만들기**를 선택 합니다. 시스템이 지원 패키지를 수집하기 시작합니다. 패키지 수집에는 몇 분 정도 걸릴 수 있습니다.
+1. 로컬 웹 UI에서 **문제 해결 > 지원** 으로 이동합니다. **지원 패키지 만들기** 를 선택 합니다. 시스템이 지원 패키지를 수집하기 시작합니다. 패키지 수집에는 몇 분 정도 걸릴 수 있습니다.
 
     ![사용자 추가 클릭](media/azure-stack-edge-troubleshoot/collect-logs-1.png)
 
-2. 지원 패키지를 만든 후 **지원 패키지 다운로드**를 선택 합니다. 압축된 패키지가 선택한 경로에 다운로드됩니다. 패키지의 압축을 풀면 시스템 로그 파일을 볼 수 있습니다.
+2. 지원 패키지를 만든 후 **지원 패키지 다운로드** 를 선택 합니다. 압축된 패키지가 선택한 경로에 다운로드됩니다. 패키지의 압축을 풀면 시스템 로그 파일을 볼 수 있습니다.
 
     ![사용자 추가 2를 클릭 합니다.](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
 
@@ -65,7 +66,7 @@ ms.locfileid: "91742029"
 
       ![공유 콘텐츠 연결 및 확인](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. _Edge Pro 폴더 Microsoft Azure Stack_를 선택 합니다. 이 폴더에는 두 개의 하위 폴더가 있습니다.
+2. _Edge Pro 폴더 Microsoft Azure Stack_ 를 선택 합니다. 이 폴더에는 두 개의 하위 폴더가 있습니다.
 
     * 업로드 오류에 대한 로그 파일이 있는 Upload 폴더
     * 새로 고침 중 오류를 위한 Refresh 폴더
@@ -81,6 +82,10 @@ ms.locfileid: "91742029"
 3. 이 파일에 오류가 표시 되 면 (샘플에 강조 표시 됨) 오류 코드를 적어 둡니다 .이 경우 16001입니다. 다음 오류 참조에서 이 오류 코드에 대한 설명을 찾아봅니다.
 
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
+
+## <a name="troubleshoot-iot-edge-errors"></a>IoT Edge 오류 문제 해결
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

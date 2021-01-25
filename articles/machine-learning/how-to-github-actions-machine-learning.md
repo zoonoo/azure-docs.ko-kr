@@ -10,16 +10,16 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: e7f6066cb7ed5c166d3e2bdc3f895073b05b92b9
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 8bce95b65d9b944505d7f9153159b342e49427cd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605028"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762917"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Azure Machine Learning에서 GitHub Actions 사용
 
-Azure Machine Learning에서 모델을 학습 하려면 [GitHub 작업](https://docs.github.com/en/free-pro-team@latest/actions) 을 시작 하세요. 
+Azure Machine Learning에서 모델을 학습 하려면 [GitHub 작업](https://docs.github.com/en/actions) 을 시작 하세요. 
 
 > [!NOTE]
 > Azure Machine Learning에 대 한 GitHub 작업은 있는 그대로 제공 되며 Microsoft에서 완벽 하 게 지원 되지 않습니다. 특정 작업에 문제가 발생 하는 경우 작업에 대 한 리포지토리에서 문제를 엽니다. 예를 들어 aml-배포 작업에 문제가 발생 하는 경우 리포지토리의 문제를 보고 [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) 합니다.
@@ -39,7 +39,7 @@ Azure Machine Learning에서 모델을 학습 하려면 [GitHub 작업](https://
 |---------|---------|
 |**인증** | 1. 서비스 주체를 정의합니다. <br /> 2. GitHub 비밀을 만듭니다. |
 |**연결** | 1. machine learning 작업 영역에 연결 합니다. <br /> 2. 계산 대상에 연결 합니다. |
-|**Run** | 1. 학습 실행을 제출 합니다. |
+|**실행** | 1. 학습 실행을 제출 합니다. |
 |**배포** | 1. Azure Machine Learning 레지스트리에 모델을 등록 합니다. 1. 모델을 배포합니다. |
 
 ## <a name="create-repository"></a>리포지토리 만들기

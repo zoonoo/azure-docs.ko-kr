@@ -3,12 +3,12 @@ title: Azure Functions 소비 계획 호스팅
 description: Azure 함수 소비 계획 호스팅을 통해 동적으로 크기를 조정 하는 환경에서 코드를 실행할 수 있지만 실행 중에 사용 되는 리소스에 대해서만 비용을 지불 하는 방법에 대해 알아봅니다.
 ms.date: 8/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: ffb556ce48f18702e06fcdb02dda84f41ae5f906
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: d292a70a8dfaa4cebdb99f2bcb5420c8b8ab9cd8
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684694"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760545"
 ---
 # <a name="azure-functions-consumption-plan-hosting"></a>Azure Functions 소비 계획 호스팅
 

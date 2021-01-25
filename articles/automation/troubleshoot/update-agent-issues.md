@@ -4,17 +4,17 @@ description: 이 문서에서는 업데이트 관리 동안 Windows 업데이트
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/16/2020
+ms.date: 01/25/2020
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5c2cc014c87a345507e9c0f99c507d151d59b86
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187135"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762113"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Windows 업데이트 에이전트 문제 해결
 
@@ -27,10 +27,10 @@ ms.locfileid: "86187135"
 > [!NOTE]
 > Azure Portal에 표시되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
 
-이 문서에서는 Azure Portal의 Azure 컴퓨터 및 [오프라인 시나리오](#troubleshoot-offline)의 경우 Azure 이외 컴퓨터에 대해 문제 해결사를 실행하는 방법을 설명합니다. 
+이 문서에서는 Azure Portal의 Azure 컴퓨터 및 [오프라인 시나리오](#troubleshoot-offline)의 경우 Azure 이외 컴퓨터에 대해 문제 해결사를 실행하는 방법을 설명합니다.
 
 > [!NOTE]
-> 이제 문제 해결사 스크립트에 WSUS(Windows Server Update Services)와 자동 다운로드 및 설치 키에 대한 확인이 포함됩니다. 
+> 이제 문제 해결사 스크립트에 WSUS(Windows Server Update Services)와 자동 다운로드 및 설치 키에 대한 확인이 포함됩니다.
 
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
@@ -41,7 +41,7 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 > [!NOTE]
 > Hybrid Runbook Worker의 상태를 확인하려면 VM이 실행 중이어야 합니다. VM이 실행되고 있는 않은 경우 **VM 시작** 단추가 나타납니다.
 
-업데이트 에이전트 문제 해결 페이지에서 **검사 실행**을 선택하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령](../../virtual-machines/windows/run-command.md)을 사용하여 에이전트 종속성을 확인하는 스크립트를 머신에서 실행합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
+업데이트 에이전트 문제 해결 페이지에서 **검사 실행** 을 선택하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령](../../virtual-machines/windows/run-command.md)을 사용하여 에이전트 종속성을 확인하는 스크립트를 머신에서 실행합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
 
 ![업데이트 에이전트 문제 해결 페이지 스크린샷](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -110,7 +110,7 @@ Windows용 Log Analytics 에이전트를 다시 설치하려면 [Windows용 에�
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>오프라인으로 문제 해결
 
-스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리에서 다음 스크립트를 가져옵니다. [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). 이 스크립트를 실행하려면 WMF 4.0 이상 버전이 설치되어 있어야 합니다. 최신 버전의 PowerShell을 다운로드하려면 [다양한 버전의 PowerShell 설치](/powershell/scripting/install/installing-powershell)를 참조하세요.
+스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. GitHub: [UM_Windows_Troubleshooter_Offline.ps1](https://github.com/Azure/updatemanagement/blob/main/UM_Windows_Troubleshooter_Offline.ps1)에서 다음 스크립트를 가져옵니다. 이 스크립트를 실행하려면 WMF 4.0 이상 버전이 설치되어 있어야 합니다. 최신 버전의 PowerShell을 다운로드하려면 [다양한 버전의 PowerShell 설치](/powershell/scripting/install/installing-powershell)를 참조하세요.
 
 이 스트립트의 출력은 다음 예제와 같이 표시됩니다.
 

@@ -5,16 +5,16 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 96a2fde3e510c6eb7146da9c92d93f69111e8c80
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cfc10658463888e43ea1a24dfefd3f8939ec8ef7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206546"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762778"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>모델 변환에 Azure Blob Storage 사용
 
-[모델 변환](model-conversion.md) 서비스는 입력 데이터를 검색 하 고 출력 데이터를 저장할 수 있도록 Azure blob storage에 액세스 해야 합니다. 이 문서에서는 가장 일반적인 단계를 수행 하는 방법을 설명 합니다.
+[모델 변환](model-conversion.md) 서비스는 입력 데이터를 검색 하 고 출력 데이터를 저장할 수 있도록 Azure Blob Storage에 대 한 액세스가 필요 합니다. 이 문서에서는 가장 일반적인 단계를 수행 하는 방법을 설명 합니다.
 
 ## <a name="prepare-azure-storage-accounts"></a>Azure Storage 계정 준비
 

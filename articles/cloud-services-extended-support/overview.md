@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cf7c4b881697b664403d8c817c3b9e48fb48944d
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 969f60cd92e8c1cbe93f1646cccd08c942ad9923
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746767"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762829"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Azure Cloud Services 정보 (확장 지원)
 
@@ -27,9 +27,11 @@ Cloud Services (확장 지원)은 [Azure Cloud Services](https://azure.microso
 
 ## <a name="what-does-not-change"></a>변경 되지 않는 사항 
 - 코드를 만들고, 구성을 정의 하 고, Azure에 배포 합니다. Azure에서 계산 환경을 설정 하 고 코드를 실행 한 다음 모니터링 하 고 유지 관리 합니다.
-- Cloud Services (확장 지원)는 [웹 및 작업자](../cloud-services/cloud-services-choose-me.md)라는 두 가지 유형의 역할도 지원 합니다. 
-- 클라우드 서비스의 세 가지 구성 요소, 서비스 정의 (.csdef), 서비스 구성 (.cscfg) 및 서비스 패키지 (.cspkg)가 전달 되며 해당 [형식](cloud-services-model-and-package.md)에 변경 내용이 없습니다. 
-- 데이터 평면이 동일 하 고 제어 평면이 변경 되기 때문에 런타임 코드를 변경 하지 않아도 됩니다.  
+- Cloud Services (확장 지원)는 [웹 및 작업자](../cloud-services/cloud-services-choose-me.md)라는 두 가지 유형의 역할도 지원 합니다. 웹 및 작업자 역할의 디자인, 아키텍처 또는 구성 요소에는 변경 내용이 없습니다. 
+- 클라우드 서비스의 세 가지 구성 요소, 서비스 정의 (.csdef), 서비스 구성 (.cscfg) 및 서비스 패키지 (.cspkg)는 앞으로 전달 되며 해당 [형식](cloud-services-model-and-package.md)에 변경 내용이 없습니다. 
+- 데이터 평면이 동일 하 고 제어 평면이 변경 되기 때문에 런타임 코드를 변경 하지 않아도 됩니다. 
+- Azure GuestOS 릴리스 및 관련 업데이트는 Cloud Services (클래식)에 정렬 됩니다.
+- 업데이트 도메인과 관련 된 기본 업데이트 프로세스, 업그레이드 진행 방법, 롤백 및 허용 되는 서비스 변경 내용 변경 안 함
 
 ## <a name="changes-in-deployment-model"></a>배포 모델의 변경 내용
 

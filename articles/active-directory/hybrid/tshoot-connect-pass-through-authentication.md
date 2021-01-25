@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/27/2020
+ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251f9a2b075189f19b9e943ff660baaba93ec33b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9a014bd5c8f1edbfb00019b8541cef552271d65b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652044"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762849"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
@@ -157,7 +157,7 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
 
 자세한 분석을 위해 "세션" 로그를 활성화합니다(이벤트 뷰어 애플리케이션 내에서 마우스 오른쪽 단추로 클릭하여 이 옵션을 찾습니다). 정상 작동 중에는 이 로그를 활성화한 상태에서 인증 에이전트를 실행하지 마세요. 문제 해결에만 이 로그를 사용하세요. 로그 내용은 로그를 다시 비활성화한 후에만 볼 수 있습니다.
 
-PTA 에이전트 이벤트 매니페스트는 [여기](https://msazure.visualstudio.com/One/_git/AD-AppProxy?path=%2Fsrc%2FProduct%2FMUC%2FPTADiagnosticsResource%2FPTADiagnosticsResource%2FPTAConnectorDiagnosticsResource%2FPTAConnectorEventManifest.man&_a=contents&version=GBmaster)에서 찾을 수 있습니다.
+
 
 ### <a name="detailed-trace-logs"></a>자세한 추적 로그
 

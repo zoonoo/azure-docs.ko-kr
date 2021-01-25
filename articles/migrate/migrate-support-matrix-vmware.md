@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate의 VMware 평가 지원
 description: Azure Migrate:Server Assessment 도구를 사용하여 VM을 평가하기 위한 VMware에 대한 지원을 알아봅니다.
-author: rashi-ms
-ms.author: rajosh
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 02757477ca4a07f4526df0339291122eda57c9b5
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: ce8a1d77ae74a3946174ef58abf9add2e81eb90b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567427"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762998"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가에 대한 지원 매트릭스 
 
@@ -37,7 +37,7 @@ VMware VM을 Azure로 마이그레이션하려면 [마이그레이션 지원 매
 **VMware** | **세부 정보**
 --- | ---
 **vCenter Server** | 검색 하 고 평가 하려는 컴퓨터는 vCenter Server 버전 5.5, 6.0, 6.5, 6.7 또는 7.0에서 관리 해야 합니다.<br/><br/> 어플라이언스에서 ESXi 호스트 세부 정보를 제공 하 여 VMware Vm을 검색 하는 기능은 현재 지원 되지 않습니다.
-**권한** | 서버 평가에는 검색 및 평가를 위한 vCenter Server 읽기 전용 계정이 필요 합니다.<br/><br/> 응용 프로그램 검색 또는 종속성 시각화를 수행 하려면 계정에 **Virtual Machines**  >  **게스트 작업** 에 대 한 사용 권한이 있어야 합니다.
+**권한** | 서버 평가에는 검색 및 평가를 위한 vCenter Server 읽기 전용 계정이 필요 합니다.<br/><br/> 응용 프로그램 검색 또는 종속성 시각화를 수행 하려면 계정에 **Virtual Machines**  >  **게스트 작업** 에 대해 사용 권한이 있어야 합니다.
 
 ## <a name="vm-requirements"></a>VM 요구 사항
 **VMware** | **세부 정보**

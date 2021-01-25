@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 0c10cc683d8c8c2496ca8fdbd00f0e5065e2db35
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 59eb56dd188edf258c3631cde957c0864454ad76
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97604926"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762665"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>GitHub Actions를 사용하여 App Service에 배포
 
-Github에서 워크플로를 자동화 하 고 [Azure App Service](overview.md) 에 배포 하는 [github 작업](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions) 을 시작 하세요. 
+Github에서 워크플로를 자동화 하 고 [Azure App Service](overview.md) 에 배포 하는 [github 작업](https://docs.github.com/en/actions/learn-github-actions) 을 시작 하세요. 
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 
@@ -63,7 +63,7 @@ App Service Deployment Center를 사용 하 여 GitHub 작업을 신속 하 게 
 
 GitHub 작업에 대해 Azure 앱 서비스를 사용 하 여 인증 하는 권장 방법은 게시 프로필을 사용 하는 것입니다. 서비스 주체를 사용 하 여 인증할 수도 있지만이 프로세스에는 추가 단계가 필요 합니다. 
 
-Azure를 인증 하기 위해 게시 프로필 자격 증명 또는 서비스 주체를 [GitHub 암호로](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) 저장 합니다. 워크플로 내에서 비밀에 액세스 합니다. 
+Azure를 인증 하기 위해 게시 프로필 자격 증명 또는 서비스 주체를 [GitHub 암호로](https://docs.github.com/en/actions/reference/encrypted-secrets) 저장 합니다. 워크플로 내에서 비밀에 액세스 합니다. 
 
 # <a name="publish-profile"></a>[프로필 게시](#tab/applevel)
 
@@ -114,7 +114,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 [앱 수준 자격 증명](#generate-deployment-credentials)을 사용 하려면 다운로드 한 게시 프로필 파일의 내용을 비밀의 값 필드에 붙여넣습니다. 비밀의 이름을로 `AZURE_WEBAPP_PUBLISH_PROFILE` 합니다.
 
-GitHub 워크플로를 구성 하는 경우 `AZURE_WEBAPP_PUBLISH_PROFILE` Azure 웹 앱 배포 작업에서를 사용 합니다. 예:
+GitHub 워크플로를 구성 하는 경우 `AZURE_WEBAPP_PUBLISH_PROFILE` Azure 웹 앱 배포 작업에서를 사용 합니다. 예를 들면 다음과 같습니다.
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -746,7 +746,7 @@ GitHub에서 다양한 리포지토리로 그룹화된 일련의 작업을 찾�
 
 - [Docker 로그인/로그아웃](https://github.com/Azure/docker-login)
 
-- [워크플로를 트리거하는 이벤트](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
+- [워크플로를 트리거하는 이벤트](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
 - [K8s 배포](https://github.com/Azure/k8s-deploy)
 

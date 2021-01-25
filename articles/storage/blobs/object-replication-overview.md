@@ -10,12 +10,12 @@ ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178979"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762873"
 ---
 # <a name="object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제
 
@@ -88,7 +88,9 @@ ms.locfileid: "98178979"
 
 하나 이상의 필터를 복제 규칙의 일부로 지정하여 접두사를 기준으로 블록 Blob을 필터링할 수도 있습니다. 접두사를 지정하면 원본 컨테이너에서 해당 접두사와 일치하는 Blob만 대상 컨테이너에 복사됩니다.
 
-원본 및 대상 컨테이너가 모두 있어야 규칙에서 지정할 수 있습니다. 복제 정책을 만든 후에 대상 컨테이너는 읽기 전용이 됩니다. 대상 컨테이너에 대한 쓰기 시도가 실패하고 오류 코드 409(충돌)가 발생합니다. 그러나 대상 컨테이너의 blob에 대 한 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출 하 여 보관 계층으로 이동할 수 있습니다. 보관 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md#archive-access-tier)을 참조 하세요.
+원본 및 대상 컨테이너가 모두 있어야 규칙에서 지정할 수 있습니다. 복제 정책을 만든 후에는 대상 컨테이너에 대 한 쓰기 작업이 허용 되지 않습니다. 대상 컨테이너에 대한 쓰기 시도가 실패하고 오류 코드 409(충돌)가 발생합니다. 복제 규칙이 구성 된 대상 컨테이너에 쓰려면 해당 컨테이너에 대해 구성 된 규칙을 삭제 하거나 복제 정책을 제거 해야 합니다. 복제 정책이 활성화 되어 있으면 대상 컨테이너에 대 한 읽기 및 삭제 작업이 허용 됩니다.
+
+대상 컨테이너의 blob에 대 한 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출 하 여 보관 계층으로 이동할 수 있습니다. 보관 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md#archive-access-tier)을 참조 하세요.
 
 ## <a name="replication-status"></a>복제 상태
 

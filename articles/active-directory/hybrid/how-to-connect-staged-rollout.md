@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d348b8c2325c7bc2cdaa28356151647a9430684f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247049"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762975"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
@@ -61,7 +61,10 @@ ms.locfileid: "98247049"
 - Azure AD Connect를 사용하여 Azure AD에 프로비저닝된 사용자. 클라우드 전용 사용자에게는 적용되지 않습니다.
 
 - 브라우저 및 *최신 인증* 클라이언트의 사용자 로그인 트래픽. 레거시 인증을 사용하는 애플리케이션 또는 클라우드 서비스는 페더레이션 인증 흐름으로 대체됩니다. 최신 인증을 사용하지 않는 Exchange 온라인 또는 최신 인증을 지원하지 않는 Outlook 2010을 예로 들 수 있습니다.
+
 - 그룹 크기는 현재 사용자 50,000명으로 제한되어 있습니다.  사용자 수가 50,000명을 초과하는 그룹이 있는 경우 해당 그룹을 여러 그룹으로 분할하여 단계적으로 롤아웃하는 것이 좋습니다.
+
+- Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 새로 고침 토큰 획득 Windows 10 버전 1903 이상에 대 한 페더레이션 서버에 사용자의 UPN을 라우팅할 수 있는 경우 Azure AD에서 도메인 접미사를 확인 합니다.
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
@@ -87,6 +90,10 @@ ms.locfileid: "98247049"
 - 단계적 롤아웃에 대한 보안 그룹을 처음 추가하면 UX 시간 제한을 방지하기 위해 사용자 수가 200명으로 제한됩니다. 그룹을 추가한 후에는 필요한 만큼 사용자를 그룹에 추가할 수 있습니다.
 
 - 사용자가 준비 된 롤아웃 상태에서 EnforceCloudPasswordPolicyForPasswordSyncedUsers을 사용 하는 경우 암호 만료 정책은 사용자 지정 옵션 없이 90 일로 설정 됩니다. 
+
+- Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 새로 고침 토큰 획득 1903 이전 버전의 Windows 10 버전 이 시나리오는 로그인 한 사용자가 준비 된 롤아웃 범위에 있더라도 페더레이션 서버의 WS-Trust 끝점으로 대체 됩니다.
+
+- 사용자의 온-프레미스 UPN을 라우팅할 수 없는 경우 모든 버전에 대 한 Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 새로 고침 토큰 획득 이 시나리오는 준비 된 롤아웃 모드에 있는 동안 WS-Trust 끝점으로 대체 되지만, 준비 된 마이그레이션이 완료 되 고 사용자 로그온이 더 이상 페더레이션 서버에 의존 하지 않을 경우 작동이 중지 됩니다.
 
 
 ## <a name="get-started-with-staged-rollout"></a>단계적 롤아웃 시작

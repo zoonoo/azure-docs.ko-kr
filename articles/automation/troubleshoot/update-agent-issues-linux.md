@@ -4,17 +4,17 @@ description: 이 문서에서는 업데이트 관리에서 Linux Windows 업데�
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: f1351b29a0102a374b75d832687d66c3b5572c75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7ac5e8324d9979b17ee93d16b3e007fe7916a8a
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83680863"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762620"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Linux 업데이트 에이전트 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "83680863"
 > [!NOTE]
 > Azure Portal에 표시되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
 
-이 문서에서는 Azure Portal의 Azure 컴퓨터 및 [오프라인 시나리오](#troubleshoot-offline)의 경우 Azure 이외 컴퓨터에 대해 문제 해결사를 실행하는 방법을 설명합니다. 
+이 문서에서는 Azure Portal의 Azure 컴퓨터 및 [오프라인 시나리오](#troubleshoot-offline)의 경우 Azure 이외 컴퓨터에 대해 문제 해결사를 실행하는 방법을 설명합니다.
 
 > [!NOTE]
 > 문제 해결사 스크립트는 현재 프록시 서버(구성된 경우)를 통해 트래픽을 라우팅하지 않습니다.
@@ -39,9 +39,9 @@ Azure 컴퓨터의 경우 포털의 **업데이트 에이전트 준비** 열에�
 ![VM 목록 페이지](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> 검사를 수행하려면 VM이 실행되고 있어야 합니다. VM이 실행되고 있지 않은 경우 **VM 시작**이 나타납니다.
+> 검사를 수행하려면 VM이 실행되고 있어야 합니다. VM이 실행되고 있지 않은 경우 **VM 시작** 이 나타납니다.
 
-업데이트 에이전트 문제 해결 페이지에서 **검사 실행**을 선택하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령](../../virtual-machines/linux/run-command.md)을 사용하여 종속성을 확인하는 스크립트를 컴퓨터에서 실행합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
+업데이트 에이전트 문제 해결 페이지에서 **검사 실행** 을 선택하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령](../../virtual-machines/linux/run-command.md)을 사용하여 종속성을 확인하는 스크립트를 컴퓨터에서 실행합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
 
 ![문제 해결 페이지](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -90,7 +90,6 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 이 검사에서는 Hybrid Runbook Worker가 머신에서 실행되고 있는지 확인합니다. Hybrid Runbook Worker가 제대로 실행되는 경우 아래 예의 프로세스가 있어야 합니다.
 
-
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
 nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
@@ -129,7 +128,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>오프라인으로 문제 해결
 
-이 스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. Python 스크립트 [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6)는 스크립트 센터에서 찾을 수 있습니다. 이 스크립트의 출력 예제는 다음 예제에 표시됩니다.
+이 스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. Python 스크립트 [UM_Linux_Troubleshooter_Offline py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py)는 GitHub에서 찾을 수 있습니다. 이 스크립트의 출력 예제는 다음 예제에 표시됩니다.
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2

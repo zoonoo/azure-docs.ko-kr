@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 12ba8526be68d2cb15e37510e66f959ab65c6e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5118fa22a198ee6871a4cfb455e88d345d6a44e0
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85802290"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760856"
 ---
 # <a name="about-your-application"></a>애플리케이션 정보
 
@@ -29,7 +29,7 @@ IoT Central 응용 프로그램에 대 한 정보를 얻으려면:
 
 1. 상단 메뉴에서 **도움말** 링크를 선택 합니다.
 
-1. **앱 정보**를 선택 합니다.
+1. **앱 정보** 를 선택 합니다.
 
 1. **앱** 정보 페이지에는 응용 프로그램에 대 한 정보가 표시 됩니다.  
 
@@ -40,3 +40,5 @@ IoT Central 응용 프로그램에 대 한 정보를 얻으려면:
 ## <a name="next-steps"></a>다음 단계
 
 이제 IoT Central 응용 프로그램의 버전을 확인 하는 방법을 배웠으므로 제안 된 다음 단계는 관리자를 위한 방법 문서를 계속 탐색 하는 것입니다. [IoT Central 응용 프로그램 설정을 변경](howto-administer.md)합니다.
+
+V2 응용 프로그램이 있는 경우 [v2 IoT Central 응용 프로그램을 V3로 마이그레이션](howto-migrate.md)을 참조 하세요.

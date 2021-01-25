@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 10/07/2020
+ms.date: 01/21/2021
 ms.author: alkohli
-ms.openlocfilehash: d07d9dccb0aa273f79b251f2ffb4a920f3cac2e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0976dd9f3c4d0228ec0f170a755ec13800da435b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447614"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761537"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 문제 해결 
 
@@ -26,7 +26,7 @@ ms.locfileid: "96447614"
 
 디바이스 오류를 진단하고 해결하기 위해 진단 테스트를 실행합니다. 진단 테스트를 실행하려면 디바이스의 로컬 웹 UI에서 다음 단계를 수행합니다.
 
-1. 로컬 웹 UI에서 **문제 해결 > 진단 테스트** 로 이동합니다. 실행할 테스트를 선택 하 고 **테스트 실행** 을 선택 합니다. 그러면 네트워크, 디바이스, 웹 프록시, 시간 또는 클라우드 설정에서 문제가 될만한 내용을 진단하는 테스트가 시작됩니다. 디바이스에서 테스트가 실행 중이라는 알림이 표시됩니다.
+1. 로컬 웹 UI에서 **문제 해결 > 진단 테스트** 로 이동합니다. 실행할 테스트를 선택 하 고 **테스트 실행** 을 선택 합니다. 테스트는 네트워크, 장치, 웹 프록시, 시간 또는 클라우드 설정에 대 한 가능한 문제를 진단 합니다. 디바이스에서 테스트가 실행 중이라는 알림이 표시됩니다.
 
     ![테스트 선택 ](media/azure-stack-edge-gpu-troubleshoot/run-diag-1.png)
  
@@ -136,14 +136,14 @@ ms.locfileid: "96447614"
 
 오류 목록은 식별 된 시나리오에서 컴파일되며 자체 진단 및 문제 해결에 사용할 수 있습니다. 
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
 장치에 액세스 하 Azure Resource Manager 구성 중에 표시 될 수 있는 오류는 다음과 같습니다. 
 
 | **문제/오류** |  **해결 방법** | 
 |------------|-----------------|
 |일반적인 문제|<li>[에 지 장치가 올바르게 구성 되어 있는지 확인](#verify-the-device-is-configured-properly)합니다.<li> [클라이언트가 올바르게 구성 되었는지 확인](#verify-the-client-is-configured-properly)|
-|Add-AzureRmEnvironment: 요청을 보내는 동안 오류가 발생 했습니다.<br>줄: 1 문자: 1<br>+ Add-AzureRmEnvironment-Name Az3-ARMEndpoint " https://management.dbe ...|이 오류는 Azure Stack Edge Pro 장치에 연결할 수 없거나 제대로 구성 되지 않았음을 의미 합니다. Edge 장치 및 클라이언트가 올바르게 구성 되어 있는지 확인 합니다. 지침은이 표의 **일반 문제** 행을 참조 하십시오.|
+|Get-azurermenvironment: 요청을 보내는 동안 오류가 발생 했습니다.<br>줄: 1 문자: 1<br>+ Add-AzureRmEnvironment-Name Az3-ARMEndpoint " https://management.dbe ...|이 오류는 Azure Stack Edge Pro 장치에 연결할 수 없거나 제대로 구성 되지 않았음을 의미 합니다. Edge 장치 및 클라이언트가 올바르게 구성 되어 있는지 확인 합니다. 지침은이 표의 **일반 문제** 행을 참조 하십시오.|
 |서비스에서 오류를 반환 했습니다. 자세한 내용은 InnerException 확인: 기본 연결이 닫혔습니다. SSL/TLS 보안 채널에 대 한 트러스트 관계를 설정할 수 없습니다. |   이 오류는 하나 이상의 사용자 고유의 인증서 단계가 잘못 수행 된 것으로 인해 발생할 수 있습니다. [여기](./azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates)에서 지침을 찾을 수 있습니다. |
 |작업에서 잘못 된 상태 코드 ' ServiceUnavailable 수 없음 '이 반환 되었습니다. <br> 응답 상태 코드는 성공: 503 (서비스를 사용할 수 없음)을 나타내지 않습니다. | 이러한 조건으로 인해이 오류가 발생할 수 있습니다.<li>ArmStsPool가 중지 된 상태입니다.</li><li>Azure Resource Manager/보안 토큰 서비스 웹 사이트 중 하나가 다운 되었습니다.</li><li>Azure Resource Manager 클러스터 리소스가 다운 되었습니다.</li><br><strong>참고:</strong> 어플라이언스를 다시 시작 하면 문제가 해결 될 수 있지만 추가로 디버그할 수 있도록 지원 패키지를 수집 해야 합니다.|
 |AADSTS50126: 사용자 이름 또는 암호가 잘못 되었습니다.<br>추적 ID: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>상관 관계 ID: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>타임 스탬프: 2019-11-15 09:21:57Z: 원격 서버에서 오류를 반환 했습니다. (400) 잘못 된 요청입니다.<br>줄: 1 문자: 1 |이러한 조건으로 인해이 오류가 발생할 수 있습니다.<li>잘못 된 사용자 이름 및 암호의 경우 [여기](./azure-stack-edge-j-series-set-azure-resource-manager-password.md) 에 설명 된 단계를 수행 하 고 올바른 암호를 사용 하 여 고객이 Azure Portal 암호를 변경 했는지 확인 합니다.<li>테 넌 트 ID가 잘못 된 경우 테 넌 트 ID는 고정 GUID 이며로 설정 되어야 합니다. `c0257de7-538f-415c-993a-1b87a031879d`</li>|
@@ -167,7 +167,7 @@ ms.locfileid: "96447614"
 
 2. [여기](azure-stack-edge-j-series-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client)에 설명 된 대로 올바른 PowerShell 모듈이 설치 되어 있는지 확인 합니다.
 
-3. Azure Resource Manager 및 로그인 끝점에 연결할 수 있는지 확인 합니다. 끝점에 대 한 ping을 시도할 수 있습니다. 다음은 그 예입니다. 
+3. Azure Resource Manager 및 로그인 끝점에 연결할 수 있는지 확인 합니다. 끝점에 대 한 ping을 시도할 수 있습니다. 예를 들면 다음과 같습니다.
 
    `ping management.28bmdw2-bb9.microsoftdatabox.com`
    `ping login.28bmdw2-bb9.microsoftdatabox.com`
@@ -187,7 +187,7 @@ Azure Stack Edge Pro/Data Box Gateway 장치의 blob 저장소와 관련 된 오
 | **문제/오류** |  **해결 방법** | 
 |--------------------|-----------------|
 |자식 리소스를 검색할 수 없습니다. HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다.| **편집** 메뉴에서 **대상 Azure Stack api** 를 선택 합니다. 그런 다음 Azure Storage 탐색기를 다시 시작 합니다.|
-|getaddrinfo ENOTFOUND <accountname> . <serialnumber> microsoftdatabox.com|끝점 이름이 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 이 경로 ( `C:\Windows\System32\drivers\etc\hosts` Windows 또는 Linux)의 호스트 파일에 추가 되었는지 확인 합니다. `/etc/hosts`|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com`|끝점 이름이 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 이 경로 ( `C:\Windows\System32\drivers\etc\hosts` Windows 또는 Linux)의 호스트 파일에 추가 되었는지 확인 합니다. `/etc/hosts`|
 |자식 리소스를 검색할 수 없습니다.<br> 세부 정보: 자체 서명 된 인증서 |장치에 대 한 SSL 인증서를 Azure Storage 탐색기으로 가져옵니다. <ol><li>Azure Portal에서 인증서를 다운로드 합니다. 자세한 내용은 [인증서 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)를 참조 하세요.</li><li>**편집** 메뉴에서 SSL 인증서를 선택한 다음 **인증서 가져오기** 를 선택 합니다.</li></ol>|
 |이 오류를 표시 하기 전에 AzCopy 명령이 1 분 동안 응답을 중지 하는 것으로 나타납니다.<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `C:\Windows\System32\drivers\etc\hosts` 합니다.|
 |이 오류를 표시 하기 전에 AzCopy 명령이 1 분 동안 응답을 중지 하는 것으로 나타납니다.<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |장치의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)를 참조 하세요.|
@@ -196,9 +196,12 @@ Azure Stack Edge Pro/Data Box Gateway 장치의 blob 저장소와 관련 된 오
 |이 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 응답 하지 않는 것으로 나타납니다.<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `/etc/hosts` 합니다.|
 |다음 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 응답 하지 않는 것으로 나타납니다 `Error parsing source location… The SSL connection could not be established` .|장치의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)를 참조 하세요.|
 |HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다.|Data Box에서 Python 용 Microsoft Azure Storage 라이브러리의 설치 된 버전이 지원 되지 않습니다. 지원 되는 버전에 대 한 Azure Data Box Blob 저장소 요구 사항을 참조 하세요.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] ...| Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 SSL 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)하는 방법을 참조 하세요. 다음은 그 예입니다. <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. 예를 들어 Ubuntu에서 <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] ...| Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 SSL 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)하는 방법을 참조 하세요. 예를 들면 다음과 같습니다.<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. 예를 들어 Ubuntu에서 <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |연결 시간이 초과 되었습니다.|Azure Stack Edge Pro에 로그인 한 후 잠금 해제 되어 있는지 확인 합니다. 장치가 다시 시작 될 때마다 사용자가 로그인 할 때까지 잠긴 상태로 유지 됩니다.|
 
+## <a name="troubleshoot-iot-edge-errors"></a>IoT Edge 오류 문제 해결
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
 
 
 ## <a name="next-steps"></a>다음 단계

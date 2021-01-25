@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 9521c13b21317bb0a782b0bea0b08312ff24b113
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: c3e6408a6a3473380edbe2966eba41970bd73562
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610355"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762765"
 ---
-# <a name="errors-in-the-connector-status"></a>커넥터 상태의 오류
+# <a name="errors-in-the-connector-status-section"></a>커넥터 상태 섹션의 오류
 
-커넥터 상태 목록에서 ITSM 커넥터의 문제를 해결 하는 데 도움이 될 수 있는 오류를 찾을 수 있습니다.
+대시보드의 커넥터 상태 목록 섹션에서 ITSM 커넥터의 문제를 해결 하는 데 도움이 될 수 있는 오류를 찾을 수 있습니다.
 
 ## <a name="status-common-errors"></a>상태 일반 오류
 
-이 섹션에서는 커넥터 상태 섹션에 표시 되는 일반적인 오류와 해결 방법을 확인할 수 있습니다.
+이 섹션에서는 커넥터 상태 섹션에 표시 되는 일반적인 오류와 이러한 오류를 해결 하는 방법을 확인할 수 있습니다.
 
 * **오류**: "성공 상태 코드와 함께 ServiceNow에서 예기치 않은 응답이 발생 했습니다. 응답: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "result": [{"transform_map": "OMS 인시던트", "table": "인시던트", "상태": "오류", "error_message": "{대상 레코드를 찾을 수 없습니다. | 잘못 된 테이블 | 잘못 된 준비 테이블 "}"
 
@@ -27,7 +27,7 @@ ms.locfileid: "98610355"
   * ServiceNow 인스턴스에 배포 된 사용자 지정 스크립트는 인시던트를 무시 합니다.
   * "OMS 통합자 앱" 코드 자체가 ServiceNow 쪽에서 수정 되었습니다 (예: onBefore 스크립트).
 
-  **해결** 방법: 데이터 가져오기 경로의 모든 사용자 지정 스크립트 또는 코드 수정을 사용 하지 않도록 설정 합니다.
+  **해결** 방법: 모든 사용자 지정 스크립트 또는 코드 수정을 사용 하지 않도록 설정 합니다.
 
 * **오류**: "{" error ": {" message ":" 작업이 실패 했습니다. "," 세부 정보 ":" 보안 제약 조건으로 인해 ACL 예외를 업데이트 하지 못했습니다. "}"
 
@@ -58,7 +58,7 @@ ms.locfileid: "98610355"
     **원인**: ITSM 커넥터 삭제 되었습니다.
 
     **해결** 방법: ITSM 커넥터 삭제 되었지만 아직 itsm 작업 그룹이 연결 되어 있습니다. 이 문제를 해결 하는 두 가지 옵션이 있습니다.
-  * 이러한 작업을 찾아서 사용 하지 않도록 설정 하거나 삭제 합니다.
+  * 이러한 작업 그룹을 찾아서 사용 하지 않도록 설정 하거나 삭제 합니다.
   * 기존 ITSM 커넥터를 사용 하도록 [작업 그룹을 다시 구성](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) 합니다.
   * [새 ITSM 커넥터를 만들고](./itsmc-definition.md#create-an-itsm-connection) [작업 그룹을 다시 구성 하 여 사용](itsmc-definition.md#create-itsm-work-items-from-azure-alerts)합니다.
 

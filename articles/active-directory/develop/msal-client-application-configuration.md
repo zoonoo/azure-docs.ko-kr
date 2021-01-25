@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9ec8a5fe5de751e40ebaa17629ff72c5f6b2adca
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979990"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761380"
 ---
 # <a name="application-configuration-options"></a>응용 프로그램 구성 옵션
 
@@ -147,8 +147,20 @@ Android에 대 한 추가 정보는 [android에서](msal-android-single-sign-on.
 이 옵션은 기밀 클라이언트 앱에 대 한 클라이언트 암호를 지정 합니다. 이 비밀 (앱 암호)은 응용 프로그램 등록 포털에서 제공 되거나 PowerShell AzureAD, PowerShell AzureRM 또는 Azure CLI를 사용 하 여 앱을 등록 하는 동안 Azure AD에 제공 됩니다.
 
 ## <a name="logging"></a>로깅
+디버깅 및 인증 실패 문제 해결 시나리오를 지원 하기 위해 Microsoft 인증 라이브러리는 기본 제공 로깅 지원을 제공 합니다. 로깅은 다음 문서에서 설명 합니다.
 
-다른 구성 옵션은 로깅 및 문제 해결을 가능 하 게 합니다. 사용 방법에 대 한 자세한 내용은 [로깅](msal-logging.md) 문서를 참조 하세요.
+:::row:::
+    :::column:::
+        - [MSAL.NET의 로깅](msal-logging-dotnet.md)
+        - [Android용 MSAL에서 로깅](msal-logging-android.md)
+        - [MSAL.js의 로깅](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [iOS/macOS용 MSAL에서 로깅](msal-logging-ios.md)
+        - [Java용 MSAL에서 로깅](msal-logging-java.md)
+        - [Python용 MSAL에서 로깅](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
 ## <a name="next-steps"></a>다음 단계
 

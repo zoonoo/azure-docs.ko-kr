@@ -8,12 +8,12 @@ ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 74de0481bf6786d245fb96f5d102ab72a00031c8
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065391"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760901"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기
 
@@ -22,7 +22,7 @@ ms.locfileid: "98065391"
 
 이 문서에서는 Azure IoT Central의 새로운 데이터 내보내기 기능을 사용 하는 방법을 설명 합니다. 이 기능을 사용 하 여 IoT Central 응용 프로그램에서 필터링 및 보강 IoT 데이터를 지속적으로 내보낼 수 있습니다. 데이터 내보내기는 웜 경로 통찰력, 분석 및 저장소에 대 한 클라우드 솔루션의 다른 부분에 거의 실시간으로 변경 내용을 푸시합니다.
 
-예를 들어 다음을 수행할 수 있습니다.
+예를 들어 다음 작업을 할 수 있습니다.
 
 - JSON 형식의 원격 분석 데이터 및 속성 변경을 거의 실시간으로 계속 내보냅니다.
 - 데이터 스트림을 필터링 하 여 사용자 지정 조건과 일치 하는 데이터를 내보냅니다.
@@ -32,9 +32,11 @@ ms.locfileid: "98065391"
 > [!Tip]
 > 데이터 내보내기를 켜면 해당 순간부터의 데이터만 가져옵니다. 현재 데이터 내보내기가 해제 된 시간에 대 한 데이터를 검색할 수 없습니다. 기록 데이터를 더 보존 하려면 초기에 데이터 내보내기를 켭니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 내보내기 기능을 사용 하려면 [V3 응용 프로그램이](howto-get-app-info.md)있어야 하며 [데이터 내보내기](howto-manage-users-roles.md) 권한이 있어야 합니다.
+
+V2 응용 프로그램이 있는 경우 [v2 IoT Central 응용 프로그램을 V3로 마이그레이션](howto-migrate.md)을 참조 하세요.
 
 ## <a name="set-up-export-destination"></a>내보내기 대상 설정
 
@@ -96,7 +98,7 @@ ms.locfileid: "98065391"
     |-|-|
     |Standard|범용 V2|
     |Standard|범용 V1|
-    |Standard|Blob Storage|
+    |Standard|Blob 스토리지|
     |Premium|블록 Blob 저장소|
 
 1. 저장소 계정에서 컨테이너를 만들려면 저장소 계정으로 이동 합니다. **Blob 서비스** 에서 **Blob 찾아보기** 를 선택합니다. 맨 위에서 **+ 컨테이너** 를 선택하여 새 컨테이너를 만듭니다.

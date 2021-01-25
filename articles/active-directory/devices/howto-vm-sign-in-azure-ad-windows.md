@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22a4bdc92ea2a91425c1070a5837c672307de665
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683779"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761004"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -350,7 +350,9 @@ VM에 대 한 원격 데스크톱 연결을 시작할 때 다음과 같은 오�
 > [!NOTE]
 > Windows 10 Build 20H1은 VM에 대 한 RDP 연결을 시작 하기 위해 Azure AD에 등록 된 PC에 대 한 지원을 추가 했습니다. VM에 대 한 연결을 시작 하기 위해 RDP 클라이언트로 등록 된 (Azure AD 조인 또는 하이브리드 Azure AD 조인 된) PC를 사용 하는 경우 AzureAD\UPn 형식으로 자격 증명을 입력 해야 합니다 (예: AzureAD\john@contoso.com ).
 
-또한 Azure AD 조인이 완료 된 후 AADLoginForWindows 확장이 제거 되지 않았는지 확인 합니다.
+Azure AD 조인이 완료 된 후 AADLoginForWindows 확장이 제거 되지 않았는지 확인 합니다.
+
+또한 "네트워크 보안:이 컴퓨터에 대 한 PKU2U 인증 요청을 사용 하 여 온라인 id를 사용 하도록 허용"을 서버 *와* 클라이언트 모두에서 사용 하도록 설정 해야 합니다.
  
 #### <a name="mfa-sign-in-method-required"></a>MFA 로그인 방법이 필요 합니다.
 
