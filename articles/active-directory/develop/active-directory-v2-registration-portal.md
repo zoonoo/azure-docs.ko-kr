@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: b165cd4abd55026e10aa43eb20faa85b887de194
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6a33da602eaa9bee20f155eaa550e558e5dcbeca
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065046"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755560"
 ---
 # <a name="app-registration-reference"></a>앱 등록 참조
 
@@ -27,7 +27,7 @@ ms.locfileid: "98065046"
 
 ## <a name="my-applications-or-converged-applications"></a>내 애플리케이션 또는 수렴된 애플리케이션
 
-이 목록에는 Microsoft ID 플랫폼(v2.0) 엔드포인트에서 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. 이러한 애플리케이션은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. ID 플랫폼 엔드포인트에 대해 자세히 알아보려면 [v2.0 개요](./v2-overview.md)를 참조하세요. 이러한 애플리케이션을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
+이 목록에는 Microsoft id 플랫폼에 사용 하기 위해 등록 된 모든 응용 프로그램이 포함 되어 있습니다. 이러한 애플리케이션은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. Microsoft id 플랫폼에 대 한 자세한 내용은 v2.0 [개요](./v2-overview.md)를 참조 하세요. 이러한 애플리케이션을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
 
 ## <a name="azure-ad-only-applications"></a>Azure AD 전용 애플리케이션
 
@@ -39,7 +39,7 @@ ms.locfileid: "98065046"
 
 ## <a name="application-secrets"></a>애플리케이션 비밀
 
-응용 프로그램 암호는 응용 프로그램이 Microsoft id 플랫폼을 사용 하 여 신뢰할 수 있는 [클라이언트 인증](https://tools.ietf.org/html/rfc6749#section-2.3) 을 수행할 수 있도록 하는 자격 증명입니다. OAuth 및 OpenID Connect에서 애플리케이션 비밀은 일반적으로 `client_secret`라고 합니다. V2.0 프로토콜에서 웹 주소 지정 가능한 위치 (체계 사용)에서 보안 토큰을 수신 하는 응용 프로그램은 `https` 해당 보안 토큰을 상환 하는 경우 응용 프로그램 암호를 사용 하 여 Microsoft id 플랫폼을 식별 해야 합니다. 또한 디바이스에서 토큰을 받는 모든 네이티브 클라이언트는 애플리케이션 비밀을 사용하여 클라이언트 인증을 수행할 수 없도록 금지됩니다. 이에 따라 안전하지 않은 환경에서 비밀을 스토리지할 필요가 없습니다.
+응용 프로그램 암호는 응용 프로그램이 Microsoft id 플랫폼을 사용 하 여 신뢰할 수 있는 [클라이언트 인증](https://tools.ietf.org/html/rfc6749#section-2.3) 을 수행할 수 있도록 하는 자격 증명입니다. OAuth 및 OpenID Connect에서 애플리케이션 비밀은 일반적으로 `client_secret`라고 합니다. V2.0 프로토콜에서 웹 주소 지정 가능한 위치 (체계 사용)에서 보안 토큰을 수신 하는 모든 응용 프로그램은 `https` 해당 보안 토큰을 상환 하는 경우 Microsoft id 플랫폼에서 자신을 식별 하는 데 응용 프로그램 암호를 사용 해야 합니다. 또한 디바이스에서 토큰을 받는 모든 네이티브 클라이언트는 애플리케이션 비밀을 사용하여 클라이언트 인증을 수행할 수 없도록 금지됩니다. 이에 따라 안전하지 않은 환경에서 비밀을 스토리지할 필요가 없습니다.
 
 각 앱에는 지정된 시점에 유효한 두 개의 애플리케이션 비밀이 포함될 수 있습니다. 두 개의 비밀을 유지하여 애플리케이션의 전체 환경에서 정기적으로 키 롤오버를 수행할 수 있습니다. 애플리케이션 전체를 새 비밀로 마이그레이션하면 이전 비밀을 삭제하고 새 비밀을 프로비전할 수 있습니다.
 

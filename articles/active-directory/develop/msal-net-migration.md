@@ -13,18 +13,18 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: c6049bf55e379a2629e8cd4ef1427f91fc31d2cd
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b437efcfa2b0bb2a725929ae0253f48d97d11552
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063606"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754819"
 ---
 # <a name="migrating-applications-to-msalnet"></a>애플리케이션을 MSAL.NET으로 마이그레이션
 
 MSAL.NET (Microsoft Authentication Library for .NET) 및 ADAL.NET (Azure AD 인증 Library for .NET)는 모두 azure ad 엔터티를 인증 하 고 Azure AD에서 토큰을 요청 하는 데 사용 됩니다. 지금까지 대부분의 개발자는 ADAL(Azure AD 인증 라이브러리)을 사용하는 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하기 위해 개발자 플랫폼(v1.0)에서 Azure AD를 사용했습니다. MSAL 사용:
 
-- Microsoft id 플랫폼 끝점을 사용 하 여 광범위 한 Microsoft id 집합 (Azure AD id 및 Microsoft 계정, Azure AD B2C을 통해 소셜 및 로컬 계정)을 인증할 수 있습니다.
+- Microsoft id 플랫폼을 사용 하 여 광범위 한 Microsoft id 집합 (Azure AD id 및 Microsoft 계정, Azure AD B2C을 통해 소셜 및 로컬 계정)을 인증할 수 있습니다.
 - 사용자는 최상의 single sign-on 환경을 이용할 수 있습니다.
 - 응용 프로그램에서 증분 동의를 사용 하 고 조건부 액세스를 보다 쉽게 지원할 수 있습니다.
 - 혁신을 통해 혜택을 누릴 수 있습니다.
@@ -35,9 +35,9 @@ MSAL.NET (Microsoft Authentication Library for .NET) 및 ADAL.NET (Azure AD 인�
 
 ## <a name="differences-between-adal-and-msal-apps"></a>ADAL 및 MSAL 앱의 차이점
 
-대부분의 경우 Microsoft 인증 라이브러리의 최신 세대인 MSAL.NET 및 Microsoft ID 플랫폼 엔드포인트를 사용하려고 합니다. MSAL.NET을 사용하면 Azure AD(회사 및 학교 계정), MSA(Microsoft (개인) 계정) 또는 Azure AD B2C를 사용하여 애플리케이션에 로그인하는 사용자에 대한 토큰을 얻을 수 있습니다.
+대부분의 경우 Microsoft 인증 라이브러리의 최신 세대 인 MSAL.NET 및 Microsoft id 플랫폼을 사용 하는 것이 좋습니다. MSAL.NET을 사용하면 Azure AD(회사 및 학교 계정), MSA(Microsoft (개인) 계정) 또는 Azure AD B2C를 사용하여 애플리케이션에 로그인하는 사용자에 대한 토큰을 얻을 수 있습니다.
 
-개발자용 Azure AD(v1.0) 엔드포인트 및 ADAL.NET에 이미 익숙한 경우 [Microsoft ID 플랫폼(v2.0) 엔드포인트와의 차이점은?](../azuread-dev/azure-ad-endpoint-comparison.md)을 참조하는 것이 좋습니다.
+Azure AD (개발자 용 Azure AD) 끝점 (및 ADAL.NET)에 대해 잘 알고 있는 경우 [Microsoft id 플랫폼에 대 한 다른 사항을](../azuread-dev/azure-ad-endpoint-comparison.md)읽을 수 있습니다.
 
 그러나 애플리케이션이 이전 버전의 [ADFS(Active Directory Federation Services)](/windows-server/identity/active-directory-federation-services)를 사용하여 사용자를 로그인해야 하는 경우에는 여전히 ADAL.NET을 사용해야 합니다. 자세한 내용은 [ADFS 지원](https://aka.ms/msal-net-adfs-support)을 참조 하세요.
 
@@ -266,4 +266,4 @@ AuthenticationResult result = await appRt.AcquireTokenByRefreshToken(null, rt)
 
 ## <a name="next-steps"></a>다음 단계
 
-[Microsoft ID 플랫폼 엔드포인트의 범위, 권한 및 동의](v2-permissions-and-consent.md)에서 범위에 대한 자세한 내용을 확인할 수 있습니다.
+범위 [, 사용 권한 및 Microsoft id 플랫폼의 동의](v2-permissions-and-consent.md) 에서 범위에 대 한 자세한 정보를 찾을 수 있습니다.

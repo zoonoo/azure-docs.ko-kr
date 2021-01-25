@@ -12,17 +12,17 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a8c9a15761a4b37dfcf5ba7cc4cf046390092145
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: bd2bd67774eb55051e55e4433984c0fd1fda5240
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672148"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755580"
 ---
-# <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Microsoft id 플랫폼에서 서명 키 롤오버
+# <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Microsoft id 플랫폼의 서명 키 롤오버
 이 문서에서는 Microsoft id 플랫폼에서 보안 토큰에 서명 하는 데 사용 되는 공개 키에 대해 알아야 할 사항을 설명 합니다. 이러한 키는 정기적으로 롤오버 되며 응급 상황에서 즉시 롤오버 될 수 있다는 점에 유의 해야 합니다. Microsoft id 플랫폼을 사용 하는 모든 응용 프로그램은 키 롤오버 프로세스를 프로그래밍 방식으로 처리할 수 있어야 합니다. 키의 작동 방식과 롤오버가 애플리케이션에 미친 영향을 평가하는 방법, 필요한 경우 키 롤오버를 처리하도록 애플리케이션을 업데이트하거나 정기적인 수동 롤오버 프로세스를 설정하는 방법을 이해하려면 계속 읽어 보세요.
 
-## <a name="overview-of-signing-keys-in-microsoft-identity-platform"></a>Microsoft id 플랫폼의 서명 키 개요
+## <a name="overview-of-signing-keys-in-the-microsoft-identity-platform"></a>Microsoft id 플랫폼의 서명 키 개요
 Microsoft id 플랫폼은 산업 표준을 기반으로 하는 공개 키 암호화를 사용 하 여 자체와이를 사용 하는 응용 프로그램 간에 신뢰를 설정 합니다. 실제로이는 다음과 같은 방식으로 작동 합니다. Microsoft id 플랫폼은 공개 키와 개인 키 쌍으로 구성 된 서명 키를 사용 합니다. 사용자가 인증을 위해 Microsoft id 플랫폼을 사용 하는 응용 프로그램에 로그인 하는 경우 Microsoft id 플랫폼은 사용자에 대 한 정보를 포함 하는 보안 토큰을 만듭니다. 이 토큰은 응용 프로그램으로 다시 전송 되기 전에 개인 키를 사용 하 여 Microsoft id 플랫폼에서 서명 됩니다. 토큰이 유효 하 고 Microsoft id 플랫폼에서 시작 되었는지 확인 하려면 응용 프로그램은 테 넌 트의 [Openid connect Connect 검색 문서](https://openid.net/specs/openid-connect-discovery-1_0.html) 또는 SAML/WS-급지됨 [페더레이션 메타 데이터 문서](../azuread-dev/azure-ad-federation-metadata.md)에 포함 된 microsoft id 플랫폼에 의해 노출 되는 공개 키를 사용 하 여 토큰 서명의 유효성을 검사 해야 합니다.
 
 보안을 위해 Microsoft id 플랫폼의 서명 키는 정기적으로 롤오버 되며 응급 상황에서 즉시 롤오버 될 수 있습니다. 이러한 키 롤업 간에 설정 또는 보장 된 시간은 없습니다. Microsoft id 플랫폼과 통합 되는 모든 응용 프로그램은 발생 빈도에 관계 없이 키 롤오버 이벤트를 처리 하도록 준비 해야 합니다. 없는 경우 애플리케이션은 토큰에서 서명을 확인하기 위해 만료된 키를 사용하려고 시도하며 서명 요청이 실패합니다.  업데이트를 위해 24 시간 마다 확인 하는 것이 가장 좋은 방법입니다. 알 수 없는 키 식별자를 사용 하 여 토큰을 발견 하는 경우 키 문서를 제한 (최대 5 분 마다 한 번) 합니다. 
@@ -305,7 +305,7 @@ WIF v1.0에서 애플리케이션을 빌드한 경우 새 키를 사용하도록
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하여 리소스를 보호하는 웹 애플리케이션/API
 다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하는 경우, 키가 OpenID Connect discovery 문서 또는 페더레이션 메타데이터 문서에서 검색되는지 확인하기 위해 라이브러리나 구현을 검토할 필요가 있습니다. 이를 확인하는 하나의 방법은 OpenID discovery 문서 또는 페더레이션 메타데이터 문서에 대한 모든 호출 코드 또는 라이브러리 코드를 검색하는 것입니다.
 
-키가 어딘가에 저장되거나 애플리케이션에 하드 코딩되는 경우 이 지침 문서의 끝에 있는 지침에 따라 수동 롤오버를 수행하여 수동으로 키를 검색하고 적절하게 업데이트할 수 있습니다. Microsoft id 플랫폼이 롤오버 주기를 증가 시키거나 응급 대역 외 롤오버를 사용 하는 경우 이후 중단 및 오버 헤드를 방지 하기 위해이 문서에서 설명 하는 방법을 사용 하 여 **자동 롤오버를 지원 하도록 응용 프로그램을 개선 하는** 것이 좋습니다.
+키가 어딘가에 저장되거나 애플리케이션에 하드 코딩되는 경우 이 지침 문서의 끝에 있는 지침에 따라 수동 롤오버를 수행하여 수동으로 키를 검색하고 적절하게 업데이트할 수 있습니다. Microsoft id 플랫폼에서 롤오버 주기를 증가 시키거나 응급 대역 외 롤오버를 사용 하는 경우 이후 중단 및 오버 헤드를 방지 하기 위해이 문서에서 설명 하는 방법을 사용 하 여 **자동 롤오버를 지원 하도록 응용 프로그램을 개선 하는** 것이 좋습니다.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>애플리케이션을 테스트하여 영향을 받을지 확인하는 방법
 스크립트를 다운로드하고 [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)

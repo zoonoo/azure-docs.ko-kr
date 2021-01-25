@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 6864502a9d338a786e1e77dbf9888a7818bb94e9
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c858f48a67cd434a620fb610046833d29b7475f7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95748651"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756600"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
 
@@ -38,7 +38,7 @@ ms.locfileid: "95748651"
 
 응용 프로그램 구성에 지정 된 기관은 테 넌 트 (조직에 연결 된 테 넌 트 ID 또는 도메인 이름을 지정)로 지정 해야 합니다.
 
-다중 테 넌 트 도구를 제공 하려는 경우에도 **not** `common` `organizations` 서비스에서 사용 해야 하는 테 넌 트를 안정적으로 유추할 수 없기 때문에 테 넌 트 ID 또는 도메인 이름을 사용 하거나이 흐름과 함께 사용 해야 합니다.
+다중 테 넌 트 도구를 제공 하려는 경우에도  `common` `organizations` 서비스에서 사용 해야 하는 테 넌 트를 안정적으로 유추할 수 없기 때문에 테 넌 트 ID 또는 도메인 이름을 사용 하거나이 흐름과 함께 사용 해야 합니다.
 
 ## <a name="configure-and-instantiate-the-application"></a>응용 프로그램 구성 및 인스턴스화
 

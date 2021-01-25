@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: eec24ca19af8c41a842b1db3db4b9e16f748f029
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653251"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755914"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft id 플랫폼 ID 토큰
 
@@ -89,7 +89,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |`groups:src1`|JSON 개체 | 길이는 제한되지 않으나(위의 `hasgroups` 참조) 토큰에게는 너무 큰 토큰 요청의 경우 사용자의 전체 그룹 목록에 대한 링크가 포함됩니다. 분산된 클레임으로서의 JWT인 경우 SAML이 `groups` 클레임 대신에 새 클레임이 됩니다. <br><br>**JWT 값 예제**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> 자세한 내용은 [Groups 초과분 클레임](#groups-overage-claim)을 참조 하세요.|
 
 > [!NOTE]
-> V1.0 및 v2.0 id_token 위의 예제에서 볼 수 있는 것 처럼 전달 되는 정보의 양에 차이가 있습니다. 이 버전은 요청 된 끝점을 기준으로 합니다. 기존 응용 프로그램에서 Azure AD 끝점을 사용 하는 경우 새 응용 프로그램은 v2.0 "Microsoft id 플랫폼" 끝점을 사용 해야 합니다.
+> V1.0 및 v2.0 id_token 위의 예제에서 볼 수 있는 것 처럼 전달 되는 정보의 양에 차이가 있습니다. 이 버전은 요청 된 끝점을 기준으로 합니다. 기존 응용 프로그램에서 Azure AD 끝점을 사용 하는 경우 새 응용 프로그램은 "Microsoft id 플랫폼"을 사용 해야 합니다.
 >
 > - v1.0: Azure AD 끝점: `https://login.microsoftonline.com/common/oauth2/authorize`
 > - v2.0: Microsoft id 플랫폼 끝점: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`

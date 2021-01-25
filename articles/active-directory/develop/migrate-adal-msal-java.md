@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 0183471db274bb7fca59ed8f24aa87b2bf997fb6
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063742"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754990"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Java 용 ADAL-MSAL 마이그레이션 가이드
 
@@ -29,7 +29,7 @@ Java 용 Microsoft Authentication Library (MSAL4J) 및 Azure AD 인증 Library f
 
 MSAL은 다음과 같은 이점을 제공 합니다.
 
-- 최신 Microsoft id 플랫폼 끝점을 사용 하기 때문에 azure ad id, Microsoft 계정, 소셜 및 로컬 계정과 같은 광범위 한 Microsoft id 집합을 Azure AD Business to Consumer (B2C)를 통해 인증할 수 있습니다.
+- 최신 Microsoft id 플랫폼을 사용 하기 때문에 azure ad id, Microsoft 계정, 소셜 및 로컬 계정과 같은 광범위 한 Microsoft id 집합을 Azure AD Business to Consumer (B2C)를 통해 인증할 수 있습니다.
 - 사용자는 최상의 single sign-on 환경을 이용할 수 있습니다.
 - 응용 프로그램에서 증분 동의를 설정할 수 있으며 조건부 액세스를 지 원하는 것이 더 쉽습니다.
 
@@ -37,13 +37,13 @@ Java 용 MSAL은 Microsoft id 플랫폼에서 사용 하는 것이 좋습니다.
 
 ## <a name="differences"></a>차이점
 
-개발자 용 Azure AD () 끝점 (및 ADAL4J)을 사용 하 여 작업 하는 경우 v2.0 ( [Microsoft identity platform) 끝점에 대 한 다른 사항을](../azuread-dev/azure-ad-endpoint-comparison.md)읽을 수 있습니다.
+개발자 용 Azure AD () 끝점 (및 ADAL4J)을 사용 하 여 작업 하는 경우 [Microsoft id 플랫폼에 대 한 다른 사항을](../azuread-dev/azure-ad-endpoint-comparison.md)읽을 수 있습니다.
 
 ## <a name="scopes-not-resources"></a>리소스가 아닌 범위
 
 ADAL4J는 리소스에 대 한 토큰을 획득 하는 반면, Java 용 MSAL은 범위 토큰을 획득 합니다. Java 클래스에 대 한 다양 한 MSAL에는 범위 매개 변수가 필요 합니다. 이 매개 변수는 필요한 사용 권한 및 요청 된 리소스를 선언 하는 문자열 목록입니다. 예제 범위를 보려면 [Microsoft Graph의 범위](/graph/permissions-reference) 를 참조 하세요.
 
-리소스에 범위 접미사를 추가 하 여 v2.0 `/.default` 끝점 (ADAL)에서 Microsoft MSAL (id 플랫폼 끝점)으로 앱을 마이그레이션할 수 있습니다. 예를 들어의 리소스 값에 대해 `https://graph.microsoft.com` 해당 하는 범위 값은 `https://graph.microsoft.com/.default` 입니다.  리소스가 URL 형식이 아닌 폼의 리소스 ID 인 경우 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` 범위 값을으로 계속 사용할 수 있습니다 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
+`/.default`앱을 ADAL에서 MSAL으로 마이그레이션하는 데 도움이 되도록 리소스에 범위 접미사를 추가할 수 있습니다. 예를 들어의 리소스 값에 대해 `https://graph.microsoft.com` 해당 하는 범위 값은 `https://graph.microsoft.com/.default` 입니다.  리소스가 URL 형식이 아닌 폼의 리소스 ID 인 경우 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` 범위 값을으로 계속 사용할 수 있습니다 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 다양 한 범위 형식에 대 한 자세한 내용은 [Microsoft id 플랫폼의 사용 권한 및 동의](./v2-permissions-and-consent.md) 및 v1.0 토큰을 [수락 하는 Web API에 대 한 범위](./msal-v1-app-scopes.md) 문서를 참조 하세요.
 

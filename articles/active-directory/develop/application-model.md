@@ -1,7 +1,7 @@
 ---
 title: 응용 프로그램 모델 | Microsoft
 titleSuffix: Microsoft identity platform
-description: App-v (Microsoft identity platform)와 통합할 수 있도록 응용 프로그램을 등록 하는 프로세스에 대해 알아봅니다.
+description: Microsoft id 플랫폼과 통합 될 수 있도록 응용 프로그램을 등록 하는 프로세스에 대해 알아봅니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ba41e36d12b58da2e572cf870195716eacaddef
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117484"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755685"
 ---
 # <a name="application-model"></a>애플리케이션 모델
 
@@ -36,7 +36,7 @@ Id 공급자가 사용자에 게 특정 앱에 대 한 액세스 권한이 있�
 
 등록 된 응용 프로그램에는 토큰을 요청할 때 앱이 Microsoft id 플랫폼과 공유 하는 고유 식별자가 제공 됩니다. 앱이 [기밀 클라이언트 응용 프로그램](developer-glossary.md#client-application)인 경우 인증서 또는 암호의 사용 여부에 따라 비밀 또는 공개 키도 공유 합니다.
 
-Microsoft id 플랫폼은 다음 두 가지 주요 함수를 사용 하는 모델을 사용 하는 응용 프로그램을 나타냅니다.
+Microsoft id 플랫폼은 다음과 같은 두 가지 주요 함수를 사용 하는 모델을 사용 하는 응용 프로그램을 나타냅니다.
 
 * 지 원하는 인증 프로토콜을 통해 앱 식별
 * 인증에 필요한 모든 식별자, Url, 암호 및 관련 정보를 제공 합니다.
@@ -55,9 +55,9 @@ Microsoft id 플랫폼:
 
 ## <a name="multi-tenant-apps"></a>다중 테넌트 앱
 
-Microsoft id 플랫폼에서 응용 프로그램 [개체](developer-glossary.md#application-object) 는 응용 프로그램을 설명 합니다. 배포 시 Microsoft id 플랫폼은 응용 프로그램 개체를 청사진으로 사용 하 여 디렉터리 또는 테 넌 트 내에서 응용 프로그램의 구체적인 인스턴스를 나타내는 [서비스 주체](developer-glossary.md#service-principal-object)를 만듭니다. 서비스 주체는 앱이 특정 대상 디렉터리에서 실제로 수행할 수 있는 작업, 사용할 수 있는 리소스, 액세스 권한이 있는 리소스 등을 정의 합니다. Microsoft ID 플랫폼은 [동의](developer-glossary.md#consent)를 통해 애플리케이션 개체에서 서비스 주체를 만듭니다.
+Microsoft id 플랫폼에서 [응용 프로그램 개체](developer-glossary.md#application-object) 는 응용 프로그램을 설명 합니다. 배포 시 Microsoft id 플랫폼은 응용 프로그램 개체를 청사진으로 사용 하 여 디렉터리 또는 테 넌 트 내의 구체적인 응용 프로그램 인스턴스를 나타내는 [서비스 주체](developer-glossary.md#service-principal-object)를 만듭니다. 서비스 주체는 앱이 특정 대상 디렉터리에서 실제로 수행할 수 있는 작업, 사용할 수 있는 리소스, 액세스 권한이 있는 리소스 등을 정의 합니다. Microsoft id 플랫폼은 [동의](developer-glossary.md#consent)를 통해 응용 프로그램 개체에서 서비스 주체를 만듭니다.
 
-다음 다이어그램에는 동의를 통해 구동되는 간소화된 Microsoft ID 플랫폼 프로비저닝 흐름이 나와 있습니다. *A* 와 *B*라는 두 개의 테 넌 트가 표시 됩니다.
+다음 다이어그램에는 동의를 통해 구동되는 간소화된 Microsoft ID 플랫폼 프로비저닝 흐름이 나와 있습니다. *A* 와 *B* 라는 두 개의 테 넌 트가 표시 됩니다.
 
 * *테 넌 트 A* 는 응용 프로그램을 소유 합니다.
 * *테 넌 트 B* 는 서비스 주체를 통해 응용 프로그램을 인스턴스화합니다.

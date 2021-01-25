@@ -1,5 +1,6 @@
 ---
-title: 게시자 확인 문제 해결 - Microsoft ID 플랫폼 | Azure
+title: 게시자 확인 문제 해결 | Microsoft
+titleSuffix: Microsoft identity platform
 description: Microsoft Graph Api를 호출 하 여 Microsoft id 플랫폼에 대 한 게시자 확인 문제를 해결 하는 방법을 설명 합니다.
 services: active-directory
 author: rwike77
@@ -12,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 857659cdd97666dba585c1ec22c750e29bf28879
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 10609f2706d257dbe5d8f43b85da5f06cb986cae
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169174"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756192"
 ---
 # <a name="troubleshoot-publisher-verification"></a>게시자 확인 문제 해결
 프로세스를 완료할 수 없거나 예기치 않은 동작이 [게시자 확인](publisher-verification-overview.md)에 발생 하는 경우 오류를 수신 하거나 예기치 않은 동작을 볼 수 있는 경우 다음을 수행 하 여 시작 해야 합니다. 

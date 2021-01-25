@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 웹 앱 빌드-Microsoft identity platform | Microsoft
+title: 웹 Api를 호출 하는 웹 앱 빌드 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 웹 앱을 빌드하는 방법 알아보기 (개요)
 services: active-directory
 author: jmprieur
@@ -11,18 +12,18 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b4123b0424e52c6a2919de4b60bcc6158062b0f1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 1fdbdada54320ef28f6a4b04a7f415c835acc9dd
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442636"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756290"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 웹 앱
 
 Microsoft id 플랫폼에 사용자를 로그인 하는 웹 앱을 빌드한 다음 로그인 한 사용자를 대신 하 여 web Api를 호출 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 시나리오 [에서는 사용자에 게 로그인 하는 웹 앱 시나리오](scenario-web-app-sign-user-overview.md)를 이미 완료 했다고 가정 합니다.
 

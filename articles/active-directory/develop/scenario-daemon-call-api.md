@@ -1,5 +1,6 @@
 ---
-title: 디먼 앱에서 web API 호출-Microsoft identity platform | Microsoft
+title: 디먼 앱에서 web API 호출 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 API를 호출 하는 디먼 앱을 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0dfd729a48b7e81028078fd035b3b900f4d7b9bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a94cbebffbe2c735515d9758a2353a9857676311
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444119"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756586"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>웹 Api를 호출 하는 디먼 앱-앱에서 web API 호출
 

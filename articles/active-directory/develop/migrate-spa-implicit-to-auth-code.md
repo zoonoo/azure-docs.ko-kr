@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 2c03e6940d392e3e2c03bf6508de41a7a19aef3b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e6bbebafab45080a2076f33d66dd96296a761e4f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063776"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754951"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>암시적 허용에서 권한 부여 코드 흐름으로 JavaScript 단일 페이지 앱 마이그레이션
 
@@ -90,7 +90,7 @@ MSAL 2.x를 애플리케이션에 추가하는 전체 연습을 보려면 [자�
 
 ## <a name="next-steps"></a>다음 단계
 
-암시적 코드 흐름과 권한 부여 코드 흐름 간의 차이점을 포함하여 권한 부여 코드 흐름에 대해 자세히 알아보려면 [Microsoft ID 플랫폼 및 OAuth 2.0 권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md)을 참조하세요.
+암시적 코드 흐름과 인증 코드 흐름 간의 차이점을 포함 하 여 권한 부여 코드 흐름에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 참조 하세요.
 
 Microsoft ID 플랫폼에서 JavaScript 단일 페이지 애플리케이션을 개발하는 방법에 대해 자세히 알아보려면 여러 부분으로 구성된 [시나리오: 단일 페이지 애플리케이션](scenario-spa-overview.md) 시리즈 문서가 시작하는 데 도움이 될 수 있습니다.
 

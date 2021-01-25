@@ -1,7 +1,7 @@
 ---
 title: 인증 및 권한 부여 | Microsoft
 titleSuffix: Microsoft identity platform
-description: V2.0 (Microsoft identity platform)에서 인증 및 권한 부여의 기본 사항에 대해 알아봅니다.
+description: Microsoft id 플랫폼에서 인증 및 권한 부여의 기본 사항에 대해 알아봅니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 5087278e5c89514cd43b7ca871a58f18e0fa98f2
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b81b34010736bce33085cb1ebf0faa3da6a41bd6
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678149"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755400"
 ---
 # <a name="authentication-vs-authorization"></a>인증과 권한 부여의 차이점
 

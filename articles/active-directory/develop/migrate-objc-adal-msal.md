@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: fb66d8a4bf97a6f8a10534c9c4459123ad6a2654
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7dc3241198fbc6eeddba059251f28c6dc35c8a29
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107923"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754937"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL으로 응용 프로그램 마이그레이션
 
@@ -38,14 +38,14 @@ Microsoft id 플랫폼은 Azure Active Directory v 1.0과 몇 가지 중요 한 
 
 ### <a name="standards-compliance"></a>표준 준수
 
-* Microsoft id 플랫폼 끝점은 OAuth 2.0 및 Openid connect Connect 표준을 따릅니다.
+* Microsoft id 플랫폼은 OAuth 2.0 및 Openid connect Connect 표준을 따릅니다.
 
 ### <a name="incremental-and-dynamic-consent"></a>증분 및 동적 동의
 
 * Azure Active Directory v1.0 끝점을 사용 하려면 응용 프로그램 등록 중에 모든 사용 권한을 미리 선언 해야 합니다. 이는 해당 권한이 정적 임을 의미 합니다.
 * Microsoft id 플랫폼을 사용 하면 권한을 동적으로 요청할 수 있습니다. 앱은 필요한 경우에만 권한을 요청 하 고 앱에 필요한 것 보다 더 많은 요청을 요청할 수 있습니다.
 
-Azure Active Directory v 1.0과 Microsoft id 플랫폼 간의 차이점에 대 한 자세한 내용은 [microsoft identity platform (v2.0)로 업데이트 하는 이유](../azuread-dev/azure-ad-endpoint-comparison.md)를 참조 하세요.
+Azure Active Directory v 1.0과 Microsoft id 플랫폼 간의 차이점에 대 한 자세한 내용은 [microsoft id 플랫폼을 업데이트 하는 이유](../azuread-dev/azure-ad-endpoint-comparison.md)를 참조 하세요.
 
 ## <a name="adal-and-msal-library-differences"></a>ADAL 및 MSAL 라이브러리 차이점
 
@@ -75,7 +75,7 @@ MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
 이는 모든 응용 프로그램에 대해 기본 제공 되는 범위입니다. 응용 프로그램을 등록할 때 구성 된 사용 권한의 정적 목록을 참조 합니다. 의 동작은의 동작과 유사 `resource` 합니다. 이는 유사한 범위 및 사용자 경험 집합이 유지 되도록 마이그레이션하는 경우에 유용할 수 있습니다.
 
-범위를 사용 하려면 `/.default` `/.default` 리소스 식별자에를 추가 합니다. 예를 들어 `https://graph.microsoft.com/.default`을 참조하십시오. 리소스가 슬래시 ()로 끝나는 경우 선행 슬래시를 포함 하 여 계속 해 서 `/` 추가 해야 `/.default` 합니다 .이 경우에는 이중 슬래시 ()가 포함 된 범위가 생성 `//` 됩니다.
+범위를 사용 하려면 `/.default` `/.default` 리소스 식별자에를 추가 합니다. 예: `https://graph.microsoft.com/.default` 리소스가 슬래시 ()로 끝나는 경우 선행 슬래시를 포함 하 여 계속 해 서 `/` 추가 해야 `/.default` 합니다 .이 경우에는 이중 슬래시 ()가 포함 된 범위가 생성 `//` 됩니다.
 
 여기에서 "/.default" 범위를 사용 하는 방법에 대 한 자세한 내용은 여기를 참조 [하세요](./v2-permissions-and-consent.md#the-default-scope) .
 

@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a4e7389952b81df13dae929dc1aec664fcc0b7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705999"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755643"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft id 플랫폼 개발자 용어집
 
@@ -46,7 +46,7 @@ Azure AD가 애플리케이션 등록 시 부여하는 고유 식별자로, 해�
 
 ## <a name="application-object"></a>애플리케이션 개체
 
-[Azure Portal][AZURE-portal]의 애플리케이션을 등록/업데이트할 때, 포털은 애플리케이션 개체와 그 테넌트에 대한 해당 [서비스 주체 개체](#service-principal-object)를 만들기/업데이트합니다. 애플리케이션 개체는 애플리케이션의 ID 구성을 전역적으로(액세스하는 모든 테넌트에 걸쳐) *정의*하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생*되는 템플릿을 제공합니다.
+[Azure Portal][AZURE-portal]의 애플리케이션을 등록/업데이트할 때, 포털은 애플리케이션 개체와 그 테넌트에 대한 해당 [서비스 주체 개체](#service-principal-object)를 만들기/업데이트합니다. 애플리케이션 개체는 애플리케이션의 ID 구성을 전역적으로(액세스하는 모든 테넌트에 걸쳐) *정의* 하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생* 되는 템플릿을 제공합니다.
 
 자세한 내용은 [애플리케이션 및 서비스 사용자 개체][AAD-App-SP-Objects]를 참조하세요.
 
@@ -60,7 +60,7 @@ Azure AD가 애플리케이션 등록 시 부여하는 고유 식별자로, 해�
 
 자세한 내용은 [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]을 참조하세요.
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>authentication
 
 ID 및 액세스 제어에 사용할 보안 주체를 만들기 위한 기반을 제공하도록 당사자에게 합법적인 자격 증명을 하게 챌린지하는 작업. 예를 들어 [OAuth2 권한 부여](#authorization-grant) 시 당사자 인증은 사용된 권한 부여에 따라 [리소스 소유자](#resource-owner) 또는 [클라이언트 애플리케이션](#client-application)의 역할을 수행합니다.
 
@@ -117,7 +117,7 @@ Microsoft id 플랫폼 응용 프로그램 통합의 경우 Microsoft id 플랫�
 
 ## <a name="microsoft-identity-platform"></a>Microsoft ID 플랫폼
 
-Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph, 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 인증 서비스, 라이브러리, 애플리케이션 등록 및 구성, 완전한 개발자 설명서, 코드 샘플 및 기타 개발자 콘텐츠로 구성된 모든 기능을 갖춘 플랫폼입니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다.
+Microsoft id 플랫폼은 Azure AD (Azure Active Directory) id 서비스와 개발자 플랫폼의 진화를 위한 것입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph, 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 인증 서비스, 라이브러리, 애플리케이션 등록 및 구성, 완전한 개발자 설명서, 코드 샘플 및 기타 개발자 콘텐츠로 구성된 모든 기능을 갖춘 플랫폼입니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다.
 
 ## <a name="multi-tenant-application"></a>다중 테넌트 애플리케이션
 
@@ -180,7 +180,7 @@ OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명�
 
 ## <a name="service-principal-object"></a>서비스 주체 개체
 
-[Azure Portal][AZURE-portal]에서 응용 프로그램을 등록/업데이트할 때 포털은 [응용 프로그램 개체](#application-object) 와 해당 테 넌 트에 해당 하는 서비스 주체 개체를 만들거나 업데이트 합니다. 애플리케이션 개체는 애플리케이션의 ID 구성을 전역적으로(액세스 권한이 관련된 애플리케이션에 부여된 모든 테넌트에 걸쳐) *정의*하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생*되는 템플릿입니다.
+[Azure Portal][AZURE-portal]에서 응용 프로그램을 등록/업데이트할 때 포털은 [응용 프로그램 개체](#application-object) 와 해당 테 넌 트에 해당 하는 서비스 주체 개체를 만들거나 업데이트 합니다. 애플리케이션 개체는 애플리케이션의 ID 구성을 전역적으로(액세스 권한이 관련된 애플리케이션에 부여된 모든 테넌트에 걸쳐) *정의* 하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생* 되는 템플릿입니다.
 
 자세한 내용은 [애플리케이션 및 서비스 사용자 개체][AAD-App-SP-Objects]를 참조하세요.
 
@@ -235,7 +235,7 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [Graph-Perm-Scopes]: /graph/permissions-reference
 [Graph-App-Resource]: /graph/api/resources/application
-[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta
+[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta&preserve-view=true
 [Graph-User-Resource]: /graph/api/resources/user
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md

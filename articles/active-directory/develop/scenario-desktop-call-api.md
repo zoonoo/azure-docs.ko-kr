@@ -1,5 +1,6 @@
 ---
-title: 데스크톱 앱에서 웹 Api 호출-Microsoft identity platform | Microsoft
+title: 데스크톱 앱에서 웹 Api 호출 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 데스크톱 앱을 빌드하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 274dc731b69686a67a9ac5dba25a5d9c98581652
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 51619fe049d580c21b338af2f86b2afea6765b04
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444047"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756527"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>웹 api를 호출 하는 데스크톱 앱: web API 호출
 

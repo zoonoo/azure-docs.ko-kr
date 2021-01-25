@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 213184409c9f5ee21ac9f61be1ad138fbbaa3590
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 42ffc7ffba20868b23675fd8613fd3ef11b0924a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107858"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755045"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Python에 대 한 ADAL에서 MSAL 마이그레이션 가이드
 
@@ -38,13 +38,13 @@ ADAL은 Azure Active Directory (Azure AD) v 1.0 끝점에서 작동 합니다. M
   - OAuth v2.0
   - OIDC (Openid connect Connect)
 
-자세한 내용은 v2.0 [(Microsoft identity platform) 끝점의 다른 항목](../azuread-dev/azure-ad-endpoint-comparison.md) 을 참조 하세요.
+자세한 내용은 [Microsoft id 플랫폼에 대 한 다른 기능](../azuread-dev/azure-ad-endpoint-comparison.md) 을 참조 하세요.
 
 ### <a name="scopes-not-resources"></a>리소스가 아닌 범위
 
 ADAL Python은 리소스에 대 한 토큰을 가져오지만 MSAL Python은 범위에 대 한 토큰을 획득 합니다. MSAL Python의 API 화면에 더 이상 리소스 매개 변수가 없습니다. 필요한 사용 권한 및 요청 된 리소스를 선언 하는 문자열의 목록으로 범위를 제공 해야 합니다. 범위에 대 한 몇 가지 예를 보려면 [Microsoft Graph의 범위](/graph/permissions-reference)를 참조 하세요.
 
-리소스에 범위 접미사를 추가 하 여 v2.0 `/.default` 끝점 (ADAL)에서 Microsoft MSAL (id 플랫폼 끝점)으로 앱을 마이그레이션할 수 있습니다. 예를 들어의 리소스 값에 대해 `https://graph.microsoft.com` 해당 하는 범위 값은 `https://graph.microsoft.com/.default` 입니다.  리소스가 URL 형식이 아닌 폼의 리소스 ID 인 경우 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` 범위 값을으로 계속 사용할 수 있습니다 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
+리소스에 범위 접미사를 추가 하 여 v2.0 `/.default` 끝점 (ADAL)에서 MSAL (Microsoft identity platform)로 앱을 마이그레이션할 수 있습니다. 예를 들어의 리소스 값에 대해 `https://graph.microsoft.com` 해당 하는 범위 값은 `https://graph.microsoft.com/.default` 입니다.  리소스가 URL 형식이 아닌 폼의 리소스 ID 인 경우 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` 범위 값을으로 계속 사용할 수 있습니다 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 다양 한 범위 형식에 대 한 자세한 내용은 [Microsoft id 플랫폼의 사용 권한 및 동의](./v2-permissions-and-consent.md) 및 v1.0 토큰을 [수락 하는 Web API에 대 한 범위](./msal-v1-app-scopes.md) 문서를 참조 하세요.
 
@@ -92,7 +92,7 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
     # You may be able to append "/.default" to your v1 resource to form a scope
     # See https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
-    # Or maybe you have an app already talking to Microsoft identity platform v2,
+    # Or maybe you have an app already talking to the Microsoft identity platform,
     # powered by some 3rd-party auth library, and persist its tokens somehow.
 
     # Either way, you need to extract RTs from there, and return them like this.

@@ -13,15 +13,15 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2b6266f308fce75f136aa4a2482c5b1be6eedb8e
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: c16eb2af5dfb103541c2eac207eb8ee5c303168f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063368"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754715"
 ---
-# <a name="overview-of-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리) 개요
-개발자는 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 사용자를 인증 하 고 보안 된 web Api에 액세스 하기 위해 Microsoft id 플랫폼 끝점에서 [토큰](developer-glossary.md#security-token) 을 획득할 수 있습니다. 이 기능을 사용 하 여 Microsoft Graph, 다른 Microsoft Api, 타사 웹 Api 또는 고유한 web API에 대 한 보안 액세스를 제공할 수 있습니다. MSAL은 .NET, JavaScript, Java, Python, Android 및 iOS를 비롯 한 다양 한 응용 프로그램 아키텍처 및 플랫폼을 지원 합니다.
+# <a name="overview-of-the-microsoft-authentication-library-msal"></a>MSAL(Microsoft 인증 라이브러리) 개요
+개발자는 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 사용자를 인증 하 고 보안 된 web Api에 액세스 하기 위해 Microsoft id 플랫폼에서 [토큰](developer-glossary.md#security-token) 을 획득할 수 있습니다. 이 기능을 사용 하 여 Microsoft Graph, 다른 Microsoft Api, 타사 웹 Api 또는 고유한 web API에 대 한 보안 액세스를 제공할 수 있습니다. MSAL은 .NET, JavaScript, Java, Python, Android 및 iOS를 비롯 한 다양 한 응용 프로그램 아키텍처 및 플랫폼을 지원 합니다.
 
 MSAL을 통해 여러 플랫폼에 대해 일관된 API를 사용하여 토큰을 얻을 수 있는 방법은 여러 가지입니다. MSAL을 사용하면 다음과 같은 이점이 있습니다.
 
@@ -59,6 +59,6 @@ MSAL은 다음을 비롯한 여러 가지 애플리케이션 시나리오에 사
 
 ## <a name="differences-between-adal-and-msal"></a>ADAL과 MSAL의 차이점
 
-ADAL(Active Directory 인증 라이브러리)은 개발자용 Azure AD(v1.0) 엔드포인트와 통합되며, MSAL은 Microsoft ID 플랫폼(v2.0) 엔드포인트와 통합됩니다. v1.0 엔드포인트는 회사 계정을 지원하지만 개인 계정은 지원하지 않습니다. v2.0 엔드포인트는 Microsoft 개인 계정과 회사 계정을 단일 인증 시스템으로 통합한 것입니다. 또한 MSAL을 사용하면 Azure AD B2C에 대한 인증을 받을 수 있습니다.
+ADAL (Active Directory 인증 라이브러리)은 MSAL이 Microsoft id 플랫폼과 통합 되는 Azure AD for 개발자 (v1.0) 엔드포인트와 통합 됩니다. v1.0 엔드포인트는 회사 계정을 지원하지만 개인 계정은 지원하지 않습니다. v2.0 엔드포인트는 Microsoft 개인 계정과 회사 계정을 단일 인증 시스템으로 통합한 것입니다. 또한 MSAL을 사용하면 Azure AD B2C에 대한 인증을 받을 수 있습니다.
 
 자세한 내용은 [ADAL.NET에서 MSAL.NET으로 마이그레이션](msal-net-migration.md)과 [ADAL.js에서 MSAL.js로 마이그레이션](msal-compare-msal-js-and-adal-js.md)을 읽어보세요.

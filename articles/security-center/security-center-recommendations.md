@@ -11,24 +11,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/25/2020
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: dbda0aecdadd81da0f7681a5fc9b140157d5e8f3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795991"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756823"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure Security Center의 보안 권장 사항 
+
 이 항목에서는 Azure 리소스를 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 확인 하 고 이해 하는 방법을 설명 합니다.
 
 
 ## <a name="what-are-security-recommendations"></a>보안 권장 사항이란?
 
-권장 사항은 리소스를 보호 하기 위해 수행할 작업입니다.
-
 Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음, 이러한 취약성을 수정하는 방법에 대한 추천 사항을 제공합니다.
+
+권장 사항은 리소스를 보호 하 고 강화 하기 위해 수행할 작업입니다. 
 
 각 권장 사항은 다음을 제공 합니다.
 
@@ -36,13 +37,21 @@ Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하
 - 권장 사항을 구현 하기 위해 수행할 수정 단계
 - 영향을 받는 리소스
 
+## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>Microsoft에서 보안 및 강화가 필요한 항목을 어떻게 결정 하나요?
+
+Security Center 권장 사항은 Azure 보안 벤치 마크를 기준으로 합니다. 
+
+Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. 광범위 하 게 적용 되는 벤치 마크는 클라우드 중심 보안에 초점을 맞춘 [ci (Internet Security)의 중앙](https://www.cisecurity.org/benchmark/azure/) 에서 제어 하 고 [NIST (표준 및 기술)](https://www.nist.gov/) 를 기반으로 합니다.
+
+[Azure 보안 벤치마크](../security/benchmarks/introduction.md)에 대해 자세히 알아보세요.
+
 ## <a name="monitor-recommendations"></a>권장 사항 모니터링 <a name="monitor-recommendations"></a>
 
 Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취약성을 식별 합니다. 
 
 1. Security Center의 메뉴에서 **권장** 구성 페이지를 열어 환경에 적용할 수 있는 권장 사항을 확인 합니다. 권장 사항은 보안 제어로 그룹화 됩니다.
 
-    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="보안 제어 별로 그룹화 된 권장 사항" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="보안 컨트롤별로 그룹화된 권장 사항" lightbox="./media/security-center-recommendations/view-recommendations.png":::
 
 1. 리소스 종류, 심각도, 환경 또는 중요 한 기타 기준에 대 한 권장 사항을 찾으려면 권장 사항 목록 위의 선택적 필터를 사용 합니다.
 

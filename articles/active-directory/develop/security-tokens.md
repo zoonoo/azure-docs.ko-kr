@@ -1,7 +1,7 @@
 ---
 title: 보안 토큰 | Microsoft
 titleSuffix: Microsoft identity platform
-description: V2.0 (Microsoft identity platform)의 보안 토큰에 대 한 기본 사항에 대해 알아봅니다.
+description: Microsoft id 플랫폼의 보안 토큰에 대 한 기본 사항에 대해 알아봅니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,20 +13,20 @@ ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 88dc4bb86459cd0390c4c01deb871aa93e39c6d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9668d3b0b57e36fb95421f8b502b9b743be8eb31
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84266749"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756229"
 ---
 # <a name="security-tokens"></a>보안 토큰
 
-중앙 집중식 id 공급자는 회사 네트워크에서 반드시 로그인 하지 않아도 되는 전 세계에 있는 사용자가 있는 앱에 특히 유용 합니다. Microsoft id 플랫폼은 사용자를 인증 하 고 [액세스 토큰](developer-glossary.md#access-token), [새로 고침 토큰](developer-glossary.md#refresh-token)및 [ID 토큰과](developer-glossary.md#id-token)같은 보안 토큰을 제공 하 여 [클라이언트 응용 프로그램이](developer-glossary.md#client-application) [리소스 서버](developer-glossary.md#resource-server)에서 보호 되는 리소스에 액세스할 수 있도록 합니다.
+중앙 집중식 id 공급자는 회사 네트워크에서 반드시 로그인 하지 않아도 되는 전 세계에 있는 사용자가 있는 앱에 특히 유용 합니다. Microsoft id 플랫폼은 사용자를 인증 하 고 [액세스 토큰](developer-glossary.md#access-token), [새로 고침 토큰](developer-glossary.md#refresh-token)및 [ID 토큰과](developer-glossary.md#id-token)같은 보안 토큰을 제공 하 여 [클라이언트 응용 프로그램이](developer-glossary.md#client-application) [리소스 서버](developer-glossary.md#resource-server)에서 보호 된 리소스에 액세스할 수 있도록 합니다.
 
-**액세스 토큰** 은 [OAuth 2.0](active-directory-v2-protocols.md) 흐름의 일부로 [권한 부여 서버](developer-glossary.md#authorization-server) 에서 발급 하는 보안 토큰입니다. 토큰에 사용 되는 사용자 및 앱에 대 한 정보를 포함 합니다. 웹 Api 및 기타 보호 된 리소스에 액세스 하는 데 사용할 수 있습니다. Microsoft id 플랫폼에서 토큰 액세스를 발급 하는 방법에 대 한 자세한 내용은 [액세스 토큰](access-tokens.md)을 참조 하세요.
+**액세스 토큰** 은 [OAuth 2.0](active-directory-v2-protocols.md) 흐름의 일부로 [권한 부여 서버](developer-glossary.md#authorization-server) 에서 발급 하는 보안 토큰입니다. 토큰에 사용 되는 사용자 및 앱에 대 한 정보를 포함 합니다. 웹 Api 및 기타 보호 된 리소스에 액세스 하는 데 사용할 수 있습니다. Microsoft id 플랫폼에서 액세스 토큰을 발급 하는 방법에 대 한 자세한 내용은 [액세스 토큰](access-tokens.md)을 참조 하세요.
 
-액세스 토큰은 짧은 기간 동안만 유효 하므로 권한 부여 서버는 때때로 액세스 토큰이 발급 될 때 **새로 고침 토큰** 을 발급 합니다. 클라이언트 응용 프로그램은 필요한 경우 새 액세스 토큰에 대해이 새로 고침 토큰을 교환할 수 있습니다. Microsoft id 플랫폼에서 새로 고침 토큰을 사용 하 여 권한을 해지 하는 방법에 대 한 자세한 내용은 [토큰 해지](access-tokens.md#token-revocation)를 참조 하세요.
+액세스 토큰은 짧은 기간 동안만 유효 하므로 권한 부여 서버는 때때로 액세스 토큰이 발급 될 때 **새로 고침 토큰** 을 발급 합니다. 클라이언트 응용 프로그램은 필요한 경우 새 액세스 토큰에 대해이 새로 고침 토큰을 교환할 수 있습니다. Microsoft id 플랫폼에서 새로 고침 토큰을 사용 하 여 권한을 해지 하는 방법에 대해 자세히 알아보려면 [토큰 해지](access-tokens.md#token-revocation)를 참조 하세요.
 
 **ID 토큰** 은 [openid connect Connect](v2-protocols-oidc.md) 흐름의 일부로 클라이언트 응용 프로그램에 전송 됩니다. 액세스 토큰과 함께 또는 액세스 토큰 대신 보낼 수 있고 클라이언트가 사용자를 인증하는 데 사용됩니다. Microsoft id 플랫폼에서 ID 토큰을 발급 하는 방법에 대해 자세히 알아보려면 [id 토큰](id-tokens.md)을 참조 하세요.
 
@@ -46,7 +46,7 @@ ms.locfileid: "84266749"
 
 ## <a name="json-web-tokens-jwts-and-claims"></a>JWTs (JSON 웹 토큰) 및 클레임
 
-Microsoft id 플랫폼은 **클레임**을 포함 하는 Jwt **(JSON 웹 토큰)** 로 보안 토큰을 구현 합니다. JWTs는 보안 토큰으로 사용 되므로 이러한 형식의 인증을 **JWT 인증**이 라고도 합니다.
+Microsoft id 플랫폼은 **클레임** 을 포함 하는 Jwt **(JSON 웹 토큰)** 로 보안 토큰을 구현 합니다. JWTs는 보안 토큰으로 사용 되므로 이러한 형식의 인증을 **JWT 인증** 이 라고도 합니다.
 
 [클레임](developer-glossary.md#claim) 은 클라이언트 응용 프로그램 또는 [리소스 소유자](developer-glossary.md#resource-owner)와 같은 하나의 엔터티에 대 한 어설션을 리소스 서버와 같은 다른 엔터티에 제공 합니다. 클레임을 JWT 클레임 또는 JSON Web Token 클레임 이라고 할 수도 있습니다.
 
@@ -67,7 +67,7 @@ Microsoft id 플랫폼은 **클레임**을 포함 하는 Jwt **(JSON 웹 토큰)
 * 토큰이 생성 된 앱 인 대상 그룹
 * 토큰을 요청 하는 앱 (클라이언트)입니다. 웹 앱의 경우이는 대상 그룹과 동일할 수 있습니다.
 
-Microsoft id 플랫폼에서 토큰 및 클레임 정보를 구현 하는 방법에 대 한 자세한 내용은 [액세스 토큰](access-tokens.md) 및 [ID 토큰](id-tokens.md)을 참조 하세요.
+Microsoft id 플랫폼에서 토큰 및 클레임 정보를 구현 하는 방법에 대해 자세히 알아보려면 [액세스 토큰](access-tokens.md) 및 [ID 토큰](id-tokens.md)을 참조 하세요.
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>각 흐름에서 토큰 및 코드를 내보내는 방법
 

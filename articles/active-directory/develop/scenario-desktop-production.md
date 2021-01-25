@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 데스크톱 앱을 프로덕션으로 이동-Microsoft id 플랫폼 | Microsoft
+title: 웹 Api를 호출 하는 데스크톱 앱을 프로덕션으로 이동 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 데스크톱 앱을 프로덕션으로 이동 하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 325f95f2830ef021a4ac79de48695dda570f7817
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 05b93848bff66adc49d2855ee98fff6c9b7a2d3d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629785"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756505"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱: 프로덕션으로 이동
 
@@ -29,9 +30,9 @@ ms.locfileid: "97629785"
 ## <a name="have-the-user-consent-upfront-for-several-resources"></a>사용자에 게 여러 리소스에 대 한 사전 승인이 필요 합니다.
 
 > [!NOTE]
-> 여러 리소스에 대 한 동의를 얻는 것은 Microsoft id 플랫폼에서 작동 하지만 Azure Active Directory (Azure AD) B2C의 경우에는 작동 하지 않습니다. Azure AD B2C은 사용자 동의가 아닌 관리자 동의만 지원 합니다.
+> 여러 리소스에 대 한 동의를 얻는 것은 Microsoft id 플랫폼에 대 한 것 이지만 Azure Active Directory (Azure AD) B2C는 사용할 수 없습니다. Azure AD B2C은 사용자 동의가 아닌 관리자 동의만 지원 합니다.
 
-V2.0 (Microsoft identity platform) 끝점을 사용 하 여 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. `scopes`매개 변수는 단일 리소스에 대 한 범위만 포함할 수 있습니다. 사용자가 매개 변수를 사용 하 여 여러 리소스를 미리 동의 수 있습니다 `extraScopesToConsent` .
+Microsoft id 플랫폼을 사용 하 여 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. `scopes`매개 변수는 단일 리소스에 대 한 범위만 포함할 수 있습니다. 사용자가 매개 변수를 사용 하 여 여러 리소스를 미리 동의 수 있습니다 `extraScopesToConsent` .
 
 예를 들어, 두 개의 범위가 각각 포함 된 두 개의 리소스가 있을 수 있습니다.
 
@@ -40,7 +41,7 @@ V2.0 (Microsoft identity platform) 끝점을 사용 하 여 한 번에 여러 �
 
 이 예제에서는 `.WithAdditionalPromptToConsent` 매개 변수가 있는 한정자를 사용 합니다 `extraScopesToConsent` .
 
-예:
+예를 들면 다음과 같습니다.
 
 ### <a name="in-msalnet"></a>MSAL.NET에서
 

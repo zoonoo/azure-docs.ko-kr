@@ -13,18 +13,18 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac66e8f82ea4c04e866b28fed5f8d0860ab81ef
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115988"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755975"
 ---
 # <a name="accounts--tenant-profiles-android"></a>계정 및 테넌트 프로필(Android)
 
 이 문서에서는 Microsoft id 플랫폼에 있는 항목에 대 한 개요를 제공 `account` 합니다.
 
-MSAL (Microsoft 인증 라이브러리) API는 *사용자* 라는 용어를 *계정*으로 대체 합니다. 한 가지 이유는 사용자 (사람이 나 소프트웨어 에이전트)가 여러 계정을 사용 하거나 사용할 수 있기 때문입니다. 이러한 계정은 사용자의 조직에 있거나 사용자가 구성원 인 다른 조직에 있을 수 있습니다.
+MSAL (Microsoft 인증 라이브러리) API는 *사용자* 라는 용어를 *계정* 으로 대체 합니다. 한 가지 이유는 사용자 (사람이 나 소프트웨어 에이전트)가 여러 계정을 사용 하거나 사용할 수 있기 때문입니다. 이러한 계정은 사용자의 조직에 있거나 사용자가 구성원 인 다른 조직에 있을 수 있습니다.
 
 Microsoft id 플랫폼의 계정은 다음으로 구성 됩니다.
 

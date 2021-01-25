@@ -12,16 +12,16 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 35499810ae13a8ddc5b7bb6306deafef0ef24e0f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246794"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756047"
 ---
-# <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
+# <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 권한 및 동의
 
-Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 권한 부여 모델의 구현이 Microsoft id 플랫폼 끝점에서 업데이트 되었습니다. 앱이 Microsoft id 플랫폼과 상호 작용 해야 하는 방식을 변경 합니다. 이 문서에서는 범위, 사용 권한 및 동의를 포함하여 이 권한 부여 모델의 기본 개념에 대해 설명합니다.
+Microsoft id 플랫폼과 통합 되는 응용 프로그램은 사용자와 관리자에 게 데이터에 액세스할 수 있는 방법을 제어 하는 권한 부여 모델을 따릅니다. 권한 부여 모델의 구현이 Microsoft id 플랫폼에서 업데이트 되었습니다. 앱이 Microsoft id 플랫폼과 상호 작용 해야 하는 방식을 변경 합니다. 이 문서에서는 범위, 사용 권한 및 동의를 포함하여 이 권한 부여 모델의 기본 개념에 대해 설명합니다.
 
 ## <a name="scopes-and-permissions"></a>범위 및 사용 권한
 
@@ -53,7 +53,7 @@ OAuth 2.0에서는 이러한 유형의 권한 집합을 *범위* 라고 합니�
 
 ## <a name="permission-types"></a>사용 권한 유형
 
-Microsoft ID 플랫폼은 *위임된 권한* 및 *애플리케이션 권한* 의 두 가지 사용 권한을 지원합니다.
+Microsoft id 플랫폼은 *위임 된 권한* 및 *응용 프로그램 권한* 이라는 두 가지 권한 유형을 지원 합니다.
 
 * **위임된 권한** 은 로그인한 사용자가 있는 앱에서 사용합니다. 이러한 앱에 대해 사용자 또는 관리자는 앱이 요청 하는 사용 권한을 동의 합니다. 앱은 대상 리소스를 호출할 때 로그인 한 사용자 역할을 할 수 있는 권한을 위임 합니다. 
 
@@ -128,7 +128,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 `scope` 매개 변수는 앱이 요청하는 공백으로 구분된 위임된 권한 범위 목록입니다. 각 사용 권한은 리소스의 식별자 (응용 프로그램 ID URI)에 권한 값을 추가 하 여 표시 됩니다. 요청 예제에서 앱에는 사용자의 일정을 읽고 사용자로 메일을 보낼 수 있는 권한이 필요합니다.
 
-사용자가 자격 증명을 입력 하면 Microsoft id 플랫폼 끝점이 *사용자 동의* 와 일치 하는 레코드를 확인 합니다. 사용자가 이전에 요청 된 사용 권한 중 하나에 동의한 하지 않은 경우 관리자가 전체 조직을 대신 하 여 이러한 권한을 동의한 하지 않은 경우 Microsoft identity platform 끝점은 사용자에 게 요청 된 사용 권한을 부여 하 라는 메시지를 표시 합니다.
+사용자가 자격 증명을 입력 한 후 Microsoft id 플랫폼은 *사용자 동의* 와 일치 하는 레코드를 확인 합니다. 사용자가 이전에 요청 된 사용 권한 중 하나에 동의한 하지 않은 경우 관리자가 전체 조직을 대신 하 여 이러한 권한을 동의한 하지 않은 경우 Microsoft id 플랫폼에서 요청 된 사용 권한을 부여 하 라는 메시지를 사용자에 게 표시 합니다.
 
 현재 `offline_access` 응용 프로그램에 대 한 초기 동의에는 ("it에 대 한 액세스를 제공 하는 데이터 액세스 유지") 권한 및 `user.read` ("사용자 프로필에 대 한 로그인 및 읽기") 권한이 자동으로 포함 됩니다.  이러한 권한은 일반적으로 적절 한 앱 기능에 필요 합니다. `offline_access`사용 권한은 앱에서 네이티브 앱 및 웹 앱에 중요 한 토큰을 새로 고칠 수 있는 액세스 권한을 부여 합니다. `user.read`권한은 클레임에 대 한 액세스를 제공 합니다 `sub` . 클라이언트 또는 앱이 시간 경과에 따라 사용자를 올바르게 식별 하 고 기본적인 사용자 정보에 액세스할 수 있습니다.
 
@@ -335,7 +335,7 @@ response_type=token            //Code or a hybrid flow is also possible here
 
 이 코드 예제에서는 승인에 대 한 위의 설명이 적용 되 고 시나리오에 적용 되는 경우 등록 된 모든 권한에 대 한 동의 페이지를 생성 `/.default` 합니다. 그런 다음 코드는 `id_token` 액세스 토큰이 아닌를 반환 합니다.  
 
-이 동작은 ADAL (Azure AD 인증 라이브러리)에서 MSAL (Microsoft Authentication Library)로 이동 하는 일부 레거시 클라이언트를 수용 합니다. Microsoft id 플랫폼 끝점을 대상으로 하는 새 클라이언트에서는 *이 설치를 사용할 수 없습니다.*
+이 동작은 ADAL (Azure AD 인증 라이브러리)에서 MSAL (Microsoft 인증 라이브러리)로 이동 하는 일부 레거시 클라이언트를 수용 합니다. Microsoft id 플랫폼을 대상으로 하는 새 클라이언트에서는 *이 설치를 사용할 수 없습니다.*
 
 ### <a name="client-credentials-grant-flow-and-default"></a>클라이언트 자격 증명 부여 흐름 및 기본값  
 

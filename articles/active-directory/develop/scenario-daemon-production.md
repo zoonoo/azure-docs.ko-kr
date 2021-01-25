@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 디먼 앱을 프로덕션-Microsoft id 플랫폼으로 이동 | Microsoft
+title: 웹 Api를 호출 하는 디먼 앱을 프로덕션으로 이동 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 디먼 앱을 프로덕션으로 이동 하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 72e6d0a8677f7a8175223b80541c99026a9eb16f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99fd79fb6c51f577d9b62d15ac006b068a685bcf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119167"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756549"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 디먼 앱-프로덕션으로 이동
 

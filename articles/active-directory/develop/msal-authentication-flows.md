@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/08/2020
+ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89437873"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755027"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -53,9 +53,9 @@ MSAL (Microsoft 인증 라이브러리)은 여러 응용 프로그램 시나리�
 이러한 흐름 중 몇 가지는 대화형 토큰 획득 및 비 대화형 토큰 획득을 모두 지원 합니다.
 
   - **대화형** 은 사용자에 게 입력을 요청 하는 메시지를 표시할 수 있음을 의미 합니다. 예를 들어 사용자에 게 로그인 하 라는 메시지를 표시 하거나 MFA (multi-factor authentication)를 수행 하거나 리소스에 추가 동의를 부여 합니다.
-  - **비 대화형**또는 *자동*인증은 로그인 서버에서 사용자에 게 추가 정보를 확인할 *수 없는* 방식으로 토큰을 획득 하려고 시도 합니다.
+  - **비 대화형** 또는 *자동* 인증은 로그인 서버에서 사용자에 게 추가 정보를 확인할 *수 없는* 방식으로 토큰을 획득 하려고 시도 합니다.
 
-MSAL 기반 응용 프로그램은 먼저 토큰을 *자동*으로 획득 한 다음 비 대화형 메서드가 실패 하는 경우에만 대화형으로 시도 해야 합니다. 이 패턴에 대 한 자세한 내용은 [MSAL (Microsoft 인증 라이브러리)을 사용 하 여 토큰 가져오기 및 캐시](msal-acquire-cache-tokens.md)를 참조 하세요.
+MSAL 기반 응용 프로그램은 먼저 토큰을 *자동* 으로 획득 한 다음 비 대화형 메서드가 실패 하는 경우에만 대화형으로 시도 해야 합니다. 이 패턴에 대 한 자세한 내용은 [MSAL (Microsoft 인증 라이브러리)을 사용 하 여 토큰 가져오기 및 캐시](msal-acquire-cache-tokens.md)를 참조 하세요.
 
 ## <a name="authorization-code"></a>인증 코드
 
@@ -185,7 +185,7 @@ DevOps와 같은 일부 시나리오에서는 사용자 이름/암호 흐름이 
 - 이 흐름은 .NET 데스크톱 및 .NET Core에서 사용할 수 있지만 유니버설 Windows 플랫폼에서는 사용할 수 없습니다.
 - Azure AD B2C에서 ROPC 흐름은 로컬 계정에 대해서만 작동 합니다. MSAL.NET 및 Azure AD B2C의 ROPC에 대 한 자세한 내용은 [Azure AD B2C에서 Ropc 사용](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc)을 참조 하세요.
 
-## <a name="integrated-windows-authentication"></a>Windows 통합 인증
+## <a name="integrated-windows-authentication"></a>통합 Windows 인증
 
 MSAL은 도메인에 가입 되거나 Azure AD에 가입 된 Windows 컴퓨터에서 실행 되는 데스크톱 및 모바일 응용 프로그램에 대 한 IWA (Windows 통합 인증)를 지원 합니다. 이러한 응용 프로그램은 IWA를 사용 하 여 사용자의 UI 상호 작용 없이도 토큰을 자동으로 가져올 수 있습니다.
 
@@ -223,7 +223,7 @@ IWA는 자동 흐름이므로 다음 중 하나를 충족해야 합니다.
 - 사용자가 응용 프로그램에 동의할 수 있는 방법을 제공 했습니다. [개별 사용자 동의 요청](v2-permissions-and-consent.md#requesting-individual-user-consent)을 참조 하세요.
 - 테 넌 트 관리자가 응용 프로그램에 동의할 수 있는 방법을 제공 했습니다. [관리자 동의](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)를 참조 하세요.
 
-IWA 흐름이 .NET 데스크톱, .NET Core 및 Windows 유니버설 플랫폼 앱에 대해 사용하도록 설정됩니다. .Net Core는 운영 체제에서 사용자 이름을 가져올 수 없기 때문에 IWA에 대한 사용자 이름을 제공해야 합니다.
+IWA 흐름이 .NET 데스크톱, .NET Core 및 Windows 유니버설 플랫폼 앱에 대해 사용하도록 설정됩니다.
 
 동의에 대한 자세한 내용은 [v2.0 권한 및 동의](v2-permissions-and-consent.md)를 참조하세요.
 

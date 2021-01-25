@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063793"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755251"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft ID 플랫폼 모범 사례 및 권장 사항
 
@@ -30,7 +30,7 @@ ms.locfileid: "98063793"
 > [!TIP]
 > Azure Portal의 *통합 길잡이* 를 통해 이러한 모범 사례와 권장 사항을 대부분 적용할 수 있습니다. Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 중 하나를 선택한 다음 **Integration assistant** 메뉴 항목을 선택 하 여 길잡이를 시작 합니다.
 
-## <a name="basics"></a>기본 사항
+## <a name="basics"></a>기본
 
 ![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) [Microsoft Platform 정책을](/legal/microsoft-identity-platform/terms-of-use)읽고 이해 합니다. 응용 프로그램이 사용자 및 플랫폼을 보호 하도록 설계 된 용어를 준수 하는지 확인 합니다.
 
@@ -100,11 +100,11 @@ ms.locfileid: "98063793"
 
 ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 지원 하려는 모든 가능한 계정 (예: 회사 또는 학교 계정, 개인 Microsoft 계정, 자식 계정 및 소 버린 계정)으로 응용 프로그램을 테스트 합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 v2.0에 관한 자세한 정보를 살펴보세요.
 
-* [Microsoft id 플랫폼 (v2.0 개요)](v2-overview.md)
+* [Microsoft id 플랫폼 (개요)](v2-overview.md)
 * [Microsoft id 플랫폼 프로토콜 참조](active-directory-v2-protocols.md)
 * [액세스 토큰 참조](access-tokens.md)
 * [ID 토큰 참조](id-tokens.md)

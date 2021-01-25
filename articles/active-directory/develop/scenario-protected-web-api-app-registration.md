@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443945"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756463"
 ---
 # <a name="protected-web-api-app-registration"></a>보호 된 웹 API: 앱 등록
 
@@ -27,7 +27,7 @@ ms.locfileid: "94443945"
 
 ## <a name="accepted-token-version"></a>수락 된 토큰 버전
 
-Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 있습니다. 이러한 토큰에 대 한 자세한 내용은 [액세스 토큰](access-tokens.md)을 참조 하세요.
+Microsoft id 플랫폼은 v1.0 토큰과 v 2.0 토큰을 발급할 수 있습니다. 이러한 토큰에 대 한 자세한 내용은 [액세스 토큰](access-tokens.md)을 참조 하세요.
 
 API가 수락할 수 있는 토큰 버전은 Azure Portal에서 web API 응용 프로그램 등록을 만들 때 **지원 되는 계정 유형** 선택에 따라 달라 집니다.
 
@@ -44,7 +44,7 @@ API가 수락할 수 있는 토큰 버전은 Azure Portal에서 web API 응용 �
 1. 토큰 버전을 변경한 경우 **저장** 을 선택 합니다.
 
 > [!NOTE]
-> 웹 API는 허용 하는 토큰 버전을 지정 합니다. 클라이언트가 v2.0 (Microsoft identity platform) 끝점에서 web API에 대 한 토큰을 요청 하는 경우 클라이언트는 web API가 수락 하는 토큰 버전을 나타내는 토큰을 가져옵니다.
+> 웹 API는 허용 하는 토큰 버전을 지정 합니다. 클라이언트는 Microsoft id 플랫폼에서 web API에 대 한 토큰을 요청 하는 경우 web API가 허용 하는 토큰 버전을 나타내는 토큰을 가져옵니다.
 
 ## <a name="no-redirect-uri"></a>리디렉션 URI 없음
 

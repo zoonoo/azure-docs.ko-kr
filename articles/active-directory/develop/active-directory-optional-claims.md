@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6855e8f550c14574795ec00f4fed36762944dca1
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232474"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756041"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -31,7 +31,7 @@ ms.locfileid: "98232474"
 
 표준 클레임 목록은 [access token](access-tokens.md) 및 [ID_token](id-tokens.md) 클레임 설명서를 참조하세요.
 
-선택적 클레임은 v1.0 및 v2.0 형식 토큰 뿐만 아니라 SAML 토큰에서도 지원되지만, v1.0에서 v2.0으로 전환할 때 대부분의 값을 제공합니다. [v2.0 Microsoft ID 플랫폼 엔드포인트](./v2-overview.md)의 목표 중 하나는 클라이언트의 최적 성능을 보장하기 위해 토큰 크기를 좀 더 작게 유지하는 것입니다. 따라서, 이전에 액세스 및 ID 토큰에 포함되어 있던 일부 클레임이 v 2.0 토큰에는 더 이상 존재하지 않으며, 애플리케이션 기준으로 특수하게 요청되어야 합니다.
+선택적 클레임은 v1.0 및 v2.0 형식 토큰 뿐만 아니라 SAML 토큰에서도 지원되지만, v1.0에서 v2.0으로 전환할 때 대부분의 값을 제공합니다. [Microsoft id 플랫폼](./v2-overview.md) 의 목표 중 하나는 클라이언트의 최적 성능을 보장 하기 위해 더 작은 토큰 크기입니다. 따라서, 이전에 액세스 및 ID 토큰에 포함되어 있던 일부 클레임이 v 2.0 토큰에는 더 이상 존재하지 않으며, 애플리케이션 기준으로 특수하게 요청되어야 합니다.
 
 **표 1: 적용 가능성**
 
@@ -76,7 +76,7 @@ ms.locfileid: "98232474"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | Name                            | 설명                                | 메모 |
+| JWT 클레임     | Name                            | Description                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -94,7 +94,7 @@ V2 토큰 형식의 향상 된 기능 중 일부는 보안 및 안정성 향상�
 **표 4: v1.0 전용 선택적 클레임**
 
 
-| JWT 클레임     | Name                            | 설명 | 참고 |
+| JWT 클레임     | Name                            | Description | 메모 |
 |---------------|---------------------------------|-------------|-------|
 |`aud`          | 사용자 | 항상 JWTs에 있지만, v1 액세스 토큰에서는 후행 슬래시를 사용 하거나 사용 하지 않고 리소스의 클라이언트 ID를 사용 하 여 다양 한 방법으로 내보낼 수 있습니다. 토큰 유효성 검사를 수행 하는 경우이 임의 대상으로 코딩 하기 어려울 수 있습니다.  [이 클레임에 대 한 추가 속성](#additional-properties-of-optional-claims) 을 사용 하 여 항상 v1 액세스 토큰에서 리소스의 클라이언트 ID로 설정 되도록 합니다. | v1 JWT 액세스 토큰만|
 |`preferred_username` | 기본 사용자 이름        | V1 토큰 내에서 기본 설정 된 사용자 이름 클레임을 제공 합니다. 이렇게 하면 앱이 사용자 이름 힌트를 제공 하 고 토큰 형식에 관계 없이 사용자가 읽을 수 있는 표시 이름을 볼 수 있습니다.  예를 들어 또는를 사용 하는 대신이 선택적인 클레임을 사용 하는 것이 좋습니다. `upn` `unique_name` | v1 ID 토큰 및 액세스 토큰 |

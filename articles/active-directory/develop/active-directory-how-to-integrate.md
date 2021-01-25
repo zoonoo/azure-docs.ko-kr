@@ -14,24 +14,24 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: deb923a52e5d6cd5384dbf94d2249572b25b1a61
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b7ee283ff61753a060e49a3340cd0a795b04faf9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063844"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755929"
 ---
-# <a name="integrating-with-microsoft-identity-platform"></a>Microsoft id 플랫폼과 통합
+# <a name="integrating-with-the-microsoft-identity-platform"></a>Microsoft id 플랫폼과 통합
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-이 문서에서는 응용 프로그램을 Microsoft id 플랫폼과 통합 하 고 통합을 위해 리소스를 가져오는 이점에 대해 알아봅니다. Microsoft id 플랫폼 및 AD (Azure Active Directory)는 조직에 클라우드 응용 프로그램을 위한 엔터프라이즈급 id 관리 기능을 제공 합니다. Microsoft id 플랫폼 통합은 사용자에 게 간소화 된 로그인 환경을 제공 하 고 응용 프로그램이 IT 정책을 준수 하도록 도와줍니다.
+이 문서에서는 응용 프로그램을 Microsoft id 플랫폼과 통합 하 고 통합할 리소스를 가져오는 이점에 대해 알아봅니다. Microsoft id 플랫폼 및 AD (Azure Active Directory)는 조직에 클라우드 응용 프로그램을 위한 엔터프라이즈급 id 관리 기능을 제공 합니다. Microsoft id 플랫폼 통합은 사용자에 게 간소화 된 로그인 환경을 제공 하 고 응용 프로그램이 IT 정책을 준수 하도록 도와줍니다.
 
 ## <a name="how-to-integrate"></a>통합 방법
 
 응용 프로그램을 Microsoft id 플랫폼과 통합 하는 방법에는 여러 가지가 있습니다. 애플리케이션에 맞게 이 시나리오를 활용하세요.
 
-### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Microsoft id 플랫폼을 응용 프로그램에 로그인 하는 방법으로 지원
+### <a name="support-the-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Microsoft id 플랫폼을 응용 프로그램에 로그인 하는 방법으로 지원
 
 **로그인 충돌을 줄이고 지원 비용을 절감합니다.** Microsoft id 플랫폼을 사용 하 여 응용 프로그램에 로그인 하면 사용자에 게 기억할 이름 및 암호가 하나 이상 없습니다. 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Microsoft id 플랫폼은 Microsoft 365 및 Microsoft Azure를 포함 하 여 전 세계에서 가장 인기 있는 일부 클라우드 응용 프로그램에 대 한 로그인을 진행 합니다. 수백만 명의 조직에서 수백만 명의 사용자가 Microsoft id 플랫폼에 이미 로그인 한 경우를 들 수 있습니다. [Microsoft id 플랫폼 로그인에 대 한 지원을 추가 하는](./authentication-vs-authorization.md)방법에 대해 자세히 알아보세요.
 
@@ -45,11 +45,11 @@ ms.locfileid: "98063844"
 
 **Microsoft id 플랫폼을 사용 하 여 응용 프로그램에 대 한 액세스 권한이 있는 사용자를 제어 합니다.**  Azure AD의 관리자 및 애플리케이션 소유자는 애플리케이션에 대한 액세스 권한을 특정 사용자 및 그룹에게 할당할 수 있습니다. Microsoft Graph API를 사용 하 여이 목록을 읽고 응용 프로그램 내에서 리소스 및 액세스의 프로 비전 및 프로 비전 해제를 제어 하는 데 사용할 수 있습니다.
 
-**역할 기반 Access Control에 Microsoft id 플랫폼을 사용 합니다.**  관리자 및 응용 프로그램 소유자는 Microsoft id 플랫폼에서 응용 프로그램을 등록할 때 정의한 역할에 사용자 및 그룹을 할당할 수 있습니다. 역할 정보는 로그인 토큰에서 응용 프로그램으로 전송 되며 Microsoft Graph API를 사용 하 여 읽을 수도 있습니다. [권한 부여를 위해 Microsoft id 플랫폼을 사용 하는](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/)방법에 대해 자세히 알아보세요.
+**역할 기반 Access Control Microsoft id 플랫폼을 사용 합니다.**  관리자 및 응용 프로그램 소유자는 Microsoft id 플랫폼에서 응용 프로그램을 등록할 때 정의한 역할에 사용자 및 그룹을 할당할 수 있습니다. 역할 정보는 로그인 토큰에서 응용 프로그램으로 전송 되며 Microsoft Graph API를 사용 하 여 읽을 수도 있습니다. [권한 부여를 위해 Microsoft id 플랫폼을 사용 하는](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/)방법에 대해 자세히 알아보세요.
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>사용자의 프로필, 일정, 메일, 연락처, 파일 등에 액세스할 수 있습니다.
 
-**Microsoft id 플랫폼은 Microsoft 365 및 기타 Microsoft 비즈니스 서비스에 대 한 권한 부여 서버입니다.**  응용 프로그램에 로그인 하거나 OAuth 2.0를 사용 하 여 현재 사용자 계정을 Azure AD 사용자 계정에 연결 하도록 지 원하는 Microsoft id 플랫폼을 지 원하는 경우 사용자의 프로필, 일정, 전자 메일, 연락처, 파일 및 기타 정보에 대 한 읽기 및 쓰기 액세스를 요청할 수 있습니다. 사용자의 일정에 매끄럽게 이벤트를 쓸 수 있으며 사용자의 OneDrive에 파일을 읽거나 쓸 수 있습니다. [Microsoft 365 api](/graph/overview)에 대해 자세히 알아보세요.
+**Microsoft id 플랫폼은 Microsoft 365 및 기타 Microsoft 비즈니스 서비스에 대 한 권한 부여 서버입니다.**  응용 프로그램에 로그인 하거나 OAuth 2.0를 사용 하 여 현재 사용자 계정을 Azure AD 사용자 계정에 연결 하는 것을 지 원하는 Microsoft id 플랫폼을 지 원하는 경우 사용자의 프로필, 일정, 메일, 연락처, 파일 및 기타 정보에 대 한 읽기 및 쓰기 액세스를 요청할 수 있습니다. 사용자의 일정에 매끄럽게 이벤트를 쓸 수 있으며 사용자의 OneDrive에 파일을 읽거나 쓸 수 있습니다. [Microsoft 365 api](/graph/overview)에 대해 자세히 알아보세요.
 
 ### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Azure에서 응용 프로그램을 홍보 하 고 Microsoft 365 마켓플레이스
 
