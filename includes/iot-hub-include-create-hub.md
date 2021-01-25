@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 2144945647dc6b2e31e5593de3b6c8c0bf99a606
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a6a01b3a71a7e391c680e6c9547ccd9649dc0e89
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993287"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98605079"
 ---
 이 섹션에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT Hub를 만드는 방법에 대해 설명합니다.
 
@@ -31,26 +31,32 @@ ms.locfileid: "95993287"
 
    - **지역**: 허브를 배치할 지역을 선택합니다. 가장 가까운 위치를 선택합니다. [IoT Hub 디바이스 스트림](../articles/iot-hub/iot-hub-device-streams-overview.md)과 같은 일부 기능은 특정 지역에서만 사용할 수 있습니다. 이러한 제한된 기능의 경우 지원되는 지역 중 하나를 선택해야 합니다.
 
-   - **IoT Hub 이름**: 허브 이름을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 입력한 이름을 사용할 수 있으면 녹색 확인 표시가 나타납니다.
+   - **IoT Hub 이름**: 허브 이름을 입력합니다. 이 이름은 전역적으로 고유해야 합니다.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
    ![Azure Portal에서 허브 만들기](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
-1. 완료되면 **다음: 크기 및 규모** 를 선택하여 허브를 계속 만듭니다.
+1. 완료되면 **다음: 네트워킹** 을 선택하여 허브를 계속 만듭니다.
 
-   ![Azure Portal을 사용하여 새 허브의 크기 및 배율 설정](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
+   IoT Hub에 연결할 수 있는 엔드포인트를 선택합니다. **퍼블릭 엔드포인트(모든 네트워크)** 기본 설정을 선택하거나 **퍼블릭 엔드포인트(선택한 IP 범위)** 또는 **프라이빗 엔드포인트** 를 선택할 수 있습니다. 이 예제의 기본 설정을 적용합니다.
 
-   여기서 기본 설정을 적용할 수 있습니다. 원하는 경우 다음 필드 중 하나를 수정할 수 있습니다. 
+   ![연결할 수 있는 엔드포인트 선택](./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png)
 
-    - **가격 책정 및 크기 조정 계층**: 선택한 계층입니다. 원하는 기능 수와 하루에 솔루션을 통해 보내는 메시지 수에 따라 여러 계층에서 선택할 수 있습니다. 무료 계층은 테스트와 평가를 위해 제공됩니다. 허브에 500개 디바이스를 연결할 수 있으며 하루에 8,000개 메시지까지 허용합니다. 각 Azure 구독은 체험 계층에 하나의 IoT Hub를 만들 수 있습니다. 
+1. 완료되면 **다음: 관리** 를 선택하여 허브를 계속 만듭니다.
+
+    ![Azure Portal을 사용하여 새 허브의 크기 및 배율 설정](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
+
+    여기서 기본 설정을 적용할 수 있습니다. 원하는 경우 다음 필드 중 하나를 수정할 수 있습니다.
+
+    - **가격 책정 및 크기 조정 계층**: 선택한 계층입니다. 원하는 기능 수와 하루에 솔루션을 통해 보내는 메시지 수에 따라 여러 계층에서 선택할 수 있습니다. 무료 계층은 테스트와 평가를 위해 제공됩니다. 허브에 500개 디바이스를 연결할 수 있으며 하루에 8,000개 메시지까지 허용합니다. 각 Azure 구독은 체험 계층에 하나의 IoT Hub를 만들 수 있습니다.
 
       IoT Hub 디바이스 스트림용 빠른 시작을 통해 작업하는 경우 무료 계층을 선택합니다.
 
     - **IoT Hub 단위**: 하루 단위당 허용되는 메시지의 수는 허브의 가격 책정 계층에 따라 다릅니다. 예를 들어 허브가 700,000개의 메시지 수신을 지원하려면 S1 계층 단위 2개를 선택합니다.
     다른 계층 옵션에 대한 자세한 내용은 [적절한 IoT Hub 계층 선택](../articles/iot-hub/iot-hub-scaling.md)을 참조하세요.
 
-    - **Azure Security Center**: IoT 및 디바이스에 추가 위협 방지 계층을 추가하려면 이 옵션을 설정합니다. 무료 계층의 허브에는 이 옵션을 사용할 수 없습니다. 이 기능에 대한 자세한 내용은 [IoT용 Azure Security Center](/azure/asc-for-iot/)를 참조하세요.
+    - **Defender for IoT**: IoT 및 디바이스에 추가 위협 방지 계층을 추가하려면 이 옵션을 설정합니다. 무료 계층의 허브에는 이 옵션을 사용할 수 없습니다. 이 기능에 대한 자세한 내용은 [IoT용 Azure Security Center](/azure/asc-for-iot/)를 참조하세요.
 
     - **고급 설정** > **디바이스-클라우드 파티션**: 이 속성은 디바이스-클라우드 메시지를 메시지의 동시 판독기 수와 연결합니다. 대부분의 허브에는 4개의 파티션만 필요합니다.
 
@@ -58,10 +64,10 @@ ms.locfileid: "95993287"
 
     태그는 이름/값 쌍입니다. 동일한 태그를 여러 리소스 및 리소스 그룹에 할당하여 리소스를 범주화하고 청구를 통합할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../articles/azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
-    ![Azure Portal을 사용하여 허브에 태그 할당](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
+    ![Azure Portal을 사용하여 허브에 태그 할당](./media/iot-hub-include-create-hub/iot-hub-create-tags.png)
 
 1.  완료되면 **다음: 검토 + 만들기** 를 선택하여 선택 사항을 검토합니다. 이 화면과 유사한 내용이 표시되지만 허브를 만들 때 선택한 값이 표시됩니다. 
 
-    ![새 허브를 만들기 위한 정보 검토](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
+    ![새 허브를 만들기 위한 정보 검토](./media/iot-hub-include-create-hub/iot-hub-review-and-create.png)
 
 1.  **만들기** 를 선택하여 새 허브를 만듭니다. 허브를 만드는 데 몇 분이 걸립니다.

@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 8cef36cf26231758eb839379d0c020484cbe09fb
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e0a7553269e1223a5e744db967d65814877878ab
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132604"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598261"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>청구 및 비용 관리 자동화 시나리오
 
@@ -103,7 +103,7 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 ### <a name="whats-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>기업 보고 API와 소비량 API 간의 차이는 무엇인가요? 언제 사용해야 하나요?
 이러한 API에는 유사한 기능 집합이 있고 청구 및 비용 관리 공간에서 동일한 광범위한 질문의 집합에 대답할 수 있습니다. 그렇지만 다음과 같이 각기 다른 사용자를 대상으로 합니다.
 
-- 기업 보고 API는 협상된 현금 약정 금액 및 사용자 지정 가격 책정에 대한 액세스를 부여하는 Microsoft와 기업계약을 체결한 고객에게 제공됩니다. API에는 [Enterprise Portal](https://ea.azure.com)을 통해 얻을 수 있는 키가 필요합니다. 이러한 API에 대한 설명은 [기업 고객을 위한 보고 API 개요](enterprise-api.md)를 참조하세요.
+- 기업 보고 API는 협상된 Azure 선불(이전에는 현금 약정 금액이라고 함) 및 사용자 지정 가격 책정에 대한 액세스 권한을 부여하는 Microsoft와 기업계약을 체결한 고객에게 제공됩니다. API에는 [Enterprise Portal](https://ea.azure.com)을 통해 얻을 수 있는 키가 필요합니다. 이러한 API에 대한 설명은 [기업 고객을 위한 보고 API 개요](enterprise-api.md)를 참조하세요.
 
 - 소비량 API는 몇 가지 예외로 모든 고객에게 제공됩니다. 자세한 내용은 [Azure 소비량 API 개요](consumption-api-overview.md) 및 [Azure 소비량 API 참조](/rest/api/consumption/)를 참조하세요. 제공된 API는 최신 개발 시나리오의 솔루션으로 권장됩니다.
 
@@ -112,7 +112,7 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 
 - [사용량 세부 정보 API](/rest/api/consumption/usagedetails)는 미터 인스턴스당 Azure 사용량 및 비용 정보를 제공합니다. 제공된 데이터는 이미 Azure의 비용 계량 시스템을 통과했으며 다른 가능한 변경과 함께 적용된 비용이 있었습니다.
 
-   - 선불된 현금 약정 금액의 사용을 위한 계정 변경
+   - 선불된 Azure 선불 사용을 위한 계정 변경
    - Azure에서 검색된 사용량 불일치에 대한 계정 변경
 
 - [사용량 API](/previous-versions/azure/reference/mt219003(v=azure.100))는 Azure의 비용 계량 시스템을 통과하기 전에 원시 Azure 사용량 정보를 제공합니다. 이 데이터는 Azure 요금 계량 시스템 후에 표시되는 사용량 또는 요금량과 상관 관계가 없을 수 있습니다.

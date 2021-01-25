@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: feb7be6ad5dbd0dfbd04b05836842d0476780d40
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: fb463d80e8cb980505df825d6f22d75f8a5c5f5a
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151529"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599202"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>예약 용량으로 Azure App Service 격리 인지세 비용 절감
 
@@ -35,7 +35,7 @@ ms.locfileid: "92151529"
 
 따라서 스탬프 미터는 스탬프 수명 동안 Windows와 Linux 사이에서 변경될 수 있습니다.
 
-스탬프에 Windows 작업자가 하나 이상 있는 경우 Windows 스탬프 예약을 구매하세요. Linux 스탬프 예약을 구매해야 하는 유일한 경우는 스탬프에 Linux 작업자_만_ 있게 하려는 경우입니다.
+스탬프에 Windows 작업자가 하나 이상 있는 경우 Windows 스탬프 예약을 구매하세요. Linux 스탬프 예약을 구매해야 하는 유일한 경우는 스탬프에 Linux 작업자 _만_ 있게 하려는 경우입니다.
 
 ## <a name="buy-isolated-stamp-reserved-capacity"></a>격리 스탬프 예약 용량 구매
 
@@ -48,17 +48,17 @@ ms.locfileid: "92151529"
 
 1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D)로 이동합니다.
 1. 구독을 선택합니다. 예약 용량의 요금을 지불하는 데 사용되는 구독을 선택하려면 **구독** 목록을 사용하세요. 구독의 결제 방법에는 예약 용량에 대한 비용이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0003P 또는 MS-AZR-0023P) 또는 CSP 구독입니다.
-    - Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다.
+    - 엔터프라이즈 구독의 경우 요금은 등록의 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감되거나 초과분에 대해 청구됩니다.
     - 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.
-1. 구독 범위를 선택하려면 **범위**를 선택합니다.
+1. 구독 범위를 선택하려면 **범위** 를 선택합니다.
     - **단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
     - **단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.
     - **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. 기업계약 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
-1. **지역**을 선택하여 예약 용량에 포함되는 Azure 지역을 선택하고 카트에 예약을 추가합니다.
-1. 격리된 계획 유형을 선택한 후 **선택**을 클릭합니다.  
+1. **지역** 을 선택하여 예약 용량에 포함되는 Azure 지역을 선택하고 카트에 예약을 추가합니다.
+1. 격리된 계획 유형을 선택한 후 **선택** 을 클릭합니다.  
     ![예 ](./media/prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
-1. 예약할 App Service 격리 스탬프 수량을 입력합니다. 예를 들어 수량 3은 지역에 예약된 3개의 스탬프를 제공합니다. **다음: 검토 + 구매**를 클릭합니다.
-1. 검토하고 **지금 구매**를 클릭합니다.
+1. 예약할 App Service 격리 스탬프 수량을 입력합니다. 예를 들어 수량 3은 지역에 예약된 3개의 스탬프를 제공합니다. **다음: 검토 + 구매** 를 클릭합니다.
+1. 검토하고 **지금 구매** 를 클릭합니다.
 
 구매 후에는 [예약](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)으로 이동하여 구매 상태를 확인하고 언제든지 모니터링할 수 있습니다.
 

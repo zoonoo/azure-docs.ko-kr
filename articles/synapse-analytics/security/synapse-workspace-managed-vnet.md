@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 01/18/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f55251932c8aa8f632bd3b498943ac722f006dee
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116367"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569918"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Azure Synapse Analytics 관리형 가상 네트워크
 
@@ -52,8 +52,21 @@ Azure Synapse 작업 영역을 만들 때 작업 영역을 Microsoft Azure Virtu
 
 ![관리형 작업 영역 Virtual Network 사용](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
+관리형 작업 영역 Virtual Network를 작업 영역과 연결하도록 선택한 후에는 관리형 작업 영역 Virtual Network에서 [관리형 프라이빗 엔드포인트](./synapse-workspace-managed-private-endpoints.md)를 사용하여 승인된 대상으로만 아웃바운드 연결을 허용하여 데이터 반출로부터 보호할 수 있습니다. **예** 를 선택하여 관리형 작업 영역 Virtual Network의 아웃바운드 트래픽을 관리형 프라이빗 엔드포인트를 통해 제한합니다. 
 
-Azure Portal에서 **개요** 를 선택하여 Azure Synapse 작업 영역이 관리형 작업 영역 Virtual Network에 연결되었는지 확인할 수 있습니다.
+
+>[!IMPORTANT]
+>메타스토어는 데이터 반출 보호를 사용하도록 설정된 Managed Virtual Network가 있는 Synapse 작업 영역에서 사용할 수 없습니다. 이러한 작업 영역에서는 Spark SQL을 사용할 수 없습니다.
+
+![관리형 프라이빗 엔드포인트를 사용하는 아웃바운드 트래픽](./media/synapse-workspace-managed-vnet/select-outbound-connectivity.png)
+
+작업 영역에서 모든 대상으로의 아웃바운드 트래픽을 허용하려면 **아니요** 를 선택합니다.
+
+Azure Synapse 작업 영역에서 관리형 프라이빗 엔드포인트가 만들어지는 대상을 제어할 수도 있습니다. 기본적으로 구독이 속한 동일한 AAD 테넌트의 리소스에 대한 관리형 프라이빗 엔드프인트가 허용됩니다. 구독이 속한 것과 다른 AAD 테넌트의 리소스에 대한 관리형 프라이빗 엔드포인트를 만들려면 **+ 추가** 를 선택하여 해당 AAD 테넌트를 추가할 수 있습니다. 드롭다운에서 AAD 테넌트를 선택하거나 AAD 테넌트 ID를 수동으로 입력할 수 있습니다.
+
+![추가 AAD 테넌트 추가](./media/synapse-workspace-managed-vnet/add-additional-azure-active-directory-tenants.png)
+
+작업 영역을 만든 후 Azure Portal에서 **개요** 를 선택하여 Azure Synapse 작업 영역이 관리형 작업 영역 Virtual Network에 연결되었는지 확인할 수 있습니다.
 
 ![Azure Portal의 작업 영역 개요](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
 

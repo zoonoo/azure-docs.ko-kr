@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Azure Portal을 사용하여 Kubernetes 클러스터를 빠르게 만들고 애플리케이션을 배포하고 AKS(Azure Kubernetes Service)의 성능을 모니터링하는 방법을 알아봅니다.
 services: container-service
 ms.topic: quickstart
-ms.date: 10/06/2020
+ms.date: 01/13/2021
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: f4cbfb78ec0900e757683fff35403dfcbd38b391
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 9304d3ee3cac364bfec3f2686de0cf84fb1d7d92
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97824689"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249128"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -38,8 +38,8 @@ AKS 클러스터를 만들려면 다음 단계를 완료합니다.
 3. **기본** 페이지에서 다음 옵션을 구성합니다.
     - **프로젝트 세부 정보**: Azure **구독** 을 선택한 다음, *myResourceGroup* 같은 Azure **리소스 그룹** 을 선택하거나 만듭니다.
     - **클러스터 세부 정보**: *myAKSCluster* 같은 **Kubernetes 클러스터 이름** 을 입력합니다. AKS 클러스터에 대한 **지역** 및 **Kubernetes 버전** 을 선택합니다.
-    - **주 노드 풀**: AKS 노드의 VM **노드 크기** 를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경 *할 수 없습니다*.
-            - 클러스터에 배포할 노드 수를 선택합니다. 이 빠른 시작에서는 **노드 수** 를 *1* 로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정 *할 수 있습니다*.
+    - **주 노드 풀**: AKS 노드의 VM **노드 크기** 를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 *없습니다*.
+            - 클러스터에 배포할 노드 수를 선택합니다. 이 빠른 시작에서는 **노드 수** 를 *1* 로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 *있습니다*.
     
     ![AKS 클러스터 만들기 - 기본 정보를 입력합니다.](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
@@ -63,11 +63,14 @@ AKS 클러스터를 만드는 데 몇 분이 걸립니다. 배포가 완료되�
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-Kubernetes 클러스터를 관리하려면 [kubectl][kubectl] Kubernetes 명령줄 클라이언트를 사용합니다. `kubectl` 클라이언트는 Azure Cloud Shell에 사전 설치됩니다.
+Kubernetes 클러스터를 관리하려면 [kubectl][kubectl] Kubernetes 명령줄 클라이언트를 사용합니다. `kubectl` 클라이언트가 Azure Cloud Shell에 사전 설치됩니다.
 
 Azure Portal 위쪽에 있는 `>_` 단추를 사용하여 Cloud Shell을 엽니다.
 
 ![포털에서 Azure Cloud Shell을 엽니다.](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
+
+> [!NOTE]
+> 로컬 셸 설치에서 이러한 작업을 수행하려면 먼저 Azure CLI가 설치되어 있는지 확인한 다음, `az login` 명령을 통해 Azure에 연결해야 합니다.
 
 Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][az-aks-get-credentials] 명령을 사용합니다. 이 명령은 자격 증명을 다운로드하고 Kubernetes CLI가 해당 자격 증명을 사용하도록 구성합니다. 다음 예제는 *myResourceGroup* 이라는 리소스 그룹에서 *myAKSCluster* 라는 클러스터의 자격 증명을 가져옵니다.
 
@@ -214,7 +217,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-*EXTERNAL-IP* 주소가 *보류 중* 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 감시 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
+*EXTERNAL-IP* 주소가 *보류 중* 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -278,7 +281,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
 [aks-monitor]: ../azure-monitor/insights/container-insights-overview.md
 [aks-network]: ./concepts-network.md

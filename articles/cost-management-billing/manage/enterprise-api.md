@@ -8,19 +8,19 @@ ms.subservice: enterprise
 ms.topic: reference
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b78b046e2991fa4ebfb575e4f6a1cc900df0d298
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a1c420eed89b7b45ea6c50345737b8615f39ad8c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686907"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602092"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>기업 고객을 위한 보고 API 개요
 
 > [!Note]
 > Microsoft는 더 이상 Azure Billing - Enterprise Reporting API를 업데이트하지 않습니다. 대신 [Azure Consumption](/rest/api/consumption) API를 사용해야 합니다.
 
-Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 기본 데이터 분석 도구로 프로그래밍 방식으로 끌어올 수 있습니다. 기업 고객은 Azure와 [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)를 체결하여 현금 약정 금액을 협상하고 Azure 리소스에 대한 사용자 지정 가격에 액세스할 수 있습니다.
+Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 기본 데이터 분석 도구로 프로그래밍 방식으로 끌어올 수 있습니다. 기업 고객은 Azure와 [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)를 체결하여 Azure 선불(이전에는 현금 약정 금액이라고 함)을 협상하고 Azure 리소스에 대한 사용자 지정 가격에 액세스할 수 있습니다.
 
 API에 필요한 모든 날짜 및 시간 매개 변수는 결합된 UTC(Unified 협정 세계시) 값으로 표시되어야 합니다. API에서 반환된 값은 UTC 형식으로 표시됩니다.
 

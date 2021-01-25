@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 14203021846e97a53f59c3bc24a1586774613dec
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704336"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562355"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -41,11 +41,13 @@ Azure Portal을 사용하여 Azure Load Balancer를 시작하여 내부 부하 �
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="빠른 시작을 위해 만든 표준 부하 분산 장치 리소스." border="false":::
-
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
 
 내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 
+
+다음 다이어그램은 이 빠른 시작에서 만든 리소스를 보여줍니다.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="빠른 시작을 위해 만든 표준 부하 분산 장치 리소스." border="false":::
 
 가상 네트워크의 개인 IP 주소는 부하 분산 장치의 프런트 엔드로 구성됩니다(기본 이름은 **LoadBalancerFrontend**). 
 
@@ -199,12 +201,8 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 상태 프로브 | **myHealthProbe** 를 선택합니다. |
     | 유휴 제한 시간(분) | 슬라이더를 **15분** 으로 이동합니다. |
     | TCP 재설정 | **사용** 을 선택합니다. |
-    | 아웃바운드 SNAT(Source Network Address Translation) | **(권장) 아웃바운드 규칙을 사용하여 백 엔드 풀 멤버에 인터넷 액세스 권한 제공** 을 선택합니다. |
-
+    
 4. 나머지는 기본값으로 둔 다음, **확인** 을 선택합니다.
-
->[!NOTE]
->백 엔드 풀의 가상 머신은 이 구성과 아웃바운드 인터넷 연결을 사용하지 않습니다. </br> 아웃바운드 연결 제공에 대한 자세한 내용은 다음을 참조하세요. </br> **[Azure에서 아웃바운드 연결](load-balancer-outbound-connections.md)**</br> 연결 제공 옵션: </br> **[아웃바운드 전용 부하 분산 장치 구성](egress-only.md)** </br> **[Virtual Network NAT란?](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
@@ -278,11 +276,13 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="빠른 시작에서 만든 기본 부하 분산 장치 리소스." border="false":::
-
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
 
 내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 
+
+다음 다이어그램은 이 빠른 시작에서 만든 리소스를 보여줍니다.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="빠른 시작에서 만든 기본 부하 분산 장치 리소스." border="false":::
 
 가상 네트워크의 개인 IP 주소는 부하 분산 장치의 프런트 엔드로 구성됩니다(기본 이름은 **LoadBalancerFrontend**). 
 

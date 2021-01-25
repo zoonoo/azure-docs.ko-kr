@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b82f4252754e79813629e0c792ee0ba35e437714
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bd43b668c318b825c5c5b6f36fc1da1055863bed
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151521"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599091"
 ---
 # <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>예약 용량을 사용하여 Azure Synapse Analytics 요금에 대한 비용 절감
 
@@ -44,9 +44,9 @@ Azure Synapse Analytics 예약 크기는 사용하는 총 cDWU(컴퓨팅 데이�
 ## <a name="buy-azure-synapse-analytics-reserved-capacity"></a>Azure Synapse Analytics 예약 용량 구입
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **모든 서비스** > **예약**을 선택합니다.
+2. **모든 서비스** > **예약** 을 선택합니다.
 3. 구독을 선택합니다. 예약 용량의 요금을 지불하는 데 사용되는 구독을 선택하려면 구독 목록을 사용합니다. 구독의 결제 방법에는 예약 용량에 대한 비용이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다.
-   - Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다.
+   - 엔터프라이즈 구독의 경우 요금은 등록의 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감되거나 초과분에 대해 청구됩니다.
    - 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.
 4. 범위를 선택합니다. 구독 범위를 선택하려면 범위를 사용합니다.
    - **단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
@@ -58,8 +58,8 @@ Azure Synapse Analytics 예약 크기는 사용하는 총 cDWU(컴퓨팅 데이�
 6. 수량을 선택합니다. 구매하려는 100 cDWU(Data Warehouse 단위)의 수량을 입력합니다.    
    예를 들어 수량 30은 1시간마다 3,000 cDWU를 예약 용량으로 제공합니다.
 7. **비용** 섹션에서 Azure Synapse Analytics 예약 용량 예약 비용을 검토합니다.
-8. **구매**를 선택합니다.
-9. 구매 상태를 보려면 **이 예약 보기**를 선택합니다.
+8. **구매** 를 선택합니다.
+9. 구매 상태를 보려면 **이 예약 보기** 를 선택합니다.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 

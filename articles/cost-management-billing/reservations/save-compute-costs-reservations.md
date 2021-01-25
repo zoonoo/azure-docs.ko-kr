@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560494"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602060"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -56,7 +56,7 @@ Azure Portal, API, PowerShell 및 CLI에서 예약을 구매할 수 있습니다
 
 ## <a name="how-is-a-reservation-billed"></a>예약 요금은 어떻게 청구되나요? 
 
-예약 요금은 구독에 연결된 결제 방법으로 청구됩니다. 가능한 경우, 예액 비용은 현금 약정 잔액에서 차감됩니다. 현금 약정 잔액으로 예약 비용이 해결되지 않는 경우 초과분에 대한 요금이 청구됩니다. 종량제 요금을 사용하는 개별 플랜의 구독이 있는 경우 계정에 등록된 신용 카드로 선결제 요금이 즉시 청구됩니다. 월간 결제 금액이 청구서에 표시되며 매월 신용 카드로 요금이 청구됩니다. 요금 청구를 청구서로 받는 경우 다음 달 청구서에 요금이 표시됩니다. 
+예약 요금은 구독에 연결된 결제 방법으로 청구됩니다. 가능한 경우, 예약 비용은 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감됩니다. Azure 선불 잔액으로 예약 비용이 해결되지 않는 경우 초과분에 대한 요금이 청구됩니다. 종량제 요금을 사용하는 개별 플랜의 구독이 있는 경우 계정에 등록된 신용 카드로 선결제 요금이 즉시 청구됩니다. 월간 결제 금액이 청구서에 표시되며 매월 신용 카드로 요금이 청구됩니다. 요금 청구를 청구서로 받는 경우 다음 달 청구서에 요금이 표시됩니다. 
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>기본적으로 예약을 관리할 수 있는 사용자
 

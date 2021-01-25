@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 01/13/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: bd155ea3c98231cf20fa7c62325e3c2ecfb89920
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780606"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185923"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>최신 API를 사용하여 프로그래밍 방식으로 Azure 기업계약 구독 만들기
 
@@ -31,7 +31,9 @@ ms.locfileid: "96780606"
 구독을 만들려면 등록 계정에 대한 소유자 역할이 있어야 합니다. 역할을 얻는 방법은 두 가지입니다.
 
 * 등록의 엔터프라이즈 관리자는 귀하를 [계정 소유자로 만들 수](https://ea.azure.com/helpdocs/addNewAccount) 있고(로그인 필요) 그러면 귀하가 등록 계정의 소유자가 됩니다.
-* 등록 계정의 기존 소유자가 [액세스 권한을 부여](grant-access-to-create-subscription.md)할 수 있습니다. 마찬가지로, EA 구독을 만들 서비스 주체를 사용하려면 [해당 서비스 주체에게 구독을 만들 수 있는 권한을 부여](grant-access-to-create-subscription.md)해야 합니다.
+* 등록 계정의 기존 소유자가 [액세스 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)할 수 있습니다. 마찬가지로, EA 구독을 만들 서비스 주체를 사용하려면 [해당 서비스 주체에게 구독을 만들 수 있는 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)해야 합니다. 
+  > [!NOTE]
+  > 올바른 API 버전을 사용하여 등록 계정 소유자 권한을 부여했는지 확인합니다. 이 문서 및 여기에서 설명하는 API에는 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) API를 사용합니다. 최신 API를 사용하도록 마이그레이션하는 경우 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)를 사용하여 소유자 권한을 다시 부여해야 합니다. [2015-07-01 버전](grant-access-to-create-subscription.md)으로 만든 이전 구성은 최신 API에서 사용하도록 자동으로 변환되지 않습니다.
 
 ## <a name="find-accounts-you-have-access-to"></a>액세스할 수 있는 계정 찾기
 

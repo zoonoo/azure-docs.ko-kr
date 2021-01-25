@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 01/12/2021
-ms.openlocfilehash: 8151c9ce177d0cd54826603d1a395a8d5828b623
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d07b52d8abeab34d565ebde4bac58eec66780dce
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133823"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179268"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인지 기술 세트 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "98133823"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-시작하기 전에 다음 서비스를 만듭니다.
+시작하기 전에 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 

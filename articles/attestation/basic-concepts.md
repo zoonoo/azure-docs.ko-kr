@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921619"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572819"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -28,9 +28,7 @@ Microsoft Azure Attestation과 관련된 몇 가지 기본 개념은 다음과 �
 
 ## <a name="attestation-provider"></a>증명 공급자
 
-증명 공급자는 Microsoft.Attestation이라는 Azure 리소스 공급자에 속합니다. 리소스 공급자는 Azure Attestation REST 계약을 제공하고 [Azure Resource Manager](../azure-resource-manager/management/overview.md)를 사용하여 배포되는 서비스 엔드포인트입니다. 각 증명 공급자는 검색 가능한 특정 정책을 적용합니다. 
-
-증명 공급자는 각 증명 형식에 대한 기본 정책을 사용하여 만들어집니다(VBS enclave에는 기본 정책이 없음). SGX에 대한 기본 정책에 대한 자세한 내용은 [증명 정책 예제](policy-examples.md)를 참조하세요.
+증명 공급자는 Microsoft.Attestation이라는 Azure 리소스 공급자에 속합니다. 리소스 공급자는 Azure Attestation REST 계약을 제공하고 [Azure Resource Manager](../azure-resource-manager/management/overview.md)를 사용하여 배포되는 서비스 엔드포인트입니다. 각 증명 공급자는 검색 가능한 특정 정책을 적용합니다. 증명 공급자는 각 증명 형식에 대한 기본 정책을 사용하여 만들어집니다(VBS enclave에는 기본 정책이 없음). SGX에 대한 기본 정책에 대한 자세한 내용은 [증명 정책 예제](policy-examples.md)를 참조하세요.
 
 ### <a name="regional-default-provider"></a>지역별 기본 공급자
 
@@ -38,11 +36,16 @@ Azure Attestation은 각 지역에서 기본 공급자를 제공합니다. 고�
 
 | 지역 | 증명 URI | 
 |--|--|
+| 미국 동부 | `https://sharedeus.eus.attest.azure.net` | 
+| 미국 서부 | `https://sharedwus.wus.attest.azure.net` | 
 | 영국 남부 | `https://shareduks.uks.attest.azure.net` | 
+| 영국 서부| `https://sharedukw.ukw.attest.azure.net  ` | 
+| 캐나다 동부 | `https://sharedcae.cae.attest.azure.net` | 
+| 캐나다 중부 | `https://sharedcac.cac.attest.azure.net` | 
+| 북유럽 | `https://sharedneu.neu.attest.azure.net` | 
+| 서유럽| `https://sharedweu.weu.attest.azure.net` | 
 | 미국 동부 2 | `https://sharedeus2.eus2.attest.azure.net` | 
 | 미국 중부 | `https://sharedcus.cus.attest.azure.net` | 
-| 미국 동부| `https://sharedeus.eus.attest.azure.net` | 
-| 캐나다 중부 | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>증명 요청
 
@@ -58,7 +61,7 @@ Azure Attestation은 제공된 "Quote"의 유효성을 검사한 다음, 제공�
 
 증명 공급자의 기본 정책이 요구 사항을 충족하지 않는 경우 고객은 Azure Attestation에서 지원되는 모든 지역에서 사용자 지정 정책을 만들 수 있습니다. 정책 관리는 Azure Attestation에서 고객에게 제공하는 주요 기능입니다. 정책은 증명 형식에 따라 다르며, enclave를 식별하거나 클레임을 출력 토큰에 추가하거나 출력 토큰에서 클레임을 수정하는 데 사용할 수 있습니다. 
 
-기본 정책 콘텐츠 및 샘플은 [증명 정책 예제](policy-examples.md)를 참조하세요.
+정책 샘플은 [증명 정책의 예](policy-examples.md)를 참조하세요.
 
 ## <a name="benefits-of-policy-signing"></a>정책 서명의 이점
 
@@ -80,25 +83,55 @@ SGX enclave에 대해 생성된 JWT의 예제는 다음과 같습니다.
 
 ```
 {
-  “alg”: “RS256”,
-  “jku”: “https://tradewinds.us.attest.azure.net/certs”,
-  “kid”: “f1lIjBlb6jUHEUp1/Nh6BNUHc6vwiUyMKKhReZeEpGc=”,
-  “typ”: “JWT”
+  "alg": "RS256",
+  "jku": "https://tradewinds.us.attest.azure.net/certs",
+  "kid": <self signed certificate reference to perform signature verification of attestation token,
+  "typ": "JWT"
 }.{
-  “maa-ehd”: <input enclave held data>,
-  “exp”: 1568187398,
-  “iat”: 1568158598,
-  “is-debuggable”: false,
-  “iss”: “https://tradewinds.us.attest.azure.net”,
-  “nbf”: 1568158598,
-  “product-id”: 4639,
-  “sgx-mrenclave”: “”,
-  “sgx-mrsigner”: “”,
-  “svn”: 0,
-  “tee”: “sgx”
+  "aas-ehd": <input enclave held data>,
+  "exp": 1568187398,
+  "iat": 1568158598,
+  "is-debuggable": false,
+  "iss": "https://tradewinds.us.attest.azure.net",
+  "maa-attestationcollateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "maa-ehd": <input enclave held data>,
+  "nbf": 1568158598,
+  "product-id": 4639,
+  "sgx-mrenclave": <SGX enclave mrenclave value>,
+  "sgx-mrsigner": <SGX enclave msrigner value>,
+  "svn": 0,
+  "tee": "sgx"
+  "x-ms-attestation-type": "sgx", 
+  "x-ms-policy-hash": <>,
+  "x-ms-sgx-collateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "x-ms-sgx-ehd": <>, 
+  "x-ms-sgx-is-debuggable": true,
+  "x-ms-sgx-mrenclave": <SGX enclave mrenclave value>,
+  "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
+  "x-ms-sgx-product-id": 1, 
+  "x-ms-sgx-svn": 1,
+  "x-ms-ver": "1.0"
 }.[Signature]
 ```
-"exp", "iat", "iss", "nbf"와 같은 클레임은 [JWT RFC](https://tools.ietf.org/html/rfc7517)에서 정의되고, 나머지는 Azure Attestation에서 생성됩니다. 자세한 내용은 [Azure Attestation을 통해 발급된 클레임](claim-sets.md)을 참조하세요.
+위에서 사용된 클레임 중 일부는 사용되지 않는 것으로 간주되지만 완전히 지원됩니다.  이후 모든 코드 및 도구는 더 이상 사용되지 않는 클레임 이름을 사용하는 것이 좋습니다. 자세한 내용은 [Azure Attestation을 통해 발급된 클레임](claim-sets.md)을 참조하세요.
 
 ## <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 

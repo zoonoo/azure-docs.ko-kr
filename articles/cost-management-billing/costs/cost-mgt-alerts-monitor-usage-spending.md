@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d1546ef92d923b9d72c4aca0ddf61d2b93646656
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131907"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602344"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>비용 경고를 사용하여 사용량 및 지출 모니터링
 
@@ -29,7 +29,7 @@ Azure Portal에서는 비용을 통해 예산이 정의됩니다. Azure Consumpt
 
 ## <a name="credit-alerts"></a>크레딧 경고
 
-크레딧 경고는 Azure 크레딧 현금 약정 금액이 사용될 때 사용자에게 알립니다. 현금 약정 금액은 기업계약을 체결한 조직에 사용됩니다. 크레딧 경고는 Azure 크레딧 잔액의 90% 및 100%로 자동 생성됩니다. 경고가 생성될 때마다 비용 경고 및 계정 소유자에게 전송되는 메일에 반영됩니다.
+신용 경고는 Azure 선불(이전에는 현금 약정 금액이라고 함)이 소비되면 사용자에게 알려줍니다. Azure 선불은 기업계약이 있는 조직을 위한 것입니다. 크레딧 경고는 Azure 선불 크레딧 잔액의 90% 및 100%에서 자동으로 생성됩니다. 경고가 생성될 때마다 비용 경고 및 계정 소유자에게 전송되는 메일에 반영됩니다.
 
 ## <a name="department-spending-quota-alerts"></a>부서 지출 할당량 경고
 
@@ -49,7 +49,7 @@ Azure Portal에서는 비용을 통해 예산이 정의됩니다. Azure Consumpt
 
 ## <a name="view-cost-alerts"></a>비용 경고 보기
 
-비용 경고를 보려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **예산**을 선택합니다. **범위** 필을 사용하여 다른 범위로 전환합니다. 메뉴에서 **비용 경고**를 선택합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
+비용 경고를 보려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **예산** 을 선택합니다. **범위** 필을 사용하여 다른 범위로 전환합니다. 메뉴에서 **비용 경고** 를 선택합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 ![Cost Management에 표시된 경고의 예제 이미지](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -57,7 +57,7 @@ Azure Portal에서는 비용을 통해 예산이 정의됩니다. Azure Consumpt
 
 모든 경고에는 경고 유형이 표시됩니다. 예산 경고에는 생성된 이유와 적용되는 예산의 이름이 표시됩니다. 각 경고는 생성된 날짜, 상태 및 경고가 적용되는 범위(구독 또는 관리 그룹)가 표시됩니다.
 
-가능한 상태는 **활성** 및 **해제됨**입니다. 활성 상태는 경고가 여전히 관련이 있음을 나타냅니다. 해제 상태는 다른 사람이 경고를 더 이상 관련 없는 것으로 표시했음을 나타냅니다.
+가능한 상태는 **활성** 및 **해제됨** 입니다. 활성 상태는 경고가 여전히 관련이 있음을 나타냅니다. 해제 상태는 다른 사람이 경고를 더 이상 관련 없는 것으로 표시했음을 나타냅니다.
 
 목록에서 정보를 보려는 경고를 선택합니다. 경고 정보에는 경고에 대한 자세한 정보가 표시됩니다. 예산 경고에는 예산에 대한 링크가 포함됩니다. 예산 경고에 대한 권장 사항을 사용할 수 있는 경우 권장 사항에 대한 링크도 표시됩니다. 예산, 크레딧 및 부서 지출 할당량 경고에는 경고 범위에 대한 비용을 살펴볼 수 있는 비용 분석에서 분석하는 링크가 있습니다. 다음 예제에서는 경고 세부 정보와 함께 부서의 지출을 보여 줍니다.
 

@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 12/08/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42701fbcee9833fd31fff3ace55d48079015dbcd
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c1b17d8c624d4bef74278acc24ece37a736a5ca8
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906406"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572972"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal
 
@@ -78,7 +78,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
    > [!NOTE]
    > Application Gateway v2 SKU의 경우 **퍼블릭** 프런트 엔드 IP 구성이 있어야 합니다. 여전히 퍼블릭 및 프라이빗 프런트 엔드 IP 구성을 모두 사용할 수 있지만 프라이빗 전용 프런트 엔드 IP 구성(ILB 모드만 해당)은 현재 v2 SKU에 대해 사용하도록 설정되어 있지 않습니다. 
 
-2. **퍼블릭 IP 주소** 에 대해 **새로 만들기** 를 선택하고 퍼블릭 IP 주소 이름으로 *myAGPublicIPAddress* 를 입력한 후 **확인** 을 선택합니다. 
+2. **공용 IP 주소** 에 대해 **새로 추가** 를 선택하고 공용 IP 주소 이름으로 *myAGPublicIPAddress* 를 입력한 다음, **확인** 을 선택합니다. 
 
      ![새 애플리케이션 게이트웨이 만들기: 프런트 엔드](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -86,9 +86,9 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 ### <a name="backends-tab"></a>백 엔드 탭
 
-백 엔드 풀은 요청을 처리하는 백 엔드 서버로 요청을 라우팅하는 데 사용됩니다. 백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. 이 예제에서는 애플리케이션 게이트웨이가 있는 빈 백 엔드 풀을 만든 다음, 백 엔드 대상을 백 엔드 풀에 추가합니다.
+백 엔드 풀은 요청을 처리하는 백 엔드 서버로 요청을 라우팅하는 데 사용됩니다. 백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP 주소, 내부 IP 주소, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. 이 예제에서는 애플리케이션 게이트웨이가 있는 빈 백 엔드 풀을 만든 다음, 백 엔드 대상을 백 엔드 풀에 추가합니다.
 
-1. **백 엔드** 탭에서 **+백 엔드 풀 추가** 를 선택합니다.
+1. **백 엔드** 탭에서 **백 엔드 풀 추가** 를 선택합니다.
 
 2. 열리는 **백 엔드 풀 추가** 창에서 다음 값을 입력하여 빈 백 엔드 풀을 만듭니다.
 
@@ -105,7 +105,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 **구성** 탭에서 라우팅 규칙을 사용하여 만든 프런트 엔드 및 백 엔드 풀을 연결합니다.
 
-1. **라우팅 규칙** 열에서 **규칙 추가** 를 선택합니다.
+1. **라우팅 규칙** 열에서 **라우팅 규칙 추가** 를 선택합니다.
 
 2. 열리는 **라우팅 규칙 추가** 창에서 **규칙 이름** 으로 *myRoutingRule* 을 입력합니다.
 
@@ -120,7 +120,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 4. **백 엔드 대상** 탭에서 **백 엔드 대상** 으로 **myBackendPool** 을 선택합니다.
 
-5. **Http 설정** 에서 **새로 만들기** 를 선택하여 새 HTTP 설정을 만듭니다. HTTP 설정에 따라 라우팅 규칙의 동작이 결정됩니다. 열리는 **HTTP 설정 추가** 창에서 **HTTP 설정 이름** 으로 *myHTTPSetting* 을 입력하고 **백 엔드 포트** 에 대해 *80* 을 입력합니다. **HTTP 설정 추가** 창에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **추가** 를 선택하여 **라우팅 규칙 추가** 창으로 돌아옵니다. 
+5. **HTTP 설정** 에서 **새로 추가** 를 선택하여 새 HTTP 설정을 추가합니다. HTTP 설정에 따라 라우팅 규칙의 동작이 결정됩니다. 열리는 **HTTP 설정 추가** 창에서 **HTTP 설정 이름** 으로 *myHTTPSetting* 을 입력하고 **백 엔드 포트** 에 대해 *80* 을 입력합니다. **HTTP 설정 추가** 창에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **추가** 를 선택하여 **라우팅 규칙 추가** 창으로 돌아옵니다. 
 
      ![새 애플리케이션 게이트웨이 만들기: HTTP 설정](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
@@ -147,7 +147,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다. **새로 만들기** 창이 나타납니다.
-2. **인기** 목록에서 **Windows Server 2016 Datacenter** 를 선택합니다. **가상 머신 만들기** 페이지가 표시됩니다.<br>Application Gateway는 백 엔드 풀에서 사용한 가상 머신 유형에 관계없이 트래픽을 라우팅할 수 있습니다. 이 예제에서는 Windows Server 2016 Datacenter를 사용합니다.
+2. **인기** 목록에서 **Windows Server 2016 Datacenter** 를 선택합니다. **가상 머신 만들기** 페이지가 표시됩니다.<br>Application Gateway는 백 엔드 풀에서 사용한 가상 머신 유형에 관계없이 트래픽을 라우팅할 수 있습니다. 이 예제에서는 Windows Server 2016 Datacenter 가상 머신을 사용합니다.
 3. **기본 사항** 탭에서 다음 가상 머신 설정의 값을 입력합니다.
 
     - **리소스 그룹**: 리소스 그룹 이름으로 **myResourceGroupAG** 를 선택합니다.
@@ -165,9 +165,11 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 ### <a name="install-iis-for-testing"></a>테스트를 위해 IIS 설치
 
-이 예제에서는 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지만 확인할 목적으로 가상 머신에 IIS를 설치합니다.
+이 예제에서는 가상 머신에 IIS를 설치하여 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인합니다.
 
-1. Azure PowerShell을 엽니다. Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell** 을 선택한 다음, 드롭다운 목록에서 **PowerShell** 을 선택합니다. 
+1. Azure PowerShell을 엽니다.
+
+   Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell** 을 선택한 다음, 드롭다운 목록에서 **PowerShell** 을 선택합니다. 
 
     ![사용자 지정 확장 설치](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -208,7 +210,9 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-애플리케이션 게이트웨이를 만들려면 반드시 IIS가 필요한 것은 아니지만, 이 빠른 시작에서는 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인하기 위해 설치했습니다. IIS를 사용하여 애플리케이션 게이트웨이 테스트:
+애플리케이션 게이트웨이를 만들려면 반드시 IIS가 필요한 것은 아니지만, 이 빠른 시작에서는 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인하기 위해 설치했습니다. 
+
+IIS를 사용하여 애플리케이션 게이트웨이 테스트:
 
 1. **개요** 페이지에서 애플리케이션 게이트웨이에 대한 공용 IP 주소를 찾습니다.![애플리케이션 게이트웨이 공용 IP 주소를 기록](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)하거나, **모든 리소스** 를 선택하고 검색 상자에 *myAGPublicIPAddress* 를 입력한 후 검색 결과에서 선택합니다. Azure는 공용 IP 주소를 **개요** 페이지에 표시합니다.
 2. 공용 IP 주소를 복사한 다음, 브라우저의 주소 표시줄에 붙여 넣어 해당 IP 주소를 찾습니다.
@@ -227,7 +231,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 1. Azure Portal 메뉴에서 **리소스 그룹** 을 선택하거나 *리소스 그룹* 을 검색하여 선택합니다.
 2. **리소스 그룹** 페이지의 목록에서 **myResourceGroupAG** 를 검색하여 선택합니다.
 3. **리소스 그룹** 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
-4. **리소스 그룹 이름 입력** 에 *myResourceGroupAG* 를 입력하고 **삭제** 를 선택합니다.
+4. **리소스 그룹 이름 입력** 아래에 *myResourceGroupAG* 를 입력한 다음, **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,14 +8,14 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: 2983f870d6ab20dac4da487ba03ebf84905f8dcc
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 8117f3ca70f51f2d9b11c479803ac33b49f416e7
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680317"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540051"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Microsoft Azure에 대한 청구서를 지불하는 방법
 
@@ -24,6 +24,8 @@ ms.locfileid: "97680317"
 [Microsoft 고객 계약에 대한 액세스를 확인합니다](#check-access-to-a-microsoft-customer-agreement).
 
 Azure 청구서 대금을 결제하는 방법에는 두 가지가 있습니다. 청구 프로필의 기본 결제 방법으로 결제하거나 **지금 결제** 라는 일회성 결제를 수행할 수 있습니다.
+
+Microsoft 담당자를 통해 Azure에 등록한 경우 기본 결제 방법은 항상 *수표 또는 전신 송금* 으로 설정되어 있습니다.
 
 Azure 크레딧을 보유한 경우 각 청구 기간마다 청구서에 자동으로 적용됩니다.
 

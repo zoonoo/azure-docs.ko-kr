@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 06/10/2019
+ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 48928c5c4f3a2787e8f00e4084daacf6a64f1ea7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 34a2e423e06782b0d43766cccac9319ce68239d4
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461568"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569473"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>빠른 시작: REST API를 사용하여 Azure Data Factory 및 파이프라인 만들기
 
@@ -303,7 +303,7 @@ $response | ConvertTo-Json
 ```
 ## <a name="create-pipeline"></a>파이프라인 만들기
 
-이 예제에서 이 파이프라인은 하나의 활동을 포함하고 입력 Blob 경로 및 출력 Blob 경로의 두 매개 변수를 사용합니다. 이러한 매개 변수의 값은 파이프라인이 트리거/실행될 때 설정됩니다. 복사 활동은 입력 및 출력 시 이전 단계에서 만든 동일한 Blob 데이터 세트를 참조합니다. 데이터 세트를 입력된 데이터 세트로 사용하는 경우 입력된 경로가 지정됩니다. 또한 데이터 세트를 출력된 데이터 세트로 사용하는 경우 출력된 경로가 지정됩니다.
+이 예제에서 이 파이프라인은 하나의 복사 작업을 포함합니다. 복사 작업은 이전 단계에서 생성된 "InputDataset" 및 "OutputDataset"을 입력 및 출력으로 참조합니다.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
@@ -383,10 +383,7 @@ $response | ConvertTo-Json
 
 ## <a name="create-pipeline-run"></a>파이프라인 실행 만들기
 
-이 단계에서 파이프라인에 지정된 **inputPath** 및 **outputPath** 매개 변수의 값을 원본 및 싱크 Blob 경로의 실제 값으로 설정하고 파이프라인 실행을 트리거합니다. 응답 본문에 반환된 ID를 실행하는 파이프라인은 나중에 API 모니터링에 사용됩니다.
-
-파일을 저장하기 전에 **inputPath** 및 **outputPath** 값을 데이터를 복사할 원본 및 싱크 Blob 경로로 바꿉니다.
-
+이 단계에서는 파이프라인 실행을 트리거합니다. 응답 본문에 반환된 ID를 실행하는 파이프라인은 나중에 API 모니터링에 사용됩니다.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline/createRun?api-version=${apiVersion}"

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: c03bf5e52ae7f6b259c7b744e6033d760af23dd0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 72b371fd1184c9c9e69593c5ad7e57310abf1de2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683677"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600032"
 ---
 # <a name="common-cost-analysis-uses"></a>일반적인 비용 분석 사용
 
@@ -35,9 +35,9 @@ Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 
 
 Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 다음과 같습니다. **Cost Management + 청구** > **Cost Management** > **비용 분석**.
 
-**그룹화 기준** > **서비스 이름**을 선택합니다.
+**그룹화 기준** > **서비스 이름** 을 선택합니다.
 
-이 보기에는 각 서비스에 대해 그룹화된 비용이 표시됩니다. 각 서비스에 대한 예상 비용은 계산되지 않습니다. 모든 서비스의 **총계**에 대해 프로젝션됩니다.
+이 보기에는 각 서비스에 대해 그룹화된 비용이 표시됩니다. 각 서비스에 대한 예상 비용은 계산되지 않습니다. 모든 서비스의 **총계** 에 대해 프로젝션됩니다.
 
 [![그룹화된 예상 비용](./media/cost-analysis-common-uses/forecast-group-by-service.png)](./media/cost-analysis-common-uses/forecast-group-by-service.png#lightbox)
 
@@ -46,15 +46,15 @@ Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 
 단일 서비스로 한정된 예상 비용을 볼 수 있습니다. 예를 들어, 가상 머신에 대한 예상 비용만 보고자 할 수 있습니다.
 
 1. Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 다음과 같습니다. **Cost Management + 청구** > **Cost Management** > **비용 분석**.
-1. **필터 추가**를 선택한 다음, **서비스 이름**을 선택합니다.
-1. **선택** 목록에서 서비스를 선택합니다. 예를 들어 **가상 머신**을 선택합니다.
+1. **필터 추가** 를 선택한 다음, **서비스 이름** 을 선택합니다.
+1. **선택** 목록에서 서비스를 선택합니다. 예를 들어 **가상 머신** 을 선택합니다.
 
 선택의 실제 비용과 예상 비용을 검토합니다.
 
 보기에 사용자 지정 항목을 더 추가할 수 있습니다.
 
-1. **미터**에 두 번째 필터를 추가하고 선택한 서비스 이름 아래에서 미터의 개별 유형에 대해 필터링할 값을 선택합니다.
-1. 발생 비용이 있는 특정 리소스를 보려면 **리소스**로 그룹화합니다. 각 서비스에 대한 예상 비용은 계산되지 않습니다. 모든 리소스의 **총계**에 대해 프로젝션됩니다.
+1. **미터** 에 두 번째 필터를 추가하고 선택한 서비스 이름 아래에서 미터의 개별 유형에 대해 필터링할 값을 선택합니다.
+1. 발생 비용이 있는 특정 리소스를 보려면 **리소스** 로 그룹화합니다. 각 서비스에 대한 예상 비용은 계산되지 않습니다. 모든 리소스의 **총계** 에 대해 프로젝션됩니다.
 
 [![서비스에 대한 예상 비용 보기](./media/cost-analysis-common-uses/forecast-by-service.png)](./media/cost-analysis-common-uses/forecast-by-service.png#lightbox)
 
@@ -65,16 +65,16 @@ Azure 및 AWS 비용을 함께 보려면 Azure에서 관리 그룹 범위를 사
 1. 관리 그룹을 만들거나 기존 항목을 선택합니다.
 1. 관리 그룹에 필요한 기존 Azure 구독을 할당합니다.
 1. 커넥터의 연결된 계정에 *동일한* 관리 그룹을 할당합니다.
-1. 비용 분석으로 이동하여 **누적 비용**을 선택합니다.
-1. **그룹화 기준** - **공급자**를 선택합니다.
+1. 비용 분석으로 이동하여 **누적 비용** 을 선택합니다.
+1. **그룹화 기준** - **공급자** 를 선택합니다.
 
 ## <a name="view-cost-breakdown-by-azure-service"></a>Azure 서비스별 비용 분석 보기
 
 Azure 서비스별 비용 보기는 비용이 가장 많이 드는 인프라 파트를 더 잘 이해하는 데 유용합니다. 예를 들어 VM 컴퓨팅 비용은 적을 수 있습니다. 그러나 VM에서 내보내는 정보의 양으로 인해 상당한 네트워킹 비용이 발생할 수 있습니다. 필요에 따라 서비스 사용량을 조정할 수 있도록 Azure 서비스의 기본 비용 드라이버를 이해하는 것이 중요합니다.
 
 1. Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 다음과 같습니다. **Cost Management + 청구** > **Cost Management** > **비용 분석**.
-1. **서비스별 비용**을 선택한 다음, **서비스 계층**별로 그룹화합니다.
-1. 보기를 **테이블**로 변경합니다.
+1. **서비스별 비용** 을 선택한 다음, **서비스 계층** 별로 그룹화합니다.
+1. 보기를 **테이블** 로 변경합니다.
 
 [![Azure 서비스별 비용 분석](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
 
@@ -84,7 +84,7 @@ Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서�
 
 [![청구서 세부 정보를 보여주는 예제](./media/cost-analysis-common-uses/invoice-details.png)](./media/cost-analysis-common-uses/invoice-details.png#lightbox)
 
-청구서 세부 정보를 보면 예기치 않은 비용이 드는 서비스를 식별하고 비용 분석에서 리소스와 직접 연관된 리소스를 확인할 수 있습니다. 예를 들어 Virtual Machines 서비스에 대한 요금을 분석하려면 **누적 비용** 보기로 이동합니다. 그런 다음, 세분성을 **일별**로 설정하고 요금 **서비스 이름: 가상 머신** 및 그룹 요금을 **리소스**로 필터링합니다.
+청구서 세부 정보를 보면 예기치 않은 비용이 드는 서비스를 식별하고 비용 분석에서 리소스와 직접 연관된 리소스를 확인할 수 있습니다. 예를 들어 Virtual Machines 서비스에 대한 요금을 분석하려면 **누적 비용** 보기로 이동합니다. 그런 다음, 세분성을 **일별** 로 설정하고 요금 **서비스 이름: 가상 머신** 및 그룹 요금을 **리소스** 로 필터링합니다.
 
 [![가상 머신의 누적 비용을 보여주는 예제](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
 
@@ -93,8 +93,8 @@ Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서�
 서비스는 Azure 리소스를 사용하여 빌드됩니다. 리소스를 기준으로 비용을 검토하면 기본 비용 기여자를 빠르게 식별하는 데 도움이 됩니다. 서비스에 비용이 너무 많이 드는 리소스가 있는 경우 비용을 줄이기 위해 변경을 고려하는 것이 좋습니다.
 
 1. Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 다음과 같습니다. **Cost Management + 청구** > **Cost Management** > **비용 분석**.
-1. **리소스별 비용**을 선택합니다.
-1. 보기를 **테이블**로 변경합니다.
+1. **리소스별 비용** 을 선택합니다.
+1. 보기를 **테이블** 로 변경합니다.
 
 [![Azure 리소스별 비용 분석 보기](./media/cost-analysis-common-uses/cost-by-resource.png)](./media/cost-analysis-common-uses/cost-by-resource.png#lightbox)
 
@@ -114,7 +114,7 @@ Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서�
 일별 및 월별 비용을 살펴보면 비용이 더 높은 주 또는 연도가 있는지 파악하는 데 도움이 될 수 있습니다. 연휴 기간에 고객 트래픽이 더 많은 경우 그에 따라 Azure 비용도 증가하나요? 금요일이 월요일보다 비용이 더 많이 드나요?
 
 1. Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 다음과 같습니다. **Cost Management + 청구** > **Cost Management** > **비용 분석**.
-1. **세분성**을 **월별** 또는 **일별**로 설정합니다.
+1. **세분성** 을 **월별** 또는 **일별** 로 설정합니다.
 
 [![일별 비용 보기](./media/cost-analysis-common-uses/daily-granularity.png)](./media/cost-analysis-common-uses/daily-granularity.png#lightbox)
 
@@ -123,8 +123,8 @@ Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서�
 
 스폿 VM은 중단을 처리할 수 있는 워크로드에 대한 비용을 크게 절감할 수 있습니다. 워크로드는 사용되지 않는 Azure 용량으로 실행됩니다. 스폿 VM은 언제든지 제거할 수 있으므로 상당한 비용이 절감됩니다. 스폿 VM 요금을 보려면 다음 단계를 따르세요.
 
-1. Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 **Cost Management + 청구** > **Cost Management** > **비용 분석**입니다.
-2. **가격 책정 모델: 스폿**에 대한 필터를 추가합니다.
+1. Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 **Cost Management + 청구** > **Cost Management** > **비용 분석** 입니다.
+2. **가격 책정 모델: 스폿** 에 대한 필터를 추가합니다.
 
 ![스폿 VM 필터를 보여주는 예](./media/cost-analysis-common-uses/spot-vm-filter.png)
 
@@ -134,8 +134,8 @@ Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서�
 
 예약 인스턴스는 Azure를 사용하여 비용을 절감할 수 있는 방법을 제공합니다. 예약은 정해진 리소스 수에 대한 비용을 선불로 결제하고 특정 기간 동안 사용하는 것입니다. 비용 분석은 청구서에 표시되는 대로 요금을 보여줍니다. 요금은 실제 비용 또는 예약 기간 동안의 분할 상환 비용으로 표시됩니다.
 
-1. Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 **Cost Management + 청구** > **Cost Management** > **비용 분석**입니다.
-1. **가격 책정 모델: 예약**에 대한 필터를 추가합니다.
+1. Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 **Cost Management + 청구** > **Cost Management** > **비용 분석** 입니다.
+1. **가격 책정 모델: 예약** 에 대한 필터를 추가합니다.
 1. **범위** 아래에서 표시되는 비용 옆에 있는 아래쪽 화살표 기호를 클릭하고 **실제 비용** 또는 **분할 상환 비용** 메트릭을 선택합니다.
 
 ![비용 메트릭 선택](./media/cost-analysis-common-uses/metric-cost.png)
@@ -154,13 +154,13 @@ Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서�
 
 예약 구매와 관련하여 매월 얼마나 많은 비용이 낭비되고 있는지 확인하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 예약이 적용되는 범위에 대한 비용 분석으로 이동합니다. 예를 들면 **Cost Management + 청구** > **Cost Management** > **비용 분석**입니다.
-1. **가격 책정 모델: 예약**에 대한 필터를 추가합니다.
+1. Azure Portal에서 예약이 적용되는 범위에 대한 비용 분석으로 이동합니다. 예를 들면 **Cost Management + 청구** > **Cost Management** > **비용 분석** 입니다.
+1. **가격 책정 모델: 예약** 에 대한 필터를 추가합니다.
 1. **분할 상환 비용** 보기를 선택합니다.
-1. 세분성을 **월별**로 설정합니다.
+1. 세분성을 **월별** 로 설정합니다.
 1. 기간을 현재 연도 또는 예약 기간으로 설정합니다.
 1. 차트 유형을 **세로 막대형(누적)** 으로 설정합니다.
-1. **요금 유형**으로 요금을 그룹화합니다.
+1. **요금 유형** 으로 요금을 그룹화합니다.
 1. `unusedreservation` 값의 결과를 검토합니다.
 
 [![예약 사용을 보여주는 예](./media/cost-analysis-common-uses/view-reservation-cost.png)](./media/cost-analysis-common-uses/view-reservation-cost.png#lightbox)
@@ -173,10 +173,10 @@ Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서�
 
 많은 Azure 사용자는 비용을 더 잘 분류하기 위해 비용 센터나 개발 환경(생산 및 테스트)과 같은 리소스에 태그를 적용합니다. 태그는 비용 분석에서 차원으로 표시됩니다. 차원을 사용하여 사용자 지정 태그 분류에 대한 인사이트를 얻을 수 있습니다.
 
-태그에 대한 지원은 리소스에 적용된 *후*에 보고된 사용량에 적용됩니다. 비용 롤업에는 태그가 소급 적용되지 않습니다.
+태그에 대한 지원은 리소스에 적용된 *후* 에 보고된 사용량에 적용됩니다. 비용 롤업에는 태그가 소급 적용되지 않습니다.
 
 1. Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 다음과 같습니다. **Cost Management + 청구** > **Cost Management** > **비용 분석**.
-1. 태그에 사용할 **그룹화 기준**을 선택합니다.
+1. 태그에 사용할 **그룹화 기준** 을 선택합니다.
 
 [![특정 태그에 대한 비용 보기](./media/cost-analysis-common-uses/tag.png)](./media/cost-analysis-common-uses/tag.png#lightbox)
 
@@ -197,8 +197,8 @@ EA 등록은 전체 조직에 대한 비용을 계산합니다. 시간에 따라
 비용은 활성 등록에 대해서만 표시됩니다. 등록(비활성)을 새 등록(활성)으로 이전한 경우 이전 등록에 대한 비용은 Cost Management에 표시되지 않습니다.
 
 
-1. Azure Portal에서 **Cost Management + 청구** > **개요**로 이동합니다.
-1. 현재 달의 **분석**을 클릭하고 금액 약정 번다운을 표시합니다.  
+1. Azure Portal에서 **Cost Management + 청구** > **개요** 로 이동합니다.
+1. 현재 달의 **분석** 을 클릭하고 Azure 선불(이전에는 현금 약정 금액이라고 함) 번다운을 확인합니다.  
     [![EA 비용 개요 - 분석 요약](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
 1.  **사용량 및 요금** 탭을 클릭하고 선택한 시간 범위에서 이전 달의 분석 결과를 확인합니다.  
     [![사용량 및 요금 탭](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)

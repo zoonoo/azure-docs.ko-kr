@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 01/06/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d37225f988cc906bdd92467afcf3f286220eebda
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027869"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601548"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -72,6 +72,18 @@ Azure 구독의 청구 소유권을 수락한 경우 다음 단계를 검토하�
    1. 스토리지와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 정보](../../storage/common/storage-account-create.md)를 참조하세요.
    1. Azure Virtual Machines 같은 서비스에 대한 원격 액세스 자격 증명.
 1. 파트너와 함께 작업하는 경우 이 구독의 파트너 ID를 업데이트하는 것이 좋습니다. [Azure Portal](https://portal.azure.com)에서 파트너 ID를 업데이트할 수 있습니다. 자세한 내용은 [Azure 계정에 파트너 ID 연결](link-partner-id.md)을 참조하세요.
+
+## <a name="cancel-a-transfer-request"></a>전송 요청 취소
+
+한 번에 하나의 전송 요청만 활성화됩니다. 전송 요청은 15일 동안 유효합니다. 15일이 지나면 전송 요청이 만료됩니다.
+
+전송 요청을 취소하려면 다음을 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **구독** 으로 이동하여 전송 요청을 보낸 구독을 선택하고 **청구 소유권 전송** 을 선택합니다.
+1. 페이지 맨 아래에서 **전송 요청 취소** 를 선택합니다.
+
+:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="전송 요청 취소 옵션이 있는 청구 소유권 전송 창을 보여주는 예" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
 
 ## <a name="troubleshooting"></a>문제 해결
 

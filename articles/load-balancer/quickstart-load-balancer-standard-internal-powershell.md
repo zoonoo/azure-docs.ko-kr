@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: d2d266462cb119e4a803b0e1012f5dfbe94a4a6e
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 5844b321fd3050bab9288657189ddcd87bba14db
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630567"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562338"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -49,6 +49,12 @@ New-AzResourceGroup -Name 'CreateIntLBQS-rg' -Location 'eastus'
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다. SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
+
+이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
+
+내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 
+
+다음 다이어그램은 이 빠른 시작에서 만든 리소스를 보여줍니다.
 
 :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="빠른 시작을 위해 만든 표준 부하 분산 장치 리소스." border="false":::
 
@@ -190,7 +196,7 @@ $lbrule = @{
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
 }
-$rule = New-AzLoadBalancerRuleConfig @lbrule -EnableTcpReset -DisableOutboundSNAT
+$rule = New-AzLoadBalancerRuleConfig @lbrule -EnableTcpReset
 
 ## Create the load balancer resource. ##
 $loadbalancer = @{
@@ -206,8 +212,6 @@ $loadbalancer = @{
 New-AzLoadBalancer @loadbalancer
 
 ```
->[!NOTE]
->백 엔드 풀의 가상 머신은 이 구성과 아웃바운드 인터넷 연결을 사용하지 않습니다. </br> 아웃바운드 연결 제공에 대한 자세한 내용은 다음을 참조하세요. </br> **[Azure에서 아웃바운드 연결](load-balancer-outbound-connections.md)**</br> 연결 제공 옵션: </br> **[아웃바운드 전용 부하 분산 장치 구성](egress-only.md)** </br> **[Virtual Network NAT란?](../virtual-network/nat-overview.md)**
 
 ## <a name="create-virtual-machines---standard"></a>가상 머신 만들기 - 표준
 
@@ -304,6 +308,12 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다. SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
+
+이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
+
+내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 
+
+다음 다이어그램은 이 빠른 시작에서 만든 리소스를 보여줍니다.
 
 :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="빠른 시작에서 만든 기본 부하 분산 장치 리소스." border="false":::
 

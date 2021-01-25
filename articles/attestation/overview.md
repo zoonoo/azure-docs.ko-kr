@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 6a587ecbe7ff67908b22d4f2429cfdd0c511e07d
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 0d1b2bd039f3e110c83d7ad4bf32f1e53e4c7a79
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748776"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610151"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation(미리 보기)
 
@@ -39,6 +39,12 @@ SGX는 특정 Intel CPU 모델에서 지원되는 하드웨어 등급 격리를 
 [OE(Open Enclave)](https://openenclave.io/sdk/)는 개발자가 TEE 기반 애플리케이션을 빌드하는 데 사용할 수 있는 단일 통합 enclave 추상화를 만들기 위한 라이브러리의 컬렉션입니다. 플랫폼 특정성을 최소화하는 범용 보안 앱 모델을 제공합니다. Microsoft는 이를 SGX와 같은 하드웨어 기반 enclave 기술을 대중화하고 Azure에서 더 많이 활용할 수 있도록 하기 위한 필수적인 디딤돌로 보고 있습니다.
 
 OE는 enclave 증거를 확인하기 위한 특정 요구 사항을 표준화합니다. 이를 통해 OE는 Azure Attestation의 매우 적합한 증명 소비자로 인정됩니다.
+
+### <a name="tpm-attestation"></a>TPM 증명 
+
+TPM(신뢰할 수 있는 플랫폼 모듈) 기반 증명은 플랫폼의 상태를 증명하는 데 중요합니다. TPM은 신뢰의 루트이자 보안 보조 프로세서의 역할을 하여 측정(증명 정보)에 암호화 유효성을 제공합니다. TPM이 있는 디바이스는 증명을 사용하여 부팅 중 기능 상태를 검색하기 위해 클레임을 사용하는 것과 함께 부팅 무결성이 손상되지 않았음을 증명할 수 있습니다. 
+
+클라이언트 애플리케이션은 보안에 중요한 작업을 플랫폼이 안전한 것으로 확인된 후에만 수행되도록 위임하여 TPM 증명을 활용하도록 디자인할 수 있습니다. 그런 다음, 이러한 애플리케이션은 Azure Attestation을 사용하여 플랫폼에서 정기적으로 트러스트를 설정하고 중요한 데이터에 액세스할 수 있습니다.
 
 ## <a name="azure-attestation-can-run-in-a-tee"></a>TEE에서 실행 가능한 Azure Attestation
 

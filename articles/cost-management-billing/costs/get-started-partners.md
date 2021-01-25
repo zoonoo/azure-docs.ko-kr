@@ -3,18 +3,18 @@ title: 파트너용 Azure Cost Management 시작
 description: 이 문서에서는 파트너가 Azure Cost Management 기능을 사용하는 방법과 파트너가 자사의 고객을 위해 Cost Management 액세스를 사용하도록 설정하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 8a04cb2c590bc4f0104a93ac7c7c2cf7b71a4662
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905681"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602168"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -71,9 +71,9 @@ Azure Cost Management에는 청구 계정이나 구독에 대한 읽기 권한�
 
 청구 계정 범위를 사용하여 모든 고객 및 청구 프로필에 대한 세전 비용을 살펴볼 수 있습니다. 청구서 비용은 Microsoft 고객 계약의 고객 소비량 기반 제품에 대해서만 표시됩니다. 하지만 Microsoft 고객 계약 및 CSP 제품 모두에서 고객의 구매 기반 제품에 대한 청구서 비용이 표시됩니다. 현재, 범위에서 비용을 나타내는 기본 통화는 미국 달러입니다. 범위에 설정된 예산 역시 USD입니다.
 
-다양한 고객 청구 통화에 관계없이, 파트너는 청구 계정 범위를 사용하여 고객, 구독, 리소스 및 리소스 그룹에서 USD 단위로 예산을 설정하고 비용을 관리합니다.
+다양한 청구 통화에 관계없이 파트너는 청구 계정 범위를 사용하여 고객, 구독, 리소스 및 리소스 그룹에서 USD 단위로 예산을 설정하고 비용을 관리합니다.
 
-또한 파트너는 비용 분석 보기에서 고객의 특정 청구 통화로 비용을 필터링합니다. **실제 비용** 목록을 선택하면 지원되는 고객 청구 통화 단위로 비용을 볼 수 있습니다.
+또한 파트너는 비용 분석 보기에서 고객의 특정 청구 통화로 비용을 필터링합니다. **실제 비용** 목록을 선택하면 지원되는 청구 통화 단위로 비용을 볼 수 있습니다.
 
 ![통화에 대한 실제 비용 선택을 보여주는 예](./media/get-started-partners/actual-cost-selector.png)
 
@@ -83,7 +83,7 @@ Azure Cost Management에는 청구 계정이나 구독에 대한 읽기 권한�
 
 청구 프로필 범위를 사용하면 청구서에 포함된 모든 제품 및 구독에 대해 모든 고객의 청구 통화로 세전 비용을 볼 수 있습니다. **InvoiceID** 필터를 사용하여 특정 청구서의 청구 프로필에서 비용을 필터링할 수 있습니다. 필터는 특정 청구서의 소비 및 제품 구매 비용을 보여줍니다. 청구서에서 특정 고객의 비용을 필터링하여 세전 비용을 볼 수도 있습니다.
 
-Microsoft 고객 계약에 고객을 온보딩한 후에는 Microsoft 고객 계약에 따라 해당 고객에 대한 모든 제품(소비, 구매 및 자격)의 모든 요금이 포함된 청구서를 받게 됩니다. 동일한 통화로 청구되는 경우, 해당 청구서에는 SaaS, Azure Marketplace와 같은 구매한 제품 및 자격에 대한 요금과 CSP 제품에 아직 있는 고객에 대한 예약도 포함됩니다.
+Microsoft 고객 계약에 고객을 온보딩한 후에는 Microsoft 고객 계약에 따라 해당 고객에 대한 모든 제품(소비, 구매 및 자격)의 모든 요금이 포함된 청구서를 받게 됩니다. 동일한 통화로 청구되는 경우, 해당 청구서에는 SaaS, Azure Marketplace와 같은 구매한 제품 및 Azure 플랜에서 제공하지 않은 클래식 CSP 제품에 아직 있는 고객을 위한 예약에 대한 요금도 포함됩니다.
 
 고객 청구서에 대한 요금 조정이 수월하도록, 청구 프로필 범위를 사용하면 고객의 청구서에 발생하는 모든 비용을 볼 수 있습니다. 청구서와 마찬가지로 범위에는 신규 Microsoft 고객 계약의 모든 고객에 대한 비용이 표시됩니다. 범위에는 현재 CSP 제품에 아직 있는 고객 자격 제품에 대한 모든 요금도 표시됩니다.
 
@@ -91,7 +91,7 @@ Microsoft 고객 계약에 고객을 온보딩한 후에는 Microsoft 고객 계
 
 청구 프로필은 청구서에 포함되는 구독을 정의합니다. 청구 프로필은 기업계약 등록과 기능적으로 동일합니다. 청구 프로필은 청구서가 생성되는 범위입니다.
 
-현재, 고객의 청구 통화는 청구 프로필 범위에서 비용을 보는 경우 기본 통화입니다. 청구 프로필 범위에 설정된 예산은 청구 통화 단위입니다.
+현재, 청구 통화는 청구 프로필 범위에서 비용을 보는 경우 기본 통화입니다. 청구 프로필 범위에 설정된 예산은 청구 통화 단위입니다.
 
 파트너는 범위를 사용하여 청구서를 조정할 수 있습니다. 그리고 범위를 사용하여 다음 항목에 대한 청구 통화로 예산을 설정합니다.
 
@@ -220,7 +220,7 @@ Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 
 | 수량 | 구매 또는 소비한 측정 수량입니다. 청구 기간 동안 사용된 미터의 양입니다. | 단위 수입니다. 조정하는 동안 청구 시스템의 정보와 일치하는지 확인하십시오. |
 | unitOfMeasure | 서비스 요금이 청구되는 단위를 식별합니다. 예를 들면 GB와 시간입니다. | 서비스 요금이 청구되는 단위를 식별합니다. 예를 들면 GB, 시간, 10,000초입니다. |
 | pricingCurrency | 단가를 정의하는 통화입니다. | 가격표의 통화입니다.|
-| billingCurrency | 청구되 비용을 정의하는 통화입니다. | 고객 지역의 통화입니다. |
+| billingCurrency | 청구되 비용을 정의하는 통화입니다. | 송장의 청구 통화로 정의된 통화입니다. |
 | chargeType | 구매 및 환불과 같이 Azure Cost Management에서 비용이 나타내는 요금 유형을 정의합니다. | 요금 또는 조정의 유형입니다. 현재 작업에 사용할 수 없습니다. |
 | costinBillingCurrency | 청구된 통화 단위의 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |
 | costinPricingCurrency | 가격과의 상관 관계를 위한 가격 책정 통화 단위의 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |

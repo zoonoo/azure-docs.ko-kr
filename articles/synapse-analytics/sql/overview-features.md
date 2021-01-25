@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 629a063d80c9f1bb1a9ae3d56783e07491149f24
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 30241716a7a0034bcfb4b90437a083b0a1f34952
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118244"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555341"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Azure Synapse SQL에서 지원되는 Transact-SQL 기능
 
@@ -55,7 +55,7 @@ Synapse SQL에 사용되는 쿼리 언어는 소비 모델에 따라 지원되�
 | **INSERT 문** | 예 | 예 |
 | **UPDATE 문** | 예 | 예 |
 | **DELETE 문** | 예 | 예 |
-| **MERGE 문** | 아니요 | 예 |
+| **MERGE 문** | 예([미리 보기](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15)) | 예 |
 | **[트랜잭션](develop-transactions.md)** | 예 | 예, 메타데이터 개체에 적용됩니다. |
 | **[레이블](develop-label.md)** | 예 | 예 |
 | **데이터 로드** | 예. 기본 설정 유틸리티는 [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문이지만 데이터 로드를 위한 BULK 로드(BCP)와 [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)가 시스템에서 모두 지원됩니다. | 예 |

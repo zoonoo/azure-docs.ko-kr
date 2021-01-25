@@ -6,21 +6,21 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: d4b6fc296ae41667d271e243e9aca9b594e4a5b6
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1a691d8ab212dd436b0dc9f7aafbc19a406b12b7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886705"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601782"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure CLI
 
 이 빠른 시작에서는 Azure CLI를 사용하여 애플리케이션 게이트웨이를 만듭니다. 그런 다음, 테스트하여 제대로 작동하는지 확인합니다. 
 
-애플리케이션 게이트웨이는 애플리케이션 웹 트래픽을 백 엔드 풀의 특정 리소스로 보냅니다. 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가합니다. 간단히 나타내기 위해 이 문서에서는 퍼블릭 프런트 엔드 IP 1개, 애플리케이션 게이트웨이에 단일 사이트를 호스트하는 기본 수신기 1개, 기본 요청 라우팅 규칙 1개 및 백 엔드 풀의 가상 머신 2개를 이용한 간단한 설정을 사용합니다.
+애플리케이션 게이트웨이는 애플리케이션 웹 트래픽을 백 엔드 풀의 특정 리소스로 보냅니다. 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가합니다. 간단히 나타내기 위해 이 문서에서는 퍼블릭 프런트 엔드 IP 주소 1개, 애플리케이션 게이트웨이에 단일 사이트를 호스트하는 기본 수신기 1개, 기본 요청 라우팅 규칙 1개 및 백 엔드 풀의 가상 머신 2개를 이용한 간단한 설정을 사용합니다.
 
 [Azure PowerShell](quick-create-powershell.md) 또는 [Azure Portal](quick-create-portal.md)을 사용하여 이 빠른 시작을 완료할 수도 있습니다.
 
@@ -68,7 +68,7 @@ az network public-ip create \
 
 ## <a name="create-the-backend-servers"></a>백 엔드 서버 만들기
 
-백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성할 수 있습니다. 이 예제에서는 애플리케이션 게이트웨이의 백 엔드 서버로 사용되는 두 개의 가상 머신을 만듭니다. 그리고 가상 머신에 IIS를 설치하여 애플리케이션 게이트웨이를 테스트합니다.
+백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP 주소, 내부 IP 주소, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성할 수 있습니다. 이 예제에서는 애플리케이션 게이트웨이의 백 엔드 서버로 사용되는 두 개의 가상 머신을 만듭니다. 그리고 가상 머신에 IIS를 설치하여 애플리케이션 게이트웨이를 테스트합니다.
 
 #### <a name="create-two-virtual-machines"></a>두 개의 가상 머신 만들기
 

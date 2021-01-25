@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461389"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209630"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
@@ -32,7 +32,7 @@ Spark 작업을 통해 데이터베이스가 만들어지면 Parquet를 스토�
 
 Spark를 사용하여 Spark에서 만든 데이터베이스를 관리합니다. 예를 들어 서버리스 Apache Spark 풀 작업을 통해 삭제하고 Spark에서 테이블을 만듭니다.
 
-서버리스 SQL 풀에서 이러한 데이터베이스의 개체를 만들거나 데이터베이스를 삭제하려고 하면 이 작업이 성공하지만 원본 Spark 데이터베이스는 변경되지 않습니다.
+서버리스 SQL 풀에서 이러한 데이터베이스에 개체를 만들거나 데이터베이스를 삭제하려고 하면 작업이 실패합니다. 원본 Spark 데이터베이스는 서버리스 SQL 풀을 통해 변경할 수 없습니다.
 
 ## <a name="expose-a-spark-table-in-sql"></a>SQL에서 Spark 테이블 공개
 

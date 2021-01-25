@@ -4,20 +4,23 @@ description: Azure 엔터프라이즈 구독을 프로그래밍 방식으로 만
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.reviewer: amberb
+ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 039e728f6518d21ddfb9c7c359a6cf2ec743f232
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844713"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185107"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure 엔터프라이즈 구독 만들기에 대한 액세스 권한 부여(미리 보기)
 
 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)의 Azure 고객은 고객의 계정으로 청구되는 구독을 만들 수 있는 권한을 다른 사용자 또는 서비스 주체에게 부여할 수 있습니다. 이 문서에서는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용하여 구독을 만드는 기능을 공유하는 방법 및 구독 만들기를 감사하는 방법에 대해 알아봅니다. 공유하려는 계정에 대해 소유자 역할이 있어야 합니다.
+
+> [!NOTE]
+> 이 API는 [구독 생성에 대한 미리 보기 API](programmatically-create-subscription-preview.md)에서만 작동합니다. [GA 버전](programmatically-create-subscription-enterprise-agreement.md)을 사용하려면 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)에서 최신 API 버전을 사용합니다. 최신 API를 사용하도록 마이그레이션하는 경우 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)를 사용하여 소유자 권한을 다시 부여해야 합니다. 다음 API를 사용하는 이전 구성은 최신 API에서 사용하도록 자동으로 변환되지 않습니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

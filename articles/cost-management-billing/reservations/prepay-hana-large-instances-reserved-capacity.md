@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d6d0d0a4c4b3328fa50777b5106bac202c9972ef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ea1ee2311d8655ce17017c73309bc69e89f4b5f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151502"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599115"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Azure 예약을 사용하여 SAP HANA(대규모 인스턴스) 비용 절감
 
@@ -224,7 +224,7 @@ armclient get /providers/microsoft.capacity/reservationOrders/22222222-2222-2222
 
   **예약 리소스 종류** `SapHana`
 
-  **구독** 예약 요금을 지불하는 데 사용되는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 Microsoft 고객 계약이어야 합니다. 요금은 약정 잔액에서 차감되거나(있는 경우) 초과분 요금으로 청구됩니다.
+  **구독** 예약 요금을 지불하는 데 사용되는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 Microsoft 고객 계약이어야 합니다. 가능한 경우, 요금은 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감되거나 초과분에 대해 청구됩니다.
 
   **범위** 예약의 범위는 단일 범위여야 합니다.
 

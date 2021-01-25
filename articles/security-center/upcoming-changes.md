@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 01/18/2021
 ms.author: memildin
-ms.openlocfilehash: 0656000a1d6449306e8afe538f846c55c79a31a2
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ba9a640c2231c7098e58ad6e29bbfa196436a7f9
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915289"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562321"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Azure Security Center에 예정된 중요한 변경
 
@@ -31,8 +31,37 @@ ms.locfileid: "97915289"
 
 ## <a name="planned-changes"></a>계획된 변경
 
+- [더 이상 사용되지 않는 "시스템 업데이트 적용" 보안 제어의 두 가지 권장 사항](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
+- [SQL 데이터 분류 권장 사항 향상](#enhancements-to-sql-data-classification-recommendation)
 - [Azure Policy 평가에서 "규정 준수"로 보고되는 "해당 없음" 리소스](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
 - [Azure 보안 벤치마크의 적용 범위를 늘리기 위해 35개의 미리 보기 추천 사항이 추가됨](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
+
+
+### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>더 이상 사용되지 않는 "시스템 업데이트 적용" 보안 제어의 두 가지 권장 사항 
+
+**변경 예상 날짜:** 2021년 2월
+
+다음 두 가지 권장 사항은 2021년 2월에 더 이상 사용되지 않을 예정입니다.
+
+- **시스템 업데이트를 적용하려면 머신을 다시 시작해야 합니다**. 이로 인해 보안 점수에 약간의 영향을 줄 수 있습니다.
+- **머신에 모니터링 에이전트를 설치해야 합니다**. 이 권장 사항은 온-프레미스 머신에만 관련되며 해당 논리의 일부는 다른 권장 사항으로 전송됩니다. **Log Analytics 에이전트 상태 문제는 머신에서 해결해야 합니다**. 이로 인해 보안 점수에 약간의 영향을 줄 수 있습니다.
+
+연속 내보내기 및 워크플로 자동화 구성을 확인하여 이러한 권장 사항이 포함되어 있는지 확인하는 것이 좋습니다. 또한 대시보드 또는 이를 사용할 수 있는 기타 모니터링 도구를 적절하게 업데이트해야 합니다.
+
+[보안 추천 사항 참조 페이지](recommendations-reference.md)에서 이러한 권장 사항에 대해 자세히 알아보세요.
+
+
+### <a name="enhancements-to-sql-data-classification-recommendation"></a>SQL 데이터 분류 권장 사항 향상
+
+**변경 예상 날짜:** Q2 2021
+
+**데이터 분류 적용** 보안 제어에서 권장 사항 **SQL 데이터베이스의 중요 데이터를 분류해야 함** 의 현재 버전은 더 이상 사용되지 않으며 Microsoft의 데이터 분류 전략에 맞춰 향상된 새 버전으로 대체됩니다. 결과는 다음과 같습니다.
+
+- 권장 사항은 더 이상 보안 점수에 영향을 주지 않습니다.
+- 보안 제어("데이터 분류 적용")는 더 이상 보안 점수에 영향을 주지 않습니다.
+- 권장 사항의 ID도 변경됩니다(현재 b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
+
 
 ### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Azure Policy 평가에서 "규정 준수"로 보고되는 "해당 없음" 리소스
 

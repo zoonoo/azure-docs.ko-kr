@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02194bd6122cc97ac9dfd6887c6ae2161182c13a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0fbf5c07b2d8fd5d754a46484d6b072cc9b682d6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120430"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599839"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -381,9 +381,9 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Azure Data Lake의 파일에서 외부 테이블 만들기 및 쿼리
 
-이제 Data Lake 검색 기능을 사용하여 마우스 오른쪽 단추로 파일을 클릭하기만 하면 전용 SQL 풀 또는 서버리스 SQL 풀을 통해 외부 테이블을 만들고 쿼리할 수 있습니다.
+이제 Data Lake 검색 기능을 사용하여 마우스 오른쪽 단추로 파일을 클릭하기만 하면 전용 SQL 풀 또는 서버리스 SQL 풀을 통해 외부 테이블을 만들고 쿼리할 수 있습니다. ADLS Gen2 스토리지 계정에서 외부 테이블을 만드는 원클릭 제스처는 Parquet 파일에 대해서만 지원됩니다. 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 작업 영역에 대한 액세스 권한(ADLS Gen2 계정에 대한 Storage Blob 데이터 기여자 ARM 액세스 역할 이상)이 있어야 합니다.
 

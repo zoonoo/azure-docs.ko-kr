@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 4dd22427038bc7c4052ee714c3ec3ce45d7a1837
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fc9b6c4edc5d08c30b1eadb5084155b10d0e55a3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132825"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601516"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -103,7 +103,7 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 
 #### <a name="enterprise-agreement"></a>[기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-- 선불 요금 약정 옵션
+- 이전 Azure 선불(이전에는 현금 약정 금액이라고 함) 옵션
 - 축소된 Azure 가격에 액세스
 
 #### <a name="azure-in-csp"></a>[Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)

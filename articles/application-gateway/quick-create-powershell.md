@@ -6,21 +6,21 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3f64086ed97594416b5964cf648c857c2f271480
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8073d1e18b08a6deb0175f8eaf18de382e93e299
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331100"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601846"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Application Gateway를 통해 웹 트래픽 보내기
 
 이 빠른 시작에서는 Azure PowerShell을 사용하여 애플리케이션 게이트웨이를 만듭니다. 그런 다음, 테스트하여 제대로 작동하는지 확인합니다. 
 
-애플리케이션 게이트웨이는 애플리케이션 웹 트래픽을 백 엔드 풀의 특정 리소스로 보냅니다. 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가합니다. 간단히 나타내기 위해 이 문서에서는 공용 프런트 엔드 IP 1개, 애플리케이션 게이트웨이에 단일 사이트를 호스트하는 기본 수신기 1개, 기본 요청 라우팅 규칙 1개 및 백 엔드 풀의 가상 머신 2개를 이용한 간단한 설정을 사용합니다.
+애플리케이션 게이트웨이는 애플리케이션 웹 트래픽을 백 엔드 풀의 특정 리소스로 보냅니다. 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가합니다. 간단히 나타내기 위해 이 문서에서는 퍼블릭 프런트 엔드 IP 주소 1개, 애플리케이션 게이트웨이에 단일 사이트를 호스트하는 기본 수신기 1개, 기본 요청 라우팅 규칙 1개 및 백 엔드 풀의 가상 머신 2개를 이용한 간단한 설정을 사용합니다.
 
 [Azure CLI](quick-create-cli.md) 또는 [Azure Portal](quick-create-portal.md)을 사용하여 이 빠른 시작을 완료할 수도 있습니다.
 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다.  애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.  Application Gateway에 대한 새 서브넷을 만들거나 기존 서브넷을 사용할 수 있습니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 사용 사례에 따라 Application Gateway의 프런트 엔드 IP를 공용 또는 프라이빗 IP로 구성할 수 있습니다. 이 예제에서는 공용 프런트 엔드 IP를 선택합니다.
+Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다.  애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.  Application Gateway에 대한 새 서브넷을 만들거나 기존 서브넷을 사용할 수 있습니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 사용 사례에 따라 Application Gateway의 프런트 엔드 IP 주소를 퍼블릭 또는 프라이빗으로 구성할 수 있습니다. 이 예제에서는 공용 프런트 엔드 IP 주소를 선택합니다.
 
 1. `New-AzVirtualNetworkSubnetConfig`를 사용하여 서브넷 구성을 만듭니다.
 2. `New-AzVirtualNetwork`를 사용하여 서브넷 구성이 포함된 가상 네트워크를 만듭니다. 
@@ -81,7 +81,7 @@ New-AzPublicIpAddress `
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
 1. `New-AzApplicationGatewayIPConfiguration`을 사용하여 이전에 만든 서브넷과 애플리케이션 게이트웨이를 연결하는 구성을 만듭니다. 
-2. `New-AzApplicationGatewayFrontendIPConfig`를 사용하여 이전에 만든 공용 IP 주소를 애플리케이션 게이트웨이에 할당하는 구성을 만듭니다. 
+2. `New-AzApplicationGatewayFrontendIPConfig`를 사용하여 애플리케이션 게이트웨이에 대해 이전에 만든 공용 IP 주소를 할당하는 구성을 만듭니다. 
 3. `New-AzApplicationGatewayFrontendPort`를 사용하여 애플리케이션 게이트웨이에 액세스할 포트 80을 할당합니다.
 
 ```azurepowershell-interactive
@@ -120,7 +120,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSetting `
 애플리케이션 게이트웨이가 트래픽을 백 엔드 풀로 적절히 라우팅하려면 Azure에 수신기가 필요합니다. 또한 수신기가 들어오는 트래픽에 어떤 백 엔드 풀을 사용해야 하는지 알 수 있도록 규칙이 필요합니다. 
 
 1. 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트가 포함된 `New-AzApplicationGatewayHttpListener`를 사용하여 수신기를 만듭니다. 
-2. `New-AzApplicationGatewayRequestRoutingRule`을 사용하여 *rule1*이라는 규칙을 만듭니다. 
+2. `New-AzApplicationGatewayRequestRoutingRule`을 사용하여 *rule1* 이라는 규칙을 만듭니다. 
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -164,7 +164,9 @@ New-AzApplicationGateway `
 
 ### <a name="backend-servers"></a>백 엔드 서버
 
-Application Gateway를 만들었으므로 웹 사이트를 호스트할 백 엔드 가상 머신을 만듭니다. 백 엔드는 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. 이 예제에서는 애플리케이션 게이트웨이의 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 또한 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인할 수 있도록 가상 머신에 IIS를 설치합니다.
+Application Gateway를 만들었으므로 웹 사이트를 호스트할 백 엔드 가상 머신을 만듭니다. 백 엔드는 NIC, 가상 머신 확장 집합, 공용 IP 주소, 내부 IP 주소, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. 
+
+이 예제에서는 애플리케이션 게이트웨이의 백 엔드 서버로 사용되는 두 개의 가상 머신을 만듭니다. 또한 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인할 수 있도록 가상 머신에 IIS를 설치합니다.
 
 #### <a name="create-two-virtual-machines"></a>두 개의 가상 머신 만들기
 
@@ -173,7 +175,7 @@ Application Gateway를 만들었으므로 웹 사이트를 호스트할 백 엔�
 3. `New-AzVMConfig`를 사용하여 가상 머신 구성을 만듭니다.
 4. `New-AzVM`을 사용하여 가상 머신을 만듭니다.
 
-가상 머신을 만드는 다음 코드 샘플을 실행하면 Azure가 자격 증명을 요청합니다. 사용자 이름으로 *azureuser*를 입력하고, 암호를 입력합니다.
+가상 머신을 만드는 다음 코드 샘플을 실행하면 Azure가 자격 증명을 요청합니다. 사용자 이름 및 암호를 입력합니다.
     
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway -ResourceGroupName myResourceGroupAG -Name myAppGateway
@@ -224,7 +226,9 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-애플리케이션 게이트웨이를 만들려면 반드시 IIS가 필요한 것은 아니지만, 이 빠른 시작에서는 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인하기 위해 설치했습니다. IIS를 사용하여 애플리케이션 게이트웨이 테스트:
+애플리케이션 게이트웨이를 만들려면 반드시 IIS가 필요한 것은 아니지만, 이 빠른 시작에서는 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인하기 위해 설치했습니다.
+
+IIS를 사용하여 애플리케이션 게이트웨이 테스트:
 
 1. `Get-AzPublicIPAddress`를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져옵니다. 
 2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 브라우저를 새로 고치면 가상 머신의 이름이 표시됩니다. 응답이 유효하면 애플리케이션 게이트웨이가 성공적으로 만들어졌으며 백 엔드에 성공적으로 연결할 수 있다는 의미입니다.

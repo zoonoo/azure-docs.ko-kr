@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348928"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597966"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Azure EA VM 예약 인스턴스
 
@@ -25,7 +25,7 @@ ms.locfileid: "96348928"
 
 ### <a name="partial-refunds"></a>부분 환불
 
-EA 고객이 현금 약정 금액이 아닌 초과분을 사용하여 구매한 예약을 반환하면 부분 환불 처리됩니다.
+EA 고객이 Azure 선불(이전에는 현금 약정 금액이라고 함)이 아닌 초과분을 사용하여 구매한 예약을 반환하면 부분 환불 처리됩니다.
 
 환불은 EA 포털에 전월의 마이너스 조정으로 표시되고 이번 달에 플러스 조정으로 표시됩니다. 예약 교환과 유사하게 표시됩니다. 크레딧 메모는 원래 청구서 번호를 참조합니다. 따라서 크레딧 메모로 초기 구매를 조정하려면 원래 청구서 번호를 참조하세요.
 

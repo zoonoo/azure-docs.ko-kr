@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b7d7380114046fbeaaf4b6eb2660997d64168715
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 390a8b421a7b34391bde689e4b968fa98cdbaf76
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368569"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599164"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>사전 구매를 사용하여 Azure Databricks 비용 최적화
 
@@ -43,12 +43,12 @@ Databricks 사전 구매는 모든 Databricks 워크로드 및 계층에 적용�
 
 - 하나 이상의 기업계약(제품 번호: MS-AZR-0017P or MS-AZR-0148P)이나 Microsoft 고객 계약 또는 종량제 요금의 개별 구독(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다.
 - EA 구독의 경우 EA 포털에서 예약 인스턴스 추가 옵션을 활성화해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
-- Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
+- Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 를 활성화해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
 
 **구매하려면 다음을 수행합니다.**
 
 1. [Azure 포털](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D)로 이동합니다.
-1. 구독을 선택합니다. 예약 용량의 요금을 지불하는 데 사용되는 구독을 선택하려면 **구독** 목록을 사용합니다. 구독의 결제 방법에는 예약 용량에 대한 선불 비용이 청구됩니다. 요금은 등록의 금액 약정 잔액에서 차감되거나 초과분에 대한 요금으로 청구됩니다.
+1. 구독을 선택합니다. 예약 용량의 요금을 지불하는 데 사용되는 구독을 선택하려면 **구독** 목록을 사용합니다. 구독의 결제 방법에는 예약 용량에 대한 선불 비용이 청구됩니다. 요금은 등록의 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감되거나 초과분에 대해 청구됩니다.
 1. 범위를 선택합니다. 구독 범위를 선택하려면 **범위** 목록을 사용합니다.
     - **단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
     - **단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.

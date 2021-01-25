@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fb8b0f12844ce1057bd3cfc4716a32ee64ec5586
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: df1064128d6a4eca8497ebf3ea0c6ae8cd42255c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937222"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208440"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Attestation 설정
 
-증명을 설정하는 Azure CLI를 사용하여 Azure Attestation을 시작합니다.
+[Azure CLI를 사용하여 Azure Attestation](/cli/azure/ext/attestation/attestation?view=azure-cli-latest)을 시작합니다.
 
 ## <a name="get-started"></a>시작
 
@@ -65,7 +65,7 @@ ms.locfileid: "96937222"
 
 다음은 증명 공급자를 만들고 관리하는 데 사용할 수 있는 명령입니다.
 
-1. [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) 명령을 실행하여 증명 공급자를 만듭니다.
+1. [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) 명령을 실행하여 정책 서명 요구 사항 없이 증명 공급자를 만듭니다.
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
@@ -128,7 +128,7 @@ az attestation policy set --name testatt1 --resource-group testrg --attestation-
 
 ```azurecli
 az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
---attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
+--attestation-type SGX-IntelSDK -f "{file_path}" --policy-format JWT
 ```
 
 ## <a name="next-steps"></a>다음 단계

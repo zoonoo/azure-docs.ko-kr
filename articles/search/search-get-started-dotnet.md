@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 448f2b3e42e98d78652a005f5d1c11f55acdebb3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f0d912d5b14932c43d109f8f955d5f16381cf773
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021187"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180101"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>빠른 시작: Azure.Search.Documents 클라이언트 라이브러리를 사용하여 검색 인덱스 만들기
 
@@ -396,9 +396,9 @@ Azure Cognitive Search에서 검색 문서는 인덱싱에 대한 입력과 쿼�
 
         response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
-        ```
+    ```
 
-1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there is no relevance score associated with a filter query. 
+1. 두 번째 쿼리에서는 용어를 검색하고 등급이 4보다 큰 문서를 선택하는 필터를 추가한 다음, 등급별로 내림차순으로 정렬합니다. 필터는 인덱스의 [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) 필드를 통해 평가되는 부울 식입니다. 필터는 포함 또는 제외 값을 쿼리합니다. 따라서 필터 쿼리와 관련된 관련성 점수가 없습니다. 
 
     ```csharp
     Console.WriteLine("Query #2: Search on 'hotels', filter on 'Rating gt 4', sort by Rating in descending order...\n");

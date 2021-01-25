@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2d2b65261e09d056ec76b25d6fcb6627bc54770b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 65794c695fa4b36586b23a308845b1f12a20b7cb
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165725"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569949"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Synapse 관리형 프라이빗 엔드포인트
 
@@ -23,7 +23,7 @@ ms.locfileid: "98165725"
 
 관리형 프라이빗 엔드포인트는 Azure Synapse 작업 영역과 연결된 Managed Virtual Network에서 만들어진 프라이빗 엔드포인트입니다. 관리형 프라이빗 엔드포인트는 Azure 리소스에 대한 프라이빗 링크를 설정합니다. Azure Synapse는 사용자 대신 이러한 프라이빗 엔드포인트를 관리합니다. Azure Synapse 작업 영역에서 관리형 프라이빗 엔드포인트를 만들어 Azure 서비스(예: Azure Storage 또는 Azure Cosmos DB) 및 Azure에 호스팅되는 고객/파트너 서비스에 액세스할 수 있습니다.
 
-프라이빗 엔드포인트를 관리하는 경우 Azure Synapse 작업 영역과 다른 Azure 리소스 간의 트래픽이 Microsoft 백본 네트워크를 통해 완전히 트래버스됩니다. 관리형 프라이빗 엔드포인트는 데이터 유출로부터 보호됩니다. 관리형 프라이빗 엔드포인트는 Managed Virtual Network의 개인 IP 주소를 사용하여 Azure Synapse 작업 영역이 Virtual Network로 통신하고 있는 Azure 서비스를 효과적으로 가져옵니다. 관리형 프라이빗 엔드포인트는 전체 서비스가 아닌 Azure의 특정 리소스에 매핑됩니다. 고객은 연결 범위를 조직에서 승인한 특정 리소스로 제한할 수 있습니다. 
+관리형 프라이빗 엔드포인트를 사용하는 경우 Azure Synapse 작업 영역과 다른 Azure 리소스 간의 트래픽이 Microsoft 백본 네트워크를 통해 완전히 트래버스됩니다. 관리형 프라이빗 엔드포인트는 데이터 유출로부터 보호됩니다. 관리형 프라이빗 엔드포인트는 Managed Virtual Network의 개인 IP 주소를 사용하여 Azure Synapse 작업 영역이 Virtual Network로 통신하고 있는 Azure 서비스를 효과적으로 가져옵니다. 관리형 프라이빗 엔드포인트는 전체 서비스가 아닌 Azure의 특정 리소스에 매핑됩니다. 고객은 연결 범위를 조직에서 승인한 특정 리소스로 제한할 수 있습니다. 
 
 [프라이빗 링크 및 프라이빗 엔드포인트](../../private-link/index.yml)에 대해 자세히 알아보세요.
 

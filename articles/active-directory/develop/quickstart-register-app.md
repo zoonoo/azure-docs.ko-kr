@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: cc0d908f479fe5bdf14abb2ace0e6c046fd6d7d5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 45280ec41a9fd9423e4184b2e1ce593720ab6488
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011952"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232355"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -97,7 +97,7 @@ Microsoft ID 플랫폼에서 IAM(ID 및 액세스 관리)을 수행하도록 하
 
 ## <a name="add-credentials"></a>자격 증명 추가
 
-자격 증명은 웹 API에 액세스하는 기밀 클라이언트 애플리케이션에서 사용됩니다. 기밀 클라이언트의 예로 웹앱, 다른 웹 API 또는 서비스 및 디먼 유형 애플리케이션이 있습니다. 자격 증명을 사용하면 애플리케이션에서 자체적으로 인증할 수 있으므로 런타임에 사용자의 상호 작용이 필요하지 않습니다.
+자격 증명은 웹 API에 액세스하는 [기밀 클라이언트 애플리케이션](msal-client-applications.md)에서 사용됩니다. 기밀 클라이언트의 예로 [웹앱](scenario-web-app-call-api-overview.md), 다른 [웹 API](scenario-protected-web-api-overview.md) 또는 [서비스 및 디먼 유형 애플리케이션](scenario-daemon-overview.md)이 있습니다. 자격 증명을 사용하면 애플리케이션에서 자체적으로 인증할 수 있으므로 런타임에 사용자의 상호 작용이 필요하지 않습니다. 
 
 인증서와 클라이언트 암호(문자열)를 모두 자격 증명으로 기밀 클라이언트 앱 등록에 추가할 수 있습니다.
 
@@ -105,7 +105,7 @@ Microsoft ID 플랫폼에서 IAM(ID 및 액세스 관리)을 수행하도록 하
 
 ### <a name="add-a-certificate"></a>인증서 추가
 
-*공개 키* 라고도 하는 인증서는 클라이언트 암호보다 높은 수준의 보안을 제공하므로 추천되는 자격 증명 유형입니다.
+*공개 키* 라고도 하는 인증서는 클라이언트 암호보다 높은 수준의 보안을 제공하므로 추천되는 자격 증명 유형입니다. 애플리케이션에서 인증 방법으로 인증서를 사용하는 방법에 대한 자세한 내용은 [Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.
 
 1. Azure Portal의 **앱 등록** 에서 애플리케이션을 선택합니다.
 1. **인증서 및 비밀** > **인증서 업로드** 를 차례로 선택합니다.
@@ -114,7 +114,7 @@ Microsoft ID 플랫폼에서 IAM(ID 및 액세스 관리)을 수행하도록 하
 
 ### <a name="add-a-client-secret"></a>클라이언트 암호 추가
 
-*애플리케이션 암호* 라고도 하는 클라이언트 암호는 앱에서 ID 자체에 대한 인증서 대신 사용할 수 있는 문자열 값입니다. 두 가지 자격 증명 유형 중 사용하기 쉽고 개발 중에 자주 사용되지만 인증서보다 안전하지 않은 것으로 간주됩니다. 인증서는 프로덕션 환경에서 실행되는 애플리케이션에서 사용해야 합니다.
+*애플리케이션 암호* 라고도 하는 클라이언트 암호는 앱에서 ID 자체에 대한 인증서 대신 사용할 수 있는 문자열 값입니다. 두 가지 자격 증명 유형 중 사용하기 쉽고 개발 중에 자주 사용되지만 인증서보다 안전하지 않은 것으로 간주됩니다. 인증서는 프로덕션 환경에서 실행되는 애플리케이션에서 사용해야 합니다. 애플리케이션 보안 권장 사항에 대한 자세한 내용은 [Microsoft ID 플랫폼 모범 사례 및 권장 사항](identity-platform-integration-checklist.md#security)을 참조하세요.
 
 1. Azure Portal의 **앱 등록** 에서 애플리케이션을 선택합니다.
 1. **인증서 및 비밀** >  **새 클라이언트 암호** 를 차례로 선택합니다.
@@ -122,6 +122,8 @@ Microsoft ID 플랫폼에서 IAM(ID 및 액세스 관리)을 수행하도록 하
 1. 기간을 선택합니다.
 1. **추가** 를 선택합니다.
 1. 클라이언트 애플리케이션 코드에서 사용할 수 있도록 **비밀의 값을 적어 둡니다**. 이 페이지에서 나가면 *다시 표시되지 않습니다*.
+
+**참고:** 비밀의 값과 함께 생성된 ID는 애플리케이션 ID와 다른 비밀의 ID입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

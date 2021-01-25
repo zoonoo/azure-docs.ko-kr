@@ -3,18 +3,18 @@ title: Azure 엔터프라이즈 등록 청구서
 description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하고 작업하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/09/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c64127f7ebbb416d9dfebb5e417cd27d51697665
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030725"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598079"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -238,7 +238,7 @@ Azure 선불을 초과분에 적용하려면 다음 조건을 충족해야 합�
 
 ### <a name="enterprise-agreement-units-of-measure"></a>기업계약 측정 단위
 
-기업계약의 측정 단위는 MOSA(Microsoft Online Services 계약) 프로그램과 같은 다른 프로그램에 표시되는 측정 단위와 다른 경우가 많습니다. 이 차이는 여러 서비스의 경우 측정 단위를 집계하여 정규화된 가격 책정을 제공한다는 것을 의미합니다. Azure Enterprise Portal의 사용 요약 보기에 표시되는 측정 단위는 항상 엔터프라이즈 측정값입니다. 각 서비스에 대한 현재 측정 단위 및 변환의 전체 목록은 [친숙한 서비스 이름](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) Excel 파일에 제공됩니다.
+기업계약의 측정 단위는 MOSA(Microsoft Online Services 계약) 프로그램과 같은 다른 프로그램에 표시되는 측정 단위와 다른 경우가 많습니다. 이 차이는 여러 서비스의 경우 측정 단위를 집계하여 정규화된 가격 책정을 제공한다는 것을 의미합니다. Azure Enterprise Portal의 사용 요약 보기에 표시되는 측정 단위는 항상 엔터프라이즈 측정값입니다. [지원 요청](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출하면 각 서비스에 대한 현재 측정 및 변환 단위의 전체 목록이 제공됩니다.
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>사용량 세부 정보 보고서와 사용 요약 페이지 간 변환
 
@@ -324,13 +324,6 @@ Azure 선불은 Azure 서비스 선결제 금액입니다. 서비스를 사용�
 청구서는 청구 기간이 끝난 다음달에 청구됩니다. 청구 주기가 매월인 경우 9월의 청구서가 10월에 두 파트너 모두에게 청구됩니다. 청구 주기가 분기별 또는 매년인 경우 고객은 이전 관련 파트너의 해당 기간 동안 사용량에 대한 청구서로 간주되고, 나머지는 청구 주기를 기준으로 새 파트너에게 청구됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-- 다음 Excel 파일은 Azure 서비스에 대한 세부 정보를 제공하며, 매월 6일 및 20일에 업데이트됩니다.
-
-   | 제목 | Description | 파일 이름 |
-   | --- | --- | --- |
-   | [친숙한 서비스 이름](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | 모든 활성 서비스를 나열하고 다음을 포함합니다. <br>  <ul><li>서비스 범주</li>   <li>친숙한 서비스 이름</li>   <li>선불 이름 및 부품 번호</li> <li>사용량 이름 및 부품 번호</li>   <li>측정 단위</li>   <li>보고된 사용량과 표시된 Enterprise Portal 사용량 간의 변환 비율</li></ul> | Friendly\_Service\_Names.xlsx |
-   | [서비스 다운로드 필드](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | 이 스프레드시트는 사용량 다운로드 보고서에서 가능한 모든 서비스 관련 필드 조합을 제공합니다. | Service\_Download\_Fields.xlsx |
 
 - 청구서 및 요금을 이해하는 방법에 대한 자세한 내용은 [Azure 기업계약 요금의 이해](../understand/review-enterprise-agreement-bill.md)를 참조하세요.
 - Azure Enterprise Portal을 시작하려면 [Azure EA Portal 시작](ea-portal-get-started.md)을 참조하세요.

@@ -7,40 +7,50 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 252026f7c59f73dfb37f69d7708a80be827ce104
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 51e8f01726c732604199ff08323f073d508da66e
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748793"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602303"
 ---
 # <a name="examples-of-an-attestation-policy"></a>증명 정책의 예
 
 증명 정책은 증명 증거를 처리하고 Azure Attestation이 증명 토큰을 발급할지 여부를 확인하는 데 사용됩니다. 사용자 지정 정책을 사용하여 증명 토큰 생성을 제어할 수 있습니다. 다음은 증명 정책의 몇 가지 예입니다.
 
-## <a name="default-policy-for-an-sgx-enclave-with-policyformattext"></a>PolicyFormat=Text인 SGX enclave에 대한 기본 정책
+## <a name="default-policy-for-an-sgx-enclave"></a>SGX enclave에 대한 기본 정책 
 
 ```
-Version= 1.0;
+version= 1.0;
 authorizationrules
 {
-    c:[type==”$is-debuggable”] => permit();
+    c:[type=="$is-debuggable"] => permit();
 };
+
 issuancerules
 {
-    c:[type==”$is-debuggable”] => issue(type=”is-debuggable”, value=c.value);
-    c:[type==”$sgx-mrsigner”] => issue(type=”sgx-mrsigner”, value=c.value);
-    c:[type==”$sgx-mrenclave”] => issue(type=”sgx-mrenclave”, value=c.value);
-    c:[type==”$product-id”] => issue(type=”product-id”, value=c.value);
-    c:[type==”$svn”] => issue(type=”svn”, value=c.value);
-    c:[type==”$tee”] => issue(type=”tee”, value=c.value);
+    c:[type=="$is-debuggable"] => issue(type="is-debuggable", value=c.value);
+    c:[type=="$sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
+    c:[type=="$sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);
+    c:[type=="$product-id"] => issue(type="product-id", value=c.value);
+    c:[type=="$svn"] => issue(type="svn", value=c.value);
+    c:[type=="$tee"] => issue(type="tee", value=c.value);
 };
 ```
 
-## <a name="default-policy-for-vbs-enclave"></a>VBS enclave에 대한 기본 정책
+## <a name="sample-custom-policy-for-an-sgx-enclave"></a>SGX enclave에 대한 샘플 사용자 지정 정책 
 
-VBS enclave에 대한 기본 정책이 없습니다.
-
+```
+version= 1.0;
+authorizationrules
+{
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
+    => permit();
+};
+```
 
 ## <a name="unsigned-policy-for-an-sgx-enclave-with-policyformatjwt"></a>PolicyFormat=JWT인 SGX enclave에 대한 서명되지 않은 정책
 

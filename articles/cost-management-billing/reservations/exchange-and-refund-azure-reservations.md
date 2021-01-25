@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560545"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601456"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
@@ -47,7 +47,7 @@ US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능�
 
 ### <a name="enterprise-agreement-customers"></a>기업계약 고객
 
-원래 구매 시 현금 약정 금액을 사용한 경우에는 교환 및 환불을 위해 현금 약정 금액에 액수가 추가됩니다. 예약을 사용하여 구매한 현금 약정 금액 기간이 더 이상 활성 상태가 아니면, 현재 기업 계약 현금 약정 금액 기간에 크레딧이 추가됩니다. 크레딧은 환불 날짜로부터 90일 동안 유효합니다. 사용하지 않은 크레딧은 90일 종료 시 만료됩니다.
+원래 구매 시 Azure 선불(이전에는 현금 약정 금액이라고 함)을 사용한 경우에는 교환 및 환불을 위해 금액이 추가됩니다. 예약을 사용하여 구매한 Azure 선불 기간이 더 이상 활성 상태가 아니면, 현재 기업계약 Azure 선불 기간에 크레딧이 추가됩니다. 크레딧은 환불 날짜로부터 90일 동안 유효합니다. 사용하지 않은 크레딧은 90일 종료 시 만료됩니다.
 
 원래 구매가 초과분으로 설정된 경우 예약이 구매된 원래 청구서와 모든 이후 청구서가 다시 열리고 다시 조정됩니다. Microsoft에서 환불에 대한 크레딧 메모를 발급합니다.
 

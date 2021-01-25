@@ -7,56 +7,99 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e17002534d35f477467f0c35833560a0267dd596
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: afe2cf288cd4a15091e8278309b3ecf74a2d35a4
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909780"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572751"
 ---
 # <a name="claim-sets"></a>클레임 집합
 
 Microsoft Azure Attestation을 사용하여 enclave를 증명하는 프로세스에서 생성된 클레임은 아래 범주로 나눌 수 있습니다.
 
-- **들어오는 클레임**: 증명 증거를 구문 분석한 후 Microsoft Azure Attestation에서 생성된 클레임입니다.
+- **들어오는 클레임**: 증명 증거를 구문 분석한 후 Microsoft Azure Attestation에서 생성된 클레임이며, 정책 작성자가 사용자 지정 정책에서 권한 부여 규칙을 정의하는 데 사용할 수 있습니다.
 
-- **나가는 클레임**: Azure Attestation에서 출력으로 생성된 클레임입니다. 여기에는 증명 토큰으로 끝나야 하는 모든 클레임이 포함됩니다.
+- **나가는 클레임**: Azure Attestation에서 생성된 클레임이며, 증명 토큰에서 종료되는 모든 클레임을 포함합니다.
 
 - **속성 클레임**: Azure Attestation에서 출력으로 생성된 클레임입니다. 여기에는 보고서의 인코딩, 보고서의 유효 기간 등과 같은 증명 토큰의 속성을 나타내는 모든 클레임이 포함됩니다.
 
-JWT RFC에서 정의되고 응답 개체의 Azure Attestation에서 사용되는 클레임은 다음과 같습니다.
+### <a name="common-incoming-claims-across-all-attestation-types"></a>모든 증명 유형에서 들어오는 일반적인 클레임
 
-- **"iss"(발급자) 클레임**: "iss"(발급자) 클레임은 JWT를 발급한 보안 주체를 식별합니다. 이 클레임을 처리하는 방법은 일반적으로 애플리케이션마다 다릅니다. "iss" 값은 StringOrURI 값을 포함하고 대/소문자를 구분하는 문자열입니다.
-- **"iat"(발급 시간) 클레임**: "iat"(발급 시간) 클레임은 JWT를 발급한 시간을 식별합니다. 이 클레임은 JWT의 기간을 결정하는 데 사용할 수 있습니다. 해당 값은 NumericDate 값을 포함하는 숫자여야 합니다.
-- **"exp"(만료 시간) 클레임**: "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. "exp" 클레임을 처리하려면 현재 날짜/시간이 "exp" 클레임에 나열된 만료 날짜/시간 이전이어야 합니다.
+Azure Attestation에서 생성되고 사용자 지정 정책에서 권한 부여 규칙을 정의하는 데 사용할 수 있는 클레임은 다음과 같습니다.
+- **x-ms-ver**: JWT 스키마 버전("1.0"이어야 함)
+- **x-ms-attestation-type**: 증명 유형을 나타내는 문자열 값 
+- **x-ms-policy-hash**: BASE64URL(SHA256(UTF8(BASE64URL(UTF8(정책 텍스트)))))로 계산된 Azure Attestation 평가 정책의 해시
+- **x-ms-policy-signer**: 고객이 서명된 정책을 업로드할 때 고객이 해당 정책에 서명하는 데 사용하는 키를 나타내는 "jwk" 멤버가 포함된 JSON 개체
 
-  참고: 클록 스큐를 고려하여 5분의 여유 시간이 발급 시간(iat)에 추가됩니다.
-- **"nbf"(이전이 아님) 클레임**: "nbf"(이전이 아님) 클레임은 JWT를 처리하는 데 허용되지 않는 시간 이전의 시간을 식별합니다. "nbf" 클레임을 처리하려면 현재 날짜/시간이 "nbf" 클레임에 나열된 날짜/시간 이전이 아니라 이후이거나 같아야 합니다.
-  참고: 클록 스큐를 고려하여 5분의 여유 시간이 발급 시간(iat)에 추가됩니다.
+더 이상 사용되지 않는 것으로 간주되지만 완벽하게 지원되는 클레임은 다음과 같습니다. 사용되지 않는 클레임 이름을 사용하는 것이 좋습니다.
 
-## <a name="claims-issued-by-azure-attestation-in-sgx-enclaves"></a>SGX enclave에서 Azure Attestation을 통해 발급된 클레임
+사용되지 않는 클레임 | 추천되는 클레임 
+--- | --- 
+ver | x-ms-ver
+tee | x-ms-attestation-type
+maa-policyHash | x-ms-policy-hash
+policy_hash | x-ms-policy-hash
+policy_signer | x-ms-policy-signer
 
-### <a name="incoming-claims"></a>들어오는 클레임 
+### <a name="common-outgoing-claims-across-all-attestation-types"></a>모든 증명 유형에서 나가는 일반적인 클레임
 
-- **$is-debuggable**: 디버깅을 enclave에 사용하도록 설정하는지 여부를 나타내는 부울
-- **$sgx-mrsigner**: 따옴표의 "mrsigner" 필드에 대해 16진수로 인코딩된 값
-- **$sgx-mrenclave**: 따옴표의 "mrenclave" 필드에 대해 16진수로 인코딩된 값
-- **$product-id**
-- **$svn**: 따옴표로 인코딩된 보안 버전 번호 
-- **$tee**: enclave 형식 
+[IETF JWT](https://tools.ietf.org/html/rfc7519)에서 정의되고 응답 개체의 Azure Attestation에서 사용되는 클레임은 다음과 같습니다.
 
-### <a name="outgoing-claims"></a>나가는 클레임
+- **"jti"(JWT ID) 클레임**
+- **"iss"(발급자) 클레임**
+- **"iat"(발급 시간) 클레임**
+- **"exp"(만료 시간) 클레임**
+- **"nbf"(이전이 아님) 클레임**
 
-- **is-debuggable**: 디버깅을 enclave에 사용하도록 설정하는지 여부를 나타내는 부울
-- **sgx-mrsigner**: 따옴표의 "mrsigner" 필드에 대해 16진수로 인코딩된 값
-- **sgx-mrenclave**: 따옴표의 "mrenclave" 필드에 대해 16진수로 인코딩된 값
-- **product-id**
-- **svn**: 따옴표로 인코딩된 보안 버전 번호 
-- **tee**: enclave 형식 
-- **maa-ehd**:  증명 요청에 지정된 "enclave 보유 데이터"에 대해 Base64Url로 인코딩된 버전 
-- **aas-ehd**:  증명 요청에 지정된 "enclave 보유 데이터"에 대해 Base64Url로 인코딩된 버전 
+[IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)에서 정의되고 응답 개체의 Azure Attestation에서 사용되는 클레임은 다음과 같습니다.
+- **"Nonce 클레임"(nonce)**
 
-## <a name="claims-issued-by-azure-attestation-in-vbs-enclaves"></a>VBS enclave에서 Azure Attestation을 통해 발급된 클레임
+## <a name="claims-specific-to-sgx-enclaves"></a>SGX enclave 관련 클레임
+
+### <a name="incoming-claims-specific-to-sgx-attestation"></a>들어오는 SGX 증명 관련 클레임
+
+SGX 증명 서비스에서 생성되고 사용자 지정 정책에서 권한 부여 규칙을 정의하는 데 사용할 수 있는 클레임은 다음과 같습니다.
+- **x-ms-sgx-is-debuggable**: 디버깅을 enclave에 사용하도록 설정하는지 여부를 나타내는 부울
+- **x-ms-sgx-product-id**
+- **x-ms-sgx-mrsigner**: quote의 "mrsigner" 필드에 대해 16진수로 인코딩된 값
+- **x-ms-sgx-mrenclave**: quote의 "mrenclave" 필드에 대해 16진수로 인코딩된 값
+- **x-ms-sgx-svn**: quote로 인코딩된 보안 버전 번호 
+
+### <a name="outgoing-claims-specific-to-sgx-attestation"></a>나가는 SGX 증명 관련 클레임
+
+서비스에서 생성되고 SGX 증명에 대한 응답 개체에 포함되는 클레임은 다음과 같습니다.
+- **x-ms-sgx-is-debuggable**: 디버깅을 enclave에 사용하도록 설정하는지 여부를 나타내는 부울
+- **x-ms-sgx-product-id**
+- **x-ms-ver**
+- **x-ms-sgx-mrsigner**: quote의 "mrsigner" 필드에 대해 16진수로 인코딩된 값
+- **x-ms-sgx-mrenclave**: quote의 "mrenclave" 필드에 대해 16진수로 인코딩된 값
+- **x-ms-sgx-svn**: quote로 인코딩된 보안 버전 번호 
+- **x-ms-sgx-ehd**: BASE64URL(데이터 보유 enclave) 형식의 데이터를 보유한 enclave
+- **x-ms-sgx-collateral**: 증명을 수행하는 데 사용되는 참고 자료를 설명하는 JSON 개체. x-ms-sgx-collateral 클레임의 값은 다음 키/값 쌍이 있는 중첩된 JSON 개체입니다.
+    - **qeidcertshash**: QE ID 발급 인증서의 SHA256 값
+    - **qeidcrlhash**: QE ID 발급 인증서 CRL 목록의 SHA256 값
+    - **qeidhash**: QE ID 참고 자료의 SHA256 값
+    - **quotehash**: 계산된 quote의 SHA256 값
+    - **tcbinfocertshash**: TCB 정보 발급 인증서의 SHA256 값
+    - **tcbinfocrlhash**: TCB 정보 발급 인증서 CRL 목록의 SHA256 값
+    - **tcbinfohash**: 증명을 수행하는 데 사용되는 참고 자료를 설명하는 JSON 개체
+
+더 이상 사용되지 않는 것으로 간주되지만 완벽하게 지원되며 나중에도 계속 포함되는 클레임은 다음과 같습니다. 사용되지 않는 클레임 이름을 사용하는 것이 좋습니다.
+
+사용되지 않는 클레임 | 추천되는 클레임
+--- | --- 
+$is-debuggable | x-ms-sgx-is-debuggable
+$sgx-mrsigner | x-ms-sgx-mrsigner
+$sgx-mrenclave | x-ms-sgx-mrenclave
+$product-id | x-ms-sgx-product-id
+$svn | x-ms-sgx-svn
+$tee | x-ms-attestation-type
+maa-ehd | x-ms-sgx-ehd
+aas-ehd | x-ms-sgx-ehd
+maa-attestationcollateral | x-ms-sgx-collateral
+
+## <a name="claims-issued-specific-to-trusted-platform-module-tpm-attestation"></a>발급된 TPM(신뢰할 수 있는 플랫폼 모듈) 증명 관련 클레임
 
 ### <a name="incoming-claims-can-also-be-used-as-outgoing-claims"></a>들어오는 클레임(나가는 클레임으로도 사용 가능)
 
@@ -73,17 +116,17 @@ JWT RFC에서 정의되고 응답 개체의 Azure Attestation에서 사용되는
 - **enclaveAuthorId**:  enclave 작성자 ID에 대해 Base64Url로 인코딩된 값이 포함된 문자열 값입니다. 이 ID는 enclave에 대한 주 모듈의 작성자 식별자입니다.
 - **enclaveImageId**:  enclave 이미지 ID에 대해 Base64Url로 인코딩된 값이 포함된 문자열 값입니다. 이 ID는 enclave에 대한 주 모듈의 이미지 식별자입니다.
 - **enclaveOwnerId**:  enclave 소유자 ID에 대해 Base64Url로 인코딩된 값이 포함된 문자열 값입니다. 이 ID는 enclave에 대한 주 모듈의 소유자 식별자입니다.
-- **enclaveFamilyId**:  enclave 패밀리 ID에 대해 Base64Url로 인코딩된 값이 포함된 문자열 값입니다. 이 ID는 enclave에 대한 주 모듈의 패밀리 식별자입니다.
+- **enclaveFamilyId**:  Base64Url로 인코딩된 enclave 패밀리 ID 값이 포함된 문자열 값입니다. 이 ID는 enclave에 대한 주 모듈의 패밀리 식별자입니다.
 - **enclaveSvn**:  enclave에 대한 주 모듈의 보안 버전 번호가 포함된 정수 값입니다.
 - **enclavePlatformSvn**:  enclave를 호스팅하는 플랫폼의 보안 버전 번호가 포함된 정수 값입니다.
 - **enclaveFlags**:  enclaveFlags 클레임은 enclave에 대한 런타임 정책을 설명하는 플래그가 포함된 정수 값입니다.
   
-### <a name="outgoing-claims"></a>나가는 클레임
+### <a name="outgoing-claims-specific-to-tpm-attestation"></a>나가는 TPM 증명 관련 클레임
 
 - **policy_hash**:  BASE64URL(SHA256(BASE64URL(UTF8(정책 텍스트))))로 계산된 정책 텍스트의 SHA256 해시가 포함된 문자열 값입니다.
 - **policy_signer**:  서명된 정책 헤더에 있는 공개 키 또는 인증서 체인이 있는 JWK를 포함합니다.
 - **ver(버전)** :  보고서 버전이 포함된 문자열 값입니다. 현재 1.0입니다.
-- **cnf(확인) 클레임**:  "cnf" 클레임은 소유 증명 키를 식별하는 데 사용됩니다. RFC 7800에 정의된 확인 클레임에는 JWK(JSON Web Key) 개체(RFC 7517)로 표현되는 증명된 enclave 키의 공개 부분이 포함됩니다.
+- **cnf(확인) 클레임**:  "cnf" 클레임은 소유 증명 키를 식별하는 데 사용됩니다. RFC 7800에서 정의된 확인 클레임에는 JWK(JSON Web Key) 개체(RFC 7517)로 표현되는 증명된 enclave 키의 공개 부분이 포함됩니다.
 - **rp_data(신뢰 당사자 데이터)** :  요청에 지정된 신뢰 당사자 데이터(있는 경우)는 보고서의 최신 상태를 보장하기 위해 해당 신뢰 당사자가 nonce로 사용합니다.
 - **"jti"(JWT ID) 클레임**: "jti"(JWT ID) 클레임은 JWT에 대한 고유 식별자를 제공합니다. 식별자 값은 동일한 값이 실수로 다른 데이터 개체에 할당될 가능성을 무시할 수 있도록 하는 방식으로 할당됩니다.
 

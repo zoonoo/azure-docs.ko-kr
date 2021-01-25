@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 75f4602be15ef2487272ed5790d92c4c884c551f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4115ab2140cd3bf67135e494e16fb8121c040ff6
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681553"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246199"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
@@ -58,15 +58,15 @@ Azure Kubernetes Service는 여러 Kubernetes 버전을 제공합니다. AKS에�
 
 수명 주기 버전에 대해 자세히 알아보려면 [AKS의 지원되는 Kubernetes 버전][aks-supported versions]을 참조하세요. 업그레이드하는 방법에 대한 단계는 [AKS(Azure Kubernetes Service) 클러스터 업그레이드][aks-upgrade]를 참조하세요.
 
-### <a name="gpu-enabled-nodes"></a>GPU 사용 노드
+### <a name="gpu-enabled-nodes"></a>GPU 지원 노드
 
-AKS는 GPU 사용 노드 풀 만들기를 지원합니다. Azure는 현재, 단일 또는 여러 GPU 사용 VM을 제공합니다. GPU 사용 VM은 계산 집약적이며 그래픽 집약적인 시각화 워크로드용으로 설계되었습니다.
+AKS는 GPU 지원 노드 풀 생성을 지원합니다. Azure는 현재, 단일 또는 여러 GPU 지원 VM을 제공합니다. GPU 지원 VM은 계산 집약적이며 그래픽 집약적인 시각화 워크로드용으로 설계되었습니다.
 
 자세한 내용은 [AKS에서 GPU 사용][aks-gpu]을 참조하세요.
 
 ### <a name="confidential-computing-nodes-public-preview"></a>기밀 컴퓨팅 노드(공개 미리 보기)
 
-AKS는 Intel SGX 기반 기밀 컴퓨팅 노드 풀(DCSv2 VM) 생성을 지원합니다. 기밀 컴퓨팅 노드를 통해 하드웨어 기반의 신뢰할 수 있는 격리된 실행 환경(enclaves)에서 컨테이너를 실행할 수 있습니다. 증명을 통해 코드 무결성과 결합된 컨테이너 간의 격리는 심층 방어 컨테이너 보안 전략에 도움이 될 수 있습니다. 기밀 컴퓨팅 노드는 기밀 컨테이너(기존 docker 앱)와 enclave 인식 컨테이너를 모두 지원합니다.
+AKS는 Intel SGX 기반 기밀 컴퓨팅 노드 풀(DCSv2 VM) 생성을 지원합니다. 기밀 컴퓨팅 노드를 통해 하드웨어 기반의 신뢰할 수 있는 환경(enclaves)에서 컨테이너를 실행할 수 있습니다. 증명을 통해 코드 무결성과 결합된 컨테이너 간의 격리는 심층 방어 컨테이너 보안 전략에 도움이 될 수 있습니다. 기밀 컴퓨팅 노드는 기밀 컨테이너(기존 Docker 앱)와 enclave 인식 컨테이너를 모두 지원합니다.
 
 자세한 내용은 [AKS의 기밀 컴퓨팅 노드][conf-com-node]를 참조하세요.
 
@@ -80,7 +80,7 @@ AKS는 Intel SGX 기반 기밀 컴퓨팅 노드 풀(DCSv2 VM) 생성을 지원�
 
 ## <a name="virtual-networks-and-ingress"></a>가상 네트워크 및 수신
 
-AKS 클러스터는 기존 가상 네트워크로 배포될 수 있습니다. 이 구성에서 클러스터의 모든 Pod는 가상 네트워크의 IP 주소가 할당되고, 클러스터의 다른 Pod 및 가상 네트워크의 다른 노드와 직접 통신할 수 있습니다. 또한 Pod는 피어링된 가상 네트워크의 다른 서비스에 연결되고, ExpressRoute 또는 S2S(사이트 간) VPN 연결을 통해 온-프레미스 네트워크에 연결될 수 있습니다.
+AKS 클러스터는 기존 가상 네트워크로 배포될 수 있습니다. 이 구성에서 클러스터의 모든 Pod는 가상 네트워크의 IP 주소가 할당되고, 클러스터의 다른 Pod 및 가상 네트워크의 다른 노드와 직접 통신할 수 있습니다. 또한 Pod는 피어링된 가상 네트워크의 다른 서비스와 연결할 수 있으며, ExpressRoute 또는 S2S(사이트 간) VPN 연결을 통해 온-프레미스 네트워크와 연결할 수 있습니다.
 
 자세한 내용은 [애플리케이션에 대한 AKS의 네트워크 개념][aks-networking]을 참조하세요.
 
@@ -98,9 +98,9 @@ Kubernetes에는 다양한 Visual Studio Code용 개발 및 관리 도구(예: H
 
 또한 Azure Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. 최소한의 구성을 통해 AKS에서 바로 컨테이너를 실행하고 디버그할 수 있습니다. 시작하려면 [Azure Dev Spaces][azure-dev-spaces]를 참조하세요.
 
-Azure DevOps 프로젝트는 기존 코드 및 Git 리포지토리를 Azure로 가져오는 간단한 솔루션을 제공합니다. DevOps 프로젝트는 자동으로 AKS, CI의 빌드 파이프라인을 포함하는 Azure DevOps Services의 릴리스 파이프라인과 같은 Azure 리소스를 만들고, CD의 릴리스 파이프라인을 설정한 다음, 모니터링을 위해 Azure Application Insights 리소스를 만듭니다.
+DevOps Starter는 기존 코드 및 Git 리포지토리를 Azure로 가져오는 간단한 솔루션을 제공합니다. DevOps Starter는 자동으로 AKS, CI의 빌드 파이프라인을 포함하는 Azure DevOps Services의 릴리스 파이프라인과 같은 Azure 리소스를 만들고 CD의 릴리스 파이프라인을 설정한 다음, 모니터링을 위해 Azure Application Insights 리소스를 만듭니다.
 
-자세한 내용은 [Azure DevOps 프로젝트][azure-devops]를 참조하세요.
+자세한 내용은 [DevOps Starter][azure-devops]를 참조하세요.
 
 ## <a name="docker-image-support-and-private-container-registry"></a>Docker 이미지 지원 및 프라이빗 컨테이너 레지스트리
 

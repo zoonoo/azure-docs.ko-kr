@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: ff97aa6c6f04ad41ba6e1b986f3cc0734ec7a326
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4c7c68bf690097004f2f3310a8d89ce954d7f87f
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92526135"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98612957"
 ---
 | 리소스 | 제한 | 참고 |
 | --- | --- | --- |
@@ -32,6 +32,9 @@ ms.locfileid: "92526135"
 | 수신기당 URL 맵 |1 | |
 | URL 맵당 최대 경로 기반 규칙|100||
 | 구성 리디렉션 |100<sup>1</sup>| |
+| 다시 쓰기 규칙 집합 수 |400| |
+| 다시 쓰기 규칙 집합당 헤더 또는 URL 구성 수|40| |
+| 다시 쓰기 규칙 집합당 조건 수|40| |
 | 동시 WebSocket 연결 |중간 게이트웨이 20,000<br> 대형 게이트웨이 50,000| |
 | 최대 URL 길이|32KB| |
 | HTTP/2에 대한 최대 헤더 크기 |4KB| |
