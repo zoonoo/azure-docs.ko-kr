@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 557f53e39781406674b9903dcf0bb3cb536cd804
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f9fb1c917a0719cb9d250b997329d3415b5872eb
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897487"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747477"
 ---
 # <a name="step-3-validate-connectivity"></a>3 단계: 연결 유효성 검사
 
 로그 전달자 (1 단계)를 배포 하 고 보안 솔루션을 구성 하 여 (2 단계)이 지침에 따라 보안 솔루션과 Azure 센티널 간의 연결을 확인 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 로그 전달자 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "97897487"
 1. 로그 전달자 (자리 표시자 대신 작업 영역 ID 적용)에서 다음 스크립트를 실행 하 여 보안 솔루션, 로그 전달자 및 Azure 센티널 간의 연결을 확인 합니다. 이 스크립트는 데몬이 올바른 포트에서 수신 대기 중인지, 전달이 올바르게 구성 되었는지, 그리고 디먼과 Log Analytics 에이전트 간의 통신을 차단 하 고 있는지를 확인 합니다. 또한 모의 연결을 확인 하기 위해 모의 메시지 ' TestCommonEventFormat '를 보냅니다. <br>
 
     ```bash
-    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
+    sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
     ```
 
    - 명령을 실행 하 여 ***컴퓨터* 필드의 매핑에** 대 한 문제를 해결 하도록 지시 하는 메시지가 표시 될 수 있습니다. 자세한 내용은 [유효성 검사 스크립트의 설명을](#mapping-command) 참조 하세요.

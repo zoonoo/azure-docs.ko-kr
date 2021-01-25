@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: 038f30ee186a5b3a9d87d64054726324051c37b4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d85b1fdd433c372bb41adec6e3d33013f19363f0
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842756"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747176"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 이 문서에서는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 Azure에서 제공하는 보안 기능 및 서비스에 대한 개요를 제공합니다.
@@ -61,7 +61,7 @@ Azure AD Multi-Factor Authentication는 둘 이상의 인증 방법을 사용 �
 자세한 정보:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Azure AD Multi-Factor Authentication 이란?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Azure AD Multi-Factor Authentication이란?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [Azure AD Multi-Factor Authentication 작동 방법](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
@@ -117,15 +117,18 @@ Azure AD Identity Protection은 의심스러운 로그인 활동 및 잠재적 �
 
 ## <a name="security-center"></a>Security Center
 
-Azure Security Center를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center를 사용하면 Azure 리소스의 보안을 보다 명확히 파악하고 제어할 수 있습니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
+Azure Security Center를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center를 통해 Azure 리소스와 하이브리드 클라우드 환경에 대 한 보안을 강화 하 고 제어할 수 있습니다. 
+
+Security Center는 연결 된 리소스에 대 한 지속적인 보안 평가를 수행 하 고 [Azure 보안 벤치 마크](../benchmarks/introduction.md) 에 대 한 구성 및 배포를 비교 하 여 환경에 맞게 조정 된 세부 보안 권장 사항을 제공 합니다.
 
 보안 센터는 다음과 같은 방법을 통해 Azure 리소스의 보안을 최적화하고 모니터링하는 데 도움을 줍니다.
 
-* 다음에 따라 Azure 구독 리소스에 대한 정책을 정의할 수 있습니다.
-  * 회사의 보안 요구 사항
-  * 각 구독에서 애플리케이션의 유형 또는 데이터의 민감도
-* Azure 가상 머신, 네트워킹 및 애플리케이션의 상태를 모니터링합니다.
-* 통합된 파트너 솔루션에서의 경고를 포함하여 우선 순위가 지정된 보안 경고 목록을 제공합니다. 또한 공격 및 해결 방법에 대한 권장 사항을 신속히 조사하는 데 필요한 정보를 제공합니다.
+- 다음에 따라 Azure 구독 리소스에 대한 정책을 정의할 수 있습니다.
+    - 조직의 보안 요구 사항
+    - 각 구독에서 애플리케이션의 유형 또는 데이터의 민감도
+    - 구독에 적용 하는 모든 산업 또는 규제 표준 또는 벤치 마크 
+- Azure 가상 머신, 네트워킹 및 애플리케이션의 상태를 모니터링합니다.
+- 통합된 파트너 솔루션에서의 경고를 포함하여 우선 순위가 지정된 보안 경고 목록을 제공합니다. 또한 공격 및 해결 방법에 대한 권장 사항을 신속히 조사하는 데 필요한 정보를 제공합니다.
 
 자세한 정보:
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 43372eb0a9f7c08f6957627950769c1941580bd8
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745870"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747528"
 ---
 # <a name="features"></a>기능
 
@@ -147,12 +147,14 @@ FHIR 서버는 액세스 제어를 위해 [Azure Active Directory](https://azure
 
 시스템의 성능은 RUs의 수, 동시 연결 수 및 수행 중인 작업의 유형 (Put, Post 등)에 따라 달라 집니다. 아래에는 구성 된 RUs를 기준으로 예측할 수 있는 몇 가지 일반적인 범위가 나와 있습니다. 일반적으로 성능 확장은 RUs의 증가에 따라 선형적으로 확장 됩니다.
 
-| RUs의 # | 리소스/초 |
-|----------|---------------|
-| 400      | 5-10          |
-| 1,000    | 100-150       |
-| 10000   | 225-400       |
-| 100,000  | 2500-4000   |
+| RUs의 # | 리소스/초 |    최대 저장소 (GB) *    |
+|----------|---------------|--------|                 
+| 400      | 5-10          |     40   |
+| 1,000    | 100-150       |      100  |
+| 10000   | 225-400       |      1,000  |
+| 100,000  | 2500-4000   |      10000  |
+
+참고: Cosmos DB 요구 사항에 따라 저장소 GB 당 최소 처리량은 10 r u/GB입니다. 자세한 내용은 [Cosmos DB 서비스 할당량](../cosmos-db/concepts-limits.md)을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널에 Syslog 데이터 연결 | Microsoft Docs
-description: 어플라이언스와 센티널 사이에 Linux 컴퓨터의 에이전트를 사용 하 여 Syslog를 지 원하는 컴퓨터 또는 어플라이언스를 Azure 센티널에 연결 합니다. 
+description: 어플라이언스와 센티널 사이에 Linux 컴퓨터의 에이전트를 사용 하 여 Syslog를 지 원하는 컴퓨터 또는 어플라이언스를 Azure 센티널에 연결 합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c3cf4c3c135b3f275542af4f531d1071e180ebe
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88566151"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747193"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Syslog를 사용 하 여 Linux 기반 원본에서 데이터 수집
 
@@ -30,9 +30,9 @@ Linux에 대 한 Log Analytics 에이전트 (이전의 OMS 에이전트)를 사�
 >
 > - Log Analytics **는 rsyslog 또는** **syslog-기능** 디먼에서 보낸 메시지의 컬렉션을 지원 합니다. 여기서 rsyslog는 기본값입니다. Red Hat Enterprise Linux (RHEL), CentOS 및 Oracle Linux 버전 (**sy log**)의 버전 5에 있는 기본 syslog 디먼은 syslog 이벤트 수집에 대해 지원 되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
-**Syslog** 는 Linux에 공통적인 이벤트 로깅 프로토콜입니다. **Linux 용 Log Analytics 에이전트가** VM 또는 어플라이언스에 설치 된 경우 설치 루틴은 TCP 포트 25224의 에이전트로 메시지를 전달 하도록 로컬 Syslog 데몬을 구성 합니다. 그러면 에이전트는 HTTPS를 통해 Log Analytics 작업 영역으로 메시지를 보냅니다. 그러면 **Azure 센티널 > 로그**의 Syslog 테이블에 있는 이벤트 로그 항목으로 구문 분석 됩니다.
+**Syslog** 는 Linux에 공통적인 이벤트 로깅 프로토콜입니다. **Linux 용 Log Analytics 에이전트가** VM 또는 어플라이언스에 설치 된 경우 설치 루틴은 TCP 포트 25224의 에이전트로 메시지를 전달 하도록 로컬 Syslog 데몬을 구성 합니다. 그러면 에이전트는 HTTPS를 통해 Log Analytics 작업 영역으로 메시지를 보냅니다. 그러면 **Azure 센티널 > 로그** 의 Syslog 테이블에 있는 이벤트 로그 항목으로 구문 분석 됩니다.
 
 자세한 내용은 [Azure Monitor의 Syslog 데이터 원본](../azure-monitor/platform/data-sources-syslog.md)을 참조 하세요.
 
@@ -42,17 +42,17 @@ Linux에 대 한 Log Analytics 에이전트 (이전의 OMS 에이전트)를 사�
 
 1. Azure 센티널에서 **데이터 커넥터** 를 선택한 다음 **Syslog** 커넥터를 선택 합니다.
 
-1. **Syslog** 블레이드에서 **커넥터 페이지 열기**를 선택 합니다.
+1. **Syslog** 블레이드에서 **커넥터 페이지 열기** 를 선택 합니다.
 
 1. Linux 에이전트를 설치 합니다. **에이전트를 설치할 위치 선택에서 다음을 수행 합니다.**
     
     **Azure Linux VM의 경우:**
       
-    1. **Azure Linux 가상 컴퓨터에 에이전트 설치를**선택 합니다.
+    1. **Azure Linux 가상 컴퓨터에 에이전트 설치를** 선택 합니다.
     
     1. **다운로드 & Azure Linux 가상 머신에 대 한 에이전트 설치 >** 링크를 클릭 합니다. 
     
-    1. **Virtual machines** 블레이드에서 에이전트를 설치할 가상 컴퓨터를 클릭 한 다음 **연결**을 클릭 합니다. 연결 하려는 각 VM에 대해이 단계를 반복 합니다.
+    1. **Virtual machines** 블레이드에서 에이전트를 설치할 가상 컴퓨터를 클릭 한 다음 **연결** 을 클릭 합니다. 연결 하려는 각 VM에 대해이 단계를 반복 합니다.
     
     **기타 Linux 컴퓨터의 경우:**
 
@@ -67,21 +67,21 @@ Linux에 대 한 Log Analytics 에이전트 (이전의 OMS 에이전트)를 사�
 
 ### <a name="configure-the-log-analytics-agent"></a>Log Analytics 에이전트 구성
 
-1. Syslog 커넥터 블레이드의 아래쪽에서 **작업 영역 고급 설정 구성 >열기 ** 링크를 클릭 합니다.
+1. Syslog 커넥터 블레이드의 아래쪽에서 **작업 영역 고급 설정 구성 >열기** 링크를 클릭 합니다.
 
-1. **고급 설정** 블레이드에서 **데이터**  >  **Syslog**를 선택 합니다. 그런 다음 수집할 커넥터에 대 한 기능을 추가 합니다.
+1. **고급 설정** 블레이드에서 **데이터**  >  **Syslog** 를 선택 합니다. 그런 다음 수집할 커넥터에 대 한 기능을 추가 합니다.
     
     - Syslog 어플라이언스에 포함 된 기능을 로그 헤더에 추가 합니다. 
     
-    - 수집한 데이터를 사용 하 여 비정상적인 SSH 로그인 검색을 사용 하려는 경우 **auth** 및 **authpriv**를 추가 합니다. 자세한 내용은 [다음 섹션](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) 을 참조 하세요.
+    - 수집한 데이터를 사용 하 여 비정상적인 SSH 로그인 검색을 사용 하려는 경우 **auth** 및 **authpriv** 를 추가 합니다. 자세한 내용은 [다음 섹션](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) 을 참조 하세요.
 
-1. 모니터링 하려는 모든 기능을 추가 하 고 각 기능에 대 한 심각도 옵션을 조정한 경우 **내 컴퓨터에 아래 구성 적용**확인란을 선택 합니다.
+1. 모니터링 하려는 모든 기능을 추가 하 고 각 기능에 대 한 심각도 옵션을 조정한 경우 **내 컴퓨터에 아래 구성 적용** 확인란을 선택 합니다.
 
-1. **저장**을 선택합니다. 
+1. **저장** 을 선택합니다. 
 
 1. VM 또는 어플라이언스에서 지정한 시설을 전송 하 고 있는지 확인 합니다.
 
-1. **로그**에서 syslog 로그 데이터를 쿼리하려면 `Syslog` 쿼리 창에를 입력 합니다.
+1. **로그** 에서 syslog 로그 데이터를 쿼리하려면 `Syslog` 쿼리 창에를 입력 합니다.
 
 1. [Azure Monitor 로그 쿼리의 함수를 사용 하 여](../azure-monitor/log-query/functions.md) Syslog 메시지를 구문 분석 하는 데 설명 된 쿼리 매개 변수를 사용할 수 있습니다. 그런 다음 쿼리를 새 Log Analytics 함수로 저장 하 고 새 데이터 형식으로 사용할 수 있습니다.
 
@@ -113,22 +113,26 @@ Azure 센티널은 syslog 데이터에 기계 학습 (ML)을 적용 하 여 비�
  
 이 검색에는 Syslog 데이터 커넥터의 특정 구성이 필요 합니다. 
 
-1. 이전 절차의 5 단계에는 **auth** 및 **authpriv** 가 모두 모니터링할 기능으로 선택 되어 있는지 확인 합니다. 심각도 옵션의 기본 설정은 모두 선택 된 상태로 유지 합니다. 예를 들면 다음과 같습니다.
+1. 이전 절차의 5 단계에는 **auth** 및 **authpriv** 가 모두 모니터링할 기능으로 선택 되어 있는지 확인 합니다. 심각도 옵션의 기본 설정은 모두 선택 된 상태로 유지 합니다. 예:
     
     > [!div class="mx-imgBorder"]
     > ![비정상적인 SSH 로그인 검색에 필요한 기능](./media/connect-syslog/facilities-ssh-detection.png)
 
-2. Syslog 정보를 수집할 수 있는 충분 한 시간을 허용 합니다. 그런 다음 **Azure 센티널-Logs**로 이동 하 여 다음 쿼리를 복사 하 여 붙여넣습니다.
+2. Syslog 정보를 수집할 수 있는 충분 한 시간을 허용 합니다. 그런 다음 **Azure 센티널-Logs** 로 이동 하 여 다음 쿼리를 복사 하 여 붙여넣습니다.
     
-    ```console
-    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```kusto
+    Syslog
+    | where Facility in ("authpriv","auth")
+    | extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)
+    | where isnotempty(c)
+    | count 
     ```
     
-    필요한 경우 **시간 범위** 를 변경 하 고 **실행**을 선택 합니다.
+    필요한 경우 **시간 범위** 를 변경 하 고 **실행** 을 선택 합니다.
     
     결과 수가 0 이면 커넥터의 구성을 확인 하 고 모니터링 되는 컴퓨터에 쿼리를 위해 지정한 기간 동안 성공한 로그인 작업이 있는지 확인 합니다.
     
-    결과 개수가 0 보다 크면 syslog 데이터가 비정상적인 SSH 로그인 검색에 적합 합니다. **분석**  >   **규칙 템플릿**  >  **(미리 보기) 비정상적인 SSH 로그인 검색**에서이 검색을 사용 하도록 설정 합니다.
+    결과 개수가 0 보다 크면 syslog 데이터가 비정상적인 SSH 로그인 검색에 적합 합니다. **분석**  >   **규칙 템플릿**  >  **(미리 보기) 비정상적인 SSH 로그인 검색** 에서이 검색을 사용 하도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Syslog 온-프레미스 어플라이언스를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.

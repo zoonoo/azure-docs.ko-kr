@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 6061980ec556fccde3de882a291bc390b88c5a24
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: f2807501b1e18d4cbffaa34d70bccf8d70565266
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611086"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747226"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -125,11 +125,53 @@ Authorization: Bearer <token>
 
 ## <a name="create-cluster"></a>클러스터 만들기
 
-> [!NOTE]
-> 클러스터는 두 가지 [관리 되는 id 유형](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)(시스템 할당 및 사용자 할당)을 지원 하며 각각 시나리오에 따라 달라질 수 있습니다. 시스템 할당 관리 id는 더 간단 하며, id `type` 가 "*systemassigned* 됨"으로 설정 된 경우 클러스터를 만들 때 자동으로 생성 됩니다 .이 id는 나중에 Key Vault에 대 한 클러스터 액세스 권한을 부여 하는 데 사용할 수 있습니다. 클러스터를 만들 때 고객 관리 키가 정의 된 상태에서 클러스터를 만들려면 미리 정의 된 키 및 사용자 할당 id가 Key Vault에 미리 부여 되어 있어야 하 고 `type` , id의 리소스 ID와 `UserAssignedIdentities` `keyVaultProperties` 키 세부 정보를 사용 하 여 id가 "userassigned 됨" 인 클러스터를 만들어야 합니다.
+클러스터는 시스템 할당 및 사용자 할당 이라는 두 가지 [관리 되는 id 형식을](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)지원 하지만, 시나리오에 따라 단일 id를 클러스터에 정의할 수 있습니다. 
+- Id `type` 가 "*systemassigned* 됨"으로 설정 된 경우 시스템 할당 관리 id는 클러스터 생성 시 자동으로 생성 되 고 자동으로 생성 됩니다. 나중에이 id를 사용 하 여 Key Vault에 대 한 클러스터 액세스 권한을 부여할 수 있습니다. 
+  
+  시스템 할당 관리 id에 대 한 클러스터의 id 설정
+  ```json
+  {
+    "identity": {
+      "type": "SystemAssigned"
+      }
+  }
+  ```
+
+- 클러스터를 만들 때 고객 관리 키를 구성 하려면 미리 Key Vault에 키 및 사용자 할당 id를 부여 해야 합니다. 그런 다음 id `type` 의 리소스 id와 함께 "*userassigned*"으로 id를 설정 하 여 클러스터를 만듭니다 `UserAssignedIdentities` .
+
+  사용자 할당 관리 id에 대 한 클러스터의 id 설정
+  ```json
+  {
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      }
+  }
+  ```
 
 > [!IMPORTANT]
-> 현재 Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id를 사용 하 여 고객 관리 키를 정의할 수 없으며,이 경우 시스템 할당 관리 id를 사용할 수 있습니다.
+> Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id와 함께 고객 관리 키를 사용할 수 없습니다. 이 시나리오에서는 시스템 할당 관리 id를 사용할 수 있습니다.
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+}
+```
+ 
+다음으로 바꾸기:
+
+```json
+{
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<user-assigned-managed-identity-name>"
+      }
+}
+```
+
 
 [전용 클러스터 문서](../log-query/logs-dedicated-clusters.md#creating-a-cluster)에 설명 된 절차를 따릅니다. 
 
@@ -243,15 +285,13 @@ Content-type: application/json
 
 ## <a name="key-revocation"></a>키 해지
 
-키를 사용 하지 않도록 설정 하거나 Key Vault에서 클러스터의 액세스 정책을 삭제 하 여 데이터에 대 한 액세스 권한을 해지할 수 있습니다. 
-
 > [!IMPORTANT]
-> - 사용자 할당 관리 id를 사용 하 여 클러스터를 설정 하는 경우를로 설정 하면 `UserAssignedIdentities` `None` 클러스터가 일시 중단 되 고 데이터에 대 한 액세스를 방지할 수 있지만 지원 요청을 열지 않으면 해지를 되돌리고 클러스터를 활성화할 수 없습니다. 시스템 할당 관리 id에는이 제한이 적용 되지 않습니다.
-> - 권장 되는 키 해지 작업은 Key Vault에서 키를 사용 하지 않도록 설정 하는 것입니다.
+> - 데이터에 대 한 액세스를 취소 하는 권장 방법은 키를 사용 하지 않도록 설정 하거나 Key Vault에서 액세스 정책을 삭제 하는 것입니다.
+> - 클러스터를 `identity` `type` "없음"으로 설정 하면 데이터에 대 한 액세스도 취소 되지만 `identity` 지원 요청을 열지 않고 클러스터에서를 재작성 때 해지를 되돌릴 수 없으므로이 방법은 권장 되지 않습니다.
 
-클러스터 저장소는 한 시간 이내에 항상 키 사용 권한에 대 한 변경 내용을 적용 하 고 저장소는 사용할 수 없게 됩니다. 클러스터와 연결 된 작업 영역에 대 한 모든 새 데이터 수집는 삭제 되 고 복구할 수 없게 되며, 데이터에 액세스할 수 없게 되 고 이러한 작업 영역에 대 한 쿼리가 실패 합니다. 이전에 수집 데이터는 클러스터와 작업 영역을 삭제 하지 않는 한 저장소에 남아 있습니다. 액세스할 수 없는 데이터는 데이터 보존 정책에 따라 제어되며 보존 기간에 도달하면 삭제됩니다. 또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이는 키 해지 작업에서 삭제되며 액세스할 수 없게 됩니다.
+클러스터 저장소는 한 시간 이내에 항상 키 사용 권한에 대 한 변경 내용을 적용 하 고 저장소는 사용할 수 없게 됩니다. 클러스터와 연결 된 작업 영역에 대 한 모든 새 데이터 수집는 삭제 되 고 복구할 수 없게 되며, 데이터에 액세스할 수 없게 되 고 이러한 작업 영역에 대 한 쿼리가 실패 합니다. 이전에 수집 데이터는 클러스터와 작업 영역을 삭제 하지 않는 한 저장소에 남아 있습니다. 액세스할 수 없는 데이터는 데이터 보존 정책에 따라 제어되며 보존 기간에 도달하면 삭제됩니다. 또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 키 해지 작업 시 삭제 되 고 액세스할 수 없게 됩니다.
 
-클러스터 저장소는 암호화 키 래핑 해제를 시도 하 고, 데이터 수집 및 쿼리를 30 분 내에 다시 시작 하기 위해 주기적으로 Key Vault를 폴링합니다.
+클러스터의 저장소는 암호화 키 래핑 해제를 시도 하는 Key Vault 주기적으로 확인 하 고, 액세스 되 면 데이터 수집 및 쿼리가 30 분 내에 다시 시작 됩니다.
 
 ## <a name="key-rotation"></a>키 회전
 
@@ -259,7 +299,7 @@ Content-type: application/json
 
 AEK는 이제 Key Vault의 새 KEK(키 암호화 키) 버전을 사용하여 암호화되지만, 데이터는 항상 AEK(계정 암호화 키)를 사용하여 암호화되므로 키 회전 작업 후에도 모든 데이터에 계속 액세스할 수 있습니다.
 
-## <a name="customer-managed-key-for-queries"></a>쿼리에 대 한 고객 관리 키
+## <a name="customer-managed-key-for-saved-queries"></a>저장 된 쿼리에 대 한 고객 관리 키
 
 Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 하는 설명 또는 쿼리 구문에 중요 한 정보를 포함할 수 있습니다. 일부 조직에서는 이러한 정보가 고객이 관리 하는 키 정책에 따라 보호 된 상태로 유지 되어야 하며, 암호화 된 쿼리를 키로 저장 해야 합니다. Azure Monitor를 사용 하면 작업 영역에 연결 될 때 사용자 고유의 저장소 계정에서 키로 암호화 된 *저장 된 검색* 및 *로그 경고* 쿼리를 저장할 수 있습니다. 
 
@@ -410,7 +450,7 @@ Customer-Managed 키는 전용 클러스터에서 제공 되며 이러한 작업
 
   - 사용자 할당 관리 id를 사용 하 여 클러스터를 설정 하는 경우를로 설정 하면 `UserAssignedIdentities` `None` 클러스터가 일시 중단 되 고 데이터에 대 한 액세스를 방지할 수 있지만 지원 요청을 열지 않으면 해지를 되돌리고 클러스터를 활성화할 수 없습니다. 이러한 제한은 시스템 할당 관리 id에 적용 되지 않습니다.
 
-  - 현재 Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id를 사용 하 여 고객 관리 키를 정의할 수 없으며,이 경우 시스템 할당 관리 id를 사용할 수 있습니다.
+  - Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id와 함께 고객 관리 키를 사용할 수 없습니다. 이 시나리오에서는 시스템 할당 관리 id를 사용할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

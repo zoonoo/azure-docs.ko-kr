@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 4b34477a40530a0e6f26b59dd9707c019418b2a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655853"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747494"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
 
@@ -77,6 +77,12 @@ Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에�
   - Syslog RFC 5424
  
 컴퓨터가 다음 요구 사항도 충족 하는지 확인 합니다. 
+
+- 용량
+  - 컴퓨터에는 최소 **4 개의 CPU 코어와 8GB RAM** 이 있어야 합니다.
+
+    > [!NOTE]
+    > - **Rsyslog** 디먼을 사용 하는 단일 로그 전달자 컴퓨터에는 **최대 8500 개의 EPS (초당 이벤트)** 의 지원 되는 용량이 있습니다.
 
 - 사용 권한
   - 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다. 

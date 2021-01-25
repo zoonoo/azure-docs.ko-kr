@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 9fde0ecd8b6670e43aa3970b2df27a402b9c1a5c
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126855"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747243"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -118,20 +118,22 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
 1. Security Center에서 경고를 검토 하려면 **보안 경고**  >  **의심 스러운 PowerShell 명령줄** 로 이동 합니다.
 1. 조사 창에서 링크를 선택 하 여 끝점 포털에 대 한 Microsoft Defender로 이동 합니다.
 
+    > [!TIP]
+    > 경고는 **정보** 심각도로 트리거됩니다.
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Security Center의 끝점 통합 Microsoft Defender에 대 한 FAQ
 
 - [Microsoft Defender for Endpoint에 대 한 라이선스 요구 사항은 무엇 인가요?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
-- [끝점에 대 한 Microsoft Defender 라이선스가 이미 있는 경우 Azure Defender에 대 한 할인을 받을 수 있나요?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 Azure Defender 할인을 받을 수 있나요?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [타사 EDR 도구에서 전환할 어떻게 할까요? 있나요?](#how-do-i-switch-from-a-third-party-edr-tool)
 
 ### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Microsoft Defender for Endpoint에 대 한 라이선스 요구 사항은 무엇 인가요?
 Defender for Endpoint는 **서버에 대 한 Azure defender** 를 사용 하 여 추가 비용 없이 포함 됩니다. 또는 50 대의 컴퓨터에 대해 개별적으로 구매할 수 있습니다.
 
-### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>끝점에 대 한 Microsoft Defender 라이선스가 이미 있는 경우 Azure Defender에 대 한 할인을 받을 수 있나요?
-끝점에 대해 Microsoft Defender에 대 한 라이선스가 이미 있는 경우 Azure Defender 라이선스의 해당 부분에 대해 비용을 지불할 필요가 없습니다.
+### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 Azure Defender 할인을 받을 수 있나요?
+Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 Azure Defender 라이선스의 해당 부분에 대해 비용을 지불할 필요가 없습니다.
 
-할인을 확인 하려면 Security Center 지원 팀에 문의 하 고 관련 된 각 라이선스에 대 한 관련 작업 영역 ID, 지역 및 라이선스 정보를 제공 합니다.
+할인을 확인하려면 Security Center 지원 팀에 문의하고 관련 작업 영역 ID, 지역 및 각 관련 라이선스에 대한 라이선스 정보를 제공하세요.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>타사 EDR 도구에서 전환할 어떻게 할까요? 있나요?
 Microsoft 끝점 이외의 솔루션에서 전환 하는 방법에 대 한 전체 지침은 Microsoft Defender for Endpoint 설명서에서 제공 됩니다. [마이그레이션 개요](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
