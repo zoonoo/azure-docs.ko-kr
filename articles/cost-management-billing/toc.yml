@@ -98,7 +98,7 @@
           href: reservations/reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/toc.json
         - name: 개별 구독에 대한 사용량 현황 데이터
           href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
-        - name: 기업 고객에 대한 사용량 현황 데이터
+        - name: 기업 및 Microsoft 고객 계약 사용 데이터
           href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
     - name: 결제
       items:

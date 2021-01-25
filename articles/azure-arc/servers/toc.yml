@@ -55,7 +55,7 @@
               href: manage-vm-extensions-powershell.md
             - name: ARM 템플릿을 사용하여 확장 배포
               href: manage-vm-extensions-template.md
-        - name: 서버에서 사용된 관리 ID
+        - name: 서버에서 관리 ID 사용
           href: managed-identity-authentication.md
         - name: 에이전트 관리
           href: manage-agent.md
@@ -82,7 +82,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/hybridcompute/management
     - name: Azure Stack HCI REST
-      href: 'https://docs.microsoft.com/rest/api/stackhci'
+      href: /rest/api/stackhci
     - name: REST (영문)
       href: /rest/api/hybridcompute
     - name: Go

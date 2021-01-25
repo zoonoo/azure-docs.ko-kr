@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5aab11b31756ee8430e8ae4d54a2b3de5ea2e136
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8cd6f6a32071dc7bbd4aaccb92168cda009933a6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612674"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689720"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN이 GA에 있나요?
 
@@ -198,6 +198,9 @@ VPN 사이트는 허브에 연결할 때 연결을 사용합니다. Virtual WAN�
 ### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>VPN 터널 및 연결의 총 VPN 처리량이란?
 
 허브의 총 VPN 처리량은 선택한 VPN 게이트웨이의 배율 단위에 따라 최대 20Gbps입니다. 처리량은 모든 기존 연결에서 공유됩니다. 연결의 각 터널은 최대 1Gbps를 지원할 수 있습니다.
+
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>내 VPN 연결에서 NAT-T를 사용할 수 있나요?
+예, NAT-T(NAT traversal)가 지원됩니다. Virtual WAN VPN Gateway는 IPsec 터널과 주고받는 내부 패킷에서 NAT 같은 기능을 수행하지 않습니다. 이 구성에서 온-프레미스 디바이스가 IPSec 터널을 시작하는지 확인하세요.
 
 ### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-portal-how-do-i-configure-that"></a>포털에는 가상 허브에 대한 20Gbps 설정이 표시되지 않습니다. 이를 구성하려면 어떻게 하나요?
 

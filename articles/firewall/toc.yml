@@ -58,6 +58,8 @@
       href: fqdn-filtering-network-rules.md
     - name: 보안 기준
       href: security-baseline.md
+    - name: 활성 FTP 지원
+      href: active-ftp-support.md
 - name: 방법 가이드
   items:
     - name: Azure PowerShell을 사용하여 배포
@@ -103,7 +105,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/firewall
     - name: Azure 리소스 관리자
       href: ../azure-resource-manager/management/overview.md

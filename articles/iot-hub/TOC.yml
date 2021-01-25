@@ -481,6 +481,8 @@
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 및 1.1 사용 중단
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
+        - name: 클래식 IP 필터
+          href: iot-hub-ip-filter-classic.md
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션

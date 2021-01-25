@@ -154,9 +154,9 @@
           href: howto-password-ban-bad-on-premises-faq.md
         - name: 에이전트 버전 기록
           href: howto-password-ban-bad-on-premises-agent-versions.md
-    - name: SMS 기반 인증 사용(미리 보기)
+    - name: SMS 기반 인증 사용
       href: howto-authentication-sms-signin.md
-    - name: 이메일 주소 로그인 사용(미리 보기)
+    - name: 이메일 주소 로그인 사용
       href: howto-authentication-use-email-signin.md
     - name: Azure AD 스마트 잠금
       href: howto-password-smart-lockout.md

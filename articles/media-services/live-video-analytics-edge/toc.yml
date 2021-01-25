@@ -59,8 +59,12 @@
   items:
     - name: C# 직접 메서드 샘플
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
+    - name: C# SDK 샘플
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp-sdk'
     - name: Python 직접 메서드 샘플
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-python'
+    - name: Python SDK 샘플
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-python-sdk'
 - name: 개념
   items:
     - name: 미디어 그래프

@@ -258,8 +258,49 @@
               href: job-error-codes.md
         - name: 계정 자격 증명 다시 설정
           href: cli-reset-account-credentials.md
-    - name: v2에서 v3로 마이그레이션
+    - name: 마이그레이션 가이드
+      displayName: migration
       items:
+        - name: 마이그레이션 가이드 소개
+          href: migrate-v-2-v-3-migration-introduction.md
+          displayName: migration
+        - name: 1단계 - 이점
+          href: migrate-v-2-v-3-migration-benefits.md
+          displayName: 'migration, benefits'
+        - name: 2단계 - 차이점
+          items:
+            - name: API 액세스
+              href: migrate-v-2-v-3-differences-api-access.md
+              displayName: 'migration, api'
+            - name: 기능 차이
+              href: migrate-v-2-v-3-differences-feature-gaps.md
+              displayName: 'migration, features'
+            - name: 용어 및 엔터티 변경
+              href: migrate-v-2-v-3-differences-terminology.md
+              displayName: 'migration, entity, api'
+        - name: 3단계 - SDK 설치
+          href: migrate-v-2-v-3-migration-setup.md
+          displayName: 'migration, SDK`'
+        - name: 4단계 - 시나리오 기반 마이그레이션 지침
+          items:
+            - name: Encoding
+              href: migrate-v-2-v-3-migration-scenario-based-encoding.md
+              displayName: 'migration, encoding'
+            - name: 라이브 스트리밍
+              href: migrate-v-2-v-3-migration-scenario-based-live-streaming.md
+              displayName: 'migration, live streaming'
+            - name: 패키징 및 제공
+              href: migrate-v-2-v-3-migration-scenario-based-publishing.md
+              displayName: 'migration, packaging, delivery, publishing'
+            - name: 콘텐츠 보호
+              href: migrate-v-2-v-3-migration-scenario-based-content-protection.md
+              displayName: 'migration, content protection, DRM, digital rights management'
+            - name: MRU(미디어 예약 단위)
+              href: migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md
+              displayName: 'migration, media reserved units'
+        - name: 샘플 비교
+          href: migrate-v-2-v-3-migration-samples.md
+          displayName: 'migration, samples'
         - name: v2와 v3 비교
           displayName: 'migrate, v2 to v3'
           href: media-services-v2-vs-v3.md

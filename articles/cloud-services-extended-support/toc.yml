@@ -1,0 +1,97 @@
+- name: Cloud Services(추가 지원) 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Cloud Services(추가 지원) 정보
+      href: overview.md
+    - name: 배포를 위한 필수 구성 요소
+      href: deploy-prerequisite.md
+    - name: 구성 파일 및 패키징
+      href: cloud-services-model-and-package.md
+- name: 자습서
+  items:
+    - name: 클라우드 서비스 배포 - 포털
+      href: deploy-portal.md
+    - name: 클라우드 서비스 배포 - PowerShell
+      href: deploy-powershell.md
+    - name: 클라우드 서비스 배포 - 템플릿
+      href: deploy-template.md
+    - name: 클라우드 서비스 배포 - Visual Studio
+      href: deploy-visual-studio.md
+  expanded: true
+- name: 개념
+  items:
+    - name: 사용 가능한 VM 크기
+      href: available-sizes.md
+    - name: 질문과 대답
+      href: faq.md
+    - name: 게스트 OS 패치
+      href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+    - name: 게스트 OS 사용 중지
+      href: ../cloud-services/cloud-services-guestos-retirement-policy.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+    - name: 게스트 OS 릴리스 뉴스
+      href: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+    - name: XML 스키마
+      items:
+        - name: Csdef XML 스키마
+          href: schema-csdef-file.md
+        - name: LoadBalancerProbe 스키마
+          href: schema-csdef-loadbalancerprobe.md
+        - name: WebRole 스키마
+          href: schema-csdef-webrole.md
+        - name: WorkerRole 스키마
+          href: schema-csdef-workerrole.md
+        - name: NetworkTrafficRules 스키마
+          href: schema-csdef-networktrafficrules.md
+        - name: Cscfg XML 스키마
+          href: schema-cscfg-file.md
+        - name: Role 스키마
+          href: schema-cscfg-role.md
+        - name: NetworkConfiguration 스키마
+          href: schema-cscfg-networkconfiguration.md
+- name: 방법
+  items:
+    - name: 확장 개요
+      href: extensions.md
+    - name: 원격 데스크톱 확장 적용
+      href: enable-rdp.md
+    - name: WAD 확장 적용
+      href: enable-wad.md
+    - name: 경고 사용
+      href: enable-alerts.md
+    - name: 크기 조정 구성
+      href: configure-scaling.md
+    - name: 인증서
+      href: certificates-and-key-vault.md
+- name: 샘플
+  items:
+    - name: 새 클라우드 서비스 만들기
+      href: sample-create-cloud-service.md
+    - name: 클라우드 서비스 세부 정보 가져오기
+      href: sample-get-cloud-service.md
+    - name: 클라우드 서비스 초기화
+      href: sample-reset-cloud-service.md
+- name: 참조
+  items:
+    - name: Az.CloudService 모듈
+      href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
+    - name: PowerShell cmdlet
+      href: 'https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice'
+    - name: ARM 템플릿 참조
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/compute/cloudservices'
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: 학습 경로
+      href: /learn/paths/azure-fundamentals/
+    - name: Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='

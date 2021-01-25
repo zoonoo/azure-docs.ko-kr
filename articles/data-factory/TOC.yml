@@ -109,8 +109,8 @@
               href: tutorial-data-flow.md
             - name: 데이터 흐름 매핑 비디오 자습서
               href: data-flow-tutorials.md
-        - name: Wrangling 데이터 흐름으로 데이터 준비
-          href: wrangling-data-flow-tutorial.md
+        - name: 랭글링으로 데이터 준비
+          href: wrangling-tutorial.md
         - name: 외부 서비스 사용
           items:
             - name: HDInsight Spark
@@ -197,12 +197,12 @@
               href: concepts-data-flow-expression-builder.md
             - name: 식 언어
               href: data-flow-expression-functions.md
-        - name: Wrangling 데이터 흐름으로 데이터 준비
+        - name: 파워 쿼리 데이터 랭글링으로 데이터 준비
           items:
-            - name: Wrangling 데이터 흐름 개요
-              href: wrangling-data-flow-overview.md
+            - name: 데이터 랭글링 개요
+              href: wrangling-overview.md
             - name: 지원되는 함수
-              href: wrangling-data-flow-functions.md
+              href: wrangling-functions.md
     - name: 역할 및 권한
       href: concepts-roles-permissions.md
     - name: 이름 지정 규칙
@@ -464,6 +464,8 @@
       items:
         - name: Data Flow 작업 실행
           href: control-flow-execute-data-flow-activity.md
+        - name: 파워 쿼리 작업 실행
+          href: control-flow-power-query-activity.md
         - name: Azure 함수 작업
           href: control-flow-azure-function-activity.md
         - name: 사용자 지정 작업

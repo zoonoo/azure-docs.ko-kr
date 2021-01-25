@@ -71,6 +71,8 @@
           href: spring-cloud-howto-launch-from-source.md
         - name: IntelliJ를 사용하여 앱 배포
           href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: VS Code를 사용하여 앱 배포
+          href: 'https://code.visualstudio.com/docs/java/java-spring-cloud'
         - name: Azure PowerShell을 사용하여 Azure Spring Cloud 배포
           href: spring-cloud-howto-deploy-powershell.md
     - name: 구성

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 01/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 059aad8b45aa449f5cd28c97f4ba55e2204c04ce
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 31947ca4d5eb632998f5c50257c12ef9a52dfc66
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937069"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570102"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>GPU가 있는 Azure Stack Edge Pro란?
 
@@ -71,7 +71,7 @@ Azure Stack Edge Pro 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge P
 
 데이터를 전송하는 Azure Stack Edge Pro 물리적 디바이스, Azure 리소스 및 대상 스토리지 계정이 모두 같은 지역에 있지 않아도 됩니다.
 
-- **리소스 가용성** - 이 미리 보기 릴리스의 경우 리소스는 미국 동부, EU 서부 및 동남아시아 지역에서 사용할 수 있습니다.
+- **리소스 가용성** - 이 릴리스의 경우 리소스는 미국 동부, EU 서부 및 동남아시아 지역에서 사용할 수 있습니다.
 
 - **디바이스 가용성** - Azure Stack Edge Pro 디바이스를 사용할 수 있는 모든 국가/지역 목록을 보려면 [Azure Stack Edge Pro 가격 책정](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro)의 **Azure Stack Edge Pro** 탭에서 **가용성** 섹션으로 이동합니다.
     

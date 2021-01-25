@@ -3,12 +3,12 @@ title: Azure Batch로 클라우드에서 대규모 병렬 작업 실행
 description: 대규모 병렬 및 HPC 워크로드의 경우 Azure Batch 서비스를 사용하는 방법에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 93dcf19b3b6af0f369fe19b7823bf43d597a9c21
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106651"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743103"
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch란?
 
@@ -74,6 +74,9 @@ Batch의 일반적인 시나리오에는 본질적으로 컴퓨팅 노드 풀에
 위에서 설명한 워크플로는 Batch를 사용하는 한 가지 방법일 뿐이며, 다른 많은 기능과 옵션이 있습니다. 예를 들어 각 컴퓨팅 노드에서 [여러 태스크를 병렬로](batch-parallel-node-tasks.md) 실행할 수 있습니다. 또는 [작업 준비 및 완료 태스크](batch-job-prep-release.md)를 사용하여 작업용 노드를 준비한 후 나중에 정리할 수 있습니다.
 
 풀, 노드, 작업 및 태스크와 같은 기능에 대한 개요는 [Batch 서비스 워크플로 및 리소스](batch-service-workflow-features.md)를 참조하세요. 또한 최신 [Batch 서비스 업데이트](https://azure.microsoft.com/updates/?product=batch)를 참조하세요.
+
+## <a name="in-region-data-residency"></a>지역 내 데이터 보존
+Azure Batch는 배포된 지역 외부에 고객 데이터를 이동하거나 저장하지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,0 +1,54 @@
+- name: Azure Import/Export 설명서
+  href: ./index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Import/Export란?
+      href: storage-import-export-service.md
+- name: 개념
+  items:
+    - name: 요구 사항 검토
+      href: storage-import-export-requirements.md
+    - name: FAQ
+      href: storage-import-export-service-faq.md
+- name: 방법
+  expanded: true
+  items:
+    - name: 배포
+      items:
+        - name: Blob으로 데이터 가져오기
+          href: storage-import-export-data-to-blobs.md
+        - name: 파일로 데이터 가져오기
+          href: storage-import-export-data-to-files.md
+        - name: Blob에서 데이터 내보내기
+          href: storage-import-export-data-from-blobs.md
+    - name: 고객 관리형 키 사용
+      href: storage-import-export-encryption-key-portal.md
+    - name: 모니터
+      items:
+        - name: 드라이브 상태 보기
+          href: storage-import-export-view-drive-status.md
+        - name: 작업 상태 검토
+          href: storage-import-export-tool-reviewing-job-status-v1.md
+    - name: 문제 해결
+      items:
+        - name: 일반 오류 수정
+          href: storage-import-export-tool-troubleshooting-v1.md
+        - name: 가져오기 작업 복구
+          href: storage-import-export-tool-repairing-an-import-job-v1.md
+        - name: 내보내기 작업 복구
+          href: storage-import-export-tool-repairing-an-export-job-v1.md
+        - name: 지원에 문의
+          href: storage-import-export-contact-microsoft-support.md
+- name: 참조
+  items:
+    - name: REST API
+      href: /rest/api/storageimportexport/jobs
+    - name: Azure PowerShell
+      href: /powershell/module/Az.ImportExport
+- name: 리소스
+  items:
+    - name: 오프라인으로 데이터 내보내기
+      href: /learn/modules/export-data-with-azure-import-export
+    - name: 기타 오프라인 전송 옵션
+      href: ../databox/index.yml

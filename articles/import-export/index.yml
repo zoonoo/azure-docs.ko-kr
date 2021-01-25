@@ -1,0 +1,71 @@
+### YamlMime:Landing
+title: Azure Import/Export 설명서
+summary: Azure Import/Export를 사용하여 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 스토리지 및 Azure Files로 가져옵니다.
+metadata:
+  title: Azure Import/Export 설명서
+  description: 실제 디스크를 발송하여 Azure 데이터센터에서 대량의 데이터를 안전하게 가져오거나 내보내기 위한 Azure Import/Export 설명서입니다.
+  services: storage
+  ms.service: storage
+  ms.subservice: storage
+  ms.topic: landing-page
+  ms.collection: collection
+  author: v-dalc
+  ms.author: alkohli
+  ms.date: 01/08/201
+  ms.openlocfilehash: fe86eab66b0f03cb23072a7a34c4be161ca4fb38
+  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98725740"
+landingContent:
+- title: Azure Import/Export 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Import/Export란?
+      url: storage-import-export-service.md
+  - linkListType: architecture
+    links:
+    - text: 데이터 전송 옵션 선택
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+    - text: 네트워크 또는 오프라인 전송 사용
+      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+- title: 요구 사항
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 요구 사항
+      url: storage-import-export-requirements.md
+    - text: FAQ
+      url: storage-import-export-service-faq.md
+- title: 배포
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Blob으로 데이터 가져오기
+      url: storage-import-export-data-to-blobs.md
+    - text: 파일로 데이터 가져오기
+      url: storage-import-export-data-to-files.md
+    - text: Blob에서 데이터 내보내기
+      url: storage-import-export-data-from-blobs.md
+  - linkListType: learn
+    links:
+    - text: Import/Export를 사용하여 오프라인으로 데이터 내보내기
+      url: /learn/modules/export-data-with-azure-import-export/
+- title: 모니터
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 드라이브 상태 보기
+      url: storage-import-export-view-drive-status.md
+    - text: 작업 상태 검토
+      url: storage-import-export-tool-reviewing-job-status-v1.md
+- title: 문제 해결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 문제 해결
+      url: storage-import-export-contact-microsoft-support.md
+    - text: 지원에 문의
+      url: storage-import-export-contact-microsoft-support.md

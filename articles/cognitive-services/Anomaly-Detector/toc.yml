@@ -38,7 +38,7 @@
           href: ../containers/index.yml
 - name: 개념
   items:
-    - name: Anomaly Detection API 모범 사례
+    - name: Anomaly Detector API 모범 사례
       href: concepts/anomaly-detection-best-practices.md
 - name: 참조
   items:

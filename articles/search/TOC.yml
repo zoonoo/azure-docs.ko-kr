@@ -5,9 +5,9 @@
   items:
     - name: Cognitive Search란?
       href: search-what-is-azure-search.md
-    - name: Cognitive Search의 기능
+    - name: 기능 목록
       href: search-features-list.md
-    - name: Cognitive Search의 새로운 기능
+    - name: 새로운 검색 내용
       href: whats-new.md
 - name: 빠른 시작
   items:

@@ -89,8 +89,10 @@
       items:
         - name: SQL Server에서 SQL Database로
           href: howto-sql-server-to-azure-sql-powershell.md
-        - name: SQL Server에서 SQL Managed Instance로
-          href: howto-sql-server-to-azure-sql-mi-powershell.md
+        - name: SQL Server에서 SQL MI로(온라인)
+          href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
+        - name: SQL Server에서 SQL MI로(오프라인)
+          href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
     - name: SSIS 패키지 다시 배포 대상
       items:
         - name: Azure SQL Database
@@ -137,17 +139,17 @@
               href: known-issues-dms-hybrid-mode.md
         - name: 알려진 마이그레이션 문제
           items:
-            - name: SQL Database로
+            - name: SQL Database
               href: known-issues-azure-sql-online.md
             - name: SQL Managed Instance
               href: known-issues-azure-sql-db-managed-instance-online.md
-            - name: Azure DB for MySQL로
+            - name: MySQL용 Azure DB
               href: known-issues-azure-mysql-online.md
             - name: PostgreSQL에서 Azure DB for PostgreSQL로
               href: known-issues-azure-postgresql-online.md
             - name: Oracle에서 Azure DB for PostgreSQL로
               href: known-issues-oracle-azure-postgresql-online.md
-            - name: MongoDB에서 Azure Cosmos DB의 API for MongoDB로
+            - name: MongoDB에서 Azure Cosmos DB API for MongoDB로
               href: known-issues-mongo-cosmos-db.md
     - name: 동영상
       items:
