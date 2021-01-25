@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: de0c48bb775b96052fe16d60aa58049bfd58ca4d
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 750cf0a938fffd4e5bfe25811bb276f7cb1b5583
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567789"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757562"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate 프로젝트 만들기 및 관리
 
-이 문서에서는 [Azure Migrate](migrate-services-overview.md) 프로젝트를 만들고, 관리 하 고, 삭제 하는 방법을 설명 합니다. 클래식 Azure Migrate 프로젝트를 사용 하는 경우 해당 프로젝트를 삭제 하 고 단계에 따라 새 Azure Migrate 프로젝트를 만듭니다. 클래식 Azure Migrate 프로젝트나 구성 요소를 Azure Migrate로 업그레이드할 수 없습니다.
+이 문서에서는 [Azure Migrate](migrate-services-overview.md) 프로젝트를 만들고, 관리 하 고, 삭제 하는 방법을 설명 합니다. 클래식 Azure Migrate 프로젝트를 사용 하는 경우 해당 프로젝트를 삭제 하 고 단계에 따라 새 Azure Migrate 프로젝트를 만듭니다. 클래식 Azure Migrate 프로젝트나 구성 요소를 Azure Migrate로 업그레이드할 수 없습니다. 만들기 프로세스를 시작 하기 전에 [FAQ](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) 를 확인 합니다.
 
 Azure Migrate 프로젝트는 평가하거나 마이그레이션하는 환경에서 수집된 검색, 평가 및 마이그레이션 메타데이터를 저장하는 데 사용됩니다. 프로젝트에서 검색 된 자산을 추적 하 고, 평가를 만들고, Azure로 마이그레이션을 오케스트레이션 할 수 있습니다.  
 

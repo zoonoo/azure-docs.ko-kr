@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 4bf0227cf11b21d7cde2807d465385bfc2b998b5
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a3c339213d0fa9a39995b1109fa72f49b466d277
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573057"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757748"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -29,7 +29,7 @@ VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
-**서버** | **요구 사항** | **세부 정보**
+**서버** | **Requirements** | **세부 정보**
 --- | --- | ---
 vCenter Server | 버전 7.0 &이 버전, 6.7, 6.5, 6.0 또는 5.5의 후속 업데이트 | 재해 복구 배포에 vCenter 서버를 사용 하는 것이 좋습니다.
 vSphere 호스트 | 버전 7.0 &이 버전, 6.7, 6.5, 6.0 또는 5.5의 후속 업데이트 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행됩니다. [자세히 알아보기](vmware-physical-azure-config-process-server-overview.md).
@@ -41,7 +41,7 @@ vSphere 호스트 | 버전 7.0 &이 버전, 6.7, 6.5, 6.0 또는 5.5의 후속 �
 - VMware Vm의 경우에는 파일을 다운로드 하 여 VMware VM을 만드는 구성 서버를 설정 합니다.
 - 물리적 서버의 경우 구성 서버 컴퓨터를 수동으로 설정 합니다.
 
-**구성 요소** | **요구 사항**
+**구성 요소** | **Requirements**
 --- |---
 CPU 코어 | 8
 RAM | 16GB
@@ -69,7 +69,7 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
 머신 워크로드 | Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다. [자세히 알아보기](./site-recovery-workload.md).
-컴퓨터 이름 | 컴퓨터의 표시 이름이 [Azure 예약 리소스 이름](../azure-resource-manager/templates/error-reserved-resource-name.md) 에 포함 되지 않는지 확인 합니다.<br/><br/> 논리적 볼륨 이름은 대/소문자를 구분 하지 않습니다. 장치의 두 볼륨 이름이 동일 하지 않은지 확인 합니다. Ex: 이름이 "voLUME1", "voLUME1" 인 볼륨은 Azure Site Recovery를 통해 보호할 수 없습니다.
+머신 이름 | 컴퓨터의 표시 이름이 [Azure 예약 리소스 이름](../azure-resource-manager/templates/error-reserved-resource-name.md) 에 포함 되지 않는지 확인 합니다.<br/><br/> 논리적 볼륨 이름은 대/소문자를 구분 하지 않습니다. 장치의 두 볼륨 이름이 동일 하지 않은지 확인 합니다. Ex: 이름이 "voLUME1", "voLUME1" 인 볼륨은 Azure Site Recovery를 통해 보호할 수 없습니다.
 
 ### <a name="for-windows"></a>Windows의 경우
 
@@ -78,10 +78,10 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 Windows Server 2019 | [업데이트 롤업 34](https://support.microsoft.com/help/4490016) (모바일 서비스 버전 9.22)부터 지원 됩니다.
 Windows Server 2016 64 비트 | Server Core, 데스크톱 경험 포함 Server에 대해 지원됩니다.
 Windows Server 2012 R2/Windows Server 2012 | 지원됨.
-Windows Server 2008 R2 SP1 이상 | 지원됨.<br/><br/> 모바일 서비스 에이전트의 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 에서 Windows 2008 R2 SP1 이상을 실행 하는 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다. SHA-1은 2019년 9월부터 지원되지 않으며, SHA-2 코드 서명이 사용 설정되지 않은 경우 에이전트 확장이 예상대로 설치/업그레이드되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
-Windows Server 2008 SP2 이상 (64 비트/32 비트) |  마이그레이션에만 지원 됩니다. [자세히 알아보기](migrate-tutorial-windows-server-2008.md).<br/><br/> 모바일 서비스 에이전트 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 에서는 WINDOWS 2008 SP2 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4493730) ) 및 [SHA-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다. ISHA-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)에 대해 자세히 알아보세요.
+Windows Server 2008 R2 SP1 이상 | 지원됨.<br/><br/> 모바일 서비스 에이전트의 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 에서 Windows 2008 R2 SP1 이상을 실행 하는 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다. SHA-1은 2019년 9월부터 지원되지 않으며, SHA-2 코드 서명이 사용 설정되지 않은 경우 에이전트 확장이 예상대로 설치/업그레이드되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/topic/sha-2-code-signing-support-update-for-windows-server-2008-r2-windows-7-and-windows-server-2008-september-23-2019-84a8aad5-d8d9-2d5c-6d78-34f9aa5f8339)에 대해 자세히 알아보세요.
+Windows Server 2008 SP2 이상 (64 비트/32 비트) |  마이그레이션에만 지원 됩니다. [자세히 알아보기](migrate-tutorial-windows-server-2008.md).<br/><br/> 모바일 서비스 에이전트 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 에서는 WINDOWS 2008 SP2 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4493730) ) 및 [SHA-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다. SHA-1은 2019년 9월부터 지원되지 않으며, SHA-2 코드 서명이 사용 설정되지 않은 경우 에이전트 확장이 예상대로 설치/업그레이드되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/topic/sha-2-code-signing-support-update-for-windows-server-2008-r2-windows-7-and-windows-server-2008-september-23-2019-84a8aad5-d8d9-2d5c-6d78-34f9aa5f8339)에 대해 자세히 알아보세요.
 Windows 10, Windows 8.1, Windows 8 | 64 비트 시스템만 지원 됩니다. 32 비트 시스템은 지원 되지 않습니다.
-Windows 7 SP1 64 비트 | [업데이트 롤업 36](https://support.microsoft.com/help/4503156) (모바일 서비스 버전 9.22)부터 지원 됩니다. </br></br> 모바일 서비스 에이전트의 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 부터 WINDOWS 7 SP1 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [s h a-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다.  SHA-1은 2019년 9월부터 지원되지 않으며, SHA-2 코드 서명이 사용 설정되지 않은 경우 에이전트 확장이 예상대로 설치/업그레이드되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)에 대해 자세히 알아보세요.
+Windows 7 SP1 64 비트 | [업데이트 롤업 36](https://support.microsoft.com/help/4503156) (모바일 서비스 버전 9.22)부터 지원 됩니다. </br></br> 모바일 서비스 에이전트의 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 부터 WINDOWS 7 SP1 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [s h a-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다.  SHA-1은 2019년 9월부터 지원되지 않으며, SHA-2 코드 서명이 사용 설정되지 않은 경우 에이전트 확장이 예상대로 설치/업그레이드되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/topic/sha-2-code-signing-support-update-for-windows-server-2008-r2-windows-7-and-windows-server-2008-september-23-2019-84a8aad5-d8d9-2d5c-6d78-34f9aa5f8339)에 대해 자세히 알아보세요.
 
 ### <a name="for-linux"></a>Linux의 경우
 
@@ -282,7 +282,7 @@ HUB | 예
 
 Azure로 복제 된 온-프레미스 Vm은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다. Site Recovery에서 복제에 대 한 필수 구성 요소 확인을 실행 하면 일부 요구 사항이 충족 되지 않은 경우 검사가 실패 합니다.
 
-**구성 요소** | **요구 사항** | **세부 정보**
+**구성 요소** | **Requirements** | **세부 정보**
 --- | --- | ---
 게스트 운영 체제 | 복제된 컴퓨터에 대해 [지원되는 운영 체제](#replicated-machines)를 확인합니다. | 지원되지 않는 경우 확인이 실패합니다.
 게스트 운영 체제 아키텍처 | 64비트. | 지원되지 않는 경우 확인이 실패합니다.

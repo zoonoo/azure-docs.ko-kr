@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d03177e3224bbd3f53320871efc6a0d6b3ea479d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922732"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757650"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>관리 그룹, 구독 및 테 넌 트 전체 표시 유형 구성
 
@@ -81,7 +81,7 @@ Security Center를 등록 하는 데 관리 그룹은 필요 하지 않지만 �
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>자신에 게 테 넌 트 전체 사용 권한 부여
 
-**전역 관리자** 의 Azure Active Directory 역할을 가진 사용자는 테 넌 트 전체를 담당 하지만 Azure Security Center에서 해당 조직 차원의 정보를 볼 수 있는 Azure 권한은 없습니다. 
+**전역 관리자** 의 Azure Active Directory 역할을 가진 사용자는 테넌트 전체의 책임이 있지만 Azure Security Center에서 해당 조직 전체 정보를 볼 수 있는 Azure 권한은 없습니다. 
 
 > [!TIP]
 > 조직에서 [pim (Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)) 또는 다른 pim 도구를 사용 하 여 리소스 액세스를 관리 하는 경우 이러한 변경을 수행 하는 사용자에 대해 전역 관리자 역할이 활성화 되어 있어야 합니다.
@@ -106,6 +106,36 @@ Security Center를 등록 하는 데 관리 그룹은 필요 하지 않지만 �
 1. Azure Portal 로그 아웃 한 다음 다시 로그인 합니다.
 
 1. 액세스 권한을 승격하면 Azure Security Center를 열거나 새로 고쳐 Azure AD 테넌트 아래의 모든 구독에 대한 가시성이 있는지 확인합니다. 
+
+
+## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>권한이 충분 하지 않은 경우 테 넌 트 전체 사용 권한 요청
+
+Security Center에 로그인 하 여 보기가 제한적 이라고 알려주는 배너를 표시 하는 경우에는를 클릭 하 여 조직의 전역 관리자에 게 요청을 보낼 수 있습니다. 요청에서 할당 하려는 역할을 포함할 수 있으며 전역 관리자가 부여할 역할을 결정 합니다. 
+
+이러한 요청을 수락 하거나 거부할지를 결정 하는 것이 전역 관리자의 결정입니다. 
+
+> [!IMPORTANT]
+> 7 일 마다 한 요청을 제출할 수 있습니다.
+
+전역 관리자에 게 높은 권한을 요청 하려면:
+
+1. Azure Portal에서 Azure Security Center를 엽니다.
+
+1. "제한 된 정보를 볼 수 있습니다." 라는 배너가 표시 됩니다. 선택 합니다.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="사용자가 테 넌 트 전체 사용 권한을 요청할 수 있음을 알리는 배너입니다.":::
+
+1. 자세한 요청 양식에서 원하는 역할 및 이러한 권한이 필요한 이유에 대 한 근거를 선택 합니다.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Azure 전역 관리자의 테 넌 트 전체 사용 권한 요청에 대 한 세부 정보 페이지":::
+
+1. **액세스 요청** 을 선택합니다.
+
+    전역 관리자에 게 전자 메일을 보냅니다. 전자 메일에는 요청을 승인 하거나 거부할 수 있는 Security Center에 대 한 링크가 포함 되어 있습니다.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="전역 관리자에 게 새 사용 권한을 전자 메일로 보내기":::
+
+    전역 관리자가 **요청 검토** 를 선택 하 고 프로세스를 완료 한 후에는 요청 하는 사용자에 게 전자 메일이 발송 됩니다. 
 
 ## <a name="assign-azure-roles-to-other-users"></a>다른 사용자에 게 Azure 역할 할당
 
@@ -149,6 +179,7 @@ Security Center를 등록 하는 데 관리 그룹은 필요 하지 않지만 �
     ```
 
 ## <a name="remove-elevated-access"></a>상승된 액세스 제거 
+
 Azure 역할이 사용자에 게 할당 된 후에는 테 넌 트 관리자가 사용자 액세스 관리자 역할에서 자신을 제거 해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.

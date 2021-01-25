@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: c2eddf75f99b751773220ae677d66fe8c09abb0e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: f9029a36dc3b778e139b4553524e8e2ca6b4bbad
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744578"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757172"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Cloud Services 확장 (확장 지원)
 
@@ -35,7 +35,7 @@ ms.locfileid: "98744578"
 
 고급 모니터링을 사용할 경우 5분, 1시간 및 12시간 간격으로 추가 메트릭이 샘플링되고 수집됩니다. 집계된 데이터는 스토리지 계정에 테이블로 저장되고, 10일 후에 삭제됩니다. 사용되는 스토리지 계정은 역할별로 구성됩니다. 따라서 역할마다 다른 스토리지 계정을 사용할 수 있습니다. 
 
-[PowerShell](deploy-powershell.md) 또는 [ARM 템플릿을](deploy-template.md) 통해 Cloud Services (확장 지원)에 Windows Azure 진단 확장을 사용 하도록 설정할 수 있습니다.
+자세한 내용은 [Cloud Services에서 Windows Azure 진단 확장 적용 (확장 지원)](enable-wad.md) 을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계 

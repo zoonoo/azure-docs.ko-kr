@@ -1,25 +1,25 @@
 ---
 title: Azure Security Center에 대한 기본 제공 정책 정의
 description: Azure Security Center에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 01/21/2021
+ms.date: 01/24/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3f667ed48a5188ce63665025786e990c47a9690b
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 1192e765dc3cc001f8d1a1c6a28fe1a5cf4c9ecc
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98700795"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757274"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Azure Security Center에 대한 Azure Policy 기본 제공 정의
 
 이 페이지는 Azure Security Center와 관련 된 [Azure Policy](../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다음 정책 정의 그룹을 사용할 수 있습니다.
 
 - [이니셔티브](#azure-security-center-initiatives) 그룹에는 ' Security Center ' 범주의 Azure Policy 이니셔티브 정의가 나열 됩니다.
-- [기본 이니셔티브](#azure-security-center-initiatives) 그룹에는 [Azure Security Center](./index.yml) 기본 이니셔티브의 일부인 모든 Azure Policy 정의가 나열 됩니다.
+- [기본 이니셔티브](#azure-security-center-initiatives) 그룹에는 Security Center의 기본 이니셔티브 [Azure 보안 벤치 마크](../security/benchmarks/introduction.md)의 일부인 모든 Azure Policy 정의가 나열 됩니다. Microsoft에서 널리 사용 되 고 널리 사용 되는 벤치 마크는 클라우드 중심 보안에 초점을 맞춘 [ci (Internet Security)의 중앙](https://www.cisecurity.org/benchmark/azure/) 에서 제어 하 고 [NIST (표준 및 기술)](https://www.nist.gov/) 를 기반으로 합니다.
 - [범주](#azure-security-center-category) 그룹에는 ' Security Center ' 범주의 모든 Azure Policy 정의가 나열 됩니다.
 
 보안 정책에 대한 자세한 내용은 [보안 정책 작업](./tutorial-security-policy.md)을 참조하세요. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../governance/policy/samples/built-in-policies.md)를 참조하세요.

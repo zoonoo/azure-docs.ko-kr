@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: f2807501b1e18d4cbffaa34d70bccf8d70565266
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747226"
+ms.locfileid: "98757545"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -126,7 +126,7 @@ Authorization: Bearer <token>
 ## <a name="create-cluster"></a>클러스터 만들기
 
 클러스터는 시스템 할당 및 사용자 할당 이라는 두 가지 [관리 되는 id 형식을](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)지원 하지만, 시나리오에 따라 단일 id를 클러스터에 정의할 수 있습니다. 
-- Id `type` 가 "*systemassigned* 됨"으로 설정 된 경우 시스템 할당 관리 id는 클러스터 생성 시 자동으로 생성 되 고 자동으로 생성 됩니다. 나중에이 id를 사용 하 여 Key Vault에 대 한 클러스터 액세스 권한을 부여할 수 있습니다. 
+- Id `type` 가 "*systemassigned* 됨"으로 설정 된 경우 시스템 할당 관리 id는 클러스터 생성 시 자동으로 생성 되 고 자동으로 생성 됩니다. 나중에이 id를 사용 하 여 래핑 및 래핑 해제 작업을 위해 Key Vault에 저장소 액세스 권한을 부여할 수 있습니다. 
   
   시스템 할당 관리 id에 대 한 클러스터의 id 설정
   ```json
@@ -137,7 +137,7 @@ Authorization: Bearer <token>
   }
   ```
 
-- 클러스터를 만들 때 고객 관리 키를 구성 하려면 미리 Key Vault에 키 및 사용자 할당 id를 부여 해야 합니다. 그런 다음 id `type` 의 리소스 id와 함께 "*userassigned*"으로 id를 설정 하 여 클러스터를 만듭니다 `UserAssignedIdentities` .
+- 클러스터를 만들 때 고객 관리 키를 구성 하려면 미리 Key Vault에 키 및 사용자 할당 id를 부여 해야 합니다. 그런 다음 id `type`  `UserAssignedIdentities` 의 *리소스 Id* 와 함께 "userassigned"으로 id를 설정 하 여 클러스터를 만듭니다.
 
   사용자 할당 관리 id에 대 한 클러스터의 id 설정
   ```json
@@ -151,27 +151,7 @@ Authorization: Bearer <token>
   ```
 
 > [!IMPORTANT]
-> Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id와 함께 고객 관리 키를 사용할 수 없습니다. 이 시나리오에서는 시스템 할당 관리 id를 사용할 수 있습니다.
-
-```json
-{
-  "identity": {
-    "type": "SystemAssigned"
-}
-```
- 
-다음으로 바꾸기:
-
-```json
-{
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<user-assigned-managed-identity-name>"
-      }
-}
-```
-
+> Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id를 사용할 수 없습니다. 이 시나리오에서는 시스템 할당 관리 id를 사용할 수 있습니다.
 
 [전용 클러스터 문서](../log-query/logs-dedicated-clusters.md#creating-a-cluster)에 설명 된 절차를 따릅니다. 
 

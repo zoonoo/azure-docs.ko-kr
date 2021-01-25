@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: c6f0f48df32db0beb9c0a57982d9bc87b26538d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac67e3cf8f057738b76b0de7cbcb821ef290e0cb
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135150"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757579"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 또는 물리적 서버에서 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -66,7 +66,7 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 
 ## <a name="network-configuration---hostguest-vm"></a>네트워크 구성 - 호스트/게스트 VM
 
-**Configuration** | **지원됨**  
+**구성** | **지원됨**  
 --- | --- 
 호스트 - NIC 팀 | 예 
 호스트 - VLAN | 예 
@@ -92,7 +92,7 @@ SAN(ISCSI) | 예
 
 ### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 스토리지
 
-**Configuration** | **지원됨** 
+**구성** | **지원됨** 
 --- | --- 
 VMDK | 예 
 VHD/VHDX | 해당 없음 
@@ -121,7 +121,7 @@ RDM | 예
 
 Mobility 서비스는 온-프레미스 VMware 서버 또는 물리적 서버와 보조 사이트 간 복제를 조정합니다. 복제를 설정할 때 Mobility 서비스 및 기타 구성 요소의 최신 버전이 필요합니다.
 
-| **Update** | **세부 정보** |
+| **업데이트** | **세부 정보** |
 | --- | --- |
 |Scout 업데이트 | Scout 업데이트는 누적입니다. <br/><br/> 최신 Scout 업데이트에 대해 [알아보고 다운로드](vmware-physical-secondary-disaster-recovery.md#updates) |
 |구성 요소 업데이트 | Scout 업데이트에는 RX 서버, 구성 서버, 프로세스 및 마스터 대상 서버, vContinuum 서버 및 보호하려면 원본 서버를 포함하여 모든 구성 요소에 대한 업데이트가 포함되어 있습니다.<br/><br/> [자세히 알아보기](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|

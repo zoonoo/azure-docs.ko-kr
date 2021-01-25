@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: ade92e445897e36139e74353fa703ddf50d3f9b3
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d3329d9cac9547fbe9ec971bb8944f50971732b5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562729"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757409"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -81,6 +81,7 @@ Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목�
 - Azure Backup은 32비트 운영 체제를 지원하지 않습니다.
 - VM에서 [Linux용 Azure VM 에이전트](../virtual-machines/extensions/agent-linux.md)를 사용할 수 있고 Python이 지원되면 다른 Bring-Your-Own Linux 배포가 작동할 수 있습니다.
 - Python 버전 2.7가 설치 되지 않은 경우 Azure Backup는 프록시 구성 Linux VM을 지원 하지 않습니다.
+- Azure Backup는 저장소 또는 다른 NFS 서버에서 Linux 또는 Windows 컴퓨터에 탑재 된 NFS 파일의 백업을 지원 하지 않습니다. VM에 로컬로 연결 된 디스크만 백업 합니다.
 
 ## <a name="backup-frequency-and-retention"></a>백업 빈도 및 보존
 
@@ -129,7 +130,7 @@ Azure SSE(스토리지 서비스 암호화)가 설정된 스토리지 계정을 
 관리형 VM으로 업그레이드한 후에 비관리형 VM 백업 복원| 지원됩니다.<br/><br/> 디스크를 복원하고 관리형 VM을 만들 수 있습니다.
 VM이 Managed Disks로 마이그레이션되기 전에 VM을 복원 지점으로 복원 | 지원됩니다.<br/><br/> 비관리형 디스크(기본값)로 복원하고, 복원된 디스크를 Managed Disks로 변환한 후 Managed Disks를 사용하여 VM을 만듭니다.
 삭제된 VM을 복원합니다. | 지원됩니다.<br/><br/> 복구 지점에서 VM을 복원할 수 있습니다.
-도메인 컨트롤러 VM 복원  | 지원됩니다. 자세한 내용은 [도메인 컨트롤러 Vm 복원](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)을 참조 하세요.
+도메인 컨트롤러 VM 복원  | 지원됨. 자세한 내용은 [도메인 컨트롤러 Vm 복원](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)을 참조 하세요.
 다른 가상 네트워크에서 VM 복원 |지원됩니다.<br/><br/> 가상 네트워크는 동일한 구독 및 지역에 있어야 합니다.
 
 ## <a name="vm-compute-support"></a>VM 컴퓨팅 지원
@@ -144,10 +145,11 @@ VM 크기 |CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든
 Azure로 마이그레이션된 VM 백업| 지원됩니다.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.
 다중 VM 일관성 백업 | Azure Backup는 여러 Vm에서 데이터 및 응용 프로그램 일관성을 제공 하지 않습니다.
 [진단 설정](../azure-monitor/platform/platform-logs-overview.md)으로 백업  | 지원되지 않음 <br/><br/> [새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 사용하여 진단 설정으로 Azure VM 복원이 트리거되면 복원이 실패합니다.
-영역 고정 VM 복원 | 지원 됨 (1 월 2019 일 이후에 백업 된 VM의 경우 [가용성 영역](https://azure.microsoft.com/global-infrastructure/availability-zones/) 을 사용할 수 있는 경우)<br/><br/>현재 Vm에 고정 되어 있는 동일한 영역으로 복원 하는 기능을 지원 합니다. 그러나 영역을 사용할 수 없는 경우 복원이 실패합니다.
+영역 고정 VM 복원 | 지원 됨 (1 월 2019 일 이후에 백업 된 VM의 경우 [가용성 영역](https://azure.microsoft.com/global-infrastructure/availability-zones/) 을 사용할 수 있는 경우)<br/><br/>현재 Vm에 고정 되어 있는 동일한 영역으로 복원 하는 기능을 지원 합니다. 그러나 가동 중단으로 인해 영역을 사용할 수 없는 경우 복원이 실패 합니다.
 Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)의 백업 및 복원을 지원합니다. 이러한 Vm은 복구 지점에서 복원 되는 경우 [Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)으로 복원 됩니다.
 잠금을 사용 하 여 Azure Vm 백업 | 관리 되지 않는 Vm의 경우 지원 되지 않습니다. <br><br> 관리 Vm에 대해 지원 됩니다.
 [스폿 VM](../virtual-machines/spot-vms.md) | 지원 안 됨 Azure Backup은 일반 Azure Vm으로 지점 Vm을 복원 합니다.
+[Azure 전용 호스트](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | 지원됨
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
 
@@ -165,6 +167,7 @@ Write Accelerator가 설정된 디스크 | 2020 년 11 월 23 일부 터는 제�
 공유 스토리지| CSV (클러스터 공유 볼륨) 또는 Scale-Out 파일 서버를 사용 하 여 Vm을 백업 하는 것은 지원 되지 않습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함하는 디스크가 나타나지 않을 수 있습니다.
 [공유 디스크](../virtual-machines/disks-shared-enable.md) | 지원되지 않습니다.
 울트라 SSD 디스크 | 지원되지 않습니다. 자세한 내용은 이러한 [제한 사항](selective-disk-backup-restore.md#limitations)을 참조 하세요.
+[임시 디스크](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | 임시 디스크는 Azure Backup에 의해 백업 되지 않습니다.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원
 

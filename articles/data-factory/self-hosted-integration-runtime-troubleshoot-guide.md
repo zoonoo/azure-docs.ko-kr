@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: ccebdbf428180f8ff4ab10dc6007c3ec35a66362
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503576"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757681"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -67,31 +67,6 @@ IR 컴퓨터에서 메모리가 너무 많이 사용 되는 경우 새 작업에
 #### <a name="resolution"></a>해결 방법
 
 IR 노드에서 리소스 사용 및 동시 작업 실행을 확인 합니다. 단일 IR 노드에서 동시에 너무 많이 실행 되지 않도록 활동 실행의 내부 및 트리거 시간을 조정 합니다.
-
-
-### <a name="ssltls-certificate-issue"></a>SSL/TLS 인증서 문제
-
-#### <a name="symptoms"></a>증상
-
-인증서를 선택 하 여 SSL (SSL(Secure Sockets Layer))/TLS (전송 계층 보안) 인증서 (고급)를 사용 하도록 설정 하려고 하면 (인트라넷에서 **자체 호스팅 IR Configuration Manager**  >  **원격 액세스** 를 선택한 후) 다음 오류가 발생 합니다.
-
-"원격 액세스 설정이 잘못 되었습니다. 보내는 메시지에 대 한 id를 확인 하지 못했습니다. 원격 끝점의 필요한 DNS id가 ' abc.microsoft.com ' 이지만 원격 끝점이 DNS 클레임 ' microsoft.com '를 제공 했습니다. 합법적인 원격 끝점 인 경우 채널 프록시를 만들 때 DNS id ' microsoft.com '을 EndpointAddress의 Identity 속성으로 명시적으로 지정 하 여 문제를 해결할 수 있습니다. "
-
-위의 예제에서 선택한 인증서에는 "microsoft.com"가 추가 되어 있습니다.
-
-#### <a name="cause"></a>원인
-
-이것은 WCF (Windows Communication Foundation)의 알려진 문제입니다. WCF SSL/TLS 유효성 검사는 SAN ( **주체 대체 이름** ) 필드의 마지막 DNSName 확인 합니다. 
-
-#### <a name="resolution"></a>해결 방법
-
-와일드 카드 인증서는 Azure Data Factory v2 자체 호스팅 IR에서 지원 됩니다. 이 문제는 일반적으로 SSL 인증서가 올바르지 않기 때문에 발생 합니다. SAN의 마지막 DNSName는 유효 해야 합니다. 
-
-DNSName을 확인 하 고 수정 하려면 다음을 수행 합니다. 
-
-1. 관리 콘솔을 엽니다.
-1. **인증서 세부 정보** 에서 **주체** 및 **주체 대체 이름** 상자 모두의 값을 두 번 확인 합니다. 예를 들어 "DNS 이름 = microsoft.com.com"은 올바른 이름이 아닙니다.
-1. 잘못 된 DNSName을 제거 하려면 인증서 발급 회사에 문의 하세요.
 
 ### <a name="concurrent-jobs-limit-issue"></a>동시 작업 제한 문제
 
@@ -376,11 +351,11 @@ Integration runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
     
         ![서비스 계정에 대 한 "로그온" 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-    1. 로그온 서비스 계정에 Windows 서비스를 시작할 수 있는 **서비스로** 로그온 권한이 있는지 확인 하십시오.
+    1. Windows 서비스를 시작 하려면 로그온 서비스 계정에 **서비스로 로그온** 권한이 있는지 확인 하십시오.
 
         !["서비스로 로그온" 속성 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
 
-#### <a name="more-information"></a>추가 정보
+#### <a name="more-information"></a>자세한 정보
 
 사용자의 경우 위의 두 해결 패턴 중 어느 것도 적용 되지 않으면 다음 Windows 이벤트 로그를 수집 해 보십시오. 
 - 응용 프로그램 및 서비스 로그 > Integration Runtime

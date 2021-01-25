@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 12943d5d22a9e81c7e99522fa4728f4798549682
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01a88be9c54a2701130daace26c44159ee364e4c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499954"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757246"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>인덱서 연결을 허용 하도록 IP 방화벽 규칙 구성 (Azure Cognitive Search)
 
@@ -30,7 +30,7 @@ ms.locfileid: "96499954"
 
    ![서비스 FQDN 가져오기](media\search-indexer-howto-secure-access\search-service-portal.png "서비스 FQDN 가져오기")
 
-`nslookup`FQDN의 (또는)를 수행 하 여 검색 서비스의 IP 주소를 가져올 수 있습니다 `ping` . 아래 예제에서는 Azure Storage 방화벽의 인바운드 규칙에 "10.50.10.50"를 추가 합니다.
+`nslookup`FQDN의 (또는)를 수행 하 여 검색 서비스의 IP 주소를 가져올 수 있습니다 `ping` . 아래 예제에서는 Azure Storage 방화벽의 인바운드 규칙에 "150.0.0.1"를 추가 합니다. 검색 서비스 인덱서가 Azure Storage 계정에 액세스할 수 있도록 방화벽 설정이 업데이트 된 후 최대 15 분이 걸릴 수 있습니다.
 
 ```azurepowershell
 

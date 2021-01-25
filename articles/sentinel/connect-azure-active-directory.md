@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: e84484990725b0c39b132aead51e9b01dbb7e7ef
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 409a316bd9c4222dd9b8ff30e42e37d23805c38b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632294"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757765"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Azure Active Directory에서 데이터 연결 (Azure AD)
 
@@ -44,12 +44,12 @@ Azure 센티널의 기본 제공 커넥터를 사용 하 여 [Azure Active Direc
 
 1. Azure 센티널로 스트리밍할 로그 유형 옆의 확인란을 선택 하 고 **연결** 을 클릭 합니다. 선택할 수 있는 로그 유형은 다음과 같습니다.
 
-    - 로그인 로그
-    - 감사 로그
-    - 비 대화형 사용자 로그인 로그
-    - 서비스 사용자 로그인 로그
-    - 관리 Id 로그인 로그
-    - 프로비저닝 로그
+    - **로그인 로그**: 관리 되는 응용 프로그램 및 사용자 로그인 활동 사용에 대 한 정보입니다.
+    - **감사 로그**: 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 활동 정보입니다.
+    - **비 대화형 사용자 로그인 로그**: 사용자를 대신 하 여 클라이언트에서 수행 하는 로그인에 대 한 정보로, 사용자의 상호 작용 또는 인증 요인이 필요 하지 않습니다.
+    - **서비스 주체 로그인 로그**: 사용자를 포함 하지 않는 앱 및 서비스 사용자의 로그인에 대 한 정보입니다. 이러한 로그인에서 앱 또는 서비스는 리소스를 인증 하거나 액세스 하기 위해 자체 자격 증명을 제공 합니다.
+    - **관리 id 로그인 로그**: azure에서 관리 하는 비밀이 있는 azure 리소스에의 한 로그인입니다.
+    - **프로 비전 로그**: Azure AD 프로 비전 서비스에서 프로 비전 하는 사용자, 그룹 및 역할에 대 한 시스템 활동 정보입니다.
 
 ## <a name="find-your-data"></a>데이터 찾기
 

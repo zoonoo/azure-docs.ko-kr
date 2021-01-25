@@ -3,12 +3,12 @@ title: FAQ-Azure Vm 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure Vm을 백업 하는 방법에 대 한 일반적인 질문에 대 한 답변을 검색 합니다.
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: edc48aaf0a05867de81bd7d5f64f8be4e54ddb8a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008353"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757511"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -113,6 +113,10 @@ VM 또는 VM 리소스 그룹의 대/소문자를 변경 하는 경우 백업 �
 ### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>백업 하는 동안 테 넌 트 변경이 발생 하는 경우 관리 되는 id가 유지 되나요?
 
 [테 넌 트가 변경](/azure/devops/organizations/accounts/change-azure-ad-connection) 되 면 백업이 다시 작동 하도록 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다.
+
+### <a name="does-azure-backup-support-backing-up-nfs-files-mounted-from-storage"></a>저장소에서 탑재 된 NFS 파일의 백업을 지원 Azure Backup?
+
+Azure Backup는 저장소 또는 다른 NFS 서버에서 Linux 또는 Windows 컴퓨터에 탑재 된 NFS 파일의 백업을 지원 하지 않습니다. VM에 로컬로 연결 된 디스크만 백업 합니다.
 
 ## <a name="restore"></a>복원
 
