@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131454"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792085"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>양식 인식기 미리 빌드된 수신 모델
 
-Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판매 영수증에서 정보를 분석 하 고 추출할 수 있습니다. 또한 강력한 [OCR (광학 인식)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) 기능을 확인 하 고 심층 학습 모델을 이해 하 여 영어의 영수증에서 핵심 정보를 추출 합니다. 수신 API는 판매 영수증에서 판매 영수증의 핵심 정보를 추출 합니다 (예: 상인 이름, 거래 날짜, 트랜잭션 합계, 품목 등). 
+Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판매 영수증에서 정보를 분석 하 고 추출할 수 있습니다. 또한 강력한 [OCR (광학 인식)](../computer-vision/concept-recognizing-text.md) 기능을 확인 하 고 심층 학습 모델을 이해 하 여 영어의 영수증에서 핵심 정보를 추출 합니다. 수신 API는 판매 영수증에서 판매 영수증의 핵심 정보를 추출 합니다 (예: 상인 이름, 거래 날짜, 트랜잭션 합계, 품목 등). 
 
 ## <a name="understanding-receipts"></a>수신 확인 이해 
 
@@ -38,7 +38,7 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
 
 ### <a name="fields-extracted"></a>추출 된 필드
 
-|Name| Type | 설명 | 텍스트 | 값 (표준화 된 출력) |
+|Name| Type | Description | 텍스트 | 값 (표준화 된 출력) |
 |:-----|:----|:----|:----| :----|
 | ReceiptType | 문자열 | 판매 확인 유형 | 항목별 |  |
 | MerchantName | 문자열 | 영수증을 발급 하는 판매자의 이름 | Contoso |  |
@@ -50,7 +50,7 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
 | 소계 | number | 수령의 부분합 (보통 세금이 적용 되기 전) | $12.34 | 12.34 |
 | 세금 | number | 수령 on 수령, 자주 판매 세금 또는 동급 | $2.00 | 2.00 |
 | 팁 | number | 구매자에 의해 포함 된 팁 | $1.00 | 1.00 |
-| 항목 | 개체의 배열 | 추출 된 품목 (이름, 수량, 단가 및 총 가격) | |
+| Items | 개체의 배열 | 추출 된 품목 (이름, 수량, 단가 및 총 가격) | |
 | 이름 | string | 항목 이름 | Surface Pro 6 | |
 | 수량 | number | 각 항목의 수량 | 1 | |
 | 가격 | number | 각 항목 단위의 개별 가격 | $999.00 | 999.00 |

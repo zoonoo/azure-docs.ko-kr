@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 07a8d2b394e8ca690925c677af676643064a9ba8
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b94cb6d6302cd92816fe25f6e672b1ce3bb9398d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901833"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792000"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>AzCopy를 사용 하 여 Amazon S3에서 Azure Storage로 데이터 복사
 
-AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는 파일을 복사하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서는 AzCopy를 사용 하 여 Amazon Web Services (AWS) s 3에서 Azure blob storage로 개체, 디렉터리 및 버킷을 복사 하는 데 도움이 됩니다.
+AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는 파일을 복사하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서는 AzCopy를 사용 하 여 Amazon Web Services (AWS) s 3에서 Azure Blob Storage으로 개체, 디렉터리 및 버킷을 복사 하는 데 도움이 됩니다.
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>권한 부여 자격 증명을 제공하는 방법 선택
 
@@ -34,7 +34,7 @@ AzCopy를 다운로드 하려면 [AzCopy 시작](storage-use-azcopy-v10.md) 문�
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> 예를 들어 `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`을 참조하십시오.
+> 예: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`
 
 ### <a name="authorize-with-aws-s3"></a>AWS S3 인증
 
