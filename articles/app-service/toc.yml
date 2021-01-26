@@ -259,6 +259,8 @@
           href: troubleshoot-diagnostic-logs.md
         - name: 리소스 이벤트 가져오기
           href: get-resource-events.md
+        - name: 상태 확인
+          href: monitor-instances-health-check.md
         - name: Linux 컨테이너에 대한 SSH 세션 열기
           href: configure-linux-open-ssh-session.md
     - name: 앱 관리

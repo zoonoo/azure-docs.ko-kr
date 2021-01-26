@@ -329,7 +329,7 @@
               href: msal-error-handling-dotnet.md
               displayName: 'handling, catch'
             - name: MSAL.NET의 로깅
-              href: msal-logging.md?tabs=dotnet
+              href: msal-logging-dotnet.md
             - name: 캐시에서 토큰 획득
               href: msal-net-acquire-token-silently.md
             - name: 토큰 캐시 직렬화
@@ -371,7 +371,7 @@
               href: msal-error-handling-js.md
               displayName: 'handling, catch'
             - name: MSAL.js의 로깅
-              href: msal-logging.md?tabs=javascript
+              href: msal-logging-js.md
         - name: iOS 및 macOS용 MSAL
           items:
             - name: iOS 및 macOS용 MSAL 간 차이점
@@ -401,7 +401,7 @@
               href: msal-error-handling-ios.md
               displayName: 'handling, catch'
             - name: iOS/macOS용 MSAL에서 로깅
-              href: msal-logging.md?tabs=swift
+              href: msal-logging-ios.md
         - name: Python용 MSAL
           items:
             - name: 사용자 지정 토큰 캐시 직렬화
@@ -414,7 +414,7 @@
               href: msal-error-handling-python.md
               displayName: 'handling, catch'
             - name: Python용 MSAL에서 로깅
-              href: msal-logging.md?tabs=python
+              href: msal-logging-python.md
         - name: Java용 MSAL
           items:
             - name: 사용자 지정 토큰 캐시 직렬화
@@ -429,7 +429,7 @@
               href: msal-error-handling-java.md
               displayName: 'handling, catch'
             - name: Java용 MSAL에서 로깅
-              href: msal-logging.md?tabs=java
+              href: msal-logging-java.md
         - name: Android용 MSAL
           items:
             - name: 계정 및 테넌트 프로필
@@ -449,7 +449,7 @@
               href: msal-android-handling-exceptions.md
               displayName: 'android, mobile, handling, catch'
             - name: Android용 MSAL에서 로깅
-              href: msal-logging.md?tabs=android
+              href: msal-logging-android.md
     - name: 토큰 및 클레임 사용자 지정
       items:
         - name: 역할 클레임 구성

@@ -81,38 +81,51 @@
           items:
             - name: 필수 어플라이언스 식별
               href: how-to-identify-required-appliances.md
+              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment'
             - name: 소프트웨어 설치
               href: how-to-install-software.md
+              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install'
             - name: 네트워크 설정
               href: how-to-set-up-your-network.md
+              displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
         - name: 센서 준비
           items:
             - name: 온보드 센서
               href: how-to-manage-sensors-on-the-cloud.md
+              displayName: 'onboard, cloud, register, activate'
             - name: 센서 활성화 및 설정
               href: how-to-activate-and-set-up-your-sensor.md
+              displayName: 'onboard, register, activation, certificate, cloud connected, sign in, login, setup, learning mode, initial'
         - name: 온-프레미스 관리 콘솔 준비
           items:
             - name: 온-프레미스 관리 콘솔 활성화 및 설정
               href: how-to-activate-and-set-up-your-on-premises-management-console.md
+              displayName: 'activate, certificate, sign in, login, setup, initial, committed'
             - name: 고가용성 설정
               href: how-to-set-up-high-availability.md
+              displayName: 'primary, secondary, failover, failback fail, recovery'
         - name: 사용자 및 사용자 액세스 관리
           items:
             - name: 사용자 만들기 및 관리
               href: how-to-create-and-manage-users.md
+              displayName: 'Active Directory, roles, permissions'
             - name: 전역 사용자 액세스 제어 정의
               href: how-to-define-global-user-access-control.md
+              displayName: 'business unit, site, region'
         - name: 모니터링된 트래픽 제어
           href: how-to-control-what-traffic-is-monitored.md
+          displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
         - name: 온-프레미스 관리 콘솔에서 센서 관리
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
+          displayName: 'disconnect, connect, activation file, sensor backup'
         - name: 개별 센서 관리
           href: how-to-manage-individual-sensors.md
+          displayName: 'activation, certificate, connect, timezone time zone, backup, restore, software update, failure'
         - name: 클라우드에서 센서 관리
           href: how-to-manage-sensors-on-the-cloud.md
         - name: 온-프레미스 관리 콘솔 관리
           href: how-to-manage-the-on-premises-management-console.md
+          displayName: 'activation, certificate, software update, backup, restore, proxy, password recovery'
         - name: 위협 인텔리전스 패키지 작업
           href: how-to-work-with-threat-intelligence-packages.md
         - name: 디바이스 인벤토리 정보 작업
@@ -145,12 +158,16 @@
           items:
             - name: 디바이스 알림 작업
               href: how-to-work-with-device-notifications.md
+              displayName: 'notifications, operating systems, enrich, device information, classification'
             - name: 포트 및 VLAN 이름 확인 향상
               href: how-to-enhance-port-and-vlan-name-resolution.md
+              displayName: 'port, VLAN'
             - name: 디바이스 정보 가져오기
               href: how-to-import-device-information.md
+              displayName: 'import, enrich'
         - name: 센서 동작 추적
           href: how-to-track-sensor-activity.md
+          displayName: 'timeline, time line, time-line, event'
         - name: 보고서 생성
           href: how-to-generate-reports.md
         - name: 센서 및 온-프레미스 관리 콘솔 문제 해결

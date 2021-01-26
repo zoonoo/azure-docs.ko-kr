@@ -124,8 +124,6 @@
       items:
         - name: 등록 관리 - 포털
           href: how-to-manage-enrollments.md
-        - name: 등록 관리 - 서비스 SDK
-          href: how-to-manage-enrollments-sdks.md
         - name: 확인된 CA 인증서 구성
           href: how-to-verify-certificates.md
         - name: 디바이스 인증서 롤링
@@ -150,10 +148,6 @@
         - name: Windows
           href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
           maintainContext: true
-    - name: SDK를 통한 증명 메커니즘 사용
-      href: use-hsm-with-sdk.md
-    - name: 개발에 SDK 도구 사용
-      href: how-to-use-sdk-tools.md
     - name: 디바이스에서 추가 데이터를 보내는 방법
       href: how-to-send-additional-data.md
     - name: 문제 해결

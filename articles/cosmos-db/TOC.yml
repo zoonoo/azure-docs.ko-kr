@@ -1043,6 +1043,8 @@
           href: create-mongodb-xamarin.md
         - name: Golang
           href: create-mongodb-go.md
+        - name: Rust
+          href: create-mongodb-rust.md
     - name: 자습서
       items:
         - name: 1 - 데이터 만들기 및 관리
