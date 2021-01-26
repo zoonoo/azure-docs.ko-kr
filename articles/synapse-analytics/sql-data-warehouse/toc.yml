@@ -366,6 +366,8 @@
           href: sql-data-warehouse-restore-deleted-dw.md
         - name: 지역 백업에서 복원
           href: sql-data-warehouse-restore-from-geo-backup.md
+        - name: 지역 백업 사용 안 함
+          href: disable-geo-backup.md
     - name: 통합
       items:
         - name: 기계 학습 사용

@@ -1,8 +1,8 @@
-- name: Cloud Services 설명서
+- name: Cloud Services(클래식) 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Cloud Services란?
+    - name: Cloud Services(클래식)란?
       href: cloud-services-choose-me.md
     - name: 클라우드 서비스 구성 파일 및 패키징
       href: cloud-services-model-and-package.md

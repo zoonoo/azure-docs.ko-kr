@@ -50,6 +50,8 @@
           href: create-data-controller-using-azdata.md
         - name: Kubernetes 도구
           href: create-data-controller-using-kubernetes-native-tools.md
+        - name: SCC(OpenShift) 적용
+          href: how-to-apply-security-context-constraint.md
     - name: Azure Arc 지원 데이터 서비스 간의 공통 환경
       items:
         - name: 대시보드를 사용하여 모니터링(Azure Data Studio)
@@ -233,4 +235,4 @@
 - name: 리소스
   items:
     - name: Azure Arc 빠른 시작
-      href: 'https://github.com/microsoft/azure_arc'
+      href: 'https://azurearcjumpstart.io'

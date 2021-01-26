@@ -1,0 +1,83 @@
+### YamlMime:Landing
+title: Azure Cloud Services(추가 지원) 설명서
+summary: Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드 애플리케이션 및 API를 호스트하고 실행하는 방법에 대해 알아봅니다. 가상 머신 호스트를 관리하고 소프트웨어를 구성, 패치 및 설치하는 방법을 보여줍니다.
+metadata:
+  title: Azure Cloud Services(추가 지원) 설명서
+  description: Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드 애플리케이션 및 API를 호스트하고 실행하는 방법을 설명합니다.
+  ms.service: cloud-services-extended-support
+  service: cloud-services-extended-support
+  ms.topic: landing-page
+  author: mimckitt
+  ms.author: mimckitt
+  ms.date: 03/06/2020
+  ms.openlocfilehash: 8f999851c1566b2a488daa4bdc5da73761f7ce0b
+  ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98743669"
+landingContent:
+- title: Cloud Services(추가 지원) 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cloud Services(추가 지원)란?
+      url: overview.md
+    - text: 배포를 위한 필수 구성 요소
+      url: deploy-prerequisite.md
+    - text: 구성 파일 및 패키징
+      url: cloud-services-model-and-package.md
+- title: 자습서
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: PowerShell을 사용하여 배포
+      url: deploy-powershell.md
+    - text: Azure Portal을 사용하여 배포
+      url: deploy-portal.md
+    - text: ARM 템플릿 배포
+      url: deploy-template.md
+    - text: Visual Studio를 사용하여 배포
+      url: deploy-visual-studio.md
+- title: 개념
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 사용 가능한 크기
+      url: available-sizes.md
+    - text: 자주 묻는 질문
+      url: faq.md
+- title: 방법 가이드
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 확장
+      url: extensions.md
+    - text: 경고 사용
+      url: enable-alerts.md
+    - text: 크기 조정 구성
+      url: configure-scaling.md
+    - text: 인증서
+      url: certificates-and-key-vault.md
+- title: 샘플
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: 클라우드 서비스 배포 만들기
+      url: sample-create-cloud-service.md
+    - text: 클라우드 서비스 배포에 대한 정보 검색
+      url: sample-get-cloud-service.md
+    - text: 클라우드 서비스 배포 업데이트
+      url: sample-update-cloud-service.md
+    - text: 클라우드 서비스 배포 초기화
+      url: sample-reset-cloud-service.md
+- title: 스키마 정보
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 구성 스키마
+      url: schema-cscfg-file.md
+    - text: 정의 스키마
+      url: schema-csdef-file.md
+    - text: 구성 역할 스키마
+      url: schema-cscfg-role.md

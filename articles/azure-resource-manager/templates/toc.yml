@@ -298,8 +298,6 @@
       href: template-best-practices.md
     - name: 질문과 대답
       href: frequently-asked-questions.md
-    - name: 템플릿 사양
-      href: template-specs.md
     - name: 클라우드 일관성을 위한 템플릿
       href: templates-cloud-consistency.md
     - name: 배포 모드
@@ -327,7 +325,7 @@
           href: template-expressions.md
         - name: 매개 변수
           href: template-parameters.md
-        - name: variables
+        - name: 변수
           href: template-variables.md
         - name: 사용자 정의 함수
           href: template-user-defined-functions.md
@@ -423,6 +421,12 @@
           href: test-toolkit.md
         - name: 테스트 사례
           href: test-cases.md
+    - name: 템플릿 사양
+      items:
+        - name: 템플릿 사양 만들기 및 배포
+          href: template-specs.md
+        - name: 포털 템플릿 갤러리 변환
+          href: convert-to-template-spec.md
     - name: CI/CD
       items:
         - name: 파이프라인을 사용하는 ARM 템플릿
@@ -503,7 +507,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources

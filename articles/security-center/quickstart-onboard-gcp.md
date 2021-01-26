@@ -3,16 +3,16 @@ title: Azure Security Center에 GCP 계정 연결
 description: Azure Security Center에서 GCP 리소스 모니터링
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1095222f332e7a66f684feddf1fdab17704ca658
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d5f8278765c3f62fded44e4b89fb5fded6137c94
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573547"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757613"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Azure Security Center에 GCP 계정 연결
 
@@ -36,7 +36,7 @@ GCP 계정을 Security Center에 온보딩하면 GCP Security Command Center와 
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
 |필요한 역할 및 권한:|관련 Azure 구독에 대한 **소유자** 또는 **기여자**|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|

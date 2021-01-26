@@ -3,16 +3,16 @@ title: Azure Security Center에 AWS 계정 연결
 description: Azure Security Center에서 AWS 리소스 모니터링
 author: memildin
 ms.author: memildin
-ms.date: 12/29/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4c919115efb39a8e8c008eab69dc087792f7b105
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814315"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755161"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -33,13 +33,13 @@ AWS 계정을 Security Center에 온보딩하면 AWS Security Hub와 Azure Secur
 
 아래 스크린샷에서는 Security Center의 개요 대시보드에 표시되는 AWS 계정을 볼 수 있습니다.
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Security Center의 개요 대시보드에 나열된 3개 GCP 프로젝트" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Security Center의 개요 대시보드에 나열된 3개의 GCP 프로젝트" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## <a name="availability"></a>가용성
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
 |필요한 역할 및 권한:|관련 Azure 구독의 **소유자**<br>소유자가 서비스 주체 세부 정보를 제공하는 경우에는 **기여자** 를 AWS 계정에 연결할 수도 있습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
@@ -136,7 +136,7 @@ AWS Systems Manager는 AWS 리소스의 작업을 자동화하는 데 필요합�
 1. 다음과 같이 **AWS 인증** 탭에서 옵션을 구성합니다.
     1. 커넥터의 **표시 이름** 을 입력합니다.
     1. 구독이 올바른지 확인합니다. 커넥터 및 AWS Security Hub 권장 사항을 포함할 구독입니다.
-    1. [2단계. AWS에서 Security Center 인증 설정](#step-2-set-up-authentication-for-security-center-in-aws)에서 선택한 인증 옵션에 따라 다음을 수행합니다.
+    1. 인증 옵션에 따라 [2단계. AWS에서 Security Center 인증 설정](#step-2-set-up-authentication-for-security-center-in-aws)에서 선택했습니다.
         - **역할 맡기** 를 선택하고 [Security Center의 IAM 역할 만들기](#create-an-iam-role-for-security-center)에서 ARN을 붙여넣습니다.
             :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Azure Portal에서 AWS 연결 마법사의 관련 필드에 ARN 파일 붙여넣기":::
 

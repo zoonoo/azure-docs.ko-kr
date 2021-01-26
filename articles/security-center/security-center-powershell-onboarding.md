@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 통해 Azure Security Center에 온보딩
-description: 이 문서에서는 PowerShell cmdlet을 사용하여 Azure Security Center 온보딩 프로세스를 단계별로 안내합니다.
+description: 이 문서에서는 PowerShell cmdlet을 사용하여 Azure Security Center 사용 프로세스를 단계별로 안내합니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/02/2018
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 20fce643defd12897eceb1accc7ade8b10548568
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 4979ff0010c1f959e8f8fc16f56da61971faf1e9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341168"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757071"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
 
@@ -89,7 +89,7 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'```
 
-    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Enable Monitoring in Azure Security Center'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
+    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Azure Security Benchmark'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
 
 PowerShell을 사용하여 Azure Security Center를 온보딩했습니다.
 
