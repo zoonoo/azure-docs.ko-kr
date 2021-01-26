@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e92b17a5743e983ca3e77ad18c0973b9f056dfbd
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 40ce5f55b4109fee0099110c17f02b33c3eff808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611171"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791427"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -74,7 +74,7 @@ Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참�
 |[Azure Id SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Id SDK Python](/python/api/overview/azure/identity-readme)|[Azure Id SDK Java](/java/api/overview/azure/identity-readme)|[Azure Id SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
 
 >[!Note]
-> 현재 곧 .NET SDK 버전 3 Key Vault에 대해 권장 된 [앱 인증 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication) 입니다. [Azure에 대 한 Appauthentication을 수행 하세요. Id 마이그레이션 지침](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration) 을 KEY VAULT .Net SDK 버전 4로 마이그레이션해야 합니다.
+> 현재 곧 .NET SDK 버전 3 Key Vault에 대해 권장 된 [앱 인증 라이브러리](/dotnet/api/overview/azure/service-to-service-authentication) 입니다. [Azure에 대 한 Appauthentication을 수행 하세요. Id 마이그레이션 지침](/dotnet/api/overview/azure/app-auth-migration) 을 KEY VAULT .Net SDK 버전 4로 마이그레이션해야 합니다.
 
 응용 프로그램에서 Key Vault을 인증 하는 방법에 대 한 자습서는 다음을 참조 하세요.
 - [.NET의 VM에서 호스팅된 응용 프로그램의 Key Vault에 대 한 인증](./tutorial-net-virtual-machine.md)
@@ -89,7 +89,7 @@ Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참�
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[참조](/cli/azure/keyvault/key)<br>[빠른 시작](../keys/quick-create-cli.md)|[참조](/powershell/module/az.keyvault/)<br>[빠른 시작](../keys/quick-create-powershell.md)|[참조](/rest/api/keyvault/#key-operations)|[참조](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[빠른 시작](../keys/quick-create-template.md)|[참조](/dotnet/api/azure.security.keyvault.keys)<br>[빠른 시작](../keys/quick-create-net.md)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[빠른 시작](../keys/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[빠른 시작](../keys/quick-create-java.md)|[참조](/javascript/api/@azure/keyvault-keys/)<br>[빠른 시작](../keys/quick-create-node.md)|
+|[참조](/cli/azure/keyvault/key)<br>[빠른 시작](../keys/quick-create-cli.md)|[참조](/powershell/module/az.keyvault/)<br>[빠른 시작](../keys/quick-create-powershell.md)|[참조](/rest/api/keyvault/#key-operations)|[참조](/azure/templates/microsoft.keyvault/vaults/keys)<br>[빠른 시작](../keys/quick-create-template.md)|[참조](/dotnet/api/azure.security.keyvault.keys)<br>[빠른 시작](../keys/quick-create-net.md)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[빠른 시작](../keys/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[빠른 시작](../keys/quick-create-java.md)|[참조](/javascript/api/@azure/keyvault-keys/)<br>[빠른 시작](../keys/quick-create-node.md)|
 
 **인증서 API 및 Sdk**
 

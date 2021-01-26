@@ -3,12 +3,12 @@ title: 독립 실행형 클러스터 배포 준비
 description: 프로덕션 워크로드를 처리하기 위한 클러스터를 배포하기 전에 고려해야 하는 환경 준비 및 클러스터 구성 만들기와 관련된 설명서입니다.
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.openlocfilehash: 277c7e047815b3b4171f7cced203ecbe5b68b155
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 18b8b0ce8c0e877bf9dd274596b19f85b1febe12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509175"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790955"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Service Fabric 독립 실행형 클러스터 배포 계획 및 준비
 
@@ -57,7 +57,7 @@ Service Fabric 클러스터의 컴퓨터에 권장 되는 사양은 다음과 �
 * 모든 컴퓨터에 대해 보안 네트워크 또는 네트워크 연결성
 * Windows Server OS가 설치 되었습니다 (유효한 버전: 2012 R2, 2016, 1709 또는 1803). Service Fabric 버전 6.4.654.9590 이상에서는 서버 2019 및 1809도 지원 합니다.
 * [.NET Framework 4.5.1 이상](https://www.microsoft.com/download/details.aspx?id=40773), 전체 설치
-* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell)
 * [RemoteRegistry 서비스](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) 는 모든 컴퓨터에서 실행 되어야 합니다.
 * **Service Fabric 설치 드라이브는 NTFS 파일 시스템 이어야 합니다.**
 * **Windows 서비스 *성능 로그 & 경고* 및 *windows 이벤트 로그* 를 [사용 하도록 설정](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))해야** 합니다.

@@ -3,12 +3,12 @@ title: 기존 Service Fabric 클러스터에서 관리 id 지원 구성
 description: 기존 Azure Service Fabric 클러스터에서 관리 id 지원을 사용 하도록 설정 하는 방법은 다음과 같습니다.
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 7bcba34e941f6fee038aa475d7c0869eb65aca2e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: dc341688cae6d98f53be10351e4e4572a3539e4e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574703"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790042"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>기존 Service Fabric 클러스터에서 관리 id 지원 구성
 
@@ -39,7 +39,7 @@ Service Fabric 응용 프로그램에서 [Azure 리소스에 관리 되는 id](.
 ]
 ```
 
-변경 내용을 적용 하려면 업그레이드가 클러스터를 진행 하면서 각 노드에서 Service Fabric 런타임의 강제 다시 시작을 지정 하도록 업그레이드 정책을 변경 해야 합니다. 이렇게 다시 시작 하면 새로 활성화 된 시스템 서비스가 각 노드에서 시작 되 고 실행 됩니다. 아래 코드 조각에서는 `forceRestart` 다시 시작을 사용 하도록 설정 하는 것이 중요 합니다. 나머지 매개 변수의 경우 아래에서 설명 하는 값을 사용 하거나 클러스터 리소스에 이미 지정 된 기존 사용자 지정 값을 사용 합니다. 패브릭 업그레이드 정책 (' upgradeDescription ')에 대 한 사용자 지정 설정은 Service Fabric 리소스 또는 resources.azure.com에서 ' 패브릭 업그레이드 ' 옵션을 선택 하 여 Azure Portal에서 볼 수 있습니다. 업그레이드 정책에 대 한 기본 옵션 (' upgradeDescription ')은 powershell 또는 resources.azure.com에서 볼 수 없습니다. 자세한 내용은 [Clusterupgradepolicy](/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) 를 참조 하세요.  
+변경 내용을 적용 하려면 업그레이드가 클러스터를 진행 하면서 각 노드에서 Service Fabric 런타임의 강제 다시 시작을 지정 하도록 업그레이드 정책을 변경 해야 합니다. 이렇게 다시 시작 하면 새로 활성화 된 시스템 서비스가 각 노드에서 시작 되 고 실행 됩니다. 아래 코드 조각에서는 `forceRestart` 다시 시작을 사용 하도록 설정 하는 것이 중요 합니다. 나머지 매개 변수의 경우 아래에서 설명 하는 값을 사용 하거나 클러스터 리소스에 이미 지정 된 기존 사용자 지정 값을 사용 합니다. 패브릭 업그레이드 정책 (' upgradeDescription ')에 대 한 사용자 지정 설정은 Service Fabric 리소스 또는 resources.azure.com에서 ' 패브릭 업그레이드 ' 옵션을 선택 하 여 Azure Portal에서 볼 수 있습니다. 업그레이드 정책에 대 한 기본 옵션 (' upgradeDescription ')은 powershell 또는 resources.azure.com에서 볼 수 없습니다. 자세한 내용은 [Clusterupgradepolicy](/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy) 를 참조 하세요.  
 
 ```json
 "upgradeDescription": {

@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bbb959b6b1d71c81f7b920b3962f693716041e16
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1d433c7db36a3f4fe5f528b7fbd17549bc08e4a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016236"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791496"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
 
 이 문서에서는 Azure CLI를 사용하여 Linux VM(가상 머신)에서 관리 디스크를 확장하는 방법에 대해 설명합니다. 추가 스토리지 공간을 제공하기 위해 [데이터 디스크를 추가](add-disk.md)할 수 있고, 기존 데이터 디스크를 확장할 수도 있습니다. OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 Azure의 Linux VM에서 일반적으로 30GB입니다. 
 
 > [!WARNING]
-> 항상 파일 시스템이 정상 상태 인지 확인 하 고, 디스크 파티션 테이블 형식이 새 크기를 지원 하며, 디스크 크기 조정 작업을 수행 하기 전에 데이터를 백업 해야 합니다. 자세한 내용은 [Azure에서 Linux VM 백업](tutorial-backup-vms.md)을 참조하세요. 
+> 항상 파일 시스템이 정상 상태 인지 확인 하 고, 디스크 파티션 테이블 형식이 새 크기를 지원 하며, 디스크 크기 조정 작업을 수행 하기 전에 데이터를 백업 해야 합니다. 자세한 내용은 [Azure Backup 빠른](../../backup/quick-backup-vm-portal.md)시작을 참조 하세요. 
 
 ## <a name="expand-an-azure-managed-disk"></a>Azure Managed Disk 확장
 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.

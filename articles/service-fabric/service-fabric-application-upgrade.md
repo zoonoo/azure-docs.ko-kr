@@ -3,18 +3,18 @@ title: Service Fabric 애플리케이션 업그레이드
 description: 이 문서에서는 업그레이드 모드 선택 및 상태 확인 수행 등을 포함하여 Service Fabric 애플리케이션 업그레이드를 소개합니다.
 ms.topic: conceptual
 ms.date: 8/5/2020
-ms.openlocfilehash: 8eecd923b009ecbe9f4e607ad57a99b3f20955b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f3fad8d0ede92004706d9a1f4e14353715361b63
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309845"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792017"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 애플리케이션 업그레이드
 Azure Service Fabric 애플리케이션은 서비스의 컬렉션입니다. 업그레이드가 진행되는 동안 Service Fabric은 새로운 [애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)를 이전 버전과 비교하여 애플리케이션의 어떤 서비스를 업데이트해야 하는지 결정합니다. 서비스 패브릭은 이전 버전의 버전 번호를 가진 서비스 매니페스트의 버전 번호를 비교합니다. 서비스가 변경되지 않으면 해당 서비스가 업그레이드되지 않습니다.
 
 > [!NOTE]
-> [Applicationparameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s는 응용 프로그램 업그레이드에서 유지 되지 않습니다. 현재 응용 프로그램 매개 변수를 유지 하기 위해 사용자는 매개 변수를 먼저 가져온 후 아래와 같은 업그레이드 API 호출로 전달 해야 합니다.
+> [Applicationparameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s는 응용 프로그램 업그레이드에서 유지 되지 않습니다. 현재 응용 프로그램 매개 변수를 유지 하기 위해 사용자는 매개 변수를 먼저 가져온 후 아래와 같은 업그레이드 API 호출로 전달 해야 합니다.
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -40,7 +40,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -Ap
 업그레이드가 완료되면 모든 서비스 및 복제본(인스턴스)이 같은 버전 상태로 유지됩니다. 예를 들어 업그레이드가 성공하면 새 버전으로 업데이트되고, 업그레이드가 실패하여 롤백되면 이전 버전으로 롤백됩니다.
 
 ## <a name="health-checks-during-upgrades"></a>업그레이드 동안 상태 검사
-업그레이드에 대해 상태 정책을 설정해야 합니다. 설정하지 않으면 기본값이 사용됩니다. 모든 업데이트 도메인이 지정된 시간 제한 내에 업그레이드되고 모든 업데이트 도메인이 정상 상태로 보이면 업그레이드에 성공했다고 합니다.  정상 업데이트 도메인이란 업데이트 도메인이 상태 정책에 지정된 모든 상태 검사를 통과했다는 의미입니다. 예를 들어 상태 정책에 따라 애플리케이션 인스턴스의 모든 서비스가 *정상*이어야 하고, 상태는 Service Fabric에서 정의됩니다.
+업그레이드에 대해 상태 정책을 설정해야 합니다. 설정하지 않으면 기본값이 사용됩니다. 모든 업데이트 도메인이 지정된 시간 제한 내에 업그레이드되고 모든 업데이트 도메인이 정상 상태로 보이면 업그레이드에 성공했다고 합니다.  정상 업데이트 도메인이란 업데이트 도메인이 상태 정책에 지정된 모든 상태 검사를 통과했다는 의미입니다. 예를 들어 상태 정책에 따라 애플리케이션 인스턴스의 모든 서비스가 *정상* 이어야 하고, 상태는 Service Fabric에서 정의됩니다.
 
 업그레이드가 진행되는 동안 서비스 패브릭에서 수행하는 상태 정책 및 상태 검사는 서비스 및 애플리케이션을 구분하지 않습니다. 즉, 서비스별 테스트를 수행하지 않습니다.  예를 들어 서비스에는 처리량 요구 사항이 있을 수 있지만 서비스 패브릭에는 처리량을 확인하기 위한 정보가 없습니다. 수행되는 검사는 [상태 문서](service-fabric-health-introduction.md) 를 참조하세요. 업그레이드 중에 발생하는 확인은 애플리케이션 패키지가 올바르게 복사되었는지, 인스턴스가 시작되었는지 등과 같은 여부에 대한 테스트를 포함합니다.
 
@@ -52,7 +52,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -Ap
 모니터링되지 않는 수동 모드는 업데이트 도메인에서 업그레이드가 수행될 때마다 다음 업데이트 도메인에서 업그레이드가 시작하도록 수동 작업이 필요합니다. 서비스 패브릭 상태 검사가 수행되지 않습니다. 관리자는 다음 업데이트 도메인에서 업그레이드가 시작되기 전에 상태 또는 상태 검사를 수행합니다.
 
 ## <a name="upgrade-default-services"></a>기본 서비스 업그레이드
-[애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)에 정의된 일부 기본 서비스 매개 변수는 애플리케이션 업그레이드의 일부로 업그레이드될 수도 있습니다. [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps)를 통해 변경되는 것을 지원하는 서비스 매개 변수만 업그레이드의 일환으로 변경될 수 있습니다. 애플리케이션 업그레이드 중 기본 서비스 변경의 동작은 다음과 같습니다.
+[애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)에 정의된 일부 기본 서비스 매개 변수는 애플리케이션 업그레이드의 일부로 업그레이드될 수도 있습니다. [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice)를 통해 변경되는 것을 지원하는 서비스 매개 변수만 업그레이드의 일환으로 변경될 수 있습니다. 애플리케이션 업그레이드 중 기본 서비스 변경의 동작은 다음과 같습니다.
 
 1. 클러스터에 존재하지 않는 새 애플리케이션 매니페스트의 기본 서비스가 만들어집니다.
 2. 이전 및 새 애플리케이션 매니페스트 모두에 존재하는 기본 서비스가 업데이트됩니다. 새 애플리케이션 매니페스트에 있는 기본 서비스의 매개 변수는 기존 서비스의 매개 변수를 덮어씁니다. 기본 서비스 업데이트에 실패하는 경우 애플리케이션 업그레이드가 자동으로 롤백됩니다.
@@ -61,17 +61,17 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -Ap
 애플리케이션 업그레이드가 롤백되면 기본 서비스 매개 변수는 업그레이드가 시작되기 전에 이전 값으로 되돌려지지만 삭제된 서비스를 이전 상태로 다시 생성할 수 없습니다.
 
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) 클러스터 구성 설정은 위의 규칙 2) 및 3)을 활성화하도록 *true*여야 합니다(기본 서비스 업데이트 및 삭제). 이 기능은 Service Fabric 버전 5.5부터 지원됩니다.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) 클러스터 구성 설정은 위의 규칙 2) 및 3)을 활성화하도록 *true* 여야 합니다(기본 서비스 업데이트 및 삭제). 이 기능은 Service Fabric 버전 5.5부터 지원됩니다.
 
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>HTTPS 엔드포인트로 여러 애플리케이션 업그레이드
-HTTP**S**를 사용 하는 경우 동일한 응용 프로그램의 다른 인스턴스에 대해 **동일한 포트** 를 사용 하지 않도록 주의 해야 합니다. Service Fabric에서 애플리케이션 인스턴스 중 하나에 대해 인증서를 업그레이드할 수 없기 때문입니다. 예를 들어, 애플리케이션 1 또는 애플리케이션 2 모두 해당 인증서 1을 인증서 2로 업그레이드하려고 합니다. 업그레이드가 발생할 때 Service Fabric은 다른 애플리케이션에서 아직 사용 중이라고 하더라도 http.sys에서 인증서 1 등록을 정리할 수 있습니다. 이러한 상황을 방지하기 위해 Service Fabric은 인증서와 함께 해당 포트에 등록된(http.sys에 따라) 다른 애플리케이션 인스턴스가 이미 있는지 검색하고 있는 경우 작업이 실패합니다.
+HTTP **S** 를 사용 하는 경우 동일한 응용 프로그램의 다른 인스턴스에 대해 **동일한 포트** 를 사용 하지 않도록 주의 해야 합니다. Service Fabric에서 애플리케이션 인스턴스 중 하나에 대해 인증서를 업그레이드할 수 없기 때문입니다. 예를 들어, 애플리케이션 1 또는 애플리케이션 2 모두 해당 인증서 1을 인증서 2로 업그레이드하려고 합니다. 업그레이드가 발생할 때 Service Fabric은 다른 애플리케이션에서 아직 사용 중이라고 하더라도 http.sys에서 인증서 1 등록을 정리할 수 있습니다. 이러한 상황을 방지하기 위해 Service Fabric은 인증서와 함께 해당 포트에 등록된(http.sys에 따라) 다른 애플리케이션 인스턴스가 이미 있는지 검색하고 있는 경우 작업이 실패합니다.
 
-따라서 Service Fabric은 서로 다른 애플리케이션 인스턴스에 **동일한 포트**를 사용하는 두 가지 다른 서비스의 업그레이드를 지원하지 않습니다. 즉, 동일한 포트에서 서로 다른 서비스에 동일한 인증서를 사용할 수 없습니다. 동일한 포트에서 공유 인증서를 포함해야 하는 경우 배치 제약 조건에 따라 서비스가 서로 다른 컴퓨터에 배치되는지 확인해야 합니다. 또는 각 애플리케이션 인스턴스에서 각 서비스에 대해 Service Fabric 동적 포트를 사용하는 것이 좋습니다(가능한 경우). 
+따라서 Service Fabric은 서로 다른 애플리케이션 인스턴스에 **동일한 포트** 를 사용하는 두 가지 다른 서비스의 업그레이드를 지원하지 않습니다. 즉, 동일한 포트에서 서로 다른 서비스에 동일한 인증서를 사용할 수 없습니다. 동일한 포트에서 공유 인증서를 포함해야 하는 경우 배치 제약 조건에 따라 서비스가 서로 다른 컴퓨터에 배치되는지 확인해야 합니다. 또는 각 애플리케이션 인스턴스에서 각 서비스에 대해 Service Fabric 동적 포트를 사용하는 것이 좋습니다(가능한 경우). 
 
 https로 업그레이드 실패가 표시되면 “The Windows HTTP Server API does not support multiple certificates for applications that share a port(Windows HTTP 서버 API에서 포트를 공유하는 애플리케이션에 대해 여러 인증서를 지원하지 않습니다).”라는 오류 경고가 표시됩니다.
 
 ## <a name="application-upgrade-flowchart"></a>애플리케이션 업그레이드 순서도
-이 단락 다음에 나오는 순서도는 Service Fabric 애플리케이션의 업그레이드 프로세스를 이해하는 데 도움이 될 수 있습니다. 특히 *HealthCheckStableDuration*, *HealthCheckRetryTimeout* 및 *UpgradeHealthCheckInterval*을 비롯한 시간 제한이 한 업데이트 도메인의 업그레이드를 성공 또는 실패로 간주하는 시간을 어떻게 제어하는지 잘 설명되어 있습니다.
+이 단락 다음에 나오는 순서도는 Service Fabric 애플리케이션의 업그레이드 프로세스를 이해하는 데 도움이 될 수 있습니다. 특히 *HealthCheckStableDuration*, *HealthCheckRetryTimeout* 및 *UpgradeHealthCheckInterval* 을 비롯한 시간 제한이 한 업데이트 도메인의 업그레이드를 성공 또는 실패로 간주하는 시간을 어떻게 제어하는지 잘 설명되어 있습니다.
 
 ![Service Fabric 애플리케이션의 업그레이드 프로세스][image]
 

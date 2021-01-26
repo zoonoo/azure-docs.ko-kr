@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 80a6824edb92d8337481f592cbbf5eb23255b383
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e6b588ddea5bf4b4c92e89d9cebb37b09b9a86af
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185532"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791547"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Azure Data Box Azure Key Vault에서 고객이 관리 하는 키 사용
 
@@ -95,7 +95,7 @@ Azure Portal의 기존 Data Box 주문에 대해 고객이 관리 하는 키를 
 
 7. 이 리소스에 대 한 고객 관리 키를 관리 하는 데 사용할 id 유형을 선택 합니다. 주문 생성 중에 생성 된 **시스템 할당** id를 사용 하거나 사용자 할당 id를 선택할 수 있습니다.
 
-    사용자 할당 id는 리소스에 대 한 액세스를 관리 하는 데 사용할 수 있는 독립적인 리소스입니다. 자세한 내용은 [관리 ID 유형](/azure/active-directory/managed-identities-azure-resources/overview)을 참조하세요.
+    사용자 할당 id는 리소스에 대 한 액세스를 관리 하는 데 사용할 수 있는 독립적인 리소스입니다. 자세한 내용은 [관리 ID 유형](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
 
     ![Id 유형 선택](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
 
@@ -103,7 +103,7 @@ Azure Portal의 기존 Data Box 주문에 대해 고객이 관리 하는 키를 
 
     ![사용할 id 선택](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
 
-    여기에서는 새 사용자 id를 만들 수 없습니다. 계정을 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 사용자 할당 관리 id에 역할 만들기, 나열, 삭제 또는 할당](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)을 참조 하세요.
+    여기에서는 새 사용자 id를 만들 수 없습니다. 계정을 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 사용자 할당 관리 id에 역할 만들기, 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)을 참조 하세요.
 
     선택한 사용자 id가 **암호화 유형** 설정에 표시 됩니다.
 
@@ -187,9 +187,9 @@ Azure Portal의 기존 Data Box 주문에 대해 고객이 관리 하는 키를 
 |-------------|--------------|---------|
 | SsemUserErrorEncryptionKeyDisabled| 고객 관리 키가 사용 하지 않도록 설정 되어 있으므로 암호를 가져올 수 없습니다.| 예, 키 버전을 사용 하도록 설정 합니다.|
 | SsemUserErrorEncryptionKeyExpired| 고객 관리 키가 만료 되어 서 암호를 가져올 수 없습니다.| 예, 키 버전을 사용 하도록 설정 합니다.|
-| SsemUserErrorKeyDetailsNotFound| 고객 관리 키를 찾을 수 없으므로 암호를 가져올 수 없습니다.| 키 자격 증명 모음을 삭제 한 경우 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테 넌 트로 마이그레이션한 경우 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](../key-vault/general/move-subscription.md)을 참조 하세요. 키 자격 증명 모음을 삭제 한 경우:<ol><li>예, 제거 보호 기간 내에 있는 경우 [키 자격 증명 모음 복구](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)의 단계에 따라 복구할 수 있습니다.</li><li>아니요, 제거 보호 기간이 지나면 복구할 수 없습니다.</li></ol><br>키 자격 증명 모음에서 테 넌 트 마이그레이션을 클러스터가 거쳤다 하는 경우, 예, 아래 단계 중 하나를 사용 하 여 복구할 수 있습니다. <ol><li>키 자격 증명 모음을 이전 테넌트로 되돌립니다.</li><li>`Identity = None`을 설정한 다음, 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 새 ID가 생성될 때 ID가 삭제되고 다시 생성됩니다. 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol> |
+| SsemUserErrorKeyDetailsNotFound| 고객 관리 키를 찾을 수 없으므로 암호를 가져올 수 없습니다.| 키 자격 증명 모음을 삭제 한 경우 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테 넌 트로 마이그레이션한 경우 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](../key-vault/general/move-subscription.md)을 참조 하세요. 키 자격 증명 모음을 삭제 한 경우:<ol><li>예, 제거 보호 기간 내에 있는 경우 [키 자격 증명 모음 복구](../key-vault/general/key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell)의 단계에 따라 복구할 수 있습니다.</li><li>아니요, 제거 보호 기간이 지나면 복구할 수 없습니다.</li></ol><br>키 자격 증명 모음에서 테 넌 트 마이그레이션을 클러스터가 거쳤다 하는 경우, 예, 아래 단계 중 하나를 사용 하 여 복구할 수 있습니다. <ol><li>키 자격 증명 모음을 이전 테넌트로 되돌립니다.</li><li>`Identity = None`을 설정한 다음, 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 새 ID가 생성될 때 ID가 삭제되고 다시 생성됩니다. 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol> |
 | SsemUserErrorKeyVaultBadRequestException | 고객 관리 키를 적용 했지만 키 액세스 권한이 부여 되지 않았거나, 방화벽이 사용 하도록 설정 되어 있어 키 자격 증명 모음에 액세스할 수 없습니다. | 선택한 id를 key vault에 추가 하 여 고객 관리 키에 액세스할 수 있도록 합니다. Key vault에서 방화벽을 사용 하도록 설정한 경우 시스템 할당 id로 전환 하 고 고객 관리 키를 추가 합니다. 자세한 내용은 [키를 사용 하도록 설정](#enable-key)하는 방법을 참조 하세요. |
-| SsemUserErrorKeyVaultDetailsNotFound| 고객 관리 키에 대 한 연결 된 키 자격 증명 모음을 찾을 수 없으므로 암호를 가져올 수 없습니다. | 키 자격 증명 모음을 삭제 한 경우 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테 넌 트로 마이그레이션한 경우 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](../key-vault/general/move-subscription.md)을 참조 하세요. 키 자격 증명 모음을 삭제 한 경우:<ol><li>예, 제거 보호 기간 내에 있는 경우 [키 자격 증명 모음 복구](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)의 단계에 따라 복구할 수 있습니다.</li><li>아니요, 제거 보호 기간이 지나면 복구할 수 없습니다.</li></ol><br>키 자격 증명 모음에서 테 넌 트 마이그레이션을 클러스터가 거쳤다 하는 경우, 예, 아래 단계 중 하나를 사용 하 여 복구할 수 있습니다. <ol><li>키 자격 증명 모음을 이전 테넌트로 되돌립니다.</li><li>`Identity = None`을 설정한 다음, 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 새 ID가 생성될 때 ID가 삭제되고 다시 생성됩니다. 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol> |
+| SsemUserErrorKeyVaultDetailsNotFound| 고객 관리 키에 대 한 연결 된 키 자격 증명 모음을 찾을 수 없으므로 암호를 가져올 수 없습니다. | 키 자격 증명 모음을 삭제 한 경우 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테 넌 트로 마이그레이션한 경우 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](../key-vault/general/move-subscription.md)을 참조 하세요. 키 자격 증명 모음을 삭제 한 경우:<ol><li>예, 제거 보호 기간 내에 있는 경우 [키 자격 증명 모음 복구](../key-vault/general/key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell)의 단계에 따라 복구할 수 있습니다.</li><li>아니요, 제거 보호 기간이 지나면 복구할 수 없습니다.</li></ol><br>키 자격 증명 모음에서 테 넌 트 마이그레이션을 클러스터가 거쳤다 하는 경우, 예, 아래 단계 중 하나를 사용 하 여 복구할 수 있습니다. <ol><li>키 자격 증명 모음을 이전 테넌트로 되돌립니다.</li><li>`Identity = None`을 설정한 다음, 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 새 ID가 생성될 때 ID가 삭제되고 다시 생성됩니다. 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol> |
 | SsemUserErrorSystemAssignedIdentityAbsent  | 고객 관리 키를 찾을 수 없으므로 암호를 가져올 수 없습니다.| 예, 다음 사항을 확인하세요. <ol><li>키 자격 증명 모음의 액세스 정책에 여전히 MSI가 있습니다.</li><li>Id는 시스템 할당 유형입니다.</li><li>키 자격 증명 모음의 액세스 정책에서 id에 대 한 가져오기, 래핑 및 래핑 해제 권한을 사용 하도록 설정 합니다.</li></ol>|
 | SsemUserErrorUserAssignedLimitReached | 추가할 수 있는 사용자 할당 id의 총 수에 대 한 제한에 도달 하 여 새 사용자 할당 Id를 추가 하지 못했습니다. | 사용자 id가 적을수록 작업을 다시 시도 하거나 리소스에서 일부 사용자 할당 id를 제거한 후 다시 시도 하세요. |
 | SsemUserErrorCrossTenantIdentityAccessForbidden | 관리 id 액세스 작업이 실패 했습니다. <br> 참고: 구독이 다른 테 넌 트로 이동 되는 시나리오에 대 한 것입니다. 고객은 id를 새 테 넌 트로 수동으로 이동 해야 합니다. 자세한 내용은 PFA 메일을 참조 하세요. | 선택한 id를 구독이 있는 새 테 넌 트로 이동 하세요. 자세한 내용은 [키를 사용 하도록 설정](#enable-key)하는 방법을 참조 하세요. |

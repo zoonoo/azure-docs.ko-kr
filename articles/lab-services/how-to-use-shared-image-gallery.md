@@ -3,15 +3,15 @@ title: Azure Lab Services에서 공유 이미지 갤러리 사용 | Microsoft Do
 description: 사용자가 다른 사용자와 이미지를 공유하고 다른 사용자가 해당 이미지를 사용하여 랩에서 템플릿 VM을 만들 수 있도록 공유 이미지 갤러리를 사용하도록 랩 계정을 구성하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: d9f4e75163f591680cc8f85ac42c1b6ada5f2365
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 984cb4c47099928ffab327895a728cbe8a8f9604
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647769"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791393"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Azure Lab Services에서 공유 이미지 갤러리 사용
-이 문서는 교육자/랩 관리자가 템플릿 가상 머신 이미지를 [공유 이미지 갤러리](../virtual-machines/windows/shared-image-galleries.md)에 저장하여 다른 사용자가 랩을 만들 수 있도록 하는 방법을 보여 줍니다. 
+이 문서는 교육자/랩 관리자가 템플릿 가상 머신 이미지를 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)에 저장하여 다른 사용자가 랩을 만들 수 있도록 하는 방법을 보여 줍니다. 
 
 > [!IMPORTANT]
 > 공유 이미지 갤러리를 사용 하는 동안 Azure Lab Services는 128 GB 미만의 OS 디스크 공간이 있는 이미지만 지원 합니다. 128 GB 이상의 디스크 공간이 있는 이미지 또는 여러 디스크는 랩 생성 중 가상 머신 이미지 목록에 표시 되지 않습니다.
@@ -48,7 +48,7 @@ ms.locfileid: "94647769"
     공유 이미지 갤러리에 이미지를 저장하면 다른 랩을 만들 때 갤러리에서 해당 이미지를 사용할 수 있습니다. 랩 컨텍스트 외부의 공유 이미지 갤러리에 이미지를 업로드할 수도 있습니다. 자세한 내용은 [공유 이미지 갤러리 개요](../virtual-machines/shared-images-powershell.md)를 참조하세요. 
 
     > [!IMPORTANT]
-    > Azure Lab Services [랩의 템플릿 이미지](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) 를 공유 이미지 갤러리에 저장 하면 이미지가 갤러리에 **특수 이미지** 로 업로드 됩니다. [특수 이미지](../virtual-machines/windows/shared-image-galleries.md#generalized-and-specialized-images) 는 컴퓨터 관련 정보와 사용자 프로필을 유지 합니다. Azure Lab Services 외부의 갤러리에 일반화 된 이미지를 직접 직접 업로드할 수 있습니다.    
+    > Azure Lab Services [랩의 템플릿 이미지](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) 를 공유 이미지 갤러리에 저장 하면 이미지가 갤러리에 **특수 이미지** 로 업로드 됩니다. [특수 이미지](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) 는 컴퓨터 관련 정보와 사용자 프로필을 유지 합니다. Azure Lab Services 외부의 갤러리에 일반화 된 이미지를 직접 직접 업로드할 수 있습니다.    
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>공유 이미지 갤러리의 이미지 사용
 교육자는 새 랩을 만들 때 템플릿의 공유 이미지 갤러리에서 사용할 수 있는 사용자 지정 이미지를 선택할 수 있습니다.
@@ -60,4 +60,4 @@ ms.locfileid: "94647769"
 
 
 ## <a name="next-steps"></a>다음 단계
-공유 이미지 갤러리에 대한 자세한 내용은 [공유 이미지 갤러리](../virtual-machines/windows/shared-image-galleries.md)를 참조하세요.
+공유 이미지 갤러리에 대한 자세한 내용은 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)를 참조하세요.

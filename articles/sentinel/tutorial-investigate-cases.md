@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 8853f3774bb35361746c8b706f38bc54079d74f7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511732"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790989"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>자습서: Azure 센티널을 사용 하 여 인시던트 조사
 
 > [!IMPORTANT]
-> 조사 그래프는 현재 **미리 보기로** 제공 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
-
+> 조사 그래프는 이제 **일반** 공급으로 제공 됩니다. 
 
 이 자습서는 Azure 센티널로 인시던트를 조사 하는 데 도움이 됩니다. 데이터 원본을 Azure 센티널에 연결 하 고 나면 의심 스러운 상황이 발생 하면 알림이 표시 됩니다. 이 작업을 수행할 수 있도록 Azure 센티널을 사용 하면 사용자가 할당 하 고 조사할 수 있는 인시던트를 생성 하는 고급 경고 규칙을 만들 수 있습니다.
 
@@ -113,11 +112,11 @@ ms.locfileid: "96511732"
 
 특정 인시던트를 해결 한 후 (예: 조사가 결론에 도달 했을 때) 인시던트의 상태를 **Closed** 로 설정 해야 합니다. 이렇게 하면 닫는 이유를 지정 하 여 인시던트를 분류 하 라는 메시지가 표시 됩니다. 이 단계는 필수입니다. **분류 선택** 을 클릭 하 고 드롭다운 목록에서 다음 중 하나를 선택 합니다.
 
-- 진정한 긍정-의심 스러운 활동
-- 무해 한 긍정-의심 스러운 하지만 예상
-- 거짓 긍정-잘못 된 경고 논리
-- 거짓 긍정-잘못 된 데이터
-- 임의적인
+- 진양성 - 의심스러운 활동
+- 무해한 양성 - 의심스럽지만 예상됨
+- 가양성 - 잘못된 경고 논리
+- 가양성 - 잘못된 데이터
+- 결정되지 않음
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="분류 선택 목록에서 사용할 수 있는 분류를 강조 표시 하는 스크린샷":::
 

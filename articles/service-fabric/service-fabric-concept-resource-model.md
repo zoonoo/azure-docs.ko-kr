@@ -3,12 +3,12 @@ title: Azure Service Fabric 응용 프로그램 리소스 모델
 description: 이 문서에서는 Azure Resource Manager를 사용 하 여 Azure Service Fabric 응용 프로그램을 관리 하는 개요를 제공 합니다.
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: f4fbd775ab479437c350dc24b9b5511f7a614c8b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 0019f154f301d2b688d4c16c9adb36ec386adef2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576097"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790726"
 ---
 # <a name="service-fabric-application-resource-model"></a>응용 프로그램 리소스 모델 Service Fabric
 
@@ -171,13 +171,13 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 리소스 관리자에서 응용 프로그램 리소스 모델을 사용 하 여 배포 된 응용 프로그램을 삭제 하려면 다음을 수행 합니다.
 
-1. [AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) cmdlet을 사용 하 여 응용 프로그램에 대 한 리소스 ID를 가져옵니다.
+1. [AzResource](/powershell/module/az.resources/get-azresource) cmdlet을 사용 하 여 응용 프로그램에 대 한 리소스 ID를 가져옵니다.
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. [AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) cmdlet을 사용 하 여 응용 프로그램 리소스를 삭제 합니다.
+1. [AzResource](/powershell/module/az.resources/remove-azresource) cmdlet을 사용 하 여 응용 프로그램 리소스를 삭제 합니다.
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

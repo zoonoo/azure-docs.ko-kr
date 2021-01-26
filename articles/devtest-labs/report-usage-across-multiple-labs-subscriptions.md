@@ -3,12 +3,12 @@ title: 여러 랩 및 구독에서 Azure DevTest Labs 사용
 description: 여러 랩 및 구독에서 Azure DevTest Labs 사용량을 보고 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d789b9849ec798a396e99420649792937422470f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152203"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789941"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>여러 랩 및 구독에서 Azure DevTest Labs 사용 보고
 
@@ -25,7 +25,7 @@ ms.locfileid: "92152203"
 DevTest Labs의 리소스 사용을 내보내려면 먼저 사용 데이터를 포함 하는 다른 파일을 저장할 수 있도록 Azure Storage 계정을 설정 해야 합니다. 데이터 내보내기를 실행 하는 두 가지 일반적인 방법은 다음과 같습니다.
 
 * [DevTest Labs REST API](/rest/api/dtl/labs/exportresourceusage) 
-* PowerShell Az. Resource 모듈은 [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) 의 작업 `exportResourceUsage` , 랩 리소스 ID 및 필요한 매개 변수를 사용 하 여 AzResourceAction를 호출 합니다. 
+* PowerShell Az. Resource 모듈은 [](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) 의 작업 `exportResourceUsage` , 랩 리소스 ID 및 필요한 매개 변수를 사용 하 여 AzResourceAction를 호출 합니다. 
 
     [개인 데이터 내보내기 또는 삭제](personal-data-delete-export.md) 문서에는 내보낸 데이터에 대 한 자세한 정보가 포함 된 샘플 PowerShell 스크립트가 포함 되어 있습니다. 
 
@@ -82,5 +82,5 @@ Azure 함수는 데이터를 장기적인 저장소로 푸시 해야 합니다. 
     사용자가 고성능 (더 저렴 한) VM 크기를 선택 하나요?
 -   어떤 마켓플레이스 이미지를 사용 하 고 있나요?
 
-    사용자 지정 이미지는 가장 일반적인 VM 기반으로, 공용 이미지 저장소를 [공유 이미지 갤러리](../virtual-machines/windows/shared-image-galleries.md) 또는 [이미지 팩터리](image-factory-create.md)와 같은 방식으로 빌드해야 합니다.
+    사용자 지정 이미지는 가장 일반적인 VM 기반으로, 공용 이미지 저장소를 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md) 또는 [이미지 팩터리](image-factory-create.md)와 같은 방식으로 빌드해야 합니다.
 -   사용 중인 사용자 지정 이미지는 무엇 인가요?

@@ -4,12 +4,12 @@ description: Service Fabric 원격 호출을 사용하면 클라이언트와 서
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c3659fea73abae3c9c5264f227b90d0af95a93e7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a0486a27d76c978a65c4a3cfd81df52a12e4ea1d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576658"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791580"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
 
@@ -160,7 +160,7 @@ V2 스택은 어셈블리 특성을 사용하는 대신 명시적 V2 클래스�
    </Resources>
    ```
 
-2. `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` 네임스페이스에서 [FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet)를 사용합니다.
+2. `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` 네임스페이스에서 [FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener)를 사용합니다.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -176,7 +176,7 @@ V2 스택은 어셈블리 특성을 사용하는 대신 명시적 V2 클래스�
     }
    ```
 
-3. `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` 네임스페이스에서 [FabricTransportServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)를 사용하여 클라이언트를 만듭니다.
+3. `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` 네임스페이스에서 [FabricTransportServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory)를 사용하여 클라이언트를 만듭니다.
 
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
@@ -210,7 +210,7 @@ V1에서 V2로 업그레이드하려면 2단계 업그레이드가 필요합니�
     }
     ```
 
-    c. V1 및 V2 수신기와 V2 클라이언트를 사용하려면 원격 인터페이스에 어셈블리 특성을 추가합니다.
+    다. V1 및 V2 수신기와 V2 클라이언트를 사용하려면 원격 인터페이스에 어셈블리 특성을 추가합니다.
     ```csharp
     [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2|RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2)]
 
@@ -255,7 +255,7 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
     }
    ```
 
-3. 원격 인터페이스에 [어셈블리 특성](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet)을 추가합니다.
+3. 원격 인터페이스에 [어셈블리 특성](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute)을 추가합니다.
 
    ```csharp
     [assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
@@ -267,7 +267,7 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>명시적 원격 클래스를 사용하여 V2(인터페이스 호환 가능) 버전에 대한 수신기/클라이언트 팩터리 만들기
 
-다음 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1. 서비스 매니페스트에서 Endpoint Resource를 “ServiceEndpointV2_1”이라는 이름으로 추가합니다.
 
@@ -279,7 +279,7 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
    </Resources>
    ```
 
-2. [Remoting V2 수신기](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet)를 사용합니다. 사용된 기본 서비스 엔드포인트 리소스 이름은 “ServiceEndpointV2_1”이며 서비스 매니페스트에서 정의해야 합니다.
+2. [Remoting V2 수신기](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener)를 사용합니다. 사용된 기본 서비스 엔드포인트 리소스 이름은 “ServiceEndpointV2_1”이며 서비스 매니페스트에서 정의해야 합니다.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -297,7 +297,7 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
     }
    ```
 
-3. V2 [클라이언트 팩터리](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)를 사용합니다.
+3. V2 [클라이언트 팩터리](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory)를 사용합니다.
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
           {
@@ -337,7 +337,7 @@ V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드
     }
     ```
 
-    c. V1 및 V2_1 수신기와 V2_1 클라이언트를 사용하기 위해 원격 인터페이스에 어셈블리 특성을 추가합니다.
+    다. V1 및 V2_1 수신기와 V2_1 클라이언트를 사용하기 위해 원격 인터페이스에 어셈블리 특성을 추가합니다.
     ```csharp
    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1 | RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2_1)]
 
@@ -356,7 +356,7 @@ V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>원격 래핑된 메시지로 사용자 지정 serialization 사용
 
 원격 래핑된 메시지에서 모든 매개 변수를 필드로 사용하여 래핑된 단일 개체를 만듭니다.
-다음 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1. 사용자 지정 serialization에 대한 구현을 제공하기 위해 `IServiceRemotingMessageSerializationProvider` 인터페이스를 구현합니다.
     이 코드 조각은 구현 모습을 보여줍니다.

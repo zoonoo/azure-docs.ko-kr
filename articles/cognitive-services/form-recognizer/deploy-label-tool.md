@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359849"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790430"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
 
@@ -101,7 +101,7 @@ Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 �
 > 웹 앱을 만들 때 권한 부여/인증을 구성할 수도 있습니다. 시작 하는 데 필요 하지 않습니다. 
 
 > [!IMPORTANT]
-> 웹 앱에 대 한 TLS를 사용 하도록 설정 해야 해당 주소에서 볼 수 있습니다 `https` . 웹 앱에 TLS/SSL을 사용 하도록 설정 하는 것 보다 사이드카 컨테이너를 설정 하려면 [tls 끝점 사용](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) 의 지침을 따르세요.
+> 웹 앱에 대 한 TLS를 사용 하도록 설정 해야 해당 주소에서 볼 수 있습니다 `https` . 웹 앱에 TLS/SSL을 사용 하도록 설정 하는 것 보다 사이드카 컨테이너를 설정 하려면 [tls 끝점 사용](../../container-instances/container-instances-container-group-ssl.md) 의 지침을 따르세요.
 
 ### <a name="azure-cli"></a>Azure CLI
 

@@ -4,12 +4,12 @@ description: 각각의 사용 시기에 대 한 지침을 포함 하 여 Service
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2b97b15ca4eb287f8d8f2c1af932f22acafae546
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77eb29c9146fe66d5d2b6073c33e30fbab649c2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016549"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791797"
 ---
 # <a name="actor-timers-and-reminders"></a>행위자 타이머 및 미리 알림
 행위자는 타이머 또는 미리 알림을 등록하여 정기적인 작업을 예약할 수 있습니다. 이 문서에서는 타이머와 미리 알림을 사용하는 방법을 보여 주고 둘 간의 차이점을 설명합니다.
@@ -126,12 +126,12 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 행위자가 가비지 수집의 일환으로 비활성화되면 모든 타이머가 중지됩니다. 그다음 타이머 콜백이 호출되지 않습니다. 또한 행위자 런타임은 비활성화 전에 실행 중이었던 타이머에 대한 정보를 유지하지 않습니다. 나중에 다시 활성화될 때 필요한 모든 타이머를 등록하는 것은 행위자의 일입니다. 자세한 내용은 [행위자 가비지 수집](service-fabric-reliable-actors-lifecycle.md)섹션을 참조하세요.
 
 ## <a name="actor-reminders"></a>행위자 미리 알림
-미리 알림은 행위자에서 지정된 시간에 영구 콜백을 트리거하는 메커니즘입니다. 기능은 타이머와 비슷합니다. 하지만 타이머와 달리 미리 알림은 행위자가 명시적으로 등록을 취소하거나 행위자가 명시적으로 삭제할 때까지 모든 상황에서 트리거됩니다. 구체적으로, 미리 알림은 행위자 런타임이 행위자 상태 제공자를 사용하여 행위자의 미리 알림에 대한 정보를 유지하므로 행위자 비활성화 및 장애 조치를 통해 트리거됩니다. 또한 타이머와는 달리, `RegisterReminderAsync` 동일한 *reminderName*를 사용 하 여 등록 방법 ()을 다시 호출 하 여 기존 미리 알림을 업데이트할 수 있습니다.
+미리 알림은 행위자에서 지정된 시간에 영구 콜백을 트리거하는 메커니즘입니다. 기능은 타이머와 비슷합니다. 하지만 타이머와 달리 미리 알림은 행위자가 명시적으로 등록을 취소하거나 행위자가 명시적으로 삭제할 때까지 모든 상황에서 트리거됩니다. 구체적으로, 미리 알림은 행위자 런타임이 행위자 상태 제공자를 사용하여 행위자의 미리 알림에 대한 정보를 유지하므로 행위자 비활성화 및 장애 조치를 통해 트리거됩니다. 또한 타이머와는 달리, `RegisterReminderAsync` 동일한 *reminderName* 를 사용 하 여 등록 방법 ()을 다시 호출 하 여 기존 미리 알림을 업데이트할 수 있습니다.
 
 > [!NOTE]
-> 미리 알림의 안정성은 행위자 상태 공급자가 제공 하는 상태 안정성 보증에 연결 됩니다. 즉, 상태 지 속성이 *없음*으로 설정 된 행위자의 경우 장애 조치 (failover) 후 미리 알림이 발생 하지 않습니다.
+> 미리 알림의 안정성은 행위자 상태 공급자가 제공 하는 상태 안정성 보증에 연결 됩니다. 즉, 상태 지 속성이 *없음* 으로 설정 된 행위자의 경우 장애 조치 (failover) 후 미리 알림이 발생 하지 않습니다.
 
-미리 알림을 등록 하려면 [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) 다음 예제와 같이 행위자가 기본 클래스에 제공 된 메서드를 호출 합니다.
+미리 알림을 등록 하려면 [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync#remarks) 다음 예제와 같이 행위자가 기본 클래스에 제공 된 메서드를 호출 합니다.
 
 ```csharp
 protected override async Task OnActivateAsync()

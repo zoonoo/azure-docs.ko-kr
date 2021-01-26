@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d64c6383b9a83b759dd8368a4e3e0f1847b5ee16
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445902"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791226"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -63,7 +63,7 @@ POA는 다음과 같은 하위 구성 요소로 구성 됩니다.
 > [!NOTE]
 > POA는 Service Fabric Repair Manager 서비스를 사용 하 여 노드를 사용 하지 않도록 설정 하거나 사용 하도록 설정 하 고 상태 검사를 수행 합니다. POA에서 만든 복구 작업은 각 노드에 대 한 Windows 업데이트 진행률을 추적 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!NOTE]
 > 필요한 최소 .NET Framework 버전은 4.6입니다.
@@ -77,7 +77,7 @@ POA를 사용 하려면 클러스터에서 Repair Manager 서비스를 사용 �
 실버 내구성 계층의 Azure 클러스터에는 기본적으로 Repair Manager 서비스가 사용 하도록 설정 되어 있습니다. 골드 내구성 계층의 Azure 클러스터에는 해당 클러스터를 만든 시기에 따라 Repair Manager 서비스가 사용 하도록 설정 되어 있을 수도 있고 없을 수도 있습니다. 청동 내구성 계층의 Azure 클러스터에는 기본적으로 Repair Manager 서비스가 사용 하도록 설정 되어 있지 않습니다. 서비스가 이미 사용 하도록 설정 된 경우 Service Fabric Explorer의 시스템 서비스 섹션에서 실행 되는 것을 볼 수 있습니다.
 
 ##### <a name="the-azure-portal"></a>Azure Portal
-클러스터를 설정할 때 Azure Portal에서 Repair Manager를 사용 하도록 설정할 수 있습니다. 클러스터를 구성 하는 경우 **추가 기능**에서 **Repair Manager 포함** 옵션을 선택 합니다.
+클러스터를 설정할 때 Azure Portal에서 Repair Manager를 사용 하도록 설정할 수 있습니다. 클러스터를 구성 하는 경우 **추가 기능** 에서 **Repair Manager 포함** 옵션을 선택 합니다.
 
 ![Azure Portal에서 Repair Manager를 사용 하도록 설정 하는 이미지](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
@@ -141,7 +141,7 @@ Repair Manager 서비스를 사용 하도록 설정 하려면
 
 1. 업데이트 된 클러스터 매니페스트 [새 클러스터 만들기](./service-fabric-cluster-creation-for-windows-server.md) 또는 [클러스터 구성 업그레이드](./service-fabric-cluster-upgrade-windows-server.md)를 사용 하 여 클러스터 매니페스트를 이러한 변경 내용으로 업데이트 합니다. 
 
-   클러스터가 업데이트 된 클러스터 매니페스트로 실행 되 면 클러스터에서 실행 중인 Repair Manager 서비스를 볼 수 있습니다. *Fabric:/system/RepairManagerService*이라고 하며 Service Fabric Explorer의 시스템 서비스 섹션에 있습니다.
+   클러스터가 업데이트 된 클러스터 매니페스트로 실행 되 면 클러스터에서 실행 중인 Repair Manager 서비스를 볼 수 있습니다. *Fabric:/system/RepairManagerService* 이라고 하며 Service Fabric Explorer의 시스템 서비스 섹션에 있습니다.
 
 ### <a name="configure-windows-updates-for-all-nodes"></a>모든 노드에 대 한 Windows 업데이트 구성
 
@@ -169,7 +169,7 @@ Repair Manager 서비스를 사용 하도록 설정 하려면
 | AcceptWindowsUpdateEula | 부울 <br>(기본값: *true*) | 이 플래그를 설정하면 애플리케이션이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
 
 > [!TIP]
-> Windows 업데이트를 즉시 수행 하려면 `WUFrequency` 응용 프로그램 배포 시간을 기준으로 설정 합니다. 예를 들어 5노드 테스트 클러스터가 있고 약 5PM UTC에 앱을 배포할 계획이라고 가정할 수 있습니다. 응용 프로그램 업그레이드 또는 배포에 30 분이 소요 된다고 가정 하면 WUFrequency을 *매일, 17:30:00*로 설정 합니다.
+> Windows 업데이트를 즉시 수행 하려면 `WUFrequency` 응용 프로그램 배포 시간을 기준으로 설정 합니다. 예를 들어 5노드 테스트 클러스터가 있고 약 5PM UTC에 앱을 배포할 계획이라고 가정할 수 있습니다. 응용 프로그램 업그레이드 또는 배포에 30 분이 소요 된다고 가정 하면 WUFrequency을 *매일, 17:30:00* 로 설정 합니다.
 
 ## <a name="deploy-poa"></a>POA 배포
 
@@ -256,7 +256,7 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
 클러스터에서 역방향 프록시를 사용 하는 경우 클러스터 외부에서 URL에도 액세스할 수 있습니다.
 
-적중 해야 하는 끝점은 *Http:// &lt; SERVERURL &gt; : &lt; REVERSEPROXYPORT &gt; /PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults*입니다.
+적중 해야 하는 끝점은 *Http:// &lt; SERVERURL &gt; : &lt; REVERSEPROXYPORT &gt; /PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults* 입니다.
 
 클러스터에서 역방향 프록시를 사용 하도록 설정 하려면 [Azure의 역방향 프록시 Service Fabric](./service-fabric-reverseproxy.md)에 있는 지침을 따르세요. 
 
@@ -271,17 +271,17 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 > [!NOTE]
 > 다음과 같은 여러 가지 호출 된 자체 진단 기능을 제공 하기 위해 1.4.0 이상 버전을 설치 해야 합니다.
 
-노드 에이전트 NTService는 노드에 업데이트를 설치 하기 위한 [복구 작업](/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) 을 만듭니다. 그런 다음 작업 승인 정책에 따라 코디네이터 서비스에서 각 작업을 준비 합니다. 마지막으로, Repair Manager에서 준비 된 작업을 승인 하며, 클러스터가 비정상 상태인 경우에는 작업을 승인 하지 않습니다. 
+노드 에이전트 NTService는 노드에 업데이트를 설치 하기 위한 [복구 작업](/dotnet/api/system.fabric.repair.repairtask) 을 만듭니다. 그런 다음 작업 승인 정책에 따라 코디네이터 서비스에서 각 작업을 준비 합니다. 마지막으로, Repair Manager에서 준비 된 작업을 승인 하며, 클러스터가 비정상 상태인 경우에는 작업을 승인 하지 않습니다. 
 
 노드에서 업데이트가 진행 되는 방식을 이해 하는 데 도움이 되도록 다음 단계를 수행해 보겠습니다.
 
 1. NodeAgentNTService는 모든 노드에서 실행 되며 예약 된 시간에 사용 가능한 Windows 업데이트를 찾습니다. 업데이트를 사용할 수 있는 경우 해당 업데이트를 노드에서 다운로드 합니다.
 
-1. 업데이트를 다운로드 한 후 노드 에이전트 NTService는 *POS___ \<unique_id> *이름으로 노드에 대 한 해당 복구 작업을 만듭니다. [ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) cmdlet을 사용 하거나 노드 세부 정보 섹션에서 SFX를 사용 하 여 이러한 복구 작업을 볼 수 있습니다. 복구 작업을 만든 후에는 [ *요청* 된 상태로](/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet)신속 하 게 이동 합니다.
+1. 업데이트를 다운로드 한 후 노드 에이전트 NTService는 *POS___ \<unique_id>* 이름으로 노드에 대 한 해당 복구 작업을 만듭니다. [ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask) cmdlet을 사용 하거나 노드 세부 정보 섹션에서 SFX를 사용 하 여 이러한 복구 작업을 볼 수 있습니다. 복구 작업을 만든 후에는 [ *요청* 된 상태로](/dotnet/api/system.fabric.repair.repairtaskstate)신속 하 게 이동 합니다.
 
-1. 코디네이터 서비스는 주기적으로 *요청* 된 상태에서 복구 작업을 찾은 다음 TaskApprovalPolicy에 따라 상태를 *준비* 하도록 업데이트 합니다. TaskApprovalPolicy가 NodeWise로 구성 된 경우에는 현재 준비, *승인 됨*, *실행* *중*또는 *복원* 중인 다른 복구 작업이 없는 경우에만 노드에 해당 하는 복구 작업이 준비 됩니다. 
+1. 코디네이터 서비스는 주기적으로 *요청* 된 상태에서 복구 작업을 찾은 다음 TaskApprovalPolicy에 따라 상태를 *준비* 하도록 업데이트 합니다. TaskApprovalPolicy가 NodeWise로 구성 된 경우에는 현재 준비, *승인 됨*, *실행* *중* 또는 *복원* 중인 다른 복구 작업이 없는 경우에만 노드에 해당 하는 복구 작업이 준비 됩니다. 
 
-   마찬가지로 UpgradeWise TaskApprovalPolicy의 경우 동일한 업데이트 도메인에 속하는 노드에 대해서만 위의 상태에 있는 태스크가 있습니다. 복구 작업이 상태 *준비* 로 이동 된 후에는 해당 하는 Service Fabric 노드가 *다시 시작*되도록 설정 된 상태로 [사용 하지 않도록](/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) 설정 됩니다.
+   마찬가지로 UpgradeWise TaskApprovalPolicy의 경우 동일한 업데이트 도메인에 속하는 노드에 대해서만 위의 상태에 있는 태스크가 있습니다. 복구 작업이 상태 *준비* 로 이동 된 후에는 해당 하는 Service Fabric 노드가 *다시 시작* 되도록 설정 된 상태로 [사용 하지 않도록](/powershell/module/servicefabric/disable-servicefabricnode) 설정 됩니다.
 
    1.4.0 나중에 ClusterPatchingStatus 속성을 사용 하 여 이벤트를 게시 하 여 패치 중인 노드를 표시 합니다. 업데이트는 다음 이미지와 같이 _poanode_0에 설치 됩니다.
 
@@ -294,13 +294,13 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
 1. 복구 작업이 *실행* 중 상태 이면 해당 노드에 대 한 패치 설치가 시작 됩니다. 패치를 설치 하 고 나면 패치에 따라 노드가 다시 시작 되거나 다시 시작 되지 않을 수 있습니다. 그런 다음 복구 작업을 *복원* 상태로 이동 하 여 노드를 다시 합니다. 그런 다음 복구 작업이 완료로 표시 됩니다.
 
-   POA 버전 1.4.0 이상에서는 WUOperationStatus를 사용 하 여 NodeAgentService에서 상태 이벤트를 확인 하 여 업데이트 상태를 찾을 수 있습니다 \<NodeName> . 다음 이미지의 강조 표시 된 섹션에서는 *poanode_0* 및 *poanode_2*노드의 Windows 업데이트 상태를 보여 줍니다.
+   POA 버전 1.4.0 이상에서는 WUOperationStatus를 사용 하 여 NodeAgentService에서 상태 이벤트를 확인 하 여 업데이트 상태를 찾을 수 있습니다 \<NodeName> . 다음 이미지의 강조 표시 된 섹션에서는 *poanode_0* 및 *poanode_2* 노드의 Windows 업데이트 상태를 보여 줍니다.
 
    [![스크린샷 poanode_0 강조 표시 된 Windows 업데이트 작업 상태의 콘솔 창을 보여 줍니다.](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
    [![스크린샷 poanode_1 강조 표시 된 Windows 업데이트 작업 상태의 콘솔 창을 보여 줍니다.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
-   PowerShell을 사용 하 여 세부 정보를 가져올 수도 있습니다. 이렇게 하려면 클러스터에 연결 하 고 [ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps)을 사용 하 여 복구 작업의 상태를 가져옵니다. 
+   PowerShell을 사용 하 여 세부 정보를 가져올 수도 있습니다. 이렇게 하려면 클러스터에 연결 하 고 [ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask)을 사용 하 여 복구 작업의 상태를 가져옵니다. 
    
    다음 예제에서 "POS__poanode_2_125f2969-933c-4774-ebdf85e79f15" 작업은 *Downloadcomplete* 상태에 있습니다. 즉, *poanode_2* 노드에 업데이트가 다운로드 되었으며, 작업을 *실행* 중 상태로 이동할 때 설치를 시도 합니다.
 
@@ -313,7 +313,7 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
    문제가 계속 발생 하면 VM (가상 머신)에 로그인 하 고 Windows 이벤트 로그를 사용 하 여 해당 vm에 대해 알아보세요. 앞에서 언급 한 복구 작업은 다음 executor 하위 작업에만 존재할 수 있습니다.
 
-      ExecutorSubState 방법 | 설명
+      ExecutorSubState 방법 | Description
     -- | -- 
       없음 = 1 |  는 노드에서 진행 중인 작업이 없음을 의미 합니다. 상태가 전환 중일 수 있습니다.
       DownloadCompleted = 2 | 다운로드 작업이 성공, 부분 실패 또는 실패와 함께 완료 되었음을 의미 합니다.
@@ -334,7 +334,7 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
 패치 오케스트레이션 응용 프로그램 로그는 Service Fabric 런타임 로그의 일부로 수집 됩니다.
 
-선택한 진단 도구나 파이프라인을 사용 하 여 로그를 캡처할 수 있습니다. POA는 다음과 같은 고정 된 공급자 Id를 사용 하 여 [이벤트 소스](/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)를 통해 이벤트를 기록 합니다.
+선택한 진단 도구나 파이프라인을 사용 하 여 로그를 캡처할 수 있습니다. POA는 다음과 같은 고정 된 공급자 Id를 사용 하 여 [이벤트 소스](/dotnet/api/system.diagnostics.tracing.eventsource)를 통해 이벤트를 기록 합니다.
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -379,7 +379,7 @@ A: POA는 클러스터가 비정상 상태인 동안 업데이트를 설치 하�
 
 **Q: 내 클러스터에 대해 TaskApprovalPolicy를 "NodeWise" 또는 "UpgradeDomainWise"로 설정 해야 하나요?**
 
-A: "Upgradedomainstststststststststststststststup" 설정은 업데이트 도메인에 속하는 모든 노드를 병렬로 패치 하 여 전체 클러스터 복구 속도를 이 과정에서 전체 업데이트 도메인에 속하는 노드는 사용할 수 없습니다 ( [ *비활성화* 상태](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
+A: "Upgradedomainstststststststststststststststup" 설정은 업데이트 도메인에 속하는 모든 노드를 병렬로 패치 하 여 전체 클러스터 복구 속도를 이 과정에서 전체 업데이트 도메인에 속하는 노드는 사용할 수 없습니다 ( [ *비활성화* 상태](/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabled)).
 
 이와 대조적으로 "NodeWise" 설정은 한 번에 하나의 노드만 패치 하며,이는 전체 클러스터 패치가 더 오래 걸릴 수 있음을 의미 합니다. 그러나 패치를 처리 하는 동안에는 최대 하나의 노드만 사용할 수 없게 됩니다 ( *비활성화* 상태).
 
@@ -405,9 +405,9 @@ A: 전체 클러스터를 패치 하는 데 필요한 시간은 다음에 따라
     - "NodeWise": ~ 20 시간
     - "UpgradeDomainWise": ~ 5 시간
 
-- 클러스터 로드입니다. 각 패치 작업을 수행 하려면 고객 워크 로드를 클러스터의 다른 사용 가능한 노드로 재배치 해야 합니다. 패치가 적용 되는 노드는이 시간 동안 [ *비활성화* 상태](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) 입니다. 클러스터가 거의 최대 부하를 실행 하는 경우 비활성화 프로세스는 더 오래 걸립니다. 따라서 전반적인 패치 프로세스는 이러한 과도 한 상황에서 속도가 느려지는 것 처럼 보일 수 있습니다.
+- 클러스터 로드입니다. 각 패치 작업을 수행 하려면 고객 워크 로드를 클러스터의 다른 사용 가능한 노드로 재배치 해야 합니다. 패치가 적용 되는 노드는이 시간 동안 [ *비활성화* 상태](/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabling) 입니다. 클러스터가 거의 최대 부하를 실행 하는 경우 비활성화 프로세스는 더 오래 걸립니다. 따라서 전반적인 패치 프로세스는 이러한 과도 한 상황에서 속도가 느려지는 것 처럼 보일 수 있습니다.
 
-- 패치 중 클러스터 상태 오류입니다. [클러스터의 상태가](./service-fabric-health-introduction.md) [저하](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) 되 면 패치 프로세스가 중단 됩니다. 이 문제는 전체 클러스터를 패치 하는 데 필요한 전체 시간에 추가 됩니다.
+- 패치 중 클러스터 상태 오류입니다. [클러스터의 상태가](./service-fabric-health-introduction.md) [저하](/dotnet/api/system.fabric.health.healthstate#System_Fabric_Health_HealthState_Error) 되 면 패치 프로세스가 중단 됩니다. 이 문제는 전체 클러스터를 패치 하는 데 필요한 전체 시간에 추가 됩니다.
 
 **Q: REST API Windows 업데이트를 통해 가져온 Windows 업데이트 결과에 일부 업데이트가 표시 되는 이유는 무엇 인가요?**
 

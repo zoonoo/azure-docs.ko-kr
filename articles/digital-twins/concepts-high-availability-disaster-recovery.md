@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 35f4aae246f105d832aaf92c5c5797c8a65b44f1
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 3336a086fbe8f4291f752836a610cd80b773ec2d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938549"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790819"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins 고가용성 및 재해 복구
 
@@ -41,7 +41,7 @@ Azure Digital Twins는 서비스 내에서 중복을 구현 하 여 지역 간 H
 
 ## <a name="monitor-service-health"></a>서비스 상태 모니터링
 
-Azure Digital Twins 인스턴스가 장애 조치 (failover) 되 고 복구 되 면 [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview) 도구를 사용 하 여 프로세스를 모니터링할 수 있습니다. Service Health는 서로 다른 지역 및 구독에서 Azure 서비스의 상태를 추적 하 고 중단 및 가동 중지 시간에 대해 서비스에 영향을 주는 통신을 공유 합니다.
+Azure Digital Twins 인스턴스가 장애 조치 (failover) 되 고 복구 되 면 [Azure Service Health](../service-health/service-health-overview.md) 도구를 사용 하 여 프로세스를 모니터링할 수 있습니다. Service Health는 서로 다른 지역 및 구독에서 Azure 서비스의 상태를 추적 하 고 중단 및 가동 중지 시간에 대해 서비스에 영향을 주는 통신을 공유 합니다.
 
 장애 조치 (failover) 이벤트 중에는 서비스가 다운 된 시기와 백업 시점을 표시 하는 Service Health을 제공할 수 있습니다.
 

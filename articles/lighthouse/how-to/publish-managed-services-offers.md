@@ -3,12 +3,12 @@ title: Azure Marketplace에 관리 서비스 제품 게시
 description: Azure Lighthouse에 고객에 게 제공 하는 관리 서비스 제품을 게시 하는 방법에 대해 알아봅니다.
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: a003e671631e9f23654eb524c7c2d937339a9588
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: f6bd504185fab3fc698019a3eb8c530ba93f8abc
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673157"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791376"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리 서비스 제품 게시
 
@@ -18,7 +18,7 @@ ms.locfileid: "97673157"
 
 제품을 만들고 게시 하려면 [파트너 센터에 유효한 계정이](../../marketplace/partner-center-portal/create-account.md) 있어야 합니다. 계정이 아직 없는 경우 [등록 프로세스](https://aka.ms/joinmarketplace) 는 파트너 센터에서 계정을 만들고 상업적 Marketplace 프로그램에 등록 하는 단계를 안내 합니다.
 
-관리 서비스 제공 [인증 요구 사항](/legal/marketplace/certification-policies#7004-business-requirements)에 따라 [실버 또는 골드 클라우드 플랫폼 역량 수준이](/partner-center/learn-about-competencies) 있거나 관리 서비스 제품을 게시 하기 위해 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 여야 합니다. 또한 고객이 제품을 배포할 때마다 [CRM 시스템에 레코드를 만들 잠재 고객 대상을 입력](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#customer-leads) 해야 합니다.
+관리 서비스 제공 [인증 요구 사항](/legal/marketplace/certification-policies#7004-business-requirements)에 따라 [실버 또는 골드 클라우드 플랫폼 역량 수준이](/partner-center/learn-about-competencies) 있거나 관리 서비스 제품을 게시 하기 위해 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 여야 합니다. 또한 고객이 제품을 배포할 때마다 [CRM 시스템에 레코드를 만들 잠재 고객 대상을 입력](../../marketplace/plan-managed-service-offer.md#customer-leads) 해야 합니다.
 
 MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로 연결되어](../../cost-management-billing/manage/link-partner-id.md) 고객 계약에 미치는 영향을 추적합니다.
 
@@ -38,7 +38,7 @@ Azure Marketplace에 제품을 게시 하지 않거나 모든 요구 사항을 �
 
 ## <a name="create-your-offer"></a>제품 만들기
 
-제공 해야 하는 모든 정보 및 자산을 포함 하 여 제품을 만드는 방법에 대 한 자세한 지침은 [관리 서비스 제안 만들기](../../marketplace/partner-center-portal/create-new-managed-service-offer.md)를 참조 하세요.
+제공 해야 하는 모든 정보 및 자산을 포함 하 여 제품을 만드는 방법에 대 한 자세한 지침은 [관리 서비스 제안 만들기](../../marketplace/plan-managed-service-offer.md)를 참조 하세요.
 
 일반 게시 프로세스에 대해 알아보려면 [Azure Marketplace 및 AppSource 게시 가이드](../../marketplace/overview.md)를 참조 하세요. [상업 마켓플레이스 인증 정책](/legal/marketplace/certification-policies), 특히 [관리 서비스](/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
 
@@ -49,7 +49,7 @@ Azure Marketplace에 제품을 게시 하지 않거나 모든 요구 사항을 �
 
 ## <a name="publish-your-offer"></a>제품 게시
 
-모든 섹션을 완료한 후, 다음 단계는 Azure Marketplace에 제품을 게시하는 것입니다. **게시** 단추를 선택하여 제품을 라이브로 전환하는 프로세스를 시작합니다. 이 프로세스에 대 한 자세한 정보는 [여기](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#publish)에서 확인할 수 있습니다. 
+모든 섹션을 완료한 후, 다음 단계는 Azure Marketplace에 제품을 게시하는 것입니다. **게시** 단추를 선택하여 제품을 라이브로 전환하는 프로세스를 시작합니다. 이 프로세스에 대 한 자세한 정보는 [여기](../../marketplace/plan-managed-service-offer.md)에서 확인할 수 있습니다. 
 
 언제든지 [제품의 업데이트된 버전을 게시](../..//marketplace/partner-center-portal/update-existing-offer.md)할 수 있습니다. 예를 들어 이전에 게시된 제품에 새 역할 정의를 추가하려고 할 수 있습니다. 이렇게 하면 제품을 이미 추가한 고객은 Azure Portal의 [**서비스 공급자**](view-manage-service-providers.md) 페이지에 업데이트를 사용할 수 있음을 알려 주는 아이콘이 표시됩니다. 각 고객은 [변경 내용을 검토](view-manage-service-providers.md#update-service-provider-offers) 하 고 새 버전으로 업데이트할지 여부를 결정할 수 있습니다. 
 

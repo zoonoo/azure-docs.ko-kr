@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9e9127d9776169131c2ed7f4778052646e84f8b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34ec43593d50e359f09059cd3d51522df62cf567
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013115"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789654"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Service Fabric 클러스터에서 제어되는 비정상 상황 유도
 클라우드 인프라와 같은 대규모 분산 시스템은 기본적으로 안정적이지 않습니다. Azure Service Fabric을 사용하면 개발자들은 불안정한 인프라 위에 안정적인 분산 서비스를 작성할 수 있습니다. 불안정한 인프라 위에 강력한 분산 서비스를 작성하려는 경우 기반이 되는 불안정한 인프라가 결함으로 인해 복잡한 상태 전환을 겪을 때 개발자는 서비스의 안정성을 테스트할 수 있어야 합니다.
 
-[오류 삽입 및 클러스터 분석 서비스](./service-fabric-testability-overview.md)(오류 분석 서비스라고도 함)는 개발자에게 서비스를 테스트할 수 있도록 오류를 유도하는 기능을 제공합니다. [파티션 다시 시작](/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps)과 같은 이러한 대상 시뮬레이트 오류는 가장 일반적인 상태 전환을 실행하는 데 도움이 됩니다. 그러나 대상 시뮬레이트 오류는 기본적으로 편향되어 있으므로 예측하기 어렵고 오래 진행되는 복잡한 상태 전환 시퀀스로만 나타나는 버그는 놓칠 수 있습니다. 편향되지 않는 테스트를 위해서는 비정상 상황을 사용할 수 있습니다.
+[오류 삽입 및 클러스터 분석 서비스](./service-fabric-testability-overview.md)(오류 분석 서비스라고도 함)는 개발자에게 서비스를 테스트할 수 있도록 오류를 유도하는 기능을 제공합니다. [파티션 다시 시작](/powershell/module/servicefabric/start-servicefabricpartitionrestart)과 같은 이러한 대상 시뮬레이트 오류는 가장 일반적인 상태 전환을 실행하는 데 도움이 됩니다. 그러나 대상 시뮬레이트 오류는 기본적으로 편향되어 있으므로 예측하기 어렵고 오래 진행되는 복잡한 상태 전환 시퀀스로만 나타나는 버그는 놓칠 수 있습니다. 편향되지 않는 테스트를 위해서는 비정상 상황을 사용할 수 있습니다.
 
 비정상 상황은 장기간에 걸쳐 클러스터 전체에서 정상적 및 비정상적인 주기적 인터리브 오류를 지속적으로 시뮬레이트합니다. 정상적인 오류는 Service Fabric API 호출 집합으로 구성됩니다, 예를 들어 복제본 다시 시작 오류는 복제본에 대해 닫기가 수행될 후 열기가 수행되므로 정상적인 오류입니다. 복제본 제거, 주 복제본 이동 및 보조 복제본 이동은 비정상 상황에서 진행되는 다른 정상적인 오류입니다. 비정상적 오류는 프로세스 종료(예: 노드 다시 시작 및 코드 패키지 다시 시작)입니다. 
 

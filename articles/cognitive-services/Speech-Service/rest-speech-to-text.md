@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1577d63822bdb21eff7fcbb3e1343243a3004409
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 70c5593f29b5e83d5d3f318179d365a9235849ca
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033645"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790616"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
 음성 텍스트에는 두 가지 REST Api가 있습니다. 각 API는 특별 한 용도로 사용 되며 다른 끝점 집합을 사용 합니다.
 
 음성 텍스트 REST Api는 다음과 같습니다.
-- [음성 텍스트 REST API v 3.0](#speech-to-text-rest-api-v30) 은 [일괄 처리](batch-transcription.md) 기록 및 [Custom Speech](custom-speech-overview.md)에 사용 됩니다. v 3.0은 v2.0 [의 후속 작업](/azure/cognitive-services/speech-service/migrate-v2-to-v3)입니다.
+- [음성 텍스트 REST API v 3.0](#speech-to-text-rest-api-v30) 은 [일괄 처리](batch-transcription.md) 기록 및 [Custom Speech](custom-speech-overview.md)에 사용 됩니다. v 3.0은 v2.0 [의 후속 작업](./migrate-v2-to-v3.md)입니다.
 - [짧은 오디오의 음성 텍스트 REST API](#speech-to-text-rest-api-for-short-audio) 는 [음성 SDK](speech-sdk.md)대신 온라인 기록에 사용 됩니다. 이 API를 사용 하는 요청은 요청당 최대 60 초의 오디오를 전송할 수 있습니다. 
 
 ## <a name="speech-to-text-rest-api-v30"></a>음성 텍스트 REST API v 3.0
@@ -45,7 +45,7 @@ REST API v 3.0에는 다음과 같은 기능이 포함 되어 있습니다.
 
 일괄 처리 기록을 통해 REST API v 3.0 사용에 대 한 예제는 [이 문서](batch-transcription.md)를 참조 하세요.
 
-음성 텍스트 REST API v 2.0을 사용 하는 경우 [이 가이드](/azure/cognitive-services/speech-service/migrate-v2-to-v3)의 v 3.0으로 마이그레이션하는 방법을 참조 하세요.
+음성 텍스트 REST API v 2.0을 사용 하는 경우 [이 가이드](./migrate-v2-to-v3.md)의 v 3.0으로 마이그레이션하는 방법을 참조 하세요.
 
 [여기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)에서 전체 음성 텍스트 REST API v 3.0 참조를 참조 하세요.
 
@@ -84,7 +84,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
-| 매개 변수 | 설명 | 필수/선택 |
+| 매개 변수 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원 되는 언어](language-support.md#speech-to-text)를 참조 하세요. | 필수 |
 | `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. 자세한 응답에는 표시 텍스트의 네 가지 표현이 포함 되어 있습니다. 기본 설정은 `simple`입니다. | 선택 사항 |
@@ -121,7 +121,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 다음 표에서는 발음 평가를 위한 필수 및 선택적 매개 변수를 보여 줍니다.
 
-| 매개 변수 | 설명 | 필수 여부 |
+| 매개 변수 | Description | 필수 여부 |
 |-----------|-------------|---------------------|
 | ReferenceText | 발음이 계산 될 텍스트입니다. | 필수 |
 | GradingSystem | 점수 보정의 시점 시스템입니다. `FivePoint`시스템은 0-5 부동 소수점 점수를 제공 하 고 `HundredMark` 0-100 부동 소수점 점수를 제공 합니다. 기본값: `FivePoint`. | 선택 사항 |
@@ -181,7 +181,7 @@ Pronunciation-Assessment: eyJSZWZlcm...
 | HTTP 상태 코드 | Description | 가능한 원인 |
 |------------------|-------------|-----------------|
 | `100` | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송에 사용 됨) |
-| `200` | 정상 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
+| `200` | 확인 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
 | `400` | 잘못된 요청 | 지원 되지 않는 언어 코드, 잘못 된 오디오 파일 등은 제공 되지 않습니다. |
 | `401` | 권한 없음 | 구독 키 또는 권한 부여 토큰이 지정된 지역에서 올바르지 않거나 엔드포인트가 올바르지 않습니다. |
 | `403` | 사용할 수 없음 | 구독 키 또는 권한 부여 토큰이 없습니다. |
@@ -226,7 +226,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 결과는 JSON으로 제공됩니다. `simple` 형식에는 이러한 최상위 수준 필드가 포함됩니다.
 
-| 매개 변수 | 설명  |
+| 매개 변수 | Description  |
 |-----------|--------------|
 |`RecognitionStatus`|상태(예: 인식 성공에 `Success`)입니다. 다음 표를 참조하세요.|
 |`DisplayText`|대/소문자, 문장 부호, 역 텍스트 정규화 (음성 텍스트를 "200"의 경우 200, "의사 smith"의 경우 "Dr. Smith"의 경우) 및 불경 마스킹을 통해 인식 되는 텍스트입니다. 성공 시만 표시합니다.|
@@ -235,7 +235,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 필드에는 다음 값이 포함될 수 있습니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 |--------|-------------|
 | `Success` | 성공적으로 인식했고 `DisplayText` 필드가 있습니다. |
 | `NoMatch` | 오디오 스트림에서 음성이 감지되었지만 대상 언어의 단어가 일치하지 않습니다. 일반적으로 인식 언어는 사용자가 말하는 것과 다른 언어를 의미합니다. |
@@ -251,7 +251,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 목록의 개체는 `NBest` 다음을 포함할 수 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | `Confidence` | 0.0(신뢰도 없음)에서 1.0(완전 신뢰도)까지 항목의 신뢰도 점수입니다. |
 | `Lexical` | 인식된 텍스트의 어휘 형태, 즉 인식된 실제 단위입니다. |

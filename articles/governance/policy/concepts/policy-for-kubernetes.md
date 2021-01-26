@@ -3,12 +3,12 @@ title: Kubernetes에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2b9253d8ce60d5dc77d406e3c9d0469539f2c77
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: f25b64bc28535d125c7883f16c9e747d6250ca96
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511334"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789741"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -55,7 +55,7 @@ Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일
 - 클러스터당 정책 당 최대 비규격 레코드 수: **500**
 - 구독 당 호환 되지 않는 레코드의 최대 수: **100만**
 - Azure Policy 추가 기능 외부에서 게이트 키퍼 설치가 지원 되지 않습니다. Azure Policy 추가 기능을 사용 하도록 설정 하기 전에 이전 게이트 키퍼 설치를 통해 설치 된 모든 구성 요소를 제거 합니다.
-- [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) `Microsoft.Kubernetes.Data` 
+- [](../how-to/determine-non-compliance.md#compliance-reasons) `Microsoft.Kubernetes.Data` 
    [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 비호환의 원인을 사용할 수 없습니다. [구성 요소 세부 정보](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes)를 사용 합니다.
 - [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 [예외가](./exemption-structure.md) 지원 되지 않습니다.
 
@@ -463,7 +463,7 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 
 ## <a name="troubleshooting-the-add-on"></a>추가 기능 문제 해결
 
-Kubernetes에 대 한 추가 기능 문제 해결에 대 한 자세한 내용은 Azure Policy 문제 해결 문서의 [Kubernetes 섹션](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors) 을 참조 하세요.
+Kubernetes에 대 한 추가 기능 문제 해결에 대 한 자세한 내용은 Azure Policy 문제 해결 문서의 [Kubernetes 섹션](../troubleshoot/general.md#add-on-for-kubernetes-general-errors) 을 참조 하세요.
 
 ## <a name="remove-the-add-on"></a>추가 기능 제거
 

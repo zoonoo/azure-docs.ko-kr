@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: c78e15a0656abd510bbc241d39ffd026afddfd96
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c687b5b18c9cf7b0920b23f49e3c7a2607e0a89f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353666"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791023"
 ---
 # <a name="getting-started-with-sql-queries"></a>SQL 쿼리 시작
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -187,7 +187,7 @@ JSON 데이터에 대 한 몇 가지 쿼리를 수행 하 여 Azure Cosmos DB의
 
 * Azure Cosmos DB는 엄격한 JSON 항목만 지원합니다. 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](https://www.json.org/)을 참조하세요.  
 
-* Cosmos 컨테이너는 JSON 항목의 스키마 없는 컬렉션입니다. 컨테이너 항목 간의 관계는 기본 키 및 외래 키 관계가 아닌 포함을 통해 암시적으로 캡처됩니다. 이 기능은이 문서의 뒷부분에서 설명 하는 항목 내 조인에 중요 합니다.
+* Cosmos 컨테이너는 JSON 항목의 스키마 없는 컬렉션입니다. 컨테이너 항목 간의 관계는 기본 키 및 외래 키 관계가 아닌 포함을 통해 암시적으로 캡처됩니다. 이 기능은 [Azure Cosmos DB의 조인](sql-query-join.md)에 설명 된 항목 간 조인에 중요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

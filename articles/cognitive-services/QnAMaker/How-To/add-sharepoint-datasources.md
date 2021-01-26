@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: d6e52da7fce39a259107fe60a21fb5ead7b18709
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 36724e518f1bae636c2d2602a227b53a11257591
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127824"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791057"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안 된 SharePoint 데이터 원본 추가
 
@@ -132,7 +132,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 Azure blob storage를 사용 하 여 API를 통해 최신 SharePoint 콘텐츠를 추가 하는 방법은 다음과 같습니다. 
 1.  SharePoint 파일을 로컬로 다운로드 합니다. API를 호출 하는 사용자에 게는 SharePoint에 대 한 액세스 권한이 있어야 합니다. 
-1.  Azure blob stoarge에 업로드 합니다. 이렇게 하면 [SAS 토큰을 사용 하](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works) 여 보안 공유 액세스를 만듭니다. 
+1.  Azure blob stoarge에 업로드 합니다. 이렇게 하면 [SAS 토큰을 사용 하](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 여 보안 공유 액세스를 만듭니다. 
 1. SAS 토큰을 사용 하 여 생성 된 blob URL을 QnA Maker API 전달 합니다. 질문에 대 한 대답을 파일에서 추출 하려면 URL의 끝에 접미사 파일 형식을 ' &ext = pdf ' 또는 ' &ext = doc '로 추가 하 여 QnA Maker API 전달 해야>  
 
 

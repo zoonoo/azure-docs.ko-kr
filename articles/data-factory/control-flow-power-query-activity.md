@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 3314053e5b81c597d6d29015a5ebda6e171731d1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: c0ad769ceba4fc3fa7f602d70188ea1942ca73aa
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634229"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791697"
 ---
 # <a name="power-query-activity-in-data-factory"></a>데이터 팩터리의 파워 쿼리 작업
 
@@ -22,6 +22,8 @@ ms.locfileid: "98634229"
 ![팩터리 리소스 창에 파워 쿼리를 보여 주는 스크린샷](media/data-flow/power-query-wrangling.png)
 
 이전에 Azure Data Factory의 데이터 랭 글 링 데이터 흐름 메뉴 옵션에서 작성 되었습니다. 새 파워 쿼리 작업에서 제작 하도록 변경 되었습니다. 파워 쿼리 매시업 편집기 내에서 직접 작업 하 여 대화형 데이터 탐색을 수행한 다음 작업을 저장할 수 있습니다. 완료 되 면 파워 쿼리 활동을 사용 하 여 파이프라인에 추가할 수 있습니다. Azure Data Factory은 Azure Data Factory의 데이터 흐름 Spark 환경을 사용 하 여 자동으로 규모를 확장 하 고 데이터 랭 글 링을 운영 합니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4MFYn]
 
 ## <a name="translation-to-data-flow-script"></a>데이터 흐름 스크립트로 변환
 

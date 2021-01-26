@@ -4,12 +4,12 @@ description: 노드 유형, 내구성, 안정성 및 Service Fabric 클러스터
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 731dcfdf25efc4b2f44669dacd8a400037ed47f4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576335"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790701"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 
@@ -146,7 +146,7 @@ Bronze 내구성으로 실행되는 노드 형식은 권한 없음이 됩니다.
 | 7 또는 8 | 금 |
 | 9 이상 | 플래티넘 |
 
-클러스터의 크기를 늘리거나 줄일 때 (모든 노드 유형에 서 VM 인스턴스의 합계) 클러스터의 안정성을 한 계층에서 다른 계층으로 업데이트 하는 것이 좋습니다. 이렇게 하면 시스템 서비스 복제본 세트 수를 변경하는 데 필요한 클러스터 업그레이드를 트리거합니다. 노드를 추가하는 것처럼 클러스터를 다르게 변경하기 전에 진행 중인 업그레이드가 완료될 때까지 기다립니다.  Service Fabric Explorer에서 또는 [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)를 실행하여 업그레이드 진행률을 모니터링할 수 있습니다.
+클러스터의 크기를 늘리거나 줄일 때 (모든 노드 유형에 서 VM 인스턴스의 합계) 클러스터의 안정성을 한 계층에서 다른 계층으로 업데이트 하는 것이 좋습니다. 이렇게 하면 시스템 서비스 복제본 세트 수를 변경하는 데 필요한 클러스터 업그레이드를 트리거합니다. 노드를 추가하는 것처럼 클러스터를 다르게 변경하기 전에 진행 중인 업그레이드가 완료될 때까지 기다립니다.  Service Fabric Explorer에서 또는 [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)를 실행하여 업그레이드 진행률을 모니터링할 수 있습니다.
 
 ### <a name="capacity-planning-for-reliability"></a>안정성을 위한 용량 계획
 

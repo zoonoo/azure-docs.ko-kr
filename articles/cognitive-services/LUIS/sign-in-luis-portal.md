@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: b8382b76496976054ebb452e39866765d986ccbb
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 8a4b86fb8fa5a87283178d957e07617b908e6286
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368184"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790904"
 ---
 # <a name="sign-in-to-luis-portal"></a>LUIS 포털에 로그인
 
@@ -47,8 +47,8 @@ ms.locfileid: "97368184"
     * **테 넌 트 이름** -Azure 구독이 연결 된 테 넌 트입니다. 기존 창에서 테 넌 트를 전환할 수 없습니다. 이 창을 닫고 화면 오른쪽 위에 있는 아바타를 선택 하 여 테 넌 트를 전환할 수 있습니다. 위쪽에서 **다른 제작 리소스 선택** 을 선택 하 여 창을 다시 엽니다.
     * **Azure 리소스 그룹 이름** -구독에서 선택 하는 사용자 지정 리소스 그룹 이름입니다. 리소스 그룹을 사용하면 액세스 및 관리를 위해 Azure 리소스를 그룹화할 수 있습니다. 현재 구독에 리소스 그룹이 없으면 LUIS 포털에서 리소스 그룹을 만들 수 없습니다. [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) 로 이동 하 여 LUIS으로 이동 하 여 로그인 프로세스를 계속 합니다.
     * **Azure 리소스 이름** -제작 트랜잭션에 대 한 URL의 일부로 사용 되는 사용자 지정 이름입니다. 리소스 이름은 영숫자 문자인만 포함할 수 `-` 있고로 시작 하거나 끝날 수 없습니다 `-` . 다른 기호가 이름에 포함 되어 있으면 리소스 만들기가 실패 합니다.
-    * **위치** -미국 서 부, 유럽 서부 및 동부 오스트레일리아를 포함 하 여 현재 LUIS에서 지원 되는 [세 가지 제작 위치](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions) 중 하나에서 응용 프로그램을 작성 하도록 선택 합니다.
-    * **가격 책정 계층** -기본적으로 F0 제작 가격 책정 계층을 선택 하는 것이 좋습니다. 추가 보안 계층을 찾고 있는 경우 Azure Portal에서 [고객 관리 키](https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest#customer-managed-keys-for-language-understanding) 를 만듭니다.
+    * **위치** -미국 서 부, 유럽 서부 및 동부 오스트레일리아를 포함 하 여 현재 LUIS에서 지원 되는 [세 가지 제작 위치](./luis-reference-regions.md) 중 하나에서 응용 프로그램을 작성 하도록 선택 합니다.
+    * **가격 책정 계층** -기본적으로 F0 제작 가격 책정 계층을 선택 하는 것이 좋습니다. 추가 보안 계층을 찾고 있는 경우 Azure Portal에서 [고객 관리 키](./luis-encryption-of-data-at-rest.md#customer-managed-keys-for-language-understanding) 를 만듭니다.
 8. 이제 LUIS에 로그인 했습니다. 이제 응용 프로그램 만들기를 시작할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결

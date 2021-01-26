@@ -3,12 +3,12 @@ title: 위임 업데이트
 description: 이전에 Azure Lighthouse에 등록 한 고객에 대 한 위임을 업데이트 하는 방법에 대해 알아봅니다.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093420"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791342"
 ---
 # <a name="update-a-delegation"></a>위임 업데이트
 
@@ -58,9 +58,9 @@ ms.locfileid: "97093420"
 
 ## <a name="updating-managed-service-offers"></a>관리 서비스 제공 업데이트
 
-Azure Marketplace에 게시 된 관리 서비스 제품을 통해 고객에 게 등록 인증을 업데이트 하려는 경우 해당 고객에 대 한 계획에서 업데이트를 사용할 [권한 부여](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) 와 함께 [새 버전의 제품을 게시](../../marketplace/partner-center-portal/update-existing-offer.md) 하 여 위임을 업데이트할 수 있습니다. 그러면 고객은 Azure Portal에서 최신 버전으로 업데이트할 수 있습니다.
+Azure Marketplace에 게시 된 관리 서비스 제품을 통해 고객에 게 등록 인증을 업데이트 하려는 경우 해당 고객에 대 한 계획에서 업데이트를 사용할 [권한 부여](../../marketplace/plan-managed-service-offer.md) 와 함께 [새 버전의 제품을 게시](../../marketplace/partner-center-portal/update-existing-offer.md) 하 여 위임을 업데이트할 수 있습니다. 그러면 고객은 Azure Portal에서 최신 버전으로 업데이트할 수 있습니다.
 
-관리 테 넌 트를 변경 하려는 경우 고객이 허용할 [새 관리 서비스 제품을 만들고 게시](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) 해야 합니다.
+관리 테 넌 트를 변경 하려는 경우 고객이 허용할 [새 관리 서비스 제품을 만들고 게시](../../marketplace/plan-managed-service-offer.md) 해야 합니다.
 
 > [!TIP]
 > 앞서 설명한 것 처럼 동일한 고객 및 테 넌 트 관리 간에 여러 다른 제안을 사용 하지 않는 것이 좋습니다. 동일 하 게 관리 되는 테 넌 트를 사용 하는 동일한 고객에 대 한 새 제품을 게시 하는 경우 고객이 최신 제품을 수락 하기 전에 이전 제품이 제거 되었는지 확인해 두어야 합니다.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: d858474eca34243a007d0d0ac1e023a4a0fab8ec
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 53be2f6795593bf44cafde149242b13ed4fdfe50
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572343"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790480"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -60,11 +60,9 @@ ms.locfileid: "98572343"
 | 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| 남아프리카 북부 | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 동남아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| 미국 중서부 | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -190,7 +188,7 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 
 | HTTP 상태 코드 | Description | 가능한 원인 |
 |------------------|-------------|-----------------|
-| 200 | 확인 | 요청이 성공 했습니다. |
+| 200 | 확인 | 요청이 성공했습니다. |
 | 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
 | 401 | 권한 없음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. |
 | 429 | 너무 많은 요청 | 구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다. |
@@ -279,5 +277,5 @@ HTTP 상태가 `200 OK`인 경우 응답 본문은 요청된 형식으로 오디
 ## <a name="next-steps"></a>다음 단계
 
 - [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
-- [긴 형식의 오디오에 대 한 비동기 합성](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [긴 형식의 오디오에 대 한 비동기 합성](./long-audio-api.md)
 - [Custom Voice 시작](how-to-custom-voice.md)

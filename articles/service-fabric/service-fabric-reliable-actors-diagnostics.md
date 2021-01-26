@@ -5,15 +5,15 @@ author: abhishekram
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: a38a11d9cf062cd0a45890d43afe9b2530b2b7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebaedb5369f3b39372262bfde526706e8d069418
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258473"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789619"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors에 대한 진단 및 성능 모니터링
-Reliable Actors 런타임에서는 [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) 이벤트 및 [성능 카운터](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1)를 내보냅니다. 이러한 정보는 런타임이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
+Reliable Actors 런타임에서는 [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) 이벤트 및 [성능 카운터](/dotnet/api/system.diagnostics.performancecounter)를 내보냅니다. 이러한 정보는 런타임이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
 
 ## <a name="eventsource-events"></a>EventSource 이벤트
 Reliable Actors 런타임의 EventSource 공급자 이름은 "Microsoft-ServiceFabric-Actors"입니다. 이 이벤트 원본의 이벤트는 행위자 애플리케이션이 [Visual Studio에서 디버깅](service-fabric-debugging-your-application.md)될 때 [진단 이벤트](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 창에 표시됩니다.
@@ -33,7 +33,7 @@ EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 
 ## <a name="performance-counters"></a>성능 카운터
 신뢰할 수 있는 행위자 런타임은 다음과 같은 성능 카운터 범주를 정의합니다.
 
-| 범주 | 설명 |
+| 범주 | Description |
 | --- | --- |
 | 서비스 패브릭 행위자 |Azure 서비스 패브릭 행위자 전용 카운터. 예: 행위자 상태를 저장하는 데 걸리는 시간 |
 | 서비스 패브릭 행위자 메서드 |서비스 패브릭 행위자에 의해 구현되는 메서드 전용 카운터. 예: 행위자 메서드가 호출되는 빈도 |
@@ -50,7 +50,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
+*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
 
 *ActorRuntimeInternalID* - 내부 용도에 맞게 패브릭 행위자 런타임에 의해 생성되는 64비트 정수의 문자열 표현. 고유성을 보장하고 다른 성능 카운터 인스턴스 이름과의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함시킵니다. 사용자는 성능 카운터 인스턴스 이름에서 이 부분을 해석하지 않도록 해야 합니다.
 
@@ -69,7 +69,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 *ActorsRuntimeMethodId* - 내부 용도에 맞게 패브릭 행위자 런타임에 의해 생성되는 32비트 정수의 문자열 표현. 고유성을 보장하고 다른 성능 카운터 인스턴스 이름과의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함시킵니다. 사용자는 성능 카운터 인스턴스 이름에서 이 부분을 해석하지 않도록 해야 합니다.
 
-*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
+*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
 
 *ActorRuntimeInternalID* - 내부 용도에 맞게 패브릭 행위자 런타임에 의해 생성되는 64비트 정수의 문자열 표현. 고유성을 보장하고 다른 성능 카운터 인스턴스 이름과의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함시킵니다. 사용자는 성능 카운터 인스턴스 이름에서 이 부분을 해석하지 않도록 해야 합니다.
 
@@ -83,11 +83,11 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 ### <a name="actor-method-events-and-performance-counters"></a>행위자 메서드 이벤트 및 성능 카운터
 Reliable Actors 런타임에서는 다음과 같은 [행위자 메서드](service-fabric-reliable-actors-introduction.md)관련 이벤트를 내보냅니다.
 
-| 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 키워드 | Description |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |자세히 |0x2 |행위자 런타임이 행위자 메서드를 호출하려고 합니다. |
 | ActorMethodStop |8 |자세히 |0x2 |행위자 메서드가 실행을 완료했습니다. 즉, 해당 행위자 메서드에 대한 런타임의 비동기 호출이 반환되었고 해당 행위자 메서드에서 반환한 작업이 완료되었습니다. |
-| ActorMethodThrewException |9 |Warning |0x3 |행위자 메서드를 실행하는 동안 또는 행위자 메서드에 대한 런타임의 비동기 호출이나 행위자 메서드에서 반환한 작업의 실행 중에 예외가 발생했습니다. 이 이벤트는 행위자 코드에 일종의 오류가 있는 것으로, 조사가 필요합니다. |
+| ActorMethodThrewException |9 |경고 |0x3 |행위자 메서드를 실행하는 동안 또는 행위자 메서드에 대한 런타임의 비동기 호출이나 행위자 메서드에서 반환한 작업의 실행 중에 예외가 발생했습니다. 이 이벤트는 행위자 코드에 일종의 오류가 있는 것으로, 조사가 필요합니다. |
 
 신뢰할 수 있는 행위자 런타임은 행위자 메서드의 실행과 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
@@ -100,7 +100,7 @@ Reliable Actors 런타임에서는 다음과 같은 [행위자 메서드](servic
 ### <a name="concurrency-events-and-performance-counters"></a>동시 이벤트 및 성능 카운터
 Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-reliable-actors-introduction.md#concurrency)관련 이벤트를 내보냅니다.
 
-| 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 키워드 | Description |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |자세히 |0x8 |이 이벤트는 행위자에서 각 턴의 시작 부분에 기록됩니다. 턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 대기 중인 보류된 행위자 호출 수가 포함되어 있습니다. |
 
@@ -115,7 +115,7 @@ Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-r
 ### <a name="actor-state-management-events-and-performance-counters"></a>행위자 상태 관리 이벤트 및 성능 카운터
 Reliable Actors 런타임에서는 다음과 같은 [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)관련 이벤트를 내보냅니다.
 
-| 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 키워드 | Description |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |자세히 |0x4 |행위자 런타임에서 행위자 상태를 저장하려고 합니다. |
 | ActorSaveStateStop |11 |자세히 |0x4 |행위자 런타임에서 행위자 상태 저장을 끝마쳤습니다. |
@@ -130,7 +130,7 @@ Reliable Actors 런타임에서는 다음과 같은 [행위자 상태 관리](se
 ### <a name="events-related-to-actor-replicas"></a>행위자 복제본 관련 이벤트
 Reliable Actors 런타임에서는 다음과 같은 [행위자 복제본](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)관련 이벤트를 내보냅니다.
 
-| 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 키워드 | Description |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |정보 제공 |0x1 |행위자 복제본이 주 복제본 역할로 변경되었습니다. 따라서 이 파티션에 대한 행위자가 이 복제본 내부에 만들어집니다. |
 | ReplicaChangeRoleFromPrimary |2 |정보 제공 |0x1 |행위자 복제본이 주 복제본 이외의 역할로 변경되었습니다. 따라서 이 파티션에 대한 행위자를 이 복제본 내부에서 더 이상 만들 수 없습니다. 이 복제본 내에 이미 만들어진 행위자로 새 요청이 전달되지 않습니다. 모든 진행 중인 요청이 완료된 후 해당 행위자는 소멸됩니다. |
@@ -138,7 +138,7 @@ Reliable Actors 런타임에서는 다음과 같은 [행위자 복제본](servic
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>행위자 활성화 및 비활성화 이벤트와 성능 카운터
 Reliable Actors 런타임에서는 다음과 같은 [행위자 활성화 및 비활성화](service-fabric-reliable-actors-lifecycle.md)관련 이벤트를 내보냅니다.
 
-| 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 키워드 | Description |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5 |정보 제공 |0x1 |행위자가 활성화되었습니다. |
 | ActorDeactivated |6 |정보 제공 |0x1 |행위자가 비활성화되었습니다. |
@@ -162,5 +162,5 @@ Reliable Actors 런타임은 행위자 활성화 및 비활성화와 관련하�
 ## <a name="next-steps"></a>다음 단계
 * [신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법](service-fabric-reliable-actors-platform.md)
 * [행위자 API 참조 설명서](/previous-versions/azure/dn971626(v=azure.100))
-* [샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [예제 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [PerfView의 EventSource 공급자](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

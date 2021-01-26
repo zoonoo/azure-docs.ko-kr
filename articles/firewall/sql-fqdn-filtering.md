@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 2b1b68b32ccd5a4dda0b71736da4e2d1e2566b6b
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: c65f32cc3ce56ddf3fd235de8c002528e7a3cebd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348019"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791445"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>SQL FQDN을 사용하여 Azure Firewall 애플리케이션 규칙 구성
 
@@ -96,7 +96,7 @@ SQL IaaS 트래픽에 기본 포트가 아닌 포트를 사용하는 경우 방�
 3. 적절한 프로토콜, 포트 및 SQL FQDN을 사용하여 애플리케이션 규칙을 추가한 다음, **저장** 을 선택합니다.
    ![SQL FQDN을 사용하는 애플리케이션 규칙](media/sql-fqdn-filtering/application-rule-sql.png)
 4. 방화벽을 통해 트래픽을 필터링하는 VNet의 가상 머신에서 SQL에 액세스합니다. 
-5. [Azure Firewall 로그](log-analytics-samples.md)에서 트래픽이 허용되는지 확인합니다.
+5. [Azure Firewall 로그](./firewall-workbook.md)에서 트래픽이 허용되는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

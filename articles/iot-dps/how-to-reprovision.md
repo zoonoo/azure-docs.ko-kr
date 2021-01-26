@@ -3,30 +3,22 @@ title: Azure IoT Hub 장치 프로 비전 서비스의 다시 구축 장치
 description: DPS (장치 프로 비전 서비스) 인스턴스로 장치를 다시 구축 하는 방법 및이 작업을 수행 해야 하는 이유를 알아봅니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d704e8f9687f3987d80018d84b41c0fd519da172
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010948"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791899"
 ---
 # <a name="how-to-reprovision-devices"></a>디바이스를 다시 프로비전하는 방법
 
-IoT 솔루션의 수명 주기 동안 IoT 허브 간에 디바이스를 이동하는 것이 일반적입니다. 이러한 이동의 이유에는 다음과 같은 시나리오가 포함될 수 있습니다.
+IoT 솔루션의 수명 주기 동안 IoT 허브 간에 디바이스를 이동하는 것이 일반적입니다. 이 항목은 다시 프로 비전 정책을 구성 하는 솔루션 운영자를 지원 하기 위해 작성 되었습니다.
 
-* **지리적 위치**: 디바이스가 위치 간에 이동함에 따라 디바이스를 각 위치에 가까운 IoT 허브로 마이그레이션하게 되면 네트워크 대기 시간이 향상됩니다.
-
-* **다중 테넌트**: 디바이스는 동일한 IoT 솔루션 내에서 사용할 수 있지만 새 고객 또는 고객 사이트에 다시 할당하거나 임대할 수 있습니다. 이러한 새 고객은 별도의 IoT 허브를 사용하여 서비스를 제공받을 수 있습니다.
-
-* **솔루션 변경**: 디바이스는 새롭거나 업데이트된 IoT 솔루션으로 이동할 수 있습니다. 디바이스를 이렇게 다시 할당하는 경우 디바이스에서 다른 백 엔드 구성 요소에 연결된 새 IoT 허브와 통신해야 할 도 있습니다. 
-
-* **격리**: 솔루션 변경과 비슷합니다. 제대로 작동하지 않거나 손상되었거나 오래된 디바이스는 IoT 허브에 다시 할당할 수 있습니다. IoT 허브에서는 이러한 모든 디바이스를 업데이트하여 규정 준수 상태로 다시 되돌릴 수 있습니다. 디바이스가 정상적으로 작동하면 해당 주 허브로 다시 마이그레이션됩니다.
-
-다시 프로 비전에 대 한 보다 자세한 개요는 [장치 다시 프로 비전 개념 IoT Hub](concepts-device-reprovision.md)을 참조 하세요.
+다시 프로 비전 시나리오에 대 한 보다 자세한 개요는 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md)을 참조 하세요.
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>등록 할당 정책 구성

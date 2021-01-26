@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 286c59938413a912c005181fca12f6698a7bc55e
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 6bed26227542cbf3ffc13ecc018aef9e659d026e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042888"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791631"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>EventStore API를 통한 클러스터 이벤트 쿼리
 
@@ -111,7 +111,7 @@ Body:
 
 ## <a name="query-the-eventstore-programmatically"></a>프로그래밍 방식으로 EventStore 쿼리
 
-[Service Fabric 클라이언트 라이브러리](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library)를 통해 EventStore를 프로그래밍 방식으로 쿼리할 수도 있습니다.
+[Service Fabric 클라이언트 라이브러리](/dotnet/api/overview/azure/service-fabric#client-library)를 통해 EventStore를 프로그래밍 방식으로 쿼리할 수도 있습니다.
 
 Service Fabric 클라이언트가 설정되면 `sfhttpClient.EventStore.<request>`와 같이 EventStore에 액세스하여 이벤트를 쿼리할 수 있습니다.
 

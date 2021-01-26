@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
-ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e36d5ab98f1177b5a0b89ee10b3e6bd22560c2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83655078"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791462"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Azure Firewall 위협 인텔리전스 기반 필터링
 
@@ -27,7 +27,7 @@ ms.locfileid: "83655078"
 
 기본적으로 위협 인텔리전스 기반 필터링은 경고 모드에서 사용하도록 설정됩니다. 해당 지역에서 포털 인터페이스를 사용할 수 있을 때까지 이 기능을 끄거나 모드를 변경할 수 없습니다.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="방화벽 위협 인텔리전스":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="위협 인텔리전스 기반 필터링 포털 인터페이스":::
 
 ## <a name="logs"></a>로그
 
@@ -47,12 +47,12 @@ ms.locfileid: "83655078"
 
 ## <a name="testing"></a>테스트
 
-- **아웃바운드 테스트** - 환경이 손상되었음을 의미하는 아웃바운드 트래픽 경고는 드물게 발생합니다. 아웃바운드 경고가 작동하는지 테스트하는 데 도움이 되도록 경고를 트리거하는 테스트 FQDN이 생성되었습니다. 아웃바운드 테스트에 **testmaliciousdomain.eastus.cloudapp.azure.com**을 사용합니다.
+- **아웃바운드 테스트** - 환경이 손상되었음을 의미하는 아웃바운드 트래픽 경고는 드물게 발생합니다. 아웃바운드 경고가 작동하는지 테스트하는 데 도움이 되도록 경고를 트리거하는 테스트 FQDN이 생성되었습니다. 아웃바운드 테스트에 **testmaliciousdomain.eastus.cloudapp.azure.com** 을 사용합니다.
 
 - **인바운드 테스트** - DNAT 규칙이 방화벽에 구성된 경우 들어오는 트래픽에 대한 경고를 볼 수 있습니다. DNAT 규칙에서 특정 원본만 허용되고 트래픽이 거부되는 경우에도 마찬가지입니다. Azure Firewall은 알려진 모든 포트 스캐너에 대해 경고하지 않습니다. 악의적인 작업에도 참여하는 것으로 알려진 스캐너에만 경고합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Firewall Log Analytics 샘플](log-analytics-samples.md)을 참조하세요.
+- [Azure Firewall Log Analytics 샘플](./firewall-workbook.md)을 참조하세요.
 - [Azure Firewall을 배포 및 구성](tutorial-firewall-deploy-portal.md)하는 방법에 대해 알아봅니다.
 - [Microsoft Security 인텔리전스 보고서](https://www.microsoft.com/en-us/security/operations/security-intelligence-report) 검토

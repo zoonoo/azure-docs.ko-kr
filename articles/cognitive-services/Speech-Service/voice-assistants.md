@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 09859be61029242e987603e01b5c3fba8dffb2ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fc85eec008ef099d63d538e4871a1a84573f5a18
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483889"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790448"
 ---
 # <a name="what-is-a-voice-assistant"></a>음성 도우미란?
 
@@ -50,7 +50,7 @@ ms.locfileid: "96483889"
 | 범주 | 기능 |
 |----------|----------|
 |[사용자 지정 키워드](./custom-keyword-basics.md) | 사용자는 "안녕하세요 Contoso"와 같은 사용자 지정 키워드를 사용 하 여 도우미와 대화를 시작할 수 있습니다. 앱은 [여기에서 생성할 수 있는](./custom-keyword-basics.md)사용자 지정 키워드를 사용 하 여 구성할 수 있는 Speech SDK의 사용자 지정 키워드 엔진을 사용 하 여이를 수행 합니다. 음성 도우미는 서비스 측 키워드 확인을 사용 하 여 키워드 활성화의 정확도를 향상 시킬 수 있습니다 (장치에 대해서만).
-|[음성 텍스트](speech-to-text.md) | 음성 도우미는 음성 서비스의 [음성 텍스트](speech-to-text.md) 를 사용 하 여 실시간 오디오를 인식 된 텍스트로 변환 합니다. 이 텍스트는 길잡이 구현 및 클라이언트 응용 프로그램 모두에 transcribed 수 있습니다.
+|[음성 텍스트 변환](speech-to-text.md) | 음성 도우미는 음성 서비스의 [음성 텍스트](speech-to-text.md) 를 사용 하 여 실시간 오디오를 인식 된 텍스트로 변환 합니다. 이 텍스트는 길잡이 구현 및 클라이언트 응용 프로그램 모두에 transcribed 수 있습니다.
 |[텍스트 음성 변환](text-to-speech.md) | 길잡이의 텍스트 응답은 음성 서비스에서 [텍스트 음성 변환](text-to-speech.md) 을 사용 하 여 합성 됩니다. 이러한 합성은 클라이언트 응용 프로그램에서 오디오 스트림으로 사용할 수 있게 됩니다. Microsoft는 브랜드에 음성을 제공 하는 사용자 지정 고품질 신경망을 빌드하는 기능을 제공 합니다. 자세히 알아보려면 [microsoft에 문의](mailto:mstts@microsoft.com)하세요.
 
 ## <a name="getting-started-with-voice-assistants"></a>음성 도우미 시작
@@ -66,7 +66,7 @@ ms.locfileid: "96483889"
 
 * [GitHub의 음성 도우미 샘플](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 * [자습서: 음성에서 c # Speech SDK로 Azure Bot Service을 사용 하 여 빌드한 길잡이 사용](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [자습서: 간단한 음성 명령을 사용 하 여 사용자 지정 명령 응용 프로그램 만들기](how-to-custom-commands-create-application-with-simple-commands.md)
+* [자습서: 간단한 음성 명령을 사용 하 여 사용자 지정 명령 응용 프로그램 만들기](./how-to-develop-custom-commands-application.md)
 
 ## <a name="customization"></a>사용자 지정
 

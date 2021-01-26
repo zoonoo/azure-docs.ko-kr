@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d881394391b7967fe602155eefc9844e013de34e
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 23be8e667d435c2d91d32ebeac30b1e96b45a77e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724751"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790294"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>다른 구독으로 Azure Key Vault 이동
 
@@ -29,7 +29,7 @@ ms.locfileid: "97724751"
 > 키 자격 증명 모음을 새 구독으로 이동하도록 결정하기 전에 이러한 변경의 영향을 이해하고 이 문서의 지침을 따라야 합니다.
 > MSI (관리 서비스 Id)를 사용 하는 경우 문서 끝에 있는 이동 후 지침을 읽어 보세요. 
 
-[Azure Key Vault](overview.md) 는 생성 된 구독의 기본 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 테 넌 트 ID에 자동으로 연결 됩니다. 이 [가이드](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant)에 따라 구독과 연결 된 테 넌 트 ID를 찾을 수 있습니다. 모든 액세스 정책 항목 및 역할 할당도이 테 넌 트 ID에 연결 됩니다.  Azure 구독을 테넌트 A에서 테넌트 B로 이동하는 경우 기존 키 자격 증명 모음에는 테넌트 B의 서비스 주체(사용자 및 애플리케이션)가 액세스할 수 없게 됩니다. 이 문제를 해결하려면 다음을 수행해야 합니다.
+[Azure Key Vault](overview.md) 는 생성 된 구독의 기본 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) 테 넌 트 ID에 자동으로 연결 됩니다. 이 [가이드](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)에 따라 구독과 연결 된 테 넌 트 ID를 찾을 수 있습니다. 모든 액세스 정책 항목 및 역할 할당도이 테 넌 트 ID에 연결 됩니다.  Azure 구독을 테넌트 A에서 테넌트 B로 이동하는 경우 기존 키 자격 증명 모음에는 테넌트 B의 서비스 주체(사용자 및 애플리케이션)가 액세스할 수 없게 됩니다. 이 문제를 해결하려면 다음을 수행해야 합니다.
 
 * 이 구독에 있는 모든 기존 Key Vaults와 연결된 테넌트 ID를 테넌트 B로 변경합니다.
 * 모든 기존 액세스 정책 항목을 제거합니다.
@@ -37,8 +37,8 @@ ms.locfileid: "97724751"
 
 Azure Key Vault 및 Azure Active Directory에 대 한 자세한 내용은을 참조 하세요.
 - [Azure Key Vault 정보](overview.md)
-- [Azure Active Directory 정의](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-- [테넌트 ID를 찾는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant)
+- [Azure Active Directory 정의](../../active-directory/fundamentals/active-directory-whatis.md)
+- [테넌트 ID를 찾는 방법](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
 
 ## <a name="limitations"></a>제한 사항
 
@@ -47,18 +47,18 @@ Azure Key Vault 및 Azure Active Directory에 대 한 자세한 내용은을 참
 
 일부 서비스 주체(사용자 및 애플리케이션)는 특정 테넌트에 바인딩됩니다. 키 자격 증명 모음을 다른 테넌트의 구독으로 이동하면 특정 서비스 주체에 대한 액세스를 복원할 수 없게 됩니다. 키 자격 증명 모음을 이동하는 테넌트에 모든 필수 서비스 주체가 존재하는지 확인합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* 주요 자격 증명 모음이 있는 현재 구독에 대 한 [참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) 수준 액세스 이상 [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)또는 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)을 사용 하 여 역할을 할당할 수 있습니다.
-* 주요 자격 증명 모음을 이동 하려는 구독에 대 한 [참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) 수준 액세스 이상 [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)또는 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)을 사용 하 여 역할을 할당할 수 있습니다.
-* 새 구독의 리소스 그룹. [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell)또는 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli)를 사용 하 여 만들 수 있습니다.
+* 주요 자격 증명 모음이 있는 현재 구독에 대 한 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 수준 액세스 이상 [Azure Portal](../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../role-based-access-control/role-assignments-cli.md)또는 [PowerShell](../../role-based-access-control/role-assignments-powershell.md)을 사용 하 여 역할을 할당할 수 있습니다.
+* 주요 자격 증명 모음을 이동 하려는 구독에 대 한 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 수준 액세스 이상 [Azure Portal](../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../role-based-access-control/role-assignments-cli.md)또는 [PowerShell](../../role-based-access-control/role-assignments-powershell.md)을 사용 하 여 역할을 할당할 수 있습니다.
+* 새 구독의 리소스 그룹. [Azure Portal](../../azure-resource-manager/management/manage-resource-groups-portal.md), [PowerShell](../../azure-resource-manager/management/manage-resource-groups-powershell.md)또는 [Azure CLI](../../azure-resource-manager/management/manage-resource-groups-cli.md)를 사용 하 여 만들 수 있습니다.
 
-[Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal), [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-cli)또는 [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-rest)를 사용 하 여 기존 역할을 확인할 수 있습니다.
+[Azure Portal](../../role-based-access-control/role-assignments-list-portal.md), [PowerShell](../../role-based-access-control/role-assignments-list-powershell.md), [Azure CLI](../../role-based-access-control/role-assignments-list-cli.md)또는 [REST API](../../role-based-access-control/role-assignments-list-rest.md)를 사용 하 여 기존 역할을 확인할 수 있습니다.
 
 
 ## <a name="moving-a-key-vault-to-a-new-subscription"></a>새 구독으로 키 자격 증명 모음 이동
 
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. [주요 자격 증명 모음](overview.md) 으로 이동
 3. “개요” 탭을 클릭
 4. “이동” 단추를 선택
@@ -96,7 +96,7 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 ### <a name="update-access-policies-and-role-assignments"></a>액세스 정책 및 역할 할당 업데이트
 
 > [!NOTE]
-> Key Vault [AZURE RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한 모델을 사용 합니다. Key vault 역할 할당도 제거 해야 합니다. [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)또는 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)을 사용 하 여 역할 할당을 제거할 수 있습니다. 
+> Key Vault [AZURE RBAC](../../role-based-access-control/overview.md) 권한 모델을 사용 합니다. Key vault 역할 할당도 제거 해야 합니다. [Azure Portal](../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../role-based-access-control/role-assignments-cli.md)또는 [PowerShell](../../role-based-access-control/role-assignments-powershell.md)을 사용 하 여 역할 할당을 제거할 수 있습니다. 
 
 이제 자격 증명 모음이 올바른 테 넌 트 ID와 연결 되어 있고 이전 액세스 정책 항목 또는 역할 할당이 제거 되었으므로 새 액세스 정책 항목 또는 역할 할당을 설정 합니다.
 
@@ -106,9 +106,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 - [PowerShell을 사용 하 여 액세스 정책 할당](assign-access-policy-powershell.md)
 
 역할 할당을 추가 하려면 다음을 참조 하세요.
-- [포털을 사용 하 여 역할 할당 추가](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Azure CLI를 사용 하 여 역할 할당 추가](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [PowerShell을 사용 하 여 역할 할당 추가](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+- [포털을 사용 하 여 역할 할당 추가](../../role-based-access-control/role-assignments-portal.md)
+- [Azure CLI를 사용 하 여 역할 할당 추가](../../role-based-access-control/role-assignments-cli.md)
+- [PowerShell을 사용 하 여 역할 할당 추가](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### <a name="update-managed-identities"></a>관리 id 업데이트

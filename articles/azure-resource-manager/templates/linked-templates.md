@@ -2,13 +2,13 @@
 title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 연결 된 템플릿을 사용 하 여 모듈식 템플릿 솔루션을 만드는 방법을 설명 합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: dd810167e07f1bb23f9563936cb481652953ccd1
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 01/25/2021
+ms.openlocfilehash: 7d4df67b7f69b3e58799f45ad72bd9ed68540dc2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624861"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790938"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -111,6 +111,10 @@ ms.locfileid: "98624861"
   },
   ...
 ```
+
+> [!NOTE]
+>
+> Scope를로 설정 하면 `outer` `reference` 중첩 된 템플릿에 배포한 리소스에 대해 중첩 된 템플릿의 출력 섹션에서 함수를 사용할 수 없습니다. 중첩 된 템플릿에서 배포 된 리소스에 대 한 값을 반환 하려면 범위를 사용 `inner` 하거나 중첩 된 템플릿을 연결 된 템플릿으로 변환 합니다.
 
 다음 템플릿에서는 범위에 따라 템플릿 식이 확인 되는 방법을 보여 줍니다. `exampleVar`부모 템플릿과 중첩 된 템플릿 모두에 정의 된 라는 변수를 포함 합니다. 변수의 값을 반환 합니다.
 
@@ -399,10 +403,6 @@ ms.locfileid: "98624861"
   ]
 }
 ```
-
-> [!NOTE]
->
-> Scope를로 설정 하면 `outer` `reference` 중첩 된 템플릿에 배포한 리소스에 대해 중첩 된 템플릿의 출력 섹션에서 함수를 사용할 수 없습니다. 중첩 된 템플릿에서 배포 된 리소스에 대 한 값을 반환 하려면 범위를 사용 `inner` 하거나 중첩 된 템플릿을 연결 된 템플릿으로 변환 합니다.
 
 ## <a name="linked-template"></a>연결된 템플릿
 

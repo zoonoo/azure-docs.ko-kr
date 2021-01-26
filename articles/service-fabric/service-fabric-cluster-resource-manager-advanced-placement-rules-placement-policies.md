@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 263e45928642aa74d682fc490e424a24deeb8076
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485504"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790684"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>서비스 패브릭 서비스에 대한 배치 정책
 배치 정책은 보다 덜 일반적인 일부 구체적인 시나리오에서 서비스 배치를 제어하는 데 사용할 수 있는 추가적인 규칙입니다. 이러한 시나리오의 몇 가지 예는 다음과 같습니다.
@@ -150,7 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> 현재이 정책은 ExclusiveProcess [서비스 패키지 활성화 모드](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)를 사용 하는 상태 비저장 서비스에 대해서만 지원 됩니다.
+> 현재이 정책은 ExclusiveProcess [서비스 패키지 활성화 모드](/dotnet/api/system.fabric.description.servicepackageactivationmode)를 사용 하는 상태 비저장 서비스에 대해서만 지원 됩니다.
 >
 
 > [!WARNING]
@@ -158,7 +158,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> 이 배치 정책에 높은 값의 [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) 를 사용 하면 응용 프로그램 업그레이드가 중단 될 수 있습니다. 예를 들어 5 개 노드 클러스터가 있고 InstanceCount = 10을 설정 하는 경우 각 노드에 두 개의 인스턴스가 있습니다. MinInstanceCount = 9를 설정 하는 경우 시도 된 앱 업그레이드는 중단 될 수 있습니다. MinInstanceCount = 8 인 경우이를 방지할 수 있습니다.
+> 이 배치 정책에 높은 값의 [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount) 를 사용 하면 응용 프로그램 업그레이드가 중단 될 수 있습니다. 예를 들어 5 개 노드 클러스터가 있고 InstanceCount = 10을 설정 하는 경우 각 노드에 두 개의 인스턴스가 있습니다. MinInstanceCount = 9를 설정 하는 경우 시도 된 앱 업그레이드는 중단 될 수 있습니다. MinInstanceCount = 8 인 경우이를 방지할 수 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계

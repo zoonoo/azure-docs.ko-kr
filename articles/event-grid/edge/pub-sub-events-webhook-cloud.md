@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12bcb54f4bfdf17209324febeba380ff7789fc0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec7ecb77d37ed1cdf1d13aa7191f5d50e0008c20
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998988"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790802"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>자습서: 게시, 클라우드에서 이벤트 구독
 
@@ -21,7 +21,7 @@ ms.locfileid: "88998988"
 
 진행 하기 전에 Event Grid 토픽 및 구독을 이해 하려면 [Event Grid 개념](concepts.md) 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -31,7 +31,7 @@ ms.locfileid: "88998988"
 
 ## <a name="create-an-azure-function-in-the-azure-portal"></a>Azure Portal에서 Azure 함수를 만듭니다.
 
-[자습서](../../azure-functions/functions-create-first-azure-function.md) 에 설명 된 단계에 따라 Azure 함수를 만듭니다. 
+[자습서](../../azure-functions/functions-get-started.md) 에 설명 된 단계에 따라 Azure 함수를 만듭니다. 
 
 코드 조각을 다음 코드로 바꿉니다.
 
@@ -57,7 +57,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 }
 ```
 
-새 함수에서 오른쪽 상단의 **함수 URL 가져오기** 를 선택 하 고 기본값 (**함수 키**)을 선택한 다음 **복사**를 선택 합니다. 자습서의 뒷부분에서 함수 URL 값을 사용 합니다.
+새 함수에서 오른쪽 상단의 **함수 URL 가져오기** 를 선택 하 고 기본값 (**함수 키**)을 선택한 다음 **복사** 를 선택 합니다. 자습서의 뒷부분에서 함수 URL 값을 사용 합니다.
 
 > [!NOTE]
 > EventGrid 이벤트 트리거를 사용 하 여 이벤트에 반응 하는 방법에 대 한 추가 샘플과 자습서는 [Azure Functions](../../azure-functions/functions-overview.md) 설명서를 참조 하세요.

@@ -4,12 +4,12 @@ description: 상태 비저장 및 상태 저장 서비스를 사용하여 Micros
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev, devx-track-csharp
-ms.openlocfilehash: 1de77f870bce5766ab704249034d6d7b6c8b098e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45341c98a40cbcabfa8b96f2016f02f1755fe2b3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012741"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791530"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 
@@ -32,24 +32,24 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 
 상태 비저장 서비스는 현재 클라우드 애플리케이션에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 종류의 서비스에서는 Azure 테이블 또는 SQL Database와 같은 외부 저장소에 상태를 유지 하 여 항상 사용 가능 하 고 신뢰할 수 있도록 해야 합니다.
 
-관리자 권한으로 Visual Studio 2017 또는 Visual Studio 2019를 시작 하 고 *HelloWorld*라는 새 Service Fabric 응용 프로그램 프로젝트를 만듭니다.
+관리자 권한으로 Visual Studio 2017 또는 Visual Studio 2019를 시작 하 고 *HelloWorld* 라는 새 Service Fabric 응용 프로그램 프로젝트를 만듭니다.
 
 ![새 프로젝트 대화 상자를 사용하여 새 Service Fabric 애플리케이션 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-그런 다음 *HelloWorldStateless*라는 **.net Core 2.0** 를 사용 하 여 상태 비저장 서비스 프로젝트를 만듭니다.
+그런 다음 *HelloWorldStateless* 라는 **.net Core 2.0** 를 사용 하 여 상태 비저장 서비스 프로젝트를 만듭니다.
 
 ![두 번째 대화 상자에서 상태 비저장 서비스 프로젝트 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
 이제 솔루션에는 2개의 프로젝트가 있습니다.
 
-* *HelloWorld*. *서비스*가 포함된 *애플리케이션* 프로젝트입니다. 또한 애플리케이션을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 애플리케이션을 설명하는 애플리케이션 매니페스트가 포함되어 있습니다.
+* *HelloWorld*. *서비스* 가 포함된 *애플리케이션* 프로젝트입니다. 또한 애플리케이션을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 애플리케이션을 설명하는 애플리케이션 매니페스트가 포함되어 있습니다.
 * *HelloWorldStateless*. 서비스 프로젝트입니다. 상태 비저장 서비스 구현을 포함합니다.
 
 ## <a name="implement-the-service"></a>서비스 구현
 
 서비스 프로젝트에서 **HelloWorldStateless.cs** 파일을 엽니다. 서비스 패브릭에서 서비스는 모든 비즈니스 논리를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
 
-* 장기 실행 컴퓨팅 워크로드 등 모든 워크로드의 실행을 시작할 수 있는 *RunAsync*라는 개방형 진입점 메서드.
+* 장기 실행 컴퓨팅 워크로드 등 모든 워크로드의 실행을 시작할 수 있는 *RunAsync* 라는 개방형 진입점 메서드.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -115,19 +115,19 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 서비스가 이동하거나 다시 시작하는 경우에도 카운터 값을 상태 비저장에서 항상 사용 가능하고 지속되게 만들려면 상태 저장 서비스가 필요합니다.
 
-동일한 *HelloWorld* 애플리케이션에서 애플리케이션 프로젝트의 서비스 참조를 마우스 오른쪽 단추로 클릭하고 **추가 -&gt; 새 Service Fabric 서비스**를 선택하여 새 서비스를 추가할 수 있습니다.
+동일한 *HelloWorld* 애플리케이션에서 애플리케이션 프로젝트의 서비스 참조를 마우스 오른쪽 단추로 클릭하고 **추가 -&gt; 새 Service Fabric 서비스** 를 선택하여 새 서비스를 추가할 수 있습니다.
 
 ![Service Fabric 애플리케이션에 서비스 추가](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-**.Net Core 2.0-> 상태 저장 서비스** 를 선택 하 고 이름을 *HelloWorldStateful*로 선택 합니다. **확인**을 클릭합니다.
+**.Net Core 2.0-> 상태 저장 서비스** 를 선택 하 고 이름을 *HelloWorldStateful* 로 선택 합니다. **확인** 을 클릭합니다.
 
 ![새 프로젝트 대화 상자를 사용하여 새 서비스 패브릭 상태 저장 서비스 만들기](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-애플리케이션에 이제 상태 비저장 서비스 *HelloWorldStateless* 및 상태 저장 서비스 *HelloWorldStateful*의 두 서비스가 있어야 합니다.
+애플리케이션에 이제 상태 비저장 서비스 *HelloWorldStateless* 및 상태 저장 서비스 *HelloWorldStateful* 의 두 서비스가 있어야 합니다.
 
 상태 저장 서비스에는 상태 비저장 서비스와 동일한 진입점이 있습니다. 주요 차이점은 상태를 안정적으로 저장할 수 있는 *상태 제공자* 의 가용성입니다. 서비스 패브릭은 신뢰할 수 있는 상태 관리자를 통해 복제된 데이터 구조를 만들 수 있는 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)이라는 상태 제공자 구현과 함께 제공됩니다. 상태 저장 Reliable Service는 기본적으로 이 상태 제공자를 사용합니다.
 
-다음 RunAsync 메서드를 포함하는 **HelloWorldStateful** 에서 *HelloWorldStateful.cs*를 엽니다.
+다음 RunAsync 메서드를 포함하는 **HelloWorldStateful** 에서 *HelloWorldStateful.cs* 를 엽니다.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -169,11 +169,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2) 는 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. 서비스 패브릭 및 신뢰할 수 있는 컬렉션을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본* 을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
+[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2#microsoft_servicefabric_data_collections_ireliabledictionary_2) 는 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. 서비스 패브릭 및 신뢰할 수 있는 컬렉션을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본* 을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
 
 신뢰할 수 있는 컬렉션은 사용자 지정 형식을 포함하여 모든 .NET 유형을 저장할 수 있습니다. 단, 몇 가지 주의 사항이 있습니다.
 
-* 서비스 패브릭은 노드의 상태를 *복제* 하고 신뢰할 수 있는 컬렉션은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 컬렉션에 저장된 모든 항목이 *직렬화 가능*상태가 됩니다. 신뢰할 수 있는 컬렉션은 기본적으로 [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute?view=netcore-3.1)를 사용하여 직렬화를 수행하므로 기본 직렬 변환기를 사용할 때 해당 유형이 [데이터 계약 직렬 변환기에서 지원되는지](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) 확인하는 것이 중요합니다.
+* 서비스 패브릭은 노드의 상태를 *복제* 하고 신뢰할 수 있는 컬렉션은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 컬렉션에 저장된 모든 항목이 *직렬화 가능* 상태가 됩니다. 신뢰할 수 있는 컬렉션은 기본적으로 [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute)를 사용하여 직렬화를 수행하므로 기본 직렬 변환기를 사용할 때 해당 유형이 [데이터 계약 직렬 변환기에서 지원되는지](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) 확인하는 것이 중요합니다.
 * 신뢰할 수 있는 컬렉션의 트랜잭션을 커밋하면 고가용성을 위해 개체가 복제됩니다. 신뢰할 수 있는 컬렉션에 저장된 개체는 서비스의 로컬 메모리에 유지됩니다. 즉, 개체에 대한 로컬 참조가 있습니다.
   
    트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 개체를 디렉터리에 다시 삽입하거나 디렉터리의 *update* 메서드 중 하나를 사용해야 합니다.
@@ -195,10 +195,10 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 신뢰할 수 있는 컬렉션 `System.Collections.Generic` `System.Collections.Concurrent` 에는 LINQ (Language Integrated Query)를 제외 하 고, 해당 사용자가 수행 하는 것과 동일한 많은 작업이 있습니다. 신뢰할 수 있는 컬렉션의 작업은 비동기적입니다. 신뢰할 수 있는 컬렉션을 사용한 쓰기 작업에서는 I/O 작업을 수행하여 데이터를 복제하고 디스크에 보존하기 때문입니다.
 
-신뢰할 수 있는 컬렉션 작업은 *트랜잭션*이므로 여러 신뢰할 수 있는 컬렉션 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 큐에서 작업 항목을 제거하고, 작업을 수행하고, 신뢰할 수 있는 사전의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
+신뢰할 수 있는 컬렉션 작업은 *트랜잭션* 이므로 여러 신뢰할 수 있는 컬렉션 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 큐에서 작업 항목을 제거하고, 작업을 수행하고, 신뢰할 수 있는 사전의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
-*HelloWorld* 애플리케이션으로 돌아갑니다. 이제 서비스를 빌드하고 배포할 수 있습니다. **F5**키를 누르면 애플리케이션이 빌드되고 로컬 클러스터에 배포됩니다.
+*HelloWorld* 애플리케이션으로 돌아갑니다. 이제 서비스를 빌드하고 배포할 수 있습니다. **F5** 키를 누르면 애플리케이션이 빌드되고 로컬 클러스터에 배포됩니다.
 
 서비스가 실행되기 시작한 후에 **진단 이벤트** 창에서 생성된 ETW(Windows용 이벤트 추적) 이벤트를 볼 수 있습니다. 애플리케이션의 상태 비저장 서비스 및 상태 저장 서비스 모두에서 이벤트가 표시됩니다. **일시 중지** 단추를 클릭하여 스트림을 일시 중지할 수 있습니다. 그런 다음 해당 메시지를 확장하여 메시지의 세부 정보를 검사할 수 있습니다.
 

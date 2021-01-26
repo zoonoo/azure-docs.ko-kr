@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 7d43c128f0f587a32cc4b8673727579043f268eb
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ed1fe2885b1be28a03251bcfcecd08bdbd35adcf
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629598"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790075"
 ---
 # <a name="set-up-logging-to-monitor-logic-apps-in-azure-security-center"></a>Azure Security Center에서 논리 앱을 모니터링 하기 위한 로깅 설정
 
@@ -20,11 +20,11 @@ ms.locfileid: "97629598"
 > [!TIP]
 > Logic Apps 서비스에 대 한 현재 상태를 확인 하려면 [Azure 상태 페이지](https://status.azure.com/)를 검토 합니다 .이 페이지에는 사용 가능한 각 지역의 다른 제품 및 서비스에 대 한 상태가 나열 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 시작 하기 전에 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/) .
 * [진단 로깅을 사용](#enable-diagnostic-logging)하는 기존 논리 앱
-* 논리 앱에 대 한 로깅을 사용 하도록 설정 하는 데 필요한 Log Analytics 작업 영역입니다. 작업 영역이 없으면 먼저 [작업 영역을 만듭니다](/azure/azure-monitor/learn/quick-create-workspace).
+* 논리 앱에 대 한 로깅을 사용 하도록 설정 하는 데 필요한 Log Analytics 작업 영역입니다. 작업 영역이 없으면 먼저 [작업 영역을 만듭니다](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="enable-diagnostic-logging"></a>진단 로깅 사용
 

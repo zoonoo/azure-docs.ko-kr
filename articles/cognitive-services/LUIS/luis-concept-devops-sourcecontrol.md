@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 1f5c0c7a877964eeb480fa958c7e76eb5706122f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0466105ab99d191b5dd9beab1d5d5b61f4b3225e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561276"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790887"
 ---
 # <a name="devops-practices-for-luis"></a>LUIS에 대한 DevOps 사례
 
@@ -72,7 +72,7 @@ LUIS 응용 프로그램에 대 한 다음 형식의 파일은 소스 제어에�
 
 - [단위 테스트 정의 파일](luis-concept-devops-testing.md#writing-tests) (길이 발언 및 예상 결과)
 
-- 성능 테스트에 사용 되는 [배치 테스트 파일](./luis-concept-batch-test.md#batch-file-format) (길이 발언 및 예상 결과)
+- 성능 테스트에 사용 되는 [배치 테스트 파일](./luis-how-to-batch-test.md#batch-test-file) (길이 발언 및 예상 결과)
 
 ### <a name="credentials-and-keys-are-not-checked-in"></a>자격 증명 및 키가 체크 인 되지 않음
 
@@ -201,7 +201,7 @@ Main 분기에 대 한 LUIS 앱에는 버전 관리 체계가 적용 되어 있�
 
 주 LUIS 앱의 최신 수정 버전에 대 한 버전 번호를 확인 한 후 새 앱 버전을 빌드 및 테스트 하 고, 품질 보증 또는 프로덕션과 같은 다양 한 빌드 환경에서 사용할 수 있는 끝점에 게시 해야 합니다. CI (연속 통합) 워크플로에서 이러한 모든 단계를 자동화 하는 것이 좋습니다.
 
-다음을 참조하세요.
+참조
 - LUIS 앱을 테스트 하 고 릴리스 하는 CI 워크플로를 구현 하는 방법에 대 한 자세한 내용은 [자동화 워크플로](luis-concept-devops-automation.md) 를 참조 하세요.
 - LUIS 앱을 배포 하는 방법에 대 한 자세한 내용은을 [Release Management](luis-concept-devops-automation.md#release-management) .
 

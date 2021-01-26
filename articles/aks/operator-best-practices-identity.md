@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a63a756448f9c7202c79c3b4625fc99d4a90dc52
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8e0c7324f5b73b3a2ac5e5fd6fa256202035077a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014060"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790972"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 
@@ -98,39 +98,42 @@ AKS 리소스 및 kubeconfig에 대 한 액세스를 제어 하는 방법을 보
 2. Kubernetes API에 대 한 액세스. 이 액세스 수준은 [KUBERNETES RBAC](#use-kubernetes-role-based-access-control-kubernetes-rbac) (일반적으로) 또는 Kubernetes 권한 부여를 위해 AKS와 Azure RBAC를 통합 하 여 제어 됩니다.
 Azure RBAC를 사용 하 여 Kubernetes API에 권한을 부여 하는 방법에 대 한 자세한 내용은 [Kubernetes 권한 부여를 위해 AZURE Rbac 사용](manage-azure-rbac.md)세부적으로을 참조 하세요.
 
-## <a name="use-pod-identities"></a>Pod ID 사용
+## <a name="use-pod-managed-identities"></a>Pod 관리 Id 사용
 
 **모범 사례 가이드** - 고정된 자격 증명은 노출이나 남용의 위험이 있으므로 Pod 또는 컨테이너 이미지 내에서 사용하지 마세요. 대신 Pod ID를 사용하여 중앙 Azure AD ID 솔루션을 통해 액세스를 자동으로 요청합니다. Pod id는 Linux pod 및 컨테이너 이미지만 사용 하기 위한 것입니다.
 
+> [!NOTE]
+> Windows 컨테이너에 대 한 Pod 관리 id 지원이 곧 제공 될 예정입니다.
+
 Pod가 Cosmos DB, Key Vault 또는 Blob Storage와 같은 다른 Azure 서비스에 액세스해야 하는 경우 Pod에는 액세스 자격 증명이 필요합니다. 이러한 액세스 자격 증명은 컨테이너 이미지를 사용하여 정의하거나 Kubernetes 비밀로 삽입할 수 있지만, 수동으로 만들고 할당해야 합니다. 대개 인증서는 Pod 전체에 재사용되며 정기적으로 회전되지 않습니다.
 
-Azure 리소스에 대 한 관리 id (현재 연결 된 AKS 오픈 소스 프로젝트로 구현 됨)를 통해 Azure AD를 통해 서비스에 대 한 액세스를 자동으로 요청할 수 있습니다. Pod에 대한 자격 증명을 수동으로 정의하는 대신, 액세스 토큰을 실시간으로 요청하며 이를 사용하여 할당된 서비스에만 액세스할 수 있습니다. AKS에서 클러스터 운영자는 Pod가 관리형 ID를 사용할 수 있도록 하는 다음 두 가지 구성 요소를 배포합니다.
+Azure 리소스에 대 한 Pod 관리 id를 통해 Azure AD를 통해 서비스에 대 한 액세스를 자동으로 요청할 수 있습니다. Pod 관리 id는 현재 Azure Kubernetes Service에 대 한 미리 보기 상태입니다. 시작 하려면 [Azure Kubernetes 서비스 (미리 보기)의 Azure Active Directory pod 관리 Id 사용]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) 설명서를 참조 하세요. Pod 관리 id를 사용 하는 경우 pod에 대 한 자격 증명을 수동으로 정의 하지 않고 대신 실시간으로 액세스 토큰을 요청 하 고이를 사용 하 여 할당 된 서비스에만 액세스할 수 있습니다. AKS에는 pod에서 관리 되는 id를 사용 하도록 허용 하는 작업을 처리 하는 두 가지 구성 요소가 있습니다.
 
 * **NMI(노드 관리 ID) 서버** 는 AKS 클러스터의 각 노드에서 DaemonSet으로 실행되는 Pod입니다. NMI 서버는 Azure 서비스에 대한 Pod 요청을 수신 대기합니다.
-* **MIC(Managed Identity Controller)** 는 Kubernetes API 서버를 쿼리할 권한을 가진 중앙 Pod이고 Pod에 해당하는 Azure ID 매핑을 확인합니다.
+* **Azure 리소스 공급자는** Kubernetes API 서버를 쿼리하고 pod에 해당 하는 azure id 매핑을 확인 합니다.
 
-Pod가 Azure 서비스에 대한 액세스를 요청하면 네트워크 규칙은 트래픽을 NMI(노드 관리 ID) 서버로 리디렉션합니다. NMI 서버는 원격 주소를 기반으로 Azure 서비스에 대한 액세스를 요청하는 Pod를 식별하고, MIC(Managed Identity Controller)를 쿼리합니다. MIC가 AKS 클러스터에서 Azure ID 매핑을 확인한 다음, NMI 서버가 Pod의 ID 매핑을 기반으로 Azure AD(Active Directory)의 액세스 토큰을 요청합니다. Azure AD는 Pod에 반환되는 NMI 서버에 대한 액세스를 제공합니다. 이 액세스 토큰은 이후 Pod가 Azure의 서비스에 대한 액세스를 요청하는 데 사용할 수 있습니다.
+Pod가 Azure 서비스에 대한 액세스를 요청하면 네트워크 규칙은 트래픽을 NMI(노드 관리 ID) 서버로 리디렉션합니다. NMI 서버는 원격 주소를 기반으로 Azure 서비스에 대 한 액세스를 요청 하는 pod을 식별 하 고 Azure 리소스 공급자를 쿼리 합니다. Azure 리소스 공급자는 AKS 클러스터에서 Azure id 매핑을 확인 하 고, NMI 서버는 pod의 id 매핑을 기반으로 AD (Azure Active Directory)에서 액세스 토큰을 요청 합니다. Azure AD는 Pod에 반환되는 NMI 서버에 대한 액세스를 제공합니다. 이 액세스 토큰은 이후 Pod가 Azure의 서비스에 대한 액세스를 요청하는 데 사용할 수 있습니다.
 
 다음 예제에서 개발자는 관리 되는 id를 사용 하 여 Azure SQL Database에 대 한 액세스를 요청 하는 pod를 만듭니다.
 
 ![Pod ID를 사용하면 Pod가 다른 서비스에 대한 액세스를 자동으로 요청할 수 있습니다.](media/operator-best-practices-identity/pod-identities.png)
 
 1. 클러스터 운영자는 먼저 Pod가 서비스 액세스를 요청할 때 ID를 매핑하는 데 사용할 수 있는 서비스 계정을 만듭니다.
-1. NMI 서버와 MIC를 배포하여 액세스 토큰에 대한 Pod 요청을 Azure AD로 릴레이합니다.
+1. NMI 서버는 azure AD에 대 한 액세스 토큰에 대해 Azure 리소스 공급자와 함께 pod 요청을 릴레이 하도록 배포 됩니다.
 1. 개발자는 NMI 서버를 통해 액세스 토큰을 요청하는 관리형 ID를 사용하여 Pod를 배포합니다.
 1. 토큰은 pod로 반환 되 고 액세스 하는 데 사용 됩니다 Azure SQL Database
 
 > [!NOTE]
-> 관리 되는 pod id는 오픈 소스 프로젝트 이며 Azure 기술 지원 서비스에서 지원 하지 않습니다.
+> Pod 관리 id는 현재 미리 보기 상태입니다.
 
-Pod ID를 사용하려면 [Kubernetes 애플리케이션의 Azure Active Directory ID][aad-pod-identity]를 참조하세요.
+Pod 관리 id를 사용 하려면 [Azure Kubernetes Service (미리 보기)에서 Azure Active Directory Pod 관리 Id 사용 (미리 보기)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 모범 사례 문서에서는 클러스터 및 리소스의 인증 및 권한 부여를 중점적으로 설명했습니다. 이러한 일부 모범 사례를 구현하려면 다음 문서를 참조하세요.
 
 * [AKS와 Azure Active Directory 통합][aks-aad]
-* [AKS를 통해 Azure 리소스에 관리 ID 사용][aad-pod-identity]
+* [Azure Kubernetes Service에서 Azure Active Directory pod 관리 id 사용 (미리 보기)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity)
 
 AKS의 클러스터 작업에 대한 자세한 내용은 다음 모범 사례를 참조하세요.
 

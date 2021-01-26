@@ -4,12 +4,12 @@ description: Service Fabric 클러스터에 대한 클라이언트 액세스를 
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ce0325f7aebac92eb1e7deadd6f6875b75b3755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a669f7400eb2daf2d71f6caed41560020699c58
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008814"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791124"
 ---
 # <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 
@@ -100,7 +100,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My 
 ```
-*ServerCommonName*은 클러스터 노드에 설치된 서버 인증서의 일반 이름입니다. *FindValue*는 관리자 클라이언트 인증서의 일반 이름입니다. 매개 변수가 입력되면 명령은 다음 예와 같아집니다.
+*ServerCommonName* 은 클러스터 노드에 설치된 서버 인증서의 일반 이름입니다. *FindValue* 는 관리자 클라이언트 인증서의 일반 이름입니다. 매개 변수가 입력되면 명령은 다음 예와 같아집니다.
 ```powershell
 $ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
 $certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
@@ -232,7 +232,7 @@ catch (Exception e)
 
 다음 예제에서는 Microsoft.IdentityModel.Clients.ActiveDirectory 버전 2.19.208020213을 사용합니다.
 
-AAD 토큰 획득에 대한 자세한 내용은 [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet)를 참조하세요.
+AAD 토큰 획득에 대한 자세한 내용은 [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory)를 참조하세요.
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";

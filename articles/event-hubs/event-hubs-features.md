@@ -3,12 +3,12 @@ title: 기능 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 기능 및 용어에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 60dc964d1b827eec75ee4f65a5776710e57fd6eb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195792"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791949"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
 
@@ -56,7 +56,7 @@ Event Hubs 파티션 키 값을 공유 하는 모든 이벤트가 함께 저장 
 >
 > [Event Hubs 캡처](event-hubs-capture-overview.md) 는 Azure Blob Storage 및 Azure Data Lake Storage와 직접 통합 되며, 이러한 통합을 통해 [Azure Synapse에 직접 이벤트](store-captured-data-data-warehouse.md)를 전달 하도록 합니다.
 >
-> 응용 프로그램에 대 한 [이벤트 소싱](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) 패턴을 사용 하려면 스냅숏 전략을 Event Hubs의 보존 제한과 맞춰야 합니다. 처음부터 시작 하 여 원시 이벤트에서 구체화 된 뷰를 다시 빌드하지 않습니다. 응용 프로그램이 잠시 동안 프로덕션 환경에 있는 경우 이러한 전략을 사용 하지 않는 것이 좋을 것입니다. 따라서 프로젝션 빌더는 최신 변경 내용에 대 한 변경을 시도 하는 동안 변화 이벤트의 변동 기간을 변동 해야 합니다. 
+> 응용 프로그램에 대 한 [이벤트 소싱](/azure/architecture/patterns/event-sourcing) 패턴을 사용 하려면 스냅숏 전략을 Event Hubs의 보존 제한과 맞춰야 합니다. 처음부터 시작 하 여 원시 이벤트에서 구체화 된 뷰를 다시 빌드하지 않습니다. 응용 프로그램이 잠시 동안 프로덕션 환경에 있는 경우 이러한 전략을 사용 하지 않는 것이 좋을 것입니다. 따라서 프로젝션 빌더는 최신 변경 내용에 대 한 변경을 시도 하는 동안 변화 이벤트의 변동 기간을 변동 해야 합니다. 
 
 
 ### <a name="publisher-policy"></a>게시자 정책

@@ -3,12 +3,12 @@ title: 위임에 대한 액세스 권한 제거
 description: Azure Lighthouse의 서비스 공급자에 게 위임 된 리소스에 대 한 액세스를 제거 하는 방법에 대해 알아봅니다.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: d3442bb9fd2f6e7423fd4bf28cace1f7fd91ad80
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 7218c8829c9b2500e8311fbb3d5e9ff4eb986529
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608455"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791359"
 ---
 # <a name="remove-access-to-a-delegation"></a>위임에 대한 액세스 권한 제거
 
@@ -41,7 +41,7 @@ ms.locfileid: "96608455"
     ] 
 ```
 
-Azure Marketplace에 게시할 [관리 서비스 제품을 만들](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) 때 **권한 부여** 에서이 역할을 선택할 수도 있습니다.
+Azure Marketplace에 게시할 [관리 서비스 제품을 만들](../../marketplace/plan-managed-service-offer.md) 때 **권한 부여** 에서이 역할을 선택할 수도 있습니다.
 
 이 권한이 있는 사용자는 다음 방법 중 하나를 사용하여 위임을 제거할 수 있습니다.
 

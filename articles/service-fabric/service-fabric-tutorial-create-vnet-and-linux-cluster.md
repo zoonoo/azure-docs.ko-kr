@@ -4,12 +4,12 @@ description: Azure CLI를 사용하여 기존 Azure 가상 네트워크에 Linux
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 52eba2e5780b1a66f3884a764631908335372273
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 77cc49c1b79e5c24e78a67a69493aa0b0059d565
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738965"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791074"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Linux Service Fabric 클러스터 배포
 
@@ -106,7 +106,7 @@ Ubuntu 18.04 LTS의 경우 두 템플릿 간의 차이가 있습니다.
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>기존 인증서를 사용하여 클러스터 만들기
 
-다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) 명령 및 템플릿을 사용하여 기존 인증서로 보호된 새 클러스터를 배포합니다. 또한 명령은 Azure에서 새 키 자격 증명 모음을 만들고 인증서를 업로드합니다.
+다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster) 명령 및 템플릿을 사용하여 기존 인증서로 보호된 새 클러스터를 배포합니다. 또한 명령은 Azure에서 새 키 자격 증명 모음을 만들고 인증서를 업로드합니다.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -132,7 +132,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서를 사용하여 클러스터 만들기
 
-다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) 명령 및 템플릿을 사용하여 Azure에 새 클러스터를 배포합니다. 또한 이 명령은 Azure에 새로운 키 자격 증명 모음을 만들고, 키 자격 증명 모음에 자체 서명된 인증서를 추가하고, 인증서 파일을 로컬로 다운로드합니다.
+다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster) 명령 및 템플릿을 사용하여 Azure에 새 클러스터를 배포합니다. 또한 이 명령은 Azure에 새로운 키 자격 증명 모음을 만들고, 키 자격 증명 모음에 자체 서명된 인증서를 추가하고, 인증서 파일을 로컬로 다운로드합니다.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

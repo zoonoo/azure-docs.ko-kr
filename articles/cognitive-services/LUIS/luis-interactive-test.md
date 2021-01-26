@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/02/2020
-ms.openlocfilehash: b6fcc294c2b8c131d9a4a058c653ae1f64652ccf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31885eba16d59e2e48a08f84c56271b84e6c565f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324861"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790921"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 
@@ -24,7 +24,7 @@ ms.locfileid: "91324861"
 
 ## <a name="train-before-testing"></a>테스트 전 학습
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스** 를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. 최신 버전의 활성 앱에 대해 테스트 하려면 테스트 하기 전에 상단 메뉴에서 **학습** 을 선택 합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "91324861"
 
 테스트 utterance는 응용 프로그램의 예제 길이 발언와 정확 하 게 일치 하면 안 됩니다. 테스트 utterance에는 사용자에 게 필요한 단어 선택, 구 길이 및 엔터티 사용이 포함 되어야 합니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스** 를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 
 1. **테스트** 슬라이드 외부 패널에 액세스 하려면 응용 프로그램의 위쪽 패널에서 **테스트** 를 선택 합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "91324861"
     > [!div class="mx-imgBorder"]
     > ![& 테스트 앱 페이지 학습](./media/luis-how-to-interactive-test/test.png)
 
-1. 텍스트 상자에 발화를 입력하고 Enter 키를 선택합니다. **테스트**에서 원하는 만큼 테스트 발화를 입력할 수 있지만 한 번에 하나의 발화만 입력할 수 있습니다.
+1. 텍스트 상자에 발화를 입력하고 Enter 키를 선택합니다. **테스트** 에서 원하는 만큼 테스트 발화를 입력할 수 있지만 한 번에 하나의 발화만 입력할 수 있습니다.
 
 1. 발화, 상위 의도 및 점수가 텍스트 상자 아래 발화 목록에 추가됩니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "91324861"
 
 **검사** 패널에서 테스트 결과의 세부 정보를 검사 합니다.
 
-1. **테스트** 슬라이드 아웃 패널이 열려 있을 때 비교할 발화에 **검사**를 선택합니다.
+1. **테스트** 슬라이드 아웃 패널이 열려 있을 때 비교할 발화에 **검사** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![테스트 결과에 대한 자세한 내용을 보려면 [검사] 단추를 선택합니다.](./media/luis-how-to-interactive-test/inspect.png)
@@ -63,7 +63,7 @@ ms.locfileid: "91324861"
 
 ## <a name="add-to-example-utterances"></a>예 길이 발언에 추가
 
-검사 패널에서 **예제 길이 발언에 추가를**선택 하 여 테스트 utterance을 의도에 추가할 수 있습니다.
+검사 패널에서 **예제 길이 발언에 추가를** 선택 하 여 테스트 utterance을 의도에 추가할 수 있습니다.
 
 ## <a name="disable-required-features"></a>필수 기능 사용 안 함
 
@@ -89,7 +89,7 @@ ms.locfileid: "91324861"
 
 ## <a name="view-sentiment-results"></a>감정 결과 보기
 
-**감정 분석**이 **[게시](luis-how-to-publish-app.md#enable-sentiment-analysis)** 페이지에 구성되어 있으면 테스트 결과에는 발화에서 발견된 감정이 포함됩니다.
+**감정 분석** 이 **[게시](luis-how-to-publish-app.md#enable-sentiment-analysis)** 페이지에 구성되어 있으면 테스트 결과에는 발화에서 발견된 감정이 포함됩니다.
 
 ## <a name="correct-matched-patterns-intent"></a>일치하는 패턴의 의도 수정
 
@@ -97,13 +97,13 @@ ms.locfileid: "91324861"
 
 ## <a name="compare-with-published-version"></a>게시된 버전과 비교
 
-게시된 [엔드포인트](luis-glossary.md#endpoint) 버전을 사용하여 앱의 활성 버전을 테스트할 수 있습니다. **검사** 패널에서 **게시된 버전과 비교**를 선택합니다. 게시된 모델에 대한 모든 테스트는 Azure 구독 할당량 잔액에서 차감됩니다.
+게시된 [엔드포인트](luis-glossary.md#endpoint) 버전을 사용하여 앱의 활성 버전을 테스트할 수 있습니다. **검사** 패널에서 **게시된 버전과 비교** 를 선택합니다. 게시된 모델에 대한 모든 테스트는 Azure 구독 할당량 잔액에서 차감됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![게시된 버전과 비교](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
 ## <a name="view-endpoint-json-in-test-panel"></a>테스트 패널에서 엔드포인트 JSON 보기
-**JSON 보기 표시**를 선택하여 비교에 반환된 엔드포인트 JSON을 볼 수 있습니다.
+**JSON 보기 표시** 를 선택하여 비교에 반환된 엔드포인트 JSON을 볼 수 있습니다.
 
 > [!div class="mx-imgBorder"]
 > ![게시된 JSON 응답](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
@@ -112,14 +112,14 @@ ms.locfileid: "91324861"
 
 ### <a name="luis-endpoint"></a>LUIS 엔드포인트
 
-여러 개의 LUIS 엔드포인트가 있는 경우 테스트의 [게시됨] 창에서 **추가 설정** 링크를 사용하여 테스트에 사용되는 엔드포인트를 변경합니다. 사용할 엔드포인트가 확실하지 않은 경우 기본 **Starter_Key**를 선택합니다.
+여러 개의 LUIS 엔드포인트가 있는 경우 테스트의 [게시됨] 창에서 **추가 설정** 링크를 사용하여 테스트에 사용되는 엔드포인트를 변경합니다. 사용할 엔드포인트가 확실하지 않은 경우 기본 **Starter_Key** 를 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![[추가 설정] 링크가 강조 표시된 테스트 패널](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
 
 ## <a name="batch-testing"></a>일괄 테스트
-일괄 테스트 [개념](luis-concept-batch-test.md)을 확인하고 발화를 일괄 테스트하는 [방법](luis-how-to-batch-test.md)을 알아봅니다.
+일괄 테스트 [개념](./luis-how-to-batch-test.md)을 확인하고 발화를 일괄 테스트하는 [방법](luis-how-to-batch-test.md)을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

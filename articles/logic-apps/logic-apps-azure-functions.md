@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: fd04e5a7f084de7a95f20b54b99a9e4590f10cd7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7df9f7d072af7c5f6523fd1be0432ce51954fa10
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034767"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791882"
 ---
 # <a name="call-functions-from-azure-logic-apps"></a>Azure Logic Apps에서 함수 호출
 
@@ -31,7 +31,7 @@ Azure Functions 사용 하지 않고 코드 조각을 실행 하려면 [인라�
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* 사용자가 만든 함수와 함께 Azure Functions에서 만든 함수의 컨테이너인 함수 앱입니다. 함수 앱이 없는 경우 [함수 앱을 먼저 만듭니다](../azure-functions/functions-create-first-azure-function.md). 그런 후 Azure Portal의 논리 앱과는 별도로 또는 Logic Apps 디자이너의 [논리 앱 내에서](#create-function-designer) 함수를 만들 수 있습니다.
+* 사용자가 만든 함수와 함께 Azure Functions에서 만든 함수의 컨테이너인 함수 앱입니다. 함수 앱이 없는 경우 [함수 앱을 먼저 만듭니다](../azure-functions/functions-get-started.md). 그런 후 Azure Portal의 논리 앱과는 별도로 또는 Logic Apps 디자이너의 [논리 앱 내에서](#create-function-designer) 함수를 만들 수 있습니다.
 
 * 논리 앱을 사용할 때는 기존 또는 새로운 함수 앱 및 함수에 동일한 요구 사항이 적용됩니다.
 
@@ -102,9 +102,9 @@ function convertToDateString(request, response){
 
 ## <a name="create-functions-inside-logic-apps"></a>논리 앱 내에서 함수 만들기
 
-논리 앱 디자이너에서 기본 제공 Azure Functions 작업을 사용 하 여 논리 앱의 워크플로에서 직접 함수를 만들 수 있지만 JavaScript로 작성 된 함수에만이 메서드를 사용할 수 있습니다. 다른 언어의 경우 Azure Portal에서 Azure Functions 환경을 통해 함수를 만들 수 있습니다. 자세한 내용은 [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조하세요.
+논리 앱 디자이너에서 기본 제공 Azure Functions 작업을 사용 하 여 논리 앱의 워크플로에서 직접 함수를 만들 수 있지만 JavaScript로 작성 된 함수에만이 메서드를 사용할 수 있습니다. 다른 언어의 경우 Azure Portal에서 Azure Functions 환경을 통해 함수를 만들 수 있습니다. 자세한 내용은 [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-get-started.md)를 참조하세요.
 
-그러나 Azure에서 함수를 만들려면 함수 앱이 이미 있어야 합니다. 함수 앱은 함수에 대 한 컨테이너입니다. 함수 앱이 없는 경우 함수 앱을 먼저 만듭니다. [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조하세요.
+그러나 Azure에서 함수를 만들려면 함수 앱이 이미 있어야 합니다. 함수 앱은 함수에 대 한 컨테이너입니다. 함수 앱이 없는 경우 함수 앱을 먼저 만듭니다. [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-get-started.md)를 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
