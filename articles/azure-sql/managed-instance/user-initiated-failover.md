@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/25/2021
-ms.openlocfilehash: c12e1f4b01b0e2dd7fa21808cf33f45f9a5be59b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/26/2021
+ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789975"
+ms.locfileid: "98806082"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치(failover)
 
@@ -125,7 +125,7 @@ API 응답은 다음 두 가지 중 하나가 됩니다.
 
 ## <a name="monitor-the-failover"></a>장애 조치 (failover) 모니터링
 
-사용자가 시작한 수동 장애 조치 (failover)의 진행률을 모니터링 하려면 SQL Managed Instance에서 즐겨 사용 하는 클라이언트 (예: SSMS)에서 다음 T-sql 쿼리를 실행 합니다. 이 도구는 인스턴스에 사용할 수 있는 시스템 뷰 sys.dm_hadr_fabric_replica_states 및 보고서 복제본을 읽습니다. 수동 장애 조치 (failover)를 시작한 후 동일한 쿼리를 새로 고칩니다.
+BC 인스턴스에 대해 사용자가 시작한 장애 조치 (failover)의 진행률을 모니터링 하려면 SQL Managed Instance에서 즐겨 사용 하는 클라이언트 (예: SSMS)에서 다음 T-sql 쿼리를 실행 합니다. 이 도구는 인스턴스에 사용할 수 있는 시스템 뷰 sys.dm_hadr_fabric_replica_states 및 보고서 복제본을 읽습니다. 수동 장애 조치 (failover)를 시작한 후 동일한 쿼리를 새로 고칩니다.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states
@@ -133,7 +133,13 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 장애 조치 (failover)를 시작 하기 전에 출력은 AlwaysOn 가용성 그룹에서 주 1 개 및 3 개의 보조 복제본이 포함 된 BC 서비스 계층의 현재 주 복제본을 표시 합니다. 장애 조치 (failover)를 실행 하면이 쿼리를 다시 실행 하 여 주 노드의 변경을 나타내야 합니다.
 
-이제는 BC에 대해 표시 된 것과 동일한 GP 서비스 계층을 사용 하 여 출력을 볼 수 없습니다. 이는 GP 서비스 계층이 단일 노드만 기반으로 하기 때문입니다. GP 서비스 계층에 대 한 t-sql 쿼리 출력은 장애 조치 (failover) 전후에 단일 노드만 표시 합니다. 장애 조치 (failover) 중에 일반적으로 1 분 이내에 지속 되는 클라이언트의 연결이 끊어지면 장애 조치 (failover) 실행을 나타냅니다.
+이제는 BC에 대해 표시 된 것과 동일한 GP 서비스 계층을 사용 하 여 출력을 볼 수 없습니다. 이는 GP 서비스 계층이 단일 노드만 기반으로 하기 때문입니다. GP 서비스 계층 인스턴스의 노드에서 SQL 프로세스가 시작 된 시간을 보여 주는 대체 T-sql 쿼리를 사용할 수 있습니다.
+
+```T-SQL
+SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_info
+```
+
+장애 조치 (failover) 중에 일반적으로 1 분 이내에 지속 되는 클라이언트 연결의 단기 손실은 서비스 계층에 관계 없이 장애 조치 (failover) 실행을 나타냅니다.
 
 > [!NOTE]
 > **높은 강도** 워크 로드의 경우에는 장애 조치 (failover) 프로세스를 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 이는 장애 조치 (failover)를 수행 하기 전에 인스턴스 엔진이 주 서버의 모든 현재 트랜잭션을 처리 하 고 보조 노드에서 처리 하기 때문입니다.

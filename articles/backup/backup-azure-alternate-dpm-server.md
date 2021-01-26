@@ -3,12 +3,12 @@ title: Azure Backup Server에서 데이터 복구
 description: Recovery Services 자격 증명 모음에 보호해 둔 데이터를 해당 자격 증명 모음에 등록된 모든 Azure Backup Server에서 복구할 수 있습니다.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 0cce45fbaaedad4cfcee0cda768aae2fa294312b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ed8c937f97ec7a74662a8b46a354b0a6db39a2b0
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002973"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806012"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Azure Backup Server에서 데이터 복구
 
@@ -89,5 +89,5 @@ Azure Backup Server에서 데이터를 복구하려면
 
 다른 FAQ를 읽어보세요.
 
-* Azure VM 백업에 대 한 [일반적인 질문](backup-azure-vm-backup-faq.md)
+* Azure VM 백업에 대 한 [일반적인 질문](backup-azure-vm-backup-faq.yml)
 * Azure Backup 에이전트에 대한 [일반 질문](backup-azure-file-folder-backup-faq.md)

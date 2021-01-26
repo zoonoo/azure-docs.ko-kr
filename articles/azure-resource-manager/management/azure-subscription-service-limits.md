@@ -3,12 +3,12 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 20de08ee30deae74954f2857b4de756b8cf46f08
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: baef641a741d12185029436e5a74039427c69f68
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964197"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802893"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -38,7 +38,7 @@ vCPU 할당량을 한 예로 살펴보겠습니다. VCPUs를 지 원하는 할�
 
 따라서 한 지역에서 워크 로드에 대 한 Azure 리소스 그룹 할당량이 무엇 인지 결정 합니다. 그런 다음 배포 하려는 각 지역에서 해당 금액을 요청 합니다. 특정 지역에 대 한 현재 할당량을 확인 하는 방법에 대 한 도움말은 [리소스 할당량에 대 한 오류 해결](../templates/error-resource-quota.md)을 참조 하세요.
 
-## <a name="general-limits"></a>일반 제한
+## <a name="general-limits"></a>일반적인 제한
 
 리소스 이름에 대 한 제한은 [Azure 리소스에 대 한 명명 규칙 및 제한 사항](resource-name-rules.md)을 참조 하세요.
 
@@ -402,7 +402,7 @@ Azure Files 제한에 대 한 자세한 내용은 [Azure Files 확장성 및 성
 
 #### <a name="disk-encryption-sets"></a>디스크 암호화 집합
 
-구독 당 지역 당 50 디스크 암호화 집합의 제한이 있습니다. 자세한 내용은 [Linux](../../virtual-machines/disk-encryption.md#restrictions) 또는 [Windows](../../virtual-machines/disk-encryption.md#restrictions) 가상 머신에 대 한 암호화 설명서를 참조 하세요. 할당량을 늘려야 하는 경우 Azure 지원에 문의 하세요.
+구독 당 지역 당 1000 디스크 암호화 집합의 제한이 있습니다. 자세한 내용은 [Linux](../../virtual-machines/disk-encryption.md#restrictions) 또는 [Windows](../../virtual-machines/disk-encryption.md#restrictions) 가상 머신에 대 한 암호화 설명서를 참조 하세요. 할당량을 늘려야 하는 경우 Azure 지원에 문의 하세요.
 
 ### <a name="managed-virtual-machine-disks"></a>관리되는 가상 머신 디스크
 
@@ -446,7 +446,7 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure 제한 및 향상 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

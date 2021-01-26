@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: dbe6ce95427b559c037e38525f9f48195a2a76a4
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703422"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806641"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -70,7 +70,7 @@ Data Box를 사용 하 여 Recovery Services 자격 증명 모음에서 온-프�
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Azure VM 백업용 Azure Backup 에이전트에 대한 일반적인 질문은 어디에서 찾을 수 있나요?
 
-- Azure VM에서 실행되는 에이전트의 경우 이 [FAQ](backup-azure-vm-backup-faq.md)를 읽어보세요.
+- Azure VM에서 실행되는 에이전트의 경우 이 [FAQ](backup-azure-vm-backup-faq.yml)를 읽어보세요.
 - Azure 파일 폴더를 백업하는 데 사용하는 에이전트의 경우 이 [FAQ](backup-azure-file-folder-backup-faq.md)를 읽어보세요.
 
 ## <a name="general-backup"></a>일반 백업
@@ -236,5 +236,5 @@ MARS (Microsoft Azure Recovery Services) 에이전트에서 사용 하는 암호
 
 다른 FAQ를 읽어보세요.
 
-- Azure VM에 대한 [일반 질문](backup-azure-vm-backup-faq.md)
+- Azure VM에 대한 [일반 질문](backup-azure-vm-backup-faq.yml)
 - Azure Backup 에이전트에 대한 [일반 질문](backup-azure-file-folder-backup-faq.md)

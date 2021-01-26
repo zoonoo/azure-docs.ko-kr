@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 409a316bd9c4222dd9b8ff30e42e37d23805c38b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eb89d2a4e719e34ad5ea31656dc9e3c02472b07d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757765"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802249"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Azure Active Directory에서 데이터 연결 (Azure AD)
 
 Azure 센티널의 기본 제공 커넥터를 사용 하 여 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 에서 데이터를 수집 하 고 azure 센티널로 스트리밍할 수 있습니다. 커넥터를 사용 하 여 [로그인 로그](../active-directory/reports-monitoring/concept-sign-ins.md) 및 [감사 로그](../active-directory/reports-monitoring/concept-audit-logs.md)를 스트리밍할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-- Azure AD 라이선스 (Free/O365/P1/P2)는 모두 Azure 센티널로 로그인 로그를 수집 하는 데 충분 합니다. Azure Monitor (Log Analytics) 및 Azure 센티널에 대해 추가 기가바이트 요금이 적용 될 수 있습니다.
+- 로그인 로그를 Azure 센티널에 수집 하려면 [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) 구독이 있어야 합니다. Azure Monitor (Log Analytics) 및 Azure 센티널에 대해 추가 기가바이트 요금이 적용 될 수 있습니다.
 
 - 작업 영역에서 사용자에 게 Azure 센티널 참가자 역할을 할당 해야 합니다.
 
@@ -46,10 +46,6 @@ Azure 센티널의 기본 제공 커넥터를 사용 하 여 [Azure Active Direc
 
     - **로그인 로그**: 관리 되는 응용 프로그램 및 사용자 로그인 활동 사용에 대 한 정보입니다.
     - **감사 로그**: 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 활동 정보입니다.
-    - **비 대화형 사용자 로그인 로그**: 사용자를 대신 하 여 클라이언트에서 수행 하는 로그인에 대 한 정보로, 사용자의 상호 작용 또는 인증 요인이 필요 하지 않습니다.
-    - **서비스 주체 로그인 로그**: 사용자를 포함 하지 않는 앱 및 서비스 사용자의 로그인에 대 한 정보입니다. 이러한 로그인에서 앱 또는 서비스는 리소스를 인증 하거나 액세스 하기 위해 자체 자격 증명을 제공 합니다.
-    - **관리 id 로그인 로그**: azure에서 관리 하는 비밀이 있는 azure 리소스에의 한 로그인입니다.
-    - **프로 비전 로그**: Azure AD 프로 비전 서비스에서 프로 비전 하는 사용자, 그룹 및 역할에 대 한 시스템 활동 정보입니다.
 
 ## <a name="find-your-data"></a>데이터 찾기
 
@@ -57,10 +53,6 @@ Azure 센티널의 기본 제공 커넥터를 사용 하 여 [Azure Active Direc
 
 - `SigninLogs`
 - `AuditLogs`
-- `AADNonInteractiveUserSignInLogs`
-- `AADServicePrincipalSignInLogs`
-- `AADManagedIdentitySignInLogs`
-- `AADProvisioningLogs`
 
 Azure AD 로그를 쿼리하려면 쿼리 창의 맨 위에 관련 테이블 이름을 입력 합니다.
 

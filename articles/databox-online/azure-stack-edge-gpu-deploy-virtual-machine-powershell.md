@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 32685207f8d6e81d03c90d01b186337ce79f843a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 1d286e7661fa14dd63bd55b133c39414e04decc6
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763915"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802984"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
 
-이 문서에서는 Azure PowerShell를 사용 하 여 Azure Stack Edge Pro 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다. 이 문서는 edge pro GPU, Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R 장치에 Azure Stack에 적용 됩니다.
+이 문서에서는 Azure PowerShell를 사용 하 여 Azure Stack Edge Pro 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다. 이 문서는 Azure Stack Edge Pro GPU, Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R 장치에 적용 됩니다.
 
 ## <a name="vm-deployment-workflow"></a>VM 배포 워크플로
 
@@ -25,14 +25,14 @@ ms.locfileid: "97763915"
 
 ![VM 배포 워크플로](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 
-## <a name="query-for-built-in-subscription-on-the-device"></a>장치에서 기본 제공 구독의 쿼리
+## <a name="query-for-built-in-subscription-on-the-device"></a>장치에서 기본 제공 구독 쿼리
 
-Azure Resource Manager의 경우 사용자가 볼 수 있는 단일 고정 구독만 지원 됩니다. 이 구독은 장치 마다 고유 하며이 구독 이름 또는 구독 ID는 변경할 수 없습니다.
+Azure Resource Manager의 경우 사용자가 볼 수 있는 단일 고정 구독만 지원 됩니다. 이 구독은 장치 마다 고유 하며 구독 이름 또는 구독 ID는 변경할 수 없습니다.
 
 이 구독에는 VM을 만드는 데 필요한 모든 리소스가 포함 됩니다. 
 
@@ -118,7 +118,7 @@ Successfully created Resource Group:rg191113014333
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-이전 단계에서 만든 리소스 그룹을 사용 하 여 새 저장소 계정을 만듭니다. VM에 대 한 가상 디스크 이미지를 업로드 하는 데 사용 되는 **로컬 저장소 계정** 입니다.
+이전 단계에서 만든 리소스 그룹을 사용 하 여 새 저장소 계정을 만듭니다. 이 계정은 VM에 대 한 가상 디스크 이미지를 업로드 하는 데 사용 되는 **로컬 저장소 계정** 입니다.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -177,7 +177,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## <a name="add-blob-uri-to-hosts-file"></a>호스트 파일에 Blob URI 추가
 
-[끝점 이름 확인에 대 한 호스트 파일 수정](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution)섹션에서 blob 저장소에 연결 하는 데 사용 하는 클라이언트의 호스트 파일에 blob URI를 이미 추가 했습니다. Blob URI에 대 한 항목입니다.
+[끝점 이름 확인에 대 한 호스트 파일 수정](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution)섹션에서 blob 저장소에 연결 하는 데 사용 하는 클라이언트의 호스트 파일에 blob URI를 이미 추가 했습니다. 이 항목은 blob URI를 추가 하는 데 사용 되었습니다.
 
 \<Azure consistent network services VIP \>\<storage name\>. blob. \<appliance name\> .\<dnsdomain\>
 
@@ -256,7 +256,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-샘플 출력은 다음과 같습니다. 이 cmdlet에 대 한 자세한 내용은 [new-azurermdisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0)를 참조 하세요.
+샘플 출력은 다음과 같습니다. 이 cmdlet에 대 한 자세한 내용은 [new-azurermdisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true)를 참조 하세요.
 
 ```powershell
 Tags               :
@@ -296,7 +296,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-샘플 출력은 다음과 같습니다. 이 cmdlet에 대 한 자세한 내용은 [new-azurermimage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0)를 참조 하세요.
+샘플 출력은 다음과 같습니다. 이 cmdlet에 대 한 자세한 내용은 [new-azurermimage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true)를 참조 하세요.
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -319,8 +319,8 @@ VM을 만들고 배포 하기 전에 가상 네트워크를 하나 만들고 가
 > [!IMPORTANT]
 > 가상 네트워크 및 가상 네트워크 인터페이스를 만드는 동안 다음 규칙이 적용 됩니다.
 > - 하나의 Vnet만 만들 수 있으며 (리소스 그룹의 경우에도) 주소 공간을 기준으로 논리 네트워크와 정확히 일치 해야 합니다.
-> -   Vnet에는 서브넷이 하나만 허용 됩니다. 서브넷은 Vnet과 정확히 동일한 주소 공간 이어야 합니다.
-> -   Vnic를 만드는 동안에는 정적 할당 메서드만 허용 되며 사용자는 개인 IP 주소를 제공 해야 합니다.
+> - Vnet에는 서브넷이 하나만 허용 됩니다. 서브넷은 Vnet과 정확히 동일한 주소 공간 이어야 합니다.
+> - Vnic를 만드는 동안에는 정적 할당 메서드만 허용 되며 사용자는 개인 IP 주소를 제공 해야 합니다.
 
  
 **자동으로 만들어진 Vnet 쿼리**
@@ -498,7 +498,7 @@ Azure Stack Edge Pro 장치에서 실행 되는 모든 Vm의 목록을 반환 �
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
 
-이 cmdlet에 대 한 자세한 내용은 [new-azurermvm](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0)를 참조 하세요.
+이 cmdlet에 대 한 자세한 내용은 [new-azurermvm](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true)를 참조 하세요.
 
 ### <a name="suspend-or-shut-down-the-vm"></a>VM 일시 중단 또는 종료
 
@@ -510,7 +510,7 @@ Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
 
-이 cmdlet에 대 한 자세한 내용은 [new-azurermvm cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0)을 참조 하세요.
+이 cmdlet에 대 한 자세한 내용은 [new-azurermvm cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true)을 참조 하세요.
 
 ### <a name="add-a-data-disk"></a>데이터 디스크 추가
 
@@ -530,10 +530,10 @@ Update-AzureRmVM -ResourceGroupName "<Resource Group Name string>" -VM $VirtualM
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-이 cmdlet에 대 한 자세한 내용은 [new-azurermvm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0)을 참조 하세요.
+이 cmdlet에 대 한 자세한 내용은 [new-azurermvm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true)을 참조 하세요.
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Resource Manager cmdlet](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlet](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

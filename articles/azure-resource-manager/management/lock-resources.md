@@ -4,12 +4,12 @@ description: 사용자가 모든 사용자 및 역할에 대 한 잠금을 적�
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 53054f89c992139fbbd4f087d2a0344e26d97efc
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610202"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802443"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -38,7 +38,7 @@ ms.locfileid: "98610202"
 
 * **리소스 그룹** 에 대 한 삭제 잠금을 설정 하면 Azure Resource Manager가 기록에서 [배포를 자동으로 삭제할](../templates/deployment-history-deletions.md) 수 없습니다. 기록에서 800 배포에 도달 하면 배포에 실패 합니다.
 
-* **Azure Backup 서비스** 가 생성한 **리소스 그룹** 에 대해 잠금을 삭제할 수 없으므로 백업이 실패합니다. 이 서비스는 최대 18개의 복원 지점을 지원합니다. 잠겨 있으면 백업 서비스에서 복원 지점이 정리할 수 없습니다. 자세한 내용은 [질문과 대답-Azure VM 백업](../../backup/backup-azure-vm-backup-faq.md)을 참조하세요.
+* **Azure Backup 서비스** 가 생성한 **리소스 그룹** 에 대해 잠금을 삭제할 수 없으므로 백업이 실패합니다. 이 서비스는 최대 18개의 복원 지점을 지원합니다. 잠겨 있으면 백업 서비스에서 복원 지점이 정리할 수 없습니다. 자세한 내용은 [질문과 대답-Azure VM 백업](../../backup/backup-azure-vm-backup-faq.yml)을 참조하세요.
 
 * **구독** 에 대해 읽기 전용 잠금을 설정하면 **Azure Advisor** 가 제대로 작동하지 않습니다. Advisor가 쿼리 결과를 저장할 수 없습니다.
 
