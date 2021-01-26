@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: fcfd3da30ef9ace723b4204f5924591b1e2717f8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503168"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785823"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Azure 표준 Load Balancer에 대 한 Azure Monitor 로그
 
@@ -74,7 +74,7 @@ ms.locfileid: "97503168"
 
 ## <a name="view-and-analyze-the-activity-log"></a>활동 로그 보기 및 분석
 
-활동 로그는 기본적으로 생성 됩니다. [이 문서의 지침에](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log)따라 구독 수준에서 내보내도록 구성할 수 있습니다. [작업 로그 보기에서 리소스에 대 한 작업 모니터링](../azure-resource-manager/management/view-activity-logs.md) 문서를 읽어 이러한 로그에 대해 자세히 알아보세요.
+활동 로그는 기본적으로 생성 됩니다. [이 문서의 지침에](../azure-monitor/platform/activity-log.md)따라 구독 수준에서 내보내도록 구성할 수 있습니다. [작업 로그 보기에서 리소스에 대 한 작업 모니터링](../azure-resource-manager/management/view-activity-logs.md) 문서를 읽어 이러한 로그에 대해 자세히 알아보세요.
 
 다음 방법 중 하나를 사용 하 여 활동 로그 데이터를 보고 분석할 수 있습니다.
 
@@ -112,5 +112,5 @@ Azure Load Balancer에 대 한 메트릭-로그 내보내기 기능에는 다음
 * 사용 된 SNAT 포트 및 할당 된 SNAT 포트에 대 한 메트릭은 현재 로그로 내보내기에 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [부하 분산 장치에 대해 사용 가능한 메트릭 검토](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
-* [Azure Monitor 지침에 따라 쿼리를 만들고 테스트 합니다.](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+* [부하 분산 장치에 대해 사용 가능한 메트릭 검토](./load-balancer-standard-diagnostics.md)
+* [Azure Monitor 지침에 따라 쿼리를 만들고 테스트 합니다.](../azure-monitor/log-query/log-query-overview.md)

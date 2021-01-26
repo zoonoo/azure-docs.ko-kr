@@ -4,7 +4,6 @@ description: PowerShell을 사용 하 여 개인 IP 주소를 사용 하는 가�
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d5f18929-15e3-40a2-9ee3-8188bc248ed8
@@ -17,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2825d8d9f8be7c56d7beea767a1afb7a290eafa2
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43c2e2c8905ca60e59caed3fdf1b4920f509fd88
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222601"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783787"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>PowerShell을 사용 하 여 고정 개인 IP 주소를 사용 하는 가상 머신 만들기
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 고정 개인 IP 주소를 사용 하 여 VM (가상 머신)을 만들 수 있습니다. VM에 할당 되는 서브넷의 주소를 선택 하려면 동적 주소가 아닌 고정 개인 IP 주소를 할당 합니다. [정적 개인 IP 주소](./public-ip-addresses.md#allocation-method)에 대해 자세히 알아보세요. 기존 VM에 할당 된 개인 IP 주소를 동적에서 정적으로 변경 하거나 공용 IP 주소를 사용 하려면 [ip 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)를 참조 하세요.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 

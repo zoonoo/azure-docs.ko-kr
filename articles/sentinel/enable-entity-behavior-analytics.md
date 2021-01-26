@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0dccd8ac4f852688bf7e59e7ed96c4458c08d18b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425782"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784731"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널에서 사용자 및 엔터티 동작 분석 (UEBA) 사용 
 
 > [!IMPORTANT]
 >
-> - UEBA 및 엔터티 페이지 기능은 이제 다음 Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
->    - 미국 지리
->    - 유럽 서 부 지역
->    - 오스트레일리아 지리
->
-> - 다른 모든 지역 및 지역에서 이러한 기능은 **미리 보기** 기간 동안 유지 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
+> - UEBA 및 엔터티 페이지 기능은 이제 **_모든_* _ Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -38,9 +33,9 @@ ms.locfileid: "94425782"
 
 - 사용자는 게스트 사용자가 아닌 조직의 Azure Active Directory 구성원 이어야 합니다.
 
-- 사용자에 게 Azure AD의 **전역 관리자** 또는 **보안 관리자** 역할을 할당 해야 합니다.
+- 사용자에 게는 Azure AD에서 _ *전역 관리자** 또는 **보안 관리자** 역할을 할당 해야 합니다.
 
-- 사용자에 게 다음 **azure 역할** 중 하나 이상을 할당 해야 합니다 ( [azure RBAC에 대 한 자세한](roles.md)정보).
+- 사용자에 게 다음 **azure 역할** 중 하나 이상을 할당 해야 합니다 ([azure RBAC에 대 한 자세한](roles.md)정보).
     - 작업 영역 또는 리소스 그룹 수준에서 **Azure 센티널 기여자**
     - 리소스 그룹 또는 구독 수준에서 **참가자를 Log Analytics** 합니다.
 

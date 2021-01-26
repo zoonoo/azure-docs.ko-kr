@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5c414a11085a6a37dee6be522dcf513e8990e5e2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883353"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786354"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -29,7 +29,7 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 �
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-## <a name="new-features"></a>새 기능
+## <a name="new-features"></a>새로운 기능
 ### <a name="auto-key-rotation-for-customer-managed-key-encryption-at-rest"></a>미사용 고객 관리 키 암호화에 대 한 자동 키 회전
 이 릴리스부터는 고객이 휴지 상태의 고객이 관리 하는 키 암호화를 위해 Azure KeyValut 버전 감소 암호화 키 Url을 사용할 수 있습니다. HDInsight는 키가 만료 되거나 새 버전으로 바뀔 때 자동으로 키를 회전 합니다. 자세한 내용은 [여기](./disk-encryption.md)를 참조하세요.
 
@@ -48,7 +48,7 @@ HDInsight 3.6 ML Services 클러스터 유형은 12 월 31 2020 일까 지 지�
 
 ## <a name="behavior-changes"></a>동작 변경
 ### <a name="add-nsg-rule-checking-before-scaling-operation"></a>크기 조정 작업 전에 NSG 규칙 검사 추가
-HDInsight는 크기 조정 작업을 통해 NSGs (네트워크 보안 그룹) 및 UDRs (사용자 정의 경로) 검사를 추가 했습니다. 클러스터를 만들 뿐만 아니라 클러스터 크기 조정을 위해 동일한 유효성 검사가 수행 됩니다. 이 유효성 검사는 예기치 않은 오류를 방지 하는 데 도움이 됩니다. 유효성 검사를 통과 하지 못하면 크기 조정이 실패 합니다. NSGs 및 UDRs를 올바르게 구성 하는 방법에 대 한 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조 하세요.
+HDInsight는 크기 조정 작업을 통해 NSGs (네트워크 보안 그룹) 및 UDRs (사용자 정의 경로) 검사를 추가 했습니다. 클러스터를 만들 뿐만 아니라 클러스터 크기 조정을 위해 동일한 유효성 검사가 수행 됩니다. 이 유효성 검사는 예기치 않은 오류를 방지 하는 데 도움이 됩니다. 유효성 검사를 통과 하지 못하면 크기 조정이 실패 합니다. NSGs 및 UDRs를 올바르게 구성 하는 방법에 대 한 자세한 내용은 [HDInsight 관리 IP 주소](./hdinsight-management-ip-addresses.md)를 참조 하세요.
 
 ## <a name="upcoming-changes"></a>예정된 변경
 이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
@@ -72,7 +72,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
-### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>HDInsight 클러스터 Vm이 주기적으로 재부팅 되지 않도록 방지
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>HDInsight 클러스터 VM이 주기적으로 재부팅되지 않도록 방지
 
 2020 년 11 월부터 시작 하 여 HDInsight 클러스터 Vm을 정기적으로 다시 부팅 하는 것을 알 수 있습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
@@ -84,4 +84,3 @@ HDInsight는 실행 중인 모든 클러스터에 대해 수정 사항을 배포
 https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
 https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
 ```
-

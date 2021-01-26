@@ -4,12 +4,12 @@ description: Linux 클러스터에서 Service Fabric 런타임을 사용하여 �
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: a97c8b8315fe3be405aed9c6570004afb8fafd1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70f9cc38d84681f68c10882889214648a4dd2624
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258667"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785569"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 클러스터의 인증서 및 보안
 
@@ -21,7 +21,7 @@ Service Fabric은 일반적으로 X.509 인증서가 Linux 클러스터 노드�
 
 Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 프라이빗 키를 포함하는 .pem 파일 또는 인증서를 포함하는 .crt 파일 및 프라이빗 키를 포함하는 .key 파일로 존재할 것으로 예상합니다. 모든 파일은 PEM 형식이어야 합니다. 
 
-[Resource Manager 템플릿](./service-fabric-cluster-creation-create-template.md) 또는 [PowerShell](/powershell/module/az.servicefabric/?view=azps-2.6.0) 명령을 사용하여 Azure Key Vault에서 인증서를 설치하는 경우 인증서는 각 노드의 */var/ lib/sfcerts* 디렉터리에 올바른 형식으로 설치됩니다. 다른 방법을 통해 인증서를 설치하는 경우 클러스터 노드에 인증서가 올바르게 설치되어 있는지 확인해야 합니다.
+[Resource Manager 템플릿](./service-fabric-cluster-creation-create-template.md) 또는 [PowerShell](/powershell/module/az.servicefabric/) 명령을 사용하여 Azure Key Vault에서 인증서를 설치하는 경우 인증서는 각 노드의 */var/ lib/sfcerts* 디렉터리에 올바른 형식으로 설치됩니다. 다른 방법을 통해 인증서를 설치하는 경우 클러스터 노드에 인증서가 올바르게 설치되어 있는지 확인해야 합니다.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>애플리케이션 매니페스트에서 참조되는 인증서
 
@@ -33,7 +33,7 @@ Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 프라�
 
 ### <a name="using-x509-securitycredentialstype"></a>X509 SecurityCredentialsType 사용
 
-.NET 또는 Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509**를 지정할 수 있습니다. (.Net java `X509Credentials` [.NET](/previous-versions/azure/reference/mt124925(v=azure.100)) / [Java](/java/api/system.fabric.x509credentials)) 형식 `SecurityCredentials` ([.net](/previous-versions/azure/reference/mt124894(v=azure.100)) / [java](/java/api/system.fabric.securitycredentials))에 해당 합니다.
+.NET 또는 Java SDK를 사용하여 **SecurityCredentialsType** 에 대해 **X509** 를 지정할 수 있습니다. (.Net java `X509Credentials` [](/previous-versions/azure/reference/mt124925(v=azure.100)) / [](/java/api/system.fabric.x509credentials)) 형식 `SecurityCredentials` ([.net](/previous-versions/azure/reference/mt124894(v=azure.100)) / [java](/java/api/system.fabric.securitycredentials))에 해당 합니다.
 
 **X509** 참조는 인증서 저장소에서 인증서를 찾습니다. 다음 XML은 인증서의 위치를 지정하는 데 사용되는 매개 변수를 보여줍니다.
 
@@ -43,9 +43,9 @@ Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 프라�
     <Parameter Name="CertificateStoreName" Value="My" />
 ```
 
-Linux에서 실행 되는 서비스에 대 한 **LocalMachine**는 / **My** 인증서의 기본 위치인 */var/lib/sfcerts* 디렉터리를 가리킵니다. Linux의 경우 **CertificateStoreLocation** 및 **CertificateStoreName**의 다른 조합은 정의되지 않습니다. 
+Linux에서 실행 되는 서비스에 대 한 **LocalMachine** 는 /  인증서의 기본 위치인 */var/lib/sfcerts* 디렉터리를 가리킵니다. Linux의 경우 **CertificateStoreLocation** 및 **CertificateStoreName** 의 다른 조합은 정의되지 않습니다. 
 
-항상 **CertificateStoreLocation** 매개 변수에 대해 **LocalMachine**을 지정합니다. 기본값은 "My"이므로 **CertificateStoreName** 매개 변수를 지정할 필요가 없습니다. **X509** 참조를 사용하여 인증서 파일은 클러스터 노드의 */var/lib/sfcerts* 디렉터리에 있어야 합니다.  
+항상 **CertificateStoreLocation** 매개 변수에 대해 **LocalMachine** 을 지정합니다. 기본값은 "My"이므로 **CertificateStoreName** 매개 변수를 지정할 필요가 없습니다. **X509** 참조를 사용하여 인증서 파일은 클러스터 노드의 */var/lib/sfcerts* 디렉터리에 있어야 합니다.  
 
 다음 XML은 이 스타일에 따른 **TransportSettings** 섹션을 보여줍니다.
 
@@ -64,7 +64,7 @@ Linux에서 실행 되는 서비스에 대 한 **LocalMachine**는 / **My** 인�
 
 ### <a name="using-x509_2-securitycredentialstype"></a>X509_2 SecurityCredentialsType 사용
 
-Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509_2**를 지정할 수 있습니다. 이는 `SecurityCredentials`([Java](/java/api/system.fabric.securitycredentials))의 `X509Credentials2`([Java](/java/api/system.fabric.x509credentials2)) 형식에 해당합니다. 
+Java SDK를 사용하여 **SecurityCredentialsType** 에 대해 **X509_2** 를 지정할 수 있습니다. 이는 `SecurityCredentials`([Java](/java/api/system.fabric.securitycredentials))의 `X509Credentials2`([Java](/java/api/system.fabric.x509credentials2)) 형식에 해당합니다. 
 
 **X509_2** 참조를 사용하여 경로 매개 변수를 지정하므로 */var/lib/sfcerts* 이외의 디렉터리에서 인증서를 찾을 수 있습니다.  다음 XML은 인증서의 위치를 지정하는 데 사용되는 매개 변수를 보여줍니다. 
 

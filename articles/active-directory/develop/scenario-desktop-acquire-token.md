@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: a2048a509bdbe11c948ac8eb2daa6e78013c2fa5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753788"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785128"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -451,7 +451,7 @@ MSAL.NET에서 다음을 사용해야 합니다.
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-통상적으로는 하나의 매개 변수만 필요합니다(`scopes`). Windows 관리자가 정책을 어떻게 설정했는지에 따라, Windows 컴퓨터의 애플리케이션이 로그인한 사용자를 조회하는 것이 허용되지 않을 수 있습니다. 이 경우 두 번째 방법인 `.WithUsername()`을 사용하여 로그인한 사용자의 사용자 이름을 UPN 형식으로 전달합니다(예: `joe@contoso.com`). .NET Core 플랫폼은 OS에 사용자 이름을 물을 수 없으므로 .NET Core에서는 사용자 이름을 받는 오버로드만 사용할 수 있습니다.
+통상적으로는 하나의 매개 변수만 필요합니다(`scopes`). Windows 관리자가 정책을 어떻게 설정했는지에 따라, Windows 컴퓨터의 애플리케이션이 로그인한 사용자를 조회하는 것이 허용되지 않을 수 있습니다. 이 경우 두 번째 방법인 `.WithUsername()`을 사용하여 로그인한 사용자의 사용자 이름을 UPN 형식으로 전달합니다(예: `joe@contoso.com`).
 
 다음 샘플에서는 가장 최근 사례를 보여 줍니다. 이때 발생할 수 있는 예외와 그 대응 방법에 대한 설명도 제시합니다.
 

@@ -3,12 +3,12 @@ title: 독립 실행형 Azure Service Fabric 클러스터 만들기
 description: 온-프레미스 또는 클라우드에서 Windows Server 컴퓨터(실제 또는 가상)를 사용하여 Azure Service Fabric 클러스터를 만듭니다.
 ms.topic: conceptual
 ms.date: 2/21/2019
-ms.openlocfilehash: 36883f2c8b09fa3f8f013e0267dafa2a8220e5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41af655be07ccae2b66e75f5bfe87629cdb54924
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843195"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785687"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server에서 실행되는 독립 실행형 클러스터 만들기
 Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 머신 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 즉, 온-프레미스 또는 클라우드 공급자에 서로 연결된 일련의 Windows Server 컴퓨터가 있는 환경에서 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다. 서비스 패브릭은 독립 실행형 Windows Server 패키지라는 서비스 패브릭 클러스터를 만들 수 있는 설치 패키지를 제공합니다. Azure의 기존 Service Fabric 클러스터는 관리형 서비스로 제공되고, 독립 실행형 Service Fabric 클러스터는 셀프 서비스입니다. 차이점에 대한 자세한 내용은 [Azure 및 독립 실행형 Service Fabric 클러스터 비교](./service-fabric-deploy-anywhere.md)를 참조하세요.
@@ -46,7 +46,7 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 <a id="createcluster"></a>
 
 ## <a name="create-the-cluster"></a>클러스터 만들기
-몇 가지 샘플 클러스터 구성 파일은 설치 패키지와 함께 설치됩니다. *ClusterConfig.Unsecure.DevCluster.json*은 가장 간단한 클러스터 구성: 단일 컴퓨터에서 실행되는 비보안 3개 노드 클러스터입니다.  다른 구성 파일에서는 X.509 인증서 또는 Windows 보안을 사용하여 보호되는 단일 또는 다중 컴퓨터 클러스터를 설명합니다.  이 자습서에 대한 기본 구성 설정을 수정할 필요는 없지만 구성 파일을 확인하고 설정에 익숙해지도록 합니다.  **노드** 섹션에서는 클러스터에 있는 세 개의 노드(이름, IP 주소, [노드 유형, 장애 도메인 및 업그레이드 도메인](service-fabric-cluster-manifest.md#nodes-on-the-cluster))에 대해 설명합니다.  **속성** 섹션에서는 클러스터의 [보안, 안정성 수준, 진단 컬렉션 수준 및 노드의 형식](service-fabric-cluster-manifest.md#cluster-properties)을 정의합니다.
+몇 가지 샘플 클러스터 구성 파일은 설치 패키지와 함께 설치됩니다. *ClusterConfig.Unsecure.DevCluster.json* 은 가장 간단한 클러스터 구성: 단일 컴퓨터에서 실행되는 비보안 3개 노드 클러스터입니다.  다른 구성 파일에서는 X.509 인증서 또는 Windows 보안을 사용하여 보호되는 단일 또는 다중 컴퓨터 클러스터를 설명합니다.  이 자습서에 대한 기본 구성 설정을 수정할 필요는 없지만 구성 파일을 확인하고 설정에 익숙해지도록 합니다.  **노드** 섹션에서는 클러스터에 있는 세 개의 노드(이름, IP 주소, [노드 유형, 장애 도메인 및 업그레이드 도메인](service-fabric-cluster-manifest.md#nodes-on-the-cluster))에 대해 설명합니다.  **속성** 섹션에서는 클러스터의 [보안, 안정성 수준, 진단 컬렉션 수준 및 노드의 형식](service-fabric-cluster-manifest.md#cluster-properties)을 정의합니다.
 
 이 문서에서 만든 클러스터는 안전하지 않습니다.  누구든지 익명으로 연결하고 관리 작업을 수행할 수 있으므로 프로덕션 클러스터가 항상 X.509 인증서 또는 Windows 보안을 사용하여 보호되어야 합니다.  클러스터 생성 시에만 보안을 구성하므로 클러스터를 만든 후에 보안을 사용하도록 설정할 수 없습니다. 구성 파일을 업데이트하여 [인증서 보안](service-fabric-windows-cluster-x509-security.md) 또는 [Windows 보안](service-fabric-windows-cluster-windows-security.md)을 사용하도록 설정합니다. Service Fabric 클러스터 보안에 대한 자세한 내용은 [클러스터에 보안 적용](service-fabric-cluster-security.md)을 읽어 보세요.
 
@@ -113,10 +113,10 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
 
-*.\ClusterConfig.json* 및 *.\MicrosoftAzureServiceFabric.cab*는 각각 클러스터 구성 및 런타임 .cab 파일에 대한 경로입니다.
+*.\ClusterConfig.json* 및 *.\MicrosoftAzureServiceFabric.cab* 는 각각 클러스터 구성 및 런타임 .cab 파일에 대한 경로입니다.
 
 ### <a name="step-2-connect-to-the-cluster"></a>2단계: 클러스터에 연결
-클러스터가 실행 중이고 사용 가능한지 확인하려면 클러스터에 연결합니다. ServiceFabric PowerShell 모듈은 런타임에 설치됩니다.  Service Fabric 런타임을 사용하여 클러스터 노드 중 하나 또는 원격 컴퓨터에서 클러스터에 연결할 수 있습니다.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet은 클러스터에 대한 연결을 설정합니다.
+클러스터가 실행 중이고 사용 가능한지 확인하려면 클러스터에 연결합니다. ServiceFabric PowerShell 모듈은 런타임에 설치됩니다.  Service Fabric 런타임을 사용하여 클러스터 노드 중 하나 또는 원격 컴퓨터에서 클러스터에 연결할 수 있습니다.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet은 클러스터에 대한 연결을 설정합니다.
 
 비보안 클러스터에 연결하려면 다음 PowerShell 명령을 실행합니다.
 
@@ -129,7 +129,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.234:19000
 ```
 
-클러스터에 연결하는 다른 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)을 참조하세요. 클러스터에 연결한 후에는 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet을 사용하여 클러스터의 노드 목록과 각 노드에 대한 상태 정보를 표시합니다. **HealthState**는 노드마다 *OK* 상태여야 합니다.
+클러스터에 연결하는 다른 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)을 참조하세요. 클러스터에 연결한 후에는 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) cmdlet을 사용하여 클러스터의 노드 목록과 각 노드에 대한 상태 정보를 표시합니다. **HealthState** 는 노드마다 *OK* 상태여야 합니다.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
@@ -196,7 +196,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 * ServiceFabricVersion
 * 원격 분석을 업로드한 가상 컴퓨터 또는 컴퓨터의 IP 주소
 
-원격 분석을 사용하지 않도록 설정하려면 클러스터 config: *enableTelemetry: false*의 *properties*에 다음을 추가합니다.
+원격 분석을 사용하지 않도록 설정하려면 클러스터 config: *enableTelemetry: false* 의 *properties* 에 다음을 추가합니다.
 
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
 

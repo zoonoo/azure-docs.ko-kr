@@ -4,12 +4,12 @@ description: FabricClient API를 사용하여 Service Fabric에서 애플리케�
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 565e6b8f23f159a5c231295694830917217a3d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 343a37c983b1d64a4b1986913d9d6fd648a113fe
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89009303"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785552"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>FabricClient를 사용하여 애플리케이션 배포 및 제거
 > [!div class="op_single_selector"]
@@ -45,9 +45,9 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>애플리케이션 패키지 업로드
-Visual Studio에서 *MyApplication*이라는 애플리케이션을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 애플리케이션 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함 된 응용 프로그램 패키지는 *C:\Users \& l t; username &gt; \Documents\visual Studio 2019 \ Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다.
+Visual Studio에서 *MyApplication* 이라는 애플리케이션을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 애플리케이션 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함 된 응용 프로그램 패키지는 *C:\Users \& l t; username &gt; \Documents\visual Studio 2019 \ Projects\MyApplication\MyApplication\pkg\Debug* 에 있습니다.
 
-애플리케이션 패키지를 업로드하면 내부 Service Fabric 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. Service Fabric은 애플리케이션 패키지를 등록하는 동안 애플리케이션 패키지를 확인합니다. 그러나 응용 프로그램 패키지를 로컬로 확인 하려면 (즉, 업로드 하기 전에) [copy-servicefabricapplicationpackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet을 사용 합니다.
+애플리케이션 패키지를 업로드하면 내부 Service Fabric 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. Service Fabric은 애플리케이션 패키지를 등록하는 동안 애플리케이션 패키지를 확인합니다. 그러나 응용 프로그램 패키지를 로컬로 확인 하려면 (즉, 업로드 하기 전에) [copy-servicefabricapplicationpackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) cmdlet을 사용 합니다.
 
 [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API는 애플리케이션 패키지를 클러스터 이미지 저장소에 업로드합니다. 
 
@@ -92,7 +92,7 @@ Visual Studio에서 *MyApplication*이라는 애플리케이션을 빌드하고 
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage가 ImageStoreConnectionString을 요청함
-서비스 패브릭 SDK 환경은 이미 올바른 기본 설정값을 가지고 있습니다. 하지만 필요한 경우 모든 명령에 대한 ImageStoreConnectionString은 서비스 패브릭 클러스터가 사용 중인 값과 일치해야 합니다. [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) 및 Get-ImageStoreConnectionStringFromClusterManifest 명령을 사용하여 검색된 클러스터 매니페스트에서 ImageStoreConnectionString을 찾을 수 있습니다.
+서비스 패브릭 SDK 환경은 이미 올바른 기본 설정값을 가지고 있습니다. 하지만 필요한 경우 모든 명령에 대한 ImageStoreConnectionString은 서비스 패브릭 클러스터가 사용 중인 값과 일치해야 합니다. [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest) 및 Get-ImageStoreConnectionStringFromClusterManifest 명령을 사용하여 검색된 클러스터 매니페스트에서 ImageStoreConnectionString을 찾을 수 있습니다.
 
 ```powershell
 PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)

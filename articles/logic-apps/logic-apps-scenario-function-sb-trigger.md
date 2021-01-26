@@ -7,24 +7,24 @@ ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a7df9ba1318f40de8af392cfaedbe51d7a5df755
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000337"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784937"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Azure Functions 및 Azure Service Bus를 사용 하 여 논리 앱 호출 또는 트리거
 
 장기 실행 수신기 또는 작업을 배포 해야 하는 경우 [Azure Functions](../azure-functions/functions-overview.md) 를 사용 하 여 논리 앱을 트리거할 수 있습니다. 예를 들어 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 큐에서 수신 대기 하는 함수를 만들고 논리 앱을 밀어넣기 트리거로 즉시 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * Azure Service Bus 네임 스페이스입니다. 네임 스페이스가 없는 경우 [먼저 네임 스페이스를 만듭니다](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* 함수 앱으로, 함수에 대 한 컨테이너입니다. 함수 앱이 없으면 [먼저 함수 앱을 만든](../azure-functions/functions-create-first-azure-function.md)다음 .net을 런타임 스택으로 선택 해야 합니다.
+* 함수 앱으로, 함수에 대 한 컨테이너입니다. 함수 앱이 없으면 [먼저 함수 앱을 만든](../azure-functions/functions-get-started.md)다음 .net을 런타임 스택으로 선택 해야 합니다.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 

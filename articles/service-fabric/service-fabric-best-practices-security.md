@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7af0a4c26a47644973e936eb37e221853d74c03
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257604"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784666"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
 
@@ -56,7 +56,7 @@ Azure Key Vault 인증서는 만들거나 Key Vault로 가져올 수 있습니�
 
 ## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Service Fabric 클러스터의 인증서에 ACL(액세스 제어 목록) 적용
 
-[Virtual Machine Scale Set 확장](/cli/azure/vmss/extension?view=azure-cli-latest) 게시자인 Microsoft.Azure.ServiceFabric은 노드 보안을 구성하는 데 사용됩니다.
+[Virtual Machine Scale Set 확장](/cli/azure/vmss/extension) 게시자인 Microsoft.Azure.ServiceFabric은 노드 보안을 구성하는 데 사용됩니다.
 Service Fabric 클러스터 프로세스에 대한 인증서에 ACL을 적용하려면 다음 Resource Manager 템플릿 속성을 사용합니다.
 
 ```json

@@ -3,12 +3,12 @@ title: 신뢰할 수 있는 컬렉션 소개
 description: Service Fabric 상태 저장 서비스는 가용성 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 애플리케이션을 작성할 수 있는 안정적인 컬렉션을 제공합니다.
 ms.topic: conceptual
 ms.date: 3/10/2020
-ms.openlocfilehash: 6e0f39b994087fe44038e62e85326945589c719a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d705f81b4ad31559886e43226febcd4cf1d345d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86245129"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784379"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
 
@@ -40,9 +40,9 @@ ms.locfileid: "86245129"
 
 오늘날 **Microsoft.ServiceFabric.Data.Collections** 은 다음과 같은 3가지 컬렉션을 포함합니다.
 
-* [신뢰할 수 있는 사전](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2): 키/값 쌍의 복제, 트랜잭션 및 비동기 컬렉션을 나타냅니다. **ConcurrentDictionary**와 유사하게 키와 값은 모든 형식일 수 있습니다.
-* [신뢰할 수 있는 큐](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1): 복제, 트랜잭션 및 비동기의 엄격한 FIFO(선입 선출) 큐를 나타냅니다. **ConcurrentQueue**와 유사하게 값은 어떤 형식일 수 있습니다.
-* [신뢰할 수 있는 동시 큐](service-fabric-reliable-services-reliable-concurrent-queue.md): 높은 처리량을 위해 최고의 순서로 대기되는 복제, 트랜잭션 및 비동기 큐. **ConcurrentQueue**와 유사하게 값은 어떤 형식일 수 있습니다.
+* [신뢰할 수 있는 사전](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2#microsoft_servicefabric_data_collections_ireliabledictionary_2): 키/값 쌍의 복제, 트랜잭션 및 비동기 컬렉션을 나타냅니다. **ConcurrentDictionary** 와 유사하게 키와 값은 모든 형식일 수 있습니다.
+* [신뢰할 수 있는 큐](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1): 복제, 트랜잭션 및 비동기의 엄격한 FIFO(선입 선출) 큐를 나타냅니다. **ConcurrentQueue** 와 유사하게 값은 어떤 형식일 수 있습니다.
+* [신뢰할 수 있는 동시 큐](service-fabric-reliable-services-reliable-concurrent-queue.md): 높은 처리량을 위해 최고의 순서로 대기되는 복제, 트랜잭션 및 비동기 큐. **ConcurrentQueue** 와 유사하게 값은 어떤 형식일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -57,4 +57,4 @@ ms.locfileid: "86245129"
   * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
 * Others
   * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
-  * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

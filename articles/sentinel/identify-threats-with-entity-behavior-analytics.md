@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900895"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784798"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
 
 > [!IMPORTANT]
 >
-> - UEBA 및 엔터티 페이지 기능은 이제 다음 Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
->    - 미국 지리
->    - 유럽 서 부 지역
->    - 오스트레일리아 지리
->
-> - 다른 모든 지역 및 지역에서 이러한 기능은 **미리 보기** 기간 동안 유지 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [**Microsoft Azure 미리 보기에**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
+> - UEBA 및 엔터티 페이지 기능은 이제 **_모든_* _ Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>사용자 및 엔터티 동작 분석 (UEBA) 이란?
 
@@ -50,7 +45,7 @@ Azure 센티널은 모든 연결 된 데이터 원본에서 로그 및 경고를
 
 UEBA 솔루션에 대 한 Gartner의 패러다임에서 제공 되는 Azure 센티널은 세 가지 참조 프레임을 기반으로 하는 "외부" 접근 방식을 제공 합니다.
 
-- **사용 사례:** 다양 한 엔터티를 kill 체인의 교착 상태가 발생, perpetrators 또는 pivot 점으로 사용 하는 MITRE AT&T&접시 헤드 프레임 워크를 기반으로 하는 관련 공격 벡터 및 시나리오에 대 한 우선 순위를 설정 합니다. Azure 센티널은 각 데이터 원본이 제공할 수 있는 가장 중요 한 로그에 초점을 맞춘 것입니다.
+- _ *사용 사례:** 다양 한 엔터티를 kill 체인의 교착 상태가 발생, perpetrators 또는 Pivot 점으로 사용 하는 MITRE at&t&접시 헤드 프레임 워크를 기반으로 하는 관련 공격 벡터 및 시나리오에 대 한 우선 순위를 설정 합니다. Azure 센티널은 각 데이터 원본이 제공할 수 있는 가장 중요 한 로그에 초점을 맞춘 것입니다.
 
 - **데이터 원본:** Azure 데이터 원본을 먼저 지원 하는 반면, Azure 센티널 신중는 타사 데이터 원본을 선택 하 여 위협 시나리오와 일치 하는 데이터를 제공 합니다.
 
@@ -155,7 +150,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 
 ### <a name="behavior-analytics-table"></a>동작 분석 테이블
 
-| 필드                     | 설명                                                         |
+| 필드                     | Description                                                         |
 |---------------------------|---------------------------------------------------------------------|
 | TenantId                  | 테 넌 트의 고유 ID 번호                                      |
 | SourceRecordId            | EBA 이벤트의 고유 ID 번호                                   |
@@ -163,7 +158,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 | TimeProcessed 됨             | EBA 엔진에서 작업을 처리 하는 타임 스탬프            |
 | ActivityType              | 활동의 상위 수준 범주                                 |
 | ActionType                | 활동의 정규화 된 이름입니다.                                     |
-| 사용자 이름                  | 활동을 시작한 사용자의 사용자 이름입니다.                    |
+| UserName                  | 활동을 시작한 사용자의 사용자 이름입니다.                    |
 | UserPrincipalName         | 활동을 시작한 사용자의 전체 사용자 이름입니다.               |
 | EventSource               | 원래 이벤트를 제공한 데이터 원본                        |
 | Sourceipaddress의 경우           | 작업이 시작 된 IP 주소                        |

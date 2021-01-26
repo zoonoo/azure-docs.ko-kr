@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: 6b5a228c12cfc874673dda854de6d4dcc25f28c1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014538"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783804"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Azure Media Services Video Indexer란?
 
@@ -115,6 +115,21 @@ Video Indexer의 인사이트는 다음과 같은 다양한 시나리오에 적�
     자세한 내용은  [애플리케이션에 시각적 위젯 포함](video-indexer-embed-widgets.md)을 참조하세요.
 
 웹 사이트를 사용하는 경우 인사이트는 메타데이터로 추가되며 포털에 표시됩니다. API를 사용하는 경우에는 인사이트를 JSON 파일로 사용할 수 있습니다.
+
+## <a name="supported-browsers"></a>지원되는 브라우저
+
+다음 목록에는 Video Indexer 웹 사이트와 위젯을 포함 하는 앱에 사용할 수 있는 지원 브라우저가 나와 있습니다. 이 목록에는 지원 되는 최소 브라우저 버전도 표시 됩니다.
+
+- Edge, 버전: 16
+- Firefox, 버전: 54
+- Chrome, 버전: 58
+- Safari, 버전: 11
+- Opera, 버전: 44
+- Opera Mobile, 버전: 59
+- Android 브라우저, 버전: 81
+- Samsung Browser, 버전: 7
+- Android 용 Chrome, 버전: 87
+- Android 용 Firefox, 버전: 83
 
 ## <a name="next-steps"></a>다음 단계
 

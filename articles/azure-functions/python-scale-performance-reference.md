@@ -4,12 +4,12 @@ description: 뛰어난 성능과 부하가 뛰어난 Python을 사용 하 여 Az
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e3bbdb8819062d45d071633e0208fb58a003da54
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935872"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786109"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Azure Functions에서 Python 앱의 처리량 성능 향상
 
@@ -22,10 +22,10 @@ Python을 사용 하 여 Azure Functions를 개발 하는 경우 함수에서 �
 
 기본 구성은 대부분의 Azure Functions 응용 프로그램에 적합 합니다. 그러나 워크 로드 프로필을 기반으로 구성을 사용 하 여 응용 프로그램 처리량의 성능을 향상 시킬 수 있습니다. 첫 번째 단계는 실행 중인 작업의 유형을 이해 하는 것입니다.
 
-|| I/o 바인딩된 작업 | CPU 바인딩된 작업 |
-|--| -- | -- |
-|함수 앱 특징| <ul><li>앱은 많은 동시 호출을 처리 해야 합니다.</li> <li> 앱은 네트워크 호출 및 디스크 읽기/쓰기와 같은 많은 i/o 이벤트를 처리 합니다.</li> </ul>| <ul><li>앱은 이미지 크기 조정과 같은 장기 실행 계산을 수행 합니다.</li> <li>앱에서 데이터를 변환 합니다.</li> </ul> |
-|예| <ul><li>Web API</li><ul> | <ul><li>데이터 처리</li><li> 기계 학습 유추</li><ul>|
+| 워크로드 유형 | 함수 앱 특징       | 예제                                          |
+| ------------- | ---------------------------------- | ------------------------------------------------- |
+| **I/o 바인딩**     | • 앱은 많은 동시 호출을 처리 해야 합니다.<br>• 앱은 네트워크 호출 및 디스크 읽기/쓰기와 같은 많은 i/o 이벤트를 처리 합니다. | • 웹 Api                                          |
+| **CPU 바인딩**     | • 앱은 이미지 크기 조정과 같은 장기 실행 계산을 수행 합니다.<br>• 앱은 데이터를 변환 합니다.                                                | • 데이터 처리<br>• 기계 학습 유추<br> |
 
  
 실제 기능 워크 로드는 일반적으로 i/o와 CPU가 혼합 된 것 이므로 실제 프로덕션 부하에서 앱을 프로 파일링 해야 합니다.

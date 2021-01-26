@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 730774f33d43754d4ca198ed170159fa4f872e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903679"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784480"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치 반환
 
@@ -38,12 +38,12 @@ ms.locfileid: "90903679"
 
 로컬 웹 UI를 사용하여 디바이스를 초기화하려면 다음 단계를 수행하세요.
 
-1. 로컬 웹 UI에서 **유지 관리 > 디바이스 초기화**로 이동합니다.
-2. **디바이스 초기화**를 선택합니다.
+1. 로컬 웹 UI에서 **유지 관리 > 디바이스 초기화** 로 이동합니다.
+2. **디바이스 초기화** 를 선택합니다.
 
     ![디바이스 다시 설정](media/azure-stack-edge-return-device/device-reset-1.png)
 
-3. 확인 메시지가 나타나면 경고를 검토하고 **예**를 선택하여 계속합니다.
+3. 확인 메시지가 나타나면 경고를 검토하고 **예** 를 선택하여 계속합니다.
 
     ![초기화 확인](media/azure-stack-edge-return-device/device-reset-2.png)  
 
@@ -59,13 +59,13 @@ ms.locfileid: "90903679"
 
 반환 프로세스를 시작하려면 다음 단계를 수행하세요.
 
-1. Azure Portal에서 Azure Stack Edge Pro/Data Box Gateway 리소스로 이동 합니다. **개요**에서 오른쪽 창의 명령 모음으로 이동 하 고 **장치 반환**을 선택 합니다. 
+1. Azure Portal에서 Azure Stack Edge Pro/Data Box Gateway 리소스로 이동 합니다. **개요** 에서 오른쪽 창의 명령 모음으로 이동 하 고 **장치 반환** 을 선택 합니다. 
 
     ![장치 1 반환](media/azure-stack-edge-return-device/return-device-1.png)  
 
 2. **반환 장치** 블레이드의 **기본 세부 정보**:
 
-    1. 장치의 일련 번호를 제공 합니다. 장치 일련 번호를 가져오려면 장치의 로컬 웹 UI로 이동한 다음 **개요**로 이동 합니다.  
+    1. 장치의 일련 번호를 제공 합니다. 장치 일련 번호를 가져오려면 장치의 로컬 웹 UI로 이동한 다음 **개요** 로 이동 합니다.  
     
     ![장치 일련 번호 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
@@ -80,13 +80,13 @@ ms.locfileid: "90903679"
 3. **배송 세부 정보**:
 
     1. 이름, 회사 이름 및 전체 회사 주소를 제공 합니다. 지역 번호 및 알림에 대 한 전자 메일 ID를 포함 하는 직장 전화를 입력 합니다.
-    2. 반송 상자가 필요한 경우 요청할 수 있습니다. **반환용 빈 상자 필요** 질문에 **예**로 답합니다.
+    2. 반송 상자가 필요한 경우 요청할 수 있습니다. **반환용 빈 상자 필요** 질문에 **예** 로 답합니다.
 
     ![장치 3 반환](media/azure-stack-edge-return-device/return-device-3.png)
 
 4. **개인 정보 취급 방침** 을 검토 하 고이 확인란을 선택 하 여 개인 정보 취급 방침을 검토 하 고이에 동의 합니다.
 
-5. **반환 시작**을 선택 합니다.
+5. **반환 시작** 을 선택 합니다.
 
     ![장치 4 반환](media/azure-stack-edge-return-device/return-device-4.png) 
 
@@ -100,8 +100,8 @@ ms.locfileid: "90903679"
 
 픽업을 예약 하려면 다음 단계를 수행 합니다.
 
-1. 디바이스를 종료합니다. 로컬 웹 UI에서 **유지 관리 > 전원 설정**으로 이동합니다.
-2. **종료**를 선택합니다. 확인 메시지가 표시되면 **예**를 클릭하여 계속합니다. 자세한 내용은 [전원 관리](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power)를 참조하세요.
+1. 디바이스를 종료합니다. 로컬 웹 UI에서 **유지 관리 > 전원 설정** 으로 이동합니다.
+2. **종료** 를 선택합니다. 확인 메시지가 표시되면 **예** 를 클릭하여 계속합니다. 자세한 내용은 [전원 관리](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power)를 참조하세요.
 3. 전원 케이블을 분리하고 디바이스에서 모든 네트워크 케이블을 제거합니다.
 4. 가지고 있는 상자나 Azure에서 받은 빈 상자를 사용하여 배송 꾸러미를 준비합니다. 디바이스와 함께 제공된 전원 코드를 상자에 넣습니다.
 5. Azure에서 받은 배송 레이블을 상자에 붙입니다.
@@ -131,11 +131,11 @@ Microsoft Azure Portal에서 디바이스를 삭제할 수 있습니다.
 
 Microsoft Azure Portal에서 디바이스와 리소스를 삭제하려면 다음 단계를 수행하세요.
 
-1. Microsoft Azure Portal에서 리소스로 이동한 다음, **개요**로 이동합니다. 명령 모음에서 **삭제**를 선택합니다.
+1. Microsoft Azure Portal에서 리소스로 이동한 다음, **개요** 로 이동합니다. 명령 모음에서 **삭제** 를 선택합니다.
 
     ![삭제 선택](media/azure-stack-edge-return-device/delete-resource-1.png)
 
-2. **디바이스 삭제** 블레이드에서 삭제하려는 디바이스의 이름을 입력하고 **삭제**를 선택합니다.
+2. **디바이스 삭제** 블레이드에서 삭제하려는 디바이스의 이름을 입력하고 **삭제** 를 선택합니다.
 
     ![삭제 확인](media/azure-stack-edge-return-device/delete-resource-2.png)
 

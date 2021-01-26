@@ -3,12 +3,12 @@ title: 신뢰할 수 있는 컬렉션의 트랜잭션 및 잠금 모드
 description: Azure Service Fabric 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 트랜잭션 및 잠금.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.openlocfilehash: 57ca46047641b79d5e4c50ede4a27e16dcec5d89
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5d2cbb517ea5ca45697cd9124b82e9ef13dd32db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576726"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784345"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 신뢰할 수 있는 컬렉션의 트랜잭션 및 잠금 모드
 
@@ -18,7 +18,7 @@ ms.locfileid: "96576726"
 
 * **원자성**: 트랜잭션은 작업의 원자 단위여야 합니다. 즉, 모든 데이터 수정 작업이 수행되거나, 또는 하나도 수행되지 않아야 합니다.
 * **일관성**: 완료되면 트랜잭션은 모든 데이터를 일관된 상태로 유지해야 합니다. 모든 내부 데이터 구조는 트랜잭션이 끝날 때 정확해야 합니다.
-* **격리**: 동시 트랜잭션에 의한 수정은 다른 동시 트랜잭션과 격리되어야 합니다. [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) 내에서 작업에 사용 되는 격리 수준은 작업을 수행 하는 [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) 에 의해 결정 됩니다.
+* **격리**: 동시 트랜잭션에 의한 수정은 다른 동시 트랜잭션과 격리되어야 합니다. [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction) 내에서 작업에 사용 되는 격리 수준은 작업을 수행 하는 [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate) 에 의해 결정 됩니다.
 * **내구성**: 트랜잭션이 완료되면 그 영향은 영구적으로 시스템에 적용됩니다. 수정은 시스템에 오류가 발생한 경우에도 지속됩니다.
 
 ### <a name="isolation-levels"></a>격리 수준
@@ -67,9 +67,9 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 
 잠금 호환성 매트릭스는 다음 테이블에서 확인할 수 있습니다.
 
-| 요청 \ 부여 | 없음 | 공유 | 업데이트 | 단독 |
+| 요청 \ 부여 | 없음 | 공유됨 | 업데이트 | 단독 |
 | --- |:--- |:--- |:--- |:--- |
-| 공유 |충돌 없음 |충돌 없음 |충돌 |충돌 |
+| 공유됨 |충돌 없음 |충돌 없음 |충돌 |충돌 |
 | 업데이트 |충돌 없음 |충돌 없음 |충돌 |충돌 |
 | 단독 |충돌 없음 |충돌 |충돌 |충돌 |
 
@@ -84,4 +84,4 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 * [Reliable Services 알림](service-fabric-reliable-services-notifications.md)
 * [Reliable Services 백업 및 복원(재해 복구)](service-fabric-reliable-services-backup-restore.md)
 * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
-* [신뢰할 수 있는 컬렉션에 대한 개발자 참조](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+* [신뢰할 수 있는 컬렉션에 대한 개발자 참조](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

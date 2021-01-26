@@ -4,12 +4,12 @@ description: 기본 전략과 사용자 지정 serialization을 정의 하는 �
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1d29f5d3391bdea0b21997a392d4d2e053b7ec65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bb9a2dfb028d223d63559b35735e78d7e6bcf8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018623"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784362"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric의 신뢰할 수 있는 컬렉션 개체 serialization
 신뢰할 수 있는 컬렉션은 해당 항목을 복제하고 유지하여 컴퓨터 장애 및 정전이 발생해도 지속되도록 합니다.
@@ -20,11 +20,11 @@ Reliable State Manager에는 기본 제공 직렬 변환기가 포함되어 있�
 
 ## <a name="built-in-serializers"></a>기본 제공 직렬 변환기
 
-Reliable State Manager에는 일부 공용 형식에 대한 기본 제공 직렬 변환기가 포함되어 있으므로 기본적으로 해당 형식을 효율적으로 직렬화할 수 있습니다. 다른 형식의 경우 Reliable State Manager에서 [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1)를 사용합니다.
+Reliable State Manager에는 일부 공용 형식에 대한 기본 제공 직렬 변환기가 포함되어 있으므로 기본적으로 해당 형식을 효율적으로 직렬화할 수 있습니다. 다른 형식의 경우 Reliable State Manager에서 [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer)를 사용합니다.
 기본 제공 직렬 변환기는 해당 형식이 변경될 수 없음을 알고 있으며 형식 이름 등의 형식 정보를 포함할 필요가 없으므로 더 효율적입니다.
 
 Reliable State Manager에는 다음 형식에 대한 기본 제공 직렬 변환기가 있습니다. 
-- GUID
+- Guid
 - bool
 - byte
 - sbyte
@@ -140,7 +140,7 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 
 ## <a name="next-steps"></a>다음 단계
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
-  * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   * [Visual studio를 사용 하 여 응용 프로그램을 업그레이드](service-fabric-application-upgrade-tutorial.md) 하면 visual studio를 사용 하 여 응용 프로그램을 업그레이드할 수 있습니다.
   * [Powershell을 사용 하 여 응용 프로그램을 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 하려면 powershell을 사용 하 여 응용 프로그램을 업그레이드 합니다.
   * [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.

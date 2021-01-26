@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: f6daee6d4cfc3c074e004fb3835f62218e48d9ff
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3bf137f968082e677f45c20947793232b9181220
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583116"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786615"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure Data Box Gateway에 대한 사용 사례
 
@@ -40,7 +40,7 @@ Data Box Gateway의 주요 장점 중 하나는 데이터 크기에 관계없이
 
 데이터를 클라우드에 장기간 보존하려는 경우 Data Box Gateway를 사용합니다. 장기 보존에 대해 스토리지의 보관 계층을 사용할 수 있습니다.
 
-보관 계층은 최소 180 일 동안 거의 액세스 하지 않는 데이터를 저장 하도록 최적화 되어 있습니다. 보관 계층은 스토리지 비용은 가장 저렴하지만 액세스 비용은 가장 비쌉니다. 자세한 내용은 [보관 액세스 계층](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier)으로 이동하세요.
+보관 계층은 최소 180 일 동안 거의 액세스 하지 않는 데이터를 저장 하도록 최적화 되어 있습니다. 보관 계층은 스토리지 비용은 가장 저렴하지만 액세스 비용은 가장 비쌉니다. 자세한 내용은 [보관 액세스 계층](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier)으로 이동하세요.
 
 ### <a name="move-data-to-the-archive-tier"></a>보관 계층으로 데이터 이동
 
@@ -48,14 +48,14 @@ Data Box Gateway의 주요 장점 중 하나는 데이터 크기에 관계없이
 
 - Data Box Gateway 디바이스를 사용하여 [Data Box Gateway를 통해 데이터 전송](data-box-gateway-deploy-add-shares.md)에 설명된 일반적인 전송 절차를 통해 Azure에 데이터를 업로드합니다.
 - 데이터가 업로드된 후 보관 계층으로 이동해야 합니다. Azure PowerShell 스크립트 또는 Azure Storage 수명 주기 관리 정책을 사용 하 여 두 가지 방법으로 blob 계층을 설정할 수 있습니다.  
-    - Azure PowerShell 사용 하는 경우 다음 [단계](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) 에 따라 데이터를 보관 계층으로 이동 합니다.
+    - Azure PowerShell 사용 하는 경우 다음 [단계](../databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) 에 따라 데이터를 보관 계층으로 이동 합니다.
     - Azure 수명 주기 관리를 사용 하는 경우 다음 단계에 따라 데이터를 보관 계층으로 이동 합니다.
-        - Blob 수명 주기 관리 서비스의 미리 보기에 [등록](/azure/storage/common/storage-lifecycle-management-concepts) 하 여 보관 계층을 사용 합니다.
-        - 다음 정책을 사용하여 [수집 시 데이터를 보관](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest)합니다.
+        - Blob 수명 주기 관리 서비스의 미리 보기에 [등록](../storage/blobs/storage-lifecycle-management-concepts.md) 하 여 보관 계층을 사용 합니다.
+        - 다음 정책을 사용하여 [수집 시 데이터를 보관](../storage/blobs/storage-lifecycle-management-concepts.md#archive-data-after-ingest)합니다.
 - Blob이 보관으로 표시 되 면 핫 또는 콜드 계층으로 이동 하지 않는 한 게이트웨이를 통해 더 이상 수정할 수 없습니다. 파일이 로컬 저장소에 있는 경우 로컬 복사본에 대 한 변경 내용 (삭제 포함)은 보관 계층에 업로드 되지 않습니다.
 - 보관 저장소의 데이터를 읽으려면 blob 계층을 핫 또는 쿨로 변경 하 여 데이터를 리하이드레이션 해야 합니다. 게이트웨이에서 [공유를 새로 고치](data-box-gateway-manage-shares.md#refresh-shares)는 것은 Blob을 다시 하이드레이션하지 않습니다.
 
-자세한 내용은 [Azure Blob Storage 수명 주기를 관리](/azure/storage/common/storage-lifecycle-management-concepts)하는 방법에 대해 자세히 알아봅니다.
+자세한 내용은 [Azure Blob Storage 수명 주기를 관리](../storage/blobs/storage-lifecycle-management-concepts.md)하는 방법에 대해 자세히 알아봅니다.
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>증분 전송 후 초기 대량 전송
 
@@ -65,10 +65,10 @@ Data Box Gateway의 주요 장점 중 하나는 데이터 크기에 관계없이
 
 다음 단계를 따라 Data Box에 데이터를 복사하고 Azure Storage에 업로드합니다.
 
-1. [Data Box를 주문](/azure/databox/data-box-deploy-ordered)합니다.
-2. [Data Box를 설정](/azure/databox/data-box-deploy-set-up)합니다.
-3. [SMB를 통해 Data Box에 데이터를 복사](/azure/databox/data-box-deploy-copy-data)합니다.
-4. [Data Box를 반환하고, Azure에 대한 데이터 업로드를 확인](/azure/databox/data-box-deploy-picked-up)합니다.
+1. [Data Box를 주문](../databox/data-box-deploy-ordered.md)합니다.
+2. [Data Box를 설정](../databox/data-box-deploy-set-up.md)합니다.
+3. [SMB를 통해 Data Box에 데이터를 복사](../databox/data-box-deploy-copy-data.md)합니다.
+4. [Data Box를 반환하고, Azure에 대한 데이터 업로드를 확인](../databox/data-box-deploy-picked-up.md)합니다.
 5. Azure에 대한 데이터 업로드가 완료되면 모든 데이터는 Azure 스토리지 컨테이너에 있어야 합니다. Data Box에 대한 스토리지 계정에서 모든 데이터가 복사되었는지 확인하려면 Blob(및 파일) 컨테이너로 이동합니다. 이 이름을 나중에 사용하므로 컨테이너 이름을 기록해 둡니다. 예를 들어 다음 스크린샷에서 `databox` 컨테이너는 증분 전송에 사용됩니다.
 
     ![Data Box의 데이터가 있는 컨테이너](media/data-box-gateway-use-cases/data-container.png)
