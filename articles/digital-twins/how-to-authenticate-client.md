@@ -7,22 +7,22 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2502fdd14acae206b8440fe602639aa49be55f4e
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: eba3958ae5dd307b80b04371d3659a129d5acf89
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045923"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797862"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
 [Azure Digital Twins 인스턴스와 인증을 설정한](how-to-set-up-instance-portal.md)후에는 인스턴스와 상호 작용 하는 데 사용할 클라이언트 응용 프로그램을 만들 수 있습니다. 시작 클라이언트 프로젝트를 설정한 후에 **는 해당 클라이언트 앱에서 코드를 작성** 하 여 Azure Digital twins 인스턴스에 대해 인증 해야 합니다.
 
-Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰을](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims)사용 하 여 인증을 수행 합니다. SDK를 인증 하려면 Azure 디지털 쌍에 대 한 올바른 사용 권한이 있는 전달자 토큰을 가져와서 API 호출과 함께 전달 해야 합니다. 
+Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰을](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims)사용 하 여 인증을 수행 합니다. SDK를 인증 하려면 Azure 디지털 쌍에 대 한 올바른 사용 권한이 있는 전달자 토큰을 가져와서 API 호출과 함께 전달 해야 합니다. 
 
 이 문서에서는 클라이언트 라이브러리를 사용 하 여 자격 증명을 가져오는 방법을 설명 합니다 `Azure.Identity` . 이 문서에서는 [.net (c #) sdk](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)에 대해 작성 하는 것과 같은 c #의 코드 예제를 보여 주지만, 사용 중인 sdk에 관계 없이 버전을 사용할 수 있습니다. `Azure.Identity` Azure digital twins에 사용할 수 있는 sdk에 대 한 자세한 내용은 [*방법: azure 디지털 쌍 api 및 sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있는지 확인할 수 있습니다. 설치 후에 클라이언트 앱 코드를 작성할 준비가 되었습니다.
 

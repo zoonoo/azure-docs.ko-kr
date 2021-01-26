@@ -3,21 +3,21 @@ title: Azure Vm에서 SQL Server SQL Server (마이그레이션 가이드)
 description: 이 가이드에 따라 개별 SQL Server 데이터베이스를 Azure Virtual Machines (Vm)에서 SQL Server로 마이그레이션합니다.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325923"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797885"
 ---
-# <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 가이드: Azure Vm에서 SQL Server으로 SQL Server 
+# <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 가이드: SQL Server에서 Azure VM의 SQL Server로 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
 이 마이그레이션 가이드에서는 평가를 위해 [DMA (데이터베이스 Migration Assistant)](/sql/dma/dma-overview) 를 활용 하는 백업 및 복원 및 로그 전달을 사용 하 여 SQL Server에서 Azure Virtual Machines (vm)의 SQL Server 인스턴스로 사용자 데이터베이스를 **검색** 하 고 **평가** 하 고 **마이그레이션하** 는 방법을 설명 합니다. 
@@ -33,7 +33,7 @@ ms.locfileid: "96325923"
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Vm에서 SQL Server로 마이그레이션하려면 다음을 수행 해야 합니다. 
 
@@ -43,7 +43,7 @@ Azure Vm에서 SQL Server로 마이그레이션하려면 다음을 수행 해야
 - [Azure와 온-프레미스 간의 연결](/azure/architecture/reference-architectures/hybrid-networking).
 - [적절 한 마이그레이션 전략 선택](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)
 
-## <a name="pre-migration"></a>마이그레이션 전 단계
+## <a name="pre-migration"></a>마이그레이션 전
 
 마이그레이션을 시작 하기 전에 SQL 환경의 토폴로지를 검색 하 고 원하는 마이그레이션의 실행 가능성을 평가 합니다. 
 
@@ -136,7 +136,7 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 1. 원격 데스크톱, [Azure 데이터 탐색기](/azure/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (>1tb 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
 1. Azure VM에서 SQL Server 전체 데이터베이스 백업을 복원 합니다.
 1. Azure VM에서 온-프레미스 데이터베이스와 대상 SQL Server 간의 [로그 전달을](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) 설정 합니다. 이전 단계에서 이미 완료 되었으므로 데이터베이스를 다시 초기화 하지 않아야 합니다.
-1. **Cut over** 대상 서버로 이동 합니다. 
+1.  대상 서버로 이동 합니다. 
    1. 마이그레이션할 데이터베이스를 사용 하는 응용 프로그램을 일시 중지/중지 합니다. 
    1. [단일 사용자 모드](/sql/relational-databases/databases/set-a-database-to-single-user-mode)를 사용 하 여 사용자 데이터베이스가 비활성화 되어 있는지 확인 합니다. 
    1. 준비가 되 면 온-프레미스 데이터베이스의 로그 전달 [제어 장애](/sql/database-engine/log-shipping/fail-over-to-a-log-shipping-secondary-sql-server) 조치 (failover)를 수행 하 여 Azure VM에서 SQL Server 대상으로 설정 합니다.
@@ -172,7 +172,7 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 | **운영 체제** | 파일, 파일 공유 | SQL 서버에서 사용 하 고 Azure VM 대상에서 복제 하는 추가 파일 또는 파일 공유를 적어 둡니다. |
 
 
-## <a name="post-migration"></a>마이그레이션 후 작업
+## <a name="post-migration"></a>마이그레이션 후
 
 마이그레이션 단계를 성공적으로 완료 한 후에는 일련의 마이그레이션 후 작업을 수행 하 여 모든 것이 최대한 원활 하 고 효율적으로 작동 하는지 확인 합니다.
 

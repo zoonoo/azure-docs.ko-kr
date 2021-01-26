@@ -3,19 +3,19 @@ title: Azure VM에서 SQL Server SQL Server (마이그레이션 개요)
 description: SQL Server를 Azure Vm에서 SQL Server로 마이그레이션하려는 여러 마이그레이션 전략에 대해 알아봅니다.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: d08cb2761a8d8010c455ff959d6c247e8b64ef20
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 0eabb48aabcb50557b342385068807eb67a9b165
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746578"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797842"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 개요: Azure Vm에서 SQL Server으로 SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ OS 제어와 함께 친숙 한 SQL Server 환경을 사용 하 고 기본 제공
 [Azure 하이브리드 혜택 라이선스 모델](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md) 을 사용 하 여 라이선스를 [확보 하거나 무료 보안 업데이트](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)를 통해 SQL Server 2008 및 SQL Server 2008 r 2에 대 한 지원을 확장 하 여 비용을 절감할 수 있습니다. 
 
 
-## <a name="choosing-appropriate-target"></a>적절 한 대상 선택
+## <a name="choose-appropriate-target"></a>적절 한 대상 선택
 
 Azure Virtual Machines 다양 한 Azure 지역에서 실행 되며 다양 한 [컴퓨터 크기](../../../virtual-machines/sizes.md) 와 [저장소 옵션도](../../../virtual-machines/disks-types.md)제공 합니다. SQL Server 워크 로드에 대 한 VM 및 저장소의 올바른 크기를 결정할 때 [Azure Virtual Machines의 SQL Server에 대 한 성능 지침](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance)을 참조 하세요. 워크 로드에 대 한 VM 크기 및 저장소 요구 사항을 확인 합니다. Performance-Based [Azure Migrate 평가](../../../migrate/concepts-assessment-calculation.md#types-of-assessments)를 통해 크기를 조정 하는 것이 좋습니다. 이 옵션을 사용할 수 없는 경우에는 [성능을 위한 고유한 기준선](https://azure.microsoft.com/services/virtual-machines/sql-server/)을 만드는 방법에 대 한 다음 문서를 참조 하세요.
 

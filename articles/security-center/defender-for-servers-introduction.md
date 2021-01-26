@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 711963a60d5c75031ff676a9c7f1db47f20fe895
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7457e258cf8a9936e9a63ab9eec9edc0b54d3eb
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275249"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797731"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>서버용 Azure Defender 소개
 
@@ -97,4 +97,4 @@ Linux의 경우 Azure Defender가 가장 일반적인 Linux 감사 프레임워�
 - Security Center에서 경고를 생성하든 Security Center에서 다른 보안 제품으로부터 경고를 받든 이를 내보낼 수 있습니다. 경고를 Azure Sentinel, 타사 SIEM 또는 기타 외부 도구로 내보내려면 [SIEM으로 경고 내보내기](continuous-export.md)의 지침을 따릅니다.
 
 - > [!div class="nextstepaction"]
-    > [Azure Defender 사용](security-center-pricing.md)
+    > [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)

@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8928f9d52fd8e721ac770dda8f0cbf0162a0f61
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95982718"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797924"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -73,7 +73,10 @@ SSIS 패키지가 [가상 네트워크 서비스 끝점](../virtual-network/virt
 
 ## <a name="access-to-data-sources-protected-by-ip-firewall-rule"></a>IP 방화벽 규칙으로 보호 되는 데이터 원본에 대 한 액세스
 
-SSIS 패키지가 특정 고정 공용 IP 주소만 허용 하는 데이터 저장소/리소스에 액세스 하 고 Azure-SSIS IR에서 해당 리소스에 대 한 액세스를 보호 하려는 경우 가상 네트워크에 연결 하는 동안 Azure-SSIS IR에 대 한 사용자 고유의 [공용 ip 주소](../virtual-network/virtual-network-public-ip-address.md) 를 가져와서 해당 ip 주소에서의 액세스를 허용 하는 관련 리소스에 ip 방화벽 규칙을 추가할 수 있습니다.
+SSIS 패키지가 특정 고정 공용 IP 주소만 허용 하는 데이터 저장소/리소스에 액세스 하 고 Azure-SSIS IR에서 해당 리소스에 대 한 액세스를 보호 하려는 경우, [공용 ip 주소](../virtual-network/virtual-network-public-ip-address.md) 를 가상 네트워크에 연결 하는 동안 Azure-SSIS IR 연결 하 여 해당 ip 주소에서 액세스할 수 있도록 관련 리소스에 ip 방화벽 규칙을 추가할 수 있습니다. 다음과 같은 두 가지 방법으로이 작업을 수행할 수 있습니다. 
+
+- Azure-SSIS IR 만들 때 사용자 고유의 공용 IP 주소를 가져와서 [DATA FACTORY UI 또는 SDK](#join-the-azure-ssis-ir-to-a-virtual-network)를 통해 지정할 수 있습니다. Azure-SSIS IR의 아웃 바운드 인터넷 연결만 제공 된 공용 IP 주소를 사용 하 고 서브넷의 다른 장치는이를 사용 하지 않습니다.
+- 또한 Azure-SSIS IR 가입할 서브넷에 대해 [NAT Virtual Network](../virtual-network/nat-overview.md) 를 설정 하 고이 서브넷의 모든 아웃 바운드 연결에서 지정 된 공용 IP 주소를 사용할 수 있습니다.
 
 모든 경우에 가상 네트워크는 Azure Resource Manager 배포 모델을 통해서만 배포할 수 있습니다.
 

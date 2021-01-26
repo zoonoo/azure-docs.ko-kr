@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b13086e11e1181bba91a3255e68e9f8a32e78450
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994981"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797781"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>앱에 Video Indexer 위젯을 포함 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "95994981"
 
 인지 인사이트 위젯에는 비디오 인덱싱 프로세스에서 추출한 모든 시각적 인사이트가 포함되어 있습니다. 인식 통찰력 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|Name|정의|Description|
+|이름|정의|Description|
 |---|---|---|
 |`widgets` | 쉼표로 구분된 문자열 | 렌더링 하려는 정보를 제어할 수 있습니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` 사용자 및 키워드 UI 정보를 렌더링 합니다.<br/>사용 가능한 옵션: 사람, animatedCharacters, 키워드, 레이블, 정서, 감정을, 토픽, 키 프레임, 성적 증명서, ocr, 스피커, 장면 및 namedEntities.|
 |`controls`|쉼표로 구분된 문자열|렌더링 하려는 컨트롤을 제어할 수 있습니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` 검색 옵션 및 다운로드 단추만 렌더링 합니다.<br/>사용 가능한 옵션: 검색, 다운로드, 사전 설정, 언어|
@@ -43,7 +43,7 @@ ms.locfileid: "95994981"
 
 플레이어 위젯을 사용 하 여 적응 비트 전송률을 사용 하 여 비디오를 스트리밍할 수 있습니다. 플레이어 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|Name|정의|Description|
+|이름|정의|Description|
 |---|---|---|
 |`t` | 시작부터 초 | 지정 된 시간 지점에서 플레이어의 재생을 시작 합니다.<br/> 예: `t=60`. |
 |`captions` | 언어 코드 | **캡션** 메뉴에서 위젯 로드를 사용할 수 있도록 지정 된 언어의 캡션을 페치합니다.<br/> 예: `captions=en-US`. |
@@ -57,7 +57,7 @@ ms.locfileid: "95994981"
 
 편집기 위젯을 사용 하 여 새 프로젝트를 만들고 비디오의 정보를 관리할 수 있습니다. 편집기 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|Name|정의|Description|
+|이름|정의|Description|
 |---|---|---|
 |`accessToken`<sup>*</sup> | String | 위젯을 포함 하는 데 사용 되는 계정에만 있는 비디오에 대 한 액세스를 제공 합니다.<br> 편집기 위젯에는 `accessToken` 매개 변수가 필요 합니다. |
 |`language` | 언어 코드 | 플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예: `language=de-DE`. |
@@ -70,7 +70,7 @@ ms.locfileid: "95994981"
 
 이 섹션에서는 공용 및 개인 콘텐츠를 앱에 포함 하는 방법을 설명 합니다.
 
-`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial``location`매개 변수의 기본값입니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`
+`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial``location`매개 변수의 기본값입니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > **플레이어** 또는 **Insights** 위젯에 대 한 링크를 공유 하면 액세스 토큰이 포함 되며 계정에 읽기 전용 권한을 부여 합니다.
@@ -208,7 +208,7 @@ Azure Media Player 이외의 비디오 플레이어를 사용 하는 경우 비�
     ```
 
 2. 인지 인사이트 위젯을 포함합니다.
-3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예들 들어 다음과 같습니다.
+3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 다음은 그 예입니다. 
 
     ```javascript
     <script>
@@ -271,7 +271,7 @@ iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사�
 
 Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하여 플레이어 크기를 선택할 수 있습니다.
 
-예들 들어 다음과 같습니다.
+다음은 그 예입니다. 
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
@@ -291,7 +291,7 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 Video Indexer API 및 위젯의 샘플이 포함 된 [코드 샘플](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) 리포지토리를 참조 하세요.
 
-| 파일/폴더                       | Description                                |
+| 파일/폴더                       | 설명                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | 사용자 지정 Azure Media Player 비디오 인덱서 비디오를 로드 합니다.                        |
 | `azure-media-player-vi-insights`  | 사용자 지정 Azure Media Player를 사용 하 여 VI 정보를 포함 합니다.                             |
@@ -303,6 +303,10 @@ Video Indexer API 및 위젯의 샘플이 포함 된 [코드 샘플](https://git
 | `embed-both-widgets`              | VI 플레이어와 정보를 포함 하 고 서로 통신 합니다.                      |
 | `url-generator`                   | 사용자가 지정한 옵션에 따라 위젯 사용자 지정 embed URL을 생성 합니다.             |
 | `html5-player`                    | 기본 HTML5 비디오 플레이어를 사용 하 여 VI 정보를 포함 합니다.                           |
+
+## <a name="supported-browsers"></a>지원되는 브라우저
+
+자세한 내용은 [지원 되는 브라우저](video-indexer-overview.md#supported-browsers)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
