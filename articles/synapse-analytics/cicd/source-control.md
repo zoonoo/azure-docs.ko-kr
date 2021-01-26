@@ -8,22 +8,18 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219745"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796967"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Azure Synapse Studio의 소스 제어
 
-기본적으로 Azure Synapse Studio 작성자는 Synapse 서비스에 대해 직접 작성 합니다. 그러나이 환경에는 다음과 같은 제한 사항이 있습니다.
+기본적으로 Azure Synapse Studio 작성자는 Synapse 서비스에 대해 직접 작성 합니다. 원본 제어에 Git를 사용 하 여 공동 작업 해야 하는 경우 Synapse Studio를 사용 하 여 작업 영역을 Git 리포지토리, Azure DevOps 또는 GitHub와 연결할 수 있습니다. 
 
-- Synapse studio는 변경 내용을 저장 하기 위한 임시 저장소를 포함 하지 않습니다. **게시** 를 통해 변경 내용을 저장 하 고 공유 하는 유일한 방법은 Synapse 서비스에 직접 게시 되는 모든 변경 내용입니다.
-
-- Synapse Studio는 공동 작업 및 버전 제어에 최적화 되어 있지 않습니다.
-
-원본 제어 기능을 제공 하기 위해 Synapse Studio를 사용 하 여 작업 영역을 Git 리포지토리, Azure DevOps 또는 GitHub와 연결할 수 있습니다. 이 문서에서는 git 리포지토리를 사용 하도록 설정한 상태에서 Synapse 작업 영역을 구성 하 고 작업 하는 방법을 간략하게 설명 합니다. 또한 몇 가지 모범 사례 및 문제 해결 가이드를 강조 표시 합니다.
+이 문서에서는 git 리포지토리를 사용 하도록 설정한 상태에서 Synapse 작업 영역을 구성 하 고 작업 하는 방법을 간략하게 설명 합니다. 또한 몇 가지 모범 사례 및 문제 해결 가이드를 강조 표시 합니다.
 
 > [!NOTE]
 > Azure Synapse Studio git 통합은 Azure Government 클라우드에서 사용할 수 없습니다.

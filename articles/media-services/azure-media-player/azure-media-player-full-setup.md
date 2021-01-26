@@ -7,22 +7,16 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 13abe333bcf3f67ea1a1ba823c693deaa60bc723
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b6b239f44311424db2e80c59e2aba639ae3c0000
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788810"
+ms.locfileid: "98797458"
 ---
 # <a name="azure-media-player-full-setup"></a>Azure Media Player 전체 설정 #
 
 Azure Media Player는 설정하기 쉽습니다. Azure Media Services 계정에서 바로 미디어 콘텐츠의 기본 재생을 가져오는 데 몇 분 밖에 걸리지 않습니다. [샘플](https://github.com/Azure-Samples/azure-media-player-samples) 은 릴리스의 samples 디렉터리에도 제공 됩니다.
-
-<!--//aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest-->
-
-AMS 비디오의 예는 다음과 같습니다.
-
-> [!VIDEO https://aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest]
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>1 단계: 페이지의 맨 위에 JavaScript 및 CSS 파일 포함 ##
 

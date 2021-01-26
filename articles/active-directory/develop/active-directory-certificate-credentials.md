@@ -13,18 +13,18 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 50a2f56824db67b73199439922e662339ff30872
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755295"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795619"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명
 
 Microsoft id 플랫폼을 사용 하면 응용 프로그램에서 클라이언트 암호를 사용할 수 있는 모든 곳에서 인증에 자체 자격 증명을 사용할 수 있습니다. 예를 들어 OAuth 2.0  [클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md) 흐름 및 obo ( [온-시](v2-oauth2-on-behalf-of-flow.md) ) 흐름에서 사용할 수 있습니다.
 
-응용 프로그램이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 응용 프로그램이 소유 하는 인증서로 서명 된 JWT ( [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) ) 어설션입니다.
+응용 프로그램이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 응용 프로그램이 소유 하는 인증서로 서명 된 JWT ( [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) ) 어설션입니다.
 
 ## <a name="assertion-format"></a>어설션 형식
 
@@ -40,7 +40,7 @@ Microsoft id 플랫폼을 사용 하면 응용 프로그램에서 클라이언�
 
 ### <a name="claims-payload"></a>클레임(페이로드)
 
-클레임 유형 | 값 | Description
+클레임 유형 | 값 | 설명
 ---------- | ---------- | ----------
 aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD). [RFC 7519, 섹션 4.1.3을](https://tools.ietf.org/html/rfc7519#section-4.1.3)참조 하세요.  이 경우 해당 수신자는 로그인 서버 (login.microsoftonline.com)입니다.
 exp | 1601519414 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, 4.1.4 섹션을](https://tools.ietf.org/html/rfc7519#section-4.1.4)참조 하세요.  이렇게 하면 어설션을 사용할 때까지 사용할 수 있으므로 잠시 후에 짧은 5-10 분을 유지 `nbf` 합니다.  Azure AD는 현재 시간에 제한을 두지 않습니다 `exp` . 
@@ -131,7 +131,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 클라이언트 어설션은 클라이언트 암호를 사용 하는 모든 위치에서 사용할 수 있습니다.  예를 들어 [인증 코드 흐름](v2-oauth2-auth-code-flow.md)에서를 전달 하 여 요청이 앱에서 제공 되는 것을 입증할 수 있습니다 `client_secret` . 이를 `client_assertion` 및 매개 변수로 바꿀 수 있습니다 `client_assertion_type` . 
 
-| 매개 변수 | 값 | Description|
+| 매개 변수 | 값 | 설명|
 |-----------|-------|------------|
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| 인증서 자격 증명을 사용 중임을 나타내는 고정 값입니다. |
 |`client_assertion`| JWT |위에서 만든 JWT입니다. |

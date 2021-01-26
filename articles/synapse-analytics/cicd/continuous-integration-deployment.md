@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223689"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797305"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대 한 지속적인 통합 및 전달
 
@@ -134,3 +134,13 @@ Synapse 작업 영역에서 Git 통합을 사용 하 고 변경 내용을 개발
 -   **아티팩트 마이그레이션 전에 풀을 준비** 합니다. 개발 작업 영역의 풀에 연결 된 SQL 스크립트 또는 노트북이 있는 경우 다른 환경에서 동일한 풀 이름이 필요 합니다. 
 -   **IaC (Infrastructure As Code)**. 설명 모델에서 인프라 (네트워크, 가상 컴퓨터, 부하 분산 장치 및 연결 토폴로지)를 관리 하는 것은 DevOps 팀에서 소스 코드에 대해 사용 하는 것과 동일한 버전 관리를 사용 합니다. 
 -   **기타**. [ADF 아티팩트의 모범 사례를](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd) 참조 하세요.
+
+## <a name="troubleshooting-artifacts-deployment"></a>아티팩트 배포 문제 해결 
+
+### <a name="use-the-synapse-workspace-deployment-task"></a>Synapse workspace 배포 작업 사용
+
+Synapse에서 모든 종류의 아티팩트는 ADF와는 다른 ARM 리소스가 아닙니다. ARM 템플릿 배포 작업을 사용 하 여 Synapse 아티팩트를 배포할 수 없습니다.
+ 
+### <a name="unexpected-token-error-in-release"></a>릴리스에 예기치 않은 토큰 오류가 있습니다.
+
+매개 변수 파일에 이스케이프 되지 않은 매개 변수 값이 있는 경우 릴리스 파이프라인은 예기치 않은 토큰 오류로 인해 파일을 구문 분석 하지 못합니다. 매개 변수를 가져오려면 매개 변수를 재정의 하거나 KeyVault를 재정의 하는 것이 좋습니다. 해결 방법으로 두 번 이스케이프할 수도 있습니다.

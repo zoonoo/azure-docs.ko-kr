@@ -10,14 +10,17 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: fd3c8a08e5512d15be4dfb26ca3eff151d08386f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651365"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797330"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Azure 센티널 watchlists 사용
+
+> [!IMPORTANT]
+> Watchlists 기능은 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
 
 Azure 센티널 watchlists는 Azure 센티널 환경의 이벤트와 상관 관계를 위해 외부 데이터 원본에서 데이터를 수집할 수 있도록 합니다. 일단 만들어지면 검색, 검색 규칙, 위협 검색 및 응답 플레이 북에서 watchlists을 사용할 수 있습니다. Watchlists는 Azure 센티널 작업 영역에 이름-값 쌍으로 저장 되며 최적의 쿼리 성능 및 짧은 대기 시간을 위해 캐시 됩니다.
 
@@ -73,11 +76,43 @@ Watchlists 사용에 대 한 일반적인 시나리오는 다음과 같습니다
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="관심 목록 필드가 있는 쿼리" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
     
+1. 조인 및 조회에 대 한 테이블을 관심 목록로 처리 하 여 관심 목록 데이터에 대 한 테이블의 데이터를 쿼리할 수 있습니다.
+
+    ```kusto
+    Heartbeat
+    | lookup kind=leftouter _GetWatchlist('IPlist') 
+     on $left.ComputerIP == $right.IPAddress
+    ```
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="조회로 관심 목록에 대 한 쿼리":::
+
 ## <a name="use-watchlists-in-analytics-rules"></a>분석 규칙에서 watchlists 사용
 
-분석 규칙에서 watchlists를 사용 하려면 Azure Portal에서 **Azure 센티널** Configuration analytics로 이동 하 여  >  **Configuration**  >  **Analytics** 쿼리에 함수를 사용 하 여 규칙을 만듭니다 `_GetWatchlist('<watchlist>')` .
+분석 규칙에서 watchlists를 사용 하려면 Azure Portal에서 **Azure 센티널** Configuration analytics로 이동 하 여  >    >  쿼리에 함수를 사용 하 여 규칙을 만듭니다 `_GetWatchlist('<watchlist>')` .
 
-:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="분석 규칙에서 watchlists 사용" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
+1. 이 예에서는 다음 값을 사용 하 여 "ipwatchlist" 라는 관심 목록를 만듭니다.
+
+    :::image type="content" source="./media/watchlists/create-watchlist.png" alt-text="관심 목록에 대 한 4 개 항목 목록":::
+
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-2.png" alt-text="4 개 항목을 사용 하 여 관심 목록 만들기":::
+
+1. 그런 다음 분석 규칙을 만듭니다.  이 예제에서는 관심 목록의 IP 주소에서 발생 하는 이벤트만 포함 합니다.
+
+    ```kusto
+    //Watchlist as a variable
+    let watchlist = (_GetWatchlist('ipwatchlist') | project IPAddress);
+    Heartbeat
+    | where ComputerIP in (watchlist)
+    ```
+    ```kusto
+    //Watchlist inline with the query
+    Heartbeat
+    | where ComputerIP in ( 
+        (_GetWatchlist('ipwatchlist')
+        | project IPAddress)
+    )
+    ```
+
+:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule-2.png" alt-text="분석 규칙에서 watchlists 사용":::
 
 ## <a name="view-list-of-watchlists-aliases"></a>Watchlists 별칭 목록 보기
 

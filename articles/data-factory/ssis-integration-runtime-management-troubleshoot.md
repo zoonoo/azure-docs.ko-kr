@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34fd595a03f67201b303c94764668bf86a6c244b
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637924"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796891"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 관리 문제 해결
 
@@ -151,7 +151,7 @@ SSIS IR은 정기적으로 자동으로 업데이트됩니다. 업그레이드�
 
 SSIS IR 프로비전이 실패하면 생성된 모든 리소스가 삭제됩니다. 그러나 구독 또는 리소스 그룹 수준에서 리소스 삭제 잠금이 있는 경우 Virtual Network 리소스가 예상대로 삭제되지 않습니다. 이 오류를 해결하려면 삭제 잠금을 제거하고 IR을 다시 시작합니다.
 
-### <a name="vnetresourcegrouplockedduringstop"></a>VNetResourceGroupLockedDuringStop
+### <a name="vnetresourcegrouplockedduringstopvnetdeletelock"></a>VNetResourceGroupLockedDuringStop/VNetDeleteLock
 
 SSIS IR을 중지하면 모든 Virtual Network 관련 리소스가 삭제됩니다. 그러나 구독 또는 리소스 그룹 수준에서 리소스 삭제 잠금이 있는 경우 삭제가 실패할 수 있습니다. 이 경우에도 고객이 삭제 잠금을 제어하고 설정합니다. 따라서 삭제 잠금을 제거한 후 SSIS IR을 다시 중지해야 합니다.
 

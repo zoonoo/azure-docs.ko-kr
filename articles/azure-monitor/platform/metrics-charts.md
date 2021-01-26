@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b4feb177abbdbfb9666be0ea0746c8316acdf5ae
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 2f8dc9f53c36f59a152fc34361b3726ea2cc001c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250760"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797045"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
@@ -129,16 +129,19 @@ Azure 메트릭 탐색기에서 여러 메트릭 선을 표시 하거나 여러 
 
    ![필터링 할 수 있는 차원 (속성)을 보여 주는 스크린샷](./media/metrics-charts/028.png)
 
-3. 차트를 그릴 때 포함 하려는 차원 값을 선택 합니다. 다음 예에서는 성공적인 저장소 트랜잭션을 필터링 합니다.
+3. 차원 (속성)에 대해 적용 하려는 연산자를 선택 합니다. 기본 연산자는 = (equals)입니다.
+
+   ![필터에 사용할 수 있는 연산자를 보여 주는 스크린샷](./media/metrics-charts/filter-operator.png)
+
+4. 차트를 그릴 때 필터에 적용할 차원 값을 선택 합니다 .이 예제에서는 성공적인 저장소 트랜잭션을 필터링 하는 방법을 보여 줍니다.
 
    ![성공적으로 필터링 된 저장소 트랜잭션을 보여 주는 스크린샷](./media/metrics-charts/029.png)
 
-4. **필터 선택기** 외부를 선택 하 여 닫습니다. 이제 차트에서는 실패한 스토리지 트랜잭션 수를 보여줍니다.
+5. 필터 값을 선택한 후에 필터 선택기를 닫으려면 바깥쪽을 클릭합니다. 이제 차트에서는 실패한 스토리지 트랜잭션 수를 보여줍니다.
 
    ![실패 한 저장소 트랜잭션 수를 보여 주는 스크린샷](./media/metrics-charts/030.png)
 
-이러한 단계를 반복 하 여 동일한 차트에 여러 필터를 적용할 수 있습니다.
-
+6. 1-5 단계를 반복 하 여 동일한 차트에 여러 필터를 적용할 수 있습니다.
 
 
 ## <a name="metric-splitting"></a>메트릭 분할
@@ -158,9 +161,18 @@ Azure 메트릭 탐색기에서 여러 메트릭 선을 표시 하거나 여러 
 
    이제 차트에 각 차원 세그먼트에 대해 하나씩 여러 줄이 표시 됩니다.
 
-   ![각 차원 세그먼트에 대 한 선을 표시 하는 스크린샷](./media/metrics-charts/032.png)
+   ![차원의 각 세그먼트에 대해 하나씩 여러 줄을 보여 주는 스크린샷](./media/metrics-charts/segment-dimension.png)
+   
+3. 선택한 차원으로 분할 한 후 표시할 값 수에 대 한 제한을 선택 합니다. 위의 차트에 표시 된 것 처럼 기본 제한은 10입니다. 제한 범위는 1-50입니다.
+   
+   ![분할 후 값의 수를 제한 하는 분할 된 제한을 보여 주는 스크린샷](./media/metrics-charts/segment-dimension-limit.png)
+   
+4. 세그먼트에서 오름차순 또는 내림차순으로 정렬 순서를 선택 합니다. 기본 선택은 내림차순입니다.
+   
+   ![분할 값에 대 한 정렬 순서를 보여 주는 스크린샷](./media/metrics-charts/segment-dimension-sort.png)
 
-3. **그룹화 선택기** 외부를 선택 하 여 닫습니다.
+5. **그룹화 선택기** 를 닫으려면 바깥쪽을 클릭합니다.
+   
 
    > [!NOTE]
    > 시나리오에 대해 관련이 없는 세그먼트를 숨기고 차트를 더 쉽게 읽을 수 있도록 하려면 동일한 차원에서 필터링과 분할을 모두 사용 합니다.
