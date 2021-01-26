@@ -259,7 +259,7 @@ blockBlob.delete_blob();
 
 - [C++에서 Queue Storage를 사용하는 방법](../queues/storage-c-plus-plus-how-to-use-queues.md)
 - [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-- [C++에서 Azure Storage 리소스 나열](../common/storage-c-plus-plus-enumeration.md)
-- [C++ 용 Storage 클라이언트 라이브러리 참조](https://azure.github.io/azure-storage-cpp)
+- [C + +에서 Azure Storage 리소스 나열](../common/storage-c-plus-plus-enumeration.md)
+- [C + + 용 Storage 클라이언트 라이브러리 참조](https://azure.github.io/azure-storage-cpp)
 - [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)
 - [AzCopy 명령줄 유틸리티를 사용 하 여 데이터 전송](../common/storage-use-azcopy-v10.md)

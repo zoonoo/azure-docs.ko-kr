@@ -15,7 +15,7 @@ ms.locfileid: "96779170"
 ---
 # <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 Helm을 사용 하 여 기존 응용 프로그램 설치
 
-[Helm][helm] 는 Kubernetes 응용 프로그램의 수명 주기를 설치 하 고 관리 하는 데 도움이 되는 오픈 소스 패키징 도구입니다. *APT* , *Yum* 등의 Linux 패키지 관리자와 마찬가지로, Helm은 미리 구성 된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리 하는 데 사용 됩니다.
+[투구][helm] 는 Kubernetes 응용 프로그램의 수명 주기를 설치 하 고 관리 하는 데 도움이 되는 오픈 소스 패키징 도구입니다. *APT* , *Yum* 등의 Linux 패키지 관리자와 마찬가지로, 투구는 미리 구성 된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리 하는 데 사용 됩니다.
 
 이 아티클에서는 AKS의 Kubernetes 클러스터에서 Helm을 구성하고 사용하는 방법을 보여줍니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "96779170"
 또한 개발 시스템에서 실행 되는 클라이언트 인 Helm CLI가 설치 되어 있어야 합니다. 이를 통해 Helm으로 응용 프로그램을 시작, 중지 및 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대 한 설치 지침은 [Helm 설치][helm-install]를 참조 하세요.
 
 > [!IMPORTANT]
-> Helm은 Linux 노드에서 실행 하기 위한 것입니다. 클러스터에 Windows Server 노드가 있는 경우에는 Helm pod가 Linux 노드에서 실행 되도록 예약 되어 있는지 확인 해야 합니다. 또한 설치 하는 Helm 차트가 올바른 노드에서 실행 되도록 예약 되어 있는지도 확인 해야 합니다. 이 문서의 명령은 [노드 선택기] [k8s]를 사용 하 여 pod이 올바른 노드에 예약 되어 있는지 확인 하지만 일부 Helm 차트는 노드 선택기를 표시할 수 없습니다. [Taints][taints]와 같은 클러스터의 다른 옵션을 사용 하는 것을 고려할 수도 있습니다.
+> 투구는 Linux 노드에서 실행 하기 위한 것입니다. 클러스터에 Windows Server 노드가 있는 경우에는 투구 pod가 Linux 노드에서 실행 되도록 예약 되어 있는지 확인 해야 합니다. 또한 설치 하는 투구 차트가 올바른 노드에서 실행 되도록 예약 되어 있는지도 확인 해야 합니다. 이 문서의 명령은 [노드 선택기] [k8s]를 사용 하 여 pod이 올바른 노드에 예약 되어 있는지 확인 하지만 일부 투구 차트는 노드 선택기를 표시할 수 없습니다. [Taints][taints]와 같은 클러스터의 다른 옵션을 사용 하는 것을 고려할 수도 있습니다.
 
 ## <a name="verify-your-version-of-helm"></a>Helm 버전 확인
 
