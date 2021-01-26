@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: e8e54a97c13a69fce2e80676fa68d6d795736a83
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: a359c4f0de6dab70b334da7e7d29ad4b273385ab
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703125"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789282"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
@@ -91,7 +91,7 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 | 파슈토어 | `ps` |
 | 페르시아어 | `fa` |
 | 폴란드어 | `pl` |
-| 포르투갈어(브라질) | `pt-br` |
+| 포르투갈어(브라질) | `pt` |
 | 포르투갈어(포르투갈) | `pt-pt` |
 | 펀잡어 | `pa` |
 | 케레타로 오토미어 | `otq` |
@@ -343,7 +343,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 노르웨이어      | `nb`          |
 | 페르시아어      | `fa`          |
 | 폴란드어      | `pl`          |
-| 포르투갈어(브라질) | `pt-br` |
+| 포르투갈어(브라질) | `pt` |
 | 펀잡어|`pa`|
 | 루마니아어      | `ro`          |
 | 러시아어      | `ru`          |
@@ -369,7 +369,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 ### <a name="speech-to-text"></a>음성 텍스트 변환
 선택한 텍스트 언어로 번역 하기 위해 음성을 텍스트로 변환 합니다. 음성 텍스트 변환은 음성 합성과 함께 사용 될 경우 음성 변환 또는 음성 변환에 사용 됩니다.
 
-| Language    |
+| 언어    |
 |:----------- |
 |아랍어|
 |광둥어(번체)|
@@ -404,7 +404,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 텍스트를 음성으로 변환 합니다. 텍스트 음성 변환은 번역 결과의 가청 출력을 추가 하거나 음성-텍스트와 함께 사용 하는 경우 음성-음성 변환에 사용 됩니다. 
 
-| Language |
+| 언어 |
 |:-|
 | 아랍어 |
 | 불가리아어 |

@@ -3,15 +3,15 @@ title: Azure Service Fabric 상태 저장 Reliable Services 진단
 description: Azure Service Fabric 상태 저장 Reliable Services의 진단 기능
 ms.topic: conceptual
 ms.date: 8/24/2018
-ms.openlocfilehash: 5a3831dd4f8d5402980fac3daf8c35d9884c852d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 774a771d0c9701076a5d6c070963bf6224a571dd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840764"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789333"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
-Azure Service Fabric 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.
+Azure Service Fabric 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.
 
 ## <a name="eventsource-events"></a>EventSource 이벤트
 상태 저장 Reliable Services StatefulServiceBase 클래스의 EventSource 이름은 “Microsoft-ServiceFabric-Services”입니다. 이 이벤트 원본의 이벤트는 서비스가 [Visual Studio에서 디버깅](service-fabric-debugging-your-application.md)될 때 [진단 이벤트](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 창에 표시됩니다.
@@ -39,7 +39,7 @@ RunAsync 작업에 대한 취소 요청이 4초보다 오래 걸릴 경우 State
 ## <a name="performance-counters"></a>성능 카운터
 Reliable Services 런타임은 다음과 같은 성능 카운터 범주를 정의합니다.
 
-| 범주 | 설명 |
+| 범주 | Description |
 | --- | --- |
 | Service Fabric 트랜잭션 복제기 |Azure Service Fabric 트랜잭션 복제기 관련 카운터 |
 | Service Fabric TStore |Azure Service Fabric TStore 관련 카운터 |
@@ -58,9 +58,9 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId*는 성능 카운터 인스턴스와 연결된 Service Fabric 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하 여 생성 됩니다.
+*ServiceFabricPartitionId* 는 성능 카운터 인스턴스와 연결된 Service Fabric 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하 여 생성 됩니다.
 
-*ServiceFabricReplicaId*는 지정된 Reliable Services 복제본와 연결된 ID입니다. 복제본 ID는 고유성을 보장 하기 위해 성능 카운터 인스턴스 이름에 포함 되며 동일한 파티션에서 생성 된 다른 성능 카운터 인스턴스와 충돌 하지 않습니다. Reliable Services의 복제본 및 해당 역할에 대한 자세한 내용은 [여기](service-fabric-concepts-replica-lifecycle.md)에서 찾을 수 있습니다.
+*ServiceFabricReplicaId* 는 지정된 Reliable Services 복제본와 연결된 ID입니다. 복제본 ID는 고유성을 보장 하기 위해 성능 카운터 인스턴스 이름에 포함 되며 동일한 파티션에서 생성 된 다른 성능 카운터 인스턴스와 충돌 하지 않습니다. Reliable Services의 복제본 및 해당 역할에 대한 자세한 내용은 [여기](service-fabric-concepts-replica-lifecycle.md)에서 찾을 수 있습니다.
 
 다음 카운터 인스턴스 이름은 `Service Fabric Transactional Replicator` 범주 아래의 카운터에 일반적인 이름입니다.
 
@@ -73,13 +73,13 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId*는 성능 카운터 인스턴스와 연결된 Service Fabric 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하 여 생성 됩니다.
+*ServiceFabricPartitionId* 는 성능 카운터 인스턴스와 연결된 Service Fabric 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하 여 생성 됩니다.
 
-*ServiceFabricReplicaId*는 지정된 Reliable Services 복제본와 연결된 ID입니다. 복제본 ID는 고유성을 보장 하기 위해 성능 카운터 인스턴스 이름에 포함 되며 동일한 파티션에서 생성 된 다른 성능 카운터 인스턴스와 충돌 하지 않습니다. Reliable Services의 복제본 및 해당 역할에 대한 자세한 내용은 [여기](service-fabric-concepts-replica-lifecycle.md)에서 찾을 수 있습니다.
+*ServiceFabricReplicaId* 는 지정된 Reliable Services 복제본와 연결된 ID입니다. 복제본 ID는 고유성을 보장 하기 위해 성능 카운터 인스턴스 이름에 포함 되며 동일한 파티션에서 생성 된 다른 성능 카운터 인스턴스와 충돌 하지 않습니다. Reliable Services의 복제본 및 해당 역할에 대한 자세한 내용은 [여기](service-fabric-concepts-replica-lifecycle.md)에서 찾을 수 있습니다.
 
 *Stateproviderid* 는 신뢰할 수 있는 서비스 내에서 상태 공급자와 연결 된 ID입니다. 상태 공급자 ID는 성능 카운터 인스턴스 이름에 포함 되어 있습니다.
 
-*PerformanceCounterInstanceDifferentiator*는 상태 공급자 내에서 성능 카운터 인스턴스와 연결된 차별화 ID입니다. 이 구별자는 고유성을 보장하고 동일한 상태 공급자가 생성한 다른 성능 카운터 인스턴스와 충돌하지 않도록 하기 위해 성능 카운터 인스턴스에 포함됩니다.
+*PerformanceCounterInstanceDifferentiator* 는 상태 공급자 내에서 성능 카운터 인스턴스와 연결된 차별화 ID입니다. 이 구별자는 고유성을 보장하고 동일한 상태 공급자가 생성한 다른 성능 카운터 인스턴스와 충돌하지 않도록 하기 위해 성능 카운터 인스턴스에 포함됩니다.
 
 *Stateprovidername* 은 신뢰할 수 있는 서비스 내에서 상태 공급자와 연결 된 이름입니다. 상태 제공자 이름은 사용자가 제공 하는 상태를 쉽게 식별할 수 있도록 성능 카운터 인스턴스 이름에 포함 됩니다.
 

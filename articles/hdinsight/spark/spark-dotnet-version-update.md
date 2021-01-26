@@ -6,12 +6,12 @@ ms.author: nidutta
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/05/2021
-ms.openlocfilehash: 4b95e4f164eb2c1d0a881cf9ab14696c3cbed4a7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: a1602f29a6d0066ec3c99e990532411621652c47
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122443"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788132"
 ---
 # <a name="updating-net-for-apache-spark-to-version-v10--in-hdinsight"></a>Apache Spark 용 .NET을 HDInsight의 버전 v 1.0으로 업데이트
 
@@ -42,9 +42,9 @@ ms.locfileid: "98122443"
 
 2. [Install-worker.sh](https://github.com/dotnet/spark/blob/master/deployment/install-worker.sh) 스크립트를 다운로드 하 여 1 단계에서 다운로드 한 작업자 이진을 hdi 클러스터의 모든 작업자 노드에 설치 합니다.  
 
-3. 위에서 언급 한 파일을 클러스터에서 액세스할 수 있는 Azure Storage 계정에 업로드 합니다. 자세한 내용은 [Apache Spark HDI 배포에 대 한 .net 문서](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment#upload-files-to-azure) 를 참조할 수 있습니다.
+3. 위에서 언급 한 파일을 클러스터에서 액세스할 수 있는 Azure Storage 계정에 업로드 합니다. 자세한 내용은 [Apache Spark HDI 배포에 대 한 .net 문서](/dotnet/spark/tutorials/hdinsight-deployment#upload-files-to-azure) 를 참조할 수 있습니다.
 
-4. `install-worker.sh`스크립트 작업을 사용 하 여 클러스터의 모든 작업자 노드에서 스크립트를 실행 합니다. 자세한 내용은 [Apache Spark HDI 배포에 대 한 .net 문서](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment#run-the-hdinsight-script-action) 를 참조 하세요.
+4. `install-worker.sh`스크립트 작업을 사용 하 여 클러스터의 모든 작업자 노드에서 스크립트를 실행 합니다. 자세한 내용은 [Apache Spark HDI 배포에 대 한 .net 문서](/dotnet/spark/tutorials/hdinsight-deployment#run-the-hdinsight-script-action) 를 참조 하세요.
 
 ### <a name="update-your-application-to-use-specific-version"></a>특정 버전을 사용 하도록 응용 프로그램 업데이트
 
@@ -58,4 +58,4 @@ ms.locfileid: "98122443"
 
 ## <a name="next-steps"></a>다음 단계
 
-[HDInsight에서 Apache Spark 용 .NET 응용 프로그램 배포](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment)
+[HDInsight에서 Apache Spark 용 .NET 응용 프로그램 배포](/dotnet/spark/tutorials/hdinsight-deployment)

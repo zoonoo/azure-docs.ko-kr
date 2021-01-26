@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cd2fd8dc8c10864089b198db1ca1089f994a3ffb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561225"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788454"
 ---
 # <a name="testing-for-luis-devops"></a>LUIS DevOps에 대한 테스트
 
@@ -28,7 +28,7 @@ Agile Software Development 방법론에서 테스트는 품질 소프트웨어 �
 이러한 종류의 테스트는 [LUIS 포털](https://www.luis.ai/)에서 수행할 수 있는 [대화형 테스트](./luis-concept-test.md) 와 비슷합니다.
 
 - **일괄 처리 테스트** -일괄 처리 테스트는 현재 학습 된 모델에 대 한 포괄적인 테스트로, 성능을 측정 합니다. 단위 테스트와 달리 일괄 처리 테스트는 통과 되지 않습니다 | 테스트 실패. 일괄 테스트를 사용 하는 경우 모든 테스트에서 예상 된 의도 및 예상 된 엔터티를 반환 하는 것은 아닙니다. 대신, 일괄 처리 테스트를 사용 하면 앱에서 각 의도 및 엔터티의 정확성을 확인 하 고 향상 된 시간에 걸쳐 비교할 수 있습니다.  
-이러한 종류의 테스트는 LUIS 포털에서 대화형으로 수행할 수 있는 [일괄 처리 테스트](./luis-concept-batch-test.md) 와 동일 합니다.
+이러한 종류의 테스트는 LUIS 포털에서 대화형으로 수행할 수 있는 [일괄 처리 테스트](./luis-how-to-batch-test.md) 와 동일 합니다.
 
 프로젝트의 시작 부분에서 단위 테스트를 사용할 수 있습니다. 일괄 처리 테스트는 LUIS 앱의 스키마를 개발 하 고 정확도를 향상 시키기 위해 작업 하는 경우에만 가치를 발휘 합니다.
 
@@ -42,7 +42,7 @@ Agile Software Development 방법론에서 테스트는 품질 소프트웨어 �
 * 예상 의도
 * 엔터티가 필요 합니다.
 
-JSON 형식 파일에서 테스트 그룹을 정의 하려면 LUIS [batch 파일 구문을](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) 사용 합니다. 예를 들면 다음과 같습니다.
+JSON 형식 파일에서 테스트 그룹을 정의 하려면 LUIS [batch 파일 구문을](./luis-how-to-batch-test.md#batch-syntax-template-for-intents-with-entities) 사용 합니다. 예를 들면 다음과 같습니다.
 
 ```JSON
 [
@@ -85,7 +85,7 @@ JSON 형식 파일에서 테스트 그룹을 정의 하려면 LUIS [batch 파일
 
 #### <a name="designing-batch-tests"></a>일괄 처리 테스트 디자인
 
-일괄 처리 테스트 집합에는 LUIS 앱의 모든 엔터티 및 모든 엔터티에 대해 테스트 하도록 설계 된 많은 수의 테스트 사례가 포함 되어야 합니다. 일괄 처리 테스트 집합을 정의 하는 방법에 대 한 자세한 내용은 [LUIS 포털에서 일괄 처리 테스트](./luis-concept-batch-test.md) 를 참조 하세요.
+일괄 처리 테스트 집합에는 LUIS 앱의 모든 엔터티 및 모든 엔터티에 대해 테스트 하도록 설계 된 많은 수의 테스트 사례가 포함 되어야 합니다. 일괄 처리 테스트 집합을 정의 하는 방법에 대 한 자세한 내용은 [LUIS 포털에서 일괄 처리 테스트](./luis-how-to-batch-test.md) 를 참조 하세요.
 
 ### <a name="running-tests"></a>테스트 실행
 
@@ -93,7 +93,7 @@ LUIS 포털은 대화형 테스트에 도움이 되는 기능을 제공 합니�
 
 * [**대화형 테스트**](./luis-concept-test.md) 를 사용 하면 샘플 utterance를 제출 하 고 LUIS 인식 의도 및 엔터티에 대 한 응답을 받을 수 있습니다. 시각적 검사에의 한 테스트 성공 여부를 확인 합니다.
 
-* [**일괄 처리 테스트**](./luis-concept-batch-test.md) 는 일괄 처리 테스트 파일을 입력으로 사용 하 여 학습 된 활성 버전의 유효성을 검사 하 여 예측 정확도를 측정 합니다. 일괄 처리 테스트를 사용 하면 활성 버전에서 각 의도 및 엔터티의 정확성을 확인 하 고 차트를 사용 하 여 결과를 표시할 수 있습니다.
+* [**일괄 처리 테스트**](./luis-how-to-batch-test.md) 는 일괄 처리 테스트 파일을 입력으로 사용 하 여 학습 된 활성 버전의 유효성을 검사 하 여 예측 정확도를 측정 합니다. 일괄 처리 테스트를 사용 하면 활성 버전에서 각 의도 및 엔터티의 정확성을 확인 하 고 차트를 사용 하 여 결과를 표시할 수 있습니다.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>자동화 된 빌드 워크플로에서 테스트 실행
 

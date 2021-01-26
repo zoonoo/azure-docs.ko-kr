@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 0f20bb5fb249ad6bac862afe2b0e8eee4b32e2a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 470857883144f4bf8c21a1921afacb7ba3f5ca00
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75666553"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788098"
 ---
 # <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Azure 서버 리스: Azure Logic Apps 및 Azure Functions를 사용 하 여 클라우드 기반 앱 및 솔루션 빌드에 대 한 개요
 
@@ -35,7 +35,7 @@ Logic Apps를 시작하려면 [첫 번째 논리 앱 만들기](quickstart-creat
 
 Azure Functions는 클라우드에서 코드 또는 "함수"를 쉽게 실행 하기 위한 서비스입니다. 전체 앱 또는 필요한 인프라에 대해 걱정 하지 않고 현재 문제에 필요한 코드만 작성할 수 있습니다. Functions는 개발 생산성을 높일 수 있으며 C#, F#, Node.js, Python, PHP 등의 원하는 개발 언어를 사용할 수 있습니다. 코드가 실행 되는 시간에 대해서만 비용을 지불 하 고 필요에 따라 Azure를 확장 합니다.
 
-Azure Functions를 시작 하려면 [첫 번째 Azure Function 만들기](../azure-functions/functions-create-first-azure-function.md)를 시작 합니다. 함수에 대 한 자세한 기술 정보는 [개발자 참조](../azure-functions/functions-reference.md)를 참조 하세요.
+Azure Functions를 시작 하려면 [첫 번째 Azure Function 만들기](../azure-functions/functions-get-started.md)를 시작 합니다. 함수에 대 한 자세한 기술 정보는 [개발자 참조](../azure-functions/functions-reference.md)를 참조 하세요.
 
 ## <a name="how-can-i-build-and-deploy-serverless-apps-in-azure"></a>Azure에서 서버 리스 앱을 빌드 및 배포 하려면 어떻게 해야 하나요?
 

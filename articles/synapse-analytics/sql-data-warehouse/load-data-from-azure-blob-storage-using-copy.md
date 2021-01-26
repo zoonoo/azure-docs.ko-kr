@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b305a07997ccd2cbab0d963ced2bd23ab7a97690
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 398cbd49f79cbeb5f486e3f8ca33987d5357add6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683410"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789449"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>자습서: 뉴욕 택시 데이터 집합 로드
 
-이 자습서에서는 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) 사용 하 여 Azure blob storage 계정에서 뉴욕 택시 데이터 집합을 로드 합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true))를 사용합니다.
+이 자습서에서는 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) 사용 하 여 Azure Blob Storage 계정에서 뉴욕 택시 데이터 집합을 로드 합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true))를 사용합니다.
 
 > [!div class="checklist"]
 >
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-tables-for-the-sample-data"></a>샘플 데이터에 대 한 테이블 만들기
 
-새 데이터 웨어하우스로 데이터를 로드하는 프로세스를 시작할 준비가 되었습니다. 이 자습서의 부분에서는 COPY 문을 사용 하 여 Azure Storage blob에서 뉴욕 도시 taxi cab 데이터 집합을 로드 하는 방법을 보여 줍니다. 나중에 참조할 수 있도록 데이터를 Azure blob 저장소로 가져오거나 원본에서 직접 로드 하는 방법에 대 한 자세한 내용은 [로드 개요](design-elt-data-loading.md)를 참조 하세요.
+새 데이터 웨어하우스로 데이터를 로드하는 프로세스를 시작할 준비가 되었습니다. 이 자습서의 부분에서는 COPY 문을 사용 하 여 Azure Storage blob에서 뉴욕 도시 taxi cab 데이터 집합을 로드 하는 방법을 보여 줍니다. 나중에 참조할 수 있도록 데이터를 Azure Blob Storage 하는 방법 또는 원본에서 직접 로드 하는 방법에 대 한 자세한 내용은 [로드 개요](design-elt-data-loading.md)를 참조 하세요.
 
 다음 SQL 스크립트를 실행 하 고 로드 하려는 데이터에 대 한 정보를 지정 합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다.
 

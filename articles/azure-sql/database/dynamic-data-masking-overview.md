@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/04/2020
+ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0f92d8dbfe423efa58231831fe012a27e45f9208
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532247"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787691"
 ---
 # <a name="dynamic-data-masking"></a>동적 데이터 마스킹 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,15 +26,11 @@ Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics는 �
 
 동적 데이터 마스킹을 사용하면 고객이 애플리케이션 계층에 미치는 영향을 최소화하고 표시할 중요한 데이터의 양을 지정할 수 있게 하여 중요한 데이터에 대한 무닥 액세스를 방지할 수 있습니다. 데이터베이스의 데이터는 변경되지 않으면서 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다.
 
-예를 들어 콜 센터 서비스 상담원은 신용 카드 번호 중 몇 자리로 발신자를 식별할 수 있지만 이러한 데이터 항목이 서비스 상담원에게 완전히 노출되어서는 안 됩니다. 모든 쿼리의 결과 집합에서 신용 카드 번호의 마지막 4자리를 제외한 모든 숫자를 마스킹하도록 마스킹 규칙을 정의할 수 있습니다. 또 다른 예로, 개발자가 규정 준수 규정을 위반 하지 않고 문제 해결을 위해 프로덕션 환경을 쿼리할 수 있도록 개인 데이터를 보호 하기 위해 적절 한 데이터 마스크를 정의할 수 있습니다.
+예를 들어 콜 센터의 서비스 담당자는 전자 메일 주소의 여러 자릿수로 호출자를 식별할 수 있지만 이러한 데이터 항목이 서비스 담당자에 게 완전히 노출 되어서는 안 됩니다. 모든 쿼리의 결과 집합에서 모든 전자 메일 주소를 마스킹하는 마스킹 규칙을 정의할 수 있습니다. 또 다른 예로, 개발자가 규정 준수 규정을 위반 하지 않고 문제 해결을 위해 프로덕션 환경을 쿼리할 수 있도록 개인 데이터를 보호 하기 위해 적절 한 데이터 마스크를 정의할 수 있습니다.
 
 ## <a name="dynamic-data-masking-basics"></a>동적 데이터 마스킹 기본 사항
 
 SQL Database 구성 창의 **보안** 에서 **동적 데이터 마스킹** 블레이드를 선택 하 여 Azure Portal에서 동적 데이터 마스킹 정책을 설정 합니다. SQL Managed Instance 포털을 사용 하 여이 기능을 설정할 수 없습니다 (PowerShell 또는 REST API 사용). 자세한 내용은 [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)을 참조하세요.
-
-### <a name="dynamic-data-masking-permissions"></a>동적 데이터 마스킹 사용 권한
-
-Azure SQL Database 관리자, 서버 관리자 또는 [SQL 보안 관리자](../../role-based-access-control/built-in-roles.md#sql-security-manager) 역할이 동적 데이터 마스킹을 구성할 수 있습니다.
 
 ### <a name="dynamic-data-masking-policy"></a>동적 데이터 마스킹 정책
 
@@ -83,3 +79,11 @@ REST API를 사용하여 데이터 마스킹 정책 및 규칙을 프로그래�
 
 - [만들기 또는 업데이트](/rest/api/sql/datamaskingrules/createorupdate): 데이터베이스 데이터 마스킹 규칙을 만들거나 업데이트합니다.
 - [데이터베이스별 목록](/rest/api/sql/datamaskingrules/listbydatabase): 데이터베이스 데이터 마스킹 규칙 목록을 가져옵니다.
+
+## <a name="permissions"></a>사용 권한
+
+동적 데이터 마스킹은 Azure SQL Database 관리자, 서버 관리자 또는 RBAC (역할 기반 액세스 제어) [SQL 보안 관리자](../../role-based-access-control/built-in-roles.md#sql-security-manager) 역할을 통해 구성할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+[동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)

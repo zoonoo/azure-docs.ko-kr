@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 56dcf29a5c703a72fd137a5f1bf129f568a03b4b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ca785e217da4355a44ffbb26b813d55d942c5c14
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735812"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787623"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -101,7 +101,10 @@ Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터�
 [Autoprotected 인스턴스에 추가](backup-sql-server-database-azure-vms.md#enable-auto-protection) 하는 데이터베이스는 보호 된 항목 아래에 즉시 표시 되지 않을 수 있습니다. 일반적으로 검색이 8시간마다 실행되기 때문입니다. 그러나 다음 그림에 표시 된 것 처럼 **db** 다시 검색을 선택 하 여 수동으로 검색을 실행 하는 경우 새 데이터베이스를 즉시 검색 하 고 보호할 수 있습니다.
 
   ![새로 추가 된 데이터베이스를 수동으로 검색](./media/backup-azure-sql-database/view-newly-added-database.png)
-  
+
+## <a name="can-i-protect-databases-on-virtual-machines-that-have-azure-disk-encryption-ade-enabled"></a>Azure Disk Encryption (ADE)를 사용 하도록 설정한 가상 컴퓨터에서 데이터베이스를 보호할 수 있나요?
+예, Azure Disk Encryption (ADE)를 사용 하도록 설정한 가상 컴퓨터에서 데이터베이스를 보호할 수 있습니다.
+
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>TDE (투명한 데이터 암호화)를 설정 하 고 데이터베이스를 전체 백업 프로세스를 통해 암호화 된 상태로 유지 하는 데이터베이스를 보호할 수 있나요?
 
 예, Azure Backup은 SQL Server 데이터베이스 또는 TDE가 설정 된 서버의 백업을 지원 합니다. Backup은 Azure에서 관리 하는 키로 Tde를 지원 하거나 BYOK (고객 관리 키)를 사용 하 여 [Tde](/sql/relational-databases/security/encryption/transparent-data-encryption) 를 지원 합니다.  Backup은 백업 프로세스의 일부로 SQL 암호화를 수행 하지 않으므로 백업 시 데이터베이스가 암호화 된 상태로 유지 됩니다.

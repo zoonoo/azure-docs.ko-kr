@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 4635bcc51d2ab626b16ddcf02e772bf3df3cad4d
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
-ms.translationtype: HT
+ms.openlocfilehash: c36353448c140450044f352062c3349939e3f7b5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763743"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789013"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>DigiCert 인증 기관과 Key Vault 통합
 
@@ -129,7 +129,7 @@ Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertifica
  ![인증서 작업](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 오류 메시지 '이 인증서 요청을 완료하려면 병합을 수행하세요.'
-이 요청을 완료하려면 CA에서 서명한 CSR을 병합해야 합니다. [여기](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request)에서 자세히 알아보세요.
+이 요청을 완료하려면 CA에서 서명한 CSR을 병합해야 합니다. [여기](./create-certificate-signing-request.md)에서 자세히 알아보세요.
 
 자세한 내용은 [Key Vault REST API 참조에서 인증서 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 

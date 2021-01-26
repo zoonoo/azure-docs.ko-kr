@@ -3,27 +3,27 @@ title: Azure DevTest Labs |에서 공유 이미지 갤러리 구성 Microsoft Do
 description: 사용자가 랩 리소스를 만드는 동안 공유 위치에서 이미지에 액세스할 수 있도록 하는 Azure DevTest Labs에서 공유 이미지 갤러리를 구성 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 96563b1dcfac171af38b229bb81d12b3afda2e2f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: febcff640efc29eb4916250366641635f9d8721e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327980"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788424"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Azure DevTest Labs에서 공유 이미지 갤러리 구성
-DevTest Labs는 이제 [공유 이미지 갤러리](../virtual-machines/windows/shared-image-galleries.md) 기능을 지원 합니다. 랩 사용자는 랩 리소스를 만드는 동안 공유 위치에서 이미지에 액세스할 수 있습니다. 또한 사용자 지정 관리 VM 이미지를 중심으로 구조와 조직을 구축할 수 있습니다. 공유 이미지 갤러리 기능은 다음을 지원 합니다.
+DevTest Labs는 이제 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md) 기능을 지원 합니다. 랩 사용자는 랩 리소스를 만드는 동안 공유 위치에서 이미지에 액세스할 수 있습니다. 또한 사용자 지정 관리 VM 이미지를 중심으로 구조와 조직을 구축할 수 있습니다. 공유 이미지 갤러리 기능은 다음을 지원 합니다.
 
 - 이미지의 관리 되는 전역 복제
 - 보다 쉽게 관리할 수 있도록 이미지의 버전 관리 및 그룹화
 - 가용성 영역을 지 원하는 지역에서 ZRS (영역 중복 저장소) 계정을 사용 하 여 이미지를 항상 사용할 수 있도록 합니다. ZRS는 영역 장애 발생 시 보다 나은 복원력을 제공합니다.
 - Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 구독 간 및 테 넌 트 간에도 공유 합니다.
 
-자세한 내용은 [공유 이미지 갤러리 설명서](../virtual-machines/windows/shared-image-galleries.md)를 참조 하세요. 
+자세한 내용은 [공유 이미지 갤러리 설명서](../virtual-machines/shared-image-galleries.md)를 참조 하세요. 
  
 유지 관리해야 하는 관리되는 이미지가 많고, 회사 전체에서 사용 가능하도록 하려면 공유 이미지 갤러리를 이미지를 쉽게 업데이트하고 공유할 수 있게 해주는 리포지토리로 사용할 수 있습니다. 랩 소유자는 기존 공유 이미지 갤러리를 랩에 연결할 수 있습니다. 이 갤러리가 연결 되 면 랩 사용자는 이러한 최신 이미지에서 컴퓨터를 만들 수 있습니다. 이 기능의 주요 이점은 DevTest Labs에서 랩, 구독 및 지역에 걸쳐 이미지를 공유 하는 이점을 얻을 수 있다는 것입니다. 
 
 > [!NOTE]
-> 공유 이미지 갤러리 서비스와 관련 된 비용에 대해 알아보려면 [공유 이미지 갤러리에 대 한 요금 청구](../virtual-machines/windows/shared-image-galleries.md#billing)를 참조 하세요.
+> 공유 이미지 갤러리 서비스와 관련 된 비용에 대해 알아보려면 [공유 이미지 갤러리에 대 한 요금 청구](../virtual-machines/shared-image-galleries.md#billing)를 참조 하세요.
 
 ## <a name="considerations"></a>고려 사항
 - 한 번에 하나의 공유 이미지 갤러리만 랩에 연결할 수 있습니다. 다른 갤러리를 연결 하려면 기존 항목을 분리 하 고 다른 갤러리를 연결 해야 합니다. 
@@ -35,7 +35,7 @@ DevTest Labs는 이제 [공유 이미지 갤러리](../virtual-machines/windows/
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **모든 서비스** 를 선택 합니다.
 1. 목록에서 **DevTest Labs** 를 선택 합니다.
-1. 랩 목록에서 **랩을**선택 합니다.
+1. 랩 목록에서 **랩을** 선택 합니다.
 1. 왼쪽 메뉴의 **설정** 섹션에서 **구성 및 정책** 을 선택 합니다.
 1. 왼쪽 메뉴의 **가상 컴퓨터 기반** 에서 **공유 이미지 갤러리** 를 선택 합니다.
 
@@ -45,7 +45,7 @@ DevTest Labs는 이제 [공유 이미지 갤러리](../virtual-machines/windows/
     ![연결](./media/configure-shared-image-gallery/attach-options.png)
 1. 이미지 갤러리가 연결 된 후에는이를 선택 하 여 연결 된 갤러리로 이동 합니다. VM 생성을 위해 공유 이미지를 **사용 하거나 사용 하지 않도록** 갤러리를 구성 합니다. 목록에서 이미지 갤러리를 선택 하 여 구성 합니다. 
 
-    기본적으로 **모든 이미지를 가상 컴퓨터 기본으로 사용 하도록 허용** 이 **예**로 설정 됩니다. 즉, 연결 된 공유 이미지 갤러리에서 사용할 수 있는 모든 이미지를 랩 사용자가 새 랩 VM을 만들 때 사용할 수 있습니다. 특정 이미지에 대 한 액세스를 제한 해야 하 **는 경우 모든 이미지를 가상 컴퓨터 기반으로 사용 하도록 허용** 을 **아니요**로 변경 하 고 vm을 만들 때 허용 하려는 이미지를 선택한 후 **저장** 단추를 선택 합니다.
+    기본적으로 **모든 이미지를 가상 컴퓨터 기본으로 사용 하도록 허용** 이 **예** 로 설정 됩니다. 즉, 연결 된 공유 이미지 갤러리에서 사용할 수 있는 모든 이미지를 랩 사용자가 새 랩 VM을 만들 때 사용할 수 있습니다. 특정 이미지에 대 한 액세스를 제한 해야 하 **는 경우 모든 이미지를 가상 컴퓨터 기반으로 사용 하도록 허용** 을 **아니요** 로 변경 하 고 vm을 만들 때 허용 하려는 이미지를 선택한 후 **저장** 단추를 선택 합니다.
 
     :::image type="content" source="./media/configure-shared-image-gallery/enable-disable.png" alt-text="이미지 사용 또는 사용 안 함":::
 

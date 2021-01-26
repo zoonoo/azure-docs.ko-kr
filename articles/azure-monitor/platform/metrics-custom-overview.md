@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor의 사용자 지정 메트릭 (미리 보기)
 description: Azure Monitor의 사용자 지정 메트릭 및 모델링하는 방법을 알아봅니다.
-author: ancav
+author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 01/25/2021
 ms.subservice: metrics
-ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce081896292ec92c41dabc735df828ed167d86e7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639905"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788505"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Azure Monitor의 사용자 지정 메트릭 (미리 보기)
 
@@ -76,18 +76,18 @@ Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용�
 네임스페이스는 유사한 메트릭을 함께 분류 또는 그룹화하는 방법입니다. 네임스페이스를 사용하면 각기 다른 인사이트 또는 성능 지표를 수집할 수 있는 메트릭 그룹을 격리할 수 있습니다. 예를 들어 앱을 프로 파일링 하는 메모리 사용 메트릭을 추적 하는 **contosomemorymetrics** 라는 네임 스페이스가 있을 수 있습니다. **Contosoapptransaction** 라는 다른 네임 스페이스는 응용 프로그램의 사용자 트랜잭션에 대 한 모든 메트릭을 추적할 수 있습니다.
 
 ### <a name="name"></a>Name
-**이름**은 보고되는 메트릭의 이름입니다. 일반적으로 이름은 측정 대상을 식별하기에 충분한 정보를 제공합니다. 예를 들어, 지정된 VM에서 사용된 메모리 바이트 수를 측정하는 메트릭이 있습니다. 메트릭 이름은 **사용 중인 메모리 바이트**일 수 있습니다.
+**이름** 은 보고되는 메트릭의 이름입니다. 일반적으로 이름은 측정 대상을 식별하기에 충분한 정보를 제공합니다. 예를 들어, 지정된 VM에서 사용된 메모리 바이트 수를 측정하는 메트릭이 있습니다. 메트릭 이름은 **사용 중인 메모리 바이트** 일 수 있습니다.
 
 ### <a name="dimension-keys"></a>차원 키
-차원은 수집하는 메트릭에 관한 추가적인 특성을 설명하는 데 유용한 키 또는 값 쌍입니다. 추가적인 특성을 사용하면 메트릭에 대한 자세한 정보를 수집하여 더욱 심층적인 인사이트를 얻을 수 있습니다. 예를 들어, **사용 중인 메모리 바이트** 메트릭에는 VM의 각 프로세스에서 사용 중인 메모리 바이트 수를 캡처하는 **프로세스**라는 차원 키가 있을 수 있습니다. 이 키를 사용 하 여 메트릭을 필터링 하 여 메모리 별 프로세스의 크기를 확인 하거나 메모리 사용량에 따라 상위 5 개 프로세스를 식별할 수 있습니다.
+차원은 수집하는 메트릭에 관한 추가적인 특성을 설명하는 데 유용한 키 또는 값 쌍입니다. 추가적인 특성을 사용하면 메트릭에 대한 자세한 정보를 수집하여 더욱 심층적인 인사이트를 얻을 수 있습니다. 예를 들어, **사용 중인 메모리 바이트** 메트릭에는 VM의 각 프로세스에서 사용 중인 메모리 바이트 수를 캡처하는 **프로세스** 라는 차원 키가 있을 수 있습니다. 이 키를 사용 하 여 메트릭을 필터링 하 여 메모리 별 프로세스의 크기를 확인 하거나 메모리 사용량에 따라 상위 5 개 프로세스를 식별할 수 있습니다.
 차원은 선택 사항이 며 모든 메트릭에 차원이 포함 되지 않을 수 있습니다. 사용자 지정 메트릭은 차원을 최대 10 개까지 포함할 수 있습니다.
 
 ### <a name="dimension-values"></a>차원 값
 메트릭 데이터 요소를 보고하는 경우 보고되는 메트릭의 각 차원 키에 해당하는 차원 값이 있습니다. 예를 들어, VM의 ContosoApp에서 사용하는 메모리를 보고하려는 경우
 
-* 메트릭 이름은 **사용 중인 메모리 바이트**가 됩니다.
-* 차원 키는 **프로세스**가 됩니다.
-* 차원 값은 **ContosoApp.exe**가 됩니다.
+* 메트릭 이름은 **사용 중인 메모리 바이트** 가 됩니다.
+* 차원 키는 **프로세스** 가 됩니다.
+* 차원 값은 **ContosoApp.exe** 가 됩니다.
 
 메트릭 값을 게시하는 경우 차원 키당 단일 차원 값만 지정할 수 있습니다. VM의 여러 프로세스에 대해 수집한 메모리 사용률이 동일한 경우 해당 타임스탬프에 여러 개의 메트릭 값을 보고할 수 있습니다. 각 메트릭 값은 **프로세스** 차원 키에 대해 다른 차원 값을 지정합니다.
 차원은 선택 사항이 며 모든 메트릭에 차원이 포함 되지 않을 수 있습니다. 메트릭 게시에서 차원 키를 정의 하는 경우 해당 차원 값은 필수입니다.
@@ -105,7 +105,6 @@ Azure Monitor는 1분 단위 간격으로 모든 메트릭을 저장합니다. �
 |트랜잭션 1|트랜잭션 2|트랜잭션 3|트랜잭션 4|
 |---|---|---|---|
 |7ms|4ms|13ms|16밀리초|
-|
 
 Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 * 최소: 4
@@ -122,7 +121,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 이 프로세스에서는 지정된 1분 동안 동일한 메트릭 및 차원 조합에 대해 여러 개의 값을 내보낼 수 있습니다. 그런 다음, Azure Monitor에서 지정된 1분 동안 내보낸 모든 원시 값을 가져와 집계합니다.
 
 ### <a name="sample-custom-metric-publication"></a>샘플 사용자 지정 메트릭 게시
-다음 예제에서는 가상 머신에 대한 **메모리 프로필** 메트릭 네임스페이스에 **사용 중인 메모리 바이트**라는 사용자 지정 메트릭을 만듭니다. 이 메트릭에는 **프로세스**라는 단일 차원이 있습니다. 지정된 타임스탬프에서 다음 두 가지 프로세스에 대한 메트릭 값을 내보냅니다.
+다음 예제에서는 가상 머신에 대한 **메모리 프로필** 메트릭 네임스페이스에 **사용 중인 메모리 바이트** 라는 사용자 지정 메트릭을 만듭니다. 이 메트릭에는 **프로세스** 라는 단일 차원이 있습니다. 지정된 타임스탬프에서 다음 두 가지 프로세스에 대한 메트릭 값을 내보냅니다.
 
 ```json
 {
@@ -134,7 +133,8 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
         "metric": "Memory Bytes in Use",
         "namespace": "Memory Profile",
         "dimNames": [
-          "Process"        ],
+          "Process"
+        ],
         "series": [
           {
             "dimValues": [
@@ -174,44 +174,29 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 사용자 지정 메트릭을 Azure Monitor에 전송한 후 Azure Portal을 통해 검색하고 Azure Monitor REST API를 통해 쿼리할 수 있습니다. 특정 조건이 충족되면 알리도록 메트릭에 대한 경고를 만들 수도 있습니다.
 
 > [!NOTE]
-> 사용자 지정 메트릭을 보려면 독자 또는 참가자 역할을 수행 해야 합니다.
+> 사용자 지정 메트릭을 보려면 독자 또는 참가자 역할을 수행 해야 합니다. [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader)를 참조 하세요. 
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Azure Portal을 통해 사용자 지정 메트릭 찾아보기
 1.    [Azure 포털](https://portal.azure.com)로 이동합니다.
 2.    **모니터** 창을 선택합니다.
-3.    **메트릭**을 선택합니다.
+3.    **메트릭** 을 선택합니다.
 4.    사용자 지정 메트릭을 내보낸 리소스를 선택합니다.
 5.    사용자 지정 메트릭에 대한 메트릭 네임스페이스를 선택합니다.
 6.    사용자 지정 메트릭을 선택합니다.
 
+> [!NOTE]
+> Azure Portal에서 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](./metrics-getting-started.md) 을 참조 하세요.
+
 ## <a name="supported-regions"></a>지원되는 지역
-공개 미리 보기 중 사용자 지정 메트릭을 게시할 수 있는 기능은 일부 Azure 지역에서만 사용할 수 있습니다. 이 제한 사항은 지원되는 지역 중 하나의 리소스에 대해서만 메트릭을 게시할 수 있음을 의미합니다. 다음 표에는 사용자 지정 메트릭이 지원되는 Azure 지역 집합이 나와 있습니다. 이러한 지역의 리소스에 대한 메트릭이 게시되어야 하는 해당 엔드포인트도 나와 있습니다.
+공개 미리 보기 중 사용자 지정 메트릭을 게시할 수 있는 기능은 일부 Azure 지역에서만 사용할 수 있습니다. 이 제한 사항은 지원되는 지역 중 하나의 리소스에 대해서만 메트릭을 게시할 수 있음을 의미합니다. Azure 지역에 대 한 자세한 정보는 [azure](https://azure.microsoft.com/global-infrastructure/geographies/) 지역을 참조 하세요. 아래 끝점에서 사용 되는 Azure 지역 코드는 공백으로 제거 된 지역 이름 뿐입니다. 다음 표에는 사용자 지정 메트릭에 대해 지원 되는 Azure 지역 집합이 나열 되어 있습니다. 이러한 지역의 리소스에 대한 메트릭이 게시되어야 하는 해당 엔드포인트도 나와 있습니다.
 
 |Azure 지역 |지역별 엔드포인트 접두사|
 |---|---|
-| **미국과 캐나다** | |
-|미국 중서부 | https: \/ /westcentralus.monitoring.azure.com |
-|미국 서부 2       | https: \/ /westus2.monitoring.azure.com |
-|미국 중북부 | https: \/ /northcentralus.monitoring.azure.com
-|미국 중남부| https: \/ /southcentralus.monitoring.azure.com |
-|미국 중부      | https: \/ /centralus.monitoring.azure.com |
-|캐나다 중부 | https: \/ /canadacentral.monitoring.azure.com |
-|미국 동부| https: \/ /eastus.monitoring.azure.com |
-|미국 동부 2 | https: \/ /eastus2.monitoring.azure.com |
-| **유럽** | |
-|북유럽    | https: \/ /northeurope.monitoring.azure.com |
-|서유럽     | https: \/ /westeurope.monitoring.azure.com |
-|영국 남부 | https: \/ /uksouth.monitoring.azure.com
-|프랑스 중부 | https: \/ /francecentral.monitoring.azure.com |
-| **아프리카** | |
-|남아프리카 북부 | https: \/ /southafricanorth.monitoring.azure.com |
-| **아시아** | |
-|인도 중부 | https: \/ /centralindia.monitoring.azure.com |
-|오스트레일리아 동부 | https: \/ /australiaeast.monitoring.azure.com |
-|일본 동부 | https: \/ /japaneast.monitoring.azure.com |
-|동남 아시아  | https: \/ /southeastasia.monitoring.azure.com |
-|동아시아 | https: \/ /eastasia.monitoring.azure.com |
-|한국 중부   | https: \/ /koreacentral.monitoring.azure.com |
+| 모든 공용 클라우드 지역 | https://<azure_region_code>. monitoring.azure.com |
+| **Azure Government** | |
+| US Gov 애리조나 | https: \/ /usgovarizona.monitoring.azure.us |
+| **중국** | |
+| 중국 동부 2 | https: \/ /chinaeast2.monitoring.azure.cn |
 
 ## <a name="latency-and-storage-retention"></a>대기 시간 및 저장소 보존
 

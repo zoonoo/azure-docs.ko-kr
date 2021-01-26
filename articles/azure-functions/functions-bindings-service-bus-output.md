@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 2d0b66d2b4d89b512b34cb33a5607b471b7d1e84
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 12e57361b9e275fc441df27a3a1381989d48751c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040931"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788573"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Service Bus 출력 바인딩
 
@@ -87,6 +87,41 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+다음 예제에서는 `myqueue` HTTP 요청에 의해 트리거될 때 Service Bus 큐로 메시지를 보내는 Java 함수를 보여 줍니다.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+```
+
+ [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Service Bus 큐에 기록될 함수 매개 변수에 대한 `@QueueOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO의 원시 Java 형식입니다.
+
+Java 함수는 Service Bus 토픽에도 쓸 수 있습니다. 다음 예제에서는 주석을 사용 하 여 `@ServiceBusTopicOutput` 출력 바인딩에 대 한 구성을 설명 합니다. 
+
+```java
+@FunctionName("sbtopicsend")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+            final ExecutionContext context) {
+        
+        String name = request.getBody().orElse("Azure Functions");
+
+        message.setValue(name);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+    }
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 Service Bus 출력 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 타이머 트리거를 사용하여 15초마다 큐 메시지를 보냅니다.
@@ -139,6 +174,39 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+다음 예제에서는 *function.js* 파일의 Service Bus 출력 바인딩과 바인딩을 사용 하는 [PowerShell 함수](functions-reference-powershell.md) 를 보여 줍니다. 
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "outputSbMsg",
+      "queueName": "outqueue",
+      "topicName": "outtopic"
+    }
+  ]
+}
+```
+
+다음은 함수의 출력으로 메시지를 만드는 PowerShell입니다.
+
+```powershell
+param($QueueItem, $TriggerMetadata) 
+
+Push-OutputBinding -Name outputSbMsg -Value @{ 
+    name = $QueueItem.name 
+    employeeId = $QueueItem.employeeId 
+    address = $QueueItem.address 
+} 
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 다음 예제에서는 Python에서 Service Bus 큐에 쓰는 방법을 보여 줍니다.
@@ -175,7 +243,7 @@ Service Bus 바인딩 정의는 *형식이* 로 설정 된 *function.js* 에 정
 }
 ```
 
-Py에서는 값을 메서드에 전달 하 여 큐에 메시지를 작성할 수 있습니다 *_\__ \_* . `set`
+Py에서는 값을 메서드에 전달 하 여 큐에 메시지를 작성할 수 있습니다 *_\__ \_*. `set`
 
 ```python
 import azure.functions as func
@@ -187,41 +255,6 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     msg.set(input_msg)
 
     return 'OK'
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-다음 예제에서는 `myqueue` HTTP 요청에 의해 트리거될 때 Service Bus 큐로 메시지를 보내는 Java 함수를 보여 줍니다.
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
-```
-
- [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Service Bus 큐에 기록될 함수 매개 변수에 대한 `@QueueOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO의 원시 Java 형식입니다.
-
-Java 함수는 Service Bus 토픽에도 쓸 수 있습니다. 다음 예제에서는 주석을 사용 하 여 `@ServiceBusTopicOutput` 출력 바인딩에 대 한 구성을 설명 합니다. 
-
-```java
-@FunctionName("sbtopicsend")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
-            final ExecutionContext context) {
-        
-        String name = request.getBody().orElse("Azure Functions");
-
-        message.setValue(name);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        
-    }
 ```
 
 ---
@@ -262,17 +295,21 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 C# 스크립트에서는 특성을 지원하지 않습니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+`ServiceBusQueueOutput`및 `ServiceBusTopicOutput` 주석은 함수 출력으로 메시지를 작성 하는 데 사용할 수 있습니다. 이러한 주석을 사용 하 여 데코레이팅된 매개 변수는로 선언 해야 합니다 `OutputBinding<T>` `T` . 여기서은 메시지의 형식에 해당 하는 형식입니다.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원하지 않습니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+특성은 PowerShell에서 지원 되지 않습니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python에서는 특성을 지원하지 않습니다.
-
-# <a name="java"></a>[Java](#tab/java)
-
-`ServiceBusQueueOutput`및 `ServiceBusTopicOutput` 주석은 함수 출력으로 메시지를 작성 하는 데 사용할 수 있습니다. 이러한 주석을 사용 하 여 데코레이팅된 매개 변수는로 선언 해야 합니다 `OutputBinding<T>` `T` . 여기서은 메시지의 형식에 해당 하는 형식입니다.
 
 ---
 
@@ -330,15 +367,19 @@ C # 함수를 사용 하는 경우:
 
 * 세션 ID에 액세스 하려면 형식에 바인딩하고 [`Message`](/dotnet/api/microsoft.azure.servicebus.message) 속성을 사용 합니다 `sessionId` .
 
+# <a name="java"></a>[Java](#tab/java)
+
+기본 제공 출력 바인딩이 아닌 [AZURE SERVICE BUS SDK](../service-bus-messaging/index.yml) 를 사용 합니다.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 을 사용 하 여 큐 또는 토픽에 액세스 `context.bindings.<name from function.json>` 합니다. 문자열, 바이트 배열 또는 JavaScript 개체 (JSON으로 deserialize)를에 할당할 수 있습니다 `context.binding.<name>` .
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Service Bus에 대 한 출력은 `Push-OutputBinding` 파일 *의function.js* 에서 바인딩의 name 매개 변수에 지정 된 이름과 일치 하는 인수를 전달 하는 cmdlet을 통해 사용할 수 있습니다.
+
 # <a name="python"></a>[Python](#tab/python)
-
-기본 제공 출력 바인딩이 아닌 [AZURE SERVICE BUS SDK](../service-bus-messaging/index.yml) 를 사용 합니다.
-
-# <a name="java"></a>[Java](#tab/java)
 
 기본 제공 출력 바인딩이 아닌 [AZURE SERVICE BUS SDK](../service-bus-messaging/index.yml) 를 사용 합니다.
 
@@ -388,7 +429,7 @@ C # 함수를 사용 하는 경우:
 |---------|---------|---------|
 |prefetchCount|0|메시지 수신자가 동시에 요청할 수 있는 메시지 수를 가져오거나 설정 합니다.|
 |maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
-|autoComplete|true|트리거가 처리 후 자동으로 완료를 호출 해야 하는지, 아니면 함수 코드가 수동으로 complete를 호출 하는지 여부입니다.<br><br>을로 설정 하 `false` 는 것은 c # 에서만 지원 됩니다.<br><br>로 설정 `true` 된 경우 함수 실행이 성공적으로 완료 되 면 트리거가 자동으로 메시지를 완료 하 고, 그렇지 않으면 메시지를 무시 합니다.<br><br>로 설정 하면 `false` [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) 메서드를 호출 하 여 메시지를 완료 하거나 중단 하거나 배달 못한 편지를 배달 해야 합니다. 예외를 throw 하 고 메서드를 호출 하지 않은 경우에 `MessageReceiver` 는 잠금이 유지 됩니다. 잠금이 만료 되 면 메시지는 증가 된로 다시 큐에 대기 되며 `DeliveryCount` 잠금이 자동으로 갱신 됩니다.<br><br>비 C # 함수에서 함수의 예외는 백그라운드에서 런타임 호출을 발생 합니다 `abandonAsync` . 예외가 발생 하지 않으면 `completeAsync` 가 백그라운드에서 호출 됩니다. |
+|autoComplete|true|트리거가 처리 후 자동으로 완료를 호출 해야 하는지, 아니면 함수 코드가 수동으로 complete를 호출 하는지 여부입니다.<br><br>을로 설정 하 `false` 는 것은 c # 에서만 지원 됩니다.<br><br>로 설정 `true` 된 경우 함수 실행이 성공적으로 완료 되 면 트리거가 자동으로 메시지를 완료 하 고, 그렇지 않으면 메시지를 무시 합니다.<br><br>로 설정 하면 `false` [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) 메서드를 호출 하 여 메시지를 완료 하거나 중단 하거나 배달 못한 편지를 배달 해야 합니다. 예외를 throw 하 고 메서드를 호출 하지 않은 경우에 `MessageReceiver` 는 잠금이 유지 됩니다. 잠금이 만료 되 면 메시지는 증가 된로 다시 큐에 대기 되며 `DeliveryCount` 잠금이 자동으로 갱신 됩니다.<br><br>비 C # 함수에서 함수의 예외는 백그라운드에서 런타임 호출을 발생 합니다 `abandonAsync` . 예외가 발생 하지 않으면 `completeAsync` 가 백그라운드에서 호출 됩니다. |
 |maxConcurrentCalls|16|메시지 펌프가 확장 인스턴스당 시작 해야 하는 콜백에 대 한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다.|
 |maxConcurrentSessions|2000|크기 조정 된 인스턴스당 동시에 처리할 수 있는 최대 세션 수입니다.|
 

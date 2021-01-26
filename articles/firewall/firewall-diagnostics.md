@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 2dd1b51c6bcdbc531661d9ecf45d3d0282eb5b45
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 52c6ef9edfc42bf1ad3b3279e0fa4e19b4cf502c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358850"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788267"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭 모니터링
 
@@ -43,9 +43,9 @@ ms.locfileid: "94358850"
    * AzureFirewallDnsProxy
 
 
-3. **진단 설정 추가** 를 선택 합니다. **진단 설정** 페이지에서는 진단 로그에 대한 설정을 제공합니다.
+3. **진단 설정 추가** 를 선택합니다. **진단 설정** 페이지에서는 진단 로그에 대한 설정을 제공합니다.
 5. 이 예제에서 Azure Monitor 로그가 로그를 저장하므로 이름에 **방화벽 로그 분석** 을 입력합니다.
-6. **로그** 에서 **AzureFirewallApplicationRule** , **AzureFirewallNetworkRule** , **AzureFirewallThreatIntelLog** 및 **AzureFirewallDnsProxy** 를 선택 하 여 로그를 수집 합니다.
+6. **로그** 에서 **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog** 및 **AzureFirewallDnsProxy** 를 선택 하 여 로그를 수집 합니다.
 7. **Log Analytics 보내기를** 선택 하 여 작업 영역을 구성 합니다.
 8. 구독을 선택합니다.
 9. **저장** 을 선택합니다.
@@ -105,14 +105,14 @@ Azure CLI 진단 로깅을 사용 하도록 설정 하려면 다음 단계를 �
 다음 방법 중 하나를 사용하여 활동 로그 데이터를 확인하고 분석할 수 있습니다.
 
 * **Azure 도구** - Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-resource-manager/management/view-activity-logs.md) 문서에 자세히 나와 있습니다.
-* **Power BI** : 아직 [Power BI](https://powerbi.microsoft.com/pricing) 계정이 없으면 무료로 사용해 볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
-* **Azure 센티널** : azure 방화벽 로그를 azure 센티널에 연결 하 여 통합 문서에서 로그 데이터를 보고,이를 사용 하 여 사용자 지정 경고를 만들고,이를 통합 하 여 조사를 개선할 수 있습니다. Azure 센티널의 Azure 방화벽 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은 [Azure 방화벽에서 데이터 연결](../sentinel/connect-azure-firewall.md)을 참조 하세요.
+* **Power BI**: 아직 [Power BI](https://powerbi.microsoft.com/pricing) 계정이 없으면 무료로 사용해 볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
+* **Azure 센티널**: azure 방화벽 로그를 azure 센티널에 연결 하 여 통합 문서에서 로그 데이터를 보고,이를 사용 하 여 사용자 지정 경고를 만들고,이를 통합 하 여 조사를 개선할 수 있습니다. Azure 센티널의 Azure 방화벽 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은 [Azure 방화벽에서 데이터 연결](../sentinel/connect-azure-firewall.md)을 참조 하세요.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>네트워크 및 애플리케이션 규칙 로그 보기 및 분석
 
 [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md)는 카운터 및 이벤트 로그 파일을 수집합니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
 
-Azure 방화벽 로그 분석 샘플 쿼리를 보려면 [Azure 방화벽 로그 분석 샘플](log-analytics-samples.md)을 참조 하세요.
+Azure 방화벽 로그 분석 샘플 쿼리를 보려면 [Azure 방화벽 로그 분석 샘플](./firewall-workbook.md)을 참조 하세요.
 
 Azure [방화벽 통합 문서](firewall-workbook.md) 는 azure 방화벽 데이터 분석을 위한 유연한 캔버스를 제공 합니다. 이를 사용 하 여 Azure Portal 내에서 풍부한 시각적 보고서를 만들 수 있습니다. Azure에 배포 된 여러 방화벽을 탭 하 여 통합 된 대화형 환경에 통합할 수 있습니다.
 

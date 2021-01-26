@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: af9087f0dd45212ec88b620dcd965c895b86bbce
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: baa071c8967c97cb5df2b8f522b3737436bdb359
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108195"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787708"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -130,12 +130,12 @@ App Service [일반 설정을](../../../app-service/configure-common.md#configur
 ### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>QnA Maker를 호스트 App Service Environment 구성 App Service
 ASE (App Service Environment)를 사용 하 여 QnA Maker App Service를 호스트할 수 있습니다. 다음 단계를 따르세요.
 
-1. App Service Environment 만들고 "external"으로 표시 합니다. 지침은 [자습서](https://docs.microsoft.com/azure/app-service/environment/create-external-ase) 를 따르세요.
+1. App Service Environment 만들고 "external"으로 표시 합니다. 지침은 [자습서](../../../app-service/environment/create-external-ase.md) 를 따르세요.
 2.  App Service Environment 내에서 App service를 만듭니다.
     * App service에 대 한 구성을 확인 하 고 응용 프로그램 설정으로 ' PrimaryEndpointKey '를 추가 합니다. ' PrimaryEndpointKey '의 값을 " \<app-name\> -primaryendpointkey"로 설정 해야 합니다. 앱 이름은 App service URL에 정의 됩니다. 예를 들어 App service URL이 "mywebsite.myase.p.azurewebsite.net" 인 경우 응용 프로그램 이름은 "mywebsite"입니다. 이 경우 ' PrimaryEndpointKey '의 값을 "mywebsite-PrimaryEndpointKey"로 설정 해야 합니다.
     * Azure search 서비스를 만듭니다.
     * Azure Search 및 앱 설정이 적절히 구성 되어 있는지 확인 합니다. 
-      이 [자습서](https://docs.microsoft.com/azure/cognitive-services/qnamaker/reference-app-service?tabs=v1#app-service)를 수행 하세요.
+      이 [자습서](../reference-app-service.md?tabs=v1#app-service)를 수행 하세요.
 3.  App Service Environment 연결 된 네트워크 보안 그룹을 업데이트 합니다.
     * 요구 사항에 따라 미리 만든 인바운드 보안 규칙을 업데이트 합니다.
     * 소스를 ' Service Tag '로, 소스 서비스 태그를 ' CognitiveServicesManagement '로 사용 하 여 새 인바운드 보안 규칙을 추가 합니다.

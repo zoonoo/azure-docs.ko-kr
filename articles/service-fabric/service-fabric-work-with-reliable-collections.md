@@ -3,12 +3,12 @@ title: 신뢰할 수 있는 컬렉션 작업
 description: Azure Service Fabric 응용 프로그램 내에서 신뢰할 수 있는 컬렉션을 사용 하기 위한 모범 사례를 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 908f24cc22c969a34a513ff3fd3ceaa788420620
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651909"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787878"
 ---
 # <a name="working-with-reliable-collections"></a>신뢰할 수 있는 컬렉션 작업
 Service Fabric은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용법을 살펴보고 실제로 수행 하는 작업을 확인 합니다.
@@ -226,4 +226,4 @@ public struct ItemId
 
 내결함성 데이터 계약의 버전을 구현하는 방법을 알아보려면 [버전 내결함성 직렬화 콜백](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)을 참조하세요.
 
-여러 버전에 상호 운용할 수 있는 데이터 구조를 제공하는 방법을 알아보려면 [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)를 참조하세요.
+여러 버전에 상호 운용할 수 있는 데이터 구조를 제공하는 방법을 알아보려면 [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject)를 참조하세요.

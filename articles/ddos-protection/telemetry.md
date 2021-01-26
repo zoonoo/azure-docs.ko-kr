@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 86e4a111be7585373ecf4c2fe9508f2bfca7de16
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: a3f6c14b7ed2686a262f28510efb37068cfb9cb3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915082"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787301"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 보기 및 구성
 
 Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. 다양 한 원격 분석은 DDoS 공격 기간 동안 상세 메트릭을 포함 하 여 Azure Monitor를 통해 노출 됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. 로깅은 Azure Monitor 진단 인터페이스를 통한 고급 분석을 위해 [Azure 센티널](../sentinel/connect-azure-ddos-protection.md), Splunk (azure Event Hubs), OMS Log Analytics 및 Azure Storage와 추가로 통합 될 수 있습니다.
 
-이 자습서에서 학습할 방법은 다음과 같습니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * DDoS protection 원격 분석 보기
@@ -34,10 +34,10 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 > [!NOTE]
 > **집계** 에 대 한 여러 옵션이 Azure Portal에 표시 되지만 아래 표에 나열 된 집계 유형만 각 메트릭에 대해 지원 됩니다. 이 혼란을 위해 죄송 합니다 .이 문제를 해결 하기 위해 노력 하 고 있습니다.
 
-Azure DDoS Protection Standard에 대해 다음 [메트릭을](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetworkpublicipaddresses) 사용할 수 있습니다. 이러한 메트릭은 진단 설정을 통해 내보낼 수도 있습니다 ( [DDoS 진단 로깅 보기 및 구성](diagnostic-logging.md)참조).
+Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) 사용할 수 있습니다. 이러한 메트릭은 진단 설정을 통해 내보낼 수도 있습니다 ( [DDoS 진단 로깅 보기 및 구성](diagnostic-logging.md)참조).
 
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | Description |
 | --- | --- | --- | --- | --- |
 | ByteCount | 바이트 수 | 개수 | 합계 | 기간 내에 전송된 총 바이트 수 |
 | BytesDroppedDDoS | 인바운드 바이트가 삭제된 DDoS | 초당 바이트 수 | 최대 | 인바운드 바이트가 삭제된 DDoS| 

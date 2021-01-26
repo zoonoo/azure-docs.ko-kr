@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Explorer를 사용하여 Blob 스토리지 데이터 이동 - Team Data Science Process
-description: Azure Storage 탐색기를 사용 하 여 Azure blob Storage에서 데이터를 업로드 하 고 다운로드 하는 방법을 알아봅니다.
+description: Azure Storage 탐색기를 사용 하 여 Azure Blob Storage에서 데이터를 업로드 하 고 다운로드 하는 방법을 알아봅니다.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c5750132280d69c946ce180c51e4de6507549fcb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 53cb8cdd1c5f9824b07b16b8b6c70648603b9f38
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318181"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788912"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Azure Storage Explorer를 사용하여 Azure Blob Storage 간에 데이터 이동
-Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage 데이터 작업 시에 사용할 수 있는 Microsoft의 무료 도구입니다. 이 항목에서는 Azure Storage Explorer를 사용하여 Azure Blob 스토리지에서 데이터를 업로드 및 다운로드하는 방법을 설명합니다. 이 도구는 [Microsoft Azure Storage Explorer](https://storageexplorer.com/)에서 다운로드할 수 있습니다.
+Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage 데이터 작업 시에 사용할 수 있는 Microsoft의 무료 도구입니다. 이 항목에서는이를 사용 하 여 Azure Blob Storage에서 데이터를 업로드 하 고 다운로드 하는 방법을 설명 합니다. 이 도구는 [Microsoft Azure Storage Explorer](https://storageexplorer.com/)에서 다운로드할 수 있습니다.
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -27,11 +27,11 @@ Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage 데이터
 > [Azure의 데이터 과학 가상 머신](../data-science-virtual-machine/overview.md)에서 제공하는 스크립트를 통해 설정된 VM을 사용하는 경우 Azure Storage Explorer가 VM에 이미 설치되어 있습니다.
 > 
 > [!NOTE]
-> Azure Blob Storage에 대한 전체 소개 내용은 [Azure Blob 기본 사항](../../storage/blobs/storage-quickstart-blobs-dotnet.md) 및 [Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts)를 참조하세요.   
+> Azure Blob Storage에 대 한 전체 소개는 [Azure Blob 기본 사항](../../storage/blobs/storage-quickstart-blobs-dotnet.md) 및 [azure blob Service](/rest/api/storageservices/Blob-Service-Concepts)를 참조 하세요.   
 > 
 > 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자에게 Azure 구독, 스토리지 계정 및 계정에 해당하는 스토리지 키가 있다고 가정합니다. 데이터를 업로드/다운로드 하기 전에 Azure Storage 계정 이름 및 계정 키를 알아야 합니다. 
 
 * Azure 구독을 설정 하려면 [1 개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.

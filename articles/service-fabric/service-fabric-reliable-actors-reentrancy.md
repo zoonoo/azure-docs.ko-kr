@@ -4,12 +4,12 @@ description: 호출 컨텍스트에 따라 차단을 논리적으로 방지 하�
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9578b676e46d21fe5d30de92ad59c852a8b05f70
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 90a8e9146d18d628fbf124307f1b79b912c9cef9
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915881"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789383"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors 다시 표시
 기본적으로 Reliable Actors 런타임을 사용하면 논리적 호출 컨텍스트를 기반으로 다시 표시할 수 있습니다. 따라서 동일한 호출 컨텍스트 체인에 있는 경우 행위자가 다시 표시되도록 할 수 있습니다. 예를 들어 행위자 A가 행위자 C에 메시지를 보내는 행위자 B에 메시지를 보내는 경우 메시지 처리 과정의 일부로 행위자 C가 행위자 A를 호출하면 해당 메시지가 다시 표시됩니다. 다른 호출 컨텍스트의 일부인 다른 모든 메시지는 처리를 완료할 때까지 행위자 A에서 차단됩니다.
@@ -101,4 +101,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>다음 단계
-* [행위자 API 참조 설명서](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet)의 재입력에 대해 자세히 알아보기
+* [행위자 API 참조 설명서](/dotnet/api/microsoft.servicefabric.actors)의 재입력에 대해 자세히 알아보기

@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 086bc17938064571e8759ecda633fb5f87d1060f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 3ff48ff5a3f46d8ec0fbf81b4cd20d20c217344b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616816"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787640"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
@@ -81,7 +81,7 @@ LUIS (Language Understanding) 제작 인증을 전자 메일 계정에서 Azure 
    > ![응용 프로그램을 내보냅니다.](./media/migrate-authoring-key/migration-export-apps.png)
 
 
-4. 영역을 마이그레이션하기 위한 창에서, 응용 프로그램을 작성 된 동일한 지역의 Azure 리소스로 마이그레이션 하 라는 메시지가 표시 됩니다. LUIS에는 세 가지 제작 지역과 [포털이](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions)있습니다. 창에는 소유한 응용 프로그램이 작성 된 지역이 표시 됩니다. 표시 되는 마이그레이션 지역은 사용 하는 지역 포털 및 사용자가 작성 한 앱에 따라 다를 수 있습니다. 
+4. 영역을 마이그레이션하기 위한 창에서, 응용 프로그램을 작성 된 동일한 지역의 Azure 리소스로 마이그레이션 하 라는 메시지가 표시 됩니다. LUIS에는 세 가지 제작 지역과 [포털이](./luis-reference-regions.md#luis-authoring-regions)있습니다. 창에는 소유한 응용 프로그램이 작성 된 지역이 표시 됩니다. 표시 되는 마이그레이션 지역은 사용 하는 지역 포털 및 사용자가 작성 한 앱에 따라 다를 수 있습니다. 
 
    > [!div class="mx-imgBorder"]
    > ![다중 지역 마이그레이션.](./media/migrate-authoring-key/migration-regional-flow.png)

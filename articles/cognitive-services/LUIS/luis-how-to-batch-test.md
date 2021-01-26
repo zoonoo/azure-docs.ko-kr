@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955215"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787015"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -99,7 +99,7 @@ JSON 예제에는 테스트 파일의 모양을 설명하는 레이블이 지정
 
 일괄 테스트 결과를 검토하려면 **결과 보기** 를 선택합니다. 테스트 결과는 활성 버전에 대해 테스트 발화가 예측된 방법을 그래픽으로 보여 줍니다.
 
-일괄 처리 차트는 결과의 사분면으로 표시됩니다. 차트의 오른쪽이 필터입니다. 필터에는 의도와 엔터티가 포함됩니다. [차트의 섹션](luis-concept-batch-test.md#batch-test-results) 또는 차트 내의 한 점을 선택하면 차트 아래에 관련된 발언이 표시됩니다.
+일괄 처리 차트는 결과의 사분면으로 표시됩니다. 차트의 오른쪽이 필터입니다. 필터에는 의도와 엔터티가 포함됩니다. [차트의 섹션](#review-batch-results-for-intents) 또는 차트 내의 한 점을 선택하면 차트 아래에 관련된 발언이 표시됩니다.
 
 차트 위로 마우스를 가져간 후 마우스 휠로 차트의 발언을 확대하거나 축소할 수 있습니다. 차트에 많은 점이 밀집되어 있을 때 이렇게 하면 편리합니다.
 
@@ -166,7 +166,7 @@ LUIS 포털의 차트에서는 다음 작업을 수행할 수 있습니다.
 
 ## <a name="batch-testing-using-the-rest-api"></a>REST API를 사용 하 여 테스트 일괄 처리 
 
-LUIS를 사용 하면 LUIS 포털을 사용 하 여 테스트를 일괄 처리 하 고 REST API 수 있습니다. REST API에 대 한 끝점은 다음과 같습니다. LUIS 포털을 사용한 일괄 처리 테스트에 대 한 자세한 내용은 [자습서: 일괄 처리 테스트 데이터 집합](luis-tutorial-batch-testing.md)을 참조 하세요. 아래 전체 Url을 사용 하 여 자리 표시자 값을 고유한 LUIS 예측 키 및 끝점으로 바꿉니다. 
+LUIS를 사용 하면 LUIS 포털을 사용 하 여 테스트를 일괄 처리 하 고 REST API 수 있습니다. REST API에 대 한 끝점은 다음과 같습니다. LUIS 포털을 사용한 일괄 처리 테스트에 대 한 자세한 내용은 [자습서: 일괄 처리 테스트 데이터 집합]()을 참조 하세요. 아래 전체 Url을 사용 하 여 자리 표시자 값을 고유한 LUIS 예측 키 및 끝점으로 바꿉니다. 
 
 헤더의에 LUIS 키를 추가 하 `Ocp-Apim-Subscription-Key` 고를로 설정 해야 `Content-Type` `application/json` 합니다.
 
@@ -265,5 +265,3 @@ API에서 반환 되는 개체에는 여러 가지가 있습니다.
 
 * [LUIS로 제안된 발화에 레이블 지정](luis-how-to-review-endpoint-utterances.md)
 * [기능을 사용하여 LUIS 앱 성능 향상](luis-how-to-add-features.md)
-* [이 자습서를 통해 일괄 테스트 이해](luis-tutorial-batch-testing.md)
-* [일괄 테스트 개념 알아보기](luis-concept-batch-test.md).

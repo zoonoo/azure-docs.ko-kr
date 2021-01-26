@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 6c71d9325ff7c1c5d2e7eff03a587a28335efd72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 69eaf3ca60378afd810d712d85ea7ef732e41e3e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652147"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788233"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall 기능
 
@@ -101,7 +101,7 @@ Azure Firewall은 변화하는 트래픽 흐름을 수용하기 위해 필요한
 
 ## <a name="azure-monitor-logging"></a>Azure Monitor 로깅
 
-모든 이벤트가 Azure Monitor와 통합되기 때문에 스토리지 계정에 로그를 보관하고 Event Hub에 이벤트를 스트리밍하거나 Azure Monitor 로그에 보낼 수 있습니다. Azure Monitor 로그 예제는 [Azure 방화벽에 대 한 Azure Monitor 로그](log-analytics-samples.md)를 참조 하세요.
+모든 이벤트가 Azure Monitor와 통합되기 때문에 스토리지 계정에 로그를 보관하고 Event Hub에 이벤트를 스트리밍하거나 Azure Monitor 로그에 보낼 수 있습니다. Azure Monitor 로그 예제는 [Azure 방화벽에 대 한 Azure Monitor 로그](./firewall-workbook.md)를 참조 하세요.
 
 자세한 내용은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](./firewall-diagnostics.md)을 참조하세요. 
 

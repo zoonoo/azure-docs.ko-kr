@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 994e5a11cd3b42de339ed11a9d2517c81856e672
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c4e2894d193309c169adbea96491e0754d479a8a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96581958"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786811"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Azure Data Box Gateway에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -68,7 +68,7 @@ Azure Data Box Gateway, IoT Hub 및 Azure Storage 리소스를 만들려면 리�
 
 `User`Active Directory 테 넌 트에 액세스할 수 있어야 `Read all directory objects` 합니다. 게스트 사용자에 게에 대 한 권한이 없습니다 `Read all directory objects` . 게스트 인 경우 활성화 키 생성, 장치에서 공유 만들기, 사용자 만들기 등의 작업은 실패 합니다.
 
-Microsoft Graph API에 대 한 사용자 액세스를 제공 하는 방법에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요.
+Microsoft Graph API에 대 한 사용자 액세스를 제공 하는 방법에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](/graph/permissions-reference)를 참조 하세요.
 
 ### <a name="register-resource-providers"></a>리소스 공급자 등록
 
@@ -95,7 +95,7 @@ Data Box Gateway 장치의 경우을 `Microsoft.DataBoxEdge` 등록 해야 합�
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-리소스 공급자를 등록 하는 방법에 대 한 자세한 내용은 [리소스 공급자 등록에 대 한 오류 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors)을 참조 하세요.
+리소스 공급자를 등록 하는 방법에 대 한 자세한 내용은 [리소스 공급자 등록에 대 한 오류 해결](../azure-resource-manager/templates/error-register-resource-provider.md)을 참조 하세요.
 
 ## <a name="manage-connectivity-mode"></a>연결 모드 관리
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 18d36e37554a5d2b37488b7a1525f8290dc03da0
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763271"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787963"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -767,7 +767,7 @@ TCP 데이터를 마우스 오른쪽 단추로 클릭하고 **TCP 스트림 확�
 >
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>부록 4: Excel을 사용하여 메트릭 및 로그 데이터 보기
-다양한 도구를 통해 Azure 테이블 스토리지에서 Storage 메트릭 데이터를 구분된 형식으로 다운로드할 수 있으며, 해당 데이터를 Excel에 로드하여 쉽게 보고 분석할 수 있습니다. Azure Blob Storage의 스토리지 로깅 데이터는 이미 Excel에 로드할 수 있는 구분된 형식으로 되어 있습니다. 그러나 [스토리지 분석 로그 형식](/rest/api/storageservices/Storage-Analytics-Log-Format) 및 [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)의 정보를 기준으로 적절한 열 제목을 추가해야 합니다.
+다양한 도구를 통해 Azure 테이블 스토리지에서 Storage 메트릭 데이터를 구분된 형식으로 다운로드할 수 있으며, 해당 데이터를 Excel에 로드하여 쉽게 보고 분석할 수 있습니다. Azure Blob Storage의 저장소 로깅 데이터는 이미 Excel로 로드할 수 있는 분리 된 형식으로 되어 있습니다. 그러나 [스토리지 분석 로그 형식](/rest/api/storageservices/Storage-Analytics-Log-Format) 및 [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)의 정보를 기준으로 적절한 열 제목을 추가해야 합니다.
 
 Blob Storage에서 다운로드한 스토리지 로깅 데이터를 Excel로 가져오려면 다음 단계를 수행합니다.
 

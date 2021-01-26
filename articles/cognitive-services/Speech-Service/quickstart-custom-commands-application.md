@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: 2cc37cc66c06dc9e6997c6a031a9c60ad050c01a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ea32358aa86a6093cd72adf959d5fe731cf1e125
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601774"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786879"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>사용자 지정 명령을 사용하여 음성 도우미 만들기
 
@@ -136,4 +136,4 @@ Speech Studio 외부에서이 응용 프로그램에 액세스 하려면 먼저 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 기존 응용 프로그램을 사용 했습니다. 그런 다음, [방법 섹션](how-to-custom-commands-create-application-with-simple-commands.md)에서 사용자 지정 명령 응용 프로그램을 처음부터 디자인, 개발, 디버그, 테스트 및 통합 하는 방법을 알아봅니다.
+이 문서에서는 기존 응용 프로그램을 사용 했습니다. 그런 다음, [방법 섹션](./how-to-develop-custom-commands-application.md)에서 사용자 지정 명령 응용 프로그램을 처음부터 디자인, 개발, 디버그, 테스트 및 통합 하는 방법을 알아봅니다.

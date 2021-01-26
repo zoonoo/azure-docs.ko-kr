@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: alexeyo
-ms.openlocfilehash: 61be4b45df94c902c0473b94a6dd83237c72da3c
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196125"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786845"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>개인 끝점을 통해 Speech Services 사용
 
@@ -293,7 +293,7 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 음성 텍스트에는 두 개의 REST Api가 있습니다. 각 API는 다른 용도로 사용 되 고, 다른 끝점을 사용 하며, 개인 끝점 사용 시나리오에서 사용 하는 경우 다른 접근 방식이 필요 합니다.
 
 음성 텍스트 REST Api는 다음과 같습니다.
-- [일괄 처리](batch-transcription.md) 기록 및 [Custom Speech](custom-speech-overview.md)에 사용 되는 [음성 텍스트 REST API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) v 3.0은 v2.0 [의 후속 작업](/azure/cognitive-services/speech-service/migrate-v2-to-v3) 입니다.
+- [일괄 처리](batch-transcription.md) 기록 및 [Custom Speech](custom-speech-overview.md)에 사용 되는 [음성 텍스트 REST API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) v 3.0은 v2.0 [의 후속 작업](./migrate-v2-to-v3.md) 입니다.
 - 온라인 기록에 사용 되는 [짧은 오디오의 음성 텍스트 REST API](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) 
 
 짧은 오디오에 음성 텍스트 REST API를 사용 하 고 개인 끝점 시나리오에서 텍스트 음성 변환 REST API를 사용 하는 것은 동일 합니다. 이 문서의 뒷부분에 설명 된 [SPEECH SDK 케이스](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) 와 동일 합니다. 

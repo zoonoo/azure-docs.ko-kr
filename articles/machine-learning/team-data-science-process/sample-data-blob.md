@@ -1,6 +1,6 @@
 ---
-title: Azure Blob 스토리지의 샘플 데이터 - Team Data Science Process
-description: 프로그래밍 방식으로 다운로드한 다음, Python으로 작성된 절차에 따라 샘플링하여 Azure Blob 스토리지에 저장된 데이터를 샘플링합니다.
+title: Azure Blob Storage의 샘플 데이터-팀 데이터 과학 프로세스
+description: 프로그래밍 방식으로 다운로드 한 다음 Python으로 작성 된 프로시저를 사용 하 여 샘플링 하 여 Azure Blob Storage에 저장 된 데이터를 샘플링 합니다.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c5827a0e07e537b66684f852d8f3e1500cd9febb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321907"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788844"
 ---
-# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Azure Blob Storage에서 데이터 샘플링
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Azure Blob Storage의 샘플 데이터
 
-이 문서에서는 프로그래밍 방식으로 다운로드한 다음, Python으로 작성된 절차에 따라 샘플링하여 Azure Blob Storage에 저장된 데이터를 샘플링하는 방법에 대해 알아봅니다.
+이 문서에서는 프로그래밍 방식으로 다운로드 한 다음 Python으로 작성 된 프로시저를 사용 하 여 샘플링 하 여 Azure Blob Storage에 저장 된 샘플링 데이터를 다룹니다.
 
 **데이터를 샘플링하는 이유**
 분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 샘플링은 데이터 이해, 탐색 및 기능 엔지니어링을 용이 하 게 합니다. Cortana 분석 프로세스에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "93321907"
 이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](./index.yml)의 단계입니다.
 
 ## <a name="download-and-down-sample-data"></a>데이터 다운로드 및 저해상도로 처리
-1. 다음 샘플 Python 코드의 Blob service를 사용 하 여 Azure blob storage에서 데이터를 다운로드 합니다. 
+1. 다음 샘플 Python 코드의 Blob service를 사용 하 여 Azure Blob Storage에서 데이터를 다운로드 합니다. 
 
     ```python
     from azure.storage.blob import BlobService

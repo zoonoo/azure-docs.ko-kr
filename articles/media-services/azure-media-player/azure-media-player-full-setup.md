@@ -7,21 +7,26 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13abe333bcf3f67ea1a1ba823c693deaa60bc723
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296249"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788810"
 ---
 # <a name="azure-media-player-full-setup"></a>Azure Media Player 전체 설정 #
 
 Azure Media Player는 설정하기 쉽습니다. Azure Media Services 계정에서 바로 미디어 콘텐츠의 기본 재생을 가져오는 데 몇 분 밖에 걸리지 않습니다. [샘플](https://github.com/Azure-Samples/azure-media-player-samples) 은 릴리스의 samples 디렉터리에도 제공 됩니다.
 
+<!--//aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest-->
+
+AMS 비디오의 예는 다음과 같습니다.
+
+> [!VIDEO https://aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest]
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>1 단계: 페이지의 맨 위에 JavaScript 및 CSS 파일 포함 ##
 
-Azure Media Player를 사용 하 여 CDN 호스팅된 버전에서 스크립트에 액세스할 수 있습니다. 일반적으로는 대신 끝 본문 태그 앞에 JavaScript를 배치 하는 것이 좋지만, 이전 IE 버전의 경우에는 `<body>` `<head>` 비디오 태그를 유효한 요소로 설정 하기 위해 head에 있어야 하는 ' HTML5 shiv '가 Azure Media Player에 포함 됩니다.
+Azure Media Player를 사용 하 여 CDN 호스팅된 버전에서 스크립트에 액세스할 수 있습니다. 이제는 대신 최종 본문 태그 앞에 JavaScript를 배치 하는 것이 좋지만, `<body>` `<head>` Azure Meia 플레이어에는 ' HTML5 shiv '가 포함 되어 있습니다 .이는 이전 IE 버전의 head에 있어야 비디오 태그를 유효한 요소로 지정할 수 있습니다.
 
 > [!NOTE]
 > [Modernizr](https://modernizr.com/) 와 같은 HTML5 shiv를 이미 사용 하 고 있는 경우 어디서 든 Azure Media Player JavaScript를 포함할 수 있습니다. 그러나 Modernizr의 버전에 비디오 용 shiv가 포함 되어 있는지 확인 합니다.

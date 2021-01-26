@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 342f6a2c4761104823694f2181b3ffa8726a441e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 53ef73c70f5d20133e7b408ad7af91c3778e5568
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449420"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787454"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Kubernetes 클러스터에 Azure Arc 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "96449420"
 이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](../azure-arc/kubernetes/overview.md)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에 Azure Stack Edge Pro 장치에서 장치에 액세스 하는 데 사용할 클라이언트에 대해 다음과 같은 필수 구성 요소를 완료 했는지 확인 합니다.
 
@@ -39,7 +39,7 @@ Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에
 
 1. Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
   
-    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)로 이동 합니다.
+    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-powershell-core-on-windows)로 이동 합니다.
     
     - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
     
@@ -136,7 +136,7 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성 하려면 다음 �
 
 1. 장치의 [PowerShell 인터페이스에 연결](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) 합니다.
 
-1. 형식:
+1. 유형:
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
@@ -145,7 +145,7 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성 하려면 다음 �
     > - 장치에 Azure Arc를 배포 하려면 [Azure arc에 대해 지원](../azure-arc/kubernetes/overview.md#supported-regions)되는 지역을 사용 해야 합니다. 
     > - 명령을 사용 하 여 `az account list-locations` cmdlet에 전달할 정확한 위치 이름을 파악 합니다 `Set-HcsKubernetesAzureArcAgent` . 위치 이름은 일반적으로 공백 없이 포맷 됩니다.
     
-    다음은 예제입니다.
+    예를 들면 다음과 같습니다.
    
     ```powershell
     [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
@@ -218,7 +218,7 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성 하려면 다음 �
 Azure Arc 관리를 제거 하려면 다음 단계를 수행 합니다.
 
 1. 1. 장치의 [PowerShell 인터페이스에 연결](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) 합니다.
-2. 형식:
+2. 유형:
 
     `Remove-HcsKubernetesAzureArcAgent` 
 

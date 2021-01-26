@@ -3,18 +3,18 @@ title: Azure Migrate를 사용 하 여 대규모 마이그레이션 프로젝트
 description: 위임 된 고객 리소스에 대 한 Azure Migrate를 효과적으로 사용 하는 방법을 알아봅니다.
 ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: 16b92f3aa4dc3bfcb71eb232170c4df30348f8db
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53f7c390d9f16dcbccbb1d09f46e63fec13eee2d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095392"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788946"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Azure Migrate를 사용 하 여 대규모 마이그레이션 프로젝트 관리
 
 서비스 공급자로 서 [Azure Lighthouse](../overview.md)에 여러 고객 테 넌 트를 등록 했을 수 있습니다. Azure Lighthouse를 사용 하면 서비스 공급자가 Azure Active Directory 여러 Azure AD (Azure AD) 테 넌 트에서 한 번에 대규모 작업을 수행 하 여 관리 작업을 보다 효율적으로 만들 수 있습니다.
 
-[Azure Migrate](../../migrate/migrate-services-overview.md) 는 Azure 온-프레미스 서버, 인프라, 응용 프로그램 및 데이터를 평가 하 고 마이그레이션하는 중앙 집중식 허브를 제공 합니다. 일반적으로 여러 고객에 대 한 대규모 평가 및 마이그레이션을 수행 하는 파트너는 [CSP (클라우드 솔루션 공급자) 구독 모델](/partner-center/customers-revoke-admin-privileges) 을 사용 하거나 [고객 테 넌 트에서 게스트 사용자를 만들어](/azure/active-directory/external-identities/what-is-b2b)각 고객 구독에 개별적으로 액세스 해야 합니다.
+[Azure Migrate](../../migrate/migrate-services-overview.md) 는 Azure 온-프레미스 서버, 인프라, 응용 프로그램 및 데이터를 평가 하 고 마이그레이션하는 중앙 집중식 허브를 제공 합니다. 일반적으로 여러 고객에 대 한 대규모 평가 및 마이그레이션을 수행 하는 파트너는 [CSP (클라우드 솔루션 공급자) 구독 모델](/partner-center/customers-revoke-admin-privileges) 을 사용 하거나 [고객 테 넌 트에서 게스트 사용자를 만들어](../../active-directory/external-identities/what-is-b2b.md)각 고객 구독에 개별적으로 액세스 해야 합니다.
 
 Azure Lighthouse를 Azure Migrate와 통합 하면 서비스 공급자가 규모에 따라 여러 고객에 대 한 워크 로드를 검색, 평가 및 마이그레이션할 수 있을 뿐만 아니라 고객에 게 환경을 완벽 하 게 표시 하 고 제어할 수 있습니다. Azure 위임 된 리소스 관리를 통해 서비스 공급자는 여러 고객 테 넌 트에서 관리 하는 모든 Azure Migrate 프로젝트의 단일 뷰를 제공 합니다.
 
@@ -39,7 +39,7 @@ Azure Lighthouse를 사용할 때 한 가지 옵션은 고객 테 넌 트에 Azu
 이 모델에 대 한 워크플로는 다음과 유사 합니다.
 
 1. 고객은 [Azure Lighthouse로 등록](onboard-customer.md)됩니다. Azure Migrate와 함께 사용 될 id에는 참가자 기본 제공 역할이 필요 합니다. 이 역할을 사용 하는 예제는 [위임 된 azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) 샘플 템플릿을 참조 하세요.
-1. 지정 된 사용자가 Azure Portal에서 관리 하는 테 넌 트에 로그인 한 다음 Azure Migrate로 이동 합니다. 이 사용자는 적절 한 위임 된 고객 구독을 선택 하 여 [Azure Migrate 프로젝트를 만듭니다](/azure/migrate/create-manage-projects).
+1. 지정 된 사용자가 Azure Portal에서 관리 하는 테 넌 트에 로그인 한 다음 Azure Migrate로 이동 합니다. 이 사용자는 적절 한 위임 된 고객 구독을 선택 하 여 [Azure Migrate 프로젝트를 만듭니다](../../migrate/create-manage-projects.md).
 1. 사용자는 [검색 및 평가를 위한 단계를 수행](../../migrate/tutorial-discover-vmware.md)합니다.
 
    VMware Vm의 경우 어플라이언스를 구성 하기 전에 검색을 vCenter Server 데이터 센터, 클러스터, 클러스터, 호스트, 호스트 폴더 또는 개별 Vm으로 제한할 수 있습니다. 범위를 설정 하려면 어플라이언스에서 vCenter Server 액세스 하는 데 사용 하는 계정에 대 한 사용 권한을 할당 합니다. 이는 여러 고객의 Vm이 하이퍼바이저에서 호스트 되는 경우에 유용 합니다. Hyper-v의 검색 범위는 제한할 수 없습니다.
@@ -61,7 +61,7 @@ Azure Lighthouse를 사용할 때 한 가지 옵션은 고객 테 넌 트에 Azu
 이 모델에 대 한 워크플로는 다음과 유사 합니다.
 
 1. 고객은 [Azure Lighthouse로 등록](onboard-customer.md)됩니다. Azure Migrate와 함께 사용 될 id에는 참가자 기본 제공 역할이 필요 합니다. 이 역할을 사용 하는 예제는 [위임 된 azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) 샘플 템플릿을 참조 하세요.
-1. 지정 된 사용자가 Azure Portal에서 관리 하는 테 넌 트에 로그인 한 다음 Azure Migrate로 이동 합니다. 이 사용자는 관리 테 넌 트에 속하는 구독에 [Azure Migrate 프로젝트를 만듭니다](/azure/migrate/create-manage-projects) .
+1. 지정 된 사용자가 Azure Portal에서 관리 하는 테 넌 트에 로그인 한 다음 Azure Migrate로 이동 합니다. 이 사용자는 관리 테 넌 트에 속하는 구독에 [Azure Migrate 프로젝트를 만듭니다](../../migrate/create-manage-projects.md) .
 1. 사용자는 [검색 및 평가를 위한 단계를 수행](../../migrate/tutorial-discover-vmware.md)합니다. 온-프레미스 Vm은 관리 테 넌 트에서 생성 된 마이그레이션 프로젝트 내에서 검색 되 고 평가 된 후 여기에서 마이그레이션됩니다.
 
    동일한 Hyper-v 호스트에서 여러 고객을 관리 하는 경우 모든 워크 로드를 한 번에 검색할 수 있습니다. 특정 고객의 Vm을 동일한 그룹에서 선택할 수 있으며, 평가를 만들 수 있으며, 적절 한 고객의 구독을 대상 대상으로 선택 하 여 마이그레이션을 수행할 수 있습니다. 검색 범위를 제한 하지 않아도 되며, 하나의 마이그레이션 프로젝트에서 모든 고객 작업에 대 한 전체 개요를 유지할 수 있습니다.
@@ -80,4 +80,3 @@ Azure Lighthouse를 사용할 때 한 가지 옵션은 고객 테 넌 트에 Azu
 
 - [Azure Migrate](../../migrate/migrate-services-overview.md)에 대해 알아봅니다.
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
-

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18,references_regions
-ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 646d29e72b91cd6afcde8e70ad8fd8715442b88e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854862"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786794"
 ---
 # <a name="speech-service-supported-regions"></a>음성 서비스 지원 지역
 
@@ -69,7 +69,7 @@ Speech SDK를 통해 **의도 인식** 을 사용할 수 있는 지역은 다음
 
 ### <a name="voice-assistants"></a>음성 도우미
 
-[음성 SDK](speech-sdk.md) 는 이러한 지역에서 [직접 줄 음성을](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) 통해 **음성 도우미** 기능을 지원 합니다.
+[음성 SDK](speech-sdk.md) 는 이러한 지역에서 [직접 줄 음성을](./direct-line-speech.md) 통해 **음성 도우미** 기능을 지원 합니다.
 
 | 글로벌 지역 | 지역           | 영역 식별자    |
 | ------------- | ---------------- | -------------------- |

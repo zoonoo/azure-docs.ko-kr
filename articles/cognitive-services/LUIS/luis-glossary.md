@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151974"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786947"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 LUIS (Language Understanding) 용어집에서는 LUIS 서비스에서 작업할 때 발생할 수 있는 용어에 대해 설명 합니다.
@@ -50,12 +50,13 @@ LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-
 
 ## <a name="batch-test"></a>테스트 일괄 처리
 
-일괄 처리 테스트는 사용자 길이 발언의 일관 되 고 알려진 테스트 집합을 사용 하 여 현재 LUIS 앱 모델의 유효성을 검사 하는 기능입니다. 일괄 처리 테스트는 [JSON 형식의 파일](luis-concept-batch-test.md#batch-file-format)에서 정의 됩니다.
+일괄 처리 테스트는 사용자 길이 발언의 일관 되 고 알려진 테스트 집합을 사용 하 여 현재 LUIS 앱 모델의 유효성을 검사 하는 기능입니다. 일괄 처리 테스트는 [JSON 형식의 파일](./luis-how-to-batch-test.md#batch-test-file)에서 정의 됩니다.
+
 
 참고 항목:
-* [개념](luis-concept-batch-test.md)
+* [개념](./luis-how-to-batch-test.md)
 * 일괄 처리 테스트를 실행 하 [는 방법](luis-how-to-batch-test.md)
-* [자습서](luis-tutorial-batch-testing.md) -batch 테스트 만들기 및 실행
+* [자습서](./luis-how-to-batch-test.md) -batch 테스트 만들기 및 실행
 
 ### <a name="f-measure"></a>F 측정값
 
@@ -69,12 +70,12 @@ LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-
 
 일괄 테스트에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 잘못 예측한 발언을 나타냅니다.
 
-### <a name="precision"></a>자릿수
+### <a name="precision"></a>정밀도
 일괄 테스트에서 정밀도(긍정적 예측 값이라고도 함)는 검색된 발언 중에 관련된 발언의 일부입니다.
 
 동물 일괄 처리 테스트에 대 한 예는 총 동물 수 (양 및 하 한가)로 나누어 예측 된 양입니다.
 
-### <a name="recall"></a>회차
+### <a name="recall"></a>재현율
 
 일괄 테스트에서 재현율(민감도라고도 함)은 LUIS가 일반화하는 기능입니다.
 
@@ -305,7 +306,7 @@ LUIS 앱을 [테스트](luis-concept-test.md) 하면 모델 예측을 볼 것입
 ## <a name="token"></a>토큰
 [토큰](luis-language-support.md#tokenization) 은 LUIS에서 인식할 수 있는 텍스트의 가장 작은 단위입니다. 이는 여러 언어에서 약간씩 다릅니다.
 
-**영어**의 경우 토큰은 문자 및 숫자의 연속 범위 (공백 또는 문장 부호 없음)입니다. 공백이 토큰이 아닙니다.
+**영어** 의 경우 토큰은 문자 및 숫자의 연속 범위 (공백 또는 문장 부호 없음)입니다. 공백이 토큰이 아닙니다.
 
 |문구|토큰 수|설명|
 |--|--|--|

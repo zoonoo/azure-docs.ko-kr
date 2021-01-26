@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: ef63bf68fec592b768986a1329663508443c514b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33f765e936d7c0db301a5b2fcf38ccaf137f771
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535851"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787556"
 ---
 # <a name="testing-example-utterances-in-luis"></a>LUIS에서 예제 발화 테스트
 
@@ -33,7 +33,7 @@ LUIS를 대화형으로 테스트 하거나 한 번에 하나의 utterance을 �
 대화형 테스트는 LUIS 포털의 **테스트** 패널에서 수행 됩니다. 발화를 입력하여 의도 및 엔터티를 식별하고 점수를 매기는 방법을 확인할 수 있습니다. LUIS가 테스트 패널의 utterance에서 예상 하는 의도 및 엔터티를 예측 하지 않는 경우이를 **의도** 페이지에 새 utterance 복사 합니다. 그런 다음 해당 utterance의 파트에 엔터티에 레이블을 붙이고 LUIS를 학습 합니다. 
 
 ## <a name="batch-testing"></a>일괄 테스트
-한 번에 둘 이상의 발화를 테스트하는 경우, [일괄 테스트](luis-concept-batch-test.md)를 참조하세요.
+한 번에 둘 이상의 발화를 테스트하는 경우, [일괄 테스트](./luis-how-to-batch-test.md)를 참조하세요.
 
 ## <a name="endpoint-testing"></a>엔드포인트 테스트
 최대 두 개의 앱 버전과 함께 [엔드포인트](luis-glossary.md#endpoint)를 사용하여 테스트할 수 있습니다. **프로덕션** 엔드포인트로 설정된 기본 또는 라이브 버전 앱을 사용하여 두 번째 버전을 **스테이징** 엔드포인트에 추가합니다. 이 접근법은 세 개의 발화 버전인 [LUIS](luis-reference-regions.md) 웹 사이트 [테스트] 창의 현재 모델 및 두 개의 다른 엔드포인트에 있는 두 개의 버전을 제공합니다. 
@@ -51,7 +51,7 @@ LUIS가 확신하지 않는 모든 발언은 [LUIS](luis-reference-regions.md) �
 ## <a name="remember-to-train"></a>학습해야 함
 모델을 변경한 후에는 LUIS를 [학습](luis-how-to-train.md)시켜야 합니다. 앱이 학습될 때까지 LUIS 앱의 변경 내용은 테스트에 표시되지 않습니다. 
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 [모범 사례](luis-concept-best-practices.md)를 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계

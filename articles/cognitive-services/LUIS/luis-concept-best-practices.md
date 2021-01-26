@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.openlocfilehash: fc4475eb64744688e901d2b37e30632d044b0115
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019316"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788488"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>언어 이해 (LUIS) 앱 빌드에 대 한 모범 사례
 앱 제작 프로세스를 사용 하 여 LUIS 앱을 빌드합니다.
@@ -141,7 +141,7 @@ LUIS 예측의 정확도를 높이려면 각 의도(None 의도 제외)의 예�
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>앱 성능 모니터링
 
-[일괄 테스트](luis-concept-batch-test.md) 세트를 사용하여 예측 정확도를 모니터링합니다.
+[일괄 테스트](./luis-how-to-batch-test.md) 세트를 사용하여 예측 정확도를 모니터링합니다.
 
 길이 발언 또는 endpoint 길이 발언 [예제](luis-concept-utterance.md) 로 사용 되지 않는 별도의 길이 발언 집합을 유지 합니다. 테스트 집합의 앱을 계속 개선합니다. 실제 사용자 발화를 반영하도록 테스트 집합을 조정합니다. 이 테스트 세트를 사용하여 앱의 반복 또는 버전을 평가합니다.
 
