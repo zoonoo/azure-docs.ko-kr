@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 54a4a938be18d39993652cecb87b3604e268fcef
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: daf44afbb322cb30ab3a663dce4e935aefa7be13
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678956"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808067"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Azure CLI 및 Python을 사용하여 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
@@ -70,9 +70,9 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
 3. Azure Stack Edge Pro 디바이스와 클라이언트의 신뢰할 수 있는 저장소에 모든 인증서를 만들고 설치했습니다. [2단계: 인증서 만들기 및 설치](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates)에 설명된 절차를 따릅니다.
 
-4. Azure Stack Edge Pro 디바이스에 대해 Base-64로 인코딩된 *.cer* 인증서(PEM 형식)를 만들었습니다. 디바이스에 서명 체인으로 이미 업로드되었으며 클라이언트의 신뢰할 수 있는 루트 저장소에 설치되어 있습니다. 이 인증서가 클라이언트에서 작동하려면 Python용 *pem* 형식도 필요합니다.
+4. Azure Stack Edge Pro 디바이스에 대해 Base-64로 인코딩된 *.cer* 인증서(PEM 형식)를 만들었습니다. 해당 인증서가 디바이스에 서명 체인으로 이미 업로드되었으며 클라이언트의 신뢰할 수 있는 루트 저장소에 설치되어 있습니다. 이 인증서가 클라이언트에서 작동하려면 Python용 *pem* 형식도 필요합니다.
 
-    `certutil` 명령을 사용하여 이 인증서를 pem 형식으로 변환합니다. 인증서가 포함된 디렉터리에서 이 명령을 실행해야 합니다.
+    `certutil` 명령을 사용하여 이 인증서를 `pem` 형식으로 변환합니다. 인증서가 포함된 디렉터리에서 이 명령을 실행해야 합니다.
 
     ```powershell
     certutil.exe <SourceCertificateName.cer> <DestinationCertificateName.pem>
@@ -86,9 +86,9 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
     CertUtil: -encode command completed successfully.
     PS C:\Certificates>
     ```    
-    이 pem을 나중에 Python 저장소에도 추가합니다.
+    이 `pem`을 나중에 Python 저장소에도 추가합니다.
 
-5. 디바이스의 로컬 웹 UI에 있는 **네트워크** 페이지에서 디바이스 IP를 할당했습니다. 이 IP를 다음에 추가해야 합니다.
+5. 디바이스의 로컬 웹 UI에 있는 **네트워크** 페이지에서 디바이스 IP를 할당했습니다. 이 IP를 다음에 추가합니다.
 
     - 클라이언트의 호스트 파일 또는
     - DNS 서버 구성
@@ -117,7 +117,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
 ### <a name="verify-profile-and-install-azure-cli"></a>프로필 확인 및 Azure CLI 설치
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
 1. 클라이언트에 Azure CLI를 설치합니다. 이 예제에서는 Azure CLI 2.0.80이 설치되었습니다. Azure CLI의 버전을 확인하려면 `az --version` 명령을 실행합니다.
 
@@ -149,7 +149,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
     Azure CLI가 없으면 [Windows에서 Azure CLI를 다운로드하여 설치](/cli/azure/install-azure-cli-windows)합니다. Windows 명령 프롬프트 또는 Windows PowerShell을 통해 Azure CLI를 실행할 수 있습니다.
 
-2. CLI의 Python 위치를 기록해 둡니다. 이 정보는 Azure CLI에 대한 신뢰할 수 있는 루트 인증서 저장소의 위치를 확인하는 데 필요합니다.
+2. CLI의 Python 위치를 기록해 둡니다. Azure CLI에 대해 신뢰할 수 있는 루트 인증서 저장소의 위치를 확인하려면 Python 위치가 필요합니다.
 
 3. 이 문서에 사용된 샘플 스크립트를 실행하려면 다음 Python 라이브러리 버전이 필요합니다.
 
@@ -203,7 +203,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
 1. 컴퓨터에서 인증서 위치를 찾습니다. 위치는 `az cli`를 설치한 위치에 따라 다를 수 있습니다. 관리자 권한으로 Windows PowerShell을 실행합니다. `az cli`가 Python을 설치한 경로(`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe`)로 전환합니다.
 
-    인증서 위치를 얻으려면 다음 명령을 입력합니다.
+    인증서 위치를 가져오려면 다음 명령을 입력합니다.
 
     ```powershell
     .\python -c "import certifi; print(certifi.where())"

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 8a8ea8d5f13f72b0da1e11a27b69da2570eda543
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 3392cc5f3ee9daef1ae8397f6829f4ca7a42373a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913484"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871403"
 ---
 # <a name="limits-and-quotas"></a>한도 및 할당량
 
@@ -42,6 +42,9 @@ Custom Vision 서비스에는 두 가지 계층의 키가 있습니다. Azure Po
 |최대 이미지 높이/너비 (픽셀)|10240|10240|
 |최대 이미지 크기(학습 이미지 업로드) |6 MB|6 MB|
 |최대 이미지 크기(예측)|4MB|4MB|
-|개체 검색 학습 이미지 당 최대 지역 수|300|300|
-|분류 이미지 당 최대 태그 수|100|100|
+|이미지 당 최대 영역 수 (개체 검색)|300|300|
+|이미지 당 최대 태그 수 (분류)|100|100|
 
+> [!NOTE]
+> 256 픽셀 보다 작은 이미지는 허용 되지만 upscaled 조정 됩니다.
+> 이미지 가로 세로 비율은 25 보다 클 수 없습니다.

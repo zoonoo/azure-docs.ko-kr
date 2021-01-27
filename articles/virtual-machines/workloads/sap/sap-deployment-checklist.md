@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca2a844364d11dbb5ac2a244945e07d8ca725c1c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 944e687c27d46a9cf3250cb21024b4e5a52dc62c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728443"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871522"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -137,7 +137,7 @@ ms.locfileid: "98728443"
         - Sap 지원 정보 [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에 따라 Sap 응용 프로그램 계층 vm과 DBMS vm 간의 네트워크 대기 시간을 테스트 하 고 평가 합니다. [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E)의 네트워크 대기 시간 지침에 따라 결과를 평가 합니다. 네트워크 대기 시간은 보통 또는 적절 한 범위에 있어야 합니다. [이 문서](./hana-network-architecture.md#networking-architecture-for-hana-large-instance)에서 설명 하는 것 처럼 VM과 HANA Large Instance 단위 간의 트래픽에는 예외가 적용 됩니다.
         - ILB 배포가 Direct Server Return을 사용 하도록 설정 되었는지 확인 합니다. 이 설정은 DBMS 계층에서 고가용성 구성에 Azure ILBs를 사용 하는 경우 대기 시간을 줄입니다.
         - Linux 게스트 운영 체제와 함께 Azure Load Balancer를 사용 하는 경우 Linux 네트워크 매개 변수 **net.ipv4.tcp_timestamps** **0** 으로 설정 되어 있는지 확인 합니다. 이 권장 사항은 이전 버전의 [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)권장 사항과 충돌 합니다. 이제 SAP note가 Azure 부하 분산 장치를 사용 하려면이 매개 변수를 **0** 으로 설정 해야 한다는 상태를 업데이트 합니다.
-        - 최적의 네트워크 대기 시간을 얻으려면 [Azure 근접 배치 그룹](../../linux/co-location.md) 을 사용 하는 것이 좋습니다. 자세한 내용은 [SAP 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)을 참조 하세요.
+        - 최적의 네트워크 대기 시간을 얻으려면 [Azure 근접 배치 그룹](../../co-location.md) 을 사용 하는 것이 좋습니다. 자세한 내용은 [SAP 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)을 참조 하세요.
    4. 고가용성 및 재해 복구 배포.
         - 특정 Azure 가용성 영역을 정의 하지 않고 SAP 응용 프로그램 계층을 배포 하는 경우 sap 대화 상자 인스턴스 또는 단일 SAP 시스템의 미들웨어 인스턴스를 실행 하는 모든 Vm이 [가용성 집합](../../manage-availability.md)에 배포 되었는지 확인 합니다.
         - SAP Central Services 및 DBMS에 대 한 고가용성이 필요 하지 않은 경우 SAP 응용 프로그램 계층과 동일한 가용성 집합에 이러한 Vm을 배포할 수 있습니다.
@@ -209,7 +209,7 @@ ms.locfileid: "98728443"
 8.  [SAP 웹 사이트](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 에서 Azure의 새로운 HANA 인증 sku를 확인 합니다. 새 Sku의 가격을 사용 하려는 것과 비교할 수 있습니다. 결과적으로 가장 적합 한 가격/성능 비율을 가진 항목을 사용 하도록 변경 해야 합니다.
 9.  새 VM 유형을 사용 하도록 배포 스크립트를 조정 하 고 사용 하려는 새로운 Azure 기능을 통합 합니다.
 10. 인프라를 배포한 후 sap 지원 정보 [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에 따라 Sap 응용 프로그램 계층 vm과 DBMS vm 간의 네트워크 대기 시간을 테스트 하 고 평가 합니다. [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E)의 네트워크 대기 시간 지침에 따라 결과를 평가 합니다. 네트워크 대기 시간은 보통 또는 적절 한 범위에 있어야 합니다. [이 문서](./hana-network-architecture.md#networking-architecture-for-hana-large-instance)에서 설명 하는 것 처럼 VM과 HANA Large Instance 단위 간의 트래픽에는 예외가 적용 됩니다. [SAP 워크 로드에 대 한 azure VIRTUAL MACHINES DBMS 배포에 대 한 고려 사항](./dbms_guide_general.md#azure-network-considerations) 및 [azure에 대 한 SAP HANA 인프라 구성 및 작업](./hana-vm-operations.md) 에 대 한 고려 사항에서 언급 한 제한 사항이 배포에 적용 되는지 확인 합니다.
-11. [SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위해 azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)에 설명 된 대로 vm이 올바른 [azure 근접 배치 그룹](../../linux/co-location.md)에 배포 되었는지 확인 합니다.
+11. [SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위해 azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)에 설명 된 대로 vm이 올바른 [azure 근접 배치 그룹](../../co-location.md)에 배포 되었는지 확인 합니다.
 11. 작업을 적용 하기 전에 개념 증명 단계에 대해 나열 된 다른 모든 검사를 수행 합니다.
 12. 워크 로드가 적용 되 면 Azure에서 시스템의 리소스 소비를 기록 합니다. 이 소비량을 이전 플랫폼의 레코드와 비교 합니다. 큰 차이가 있는 경우 향후 배포의 VM 크기를 조정 합니다. 크기, 저장소 및 Vm의 네트워크 대역폭도 줄일 수 있습니다.
     - [Azure에서 Windows 가상 머신에 대한 크기](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -251,7 +251,7 @@ ms.locfileid: "98728443"
     - Sap 응용 프로그램과 sap NetWeaver, Hybris 또는 S/4HANA를 기반으로 하는 SAP 시스템의 DBMS 계층 간 통신 경로에는 [Azure 네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 가 없습니다.
     - 응용 프로그램 보안 그룹 및 네트워크 보안 그룹 규칙은 필요에 따라 통신을 적절 하 고 계획 하 고 차단할 수 있습니다.
     - 앞에서 설명한 대로 시간 제한 설정이 올바르게 설정 됩니다.
-    - [SAP 응용 프로그램의 최적의 네트워크 대기 시간을 위해 azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)에 설명 된 대로 vm은 올바른 [azure 근접 배치 그룹](../../linux/co-location.md)에 배포 됩니다.
+    - [SAP 응용 프로그램의 최적의 네트워크 대기 시간을 위해 azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)에 설명 된 대로 vm은 올바른 [azure 근접 배치 그룹](../../co-location.md)에 배포 됩니다.
     - Sap 지원 정보 [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에 설명 된 대로 Sap 응용 프로그램 계층 vm과 DBMS vm 간의 네트워크 대기 시간이 테스트 되 고 유효성이 검사 됩니다. [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E)의 네트워크 대기 시간 지침에 따라 결과를 평가 합니다. 네트워크 대기 시간은 보통 또는 적절 한 범위에 있어야 합니다. [이 문서](./hana-network-architecture.md#networking-architecture-for-hana-large-instance)에서 설명 하는 것 처럼 VM과 HANA Large Instance 단위 간의 트래픽에는 예외가 적용 됩니다.
     - 암호화는 필요한 경우 적절 한 암호화 방법으로 구현 되었습니다.
     - 인터페이스 및 기타 응용 프로그램은 새로 배포 된 인프라를 연결할 수 있습니다.

@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 08/05/2020
+ms.date: 01/26/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 29e29e73aa1094a2941592655af78a24d95c53b5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6daa03728a5f323f6f8b749975d31fbca24d5602
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223094"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871505"
 ---
-# <a name="mitigate-fairness-in-machine-learning-models-preview"></a>기계 학습 모델 (미리 보기)의 공평 완화
+# <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>기계 학습 모델 (미리 보기)의 공평 완화
 
-기계 학습에서 공평 하 고 [Fairlearn](https://fairlearn.github.io/) 오픈 소스 Python 패키지가 기계 학습 모델의 공평 한 문제를 완화 하는 데 어떻게 도움이 될 수 있는지 알아보세요. 향상 된 문제를 이해 하 고 기계 학습 모델을 빌드할 때 공평 하 게 평가 하는 데 도움이 되지 않는 경우 불공정 거래법 결과를 생성 하는 모델을 작성할 수 있습니다.
+기계 학습에서 공평 하 고 [Fairlearn](https://fairlearn.github.io/) 오픈 소스 Python 패키지가 기계 학습 모델에서 발생 하는 문제를 완화 하는 데 어떻게 도움이 될 수 있는지 알아보세요. 향상 된 문제를 이해 하 고 기계 학습 모델을 빌드할 때 공평 하 게 평가 하는 데 도움이 되지 않는 경우 불공정 거래법 결과를 생성 하는 모델을 작성할 수 있습니다.
 
 Fairlearn 오픈 소스 패키지에 대 한 [사용자 가이드](https://fairlearn.github.io/master/user_guide/index.html) 의 다음 요약에서는이를 사용 하 여 빌드하는 AI 시스템의 공평을 평가 하는 방법을 설명 합니다.  Fairlearn 오픈 소스 패키지는 관찰 되는 모든 문제를 완화 하는 데 도움이 되는 옵션을 제공할 수도 있습니다.  Azure Machine Learning 학습 중 AI 시스템의 공평 한 평가를 사용 하려면 [방법](how-to-machine-learning-fairness-aml.md) 및 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) 을 참조 하세요.
 
@@ -41,7 +41,7 @@ AI 시스템의 불공정한 동작을 줄이려면 이러한 피해를 평가�
 
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Fairlearn을 사용한 공정성 평가 및 완화
 
-Fairlearn은 기계 학습 시스템 개발자가 시스템의 공정성을 평가하고 관찰된 공정성 문제를 완화할 수 있는 오픈 소스 Python 패키지입니다.
+Fairlearn는 기계 학습 시스템 개발자가 시스템의 기능을 평가 하 고 비 공평 하 게 완화할 수 있는 오픈 소스 Python 패키지입니다.
 
 Fairlearn 오픈 소스 패키지에는 두 가지 구성 요소가 있습니다.
 

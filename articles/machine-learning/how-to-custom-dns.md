@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8d3145639d2d4fb64bdb374f1dea0a7b70e4151c
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 2215c47fcd250a9ac1d6621f7e4b434bd33b3832
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724717"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871098"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "97724717"
 > [!IMPORTANT]
 > 이 문서에서는 이러한 항목에 대 한 DNS 레코드를 구성 하는 방법에 대 한 정보를 제공 하지 않으므로 이러한 항목에 대 한 FQDN (정규화 된 도메인 이름) 및 IP 주소를 찾는 방법에 대해서만 설명 합니다. 레코드를 추가 하는 방법에 대 한 자세한 내용은 DNS 소프트웨어에 대 한 설명서를 참조 하십시오.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [자체 DNS 서버](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)를 사용 하는 Azure Virtual Network입니다.
 
@@ -116,4 +116,4 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 가상 네트워크에서 Azure Machine Learning를 사용 하는 방법에 대 한 자세한 내용은 [virtual network 개요](how-to-network-security-overview.md)를 참조 하세요.
 
-개인 끝점을 DNS 구성에 통합 하는 방법에 대 한 자세한 내용은 [Azure 개인 끝점 DNS 구성](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)을 참조 하세요.
+개인 끝점을 DNS 구성에 통합 하는 방법에 대 한 자세한 내용은 [Azure 개인 끝점 DNS 구성](../private-link/private-endpoint-dns.md)을 참조 하세요.

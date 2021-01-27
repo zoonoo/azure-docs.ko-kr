@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 01/12/2021
+ms.date: 01-26-2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 7b915a8ac22ab3b9393531c5130fd466e378e94c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 7487262faa8af74af26ac2123686a8e202254e76
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133084"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797149"
 ---
-이 범주에는 **15** 개의 권장 사항이 있습니다.
+이 범주에는 **21** 개의 권장 사항이 있습니다.
 
 |권장 |Description |심각도 |
 |---|---|---|
@@ -24,9 +24,15 @@ ms.locfileid: "98133084"
 |소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다. |도메인 이름(외부 계정)이 다른 소유자 권한이 있는 계정은 구독에서 제거해야 합니다. 이렇게 하면 모니터링되지 않는 액세스를 방지합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [소유자 권한이 있는 외부 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff8456c1c-aa66-4dfb-861a-25d127b775c9)) |높음 |
 |읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다. |도메인 이름(외부 계정)이 다른 읽기 권한이 있는 계정은 구독에서 제거해야 합니다. 이렇게 하면 모니터링되지 않는 액세스를 방지합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [읽기 권한이 있는 외부 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5f76cf89-fbf2-47fd-a3f4-b891fa780b60)) |높음 |
 |쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다. |도메인 이름(외부 계정)이 다른 쓰기 권한이 있는 계정은 구독에서 제거해야 합니다. 이렇게 하면 모니터링되지 않는 액세스를 방지합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [쓰기 권한이 있는 외부 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5c607a2e-c700-4744-8254-d77e7c9eb5e4)) |높음 |
+|Key Vault에서 방화벽을 사용하도록 설정해야 함 |키 자격 증명 모음의 방화벽은 무단 트래픽이 키 자격 증명 모음에 도달하는 것을 방지하고 비밀에 대한 추가 보호 계층을 제공합니다. 허용된 네트워크의 트래픽만 키 자격 증명 모음에 액세스할 수 있도록 방화벽을 사용하도록 설정합니다.<br />(관련 정책: [Key Vault에서 방화벽을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f55615ac9-af46-4a59-874e-391cc3dfb490)) |중간 |
+|Key Vault 키에는 만료 날짜가 있어야 함 |암호화 키에는 정의된 만료 날짜가 있어야 하며 영구적이지 않아야 합니다. 영구적으로 유효한 키는 잠재적인 공격자에게 키를 손상시킬 수 있는 시간을 더 많이 제공합니다. 보안상 암호화 키에 대한 만료 날짜를 설정하는 것이 좋습니다.<br />(관련 정책: [Key Vault 키에 만료 날짜가 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0)) |높음 |
+|Key Vault 비밀에는 만료 날짜가 있어야 함 |비밀에는 정의된 만료 날짜가 있어야 하며 영구적이지 않아야 합니다. 영구적으로 유효한 비밀은 잠재적인 공격자에게 비밀을 손상시킬 수 있는 시간을 더 많이 제공합니다. 보안상 비밀에 대한 만료 날짜를 설정하는 것이 좋습니다.<br />(관련 정책: [Key Vault 비밀에 만료 날짜가 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f98728c90-32c7-4049-8429-847dc0f4fe37)) |높음 |
+|키 자격 증명 모음에 제거 방지를 사용하도록 설정해야 함 |키 자격 증명 모음을 악의적으로 삭제하면 데이터가 영구적으로 손실될 수 있습니다. 조직의 악의적인 내부자가 잠재적으로 키 자격 증명 모음을 삭제하고 제거할 수 있습니다. 제거 보호는 일시 삭제된 키 자격 증명 모음에 대해 필수 보존 기간을 적용하여 내부자 공격으로부터 보호합니다. 일시 삭제 보존 기간 동안에는 조직 또는 Microsoft 내부의 어느 누구도 키 자격 증명 모음을 제거할 수 없습니다.<br />(관련 정책: [키 자격 증명 모음에 제거 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)) |중간 |
+|키 자격 증명 모음에 일시 삭제를 사용하도록 설정해야 함 |일시 삭제를 사용하지 않고 키 자격 증명 모음을 삭제하면 키 자격 증명 모음에 저장된 모든 비밀, 키 및 인증서가 영구적으로 삭제됩니다. 키 자격 증명 모음을 실수로 삭제하면 데이터가 영구적으로 손실될 수 있습니다. 일시 삭제를 사용하면 실수로 삭제된 키 자격 증명 모음을 구성 가능한 보존 기간 동안 복구할 수 있습니다.<br />(관련 정책: [키 자격 증명 모음에 일시 삭제를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d)) |높음 |
 |구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다. |계정 또는 리소스 위반을 방지하려면 소유자 권한이 있는 모든 구독 계정에 대해 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.<br />(관련 정책: [구독에 대한 소유자 권한이 있는 계정에서 MFA를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faa633080-8b72-40c4-a2d7-d00c03e80bed)) |높음 |
 |구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다. |계정 또는 리소스 위반을 방지하려면 읽기 권한이 있는 모든 구독 계정에서 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.<br />(관련 정책: [구독에 대한 읽기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe3576e28-8b17-4677-84c3-db2990658d64)) |높음 |
 |구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다. |계정 또는 리소스 위반을 방지하려면 쓰기 권한이 있는 모든 구독 계정에서 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.<br />(관련 정책: [구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f9297c21d-2ed6-4474-b48f-163f75654ce3)) |높음 |
+|Key Vault의 프라이빗 엔드포인트를 구성해야 함 |프라이빗 링크는 공용 인터넷을 통해 트래픽을 보내지 않고 Key Vault를 Azure 리소스에 연결하는 방법을 제공합니다. 프라이빗 링크는 데이터 반출에 대한 심층 방어 기능을 제공합니다.<br />(관련 정책: [Key Vault의 프라이빗 엔드포인트를 구성해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5f0bc445-3935-4915-9981-011aa2b46147)) |중간 |
 |관리 인증서 대신 서비스 주체를 사용하여 구독을 보호해야 함 |관리 인증서를 사용하면 해당 인증서로 인증된 사람은 누구나 연결된 구독을 관리할 수 있습니다. 구독을 보다 안전하게 관리하려면 Resource Manager와 함께 서비스 주체를 사용하여 인증서가 손상되었을 때 영향을 받는 범위를 제한하는 것이 좋습니다. 또한 리소스 관리가 자동화됩니다. <br />(관련 정책: [관리 인증서 대신 서비스 주체를 사용하여 구독을 보호해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6646a0bd-e110-40ca-bb97-84fcee63c414)) |중간 |
 |스토리지 계정 공용 액세스가 허용되지 않아야 함 |Azure Storage의 컨테이너 및 Blob에 대한 익명 공용 읽기 액세스는 데이터를 공유하는 편리한 방법이지만 보안 위험이 있을 수도 있습니다. 원치 않는 익명 액세스로 인해 발생하는 데이터 위반을 방지하기 위해 Microsoft는 시나리오에 필요한 경우가 아니면 스토리지 계정에 대한 공용 액세스를 방지하는 것이 좋습니다<br />(관련 정책: [스토리지 계정 공용 액세스가 허용되지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f4fa4b6c0-31ca-4c0d-b10d-24b96f62a751)) |중간 |
 |구독에 둘 이상의 소유자를 할당해야 합니다. |관리자 액세스 중복성을 유지하려면 둘 이상의 구독 소유자를 지정합니다.<br />(관련 정책: [구독에 소유자를 2명 이상 할당해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f09024ccc-0c5f-475e-9457-b7c0d9ed487b)) |높음 |

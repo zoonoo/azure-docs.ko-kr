@@ -1,18 +1,18 @@
 ---
 title: 모든 Azure Security Center 권장 사항에 대한 참조 테이블
-description: 이 문서에는 리소스를 보호하는 데 도움이 되는 Azure Security Center의 보안 권장 사항이 나열되어 있습니다.
+description: 이 문서에는 리소스를 강화하고 보호하는 데 도움이 되는 Azure Security Center의 보안 권장 사항이 나열되어 있습니다.
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/24/2021
+ms.date: 01/26/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: cd72e904f659b7bd9c7e2df86b46fe20bd26ec33
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f6d881036b0ebaa79d1052e41b8ec649bb1e8d6d
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757100"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797172"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항 - 참조 가이드
 

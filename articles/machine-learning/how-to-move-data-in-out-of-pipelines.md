@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 7285ab338e978f0de467f79bbce1d41409683b1e
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 80a995b488f335ac2eb60ae18621acb2b1df58e2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132956"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871539"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
 
@@ -53,7 +53,7 @@ ms.locfileid: "98132956"
 
 - 일부 기존 데이터. 이 문서에서는 [Azure blob 컨테이너](../storage/blobs/storage-blobs-overview.md)를 사용 하는 방법을 간략하게 설명 합니다.
 
-- 선택 사항: [AZURE MACHINE LEARNING SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행](how-to-create-your-first-pipeline.md)에 설명 된 것과 같은 기존 machine learning 파이프라인입니다.
+- 선택 사항: [AZURE MACHINE LEARNING SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행](./how-to-create-machine-learning-pipelines.md)에 설명 된 것과 같은 기존 machine learning 파이프라인입니다.
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>`Dataset`기존 데이터에 대 한 개체 사용 
 
@@ -154,7 +154,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>`OutputFileDatasetConfig`중간 데이터에 사용
 
-`Dataset`개체는 영구적 데이터만 나타내므로 [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) 파이프라인 단계 **및** 영구 출력 데이터의 임시 데이터 출력에는 개체를 사용할 수 있습니다. `OutputFileDatasetConfig` blob storage, 파일 공유, adlsgen1 또는 adlsgen2에 데이터 쓰기를 지원 합니다. 탑재 모드와 업로드 모드를 모두 지원 합니다. 탑재 모드에서 탑재 된 디렉터리에 기록 된 파일은 파일을 닫을 때 영구적으로 저장 됩니다. 업로드 모드에서 출력 디렉터리에 기록 된 파일은 작업 끝에 업로드 됩니다. 작업이 실패 하거나 취소 되 면 출력 디렉터리는 업로드 되지 않습니다.
+`Dataset`개체는 영구적 데이터만 나타내므로 [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) 파이프라인 단계 **및** 영구 출력 데이터의 임시 데이터 출력에는 개체를 사용할 수 있습니다. `OutputFileDatasetConfig` blob storage, 파일 공유, adlsgen1 또는 adlsgen2에 데이터 쓰기를 지원 합니다. 탑재 모드와 업로드 모드를 모두 지원 합니다. 탑재 모드에서 탑재 된 디렉터리에 기록 된 파일은 파일을 닫을 때 영구적으로 저장 됩니다. 업로드 모드에서 출력 디렉터리에 기록 된 파일은 작업 끝에 업로드 됩니다. 작업이 실패 하거나 취소 되 면 출력 디렉터리는 업로드 되지 않습니다.
 
  `OutputFileDatasetConfig` 개체의 기본 동작은 작업 영역의 기본 데이터 저장소에 쓰는 것입니다. `OutputFileDatasetConfig`매개 변수를 사용 하 여 개체를에 전달 `PythonScriptStep` `arguments` 합니다.
 
@@ -184,7 +184,7 @@ OutputFileDatasetConfig(name="clean_data", destination=blob_store).as_upload(ove
 
 ### <a name="use-outputfiledatasetconfig-as-outputs-of-a-training-step"></a>`OutputFileDatasetConfig`학습 단계의 출력으로 사용
 
-파이프라인의에서 `PythonScriptStep` 프로그램의 인수를 사용 하 여 사용 가능한 출력 경로를 검색할 수 있습니다. 이 단계가 첫 번째이 고 출력 데이터를 초기화 하는 경우 지정 된 경로에 디렉터리를 만들어야 합니다. 그런 다음에 포함 하려는 모든 파일을 작성할 수 있습니다 `OutputFileDatasetConfig` .
+파이프라인의 `PythonScriptStep` 내에서 프로그램의 인수를 사용하여 사용 가능한 출력 경로를 검색할 수 있습니다. 이 단계가 첫 번째이고 출력 데이터를 초기화하는 경우 지정된 경로에 디렉터리를 만들어야 합니다. 그런 다음에 포함 하려는 모든 파일을 작성할 수 있습니다 `OutputFileDatasetConfig` .
 
 ```python
 parser = argparse.ArgumentParser()
@@ -244,4 +244,4 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure 기계 학습 데이터 세트 만들기](how-to-create-register-datasets.md)
-* [Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행](how-to-create-your-first-pipeline.md)
+* [Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행](./how-to-create-machine-learning-pipelines.md)

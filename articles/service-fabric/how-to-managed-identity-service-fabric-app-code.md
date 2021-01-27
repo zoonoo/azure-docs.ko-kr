@@ -3,12 +3,12 @@ title: 응용 프로그램에서 관리 id 사용
 description: Azure Service Fabric 응용 프로그램 코드에서 관리 되는 id를 사용 하 여 Azure 서비스에 액세스 하는 방법입니다.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: bec640077a17ccef822afb85fc104728aabb13b1
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: e26a29020f26583f7e4aa16434c7e8647ba9a5a3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791325"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871064"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법
 
@@ -30,7 +30,7 @@ Azure Id SDK는 이제 Service Fabric를 지원 합니다. Azure. Identity를 �
 이러한 언어에 대 한 Service Fabric 지원은 다음 버전에서 제공 됩니다. 
 - [버전 1.3.0의 c #](https://www.nuget.org/packages/Azure.Identity) [C # 샘플](https://github.com/Azure-Samples/service-fabric-managed-identity)을 참조 하세요.
 - [1.5.0 버전의 Python](https://pypi.org/project/azure-identity/) [Python 샘플](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md)을 참조 하세요.
-- [1.2.0 버전의 Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+- [1.2.0 버전의 Java](/java/api/overview/azure/identity-readme)
 
 자격 증명을 초기화 하 고 자격 증명을 사용 하 여 Azure Key Vault에서 비밀을 가져오는 c # 샘플:
 
@@ -101,7 +101,7 @@ GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-0
 ```
 각 항목이 나타내는 의미는 다음과 같습니다.
 
-| 요소 | Description |
+| 요소 | 설명 |
 | ------- | ----------- |
 | `GET` | HTTP 동사는 엔드포인트에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
 | `https://localhost:2377/metadata/identity/oauth2/token` | IDENTITY_ENDPOINT 환경 변수를 통해 제공 되는 Service Fabric 응용 프로그램에 대 한 관리 id 끝점입니다. |
@@ -123,7 +123,7 @@ Content-Type: application/json
 ```
 각 항목이 나타내는 의미는 다음과 같습니다.
 
-| 요소 | Description |
+| 요소 | 설명 |
 | ------- | ----------- |
 | `token_type` | 토큰 형식입니다. 이 경우이 토큰의 프레 젠 터 (' 전달자 ')가 토큰의 의도 한 주체 임을 의미 하는 "전달자" 액세스 토큰입니다. |
 | `access_token` | 요청된 액세스 토큰입니다. 보안이 설정된 REST API를 호출할 때 토큰은 호출자를 인증하는 API를 허용하는 "전달자" 토큰으로 `Authorization` 요청 헤더 필드에 포함됩니다. | 

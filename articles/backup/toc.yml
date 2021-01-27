@@ -79,7 +79,7 @@
         - name: FAQ 백업 센터
           href: backup-center-faq.yml
         - name: FAQ-Azure VM 백업
-          href: backup-azure-vm-backup-faq.md
+          href: backup-azure-vm-backup-faq.yml
         - name: FAQ-MARS 에이전트
           href: backup-azure-file-folder-backup-faq.md
         - name: FAQ-Azure Files 백업

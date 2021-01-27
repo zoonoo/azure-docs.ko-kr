@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
-ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 45d7977dda4870be9a087b3277dd1db828c91178
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010727"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871437"
 ---
 # <a name="create-a-proximity-placement-group-using-the-portal"></a>포털을 사용하여 근접 배치 그룹 만들기
 
-가능한 한 가까운 시간 내에 Vm을 가져오기 위해 가장 낮은 대기 시간을 달성 하려면 [근접 배치 그룹](co-location.md#proximity-placement-groups)내에 배포 해야 합니다.
+가능한 한 가까운 시간 내에 Vm을 가져오기 위해 가장 낮은 대기 시간을 달성 하려면 [근접 배치 그룹](../co-location.md#proximity-placement-groups)내에 배포 해야 합니다.
 
 근접 배치 그룹은 Azure 컴퓨팅 리소스가 물리적으로 서로 가까운 위치에 있도록 하는 데 사용되는 논리적 그룹화입니다. 근접 배치 그룹은 낮은 대기 시간을 요구하는 작업에 유용합니다.
 
@@ -77,4 +77,3 @@ VM이 가용성 집합의 일부인 경우 Vm을 추가 하기 전에 가용성 
 ## <a name="next-steps"></a>다음 단계
 
 [Azure PowerShell](proximity-placement-groups.md) 를 사용 하 여 근접 배치 그룹을 만들 수도 있습니다.
-
