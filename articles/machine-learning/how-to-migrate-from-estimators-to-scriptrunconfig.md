@@ -1,5 +1,5 @@
 ---
-title: 추정에서 ScriptRunConfig로 마이그레이션
+title: 예측 도구에서 ScriptRunConfig로 마이그레이션
 titleSuffix: Azure Machine Learning
 description: 학습 작업을 구성 하기 위해 추정에서 ScriptRunConfig로 마이그레이션하기 위한 마이그레이션 가이드입니다.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 64c03b1c9fc18a4e78af9914b893599683069ced
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: d603a12f851dac5b7cefc5bad728d42967bb27dc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97633015"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878598"
 ---
 # <a name="migrating-from-estimators-to-scriptrunconfig"></a>추정에서 ScriptRunConfig로 마이그레이션
 
@@ -30,7 +30,7 @@ ms.locfileid: "97633015"
 > 추정에서 ScriptRunConfig로 마이그레이션하려면 Python SDK의 >= 1.15.0를 사용 하 고 있는지 확인 합니다.
 
 ## <a name="scriptrunconfig-documentation-and-samples"></a>ScriptRunConfig 설명서 및 샘플
-Azure Machine Learning 설명서 및 샘플은 작업 구성 및 제출에 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) 를 사용 하도록 업데이트 되었습니다.
+Azure Machine Learning 설명서 및 샘플은 작업 구성 및 제출에 [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?preserve-view=true&view=azure-ml-py) 를 사용 하도록 업데이트 되었습니다.
 
 ScriptRunConfig 사용에 대 한 자세한 내용은 다음 설명서를 참조 하세요.
 * [학습 실행 구성 및 제출](how-to-set-up-training-targets.md)
@@ -104,10 +104,10 @@ src.run_config.data_references = {data_ref.data_reference_name: data_ref.to_conf
 ```
 
 학습에 데이터를 사용 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
-* [Azure ML의 데이터 집합으로 학습](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets)
+* [Azure ML의 데이터 집합으로 학습](./how-to-train-with-datasets.md)
 
 ## <a name="distributed-training"></a>분산 학습
-학습을 위해 분산 작업을 구성 해야 하는 경우 `distributed_job_config` ScriptRunConfig 생성자에 매개 변수를 지정 하 여이 작업을 수행 합니다. 각 유형의 분산 된 작업에 대해 [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true)또는 [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) 를 전달 합니다.
+학습을 위해 분산 작업을 구성 해야 하는 경우 `distributed_job_config` ScriptRunConfig 생성자에 매개 변수를 지정 하 여이 작업을 수행 합니다. 각 유형의 분산 된 작업에 대해 [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py), [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py)또는 [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) 를 전달 합니다.
 
 다음 예에서는 MPI/Horovod로 분산 된 학습을 사용 하도록 PyTorch 교육 작업을 구성 합니다.
 ```python

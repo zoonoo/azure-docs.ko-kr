@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c6bc4fea05f79c446f318eb4cbc86beb160ea108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d480d880d9b26666f393c179efa953b653c80c3e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82797007"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881994"
 ---
 # <a name="list-update-and-delete-image-resources-using-powershell"></a>PowerShell을 사용 하 여 이미지 리소스 나열, 업데이트 및 삭제 
 
@@ -26,4 +26,4 @@ Azure PowerShell를 사용 하 여 공유 이미지 갤러리 리소스를 관�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 이미지 작성기 (미리 보기)](./linux/image-builder-overview.md) 는 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전](./linux/image-builder-gallery-update-image-version.md)을 업데이트 하 고 만드는 데에도 사용할 수 있습니다.
+[Azure 이미지 작성기 (미리 보기)](./image-builder-overview.md) 는 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전](./linux/image-builder-gallery-update-image-version.md)을 업데이트 하 고 만드는 데에도 사용할 수 있습니다.

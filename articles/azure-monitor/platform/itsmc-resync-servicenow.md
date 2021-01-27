@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/17/2021
-ms.openlocfilehash: aede7e3dec886d6a6213c64b386cacd725dd74f5
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 1b2e914057aa72934524cc4977e3d2292394d0b7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562797"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882072"
 ---
 # <a name="how-to-manually-fix-sync-problems"></a>동기화 문제를 수동으로 해결 하는 방법
 
@@ -22,16 +22,16 @@ Azure Monitor 타사 ITSM (IT Service Management) 공급자에 연결할 수 있
 
 1. 위쪽 검색 배너에서 솔루션을 검색 한 다음 관련 솔루션을 선택 합니다.
 
-    ![위쪽 검색 배너와 관련 솔루션을 선택할 수 있는 위치를 보여 주는 스크린샷](media/itsmc-resync-servicenow/solution-search-8bit.png)
+    ![위쪽 검색 배너와 관련 솔루션을 선택할 수 있는 위치를 보여 주는 스크린샷](media/itsmc-resync-servicenow/solution-search-8-bit.png)
 
 1. 솔루션 화면에서 구독 필터의 "모두 선택"을 선택한 다음 "ServiceDesk"로 필터링 합니다.
 
-    ![모두 선택을 선택할 수 있는 위치와 ServiceDesk를 기준으로 필터링 할 위치를 보여 주는 스크린샷](media/itsmc-resync-servicenow/solutions-list-8bit.png)
+    ![모두 선택을 선택할 수 있는 위치와 ServiceDesk를 기준으로 필터링 할 위치를 보여 주는 스크린샷](media/itsmc-resync-servicenow/solutions-list-8-bit.png)
 
 1. ITSM 연결의 솔루션을 선택 합니다.
 1. 왼쪽 배너에서 ITSM 연결을 선택 합니다.
 
-    ![ITSM 연결을 선택할 수 있는 위치를 보여 주는 스크린샷](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
+    ![ITSM 연결을 선택할 수 있는 위치를 보여 주는 스크린샷](media/itsmc-resync-servicenow/itsm-connector-8-bit.png)
 
 1. 목록에서 각 커넥터를 선택 합니다. 
     1. 커넥터 이름을 클릭 하 여 구성 합니다.
@@ -41,10 +41,10 @@ Azure Monitor 타사 ITSM (IT Service Management) 공급자에 연결할 수 있
 
     1. 동기화를 클릭 합니다.
 
-       ![동기화 단추를 강조 표시 하는 스크린샷](media/itsmc-resync-servicenow/resync-8bit2.png)
+       ![동기화 단추를 강조 표시 하는 스크린샷](media/itsmc-resync-servicenow/resync-8-bit-2.png)
 
     1. 저장을 클릭 합니다.
 
-        ![새 연결](media/itsmc-resync-servicenow/save-8bit.png)
+        ![새 연결](media/itsmc-resync-servicenow/save-8-bit.png)
 
 f.    알림을 검토 하 여 프로세스가 시작 되는지 확인 합니다.

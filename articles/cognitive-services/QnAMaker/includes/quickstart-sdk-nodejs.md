@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Node.js용 QnA Maker 클라이언트 라
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 02dc36fb388135c31f639a26264579ab9de75b8c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: fba4354fb1aae19833790e166474008dc994cd79
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256279"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792388"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -24,7 +24,7 @@ Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
 * 기술 자료에서 답변 가져오기
 * 기술 자료 삭제
 
-[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
+[참조 설명서](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
 
@@ -38,7 +38,7 @@ Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
 * 기술 자료에서 답변 가져오기
 * 기술 자료 삭제
 
-[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/preview-sdk/quickstart.js)
+[참조 설명서](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/preview-sdk/quickstart.js)
 
 ---
 
@@ -149,13 +149,13 @@ index.js 파일을 만들고 다음 라이브러리를 가져옵니다.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
-[QnA Maker](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest)는 다음과 같은 두 가지 개체 모델을 사용합니다.
+[QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest)는 다음과 같은 두 가지 개체 모델을 사용합니다.
 * **[QnAMakerClient](#qnamakerclient-object-model)** 는 기술 자료를 만들고, 관리하고, 게시하고, 다운로드하는 개체입니다.
 * **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** 은 GenerateAnswer API를 사용하여 기술 자료를 쿼리하고 Train API([활성 학습](../concepts/active-learning-suggestions.md)의 일부로)를 사용하여 새로운 제안된 질문을 보내는 개체입니다.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
 
-[QnA Maker](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest)는 다음 개체 모델을 사용합니다.
+[QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest)는 다음 개체 모델을 사용합니다.
 * **[QnAMakerClient](#qnamakerclient-object-model)** 는 기술 자료를 만들고, 관리하고, 게시하고, 다운로드하고, 쿼리하는 개체입니다.
 
 ---
@@ -176,7 +176,7 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
 
-QnA Maker의 관리되는 리소스에서는 QnAMakerRuntimeClient 개체를 사용할 필요가 없습니다. 대신 [QnAMakerClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) 개체에서 직접 [generateAnswer](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#generateAnswer_string__QueryDTO__msRest_RequestOptionsBase_)를 호출합니다.
+QnA Maker의 관리되는 리소스에서는 QnAMakerRuntimeClient 개체를 사용할 필요가 없습니다. 대신 [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) 개체에서 직접 [generateAnswer](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#generateAnswer_string__QueryDTO__msRest_RequestOptionsBase_)를 호출합니다.
 
 ---
 
@@ -322,7 +322,7 @@ QnAMakerRuntimeClient를 사용하여 기술 자료에서 답변을 얻거나 �
 
 ### <a name="generate-an-answer-from-the-knowledge-base"></a>기술 자료에서 답변 생성
 
-RuntimeClient.runtime.generateAnswer 메서드를 사용하여 게시된 기술 자료에서 답변을 생성합니다. 이 메서드는 기술 자료 ID 및 [QueryDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/querydto)을 허용합니다. 채팅 봇에서 사용할 Top 및 Context와 같은 QueryDTO의 추가 속성에 액세스합니다.
+RuntimeClient.runtime.generateAnswer 메서드를 사용하여 게시된 기술 자료에서 답변을 생성합니다. 이 메서드는 기술 자료 ID 및 [QueryDTO](/javascript/api/@azure/cognitiveservices-qnamaker/querydto)을 허용합니다. 채팅 봇에서 사용할 Top 및 Context와 같은 QueryDTO의 추가 속성에 액세스합니다.
 
 [!code-javascript[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GenerateAnswer)]
 
@@ -330,7 +330,7 @@ RuntimeClient.runtime.generateAnswer 메서드를 사용하여 게시된 기술 
 
 ### <a name="generate-an-answer-from-the-knowledge-base"></a>기술 자료에서 답변 생성
 
-QnAMakerClient.knowledgebase.generateAnswer 메서드를 사용하여 게시된 기술 자료에서 답변을 생성합니다. 이 메서드는 기술 자료 ID 및 [QueryDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/querydto)을 허용합니다. 채팅 봇에서 사용할 Top 및 Context와 같은 QueryDTO의 추가 속성에 액세스합니다.
+QnAMakerClient.knowledgebase.generateAnswer 메서드를 사용하여 게시된 기술 자료에서 답변을 생성합니다. 이 메서드는 기술 자료 ID 및 [QueryDTO](/javascript/api/@azure/cognitiveservices-qnamaker/querydto)을 허용합니다. 채팅 봇에서 사용할 Top 및 Context와 같은 QueryDTO의 추가 속성에 액세스합니다.
 
 [!code-javascript[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=GenerateAnswer)]
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 255b34fc683628846d2776d9db7a0fbe8fe32a45
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: dd19729f8b119946a12220d4b0c434f0b039989a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202082"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879666"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>포털 또는 PowerShell을 사용 하 여 스냅숏 만들기
 
@@ -82,4 +82,4 @@ ms.locfileid: "98202082"
 
 ## <a name="next-steps"></a>다음 단계
 
-스냅샷에서 관리되는 디스크를 만들고 새 관리되는 디스크를 OS 디스크로 연결하여 스냅샷에서 가상 머신을 만듭니다. 자세한 내용은 [PowerShell을 사용하여 스냅샷에서 VM 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md)에 있는 샘플을 참조하세요.
+스냅샷에서 관리되는 디스크를 만들고 새 관리되는 디스크를 OS 디스크로 연결하여 스냅샷에서 가상 머신을 만듭니다. 자세한 내용은 [PowerShell을 사용하여 스냅샷에서 VM 만들기](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot)에 있는 샘플을 참조하세요.

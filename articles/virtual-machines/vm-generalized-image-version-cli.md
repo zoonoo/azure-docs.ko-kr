@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 090b041c605c2328add8b46a97b6f151bae268c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec589848625e1114dedd8c58b41f7ecbc991f311
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501085"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881977"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>CLI를 사용 하 여 일반화 된 이미지 버전에서 VM 만들기
 
-공유 이미지 갤러리에 저장 된 [일반화 된 이미지 버전](./linux/shared-image-galleries.md#generalized-and-specialized-images) 에서 VM을 만듭니다. 특수 이미지를 사용 하 여 VM을 만들려면 [특수 이미지에서 Vm 만들기](vm-specialized-image-version-powershell.md)를 참조 하세요. 
+공유 이미지 갤러리에 저장 된 [일반화 된 이미지 버전](./shared-image-galleries.md#generalized-and-specialized-images) 에서 VM을 만듭니다. 특수 이미지를 사용 하 여 VM을 만들려면 [특수 이미지에서 Vm 만들기](vm-specialized-image-version-powershell.md)를 참조 하세요. 
 
 
 ## <a name="get-the-image-id"></a>이미지 ID 가져오기
@@ -59,4 +59,4 @@ az vm create\
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 이미지 작성기 (미리 보기)](./linux/image-builder-overview.md) 는 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전](./linux/image-builder-gallery-update-image-version.md)을 업데이트 하 고 만드는 데에도 사용할 수 있습니다. 
+[Azure 이미지 작성기 (미리 보기)](./image-builder-overview.md) 는 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전](./linux/image-builder-gallery-update-image-version.md)을 업데이트 하 고 만드는 데에도 사용할 수 있습니다.

@@ -10,16 +10,16 @@ ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 478413132a09334c6b5fe6e4d7c4c31c988cd38d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dedefcd18a2860bbcae9a0ac6b5b07550d9cbf3f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501051"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881943"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Azure CLI와 함께 특수 한 이미지 버전을 사용 하 여 VM 만들기
 
-공유 이미지 갤러리에 저장 된 [특수 이미지 버전](./linux/shared-image-galleries.md#generalized-and-specialized-images) 에서 VM을 만듭니다. 일반화 된 이미지 버전을 사용 하 여 VM을 만들려면 일반화 된 [이미지 버전에서 Vm 만들기](vm-generalized-image-version-cli.md)를 참조 하세요.
+공유 이미지 갤러리에 저장 된 [특수 이미지 버전](./shared-image-galleries.md#generalized-and-specialized-images) 에서 VM을 만듭니다. 일반화 된 이미지 버전을 사용 하 여 VM을 만들려면 일반화 된 [이미지 버전에서 Vm 만들기](vm-generalized-image-version-cli.md)를 참조 하세요.
 
 이 예제에서 필요에 따라 리소스 이름을 바꿉니다. 
 
@@ -51,7 +51,7 @@ az vm create --resource-group myResourceGroup \
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 이미지 작성기 (미리 보기)](./linux/image-builder-overview.md) 는 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전](./linux/image-builder-gallery-update-image-version.md)을 업데이트 하 고 만드는 데에도 사용할 수 있습니다. 
+[Azure 이미지 작성기 (미리 보기)](./image-builder-overview.md) 는 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전](./linux/image-builder-gallery-update-image-version.md)을 업데이트 하 고 만드는 데에도 사용할 수 있습니다. 
 
 또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 

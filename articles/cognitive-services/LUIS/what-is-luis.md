@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 11/23/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: fb36ab8a86a89d6383f93ad58c23956472841de2
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f21a2cc8218dde8b0cf7203a1fcb1f5cfb9424a2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95539263"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790870"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -66,7 +66,7 @@ LUIS 앱은 도메인별 자연어 모델을 포함합니다. 미리 작성된 �
 |`When does your store open?`|StoreHoursAndLocation|open|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|1pm, Bob|
 
-[작성](https://go.microsoft.com/fwlink/?linkid=2092087 "작성") API 또는 **[LUIS 포털](https://www.luis.ai "LUIS 포털")**(또는 둘 다)을 사용하여 모델을 빌드합니다. [포털](get-started-portal-build-app.md "portal") 및 [SDK 클라이언트 라이브러리](azure-sdk-quickstart.md "SDK 클라이언트 라이브러리")를 사용하여 빌드하는 방법에 대해 자세히 알아봅니다.
+[작성](https://go.microsoft.com/fwlink/?linkid=2092087 "작성") API 또는 **[LUIS 포털](https://www.luis.ai "LUIS 포털")**(또는 둘 다)을 사용하여 모델을 빌드합니다. [포털](get-started-portal-build-app.md "portal") 및 [SDK 클라이언트 라이브러리](./client-libraries-rest-api.md?pivots=rest-api "SDK 클라이언트 라이브러리")를 사용하여 빌드하는 방법에 대해 자세히 알아봅니다.
 
 ## <a name="step-2-get-the-query-prediction"></a>2단계: 쿼리 예측 가져오기
 
@@ -128,7 +128,7 @@ LUIS는 기존 LUIS 리소스의 일부로 Text Analytics의 기능을 제공합
 
 ## <a name="learn-with-the-quickstarts"></a>빠른 시작으로 학습
 
-[포털](get-started-portal-build-app.md "portal") 및 [SDK 클라이언트 라이브러리](azure-sdk-quickstart.md "SDK 클라이언트 라이브러리")를 사용하여 실습 빠른 시작이 포함된 LUIS에 대해 알아봅니다.
+[포털](get-started-portal-build-app.md "portal") 및 [SDK 클라이언트 라이브러리](./client-libraries-rest-api.md?pivots=rest-api "SDK 클라이언트 라이브러리")를 사용하여 실습 빠른 시작이 포함된 LUIS에 대해 알아봅니다.
 
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포

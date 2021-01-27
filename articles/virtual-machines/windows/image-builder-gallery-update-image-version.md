@@ -6,16 +6,16 @@ ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.openlocfilehash: 8ad463672660582f28e0fd758a2293ad4112a981
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4779abfa92876c0d5a9b045963778a9d2440bf3f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201878"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878751"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>미리 보기: Windows에서 Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전 만들기
 
-이 문서에서는 [공유 이미지 갤러리](shared-image-galleries.md)에서 기존 이미지 버전을 가져와서 업데이트 하 고 갤러리에 새 이미지 버전으로 게시 하는 방법을 보여 줍니다.
+이 문서에서는 [공유 이미지 갤러리](../shared-image-galleries.md)에서 기존 이미지 버전을 가져와서 업데이트 하 고 갤러리에 새 이미지 버전으로 게시 하는 방법을 보여 줍니다.
 
 이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용 중인. json 파일은 [helloImageTemplateforSIGfromWinSIG.js에](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json)있습니다. 
 
