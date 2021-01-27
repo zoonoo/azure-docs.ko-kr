@@ -3,12 +3,12 @@ title: 템플릿으로 빠른 작업 실행
 description: Azure Resource Manager 템플릿을 사용 하 여 이미지를 빌드하기 위해 ACR 작업 실행 대기
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e8023c088ac328c2b6e95fccd0230c4d40325c1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82927771"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916068"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용 하 여 ACR 작업 실행
 
@@ -26,7 +26,7 @@ ms.locfileid: "82927771"
 * 작업 실행의 [원본 위치로](container-registry-tasks-overview.md#context-locations) GitHub 리포지토리와 같은 원격 컨텍스트를 지정 해야 합니다. 로컬 소스 컨텍스트는 사용할 수 없습니다.
 * 관리 id를 사용 하 여 작업을 실행 하는 경우에는 *사용자 할당* 관리 id만 허용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **GitHub 계정** -아직 계정이 없는 경우에 계정을 만듭니다 https://github.com . 
 * **포크 샘플 리포지토리** -여기에 표시 된 작업 예제에 대해서는 github UI를 사용 하 여 다음 샘플 리포지토리를 github 계정으로 분기 https://github.com/Azure-Samples/acr-build-helloworld-node 합니다. 이 리포지토리에는 작은 컨테이너 이미지를 빌드하기 위한 샘플 Dockerfiles 및 소스 코드가 포함 되어 있습니다.
@@ -48,7 +48,7 @@ ms.locfileid: "82927771"
 
 ### <a name="deploy-the-template"></a>템플릿 배포
 
-[Az deployment group create][az-deployment-group-create] 명령을 사용 하 여 템플릿을 배포 합니다. 이 예제에서는 *helloworld-node: testrun* 이미지를 빌드하고 *mycontainerregistry*라는 레지스트리에 푸시합니다.
+[Az deployment group create][az-deployment-group-create] 명령을 사용 하 여 템플릿을 배포 합니다. 이 예제에서는 *helloworld-node: testrun* 이미지를 빌드하고 *mycontainerregistry* 라는 레지스트리에 푸시합니다.
 
 ```azurecli
 az deployment group create \
@@ -58,7 +58,7 @@ az deployment group create \
     registryName=mycontainerregistry \
     repository=helloworld-node \
     taskRunName=testrun \
-    sourceLocation=https://github.com/Azure-Samples/acr-build-helloworld-node.git
+    sourceLocation=https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
  ```
 
 이전 명령은 명령줄에서 매개 변수를 전달 합니다. 원하는 경우 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md)에 전달 합니다.
@@ -112,7 +112,7 @@ az acr task logs \
 Azure Portal에서 작업 실행 로그를 볼 수도 있습니다. 
 
 1. 컨테이너 레지스트리로 이동 합니다.
-2. **서비스**에서 **작업**  >  **실행**을 선택 합니다.
+2. **서비스** 에서 **작업**  >  **실행** 을 선택 합니다.
 3. 실행 ID (이 경우 *c a 1*)를 선택 합니다. 
 
 포털에는 태스크 실행 로그가 표시 됩니다.
@@ -141,8 +141,8 @@ Azure Portal에서 작업 실행 로그를 볼 수도 있습니다.
 
 기본 레지스트리에서 기본 이미지를 가져오는 Dockerfile을 만듭니다. GitHub 리포지토리의 로컬 포크에서 다음 단계를 수행 합니다 (예:) `https://github.com/myGitHubID/acr-build-helloworld-node.git` .
 
-1. GitHub UI에서 **새 파일 만들기**를 선택 합니다.
-1. 파일 이름을 *Dockerfile-test로* 하 고 다음 내용을 붙여넣습니다. *Mybaseregistry*에 대 한 레지스트리 이름을 대체 합니다.
+1. GitHub UI에서 **새 파일 만들기** 를 선택 합니다.
+1. 파일 이름을 *Dockerfile-test로* 하 고 다음 내용을 붙여넣습니다. *Mybaseregistry* 에 대 한 레지스트리 이름을 대체 합니다.
     ```
     FROM mybaseregistry.azurecr.io/baseimages/node:9-alpine
     COPY . /src
@@ -150,13 +150,13 @@ Azure Portal에서 작업 실행 로그를 볼 수도 있습니다.
     EXPOSE 80
     CMD ["node", "/src/server.js"]
     ```
- 1. **새 파일 커밋**을 선택 합니다.
+ 1. **새 파일 커밋** 을 선택 합니다.
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>기본 레지스트리에 ID 끌어오기 권한 부여
 
-기본 레지스트리 *mybaseregistry*에서 가져올 관리 id 권한을 제공 합니다.
+기본 레지스트리 *mybaseregistry* 에서 가져올 관리 id 권한을 제공 합니다.
 
 [az acr show][az-acr-show] 명령을 사용하여 기본 레지스트리의 리소스 ID를 가져와서 이를 변수에 저장합니다.
 
@@ -187,12 +187,12 @@ az role assignment create \
 |userAssignedIdentity |태스크에서 사용 하도록 설정 된 사용자 할당 id의 리소스 ID|
 |customRegistryIdentity | 사용자 지정 레지스트리를 사용 하 여 인증 하는 데 사용 되는 작업에서 사용 하도록 설정 된 사용자 할당 id의 클라이언트 ID |
 |customRegistry |작업에서 액세스 한 사용자 지정 레지스트리의 로그인 서버 이름 (예: *mybaseregistry.azurecr.io* )|
-|sourceLocation     |빌드 작업에 대 한 원격 컨텍스트 (예: * https://github.com/ \<your-GitHub-ID\> /acr-build-helloworld-node.* ) |
+|sourceLocation     |빌드 작업에 대 한 원격 컨텍스트 (예: *https://github.com/ \<your-GitHub-ID\> /acr-build-helloworld-node.* ) |
 |dockerFilePath | 이미지를 빌드하는 데 사용 되는 원격 컨텍스트의 Dockerfile에 대 한 경로입니다. |
 
 ### <a name="deploy-the-template"></a>템플릿 배포
 
-[Az deployment group create][az-deployment-group-create] 명령을 사용 하 여 템플릿을 배포 합니다. 이 예제에서는 *helloworld-node: testrun* 이미지를 빌드하고 *mycontainerregistry*라는 레지스트리에 푸시합니다. 기본 이미지는 *mybaseregistry.azurecr.io*에서 가져옵니다.
+[Az deployment group create][az-deployment-group-create] 명령을 사용 하 여 템플릿을 배포 합니다. 이 예제에서는 *helloworld-node: testrun* 이미지를 빌드하고 *mycontainerregistry* 라는 레지스트리에 푸시합니다. 기본 이미지는 *mybaseregistry.azurecr.io* 에서 가져옵니다.
 
 ```azurecli
 az deployment group create \
@@ -204,7 +204,7 @@ az deployment group create \
     taskRunName=basetask \
     userAssignedIdentity=$resourceID \
     customRegistryIdentity=$clientID \
-    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git \
+    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git#main \
     dockerFilePath=Dockerfile-test \
     customRegistry=mybaseregistry.azurecr.io
 ```

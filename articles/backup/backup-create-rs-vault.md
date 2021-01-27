@@ -4,12 +4,12 @@ description: 이 문서에서는 백업과 복구 지점이 저장 되는 Recove
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387737"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915729"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기 및 구성
 
@@ -46,9 +46,9 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
 
 다음 데이터 원본을 지원 합니다.
 
-- Azure VM
-- Azure Vm에서 호스트 되는 SQL 데이터베이스
-- Azure Vm에서 호스트 되는 SAP HANA 데이터베이스
+- Azure Vm (일반 공급)
+- Azure Vm에서 호스트 되는 SQL 데이터베이스 (미리 보기)
+- Azure Vm에서 호스트 되는 SAP HANA 데이터베이스 (미리 보기)
 
 지역 간 복원을 사용 하면 다음을 수행할 수 있습니다.
 
@@ -65,11 +65,12 @@ VM을 복원 하는 경우 VM 또는 해당 디스크를 복원할 수 있습니
 >시작하기 전에
 >
 >- 지원 되는 관리 되는 형식 및 지역 목록은 [지원 매트릭스](backup-support-matrix.md#cross-region-restore) 를 검토 하세요.
->- 이제 모든 Azure 공용 지역에서 CRR (교차 지역 복원) 기능을 미리 볼 수 있습니다.
+>- Azure Vm의 CRR (교차 지역 복원) 기능은 현재 모든 Azure 공용 지역에서 일반 공급으로 제공 됩니다.
+>- SQL 및 SAP HANA 데이터베이스에 대 한 지역 간 복원은 모든 Azure 공용 지역에서 미리 보기 상태입니다.
 >- CRR은 GRS 자격 증명 모음에 대 한 자격 증명 모음 수준 옵트인 기능입니다 (기본적으로 해제 됨).
 >- 옵트인 후에는 보조 지역에서 백업 항목을 사용 하는 데 최대 48 시간이 걸릴 수 있습니다.
 >- 현재 azure Vm 용 CRR은 azure 리소스 관리자 Azure Vm에 대해서만 지원 됩니다. 클래식 Azure Vm은 지원 되지 않습니다.  추가 관리 유형이 CRR을 지 원하는 경우 **자동으로** 등록 됩니다.
->- 보호를 처음으로 시작한 후에는 지역 간 복원을 현재 GRS 또는 LRS로 되돌릴 수 없습니다.
+>- 보호를 처음으로 시작한 후에는 지역 간 복원을 현재 GRS 또는 LRS로 **되돌릴 수 없습니다** .
 
 ### <a name="configure-cross-region-restore"></a>지역 간 복원 구성
 

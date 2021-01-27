@@ -1,15 +1,15 @@
 ---
 title: 제한된 요청에 대한 지침
 description: Azure 리소스 그래프에 의해 제한되는 요청을 방지하기 위해 병렬로 그룹화하고, 시차를 두고, 페이지를 매기고, 쿼리하는 방법을 알아봅니다.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: ddd3cf4d411733e831c94039c3bc9aeaf0e95271
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056177"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917710"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure Resource Graph의 제한된 요청에 대한 지침
 
@@ -38,11 +38,11 @@ Azure Resource Graph는 시간 범위를 기준으로 각 사용자에 대한 �
 - 다음 3초 이내에 최대 10개의 쿼리를 제한 없이 제출할 수 있습니다.
 - 3초 후에 `x-ms-user-quota-remaining` 및 `x-ms-user-quota-resets-after`의 값이 각각 `15` 및 `00:00:05`로 다시 설정됩니다.
 
-헤더를 사용하여 쿼리 요청에서 _백오프_하는 예제를 보려면 [병렬 쿼리](#query-in-parallel)의 샘플을 참조하세요.
+헤더를 사용하여 쿼리 요청에서 _백오프_ 하는 예제를 보려면 [병렬 쿼리](#query-in-parallel)의 샘플을 참조하세요.
 
 ## <a name="grouping-queries"></a>쿼리 그룹화
 
-구독, 리소스 그룹 또는 개별 리소스 별로 쿼리를 그룹화하는 것은 쿼리를 병렬화하는 것보다 효율적입니다. 큰 쿼리의 할당량 비용은 종종 많은 작은 쿼리 및 대상 쿼리의 할당량 비용보다 낮습니다. 그룹 크기는 _300_보다 작게 하는 것이 좋습니다.
+구독, 리소스 그룹 또는 개별 리소스 별로 쿼리를 그룹화하는 것은 쿼리를 병렬화하는 것보다 효율적입니다. 큰 쿼리의 할당량 비용은 종종 많은 작은 쿼리 및 대상 쿼리의 할당량 비용보다 낮습니다. 그룹 크기는 _300_ 보다 작게 하는 것이 좋습니다.
 
 - 잘못 최적화된 방법의 예
 

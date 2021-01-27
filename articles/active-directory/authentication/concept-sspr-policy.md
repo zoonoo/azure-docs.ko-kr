@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 980e830716b66b63c8f2dc6e641a88af26d44871
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 80be5ca22f3dfb673f09327108e66fccc9de6ddd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027067"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918046"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory의 암호 정책 및 계정 제한
 
@@ -75,6 +75,7 @@ Azure AD에서 직접 만들고 관리 하는 모든 사용자 계정에 암호 
   * 파트너 계층1 지원
   * 파트너 계층2 지원
   * Exchange 관리자
+  * 사서함 관리자
   * 비즈니스용 Skype 관리자
   * 사용자 관리자
   * 디렉터리 작성자
@@ -85,10 +86,12 @@ Azure AD에서 직접 만들고 관리 하는 모든 사용자 계정에 암호 
   * 보안 관리자
   * 권한 있는 역할 관리자
   * Intune 관리자
+  * Azure AD 조인 장치 로컬 관리자
   * 애플리케이션 프록시 서비스 관리자
   * Dynamics 365 관리자
   * Power BI 서비스 관리자
   * 인증 관리자
+  * 암호 관리자
   * 권한 있는 인증 관리자
 
 * 평가판 구독에서 30일이 경과한 경우 또는

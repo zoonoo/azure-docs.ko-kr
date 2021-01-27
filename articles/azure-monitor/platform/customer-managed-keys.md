@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757545"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917835"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -30,9 +30,6 @@ Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microso
 또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이 데이터는 고객 관리 키 구성에 관계 없이 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 되지만 SSD 데이터에 대 한 제어는 [키 해지](#key-revocation)를 따릅니다. 2021의 처음 절반에서 고객 관리 키로 SSD 데이터를 암호화 하기 위해 노력 하 고 있습니다.
 
 Log Analytics 전용 클러스터는 1000 m b/일에 시작 되는 용량 예약 [가격 책정 모델](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) 을 사용 합니다.
-
-> [!IMPORTANT]
-> 임시 용량 제약 조건으로 인해 클러스터를 만들기 전에를 미리 등록 해야 합니다. 연락처를 Microsoft에 사용 하거나 지원 요청을 열어 구독 Id를 등록 합니다.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Azure Monitor에서 고객이 관리 하는 키가 작동 하는 방식
 
@@ -68,7 +65,6 @@ Azure Monitor는 관리 id를 사용 하 여 Azure Key Vault에 대 한 액세�
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Customer-Managed 키 프로 비전 단계
 
-1. 클러스터를 만들 수 있도록 구독 등록
 1. Azure Key Vault 만들기 및 키 저장
 1. 클러스터를 만드는 중
 1. Key Vault에 권한 부여
@@ -107,10 +103,6 @@ Authorization: Bearer <token>
 ```
 
 ---
-
-### <a name="allowing-subscription"></a>구독 허용
-
-사용자의 연락처를 사용 하 여 Log Analytics에서 구독 Id를 제공할 수 있습니다.
 
 ## <a name="storing-encryption-key-kek"></a>암호화 키(KEK) 저장
 

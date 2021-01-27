@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: 0f92d8dbfe423efa58231831fe012a27e45f9208
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787691"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918097"
 ---
 # <a name="dynamic-data-masking"></a>동적 데이터 마스킹 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,7 +26,7 @@ Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics는 �
 
 동적 데이터 마스킹을 사용하면 고객이 애플리케이션 계층에 미치는 영향을 최소화하고 표시할 중요한 데이터의 양을 지정할 수 있게 하여 중요한 데이터에 대한 무닥 액세스를 방지할 수 있습니다. 데이터베이스의 데이터는 변경되지 않으면서 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다.
 
-예를 들어 콜 센터의 서비스 담당자는 전자 메일 주소의 여러 자릿수로 호출자를 식별할 수 있지만 이러한 데이터 항목이 서비스 담당자에 게 완전히 노출 되어서는 안 됩니다. 모든 쿼리의 결과 집합에서 모든 전자 메일 주소를 마스킹하는 마스킹 규칙을 정의할 수 있습니다. 또 다른 예로, 개발자가 규정 준수 규정을 위반 하지 않고 문제 해결을 위해 프로덕션 환경을 쿼리할 수 있도록 개인 데이터를 보호 하기 위해 적절 한 데이터 마스크를 정의할 수 있습니다.
+예를 들어 콜 센터의 서비스 담당자는 전자 메일 주소의 여러 문자를 확인 하 여 호출자를 식별할 수 있지만 전체 전자 메일 주소는 서비스 담당자에 게 표시 되지 않아야 합니다. 모든 쿼리의 결과 집합에서 모든 전자 메일 주소를 마스킹하는 마스킹 규칙을 정의할 수 있습니다. 또 다른 예로, 개발자가 규정 준수 규정을 위반 하지 않고 문제 해결을 위해 프로덕션 환경을 쿼리할 수 있도록 개인 데이터를 보호 하기 위해 적절 한 데이터 마스크를 정의할 수 있습니다.
 
 ## <a name="dynamic-data-masking-basics"></a>동적 데이터 마스킹 기본 사항
 

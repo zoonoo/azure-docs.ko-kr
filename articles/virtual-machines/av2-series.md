@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3419b54fa18058583d81909f7fca0f20dc4b0dd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650751"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917136"
 ---
 # <a name="av2-series"></a>Av2 시리즈
 
@@ -24,9 +24,10 @@ ms.locfileid: "91650751"
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨 <br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨 <br>
 [VM 생성 지원](generation-2.md): 1 세대 <br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 되지 않음<br>
 <br>
 
-| 크기 | vCore | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps)
+| Size | vCore | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps)
 |---|---|---|---|---|---|---|---|
 | Standard_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2 | 250  |
 | Standard_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2 | 500  |

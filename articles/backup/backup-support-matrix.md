@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 833837c317d22bf031aee4608ff4c93775736a34
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9e20c21694678acf7be13ccbbe9cce9af38c32c5
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757443"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915712"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -150,10 +150,10 @@ Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하기 위�
 
 | 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | 관리 및 관리 되지 않는 디스크를 모두 사용 하는 Azure Vm에 대해 지원 됩니다. 클래식 VM에는 지원되지 않습니다. | 모든 Azure 공용 지역입니다.  |
-| SQL/SAP HANA | 예                                                          | 프랑스를 제외한 모든 공용 지역 |
+| Azure VM               | 관리 및 관리 되지 않는 디스크를 모두 사용 하는 Azure Vm에 대해 지원 됩니다. 클래식 VM에는 지원되지 않습니다. | 프랑스 중부, 오스트레일리아 중부, 남아프리카 북부, 아랍에미리트 북부, 스위스 북부, 독일 중서부, 노르웨이 동부를 제외한 모든 Azure 공용 지역에서 사용할 수 있습니다. <br>이러한 지역에서 사용 하는 방법에 대 한 자세한 내용은 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| SQL/SAP HANA | 미리 보기                                                      | 프랑스 중부, 오스트레일리아 중부, 남아프리카 북부, 아랍에미리트 북부, 스위스 북부, 독일 중서부, 노르웨이 동부를 제외한 모든 Azure 공용 지역에서 사용할 수 있습니다. <br>이러한 지역에서 사용 하는 방법에 대 한 자세한 내용은 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | MARS 에이전트/온-프레미스  | 예                                                           | 해당 없음               |
-| AFS (Azure 파일 공유)                 | 예                                                           | 해당 없음               |
+| AFS (Azure 파일 공유)                 | 아니요                                                           | 해당 없음               |
 
 ## <a name="next-steps"></a>다음 단계
 

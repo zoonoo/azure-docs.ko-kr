@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 473353c3f61d1096beb11c521c08ac723d54b780
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 103f2c87cf9d14f81462fed145ff8df3d69bfca0
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071608"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916136"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -209,7 +209,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 1. 대상 그룹을 선택 하 고 **컴퓨터 이동** 을 선택 합니다.
 
-1. 변경 내용을 저장 하려면 **저장** 을 선택 합니다.
+1. 변경 내용을 저장하려면 **저장** 을 선택합니다.
 
 
 

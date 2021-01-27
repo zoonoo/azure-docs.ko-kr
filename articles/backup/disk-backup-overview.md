@@ -3,12 +3,12 @@ title: Azure Disk Backup 개요
 description: Azure Disk backup 솔루션에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: d73c431fdc2b2906dc1d3d9485bded9449b2f2ba
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733033"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915511"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Azure Disk Backup 개요 (미리 보기)
 
@@ -53,7 +53,7 @@ Azure Disk backup 솔루션은 다음과 같은 시나리오에서 유용 합니
 
 ## <a name="how-the-backup-and-restore-process-works"></a>백업 및 복원 프로세스의 작동 방식
 
-- Azure 파일 공유에 대 한 백업을 구성 하는 첫 번째 단계는 [백업 자격 증명 모음](backup-vault-overview.md)을 만드는 것입니다. 자격 증명 모음은 서로 다른 작업을 통해 구성 된 백업에 대 한 통합 보기를 제공 합니다.
+- Azure managed disks에 대 한 백업을 구성 하는 첫 번째 단계에서는 [백업 자격 증명 모음](backup-vault-overview.md)을 만듭니다. 자격 증명 모음은 서로 다른 작업을 통해 구성 된 백업에 대 한 통합 보기를 제공 합니다.
 
 - 그런 다음 백업 빈도 및 보존 기간을 구성할 수 있는 백업 정책을 만듭니다.
 

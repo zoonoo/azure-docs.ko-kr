@@ -4,12 +4,12 @@ description: AKS 클러스터를 기존 가상 네트워크와 서브넷에 배�
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0a6ea45156477c0d0e95b9d345cffe1a75c773b6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000575"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917810"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -19,7 +19,7 @@ ms.locfileid: "96000575"
 
 이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * AKS 클러스터 `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` 는 Kubernetes 서비스 주소 범위, pod 주소 범위 또는 클러스터 가상 네트워크 주소 범위에 대해,, 또는를 사용할 수 없습니다. 
@@ -96,6 +96,8 @@ AKS 클러스터를 만들 때 Azure CNI 네트워킹에서 다음 매개 변수
 **가상 네트워크**: Kubernetes 클러스터를 배포하려는 가상 네트워크입니다. 클러스터에 대해 새 가상 네트워크를 만들려는 경우 *새로 만들기* 를 선택하고 *가상 네트워크 만들기* 섹션의 단계를 따릅니다. Azure Virtual Network의 제한 및 할당량에 대한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
 **서브넷**: 클러스터를 배포하려는 가상 네트워크 내의 서브넷입니다. 클러스터에 대해 가상 네트워크에 새 서브넷을 만들려는 경우 *새로 만들기* 를 선택하고 *서브넷 만들기* 섹션의 단계를 따릅니다. 하이브리드 연결의 경우 주소 범위가 환경의 다른 가상 네트워크와 겹쳐서는 안 됩니다.
+
+**Azure 네트워크 플러그 인**: azure 네트워크 플러그 인을 사용 하는 경우 AKS 클러스터에 속하지 않은 CLUSTERCIDR의 IP가 있는 vm에서 "ExternalTrafficPolicy = Local" 인 내부 LoadBalancer 서비스에 액세스할 수 없습니다.
 
 **Kubernetes 서비스 주소 범위**: Kubernetes가 클러스터의 내부 [서비스][services] 에 할당 하는 가상 ip 집합입니다. 다음 요구 사항을 충족하는 모든 프라이빗 주소 범위를 사용할 수 있습니다.
 

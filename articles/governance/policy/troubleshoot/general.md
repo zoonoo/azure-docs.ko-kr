@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: Kubernetes에 대 한 정책 정의, 다양 한 Sdk 및 추가 기능을 만들 때 발생 하는 문제를 해결 하는 방법에 대해 알아봅니다.
-ms.date: 12/01/2020
+ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6f31f6e6f8d24f83f44dc14112f1bdc90c8af859
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897074"
+ms.locfileid: "98917746"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Azure Policy를 사용 하 여 오류 해결
 
@@ -36,13 +36,14 @@ ms.locfileid: "98897074"
 
 #### <a name="resolution"></a>해결 방법
 
-먼저 리소스 관리자 속성에 별칭이 있는지 확인 합니다. 사용 가능한 별칭을 조회 하려면 Visual Studio Code 또는 SDK [에 대 한 Azure Policy 확장](../how-to/extension-for-vscode.md) 으로 이동 합니다. 리소스 관리자 속성에 대 한 별칭이 없으면 지원 티켓을 만듭니다.
+먼저 리소스 관리자 속성에 별칭이 있는지 확인 합니다. 사용 가능한 별칭을 조회 하려면 Visual Studio Code 또는 SDK [에 대 한 Azure Policy 확장](../how-to/extension-for-vscode.md) 으로 이동 합니다.
+리소스 관리자 속성에 대 한 별칭이 없으면 지원 티켓을 만듭니다.
 
 ### <a name="scenario-evaluation-details-arent-up-to-date"></a>시나리오: 평가 정보가 최신 상태가 아닙니다.
 
 #### <a name="issue"></a>문제
 
-리소스가 *시작 안 됨* 상태 이거나 호환성 정보가 최신이 아닙니다.
+리소스가 _시작 안 됨_ 상태 이거나 호환성 정보가 최신이 아닙니다.
 
 #### <a name="cause"></a>원인
 
@@ -90,7 +91,8 @@ ms.locfileid: "98897074"
 
 #### <a name="cause"></a>원인
 
-[**EnforcementMode**](../concepts/assignment-structure.md#enforcement-mode) 설정에 대해 정책 할당이 구성 되어 _있지_ 않습니다. **EnforcementMode** 를 사용 하지 않도록 설정 하는 동안 정책 효과는 적용 되지 않으며 활동 로그에 항목이 없습니다.
+[**EnforcementMode**](../concepts/assignment-structure.md#enforcement-mode) 설정에 대해 정책 할당이 구성 되어 _있지_ 않습니다.
+**EnforcementMode** 를 사용 하지 않도록 설정 하는 동안 정책 효과는 적용 되지 않으며 활동 로그에 항목이 없습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -101,7 +103,7 @@ ms.locfileid: "98897074"
 1. Azure PowerShell 또는 REST API를 사용 하 여 새 평가 검색을 시작 하려면 [주문형 평가 검사](../how-to/get-compliance-data.md#on-demand-evaluation-scan)를 참조 하세요.
 1. 할당 매개 변수 및 할당 범위를 올바르게 설정 하 고 **enforcementMode** 를 _사용 하도록_ 설정 했는지 확인 하십시오.
 1. [정책 정의 모드](../concepts/definition-structure.md#mode)를 확인합니다.
-   - `all`모든 ' 리소스 종류에 대 한 모드를 지정 해야 합니다.
+   - `all`모든 리소스 종류에 대 한 모드를 지정 해야 합니다.
    - `indexed`정책 정의가 태그나 위치를 확인 하는 경우 모드는 이어야 합니다.
 1. 리소스의 범위가 [제외](../concepts/assignment-structure.md#excluded-scopes) [되거나 제외](../concepts/exemption-structure.md)되지 않는지 확인 합니다.
 1. 리소스 페이로드가 정책 논리와 일치 하는지 확인 합니다. [HTTP Archive (HAR) 추적을 캡처하거나](../../../azure-portal/capture-browser-trace.md) Azure Resource Manager 템플릿 (ARM 템플릿) 속성을 검토 하 여이 작업을 수행할 수 있습니다.
@@ -186,7 +188,7 @@ Azure Policy는 정책 정의 에서만 사용할 수 있는 여러 ARM 템플�
 
 #### <a name="resolution"></a>해결 방법
 
-이전에이 문제를 일으킨 정의는 *[사용 되지 않음]* 으로 나타나고 사용자 할당 관리 id를 제거 하지 않고 필수 구성 요소를 관리 하는 정책 정의로 대체 됩니다. 수동 단계가 필요 합니다. *[사용 되지 않음]* 으로 표시 된 기존 정책 할당을 삭제 하 고 원래와 동일한 이름을 가진 업데이트 된 필수 조건 정책 이니셔티브 및 정책 정의로 바꿉니다.
+이전에이 문제를 일으킨 정의는 _\[ 더 이상 \] 사용 되지_ 않는 것으로 표시 되며 사용자 할당 관리 id를 제거 하지 않고 필수 구성 요소를 관리 하는 정책 정의로 대체 됩니다. 수동 단계가 필요 합니다. _\[ 더 이상 사용 되지 \]_ 않는 것으로 표시 된 기존 정책 할당을 삭제 하 고 원래와 동일한 이름을 가진 업데이트 된 필수 조건 정책 이니셔티브 및 정책 정의로 바꿉니다.
 
 자세한 내용은 블로그 게시물 [게스트 구성 감사 정책에 대해 릴리스된 중요 한 변경 내용](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)을 참조 하세요.
 
@@ -226,11 +228,11 @@ Azure Policy는 정책 정의 에서만 사용할 수 있는 여러 ARM 템플�
 이 오류는 클러스터에 _kube_ 이 설치 되어 있고 pod에서 제외 _되지 않은 경우_ _에 발생 합니다._
 
 _Aad-pod id_ 구성 요소 NMI (관리 id) Pod는 Azure 인스턴스 메타 데이터 끝점에 대 한 호출을 가로채는 노드의 iptables를 수정 합니다. 이 설정은 pod에서 _aad-pod_ 를 사용 하지 않는 경우에도 메타 데이터 끝점에 대 한 모든 요청이 NMI에 의해 차단 됨을 의미 합니다.
-CRD에 정의 된 레이블과 일치 하는 pod에서 시작 되는 메타 데이터 끝점에 대 한 모든 요청은 NMI를 처리 하지 않고 프록시 되어야 하는 *AzurePodIdentityException* CustomResourceDefinition (crd) _를 알리도록 구성할_ 수 있습니다.
+CRD에 정의 된 레이블과 일치 하는 pod에서 시작 되는 메타 데이터 끝점에 대 한 모든 요청은 NMI를 처리 하지 않고 프록시 되어야 하는 _AzurePodIdentityException_ CustomResourceDefinition (crd) _를 알리도록 구성할_ 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-`kubernetes.azure.com/managedby: aks` *AzurePodIdentityException* CRD를 구성 하 여 _kube_ 네임 스페이스에서 레이블이 있는 시스템 pod  를 제외 합니다.
+`kubernetes.azure.com/managedby: aks` _AzurePodIdentityException_ CRD를 구성 하 여 _kube_ 네임 스페이스에서 레이블이 있는 시스템 pod  를 제외 합니다.
 
 자세한 내용은 [특정 pod/응용 프로그램에 대 한 Azure Active Directory (AZURE AD) pod Id 사용 안 함](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)을 참조 하세요.
 
@@ -264,11 +266,11 @@ spec:
 추가 기능이 Azure Policy 서비스 끝점에 연결할 수 있지만 추가 기능 로그에는 다음 오류 중 하나가 표시 됩니다.
 
 - `The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
-https://aka.ms/policy-register-subscription for how to register subscriptions.`
+  https://aka.ms/policy-register-subscription for how to register subscriptions.`
 
 - `policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
-StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
-Code="InternalServerError" Message="Encountered an internal server error.`
+  StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+  Code="InternalServerError" Message="Encountered an internal server error.`
 
 #### <a name="cause"></a>원인
 

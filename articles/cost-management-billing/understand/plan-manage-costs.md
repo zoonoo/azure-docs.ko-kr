@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c640478170049bd06e11f7f89b1e213b7b305642
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 210f7daa9305f2fb343dfae050354264e2fd823e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032816"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898565"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Azure 비용 관리 계획
 
@@ -125,7 +125,7 @@ Azure Portal에서 VM에 대한 자동 종료 및 Advisor 권장 지침을 사�
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>청구 및 사용량 API와 통합
 
-Azure [청구](/rest/api/billing/) 및 [사용량](/rest/api/consumption/) API를 사용하여 청구 및 비용 데이터를 프로그래밍 방식으로 가져옵니다. RateCard API 및 사용 현황 API를 함께 사용하여 청구된 사용량을 확인합니다. 자세한 내용은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](../manage/usage-rate-card-overview.md)를 참조하세요.
+Azure [청구](/rest/api/billing/) 및 [사용량](/rest/api/consumption/) API를 사용하여 청구 및 비용 데이터를 프로그래밍 방식으로 가져옵니다. RateCard API 및 사용 현황 API를 함께 사용하여 청구된 사용량을 확인합니다. 자세한 내용은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](../manage/consumption-api-overview.md#usage-details-api)를 참조하세요.
 
 ## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> 추가 리소스 및 특수 사례
 

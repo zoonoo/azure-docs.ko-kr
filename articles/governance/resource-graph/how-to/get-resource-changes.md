@@ -1,14 +1,14 @@
 ---
 title: 리소스 변경 내용 가져오기
 description: 리소스가 변경된 시기를 찾고 변경된 속성의 목록을 가져오고 차이를 평가하는 방법을 이해합니다.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 70213caeaf71e1adc5a11ec0e9cbadfea032dca4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 58dcb7256b0876d5e7fa9d7569db102538f92bab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203469"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917424"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기
 
@@ -56,7 +56,7 @@ ms.locfileid: "92203469"
 }
 ```
 
-위의 요청 본문을 사용하여 **resourceChanges**에 대한 REST API URI는 다음과 같습니다.
+위의 요청 본문을 사용하여 **resourceChanges** 에 대한 REST API URI는 다음과 같습니다.
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChanges?api-version=2018-09-01-preview
@@ -139,28 +139,28 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 }
 ```
 
-**resourceId**에 대해 검색된 각 변경 이벤트에는 다음 속성이 있습니다.
+**resourceId** 에 대해 검색된 각 변경 이벤트에는 다음 속성이 있습니다.
 
 - **changeId** - 이 값은 해당 리소스에 대해 고유합니다. **changeId** 문자열에는 다른 속성이 포함될 수 있지만 고유하게 보장됩니다.
-- **beforeSnapshot** - 변경 내용이 검색되기 전에 수행된 리소스 스냅샷의 **snapshotId** 및 **타임스탬프**를 포함합니다.
-- **afterSnapshot** - 변경 내용이 검색된 후에 수행된 리소스 스냅샷의 **snapshotId** 및 **타임스탬프**를 포함합니다.
-- **changeType** - **beforeSnapshot**과 **afterSnapshot** 간에 전체 변경 레코드에 대해 검색된 변경 형식을 설명합니다. 값은 다음과 같습니다. _만들기_, _업데이트_ 및 _삭제_ **propertyChanges** 속성 배열은 **changeType**이 _업데이트_인 경우에만 포함됩니다.
-- **propertyChanges** - 이 속성 배열은 **beforeSnapshot**과 **afterSnapshot** 간에 업데이트된 모든 리소스 속성에 대해 자세히 설명합니다.
+- **beforeSnapshot** - 변경 내용이 검색되기 전에 수행된 리소스 스냅샷의 **snapshotId** 및 **타임스탬프** 를 포함합니다.
+- **afterSnapshot** - 변경 내용이 검색된 후에 수행된 리소스 스냅샷의 **snapshotId** 및 **타임스탬프** 를 포함합니다.
+- **changeType** - **beforeSnapshot** 과 **afterSnapshot** 간에 전체 변경 레코드에 대해 검색된 변경 형식을 설명합니다. 값은 다음과 같습니다. _만들기_, _업데이트_ 및 _삭제_ **propertyChanges** 속성 배열은 **changeType** 이 _업데이트_ 인 경우에만 포함됩니다.
+- **propertyChanges** - 이 속성 배열은 **beforeSnapshot** 과 **afterSnapshot** 간에 업데이트된 모든 리소스 속성에 대해 자세히 설명합니다.
   - **propertyName** - 변경된 리소스 속성의 이름입니다.
   - **changeCategory** - 변경을 수행한 내용에 대해 설명합니다. 값은 다음과 같습니다. _시스템_ 및 _사용자_
   - **changeType** - 개별 리소스 속성에 대해 검색된 변경 형식을 설명합니다.
     값은 다음과 같습니다. _삽입_, _업데이트_, _제거_
-  - **beforeValue** - **beforeSnapshot**에서 리소스 속성의 값입니다. **changeType**이 _삽입_인 경우에는 표시되지 않습니다.
-  - **afterValue** - **afterSnapshot**에서 리소스 속성의 값입니다. **changeType**이 _제거_인 경우에는 표시되지 않습니다.
+  - **beforeValue** - **beforeSnapshot** 에서 리소스 속성의 값입니다. **changeType** 이 _삽입_ 인 경우에는 표시되지 않습니다.
+  - **afterValue** - **afterSnapshot** 에서 리소스 속성의 값입니다. **changeType** 이 _제거_ 인 경우에는 표시되지 않습니다.
 
 ## <a name="compare-resource-changes"></a>리소스 변경 내용 비교
 
-**resourceChanges** 엔드포인트에서 **changeId**와 함께 **resourceChangeDetails** REST 엔드포인트를 사용하여 변경된 리소스의 이전 및 이후 스냅샷을 가져옵니다.
+**resourceChanges** 엔드포인트에서 **changeId** 와 함께 **resourceChangeDetails** REST 엔드포인트를 사용하여 변경된 리소스의 이전 및 이후 스냅샷을 가져옵니다.
 
 **resourceChangeDetails** 엔드포인트에는 요청 본문에 두 개의 매개 변수가 필요합니다.
 
 - **resourceId**: 변경 내용을 비교할 Azure 리소스입니다.
-- **changeId**: **resourceChanges**에서 수집된 **resourceId**에 대한 고유 변경 이벤트입니다.
+- **changeId**: **resourceChanges** 에서 수집된 **resourceId** 에 대한 고유 변경 이벤트입니다.
 
 요청 본문 예제:
 
@@ -171,7 +171,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 }
 ```
 
-위의 요청 본문을 사용하여 **resourceChangeDetails**에 대한 REST API URI는 다음과 같습니다.
+위의 요청 본문을 사용하여 **resourceChangeDetails** 에 대한 REST API URI는 다음과 같습니다.
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChangeDetails?api-version=2018-09-01-preview
@@ -279,9 +279,9 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 }
 ```
 
-**beforeSnapshot** 및 **afterSnapshot**은 각각 스냅샷을 만든 시간 및 해당 시점의 속성을 제공합니다. 이러한 스냅샷 간의 특정 지점에서 변경이 발생했습니다. 이전 예제를 살펴보면 변경 된 속성이 **supportsHttpsTrafficOnly**된 것을 볼 수 있습니다.
+**beforeSnapshot** 및 **afterSnapshot** 은 각각 스냅샷을 만든 시간 및 해당 시점의 속성을 제공합니다. 이러한 스냅샷 간의 특정 지점에서 변경이 발생했습니다. 이전 예제를 살펴보면 변경 된 속성이 **supportsHttpsTrafficOnly** 된 것을 볼 수 있습니다.
 
-결과를 비교하려면 **resourceChanges**에서 **changes** 속성을 사용하거나 **resourceChangeDetails**에서 각 스냅샷의 **콘텐츠** 부분을 평가하여 차이점을 확인합니다. 스냅샷을 비교하는 경우 **타임스탬프**는 항상 예상됨에도 불구하고 차이점으로 표시됩니다.
+결과를 비교하려면 **resourceChanges** 에서 **changes** 속성을 사용하거나 **resourceChangeDetails** 에서 각 스냅샷의 **콘텐츠** 부분을 평가하여 차이점을 확인합니다. 스냅샷을 비교하는 경우 **타임스탬프** 는 항상 예상됨에도 불구하고 차이점으로 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

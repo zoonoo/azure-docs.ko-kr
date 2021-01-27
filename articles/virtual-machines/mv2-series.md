@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: b4de2ec68d3cd10dfc4e95c6c2232837a7fca626
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0c279916eb25c5ffe0b0b655818dd1a07849e582
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975759"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917467"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -26,9 +26,10 @@ Mv2 시리즈 VM의 기능 Intel® Hyper-Threading 기술
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 [쓰기 가속기](./how-to-enable-write-accelerator.md): 지원 됨<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-|크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
+|Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 | 16000 |
 | Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 | 16000 |

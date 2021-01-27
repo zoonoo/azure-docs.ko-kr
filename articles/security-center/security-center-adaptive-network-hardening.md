@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ca60d5afa38a560492c8574aadd43d6170eca253
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341756"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916187"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure Security Center의 적응 네트워크 강화
 Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대해 알아봅니다.
@@ -56,11 +56,11 @@ Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대�
    * **비정상 리소스**: 적응 네트워크 강화 알고리즘을 실행 하 여 현재 권장 사항 및 경고가 트리거된 vm입니다. 
    * **정상 리소스**: 경고 및 권장 사항이 없는 vm입니다.
    * **검색 되지 않은 리소스**: 적응 네트워크 강화 알고리즘을 실행할 수 없는 vm은 다음 이유 중 하나로 인해 실행할 수 없습니다.
-      * **Vm은 클래식 vm**입니다. Azure Resource Manager vm만 지원 됩니다.
+      * **Vm은 클래식 vm** 입니다. Azure Resource Manager vm만 지원 됩니다.
       * **충분 한 데이터를 사용할 수 없습니다**. 정확한 트래픽 강화 권장 사항을 생성 하기 위해 Security Center에는 최소 30 일의 트래픽 데이터가 필요 합니다.
       * **VM은 Azure defender에 의해 보호 되지 않습니다**. [서버에 대해 azure defender](defender-for-servers-introduction.md) 로 보호 되는 vm만이 기능을 사용할 수 있습니다.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="적응 네트워크 강화 도구 액세스":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="권장 사항 적응 네트워크 강화 권장 사항의 세부 정보 페이지는 인터넷 연결 가상 컴퓨터에 적용 해야 합니다.":::
 
 1. **비정상 리소스** 탭에서 VM을 선택 하 여 경고를 확인 하 고 권장 강화 규칙을 적용 합니다.
 
@@ -73,17 +73,17 @@ Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대�
     - [규칙 삭제](#delete-rule) 
     - [규칙 추가](#add-rule)
 
-3. NSG에 적용 하려는 규칙을 선택 하 고 **적용**을 클릭 합니다.
+3. NSG에 적용 하려는 규칙을 선택 하 고 **적용** 을 클릭 합니다.
 
     > [!TIP]
     > 허용 되는 원본 IP 범위가 ' 없음 '으로 표시 되는 경우 권장 되는 규칙이 *거부* 규칙 임을 의미 합니다. 그렇지 않은 경우 *허용* 규칙입니다.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="적응 네트워크 강화 도구 액세스":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="적응 네트워크 강화 규칙 관리":::
 
       > [!NOTE]
       > 적용 된 규칙이 VM을 보호 하는 NSG에 추가 됩니다. VM은 해당 NIC 또는 VM이 상주 하는 서브넷에 연결 된 NSG에 의해 보호 될 수 있습니다.
 
-### <a name="modify-a-rule"></a>규칙 <a name ="modify-rule"> </a> 수정
+### <a name="modify-a-rule"></a>규칙 <a name ="modify-rule"></a> 수정
 
 권장 되는 규칙의 매개 변수를 수정할 수 있습니다. 예를 들어 권장 되는 IP 범위를 변경할 수 있습니다.
 
@@ -101,22 +101,22 @@ Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대�
 
 *적응 네트워크 강화 규칙을 수정 하려면:*
 
-1. 규칙의 일부 매개 변수를 수정 하려면 **규칙 탭에서** 규칙 행의 끝에 있는 점 세 개 (...)를 클릭 하 고 **편집**을 클릭 합니다.
+1. 규칙의 일부 매개 변수를 수정 하려면 **규칙 탭에서** 규칙 행의 끝에 있는 점 세 개 (...)를 클릭 하 고 **편집** 을 클릭 합니다.
 
    ![S 규칙 편집](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
-1. **규칙 편집** 창에서 변경 하려는 세부 정보를 업데이트 하 고 **저장**을 클릭 합니다.
+1. **규칙 편집** 창에서 변경 하려는 세부 정보를 업데이트 하 고 **저장** 을 클릭 합니다.
 
    > [!NOTE]
-   > **저장**을 클릭 하면 규칙이 성공적으로 변경 된 것입니다. *그러나 NSG에 적용 하지 않았습니다.* 이를 적용 하려면 목록에서 규칙을 선택 하 고 다음 단계에 설명 된 대로 **적용** 을 선택 해야 합니다.
+   > **저장** 을 클릭 하면 규칙이 성공적으로 변경 된 것입니다. *그러나 NSG에 적용 하지 않았습니다.* 이를 적용 하려면 목록에서 규칙을 선택 하 고 다음 단계에 설명 된 대로 **적용** 을 선택 해야 합니다.
 
    ![저장 선택](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
-3. 업데이트 된 규칙을 적용 하려면 목록에서 업데이트 된 규칙을 선택 하 고 **적용**을 클릭 합니다.
+3. 업데이트 된 규칙을 적용 하려면 목록에서 업데이트 된 규칙을 선택 하 고 **적용** 을 클릭 합니다.
 
     ![규칙 적용](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### <a name="add-a-new-rule"></a>새 규칙 <a name ="add-rule"> </a> 추가
+### <a name="add-a-new-rule"></a>새 규칙 <a name ="add-rule"></a> 추가
 
 Security Center에서 권장 하지 않은 "허용" 규칙을 추가할 수 있습니다.
 
@@ -129,22 +129,22 @@ Security Center에서 권장 하지 않은 "허용" 규칙을 추가할 수 있�
 
    ![규칙 추가](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
-1. **새 규칙** 창에서 세부 정보를 입력 하 고 **추가**를 클릭 합니다.
+1. **새 규칙** 창에서 세부 정보를 입력 하 고 **추가** 를 클릭 합니다.
 
    > [!NOTE]
-   > **추가**를 클릭 하면 규칙을 성공적으로 추가 하 고 다른 권장 규칙과 함께 나열 됩니다. 그러나 NSG에는 적용 하지 않았습니다. 이를 활성화 하려면 목록에서 규칙을 선택 하 고 **적용** 을 클릭 해야 합니다 (다음 단계에서 설명).
+   > **추가** 를 클릭 하면 규칙을 성공적으로 추가 하 고 다른 권장 규칙과 함께 나열 됩니다. 그러나 NSG에는 적용 하지 않았습니다. 이를 활성화 하려면 목록에서 규칙을 선택 하 고 **적용** 을 클릭 해야 합니다 (다음 단계에서 설명).
 
-3. 새 규칙을 적용 하려면 목록에서 새 규칙을 선택 하 고 **적용**을 클릭 합니다.
+3. 새 규칙을 적용 하려면 목록에서 새 규칙을 선택 하 고 **적용** 을 클릭 합니다.
 
     ![규칙 적용](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### <a name="delete-a-rule"></a>규칙 <a name ="delete-rule"> </a> 삭제
+### <a name="delete-a-rule"></a>규칙 <a name ="delete-rule"></a> 삭제
 
 필요한 경우 현재 세션에 대 한 권장 규칙을 삭제할 수 있습니다. 예를 들어 제안 된 규칙을 적용 하면 합법적인 트래픽을 차단할 수 있음을 확인할 수 있습니다.
 
 *현재 세션에 대 한 적응 네트워크 강화 규칙을 삭제 하려면 다음을 수행 합니다.*
 
-1. **규칙** 탭에서 규칙 행의 끝에 있는 점 세 개 (...)를 클릭 하 고 **삭제**를 클릭 합니다.  
+1. **규칙** 탭에서 규칙 행의 끝에 있는 점 세 개 (...)를 클릭 하 고 **삭제** 를 클릭 합니다.  
 
     ![규칙 삭제](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)

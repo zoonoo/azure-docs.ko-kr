@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dcfbacb788225d936b236c901e9477a9bbb23b94
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: ecbccf2ba9f49699b89782cfb687f5790841eb9e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585295"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918313"
 ---
 # <a name="updated-ndv2-series"></a>업데이트 된 NDv2 시리즈
 
@@ -38,11 +38,12 @@ NDv2는 계산에 강한 확장 (VM 당 활용 8 Gpu) 및 규모 확장 (여러 
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 2 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 InfiniBand: 지원 됨<br>
 Nvidia NVLink Interconnect: 지원 됨<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 네트워크 대역폭 | 최대 NIC 수 |
+| Size | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 네트워크 대역폭 | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 g b (NVLink) | 32 | 32 | 8만/800 | 24000 Mbps | 8 |
 

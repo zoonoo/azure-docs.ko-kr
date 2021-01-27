@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 55e9d2d1af863084b080c2de7833712413221050
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 60ae36d80e34f27ed68c679f47edacf3e402417c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445641"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916153"
 ---
-# <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-In-Time 액세스를 사용하여 관리 포트 보호
+# <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-in-time 액세스를 사용 하 여 관리 포트 보호
 
 Azure Security Center의 JIT (just-in-time) 가상 머신 (VM) 액세스 기능을 사용 하 여 Azure Virtual Machines에 대 한 인바운드 트래픽을 잠급니다. 이렇게 하면 VM에 연결 해야 할 때 쉽게 액세스할 수 있도록 하 여 공격에 대 한 노출을 줄일 수 있습니다.
 

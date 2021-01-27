@@ -4,14 +4,13 @@ description: 이 문서에서는 Azure 및 비 Azure Vm에 대 한 업데이트 
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.custom: mvc
-ms.openlocfilehash: 24dcb501872aabf9fac3da0cccc2a1af9c9b06ff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.date: 01/27/2021
+ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222837"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915985"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Vm에 대 한 업데이트 및 패치 관리
 
@@ -35,11 +34,13 @@ Vm에 대 한 업데이트 관리를 시도 하기 전에 다음 방법 중 하�
 
 컴퓨터에 소프트웨어 업데이트를 배포 하기 전에 지원 되는 컴퓨터에 대 한 업데이트 준수 평가 결과를 검토 합니다. 각 소프트웨어 업데이트에 대해 해당 호환성 상태가 기록 되 고 평가가 완료 된 후에는 대량으로 수집 되 고 Azure Monitor 로그에 전달 됩니다.
 
-Windows 머신에서는 기본적으로 12시간마다 준수 검사가 실행됩니다. 예약 된 검사 외에도 업데이트 준수에 대 한 검색은 Windows를 다시 시작 하 고 업데이트를 설치 하기 전에, 업데이트 설치 후 15 Log Analytics 분 이내에 시작 됩니다. 업데이트 관리를 사용 하 여 [Windows 업데이트 클라이언트를 구성](configure-wuagent.md) 하는 방법에 대 한 권장 사항을 검토 하 여 올바르게 관리 되지 않는 문제를 방지 하는 것도 중요 합니다.
+Windows 컴퓨터에서 준수 검사는 기본적으로 12 시간 마다 실행 되며 Windows 용 Log Analytics 에이전트가 다시 시작 될 때 15 분 이내에 시작 됩니다. 그런 다음 평가 데이터가 작업 영역으로 전달 되 고 **업데이트** 테이블이 새로 고쳐집니다. 업데이트 설치 전후에 업데이트 준수 검사를 수행 하 여 누락 된 업데이트를 식별 하지만 결과는 테이블의 평가 데이터를 업데이트 하는 데 사용 되지 않습니다.
+
+업데이트 관리를 사용 하 여 [Windows 업데이트 클라이언트를 구성](configure-wuagent.md) 하는 방법에 대 한 권장 사항을 검토 하 여 올바르게 관리 되지 않는 문제를 방지 하는 것이 중요 합니다.
 
 Linux 머신에서는 기본적으로 1시간마다 준수 검사가 이루어집니다. Linux 용 Log Analytics agent를 다시 시작 하는 경우 15 분 내에 준수 검사가 시작 됩니다.
 
-규정 준수 결과는 각 컴퓨터에서 평가 되는 업데이트 관리 표시 됩니다. 관리에 사용할 수 있는 새 컴퓨터의 경우 대시보드가 업데이트 된 데이터를 표시 하는 데 최대 30 분이 걸릴 수 있습니다.
+규정 준수 결과는 각 컴퓨터에서 평가 되는 업데이트 관리 표시 됩니다. 대시보드가 관리를 위해 사용 하도록 설정 된 새 컴퓨터에서 업데이트 된 데이터를 표시 하는 데 최대 30 분이 걸릴 수 있습니다.
 
 [소프트웨어 업데이트 모니터링](view-update-assessments.md) 을 검토 하 여 준수 결과를 보는 방법을 알아보세요.
 

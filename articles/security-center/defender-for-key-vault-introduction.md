@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 91a0ea19f53d1da7631154cb71f96e495cc93857
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b1dd559db2d736fa27de2884d2fe82edaaeaaf3c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788998"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916645"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Azure Defender for Key Vault 소개
 

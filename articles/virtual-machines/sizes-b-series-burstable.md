@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 14c8584699ddc981fc24cc29b78c187288c6fb57
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 31a65cab7dfdd478560b7babba156cec7645cf33
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203391"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917254"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -27,8 +27,12 @@ B 시리즈는 다음과 같은 VM 크기를 제공 합니다.
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 * *<br>
+
+* B 시리즈 Vm은 안정적으로 변화 하므로 ACU 숫자는 워크 로드 및 코어 사용량에 따라 다릅니다.<br>
+* * 가속화 된 네트워킹은 *Standard_B12ms*, *Standard_B16ms* 및 *Standard_B20ms* 에만 지원 됩니다.
 <br>
-* B 시리즈 Vm은 안정적으로 변화 하므로 ACU 숫자는 워크 로드 및 코어 사용량에 따라 다릅니다.
+<br>
 
 | Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | VM의 CPU 기준 성능 | VM의 CPU 최대 성능 | 초기 크레딧 | 크레딧 적립/시간 | 최대 적립 크레딧 | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -91,7 +95,7 @@ B16 특징:
 
 16 개의 vCPUs 및 64 GiB의 메모리를 포함 하는 D16s_v3의 경우 시간당 요금은 시간당 $0.936 (월간 $673.92)이 고, 16 개의 vCPUs 및 64 GiB memory가 있는 B16ms (월별 $0.794)입니다. <b> 그러면 15% 절감 효과가 발생 합니다.</b>
 
-## <a name="q--a"></a>Q & A
+## <a name="q--a"></a>Q&A
 
 ### <a name="q-what-happens-when-my-credits-run-out"></a>Q: 내 크레딧을 실행 하면 어떻게 되나요?
 **A**: 크레딧이 소진 되 면 VM이 기준 성능으로 돌아옵니다.

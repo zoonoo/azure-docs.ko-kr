@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: Azure Resource Graph를 사용하여 Azure 리소스를 쿼리하는 동안 다양한 SDK와 관련된 문제를 해결하는 방법을 알아봅니다.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 13c5d5ffde8b0b82fcafa5e8149400555a0b18a6
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0d783b9cb4fa30e3c3e0ff82536b4878c29c7a0d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056960"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916705"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Azure Resource Graph를 사용하여 오류 문제 해결
 
@@ -84,11 +84,11 @@ Azure Resource Graph REST API를 쿼리하는 고객에게 _500_(내부 서버 �
 
 #### <a name="cause"></a>원인
 
-Azure Resource Graph REST API에서는 **application/json**의 `Content-Type`만 지원합니다. 일부 REST 도구나 에이전트의 기본값은 **text/plain**이며, 이는 REST API에서 지원되지 않습니다.
+Azure Resource Graph REST API에서는 **application/json** 의 `Content-Type`만 지원합니다. 일부 REST 도구나 에이전트의 기본값은 **text/plain** 이며, 이는 REST API에서 지원되지 않습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-Azure Resource Graph 쿼리에 사용하는 도구 또는 에이전트에서 **application/json**에 대해 REST API 헤더 `Content-Type`이 구성됩니다.
+Azure Resource Graph 쿼리에 사용하는 도구 또는 에이전트에서 **application/json** 에 대해 REST API 헤더 `Content-Type`이 구성됩니다.
 
 ### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>시나리오: 목록의 모든 구독에 대한 읽기 권한 없음
 
@@ -110,4 +110,4 @@ Azure Resource Graph 쿼리를 사용하여 구독 목록을 명시적으로 전
 
 - [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가로부터 답변을 얻으세요.
 - [@AzureSupport](https://twitter.com/azuresupport)를 사용하여 연결 – Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하여 고객 환경을 개선하는 공식 Microsoft Azure 계정입니다.
-- 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
+- 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기** 를 선택합니다.

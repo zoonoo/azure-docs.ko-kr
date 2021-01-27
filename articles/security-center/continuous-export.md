@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832712"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916790"
 ---
 # <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
 
@@ -25,6 +25,8 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 - SQL server의 취약성 평가 검사에서 발생 하는 모든 중간 또는 높은 심각도가 특정 Log Analytics 작업 영역으로 전송 됩니다.
 - 특정 권장 사항은 생성 될 때마다 이벤트 허브 또는 Log Analytics 작업 영역으로 전달 됩니다. 
 - 구독에 대 한 보안 점수는 컨트롤의 점수가 0.01 이상 변경 될 때마다 Log Analytics 작업 영역으로 전송 됩니다. 
+
+이 기능을 *연속* 이라고 하는 경우에도 보안 점수 또는 규정 준수 데이터의 주간 스냅숏을 내보내는 옵션도 있습니다.
 
 이 문서에서는 Log Analytics 작업 영역 또는 Azure Event Hubs에 연속 내보내기를 구성 하는 방법을 설명 합니다.
 
@@ -78,12 +80,16 @@ Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내�
     여기에서 내보내기 옵션을 볼 수 있습니다. 사용 가능한 각 내보내기 대상에 대 한 탭이 있습니다. 
 
 1. 내보낼 데이터 형식을 선택 하 고 각 유형의 필터에서 선택 합니다 (예: 높은 심각도 경고만 내보내기).
+1. 적절 한 내보내기 빈도를 선택 합니다.
+    - **스트리밍** – 평가는 리소스의 상태가 업데이트 될 때 실시간으로 전송 됩니다. 업데이트가 발생 하지 않으면 데이터가 전송 되지 않습니다.
+    - **스냅숏** -모든 규제 준수 평가의 현재 상태에 대 한 스냅숏이 매주 전송 됩니다 (보안 점수 및 규정 준수 데이터의 주별 스냅숏에 대 한 미리 보기 기능).
+
 1. 선택 사항에 따라 이러한 권장 사항 중 하나가 포함 된 경우 취약성 평가 결과를 함께 포함할 수 있습니다.
     - SQL 데이터베이스에 대 한 취약성 평가 결과를 재구성 해야 합니다.
     - 컴퓨터의 SQL server에 대 한 취약성 평가 결과를 재구성 해야 함 (미리 보기)
     - Azure Container Registry 이미지의 취약성을 수정해야 함(Qualys 제공)
     - 가상 머신의 취약성을 수정해야 함
-    - 머신에 시스템 업데이트를 설치해야 합니다.
+    - 시스템 업데이트를 머신에 설치해야 합니다.
 
     이러한 권장 사항을 포함 하는 결과를 포함 하려면 **보안 결과 포함** 옵션을 사용 하도록 설정 합니다.
 
