@@ -4,15 +4,15 @@ description: QnA Maker는 데이터를 통해 자연스러운 대화형 계층�
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 05/26/2020
+ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, 낮은 코드 채팅 봇, 멀티 턴 대화
-ms.openlocfilehash: 9655f64da455fb7a7124a97e6dc2d1d8437d05b7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 16f30801d52aa46184c4eb394f3d1cfebecd4be6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353139"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700718"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
@@ -85,8 +85,6 @@ Microsoft는 빠른 시작을 가장 많이 사용되는 프로그래밍 언어�
 
 * [QnA Maker 클라이언트 라이브러리 시작](../quickstarts/quickstart-sdk.md)
 * [QnA Maker 포털 시작](../quickstarts/create-publish-knowledge-base.md)
-* [QnA Maker REST API 시작](../quickstarts/quickstart-rest-curl.md)
-
 
 ## <a name="next-steps"></a>다음 단계
 QnA Maker는 사용자 지정 기술 자료를 작성, 관리 및 배포하는 데 필요한 모든 것을 제공합니다.
