@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: da04e7704274336f7f92237c1d7c30459caa7bc8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936484"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806164"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Azure의 linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
 
@@ -555,7 +555,7 @@ SAP BOBI 플랫폼에 대 한 포괄적인 백업 및 복원 전략을 개발 �
 
 Azure에서 응용 프로그램 서버 및 연결 된 모든 디스크를 백업 하는 가장 간단한 방법은 [Azure Backup](../../../backup/backup-overview.md) 서비스를 사용 하는 것입니다. Vm에서 의도 하지 않은 데이터 소멸을 방지 하기 위해 독립적인 격리 된 백업을 제공 합니다. 백업은 복구 지점에 대한 기본 제공 관리를 사용하여 Recovery Services 자격 증명 모음에 저장됩니다. 구성 및 크기 조정은 간단 하 고 백업이 최적화 되며 필요할 때 쉽게 복원할 수 있습니다.
 
-백업 프로세스의 일부로 스냅숏이 생성 되 고 데이터는 프로덕션 워크 로드에 영향을 주지 않고 Recovery Service 자격 증명 모음으로 전송 됩니다. 스냅숏은 [스냅숏 일관성](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) 문서에 설명 된 대로 서로 다른 수준의 일관성을 제공 합니다. 선택적 디스크 백업 및 복원 기능을 사용 하 여 VM에서 데이터 디스크의 하위 집합을 백업 하도록 선택할 수도 있습니다. 자세한 내용은 [AZURE Vm backup](../../../backup/backup-azure-vms-introduction.md) 문서 및 [Faq-azure vm 백업](../../../backup/backup-azure-vm-backup-faq.md)을 참조 하세요.
+백업 프로세스의 일부로 스냅숏이 생성 되 고 데이터는 프로덕션 워크 로드에 영향을 주지 않고 Recovery Service 자격 증명 모음으로 전송 됩니다. 스냅숏은 [스냅숏 일관성](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) 문서에 설명 된 대로 서로 다른 수준의 일관성을 제공 합니다. 선택적 디스크 백업 및 복원 기능을 사용 하 여 VM에서 데이터 디스크의 하위 집합을 백업 하도록 선택할 수도 있습니다. 자세한 내용은 [AZURE Vm backup](../../../backup/backup-azure-vms-introduction.md) 문서 및 [Faq-azure vm 백업](../../../backup/backup-azure-vm-backup-faq.yml)을 참조 하세요.
 
 #### <a name="backup--restore-for-file-repository-server"></a>파일 저장소 서버에 대 한 백업 & 복원
 

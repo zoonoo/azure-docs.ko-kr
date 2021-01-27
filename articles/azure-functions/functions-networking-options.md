@@ -1,16 +1,16 @@
 ---
 title: Azure Functions 네트워킹 옵션
 description: Azure Functions에서 사용할 수 있는 모든 네트워킹 옵션에 대한 개요입니다.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.author: jehollan
-ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 1/21/2021
+ms.author: cachai
+ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936869"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806992"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -85,12 +85,9 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 
 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
 
-## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>가상 네트워크 (미리 보기)에 대 한 저장소 계정 제한
+## <a name="restrict-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한 
 
-함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다.  이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다.  이 미리 보기 기능은 현재 유럽 서부의 Windows Premium 요금제 에서만 작동 합니다.  개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하려면 다음을 수행 합니다.
-
-> [!NOTE]
-> 현재 유럽 서부에서 Windows를 사용 하는 프리미엄 기능에 대해서만 저장소 계정 제한
+함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다.  이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다.  이 기능은 현재 Windows Premium 요금제 에서만 작동 합니다.  개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하려면 다음을 수행 합니다.
 
 1. 서비스 끝점이 사용 하도록 설정 되지 않은 저장소 계정을 사용 하 여 함수를 만듭니다.
 1. 가상 네트워크에 연결 하도록 함수를 구성 합니다.

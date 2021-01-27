@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 0542d7e0ea204d1e9279e89c9f36b9bc6c6c88fa
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c34410fcb5e1992f8b7a358801a354a1e1cf190c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165861"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808014"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,13 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 ## <a name="status-updates"></a>상태 업데이트
 
 # <a name="in-progress"></a>[진행 중](#tab/in-progress-ip)
+## <a name="february-2021"></a>2 월 2021
+새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
+
+- 미국 중부: 13.89.169.20
+
+이러한 SQL 게이트웨이는 28 월 2021 일에 고객 트래픽을 수락 하기 시작 합니다.
+
 ## <a name="january-2021"></a>2021년 1월
 새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
 
@@ -41,7 +48,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 - 대한민국 중부: 52.231.17.22, 52.231.17.23
 - 인도 서 부: 104.211.144.4
 
-이러한 SQL 게이트웨이는 2021 년 1 월 31 일에 고객 트래픽 수락을 시작 합니다.
+이러한 SQL 게이트웨이는 2021 년 1 월 31 일에 고객 트래픽을 수락 하기 시작 합니다.
 
 # <a name="completed"></a>[완료됨](#tab/completed-ip)
 다음 게이트웨이 마이그레이션이 완료 되었습니다. 

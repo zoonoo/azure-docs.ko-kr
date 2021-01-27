@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 12/29/2020
-ms.openlocfilehash: bd8ba72d43b7e3e5a9145d756741436f0a49e18b
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 01/26/2021
+ms.openlocfilehash: d298688dbd13cc32c9cca078b5e20e6a5f054450
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762481"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806891"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -635,7 +635,7 @@ ms.locfileid: "98762481"
 > | --- | --- | --- | --- |
 > | managedInstances | 글로벌 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작하거나 끝날 수 없습니다. <br><br> 에는와 같은 특수 문자를 사용할 수 없습니다 `@` . |
 > | servers | 글로벌 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작하거나 끝날 수 없습니다. |
-> | servers / administrators | 서버 |  | `ActiveDirectory`이어야 합니다. <br><br> 에는와 같은 특수 문자를 사용할 수 없습니다 `@` .|
+> | servers / administrators | 서버 |  | `ActiveDirectory`이어야 합니다. |
 > | servers / databases | 서버 | 1-128 | 다음을 사용할 수 없습니다.<br>`<>*%&:\/?`<br><br>마침표 또는 공백으로 끝날 수 없습니다. |
 > | servers / databases / syncGroups | 데이터베이스 | 1-150 | 영숫자, 하이픈 및 밑줄 |
 > | servers / elasticPools | 서버 | 1-128 | 다음을 사용할 수 없습니다.<br>`<>*%&:\/?`<br><br>마침표 또는 공백으로 끝날 수 없습니다. |

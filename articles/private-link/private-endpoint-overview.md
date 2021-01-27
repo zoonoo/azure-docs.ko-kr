@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: ac4763a2d79059eb2608595b616c945af274627e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 88d44f4f8cedbad604eb59cde91f4eed79918c0f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928514"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806658"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 프라이빗 엔드포인트란?
 
@@ -22,7 +22,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
  프라이빗 엔드포인트는 다음 속성을 지정합니다. 
 
 
-|속성  |Description |
+|속성  |설명 |
 |---------|---------|
 |속성    |    리소스 그룹의 고유한 이름입니다.      |
 |서브넷    |  가상 네트워크에서 프라이빗 IP 주소를 배포하고 할당하는 서브넷입니다. 서브넷 요구 사항은 이 문서의 제한 사항 섹션을 참조하세요.         |
@@ -78,7 +78,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**Azure Event Grid** | Microsoft.EventGrid/topics    | 토픽 |
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | 도메인 |
 |**Azure App Service** | Microsoft.Web/sites    | sites |
-|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | 작업 영역 |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
 |**Azure Monitor** | Microsoft Insights/privateLinkScopes    | azuremonitor |
 |**Cognitive Services** | (Cognitiveservices account/계정    | account |
@@ -127,7 +127,7 @@ Azure 서비스에 대한 프라이빗 엔드포인트를 사용하는 경우 �
 다음 표에서는 프라이빗 엔드포인트를 사용하는 경우의 알려진 제한 사항 목록을 제공합니다. 
 
 
-|제한 사항 |Description |완화 방법  |
+|제한 사항 |설명 |완화 방법  |
 |---------|---------|---------|
 |NSG(네트워크 보안 그룹) 규칙 및 사용자 정의 경로는 프라이빗 엔드포인트에 적용되지 않습니다.    |NSG는 프라이빗 엔드포인트에서 지원되지 않습니다. 프라이빗 엔드포인트를 포함하는 서브넷에 NSG가 연결되어 있을 수 있지만 규칙은 프라이빗 엔드포인트에서 처리하는 트래픽에 적용되지 않습니다. 서브넷에 프라이빗 엔드포인트를 배포하려면 [네트워크 정책 적용을 사용하지 않도록 설정](disable-private-endpoint-network-policy.md)해야 합니다. NSG는 동일한 서브넷에서 호스트되는 다른 워크로드에도 적용됩니다. 모든 클라이언트 서브넷의 경로는 /32 접두사를 사용하고 기본 라우팅 동작을 변경하려면 비슷한 UDR이 필요합니다.  | 원본 클라이언트의 아웃바운드 트래픽에 대한 NSG 규칙을 사용하여 트래픽을 제어합니다. /32 접두사가 있는 개별 경로를 배포하여 프라이빗 엔드포인트 경로를 재정의합니다. 아웃바운드 연결에 대한 NSG 흐름 로그 및 모니터링 정보는 계속 지원되며 사용 가능합니다.        |
 

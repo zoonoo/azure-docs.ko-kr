@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5bfe077a99a3e89efe5fe4257a646484fb3810da
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 4bfac9be5041fdf4ebfe7ea56f064b8b85806703
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96536984"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98860127"
 ---
 ## <a name="supported-distributions-and-drivers"></a>지원되는 배포판 및 버전
 
@@ -31,9 +31,9 @@ Microsoft는 가상 워크스테이션 또는 가상 응용 프로그램에 사�
 
 Azure에서 재배포 하는 그리드 드라이버는 NC, NCv2, NCv3, ND 및 NDv2 시리즈 Vm과 같은 NV 이외의 시리즈 Vm에서는 작동 하지 않습니다.
 
-|분포|드라이버|
+|배포|드라이버|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>7.6 Red Hat Enterprise Linux 7.8, 8.0, 8.1<br/><br/>CentOS 기반 7.6, 7.7, 8.0, 8 (1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11.2, driver branch [bk-r450](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>7.7 Red Hat Enterprise Linux 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2 <br/><br/>SUSE Linux Enterprise Server 15 SP2 | NVIDIA GRID 12.0, driver branch [R460](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
 
 이전 Nvidia 그리드 드라이버 링크의 전체 목록은 [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) 를 참조 하세요.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 9fde0ecd8b6670e43aa3970b2df27a402b9c1a5c
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 4b8141d99d654705450a14767b04ae6265766af9
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747243"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807094"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -43,7 +43,8 @@ Microsoft Defender for Endpoint는 클라우드로 제공 되는 전체적인 �
 | 릴리스 상태:                  | GA(일반 공급)                                                                                                                                                                                                                                                                                      |
 | 가격 책정:                        | [서버용 Azure Defender](security-center-pricing.md) 필요                                                                                                                                                                                                                                             |
 | 지원되는 플랫폼:            | Windows를 실행 하는 Azure 컴퓨터<br>Windows를 실행 하는 Azure Arc 컴퓨터|
-| 지원 되는 Windows 버전:  |  • Security Center Windows Server 2016, 2012 R2 및 2008 R2 s p 1에 대 한 검색을 지원 합니다.<br> •이 통합을 사용 하는 서버 끝점 모니터링이 Office 365 GCC 고객에 대해 사용 하지 않도록 설정 되었습니다.<br> • Windows Server 2019, Windows 10 1703 이상 또는 Linux에 대 한 지원 없음|
+| 지원 되는 Windows 버전:  |  • Security Center Windows Server 2016, 2012 R2 및 2008 R2 s p 1에 대 한 검색을 지원 합니다.<br> •이 통합을 사용 하는 서버 끝점 모니터링이 Office 365 GCC 고객에 대해 사용 하지 않도록 설정 되었습니다.|
+| 지원 되지 않는 운영 체제:  |  • Windows Server 2019<br> • Windows 10<br> • Linux|
 | 필요한 역할 및 권한: | 통합을 사용 하거나 사용 하지 않도록 설정 하려면 **보안 관리자** 또는 **소유자** 입니다.<br>Security Center에서 MDATP 경고를 보려면 **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 참가자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자** 또는 **구독 참가자** 입니다.|
 | 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부<br>![아니요](./media/icons/no-icon.png) 글로벌 Azure 클라우드에서 워크 로드를 실행 하는 GCC 고객                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
@@ -105,7 +106,7 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
 무해 한 Microsoft Defender for Endpoint 테스트 경고를 생성 하려면:
 
 1. ' C:\test-MDATP-test ' 폴더를 만듭니다.
-1. 원격 데스크톱을 사용하여 Windows Server 2012 R2 VM 또는 Windows Server 2016 VM에 액세스합니다.
+1. 원격 데스크톱을 사용 하 여 컴퓨터에 액세스 합니다.
 1. 명령줄 창을 엽니다.
 1. 다음 명령을 복사하여 프롬프트에서 실행합니다. 명령 프롬프트 창이 자동으로 닫힙니다.
 

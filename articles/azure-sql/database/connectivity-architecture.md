@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
-ms.date: 06/26/2020
-ms.openlocfilehash: 74dd3a6b19d241fdf05e6438226227147ba4afbd
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.date: 01/25/2021
+ms.openlocfilehash: da21fd2b6f8d427369cee89e0ad93d63e8608784
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165946"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808258"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database 및 Azure Synapse Analytics 연결 아키텍처
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -66,7 +66,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 ![Azure SQL Database 게이트웨이를 통해 TCP 세션이 설정 되 고 모든 후속 패킷이 게이트웨이를 통해 전달 되는 방식을 보여 주는 다이어그램입니다.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> 또한 [DAC와의 연결](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) 을 설정 하기 위해 TCP 포트 1434 및 14000-14999를 엽니다.
+> 또한 [DAC와의 연결](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac) 을 설정 하기 위해 TCP 포트 1434 및 14000-14999를 엽니다.
 
 ## <a name="gateway-ip-addresses"></a>게이트웨이 IP 주소
 
@@ -83,7 +83,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 브라질 남부         | 104.41.11.5, 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | 캐나다 중부       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | 캐나다 동부          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
-| 미국 중부           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
+| 미국 중부           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
 | 중국 동부           | 139.219.130.35     |
 | 중국 동부 2         | 40.73.82.1         |
 | 중국 북부          | 139.219.15.17      |

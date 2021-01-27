@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/26/2020
 ms.author: shhazam
-ms.openlocfilehash: ed6c88826b41df0bdfef8cbbcb2569b3cea8f868
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 82fcf7f129d5caba471d6d72da83a317b26c638c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832389"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807896"
 ---
-# <a name="getting-started-with-defender-for-iot"></a>IoT 용 Defender 시작
+# <a name="get-started-with-defender-for-iot"></a>IoT 용 Defender 시작
 
 이 문서에서는 IoT 용 Azure Defender를 설정 하기 위해 수행 하는 단계에 대 한 개요를 제공 합니다. 이렇게 하려면 다음을 수행 해야 합니다.
 
@@ -127,7 +127,7 @@ Azure Defender for IoT 포털에서 ISO 패키지를 다운로드 하 고, 소�
 
 Azure 센티널을 구성 하 여 경고 정보를 Azure 센티널로 보냅니다. [IoT 용 Defender의 데이터를 Azure 센티널에 연결을](how-to-configure-with-sentinel.md)참조 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [IoT 용 Azure Defender 시작](overview.md)
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 컴퓨터 백업 솔루션을 사�
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 1f4d27563cf292632c6b14c82e36542b86c5d356
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 38ead1591bf2ecadc8bfca5875ac1fa3e69d56ef
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127722"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806381"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원
 
@@ -193,7 +193,7 @@ Azure PowerShell 버전 3.7.0 이상을 사용 하 고 있는지 확인 합니�
 
 ### <a name="enable-backup-with-powershell"></a>PowerShell을 사용 하 여 백업 사용
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```azurepowershell
 $disks = ("0","1")
@@ -337,4 +337,4 @@ PI 비용은 VM의 실제 (사용 되는) 크기를 기준으로 계산 됩니�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure VM 백업의 지원 매트릭스](backup-support-matrix-iaas.md)
-- [질문과 대답-Azure Vm 백업](backup-azure-vm-backup-faq.md)
+- [질문과 대답-Azure Vm 백업](backup-azure-vm-backup-faq.yml)

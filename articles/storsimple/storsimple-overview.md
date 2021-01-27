@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 01/11/2021
 ms.author: timlt
-ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 286f00318715764a5943387e6b362b3c8e69a82e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021840"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808154"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션
 
@@ -44,7 +44,7 @@ StorSimple은 [스토리지 계층화](#automatic-storage-tiering) 를 사용하
 | 투명한 통합 |iSCSI 프로토콜을 사용하여 데이터 스토리지 시설을 보이지 않게 연결합니다. 이 클라우드, 데이터 센터 또는 원격 서버에 저장된 데이터가 단일 위치에 저장된 것처럼 보이게 합니다. |
 | 스토리지 비용 감소 |현재 요구에 맞게 충분한 로컬 또는 클라우드 스토리지를 할당하고 필요한 경우 클라우드 스토리지를 확장합니다. 동일한 데이터의 중복 버전을 제거하고(중복 제거) 압축을 사용하여 추가로 스토리지 요구 사항 및 비용을 줄입니다. |
 | 단순화된 스토리지 관리 |온-프레미스, 원격 서버와 클라우드에 저장된 데이터를 구성 및 관리하는 시스템 관리 도구를 제공합니다. 또한 Microsoft Management Console(MMC) 스냅인에서 백업 및 복원 기능을 관리할 수 있습니다.|
-| 향상된 재해 복구 및 규정 준수 |복구 시간을 확장할 필요가 없습니다. 대신, 필요할 때마다 데이터를 복원합니다. 즉, 정상 작업 중단을 최소화하면서 계속할 수 있습니다. 또한 백업 일정 및 데이터 보존 기간을 지정하는 정책을 구성할 수 있습니다. |
+| 향상된 재해 복구 및 규정 준수 |복구 시간을 확장할 필요가 없습니다. 대신, 정상적인 작업이 최소한의 중단으로 지속 될 수 있도록 필요에 따라 데이터를 복원 합니다. 또한 백업 일정 및 데이터 보존 기간을 지정하는 정책을 구성할 수 있습니다. |
 | 데이터 이동성 |복구 및 마이그레이션을 위해 다른 사이트에서 Microsoft Azure 클라우드 서비스에 업로드된 데이터에 액세스할 수 있습니다. 또한 Microsoft Azure에서 실행 중인 가상 머신(VM)에서 StorSimple Cloud Appliance를 구성하도록 StorSimple을 사용할 수 있습니다. VM을 가상 디바이스 사용하여 테스트 또는 복구 목적으로 저장된 데이터에 액세스할 수 있습니다. |
 | 비즈니스 연속성 |StorSimple 5000~7000 시리즈 사용자가 StorSimple 8000 시리즈 디바이스에 해당 데이터를 마이그레이션할 수 있습니다. |
 | Azure Government 포털의 가용성 |StorSimple은 Azure Government 포털에서 사용 가능합니다. 자세한 내용은 [정부 포털에서 온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-gov-u2.md)를 참조하세요. |
@@ -60,7 +60,7 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 * **StorSimple Cloud Appliance** – StorSimple 가상 어플라이언스라고도 하며, 물리적 하이브리드 스토리지 디바이스의 아키텍처와 대부분의 기능을 복제하는 StorSimple 디바이스의 소프트웨어 버전입니다. StorSimple Cloud Appliance는 Azure 가상 컴퓨터의 단일 노드에서 실행됩니다. Azure Premium Storage를 활용하는 프리미엄 가상 디바이스는 업데이트 2 이상에서 사용할 수 있습니다.
 * **StorSimple 디바이스 관리자 서비스** – 단일 웹 인터페이스에서 StorSimple 디바이스 또는 StorSimple Cloud Appliance를 관리할 수 있는 Azure Portal의 확장입니다. StorSimple 디바이스 관리자 서비스를 사용하여 서비스를 만들고 관리하고, 디바이스를 보고 관리하고, 경고를 보고, 볼륨을 관리하고 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
 * **StorSimple용 Windows PowerShell** – StorSimple 디바이스를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 StorSimple 디바이스를 등록하고, 디바이스에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 디바이스 문제를 해결하고 디바이스 상태를 변경할 수 있는 기능이 있습니다. 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
-* **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0#azure)를 참조하세요.
+* **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0&preserve-view=true#azure)를 참조하세요.
 * **StorSimple Snapshot Manager** – 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 애플리케이션에 일관된 백업을 생성하는 MMC 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅샷 관리자를 사용할 수 있습니다.
 * **SharePoint용 StorSimple 어댑터** – SharePoint 중앙 관리 포털에서 StorSimple 스토리지를 볼 수 있고 관리할 수 있도록 하면서 SharePoint 서버 팜으로 Microsoft Azure StorSimple 스토리지 및 데이터 보호를 투명하게 확장하는 도구입니다.
 
@@ -73,7 +73,7 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 ## <a name="storsimple-device"></a>StorSimple 디바이스
 Microsoft Azure StorSimple 디바이스는 기본 스토리지 및 그 곳에 저장된 데이터에 대한 iSCSI 액세스를 제공하는 온-프레미스 하이브리드 스토리지 배열입니다. 클라우드 스토리지와의 통신을 관리하고 보안 및 Microsoft Azure StorSimple 솔루션에 저장된 모든 데이터의 기밀성을 보장하는데 도움이 됩니다.
 
-StorSimple 디바이스에 클러스터링 및 자동 장애 조치에 대한 지원 및 SSD 및 하드 디스크 드라이브 HDD가 포함됩니다. 공유 프로세서, 공유 스토리지 및 미러링된 컨트롤러 두 개를 포함합니다. 각 컨트롤러는 다음을 제공합니다.
+StorSimple 장치에는 클러스터 및 자동 장애 조치 (failover) 뿐만 아니라 Ssd 및 Hdd (하드 디스크 드라이브)가 포함 됩니다. 공유 프로세서, 공유 스토리지 및 미러링된 컨트롤러 두 개를 포함합니다. 각 컨트롤러는 다음을 제공합니다.
 
 * 호스트 컴퓨터에 연결
 * 로컬 영역 네트워크(LAN)에 연결하는데 최대 6개의 네트워크 포트
@@ -124,12 +124,12 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 서비스 만들�
 * 지원 세션에 액세스하여 디바이스 문제를 해결합니다.
 * 디바이스 상태를 변경합니다.
 
-직렬 콘솔(디바이스에 직접 연결되는 호스트 컴퓨터)에서 또는 Windows PowerShell 원격 기능을 사용하여 원격으로 StorSimple용 Windows PowerShell에 액세스할 수 있습니다. 초기 디바이스 등록과 같이 StorSimple용 일부 Windows PowerShell은 직렬 콘솔에서만 수행할 수 있습니다.
+직렬 콘솔(디바이스에 직접 연결되는 호스트 컴퓨터)에서 또는 Windows PowerShell 원격 기능을 사용하여 원격으로 StorSimple용 Windows PowerShell에 액세스할 수 있습니다. 초기 장치 등록과 같은 일부 StorSimple용 Windows PowerShell 작업은 직렬 콘솔 에서만 수행할 수 있습니다.
 
 자세한 내용은 [StorSimple용 Windows PowerShell을 사용하여 디바이스 관리](storsimple-8000-windows-powershell-administration.md)로 이동합니다.
 
 ## <a name="azure-powershell-storsimple-cmdlets"></a>Azure PowerShell StorSimple cmdlet
-Azure PowerShell StorSimple cmdlet은 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0)를 참조하세요.
+Azure PowerShell StorSimple cmdlet은 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0&preserve-view=true)를 참조하세요.
 
 ## <a name="storsimple-snapshot-manager"></a>StorSimple Snapshot Manager
 StorSimple 스냅샷 관리자는 로컬 및 클라우드 데이터의 일관된 지정 시간 백업 복사본을 만드는 데 사용할 수 있는 Microsoft Management Console(MMC) 스냅인입니다. 스냅인은 Windows Server 기반 호스트에서 실행됩니다. StorSimple 스냅샷 관리자를 사용하여 다음을 수행할 수 있습니다.
@@ -139,7 +139,7 @@ StorSimple 스냅샷 관리자는 로컬 및 클라우드 데이터의 일관된
 * 데이터를 미리 결정된 일정에 따라 백업하고 지정된 위치(로컬 또는 클라우드에)에 저장되도록 백업 정책을 관리합니다.
 * 볼륨 및 개별 파일을 복원합니다.
 
-Backup은 스냅샷으로 캡처되며, 마지막 스냅샷 백업 이후 변경 내용만 기록하고 전체 백업보다 훨씬 적은 스토리지 공간을 필요로 합니다. 백업 일정을 만들 수도 있고 필요에 따라 즉시 백업할 수 있습니다. 또한 저장될 스냅샷의 크기를 제어하는 보존 정책을 설정하려면 StorSimple 스냅샷 관리자를 사용할 수 있습니다. 이후에 백업에서 데이터를 복원해야 하는 경우, StorSimple 스냅샷 관리자는 로컬 또는 클라우드 스냅샷의 카탈로그에서 선택하게 할 수 있습니다. 
+Backup은 스냅샷으로 캡처되며, 마지막 스냅샷 백업 이후 변경 내용만 기록하고 전체 백업보다 훨씬 적은 스토리지 공간을 필요로 합니다. 백업 일정을 만들 수도 있고 필요에 따라 즉시 백업할 수 있습니다. 또한 저장될 스냅샷의 크기를 제어하는 보존 정책을 설정하려면 StorSimple 스냅샷 관리자를 사용할 수 있습니다. 나중에 백업에서 데이터를 복원 해야 하는 경우 StorSimple Snapshot Manager를 사용 하 여 로컬 또는 클라우드 스냅숏의 카탈로그에서 선택할 수 있습니다. 
 
 재해가 발생한 경우 또는 다른 이유로 데이터를 복원해야 하는 경우, StorSimple 스냅샷 관리자는 필요할 때 증분 방식으로 복원합니다. 파일을 복원하거나, 장비를 교체 하거나 다른 사이트로 이동하는 동안 시스템 전체를 종료하지 않아도 됩니다.
 
@@ -148,7 +148,7 @@ Backup은 스냅샷으로 캡처되며, 마지막 스냅샷 백업 이후 변경
 ## <a name="storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터
 Microsoft Azure StorSimple은 StorSimple 스토리지 및 데이터 보호 기능을 SharePoint 서버 팜으로 투명하게 확장하는 선택적 구성 요소인, SharePoint용 StorSimple 어댑터를 포함합니다. 어댑터는 Blob를 Microsoft Azure StorSimple 시스템에서 백업한 서버로 이동할 수 있도록 원격 Blob Storage(RBS) 공급자 및 SQL Server RBS 기능과 함께 작동합니다. Microsoft Azure StorSimple은 사용량에 따라 BLOB 데이터를 로컬 또는 클라우드에 저장합니다.
 
-SharePoint용 StorSimple 어댑터는 SharePoint 중앙 관리 포털 내에서 관리됩니다. 따라서 SharePoint 관리가 중앙 집중화된 상태로 유지되며 모든 스토리지는 SharePoint 팜에 있는 것으로 나타납니다.
+SharePoint용 StorSimple 어댑터는 SharePoint 중앙 관리 포털 내에서 관리됩니다. 따라서 SharePoint 관리는 중앙 집중식으로 유지 되며 모든 저장소는 SharePoint 팜에 있는 것으로 나타납니다.
 
 자세한 내용은 [SharePoint용 StorSimple 어댑터](storsimple-adapter-for-sharepoint.md)로 이동합니다. 
 
@@ -186,7 +186,7 @@ StorSimple는 데이터와 스토리지 할당을 조정하여 사용량 패턴 
 
 StorSimple에서는 모든 스냅샷 및 주 데이터(호스트가 기록한 데이터)에서 중복된 고객 데이터를 제거합니다. 중복 제거가 스토리지 효율성 면에서는 유용하지만, &quot;클라우드가 무엇인가&quot;라는 질문을 복잡하게 만듭니다. 계층화된 주 데이터 및 스냅샷 데이터는 서로 겹칩니다. 클라우드에서 데이터의 단일 청크는 계층화된 주 데이터 계층으로 사용되거나 여러 스냅샷에 의해 참조될 수 있습니다. 모든 클라우드 스냅샷을 통해 해당 스냅샷을 삭제할 때까지 특정 시점 데이터의 모든 복사본을 클라우드에 잠글 수 있습니다.
 
-해당 데이터에 대한 참조가 없는 경우에만 클라우드에서 데이터가 삭제됩니다. 예를 들어, StorSimple 디바이스에 있는 모든 데이터의 클라우드 스냅샷을 사용하고 일부 주 데이터를 삭제한다면 _주 데이터_ 가 즉시 삭제됩니다. 계층화된 데이터와 백업을 포함하는 _클라우드 데이터_ 는 동일하게 유지됩니다. 클라우드 데이터를 계속 참조하는 스냅샷이 아직 존재하기 때문입니다. 클라우드 스냅샷(및 동일한 데이터를 참조하는 다른 모든 스냅샷)이 삭제된 후에 클라우드 소비가 감소합니다. 클라우드 데이터를 제거하기 전에 스냅샷이 해당 데이터를 계속 참조하지 않는지 확인합니다. 이 프로세스는 _가비지 수집_ 이라고 하며 디바이스에서 실행되는 배경 서비스입니다. 데이터를 삭제하기 전에 가비지 수집 서비스가 해당 데이터에 대한 다른 참조가 있는지 확인하기 때문에 클라우드 데이터는 즉시 제거되지 않습니다. 가비지 수집의 속도는 스냅샷 및 전체 데이터의 총 수에 따라 다릅니다. 일반적으로 클라우드 데이터는 일주일 내에 정리됩니다.
+해당 데이터에 대한 참조가 없는 경우에만 클라우드에서 데이터가 삭제됩니다. 예를 들어, StorSimple 디바이스에 있는 모든 데이터의 클라우드 스냅샷을 사용하고 일부 주 데이터를 삭제한다면 _주 데이터_ 가 즉시 삭제됩니다. 계층화 된 데이터와 백업을 포함 하는 _클라우드 데이터_ 는 동일 하 게 유지 됩니다. 클라우드 데이터를 계속 참조하는 스냅샷이 아직 존재하기 때문입니다. 클라우드 스냅샷(및 동일한 데이터를 참조하는 다른 모든 스냅샷)이 삭제된 후에 클라우드 소비가 감소합니다. 클라우드 데이터를 제거하기 전에 스냅샷이 해당 데이터를 계속 참조하지 않는지 확인합니다. 이 프로세스는 _가비지 수집_ 이라고 하며 디바이스에서 실행되는 배경 서비스입니다. 데이터를 삭제하기 전에 가비지 수집 서비스가 해당 데이터에 대한 다른 참조가 있는지 확인하기 때문에 클라우드 데이터는 즉시 제거되지 않습니다. 가비지 수집의 속도는 스냅샷 및 전체 데이터의 총 수에 따라 다릅니다. 일반적으로 클라우드 데이터는 일주일 내에 정리됩니다.
 
 
 ### <a name="thin-provisioning"></a>씬 프로비저닝
@@ -210,10 +210,10 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 
 | 시나리오 | 작업 | 지원됨 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
-| 협업 |파일 공유 |Yes | |모든 버전 |
-| 협업 |분산 파일 공유 |Yes | |모든 버전 |
+| 협업 |파일 공유 |예 | |모든 버전 |
+| 협업 |분산 파일 공유 |예 | |모든 버전 |
 | 협업 |SharePoint |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
-| 보관 |단순 파일 보관 |Yes | |모든 버전 |
+| 보관 |단순 파일 보관 |예 | |모든 버전 |
 | 가상화 |가상 머신 |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 데이터베이스 |SQL |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 비디오 감시 |비디오 감시 |예* |StorSimple 디바이스가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 2 이상 |
@@ -237,7 +237,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 
 | 시나리오 | 작업 | 지원됨 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
-| 일반 |Express 경로 |Yes | |모든 버전 |
+| 일반 |Express 경로 |예 | |모든 버전 |
 | 일반 |DataCore FC |예* |DataCore SANsymphony 지원 |모든 버전 |
 | 일반 |DFSR |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |모든 버전 |
 | 일반 |인덱싱 |예* |계층화된 볼륨의 경우 메타데이터만 인덱싱만 지원됩니다(데이터 없음).<br>로컬 고정 볼륨의 경우 전체 인덱싱이 지원됩니다. |모든 버전 |
@@ -245,7 +245,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 
 *예&#42; - 솔루션 지침 및 제한 사항이 적용됩니다.*
 
-솔루션을 빌드하기 위해 StorSimple에서 사용되는 다른 소프트웨어의 목록은 다음과 같습니다.
+다음은 솔루션을 빌드하기 위해 StorSimple과 함께 사용 되는 다른 소프트웨어 목록입니다.
 
 | 워크로드 유형 | StorSimple에서 사용되는 소프트웨어 | 지원되는 버전|솔루션 가이드에 연결| 
 | --- | --- | --- | --- |
@@ -258,7 +258,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정의를 검토하는 것이 좋습니다.
 
 ### <a name="key-terms-and-definitions"></a>주요 용어 및 정의
-| 용어(머리글자어 또는 약어) | Description |
+| 용어(머리글자어 또는 약어) | 설명 |
 | --- | --- |
 | 액세스 제어 레코드(ACR) |연결할 수 있는 호스트를 결정하는, Microsoft Azure StorSimple 디바이스의 볼륨과 연결된 레코드입니다. 이 결정은 StorSimple 디바이스에 연결하는 호스트의 IQN(iSCSI 정규화된 이름)(ACR에 포함됨)을 기반으로 합니다. |
 | AES-256 |클라우드에 출입할 때 데이터를 암호화하기 위한 256비트 AES(Advanced Encryption Standard) 알고리즘입니다. |
@@ -292,7 +292,7 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 | 로컬로 고정된 볼륨 |디바이스에 상주하며 클라우드로 계층화되지 않는 볼륨입니다. |
 | 로컬 스냅샷 |Microsoft Azure StorSimple 디바이스에 저장된 볼륨 데이터의 지정 시간 복사본입니다. |
 | Microsoft Azure StorSimple |IT 조직이 데이터 센터 스토리지인 것처럼 클라우드 스토리지를 활용하고 비용을 절감하게 해주는 데이터 센터 스토리지 어플라이언스 및 소프트웨어로 구성된 강력한 솔루션입니다. StorSimple은 비용을 절감하는 동시에 데이터 보호 및 데이터 관리를 간소화합니다. 솔루션은 클라우드와의 원활한 통합을 통해 기본 스토리지, 보관, 백업 및 DR(재해 복구)을 통합합니다. 엔터프라이즈급 플랫폼에서 SAN 스토리지 및 클라우드 데이터 관리를 결합함으로써 StorSimple 디바이스는 모든 스토리지 관련 요구에 대해 속도, 단순성 및 안정성을 가능하게 합니다. |
-| 전원 및 냉각 모듈(PCM) |전원 공급 디바이스 및 냉각 팬으로 구성되어 전원 및 냉각 모듈이란 이름이 지정된 StorSimple 디바이스의 하드웨어 구성 요소입니다. 디바이스의 기본 엔클로저에는 764W PCM 2개가 있는 반면, EBOD 엔클로저에는 580W PCM 2개가 있습니다. |
+| 전원 및 냉각 모듈(PCM) |전원 공급 장치 및 냉각 팬으로 구성 된 StorSimple 장치의 하드웨어 구성 요소 따라서 전원 및 냉각 모듈 이름입니다. 디바이스의 기본 엔클로저에는 764W PCM 2개가 있는 반면, EBOD 엔클로저에는 580W PCM 2개가 있습니다. |
 | 기본 엔클로저 |애플리케이션 플랫폼 컨트롤러를 포함하는 StorSimple 디바이스의 기본 엔클로저입니다. |
 | 복구 시간 목표(RTO) |재해 발생 후 비즈니스 프로세스 또는 시스템이 완전히 복원되기 전에 연장해야 하는 최대 시간입니다. |
 | Serial Attached SCSI(SAS) |HDD(하드 디스크 드라이브)의 한 유형입니다. |
@@ -307,7 +307,7 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 | 백업 수행 |사용자가 대화형으로 볼륨을 백업할 수 있게 해주는 기능입니다. 정의된 정책을 통해 자동화된 백업을 수행하는 대신 볼륨의 수동 백업을 수행하는 대체 방법입니다. |
 | 씬 프로비저닝 |사용 가능한 스토리지 공간이 스토리지 시스템에서 사용되는 효율성을 최적화하는 방법입니다. 씬 프로비저닝에서는 지정된 시간에 각 사용자에게 필요한 최소 공간을 기준으로 여러 사용자 간에 스토리지가 할당됩니다. *팻 프로비저닝* 도 참조하세요. |
 | 계층화 |현재 사용량, 수명 및 다른 데이터에 대한 관계에 따라 논리적 그룹화에서 데이터를 정렬합니다. StorSimple은 계층에서 데이터를 자동으로 정렬합니다. |
-| 볼륨 |드라이브 형태로 제공되는 논리 스토리지 영역입니다. StorSimple 볼륨은 iSCSI 및 StorSimple 디바이스를 사용하여 검색된 볼륨을 포함하여 호스트에 의해 탑재된 볼륨에 해당합니다. |
+| 볼륨 |드라이브 형태로 제공되는 논리 스토리지 영역입니다. StorSimple 볼륨은 iSCSI 및 StorSimple 장치를 사용 하 여 검색 된 볼륨을 포함 하 여 호스트에 의해 탑재 된 볼륨에 해당 합니다. |
 | 볼륨 컨테이너 |볼륨 및 볼륨에 적용되는 설정의 그룹화입니다. StorSimple 디바이스의 모든 볼륨은 볼륨 컨테이너로 그룹화됩니다. 볼륨 컨테이너 설정에는 스토리지 계정, 연결된 암호화 키와 함께 클라우드에 전송된 데이터에 대한 암호화 설정 및 클라우드 관련 작업에 사용된 대역폭이 포함됩니다. |
 | 볼륨 그룹 |StorSimple 스냅샷 관리자에서 볼륨 그룹은 백업 처리가 용이하도록 구성된 볼륨 컬렉션입니다. |
 | 볼륨 섀도 복사본 서비스(VSS) |VSS 인식 애플리케이션과의 통신을 통해 증분 스냅샷 생성을 조정하여 애플리케이션 일관성을 높이는 Windows Server 운영 체제 서비스입니다. VSS는 스냅샷을 만들 때 애플리케이션이 일시적으로 비활성화되도록 합니다. |
