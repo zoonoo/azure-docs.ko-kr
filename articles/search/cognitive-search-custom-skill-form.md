@@ -8,18 +8,18 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 58f1c2621165a7074c04752832c6560b2fd3e423
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011968"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880138"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>예: 양식 인식기 사용자 지정 기술 만들기
 
 이 Azure Cognitive Search 기술 예제에서는 c # 및 Visual Studio를 사용 하 여 폼 인식기 사용자 지정 기술을 만드는 방법을 배웁니다. 양식 인식기는 문서를 분석 하 고 키/값 쌍 및 테이블 데이터를 추출 합니다. [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md)에 폼 인식기를 래핑하여 종단 간 보강 파이프라인의 단계로이 기능을 추가할 수 있습니다. 그러면 파이프라인이 문서를 로드 하 고 다른 변환을 수행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (모든 버전)
 - 동일한 형식의 5 개 이상의 양식 이 가이드에서 제공 하는 샘플 데이터를 사용할 수 있습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "96011968"
 
 ## <a name="train-your-model"></a>모델 학습
 
-이 스킬을 사용 하기 전에 입력 양식으로 양식 인식기 모델을 학습 해야 합니다. 모델을 학습 하는 방법에 대 한 자세한 내용은 [말아 퀵 스타트](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) 를 참조 하세요. 해당 빠른 시작에 제공 된 샘플 양식을 사용 하거나 사용자 고유의 데이터를 사용할 수 있습니다. 모델을 학습 한 후에는 해당 ID 값을 안전한 위치에 복사 합니다.
+이 스킬을 사용 하기 전에 입력 양식으로 양식 인식기 모델을 학습 해야 합니다. 모델을 학습 하는 방법에 대 한 자세한 내용은 [말아 퀵 스타트](../cognitive-services/form-recognizer/quickstarts/client-library.md?pivots=programming-language-rest-api) 를 참조 하세요. 해당 빠른 시작에 제공 된 샘플 양식을 사용 하거나 사용자 고유의 데이터를 사용할 수 있습니다. 모델을 학습 한 후에는 해당 ID 값을 안전한 위치에 복사 합니다.
 
 ## <a name="set-up-the-custom-skill"></a>사용자 지정 기술 설정
 

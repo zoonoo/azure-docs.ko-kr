@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: bfcd8b3c482b4d429a9e3a4d7bc75e27ada63a98
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c1cdafe2929502293aada32dbae06e342761862b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134401"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876701"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows 가상 데스크톱 RDP Shortpath (미리 보기)
 
@@ -58,7 +58,7 @@ RDP Shortpath는 세션 호스트의 인증서를 사용 하 여 클라이언트
 RDP Shortpath을 지원 하려면 Windows 가상 데스크톱 클라이언트에서 세션 호스트에 직접 이동 해야 합니다. 다음 기술 중 하나를 사용 하 여 직접적인 시야를 얻을 수 있습니다.
 
 * [Express 경로 개인 피어 링](../expressroute/expressroute-circuit-peerings.md)
-* [사이트 간 VPN (IPsec 기반)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [사이트 간 VPN (IPsec 기반)](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [지점 및 사이트 간 VPN (IPsec 기반)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [공용 IP 주소 할당](../virtual-network/virtual-network-public-ip-address.md)
 

@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 70f5e17c4cc42201e9aa3d36c9937f6ceb9527d0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554018"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880206"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에서 데이터 변환
 
@@ -52,11 +52,7 @@ ms.locfileid: "94554018"
 
 1. **성인 인구 조사 소득 이진 분류** 데이터 세트를 캔버스로 끌어 놓습니다.
 
-1. **성인 인구 조사 소득** 데이터 세트 모듈을 선택합니다.
-
-1. 캔버스 오른쪽에 표시되는 기본 창에서 **출력** 을 선택합니다.
-
-1. 시각화 아이콘을 선택합니다. ![시각화 아이콘](media/how-to-designer-transform-data/visualize-icon.png).
+1. **성인 인구 조사 소득** 데이터 집합 모듈을 마우스 오른쪽 단추로 클릭 하 고  >  **데이터 집합 출력** 시각화를 선택 합니다.
 
 1. 데이터 미리 보기 창을 사용하여 데이터 세트를 살펴봅니다. "native-country" 열 값에 특히 주의하세요.
 
@@ -103,13 +99,13 @@ ms.locfileid: "94554018"
 
 1. 캔버스 오른쪽에 있는 모듈 세부 정보 창에서 다음 옵션을 설정합니다.
     
-    **데이터 저장소 유형** : Azure Blob Storage
+    **데이터 저장소 유형**: Azure Blob Storage
 
-    **데이터 저장소** : 기존 데이터 저장소를 선택하거나 "새 데이터 저장소"를 선택하여 지금 새로 만듭니다.
+    **데이터 저장소**: 기존 데이터 저장소를 선택하거나 "새 데이터 저장소"를 선택하여 지금 새로 만듭니다.
 
-    **경로** : `/data/us-income`
+    **경로**: `/data/us-income`
 
-    **파일 형식** : csv
+    **파일 형식**: csv
 
     > [!NOTE]
     > 이 문서에서는 사용자에게 현재 Azure Machine Learning 작업 영역에 등록된 데이터 저장소에 대한 액세스 권한이 있다고 가정합니다. 데이터 저장소 설정에 대한 자세한 내용은 [Azure Storage 서비스에 연결](how-to-connect-data-ui.md#create-datastores)을 참조하세요.
@@ -120,13 +116,13 @@ ms.locfileid: "94554018"
 
 1. 캔버스 오른쪽에 있는 모듈 세부 정보 창에서 다음 옵션을 설정합니다.
     
-    **데이터 저장소 유형** : Azure Blob Storage
+    **데이터 저장소 유형**: Azure Blob Storage
 
-    **데이터 저장소** : 위와 동일한 데이터 저장소 선택
+    **데이터 저장소**: 위와 동일한 데이터 저장소 선택
 
-    **경로** : `/data/non-us-income`
+    **경로**: `/data/non-us-income`
 
-    **파일 형식** : csv
+    **파일 형식**: csv
 
 1. **데이터 분할** 의 왼쪽 포트에 연결된 **데이터 내보내기** 모듈에 `/data/us-income` **경로** 가 포함되었는지 확인합니다.
 

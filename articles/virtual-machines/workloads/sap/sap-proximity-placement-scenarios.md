@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: ee28f25e766940eb51e92b61fd782b97fd888705
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827226"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879615"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위한 Azure 근접 배치 그룹
 Sap NetWeaver 또는 SAP S/4HANA 아키텍처를 기반으로 하는 SAP 응용 프로그램은 SAP 응용 프로그램 계층과 SAP 데이터베이스 계층 간의 네트워크 대기 시간을 구분 합니다. 이러한 민감도는 응용 프로그램 계층에서 실행 되는 대부분의 비즈니스 논리에 대 한 결과입니다. SAP 응용 프로그램 계층은 비즈니스 논리를 실행 하기 때문에 데이터베이스 계층에 대 한 쿼리를 초당 수천 또는 수만 개의 속도로 데이터베이스 계층에 보냅니다. 대부분의 경우 이러한 쿼리의 특성은 간단 합니다. 500 마이크로초 이하로 데이터베이스 계층에서 실행 되는 경우가 많습니다.
@@ -30,11 +30,11 @@ Sap NetWeaver 또는 SAP S/4HANA 아키텍처를 기반으로 하는 SAP 응용 
 
 많은 Azure 지역에서 데이터 센터 수가 증가 했습니다. 이와 동시에, 특히 고성능 SAP 시스템에 대 한 고객은 M 또는 Mv2 제품군의 더 특수 한 VM Sku 또는 HANA 큰 인스턴스를 사용 하 고 있습니다. 이러한 Azure virtual machine 유형은 Azure 지역을 보완 하는 모든 데이터 센터에서 항상 사용할 수 있는 것은 아닙니다. 이러한 팩트는 SAP 응용 프로그램 계층과 SAP DBMS 계층 간의 네트워크 대기 시간을 최적화할 수 있는 기회를 만들 수 있습니다.
 
-네트워크 대기 시간을 최적화할 수 있는 가능성을 제공 하기 위해 Azure는 [근접 배치 그룹](../../linux/co-location.md)을 제공 합니다. 근접 배치 그룹을 사용 하 여 여러 VM 유형을 단일 Azure 데이터 센터로 그룹화 하 여 이러한 다양 한 VM 유형 간의 네트워크 대기 시간을 최대한 최적화할 수 있습니다. 이러한 근접 배치 그룹에 첫 번째 VM을 배포 하는 과정에서 VM은 특정 데이터 센터에 바인딩됩니다. 이로 인해 문제가 발생 하는 경우에도 구문 사용에 몇 가지 제한 사항이 도입 되었습니다.
+네트워크 대기 시간을 최적화할 수 있는 가능성을 제공 하기 위해 Azure는 [근접 배치 그룹](../../co-location.md)을 제공 합니다. 근접 배치 그룹을 사용 하 여 여러 VM 유형을 단일 Azure 데이터 센터로 그룹화 하 여 이러한 다양 한 VM 유형 간의 네트워크 대기 시간을 최대한 최적화할 수 있습니다. 이러한 근접 배치 그룹에 첫 번째 VM을 배포 하는 과정에서 VM은 특정 데이터 센터에 바인딩됩니다. 이로 인해 문제가 발생 하는 경우에도 구문 사용에 몇 가지 제한 사항이 도입 되었습니다.
 
 - 모든 azure VM 유형을 모든 Azure 데이터 센터에서 사용할 수 있다고 가정할 수는 없습니다. 따라서 한 개의 근접 배치 그룹 내에서 서로 다른 VM 유형의 조합을 제한할 수 있습니다. 이러한 제한 사항은 특정 VM 유형을 실행 하는 데 필요한 호스트 하드웨어가 배치 그룹이 배포 된 데이터 센터에 없을 수도 있기 때문에 발생 합니다.
 - 한 개의 근접 배치 그룹 내에 있는 Vm의 일부를 크기 조정할 때, 모든 경우에 새 VM 유형을 근접 배치 그룹의 일부인 다른 Vm과 동일한 데이터 센터에서 사용할 수 있는 것으로 자동으로 간주할 수 없습니다.
-- Azure add-on 하드웨어는 근접 배치 그룹의 특정 Vm을 다른 Azure 데이터 센터에 강제로 적용할 수 있습니다. 이 사례에 대 한 세부 정보는 [대기 시간 향상을 위한 문서 배치 리소스](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups) 문서를 참조 하세요.  
+- Azure add-on 하드웨어는 근접 배치 그룹의 특정 Vm을 다른 Azure 데이터 센터에 강제로 적용할 수 있습니다. 이 사례에 대 한 세부 정보는 [대기 시간 향상을 위한 문서 배치 리소스](../../co-location.md#planned-maintenance-and-proximity-placement-groups) 문서를 참조 하세요.  
 
 > [!IMPORTANT]
 > 잠재적인 제한의 결과로 근접 배치 그룹을 사용 해야 합니다.

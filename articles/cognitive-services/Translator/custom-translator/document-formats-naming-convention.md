@@ -2,27 +2,27 @@
 title: 문서 형식과 명명 규칙 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator의 문서 형식과 명명 규칙에 대해 설명하는 가이드입니다. 이 개념은 문서 이름을 더 잘 관리 하 고 이름 충돌을 방지 하는 데 도움이 됩니다.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 46a19cd4396e598a74f9099727ac80d44c0a44f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9598d3c1d339d1c37b02892cc83164acae447434
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88507249"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895852"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>문서 형식 및 명명 규칙 가이드
 
-사용자 지정 번역에 사용하는 파일은 길이가 최소 **4**자 이상이어야 합니다.
+사용자 지정 번역에 사용하는 파일은 길이가 최소 **4** 자 이상이어야 합니다.
 
 이 표에는 번역 시스템을 빌드할 때 사용할 수 있는 지원되는 파일 형식이 모두 나열되어 있습니다.
 
-| 형식            | 확장   | 설명                                                                                                                                                                                                                                                                    |
+| 서식            | 확장   | 설명                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | XLIFF             | .XLF, .XLIFF | 번역 메모리 시스템에서 내보낸 병렬 문서 형식입니다. 사용되는 언어는 파일 안에 정의되어 있습니다.                                                                                                                                                              |
 | TMX               | .TMX         | 번역 메모리 시스템에서 내보낸 병렬 문서 형식입니다. 사용되는 언어는 파일 안에 정의되어 있습니다.                                                                                                                                                              |

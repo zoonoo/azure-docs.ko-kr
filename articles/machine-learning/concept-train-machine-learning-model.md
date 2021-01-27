@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ac9a1b43ba4ffb537afd658c84edb48ed59a3694
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683485"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880947"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -76,7 +76,7 @@ Python용 Azure Machine Learning SDK를 사용하여 Azure Machine Learning에�
 Machine learning 파이프라인은 앞에서 언급 한 학습 메서드를 사용할 수 있습니다. 파이프라인은 워크플로 만들기에 초점이 더 맞춰져 있기 때문에 모델 학습보다 더 많은 기능을 포함하고 있습니다. 파이프라인에서 자동화 된 기계 학습 또는 실행 구성을 사용 하 여 모델을 학습 시킬 수 있습니다.
 
 * [Azure Machine Learning의 ML 파이프라인이란?](concept-ml-pipelines.md)
-* [Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행](how-to-create-your-first-pipeline.md)
+* [Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행](./how-to-create-machine-learning-pipelines.md)
 * [자습서: 일괄 처리 채점에 Azure Machine Learning 파이프라인 사용](tutorial-pipeline-batch-scoring-classification.md)
 * [예제: 기계 학습 파이프라인에 대한 Jupyter Notebook 예제](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [예제: 자동화된 기계 학습을 사용하는 파이프라인](https://aka.ms/pl-automl)

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cf0b5d29e0dc375a07fe024ef0763c8200275055
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95526122"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880711"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>블록 Blob Storage에 대한 성능 계층
 
@@ -31,7 +31,7 @@ Azure 블록 blob 저장소는 다음과 같은 두 가지 성능 계층을 제�
 |지역 가용성     |   모든 지역      | [영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
 |지원 되는 [저장소 계정 유형](../common/storage-account-overview.md#types-of-storage-accounts)     |     범용 v2, BlobStorage, 범용 v1    |    BlockBlobStorage     |
 |[높은 처리량 블록 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) 지원     |    예, 4 MiB PutBlock 또는 Putblock 크기를 초과 합니다.     |    예, 256 KiB PutBlock 또는 Putblock 크기 보다 큼    |
-|중복성     |     [저장소 계정 유형을](../common/storage-account-overview.md#types-of-storage-accounts) 참조 하세요.   |  현재 LRS (로컬 중복 저장소) 및 ZRS (영역 redudant 저장소)만 지원 합니다.<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
+|중복     |     [저장소 계정 유형을](../common/storage-account-overview.md#types-of-storage-accounts) 참조 하세요.   |  현재 LRS (로컬 중복 저장소) 및 ZRS (영역 redudant 저장소)만 지원 합니다.<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
 
 <div id="zone-redundant-storage"><sup>1</sup> ZRS (영역 중복 저장소)는 프리미엄 성능 블록 blob storage 계정에 대 한 선택 영역에서 사용할 수 있습니다.</div>
 
@@ -65,7 +65,7 @@ Azure 블록 blob 저장소는 다음과 같은 두 가지 성능 계층을 제�
 
 기존 standard performance storage 계정을 프리미엄 성능으로 블록 blob storage 계정으로 변환할 수 없습니다. Premium performance storage 계정으로 마이그레이션하려면 BlockBlobStorage 계정을 만들고 데이터를 새 계정으로 마이그레이션해야 합니다. 자세한 내용은 [BlockBlobStorage 계정 만들기](storage-blob-create-account-block-blob.md)를 참조 하세요.
 
-저장소 계정 간에 blob을 복사 하려면 최신 버전의 [AzCopy](../common/storage-use-azcopy-blobs.md) 명령줄 도구를 사용할 수 있습니다. Azure Data Factory와 같은 기타 도구는 데이터 이동 및 변환에도 사용할 수 있습니다.
+저장소 계정 간에 blob을 복사 하려면 최신 버전의 [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) 명령줄 도구를 사용할 수 있습니다. Azure Data Factory와 같은 기타 도구는 데이터 이동 및 변환에도 사용할 수 있습니다.
 
 ## <a name="blob-lifecycle-management"></a>Blob 수명 주기 관리
 

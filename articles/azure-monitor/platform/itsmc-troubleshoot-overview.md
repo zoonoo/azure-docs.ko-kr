@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: e43c5fb36c5395e12fd0b9c2c67b787a1137f5d0
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: fce20626d5e000c08b8a057671c06a3084534187
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761982"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896039"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>ITSM 커넥터의 문제 해결
 
 이 문서에서는 ITSM 커넥터의 일반적인 문제와 이러한 문제를 해결 하는 방법에 대해 설명 합니다.
 
-Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알려 줍니다. 시스템 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다. 경고에 대 한 자세한 내용은 Microsoft Azure의 경고 개요를 참조 하세요.
+Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알려 줍니다. 시스템 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다.
 고객은 메일, SMS, 웹 후크 또는 솔루션 자동화를 통해 경고에 대 한 알림을 받는 방법을 선택할 수 있습니다. 알림이 제공 되는 또 다른 옵션은 ITSM를 사용 하는 것입니다.
 ITSM은 ServiceNow와 같은 외부 티켓 시스템으로 경고를 보내는 옵션을 제공 합니다.
 

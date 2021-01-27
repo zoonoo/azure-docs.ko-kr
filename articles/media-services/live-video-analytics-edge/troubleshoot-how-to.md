@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d49f048df7a624dc490acf7cb4c8e5f33aa5f1c6
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: d23294c21d49b1c2ab83c4bf8f110d5d4bc7aafb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060234"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878293"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>IoT Edge의 Live Video Analytics 문제 해결
 
@@ -66,7 +66,7 @@ IoT Edge 모듈에서 라이브 비디오 분석이 IoT Edge 장치에 올바르
     * 500 - IoT Edge 런타임에서 오류가 발생했습니다.
 
     > [!TIP]
-    > 사용자 환경에서 Azure IoT Edge 모듈을 실행 하는 데 문제가 발생 하는 경우 **[Azure IoT Edge 표준 진단 단계](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** 를 문제 해결 및 진단에 대 한 지침으로 사용 합니다.
+    > 사용자 환경에서 Azure IoT Edge 모듈을 실행 하는 데 문제가 발생 하는 경우 **[Azure IoT Edge 표준 진단 단계](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** 를 문제 해결 및 진단에 대 한 지침으로 사용 합니다.
 ### <a name="post-deployment-direct-method-error-code"></a>배포 후: 직접 메서드 오류 코드
 1. 상태가 표시 되는 경우 `501 code` 직접 메서드 이름이 정확한 지 확인 합니다. 메서드 이름과 요청 페이로드가 정확한 경우 성공 코드 = 200과 함께 결과를 가져와야 합니다. 
 1. 요청 페이로드가 정확 하지 않은 경우 `400 code` 직접 메서드 호출을 통해 문제를 진단 하는 데 도움이 되는 오류 코드와 메시지를 나타내는 상태 및 응답 페이로드를 가져옵니다.
@@ -96,7 +96,7 @@ IoT Edge 모듈에서 라이브 비디오 분석이 IoT Edge 장치에 올바르
 * [IoT Edge 모듈이 성공적으로 배포 된 후 장치에서 사라집니다](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
     > [!TIP]
-    > 사용자 환경에서 Azure IoT Edge 모듈을 실행 하는 데 문제가 발생 하는 경우 **[Azure IoT Edge 표준 진단 단계](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** 를 문제 해결 및 진단에 대 한 지침으로 사용 합니다.
+    > 사용자 환경에서 Azure IoT Edge 모듈을 실행 하는 데 문제가 발생 하는 경우 **[Azure IoT Edge 표준 진단 단계](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** 를 문제 해결 및 진단에 대 한 지침으로 사용 합니다.
 ### <a name="live-video-analytics-working-with-external-modules"></a>라이브 비디오 분석 외부 모듈 사용
 
 미디어 그래프 확장 프로세서를 통한 라이브 비디오 분석에서는 HTTP 또는 gRPC 프로토콜을 사용 하 여 다른 IoT Edge 모듈에서 데이터를 보내고 받도록 미디어 그래프를 확장할 수 있습니다. 특정 한 [예로](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension),이 미디어 그래프는 비디오 프레임을 yolo v3과 같은 외부 유추 모듈에 이미지로 보내고 HTTP 프로토콜을 사용 하 여 JSON 기반 분석 결과를 받을 수 있습니다. 이러한 토폴로지에서 이벤트의 대상은 대부분 IoT hub입니다. 허브에 대 한 유추 이벤트가 표시 되지 않는 경우 다음을 확인 합니다.
@@ -218,7 +218,7 @@ IoT Edge 장치에서 로그를 수집 해야 하는 경우 가장 쉬운 방법
 
     a. **모듈** 테이블 아래에서 **lvaEdge** 을 선택 합니다.  
     b. 창 위쪽에서 **모듈 id** 쌍을 선택 합니다. 편집 가능한 창이 열립니다.  
-    다. **원하는 키** 아래에 다음 키/값 쌍을 추가 합니다.  
+    c. **원하는 키** 아래에 다음 키/값 쌍을 추가 합니다.  
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     > [!NOTE] 
@@ -272,7 +272,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ``` 
 
-[.Net의 gRPC에서 로깅 및 진단은](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) grpc 서버에서 일부 진단 로그를 수집 하기 위한 몇 가지 지침을 제공 합니다. 
+[.Net의 gRPC에서 로깅 및 진단은](/aspnet/core/grpc/diagnostics?preserve-view=true&view=aspnetcore-3.1) grpc 서버에서 일부 진단 로그를 수집 하기 위한 몇 가지 지침을 제공 합니다. 
 
 ### <a name="a-failed-grpc-connection"></a>실패 한 gRPC 연결 
 
@@ -282,7 +282,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 Live Video Analytics는 하드웨어 리소스 모니터링을 모니터링 하거나 제공 하지 않습니다. 개발자는 하드웨어 제조업체의 모니터링 솔루션을 사용 해야 합니다. 그러나 Kubernetes 컨테이너를 사용 하는 경우 [Kubernetes 대시보드](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)를 사용 하 여 장치를 모니터링할 수 있습니다. 
 
-또한 .NET core 문서의 gRPC는 [성능 모범 사례](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1&preserve-view=true) 및 [부하 분산](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing&preserve-view=true)에 대 한 몇 가지 중요 한 정보를 공유 합니다.  
+또한 .NET core 문서의 gRPC는 [성능 모범 사례](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1) 및 [부하 분산](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1#load-balancing)에 대 한 몇 가지 중요 한 정보를 공유 합니다.  
 
 ### <a name="troubleshooting-an-inference-server-when-it-does-not-receive-any-frames-and-you-are-receiving-an-unknown-protocol-error"></a>유추 서버에서 프레임을 받지 않고 수신 하 고 있는 경우 "알 수 없는" 프로토콜 오류가 발생 하면 문제 해결 
 
@@ -296,7 +296,7 @@ Live Video Analytics는 하드웨어 리소스 모니터링을 모니터링 하�
    ```
 
    명령이 jumbled text의 짧은 문자열을 출력 하는 경우 텔넷은 유추 서버에 대 한 연결을 열고 이진 gRPC 채널을 열 수 있습니다. 이 메시지가 표시 되지 않으면 텔넷에서 네트워크 오류를 보고 합니다. 
-* 유추 서버에서 gRPC 라이브러리의 추가 로깅을 사용 하도록 설정할 수 있습니다. 이는 gRPC 채널 자체에 대 한 추가 정보를 제공할 수 있습니다. 언어에 따라 달라 지 며, 다음은 [c #](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true)에 대 한 지침입니다. 
+* 유추 서버에서 gRPC 라이브러리의 추가 로깅을 사용 하도록 설정할 수 있습니다. 이는 gRPC 채널 자체에 대 한 추가 정보를 제공할 수 있습니다. 언어에 따라 달라 지 며, 다음은 [c #](/aspnet/core/grpc/diagnostics?preserve-view=true&view=aspnetcore-3.1)에 대 한 지침입니다. 
 
 ### <a name="picking-more-images-from-buffer-of-grpc-without-sending-back-result-for-first-buffer"></a>첫 번째 버퍼에 대 한 결과를 보내지 않고 gRPC의 버퍼에서 추가 이미지를 선택 합니다.
 

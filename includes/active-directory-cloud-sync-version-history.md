@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 35cb7ba4523cfbc88daf958fd972b127519385ce
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 69f0da2f1528ad1f45762a8f754cc2020b4cb880
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792384"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901058"
 ---
 이 문서에서는 릴리스된 Azure Active Directory Connect 프로 비전 에이전트의 버전 및 기능을 나열 합니다. Azure AD 팀은 새로운 기능과 기능으로 프로 비전 에이전트를 정기적으로 업데이트 합니다. 프로 비전 에이전트는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 
 
@@ -99,5 +99,3 @@ Microsoft는 최신 에이전트 버전 및 이전 버전을 직접 지원 합�
 * 더 나은 성능, 안정성 및 안정성을 위해 프로 비전 에이전트 및 커넥터 아키텍처를 개선 된. 
 * UI 기반 설치 마법사를 사용 하 여 프로 비전 에이전트 구성 간소화 
 * 자동 에이전트 업데이트에 대 한 지원 추가
-
-

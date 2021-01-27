@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8454c5a5bb5b44d2a60ae0095a9b82a19ed27c8d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185554"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896649"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Azure Automation 계정을 다른 구독으로 이동
 
@@ -37,11 +37,11 @@ Automation 계정에서 작업 영역의 연결을 해제하려면 작업 영역
 - 작업이 없는 동안 VM 시작/중지
 
 1. Azure Portal에서 리소스 그룹을 찾습니다.
-2. 각 기능을 찾고 **리소스 삭제** 페이지에서 **삭제**를 선택합니다.
+2. 각 기능을 찾고 **리소스 삭제** 페이지에서 **삭제** 를 선택합니다.
 
     ![Azure Portal에서 기능 리소스를 삭제하는 스크린샷](../media/move-account/delete-solutions.png)
 
-원하는 경우 다음과 같이 [AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) cmdlet을 사용하여 리소스를 삭제할 수 있습니다.
+원하는 경우 다음과 같이 [AzResource](/powershell/module/Az.Resources/Remove-AzResource) cmdlet을 사용하여 리소스를 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -55,7 +55,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 
 작업 시간 외 VM 시작/중지의 경우 기능에서 만든 경고 규칙도 제거해야 합니다.
 
-1. Azure Portal에서 리소스 그룹으로 이동하고 **모니터링** > **경고s** > **경고 규칙 관리**를 선택합니다.
+1. Azure Portal에서 리소스 그룹으로 이동하고 **모니터링** > **경고s** > **경고 규칙 관리** 를 선택합니다.
 
    ![경고 규칙 관리 선택 항목을 보여 주는 경고 페이지 스크린샷](../media/move-account/alert-rules.png)
 
@@ -65,22 +65,22 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
     * ScheduledStartStop_Parent
     * SequencedStartStop_Parent
 
-3. 규칙을 한 번에 하나씩 선택하고 **삭제**를 선택하여 제거합니다.
+3. 규칙을 한 번에 하나씩 선택하고 **삭제** 를 선택하여 제거합니다.
 
     ![선택한 규칙에 대해 삭제 확인을 요청하는 규칙 페이지의 스크린샷](../media/move-account/delete-rules.png)
 
     > [!NOTE]
-    > 규칙 페이지에 경고 규칙이 표시되지 않으면 **상태** 필드를 **사용 안 함**으로 변경하여 사용하지 않는 경고를 표시합니다. 
+    > 규칙 페이지에 경고 규칙이 표시되지 않으면 **상태** 필드를 **사용 안 함** 으로 변경하여 사용하지 않는 경고를 표시합니다. 
 
-4. 경고 규칙을 제거할 때는 작업 시간 외 VM 시작/중지에 대해 만든 작업 그룹을 제거해야 합니다. Azure Portal에서 **모니터** > **경고** > **작업 그룹 관리**를 선택합니다.
+4. 경고 규칙을 제거할 때는 작업 시간 외 VM 시작/중지에 대해 만든 작업 그룹을 제거해야 합니다. Azure Portal에서 **모니터** > **경고** > **작업 그룹 관리** 를 선택합니다.
 
-5. **StartStop_VM_Notification**을 선택합니다. 
+5. **StartStop_VM_Notification** 을 선택합니다. 
 
-6. 작업 그룹 페이지에서 **삭제**를 선택합니다.
+6. 작업 그룹 페이지에서 **삭제** 를 선택합니다.
 
     ![작업 그룹 페이지의 스크린샷](../media/move-account/delete-action-group.png)
 
-원하는 경우 다음과 같이 [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) cmdlet을 사용하여 작업 그룹을 삭제할 수 있습니다.
+원하는 경우 다음과 같이 [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup) cmdlet을 사용하여 작업 그룹을 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
@@ -90,9 +90,9 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 
 이제 작업 영역 연결을 해제할 수 있습니다.
 
-1. Azure Portal에서 **Automation 계정** > **관련 리소스** > **연결된 작업 영역**을 선택합니다. 
+1. Azure Portal에서 **Automation 계정** > **관련 리소스** > **연결된 작업 영역** 을 선택합니다. 
 
-2. **작업 영역 연결 해제**를 선택하여 Automation 계정에서 작업 영역의 연결을 해제합니다.
+2. **작업 영역 연결 해제** 를 선택하여 Automation 계정에서 작업 영역의 연결을 해제합니다.
 
     ![Automation 계정에서 작업 영역 연결 해제의 스크린샷](../media/move-account/unlink-workspace.png)
 
@@ -100,7 +100,7 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 
 이제 Automation 계정 및 Runbook을 이동할 수 있습니다. 
 
-1. Azure Portal에서 Automation 계정의 리소스 그룹으로 이동합니다. **이동** > **다른 구독으로 이동**을 선택합니다.
+1. Azure Portal에서 Automation 계정의 리소스 그룹으로 이동합니다. **이동** > **다른 구독으로 이동** 을 선택합니다.
 
     ![리소스 그룹 페이지, 다른 구독으로 이동의 스크린샷](../media/move-account/move-resources.png)
 
@@ -110,18 +110,18 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 
 [실행 계정](../manage-runas-account.md)은 Azure Active Directory에서 서비스 주체를 만들어 Azure 리소스에 인증합니다. 구독을 변경하면 Automation 계정에서 기존 실행 계정을 더 이상 사용하지 않습니다. 실행 계정을 다시 만들려면 다음을 수행합니다.
 
-1. 새 구독의 Automation 계정에서 **계정 설정** 아래의 **실행 계정**을 선택합니다. 지금은 실행 계정이 불완전하게 표시됩니다.
+1. 새 구독의 Automation 계정에서 **계정 설정** 아래의 **실행 계정** 을 선택합니다. 지금은 실행 계정이 불완전하게 표시됩니다.
 
     ![불완전하게 표시되는 실행 계정의 스크린샷](../media/move-account/run-as-accounts.png)
 
-2. **속성** 페이지에서 **삭제**를 선택하여 실행 계정을 한 번에 하나씩 삭제합니다. 
+2. **속성** 페이지에서 **삭제** 를 선택하여 실행 계정을 한 번에 하나씩 삭제합니다. 
 
     > [!NOTE]
     > 실행 계정을 만들거나 볼 권한이 없는 경우 다음과 같은 메시지가 표시됩니다. `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` 자세한 내용은 [실행 계정을 구성하는 데 필요한 권한](../manage-runas-account.md#permissions)을 참조하세요.
 
-3. 실행 계정을 삭제한 후 **Azure 실행 계정**에서 **만들기**를 선택합니다. 
+3. 실행 계정을 삭제한 후 **Azure 실행 계정** 에서 **만들기** 를 선택합니다. 
 
-4. Azure 실행 계정 추가 페이지에서 **만들기**를 선택하여 실행 계정 및 서비스 주체를 만듭니다. 
+4. Azure 실행 계정 추가 페이지에서 **만들기** 를 선택하여 실행 계정 및 서비스 주체를 만듭니다. 
 
 5. Azure 클래식 실행 계정으로 위의 단계를 반복합니다.
 
@@ -129,13 +129,13 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 
 실행 계정을 다시 만든 후에는 이동 전에 제거한 기능을 다시 사용하도록 설정해야 합니다.
 
-1. 변경 내용 추적 및 인벤토리를 켜려면 Automation 계정에서 **변경 내용 추적 및 인벤토리**를 선택합니다. 이동한 Log Analytics 작업 영역을 선택하고 **사용**을 선택합니다.
+1. 변경 내용 추적 및 인벤토리를 켜려면 Automation 계정에서 **변경 내용 추적 및 인벤토리** 를 선택합니다. 이동한 Log Analytics 작업 영역을 선택하고 **사용** 을 선택합니다.
 
 2. 업데이트 관리에 대해 1단계를 반복합니다.
 
     ![이동된 Automation 계정의 기능을 다시 사용하도록 설정하는 스크린샷](../media/move-account/reenable-solutions.png)
 
-3. 기능을 사용하도록 설정된 머신은 기존 Log Analytics 작업 영역을 연결할 때 표시됩니다. 작업 시간 외 VM 시작/중지 기능을 켜려면 해당 기능을 다시 사용하도록 설정해야 합니다. **관련 리소스**에서 **VM 시작/중지** > **솔루션 자세히 보기 및 사용** > **만들기**를 선택하여 배포를 시작합니다.
+3. 기능을 사용하도록 설정된 머신은 기존 Log Analytics 작업 영역을 연결할 때 표시됩니다. 작업 시간 외 VM 시작/중지 기능을 켜려면 해당 기능을 다시 사용하도록 설정해야 합니다. **관련 리소스** 에서 **VM 시작/중지** > **솔루션 자세히 보기 및 사용** > **만들기** 를 선택하여 배포를 시작합니다.
 
 4. 솔루션 추가 페이지에서 Log Analytics 작업 영역 및 Automation 계정을 선택합니다.
 

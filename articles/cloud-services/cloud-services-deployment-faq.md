@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: dd7b19a2c9e872b811c1aab6e504accb7de383b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742219"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896480"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Azure Cloud Services (클래식)에 대 한 배포 문제: faq (질문과 대답)
 
@@ -52,7 +52,7 @@ ms.locfileid: "98742219"
 
 포털에서 구독에 대 한 현재 사용량/할당량을 추적할 수도 있습니다. Azure Portal => Subscription => \<appropriate subscription>   => "사용량 + 할당량".
 
-Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 수도 있습니다. [Azure 리소스 사용량 API(미리 보기)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview)을 참조하세요.
+Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 수도 있습니다. [Azure 소비 API 개요](../cost-management-billing/manage/consumption-api-overview.md)를 참조 하세요.
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>배포된 클라우드 서비스 VM을 다시 배포하지 않고 크기를 변경하려면 어떻게 할까요?
 배포된 클라우드 서비스 VM을 다시 배포하지 않고 크기를 변경할 수 없습니다. VM 크기는 CSDEF에 포함되며 재배포로 업데이트할 수 있습니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 16fff00f04c4cd57ad46759cceb50134e58d5e01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.openlocfilehash: 139366277feab0a04c47311b4f0210223b2bc8d9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933101"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892034"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -493,3 +493,9 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 - [헤더 기반 애플리케이션에 대한 F5 Single Sign-On 구성](headerf5-tutorial.md)
 
 - [고급 Kerberos 애플리케이션에 대한 F5 Single Sign-On 구성](advance-kerbf5-tutorial.md)
+
+- [보안 하이브리드 액세스를 위한 F5 빅 IP APM 및 Azure AD 통합](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+
+- [보안 하이브리드 액세스를 위해 Azure IaaS에서 F5 빅 IP 가상 버전 VM을 배포 하는 방법에 대 한 자습서](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+
+- [암호 없는 VPN의 경우 F5 빅 IP와 Azure Active Directory Single Sign-On 통합에 대 한 자습서](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)

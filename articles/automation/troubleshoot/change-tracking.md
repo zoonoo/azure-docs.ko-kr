@@ -2,19 +2,15 @@
 title: Azure Automation 변경 내용 추적 및 인벤토리 문제 해결
 description: 이 문서에서는 Azure Automation 변경 내용 추적 및 인벤토리 기능과 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/31/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 3ecd4330381db1f63a40e9ba5ff63108c6fa78fe
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.topic: troubleshooting
+ms.openlocfilehash: 516f1a4e5e7c677b17a2941ee3c300db44d49a3b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205611"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896548"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>변경 내용 추적 및 인벤토리 문제 해결
 
@@ -39,7 +35,7 @@ ms.locfileid: "92205611"
 
 #### <a name="resolution"></a>해결 방법
 
-Log Analytics 에이전트 머신에서 **C:\Program Files\Microsoft Monitoring Agent\Agent\Tools**로 이동하고 다음 명령을 실행합니다.
+Log Analytics 에이전트 머신에서 **C:\Program Files\Microsoft Monitoring Agent\Agent\Tools** 로 이동하고 다음 명령을 실행합니다.
 
 ```cmd
 net stop healthservice
@@ -120,4 +116,4 @@ Azure Security Center의 FIM 기능이 Linux 파일의 무결성에 대해 잘�
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 * 고객 환경을 개선하기 위한 공식 Microsoft Azure 계정인 [@AzureSupport](https://twitter.com/azuresupport)와 연결합니다. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에게 연결합니다.
-* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기**를 선택합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기** 를 선택합니다.

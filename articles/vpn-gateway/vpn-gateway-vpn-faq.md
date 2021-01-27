@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 7e59c8ecc0d7af341ddc1ea79aa42460e00fa444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 467c2b9fe8758db5c1da43a65c1bfde133df0823
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419778"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880104"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -38,7 +38,7 @@ Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결
 
 다음 프레미스 간 연결을 지원합니다.
 
-* 사이트 간 – IPsec 통한 VPN 연결(IKE v1 및 IKE v2). 이 연결 유형은 VPN 디바이스 또는 RRAS가 필요합니다. 자세한 내용은 [사이트 간](vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 참조하세요.
+* 사이트 간 – IPsec 통한 VPN 연결(IKE v1 및 IKE v2). 이 연결 유형은 VPN 디바이스 또는 RRAS가 필요합니다. 자세한 내용은 [사이트 간](./tutorial-site-to-site-portal.md)을 참조하세요.
 * 지점 및 사이트 간 - SSTP(Secure Socket Tunneling Protocol) 또는 IKE v2를 통한 VPN 연결. 이 연결에는 VPN 디바이스가 필요하지 않습니다. 자세한 내용은 [지점 및 사이트 간](vpn-gateway-howto-point-to-site-resource-manager-portal.md)을 참조하세요.
 * VNet 간 - 이 유형의 연결은 사이트 간 구성과 동일합니다. VNet 간 연결은 IPsec를 통한 VPN 연결(IKE v1 및 IKE v2)입니다. VPN 디바이스가 필요하지 않습니다. 자세한 내용은 [VNet 간](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 참조하세요.
 * 다중 사이트 - 가상 네트워크에 여러 온-프레미스 사이트를 연결할 수 있는 사이트 간 구성의 변형입니다. 자세한 내용은 [다중 사이트](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)를 참조하세요.
@@ -70,13 +70,13 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>내 정책 기반 VPN 게이트웨이를 경로 기반으로 업데이트할 수 있나요?
 
-아니요.Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
+아니요. Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
 1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
 1. 게이트웨이를 삭제합니다.
    - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
    - [Azure PowerShell-클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [원하는 유형의 새 게이트웨이를 만들고 VPN 설치를 완료](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)합니다.
+1. [원하는 유형의 새 게이트웨이를 만들고 VPN 설치를 완료](./tutorial-site-to-site-portal.md#VNetGateway)합니다.
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>'GatewaySubnet'이 필요한가요?
 
@@ -127,9 +127,9 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 예. [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
 
-### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>VPN 연결에서 NAT-T를 사용할 수 있나요?
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>내 VPN 연결에서 NAT-T를 사용할 수 있나요?
 
-예, NAT 통과 (NAT-T)가 지원 됩니다. Azure VPN Gateway는 IPsec 터널에 대 한 내부 패킷과 NAT와 유사한 기능을 수행 하지 않습니다.  이 구성에서 온-프레미스 장치가 IPSec 터널을 시작 하는지 확인 하세요.
+예, NAT-T(NAT traversal)가 지원됩니다. Azure VPN Gateway는 IPsec 터널에 대 한 내부 패킷과 NAT와 유사한 기능을 수행 하지 않습니다.  이 구성에서 온-프레미스 디바이스가 IPSec 터널을 시작하는지 확인하세요.
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Azure에서 내 VPN 서버를 설정하여 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니까?
 
@@ -175,7 +175,7 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 ## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>내 지점 및 사이트 간 연결에 대 한 인증 유형을 변경 어떻게 할까요??
 
-VPN Gateway 아래에서 지점 및 사이트 간 **구성** 섹션으로 이동 하 여 원하는 라디오 단추를 선택 하 여 지점 및 사이트 간 연결에 대 한 인증 방법을 변경할 수 있습니다. 현재 옵션은 **Azure 인증서, RADIUS 인증 및 Azure Active Directory**입니다. 새 프로필이 다운로드 되어 클라이언트에 구성 될 때까지 현재 클라이언트는 변경 후에 **연결 하지 못할 수 있습니다** .
+VPN Gateway 아래에서 지점 및 사이트 간 **구성** 섹션으로 이동 하 여 원하는 라디오 단추를 선택 하 여 지점 및 사이트 간 연결에 대 한 인증 방법을 변경할 수 있습니다. 현재 옵션은 **Azure 인증서, RADIUS 인증 및 Azure Active Directory** 입니다. 새 프로필이 다운로드 되어 클라이언트에 구성 될 때까지 현재 클라이언트는 변경 후에 **연결 하지 못할 수 있습니다** .
 
 ## <a name="point-to-site-using-native-azure-certificate-authentication"></a><a name="P2S"></a>네이티브 Azure 인증서 인증을 사용하는 지점 및 사이트 간 연결
 

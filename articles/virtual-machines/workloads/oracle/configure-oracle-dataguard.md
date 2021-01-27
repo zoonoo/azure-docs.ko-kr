@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: cc7579b48307325e25d8914ea4c722a9641883f3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 303244d153877ba71796ff1f075e2e58a5084469
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952151"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880324"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에서 Oracle Data Guard 구현 
 
@@ -22,7 +22,7 @@ Azure CLI는 명령줄 또는 스크립트에서 Azure 리소스를 만들고 �
 시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](/cli/azure/install-azure-cli)를 참조 하세요.
 
 ## <a name="prepare-the-environment"></a>환경 준비
-### <a name="assumptions"></a>가정
+### <a name="assumptions"></a>Assumptions
 
 Oracle Data Guard를 설치하려면 동일한 가용성 집합에서 두 개의 Azure VM을 만들어야 합니다.
 
@@ -697,4 +697,4 @@ az group delete --name myResourceGroup
 
 [자습서: 고가용성 가상 머신 만들기](../../linux/create-cli-complete.md)
 
-[VM 배포 Azure CLI 샘플 탐색](../../linux/cli-samples.md)
+[VM 배포 Azure CLI 샘플 탐색](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

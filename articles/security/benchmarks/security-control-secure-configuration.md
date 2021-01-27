@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 349456b0a4de65520dd633efe0573d24ea1c89c4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f945699256b4de9bd87ee4ab7500268302e93089
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409028"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880172"
 ---
 # <a name="security-control-secure-configuration"></a>보안 제어: 보안 구성
 
@@ -88,9 +88,9 @@ Azure 계산 리소스에 대 한 취약성 평가를 수행 하는 Azure Securi
 
 - [Azure Portal에서 Windows 가상 컴퓨터 만들기](../../virtual-machines/windows/quick-create-portal.md)
 
-- [VM 템플릿을 다운로드 하는 방법에 대 한 정보](../../virtual-machines/windows/download-template.md)
+- [VM 템플릿을 다운로드 하는 방법에 대 한 정보](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](../../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 ## <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Azure 리소스 구성을 안전하게 저장
 
@@ -118,7 +118,7 @@ Azure DevOps를 사용 하 여 사용자 지정 Azure 정책, Azure Resource Man
 
 - [Azure RBAC를 구성 하는 방법](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [공유 이미지 갤러리 개요](../../virtual-machines/windows/shared-image-galleries.md)
+- [공유 이미지 갤러리 개요](../../virtual-machines/shared-image-galleries.md)
 
 ## <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Azure 리소스에 대 한 구성 관리 도구 배포
 

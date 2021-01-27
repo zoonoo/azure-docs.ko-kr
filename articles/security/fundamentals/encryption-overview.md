@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d7d438b369c863660a032f101e466b6fadf639fa
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410218"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879717"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -45,11 +45,11 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 세 가지 서버 쪽 암호화 모델은 요구 사항에 따라 선택할 수 있는 서로 다른 키 관리 특성을 제공합니다.
 
-- **서비스 관리형 키** : 낮은 오버헤드로 제어와 편의성을 모두 제공합니다.
+- **서비스 관리형 키**: 낮은 오버헤드로 제어와 편의성을 모두 제공합니다.
 
-- **고객 관리형 키** : BYOK(Bring Your Own Key)를 지원하거나 새 키를 생성하는 등 키를 제어하도록 허용합니다.
+- **고객 관리형 키**: BYOK(Bring Your Own Key)를 지원하거나 새 키를 생성하는 등 키를 제어하도록 허용합니다.
 
-- **고객 제어형 하드웨어의 서비스 관리형 키** : Microsoft의 제어 범위 밖에 있는 독점적인 리포지토리에서 키를 관리할 수 있습니다. 이 특성을 HYOK(Host Your Own Key)라고 합니다. 그러나 구성이 복잡하고 대부분의 Azure 서비스는 이 모델을 지원하지 않습니다.
+- **고객 제어형 하드웨어의 서비스 관리형 키**: Microsoft의 제어 범위 밖에 있는 독점적인 리포지토리에서 키를 관리할 수 있습니다. 이 특성을 HYOK(Host Your Own Key)라고 합니다. 그러나 구성이 복잡하고 대부분의 Azure 서비스는 이 모델을 지원하지 않습니다.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -181,7 +181,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 가상 네트워크에
 
 자세한 내용은 다음을 참조하세요.
 
-[Azure Portal에서 사이트 간 연결 만들기](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Azure Portal에서 사이트 간 연결 만들기](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
 [PowerShell에서 사이트 간 연결 만들기](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 

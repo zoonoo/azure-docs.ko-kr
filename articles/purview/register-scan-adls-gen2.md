@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.openlocfilehash: 0232682661387e635e6ce8bfb5fc6e03301d130c
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 4b7f71b5405708cc1988fafa5ca9c4628fe0d80b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694801"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882402"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 등록 및 검색
 
@@ -48,7 +48,7 @@ Azure Data Lake Storage Gen2에 대해 지원 되는 인증 방법은 다음과 
 1. **역할** 을 **저장소 Blob 데이터 판독기** 로 설정 하 고 입력 상자 **선택** 상자에 Azure 부서의 범위 계정 이름을 입력 합니다. 그런 다음, **저장** 을 선택하여 Purview 계정에 이 역할을 할당합니다.
 
 > [!Note]
-> 자세한 내용은 [Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](https://docs.microsoft.com/azure/storage/common/storage-auth-aad) 의 단계를 참조 하세요.
+> 자세한 내용은 [Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](../storage/common/storage-auth-aad.md) 의 단계를 참조 하세요.
 
 #### <a name="account-key"></a>계정 키
 

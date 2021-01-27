@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3bb42886c653afbdf8975b532bd2e1e1c3c63ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b45aad71e04418c7c7dda4fc3f0c84a5fe99ecdf
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186540"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896345"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation State Configuration에서 DSC 구성 컴파일
 
@@ -35,13 +35,13 @@ Azure DSC(Desired State Configuration) 확장으로 Azure Resource Manager 템�
 
 1. Automation 계정에서 **State Configuration(DSC)** 을 클릭합니다.
 1. **구성** 탭 및 컴파일할 구성 이름을 차례로 클릭합니다.
-1. **컴파일**을 클릭합니다.
+1. **컴파일** 을 클릭합니다.
 1. 구성에 매개 변수가 없는 경우 컴파일할지 확인하라는 메시지가 표시됩니다. 구성에 매개 변수가 있는 경우 **컴파일 구성** 블레이드를 열어 매개 변수 값을 제공할 수 있습니다.
 1. 컴파일 작업 상태를 추적할 수 있도록 컴파일 작업 페이지가 열립니다. 또한 이 페이지를 사용하여 Azure Automation State Configuration 끌어오기 서버에 배치된 노드 구성(MOF 구성 문서)을 추적할 수 있습니다.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-[Start-AzAutomationDscCompilationJob](/powershell/module/az.automation/start-azautomationdsccompilationjob)을 사용하여 Windows PowerShell로 컴파일을 시작할 수 있습니다. 다음 샘플 코드는 **SampleConfig**라는 DSC 구성의 컴파일을 시작합니다.
+[Start-AzAutomationDscCompilationJob](/powershell/module/az.automation/start-azautomationdsccompilationjob)을 사용하여 Windows PowerShell로 컴파일을 시작할 수 있습니다. 다음 샘플 코드는 **SampleConfig** 라는 DSC 구성의 컴파일을 시작합니다.
 
 ```powershell
 Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
@@ -99,7 +99,7 @@ Azure Automation State Configuration 포털에서 또는 Azure PowerShell로 기
 
 #### <a name="portal"></a>포털
 
-포털에서 **컴파일**을 클릭한 후에 매개 변수 값을 입력할 수 있습니다.
+포털에서 **컴파일** 을 클릭한 후에 매개 변수 값을 입력할 수 있습니다.
 
 ![구성 컴파일 매개 변수](./media/automation-dsc-compile/DSC_compiling_1.png)
 
@@ -153,7 +153,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Windows PowerShell로 이전 DSC 구성을 컴파일할 수 있습니다. 다음 스크립트는 Azure Automation State Configuration 끌어오기 서비스에 두 개의 노드 구성 **ConfigurationDataSample.MyVM1** 및 **ConfigurationDataSample.MyVM3**를 추가합니다.
+Windows PowerShell로 이전 DSC 구성을 컴파일할 수 있습니다. 다음 스크립트는 Azure Automation State Configuration 끌어오기 서비스에 두 개의 노드 구성 **ConfigurationDataSample.MyVM1** 및 **ConfigurationDataSample.MyVM3** 를 추가합니다.
 
 ```powershell
 $ConfigData = @{
@@ -217,7 +217,7 @@ Configuration CredentialSample
 }
 ```
 
-PowerShell로 이전 DSC 구성을 컴파일할 수 있습니다. 다음 PowerShell 코드는 Azure Automation State Configuration 끌어오기 서버에 두 개의 노드 구성 **CredentialSample.MyVM1** 및 **CredentialSample.MyVM2**를 추가합니다.
+PowerShell로 이전 DSC 구성을 컴파일할 수 있습니다. 다음 PowerShell 코드는 Azure Automation State Configuration 끌어오기 서버에 두 개의 노드 구성 **CredentialSample.MyVM1** 및 **CredentialSample.MyVM2** 를 추가합니다.
 
 ```powershell
 $ConfigData = @{
@@ -258,13 +258,13 @@ Azure 외부에서 컴파일한 노드 구성(MOF 파일)을 가져올 수도 �
 ### <a name="import-a-node-configuration-in-the-azure-portal"></a>Azure Portal에서 노드 구성 가져오기
 
 1. Automation 계정 페이지에서 **구성 관리** 아래에 있는 **State Configuration(DSC)** 을 클릭합니다.
-1. State Configuration(DSC) 페이지에서 **구성** 탭을 클릭한 다음, **추가**를 클릭합니다.
+1. State Configuration(DSC) 페이지에서 **구성** 탭을 클릭한 다음, **추가** 를 클릭합니다.
 1. 가져오기 페이지에서 **노드 구성 파일** 필드 옆의 폴더 아이콘을 클릭하여 로컬 컴퓨터에서 노드 구성 MOF 파일을 찾습니다.
 
    ![로컬 파일 찾기](./media/automation-dsc-compile/import-browse.png)
 
 1. **구성 이름** 필드에 이름을 입력합니다. 이 이름은 노드 구성이 컴파일된 구성 이름과 일치해야 합니다.
-1. **확인**을 클릭합니다.
+1. **확인** 을 클릭합니다.
 
 ### <a name="import-a-node-configuration-with-azure-powershell"></a>Azure PowerShell을 사용하여 노드 구성 가져오기
 
@@ -278,6 +278,6 @@ Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAcco
 
 - 시작하려면 [Azure Automation State Configuration 시작하기](automation-dsc-getting-started.md)를 참조하세요.
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
-- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 - 지속적인 배포 파이프라인에서 State Configuration을 사용하는 예제는 [Chocolatey를 사용한 지속적인 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.

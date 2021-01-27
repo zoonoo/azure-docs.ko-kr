@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2eb109078728b8a9070b3991733450c1da790d9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019228"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879598"
 ---
 # <a name="table-design-patterns"></a>테이블 디자인 패턴
 이 아티클에서는 Table service 솔루션에서 사용하기에 적합한 몇 가지 패턴에 대해 알아봅니다. 또한 다른 Table Storage 디자인 아티클에서 설명한 문제 및 장단점 중 일부를 실용적으로 해결할 수 있는 방법도 확인합니다. 다음 다이어그램에는 서로 다른 패턴 간의 관계가 요약되어 있습니다.  
@@ -711,7 +711,7 @@ Storage 클라이언트 라이브러리에서 EGT를 실행할 때 발생하는 
 디자인이 클라이언트 애플리케이션에서 동시성 및 업데이트 작업을 처리하는 방법에 어떤 영향을 미치는지도 고려해야 합니다.  
 
 ### <a name="managing-concurrency"></a>동시성 관리
-기본적으로 클라이언트가 Table service에서 이러한 확인을 강제로 무시하도록 할 수도 있지만 Table service는 개별 엔터티 수준에서 **삽입**, **병합** 및 **삭제** 작업에 대한 낙관적 동시성 확인을 구현합니다. Table service에서 동시성을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage에서 동시성 관리](../../storage/common/storage-concurrency.md)를 참조하세요.  
+기본적으로 클라이언트가 Table service에서 이러한 확인을 강제로 무시하도록 할 수도 있지만 Table service는 개별 엔터티 수준에서 **삽입**, **병합** 및 **삭제** 작업에 대한 낙관적 동시성 확인을 구현합니다. Table service에서 동시성을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage에서 동시성 관리](../blobs/concurrency-manage.md)를 참조하세요.  
 
 ### <a name="merge-or-replace"></a>병합 또는 바꾸기
 **TableOperation** 클래스의 **바꾸기** 메서드는 항상 Table service의 전체 엔터티를 바꿉니다. 저장된 엔터티에 존재하는 속성을 포함하지 않으면 요청 시 저장된 엔터티에서 해당 속성이 제거됩니다. 저장된 엔터티에서 속성을 명시적으로 제거하지 않은 한 모든 속성을 요청에 포함해야 합니다.  

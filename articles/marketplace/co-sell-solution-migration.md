@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 0114c75d99d79041631e5078deb33f77863dc35a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 84d98eedb3ea6f3faaeaecf832811f9f4c78c7c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043781"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880358"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>OCP GTM에서 상업적 marketplace로 공동 판매 솔루션 마이그레이션
 
@@ -44,7 +44,7 @@ Microsoft에서 게시 환경을 이동 하 고 있습니다. [상업적 marketp
 
 OCP GTM에서 솔루션을 가져오기 전에 다음 단계를 수행 합니다.
 
-1. 회사의 [게시자 목록을](https://partner.microsoft.com/dashboard/account/v3/publishers/list)방문 합니다. 게시 액세스 권한이 있는 계정 소유자, 관리자 및 개발자를 포함 합니다. [파트너 센터 사용자 역할](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions)에 대해 자세히 알아보세요.
+1. 회사의 [게시자 목록을](https://partner.microsoft.com/dashboard/account/v3/publishers/list)방문 합니다. 게시 액세스 권한이 있는 계정 소유자, 관리자 및 개발자를 포함 합니다. [파트너 센터 사용자 역할](./partner-center-portal/manage-account.md#define-user-roles-and-permissions)에 대해 자세히 알아보세요.
 2. 이러한 역할만 솔루션을 편집 및 게시할 수 있으므로 나열 된 연락처 중 하나를 통해 *관리자* 또는 *개발자* 로 서 상업적 marketplace에 [사용자를 추가](https://partner.microsoft.com/dashboard/account/usermanagement) 하도록 요청 합니다.
 3. 개발자와 협력 하 여 OCP GTM 계정에서 상업적 marketplace로 솔루션을 이동 합니다.
 4. 수행할 작업을 결정 합니다.
@@ -156,4 +156,3 @@ OCP GTM 솔루션의 솔루션이 더 이상 관련이 없는 경우이 옵션�
 - [CSP 파트너를 통한 재판매](cloud-solution-providers.md)
 - [파트너 센터에서 공동 판매 자료를 제출 하는 방법](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - 이러한 [faq](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) 보기 (PDF)
-

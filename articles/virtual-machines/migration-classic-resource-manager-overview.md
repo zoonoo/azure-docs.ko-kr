@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 137670715af8b90d8a867459fa50249cd9be8e70
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 44b89aae2f446a13207c8e3b586892ad085bd790
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897119"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879413"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Linux에서 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션
 
@@ -24,7 +24,7 @@ ms.locfileid: "97897119"
 
 이 문서에서는 플랫폼 지원 마이그레이션 도구에 대해 간략하게 설명 하 고, Azure Service Manager (ASM) 즉, 클래식에서 리소스 관리자 (ARM) 배포 모델로 리소스를 마이그레이션하는 방법 및 가상 네트워크 사이트 간 게이트웨이를 사용 하 여 구독에 공존 하는 두 배포 모델의 리소스를 연결 하는 방법에 대해 자세히 설명 합니다. [Azure Resource Manager 기능 및 이점](../azure-resource-manager/management/overview.md)에 대해 자세히 알아볼 수 있습니다. 
 
-ASM은 두 개의 서로 다른 계산 제품인 Azure Virtual Machines (클래식) 즉, IaaS Vm & [azure Cloud Services (클래식)](https://docs.microsoft.com/azure/cloud-services/) 즉, PaaS Vm 또는 웹/작업자 역할을 지원 합니다. 이 문서에서는 Azure Virtual Machines (클래식) 마이그레이션에 대해서만 설명 합니다.
+ASM은 두 개의 서로 다른 계산 제품인 Azure Virtual Machines (클래식) 즉, IaaS Vm & [azure Cloud Services (클래식)](../cloud-services/index.yml) 즉, PaaS Vm 또는 웹/작업자 역할을 지원 합니다. 이 문서에서는 Azure Virtual Machines (클래식) 마이그레이션에 대해서만 설명 합니다.
 
 ## <a name="goal-for-migration"></a>마이그레이션 목표
 Resource Manager는 템플릿을 사용하여 복잡한 애플리케이션을 배포할 수 있도록 지원하며 VM 확장을 사용하여 가상 머신을 구성하고 액세스 관리와 태깅을 통합합니다. Azure Resource Manager는 가용성 집합에 가상 머신에 대해 확장성 있는 병렬 배포를 포함합니다. 그뿐 아니라 새로운 배포 모델에서는 컴퓨팅, 네트워크, 스토리지의 수명 주기를 독립적으로 관리할 수 있습니다. 마지막으로 가상 네트워크에 가상 머신을 적용하여 보안 구현을 기본적으로 중요시합니다.
@@ -39,7 +39,7 @@ Resource Manager는 템플릿을 사용하여 복잡한 애플리케이션을 �
 * 스토리지 계정
 * 가상 네트워크
 * VPN Gateway
-* [Express 경로 게이트웨이](https://docs.microsoft.com/azure/expressroute/expressroute-howto-move-arm) _(Virtual Network와 동일한 구독에만 해당)_
+* [Express 경로 게이트웨이](../expressroute/expressroute-howto-move-arm.md) _(Virtual Network와 동일한 구독에만 해당)_
 * 네트워크 보안 그룹
 * 경로 테이블
 * 예약된 IP

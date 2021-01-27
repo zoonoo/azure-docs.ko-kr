@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 3290574b26abe544c8c749165e22bef41a83ecf3
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d72d2d094e220bd4e460cfca6b422f0609c083af
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538158"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880070"
 ---
 # <a name="version-and-track-azure-machine-learning-datasets"></a>버전 및 추적 Azure Machine Learning 데이터 집합
 
@@ -119,7 +119,7 @@ dataset2.register(workspace = workspace,
 
 각 [ML 파이프라인](concept-ml-pipelines.md) 단계의 입력 및 출력으로 데이터 집합을 사용할 수 있습니다. 파이프라인을 다시 실행 하면 각 파이프라인 단계의 출력이 새 데이터 집합 버전으로 등록 됩니다.
 
-ML 파이프라인은 파이프라인이 다시 실행 될 때마다 각 단계의 출력을 새 폴더로 채웁니다. 이 동작으로 버전이 지정 된 출력 데이터 집합을 재현할 수 있습니다. [파이프라인의 데이터 집합](how-to-create-your-first-pipeline.md#steps)에 대해 자세히 알아보세요.
+ML 파이프라인은 파이프라인이 다시 실행 될 때마다 각 단계의 출력을 새 폴더로 채웁니다. 이 동작으로 버전이 지정 된 출력 데이터 집합을 재현할 수 있습니다. [파이프라인의 데이터 집합](./how-to-create-machine-learning-pipelines.md#steps)에 대해 자세히 알아보세요.
 
 ```Python
 from azureml.core import Dataset

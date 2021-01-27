@@ -39,7 +39,7 @@
     - name: 사용자 지정 .NET 역직렬 변환기 만들기
       href: custom-deserializer.md
     - name: IoT Edge 작업 만들기
-      href: /azure/iot-edge/tutorial-deploy-stream-analytics?view=iotedge-2018-06
+      href: ../iot-edge/tutorial-deploy-stream-analytics.md?view=iotedge-2018-06
       maintainContext: true
 - name: 샘플
   items:

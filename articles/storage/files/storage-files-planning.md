@@ -1,6 +1,6 @@
 ---
 title: Azure Files 배포에 대한 계획 | Microsoft Docs
-description: Azure Files 배포 계획을 이해 합니다. Azure 파일 공유를 직접 탑재 하거나 Azure File Sync를 사용 하 여 Azure 파일 공유를 온-프레미스로 캐시할 수 있습니다.
+description: Azure Files 배포 계획을 이해 합니다. Azure 파일 공유를 직접 탑재 하거나 Azure 파일 동기화를 사용 하 여 Azure 파일 공유를 온-프레미스로 캐시할 수 있습니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,21 +8,21 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e1b29d901630156471bbb9cb8b939bb4bb29c836
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724234"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879850"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
-[Azure Files](storage-files-introduction.md) 는 서버를 사용 하지 않는 azure 파일 공유를 직접 탑재 하거나 Azure File Sync를 사용 하 여 온-프레미스에서 azure 파일 공유를 캐시 하는 두 가지 주요 방법으로 배포할 수 있습니다. 선택 하는 배포 옵션에 따라 배포를 계획할 때 고려해 야 할 사항이 변경 됩니다. 
+[Azure Files](storage-files-introduction.md) 는 서버를 사용 하지 않는 azure 파일 공유를 직접 탑재 하거나 Azure 파일 동기화를 사용 하 여 온-프레미스에서 azure 파일 공유를 캐시 하는 두 가지 주요 방법으로 배포할 수 있습니다. 선택 하는 배포 옵션에 따라 배포를 계획할 때 고려해 야 할 사항이 변경 됩니다. 
 
 - **Azure 파일 공유의 직접 탑재**: AZURE FILES은 SMB (서버 메시지 블록) 또는 Nfs (네트워크 파일 시스템) 액세스를 제공 하므로, OS에서 사용할 수 있는 표준 SMB 또는 nfs 클라이언트를 사용 하 여 온-프레미스 또는 클라우드에서 azure 파일 공유를 탑재할 수 있습니다. Azure 파일 공유는 서버리스이므로 프로덕션 시나리오를 위해 배포하는 경우 파일 서버 또는 NAS 디바이스를 관리할 필요가 없습니다. 즉 소프트웨어 패치를 적용하거나 실제 디스크를 교환할 필요가 없습니다. 
 
-- **Azure 파일 동기화를 사용하여 온-프레미스에서 Azure 파일 공유 캐시**: Azure 파일 동기화를 사용하면 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure File Sync 온-프레미스 (또는 클라우드) Windows Server를 Azure SMB 파일 공유의 빠른 캐시로 변환 합니다. 
+- **Azure 파일 동기화를 사용하여 온-프레미스에서 Azure 파일 공유 캐시**: Azure 파일 동기화를 사용하면 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화 온-프레미스 (또는 클라우드) Windows Server를 Azure SMB 파일 공유의 빠른 캐시로 변환 합니다. 
 
-이 문서에서는 온-프레미스 또는 클라우드 클라이언트에서 직접 탑재할 Azure 파일 공유를 배포 하기 위한 배포 고려 사항을 주로 다룹니다. Azure File Sync 배포를 계획 하려면 [Azure File Sync 배포에 대 한 계획](storage-sync-files-planning.md)을 참조 하세요.
+이 문서에서는 온-프레미스 또는 클라우드 클라이언트에서 직접 탑재할 Azure 파일 공유를 배포 하기 위한 배포 고려 사항을 주로 다룹니다. Azure 파일 동기화 배포를 계획 하려면 [Azure 파일 동기화 배포에 대 한 계획](storage-sync-files-planning.md)을 참조 하세요.
 
 ## <a name="available-protocols"></a>사용 가능한 프로토콜
 
@@ -130,7 +130,7 @@ Azure Storage에 대 한 ATP (Advanced Threat Protection)는 저장소 계정에
 [마이그레이션 개요 문서](storage-files-migration-overview.md) 에서는 기본 사항에 대해 간략하게 설명 하 고 시나리오를 포괄 하는 마이그레이션 가이드를 안내 하는 표를 포함 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure File Sync 배포 계획](storage-sync-files-planning.md)
-* [Azure Files 배포](storage-files-deployment-guide.md)
+* [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+* [Azure Files 배포](./storage-how-to-create-file-share.md)
 * [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
 * [시나리오에 대 한 마이그레이션 가이드를 찾으려면 마이그레이션 개요 문서를 확인 하세요.](storage-files-migration-overview.md)

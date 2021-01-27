@@ -3,19 +3,19 @@ title: 요청 제한-번역기
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 번역기에 대 한 요청 한도가 나열 됩니다. 비용은 요청당 5,000자의 제한으로 요청 빈도가 아닌 문자 수에 따라 청구됩니다. 문자 제한은 시간당 2백만 자의 F0 제한으로 구독 기반입니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 8841c55d8f276f048db53a531bd2e9218e498b34
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 2bc2c1361c7d2f73ff8a67e906a6db725f669d52
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016499"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895410"
 ---
 # <a name="request-limits-for-translator"></a>번역기에 대 한 요청 제한
 
@@ -27,7 +27,7 @@ ms.locfileid: "95016499"
 
 다음 표에서는 변환기의 각 작업에 대 한 배열 요소 및 문자 제한을 나열 합니다.
 
-| 작업(Operation) | 배열 요소의 최대 크기 |    최대 배열 요소 수 |    최대 요청 크기 (문자) |
+| 작업 | 배열 요소의 최대 크기 |    최대 배열 요소 수 |    최대 요청 크기 (문자) |
 |:----|:----|:----|:----|
 | 번역 | 10000    | 100   | 10000 |
 | Transliterate | 5,000 | 10    | 5,000 |
@@ -44,7 +44,7 @@ ms.locfileid: "95016499"
 
 이러한 한도에 도달 하거나 초과할 짧은 시간 동안 할당량의 일부를 너무 많이 보내면 할당량 초과 응답이 수신 될 가능성이 높습니다. 동시 요청에는 제한이 없습니다.
 
-| 계층 | 문자 제한 |
+| 서비스 계층 | 문자 제한 |
 |------|-----------------|
 | F0 | 시간당 2백만 자 |
 | S1 | 시간당 4천만 자 |
@@ -80,5 +80,5 @@ ms.locfileid: "95016499"
 ## <a name="next-steps"></a>다음 단계
 
 * [가격](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
-* [지역별 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+* [국가별 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 * [v3 Translator 참조](./reference/v3-0-reference.md)

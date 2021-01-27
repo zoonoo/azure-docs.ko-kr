@@ -3,14 +3,14 @@ title: 백업 센터 개요
 description: 이 문서에서는 Azure에 대 한 백업 센터의 개요를 제공 합니다.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 7eab2e8f9694ca83d0e050f55bc6f6dd802a7331
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b42fcc782eb50c061ab7617ea0ef1f3344fee4e9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173735"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893612"
 ---
-# <a name="overview-of-backup-center"></a>백업 센터 개요
+# <a name="overview-of-backup-center-preview"></a>백업 센터 개요 (미리 보기)
 
 백업 센터는 엔터프라이즈에서 대규모 백업을 제어, 모니터링, 운영 및 분석 하는 데 사용할 수 있는 **단일 통합 관리 환경을** 제공 합니다. 따라서 Azure의 기본 관리 환경과 일치 합니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "92173735"
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-* 백업 센터는 현재 Azure VM 백업 및 Azure Database for PostgreSQL 서버 백업에 대해 지원 됩니다.
+* Backup Center는 현재 azure vm 백업, azure vm 백업에서의 SQL, Azure VM 백업 SAP HANA Azure Files 백업 및 Azure Database for PostgreSQL Server 백업에 대해 지원 됩니다.
 * 지원 되는 시나리오 및 지원 되지 않는 시나리오에 대 한 자세한 목록은 [지원 매트릭스](backup-center-support-matrix.md) 를 참조 하세요.
 
 ## <a name="get-started"></a>시작하기
@@ -31,7 +31,7 @@ Backup center를 사용 하 여 시작 하려면 Azure Portal에서 **백업 센
 
 ![백업 센터 검색](./media/backup-center-overview/backup-center-search.png)
 
-표시 되는 첫 번째 화면에는 **개요가**표시 됩니다. 여기에는 **작업** 및 **백업 인스턴스**라는 두 개의 타일이 포함 됩니다.
+표시 되는 첫 번째 화면에는 **개요가** 표시 됩니다. 여기에는 **작업** 및 **백업 인스턴스** 라는 두 개의 타일이 포함 됩니다.
 
 ![백업 센터 타일](./media/backup-center-overview/backup-center-overview-widgets.png)
 

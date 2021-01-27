@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: db4f49c1b788cd7a55fd6fbbd48f845f2c94d757
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: df19f32be41b17e13a9da575e828830e29da4e55
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073532"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894765"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>웹후크에서 Runbook 시작
 
@@ -95,9 +95,9 @@ ms.locfileid: "92073532"
 
 Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절차를 수행합니다.
 
-1. Azure Portal의 Runbook 페이지에서 Runbook 세부 정보를 표시하도록 웹후크를 시작할 Runbook을 클릭합니다. Runbook **상태** 필드가 **게시**로 설정 되어 있는지 확인합니다.
-2. 페이지 맨 위에서 **웹후크**를 클릭하여 웹후크 추가 페이지를 엽니다.
-3. **새 웹후크 만들기**를 클릭하여 웹후크 만들기 페이지를 엽니다.
+1. Azure Portal의 Runbook 페이지에서 Runbook 세부 정보를 표시하도록 웹후크를 시작할 Runbook을 클릭합니다. Runbook **상태** 필드가 **게시** 로 설정 되어 있는지 확인합니다.
+2. 페이지 맨 위에서 **웹후크** 를 클릭하여 웹후크 추가 페이지를 엽니다.
+3. **새 웹후크 만들기** 를 클릭하여 웹후크 만들기 페이지를 엽니다.
 4. 웹후크에 대한 **이름** 및 **만료 날짜** 필드를 입력하고 사용해야 하는지 여부를 지정합니다. 이 속성에 대한 자세한 내용은 [웹후크 속성](#webhook-properties)을 참조하세요.
 5. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. 
 
@@ -142,16 +142,16 @@ http://<Webhook Server>/token?=<Token Value>
 만료 시간에 도달하지 않은 웹후크를 확장할 수 있습니다. 웹후크를 확장하려면 다음을 수행합니다.
 
 1. 웹후크가 포함 된 Runbook으로 이동합니다. 
-2. **리소스** 아래에서 **Webhook**를 선택합니다. 
+2. **리소스** 아래에서 **Webhook** 를 선택합니다. 
 3. 확장할 웹후크를 클릭합니다. 
-4. 웹후크 페이지에서 새 만료 날짜 및 시간을 선택하고 **저장**을 클릭합니다.
+4. 웹후크 페이지에서 새 만료 날짜 및 시간을 선택하고 **저장** 을 클릭합니다.
 
 ## <a name="sample-runbook"></a>샘플 Runbook
 
-다음 샘플 Runbook은 webhook 데이터를 수락하고 요청 본문에 지정된 가상 머신을 시작합니다. 이 Runbook을 테스트하려면 Automation 계정의 **Runbook** 아래에서 **Runbook 만들기 추가**를 클릭합니다. Runbook을 만드는 방법을 모르는 경우 [Runbook 만들기](automation-quickstart-create-runbook.md)를 참조하세요.
+다음 샘플 Runbook은 webhook 데이터를 수락하고 요청 본문에 지정된 가상 머신을 시작합니다. 이 Runbook을 테스트하려면 Automation 계정의 **Runbook** 아래에서 **Runbook 만들기 추가** 를 클릭합니다. Runbook을 만드는 방법을 모르는 경우 [Runbook 만들기](automation-quickstart-create-runbook.md)를 참조하세요.
 
 > [!NOTE]
-> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
+> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
 
 ```powershell
 param

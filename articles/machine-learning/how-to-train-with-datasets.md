@@ -12,22 +12,22 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 688bec24cbcd88130470634abff0688ead8005ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539668"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881689"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합을 사용 하 여 모델 학습 
 
 이 문서에서는 [Azure Machine Learning 데이터 집합](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) 을 사용 하 여 기계 학습 모델을 학습 하는 방법에 대해 알아봅니다.  연결 문자열 또는 데이터 경로에 대 한 걱정 없이 로컬 또는 원격 계산 대상에서 데이터 집합을 사용할 수 있습니다. 
 
-Azure Machine Learning 데이터 집합은 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) 및 [Azure Machine Learning 파이프라인과](how-to-create-your-first-pipeline.md)같은 Azure Machine Learning 학습 기능과 원활한 통합을 제공 합니다.
+Azure Machine Learning 데이터 집합은 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) 및 [Azure Machine Learning 파이프라인과](./how-to-create-machine-learning-pipelines.md)같은 Azure Machine Learning 학습 기능과 원활한 통합을 제공 합니다.
 
 데이터를 모델 학습에 사용할 수 있도록 준비 하지 않았지만 데이터 탐색을 위해 데이터를 전자 필기장에 로드 하려는 경우 데이터 [집합에서 데이터를 탐색](how-to-create-register-datasets.md#explore-data)하는 방법을 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 데이터 집합을 만들고 학습 하려면 다음이 필요 합니다.
 
@@ -263,7 +263,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## <a name="troubleshooting"></a>문제 해결
 
 * **데이터 집합 초기화 실패: 탑재 지점의 준비 대기 시간이 초과 되었습니다**. 
-  * 아웃 바운드 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) 규칙이 없고를 사용 하는 경우 `azureml-sdk>=1.12.0` , 업데이트 `azureml-dataset-runtime` 및 해당 종속성이 특정 부 버전에 대 한 최신 버전으로 업데이트 되 고, 해당 종속성이 특정 부 버전에 대 한 최신 패치를 사용 하는 경우, 최신 패치를 수정 프로그램과 함께 사용할 수 있도록 환경을 다시 만드세요. 
+  * 아웃 바운드 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md) 규칙이 없고를 사용 하는 경우 `azureml-sdk>=1.12.0` , 업데이트 `azureml-dataset-runtime` 및 해당 종속성이 특정 부 버전에 대 한 최신 버전으로 업데이트 되 고, 해당 종속성이 특정 부 버전에 대 한 최신 패치를 사용 하는 경우, 최신 패치를 수정 프로그램과 함께 사용할 수 있도록 환경을 다시 만드세요. 
   * 를 사용 하는 경우 `azureml-sdk<1.12.0` 최신 버전으로 업그레이드 합니다.
   * 아웃 바운드 NSG 규칙이 있는 경우 서비스 태그의 모든 트래픽을 허용 하는 아웃 바운드 규칙이 있는지 확인 합니다 `AzureResourceMonitor` .
 
@@ -293,4 +293,4 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 * FileDatasets을 사용 하 여 [이미지 분류 모델을 학습](https://aka.ms/filedataset-samplenotebook) 합니다.
 
-* [파이프라인을 사용 하 여 데이터 집합으로 학습](how-to-create-your-first-pipeline.md)합니다.
+* [파이프라인을 사용 하 여 데이터 집합으로 학습](./how-to-create-machine-learning-pipelines.md)합니다.

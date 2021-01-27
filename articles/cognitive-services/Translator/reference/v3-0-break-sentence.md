@@ -3,19 +3,19 @@ title: Translator 사이 문장의 메서드
 titleSuffix: Azure Cognitive Services
 description: Translator 사이 문장 메서드는 텍스트 부분에서 문장 경계의 위치를 식별 합니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 27069cf38da2567a3af3ed0fb65baead43665186
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: 2da614fe829d0aa82bfa57337baf44491993c68f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369480"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895546"
 ---
 # <a name="translator-30-breaksentence"></a>Translator 3.0:가 중 문장
 
@@ -36,7 +36,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 | 쿼리 매개 변수 | 설명 |
 | -------| ----------- |
 | api-version <img width=200/>   | **필수 쿼리 매개 변수** 입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
-| 언어 | **선택적 쿼리 매개 변수** 입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다. |
+| language | **선택적 쿼리 매개 변수** 입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다. |
 | 스크립트    | **선택적 쿼리 매개 변수** 입니다.<br/>입력 텍스트에서 사용되는 스크립트를 식별하는 스크립트 태그입니다. 스크립트를 지정하지 않으면 언어의 기본 스크립트가 가정됩니다.  | 
 
 요청 헤더에는 다음이 포함됩니다.
@@ -110,7 +110,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 <table width="100%">
   <th width="20%">상태 코드</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>200</td>
     <td>성공.</td>

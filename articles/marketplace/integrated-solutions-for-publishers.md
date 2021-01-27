@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621351"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880273"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
@@ -32,8 +32,8 @@ ms.locfileid: "96621351"
 ## <a name="eligibility-criteria"></a>자격 기준
 
 * 참여하는 파트너는 MPN ID가 있어야 합니다.
-* 참여 하는 서비스 공급자는 [공동 판매 준비](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)를 해야 합니다.
-* 참여 소프트웨어 공급 업체는 [IP 공동 판매 준비](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)를 해야 합니다.
+* 참여 하는 서비스 공급자는 [공동 판매 준비](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)를 해야 합니다.
+* 참여 소프트웨어 공급 업체는 [IP 공동 판매 준비](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)를 해야 합니다.
 * 하나 이상의 참여 파트너는 다음 영역 중 하나에서 골드 역량이 있어야 합니다.
     - 애플리케이션 개발
     - 애플리케이션 통합

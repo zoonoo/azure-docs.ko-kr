@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa5c2a0070ea0c3a0963f97fc1a04670eeaa4827
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: efa951ce5a15460e3eacfd4c7abecfac17106b4e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701894"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880511"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>자동 계측 또는 코드 없는 Azure Monitor Application Insights 이란?
 
@@ -23,17 +23,17 @@ Application Insights 다양 한 리소스 공급자와 통합 되며 여러 환�
 
 더 많은 통합을 추가 하는 중 이므로 자동 계측 기능 매트릭스가 복잡해 집니다. 아래 표에서는 다양 한 리소스 공급자, 언어 및 환경에 대 한 지원의 현재 상태를 보여 줍니다.
 
-|환경/리소스 공급자          | .NET            | .NET Core       | Java            | Node.js         |
-|---------------------------------------|-----------------|-----------------|-----------------|-----------------|
-|Windows의 Azure App Service           | GA, OnBD *       | GA, 옵트인      | 프라이빗 미리 보기 | 프라이빗 미리 보기 |
-|Linux의 Azure App Service             | 해당 없음             | 지원되지 않음   | 프라이빗 미리 보기 | 공개 미리 보기  |
-|AKS의 Azure App Service               | 해당 없음             | 디자인에서       | 디자인에서       | 디자인에서       |
-|Azure Functions-기본                | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
-|Azure Functions Windows-종속성 | 지원되지 않음   | 지원되지 않음   | 공개 미리 보기  | 지원되지 않음   |
-|Azure Kubernetes Service               | 해당 없음             | 디자인에서       | 에이전트를 통해   | 디자인에서       |
-|Azure Vm 창                      | 공개 미리 보기  | 지원되지 않음   | 지원되지 않음   | 지원되지 않음   |
-|온-프레미스 Vm 창                | GA, 옵트인      | 지원되지 않음   | 에이전트를 통해   | 지원되지 않음   |
-|독립 실행형 에이전트-모든 env.            | 지원되지 않음   | 지원되지 않음   | GA              | 지원되지 않음   |
+|환경/리소스 공급자          | .NET            | .NET Core       | Java            | Node.js         | Python          |
+|---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+|Windows의 Azure App Service           | GA, OnBD *       | GA, 옵트인      | 프라이빗 미리 보기 | 프라이빗 미리 보기 | 지원되지 않음   |
+|Linux의 Azure App Service             | 해당 없음             | 지원되지 않음   | 프라이빗 미리 보기 | 공개 미리 보기  | 지원되지 않음   |
+|AKS의 Azure App Service               | 해당 없음             | 디자인에서       | 디자인에서       | 디자인에서       | 지원되지 않음   |
+|Azure Functions-기본                | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
+|Azure Functions Windows-종속성 | 지원되지 않음   | 지원되지 않음   | 공개 미리 보기  | 지원되지 않음   | 지원되지 않음   |
+|Azure Kubernetes Service               | 해당 없음             | 디자인에서       | 에이전트를 통해   | 디자인에서       | 지원되지 않음   |
+|Azure Vm 창                      | 공개 미리 보기  | 지원되지 않음   | 지원되지 않음   | 지원되지 않음   | 지원되지 않음   |
+|온-프레미스 Vm 창                | GA, 옵트인      | 지원되지 않음   | 에이전트를 통해   | 지원되지 않음   | 지원되지 않음   |
+|독립 실행형 에이전트-모든 env.            | 지원되지 않음   | 지원되지 않음   | GA              | 지원되지 않음   | 지원되지 않음   |
 
 * OnBD는 기본적으로 설정 되어 있습니다. 지원 되는 환경에서 앱을 배포 하면 Application Insights 자동으로 사용 하도록 설정 됩니다. 
 
@@ -47,7 +47,7 @@ Application Insights 다양 한 리소스 공급자와 통합 되며 여러 환�
 
 App Service의 Java 및 Node.js 응용 프로그램에 대 한 모니터링은 공개 미리 보기 이며 모든 지역에서 사용할 수 있는 Azure Portal에서 사용 가능 합니다.
 
-## <a name="azure-functions"></a>Azure 기능
+## <a name="azure-functions"></a>Azure Functions
 
 기본적으로 Azure Functions에 대 한 기본 모니터링을 사용 하 여 로그, 성능, 오류 데이터 및 HTTP 요청을 수집 합니다. Java 응용 프로그램의 경우 분산 추적을 통해 다양 한 모니터링을 사용 하도록 설정 하 고 종단 간 트랜잭션 세부 정보를 얻을 수 있습니다. Java 용이 기능은 공개 미리 보기 상태 이며 [Azure Portal에서 사용 하도록 설정할](./monitor-functions.md)수 있습니다.
 

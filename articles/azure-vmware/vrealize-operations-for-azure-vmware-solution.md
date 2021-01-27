@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션에 대 한 vRealize 작업 설정
 description: Azure VMware 솔루션 사설 클라우드에 대해 vRealize 작업을 설정 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 25469089cf1fef076711bfaf1492fad43edbcf33
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 01/26/2021
+ms.openlocfilehash: c2470ecde0874b46da1236ca6e99e6b0b3eb990d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371786"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880694"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 vRealize 작업 설정
 
@@ -23,12 +23,12 @@ vRealize Operations Manager는 VMware infrastructure 관리자가 시스템 리�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 * Vrealize 작업을 배포 하는 방법에 대 한 자세한 내용은 [vrealize Operations Manager 제품 설명서](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) 를 검토 하세요. 
-* 기본 Azure VMware Solution Software-Defined Datacenter (SDDC) [자습서 시리즈](tutorial-network-checklist.md)를 검토 합니다.
+* 기본 Azure VMware Solution SDDC(소프트웨어 정의 데이터 센터) [자습서 시리즈](tutorial-network-checklist.md)를 검토합니다.
 * 필요에 따라 온-프레미스 vRealize 작업 Azure VMware 솔루션 배포 관리 옵션에 대 한 [Vrealize 작업 원격 컨트롤러](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) 제품 설명서를 검토 합니다. 
 
 
-
 ## <a name="prerequisites"></a>사전 요구 사항
+* [Vrealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) 설치 되었습니다.
 * 온-프레미스와 Azure VMware 솔루션 SDDC 사이에서 구성 된 VPN 또는 Azure Express 경로입니다.
 * Azure에 배포 된 Azure VMware 솔루션 사설 클라우드.
 
@@ -50,12 +50,13 @@ Azure VMware 솔루션 사설 클라우드로 vRealize 작업 기능을 확장 �
 
 또 다른 옵션은 사설 클라우드의 Vrealize 클러스터에 vRealize Operations Manager 인스턴스를 배포 하는 것입니다. 
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="Azure VMware 솔루션 배포를 관리 하는 온-프레미스 vRealize 작업" border="false":::
+>[!IMPORTANT]
+>이 옵션은 현재 VMware에서 지원 되지 않습니다.
+
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="Azure VMware 솔루션에서 실행 되는 vRealize 작업" border="false":::
 
 인스턴스가 배포 된 후 vCenter, ESXi, NSX, Vrealize 및 HCX에서 데이터를 수집 하도록 vRealize 작업을 구성할 수 있습니다. 
 
-> [!TIP]
-> VRealize Operations Manager를 설치 하는 단계별 가이드는 [VMware 설명서](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) 를 참조 하세요.
 
 
 ## <a name="known-limitations"></a>알려진 제한 사항
@@ -68,11 +69,11 @@ Azure VMware 솔루션 사설 클라우드로 vRealize 작업 기능을 확장 �
 
 VCenter Server 클라우드 계정을 사용 하 여 Azure VMware Solution vCenter를 vRealize Operations Manager에 연결 하면 다음과 같은 경고가 표시 됩니다.
 
-:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Azure VMware 솔루션 배포를 관리 하는 온-프레미스 vRealize 작업":::
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="경고 어댑터 인스턴스 만들기 성공":::
 
 이 경고는 Azure VMware 솔루션의 **cloudadmin \@ vsphere 로컬** 사용자에 게 등록에 필요한 모든 vCenter Server 작업을 수행할 수 있는 충분 한 권한이 없기 때문에 발생 합니다. 그러나 아래와 같이 어댑터 인스턴스에서 데이터 수집을 수행 하는 데에는 권한이 충분 합니다.
 
-:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Azure VMware 솔루션 배포를 관리 하는 온-프레미스 vRealize 작업":::
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="데이터 수집을 수행할 어댑터 인스턴스":::
 
 자세한 내용은 [VCenter 어댑터 인스턴스를 구성 하는 데 필요한 권한](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html)을 참조 하세요.
 

@@ -7,18 +7,18 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: bb4987550e4962ba044e0a6aafbfd00145319e94
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: bc369b072f90e675cf882d52b2edae30530f1c18
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804955"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895971"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
 
 ## <a name="overview"></a>개요
-Log Analytics 작업 영역에 대 한 데이터 내보내기가 구성 되 면 작업 영역에서 선택한 테이블로 전송 되는 모든 새 데이터는 거의 실시간으로 저장소 계정 또는 이벤트 허브로 자동으로 내보내집니다.
+Log Analytics 작업 영역에 대 한 데이터 내보내기가 구성 되 면 작업 영역에서 선택한 테이블로 전송 된 모든 새 데이터가 매시간 추가 blob의 저장소 계정 또는 거의 실시간으로 이벤트 허브로 자동으로 내보내집니다.
 
 ![데이터 내보내기 개요](media/logs-data-export/data-export-overview.png)
 
@@ -61,13 +61,13 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 ## <a name="data-completeness"></a>데이터 완전성
 데이터 내보내기는 대상을 사용할 수 없는 경우 최대 30 분 동안 데이터를 계속 해 서 다시 전송 합니다. 30 분 후에도 계속 사용할 수 없는 경우에는 대상을 사용할 수 있게 될 때까지 데이터가 삭제 됩니다.
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 현재 데이터 내보내기 기능에 대 한 추가 요금은 없습니다. 데이터 내보내기에 대 한 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 됩니다. 알림 기간 후에도 계속 해 서 데이터 내보내기를 사용 하도록 선택 하면 해당 하는 요금으로 요금이 청구 됩니다.
 
 ## <a name="export-destinations"></a>내보내기 대상
 
 ### <a name="storage-account"></a>스토리지 계정
-데이터는 Azure Monitor에 도달 하는 동안 거의 실시간으로 저장소 계정에 전송 됩니다. 데이터 내보내기 구성에서는 이름이 *am* 인 저장소 계정에 테이블의 각 테이블에 대 한 컨테이너를 만든 다음 테이블 이름을 입력 합니다. 예를 들어 테이블 *securityevent* 는 *Am-securityevent* 라는 컨테이너로 전송 됩니다.
+데이터는 Azure Monitor에 도달 하 고 매시간 추가 blob에 저장 될 때 저장소 계정으로 전송 됩니다. 데이터 내보내기 구성에서는 이름이 *am* 인 저장소 계정에 테이블의 각 테이블에 대 한 컨테이너를 만든 다음 테이블 이름을 입력 합니다. 예를 들어 테이블 *securityevent* 는 *Am-securityevent* 라는 컨테이너로 전송 됩니다.
 
 저장소 계정 blob 경로는 *WorkspaceResourceId =/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h =/m = \<two-digit 24-hour clock hour\> 00/PT1H.json* 입니다. 추가 blob은 저장소에서 50K 쓰기로 제한 되기 때문에, 추가의 수가 높으면 내보낸 blob 수가 확장 될 수 있습니다. 이러한 경우 blob의 명명 패턴은 PT1H_입니다. 여기서 #은 증분 blob 수입니다.
 
@@ -84,7 +84,7 @@ Log Analytics 데이터 내보내기는 시간 기반 보존 정책에서 *allow
 1. ' 기본 ' 이벤트 허브 sku는 낮은 이벤트 크기 [제한을](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) 지원 하 고 작업 영역의 일부 로그는이를 초과 하 여 삭제할 수 있습니다. ' 표준 ' 또는 ' 전용 ' 이벤트 허브를 내보내기 대상으로 사용 하는 것이 좋습니다.
 2. 내보내는 데이터의 볼륨은 시간이 지남에 따라 증가 하 고, 더 큰 전송 속도를 처리 하 고 제한 시나리오와 데이터 대기 시간을 방지 하려면 이벤트 허브 크기를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용 하 여 처리량 단위 수를 자동으로 확장 하 고 늘리고 사용 요구를 충족 해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md) 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 다음은 Log Analytics 데이터 내보내기를 구성 하기 전에 완료 해야 하는 필수 구성 요소입니다.
 
 - 저장소 계정 및 이벤트 허브는 이미 만들고 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 저장소 계정에 복제 해야 하는 경우 [Azure Storage 중복성 옵션](../../storage/common/storage-redundancy.md)중 하나를 사용할 수 있습니다.  

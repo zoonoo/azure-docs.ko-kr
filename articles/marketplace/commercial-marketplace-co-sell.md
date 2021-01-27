@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 12/08/2020
-ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ca090d9bd4f5968b0404cb73af9f8d21197e695d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904911"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880964"
 ---
-# <a name="co-sell-option-in-the-commercial-marketplace"></a>상업적 marketplace의 공동 판매 옵션
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>상업용 마켓플레이스에서 공동 판매 옵션
 
-**Microsoft와 공동 판매** 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. [공동 판매 준비 및 IP 공동 판매 Incentivized 상태](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)를 구현 해야 합니다. Microsoft 영업 팀에서 제공 하는 정보를 사용 하 여 고객의 요구에 맞게 제품을 평가할 때 제품에 대해 자세히 알아볼 수 있습니다. 고객에게 직접 제공되지 않습니다. 자세한 내용은 [Microsoft와 공동 판매](https://partner.microsoft.com/membership/co-sell-with-microsoft)를 참조 하세요.
+**Microsoft와 공동 판매** 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. [공동 판매 준비 및 IP 공동 판매 Incentivized 상태](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)를 구현 해야 합니다. Microsoft 영업 팀에서 제공 하는 정보를 사용 하 여 고객의 요구에 맞게 제품을 평가할 때 제품에 대해 자세히 알아볼 수 있습니다. 고객에게 직접 제공되지 않습니다. 자세한 내용은 [Microsoft와 공동 판매](https://partner.microsoft.com/membership/co-sell-with-microsoft)를 참조 하세요.
 
 파트너 센터의 공동 판매 옵션은 다음과 같은 제안 유형에 사용할 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "96904911"
 - 운영을 위한 Dynamics 365
 - Dynamics 365 비즈니스 중부
 - IoT Edge 모듈
-- 관리형 서비스
+- 관리 서비스
 - Power BI App
 - SaaS(Software as a Service)
 
@@ -50,7 +50,7 @@ ms.locfileid: "96904911"
 | 장치 (하드웨어) | 장치 제조업체에서 하드웨어를 빌드 또는 판매 하는 것을 포함 하는 제품입니다. |
 | IP (응용 프로그램) | 고객 사용에 대 한 라이선스를 받은 앱 또는 기타 copyrightable 자료입니다. 예: 온-프레미스에서 사용이 허가 되 고 설치 될 수 있는 CRM 프로그램입니다. |
 | 서비스 | 컨설턴트를 통해 제공 되는 특정 일회성 프로젝트에 대 한 실습 전문 기술입니다. 예: 클라이언트에 대 한 고객 데이터베이스 설정 (클라이언트에서 배달 후 데이터베이스 작동을 담당 하는 경우). |
-| 관리형 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
+| 관리 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
 
 ### <a name="solution-areas"></a>솔루션 영역
 

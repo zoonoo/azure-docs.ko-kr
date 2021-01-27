@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 70d9a8069979a299ad3031de37c525438ab0159d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2593c656e17310c5afb4a897b94cc8c12a618f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394604"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879497"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>S2S VPN 연결에 대한 VPN 디바이스 구성 스크립트 다운로드
 
@@ -34,7 +34,7 @@ ms.locfileid: "89394604"
 3. Azure VPN Gateway와 로컬 네트워크 게이트웨이 간에 Azure VPN 연결 만들기 및 구성
 4. Azure VPN Gateway와의 실제 S2S VPN 터널을 설정하도록 로컬 네트워크 게이트웨이가 나타내는 온-프레미스 VPN 디바이스 구성
 
-Azure [Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) 또는 [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)를 사용하여 1~3단계를 완료할 수 있습니다. 마지막 단계에서는 Azure 외부의 온-프레미스 VPN 디바이스가 구성됩니다. 이 기능을 사용하면 Azure VPN Gateway, 가상 네트워크 및 온-프레미스 네트워크 주소 접두사의 해당 값과 VPN 연결 속성 등이 미리 채워진 상태로 VPN 디바이스의 구성 스크립트를 다운로드할 수 있습니다. 이 스크립트를 시작점으로 사용하거나, 구성 콘솔을 통해 온-프레미스 VPN 디바이스에 직접 스크립트를 적용할 수 있습니다.
+Azure [Portal](./tutorial-site-to-site-portal.md), [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) 또는 [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)를 사용하여 1~3단계를 완료할 수 있습니다. 마지막 단계에서는 Azure 외부의 온-프레미스 VPN 디바이스가 구성됩니다. 이 기능을 사용하면 Azure VPN Gateway, 가상 네트워크 및 온-프레미스 네트워크 주소 접두사의 해당 값과 VPN 연결 속성 등이 미리 채워진 상태로 VPN 디바이스의 구성 스크립트를 다운로드할 수 있습니다. 이 스크립트를 시작점으로 사용하거나, 구성 콘솔을 통해 온-프레미스 VPN 디바이스에 직접 스크립트를 적용할 수 있습니다.
 
 > [!IMPORTANT]
 > * VPN 디바이스 구성 스크립트마다 구문이 다르며, 모델 및 펌웨어 버전에 따라 크게 달라집니다. 사용 가능한 템플릿을 참조하여 디바이스 모델 및 버전 정보를 특히 주의해서 확인합니다.
@@ -49,7 +49,7 @@ Azure [Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md), [Powe
 
 Azure VPN Gateway, 로컬 네트워크 게이트웨이 및 이 둘을 연결하는 연결 리소스를 만듭니다. 다음 페이지에서 해당 단계를 안내합니다.
 
-* [Azure Portal에서 사이트 간 연결 만들기](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Azure Portal에서 사이트 간 연결 만들기](./tutorial-site-to-site-portal.md)
 
 연결 리소스를 만든 후 아래의 지시에 따라 VPN 디바이스 구성 스크립트를 다운로드합니다.
 
@@ -99,4 +99,4 @@ Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -Re
 
 ## <a name="next-steps"></a>다음 단계
 
-[사이트 간 연결](vpn-gateway-howto-site-to-site-resource-manager-portal.md) 구성 작업을 계속 진행합니다.
+[사이트 간 연결](./tutorial-site-to-site-portal.md) 구성 작업을 계속 진행합니다.

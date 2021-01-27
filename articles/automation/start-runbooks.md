@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 52cb701312f598b1b8492226709a7d2767db9600
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5c5166785ad8c82c114fb7193cd49716536b408
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187271"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896599"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 시작
 
@@ -77,7 +77,7 @@ Smith
 
 매개 변수가 [array] 또는 [string[]]과 같은 배열인 경우 *[Value1, Value2, Value3]* JSON 형식을 사용하여 값 목록으로 전송해야 합니다. 이러한 값은 단순한 형식이어야 합니다.
 
-예를 들어 다음 테스트 Runbook에서는 *user*라는 매개 변수를 허용합니다.
+예를 들어 다음 테스트 Runbook에서는 *user* 라는 매개 변수를 허용합니다.
 
 ```powershell
 Workflow Test-Parameters
@@ -137,21 +137,21 @@ jsmith
 
 ## <a name="start-a-runbook-with-the-azure-portal"></a>Azure Portal을 사용하여 Runbook 시작
 
-1. Azure Portal에서 **Automation**을 선택한 다음, 자동화 계정의 이름을 클릭합니다.
-2. 허브 메뉴에서 **Runbook**을 선택합니다.
-3. Runbook 페이지에서 Runbook을 선택한 다음, **시작**을 클릭합니다.
+1. Azure Portal에서 **Automation** 을 선택한 다음, 자동화 계정의 이름을 클릭합니다.
+2. 허브 메뉴에서 **Runbook** 을 선택합니다.
+3. Runbook 페이지에서 Runbook을 선택한 다음, **시작** 을 클릭합니다.
 4. Runbook에 매개 변수가 있는 경우 각 매개 변수에 대한 텍스트 상자와 함께 값을 제공하라는 메시지가 표시됩니다. 매개 변수에 대한 자세한 내용은 [Runbook 매개 변수](#work-with-runbook-parameters)를 참조하세요.
 5. [작업] 창에서 Runbook 작업의 상태를 볼 수 있습니다.
 
 ## <a name="start-a-runbook-with-powershell"></a>PowerShell을 사용하여 Runbook 시작
 
-Windows PowerShell에서 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0)을 사용하여 Runbook을 시작할 수 있습니다. 다음 샘플 코드는 **Test-Runbook**이라는 Runbook을 시작합니다.
+Windows PowerShell에서 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook)을 사용하여 Runbook을 시작할 수 있습니다. 다음 샘플 코드는 **Test-Runbook** 이라는 Runbook을 시작합니다.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-`Start-AzAutomationRunbook`은 Runbook이 시작된 후 해당 상태를 추적하는 데 사용할 수 있는 작업 개체를 반환합니다. 그런 다음, 이 작업 개체를 [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0)에서 사용하여 작업 상태를 확인하고, [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0)에서 사용하여 해당 출력을 검색할 수 있습니다. 다음 예제는 **Test-Runbook**이라는 Runbook을 시작하고, 완료될 때까지 기다렸다가 해당 출력을 표시합니다.
+`Start-AzAutomationRunbook`은 Runbook이 시작된 후 해당 상태를 추적하는 데 사용할 수 있는 작업 개체를 반환합니다. 그런 다음, 이 작업 개체를 [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob)에서 사용하여 작업 상태를 확인하고, [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput)에서 사용하여 해당 출력을 검색할 수 있습니다. 다음 예제는 **Test-Runbook** 이라는 Runbook을 시작하고, 완료될 때까지 기다렸다가 해당 출력을 표시합니다.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"

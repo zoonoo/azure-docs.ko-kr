@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c29c043a3af46086751629b31ce68217e7226442
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 30176e2df850e6d2794ab9c1542bcb6a89d8f89f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354991"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880409"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Azure Database for MySQL의 최적의 성능을 위한 모범 사례-단일 서버
 
@@ -46,9 +46,9 @@ Azure 가상 머신, Azure Kubernetes 또는 App Services를 사용 하는 경�
 
 Azure Database for MySQL 성능 모범 사례는 충분 한 RAM을 할당 하 여 작업 집합이 메모리에 거의 완전히 상주할 수 있도록 하는 것입니다. 
 
-- [MySQL 서버에 대 한 메트릭을](https://docs.microsoft.com/azure/mysql/concepts-monitoring)사용 하 여 한 [도](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) 에 도달 하는 데 사용 되는 메모리 백분율이 올바른지 확인 합니다. 
+- [MySQL 서버에 대 한 메트릭을](./concepts-monitoring.md)사용 하 여 한 [도](./concepts-pricing-tiers.md) 에 도달 하는 데 사용 되는 메모리 백분율이 올바른지 확인 합니다. 
 - 이러한 번호에 대 한 경고를 설정 하 여 서버가 제한에 도달 하면 문제를 해결 하기 위해 프롬프트 작업을 수행할 수 있도록 합니다. 정의 된 제한에 따라 데이터베이스 SKU를 더 높은 계산 크기나 더 나은 가격 책정 계층으로 확장 하 여 성능이 크게 증가 하는지 확인 합니다. 
-- 크기 조정 작업 후 성능 숫자가 더 이상 크게 떨어질 때까지 확장 합니다. DB 인스턴스의 메트릭을 모니터링 하는 방법에 대 한 자세한 내용은 [MYSQL DB 메트릭](https://docs.microsoft.com/azure/mysql/concepts-monitoring#metrics)을 참조 하세요.
+- 크기 조정 작업 후 성능 숫자가 더 이상 크게 떨어질 때까지 확장 합니다. DB 인스턴스의 메트릭을 모니터링 하는 방법에 대 한 자세한 내용은 [MYSQL DB 메트릭](./concepts-monitoring.md#metrics)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

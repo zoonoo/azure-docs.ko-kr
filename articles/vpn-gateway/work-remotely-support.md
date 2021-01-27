@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 028250e25f4d67628c08970e25b4621e78526b6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0291b18952efc643de18e111154ebe58f041af
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440833"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880087"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Azure VPN Gateway 지점 및 사이트 간 원격 작업
 
@@ -65,7 +65,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 4. 온-프레미스 장치를 구성 하 여 Azure 가상 네트워크 게이트웨이에 연결 합니다.
 5. Azure Portal에서 지점 및 사이트 간 프로필을 다운로드 하 고 클라이언트에 배포
 
-사이트 간 VPN 터널을 설정 하는 방법에 대 한 자세한 내용은 [이 링크](vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 참조 하세요.
+사이트 간 VPN 터널을 설정 하는 방법에 대 한 자세한 내용은 [이 링크](./tutorial-site-to-site-portal.md)를 참조 하세요.
 
 ## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>네이티브 Azure 인증서 인증에 대한 FAQ
 

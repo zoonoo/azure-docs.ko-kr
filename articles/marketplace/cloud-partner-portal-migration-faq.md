@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 8346edd0f6016f1751a392213e5d6321f875baf2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 091feacceb510038786ae487c0895f9ff1e47aba
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455659"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880341"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 전환 하는 방법에 대 한 질문과 대답
 
@@ -77,19 +77,19 @@ Cloud 파트너 포털에서 이전에 지원 되는 모든 제품 유형은 Dyn
 
 | 제품 유형 <img src="" width=150px>| 파트너 센터로 이동 했습니까? <img src="" width=100px>| 다음 단계 |
 | --- | --- | --- |
-| SaaS | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [상업 marketplace에 대 한 SaaS 제안 계획을](plan-saas-offer.md)확인 하세요. |
-| Virtual Machine | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Virtual machine 제안 계획](marketplace-virtual-machines.md)에서 자세히 알아보세요. |
-| Azure 응용 프로그램 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure 응용 프로그램 제품 만들기](create-new-azure-apps-offer.md)에서 자세히 알아보세요. |
+| SaaS | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [상업 marketplace에 대 한 SaaS 제안 계획을](plan-saas-offer.md)확인 하세요. |
+| Virtual Machine | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Virtual machine 제안 계획](marketplace-virtual-machines.md)에서 자세히 알아보세요. |
+| Azure 응용 프로그램 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure 응용 프로그램 제품 만들기](create-new-azure-apps-offer.md)에서 자세히 알아보세요. |
 | Dynamics 365 Business Central | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Dynamics 365 비즈니스 센터 제품 만들기](partner-center-portal/create-new-business-central-offer.md)에서 자세히 알아보세요. |
-| 고객 Engagement & PowerApps의 Dynamics 365 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Customer Engagement에 대 한 Dynamics 365 만들기 (PowerApps 제품 &](partner-center-portal/create-new-customer-engagement-offer.md))에서 자세히 알아보세요. |
-| Dynamics 365 for Operations | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [운영 제안의 Dynamics 365 만들기](partner-center-portal/create-new-operations-offer.md)를 확인 하세요. |
-| Power BI App | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [AppSource에 대 한 Power BI 앱 만들기](partner-center-portal/create-power-bi-app-offer.md)를 확인 하세요. |
-| IoT Edge 모듈 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure Marketplace에서 IoT Edge 모듈 제품 만들기, 구성 및 게시](partner-center-portal/azure-iot-edge-module-creation.md)에 대해 자세히 알아보세요. |
-| 컨테이너 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure container 제품 만들기](./create-azure-container-offer.md)에서 자세히 알아보세요. |
-| 컨설팅 서비스 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [컨설팅 서비스 제품 만들기](./create-consulting-service-offer.md)에서 자세히 알아보세요. |
-| 관리 서비스 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [관리 서비스 제안 만들기](partner-center-portal/create-new-managed-service-offer.md)에서 자세히 알아보세요. |
-| Dynamics Nav 관리 서비스 | 아니요 | Microsoft는 dynamics NAV 관리 서비스를 [dynamics 365 비즈니스 중부](/dynamics365/business-central/)로 발전 시켜 서 appsource에서 Dynamics Nav 관리 서비스 라이브 제품을 나열 하지 않았습니다. 이러한 제품은 더 이상 고객이 검색할 수 없으며 파트너 센터로 이동 하지 않았습니다. 제품을 AppSource에서 사용할 수 있도록 하려면 Dynamics 365 비즈니스 센터 제품에 맞게 조정 하 고 [파트너 센터](https://partner.microsoft.com/)에서 제출 합니다. [Dynamics 365 비즈니스 센터 제품 만들기](partner-center-portal/create-new-business-central-offer.md)에서 자세히 알아보세요. |
-| Cortana Intelligence | 아니요 | Microsoft는 Cortana Intelligence에 대 한 제품 로드맵을 발전 시켜 AppSource에서 라이브 제품을 나열 Cortana Intelligence. 이러한 제품은 더 이상 고객이 검색할 수 없으며 파트너 센터로 이동 하지 않았습니다. 상업적 marketplace에서 제품을 사용할 수 있도록 하려면 SaaS (Software as a Service) 제품에 대 한 제품을 조정 하 고 [파트너 센터](https://partner.microsoft.com/)에 제출 합니다. [파트너 센터에서 SaaS 제품 생성 검사 목록](./plan-saas-offer.md)에 대해 자세히 알아보세요. |
+| 고객 Engagement & PowerApps의 Dynamics 365 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Customer Engagement에 대 한 Dynamics 365 만들기 (PowerApps 제품 &](partner-center-portal/create-new-customer-engagement-offer.md))에서 자세히 알아보세요. |
+| Dynamics 365 for Operations | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [운영 제안의 Dynamics 365 만들기](partner-center-portal/create-new-operations-offer.md)를 확인 하세요. |
+| Power BI App | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [AppSource에 대 한 Power BI 앱 만들기](partner-center-portal/create-power-bi-app-offer.md)를 확인 하세요. |
+| IoT Edge 모듈 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure Marketplace에서 IoT Edge 모듈 제품 만들기, 구성 및 게시](partner-center-portal/azure-iot-edge-module-creation.md)에 대해 자세히 알아보세요. |
+| 컨테이너 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure container 제품 만들기](./create-azure-container-offer.md)에서 자세히 알아보세요. |
+| 컨설팅 서비스 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [컨설팅 서비스 제품 만들기](./create-consulting-service-offer.md)에서 자세히 알아보세요. |
+| 관리 서비스 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [관리 서비스 제안 만들기](./plan-managed-service-offer.md)에서 자세히 알아보세요. |
+| Dynamics Nav 관리 서비스 | No | Microsoft는 dynamics NAV 관리 서비스를 [dynamics 365 비즈니스 중부](/dynamics365/business-central/)로 발전 시켜 서 appsource에서 Dynamics Nav 관리 서비스 라이브 제품을 나열 하지 않았습니다. 이러한 제품은 더 이상 고객이 검색할 수 없으며 파트너 센터로 이동 하지 않았습니다. 제품을 AppSource에서 사용할 수 있도록 하려면 Dynamics 365 비즈니스 센터 제품에 맞게 조정 하 고 [파트너 센터](https://partner.microsoft.com/)에서 제출 합니다. [Dynamics 365 비즈니스 센터 제품 만들기](partner-center-portal/create-new-business-central-offer.md)에서 자세히 알아보세요. |
+| Cortana Intelligence | No | Microsoft는 Cortana Intelligence에 대 한 제품 로드맵을 발전 시켜 AppSource에서 라이브 제품을 나열 Cortana Intelligence. 이러한 제품은 더 이상 고객이 검색할 수 없으며 파트너 센터로 이동 하지 않았습니다. 상업적 marketplace에서 제품을 사용할 수 있도록 하려면 SaaS (Software as a Service) 제품에 대 한 제품을 조정 하 고 [파트너 센터](https://partner.microsoft.com/)에 제출 합니다. [파트너 센터에서 SaaS 제품 생성 검사 목록](./plan-saas-offer.md)에 대해 자세히 알아보세요. |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>파트너 센터에서 Cloud 파트너 포털 제안을 찾을 수 없음
 

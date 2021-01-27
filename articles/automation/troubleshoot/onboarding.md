@@ -2,15 +2,15 @@
 title: Azure Automation 기능 배포 문제 해결
 description: 이 문서에서는 Azure Automation 기능을 배포할 때 발생하는 문제를 해결하는 방법을 설명합니다.
 services: automation
+ms.subservice: ''
 ms.date: 06/30/2020
-ms.topic: conceptual
-ms.service: automation
-ms.openlocfilehash: a6b8384193e821e6c41a0d4d979cda51f6c65b3a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.topic: troubleshooting
+ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070489"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896514"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>기능 배포 문제 해결
 
@@ -100,7 +100,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="resolution"></a>해결 방법
 
-기능에 대한 쿼리를 삭제한 다음, 이 기능을 다시 사용하도록 설정할 수 있습니다. 그러면 쿼리가 다시 생성됩니다. 쿼리는 작업 영역 내의 **저장된 검색**에서 찾을 수 있습니다. 쿼리의 이름은 **MicrosoftDefaultComputerGroup**이고, 쿼리의 범주는 연결된 기능의 이름입니다. 여러 기능이 사용되도록 설정되면 **MicrosoftDefaultComputerGroup** 쿼리가 **저장된 검색** 아래에 여러 번 표시됩니다.
+기능에 대한 쿼리를 삭제한 다음, 이 기능을 다시 사용하도록 설정할 수 있습니다. 그러면 쿼리가 다시 생성됩니다. 쿼리는 작업 영역 내의 **저장된 검색** 에서 찾을 수 있습니다. 쿼리의 이름은 **MicrosoftDefaultComputerGroup** 이고, 쿼리의 범주는 연결된 기능의 이름입니다. 여러 기능이 사용되도록 설정되면 **MicrosoftDefaultComputerGroup** 쿼리가 **저장된 검색** 아래에 여러 번 표시됩니다.
 
 ### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>시나리오: PolicyViolation
 
@@ -121,7 +121,7 @@ Failed to configure automation account for diagnostic logging
 * 정책의 대상을 특정 리소스(예: Automation 계정)로 변경합니다.
 * 정책이 거부하도록 구성된 리소스 세트를 수정합니다.
 
-실패한 배포를 확인하려면 Azure Portal의 오른쪽 상단 모서리에서 알림을 확인하거나 Automation 계정을 포함하는 리소스 그룹으로 이동하여 **설정**에 있는 **배포**를 선택합니다. Azure Policy에 대해 자세히 알아보려면 [Azure Policy 개요](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
+실패한 배포를 확인하려면 Azure Portal의 오른쪽 상단 모서리에서 알림을 확인하거나 Automation 계정을 포함하는 리소스 그룹으로 이동하여 **설정** 에 있는 **배포** 를 선택합니다. Azure Policy에 대해 자세히 알아보려면 [Azure Policy 개요](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
 
 ### <a name="scenario-errors-trying-to-unlink-a-workspace"></a><a name="unlink"></a>시나리오: 작업 영역의 연결을 끊는 중 오류 발생
 
@@ -148,7 +148,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 기능 리소스를 제거하면 작업 영역의 연결을 끊을 수 있습니다. 작업 영역 및 Automation 계정의 이러한 기능에서 기존 아티팩트를 정리하는 것이 중요합니다.
 
 * 업데이트 관리의 경우 Automation 계정에서 **업데이트 배포(일정)** 를 제거합니다.
-* 작업 시간 외 VM 시작/중지의 경우 **설정** > **잠금**에서 Automation 계정의 기능 구성 요소에 대한 잠금을 제거합니다. 자세한 내용은 [기능 제거](../automation-solution-vm-management.md#remove-the-feature)를 참조하세요.
+* 작업 시간 외 VM 시작/중지의 경우 **설정** > **잠금** 에서 Automation 계정의 기능 구성 요소에 대한 잠금을 제거합니다. 자세한 내용은 [기능 제거](../automation-solution-vm-management.md#remove-the-feature)를 참조하세요.
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Windows용 Log Analytics 확장 오류
 
@@ -243,4 +243,4 @@ VM의 부하가 낮을 때 Windows용 Log Analytics 에이전트 확장을 설�
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 * 고객 환경을 개선하기 위한 공식 Microsoft Azure 계정인 [@AzureSupport](https://twitter.com/azuresupport)와 연결합니다. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에게 연결합니다.
-* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기**를 선택합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기** 를 선택합니다.
