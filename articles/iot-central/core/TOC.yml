@@ -157,6 +157,8 @@
               href: howto-use-app-templates.md
             - name: 애플리케이션 상태 모니터링
               href: howto-monitor-application-health.md
+            - name: V2를 V3 애플리케이션으로 마이그레이션
+              href: howto-migrate.md
             - name: 애플리케이션 정보
               href: howto-get-app-info.md
             - name: Roll X.509 인증서

@@ -21,10 +21,10 @@
   expanded: true
 - name: 개념
   items:
+    - name: 확장
+      href: extensions.md
     - name: 사용 가능한 VM 크기
       href: available-sizes.md
-    - name: 질문과 대답
-      href: faq.md
     - name: 게스트 OS 패치
       href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
     - name: 게스트 OS 사용 중지
@@ -49,10 +49,10 @@
           href: schema-cscfg-role.md
         - name: NetworkConfiguration 스키마
           href: schema-cscfg-networkconfiguration.md
+    - name: 질문과 대답
+      href: faq.md
 - name: 방법
   items:
-    - name: 확장 개요
-      href: extensions.md
     - name: 원격 데스크톱 확장 적용
       href: enable-rdp.md
     - name: WAD 확장 적용
@@ -73,6 +73,8 @@
       href: sample-reset-cloud-service.md
 - name: 참조
   items:
+    - name: 샘플 배포 파일
+      href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
     - name: Az.CloudService 모듈
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
     - name: PowerShell cmdlet
@@ -81,6 +83,8 @@
       href: 'https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/compute/cloudservices'
+    - name: SDK)
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
 - name: 리소스
   items:
     - name: Azure 로드맵
